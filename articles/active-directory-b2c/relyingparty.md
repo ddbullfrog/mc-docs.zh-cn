@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 09/21/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: df178c3637cfaccd76f90f60d2c26d38c6bd66af
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: dc907819daa4e484aec10efb0f75018d9dad7b69
+ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413354"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90828785"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -138,7 +138,7 @@ JourneyInsights 元素包含以下属性：
 | --------- | -------- | ----------- |
 | TelemetryEngine | 是 | 值必须是 `ApplicationInsights`。 |
 | InstrumentationKey | 是 | 一个字符串，其中包含 application insights 元素的检测密钥。 |
-| DeveloperMode | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，Application Insights 将加快遥测数据通过处理管道。 此设置非常适合用于开发，但在高容量方面受到限制。详细的活动日志仅用于帮助开发自定义策略。 请勿在生产中使用开发模式。 日志收集在开发过程中发送到标识提供者以及从中发出的所有声明。 如果在生产中使用，则开发人员对他们所拥有的 App Insights 日志中收集的 PII（私人身份信息）负责。 只有当该值设置为 `true`，才会收集这些详细日志。|
+| DeveloperMode | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，Application Insights 将加快遥测数据通过处理管道。 此设置适用于开发，但在高容量时受到限制。 详细活动日志仅设计用来帮助开发自定义策略。 请勿在生产中使用开发模式。 日志收集在开发过程中发送到标识提供者以及从中发出的所有声明。 如果在生产中使用，则开发人员对他们所拥有的 App Insights 日志中收集的 PII（私人身份信息）负责。 只有当该值设置为 `true`，才会收集这些详细日志。|
 | ClientEnabled | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，则发送用于跟踪页面视图和客户端错误的 Application Insights 客户端脚本。 |
 | ServerEnabled | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，则将现有 UserJourneyRecorder JSON 作为自定义事件发送到 Application Insights。 |
 | TelemetryVersion | 是 | 值必须是 `1.0.0`。 |
@@ -159,7 +159,7 @@ ContentDefinitionParameters 元素包含以下元素：
 
 ContentDefinitionParameters 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | 名称 | 是 | 键值对的名称。 |
 
@@ -167,7 +167,7 @@ ContentDefinitionParameters 元素包含以下属性：
 
 **TechnicalProfile** 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | ID | 是 | 值必须是 `PolicyProfile`。 |
 
@@ -184,7 +184,7 @@ ContentDefinitionParameters 元素包含以下属性：
 
 Protocol 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | 名称 | 是 | Azure AD B2C 支持的有效协议的名称，用作技术配置文件的一部分。 可能的值：`OpenIdConnect` 或 `SAML2`。 `OpenIdConnect` 值表示根据 OpenID 基本规范的 OpenID Connect 1.0 协议标准。 `SAML2` 表示根据 OASIS 规范的 SAML 2.0 协议标准。 |
 
@@ -192,9 +192,14 @@ Protocol 元素包含以下属性：
 
 如果协议是 `SAML`，则元数据元素包含以下元素。
 
-| Attribute | 必须 | 说明 |
+| Attribute | 必需 | 说明 |
 | --------- | -------- | ----------- |
+| IdpInitiatedProfileEnabled | 否 | 指示是否支持 IDP 发起的流。 可能的值：`true` 或 `false`（默认值）。 | 
 | XmlSignatureAlgorithm | 否 | Azure AD B2C 用于对 SAML 响应进行签名的方法。 可能的值：`Sha256`、`Sha384`、`Sha512` 或 `Sha1`。 确保在两端配置具有相同值的签名算法。 仅使用证书支持的算法。 若要配置 SAML 断言，请参阅 [SAML 颁发者技术配置文件元数据](saml-issuer-technical-profile.md#metadata)。 |
+| DataEncryptionMethod | 否 | 指示 Azure AD B2C 在使用高级加密标准 (AES) 算法时用来加密数据的方法。 此元数据控制 SAML 响应中 `<EncryptedData>` 元素的值。 可能的值：`Aes256`（默认值）、`Aes192`、`Sha512` 或 ` Aes128`。 |
+| KeyEncryptionMethod| 否 | 指示 Azure AD B2C 对用来加密数据的密钥副本进行加密时使用的方法。 此元数据控制 SAML 响应中 `<EncryptedKey>` 元素的值。 可能的值：` Rsa15`（默认值）- RSA 公钥加密标准 (PKCS) 版本 1.5 算法；` RsaOaep` - RSA 最佳非对称加密填充 (OAEP) 加密算法。 |
+| UseDetachedKeys | 否 |  可能的值：`true` 或 `false`（默认值）。 如果将值设置为 `true`，则 Azure AD B2C 会更改已加密断言的格式。 使用分离的密钥会将加密的断言添加为 EncrytedAssertion 的子元素而不是 EncryptedData 的子元素。 |
+| WantsSignedResponses| 否 | 指示 Azure AD B2C 是否对 SAML 响应的 `Response` 部分进行签名。 可能的值：`true`（默认值）或 `false`。  |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -206,7 +211,7 @@ OutputClaims 元素包含以下元素：
 
 OutputClaim 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 是 | 对在策略文件的 ClaimsSchema 部分定义的 ClaimType 的引用。 |
 | DefaultValue | 否 | 一个默认值，如果声明值为空，则可以使用该值。 |
@@ -220,7 +225,7 @@ OutputClaim 元素包含以下属性：
 
 SubjectNamingInfo 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | ClaimType | 是 | 对输出声明的 PartnerClaimType 的引用。 输出声明必须在信赖方策略 OutputClaims 集合中定义。 |
 | 格式 | 否 | 用于 SAML 依赖方，以设置 SAML 断言中返回的 NameId 格式。 |

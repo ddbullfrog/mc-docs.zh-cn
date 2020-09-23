@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 09/21/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c5a7edd4bfbb4bfe8154097e748fcc3c9ce7c7ee
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 78dc8e19159f4f310e817c95e1ffebbe2f8ba526
+ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516525"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90828770"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>适用于 Azure Active Directory B2C 的建议和最佳做法
 
@@ -44,6 +44,7 @@ ms.locfileid: "85516525"
 | 可用性与安全性 | 解决方案必须致力于在应用程序可用性与组织可接受的风险级别之间取得适当的平衡。 |
 | 将本地依赖项转移到云中 | 为了帮助确保解决方案具有复原能力，请考虑将现有的应用程序依赖项转移到云中。 |
 | 将现有应用迁移到 b2clogin.cn | 2020 年 12 月 4 日，适用于所有 Azure AD B2C 租户的 login.partner.microsoftonline.cn 将正式弃用。 [了解详细信息](b2clogin.md)。 |
+| 使用标识保护和条件访问 | 使用这些功能可以更好地控制有风险的身份验证和访问策略。 需要 Azure AD B2C Premium P2。 [了解详细信息](conditional-access-identity-protection-overview.md)。 |
 
 ## <a name="implementation"></a>实现
 
@@ -79,6 +80,7 @@ ms.locfileid: "85516525"
 | 创建多个环境 | 为了更轻松地实施操作和部署，请创建单独的环境用于开发、测试、预生产和生产。 为每个环境创建 Azure AD B2C 租户。 |
 | 对自定义策略使用版本控制 | 考虑对 Azure AD B2C 自定义策略使用 GitHub、Azure Repos 或其他基于云的版本控制系统。 |
 | 使用 Microsoft Graph API 将 B2C 租户管理自动化 | Microsoft Graph API：<br/>管理 [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta)（自定义策略）<br/>[“键”](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[用户流](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| 与 Azure DevOps 集成 | CI/CD 管道可在不同环境之间轻松移动代码，并确保在所有时间都能实现生产就绪。   |
 | 与 Azure Monitor 集成 | 审核日志事件仅保留七天。 [与 Azure Monitor 集成](azure-monitor.md)，以保留日志供长期使用，或者将其与第三方安全信息和事件管理 (SIEM) 工具相集成，以获取有关环境的见解。 |
 | 设置有效警报和监视 | 使用 Application Insights 在 Azure AD B2C 中跟踪用户行为。 |
 

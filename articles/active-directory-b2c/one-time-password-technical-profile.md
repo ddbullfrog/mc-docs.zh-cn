@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 09/21/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 416b43447447734b4c78ee8a4616a6327980b438
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 19c141e5eb99f105901f5437f9f006f7685ad7e1
+ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297698"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90828774"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>在 Azure AD B2C 自定义策略中定义一次性密码技术配置文件
 
@@ -77,6 +77,7 @@ OutputClaims 元素包含由一次性密码协议提供程序生成的声明列�
 | CodeLength | 否 | 代码的长度。 默认值为 `6`。 |
 | CharacterSet | 否 | 代码的字符集，其格式设置为可在正则表达式中使用。 例如，`a-z0-9A-Z`。 默认值为 `0-9`。 字符集必须在指定的集中至少包含 10 个不同的字符。 |
 | NumRetryAttempts | 否 | 代码被视为无效之前的验证尝试次数。 默认值为 `5`。 |
+| NumCodeGenerationAttempts | 否 | 每个标识符的最大代码生成尝试次数。 如果未指定，则默认值为 10。 |
 | 操作 | 是 | 要执行的操作。 可能的值：`GenerateCode`。 |
 | ReuseSameCode | 否 | 给定代码未过期且仍然有效时，是否应提供重复的代码而不生成新代码。 默认值为 `false`。 |
 
@@ -94,6 +95,7 @@ OutputClaims 元素包含由一次性密码协议提供程序生成的声明列�
     <Item Key="CodeLength">6</Item>
     <Item Key="CharacterSet">0-9</Item>
     <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="NumCodeGenerationAttempts">15</Item>
     <Item Key="ReuseSameCode">false</Item>
   </Metadata>
   <InputClaims>
@@ -130,7 +132,7 @@ InputClaimsTransformations 元素可以包含 InputClaimsTransformation 元素�
 
 以下设置可用于代码验证模式：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | 操作 | 是 | 要执行的操作。 可能的值：`VerifyCode`。 |
 
@@ -139,10 +141,11 @@ InputClaimsTransformations 元素可以包含 InputClaimsTransformation 元素�
 
 以下元数据可用于配置在代码验证失败时显示的错误消息。 元数据应该在[自断言](self-asserted-technical-profile.md)技术配置文件中进行配置。 可以将错误消息[本地化](localization-string-ids.md#one-time-password-error-messages)。
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | 否 | 代码验证会话过期后向用户显示的消息。 代码已过期，或从未为给定标识符生成代码。 |
 | UserMessageIfMaxRetryAttempted | 否 | 用户尝试验证的次数超过允许的最大值时显示的消息。 |
+| UserMessageIfMaxNumberOfCodeGenerated | 否 | 当代码生成超出了允许的最大尝试次数时显示给用户的消息。 |
 | UserMessageIfInvalidCode | 否 | 用户提供的代码无效时显示的消息。 |
 | UserMessageIfVerificationFailedRetryAllowed | 否 | 在用户提供的代码无效且系统允许用户提供正确代码的情况下向用户显示的消息。  |
 |UserMessageIfSessionConflict|否| 无法验证代码时要向用户显示的消息。|

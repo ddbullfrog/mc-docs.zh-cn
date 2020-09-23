@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 09/21/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 10aa1ffad8284e210c4a77376ee8b35eadf7b027
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 28884fe547e0ee577f91c27f8df8de8373eb3bb9
+ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297697"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90828779"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 OpenID Connect 技术配置文件
 
@@ -77,13 +77,28 @@ Azure Active Directory B2C (Azure AD B2C) 为 [OpenID Connect](https://openid.ne
 | UsePolicyInRedirectUri | 否 | 指示在构造重定向 URI 时是否要使用策略。 在标识提供者中配置应用程序时，需指定重定向 URI。 重定向 URI 指向 Azure AD B2C `https://{your-tenant-name}.b2clogin.cn/{your-tenant-name}.partner.onmschina.cn/oauth2/authresp`。  如果指定 `false`，需为每个使用的策略添加重定向 URI。 例如：`https://{your-tenant-name}.b2clogin.cn/{your-tenant-name}.partner.onmschina.cn/{policy-name}/oauth2/authresp`。 |
 | MarkAsFailureOnStatusCode5xx | 否 | 指示在 Http 状态代码处于 5xx 范围内的情况下，是否应将对外部服务的请求标记为失败。 默认为 `false`。 |
 | DiscoverMetadataByTokenIssuer | 否 | 指示是否应使用 JWT 令牌中的颁发者来发现 OIDC 元数据。 |
-| IncludeClaimResolvingInClaimsHandling  | 否 | 对于输入和输出声明，指定[声明解析](claim-resolver-overview.md)是否包含在技术配置文件中。 可能的值：`true` 或 `false` （默认值）。 若要使用技术配置文件中的声明解析程序，请将此项设为 `true`。 |
+| IncludeClaimResolvingInClaimsHandling  | 否 | 对于输入和输出声明，指定[声明解析](claim-resolver-overview.md)是否包含在技术配置文件中。 可能的值：`true` 或 `false`（默认值）。 若要使用技术配置文件中的声明解析程序，请将此项设为 `true`。 |
+|token_endpoint_auth_method| 否| 指定 Azure AD B2C 如何向令牌终结点发送身份验证标头。 可能的值：`client_secret_post`（默认值）和 `client_secret_basic`（公共预览版）。 有关详细信息，请参阅 [OpenID Connect 客户端身份验证部分](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)。 |
+
+
+```xml
+<Metadata>
+  <Item Key="ProviderName">https://login.live.com</Item>
+  <Item Key="METADATA">https://login.live.com/.well-known/openid-configuration</Item>
+  <Item Key="response_types">code</Item>
+  <Item Key="response_mode">form_post</Item>
+  <Item Key="scope">openid profile email</Item>
+  <Item Key="HttpBinding">POST</Item>
+  <Item Key="UsePolicyInRedirectUri">0</Item>
+  <Item Key="client_id">Your Microsoft application client ID</Item>
+</Metadata>
+```
 
 ### <a name="ui-elements"></a>UI 元素
  
 以下设置可用于配置失败时显示的错误消息。 元数据应在 OpenID Connect 技术配置文件中进行配置。 可以将错误消息[本地化](localization-string-ids.md#sign-up-or-sign-in-error-messages)。
 
-| Attribute | 必选 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | UserMessageIfClaimsPrincipalDoesNotExist | 否 | 在目录中找不到具有所提供用户名的帐户时要向用户显示的消息。 |
 | UserMessageIfInvalidPassword | 否 | 密码不正确时要向用户显示的消息。 |
@@ -93,7 +108,7 @@ Azure Active Directory B2C (Azure AD B2C) 为 [OpenID Connect](https://openid.ne
 
 **CryptographicKeys** 元素包含以下属性：
 
-| Attribute | 必选 | 说明 |
+| Attribute | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | client_secret | 是 | 标识提供者应用程序的客户端机密。 只有在将 **response_types** 元数据设置为 `code` 的情况下，才需要加密密钥。 在这种情况下，Azure AD B2C 会再次进行调用，以便用授权代码来交换访问令牌。 如果元数据已设置为 `id_token`，则可省略加密密钥。  |
 

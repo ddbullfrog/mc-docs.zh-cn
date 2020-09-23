@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 09/21/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 8c23e7016bafc76e28adcca1432ff04831c8c157
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: ac15d265d99adee4f54cda36d39ec23fb25e0ece
+ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946544"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90828778"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的令牌概述
 
@@ -119,7 +119,7 @@ JWT 包含三段：标头、主体和签名。   签名段可用于验证令牌�
 }
 ```
 
-**alg** 声明的值是用来为令牌签名的算法。 **kid** 声明的值是用来为令牌签名的公钥。 在任何给定时间，Azure AD B2C 都可使用一组公钥-私钥对中的任意一个对令牌签名。 Azure AD B2C 定期轮换可能一组的密钥。 应将应用程序编写成自动处理这些密钥更改。 对 Azure AD B2C 所用公钥的更新进行检查的合理频率为每 24 小时一次。
+**alg** 声明的值是用来为令牌签名的算法。 **kid** 声明的值是用来为令牌签名的公钥。 在任何给定时间，Azure AD B2C 都可使用一组公钥-私钥对中的任意一个对令牌签名。 Azure AD B2C 定期轮换可能一组的密钥。 应将应用程序编写成自动处理这些密钥更改。 对 Azure AD B2C 所用公钥的更新进行检查的合理频率为每 24 小时一次。 若要处理意外的密钥更改，你的应用程序应当编写为在收到意外的 **kid** 值时重新检索公钥。
 
 Azure AD B2C 具有 OpenID Connect 元数据终结点。 使用此终结点，应用程序可以在运行时请求有关 Azure AD B2C 的信息。 此信息包括终结点、令牌内容和令牌签名密钥。 Azure AD B2C 租户针对策略包含一个 JSON 元数据文档。 元数据文档是包含多条有用信息的 JSON 对象。 元数据包含 **jwks_uri**，它提供用于对令牌签名的公钥集位置。 在此处提供该位置，但最好使用元数据文档并分析 **jwks_uri** 来动态提取位置：
 
