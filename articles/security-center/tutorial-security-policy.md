@@ -3,7 +3,7 @@ title: 使用安全策略
 description: 本文介绍如何使用 Azure 安全中心的安全策略。
 services: security-center
 documentationcenter: na
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/04/2019
-ms.date: 11/18/2019
-ms.author: v-lingwu
-ms.openlocfilehash: a6d0a7687e78390eeb7eee959b4ab20c4ff38c83
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+ms.date: 09/14/2020
+ms.author: v-johya
+ms.openlocfilehash: c1d4bd14ce314bdac25e7f7bb99ca30c5904bc34
+ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126750"
+ms.lasthandoff: 09/20/2020
+ms.locfileid: "90822354"
 ---
 # <a name="working-with-security-policies"></a>使用安全策略
 
@@ -34,14 +34,14 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 
 安全中心提供以下选项来让用户使用安全策略：
 
-* **查看和编辑内置默认策略** - 启用安全中心时，会将一个名为“ASC default”的内置计划自动分配到所有已在安全中心注册的订阅（免费或标准层）。 若要自定义此计划，可在其中启用或禁用单个策略。 要了解现成可用的选项，请参阅[内置安全策略](security-center-policy-definitions.md)列表。
+* 查看和编辑内置默认策略 - 启用安全中心时，会为在安全中心注册的所有订阅（免费或标准定价层）自动分配名为“ASC 默认值”的内置计划。 若要自定义此计划，可在其中启用或禁用单个策略。 要了解现成可用的选项，请参阅[内置安全策略](security-center-policy-definitions.md)列表。
 
 * **添加自己的自定义策略** - 如果希望自定义要应用到自己的订阅的安全计划，可以在安全中心执行此操作。 如果计算机不遵循创建的策略，则你会收到建议。 有关生成和分配自定义策略的说明，请参阅[使用自定义安全策略](custom-security-policies.md)。
 
 * **添加合规性策略** - 安全中心的合规性仪表板显示环境内的所有评估在特定标准或法规（例如 Azure CIS、NIST SP 800-53 R4、SWIFT CSP CSCF-v2020）上下文中的状态。 有关详细信息，请参阅[改善合规性](security-center-compliance-dashboard.md)。
 
 
-## <a name="managing-your-security-policies"></a>管理安全策略
+## <a name="manage-your-security-policies"></a>管理安全策略
 
 要在安全中心内查看安全策略，请执行以下操作：
 
@@ -55,7 +55,7 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 
 1. 此时会显示该订阅或管理组的安全策略页。 其中显示了可用和已分配的策略。
 
-   ![策略屏幕](./media/tutorial-security-policy/security-policy-page.png)
+   ![策略页](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > 如果默认策略旁边有一个标签“MG 已继承”，则表示该策略已分配到某个管理组，并已由当前你正在查看的订阅继承。
@@ -87,14 +87,18 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 
 你可以在 Azure Policy 门户中通过 REST API 或 Windows PowerShell 编辑安全策略。
 
-安全中心使用基于角色的访问控制 (RBAC)，提供可以分配给 Azure 中用户、组和服务的内置角色。 用户打开安全中心时，只能看到其有权访问的资源的相关信息。 这意味着，将为用户分配对资源订阅的所有者、参与者或读取者角色。   除这些角色外，还有两个特定的安全中心角色：
+安全中心使用基于角色的访问控制 (RBAC)，后者提供可分配到 Azure 用户、组和服务的内置角色。 用户打开安全中心时，只能看到与他们可访问的资源相关的信息。 这意味着，已为用户分配了资源订阅的所有者、参与者或读取者角色。   还有两个特定的安全中心角色：
 
-- **安全读取者**：有权查看安全中心，包括建议、警报、策略和运行状况，但无法进行更改。
-- **安全管理员**：拥有与安全读取者相同的查看权限，不同之处在于该角色有权更新安全策略、驳回建议和关闭警报。
+- **安全读取者**：有权查看安全中心项，例如建议、警报、策略和运行状况。 无法执行更改。
+- **安全管理员**：与安全读取者具有相同的查看权限。 还可以更新安全策略并消除警报。
 
 
-## <a name="disable-security-policies"></a>禁用安全策略
-如果默认安全策略生成的建议与你的环境不相关，可以通过禁用发送建议的策略定义将其停止。
+## <a name="disable-security-policies-and-disable-recommendations"></a>禁用安全策略和禁用建议
+
+如果安全计划触发与环境无关的建议，你可以阻止该建议再次出现。 若要禁用建议，请禁用生成该建议的特定策略。
+
+如果已经使用安全中心的合规工具应用了法规标准，而你想要禁用的建议是这项法规标准所要求的，那么，你想要禁用的建议仍将会出现。 如果该建议对于合规性来说是必要的，那么，即使已在内置计划中禁用了策略，法规标准计划中的策略仍将触发该建议。 你无法禁用法规标准计划中的策略。
+
 有关建议的详细信息，请参阅[管理安全建议](security-center-recommendations.md)。
 
 1. 在安全中心的“策略和符合性”部分，选择“安全策略” 。
@@ -104,15 +108,15 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 2. 选择要禁用其建议的订阅或管理组。
 
    > [!NOTE]
-   > 请记住，管理组将其策略应用于其订阅。 因此，如果禁用订阅的策略，并且订阅属于仍使用相同策略的管理组，则你将继续收到策略建议。 仍将从管理级别应用该策略，且仍将生成建议。
+   > 请记住，管理组将其策略应用于其订阅。 因此，如果禁用了某个订阅策略，而该订阅属于仍使用同一策略的管理组，则你将继续收到策略建议。 仍将从管理级别应用该策略，且仍将生成建议。
 
 1. 选择“查看有效策略”。
 
-   ![禁用策略](./media/tutorial-security-policy/view-effective-policy.png)
+   ![查看策略](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. 选择分配的策略。
 
-   ![禁用策略](./media/tutorial-security-policy/security-policy.png)
+   ![选择策略](./media/tutorial-security-policy/security-policy.png)
 
 1. 在“参数”部分中，搜索调用要禁用的建议的策略，然后从下拉列表中选择“禁用”
 
@@ -133,3 +137,4 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 * 有关如何在 Azure Policy 中编辑安全策略的说明，请参阅[创建和管理策略以强制实施合规性](../governance/policy/tutorials/create-and-manage.md)。
 
 * 有关如何使用 Azure Policy 跨订阅或针对管理组设置策略的说明，请参阅[什么是 Azure Policy？](../governance/policy/overview.md)
+

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 06/12/2020
-ms.date: 07/27/2020
-ms.openlocfilehash: 0760fa958ceb689a21102bc8458e43b859ffb685
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+origin.date: 09/10/2020
+ms.date: 09/21/2020
+ms.openlocfilehash: 0e5f5bcac630f4c3e58d8f0ece6cd572d5725155
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974286"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523700"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure 数据工厂在 Azure Blob 存储中复制和转换数据
 
@@ -63,10 +63,10 @@ ms.locfileid: "86974286"
 - [Azure 资源托管标识身份验证](#managed-identity)
 
 >[!NOTE]
->使用 PolyBase 将数据载入 Azure SQL 数据仓库时，如果未为源或暂存 Blob 存储配置 Azure 虚拟网络终结点，则必须使用 PolyBase 所需的托管标识身份验证。 还必须使用自承载集成运行时 3.18 或更高版本。 请参阅[托管标识身份验证](#managed-identity)部分，了解更多的配置先决条件。
+>在使用 PolyBase 将数据载入 Azure Synapse Analytics（以前称为 SQL 数据仓库）时，如果源或暂存 Blob 存储配置了 Azure 虚拟网络终结点，则必须按照 PolyBase 的要求使用托管标识身份验证。 还必须使用自承载集成运行时 3.18 或更高版本。 请参阅[托管标识身份验证](#managed-identity)部分，了解更多的配置先决条件。
 
 >[!NOTE]
->Azure HDInsight 活动仅支持使用 Azure Blob 存储帐户密钥的身份验证。
+>Azure HDInsight 和 Azure 机器学习活动只支持使用 Azure Blob 存储帐户密钥的身份验证。
 
 ### <a name="account-key-authentication"></a>帐户密钥身份验证
 
@@ -161,7 +161,7 @@ ms.locfileid: "86974286"
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
-                "value": "<SAS URI of the Azure Storage resource e.g. https://<accountname>.blob.core.chinacloudapi.cn/?sv=<storage version>&amp;st=<start time>&amp;se=<expire time>&amp;sr=<resource>&amp;sp=<permissions>&amp;sip=<ip range>&amp;spr=<protocol>&amp;sig=<signature>>"
+                "value": "<SAS URI of the Azure Storage resource e.g. https://<accountname>.blob.core.chinacloudapi.cn/?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
             }
         },
         "connectVia": {
@@ -190,7 +190,7 @@ ms.locfileid: "86974286"
                     "referenceName": "<Azure Key Vault linked service name>", 
                     "type": "LinkedServiceReference" 
                 }, 
-                "secretName": "<secretName>" 
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
             }
         },
         "connectVia": {
@@ -230,9 +230,11 @@ Azure Blob 存储链接服务支持以下属性：
 |:--- |:--- |:--- |
 | type | **type** 属性必须设置为 **AzureBlobStorage**。 |是 |
 | serviceEndpoint | 使用 `https://<accountName>.blob.core.chinacloudapi.cn/` 模式指定 Azure Blob 存储服务终结点。 |是 |
+| accountKind | 指定存储帐户的种类。 允许值包括：Storage（常规用途 v1）、StorageV2（常规用途 v2）、BlobStorage 或 BlockBlobStorage   。 |否 |
 | servicePrincipalId | 指定应用程序的客户端 ID。 | 是 |
 | servicePrincipalKey | 指定应用程序的密钥。 将此字段标记为 SecureString 以将其安全地存储在数据工厂中，或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是 |
 | tenant | 指定应用程序的租户信息（域名或租户 ID）。 通过将鼠标悬停在 Azure 门户右上角来检索租户信息。 | 是 |
+| azureCloudType | 对于服务主体身份验证，请指定 Azure Active Directory 应用程序注册到的 Azure 云环境的类型。 <br/> 允许的值为“AzurePublic”、“AzureChina”、“AzureUsGovernment”和“AzureGermany”   。 默认情况下使用数据工厂的云环境。 | 否 |
 | connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 可使用 Azure Integration Runtime 或自承载集成运行时（如果数据存储位于专用网络中）。 如果未指定此属性，服务会使用默认的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
@@ -247,6 +249,7 @@ Azure Blob 存储链接服务支持以下属性：
         "type": "AzureBlobStorage",
         "typeProperties": {            
             "serviceEndpoint": "https://<accountName>.blob.core.chinacloudapi.cn/",
+            "accountKind": "StorageV2",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -276,14 +279,15 @@ Azure Blob 存储链接服务支持以下属性：
     - 作为接收器，在“访问控制(标识和访问管理)”中至少授予“存储 Blob 数据参与者”角色。
 
 >[!IMPORTANT]
->如果使用 PolyBase 将 Blob 存储（作为源或暂存存储）中的数据载入 SQL 数据仓库，则在对 Blob 存储使用托管标识身份验证时，请确保还按照[此指南](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)中的步骤 1 和步骤 2 进行操作。 这两个步骤将向 Azure AD 注册服务器并将“存储 Blob 数据参与者”角色分配给服务器。 其余事项由数据工厂处理。 如果为 Blob 存储配置了 Azure 虚拟网络终结点，那么，若要使用 PolyBase 从其中加载数据，则必须使用 PolyBase 所需的托管标识身份验证。
+>如果使用 PolyBase 将数据从 Blob 存储（作为源或作为暂存）载入到 Azure Synapse Analytics（以前称为 SQL 数据仓库）中，在对 Blob 存储使用托管标识身份验证时，请确保依然按照[本指南](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)中的步骤 1 和步骤 2 进行操作。 这两个步骤将向 Azure AD 注册服务器并将“存储 Blob 数据参与者”角色分配给服务器。 其余事项由数据工厂处理。 如果为 Blob 存储配置了 Azure 虚拟网络终结点，那么，若要使用 PolyBase 从其中加载数据，则必须使用 PolyBase 所需的托管标识身份验证。
 
 Azure Blob 存储链接服务支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| properties | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | **type** 属性必须设置为 **AzureBlobStorage**。 |是 |
 | serviceEndpoint | 使用 `https://<accountName>.blob.core.chinacloudapi.cn/` 模式指定 Azure Blob 存储服务终结点。 |是 |
+| accountKind | 指定存储帐户的种类。 允许值包括：Storage（常规用途 v1）、StorageV2（常规用途 v2）、BlobStorage 或 BlockBlobStorage   。 |否 |
 | connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 可使用 Azure Integration Runtime 或自承载集成运行时（如果数据存储位于专用网络中）。 如果未指定此属性，服务会使用默认的 Azure Integration Runtime。 |否 |
 
 > [!NOTE]
@@ -297,7 +301,8 @@ Azure Blob 存储链接服务支持以下属性：
     "properties": {
         "type": "AzureBlobStorage",
         "typeProperties": {            
-            "serviceEndpoint": "https://<accountName>.blob.core.chinacloudapi.cn/"
+            "serviceEndpoint": "https://<accountName>.blob.core.chinacloudapi.cn/",
+            "accountKind": "StorageV2" 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -315,10 +320,10 @@ Azure Blob 存储链接服务支持以下属性：
 
 Azure Blob 存储支持基于格式的数据集中 `location` 设置下的以下属性：
 
-| 属性   | 说明                                                  | 必须 |
+| 属性   | 说明                                                  | 必需 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 数据集中位置的 **type** 属性必须设置为 **AzureBlobStorageLocation**。 | 是      |
-| container  | Blob 容器。                                          | 是      |
+| 容器 (container)  | Blob 容器。                                          | 是      |
 | folderPath | 给定容器下的文件夹的路径。 如果要使用通配符来筛选文件夹，请跳过此设置并在活动源设置中进行相应的指定。 | 否       |
 | fileName   | 给定容器和文件夹路径下的文件名。 如果要使用通配符来筛选文件，请跳过此设置并在活动源设置中进行相应的指定。 | 否       |
 
@@ -359,7 +364,7 @@ Azure Blob 存储支持基于格式的数据集中 `location` 设置下的以下
 
 Azure Blob 存储支持基于格式的复制源中 `storeSettings` 设置下的以下属性：
 
-| 属性                 | 说明                                                  | 必须                                      |
+| 属性                 | 说明                                                  | 必需                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | `storeSettings` 下的 **type** 属性必须设置为 **AzureBlobStorageReadSettings**。 | 是                                           |
 | 找到要复制的文件： |  |  |
@@ -373,6 +378,8 @@ Azure Blob 存储支持基于格式的复制源中 `storeSettings` 设置下的�
 | deleteFilesAfterCompletion | 指示是否会在二进制文件成功移到目标存储后将其从源存储中删除。 文件删除按文件进行。因此，当复制活动失败时，你会看到一些文件已经复制到目标并从源中删除，而另一些文件仍保留在源存储中。 <br/>此属性仅在二进制文件复制方案中有效，该方案中的数据源存储为 Blob、ADLS Gen2、S3、Google 云存储、文件、Azure 文件存储、SFTP 或 FTP。 默认值：false。 |否 |
 | modifiedDatetimeStart    | 文件根据“上次修改时间”属性进行筛选。 <br>如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 **NULL**，这意味着不会向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则会选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则会选中“上次修改时间”属性小于该日期/时间值的文件。<br/>如果配置 `fileListPath`，则此属性不适用。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                            |
+| enablePartitionDiscovery | 对于已分区的文件，请指定是否从文件路径分析分区，并将这些分区添加为附加的源列。<br/>允许的值为 false（默认值）和 true 。 | 否                                            |
+| partitionRootPath | 在启用分区发现时，请指定绝对根路径，以便将已分区文件夹读取为数据列。<br/><br/>如果未指定，在默认情况下：<br/>- 在数据集或源的文件列表中使用文件路径时，分区根路径是在数据集中配置的路径。<br/>- 在使用通配符文件夹筛选器时，分区根路径是第一个通配符前的子路径。<br/>- 在使用前缀时，分区根路径是最后一个“/”前的子路径。 <br/><br/>例如，假设将数据集中的路径配置为“root/folder/year=2020/month=08/day=27”：<br/>- 如果将分区根路径指定为“root/folder/year=2020”，则复制活动除了文件内的列以外，还将生成另外两个列 `month` 和 `day`，其值分别为“08”和“27”。<br/>- 如果未指定分区根路径，将不会生成额外的列。 | 否                                            |
 | maxConcurrentConnections | 与存储的并发连接数。 仅在要限制与数据存储的并发连接数时指定。 | 否                                            |
 
 > [!NOTE]
@@ -421,11 +428,11 @@ Azure Blob 存储支持基于格式的复制源中 `storeSettings` 设置下的�
 
 ### <a name="blob-storage-as-a-sink-type"></a>用作接收器类型的 Blob 存储
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
 
 Azure Blob 存储支持基于格式的复制接收器中 `storeSettings` 设置下的以下属性：
 
-| 属性                 | 说明                                                  | 必须 |
+| 属性                 | 说明                                                  | 必需 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | `storeSettings` 下的 **type** 属性必须设置为 **AzureBlobStorageWriteSettings**。 | 是      |
 | copyBehavior             | 定义以基于文件的数据存储中的文件为源时的复制行为。<br/><br/>允许值包括：<br/><b>- PreserveHierarchy（默认）</b>：将文件层次结构保留到目标文件夹中。 指向源文件夹的源文件相对路径与指向目标文件夹的目标文件相对路径相同。<br/><b>- FlattenHierarchy</b>：源文件夹中的所有文件都位于目标文件夹的第一级中。 目标文件具有自动生成的名称。 <br/><b>- MergeFiles</b>：将源文件夹中的所有文件合并到一个文件中。 如果指定了文件名或 Blob 名称，则合并文件的名称为指定名称。 否则，它是自动生成的文件名。 | 否       |
@@ -473,10 +480,10 @@ Azure Blob 存储支持基于格式的复制接收器中 `storeSettings` 设置�
 
 | folderPath | fileName | recursive | 源文件夹结构和筛选器结果（用**粗体**表示的文件已检索）|
 |:--- |:--- |:--- |:--- |
-| `container/Folder*` | （为空，使用默认值） | false | container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `container/Folder*` | （为空，使用默认值） | 是 | container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `container/Folder*` | （为空，使用默认值） | false | 容器 (container)<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `container/Folder*` | （为空，使用默认值） | 是 | 容器 (container)<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `container/Folder*` | `*.csv` | false | container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `container/Folder*` | `*.csv` | 是 | container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `container/Folder*` | `*.csv` | 是 | 容器 (container)<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 
 ### <a name="file-list-examples"></a>文件列表示例
 
