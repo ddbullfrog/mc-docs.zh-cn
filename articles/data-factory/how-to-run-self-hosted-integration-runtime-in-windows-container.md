@@ -56,7 +56,7 @@ docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATI
 ## <a name="limitations"></a>限制
 目前，在 Windows 容器中运行自承载集成运行时时，不支持以下功能：
 - HTTP 代理 
-- 带有 TLS/SSL 证书的节点间加密通信 
+- 使用 TLS/SSL 证书的节点间加密通信 
 - 生成和导入备份 
 - 守护程序服务 
 - 自动更新 

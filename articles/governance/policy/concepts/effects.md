@@ -2,15 +2,15 @@
 title: 了解效果的工作原理
 description: Azure Policy 定义具有各种效果，用来确定如何对符合性进行管理和报告。
 ms.author: v-tawe
-origin.date: 03/23/2019
-ms.date: 04/20/2020
+origin.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7572bbb5a9a0e10d65cac6186c8bb6d46acf2c1b
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: 823fc9079e50a75511d4cb7102db307d164fae78
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951272"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524006"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure Policy 效果
 
@@ -107,9 +107,11 @@ Azure Policy 首先评估创建或更新资源的请求。 Azure Policy 会创�
 ## <a name="audit"></a>审核
 
 “审核”用于评估不合规资源时在活动日志中创建警告事件，但不会停止请求。
+
 ### <a name="audit-evaluation"></a>“审核”评估
 
 “审核”是 Azure Policy 在创建或更新资源期间检查的最后一个效果。 对于资源管理器模式，Azure Policy 会将资源发送到资源提供程序。 “审核”对于资源请求和评估周期的工作方式相同。 Azure Policy 将 `Microsoft.Authorization/policies/audit/action` 操作添加到活动日志，并将资源标记为不符合。
+
 ### <a name="audit-properties"></a>“审核”属性
 
 对于资源管理器模式，Audit 效果没有任何其他属性可用于策略定义的 then 条件。
@@ -166,7 +168,8 @@ AuditIfNotExists 效果的“details”属性具有定义要匹配的相关资�
   - 如果 details.type 是 if 条件资源下的一个资源类型，则策略会在已评估资源范围内查询此“类型”的资源。   否则，策略会在与已评估资源同一资源组范围内查询。
 - **Name**（可选）
   - 指定要匹配的资源的确切名称，并使策略提取一个特定资源，而不是指定类型的所有资源。
-  - 如果 if.field.type 和 then.details.type 的条件值匹配，则 Name 为必选项并且必须为 `[field('name')]`。   但是，应考虑改用[审核](#audit)效果。
+  - 当 if.field.type 和 then.details.type 的条件值匹配时，Name 将变为必需且必须为 `[field('name')]` 或子资源的 `[field('fullName')]`  。
+    但是，应考虑改用[审核](#audit)效果。
 - **ResourceGroupName**（可选）
   - 允许相关资源的匹配来自不同的资源组。
   - 如果 **type** 是 **if** 条件资源下的一个资源，则不适用。
@@ -287,7 +290,7 @@ DeployIfNotExists 效果的“details”属性具有定义要匹配的相关资�
   - 首先尝试提取 if 条件资源下的资源，然后在与 if 条件资源相同的资源组中进行查询。
 - **Name**（可选）
   - 指定要匹配的资源的确切名称，并使策略提取一个特定资源，而不是指定类型的所有资源。
-  - 如果 if.field.type 和 then.details.type 的条件值匹配，则 Name 为必选项并且必须为 `[field('name')]`。  
+  - 当 if.field.type 和 then.details.type 的条件值匹配时，Name 将变为必需且必须为 `[field('name')]` 或子资源的 `[field('fullName')]`  。
 - **ResourceGroupName**（可选）
   - 允许相关资源的匹配来自不同的资源组。
   - 如果 **type** 是 **if** 条件资源下的一个资源，则不适用。
@@ -447,7 +450,7 @@ Kubernetes.
         }
     }
 }
-``` 
+```
 -->
 
 <!-- ## EnforceRegoPolicy
@@ -509,19 +512,38 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
         }
     }
 }
-``` 
+```
 -->
 
 ## <a name="modify"></a>修改
 
-修改用于在创建或更新时在资源上添加、更新或删除标记。 常见的示例是在 costCenter 等资源上更新标记。 修改策略应始终将 `mode` 设置为 _索引_，除非目标资源为资源组。 使用[修正任务](../how-to/remediate-resources.md)来修正现有不符合资源。 单个修改规则可以有任意数量的操作。
+Modify 用于在创建或更新期间在资源中添加、更新或删除属性或标记。
+常见的示例是在 costCenter 等资源上更新标记。 使用[修正任务](../how-to/remediate-resources.md)来修正现有不符合资源。 单个修改规则可以有任意数量的操作。
+
+Modify 支持以下操作：
+
+- 添加、替换或删除资源标记。 对于标记，除非目标资源是资源组，否则 Modify 策略的 `mode` 应设置为 Indexed。
+- 添加或替换虚拟机和虚拟机规模集的托管标识类型 (`identity.type`) 的值。
+- 添加或替换某些别名的值（预览）。
+  - 使用 `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
+    在 Azure PowerShell 4.6.0 或更高版本中，获取可与 Modify 一起使用的别名列表。
 
 > [!IMPORTANT]
-> 修改当前仅用于标记。 如果你正在管理标记，则建议使用修改替代附加，因为修改提供其他操作类型和修正现有资源的能力。 但是，如果无法创建托管标识，则建议使用附加。
+> 如果你正在管理标记，我们建议使用 Modify 而不要使用 Append，因为 Modify 提供更多的操作类型，且能够修正现有的资源。 但如果无法创建托管标识或 Modify 尚不支持资源属性的别名，则建议使用 Append。
 
 ### <a name="modify-evaluation"></a>修改评估
 
-在创建或更新资源期间，修改会在资源提供程序处理请求之前进行评估。 当满足策略规则的 **if** 条件时，修改会在资源上添加或更新标记。
+在创建或更新资源期间，修改会在资源提供程序处理请求之前进行评估。 如果策略规则的 if 条件得到满足，则 Modify 操作将应用于请求内容。 每个 Modify 操作可以指定一个条件来决定何时应用它。 条件评估为 false 的操作将被跳过。
+
+别名指定后，执行以下附加检查，确保 Modify 操作更改请求内容后不会导致资源提供程序拒绝该请求：
+
+- 在请求 API 版本中，别名映射到的属性标记为“可修改”。
+- Modify 操作中的令牌类型与请求 API 版本中的属性的预期令牌类型匹配。
+
+如果这些检查中的任何一个失败，策略评估将回退到指定的 conflictEffect。
+
+> [!IMPORTANT]
+> 建议包含别名的 Modify 定义采用 Audit 冲突效果，避免使用 API 版本（其中映射的属性不是“可修改”）的请求失败。 如果同一别名在不同 API 版本中的行为不同，可以使用 Conditional Modify 操作来确定对每个 API 版本使用的 Modify 操作。
 
 当使用修改效果的策略定义作为评估周期的一部分运行时，它不会更改已存在的资源。 相反，它会将符合 if 条件的任意资源标记为不符合。
 
@@ -533,7 +555,7 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
   - 此属性必须包含与可通过订阅访问的基于角色的访问控制角色 ID 匹配的字符串数组。 有关详细信息，请参阅[修正 - 配置策略定义](../how-to/remediate-resources.md#configure-policy-definition)。
   - 定义的角色必须包括所有授予[参与者](../../../role-based-access-control/built-in-roles.md#contributor)角色的操作。
 - conflictEffect（可选）
-  - 确定在多个策略定义修改同一属性的情况下，哪个策略定义“胜出”。
+  - 确定在多个策略定义修改同一属性的情况下，或在 Modify 操作不适用于指定别名的情况下，哪个策略定义“胜出”。
     - 对于新的或更新的资源，具有 Deny 的策略定义优先。 具有 Audit 的策略定义会跳过所有操作。 如果多个策略定义具有 Deny，则该请求作为冲突被拒绝。 如果所有策略定义都具有 Audit，则不处理冲突策略定义的任何操作。
     - 对于现有资源，如果多个策略定义具有 Deny，则符合性状态为“冲突” 。 如果一个或更少的策略定义具有 Deny，则每个分配都返回“不符合”的符合性状态 。
   - 可用值：audit、deny、disabled  。
@@ -548,6 +570,9 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
     - **值** (可选)
       - 要设置标记的值。
       - 如果**操作**是 _addOrReplace_ 或_添加_，则需要此属性。
+    - condition（可选）
+      - 一个字符串，其中包含使用 [Policy 函数](./definition-structure.md#policy-functions)的 Azure Policy 语言表达式，该表达式计算结果为 true 或 false 。
+      - 不支持以下 Policy 函数：`field()`、`resourceGroup()`、`subscription()`。
 
 ### <a name="modify-operations"></a>修改操作
 
@@ -583,9 +608,9 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 
 |Operation |说明 |
 |-|-|
-|addOrReplace |将定义的标记和值添加到资源，即使已存在具有不同值的标记。 |
-|添加 |将定义的标记和值添加到资源。 |
-|删除 |从资源中删除定义的标记。 |
+|addOrReplace |将定义的属性或标记和值添加到资源，即使该属性或标记已存在并使用不同的值。 |
+|添加 |将定义的属性或标记和值添加到资源。 |
+|删除 |从资源中删除定义的属性或标记。 |
 
 ### <a name="modify-examples"></a>修改示例
 
@@ -628,6 +653,28 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
                 "operation": "addOrReplace",
                 "field": "tags['environment']",
                 "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
+}
+```
+
+示例 3：确保存储帐户不允许 blob 公共访问，仅在评估所用 API 版本大于或等于“2019-04-01”的请求时，才应用 Modify 操作：
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+        ],
+        "conflictEffect": "audit",
+        "operations": [
+            {
+                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+                "operation": "addOrReplace",
+                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+                "value": false
             }
         ]
     }

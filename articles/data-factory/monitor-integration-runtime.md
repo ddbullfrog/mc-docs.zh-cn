@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 07/25/2018
-ms.date: 08/10/2020
+origin.date: 08/11/2018
+ms.date: 09/21/2020
 author: v-jay
 ms.author: daperlov
 manager: digimobile
-ms.openlocfilehash: c9d8453f02508a72bde2ec4d205640d806553769
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 8e6a8ea6ffd4f8de815705a9c5bb00dddcedb336
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914288"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523971"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>在 Azure 数据工厂中监视集成运行时
 
@@ -162,7 +162,7 @@ Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -Resou
 
 ## <a name="azure-ssis-integration-runtime"></a>Azure-SSIS 集成运行时
 
-Azure-SSIS IR 是完全托管的 Azure 虚拟机（或节点）群集，专用于运行 SSIS 包。 你可以使用各种方法对 Azure-SSIS IR 调用 SSIS 包执行：例如通过启用了 Azure 的 SQL Server Data Tools (SSDT)、AzureDTExec 命令行实用工具、SQL Server Management Studio (SSMS)/SQL Server 代理上的 T-SQL，以及 ADF 管道中的执行 SSIS 包活动。 Azure-SSIS IR 不会运行任何其他 ADF 活动。 预配后，可以通过 Azure PowerShell、Azure 门户和 Azure Monitor 监视其总体/特定于节点的属性和状态。
+Azure-SSIS IR 是完全托管的 Azure 虚拟机（VM 或节点）群集，专用于运行 SSIS 包。 你可以使用各种方法对 Azure-SSIS IR 调用 SSIS 包执行：例如通过启用了 Azure 的 SQL Server Data Tools (SSDT)、AzureDTExec 命令行实用工具、SQL Server Management Studio (SSMS)/SQL Server 代理上的 T-SQL，以及 ADF 管道中的执行 SSIS 包活动。 Azure-SSIS IR 不会运行任何其他 ADF 活动。 预配后，可以通过 Azure PowerShell、Azure 门户和 Azure Monitor 监视其总体/特定于节点的属性和状态。
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-powershell"></a>使用 Azure PowerShell 监视 Azure-SSIS 集成运行时
 
@@ -229,31 +229,55 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 ![监视所有集成运行时](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-接下来，选择 Azure-SSIS IR 的名称以打开其监视页，可以在其中查看其整体/特定于节点的属性和状态。
+接下来，选择 Azure-SSIS IR 的名称以打开其监视页，可以在其中查看其整体/特定于节点的属性和状态。 在本页上，你将看到各种信息/功能磁贴，具体取决于你如何配置 Azure-SSIS IR 的“常规”、“部署”和“高级设置”。  “类型”和“区域”信息磁贴分别显示 Azure-SSIS IR 的类型和区域 。 “节点大小”信息磁贴显示了 SKU（SSIS 版本/VM 层/VM 系列）、CPU 内核数以及 Azure-SSIS IR 每个节点的 RAM 大小。 “正在运行/已请求的节点”信息磁贴比较当前正在运行的节点数与先前为 Azure-SSIS IR 请求的节点总数。 下面将更详细地介绍功能磁贴。
 
 ![监视 Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
-在 Azure-SSIS IR 监视页的“状态”磁贴上，可以查看其总体状态，例如“正在运行”或“已停止”  。 选择“正在运行”状态会弹出一个窗口，窗口中有实时“停止”按钮以停止 Azure-SSIS IR 。 选择“已停止”状态会弹出一个窗口，窗口中有实时“启动”按钮以启动 Azure-SSIS IR 。 该弹出窗口还具有一个“执行 SSIS 包”按钮，用于自动生成 ADF 管道，其中包含在 Azure-SSIS IR 上运行的执行 SSIS 包活动（请参阅[在 ADF 管道中将 SSIS 包作为执行 SSIS 程序包活动运行](/data-factory/how-to-invoke-ssis-package-ssis-activity)）和一个“资源 ID”文本框，你可以从中复制 Azure-SSIS IR 资源 ID (`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`)，该资源 ID 可用于从独立软件供应商 (ISV) 处购买其他高级/许可 SSIS 组件，并将它们绑定到 Azure-SSIS IR（请参阅[在 Azure-SSIS IR 上安装高级/许可组件](/data-factory/how-to-develop-azure-ssis-ir-licensed-components)） 。
+#### <a name="status-tile"></a>“状态”磁贴
+
+在 Azure-SSIS IR 监视页的“状态”磁贴上，可以查看其总体状态，例如“正在运行”或“已停止”  。 选择“正在运行”状态会弹出一个窗口，窗口中有实时“停止”按钮以停止 Azure-SSIS IR 。 选择“已停止”状态会弹出一个窗口，窗口中有实时“启动”按钮以启动 Azure-SSIS IR 。 弹出窗口还有一个“执行 SSIS 包”按钮和一个“资源 ID”文本框，前者用于使用在 Azure-SSIS IR 上运行的“执行 SSIS 包”活动自动生成一个 ADF 管道（请参阅[在 ADF 管道中以“执行 SSIS 包”活动形式运行 SSIS 包](/data-factory/how-to-invoke-ssis-package-ssis-activity)），后者用于复制 Azure-SSIS IR 资源 ID (`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`) 。 包含 ADF 和 Azure-SSIS IR 名称的 Azure-SSIS IR 资源 ID 的后缀构成一个群集 ID，可使用该 ID 从独立软件供应商 (ISV) 购买其他高级/已许可的 SSIS 组件，并将它们绑定到 Azure-SSIS IR（请参阅[在 Azure-SSIS IR 上安装高级/已许可的组件](/data-factory/how-to-develop-azure-ssis-ir-licensed-components)）。
 
 ![监视 Azure-SSIS IR - 状态磁贴](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
+
+#### <a name="ssisdb-server-endpoint-tile"></a>“SSISDB 服务器终结点”磁贴
 
 如果你使用项目部署模型，其中包存储在由 Azure SQL Database 服务器或托管实例托管的 SSISDB 中，则可在 Azure-SSIS IR 监视页上看到“SSISDB 服务终结点”磁贴（请参阅[配置 Azure-SSIS IR 部署设置](/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)）。 在此磁贴上，你可以选择一个指定 Azure SQL Database 服务器或托管实例的链接以弹出一个窗口，你可以在其中从一个文本框中复制服务器终结点，并在从 SSMS 连接时使用它来部署、配置、运行和管理包。 在该弹出窗口中，你还可以选择“查看 Azure SQL 数据库或托管实例设置”链接以在 Azure 门户中重新配置 SSISDB/重设 SSISDB 的大小。
 
 ![监视 Azure-SSIS IR - SSISDB 磁贴](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png)
 
+#### <a name="proxy--staging-tile"></a>“代理/暂存”磁贴
+
+如果下载、安装和配置自承载 IR (SHIR) 作为 Azure-SSIS IR 的代理来访问本地数据，你将在 Azure-SSIS IR 监视页面上看到“代理/暂存”磁贴（请参阅[将 SHIR 配置为 Azure-SSIS IR 的代理](/data-factory/self-hosted-integration-runtime-proxy-ssis)）。 在此磁贴上，你可以选择一个指定 SHIR 的链接，以打开其监视页面。 还可以选择另一个指定用于暂存的 Azure Blob 存储的链接，以重新配置其链接服务。
+
+#### <a name="validate-vnet--subnet-tile"></a>“验证 VNET/子网”磁贴
+
 如果你将 Azure-SSIS IR 加入 VNet，可在 Azure-SSIS IR 监视页上看到“验证 VNET/子网”磁贴（请参阅[将 Azure-SSIS IR 加入 VNet](/data-factory/join-azure-ssis-integration-runtime-virtual-network)）。 在此磁贴上，你可以选择一个指定 VNet 和子网的链接以弹出一个窗口，你可以在其中从文本框中复制 VNet 资源 ID (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet`) 和子网名称，还可以验证 VNet 和子网配置，以确保所需的入站/出站网络流量和 Azure-SSIS IR 的管理不受阻碍。
 
 ![监视 Azure-SSIS IR - 验证磁贴](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png)
+
+#### <a name="diagnose-connectivity-tile"></a>“诊断连接”磁贴
 
 在 Azure-SSIS IR 监视页的“诊断连接”磁贴上，可以选择“测试连接”链接以弹出一个窗口，你可以在其中通过完全限定的域名 (FQDN)/IP 地址和指定端口检查 Azure-SSIS IR 和相关的包/配置/数据存储以及管理服务之间的连接（请参阅[测试来自 Azure-SSIS 的连接](/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)） 。
 
 ![监视 Azure-SSIS IR - 诊断磁贴](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
+#### <a name="static-public-ip-addresses-tile"></a>“静态公共 IP 地址”磁贴
+
+如果为 Azure-SSIS IR 提供了自己的静态公共 IP 地址，则会在 Azure-SSIS IR 监视页面上看到“静态公共 IP 地址”磁贴（请参阅[为 Azure-SSIS IR 提供自己的静态公共 IP 地址](/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)）。 在此磁贴上，你可以选择为 Azure-SSIS IR 指定第一个/第二个静态公共 IP 地址的链接，以弹出一个窗口，并可在窗口的文本框中复制其资源 ID (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`)。 在弹出窗口中，你还可以选择“查看第一个/第二个静态公共 IP 地址设置”链接，以管理 Azure 门户中的第一个/第二个静态公共 IP 地址。
+
+![监视 Azure-SSIS IR - 诊断磁贴](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+
+#### <a name="package-stores-tile"></a>“包存储”磁贴
+
 如果你使用包部署模型，其中包存储在由 Azure SQL 托管实例托管并通过 Azure-SSIS IR 包存储进行管理的文件系统/Azure 文件/SQL Server 数据库 (MSDB) 中，则可在 Azure-SSIS IR 监视页上看到“包存储”磁贴（请参阅[配置 Azure-SSIS IR 部署设置](/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)）。 在此磁贴上，可以选择一个指定附加到 Azure-SSIS IR 的包存储数的链接以弹出一个窗口，你可以在其中在由 Azure SQL 托管实例托管的文件系统/Azure 文件/MSDB 上为 Azure-SSIS IR 包存储重新配置相关的链接服务。
 
 ![监视 Azure-SSIS IR - 包磁贴](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png)
 
+#### <a name="errors-tile"></a>“错误”磁贴
+
 如果 Azure-SSIS IR 的启动/停止/维护/升级存在问题，可在 Azure-SSIS IR 监视页上看到一个附加的“错误”磁贴。 在此磁贴上，你可以选择一个指定由 Azure-SSIS IR 生成的错误数的链接以弹出一个窗口，你可以在其中详细了解这些错误并进行复制，以在我们的疑难解答指南中找到推荐的解决方案（请参阅[对 Azure-SSIS IR 进行故障排除](/data-factory/ssis-integration-runtime-management-troubleshoot)）。
+
+![监视 Azure-SSIS IR - 诊断磁贴](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>使用 Azure Monitor 监视 Azure-SSIS 集成运行时
 
@@ -264,10 +288,10 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 请参阅以下文章了解有关 Azure-SSIS 集成运行时的详细信息：
 
 - [Azure-SSIS 集成运行时](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 此文提供有关集成运行时（包括 Azure-SSIS IR）的一般概念性信息。 
-- [教程：将 SSIS 包部署到 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 此文以分步说明的方式介绍了如何创建 Azure-SSIS IR 并使用 SQL 数据库来托管 SSIS 目录。 
-- [如何：创建 Azure-SSIS 集成运行时](create-azure-ssis-integration-runtime.md)。 此文延伸了本教程的内容，介绍了如何使用 SQL 托管实例以及如何将 IR 加入虚拟网络。 
-- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md)。 此文介绍如何停止、启动或删除 Azure-SSIS IR。 此外，介绍如何通过在 Azure-SSIS IR 中添加更多节点来扩展 IR。 
-- [将 Azure-SSIS IR 加入虚拟网络](join-azure-ssis-integration-runtime-virtual-network.md)。 此文提供有关将 Azure-SSIS IR 加入 Azure 虚拟网络的概念性信息。 此外，还介绍可以执行哪些步骤来使用 Azure 门户配置虚拟网络，以便 Azure-SSIS IR 能够加入虚拟网络。 
+- [教程：将 SSIS 包部署到 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 本文以分步说明的方式介绍了如何创建 Azure-SSIS IR 并使用 Azure SQL 数据库来承载 SSIS 目录 (SSISDB)。 
+- [如何：创建 Azure-SSIS 集成运行时](create-azure-ssis-integration-runtime.md)。 本文延伸了教程的内容，提供了关于如何使用 Azure SQL 托管实例来承载 SSISDB 的说明。 
+- [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文介绍了如何启动、停止或删除 Azure-SSIS IR。 还介绍了如何通过添加更多节点来横向扩展它。 
+- [将 Azure-SSIS IR 加入虚拟网络](join-azure-ssis-integration-runtime-virtual-network.md)。 本文介绍了如何将 Azure-SSIS IR 加入虚拟网络。
 
 ## <a name="next-steps"></a>后续步骤
 参阅以下文章，了解不同的管道监视方法： 
