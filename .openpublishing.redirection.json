@@ -1,6 +1,5 @@
 {
-    "redirections": [
-        {
+    "redirections": [{
             "source_path": "articles/key-vault/secrets/tutorial-python-linux-virtual-machine.md",
             "redirect_url": "/key-vault/general/tutorial-python-virtual-machine",
             "redirect_document_id": false
@@ -111,69 +110,69 @@
             "redirect_document_id": true
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-speech.md",
-          "redirect_url": "/cognitive-services/speech-service/get-started-speech-translation",
-          "redirect_document_id": false
+            "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-speech.md",
+            "redirect_url": "/cognitive-services/speech-service/get-started-speech-translation",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-text.md",
-          "redirect_url": "/cognitive-services/speech-service/get-started-speech-translation",
-          "redirect_document_id": false
+            "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-text.md",
+            "redirect_url": "/cognitive-services/speech-service/get-started-speech-translation",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-text-multiple-languages.md",
-          "redirect_url": "/cognitive-services/speech-service/get-started-speech-translation",
-          "redirect_document_id": false
+            "source_path": "articles/cognitive-services/Speech-Service/translate-speech-to-text-multiple-languages.md",
+            "redirect_url": "/cognitive-services/speech-service/get-started-speech-translation",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md",
-          "redirect_url": "/cognitive-services/speech-service/get-started-text-to-speech",
-          "redirect_document_id": true
+            "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md",
+            "redirect_url": "/cognitive-services/speech-service/get-started-text-to-speech",
+            "redirect_document_id": true
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-audio-file.md",
-          "redirect_url": "/cognitive-services/speech-service/get-started-text-to-speech",
-          "redirect_document_id": false
+            "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-audio-file.md",
+            "redirect_url": "/cognitive-services/speech-service/get-started-text-to-speech",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/scenario-availability.md",
-          "redirect_url": "/cognitive-services/speech-service/speech-sdk",
-          "redirect_document_id": true
+            "source_path": "articles/cognitive-services/Speech-Service/scenario-availability.md",
+            "redirect_url": "/cognitive-services/speech-service/speech-sdk",
+            "redirect_document_id": true
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/speech-translation-basics.md",
-          "redirect_url": "/cognitive-services/speech-service/get-started-speech-translation",
-          "redirect_document_id": true
+            "source_path": "articles/cognitive-services/Speech-Service/speech-translation-basics.md",
+            "redirect_url": "/cognitive-services/speech-service/get-started-speech-translation",
+            "redirect_document_id": true
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/text-to-speech-basics.md",
-          "redirect_url": "/cognitive-services/speech-service/get-started-text-to-speech",
-          "redirect_document_id": false
+            "source_path": "articles/cognitive-services/Speech-Service/text-to-speech-basics.md",
+            "redirect_url": "/cognitive-services/speech-service/get-started-text-to-speech",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/quickstart-nodejs-get-text-to-speech-voices.md",
-          "redirect_url": "/cognitive-services/speech-service/text-to-speech-basics",
-          "redirect_document_id": false
+            "source_path": "articles/cognitive-services/Speech-Service/quickstart-nodejs-get-text-to-speech-voices.md",
+            "redirect_url": "/cognitive-services/speech-service/text-to-speech-basics",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/quickstart-nodejs-text-to-speech.md",
-          "redirect_url": "/cognitive-services/speech-service/text-to-speech-basics",
-          "redirect_document_id": false
+            "source_path": "articles/cognitive-services/Speech-Service/quickstart-nodejs-text-to-speech.md",
+            "redirect_url": "/cognitive-services/speech-service/text-to-speech-basics",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/quickstart-python-text-to-speech.md",
-          "redirect_url": "/cognitive-services/speech-service/text-to-speech-basics",
-          "redirect_document_id": false
+            "source_path": "articles/cognitive-services/Speech-Service/quickstart-python-text-to-speech.md",
+            "redirect_url": "/cognitive-services/speech-service/text-to-speech-basics",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/quickstart-python-get-text-to-speech-voices.md",
-          "redirect_url": "/cognitive-services/speech-service/text-to-speech-basics",
-          "redirect_document_id": false
+            "source_path": "articles/cognitive-services/Speech-Service/quickstart-python-get-text-to-speech-voices.md",
+            "redirect_url": "/cognitive-services/speech-service/text-to-speech-basics",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/cognitive-services/Speech-Service/get-started.md",
-          "redirect_url": "/cognitive-services/speech-service/overview#try-the-speech-service",
-          "redirect_document_id": false
+            "source_path": "articles/cognitive-services/Speech-Service/get-started.md",
+            "redirect_url": "/cognitive-services/speech-service/overview#try-the-speech-service",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-portal/azure-portal-export-delete-settings.md",
@@ -27570,7 +27569,8 @@
             "redirect_url": "/virtual-machines/generation-2",
             "redirect_document_id": false
         },
-        {   "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-configure.md",
+        {
+            "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-configure.md",
             "redirect_url": "/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
             "redirect_document_id": false
         },
@@ -27595,44 +27595,45 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/machine-learning/service/how-to-enable-logging.md",
-            "redirect_url": "/machine-learning/how-to-enable-logging",
+            "source_path": "articles/cosmos-db/indexing-policy.md",
+            "redirect_url": "/cosmos-db/index-policy",
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/active-directory/active-directory-passwords-troubleshoot.md",
-          "redirect_url": "/active-directory/authentication/troubleshoot-sspr",
-          "redirect_document_id": false
+            "source_path": "articles/active-directory/active-directory-passwords-troubleshoot.md",
+            "redirect_url": "/active-directory/authentication/troubleshoot-sspr",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/active-directory/authentication/active-directory-passwords-troubleshoot.md",
-          "redirect_url": "/active-directory/authentication/troubleshoot-sspr",
-          "redirect_document_id": true
-        },        
-        {
-          "source_path": "articles/active-directory/manage-apps/remove-user-or-group-access-portal.md",
-          "redirect_url": "/active-directory/manage-apps/assign-user-or-group-access-portal",
-          "redirect_document_id": false
+            "source_path": "articles/active-directory/authentication/active-directory-passwords-troubleshoot.md",
+            "redirect_url": "/active-directory/authentication/troubleshoot-sspr",
+            "redirect_document_id": true
         },
         {
-          "source_path": "articles/active-directory/manage-apps/methods-for-assigning-users-and-groups.md",
-          "redirect_url": "/active-directory/manage-apps/assign-user-or-group-access-portal",
-          "redirect_document_id": false
+            "source_path": "articles/active-directory/manage-apps/remove-user-or-group-access-portal.md",
+            "redirect_url": "/active-directory/manage-apps/assign-user-or-group-access-portal",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation.md",
-          "redirect_url": "/active-directory/conditional-access/concept-continuous-access-evaluation",
-          "redirect_document_id": true
-        }, 
-        {
-          "source_path": "articles/media-services/live-video-analytics-edge/http-data-contract.md",
-          "redirect_url": "/media-services/live-video-analytics-edge/http-extension-protocol",
-          "redirect_document_id": true
+            "source_path": "articles/active-directory/manage-apps/methods-for-assigning-users-and-groups.md",
+            "redirect_url": "/active-directory/manage-apps/assign-user-or-group-access-portal",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
-          "redirect_url": "/media-services/live-video-analytics-edge/grpc-extension-protocol",
-          "redirect_document_id": false
+            "source_path": "articles/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation.md",
+            "redirect_url": "/active-directory/conditional-access/concept-continuous-access-evaluation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/media-services/live-video-analytics-edge/http-data-contract.md",
+            "redirect_url": "/media-services/live-video-analytics-edge/http-extension-protocol",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
+            "redirect_url": "/media-services/live-video-analytics-edge/grpc-extension-protocol",
+
+            "redirect_document_id": false
         }
 
     ]
