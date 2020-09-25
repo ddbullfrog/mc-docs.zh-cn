@@ -1,10 +1,28 @@
 ---
-title:在 Azure 中的 Linux 虚拟机上运行自定义脚本扩展版本 1（已弃用）的说明：使用自定义脚本扩展 v1 服务自动执行 Linux VM 配置任务：virtual-machines-linux documentationcenter: ''
-
-manager: gwallace editor: '' tags: azure-resource-manager
-
-ms.assetid: ms.service - virtual-machines-linux ms.topic: article ms.tgt_pltfrm: vm-linux ms.workload: infrastructure-services origin.date:08/14/2018 author: rockboyfor ms.date:09/07/2020 ms.testscope: yes ms.testdate:08/31/2020 ms.author: v-yeche
-
+title: 在 Azure 中的 Linux VM 上运行自定义脚本扩展版本 1（已弃用）
+description: 使用自定义脚本扩展 v1 自动化 Linux VM 配置任务
+services: virtual-machines-linux
+documentationcenter: ''
+manager: gwallace
+editor: ''
+tags: azure-resource-manager
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+origin.date: 08/14/2018
+author: rockboyfor
+ms.date: 09/07/2020
+ms.testscope: yes
+ms.testdate: 08/31/2020
+ms.author: v-yeche
+ms.openlocfilehash: f507805cf5142f8b01ed02b6ad282f590bd35764
+ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/20/2020
+ms.locfileid: "90822318"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1
 
@@ -116,7 +134,7 @@ ms.assetid: ms.service - virtual-machines-linux ms.topic: article ms.tgt_pltfrm:
 | fileUris（例如） | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
 | commandToExecute（例如） | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | 是 | boolean |
-| storageAccountName（例如） | examplestorageacct | string |
+| storageAccountName（例如） | examplestorageacct | 字符串 |
 | storageAccountKey（例如） | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>属性值详细信息

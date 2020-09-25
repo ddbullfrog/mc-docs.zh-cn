@@ -8,14 +8,14 @@ ms.author: v-junlch
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/14/2020
 ms.custom: dpalled
-ms.openlocfilehash: a0a9dd78081b315d70d933063866d6343f1ab8b5
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 7484dbe84584bc19975b20a12cd5b053e91d6fc3
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715344"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721158"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Azure 时序见解第 2 代中添加了对 long 数据类型的支持
 
@@ -31,8 +31,9 @@ ms.locfileid: "88715344"
 - **情况 4**：你使用 JavaScript SDK 构建自定义前端应用程序。
 - **情况 5**：你在暖存储中已快要达到 1,000 属性名称限制，并且你同时发送整型和非整型数据。 可以在 [Azure 门户](https://portal.azure.cn/)中将属性计数作为指标查看。
 
-如果你符合上述任何情况，请对模型进行更改。 请使用建议的更改更新你的变量定义中的时序表达式 (TSX)。 更新：
+如果你符合上述任何情况，请对模型进行更改。 请使用建议的更改更新你的变量定义中的时序表达式 (TSX)。 同时更新：
 
+- Azure 时序见解资源管理器
 - 任何使用我们的 API 的自定义客户端
 
 你可能看不到发送到你的 Azure 时序见解第 2 代环境的数据，具体取决于你的 IoT 解决方案和约束。 如果你不确定你的数据都是整型的还是既有整型的又有非整型的，则你有几个选择。

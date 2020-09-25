@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 origin.date: 06/13/2020
-ms.date: 07/01/2020
+ms.date: 09/15/2020
 ms.author: v-tawe
-ms.openlocfilehash: e5c7eb1875309efd56aa9d5871c738d09458b97b
-ms.sourcegitcommit: 4f84bba7e509a321b6f68a2da475027c539b8fd3
+ms.openlocfilehash: 5f4de28138721d9ef46d1b787760213c4df09916
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85796220"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678492"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 证书入门
 以下方案概述了 Key Vault 的证书管理服务的多种主要使用方式，包括在密钥保管库中创建第一个证书所需的其他步骤。
@@ -82,6 +82,9 @@ ms.locfileid: "85796220"
       -   状态：“已完成”、“失败并显示错误消息”或“已取消”  
       -   由于创建操作延迟，因此可能会启动取消操作。 取消操作可能生效，也可能不生效。  
 
+### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>与集成 CA 关联的网络安全性和访问策略
+Key Vault 服务将请求发送到 CA（出站流量）。 因此，它与启用了防火墙的密钥保管库完全兼容。 Key Vault 不与 CA 共享访问策略。 CA 必须配置为独立接受签名请求。 [有关集成受信任 CA 的指南](https://docs.azure.cn/key-vault/certificates/how-to-integrate-certificate-authority)
+
 ## <a name="import-a-certificate"></a>导入证书  
  也可将证书导入 Key Vault - PFX 或 PEM。  
 
@@ -129,4 +132,3 @@ AKV 支持 2 种基于 PEM 的格式。 可以合并单个 PKCS#8 编码的证�
   (4) - 所选 CA 以 X509 证书进行响应。  
 
   (5) - 应用程序在合并 CA 提供的 X509 证书后，就完成了新证书创建过程。
-

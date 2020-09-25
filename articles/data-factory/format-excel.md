@@ -7,15 +7,15 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 07/08/2020
-ms.date: 08/10/2020
+origin.date: 08/21/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: c85a4bab9fc461afbcc0fea0e350e681b8273959
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: fcbcefcbbb2a413663c1e9686e94173cdcc3b6a3
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914333"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524057"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Azure 数据工厂中的 Excel 格式
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "87914333"
 | type             | 数据集的 type 属性必须设置为“Excel”。   | 是      |
 | location         | 文件的位置设置。 每个基于文件的连接器在 `location` 下都有其自己的位置类型和支持的属性。 | 是      |
 | sheetName        | 要读取数据的 Excel 工作表名称。                       | 是      |
-| range            | 给定工作表中用于定位选定数据的单元格范围，例如 `A3:H5`（从 A3 到 H5 的表）、`A3`（从单元格 A3 开始的表）、`A3:A3`（单个单元格）。 如果未指定，则 ADF 以表的形式从整个工作表读取。 | 否       |
+| range            | 给定工作表中用于定位选择性数据的单元格范围，例如：<br>- 未指定：以表的形式从第一个非空行和列读取整个工作表<br>- `A3`：读取从给定单元格开始的表，动态检测下面的所有行和右侧的所有列<br>- `A3:H5`：以表的形式读取此固定范围<br>- `A3:A3`：读取此单个单元格 | 否       |
 | firstRowAsHeader | 指定是否要将给定工作表/范围内的第一行视为带有列名的标题行。<br>允许的值为 **true** 和 **true**（默认值）。 | 否       |
 | nullValue        | 指定 null 值的字符串表示形式。 <br>默认值为**空字符串**。 | 否       |
 | compression | 用来配置文件压缩的属性组。 如果需要在活动执行期间进行压缩/解压缩，请配置此部分。 | 否 |
@@ -74,7 +74,7 @@ ms.locfileid: "87914333"
 
 复制活动的 ***\*source\**** 节支持以下属性。
 
-| 属性      | 描述                                                  | 必须 |
+| 属性      | 说明                                                  | 必需 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 复制活动源的 type 属性必须设置为“ExcelSource”。 | 是      |
 | storeSettings | 有关如何从数据存储读取数据的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自己支持的读取设置。 | 否       |

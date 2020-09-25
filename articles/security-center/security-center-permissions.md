@@ -4,7 +4,7 @@ description: 本文介绍 Azure 安全中心如何使用基于角色的访问控
 services: security-center
 cloud: na
 documentationcenter: na
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.assetid: ''
 ms.service: security-center
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2020
-ms.author: v-tawe
+ms.date: 09/14/2020
+ms.author: v-johya
 origin.date: 10/28/2018
-ms.openlocfilehash: a369ddb8e0888ef82fefabb52f7754bb4eb55c4b
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+ms.openlocfilehash: 808c7de481bc0148e0efe05aa35492209cfbb8ee
+ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126626"
+ms.lasthandoff: 09/20/2020
+ms.locfileid: "90822361"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure 安全中心的权限
 
-Azure 安全中心使用[基于角色的访问控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 提供可在 Azure 中分配给用户、组和服务的[内置角色](../role-based-access-control/built-in-roles.md)。
+Azure 安全中心使用 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) 提供可在 Azure 中分配给用户、组和服务的[内置角色](../role-based-access-control/built-in-roles.md)。
 
 安全中心会评估资源的配置以识别安全问题和漏洞。 如果分配有资源所属的订阅或资源组的“所有者”、“参与者”或“读取者”角色，则仅可在安全中心看到与资源相关的信息。
 
@@ -36,21 +36,20 @@ Azure 安全中心使用[基于角色的访问控制 (RBAC)](../role-based-acces
 > [!NOTE]
 > 安全角色（安全读取者和安全管理员）只能访问安全中心。 安全角色无权访问存储、Web 和移动或物联网等其他 Azure 服务区域。
 >
->
 
 ## <a name="roles-and-allowed-actions"></a>角色和允许的操作
 
 下表显示安全中心的角色和允许的操作。
 
-| 角色 | 编辑安全策略 | 应用资源的安全建议</br> （包括使用“快速修复!”） | 关闭警报和建议 | 查看警报和建议 |
-|:--- |:---:|:---:|:---:|:---:|
-| 订阅所有者 | ✔ | ✔ | ✔ | ✔ |
-| 订阅参与者 | -- | ✔ | ✔ | ✔ |
-| 资源组所有者 | -- | ✔ | -- | ✔ |
-| 资源组参与者 | -- | ✔ | -- | ✔ |
-| 读取器 | -- | -- | -- | ✔ |
-| 安全管理员 | ✔ | -- | ✔ | ✔ |
-| 安全读取者 | -- | -- | -- | ✔ |
+|操作|安全读取者/ <br> 读取器 |安全管理员  |资源组参与者/ <br> 资源组所有者  |订阅参与者  |订阅所有者  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|编辑安全策略|-|✔|-|-|✔|
+|添加/分配计划（包括合规性标准）|-|-|-|-|✔|
+|更改订阅定价层|-|✔|-|-|✔|
+|启用/禁用自动预配|-|✔|-|✔|✔|
+|应用资源的安全建议</br> （并使用[快速修复！](security-center-remediate-recommendations.md#quick-fix-remediation)）|-|-|✔|✔|✔|
+|消除警报|-|✔|-|✔|✔|
+|查看警报和建议|✔|✔|✔|✔|✔|
 
 > [!NOTE]
 > 对于需要完成任务的用户，建议尽可能为其分配权限最小的角色。 例如，将“读者”角色分配到只需查看有关资源的安全运行状况而不执行操作（例如应用建议或编辑策略）的用户。
@@ -65,3 +64,4 @@ Azure 安全中心使用[基于角色的访问控制 (RBAC)](../role-based-acces
 - [监视 Azure 资源的安全运行状况](security-center-monitoring.md)
 - [管理和响应安全中心的安全警报](security-center-managing-and-responding-alerts.md)
 - [监视合作伙伴安全解决方案](security-center-partner-solutions.md)
+

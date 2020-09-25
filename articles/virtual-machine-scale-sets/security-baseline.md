@@ -4,15 +4,15 @@ description: 虚拟机规模集安全基线为实现 Azure 安全基准中指定
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/14/2020
 ms.author: v-junlch
-ms.custom: security-benchmark
-ms.openlocfilehash: c4b0d33f5b486c0232fdd7ae00e617177e08c229
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 96e551e1684e12866644d99bad2f997b3f97fec8
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715167"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721173"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>适用于虚拟机规模集的 Azure 安全基线
 
@@ -882,7 +882,9 @@ Microsoft 使用传输层安全性 (TLS) 协议，在云服务和客户之间传
 
 * [如何创建 Key Vault](/key-vault/quick-create-portal)
 
-* [如何使用托管标识提供 Key Vault 身份验证](/key-vault/managed-identity)
+* [如何向 Key Vault 进行身份验证](../key-vault/general/authentication.md)
+
+* [如何分配 Key Vault 访问策略](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure 安全中心监视**：不适用
 

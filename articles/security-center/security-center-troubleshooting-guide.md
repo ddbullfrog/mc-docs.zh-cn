@@ -1,26 +1,26 @@
 ---
 title: Azure 安全中心故障排除指南
-description: 本指南适用于需要排查 Azure 安全中心相关问题的 IT 专业人员、安全分析师和云管理员。
+description: 本指南适用于需要排查 Azure 安全中心相关问题的 IT 专业人员、安全分析人员和云管理员。
 services: security-center
-author: v-miegge
+author: Johnnytechn
 manager: dcscontentpm
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.author: v-tawe
+ms.date: 09/14/2020
+ms.author: v-johya
 origin.date: 09/10/2019
-ms.openlocfilehash: 9071ecaac3ad5d4e75f0fe41b6e27d9f6d762639
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+ms.openlocfilehash: c2e4de842f04587781d926574e9ffc8f21f652b7
+ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126752"
+ms.lasthandoff: 09/20/2020
+ms.locfileid: "90822397"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure 安全中心故障排除指南
 
 本指南适用于信息技术 (IT) 专业人员、信息安全分析人员，以及那些组织中正在使用 Azure 安全中心并需要进行排除安全中心相关问题的云管理员。
 
-安全中心使用 Log Analytics 代理来收集和存储数据。 请参阅 [Azure 安全中心平台迁移](security-center-platform-migration.md)，了解详细信息。 本文中的信息表示转换到 Log Analytics 代理后的安全中心功能。
+安全中心使用 Log Analytics 代理来收集和存储数据。 请参阅 [Azure 安全中心平台迁移](security-center-platform-migration.md)，了解详细信息。 本文中的信息涉及的是迁移到 Log Analytics 代理后的安全中心功能。
 
 ## <a name="troubleshooting-guide"></a>故障排除指南
 
@@ -30,14 +30,14 @@ ms.locfileid: "84126752"
 
 * 虚拟机行为分析 (VMBA)
 * 网络分析
-* SQL 数据库和 SQL 数据仓库分析
+* SQL 数据库和 Azure Synapse Analytics（以前称为 SQL 数据仓库）分析
 * 上下文信息
 
 客户可以根据警报类型收集所需的信息，以便通过以下资源来调查警报：
 
 * Windows 的虚拟机 (VM) 事件查看器中的安全日志
 * Linux 中的 AuditD
-* 攻击资源上的 Azure 活动日志和“启用诊断日志”功能。
+* Azure 活动日志，以及有关攻击资源的启用诊断日志。
 
 客户可以共享有关警报说明和相关性的反馈。 导航到警报本身，选择“这是否有用”按钮，选择原因，然后输入评论，对反馈进行说明。 我们会持续监视此反馈渠道，以便改进我们的警报。
 
@@ -63,7 +63,7 @@ ms.locfileid: "84126752"
 
 ![服务](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-要查看拥有的代理版本，请打开“任务管理器”，在“进程”选项卡中找到“Log Analytics 代理服务”，右键单击此选项，然后单击“属性”   。 在“详细信息”选项卡中，查看文件版本，如下所示：
+若要查看你拥有的代理版本，请打开“任务管理器”，在“进程”选项卡中找到“Log Analytics 代理服务”，右键单击该服务，然后单击“属性”   。 在“详细信息”选项卡中，查看文件版本，如下所示：
 
 ![文件](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
 
@@ -71,9 +71,9 @@ ms.locfileid: "84126752"
 
 在计算机上安装 Log Analytics 代理时，有两种可产生不同结果的安装方案。 支持的方案有：
 
-* 安全中心自动安装代理：在此方案中，可在“安全中心”和“日志搜索”这两个位置查看警报。 你会收到电子邮件通知，此类通知发送到的电子邮件地址是在资源所属的订阅的安全策略中配置的。
+* 安全中心自动安装代理：在此方案中，可在“安全中心”和“日志搜索”这两个位置查看警报。 系统将向在资源所属订阅的安全策略中配置的电子邮件地址发送电子邮件通知。
 
-* **在位于 Azure 中的 VM 上手动安装代理**：在此方案中，如果使用 2017 年 2 月前手动下载并安装的代理，则仅当对工作区所属订阅进行筛选时，才可在安全中心门户中查看警报。 如果对资源所属订阅进行筛选，则不会看到任何警报。 你会收到系统向工作区所属订阅的安全策略中配置的电子邮件地址发送的电子邮件通知。
+* **在位于 Azure 中的 VM 上手动安装代理**：在此方案中，如果使用 2017 年 2 月前手动下载和安装的代理，则仅当基于工作区所属订阅进行筛选时，才可在安全中心门户中查看警报。 如果基于资源所属订阅进行筛选，则无法看到任何警报。 系统将向在工作区所属订阅的安全策略中配置的电子邮件地址发送电子邮件通知。
 
 > [!NOTE]
 > 若要避免第二个方案中所述的行为，请确保下载最新版本的代理。
@@ -84,15 +84,15 @@ ms.locfileid: "84126752"
 
 | 监视状态 | 说明 | 解决步骤 |
 |---|---|---|
-| 代理待安装 | Log analytics 代理安装仍在运行。  安装可能需要长达数小时的时间。 | 等待自动安装完成。 |
+| 代理待安装 | Log Analytics 代理安装仍在运行。  安装可能需要长达数小时的时间。 | 等待自动安装完成。 |
 | 电源状态为关闭 | VM 已停止。  Log Analytics 代理只能安装在正在运行的 VM 上。 | 重启 VM。 |
-| Azure VM 代理缺失或无效 | Log analytics 代理尚未安装。  需要提供有效的 Azure VM 代理才能通过安全中心安装此扩展。 | 在 VM 上安装、重新安装或升级 Azure VM 代理。 |
+| Azure VM 代理缺失或无效 | 尚未安装 Log Analytics 代理。  需要提供有效的 Azure VM 代理才能通过安全中心安装此扩展。 | 在 VM 上安装、重新安装或升级 Azure VM 代理。 |
 | VM 状态表明尚未做好安装准备  | Log Analytics 代理尚未安装，因为 VM 尚未做好安装准备。 VM 尚未做好安装准备是因为 VM 代理或 VM 预配出现问题。 | 检查 VM 的状态。 返回到门户中的“虚拟机”，选择要获取状态信息的 VM。 |
-|安装失败 - 常规错误 | Log Analytics 代理已安装，但因错误而失败。 | [手动安装扩展](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)，或者卸载扩展，让安全中心尝试再次安装。 |
-| 安装失败 - 已安装本地代理 | Log analytics 代理安装失败。 安全中心标识了一个已在 VM 上安装的本地代理（Log Analytics 或 System Center Operations Manager）。 为了避免多宿主配置，在 VM 向两个不同的工作区报告的情况下，会停止 Log Analytics 代理安装。 | 有两种解决方法：[手动安装扩展](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)并将其连接到所需工作区。 或者，将所需工作区设置为默认工作区，并启用自动预配代理的功能。  请参阅[启用自动预配](security-center-enable-data-collection.md)。 |
-| 代理无法连接到工作区 | Log Analytics 代理已安装，但因网络连接原因而失败。  检查是否可以进行 Internet 访问，或者是否已为代理配置有效的 HTTP 代理。 | 请参阅“监视代理网络要求”。 |
-| 代理连接到缺失或未知的工作区 | 安全中心确定，安装在 VM 上的 Log Analytics 代理连接到的是其没有访问权限的工作区。 | 两种情况可能会发生这样的错误。 第一种情况是工作区已删除，不再存在。 请使用正确的工作区重新安装代理，或者卸载代理，让安全中心完成其自动预配安装。 第二种情况是工作区属于某个订阅的一部分，而安全中心没有该订阅的访问权限。 安全中心要求提供允许 Microsoft 安全资源提供程序访问的订阅。 若要启用此功能，请将订阅注册到 Microsoft 安全资源提供程序。 为此，可以使用 API、PowerShell、门户，或者直接在安全中心的“概览”仪表板中对订阅进行筛选。 有关详细信息，请参阅[资源提供程序和类型](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)。 |
-| 代理无响应或缺少 ID | 安全中心无法从 VM 检索扫描的安全数据，即使代理已安装。 | 代理未报告包括检测信号在内的任何数据。 代理可能已损坏，或者有不明因素在阻止流量。 或者，代理在报告数据但却缺少 Azure 资源 ID，因此不可能将数据与 Azure VM 匹配。 若要对 Linux 进行故障排除，请参阅[适用于 Linux 的 Log Analytics 代理的故障排除指南](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)。 若要对 Windows 进行故障排除，请参阅 [Windows 虚拟机故障排除](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines)。 |
+|安装失败 - 常规错误 | Log Analytics 代理已安装，但因某个错误而失败。 | [手动安装扩展](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)，或者卸载扩展，让安全中心尝试再次安装。 |
+| 安装失败 - 已安装本地代理 | Log Analytics 代理安装失败。 安全中心识别出已在 VM 上安装了一个本地代理（Log Analytics 或 System Center Operations Manager）。 为了避免多宿主配置（在此配置中，VM 向两个不同的工作区进行报告），将停止 Log Analytics 代理安装。 | 有两种解决方法：[手动安装扩展](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)并将其连接到所需工作区。 或者，将所需工作区设置为默认工作区，并启用自动预配代理的功能。  请参阅[启用自动预配](security-center-enable-data-collection.md)。 |
+| 代理无法连接到工作区 | Log Analytics 代理已安装，但因网络连接问题而失败。  检查是否可以进行 Internet 访问，或者是否已为代理配置有效的 HTTP 代理。 | 请参阅“监视代理网络要求”。 |
+| 代理连接到缺失或未知的工作区 | 安全中心识别出安装在 VM 上的 Log Analytics 代理连接到了它无法访问的工作区。 | 两种情况可能会发生这样的错误。 第一种情况是工作区已删除，不再存在。 请使用正确的工作区重新安装代理，或者卸载代理，让安全中心完成其自动预配安装。 第二种情况是工作区属于某个订阅的一部分，而安全中心没有该订阅的访问权限。 安全中心要求提供允许 Microsoft 安全资源提供程序访问的订阅。 若要启用此功能，请将订阅注册到 Microsoft 安全资源提供程序。 为此，可以使用 API、PowerShell、门户，或者直接在安全中心的“概览”仪表板中对订阅进行筛选。 有关详细信息，请参阅[资源提供程序和类型](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)。 |
+| 代理无响应或缺少 ID | 安全中心无法从 VM 检索扫描的安全数据，即使代理已安装。 | 代理未报告包括检测信号在内的任何数据。 代理可能已损坏，或者有不明因素在阻止流量。 或者，代理在报告数据但却缺少 Azure 资源 ID，因此无法将数据与 Azure VM 匹配。 若要对 Linux 进行故障排除，请参阅[适用于 Linux 的 Log Analytics 代理的故障排除指南](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)。 若要对 Windows 进行故障排除，请参阅 [Windows 虚拟机故障排除](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines)。 |
 | 未安装代理 | 数据收集已禁用。 | 在安全策略中启用数据收集，或者手动安装 Log Analytics 代理。 |
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>监视代理网络要求故障排除 <a name="mon-network-req"></a>
@@ -131,26 +131,20 @@ ms.locfileid: "84126752"
 
 如果在加载“安全中心”仪表板时遇到问题，请确保将订阅注册到安全中心的用户（即第一个通过订阅打开安全中心的用户）以及需要启用数据收集功能的用户为订阅的*所有者* 或*参与者*。 从该时刻开始，在订阅上为*读者* 的 also user 即可查看 dashboard/alerts/recommendation/policy。
 
-## <a name="contacting-microsoft-support"></a>请联系 Microsoft 支持人员
-
-可以使用本文中提供的指南来识别一些问题，还可以在安全中心公共 [论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)中查找记录的其他问题。 但是，如果需要进一步故障排除，则可使用 Azure 门户打开新的支持请求，如下所示：
-
-![Microsoft 支持部门](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
-
 ## <a name="see-also"></a>另请参阅
 
 在本文档中，已经学习了如何在 Azure 安全中心中配置安全策略。 若要了解更多有关 Azure 安全中心的详细信息，请参阅以下内容：
 
-* [Azure 安全中心规划和操作指南](security-center-planning-and-operations-guide.md) - 学习如何规划和了解采用 Azure 安全中心的设计的注意事项。
-* [Azure 安全中心的安全运行状况监视](security-center-monitoring.md) - 了解如何监视 Azure 资源的运行状况
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) （管理和响应 Azure 安全中心的安全警报）- 了解如何管理和响应安全警报
-* [了解 Azure 安全中心内的安全警报](security-center-alerts-overview.md)
+* [Azure 安全中心规划和操作指南](security-center-planning-and-operations-guide.md) - 了解如何规划和了解设计注意事项，以适应 Azure 安全中心。
+* [Azure 安全中心的安全性运行状况监视](security-center-monitoring.md) - 了解如何监视 Azure 资源的运行状况
+* [管理和响应 Azure 安全中心的安全警报](security-center-managing-and-responding-alerts.md) - 了解如何管理和响应安全警报
+* [了解 Azure 安全中心内的安全警报](security-center-alerts-type.md)
 * [教程：响应安全事件](tutorial-security-incident.md)
 * [Azure 安全中心内的警报验证](security-center-alert-validation.md)
 * [Azure 安全中心内的电子邮件通知](security-center-provide-security-contact-details.md)
 * [处理 Azure 安全中心内的安全事件](security-center-incident.md)
-<!--now is deleted -->
 * [Azure 安全中心检测功能](security-center-detection-capabilities.md)
 * [通过 Azure 安全中心监视合作伙伴解决方案](security-center-partner-solutions.md) - 了解如何监视合作伙伴解决方案的运行状态。
-* [Azure 安全中心常见问题解答](faq-general.md) - 查找服务使用方面的常见问题解答
-* [Azure 安全性博客](https://blogs.msdn.com/b/azuresecurity/) - 查找有关 Azure 安全性及合规性的博客文章
+* [Azure 安全中心常见问题解答](faq-general.md) - 查找有关使用服务的常见问题
+* [Azure 安全性博客](https://docs.microsoft.com/archive/blogs/azuresecurity/) - 查找关于 Azure 安全性及合规性的博客文章
+

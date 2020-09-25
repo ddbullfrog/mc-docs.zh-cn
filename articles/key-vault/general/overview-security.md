@@ -9,19 +9,18 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 origin.date: 04/18/2019
-ms.date: 07/01/2020
+ms.date: 09/15/2020
 ms.author: v-tawe
-Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: fece49a5b9b3444bcfd58ccc8ba9006ec4049f5d
-ms.sourcegitcommit: 4f84bba7e509a321b6f68a2da475027c539b8fd3
+ms.openlocfilehash: a676f5a266561b87e381aaa9129f306a3c067f05
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85796247"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678514"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 安全性
 
-你需要在云中保护加密密钥和机密（例如证书、连接字符串和密码），以便使用 Azure Key Vault。 由于要存储敏感数据和业务关键数据，因此需要采取措施来最大程度地提高保管库和其中存储的数据的安全性。 本文将介绍在设计 Azure Key Vault 安全性时应考虑的一些概念。
+使用 Azure Key Vault 可以保护云中的加密密钥和机密，例如证书、连接字符串和密码。 存储敏感数据和关键业务数据时，需要采取措施来最大限度地提高保管库及其存储的数据的安全性。
 
 ## <a name="identity-and-access-management"></a>标识和访问管理
 
@@ -47,11 +46,11 @@ ms.locfileid: "85796247"
 
 ### <a name="managing-administrative-access-to-key-vault"></a>管理对 Key Vault 的管理访问权限
 
-在资源组中创建密钥保管库时，使用 Azure AD 管理访问权限。 授予用户或组管理资源组中的密钥保管库的权限。 通过分配适当的 RBAC 角色可以在特定范围级别授予访问权限。 若要授予用户管理密钥保管库的访问权限，请为特定范围的用户分配预定义的 `key vault Contributor` 角色。 可以将以下范围级别分配给 RBAC 角色：
+在资源组中创建密钥保管库时，使用 Azure AD 管理访问权限。 授予用户或组管理资源组中的密钥保管库的权限。 可以通过分配适当的 Azure 角色在特定范围级别授予访问权限。 若要授予用户管理密钥保管库的访问权限，请为特定范围的用户分配预定义的 `key vault Contributor` 角色。 可以将以下范围级别分配给 Azure 角色：
 
-- **订阅**：在订阅级别分配的 RBAC 角色适用于该订阅中的所有资源组和资源。
-- **资源组**：在资源组级别分配的 RBAC 角色适用于该资源组中的所有资源。
-- **特定资源**：为特定资源分配的 RBAC 角色适用于该资源。 在这种情况下，资源是特定的密钥保管库。
+- **订阅**：在订阅级别分配的 Azure 角色适用于该订阅中的所有资源组和资源。
+- **资源组**：在资源组级别分配的 Azure 角色适用于该资源组中的所有资源。
+- **特定资源**：为特定资源分配的 Azure 角色适用于该资源。 在这种情况下，资源是特定的密钥保管库。
 
 有多种预定义角色。 如果预定义角色不符合需求，可以定义自己的角色。 有关详细信息，请参阅 [RBAC：内置角色](../../role-based-access-control/built-in-roles.md)。
 
@@ -66,7 +65,7 @@ Key Vault 访问策略单独授予对密钥、机密或证书的权限。 可以
 > [!IMPORTANT]
 > 密钥保管库访问策略不支持粒度、对象级别权限，例如特定的密钥、机密或证书。 如果授予某个用户创建和删除密钥的权限，该用户可以针对该密钥保管库中的所有密钥执行这些操作。
 
-若要为密钥保管库设置访问策略，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](/cli/install-azure-cli?view=azure-cli-latest)、[PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或[密钥保管库管理 REST API](https://docs.microsoft.com/rest/api/keyvault/)。
+可以使用 [Azure 门户](assign-access-policy-portal.md)、[Azure CLI](assign-access-policy-cli.md)、[Azure PowerShell](assign-access-policy-powershell.md) 或[密钥保管库管理 REST API](https://docs.microsoft.com/rest/api/keyvault/) 为密钥保管库设置访问策略。
 
 可以通过使用[适用于 Azure 密钥保管库的虚拟网络服务终结点](overview-vnet-service-endpoints.md)来限制数据平面访问权限。 可以配置[防火墙和虚拟网络规则](network-security.md)以提供额外的安全层。
 
@@ -94,10 +93,10 @@ Key Vault 日志记录会保存保管库中所执行活动的相关信息。 Key
 - 请使用标准的 Azure 访问控制方法限制可访问日志的人员，以此保护日志。
 - 删除不想继续保留在存储帐户中的日志。
 
-有关安全管理存储帐户的建议，请查看 [Azure 存储安全指南](../../storage/blobs/security-recommendations.md)
+有关如何安全地管理存储帐户的建议，请查看 [Azure 存储安全指南](../../storage/blobs/security-recommendations.md)
 
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Key Vault 的虚拟网络服务终结点](overview-vnet-service-endpoints.md)
 - [RBAC：内置角色](../../role-based-access-control/built-in-roles.md)
-- [Azure Key Vault 的虚拟网络服务终结点](overview-vnet-service-endpoints.md)
+

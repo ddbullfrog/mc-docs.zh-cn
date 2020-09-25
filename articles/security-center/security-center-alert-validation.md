@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/13/2020
-ms.author: v-tawe
+ms.date: 09/14/2020
+ms.author: v-johya
 origin.date: 11/04/2019
-ms.openlocfilehash: dd6a053766f4386b9b4e4821cfc431aa452fc6f8
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 8fc1139301d6ed5e1b34592f72577c63b14daa3f
+ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422944"
+ms.lasthandoff: 09/20/2020
+ms.locfileid: "90822383"
 ---
-# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Azure 安全中心中的警报验证（EICAR 测试文件）
+# <a name="alert-validation-in-azure-security-center"></a>Azure 安全中心的警报验证
 本文档介绍如何验证系统是否已针对 Azure 安全中心警报进行了适当的配置。
 
 ## <a name="what-are-security-alerts"></a>什么是安全警报？
@@ -40,7 +40,7 @@ ms.locfileid: "83422944"
 
 1. 复制一个可执行文件（例如“calc.exe”）到计算机的桌面或方便操作的其他目录，然后将其重命名为“ASC_AlertTest_662jfi039N.exe” 。
 1. 打开命令提示符，使用一个参数（假参数名称即可）执行此文件，例如：```ASC_AlertTest_662jfi039N.exe -foo```
-1. 等待 5 到 10 分钟，然后打开安全中心警报。 类似下列[示例](#alert-validate)的警报就会出现：
+1. 等待 5 到 10 分钟，然后打开安全中心警报。 应该会出现警报。
 
 > [!NOTE]
 > 查看此 Windows 的测试警报时，请确保“启用参数审核”字段为 true 。 如果为 false，则需启用命令行参数审核。 若要启用它，请使用以下命令：
@@ -58,11 +58,7 @@ ms.locfileid: "83422944"
 
     ```./asc_alerttest_662jfi039n testing eicar pipe```
 
-1. 等待 5 到 10 分钟，然后打开安全中心警报。 类似下列[示例](#alert-validate)的警报就会出现：
-
-### <a name="alert-example"></a>警报示例 <a name="alert-validate"></a>
-
-![警报验证示例](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
+1. 等待 5 到 10 分钟，然后打开安全中心警报。 应该会出现警报。
 
 
 ## <a name="validate-alerts-on-kubernetes"></a>在 Kubernetes 上验证警报 <a name="validate-kubernetes"></a>
@@ -79,4 +75,5 @@ ms.locfileid: "83422944"
 * [Validating Azure Key Vault Threat Detection in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)（在 Azure 安全中心验证 Azure Key Vault 威胁检测）
 * [管理和响应 Azure 安全中心的安全警报](https://docs.azure.cn/security-center/security-center-managing-and-responding-alerts) - 了解如何管理和响应安全中心的安全事件。
 * [Azure 安全中心的安全运行状况监视](security-center-monitoring.md) - 了解如何监视 Azure 资源的运行状况。
-* [了解 Azure 安全中心的安全警报](https://docs.azure.cn/security-center/security-center-alerts-overview) - 了解各种类型的安全警报。
+* [了解 Azure 安全中心的安全警报](https://docs.azure.cn/security-center/security-center-alerts-type) - 了解各种类型的安全警报。
+

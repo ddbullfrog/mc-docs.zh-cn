@@ -1,6 +1,6 @@
 ---
-title: Azure 密钥保管库客户数据功能 - Azure 密钥保管库 | Azure
-description: 了解 Key Vault 中的客户数据
+title: Azure 密钥保管库客户数据功能 - Azure 密钥保管库 | Microsoft Docs
+description: 了解在创建或更新保管库、密钥、机密、证书和托管的存储帐户期间由 Azure Key Vault 接收的客户数据。
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: reference
 origin.date: 01/07/2019
-ms.date: 04/20/2020
+ms.date: 09/15/2020
 ms.author: v-tawe
-ms.openlocfilehash: 220b8e6b3b1242d0149c2bfb9ea800677d50e0d4
-ms.sourcegitcommit: 89ca2993f5978cd6dd67195db7c4bdd51a677371
+ms.openlocfilehash: 959df0980cd5e7ee7db6e2cb06e12f285e66f9b7
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82588914"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678449"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 客户数据功能
 

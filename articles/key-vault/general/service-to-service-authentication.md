@@ -5,22 +5,22 @@ keywords: azure key-vault 身份验证本地凭据
 author: msmbaldwin
 services: key-vault
 ms.author: v-tawe
-origin.date: 06/30/2020
-ms.date: 07/28/2020
-ms.topic: conceptual
+origin.date: 09/04/2020
+ms.date: 09/15/2020
+ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 2ce04978ad42630414f42047feb80177dfdc7f38
-ms.sourcegitcommit: 0e778acf5aa5eb63ab233e07e7aecce3a9a5e6d4
+ms.openlocfilehash: ddfbed0ca0ccdf7b1e4aa0f63dfab9ff043f559e
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87296528"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678441"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 向 Azure Key Vault 进行服务到服务身份验证
 
 > [!NOTE]
-> 本文所述的身份验证方法不再被视为最佳做法。 我们建议你采用[如何向 Azure Key Vault 进行身份验证](authentication.md)中已更新的身份验证方法。
+> 建议不要将 Microsoft.Azure.Services.AppAuthentication 用于新的 Key Vault SDK。 已将其替换为新的 Azure 标识库 DefaultAzureCredentials（可用于 .NET、Java、TypeScript 和 Python），应将此库用于所有新的开发。 可在此处找到更多信息：[身份验证和 Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/)。
 
 若要对 Azure Key Vault 进行身份验证，需要提供 Azure Active Directory (Azure AD) 凭据（共享机密或证书）。
 
@@ -55,7 +55,7 @@ ms.locfileid: "87296528"
     string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.chinacloudapi.cn/").ConfigureAwait(false);
     ```
 
-`AzureServiceTokenProvider` 类将令牌缓存在内存中，在过期前才将其从 Azure AD 检索出来。 因此，不再需要在调用 `GetAccessTokenAsync` 方法之前检查是否过期。 在需要使用令牌时直接调用该方法即可。
+线程安全的 `AzureServiceTokenProvider` 类将令牌缓存在内存中，并会在该令牌到期前将从 Azure AD 中检索该令牌。 这意味着，你永远不需要在调用 `GetAccessTokenAsync` 方法之前检查令牌的有效期。 
 
 `GetAccessTokenAsync` 方法需要资源标识符。 若要详细了解 Microsoft Azure 服务，请参阅[什么是 Azure 资源的托管标识](../../active-directory/managed-identities-azure-resources/overview.md)。
 
@@ -228,17 +228,20 @@ ms.locfileid: "87296528"
 
 ## <a name="connection-string-support"></a>连接字符串支持
 
-默认情况下，`AzureServiceTokenProvider` 使用多种方法来检索令牌。
+默认情况下，`AzureServiceTokenProvider` 会尝试以下身份验证方法以检索令牌：
 
-若要控制此过程，请使用传递到 `AzureServiceTokenProvider` 构造函数或在 AzureServicesAuthConnectionString 环境变量中指定的连接字符串。
+- [Azure 资源的托管标识](../../active-directory/managed-identities-azure-resources/overview.md)
+- Visual Studio 身份验证
+- [Azure CLI 身份验证](https://docs.azure.cn/cli/authenticate-azure-cli?view=azure-cli-latest)
+- [集成 Windows 身份验证](https://docs.microsoft.com/aspnet/web-api/overview/security/integrated-windows-authentication)
 
-可以使用以下选项：
+若要控制此过程，请使用传递到 `AzureServiceTokenProvider` 构造函数或在 AzureServicesAuthConnectionString 环境变量中指定的连接字符串。  可以使用以下选项：
 
 | 连接字符串选项 | 方案 | 注释|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | 本地开发 | `AzureServiceTokenProvider` 使用 AzureCli 获取令牌。 |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 本地开发 | `AzureServiceTokenProvider` 使用 Visual Studio 获取令牌。 |
-| `RunAs=CurrentUser` | 本地开发 | `AzureServiceTokenProvider` 使用 Azure AD 集成身份验证获取令牌。 |
+| `RunAs=CurrentUser` | 本地开发 | 在 .NET Core 中不受支持。 `AzureServiceTokenProvider` 使用 Azure AD 集成身份验证获取令牌。 |
 | `RunAs=App` | [Azure 资源的托管标识](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider` 使用托管标识获取令牌。 |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [Azure 资源的用户分配标识](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider` 使用用户分配的标识获取令牌。 |
 | `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | 自定义服务身份验证 | `KeyVaultCertificateSecretIdentifier` 是证书的机密标识符。 |

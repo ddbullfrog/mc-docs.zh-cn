@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 origin.date: 09/04/2019
-ms.date: 06/02/2020
+ms.date: 09/15/2020
 ms.author: v-tawe
-ms.openlocfilehash: 3cd64d326d385eed55099d3b7c7a1e90f048998c
-ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+ms.openlocfilehash: 20b21287962e0afc1edbffc81e3b2e95a05de146
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275555"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678493"
 ---
 # <a name="about-azure-key-vault-certificates"></a>关于 Azure Key Vault 证书
 
@@ -82,16 +82,17 @@ Key Vault 证书具有以下属性：
 
 从零开始创建 Key Vault 证书时，需要提供策略。 该策略指定如何创建此 Key Vault 证书版本或下一个 Key Vault 证书版本。 建立策略后，便不需要使用连续创建操作创建将来的版本。 所有版本的 Key Vault 证书只有一个策略实例。  
 
-在高级别，证书策略包含以下信息：  
+概括而言，证书策略包含以下信息（可在[此处](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)找到其定义）：  
 
 -   X509 证书属性：包含主题名称、主题备用名称以及用于创建 x509 证书请求的其他属性。  
--   密钥属性：包含密钥类型、密钥长度、可导出密钥字段和重用密钥字段。 这些字段指示密钥保管库如何生成密钥。  
+-   密钥属性：包含密钥类型、密钥长度、可导出字段和 ReuseKeyOnRenewal 字段。 这些字段指示密钥保管库如何生成密钥。 
+     - 支持的 KeyType：RSA、EC、oct（在[此处](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)列出） 
 -   机密属性：包含可寻址机密的内容类型等机密属性以生成机密值，用于以机密的形式检索证书。  
 -   生存期操作：包含 KV 证书生命周期的操作。 每个生存期操作包含：  
 
      - 触发器：通过距离到期的天数或生存期范围百分比指定  
 
-     - 操作：指定操作类型 - emailContacts 或 autoRenew   
+     - 操作：指定操作类型 - emailContacts 或 autoRenew  
 
 -   颁发者：有关用于颁发 x509 证书的证书颁发者的参数。  
 -   策略属性：包含与策略关联的属性  

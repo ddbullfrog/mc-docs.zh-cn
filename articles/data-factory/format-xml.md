@@ -7,17 +7,18 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 07/16/2020
-ms.date: 08/10/2020
+origin.date: 08/10/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: 797daad2cf0a1d440fa577f6e3119eda80e50b3e
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 222648d21c1ec09f5c4cc1cd8f21a778d92f9c9d
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914655"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524054"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Azure 数据工厂中的 XML 格式
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 如果要**分析 XML 文件**，请按此文的要求操作。 
@@ -87,7 +88,7 @@ ms.locfileid: "87914655"
 | validationMode | 指定是否要验证 XML 架构。<br>允许的值为 none（默认值、无验证）、xsd（使用 XSD 验证）以及 dtd （使用 DTD 验证）  。 | 否 |
 | namespacePrefixes | 命名空间 URI 到前缀的映射，用于在分析 xml 文件时为字段命名。<br/>如果 XML 文件具有命名空间，且已启用命名空间，则默认情况下，字段名称与 XML 文档中的名称相同。<br>如果在此映射中为命名空间 URI 定义了一个项，则字段名称为 `prefix:fieldName`。 | 否 |
 | compressionProperties | 一组属性，指示如何为给定的压缩编解码器解压缩数据。 | 否       |
-| preserveZipFileNameAsFolder<br>（在 `compressionProperties` 下） | 当输入数据集配置了 ZipDeflate 压缩时适用。 指示是否在复制过程中以文件夹结构形式保留源 zip 文件名。 当设置为 true（默认值）时，数据工厂将解压缩文件写入 `<path specified in dataset>/<folder named as source zip file>/`；当设置为 false 时，数据工厂将解压缩文件直接写入 `<path specified in dataset>`。  | 否 |
+| preserveZipFileNameAsFolder<br>（在 `compressionProperties` 下） | 当输入数据集配置了 ZipDeflate 压缩时适用。 指示是否在复制过程中以文件夹结构形式保留源 zip 文件名。<br>- 当设置为“true”（默认值）时，数据工厂会将已解压缩的文件写入 `<path specified in dataset>/<folder named as source zip file>/`。<br>- 当设置为“false”时，数据工厂会直接将已解压缩的文件写入 `<path specified in dataset>`。 请确保在不同的源 zip 文件中没有重复的文件名，以避免出现争用或意外行为。  | 否 |
 
 ## <a name="xml-connector-behavior"></a>XML 连接器行为
 
@@ -95,7 +96,7 @@ ms.locfileid: "87914655"
 
 - XML 属性：
 
-    - 元素的属性被分析为层次结构中元素的子字段。
+    - 元素的属性将被分析为层次结构中元素的子字段。
     - 属性字段的名称遵循模式 `@attributeName`。
 
 - XML 架构验证：

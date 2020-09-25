@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 05/28/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 877e9d6ad5e0128e0cbc12f99332d0ab853ae5df
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.date: 09/21/2020
+ms.openlocfilehash: 4fd37f4a80bb6662ff4f5594210985222c596d65
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914339"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523979"
 ---
 # <a name="data-access-strategies"></a>数据访问策略
 
@@ -53,7 +53,7 @@ ms.locfileid: "87914339"
     |                              | Azure Database for MariaDB、Azure Database for MySQL、Azure Database for PostgreSQL               | -                   | 是             | -            | 是                  |
     |                              | Azure 文件存储                                          | -                   | 是             | -            | 上获取。                    |
     |                              | Azure 存储（Blob、ADLS Gen2）                             | 是（仅 MSI 身份验证） | 是             | -            | 上获取。                    |
-    |                              | Azure SQL DB、SQL DW (Synapse Analytics)、SQL Ml          | -                   | 是             | -            | 是                  |
+    |                              | Azure SQL DB、Azure Synapse Analytics、SQL Ml  | -                   | 是             | -            | 是                  |
     |                              | Azure Key Vault（用于提取机密/连接字符串） | 是                 | 是             | -            | -                    |
     | 其他 PaaS/SaaS 数据存储 | AWS S3、SalesForce、Google Cloud Storage 等。            | -                   | 是             | -            | -                    |
     | Azure laaS                   | SQL Server、Oracle 等。                                  | -                   | 是             | 是          | -                    |
@@ -70,7 +70,7 @@ ms.locfileid: "87914339"
     |                                | Azure Database for MariaDB、Azure Database for MySQL、Azure Database for PostgreSQL               | 是       | -                   |
     |                                | Azure 文件存储                                            | 是       | -                   |
     |                                | Azure 存储（Blob、ADLS Gen2）                             | 是       | 是（仅 MSI 身份验证） |
-    |                                | Azure SQL DB、SQL DW (Synapse Analytics)、SQL Ml          | 是       | -                   |
+    |                                | Azure SQL DB、Azure Synapse Analytics、SQL Ml          | 是       | -                   |
     |                                | Azure Key Vault（用于提取机密/连接字符串） | 是       | 是                 |
     | 其他 PaaS/SaaS 数据存储 | AWS S3、SalesForce、Google Cloud Storage 等。              | 是       | -                   |
     | Azure laaS                     | SQL Server、Oracle 等。                                  | 是       | -                   |

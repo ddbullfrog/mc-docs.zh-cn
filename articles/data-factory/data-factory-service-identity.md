@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 07/06/2020
-ms.date: 08/10/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: 78d0642ab33988625c7176975ceca6fc6757e0ed
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 762ebe4cc11caab2019a2a11c1ddc23681cea099
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914337"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523978"
 ---
 # <a name="managed-identity-for-data-factory"></a>数据工厂的托管标识
 
@@ -33,7 +33,7 @@ ms.locfileid: "87914337"
 数据工厂的托管标识对以下功能有益：
 
 - [在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)，在这种情况下，数据工厂托管标识用于 Azure Key Vault 身份验证。
-- 连接器包括 [Azure Blob 存储](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、[Azure SQL 数据库](connector-azure-sql-database.md)和 [Azure SQL 数据仓库](connector-azure-sql-data-warehouse.md)。
+- 连接器，包括 [Azure Blob 存储](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、[Azure SQL 数据库](connector-azure-sql-database.md)和 [Azure Synapse Analytics（以前称为 SQL 数据仓库）](connector-azure-sql-data-warehouse.md)。
 - [Web 活动](control-flow-web-activity.md)。
 
 ## <a name="generate-managed-identity"></a>生成托管标识

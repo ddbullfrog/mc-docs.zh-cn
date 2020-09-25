@@ -3,7 +3,7 @@ title: Azure 安全中心内的文件完整性监视 | Azure
 description: 使用本演练了解如何在 Azure 安全中心配置文件完整性监视 (FIM)。
 services: security-center
 documentationcenter: na
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2020
-ms.author: v-tawe
+ms.date: 09/14/2020
+ms.author: v-johya
 origin.date: 03/13/2019
-ms.openlocfilehash: 1fba4ec2dcf49fc76916cd3a8098f9a69ea5b278
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+ms.openlocfilehash: 6ea501d0f4c3fb1d7758ec33f241761da28d2713
+ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126652"
+ms.lasthandoff: 09/20/2020
+ms.locfileid: "90822378"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure 安全中心内的文件完整性监视
 使用本演练了解如何在 Azure 安全中心配置文件完整性监视 (FIM)。
@@ -36,7 +36,7 @@ ms.locfileid: "84126652"
 安全中心会建议要监视的、可以轻松对其启用 FIM 的实体。 你也可以定义自己的 FIM 策略或要监视的实体。 本演练会演示这些操作。
 
 > [!NOTE]
-> 文件完整性监视 (FIM) 功能适用于 Windows 和 Linux 计算机与 VM，已在安全中心的标准层上提供。 若要详细了解安全中心的定价层，请参阅[定价](security-center-pricing.md)。 FIM 将数据上传到 Log Analytics 工作区。 需要根据上传的数据量支付数据费用。 请参阅 [Log Analytics 定价](https://www.azure.cn/pricing/details/monitor/index.html)了解详细信息。
+> 文件完整性监视 (FIM) 功能适用于 Windows 和 Linux 计算机与 VM，在安全中心的标准层上提供。 若要详细了解安全中心的定价层，请参阅[定价](security-center-pricing.md)。 FIM 将数据上传到 Log Analytics 工作区。 需要根据上传的数据量支付数据费用。 请参阅 [Log Analytics 定价](https://www.azure.cn/pricing/details/monitor/)了解详细信息。
 
 FIM 使用 Azure 更改跟踪解决方案来跟踪和识别环境中发生的更改。 启用文件完整性监视后，会获得一个“解决方案”类型的“更改跟踪”资源 。
 
@@ -114,7 +114,7 @@ FIM 使用 Azure 更改跟踪解决方案来跟踪和识别环境中发生的更
    此外，还会列出适用于 Windows 和 Linux 的建议设置。  展开“Windows 文件”、“注册表”和“Linux 文件”查看建议项的完整列表。  
 
 3. 请取消选中不想要对其应用 FIM 的所有建议实体。
-4. 选择“应用文件完整性监视”以启用 FIM。
+4. 选择“启用文件完整性监视”以启用 FIM。
 
 > [!NOTE]
 > 随时可以更改设置。 有关详细信息，请参阅下面的“编辑受监视的实体”。
@@ -235,7 +235,7 @@ FIM 使用 Azure 更改跟踪解决方案来跟踪和识别环境中发生的更
 
 * [设置安全策略](tutorial-security-policy.md) -- 了解如何为 Azure 订阅和资源组配置安全策略。
 * [管理安全建议](security-center-recommendations.md) -- 了解建议如何帮助你保护 Azure 资源。
-* [Azure 安全博客](https://blogs.msdn.com/b/azuresecurity/) - 获取最新的 Azure 安全新闻和信息。
+* [Azure 安全博客](https://docs.microsoft.com/archive/blogs/azuresecurity/) - 获取最新的 Azure 安全新闻和信息。
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png
@@ -258,3 +258,4 @@ FIM 使用 Azure 更改跟踪解决方案来跟踪和识别环境中发生的更
 [18]: ./media/security-center-file-integrity-monitoring/workspace-config-disable.png
 [19]: ./media/security-center-file-integrity-monitoring/edit-disable.png
 [20]: ./media/security-center-file-integrity-monitoring/disable-fim.png
+

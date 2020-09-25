@@ -12,15 +12,15 @@ ms.author: v-jay
 author: WenJason
 ms.reviewer: douglasl
 manager: digimobile
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 origin.date: 07/20/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 5168571169c2bafa7e2a3e29572717ef7c173f90
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.date: 09/21/2020
+ms.openlocfilehash: e1f6185aa0eee5e01c46a3a84b3476c61046e0e6
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914317"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524056"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用“执行 SSIS 包”活动运行 SSIS 包
 
@@ -98,7 +98,7 @@ ms.locfileid: "87914317"
 
 如果为 Azure-SSIS IR 预配了 Azure SQL 数据库服务器/托管实例托管的 SSIS 目录 (SSISDB)，则会自动选择“SSISDB”作为包位置，否则，你可以自己选择位置。 如果选择了该位置，请完成以下步骤。
 
-   1. 如果 Azure-SSIS IR 正在运行且“手动输入内容”复选框处于已清除状态，可以从 SSISDB 浏览并选择现有的文件夹、项目、包和环境。 选择“刷新”以从 SSISDB 获取新添加的文件夹、项目、包或环境，以便可以浏览和选择这些内容。 若要浏览并选择用于包执行的环境，必须事先配置项目，以便从 SSISDB 下的相同文件夹中添加这些环境作为引用。 有关详细信息，请参阅[创建和映射 SSIS 环境](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014)。
+   1. 如果 Azure-SSIS IR 正在运行且“手动输入内容”复选框处于已清除状态，可以从 SSISDB 浏览并选择现有的文件夹、项目、包和环境。 选择“刷新”以从 SSISDB 获取新添加的文件夹、项目、包或环境，以便可以浏览和选择这些内容。 若要浏览并选择用于包执行的环境，必须事先配置项目，以便从 SSISDB 下的相同文件夹中添加这些环境作为引用。 有关详细信息，请参阅[创建和映射 SSIS 环境](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages)。
 
    1. 对于“日志记录级别”，请为包执行选择预定义的日志记录范围。 如果要改为输入自定义日志记录名称，请选中“自定义”复选框。 
 
@@ -268,7 +268,7 @@ ms.locfileid: "87914317"
 
    1. 逐个输入选定包的现有属性的路径，以便手动为其赋值。 为了使包成功执行，请确保它们存在并已正确输入。 例如，若要替代用户变量的值，请按以下格式输入其路径：`\Package.Variables[User::<variable name>].Value`。 
 
-      可以通过在 SSDT 上打开包含任何包属性的包，获取相应包属性的正确 PROPERTY PATH。 打开包之后，在 SSDT 的“属性”窗口中选择其“配置”属性。 接下来，选择其“配置”属性旁的省略号 (...) 按钮，以打开“包配置组织程序”，它通常用于[在包部署模型中创建包配置](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014)。 
+      可以通过在 SSDT 上打开包含任何包属性的包，获取相应包属性的正确 PROPERTY PATH。 打开包之后，在 SSDT 的“属性”窗口中选择其控制流和“配置”属性。 接下来，选择其“配置”属性旁的省略号 (...) 按钮，以打开“包配置组织程序”，它通常用于[在包部署模型中创建包配置](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations)。 
 
       ![从 SSDT 获取包属性 - 配置属性](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
 

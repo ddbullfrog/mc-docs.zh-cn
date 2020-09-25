@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 07/15/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 5400767babe14242d70403fedb9fd1c45663e62d
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+origin.date: 08/25/2020
+ms.date: 09/21/2020
+ms.openlocfilehash: 91cdaf9a347370c5ea16f4c16878bbe9bee7eb55
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914256"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523983"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 SQL Server 复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -292,7 +292,7 @@ GO
 |:--- |:--- |:--- |
 | type | 复制活动的 sink 的 type 属性必须设置为 SqlSink。 | 是 |
 | preCopyScript |此属性指定将数据写入到 SQL Server 中之前复制活动要运行的 SQL 查询。 每次运行复制仅调用该查询一次。 可以使用此属性清除预加载的数据。 |否 |
-| tableOption | 指定是否根据源架构[自动创建接收器表](copy-activity-overview.md#auto-create-sink-tables)（如果不存在）。 当接收器指定存储过程或在复制活动中配置了暂存复制时，不支持自动表创建。 允许的值为：`none`（默认值）、`autoCreate`。 |否 |
+| tableOption | 指定是否根据源架构[自动创建接收器表](copy-activity-overview.md#auto-create-sink-tables)（如果不存在）。 接收器指定存储过程时不支持自动创建表。 允许的值为：`none`（默认值）、`autoCreate`。 |否 |
 | sqlWriterStoredProcedureName | 定义如何将源数据应用于目标表的存储过程的名称。 <br/>此存储过程由每个批处理调用。 若要执行仅运行一次且与源数据无关的操作（例如删除或截断），请使用 `preCopyScript` 属性。<br>请参阅[调用 SQL 接收器的存储过程](#invoke-a-stored-procedure-from-a-sql-sink)中的示例。 | 否 |
 | storedProcedureTableTypeParameterName |存储过程中指定的表类型的参数名称。  |否 |
 | sqlWriterTableType |要在存储过程中使用的表类型名称。 通过复制活动，使移动数据在具备此表类型的临时表中可用。 然后，存储过程代码可合并复制数据和现有数据。 |否 |
@@ -515,7 +515,7 @@ END
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| xml |String |
 
 >[!NOTE]
 > 对于映射到十进制临时类型的数据类型，目前复制活动支持的最大精度为 28。 如果数据需要的精度大于 28，请考虑在 SQL 查询中将其转换为字符串。

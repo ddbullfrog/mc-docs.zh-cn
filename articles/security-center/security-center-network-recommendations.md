@@ -3,7 +3,7 @@ title: 在 Azure 安全中心内保护你的网络资源
 description: 本文档介绍 Azure 安全中心中的建议，以帮助你保护 Azure 网络资源并保持符合安全策略。
 services: security-center
 documentationcenter: na
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
 ms.service: security-center
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2020
-ms.author: v-tawe
+ms.date: 09/14/2020
+ms.author: v-johya
 origin.date: 04/05/2019
-ms.openlocfilehash: de0da9c90957a337626dfc6dbfa2e8ce718f8976
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 3346f00c814874b6f2e2694377d87490c38592fa
+ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422903"
+ms.lasthandoff: 09/20/2020
+ms.locfileid: "90822364"
 ---
 # <a name="protect-your-network-resources"></a>保护你的网络资源
 Azure 安全中心不断分析 Azure 资源的安全状态，以实现网络安全最佳做法。 在安全中心识别出潜在的安全漏洞时，它会创建一些建议，指导完成配置所需控件以强化和保护资源的过程。
@@ -64,7 +64,8 @@ Azure 安全中心不断分析 Azure 资源的安全状态，以实现网络安�
 
 ## <a name="understanding-the-network-map"></a>了解网络映射
 
-网络映射可以在“拓扑”视图和“流量”视图中显示 Azure 资源 。 
+<!--Correct in MC: Allowed Traffic-->
+网络映射可以在“拓扑”视图和“允许的流量”视图中显示 Azure 资源 。 
 
 ### <a name="the-topology-view"></a>拓扑视图
 
@@ -93,9 +94,10 @@ Azure 安全中心不断分析 Azure 资源的安全状态，以实现网络安�
 3. 使用该链接可放大工具提示并将映射重新聚焦在该特定节点上。 
 4. 要将映射的焦点从特定节点移开，请缩小。
 
-### <a name="the-traffic-view"></a>流量视图
+<!--Correct in MC: Allowed Traffic-->
+### <a name="the-allowed-traffic-view"></a>“允许的流量”视图
 
-“流量”视图提供了资源之间所有可能流量的映射。 这提供了配置的所有规则的可视化映射，这些规则定义了哪些资源可以与谁通信。 由此可查看网络安全组的现有配置，以及快速识别工作负载中可能存在的有风险的配置。
+“允许的流量”视图提供了资源之间所有可能流量的映射。 这提供了配置的所有规则的可视化映射，这些规则定义了哪些资源可以与谁通信。 由此可查看网络安全组的现有配置，以及快速识别工作负载中可能存在的有风险的配置。
 
 ### <a name="uncover-unwanted-connections"></a>发现不需要的连接
 
@@ -108,34 +110,13 @@ Azure 安全中心不断分析 Azure 资源的安全状态，以实现网络安�
 向下钻取资源：
 
 1. 在映射上选择特定资源时，右侧窗格将打开，并提供有关资源、连接的安全解决方案（如果有）以及与资源相关的建议的常规信息。 对于选择的每种资源，它都是相同类型的行为。 
-2. 单击“流量”以查看资源上可能的出站和入站流量列表 - 这是一个全面的列表，列出谁可以与资源进行通信、可以与谁通信以及通过哪些协议和端口进行通信。 例如，当你选择某个 VM 时，将显示它可以与之通信的所有 VM，而当你选择某个子网时，将显示其可以与之通信的所有子网。
+2. 单击“允许的流量”以查看资源上可能的出站和入站流量列表 - 这是一个全面的列表，列出了谁可以与资源进行通信、它可以与谁通信，以及通过哪些协议和端口进行通信。 例如，当你选择某个 VM 时，将显示它可以与之通信的所有 VM，而当你选择某个子网时，将显示其可以与之通信的所有子网。
 
 此数据基于对网络安全组的分析以及分析多个规则以了解其交叉和交互的高级机器学习算法。 
 
 [![网络流量映射](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
-
-## <a name="legacy-networking"></a>旧网络 <a name ="legacy-networking"></a>
-
-如果没有安全中心标准层，则本节介绍如何查看免费的网络建议。
-
-要访问此信息，请在“网络”边栏选项卡中单击“查看旧网络”。 
-
-[![旧网络](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
-
-### <a name="internet-facing-endpoints-section"></a>面向 Internet 的终结点部分
-在“面向 Internet 的终结点”部分中，可以查看当前配置了面向 Internet 的终结点的虚拟机及其状态。
-
-此表提供终结点名称、面向 Internet 的 IP 地址，以及网络安全组和 NGFW 建议当前的严重性状态。 此表按严重性排序。
-
-### <a name="networking-topology-section"></a>拓扑部分
-“拓扑”部分提供了资源的分层视图。
-
-此表按严重性排序（虚拟机和子网）。
-
-在此拓扑视图中，第一层级显示 Vnets。 第二层级显示子网，第三层级显示属于这些子网的虚拟机。 右侧一栏显示网络安全组对这些资源的建议的当前状态。
-
-第三层级显示虚拟机，与前面的描述类似。 可以单击任何资源了解详细信息，或应用所需的安全控制或配置。
+<!--Not available in MC: ## Legacy networking-->
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -143,3 +124,4 @@ Azure 安全中心不断分析 Azure 资源的安全状态，以实现网络安�
 
 * [在 Azure 安全中心保护计算机和应用程序](security-center-virtual-machine-protection.md)
 * [保护 Azure 安全中心中的 Azure SQL 服务](security-center-sql-service-recommendations.md)
+

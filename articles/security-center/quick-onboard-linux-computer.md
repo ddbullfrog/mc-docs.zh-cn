@@ -3,7 +3,7 @@ title: 将 Linux 计算机载入到 Azure 安全中心 | Azure
 description: 本快速入门展示了如何将 Linux 计算机载入到安全中心。
 services: security-center
 documentationcenter: na
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -13,42 +13,44 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/02/2018
-ms.date: 5/22/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 3ae56bae44481970edcf5784a78902038ad945b1
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+ms.date: 09/14/2020
+ms.author: v-johya
+ms.openlocfilehash: 65f28aebc539ac63b0440c0750da5fad566c84b5
+ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126794"
+ms.lasthandoff: 09/20/2020
+ms.locfileid: "90822355"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>快速入门：将 Linux 计算机载入到安全中心
-载入 Azure 订阅之后，可以通过预配 Linux 代理为在 Azure 外部（例如，在本地或在其他云中）运行的 Linux 资源启用安全中心。
+加入 Azure 订阅之后，可以通过预配代理为在 Azure 外部（例如，在本地或在其他云中）运行的 Linux 资源启用安全中心。 该代理称为 Log Analytics 代理，但也称 OMS 代理。
 
 本快速入门展示了如何在 Linux 计算机上安装该代理。
 
 ## <a name="prerequisites"></a>先决条件
-若要开始使用安全中心，必须订阅世纪互联 Azure。 如果你尚无订阅，则可以注册[试用帐户](https://www.azure.cn/pricing/free-trial/)。
+若要开始使用安全中心，必须订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
 在开始学习本快速入门之前，你必须位于安全中心的“标准”定价层。 有关升级说明，请参阅[将 Azure 订阅载入到安全中心标准版](security-center-get-started.md)。 可以免费试用安全中心标准版。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。
 
+<!--Customized in MC-->
 ## <a name="add-new-linux-computer"></a>添加新的 Linux 计算机
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在“世纪互联 Azure”菜单上选择“安全中心”。 此时会打开“安全中心 - 概览”。
+2. 在“Azure”菜单上选择“安全中心”。 此时会打开“安全中心 - 概览”。
 
    ![安全中心概述][2]
 
 3. 在“安全中心”主菜单下，选择“入门”。
 4. 选择“入门”选项卡。![入门][3]
 
-5. 单击“添加新的非 Azure 计算机”下的“配置”，将显示 Log Analytics 工作区列表。 该列表包含启用自动预配时由安全中心创建的默认工作区（如果适用）。 选择此工作区或要使用的其他工作区。
+5. 单击“添加非 Azure 服务器”下的“配置”，将显示 Log Analytics 工作区列表。 该列表包含启用自动预配时由安全中心创建的默认工作区（如果适用）。 选择此工作区或要使用的其他工作区。
 
     ![添加非 Azure 计算机](./media/quick-onboard-linux-computer/non-azure.png)
 
-6. 在“直接代理”页面上，在“下载和板载 Agent for Linux”下，选择“复制”按钮以复制 *wget* 命令。
+6. 在“代理管理”页上的“下载并载入适用于 Linux 的代理”下，选择“复制”按钮以复制“wget”命令。
 
 7. 打开记事本并粘贴此命令。 将此文件保存到可以从你的 Linux 计算机访问的位置。
+<!--Customized in MC-->
 
 ## <a name="install-the-agent"></a>安装代理
 
@@ -63,7 +65,7 @@ ms.locfileid: "84126794"
 
 在一段时间后（可能需要多达 30 分钟），新的 Linux 计算机将显示在安全中心内。
 
-现在，可以从单个位置监视 Azure VM 和非 Azure 计算机了。 在“计算”下，可以概览所有 VM 和计算机以及建议。 每一列代表一组建议。 颜色表示 VM 或计算机针对该建议的当前安全状态。 安全中心还会在“安全警报”中显示针对这些计算机的任何检测。
+现在，可以从单个位置监视 Azure VM 和非 Azure 计算机了。 在“计算和应用”下，可以概览所有 VM 和计算机以及建议。 每一列代表一组建议。 颜色表示 VM 或计算机针对该建议的当前安全状态。 安全中心还会在“安全警报”中显示针对这些计算机的任何检测。
 
   ![计算边栏选项卡][7] -“计算”边栏选项卡上提供了两种类型的图标：
 
@@ -95,3 +97,4 @@ ms.locfileid: "84126794"
 [5]: ./media/quick-onboard-linux-computer/pgrep-command.png
 [6]: ./media/quick-onboard-linux-computer/logs-for-agent.png
 [7]: ./media/quick-onboard-linux-computer/compute.png
+

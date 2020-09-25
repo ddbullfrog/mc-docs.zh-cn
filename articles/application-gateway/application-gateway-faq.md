@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 09/14/2020
 ms.author: v-junlch
 ms.custom: references_regions
-ms.openlocfilehash: ecb3b2ab1f30f8a4f2ca2be20d73ab0e7340cfbe
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: da88372cbb905b99c5e1139d541e0dfe1dc035f1
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647617"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721182"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>应用程序网关常见问题
 
@@ -105,7 +105,7 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIP
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>应用程序网关 v2 是否支持用户定义的路由 (UDR)？
 
-是，但仅限特定方案。 有关详细信息，请参阅[应用程序网关配置概述](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)。
+是，但仅限特定方案。 有关详细信息，请参阅[应用程序网关基础结构配置](configuration-infrastructure.md#supported-user-defined-routes)。
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>应用程序网关是否支持 x-forwarded-for 标头？
 
@@ -134,9 +134,9 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIP
 否。 应用程序网关 V2 尚不支持使用 NTLM 身份验证的代理请求。
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>应用程序网关关联 Cookie 是否支持 SameSite 属性？
-是的，[Chromium 浏览器](https://www.chromium.org/Home) [v80 更新](https://chromiumdash.appspot.com/schedule)引入了对 HTTP Cookie 的强制要求，不会将 SameSite 属性视为 SameSite = Lax。 这意味着，浏览器不会将应用程序网关关联 Cookie 发送到第三方上下文中。 
+支持。Chromium 浏览器 v80 更新对没有 SameSite 属性的 HTTP Cookie 引入了一项强制性要求：将其视为 SameSite=Lax。 这意味着，浏览器不会将应用程序网关关联 Cookie 发送到第三方上下文中。 
 
-为了支持此方案，除了现有的“ApplicationGatewayAffinity”Cookie 外，应用程序网关还会注入另一个名为“ApplicationGatewayAffinityCORS”的 Cookie。  这两个 Cookie 类似，但 ApplicationGatewayAffinityCORS Cookie 中添加了两个附加属性：*SameSite=None; Secure*。 这些属性甚至可以为跨源请求维护粘性会话。 有关详细信息，请参阅[基于 Cookie 的关联部分](configuration-overview.md#cookie-based-affinity)。
+为了支持此方案，除了现有的“ApplicationGatewayAffinity”Cookie 外，应用程序网关还会注入另一个名为“ApplicationGatewayAffinityCORS”的 Cookie。  这两个 Cookie 类似，但 ApplicationGatewayAffinityCORS Cookie 中添加了两个附加属性：*SameSite=None; Secure*。 这些属性甚至可以为跨源请求维护粘性会话。 有关详细信息，请参阅[基于 Cookie 的关联部分](configuration-http-settings.md#cookie-based-affinity)。
 
 ## <a name="performance"></a>性能
 
@@ -186,7 +186,7 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>应用程序网关子网是否支持用户定义的路由？
 
-请参阅[应用程序网关子网中支持的用户定义的路由](/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet)。
+请参阅[应用程序网关子网中支持的用户定义的路由](configuration-infrastructure.md#supported-user-defined-routes)。
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>应用程序网关有哪些限制？ 是否可以提高这些限制？
 
@@ -404,7 +404,7 @@ Kubernetes 允许创建 `deployment` 和 `service` 资源，以便在群集内�
 
 ### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>为什么我的带 kubenet 的 AKS 群集不能与 AGIC 一起使用？
 
-AGIC 会尝试自动将路由表资源关联到应用程序网关子网，但 AGIC 可能会因缺少权限而失败。 如果 AGIC 无法将路由表关联到应用程序网关子网，则 AGIC 日志中会记录一个相应的错误来描述此问题。在这种情况下，必须手动将 AKS 群集创建的路由表关联到应用程序网关的子网。 有关详细信息，请查看[此处](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)的说明。
+AGIC 会尝试自动将路由表资源关联到应用程序网关子网，但 AGIC 可能会因缺少权限而失败。 如果 AGIC 无法将路由表关联到应用程序网关子网，则 AGIC 日志中会记录一个相应的错误来描述此问题。在这种情况下，必须手动将 AKS 群集创建的路由表关联到应用程序网关的子网。 有关详细信息，请参阅[支持的用户定义路由](configuration-infrastructure.md#supported-user-defined-routes)。
 
 ### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>是否可以将不同的虚拟网络中的 AKS 群集和应用程序网关连接在一起？ 
 

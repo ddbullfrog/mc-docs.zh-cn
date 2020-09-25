@@ -5,12 +5,12 @@ ms.topic: include
 origin.date: 03/29/2019
 ms.date: 09/02/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8b072379a37d17ca5a60dfe6d5a602bb2bef0812
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: fadbf6cc2c4acc6010e17e3404489c0379c8ab09
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317536"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90679969"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -47,7 +47,7 @@ https://<REGION_IDENTIFIER>.api.cognitive.azure.cn/sts/v1.0/issueToken
 
 #### <a name="http-sample"></a>HTTP 示例
 
-此示例是获取令牌的简单 HTTP 请求。 请将 `YOUR_SUBSCRIPTION_KEY` 替换为语音服务订阅密钥。 如果订阅不在美国西部区域，请将 `Host` 标头替换为所在区域的主机名。
+此示例是获取令牌的简单 HTTP 请求。 请将 `YOUR_SUBSCRIPTION_KEY` 替换为语音服务订阅密钥。 如果订阅不在“中国东部”区域，请将 `Host` 标头替换为你的区域的主机名。
 
 ```http
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -61,7 +61,7 @@ Content-Length: 0
 
 #### <a name="powershell-sample"></a>PowerShell 示例
 
-此示例是获取访问令牌的简单 PowerShell 脚本。 请将 `YOUR_SUBSCRIPTION_KEY` 替换为语音服务订阅密钥。 请务必使用与订阅匹配的正确区域终结点。 此示例目前设置为“美国西部”。
+此示例是获取访问令牌的简单 PowerShell 脚本。 请将 `YOUR_SUBSCRIPTION_KEY` 替换为语音服务订阅密钥。 请务必使用与订阅匹配的正确区域终结点。 此示例目前设置为“中国东部”。
 
 ```powershell
 $FetchTokenHeader = @{
@@ -80,7 +80,7 @@ $OAuthToken
 
 #### <a name="curl-sample"></a>cURL 示例
 
-cURL 是 Linux（及面向 Linux 的 Windows 子系统）中提供的一种命令行工具。 此 cURL 命令演示如何获取访问令牌。 请将 `YOUR_SUBSCRIPTION_KEY` 替换为语音服务订阅密钥。 请务必使用与订阅匹配的正确区域终结点。 此示例目前设置为“美国西部”。
+cURL 是 Linux（及面向 Linux 的 Windows 子系统）中提供的一种命令行工具。 此 cURL 命令演示如何获取访问令牌。 请将 `YOUR_SUBSCRIPTION_KEY` 替换为语音服务订阅密钥。 请务必使用与订阅匹配的正确区域终结点。 此示例目前设置为“中国东部”。
 
 ```console
 curl -v -X POST
@@ -92,7 +92,7 @@ curl -v -X POST
 
 #### <a name="c-sample"></a>C# 示例
 
-此 C# 类演示如何获取访问令牌。 实例化该类时，请传递语音服务订阅密钥。 如果订阅不在美国西部区域，请更改 `FetchTokenUri` 的值，以便与订阅的区域相匹配。
+此 C# 类演示如何获取访问令牌。 实例化该类时，请传递语音服务订阅密钥。 如果订阅不在“中国东部”区域，请更改 `FetchTokenUri` 的值，使之与订阅的区域匹配。
 
 ```csharp
 public class Authentication

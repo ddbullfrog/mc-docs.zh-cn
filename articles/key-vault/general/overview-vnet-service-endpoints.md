@@ -1,21 +1,21 @@
 ---
-title: Azure Key Vault 的虚拟网络服务终结点 - Azure Key Vault | Azure
-description: Key Vault 的虚拟网络服务终结点概述
+title: Azure 密钥保管库的虚拟网络服务终结点 - Azure 密钥保管库 | Microsoft Docs
+description: 了解如何使用 Azure Key Vault 的虚拟网络服务终结点将访问限制为仅允许通过指定的虚拟网络（包括使用方案）进行访问。
 services: key-vault
 author: amitbapat
 ms.author: v-tawe
 manager: rkarlin
 origin.date: 01/02/2019
-ms.date: 07/28/2020
+ms.date: 09/15/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 8276c9131abe96c48f4d0b09592b501df5c75192
-ms.sourcegitcommit: 0e778acf5aa5eb63ab233e07e7aecce3a9a5e6d4
+ms.openlocfilehash: c7c3651389e80411bfbb42bf89d92221d6fc4b81
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87296529"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678501"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault 的虚拟网络服务终结点
 

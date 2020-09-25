@@ -1,6 +1,6 @@
 ---
 title: 将 Windows 计算机加入安全中心
-description: 本快速入门演示如何在 Windows 计算机上预配 Microsoft Monitoring Agent。
+description: 本快速入门演示如何在 Windows 计算机上预配 Log Analytics 代理。
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/3/2018
-ms.date: 05/22/2019
-ms.author: v-lingwu
-ms.openlocfilehash: e26310de8b62ebe89d74079523239f72721741dc
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+ms.date: 09/14/2020
+ms.author: v-johya
+ms.openlocfilehash: c6feb2159c2c5456d7f3f5bbd1ee81810e53c635
+ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126793"
+ms.lasthandoff: 09/20/2020
+ms.locfileid: "90822353"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>快速入门：将 Windows 计算机加入安全中心
 载入 Azure 订阅之后，可以通过预配 Log Analytics 代理为在 Azure 外部（例如，在本地或在其他云中）运行的资源启用安全中心。
@@ -28,14 +28,14 @@ ms.locfileid: "84126793"
 本快速入门演示如何在 Windows 计算机上安装 Log Analytics 代理。
 
 ## <a name="prerequisites"></a>先决条件
-若要开始使用安全中心，必须具有 Microsoft Azure 订阅。 如果你尚无订阅，则可以注册[试用帐户](https://www.azure.cn/pricing/free-trial/)。
+若要开始使用安全中心，必须订阅 Azure。 如果你没有订阅，则可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
 在开始学习本快速入门之前，你必须位于安全中心的“标准”定价层。 有关升级说明，请参阅[将 Azure 订阅载入到安全中心标准版](security-center-get-started.md)。 可以免费试用安全中心标准版。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。
 
 ## <a name="add-new-windows-computer"></a>添加新的 Windows 计算机
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在 **Microsoft Azure** 菜单上选择“安全中心”。 此时会打开“安全中心 - 概览”。
+2. 在“Azure”菜单上选择“安全中心”。 此时会打开“安全中心 - 概览”。
 
    ![安全中心概述][2]
 
@@ -60,10 +60,10 @@ ms.locfileid: "84126793"
 现在，必须在目标计算机上安装下载的文件。
 
 1. 将该文件复制到目标计算机并运行安装程序。
-2. 在“欢迎”页上，选择“下一步”。 
+2. 在“欢迎”页上，选择“下一步”。
 3. 在“许可条款”页面上阅读许可协议，然后选择“我接受” 。
 4. 在“目标文件夹”页面上更改或保留默认安装文件夹，然后选择“下一步” 。
-5. 在“代理安装选项”页上，选择将代理连接到 Azure Log Analytics，然后选择“下一步”。 
+5. 在“代理安装选项”页上，选择将代理连接到 Azure Log Analytics，然后选择“下一步”。
 6. 在 **Azure Log Analytics** 页上，粘贴在前面步骤中复制到记事本的“工作区 ID” 和“工作区密钥(主密钥)” 。
 7. 如果计算机应向 Azure 中国云中的 Log Analytics 工作区报告，请从“Azure 云”下拉列表中选择“Azure 中国” 。 如果计算机需要通过代理服务器来与 Log Analytics 服务通信，请选择“高级”并提供代理服务器的 URL 和端口号。
 8. 提供所需的配置设置后，选择“下一步”。
@@ -71,11 +71,11 @@ ms.locfileid: "84126793"
    ![安装代理][5]
 
 9. 在“准备安装”页上检查所做的选择，并选择“安装” 。
-10. 在“配置已成功完成”页上，选择“完成” 
+10. 在“配置已成功完成”页上，选择“完成”
 
 完成后，**Log Analytics 代理**会显示在“控制面板”中。 可以在该处检查配置，并验证代理是否已连接。
 
-有关安装和配置代理的详细信息，请参阅[连接 Windows 计算机](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard)。
+有关安装和配置代理的详细信息，请参阅[连接 Windows 计算机](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard)。
 
 现在，可以从单个位置监视 Azure VM 和非 Azure 计算机了。 在“计算”下，可以概览所有 VM 和计算机以及建议。 每一列代表一组建议。 颜色表示 VM 或计算机针对该建议的当前安全状态。 安全中心还会在“安全警报”中显示针对这些计算机的任何检测。
 
@@ -94,7 +94,7 @@ ms.locfileid: "84126793"
 
 1. 打开“控制面板”
 2. 打开“程序和功能”。
-3. 在“程序和功能”中选择“Log Analytics 代理”，单击“卸载”。  
+3. 在“程序和功能”中选择“Log Analytics 代理”，单击“卸载”。
 
 ## <a name="next-steps"></a>后续步骤
 在本快速入门中，你已在 Windows 计算机上预配了 Log Analytics 代理。 若要详细了解如何使用安全中心，请继续阅读教程，了解如何配置安全策略和评估资源的安全性。
@@ -108,3 +108,4 @@ ms.locfileid: "84126793"
 [4]: ./media/quick-onboard-windows-computer/add-computer.png
 [5]: ./media/quick-onboard-windows-computer/log-analytics-mma-setup-laworkspace.png
 [6]: ./media/quick-onboard-windows-computer/compute.png
+

@@ -1,6 +1,6 @@
 ---
-title: 使用密钥保管库的最佳做法 - Azure 密钥保管库 | Azure
-description: 本文档介绍了一些使用密钥保管库的最佳做法
+title: 使用 Key Vault 的最佳做法 - Azure Key Vault | Microsoft Docs
+description: 了解 Azure Key Vault 的最佳做法，包括如何控制访问、何时使用单独的密钥保管库、备份、日志记录和恢复选项。
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 origin.date: 03/07/2019
-ms.date: 07/28/2020
+ms.date: 09/15/2020
 ms.author: v-tawe
-ms.openlocfilehash: c475ff87d352bb81ecce8cd2cb07d8392372d06c
-ms.sourcegitcommit: 0e778acf5aa5eb63ab233e07e7aecce3a9a5e6d4
+ms.openlocfilehash: 407b774d8a2efd4cee2257b7283b3ff11b6d3140
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87296518"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678452"
 ---
 # <a name="best-practices-to-use-key-vault"></a>使用密钥保管库的最佳做法
 
@@ -57,5 +57,5 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 
 ## <a name="turn-on-recovery-options"></a>启用恢复选项
 
-1. 启用[软删除](overview-soft-delete.md)。
+1. 启用[软删除](soft-delete-overview.md)。
 2. 如果要防止强制删除机密/保管库，即使启用软删除后，也要启用清除保护。

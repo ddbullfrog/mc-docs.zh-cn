@@ -1,19 +1,18 @@
 ---
-title: 在 Azure 应用程序网关中重写 HTTP 标头
+title: 创建 Azure 应用程序网关和重写 HTTP 标头
 description: 本文介绍如何使用 Azure PowerShell 创建 Azure 应用程序网关和重写 HTTP 标头
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-origin.date: 04/30/2019
-ms.date: 09/10/2019
+ms.topic: how-to
+ms.date: 09/14/2020
 ms.author: v-junlch
-ms.openlocfilehash: 70306275ac3e1e45aff28cc87cc0e83c19b332a2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f4cd09ae55cc67e299670b80552431a069394471
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "70857385"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721094"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>创建应用程序网关和重写 HTTP 标头
 
@@ -21,15 +20,13 @@ ms.locfileid: "70857385"
 
 在本文中，学习如何：
 
-> [!div class="checklist"]
->
-> * 创建自动缩放虚拟网络
-> * 创建保留的公共 IP
-> * 设置应用程序网关基础结构
-> * 指定 http 标头重写规则配置
-> * 指定自动缩放
-> * 创建应用程序网关
-> * 测试应用程序网关
+* 创建自动缩放虚拟网络
+* 创建保留的公共 IP
+* 设置应用程序网关基础结构
+* 指定 http 标头重写规则配置
+* 指定自动缩放
+* 创建应用程序网关
+* 测试应用程序网关
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -96,7 +93,7 @@ $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
 $fip = New-AzApplicationGatewayFrontendIPConfig -Name "FrontendIPCOnfig" -PublicIPAddress $publicip
 $pool = New-AzApplicationGatewayBackendAddressPool -Name "Pool1" `
-       -BackendIPAddresses testbackend1.chinanorth.chinacloudapp.cn, testbackend2.chinanorth.chinacloudapp.cn
+       -BackendIPAddresses testbackend1.chinanorth2.chinacloudapp.cn, testbackend2.chinanorth2.chinacloudapp.cn
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "HTTPPort" -Port 80
 
 $listener01 = New-AzApplicationGatewayHttpListener -Name "HTTPListener" `

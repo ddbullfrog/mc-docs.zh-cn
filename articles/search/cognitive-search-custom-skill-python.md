@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 01/15/2020
 ms.date: 09/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bfc6616c3f76d01ef7fd49d719bc6ce5892fd8de
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: ce2e912a58f8e6a0a5b3c35757d555bfcb163b00
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021130"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678500"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>示例：使用 Python 创建自定义技能
 
@@ -193,7 +193,7 @@ def transform_value(value):
 
 1. 选择 Python 版本（Python 3.7.x 适用于此函数）。
 
-1. 选择新资源的位置（例如“美国西部 2”）。
+1. 选择新资源的位置（例如“中国东部 2”）。
 
 此时，将在 Azure 订阅中创建所需的资源用于在 Azure 上托管新的 Azure 函数。 等待部署完成。 输出窗口将显示部署过程的状态。
 

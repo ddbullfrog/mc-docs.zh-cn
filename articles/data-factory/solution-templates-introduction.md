@@ -11,13 +11,13 @@ author: WenJason
 manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 01/04/2019
-ms.date: 06/15/2020
-ms.openlocfilehash: 986e92dc5a1884ff3514dc9d001280684764d94c
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.date: 09/21/2020
+ms.openlocfilehash: ec9b71c59104920ba0b019a8d9d2cbedca1bb4c1
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723726"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524048"
 ---
 # <a name="templates"></a>模板
 
@@ -67,9 +67,9 @@ ms.locfileid: "84723726"
 
         -   从本地 SQL Server 复制到 Azure SQL 数据库
 
-        -   从本地 SQL Server 复制到 Azure SQL 数据仓库
+        -   从本地 SQL Server 到 Azure Synapse Analytics（以前称为 SQL 数据仓库）
 
-        -   从本地 Oracle 复制到 Azure SQL 数据仓库
+        -   从本地 Oracle 到 Azure Synapse Analytics（以前称为 SQL 数据仓库）
 
 -   SSIS 模板
 

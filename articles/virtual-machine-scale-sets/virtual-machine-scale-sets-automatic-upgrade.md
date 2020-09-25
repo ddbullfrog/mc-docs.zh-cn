@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 08/31/2020
+ms.date: 09/14/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 752ffa8b81395755852f8e35c09415baf7154f83
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 0cd165b440ebebda86a497e9e909e89e6680db78
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414122"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721174"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure 虚拟机规模集自动 OS 映像升级
 
@@ -128,7 +128,7 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-使用 `[az vmss update](/cli/vmss#az-vmss-update)` 为规模集配置 OS 映像自动升级。 使用 Azure CLI 2.0.47 或更高版本。 以下示例为 myResourceGroup 资源组中的 myScaleSet 规模集配置自动升级 ：
+使用 [az vmss update](/cli/vmss#az-vmss-update) 为规模集配置 OS 映像自动升级。 使用 Azure CLI 2.0.47 或更高版本。 以下示例为 myResourceGroup 资源组中的 myScaleSet 规模集配置自动升级 ：
 
 ```azurecli
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true

@@ -1,10 +1,10 @@
 ---
 title: 保护计算机和应用程序
-description: 本文档介绍安全中心内提供的可帮助保护虚拟机和计算机以及 Web 应用的建议。
+description: 本文档介绍 Azure 安全中心内提供的，可帮助保护虚拟机和计算机以及 Web 应用和应用服务环境的建议。
 services: security-center
 documentationcenter: na
-author: lingliw
-manager: digimobile
+author: Johnnytechn
+manager: rkarlin
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/11/2020
-ms.date: 05/09/2020
-ms.author: v-tawe
-ms.openlocfilehash: 15d76d8b3b3d9c979f1e18f3caed9b08efdef8d7
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+ms.date: 09/14/2020
+ms.author: v-johya
+ms.openlocfilehash: 1e140f308e98a61403130bf5f756f79ae352b37f
+ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126664"
+ms.lasthandoff: 09/20/2020
+ms.locfileid: "90822390"
 ---
 # <a name="protect-your-machines-and-applications"></a>保护计算机和应用程序
 在 Azure 安全中心识别出潜在的安全漏洞时，它会创建建议，指导你完成配置所需控件以强化和保护资源的过程。
@@ -42,6 +42,8 @@ ms.locfileid: "84126664"
 * [**VM 规模集**](#vmscale-sets)：列出对规模集的建议 
 
 * [**云服务**](#cloud-services)：列出对由安全中心监视的 Web 角色和辅助角色的建议
+
+* [**应用服务**](#app-services)：列出应用服务环境及其当前安全状态的建议
 
 * [**容器**](#containers)：列出对容器的建议以及对其配置的安全评估
 
@@ -122,7 +124,7 @@ ms.locfileid: "84126664"
 
 
 ### <a name="app-services"></a><a name="app-services"></a>应用服务
-若要查看应用服务信息，你必须在安全中心的“标准”定价层上，并在订阅中启用应用服务。 有关如何启用此功能的说明，请参阅[使用 Azure 安全中心保护应用服务](security-center-app-services.md)。
+若要查看应用服务信息，你必须位于安全中心的“标准”定价层，并在订阅中启用应用服务。 有关如何启用此功能的说明，请参阅[使用 Azure 安全中心保护应用服务](security-center-app-services.md)。
 
 在“应用服务”下，可以看到应用服务环境的列表，以及安全中心执行评估后提供的运行状况摘要。
 
@@ -162,15 +164,13 @@ ms.locfileid: "84126664"
 
 ![容器主机](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png) 容器主机 - 运行 docker 的 VM 
 
-![Kubernetes 服务](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Azure Kubernetes 服务 (AKS) 群集
+![Kubernetes 服务](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Azure Kubernetes 服务 (AKS) 群集。 [了解安全中心的 AKS 捆绑包](azure-kubernetes-service-integration.md)
 
-![容器注册表](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure 容器注册表 (ACR) 注册表 - 仅当位于标准定价层以及启用了 Azure 容器注册表捆绑销售时才会显示。
+![容器注册表](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure 容器注册表 (ACR) 注册表。 [了解安全中心的 ACR 捆绑包](azure-container-registry-integration.md)
 
 有关如何使用容器安全性功能的说明，请参阅[监视容器的安全性](monitor-container-security.md)。
 
-[在此处](azure-container-registry-integration.md)说明 Azure 容器注册表捆绑销售的优势
 
-[在此处](azure-kubernetes-service-integration.md)说明 Kubernetes 服务捆绑销售的优势
 
 [![容器选项卡](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
 
@@ -194,7 +194,7 @@ ms.locfileid: "84126664"
 
 安全中心扫描 Docker 配置，并提供已评估的所有失败规则列表让你洞察错误配置。 安全中心提供指导来帮助你快速解决这些问题，因此可节省时间。 安全中心持续评估 Docker 配置，并提供其最新状态。
 
-![容器选项卡](./media/security-center-container-recommendations/container-cis-benchmark.png)
+![容器选项卡](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -204,3 +204,4 @@ ms.locfileid: "84126664"
 * [在 Azure 安全中心监视标识和访问](security-center-identity-access.md)
 * [保护 Azure 安全中心中的网络](security-center-network-recommendations.md)
 * [保护 Azure 安全中心中的 Azure SQL 服务](security-center-sql-service-recommendations.md)
+

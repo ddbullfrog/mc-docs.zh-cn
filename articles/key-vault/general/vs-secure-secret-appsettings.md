@@ -7,16 +7,17 @@ manager: paulyuk
 editor: ''
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 07/17/2019
-ms.date: 04/20/2020
+ms.date: 09/15/2020
 ms.author: v-tawe
-ms.openlocfilehash: ee4bd240ba1e63e91b1b0011219b16de374c690a
-ms.sourcegitcommit: 89ca2993f5978cd6dd67195db7c4bdd51a677371
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 32490bcbd6b4d4774456ec6b90a331643cd41963
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82588962"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678423"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地保存 Web 应用的密钥应用程序设置
 
@@ -102,35 +103,22 @@ ms.locfileid: "82588962"
 ### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>将密钥设置保存在源代码管理文件夹外部的密钥文件中。
 如果正在快速编写原型，且不想预配 Azure 资源，请使用此选项。
 
-1. 将以下 NuGet 包安装到你的项目
-    ```
-    Microsoft.Configuration.ConfigurationBuilders.Base
-    ```
+1. 右键单击项目并选择“管理用户机密”。 这将安装 NuGet 包 Microsoft.Configuration.ConfigurationBuilders.UserSecrets，创建一个文件以将机密设置保存在 web.config 文件之外，并在 web.config 文件中添加 ConfigBuilders 节。
 
-2. 创建一个类似于以下内容的文件。 将其保存在你的项目文件夹外部的某个位置下。
+2. 将机密设置置于 root 元素下。 下面是一个示例
 
     ```xml
+    <?xml version="1.0" encoding="utf-8"?>
     <root>
-        <secrets ver="1.0">
-            <secret name="secret1" value="foo_one" />
-            <secret name="secret2" value="foo_two" />
-        </secrets>
+      <secrets ver="1.0">
+        <secret name="secret" value="foo"/>
+        <secret name="secret1" value="foo_one" />
+        <secret name="secret2" value="foo_two" />
+      </secrets>
     </root>
     ```
 
-3. 将密钥文件定义为 Web.config 文件中的配置生成器。 将该部分置于 appSettings  部分前。
-
-    ```xml
-    <configBuilders>
-        <builders>
-            <add name="Secrets"
-                 secretsFile="C:\Users\AppData\MyWebApplication1\secret.xml" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder,
-                    Microsoft.Configuration.ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
-        </builders>
-    </configBuilders>
-    ```
-
-4. 指定 appSettings 部分使用密钥配置生成器。 确保有含有虚拟值的机密设置的条目。
+3. 指定 appSettings 部分使用密钥配置生成器。 确保有含有虚拟值的机密设置的条目。
 
     ```xml
         <appSettings configBuilders="Secrets">
@@ -149,20 +137,18 @@ ms.locfileid: "82588962"
 
 1. 将以下 NuGet 包安装到你的项目
    ```
-   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   Microsoft.Configuration.ConfigurationBuilders.Azure
    ```
 
-2. 定义 Web.config 中的密钥保管库配置生成器。将该部分置于 appSettings  部分前。 如果密钥保管库位于公共 Azure 中，则将 vaultName  替换为密钥保管库名称，如果正在使用 Sovereign 云，则将其替换为完整的 URI。
+2. 定义 Web.config 中的密钥保管库配置生成器。将该部分置于 appSettings 部分前。 如果 Key Vault 位于全局 Azure 中，则将 vaultName 替换为 Key Vault 名称；如果你在使用主权云，则将其替换为完整的 URI。
 
     ```xml
-    <configSections>
-        <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
-    </configSections>
-    <configBuilders>
+     <configBuilders>
         <builders>
-            <add name="AzureKeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+            <add name="Secrets" userSecretsId="695823c3-6921-4458-b60b-2b82bbd39b8d" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+            <add name="AzureKeyVault" vaultName="[VaultName]" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
         </builders>
-    </configBuilders>
+      </configBuilders>
     ```
 3. 指定 appSettings 部分使用密钥保管库配置生成器。 确保有任何含有虚拟值的密钥设置的条目。
 

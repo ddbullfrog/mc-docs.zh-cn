@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: fe50c209214ccc8a68347b3b2dfbc55fbca56ea4
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 09/14/2020
+ms.openlocfilehash: 181d0c066d5a4a31eec8c2eff1291b11e87135b1
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413523"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721183"
 ---
 # <a name="supported-data-types"></a>支持的数据类型
 
@@ -27,16 +27,17 @@ ms.locfileid: "89413523"
 | **double** | 一个双精度 64 位数字  | `"value": 31.0482941` | `$event.value.Double` 或 `$event['value'].Double` |  `value_double`
 | **long** | 已签名的 64 位整数  | `"value" : 31` | `$event.value.Long` 或 `$event['value'].Long` |  `value_long`
 | **string** | 文本值，必须包含有效的 UTF-8。 Null 字符串和空字符串的处理方式相同。 |  `"site": "DIM_MLGGG"`| `$event.site.String` 或 `$event['site'].String`| `site_string`
-| **dynamic** | 一个复杂的（非基元）类型，由数组或属性包（字典）组成。 目前只会将基元的字符串化 JSON 数组或不包含 TS ID 或时间戳属性的对象数组存储为动态数组。 请阅读此[文章](./concepts-json-flattening-escaping-rules.md)，了解对象如何平展，以及数组如何展开。 存储为此类型的有效负载属性只能通过在 TSI 资源管理器中选择 `Explore Events` 查看原始事件或者通过用于客户端分析的 [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)  查询 API 来进行访问。 |  `"values": "[197, 194, 189, 188]"` | 尚不支持在时序表达式中引用动态类型 | `values_dynamic`
+| **dynamic** | 一个复杂的（非基元）类型，由数组或属性包（字典）组成。 目前只会将基元的字符串化 JSON 数组或不包含 TS ID 或时间戳属性的对象数组存储为动态数组。 请阅读此[文章](./concepts-json-flattening-escaping-rules.md)，了解对象如何平展，以及数组如何展开。 存储为此类型的有效负载属性只能通过以下方式进行访问：在时序见解资源管理器中选择 `Explore Events` 来查看原始事件，或者使用用于客户端分析的 [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)  查询 API。 |  `"values": "[197, 194, 189, 188]"` | 尚不支持在时序表达式中引用动态类型 | `values_dynamic`
 
 > [!NOTE]
-> 支持 64 位整数值，但是由于 JavaScript 的限制，Azure 时序见解资源管理器可以安全地表示的最大值是 9,007,199,254,740,991 (2^53-1)。 如果在以上数据模型中使用数字，可以通过创建[时序模型变量](concepts-variables.md#numeric-variables)和[转换](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions)值来减小大小。
+> 支持 64 位整数值，但是由于 JavaScript 的限制，Azure 时序见解资源管理器可以安全地表示的最大值是 9,007,199,254,740,991 (2^53-1)。 如果在以上数据模型中使用数字，可以通过创建[时序模型变量](/time-series-insights/concepts-variables#numeric-variables)和[转换](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions)值来减小大小。
 
 > [!NOTE]
 > 字符串类型不可以为 null：
->   * 在[时序查询](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis)中表示的[时序表达式 (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) 将空字符串 ('') 的值与 NULL 进行比较，其行为方式相同：`$event.siteid.String = NULL` 等效于 `$event.siteid.String = ''` 。
->   * 即使原始事件包含空字符串，API 也可能返回 NULL 值。
->   * 不要依赖于 String 列中的 NULL 值来进行比较或求值，请将它们视为空字符串 。
+>
+> * 在[时序查询](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis)中表示的[时序表达式 (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) 将空字符串 ('') 的值与 NULL 进行比较，其行为方式相同：`$event.siteid.String = NULL` 等效于 `$event.siteid.String = ''` 。
+> * 即使原始事件包含空字符串，API 也可能返回 NULL 值。
+> * 不要依赖于 String 列中的 NULL 值来进行比较或求值，请将它们视为空字符串 。
 
 ## <a name="sending-mixed-data-types"></a>发送混合数据类型
 

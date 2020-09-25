@@ -7,15 +7,16 @@ author: msmbaldwin
 ms.custom: seodec18
 ms.author: v-tawe
 ms.service: key-vault
+ms.subservice: general
 ms.topic: reference
 origin.date: 12/16/2019
-ms.date: 04/20/2020
-ms.openlocfilehash: 97362bad9953b169b15935e6aa9fe34d2f9ea036
-ms.sourcegitcommit: 89ca2993f5978cd6dd67195db7c4bdd51a677371
+ms.date: 09/15/2020
+ms.openlocfilehash: c2de1ac3d1c1898d5faa818942a69f2e4f262aff
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82588901"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678490"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault REST API 错误代码
  
@@ -89,7 +90,7 @@ Content-Length: 31
 
 在此令牌中可以看到许多重要组成部分：
 
-- aud（受众）：令牌的资源。 请注意，此资源为 <https://vault.azure.cn>。 对于不显式匹配此值的任何资源（例如 Graph），此令牌将不适用。
+- aud（受众）：令牌的资源。 请注意，此资源为 `https://vault.azure.cn`。 对于不显式匹配此值的任何资源（例如 Graph），此令牌将不适用。
 - iat（颁发时间）：颁发令牌时距离纪元开始时间的计时周期数。
 - nbf（不早于）：此令牌生效时距离纪元开始时间的计时周期数。
 - exp（过期时间）：此令牌过期时距离纪元开始时间的计时周期数。

@@ -9,12 +9,12 @@ ms.date: 08/24/2020
 ms.author: v-jay
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0c73673b6db3fd6d175fafc8d0295d94ef8e31f8
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 45110dfc6a7f5aa275d09308af20bc632b9ab668
+ms.sourcegitcommit: fd2b0e77efe876e0e150c99de146120608091113
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753593"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90568616"
 ---
 # <a name="azcopy-make"></a>azcopy make
 
@@ -46,7 +46,7 @@ azcopy make "https://[account-name].[blob,file,dfs].core.chinacloudapi.cn/[top-l
 |选项|说明|
 |--|--|
 |-h、--help|显示 make 命令的帮助内容。 |
-|--quota-gb uint32|指定共享的最大大小（以 GB (GiB) 为单位），0 表示接受文件服务的默认配额。|
+|--quota-gb uint32|指定共享的最大大小（以千兆字节 (GB) 为单位），0 表示接受文件服务的默认配额。|
 
 ## <a name="options-inherited-from-parent-commands"></a>从父命令继承的选项
 

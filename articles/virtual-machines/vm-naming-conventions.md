@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: sttsinar
-ms.openlocfilehash: 8c6eea404ac1110d381006b4c1edcf30a868bcdd
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: cedbaecc0cf73033866bb7ad810e2bf2fd6caca7
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463129"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524039"
 ---
 <!--Verify Successfully-->
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Azure 虚拟机大小命名约定
@@ -32,10 +32,11 @@ ms.locfileid: "89463129"
 | 系列 | 指示 VM 系列| 
 | *子系列 | 仅用于专门的 VM 区分|
 | # 个 vCPU| 表示 VM 的 vCPU 数目 |
-| 累加功能 | 一个或多个小写字母表示累加功能，例如： <br /> a = 基于 AMD 的处理器 <br /> d = 磁盘（存在本地临时磁盘）；这适用于较新的 Azure VM，请参阅 [Ddv4 和 Ddsv4 系列](./ddv4-ddsv4-series.md) <br /> h = 支持休眠 <br /> i = 独立的大小 <br /> l = 内存不足；内存量低于内存密集型大小 <br /> m = 内存密集型；特定大小的最大内存量 <br /> t = 较小内存；特定大小中的最小内存量 <br /> r = 支持 RDMA <br /> s = 支持高级存储（注意：没有 s 属性的一些较新大小仍可支持高级存储，例如 M128、M64 等）<br /> |
+| 累加功能 | 一个或多个小写字母表示累加功能，例如： <br /> a = 基于 AMD 的处理器 <br /> d = 磁盘（本地临时磁盘存在）；<br /> h = 支持休眠 <br /> i = 独立的大小 <br /> l = 内存不足；内存量低于内存密集型大小 <br /> m = 内存密集型；特定大小的最大内存量 <br /> t = 较小内存；特定大小中的最小内存量 <br /> r = 支持 RDMA <br /> s = 支持高级存储（注意：没有 s 属性的一些较新大小仍可支持高级存储，例如 M128、M64 等）<br /> |
 | *加速器类型 | 表示专用/GPU SKU 中的硬件加速器的类型。 只有自 2020 年第 3 季度起推出的新的专用/GPU SKU 才能在名称中包含硬件加速器。 |
 | 版本 | 表示 VM 系列的版本 |
 
+<!--Not Available on  this is for newer Azure VMs, see [Ddv4 and Ddsv4-series](./ddv4-ddsv4-series.md) -->
 <!--Not Available on FEATURE ultra-disk-->
 
 ## <a name="example-breakdown"></a>细分示例

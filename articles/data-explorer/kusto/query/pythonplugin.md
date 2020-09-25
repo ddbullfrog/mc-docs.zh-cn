@@ -11,12 +11,12 @@ origin.date: 04/01/2020
 ms.date: 08/18/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: c86b82d11d41967cd045976b387f6e085852e2aa
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: a469b646d93dc9915642e280a0a54b69a9f8cddb
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951235"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678411"
 ---
 # <a name="python-plugin"></a>Python 插件
 
@@ -186,7 +186,7 @@ print "This is an example for using 'external_artifacts'"
 
 ### <a name="prerequisites"></a>先决条件
 
-  1. 创建 blob 容器来承载包，最好与群集位于同一个位置。 例如 `https://chinaeast2.blob.core.chinacloudapi.cn/python`，假设群集位于美国西部。
+  1. 创建 blob 容器来承载包，最好与群集位于同一个位置。 例如 `https://chinaeast2.blob.core.chinacloudapi.cn/python`，假设群集位于中国东部。
   1. 更改群集的[标注策略](../management/calloutpolicy.md)以允许访问该位置。
         * 此更改需要 [AllDatabasesAdmin](../management/access-control/role-based-authorization.md) 权限。
 

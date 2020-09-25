@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: f348c9bfa967fcd59cb152ad02e961d4da1ca80c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: ebba7ff4ba1bdcc7f1b36bc62c7dd6ed52a7f76c
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413955"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721170"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Azure 时序见解第 2 代中的时序模型
 
@@ -23,7 +23,7 @@ ms.locfileid: "89413955"
 
 > [!TIP]
 >
-> * 通过 Azure 时序见解 TSI 资源管理器了解[如何使用时序模型](/time-series-insights/how-to-edit-your-model)。
+> * 通过 Azure 时序见解资源管理器了解[如何使用时序模型](/time-series-insights/how-to-edit-your-model)。
 
 ## <a name="summary"></a>摘要
 
@@ -74,7 +74,7 @@ ms.locfileid: "89413955"
 
 [![时序模型概述图表](./media/v2-update-tsm/time-series-model-overview.png)](./media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-可以通过 [Azure 时序见解 TSI 资源管理器](/time-series-insights/concepts-model-overview)来创建和管理时序模型。 可以通过[模型设置 API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) 来管理时序模型设置。
+可以通过 [Azure 时序见解资源管理器](/time-series-insights/concepts-model-overview)来创建和管理时序模型。 可以通过[模型设置 API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) 来管理时序模型设置。
 
 ## <a name="time-series-model-instances"></a>时序模型实例
 
@@ -86,7 +86,7 @@ ms.locfileid: "89413955"
 
 实例字段是描述性信息的集合，可包含层次结构级别的值，以及制造商、运营商等信息。
 
-为 Azure 时序见解第 2 代环境配置事件源后，会在时序模型中自动发现和创建实例。 可以使用时序模型查询通过 Azure 时序见解 TSI 资源管理器来创建或更新实例。
+为 Azure 时序见解第 2 代环境配置事件源后，会在时序模型中自动发现和创建实例。 可以使用时序模型查询通过 Azure 时序见解资源管理器来创建或更新实例。
 
 [![时序模型实例示例](./media/v2-update-tsm/time-series-model-instance.png)](./media/v2-update-tsm/time-series-model-instance.png#lightbox)
 
