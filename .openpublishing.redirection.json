@@ -27593,16 +27593,47 @@
             "source_path": "articles/machine-learning/how-to-debug-pipelines-application-insights.md",
             "redirect_url": "/machine-learning/how-to-log-pipelines-application-insights",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-enable-logging.md",
+            "redirect_url": "/machine-learning/how-to-enable-logging",
+            "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/active-directory/active-directory-passwords-troubleshoot.md",
+          "redirect_url": "/active-directory/authentication/troubleshoot-sspr",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/active-directory/authentication/active-directory-passwords-troubleshoot.md",
+          "redirect_url": "/active-directory/authentication/troubleshoot-sspr",
+          "redirect_document_id": true
+        },        
+        {
+          "source_path": "articles/active-directory/manage-apps/remove-user-or-group-access-portal.md",
+          "redirect_url": "/active-directory/manage-apps/assign-user-or-group-access-portal",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/active-directory/manage-apps/methods-for-assigning-users-and-groups.md",
+          "redirect_url": "/active-directory/manage-apps/assign-user-or-group-access-portal",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation.md",
+          "redirect_url": "/active-directory/conditional-access/concept-continuous-access-evaluation",
+          "redirect_document_id": true
+        }, 
+        {
+          "source_path": "articles/media-services/live-video-analytics-edge/http-data-contract.md",
+          "redirect_url": "/media-services/live-video-analytics-edge/http-extension-protocol",
+          "redirect_document_id": true
+        },
+        {
+          "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
+          "redirect_url": "/media-services/live-video-analytics-edge/grpc-extension-protocol",
+          "redirect_document_id": false
         }
-
-
-
-
-
-
-
-
-
 
     ]
 }
