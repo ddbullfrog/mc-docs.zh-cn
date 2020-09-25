@@ -7,17 +7,18 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 06/12/2019
-ms.date: 06/29/2020
+origin.date: 08/10/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: 888880819e57c8939508e7533edbf7b1b32ce1e3
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 9f116f204dcddadeb597e2014fb08de7e46fe2d5
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85319366"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523850"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Azure 数据工厂中的二进制格式
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 以下连接器支持二进制格式：[Amazon S3](connector-amazon-simple-storage-service.md)、[Azure Blob](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、[Azure 文件存储](connector-azure-file-storage.md)、[文件系统](connector-file-system.md)、[FTP](connector-ftp.md)、[Google 云存储](connector-google-cloud-storage.md)、[HDFS](connector-hdfs.md)、[HTTP](connector-http.md) 和 [SFTP](connector-sftp.md)。
@@ -87,7 +88,7 @@ ms.locfileid: "85319366"
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings 的 type 必须设置为“BinaryReadSettings”。 | 是      |
 | compressionProperties | 一组属性，指示如何为给定的压缩编解码器解压缩数据。 | 否       |
-| preserveZipFileNameAsFolder<br>（在 `compressionProperties` 下） | 当输入数据集配置了 ZipDeflate 压缩时适用。 指示是否在复制过程中以文件夹结构形式保留源 zip 文件名。 当设置为 true（默认值）时，数据工厂将解压缩文件写入 `<path specified in dataset>/<folder named as source zip file>/`；当设置为 false 时，数据工厂将解压缩文件直接写入 `<path specified in dataset>`。  | 否 |
+| preserveZipFileNameAsFolder<br>（在 `compressionProperties` 下） | 当输入数据集配置了 ZipDeflate 压缩时适用。 指示是否在复制过程中以文件夹结构形式保留源 zip 文件名。<br>- 当设置为 true（默认值）时，数据工厂会将已解压的文件写入 `<path specified in dataset>/<folder named as source zip file>/`。<br>- 当设置为“false”时，数据工厂会直接将未解压缩的文件写入 `<path specified in dataset>`。 请确保不同的源 zip 文件中没有重复的文件名，以避免产生冲突或出现意外行为。  | 否 |
 
 ```json
 "activities": [
@@ -121,7 +122,7 @@ ms.locfileid: "85319366"
 
 复制活动的 ***\*sink\**** 节支持以下属性。
 
-| 属性      | 说明                                                  | 必须 |
+| 属性      | 说明                                                  | 必需 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 复制活动源的 type 属性必须设置为 **BinarySink**。 | 是      |
 | storeSettings | 有关如何将数据写入到数据存储的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自身支持的写入设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息**。 | 否       |

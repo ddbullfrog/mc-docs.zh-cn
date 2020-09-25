@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 07/13/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 2fa5c5fd725715c87c847546841de3bd045cd311
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.date: 09/21/2020
+ms.openlocfilehash: 61fcff2edf9a3f8235490ad6cd3a2ede6d05a95e
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914264"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523963"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>使用 Azure Monitor 监视数据工厂和发警报
 
@@ -78,11 +78,11 @@ Azure Monitor 针对大多数 Azure 服务提供基本级别的基础结构指�
 | TriggerCancelledRuns                  | 已取消的触发器运行指标数            | 计数    | 总计                | 在一分钟时段内取消的触发器运行总数。 |
 | TriggerFailedRuns                    | 失败的触发器运行数指标              | 计数    | 总计                | 在一分钟时段内失败的触发器运行总数。 |
 | TriggerSucceededRuns                 | 成功的触发器运行数指标           | 计数    | 总计                | 在一分钟时段内成功的触发器运行总数。 |
-| SSISIntegrationRuntimeStartCancelled  | 已取消的 SSIS IR 启动指标           | 计数    | 总计                | 在一分钟时段内取消的 SSIS IR 启动总数。 |
-| SSISIntegrationRuntimeStartFailed    | 失败的 SSIS IR 启动指标             | 计数    | 总计                | 在一分钟时段内失败的 SSIS IR 启动总数。 |
-| SSISIntegrationRuntimeStartSucceeded | 已成功的 SSIS IR 启动指标          | 计数    | 总计                | 在一分钟时段内成功的 SSIS IR 启动总数。 |
-| SSISIntegrationRuntimeStopStuck      | 停滞的 SSIS IR 停止指标               | 计数    | 总计                | 在一分钟时段内停滞的 SSIS IR 停止总数。 |
-| SSISIntegrationRuntimeStopSucceeded  | 已成功的 SSIS IR 停止指标           | 计数    | 总计                | 在一分钟时段内成功的 SSIS IR 停止总数。 |
+| SSISIntegrationRuntimeStartCancelled  | 已取消的 SSIS 集成运行时启动指标           | 计数    | 总计                | 在一分钟时段内取消的 SSIS 集成运行时启动总数。 |
+| SSISIntegrationRuntimeStartFailed    | 失败的 SSIS 集成运行时启动指标             | 计数    | 总计                | 在一分钟时段内失败的 SSIS 集成运行时启动总数。 |
+| SSISIntegrationRuntimeStartSucceeded | 成功的 SSIS 集成运行时启动指标          | 计数    | 总计                | 在一分钟时段内成功的 SSIS 集成运行时启动总数。 |
+| SSISIntegrationRuntimeStopStuck      | 停滞的 SSIS 集成运行时停止指标               | 计数    | 总计                | 在一分钟时段内停滞的 SSIS 集成运行时停止总数。 |
+| SSISIntegrationRuntimeStopSucceeded  | 成功的 SSIS 集成运行时停止指标           | 计数    | 总计                | 在一分钟时段内成功的 SSIS 集成运行时停止总数。 |
 | SSISPackageExecutionCancelled         | 已取消的 SSIS 包执行指标  | 计数    | 总计                | 在一分钟时段内取消的 SSIS 包执行总数。 |
 | SSISPackageExecutionFailed           | 失败的 SSIS 包执行指标    | 计数    | 总计                | 在一分钟时段内失败的 SSIS 包执行总数。 |
 | SSISPackageExecutionSucceeded        | 已成功的 SSIS 包执行指标 | 计数    | 总计                | 在一分钟时段内成功的 SSIS 包执行总数。 |

@@ -5,17 +5,17 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: troubleshooting
-origin.date: 07/20/2020
-ms.date: 08/10/2020
+origin.date: 09/10/2020
+ms.date: 09/21/2020
 ms.author: v-jay
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 37b0b6c5fa1c6a61a524e56b2938c68c085dcf2b
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 22bb20079c7d58aad574adfc45bd07734b0e89b7
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914254"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523641"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>排查 Azure 数据工厂连接器问题
 
@@ -23,7 +23,6 @@ ms.locfileid: "87914254"
 
 本文探讨了常见的 Azure 数据工厂连接器故障排除方法。
   
-
 ## <a name="azure-blob-storage"></a>Azure Blob 存储
 
 ### <a name="error-code--azurebloboperationfailed"></a>错误代码：AzureBlobOperationFailed
@@ -162,7 +161,7 @@ ms.locfileid: "87914254"
 
 - **消息**：`Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
-## <a name="azure-sql-data-warehouseazure-sql-databasesql-server"></a>Azure SQL 数据仓库/Azure SQL 数据库/SQL Server
+## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics（以前称为 SQL 数据仓库）/Azure SQL 数据库/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>错误代码：SqlFailedToConnect
 
@@ -170,7 +169,7 @@ ms.locfileid: "87914254"
 
 - **原因：** 如果错误消息包含“SqlException”，则 SQL 数据库将引发错误，指示某个特定操作失败。
 
-- **建议**：如需了解更多详情，请按 SQL 错误代码在以下参考文档中进行搜索： https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 。 如需进一步的帮助，请联系 Azure SQL 支持。
+- **建议**：如需了解更多详细信息，请按 SQL 错误代码在以下参考文档中进行搜索： https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 。 如需进一步的帮助，请联系 Azure SQL 支持。
 
 - **原因：** 如果错误消息包含“具有 IP 地址的客户端‘...’不允许访问服务器”，并且你正在尝试连接到 Azure SQL 数据库，这通常是由 Azure SQL 数据库防火墙问题导致的。
 
@@ -183,8 +182,9 @@ ms.locfileid: "87914254"
 
 - **原因：** 如果错误消息包含“SqlException”，则 SQL 数据库将引发错误，指示某个特定操作失败。
 
-- **建议**：如果 SQL 错误不明确，请尝试将数据库更改为最新兼容级别“150”。 它可能会引发最新版本 SQL 错误。 请参阅详细信息文档： https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat 。
-        若要排查 SQL 错误，请根据 SQL 错误代码在此参考文档中搜索以了解更多详细信息： https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 。 如需进一步的帮助，请联系 Azure SQL 支持。
+- **建议**：如果 SQL 错误不明确，请尝试将数据库更改为最新兼容级别“150”。 它可能会引发最新版本 SQL 错误。 请参阅[详细信息文档](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat)。
+
+    若要排查 SQL 错误，请根据 SQL 错误代码在此参考文档中搜索以了解更多详细信息： https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 。 如需进一步的帮助，请联系 Azure SQL 支持。
 
 - **原因：** 如果错误消息包含“PdwManagedToNativeInteropException”，这通常是由于源列和接收器列大小不匹配导致的。
 
@@ -193,6 +193,7 @@ ms.locfileid: "87914254"
 - **原因：** 如果错误消息包含“InvalidOperationException”，这通常是由于输入数据无效导致的。
 
 - **建议**：若要确定哪个行遇到了问题，请在复制活动上启用容错功能，该功能可将有问题的行重定向到存储，以便进一步调查。 参考文档： https://docs.azure.cn/data-factory/copy-activity-fault-tolerance 。
+
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>错误代码：SqlUnauthorizedAccess
@@ -210,7 +211,7 @@ ms.locfileid: "87914254"
 
 - **原因：** 可能是 SQL 数据库暂时性失败。
 
-- **建议**：请重新尝试更新链接服务连接字符串，增大连接超时值。
+- **建议**：重试，以使用更大的连接超时值来更新链接服务连接字符串。
 
 
 ### <a name="error-code--sqlautocreatetabletypemapfailed"></a>错误代码：SqlAutoCreateTableTypeMapFailed
@@ -273,7 +274,7 @@ ms.locfileid: "87914254"
 
 - **原因：** 可能是 SQL 数据库暂时性失败。
 
-- **建议**：请重试。 如果问题重现，请联系 Azure SQL 支持人员。
+- **建议**：重试。 如果问题重现，请联系 Azure SQL 支持人员。
 
 
 ### <a name="error-code--sqlbatchwritetransactionfailed"></a>错误代码：SqlBatchWriteTransactionFailed
@@ -286,7 +287,7 @@ ms.locfileid: "87914254"
 
 - **原因：** 如果异常详细信息间歇性指出 sqlconnection 中断，则原因可能只是与暂时性网络故障或 SQL 数据库端的问题有关
 
-- **建议**：请重试活动，并查看 SQL 数据库端指标。
+- **建议**：重试活动，并审阅 SQL 数据库端指标。
 
 
 ### <a name="error-code--sqlbulkcopyinvalidcolumnlength"></a>错误代码：SqlBulkCopyInvalidColumnLength
@@ -304,7 +305,7 @@ ms.locfileid: "87914254"
 
 - **原因：** 当高并发运行和服务器终止连接时，SQL 数据库关闭了 SQL 连接。
 
-- **建议**：远程服务器关闭了 SQL 连接。 请重试。 如果问题重现，请联系 Azure SQL 支持人员。
+- **建议**：远程服务器关闭了 SQL 连接。 Retry。 如果问题重现，请联系 Azure SQL 支持人员。
 
 
 ### <a name="error-code--sqlcreatetablefailedunsupportedtype"></a>错误代码：SqlCreateTableFailedUnsupportedType
@@ -314,38 +315,38 @@ ms.locfileid: "87914254"
 
 ### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>错误消息：将字符串转换为唯一标识符失败
 
-- **症状**：使用分阶段复制和 PolyBase 将表格数据源（例如 SQL Server）中的数据复制到 Azure SQL 数据仓库时，遇到以下错误：
+- **症状**：使用暂存复制和 PolyBase 将表格数据源（例如 SQL Server）中的数据复制到 Azure Synapse Analytics 时，遇到以下错误：
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Conversion failed when converting from a character string to uniqueidentifier...
     ```
 
-- **原因：** Azure SQL 数据仓库 PolyBase 无法将空字符串转换为 GUID。
+- **原因：** Azure Synapse Analytics PolyBase 无法将空字符串转换为 GUID。
 
 - **解决方法**：在复制活动接收器中的 Polybase 设置下，将“use type default”选项设置为 false。
 
 ### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>错误消息：预期的数据类型：DECIMAL(x,x)，违规值
 
-- **症状**：使用分阶段复制和 PolyBase 将表格数据源（例如 SQL Server）中的数据复制到 SQL 数据仓库时，遇到以下错误：
+- **症状**：使用暂存复制和 PolyBase 将表格数据源（例如 SQL Server）中的数据复制到 Azure Synapse Analytics 时，遇到以下错误：
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) 
     Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
-- **原因：** Azure SQL 数据仓库 Polybase 无法将空字符串（null 值）插入十进制列。
+- **原因：** Azure Synapse Analytics Polybase 无法将空字符串（null 值）插入十进制列。
 
 - **解决方法**：在复制活动接收器中的 Polybase 设置下，将“use type default”选项设置为 false。
 
 ### <a name="error-message-java-exception-message-hdfsbridgecreaterecordreader"></a>错误消息：Java 异常消息：HdfsBridge::CreateRecordReader
 
-- **症状**：使用 PolyBase 将数据复制到 Azure SQL 数据仓库时遇到以下错误：
+- **症状**：使用 PolyBase 将数据复制到 Azure Synapse Analytics 时遇到以下错误：
 
     ```
     Message=110802;An internal DMS error occurred that caused this operation to fail. 
@@ -354,7 +355,7 @@ ms.locfileid: "87914254"
     Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
-- **原因：** 可能的原因是架构（总列宽）太大（大于 1 MB）。 通过添加所有列的大小来检查目标 SQL 数据仓库表的架构：
+- **原因：** 可能的原因是架构（总列宽）太大（大于 1 MB）。 通过添加所有列的大小来检查目标 Azure Synapse Analytics 表的架构：
 
     - Int -> 4 字节
     - Bigint -> 8 字节
@@ -378,15 +379,15 @@ ms.locfileid: "87914254"
 
 ### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>错误消息：不满足使用 HTTP 条件标头指定的条件
 
-- **症状**：使用 SQL 查询从 Azure SQL 数据仓库提取数据时遇到以下错误：
+- **症状**：使用 SQL 查询从 Azure Synapse Analytics 提取数据时遇到以下错误：
 
     ```
     ...StorageException: The condition specified using HTTP conditional header(s) is not met...
     ```
 
-- **原因：** Azure SQL 数据仓库在查询 Azure 存储中的外部表时遇到问题。
+- **原因：** Azure Synapse Analytics 在查询 Azure 存储中的外部表时遇到问题。
 
-- **解决方法**：在 SSMS 中运行同一查询，检查是否看到相同的结果。 如果是，请开具 Azure SQL 数据仓库的支持票证，并提供 SQL 数据仓库服务器和数据库名称以进一步排查问题。
+- **解决方法**：在 SSMS 中运行同一查询，检查是否看到相同的结果。 如果是，请创建 Azure Synapse Analytics 支持票证，并提供 Azure Synapse Analytics 服务器和数据库名称以进一步排查问题。
             
 
 ## <a name="delimited-text-format"></a>带分隔符的文本格式
@@ -406,7 +407,7 @@ ms.locfileid: "87914254"
 
 - **原因：** 有问题的行的列计数大于第一行的列计数。 原因可能是数据有问题，或者列分隔符/引号字符设置不正确。
 
-- **建议**：请获取错误消息中的行计数，检查行的列并修复数据。
+- **建议**：获取错误消息中的行计数，检查行的列并修复数据。
 
 - **原因：** 如果错误消息中的预期列计数为“1”，则原因可能是指定了错误的压缩或格式设置，导致 ADF 错误地分析文件。
 
@@ -491,7 +492,7 @@ ms.locfileid: "87914254"
 
 - **原因：** 如果错误消息包含“java.lang.OutOfMemory”、“Java 堆空间”和“doubleCapacity”，则原因通常与旧版集成运行时中的内存管理问题有关。
 
-- **建议**：如果使用的是自承载集成运行时，并且版本低于 3.20.7159.1，我们建议升级到最新版本。
+- **建议**：如果使用的是自承载集成运行时，且版本低于 3.20.7159.1，建议升级到最新版本。
 
 - **原因：** 如果错误消息包含“java.lang.OutOfMemory”，则原因是集成运行时不能提供足够的资源来处理文件。
 
@@ -499,7 +500,7 @@ ms.locfileid: "87914254"
 
 - **原因：** 如果错误消息包含“NullPointerReference”，则原因可能是出现了暂时性错误。
 
-- **建议**：请重试。 如果问题仍然出现，请联系支持人员。
+- **建议**：重试。 如果问题仍然出现，请联系支持人员。
 
 
 ### <a name="error-code--parquetinvalidfile"></a>错误代码：ParquetInvalidFile
@@ -571,7 +572,7 @@ ms.locfileid: "87914254"
 
 - **原因：** 源中的数据无法转换为接收器中定义的类型
 
-- **建议**：请在 mapping.sink 中指定正确的类型。
+- **建议**：在 mapping.sink 中指定正确的类型。
 
 
 ### <a name="error-code--parquetbridgeinvaliddata"></a>错误代码：ParquetBridgeInvalidData
@@ -580,7 +581,7 @@ ms.locfileid: "87914254"
 
 - **原因：** 数据值超出限制
 
-- **建议**：请重试。 如果问题仍然出现，请联系我们。
+- **建议**：重试。 如果问题仍然出现，请联系我们。
 
 
 ### <a name="error-code--parquetunsupportedinterpretation"></a>错误代码：ParquetUnsupportedInterpretation

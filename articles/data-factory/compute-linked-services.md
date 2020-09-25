@@ -1,6 +1,6 @@
 ---
 title: Azure 数据工厂支持的计算环境
-description: 了解可在 Azure 数据工厂管道（例如 Azure HDInsight）中用于转换或处理数据的计算环境。
+description: 可与 Azure 数据工厂管道（例如 Azure HDInsight）配合使用来转换或处理数据的计算环境。
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -10,13 +10,13 @@ author: WenJason
 ms.author: v-jay
 manager: digimobile
 origin.date: 05/08/2019
-ms.date: 06/29/2020
-ms.openlocfilehash: 4fd185ac35930b06e2e9ce12e13646903ae692d2
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.date: 09/21/2020
+ms.openlocfilehash: 85b629a70d045334cba76b5bbe0824e176aecc70
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321485"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523715"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure 数据工厂支持的计算环境
 
@@ -30,7 +30,9 @@ ms.locfileid: "85321485"
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [按需 HDInsight 群集](#azure-hdinsight-on-demand-linked-service)或[自己的 HDInsight 群集](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md)、[Pig](transform-data-using-hadoop-pig.md)、[Spark](transform-data-using-spark.md)、[MapReduce](transform-data-using-hadoop-map-reduce.md)、[Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [自定义](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure SQL](#azure-sql-database-linked-service)、[Azure SQL 数据仓库](#azure-sql-data-warehouse-linked-service)、[SQL Server](#sql-server-linked-service) | [存储过程](transform-data-using-stored-procedure.md) |
+| [Azure 机器学习](#azure-machine-learning-linked-service) | [Azure 机器学习执行管道](transform-data-machine-learning-service.md) |
+| [Azure SQL](#azure-sql-database-linked-service)、[Azure Synapse Analytics（以前称为 SQL 数据仓库）](#azure-synapse-analytics-linked-service)、[SQL Server](#sql-server-linked-service) | [存储过程](transform-data-using-stored-procedure.md) |
+| [Azure Function](#azure-function-linked-service)         | [Azure 函数活动](control-flow-azure-function-activity.md)
 
 ## <a name="hdinsight-compute-environment"></a>HDInsight 计算环境
 
@@ -103,11 +105,11 @@ Azure 数据工厂服务可自动创建按需 HDInsight 群集，以处理数据
 > [!IMPORTANT]
 > HDInsight 群集在 JSON 中指定的 Blob 存储 (**linkedServiceName**).内创建**默认容器**。 HDInsight 不会在删除群集时删除此容器。 此行为是设计使然。 使用按需 HDInsight 链接服务时，除非有现有的实时群集 (**timeToLive**)，否则每当需要处理切片时会创建 HDInsight 群集；并在处理完成后删除该群集。 
 >
-> 随着运行的活动越来越多，Azure Blob 存储中会出现大量的容器。 如果不需要使用它们对作业进行故障排除，则可能需要删除它们以降低存储成本。 这些容器的名称遵循 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`模式。 使用 [Microsoft 存储资源管理器](https://storageexplorer.com/) 等工具删除 Azure Blob 存储中的容器。
+> 随着运行的活动越来越多，Azure Blob 存储中会出现大量的容器。 如果不需要使用它们对作业进行故障排除，则可能需要删除它们以降低存储成本。 这些容器的名称遵循 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 模式。 使用 [Microsoft Azure 存储资源管理器](https://storageexplorer.com/)等工具删除 Azure Blob 存储中的容器。
 
 #### <a name="properties"></a>属性
 
-| 属性                     | 说明                              | 必须 |
+| Property                     | 说明                              | 必需 |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | 类型属性应设置为 **HDInsightOnDemand**。 | 是      |
 | clusterSize                  | 群集中辅助进程/数据节点的数量。 HDInsight 群集创建时具有 2 个头节点以及一定数量的辅助进程节点（此节点的数量是为此属性所指定的数量）。 这些节点的大小为拥有 4 个核心的 Standard_D3，因此一个具有 4 个辅助节点的群集拥有 24 个核心（辅助节点有 4\*4 = 16 个核心，头节点有 2\*4 = 8 个核心）。 请参阅[使用 Hadoop、Spark、Kafka 等在 HDInsight 中设置群集](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)，了解详细信息。 | 是      |
@@ -155,7 +157,7 @@ Azure 数据工厂服务可自动创建按需 HDInsight 群集，以处理数据
 
 通过指定以下属性使用服务主体身份验证：
 
-| 属性                | 说明                              | 必须 |
+| properties                | 说明                              | 必选 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 指定应用程序的客户端 ID。     | 是      |
 | **servicePrincipalKey** | 指定应用程序的密钥。           | 是      |
@@ -165,7 +167,7 @@ Azure 数据工厂服务可自动创建按需 HDInsight 群集，以处理数据
 
 也可以为按需 HDInsight 群集的粒度配置指定以下属性。
 
-| 属性               | 说明                              | 必须 |
+| properties               | 说明                              | 必选 |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | 为待创建的 HDInsight 群集指定核心配置参数（如在 core-site.xml 中）。 | 否       |
 | hBaseConfiguration     | 为 HDInsight 群集指定 HBase 配置参数 (hbase-site.xml)。 | 否       |
@@ -233,7 +235,7 @@ Azure 数据工厂服务可自动创建按需 HDInsight 群集，以处理数据
 #### <a name="node-sizes"></a>节点大小
 可使用以下属性指定头节点、数据节点和 Zookeeper 节点的大小： 
 
-| 属性          | 说明                              | 必须 |
+| properties          | 说明                              | 必选 |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | 指定头节点的大小。 默认值为：Standard_D3。 有关详细信息，请参阅**指定节点大小**部分。 | 否       |
 | dataNodeSize      | 指定数据节点的大小。 默认值为：Standard_D3。 | 否       |
@@ -257,7 +259,7 @@ Azure 数据工厂服务可自动创建按需 HDInsight 群集，以处理数据
 
 * Azure HDInsight
 * Azure Batch
-* Azure SQL DB、Azure SQL DW、SQL Server
+* Azure SQL DB、Azure Synapse Analytics、SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Azure HDInsight 链接服务
 可以创建 Azure HDInsight 链接服务，以向数据工厂注册自己的 HDInsight 群集。
@@ -290,7 +292,7 @@ Azure 数据工厂服务可自动创建按需 HDInsight 群集，以处理数据
 ```
 
 ### <a name="properties"></a>属性
-| 属性          | 说明                                                  | 必须 |
+| Property          | 说明                                                  | 必需 |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | 类型属性应设置为 **HDInsight**。            | 是      |
 | clusterUri        | HDInsight 群集的 URI。                            | 是      |
@@ -350,7 +352,7 @@ Azure 数据工厂服务可自动创建按需 HDInsight 群集，以处理数据
 
 
 ### <a name="properties"></a>属性
-| 属性          | 说明                              | 必须 |
+| Property          | 说明                              | 必需 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | 类型属性应设置为 **AzureBatch**。 | 是      |
 | accountName       | Azure Batch 帐户的名称。         | 是      |
@@ -360,13 +362,57 @@ Azure 数据工厂服务可自动创建按需 HDInsight 群集，以处理数据
 | linkedServiceName | 与此 Azure Batch 链接服务相关联的 Azure 存储链接服务的名称。 此链接服务用于暂存运行活动所需的文件。 | 是      |
 | connectVia        | 用于将活动分发到此链接服务的集成运行时。 可以使用 Azure 集成运行时或自托管集成运行时。 如果未指定，则使用默认 Azure Integration Runtime。 | 否       |
 
+## <a name="azure-machine-learning-linked-service"></a>Azure 机器学习链接服务
+可以创建 Azure 机器学习链接服务，将 Azure 机器学习工作区连接到数据工厂。
+
+> [!NOTE]
+> 目前，Azure 机器学习链接服务仅支持服务主体身份验证。
+
+### <a name="example"></a>示例
+
+```json
+{
+    "name": "AzureMLServiceLinkedService",
+    "properties": {
+        "type": "AzureMLService",
+        "typeProperties": {
+            "subscriptionId": "subscriptionId",
+            "resourceGroupName": "resourceGroupName",
+            "mlWorkspaceName": "mlWorkspaceName",
+            "servicePrincipalId": "service principal id",
+            "servicePrincipalKey": {
+                "value": "service principal key",
+                "type": "SecureString"
+            },
+            "tenant": "tenant ID"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime?",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="properties"></a>属性
+| Property               | 说明                              | 必选                                 |
+| ---------------------- | ---------------------------------------- | ---------------------------------------- |
+| 类型                   | 类型属性应设置为：AzureMLService。 | 是                                      |
+| subscriptionId         | Azure 订阅 ID              | 是                                      |
+| resourceGroupName      | name | 是                                      |
+| mlWorkspaceName        | Azure 机器学习工作区名称 | 是  |
+| servicePrincipalId     | 指定应用程序的客户端 ID。     | 否 |
+| servicePrincipalKey    | 指定应用程序的密钥。           | 否 |
+| tenant                 | 指定应用程序的租户信息（域名或租户 ID）。 可将鼠标悬停在 Azure 门户右上角进行检索。 | 如果已指定 updateResourceEndpoint，则为必需 | 否 |
+| connectVia             | 用于将活动分发到此链接服务的集成运行时。 可以使用 Azure 集成运行时或自托管集成运行时。 如果未指定，则使用默认 Azure Integration Runtime。 | 否 |
+
 ## <a name="azure-sql-database-linked-service"></a>Azure SQL 数据库链接服务
 
 创建 Azure SQL 链接服务，并将其与[存储过程活动](transform-data-using-stored-procedure.md)配合使用，以从数据工厂管道调用存储过程。 请参阅 [Azure SQL 连接器](connector-azure-sql-database.md#linked-service-properties)一文，以了解此链接服务的详细信息。
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL 数据仓库链接服务
+## <a name="azure-synapse-analytics-linked-service"></a>Azure Synapse Analytics 链接服务
 
-创建 Azure SQL 数据仓库链接服务，并将其与[存储的过程活动](transform-data-using-stored-procedure.md)配合使用，以从数据工厂管道调用存储的过程。 请参阅[Azure SQL 数据仓库连接器](connector-azure-sql-data-warehouse.md#linked-service-properties)一文，以了解此链接服务的详细信息。
+创建 Azure Synapse Analytics（以前称为 SQL 数据仓库）链接服务，并将其与[存储过程活动](transform-data-using-stored-procedure.md)配合使用，以从数据工厂管道调用存储过程。 请参阅 [Azure Synapse Analytics（以前称为 SQL 数据仓库）连接器](connector-azure-sql-data-warehouse.md#linked-service-properties)一文，详细了解此链接服务。
 
 ## <a name="sql-server-linked-service"></a>SQL Server 链接服务
 

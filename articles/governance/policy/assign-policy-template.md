@@ -2,16 +2,16 @@
 title: 快速入门：带有模板的新策略分配
 description: 本快速入门介绍如何使用 Azure 资源管理器模板（ARM 模板）来创建策略分配以识别不合规的资源。
 ms.author: v-tawe
-origin.date: 05/21/2020
-ms.date: 08/06/2020
+origin.date: 08/17/2020
+ms.date: 09/15/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 49f906541fb8b15d24f08c5924624afc6b1bffcd
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: ae2e7b536b34081a792afc418548763b0de37f5b
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917118"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523884"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建策略分配以识别不合规的资源
 
@@ -22,7 +22,7 @@ ms.locfileid: "87917118"
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="部署用于将 Azure 策略分配给 Azure 的 ARM 模板" border="false" link="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="将用于分配 Azure 策略的 ARM 模板部署到 Azure 的按钮。" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -84,7 +84,7 @@ ms.locfileid: "87917118"
 
 1. 选择下图登录到 Azure 门户并打开模板：
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="部署用于将 Azure 策略分配给 Azure 的 ARM 模板" border="false" link="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="将用于分配 Azure 策略的 ARM 模板部署到 Azure 的按钮。" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. 选择或输入以下值：
 
@@ -111,7 +111,7 @@ ms.locfileid: "87917118"
 
 选择页面左侧的“符合性”。 然后找到所创建的“审核未使用托管磁盘的 VM”策略分配。
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="策略符合性概述页" border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="“策略合规性”页面上合规性详细信息的屏幕截图。" border="false":::
 
 如果存在与此新分配不相符的任何现有资源，这些资源会在“不符合的资源”下显示。
 
@@ -125,7 +125,7 @@ ms.locfileid: "87917118"
 
 1. 右键单击“审核不使用托管磁盘的 VM”策略分配并选择“删除分配”。 
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="从符合性概述页中删除分配" border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="使用上下文菜单从“合规性”页面中删除分配的屏幕截图。" border="false":::
 
 ## <a name="next-steps"></a>后续步骤
 

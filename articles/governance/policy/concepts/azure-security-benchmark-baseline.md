@@ -5,15 +5,15 @@ author: msmbaldwin
 ms.service: azure-policy
 ms.topic: conceptual
 origin.date: 07/02/2020
-ms.date: 08/06/2020
+ms.date: 09/15/2020
 ms.author: v-tawe
-ms.custom: security-benchmark
-ms.openlocfilehash: 14a5bfeff99e16c08f1668d52647070670d58d9b
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 08359be2d480f9a7cfb281cb9cb7b96beaf4d7df
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87919219"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523872"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Azure 安全基准的 Azure Policy 安全基准
 
@@ -22,6 +22,7 @@ ms.locfileid: "87919219"
 <!-- For a mapping of the Azure Security Benchmark controls to built-in policy definitions via the built-in initiative, see [Regulatory Compliance: Azure Security Benchmark](../samples/azure-security-benchmark.md). -->
 
 Azure Policy 使用术语“所有权”来代替“责任” 。 如需了解“所有权”的详细信息，请参阅 [Azure Policy 策略定义](./definition-structure.md#type)和[云中责任共享](../../../security/fundamentals/shared-responsibility.md)。
+
 
 ## <a name="logging-and-monitoring"></a>日志记录和监视
 
@@ -34,6 +35,7 @@ Azure Policy 使用术语“所有权”来代替“责任” 。 如需了解�
 * [如何使用 Azure Monitor 收集平台日志和指标](../../../azure-monitor/platform/diagnostic-settings.md)
 
 * [了解 Azure 中的日志记录和不同的日志类型](../../../azure-monitor/platform/platform-logs-overview.md)
+
 
 **Azure 安全中心监视**：目前不可用
 
@@ -71,13 +73,13 @@ Azure Policy 使用术语“所有权”来代替“责任” 。 如需了解�
 
 有关详细信息，请参阅[安全控制：数据保护](../../../security/benchmarks/security-control-data-protection.md)。
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6：使用基于角色的访问控制来控制对资源的访问
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指导**：使用 Azure Active Directory 基于角色的访问控制 (RBAC) 来控制对 Azure Policy 的访问。
+**指导**：使用 Azure 基于角色的访问控制 (Azure RBAC) 来控制对 Azure Policy 的访问。
 
-* [Azure Policy 中的 RBAC 权限](../overview.md#rbac-permissions-in-azure-policy)
+* [Azure Policy 中的 Azure RBAC 权限](../overview.md#rbac-permissions-in-azure-policy)
 
-* [如何在 Azure 中配置 RBAC](../../../role-based-access-control/role-assignments-portal.md)
+* [如何配置 Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
 
 **Azure 安全中心监视**：目前不可用
@@ -106,6 +108,7 @@ Azure Policy 使用术语“所有权”来代替“责任” 。 如需了解�
 * [教程：创建和管理策略](../tutorials/create-and-manage.md)
 
 * [教程：管理标记治理](../tutorials/govern-tags.md)
+
 
 **Azure 安全中心监视**：目前不可用
 

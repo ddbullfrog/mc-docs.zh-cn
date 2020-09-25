@@ -9,15 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 11/20/2019
-ms.date: 05/11/2020
+origin.date: 08/06/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: 40a3b64cac439dfe054932240df26cece06422e8
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: adbe85d25c85142a7be3a63952093d9c56cf70d7
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82197899"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524060"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 REST 终结点复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "82197899"
 此 REST 连接器、[HTTP 连接器](connector-http.md)和 [Web 表连接器](connector-web-table.md)之间的区别如下：
 
 - **REST 连接器**专门支持从 RESTful API 复制数据； 
-- **HTTP 连接器**是通用的，可从任何 HTTP 终结点检索数据，以执行文件下载等操作。 在此 REST 连接器可用之前，可以偶尔使用 HTTP 连接器从 RESTful API 复制数据，这是受支持的，但 HTTP 连接器与 REST 连接器相比功能较少。
+- “HTTP 连接器”是通用的，可从任何 HTTP 终结点检索数据，以执行文件下载等操作。 在此 REST 连接器可用之前，可以偶尔使用 HTTP 连接器从 RESTful API 复制数据，这是受支持的，但 HTTP 连接器与 REST 连接器相比功能较少。
 - **Web 表连接器**用于从 HTML 网页中提取表内容。
 
 ## <a name="supported-capabilities"></a>支持的功能
@@ -63,7 +63,7 @@ REST 链接服务支持以下属性：
 | type | type 属性必须设置为 **RestService**  。 | 是 |
 | url | REST 服务的基 URL。 | 是 |
 | enableServerCertificateValidation | 连接到终结点时是否要验证服务器端 TLS/SSL 证书。 | 否<br /> （默认值为 true）  |
-| authenticationType | 用于连接到 REST 服务的身份验证类型。 允许的值为 **Anonymous**、**Basic**、**AadServicePrincipal** 和 **ManagedServiceIdentity**。 有关其他属性和示例，请参阅下面的相应部分。 | 是 |
+| authenticationType | 用于连接到 REST 服务的身份验证类型。 允许的值包括“Anonymous”、“Basic”、“AadServicePrincipal”和“ManagedServiceIdentity”   。 有关其他属性和示例，请参阅下面的相应部分。 | 是 |
 | connectVia | 用于连接到数据存储的 [ Integration Runtime](concepts-integration-runtime.md)。 从[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则此属性使用默认 Azure Integration Runtime。 |否 |
 
 ### <a name="use-basic-authentication"></a>使用基本身份验证
@@ -109,6 +109,7 @@ REST 链接服务支持以下属性：
 | servicePrincipalKey | 指定 Azure Active Directory 应用程序的密钥。 将此字段标记为 **SecureString** 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是 |
 | tenant | 指定应用程序的租户信息（域名或租户 ID）。 将鼠标悬停在 Azure 门户右上角进行检索。 | 是 |
 | aadResourceId | 指定请求授权的 AAD 资源，例如 `https://management.core.chinacloudapi.cn`。| 是 |
+| azureCloudType | 对于服务主体身份验证，请指定 AAD 应用程序注册到的 Azure 云环境的类型。 <br/> 允许的值包括“AzurePublic”、“AzureChina”、“AzureUsGovernment”和“AzureGermany”   。 默认情况下，使用数据工厂的云环境。 | 否 |
 
 **示例**
 
@@ -172,7 +173,7 @@ REST 链接服务支持以下属性：
 
 若要从 REST 复制数据，支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 数据集的 **type** 属性必须设置为 **RestResource**。 | 是 |
 | relativeUrl | 包含数据的资源的相对 URL。 未指定此属性时，仅使用链接服务定义中指定的 URL。 HTTP 连接器从以下组合 URL 复制数据：`[URL specified in linked service]/[relative URL specified in dataset]`。 | 否 |
@@ -208,7 +209,7 @@ REST 链接服务支持以下属性：
 
 复制活动**source**部分支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| properties | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动源的 **type** 属性必须设置为 **RestSource**。 | 是 |
 | requestMethod | HTTP 方法。 允许的值为 Get（默认值）和 Post   。 | 否 |
@@ -306,7 +307,7 @@ REST 链接服务支持以下属性：
 * 下一个请求的标头 = 当前响应正文中的属性值
 * 下一个请求的标头 = 当前响应标头中的标头值
 
-**分页规则**定义为包含一个或多个区分大小写的键值对的数据集中的字典。 该配置将用于从第二页开始生成请求。 当连接器收到 HTTP 状态代码 204（无内容），或者“paginationRules”中的任意 JSONPath 表达式返回 null 时，连接器将停止迭代。
+“分页规则”定义为包含一个或多个区分大小写的键值对的数据集中的字典。 该配置将用于从第二页开始生成请求。 当连接器收到 HTTP 状态代码 204（无内容），或者“paginationRules”中的任意 JSONPath 表达式返回 null 时，连接器将停止迭代。
 
 分页规则中**支持的键**：
 
@@ -410,7 +411,7 @@ Facebook 图形 API 返回采用以下结构的响应，在此情况下，下一
 
     | 属性 | 说明 |
     |:--- |:--- |:--- |
-    | URL |指定要从其中检索 OAuth 持有者令牌的 URL。 例如，在本示例中，它是 https://login.partner.microsoftonline.cn/microsoft.partner.onmschina.cn/oauth2/token |上获取。 
+    | URL |指定要从其中检索 OAuth 持有者令牌的 URL。 例如，在本示例中，它是 https://login.partner.microsoftonline.cn/microsoft.partner.onmschina.cn/oauth2/token |. 
     | 方法 | HTTP 方法。 允许的值为“Post”和“Get”   。 | 
     | 头文件 | 标头由用户定义，引用 HTTP 请求中的一个标头名称。 | 
     | 正文 | HTTP 请求的正文。 | 

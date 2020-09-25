@@ -10,20 +10,20 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 09/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: cf7c9a9aaed4a1c7d3ef3663d858aa727cedc2e3
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 796edf00eaaddc3543d087d02662a81b9730bd0b
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593801"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721162"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure 时序见解 Gen1 资源管理器
 
 本文介绍 Azure 时序见解 Gen1 [资源管理器 Web 应用](https://insights.timeseries.azure.cn/)的功能和选项。 Azure 时序见解资源管理器演示了该服务提供的，可在你自己的环境中访问的强大数据可视化功能。
 
-Azure 时序见解是一种完全托管的分析、存储和可视化服务，让同时探索和分析数十亿 IoT 事件变得简单轻松。 它提供数据的全局视图，从而可以快速验证 IoT 解决方案并避免任务关键型设备出现代价高昂的故障时间。 可以近乎实时地发现隐藏的趋势、找出异常以及进行根本原因分析。 
+Azure 时序见解是一种完全托管的分析、存储和可视化服务，让同时探索和分析数十亿 IoT 事件变得简单轻松。 它提供数据的全局视图，从而可以快速验证 IoT 解决方案并避免任务关键型设备出现代价高昂的故障时间。 可以近乎实时地发现隐藏的趋势、找出异常以及进行根本原因分析。
 
 > [!TIP]
 > 有关演示环境的指导教程，请阅读 [Azure 时序见解快速入门](time-series-quickstart.md)。
@@ -99,7 +99,7 @@ Azure 时序见解是一种完全托管的分析、存储和可视化服务，�
 
 1. 使用**热度地图**可以快速发现给定查询中的唯一或异常数据系列。 仅有一个搜索术语能可视化为热度地图。
 
-    [![Gen1 资源管理器热度地图图表](./media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](./media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [![时序见解资源管理器热度地图图表](./media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](./media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. 通过选择或右键单击浏览事件时，会显示“事件”面板  。 在这里，可以查看所有原始事件并可将事件导出为 JSON 或 CSV 文件。 Azure 时序见解存储所有原始数据。
 

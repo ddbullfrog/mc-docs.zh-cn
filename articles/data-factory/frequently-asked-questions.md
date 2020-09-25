@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 02/10/2020
-ms.date: 06/29/2020
-ms.openlocfilehash: 893ef10202b6eed323b41ae55b90ae49f0e58044
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.date: 09/21/2020
+ms.openlocfilehash: 00c03fa318c93a2ad78d013fa237b99d0c8fe1d7
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321065"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524052"
 ---
 # <a name="azure-data-factory-faq"></a>Azure 数据工厂常见问题解答
 
@@ -98,7 +98,7 @@ ms.locfileid: "85321065"
 
 - **数据移动**：就数据移动而言，集成运行时在源和目标数据存储之间移动数据，同时为内置连接器、格式转换、列映射和高性能可缩放数据传输提供支持。
 - **调动活动**：就转换而言，集成运行时提供本机执行 SSIS 包的能力。
-- **执行 SSIS 包**：Integration Runtime 在托管的 Azure 计算环境中本机执行 SSIS 包。 Integration Runtime 还支持调度和监视各种计算服务（如 Azure HDInsight、SQL 数据库、SQL Server）上运行的转换活动。
+- **执行 SSIS 包**：Integration Runtime 在托管的 Azure 计算环境中本机执行 SSIS 包。 Integration Runtime 还支持调度和监视各种计算服务（如 Azure HDInsight、Azure 机器学习、SQL 数据库和 SQL Server）上运行的转换活动。
 
 可以按需部署一个或多个集成运行时实例来移动和转换数据。 集成运行时可以在 Azure 公用网络或专用网络（本地、Azure 虚拟网络或 Amazon Web Services 虚拟私有云 [VPC]）中运行。 
 

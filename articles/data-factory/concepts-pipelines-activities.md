@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 11/19/2019
-ms.date: 07/29/2020
-ms.openlocfilehash: 8852cfb4e134d4e2785c15ac6a0fb08e4c60353f
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.date: 09/21/2020
+ms.openlocfilehash: 39138f86bd7f2b3c591b86bc9bb484c3df68f04b
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974319"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523709"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 数据工厂中的管道和活动
 
@@ -53,7 +53,7 @@ Azure 数据工厂支持以下转换活动，这些活动既可以单独添加�
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop 流式处理](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[存储过程](transform-data-using-stored-procedure.md) | Azure SQL、Azure SQL 数据仓库或 SQL Server
+[存储过程](transform-data-using-stored-procedure.md) | Azure SQL、Azure Synapse Analytics（以前称为 SQL 数据仓库）或 SQL Server
 [自定义活动](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 
 有关详细信息，请参阅[数据转换活动](transform-data.md)一文。

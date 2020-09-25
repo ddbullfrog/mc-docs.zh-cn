@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 07/29/2019
-ms.date: 06/15/2020
-ms.openlocfilehash: 204d78150249a0f767862d19fa01e448d7c6eed8
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+origin.date: 09/03/2020
+ms.date: 09/21/2020
+ms.openlocfilehash: 5b001a0805ed11871743e4a91797aee99ad48fc3
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723687"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523745"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>创建翻转窗口触发器依赖项
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "84723687"
 
 若要在触发器上创建依赖项，请选择“触发器”>“高级”>“新建”，然后选择要依赖的、具有相应偏移量和大小的触发器。**** 选择“完成”并发布数据工厂更改，使依赖项生效。****
 
-![依赖项创建](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "依赖项创建")
+![依赖项创建](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "依赖项创建")
 
 ## <a name="tumbling-window-dependency-properties"></a>翻转窗口依赖项属性
 
@@ -130,41 +130,53 @@ ms.locfileid: "84723687"
 
 ### <a name="dependency-offset"></a>依赖项偏移量
 
-![偏移量示例](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png "偏移量示例")
+![偏移量示例](media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png "偏移量示例")
 
 ### <a name="dependency-size"></a>依赖项大小
 
-![大小示例](media/tumbling-window-trigger-dependency/tumbling-window-dependency03.png "大小示例")
+![大小示例](media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png "大小示例")
 
 ### <a name="self-dependency"></a>自我依赖项
 
-![自我依赖项](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "自我依赖项")
+![自我依赖项](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "自我依赖项")
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>依赖于另一个翻转窗口触发器
 
 某个每日遥测数据处理作业依赖于另一个每日作业，这后一个作业聚合过去七天的输出，并生成七天滚动窗口流：
 
-![依赖项示例](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "依赖项示例")
+![依赖项示例](media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png "依赖项示例")
 
 ### <a name="dependency-on-itself"></a>依赖于自身
 
 在作业输出流中不存在间隙的每日作业：
 
-![自我依赖项示例](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "自我依赖项示例")
+![自我依赖项示例](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "自我依赖项示例")
 
 ## <a name="monitor-dependencies"></a>监视依赖项
 
-可以从“触发器运行监视”页面监视依赖链和相应的窗口。 导航到“监视”>“触发器运行”。**** 在“操作”列下，可以重新运行触发器或查看其依赖项。
+可以从“触发器运行监视”页面监视依赖链和相应的窗口。 导航到“监视”>“触发器运行”。**** 如果翻转窗口触发器具有依赖项，则触发器名称将包含指向依赖项监视视图的超链接。  
 
-![监视触发器运行](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "监视触发器运行")
+![监视触发器运行](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "监视触发器运行 - 翻转窗口依赖项视图的入口")
 
-如果单击“查看触发器依赖关系”，可以查看依赖项的状态。 如果某个依赖项触发器失败，则必须成功重新运行它才能使相关触发器可以运行。 翻转窗口触发器将在超时前等待依赖项七天。
+单击触发器名称以查看触发器依赖项。 右侧面板显示详细的触发器运行信息，例如 RunID、窗口时间、状态等。
 
-![监视依赖项](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "监视依赖项")
+![监视依赖项列表视图](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "监视依赖项列表视图")
+
+你可以查看依赖项的状态，以及每个相关触发器的窗口。 如果某个依赖项触发器失败，则必须成功重新运行它才能使相关触发器可以运行。
+
+翻转窗口触发器将在超时前等待依赖项七天。七天后，触发器运行将失败。
 
 若要更直观地查看触发器依赖项计划，请选择甘特图视图。
 
-![监视依赖项](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "监视依赖项")
+![监视依赖项甘特图](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "监视依赖项甘特图视图")
+
+透明框显示每个与下游相关的触发器的依赖项窗口，而上方的纯色框显示各个窗口运行。 以下是理解甘特图视图的一些技巧：
+
+* 相关窗口处于挂起或正在运行状态时，透明框呈蓝色
+* 在所有窗口上成功创建相关触发器后，透明框将变为绿色
+* 某些相关窗口出现故障时，透明框呈红色。 查找红色的纯色框，以标识失败的窗口运行
+
+若要在甘特图视图中重新运行窗口，请为该窗口选择纯色框，然后将弹出一个包含详细信息和重新运行选项的操作面板
 
 ## <a name="next-steps"></a>后续步骤
 

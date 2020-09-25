@@ -1,30 +1,29 @@
 ---
-title: 使用 Azure 数据工厂将数据从本地 Netezza 服务器迁移到 Azure
+title: 将数据从本地 Netezza 服务器迁移到 Azure
 description: 使用 Azure 数据工厂将数据从本地 Netezza 服务器迁移到 Azure。
 services: data-factory
-documentationcenter: ''
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 origin.date: 9/03/2019
-ms.date: 01/06/2020
-ms.openlocfilehash: 4acbf297e27c731f16c1ac388ede302700e997b0
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.date: 09/21/2020
+ms.openlocfilehash: f9e9ca77f06410223c02d491089e4fb02e389e38
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82197805"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523976"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>使用 Azure 数据工厂将数据从本地 Netezza 服务器迁移到 Azure 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure 数据工厂提供高性能、稳健且经济高效的机制用于将数据从本地 Netezza 服务器大规模迁移到 Azure 存储帐户或 Azure SQL 数据仓库数据库。 
+Azure 数据工厂提供了高性能、稳健且经济高效的机制，用于将数据从本地 Netezza 服务器大规模迁移到 Azure 存储帐户或 Azure Synapse Analytics（以前称为 SQL 数据仓库）数据库。 
 
 本文提供面向数据工程师和开发人员的以下信息：
 
@@ -59,7 +58,7 @@ Azure 数据工厂提供一个可在不同级别实现并行度的无服务器�
 
 ## <a name="network-security"></a>网络安全 
 
-默认情况下，Azure 数据工厂通过安全超文本传输协议 (HTTPS) 使用加密的连接将数据从本地 Netezza 服务器传输到 Azure 存储帐户或 Azure SQL 数据仓库数据库。 HTTPS 提供传输中数据加密，并可防止窃听和中间人攻击。
+默认情况下，Azure 数据工厂通过安全超文本传输协议 (HTTPS)，使用加密的连接将数据从本地 Netezza 服务器传输到 Azure 存储帐户或 Azure Synapse Analytics 数据库。 HTTPS 提供传输中数据加密，并可防止窃听和中间人攻击。
 
 如果你不希望通过公共 Internet 传输数据，可以通过 Azure Express Route 使用专用对等互连链路传输数据，借此提高安全性。 
 
@@ -111,7 +110,7 @@ Azure 数据工厂提供一个可在不同级别实现并行度的无服务器�
    
    - 也可以使用[服务主体](/data-factory/connector-azure-data-lake-storage#service-principal-authentication)或[存储帐户密钥](/data-factory/connector-azure-data-lake-storage#account-key-authentication)。 
 
-- 若要对 Azure SQL 数据仓库进行身份验证：
+- 若要向 Azure Synapse Analytics 进行身份验证：
 
    - 我们强烈建议使用 [Azure 资源的托管标识](/data-factory/connector-azure-sql-data-warehouse#managed-identity)。
    
@@ -133,7 +132,7 @@ Azure 数据工厂提供一个可在不同级别实现并行度的无服务器�
 
 如果网络或数据存储的暂时性问题导致任何复制作业失败，你可以重新运行失败的复制作业，以从表中加载特定的分区。 加载其他分区的其他复制作业不受影响。
 
-将数据载入 Azure SQL 数据仓库数据库时，我们建议在复制作业中启用 PolyBase，并使用 Azure Blob 存储作为暂存存储。
+将数据加载到 Azure Synapse Analytics 数据库时，我们建议在复制作业中启用 PolyBase，并使用 Azure Blob 存储作为暂存存储。
 
 ### <a name="migrate-delta-data"></a>迁移增量数据 
 
@@ -164,7 +163,7 @@ Azure 数据工厂提供一个可在不同级别实现并行度的无服务器�
 
 ### <a name="estimate-your-pricing"></a>估算定价 
 
-考虑构建了以下管道用于将数据从本地 Netezza 服务器迁移到 Azure SQL 数据仓库数据库：
+考虑构建了以下管道用于将数据从本地 Netezza 服务器迁移到 Azure Synapse Analytics 数据库：
 
 ![定价管道](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
 
@@ -198,7 +197,7 @@ Azure 数据工厂提供一个可在不同级别实现并行度的无服务器�
 - [ODBC 连接器](/data-factory/connector-odbc)
 - [Azure Blob 存储连接器](/data-factory/connector-azure-blob-storage)
 - [Azure Data Lake Storage Gen2 连接器](/data-factory/connector-azure-data-lake-storage)
-- [Azure SQL 数据仓库连接器](/data-factory/connector-azure-sql-data-warehouse)
+- [Azure Synapse Analytics 连接器](/data-factory/connector-azure-sql-data-warehouse)
 - [复制活动性能和优化指南](/data-factory/copy-activity-performance)
 - [创建和配置自承载集成运行时](/data-factory/create-self-hosted-integration-runtime)
 - [自承载集成运行时的高可用性和可伸缩性](/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)

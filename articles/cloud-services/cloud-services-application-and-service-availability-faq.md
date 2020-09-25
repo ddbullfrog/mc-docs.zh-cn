@@ -1,40 +1,39 @@
 ---
-title: Microsoft Azure 云服务的应用程序和服务可用性常见问题解答 | Azure
-description: 本文列出 Microsoft Azure 云服务的常见应用程序和服务可用性问题。
+title: 应用程序和服务可用性常见问题解答
+titleSuffix: Azure Cloud Services
+description: 本文列出 Azure 云服务的常见应用程序和服务可用性问题。
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2018
-ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: 09a290579ec6c09eef7a5928ebcf74d50784f5d3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/14/2020
+ms.author: v-junlch
+ms.openlocfilehash: 0b15c1a0a255af03cd43a303a6ed56f5bd12f6ae
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63847383"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721156"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的应用程序和服务可用性问题：常见问题 (FAQ)
 
-本文包含 [Microsoft Azure 云服务](/cloud-services/)的常见应用程序和服务可用性问题。 还可以参阅[云服务 VM 大小页面](./cloud-services-sizes-specs.md)，了解大小信息。
+本文包含 [Azure 云服务](https://www.azure.cn/home/features/cloud-services)的常见应用程序和服务可用性问题。 还可以参阅[云服务 VM 大小页面](cloud-services-sizes-specs.md)，了解大小信息。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>我的角色已被回收。 是否针对我的云服务推出了任何更新？
-Microsoft 大约每隔一个月就会针对 Windows Azure PaaS VM 发布新的来宾 OS 版本。 来宾 OS 只不过是此类更新的其中一种。 发布可能会受到其他许多因素的影响。 此外，Azure 在数十万台计算机上运行。 因此，无法预测重新启动角色的确切日期和时间。 我们使用具备的最新信息更新来宾 OS 更新 RSS 源，但你应该考虑到，报告的时间是近似值。 我们意识到这对于客户构成问题，并正在致力于限制重新启动或为重新启动精确定时的计划。
+Microsoft 大约每隔一个月就会针对 Azure PaaS VM 发布新的来宾 OS 版本。 来宾 OS 只不过是此类更新的其中一种。 发布可能会受到其他许多因素的影响。 此外，Azure 在数十万台计算机上运行。 因此，无法预测重新启动角色的确切日期和时间。 我们使用具备的最新信息更新来宾 OS 更新 RSS 源，但你应该考虑到，报告的时间是近似值。 我们意识到这对于客户构成问题，并正在致力于限制重新启动或为重新启动精确定时的计划。
 
-有关最新来宾 OS 更新的完整详细信息，请参阅 [Azure 来宾 OS 版本和 SDK 兼容性矩阵](./cloud-services-guestos-update-matrix.md)。
+有关最新来宾 OS 更新的完整详细信息，请参阅 [Azure 来宾 OS 版本和 SDK 兼容性矩阵](cloud-services-guestos-update-matrix.md)。
 
-有关重启的有用信息以及有关来宾和主机 OS 更新的技术详情链接，请阅读 MSDN 博客文章[角色实例因 OS 升级而重启](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)。
+有关重启的有用信息以及有关来宾和主机 OS 更新的技术详情链接，请阅读 MSDN 博客文章[角色实例因 OS 升级而重启](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades)。
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>云服务空闲一段时间后，为何对服务发出的第一个请求花费的时间比平时要长？
 当 Web 服务器收到第一个请求时，它会先重新编译代码，然后处理请求。 这就是第一个请求花费的时间长于其他请求的原因。 默认情况下，当用户处于非活动状态时，应用池将会关闭。 此外，在默认情况下，应用池会每隔 1,740 分钟（29 小时）回收一次。
@@ -42,13 +41,10 @@ Microsoft 大约每隔一个月就会针对 Windows Azure PaaS VM 发布新的�
 可能会定期回收 Internet Information Services (IIS) 应用程序池，以免发生可能会导致应用程序崩溃、挂起或内存泄漏的不稳定状态。
 
 以下文档可帮助你了解和缓解此问题：
-* [修复 IIS 初始加载速度较慢的问题](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
-* [应用池回收后，IIS 7.5 Web 应用程序的第一个请求速度很慢](http://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
+* [修复 IIS 初始加载速度较慢的问题](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
+* [应用池回收后，IIS 7.5 Web 应用程序的第一个请求速度很慢](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
 
 若要更改 IIS 的默认行为，需要使用启动任务，因为如果向 Web 角色实例手动应用更改，更改最终会丢失。
 
-有关详细信息，请参阅[如何配置和运行云服务的启动任务](./cloud-services-startup-tasks.md)。
+有关详细信息，请参阅[如何配置和运行云服务的启动任务](cloud-services-startup-tasks.md)。
 
-
-
-<!--Update_Description: update meta data only-->

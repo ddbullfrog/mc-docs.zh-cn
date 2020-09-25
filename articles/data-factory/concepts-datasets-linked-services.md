@@ -11,17 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 04/25/2019
-ms.date: 06/29/2020
-ms.openlocfilehash: 57a7e037872e3d38b6f80ec99426f6da1de7cc09
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+origin.date: 08/24/2020
+ms.date: 09/21/2020
+ms.openlocfilehash: 671e4e1d425e56367bbdbb0dd02a0e09c9e3ef8c
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321415"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523711"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 数据工厂中的数据集
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
 本文介绍了数据集的涵义，采用 JSON 格式定义数据集的方式以及数据集在 Azure 数据工厂管道中的用法。
@@ -33,7 +33,7 @@ ms.locfileid: "85321415"
 
 创建数据集之前，必须创建[链接服务](concepts-linked-services.md)，将数据存储链接到数据工厂。 链接的服务类似于连接字符串，它定义数据工厂连接到外部资源时所需的连接信息。 不妨这样考虑：数据集代表链接的数据存储中的数据结构，而链接服务则定义到数据源的连接。 例如，Azure 存储链接服务可将存储帐户链接到数据工厂。 Azure Blob 数据集表示该 Azure 存储帐户中包含要处理的输入 Blob 的 Blob 容器和文件夹。
 
-下面是一个示例方案。 要将数据从 Blob 存储复制到 SQL 数据库，请创建以下两个链接服务：Azure 存储和 Azure SQL 数据库。 然后创建两个数据集：Azure Blob 数据集（即 Azure 存储链接服务）和 Azure SQL 表数据集（即 Azure SQL 数据库链接服务）。 Azure 存储和 Azure SQL 数据库链接服务分别包含数据工厂在运行时用于连接到 Azure 存储和 Azure SQL 数据库的连接字符串。 Azure Blob 数据集指定 blob 容器和 blob 文件夹，该文件夹包含 Blob 存储中的输入 blob。 Azure SQL 表数据集指定你的 SQL 数据库中要将数据复制到其中的 SQL 表。
+下面是一个示例方案。 要将数据从 Blob 存储复制到 SQL 数据库，请创建以下两个链接服务：Azure Blob 存储和 Azure SQL 数据库。 然后创建两个数据集：带分隔符的文本数据集（假设将文本文件作为源，则它指的是 Azure Blob 存储链接服务）和 Azure SQL 表数据集（即 Azure SQL 数据库链接服务）。 Azure Blob 存储和 Azure SQL 数据库链接服务分别包含数据工厂在运行时用于连接到 Azure 存储和 Azure SQL 数据库的连接字符串。 带分隔符的文本数据集指定 blob 容器和 blob 文件夹，该文件夹包含 Blob 存储中的输入 blob 以及与格式相关的设置。 Azure SQL 表数据集指定你的 SQL 数据库中要将数据复制到其中的 SQL 表。
 
 下图显示了数据工厂中管道、活动、数据集和链接服务之间的关系：
 
@@ -47,16 +47,13 @@ ms.locfileid: "85321415"
 {
     "name": "<name of dataset>",
     "properties": {
-        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
+        "type": "<type of dataset: DelimitedText, AzureSqlTable etc...>",
         "linkedServiceName": {
                 "referenceName": "<name of linked service>",
                 "type": "LinkedServiceReference",
         },
-        "structure": [
-            {
-                "name": "<Name of the column>",
-                "type": "<Name of the type>"
-            }
+        "schema":[
+
         ],
         "typeProperties": {
             "<type specific property>": "<value>",
@@ -70,95 +67,45 @@ ms.locfileid: "85321415"
 属性 | 说明 | 必须 |
 -------- | ----------- | -------- |
 name | 数据集名称。 请参阅 [Azure 数据工厂 - 命名规则](naming-rules.md)。 |  是 |
-type | 数据集的类型。 指定数据工厂支持的类型之一（例如：AzureBlob、AzureSqlTable）。 <br/><br/>有关详细信息，请参阅[数据集类型](#dataset-type)。 | 是 |
-structure | 数据集的架构。 有关详细信息，请参阅[数据集架构](#dataset-structure)。 | 否 |
-typeProperties | 每种类型的类型属性各不相同（例如：Azure Blob、Azure SQL 表）。 若要详细了解受支持的类型及其属性，请参阅[数据集类型](#dataset-type)。 | 是 |
+type | 数据集的类型。 指定数据工厂支持的类型之一（例如：DelimitedText、AzureSqlTable）。 <br/><br/>有关详细信息，请参阅[数据集类型](#dataset-type)。 | 是 |
+架构 | 数据集的架构表示物理数据类型和形状。 | 否 |
+typeProperties | 每种类型的类型属性各不相同。 若要详细了解受支持的类型及其属性，请参阅[数据集类型](#dataset-type)。 | 是 |
 
-## <a name="dataset-example"></a>数据集示例
-在以下示例中，数据集表示 SQL 数据库中名为 MyTable 的表。
+导入数据集的架构时，请选择“导入架构”按钮，然后选择从源或本地文件导入。 在大多数情况下，将直接从源导入架构。 但是，如果已有本地架构文件（Parquet 文件或带标头的 CSV），则可以指示数据工厂根据该文件定义架构。
 
-```json
-{
-    "name": "DatasetSample",
-    "properties": {
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-                "referenceName": "MyAzureSqlLinkedService",
-                "type": "LinkedServiceReference",
-        },
-        "typeProperties":
-        {
-            "tableName": "MyTable"
-        },
-    }
-}
-
-```
-请注意以下几点：
-
-- type 设置为 AzureSqlTable。
-- tableName 类型属性（特定于 AzureSqlTable 类型）设置为 MyTable。
-- linkedServiceName 引用 AzureSqlDatabase 类型的链接服务，该类型在下一 JSON 片段中定义。
+在复制活动中，数据集用于源和接收器。 数据集中定义的架构可选作引用。 如果要在源和接收器之间应用列/字段映射，请参阅[架构和类型映射](copy-activity-schema-and-type-mapping.md)。
 
 ## <a name="dataset-type"></a>数据集类型
-数据集的类型很多，具体取决于使用的数据存储。 可以从[连接器概述](connector-overview.md)一文中找到数据工厂支持的存储数据列表。 单击数据存储，了解如何创建链接服务和该数据存储的数据集。
 
-在上一节中的示例中，数据集的类型设置为 AzureSqlTable。 同样，对于 Azure Blob 数据集，数据集的类型设置为 AzureBlob，如以下 JSON 中所示：
+Azure 数据工厂支持多种数据集类型，具体取决于使用的数据存储。 可以从[连接器概述](connector-overview.md)一文中找到数据工厂支持的数据存储列表。 单击数据存储，了解如何创建链接服务及其数据集。
+
+例如，对于带分隔符的文本数据集，数据集类型设为“DelimitedText”，如下方的 JSON 示例所示：
 
 ```json
 {
-    "name": "AzureBlobInput",
+    "name": "DelimitedTextInput",
     "properties": {
-        "type": "AzureBlob",
         "linkedServiceName": {
-                "referenceName": "MyAzureStorageLinkedService",
-                "type": "LinkedServiceReference",
+            "referenceName": "AzureBlobStorage",
+            "type": "LinkedServiceReference"
         },
-
+        "annotations": [],
+        "type": "DelimitedText",
         "typeProperties": {
-            "fileName": "input.log",
-            "folderPath": "adfgetstarted/inputdata",
-            "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-            }
-        }
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": "input.log",
+                "folderPath": "inputdata",
+                "container": "adfgetstarted"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "quoteChar": "\""
+        },
+        "schema": []
     }
 }
 ```
-
-## <a name="dataset-structure"></a>数据集结构
-使用结构部分提供用于隐藏类型以及将列从源映射到目标的类型信息。
-
-结构中的每个列都包含以下属性：
-
-属性 | 说明 | 必须
--------- | ----------- | --------
-name | 列的名称。 | 是
-type | 列的数据类型。 数据工厂支持以下临时数据类型作为允许的值：**Int16、Int32、Int64、Single、Double、Decimal、Byte[]、Boolean、String、Guid、Datetime、Datetimeoffset 和 Timespan** | 否
-culture | 类型为 .NET 类型 `Datetime` 或 `Datetimeoffset` 时要使用的基于 .NET 的区域性。 默认为 `en-us`。 | 否
-format | 类型为 .NET 类型 `Datetime` 或 `Datetimeoffset` 时要使用的格式字符串。 请参阅[自定义日期和时间格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)，了解如何设置日期时间格式。 | 否
-
-### <a name="example"></a>示例
-在下面的示例中，假设源 Blob 数据采用 CSV 格式，并且包含三列： userid、name 和 lastlogindate。 它们的类型分别为 Int64、String 和 Datetime，并采用使用星期几的缩写法语名称的自定义日期时间格式。
-
-将按如下所示定义 Blob 数据集结构并指定列的类型定义：
-
-```json
-"structure":
-[
-    { "name": "userid", "type": "Int64"},
-    { "name": "name", "type": "String"},
-    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
-]
-```
-
-### <a name="guidance"></a>指南
-
-若要了解何时加入结构信息以及在结构部分包含哪些信息，请参阅以下指南。 详细了解数据工厂如何通过[架构和类型映射](copy-activity-schema-and-type-mapping.md)将源数据映射到接收器，以及何时指定结构信息。
-
-- **对于强架构数据源**，仅当要将源列映射到接收器列且其名称不同时，才指定“结构”部分。 此类结构化的数据源将存储数据架构和类型信息，以及数据本身。 结构化的数据源的示例包括 SQL Server、Oracle 和 Azure SQL 数据库。<br/><br/>由于类型信息已可用于结构化数据源，因此包含结构部分时不应包含类型信息。
-- **对于无/弱架构数据源（例如 blob 存储中的文本文件）** ，当数据集是复制活动的输入且应将源数据集的数据类型转换为接收器的本机类型时，请加入结构。 另外，当需要将源列映射到接收器列时，请加入结构
 
 ## <a name="create-datasets"></a>创建数据集
 可以使用以下任一工具或 SDK 创建数据集：[.NET API](quickstart-create-data-factory-dot-net.md)、[PowerShell](quickstart-create-data-factory-powershell.md)、[REST API](quickstart-create-data-factory-rest-api.md)、Azure 资源管理器模板和 Azure 门户

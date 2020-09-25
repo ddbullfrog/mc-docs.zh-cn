@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/14/2020
 ms.author: v-junlch
-ms.openlocfilehash: 18cb36bd24b31b5d6b2d9b9836c0546fb4364b34
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: 3cda9fd565b26e0ee881b7f3a6445587b5d40b6d
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796284"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721107"
 ---
 # <a name="azure-application-gateway-features"></a>Azure 应用程序网关功能
 
@@ -115,13 +115,13 @@ Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标�
 
 WebSocket 和 HTTP/2 协议通过长时间运行的 TCP 连接，在服务器和客户端之间实现全双工通信。 此功能让 Web 服务器和客户端之间能够进行交互性更强的通信。这种通信可以是双向的，而且不像基于 HTTP 的实现那样需要轮询。 不同于 HTTP，这些协议的开销很低，并且可以对多个请求/响应重复使用同一 TCP 连接，提高资源利用率。 这些协议设计为通过传统 HTTP 端口 80 和 443 运行。
 
-有关详细信息，请参阅 [WebSocket 支持](application-gateway-websocket.md)和 [HTTP/2 支持](configuration-overview.md#http2-support)。
+有关详细信息，请参阅 [WebSocket 支持](application-gateway-websocket.md)和 [HTTP/2 支持](configuration-listeners.md#http2-support)。
 
 ## <a name="connection-draining"></a>连接清空
 
 连接清空可帮助你在计划内服务更新期间正常删除后端池成员。 此设置是通过后端 http 设置启用的，并且可以在创建规则期间应用于后端池的所有成员。 启用后，应用程序网关可确保后端池的所有已取消注册实例不再收到任何新请求，同时允许现有请求在所配置的时间限制内完成。 这适用于通过用户配置更改显式从后端池中删除的后端实例，以及所报告的由运行状况探测确定为不正常的后端实例。 唯一的例外情况是限定为取消注册实例的请求，这些实例由于网关托管会话相关性的原因而取消注册，将继续代理到取消注册实例。
 
-有关详细信息，请参阅[应用程序网关配置概述](configuration-overview.md#connection-draining)。
+有关详细信息，请参阅[应用程序网关配置概述](configuration-http-settings.md#connection-draining)。
 
 ## <a name="custom-error-pages"></a>自定义错误页
 
@@ -145,7 +145,7 @@ HTTP 标头可让客户端和服务器连同请求或响应一起传递附加的
 
 ## <a name="sizing"></a>大小调整
 
-可以配置应用程序网关的 Standard_v2，以便进行自动缩放的或固定大小的部署。 此 SKU 不提供不同的实例大小。 有关 v2 性能和定价的详细信息，请参阅[自动缩放 v2 SKU](application-gateway-autoscaling-zone-redundant.md#pricing)。
+可以配置应用程序网关的 Standard_v2，以便进行自动缩放的或固定大小的部署。 此 SKU 不提供不同的实例大小。 有关 v2 性能和定价的详细信息，请参阅[自动缩放 V2](application-gateway-autoscaling-zone-redundant.md)。
 
 应用程序网关标准版有三种大小：**小型**、**中型**和**大型**。 小型实例大小适用于开发和测试方案。
 

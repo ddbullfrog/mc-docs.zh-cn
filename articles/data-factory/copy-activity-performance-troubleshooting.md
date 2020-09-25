@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 06/10/2020
-ms.date: 07/27/2020
-ms.openlocfilehash: 5d528a23be74a07c472a7692dcad72dd2dd9c9fb
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.date: 09/21/2020
+ms.openlocfilehash: c61245999f68b6ea3d7f21b0368c214c261a9d7d
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974241"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523639"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>排查复制活动的性能问题
 
@@ -180,7 +180,7 @@ ms.locfileid: "86974241"
 * Azure Blob 存储：[Blob 存储的可伸缩性和性能目标](../storage/blobs/scalability-targets.md)和 [Blob 存储的性能与可伸缩性查检表](../storage/blobs/storage-performance-checklist.md)。
 * Azure 表存储：[表存储的可伸缩性和性能目标](../storage/tables/scalability-targets.md)和[表存储的性能与可伸缩性查检表](../storage/tables/storage-performance-checklist.md)。
 * Azure SQL 数据库：可[监视性能](../sql-database/sql-database-single-database-monitor.md)并检查数据库事务单位 (DTU) 百分比。
-* Azure SQL 数据仓库：其功能以数据仓库单位 (DWU) 衡量。 请参阅[管理 Azure SQL 数据仓库中的计算能力（概述）](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
+* Azure Synapse Analytics（以前称为 SQL 数据仓库）：其功能以数据仓库单位 (DWU) 衡量。 请参阅[管理 Azure Synapse Analytics 中的计算能力（概述）](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
 * Azure Cosmos DB：[Azure Cosmos DB 中的性能级别](../cosmos-db/performance-levels.md)。
 * SQL Server：[性能监视和优化](https://msdn.microsoft.com/library/ms189081.aspx)。
 * 本地文件服务器：[文件服务器性能优化](https://msdn.microsoft.com/library/dn567661.aspx)。

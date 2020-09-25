@@ -9,15 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 05/12/2020
-ms.date: 06/29/2020
+origin.date: 09/09/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: 54db04026172e0c0a206ada65d6b06ee6c5c7c25
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 1aa928e3f2b3b19b12111f5a3ffc710271836513
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323285"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523799"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>使用 Azure 数据工厂从 MySQL 复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -64,7 +64,9 @@ MySQL 链接的服务支持以下属性：
 
 | 属性 | 说明 | 选项 | 必须 |
 |:--- |:--- |:--- |:--- |
-| SSLMode | 此选项指定驱动程序在连接到 MySQL 时是否使用 TLS 加密和验证。 例如，`SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | 否 |
+| SSLMode | 此选项指定驱动程序在连接到 MySQL 时是否使用 TLS 加密和验证。 例如 `SSLMode=<0/1/2/3/4>`。| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | 否 |
+| SSLCert | 包含用于证明客户端身份的 SSL 证书的 .pem 文件的完整路径和名称。 <br/> 若要在将此证书发送到服务器之前，指定私钥来加密此证书，请使用 `SSLKey` 属性。| | 是（如果使用双向 SSL 验证）。 |
+| SSLKey | 包含私钥（用于在双向 SSL 验证过程中对客户端证书进行加密）的文件的完整路径和名称。|  | 是（如果使用双向 SSL 验证）。 |
 | UseSystemTrustStore | 此选项指定是使用系统信任存储中的 CA 证书还是使用指定 PEM 文件中的 CA 证书。 例如 `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(Default)** | 否 |
 
 **示例：**
@@ -143,7 +145,7 @@ MySQL 链接的服务支持以下属性：
 
 若要从 MySQL 复制数据，支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| properties | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为：**MySqlTable** | 是 |
 | tableName | MySQL 数据库中的表名。 | 否（如果指定了活动源中的“query”） |
@@ -176,7 +178,7 @@ MySQL 链接的服务支持以下属性：
 
 从 MySQL 复制数据时，复制活动的 **source** 节支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| properties | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动 source 的 type 属性必须设置为：**MySqlSource** | 是 |
 | 查询 | 使用自定义 SQL 查询读取数据。 例如：`"SELECT * FROM MyTable"`。 | 否（如果指定了数据集中的“tableName”） |

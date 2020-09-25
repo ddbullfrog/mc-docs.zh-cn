@@ -1,6 +1,6 @@
 ---
-title: 从/向 Snowflake 复制数据
-description: 了解如何使用 Azure 数据工厂从/向 Azure Snowflake 复制数据。
+title: 在 Snowflake 中复制和转换数据
+description: 了解如何使用数据工厂在 Snowflake 中复制和转换数据。
 services: data-factory
 ms.author: v-jay
 author: WenJason
@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 07/09/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 06134bf149d0e4244d5b47299fa361568da7cce3
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+origin.date: 08/28/2020
+ms.date: 09/21/2020
+ms.openlocfilehash: a7ccd875f43b76b08f0c84655c58b492c23ddf38
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914255"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523811"
 ---
-# <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>使用 Azure 数据工厂从/向 Snowflake 复制数据
+# <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>使用 Azure 数据工厂在 Snowflake 中复制和转换数据
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 本文概述如何使用 Azure 数据工厂中的复制活动从/向 Snowflake 复制数据。 有关数据工厂的详细信息，请参阅[介绍性文章](introduction.md)。
 
@@ -35,7 +35,7 @@ ms.locfileid: "87914255"
 对于复制活动，此 Snowflake 连接器支持以下功能：
 
 - 从 Snowflake 复制数据：利用 Snowflake 的 [COPY into [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) 命令实现最佳性能。
-- 将数据复制到 Snowflake 中：利用 Snowflake 的 [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) 命令实现最佳性能。 它支持 Azure 上的 Snowflake。
+- 将数据复制到 Snowflake 中：利用 Snowflake 的 [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) 命令实现最佳性能。 它支持 Azure 上的 Snowflake。 
 
 ## <a name="get-started"></a>入门
 
@@ -50,7 +50,7 @@ Snowflake 链接服务支持以下属性。
 | 属性         | 说明                                                  | 必须 |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | type 属性必须设置为 **Snowflake**。              | 是      |
-| connectionString | 配置[完整帐户名称](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name)（包括用于标识区域和云平台的其他段）、用户名、密码、数据库和仓库。 指定用于连接到 Snowflake 实例的 JDBC 连接字符串。 还可以将密码置于 Azure Key Vault 中。 如需更多详细信息，请参阅表下面的示例和[将凭据存储在 Azure Key Vault 中](store-credentials-in-key-vault.md)一文。| 是      |
+| connectionString | 指定连接到 Snowflake 实例所需的信息。 可以选择将密码或整个连接字符串置于 Azure Key Vault。 如需更多详细信息，请参阅表下面的示例和[将凭据存储在 Azure Key Vault 中](store-credentials-in-key-vault.md)一文。<br><br>部分典型设置：<br>- 帐户名称：Snowflake 帐户的[完整帐户名称](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name)（包括用于标识区域和云平台的其他段）<br/>- 用户名：用于连接的用户登录名。<br>- 密码：用户的密码。<br>- 数据库：要在连接后使用的默认数据库。 它应为指定角色具有权限的现有数据库。<br>- 仓库：要在连接后使用的虚拟仓库。 它应为指定角色具有权限的现有仓库。<br>- 角色：要在 Snowflake 会话中使用的默认访问控制角色。 指定角色应为已分配给指定用户的现有角色。 默认角色为 PUBLIC。 | 是      |
 | connectVia       | 用于连接到数据存储的 [Integration Runtime](concepts-integration-runtime.md)。 可使用 Azure Integration Runtime 或自承载集成运行时（如果数据存储位于专用网络）。 如果未指定，则使用默认 Azure Integration Runtime。 | 否       |
 
 **示例：**
@@ -61,7 +61,7 @@ Snowflake 链接服务支持以下属性。
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -79,7 +79,7 @@ Snowflake 链接服务支持以下属性。
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -103,11 +103,11 @@ Snowflake 链接服务支持以下属性。
 
 Snowflake 数据集支持以下属性。
 
-| 属性  | 说明                                                  | 必须                    |
+| 属性  | 说明                                                  | 必需                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 数据集的 type 属性必须设置为 SnowflakeTable。 | 是                         |
-| 架构 | 架构的名称。 |对于源为“否”，对于接收器为“是”  |
-| 表 | 表/视图的名称。 |对于源为“否”，对于接收器为“是”  |
+| 架构 | 架构的名称。 请注意，架构名称在 ADF 中区分大小写。 |对于源为“否”，对于接收器为“是”  |
+| 表 | 表/视图的名称。 请注意，表名称在 ADF 中区分大小写。 |对于源为“否”，对于接收器为“是”  |
 
 **示例：**
 
@@ -141,10 +141,10 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [location]](https://docs.snow
 
 从 Snowflake 复制数据时，复制活动的“源”部分支持以下属性。
 
-| 属性                     | 说明                                                  | 必须 |
+| 属性                     | 说明                                                  | 必需 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 复制活动源的类型属性必须设置为 SnowflakeSource。 | 是      |
-| 查询          | 指定要从 Snowflake 读取数据的 SQL 查询。<br>不支持执行存储过程。 | 否       |
+| 查询          | 指定要从 Snowflake 读取数据的 SQL 查询。 如果架构、表和列的名称包含小写字母，请在查询中引用对象标识符，例如 `select * from "schema"."myTable"`。<br>不支持执行存储过程。 | 否       |
 | exportSettings | 用于从 Snowflake 检索数据的高级设置。 可以配置 COPY into 命令支持的此类设置。在调用相关语句时，数据工厂会传递此类设置。 | 否       |
 | 在 `exportSettings` 下： |  |  |
 | type | 导出命令的类型，设置为 **SnowflakeExportCopyCommand**。 | 是 |
@@ -164,7 +164,7 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [location]](https://docs.snow
         - `rowDelimiter` 为 **\r\n** 或任何单个字符。
         - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
         - `encodingName` 保留为默认值或设置为 **utf-8**。
-        - `quoteChar` 为**双引号**、**单引号**或**空字符串**（无引号字符）。
+        - `quoteChar` 为双引号、单引号或空字符串（无引号字符）  。
     - 对于“JSON”格式，直接复制只支持以下情况：源 Snowflake 表或查询结果仅有一列且该列的数据类型是“VARIANT”、“OBJECT”或“ARRAY”   。
         - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
         - `encodingName` 保留为默认值或设置为 **utf-8**。
@@ -195,7 +195,7 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [location]](https://docs.snow
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "sqlReaderQuery": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -272,7 +272,7 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [table]](https://docs.snowfla
 
 若要将数据复制到 Snowflake，复制活动的“接收器”部分需要支持以下属性。
 
-| 属性          | 描述                                                  | 必须                                      |
+| 属性          | 说明                                                  | 必需                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 复制活动接收器的类型属性设置为 SnowflakeSink。 | 是                                           |
 | preCopyScript     | 指定在每次运行中将数据写入到 Snowflake 之前要由复制活动运行的 SQL 查询。 使用此属性清理预加载的数据。 | 否                                            |
@@ -296,7 +296,7 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [table]](https://docs.snowfla
         - `rowDelimiter` 为 **\r\n** 或任何单个字符。 如果行分隔符不是“\r\n”，则需将 `firstRowAsHeader` 设置为 **false**，且不指定 `skipLineCount`。
         - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
         - `encodingName` 保留为默认值或设置为“UTF-8”、“UTF-16”、“UTF-16BE”、“UTF-32”、“UTF-32BE”、“BIG5”、“EUC-JP”、“EUC-KR”、“GB18030”、“ISO-2022-JP”、“ISO-2022-KR”、“ISO-8859-1”、“ISO-8859-2”、“ISO-8859-5”、“ISO-8859-6”、“ISO-8859-7”、“ISO-8859-8”、“ISO-8859-9”、“WINDOWS-1250”、“WINDOWS-1251”、“WINDOWS-1252”、“WINDOWS-1253”、“WINDOWS-1254”、“WINDOWS-1255”。
-        - `quoteChar` 为**双引号**、**单引号**或**空字符串**（无引号字符）。
+        - `quoteChar` 为双引号、单引号或空字符串（无引号字符）  。
     - 对于“JSON”格式，直接复制只支持以下情况：接收器 Snowflake 表仅有一列且该列的数据类型是“VARIANT”、“OBJECT”或“ARRAY”   。
         - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
         - `encodingName` 保留为默认值或设置为 **utf-8**。
@@ -306,7 +306,7 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [table]](https://docs.snowfla
 
    -  未指定 `additionalColumns`。
    - 如果源为文件夹，则将 `recursive` 设置为 true。
-   - 未指定 `prefix`、`modifiedDateTimeStart`、`modifiedDateTimeEnd`。
+   - 未指定 `prefix`、`modifiedDateTimeStart`、`modifiedDateTimeEnd` 和 `enablePartitionDiscovery`。
 
 **示例：**
 

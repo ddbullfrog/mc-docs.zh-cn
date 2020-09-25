@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: 2d0c62be772089fba34c853135f31b3f6f93748d
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 09/14/2020
+ms.openlocfilehash: 03afde2c558d7ba74b645b1ca13bec53a569b44d
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413521"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721185"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure 时序见解第 2 代事件源
 
@@ -64,7 +64,7 @@ Azure 时序见解第 2 代目前不支持使用流式传输管道导入历史�
 
 ## <a name="event-source-timestamp"></a>事件源时间戳
 
-配置事件源时，系统会要求你提供时间戳 ID 属性。 时间戳属性用于跟踪一段时间内的事件，这是将要在[查询 API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) 中用作 $event.$ts 的时间。 如果在创建时未提供此属性，或者事件中缺少时间戳属性，则会将事件的 IoT 中心或事件中心排队时间用作默认值。 时间戳属性值以 UTC 格式存储。
+配置事件源时，系统会要求你提供时间戳 ID 属性。 时间戳属性用于跟踪一段时间内的事件，这是将要在[查询 API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) 中用作 $event.$ts 的时间，并用于在 Azure 时序见解资源管理器中绘制序列。 如果在创建时未提供此属性，或者事件中缺少时间戳属性，则会将事件的 IoT 中心或事件中心排队时间用作默认值。 时间戳属性值以 UTC 格式存储。
 
 通常情况下，用户会选择自定义时间戳属性，并使用传感器或标记生成读数时的时间，而不是使用默认的中心排队时间。 当设备出现间歇性连接中断，并将一批延迟的消息转发到 Azure 时序见解第 2 代时，尤其需要这样做。
 

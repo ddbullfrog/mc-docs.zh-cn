@@ -2,15 +2,15 @@
 title: 理解查询语言
 description: 介绍 Resource Graph 表以及可用于 Azure Resource Graph 的 Kusto 数据类型、运算符和函数。
 ms.author: v-tawe
-origin.date: 08/03/2020
-ms.date: 08/27/2020
+origin.date: 08/24/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f7319ac3bdc77d9a9e79893f1a528e0452ec08b1
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: eee000ade478614cf758ee143d1d110cb3ae274d
+ms.sourcegitcommit: 75299b1cb5540a11149f320edaae82ae8c03c16b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951342"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523160"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>了解 Azure Resource Graph 查询语言
 
@@ -34,6 +34,7 @@ Resource Graph 为其存储的有关 Azure 资源管理器资源类型及其属�
 |ResourceContainers |包括订阅（预览版 -- `Microsoft.Resources/subscriptions`）和资源组 (`Microsoft.Resources/subscriptions/resourcegroups`) 资源类型和数据。 |
 |AdvisorResources |包括与 `Microsoft.Advisor` 相关的资源。 |
 |AlertsManagementResources |包括与 `Microsoft.AlertsManagement` 相关的资源。 |
+|GuestConfigurationResources |包括与 `Microsoft.GuestConfiguration` 相关的资源。 |
 |HealthResources |包括与 `Microsoft.ResourceHealth` 相关的资源。 |
 |MaintenanceResources |包括与 `Microsoft.Maintenance` 相关的资源。 |
 |SecurityResources |包括与 `Microsoft.Security` 相关的资源。 |
@@ -66,6 +67,25 @@ Resources
 > [!NOTE]
 > 限制具有 `project` 的 `join` 结果时，`join` 用于关联两个表的属性（在上述示例中为 subscriptionId）必须包含在 `project` 中。
 
+## <a name="extended-properties-preview"></a><a name="extended-properties"></a>扩展属性（预览）
+
+作为预览功能，除了 Azure 资源管理器提供的属性以外，Resource Graph 中的某些资源类型还有其他类型相关的属性可供查询。 这组值（称为“扩展属性”）存在于 `properties.extended` 中受支持的资源类型中。 若要查看哪些资源类型具有“扩展属性”，请使用以下查询：
+
+```kusto
+Resources
+| where isnotnull(properties.extended)
+| distinct type
+| order by type asc
+```
+
+示例：通过 `instanceView.powerState.code` 获取虚拟机计数：
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
+
 ## <a name="resource-graph-custom-language-elements"></a>Resource Graph 自定义语言元素
 
 ### <a name="shared-query-syntax-preview"></a><a name="shared-query-syntax"></a>共享查询语法（预览）
@@ -95,7 +115,7 @@ Resources
 
 ## <a name="supported-kql-language-elements"></a>支持的 KQL 语言元素
 
-Resource Graph 支持所有 KQL [数据类型](/kusto/query/scalar-data-types/)、[标量函数](/kusto/query/scalarfunctions)、[标量运算符](/kusto/query/binoperators)和[聚合函数](/kusto/query/any-aggfunction)。 Resource Graph 支持特定[表格运算符](/kusto/query/queries)，其中一些运算符具有不同的行为。
+Resource Graph 支持部分 KQL [数据类型](/kusto/query/scalar-data-types/)、[标量函数](/kusto/query/scalarfunctions)、[标量运算符](/kusto/query/binoperators)和[聚合函数](/kusto/query/any-aggfunction)。 Resource Graph 支持特定[表格运算符](/kusto/query/queries)，其中一些运算符具有不同的行为。
 
 ### <a name="supported-tabulartop-level-operators"></a>支持的表格/顶级运算符
 
@@ -125,8 +145,8 @@ Resource Graph 支持所有 KQL [数据类型](/kusto/query/scalar-data-types/)�
 查询返回的资源的订阅范围取决于访问 Resource Graph 的方法。 Azure CLI 和 Azure PowerShell 会根据授权用户的上下文填充要在请求中加入的订阅列表。 可以分别使用 subscriptions 和 Subscription 参数为每个订阅手动定义订阅列表 。
 在 REST API 和所有其他 SDK 中，包括资源的订阅列表必须显式定义为请求的一部分。
 
-作为预览版，REST API 版本 `2020-04-01-preview` 会添加一个属性，将查询范围限定到[管理组](../../management-groups/overview.md)。 此预览 API 也使订阅属性成为可选属性。 如果未定义管理组和订阅列表，则查询范围是经过身份验证的用户可以访问的所有资源。 新的 `managementGroupId` 属性采用管理组 ID，该 ID 不同于管理组的名称。
-指定 `managementGroupId` 时，将包含在指定管理组层次结构中或其下的前 5000 个订阅的资源。 `managementGroupId` 与 `subscriptions` 不能同时使用。
+作为预览版，REST API 版本 `2020-04-01-preview` 会添加一个属性，将查询范围限定到[管理组](../../management-groups/overview.md)。 此预览 API 也使订阅属性成为可选属性。 如果未定义管理组或订阅列表，则查询范围为所有资源。
+新的 `managementGroupId` 属性采用管理组 ID，该 ID 不同于管理组的名称。 指定 `managementGroupId` 时，将包含在指定管理组层次结构中或其下的前 5000 个订阅的资源。 `managementGroupId` 与 `subscriptions` 不能同时使用。
 
 示例：使用 ID“myMG”查询管理组层次结构中名为“我的管理组”的所有资源。
 

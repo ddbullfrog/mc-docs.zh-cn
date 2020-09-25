@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 9/12/2019
-ms.date: 06/29/2020
-ms.openlocfilehash: d13c143445d041a1ed598dc36d334aaac6a4e4df
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.date: 09/21/2020
+ms.openlocfilehash: 2707be19f7ca06b2f6bffe4052e7868eb0006714
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323296"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523911"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>将 Azure SQL 托管实例作为数据库工作负荷目标的 SSIS 迁移
 
@@ -33,7 +33,9 @@ SSISDB 迁移可以使用 DMS 来完成，如下文所述：[将 SSIS 包迁移�
 
 ## <a name="ssis-jobs-to-sql-managed-instance-agent"></a>将 SSIS 作业迁移到 SQL 托管实例代理
 
-SQL 托管实例有一个一流的本机计划程序，就像本地 SQL Server 代理一样。  由于适合 SSIS 作业的迁移工具尚未发布，因此必须通过脚本/手动复制方式将 SSIS 作业从本地 SQL Server 代理迁移到 SQL 托管实例代理。
+SQL 托管实例有一个一流的本机计划程序，就像本地 SQL Server 代理一样。  可以[通过 Azure SQL 托管实例代理运行 SSIS 包](how-to-invoke-ssis-package-managed-instance-agent.md)。
+
+由于适合 SSIS 作业的迁移工具尚未发布，因此必须通过脚本/手动复制方式将 SSIS 作业从本地 SQL Server 代理迁移到 SQL 托管实例代理。
 
 ## <a name="additional-resources"></a>其他资源
 

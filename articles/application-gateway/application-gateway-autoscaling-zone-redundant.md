@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/14/2020
 ms.author: v-junlch
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: ef878fabb4c05c4100216f4a32d43057a7d991d8
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: d6ebcc8f00ac868bf4cb5956bb2132fb6ecb3c09
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796259"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721124"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>自动缩放和区域冗余应用程序网关 v2 
 
@@ -43,17 +43,7 @@ ms.locfileid: "87796259"
 
 每个容量单位最多包括：1 个计算单位，2500 个持久连接和 2.22-Mbps 吞吐量。
 
-计算单位指导：
-
-- **Standard_v2** - 每个计算单位每秒可以使用 RSA 2048 位密钥 TLS 证书处理大约 50 个连接。
-- **WAF_v2** - 如果流量混合率为 70-30%，且 70% 的请求小于 2 KB GET/POST，剩余请求的计算量更高，则每个计算单位可支持每秒大约 10 个并发请求。 目前，WAF 性能不受响应大小的影响。
-
-> [!NOTE]
-> 每个实例目前支持大约 10 个容量单位。
-> 计算单位可处理的请求数取决于多种条件，例如 TLS 证书密钥大小、密钥交换算法、标头重写次数以及 WAF 传入请求大小。 我们建议执行应用程序测试，以确定每个计算单位的请求速率。 在开始计费之前，我们会以指标的形式提供容量单位和计算单位。
-
-有关详细定价信息，请参阅[定价页](https://www.azure.cn/pricing/details/application-gateway/)。 
-
+若要了解详细信息，请参阅[了解定价](https://www.azure.cn/pricing/details/application-gateway/)。
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>缩放应用程序网关和 WAF v2
 
@@ -106,7 +96,7 @@ Azure 应用程序网关始终以高度可用的方式部署。 服务由多个�
 |--|--|
 |身份验证证书|不支持。<br>有关详细信息，请参阅[应用程序网关的端到端 TLS 概述](ssl-overview.md#end-to-end-tls-with-the-v2-sku)。|
 |在同一子网上混合使用 Standard_v2 和标准应用程序网关|不支持|
-|应用程序网关子网上的用户定义路由 (UDR)|支持（特定方案）。 处于预览状态。<br> 有关支持的方案的详细信息，请参阅[应用程序网关配置概述](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)。|
+|应用程序网关子网上的用户定义路由 (UDR)|支持（特定方案）。 处于预览状态。<br> 有关支持的方案的详细信息，请参阅[应用程序网关配置概述](configuration-infrastructure.md#supported-user-defined-routes)。|
 |入站端口范围的 NSG| 对于 Standard_v2 SKU，为 - 65200 到 65535<br>对于标准 SKU，为 - 65503 到 65534<br>有关详细信息，请参阅[常见问题解答](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)。|
 |Azure 诊断中的性能日志|不支持。<br>应当使用 Azure 指标。|
 |计费|我们已安排在 2019 年 7 月 1 日开始计费。|

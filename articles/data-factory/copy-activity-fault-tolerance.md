@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 06/22/2020
-ms.date: 07/27/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: 6f47719760f02db4dd7a9d92928926a16884816a
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.openlocfilehash: c8a19cf57403c476e0f197a8458b351990e3d29b
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974255"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523774"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure 数据工厂中复制活动的容错
 
@@ -157,7 +157,7 @@ Timestamp,Level,OperationName,OperationItem,Message
     例如：将数据从 SQL 服务器复制到 SQL 数据库。 接收器 SQL 数据库中定义了主键，但源 SQL 服务器中未定义此类主键。 源中的重复行无法复制到接收器。 复制活动仅将源数据的第一行复制到接收器。 包含重复主键值的后续源行会被检测为不兼容，并被跳过。
 
 >[!NOTE]
->- 若要使用 PolyBase 将数据加载到 SQL 数据仓库中，请配置 PolyBase 的本机容错设置，方法是在复制活动中通过“[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)”指定拒绝策略。 同时，仍然可以正常启用将 PolyBase 不兼容行重定向到 Blob 或 ADLS，如下所示。
+>- 若要使用 PolyBase 将数据加载到 Azure Synapse Analytics（以前称为 SQL 数据仓库），请配置 PolyBase 的原生容错设置，方法是在复制活动中通过 [polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink) 指定拒绝策略。 同时，仍然可以正常启用将 PolyBase 不兼容行重定向到 Blob 或 ADLS，如下所示。
 >- 将复制活动配置为调用 [AmazonRedShift 卸载](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)时，此功能不适用。
 >- 当复制活动配置为调用 [SQL 接收器中的存储过程](/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink)时，此功能不适用。
 

@@ -3,14 +3,14 @@ title: 使用管理组来组织资源 - Azure 治理
 description: 了解管理组、其权限的工作方式以及如何使用它们。
 ms.author: v-tawe
 origin.date: 07/06/2020
-ms.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: overview
-ms.openlocfilehash: 95712530e2fa17576cb0cb97de2703b9a07df891
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: fe4b447dae83700aed058f74614796a937b34d5e
+ms.sourcegitcommit: f5438a4f20d47cfe24e5cee209bb9e11a704c23c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951238"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90456013"
 ---
 # <a name="what-are-azure-management-groups"></a>什么是 Azure 管理组？
 
@@ -23,7 +23,9 @@ ms.locfileid: "88951238"
 
 可以生成管理组和订阅的灵活层次结构，以便将资源组织成用于统一策略和访问管理的层次结构。 下图显示了使用管理组创建用于调控的层次结构的示例。
 
-:::image type="content" source="./media/tree.png" alt-text="管理组层次结构树的示例" border="false":::
+:::image type="complex" source="./media/tree.png" alt-text="示例管理组层次结构的图。" border="false":::
+   同时包含管理组和订阅的根管理组的图。 有些子管理组包含管理组，有些包含订阅，而有些两者均包含。 示例层次结构中的示例之一是管理组的 4 个级别，其中子级别是所有订阅。
+:::image-end:::
 
 例如，可以创建应用一个策略的层次结构，该策略将 VM 位置限制到名为“生产”的组中的“美国西部”区域。 此策略将继承到作为该管理组后代的所有企业协议 (EA) 订阅，并将应用于这些订阅下的所有 VM。 此安全策略不能由资源或订阅所有者更改，因此增强了治理效果。
 
@@ -149,7 +151,9 @@ Azure 管理组支持使用 [Azure 基于角色的访问控制 (Azure RBAC)](../
 
 例如，让我们看看某个视觉对象的层次结构的一小部分。
 
-:::image type="content" source="./media/subtree.png" alt-text="子树" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="部分示例管理组层次结构的图。" border="false":::
+   该图重点介绍了具有子 IT 和营销管理组的根管理组。 IT 管理组具有一个名为“生产”的子管理组，而营销管理组则具有两个免费试用版子订阅。
+:::image-end:::
 
 假设在营销管理组上定义了一个自定义角色。 然后，在两个免费的试用版订阅上分配了该自定义角色。  
 
@@ -179,11 +183,11 @@ Azure 管理组支持使用 [Azure 基于角色的访问控制 (Azure RBAC)](../
 - 在子订阅或管理组上的管理组写入权限和角色分配写入权限。
   - 内置角色示例：所有者
 - 目标父管理组中的管理组写入访问权限。
-  - 内置角色示例：所有者、参与者、管理组参与者  
+  - 内置角色示例：**所有者**、**参与者**、**管理组参与者**
 - 现有父管理组中的管理组写入访问权限。
-  - 内置角色示例：所有者、参与者、管理组参与者
+  - 内置角色示例：**所有者**、**参与者**、**管理组参与者**
 
-例外：如果目标或现有父管理组不是根管理组，则权限要求不适用。 由于根管理组是所有新管理组和订阅的默认登陆点，因此不需在其上具有相关权限即可移动某个项。
+**例外**：如果目标或现有父管理组不是根管理组，则权限要求不适用。 由于根管理组是所有新管理组和订阅的默认登陆点，因此不需在其上具有相关权限即可移动某个项。
 
 如果订阅上的“所有者”角色继承自当前管理组，你的移动目标会受限。 只能将订阅移到你在其中拥有“所有者”角色的另一管理组。 不能将它移到你在其中是参与者的管理组，因为你会失去订阅的所有权。 如果你是直接分配到订阅的“所有者”角色的（而不是从管理组继承的），则可将它移到你在其中是参与者的任何管理组。
 
@@ -191,9 +195,9 @@ Azure 管理组支持使用 [Azure 基于角色的访问控制 (Azure RBAC)](../
 
 [Azure 活动日志](../../azure-monitor/platform/platform-logs-overview.md)支持管理组。 可以搜索到与其他 Azure 资源相同的中心位置中的管理组发生的所有事件。 例如，可以看到对特定管理组所做的所有角色分配或策略分配更改。
 
-:::image type="content" source="./media/al-mg.png" alt-text="支持管理组的活动日志" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="与所选管理组相关的活动日志和操作的屏幕截图。" border="false":::
 
-如果要在 Azure 门户外针对管理组进行查询，管理组的目标范围将如下所示：“/providers/Microsoft.Management/managementGroups/{yourMgID}”。
+如果要在 Azure 门户外针对管理组进行查询，管理组的目标范围将如下所示： **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** 。
 
 ## <a name="next-steps"></a>后续步骤
 

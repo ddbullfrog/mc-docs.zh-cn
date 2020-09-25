@@ -12,13 +12,13 @@ ms.reviewer: douglasl
 manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 05/14/2020
-ms.date: 06/29/2020
-ms.openlocfilehash: d161b8adf67d81c1e21cf7d6087cc9f4528b0e8b
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.date: 09/21/2020
+ms.openlocfilehash: 50aa6e6b3823766b937635d4c492ac0534f91cb4
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914178"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523713"
 ---
 # <a name="built-in-and-preinstalled-components-on-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 上内置和预安装的组件
 
@@ -74,7 +74,7 @@ ms.locfileid: "87914178"
 | **内置的脚本任务** | [脚本任务](https://docs.microsoft.com/sql/integration-services/control-flow/script-task?view=sql-server-2017) |
 | **内置的 SQL Server 任务** | [大容量插入任务](https://docs.microsoft.com/sql/integration-services/control-flow/bulk-insert-task?view=sql-server-2017)<br/><br/>[执行 SQL 任务](https://docs.microsoft.com/sql/integration-services/control-flow/execute-sql-task?view=sql-server-2017) |
 | **内置的工作流任务** | [执行包任务](https://docs.microsoft.com/sql/integration-services/control-flow/execute-package-task?view=sql-server-2017)<br/><br/>[执行进程任务](https://docs.microsoft.com/sql/integration-services/control-flow/execute-process-task?view=sql-server-2017)<br/><br/>[“执行 SQL Server 代理作业”任务](https://docs.microsoft.com/sql/integration-services/control-flow/execute-sql-server-agent-job-task?view=sql-server-2017)<br/><br/>[表达式任务](https://docs.microsoft.com/sql/integration-services/control-flow/expression-task?view=sql-server-2017)<br/><br/>[消息队列任务](https://docs.microsoft.com/sql/integration-services/control-flow/message-queue-task?view=sql-server-2017)<br/><br/>[发送邮件任务](https://docs.microsoft.com/sql/integration-services/control-flow/send-mail-task?view=sql-server-2017)<br/><br/>[WMI 数据读取器任务](https://docs.microsoft.com/sql/integration-services/control-flow/wmi-data-reader-task?view=sql-server-2017)<br/><br/>[WMI 事件观察器任务](https://docs.microsoft.com/sql/integration-services/control-flow/wmi-event-watcher-task?view=sql-server-2017) |
-| **预安装的任务（[Azure 功能包](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15)）** | [Azure Blob 下载任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017)<br/><br/>[Azure blob 上传任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-upload-task?view=sql-server-2017)<br/><br/>[Azure Data Lake Store 文件系统任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-store-file-system-task?view=sql-server-2017)<br/><br/>[Azure HDInsight 创建群集任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-create-cluster-task?view=sql-server-2017)<br/><br/>[Azure HDInsight 删除群集任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-delete-cluster-task?view=sql-server-2017)<br/><br/>[Azure HDInsight Hive 任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task?view=sql-server-2017)<br/><br/>[Azure HDInsight Pig 任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-pig-task?view=sql-server-2017)<br/><br/>[Azure SQL DW 上传任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-sql-dw-upload-task?view=sql-server-2017)<br/><br/>[灵活的文件任务](https://docs.microsoft.com/sql/integration-services/control-flow/flexible-file-task?view=sql-server-ver15) |
+| **预安装的任务（[Azure 功能包](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15)）** | [Azure Blob 下载任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017)<br/><br/>[Azure blob 上传任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-upload-task?view=sql-server-2017)<br/><br/>[Azure Data Lake Store 文件系统任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-store-file-system-task?view=sql-server-2017)<br/><br/>[Azure HDInsight 创建群集任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-create-cluster-task?view=sql-server-2017)<br/><br/>[Azure HDInsight 删除群集任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-delete-cluster-task?view=sql-server-2017)<br/><br/>[Azure HDInsight Hive 任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task?view=sql-server-2017)<br/><br/>[Azure HDInsight Pig 任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-pig-task?view=sql-server-2017)<br/><br/>[Azure SQL Azure Synapse Analytics 上传任务](https://docs.microsoft.com/sql/integration-services/control-flow/azure-sql-dw-upload-task?view=sql-server-2017)<br/><br/>[灵活的文件任务](https://docs.microsoft.com/sql/integration-services/control-flow/flexible-file-task?view=sql-server-ver15) |
 
 ## <a name="next-steps"></a>后续步骤
 

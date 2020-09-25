@@ -2,7 +2,7 @@
 title: Azure 数据工厂的角色和权限
 description: 介绍创建数据工厂并使用子资源所需的角色和权限。
 origin.date: 11/5/2018
-ms.date: 07/27/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 9e7e767451960a81eb50671b195621be5b2e9bc9
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.openlocfilehash: c1259ae02637c9c28e084fdaf554f87d9169192f
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974314"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523708"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure 数据工厂的角色和权限
 
@@ -27,15 +27,15 @@ ms.locfileid: "86974314"
 
 ## <a name="roles-and-requirements"></a>角色和要求
 
-若要创建数据工厂实例，用于登录到 Azure 的用户帐户必须属于参与者或所有者角色，或者是 Azure 订阅的管理员。 若要查看你在订阅中拥有的权限，请在 Azure 门户中，选择右上角的用户名，然后选择“权限”。 如果可以访问多个订阅，请选择相应的订阅。 
+若要创建数据工厂实例，用于登录到 Azure 的用户帐户必须属于参与者或所有者角色，或者是 Azure 订阅的管理员。   若要查看你在订阅中拥有的权限，请在 Azure 门户中，选择右上角的用户名，然后选择“权限”。 如果可以访问多个订阅，请选择相应的订阅。 
 
 若要为数据工厂创建和管理子资源（包括数据集、链接服务、管道、触发器和集成运行时），以下要求适用：
-- 若要在 Azure 门户中创建和管理子资源，你必须属于资源组级别或更高级别的**数据工厂参与者**角色。
+- 若要在 Azure 门户中创建和管理子资源，你必须属于“资源组”级别或更高级别的“数据工厂参与者”角色 。
 - 若要使用 PowerShell 或 SDK 创建和管理子资源，资源级别或更高级别的**参与者**角色已足够。
 
 ## <a name="set-up-permissions"></a>设置权限
 
-创建数据工厂之后，可能需要让其他用户使用该数据工厂。 若要将该访问权限授予其他用户，必须将这些用户添加到数据工厂所在资源组中的内置“数据工厂参与者”角色。
+创建数据工厂之后，可能需要让其他用户使用该数据工厂。 若要将该访问权限授予其他用户，必须将这些用户添加到数据工厂所在“资源组”中的内置“数据工厂参与者”角色。 
 
 ### <a name="scope-of-the-data-factory-contributor-role"></a>“数据工厂参与者”角色的权限范围
 
@@ -49,7 +49,7 @@ ms.locfileid: "86974314"
 
 ### <a name="resource-manager-template-deployment"></a>资源管理器模板部署
 
-资源组级别或更高级别的“数据工厂参与者”角色允许用户部署资源管理器模板。 因此，此角色的成员可以使用资源管理器模板来部署数据工厂及其子资源，包括数据集、链接服务、管道、触发器和集成运行时。 不过，此角色的成员身份不允许用户创建其他资源。
+资源组级别或更高级别的“数据工厂参与者”角色允许用户部署资源管理器模板。 因此，此角色的成员可以使用资源管理器模板来部署数据工厂及其子资源，包括数据集、链接服务、管道、触发器和集成运行时。 此角色的成员身份不允许用户创建其他资源。
 
 > [!IMPORTANT]
 > 使用“数据工厂参与者”角色进行资源管理器模板部署不会提升你的权限。 例如，如果你部署一个可以创建 Azure 虚拟机的模板，而你没有创建虚拟机的权限，则部署会失败并出现授权错误。

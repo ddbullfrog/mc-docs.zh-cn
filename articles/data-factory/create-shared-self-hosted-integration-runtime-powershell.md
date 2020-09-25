@@ -11,13 +11,13 @@ author: WenJason
 manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 06/10/2018
-ms.date: 06/29/2020
-ms.openlocfilehash: 0772fea1b9959901fbc1e518eaacefcdfc7cf308
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.date: 09/21/2020
+ms.openlocfilehash: 87eab2eae91c425b4f11a7c64eecb7da874b0c5e
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85319485"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523982"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>在 Azure 数据工厂中创建共享自承载集成运行时
 
@@ -156,7 +156,7 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
 #### <a name="create-another-data-factory"></a>创建另一个数据工厂
 
 > [!NOTE]  
-> 此步骤是可选的。 若已拥有要共享的数据工厂，请跳过此步骤。
+> 此步骤是可选的。 若已拥有要共享的数据工厂，请跳过此步骤。 但若要向/从其他数据工厂添加或删除角色分配，你必须具有 `Microsoft.Authorization/roleAssignments/write` 和 `Microsoft.Authorization/roleAssignments/delete` 权限，例如[用户访问管理员](/role-based-access-control/built-in-roles#user-access-administrator)或[所有者](/role-based-access-control/built-in-roles#owner)。
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

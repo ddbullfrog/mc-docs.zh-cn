@@ -7,15 +7,15 @@ author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 09/14/2020
 ms.author: v-junlch
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 2acdcef8e2b0f1b6b87310f911d085f77ffff74a
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 57a05b0f7bac6e0fb43bc7deabdd45e8cc7d2980
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647704"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721120"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>生成 Node.js 应用程序并将其部署到 Azure 云服务
 
@@ -36,7 +36,7 @@ ms.locfileid: "88647704"
 > 本教程使用 Azure PowerShell，因此需要在 Windows 上运行。
 
 * 安装和配置 [Azure PowerShell]。
-* 下载并安装 [用于 .NET 2.7 的 Azure SDK]。 在安装设置中，选择：
+* 下载并安装 [用于 .NET 的 Azure SDK - 2.7]。 在安装设置中，选择：
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
 
@@ -178,7 +178,7 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "China East" -L
 
 [使用轻型 Web 应用]: ../app-service/quickstart-nodejs.md
 [Azure PowerShell]: https://docs.microsoft.com/powershell/azure/
-[用于 .NET 2.7 的 Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
+[Azure SDK for .NET 3.0]: https://www.microsoft.com/download/details.aspx?id=54917
 [将 PowerShell 连接]: https://docs.microsoft.com/powershell/azure/
 [nodejs.org]: https://nodejs.org/
 [创建 Azure 托管服务概述]: /cloud-services/

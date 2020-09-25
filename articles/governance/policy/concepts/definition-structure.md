@@ -2,15 +2,15 @@
 title: 策略定义结构的详细信息
 description: 介绍如何使用策略定义为组织中的 Azure 资源建立约定。
 ms.author: v-tawe
-origin.date: 06/12/2020
-ms.date: 08/06/2020
+origin.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f86fe3f09aff2d0062579f3b531774e259070a9
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 62eb440f72ccd7ebb7b39b6b009c958e93fd3c8c
+ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917114"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90678393"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -19,7 +19,7 @@ Azure Policy 可为资源建立多种约定。 策略定义描述资源符合性
 
 通过定义约定，可以控制成本并更轻松地管理资源。 例如，可指定仅允许特定类型的虚拟机。 也可要求资源使用特定的标记。 策略分配由子资源继承。 如果将策略分配应用到资源组，则会将其应用到该资源组中的所有资源。
 
-有关策略定义架构的描述，请参阅此处：[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+策略定义“policyRule”架构可在此处找到：[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 使用 JSON 创建策略定义。 策略定义包含以下项的元素：
 
@@ -194,7 +194,7 @@ Azure Policy 内置和模式位于 [Azure Policy 示例](../samples/index.md)。
 
 在 `metadata` 属性中，可以使用 **strongType** 提供 Azure 门户中的选项多选列表。 strongType 可以是受支持的资源类型，也可以是允许值。 若要确定资源类型是否对 strongType有效，请使用 [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)。 资源类型“StrongType”的格式为 `<Resource Provider>/<Resource Type>`。 例如 `Microsoft.Network/virtualNetworks/subnets`。
 
-支持部分不是由 **Get-AzResourceProvider** 返回的资源类型。 这些资源类型包括：
+支持部分不是由 **Get-AzResourceProvider** 返回的资源类型。 这些类型包括：
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -281,7 +281,8 @@ strongType 的非资源类型允许值包括：
 - `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
 - `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
 - `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
-- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` |
+  `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
 对于“less”、“lessOrEquals”、“greater”和“greaterOrEquals”，如果属性类型与条件类型不匹配，则会引发错误。 字符串比较是使用 `InvariantCultureIgnoreCase` 进行。
@@ -352,8 +353,7 @@ strongType 的非资源类型允许值包括：
 
 ### <a name="value"></a>值
 
-也可使用 **value** 来形成条件。 **value** 会针对[参数](#parameters)、[支持的模板函数](#policy-functions)或文本来检查条件。
-**value** 可与任何支持的[条件](#conditions)配对。
+也可使用 **value** 来形成条件。 **value** 会针对[参数](#parameters)、[支持的模板函数](#policy-functions)或文本来检查条件。 **value** 可与任何支持的[条件](#conditions)配对。
 
 > [!WARNING]
 > 如果模板函数的结果是一个错误，则策略评估会失败。 评估失败是一种隐式**拒绝**。 有关详细信息，请参阅[避免模板失败](#avoiding-template-failures)。 使用 DoNotEnforce 的 [enforcementMode](./assignment-structure.md#enforcement-mode)，以防止在测试和验证新策略定义期间，由于新的或更新的资源评估失败而受到影响。
@@ -436,7 +436,7 @@ strongType 的非资源类型允许值包括：
 
 使用修订后的策略规则，`if()` 会先检查名称的长度，然后尝试在少于三个字符的值上获取 `substring()`。 如果名称太短，则会改为返回“不是以 abc 开头”的值，并将其与 abc 进行比较。 短名称不是以 abc 开头的资源仍会导致策略规则失败，但在评估过程中不会再造成错误。
 
-### <a name="count"></a>计数
+### <a name="count"></a>Count
 
 计算资源有效负载中陈列有多少成员符合条件表达式的条件，可以使用 Count 表达式来构成。 常见的方案是检查“其中至少一个”、“只有一个”、“全部”或“没有”数组成员符合条件。 Count 会计算条件表达式每个 [\[\*\] 别名](#understanding-the--alias)数组成员，并加总 true 结果，然后将结果与表达式运算符进行比较。 “Count”表达式最多可添加到单个 policyRule 定义 3 次 。
 
@@ -628,7 +628,7 @@ Azure Policy 支持以下类型的效果：
 
   使用[适用于 Visual Studio Code 的 Azure Policy 扩展](../how-to/extension-for-vscode.md)来查看和发现资源属性的别名。
 
-  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="适用于 Visual Studio Code 的 Azure Policy 扩展" border="false":::
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy 扩展的屏幕截图，用于悬停属性以显示别名的 Visual Studio Code。" border="false":::
 
 - Azure Resource Graph
 
@@ -660,6 +660,13 @@ Azure Policy 支持以下类型的效果：
   # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
+
+  > [!NOTE]
+  > 若要查找可用于[修改](./effects.md#modify)效果的别名，请在 Azure PowerShell 4.6.0 或更高版本中使用以下命令：
+  >
+  > ```azurepowershell
+  > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }
+  > ```
 
 - Azure CLI
 

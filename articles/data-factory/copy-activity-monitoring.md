@@ -9,15 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 06/08/2020
-ms.date: 07/27/2020
+origin.date: 08/06/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: 5d38f186344a2c50f92c9c36d3eb9d213f8ad1b9
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.openlocfilehash: 49b0fae0be174a84eb3a741e5cb6acfb6848e994
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974252"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523775"
 ---
 # <a name="monitor-copy-activity"></a>监视复制活动
 
@@ -31,7 +31,7 @@ ms.locfileid: "86974252"
 
 若要监视复制活动运行，请转到数据工厂的“创作和监视”UI。 在“监视器”选项卡上，可以看到一个管道运行列表，单击“管道名称”链接即可访问管道运行中的活动运行的列表。
 
-![监视复制活动运行](./media/copy-activity-overview/monitor-pipeline-run.png)
+![监视管道运行](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 在此级别，可以看到复制活动输入、输出和错误的链接（如果复制活动运行失败）以及持续时间/状态等统计信息。 单击复制活动名称旁边的“详细信息”  按钮（眼镜）即可详细了解复制活动执行情况。 
 
@@ -57,6 +57,8 @@ ms.locfileid: "86974252"
 | DataWritten | 写入/提交到接收器的数据的实际装载。 大小可能不同于 `dataRead` 大小，因为它与每个数据存储存储数据的方式相关。 | Int64 值，以字节为单位 |
 | filesRead | 从基于文件的源中读取的文件数。 | Int64 值（未指定单位） |
 | filesWritten | 写入/提交到基于文件的接收器的文件数。 | Int64 值（未指定单位） |
+| filesSkipped | 从基于文件的源中跳过的文件数。 | Int64 值（未指定单位） |
+| dataConsistencyVerification | 数据一致性验证的详细信息，可在其中查看是否已验证复制的数据在源存储和目标存储之间的一致性。 有关详细信息，请参阅[本文](copy-activity-data-consistency.md#monitoring)。 | 数组 |
 | sourcePeakConnections | 复制活动运行期间与源数据存储建立的并发连接峰值数量。 | Int64 值（未指定单位） |
 | sinkPeakConnections | 复制活动运行期间与接收器数据存储建立的并发连接峰值数量。 | Int64 值（未指定单位） |
 | rowsRead | 从源中读取的行数。 此指标不适用于不进行分析而按原样复制文件的情况，例如，当源和接收器数据集是二进制格式类型或具有相同设置的其他格式类型时。 | Int64 值（未指定单位） |
@@ -66,15 +68,17 @@ ms.locfileid: "86974252"
 | throughput | 数据传输速率。 | 浮点数，以 KBps 为单位 |
 | sourcePeakConnections | 复制活动运行期间与源数据存储建立的并发连接峰值数量。 | Int32 值（无单位） |
 | sinkPeakConnections| 复制活动运行期间与接收器数据存储建立的并发连接峰值数量。| Int32 值（无单位） |
-| sqlDwPolyBase | 将数据复制到 SQL 数据仓库时是否使用了 PolyBase。 | 布尔 |
+| sqlDwPolyBase | 将数据复制到 Azure Synapse Analytics（以前称为 SQL 数据仓库）时是否使用了 PolyBase。 | 布尔 |
 | redshiftUnload | 从 Redshift 复制数据时是否使用了 UNLOAD。 | 布尔 |
 | hdfsDistcp | 从 HDFS 复制数据时是否使用了 DistCp。 | 布尔 |
 | effectiveIntegrationRuntime | 用来为活动运行提供支持的一个或多个集成运行时 (IR)，采用 `<IR name> (<region if it's Azure IR>)` 格式。 | 文本（字符串） |
 | usedDataIntegrationUnits | 复制期间的有效数据集成单位。 | Int32 值 |
 | usedParallelCopies | 复制期间的有效 parallelCopies。 | Int32 值 |
-| redirectRowPath | 在 `redirectIncompatibleRowSettings` 中配置的 Blob 存储中已跳过的不兼容行的日志路径。 请参阅[容错](copy-activity-overview.md#fault-tolerance)。 | 文本（字符串） |
+| logPath | Blob 存储中跳过的数据的会话日志路径。 请参阅[容错](copy-activity-overview.md#fault-tolerance)。 | 文本（字符串） |
 | executionDetails | 有关复制活动经历的各个阶段、相应步骤、持续时间、配置等的更多详细信息。 不建议分析此节，因为它有可能发生更改。 若要更好地了解如何通过它来了解复制性能并排查其问题，请参阅[以视觉方式进行监视](#monitor-visually)部分。 | Array |
 | perfRecommendation | 复制性能优化提示。 有关详细信息，请参阅[性能优化提示](copy-activity-performance-troubleshooting.md#performance-tuning-tips)。 | Array |
+| billingReference | 给定运行的计费用量。 | 对象 |
+| durationInQueue | 复制活动开始执行之前的排队持续时间（秒）。 | 对象 |
 
 **示例：**
 
@@ -84,6 +88,7 @@ ms.locfileid: "86974252"
     "dataWritten": 1180089300500,
     "filesRead": 110,
     "filesWritten": 110,
+    "filesSkipped": 0,
     "sourcePeakConnections": 640,
     "sinkPeakConnections": 1024,
     "copyDuration": 388,
@@ -93,6 +98,11 @@ ms.locfileid: "86974252"
     "usedDataIntegrationUnits": 128,
     "billingReference": "{\"activityType\":\"DataMovement\",\"billableDuration\":[{\"Managed\":11.733333333333336}]}",
     "usedParallelCopies": 64,
+    "dataConsistencyVerification": 
+    { 
+        "VerificationResult": "Verified", 
+        "InconsistentData": "None" 
+    },
     "executionDetails": [
         {
             "source": {

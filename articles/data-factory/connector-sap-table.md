@@ -10,22 +10,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 09/02/2019
-ms.date: 05/11/2020
-ms.openlocfilehash: 83d1b3b408585a550d42d5ec4d4ef68f2dc05373
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+origin.date: 09/01/2019
+ms.date: 09/21/2020
+ms.openlocfilehash: bd849e72db79168caea74cdfdc3246636c4012d6
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82197830"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523818"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 SAP 表复制数据
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 本文概述如何使用 Azure 数据工厂中的复制活动从 SAP 表复制数据。 有关详细信息，请参阅[复制活动概述](copy-activity-overview.md)。
 
 >[!TIP]
->若要了解 ADF 对 SAP 数据集成方案的总体支持，请参阅[使用 Azure 数据工厂进行 SAP 数据集成白皮书](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)，其中包含详细介绍、比较和指导。
+>若要了解 ADF 对 SAP 数据集成方案的总体支持，请参阅[使用 Azure 数据工厂进行 SAP 数据集成](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)白皮书，其中包含各 SAP 连接器的详细介绍、比较和指导。
 
 ## <a name="supported-capabilities"></a>支持的功能
 
@@ -48,6 +49,13 @@ ms.locfileid: "82197830"
 - 从 SAP 透明表、共用表、聚集表和视图复制数据。
 - 使用基本身份验证或安全网络通信 (SNC)（如果已配置 SNC）复制数据。
 - 连接到 SAP 应用程序服务器或 SAP 消息服务器。
+- 通过默认或自定义 RFC 检索数据。
+
+版本 7.01 或更高版本指 SAP NetWeaver 版本，而不是 SAP ECC 版本。 例如，SAP ECC 6.0 EHP 7 的 NetWeaver 版本一般 >=7.4。 如果你不确定自己的环境，请在 SAP 系统中执行以下步骤来确认版本：
+1. 使用 SAP GUI 连接到 SAP 系统。 
+2. 转到“系统” -> “状态” 。 
+3. 检查 SAP_BASIS 的版本，确保它等于或大于 701。  
+      ![检查 SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -74,7 +82,7 @@ ms.locfileid: "82197830"
 
 SAP BW Open Hub 链接服务支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
 | `type` | `type` 属性必须设置为 `SapTable`。 | 是 |
 | `server` | SAP 实例所在的服务器的名称。<br/>用于连接到 SAP 应用程序服务器。 | 否 |
@@ -182,7 +190,7 @@ SAP BW Open Hub 链接服务支持以下属性：
 
 支持使用以下属性从/向 SAP BW Open Hub 链接服务复制数据。
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
 | `type` | `type` 属性必须设置为 `SapTableResource`。 | 是 |
 | `tableName` | 要从中复制数据的 SAP 表的名称。 | 是 |
@@ -214,18 +222,19 @@ SAP BW Open Hub 链接服务支持以下属性：
 
 支持使用以下属性从 SAP 表复制数据：
 
-| 属性                         | 说明                                                  | 必须 |
+| 属性                         | 说明                                                  | 必选 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | `type` 属性必须设置为 `SapTableSource`。         | 是      |
 | `rowCount`                         | 要检索的行数。                              | 否       |
-| `rfcTableFields`                   | 要从 SAP 表复制的字段（列）。 例如，`column0, column1`。 | 否       |
-| `rfcTableOptions`                  | 用于筛选 SAP 表中的行的选项。 例如，`COLUMN0 EQ 'SOMEVALUE'`。 另请参阅本文稍后提供的 SAP 查询运算符表。 | 否       |
-| `customRfcReadTableFunctionModule` | 可用于从 SAP 表读取数据的自定义 RFC 函数模块。<br>可以使用自定义 RFC 函数模块来定义如何从 SAP 系统检索数据并将其返回到数据工厂。 必须为自定义函数模块实现一个接口（导入、导出、表），类似于数据工厂使用的默认接口 `/SAPDS/RFC_READ_TABLE2`。 | 否       |
+| `rfcTableFields`                 | 要从 SAP 表复制的字段（列）。 例如，`column0, column1`。 | 否       |
+| `rfcTableOptions`                | 用于筛选 SAP 表中的行的选项。 例如，`COLUMN0 EQ 'SOMEVALUE'`。 另请参阅本文稍后提供的 SAP 查询运算符表。 | 否       |
+| `customRfcReadTableFunctionModule` | 可用于从 SAP 表读取数据的自定义 RFC 函数模块。<br>可以使用自定义 RFC 函数模块来定义如何从 SAP 系统检索数据并将其返回到数据工厂。 必须为自定义函数模块实现一个接口（导入、导出、表），类似于数据工厂使用的默认接口 `/SAPDS/RFC_READ_TABLE2`。<br>数据工厂 | 否       |
 | `partitionOption`                  | 要从 SAP 表中读取的分区机制。 支持的选项包括： <ul><li>`None`</li><li>`PartitionOnInt`（在左侧用零填充正常整数或整数值，例如 `0000012345`）</li><li>`PartitionOnCalendarYear`（采用“YYYY”格式的 4 位数）</li><li>`PartitionOnCalendarMonth`（采用“YYYYMM”格式的 6 位数）</li><li>`PartitionOnCalendarDate`（采用“YYYYMMDD”格式的 8 位数）</li></ul> | 否       |
 | `partitionColumnName`              | 用于将数据分区的列的名称。                | 否       |
 | `partitionUpperBound`              | `partitionColumnName` 中指定的用于继续分区的列的最大值。 | 否       |
 | `partitionLowerBound`              | `partitionColumnName` 中指定的用于继续分区的列的最小值。 （注意：当分区选项为 `PartitionOnInt` 时，`partitionLowerBound` 不能为“0”） | 否       |
 | `maxPartitionsNumber`              | 要将数据拆分成的最大分区数。     | 否       |
+| `sapDataColumnDelimiter` | 单个字符，将用作传递给 SAP RFC 的分隔符，以用于拆分输出数据。 | 否 |
 
 >[!TIP]
 >如果 SAP 表包含大量数据（例如几十亿行），请使用 `partitionOption` 和 `partitionSetting` 将数据拆分成小分区。 在这种情况下，将按分区读取数据，并通过单个 RFC 调用从 SAP 服务器检索每个数据分区。<br/>
@@ -308,4 +317,4 @@ SAP BW Open Hub 链接服务支持以下属性：
 
 ## <a name="next-steps"></a>后续步骤
 
-有关可供 Azure 数据工厂中的复制活动用作源和接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。
+有关 Azure 数据工厂中复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

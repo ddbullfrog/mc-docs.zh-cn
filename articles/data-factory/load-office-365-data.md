@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 10/22/2018
-ms.date: 05/11/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: bea61c9355f5b6b452b96d0ff421584f92ed4d64
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: ceba20ed6e11491f0d2536a6eea7064673ca79cd
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198236"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523974"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 Office 365 加载数据
 
@@ -148,7 +148,7 @@ _正在提取数据状态：_
 
 ## <a name="next-steps"></a>后续步骤
 
-请转至下列文章，了解有关 Azure SQL 数据仓库支持的相关信息： 
+请转至下文，了解 Azure Synapse Analytics（以前称为 SQL 数据仓库）支持： 
 
 > [!div class="nextstepaction"]
 >[Office 365 连接器](connector-office-365.md)

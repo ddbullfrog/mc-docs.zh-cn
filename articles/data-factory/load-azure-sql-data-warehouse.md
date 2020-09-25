@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 06/08/2020
-ms.date: 07/27/2020
-ms.openlocfilehash: 9bc474edfd37e93900930474bf966e73eb2a6cc6
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.date: 09/21/2020
+ms.openlocfilehash: 00aa1eb8a573096e7796f435faa758861f20f27e
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974285"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523973"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>使用 Azure 数据工厂将数据加载到 Azure Synapse Analytics 中
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Azure Synapse Analytics（以前称为 SQL DW）](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)是一种基于云的向外扩展数据库，可以处理大量数据（关系数据和非关系数据）。 Azure Synapse Analytics 在大规模并行处理 (MPP) 体系结构的基础上构建，已针对企业数据仓库工作负荷进行优化。 它通过灵活地缩放存储以及独立计算提供云灵活性。
+[Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 是一种基于云的向外扩展数据库，可以处理大量数据（关系数据和非关系数据）。 Azure Synapse Analytics 在大规模并行处理 (MPP) 体系结构的基础上构建，已针对企业数据仓库工作负荷进行优化。 它通过灵活地缩放存储以及独立计算提供云灵活性。
 
 现在通过使用 Azure 数据工厂，Azure Synapse Analytics 入门变得前所未有的简单。 Azure 数据工厂是一个完全托管的基于云的数据集成服务。 该服务可用于使用现有系统中的数据填充 Azure Synapse Analytics，在生成分析解决方案时节省时间。
 
@@ -103,13 +103,13 @@ ms.locfileid: "86974285"
 
     a. 单击“+ 创建新连接”来添加连接
 
-    b. 从库中选择“Azure Synapse Analytics (以前称为 SQL DW)”，然后选择“继续”。 可以在搜索框中键入“SQL”以筛选连接器。
+    b. 从库中选择“Azure Synapse Analytics (以前称为 SQL 数据仓库)”，然后选择“继续” 。 可以在搜索框中键入“SQL”以筛选连接器。
 
-    ![选择 Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+    ![选择 Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
     c. 在“新建链接服务”页上，从下拉列表中选择服务器名称和 DB 名称，指定用户名和密码。 单击“测试连接”以验证设置，然后选择“创建” 。
 
-    ![配置 Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
+    ![配置 Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
     d. 选择新创建的链接服务作为接收器，然后单击“下一步”。
 

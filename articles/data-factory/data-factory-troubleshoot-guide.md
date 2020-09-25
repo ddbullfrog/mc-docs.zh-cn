@@ -5,16 +5,16 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: troubleshooting
-origin.date: 8/26/2019
-ms.date: 06/15/2020
+origin.date: 09/01/2019
+ms.date: 09/21/2020
 ms.author: v-jay
 ms.reviewer: craigg
-ms.openlocfilehash: 851b3d009b9a4ea3d3d48cea1f5b99bc6cb94eaa
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 0efaa3d40e674696c73e6c34c69cf8079a77726c
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723367"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523977"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>排查 Azure 数据工厂问题
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

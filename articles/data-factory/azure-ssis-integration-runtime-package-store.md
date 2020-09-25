@@ -11,14 +11,14 @@ ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
 ms.custom: seo-lt-2019
-origin.date: 07/20/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 5c12e141380206465caad4670936264a22e27ed8
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+origin.date: 09/06/2020
+ms.date: 09/21/2020
+ms.openlocfilehash: f153ccae3b98c04448327d9e2d963ec02604e418
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914175"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523732"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>使用 Azure-SSIS Integration Runtime 包存储来管理包
 
@@ -58,7 +58,7 @@ ms.locfileid: "87914175"
       > [!NOTE]
       > 将 SSIS 包导入 Azure-SSIS IR 包存储时只能逐个完成，且只需将这些包复制到基础 MSDB/文件系统/Azure 文件中，同时保留其 SQL Server/SSIS 版本。 
       >
-      > 由于 Azure-SSIS IR 当前的默认兼容性级别为 140，该级别与 SQL Server 2017 等效，因此在其上执行较低版本的包时，会在运行时将其升级为 SSIS 2017 包。 不支持执行更高版本的包。
+      > 由于 Azure-SSIS IR 当前基于 SQL Server 2017，因此在其上执行较低版本的包时，会在运行时将其升级为 SSIS 2017 包。 不支持执行更高版本的包。
       >
       > 此外，由于旧 SSIS 包存储绑定到特定的 SQL Server 版本并仅在 SSMS 上可访问该版本，因此需要先使用指定的 SSMS 版本将旧 SSIS 包存储中较低版本的包导出到文件系统中，然后才能使用 SSMS 2019 或更高版本将其导入 Azure-SSIS IR 包存储中。
       >
@@ -73,7 +73,7 @@ ms.locfileid: "87914175"
       > [!NOTE]
       > 从 Azure-SSIS IR 包存储导出 SSIS 包时只能逐个完成，并且在不切换其保护级别的情况下执行此操作只需复制这些包，同时保留其 SQL Server/SSIS 版本，否则需将其升级到 SSIS 2019 或更高版本的包。
       >
-      > 由于 Azure-SSIS IR 当前的默认兼容性级别为 140，该级别与 SQL Server 2017 等效，因此在其上执行较低版本的包时，会在运行时将其升级为 SSIS 2017 包。 不支持执行更高版本的包。
+      > 由于 Azure-SSIS IR 当前基于 SQL Server 2017，因此在其上执行较低版本的包时，会在运行时将其升级为 SSIS 2017 包。 不支持执行更高版本的包。
       >
       > 或者，若要在切换其保护级别时从 Azure-SSIS IR 包存储中导出多个 SSIS 包，可以使用 [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) 命令行实用工具，请参阅[使用 dtutil 部署多个包](#deploying-multiple-packages-with-dtutil)。
 
@@ -125,7 +125,7 @@ ms.locfileid: "87914175"
 
 可以使用 SQL Server/SSIS 安装附带的 [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) 命令行实用工具来成批部署多个包。 该实用工具绑定到特定的 SSIS 版本，因此，如果使用该实用工具来部署较低版本的包而不切换其保护级别，则只需复制这些包并保留其 SSIS 版本。 如果使用该实用工具来部署这些包并同时切换其保护级别，则该工具会将这些包升级到其 SSIS 版本。
 
- 由于 Azure-SSIS IR 当前的默认兼容性级别为 140，该级别与 SQL Server 2017 等效，因此在其上执行较低版本的包时，会在运行时将其升级为 SSIS 2017 包。 不支持执行更高版本的包。
+ 由于 Azure-SSIS IR 当前基于 SQL Server 2017，因此在其上执行较低版本的包时，会在运行时将其升级为 SSIS 2017 包。 不支持执行更高版本的包。
 
 因此，为避免运行时升级，在包部署模型中部署要在 Azure-SSIS IR 上运行的包时，应使用 SQL Server/SSIS 2017 安装附带的 dtutil 2017。 为此，可以下载并安装免费的 [SQL Server/SSIS 2017 开发人员版](https://go.microsoft.com/fwlink/?linkid=853016)。 安装后，可以在以下文件夹中找到 dtutil 2017：`YourLocalDrive:\Program Files\Microsoft SQL Server\140\DTS\Binn`。
 

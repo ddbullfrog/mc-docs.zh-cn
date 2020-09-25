@@ -7,17 +7,18 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 06/05/2020
-ms.date: 08/10/2020
+origin.date: 08/10/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: eb8fd36947cca225ba2ef79f67d04d4549af9401
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 79bf555cd521d57c8b93ccaf33b07a9a23a15f8a
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914330"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524055"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Azure 数据工厂中的 JSON 格式
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 如果要**分析 JSON 文件或以 JSON 格式写入数据**，请遵循本文中的说明。 
@@ -85,13 +86,13 @@ ms.locfileid: "87914330"
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings 的 type 必须设置为“JsonReadSettings”。 | 是      |
 | compressionProperties | 一组属性，指示如何为给定的压缩编解码器解压缩数据。 | 否       |
-| preserveZipFileNameAsFolder<br>（在 `compressionProperties` 下） | 当输入数据集配置了 ZipDeflate 压缩时适用。 指示是否在复制过程中以文件夹结构形式保留源 zip 文件名。 当设置为 true（默认值）时，数据工厂将解压缩文件写入 `<path specified in dataset>/<folder named as source zip file>/`；当设置为 false 时，数据工厂将解压缩文件直接写入 `<path specified in dataset>`。  | 否 |
+| preserveZipFileNameAsFolder<br>（在 `compressionProperties` 下） | 当输入数据集配置了 ZipDeflate 压缩时适用。 指示是否在复制过程中以文件夹结构形式保留源 zip 文件名。<br>- 当设置为“true”（默认值）时，数据工厂会将已解压缩的文件写入 `<path specified in dataset>/<folder named as source zip file>/`。<br>- 当设置为“false”时，数据工厂会直接将未解压缩的文件写入 `<path specified in dataset>`。 请确保在不同的源 zip 文件中没有重复的文件名，以避免产生冲突或出现意外行为。  | 否 |
 
 ### <a name="json-as-sink"></a>JSON 作为接收器
 
 复制活动的 ***\*sink\**** 节支持以下属性。
 
-| 属性      | 描述                                                  | 必须 |
+| 属性      | 说明                                                  | 必需 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 复制活动源的 type 属性必须设置为 **JSONSink**。 | 是      |
 | formatSettings | 一组属性。 请参阅下面的“JSON 写入设置”表。 | 否       |
@@ -99,7 +100,7 @@ ms.locfileid: "87914330"
 
 `formatSettings` 下支持的 **JSON 写入设置**：
 
-| 属性      | 描述                                                  | 必须                                              |
+| 属性      | 说明                                                  | 必需                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings 的类型必须设置为 **JsonWriteSettings**。 | 是                                                   |
 | filePattern |指示每个 JSON 文件中存储的数据模式。 允许的值为：setOfObjects (JSON Lines) 和 arrayOfObjects。 **默认**值为 **setOfObjects**。 请参阅 [JSON 文件模式](#json-file-patterns)部分，详细了解这些模式。 |否 |

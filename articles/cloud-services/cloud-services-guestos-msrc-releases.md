@@ -10,21 +10,76 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/31/2020
+ms.date: 09/14/2020
 ms.author: v-junlch
-ms.openlocfilehash: 52d21800e41f8160b62484f7cce6ca2e28b19494
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 9295bb3a63758531063cdbf18fece2cb288d004b
+ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413989"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90721111"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
 
-## <a name="august-2020-guest-os"></a>2020 年 8 月来宾 OS
+## <a name="september-2020-guest-os"></a>2020 年 9 月来宾 OS
 >[!NOTE]
->目前，我们正在将 8 月来宾 OS 推广到已配置为自动更新的云服务 VM。 推出完成后，此版本将可通过 Azure 门户和配置文件进行手动更新。 8 月来宾 OS 中包含以下修补程序。 此列表可能随时变动。
+>9 月来宾 OS 目前正在推出到配置为自动更新的云服务 VM。 推出完成后，此版本将可通过 Azure 门户和配置文件进行手动更新。 9 月来宾 OS 中包含以下修补程序。 此列表可能随时变动。
+
+
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2.102、3.89、4.82 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4561600]  |  闪存更新 | 3.89、4.82、5.47、6.23 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4577015]  |  最新累积更新 (LCU) | 5.47 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4570333]  |  最新累积更新 (LCU) | 6.23 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4570673]  |  服务堆栈更新 | 2.102 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4577051]  |  每月汇总 | 2.102 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4569767]  |  .NET Framework 3.5 安全和质量汇总 | 2.102 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework 4.5.2 安全和质量汇总 | 2.102 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4566426]  |  服务堆栈更新 | 3.89 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4577038]  |  每月汇总 | 3.89 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4569765]  |  .NET Framework 3.5 安全和质量汇总 | 3.89 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework 4.5.2 安全和质量汇总 | 3.89 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4566425]  |  服务堆栈更新 | 2.102 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4577066]  |  每月汇总 | 2.102 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4569768]  |  .NET Framework 3.5 安全和质量汇总 | 2.102 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4569778]  |  NET Framework 4.5.2 安全和质量汇总 | 2.102 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4578013]  |  安全更新 | 2.102 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4576750]  |  服务堆栈更新 | 5.47 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4576479]  |  NET Framework 4.8 安全和质量汇总 | 5.47 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4494175]  |  微代码 | 5.47 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4570332]  |  服务堆栈更新 | 6.23 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4570720]  |  .NET Framework 3.5 和 4.7.2 累积更新 | 6.23 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4576483]  |  .NET Framework 4.8 安全和质量汇总 | 6.23 | 2020 年 9 月 8 日 |
+|  Rel 20-09 |  [4494174]  |  微代码 | 6.23 | 2020 年 9 月 8 日 |
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4561600]: https://support.microsoft.com/kb/4561600
+[4577015]: https://support.microsoft.com/kb/4577015
+[4570333]: https://support.microsoft.com/kb/4570333
+[4570673]: https://support.microsoft.com/kb/4570673
+[4577051]: https://support.microsoft.com/kb/4577051
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4566426]: https://support.microsoft.com/kb/4566426
+[4577038]: https://support.microsoft.com/kb/4577038
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566425]: https://support.microsoft.com/kb/4566425
+[4577066]: https://support.microsoft.com/kb/4577066
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4576479]: https://support.microsoft.com/kb/4576479
+[4494175]: https://support.microsoft.com/kb/4494175
+[4570332]: https://support.microsoft.com/kb/4570332
+[4570720]: https://support.microsoft.com/kb/4570720
+[4576483]: https://support.microsoft.com/kb/4576483
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## <a name="august-2020-guest-os"></a>2020 年 8 月来宾 OS
 
 
 | 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
@@ -1657,7 +1712,7 @@ ms.locfileid: "89413989"
 | MS15-075 |[3072633] |OLE 中的漏洞可能导致提升权限 |4.22、3.29、2.41 |2015 年 7 月 14 日 |
 | MS15-076 |[3067505] |Windows 远程过程调用中的漏洞可能导致提升权限 |4.22、3.29、2.41 |2015 年 7 月 14 日 |
 | MS15-077 |[3077657] |ATM 字体驱动程序中的漏洞可能导致提升权限 |4.22、3.29、2.41 |2015 年 7 月 14 日 |
-| 不可用 |[3057154] |更新为限制使用 DES 加密 |4.22、3.29、2.41 |2015 年 7 月 14 日 |
+| NA |[3057154] |更新为限制使用 DES 加密 |4.22、3.29、2.41 |2015 年 7 月 14 日 |
 
 ## <a name="june-2015-guest-os"></a>2015 年 6 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
@@ -1690,7 +1745,7 @@ ms.locfileid: "89413989"
 | MS15-040 |[3045711] |ADFS 中的漏洞可能导致信息泄露 |4.20、3.27、2.39 |2015 年 4 月 17 日 |
 | MS15-041 |[3048010] |.NET Framework 中的漏洞可能导致信息泄露 |4.20、3.27、2.39 |2015 年 4 月 17 日 |
 | MS15-042 |[3047234] |Windows Hyper-V 中的漏洞可能导致拒绝服务 |4.20、3.27、2.39 |2015 年 4 月 17 日 |
-| 不可用 |[3045755] |更新后改进了 PKU2U 身份验证 |4.20、3.27、2.39 |2015 年 4 月 17 日 |
+| NA |[3045755] |更新后改进了 PKU2U 身份验证 |4.20、3.27、2.39 |2015 年 4 月 17 日 |
 
 ## <a name="april-2015-guest-os"></a>2015 年 4 月来宾 OS
 | 公告 ID | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
@@ -1725,7 +1780,7 @@ ms.locfileid: "89413989"
 | MS15-011 |[3000483] |组策略中的漏洞可能导致远程执行代码 |4.17、3.24、2.36 |空值 |
 | MS15-014 |[3004361] |SMB 中的漏洞可能导致绕过安全功能 |4.17、3.24、2.36 |空值 |
 | MS15-015 |[3031432] |Microsoft Windows 中的漏洞可能导致提升权限 |4.17、3.24、2.36 |空值 |
-| MS15-016 |[3029944] |Microsoft 图形组件中的漏洞可能导致信息泄露 |4.17、3.24、2.36 |不适用 |
+| MS15-016 |[3029944] |Microsoft 图形组件中的漏洞可能导致信息泄露 |4.17、3.24、2.36 |空值 |
 | 空值 |[3004375] |更新后改进了 Windows 命令行审核<p/>**注意**：会安装此更新，但用来启用它的注册表项处于关闭状态 |4.17、3.24、2.36 |空值 |
 
 ## <a name="january-2015-guest-os"></a>2015 年 1 月来宾 OS

@@ -2,15 +2,15 @@
 title: 如何创建适用于 Windows 的来宾配置策略
 description: 了解如何创建适用于 Windows 的 Azure Policy 来宾配置策略。
 ms.author: v-tawe
-origin.date: 03/20/2020
-ms.date: 08/27/2020
+origin.date: 08/17/2020
+ms.date: 09/15/2020
 ms.topic: how-to
-ms.openlocfilehash: d5bee6eec2d4e735d19ec7d726061d22bbf79886
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: a9736f9ab2d3ed4998069344b03b15dc54675ed0
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951229"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523984"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>如何创建适用于 Windows 的来宾配置策略
 
@@ -18,8 +18,7 @@ ms.locfileid: "88951229"
  
 若要了解如何创建适用于 Linux 的来宾配置策略，请参阅[如何创建适用于 Linux 的来宾配置策略](./guest-configuration-create-linux.md)页
 
-审核 Windows 时，来宾配置使用 [Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) (DSC) 资源模块创建配置文件。 DSC 配置定义了计算机应处于的条件。
-如果配置评估失败，则会触发策略效果 auditIfNotExists，并将计算机视为不符合。
+审核 Windows 时，来宾配置使用 [Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) (DSC) 资源模块创建配置文件。 DSC 配置定义了计算机应处于的条件。 如果配置评估失败，则会触发策略效果 auditIfNotExists，并将计算机视为不符合。
 
 [Azure Policy 来宾配置](../concepts/guest-configuration.md)只能用于审核计算机内部的设置。 还不能修正计算机内部的设置。
 
@@ -29,8 +28,7 @@ ms.locfileid: "88951229"
 > 包含来宾配置的自定义策略是一项预览功能。
 >
 > 必须有来宾配置扩展，才能在 Azure 虚拟机中执行审核。
-> 若要在所有 Windows 计算机上大规模部署此扩展，请分配以下策略定义：
->   - [部署必备组件以在 Windows VM 上启用 Guest Configuration 策略](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 若要在所有 Windows 计算机上大规模部署该扩展，请分配以下策略定义：`Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
 ## <a name="install-the-powershell-module"></a>安装 PowerShell 模块
 
@@ -58,7 +56,7 @@ ms.locfileid: "88951229"
 
 - PowerShell 6.2 或更高版本。 若尚未安装，请遵循[这些说明](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)。
 - Azure PowerShell 1.5.0 或更高版本。 若尚未安装，请遵循[这些说明](https://docs.microsoft.com/powershell/azure/install-az-ps)。
-  - 只需要 AZ 模块“Az.Accounts”和“Az.Resources”。
+  - 只有 Az 模块“Az.Accounts”和“Az.Resources”是必需的。
 
 ### <a name="install-the-module"></a>安装模块
 
@@ -92,8 +90,7 @@ ms.locfileid: "88951229"
 1. 该函数返回的布尔值确定来宾分配的 Azure 资源管理器状态是合规还是不合规。
 1. 提供程序运行 `Get-TargetResource` 以返回每个设置的当前状态，因此，会获得有关计算机为何不合规的详细信息，以及用于确认当前状态是否合规的详细信息。
 
-Azure 策略中将值传递给“来宾配置”分配信息的参数必须为字符串类型。
-即使 DSC 资源支持数组，也无法通过参数传递数组。
+Azure 策略中将值传递给“来宾配置”分配信息的参数必须为字符串类型。 即使 DSC 资源支持数组，也无法通过参数传递数组。
 
 ### <a name="get-targetresource-requirements"></a>Get-TargetResource 要求
 
@@ -123,7 +120,7 @@ return @{
 }
 ```
 
-还必须将 Reasons 属性作为嵌入类添加到资源的架构 MOF。
+必须将 Reasons 属性添加到嵌入类形式的资源的架构 MOF。
 
 ```mof
 [ClassVersion("1.0.0.0")] 
@@ -168,8 +165,7 @@ PowerShell cmdlet 可帮助创建包。
 ### <a name="storing-guest-configuration-artifacts"></a>存储来宾配置项目
 
 .zip 包必须存储在可由托管虚拟机访问的位置。
-示例包括 GitHub 存储库、Azure 存储库或 Azure 存储。 如果你不想使包公开，则可以在 URL 中包含 [SAS 令牌](../../../storage/common/storage-sas-overview.md)。
-还可以为专用网络中的计算机实现[服务终结点](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)，不过此配置仅适用于访问包，而不适用于与服务通信。
+示例包括 GitHub 存储库、Azure 存储库或 Azure 存储。 如果你不想使包公开，则可以在 URL 中包含 [SAS 令牌](../../../storage/common/storage-sas-overview.md)。 还可以为专用网络中的计算机实现[服务终结点](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)，不过此配置仅适用于访问包，而不适用于与服务通信。
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>逐步创建适用于 Windows 的自定义来宾配置审核策略
 
@@ -604,5 +600,5 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ## <a name="next-steps"></a>后续步骤
 
 - 了解如何使用[来宾配置](../concepts/guest-configuration.md)审核 VM。
-- 了解如何[以编程方式创建策略](programmatically-create.md)。
-- 了解如何[获取符合性数据](get-compliance-data.md)。
+- 了解如何[以编程方式创建策略](./programmatically-create.md)。
+- 了解如何[获取符合性数据](./get-compliance-data.md)。

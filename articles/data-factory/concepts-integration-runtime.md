@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 07/14/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 39d55d8c897b8c06efbf48b278966104f7812c0d
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.date: 09/21/2020
+ms.openlocfilehash: 3949dd7b701efc94e8510c65295d34a893f08e33
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914294"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523710"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure 数据工厂中的集成运行时 
 
@@ -56,7 +56,7 @@ Azure 集成运行时可以：
 
 - 在 Azure 中运行数据流 
 - 在云数据存储之间运行复制活动
-- 在公用网络中调度以下转换活动：HDInsight Hive 活动、HDInsight Pig 活动、HDInsight MapReduce 活动、HDInsight Spark 活动、HDInsight Streaming 活动、Stored Procedure 活动、.NET 自定义活动、Web 活动、Lookup 活动和 Get Metadata 活动。
+- 在公用网络中调度以下转换活动：HDInsight Hive 活动、HDInsight Pig 活动、HDInsight MapReduce 活动、HDInsight Spark 活动、HDInsight Streaming 活动、机器学习批处理执行活动、Machine Learning Update Resource 活动、存储过程活动、.NET 自定义活动、Web 活动、Lookup 活动和 Get Metadata 活动。
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 网络环境
 
@@ -76,7 +76,7 @@ Azure 集成运行时提供了使用安全、可靠和高性能的方式在云�
 自承载 IR 能够：
 
 - 在专用网络中的云数据存储和数据存储之间运行复制活动。
-- 对本地或 Azure 虚拟网络中的计算资源分派以下转换活动：HDInsight Hive 活动（BYOC-自带群集）、HDInsight Pig 活动 (BYOC)、HDInsight MapReduce 活动 (BYOC)、HDInsight Spark 活动 (BYOC)、HDInsight Streaming 活动 (BYOC)、存储过程活动、自定义活动（在 Azure Batch 上运行）、Lookup 活动和 Get Metadata 活动。
+- 对本地或 Azure 虚拟网络中的计算资源分派以下转换活动：HDInsight Hive 活动 (BYOC-Bring Your Own Cluster)、HDInsight Pig 活动 (BYOC)、HDInsight MapReduce 活动 (BYOC)、HDInsight Spark 活动 (BYOC)、HDInsight Streaming 活动 (BYOC)、机器学习批处理执行活动、Machine Learning Update Resource 活动、存储过程活动、自定义活动（在 Azure Batch 上运行）、Lookup 活动和 Get Metadata 活动。
 
 > [!NOTE] 
 > 使用自承载集成运行时支持需要自带驱动程序（如 SAP Hana、MySQL 等）的数据存储。有关详细信息，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。
@@ -135,6 +135,8 @@ IR 位置定义其后端计算的位置，尤其是执行数据移动、活动�
 - 对于复制活动，ADF 会尽最大努力自动检测接收器数据存储的位置，然后使用同一区域中的 IR（如果可用）或者使用同一地理位置中最靠近的 IR；如果检测不到接收器数据存储的区域，则会改用数据工厂区域中的 IR。
 
 - 对于查找/获取元数据/删除活动执行（也称为管道活动）、转换活动调度（也称为外部活动）和创作操作（测试连接、浏览文件夹列表和表列表、预览数据），ADF 会使用数据工厂区域中的 IR。
+
+如果为自动解析 Azure IR 启用托管虚拟网络，则 ADF 会在数据工厂区域中使用 IR。 
 
 可以在 UI 或活动监视有效负载的管道活动监视视图中监视哪个 IR 位置在活动执行期间生效。
 

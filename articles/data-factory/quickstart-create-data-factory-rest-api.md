@@ -1,6 +1,6 @@
 ---
 title: 使用 REST API 创建 Azure 数据工厂
-description: 创建一个 Azure 数据工厂，将数据从 Azure Blob 存储中的一个位置复制到另一位置。
+description: 创建一个 Azure 数据工厂管道，将数据从 Azure Blob 存储中的一个位置复制到另一位置。
 services: data-factory
 documentationcenter: ''
 author: WenJason
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: ''
 ms.devlang: rest-api
 ms.topic: quickstart
 origin.date: 06/10/2019
-ms.date: 05/11/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: df3cc754e1b87c0fbbc1435c21a877cad92070da
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: e73cae552030f08ba7205fda9e40857a3b1ba73a
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198235"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523915"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>快速入门：使用 REST API 创建 Azure 数据工厂和管道
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure 数据工厂是基于云的数据集成服务，用于在云中创建数据驱动型工作流，以便协调和自动完成数据移动和数据转换。 使用 Azure 数据工厂，可以创建和计划数据驱动型工作流（称为管道），以便从不同的数据存储引入数据，通过各种计算服务（例如 Azure HDInsight Hadoop、Spark）处理/转换数据，将输出数据发布到数据存储（例如 Azure SQL 数据仓库），供商业智能 (BI) 应用程序使用。
+Azure 数据工厂是基于云的数据集成服务，用于在云中创建数据驱动型工作流，以便协调和自动完成数据移动和数据转换。 使用 Azure 数据工厂，可以创建和计划数据驱动型工作流（称为管道），以便从不同的数据存储引入数据，通过各种计算服务（例如 Azure HDInsight Hadoop、Spark 和 Azure 机器学习）处理/转换数据，将输出数据发布到数据存储（例如 Azure Synapse Analytics，以前称为 SQL 数据仓库），供商业智能 (BI) 应用程序使用。
 
 此快速入门介绍如何使用 REST API 创建 Azure 数据工厂。 此数据工厂中的管道将数据从 Azure Blob 存储中的一个位置复制到另一个位置。
 
@@ -39,7 +39,7 @@ Azure 数据工厂是基于云的数据集成服务，用于在云中创建数�
 * **Azure 存储帐户**。 可以将 blob 存储用作**源**和**接收器**数据存储。 如果没有 Azure 存储帐户，请参阅[创建存储帐户](../storage/common/storage-account-create.md)一文获取创建步骤。
 * 在 Blob 存储中创建一个 **blob 容器**，在该容器中创建一个输入**文件夹**，并向该文件夹上传一些文件。 可以使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)等工具连接到 Azure Blob 存储、创建 Blob 容器、上传输入文件，以及验证输出文件。
 * 安装 **Azure PowerShell**。 遵循[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 中的说明。 本快速入门使用 PowerShell 调用 REST API。
-* 按照[此说明](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中创建应用程序**。 记下要在后续步骤中使用的以下值：**应用程序 ID**、**clientSecrets** 和**租户 ID**。 将应用程序分配到“参与者”  角色。
+* 按照[此说明](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)**在 Azure Active Directory 中创建应用程序**。 记下要在后续步骤中使用的以下值：**应用程序 ID**、**clientSecrets** 和**租户 ID**。 将应用程序分配到“参与者”  角色。
 
 ## <a name="set-global-variables"></a>设置全局变量
 

@@ -2,15 +2,15 @@
 title: 将策略设计为代码工作流
 description: 了解如何设计工作流以将 Azure Policy 定义部署为代码并自动验证资源。
 ms.author: v-tawe
-origin.date: 07/23/2020
-ms.date: 08/06/2020
+origin.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 86b1d11de2619aba1cc25389c39514d754c6fe92
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 1fe96b46ba1b80b7344163d7b9425c63b9c53c91
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917104"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524061"
 ---
 # <a name="design-policy-as-code-workflows"></a>将策略设计为代码工作流
 
@@ -45,7 +45,9 @@ ms.locfileid: "87917104"
 
 策略即代码的建议常规工作流如下图所示：
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="策略即代码工作流概述" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="图中显示了从创建到测试到部署的“策略作为代码”工作流框。" border="false":::
+   图中显示了“策略作为代码”工作流框。 创建包括策略和计划定义的创建。 测试包括已禁用强制模式的分配。 在网关检查合规性状态之后，向分配授予 MSI 权限并对资源进行修正。  部署包括在启用强制模式的情况下更新分配。
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>创建和更新策略定义
 
@@ -112,7 +114,8 @@ ms.locfileid: "87917104"
 > [!NOTE]
 > 尽管强制模式非常有用，但它不能替代在各种条件下对策略定义进行全面测试。 应使用 `PUT` 和 `PATCH` REST API 调用、合规与不合规的资源以及边缘事例（如资源中缺少属性）对策略定义进行测试。
 
-部署分配之后，使用 Policy SDK [获取新分配的合规性数据](../how-to/get-compliance-data.md)。 用于测试策略和分配的环境应同时具有合规与不合规的资源。 与用于代码的良好单元测试一样，需要测试资源是否如同预期，并且是否也没有假正或假负。 如果仅针对期望的内容进行测试和验证，则策略可能会产生意外和无法识别的影响。 有关详细信息，请参阅[评估新 Azure Policy 定义的影响](./evaluate-impact.md)。
+部署分配后，使用 Policy SDK 或 [Azure Policy 合规性扫描 GitHub 操作](https://github.com/marketplace/actions/azure-policy-compliance-scan)来[获取新分配的合规性数据](../how-to/get-compliance-data.md)。 用于测试策略和分配的环境应同时具有合规与不合规的资源。
+与用于代码的良好单元测试一样，需要测试资源是否如同预期，并且是否也没有假正或假负。 如果仅针对期望的内容进行测试和验证，则策略可能会产生意外和无法识别的影响。 有关详细信息，请参阅[评估新 Azure Policy 定义的影响](./evaluate-impact.md)。
 
 ### <a name="enable-remediation-tasks"></a>启用修正任务
 

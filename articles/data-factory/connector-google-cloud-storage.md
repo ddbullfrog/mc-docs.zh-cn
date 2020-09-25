@@ -8,17 +8,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 06/12/2020
-ms.date: 07/27/2020
+origin.date: 08/31/2020
+ms.date: 09/21/2020
 ms.author: v-jay
-ms.openlocfilehash: 6a06c9661d95fc442f5619aa838b6430009da6a8
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.openlocfilehash: d1d3c04ad1622ff10dde1e1e8d252b00ea85bcd9
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974320"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523670"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 Google 云存储复制数据
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 本文概述了如何从 Google Cloud Storage (GCS) 复制数据。 若要了解 Azure 数据工厂，请阅读[介绍性文章](introduction.md)。
@@ -154,6 +155,8 @@ Google 云存储支持基于格式的复制源中 `storeSettings` 设置下的�
 | deleteFilesAfterCompletion | 指示是否会在二进制文件成功移到目标存储后将其从源存储中删除。 文件删除按文件进行。因此，当复制活动失败时，你会看到一些文件已经复制到目标并从源中删除，而另一些文件仍保留在源存储中。 <br/>此属性仅在二进制复制方案中有效，该方案中的数据源存储为 Blob、ADLS Gen2、S3、Google 云存储、文件、Azure 文件存储、SFTP 或 FTP。 默认值：false。 |否 |
 | modifiedDatetimeStart    | 文件根据“上次修改时间”属性进行筛选。 <br>如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 **NULL**，这意味着不向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则会选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则会选中“上次修改时间”属性小于该日期/时间值的文件。<br/>如果配置 `fileListPath`，则此属性不适用。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                                          |
+| enablePartitionDiscovery | 对于已分区的文件，请指定是否从文件路径分析分区，并将它们添加为附加的源列。<br/>允许的值为 false（默认）和 true 。 | 否                                            |
+| partitionRootPath | 启用分区发现时，请指定绝对根路径，以便将已分区文件夹读取为数据列。<br/><br/>如果未指定，默认情况下，<br/>- 在数据集或源的文件列表中使用文件路径时，分区根路径是在数据集中配置的路径。<br/>- 使用通配符文件夹筛选器时，分区根路径是第一个通配符前的子路径。<br/><br/>例如，假设你将数据集中的路径配置为“root/folder/year=2020/month=08/day=27”：<br/>- 如果将分区根路径指定为“root/folder/year=2020”，则除了文件内的列外，复制活动还会生成另外两个列 `month` 和 `day`，其值分别为“08”和“27”。<br/>- 如果未指定分区根路径，则不会生成额外的列。 | 否                                            |
 | maxConcurrentConnections | 到存储的并发连接数。 仅在要限制到数据存储的并发连接数时指定。 | 否                                                          |
 
 **示例：**
@@ -212,7 +215,7 @@ Google 云存储支持基于格式的复制源中 `storeSettings` 设置下的�
 
 本部分介绍了在复制活动源中使用文件列表路径时产生的行为。
 
-假设有以下源文件夹结构，并且要复制加粗显示的文件：
+假设有以下源文件夹结构，并且要复制以粗体显示的文件：
 
 | 示例源结构                                      | FileListToCopy.txt 中的内容                             | 数据工厂配置                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
@@ -228,7 +231,7 @@ Google 云存储支持基于格式的复制源中 `storeSettings` 设置下的�
 
 ## <a name="delete-activity-properties"></a>Delete 活动属性
 
-若要了解有关属性的详细信息，请查看 [Delete 活动](delete-activity.md)。
+若要了解有关属性的详细信息，请查看[删除活动](delete-activity.md)。
 
 ## <a name="legacy-models"></a>旧模型
 

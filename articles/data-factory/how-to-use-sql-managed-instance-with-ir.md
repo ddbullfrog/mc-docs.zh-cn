@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 origin.date: 4/15/2020
 ms.date: 08/10/2020
-ms.openlocfilehash: 0a81e9debd124a6d994d3488edd96b4252be7461
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 88504dbc501c6eea1f7fe5af88f7a59a9f407f69
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914311"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523897"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>在 Azure 数据工厂中结合使用 Azure SQL 托管实例和 SQL Server Integration Services (SSIS)
 
@@ -39,31 +39,31 @@ ms.locfileid: "87914311"
 
 1. Azure SQL 托管实例可通过[公共终结点](/sql-database/sql-database-managed-instance-public-endpoint-configure)进行连接。 若要允许 SQL 托管实例和 Azure-SSIS IR 之间的流量，必须满足入站和出站要求：
 
-        - when Azure-SSIS IR not inside a virtual network (preferred)
+    - 当 Azure-SSIS IR 不在虚拟网络中时（首选）
 
-            **Inbound requirement of SQL Managed Instance**, to allow inbound traffic from Azure-SSIS IR.
+        SQL 托管实例的入站要求，以允许来自 Azure-SSIS IR 的入站流量。
 
-            | 传输协议 | Source | 源端口范围 | 目标 | 目标端口范围 |
+        | 传输协议 | 源 | 源端口范围 | 目标 | 目标端口范围 |
+        |---|---|---|---|---|
+        |TCP|Azure 云服务标记|*|VirtualNetwork|3342|
+
+        有关详细信息，请参阅[允许网络安全组上的公共终结点流量](/sql-database/sql-database-managed-instance-public-endpoint-configure#allow-public-endpoint-traffic-on-the-network-security-group)。
+
+    - 当 Azure-SSIS IR 在虚拟网络中时
+
+        有一种特殊情况，即当 SQL 托管实例位于 Azure-SSIS IR 不支持的区域中时，由于全球 VNet 对等互连限制，Azure-SSIS IR 位于没有 VNet 对等互连的虚拟网络中。 在这种情况下，虚拟网络中的 Azure-SSIS IR 通过公共终结点连接 SQL 托管实例 。 使用下面的网络安全组 (NSG) 规则以允许 SQL 托管实例和 Azure-SSIS IR 之间的流量：
+
+        1. SQL 托管实例的入站要求，以允许来自 Azure-SSIS IR 的入站流量。
+
+            | 传输协议 | 源 | 源端口范围 | 目标 |目标端口范围 |
             |---|---|---|---|---|
-            |TCP|Azure 云服务标记|*|VirtualNetwork|3342|
+            |TCP|Azure-SSIS IR 的静态 IP 地址 <br> 有关详细信息，请参阅[为 Azure-SSIS IR 创建自己的公共 IP](join-azure-ssis-integration-runtime-virtual-network.md#publicIP)。|*|VirtualNetwork|3342|
 
-            For more information, see [Allow public endpoint traffic on the network security group](/sql-database/sql-database-managed-instance-public-endpoint-configure#allow-public-endpoint-traffic-on-the-network-security-group).
+         1. Azure-SSIS IR 的出站要求，以允许流向 SQL 托管实例的出站流量。
 
-        - when Azure-SSIS IR inside a virtual network
-
-            There is a special scenario when SQL Managed Instance is in a region that Azure-SSIS IR does not support, Azure-SSIS IR is inside a virtual network without VNet peering due to Global VNet peering limitation. In this scenario, **Azure-SSIS IR inside a virtual network** connects SQL Managed Instance **over public endpoint**. Use below Network Security Group(NSG) rules to allow traffic between SQL Managed Instance and Azure-SSIS IR:
-
-            1. **Inbound requirement of SQL Managed Instance**, to allow inbound traffic from Azure-SSIS IR.
-
-                | 传输协议 | Source | 源端口范围 | 目标 |目标端口范围 |
-                |---|---|---|---|---|
-                |TCP|Azure-SSIS IR 的静态 IP 地址 <br> 有关详细信息，请参阅[为 Azure-SSIS IR 创建自己的公共 IP](join-azure-ssis-integration-runtime-virtual-network.md#publicIP)。|*|VirtualNetwork|3342|
-
-             1. **Outbound requirement of Azure-SSIS IR**, to allow outbound traffic to SQL Managed Instance.
-
-                | 传输协议 | Source | 源端口范围 | 目标 |目标端口范围 |
-                |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[SQL 托管实例公共终结点 IP 地址](/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
+            | 传输协议 | 源 | 源端口范围 | 目标 |目标端口范围 |
+            |---|---|---|---|---|
+            |TCP|VirtualNetwork|*|[SQL 托管实例公共终结点 IP 地址](/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
 
 ### <a name="configure-virtual-network"></a>配置虚拟网络
 
@@ -92,13 +92,13 @@ ms.locfileid: "87914311"
     1. 允许网络安全组 (NSG) 上流量的规则，以允许 SQL 托管实例和 Azure-SSIS IR 之间的流量，以及 Azure-SSIS IR 所需的流量。
         1. SQL 托管实例的入站要求，以允许来自 Azure-SSIS IR 的入站流量。
 
-            | 传输协议 | Source | 源端口范围 | 目标 | 目标端口范围 | 注释 |
+            | 传输协议 | 源 | 源端口范围 | 目标 | 目标端口范围 | 注释 |
             |---|---|---|---|---|---|
             |TCP|VirtualNetwork|*|VirtualNetwork|1433、11000-11999|如果 SQL 数据库服务器连接策略设置为“代理”（而不是“重定向”），那么只需要端口 1433。|
 
         1. Azure-SSIS IR 的出站要求，以允许流向 SQL 托管实例的出站流量，以及 Azure-SSIS IR 所需的其他流量。
 
-        | 传输协议 | Source | 源端口范围 | 目标 | 目标端口范围 | 注释 |
+        | 传输协议 | 源 | 源端口范围 | 目标 | 目标端口范围 | 注释 |
         |---|---|---|---|---|---|
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433、11000-11999 |允许流向 SQL 托管实例的出站流量。 如果连接策略设置为“代理”（而不是“重定向”），那么只需要端口 1433。 |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | 虚拟网络中的 Azure-SSIS IR 节点使用此端口来访问 Azure 服务，如 Azure 存储和 Azure 事件中心。 |
@@ -108,7 +108,7 @@ ms.locfileid: "87914311"
 
         1. Azure-SSIS IR 的入站要求，以允许 Azure-SSIS IR 所需的流量。
 
-        | 传输协议 | Source | 源端口范围 | 目标 | 目标端口范围 | 注释 |
+        | 传输协议 | 源 | 源端口范围 | 目标 | 目标端口范围 | 注释 |
         |---|---|---|---|---|---|
         | TCP | BatchNodeManagement | * | VirtualNetwork | 29876、29877（如果将 IR 加入资源管理器虚拟网络） <br/><br/>10100、20100、30100（如果将 IR 加入经典虚拟网络）| 数据工厂服务使用这些端口来与虚拟网络中 Azure-SSIS IR 的节点通信。 <br/><br/> 无论是否创建子网级 NSG，数据工厂都始终会在附加到托管 Azure-SSIS IR 的虚拟机的网络接口卡 (NIC) 级别配置 NSG。 此 NIC 级别的 NSG 仅允许来自指定端口上的数据工厂 IP 地址的入站流量。 即使你在子网级别向 Internet 流量打开这些端口，来自非数据工厂 IP 地址的流量也会在 NIC 级别被阻止。 |
         | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | （可选）仅当 Azure 支持人员在高级故障排除期间要求客户打开此端口时，才需要此规则。故障排除后可立即将其关闭。 **CorpNetSaw** 服务标记仅允许 Microsoft 企业网络中的安全访问工作站使用远程桌面。 无法在门户中选择此服务标记，只能通过 Azure PowerShell 或 Azure CLI 选择。 <br/><br/> 在 NIC 级别 NSG 处，端口 3389 是默认打开的，允许在子网级别 NSG 处控制端口 3389；但在此期间，Azure-SSIS IR 在每个 IR 节点上的 Windows 防火墙规则处默认禁止端口 3389 出站以实现保护。 |

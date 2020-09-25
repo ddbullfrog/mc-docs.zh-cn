@@ -1,16 +1,16 @@
 ---
 title: 如何保护资源层次结构 - Azure 治理
 description: 了解如何通过层次结构设置（包括设置默认管理组）来保护资源层次结构。
-origin.date: 08/10/2020
-ms.date: 08/27/2020
+origin.date: 09/02/2020
+ms.date: 09/15/2020
 ms.author: v-tawe
 ms.topic: conceptual
-ms.openlocfilehash: 8ad57c361e535c376a285aed21cd13f22b9fb6b5
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: de47fd11368bfaa47cf6f803196884bfd16a2440
+ms.sourcegitcommit: f5438a4f20d47cfe24e5cee209bb9e11a704c23c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951207"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90456015"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>如何保护资源层次结构
 
@@ -33,7 +33,26 @@ ms.locfileid: "88951207"
 
 通过允许定义新订阅的默认管理组，可以在根管理组中应用组织范围的治理构造，并且可以定义具有更适合新订阅的策略分配或 Azure 角色分配的单独管理组。
 
-若要配置此设置，请调用[层次结构设置](https://docs.microsoft.com/rest/api/resources/hierarchysettings) REST API 终结点。 为此，请使用以下 REST API URI 和正文格式。 将 `{rootMgID}` 替换为根管理组 ID，将 `{defaultGroupID}` 替换为将成为默认管理组的管理组 ID：
+### <a name="set-default-management-group-in-portal"></a>在门户中设置默认管理组
+
+若要在 Azure 门户中配置此设置，请执行以下步骤：
+
+1. 使用搜索栏搜索并选择“管理组”。
+
+1. 在根管理组中，选择管理组名称旁边的“详细信息”。
+
+1. 在“设置”下，选择“层次结构设置” 。
+
+1. 选择“更改默认管理组”按钮。
+
+   > [!NOTE]
+   > 如果“更改默认管理组”按钮处于禁用状态，要么所查看的管理组不是根管理组，要么你的安全主体没有更改层次结构设置所需的权限。
+
+1. 从层次结构中选择管理组，并使用“选择”按钮。
+
+### <a name="set-default-management-group-with-rest-api"></a>使用 REST API 设置默认管理组
+
+若要使用 REST API 配置此设置，请调用[层次结构设置](https://docs.microsoft.com/rest/api/resources/hierarchysettings)终结点。 为此，请使用以下 REST API URI 和正文格式。 将 `{rootMgID}` 替换为根管理组 ID，将 `{defaultGroupID}` 替换为将成为默认管理组的管理组 ID：
 
 - REST API URI
 
@@ -57,7 +76,24 @@ ms.locfileid: "88951207"
 
 默认情况下，任何用户都可以在租户中创建新管理组。 租户管理员可能希望仅向特定用户提供这些权限，以维护管理组层次结构中的一致性和合规性。 如果启用，则用户需要对根管理组进行 `Microsoft.Management/managementGroups/write` 操作才能创建新的子管理组。
 
-若要配置此设置，请调用[层次结构设置](https://docs.microsoft.com/rest/api/resources/hierarchysettings) REST API 终结点。 为此，请使用以下 REST API URI 和正文格式。 此值是布尔值，因此请为该值提供 true 或 false。 值 true 允许这种保护管理组层次结构的方法：
+### <a name="set-require-authorization-in-portal"></a>在门户中设置“需要授权”
+
+若要在 Azure 门户中配置此设置，请执行以下步骤：
+
+1. 使用搜索栏搜索并选择“管理组”。
+
+1. 在根管理组中，选择管理组名称旁边的“详细信息”。
+
+1. 在“设置”下，选择“层次结构设置” 。
+
+1. 将“需要权限才能创建新管理组。” 选项切换为打开。
+
+   > [!NOTE]
+   > 如果“需要权限才能创建新管理组。” 切换功能处于禁用状态，要么所查看的管理组不是根管理组，要么你的安全主体没有更改层次结构设置所需的权限。
+
+### <a name="set-require-authorization-with-rest-api"></a>使用 REST API 设置“需要授权”
+
+若要使用 REST API 配置此设置，请调用[层次结构设置](https://docs.microsoft.com/rest/api/resources/hierarchysettings)终结点。 为此，请使用以下 REST API URI 和正文格式。 此值是布尔值，因此请为该值提供 true 或 false。 值 true 允许这种保护管理组层次结构的方法：
 
 - REST API URI
 

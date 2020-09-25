@@ -1,6 +1,6 @@
 ---
 title: 快速入门：使用 Python 创建 Azure 数据工厂
-description: 创建一个 Azure 数据工厂，将数据从 Azure Blob 存储中的一个位置复制到另一位置。
+description: 使用数据工厂将数据从 Azure Blob 存储中的一个位置复制到另一位置。
 services: data-factory
 documentationcenter: ''
 author: WenJason
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 01/22/2018
-ms.date: 06/29/2020
-ms.custom: seo-python-october2019, tracking-python
-ms.openlocfilehash: 77c5b064b1ffdcc2ff8ebd32b3e09f54e2fbbc53
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.date: 09/21/2020
+ms.custom: seo-python-october2019, devx-track-python
+ms.openlocfilehash: a8ba0b21faa2c7dc6ca085eee994cc82018db4c2
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323301"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523916"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>快速入门：使用 Python 创建数据工厂和管道
 
@@ -29,7 +29,7 @@ ms.locfileid: "85323301"
 
 Azure 数据工厂是基于云的数据集成服务，用于创建数据驱动型工作流，以便协调和自动完成数据移动和数据转换。 可以使用 Azure 数据工厂创建和计划数据驱动型工作流（称为管道）。
 
-管道可以从不同的数据存储引入数据。 管道使用计算服务（如 Azure HDInsight Hadoop 和 Spark）处理或转换数据。 管道将输出数据发布到数据存储（例如 Azure SQL 数据仓库），供商业智能 (BI) 应用程序使用。
+管道可以从不同的数据存储引入数据。 管道使用计算服务（例如 Azure HDInsight Hadoop、Spark 和 Azure 机器学习）来处理或转换数据。 管道将输出数据发布到数据存储（例如 Azure Synapse Analytics [旧称 SQL 数据仓库]），供商业智能 (BI) 应用程序使用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,7 +41,7 @@ Azure 数据工厂是基于云的数据集成服务，用于创建数据驱动�
 
 * [Azure 存储资源管理器](https://storageexplorer.com/)（可选）。
 
-* [Azure Active Directory 中的应用程序](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)。 记下要在后续步骤中使用的以下值：**应用程序 ID**、**身份验证密钥**和**租户 ID**。 按照同一文章中的以下说明将应用程序分配到“参与者”角色。
+* [Azure Active Directory 中的应用程序](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)。 记下要在后续步骤中使用的以下值：**应用程序 ID**、**身份验证密钥**和**租户 ID**。 按照同一文章中的以下说明将应用程序分配到“参与者”角色。
 
 ## <a name="create-and-upload-an-input-file"></a>创建并上传输入文件
 

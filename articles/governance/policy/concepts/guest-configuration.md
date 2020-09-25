@@ -3,14 +3,14 @@ title: 了解如何审核虚拟机的内容
 description: 了解 Azure Policy 如何使用来宾配置代理审核虚拟机内部的设置。
 ms.author: v-tawe
 origin.date: 08/07/2020
-ms.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fe778433380149bfcac5e6c39049fd6ebb13bdd
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: 8dad02ec9e99aac9dcd67f2f3ea44110a3c6d1f7
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951271"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524063"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure Policy 的来宾配置
 
@@ -62,7 +62,7 @@ Azure Policy 可以审核 Azure 中计算机内部的设置。
 
 ## <a name="supported-client-types"></a>支持的客户端类型
 
-来宾配置策略包含新版本。 如果来宾配置代理不兼容，则会排除 Azure 市场中提供的较早版本的操作系统。
+来宾配置策略包含新版本。 如果来宾配置代理不兼容，则会排除 Azure 市场中提供的旧版操作系统。
 下表显示了 Azure 映像上支持的操作系统列表：
 
 |发布者|名称|版本|
@@ -73,7 +73,7 @@ Azure Policy 可以审核 Azure 中计算机内部的设置。
 |Microsoft|Windows 客户端|Windows 10|
 |OpenLogic|CentOS|7.3 及更高版本|
 |Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
-|Suse|SLES|12 SP3 及更高版本|
+|Suse|SLES|12 SP3-SP5|
 
 来宾配置策略支持自定义虚拟机映像，只要它们是上表中的操作系统之一。
 
@@ -95,22 +95,20 @@ used to reference the Guest Configuration service. -->
 
 <!-- ### Communicate over private link in Azure
 
-Virtual machines can use [private link](../../../private-link/private-link-overview.md)
-for communication to the Guest Configuration service. Apply tag with the name
-`EnablePrivateNeworkGC` and value `TRUE` to enable this feature. The tag can be
-applied before or after Guest Configuration policies are applied to the machine.
+Virtual machines can use [private link](../../../private-link/private-link-overview.md) for
+communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNeworkGC`
+and value `TRUE` to enable this feature. The tag can be applied before or after Guest Configuration
+policies are applied to the machine.
 
 Traffic is routed using the Azure
-[virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16.md)
-to establish
-a secure, authenticated channel with Azure platform resources. -->
+[virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16.md) to
+establish a secure, authenticated channel with Azure platform resources. -->
 
 <!-- 
 ### Azure Arc connected machines
 
-Nodes located outside Azure that are connected by Azure Arc require connectivity
-to the Guest Configuration service.
-Details about network and proxy requirements provided in the
+Nodes located outside Azure that are connected by Azure Arc require connectivity to the Guest
+Configuration service. Details about network and proxy requirements provided in the
 [Azure Arc documentation](../../../azure-arc/servers/overview.md).
 
 To communicate with the Guest Configuration resource provider in Azure, machines require outbound
@@ -119,6 +117,11 @@ configure exceptions with [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
 [service tag](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" can be
 used to reference the Guest Configuration service.
+
+For Arc connected servers in private datacenters, allow traffic using the following patterns:
+
+- Port: Only TCP 443 required for outbound internet access
+- Global URL: `*.guestconfiguration.azure.com`
 -->
 
 ## <a name="managed-identity-requirements"></a>托管标识要求
@@ -131,25 +134,16 @@ used to reference the Guest Configuration service.
 
 ## <a name="guest-configuration-definition-requirements"></a>来宾配置定义要求
 
-来宾配置运行的每个审核都需要两个策略定义：“DeployIfNotExists”定义和“AuditIfNotExists”定义 。 “DeployIfNotExists”策略定义用于管理在每台计算机上执行审核所用的依赖项。
+来宾配置策略使用 AuditIfNotExists 效果。 分配定义后，后端服务会自动处理 `Microsoft.GuestConfiguration` Azure 资源提供程序中所有要求的生命周期。
 
-“DeployIfNotExists”策略定义验证并更正以下项目：
+满足计算机中的所有要求后，AuditIfNotExists 策略才会返回合规性结果。 [部署 Azure 虚拟机的要求](#deploy-requirements-for-azure-virtual-machines)部分描述了这些要求
 
-- 验证计算机确已分配要评估的配置。 如果当前不存在任何分配，则获取分配并通过以下操作准备计算机：
-  - 使用[托管标识](../../../active-directory/managed-identities-azure-resources/overview.md)对计算机进行身份验证
-  - 安装 Microsoft.GuestConfiguration 扩展的最新版本
-  - 安装[验证工具](#validation-tools)和依赖项（如果需要）
+> [!IMPORTANT]
+> 在旧版来宾配置中，需要计划以合并 DeployIfNoteExists 和 AuditIfNotExists 定义 。 不再需要 DeployIfNotExists 定义。 定义和计划标记为 `[Deprecated]`，但现有分配将继续发挥作用。
+>
+> 需要手动操作。 如果先前已在类别 `Guest Configuration` 中分配了策略计划，请删除策略分配，然后分配新定义。 来宾配置策略采用以下名称格式：`Audit <Windows/Linux> machines that <non-compliant condition>`
 
-如果 DeployIfNotExists 分配不符合要求，则可使用[修正任务](../how-to/remediate-resources.md#create-a-remediation-task)。
-
-DeployIfNotExists 分配符合要求后，AuditIfNotExists 策略分配将确定来宾分配是否符合要求。 验证工具向来宾配置客户端提供结果。 客户端将结果转发给来宾扩展，使其可通过来宾配置资源提供程序使用。
-
-Azure Policy 使用来宾配置资源提供程序 complianceStatus 属性在“符合性”节点中报告符合性。 有关详细信息，请参阅[获取符合性数据](../how-to/get-compliance-data.md)。
-
-> [!NOTE]
-> AuditIfNotExists 策略需要 DeployIfNotExists 策略才能返回结果。 如果没有 DeployIfNotExists，则 AuditIfNotExists 策略显示资源状态为“0/0”。
-
-来宾配置的所有内置策略包含在一个计划内，以对分配中使用的定义分组。 名为 _\[预览\]：审核 Linux 和 Windows 计算机内的密码安全_的内置计划包含 18 个策略。 对于 Windows 有六个 DeployIfNotExists 和 AuditIfNotExists 对，对于 Linux 有三个对。 [策略定义](definition-structure.md#policy-rule)逻辑验证是否只评估目标操作系统。
+Azure Policy 使用来宾配置资源提供程序 complianceStatus 属性在“合规性”节点中报告合规性 。 有关详细信息，请参阅[获取符合性数据](../how-to/get-compliance-data.md)。
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>按照行业基线审核操作系统设置
 
@@ -164,9 +158,12 @@ Azure Policy 中的一个计划提供了按照“基线”审核操作系统设�
 
 #### <a name="applying-configurations-using-guest-configuration"></a>使用来宾配置应用配置
 
-Azure Policy 的最新功能可用于配置计算机内部的设置。 “在 Windows 计算机上配置时区”这一定义通过配置时区对计算机进行更改。
+只有“在 Windows 计算机上配置时区”这一定义通过配置时区对计算机进行更改。 不支持用于在计算机内配置设置的自定义策略定义。
 
 分配以“配置”开头的定义时，还必须分配定义“部署必备组件以在 Windows VM 上启用来宾配置策略”。 如果需要，可将这些定义合并到一个计划中。
+
+> [!NOTE]
+> 内置时区策略是唯一支持在计算机内配置设置的定义，而在计算机内配置设置的自定义策略则不受支持。
 
 <!-- Azure Acr is not available in mc -->
 <!-- #### Assigning policies to machines outside of Azure

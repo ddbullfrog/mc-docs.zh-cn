@@ -3,14 +3,14 @@ title: 适用于 Visual Studio Code 的 Azure Policy 扩展
 description: 了解如何使用适用于 Visual Studio Code 的 Azure Policy 扩展来查找 Azure 资源管理器别名。
 ms.author: v-tawe
 origin.date: 06/16/2020
-ms.date: 08/06/2020
+ms.date: 09/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 97b02dc6d60b5982cd160485ead5bee6da69d178
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: ec3a3a6ec37bc1e975b63018a7c7b71cd1996123
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917101"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523805"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>使用适用于 Visual Studio Code 的 Azure Policy 扩展
 
@@ -54,7 +54,7 @@ ms.locfileid: "87917101"
 
 1. 在列表中选择国家云：
 
-   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="设置 Visual Studio Code 的默认 Azure 云登录名" border="false":::
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="选择 Visual Studio Code 的 Azure 国家云登录的屏幕截图。" border="false":::
 
 ## <a name="connect-to-an-azure-account"></a>连接到 Azure 帐户
 
@@ -66,13 +66,13 @@ ms.locfileid: "87917101"
 
      在 Azure Policy 扩展中，选择“登录到 Azure”。
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Azure Policy 扩展中 Visual Studio Code 的 Azure 云登录名" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Visual Studio Code 的屏幕截图，显示 Azure Policy 扩展的图标。" border="false":::
 
    - 命令面板
 
      在菜单栏中，转到“视图” > “命令面板”，然后输入“Azure:  登录”。
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="命令面板中 Visual Studio Code 的 Azure 云登录名" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="命令面板中 Visual Studio Code 的 Azure 云登录选项的屏幕截图。" border="false":::
 
 1. 按照登录说明登录到 Azure。 连接后，Visual Studio Code 窗口底部的状态栏上会显示 Azure 帐户名称。
 
@@ -127,7 +127,7 @@ Azure Policy 扩展在“资源”窗格中按资源提供程序和资源组列�
 
 打开某个资源后，将鼠标悬停在资源管理器属性名称或值上可显示 Azure Policy 别名（如果存在）。 在此示例中，资源的类型是 `Microsoft.Compute/virtualMachines`，鼠标已悬停在 **properties.storageProfile.imageReference.offer** 属性上。 悬停鼠标可显示匹配的别名。
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="在 Azure Policy 扩展中悬停鼠标即可显示资源管理器属性别名" border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Visual Studio Code 的 Azure Policy 扩展的屏幕截图，鼠标悬停在属性上以显示别名。" border="false":::
 
 > [!NOTE]
 > VS Code 扩展只公开资源管理器模式属性，不会显示任何[资源提供程序模式](../concepts/definition-structure.md#mode)属性。
