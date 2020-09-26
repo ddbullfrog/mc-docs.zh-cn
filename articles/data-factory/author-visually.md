@@ -9,14 +9,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 05/15/2020
-ms.date: 06/29/2020
-ms.openlocfilehash: 57560468dbffba6d7ccfd4269d1494000fa804ff
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+origin.date: 09/08/2020
+ms.date: 09/21/2020
+ms.openlocfilehash: 4d1c85503dc32d19e1e99511c34d931a3c4a3e9f
+ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321551"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90523734"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure 数据工厂中的视觉对象创作
 
@@ -38,9 +38,15 @@ Azure 数据工厂用户界面体验 (UX) 允许你以可视方式创作和部�
 
 对于管道和数据集等顶层资源，可以在画布右侧的属性窗格中编辑顶层属性。 “属性”窗格包含“名称”、“说明”、“注释”和其他顶层属性等属性。 管道活动等子资源使用画布底部的面板进行编辑。 
 
-![创作画布](media/author-visually/properties-pane.png)
+![属性窗格](media/author-visually/properties-pane.png)
 
 默认情况下，“属性”窗格只在创建资源时打开。 若要编辑它，请单击画布右上角的“属性”窗格图标。
+
+### <a name="related-resources"></a>相关资源
+
+在“属性”窗格中，可以通过选择“相关”选项卡查看依赖于所选资源的资源。此处将列出引用当前资源的任何资源。
+
+![相关资源](media/author-visually/related-resources.png)
 
 ## <a name="management-hub"></a>管理中心
 
