@@ -25200,25 +25200,11 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/batch/batch-retry-after-errors.md",
-            "redirect_url": "/batch/error-handling",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/batch/batch-api-basics.md",
             "redirect_url": "/batch/batch-service-workflow-features",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/batch/batch-api-differences.md",
-            "redirect_url": "/batch/batch-apis-tools",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/batch/batch-integration-policies.md",
-            "redirect_url": "/batch/policy-samples",
-            "redirect_document_id": false
-        }, {
             "source_path": "articles/data-factory/connector-azure-sql-database-managed-instance.md",
             "redirect_url": "/data-factory/connector-azure-sql-managed-instance",
             "redirect_document_id": true
@@ -27633,6 +27619,331 @@
             "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
             "redirect_url": "/media-services/live-video-analytics-edge/grpc-extension-protocol",
 
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/aks/policy-samples.md",
+            "redirect_url": "/aks/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/aks/windows-node-limitations.md",
+            "redirect_url": "/aks/windows-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/managed-applications/policy-samples.md",
+            "redirect_url": "/azure-resource-manager/managed-applications/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/templates/cross-resource-group-deployment.md",
+            "redirect_url": "/azure-resource-manager/templates/cross-scope-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/templates/template-samples.md",
+            "redirect_url": "/azure-resource-manager/templates/template-syntax",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/templates/use-vs-code-to-create-template.md",
+            "redirect_url": "/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/batch-api-differences.md",
+            "redirect_url": "/batch/batch-apis-tools",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/batch-integration-policies.md",
+            "redirect_url": "/batch/policy-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/batch-retry-after-errors.md",
+            "redirect_url": "/batch/error-handling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/batch/batch-visual-studio-templates.md",
+            "redirect_url": "/batch/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/policy-samples.md",
+            "redirect_url": "/container-registry/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-query-execution.md",
+            "redirect_url": "/cosmos-db/sql-query-pagination",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-bus-messaging/service-bus-tutorial-topics-subscriptions-powershell.md",
+            "redirect_url": "/service-bus-messaging/service-bus-quickstart-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-scale-up-node-type.md",
+            "redirect_url": "/service-fabric/service-fabric-scale-up-primary-node-type",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/azure-cli-arm-commands.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/azure-cli-arm-commands",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-storage-account.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-same-or-different-subscription.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/availability.md",
+            "redirect_url": "/virtual-machines/availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md",
+            "redirect_url": "/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/backup-recovery.md",
+            "redirect_url": "/virtual-machines/backup-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/constrained-vcpu.md",
+            "redirect_url": "/virtual-machines/constrained-vcpu",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/csharp.md",
+            "redirect_url": "/azure-resource-manager/templates/deploy-rest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/disks-types.md",
+            "redirect_url": "/virtual-machines/disks-types",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/disks-use-storage-explorer-managed-disks.md",
+            "redirect_url": "/virtual-machines/disks-use-storage-explorer-managed-disks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/ephemeral-os-disks.md",
+            "redirect_url": "/virtual-machines/ephemeral-os-disks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/faq-for-disks.md",
+            "redirect_url": "/virtual-machines/faq-for-disks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/generation-2.md",
+            "redirect_url": "/virtual-machines/generation-2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/how-to-enable-write-accelerator.md",
+            "redirect_url": "/virtual-machines/how-to-enable-write-accelerator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/infrastructure-example.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/infrastructure-example",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/isolation.md",
+            "redirect_url": "/virtual-machines/isolation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/managed-disks-overview.md",
+            "redirect_url": "/virtual-machines/managed-disks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-deep-dive.md",
+            "redirect_url": "/virtual-machines/migration-classic-resource-manager-deep-dive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/migration-classic-resource-manager-faq.md",
+            "redirect_url": "/virtual-machines/migration-classic-resource-manager-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/network-overview.md",
+            "redirect_url": "/virtual-machines/network-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/premium-storage-performance.md",
+            "redirect_url": "/virtual-machines/premium-storage-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/regions.md",
+            "redirect_url": "/virtual-machines/regions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sa-copy-generalized.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sa-copy-generalized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sa-create-vm-specialized.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sa-upload-generalized.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sa-upload-generalized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/security-policy.md",
+            "redirect_url": "/virtual-machines/security-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sizes.md",
+            "redirect_url": "/virtual-machines/sizes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/states-lifecycle.md",
+            "redirect_url": "/virtual-machines/states-lifecycle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/using-managed-disks-template-deployments.md",
+            "redirect_url": "/virtual-machines/using-managed-disks-template-deployments",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-create.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-backup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-patching",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.experimental.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.experimental",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-onprem-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage",
             "redirect_document_id": false
         }
 
