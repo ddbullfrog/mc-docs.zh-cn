@@ -20450,11 +20450,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/machine-learning/service/how-to-enable-logging.md",
-            "redirect_url": "/machine-learning/how-to-enable-logging",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/machine-learning/service/how-to-enable-virtual-network.md",
             "redirect_url": "/machine-learning/how-to-enable-virtual-network",
             "redirect_document_id": false
@@ -27616,12 +27611,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
-            "redirect_url": "/media-services/live-video-analytics-edge/grpc-extension-protocol",
-
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/aks/policy-samples.md",
             "redirect_url": "/aks/policy-reference",
             "redirect_document_id": false
@@ -27740,6 +27729,21 @@
             "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md",
             "redirect_url": "/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
+          "redirect_url": "/media-services/live-video-analytics-edge/grpc-extension-protocol",
+          "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/how-to-enable-virtual-network.md",
+            "redirect_url": "/machine-learning/how-to-network-security-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path" : "articles/machine-learning/concept-pipeline-practices-tips.md",
+            "redirect_url" : "/machine-learning/how-to-debug-pipelines",
+            "redirect_document_id" : false
         },
         {
             "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
@@ -27945,7 +27949,13 @@
             "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage.md",
             "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage",
             "redirect_document_id": false
-        }
+        },
+    {
+      "source_path": "articles/mysql/policy-samples.md",
+      "redirect_url": "/mysql/policy-reference",
+      "redirect_document_id": false
+    }
+
 
     ]
 }
