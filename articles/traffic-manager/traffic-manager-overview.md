@@ -2,8 +2,7 @@
 title: Azure 流量管理器 | Azure
 description: 本文概述了 Azure 流量管理器。 了解它是否是针对应用程序进行用户流量负载均衡的正确选择。
 services: traffic-manager
-author: rockboyfor
-manager: digimobile
+manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
 ms.devlang: na
@@ -11,14 +10,17 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/23/2019
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8599851d636e16bc7e2e04204ba46e2f10adae79
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7c793b0e1844ec57fd8df530a969d5f6a2e9a4ed
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653207"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395240"
 ---
 # <a name="what-is-traffic-manager"></a>什么是流量管理器？
 Azure 流量管理器是一种基于 DNS 的流量负载均衡器，可以在全球 Azure 区域内以最佳方式向服务分发流量，同时提供高可用性和响应性。
@@ -27,6 +29,8 @@ Azure 流量管理器是一种基于 DNS 的流量负载均衡器，可以在全
 
 >[!NOTE]
 > Azure 为方案提供了一套完全托管的负载均衡解决方案。 若要寻求传输层安全性 (TLS) 协议终止（“SSL 卸载”）或每个 HTTP/HTTPS 请求的应用层处理，请查看[应用程序网关](../application-gateway/overview.md)。 如果想要实现区域负载均衡，请查看[负载均衡器](../load-balancer/load-balancer-overview.md)。 端到端场景可从结合所需的解决方案中受益。
+>
+> 有关 Azure 负载平衡选项的比较，请参阅 [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)（Azure 中的负载平衡选项概述）。
 
 <!--Notice: URL direct application-gateway-introduction.md to overview.md-->
 
@@ -64,4 +68,4 @@ Azure 流量管理器是一种基于 DNS 的流量负载均衡器，可以在全
 - 了解[流量管理器工作原理](traffic-manager-how-it-works.md)。
 - 查看流量管理器[常见问题解答](traffic-manager-FAQs.md)。
 
-<!--Update_Description: update meta properties, wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

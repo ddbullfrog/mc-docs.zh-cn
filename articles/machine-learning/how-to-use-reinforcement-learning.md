@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 81e5d837c0fb6de240314f431c681f3a493dcd67
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 5d33f4578a9f26f0276fecbc0ce58e751f20ad39
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021313"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395424"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure 机器学习的强化学习（预览版）
 
@@ -49,8 +49,8 @@ ms.locfileid: "90021313"
  
  - 你自己的 Jupyter 笔记本服务器
 
-    - 安装 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
-    - 安装 [Azure 机器学习 RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py)：`pip install --upgrade azureml-contrib-reinforcementlearning`
+    - 安装 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。
+    - 安装 [Azure 机器学习 RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true)：`pip install --upgrade azureml-contrib-reinforcementlearning`
     - 创建[工作区配置文件](how-to-configure-environment.md#workspace)。
     - 运行虚拟网络[设置笔记本](https://aka.ms/azure-rl-env-setup)，打开用于分布式强化学习的网络端口。
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>创建强化学习试验
 
-创建一个[试验](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)，用于跟踪强化学习运行。 在 Azure 机器学习中，试验是相关试运行的逻辑集合，用于组织运行日志、历史记录、输出等信息。
+创建一个[试验](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)，用于跟踪强化学习运行。 在 Azure 机器学习中，试验是相关试运行的逻辑集合，用于组织运行日志、历史记录、输出等信息。
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>创建强化学习估算器
 
-本部分介绍如何使用 [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) 将训练作业提交到 Azure 机器学习。
+本部分介绍如何使用 [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) 将训练作业提交到 Azure 机器学习。
 
 Azure 机器学习使用估算器类来封装运行配置信息。 这样，你便可以轻松指定如何配置脚本执行。 有关 Azure 机器学习估算器模式的详细信息，请参阅[如何使用估算器训练模型](how-to-train-ml-models.md)。
 
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>提交运行
 
-[运行](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)处理正在进行的或已完成的作业的运行历史记录。 
+[运行](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true)处理正在进行的或已完成的作业的运行历史记录。 
 
 ```python
 run = exp.submit(config=rl_estimator)

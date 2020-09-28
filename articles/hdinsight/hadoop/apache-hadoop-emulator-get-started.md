@@ -18,12 +18,12 @@ ms.topic: article
 origin.date: 05/29/2019
 ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 53b4dbb6db1b54701e823ae0a6843032500e30d2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: afc56161dcaa57fcabc35abcce09db0fb07a2236
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72583929"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394615"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Apache Hadoop 沙盒，它是虚拟机上的模拟器
 
@@ -67,7 +67,9 @@ ms.locfileid: "72583929"
 
 2. 登录后，请输入以下命令：
 
-        ambari-admin-password-reset
+    ```bash
+    ambari-admin-password-reset
+    ```
 
     出现提示时，请提供 Ambari 管理员帐户的密码。 访问 Ambari Web UI 时使用此密码。
 
@@ -75,13 +77,21 @@ ms.locfileid: "72583929"
 
 1. 与沙盒建立 SSH 连接后，使用以下命令启动 Hive shell：
 
-        hive
+    ```bash
+    hive
+    ```
+
 2. 启动 shell 后，使用以下命令查看随沙盒一起提供的表：
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
+
 3. 使用以下命令检索 `sample_07` 表中的 10 行数据：
 
-        select * from sample_07 limit 10;
+    ```hiveql
+    select * from sample_07 limit 10;
+    ```
 
 ## <a name="next-steps"></a>后续步骤
 * [了解如何将 Visual Studio 与 Hortonworks 沙盒配合使用](../hdinsight-hadoop-emulator-visual-studio.md)

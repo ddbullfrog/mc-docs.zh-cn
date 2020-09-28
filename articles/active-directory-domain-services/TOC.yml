@@ -35,8 +35,6 @@
       href: template-create-instance.md
     - name: 使用 Azure AD PowerShell 配置作用域内同步
       href: powershell-scoped-synchronization.md
-    - name: 使用 Azure PowerShell 创建资源林和信任
-      href: create-resource-forest-powershell.md
 - name: 概念
   items:
     - name: 管理基础知识
@@ -47,8 +45,6 @@
       href: concepts-replica-sets.md
     - name: 林和信任
       items:
-        - name: 资源林
-          href: concepts-resource-forest.md
         - name: 林信任
           href: concepts-forest-trust.md
     - name: Azure AD DS 同步的工作原理

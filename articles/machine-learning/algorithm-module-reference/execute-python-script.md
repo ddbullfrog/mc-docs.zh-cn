@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 origin.date: 07/27/2020
 ms.date: 08/24/2020
-ms.openlocfilehash: f364f780a2c48ecd16a69afed3b44acd0adf59bc
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 3b7dbba4fcb1bb84b4f3cb8ee31f889f2b71f2fc
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228251"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395443"
 ---
 # <a name="execute-python-script-module"></a>“执行 Python 脚本”模块
 
@@ -58,7 +58,7 @@ if spec is None:
 > 如果管道包含的多个“执行 Python 脚本”模块需要使用预安装列表中未包含的包，请在每个模块中安装这些包。
 
 ## <a name="upload-files"></a>上传文件
-“执行 Python 脚本”支持使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-) 上传文件。
+“执行 Python 脚本”支持使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#&preserve-view=trueupload-file-name--path-or-stream-) 上传文件。
 
 以下示例演示如何在“执行 Python 脚本”模块中上传映像文件：
 

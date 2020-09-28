@@ -3,16 +3,16 @@ title: Azure 状态概述 | Microsoft Docs
 description: Azure 服务运行状况的全局视图
 ms.topic: overview
 ms.date: 05/20/2020
-ms.openlocfilehash: eed0048915280ebafea104f1e2af671a75e47c8a
-ms.sourcegitcommit: 87e789550ea49ff77c7f19bc68fad228009fcf44
+ms.openlocfilehash: 64725d08b65fe5b1aa48d8ffcbcb99d32bc628b8
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748166"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402610"
 ---
 # <a name="azure-status-overview"></a>Azure 状态概述
 
-[Azure 状态](https://status.azure.com/status/)可提供 Azure 服务和区域运行状况的全局视图。 通过 Azure 状态可获取有关服务可用性的信息。 每个人都可以使用 Azure 状态查看报告其服务运行状况的所有服务，以及具有广泛影响的事件。 但是，如果你现在是 Azure 用户，我们强烈建议你在 [Azure 服务运行状况](https://aka.ms/azureservicehealth)中使用个性化体验。 Azure 服务运行状况包括所有中断、即将计划的维护活动和服务建议。
+[Azure 状态](https://status.azure.com/status/)可提供 Azure 服务和区域运行状况的全局视图。 通过 Azure 状态可获取有关服务可用性的信息。 每个人都可以使用 Azure 状态查看报告其服务运行状况的所有服务，以及具有广泛影响的事件。 但是，如果你现在是 Azure 用户，我们强烈建议你在 [Azure 服务运行状况](https://portal.azure.cn/?source=akams%2F#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues)中使用个性化体验。 Azure 服务运行状况包括所有中断、即将计划的维护活动和服务建议。
 
 ![Azure 状态页](./media/azure-status-overview/azure-status.PNG)
 

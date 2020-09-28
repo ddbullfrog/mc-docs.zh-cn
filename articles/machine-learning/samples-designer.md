@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: 3b4944aa0f9fe569bb2becb2fc25324aeeeaeb3a
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 828ab18d96ff3bf93f3ec5d8200c258d20011997
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021511"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395272"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>用于 Azure 机器学习设计器的管道和数据集示例
 
@@ -67,8 +67,8 @@ ms.locfileid: "90021511"
 
 | 标题示例 | 说明 | 
 | --- | --- |
-| [示例 1：回归 - 汽车价格预测(基本)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md)。 | 使用线性回归预测汽车价格。 |
-| [示例 2：回归 - 汽车价格预测(高级)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md)。 | 使用决策林和提升决策树回归器预测汽车价格。 比较模型以找出最佳算法。
+| [回归 - 汽车价格预测（基本）](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md)。 | 使用线性回归预测汽车价格。 |
+| [回归 - 汽车价格预测（高级）](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | 使用决策林和提升决策树回归器预测汽车价格。 比较模型以找出最佳算法。
 
 ## <a name="classification"></a>分类
 
@@ -76,11 +76,19 @@ ms.locfileid: "90021511"
 
 | 标题示例 | 说明 | 
 | --- | --- |
-| [示例 3：通过特征选择进行二元分类 - 收入预测](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | 使用双类提升决策树预测收入的高低。 使用皮尔逊相关选择特征。
-| [示例 4：通过自定义 Python 脚本进行二元分类 - 信用风险预测](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | 将信贷申请分类为高风险或低风险。 使用“执行 Python 脚本”模块为数据加权。
-| [示例 5：二元分类 - 客户关系预测](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | 使用双类提升决策树预测客户流失率。 使用 SMOTE 对有偏差的数据采样。
-| [示例 7：文本分类 - 维基百科 SP 500 数据集](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | 使用多类逻辑回归对维基百科文章中的公司类型进行分类。 |
-| 示例 12：多类分类 - 字母识别 | 创建二元分类器的系综，对手写字母进行分类。 |
+| [通过特征选择进行二元分类 - 收入预测](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | 使用双类提升决策树预测收入的高低。 使用皮尔逊相关选择特征。
+| [通过自定义 Python 脚本进行二元分类 - 信用风险预测](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | 将信贷申请分类为高风险或低风险。 使用“执行 Python 脚本”模块为数据加权。
+| [二元分类 - 客户关系预测](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | 使用双类提升决策树预测客户流失率。 使用 SMOTE 对有偏差的数据采样。
+| [文本分类 - 维基百科 SP 500 数据集](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | 使用多类逻辑回归对维基百科文章中的公司类型进行分类。 |
+| 多类分类 - 字母识别 | 创建二元分类器的系综，对手写字母进行分类。 |
+
+## <a name="computer-vision"></a>计算机视觉
+
+探索这些内置的计算机视觉示例。 对于未提供文档链接的示例，可将其打开并查看模块注释来详细了解这些示例。
+
+| 标题示例 | 说明 | 
+| --- | --- |
+| 基于广度和深度的推荐 - 餐馆评分预测 | 基于餐馆/用户功能和评分构建餐馆推荐器引擎。|
 
 ## <a name="recommender"></a>推荐器
 
@@ -88,7 +96,7 @@ ms.locfileid: "90021511"
 
 | 标题示例 | 说明 | 
 | --- | --- |
-| 示例 10：推荐 - 电影评级推文 | 基于电影标题和评级生成电影推荐器引擎。 |
+| 使用 DenseNet 进行的图像分类 | 使用计算机视觉模块基于 PyTorch DenseNet 构建图像分类模型。| 
 
 ## <a name="utility"></a>实用工具
 
@@ -96,10 +104,11 @@ ms.locfileid: "90021511"
 
 | 标题示例 | 说明 | 
 | --- | --- |
-| [示例 6：使用自定义 R 脚本 - 航班延误预测](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) |
-| 示例 8：二元分类的交叉验证 - 成人收入预测 | 使用交叉验证生成用于预测成人收入的二元分类器。
-| 示例 9：排列特征重要性 | 使用排列特征重要性来计算测试数据集的重要性评分。 
-| 示例 11：优化二元分类的参数 - 成人收入预测 | 使用“优化模型超参数”找出用于生成二元分类器的最佳超参数。 |
+| 使用 Vowpal Wabbit 模型的二元分类 - 成人收入预测 | Vowpal Wabbit 是一个机器学习系统，它使用在线、哈希、全约简、约简、learning2search、主动和交互式学习等技术来开拓机器学习的领域。 此示例展示了如何使用 Vowpal Wabbit 模型来构建二元分类模型。 
+| [使用自定义 R 脚本 - 航班延误预测](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) | 使用自定义 R 脚本预测所计划的客运航班是否会延迟 15 分钟以上。
+| 二元分类的交叉验证 - 成人收入预测 | 使用交叉验证生成用于预测成人收入的二元分类器。
+| 排列特征重要性 | 使用排列特征重要性来计算测试数据集的重要性评分。 
+| 优化二元分类的参数 - 成人收入预测 | 使用“优化模型超参数”找出用于生成二元分类器的最佳超参数。 |
 
 ## <a name="datasets"></a>数据集
 

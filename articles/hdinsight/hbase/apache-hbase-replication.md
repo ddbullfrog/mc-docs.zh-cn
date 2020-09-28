@@ -13,12 +13,12 @@ ms.workload: big-data
 origin.date: 12/06/2019
 ms.date: 01/13/2020
 ms.author: v-yiso
-ms.openlocfilehash: 0d61cb2b4eb47db1f9bbc04fa0893f6ed2f3a696
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: ac9b6eadd361ab89fc63ec4552389e4c75f29cfa
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516628"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394805"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>在 Azure 虚拟网络中设置 Apache HBase 群集复制
 
@@ -56,7 +56,7 @@ ms.locfileid: "85516628"
 
 本文介绍异地复制方案。
 
-为了帮助设置环境，我们创建了一些 [Azure 资源管理器模板](../../azure-resource-manager/resource-group-overview.md)。 如果想要使用其他方法设置环境，请参阅：
+为了帮助设置环境，我们创建了一些 [Azure 资源管理器模板](../../azure-resource-manager/management/overview.md)。 如果想要使用其他方法设置环境，请参阅：
 
 - [在 HDInsight 中创建 Apache Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)
 - [在 Azure 虚拟网络中创建 Apache HBase 群集](apache-hbase-provision-vnet.md)
@@ -184,7 +184,9 @@ ms.locfileid: "85516628"
 
     此命令返回类似于以下文本的值：
 
+    ```output
         vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn
+    ```
 
     `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn` 文本是此虚拟网络的  DNS 后缀。 保存该值，因为以后会用到。
 
@@ -231,7 +233,7 @@ ms.locfileid: "85516628"
 
     显示的响应类似于以下文本：
 
-    ```
+    ```output
     Server:         10.2.0.4
     Address:        10.2.0.4#53
     

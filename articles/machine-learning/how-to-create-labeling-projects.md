@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6a85fcc1d207a49f07faf2e8fe15a32034e3fe4c
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: c6906f6e4b13662e5676c3b5a08e509923b2cb72
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021012"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395314"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>创建数据标记项目并导出标签 
 
@@ -77,7 +77,7 @@ ms.locfileid: "90021012"
 
 1. 选择“创建数据集” > “从数据存储”。
 1. 为数据集指定一个**名称**。
-1. 选择“文件”作为**数据集类型**。  
+1. 选择“文件”作为**数据集类型**。  仅支持文件数据集类型。
 1. 选择数据存储。
 1. 如果数据位于 Blob 存储中的子文件夹中，请选择“浏览”以选择相应的路径。
     * 将“/**”追加到路径中可以包括所选路径的子文件夹中的所有文件。

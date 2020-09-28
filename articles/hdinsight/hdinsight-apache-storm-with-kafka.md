@@ -16,14 +16,14 @@ ms.workload: big-data
 origin.date: 06/25/2019
 ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: e9e6ba07205a7ecdc40fa940b928990450b05a8c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 294b161b0b35d2984ee4daa2c1ed993147c47dd0
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72292650"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394548"
 ---
-# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教程：将 Apache Storm 与 Apache Kafka on HDInsight 结合使用
+# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教程：将 Apache Storm 与 Apache Kafka on HDInsight 配合使用
 
 本教程说明如何使用 [Apache Storm](https://storm.apache.org/) 拓扑并通过 [Apache Kafka](https://kafka.apache.org/) on Azure HDInsight 来读取和写入数据。 本教程还说明如何将数据保存到 Storm 群集上的 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 兼容存储。
 
@@ -40,7 +40,7 @@ ms.locfileid: "72292650"
 > * 停止拓扑
 > * 清理资源
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 * 熟悉 Kafka 主题的创建。 有关详细信息，请参阅 [Kafka on HDInsight 快速入门](./kafka/apache-kafka-get-started.md)文档。
 
@@ -80,7 +80,7 @@ Apache Storm 提供了多个组件以便与 Apache Kafka 配合使用。 此教�
 
 * `org.apache.storm.kafka.bolt.KafkaBolt`：此组件将数据写入 Kafka。 此组件依赖于下列组件：
 
-    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector`：描述被写入的主题。
+    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector`：描述写入到的主题。
 
     * `org.apache.kafka.common.serialization.StringSerializer`：配置 Bolt 以将数据串行化为字符串值。
 
@@ -144,19 +144,19 @@ Apache Storm 提供了多个组件以便与 Apache Kafka 配合使用。 此教�
 
 * `${kafka.topic}`：拓扑读取/写入的 Kafka 主题的名称。
 
-* `${kafka.broker.hosts}`：Kafka 中转站运行时所在的主机。 写入 Kafka 时，KafkaBolt 将使用中转站信息。
+* `${kafka.broker.hosts}`：运行 Kafka 中转站的主机。 写入 Kafka 时，KafkaBolt 将使用中转站信息。
 
-* `${kafka.zookeeper.hosts}`：Kafka 群集中 Zookeeper 运行时所在的主机。
+* `${kafka.zookeeper.hosts}`：Kafka 群集中运行 Zookeeper 的主机。
 
 * `${hdfs.url}`：HDFSBolt 组件的文件系统 URL。 指示是否已将数据写入 Azure 存储帐户或 Azure Data Lake Storage。
 
-* `${hdfs.write.dir}`：写入数据的目录。
+* `${hdfs.write.dir}`：数据写入到的目录。
 
 有关 Flux 拓扑的详细信息，请参阅 [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)。
 
 ### <a name="kafka-writer"></a>Kafka 编写器
 
-在 Kafka 编写器拓扑中，Kafka bolt 组件将两个字符串值作为参数。 这些参数指示 bolt 将哪些元组字段发送到 Kafka 作为密钥值和消息值   。 密钥用于对 Kafka 中的数据进行分区。 消息是正在存储的数据。
+在 Kafka 编写器拓扑中，Kafka bolt 组件将两个字符串值作为参数。 这些参数指示 bolt 将哪些元组字段发送到 Kafka 作为密钥值和消息值 。 密钥用于对 Kafka 中的数据进行分区。 消息是正在存储的数据。
 
 在此示例中，`com.microsoft.example.SentenceSpout` 组件会发出包含两个字段（`key` 和 `message`）的元组。 Kafka bolt 提取这些字段，并将其中的数据发送到 Kafka。
 
@@ -410,11 +410,11 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
    > [!WARNING]
    > 若要确保 Kafka on HDInsight 的可用性，群集必须至少包含 3 个辅助节点。 此模板创建的 Kafka 群集包含三个辅助角色节点。
 
-2. 使用以下指南填充“自定义部署”  部分中的条目：
+2. 使用以下指南填充“自定义部署”部分中的条目：
 
-   1. 使用以下信息填充“自定义模板”部分的条目  ：
+   1. 使用以下信息填充“自定义模板”部分的条目：
 
-      | 设置 | 值 |
+      | 设置 | Value |
       | --- | --- |
       | 订阅 | Azure 订阅 |
       | 资源组 | 包含资源的资源组。 |
@@ -428,9 +428,9 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
    
       ![模板参数图片](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
-3. 阅读“条款和条件”  ，并选择“我同意上述条款和条件”  。
+3. 阅读“条款和条件”，并选择“我同意上述条款和条件”。
 
-4. 最后，选中“固定到仪表板”  ，并选择“购买”  。
+4. 最后，选中“固定到仪表板”，并选择“购买”。
 
 > [!NOTE]
 > 创建群集可能需要长达 20 分钟的时间。
@@ -447,7 +447,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     包过程会在 `target` 目录中创建名为 `KafkaTopology-1.0-SNAPSHOT.jar` 的文件。
 
-3. 使用以下命令将包复制到 Storm on HDInsight 群集。 将 `sshuser` 替换为群集的 SSH 用户名。 将 `stormclustername` 替换为 Storm 群集的名称  。
+3. 使用以下命令将包复制到 Storm on HDInsight 群集。 将 `sshuser` 替换为群集的 SSH 用户名。 将 `stormclustername` 替换为 Storm 群集的名称。
 
    ```bash
    scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.cn:KafkaTopology-1.0-SNAPSHOT.jar
@@ -457,7 +457,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 ## <a name="configure-the-topology"></a>配置拓扑
 
-1. 使用以下方法之一发现 HDInsight 群集上的 Kafka 的 Kafka 中转站主机： 
+1. 使用以下方法之一发现 HDInsight 群集上的 Kafka 的 Kafka 中转站主机：
 
     ```powershell
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -471,7 +471,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     ```
 
     > [!IMPORTANT]
-    > 以下 Bash 示例假定 `$CLUSTERNAME` 包含 Kafka 群集名的名称  。 它还假定安装了 [jq](https://stedolan.github.io/jq/) 1.5 或更高版本。 出现提示时，输入群集登录帐户的密码。
+    > 以下 Bash 示例假定 `$CLUSTERNAME` 包含 Kafka 群集名的名称。 它还假定安装了 [jq](https://stedolan.github.io/jq/) 1.5 或更高版本。 出现提示时，输入群集登录帐户的密码。
 
     ```bash
     curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
@@ -486,7 +486,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     > [!IMPORTANT]
     > 虽然群集可能有两个以上的代理主机，但无需向客户端提供所有主机的完整列表。 只需提供一两个就足够了。
 
-2. 使用以下方法之一发现 HDInsight 群集上的 Kafka 的 Zookeeper 主机： 
+2. 使用以下方法之一发现 HDInsight 群集上的 Kafka 的 Zookeeper 主机：
 
     ```powershell
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -500,7 +500,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     ```
 
     > [!IMPORTANT]
-    > 以下 Bash 示例假定 `$CLUSTERNAME` 包含 Kafka 群集的名称  。 还假定 [jq](https://stedolan.github.io/jq/) 已安装。 出现提示时，输入群集登录帐户的密码。
+    > 以下 Bash 示例假定 `$CLUSTERNAME` 包含 Kafka 群集的名称。 还假定 [jq](https://stedolan.github.io/jq/) 已安装。 出现提示时，输入群集登录帐户的密码。
 
     ```bash
     curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2
@@ -508,23 +508,27 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     返回的值类似于下文：
 
+    ```output
         zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:2181
+    ```
 
     > [!IMPORTANT]
     > 虽然有两个以上的 Zookeeper 节点，但无需向客户端提供所有主机的完整列表。 只需提供一两个就足够了。
 
     请保存该值，因为稍后会使用它。
 
-3. 编辑项目根目录中的 `dev.properties` 文件。 将 Kafka 群集的中转站和 Zookeeper 主机信息添加到此文件中的匹配行  。 下面的示例使用前面步骤中的示例值进行配置：
+3. 编辑项目根目录中的 `dev.properties` 文件。 将 Kafka 群集的中转站和 Zookeeper 主机信息添加到此文件中的匹配行。 下面的示例使用前面步骤中的示例值进行配置：
 
+    ```bash
         kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:2181
         kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:9092
         kafka.topic: stormtopic
+    ```
 
     > [!IMPORTANT]
     > `hdfs.url` 条目为使用 Azure 存储帐户的群集而进行配置。 若要将此拓扑与使用 Data Lake Storage 的 Storm 群集结合使用，请将此值从 `wasb` 更改为 `adl`。
 
-4. 保存 `dev.properties` 文件，然后使用以下命令将其上传到 Storm 群集： 
+4. 保存 `dev.properties` 文件，然后使用以下命令将其上传到 Storm 群集：
 
      ```bash
     scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.cn:dev.properties
@@ -534,9 +538,9 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 ## <a name="create-the-kafka-topic"></a>创建 Kafka 主题
 
-Kafka 将数据存储在主题中  。 启动 Storm 拓扑之前，必须创建主题。 若要创建拓扑，请使用以下步骤：
+Kafka 将数据存储在主题中。 启动 Storm 拓扑之前，必须创建主题。 若要创建拓扑，请使用以下步骤：
 
-1. 使用以下命令通过 SSH 连接到 Kafka 群集  。 将 `sshuser` 替换为创建群集时所用的 SSH 用户名。 将 `kafkaclustername` 替换为 Kafka 群集的名称：
+1. 使用以下命令通过 SSH 连接到 Kafka 群集。 将 `sshuser` 替换为创建群集时所用的 SSH 用户名。 将 `kafkaclustername` 替换为 Kafka 群集的名称：
 
     ```bash
     ssh sshuser@kafkaclustername-ssh.azurehdinsight.cn
@@ -556,7 +560,7 @@ Kafka 将数据存储在主题中  。 启动 Storm 拓扑之前，必须创建�
 
 ## <a name="start-the-writer"></a>启动编写器
 
-1. 使用以下命令通过 SSH 连接到 Storm 群集  。 将 `sshuser` 替换为创建群集时所用的 SSH 用户名。 将 `stormclustername` 替换为 Storm 群集的名称：
+1. 使用以下命令通过 SSH 连接到 Storm 群集。 将 `sshuser` 替换为创建群集时所用的 SSH 用户名。 将 `stormclustername` 替换为 Storm 群集的名称：
 
     ```bash
     ssh sshuser@stormclustername-ssh.azurehdinsight.cn
@@ -598,11 +602,13 @@ Kafka 将数据存储在主题中  。 启动 Storm 拓扑之前，必须创建�
 
     输出与以下文本类似：
 
-        Found 173 items
-        -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
-        -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
-        -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
-        ...
+    ```output
+    Found 173 items
+      -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
+      -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
+      -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
+      ...
+    ```
 
 3. 若要查看日志文件的内容，请使用以下命令。 将 `filename.txt` 替换为文件的名称：
 
@@ -635,9 +641,9 @@ Kafka 将数据存储在主题中  。 启动 Storm 拓扑之前，必须创建�
 
 若要使用 Azure 门户删除资源组，请执行以下操作：
 
-1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”以显示资源组的列表。 
-2. 找到要删除的资源组，然后右键单击列表右侧的“更多”按钮 (...)。 
-3. 选择“删除资源组”，然后进行确认。 
+1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”以显示资源组的列表。
+2. 找到要删除的资源组，然后右键单击列表右侧的“更多”按钮 (...)。
+3. 选择“删除资源组”，然后进行确认。
 
 ## <a name="next-steps"></a>后续步骤
 

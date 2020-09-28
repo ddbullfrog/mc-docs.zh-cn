@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: v-junlch
 ms.custom: tracking-python
-ms.openlocfilehash: d690405e720f516067134d9e9c6a3340a281e660
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.openlocfilehash: 2f5db4dc586632513f7172a213c564f109ce541c
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160370"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402598"
 ---
 # <a name="use-service-management-from-python"></a>从 Python 使用服务管理
 本指南说明如何以编程方式从 Python 执行常见服务管理任务。 [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) 中的 ServiceManagementService 类支持以编程方式访问 [Azure 门户][management-portal]中提供的众多与服务管理相关的功能  。 此功能可用于创建、更新和删除云服务、部署、数据管理服务和虚拟机。 此功能可用于构建需要以编程方式访问服务管理的应用程序。
@@ -57,7 +57,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out myce
 openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 ```
 
-有关 Azure 证书的详细信息，请参阅 [Azure 云服务证书概述](cloud-services-certs-create.md)。 有关 OpenSSL 参数的完整说明，请参阅 [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html) 上的文档。
+有关 Azure 证书的详细信息，请参阅 [Azure 云服务证书概述](cloud-services-certs-create.md)。 
 
 创建这些文件后，将 `.cer` 文件上传到 Azure。 在 [Azure 门户][management-portal]中，在“设置”选项卡上，选择“上传”   。 请注意 `.pem` 文件的保存位置。
 
@@ -441,7 +441,7 @@ sms.create_virtual_machine_deployment(service_name=name,
 要详细了解如何在经典部署模型中捕获 Windows 虚拟机，请参阅[捕获 Windows 虚拟机](../virtual-machines/windows/classic/capture-image-classic.md)。
 
 ## <a name="next-steps"></a><a name="What's Next"> </a>后续步骤
-现在，已学习了有关服务管理的基础知识，接下来可以访问 [Azure Python SDK 的完整 API 参考文档](https://azure-sdk-for-python.readthedocs.org/)，并轻松执行复杂的任务来管理 Python 应用程序。
+现在，已学习了有关服务管理的基础知识，接下来可以访问 `Complete API reference documentation for the Azure Python SDK`，并轻松执行复杂的任务来管理 Python 应用程序。
 
 有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
 

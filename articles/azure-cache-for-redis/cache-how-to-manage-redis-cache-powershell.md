@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: v-junlch
-ms.openlocfilehash: 905ebf74e35ebba160613a040946b20e9dd6b554
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 09395e7a629774910a270514c0c3df097ea2b827
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413807"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402484"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
@@ -797,6 +797,4 @@ ms.locfileid: "89413807"
 * [使用资源组管理 Azure 资源](../azure-resource-manager/templates/deploy-portal.md)：了解如何在 Azure 门户中创建和管理资源组。
 * [Azure 博客](https://azure.microsoft.com/blog/)：了解 Azure 中的新功能。
 * [Windows PowerShell 博客](https://devblogs.microsoft.com/powershell/)：了解 Windows PowerShell 中的新功能。
-* [“你好，脚本专家！”博客](https://blogs.technet.microsoft.com/heyscriptingguy/author/the-scripting-guys/)：从 Windows PowerShell 社区获取实用提示和技巧。
-
 

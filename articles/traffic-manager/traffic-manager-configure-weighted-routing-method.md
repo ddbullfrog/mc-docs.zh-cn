@@ -3,22 +3,23 @@ title: 教程 - 使用 Azure 流量管理器配置加权轮询机制流量路由
 description: 本教程介绍如何在流量管理器中使用轮询机制方法对流量进行负载均衡
 services: traffic-manager
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/20/2017
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6711f72b15e27e4c742a0791031afd9409d0205b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 83709887567f4eecd0236ab073f1558d57b510c5
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653217"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395406"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>教程：在流量管理器中配置加权流量路由方法
 
@@ -30,7 +31,7 @@ ms.locfileid: "77653217"
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>配置加权流量路由方法
 
 1. 在浏览器中，登录 [Azure 门户](https://portal.azure.cn)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
-2. 在门户的搜索栏中，搜索“流量管理器配置文件”  ，并单击要为其配置路由方法的配置文件名称。
+2. 在门户的搜索栏中，搜索“流量管理器配置文件”，并单击要为其配置路由方法的配置文件名称。
 3. 在“流量管理器配置文件”  边栏选项卡中，检查要包含在配置中的云服务和网站是否都存在。
 4. 在“设置”  部分，单击“配置”  ，并在“配置”  边栏选项卡中完成如下操作：
     1. 对于“流量路由方法设置”  ，验证流量路由方法是否是“加权”  。 如果不是，请在下拉列表中单击“加权”  。
@@ -44,7 +45,7 @@ ms.locfileid: "77653217"
     3. “流量管理器配置文件”  边栏选项卡会显示新建的流量管理器配置文件的 DNS 名称。 任意客户端（例如通过 Web 浏览器导航到此名称）均可使用此名称路由到根据路由类型确定的相应终结点。 在这种情况下，所有请求都以轮循机制的方式路由每个终结点。
 6. 流量管理器配置文件正常工作后，请在权威 DNS 服务器上编辑 DNS 记录，将公司域名指向流量管理器域名。
 
-    ![使用流量管理器配置加权流量路由方法][1]
+![使用流量管理器配置加权流量路由方法][1]
 
 ## <a name="next-steps"></a>后续步骤
 

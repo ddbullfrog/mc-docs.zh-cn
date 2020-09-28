@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: v-junlch
-ms.openlocfilehash: 0dba5b83832ec85495af80351ad3ba89274732fd
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: 4b8889ec8bb13d23865ae103fb1df39555bf27f5
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028623"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402406"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>教程：使用高级配置选项创建和配置 Azure Active Directory 域服务托管域
 
@@ -100,7 +100,7 @@ Azure Active Directory 域服务 (Azure AD DS) 提供与 Windows Server Active D
     对于本教程，请选择“标准”SKU。
 1. 林是 Active Directory 域服务用来对一个或多个域进行分组的逻辑构造。 默认情况下，托管域作为用户林创建。 此类林可同步 Azure AD 中的所有对象，包括在本地 AD DS 环境中创建的所有用户帐户。
 
-    *资源*林仅同步直接在 Azure AD 中创建的用户和组。 创建资源林时，本地用户的密码哈希从不同步到托管域中。 有关资源林的详细信息，包括为何使用资源林以及如何创建本地 AD DS 域的林信任，请参阅 [Azure AD DS 资源林概述][resource-forests]。
+    *资源*林仅同步直接在 Azure AD 中创建的用户和组。 创建资源林时，本地用户的密码哈希从不同步到托管域中。 
 
     对于本教程，请选择创建用户林。
 
@@ -235,7 +235,7 @@ Azure AD DS 允许同步 Azure AD 中的所有用户和组，或者仅按范围�
 
 1. 在“个人资料”页上，选择“更改密码”。
 1. 在“更改密码”页上输入现有（旧）密码，然后输入并确认新密码。
-1. 选择“提交”。
+1. 选择“提交”。 
 
 更改密码后，需要几分钟才能在 Azure AD DS 中使用新密码，并成功登录已加入托管域的计算机。
 
@@ -264,7 +264,6 @@ Azure AD DS 允许同步 Azure AD 中的所有用户和组，或者仅按范围�
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
-[resource-forests]: concepts-resource-forest.md
 [concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->

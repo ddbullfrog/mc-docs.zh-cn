@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 03/31/2020
 ms.date: 05/11/2020
 ms.author: v-yiso
-ms.openlocfilehash: b3ea85ac8f1aa20f66c15114d1dd07b241c2c753
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 6c2166e7d8a0c6b4ead030311581c52c59a911ed
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186910"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394754"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>使用 IoT 中心将文件从设备上传到云 (Python)
 
@@ -34,6 +34,8 @@ ms.locfileid: "84186910"
 * FileUpload.py，该应用使用 Python 设备 SDK 将文件上传到存储中  。
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="prerequisites"></a>先决条件
 

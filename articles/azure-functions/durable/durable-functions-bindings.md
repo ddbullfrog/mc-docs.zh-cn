@@ -4,12 +4,12 @@ description: 如何使用 Azure Functions 的 Durable Functions 扩展的触发�
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: v-junlch
-ms.openlocfilehash: 2e5246efbe8cdf8152de9df9e734409aa0543384
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: b0ae68f7fe565975c20707e67cb6a4e2513d638d
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222686"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402387"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 的绑定
 
@@ -451,7 +451,7 @@ public class Counter
 }
 ```
 
-此实体的状态是 `Counter` 类型的对象，该对象包含存储计数器当前值的字段。 为了将此对象持久保存在存储中，[Json.NET](https://www.newtonsoft.com/json) 库会将其序列化和反序列化。 
+此实体的状态是 `Counter` 类型的对象，该对象包含存储计数器当前值的字段。 为了将此对象持久保存在存储中，`Json.NET` 库会将其序列化和反序列化。 
 
 有关基于类的语法及其用法的详细信息，请参阅[定义实体类](durable-functions-dotnet-entities.md#defining-entity-classes)。
 

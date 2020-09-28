@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 origin.date: 02/10/2020
 ms.date: 05/11/2020
-ms.openlocfilehash: d160576032591b24b04709907a44906ea584d9d8
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: a050bd548aef76697a3a47f766bb9b6ddca52c11
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021618"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395458"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>教程：开始使用 Python SDK 创建第一个 ML 试验
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Azure 机器学习工作区是云中的基础资源，用于试验、训练和�
         + 名称应以字母（而非数字或短划线字符）开头。
         + 如果使用短划线字符，则必须在短划线后至少跟一个字母。 示例：“Test-”、“test-0”、“test-01”无效，而“test-a0”、“test-0a”为有效实例。
 
-    1.  从提供的选项中选择虚拟机大小。
+    1.  从提供的选项中选择虚拟机大小。 对于本教程，默认 VM 是不错的选择。
 
     1. 然后选择“创建”。 设置 VM 可能需要大约 5 分钟时间。
 

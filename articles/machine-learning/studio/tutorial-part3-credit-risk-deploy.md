@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 2e6b5a2b16022c01cd04dd62053c05ea94c07927
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 3fa2a9b5868435732386be98ed30e75bb9215fbf
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228089"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395500"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>教程 3：部署信用风险模型 - Azure 机器学习工作室（经典版）
 
@@ -233,7 +233,7 @@ Web 服务是一种 Azure Web 服务，可以两种方式之一使用 REST API �
 > [!NOTE]
 > 工作室（经典）中的功能列名称区分大小写。 请确保调用 Web 服务的输入数据与训练数据集中的列名称相同。
 
-有关访问和使用 Web 服务的详细信息，请参阅[通过 Web 应用模板使用 Azure 机器学习 Web 服务](/azure/machine-learning/studio/consume-web-services)。
+有关访问和使用 Web 服务的详细信息，请参阅[通过 Web 应用模板使用 Azure 机器学习 Web 服务](/machine-learning/studio/consume-web-services)。
 
 
 

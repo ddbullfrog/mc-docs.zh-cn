@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 08/06/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 849a287a1ee43f5f3b4fd0a369248f17f40b6d28
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 7a2fbd55d8eecce657c10f4617697a0d486eece9
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914153"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402623"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>了解 Azure VM 规模集 VM 的实例 ID
 本文介绍规模集的实例 ID 和显示这些 ID 的各种方法。
@@ -90,7 +90,7 @@ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 
 规模集中的每个 VM 还会获得一个分配给它的计算机名称。 此计算机名在[虚拟网络中 Azure 提供的 DNS 名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)中是 VM 的主机名。 此计算机名的格式为“{computer-name-prefix}{base-36-instance-id}”。
 
-{base-36-instance-id} [以 36 为基数](https://en.wikipedia.org/wiki/Base36)并且长度始终为六位。 如果数字的基于 36 的表示形式采用的位数少于六位，{base-36-instance-id} 将使用零进行填充以使其长度为六位。 例如，{computer-name-prefix} 为“nsgvmss”且实例 ID 为 85 的实例将具有计算机名称“nsgvmss00002D”。
+{base-36-instance-id} 以 36 为基数并且长度始终为六位。 如果数字的基于 36 的表示形式采用的位数少于六位，{base-36-instance-id} 将使用零进行填充以使其长度为六位。 例如，{computer-name-prefix} 为“nsgvmss”且实例 ID 为 85 的实例将具有计算机名称“nsgvmss00002D”。
 
 >[!NOTE]
 > 计算机名称前缀是规模集模型中可以设置的属性，因此它可以与规模集名称本身不同。

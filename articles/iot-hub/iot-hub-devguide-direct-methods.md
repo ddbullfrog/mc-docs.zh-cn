@@ -9,12 +9,12 @@ origin.date: 07/17/2018
 ms.custom: H1Hack27Feb2017
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: b4a9ae5c684a8e9c33b22b79c38c71a049961785
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 1262a62bea051a9f45d1486d6d18475a44ae890a
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225984"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394773"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解和调用 IoT 中心的直接方法
 借助 IoT 中心，用户可以从云中对设备调用直接方法。 直接方法表示与设备进行的请求-答复式交互，类似于会立即成功或失败（在用户指定的超时时间后）的 HTTP 调用。 此方法用于即时操作过程不同的情况，即时操作的不同取决于设备能否响应。
@@ -109,7 +109,7 @@ curl -X POST \
 > 上面的示例演示如何调用设备上的直接方法。  若要调用 IoT Edge 模块中的直接方法，需要修改 URL 请求，如下所示：
 
 ```bash
-https://<iothubName>.azure-devices.cn/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+https://<iothubName>.azure-devices.cn/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06-30
 ```
 ### <a name="response"></a>响应
 

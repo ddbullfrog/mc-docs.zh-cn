@@ -3,21 +3,23 @@ title: 使用 PowerShell 管理 Azure 中的流量管理器
 description: 通过此学习路径，开始使用 Azure PowerShell 管理流量管理器。
 services: traffic-manager
 documentationcenter: na
-author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/16/2017
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8ea60ffba494e7a03fda2eea269d7ba7ea19c61d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f83ae04fd50dbbd1793e9903ace1ea25d20b8fca
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653204"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395457"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>使用 PowerShell 管理流量管理器
 
@@ -31,7 +33,7 @@ Azure 流量管理器是使用名为流量管理器配置文件的一系列设�
 
 每个流量管理器配置文件以一个“TrafficManagerProfiles”类型的资源表示。 在 REST API 级别，每个配置文件的 URI 如下：
 
-    https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
+`https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}`
 
 ## <a name="setting-up-azure-powershell"></a>设置 Azure PowerShell
 
@@ -39,7 +41,7 @@ Azure 流量管理器是使用名为流量管理器配置文件的一系列设�
 
 本部分中的说明使用 Azure PowerShell。 以下文章介绍了如何安装和配置 Azure PowerShell。
 
-* [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 
 本文中的示例假设已有一个资源组。 可以使用以下命令创建资源组：
 
@@ -329,4 +331,4 @@ Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzT
 
 [流量管理器性能注意事项](traffic-manager-performance-considerations.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

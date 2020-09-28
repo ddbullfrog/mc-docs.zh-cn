@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: v-junlch
-ms.openlocfilehash: b91cb6c482208fef80d90c8643e68a94bf554652
-ms.sourcegitcommit: e3512c5c2bbe61704d5c8cbba74efd56bfe91927
+ms.openlocfilehash: bb182a18f4d79129cc3e3d377c54e609bd8b95e3
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267641"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402565"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
 Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和*自定义创建*。
@@ -84,7 +84,7 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: /cloud-services/cloud-services-choose-me
 
 ## <a name="next-steps"></a>后续步骤
 * [云服务的常规配置](cloud-services-how-to-configure-portal.md)。

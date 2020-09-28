@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 12/27/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: e7f9f40073357bea461fbb715d2140b07dc43894
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6b096bac2074df6d21c377c557f3f23519be2ab4
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77563372"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394556"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Apache Phoenix 性能最佳做法
 
@@ -91,13 +91,17 @@ Phoenix 使用此新主键生成的行键是：
 
 若要在创建过程中给表加盐，请指定盐桶数目：
 
-    CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```sql
+CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
+```
 
 此加盐过程将连同主键值一起拆分表，并自动选择值。 
 
 若要控制表的拆分位置，可以通过提供拆分所要遵循的范围值，来预先拆分表。 例如，若要创建一个沿着三个区域拆分的表：
 
-    CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```sql
+CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
+```
 
 ## <a name="index-design"></a>索引设计
 
@@ -129,11 +133,15 @@ Phoenix 索引是一个 HBase 表，存储索引表中的部分或全部数据�
 
 但是，在指定 socialSecurityNum 的情况下，如果你往往还要查找 firstName 和 lastName，则可以创建一个涵盖索引，并在其中包含 firstName 和 lastName 作为索引表中的实际数据：
 
-    CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```sql
+CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
+```
 
 通过此涵盖索引，以下查询只需从包含辅助索引的表中读取数据，即可获取所有数据：
 
-    SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```sql
+SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
+```
 
 ### <a name="use-functional-indexes"></a>使用功能索引
 
@@ -141,7 +149,9 @@ Phoenix 索引是一个 HBase 表，存储索引表中的部分或全部数据�
 
 例如，可以创建一个索引，以便根据某人的名字和姓氏组合来执行不区分大小写的搜索：
 
-     CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```sql
+CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
+```
 
 ## <a name="query-design"></a>查询设计
 
@@ -164,44 +174,62 @@ Phoenix 索引是一个 HBase 表，存储索引表中的部分或全部数据�
 
 若要选择 airlineid 为 `19805` 的所有航班（其中的 airlineid 是不在主键或任何索引中的字段）：
 
-    select * from "FLIGHTS" where airlineid = '19805';
+```sql
+select * from "FLIGHTS" where airlineid = '19805';
+```
 
 按如下所示运行 explain 命令：
 
-    explain select * from "FLIGHTS" where airlineid = '19805';
+```sql
+explain select * from "FLIGHTS" where airlineid = '19805';
+```
 
 查询计划如下所示：
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
-        SERVER FILTER BY AIRLINEID = '19805'
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
+   SERVER FILTER BY AIRLINEID = '19805'
+```
 
 在此计划中，请注意短语 FULL SCAN OVER FLIGHTS。 此短语表示针对表中的所有行执行了 TABLE SCAN，而没有使用更高效的 RANGE SCAN 或 SKIP SCAN。
 
 现在，假设你要查询 carrier（航空公司）`AA` 在 2014 年 1 月 2 日 flightnum（航班号）大于 1 的航班。 假设 year、month、dayofmonth、carrier 和 flightnum 列在示例表中存在，并且都包含在复合主键中。 查询如下所示：
 
-    select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 使用以下代码检查此查询的计划：
 
-    explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```sql
+explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
+```
 
 生成的计划为：
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
+```
 
 方括号中的值是主键的值范围。 在本例中，范围值是固定的，即年份 2014、月份 1 和月份日期 2，但允许航班号 2 和更大的值 (`*`)。 此查询计划确认已按预期使用主键。
 
 接下来，基于名为 `carrier2_idx` 的 FLIGHTS 表创建一个索引，该索引只出现在 carrier 字段中。 此索引还包含 flightdate、tailnum、origin 和 flightnum 作为涵盖列，这些列的数据也存储在索引中。
 
-    CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```sql
+CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
+```
 
 假设你要获取航空公司以及航日期和机尾编号，如以下查询所示：
 
-    explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```sql
+explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
+```
 
 应会看到使用了此索引：
 
-    CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```sql
+CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
+```
 
 有关 explain 计划结果中可能显示的完整项列表，请参阅 [Apache Phoenix 优化指南](https://phoenix.apache.org/tuning_guide.html)中的“Explain 计划”部分。
 
@@ -231,7 +259,9 @@ Phoenix 索引是一个 HBase 表，存储索引表中的部分或全部数据�
 
 如果方案更看重写入速度而不是数据完整性，请考虑在创建表时禁用预写日志：
 
-    CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```sql
+CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
+```
 
 有关此选项和其他选项的详细信息，请参阅 [Apache Phoenix 语法](https://phoenix.apache.org/language/index.html#options)。
 

@@ -6,15 +6,15 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 09/03/2019
-  ms.date: 09/30/2019
+  ms.date: 09/28/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: f6ea615a91fc7aeb7a71fbf3bb1df3b04f09c73b
-  ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+  ms.openlocfilehash: 77df3c2605c7fac37238595d5cefbce99071de4b
+  ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "71307862"
+  ms.lasthandoff: 09/27/2020
+  ms.locfileid: "91395489"
 landingContent:
 - title: 关于 Azure Database for MySQL
   linkLists:
@@ -49,7 +49,7 @@ landingContent:
     - text: 使用 Azure CLI 设计数据库
       url: tutorial-design-database-using-cli.md
     - text: 在 Azure CLI 中使用 PHP 构建 Web 应用
-      url: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+      url: ../app-service/tutorial-php-mysql-app.md?toc=%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
 - title: 备份和迁移数据
   linkLists:
   - linkListType: concept

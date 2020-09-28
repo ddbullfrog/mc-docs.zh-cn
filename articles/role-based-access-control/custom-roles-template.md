@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 07/21/2020
 ms.author: v-junlch
-ms.openlocfilehash: a36fe5d4ac46d43dcac32df518be1e0347f9e707
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.openlocfilehash: dc6125ff850d6ca028942a0dc4d321d614721e27
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160843"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402414"
 ---
 # <a name="create-an-azure-custom-role-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建 Azure 自定义角色
 
@@ -44,7 +44,7 @@ ms.locfileid: "87160843"
 
 该模板中定义了以下资源：
 
-- [Microsoft.Authorization/roleDefinitions](https://docs.mirosoft.com/azure/templates/Microsoft.Authorization/roleDefinitions)
+- Microsoft.Authorization/roleDefinitions
 
 将可分配此自定义角色的范围设置为当前订阅。
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 10/28/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: d1107ce87c5c87ef31057fa407c0e12150e1b993
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2c0c88f455ce4a2cd9b21ff9be1393c6369949db
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77563471"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394703"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中的 Apache Hadoop 群集的可用性和可靠性
 
@@ -247,8 +247,10 @@ curl -u admin:password https://mycluster.azurehdinsight.cn/api/v1/clusters/myclu
 
 建立连接后，会出现 `sftp>` 提示符。 在此提示符下，可以更改目录以及上传和下载文件。 例如：以下命令将目录切换到 **/var/log/hadoop/hdfs** 目录，并下载该目录中的所有文件。
 
-    cd /var/log/hadoop/hdfs
-    get *
+```bash
+cd /var/log/hadoop/hdfs
+get *
+```
 
 有关可用命令的列表，请在 `sftp>` 提示符下输入 `help`。
 

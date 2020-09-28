@@ -13,12 +13,12 @@ ms.workload: ns
 origin.date: 05/26/2020
 ms.date: 07/20/2020
 ms.author: v-yiso
-ms.openlocfilehash: dc76dce9ea1cae2de1def29d423d2ec2bd9c6e9a
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: bf1b729ddac368c414338584fcf7a9728c18212a
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226014"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394803"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>快速入门：将遥测数据发送到 Azure IoT 中心并使用 Java 应用程序读取它
 
@@ -30,7 +30,7 @@ ms.locfileid: "86226014"
 
 * 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-* Java SE 开发工具包 8。 在[针对 Azure 和 Azure Stack 的 Java 长期支持](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)中的“长期支持”下选择“Java 8”。 
+* Java SE 开发工具包 8。 在[针对 Azure 和 Azure Stack 的 Java 长期支持](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)中的“长期支持”下选择“Java 8”。
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi)。
 
@@ -126,7 +126,7 @@ az extension add --name azure-iot
 
     以下屏幕截图显示了模拟设备应用程序将遥测数据发送到 IoT 中心后的输出：
 
-    ![设备发送到 IoT 中心的遥测的输出](media/quickstart-send-telemetry-java/iot-hub-simulated-device.png)
+    ![设备发送到 IoT 中心的遥测的输出](media/quickstart-send-telemetry-java/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>从中心读取遥测数据
 

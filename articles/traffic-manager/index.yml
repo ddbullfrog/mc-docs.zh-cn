@@ -8,16 +8,18 @@ metadata:
   ms.service: traffic-manager
   ms.topic: landing-page
   ms.collection: collection
-  author: rockboyfor
   origin.date: 08/19/2019
-  ms.date: 06/15/2020
+  author: rockboyfor
+  ms.date: 09/28/2020
+  ms.testscope: yes
+  ms.testdate: 09/28/2020
   ms.author: v-yeche
-  ms.openlocfilehash: ec3c88f37455578c201067c890645fd6767af6ef
-  ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+  ms.openlocfilehash: 03248248b7d7cc25c46b3a0a95c3b18c3fdfcb62
+  ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/12/2020
-  ms.locfileid: "84723696"
+  ms.lasthandoff: 09/27/2020
+  ms.locfileid: "91395430"
 landingContent:
 - title: 关于流量管理器
   linkLists:

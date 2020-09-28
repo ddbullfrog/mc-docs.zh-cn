@@ -10,12 +10,12 @@ origin.date: 08/29/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 04/06/2020
-ms.openlocfilehash: fe8902157161c6ad8981505aab4861a49e6408bb
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 006b2926d008aeba5b0b70e7a2c5c8b02a9ad0a4
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186933"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394770"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中心的标识注册表
 
@@ -186,7 +186,7 @@ iothub-message-schema | moduleLifecycleNotification |
 
 | 属性 | 选项 | 说明 |
 | --- | --- | --- |
-| deviceId |必需，更新时只读 |ASCII 7 位字母数字字符 + 某些特殊字符（`- . + % _ # * ? ! ( ) , = @ $ '`）的区分大小写字符串（最长为 128 个字符）。 |
+| deviceId |必需，更新时只读 |ASCII 7 位字母数字字符 + 某些特殊字符（`- . + % _ # * ? ! ( ) , : = @ $ '`）的区分大小写字符串（最长为 128 个字符）。 |
 | generationId |必需，只读 |IoT 中心生成的区分大小写字符串，最长为 128 个字符。 在删除并重新创建设备时，此值用于区分具有相同 **deviceId**的设备。 |
 | etag |必需，只读 |一个字符串，根据 [RFC7232](https://tools.ietf.org/html/rfc7232) 表示设备标识的弱 ETag。 |
 | auth |可选 |包含身份验证信息和安全材料的复合对象。 |
@@ -210,8 +210,8 @@ iothub-message-schema | moduleLifecycleNotification |
 
 | 属性 | 选项 | 说明 |
 | --- | --- | --- |
-| deviceId |必需，更新时只读 |ASCII 7 位字母数字字符 + 某些特殊字符（`- . + % _ # * ? ! ( ) , = @ $ '`）的区分大小写字符串（最长为 128 个字符）。 |
-| moduleId |必需，更新时只读 |ASCII 7 位字母数字字符 + 某些特殊字符（`- . + % _ # * ? ! ( ) , = @ $ '`）的区分大小写字符串（最长为 128 个字符）。 |
+| deviceId |必需，更新时只读 |ASCII 7 位字母数字字符 + 某些特殊字符（`- . + % _ # * ? ! ( ) , : = @ $ '`）的区分大小写字符串（最长为 128 个字符）。 |
+| moduleId |必需，更新时只读 |ASCII 7 位字母数字字符 + 某些特殊字符（`- . + % _ # * ? ! ( ) , : = @ $ '`）的区分大小写字符串（最长为 128 个字符）。 |
 | generationId |必需，只读 |IoT 中心生成的区分大小写字符串，最长为 128 个字符。 在删除并重新创建设备时，此值用于区分具有相同 **deviceId**的设备。 |
 | etag |必需，只读 |一个字符串，根据 [RFC7232](https://tools.ietf.org/html/rfc7232) 表示设备标识的弱 ETag。 |
 | auth |可选 |包含身份验证信息和安全材料的复合对象。 |

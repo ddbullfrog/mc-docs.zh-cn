@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 09/18/2017
 ms.date: 05/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: b1e06009b3512f0ae2c580a3d7caad9c7e640a03
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: eeaf0eca87d0ab1ec85d00fd789e9913cf0c9859
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "64854923"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394739"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>概念性理解 IoT 行业中的 X.509 CA 证书
 
@@ -32,6 +32,8 @@ ms.locfileid: "64854923"
 * 如何向 IoT 中心注册 X.509 CA 证书
 * 如何为基于 X.509 CA 的身份验证设置制造供应链
 * 使用 X.509 CA 签名的设备如何连接到 IoT 中心
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>概述
 

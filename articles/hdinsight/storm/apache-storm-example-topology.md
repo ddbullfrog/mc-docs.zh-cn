@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 12/27/2019
 ms.date: 01/13/2020
 ms.author: v-yiso
-ms.openlocfilehash: 217c675018f074e6f689bf9abe6c53450b19dfd9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c346ab08774a210e08c4f367c4d81a883c81cfac
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75631084"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394569"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Apache Storm on HDInsight 的示例 Apache Storm 拓扑和组件
 
@@ -55,7 +55,6 @@ ms.locfileid: "75631084"
 * [在 Azure HDInsight 中创建和监视 Apache Storm 拓扑](./apache-storm-quickstart.md)
 * [了解如何使用 Apache Storm on HDInsight 部署和管理 Apache Storm 拓扑][6eb0d3b8]
 
-[2b8c3488]:apache-storm-tutorial-get-started-linux.md "了解如何创建 Apache Storm on HDInsight 群集，以及如何使用 Storm 仪表板部署示例拓扑。"
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "了解如何使用基于 Web 的 Apache Storm 仪表板和 Storm UI 或 Visual Studio 的 HDInsight 工具来部署和管理拓扑。"
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "了解如何使用 Visual Studio 的 HDInsight 工具创建 C# Storm 拓扑。"
 [5797064f]:apache-storm-develop-java-topology.md "了解如何通过创建一个基本的单词计数拓扑，使用 Maven 以 Java 语言创建 Storm 拓扑。"

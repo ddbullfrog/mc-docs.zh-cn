@@ -6,12 +6,12 @@ author: Johnnytechn
 origin.date: 09/13/2019
 ms.date: 06/22/2020
 ms.author: v-johya
-ms.openlocfilehash: 3b8ef4de27c1636e912208e94045026f1902cae1
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: f3f3d221886d22655f0a3b7490b2aa2109e96c91
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851941"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402379"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Azure 备份的软删除
 
@@ -139,7 +139,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 如果在禁用软删除之前删除了项，则它们将处于已软删除状态。 若要立即删除它们，需要反转删除操作，然后再次执行。
 
-1. 首先，使用[此处](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data)提到的步骤撤消删除操作。
+1. 首先，使用[此处](backup-azure-arm-userestapi-backupazurevms.md)提到的步骤撤消删除操作。
 2. 然后遵循[此处](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)所述的步骤，使用 REST API 禁用软删除功能。
 3. 然后，使用[此处](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)所述的 REST API 删除备份。
 

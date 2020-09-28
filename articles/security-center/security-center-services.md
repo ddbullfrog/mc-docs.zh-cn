@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 09/14/2020
 ms.author: v-johya
 origin.date: 03/01/2020
-ms.openlocfilehash: 2469a10eac338fd4e56b140b32f9e17824e05018
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 2769ae8d5a1b0a0e3604c677ef43def8bce05598
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822313"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402671"
 ---
 # <a name="feature-coverage-for-machines"></a>适用于计算机的功能覆盖范围
 
@@ -31,7 +31,6 @@ ms.locfileid: "90822313"
 
 |**功能**|**Azure 虚拟机**|**Azure 虚拟机规模集**|**非 Azure 虚拟机**|**价格**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP 集成](security-center-wdatp.md)|✔</br>（在支持的版本上）|✔</br>（在支持的版本上）|✔|标准|
 |[虚拟机行为分析（和安全警报）](threat-protection.md)|✔|✔|✔|标准|
 |[无文件安全警报](alerts-reference.md#alerts-windows)|✔|✔|✔|标准|
 |[基于网络的安全警报](threat-protection.md#network-layer)|✔|✔|-|标准|
@@ -39,7 +38,6 @@ ms.locfileid: "90822313"
 |[文件完整性监视](security-center-file-integrity-monitoring.md)|✔|✔|✔|标准|
 |[自适应应用程序控制](security-center-adaptive-application.md)|✔|-|✔|标准|
 |[网络映射](security-center-network-recommendations.md#network-map)|✔|✔|-|标准|
-|[自适应网络强化](security-center-adaptive-network-hardening.md)|✔|-|-|标准|
 |[合规性仪表板和报表](security-center-compliance-dashboard.md)|✔|✔|✔|标准|
 |针对 Docker 托管的 IaaS 容器的建议和威胁防护|-|-|-|标准|
 |缺少 OS 修补程序评估|✔|✔|✔|Azure：免费<br><br>非 Azure：标准|
@@ -54,7 +52,6 @@ ms.locfileid: "90822313"
 
 |**功能**|**Azure 虚拟机**|**Azure 虚拟机规模集**|**非 Azure 虚拟机**|**价格**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP 集成](security-center-wdatp.md)|-|-|-|标准|
 |[虚拟机行为分析（和安全警报）](security-center-alerts-iaas.md)|✔</br>（在支持的版本上）|✔</br>（在支持的版本上）|✔|标准|
 |[无文件安全警报](alerts-reference.md#alerts-windows)|-|-|-|标准|
 |[基于网络的安全警报](threat-protection.md#network-layer)|✔|✔|-|标准|
@@ -62,7 +59,6 @@ ms.locfileid: "90822313"
 |[文件完整性监视](security-center-file-integrity-monitoring.md)|✔|✔|✔|标准|
 |[自适应应用程序控制](security-center-adaptive-application.md)|✔|-|✔|标准|
 |[网络映射](security-center-network-recommendations.md#network-map)|✔|✔|-|标准|
-|[自适应网络强化](security-center-adaptive-network-hardening.md)|✔|-|-|标准|
 |[合规性仪表板和报表](security-center-compliance-dashboard.md)|✔|✔|✔|标准|
 |针对 Docker 托管的 IaaS 容器的建议和威胁防护|✔|✔|✔|标准|
 |缺少 OS 修补程序评估|✔|✔|✔|Azure：免费<br><br>非 Azure：标准|

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 07/17/2020
 ms.author: v-junlch
-ms.openlocfilehash: 806cc464df50f462b8345b05e2bb3f8eb3108816
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: 28f4b2ec15afb5e5522fe44abbe9a2ff5c4c988a
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440429"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402608"
 ---
 # <a name="entity-functions"></a>实体函数
 
@@ -105,7 +105,7 @@ public class Counter
 }
 ```
 
-此实体的状态是 `Counter` 类型的对象，该对象包含存储计数器当前值的字段。 为了将此对象持久保存在存储中，[Json.NET](https://www.newtonsoft.com/json) 库会将其序列化和反序列化。 
+此实体的状态是 `Counter` 类型的对象，该对象包含存储计数器当前值的字段。 为了将此对象持久保存在存储中，`Json.NET` 库会将其序列化和反序列化。 
 
 有关基于类的语法及其用法的详细信息，请参阅[定义实体类](durable-functions-dotnet-entities.md#defining-entity-classes)。
 
@@ -406,7 +406,7 @@ public static async Task<bool> TransferFundsAsync(
 
 ## <a name="comparison-with-virtual-actors"></a>与虚拟执行组件的比较
 
-许多持久实体功能来源于[执行组件模型](https://en.wikipedia.org/wiki/Actor_model)的灵感。 如果你熟悉执行组件，则你可能会理解本文中所述的许多概念。 持久实体非常类似于[虚拟执行组件](https://research.microsoft.com/projects/orleans/)，或 [Orleans 项目](http://dotnet.github.io/orleans/)中普遍存在的“粒度”。 例如：
+许多持久实体功能来源于`actor model`的灵感。 如果你熟悉执行组件，则你可能会理解本文中所述的许多概念。 持久实体非常类似于[虚拟执行组件](https://research.microsoft.com/projects/orleans/)，或 [Orleans 项目](http://dotnet.github.io/orleans/)中普遍存在的“粒度”。 例如：
 
 * 可通过实体 ID 对持久实体寻址。
 * 持久实体操作按顺序逐个执行，以防止出现争用情况。

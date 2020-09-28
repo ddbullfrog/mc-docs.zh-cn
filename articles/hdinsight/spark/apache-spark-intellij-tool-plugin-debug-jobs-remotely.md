@@ -3,7 +3,6 @@ title: Azure Toolkit for IntelliJ：在 HDInsight Spark 中远程调试应用程
 description: 了解如何使用用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具通过 VPN 远程调试 HDInsight 群集上运行的 Spark 应用程序。
 services: hdinsight
 author: hrasheed-msft
-ms.author: v-yiso
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -13,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.date: 10/28/2019
-ms.openlocfilehash: 497a73f69c3c7942dec91cf14c797063a8823c75
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.author: v-yiso
+ms.openlocfilehash: 6203d13872dc3ad37aa5c3402633ba7e6fdceaa5
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72584009"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394792"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>使用 Azure Toolkit for IntelliJ 通过 VPN 在 HDInsight 中远程调试 Apache Spark 应用程序
 
@@ -75,12 +75,12 @@ ms.locfileid: "72584009"
    b. 将以下信息添加到 **hosts** 文件：
 
            # For headnode0
-           192.xxx.xx.xx hn0-nitinp
-           192.xxx.xx.xx hn0-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.chinacloudapp.cn
+           192.xxx.xx.xx nitinp
+           192.xxx.xx.xx nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.chinacloudapp.cn
 
            # For headnode1
-           192.xxx.xx.xx hn1-nitinp
-           192.xxx.xx.xx hn1-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.chinacloudapp.cn
+           192.xxx.xx.xx nitinp
+           192.xxx.xx.xx nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.chinacloudapp.cn
 6. 在连接到 HDInsight 群集所用 Azure 虚拟网络的计算机中，验证是否能够使用该 IP 地址和主机名 ping 通两个头节点。
 7. 遵照[使用 SSH 连接到 HDInsight 群集](../hdinsight-hadoop-linux-use-ssh-unix.md)中的说明，使用 SSH 连接到群集头节点。 从群集头节点，对台式机的 IP 地址执行 ping 操作。 测试是否能够连接到分配给计算机的两个 IP 地址：
 
@@ -137,8 +137,8 @@ ms.locfileid: "72584009"
     由于已将群集头节点 IP 地址和主机名添加到台式机上的 hosts 文件，因此可按以下方式使用 `scp` 命令：
 
     ```bash
-    scp sshuser@hn0-nitinp:/etc/hadoop/conf/core-site.xml .
-    scp sshuser@hn0-nitinp:/etc/hadoop/conf/yarn-site.xml .
+    scp sshuser@nitinp:/etc/hadoop/conf/core-site.xml .
+    scp sshuser@nitinp:/etc/hadoop/conf/yarn-site.xml .
     ```
 
     若要将这些文件添加到项目，请将这些文件复制到项目树中的 **/src** 文件夹下（例如 `<your project directory>\src`）。

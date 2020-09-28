@@ -10,16 +10,57 @@ ms.topic: conceptual
 origin.date: 12/19/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: a64c7b31a49cf7a59ab3501183443e2b51a4e1cb
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 1b4ddbc0c7d71d53619bfceb634da36d70163349
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463079"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394604"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 安全性和 DevOps 最佳做法
 
 本文提供有关 Azure HDInsight 系统安全性和 DevOps 的建议。 本文是帮助用户将本地 Apache Hadoop 系统迁移到 Azure HDInsight 的最佳做法系列教程中的其中一篇。
+
+## <a name="secure-and-govern-cluster-with-enterprise-security-package"></a>使用企业安全性套餐来保护和管理群集
+
+企业安全性套餐 (ESP) 支持基于 Active Directory 的身份验证、多用户支持和基于角色的访问控制。 选择 ESP 选项后，HDInsight 群集将加入 Active Directory 域，企业管理员可以使用 Apache Ranger 为 Apache Hive 安全性配置基于角色的访问控制 (RBAC)。 管理员可以审核员工的数据访问权限和对访问控制策略所做的任何更改。
+
+ESP 适用于以下群集类型：Apache Hadoop、Apache Spark、Apache HBase、Apache Kafka 和 Interactive Query (Hive LLAP)。
+
+使用以下步骤部署已加入域的 HDInsight 群集：
+
+- 通过传递域名来部署 Azure Active Directory (AAD)。
+- 部署 Azure Active Directory 域服务 (AAD DS)。
+- 创建所需的虚拟网络和子网。
+- 在虚拟网络中部署 VM 以管理 AAD DS。
+- 将 VM 加入域。
+- 安装 AD 和 DNS 工具。
+- 让 AAD DS 管理员创建组织单位 (OU)。
+- 为 AAD DS 启用 LDAPS。
+- 在 Azure Active Directory 中创建一个服务帐户，并为 OU 授予读写管理权限，以便它可进行这些操作。 然后，此服务帐户可将计算机加入域，并将计算机主体置于 OU 中。 还可在群集创建期间指定的 OU 内创建服务主体。
+
+    > [!Note]
+    > 服务帐户不需要是 AD 域管理员帐户。
+
+- 通过设置以下参数来部署 HDInsight ESP 群集：
+
+    |参数 |描述 |
+    |---|---|
+    |域名|与 Azure AD DS 关联的域名。|
+    |域用户名|在前面的部分中创建的 Azure AD DS DC 托管域中的服务帐户，例如：`hdiadmin@contoso.onmicrosoft.com`。 此域用户将成为此 HDInsight 群集的管理员。|
+    |域密码|服务帐户的密码。|
+    |组织单位|要与 HDInsight 群集配合使用的 OU 的可分辨名称，例如：`OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`。 如果此 OU 不存在，则 HDInsight 群集将尝试使用服务帐户的权限创建 OU。|
+    |LDAPS URL|例如，`ldaps://contoso.onmicrosoft.com:636`。|
+    |访问用户组|其用户要同步到群集的安全组，例如：`HiveUsers`。 如果想要指定多个用户组，请使用分号“;”分隔。 创建 ESP 群集之前，组必须存在于目录中。|
+
+有关详细信息，请参阅下列文章：
+
+- [已加入域的 HDInsight 群集的 Apache Hadoop 安全性简介](../domain-joined/hdinsight-security-overview.md)
+- [在 HDInsight 中计划 Azure 已加入域的 Apache Hadoop 群集](../domain-joined/apache-domain-joined-architecture.md)
+- [使用 Azure Active Directory 域服务配置已加入域的 HDInsight 群集](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+- [将 Azure Active Directory 用户同步到 HDInsight 群集](../hdinsight-sync-aad-users-to-cluster.md)
+- [在已加入域的 HDInsight 中配置 Apache Hive 策略](../domain-joined/apache-domain-joined-run-hive.md)
+- [在已加入域的 HDInsight Hadoop 群集中运行 Apache Oozie](../domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)
 
 ## <a name="implement-end-to-end-enterprise-security"></a>实现端到端企业安全性
 

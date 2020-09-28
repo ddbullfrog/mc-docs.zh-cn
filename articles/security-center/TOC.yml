@@ -51,8 +51,6 @@
       items:
         - name: 容器安全性概述
           href: container-security.md
-        - name: 与 Azure 容器注册表集成
-          href: azure-container-registry-integration.md
         - name: 与 Azure Kubernetes 服务集成
           href: azure-kubernetes-service-integration.md
     - name: 威胁防护和安全警报
@@ -73,10 +71,6 @@
       items:
         - name: VM 的集成漏洞扫描程序
           href: built-in-vulnerability-assessment.md
-    - name: 监视容器
-      href: monitor-container-security.md
-    - name: 使用 Microsoft Defender ATP 保护服务器
-      href: security-center-wdatp.md
     - name: 使用安全策略
       items:
         - name: 安全策略概述
@@ -85,8 +79,6 @@
           href: security-center-policy-definitions.md
         - name: 创建自定义安全策略
           href: custom-security-policies.md
-    - name: 为符合性仪表板选择标准
-      href: update-regulatory-compliance-packages.md
     - name: 管理安全解决方案
       href: security-center-partner-integration.md
     - name: 配置数据收集
@@ -115,8 +107,6 @@
           href: security-center-adaptive-application.md
         - name: 文件完整性监视
           href: security-center-file-integrity-monitoring.md
-        - name: 自适应网络强化
-          href: security-center-adaptive-network-hardening.md
 - name: 参考
   items:
     - name: REST API

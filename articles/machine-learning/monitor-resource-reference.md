@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: e9fc448d4365b4eb099d1c494f5e42e5691d36d4
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: e1607ee5c05cfcc96ee75fa9a952790fc69f5ae8
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097122"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395509"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Azure 机器学习监视数据引用
 
@@ -195,7 +195,7 @@ ms.locfileid: "85097122"
 | 维度 | 说明 |
 | ---- | ---- |
 | ComputeType | 运行时使用的计算类型。 |
-| PipelineStepType | 运行时使用的 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) 类型。 |
+| PipelineStepType | 运行时使用的 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) 类型。 |
 | PublishedPipelineId | 运行时使用的已发布管道的 ID。 |
 | RunType | 运行的类型。 |
 

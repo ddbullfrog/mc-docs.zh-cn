@@ -11,16 +11,18 @@ ms.workload: na
 origin.date: 08/20/2019
 ms.date: 06/08/2020
 ms.author: yiso
-ms.openlocfilehash: 9d65ca7aad67fc547e29e781420afa0338656ebb
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 3e88e9a70750b4ee98b165d358d353e455d7036f
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463033"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394751"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在 Azure IoT 中心设置 X.509 安全性
 
 本教程介绍使用 *X.509 证书身份验证*保护 Azure IoT 中心所要执行的步骤。 在演示过程中，我们将使用开源工具 OpenSSL 在 Windows 计算机本地创建证书。 我们建议仅将本教程用于测试目的。 对于生产环境，应该从*根证书颁发机构 (CA)* 购买证书。
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="prerequisites"></a>先决条件
 本教程要求准备好以下资源：
@@ -189,20 +191,3 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 
    ![运行设备应用](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="next-steps"></a>后续步骤
-
-若要详细了解如何保护 IoT 解决方案，请参阅：
-
-* [IoT 安全最佳做法][lnk-security-best-practices]
-* [IoT 安全体系结构][lnk-security-architecture]
-* [保护 IoT 部署][lnk-security-deployment]
-
-若要进一步探索 IoT 中心的功能，请参阅：
-
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
-
-[lnk-iotedge]: ../iot-edge/quickstart-linux.md
-
-[lnk-security-best-practices]: iot-hub-security-best-practices.md
-[lnk-security-architecture]: iot-hub-security-architecture.md
-[lnk-security-deployment]: iot-hub-security-deployment.md

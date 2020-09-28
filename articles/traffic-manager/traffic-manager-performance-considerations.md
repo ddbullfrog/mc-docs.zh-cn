@@ -3,21 +3,23 @@ title: Azure 流量管理器性能注意事项 | Azure
 description: 了解流量管理器的性能以及如何测试使用流量管理器时的网站性能
 services: traffic-manager
 documentationcenter: ''
-author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/16/2017
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0decf69a421325372a5e26040739be1780d52df6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2402732f43e6e54f6bb42da6aefa749589b9aaa9
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653208"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395239"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>流量管理器的性能注意事项
 
@@ -59,11 +61,11 @@ DNS 名称解析速度会加快，结果会被缓存。 初始 DNS 查找速度�
 
     其中最简单的工具就是 WebSitePulse。 输入 URL 即可查看 DNS 解析时间、第一个字节、最后一个字节和其他性能统计信息。 可以从三个不同的测试位置中选择。 在此示例中可以看到，第一次执行显示 DNS 查找花费了 0.204 秒。
 
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+    :::image type="content" source="./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png" alt-text="pulse1":::
 
     由于结果会缓存，针对同一个流量管理器终结点执行第二次测试时，DNS 查找仅花费了 0.002 秒。
 
-    ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
+    :::image type="content" source="./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png" alt-text="pulse2":::
 
 * [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
 
@@ -71,7 +73,7 @@ DNS 名称解析速度会加快，结果会被缓存。 初始 DNS 查找速度�
 
     <!--Notice: Currently is 全国不同位置-->
     
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
+    :::image type="content" source="./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png" alt-text="pulse1":::
 
 * [Pingdom](https://tools.pingdom.com/)
 

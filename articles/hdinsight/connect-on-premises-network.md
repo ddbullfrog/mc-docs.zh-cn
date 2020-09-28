@@ -14,12 +14,12 @@ ms.workload: big-data
 origin.date: 03/04/2020
 ms.date: 04/06/2020
 ms.author: v-yiso
-ms.openlocfilehash: 299d1c439eb10c99e540014a6bb0c5f5283d6bd0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 153f67f011c884342fe7d5d3fe3e54b34d79cb7a
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80343555"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394731"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>将 HDInsight 连接到本地网络
 
@@ -143,29 +143,31 @@ ms.locfileid: "80343555"
 
 3. 若要配置 Bind，以便将名称解析请求转发到本地 DNS 服务器，请使用以下文本作为 `/etc/bind/named.conf.options` 文件的内容：
 
-        acl goodclients {
-            10.0.0.0/16; # Replace with the IP address range of the virtual network
-            10.1.0.0/16; # Replace with the IP address range of the on-premises network
-            localhost;
-            localnets;
-        };
+    ```DNS Zone file
+    acl goodclients {
+        10.0.0.0/16; # Replace with the IP address range of the virtual network
+        10.1.0.0/16; # Replace with the IP address range of the on-premises network
+        localhost;
+        localnets;
+    };
 
-        options {
-                directory "/var/cache/bind";
+    options {
+            directory "/var/cache/bind";
 
-                recursion yes;
+            recursion yes;
 
-                allow-query { goodclients; };
+            allow-query { goodclients; };
 
-                forwarders {
-                192.168.0.1; # Replace with the IP address of the on-premises DNS server
-                };
+            forwarders {
+            192.168.0.1; # Replace with the IP address of the on-premises DNS server
+            };
 
-                dnssec-validation auto;
+            dnssec-validation auto;
 
-                auth-nxdomain no;    # conform to RFC1035
-                listen-on { any; };
-        };
+            auth-nxdomain no;    # conform to RFC1035
+            listen-on { any; };
+    };
+    ```
 
     > [!IMPORTANT]
     > 将 `goodclients` 节中的值替换为虚拟网络和本地网络的 IP 地址范围。 此节定义此 DNS 服务器从其接受请求的地址。
@@ -196,11 +198,13 @@ ms.locfileid: "80343555"
 
 5. 若要配置 Bind，以便为虚拟网络中的资源解析 DNS 名称，请使用以下文本作为 `/etc/bind/named.conf.local` 文件的内容：
 
+    ```DNS Zone file
         // Replace the following with the DNS suffix for your virtual network
         zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn" {
             type forward;
             forwarders {168.63.129.16;}; # The Azure recursive resolver
         };
+    ```
 
     > [!IMPORTANT]
     > 必须将 `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn` 替换为此前检索的 DNS 后缀。
@@ -268,10 +272,12 @@ ms.locfileid: "80343555"
 
 以下文本是  Bind DNS 软件的条件转发器配置的示例：
 
+```DNS Zone file
     zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn" {
         type forward;
         forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
     };
+```
 
 若要了解如何在 Windows Server 2016  上使用 DNS，请参阅 [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) 文档。
 

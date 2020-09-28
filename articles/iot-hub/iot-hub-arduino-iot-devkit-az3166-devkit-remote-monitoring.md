@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 02/02/2018
 ms.date: 06/08/2020
 ms.author: v-yiso
-ms.openlocfilehash: 7b813902b0a77d4e32cfb22c3a7b225852f01e42
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 56b0e433d844ef162e7160d3c73f516870c2da2c
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186938"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394781"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>将 MXChip IoT DevKit 连接到 Azure IoT 远程监视解决方案加速器
 
@@ -23,7 +23,7 @@ ms.locfileid: "84186938"
 
 [MXChip IoT DevKit](https://aka.ms/iot-devkit) 是具有多种外设和传感器的集成 Arduino 兼容板。 可以使用[适用于 Arduino 的 Visual Studio Code 扩展](https://aka.ms/arduino)针对其进行开发。 它附带了一个不断增长的[项目目录](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)，指导你构建物联网 (IoT) 解决方案的原型，以利用 Microsoft Azure 服务。
 
-## <a name="what-you-need"></a>需要什么
+## <a name="what-you-need"></a>所需条件
 
 完成[入门指南](./iot-hub-arduino-iot-devkit-az3166-get-started.md)来实现以下目的：
 
@@ -129,7 +129,5 @@ DevKit 将重新启动并开始运行代码。
 
 了解如何将 DevKit 设备连接到 Azure IoT 远程监视解决方案加速器并将传感器数据可视化以后，建议接下来学习以下教程：
 
-* [Azure IoT 解决方案加速器概述](/iot-suite/)
-* [将 MXChip IoT DevKit 设备连接到 Azure IoT Central 应用程序](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
 
 * [IoT 开发人员工具包](https://microsoft.github.io/azure-iot-developer-kit/) 

@@ -3,22 +3,23 @@ title: 配置多值流量路由 - Azure 流量管理器
 description: 本文介绍如何配置流量管理器以将流量路由到 A/AAAA 终结点。
 services: traffic-manager
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/10/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 711cfa2800f41c991d2db43bcc2a4d8d937cf3a3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d0724ee6dd9eddd5e631bbc4d22eec4d377725d3
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653228"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395413"
 ---
 <!-- Verify sucessfully-->
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>在流量管理器中配置多值路由方法
@@ -55,7 +56,7 @@ ms.locfileid: "77653228"
     | 位置                | 此设置指的是资源组的位置，对将全局部署的流量管理器配置文件没有影响。                              |
     |        |           | 
 
-    ![创建流量管理器配置文件](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+    :::image type="content" source="./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png" alt-text="创建流量管理器配置文件":::
 
 ## <a name="add-traffic-manager-endpoints"></a>添加流量管理器终结点
 
@@ -75,7 +76,7 @@ ms.locfileid: "77653228"
 4. 重复步骤 2 和 3 以添加名为“myEndpoint2”的另一个终结点，在“完全限定的域名 (FQDN) 或 IP”处，输入第二个终结点的公共 IP 地址   。
 5. 添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”  中，并且其监视状态为“联机”  。
 
-    ![添加流量管理器终结点](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+    :::image type="content" source="./media/traffic-manager-multivalue-routing-method/add-endpoint.png" alt-text="添加流量管理器终结点":::
 
 ## <a name="next-steps"></a>后续步骤
 

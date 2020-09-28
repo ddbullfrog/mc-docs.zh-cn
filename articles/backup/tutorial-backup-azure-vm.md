@@ -2,17 +2,17 @@
 title: 教程：使用 PowerShell 进行多个 Azure VM 备份
 description: 本教程详细介绍了如何使用 Azure PowerShell 将多个 Azure VM 备份到恢复服务保管库。
 ms.topic: tutorial
-author: lingliw
+author: Johnnytechn
 origin.date: 03/05/2019
-ms.date: 09/05/2019
-ms.author: v-lingwu
-ms.custom: mvc
-ms.openlocfilehash: 906aac566c9084323eb30afaaf78b334ea272efc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/22/2020
+ms.custom: mvc, devx-track-azurepowershell
+ms.author: v-johya
+ms.openlocfilehash: 3e2f4931b90576ee296cc0cf2faaf9a08338ef2c
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75857333"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402363"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>使用 PowerShell 备份 Azure VM
 
@@ -27,19 +27,19 @@ ms.locfileid: "75857333"
 > * 创建恢复服务保管库并设置保管库上下文。
 > * 定义备份策略
 > * 应用备份策略以保护多个虚拟机
-> * 对保护的虚拟机触发按需备份作业 在备份（或保护）虚拟机之前，必须完成[先决条件](backup-azure-arm-vms-prepare.md)中的步骤来准备好保护 VM 的环境。 
+> * 对保护的虚拟机触发按需备份作业 在备份（或保护）虚拟机之前，必须完成[先决条件](backup-azure-arm-vms-prepare.md)中的步骤来准备好保护 VM 的环境。
 
 > [!IMPORTANT]
 > 本教程假定已创建资源组和 Azure 虚拟机。
 
 ## <a name="sign-in-and-register"></a>登录和注册
 
-
 1. 运行 `Connect-AzAccount -Environment AzureChinaCloud` 命令以登录 Azure 订阅，并按照屏幕上的说明操作。
 
     ```powershell
     Connect-AzAccount -Environment AzureChinaCloud
     ```
+
 2. 首次使用 Azure 备份时，必须使用 [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.Resources/Register-azResourceProvider) 在订阅中注册 Azure 恢复服务提供程序。 如果已注册，则跳过此步骤。
 
     ```powershell
@@ -51,7 +51,7 @@ ms.locfileid: "75857333"
 [恢复服务保管库](backup-azure-recovery-services-vault-overview.md)是一个逻辑容器，用于存储受保护资源（例如 Azure VM）的备份数据。 运行备份作业时，该作业会在恢复服务保管库中创建一个恢复点。 然后，可以使用其中一个恢复点将数据还原到给定的时间点。
 
 * 在本教程中，会在与要备份的 VM 相同的资源组和位置中创建保管库。
-* Azure 备份会自动处理备份数据的存储。 默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy-grs.md)。 异地冗余可确保将备份数据复制到距主区域数百英里以外的辅助 Azure 区域。
+* Azure 备份会自动处理备份数据的存储。 默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md)。 异地冗余可确保将备份数据复制到距主区域数百英里以外的辅助 Azure 区域。
 
 按如下所述创建保管库：
 
@@ -60,12 +60,13 @@ ms.locfileid: "75857333"
     ```powershell
     New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "ChinaNorth"
     ```
-2. 许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 出于此原因，在变量中存储备份恢复服务保管库对象可提供方便。
+
+2. 许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 出于此原因，可方便地在变量中存储备份恢复服务保管库对象。
 
     ```powershell
-    $vault1 = Get-AzRecoveryServicesVault –Name myRSVault
+    $vault1 = Get-AzRecoveryServicesVault -Name myRSVault
     ```
-    
+
 3. 使用 [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext) 设置保管库上下文。
 
    * 保管库上下文是在保管库中受保护的数据的类型。
@@ -86,7 +87,7 @@ ms.locfileid: "75857333"
 
 1. 使用 [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer) 指定保管库中保存备份数据的容器。
 2. 进行备份的每个 VM 都是一个项目。 若要启动备份作业，请使用 [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem) 获取有关 VM 的信息。
-3. 使用 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem) 运行按需备份。
+3. 使用 [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem) 运行按需备份。
     * 第一个初始备份作业会创建一个完整恢复点。
     * 初始备份之后，每个备份作业都会创建增量恢复点。
     * 增量恢复点有利于存储并具有时效性，因为它们仅传输自上次备份以来所做的更改。

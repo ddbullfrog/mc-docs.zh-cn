@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: fcd29e47e5a196ecbe1a1c0e5125ae2d4ab9fd53
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 34ac2cc44a936bd71ba505413bd898f4401e499d
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021302"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395499"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>教程：使用设计器预测汽车价格（预览）
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Azure 机器学习管道可将多个机器学习和数据处理步骤组织成�
 
 此设计器中包含多个示例数据集供你进行试验。 本教程使用“汽车价格数据(原始)”。 
 
-1. 管道画布左侧是数据集和模块的控制板。 选择“数据集”，然后查看“示例”部分以查看可用的示例数据集 。
+1. 管道画布左侧是数据集和模块的控制板。 选择“示例数据集”以查看可用的示例数据集。
 
 1. 选择数据集“汽车价格数据(原始)”，然后将其拖到画布上。
 

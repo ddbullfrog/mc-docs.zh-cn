@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7fa5c8fe507f201792884dc59a8dbf025d15ea6f
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 6cb3b99bb96c70c9baa126cc0ce030332a3d83f5
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413250"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402338"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常见问题 (FAQ)
 
@@ -79,7 +79,7 @@ Azure AD B2C 不适用于 SharePoint 外部合作伙伴共享的情况；请改�
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>我应该使用 Azure AD B2C 还是 B2B 来管理外部标识？
 
-请阅读[比较 Azure AD 中的 B2B 协作和 B2C](../active-directory/b2b/compare-with-b2c.md)，详细了解如何将适当功能应用于外部标识方案。
+请阅读[比较 Azure AD 中的 B2B 协作和 B2C](../active-directory/external-identities/compare-with-b2c.md)，详细了解如何将适当功能应用于外部标识方案。
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Azure AD B2C 提供哪些报告和审核功能？ 它们是否与 Azure AD Premium 中提供的功能相同？
 

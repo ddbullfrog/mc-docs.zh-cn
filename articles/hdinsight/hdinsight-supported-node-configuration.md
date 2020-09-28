@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 05/14/2020
 ms.date: 08/31/2020
-ms.openlocfilehash: 86e521fcb7b6e4e876a46cd1db4e8e656457b6eb
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: 0dabbd953e155e3bc71d0893864b336516f8d340
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866203"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394684"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Azure HDInsight 的默认和推荐节点配置是什么？
 
@@ -59,11 +59,10 @@ ms.locfileid: "88866203"
 | 头：默认 VM 大小 | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D3_v2 |
 | 头：建议的最小 VM 大小 | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* |D3_v2 |
 | 辅助角色：默认 VM 大小 | D4_v2 | D4_v2 | D14_v2 | D3_v2 | D13_v2 |  4 D12_v2，每个中转站有 2 个 S30 磁盘 |
-| 辅助角色：建议的最小 VM 大小 | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 |  D3_v2 |
-| Zookeeper：默认 VM 大小 |  | A4_v2 | A4_v2 | A4_v2 |  |  A4_v2 |
-| ZooKeeper：建议的最小 VM 大小 |  | A4_v2 | A4_v2 | A2_v2 |  |  A4_v2 |
-| ML 服务：默认 VM 大小 |  |  |  |  |  |  |
-| ML 服务：建议的最小 VM 大小 |  |  |  |  |  |  |
+| 辅助角色：建议的最小 VM 大小 | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D3_v2 |
+| Zookeeper：默认 VM 大小 |  | A4_v2 | A4_v2 | A4_v2 |  | A4_v2 |
+| ZooKeeper：建议的最小 VM 大小 |  | A4_v2 | A4_v2 | A2_v2 |  | A4_v2 |
+\* = Spark 企业安全性套餐 (ESP) 群集的 VM 大小
 
 > [!NOTE]
 > - 对于 Storm 群集类型，头称为 *Nimbus*。

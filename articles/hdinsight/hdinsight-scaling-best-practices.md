@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/29/2020
 ms.date: 08/31/2020
 ms.author: v-yiso
-ms.openlocfilehash: 6e75dfb8aa8956558a1b74c45794298034fa6514
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 5b533c2a00ba501a97306a9e6fc190f1a7745d0f
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715380"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394701"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>缩放 Azure HDInsight 群集
 
@@ -163,11 +163,11 @@ yarn application -kill "application_1499348398273_0003"
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>启用安全模式时的错误示例
 
-```
+```output
 org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode.
 ```
 
-```
+```output
 org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.servername.internal.chinacloudapp.cn:10001 [active-headnode-name.servername. internal.chinacloudapp.cn/1.1.1.1] failed: Connection refused
 ```
 

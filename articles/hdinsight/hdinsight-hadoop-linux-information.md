@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 04/29/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: 3496bb382458732a3d7cb76f4198b74bb3f2ed3b
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 738b6fbb351e414fe007dd69e18bec5ab51a95f2
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723232"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394706"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
@@ -32,6 +32,11 @@ Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中�
 * [Azure CLI](/cli/install-azure-cli) - 用于远程管理 Azure 服务。
 * **SSH 客户端**。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
+## <a name="users"></a>用户
+
+除非[加入域](./domain-joined/hdinsight-security-overview.md)，HDInsight 应被视为**单用户**系统。 单一 SSH 用户帐户是使用具有管理员级别权限的群集创建的。 可创建其他 SSH 帐户，但它们也具有对群集的管理员权限。
+
+加入域的 HDInsight 支持多个用户、更具体的权限以及角色设置。 有关详细信息，请参阅[管理已加入域的 HDInsight 群集](./domain-joined/apache-domain-joined-manage.md)。
 
 ## <a name="domain-names"></a>域名
 
@@ -39,13 +44,17 @@ Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中�
 
 就内部来说，群集中的每个节点都有一个在群集配置期间分配的名称。 若要查找群集名称，请参阅 Ambari Web UI 上的 **主机** 页。 还可以使用以下方法从 Ambari REST API 返回主机列表：
 
+```console
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```
 
 将 `CLUSTERNAME` 替换为群集的名称。 出现提示时，请输入管理员帐户的密码。 此命令返回包含群集中主机列表的 JSON 文档。 [jq](https://stedolan.github.io/jq/) 用于为每个主机提取 `host_name` 元素值。
 
 若需查找特定服务的节点的名称，可查询 Ambari 以获取该组件。 例如，若需查找 HDFS 名称节点的主机，请使用以下命令：
 
+```console
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```
 
 此命令会返回一个描述该服务的 JSON 文档，然后 [jq](https://stedolan.github.io/jq/) 就会只拉取主机的 `host_name` 值。
 
@@ -106,7 +115,9 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 
 使用 Azure 存储或 Data Lake Storage 时，不需要从 HDInsight 进行任何特殊操作即可访问数据。 例如，以下命令将列出 `/example/data` 文件夹中的文件，而无论它是存储在 Azure 存储还是 Data Lake Storage 上：
 
-    hdfs dfs -ls /example/data
+```console
+hdfs dfs -ls /example/data
+```
 
 在 HDInsight 中，数据存储资源（Azure Blob 存储和 Azure Data Lake Storage）与计算资源相分离。 可以根据需要创建 HDInsight 群集用于执行计算，然后在工作完成后将其删除。 另外，如有需要，可以将数据文件安全持久地保存在云存储空间中。
 

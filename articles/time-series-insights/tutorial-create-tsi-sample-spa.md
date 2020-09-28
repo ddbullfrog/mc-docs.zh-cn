@@ -9,12 +9,12 @@ ms.date: 10/21/2019
 ms.author: v-yiso
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 1ec963ac251310594aa6897312e80e9aafe61529
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b7de2723288a7fcb84f4947ddabee284510f90f5
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72292478"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402314"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教程：创建 Azure 时序见解单页 Web 应用
 
@@ -31,7 +31,7 @@ ms.locfileid: "72292478"
 > * 本教程的源代码在 [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial) 上提供。
 > * 提供了时序见解[客户端示例应用](https://insights.timeseries.azure.com/clientsample)以演示在本教程中使用的完整应用。
 
-如果没有 Azure 订阅，请注册一个[试用的 Azure 订阅](https://wwww.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请注册一个[试用的 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)。
 ## <a name="prerequisites"></a>先决条件
 
 * Visual Studio 的免费副本。 下载 [2017 或 2019 Community 版本](https://www.visualstudio.com/downloads/)以开始使用。
@@ -178,7 +178,7 @@ ms.locfileid: "72292478"
 错误代码/条件 | 说明
 ---------------------| -----------
 AADSTS50011：  未为应用程序注册回复地址。 | Azure AD 注册缺少“重定向 URI”  属性。 转到“身份验证”   > “重定向 URI”  以注册 Azure AD 应用程序。 验证在[注册应用程序以使用 Azure AD](#register-with-azure-ad) 时，可以选择在**步骤 2** 或**步骤 4** 中指定的**重定向 URI** 是否存在。
-AADSTS50011：*在请求中指定的回复 URL 与为以下应用程序配置的回复 URL 不匹配：'\<Application ID GUID>'。* | 在[生成并发布 Web 应用程序](#build-and-publish)中的**步骤 6.b** 中指定的 `postLogoutRedirectUri` 必须与 Azure AD 应用程序注册中的“身份验证”   > “重定向 URI”  下指定的值匹配。 |
+** AADSTS50011：在请求中指定的回复 URL 与为应用程序“\<Application ID GUID>”配置的回复 URL 不匹配。 | 在[生成并发布 Web 应用程序](#build-and-publish)中的**步骤 6.b** 中指定的 `postLogoutRedirectUri` 必须与 Azure AD 应用程序注册中的“身份验证”   > “重定向 URI”  下指定的值匹配。 |
 Web 应用程序会加载，但登录页是未设置样式的纯文本页面，背景为白色。 | 验证在[生成并发布 Web 应用程序](#build-and-publish)的**步骤 6** 中论述的路径是否正确。 如果 Web 应用程序找不到 .css 文件，则页面无法正确设置样式。
 
 ## <a name="clean-up-resources"></a>清理资源

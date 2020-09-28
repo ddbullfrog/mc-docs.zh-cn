@@ -5,15 +5,15 @@ author: Johnnytechn
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 07/17/2018
-ms.date: 06/22/2020
+ms.date: 09/22/2020
 ms.author: v-johya
 ms.custom: mvc
-ms.openlocfilehash: 5ceea0ad1151402547c552dded6c7b81a7db08b7
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 077fb4db1ededb9ebf87abe3f6f144934a16c3b9
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852115"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402514"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中备份虚拟机
 
@@ -27,7 +27,7 @@ ms.locfileid: "85852115"
 
 ## <a name="select-a-vm-to-back-up"></a>选择要备份的 VM
 
-在恢复服务保管库中创建一个简单的已计划每日备份。
+在恢复服务保管库中创建简单的计划每日备份。
 
 1. 在左侧菜单中选择“虚拟机”。
 2. 从列表中选择要备份的 VM。 如果使用了 VM 快速入门教程中的示例命令，VM 在 *myResourceGroup* 资源组中名为 *myVM*。

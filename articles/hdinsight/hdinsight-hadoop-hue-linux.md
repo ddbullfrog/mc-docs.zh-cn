@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 11/28/2019
 ms.date: 02/24/2020
 ms.author: v-yiso
-ms.openlocfilehash: b8d4ff75e0d6ed8eff78ab229442d36ffef1e8e1
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 245d48661e0a71d280e72e588b194a56c0de14a5
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917208"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394718"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Hue
 
@@ -84,7 +84,9 @@ Hue 是一组 Web 应用程序，用来与 Apache Hadoop 群集交互。 可以�
 
     此命令将返回类似于下面的名称：
 
+    ```output
         myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.chinacloudapp.cn
+    ```
 
     这是 Hue 网站所在的主头节点的主机名。
 4. 使用浏览器打开 Hue 门户 ( http://HOSTNAME:8888 )。 将 HOSTNAME 替换为在上一步骤中获取的名称。

@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 04/23/2020
 ms.date: 08/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: b4f6d44b64cc3b00313da502e1cbd6892d1127f9
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 7736829baa902d5e54c56346e285ef9da72b9049
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917230"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394637"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本
 
@@ -147,7 +147,9 @@ HDInsight 上 Apache Spark 群集中的 Zeppelin 笔记本可以使用群集中�
    
     c. 串连这三个值并以冒号分隔 ( **:** )。
 
-        com.databricks:spark-csv_2.10:1.4.0
+    ```
+    com.databricks:spark-csv_2.10:1.4.0
+    ```
 
 ## <a name="where-are-the-zeppelin-notebooks-saved"></a>Zeppelin 笔记本保存在何处？
 Zeppelin 笔记本保存在群集头节点。 因此，如果删除群集，笔记本也会被删除。 如果想要保留笔记本以供将来在其他群集中使用，那么必须在运行完作业之后，将笔记本导出。 若要导出笔记本，请选择下图所示的“导出”图标。

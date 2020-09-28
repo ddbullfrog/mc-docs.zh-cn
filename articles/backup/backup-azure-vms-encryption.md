@@ -6,12 +6,12 @@ author: Johnnytechn
 origin.date: 04/03/2019
 ms.date: 07/31/2020
 ms.author: v-johya
-ms.openlocfilehash: ff741ce3efcf4436511c65e8205d201f20a2b7b2
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.openlocfilehash: ccb4cc83efd4df1523dbb9bd68a490d11966a711
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508467"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402654"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>备份和还原已加密的 Azure VM
 
@@ -50,7 +50,7 @@ Azure 备份可以在使用或者不使用 Azure AD 应用的情况下，通过 
 
 1. 确保你有一个或多个启用了 ADE 的 [Windows](../virtual-machines/linux/disk-encryption-overview.md) 或 [Linux](../virtual-machines/linux/disk-encryption-overview.md) VM。
 2. 查看 Azure VM 备份的[支持矩阵](backup-support-matrix-iaas.md)
-3. [创建](backup-azure-arm-vms-prepare.md#create-a-vault)一个恢复服务备份保管库（如果没有）。
+3. [创建](backup-azure-arm-vms-prepare.md)一个恢复服务备份保管库（如果没有）。
 4. 如果为已启用备份的 VM 启用加密，则只需为备份服务提供 Key Vault 访问权限，这样，备份就可以继续进行，而不会发生中断。 [详细了解](#provide-permissions)如何分配这些权限。
 
 此外，在某些情况下，还需要完成几项操作：
@@ -59,7 +59,7 @@ Azure 备份可以在使用或者不使用 Azure AD 应用的情况下，通过 
 
 ## <a name="configure-a-backup-policy"></a>配置备份策略
 
-1. 如果尚未创建恢复服务备份保管库，请遵照[这些说明](backup-azure-arm-vms-prepare.md#create-a-vault)操作
+1. 如果尚未创建恢复服务备份保管库，请遵照[这些说明](backup-azure-arm-vms-prepare.md)操作
 2. 在门户中打开保管库，在“开始”部分选择“备份”。 
 
     ![“备份”边栏选项卡](./media/backup-azure-vms-encryption/select-backup.png)

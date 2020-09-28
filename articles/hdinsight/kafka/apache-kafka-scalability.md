@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 12/09/2019
 ms.date: 01/13/2020
 ms.author: v-yiso
-ms.openlocfilehash: 73d091669f070c060562a04d443892761f804b04
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 647807c1931c50a53ae9a85f6e1524b9d9469c1a
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75630880"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394579"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上为 Apache Kafka 配置存储和可伸缩性
 
@@ -38,7 +38,7 @@ Kafka on HDInsight 在 HDInsight 群集中使用虚拟机的本地磁盘。 由�
     > [!NOTE]
     > 托管磁盘的类型可以为“标准”  (HDD) 或“高级”  (SSD)。 高级磁盘可与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
 
-    ![“群集大小”部分，其中突出显示了每个工作器节点的磁盘数](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka.png)
+    ![“群集大小”部分，其中突出显示了每个工作器节点的磁盘数](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>配置托管磁盘：Resource Manager 模板
 

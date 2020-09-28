@@ -3,22 +3,24 @@ title: 管理 Azure 流量管理器配置文件 | Azure
 description: 本文有助于创建、禁用、启用和删除 Azure 流量管理器配置文件。
 services: traffic-manager
 documentationcenter: ''
-author: rockboyfor
 ms.service: traffic-manager
-manager: digimobile
+manager: twooley
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/10/2017
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: bdc2dd7310d9a45e72dfe3ce7017ffd132c3f8ba
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 9e7fb532f8f9123f099d6de543860687e5a19baa
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653209"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395384"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>管理 Azure 流量管理器配置文件
 

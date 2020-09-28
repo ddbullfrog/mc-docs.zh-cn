@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c7b847977a5ef53594239712addcdaf3e6fbb48b
-ms.sourcegitcommit: 87e789550ea49ff77c7f19bc68fad228009fcf44
+ms.openlocfilehash: e60f80f0e60bc65f44972a56c4df33da9a5163bd
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748096"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402341"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>教程：使用 Azure AD B2C 保护 Node.js Web API 并授予从单页应用程序访问该 API 的权限
 
@@ -44,9 +44,9 @@ ms.locfileid: "83748096"
 
 [!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
-## <a name="configure-scopes"></a>配置作用域
+## <a name="configure-scopes"></a>配置范围
 
-可通过作用域控制对受保护资源的访问。 Web API 使用作用域实施基于作用域的访问控制。 例如，可以让某些用户拥有读取和写入访问权限，让另一些用户拥有只读权限。 在本教程中，你将定义 Web API 的读取和写入权限。
+可通过范围控制对受保护资源的访问。 Web API 使用作用域实施基于作用域的访问控制。 例如，可以让某些用户拥有读取和写入访问权限，让另一些用户拥有只读权限。 在本教程中，你将定义 Web API 的读取和写入权限。
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
@@ -86,7 +86,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 #### <a name="enable-cors"></a>启用 CORS
 
-若要允许单页应用程序调用 Node.js Web API，需要在该 Web API 中启用 [CORS](https://expressjs.com/en/resources/middleware/cors.html)。 在生产应用程序中，应密切关注哪个域正在发出请求，但对于本教程，可允许来自任何域的请求。
+若要允许单页应用程序调用 Node.js Web API，需要在该 Web API 中启用 `CORS`。 在生产应用程序中，应密切关注哪个域正在发出请求，但对于本教程，可允许来自任何域的请求。
 
 若要启用 CORS，请使用以下中间件。 在本教程所述的 Node.js Web API 代码示例中，此中间件已添加到 index.js 文件。 
 

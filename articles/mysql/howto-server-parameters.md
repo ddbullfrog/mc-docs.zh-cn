@@ -4,15 +4,15 @@ description: 本文介绍如何使用 Azure 门户在适用于 MySQL 的 Azure �
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 6/11/2020
-ms.date: 07/20/2020
-ms.openlocfilehash: 65418b3e535e8bceaee62d19b7e833e75c33ed70
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 09/28/2020
+ms.openlocfilehash: 5b099d7f2aee14ee557bdb9dc9028d3bac31e11c
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440471"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395465"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>使用 Azure 门户在 Azure Database for MySQL 中配置服务器参数
 
@@ -43,6 +43,9 @@ ms.locfileid: "86440471"
 
     例如，可以通过将 `init_connect` 设置为 `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;` 来更改服务器的字符集
 4.  以保存更改。
+
+>[!Note]
+> `init_connect` 可用于在会话级别更改无需 SUPER 权限的参数。 若要验证是否可以使用 `init_connect` 设置参数，请执行 `set session parameter_name=YOUR_DESIRED_VALUE;` 命令，如果出现“拒绝访问；需要 SUPER 权限”错误，则无法使用“init_connect”设置参数。
 
 ## <a name="working-with-the-time-zone-parameter"></a>使用时区参数
 

@@ -2,14 +2,14 @@
 title: Azure 顾问的建议摘要
 description: 获取活动建议的定期摘要
 ms.topic: article
-ms.date: 06/28/2020
-ms.author: v-tawe
-ms.openlocfilehash: 3abc8494999b2d2527be387901672d4d54018ae1
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.date: 09/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 436c6291dbab686f5a12e0d2a01f654e94559c93
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516819"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402643"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>针对建议配置定期摘要
 
@@ -21,7 +21,7 @@ ms.locfileid: "85516819"
 可以借助**建议摘要**创建体验来配置摘要。 可选择以下参数进行配置：
 1. 类别：建议类别包括成本、高可用性、性能、卓越运营等。 此功能尚不可用于安全建议。
 2. 摘要频率：摘要通知的频率可以是每周、每两周和每月。
-3. 操作组：可以选择现有的操作组，也可以创建新的操作组。 若要详细了解操作组，请参阅[创建和管理操作组](/azure-monitor/platform/action-groups)。
+3. 操作组：可以选择现有的操作组，也可以创建新的操作组。 若要详细了解操作组，请参阅[创建和管理操作组](../azure-monitor/platform/action-groups.md)。
 4. 摘要语言
 5. 建议摘要名称：可以使用用户易记的字符串来更好地跟踪和监视摘要。
 
@@ -44,7 +44,7 @@ ms.locfileid: "85516819"
 
    ![提供建议摘要输入条件](./media/digest-2.png)
 
-* **步骤 5：** 在“操作组”部分中，选择摘要的“操作组”。 可以在此文中了解详细信息：[创建和管理操作组](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* **步骤 5：** 在“操作组”部分中，选择摘要的“操作组”。 可以在此文中了解详细信息：[创建和管理操作组](../azure-monitor/platform/action-groups.md)
 
    ![提供建议摘要输入操作组](./media/digest-3.png)
 
@@ -61,3 +61,4 @@ ms.locfileid: "85516819"
 * [顾问安全性建议](advisor-security-recommendations.md)
 * [顾问卓越运营建议](advisor-operational-excellence-recommendations.md)
 * [顾问 REST API](https://docs.microsoft.com/rest/api/advisor/)
+

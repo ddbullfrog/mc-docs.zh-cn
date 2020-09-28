@@ -2,21 +2,23 @@
 title: Azure 流量管理器终结点监视 | Azure
 description: 本文有助于你了解，流量管理器如何通过终结点监视和终结点自动故障转移来帮助 Azure 客户部署高可用性应用程序。
 services: traffic-manager
-author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/04/2018
-ms.date: 04/30/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7801619b07d503000251a08746ae7e36777c2c4f
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.openlocfilehash: e31b9389bf69699b8c7ea8599b9151c98b15ab05
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392470"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395242"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>流量管理器终结点监视
 
@@ -35,7 +37,7 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 * **容许的失败次数**。 此值指定在将终结点标记为不正常之前，流量管理器探测代理容许的失败次数。 其值的范围为 0 到 9。 0 值表示发生监视失败一次就可能会导致将该终结点标记为不正常。 如果未指定任何值，则使用默认值 3。
 * **探测超时**。 此属性指定在将运行状况检查探测数据发送到终结点时，将该项检查视为失败之前，流量管理器探测代理应该等待的时间。 如果探测间隔设置为 30 秒，则可将超时值设置为 5 - 10 秒。 如果未指定任何值，将使用默认值 10 秒。 如果探测间隔设置为 10 秒，则可将超时值设置为 5 - 9 秒。 如果未指定任何超时值，使用默认值 9 秒。
 
-    ![流量管理器终结点监视](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+    :::image type="content" source="./media/traffic-manager-monitoring/endpoint-monitoring-settings.png" alt-text="流量管理器终结点监视":::
 
     **图 3：流量管理器终结点监视**
 
@@ -111,7 +113,7 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 
 下图中的时间线详细描述了流量管理器终结点的监视过程，该终结点具有以下设置：监视协议为 HTTP，探测间隔为 30 秒，容许的失败次数为 3，超时值为 10 秒，DNS TTL 为 30 秒。
 
-![流量管理器终结点故障转移和故障回复顺序](./media/traffic-manager-monitoring/timeline.png)
+:::image type="content" source="./media/traffic-manager-monitoring/timeline.png" alt-text="流量管理器终结点故障转移和故障回复顺序":::
 
 **图：流量管理器终结点故障转移和恢复顺序**
 
@@ -204,4 +206,4 @@ Azure 流量管理器包括内置的终结点监视和终结点自动故障转�
 
 在流量管理器终结点上[排查降级状态](traffic-manager-troubleshooting-degraded.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 11/04/2019
 ms.date: 09/14/2020
 ms.author: v-johya
-ms.openlocfilehash: c1d4bd14ce314bdac25e7f7bb99ca30c5904bc34
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 82120336281effec4a30f82cb2cc29c35ad3c586
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822354"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402554"
 ---
 # <a name="working-with-security-policies"></a>使用安全策略
 
@@ -63,7 +63,7 @@ Azure 安全中心根据所选的策略提供安全建议。 安全中心策略�
 
 1. 从此页提供的可用选项中进行选择：
 
-    1. 要使用行业策略，请选择“添加更多标准”。 有关详细信息，请参阅[更新为动态符合性包](update-regulatory-compliance-packages.md)。
+    1. 要使用行业策略，请选择“添加更多标准”。
 
     1. 要分配和管理自定义计划，请选择“添加自定义计划”。 有关详细信息，请参阅[使用自定义安全策略](custom-security-policies.md)。
 

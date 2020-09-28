@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2fbb5fe5601d599f5d637effc4a2495727fbf948
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 4d2aa03de0104c56a4d68c96da923623acfde42f
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021690"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395446"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure 机器学习主权云平等性
 
@@ -136,7 +136,7 @@ ms.locfileid: "90021690"
 * 对于 Azure 机器学习计算实例，Azure 政府版中未提供对持续时间超过 24 小时的令牌进行刷新的功能。
 * 模型分析在美国-亚利桑那区域不支持 4 CPU。   
 * 示例笔记本在需要访问公共数据的情况下可能无法在 Azure 政府版中使用。
-* IP 地址：[VNet 和强制隧道](how-to-enable-virtual-network.md#forced-tunneling)指令中使用的 CLI 命令不返回 IP 范围。 请改用[适用于 Azure 政府版的 Azure IP 范围和服务标记](https://www.microsoft.com/download/details.aspx?id=57063)。
+* IP 地址：[VNet 和强制隧道](how-to-secure-training-vnet.md#forced-tunneling)指令中使用的 CLI 命令不返回 IP 范围。 请改用[适用于 Azure 政府版的 Azure IP 范围和服务标记](https://www.microsoft.com/download/details.aspx?id=57063)。
 * 对于计划的管道，我们还提供了基于 blob 的触发器机制。 CMK 工作区不支持此机制。 若要为 CMK 工作区启用基于 blob 的触发器，必须进行其他设置。 有关详细信息，请参阅[从逻辑应用触发机器学习管道的运行](how-to-trigger-published-pipeline.md)。
 * 防火墙：使用 Azure 政府区域时，请将下述其他主机添加到防火墙设置：
 
@@ -236,7 +236,7 @@ ms.locfileid: "90021690"
     | Azure Active Directory              | `https://login.chinacloudapi.cn`          | `https://login.chinacloudapi.cn`             |
 
 * 示例笔记本在需要访问公共数据的情况下可能无法使用。
-* IP 地址范围：[VNet 强制隧道](how-to-enable-virtual-network.md#forced-tunneling)指令中使用的 CLI 命令不返回 IP 范围。 请改用[适用于 Azure 中国版的 Azure IP 范围和服务标记](https://www.microsoft.com//download/details.aspx?id=57062)。
+* IP 地址范围：[VNet 强制隧道](how-to-secure-training-vnet.md#forced-tunneling)指令中使用的 CLI 命令不返回 IP 范围。 请改用[适用于 Azure 中国版的 Azure IP 范围和服务标记](https://www.microsoft.com//download/details.aspx?id=57062)。
 * 目前，启用了专用链接的工作区中不支持 Azure 机器学习计算实例 (CI) 预览版，但在下一次将服务扩展部署到所有 AML 区域时，会支持 CI。
 
 ## <a name="next-steps"></a>后续步骤

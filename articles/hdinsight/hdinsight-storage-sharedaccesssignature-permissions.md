@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 04/28/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: fc6369aa79a186dfedbc35229dc9b70a76637177
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 8c01e1607ed9f6a628d007a2f8cf739e8d2aa834
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917250"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394686"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据
 
@@ -433,7 +433,9 @@ Remove-AzResourceGroup `
 
     将收到类似于以下文本的消息：
 
-        put: java.io.IOException
+    ```output
+    put: java.io.IOException
+    ```
 
     发生此错误的原因是存储位置仅支持读取和列出。 使用以下命令将数据放在群集的可写默认存储中：
 

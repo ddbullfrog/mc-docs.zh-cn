@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 02/19/2020
 ms.author: v-junlch
-ms.openlocfilehash: 3c514d0f154c6e39068770feee57483150cedcc0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: cc572a059599933c1ebb6cd414f1ba5a546498d4
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291387"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402558"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什么是云服务模型以及如何将其打包？
 云服务由以下三个组件创建：服务定义 *(.csdef)* 、服务配置 *(.cscfg)* 和服务包 *(.cspkg)* 。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 文件都基于 XML，同时介绍云服务的结构及其配置方式；统称为模型。 **ServicePackage.cspkg** 是基于 **ServiceDefinition.csdef** 和其他文件生成的 zip 文件，它包含所有必需的基于二进制的依赖项。 Azure 可从 **ServicePackage.cspkg** 和 **ServiceConfig.cscfg** 两者创建云服务。
@@ -201,7 +201,7 @@ Azure 仅允许 Web 角色有一个入口点。 即所有通信都通过一个 I
   仅可在角色实例处于脱机状态时更新证书。 如果在角色实例处于联机状态时添加、删除或更改了某个证书，则 Azure 会使实例脱机以更新证书，并在更改完成后使其重新联机。
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>使用服务运行时事件处理配置更改
-[Azure 运行时库](https://docs.microsoft.com/previous-versions/azure/reference/mt419365(v=azure.100))包括 [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) 命名空间，它提供类用于与来自角色的 Azure 环境进行交互。 [RoleEnvironment](https://docs.microsoft.com/previous-versions/azure/reference/ee773173(v=azure.100)) 类定义在配置更改前后引发的以下事件：
+[Azure 运行时库](https://docs.microsoft.com/previous-versions/azure/reference/mt419365(v=azure.100))包括 [Microsoft.WindowsAzure.ServiceRuntime](https://docs.microsoft.com/previous-versions/azure/reference/ee741722(v=azure.100)) 命名空间，它提供类用于与来自角色的 Azure 环境进行交互。 [RoleEnvironment](https://docs.microsoft.com/previous-versions/azure/reference/ee773173(v=azure.100)) 类定义在配置更改前后引发的以下事件：
 
 * **[Changing](https://docs.microsoft.com/previous-versions/azure/reference/ee758134(v=azure.100)) 事件**  
   此事件发生在配置更改应用于某个角色的指定实例之前，使你有机会记下角色实例（如有必要）。

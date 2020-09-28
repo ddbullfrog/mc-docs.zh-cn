@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/07/2017
 ms.author: v-yiso
 ms.date: 03/09/2020
-ms.openlocfilehash: 36d1474626bdaa5f1880a58ff213021170381f22
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 3410fa4feaddeb1dc70ed02e59733ad775bb43ed
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186621"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394771"
 ---
 # <a name="upload-files-with-iot-hub"></a>使用 IoT 中心上传文件
 
@@ -25,6 +25,8 @@ IoT 中心本身不中转消息，而是充当关联 Azure 存储帐户的调度
 从设备将文件上传到 IoT 中心之前，必须通过为其[关联 Azure 存储](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub)帐户来配置该中心。
 
 然后，设备就能[初始化上传](iot-hub-devguide-file-upload.md#initialize-a-file-upload)，并在上传完成后[通知 IoT 中心](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload)。 （可选）设备通知 IoT 中心上传完成以后，服务可以生成[通知消息](iot-hub-devguide-file-upload.md#file-upload-notifications)。
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ### <a name="when-to-use"></a>何时使用
 使用文件上传，发送间歇性连接的设备上传的媒体文件和大型遥测批文件（或者是压缩后的文件，以节省带宽）。

@@ -14,12 +14,12 @@ origin.date: 02/28/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: bc3d3c4b3ad35ce577e18676ba93decc980aae4b
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 24ec5ece229f84841f6f21df614bd7f7538eeca4
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917216"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394707"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>使用 SSH 连接到 HDInsight (Apache Hadoop)
 
@@ -78,7 +78,9 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
 使用 `ssh-keygen` 命令创建公钥和私钥文件。 以下命令生成可在 HDInsight 中使用的 2048 位 RSA 密钥对：
 
-    ssh-keygen -t rsa -b 2048
+```azurepowershell
+ssh-keygen -t rsa -b 2048
+```
 
 在密钥创建过程中会提示你输入信息。 例如，密钥的存储位置，或者是否要使用密码。 完成该过程后，会创建两个文件：一个公钥文件和一个私钥文件。
 

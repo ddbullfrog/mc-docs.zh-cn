@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 03/13/2020
 ms.date: 09/14/2020
 ms.author: v-yiso
-ms.openlocfilehash: d3b33e7697d03650002a9a869b79f6abcb8e26a2
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: c7e291f992cf09399795dd1b866270e5a7f4eda2
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463191"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394643"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-arm-template"></a>快速入门：使用 ARM 模板在 Azure HDInsight 中创建 Apache Spark 群集
 
@@ -215,9 +215,9 @@ ms.locfileid: "89463191"
 
 创建群集后，你会收到“部署成功”通知，通知中附有“转到资源”链接 。 “资源组”页会列出新的 HDInsight 群集以及与该群集关联的默认存储。 每个群集都有一个 [Azure 存储](../hdinsight-hadoop-use-blob-storage.md)帐户依赖项。 该帐户称为默认存储帐户。 HDInsight 群集及其默认存储帐户必须共存于同一个 Azure 区域中。 删除群集不会删除存储帐户。
 
-## <a name="create-a-jupyter-notebook"></a>创建 Jupyter 笔记本
+## <a name="create-a-jupyter-notebook-file"></a>创建 Jupyter Notebook 文件
 
-[Jupyter Notebook](https://jupyter.org/) 是支持各种编程语言的交互式笔记本环境。 通过此笔记本可以与数据进行交互、结合代码和 markdown 文本以及执行简单的可视化效果。
+[Jupyter Notebook](https://jupyter.org/) 是支持各种编程语言的交互式笔记本环境。 可以使用 Jupyter Notebook 文件与数据交互，将代码和 Markdown 文本相结合，并执行简单的可视化操作。
 
 1. 打开 [Azure 门户](https://portal.azure.cn)。
 2. 选择“HDInsight 群集”，然后选择所创建的群集。

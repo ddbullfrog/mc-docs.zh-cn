@@ -9,12 +9,12 @@ origin.date: 06/14/2019
 ms.date: 10/28/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 39402eeda5de790af8046207ae7e674a5ee85871
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 9c7baee5a527ca21b9cf4a613aef6348013b7a3a
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72583608"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394573"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>快速入门：在 Azure HDInsight 中创建和监视 Apache Storm 拓扑
 
@@ -50,13 +50,13 @@ Storm 提供一个 Web 界面用于处理正在运行的拓扑，并包含在 HD
 
 1. 若要显示 Storm UI，请打开 Web 浏览器，访问 `https://CLUSTERNAME.azurehdinsight.cn/stormui`。 将 `CLUSTERNAME` 替换为群集的名称。
 
-2. 在“拓扑摘要”  下，选择“名称”  列中的“wordcount”  条目。 显示有关拓扑的信息。
+2. 在“拓扑摘要”  下，选择“名称”  列中的“wordcount”  条目。 将显示有关拓扑的信息。
 
-    ![包含 storm-starter WordCount 拓扑信息的 Storm 仪表板。](./media/apache-storm-quickstart/hdi-topology-summary.png)
+    ![包含 Storm 初学者项目 WordCount 拓扑信息的 Storm 仪表板。](./media/apache-storm-quickstart/hdi-topology-summary.png)
 
     新页提供以下信息：
 
-    |属性 | 说明 |
+    |properties | 说明 |
     |---|---|
     |拓扑统计信息|有关拓扑性能的基本信息，已组织到时间窗口中。 选择特定的时间窗口会更改页面其他部分中显示的信息的时间窗口。|
     |Spout|有关 spout 的基本信息，包括每个 spout 返回的最后一个错误。|
@@ -67,13 +67,13 @@ Storm 提供一个 Web 界面用于处理正在运行的拓扑，并包含在 HD
     |重新平衡|调整拓扑的并行度。 更改群集中的节点数目之后，应该重新平衡正在运行的拓扑。 重新平衡可调整并行度，以弥补群集中增加/减少的节点数目。 有关详细信息，请参阅[了解 Apache Storm 拓扑的并行度](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。|
     |终止|在经过指定的超时之后终止 Storm 拓扑。|
 
-3. 在此页中，从“Spout”  或“Bolt”  部分中选择一个条目。 显示有关选定组件的信息。
+3. 在此页中，从“Spout”  或“Bolt”  部分中选择一个条目。 将显示有关选定组件的信息。
 
-    ![包含有关选定组件的信息的 Storm 仪表板。](./media/apache-storm-quickstart/hdi-component-summary.png)
+    ![包含有关选定组件信息的 Storm 仪表板。](./media/apache-storm-quickstart/hdi-component-summary.png)
 
     新页显示以下信息：
 
-    |属性 | 说明 |
+    |properties | 说明 |
     |---|---|
     |Spout/Bolt 统计信息|有关组件性能的基本信息，已组织到时间窗口中。 选择特定的时间窗口会更改页面其他部分中显示的信息的时间窗口。|
     |输入统计信息（仅限 Bolt）|有关生成 Bolt 所用数据的组件的信息。|
@@ -83,20 +83,22 @@ Storm 提供一个 Web 界面用于处理正在运行的拓扑，并包含在 HD
 
 4. 在查看 spout 或 bolt 的详细信息时，从“执行器”  部分中的“端口”  列中选择一个条目可以查看组件特定实例的详细信息。
 
-        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
-        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
-        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
-        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
-        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
-        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
-        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
-        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
+```output
+2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
+2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
+2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
+2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
+2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
+2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
+2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
+2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
+```
 
-    在此示例中，**seven** 一词出现了 1493957 次。 此计数是自启动此拓扑以来已遇到该单词的次数。
+    In this example, the word **seven** has occurred 1493957 times. This count is how many times the word has been encountered since this topology was started.
 
 ## <a name="stop-the-topology"></a>停止拓扑
 
-返回到单词计数拓扑的“拓扑摘要”页，并从“拓扑操作”部分中选择“终止”按钮。    出现提示时，输入停止拓扑之前要等待的秒数，即 10。 在超时期限之后访问仪表板的“Storm UI”  部分，不会再显示该拓扑。
+返回到单词计数拓扑的“拓扑摘要”页，并从“拓扑操作”部分中选择“终止”按钮。************ 出现提示时，输入停止拓扑之前要等待的秒数，即 10。 在超时期限之后访问仪表板的“Storm UI”**** 部分，不再显示该拓扑。
 
 ## <a name="clean-up-resources"></a>清理资源
 

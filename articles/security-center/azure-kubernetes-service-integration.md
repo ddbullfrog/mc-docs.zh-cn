@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 05/13/2020
 ms.author: v-tawe
 origin.date: 11/04/2019
-ms.openlocfilehash: 14a3f3b3cef67f98ede4ba5b5d97999e1c4e50c4
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 71a70342af57c7a2af02eb123183484d6c853339
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83423157"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402579"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center"></a>Azure Kubernetes 服务与安全中心的集成
 
@@ -44,7 +44,7 @@ Azure Kubernetes 服务 (AKS) 是 Microsoft 的托管服务，用于开发、部
     * 原始安全事件（如网络数据和进程创建）
     * Kubernetes 审核日志
 
-    有关详细信息，请参阅[针对 Azure 容器的威胁防护](threat-protection.md#azure-containers)
+    有关详细信息，请参阅[针对 Azure 容器的威胁防护](threat-protection.md)
 
     有关可能出现警报的列表，请参阅警报引用表中的以下部分：[AKS 群集级别警报](alerts-reference.md#alerts-akscluster)和[容器主机级别警报](alerts-reference.md#alerts-containerhost)。  
 
@@ -59,7 +59,5 @@ Azure Kubernetes 服务 (AKS) 是 Microsoft 的托管服务，用于开发、部
 若要详细了解安全中心的容器安全功能，请参阅：
 
 * [Azure 安全中心和容器安全性](container-security.md)
-
-* [与 Azure 容器注册表集成](azure-container-registry-integration.md)
 
 * [Microsoft 的数据管理](https://www.microsoft.com/trust-center/privacy/data-management) - 描述 Microsoft 服务（包括 Azure、Intune 和 Office 365）的数据策略、Microsoft 数据管理的详细信息以及影响数据的保留策略

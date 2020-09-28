@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 12/31/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: 3ba5f5343a08b8e4a790767f0df566d711847050
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: bfa67183ab8a1e1a89f7022cf1a10267b9356b08
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462982"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394780"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用针对 Visual Studio 的 Data Lake 工具开发 Apache Storm 的 C# 拓扑
 
@@ -54,7 +54,7 @@ HDInsight 上的 Apache Storm 群集。 请参阅[使用 Azure 门户创建 Apac
 
 从 Visual Studio 提交 Storm 拓扑时，SCP.NET 会生成一个包含拓扑和依赖项的 zip 文件。 使用 Java 来创建这些 zip 文件是因为其采用的格式更兼容基于 Linux 的群集。
 
-1. 在开发环境中安装 Java 开发人员工具包 (JDK) 7 或更高版本。 可以从 [Oracle](https://aka.ms/azure-jdks) 获取 Oracle JDK。 也可使用[其他 Java 发行版](https://openjdk.java.net/)。
+1. 在开发环境中安装 Java 开发人员工具包 (JDK) 7 或更高版本。 可以从 [Oracle](https://openjdk.java.net/) 获取 Oracle JDK。 也可使用[其他 Java 发行版](https://docs.microsoft.com/java/azure/jdk/)。
 
 2. 将 `JAVA_HOME` 环境变量设置为包含 Java 的目录。
 

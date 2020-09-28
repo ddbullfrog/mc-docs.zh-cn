@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 06/30/2020
-ms.openlocfilehash: 68e66e729bf84cb051dda8a93e4898d8e90128b2
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 72c9ebe5ca6f57475bbd740a72b22ff438f36b87
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228280"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395461"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Azure 机器学习中的模型可解释性
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "88228280"
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Azure 机器学习的可解释性
 
-可通过多个 SDK 包使用可解释性类：（了解如何[安装适用于 Azure 机器学习的 SDK 包](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)）
+可通过多个 SDK 包使用可解释性类：（了解如何[安装适用于 Azure 机器学习的 SDK 包](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)）
 
 * 主包 `azureml.interpret`，包含 Microsoft 支持的功能。
 

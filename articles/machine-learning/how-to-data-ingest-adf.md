@@ -12,12 +12,12 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: dfc2dad19ac7478f3fb9400d60622d27c817c030
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: d65b6ff2ba9c4f9fb89590b251a767c2ebc0aac6
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097139"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395217"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>使用 Azure 数据工厂进行数据引入
 
@@ -43,7 +43,7 @@ Azure Functions 允许运行小段代码（函数），且不需要担心应用�
 
 * 优点：
     * 以相对较低的延迟在无服务器计算资源中处理数据
-    * ADF 管道可以调用一个[持久性 Azure 函数](/azure/azure-functions/durable/durable-functions-overview)，该函数可实现复杂的数据转换流 
+    * ADF 管道可以调用一个[持久性 Azure 函数](/azure-functions/durable/durable-functions-overview)，该函数可实现复杂的数据转换流 
     * 可重复使用且可从其他位置调用的 Azure 函数会抽象掉数据转换的详细信息
 * 缺点：
     * 在与 ADF 结合使用之前，必须先创建 Azure Functions

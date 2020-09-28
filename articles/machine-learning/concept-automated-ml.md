@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 3a8e33d72dbec8d2e93b39ea136b52c93166df34
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: c6782da3301d1cb1f20c5514b771ea638fc1a37b
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021187"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395483"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>什么是自动化机器学习 (AutoML)？
 
@@ -206,7 +206,7 @@ ms.locfileid: "90021187"
 
 Azure 机器学习提供两个用于操作自动化 ML 的体验
 
-* 对于编码经验丰富的客户，可以使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+* 对于编码经验丰富的客户，可以使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
 * 编程经验有限/无经验的客户可以使用 [https://studio.ml.azure.cn](https://studio.ml.azure.cn/) 上的 Azure 机器学习工作室  
 
@@ -291,7 +291,7 @@ ONNX 运行时还支持 C#。因此，你可以在 C# 应用中使用自动生�
 
 ### <a name="python-sdk-reference"></a>Python SDK 参考 
 
-阅读 [AutoML 类参考文档](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)，加深你对 SDK 设计模式和类规范的专业知识的理解。 
+阅读 [AutoML 类参考文档](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)，加深你对 SDK 设计模式和类规范的专业知识的理解。 
 
 > [!Note]
 > 自动化机器学习功能也可以在其他 Microsoft 解决方案（例如 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)、[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)、[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) 和 [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)）中使用

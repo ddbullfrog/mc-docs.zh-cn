@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 28dca03ae58f5b24df134163b439b0fa7f7ed40d
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 62f5bf57df7ae8825463b3aabe866cbe296fc1d1
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021487"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395207"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace-preview"></a>如何在工作区中运行 Jupyter Notebook（预览）
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -157,7 +157,7 @@ Azure 机器学习在你创建 ipynb 文件时会创建一个检查点文件。
 
 ### <a name="view-logs-and-output"></a>查看日志和输出
 
-使用[笔记本小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)可以查看运行进度和日志。 小组件具有异步性，在训练结束之前，它会一直提供更新。 Jupyter 和 JupterLab 也支持 Azure 机器学习小组件。
+使用[笔记本小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)可以查看运行进度和日志。 小组件具有异步性，在训练结束之前，它会一直提供更新。 Jupyter 和 JupterLab 也支持 Azure 机器学习小组件。
 
 ## <a name="change-the-notebook-environment"></a>更改笔记本环境
 

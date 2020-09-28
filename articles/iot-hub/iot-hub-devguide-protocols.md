@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
 ms.date: 06/08/2020
-ms.openlocfilehash: 5c81d8583d8c47da41e871dfb19fa5cc14f8131a
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: b222617f9901ab4658b6c1358e63d1c5b3e66ea3
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186930"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394767"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>参考 - 选择通信协议
 
@@ -52,6 +52,8 @@ IoT 中心允许设备使用以下协议进行设备端通信：
 
 > [!WARNING]
 > 使用 HTTPS 时，每台设备应每 25 分钟或更短时间轮询一次云到设备消息。 在开发中，每台设备都可以根据需要更频繁地轮询。
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="port-numbers"></a>端口号
 

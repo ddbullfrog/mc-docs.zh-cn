@@ -2,21 +2,23 @@
 title: 将 Internet 域指向流量管理器 - Azure 流量管理器
 description: 本文将帮助将公司域名指向流量管理器域名。
 services: traffic-manager
-author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/11/2016
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: a01df20cf19bfa4e006a0fc0c9542af162848003
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c16da675dc73056be28557f61e0811f65fa21007
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653205"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395456"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>将公司 Internet 域指向 Azure 流量管理器域
 
@@ -24,7 +26,7 @@ ms.locfileid: "77653205"
 
 例如，若要将名称 `www.contoso.com` 指向流量管理器 DNS 名称 `contoso.trafficmanager.cn`，请创建以下 DNS 资源记录：
 
-    www.contoso.com IN CNAME contoso.trafficmanager.cn
+`www.contoso.com IN CNAME contoso.trafficmanager.cn.`
 
 对 www\.contoso.com 发出的所有流量请求都会定向到 contoso.trafficmanager.cn。
 

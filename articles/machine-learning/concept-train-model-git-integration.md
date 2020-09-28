@@ -10,12 +10,12 @@ ms.author: v-yiso
 author: jpe316
 origin.date: 03/05/2020
 ms.date: 03/09/2020
-ms.openlocfilehash: f770c17a3663dbe011533607ec9e3fc533fff170
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 958c26c49c8b76bebb8451df79084b3138da3e8a
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021344"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395317"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure 机器学习的 Git 集成
 
@@ -99,7 +99,7 @@ Git 信息存储在训练运行的属性中。 可以使用 Azure 门户、Pytho
 
 ### <a name="python-sdk"></a>Python SDK
 
-提交训练运行后，将返回 [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) 对象。 此对象的 `properties` 属性包含记录的 git 信息。 例如，以下代码可检索提交哈希：
+提交训练运行后，将返回 [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) 对象。 此对象的 `properties` 属性包含记录的 git 信息。 例如，以下代码可检索提交哈希：
 
 ```python
 run.properties['azureml.git.commit']

@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 05/09/2020
 ms.author: v-tawe
 origin.date: 02/11/2020
-ms.openlocfilehash: 9784d68c76915c463fee4fdddaca7c28e85aebbd
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: c42c45abaa96b0afe094b961b880c06e187875a7
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83423144"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402624"
 ---
 # <a name="container-security-in-security-center"></a>安全中心的容器安全性
 
@@ -31,8 +31,6 @@ Azure 安全中心是针对容器安全性提供的 Azure 原生解决方案。 
 * 运行时保护
 
 [![Azure 安全中心的“容器安全性”选项卡](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
-
-有关如何使用这些功能的说明，请参阅[监视容器的安全性](monitor-container-security.md)。
 
 ## <a name="vulnerability-management---scanning-container-images"></a>漏洞管理 - 扫描容器映像
 若要监视基于 ARM 的 Azure 容器注册表，请确保你在安全中心的标准层（请参阅[定价](https://docs.azure.cn/security-center/security-center-pricing)）上。 然后，启用可选的容器注册表捆绑包。 推送新映像时，安全中心会使用行业领先的漏洞扫描供应商 Qualys 提供的扫描程序来扫描映像。
@@ -68,7 +66,7 @@ AKS 提供安全控制，并且可用于了解群集的安全状况。 安全中
 
 安全中心为容器化环境提供实时检测威胁的功能，并在出现可疑活动时生成警报。 可以使用此信息快速补救安全问题，并提高容器的安全性。
 
-我们在主机和 AKS 群集级别检测威胁。 如需完整的详细信息，请参阅[针对 Azure 容器进行威胁检测](threat-protection.md#azure-containers)。
+我们在主机和 AKS 群集级别检测威胁。 如需完整的详细信息，请参阅[针对 Azure 容器进行威胁检测](threat-protection.md)。
 
 
 ## <a name="container-security-faq"></a>容器安全性常见问题解答
@@ -98,4 +96,3 @@ Qualys 扫描程序不支持极简映像，例如 [Docker 暂存](https://hub.do
 
 * [与 Azure Kubernetes 服务集成](azure-kubernetes-service-integration.md)的详细信息
 
-* [与 Azure 容器注册表集成](azure-container-registry-integration.md)的详细信息

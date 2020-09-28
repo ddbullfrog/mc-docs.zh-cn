@@ -2,19 +2,19 @@
 title: 开发脚本操作以自定义 Azure HDInsight 群集
 description: 了解如何使用 Bash 脚本自定义 HDInsight 群集。 脚本操作用于在创建群集期间或之后运行脚本，以更改群集配置设置或安装其他软件。
 author: hrasheed-msft
-ms.author: v-yiso
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 11/28/2019
 ms.date: 02/24/2020
-ms.openlocfilehash: b909218b97c36ab4b2ed0f87e4279fae1228b062
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.author: v-yiso
+ms.openlocfilehash: 45b90c75e6d31d98bdee7a8c6678a7ce6b2d6a8a
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917222"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394702"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -266,11 +266,15 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 以下语句设置环境变量：
 
-    VARIABLENAME=value
+```bash
+VARIABLENAME=value
+```
 
 其中，VARIABLENAME 是变量的名称。 若要访问变量，请使用 `$VARIABLENAME`。 例如，若要将位置参数提供的值指定为名为 PASSWORD 的环境变量，请使用以下语句：
 
-    PASSWORD=$1
+```bash
+PASSWORD=$1
+```
 
 对信息进行后续访问时可以使用 `$PASSWORD`。
 
@@ -354,7 +358,9 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 请参�
 
 *解决方法*：将文件另存为 ASCII，或者不带 BOM 的 UTF-8。 也可以在 Linux 或 Unix 系统上使用以下命令来创建不带 BOM 的文件：
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```bash
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
 将 `INFILE` 替换为包含 BOM 的文件。 `OUTFILE` 应是新文件名，该文件包含不带 BOM 的脚本。
 

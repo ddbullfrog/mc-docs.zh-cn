@@ -3,22 +3,24 @@ title: Azure 流量管理器上的降级状态故障排除
 description: 如何在流量管理器显示为降级状态时对流量管理器配置文件进行故障排除。
 services: traffic-manager
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/03/2017
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 99e8760169849cd740f224fe84c5b518cfb565e6
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 337e4c1874ebe6de710fbd3aa588fe88504f9a7a
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723079"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395462"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure 流量管理器上的降级状态故障排除
 
@@ -26,11 +28,11 @@ ms.locfileid: "84723079"
 
 <!--Not Available on [Enable resource logs](/traffic-manager/traffic-manager-diagnostic-logs)-->
 
-![已降级终结点状态](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
+:::image type="content" source="./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png" alt-text="已降级终结点状态":::
 
 如果流量管理器的运行状况显示“非活动”**** 状态，则两个终结点的状态可能为“已禁用”****：
 
-![非活动流量管理器状态](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
+:::image type="content" source="./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png" alt-text="非活动流量管理器状态":::
 
 ## <a name="understanding-traffic-manager-probes"></a>了解流量管理器探测
 
@@ -59,9 +61,11 @@ Invoke-WebRequest 'http://watestsdp2008r2.chinacloudapp.cn/Probe' -MaximumRedire
 
 示例输出：
 
-    StatusCode StatusDescription
-    ---------- -----------------
-           301 Moved Permanently
+```output
+StatusCode StatusDescription
+---------- -----------------
+        301 Moved Permanently
+```
 
 请注意我们收到了重定向响应。 如前所述，任何非 200 状态代码都被视为失败。 流量管理器将终结点状态更改为“脱机”。 若要解决该问题，请检查网站配置，确保可以从探测路径返回正确的状态代码。 将流量管理器探测重新配置为指向返回 200 的路径。
 
@@ -98,4 +102,4 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [1]: https://docs.microsoft.com/powershell/module/az.trafficmanager
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!-- Update_Description: update meta properties, wording update, update link -->

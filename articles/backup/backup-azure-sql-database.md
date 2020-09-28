@@ -6,12 +6,12 @@ author: Johnnytechn
 origin.date: 06/18/2019
 ms.date: 06/22/2020
 ms.author: v-johya
-ms.openlocfilehash: 7983645dbf225294db7503157862849b93bb23b5
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: a3a064454cb08c1226f1505e3555cfdde0d9492d
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852099"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402663"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>关于 Azure VM 中的 SQL Server 备份
 
@@ -43,7 +43,7 @@ ms.locfileid: "85852099"
 在开始之前，请验证以下条件：
 
 1. 确保有一个 SQL Server 实例在 Azure 中运行。 可以在市场中[快速创建 SQL Server 实例](/virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)。
-2. 查看[功能注意事项](sql-support-matrix.md#feature-consideration-and-limitations)和[方案支持](sql-support-matrix.md#scenario-support)。
+2. 查看[功能注意事项](sql-support-matrix.md)和[方案支持](sql-support-matrix.md#scenario-support)。
 3. 查看有关此方案的[常见问题解答](faq-backup-sql-server.md)。
 
 ## <a name="set-vm-permissions"></a>设置 VM 权限

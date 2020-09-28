@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 02/21/2018
 ms.date: 02/24/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4e876db858f9c1c9cffb54249dd02be2634c6e0a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 24bddfe2c26ba9c477f3f037dd41d8e3c0c8db63
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428643"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394717"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>迁移到适用于 HDInsight 群集的基于 Azure Resource Manager 的开发工具
 
@@ -101,7 +101,9 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
 ### <a name="renamed-cmdlets"></a>已重命名的 cmdlet
 在 Windows PowerShell 控制台中列出 HDInsight ASM cmdlet：
 
-    help *azurehdinsight*
+```powershell
+help *azurehdinsight*
+```
 
 下表列出了 ASM cmdlet 及其在资源管理器模式下的名称：
 
@@ -153,6 +155,7 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
 
 旧命令 (ASM)： 
 
+```azurepowershell
     New-AzureHDInsightCluster `
         -Name $clusterName `
         -Location $location `
@@ -165,9 +168,11 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
         -Version "3.2" `
         -Credential $httpCredential `
         -SshCredential $sshCredential
+```
 
 新命令：
 
+```azurepowershell
     New-AzHDInsightCluster `
         -ClusterName $clusterName `
         -ResourceGroupName $resourceGroupName `
@@ -181,36 +186,49 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
         -Version "3.2" `
         -HttpCredential $httpcredentials `
         -SshCredential $sshCredentials
+```
 
 删除群集 
 
 旧命令 (ASM)：
 
-    Remove-AzureHDInsightCluster -name $clusterName 
+```azurepowershell
+Remove-AzureHDInsightCluster -name $clusterName 
+```
 
 新命令：
 
-    Remove-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName 
+```azurepowershell
+Remove-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+```
 
 列出群集 
 
 旧命令 (ASM)：
 
-    Get-AzureHDInsightCluster
+```azurepowershell
+Get-AzureHDInsightCluster
+```
 
 新命令：
 
-    Get-AzHDInsightCluster 
+```azurepowershell
+Get-AzHDInsightCluster
+```
 
 显示群集 
 
 旧命令 (ASM)：
 
-    Get-AzureHDInsightCluster -Name $clusterName
+```azurepowershell
+Get-AzureHDInsightCluster -Name $clusterName
+```
 
 新命令：
 
-    Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -clusterName $clusterName
+```azurepowershell
+Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -clusterName $clusterName
+```
 
 #### <a name="other-samples"></a>其他示例
 * [创建 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -246,14 +264,17 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
 
 * 旧命令 (ASM)
 
-        //Certificate auth
-        //This logs the application in using a subscription administration certificate, which is not offered in Azure Resource Manager
+  ```azurecli
+  //Certificate auth
+  //This logs the application in using a subscription administration certificate, which is not offered in Azure Resource Manager
   
-        const string subid = "454467d4-60ca-4dfd-a556-216eeeeeeee1";
-        var cred = new HDInsightCertificateCredential(new Guid(subid), new X509Certificate2(@"path\to\certificate.cer"));
-        var client = HDInsightClient.Connect(cred);
+  const string subid = "454467d4-60ca-4dfd-a556-216eeeeeeee1";
+  var cred = new HDInsightCertificateCredential(new Guid(subid), new X509Certificate2(@"path\to\certificate.cer"));
+  var client = HDInsightClient.Connect(cred);
+  ```
 * 新命令（服务主体授权）
   
+  ```azurecli
         //Service principal auth
         //This will log the application in as itself, rather than on behalf of a specific user.
         //For details, including how to set up the application, see:
@@ -270,8 +291,10 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
         var creds = new TokenCloudCredentials(subId.ToString(), accessToken);
 
         _hdiManagementClient = new HDInsightManagementClient(creds, new Uri("https://management.chinacloudapi.cn/"));
+  ```
 * 新命令（用户授权）
 
+  ```azurecli
         //User auth
         //This will log the application in on behalf of the user.
         //The end-user will see a login popup.
@@ -287,11 +310,13 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
         var creds = new TokenCloudCredentials(subId.ToString(), accessToken);
 
         _hdiManagementClient = new HDInsightManagementClient(creds, new Uri("https://management.chinacloudapi.cn/"));
+  ```
 
 创建群集 
 
 * 旧命令 (ASM)
 
+  ```azurecli
         var clusterInfo = new ClusterCreateParameters
                     {
                         Name = dnsName,
@@ -308,8 +333,10 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
                     };
         clusterInfo.CoreConfiguration.Add(new KeyValuePair<string, string>("config1", "value1"));
         client.CreateCluster(clusterInfo);
+  ```
 * 新命令
 
+  ```azurecli
         var clusterCreateParameters = new ClusterCreateParameters
             {
                 Location = "China North",
@@ -329,27 +356,37 @@ Azure PowerShell 资源管理器 cmdlet 可与 ASM cmdlet 一同安装。 两种
             };
         var coreConfigs = new Dictionary<string, string> {{"config1", "value1"}};
         clusterCreateParameters.Configurations.Add(ConfigurationKey.CoreSite, coreConfigs);
+  ```
 
 启用 HTTP 访问 
 
 * 旧命令 (ASM)
 
+  ```azurecli
         client.EnableHttp(dnsName, "China North", "admin", "*******");
+  ```
 * 新命令
-
-        var httpParams = new HttpSettingsParameters
-        {
-               HttpUserEnabled = true,
-               HttpUsername = "admin",
-               HttpPassword = "*******",
-        };
-        client.Clusters.ConfigureHttpSettings(resourceGroup, dnsname, httpParams);
+  
+  ```azurecli
+  var httpParams = new HttpSettingsParameters
+  {
+         HttpUserEnabled = true,
+         HttpUsername = "admin",
+         HttpPassword = "*******",
+  };
+  client.Clusters.ConfigureHttpSettings(resourceGroup, dnsname, httpParams);
+  ```
 
 删除群集 
 
 * 旧命令 (ASM)
 
-        client.DeleteCluster(dnsName);
+  ```azurecli
+  client.DeleteCluster(dnsName);
+  ```
+
 * 新命令
-  
-        client.Clusters.Delete(resourceGroup, dnsname);
+
+  ```azurecli
+  client.Clusters.Delete(resourceGroup, dnsname);
+  ```

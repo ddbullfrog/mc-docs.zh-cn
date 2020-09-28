@@ -6,18 +6,18 @@ author: Johnnytechn
 origin.date: 06/18/2019
 ms.date: 06/22/2020
 ms.author: v-johya
-ms.openlocfilehash: af8bdd993f80535a2a7cb2742ffdd0738b599b15
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 70c301dad5b6281518da8681f24124b57e30471e
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851938"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402530"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>排查使用 Azure 备份进行 SQL Server 数据库备份的问题
 
 本文针对 Azure 虚拟机上运行的 SQL Server 数据库提供故障排除信息。
 
-有关备份过程和限制的详细信息，请参阅[关于 Azure VM中的 SQL Server 备份](sql-support-matrix.md#feature-consideration-and-limitations)。
+有关备份过程和限制的详细信息，请参阅[关于 Azure VM中的 SQL Server 备份](sql-support-matrix.md)。
 
 ## <a name="sql-server-permissions"></a>SQL Server 权限
 

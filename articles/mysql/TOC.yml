@@ -63,7 +63,7 @@
     - name: 2 - 创建 Web 应用
       items:
         - name: 将 PHP 与 MySQL 配合使用
-          href: ../app-service/app-service-web-tutorial-php-mysql.md
+          href: ../app-service/tutorial-php-mysql-app.md
           maintainContext: true
 - name: 示例
   items:
@@ -71,9 +71,6 @@
       href: sample-scripts-azure-cli.md
     - name: Java 连接池
       href: sample-scripts-java-connection-pooling.md
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 概念
   items:
     - name: 数据库和服务器
@@ -102,6 +99,11 @@
           href: concepts-firewall-rules.md
         - name: 虚拟网络
           href: concepts-data-access-and-security-vnet.md
+        - name: Azure AD 身份验证
+          href: concepts-azure-ad-authentication.md
+        - name: Azure Policy 的安全控件
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: 业务连续性
       items:
         - name: 业务连续性简介
@@ -259,6 +261,12 @@
           href: howto-manage-vnet-using-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-using-cli.md
+    - name: Azure AD 集成
+      items:
+        - name: 配置 Azure AD 集成
+          href: howto-configure-sign-in-azure-ad-authentication.md
+        - name: 与托管标识连接
+          href: howto-connect-with-managed-identity.md
     - name: 重新启动服务器
       items:
         - name: Azure 门户
@@ -281,6 +289,9 @@
       href: 'https://docs.microsoft.com/azure/templates/microsoft.dbformysql/allversions'
     - name: 管理存储过程
       href: reference-stored-procedures.md
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: 定价

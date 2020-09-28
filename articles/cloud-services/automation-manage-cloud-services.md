@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 06/20/2016
 ms.date: 12/12/2016
 ms.author: v-yiso
-ms.openlocfilehash: f75d560208b4f735d47e3074dac8cfc85b443418
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 435bb4d365808720c1e2cb0c6703c3d7334ae67e
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63847293"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402356"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>使用 Azure 自动化管理 Azure 云服务
 
@@ -45,4 +45,3 @@ Azure 自动化能够提供高度可靠且长期可用的工作流执行引擎�
 
 - [Azure 自动化概述](../automation/automation-intro.md)
 - [第一个 Runbook](../automation/automation-first-runbook-graphical.md)
-- [Azure 自动化学习路线图](https://azure.microsoft.com/documentation/learning-paths/automation)

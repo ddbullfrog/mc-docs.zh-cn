@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: d614e5777aa6373dfe9dec45587e744335b3ebda
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 791ad93deb3711b7d792289668bae11cf9cdb11e
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021482"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395426"
 ---
 # <a name="submit-a-training-run-to-a-compute-target"></a>将训练运行提交到计算目标
 
@@ -31,7 +31,7 @@ ms.locfileid: "90021482"
 ## <a name="prerequisites"></a>先决条件
 
 * 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 
-* [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Azure 机器学习工作区](how-to-manage-workspace.md) `ws`
 * 计算目标 `my_compute_target`。  使用以下工具创建计算目标：
   * [Python SDK](how-to-create-attach-compute-sdk.md) 
@@ -39,11 +39,11 @@ ms.locfileid: "90021482"
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>什么是脚本运行配置？
 
-使用 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 对象提交训练实验。  此对象包含：
+使用 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 对象提交训练实验。  此对象包含：
 
 * **source_directory**：包含训练脚本的源目录
 * **script**：标识训练脚本
-* **run_config**：[运行配置](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py)，其中定义了训练将发生的位置。 在 `run_config` 中指定运行训练脚本时要使用的计算目标和环境。  
+* **run_config**：[运行配置](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true)，其中定义了训练将发生的位置。 在 `run_config` 中指定运行训练脚本时要使用的计算目标和环境。  
 
 ## <a name="whats-an-environment"></a>什么是环境？
 
@@ -169,5 +169,5 @@ run = experiment.submit(config=script_run_config)
 * [教程：训练模型](tutorial-train-models-with-aml.md)使用一个托管计算目标来训练模型。
 * 若要构建更好的模型，请了解如何[高效地优化超参数](how-to-tune-hyperparameters.md)。
 * 训练模型后，了解[如何以及在何处部署模型](how-to-deploy-and-where.md)。
-* 查看 [RunConfiguration 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 参考。
+* 查看 [RunConfiguration 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true) SDK 参考。
 * [通过 Azure 虚拟网络使用 Azure 机器学习](how-to-enable-virtual-network.md)

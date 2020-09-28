@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 origin.date: 11/04/2019
 ms.date: 03/16/2020
-ms.openlocfilehash: a51b96ad22e73b53c1b53751d3b53b140e772104
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: ea8d828a04e0aed4e077e5a275da2375ec1bd989
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021513"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395449"
 ---
 # <a name="what-is-azure-machine-learning"></a>什么是 Azure 机器学习？
 
@@ -92,7 +92,7 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps：部署和生命周期管理
 有了正确的模型以后，即可轻松地将其用在 Web 服务中、IoT 设备上或 Power BI 中。 有关详细信息，请参阅有关[部署方式及位置](how-to-deploy-and-where.md)的文章。
 
-然后，可以使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py)、[Azure 机器学习工作室](https://studio.ml.azure.cn)或[机器学习 CLI](reference-azure-machine-learning-cli.md) 来管理已部署的模型。
+然后，可以使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)、[Azure 机器学习工作室](https://studio.ml.azure.cn)或[机器学习 CLI](reference-azure-machine-learning-cli.md) 来管理已部署的模型。
 
 可以使用这些模型[实时](how-to-consume-web-service.md)返回预测，或者在有大量数据的情况下[异步](how-to-use-parallel-run-step.md)返回预测。
 

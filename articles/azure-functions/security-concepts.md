@@ -3,12 +3,12 @@ title: 保护 Azure Functions
 description: 了解如何使 Azure 中运行的函数代码更安全，使其免遭常见攻击的威胁。
 ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbe520d74436903e342821591fe619546a8cef82
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: b9519b936fd6d0083f2cc2d6afbc5b8b0ec56af7
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947137"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402604"
 ---
 # <a name="securing-azure-functions"></a>保护 Azure Functions
 
@@ -107,7 +107,7 @@ Functions 还与 Azure Monitor 日志集成，使你能够将函数应用日志�
 
 #### <a name="restrict-cors-access"></a>限制 CORS 访问
 
-[跨源资源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 是一种允许在另一个域中运行的 Web 应用向 HTTP 触发器终结点发出请求的方法。 应用服务为在 HTTP 请求中处理所需的 CORS 标头提供了内置支持。 CORS 规则是在函数应用级别定义的。  
+`Cross-origin resource sharing (CORS)` 是一种允许在另一个域中运行的 Web 应用向 HTTP 触发器终结点发出请求的方法。 应用服务为在 HTTP 请求中处理所需的 CORS 标头提供了内置支持。 CORS 规则是在函数应用级别定义的。  
 
 虽然很容易使用通配符来允许所有站点访问终结点。 但这违背了 CORS 的目的，CORS 的目的是帮助防止跨站点脚本攻击。 相反，请为必须访问终结点的每个 Web 应用的域添加单独的 CORS 条目。 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: 582b1ae21c02ecc788eed2bc9b90cdb23f8c51b9
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: cbc8251c9294b836a9e709552846dd296eed795f
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413333"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402581"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>已知问题：Azure Active Directory 域服务中的常见警报和解决方法
 
@@ -62,7 +62,7 @@ Azure AD DS 会自动与 Azure AD 目录同步。 如果已为 B2C 配置了 Azu
 
 ### <a name="resolution"></a>解决方法
 
-在开始前，请确保了解[专用 IP v4 地址空间](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces)。
+在开始之前，请确保已了解 `private IP v4 address spaces`。
 
 在虚拟网络内部，VM 可以向 Azure 资源发出请求，这些资源与为子网配置的资源属于同一个 IP 地址范围。 如果为子网配置了公共 IP 地址范围，则在虚拟网络内路由的请求可能无法到达预期的 Web 资源。 此配置可能导致 Azure AD DS 出现不可预知的错误。
 

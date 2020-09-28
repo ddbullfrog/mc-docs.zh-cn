@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 origin.date: 06/27/2019
 ms.date: 11/11/2019
-ms.openlocfilehash: 2cd7668daaaf8252fed7912d2206c89d0baf40bb
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 21b1f0699afbffb9b055f0fdfa7af6035a53fce7
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516550"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394809"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>教程：使用 ODBC 和 PowerShell 查询 Apache Hive
 
@@ -37,7 +37,7 @@ ms.locfileid: "85516550"
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>安装 Microsoft Hive ODBC 驱动程序
 
-下载并安装 [Microsoft Hive ODBC 驱动程序](https://go.microsoft.com/fwlink/?LinkID=286698)。
+下载并安装 [Microsoft Hive ODBC 驱动程序](https://www.microsoft.com/download/details.aspx?id=40886)。
 
 ## <a name="create-apache-hive-odbc-data-source"></a>创建 Apache Hive ODBC 数据源
 

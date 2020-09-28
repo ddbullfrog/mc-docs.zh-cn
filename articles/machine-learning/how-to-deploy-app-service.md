@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 581d5c8ac09702ba47b20c913f0ae5f45fde7631
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: e4d894c579cf335069b6969444b6aceb2ae6e669
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097542"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395151"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>将机器学习模型部署到 Azure 应用服务（预览版）
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,11 +28,11 @@ ms.locfileid: "85097542"
 
 通过 Azure 机器学习，可从经训练的机器学习模型创建 Docker 映像。 此映像包含一个 Web 服务，它会接收数据，将数据提交到模型，然后返回响应。 Azure 应用服务可用于部署映像，并提供以下功能：
 
-* 高级[身份验证](/azure/app-service/configure-authentication-provider-aad)，可增强安全性。 身份验证方法包括 Azure Active Directory 和多重身份验证。
-* 无需重新部署即可[自动缩放](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json)。
-* [TLS 支持](/azure/app-service/configure-ssl-certificate-in-code)，可在客户端和服务之间实现安全通信。
+* 高级[身份验证](/app-service/configure-authentication-provider-aad)，可增强安全性。 身份验证方法包括 Azure Active Directory 和多重身份验证。
+* 无需重新部署即可[自动缩放](/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json)。
+* [TLS 支持](/app-service/configure-ssl-certificate-in-code)，可在客户端和服务之间实现安全通信。
 
-有关 Azure 应用服务提供的功能的详细信息，请参阅[应用服务概述](/azure/app-service/overview)。
+有关 Azure 应用服务提供的功能的详细信息，请参阅[应用服务概述](/app-service/overview)。
 
 > [!IMPORTANT]
 > 如果需要记录已部署模型所使用的评分数据或评分结果的功能，应改为部署到 Azure Kubernetes 服务。 有关详细信息，请参阅[在生产模型上收集数据](how-to-enable-data-collection.md)。
@@ -75,7 +75,7 @@ ms.locfileid: "85097542"
 这些实体被封装到推理配置中____。 推理配置引用入口脚本和其他依赖项。
 
 > [!IMPORTANT]
-> 创建用于 Azure 应用服务的推理配置时，必须使用 [Environment](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) 对象。 请注意，如果要定义自定义环境，必须将版本不低于 1.0.45 的 azureml-defaults 添加为 pip 依赖项。 此包包含将模型作为 Web 服务托管时所需的功能。 下面的示例演示如何创建环境对象并将其用于推理配置：
+> 创建用于 Azure 应用服务的推理配置时，必须使用 [Environment](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) 对象。 请注意，如果要定义自定义环境，必须将版本不低于 1.0.45 的 azureml-defaults 添加为 pip 依赖项。 此包包含将模型作为 Web 服务托管时所需的功能。 下面的示例演示如何创建环境对象并将其用于推理配置：
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ ms.locfileid: "85097542"
 
 ## <a name="create-the-image"></a>创建映像
 
-若要创建部署到 Azure 应用服务的 Docker 映像，请使用 [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-)。 下面的代码片段演示如何从模型和推理配置生成新的映像：
+若要创建部署到 Azure 应用服务的 Docker 映像，请使用 [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-)。 下面的代码片段演示如何从模型和推理配置生成新的映像：
 
 > [!NOTE]
 > 该代码片段假定 `model` 包含已注册的模型，并且 `inference_config` 包含推理环境的配置。 有关详细信息，请参阅[使用 Azure 机器学习部署模型](how-to-deploy-and-where.md)。
@@ -270,8 +270,8 @@ print(response.json())
 
 ## <a name="next-steps"></a>后续步骤
 
-* 请参阅 [Linux 上的应用服务](/azure/app-service/containers/)文档，了解如何配置 Web 应用。
-* 请参阅 [Azure 中的自动缩放入门](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json)，详细了解缩放。
-* [在 Azure 应用服务中使用 TLS/SSL 证书](/azure/app-service/configure-ssl-certificate-in-code)。
-* [将应用服务应用配置为使用 Azure Active Directory 登录](/azure/app-service/configure-authentication-provider-aad)。
+* 请参阅 [Linux 上的应用服务](/app-service/containers/)文档，了解如何配置 Web 应用。
+* 请参阅 [Azure 中的自动缩放入门](/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json)，详细了解缩放。
+* [在 Azure 应用服务中使用 TLS/SSL 证书](/app-service/configure-ssl-certificate-in-code)。
+* [将应用服务应用配置为使用 Azure Active Directory 登录](/app-service/configure-authentication-provider-aad)。
 * [使用部署为 Web 服务的机器学习模型](how-to-consume-web-service.md)

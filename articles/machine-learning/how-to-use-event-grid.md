@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 0b9749bc79579bc9a4d866d80f2529315ffc0697
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 39dd91fc02a01fce0828ba93a44b62dd63c8ab3b
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021331"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395492"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>基于 Azure 机器学习事件触发应用程序、进程或 CI/CD 工作流（预览）
 
@@ -41,7 +41,7 @@ Azure 事件网格从 Azure 机器学习和其他 Azure 服务等源中读取事
 
 ![Azure 事件网格功能模型](./media/concept-event-grid-integration/azure-event-grid-functional-model.png)
 
-有关事件源和事件处理程序的详细信息，请参阅[什么是事件网格？](/azure/event-grid/overview)。
+有关事件源和事件处理程序的详细信息，请参阅[什么是事件网格？](/event-grid/overview)。
 
 ### <a name="event-types-for-azure-machine-learning"></a>Azure 机器学习的事件类型
 
@@ -57,9 +57,9 @@ Azure 机器学习在机器学习生命周期的各个点提供事件：
 
 ### <a name="filter--subscribe-to-events"></a>筛选并订阅事件
 
-这些事件通过 Azure 事件网格发布。 使用 Azure门户、PowerShell 或 Azure CLI，客户可以通过[指定一种或多种事件类型并筛选条件](/azure/event-grid/event-filtering)来轻松地订阅事件。 
+这些事件通过 Azure 事件网格发布。 使用 Azure门户、PowerShell 或 Azure CLI，客户可以通过[指定一种或多种事件类型并筛选条件](/event-grid/event-filtering)来轻松地订阅事件。 
 
-设置事件时，可以应用筛选器，以仅在特定事件数据上触发。 在下面的示例中，对于运行状态更改事件，你可以按运行类型进行筛选。 仅当满足条件时才会触发该事件。 要了解可以作为筛选依据的事件数据，请参阅 [Azure 机器学习事件网格架构](/azure/event-grid/event-schema-machine-learning)。 
+设置事件时，可以应用筛选器，以仅在特定事件数据上触发。 在下面的示例中，对于运行状态更改事件，你可以按运行类型进行筛选。 仅当满足条件时才会触发该事件。 要了解可以作为筛选依据的事件数据，请参阅 [Azure 机器学习事件网格架构](/event-grid/event-schema-machine-learning)。 
 
 Azure 机器学习事件的订阅受基于角色的访问控制 (RBAC) 保护。 只有工作区[参与者或所有者](how-to-assign-roles.md#default-roles)可以创建、更新和删除事件订阅。  可在[创建](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest)事件订阅期间或以后将筛选器应用于事件订阅。 
 

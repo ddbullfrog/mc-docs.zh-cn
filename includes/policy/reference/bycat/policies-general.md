@@ -1,18 +1,20 @@
 ---
-author: DCtheGeek
+author: rockboyfor
 ms.service: azure-policy
 ms.topic: include
 origin.date: 09/10/2020
-ms.date: 09/15/2020
-ms.author: v-tawe
+ms.date: 09/25/2020
+ms.author: v-yeche
 ms.custom: generated
-ms.openlocfilehash: abc35102ff86f2b98a42323849a873ddd57d30c5
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 328cacc4ef346a09910c7e98ef82f00ca5addac4
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524018"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395234"
 ---
+<!--Verified successfully-->
+
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[允许的位置](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe56962a6-4747-49cd-b67b-bf8b01975c4c) |通过此策略，可限制组织在部署资源时可指定的位置。 用于强制执行异地符合性要求。 排除资源组、Microsoft.AzureActiveDirectory/b2cDirectories 以及使用“全局”区域的资源。 |deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/AllowedLocations_Deny.json) |

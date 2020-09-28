@@ -10,12 +10,12 @@ ms.author: v-yiso
 author: sdgilley
 origin.date: 07/08/2020
 ms.date: 08/27/2020
-ms.openlocfilehash: 3ff76f1cb57e67f0833861f3844d524dcdef4e27
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 6f655eb890231ad2dda79dcf5479cdab7bc7421d
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021343"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395315"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>什么是 Azure 机器学习工作区？
 
@@ -55,7 +55,7 @@ ms.locfileid: "90021343"
 + 在 Web 上：
     + [Azure 机器学习工作室](https://studio.ml.azure.cn) 
     + [Azure 机器学习设计器（预览版）](concept-designer.md)- 仅在[企业版](overview-what-is-azure-ml.md#sku)工作区中可用。
-+ 在任何 Python 环境中使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。
++ 在任何 Python 环境中使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)。
 + 在任何 R 环境中使用[适用于 R 的 Azure 机器学习 SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)。
 + 在命令行上使用 Azure 机器学习 [CLI 扩展](/machine-learning/reference-azure-machine-learning-cli)
 + [Azure 机器学习 VS Code 扩展](how-to-manage-resources-vscode.md#workspaces)
@@ -94,7 +94,7 @@ ms.locfileid: "90021343"
 可通过多种方式创建工作区：  
 
 * 使用 [Azure 门户](how-to-manage-workspace.md)作为点击界面来逐步完成每个步骤。
-* 使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) 从 Python 脚本或 Jupiter 笔记本动态创建工作区
+* 使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#&preserve-view=trueworkspace) 从 Python 脚本或 Jupiter 笔记本动态创建工作区
 * 需要按企业安全标准自动创建或自定义创建时，请使用 [Azure 资源管理器模板](how-to-create-workspace-template.md)或 [Azure 机器学习 CLI](reference-azure-machine-learning-cli.md)。
 * 如果使用 Visual Studio Code，请使用 [VS Code 扩展](how-to-manage-resources-vscode.md#create-a-workspace)。
 

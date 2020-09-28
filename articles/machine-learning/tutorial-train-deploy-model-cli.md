@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: b38aaaaa91907e781294c58d17990170042604dd
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 7e52fd9b5cd3779077b2eea3508d18f29c0b73fd
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021616"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395179"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>教程：通过 CLI 训练和部署模型
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -399,7 +399,7 @@ ACI service creation operation finished, operation "Succeeded"
   "computeType": "ACI",
   {...ommitted for space...}
   "runtimeType": null,
-  "scoringUri": "http://6c061467-4e44-4f05-9db5-9f9a22ef7a5d.eastus2.azurecontainer.io/score",
+  "scoringUri": "http://6c061467-4e44-4f05-9db5-9f9a22ef7a5d.chinaeast2.azurecontainer.io/score",
   "state": "Healthy",
   "tags": "",
   "updatedAt": "2019-09-19T18:22:32.227401+00:00"

@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 06/26/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 56aaeee57b11c32695f985cf7e61f3d5e56a1f27
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 645176cfc32896b46b772a730b5bc0201bac7c10
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516592"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394786"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中生成 Apache Spark 机器学习应用程序
 
@@ -144,7 +144,7 @@ ms.locfileid: "85516592"
 
     ![Spark 机器学习示例的输出数据快照](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Spark 机器学习示例的输出数据快照")
 
-    请注意，实际温度比目标温度低的情况表示建筑物处于低温状态。 因此在训练输出中，第一行中的 **label** 值为 **0.0**，表示建筑物并非处于高温状态。
+    请注意，实际温度比目标温度低的情况表示建筑物处于低温状态。 第一行中的标签值为 0.0，表示建筑物温度不高 。
 
 1. 准备要对其运行已训练模型的数据集。 为此，需要传递系统 ID 和系统年数（在训练输出中以 SystemInfo 表示）。 模型将预测具有该系统 ID 和系统年数的建筑物温度是更高（由 1.0 表示）还是更低（由 0.0 表示）。
 

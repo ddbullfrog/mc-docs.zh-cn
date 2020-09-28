@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 01/29/2018
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: 640fe4a58066e3ba5a87dc96c7a66be547fd2b09
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 42b08d91e02e53c2bf972c2fb3f12c24bba9121e
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186919"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394774"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>从设备到云通信指南
 将信息从设备应用发送到解决方案后端时，IoT 中心会公开三个选项：
@@ -35,7 +35,7 @@ ms.locfileid: "84186919"
 
 下面是各种设备到云通信选项的详细比较。
 
-|  | 设备到云的消息 | 设备克隆的报告属性 | 文件上传 |
+| 因子 | 设备到云的消息 | 设备克隆的报告属性 | 文件上传 |
 | ---- | ------- | ---------- | ---- |
 | 方案 | 遥测时序和警报。 例如，每隔 5 分钟发送 256-KB 的传感器数据批。 | 可用功能和条件。 例如，当前设备连接模式，诸如手机网络或 WiFi。 同步长时间运行的工作流，如配置和软件更新。 | 媒体文件。 大型（通常为压缩的）遥测批。 |
 | 存储和检索 | 通过 IoT 中心临时进行存储，最多存储 7 天。 仅顺序读取。 | 通过 IoT 中心存储在设备孪生中。 可使用 [IoT 中心查询语言](iot-hub-devguide-query-language.md)进行检索。 | 存储在用户提供的 Azure 存储帐户中。 |

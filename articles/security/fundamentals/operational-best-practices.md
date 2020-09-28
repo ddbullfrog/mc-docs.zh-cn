@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: v-johya
 origin.date: 05/06/2019
-ms.openlocfilehash: 7e3345a8b4a28c0b6f13b1f766862225910bdec3
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: b46b7b749e6c9beceefe5e89bbde1fc84bdca69f
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228147"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402626"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 操作安全性最佳做法
 本文提供了用于保护 Azure 中的数据、应用程序和其他资产的一系列操作最佳做法。
@@ -92,8 +92,6 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 
 使用安全中心，可以通过一个集中化视图查看所有 Azure 资源的安全状态。 一眼就可验证适当的安全控件是否配置到位且配置正确，还可快速确认任何需要注意的资源。
 
-安全中心还集成了 [Microsoft Defender 高级威胁防护 (ATP)](../../security-center/security-center-wdatp.md)，后者提供了完善的终结点检测和响应 (EDR) 功能。 使用 Microsoft Defender ATP 集成可以查明异常。 你还可以检测和响应安全中心所监视的服务器终结点上出现的高级攻击。
-
 几乎所有的企业组织都有一个安全信息和事件管理 (SIEM) 系统，它可以整合来自不同信号收集设备的日志信息，因此可以识别新出现的威胁。 然后，数据分析系统会对日志进行分析，以便从所有日志收集和分析解决方案的不可避免的干扰内容中找出“需关注”的内容。
 
 <!-- Azure Sentinel not available-->
@@ -114,9 +112,6 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 
 **最佳做法**：将 Azure 日志与你的 SIEM 集成。   
 **详细信息**：[使用 Azure Monitor 收集和导出数据](/azure-monitor/overview#integrate-and-export-data)。 此做法对于启用安全事件调查至关重要，而在线日志保留期是有限的。<!-- Azure Sentinel not available -->
-
-**最佳做法**：通过将终结点检测和响应 (EDR) 功能集成到攻击调查中，加快调查和搜寻过程，并减少误报。   
-**详细信息**：通过安全中心安全策略[启用 Microsoft Defender ATP 集成](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration)。 考虑使用 Azure Sentinel 进行威胁搜寻和事件响应。
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>监视基于端到端方案的网络监视
 客户在 Azure 中通过合并虚拟网络、ExpressRoute、应用程序网关和负载均衡器等网络资源来构建端到端网络。 监视适用于每个网络资源。

@@ -1,20 +1,20 @@
 ---
-title: 教程 - 使用 Azure 备份还原 VM 磁盘
+title: 教程 - 使用 Azure CLI 还原 VM
 description: 了解如何在 Azure 中使用备份和恢复服务还原磁盘并创建恢复的 VM。
 ms.topic: tutorial
 author: Johnnytechn
 origin.date: 01/31/2019
-ms.date: 06/09/2020
+ms.date: 09/22/2020
 ms.author: v-johya
 ms.custom: mvc
-ms.openlocfilehash: 069754b8cdeab43a5e569ae47c7c38315d050ae2
-ms.sourcegitcommit: 285649db9b21169f3136729c041e4d04d323229a
+ms.openlocfilehash: 79cfe8c299a46bbd9d66dbb140eaadcc7c69c46e
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84684041"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402309"
 ---
-# <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>在 Azure 中还原磁盘并创建恢复的 VM
+# <a name="restore-a-vm-with-azure-cli"></a>使用 Azure CLI 还原 VM
 
 Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以还原单个文件。 本文介绍如何使用 CLI 还原完整的 VM。 本教程介绍如何执行下列操作：
 
@@ -26,7 +26,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 
 有关使用 PowerShell 还原磁盘并创建已恢复的 VM 的信息，请参阅[使用 PowerShell 备份和还原 Azure VM](backup-azure-vms-automation.md#restore-an-azure-vm)。
 
-如果选择在本地安装并使用 CLI，本教程需要你运行 Azure CLI 2.0.18 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.18 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -60,7 +60,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>还原 VM 磁盘
 
 > [!IMPORTANT]
-> 强烈建议使用 Az CLI version 2.0.74 或更高版本，以享受快速还原的所有益处，包括托管磁盘还原。 用户最好始终使用最新版本。
+> 强烈建议使用 Az CLI version 2.0.74 或更高版本，以享受快速还原的所有益处，包括托管磁盘还原。 最好始终使用最新版本。
 
 ### <a name="managed-disk-restore"></a>托管磁盘还原
 
@@ -84,12 +84,12 @@ az backup recoverypoint list \
         --container-name myVM \
         --item-name myVM \
         --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
+        --rp-name myRecoveryPointName \
         --target-resource-group targetRG
     ```
 
     > [!WARNING]
-    > 如果未提供目标资源组，则托管磁盘将作为非托管磁盘还原到给定的存储帐户。 这会对还原时间产生重大影响，因为还原磁盘所需的时间完全取决于给定的存储帐户。 只有指定了 target-resource-group 参数，客户才能获得即时还原的好处。 如果打算将托管磁盘作为非托管磁盘还原，则不提供 target-resource-group 参数，而是提供 restore-as-unmanaged-disk 参数，如下所示。 此参数从 az 3.4.0 开始提供。
+    > 如果未提供目标资源组，则托管磁盘将作为非托管磁盘还原到给定的存储帐户。 这会对还原时间产生重大影响，因为还原磁盘所需的时间完全取决于给定的存储帐户。 只有指定了 target-resource-group 参数，才能获得即时还原的好处。 如果打算将托管磁盘作为非托管磁盘还原，则不提供 target-resource-group 参数，而是提供 restore-as-unmanaged-disk 参数，如下所示 。 此参数从 az 3.4.0 开始提供。
 
     ```azurecli
     az backup restore restore-disks \
@@ -98,15 +98,15 @@ az backup recoverypoint list \
     --container-name myVM \
     --item-name myVM \
     --storage-account mystorageaccount \
-    --rp-name myRecoveryPointName
+    --rp-name myRecoveryPointName \
     --restore-as-unmanaged-disk
     ```
 
-这会将托管磁盘作为非托管磁盘还原到给定存储帐户，并且不会利用“即时”还原功能。 在将来的 CLI 版本中，必须提供 target-resource-group 参数或 restore-as-unmanaged-disk 参数。
+这会将托管磁盘作为非托管磁盘还原到给定存储帐户，并且不会利用“即时”还原功能。 在将来的 CLI 版本中，必须提供 target-resource-group 参数或 restore-as-unmanaged-disk 参数 。
 
 ### <a name="unmanaged-disks-restore"></a>非托管磁盘还原
 
-如果备份 VM 具有非托管磁盘，并且其目的是从恢复点还原磁盘，则首先需提供 Azure 存储帐户。 此存储帐户用于存储 VM 配置和部署模板，这两者稍后可用于从还原的磁盘部署 VM。 默认情况下，非托管磁盘将还原到其原始存储帐户。 如果用户希望将所有非托管磁盘还原到同一个位置，则还可以将给定的存储帐户也用作这些磁盘的暂存位置。
+如果备份 VM 具有非托管磁盘，并且其目的是从恢复点还原磁盘，则首先需提供 Azure 存储帐户。 此存储帐户用于存储 VM 配置和部署模板，这两者稍后可用于从还原的磁盘部署 VM。 默认情况下，非托管磁盘将还原到其原始存储帐户。 若要将所有非托管磁盘还原到同一个位置，则还可以将给定的存储帐户也用作这些磁盘的暂存位置。
 
 在其他步骤中，将使用还原的磁盘创建 VM。
 
@@ -140,7 +140,7 @@ az backup recoverypoint list \
         --container-name myVM \
         --item-name myVM \
         --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
+        --rp-name myRecoveryPointName \
         --restore-to-staging-storage-account
     ```
 
@@ -227,7 +227,7 @@ https://<storageAccountName.blob.core.chinacloudapi.cn>/<containerName>/<templat
 
 因此，以上示例中的模板名称将是 ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json```，而容器名称为 ```myVM-daa1931199fd4a22ae601f46d8812276```
 
-现在，请获取此容器和模板的 SAS 令牌（参阅[此处](/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)了解详细信息）
+现在，请获取此容器和模板的 SAS 令牌（参阅[此处](../azure-resource-manager/templates/secure-template-with-sas-token.md?tabs=azure-cli#provide-sas-token-during-deployment)了解详细信息）
 
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -251,7 +251,7 @@ url=$(az storage blob url \
 
 ### <a name="deploy-the-template-to-create-the-vm"></a>部署模板以创建 VM
 
-现在部署模板来创建 VM，如[此处](/azure-resource-manager/templates/deploy-cli)所述。
+现在部署模板来创建 VM，如[此处](../azure-resource-manager/templates/deploy-cli.md)所述。
 
 ```azurecli
 az group deployment create \

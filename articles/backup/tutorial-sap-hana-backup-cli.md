@@ -4,20 +4,20 @@ description: 在本教程中，了解如何使用 Azure CLI 将 Azure VM 上运�
 author: Johnnytechn
 ms.topic: tutorial
 origin.date: 11/7/2019
-ms.date: 06/22/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: 91428bfa7d91ec02a085421b4bcf742429b716d7
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 7357e643a5dec212b09eafb8f2f7b5b03ec7f60e
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852018"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402324"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>教程：使用 Azure CLI 备份 Azure VM 中的 SAP HANA 数据库
 
-Azure CLI 用于从命令行或通过脚本创建和管理 Azure 资源。 本文档详细介绍了如何备份 SAP HANA 数据库并触发按需备份 - 所有这些操作都使用 Azure CLI。 还可以使用 [Azure 门户](/backup/backup-azure-sap-hana-database)执行这些步骤。
+Azure CLI 用于从命令行或通过脚本创建和管理 Azure 资源。 本文档详细介绍了如何备份 SAP HANA 数据库并触发按需备份 - 所有这些操作都使用 Azure CLI。 还可以使用 [Azure 门户](./backup-azure-sap-hana-database.md)执行这些步骤。
 
-本文档假定你已在 Azure VM 上安装了 SAP HANA 数据库。 （也可以[使用 Azure CLI 创建 VM](/virtual-machines/linux/quick-create-cli)）。 完成本教程后，可执行以下操作：
+本文档假定你已在 Azure VM 上安装了 SAP HANA 数据库。 （也可以[使用 Azure CLI 创建 VM](../virtual-machines/linux/quick-create-cli.md)）。 完成本教程后，可执行以下操作：
 
 > [!div class="checklist"]
 >
@@ -26,7 +26,7 @@ Azure CLI 用于从命令行或通过脚本创建和管理 Azure 资源。 本�
 > * 在 SAP HANA 数据库上启用备份
 > * 触发按需备份
 
-查看[目前针对 SAP HANA 提供支持的场景](/backup/sap-hana-backup-support-matrix#scenario-support)。
+查看[目前针对 SAP HANA 提供支持的场景](./sap-hana-backup-support-matrix.md#scenario-support)。
 
 若要在本地安装和使用 CLI，必须运行 Azure CLI 版本 xx.xxx.x 或更高版本。 若要查找 CLI 版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
@@ -34,7 +34,7 @@ Azure CLI 用于从命令行或通过脚本创建和管理 Azure 资源。 本�
 
 恢复服务保管库是一个逻辑容器，用于存储每个受保护资源（例如 Azure VM）或在 Azure VM 上运行的工作负载（例如 SQL 或 HANA 数据库）的备份数据。 运行受保护资源的备份作业时，该作业会在恢复服务保管库中创建一个恢复点。 然后，可以使用其中一个恢复点将数据还原到给定的时间点。
 
-使用 [az backup vault create](/cli/backup/vault#az-backup-vault-create) 创建恢复服务保管库。 指定与想要保护的 VM 相同的资源组和位置。 了解如何通过此 [VM 快速入门](/virtual-machines/linux/quick-create-cli)使用 Azure CLI 创建 VM。
+使用 [az backup vault create](/cli/backup/vault#az-backup-vault-create) 创建恢复服务保管库。 指定与想要保护的 VM 相同的资源组和位置。 了解如何通过此 [VM 快速入门](../virtual-machines/linux/quick-create-cli.md)使用 Azure CLI 创建 VM。
 
 本教程将使用以下内容：
 
@@ -50,7 +50,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location chinanorth2
 ```
 
-默认情况下，恢复服务保管库是针对异地冗余存储设置的。 异地冗余存储可确保将备份数据复制到距主区域数百英里以外的辅助 Azure 区域。 如果存储冗余设置需要修改，请使用 [az backup vault backup-properties set](/cli/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet。
+默认情况下，恢复服务保管库是针对异地冗余存储设置的。 异地冗余存储可确保将备份数据复制到距主要区域数百英里以外的辅助 Azure 区域。 如果存储冗余设置需要修改，请使用 [az backup vault backup-properties set](/cli/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet。
 
 ```azurecli
 az backup vault backup-properties set \
@@ -69,7 +69,7 @@ chinanorth2    saphanaVault     saphanaResourceGroup
 
 ## <a name="register-and-protect-the-sap-hana-instance"></a>注册并保护 SAP HANA 实例
 
-对于要由 Azure 服务发现的 SAP HANA 实例（该实例上安装有包含 SAP HANA 的 VM），必须在 SAP HANA 计算机上运行[预注册脚本](https://aka.ms/scriptforpermsonhana)。 运行脚本之前，请确保满足所有[先决条件](/backup/tutorial-backup-sap-hana-db#prerequisites)。 若要了解脚本的更多功能，请参阅[预注册脚本的功能](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)部分。
+对于要由 Azure 服务发现的 SAP HANA 实例（该实例上安装有包含 SAP HANA 的 VM），必须在 SAP HANA 计算机上运行[预注册脚本](https://aka.ms/scriptforpermsonhana)。 运行脚本之前，请确保满足所有[先决条件](./tutorial-backup-sap-hana-db.md#prerequisites)。 若要了解脚本的更多功能，请参阅[预注册脚本的功能](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)部分。
 
 脚本运行后，可通过之前创建的恢复服务保管库注册 SAP HANA 实例。 若要注册实例，请使用 [az backup container register](/cli/backup/container?view=azure-cli-latest#az-backup-container-register) cmdlet。 VMResourceId 是你创建的用于安装 SAP HANA 的 VM 资源 ID。
 
@@ -83,7 +83,7 @@ az backup container register --resource-group saphanaResourceGroup \
 ```
 
 >[!NOTE]
->如果 VM 与保管库不在同一个资源组中，则 saphanaResourceGroup 引用创建保管库所在的资源组。
+>如果 VM 与保管库不在同一个资源组中，则 saphanaResourceGroup 指代创建保管库所在的资源组。
 
 注册 SAP HANA 实例会自动发现其所有当前数据库。 但是，若要发现将来可能添加的任何新数据库，请参考[发现已添加到已注册 SAP HANA 的新数据库](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance)实例部分。
 
@@ -142,7 +142,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-[az backup job list](/cli/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet 列出了在受保护数据库上已运行或当前正在运行的所有（计划或按需）备份作业，以及注册、配置备份、删除备份数据等其他操作。
+[az backup job list](/cli/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet 列出了在受保护数据库上已运行或当前正在运行的所有（计划或按需）备份作业，以及注册、配置备份和删除备份数据等其他操作。
 
 >[!NOTE]
 >备份 Azure VM 中运行的 SAP HANA 数据库时，Azure 备份不会针对夏令时更改自动进行调整。
@@ -185,5 +185,5 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 
 * 若要了解如何使用 CLI 在 Azure VM 中还原 SAP HANA 数据库，请继续学习教程 - [使用 CLI 在 Azure VM 中还原 SAP HANA 数据库](tutorial-sap-hana-restore-cli.md)
 
-* 若要了解如何使用 Azure 门户备份 Azure VM 中运行的 SAP HANA 数据库，请参阅[在 Azure VM 上备份 SAP HANA 数据库](/backup/backup-azure-sap-hana-database)
+* 若要了解如何使用 Azure 门户备份 Azure VM 中运行的 SAP HANA 数据库，请参阅[在 Azure VM 上备份 SAP HANA 数据库](./backup-azure-sap-hana-database.md)
 
