@@ -1,20 +1,21 @@
 ---
 title: 从批量执行工具库迁移到 Azure Cosmos DB .NET V3 SDK 中的批量操作支持
 description: 了解如何将应用程序从使用批量执行工具库迁移到使用 Azure Cosmos DB SDK V3 中的批量操作支持
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 04/24/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: d068bd27e4c82b53f5df000fadd24ecbf25577ee
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 2e3a42dd1654fcb6fe7601443ee9653b7b4772af
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222702"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246438"
 ---
 <!--Verified with cosmos db SDK V3-->
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>从批量执行工具库迁移到 Azure Cosmos DB .NET V3 SDK 中的批量操作支持
@@ -23,7 +24,7 @@ ms.locfileid: "88222702"
 
 ## <a name="enable-bulk-support"></a>启用批量操作支持
 
-通过 [AllowBulkExecution](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution?view=azure-dotnet) 配置在 `CosmosClient` 实例上启用批量操作支持：
+通过 [AllowBulkExecution](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) 配置在 `CosmosClient` 实例上启用批量操作支持：
 
    ```csharp
    new CosmosClient(endpoint, authKey, new CosmosClientOptions() { AllowBulkExecution = true });
@@ -61,7 +62,7 @@ SDK 中没有任何一种方法可将文档或操作的列表用作输入参数�
 
    ```
 
-若要执行批量更新（类似于使用 [BulkExecutor.BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync?view=azure-dotnet)），则在更新项值后，需要对 `ReplaceItemAsync` 方法发出并发调用。 例如：
+若要执行批量更新（类似于使用 [BulkExecutor.BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)），则在更新项值后，需要对 `ReplaceItemAsync` 方法发出并发调用。 例如：
 
    ```csharp
    BulkOperations<MyItem> bulkOperations = new BulkOperations<MyItem>(documentsToWorkWith.Count);
@@ -73,7 +74,7 @@ SDK 中没有任何一种方法可将文档或操作的列表用作输入参数�
 
    ```
 
-若要执行批量删除（类似于使用 [BulkExecutor.BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync?view=azure-dotnet)），需要使用每个项的 `id` 和分区键对 `DeleteItemAsync` 发出并发调用。 例如：
+若要执行批量删除（类似于使用 [BulkExecutor.BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)），需要使用每个项的 `id` 和分区键对 `DeleteItemAsync` 发出并发调用。 例如：
 
    ```csharp
    BulkOperations<MyItem> bulkOperations = new BulkOperations<MyItem>(documentsToWorkWith.Count);
@@ -105,8 +106,7 @@ SDK 中没有任何一种方法可将文档或操作的列表用作输入参数�
            }
 
            AggregateException innerExceptions = itemResponse.Exception.Flatten();
-           CosmosException cosmosException = innerExceptions.InnerExceptions.FirstOrDefault(innerEx => innerEx is CosmosException) as CosmosException;
-           if (cosmosException != null)
+           if (innerExceptions.InnerExceptions.FirstOrDefault(innerEx => innerEx is CosmosException) is CosmosException cosmosException)
            {
                return new OperationResponse<T>()
                {
@@ -177,11 +177,12 @@ SDK 中没有任何一种方法可将文档或操作的列表用作输入参数�
 
    ```csharp
    BulkOperationResponse<MyItem> bulkOperationResponse = await bulkOperations.ExecuteAsync();
+
    ```
 
 ## <a name="capture-statistics"></a>捕获统计信息
 
-以上代码将等到所有操作完成，然后计算所需的统计信息。 这些统计信息类似于批量执行工具库的 [BulkImportResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse?view=azure-dotnet) 的统计信息。
+以上代码将等到所有操作完成，然后计算所需的统计信息。 这些统计信息类似于批量执行工具库的 [BulkImportResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse) 的统计信息。
 
    ```csharp
    public class BulkOperationResponse<T>
@@ -204,9 +205,9 @@ SDK 中没有任何一种方法可将文档或操作的列表用作输入参数�
 
 ## <a name="retry-configuration"></a>重试配置
 
-批量执行工具库提供了[指导](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account)，其中指出，需要将 [RetryOptions](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet) 的 `MaxRetryWaitTimeInSeconds` 和 `MaxRetryAttemptsOnThrottledRequests` 设置为 `0`，以将控制权委托给该库。
+批量执行工具库提供了[指导](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account)，其中指出，需要将 [RetryOptions](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) 的 `MaxRetryWaitTimeInSeconds` 和 `MaxRetryAttemptsOnThrottledRequests` 设置为 `0`，以将控制权委托给该库。
 
-对于 .NET SDK 中的批量操作支持，不存在隐藏的行为。 可以直接通过 [CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests?view=azure-dotnet) 和 [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests?view=azure-dotnet) 配置重试选项。
+对于 .NET SDK 中的批量操作支持，不存在隐藏的行为。 可以直接通过 [CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) 和 [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests) 配置重试选项。
 
 > [!NOTE]
 > 如果从数据量来看，预配的请求单位数远远低于预期数量，则你可能需要考虑将这些参数设置为较高的值。 批量操作会花费更长时间，但由于重试次数较高，该操作成功完成的可能性较高。

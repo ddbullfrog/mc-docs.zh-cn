@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /active-directory/
+      topicHref: /active-directory/index

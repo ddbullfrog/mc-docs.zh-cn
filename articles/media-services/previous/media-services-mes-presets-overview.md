@@ -1,9 +1,9 @@
 ---
 title: Media Encoder Standard (MES) 的任务预设 | Microsoft Docs
 description: 本主题概述了 Media Encoder Standard (MES) 的服务定义示例预设。
-author: forester123
+author: WenJason
 manager: digimobile
-editor: ''
+editor: johndeu
 services: media-services
 documentationcenter: ''
 ms.assetid: f243ed1c-ac9c-4300-a5f7-f092cf9853b9
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/01/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.openlocfilehash: d53a263f16f624050ea6dfd2413a69bcd6c8e2af
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 09/28/2020
+ms.author: v-jay
+ms.openlocfilehash: cad201c32bf0ccede184fc694f57c971759c0fbb
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413249"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244882"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Media Encoder Standard (MES) 的示例预设
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Media Encoder Standard  定义了一组可在创建编码作业时使用的预定义系统编码预设。 如果想要使用媒体服务对视频进行编码以实现流式处理，建议使用“自适应流式处理”预设。 指定此预设时，Media Encoder Standard 将[自动生成比特率阶梯](media-services-autogen-bitrate-ladder-with-mes.md)。 
 

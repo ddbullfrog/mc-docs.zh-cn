@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: d8b28ca81bcaed4dc26af621b5f8e9b883e80dbe
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 43416d85d4dd554c385516175072946a34e0de51
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245197"
 ---
 # <a name="configuration-requirements-and-troubleshooting-tips-for-xamarin-android-with-msalnet"></a>Xamarin Android 与 MSAL.NET 配合使用时的配置要求和故障排除提示
 
@@ -81,7 +81,7 @@ protected override void OnActivityResult(int requestCode,
 ```XML
   <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
   <activity
-        android:name="com.microsoft.identity.client.BrowserTabActivity">
+        android:name="microsoft.identity.client.BrowserTabActivity">
      <intent-filter>
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.DEFAULT" />

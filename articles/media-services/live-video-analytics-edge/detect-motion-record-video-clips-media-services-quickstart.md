@@ -2,14 +2,17 @@
 title: 检测运动，将视频录制到 Azure 媒体服务
 description: 本快速入门演示如何使用 IoT Edge 上的实时视频分析功能来检测实时视频流中的运动，并将视频剪辑录制到 Azure 媒体服务。
 ms.topic: quickstart
+author: WenJason
+ms.author: v-jay
+ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: 40ff9bed4bc6fc18f9001d36f72ae0dd2dae7cf9
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 09/28/2020
+ms.openlocfilehash: 037e620e1df026e1d45c43f17c33d69add5c65d2
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413835"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245697"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>快速入门：检测运动，将视频录制到媒体服务
 
@@ -34,7 +37,8 @@ ms.locfileid: "89413835"
 
 完成以下步骤时，会使用 IoT Edge 上的实时视频分析功能检测汽车的运动，并从大约第 5 秒的标记处开始录制视频剪辑。 下图直观呈现了整个过程。
 
-![根据运动事件将基于事件的视频录制到资产](./media/quickstarts/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/topology.svg" alt-text="根据运动事件将基于事件的视频录制到资产":::
 
 ## <a name="use-direct-method-calls"></a>使用直接方法调用
 

@@ -1,21 +1,21 @@
 ---
 title: 快速入门 - 在 Azure 门户中创建 Analysis Services 服务器 | Azure
-description: 了解如何使用 Azure 门户快速创建 Azure Analysis Services 服务器实例。
-author: rockboyfor
+description: 本快速入门介绍如何使用 Azure 门户创建 Azure Analysis Services 服务器实例。
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 05/19/2020
-ms.date: 07/13/2020
+origin.date: 08/31/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 01/20/2020
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: afb002f4adbc5f6f9ba35d0dfb396f6f36270c70
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: f8bcd18fe3808d179f039b8aa0850441ae748b0b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226097"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146225"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入门：创建服务器 - 门户
 
@@ -36,7 +36,7 @@ ms.locfileid: "86226097"
 
 1. 依次单击“+ 创建资源” > “数据 + 分析” > “Analysis Services”  。
     
-    ![门户](./media/analysis-services-create-server/aas-create-server-portal.png)
+    :::image type="content" source="./media/analysis-services-create-server/aas-create-server-portal.png" alt-text="门户":::
 
 2. 在“Analysis Services”中，填写必填字段，然后按“创建” 。
 
@@ -55,14 +55,12 @@ ms.locfileid: "86226097"
 
 不再需要服务器时，即可将其删除。 单击服务器“概述”中的“删除” 。 
 
-![清理](./media/analysis-services-create-server/aas-create-server-cleanup.png)
+:::image type="content" source="./media/analysis-services-create-server/aas-create-server-cleanup.png" alt-text="清理":::
 
 ## <a name="next-steps"></a>后续步骤
 本快速入门介绍了如何在 Azure 订阅中创建服务器。 创建服务器后，可以通过配置（可选）的服务器防火墙对其进行保护。 还可以直接从门户将基本示例数据模型添加到服务器。 拥有一个示例模型有助于了解如何配置模型数据库角色和测试客户端连接。 若要了解更多信息，请继续学习有关添加示例模型的教程。
 
 > [!div class="nextstepaction"]
-> [快速入门：配置服务器防火墙 - 门户](analysis-services-qs-firewall.md)   
-> [!div class="nextstepaction"]
-> [教程：将示例模型添加到服务器](analysis-services-create-sample-model.md)
+> [快速入门：配置服务器防火墙 - 门户](analysis-services-qs-firewall.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

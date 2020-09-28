@@ -1,18 +1,19 @@
 ---
 title: 使用 Azure Pipelines 进行持续集成
 description: 了解如何持续构建、测试和部署 Azure 资源管理器模板。
-origin.date: 04/22/2020
-ms.date: 08/24/2020
+origin.date: 08/24/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 06/22/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: b4c02633596ce7fcfb23d4fa64efa56a382932b4
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 211433e285938ef57d0b247ac52681be75ee0a61
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807727"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146517"
 ---
 <!--Verified successfully on 04/30/2020-->
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>教程：使用 Azure Pipelines 持续集成 Azure 资源管理器模板
@@ -216,8 +217,8 @@ azuredeploy.json 已添加到本地存储库。 下一步，将模板上传到�
     * **位置**：选择资源组的位置，例如“中国北部”。
     * **模板位置**：选择“链接的项目”，表示任务将直接从连接的存储库中查找模板文件。
     * **模板**：输入 **CreateWebApp/azuredeploy.json**。 如果更改了文件夹名称和文件名，则需要更改此值。
-    * **模板参数**：将此字段留空。 稍后将在 **“替代模板参数”中指定参数值。
-    * **overrideParameters**：输入 **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** 。 替换项目名称和链接模板 URL。 链接模板 URL 是在完成[创建 GitHub 存储库](#create-a-github-repository)部分时记下的 URL。
+    * **模板参数**：将此字段留空。 将在“替代模板参数”中指定参数值。
+    * **替代模板参数**：输入 **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** 。 替换项目名称和链接模板 URL。 链接模板 URL 是在完成[创建 GitHub 存储库](#create-a-github-repository)部分时记下的 URL。 它以 https://raw.githubusercontent.com 开头。
     * **部署模式**：选择“增量”。
     * **部署名称**：输入 **DeployPipelineTemplate**。 选择“高级”，然后可以看到“部署名称”。 
 
@@ -239,7 +240,7 @@ azuredeploy.json 已添加到本地存储库。 下一步，将模板上传到�
 
 ## <a name="verify-the-deployment"></a>验证部署
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 打开资源组。 名称是在管道 YAML 文件中指定的名称。  你将看到创建了一个存储帐户。  存储帐户名称以“存储”开头。
 1. 选择存储帐户名称以将其打开。
 1. 选择“属性”。 注意“复制”是“本地冗余存储(LRS)” 。
@@ -273,10 +274,10 @@ azuredeploy.json 已添加到本地存储库。 下一步，将模板上传到�
 
 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
 2. 在“按名称筛选”字段中输入资源组名称。
 3. 选择资源组名称。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
 你可能还需要删除 GitHub 存储库和 Azure DevOps 项目。
 

@@ -1,10 +1,16 @@
 ---
-ms.openlocfilehash: 208d4debfc5caaf3a9cca26b1d22fa676bb0a6d1
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+author: v-tawe
+ms.service: cognitive-services
+ms.topic: include
+origin.date: 09/24/2020
+ms.date: 09/24/2020
+ms.author: v-tawe
+ms.openlocfilehash: 703f949189abe84293e98458a4a42eab9ee7151e
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317587"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91147169"
 ---
 - [快速入门：识别来自麦克风的语音](~/articles/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone.md)
 - [快速入门：从文件中识别语音](~/articles/cognitive-services/speech-service/quickstarts/speech-to-text-from-file.md)

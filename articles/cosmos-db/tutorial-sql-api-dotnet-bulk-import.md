@@ -1,26 +1,29 @@
 ---
 title: 使用 .NET SDK 将数据批量导入 Azure Cosmos DB SQL API 帐户
 description: 了解如何通过生成 .NET 控制台应用程序将数据导入或引入到 Azure Cosmos DB 来优化导入数据所需的预配吞吐量 (RU/s)
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 11/04/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 37d913dd3e6a9fc373c73cbd0fe9ef3a2ab9d807
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 309c5a11f87d6d510d6ff8dc5fa05babcf2395b2
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134876"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246301"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>使用 .NET SDK 将数据批量导入 Azure Cosmos DB SQL API 帐户
 
 本教程演示如何生成用于优化将数据导入到 Azure Cosmos DB 所需的预配吞吐量 (RU/s) 的 .NET 控制台应用程序。 在本文中，你将读取示例数据源中的数据，并将其导入到 Azure Cosmos 容器中。
 本教程使用 [3.0+ 版](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) Azure Cosmos DB .NET SDK，后者以 .NET Framework 或 .NET Core 为目标。
 
-本教程的内容包括：
+本教程涉及：
 
 > [!div class="checklist"]
 > * 创建 Azure Cosmos 帐户
@@ -82,7 +85,7 @@ ms.locfileid: "82134876"
 
 此示例应用程序需对 Azure Cosmos 帐户进行身份验证。 为了进行身份验证，应将 Azure Cosmos 帐户凭据传递给应用程序。 按照以下步骤获取 Azure Cosmos 帐户凭据：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 登录 [Azure 门户](https://portal.azure.cn/)。
 1. 导航到 Azure Cosmos 帐户。
 1. 打开“键”窗格，复制帐户的 URI 和主键    。
 
@@ -214,7 +217,7 @@ foreach (KeyValuePair<PartitionKey, Stream> item in itemsToInsert)
             {
                 if (!response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Received {response.StatusCode} ({response.ErrorMessage}) status code for operation {response.RequestMessage.RequestUri.ToString()}.");
+                    Console.WriteLine($"Received {response.StatusCode} ({response.ErrorMessage}).");
                 }
             }
         }));

@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: f1cbaa4b0cb89692d00656bcdc5a843dcf361a9d
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 94a5982f1146a31b107c8719647b8c58cd9b05f5
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244865"
 ---
-# <a name="update-media-services-after-rolling-storage-access-keys"></a>轮转存储访问密钥后更新媒体服务 
+# <a name="update-media-services-after-rolling-storage-access-keys"></a>轮转存储访问密钥后更新媒体服务
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 创建新的 Azure 媒体服务 (AMS) 帐户时，系统还会要求选择用于存储媒体内容的 Azure 存储帐户。 可将多个存储帐户添加到媒体服务帐户。 本文介绍如何轮换存储密钥。 此外，介绍如何将存储帐户添加到媒体帐户。 
 

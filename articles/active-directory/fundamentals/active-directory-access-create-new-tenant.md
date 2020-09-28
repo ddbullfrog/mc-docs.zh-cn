@@ -2,27 +2,27 @@
 title: 快速入门 - 访问和创建新租户 - Azure AD
 description: 介绍如何查找 Azure Active Directory，以及如何为组织创建新的租户。
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 04/23/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c89f1ee9e936064e7e15c1151d080f27cbcf45c6
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: 1eb72847fc7885310ccb4a5be5fda105223a4846
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244834"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>快速入门：在 Azure Active Directory 中创建一个新租户
-可以使用 Azure Active Directory (Azure AD) 门户执行所有管理任务，包括为组织创建新的租户。 
+可使用 Azure Active Directory (Azure AD) 门户执行所有管理任务，包括为组织创建新的租户。 
 
-在本快速入门中，你将学习如何到达 Azure 门户和 Azure Active Directory，以及如何为组织创建基本租户。
+在该快速入门中，你将学习如何转到 Azure 门户和 Azure Active Directory，以及如何为组织创建基本租户。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -45,9 +45,9 @@ ms.locfileid: "82126374"
 
 1.  在“创建目录”页面上，输入以下信息  ：
     
-    - 在“组织名称”框中键入 _Contoso_。 
+    - 在“组织名称”框中键入 Contoso   。
 
-    - 在“初始域名”框中键入 _Contoso_。 
+    - 在“初始域名”框中键入 Contoso   。
 
     - 保留“国家或地区”框中的“美国”选项   。
 
@@ -61,18 +61,18 @@ ms.locfileid: "82126374"
 - 确保你已登录到要通过 Azure 门户中的“目录 + 订阅”  筛选器删除的目录，并根据需要切换到目标目录。
 - 选择 Azure Active Directory，然后在“Contoso - 概述”页面上，选择“删除目录”    。
 
-    这会删除此租户及其关联的信息。
+    这会删除此租户及其关联信息。
 
     ![突出显示“删除目录”按钮的概述页](./media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>后续步骤
-- 更改或添加其他域名，请参阅[如何向 Azure Active Directory 添加自定义域名](add-custom-domain.md)
+- 要更改或添加其他域名，请参阅[如何向 Azure Active Directory 添加自定义域名](add-custom-domain.md)
 
-- 添加用户，请参阅[添加新用户或删除用户](add-users-azure-active-directory.md)
+- 要添加用户，请参阅[添加新用户或删除用户](add-users-azure-active-directory.md)
 
-- 添加组和成员，请参阅[创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
+- 要添加组和成员，请参阅[创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
 
-- 了解[使用 Privileged Identity Management 基于角色进行访问](../../role-based-access-control/pim-azure-resource.md)，以帮助管理组织的应用程序和资源访问权限。
+- 为帮助管理组织的应用程序和资源访问权限，请了解[使用 Privileged Identity Management 基于角色进行访问](../../role-based-access-control/best-practices.md)和[条件访问](../../role-based-access-control/conditional-access-azure-management.md)。
 
 - 了解 Azure AD，包括[基本许可信息、术语和关联的功能](active-directory-whatis.md)。
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 77b569a53f14588c512b84bba7dd3cff2428581d
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 2c46e555184965a8237d91bce9f8db0735ab4526
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516621"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394514"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>排查 Azure HDInsight 中的脚本操作问题
 
@@ -55,7 +55,9 @@ ms.locfileid: "85516621"
 
 * 相应主机的所有 **stdout** 和 **stderr** 将上传到存储帐户。 每个脚本操作各有一个 **output-\*.txt** 和 **errors-\*.txt**。 **output-*.txt** 文件包含有关在主机上运行的脚本的 URI 信息。 以下文本是此信息的示例：
 
-        'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+    ```output
+    'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+    ```
 
 * 有可能重复创建了同名的脚本操作群集。 在这种情况下，可以根据 **DATE** 文件夹名称来区分相关的日志。 例如，在不同日期创建的群集 **mycluster** 的文件夹结构类似于以下日志条目：
 

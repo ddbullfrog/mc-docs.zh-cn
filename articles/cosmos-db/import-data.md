@@ -1,20 +1,20 @@
 ---
 title: 教程 - 适用于 Azure Cosmos DB 的数据库迁移工具
 description: 教程 - 本文演示了如何使用开源 Azure Cosmos DB 数据迁移工具将数据从各种源导入到 Azure Cosmos DB，包括 MongoDB、SQL Server、表存储、Amazon DynamoDB、CSV 和 JSON 文件。 将 CSV 转换为 JSON。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
-origin.date: 11/05/2019
-ms.date: 08/17/2020
-ms.testscope: no
-ms.testdate: ''
+origin.date: 08/31/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 90e100a6efc8a7b7f64f70ac4eb11f18765d3c84
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 20dc3dea9d2ddd3777f0dcc051d6f6c6396f03f9
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222911"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246703"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>教程：使用数据迁移工具将数据迁移到 Azure Cosmos DB
 
@@ -34,8 +34,7 @@ ms.locfileid: "88222911"
 > * 从不同的数据源导入数据
 > * 从 Azure Cosmos DB 导出到 JSON
 
-<a name="Prerequisites"></a>
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a><a name="Prerequisites"></a>先决条件
 
 在按照本文中的说明操作之前，请确保执行以下步骤：
 
@@ -44,6 +43,9 @@ ms.locfileid: "88222911"
 * **增加吞吐量：** 数据迁移的持续时间取决于为单个集合或一组集合设置的吞吐量。 请确保对于较大的数据迁移增加吞吐量。 完成迁移后，减少吞吐量以节约成本。 有关在 Azure 门户中增加吞吐量的详细信息，请参阅 Azure Cosmos DB 中的[性能级别](performance-levels.md)和[定价层](https://www.azure.cn/pricing/details/cosmos-db/)。
 
 * **创建 Azure Cosmos DB 资源：** 在开始迁移数据之前，从 Azure 门户预先创建所有集合。 若要迁移到具有数据库级别吞吐量的 Azure Cosmos DB 帐户，请在创建 Azure Cosmos 容器时提供分区键。
+
+> [!IMPORTANT]
+> 若要确保数据迁移工具在连接到 Azure Cosmos 帐户时使用传输层安全性 (TLS) 1.2，请使用 .NET Framework 版本 4.7 或按照[本文](https://docs.microsoft.com/dotnet/framework/network-programming/tls)中的说明执行操作。
 
 <a name="Overviewl"></a>
 ## <a name="overview"></a>概述

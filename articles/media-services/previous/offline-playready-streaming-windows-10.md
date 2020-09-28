@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/16/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59c33a225e3a68351f982e6fd283df4f5e9e8110
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 925bbc3fee4faf7ff51973d39e2fed8a33d126c2
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414007"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245536"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>适用于 Windows 10 的 PlayReady 脱机流式处理  
+# <a name="offline-playready-streaming-for-windows-10"></a>适用于 Windows 10 的 PlayReady 脱机流式处理
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="选择所使用的媒体服务版本："]
 > * [第 3 版](../latest/offline-plaready-streaming-for-windows-10.md)

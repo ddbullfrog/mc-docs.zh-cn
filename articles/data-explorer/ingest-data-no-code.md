@@ -7,13 +7,13 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 origin.date: 05/29/2020
-ms.date: 07/08/2020
-ms.openlocfilehash: 0f608dec4db60532a6ce627becd7a98720857534
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: f3303f2788c107c435fe1b7a93a9186e258710a5
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515958"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146392"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>教程：在 Azure 数据资源管理器中引入和查询监视数据 
 
@@ -230,7 +230,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     .create table DiagnosticRawRecords (Records:dynamic)
     ```
 
-1. 为中间表设置零[保留策略](/data-explorer/kusto/management/retention-policy)：
+1. 为中间表设置零[保留策略](kusto/management/retention-policy.md)：
 
     ```kusto
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
@@ -253,7 +253,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     .create table DiagnosticRawRecords (Records:dynamic)
     ```
 
-1. 为中间表设置零[保留策略](/data-explorer/kusto/management/retention-policy)：
+1. 为中间表设置零[保留策略](kusto/management/retention-policy.md)：
 
     ```kusto
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
@@ -274,7 +274,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     .create table ActivityLogsRawRecords (Records:dynamic)
     ```
 
-1. 为中间表设置零[保留策略](/data-explorer/kusto/management/retention-policy)：
+1. 为中间表设置零[保留策略](kusto/management/retention-policy.md)：
 
     ```kusto
     .alter-merge table ActivityLogsRawRecords policy retention softdelete = 0d
@@ -309,7 +309,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 # <a name="diagnostic-metrics"></a>[诊断指标](#tab/diagnostic-metrics)
 #### <a name="create-data-update-policy-for-diagnostics-metrics"></a>为诊断指标创建数据更新策略
 
-1. 创建一个[函数](/data-explorer/kusto/management/functions)来扩展诊断指标记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](/data-explorer/kusto/query/mvexpandoperator) 运算符：
+1. 创建一个[函数](kusto/management/functions.md)来扩展诊断指标记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](kusto/query/mvexpandoperator.md) 运算符：
      ```kusto
     .create function DiagnosticMetricsExpand() {
         DiagnosticRawRecords
@@ -328,7 +328,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     }
     ```
 
-2. 将[更新策略](/data-explorer/kusto/management/updatepolicy)添加到目标表。 此策略将针对 *DiagnosticRawRecords* 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 *DiagnosticMetrics* 表中：
+2. 将[更新策略](kusto/management/updatepolicy.md)添加到目标表。 此策略将针对 *DiagnosticRawRecords* 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 *DiagnosticMetrics* 表中：
 
     ```kusto
     .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
@@ -337,7 +337,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 # <a name="diagnostic-logs"></a>[诊断日志](#tab/diagnostic-logs)
 #### <a name="create-data-update-policy-for-diagnostics-logs"></a>为诊断日志创建数据更新策略
 
-1. 创建一个[函数](/data-explorer/kusto/management/functions)来扩展诊断日志记录集合，使集合中的每个值收到一个单独的行。 你将在 Azure 数据资源管理器群集上启用引入日志，并使用[引入日志架构](/data-explorer/using-diagnostic-logs#diagnostic-logs-schema)。 你将为成功和失败的引入创建一个表，对于成功的引入，某些字段将为空（例如，ErrorCode）。 使用 [`mv-expand`](/data-explorer/kusto/query/mvexpandoperator) 运算符：
+1. 创建一个[函数](kusto/management/functions.md)来扩展诊断日志记录集合，使集合中的每个值收到一个单独的行。 你将在 Azure 数据资源管理器群集上启用引入日志，并使用[引入日志架构](using-diagnostic-logs.md#diagnostic-logs-schema)。 你将为成功和失败的引入创建一个表，对于成功的引入，某些字段将为空（例如，ErrorCode）。 使用 [`mv-expand`](kusto/query/mvexpandoperator.md) 运算符：
 
     ```kusto
     .create function DiagnosticLogsExpand() {
@@ -361,7 +361,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     }
     ```
 
-2. 将[更新策略](/data-explorer/kusto/management/updatepolicy)添加到目标表。 此策略将针对 *DiagnosticRawRecords* 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 *DiagnosticLogs* 表中：
+2. 将[更新策略](kusto/management/updatepolicy.md)添加到目标表。 此策略将针对 *DiagnosticRawRecords* 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 *DiagnosticLogs* 表中：
 
     ```kusto
     .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
@@ -370,7 +370,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 # <a name="activity-logs"></a>[活动日志](#tab/activity-logs)
 #### <a name="create-data-update-policy-for-activity-logs"></a>为活动日志创建数据更新策略
 
-1. 创建一个[函数](/data-explorer/kusto/management/functions)用于扩展活动日志记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](/data-explorer/kusto/query/mvexpandoperator) 运算符：
+1. 创建一个[函数](kusto/management/functions.md)用于扩展活动日志记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](kusto/query/mvexpandoperator.md) 运算符：
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -391,7 +391,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     }
     ```
 
-2. 将[更新策略](/data-explorer/kusto/management/updatepolicy)添加到目标表。 此策略将针对 *ActivityLogsRawRecords* 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 *ActivityLogs* 表中：
+2. 将[更新策略](kusto/management/updatepolicy.md)添加到目标表。 此策略将针对 *ActivityLogsRawRecords* 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 *ActivityLogs* 表中：
 
     ```kusto
     .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
@@ -574,11 +574,9 @@ DiagnosticMetrics
 
 查询结果：
 
-|   |   |
-| --- | --- |
-|   |  avg_Average |
-|   | 00:06.156 |
-| | |
+| avg_Average |
+| --- |
+| 00:06.156 |
 
 # <a name="diagnostic-logs"></a>[诊断日志](#tab/diagnostic-logs)
 ### <a name="query-the-diagnostic-logs-table"></a>查询诊断日志表
@@ -594,11 +592,9 @@ DiagnosticLogs
 
 查询结果：
 
-|   |   |
-| --- | --- |
-|   |  count_ | any_Database | any_Table | any_IngestionSourcePath
-|   | 00:06.156 | TestDatabase | DiagnosticRawRecords | `https://rtmkstrldkereneus00.blob.core.chinacloudapi.cn/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip`
-| | |
+| count_ | any_Database | any_Table | any_IngestionSourcePath |
+| --- | --- | --- | --- |
+| 00:06.156 | TestDatabase | DiagnosticRawRecords | `https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip` |
 
 # <a name="activity-logs"></a>[活动日志](#tab/activity-logs)
 ### <a name="query-the-activity-logs-table"></a>查询活动日志表
@@ -614,11 +610,9 @@ ActivityLogs
 
 查询结果：
 
-|   |   |
-| --- | --- |
-|   |  avg(DurationMs) |
-|   | 768.333 |
-| | |
+| avg(DurationMs) |
+| --- |
+| 768.333 |
 
 ---
 

@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: 185fde0a4779eb439fe5426485bd8bcaf38ed85a
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/24/2020
+ms.openlocfilehash: a485fd89de22ae7968017e0039187a849774892d
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841590"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146782"
 ---
 # <a name="dcount_intersect-plugin"></a>dcount_intersect 插件
 
@@ -26,23 +26,25 @@ S<sub>1</sub> ∩ S<sub>2</sub> ∩ S<sub>3</sub>、
 ... ,  
 S<sub>1</sub> ∩ S<sub>2</sub> ∩ ... ∩ S<sub>n</sub>
 
-    T | evaluate dcount_intersect(hll_1, hll_2, hll_3)
+```kusto
+T | evaluate dcount_intersect(hll_1, hll_2, hll_3)
+```
 
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `| evaluate` `dcount_intersect(`*hll_1*, *hll_2*, [`,` *hll_3*`,` ...]`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * *T*：输入表格表达式。
 * hll_i：使用 [`hll()`](./hll-aggfunction.md) 函数计算的集 S<sub>i</sub> 的值。
 
-**返回**
+## <a name="returns"></a>返回
 
 返回一个表，其中包含 N 个 `dcount` 值（按列，表示交集）。
 列名为 s0、s1...（直到 n-1）。
 
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

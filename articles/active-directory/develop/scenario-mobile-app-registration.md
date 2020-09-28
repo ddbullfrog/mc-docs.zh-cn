@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d5c451a3083b569ee07459597658db46cec73217
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 649c80ca40e641b55074fb7072fd9bc5f629aac0
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593787"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244841"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>注册调用 Web API 的移动应用
 
@@ -30,7 +30,7 @@ ms.locfileid: "89593787"
 
 ### <a name="audience-for-interactive-token-acquisition"></a>交互式令牌获取的受众
 
-大多数移动应用程序使用交互式身份验证。 如果应用使用这种形式的身份验证，则你可以从任何[帐户类型](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)将用户登录。
+大多数移动应用程序使用交互式身份验证。 如果应用使用这种形式的身份验证，则你可以从任何[帐户类型](quickstart-register-app.md)将用户登录。
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Windows 集成身份验证、用户名-密码以及 B2C 的受众
 

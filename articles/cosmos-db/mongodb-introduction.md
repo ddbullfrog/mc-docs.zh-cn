@@ -10,12 +10,12 @@ ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: de0064a48e95eeaca6deae1a77f83e1d19c58869
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 3893743eee1c524618c20d7aa2f9f39a9dda6649
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246398"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB 的用于 MongoDB 的 API
 

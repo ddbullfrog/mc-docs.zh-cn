@@ -1,20 +1,21 @@
 ---
 title: 从更改源处理器库迁移到 Azure Cosmos DB .NET V3 SDK
 description: 了解如何使用更改源处理器库将应用程序迁移到 Azure Cosmos DB SDK V3
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/17/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 89dc071585d2ffcd8c9a23b4fbf422d4b84581b5
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: f837003c4ec781b5bee3089665a3f120cba3c1a9
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223442"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246650"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>从更改源处理器库迁移到 Azure Cosmos DB .NET V3 SDK
 
@@ -105,9 +106,6 @@ static async Task HandleChangesAsync(IReadOnlyCollection<ToDoItem> changes, Canc
 SDK V3 更改源处理器将在首次执行迁移的应用程序代码时自动检测任何旧的库状态并将其迁移到新的架构。 
 
 可以使用旧代码安全地停止应用程序，将代码迁移到新版本，启动已迁移的应用程序，而在应用程序停止时所发生的任何更改都将由新版本选取并处理。
-
-> [!NOTE]
-> 将使用该库的应用程序迁移到 .NET V3 SDK 是单向的，因为状态（租约）将迁移到新的架构。 此迁移不向后兼容。
 
 ## <a name="additional-resources"></a>其他资源
 

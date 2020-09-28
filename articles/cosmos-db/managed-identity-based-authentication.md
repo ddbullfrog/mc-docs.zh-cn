@@ -1,21 +1,22 @@
 ---
 title: 如何使用系统分配的托管标识访问 Azure Cosmos DB 数据
 description: 了解如何配置 Azure Active Directory (Azure AD) 系统分配的托管标识（托管服务标识），以访问 Azure Cosmos DB 中的密钥。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 03/20/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 7b1a84e96cb0d44717d5d52fd16c401ae407d99c
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7abc68969d158b4e661555f8fc5a80706e687eac
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223193"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246674"
 ---
 <!--Verified successfully on Portal section-->
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>使用系统分配的托管标识访问 Azure Cosmos DB 数据
@@ -40,7 +41,7 @@ ms.locfileid: "88223193"
 
     :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="显示了系统标识“状态”设置为“开启”的屏幕截图。":::
 
-## <a name="grant-access-to-your-azure-cosmos-account"></a>向 Azure Cosmos 帐户授予访问权限
+## <a name="grant-access-to-your-azure-cosmos-account"></a><a name="grant-access-to-your-azure-cosmos-account"></a>向 Azure Cosmos 帐户授予访问权限
 
 此步骤向函数应用的系统分配的托管标识分配角色。 Azure Cosmos DB 具有多个内置角色，可将这些角色分配到托管标识。 对于此解决方案，你将使用以下两个角色：
 
@@ -83,10 +84,13 @@ ms.locfileid: "88223193"
 
 若要使用 Azure CLI 分配角色，请使用以下命令：
 
-```azurecli
-$scope = az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id
+<!--Not Available on Azure Cloud Shell-->
 
-$principalId = az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId
+```azurecli
+
+scope=$(az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id)
+
+principalId=$(az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId)
 
 az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
 ```
@@ -95,10 +99,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 现在，我们已有一个函数应用，它具有系统分配的托管标识，该标识具有“DocumentDB 帐户参与者”角色和 Azure Cosmos DB 权限  。 以下函数应用代码将获取 Azure Cosmos DB 密钥，创建 CosmosClient 对象，获取水族箱温度，然后将此数据保存到 Azure Cosmos DB。
 
-此示例使用[“列出密钥”API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) 来访问 Azure Cosmos DB 帐户密钥。
+此示例使用[“列出密钥”API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) 来访问 Azure Cosmos DB 帐户密钥。
 
 > [!IMPORTANT] 
-> 若要[分配 Cosmos DB 帐户读取者](#grant-access-to-your-azure-cosmos-account)角色，需要使用[列出只读密钥 API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys)。 这只会填充只读密钥。
+> 若要[分配 Cosmos DB 帐户读取者](#grant-access-to-your-azure-cosmos-account)角色，需要使用[列出只读密钥 API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys)。 这只会填充只读密钥。
 
 “列出密钥”API 将返回 `DatabaseAccountListKeysResult` 对象。 C# 库中未定义此类型。 以下代码显示了此类的实现：  
 

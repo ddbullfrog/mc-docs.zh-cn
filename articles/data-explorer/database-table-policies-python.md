@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 09/24/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 36b380c4f1c628d73cb8223dde0f76ed50370e2c
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: dd2c7103e29e5ed3aa9818f314e3abb6df944cab
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515838"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146438"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>使用 Python 为 Azure 数据资源管理器创建数据库和表策略
 
@@ -169,4 +169,4 @@ kustoManagementClient.databases.add_principals(resource_group_name=resource_grou
 
 ## <a name="next-steps"></a>后续步骤
 
-* [阅读有关数据库和表策略的更多信息](/data-explorer/kusto/management/policies)
+* [阅读有关数据库和表策略的更多信息](kusto/management/policies.md)

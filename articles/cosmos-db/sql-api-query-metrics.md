@@ -1,21 +1,22 @@
 ---
 title: Azure Cosmos DB SQL API 的 SQL 查询指标
 description: 了解如何检测和调试 Azure Cosmos DB 请求的 SQL 查询性能。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 05/23/2019
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3ddeadf847e80f6eecea5aab5612356ba027661b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ff1a111f60b967a2bd383e14c4538990abc175af
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222425"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246369"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
 

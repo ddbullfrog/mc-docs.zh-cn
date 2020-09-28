@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e22312b8efa732d379e0bf9e978dd9448e9d7d2
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: c71969e4e218070037a4601ae3297a782cc7c351
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947312"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245226"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>安装和使用用于 Azure Active Directory 的日志分析视图
 
@@ -35,7 +35,7 @@ Azure Active Directory 日志分析视图可以帮助你分析和搜索 Azure AD
 
 若要使用日志分析视图，需要执行以下操作：
 
-* 在 Azure 订阅中创建 Log Analytics 工作区。 了解如何[创建 Log Analytics 工作区](/azure-monitor/learn/quick-create-workspace)。
+* 在 Azure 订阅中创建 Log Analytics 工作区。 了解如何[创建 Log Analytics 工作区](../../azure-monitor/learn/quick-create-workspace.md)。
 * 首先，完成[将 Azure AD 活动日志路由到 Log Analytics 工作区](howto-integrate-activity-logs-with-log-analytics.md)的相关步骤。
 * 将视图从 [GitHub 存储库](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views)下载到本地计算机。
 
@@ -67,12 +67,12 @@ Azure Active Directory 日志分析视图可以帮助你分析和搜索 Azure AD
 
     ![创建规则](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. 选择要发出警报的操作组。 一般情况下，这可能是你想要通过电子邮件或短信通知的团队，也可以是使用 webhook、runbook、函数、逻辑应用或外部 ITSM 解决方案的自动执行的任务。 了解如何[在 Azure 门户中创建和管理操作组](/monitoring-and-diagnostics/monitoring-action-groups)。
+6. 选择要发出警报的操作组。 一般情况下，这可能是你想要通过电子邮件或短信通知的团队，也可以是使用 webhook、runbook、函数、逻辑应用或外部 ITSM 解决方案的自动执行的任务。 了解如何[在 Azure 门户中创建和管理操作组](../../azure-monitor/platform/action-groups.md)。
 
 7. 选择“创建警报规则”可以创建警报****。 现在，每当出现登录错误时都会发出警报。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [如何使用 Azure Monitor 日志分析活动日志](howto-analyze-activity-logs-log-analytics.md)
-* [Azure 门户中的 Azure Monitor 日志入门](/azure-monitor/log-query/get-started-portal)
+* [Azure 门户中的 Azure Monitor 日志入门](../../azure-monitor/log-query/get-started-portal.md)
 

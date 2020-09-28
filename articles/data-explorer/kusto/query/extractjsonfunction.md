@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 96e08151ffb826a1978106232ef254e66a15e3b9
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/24/2020
+ms.openlocfilehash: 6ca6e98e6420943cc8e8b086d6d651a4999c1dd7
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841401"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146554"
 ---
 # <a name="extractjson"></a>extractjson()
 
@@ -26,20 +26,20 @@ ms.locfileid: "87841401"
 extractjson("$.hosts[1].AvailableMB", EventText, typeof(int))
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 `extractjson(`*jsonPath*`,` *dataSource*`)` 
 
-**参数**
+## <a name="arguments"></a>参数
 
 * jsonPath：在 JSON 文档中定义访问器的 JsonPath 字符串。
 * dataSource：JSON 文档。
 
-**返回**
+## <a name="returns"></a>返回
 
 此函数对 dataSource（内含有效的 JSON 字符串）执行 JsonPath 查询，从而可选择根据第三个参数将该值转换为其他类型。
 
-**示例**
+## <a name="example"></a>示例
 
 `[`方括号`]`表示法和点 (`.`) 表示法等效：
 
@@ -53,7 +53,7 @@ T
 
 ### <a name="json-path-expressions"></a>JSON 路径表达式
 
-|||
+|路径表达式|说明|
 |---|---|
 |`$`|根对象|
 |`@`|当前对象|

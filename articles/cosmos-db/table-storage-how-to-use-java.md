@@ -6,18 +6,18 @@ ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 origin.date: 07/23/2020
-ms.date: 08/18/2020
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: f2a4b016dbfcb83d0e6f98865af4b8a36bc80e94
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: ac302566a123dc5e1be5ea662a3c508c36e3d44c
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246617"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>如何通过 Java 使用 Azure 表存储或 Azure Cosmos DB 表 API
 
@@ -51,6 +51,7 @@ ms.locfileid: "88223411"
 若要使用本文中的示例，请安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户或 Azure Cosmos DB 帐户。 完成此操作后，请验证开发系统是否满足 GitHub 上[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java] 存储库中列出的最低要求和依赖项。 如果系统满足这些要求，可以按照说明从该存储库将用于 Java 的 Azure 存储库下载并安装到你的系统中。 完成这些任务后，便可以创建一个 Java 应用程序，以使用本文中的示例。
 
 ## <a name="configure-your-application-to-access-table-storage"></a>配置应用程序以访问表存储
+
 将以下 import 语句添加到要使用 Azure 存储器 API 或 Azure Cosmos DB 表 API 访问表的 Java 文件的顶部：
 
 ```java
@@ -622,7 +623,7 @@ catch (Exception e)
 
 [!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
-## <a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a><a name="next-steps"></a>后续步骤
 
 * [Java 中 Azure 表服务入门](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
@@ -641,5 +642,8 @@ catch (Exception e)
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 存储客户端 SDK 参考]: https://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage Team Blog]: https://azure.microsoft.com/blog/
+
+<!--CORRECT ON [Azure Storage Team Blog]: https://azure.microsoft.com/blog/-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

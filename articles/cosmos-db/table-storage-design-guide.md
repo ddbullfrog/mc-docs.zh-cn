@@ -10,13 +10,13 @@ ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.custom: seodec18
-ms.openlocfilehash: e8a89f447230fe4cadec4f67e074c8fe5852d02b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 123a15af9f8b672ca50d3512ac59a46276843add
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223443"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246639"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure 表存储表设计指南：可缩放的高性能表
 

@@ -1,20 +1,20 @@
 ---
 title: 教程 - 从 Azure 门户导出模板
 description: 了解如何使用导出的模板完成模板开发。
-origin.date: 03/27/2020
+origin.date: 09/09/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6db0b85ba8810cab5ca40ac94bd876071b791705
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 0ee012d23239455e0effdb829b8306a631245241
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807873"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146743"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>教程：从 Azure 门户使用导出的模板
 
@@ -48,7 +48,6 @@ ms.locfileid: "88807873"
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS",
-        "Standard_RAGZRS"
       ]
     },
     "location": {
@@ -116,7 +115,7 @@ ms.locfileid: "88807873"
 
    导出模板功能将提取资源的当前状态，并生成用于部署该资源的模板。 导出模板可能有助于快速获取部署资源所需的 JSON。
 
-1. 将 **Microsoft.Web/serverfarms** 定义和参数定义复制到模板。
+1. 查看导出的模板中的 Microsoft.Web/serverfarms 定义和参数定义。 不需要复制这些部分。 可以使用此导出的模板作为示例，了解如何将此资源添加到模板。
 
     :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-exported-template.png" alt-text="资源管理器模板 - 导出模板 - 导出的模板":::
 
@@ -127,7 +126,7 @@ ms.locfileid: "88807873"
 
 导出的模板提供所需的大部分 JSON，但你需要根据模板自定义这些 JSON。 请特别注意你的模板与导出的模板之间的参数和变量差异。 很明显，导出过程并不知道你已在模板中定义的参数和变量。
 
-以下示例突出显示了在模板中添加的内容。 其中包含导出的代码以及一些更改。 第一，它会更改参数的名称以符合命名约定。 第二，它对应用服务计划的位置使用 location 参数。 第三，它会删除 **properties** 对象中的 **name**，因为在资源级别，此值对于 **name** 属性是多余的。
+以下示例突出显示了在模板中添加的内容。 其中包含导出的代码以及一些更改。 第一，它会更改参数的名称以符合命名约定。 第二，它对应用服务计划的位置使用 location 参数。 第三，它删除默认值正常的所有属性。
 
 复制整个文件，将模板替换为该文件的内容。
 
@@ -149,7 +148,6 @@ ms.locfileid: "88807873"
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS",
-        "Standard_RAGZRS"
       ]
     },
     "location": {
@@ -227,7 +225,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要运行此部署命令，必须具有 Azure CLI 的 [最新版本](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+若要运行此部署命令，必须具有 Azure CLI 的 [最新版本](https://docs.azure.cn/cli/install-azure-cli)。
 
 ```azurecli
 az deployment group create \
@@ -246,7 +244,7 @@ az deployment group create \
 
 可以通过在 Azure 门户中浏览资源组来验证部署。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录 [Azure 门户](https://portal.azure.cn)。
 1. 在左侧菜单中选择“资源组”。 
 1. 选择已部署到的资源组。
 1. 该资源组包含一个存储帐户和一个应用服务计划。
@@ -258,7 +256,7 @@ az deployment group create \
 如果你不打算继续学习，请删除该资源组以清理部署的资源。
 
 1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
-2. 在“按名称筛选”字段中输入资源组名称。 
+2. 在“按名称筛选”字段中输入资源组名称。
 3. 选择资源组名称。
 4. 在顶部菜单中选择“删除资源组”。 
 

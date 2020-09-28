@@ -1,22 +1,22 @@
 ---
 title: 教程 - 如何在 Azure Cosmos DB 中使用 SQL 进行查询？
 description: 教程 - 了解如何使用查询板块在 Azure Cosmos DB 中使用 SQL 查询进行查询
-author: rockboyfor
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 origin.date: 11/05/2019
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 1e687da40d93fff04eb42529710a4ee3153961f1
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: dae91db45901fb3931ee9404fb3658bf7139ccec
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246317"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教程：使用 SQL API 查询 Azure Cosmos DB
 
@@ -116,7 +116,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
 
 ## <a name="example-query-2"></a>示例查询 2
 
-下一查询返回家族中所有 ID 匹配 `WakefieldFamily` 的子女的名字（按匹配得分排序）。
+下一查询返回家族中所有 ID 匹配 `WakefieldFamily` 的子女的名字。
 
 **查询**
 

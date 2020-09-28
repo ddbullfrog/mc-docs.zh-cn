@@ -9,12 +9,12 @@ origin.date: 11/19/2019
 ms.date: 08/24/2020
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2f8e4d8c8077dbafef317724ab6af58be738b6ad
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: afeb8afc5722d9c79b77213f22056fd12ba00272
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753633"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026607"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>教程：使用 Azure HDInsight 提取、转换和加载数据
 
@@ -345,4 +345,4 @@ ms.locfileid: "88753633"
 若要了解使用 HDInsight 中的数据的更多方式，请参阅以下文章：
 
 > [!div class="nextstepaction"]
-> [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fstorage%2fblobs%2ftoc.json)

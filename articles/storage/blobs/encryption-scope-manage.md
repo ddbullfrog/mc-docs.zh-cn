@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8e887f2977eefe494b26e3d58cea9fadf6fb9be5
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: be3deb6ddbced525d5a1d312f96df9b639003b42
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753666"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026499"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>创建和管理加密范围（预览）
 
@@ -276,7 +276,7 @@ az storage container create \
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-若要上传使用 PowerShell 指定加密范围的 blob，请调用 [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) 命令并提供该 blob 的加密范围。
+若要上传使用 PowerShell 指定加密范围的 blob，请调用 [Set-AzStorageBlobContent](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageblobcontent) 命令并提供该 blob 的加密范围。
 
 ```powershell
 $containerName2 = "container2"

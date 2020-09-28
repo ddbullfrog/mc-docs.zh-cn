@@ -2,18 +2,20 @@
 title: 提交大量任务
 description: 如何有效地将巨量的任务提交到单个 Azure Batch 作业中
 ms.topic: how-to
+ms.service: batch
 origin.date: 08/24/2018
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 01/21/2019
 ms.author: v-yeche
-ms.custom: devx-track-python
-ms.openlocfilehash: 14d39b786ed1ee53738d6c04be38a05c3aa7edda
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 7b75475a34e87685dda2ce216902e14be8a7a064
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654906"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146537"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>将大量的任务提交到 Batch 作业
 
@@ -30,15 +32,15 @@ Batch API 提供所需的方法用于高效地将任务作为集合添加到作�
 * 以下 Batch API 将集合限制为 **100 个任务**。 根据任务的大小，此限制可能更小 - 例如，如果任务包含大量的资源文件或环境变量。
 
     * [REST API](https://docs.microsoft.com/rest/api/batchservice/task/addcollection)
-    * [Python API](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
-    * [Node.js API](https://docs.microsoft.com/javascript/api/@azure/batch/task?view=azure-node-latest)
+    * [Python API](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.TaskOperations)
+    * [Node.js API](https://docs.microsoft.com/javascript/api/@azure/batch/task)
 
     使用这些 API 时，需要提供逻辑来分割任务数目以符合集合限制，以及在添加任务失败时处理错误并重试。 如果任务集合太大，以致无法添加，则请求会生成错误，并在减少任务后重试。
 
 * 以下 API 支持的任务集合要大得多 - 仅受提交方客户端上的 RAM 可用性的限制。 这些 API 以透明方式将任务集合分割为较低级别 API 的“区块”，并在添加任务失败时重试。
 
-    * [.NET API](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [Java API](https://docs.azure.cn/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
+    * [.NET API](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync)
+    * [Java API](https://docs.azure.cn/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync)
     * 包含 Batch CLI 模板的 [Azure Batch CLI 扩展](batch-cli-templates.md)
     * [Python SDK 扩展](https://pypi.org/project/azure-batch-extensions/)
 
@@ -48,7 +50,7 @@ Batch API 提供所需的方法用于高效地将任务作为集合添加到作�
 
 * **任务大小** - 添加大型任务所需的时间比添加小型任务更长。 若要减小集合中每个任务的大小，可以简化任务命令行、减少环境变量的数目，或者更有效地处理任务执行要求。 例如，不要使用大量的资源文件，而是使用池中的[启动任务](jobs-and-tasks.md#start-task)来安装任务依赖项，或使用[应用程序包](batch-application-packages.md)或 [Docker 容器](batch-docker-container-workloads.md)。
 
-* **并行操作数目** - 根据具体的 Batch API，通过增加 Batch 客户端的最大并发操作数目来提高吞吐量。 在 .NET API 中使用 [BatchClientParallelOptions.MaxDegreeOfParallelism](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism?view=azure-dotnet) 属性，或者在 Batch Python SDK 扩展中使用 [TaskOperations.add_collection](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) 等方法的 `threads` 参数来配置此项设置。 （此属性在本机 Batch Python SDK 中不可用。）此属性默认设置为 1，但将其设置为更大的值可提高操作吞吐量。 提高吞吐量的代价是会消耗网络带宽，并在一定程度上降低 CPU 的性能。 最高可按 `MaxDegreeOfParallelism` 或 `threads` 的 100 倍提高任务吞吐量。 在实践中，应将并发操作数目设置为 100 以下。 
+* **并行操作数目** - 根据具体的 Batch API，通过增加 Batch 客户端的最大并发操作数目来提高吞吐量。 在 .NET API 中使用 [BatchClientParallelOptions.MaxDegreeOfParallelism](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 属性，或者在 Batch Python SDK 扩展中使用 [TaskOperations.add_collection](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.TaskOperations) 等方法的 `threads` 参数来配置此项设置。 （此属性在本机 Batch Python SDK 中不可用。）此属性默认设置为 1，但将其设置为更大的值可提高操作吞吐量。 提高吞吐量的代价是会消耗网络带宽，并在一定程度上降低 CPU 的性能。 最高可按 `MaxDegreeOfParallelism` 或 `threads` 的 100 倍提高任务吞吐量。 在实践中，应将并发操作数目设置为 100 以下。 
 
   包含 Batch 模板的 Azure Batch CLI 扩展会根据可用核心数自动增加并发操作数目，但无法在 CLI 中配置此属性。 
 
@@ -60,7 +62,7 @@ Batch API 提供所需的方法用于高效地将任务作为集合添加到作�
 
 以下 C# 代码片段演示了在使用 Batch .NET API 添加大量任务时要配置的设置。
 
-若要提高任务吞吐量，请增大 [BatchClient](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet) 的 [MaxDegreeOfParallelism](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism?view=azure-dotnet) 属性值。 例如：
+若要提高任务吞吐量，请增大 [BatchClient](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.batchclient) 的 [MaxDegreeOfParallelism](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 属性值。 例如：
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -70,7 +72,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 
-使用 [AddTaskAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) 或 [AddTask](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet) 方法的相应重载将任务集合添加到作业。 例如：
+使用 [AddTaskAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync) 或 [AddTask](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob.addtask) 方法的相应重载将任务集合添加到作业。 例如：
 
 ```csharp
 // Add a list of tasks as a collection
@@ -148,7 +150,7 @@ tasks = list()
 ...
 ```
 
-使用 [task.add_collection](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) 添加任务集合。 设置 `threads` 参数以增加并发操作数目：
+使用 [task.add_collection](https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.TaskOperations) 添加任务集合。 设置 `threads` 参数以增加并发操作数目：
 
 ```python
 try:

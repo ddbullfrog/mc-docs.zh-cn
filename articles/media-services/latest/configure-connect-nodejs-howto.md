@@ -10,19 +10,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 03/25/2019
-ms.date: 09/07/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-javascript
-ms.openlocfilehash: bcc836d3a105f60a14d81892551ac27cc1623aa1
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 7d909eb1ea27a113014a91ec05a826e45031ca25
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413364"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245498"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>连接到媒体服务 v3 API - Node.js
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文介绍如何使用服务主体登录方法连接到 Azure 媒体服务 v3 node.js SDK。
 

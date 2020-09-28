@@ -3,20 +3,21 @@ title: 快速入门 - 将 Cassandra API 与 .NET 配合使用 - Azure Cosmos DB
 description: 本快速入门介绍如何配合 Azure 门户 和 .NET 使用 Azure Cosmos DB Cassandra API 创建配置文件应用程序
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-author: rockboyfor
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/18/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: f70db43e3a9996ec60bbf879ba0fb9c882e7f254
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 84851f08c41172a0d40f66ee1b3fdcea6a8ec3c4
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246547"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 构建 Cassandra 应用
@@ -43,7 +44,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 <!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 
 此外，还需要： 
-* 如果尚未安装 Visual Studio 2019，可以下载并使用**免费**的 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
+* 如果尚未安装 Visual Studio 2019，可以下载并使用**免费**的 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
 * 安装 [Git](https://www.git-scm.com/) 以克隆示例。
 
 <a name="create-account"></a>
@@ -67,7 +68,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
@@ -121,7 +122,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
     ```
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 连接字符串信息使应用能与托管数据库进行通信。
 

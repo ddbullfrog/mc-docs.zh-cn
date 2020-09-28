@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 9762063d299a64c83a15c950d174b36921042099
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: fb2b191bec9824c84a4c21ee8d5abe524e67a4fa
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245621"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>如何使用 Media Encoder Standard 对资产进行编码
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)

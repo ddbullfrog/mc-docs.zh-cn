@@ -10,20 +10,22 @@ tags: ''
 keywords: azure 媒体服务, 流, 广播, 实时, 脱机
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-origin.date: 03/09/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 047c8ff45b2ad9ef40af5be745c0177e0f953280
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 13c9a4a7da09f7b7febfa4cc1b40a24c2863116f
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413512"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245639"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>有关从媒体服务 v2 迁移到 v3 的指导
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >通过将此 URL (`https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us`) 复制并粘贴到 RSS 源阅读器中获取有关何时重新访问此页以获得更新的通知。
 

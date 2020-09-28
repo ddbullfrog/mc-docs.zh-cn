@@ -4,16 +4,16 @@ description: 介绍如何在部署过程中以多个范围为目标。 范围可
 ms.topic: conceptual
 origin.date: 07/28/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/25/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: c97f5e9b1c9a739bb68b192019cf277c469c3941
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 068dc9826d52664b33851a1a34d71bca7d9104ad
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715640"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246723"
 ---
 <!--Verified successfully-->
 # <a name="deploy-azure-resources-across-scopes"></a>跨范围部署 Azure 资源

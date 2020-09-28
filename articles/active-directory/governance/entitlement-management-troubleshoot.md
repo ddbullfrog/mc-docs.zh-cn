@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afad859b1060b54684f1276329ecc8340e6ac330
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 2e0fbf76969a66bbda9d764429a957d5d6f7f61b
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947325"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245248"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>排查 Azure AD 权利管理的问题
 
@@ -55,7 +55,7 @@ ms.locfileid: "88947325"
 
 ## <a name="external-users"></a>外部用户
 
-* 当外部用户想要请求对访问包进行访问时，请确保他们正在使用访问包的“我的访问权限”门户链接。 有关详细信息，请参阅[共享用来请求访问包的链接](entitlement-management-access-package-settings.md)。 如果外部用户只访问 **myaccess.microsoft.com** 而不使用完整的“我的访问权限”门户链接，则他们将在自己的组织（而非你的组织）中看到可用的访问包。
+* 当外部用户想要请求对访问包进行访问时，请确保他们正在使用访问包的“我的访问权限”门户链接。 有关详细信息，请参阅[共享用来请求访问包的链接](entitlement-management-access-package-settings.md)。
 
 * 如果外部用户无法请求对访问包的访问权限或无法访问资源，请确保检查[外部用户的设置](entitlement-management-external-users.md#settings-for-external-users)。
 

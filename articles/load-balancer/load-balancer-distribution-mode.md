@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/19/2019
-ms.date: 07/20/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 8d959174e0cf9915ed6816cd1d3eab6952e7f290
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: c6c0831fca7b60af65ff520b891661ab5cf886a0
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440451"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026640"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>配置 Azure 负载均衡器的分配模式
 
@@ -203,5 +203,5 @@ Date: Thu, 16 Oct 2014 22:49:21 GMT
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 内部负载均衡器概述](load-balancer-internal-overview.md)
-* [开始配置面向 Internet 的负载均衡器](quickstart-create-standard-load-balancer-powershell.md)
+* [开始配置面向 Internet 的负载均衡器](quickstart-load-balancer-standard-public-powershell.md)
 * [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)

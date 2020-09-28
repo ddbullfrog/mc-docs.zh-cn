@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 01/27/2020
 ms.date: 02/24/2020
 ms.author: v-yiso
-ms.openlocfilehash: 962a08eb6a2080495e686518d8474a4115689b4a
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 40199f28395334e6ca399035b1d18f39cb6284ce
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723611"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394538"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 群集上使用空边缘节点
 
@@ -67,7 +67,7 @@ ms.locfileid: "84723611"
 > [!WARNING] 
 > 安装在空边缘节点上的自定义组件将从 Azure 得到商业上合理的支持。 这或许可解决遇到的问题。 或者也可参考社区资源，获取更多帮助。 以下是一些可获得社区帮助的最活跃站点：
 >
-> * [面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)
+> * [有关 HDInsight 的 Microsoft 问答页](https://docs.microsoft.com/answers/topics/azure-hdinsight.html
 >
 > 如果在使用 Apache 技术，可通过 [https://apache.org](https://apache.org) 上的 Apache 项目站点（如 [Apache Hadoop](https://hadoop.apache.org/) 站点）获取帮助。
 
@@ -147,10 +147,15 @@ ms.locfileid: "84723611"
 
 2. 使用 SSH 连接到边缘节点后，使用以下命令打开 Hive 控制台：
 
-        hive
+    ```console
+    hive
+    ```
+
 3. 运行以下命令显示群集中的 Hive 表：
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
 
 ## <a name="delete-an-edge-node"></a>删除边缘节点
 可以在 Azure 门户中删除边缘节点。

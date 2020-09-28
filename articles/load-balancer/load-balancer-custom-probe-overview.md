@@ -13,14 +13,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/17/2019
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: cf6a73d499031a1587ecd82ce35b6e1e77a8d58e
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: 4c74d7de96bb83c4cb70c87300732990890defd6
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045793"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026477"
 ---
 # <a name="load-balancer-health-probes"></a>负载均衡器运行状况探测
 
@@ -264,5 +264,5 @@ AzureLoadBalancer 服务标记在[网络安全组](../virtual-network/security-o
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[标准负载均衡器](load-balancer-standard-overview.md)
-- [使用 PowerShell 在资源管理器中开始创建公共负载均衡器](quickstart-create-standard-load-balancer-powershell.md)
+- [使用 PowerShell 在资源管理器中开始创建公共负载均衡器](quickstart-load-balancer-standard-public-powershell.md)
 - [运行状况探测的 REST API](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)

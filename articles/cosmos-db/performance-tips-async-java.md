@@ -1,22 +1,22 @@
 ---
 title: 适用于 Azure Cosmos DB 异步 Java SDK v2 的性能提示
 description: 了解用于提高 Azure Cosmos DB Async Java SDK v2 性能的客户端配置选项
-author: rockboyfor
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 05/11/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: ed89a3fdb8cf86213d63e88f9d2b41264517736c
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 181f47b7cd6f263e90e88dc74cdd07a109e3e41e
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246518"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>适用于 Azure Cosmos DB 异步 Java SDK v2 的性能提示
 
@@ -50,20 +50,20 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     ConnectionMode 是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的  。
 
-    <a name="asyncjava2-connectionpolicy"></a>
-    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+<a name="asyncjava2-connectionpolicy"></a>
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
-    ```java
-        public ConnectionPolicy getConnectionPolicy() {
-          ConnectionPolicy policy = new ConnectionPolicy();
-          policy.setConnectionMode(ConnectionMode.Direct);
-          policy.setMaxPoolSize(1000);
-          return policy;
-        }
+```java
+    public ConnectionPolicy getConnectionPolicy() {
+        ConnectionPolicy policy = new ConnectionPolicy();
+        policy.setConnectionMode(ConnectionMode.Direct);
+        policy.setMaxPoolSize(1000);
+        return policy;
+    }
 
-        ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-        DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
-    ```
+    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+    DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+```
 
 * **将客户端并置在同一 Azure 区域内以提高性能** <a name="same-region"></a>
 
@@ -72,6 +72,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Azure Cosmos DB 连接策略演示" border="false":::
 
 ## <a name="sdk-usage"></a>SDK 用法
+
 * **安装最新的 SDK**
 
     Azure Cosmos DB SDK 正在不断改进以提供最佳性能。 请参阅 Azure Cosmos DB Async Java SDK v2 [发行说明](sql-api-sdk-async-java.md)页以了解最新的 SDK 并查看改进内容。
@@ -158,7 +159,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     使用基于名称的寻址，其中的链接格式为 `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`，而不是使用格式为 `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` 的 SelfLinks (\_self)（旨在避免检索用于构造链接的所有资源的 ResourceId）。 此外，由于会重新创建这些资源（名称可能相同），因此，缓存这些资源的用处不大。
 
-   <a name="tune-page-size"></a>
+    <a name="tune-page-size"></a>
 
 * **调整查询/读取源的页面大小以获得更好的性能**
 
@@ -247,40 +248,16 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     * - nofile 100000
     ```
 
-* **使用 netty 的本机 TLS/SSL 实现**
-
-    Netty 可以直接对 TLS 实现堆栈使用 OpenSSL，以获得更好的性能。 如果没有此配置，netty 将回退到 Java 的默认 TLS 实现。
-
-    在 Ubuntu 上：
-    ```bash
-    sudo apt-get install openssl
-    sudo apt-get install libapr1
-    ```
-
-    并将以下依赖项添加到项目的 maven 依赖项：
-    ```xml
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-tcnative</artifactId>
-      <version>2.0.20.Final</version>
-      <classifier>linux-x86_64</classifier>
-    </dependency>
-    ```
-
-对于其他平台（CentOS、Windows、Mac 等），请参阅这些说明 https://netty.io/wiki/forked-tomcat-native.html
-
-<!-- Notice: Replace the Red Hat with CentOS-->
-
 ## <a name="indexing-policy"></a>索引策略
 
 * **从索引中排除未使用的路径以加快写入速度**
 
-    Azure Cosmos DB 的索引策略允许使用索引路径（setIncludedPaths 和 setExcludedPaths）指定要在索引中包括或排除的文档路径。 在事先知道查询模式的方案中，使用索引路径可改善写入性能并降低索引存储空间，因为索引成本与索引的唯一路径数目直接相关。 例如，以下代码演示如何使用“*”通配符从索引编制中排除文档的整个部分（也称为子树）。
+   Azure Cosmos DB 的索引策略允许使用索引路径（setIncludedPaths 和 setExcludedPaths）指定要在索引中包括或排除的文档路径。 在事先知道查询模式的方案中，使用索引路径可改善写入性能并降低索引存储空间，因为索引成本与索引的唯一路径数目直接相关。 例如，以下代码演示如何使用“*”通配符从索引编制中排除文档的整个部分（也称为子树）。
 
-    <a name="asyncjava2-indexing"></a>
-    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+<a name="asyncjava2-indexing"></a>
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
-    ```Java
+   ```Java
     Index numberIndex = Index.Range(DataType.Number);
     numberIndex.set("precision", -1);
     indexes.add(numberIndex);
@@ -288,9 +265,9 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     includedPaths.add(includedPath);
     indexingPolicy.setIncludedPaths(includedPaths);
     collectionDefinition.setIndexingPolicy(indexingPolicy);
-    ```
+  ```
 
-    有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
+  有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
 
 <a name="measure-rus"></a>
 ## <a name="throughput"></a>吞吐量
@@ -306,15 +283,15 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     若要测量任何操作（创建、更新或删除）的开销，请检查 [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 标头来测量这些操作占用的请求单位数。 也可以在 ResourceResponse\<T> 或 FeedResponse\<T> 中找到等效的 RequestCharge 属性。
 
     <a name="asyncjava2-requestcharge"></a>
-    ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
-    ```Java
-    ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,
-                                                     false).toBlocking.single();
-    response.getRequestCharge();
-    ```
+  ```Java
+  ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,
+                                                 false).toBlocking.single();
+  response.getRequestCharge();
+  ```
 
-    在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
+在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
 
 <a name="429"></a>
 * **处理速率限制/请求速率太大**

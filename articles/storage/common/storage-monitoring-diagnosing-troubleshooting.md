@@ -5,17 +5,17 @@ author: WenJason
 ms.service: storage
 ms.topic: troubleshooting
 origin.date: 09/23/2019
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: monitoring
-ms.openlocfilehash: 14213a0503ceffebbf7a62a983b975d10ac23344
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: monitoring, devx-track-csharp
+ms.openlocfilehash: 00c665251957d7dacb616287e9ac33867ff515df
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753578"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026538"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-azure-storage"></a>对 Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -133,7 +133,7 @@ ms.locfileid: "88753578"
 >
 >
 
-若要帮助估算各种存储对象（如 Blob）的大小，请参阅博客文章[了解 Azure 存储计费 — 带宽、事务和容量](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)。
+若要帮助估算各种存储对象（如 Blob）的大小，请参阅博客文章[了解 Microsoft Azure 存储计费 - 带宽、事务和容量](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity)。
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>监视可用性
 应通过监视以下每小时或每分钟度量值表中的“可用性”列中的值来监视存储帐户中存储服务的可用性： **$MetricsHourPrimaryTransactionsBlob**、 **$MetricsHourPrimaryTransactionsTable**、 **$MetricsHourPrimaryTransactionsQueue**、 **$MetricsMinutePrimaryTransactionsBlob**、 **$MetricsMinutePrimaryTransactionsTable**、 **$MetricsMinutePrimaryTransactionsQueue**、 **$MetricsCapacityBlob**。 **可用性**列包含一个百分比值，指示该服务的可用性或该行所表示的 API 操作的可用性（**RowKey** 显示行是包含整体服务的度量值还是包含特定 API 操作的度量值）。
@@ -467,7 +467,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | 源 | 详细程度 | 详细程度 | 客户端请求 ID | 操作文本 |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |信息 |3 |85d077ab-... |正在按位置模式 PrimaryOnly 使用主位置启动操作。 |
-| Microsoft.Azure.Storage |信息 |3 |85d077ab -… |开始向 <https://domemaildist.blob.core.chinacloudapi.cnazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> 发出同步请求 |
+| Microsoft.Azure.Storage |信息 |3 |85d077ab -… |开始向 <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests#Synchronous_request> 发出同步请求 |
 | Microsoft.Azure.Storage |信息 |3 |85d077ab -… |正在等待响应。 |
 | Microsoft.Azure.Storage |警告 |2 |85d077ab -… |等待响应时引发了异常：远程服务器返回了错误：(403) 禁止访问。 |
 | Microsoft.Azure.Storage |信息 |3 |85d077ab -… |收到响应。 状态代码 = 403，请求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = 。 |

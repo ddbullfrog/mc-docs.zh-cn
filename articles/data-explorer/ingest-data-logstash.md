@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: takamara
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 1bcb3c58b5a5d906282d37bdf8d4a248d8c4ee05
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: b3119ba3fec0d8a32bca4e046d9c7386bbcab7d7
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515963"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146497"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>将数据从 Logstash 引入 Azure 数据资源管理器
 
@@ -90,7 +90,7 @@ Logstash 可以生成用于测试端到端管道的示例事件。
 
 ## <a name="configure-logstash-to-send-data-to-azure-data-explorer"></a>配置 Logstash 以将数据发送到 Azure 数据资源管理器
 
-将以下设置粘贴到在上一步骤中使用的同一配置文件中。 请将所有占位符替换为相关的设置值。 有关详细信息，请参阅[创建 AAD 应用程序](/data-explorer/kusto/management/access-control/how-to-provision-aad-app)。 
+将以下设置粘贴到在上一步骤中使用的同一配置文件中。 请将所有占位符替换为相关的设置值。 有关详细信息，请参阅[创建 AAD 应用程序](kusto/management/access-control/how-to-provision-aad-app.md)。 
 
 ```ruby
 output {

@@ -8,19 +8,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 05/23/2019
-ms.date: 09/07/2020
+ms.topic: conceptual
+origin.date: 08/31/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.custom: seodec18
-ms.openlocfilehash: 15ec0bcc5f837ced4d2d21d88cb2142f63ff6ef7
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 612ba41fa80230b0079783f6299d262337c088f7
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244975"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>媒体服务帐户的基于角色的访问控制 (RBAC)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 目前，Azure 媒体服务不定义任何特定于服务的自定义角色。 若要获得媒体服务帐户的完全访问权限，客户可以使用内置的“所有者”或“参与者”角色。   这两个角色的主要区别是：所有者可以控制谁有权访问某个资源，而参与者则不可以。   也可使用内置的“读者”角色，但用户或应用程序将只能对媒体服务 API 进行读取访问。  
 

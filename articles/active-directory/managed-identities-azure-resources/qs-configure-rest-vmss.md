@@ -3,7 +3,7 @@ title: 使用 REST 在 Azure 虚拟机规模集上配置托管标识 - Azure AD
 description: 分步说明如何在 Azure 虚拟机规模集上通过使用 CURL 进行 REST API 调用来配置系统分配的托管标识和用户分配的托管标识。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a33b92b8166992388b016ebc84de03331387a1ac
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: da8cd6b8ac3c0459aeaeb51bd1a62d0fc087eaef
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245375"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>使用 REST API 调用在虚拟机规模集上配置 Azure 资源的托管标识
 
@@ -42,11 +42,11 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
     > [!NOTE]
     > 无需其他 Azure AD 目录角色分配。
 
-    - [虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统和/或用户分配的托管标识。
-    - [托管标识参与者](/role-based-access-control/built-in-roles#managed-identity-contributor)角色，可以创建用户分配的托管标识。
-    - [托管标识操作员](/role-based-access-control/built-in-roles#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的标识。
-- 如果使用的是 Windows，请安装[适用于 Linux 的 Windows 子系统](https://msdn.microsoft.com/commandline/wsl/about)。
-- 如果使用[适用于 Linux 的 Windows 子系统](https://msdn.microsoft.com/commandline/wsl/about)或 [Linux 分发版 OS](/cli/install-azure-cli-apt?view=azure-cli-latest)，请[安装 Azure CLI 本地控制台](/cli/install-azure-cli)。
+    - [虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统和/或用户分配的托管标识。
+    - [托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色，可以创建用户分配的托管标识。
+    - [托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的标识。
+- 如果使用的是 Windows，请安装[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/about)。
+- 如果使用[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/about)或 [Linux 分发版 OS](/cli/install-azure-cli-apt?view=azure-cli-latest)，请[安装 Azure CLI 本地控制台](/cli/install-azure-cli)。
 - 如果使用 Azure CLI 本地控制台，请使用 `az login` 和与要用于管理系统或用户分配的托管标识的 Azure 订阅关联的帐户登录。
 
 ## <a name="system-assigned-managed-identity"></a>系统分配的托管标识

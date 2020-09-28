@@ -9,20 +9,20 @@ editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/03/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249108f4bd18c6bc138e47432f35900c731dc8b0
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 94d3bc7211e506cfa440a0d987bc99678581c35c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945238"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245611"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>如何：管理 Azure AD 中的非活动用户帐户
 
@@ -91,6 +91,6 @@ lastSignInDateTime 属性由 [Microsoft Graph REST API](https://docs.microsoft.c
 ## <a name="next-steps"></a>后续步骤
 
 * [使用具有证书的 Azure Active Directory 报告 API 获取数据](tutorial-access-api-with-certificates.md)
-* [审核 API 参考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [登录活动报告 API 参考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [审核 API 参考](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [登录活动报告 API 参考](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
 

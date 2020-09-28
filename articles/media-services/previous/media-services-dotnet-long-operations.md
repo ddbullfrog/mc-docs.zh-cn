@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52bfe327b95b49f67199ab649aaf8905fa4f4193
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: cbd924a069d2a70a8eb6099bebdd9f65e886b20c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413202"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245481"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>使用 Azure 媒体服务传送实时流
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>概述
 

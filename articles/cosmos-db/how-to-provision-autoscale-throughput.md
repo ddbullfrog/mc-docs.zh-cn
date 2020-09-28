@@ -1,20 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中预配自动缩放吞吐量
 description: 了解如何使用 Azure 门户、CLI、PowerShell 以及其他各种 SDK 在 Azure Cosmos DB 中的容器和数据库级别预配自动缩放吞吐量。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 07/30/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: bfa17e8d49c3e918fbd37445d78d0e0c6dde4265
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ce43377d5f79849216a9a5d4975247c68fc78db1
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222695"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246460"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中的数据库或容器上预配自动缩放吞吐量
 

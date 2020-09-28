@@ -45,18 +45,22 @@
   items:
     - name: .NET
       items:
-        - name: 对远程文件 REST 进行编码和流式传输
-          href: stream-files-tutorial-with-rest.md
         - name: 对远程文件 .NET 进行编码和流式传输
           href: stream-files-dotnet-quickstart.md
-        - name: 对上传的文件进行编码和流式传输
+        - name: 对上传的文件进行编码和流式传输 (.NET)
           href: stream-files-tutorial-with-api.md
-        - name: 实时流式处理
+        - name: 使用 .NET 实时传送视频流
           href: stream-live-tutorial-with-api.md
+        - name: 使用 .NET 分析视频
+          href: analyze-videos-tutorial-with-api.md
         - name: 通过 AES-128 进行动态加密
           href: protect-with-aes128.md
         - name: 通过 DRM 进行动态加密
           href: protect-with-drm.md
+    - name: REST
+      items:
+        - name: 对远程文件 REST 进行编码和流式传输
+          href: stream-files-tutorial-with-rest.md
     - name: CLI
       items:
         - name: 对远程文件 CLI 进行编码和流式传输
@@ -106,6 +110,11 @@
           href: autogen-bitrate-ladder.md
         - name: 内容感知型编码
           href: content-aware-encoding.md
+    - name: 分析内容（视频索引器）
+      items:
+        - name: 概述
+          href: analyzing-video-audio-files-concept.md
+          displayName: 'analyze, analyzing, presets, jobs'
         - name: 转换和作业
           href: transforms-jobs-concept.md
     - name: 实时传送视频流
@@ -192,7 +201,7 @@
               href: job-error-codes.md
     - name: 高可用性
       items:
-        - name: 编码
+        - name: 点播视频
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
     - name: 疑难解答

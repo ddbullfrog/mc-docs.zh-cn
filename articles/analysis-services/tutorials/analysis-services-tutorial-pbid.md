@@ -1,19 +1,21 @@
 ---
 title: 教程 - 使用 Power BI Desktop 连接 Azure Analysis Services | Azure
-author: rockboyfor
-description: 了解如何从 Azure 门户获取 Analysis Services 服务器名称，然后使用 Power BI Desktop 连接到服务器。
+description: 本教程介绍如何从 Azure 门户获取 Analysis Services 服务器名称，然后使用 Power BI Desktop 连接到服务器。
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 10/30/2019
-ms.date: 11/25/2019
+origin.date: 08/31/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: df569cee4a843a1a06cee97b5dd0c13b035759e6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 55b03d75359c0fe2898d8dab1f04615cfd1b258b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74203618"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146637"
 ---
 <!--Notice: Verify sucessfully-->
 # <a name="tutorial-connect-with-power-bi-desktop"></a>教程：使用 Power BI Desktop 进行连接
@@ -43,7 +45,7 @@ ms.locfileid: "74203618"
 
 <!--MOONCAKE: Remove the four empty chars to avoid the wrong code format-->
 
-![在 Azure 中获取服务器名称](./media/analysis-services-tutorial-pbid/aas-copy-server-name.png)
+:::image type="content" source="./media/analysis-services-tutorial-pbid/aas-copy-server-name.png" alt-text="在 Azure 中获取服务器名称":::
 
 <!--MOONCAKE: Remove the four empty chars to avoid the wrong code format-->
 
@@ -51,11 +53,11 @@ ms.locfileid: "74203618"
 
 1. 在 Power BI Desktop 中，单击“获取数据”   > “Azure”   > “Azure Analysis Services 数据库”  。
 
-    ![在“获取数据”中连接](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aasserver.png)
+    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-connect-aasserver.png" alt-text="在“获取数据”中连接":::
 
 2. 在“服务器”  中，粘贴服务器名称，然后在“数据库”  中输入 **adventureworks**，然后单击“确定”。 
 
-    ![指定服务器名称和模型数据库](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png)
+    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png" alt-text="指定服务器名称和模型数据库":::
 
 3. 在系统提示时输入凭据。 你输入的帐户必须至少具有 adventureworks 示例模型数据库的读取权限。
 
@@ -63,11 +65,11 @@ ms.locfileid: "74203618"
 
 4. 在“可视化效果”  中，选择“簇状条形图”  ，单击“格式”  （滚漆筒图标），然后启用“数据标签”。  
 
-    ![可视化效果](./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png)
+    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png" alt-text="可视化效果":::
 
 5. 在“字段” > **Internet Sales** 表中，选择 **Internet Sales Total** 和 **Margin** 度量值。 在 **Product Category** 表中，选择 **Product Category Name**。
 
-    ![完成报表](./media/analysis-services-tutorial-pbid/aas-pbid-complete-report.png)
+    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-complete-report.png" alt-text="完成报表":::
 
     花费几分钟时间来探究 adventureworks 示例模型：创建不同的可视化效果并对数据和指标进行切片。 当对报表感到满意后，务必进行保存。
 

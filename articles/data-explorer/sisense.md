@@ -5,15 +5,16 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
+ms.custom: has-adal-ref
 origin.date: 05/29/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: 1ae939cf1592439d708afa443cdb41a3355c851b
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: 102d05511c33805d3a5ad4c0267a357ebbb5b543
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417574"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146265"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-sisense"></a>在 Sisense 中可视化 Azure 数据资源管理器中的数据
 

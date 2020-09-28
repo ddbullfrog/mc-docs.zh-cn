@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/23/2020
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.subservice: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d03b18f2a8a438f96b1c28fb2012875bf4a5e9
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: b0b08fadef9f9d7e05c904946784c811f5d466fa
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126585"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245513"
 ---
 # <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory 联合身份验证服务 (AD FS) 场的 TLS/SSL 证书
 
@@ -34,7 +34,7 @@ ms.locfileid: "82126585"
 
 
 >[!NOTE]
->若要详细了解 AD FS 所使用的证书，请参阅[了解 AD FS 所使用的证书](https://technet.microsoft.com/library/cc730660.aspx)。
+>若要详细了解 AD FS 所使用的证书，请参阅[了解 AD FS 所使用的证书](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730660(v=ws.11))。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -109,5 +109,4 @@ Azure AD Connect 尝试通过以下方式自动获取有关 AD FS 场的信息�
 
 - [Azure AD Connect 和联合身份验证](how-to-connect-fed-whatis.md)
 - [使用 Azure AD Connect 进行 Active Directory 联合身份验证服务的管理和自定义](how-to-connect-fed-management.md)
-
 

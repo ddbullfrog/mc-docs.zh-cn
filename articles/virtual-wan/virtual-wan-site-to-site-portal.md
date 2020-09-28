@@ -2,21 +2,21 @@
 title: Azure 虚拟 WAN - 创建站点到站点连接
 description: 本教程介绍如何使用 Azure 虚拟 WAN 来与 Azure 建立站点到站点 VPN 连接。
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
 ms.topic: tutorial
 origin.date: 07/09/2020
-ms.date: 08/10/2020
-ms.testscope: yes|no
-ms.testdate: 08/03/2020
+author: rockboyfor
+ms.date: 09/25/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: baec23b9c1b551e21360486b5e1b8f10430021ac
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 07ff8693365f13674a6846127ef04de36ebc0439
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246673"
 ---
 <!--MOONCAKE: NY VS Beijing, London VS Shanghai, LS VS Tianjing-->
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>教程：使用 Azure 虚拟 WAN 创建站点到站点连接
@@ -258,3 +258,4 @@ ms.locfileid: "87917183"
 若要详细了解虚拟 WAN，请参阅[虚拟 WAN 概述](virtual-wan-about.md)页。
 
 <!--MOONCAKE: NY VS Beijing, London VS Shanghai, LS VS Tianjin-->
+<!-- Update_Description: update meta properties, wording update, update link -->

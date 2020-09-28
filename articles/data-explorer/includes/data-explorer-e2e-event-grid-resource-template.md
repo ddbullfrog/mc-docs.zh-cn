@@ -1,16 +1,16 @@
 ---
-author: lugoldbemicrosoft
+author: orspod
 ms.service: data-explorer
 ms.topic: include
 origin.date: 02/03/2020
-ms.date: 05/15/2020
+ms.date: 08/18/2020
 ms.author: v-tawe
-ms.openlocfilehash: 060c74f3e2cd186a252c9e35cc763500852fd2a1
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.openlocfilehash: 1235414e7c3b6e299467896a5f25ca9b7a4287ec
+ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417635"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "91146737"
 ---
 ## <a name="azure-resource-manager-template"></a>Azure 资源管理器模板
 

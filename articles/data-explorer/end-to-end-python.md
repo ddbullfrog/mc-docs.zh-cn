@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: tutorial
 origin.date: 02/03/2020
-ms.date: 08/13/2020
-ms.openlocfilehash: 6b14dec9ab428fcc17b85ae6528b419b0da39b68
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 98fbc04777613e6f8fed6ea775c0a064255bb9be
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515824"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146739"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>通过 Python 以端到端方式将 blob 引入到 Azure 数据资源管理器中
 

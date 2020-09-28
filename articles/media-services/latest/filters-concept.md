@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-origin.date: 05/23/2019
-ms.date: 09/23/2019
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 9acaaa7c92b7cbe3974e085997727a3e8b648081
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e88198bd7a44e6c2cf24ed6a4d8aa68e86c16150
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79293162"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245121"
 ---
 # <a name="filters"></a>筛选器
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 将内容传送到客户（实时传送视频流事件或点播视频）时，客户端所需的灵活性可能比默认资产的清单文件中描述的灵活性更高。 Azure 媒体服务根据预定义的筛选器提供[动态清单](filters-dynamic-manifest-overview.md)。 
 

@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/06/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: e5eaf186d022a39aee29696f1ce95baa961591c3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5d205eea7f9dbb1aea00b436c73f833597854910
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80625783"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244754"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频  
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 ## <a name="overview"></a>概述
 MPEG-DASH 是视频内容自适应流式处理的 ISO 标准，为希望传送高质量自适应视频流式处理输出的开发人员提供了显著的好处。 使用 MPEG-DASH，当网络阻塞时，视频流会自动调整到较低清晰度。 这样可以减少在播放器下载下几秒钟要播放内容时观众看到“暂停”视频的可能性（也就是说，它减少了缓冲的可能性）。 当网络拥塞减少时，视频播放器将转而恢复到较高质量的流。 这种适应所需带宽的能力也会导致视频开始的速度更快。 这意味着可以在快速下载较低质量段播放最初的几秒钟，并在已缓冲足够内容后提升到更高质量。

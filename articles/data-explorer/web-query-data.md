@@ -7,17 +7,17 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 origin.date: 06/15/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 99d7ef98d152eba0acd7b3329ffcb77e6385c677
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 43edcb5be7cca1ef3a558bbb5a3b7b73aa2058bd
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516042"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146547"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>快速入门：在 Azure 数据资源管理器 Web UI 中查询数据
 
-Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Azure 数据资源管理器提供了 Web 应用程序，可用于运行和共享查询。 该应用程序可在 Azure 门户中使用，也可作为独立的 Web 应用程序使用。 在本文中，将使用独立版本，该版本允许连接到多个群集并共享指向查询的深层链接。
+Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Azure 数据资源管理器提供了可用于运行和共享查询的 Web 应用程序。 该应用程序可在 Azure 门户中使用，也可作为独立的 Web 应用程序使用。 在本文中，将使用独立版本，该版本允许连接到多个群集并共享指向查询的深层链接。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 

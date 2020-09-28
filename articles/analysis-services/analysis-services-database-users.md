@@ -1,19 +1,21 @@
 ---
 title: 管理 Azure Analysis Services 中的数据库角色和用户| Azure
 description: 了解如何在 Azure 中管理 Analysis Services 服务器上的数据库角色和用户。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/15/2020
-ms.date: 04/30/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6424f9eee9455a434cc1186e4f0f68c13b7d5ed5
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.openlocfilehash: 5706f1e1bb9b61b1f47ad658a46ac5f019df931b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392233"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146224"
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 
@@ -56,7 +58,7 @@ ms.locfileid: "83392233"
 
 8. 在“添加外部成员”中，按电子邮件地址输入租户 Azure AD 中的用户或组。 单击“确定”并关闭角色管理器后，角色和角色成员将显示在表格模型资源管理器中。 
 
-    ![表格模型资源管理器中的角色和用户](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
+    :::image type="content" source="./media/analysis-services-database-users/aas-roles-tmexplorer.png" alt-text="表格模型资源管理器中的角色和用户":::
 
 9. 部署到 Azure Analysis Services 服务器。
 
@@ -78,7 +80,7 @@ ms.locfileid: "83392233"
 
 4. 单击“成员资格”，并按电子邮件地址在租户 Azure AD 中输入用户或组。
 
-    ![添加用户](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+    :::image type="content" source="./media/analysis-services-database-users/aas-roles-adduser-ssms.png" alt-text="添加用户":::
 
 5. 如果正在创建的角色具有“读取”权限，可以使用 DAX 公式添加行筛选器。 单击“行筛选器”，选择表，并在“DAX 筛选器”字段中键入 DAX 公式。 
 

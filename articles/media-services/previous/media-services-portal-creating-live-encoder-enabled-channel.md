@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/01/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 2941102592592083fecba78e784b5d6e75cf8fac
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 70f55671bf8e18c2110f32bd1f3667c617b84083
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245631"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>使用媒体服务实时传送视频流，通过 Azure 门户创建多比特率流  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>使用媒体服务实时传送视频流，通过 Azure 门户创建多比特率流
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)

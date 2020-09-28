@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 09/26/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: a93b76e7c83ae2680cc3e5dd1899709c0dada3a2
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: fc5d2d04f86c14abd30fefa4e2dd163b4ce781cd
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417776"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146785"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建 Azure 数据资源管理器群集和数据库
 
@@ -156,7 +156,7 @@ Get-AzKustoCluster -ResourceGroupName $resourceGroupName -Name $clusterName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-[!INCLUDE [data-explorer-clean-resources](../../includes/data-explorer-clean-resources.md)]
+[!INCLUDE [data-explorer-clean-resources](includes/data-explorer-clean-resources.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

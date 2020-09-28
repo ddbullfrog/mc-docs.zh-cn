@@ -9,16 +9,19 @@ ms.service: media-services
 ms.workload: media
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 3a65127a35bd96932e9b5d3f6f4e12a9f3d4d665
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 9459c1d4ff7b031b41796b0e0389bfe5533798e2
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413611"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245689"
 ---
 # <a name="deliver-content-to-customers"></a>向客户传送内容
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 向客户传送流或视频点播内容时，目标在于向处于不同网络条件下的各种设备传送优质视频。
 
 若要实现此目标，可以：

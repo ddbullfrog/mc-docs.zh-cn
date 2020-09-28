@@ -10,19 +10,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 03/09/2020
-ms.date: 09/07/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 7829d902bb1499e785fb590f65084da502fe2288
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 9e6b15b0cf2d23444d305102bf5f7bd921cf6276
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245082"
 ---
 # <a name="scaling-media-processing"></a>缩放媒体处理能力
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 使用 Azure 媒体服务，可以通过管理媒体预留单位 (MRU) 来缩放媒体处理能力。 MRU 确定处理媒体处理任务的速度。 可以在以下预留单位类型中进行选择：**S1**、**S2** 或 **S3**。 例如，与 **S1** 预留单位类型相比，使用 **S2** 预留单位类型时，同一编码作业运行速度更快。 
 

@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 0f67fd932ca57c8e511ad90d23bebd1286c27ffa
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 45c0565929a89eb82bd2a189a89850d6831f06d3
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413216"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244924"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何使 Media Encoder Standard 通过 .NET 来生成缩略图 
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何使 Media Encoder Standard 通过 .NET 来生成缩略图
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 可以使用 Media Encoder Standard 以 [JPEG](https://en.wikipedia.org/wiki/JPEG)、[PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 或 [BMP](https://en.wikipedia.org/wiki/BMP_file_format) 图像文件格式从输入视频生成一个或多个缩略图。 可以提交仅生成图像的任务，或者合并缩略图的生成与编码功能。 本文针对此类方案提供一些示例 XML 和 JSON 缩略图预设。 本文末尾提供了一段[示例代码](#code_sample)，演示如何使用媒体服务 .NET SDK 来完成编码任务。
 

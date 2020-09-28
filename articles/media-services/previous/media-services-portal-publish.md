@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 171378e54d4505ef3ef785e32e89dff7b9ec2295
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: c8820ac054f8380928b372dba930d00f89c67468
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244874"
 ---
-# <a name="publish-content-in-the-azure-portal"></a>在 Azure 门户中发布内容  
+# <a name="publish-content-in-the-azure-portal"></a>在 Azure 门户中发布内容
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [门户](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)

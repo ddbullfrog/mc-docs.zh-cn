@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 06/08/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: 32804655d5ef93bc2f083e60085b0037b2a01432
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.openlocfilehash: 670060d0cff46c1dd9b367d4e23e419147992554
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245080"
 ---
-# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Wirecast 编码器发送单比特率实时流 
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Wirecast 编码器发送单比特率实时流
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 >

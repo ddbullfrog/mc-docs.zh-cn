@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: ab3524d0a2efc24ee2192d9af490b5ffd6fbbaf7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 9be5565f66efb1f38859f1ea1ad47f96cd0ff759
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71124633"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245685"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>在 Azure 门户中使用 Media Encoder Standard 对资产进行编码
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。 

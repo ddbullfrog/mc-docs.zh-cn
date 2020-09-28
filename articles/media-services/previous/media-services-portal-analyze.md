@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 12/09/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 1a5c9f1c7792c0b97bb52e94cd3b4d4795dec141
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0f5c7fa0743d79ae470c458174cf3adb900aebef
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74807639"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245544"
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 门户分析媒体 
+# <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 门户分析媒体
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!IMPORTANT]
 > 查看某些媒体处理器的[停用计划](media-services-analytics-overview.md#retirement-plans)。

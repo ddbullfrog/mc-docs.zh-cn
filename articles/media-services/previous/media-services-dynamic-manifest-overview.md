@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: acce1510dc5e23231655eda2cd13b6fae268aaa7
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 1391b37776158e9a5c6cd62f9a7e8526baf22e61
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413208"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244770"
 ---
 # <a name="filters-and-dynamic-manifests"></a>筛选器和动态清单
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="选择所使用的媒体服务版本："]
 > * [第 2 版](media-services-dynamic-manifest-overview.md)

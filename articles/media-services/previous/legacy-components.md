@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/27/2020
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 8f99e0ad031da09cbfccf6acaf21a84c76d214dd
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: abc959e7f4af8dd6e8edb1c42e8c41efeb129627
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413680"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244775"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure 媒体服务旧组件
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 随着时间的推移，对媒体服务组件进行了稳定的改进和增强。 因此，某些旧组件已经停用。 可以在以下文章中找到有关如何将应用程序从旧组件迁移到当前组件的说明。
  

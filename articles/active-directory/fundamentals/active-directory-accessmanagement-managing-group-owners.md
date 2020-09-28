@@ -2,22 +2,22 @@
 title: 添加或删除组所有者 - Azure Active Directory | Microsoft Docs
 description: 有关如何使用 Azure Active Directory 添加或删除组所有者的说明。
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 02/25/2020
+ms.topic: how-to
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5f5fbbac1de783555723dd8851a5a151726eca2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5d241764ec1611ff190a31e4a35b603650e6e0f6
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653102"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244830"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>在 Azure Active Directory 中添加或删除组所有者
 Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有者可以是用户或服务主体，并且能够管理组（包括成员身份）。 只有现有的组所有者或组管理管理员才能分配组所有者。 组所有者无需成为组成员。
@@ -69,4 +69,3 @@ Azure Active Directory (Azure AD) 组由组所有者拥有和管理。 组所有
 
 - [用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
-<!-- Update_Description: wording update -->

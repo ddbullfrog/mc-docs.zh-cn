@@ -7,13 +7,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 05/19/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 6879700f8c2e6f74f1bb7d7d874cd6f14fadd81e
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.date: 09/24/2020
+ms.openlocfilehash: 9c22d8214226f4f93b3450ffec6f2cdf3bf806ec
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951339"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146378"
 ---
 # <a name="kustoexplorer-installation-and-user-interface"></a>Kusto.Explorer 安装和用户界面
 
@@ -27,7 +27,7 @@ Kusto.Explorer 是一个富桌面应用程序，可让你在易于使用的用�
 
 ## <a name="installing-kustoexplorer"></a>安装 Kusto.Explorer
 
-* 安装 [Kusto.Explorer 工具](https://aka.ms/ke)。
+* 从 [https://aka.ms/ke](https://aka.ms/ke) 下载并安装安装 Kusto.Explorer 工具
 
 * 改为使用浏览器 (`https://<your_cluster>.kusto.chinacloudapi.cn.`) 访问 Kusto 群集
    将 your_cluster 替换为 Azure 数据资源管理器群集的名称&lt;&gt;。

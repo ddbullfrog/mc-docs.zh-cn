@@ -13,17 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/18/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: juliako
-ms.openlocfilehash: 9740a81083546047d39a7fb38534c35c4b0ee629
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 40eab9ad4f6834e329ca8190c38d4b9c4b4dce3b
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71124531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244936"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒体服务执行实时流式处理以通过 .NET 创建多比特率流
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [门户](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)

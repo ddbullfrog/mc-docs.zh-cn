@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-origin.date: 03/18/2020
-ms.date: 07/27/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 73c00029f7fc1b74e8e3959f404916344c04c72e
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 501b7e96f1d9a72e972c44d94fe669bbe1e9cdec
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162213"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245092"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒体服务 v3 实时传送视频流
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。

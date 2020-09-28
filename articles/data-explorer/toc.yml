@@ -82,7 +82,7 @@
           href: lightingest.md
         - name: 事件中心
           items:
-            - name: 连接到事件中心
+            - name: 创建到事件中心的连接
               href: ingest-data-event-hub-overview.md
             - name: Azure 门户
               href: ingest-data-event-hub.md
@@ -94,7 +94,7 @@
               href: data-connection-event-hub-resource-manager.md
         - name: IoT 中心
           items:
-            - name: 连接到 IoT 中心
+            - name: 创建到 IoT 中心的连接
               href: ingest-data-iot-hub-overview.md
             - name: Azure 门户
               href: ingest-data-iot-hub.md
@@ -235,7 +235,8 @@
       items:
         - name: 使用诊断日志监视引入
           href: using-diagnostic-logs.md
-        - name: 使用指标来监视群集运行状况
+        - name: 利用指标监视 Azure 数据资源管理器
+          displayName: 'health, performance'
           href: using-metrics.md
     - name: 共享数据
       items:
@@ -1244,10 +1245,10 @@
               items:
                 - name: 外部表常规控制命令
                   href: ./kusto/management/external-table-commands.md
-                - name: 创建和更改外部 SQL 表
-                  href: ./kusto/management/external-sql-tables.md
                 - name: 在 Azure 存储或 Azure Data Lake 中创建和更改外部表
                   href: ./kusto/management/external-tables-azurestorage-azuredatalake.md
+                - name: 创建和更改外部 SQL 表
+                  href: ./kusto/management/external-sql-tables.md
             - name: 列
               items:
                 - name: 列管理
@@ -1601,6 +1602,22 @@
               href: ./kusto/api/monaco/monaco-kusto.md
             - name: 将 Web UX 嵌入 iFrame
               href: ./kusto/api/monaco/host-web-ux-in-iframe.md
+    - name: 函数库
+      items:
+        - name: 函数列表
+          href: kusto/functions-library/functions-library.md
+        - name: predict_fl()
+          href: kusto/functions-library/predict-fl.md
+        - name: predict_onnx_fl()
+          href: kusto/functions-library/predict-onnx-fl.md
+        - name: quantize_fl()
+          href: kusto/functions-library/quantize-fl.md
+        - name: series_fit_poly_fl()
+          href: kusto/functions-library/series-fit-poly-fl.md
+        - name: series_moving_avg_fl()
+          href: kusto/functions-library/series-moving-avg-fl.md
+        - name: series_rolling_fl()
+          href: kusto/functions-library/series-rolling-fl.md
 - name: 资源
   items:
     - name: 博客

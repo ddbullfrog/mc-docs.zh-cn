@@ -5,16 +5,18 @@ author: WenJason
 ms.author: v-jay
 ms.service: media-services
 ms.topic: how-to
-origin.date: 07/27/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: f986674b4537d821dfa1c6cd9480988948e9bfef
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+origin.date: 08/31/2020
+ms.date: 09/28/2020
+ms.openlocfilehash: 99f6ae217e6768ff61ef1b6d2cbb98bb6172e9c3
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245645"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>如何使用 Media Encoder Standard 创建覆盖
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以下格式：png、jpg、gif 和 bmp。
 

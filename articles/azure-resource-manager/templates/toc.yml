@@ -19,11 +19,13 @@
             - name: 数据科学虚拟机
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure-resource-manager/templates/toc.json
             - name: 机器学习
-              href: ../../machine-learning/tutorial-resource-manager-workspace.md?toc=/azure-resource-manager/templates/toc.json
+              href: ../../machine-learning/how-to-create-workspace-template.md?toc=/azure-resource-manager/templates/toc.json
         - name: 分析
           items:
             - name: Analysis Services
               href: ../../analysis-services/analysis-services-create-template.md?toc=/azure-resource-manager/templates/toc.json
+            - name: 数据工厂
+              href: ../../data-factory/quickstart-create-data-factory-resource-manager-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: 事件中心
               href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure-resource-manager/templates/toc.json
             - name: HDInsight - Hadoop
@@ -36,8 +38,14 @@
               href: ../../hdinsight/kafka/apache-kafka-quickstart-resource-manager-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: HDInsight - Spark
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure-resource-manager/templates/toc.json
+            - name: 流分析
+              href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure-resource-manager/templates/toc.json
+            - name: Synapse Analytics
+              href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure-resource-manager/templates/toc.json
         - name: 计算
           items:
+            - name: Batch
+              href: ../../batch/quick-create-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: Linux 虚拟机
               href: ../../virtual-machines/linux/quick-create-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: 虚拟机规模集 - Linux
@@ -52,6 +60,8 @@
               href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: 容器实例
               href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure-resource-manager/templates/toc.json
+            - name: 容器注册表
+              href: ../../container-registry/container-registry-get-started-geo-replication-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: Service Fabric
               href: ../../service-fabric/quickstart-cluster-template.md?toc=/azure-resource-manager/templates/toc.json
         - name: 数据库
@@ -64,14 +74,12 @@
               href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: Database for PostgreSQL
               href: ../../postgresql/quickstart-create-postgresql-server-database-using-arm-template.md?toc=/azure-resource-manager/templates/toc.json
+            - name: 数据库迁移服务
+              href: ../../dms/create-dms-resource-manager-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: SQL 数据库
               href: ../../azure-sql/database/single-database-create-arm-template-quickstart.md?toc=/azure-resource-manager/templates/toc.json
             - name: SQL 托管实例
-              href: ../..//azure-sql/managed-instance/create-template-quickstart.md?toc=/azure-resource-manager/templates/toc.json
-        - name: DevOps
-          items:
-            - name: 管道
-              href: 'https://docs.azure.cn/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure-resource-manager/templates/toc.json'
+              href: ../../azure-sql/managed-instance/create-template-quickstart.md?toc=/azure-resource-manager/templates/toc.json
         - name: 集成
           items:
             - name: 事件网格
@@ -86,15 +94,25 @@
               href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure-resource-manager/templates/toc.json
         - name: 管理和监管
           items:
-            - name: Backup
+            - name: 自动化
+              href: ../../automation/quickstart-create-automation-account-template.md?toc=/azure-resource-manager/templates/toc.json
+            - name: 备份
               href: ../../backup/quick-backup-vm-template.md?toc=/azure-resource-manager/templates/toc.json
+            - name: 托管应用程序
+              href: ../managed-applications/publish-service-catalog-app.md?toc=/azure-resource-manager/templates/toc.json
+            - name: 监视
+              href: ../../azure-monitor/learn/quick-collect-activity-log-arm.md?toc=/azure-resource-manager/templates/toc.json
             - name: 策略
               href: ../../governance/policy/assign-policy-template.md?toc=/azure-resource-manager/templates/toc.json
+            - name: 门户
+              href: ../../azure-portal/quick-create-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: Resource Graph
               href: ../../governance/resource-graph/shared-query-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: 基于角色的访问控制 (RBAC)
               href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure-resource-manager/templates/toc.json
-            - name: 站点恢复
+            - name: 服务运行状况
+              href: ../../service-health/alerts-activity-log-service-notifications-arm.md?toc=/azure-resource-manager/templates/toc.json
+            - name: Site Recovery
               href: ../../site-recovery/quickstart-create-vault-template.md?toc=/azure-resource-manager/templates/toc.json
         - name: 网络
           items:
@@ -106,8 +124,12 @@
               href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure-resource-manager/templates/toc.json
         - name: 安全性
           items:
-            - name: 密钥保管库
+            - name: Key Vault
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure-resource-manager/templates/toc.json
+        - name: 存储
+          items:
+            - name: 存储帐户
+              href: ../../storage/common/storage-account-create.md?toc=/azure-resource-manager/templates/toc.json
         - name: Web
           items:
             - name: 通知中心
@@ -167,12 +189,6 @@
           href: template-tutorial-deploy-sql-extensions-bacpac.md
         - name: 排查模板部署问题
           href: template-tutorial-troubleshoot.md
-- name: 示例
-  items:
-    - name: Azure 快速入门模板
-      href: 'https://github.com/Azure/azure-quickstart-templates/'
-    - name: 模板示例
-      href: template-samples.md
 - name: 概念
   items:
     - name: 模板最佳实践
@@ -196,7 +212,7 @@
           href: template-syntax.md
         - name: 编写模板表达式
           href: template-expressions.md
-        - name: parameters
+        - name: 参数
           href: template-parameters.md
         - name: 变量
           href: template-variables.md
@@ -216,9 +232,6 @@
               href: add-resource-extensions.md
         - name: Outputs
           href: template-outputs.md
-        - name: 部署脚本
-          displayName: custom script
-          href: deployment-script-template.md
         - name: 将模板模块化
           displayName: 'linked templates, nested templates'
           href: linked-templates.md
@@ -236,16 +249,6 @@
             - name: Outputs
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: 使用创作工具
-      items:
-        - name: VS Code
-          href: use-vs-code-to-create-template.md
-        - name: Visual Studio
-          href: create-visual-studio-deployment-project.md
-        - name: 将 VS 部署脚本更新到 Az 模块
-          href: update-visual-studio-deployment-script.md
-        - name: IntelliJ IDEA
-          href: create-templates-use-intellij.md
     - name: 发现模板属性
       items:
         - name: 导出模板
@@ -256,6 +259,10 @@
       items:
         - name: 模拟部署
           href: template-deploy-what-if.md
+        - name: 测试工具包
+          href: test-toolkit.md
+        - name: 测试事例
+          href: test-cases.md
     - name: 部署模板
       items:
         - name: 部署 - 门户
@@ -277,6 +284,8 @@
           href: rollback-on-error.md
         - name: 使用 SAS 令牌保护模板
           href: secure-template-with-sas-token.md
+        - name: 查看部署历史记录
+          href: deployment-history.md
     - name: 作用域内部署
       items:
         - name: 订阅
@@ -285,8 +294,8 @@
           href: deploy-to-management-group.md
         - name: 租户
           href: deploy-to-tenant.md
-        - name: 跨资源组
-          href: cross-resource-group-deployment.md
+        - name: 跨范围部署
+          href: cross-scope-deployment.md
     - name: 提供参数
       items:
         - name: 创建参数文件
@@ -300,8 +309,14 @@
           href: add-template-to-azure-pipelines.md
         - name: 部署 - GitHub Actions
           href: deploy-github-actions.md
-    - name: 查看部署历史记录
-      href: deployment-history.md
+    - name: 使用创作工具
+      items:
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: 将 VS 部署脚本更新到 Az 模块
+          href: update-visual-studio-deployment-script.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: 对部署进行故障排除
       items:
         - name: 排查部署错误
@@ -336,8 +351,6 @@
           href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-windows.md
 - name: 参考
   items:
-    - name: 模板参考
-      href: /templates/
     - name: 模板函数
       items:
         - name: 所有函数
@@ -352,11 +365,11 @@
           href: template-functions-deployment.md
         - name: 逻辑函数
           href: template-functions-logical.md
-        - name: 数值函数
+        - name: 数字函数
           href: template-functions-numeric.md
         - name: 对象函数
           href: template-functions-object.md
-        - name: Resource functions
+        - name: 资源函数
           href: template-functions-resource.md
         - name: 字符串函数
           href: template-functions-string.md
@@ -365,7 +378,7 @@
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.resources'
     - name: Azure CLI
-      href: 'https://docs.azure.cn/cli/resource?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/resource'
     - name: .NET
       href: 'https://docs.azure.cn/dotnet/api/microsoft.azure.management.resourcemanager'
     - name: Java
@@ -374,6 +387,8 @@
       href: 'https://docs.microsoft.com/python/api/overview/azure/resources?view=azure-python'
 - name: 资源
   items:
+    - name: Azure 快速入门模板
+      href: 'https://github.com/Azure/azure-quickstart-templates/'
     - name: 定价计算器
       href: 'https://www.azure.cn/pricing/calculator/'
     - name: 服务更新

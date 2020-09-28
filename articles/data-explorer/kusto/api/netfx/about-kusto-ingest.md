@@ -9,13 +9,13 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 03/18/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 6170f523632fadc2246a1680a32f296351411ca4
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 09/24/2020
+ms.openlocfilehash: 7dfc257a5e2f4d1a5fed6c287607c2b1424d0e65
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226354"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146614"
 ---
 # <a name="kusto-ingest-client-library"></a>Kusto 引入客户端库 
 
@@ -98,3 +98,4 @@ ms.locfileid: "86226354"
 * [Kusto.Ingest 示例](kusto-ingest-client-examples.md)显示的代码片段演示了将数据引入到 Kusto 中的各种技术
 
 * [在不使用 Kusto.Ingest 库的情况下进行数据引入](kusto-ingest-client-rest.md)介绍了如何使用 Kusto REST API 来实现排队 Kusto 引入，而不依赖于 `Kusto.Ingest` 库
+

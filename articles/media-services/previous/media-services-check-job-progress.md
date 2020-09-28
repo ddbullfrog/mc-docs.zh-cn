@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 09/07/2019
+ms.date: 09/28/2019
 ms.author: v-jay
-ms.openlocfilehash: d90c0291d359bbd6a5b3086b7f79a706552d6c4c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fb8b4054da8a218de3e251d3286805df0fd409de
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245692"
 ---
-# <a name="monitor-job-progress-using-net"></a>使用 .NET 监视作业进度 
+# <a name="monitor-job-progress-using-net"></a>使用 .NET 监视作业进度
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](../latest/index.yml)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)

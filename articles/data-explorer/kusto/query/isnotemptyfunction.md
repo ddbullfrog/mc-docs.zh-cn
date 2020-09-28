@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: d9477161f074fc948aa20fdb3c29b48cb8f65238
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/24/2020
+ms.openlocfilehash: abb448628795772f008dbf3fc03cad9d9f70ff54
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841629"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146760"
 ---
 # <a name="isnotempty"></a>isnotempty()
 
@@ -24,8 +24,16 @@ ms.locfileid: "87841629"
 isnotempty("") == false
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 `isnotempty(`[*value*]`)`
 
 `notempty(`[*value*]`)` - `isnotempty` 的别名
+
+## <a name="example"></a>示例
+
+```kusto
+T
+| where isnotempty(fieldName)
+| count
+```

@@ -1,20 +1,23 @@
 ---
 title: 使用 .NET V4 SDK 管理 Azure Cosmos DB SQL API 资源
 description: 关于使用 .NET V4 SDK 生成控制台应用以管理 Azure Cosmos DB SQL API 帐户资源的快速入门。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/11/2020
+author: rockboyfor
 ms.date: 06/22/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6746c8dbdc200bfd63cd6e0466c4651af54d062a
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: addddf6179dc8fa7185a160711e4a3ccf602f2dc
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098655"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246774"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>快速入门：使用 .NET V4 SDK 生成控制台应用以管理 Azure Cosmos DB SQL API 帐户资源。
 
@@ -132,7 +135,7 @@ Time Elapsed 00:00:34.17
 
 此示例应用程序需对 Azure Cosmos 帐户进行身份验证。 为了进行身份验证，应将 Azure Cosmos 帐户凭据传递给应用程序。 按照以下步骤获取 Azure Cosmos 帐户凭据：
 
-1. 登录 [Azure 门户](https://portal.azure.cn/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
 1. 导航到 Azure Cosmos 帐户。
 

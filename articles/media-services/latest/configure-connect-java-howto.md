@@ -10,19 +10,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 09/18/2019
-ms.date: 09/07/2020
+ms.topic: quickstart
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.custom: devx-track-java
 ms.author: v-jay
-ms.openlocfilehash: 2e341de69700b9a312abbc20a0d6851ee5c87b9e
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: f6fff46ae0c232e28bd27b7aaaf4a3b9dd7e92e8
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413366"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245499"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>连接到媒体服务 v3 API - Java
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文介绍如何使用服务主体登录方法连接到 Azure 媒体服务 v3 Java SDK。
 

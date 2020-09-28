@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc498635b24da615b63d382d5542a18bbcf5ad6
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 256f691e37e10ce61d433523acd20b795c5ad40c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245245"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>更改 ADSync 服务帐户密码
 如果更改了 ADSync 服务帐户密码，则将无法正常启动同步服务，除非已放弃加密密钥并重新初始化 ADSync 服务帐户密码。 
 
 Azure AD Connect 是同步服务的一部分，它使用加密密钥来存储 AD DS 连接器帐户和 ADSync 服务帐户的密码。  这些帐户在存储到数据库之前会进行加密。 
 
-所使用的加密密钥通过 [Windows 数据保护 (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) 进行保护。 DPAPI 使用 **ADSync 服务帐户**来保护加密密钥。 
+所使用的加密密钥通过 [Windows 数据保护 (DPAPI)](https://docs.microsoft.com/previous-versions/ms995355(v=msdn.10)) 进行保护。 DPAPI 使用 **ADSync 服务帐户**来保护加密密钥。 
 
 如果需要更改服务帐户密码，可以使用[放弃 ADSync 服务帐户加密密钥](#abandoning-the-adsync-service-account-encryption-key)中的过程来完成该操作。  不管出于何种原因需要放弃加密密钥，都应该可以使用这些过程。
 

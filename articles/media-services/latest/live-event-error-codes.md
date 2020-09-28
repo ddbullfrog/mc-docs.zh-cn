@@ -10,24 +10,26 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 05/4/2020
-ms.date: 07/27/2020
+ms.topic: error-reference
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: ca3034e70fe764532a131449e5d70bdaadebde02
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 7523ad43e324dcf38209026a01a5e066a90b7330
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162759"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245602"
 ---
 # <a name="media-services-live-event-error-codes"></a>媒体服务直播活动错误代码
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本节中的表列出了[直播活动](live-events-outputs-concept.md)错误代码。
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-订阅直播活动的[事件网格](/event-grid/)事件时，可从 [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) 事件中看到以下错误之一。
+订阅直播活动的[事件网格](../../event-grid/index.yml)事件时，可从 [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) 事件中看到以下错误之一。
 
 | 结果代码 | 说明 |
 | ----------- | ----------- |

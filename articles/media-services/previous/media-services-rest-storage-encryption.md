@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 028746320de0c56ee549061c3d21dee2d0c6ff91
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 4e230b20a51346b5e0693ea3a4e31c6157938bc6
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413558"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245042"
 ---
-# <a name="encrypting-your-content-with-storage-encryption"></a>通过存储加密来加密内容 
+# <a name="encrypting-your-content-with-storage-encryption"></a>通过存储加密来加密内容
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](../latest/index.yml)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)

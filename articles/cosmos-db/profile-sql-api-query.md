@@ -1,21 +1,22 @@
 ---
 title: 获取 SQL 查询性能和执行指标
 description: 了解如何检索 SQL 查询执行指标并分析 Azure Cosmos DB 请求的 SQL 查询性能。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 05/17/2019
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4b764b147cffe54a6eeb0e2f657dd4dac594524f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 91d0e290f18cbc80446436e513aa5f3588013af4
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222451"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246504"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>使用 .NET SDK 获取 SQL 查询执行指标并分析查询性能
 

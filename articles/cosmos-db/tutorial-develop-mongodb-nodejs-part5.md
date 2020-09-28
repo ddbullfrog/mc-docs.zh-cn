@@ -1,24 +1,24 @@
 ---
 title: 使用 Mongoose 将 Angular 应用连接到 Azure Cosmos DB 的 API for MongoDB
 description: 本教程介绍如何使用 Angular 和 Express 管理 Cosmos DB 中存储的数据，以生成 Node.js 应用程序。 在本部分，你将使用 Mongoose 连接到 Azure Cosmos DB。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/26/2018
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-javascript
 ms.reviewer: sngun
-ms.openlocfilehash: 8aeba96cbaf2c20d26418a01c52a022431e32ba0
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: f9e578862e9b9fde4c8d76ea74ed5125bd5d994b
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223059"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246605"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>使用 Azure Cosmos DB 的用于 MongoDB 的 API 创建 Angular 应用 - 使用 Mongoose 连接到 Cosmos DB
 
@@ -39,7 +39,7 @@ ms.locfileid: "88223059"
 
 * 开始本教程之前，请先完成[第 4 部分](tutorial-develop-mongodb-nodejs-part4.md)中的步骤。
 
-* 本教程要求在本地运行 Azure CLI。 必须安装 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+* 本教程要求在本地运行 Azure CLI。 必须安装 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli)。
 
 * 本教程介绍生成应用程序的各个步骤。 若要下载完成的项目，可从 GitHub 上的 [angular-cosmosdb 存储库](https://github.com/Azure-Samples/angular-cosmosdb)获取完成的应用程序。
 

@@ -3,7 +3,7 @@ title: 托管标识的 FAQ 和已知问题 - Azure AD
 description: Azure 资源托管标识的已知问题。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 335c2d8851c07aceca2777ec83903b468cc6e06c
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 2574a461e7750e1fc3c5623e7554ef7e6698ee3e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046486"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245388"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 资源托管标识的 FAQ 和已知问题
 
@@ -86,8 +86,8 @@ ms.locfileid: "89046486"
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>在资源上进行标识托管需要什么 Azure RBAC 权限？ 
 
-- 系统分配的托管标识：需要针对资源的写入权限。 例如，对于虚拟机，你需要 Microsoft.Compute/virtualMachines/write 权限。 此操作包含在特定于资源的内置角色（如[虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)）中。
-- 用户分配的托管标识：需要对资源的写入权限。 例如，对于虚拟机，你需要 Microsoft.Compute/virtualMachines/write 权限。 除了针对托管标识分配的[托管标识操作员](/role-based-access-control/built-in-roles#managed-identity-operator)角色外。
+- 系统分配的托管标识：需要针对资源的写入权限。 例如，对于虚拟机，你需要 Microsoft.Compute/virtualMachines/write 权限。 此操作包含在特定于资源的内置角色（如[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)）中。
+- 用户分配的托管标识：需要对资源的写入权限。 例如，对于虚拟机，你需要 Microsoft.Compute/virtualMachines/write 权限。 除了针对托管标识分配的[托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色外。
 
 
 

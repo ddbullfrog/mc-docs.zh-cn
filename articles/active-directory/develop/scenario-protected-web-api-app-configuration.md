@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: cf51b008552d5644a9e052f1ba16b61e6f996462
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 0cbe5dfe9bc4342a11cea8a1a890690d938c67a5
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593785"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244839"
 ---
 # <a name="protected-web-api-code-configuration"></a>受保护的 Web API：代码配置
 
@@ -155,9 +155,10 @@ public void ConfigureServices(IServiceCollection services)
 public void ConfigureServices(IServiceCollection services)
 {
  // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
+ services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+             .AddMicrosoftIdentityWebApi(Configuration, "AzureAd");
 
- services.AddControllers();
+services.AddControllers();
 }
 ```
 

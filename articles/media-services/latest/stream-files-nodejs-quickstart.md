@@ -10,18 +10,20 @@ keywords: Azure 媒体服务, 流式传输
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: mvc
-origin.date: 08/19/2019
-ms.date: 09/07/2020
+ms.custom: mvc, devx-track-javascript
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: e7e080f5b0124fa5e5f480a2e88e0faa090586be
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: a5a14aa413c0e5b96705f028dbc567358d3196d1
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414020"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244950"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>教程：基于 URL 对远程文件进行编码并流式传输视频 - Node.js
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本教程展示了使用 Azure 媒体服务在各种浏览器和设备上对视频进行编码和流式处理有多轻松。 可以使用 HTTPS、URL、SAS URL 或位于 Azure Blob 存储中的文件路径来指定输入内容。
 

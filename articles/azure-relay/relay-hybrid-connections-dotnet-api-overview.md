@@ -1,23 +1,25 @@
 ---
 title: Azure 中继 .NET Standard API 概述 | Azure
 description: 本文总结了 Azure 中继混合连接 .NET 标准 API 的一些关键技术。
+ms.service: service-bus
 ms.topic: article
+ms.custom: devx-track-csharp
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 09/21/2020
 ms.testscope: yes|no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 952a395e9f7eaab2f4e0afa44ce06ccc4d31f5eb
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 6dfdca624804d2ae138dcc5c99d7bbfd714c1953
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947070"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146776"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure 中继混合连接 .NET 标准 API 概述
 
-本文汇总了一些重要的 Azure 中继混合连接 .NET 标准[客户端 API](https://docs.azure.cn/dotnet/api/microsoft.azure.relay?view=azure-dotnet)。
+本文汇总了一些重要的 Azure 中继混合连接 .NET 标准[客户端 API](https://docs.azure.cn/dotnet/api/microsoft.azure.relay)。
 
 ## <a name="relay-connection-string-builder-class"></a>中继连接字符串生成器类
 
@@ -133,7 +135,7 @@ await textWriter.WriteLineAsync("hello");
 
 若要了解有关 Azure 中继的详细信息，请访问以下链接：
 
-* [Microsoft.Azure.Relay reference](https://docs.azure.cn/dotnet/api/microsoft.azure.relay?view=azure-dotnet)
+* [Microsoft.Azure.Relay reference](https://docs.azure.cn/dotnet/api/microsoft.azure.relay)
 * [什么是 Azure 中继？](relay-what-is-it.md)
 * [可用的中继 API](relay-api-overview.md)
 

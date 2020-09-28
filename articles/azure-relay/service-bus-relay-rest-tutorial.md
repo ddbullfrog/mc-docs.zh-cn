@@ -1,25 +1,27 @@
 ---
 title: 教程 - 使用 Azure 中继的 REST 教程
 description: 教程 - 生成一个公开基于 REST 的接口的 Azure 中继主机应用程序。
+ms.service: service-bus
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 origin.date: 06/23/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: ba0565356e2fa5ffdc333679589af65d54b3d0a0
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 998b515ac797c56bffdfa4749249ad935110248a
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162409"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146522"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>教程：Azure WCF 中继 REST 教程
 
 本教程介绍如何生成 Azure 中继主机应用程序，用于公开基于 REST 的接口。 REST 使 Web 客户端（例如 Web 浏览器）可通过 HTTP 请求访问服务总线 API。
 
-该教程使用 Windows Communication Foundation (WCF) REST 编程模型在 Azure 中继上构建 REST 服务。 有关详细信息，请参阅 [WCF REST 编程模型](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model?view=azure-dotnet)和[设计和实现服务](https://docs.microsoft.com/dotnet/framework/wcf/designing-and-implementing-services?view=azure-dotnet)。
+该教程使用 Windows Communication Foundation (WCF) REST 编程模型在 Azure 中继上构建 REST 服务。 有关详细信息，请参阅 [WCF REST 编程模型](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model)和[设计和实现服务](https://docs.microsoft.com/dotnet/framework/wcf/designing-and-implementing-services)。
 
 在本教程中，你将执行以下任务：
 
@@ -46,7 +48,7 @@ ms.locfileid: "87162409"
 
 ## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>定义基于 REST 的 WCF 服务约定以用于 Azure 中继
 
-创建创建 WCF REST 样式的服务时，必须定义约定。 约定指定主机支持的操作。 服务操作类似于 Web 服务方法。 使用 C++、C# 或 Visual Basic 接口定义协定。 接口中的每个方法都对应一个特定的服务操作。 将 [ServiceContractAttribute](https://docs.microsoft.com//dotnet/api/system.servicemodel.servicecontractattribute) 属性应用到每个接口，将 [OperationContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.operationcontractattribute) 属性应用到每个操作。 
+创建创建 WCF REST 样式的服务时，必须定义约定。 约定指定主机支持的操作。 服务操作类似于 Web 服务方法。 使用 C++、C# 或 Visual Basic 接口定义协定。 接口中的每个方法都对应一个特定的服务操作。 将 [ServiceContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.servicecontractattribute) 属性应用到每个接口，将 [OperationContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.operationcontractattribute) 属性应用到每个操作。 
 
 > [!TIP]
 > 如果具有 [ServiceContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.servicecontractattribute) 的接口中的方法没有 [OperationContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.operationcontractattribute)，则该方法是不公开的。 该过程后面的示例中显示了这些任务所用的代码。
@@ -102,7 +104,7 @@ WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContr
     }
     ```
 
-    该命名空间值不同于在整个代码范围内使用的命名空间。 该命名空间值是此协定的唯一标识符，并应有版本控制信息。 有关详细信息，请参阅 [服务版本控制](https://docs.microsoft.com/dotnet/framework/wcf/service-versioning?view=azure-dotnet)。 显式指定命名空间可防止将默认的命名空间值添加到约定名称中。
+    该命名空间值不同于在整个代码范围内使用的命名空间。 该命名空间值是此协定的唯一标识符，并应有版本控制信息。 有关详细信息，请参阅 [服务版本控制](https://docs.microsoft.com/dotnet/framework/wcf/service-versioning)。 显式指定命名空间可防止将默认的命名空间值添加到约定名称中。
 
 1. 在 `IImageContract` 接口中，为 `IImageContract` 协定在接口中公开的单个操作声明一个方法，并将 `OperationContract` 属性应用到希望将其作为公共服务总线协定的一部分进行公开的方法中。
 
@@ -198,7 +200,7 @@ namespace Microsoft.ServiceBus.Samples
     }
     ```
 
-    如前所述，此命名空间不是传统的命名空间， 而是用于标识协定的 WCF 体系结构的一部分。 有关详细信息，请参阅[数据协定名称](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/data-contract-names/?view=azure-dotnet)。
+    如前所述，此命名空间不是传统的命名空间， 而是用于标识协定的 WCF 体系结构的一部分。 有关详细信息，请参阅[数据协定名称](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/data-contract-names/)。
 
 1. 将一幅 *.jpg* 图像添加到项目中。 此文件是服务在接收浏览器中显示的图片。
 
@@ -260,7 +262,7 @@ namespace Microsoft.ServiceBus.Samples
 
 1. 在“解决方案资源管理器”中，双击“App.config”在 Visual Studio 编辑器中将其打开。
 
-    *App.config* 文件包含服务名称、终结点和绑定。 终结点是 Azure 中继公开的、让客户端和主机相互通信的位置。 绑定是用于通信的协议类型。 此处的主要差别在于，配置的服务终结点是指 [WebHttpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.webhttprelaybinding?view=azure-dotnet) 绑定。
+    *App.config* 文件包含服务名称、终结点和绑定。 终结点是 Azure 中继公开的、让客户端和主机相互通信的位置。 绑定是用于通信的协议类型。 此处的主要差别在于，配置的服务终结点是指 [WebHttpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.webhttprelaybinding) 绑定。
 
 1. `<system.serviceModel>` XML 元素是一个 WCF 元素，用于定义一个或多个服务。 在这里，它用于定义服务名称和终结点。 在 `<system.serviceModel>` 元素的下面（仍在 `<system.serviceModel>` 中）添加具有以下内容的 `<bindings>` 元素：
 
@@ -278,7 +280,7 @@ namespace Microsoft.ServiceBus.Samples
 
     此内容定义应用程序中使用的绑定。 可以定义多个绑定，但在本教程中，只要定义一个绑定。
 
-    前面的代码定义了一个 WCF 中继 [WebHttpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.webhttprelaybinding?view=azure-dotnet) 绑定，其中 `relayClientAuthenticationType` 设置为 `None`。 此设置表明使用此绑定的终结点将不需要客户端凭据。
+    前面的代码定义了一个 WCF 中继 [WebHttpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.webhttprelaybinding) 绑定，其中 `relayClientAuthenticationType` 设置为 `None`。 此设置表明使用此绑定的终结点将不需要客户端凭据。
 
 1. 在 `<bindings>` 元素后面添加 `<services>` 元素。 与绑定类似，可以在单个配置文件中定义多个服务。 但是，在本教程中，只要定义一个服务。
 

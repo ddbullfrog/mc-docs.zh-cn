@@ -1,21 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中管理区域之间的冲突
 description: 了解如何在 Azure Cosmos DB 中通过创建“以最后写入者为准”或自定义冲突解决策略来管理冲突
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 06/11/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5bf2b30213daaaa584343120d77eccccac49a9c4
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 3c13f3c9edc301de78fb8346df366b651ac6cd4c
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223229"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246803"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的冲突解决策略
 

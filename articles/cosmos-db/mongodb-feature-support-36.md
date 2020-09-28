@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB API for MongoDB（3.6 版本）支持的功能和语法
+title: Azure Cosmos DB 的 API for MongoDB（3.6 版本）支持的功能和语法
 description: 了解 Azure Cosmos DB 的 API for MongoDB（3.6 版本）支持的功能和语法。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-origin.date: 07/15/2020
-ms.date: 08/17/2020
-ms.testscope: yes
-ms.testdate: 08/10/2020
+origin.date: 08/07/2020
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 557b3c104cea6f914813ea466a9cb3fcbac629e8
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7ed8611ddc42ebbe5122969bb629add4c872e731
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246402"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB 的 API for MongoDB（3.6 版本）：支持的功能和语法
 
@@ -141,7 +141,7 @@ Azure Cosmos DB 的 MongoDB API 支持以下数据库命令：
 |$lookup    |    是|
 |$out        |是|
 |$indexStats|        否|
-|$facet    |否|
+|$facet    |是|
 |$bucket|    否|
 |$bucketAuto|    否|
 |$sortByCount|    是|
@@ -498,10 +498,10 @@ $nearSphere |  是 |
 $geometry |  是 |
 $minDistance | 是 |
 $maxDistance | 是 |
-$center | 是 |
-$centerSphere | 是 |
-$box | 是 |
-$polygon |  是 |
+$center | 否 |
+$centerSphere | 否 |
+$box | 否 |
+$polygon |  否 |
 
 ## <a name="cursor-methods"></a>游标方法
 

@@ -8,18 +8,20 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 02/13/2019
-ms.date: 09/23/2019
-ms.author: juliako
-ms.openlocfilehash: 9c6bd02ab1ad4a9f46a4f5b957afaabf7cbc0d3d
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
+ms.author: v-jay
+ms.openlocfilehash: 1761385125a2d97a3f0d8d6de236607b1f3911f3
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413324"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245607"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>从 HTTPS URL 创建作业输入
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 在媒体服务 v3 中提交作业来处理视频时，必须告知媒体服务查找输入视频的位置。 其中一个选项是指定 HTTPS URL 作为作业输入（如本示例所示）。 请注意，目前，AMS v3 不支持基于 HTTPS URL 的块传输编码。 有关完整示例，请参阅此 [GitHub 示例](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)。
 

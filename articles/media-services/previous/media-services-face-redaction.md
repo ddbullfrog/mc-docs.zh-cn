@@ -12,17 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1cd49bd963c074e6f55419334491ef81533acb3c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 12c9d8832203c5ba74873cd265fb38cdb9fb67c0
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413191"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244928"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒体分析进行面部修订 
+# <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒体分析进行面部修订
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>概述
 **Azure 媒体修订器**是一种 [Azure 媒体分析](media-services-analytics-overview.md)媒体处理器 (MP)，可用于在云中进行可缩放的面部修订。 使用面部修订，可对视频进行修改，使所选个人的面部模糊显示。 用户可能想要在公共安全和新闻媒体场景中使用面部修订服务。 对于时长仅几分钟但包含多张面孔的镜头，进行手动面部修订可能需要几个小时，但使用此服务仅需几个简单步骤即可完成该过程。 有关详细信息，请参阅[此](https://azure.microsoft.com/blog/azure-media-redactor/)博客。
 

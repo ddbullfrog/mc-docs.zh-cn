@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 5076de0a7e1b676bdfeee61abb7f76861fab5940
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7b1f5567f2aa5660c82ac36d2cc8ae9dff6fe401
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245482"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>如何使用 .NET 通过本地编码器执行实时传送视频流
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [门户](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)

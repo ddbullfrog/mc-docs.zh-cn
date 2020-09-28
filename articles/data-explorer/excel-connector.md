@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 08/30/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: bdfb78da74c21cd2591b3aa1c53cb35d13e558b4
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: fb22441f5ea84b58b3046a45b6fa0fa2011249e5
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417637"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146740"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-excel"></a>使用 Excel 的 Azure 数据资源管理器连接器进行数据可视化
 

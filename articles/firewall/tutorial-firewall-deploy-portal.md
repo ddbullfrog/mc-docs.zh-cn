@@ -2,21 +2,21 @@
 title: 教程 - 使用 Azure 门户部署和配置 Azure 防火墙
 description: 本教程介绍如何使用 Azure 门户部署和配置 Azure 防火墙。
 services: firewall
-author: rockboyfor
 ms.service: firewall
 ms.topic: tutorial
-origin.date: 06/24/2020
-ms.date: 07/15/2020
+origin.date: 07/15/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2744d9b7dcb0330605f3a63846d5d0e7ed3e06e5
-ms.sourcegitcommit: 362814dc7ac5b56cf0237b9016a67c35d8d72c32
+ms.openlocfilehash: 4c7dfdbfdb33fd202d0c182447ee67e54ad61844
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87455572"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246429"
 ---
 <!--Verify Successfully on origin.date: 07/15/2020-->
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>教程：使用 Azure 门户部署和配置 Azure 防火墙
@@ -37,7 +37,7 @@ ms.locfileid: "87455572"
 * **AzureFirewallSubnet** - 防火墙在此子网中。
 * **Workload-SN** - 工作负荷服务器在此子网中。 此子网的网络流量通过防火墙。
 
-![教程网络基础结构](media/tutorial-firewall-rules-portal/Tutorial_network.png)
+:::image type="content" source="media/tutorial-firewall-deploy-portal/tutorial-network.png" alt-text="教程网络基础结构":::
 
 本教程介绍如何执行下列操作：
 
@@ -47,9 +47,12 @@ ms.locfileid: "87455572"
 > * 创建默认路由
 > * 配置一个应用程序规则以允许访问 www.qq.com
 > * 配置网络规则，以允许访问外部 DNS 服务器
+> * 将 NAT 规则配置为允许远程桌面连接到测试服务器
 > * 测试防火墙
 
 如果需要，可以使用 [Azure PowerShell](deploy-ps.md) 完成本教程中的步骤。
+
+## <a name="prerequisites"></a>先决条件
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -64,8 +67,8 @@ ms.locfileid: "87455572"
 1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 2. 在 Azure 门户菜单上，选择“资源组”或从任意页面搜索并选择“资源组”。 然后选择“添加”。
 3. 对于“资源组名称”，请输入“Test-FW-RG”。
-4. 对于“订阅”，请选择自己的订阅。 
-5. 对于“资源组位置”，请选择一个位置。 你创建的所有其他资源必须位于同一位置。
+4. 对于“订阅”，请选择自己的订阅。
+5. 对于“资源组位置”，请选择一个位置。  你创建的所有其他资源必须位于同一位置。
 6. 选择“创建”。
 
 ### <a name="create-a-vnet"></a>创建 VNet
@@ -95,7 +98,7 @@ ms.locfileid: "87455572"
 5. 键入“10.0.2.0/24”作为“子网地址范围” 。
 6. 选择 **添加** 。
 7. 选择“查看 + 创建”  。
-8. 选择“创建” 。
+8. 选择“创建”。
 
 ### <a name="create-a-virtual-machine"></a>创建虚拟机
 
@@ -110,7 +113,7 @@ ms.locfileid: "87455572"
 
 <!--MOONCAKE CUSTOMIZATION-->
 
-   |设置  |值  |
+   |设置  |Value  |
    |---------|---------|
    |资源组     |**Test-FW-RG**|
    |虚拟机名称     |**Srv-Work**|
@@ -125,29 +128,29 @@ ms.locfileid: "87455572"
 8. 请确保为虚拟网络选择“Test-FW-VN”，并且子网为“Workload-SN”。
 9. 对于“公共 IP”，请选择“无”。 
 11. 接受其他默认值，然后选择“下一步:**管理”** 。
-12. 选择“关闭”以禁用启动诊断。 接受其他默认值，然后选择“查看 + 创建”。
+12. 选择“关闭”  以禁用启动诊断。 接受其他默认值，然后选择“查看 + 创建”。
 13. 检查摘要页上的设置，然后选择“创建”。
 
 ## <a name="deploy-the-firewall"></a>部署防火墙
 
 将防火墙部署到 VNet。
 
-1. 在 Azure 门户菜单或“主页”页上，选择“创建资源”   。
+1. 在 Azure 门户菜单或“主页”页上，选择“创建资源” 。
 2. 在搜索框中键入“防火墙”，然后按 **Enter**。
 3. 选择“防火墙”，然后选择“创建” 。
-4. 在“创建防火墙”页上，使用下表配置防火墙：
+4. 在“创建防火墙”页上，使用下表配置防火墙： 
 
-    |设置  |“值”  |
+    |设置  |Value  |
     |---------|---------|
     |订阅     |\<your subscription\>|
     |资源组     |**Test-FW-RG** |
     |名称     |**Test-FW01**|
     |位置     |选择前面使用的同一位置|
     |选择虚拟网络     |**使用现有项**：**Test-FW-VN**|
-    |公共 IP 地址     |**添加新内容**<br>名称：fw-pip|
+    |公共 IP 地址     |**添加新内容**<br />名称：fw-pip|
 
 5. 选择“查看 + 创建”。
-6. 查看摘要，然后选择“创建”以创建防火墙。
+6. 查看摘要，然后选择“创建”以创建防火墙。 
 
     需要花费几分钟时间来完成部署。
     
@@ -159,12 +162,12 @@ ms.locfileid: "87455572"
 对于“Workload-SN”子网，请配置要通过防火墙的出站默认路由。
 
 1. 在 Azure 门户菜单上，选择“所有服务”或在任何页面中搜索并选择“所有服务”。
-2. 在“网络”下，选择“路由表”。
-3. 选择“添加” 。
+2. 在“网络”下，选择“路由表”。  
+3. 选择 **添加** 。
 4. 对于“名称”，请键入 **Firewall-route**。
 5. 对于“订阅”，请选择自己的订阅。
 6. 对于“资源组”，请选择“Test-FW-RG”。
-7. 对于“位置”，请选择前面使用的同一位置。
+7. 对于“位置”，请选择前面使用的同一位置。 
 8. 选择“创建”。
 9. 依次选择“刷新”、“Firewall-route”路由表。
 10. 依次选择“子网”、“关联” 。
@@ -174,18 +177,18 @@ ms.locfileid: "87455572"
 13. 选择“确定”  。
 14. 依次选择“路由”、“添加” 。
 15. 对于“路由名称”，请键入 **fw-dg**。
-16. 对于“地址前缀”，请键入 **0.0.0.0/0**。
-17. 对于“下一跃点类型”，请选择“虚拟设备”。
+16. 对于“地址前缀”，请键入 **0.0.0.0/0**。 
+17. 对于“下一跃点类型”，请选择“虚拟设备”。  
 
     Azure 防火墙实际上是一个托管服务，但虚拟设备可在此场合下正常工作。
-18. 对于“下一跃点地址”，请键入前面记下的防火墙专用 IP 地址。
-19. 选择“确定”。
+18. 对于“下一跃点地址”，请键入前面记下的防火墙专用 IP 地址。 
+19. 选择“确定”  。
 
 ## <a name="configure-an-application-rule"></a>配置应用程序规则
 
-这是允许出站访问 www.qq.com 的应用程序规则。
+这是允许出站访问 `www.qq.com` 的应用程序规则。
 
-1. 打开“Test-FW-RG”，然后选择“Test-FW01”防火墙。  
+1. 打开“Test-FW-RG”，然后选择“Test-FW01”防火墙。
 2. 在“Test-FW01”页上的“设置”下，选择“规则”。
 3. 选择“应用程序规则集合”选项卡。
 4. 选择“添加应用程序规则集合”。
@@ -195,9 +198,9 @@ ms.locfileid: "87455572"
 8. 在“规则”  下的“目标 FQDN”  中，键入 **Allow-QQ** 作为**名称**。
 9. 对于**源类型**，请选择“IP 地址”  。
 10. 对于**源**，请键入 **10.0.2.0/24**。
-11. 对于“协议:端口”，请键入 **http, https**。 
-12. 对于“目标 FQDN”，请键入 **www.qq.com** 
-13. 选择“添加” 。
+11. 对于“协议:端口”，请键入 **http, https**。
+12. 对于“目标 FQDN”，请键入 `www.qq.com`
+13. 选择 **添加** 。
 
 Azure 防火墙包含默认情况下允许的基础结构 FQDN 的内置规则集合。 这些 FQDN 特定于平台，不能用于其他目的。 有关详细信息，请参阅[基础结构 FQDN](infrastructure-fqdns.md)。
 
@@ -212,7 +215,7 @@ Azure 防火墙包含默认情况下允许的基础结构 FQDN 的内置规则�
 5. 对于“操作”，请选择“允许”。
 6. 在“规则”下，对于“名称”键入 **Allow-DNS**。
 7. 对于“协议”，请选择“UDP”。
-9. 对于**源类型**，请选择“IP 地址”  。
+9. 对于**源类型**，请选择“IP 地址”。
 1. 对于**源**，请键入 **10.0.2.0/24**。
 2. 对于“目标类型”，请选择“IP 地址”。 
 3. 对于**目标地址**，请键入 **209.244.0.3,209.244.0.4**
@@ -257,12 +260,12 @@ Azure 防火墙包含默认情况下允许的基础结构 FQDN 的内置规则�
 现在测试防火墙，以确认它是否按预期方式工作。
 
 1. 将远程桌面连接到防火墙公共 IP 地址，并登录到“Srv-Work”虚拟机。 
-2. 打开 Internet Explorer 并浏览到 https://www.qq.com。
+2. 打开 Internet Explorer 并浏览到 `https://www.qq.com`。
 3. 出现 Internet Explorer 安全警报时，请选择“确定” > “关闭”。  
 
     应会看到 QQ 主页。
 
-4. 浏览到 https://www.microsoft.com 。
+4. 浏览到 `https://www.microsoft.com` 。
 
     防火墙应会阻止你访问。
 

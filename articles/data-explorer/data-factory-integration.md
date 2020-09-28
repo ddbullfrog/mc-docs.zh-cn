@@ -6,15 +6,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: tomersh26
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 01/20/2020
-ms.date: 06/09/2020
-ms.openlocfilehash: c84f0f17340b724bc73084dc30c66d1792358a75
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 5f194a2046607174ebd360e978ed2fc5bb0190f7
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515855"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146454"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>将 Azure 数据资源管理器与 Azure 数据工厂集成
 
@@ -39,7 +39,7 @@ Azure IR (Integration Runtime) 支持使用 Azure 数据资源管理器在 Azure
 
 ### <a name="command-activity"></a>命令活动
 
-使用命令活动可以执行 Azure 数据资源管理器[控制命令](/data-explorer/kusto/concepts/index#control-commands)。 与查询不同，控制命令可能会修改数据或元数据。 某些控制命令旨在通过 `.ingest` 或 `.set-or-append` 等命令将数据引入 Azure 数据资源管理器，或通过 `.export` 等命令将数据从 Azure 数据资源管理器复制到外部数据存储。
+使用命令活动可以执行 Azure 数据资源管理器[控制命令](kusto/concepts/index.md#control-commands)。 与查询不同，控制命令可能会修改数据或元数据。 某些控制命令旨在通过 `.ingest` 或 `.set-or-append` 等命令将数据引入 Azure 数据资源管理器，或通过 `.export` 等命令将数据从 Azure 数据资源管理器复制到外部数据存储。
 有关命令活动的详细演练，请参阅[使用 Azure 数据工厂命令活动运行 Azure 数据资源管理器控制命令](data-factory-command-activity.md)。  使用控制命令复制数据有时比使用复制活动更快且更节省。 若要确定何时使用命令活动或复制活动，请参阅[复制数据时在复制活动与命令活动之间进行选择](#select-between-copy-and-azure-data-explorer-command-activities-when-copy-data)。
 
 ### <a name="copy-in-bulk-from-a-database-template"></a>从数据库模板批量复制
@@ -58,7 +58,7 @@ Azure IR (Integration Runtime) 支持使用 Azure 数据资源管理器在 Azure
 
 ### <a name="copy-data-from-azure-data-explorer"></a>从 Azure 数据资源管理器复制数据
   
-可以使用复制活动或 [`.export`](/data-explorer/kusto/management/data-export/index) 命令从 Azure 数据资源管理器复制数据。 `.export` 命令执行某个查询，然后导出该查询的结果。 
+可以使用复制活动或 [`.export`](kusto/management/data-export/index.md) 命令从 Azure 数据资源管理器复制数据。 `.export` 命令执行某个查询，然后导出该查询的结果。 
 
 下表比较了用于从 Azure 数据资源管理器复制数据的复制活动和 `.export` 命令。
 
@@ -67,14 +67,14 @@ Azure IR (Integration Runtime) 支持使用 Azure 数据资源管理器在 Azure
 | **流程说明** | ADF 对 Kusto 执行查询，处理结果，然后将结果发送到目标数据存储。 <br>（**ADX > ADF > 接收器数据存储**） | ADF 将 `.export` 控制命令发送到 Azure 数据资源管理器，后者执行该命令，然后将数据直接发送到目标数据存储。 <br>（**ADX > 接收器数据存储**） |
 | **支持的目标数据存储** | 有多种[支持的数据存储](/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLSv2、Azure Blob、SQL 数据库 |
 | **“性能”** | 集中式 | <ul><li>分布式（默认配置），从多个节点同时导出数据</li><li>速度更快，COGS 成本效益更高。</li></ul> |
-| **服务器限制** | 可以提高/禁用[查询限制](/data-explorer/kusto/concepts/querylimits)。 默认情况下，ADF 查询包含： <ul><li>500,000 条记录或 64 MB 的大小限制。</li><li>10 分钟时间限制。</li><li>`noTruncation` 设置为 false。</li></ul> | 默认情况下，可提高或禁用查询限制： <ul><li>禁用大小限制。</li><li>将服务器超时提高至 1 小时。</li><li>`MaxMemoryConsumptionPerIterator` 和 `MaxMemoryConsumptionPerQueryPerNode` 提高至最大值（5 GB，TotalPhysicalMemory/2）。</li></ul>
+| **服务器限制** | 可以提高/禁用[查询限制](kusto/concepts/querylimits.md)。 默认情况下，ADF 查询包含： <ul><li>500,000 条记录或 64 MB 的大小限制。</li><li>10 分钟时间限制。</li><li>`noTruncation` 设置为 false。</li></ul> | 默认情况下，可提高或禁用查询限制： <ul><li>禁用大小限制。</li><li>将服务器超时提高至 1 小时。</li><li>`MaxMemoryConsumptionPerIterator` 和 `MaxMemoryConsumptionPerQueryPerNode` 提高至最大值（5 GB，TotalPhysicalMemory/2）。</li></ul>
 
 > [!TIP]
 > 如果复制目标是 `.export` 命令支持的数据存储之一，并且没有任何复制活动功能对于满足需求而言至关重要，请选择 `.export` 命令。
 
 ### <a name="copying-data-to-azure-data-explorer"></a>将数据复制到 Azure 数据资源管理器
 
-可以使用复制活动或[从查询引入](/data-explorer/kusto/management/data-ingestion/ingest-from-query)（`.set-or-append`、`.set-or-replace`、`.set`、`.replace)`）和[从存储引入](/data-explorer/kusto/management/data-ingestion/ingest-from-storage) (`.ingest`) 等引入命令，将数据复制到 Azure 数据资源管理器。 
+可以使用复制活动或[从查询引入](kusto/management/data-ingestion/ingest-from-query.md)（`.set-or-append`、`.set-or-replace`、`.set`、`.replace)`）和[从存储引入](kusto/management/data-ingestion/ingest-from-storage.md) (`.ingest`) 等引入命令，将数据复制到 Azure 数据资源管理器。 
 
 下表比较了用于将数据复制到 Azure 数据资源管理器的复制活动和引入命令。
 
@@ -108,7 +108,7 @@ Azure IR (Integration Runtime) 支持使用 Azure 数据资源管理器在 Azure
 
 ## <a name="performance"></a>性能 
 
-如果 Azure 数据资源管理器是源，而你使用包含 where 查询的查找、复制或命令活动，请参阅[查询最佳做法](/data-explorer/kusto/query/best-practices)了解性能信息，并参阅[复制活动的 ADF 文档](/data-factory/copy-activity-performance)。
+如果 Azure 数据资源管理器是源，而你使用包含 where 查询的查找、复制或命令活动，请参阅[查询最佳做法](kusto/query/best-practices.md)了解性能信息，并参阅[复制活动的 ADF 文档](/data-factory/copy-activity-performance)。
   
 本部分介绍如何使用将 Azure 数据资源管理器用作接收器的复制活动。 Azure 数据资源管理器接收器的估计吞吐量为 11-13 MBps。 下表详细描述了影响 Azure 数据资源管理器接收器性能的参数。
 

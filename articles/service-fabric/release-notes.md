@@ -10,12 +10,12 @@ ms.author: v-yeche
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: ccf8987a2a5a3cd2537158c8c7ab0f5735847843
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: aaf1cb091797a42062cc0bd13178b698e489f6b4
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655768"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394510"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 版本
 
@@ -160,19 +160,20 @@ Azure Service Fabric 7.0 现已推出！ 你可以通过 Azure 门户或 Azure �
 
 ### <a name="service-fabric-64-releases"></a>Service Fabric 6.4 版本
 
+<!--MOONCAKE: DO NOT UPDATE THE REFERENCE LINK-->
+
 | 发布日期 | 发布 | 更多信息 |
 |---|---|---|
-| 2018 年 11 月 30 日 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [发行说明](https://msdnshared.blob.core.chinacloudapi.cn/media/2018/12/Service-Fabric-6.4-Release.pdf)|
-| 2018 年 12 月 12 日 | [适用于 Windows 群集的 Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [发行说明](https://msdnshared.blob.core.chinacloudapi.cn/media/2018/12/Links.pdf)  |
-| 2019 年 2 月 4 日 | [Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [发行说明](https://msdnshared.blob.core.chinacloudapi.cn/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
-| 2019 年 3 月 4 日 | [Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [发行说明](https://msdnshared.blob.core.chinacloudapi.cn/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
-| 2019 年 4 月 8 日 | [Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [发行说明](https://msdnshared.blob.core.chinacloudapi.cn/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
-| 2019 年 5 月 2 日 | [Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [发行说明](https://msdnshared.blob.core.chinacloudapi.cn/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
-| 2019 年 5 月 28 日 | [Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [发行说明](https://msdnshared.blob.core.chinacloudapi.cn/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)
+| 2018 年 11 月 30 日 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [发行说明](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
+| 2018 年 12 月 12 日 | [适用于 Windows 群集的 Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)  | [发行说明](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
+| 2019 年 2 月 4 日 | [Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [发行说明](https://msdnshared.blob.core.windows.net/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
+| 2019 年 3 月 4 日 | [Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [发行说明](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
+| 2019 年 4 月 8 日 | [Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [发行说明](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
+| 2019 年 5 月 2 日 | [Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [发行说明](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
+| 2019 年 5 月 28 日 | [Azure Service Fabric 6.4 刷新版本](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) | [发行说明](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)
 
-<!-- Update_Description: new article about release notes -->
+<!--MOONCAKE: DO NOT UPDATE THE REFERENCE LINK-->
 
-<!--NEW.date: 09/14/2020-->
 
 <!-- Update_Description: new article about release notes -->
 <!--NEW.date: 09/14/2020-->

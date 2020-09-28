@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 02/17/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: f45ab6c414ea3b2a348614c010ff884e42663640
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: d82816eede0191c593576e34cc03efc96ad41033
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658558"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146281"
 ---
 <!--Verified Characters contents-->
 # <a name="using-certificates-with-batch"></a>将证书与 Batch 配合使用
@@ -43,9 +43,8 @@ ms.locfileid: "88658558"
 
 ## <a name="next-steps"></a>后续步骤
 
-Batch 具有证书 API [AZ batch 证书创建](https://docs.microsoft.com/cli/azure/batch/certificate?view=azure-cli-latest#az-batch-certificate-create)
+Batch 具有证书 API [AZ batch 证书创建](https://docs.azure.cn/cli/batch/certificate#az-batch-certificate-create)
 
 有关使用 Key Vault 的信息，请参阅[使用 Batch 安全地访问 Key Vault](credential-access-key-vault.md)。
 
-<!-- Update_Description: new article about batch certificates -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: anilmur
-ms.openlocfilehash: b83d3b0c437ea7a62fb6ac17ec236073582dfef4
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 93a074e2bd7218fd748a8e42ec21dacbf1a62f68
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413702"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245474"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard 格式和编解码器
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="选择所使用的媒体服务版本："]
 > * [第 2 版](media-services-media-encoder-standard-formats.md)

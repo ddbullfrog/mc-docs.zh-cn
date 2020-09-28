@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: tzgitlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/28/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 6deba682c85389a2c27091ea787f3c7d1236855d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: a6f0a66e758a2b3781b4c182e85bfe339098152a
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515966"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146359"
 ---
 # <a name="use-lightingest-to-ingest-data-to-azure-data-explorer"></a>使用 LightIngest 将数据引入 Azure 数据资源管理器
  

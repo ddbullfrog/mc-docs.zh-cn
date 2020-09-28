@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: ed349d763dc80f450c1312a452a856a41609ebec
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ed2530e7dc4a5c81e0e500775b0dd1ec98bbd9fa
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245696"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序  
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 借助适用于 Windows 8 的平滑流式处理客户端 SDK，开发人员可以生成支持点播付费、实时平滑流式处理内容的 Windows 应用商店应用程序。 除了播放平滑流式处理内容这一基本功能以外，该 SDK 还提供其他丰富功能，例如 Microsoft PlayReady 保护、质量级别限制、实时 DVR、音频流切换、收听状态更新（如质量级别更改）和错误事件，等等。 有关支持的功能的详细信息，请参阅 [发行说明](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)。 有关详细信息，请参阅 [适用于 Windows 8 的播放器框架](https://playerframework.codeplex.com/)。 
 

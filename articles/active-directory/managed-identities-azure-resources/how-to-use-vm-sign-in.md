@@ -3,24 +3,25 @@ title: 使用 Azure VM 上的托管标识进行登录 - Azure ADV
 description: 有关使用 Azure 资源服务主体的 Azure VM 托管标识进行登录和资源访问的逐步说明与客户端脚本示例。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3819ac6b4a300b1673a86fb6541b7336c056dcbb
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9d00a3f6c8f0954fe388bc1d3712d888d2cabb97
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245394"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>如何在 Azure VM 上使用 Azure 资源的托管标识进行登录 
 
@@ -99,10 +100,4 @@ Azure 资源的托管标识提供一个[服务主体对象](../develop/developer
 ## <a name="next-steps"></a>后续步骤
 
 - 若要在 Azure VM 上启用 Azure 资源的托管标识，请参阅[使用 PowerShell 在 Azure VM 上配置 Azure 资源的托管标识](qs-configure-powershell-windows-vm.md)或[使用 Azure CLI 在 Azure VM 上配置 Azure 资源的托管标识](qs-configure-cli-windows-vm.md)
-
-
-
-
-
-
 

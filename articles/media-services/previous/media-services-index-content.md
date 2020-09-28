@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 09/22/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8f173d581b1dc612934f3892652883d5ed167ed
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: f110dee78faaa135c13004e3512d269a9b8b9fa5
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413995"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245476"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>使用 Azure Media Indexer 为媒体文件编制索引
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > **Azure Media Indexer** 媒体处理器将停用。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。

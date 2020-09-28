@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 的 SQL API Python 示例
 description: 在 GitHub 上查找用于 Azure Cosmos DB 中常见任务的 Python 示例，包括 CRUD 操作。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: sample
-origin.date: 05/20/2020
-ms.date: 07/06/2020
+origin.date: 08/11/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: tracking-python
-ms.openlocfilehash: 225d0fdc85c70c7595f146fcee3dd6e37b125df6
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.custom: devx-track-python
+ms.openlocfilehash: fa127062922a7770b3a29b09fff6abc6e97e0661
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246370"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 示例
 
@@ -34,16 +36,20 @@ ms.locfileid: "85323376"
 
 ## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- 一个 Cosmos DB 帐户。 选项包括：
+    * 具有 Azure 有效订阅：
+        * [创建 Azure 免费帐户](https://www.azure.cn/pricing/1rmb-trial)或使用现有订阅 
+        * [Visual Studio 每月额度](https://www.azure.cn/offers/ms-mc-arz-msdn/)
+        * [Azure Cosmos DB 免费层](/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+    * 不具有 Azure 有效订阅：
+        * [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator) 
+- [Python 2.7 或 3.5.3+](https://www.python.org/downloads/)，以及 `PATH` 中的 `python` 可执行文件。
+- [Visual Studio Code](https://code.visualstudio.com/)。
+- [适用于 Visual Studio Code 的 Python 扩展](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)。
+- [Git](https://www.git-scm.com/downloads)。 
+- [用于 Python 的 Azure Cosmos DB SQL API SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
 
-- 可以[激活 Visual Studio 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/index.html)：Visual Studio 订阅每月提供可用来试用付费版 Azure 服务的信用额度。
-
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-还需要 [Python SDK](sql-api-sdk-python.md)。
-
-   > [!NOTE]
-   > 每个示例都是独立的，自行对自身进行设置并在完成后自行进行清理。 这些示例会向 `CosmosClient.CreateContainer` 发出多次调用。 每次调用完成后，你的订阅将按使用一小时计费。 有关 Azure Cosmos DB 计费的详细信息，请参阅 [Azure Cosmos DB 定价](https://www.azure.cn/pricing/details/cosmos-db/)。
+<!--Not Available on  * [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/), a tests environment that lasts for 30 days.-->
 
 ## <a name="database-examples"></a>数据库示例
 
@@ -94,7 +100,7 @@ ms.locfileid: "85323376"
 | [将特定项排除在索引范围外](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L145-L201) | documents.IndexingDirective.Exclude|
 | [对已编入索引的特定项使用手动索引](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L204-L263) | documents.IndexingDirective.Include |
 | [将路径排除在索引范围外](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L266-L336) |定义要在 `IndexingPolicy` 属性中排除的路径 |
-| [对字符串使用范围索引](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L401-L485) | 使用范围索引对字符串数据类型定义索引策略。 `'kind': documents.IndexKind.Range`、`'dataType': documents.DataType.String`|
+| [对字符串使用范围索引](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L401-L485) | 使用范围索引对字符串数据类型定义索引策略。 `'kind': documents.IndexKind.Range`, `'dataType': documents.DataType.String`|
 | [执行索引转换](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L488-L544) |database.replace_container（使用更新的索引策略）|
 | [当路径上仅存在哈希索引时使用扫描](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L339-L398) | 查询项时设置 `enable_scan_in_query=True` 和 `enable_cross_partition_query=True` |
 

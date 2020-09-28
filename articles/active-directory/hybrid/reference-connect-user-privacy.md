@@ -4,23 +4,23 @@ description: 本文介绍如何保证 Azure AD Connect 符合 GDPR 的规定。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 05/21/2018
-ms.date: 11/12/2018
-ms.component: hybrid
+ms.topic: reference
+ms.date: 09/24/2020
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 42783f343d8cbaa43d305db04fbf320de6d5b385
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d7ebed333d8976ae0374ceccee5c62c882341f35
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63821830"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245531"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>用户隐私和 Azure AD Connect 
 
@@ -43,7 +43,7 @@ Azure AD Connect 同步服务器可存储以下用户隐私数据：
 
 删除用户数据时，Azure AD Connect 客户应遵循以下准则：
 1.  定期删除包含 Azure AD Connect 安装日志文件的文件夹中的内容——至少每 48 小时删除一次
-2.  此产品还可创建事件日志。  要深入了解事件日志，请参阅[此处的文档](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx)。
+2.  此产品还可创建事件日志。  要深入了解事件日志，请参阅[此处的文档](https://docs.microsoft.com/windows/win32/wes/windows-event-log)。
 
 当从生成用户数据的源系统中删除此用户数据时，会自动删除 Azure AD Connect 数据库中的此数据。 管理员无需执行特定操作既能保证符合 GDPR。  但是，至少每两天需要将 Azure AD Connect 数据与数据源进行同步一次。
 
@@ -83,6 +83,4 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 
 
 ## <a name="next-steps"></a>后续步骤
-- [查看信任中心上的 Microsoft 隐私策略](https://www.microsoft.com/trustcenter)
-
-<!-- Update_Description: wording update -->
+* [查看信任中心上的 Microsoft 隐私策略](https://www.microsoft.com/trustcenter)

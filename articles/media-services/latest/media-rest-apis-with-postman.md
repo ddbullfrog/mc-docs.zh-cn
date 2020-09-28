@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 12/05/2019
-ms.date: 09/07/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 2353d771b5cc66cd19086a663bf0caff14d138f5
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: ba0ac45102d9e529b0c8c76275fe054be54f8d8a
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245642"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>配置 Postman 以进行媒体服务 v3 REST API 调用
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文演示如何配置 **Postman**，以便可以使用它调用 Azure 媒体服务 (AMS) REST API。 本文说明如何将环境和集合文件导入到 **Postman**。 集合包含调用 Azure 媒体服务 (AMS) REST API 的 HTTP 请求的分组定义。 环境文件包含集合使用的变量。
 

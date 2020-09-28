@@ -1,19 +1,21 @@
 ---
-title: Azure 中继 API 概述
+title: Azure 中继 API 概述 | Azure
 description: 本文概述了可用的 Azure 中继 API（.NET Standard、.NET Framework、Node.js 等）
 ms.topic: article
+ms.service: service-bus
+ms.custom: devx-track-dotnet
 origin.date: 06/23/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: c44521e894f54c7465175836b47935204514c4d2
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 6fcf158ee08fcfb938996c5cf6688bfa676be8c2
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162416"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146527"
 ---
 <!--Verified successfully-->
 # <a name="available-relay-apis"></a>可用的中继 API

@@ -67,16 +67,18 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: 在 iOS 设备上使用
               href: active-directory-certificate-based-authentication-ios.md
-    - name: 报告
+    - name: 报表
       items:
         - name: 使用情况和见解
           href: howto-authentication-methods-usage-insights.md
         - name: SSPR 报告
           href: howto-sspr-reporting.md
-    - name: 故障排除
+    - name: 疑难解答
       items:
-        - name: 对 SSPR 进行故障排除
-          href: active-directory-passwords-troubleshoot.md
+        - name: 自助式密码重置 (SSPR)
+          href: troubleshoot-sspr.md
+        - name: SSPR 写回
+          href: troubleshoot-sspr-writeback.md
         - name: SSPR 常见问题解答
           href: active-directory-passwords-faq.md
         - name: MFA 常见问题解答

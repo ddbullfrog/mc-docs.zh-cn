@@ -9,19 +9,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 10/21/2019
-ms.date: 09/07/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 6228c806ce0f9a1122f68c1e40f6f4d0c56f6365
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: c958ce66a6bbc23dd95696b013d7f5c5f583c993
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413848"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245640"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>使用媒体服务 v3 API 进行开发
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 作为开发者，可以利用媒体服务 [REST API](https://docs.microsoft.com/rest/api/media/) 或客户端库，与 REST API 交互，以轻松创建、管理和维护自定义媒体工作流。 [媒体服务 v3](https://aka.ms/ams-v3-rest-sdk) API 基于 OpenAPI 规范（以前称为 Swagger）。
 

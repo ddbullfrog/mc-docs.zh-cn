@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 7f3612734af744cf16d973ebb5f3ec14fea6cc7f
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: d2a51746fe68ea590b75dbe4ed91bec03f867a2d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414001"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245548"
 ---
 # <a name="h264-single-bitrate-4k"></a>H264 单比特率 4K
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 `Media Encoder Standard` 定义了一组在创建编码作业时可使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  
   
  本主题介绍 XML 和 JSON 格式的 `H264 Single Bitrate 4K` 预设。  

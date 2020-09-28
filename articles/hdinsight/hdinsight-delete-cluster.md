@@ -16,14 +16,14 @@ origin.date: 04/17/2018
 ms.date: 10/21/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b3030dc35a6edfd2c52da7bc25ae24519cee41b0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b6e43ed00b3962afe3a88a0cd28036cfad9dbffd
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72292635"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394550"
 ---
-# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-classic-cli"></a>使用浏览器、PowerShell 或 Azure 经典 CLI 删除 HDInsight 群集
+# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>使用浏览器、PowerShell 或 Azure CLI 删除 HDInsight 群集
 
 创建群集后便开始 HDInsight 群集计费，删除群集后停止计费。 群集以每分钟按比例收费，因此无需再使用群集时，应始终将其删除。 本文档介绍如何使用 Azure 门户、Azure PowerShell 和 Azure CLI 删除群集。
 
@@ -40,7 +40,7 @@ ms.locfileid: "72292635"
    
     ![删除图标](./media/hdinsight-delete-cluster/hdinsight-delete-cluster.png)
 
-## <a name="azure-powershell-az-module"></a>Azure PowerShell Az 模块
+## <a name="azure-powershell"></a>Azure PowerShell
 
 在下面的代码中，将 `CLUSTERNAME` 替换为 HDInsight 群集的名称。 在 PowerShell 提示符处输入以下命令，以便删除群集：
 

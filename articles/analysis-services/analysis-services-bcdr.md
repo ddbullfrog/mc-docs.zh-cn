@@ -1,19 +1,22 @@
 ---
 title: Azure Analysis Services 高可用性 | Azure
 description: 本文介绍 Azure Analysis Services 如何在服务中断期间提供高可用性。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 03/30/2020
-ms.date: 04/30/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6fb772f09831c2099c6c3d7ac3ae37e89c6f3536
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.custom: references_regions
+ms.openlocfilehash: 2479fce5f1d040d517e812ac8afcc3e6937fa987
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392399"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146752"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 高可用性
 

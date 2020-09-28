@@ -11,12 +11,12 @@ ms.date: 08/17/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9406834718cc44ed9bd15d70208b7c07d52029cb
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: bb1cf8b15811f93f5511e3154b1162e83de0152f
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246781"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Node.js 连接和查询 Azure Cosmos DB SQL API 帐户中的数据
 
@@ -165,7 +165,7 @@ npm install @azure/cosmos
 > [!NOTE]
 > 在“update”和“delete”方法中，必须通过调用 `container.item()` 从数据库中选择项。 传入的两个参数是项的 ID 和项的分区键。 在这种情况下，分区键是“category”字段的值。
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在，返回 Azure 门户，获取 Azure Cosmos 帐户的连接字符串详细信息。 将连接字符串复制到应用，以便其连接数据库。
 

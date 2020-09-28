@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 0a3f1e6f9427b90f968df68c25be239182a6b65b
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 96db0dc809a72d6fb6fbcbb10080dbab4dbd0eb1
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413773"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245589"
 ---
-# <a name="azure-media-services-concepts"></a>Azure 媒体服务概念 
+# <a name="azure-media-services-concepts"></a>Azure 媒体服务概念
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。

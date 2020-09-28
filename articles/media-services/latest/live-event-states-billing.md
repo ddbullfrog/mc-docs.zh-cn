@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-origin.date: 10/24/2019
-ms.date: 02/24/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: f58176052eeb81409f8578f145fb7468bbfcee65
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: fe7fb8dcee5f7a0e021c33947b48753264cb2662
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245120"
 ---
 # <a name="live-event-states-and-billing"></a>直播活动状态和计费
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 在 Azure 媒体服务中，一旦直播活动的状态转换为**正在运行**，就会开始计费。 即使没有视频流经该服务，也会向你收费。 若要停止对直播活动的计费，必须停止直播活动。
 

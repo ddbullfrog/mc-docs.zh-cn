@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: v-johya
-ms.openlocfilehash: 0587267faf51abad1b544458cc6143db6d91a1b9
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 37ed490bdc2be16b42199628d66ee33a5ecbb8d0
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057937"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394547"
 ---
 <!--Verify sucessfully-->
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure 对第 2 代 VM 的支持
@@ -34,17 +34,22 @@ Azure 中的所有 VM 大小都支持第 1 代 VM（Mv2 系列 VM 除外）。 A
 * [B 系列](sizes-b-series-burstable.md)
     
     <!--Not Available on * [DC-series](../dcv2-series.md)-->
+    
 * [Dsv2 系列](dv2-dsv2-series.md) 
 * [Dsv3 系列](dv3-dsv3-series.md)
 * [Ddsv4 系列](ddv4-ddsv4-series.md)
 * [Esv3 系列](ev3-esv3-series.md)
 * [Fsv2 系列](fsv2-series.md)
+
     <!--Not Available on * [GS-series](/virtual-machines/linux/sizes-previous-gen#gs-series)-->
     <!--Not Available on * [HB-series](../hb-series.md)-->
     <!--Not Available on * [HC-series](../hc-series.md)-->
-    <!--Not Available on * [Ls-series](/virtual-machines/linux/sizes-previous-gen#ls-series) and [Lsv2-series](../lsv2-series.md)-->
+    <!--Not Available on * [Ls-series](/virtual-machines/linux/sizes-previous-gen#ls-series)-->
+    <!--Not Available on and [Lsv2-series](../lsv2-series.md)-->
+    
 * [M 系列](m-series.md)
 * [NCv3 系列](ncv3-series.md)
+
     <!--Not Available on * [Mv2-series](../mv2-series.md)-->      
     <!--Not Available on * [NCv2-series](../ncv2-series.md)-->
     <!--Not Available on * [ND-series](../nd-series.md)-->

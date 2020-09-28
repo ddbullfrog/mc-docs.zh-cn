@@ -4,16 +4,16 @@ description: 了解如何启用和查看 Azure Kubernetes 服务 (AKS) 中 Kuber
 services: container-service
 ms.topic: article
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: d520ba43c8626ab68ffef4a7a9e54a99c6de8bac
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: fdca5529e96d3fd1715cd124127103ac6a4b4f0c
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021525"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146726"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>启用和查看 Azure Kubernetes 服务 (AKS) 中 Kubernetes 主节点的日志
 
@@ -82,25 +82,20 @@ pod/nginx created
 
 可能需要等待几分钟，诊断日志才会启用并显示。 在 Azure 门户中导航到 AKS 群集，然后选择左侧的“日志”。 关闭“示例查询”窗口（如果出现了此窗口）。
 
-
 在左侧选择“日志”。 若要查看 kube-audit 日志，请在文本框中输入以下查询：
 
 ```
-AzureDiagnostics
-| where Category == "kube-audit"
-| project log_s
+KubePodInventory
+| where TimeGenerated > ago(1d)
 ```
 
 可能会返回多个日志。 若要缩小查询范围，以便查看上一步骤中创建的 NGINX pod 的相关日志，请额外添加一个 where 语句来搜索 nginx，如以下示例查询所示：
 
 ```
-AzureDiagnostics
-| where Category == "kube-audit"
-| where log_s contains "nginx"
-| project log_s
+KubePodInventory
+| where TimeGenerated > ago(1d)
+| where Name contains "nginx"
 ```
-
-若要查看其他日志，可将针对 *Category* 名称的查询更新为 *kube-controller-manager* 或 *kube-scheduler*，具体取决于启用的其他日志。 然后，可以使用附加的 *where* 语句来具体化要查找的事件。
 
 有关如何查询和筛选日志数据的详细信息，请参阅[查看或分析使用 Log Analytics 日志搜索收集的数据][analyze-log-analytics]。
 
@@ -146,5 +141,7 @@ AzureDiagnostics
 [az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
 [az-feature-list]: https://docs.azure.cn/cli/feature#az-feature-list
 [az-provider-register]: https://docs.azure.cn/cli/provider#az-provider-register
+
+<!--Not Available on the NEXT 16 ROWS-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

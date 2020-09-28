@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 49add92053bcdf32ad3a74df2e1960f4643bc37d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: caba7c39f295236294f53156cb9ed95086a3db47
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850584"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244869"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户缩放流式处理终结点
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>概述
 
 > [!NOTE]

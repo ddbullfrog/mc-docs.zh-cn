@@ -3,20 +3,22 @@ title: 成为本地编码器合作伙伴 - Azure 媒体服务
 description: 本文介绍如何验证本地实时传送视频流编码器。
 services: media-services
 author: WenJason
-manager: v-jay
+manager: digimobile
 ms.author: v-jay
-origin.date: 03/02/2020
-ms.date: 04/06/2020
-ms.topic: article
+origin.date: 08/31/2020
+ms.date: 09/28/2020
+ms.topic: how-to
 ms.service: media-services
-ms.openlocfilehash: 3eef1dd5155a15e173391c0fe00bd873099b19f5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f5964d888c39b11767f388e595843faa83d804e8
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80625841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244993"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>如何验证本地实时传送视频流编码器
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 作为 Azure 媒体服务本地编码器合作伙伴，媒体服务通过向企业客户推荐编码器来推广你的产品。 若要成为本地编码器合作伙伴，必须验证本地编码器与媒体服务的兼容性。 为此，请完成以下验证。
 

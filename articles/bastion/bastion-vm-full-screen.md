@@ -6,16 +6,16 @@ ms.service: bastion
 ms.topic: how-to
 origin.date: 02/03/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 510c14837ad606e263972903b950ae79b66ada03
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: ee8b50025d644b42a42e48ee7aa4d6d39ff02c3d
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655557"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146701"
 ---
 <!--Verified successfully on 09/07/2020-->
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>将 VM 会话更改为全屏视图：Azure Bastion

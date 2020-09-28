@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543f6c57ab7107c4efdd647efa8c26e9cad944c1
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: fac9e93a45eac0574713f583780431988529c283
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947238"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245222"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>将 Azure AD 日志与 Azure Monitor 日志集成
 
@@ -54,7 +54,7 @@ ms.locfileid: "88947238"
 * Azure 订阅。 如果没有 Azure 订阅，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * Azure AD 租户。
 * 一个是 Azure AD 租户的全局管理员或安全管理员的用户。 
-* 在 Azure 订阅中创建 Log Analytics 工作区。 了解如何[创建 Log Analytics 工作区](/log-analytics/log-analytics-quick-create-workspace)。
+* 在 Azure 订阅中创建 Log Analytics 工作区。 了解如何[创建 Log Analytics 工作区](../../azure-monitor/learn/quick-create-workspace.md)。
 
 ## <a name="licensing-requirements"></a>许可要求
 

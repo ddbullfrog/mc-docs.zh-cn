@@ -10,20 +10,22 @@ tags: ''
 keywords: azure 媒体服务, 流, 广播, 实时, 脱机
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-origin.date: 03/09/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 805f154f446476295b781f1736596e00bd6356d3
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: c706621fa3b81ab6edf69880a745f6be95eb1f8e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414055"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245591"
 ---
 # <a name="media-services-v2-vs-v3"></a>媒体服务 v2 与 v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文介绍了 Azure 媒体服务 v3 中引入的更改，并说明了两个版本之间的差异。
 

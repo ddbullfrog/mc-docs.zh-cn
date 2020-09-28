@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/06/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: f690958ef0f39aa062fb40bbbcb73ff2325cac63
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 099ce944c91255f22a557ab8926eb46ed23a24ff
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80625710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245537"
 ---
-# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>使用 Azure 媒体分析将视频文件中的文本内容转换为数字文本  
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>使用 Azure 媒体分析将视频文件中的文本内容转换为数字文本 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
 > Azure Media OCR  媒体处理器将停用。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。

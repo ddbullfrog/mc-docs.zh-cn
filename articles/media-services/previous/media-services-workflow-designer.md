@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 11/18/2019
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: 95e205e0dc8da3ac94dc98e36ba565cfd6cbf38e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 941a9e7f3ef8ea45b057b4b6cf2dc5f22e5c5d96
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74116251"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245423"
 ---
-# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流设计器创建高级编码工作流  
+# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流设计器创建高级编码工作流
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>概述
 **工作流设计器**是一个 Windows 桌面工具，可用于设计和构建自定义工作流，以使用**媒体编码器高级工作流**进行编码。
 借助工作流设计器工具的强大功能，可以设计和创建会在**媒体编码器高级**中运行的复杂工作流。  

@@ -1,20 +1,20 @@
 ---
 title: 有关 Azure Synapse Link for Azure Cosmos DB 的常见问题
 description: 获取有关 Synapse Link for Azure Cosmos DB 在计费、分析存储、安全性、分析存储生存时间等方面的常见问题的答案。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/19/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: dc2c2774503be3300136434e88dd2a0ae207517d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: f0af80b5708b7c3610f4a3fef7005d8f9391508a
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223417"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246719"
 ---
 <!--Verified successfully-->
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>有关 Azure Synapse Link for Azure Cosmos DB 的常见问题

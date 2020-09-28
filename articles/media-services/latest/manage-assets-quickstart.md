@@ -2,19 +2,22 @@
 title: 使用门户上传、编码和流式传输内容 - Azure
 description: 本快速入门介绍如何使用门户通过 Azure 媒体服务上传、编码和流式传输内容。
 ms.topic: quickstart
-origin.date: 06/08/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
+ms.service: media-services
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: ed62f5606aac692354af1bbb9982588b45acc88f
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 829fe3abf566a1c47e83b5188f96de243113bc02
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413490"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245646"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>快速入门：使用门户上传、编码和流式传输内容
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。
@@ -53,7 +56,7 @@ ms.locfileid: "89413490"
 
 [创建媒体服务帐户](create-account-howto.md#use-the-azure-portal)
 
-## <a name="upload"></a>上传
+## <a name="upload"></a>上载
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 1. 找到并单击你的媒体服务帐户。

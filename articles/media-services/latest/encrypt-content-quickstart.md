@@ -2,16 +2,21 @@
 title: 使用 Azure 门户加密内容
 description: 本快速入门介绍如何使用 Azure 门户中的 Azure 媒体服务配置内容加密。
 ms.topic: quickstart
-origin.date: 06/08/2020
-ms.date: 07/27/2020
-ms.openlocfilehash: 73234901e69972210b40ea3f3e93daddf0ac7e07
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+author: WenJason
+ms.author: v-jay
+ms.service: media-services
+origin.date: 08/31/2020
+ms.date: 09/28/2020
+ms.openlocfilehash: f3c4271dd01871bb6997fd90a80a38ee329d33b7
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245137"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>快速入门：使用门户加密内容
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。

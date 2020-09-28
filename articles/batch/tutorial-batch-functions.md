@@ -3,16 +3,20 @@ title: 使用 Azure Functions 触发批处理作业
 description: 教程 - 在扫描文档添加到存储 Blob 时将 OCR 应用于这些文档
 ms.devlang: dotnet
 ms.topic: tutorial
+ms.service: batch
 origin.date: 05/30/2019
-ms.date: 08/30/2019
-ms.author: v-lingwu
-ms.custom: mvc
-ms.openlocfilehash: 87a9661067af62d697c57fae0d667ed527ab7e1b
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: 08/30/2019
+ms.author: v-yeche
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 8482411495bfd8b61100fceed730bf1616211e32
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126772"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146792"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>教程：使用 Azure Functions 触发批处理作业
 
@@ -50,13 +54,12 @@ ms.locfileid: "84126772"
     1. 将池设置为 `ocr-pool` 或为池选择其他任何名称。
     1. 选择“确定”  。
 
-
 ## <a name="create-blob-containers"></a>创建 Blob 容器
 
 此处将创建 Blob 容器，用于存储 OCR 批处理作业的输入和输出文件。
 
 1. 使用 Azure 凭据登录到存储资源管理器。
-1. 使用链接到批处理帐户的存储帐户，按照[创建 Blob 容器](/vs-azure-tools-storage-explorer-blobs#create-a-blob-container)的步骤创建两个 Blob 容器（一个用于输入文件，一个用于输出文件）。
+1. 使用链接到批处理帐户的存储帐户，按照[创建 Blob 容器](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container)的步骤创建两个 Blob 容器（一个用于输入文件，一个用于输出文件）。
 
 在本例中，输入容器命名为 `input`，所有未应用 OCR 的文档最初都会上传到输入容器进行处理。 输出容器名为 `output`，批处理作业将应用了 OCR 的处理过的文档写入输入容器。  
     * 在本例中，我们将调用输入容器 `input` 和输出容器 `output`。  
@@ -69,7 +72,7 @@ ms.locfileid: "84126772"
 
 在本节中，你将创建 Azure 函数，每当文件上传到输入容器时，该函数就会触发 OCR 批处理作业。
 
-1. 按照[创建由 Azure Blob 存储触发的函数](/azure-functions/functions-create-storage-blob-triggered-function)中的步骤创建函数。
+1. 按照[创建由 Azure Blob 存储触发的函数](../azure-functions/functions-create-storage-blob-triggered-function.md)中的步骤创建函数。
     1. 当提示输入存储帐户时，请使用与批处理帐户关联的同一存储帐户。
     1. 对于运行时堆栈，选择“.NET”  。 我们将使用 C# 编写函数，以利用批处理 .NET SDK。
 1. 创建 Blob 触发函数后，在函数中使用 GitHub 中的 [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) 和 [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj)。
@@ -112,4 +115,6 @@ ms.locfileid: "84126772"
 
 * 如需更多示例，以便了解如何使用 .NET API 来计划和处理 Batch 工作负荷，请参阅 [GitHub 上的示例](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)。 
 
-* 若要查看更多可用于运行批处理工作负载的 Azure Functions 触发器，请参阅 [Azure Functions 文档](/azure-functions/functions-triggers-bindings)。
+* 若要查看更多可用于运行批处理工作负载的 Azure Functions 触发器，请参阅 [Azure Functions 文档](../azure-functions/functions-triggers-bindings.md)。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

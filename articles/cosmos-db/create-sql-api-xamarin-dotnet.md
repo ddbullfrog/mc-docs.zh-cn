@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB - 使用 Xamarin 生成待办事项应用
 description: 演示了一个可以用来连接到 Azure Cosmos DB 并进行查询的 Xamarin 代码示例
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/11/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: ce1442a0e765270f4397a398daedeb32f9d90ce0
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ce8fd7b32e43d7c1fda76f3a105603abd47b1b0b
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223360"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246782"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>快速入门：通过 Azure Cosmos DB SQL API 帐户使用 Xamarin 生成 ToDo 应用
 

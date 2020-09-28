@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/27/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 344782c2c885f82cc4beca392a6b92c12b8624da
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 356d664f689f67cf799472cd4f054cf42ef951b6
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753592"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026485"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 入门
 
@@ -159,7 +159,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 接下来键入以下命令，然后按 ENTER 键。
 
 ```azcopy
-azcopy login --service-principal --certificate-path path-to-certificate-file --application-id application-id --tenant-id=tenant-id --aad-endpoint https://login.partner.microsoftonline.cn
+azcopy login --service-principal  --application-id application-id --tenant-id=tenant-id --aad-endpoint https://login.partner.microsoftonline.cn
 ```
 
 请将 `<application-id>` 占位符替换为服务主体应用注册的应用程序 ID。 请将 `<tenant-id>` 占位符替换为存储帐户所属组织的租户 ID。 若要查找租户 ID，请在 Azure 门户中选择“Azure Active Directory”>“属性”>“目录 ID”。 

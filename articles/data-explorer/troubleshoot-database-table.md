@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 09/24/2018
-ms.date: 05/09/2020
-ms.openlocfilehash: 44fd08b61247b1828b63e7486f4a20214ad486a4
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: 73bf86d314e9120294e9522cd1158b8572663a2b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417546"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146247"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>故障排除：无法在 Azure 数据资源管理器中创建或删除数据库或表
 

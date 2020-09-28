@@ -23,9 +23,6 @@
       href: powershell-samples.md
     - name: 托管应用程序解决方案
       href: sample-projects.md
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 概念
   items:
     - name: 视图定义项目
@@ -73,7 +70,7 @@
         - name: 查看定义
           href: reference-view-definition-artifact.md
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/managedapp?view=azure-cli-latest'
+      href: 'https://docs.microsoft.com/cli/azure/managedapp'
     - name: PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.resources'
     - name: REST
@@ -105,6 +102,8 @@
               href: microsoft-common-checkbox.md
             - name: DropDown
               href: microsoft-common-dropdown.md
+            - name: EditableGrid
+              href: microsoft-common-editablegrid.md
             - name: FileUpload
               href: microsoft-common-fileupload.md
             - name: InfoBox
@@ -153,6 +152,9 @@
               href: microsoft-storage-multistorageaccountcombo.md
             - name: StorageAccountSelector
               href: microsoft-storage-storageaccountselector.md
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: 定价

@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 04/06/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: milanga
-ms.openlocfilehash: c8daa3a1e00addbdf0067160467de38974d27d34
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5b569d64efab5a3e23a5d5e4c53c29d0848258a7
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80625768"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245680"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒体分析检测动作
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Azure Media Motion Detector  媒体处理器将停用。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。

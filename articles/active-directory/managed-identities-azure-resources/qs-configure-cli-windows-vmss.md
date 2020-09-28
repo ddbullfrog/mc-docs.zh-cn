@@ -3,24 +3,24 @@ title: 在虚拟机规模集上配置托管标识 - Azure CLI - Azure AD
 description: 分步说明如何使用 Azure CLI 在 Azure 虚拟机规模集上配置系统分配的托管标识和用户分配的托管标识。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: MarkusVi
+author: barclayn
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f899ea326e930212d40169b0891d6e6ef44ddf8
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 540cf399c42ac05be0f479011582753dd0887fc1
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245662"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>使用 Azure CLI 在虚拟机规模集上配置 Azure 资源托管标识
 
@@ -42,13 +42,15 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
     > [!NOTE]
     > 无需其他 Azure AD 目录角色分配。
 
-    - [虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统和/或用户分配托管标识。
-    - [托管标识参与者](/role-based-access-control/built-in-roles#managed-identity-contributor)角色，可以创建用户分配的托管标识。
-    - [托管标识操作员](/role-based-access-control/built-in-roles#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的托管标识。
+    - [虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统和/或用户分配托管标识。
+    - [托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色，可以创建用户分配的托管标识。
+    - [托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的托管标识。
+
 - 若要运行 CLI 脚本示例，如果你喜欢使用本地 CLI 控制台，则可以[安装 Azure CLI 的最新版本](/cli/install-azure-cli)（2.0.13 或更高版本）。 
       
-    > [!NOTE]
-    > 命令已更新，以反映最新版本的 [Azure CLI](/cli/install-azure-cli)。
+      > [!NOTE]
+      > The commands have been updated to reflect the latest release of the [Azure CLI](/cli/install-azure-cli).
+
 
 ## <a name="system-assigned-managed-identity"></a>系统分配的托管标识
 
@@ -119,7 +121,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 
 本部分介绍如何创建虚拟机规模集以及向虚拟机规模集分配用户分配托管标识。 如果已有要使用的虚拟机规模集，请跳过此部分，转到下一部分。
 
-1. 如果已有要使用的资源组，可跳过此步骤。 使用 [az group create](/cli/group/#az-group-create) 创建用于包含和部署用户分配托管标识的[资源组](/azure-resource-manager/management/overview#terminology)。 请务必将 `<RESOURCE GROUP>` 和 `<LOCATION>` 参数值替换为自己的值。 解码的字符：
+1. 如果已有要使用的资源组，可跳过此步骤。 使用 [az group create](/cli/group/#az-group-create) 创建用于包含和部署用户分配托管标识的[资源组](/azure-resource-manager/management/overview#terminology)。 请务必将 `<RESOURCE GROUP>` 和 `<LOCATION>` 参数值替换为自己的值。 :
 
    ```azurecli 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -214,21 +216,4 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned'
 - 有关完整的 Azure 虚拟机规模集创建快速入门，请参阅： 
 
   - [使用 CLI 创建虚拟机规模集](../../virtual-machines/linux/tutorial-create-vmss.md#create-a-scale-set)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

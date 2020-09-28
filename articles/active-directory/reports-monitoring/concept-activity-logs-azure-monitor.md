@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3151efa58363e6bcada2f306cba9c111aa04429
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 30a81ec3af6292b6b2f78f9cf812a39c732777fb
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947552"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245169"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor 中的 Azure AD 活动日志
 
@@ -136,13 +136,13 @@ ms.locfileid: "88947552"
 
 **问: 目前支持哪些 SIEM 工具？** 
 
-**答**：**答**：目前，Azure Monitor 受 [Splunk](tutorial-integrate-activity-logs-with-splunk.md)、IBM QRadar、[Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory)、[ArcSight](/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight)、LogRhythm 和 Logz.io 支持。 若要详细了解连接器的工作方式，请参阅[将 Azure 监视数据流式传输到事件中心供外部工具使用](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
+**答**：**答**：目前，Azure Monitor 受 [Splunk](./howto-integrate-activity-logs-with-splunk.md)、IBM QRadar、[Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory)、[ArcSight](./howto-integrate-activity-logs-with-arcsight.md)、LogRhythm 和 Logz.io 支持。 若要详细了解连接器的工作方式，请参阅[将 Azure 监视数据流式传输到事件中心供外部工具使用](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
 
 ---
 
 **问: 如何将 Azure AD 活动日志与 Splunk 实例集成？**
 
-**答**：首先，[将 Azure AD 活动日志路由到事件中心](quickstart-azure-monitor-stream-logs-to-event-hub.md)，然后按照步骤[将活动日志与 Splunk 集成](tutorial-integrate-activity-logs-with-splunk.md)。
+**答**：首先，[将 Azure AD 活动日志路由到事件中心](./tutorial-azure-monitor-stream-logs-to-event-hub.md)，然后按照步骤[将活动日志与 Splunk 集成](./howto-integrate-activity-logs-with-splunk.md)。
 
 ---
 
@@ -154,7 +154,7 @@ ms.locfileid: "88947552"
 
 **问: 是否可以在不使用外部 SIEM 工具的情况下，从事件中心访问数据？** 
 
-**答**：是的。 若要通过自定义应用程序来访问日志，可以使用[事件中心 API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)。 
+**答**：是的。 若要通过自定义应用程序来访问日志，可以使用[事件中心 API](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)。 
 
 ---
 
@@ -162,6 +162,6 @@ ms.locfileid: "88947552"
 ## <a name="next-steps"></a>后续步骤
 
 * [将活动日志存档到存储帐户](quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [将活动日志路由到事件中心](quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [将活动日志路由到事件中心](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [将活动日志与 Azure Monitor 集成](howto-integrate-activity-logs-with-log-analytics.md)
 

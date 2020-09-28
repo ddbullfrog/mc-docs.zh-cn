@@ -4,25 +4,25 @@ description: 本主题提供针对 userCertificate 属性导致的 LargeObject �
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/13/2017
-ms.date: 11/12/2018
-ms.component: hybrid
+ms.topic: troubleshooting
+ms.date: 09/24/2020
+ms.subservice: hybrid
 ms.author: v-junlch
 ms.custom: seohack1
-ms.openlocfilehash: e5a5a3ece6bdc11ad64d359d118705e284f8b04f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3058689f0d93cab29705fd9cb7277f25432def2d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63830007"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245227"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 同步：处理 userCertificate 属性导致的 LargeObject 错误
 
@@ -30,26 +30,26 @@ Azure AD 针对 **userCertificate** 属性的最大证书值数目限制为 **15
 
 >*“预配的对象太大。请减少此对象上属性值的数目。在下一同步周期内将重试该操作...”*
 
-LargeObject 错误可能由其他 AD 属性导致。 若要确认该错误是否确实由 userCertificate 属性导致，需要在本地 AD 中或[同步服务管理器 Metaverse 搜索](/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch)中验证该对象。
+LargeObject 错误可能由其他 AD 属性导致。 若要确认该错误是否确实由 userCertificate 属性导致，需要在本地 AD 中或[同步服务管理器 Metaverse 搜索](./how-to-connect-sync-service-manager-ui-mvsearch.md)中验证该对象。
 
 若要获取租户中出现 LargeObject 错误的对象列表，请使用以下方法之一：
 
- - 每个同步周期结束时发送的有关目录同步错误的通知电子邮件包含出现 LargeObject 错误的对象列表。 
- - 如果单击最新的“导出到 Azure AD”操作，[同步服务管理器操作](/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) 选项卡将显示出现 LargeObject 错误的对象列表。
+ * 每个同步周期结束时发送的有关目录同步错误的通知电子邮件包含出现 LargeObject 错误的对象列表。 
+ * 如果单击最新的“导出到 Azure AD”操作，[同步服务管理器操作](./how-to-connect-sync-service-manager-ui-operations.md) 选项卡将显示出现 LargeObject 错误的对象列表。
  
 ## <a name="mitigation-options"></a>缓解选项
 在解决 LargeObject 错误之前，对同一对象所做的其他属性更改将无法导出到 Azure AD 中。 若要解决该错误，可以考虑以下选项：
 
- - 将 Azure AD Connect 升级到内部版本 1.1.524.0 或更高版本。 在 Azure AD Connect 内部版本 1.1.524.0 中，现成的同步规则已经更新：如果 userCertificate 和 userSMIMECertificate 属性的值超过 15 个，则不会导出这些属性。 有关如何升级 Azure AD Connect 的详细信息，请参阅 [Azure AD Connect：从旧版升级到最新版本](/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)。
+ * 将 Azure AD Connect 升级到内部版本 1.1.524.0 或更高版本。 在 Azure AD Connect 内部版本 1.1.524.0 中，现成的同步规则已经更新：如果 userCertificate 和 userSMIMECertificate 属性的值超过 15 个，则不会导出这些属性。 有关如何升级 Azure AD Connect 的详细信息，请参阅 [Azure AD Connect：从旧版升级到最新版本](./how-to-upgrade-previous-version.md)。
 
- - 在 Azure AD Connect 中实现一个**出站同步规则**，以便导出**对包含 15 个以上证书值的对象导出 null 值而不是实际值**。 如果你不需要将包含超过 15 个证书值的对象的任何证书值导出到 Azure AD，则此选项不适用。 有关如何实现此同步规则的详细信息，请参阅下一部分[实现同步规则以限制 userCertificate 属性的导出](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute)。
+ * 在 Azure AD Connect 中实现一个**出站同步规则**，以便导出**对包含 15 个以上证书值的对象导出 null 值而不是实际值**。 如果你不需要将包含超过 15 个证书值的对象的任何证书值导出到 Azure AD，则此选项不适用。 有关如何实现此同步规则的详细信息，请参阅下一部分[实现同步规则以限制 userCertificate 属性的导出](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute)。
 
- - 通过删除你的组织不再使用的值来减少本地 AD 对象中的证书值数（减到 15 个或更少）。 如果已过期或未使用的证书导致属性膨胀，则适合使用此方法。 可以使用[此处提供的 PowerShell 脚本](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f)来帮助查找、备份和删除本地 AD 中已过期的证书。 在删除证书之前，我们建议你与组织中的关键基础结构管理员确认。
+ * 通过删除你的组织不再使用的值来减少本地 AD 对象中的证书值数（减到 15 个或更少）。 如果已过期或未使用的证书导致属性膨胀，则适合使用此方法。 可以使用[此处提供的 PowerShell 脚本](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f)来帮助查找、备份和删除本地 AD 中已过期的证书。 在删除证书之前，我们建议你与组织中的关键基础结构管理员确认。
 
- - 配置 Azure AD Connect，以避免将 userCertificate 属性导出到 Azure AD。 一般情况下，我们不建议使用此选项，因为 Microsoft Online Services 可能会使用该属性来实现特定的方案。 具体而言：
-    - Exchange Online 和 Outlook 客户端使用 User 对象中的 userCertificate 属性进行消息签名和加密。 若要详细了解此功能，请参阅 [S/MIME for message signing and encryption](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx)（用于消息签名和加密的 S/MIME）一文。
+ * 配置 Azure AD Connect，以避免将 userCertificate 属性导出到 Azure AD。 一般情况下，我们不建议使用此选项，因为 Microsoft Online Services 可能会使用该属性来实现特定的方案。 具体而言：
+    * Exchange Online 和 Outlook 客户端使用 User 对象中的 userCertificate 属性进行消息签名和加密。 若要详细了解此功能，请参阅 [S/MIME for message signing and encryption](https://docs.microsoft.com/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption?view=o365-worldwide)（用于消息签名和加密的 S/MIME）一文。
 
-    - Azure AD 使用 Computer 对象中的 userCertificate 属性来让已加入本地域的 Windows 10 设备连接到 Azure AD。
+    * Azure AD 使用 Computer 对象中的 userCertificate 属性来让已加入本地域的 Windows 10 设备连接到 Azure AD。
 
 ## <a name="implementing-sync-rule-to-limit-export-of-usercertificate-attribute"></a>实现同步规则以限制 userCertificate 属性的导出
 若要解决 userCertificate 属性导致的 LargeObject 错误，可在 Azure AD Connect 中实现一个出站同步规则，以便**对包含 15 个以上证书值的对象导出 null 值而不是实际值**。 本部分介绍需要执行哪些步骤来为 **User** 对象实现同步规则。 可以针对 **Contact** 和 **Computer** 对象改写这些步骤。
@@ -74,12 +74,12 @@ LargeObject 错误可能由其他 AD 属性导致。 若要确认该错误是否
 
 2. 通过运行以下 cmdlet 来禁用计划的同步：`Set-ADSyncScheduler -SyncCycleEnabled $false`
 
-    > [!Note]
-    > 前面的步骤仅适用于使用内置计划程序的较新 Azure AD Connect 版本 (1.1.xxx.x)。 如果你操作的是使用 Windows 任务计划程序的较旧 Azure AD Connect 版本 (1.0.xxx.x)，或者使用你自己的自定义计划程序（不常见）来触发定期同步，则需要相应地禁用这种同步。
+> [!Note]
+> 前面的步骤仅适用于使用内置计划程序的较新 Azure AD Connect 版本 (1.1.xxx.x)。 如果你操作的是使用 Windows 任务计划程序的较旧 Azure AD Connect 版本 (1.0.xxx.x)，或者使用你自己的自定义计划程序（不常见）来触发定期同步，则需要相应地禁用这种同步。
 
-3. 转到“开始”→“同步服务”，启动“Synchronization Service Manager”。 
+1. 转到“开始”→“同步服务”，启动“Synchronization Service Manager”。 
 
-4. 转到“操作”选项卡，确认是否不存在状态为“正在进行”的操作。  
+1. 转到“操作”选项卡，确认是否不存在状态为“正在进行”的操作。  
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>步骤 2. 查找 userCertificate 属性的现有出站同步规则
 应已启用并配置一个现有的同步规则用于将 User 对象的 userCertificate 属性导出到 Azure AD。 请找到此同步规则，确定其**优先顺序**和**范围筛选器**配置：
@@ -181,5 +181,4 @@ LargeObject 错误可能由其他 AD 属性导致。 若要确认该错误是否
 
 ## <a name="next-steps"></a>后续步骤
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
-
 

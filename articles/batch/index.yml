@@ -1,38 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: 批处理文档
+### YamlMime:Landing
+title: Azure Batch 文档
+summary: Azure Batch 在云中高效运行大规模应用程序。 为你的解决方案计划计算密集型任务并动态调整资源，而无需管理基础结构。
 metadata:
-  title: Batch 文档 - 教程和 API 参考 | Azure
-  description: 使用 Batch 在云中高效运行大规模并行和高性能计算 (HPC) 应用程序。 定义 Azure 计算资源，以并行执行或大规模执行应用程序，无需手动配置或管理基础结构。 按要求计划计算密集型任务并动态添加或删除计算资源。 使用我们的快速入门、教程和示例了解如何使用 Azure Batch。
-  services: batch
-  author: lingliw
-  manager: digimobile
+  title: Azure Batch 文档
+  description: Azure Batch 在云中高效运行大规模应用程序。 为你的解决方案计划计算密集型任务并动态调整资源，而无需管理基础结构。
   ms.service: batch
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  origin.date: 11/30/2017
-  ms.date: 11/26/2018
-  ms.author: v-lingwu
-abstract:
-  description: 使用 Batch 在云中高效运行大规模并行和高性能计算 (HPC) 应用程序。 定义 Azure 计算资源，以并行执行或大规模执行应用程序，无需手动配置或管理基础结构。 按要求计划计算密集型任务并动态添加或删除计算资源。 使用我们的快速入门、教程和示例了解如何使用 Azure Batch。
-sections:
-  - title: 示例
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/batch/cli-samples">Azure CLI</a>
-  - title: 参考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 命令行
-            html: '<p><a href="/cli/batch">Azure CLI</a></p> <p><a href="https://docs.microsoft.com/powershell/module/azurerm.batch">Azure PowerShell</a></p>'
-          - title: Languages
-            html: '<p><a href="/dotnet/api/overview/batch">.NET</a></p> <p><a href="/java/api/overview/batch">Java</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/batch">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/batch">Python</a></p>'
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/batchservice">Batch 服务 REST API</a></p> <p><a href="https://docs.microsoft.com/rest/api/batchmanagement/">Batch 管理 REST API</a></p>'
+  origin.date: 09/23/2019
+  author: rockboyfor
+  ms.date: 09/21/2020
+  ms.testscope: no
+  ms.testdate: 
+  ms.author: v-yeche
+  ms.openlocfilehash: cc8138d984c36afc4cd57a7b44695b2a0ec92eac
+  ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 09/24/2020
+  ms.locfileid: "91146794"
+landingContent:
+- title: 关于 Azure Batch
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什么是 Azure Batch？
+      url: batch-technical-overview.md
+- title: 入门
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure CLI
+      url: quick-create-cli.md
+    - text: Azure 门户
+      url: quick-create-portal.md
+    - text: .NET API
+      url: quick-run-dotnet.md
+    - text: Python API
+      url: quick-run-python.md
+  - linkListType: concept
+    links:
+    - text: 面向开发人员的工作流和功能概述
+      url: batch-service-workflow-features.md
+- title: 分步指南
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 并行文件处理 - .NET
+      url: tutorial-parallel-dotnet.md
+    - text: 并行文件处理 - Python
+      url: tutorial-parallel-python.md
+    - text: 将 OCR 与 Batch 和 Functions 配合使用
+      url: tutorial-batch-functions.md
+    - text: 使用 Arnold 进行场景呈现
+      url: tutorial-rendering-cli.md
+    - text: 使用 Batch Explorer 进行渲染
+      url: tutorial-rendering-batchexplorer-blender.md
+- title: 设置并管理资源
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 创建批处理帐户
+      url: batch-account-create-portal.md
+    - text: 创建和管理池
+      url: batch-custom-images.md
+    - text: 并发运行任务
+      url: batch-parallel-node-tasks.md
+    - text: 使用应用程序包
+      url: batch-application-packages.md
+  - linkListType: concept
+    links:
+    - text: 支持的 VM 大小
+      url: batch-pool-vm-sizes.md
+    - text: 配额和限制
+      url: batch-quota-limit.md
+    - text: 最佳做法
+      url: best-practices.md
+- title: API 参考
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: https://docs.azure.cn/cli/batch
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.batch/
+    - text: .NET
+      url: https://docs.azure.cn/dotnet/api/overview/batch
+    - text: Java
+      url: https://docs.azure.cn/java/api/overview/batch
+    - text: Node.js
+      url: https://docs.microsoft.com/javascript/api/overview/azure/batch
+    - text: Python
+      url: https://docs.microsoft.com//python/api/overview/azure/batch
+    - text: REST
+      url: https://docs.microsoft.com/rest/api/batchservice/

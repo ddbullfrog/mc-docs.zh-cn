@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/10/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: be95b604110d70bbafe599b0a60b63b2e463967b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 26d17e2cf9b922fe5fcbcb527e56783d196719bc
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71124692"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245002"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>使用自动生成的比特率阶梯进行编码
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="overview"></a>概述
 

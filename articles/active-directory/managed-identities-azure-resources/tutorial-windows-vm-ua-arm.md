@@ -3,7 +3,7 @@ title: 教程`:`使用托管标识访问 Azure 资源管理器 - Windows - Azure
 description: 本教程介绍了使用 Windows VM 上用户分配的托管标识访问 Azure 资源管理器的过程。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d97cdd2e9e97a610c45e92a526e3e1d83edbfa5c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 3243886c6bd105eebf69c9a491d5014ab4abbe2c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77067681"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245413"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>教程：使用 Windows VM 上用户分配的托管标识访问 Azure 资源管理器
 
@@ -45,9 +45,9 @@ ms.locfileid: "77067681"
 
 - [登录到 Azure 门户](https://portal.azure.cn)
 
-- [创建 Windows 虚拟机](/virtual-machines/windows/quick-create-portal)
+- [创建 Windows 虚拟机](../../virtual-machines/windows/quick-create-portal.md)
 
-- 若要执行本教程中必需的资源创建和角色管理步骤，你的帐户需要在相应范围（订阅或资源组）具有“所有者”权限。 如果需要有关角色分配的帮助，请参阅[使用基于角色的访问控制管理对 Azure 订阅资源的访问权限](/role-based-access-control/role-assignments-portal)。
+- 若要执行本教程中必需的资源创建和角色管理步骤，你的帐户需要在相应范围（订阅或资源组）具有“所有者”权限。 如果需要有关角色分配的帮助，请参阅[使用基于角色的访问控制管理对 Azure 订阅资源的访问权限](../../role-based-access-control/role-assignments-portal.md)。
 - [安装最新版本的 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 
 - 运行 `Connect-AzAccount -Environment AzureChinaCloud`，创建与 Azure 的连接。
 - 安装[最新版本的 PowerShellGet](https://docs.microsoft.com/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)。
@@ -163,6 +163,5 @@ CanDelegate: False
 在本教程中，你已学习了如何创建用户分配的标识，并将其附加到 Azure 虚拟机以访问 Azure 资源管理器 API。  若要详细了解 Azure 资源管理器，请参阅：
 
 > [!div class="nextstepaction"]
->[Azure 资源管理器](/azure-resource-manager/resource-group-overview)
+>[Azure 资源管理器](../../azure-resource-manager/management/overview.md)
 
-<!-- Update_Description: wording update -->

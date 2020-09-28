@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 200bd115e3c9b30fdde184125a7d13fe81f54490
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5a0105afafce2e94651b8f05e5adb49ca927687f
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71124656"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245059"
 ---
 # <a name="change-the-reserved-unit-type"></a>更改预留单位类型
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [门户](media-services-portal-scale-media-processing.md)

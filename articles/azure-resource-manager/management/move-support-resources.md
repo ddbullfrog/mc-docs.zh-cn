@@ -2,18 +2,18 @@
 title: 资源类型支持的移动操作
 description: 列出可移到新资源组或订阅的 Azure 资源类型。
 ms.topic: conceptual
-origin.date: 07/13/2020
+origin.date: 09/08/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7ea2b87aad06f54fcc21916b97ec07c4e5785ca6
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 12b1d364d5cea853b3f741c92b4152a2f3c9c217
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807880"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146413"
 ---
 <!--Verify Successfully-->
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
@@ -374,7 +374,7 @@ ms.locfileid: "88807880"
 > | quotas | 否 | 否 |
 > | resourcetypes | 否 | 否 |
 > | validatesubscriptionmoveavailability | 否 | 否 |
-> | virtualmachines | 是 | 否 |
+> | virtualmachines | 是 | 是 |
 > | virtualmachines / diagnosticsettings | 否 | 否 |
 > | virtualmachines / metricdefinitions | 否 | 否 |
 > | virtualmachines / metrics | 否 | 否 |
@@ -1182,7 +1182,7 @@ ms.locfileid: "88807880"
 <!-- Not Available on ## Microsoft.Migrate-->
 <!--Not Available on ## Microsoft.MixedReality-->
 <!-- Not Available on ## Microsoft.NetApp-->
-<!--Bastion, DDos, Front Door, and Private link service are not available on Mooncake-->
+<!--DDos, and Front Door are not available on Mooncake-->
 <!--MOONCAKE CUSTOMIZEIONT-->
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
@@ -1208,8 +1208,6 @@ ms.locfileid: "88807880"
 > | checkfrontdoornameavailability | 否 | 否 |
 > | checktrafficmanagernameavailability | 否 | 否 |
 > | connections | 是 | 是 |
-> | ddoscustompolicies | 是 | 是 |
-> | ddosprotectionplans | 否 | 否 |
 > | dnsoperationresults | 否 | 否 |
 > | dnsoperationstatuses | 否 | 否 |
 > | dnszones | 是 | 是 |
@@ -1265,9 +1263,9 @@ ms.locfileid: "88807880"
 > | networkprofiles | 否 | 否 |
 > | networksecuritygroups | 是 | 是 |
 > | networkwatchers | 是 | 否 |
-> | networkwatchers / connectionmonitors | 是 | 否 |
+> | networkwatchers/connectionmonitors | 是 | 否 |
 > | networkwatchers/flowlogs | 是 | 否 |
-> | networkwatchers / pingmeshes | 是 | 否 |
+> | networkwatchers/pingmeshes | 是 | 否 |
 > | 操作 | 否 | 否 |
 > | p2svpngateways | 否 | 否 |
 > | privatednsoperationresults | 否 | 否 |
@@ -1282,10 +1280,11 @@ ms.locfileid: "88807880"
 > | privatednszones / soa | 否 | 否 |
 > | privatednszones / srv | 否 | 否 |
 > | privatednszones / txt | 否 | 否 |
-> | privatednszones / virtualnetworklinks | 是 | 是 |
+> | privatednszones/virtualnetworklinks | 是 | 是 |
 > | privatednszonesinternal | 否 | 否 |
 > | privateendpointredirectmaps | 否 | 否 |
 > | privateendpoints | 是 | 是 |
+> | privatelinkservices | 否 | 否 |
 > | publicipaddresses | 是 - 基本 SKU<br />否 - 标准 SKU | 是 - 基本 SKU<br />否 - 标准 SKU |
 > | publicipprefixes | 是 | 是 |
 > | routefilters | 否 | 否 |
@@ -1306,7 +1305,7 @@ ms.locfileid: "88807880"
 > | vpnserverconfigurations | 否 | 否 |
 > | vpnsites（虚拟 WAN） | 否 | 否 |
 
-<!--DDos, Front Door, and Private link service are not available on Mooncake-->
+<!--DDos, and Front Door are not available on Mooncake-->
 <!--MOONCAKE CUSTOMIZEIONT-->
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
@@ -1714,7 +1713,7 @@ ms.locfileid: "88807880"
 > | locations / jobagentoperationresults | 否 | 否 |
 > | locations / longtermretentionbackupazureasyncoperation | 否 | 否 |
 > | locations / longtermretentionbackupoperationresults | 否 | 否 |
-> | locations / longtermretentionbackups | 否 | 否 |
+> | locations / longtermretentionbackups | 是 | 是 |
 > | locations / longtermretentionmanagedinstancebackupazureasyncoperation | 否 | 否 |
 > | locations / longtermretentionmanagedinstancebackupoperationresults | 否 | 否 |
 > | locations / longtermretentionmanagedinstancebackups | 否 | 否 |
@@ -1797,7 +1796,7 @@ ms.locfileid: "88807880"
 > | servers / databases / auditingsettings | 否 | 否 |
 > | servers / databases / auditrecords | 否 | 否 |
 > | servers / databases / automatictuning | 否 | 否 |
-> | servers / databases / backuplongtermretentionpolicies | 否 | 否 |
+> | servers / databases / backuplongtermretentionpolicies | 是 | 是 |
 > | servers / databases / backupshorttermretentionpolicies | 否 | 否 |
 > | servers / databases / connectionpolicies | 否 | 否 |
 > | servers / databases / datamaskingpolicies | 否 | 否 |
@@ -1970,7 +1969,7 @@ ms.locfileid: "88807880"
 > | sites / eventgridfilters | 否 | 否 |
 > | sites / hostnamebindings | 否 | 否 |
 > | sites / networkconfig | 否 | 否 |
-> | sites / premieraddons | 是 | 是 |
+> | sites/premieraddons | 是 | 是 |
 > | sites/slots | 是 | 是 |
 > | sites / slots / eventgridfilters | 否 | 否 |
 > | sites / slots / hostnamebindings | 否 | 否 |

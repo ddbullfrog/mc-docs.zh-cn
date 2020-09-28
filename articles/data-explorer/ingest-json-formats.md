@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: kerend
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 05/19/2020
-ms.date: 07/08/2020
-ms.openlocfilehash: 83f9afb976643a233aa0ec0d6401ef67ca560d61
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: f8ca23c29643c7acdd9240c6afc82278d574e434
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515936"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146177"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>将 JSON 格式的示例数据引入 Azure 数据资源管理器
 
@@ -31,7 +31,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
 
 ### <a name="ingest-and-map-json-formatted-data"></a>引入和映射 JSON 格式的数据
 
-引入 JSON*格式*的数据需要使用[引入属性](ingestion-properties.md)指定格式。 引入 JSON 数据需要执行 [映射](]\(/data-explorer/kusto/management/mappings)，它将 JSON 源条目映射到其目标列。 引入数据时，将 `IngestionMapping` 属性与其 `ingestionMappingReference`（用于预定义的映射）引入属性或其 `IngestionMappings` 属性结合使用。 本文将使用 `ingestionMappingReference` 引入属性，该属性是在用于引入的表中预定义的。 以下示例首先将 JSON 记录作为原始数据引入到包含单个列的表中。 接下来，使用映射将每个属性引入到其映射列中。 
+引入 JSON*格式*的数据需要使用[引入属性](ingestion-properties.md)指定格式。 引入 JSON 数据需要执行[映射](kusto/management/mappings.md)，以将 JSON 源条目映射到其目标列。 引入数据时，将 `IngestionMapping` 属性与其 `ingestionMappingReference`（用于预定义的映射）引入属性或其 `IngestionMappings` 属性结合使用。 本文将使用 `ingestionMappingReference` 引入属性，该属性是在用于引入的表中预定义的。 以下示例首先将 JSON 记录作为原始数据引入到包含单个列的表中。 接下来，使用映射将每个属性引入到其映射列中。 
 
 ### <a name="simple-json-example"></a>简单 JSON 示例
 
@@ -67,7 +67,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
     .create table RawEvents (Event: dynamic)
     ```
 
-    此查询将创建一个表，其中包含单个[动态](/data-explorer/kusto/query/scalar-data-types/dynamic)数据类型的 `Event` 列。
+    此查询将创建一个表，其中包含单个[动态](kusto/query/scalar-data-types/dynamic.md)数据类型的 `Event` 列。
 
 1. 创建 JSON 映射。
 
@@ -162,7 +162,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
     ```
 
 > [!NOTE]
-> 数据是根据[批处理策略](/data-explorer/kusto/management/batchingpolicy)聚合的，因此会出现几分钟的延迟。
+> 数据是根据[批处理策略](kusto/management/batchingpolicy.md)聚合的，因此会出现几分钟的延迟。
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -205,7 +205,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
     ```
 
     > [!NOTE]
-    > 数据是根据[批处理策略](/data-explorer/kusto/management/batchingpolicy)聚合的，因此会出现几分钟的延迟。
+    > 数据是根据[批处理策略](kusto/management/batchingpolicy.md)聚合的，因此会出现几分钟的延迟。
 
 ---
 
@@ -383,7 +383,7 @@ INGESTION_CLIENT.ingest_from_blob(
 
 ## <a name="ingest-json-records-containing-arrays"></a>引入包含数组的 JSON 记录
 
-数组数据类型是按顺序排列的值集合。 JSON 数组的引入由[更新策略](/data-explorer/kusto/management/update-policy)来完成。 JSON 将按原样引入到中间表。 更新策略针对 `RawEvents` 表运行某个预定义的函数，并将结果重新引入到目标表。 我们将引入采用以下结构的数据：
+数组数据类型是按顺序排列的值集合。 JSON 数组的引入由[更新策略](kusto/management/update-policy.md)来完成。 JSON 将按原样引入到中间表。 更新策略针对 `RawEvents` 表运行某个预定义的函数，并将结果重新引入到目标表。 我们将引入采用以下结构的数据：
 
 ```json
 {

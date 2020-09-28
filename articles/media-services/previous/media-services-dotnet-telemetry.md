@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dac088db068a15a743335b986795cd341ad4ec88
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 9961fa0dc896dd71597dddab9a84848027e801c4
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245478"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net"></a>使用 .NET 配置 Azure 媒体服务遥测 
+# <a name="configuring-azure-media-services-telemetry-with-net"></a>使用 .NET 配置 Azure 媒体服务遥测
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 本文介绍了使用 .NET SDK 配置 Azure 媒体服务 (AMS) 遥测时可采取的常规步骤。 
 

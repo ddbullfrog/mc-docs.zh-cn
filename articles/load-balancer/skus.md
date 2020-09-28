@@ -6,26 +6,26 @@ documentationcenter: na
 author: WenJason
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: overview
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/01/2020
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 7869fa3313c5709dde63730ca96a14da98971682
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: fb8cf94c7a09115cd99bdbc932c72179406c04c2
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045756"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026566"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure 负载均衡器 SKU
 
-Azure 负载均衡器有两种风格或 SKU。
+Azure 负载均衡器有两种 SKU。
 
 ## <a name="sku-comparison"></a><a name="skus"></a> SKU 比较
 
-负载均衡器支持基本和标准 SKU。 这些 SKU 在场景规模、功能和定价方面有差异。 使用基本负载均衡器可以实现的任何方案都可以使用标准负载均衡器来创建。
+负载均衡器支持标准和基本 SKU。 这些 SKU 在场景规模、功能和定价方面有差异。 使用基本负载均衡器可以实现的任何方案都可以使用标准负载均衡器来创建。
 
 请参阅下表来比较和了解差别。 有关详细信息，请参阅 [Azure 标准负载均衡器概述](load-balancer-standard-overview.md)。
 
@@ -38,10 +38,10 @@ Azure 负载均衡器有两种风格或 SKU。
 | [后端池大小](/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | 最多支持 1000 个实例。 | 最多支持 300 个实例。 |
 | 后端池终结点 | 单个虚拟网络中的任何虚拟机或虚拟机规模集。 | 单个可用性集或虚拟机规模集中的虚拟机。 |
 | [运行状况探测](./load-balancer-custom-probe-overview.md#types) | TCP、HTTP、HTTPS | TCP、HTTP |
-| [运行状况探测停止行为](./load-balancer-custom-probe-overview.md#probedown) | TCP 连接在实例探测停止时以及在所有探测停止时保持活动状态。 | TCP 连接在实例探测停止时保持活动状态。 所有 TCP 连接在所有探测停止时都会终止。 |
+| [运行状况探测停止行为](./load-balancer-custom-probe-overview.md#probedown) | TCP 连接在实例探测停止时以及在所有探测停止时保持活动状态。 | TCP 连接在实例探测停止时保持活动状态。 所有探测都关闭时，所有 TCP 连接都会结束。 |
 | **诊断** | [Azure Monitor 多维指标](./load-balancer-standard-diagnostics.md) | [Azure Monitor 日志](./load-balancer-monitor-log.md) |
 | HA 端口 | [可用于内部负载均衡器](./load-balancer-ha-ports-overview.md) | 不可用 |
-| 默认保护 | 除非网络安全组允许，否则对入站流关闭。 请注意，允许从 VNet 到内部负载均衡器的内部流量。 | 默认处于打开状态。 可选的网络安全组。 |
+| 默认保护 | 除非网络安全组允许，否则对入站流关闭。 允许从虚拟网络到内部负载均衡器的内部流量。 | 默认处于打开状态。 可选的网络安全组。 |
 | **出站规则** | [声明性出站 NAT 配置](./load-balancer-outbound-rules-overview.md) | 不可用 |
 | **在空闲时重置 TCP** | [可用于任何规则](./load-balancer-tcp-reset.md) | 不可用 |
 | [多个前端](./load-balancer-multivip-overview.md) | 入站和[出站](./load-balancer-outbound-connections.md) | 仅限入站 |

@@ -11,17 +11,19 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-origin.date: 07/09/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 8edf516288467532c68abd2561e53a7d7c5d575a
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 87825ce9f9ae9f14e5022aefcfcc4a985d46e6cd
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244948"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>教程：使用媒体服务 v3 对视频进行上载、编码和流式传输
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > 尽管本教程使用了 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 示例，但 [REST API](https://docs.microsoft.com/rest/api/media/liveevents)、[CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 或其他受支持的 [SDK](media-services-apis-overview.md#sdks) 的常规步骤是相同的。

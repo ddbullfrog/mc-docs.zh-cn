@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/30/2020
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 5f4e47538c083acc551dbf6e5ede980bdb78103d
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: bbc53047bb2bf6df0b8b3f1eb8f5b5ad97d38106
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045862"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026642"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -37,7 +37,7 @@ ms.locfileid: "89045862"
 
 ---
 
-# <a name="option-1-default-create-a-internal-load-balancer-standard-sku"></a>[选项 1（默认）：创建内部负载均衡器（标准 SKU）](#tab/option-1-create-internal-load-balancer-standard)
+# <a name="standard-sku"></a>[**标准 SKU**](#tab/option-1-create-internal-load-balancer-standard)
 
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。  有关 sku 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
@@ -265,7 +265,7 @@ ms.locfileid: "89045862"
     | 网络安全组 | 选择现有的“myNSG”|
 
 
-# <a name="option-2-create-a-internal-load-balancer-basic-sku"></a>[选项 2：创建内部负载均衡器（基本 SKU）](#tab/option-1-create-internal-load-balancer-basic)
+# <a name="basic-sku"></a>[**基本 SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。  有关 sku 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。

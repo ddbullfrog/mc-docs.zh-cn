@@ -4,17 +4,17 @@ description: 本快速入门介绍如何使用适用于 JavaScript 的 Azure Blo
 author: WenJason
 ms.author: v-jay
 origin.date: 07/24/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a5ea5760d777985c602a25a351ffbcd91147e252
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 7a29cfe6197ee9b7d2c84ba89dc6e560c79cc651
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753351"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026628"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>快速入门：在 Node.js 中使用 JavaScript v12 SDK 管理 blob
 
@@ -98,7 +98,7 @@ npm install
 
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
-    const uuidv1 = require('uuid/v1');
+    const { v1: uuid} = require('uuid');
 
     async function main() {
         console.log('Azure Blob storage v12 - JavaScript quickstart sample');

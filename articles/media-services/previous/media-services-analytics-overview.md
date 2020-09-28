@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 11/13/2019
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 84d8990dcc516e98b418afbfec97608e350be704
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a2d377551ddbb1b5282df4b29e21c9c5a35a1651
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244766"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>媒体服务平台上的媒体分析 
+# <a name="media-analytics-on-the-media-services-platform"></a>媒体服务平台上的媒体分析
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="retirement-plans"></a>停用计划
 

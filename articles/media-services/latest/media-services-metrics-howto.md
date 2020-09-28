@@ -10,19 +10,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/08/2019
-ms.date: 09/07/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5e502c821a20be60dd84b9651e5e25bd196c3a09
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 4020ba2287d44252fe2095b6572da3d24f4ac1a3
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414058"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245596"
 ---
 # <a name="monitor-media-services-metrics"></a>监视媒体服务指标
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 可以通过 [Azure Monitor](../../azure-monitor/overview.md) 监视指标和诊断日志，以便了解应用程序的执行情况。 有关此功能的详细说明以及使用 Azure 媒体服务指标和诊断日志的原因，请参阅[监视媒体服务指标和诊断日志](media-services-metrics-diagnostic-logs.md)。
 

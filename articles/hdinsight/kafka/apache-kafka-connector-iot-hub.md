@@ -11,12 +11,12 @@ ms.workload: big-data
 origin.date: 11/26/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: 0cc74abcdcafe9acf75dd21e6553f57988a44b0a
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 5c7d75b7f0940118970225aa53fb01e5812b48a9
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516724"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394517"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>将 Apache Kafka on HDInsight 与 Azure IoT 中心配合使用
 
@@ -279,7 +279,7 @@ ms.locfileid: "85516724"
 
 启动连接器后，将消息从设备发送到 IoT 中心。 当连接器从 IoT 中心读取消息并将其存储在 Kafka 主题时，会将信息记录到控制台：
 
-```text
+```output
 [2017-08-29 20:15:46,112] INFO Polling for data - Obtained 5 SourceRecords from IotHub (com.microsoft.azure.iot.kafka.co
 nnect.IotHubSourceTask:39)
 [2017-08-29 20:15:54,106] INFO Finished WorkerSourceTask{id=AzureIotHubConnector-0} commitOffsets successfully in 4 ms (
@@ -301,7 +301,7 @@ org.apache.kafka.connect.runtime.WorkerSourceTask:356)
 
 连接器运行时，会显示类似于以下文本的信息：
 
-```text
+```output
 [2017-08-30 17:49:16,150] INFO Started tasks to send 1 messages to devices. (com.microsoft.azure.iot.kafka.connect.sink.
 IotHubSinkTask:47)
 [2017-08-30 17:49:16,150] INFO WorkerSinkTask{id=AzureIotHubSinkConnector-0} Committing offsets (org.apache.kafka.connec
@@ -352,7 +352,7 @@ t.runtime.WorkerSinkTask:262)
 
     如果使用模拟的 Raspberry Pi 设备，并且该设备正在运行，则设备会记录以下消息：
 
-    ```text
+    ```output
     Receive message: Turn On
     ```
 

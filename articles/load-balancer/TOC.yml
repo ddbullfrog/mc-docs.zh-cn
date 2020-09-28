@@ -4,20 +4,20 @@
   items:
     - name: 什么是 Azure 负载均衡器？
       href: load-balancer-overview.md
-    - name: 新增功能
-      href: whats-new.md
-    - name: 常见问题
-      href: load-balancer-faqs.md
 - name: 快速入门
   items:
     - name: 创建公共负载均衡器 - 门户
       href: quickstart-load-balancer-standard-public-portal.md
     - name: 创建公共负载均衡器 - PowerShell
-      href: quickstart-create-standard-load-balancer-powershell.md
+      href: quickstart-load-balancer-standard-public-powershell.md
     - name: 创建公共负载均衡器 - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 创建内部负载均衡器 - 门户
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: 创建内部负载均衡器 - PowerShell
+      href: quickstart-load-balancer-standard-internal-powershell.md
+    - name: 创建内部负载均衡器 - Azure CLI
+      href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
 - name: 教程
   items:
@@ -73,6 +73,8 @@
       href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: 如何
   items:
+    - name: 门户设置
+      href: manage.md
     - name: 虚拟机规模集
       items:
         - name: 与现有的 Azure 负载均衡器配合使用 - 门户
@@ -122,14 +124,16 @@
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: 仅出站的负载均衡器配置
       href: egress-only.md
-- name: 疑难解答
-  items:
-    - name: 对 Azure 负载均衡器进行故障排除
-      href: load-balancer-troubleshoot.md
-    - name: 排查常见部署错误
-      href: load-balancer-common-deployment-errors.md
-    - name: 解决常见的出站连接问题
-      href: troubleshoot-outbound-connection.md
+    - name: 疑难解答
+      items:
+        - name: 对 Azure 负载均衡器进行故障排除
+          href: load-balancer-troubleshoot.md
+        - name: 排查常见部署错误
+          href: load-balancer-common-deployment-errors.md
+        - name: 排查常见的出站连接问题
+          href: troubleshoot-outbound-connection.md
+        - name: 排查资源运行状况和入站可用性问题
+          href: troubleshoot-rhc.md
 - name: 参考
   items:
     - name: 代码示例
@@ -161,3 +165,5 @@
       href: 'https://www.azure.cn/pricing/calculator/'
     - name: 产品更新
       href: 'https://www.azure.cn/what-is-new/'
+    - name: 常见问题解答
+      href: load-balancer-faqs.md

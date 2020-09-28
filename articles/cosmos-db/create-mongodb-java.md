@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 12/26/2018
-ms.date: 08/17/2020
+ms.date: 09/25/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: fa925e029624e43bb690b6e6f0094dda561ae38d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 001340f303b11cf2aa0ce355bca41c2e87a2e2b6
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223098"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246784"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>快速入门：在 Azure Cosmos DB 中使用 Java 和 MongoDB API 创建控制台应用
 
@@ -67,7 +67,7 @@ ms.locfileid: "88223098"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
@@ -113,7 +113,7 @@ ms.locfileid: "88223098"
     System.out.println(queryResult.toJson());       
     ```
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 

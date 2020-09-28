@@ -12,16 +12,16 @@ ms.subservice: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/03/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd375e5d43152365c80b1103c4bfad10115508ee
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 95cf0ce171923191fddae9ef73be0347d43fb1fa
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945285"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245348"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>快速入门：在 Azure Active Directory 中配置命名位置
 

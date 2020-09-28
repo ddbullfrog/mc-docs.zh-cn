@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/06/2020
+ms.date: 09/24/2020
 ms.reviewer: martincoetzer
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f5fac3e838dc93218fa923d4e2c947d5377bc12
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 57de6184fcd678bc383a65b8a6fd83d0ef67ba8e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245614"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>影响 Azure AD Connect 性能的因素
 
@@ -43,7 +43,7 @@ Azure AD Connect 将 Active Directory 同步到 Azure AD。 此服务器是将�
 
 ![AzureADConnentInternal](./media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-预配引擎连接到每个 Active Directory 林且连接到 Azure AD。 从每个目录读取信息的过程称为“导入”。 导出是指从预配引擎更新目录。 同步则评估规定对象在预配引擎内的流动方式的规则。 若要深入了解，可参阅 [Azure AD Connect 同步：了解体系结构](/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)。
+预配引擎连接到每个 Active Directory 林且连接到 Azure AD。 从每个目录读取信息的过程称为“导入”。 导出是指从预配引擎更新目录。 同步则评估规定对象在预配引擎内的流动方式的规则。 若要深入了解，可参阅 [Azure AD Connect 同步：了解体系结构](./concept-azure-ad-connect-sync-architecture.md)。
 
 Azure AD Connect 使用以下临时区域、规则和过程，以实现从 Active Directory 到 Azure AD 的同步：
 
@@ -52,7 +52,7 @@ Azure AD Connect 使用以下临时区域、规则和过程，以实现从 Activ
 * **同步规则** - 决定将创建（投射）哪些对象或将哪些对象连接（联接）到 MV 中的对象。 还决定要从目录或向目录复制或转换的属性值。
 * **运行配置文件** - 根据暂存区域和已连接目录之间的同步规则，捆绑复制对象及其属性值的过程步骤。
 
-有多种用于优化预配引擎性能的运行配置文件。 大多数组织使用默认的计划和运行配置文件来处理常规操作，但某些组织可能需要[更改计划](/active-directory/hybrid/how-to-connect-sync-feature-scheduler)或触发其他运行配置文件以应对不常见的情况。 可用的运行配置文件如下：
+有多种用于优化预配引擎性能的运行配置文件。 大多数组织使用默认的计划和运行配置文件来处理常规操作，但某些组织可能需要[更改计划](./how-to-connect-sync-feature-scheduler.md)或触发其他运行配置文件以应对不常见的情况。 可用的运行配置文件如下：
 
 ### <a name="initial-sync-profile"></a>初始同步配置文件
 
@@ -109,7 +109,7 @@ Azure AD Connect 使用以下临时区域、规则和过程，以实现从 Activ
 
 要导入的 Active Directory 拓扑的大小是影响性能和预配引擎内部组件所需总体时间的首要因素。
 
-应利用[筛选](/active-directory/hybrid/how-to-connect-sync-configure-filtering)减少要同步的对象。 这将避免处理不必要的对象并将其导出到 Azure AD。 可用的筛选方法如下（按优先顺序）：
+应利用[筛选](./how-to-connect-sync-configure-filtering.md)减少要同步的对象。 这将避免处理不必要的对象并将其导出到 Azure AD。 可用的筛选方法如下（按优先顺序）：
 
 
 
@@ -130,7 +130,7 @@ Active Directory CS 中存在大量持久的[断开连接器对象](concept-azur
 
 ### <a name="attribute-flows"></a>属性流
 
-属性流是将对象的属性值从一个已连接目录复制或转换到另一个已连接目录的过程。 属性流属于同步规则。 例如，Active Directory 中用户的电话号码变化时，系统会更新 Azure AD 中的电话号码。 组织可以[修改属性流](/active-directory/hybrid/how-to-connect-sync-change-the-configuration)以满足各种要求。 建议先复制现有属性流，然后再执行更改。
+属性流是将对象的属性值从一个已连接目录复制或转换到另一个已连接目录的过程。 属性流属于同步规则。 例如，Active Directory 中用户的电话号码变化时，系统会更新 Azure AD 中的电话号码。 组织可以[修改属性流](./how-to-connect-sync-change-the-configuration.md)以满足各种要求。 建议先复制现有属性流，然后再执行更改。
 
 简单重定向（例如将属性值提供给其他属性）不会产生重大性能影响。 将 Active Directory 中的移动电话号码作为 Azure AD 中的办公室电话号码，这就是一个重定向示例。
 
@@ -181,7 +181,7 @@ Azure AD 使用限制来防止云服务受到拒绝服务 (DoS) 攻击。 目前
 
 
 - 基于 Azure AD Connect 服务器的实现大小，使用[推荐的硬件配置](how-to-connect-install-prerequisites.md)。
-- 在大规模部署中升级 Azure AD Connect 时，考虑使用[交叉迁移方法](/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration)，确保故障时间最短和可靠性最佳。 
+- 在大规模部署中升级 Azure AD Connect 时，考虑使用[交叉迁移方法](./how-to-upgrade-previous-version.md#swing-migration)，确保故障时间最短和可靠性最佳。 
 - 对 SQL 数据库使用 SSD，实现最佳写入性能。
 - 使用域、OU 或属性筛选来筛选 Active Directory 范围，使其只包含需要在 Azure AD 中预配的对象。
 - 如果需要更改默认属性流规则，请先复制规则，再更改副本并禁用原始规则。 务必重新运行完全同步。

@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 04/28/2019
-ms.date: 05/11/2020
+ms.topic: error-reference
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 8ba2626c573b0c12959cf18166aa28c152fe7a30
-ms.sourcegitcommit: 1f890a4085e184cc678485d05f08dd6de8dc973f
+ms.openlocfilehash: 1b4c09f7b39457443ecd3fec3f5b814f4ea7369b
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84438965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245609"
 ---
 # <a name="media-services-job-error-codes"></a>媒体服务作业错误代码
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本主题会链接到 REST 参考文档，以获取[作业](transforms-jobs-concept.md)错误代码和消息的详细说明。
 

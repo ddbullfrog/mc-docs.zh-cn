@@ -5,21 +5,21 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/30/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: bff5e91bd4d12902be2718af89514c167e7cc825
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 3ae0442a76c0ffa89216bf35027078985ca01de4
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515803"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146773"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>使用 ODBC 连接到 Azure 数据资源管理器
 
 开放式数据库连接 ([ODBC](https://docs.microsoft.com/sql/odbc/reference/odbc-overview)) 是一种广泛接受的应用程序编程接口 (API)，适用于数据库访问。 使用 ODBC 可从没有专用连接器的应用程序连接到 Azure 数据资源管理器。
 
-在后台，应用程序会在 ODBC 接口中调用函数，这些函数在特定于数据库的模块（称为“驱动程序”）中实现。  Azure 数据资源管理器支持部分 SQL Server 通信协议 ([MS-TDS](/data-explorer/kusto/api/tds/index))；因此，它可以使用适用于 SQL Server 的 ODBC 驱动程序。
+在后台，应用程序会在 ODBC 接口中调用函数，这些函数在特定于数据库的模块（称为“驱动程序”）中实现。  Azure 数据资源管理器支持部分 SQL Server 通信协议 ([MS-TDS](kusto/api/tds/index.md))；因此，它可以使用适用于 SQL Server 的 ODBC 驱动程序。
 
 <!-- Using the following video, you can learn to create an ODBC connection.  -->
 

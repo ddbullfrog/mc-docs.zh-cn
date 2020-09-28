@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 12/13/2019
 ms.date: 01/13/2020
-ms.openlocfilehash: 0c87767a8a7fb2e320056c84337d3228c2661293
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 781cbe1246d05d6872bf513f4c166b31b23b8834
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75631507"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394503"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>在 HDInsight 中的 Apache Spark 上使用自动化机器学习运行 Azure 机器学习工作负载
 
@@ -22,7 +22,7 @@ Azure 机器学习可简化和加速机器学习模型的生成、训练和部�
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>在 HDInsight 群集上安装 Azure 机器学习
 
 有关自动化机器学习的一般教程，请参阅[教程：使用自动化机器学习生成回归模型](../../machine-learning/tutorial-auto-train-models.md)。
-所有新的 HDInsight-Spark 群集都预装了 AzureML-AutoML SDK。 可以通过此[示例 Jupyter 笔记本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi)开始使用 AutoML on HDInsight。 此 Jupyter Notebook 演示如何使用自动化机器学习分类器来解决一个简单的分类问题。
+所有新的 HDInsight-Spark 群集都预装了 AzureML-AutoML SDK。
 
 > [!Note]
 > Azure 机器学习包将安装到 Python3 conda 环境中。 应使用 PySpark3 内核运行安装的 Jupyter Notebook。

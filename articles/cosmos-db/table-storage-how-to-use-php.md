@@ -1,22 +1,22 @@
 ---
 title: 通过 PHP 使用 Azure 存储表服务或 Azure Cosmos DB 表 API
 description: 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 origin.date: 07/23/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3893c732187e645b8db12562bba3be9aae2545cf
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: cd881de455c8db79cfc35c5b3abb04e19801c449
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222623"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246701"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>如何通过 PHP 使用 Azure 存储表服务或 Azure Cosmos DB 表 API
 
@@ -525,7 +525,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a><a name="next-steps"></a>后续步骤
 
 现在，你已了解了 Azure 表服务和 Azure Cosmos DB 的基础知识，请单击下面的链接来了解更多信息。
 

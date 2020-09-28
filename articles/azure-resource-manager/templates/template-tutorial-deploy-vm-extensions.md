@@ -3,17 +3,18 @@ title: 使用模板部署 VM 扩展
 description: 了解如何使用 Azure 资源管理器模板部署虚拟机扩展
 origin.date: 04/23/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 87d42a9be010c9bed77cc732033cae36ac5f730f
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fc46bc967c1f302d9b4427522e4f09e15dff14ad
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807773"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146548"
 ---
 <!-- Verify Successfully-->
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>教程：使用 ARM 模板部署虚拟机扩展

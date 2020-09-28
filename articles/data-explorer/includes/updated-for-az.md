@@ -1,16 +1,16 @@
 ---
-author: sptramer
-ms.date: 05/15/2020
+author: orspod
+ms.date: 04/17/2029
 ms.author: v-tawe
 manager: carmonm
-origin.date: 04/17/2019
+origin.date: 08/18/2020
 ms.topic: include
-ms.openlocfilehash: 48c765c95dcaeb8a04891fdf4fb88f64dc6ef229
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.openlocfilehash: 97645bc583870753d663af452ee540c1b5de4c7a
+ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417668"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "91146763"
 ---
 > [!NOTE]
 > 本文进行了更新，以便使用新的 Azure PowerShell Az 模块。 你仍然可以使用 AzureRM 模块，至少在 2020 年 12 月之前，它将继续接收 bug 修补程序。

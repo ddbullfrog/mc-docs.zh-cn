@@ -1,6 +1,6 @@
 ---
 title: 标准编码器格式和编解码器 - Azure
-description: 本主题概述标准编码器格式和编解码器。
+description: 本文包含可与 StandardEncoderPreset 配合使用的最常见的导入和导出文件格式列表。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -10,19 +10,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 02/10/2019
-ms.date: 09/23/2019
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: anilmur
-ms.openlocfilehash: e5b64789f9581625f9b92a6156f471d079eeee00
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: b3440efc8eb4d4415395ef103b45a36972e1b2c5
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245086"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>标准编码器格式和编解码器
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文包含可与 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 配合使用的最常见的导入和导出文件格式列表。 有关如何使用 **StandardEncoderPreset** 创建自定义预设的信息，请参阅[使用自定义预设创建转换](customize-encoder-presets-how-to.md)。
 

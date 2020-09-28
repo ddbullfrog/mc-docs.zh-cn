@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7474407fdeb1335fb79c688369f086914df875f2
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 8d4521fe1ca4eacaa4bd7438387be5760fbf7ffd
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413288"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245487"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 通过 .NET 监视媒体服务作业通知 
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 通过 .NET 监视媒体服务作业通知
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](../latest/index.yml)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)

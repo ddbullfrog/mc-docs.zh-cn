@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: fc16ed992260768ca56cf2d950bec07869820109
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 60005f67025c495f9644375eae89046d6a4547d3
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413559"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245037"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>使用 REST 配置 Azure 媒体服务遥测
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 本主题介绍使用 REST API 配置 Azure 媒体服务 (AMS) 遥测可采取的常规步骤。 
 

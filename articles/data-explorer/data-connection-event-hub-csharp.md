@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 10/07/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: bde796c0019e40c2892b507c7e737ec872d2e946
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 5bd8e140356f7bba958eea5a7aa92d8403cc766a
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515864"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146578"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-c"></a>使用 C# 为 Azure 数据资源管理器创建事件中心数据连接
 
@@ -92,5 +92,40 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | eventHubResourceId | 资源 ID | 包含要引入的数据的事件中心的资源 ID。 |
 | consumerGroup | *$Default* | 事件中心的使用者组。|
 | location | *中国东部 2* | 数据连接资源的位置。|
+
+## <a name="generate-data"></a>生成数据
+
+请参阅可生成数据并将其发送到事件中心的[示例应用](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)。
+
+事件可以包含一个或多个记录（直到达到事件的大小限制）。 在下面的示例中，我们将发送两个事件，每个事件有五个追加的记录：
+
+```csharp
+var events = new List<EventData>();
+var data = string.Empty;
+var recordsPerEvent = 5;
+var rand = new Random();
+var counter = 0;
+
+for (var i = 0; i < 10; i++)
+{
+    // Create the data
+    var metric = new Metric { Timestamp = DateTime.UtcNow, MetricName = "Temperature", Value = rand.Next(-30, 50) }; 
+    var data += JsonConvert.SerializeObject(metric) + Environment.NewLine;
+    counter++;
+
+    // Create the event
+    if (counter == recordsPerEvent)
+    {
+        var eventData = new EventData(Encoding.UTF8.GetBytes(data));
+        events.Add(eventData);
+
+        counter = 0;
+        data = string.Empty;
+    }
+}
+
+// Send events
+eventHubClient.SendAsync(events).Wait();
+```
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-csharp](includes/data-explorer-data-connection-clean-resources-csharp.md)]

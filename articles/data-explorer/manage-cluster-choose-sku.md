@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: avnera
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 07/14/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 0f91de86f820eb3d3e9bb6836be75740e408f757
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 3cbdd13676821e7a4004c3d2066659dfe243a1ba
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515817"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146687"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>为 Azure 数据资源管理器群集选择正确的 VM SKU 
 

@@ -3,7 +3,7 @@ title: 教程`:`使用托管标识访问 Azure 资源管理器 - Windows - Azure
 description: 本教程将指导你完成使用 Windows VM 系统分配的托管标识访问 Azure Resource Manager 的过程。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b882a8d017ac6080fb39200a42b1100841d658
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 93e43ac2c05c771ba3373b4b810f3b9eed2f3b1e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046447"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245350"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>使用 Windows VM 系统分配的托管标识访问资源管理器
 
@@ -95,6 +95,5 @@ ms.locfileid: "89046447"
 在本快速入门中，你已学习了如何使用系统分配的标识来访问 Azure 资源管理器 API。  若要详细了解 Azure 资源管理器，请参阅：
 
 > [!div class="nextstepaction"]
->[Azure 资源管理器](/azure-resource-manager/resource-group-overview)
-
+>[Azure 资源管理器](../../azure-resource-manager/management/overview.md)
 

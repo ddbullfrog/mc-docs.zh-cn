@@ -6,16 +6,16 @@ ms.service: bastion
 ms.topic: how-to
 origin.date: 04/24/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: 815cc096b0e41a3fc5b96e1b10f9f177f82eef4e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: ac4f1141d1d016a0021ae66641328949095491d9
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89654959"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146472"
 ---
 <!--Verified successfully on 09/07/2020-->
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>使用门户创建 Azure Bastion 主机

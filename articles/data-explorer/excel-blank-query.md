@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 08/30/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: 4bf299d69fdfa0477ca4f91a01ec0585d78ae354
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: 1cd623e80a7432720da649a9660449c6e9405bdf
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417753"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146745"
 ---
 # <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>使用导入到 Microsoft Excel 中的 Azure 数据资源管理器 Kusto 查询进行数据可视化
 

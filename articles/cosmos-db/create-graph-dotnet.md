@@ -1,22 +1,23 @@
 ---
 title: 使用 Gremlin API 构建 Azure Cosmos DB .NET Framework/Core 应用程序
 description: 演示了一个可以用来连接和查询 Azure Cosmos DB 的 .NET Framework/Core 代码示例
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 02/21/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3b7d9911ba5539e4db76b0acef00827762a8d48b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 2bee28c2e0f6fc45aed62ddd51fe31716a45c02e
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223259"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246530"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>快速入门：使用 Azure Cosmos DB Gremlin API 帐户生成 .NET Framework 或 Core 应用程序
@@ -159,6 +160,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
        { "CountEdges",     "g.E().count()" },
        { "DropVertex",     "g.V('thomas').drop()" },
     };
+
     ```
 
 * 使用上面提供的参数创建新的 `GremlinServer` 和 `GremlinClient` 连接对象：
@@ -170,7 +172,27 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
                                            username: containerLink, 
                                            password: PrimaryKey);
 
-   using (var gremlinClient = new GremlinClient(gremlinServer, new GraphSON2Reader(), new GraphSON2Writer(), GremlinClient.GraphSON2MimeType))
+   ConnectionPoolSettings connectionPoolSettings = new ConnectionPoolSettings()
+   {
+       MaxInProcessPerConnection = 10,
+       PoolSize = 30, 
+       ReconnectionAttempts= 3,
+       ReconnectionBaseDelay = TimeSpan.FromMilliseconds(500)
+   };
+
+   var webSocketConfiguration =
+       new Action<ClientWebSocketOptions>(options =>
+       {
+           options.KeepAliveInterval = TimeSpan.FromSeconds(10);
+       });
+
+   using (var gremlinClient = new GremlinClient(
+       gremlinServer, 
+       new GraphSON2Reader(), 
+       new GraphSON2Writer(), 
+       GremlinClient.GraphSON2MimeType, 
+       connectionPoolSettings, 
+       webSocketConfiguration))
    {
 
     ```
@@ -207,7 +229,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     ```
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 

@@ -11,18 +11,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-origin.date: 05/07/2020
-ms.date: 06/08/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 095cb53926788d036a6bcbfc1c2b737359563955
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 6cb8c3e2dee026b1d83f101385200fe2665e23a0
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245603"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>使用时移和实时输出创建点播视频
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 在 Azure 媒体服务中，[实时输出](https://docs.microsoft.com/rest/api/media/liveoutputs)对象类似于数字视频录制器，它会捕获实时流并将其记录到媒体服务帐户中的某个资产内。 记录的内容将保存到[资产](https://docs.microsoft.com/rest/api/media/assets)资源定义的容器中（该容器位于附加到你的帐户的 Azure 存储帐户中）。 使用实时输出还可以控制传出实时流的某些属性，例如，存档记录中保存的流的量（如云 DVR 的容量），以及观看者何时可以开始观看实时流。 磁盘上的存档是一个环形存档“窗口”，仅保存实时输出的 **archiveWindowLength** 属性中指定的内容量。 超出此窗口的内容将自动从存储容器中丢弃，且不可恢复。 archiveWindowLength 值表示一个 ISO-8601 时间跨度持续时间（例如 PTHH:MM:SS），指定 DVR 的容量。 此值的设置范围是最短 1 分钟，最长 25 小时。
 

@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 53256a9a3a8d95930b3cd2a0bd1c8f3dd6fb8730
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 624ad14a3fb9ed170d0855c7eb34db71c0bddc00
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245554"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>使用 Azure 媒体内容审查器检测可能的成人和猥亵内容 
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>使用 Azure 媒体内容审查器检测可能的成人和猥亵内容
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > “Azure 媒体内容审查器”  媒体处理器将停用。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。

@@ -1,28 +1,30 @@
 ---
 title: 什么是 Azure Analysis Services | Azure
 description: 了解 Azure Analysis Services，它是一种可在云中提供企业级数据模型的完全托管平台即服务 (PaaS)。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: overview
-origin.date: 04/13/2020
-ms.date: 06/08/2020
+origin.date: 09/08/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 35effda8d313826240ddb4270bcb97e7c37e64e4
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: f5a7c3f4d57a2ab66571509a5539f1c8807dc88c
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226089"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146296"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
-![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
+:::image type="content" source="./media/analysis-services-overview/aas-overview-aas-icon.png" alt-text="Azure Analysis Services":::
 
 Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在云中提供企业级的数据模型。 使用高级糅合和建模功能，可以在单个受信任的表格语义数据模型中合并多个数据源中的数据、定义指标以及保护数据。 数据模型可让用户更快速轻松地使用 Power BI 和 Excel 等工具执行即席数据分析。
 
-![数据源](./media/analysis-services-overview/aas-overview-overall.png)
+:::image type="content" source="./media/analysis-services-overview/aas-overview-overall.png" alt-text="数据源":::
 
 <!-- Not Available VIDEO on [this video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)-->
 
@@ -36,10 +38,12 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 
 ## <a name="the-right-tier-when-you-need-it"></a>符合需要的层级
 
+<!--MOONCAKE: CUSTOMIZE ON Not Available on **Developer**-->
+
 可在基本层和标准层中使用 Azure Analysis Services。 每个层中的计划成本因处理能力、查询处理单位 (QPU) 和内存大小而异。 创建服务器时，将在层内选择计划。 可以在同一层内上下更改计划，或者升级到更高的层，但不能从较高的层降级到较低的层。
 
-<!--MOONCAKE Not Available on **Developer** -->
 <!--MOONCAKE Not Available on ### Developer tier-->
+<!--MOONCAKE: CUSTOMIZE ON Not Available on **Developer**-->
 
 ### <a name="basic-tier"></a>基本层
 
@@ -129,7 +133,7 @@ Azure Analysis Services 中的表格模型支持各种数据源：从简单的�
 
 <!-- Not Available on Azure Data Lake Store-->
 
-## <a name="compatibility-level"></a>兼容性级别
+## <a name="compatibility-level"></a>兼容级别
 
 “兼容性级别”是指 Analysis Services 引擎中特定于发布的行为。 Azure Analysis Services 支持 1200 和更高兼容级别的表格模型。 若要了解详细信息，请参阅[表格模型的兼容性级别](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)。
 
@@ -180,7 +184,7 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](https://www.microsoft
 
 ## <a name="use-the-tools-you-already-know"></a>使用熟悉的工具
 
-![BI 开发人员工具](./media/analysis-services-overview/aas-overview-dev-tools.png)
+:::image type="content" source="./media/analysis-services-overview/aas-overview-dev-tools.png" alt-text="BI 开发人员工具":::
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -206,7 +210,7 @@ Analysis Services 有一个生机勃勃的开发人员社区，他们会创建�
 
 ## <a name="supports-the-latest-client-tools"></a>支持最新的客户端工具
 
-![数据可视化](./media/analysis-services-overview/aas-overview-clients.png)
+:::image type="content" source="./media/analysis-services-overview/aas-overview-clients.png" alt-text="数据可视化":::
 
 利用新式的数据浏览和可视化工具（例如 Power BI、Excel、Reporting Services 和第三方工具），用户可以通过交互性强且视觉效果丰富的方式来了解模型数据。 
 
@@ -222,7 +226,7 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 
 由于 Azure Analysis Services 中的表格模型在很大程度上与 SQL Server Analysis Services 和 Power BI Premium 数据集中的表格模型相同，因此可以参考 [Analysis Services 文档](/analysis-services/?view=azure-analysis-services-current)中分享的大量数据建模教程、概念、过程、开发人员和参考文章。 共享的 Analysis Services 文档中的文章在标题下方的“适用于”段落中说明了它们是否也适用于 Azure Analysis Services。 还可以使用“目录”上方的“版本”选择器，但只能查看适用于你所用的平台的文章。
 
-![分享的文档](./media/analysis-services-overview/aas-overview-applies-to.png)
+:::image type="content" source="./media/analysis-services-overview/aas-overview-applies-to.png" alt-text="分享的文档":::
 
 ### <a name="contribute"></a>欢迎供稿！
 

@@ -1,21 +1,21 @@
 ---
 title: Azure Synapse Link for Azure Cosmos DB、优势以及何时使用
 description: 了解有关 Azure Synapse Link for Azure Cosmos DB 的信息。 借助 Synapse Link，可以使用 Azure Synapse Analytics 对 Azure Cosmos DB 中的操作数据运行准实时分析 (HTAP)。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/19/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: a0e0ff08549803b24334ea0c88964186a412ac1e
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 9102175257edc4f8373ed94b111197086ad7ebde
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223414"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246349"
 ---
 <!--Verified successfully-->
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>什么是 Azure Synapse Link for Azure Cosmos DB（预览版）？

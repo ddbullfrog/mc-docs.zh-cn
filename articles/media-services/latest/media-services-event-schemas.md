@@ -9,17 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-origin.date: 02/25/2020
-ms.date: 07/27/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 34810fe6828d76629b86dd50b5e53d7197256a81
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 8ab50e5a6ba75b53a852bf717a50571ba8fd0693
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162753"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245637"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>媒体服务事件的 Azure 事件网格架构
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文介绍媒体服务事件的架构和属性。
 

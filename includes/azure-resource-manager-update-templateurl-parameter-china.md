@@ -6,17 +6,17 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: include
 origin.date: 07/07/2020
-ms.date: 08/10/2020
+ms.date: 09/25/2020
 ms.testscope: no
 ms.testdate: 09/15/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: e669cdb846fe02fea1a624a7d0dc9a6bd8a6b4d2
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: c89dcc56fc2cc1a64d837eca4301ecdfebc4e97a
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523885"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246724"
 ---
 > [!NOTE]
 > 当我们使用以 `https://raw.githubusercontent.com/` 开头的指定模板文件 URI 部署资源时，控制台有时将返回错误，如 `Unable to download deployment content`。

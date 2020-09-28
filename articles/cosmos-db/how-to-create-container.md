@@ -1,20 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中创建容器
 description: 了解如何使用 Azure 门户、.NET、Java、Python、Node.js 和其他 SDK 在 Azure Cosmos DB 中创建容器。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 07/29/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2781163373f606a7864c3295fe43585aeb41e21f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: c8130cfbec4e2b4eee8b1c1a5571fcc0458b2663
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223232"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246771"
 ---
 # <a name="create-an-azure-cosmos-container"></a>创建 Azure Cosmos 容器
 

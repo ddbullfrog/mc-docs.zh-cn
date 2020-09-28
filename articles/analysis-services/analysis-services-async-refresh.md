@@ -1,20 +1,22 @@
 ---
-title: Azure Analysis Services 模型的异步刷新 | Azure Docs
+title: Azure Analysis Services 模型的异步刷新 | Azure
 description: 介绍如何使用 Azure Analysis Services REST API 对模型数据的异步刷新进行编码。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/13/2020
+origin.date: 04/15/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 04/30/2020
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 843f7f758a66c4d7abde1149bce694e1c4f4b71e
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.custom: references_regions
+ms.openlocfilehash: dc95a19b6ca0fed9410d2b85788c5a1ca37602fd
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226107"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146755"
 ---
 <!--Verify successfully-->
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 执行异步刷新
@@ -47,7 +49,7 @@ https://chinanorth.asazure.chinacloudapi.cn/servers/myserver/models/AdventureWor
 
 使用基 URL 可以根据以下参数追加资源和操作： 
 
-![异步刷新](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
+:::image type="content" source="./media/analysis-services-async-refresh/aas-async-refresh-flow.png" alt-text="异步刷新":::
 
 - 以 **s** 结尾的任何内容是集合。
 - 以 **()** 结尾的任何内容是函数。

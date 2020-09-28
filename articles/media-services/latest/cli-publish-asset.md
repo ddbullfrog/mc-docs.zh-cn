@@ -9,21 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 01/25/2019
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 487d8e55a1024e62563ea437a1c59ab8ce15ffe7
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 50273cfaaa096aaf5dcec0654a48a1f1e217803e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413934"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244982"
 ---
 # <a name="cli-example-publish-an-asset"></a>CLI 示例：发布资产
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文中的 Azure CLI 脚本演示如何创建流式处理定位符并返回流式处理 URL。 
 

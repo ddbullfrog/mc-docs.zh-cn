@@ -11,17 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 08/11/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 1a1db7b82ffa1054c788bc37d58879b8b8e024f8
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2d074321c946559fecbfda18b39d0e165b964af0
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414019"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245651"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>使用媒体服务 .NET SDK 创建筛选器
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 将内容传送到客户（直播流活动或点播视频）时，客户端所需的灵活性可能比默认资产的清单文件中描述的灵活性更高。 使用 Azure 媒体服务可为内容定义帐户筛选器和资产筛选器。 
 

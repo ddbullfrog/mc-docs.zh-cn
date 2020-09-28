@@ -27,11 +27,6 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: 创建 Python Runbook
       href: learn/automation-tutorial-runbook-textual-python2.md
-- name: 示例
-  items:
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 概念
   items:
     - name: 自动化帐户身份验证概述
@@ -44,6 +39,11 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: 'https://docs.microsoft.com/powershell/scripting/dsc/overview/overview'
+    - name: 安全性
+      items:
+        - name: Azure Policy 的安全控件
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: 数据安全
       items:
         - name: 安全资产的加密
@@ -240,6 +240,9 @@
       href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.automation'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/automation'
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: 定价

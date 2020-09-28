@@ -2,14 +2,17 @@
 title: 将基于事件的视频录制到云中并从云播放教程 - Azure
 description: 在本教程中，你将了解如何使用 Azure IoT Edge 上的 Azure 实时视频分析将基于事件的视频录制到云中并从云中播放。
 ms.topic: tutorial
+author: WenJason
+ms.author: v-jay
+ms.service: media-services
 origin.date: 05/27/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: e0d8924f9d217b62e273d8eac7719ede507a3ee2
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 09/28/2020
+ms.openlocfilehash: 42b486490133c7f48c3669920e7add48e51d4111
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245565"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>教程：将基于事件的视频录制到云中并从云中播放
 
@@ -63,7 +66,8 @@ ms.locfileid: "89413455"
 
 或者，可以仅在推理服务检测到特定事件发生时触发录制。 本教程将使用在高速公路上移动的车辆的视频，并在检测到卡车时录制视频剪辑。
 
-![媒体图](./media/event-based-video-recording-tutorial/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/overview.svg" alt-text="媒体图":::
 
 该图以图画形式呈现了[媒体图](media-graph-concept.md)以及用于完成所需方案的其他模块。 共涉及四个 IoT Edge 模块：
 
@@ -81,7 +85,8 @@ ms.locfileid: "89413455"
 
 在开始之前，请检查是否满足[先决条件](#prerequisites)中的第三条。 资源设置脚本完成后，选择大括号，公开文件夹结构。 你将看到一些创建的文件。
 
-![应用设置](./media/quickstarts/clouddrive.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="应用设置":::
 
 本教程中涉及以下文件：
 
@@ -153,7 +158,8 @@ ms.locfileid: "89413455"
 
 使用 Visual Studio Code，按照[以下说明](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution)登录到 Docker。 然后选择“生成并推送 IoT Edge 解决方案”。 在此步骤中使用 src/edge/deployment.objectCounter.template.json。
 
-![生成并推送 IoT Edge 解决方案](./media/event-based-video-recording-tutorial/build-push.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="生成并推送 IoT Edge 解决方案":::
 
 此操作会生成用于对象计数的 objectCounter 模块，并将图像推送到 Azure 容器注册表。
 
@@ -161,7 +167,8 @@ ms.locfileid: "89413455"
 
 此步骤会在 src/edge/config/deployment.objectCounter.amd64.json 创建 IoT Edge 部署清单。 右键单击该文件，然后选择“为单个设备创建部署”。
 
-![为单个设备创建部署](./media/quickstarts/create-deployment-single-device.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="为单个设备创建部署":::
 
 如果这是你第一次接触有关 IoT Edge 上的实时视频分析的教程，Visual Studio Code 将提示你输入 IoT 中心连接字符串。 可以从 appsettings.json 文件中复制字符串。
 
@@ -170,7 +177,8 @@ ms.locfileid: "89413455"
 在此阶段，将启动将边缘模块部署到 IoT Edge 设备的过程。
 大约 30 秒后，在 Visual Studio Code 的左下部分刷新 Azure IoT 中心。 你应该会看到已部署四个模块，它们分别名为 lvaEdge、rtspsim、yolov3 和 objectCounter。
 
-![部署的 4 个模块](./media/event-based-video-recording-tutorial/iot-hub.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/iot-hub.png" alt-text="部署的 4 个模块":::
 
 ## <a name="prepare-for-monitoring-events"></a>准备监视事件
 
@@ -180,8 +188,9 @@ ms.locfileid: "89413455"
 1. 展开“设备”节点。
 1. 右键单击 lva-sample-device 文件，然后选择“开始监视内置事件终结点”。
 
-   ![开始监视内置事件终结点](./media/quickstarts/start-monitoring-iothub-events.png)
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="开始监视内置事件终结点开始监视内置事件终结点":::
+    
 ## <a name="run-the-program"></a>运行程序
 
 1. 在 Visual Studio Code 中，转到 src/cloud-to-device-console-app/operations.json。
@@ -391,13 +400,14 @@ applicationProperties 中的 subject 部分引用图形中的资产接收器节�
 1. 在订阅中的资源中找到媒体服务帐户。 打开帐户窗格。
 1. 选择“媒体服务”列表中的“资产” 。
 
-    ![资产](./media/continuous-video-recording-tutorial/assets.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="连续视频录制":::
 1. 将找到以名称 sampleAssetFromEVR-LVAEdge-{DateTime} 列出的资产。 这是 RecordingStarted 事件的 outputLocation 属性中提供的名称。 拓扑中的 assetNamePattern 决定了此名称的生成方式。
 1. 选择资产。
 1. 在“资产详细信息”页上，选择“流式处理 URL”文本框下的“新建” 。
 
-    ![新建资产](./media/continuous-video-recording-tutorial/new-asset.png)
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="新建资产":::
 1. 在打开的向导中，接受默认选项，然后选择“添加”。 有关详细信息，请参阅[视频播放](video-playback-concept.md)。
 
     > [!TIP]

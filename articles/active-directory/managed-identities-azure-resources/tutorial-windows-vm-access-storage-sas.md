@@ -3,7 +3,7 @@ title: 教程`:`使用托管标识通过 SAS 凭据访问 Azure 存储 - Azure A
 description: 本教程介绍了如何使用 Windows VM 系统分配的托管标识通过 SAS 凭据（而不是存储帐户访问密钥）访问 Azure 存储。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e09e9e3864df717adda88422e701555bdbeca8a8
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: e6c9e60bb47394c8a089c711918e035d1c2c991d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245310"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>教程：使用 Windows VM 系统分配的托管标识通过 SAS 凭据访问 Azure 存储
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教程介绍如何使用系统分配的标识为 Windows 虚拟机 (VM) 获取存储共享访问签名 (SAS) 凭据。 具体而言，是[服务 SAS 凭据](/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)。 
+本教程介绍如何使用系统分配的标识为 Windows 虚拟机 (VM) 获取存储共享访问签名 (SAS) 凭据。 具体而言，是[服务 SAS 凭据](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)。 
 
 服务 SAS 提供了在不公开帐户访问密钥的情况下授权特定的服务（在我们的示例中为 blob 服务）在有限时间内访问存储帐户中对象的权限。 可以像平常在执行存储操作时一样使用 SAS 凭据，例如使用存储 SDK 时。 对于本教程，我们将演示使用 Azure 存储 PowerShell 上传和下载 blob。 将了解如何执行以下操作：
 
@@ -205,7 +205,5 @@ Name              : testblob
 在本教程中，你已学习了如何使用 Windows VM 系统分配的托管标识通过 SAS 凭据来访问 Azure 存储。  若要深入了解 Azure 存储 SAS，请参阅：
 
 > [!div class="nextstepaction"]
->[使用共享访问签名 (SAS)](/storage/common/storage-dotnet-shared-access-signature-part-1)
-
-
+>[使用共享访问签名 (SAS)](../../storage/common/storage-sas-overview.md)
 

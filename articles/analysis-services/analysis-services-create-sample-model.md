@@ -1,21 +1,21 @@
 ---
 title: 教程 - 添加示例模型 - Azure Analysis Services | Azure
 description: 本教程介绍如何在 Azure Analysis Services 中添加示例模型。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 05/19/2020
-ms.date: 07/13/2020
+origin.date: 08/31/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2017c4701915099b439e6172e174e0ae72d290ae
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 6bd4af0439957194e8b63ad597b863c7b708e860
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226103"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146236"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>教程：从门户添加示例模型
 
@@ -27,7 +27,7 @@ ms.locfileid: "86226103"
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="prerequisites"></a>先决条件
 
 要完成本教程，需要：
 
@@ -43,15 +43,15 @@ ms.locfileid: "86226103"
 
 1. 在服务器“概述”中，单击“新建模型”。
 
-    ![创建示例模型](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
+    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-new-model.png" alt-text="创建示例模型":::
 
 2. 在“新建模型” > “选择数据源”中，确认已选中“示例数据”，然后单击“添加”。   
 
-    ![选择“示例数据”](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
+    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-data.png" alt-text="选择“新建模型”":::
 
 3. 在“概述”中，确认是否添加了 `adventureworks` 示例模型。
 
-    ![选择“示例数据”](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
+    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-verify.png" alt-text="选择“示例数据”":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -65,11 +65,11 @@ ms.locfileid: "86226103"
 
 2. 在“连接到服务器”中，粘贴服务器名称，然后在“身份验证”中选择“Active Directory - 支持 MFA 的通用身份验证”，输入你的用户名，然后单击“连接”。
 
-    ![登录](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png)
+    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png" alt-text="登录":::
 
 3. 在“对象资源管理器”中，右键单击 `adventureworks` 示例数据库，然后单击“删除”。 
 
-    ![删除示例数据库](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
+    :::image type="content" source="./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png" alt-text="删除示例数据库":::
 
 ## <a name="next-steps"></a>后续步骤 
 

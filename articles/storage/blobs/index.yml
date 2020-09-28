@@ -13,12 +13,12 @@ metadata:
   ms.author: v-jay
   origin.date: 08/20/2019
   ms.date: 07/20/2020
-  ms.openlocfilehash: 49cbd0a8062e426f99fe170aa0c9c295a2c357c0
-  ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+  ms.openlocfilehash: 594d7847f4258ef3b9e43453ee164bc40b87d20c
+  ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88228352"
+  ms.lasthandoff: 09/23/2020
+  ms.locfileid: "91026629"
 landingContent:
 - title: 关于 Blob 存储
   linkLists:
@@ -43,7 +43,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 创建存储帐户
-      url: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: ../common/storage-account-create.md?toc=%2fstorage%2fblobs%2ftoc.json
     - text: 创建块 Blob 存储帐户
       url: storage-blob-create-account-block-blob.md
     - text: 配置自定义域

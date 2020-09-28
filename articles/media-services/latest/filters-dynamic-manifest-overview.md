@@ -11,18 +11,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-origin.date: 07/11/2019
-ms.date: 12/09/2019
-ms.author: juliako
-ms.openlocfilehash: a34b1ab3811e6fa6be534ff9b54f477bafb11e52
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
+ms.author: v-jay
+ms.openlocfilehash: f5e02159afb8d529861c039dbcc40f4d61be6771
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845909"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245652"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>使用动态打包器筛选清单
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 将自适应比特率流内容传送到设备时，有时需要发布多个版本的清单来适应特定的设备功能或可用网络带宽。 使用[动态打包器](dynamic-packaging-overview.md)可以指定筛选器，用于即时筛选出特定的编解码器、分辨率、比特率和音频轨迹组合。 这种筛选消除了创建多个副本的需要。 只需使用一组根据目标设备（iOS、Android、SmartTV 或浏览器）和网络功能（高带宽、移动或低带宽方案）配置的一组特定筛选器发布新的 URL。 在这种情况下，客户端可以通过查询字符串处理内容流（通过指定可用的[资产筛选器或帐户筛选器](filters-concept.md)），并使用筛选器来流式传输流的特定部分。
 

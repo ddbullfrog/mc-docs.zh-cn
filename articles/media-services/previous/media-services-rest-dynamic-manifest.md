@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewr: cenkdin
-ms.openlocfilehash: 392540d78cbaea8e620ccc15faa16e74d3c27656
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 76023956bdde609135453ed3e42e0eb2d973b2b8
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245622"
 ---
-# <a name="creating-filters-with-azure-media-services-rest-api"></a>使用 Azure 媒体服务 REST API 创建筛选器 
+# <a name="creating-filters-with-azure-media-services-rest-api"></a>使用 Azure 媒体服务 REST API 创建筛选器
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)

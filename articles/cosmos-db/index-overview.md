@@ -1,20 +1,20 @@
 ---
 title: Azure Cosmos DB 中的索引
 description: 了解索引在 Azure Cosmos DB 中的工作原理，学习受支持的不同类型的索引，例如范围索引、空间索引和组合索引。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/21/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 15e90a04a08a1a81f898a7716eda60ca7608a19f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 0e2686a84ef34c2c86d25882dfb056fbb8b5fe16
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222905"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246686"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的索引 - 概述
 

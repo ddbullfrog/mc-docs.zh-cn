@@ -63,6 +63,8 @@
     - name: 比较运行时版本
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
+    - name: 高级计划
+      href: functions-premium-plan.md
     - name: 部署
       href: functions-deployment-technologies.md
     - name: 事件和消息传送
@@ -86,7 +88,7 @@
           href: functions-bindings-return-value.md
         - name: 处理绑定错误
           href: functions-bindings-errors.md
-    - name: Languages
+    - name: 语言
       items:
         - name: 支持的语言
           href: supported-languages.md
@@ -321,6 +323,8 @@
                 - name: 输出
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Dapr
+          href: 'https://github.com/dapr/azure-functions-extension'
         - name: 事件网格
           items:
             - name: 概述
@@ -354,6 +358,8 @@
             - name: 输出
               href: functions-bindings-event-iot-output.md
               displayName: Azure IoT Hubs
+        - name: Kafka
+          href: 'https://github.com/azure/azure-functions-kafka-extension'
         - name: HTTP 和 webhook
           items:
             - name: 概述
@@ -365,8 +371,6 @@
             - name: 输出
               href: functions-bindings-http-webhook-output.md
               displayName: HTTP
-        - name: Microsoft Graph
-          href: functions-bindings-microsoft-graph.md
         - name: 移动应用
           href: functions-bindings-mobile-apps.md
         - name: 通知中心
@@ -382,6 +386,8 @@
             - name: 输出
               href: functions-bindings-storage-queue-output.md
               displayName: Queue storage
+        - name: RabbitMQ
+          href: 'https://github.com/azure/azure-functions-rabbitmq-extension'
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: 服务总线
@@ -413,6 +419,8 @@
           href: functions-bindings-storage-table.md
         - name: Timer
           href: functions-bindings-timer.md
+        - name: 预热
+          href: functions-bindings-warmup.md
     - name: host.json 2.x 参考
       href: functions-host-json.md
     - name: host.json 1.x 参考

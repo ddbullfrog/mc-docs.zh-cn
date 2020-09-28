@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/25/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7822dcce4b8849a53f21fba31f764261e157fd39
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 61ae81bf21a45b4cc73da1ee8d2f94526abc955a
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186949"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245215"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>教程：将 Azure Active Directory 日志流式传输到 Azure 事件中心
 
@@ -35,7 +35,7 @@ ms.locfileid: "84186949"
 * Azure 订阅。 如果没有 Azure 订阅，可以[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * Azure AD 租户。
 * 一个是 Azure AD 租户的全局管理员或安全管理员的用户。 
-* 在 Azure 订阅中有事件中心命名空间和事件中心。 了解如何[创建事件中心](/event-hubs/event-hubs-create)。
+* 在 Azure 订阅中有事件中心命名空间和事件中心。 了解如何[创建事件中心](../../event-hubs/event-hubs-create.md)。
 
 ## <a name="stream-logs-to-an-event-hub"></a>将日志流式传输到事件中心
 
@@ -60,8 +60,8 @@ ms.locfileid: "84186949"
 7. 选择“确定”，退出事件中心配置。
 
 8. 执行下列两项操作或之一：
-    * 若要将审核日志发送到存储帐户，请选中“AuditLogs”复选框。 
-    * 若要将登录日志发送到存储帐户，请选中“SignInLogs”复选框。
+    * 若要将审核日志发送到事件中心，请选中“AuditLogs”复选框。 
+    * 若要将登录日志发送到事件中心，请选中“SignInLogs”复选框。
 
 9. 选择“保存”，保存设置。
 
@@ -79,17 +79,20 @@ ms.locfileid: "84186949"
     
     * **ArcSight**：若要详细了解如何将 Azure AD 日志与 Splunk 集成，请参阅[使用 Azure Monitor 将 Azure Active Directory 日志与 ArcSight 集成](howto-integrate-activity-logs-with-arcsight.md)。
     
-    * **Splunk**：若要详细了解如何将 Azure AD 日志与 Splunk 集成，请参阅[使用 Azure Monitor 将 Azure AD 日志与 Splunk 集成](tutorial-integrate-activity-logs-with-splunk.md)。
+    * **Splunk**：若要详细了解如何将 Azure AD 日志与 Splunk 集成，请参阅[使用 Azure Monitor 将 Azure AD 日志与 Splunk 集成](./howto-integrate-activity-logs-with-splunk.md)。
     
     * **IBM QRadar**：DSM 和 Azure 事件中心协议可以从 [IBM 支持](https://www.ibm.com/support)站点下载。 若要详细了解如何与 Azure 集成，请访问 [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) 站点。
     
     * **Sumo Logic**：若要设置 Sumo Logic 以使用事件中心的数据，请参阅[安装 Azure AD 应用并查看仪表板](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards)。 
 
-* **设置自定义工具**。 如果当前的 SIEM 在 Azure Monitor 诊断中不受支持，则可使用事件中心 API 设置自定义工具。 有关详细信息，请参阅[从事件中心接收消息入门](/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph)。
+* **设置自定义工具**。 如果当前的 SIEM 在 Azure Monitor 诊断中不受支持，则可使用事件中心 API 设置自定义工具。 有关详细信息，请参阅[从事件中心接收消息入门](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)。
 
 
 ## <a name="next-steps"></a>后续步骤
- 
+
+* [使用 Azure Monitor 将 Azure Active Directory 日志与 ArcSight 集成](howto-integrate-activity-logs-with-arcsight.md)
+* [使用 Azure Monitor 将 Azure AD 日志与 Splunk 集成](./howto-integrate-activity-logs-with-splunk.md)
+* [使用 Azure Monitor 将 Azure AD 日志与 SumoLogic 集成](howto-integrate-activity-logs-with-sumologic.md)
 * [解释 Azure Monitor 中的审核日志架构](reference-azure-monitor-audit-log-schema.md)
 * [解释 Azure Monitor 中的登录日志架构](reference-azure-monitor-sign-ins-log-schema.md)
 

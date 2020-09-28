@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 10/07/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: f8b2c5057277026ee63081990000bd7ec88c7247
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 52e87910440e95bb09d39ebf488ae8e13cfc5d00
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515863"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146573"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>使用 Python 为 Azure 数据资源管理器创建事件中心数据连接
 

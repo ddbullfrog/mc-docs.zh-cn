@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 07/10/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: 8e83d594c44f51941fad268572d5e371adc56e34
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 197f0225ad5ed936cf146db4efd523c27eb2b25d
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515745"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146503"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>使用 Power BI 的 Azure 数据资源管理器连接器直观显示数据
 
@@ -58,7 +58,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
     > 在以下情况下使用**导入**模式：
     > * 数据集很小。
     > * 不需要接近实时的数据。 
-    > * 数据已聚合，或在 Kusto 中执行[聚合](/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions)    
+    > * 数据已聚合，或在 Kusto 中执行[聚合](kusto/query/summarizeoperator.md#list-of-aggregation-functions)    
     >
     > 在以下情况下使用 **DirectQuery** 模式：
     > * 数据集非常大。 

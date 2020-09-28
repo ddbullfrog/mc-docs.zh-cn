@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 09/24/2018
-ms.date: 05/09/2020
-ms.openlocfilehash: 9745d1a0698e8b950bb9807396d4e824a9c91bfd
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: f3ee246a943dc67aa00e1cf86ec932f5e01cf262
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417687"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146387"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>检查 Azure 数据资源管理器群集的运行状况
 

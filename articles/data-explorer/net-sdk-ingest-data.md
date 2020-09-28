@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: vladikb
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 07/07/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 0be9e79ea5630a07c2aba4fec36a4a0d71cd6c5d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 6a16d4261cfbee355df0476c720cb869c9ce1131
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556519"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146305"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-sdk"></a>使用 Azure 数据资源管理器 .NET SDK 引入数据 
 

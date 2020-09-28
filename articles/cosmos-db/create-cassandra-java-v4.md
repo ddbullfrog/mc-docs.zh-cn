@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: d0cfad26f49b1e49e97c1191b2c3491b5885067b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: e763579fce43d937f095cf8a0f2a9ee95db57a1e
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222999"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246544"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB Cassandra API 数据（v4 驱动程序）
@@ -65,7 +65,7 @@ ms.locfileid: "88222999"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started-v4.git
@@ -153,7 +153,7 @@ ms.locfileid: "88222999"
     }
     ```
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 连接字符串详细信息使应用能够与托管数据库进行通信。
 

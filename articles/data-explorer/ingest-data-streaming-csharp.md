@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: alexefro
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 07/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: e9e29541c858ff6ca1e9dc29576b872f96e60ac0
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 9d403bc150a2c25f36473cfc9ffd493b43d5225b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556512"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146579"
 ---
 # <a name="configure-streaming-ingestion-on-your-azure-data-explorer-cluster-using-c"></a>使用 C# 在 Azure 数据资源管理器群集上配置流式引入
 

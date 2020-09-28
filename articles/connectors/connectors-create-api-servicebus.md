@@ -6,17 +6,17 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 origin.date: 09/19/2019
-ms.date: 07/20/2020
+ms.date: 09/25/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 283fca1462f4a8543df10cf263f06b0edbfd525c
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: fa51d89e78149f8505372429cddb04d3ee00c697
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246486"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>使用 Azure 逻辑应用和 Azure 服务总线在云中交换消息
 

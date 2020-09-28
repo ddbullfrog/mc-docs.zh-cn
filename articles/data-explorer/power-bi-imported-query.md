@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 07/10/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: fa9501b07afa839084994f4400ec5b5d3f8cf46f
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 609fd938688172e7d3dd7ae98ee9b42d75be6662
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515967"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146315"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>使用已导入到 Power BI 中的查询来可视化数据
 
@@ -31,7 +31,7 @@ Azure 数据资源管理器提供三个可以在 Power BI 中连接到数据的�
 
 * [Power BI Desktop](https://powerbi.microsoft.com/get-started/)（选择“免费下载”  ）
 
-* [Azure 数据资源管理器桌面应用](/data-explorer/kusto/tools/kusto-explorer)
+* [Azure 数据资源管理器桌面应用](kusto/tools/kusto-explorer.md)
 
 ## <a name="get-data-from-azure-data-explorer"></a>从 Azure 数据资源管理器获取数据
 

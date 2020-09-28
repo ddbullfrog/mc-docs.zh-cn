@@ -12,18 +12,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 01/08/2019
-ms.date: 06/08/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 19fd889fb437636a871293a398ada6ec9e7660d8
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 33fa3013b24e9059b0d8083e05a3fb950147c77e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439519"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245492"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>适用于 iOS 的脱机 FairPlay 流式处理与媒体服务 v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
  Azure 媒体服务提供一套设计良好的[内容保护服务](content-protection-overview.md)，包括：
 

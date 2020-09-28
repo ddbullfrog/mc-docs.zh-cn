@@ -1,19 +1,21 @@
 ---
 title: 使用 Azure 中继向客户端公开本地 WCF REST 服务
 description: 本教程介绍如何使用 Azure WCF 中继向外部客户端公开本地 WCF REST 服务。
+ms.service: service-bus
 ms.topic: tutorial
+ms.custom: devx-track-dotnet
 origin.date: 06/23/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: 7ef37b2eaaf4b6e57d63dea6d838e489c8219acb
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: cc7dd1ee85819c6533c19c7c53bd8c35af3c5b41
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162407"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146598"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>教程：使用 Azure WCF 中继向外部客户端公开本地 WCF REST 服务
 
@@ -95,7 +97,7 @@ ms.locfileid: "87162407"
     该命名空间值不同于在整个代码范围内使用的命名空间。 相反，该命名空间值用作此协定的唯一标识符。 显式指定命名空间可防止将默认的命名空间值添加到约定名称中。
 
     > [!NOTE]
-    > 通常情况下，服务协定命名空间包含一个包括版本信息的命名方案。 服务协定命名空间中包括的版本信息可以使服务通过将新服务协定定义为新命名空间并将其公开到新的终结点上，来隔离重大更改。 以这种方式，客户端可以继续使用旧的服务协定，而无需进行更新。 版本信息可能包含日期或内部版本号。 有关详细信息，请参阅 [服务版本控制](https://docs.microsoft.com/dotnet/framework/wcf/service-versioning?view=azure-dotnet)。 对于本教程，服务协定命名空间的命名方案不包含版本信息。
+    > 通常情况下，服务协定命名空间包含一个包括版本信息的命名方案。 服务协定命名空间中包括的版本信息可以使服务通过将新服务协定定义为新命名空间并将其公开到新的终结点上，来隔离重大更改。 以这种方式，客户端可以继续使用旧的服务协定，而无需进行更新。 版本信息可能包含日期或内部版本号。 有关详细信息，请参阅 [服务版本控制](https://docs.microsoft.com/dotnet/framework/wcf/service-versioning)。 对于本教程，服务协定命名空间的命名方案不包含版本信息。
     >
 
 1. 在 `IEchoContract` 接口中，为 `IEchoContract` 协定在接口中公开的单个操作声明一个方法，然后将 `OperationContractAttribute` 属性应用到你希望将其作为公共 WCF 中继协定的一部分进行公开的方法中，如下所示：
@@ -147,7 +149,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="implement-the-wcf-contract"></a>实现 WCF 协定
 
-创建 Azure 中继首先需要使用接口创建协定。 有关创建接口的详细信息，请参阅上一部分。 下一个过程实现接口。 此任务包括创建名为 `EchoService` 的类，用于实现用户定义的 `IEchoContract` 接口。 实现接口后，即可使用 *App.config* 配置文件配置接口。 配置文件包含应用程序所需的信息。 此信息包括服务的名称、协定的名称，以及用来与中继服务通信的协议类型。 该过程后面的示例中提供了这些任务所用的代码。 有关如何实现服务协定的更多常规讨论，请参阅[实现服务协定](https://docs.microsoft.com/dotnet/framework/wcf/implementing-service-contracts?view=azure-dotnet)。
+创建 Azure 中继首先需要使用接口创建协定。 有关创建接口的详细信息，请参阅上一部分。 下一个过程实现接口。 此任务包括创建名为 `EchoService` 的类，用于实现用户定义的 `IEchoContract` 接口。 实现接口后，即可使用 *App.config* 配置文件配置接口。 配置文件包含应用程序所需的信息。 此信息包括服务的名称、协定的名称，以及用来与中继服务通信的协议类型。 该过程后面的示例中提供了这些任务所用的代码。 有关如何实现服务协定的更多常规讨论，请参阅[实现服务协定](https://docs.microsoft.com/dotnet/framework/wcf/implementing-service-contracts)。
 
 1. 紧随 `IEchoContract` 接口定义之后，创建名为 `EchoService` 的新类。 `EchoService` 类实现 `IEchoContract` 接口。
 
@@ -182,7 +184,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ### <a name="define-the-configuration-for-the-service-host"></a>定义服务主机的配置
 
-该配置文件类似于 WCF 配置文件。 其中包括服务名称、终结点和绑定。 终结点是 Azure 中继公开的、让客户端和主机相互通信的位置。 绑定是用于通信的协议类型。 此处的主要差别在于，配置的服务终结点是指 [NetTcpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.nettcprelaybinding?view=azure-dotnet) 绑定，它不是 .NET Framework 的一部分。 [NetTcpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.nettcprelaybinding?view=azure-dotnet) 是由服务定义的绑定之一。
+该配置文件类似于 WCF 配置文件。 其中包括服务名称、终结点和绑定。 终结点是 Azure 中继公开的、让客户端和主机相互通信的位置。 绑定是用于通信的协议类型。 此处的主要差别在于，配置的服务终结点是指 [NetTcpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.nettcprelaybinding) 绑定，它不是 .NET Framework 的一部分。 [NetTcpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.nettcprelaybinding) 是由服务定义的绑定之一。
 
 1. 在“解决方案资源管理器”中，双击“App.config”在 Visual Studio 编辑器中将其打开。
 1. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及在先前步骤中复制的 SAS 密钥。
@@ -271,7 +273,7 @@ namespace Microsoft.ServiceBus.Samples
 
     随后将使用 SAS 密钥来访问你的项目。 命名空间作为参数传递给 `CreateServiceUri` 以创建服务 URI。
 
-1. 使用 [TransportClientEndpointBehavior](https://docs.azure.cn/dotnet/api/microsoft.servicebus.transportclientendpointbehavior?view=azure-dotnet) 对象声明使用 SAS 密钥作为凭据类型。 在最后一步中添加的代码后直接添加以下代码。
+1. 使用 [TransportClientEndpointBehavior](https://docs.azure.cn/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) 对象声明使用 SAS 密钥作为凭据类型。 在最后一步中添加的代码后直接添加以下代码。
 
     ```csharp
     TransportClientEndpointBehavior sasCredential = new TransportClientEndpointBehavior();
@@ -286,7 +288,7 @@ namespace Microsoft.ServiceBus.Samples
 Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "EchoService");
 ```
 
-值“sb”是服务总线方案的缩写。 它指示我们正在使用 TCP 作为协议。 先前当 [NetTcpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.nettcprelaybinding?view=azure-dotnet) 被指定为绑定时，在配置文件中也指示了此方案。
+值“sb”是服务总线方案的缩写。 它指示我们正在使用 TCP 作为协议。 先前当 [NetTcpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.nettcprelaybinding) 被指定为绑定时，在配置文件中也指示了此方案。
 
 对于本教程中，URI 是 `sb://putServiceNamespaceHere.chinacloudapi.cn/EchoService`。
 
@@ -298,7 +300,7 @@ Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "Ec
     ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
     ```
 
-    连接模式描述服务用于与中继服务进行通信的协议；连接模式为 HTTP 或 TCP。 使用默认设置 `AutoDetect`，服务尝试通过 TCP（如果可用）或 HTTP（如果 TCP 不可用）连接到 Azure 中继。 结果与服务为客户端通信指定的协议不同。 为客户端通信指定的协议由所使用的绑定所决定。 例如，服务可以使用 [BasicHttpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.basichttprelaybinding?view=azure-dotnet) 绑定，该绑定指定其终结点通过 HTTP 与客户端通信。 同一个服务可以指定 `ConnectivityMode.AutoDetect`，以便服务通过 TCP 与 Azure 中继通信。
+    连接模式描述服务用于与中继服务进行通信的协议；连接模式为 HTTP 或 TCP。 使用默认设置 `AutoDetect`，服务尝试通过 TCP（如果可用）或 HTTP（如果 TCP 不可用）连接到 Azure 中继。 结果与服务为客户端通信指定的协议不同。 为客户端通信指定的协议由所使用的绑定所决定。 例如，服务可以使用 [BasicHttpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.basichttprelaybinding) 绑定，该绑定指定其终结点通过 HTTP 与客户端通信。 同一个服务可以指定 `ConnectivityMode.AutoDetect`，以便服务通过 TCP 与 Azure 中继通信。
 
 1. 使用之前在本部分中创建的 URI 创建服务主机。
 
@@ -308,7 +310,7 @@ Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "Ec
 
     该服务主机是可实例化服务的 WCF 对象。 在这里传递想要创建的服务类型（`EchoService` 类型），以及想要公开服务的地址。
 
-1. 在 *Program.cs* 文件的顶部，添加对 [System.ServiceModel.Description](https://docs.microsoft.com/dotnet/api/system.servicemodel.description) 和 [Microsoft.ServiceBus.Description](https://docs.azure.cn/dotnet/api/microsoft.servicebus.description?view=azure-dotnet) 的引用。
+1. 在 *Program.cs* 文件的顶部，添加对 [System.ServiceModel.Description](https://docs.microsoft.com/dotnet/api/system.servicemodel.description) 和 [Microsoft.ServiceBus.Description](https://docs.azure.cn/dotnet/api/microsoft.servicebus.description) 的引用。
 
     ```csharp
     using System.ServiceModel.Description;

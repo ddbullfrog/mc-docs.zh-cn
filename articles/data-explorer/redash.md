@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 11/04/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 5233d0d4f5b3fc9acac488b19f222660fa5acc27
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: aefaae9dfd7db58859a0ba260603ee0dc9465691
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516024"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146310"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-redash"></a>在 Redash 中可视化 Azure 数据资源管理器的数据
 

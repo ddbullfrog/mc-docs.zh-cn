@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/27/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d10226bd3a21e6a83a94d2823eadd904b43fc0d
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: c1568ab94866c299887de9fb5fa8af44d6839e9e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245345"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>解释 Azure Monitor 中的 Azure AD 登录日志架构
 
@@ -165,7 +165,7 @@ ms.locfileid: "84186951"
 | 标识 | 发出请求时提供的令牌中的标识。 可以是用户帐户、系统帐户或服务主体。 |
 | Level | 提供消息的类型。 对于审核，它始终是“信息”。 |
 | 位置 | 提供登录活动的位置。 |
-| 属性 | 列出与登录关联的所有属性。有关详细信息，请参阅 [Microsoft Graph API 参考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)。 为提高可读性，此架构使用登录资源中的相同属性名。
+| 属性 | 列出与登录关联的所有属性。有关详细信息，请参阅 [Microsoft Graph API 参考](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)。 为提高可读性，此架构使用登录资源中的相同属性名。
 
 ## <a name="next-steps"></a>后续步骤
 

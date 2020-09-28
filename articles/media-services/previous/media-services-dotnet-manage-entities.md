@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 2e3f067a77e00652d4637a9a9a2b3213e778926a
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: devx-track-csharp
+ms.openlocfilehash: dd3bf79e1b7a5772d45ef6b52c0680f11d6ceec4
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413206"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245480"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>使用媒体服务 .NET SDK 管理资产和相关的实体
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
 > * [REST](media-services-rest-manage-entities.md)

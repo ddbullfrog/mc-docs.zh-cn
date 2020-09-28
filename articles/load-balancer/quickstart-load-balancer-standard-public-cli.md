@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/20/2020
-ms.date: 08/31/2020
+origin.date: 08/23/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: b5320da773d64ab78836ca146ee8a727963d54bd
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: 1e6935eb9bd1fc946ad4e9175d763f7433d0ca11
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045812"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026637"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -50,108 +50,10 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 ```
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[选项 1（默认）：创建负载均衡器（标准 SKU）](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**标准 SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。 有关 sku 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
-
-
-## <a name="create-a-public-ip-address"></a>创建公共 IP 地址
-
-若要通过 Internet 访问 Web 应用，需要负载均衡器有一个公共 IP 地址。 
-
-使用 [az network public-ip create](/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 执行以下操作：
-
-* 创建名为“myPublicIP”的标准公共 IP 地址。
-* 在“myResourceGroupLB”中。
-
-```azurecli
-  az network public-ip create \
-    --resource-group myResourceGroupLB \
-    --name myPublicIP \
-    --sku Standard
-```
-
-## <a name="create-standard-load-balancer"></a>创建标准负载均衡器
-
-本部分详细介绍如何创建和配置负载均衡器的以下组件：
-
-  * 前端 IP 池，用于在负载均衡器上接收传入网络流量。
-  * 后端 IP 池，前端池将负载均衡的网络流量发送到此处。
-  * 运行状况探测，用于确定后端 VM 实例的运行状况。
-  * 负载均衡器规则，用于定义如何将流量分配给 VM。
-
-### <a name="create-the-load-balancer-resource"></a>创建负载均衡器资源
-
-使用 [az network lb create](/cli/network/lb?view=azure-cli-latest#az-network-lb-create) 创建公共负载均衡器：
-
-* 命名为 myLoadBalancer。
-* 前端池命名为 myFrontEnd。
-* 后端池命名为 myBackEndPool。
-* 与你在上一步中创建的公共 IP 地址 myPublicIP 关联。 
-
-```azurecli
-  az network lb create \
-    --resource-group myResourceGroupLB \
-    --name myLoadBalancer \
-    --sku Standard \
-    --public-ip-address myPublicIP \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
-```
-
-### <a name="create-the-health-probe"></a>创建运行状况探测
-
-运行状况探测会检查所有虚拟机实例，以确保它们可以发送网络流量。 
-
-从负载均衡器中删除未通过探测检查的虚拟机。 解决故障后，虚拟机将重新添加到负载均衡器中。
-
-使用 [az network lb probe create](/cli/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create) 创建运行状况探测：
-
-* 监视虚拟机的运行状况。
-* 命名为“myHealthProbe”。
-* 协议为“TCP”。
-* 监视“端口 80”。
-
-```azurecli
-  az network lb probe create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHealthProbe \
-    --protocol tcp \
-    --port 80   
-```
-
-### <a name="create-the-load-balancer-rule"></a>创建负载均衡器规则
-
-负载均衡器规则定义：
-
-* 针对传入流量的前端 IP 配置。
-* 用于接收流量的后端 IP 池。
-* 所需的源和目标端口。 
-
-使用 [az network lb rule create](/cli/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) 创建负载均衡器规则：
-
-* 命名为“myHTTPRule”
-* 对前端池“myFrontEnd”中的“端口 80”进行侦听 。
-* 使用“端口 80”将负载均衡的网络流量发送到后端地址池“myBackEndPool” 。 
-* 使用运行状况探测“myHealthProbe”。
-* 协议为“TCP”。
-* 使用前端 IP 地址启用出站源网络地址转换 (SNAT)。
-
-```azurecli
-  az network lb rule create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHTTPRule \
-    --protocol tcp \
-    --frontend-port 80 \
-    --backend-port 80 \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe \
-    --disable-outbound-snat true 
-```
 
 ## <a name="configure-virtual-network"></a>配置虚拟网络
 
@@ -162,7 +64,9 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 使用 [az network vnet create](/cli/network/vnet?view=azure-cli-latest#az-network-vnet-createt) 创建虚拟网络：
 
 * 命名为“myVNet”。
+* 地址前缀为 10.1.0.0/16。
 * 子网命名为“myBackendSubnet”。
+* 子网前缀为 10.1.0.0/24。
 * 在 myResourceGroupLB 资源组中。
 * “chinaeast2”的位置。
 
@@ -171,7 +75,9 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
     --resource-group myResourceGroupLB \
     --location chinaeast2 \
     --name myVNet \
-    --subnet-name myBackendSubnet
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.1.0.0/24
 ```
 
 ### <a name="create-a-network-security-group"></a>创建网络安全组
@@ -196,7 +102,7 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 * 命名为“myNSGRuleHTTP”。
 * 在上一步创建的网络安全组“myNSG”中。
 * 在资源组“myResourceGroupLB”中。
-* 协议为“TCP”。
+* 协议为“(*)”。
 * 方向为“入站”。
 * 源为“(*)”。
 * 目标为“(*)”。
@@ -209,7 +115,7 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
     --resource-group myResourceGroupLB \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
-    --protocol tcp \
+    --protocol '*' \
     --direction inbound \
     --source-address-prefix '*' \
     --source-port-range '*' \
@@ -230,7 +136,6 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
 * 在网络安全组“myNSG”中。
-* 附加到 myBackEndPool 中的负载均衡器 myLoadBalancer 。
 
 ```azurecli
 
@@ -239,9 +144,7 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm2"></a>VM2
 
@@ -249,8 +152,6 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 * 在资源组“myResourceGroupLB”中。
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
-* 在网络安全组“myNSG”中。
-* 附加到 myBackEndPool 中的负载均衡器 myLoadBalancer 。
 
 ```azurecli
   az network nic create \
@@ -258,9 +159,7 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
     --name myNicVM2 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm3"></a>VM3
 
@@ -269,7 +168,6 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
 * 在网络安全组“myNSG”中。
-* 附加到 myBackEndPool 中的负载均衡器 myLoadBalancer 。
 
 ```azurecli
   az network nic create \
@@ -277,9 +175,7 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
     --name myNicVM3 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 
 ## <a name="create-backend-servers"></a>创建后端服务器
@@ -395,6 +291,152 @@ runcmd:
 ```
 可能需要花费几分钟时间才能部署 VM。
 
+## <a name="create-a-public-ip-address"></a>创建公共 IP 地址
+
+若要通过 Internet 访问 Web 应用，需要负载均衡器有一个公共 IP 地址。 
+
+使用 [az network public-ip create](/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 执行以下操作：
+
+* 创建名为“myPublicIP”的标准公共 IP 地址。
+* 在“myResourceGroupLB”中。
+
+```azurecli
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --sku Standard
+```
+
+
+## <a name="create-standard-load-balancer"></a>创建标准负载均衡器
+
+本部分详细介绍如何创建和配置负载均衡器的以下组件：
+
+  * 前端 IP 池，用于在负载均衡器上接收传入网络流量。
+  * 后端 IP 池，前端池将负载均衡的网络流量发送到此处。
+  * 运行状况探测，用于确定后端 VM 实例的运行状况。
+  * 负载均衡器规则，用于定义如何将流量分配给 VM。
+
+### <a name="create-the-load-balancer-resource"></a>创建负载均衡器资源
+
+使用 [az network lb create](/cli/network/lb?view=azure-cli-latest#az-network-lb-create) 创建公共负载均衡器：
+
+* 命名为 myLoadBalancer。
+* 前端池命名为 myFrontEnd。
+* 后端池命名为 myBackEndPool。
+* 与你在上一步中创建的公共 IP 地址 myPublicIP 关联。 
+
+```azurecli
+  az network lb create \
+    --resource-group myResourceGroupLB \
+    --name myLoadBalancer \
+    --sku Standard \
+    --public-ip-address myPublicIP \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool       
+```
+
+### <a name="create-the-health-probe"></a>创建运行状况探测
+
+运行状况探测会检查所有虚拟机实例，以确保它们可以发送网络流量。 
+
+从负载均衡器中删除未通过探测检查的虚拟机。 解决故障后，虚拟机将重新添加到负载均衡器中。
+
+使用 [az network lb probe create](/cli/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create) 创建运行状况探测：
+
+* 监视虚拟机的运行状况。
+* 命名为“myHealthProbe”。
+* 协议为“TCP”。
+* 监视“端口 80”。
+
+```azurecli
+  az network lb probe create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
+```
+
+### <a name="create-the-load-balancer-rule"></a>创建负载均衡器规则
+
+负载均衡器规则定义：
+
+* 针对传入流量的前端 IP 配置。
+* 用于接收流量的后端 IP 池。
+* 所需的源和目标端口。 
+
+使用 [az network lb rule create](/cli/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) 创建负载均衡器规则：
+
+* 命名为“myHTTPRule”
+* 对前端池“myFrontEnd”中的“端口 80”进行侦听 。
+* 使用“端口 80”将负载均衡的网络流量发送到后端地址池“myBackEndPool” 。 
+* 使用运行状况探测“myHealthProbe”。
+* 协议为“TCP”。
+* 使用前端 IP 地址启用出站源网络地址转换 (SNAT)。
+
+```azurecli
+  az network lb rule create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe \
+    --disable-outbound-snat true 
+```
+### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>将虚拟机添加到负载均衡器后端池
+
+使用 [az network nic ip-config address-pool add](/cli/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add) 将虚拟机添加到后端池：
+
+#### <a name="vm1"></a>VM1
+* 在后端地址池“myBackEndPool”中。
+* 在资源组“myResourceGroupLB”中。
+* 与网络接口 myNicVM1 和 ipconfig1 关联 。
+* 与负载均衡器 myLoadBalancer 关联。
+
+```azurecli
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM1 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm2"></a>VM2
+* 在后端地址池“myBackEndPool”中。
+* 在资源组“myResourceGroupLB”中。
+* 与网络接口 myNicVM2 和 ipconfig1 关联 。
+* 与负载均衡器 myLoadBalancer 关联。
+
+```azurecli
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM2 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm3"></a>VM3
+* 在后端地址池“myBackEndPool”中。
+* 在资源组“myResourceGroupLB”中。
+* 与网络接口 myNicVM3 和 ipconfig1 关联 。
+* 与负载均衡器 myLoadBalancer 关联。
+
+```azurecli
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM3 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
 ## <a name="create-outbound-rule-configuration"></a>创建出站规则配置
 负载均衡器出站规则为后端池中的 VM 配置出站 SNAT。 
 
@@ -435,7 +477,7 @@ runcmd:
 
 ### <a name="create-outbound-frontend-ip-configuration"></a>创建出站前端 IP 配置
 
-使用 [az network lb frontend-ip create](/cli/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) 创建新的前端 IP 配置：
+使用 [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) 创建新的前端 IP 配置：
 
 根据上一步中的决定选择公共 IP 或公共 IP 前缀命令。
 
@@ -557,106 +599,10 @@ runcmd:
    --lb-name myLoadBalancer
 ```
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[选项 2：创建负载均衡器（基本 SKU）](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**基本 SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。 有关 sku 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
-
-
-## <a name="create-a-public-ip-address"></a>创建公共 IP 地址
-
-若要通过 Internet 访问 Web 应用，需要负载均衡器有一个公共 IP 地址。 
-
-使用 [az network public-ip create](/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 执行以下操作：
-
-* 创建名为“myPublicIP”的标准公共 IP 地址。
-* 在“myResourceGroupLB”中。
-
-```azurecli
-  az network public-ip create \
-    --resource-group myResourceGroupLB \
-    --name myPublicIP \
-    --sku Basic
-```
-
-## <a name="create-basic-load-balancer"></a>创建基本负载均衡器
-
-本部分详细介绍如何创建和配置负载均衡器的以下组件：
-
-  * 前端 IP 池，用于在负载均衡器上接收传入网络流量。
-  * 后端 IP 池，前端池将负载均衡的网络流量发送到此处。
-  * 运行状况探测，用于确定后端 VM 实例的运行状况。
-  * 负载均衡器规则，用于定义如何将流量分配给 VM。
-
-### <a name="create-the-load-balancer-resource"></a>创建负载均衡器资源
-
-使用 [az network lb create](/cli/network/lb?view=azure-cli-latest#az-network-lb-create) 创建公共负载均衡器：
-
-* 命名为 myLoadBalancer。
-* 前端池命名为 myFrontEnd。
-* 后端池命名为 myBackEndPool。
-* 与你在上一步中创建的公共 IP 地址 myPublicIP 关联。 
-
-```azurecli
-  az network lb create \
-    --resource-group myResourceGroupLB \
-    --name myLoadBalancer \
-    --sku Basic \
-    --public-ip-address myPublicIP \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
-```
-
-### <a name="create-the-health-probe"></a>创建运行状况探测
-
-运行状况探测会检查所有虚拟机实例，以确保它们可以发送网络流量。 
-
-从负载均衡器中删除未通过探测检查的虚拟机。 解决故障后，虚拟机将重新添加到负载均衡器中。
-
-使用 [az network lb probe create](/cli/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create) 创建运行状况探测：
-
-* 监视虚拟机的运行状况。
-* 命名为“myHealthProbe”。
-* 协议为“TCP”。
-* 监视“端口 80”。
-
-```azurecli
-  az network lb probe create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHealthProbe \
-    --protocol tcp \
-    --port 80   
-```
-
-### <a name="create-the-load-balancer-rule"></a>创建负载均衡器规则
-
-负载均衡器规则定义：
-
-* 针对传入流量的前端 IP 配置。
-* 用于接收流量的后端 IP 池。
-* 所需的源和目标端口。 
-
-使用 [az network lb rule create](/cli/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) 创建负载均衡器规则：
-
-* 命名为“myHTTPRule”
-* 对前端池“myFrontEnd”中的“端口 80”进行侦听 。
-* 使用“端口 80”将负载均衡的网络流量发送到后端地址池“myBackEndPool” 。 
-* 使用运行状况探测“myHealthProbe”。
-* 协议为“TCP”。
-
-```azurecli
-  az network lb rule create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHTTPRule \
-    --protocol tcp \
-    --frontend-port 80 \
-    --backend-port 80 \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe
-```
 
 ## <a name="configure-virtual-network"></a>配置虚拟网络
 
@@ -667,7 +613,9 @@ runcmd:
 使用 [az network vnet create](/cli/network/vnet?view=azure-cli-latest#az-network-vnet-createt) 创建虚拟网络：
 
 * 命名为“myVNet”。
+* 地址前缀为 10.1.0.0/16。
 * 子网命名为“myBackendSubnet”。
+* 子网前缀为 10.1.0.0/24。
 * 在 myResourceGroupLB 资源组中。
 * “chinaeast2”的位置。
 
@@ -676,7 +624,9 @@ runcmd:
     --resource-group myResourceGroupLB \
     --location chinaeast2 \
     --name myVNet \
-    --subnet-name myBackendSubnet
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.1.0.0/24
 ```
 
 ### <a name="create-a-network-security-group"></a>创建网络安全组
@@ -701,7 +651,7 @@ runcmd:
 * 命名为“myNSGRuleHTTP”。
 * 在上一步创建的网络安全组“myNSG”中。
 * 在资源组“myResourceGroupLB”中。
-* 协议为“TCP”。
+* 协议为“(*)”。
 * 方向为“入站”。
 * 源为“(*)”。
 * 目标为“(*)”。
@@ -714,7 +664,7 @@ runcmd:
     --resource-group myResourceGroupLB \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
-    --protocol tcp \
+    --protocol '*' \
     --direction inbound \
     --source-address-prefix '*' \
     --source-port-range '*' \
@@ -735,7 +685,6 @@ runcmd:
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
 * 在网络安全组“myNSG”中。
-* 附加到 myBackEndPool 中的负载均衡器 myLoadBalancer 。
 
 ```azurecli
 
@@ -744,9 +693,7 @@ runcmd:
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm2"></a>VM2
 
@@ -755,17 +702,14 @@ runcmd:
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
 * 在网络安全组“myNSG”中。
-* 附加到 myBackEndPool 中的负载均衡器 myLoadBalancer 。
 
 ```azurecli
   az network nic create \
     --resource-group myResourceGroupLB \
     --name myNicVM2 \
-    --vnet-name myVnet \
+    --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm3"></a>VM3
 
@@ -774,17 +718,14 @@ runcmd:
 * 在虚拟网络“myVNet”中。
 * 在子网“myBackendSubnet”中。
 * 在网络安全组“myNSG”中。
-* 附加到 myBackEndPool 中的负载均衡器 myLoadBalancer 。
 
 ```azurecli
   az network nic create \
     --resource-group myResourceGroupLB \
     --name myNicVM3 \
-    --vnet-name myVnet \
+    --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 
 ## <a name="create-backend-servers"></a>创建后端服务器
@@ -882,8 +823,7 @@ runcmd:
     --generate-ssh-keys \
     --custom-data cloud-init.txt \
     --availability-set myAvSet \
-    --no-wait
-    
+    --no-wait 
 ```
 #### <a name="vm2"></a>VM2
 * 命名为“myVM2”。
@@ -891,7 +831,6 @@ runcmd:
 * 附加到网络接口“myNicVM2”。
 * 虚拟机映像 UbuntuLTS。
 * 你在上述步骤中创建的配置文件 cloud-init.txt。
-* 在“myAvSet”可用性集中。
 
 ```azurecli
   az vm create \
@@ -911,7 +850,6 @@ runcmd:
 * 附加到网络接口“myNicVM3”。
 * 虚拟机映像 UbuntuLTS。
 * 你在上述步骤中创建的配置文件 cloud-init.txt。
-* 在“myAvSet”可用性集中。
 
 ```azurecli
    az vm create \
@@ -926,6 +864,151 @@ runcmd:
 ```
 可能需要花费几分钟时间才能部署 VM。
 
+
+## <a name="create-a-public-ip-address"></a>创建公共 IP 地址
+
+若要通过 Internet 访问 Web 应用，需要负载均衡器有一个公共 IP 地址。 
+
+使用 [az network public-ip create](/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 执行以下操作：
+
+* 创建名为“myPublicIP”的标准公共 IP 地址。
+* 在“myResourceGroupLB”中。
+
+```azurecli
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --sku Basic
+```
+
+## <a name="create-basic-load-balancer"></a>创建基本负载均衡器
+
+本部分详细介绍如何创建和配置负载均衡器的以下组件：
+
+  * 前端 IP 池，用于在负载均衡器上接收传入网络流量。
+  * 后端 IP 池，前端池将负载均衡的网络流量发送到此处。
+  * 运行状况探测，用于确定后端 VM 实例的运行状况。
+  * 负载均衡器规则，用于定义如何将流量分配给 VM。
+
+### <a name="create-the-load-balancer-resource"></a>创建负载均衡器资源
+
+使用 [az network lb create](/cli/network/lb?view=azure-cli-latest#az-network-lb-create) 创建公共负载均衡器：
+
+* 命名为 myLoadBalancer。
+* 前端池命名为 myFrontEnd。
+* 后端池命名为 myBackEndPool。
+* 与你在上一步中创建的公共 IP 地址 myPublicIP 关联。 
+
+```azurecli
+  az network lb create \
+    --resource-group myResourceGroupLB \
+    --name myLoadBalancer \
+    --sku Basic \
+    --public-ip-address myPublicIP \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool       
+```
+
+### <a name="create-the-health-probe"></a>创建运行状况探测
+
+运行状况探测会检查所有虚拟机实例，以确保它们可以发送网络流量。 
+
+从负载均衡器中删除未通过探测检查的虚拟机。 解决故障后，虚拟机将重新添加到负载均衡器中。
+
+使用 [az network lb probe create](/cli/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create) 创建运行状况探测：
+
+* 监视虚拟机的运行状况。
+* 命名为“myHealthProbe”。
+* 协议为“TCP”。
+* 监视“端口 80”。
+
+```azurecli
+  az network lb probe create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
+```
+
+### <a name="create-the-load-balancer-rule"></a>创建负载均衡器规则
+
+负载均衡器规则定义：
+
+* 针对传入流量的前端 IP 配置。
+* 用于接收流量的后端 IP 池。
+* 所需的源和目标端口。 
+
+使用 [az network lb rule create](/cli/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) 创建负载均衡器规则：
+
+* 命名为“myHTTPRule”
+* 对前端池“myFrontEnd”中的“端口 80”进行侦听 。
+* 使用“端口 80”将负载均衡的网络流量发送到后端地址池“myBackEndPool” 。 
+* 使用运行状况探测“myHealthProbe”。
+* 协议为“TCP”。
+
+```azurecli
+  az network lb rule create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe
+```
+
+### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>将虚拟机添加到负载均衡器后端池
+
+使用 [az network nic ip-config address-pool add](/cli/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add) 将虚拟机添加到后端池：
+
+
+#### <a name="vm1"></a>VM1
+* 在后端地址池“myBackEndPool”中。
+* 在资源组“myResourceGroupLB”中。
+* 与网络接口 myNicVM1 和 ipconfig1 关联 。
+* 与负载均衡器 myLoadBalancer 关联。
+
+```azurecli
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM1 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm2"></a>VM2
+* 在后端地址池“myBackEndPool”中。
+* 在资源组“myResourceGroupLB”中。
+* 与网络接口 myNicVM2 和 ipconfig1 关联 。
+* 与负载均衡器 myLoadBalancer 关联。
+
+```azurecli
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM2 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm3"></a>VM3
+* 在后端地址池“myBackEndPool”中。
+* 在资源组“myResourceGroupLB”中。
+* 与网络接口 myNicVM3 和 ipconfig1 关联 。
+* 与负载均衡器 myLoadBalancer 关联。
+
+```azurecli
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM3 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
 ---
 
 ## <a name="test-the-load-balancer"></a>测试负载均衡器

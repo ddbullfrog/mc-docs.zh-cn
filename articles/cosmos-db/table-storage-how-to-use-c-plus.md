@@ -6,15 +6,17 @@ ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 origin.date: 10/07/2019
-ms.date: 08/17/2020
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: c5f13df331807b835cc13770691afc71748bc02c
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: a2938d3fcfac4ac94a868d84b26f9efc7ac7b6ce
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246616"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API
 
@@ -515,6 +517,8 @@ else
 ## <a name="next-steps"></a>后续步骤
 
 [Microsoft Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+
+<!--CORRECT ON *Microsoft Azure Storage Emulator*-->
 
 请打开以下链接了解有关 Azure 存储和 Azure Cosmos DB 中的表 API 的详细信息：
 

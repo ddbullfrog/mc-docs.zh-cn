@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af5ff4d36e7814488a7bdcc8ca93b015976e8ae2
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 145976b216798a356cf4061f0b5cc6bd3eefa646
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244893"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>跨多个存储帐户管理媒体服务资产  
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 可以将多个存储帐户附加到一个媒体服务帐户。 将多个存储帐户附加到一个媒体服务帐户这一功能具有以下优势：
 

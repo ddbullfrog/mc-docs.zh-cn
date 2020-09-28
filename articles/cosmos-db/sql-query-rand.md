@@ -1,19 +1,21 @@
 ---
 title: Azure Cosmos DB 查询语言中的 RAND
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 RAND。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/16/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: edf55edf2dbe47fd1e6d26970bc37d1eefce6ebb
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: e2226a6562c9d2c2fe9de146047c51ccfbe83c96
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246720"
 ---
 # <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
  返回 [0,1) 中随机生成的数值。
@@ -30,7 +32,7 @@ RAND ()
 
 ## <a name="remarks"></a>备注
 
-  `RAND` 是非确定性的函数。 重复调用 `RAND` 不会返回相同的结果。
+  `RAND` 是非确定性的函数。 重复调用 `RAND` 不会返回相同的结果。 此系统函数不会使用索引。
 
 ## <a name="examples"></a>示例
 
@@ -45,10 +47,6 @@ SELECT RAND() AS rand
 ```json
 [{"rand": 0.87860053195618093}]  
 ``` 
-
-## <a name="remarks"></a>备注
-
-此系统函数不会使用索引。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,9 +1,9 @@
 ---
-title: 使用 Linux VM 系统分配的托管标识访问 Azure Key Vault
+title: 教程`:`使用托管标识访问 Azure Key Vault - Linux - Azure AD
 description: 本教程将指导你完成使用 Linux VM 系统分配的托管标识访问 Azure Resource Manager 的过程。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/20/2017
-ms.date: 10/11/2019
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f617accc1d34f85327b366cca9bd183acca97ff5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 61f3fd9d69886c4538cc29656dbbff65ebc4c085
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72292070"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245365"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>教程：使用 Linux VM 系统分配的托管标识访问 Azure Key Vault 
 
@@ -29,7 +28,7 @@ ms.locfileid: "72292070"
 
 本教程介绍如何使用 Linux 虚拟机 (VM) 的系统分配托管标识访问 Azure Key Vault。 作为引导，Key Vault 随后可让客户端应用程序使用机密访问未受 Azure Active Directory (AD) 保护的资源。 Azure 资源的托管标识由 Azure 自动管理，可用于向支持 Azure AD 身份验证的服务进行身份验证，这样就无需在代码中插入凭据了。 
 
-你将学习如何执行以下操作：
+学习如何：
 
 > [!div class="checklist"]
 > * 授予 VM 对 Key Vault 中存储的密钥的访问权限 
@@ -67,11 +66,11 @@ ms.locfileid: "72292070"
  
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>使用 VM 标识获取访问令牌，并使用它来检索 Key Vault 中的密钥  
 
-若要完成这些步骤，需要使用 SSH 客户端。  如果使用的是 Windows，可以在[适用于 Linux 的 Windows 子系统](https://msdn.microsoft.com/commandline/wsl/about)中使用 SSH 客户端。 如果需要有关配置 SSH 客户端密钥的帮助，请参阅[如何在 Azure 上将 SSH 密钥与 Windows 配合使用](../../virtual-machines/linux/ssh-from-windows.md)或[如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对](../../virtual-machines/linux/mac-create-ssh-keys.md)。
+若要完成这些步骤，需要使用 SSH 客户端。  如果使用的是 Windows，可以在[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/about)中使用 SSH 客户端。 如果需要有关配置 SSH 客户端密钥的帮助，请参阅[如何在 Azure 上将 SSH 密钥与 Windows 配合使用](../../virtual-machines/linux/ssh-from-windows.md)或[如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对](../../virtual-machines/linux/mac-create-ssh-keys.md)。
  
 1. 在门户中，转到 Linux VM，并单击“概述”  中的“连接”  。 
 2. 使用所选的 SSH 客户端连接  到 VM。 
-3. 在终端窗口中，使用 CURL 向 Azure 资源终结点的本地托管标识发出请求，以获取 Azure Key Vault 的访问令牌。  
+3. 在终端窗口中，使用 CURL 向 Azure 资源终结点的本地托管标识发出请求，以获取 Azure Key Vault 的访问令牌。
  
     下面是用于获取访问令牌的 CURL 请求。  
     
@@ -111,9 +110,5 @@ ms.locfileid: "72292070"
 在本教程中，你已学习了如何使用 Linux VM 系统分配的托管标识来访问 Azure Key Vault。  若要详细了解 Azure Key Vault，请参阅：
 
 > [!div class="nextstepaction"]
->[Azure 密钥保管库](/key-vault/key-vault-overview)
-
-
-<!-- Update_Description: link update -->
-
+>[Azure Key Vault](../../key-vault/general/overview.md)
 

@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 10/24/2019
 ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3056f04e94feb9b66e0aa6357e265f8aefcb0f31
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 703087a41397976d296346c0919eaaacbc13a7a8
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723066"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394511"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Apache Hive
 
@@ -38,7 +38,9 @@ ms.locfileid: "84723066"
 
 JDBC 通过端口 443 连接到 Azure 上的 HDInsight 群集。 使用 TLS/SSL 保护流量。 公用网关（群集位于其后）会将通信重定向到 HiveServer2 实际进行侦听的端口。 以下连接字符串显示要用于 HDInsight 的格式：
 
+```http
     jdbc:hive2://CLUSTERNAME.azurehdinsight.cn:443/default;transportMode=http;ssl=true;httpPath=/hive2
+```
 
 将 `CLUSTERNAME` 替换为 HDInsight 群集的名称。
 
@@ -126,7 +128,7 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
 9. 连接后，在 SQL 查询对话框中输入以下查询，然后选择“运行”**** 图标（一个正在跑步的人）。 结果区域会显示查询的结果。
 
-    ```hql
+    ```hiveql
     select * from hivesampletable limit 10;
     ```
 

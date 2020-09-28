@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/07/2020
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: dwgeo
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 089e1d2094b81b3484f692b50e22ea149c3158be
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 179983b0bbe5de1a901dacc8bdfb139b32163ced
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413768"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245628"
 ---
-# <a name="offline-fairplay-streaming-for-ios"></a>适用于 iOS 的脱机 FairPlay Streaming 
+# <a name="offline-fairplay-streaming-for-ios"></a>适用于 iOS 的脱机 FairPlay Streaming
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="选择所使用的媒体服务版本："]
 > * [第 3 版](../latest/offline-fairplay-for-ios.md)

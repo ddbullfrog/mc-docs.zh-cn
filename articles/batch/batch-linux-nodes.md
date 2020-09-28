@@ -2,18 +2,20 @@
 title: 在虚拟机计算节点上运行 Linux
 description: 了解如何处理 Azure Batch 中 Linux 虚拟机池上的并行计算工作负荷。
 ms.topic: how-to
+ms.service: batch
 origin.date: 06/01/2018
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 11/26/2018
 ms.author: v-yeche
-ms.custom: H1Hack27Feb2017, devx-track-python
-ms.openlocfilehash: 4a159218c7d55731920c12fc6593cd9a43e2e9e8
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
+ms.openlocfilehash: 3ce508544fe0dbbeeea65fff8a775f09b87508f5
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654911"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146380"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 池中预配 Linux 计算节点
 
@@ -289,7 +291,7 @@ Azure Batch 构建在 Azure 云服务和 Azure 虚拟机技术基础之上。 Ba
 GitHub 上 [azure-batch-samples][github_samples] 存储库中的 [Python 代码示例][github_samples_py]包含演示如何执行常见 Batch 操作（例如创建池、作业和任务）的多个脚本。 Python 示例随附的 [README][github_py_readme] 文件包含有关如何安装所需包的详细信息。
 
 [api_net]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch
-[api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch
+[api_net_mgmt]: https://docs.azure.cn/dotnet/api/overview/batch
 [api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [cloud_services_pricing]: https://www.azure.cn/pricing/details/cloud-services/
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
@@ -297,12 +299,15 @@ GitHub 上 [azure-batch-samples][github_samples] 存储库中的 [Python 代码�
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
 [portal]: https://portal.azure.cn
-[net_cloudpool]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool
-[net_computenodeuser]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenodeuser?view=azure-dotnet
-[net_imagereference]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.imagereference
-[net_list_supported_images]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages
-[net_pool_ops]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations
-[net_ssh_key]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenodeuser.sshpublickey?view=azure-dotnet#Microsoft_Azure_Batch_ComputeNodeUser_SshPublicKey
+[net_cloudpool]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudpool
+[net_computenodeuser]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.computenodeuser
+[net_imagereference]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.imagereference
+
+<!--MOONCAKE: CORRECT ON [net_list_supported_images]: https://docs.microsoft.com/-->
+
+[net_list_supported_images]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages
+[net_pool_ops]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.pooloperations
+[net_ssh_key]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.computenodeuser.sshpublickey#Microsoft_Azure_Batch_ComputeNodeUser_SshPublicKey
 [nuget_batch_net]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [rest_add_pool]: https://docs.microsoft.com/rest/api/batchservice/pool/add
 [py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
@@ -311,7 +316,7 @@ GitHub 上 [azure-batch-samples][github_samples] 存储库中的 [Python 代码�
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [py_computenodeuser]: https://docs.microsoft.com/python/api/azure-batch/azure.batch.models.computenodeuser
 [py_imagereference]: https://docs.microsoft.com/python/api/azure-mgmt-batch/azure.mgmt.batch.models.imagereference
-[py_list_supported_images]: https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.AccountOperations?view=azure-python
+[py_list_supported_images]: https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.AccountOperations
 [vm_marketplace]: https://market.azure.cn/marketplace/apps/filter?search=compute&filters=virtual-machine-images&page=1
 [vm_pricing]: https://www.azure.cn/pricing/details/virtual-machines/
 

@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/27/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: d027d166ff9ae73f689e98bd281af28c34d85890
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 7cfecdd4daf24694b9c581cd1cadce9f01c905e2
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753384"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026483"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>使用 AzCopy 和文件存储传输数据 
 
@@ -307,7 +307,8 @@ AzCopy 使用[服务器到服务器](https://docs.microsoft.com/rest/api/storage
 >
 > |方案|标志|
 > |---|---|
-> |指定下载时应验证 MD5 哈希的严格程度。|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
+> |将访问控制列表 (ACL) 与文件一起复制。|**--preserve-smb-permissions**=\[true\|false\]|
+> |将 SMB 属性信息与文件一起复制。|**--preserve-smb-info**=\[true\|false\]|
 > |基于模式排除文件。|**--exclude-path**|
 > |指定你希望与同步相关的日志条目达到何种详细程度。|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 > 

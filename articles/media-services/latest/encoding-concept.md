@@ -9,19 +9,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 04/29/2020
-ms.date: 07/27/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 9181da01007f7e18fc9d0f5c1ca17fb1a5c9bb3a
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 64ed5913efd16424d432ad569536882158ea97ee
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162140"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245140"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>使用媒体服务编码视频和音频
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 媒体服务中的术语“编码”适用于将包含数字视频和/或音频的文件从一种标准格式转换为另一种标准格式的过程，其目的是 (a) 减小文件大小，和/或 (b) 生成与各种设备和应用兼容的格式。 此过程也称为视频压缩或转码。 有关概念的进一步讨论，请参阅[数据压缩](https://en.wikipedia.org/wiki/Data_compression)及[什么是编码和转码？](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx)。
 

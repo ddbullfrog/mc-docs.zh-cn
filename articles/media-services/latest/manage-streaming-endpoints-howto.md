@@ -11,18 +11,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 03/11/2020
-ms.date: 04/06/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 260aeae77d4027e4d52605ed9928048ac59f1410
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: c32cdedebbb2670e734a8e1bf15fac5b4d11a8bc
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80625808"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245089"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>通过媒体服务 v3 管理流式处理终结点
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 创建媒体服务帐户后，一个处于“已停止”状态的默认[流式处理终结点](streaming-endpoint-concept.md)会添加到帐户。   若要开始对内容进行流式处理并利用[动态打包](dynamic-packaging-overview.md)和[动态加密](content-protection-overview.md)功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 

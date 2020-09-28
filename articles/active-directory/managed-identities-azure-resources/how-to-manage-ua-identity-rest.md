@@ -3,24 +3,24 @@ title: 使用 REST 管理用户分配的托管标识 - Azure AD
 description: 分步说明如何创建、列出和删除用户分配托管标识以进行 REST API 调用。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecdd741c12b1f716d357971e8665bd6d6aaa308d
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: d83a219d7088c3604e0df32936fab88b50e29c35
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945177"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245391"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>使用 REST API 调用创建、列出或删除用户分配托管标识
 
@@ -34,14 +34,14 @@ Azure 资源托管标识使 Azure 服务能够向支持 Azure AD 身份验证的
 
 - 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#managed-identity-types)。
 - 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
-- 如果使用的是 Windows，请安装[适用于 Linux 的 Windows 子系统](https://msdn.microsoft.com/commandline/wsl/about)。
-- 如果使用[适用于 Linux 的 Windows 子系统](https://msdn.microsoft.com/commandline/wsl/about)或 [Linux 分发版 OS](/cli/install-azure-cli-apt?view=azure-cli-latest)，请[安装 Azure CLI 本地控制台](/cli/install-azure-cli)。
+- 如果使用的是 Windows，请安装[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/about)。
+- 如果使用[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/about)或 [Linux 分发版 OS](/cli/install-azure-cli-apt?view=azure-cli-latest)，请[安装 Azure CLI 本地控制台](/cli/install-azure-cli)。
 - 如果使用 Azure CLI 本地控制台，请使用 `az login` 和与要用于部署或检索用户分配托管标识信息的 Azure 订阅关联的帐户登录 Azure。
 - 使用 `az account get-access-token` 检索持有者访问令牌，进而执行以下用户分配托管标识操作。
 
 ## <a name="create-a-user-assigned-managed-identity"></a>创建用户分配的托管标识 
 
-若要创建用户分配的托管标识，你的帐户需要[托管标识参与者](/role-based-access-control/built-in-roles#managed-identity-contributor)角色分配。
+若要创建用户分配的托管标识，你的帐户需要[托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色分配。
 
 [!INCLUDE [ua-character-limit](../../../includes/managed-identity-ua-character-limits.md)]
 
@@ -71,7 +71,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 ## <a name="list-user-assigned-managed-identities"></a>列出用户分配的托管标识
 
-若要列出/读取用户分配的托管标识，你的帐户需要[托管标识操作员](/role-based-access-control/built-in-roles#managed-identity-operator)或[托管标识参与者](/role-based-access-control/built-in-roles#managed-identity-contributor)角色分配。
+若要列出/读取用户分配的托管标识，你的帐户需要[托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)或[托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色分配。
 
 ```bash
 curl 'https://management.chinacloudapi.cn/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -88,7 +88,7 @@ GET https://management.chinacloudapi.cn/subscriptions/<SUBSCRIPTION ID>/resource
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>删除用户分配的托管标识
 
-若要删除用户分配的托管标识，你的帐户需要[托管标识参与者](/role-based-access-control/built-in-roles#managed-identity-contributor)角色分配。
+若要删除用户分配的托管标识，你的帐户需要[托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色分配。
 
 > [!NOTE]
 > 删除用户分配托管标识不会从将其分配到的任何资源中删除引用。 要使用 CURL 从 VM 中删除用户分配的托管标识，请参阅[从 Azure VM 中删除用户分配的标识](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm)。

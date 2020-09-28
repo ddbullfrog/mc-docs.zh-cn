@@ -3,7 +3,7 @@ title: 在 Azure VMSS 上配置托管标识 - Azure AD
 description: 分步说明如何使用 Azure 门户在虚拟机规模集上配置 Azure 资源的托管标识。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f45e5252f010123b6ad53565372bdc3027182b6
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 4db3056a777cad9ccfb5c6bca8c6149f39eb81b2
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046336"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245661"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>使用 Azure 门户在虚拟机规模集上配置 Azure 资源的托管标识
 
@@ -37,7 +37,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
     > [!NOTE]
     > 无需其他 Azure AD 目录角色分配。
 
-    - [虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)，可从虚拟机规模集启用和删除系统分配的托管标识。
+    - [虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)，可从虚拟机规模集启用和删除系统分配的托管标识。
 
 ## <a name="system-assigned-managed-identity"></a>系统分配的托管标识
 

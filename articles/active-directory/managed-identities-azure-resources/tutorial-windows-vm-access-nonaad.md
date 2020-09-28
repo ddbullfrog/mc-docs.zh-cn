@@ -3,7 +3,7 @@ title: 教程：使用托管标识访问 Azure Key Vault - Windows - Azure AD
 description: 本教程将指导你完成使用 Windows VM 系统分配的托管标识访问 Azure Key Vault 的过程。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca85307f654c49c7478cf180eeb2d67de6106f5
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 8fa31551706cecf48ab7eb7b4e95e028baec653a
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046449"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245355"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>教程：使用 Windows VM 系统分配的托管标识访问 Azure Key Vault 
 
@@ -128,5 +128,5 @@ ms.locfileid: "89046449"
 在本教程中，你已学习了如何使用 Windows VM 系统分配的托管标识来访问 Azure Key Vault。  若要详细了解 Azure Key Vault，请参阅：
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/key-vault/key-vault-overview)
+>[Azure Key Vault](../../key-vault/general/overview.md)
 

@@ -1,16 +1,21 @@
 ---
 title: 使用 Azure Application Insights 监视 Batch
 description: 了解如何使用 Azure Application Insights 库检测 Azure Batch .NET 应用程序。
-ms.topic: article
+ms.topic: how-to
+ms.service: batch
+ms.custom: devx-track-csharp
 origin.date: 04/05/2018
-ms.date: 12/04/2019
-ms.author: v-lingwu
-ms.openlocfilehash: b0cf21a6b75e1d86b31e984aeb9c002a36121bd6
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: 12/04/2019
+ms.author: v-yeche
+ms.openlocfilehash: abb39aa65a0e2d9eac0b12b7af6e270aee9d0642
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126688"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146704"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>使用 Application Insights 监视和调试 Azure Batch .NET 应用程序
 
@@ -31,13 +36,15 @@ ms.locfileid: "84126688"
 
 * [Application Insights 资源](../azure-monitor/app/create-new-resource.md )
   
-   * 使用 Azure 门户创建一个 Application Insights 资源。 选择“常规”应用程序类型。
+    * 使用 Azure 门户创建一个 Application Insights 资源。 选择“常规”作为应用程序类型。
 
-   * 从门户中复制[检测密钥](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)。 本文稍后会用到此密钥。
+    * 从门户中复制[检测密钥](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)。 本文稍后会用到此密钥。
   
-  > [!NOTE]
-  > Application Insights 中存储的数据可能会产生[费用](https://www.azure.cn/pricing/details/monitor/)。 这包括本文中所述的诊断和监视数据。
-  > 
+    <!--MOONCAKE: CORRECT ON [charged](https://www.azure.cn/pricing/details/monitor/)-->
+    
+    > [!NOTE]
+    > Application Insights 中存储的数据可能会产生[费用](https://www.azure.cn/pricing/details/monitor/)。 这包括本文中所述的诊断和监视数据。
+    > 
 
 ## <a name="add-application-insights-to-your-project"></a>将 Application Insights 添加到项目
 
@@ -49,6 +56,8 @@ Install-Package Microsoft.ApplicationInsights.WindowsServer
 使用 **Microsoft.ApplicationInsights** 命名空间从 .NET 应用程序引用 Application Insights。
 
 ## <a name="instrument-your-code"></a>检测代码
+
+<!--MOONCAKE: CORRECT ON [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient)-->
 
 若要检测代码，解决方案需要创建 Application Insights [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient)。 在本示例中，TelemetryClient 将从 [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) 文件加载其配置。 请务必使用 Application Insights 检测密钥更新以下项目中的 ApplicationInsights.config：Microsoft.Azure.Batch.Samples.TelemetryStartTask 和 TopNWordsSample。
 
@@ -228,7 +237,7 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 {
     CloudTask task = new CloudTask("task_no_" + i, String.Format("{0} --Task {1} {2} {3} {4}",
         TopNWordsExeName,
-        string.Format("https://{0}.blob.chinacloudapi.cn/{1}",
+        string.Format("https://{0}.blob.core.chinacloudapi.cn/{1}",
             accountSettings.StorageAccountName,
             documents[i]),
         topNWordsConfiguration.TopWordCount,
@@ -261,7 +270,7 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 
 若要查看 Application Insights 资源中的跟踪日志，请单击“实时流”。 以下屏幕截图显示如何查看来自池中计算节点的实时数据，例如每个计算节点的 CPU 使用率。
 
-![实时流计算节点数据](./media/monitor-application-insights/applicationinsightslivestream.png)
+:::image type="content" source="./media/monitor-application-insights/applicationinsightslivestream.png" alt-text="实时流计算节点数据":::
 
 ### <a name="view-trace-logs"></a>查看跟踪日志
 
@@ -269,13 +278,13 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 
 以下屏幕截图显示如何记录某个任务的单个跟踪，并随后对其进行查询以实现调试目的。
 
-![跟踪日志图像](./media/monitor-application-insights/tracelogsfortask.png)
+:::image type="content" source="./media/monitor-application-insights/tracelogsfortask.png" alt-text="跟踪日志图像":::
 
 ### <a name="view-unhandled-exceptions"></a>查看未经处理的异常
 
 以下屏幕截图显示 Application Insights 如何记录应用程序中引发的异常。 在本例中，在应用程序引发异常后的几秒钟内，即可深入到特定的异常并诊断问题。
 
-![未经处理的异常](./media/monitor-application-insights/exception.png)
+:::image type="content" source="./media/monitor-application-insights/exception.png" alt-text="未经处理的异常":::
 
 ### <a name="measure-blob-download-time"></a>测量 Blob 下载时间
 
@@ -291,8 +300,7 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
    * 在“指标”中，选择“自定义” > “Blob 下载时间(秒)”。  
    * 根据偏好调整“调色板”的显示。 
 
-![每个节点的 Blob 下载时间](./media/monitor-application-insights/blobdownloadtime.png)
-
+:::image type="content" source="./media/monitor-application-insights/blobdownloadtime.png" alt-text="每个节点的 Blob 下载时间":::
 
 ## <a name="monitor-compute-nodes-continuously"></a>连续监视计算节点
 
@@ -334,10 +342,9 @@ pool.StartTask = new StartTask()
 
 由于生产环境中运行的 Azure Batch 应用程序的大规模性，你可能想要限制 Application Insights 收集的数据量，以控制成本。 请参阅[在 Application Insights 中采样](../azure-monitor/app/sampling.md)，了解一些可以实现此目的的机制。
 
-
 ## <a name="next-steps"></a>后续步骤
 * 详细了解 [Application Insights](../azure-monitor/app/app-insights-overview.md)。
 
 * 有关 Application Insights 对其他语言的支持，请查看[语言、平台和集成文档](../azure-monitor/app/platforms.md)。
 
-
+<!-- Update_Description: update meta properties, wording update, update link -->

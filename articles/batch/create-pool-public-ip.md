@@ -2,17 +2,19 @@
 title: 创建具有指定公共 IP 地址的池
 description: 了解如何创建使用你自己的公共 IP 地址的 Batch 池。
 ms.topic: how-to
+ms.service: batch
 origin.date: 07/20/2020
-ms.date: 08/24/2020
-ms.testscope: yes|no
-ms.testdate: 08/24/2020null
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: yes
+ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1cdb63fc5e14e00facfb5d93db6b15e7df0fe4a7
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: 00a6fa98585e45a0735c52fad6c748986b440185
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658550"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146628"
 ---
 <!--Prerequisites Pass-->
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>创建具有指定公共 IP 地址的 Azure Batch 池
@@ -29,7 +31,7 @@ ms.locfileid: "88658550"
 
 - **一个 Azure VNet**。 必须使用你在其中创建池 和 IP 地址的同一 Azure 订阅中的[虚拟网络](batch-virtual-network.md)。 只能使用基于 Azure 资源管理器的 VNet。 确保 VNet 满足所有[一般要求](batch-virtual-network.md#vnet-requirements)。
 
-- **至少一个 Azure 公共 IP 地址**。 若要创建一个或多个公共 IP 地址，可以使用 [Azure 门户](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)、[Azure 命令行界面 (CLI)](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress)。 请务必遵循下面列出的要求。
+- **至少一个 Azure 公共 IP 地址**。 若要创建一个或多个公共 IP 地址，可以使用 [Azure 门户](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)、[Azure 命令行界面 (CLI)](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-create) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress)。 请务必遵循下面列出的要求。
 
 > [!NOTE]
 > Batch 自动在包含公共 IP 地址的资源组中分配其他网络资源。 通常情况下，每 100 个专用节点 Batch 会分配 1 个网络安全组 (NSG) 和 1 个负载均衡器。 这些资源受订阅的资源配额限制。 当使用较大的池时，可能需要为一个或多个此类资源[请求增加配额](batch-quota-limit.md#increase-a-quota)。
@@ -107,5 +109,4 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 
 <!--Not Avaialble on [creating an Azure Batch pool without public IP addresses](./batch-pool-no-public-ip-address.md)-->
 
-<!-- Update_Description: new article about create pool public ip -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

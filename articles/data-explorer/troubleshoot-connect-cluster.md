@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 05/09/2020
-ms.openlocfilehash: 7d6cc2cd1391e3b2243fac28f63ba698d192828b
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: 57708522527a465015ee23f3944587a11821c663
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417544"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146248"
 ---
 # <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>故障排除：无法在 Azure 数据资源管理器中连接到群集
 

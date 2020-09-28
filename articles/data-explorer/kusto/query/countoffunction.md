@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: a450c1369fe6af90ec511a1f1c83be1e87810de9
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 2873e7a9e722f9947b5bc83a16d8dcd50f6e1821
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515725"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146493"
 ---
 # <a name="countof"></a>countof()
 
@@ -41,7 +41,7 @@ countof("The cat sat on the mat", @"\b.at\b", "regex") == 3
 
 ## <a name="examples"></a>示例
 
-|||
+|函数调用|结果|
 |---|---
 |`countof("aaa", "a")`| 3 
 |`countof("aaaa", "aa")`| 3 (不是 2!)

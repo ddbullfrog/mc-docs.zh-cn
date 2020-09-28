@@ -6,37 +6,39 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: include
 origin.date: 02/14/2020
-ms.date: 05/15/2020
+ms.date: 08/18/2020
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: a5c24a578b1649daff0c4057e804d9e43300aa03
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.openlocfilehash: ff555189ec56180ddbe4ea913b9b1c132a9ac2fd
+ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417759"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "91146721"
 ---
 此部分介绍如何使用 [Azure 门户](https://portal.azure.cn)创建 IoT 中心。
 
-1. 从 Azure 主页中选择“+ 创建资源”按钮，然后在“搜索市场”字段中输入“IoT 中心”。   
+1. 登录 [Azure 门户](https://portal.azure.cn)。
 
-1. 在搜索结果中选择“IoT 中心”，然后选择“创建”   。
+1. 从 Azure 主页中选择“+ 创建资源”按钮，然后在“搜索市场”字段中输入“IoT 中心”。
 
-1. 在“基本信息”选项卡上，按如下所示填写字段： 
+1. 在搜索结果中选择“IoT 中心”，然后选择“创建” 。
 
-   - **订阅**：选择要用于中心的订阅。
+1. 在“基本信息”选项卡上，按如下所示填写字段：
 
-   - **资源组**：选择一个资源组或新建一个资源组。 若要新建资源组，请选择“新建”并填写要使用的名称。  若要使用现有的资源组，请选择它。 有关详细信息，请参阅[管理 Azure 资源管理器资源组](/azure-resource-manager/management/manage-resource-groups-portal)。
+   - 订阅：选择要用于中心的订阅。
+
+   - **资源组**：选择一个资源组或新建一个资源组。 若要新建资源组，请选择“新建”并填写要使用的名称。 若要使用现有的资源组，请选择它。 有关详细信息，请参阅[管理 Azure 资源管理器资源组](/azure-resource-manager/management/manage-resource-groups-portal)。
 
    - **区域**：选择中心所在的区域。 选择最靠近你的位置。 某些功能（如 [IoT 中心设备流](/iot-hub/iot-hub-device-streams-overview)）仅适用于特定区域。 对于这些受限功能，你必须选择受支持的区域之一。
 
-   - **IoT 中心名称**：输入中心的名称。 此名称必须全局唯一。 如果输入的名称可用，会显示一个绿色复选标记。
+   - **IoT 中心名称**：输入中心的名称。 该名称必须全局唯一。 如果输入的名称可用，会显示一个绿色复选标记。
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
    ![在 Azure 门户中创建中心](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
-1. 在完成时选择“下一步:  大小和规模”，以继续创建中心。
+1. 在完成时选择“下一步:大小和规模”，以继续创建中心。
 
    ![使用 Azure 门户为新的中心设置大小和规模](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
 
@@ -46,21 +48,21 @@ ms.locfileid: "83417759"
 
       如果正在完成 IoT 中心设备流的快速入门，请选择免费层。
 
-    - **IoT 中心单元**：每个单位每日允许的消息数取决于中心的定价层。 例如，如果希望中心支持 700,000 条消息引入，请选择两个 S1 层单位。
+    - **IoT 中心单元**：每日每单位允许的消息数取决于中心的定价层。 例如，如果希望中心支持 700,000 条消息引入，请选择两个 S1 层单位。
     有关其他层选项的详细信息，请参阅[选择合适的 IoT 中心层](/iot-hub/iot-hub-scaling)。
 
     - **Azure 安全中心**：启用此功能可为 IoT 和设备添加额外的一层威胁防护。 此选项不可用于免费层的中心。
 
     - **高级设置** > **设备到云的分区**：此属性将设备到云消息与这些消息的同步读取器数目相关联。 大多数中心只需要 4 个分区。
 
-1.  在完成时选择“下一步:  标记”继续到下一屏幕。
+1.  在完成时选择“下一步:标记”继续到下一屏幕。
 
     标记是名称/值对。 可以为多个资源和资源组分配相同的标记，以便对资源进行分类并合并计费。 有关详细信息，请参阅[使用标记来组织 Azure 资源](/azure-resource-manager/management/tag-resources)。
 
     ![使用 Azure 门户为中心分配标记](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
 
-1.  在完成时选择“下一步:  查看+创建”可查看选择。 你会看到类似于此屏幕的内容，但其中包含创建中心时选择的值。 
+1.  在完成时选择“下一步:查看+创建”可查看选择。 你会看到类似于此屏幕的内容，但其中包含创建中心时选择的值。 
 
     ![查看用于创建新中心的信息](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
-1.  选择“创建”以创建新的中心  。 创建中心需要几分钟时间。
+1.  选择“创建”以创建新的中心。 创建中心需要几分钟时间。

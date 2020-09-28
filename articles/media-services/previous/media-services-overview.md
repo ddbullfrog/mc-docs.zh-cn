@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/19/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 7a69177b9935c7f00b4f9fa62ad0dda8ee7d5152
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 773b0a69c29ecb17a462a10de1f7d5d806a8502a
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413272"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245581"
 ---
-# <a name="azure-media-services-overview"></a>Azure 媒体服务概述 
+# <a name="azure-media-services-overview"></a>Azure 媒体服务概述
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="选择所使用的媒体服务版本："]
 > * [第 3 版](../latest/media-services-overview.md)

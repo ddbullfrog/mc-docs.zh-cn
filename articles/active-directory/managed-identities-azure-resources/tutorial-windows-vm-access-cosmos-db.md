@@ -1,9 +1,9 @@
 ---
-title: 教程`:`使用托管标识访问 Azure Cosmos DB - Windows - Azure AD
+title: 教程：使用托管标识访问 Azure Cosmos DB - Windows - Azure AD
 description: 本教程介绍了使用 Windows VM 上系统分配的托管标识访问 Azure Cosmos DB 的过程。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/24/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3c5d8f080a879236a8770933c5c50919ec1b482
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 796b530dcd0d0565cd37d33e82562a0970f99072
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243036"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245418"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>教程：使用 Windows VM 系统分配的托管标识访问 Azure Cosmos DB
 
@@ -34,7 +34,7 @@ ms.locfileid: "80243036"
 > * 使用 Windows VM 系统分配的托管标识获取访问令牌来调用 Azure 资源管理器
 > * 从 Azure 资源管理器中获取访问密钥，以便进行 Cosmos DB 调用
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -204,7 +204,5 @@ az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection
 在本教程中，你学习了如何使用 Windows VM 系统分配的标识来访问 Cosmos DB。  若要详细了解 Cosmos DB，请参阅：
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB 概述](/cosmos-db/introduction)
-
-
+>[Azure Cosmos DB 概述](../../cosmos-db/introduction.md)
 

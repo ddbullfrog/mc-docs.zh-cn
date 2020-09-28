@@ -4,42 +4,42 @@ description: 说明声明性设置表达式
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/18/2017
-ms.date: 11/08/2018
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 09/23/2020
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: aa662185708c6e494a92555203a8788a24921d02
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 446ad63fe85958c882e1b2c7aba6ab71e91ccda8
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63824049"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245570"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 同步：了解声明性预配表达式
 Azure AD Connect 同步基于 Forefront Identity Manager 2010 中最先引入的声明式预配。 使用该功能可以实现完整的标识集成业务逻辑，而无需编写已编译的代码。
 
 声明性设置的一个重要组成部分是属性流中使用的表达式语言。 所用的语言是 Microsoft® Visual Basic® for Applications (VBA) 的子集。 Microsoft Office 中使用了这种语言，具有 VBScript 经验的用户都认识该语言。 声明性预配表达式语言只使用函数，不属于结构化语言。 它不提供任何方法或语句。 函数嵌套在表达式程序流中。
 
-有关详细信息，请参阅 [Welcome to the Visual Basic for Applications language reference for Office 2013](https://msdn.microsoft.com/library/gg264383.aspx)（欢迎使用适用于 Office 2013 的 Visual Basic 应用程序语言参考）。
+有关详细信息，请参阅 [Welcome to the Visual Basic for Applications language reference for Office 2013](https://docs.microsoft.com/office/vba/api/overview/language-reference)（欢迎使用适用于 Office 2013 的 Visual Basic 应用程序语言参考）。
 
 属性属于强类型。 函数只接受正确类型的属性。 它还区分大小写。 函数名称和属性名称都必须具有正确的大小写，否则会引发错误。
 
 ## <a name="language-definitions-and-identifiers"></a>语言定义和标识符
-- 函数名称后跟加括号的参数：FunctionName(argument 1, argument N)。
-- 属性采用方括号标识，如 [attributeName]。
-- 参数通过百分比符号标识：%ParameterName%
-- 字符串常量放在引号中：例如 "Contoso"（注意：必须使用直引号 ""，而不能使用弯引号“”）
-- 数字值表示不带引号，并且应为十进制。 十六进制值带有前缀 &H。 例如，98052, &HFF
-- 表示布尔值的常量： True、 False。
-- 内置常量和文本仅使用其名称表示：NULL、CRLF、IgnoreThisFlow
+* 函数名称后跟加括号的参数：FunctionName(argument 1, argument N)。
+* 属性采用方括号标识，如 [attributeName]。
+* 参数通过百分比符号标识：%ParameterName%
+* 字符串常量放在引号中：例如 "Contoso"（注意：必须使用直引号 ""，而不能使用弯引号“”）
+* 数字值表示不带引号，并且应为十进制。 十六进制值带有前缀 &H。 例如，98052, &HFF
+* 表示布尔值的常量： True、 False。
+* 内置常量和文本仅使用其名称表示：NULL、CRLF、IgnoreThisFlow
 
 ### <a name="functions"></a>函数
 声明性预配使用许多函数来实现转换属性值的可能性。 这些函数可以嵌套，因此，一个函数的结果将传递到另一个函数。
@@ -71,11 +71,11 @@ Active Directory 连接器为入站同步规则提供以下参数：
 ### <a name="operators"></a>运算符
 可以使用以下运算符：
 
-- **比较**：<、<=、<>、=、>、>=
-- **数学**：+、-、\*、-
-- **字符串**：&（连接）
-- **逻辑**：&&（和）、||（或）
-- **计算顺序**：( )
+* **比较**：<、<=、<>、=、>、>=
+* **数学**：+、-、\*、-
+* **字符串**：&（连接）
+* **逻辑**：&&（和）、||（或）
+* **计算顺序**：( )
 
 运算符从左到右进行求值，并具有相同的求值优先级。 也就是说，\*（乘号）不会在 -（减号）之前求值。 2\*(5+3) 与 2\*5+3 不同。 如果从左到右的求值顺序不适当，可以使用括号 () 来更改求值顺序。
 
@@ -88,17 +88,16 @@ Active Directory 连接器为入站同步规则提供以下参数：
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` 查找 SIP 地址并从值中删除该地址。
 
 ## <a name="next-steps"></a>后续步骤
-- 在 [Understanding Declarative Provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md)（了解声明性预配）中了解有关配置模型的详细信息。
-- 在 [Understanding the default configuration](concept-azure-ad-connect-sync-default-configuration.md)（了解默认配置）中了解如何现成地使用声明式预配。
-- 在 [How to make a change to the default configuration](how-to-connect-sync-change-the-configuration.md)（如何对默认配置进行更改）中了解如何使用声明性预配进行实际更改。
+* 在 [Understanding Declarative Provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md)（了解声明性预配）中了解有关配置模型的详细信息。
+* 在 [Understanding the default configuration](concept-azure-ad-connect-sync-default-configuration.md)（了解默认配置）中了解如何现成地使用声明式预配。
+* 在 [How to make a change to the default configuration](how-to-connect-sync-change-the-configuration.md)（如何对默认配置进行更改）中了解如何使用声明性预配进行实际更改。
 
 **概述主题**
 
-- [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
-- [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
+* [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
+* [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
 **参考主题**
 
-- [Azure AD Connect 同步：函数参考](reference-connect-sync-functions-reference.md)
-
+* [Azure AD Connect 同步：函数参考](reference-connect-sync-functions-reference.md)
 

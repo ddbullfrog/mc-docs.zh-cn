@@ -1,20 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中优化吞吐量成本
 description: 本文介绍如何优化 Azure Cosmos DB 中存储的数据的吞吐量成本。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 02/07/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: edbf2ac01cb21ab13159be8b44d416a0dde165e4
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1c026284f203134e79142f80c12a72e989759966
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246378"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化预配的吞吐量成本
 
@@ -82,7 +83,7 @@ HTTP Status 429,
 
 如果累计有多个客户端一贯在超过请求速率的情况下运行，则当前设置为 9 的默认重试计数可能并不足够。 在这种情况下，客户端会向应用程序引发 `RequestRateTooLargeException` 并返回状态代码 429。 可以通过在 ConnectionPolicy 实例上设置 `RetryOptions` 来更改默认重试计数。 默认情况下，如果请求继续以高于请求速率的方式运行，则在 30 秒的累积等待时间后返回状态代码为 429 的 `RequestRateTooLargeException`。 即使当前的重试计数小于最大重试计数（默认值 9 或用户定义的值），也会发生这种情况。 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) 设置为 3，因此在这种情况下，如果请求操作因超出容器的保留吞吐量而受到速率限制，则请求操作会重试三次，然后再向应用程序引发异常。 [MaxRetryWaitTimeInSeconds](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 设置为 60，因此在这种情况下，如果自第一次请求以来的累积重试等待时间（以秒为单位）超过 60 秒，则会引发异常。
+[MaxRetryAttemptsOnThrottledRequests](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests) 设置为 3，因此在这种情况下，如果请求操作因超出容器的保留吞吐量而受到速率限制，则请求操作会重试三次，然后再向应用程序引发异常。 [MaxRetryWaitTimeInSeconds](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 设置为 60，因此在这种情况下，如果自第一次请求以来的累积重试等待时间（以秒为单位）超过 60 秒，则会引发异常。
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -176,7 +177,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 9. 可以进一步执行工作负荷特定的成本优化 - 例如，增加批大小、对跨多个区域的读取操作进行负载均衡，以及删除重复数据（如果适用）。
 
-<!--Not Available on  With Azure Cosmos DB reserved capacity, you can get significant discounts for up to 65% for three years. Azure Cosmos DB reserved capacity model is an upfront commitment on requests units needed over time. The discounts are tiered such that the more request units you use over a longer period, the more your discount will be. These discounts are applied immediately. Any RUs used above your provisioned values are charged based on the non-reserved capacity cost. See [Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)) for more details. Consider purchasing reserved capacity to further lower your provisioned throughput costs.-->
+<!--Not Available on  With Azure Cosmos DB reserved capacity, you can get significant discounts for up to 65% for three years. Azure Cosmos DB reserved capacity model is an upfront commitment on requests units needed over time. The discounts are tiered such that the more request units you use over a longer period, the more your discount will be. These discounts are applied immediately. Any RUs used above your provisioned values are charged based on the non-reserved capacity cost. See [Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
 <!--MOONCAKE: Not Available on Azure Cosmos DB reserved capacity-->
 
 ## <a name="next-steps"></a>后续步骤

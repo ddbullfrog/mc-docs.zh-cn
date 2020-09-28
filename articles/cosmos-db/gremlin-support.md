@@ -1,19 +1,21 @@
 ---
 title: Azure Cosmos DB Gremlin 支持
 description: 了解 Apache TinkerPop 的 Gremlin 语言。 了解 Azure Cosmos DB 中提供了哪些功能和步骤
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 origin.date: 04/23/2020
+author: rockboyfor
 ms.date: 06/22/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: d86cecf8492ef34c27a79cedba88b5be1db491f0
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: a8031df6745c661c5695c68536d87b0492b7da31
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246293"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 图形支持
@@ -27,7 +29,7 @@ Azure Cosmos DB 支持 [Apache Tinkerpop](https://tinkerpop.apache.org) 的图�
 
 | 下载 | 源 | 入门 | 支持的连接器版本 |
 | --- | --- | --- | --- |
-| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [GitHub 上的 Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [使用 .NET 创建图形](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [GitHub 上的 Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [使用 .NET 创建图形](create-graph-dotnet.md) | 3.4.6 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [使用 Java 创建图形](create-graph-java.md) | 3.2.0+ |
 | [Node.js](https://www.npmjs.com/package/gremlin) | [GitHub 上的 Gremlin-JavaScript](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [使用 Node.js 创建图形](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [GitHub 上的 Gremlin-Python](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [使用 Python 创建图形](create-graph-python.md) | 3.2.7 |
@@ -90,6 +92,8 @@ TinkerPop 是涵盖多种图形技术的标准。 因此，它使用标准的术
 ```
 
 下面介绍了顶点的 JSON 格式使用的属性：
+
+<!--MOONCAKE CORRECT on | --- | --- | -->
 
 | 属性 | 说明 | 
 | --- | --- |

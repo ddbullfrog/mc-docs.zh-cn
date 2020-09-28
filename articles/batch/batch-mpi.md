@@ -2,18 +2,20 @@
 title: 使用多实例任务运行 MPI 应用程序
 description: 了解如何在 Azure Batch 中使用多实例任务类型执行消息传递接口 (MPI) 应用程序。
 ms.topic: how-to
+ms.service: batch
 origin.date: 03/13/2019
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
-ms.testdate: 08/13/2019
+ms.testdate: ''
 ms.author: v-yeche
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9ce5db8cf02c68c0abcf84bcee6ab36fb698c0e
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.custom: H1Hack27Feb2017, devx-track-csharp
+ms.openlocfilehash: d54b6e28acc7a21ad7f69e038413b5c20e7ffc36
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654921"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146183"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多实例任务来运行消息传递接口 (MPI) 应用程序
 
@@ -43,7 +45,7 @@ ms.locfileid: "88654921"
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>多实例任务的要求
-多实例任务需要有**已启用节点间通信**和**已禁用并发任务执行**的池。 要禁用并发任务执行，请将 [CloudPool.MaxTasksPerComputeNode](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudpool?view=azure-dotnet) 属性设置为 1。
+多实例任务需要有**已启用节点间通信**和**已禁用并发任务执行**的池。 要禁用并发任务执行，请将 [CloudPool.MaxTasksPerComputeNode](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudpool) 属性设置为 1。
 
 > [!NOTE]
 > Batch [限制](batch-quota-limit.md#pool-size-limits)已启用节点间通信的池的大小。
@@ -329,7 +331,7 @@ Sample complete, hit ENTER to exit...
 [api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_labs]: https://azure.github.io/BatchExplorer/
 [blog_mpi_linux]: https://docs.microsoft.com/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch
-[cmd_start]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc770297(v=ws.11?view=azure-dotnet)
+[cmd_start]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc770297(v=ws.11)
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/coordination-cmd
 [github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks
 [github_samples]: https://github.com/Azure/azure-batch-samples
@@ -363,7 +365,7 @@ Sample complete, hit ENTER to exit...
 [poolops_getnodefile]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.pooloperations
 
 [portal]: https://portal.azure.cn
-[rest_multiinstance]: /previous-versions/azure/mt637905(v=azure.100)
+[rest_multiinstance]: https://docs.microsoft.com/previous-versions/azure/mt637905(v=azure.100)
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "多实例概述"
 

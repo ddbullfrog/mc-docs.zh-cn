@@ -6,15 +6,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: zivc
 ms.service: data-explorer
-ms.topic: reference
+ms.topic: how-to
 origin.date: 08/12/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 5237f6c1457db5f9933220fe9fad02d525cb228a
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 5c4a4d6ddb51c16393ef07a1fd6531b4a81de116
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515971"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146351"
 ---
 # <a name="sync-kusto"></a>同步 Kusto
 

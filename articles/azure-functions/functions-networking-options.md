@@ -2,13 +2,13 @@
 title: Azure Functions 网络选项
 description: 在 Azure Functions 中可用的所有网络选项的概述。
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 7a2e61e84a28e9c6f06def924218150b860c4d5f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 09/25/2020
+ms.openlocfilehash: 6925c5be09724f51188df961cc0e8360ade25a3e
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223311"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246699"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -20,7 +20,8 @@ ms.locfileid: "88223311"
 
 * 可以从在多租户基础结构上运行的计划选项中进行选择，其中包含不同级别的虚拟网络连接和缩放选项：
     * [消耗计划](functions-scale.md#consumption-plan)会动态缩放以响应负载，并提供最少的网络隔离选项。
-    * Azure [应用服务计划](functions-scale.md#app-service-plan)按固定规模运行，并提供网络隔离。
+    * [高级计划](functions-scale.md#premium-plan)也可以动态缩放，并提供更全面的网络隔离。
+    * Azure [应用服务计划](functions-scale.md#app-service-plan)按固定规模运行，提供类似于高级计划的网络隔离。
 * 可以在[应用服务环境](../app-service/environment/intro.md)中运行函数。 此方法可以将函数部署到虚拟网络中，并且可以进行完全的网络控制和隔离。
 
 ## <a name="matrix-of-networking-features"></a>网络功能矩阵
@@ -62,7 +63,7 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
 
 创建函数应用时，必须创建或链接到支持 Blob、队列和表存储的常规用途的 Azure 存储帐户。 当前无法对此帐户使用任何虚拟网络限制。 如果在用于函数应用的存储帐户上配置虚拟网络服务终结点，则该配置会中断应用。
 
-若要了解更多信息，请参阅[存储帐户要求](./functions-create-function-app-portal.md#storage-account-requirements)。
+有关详细信息，请参阅[存储帐户要求](./functions-create-function-app-portal.md#storage-account-requirements)。
 
 ## <a name="use-key-vault-references"></a>使用 Key Vault 引用
 
@@ -72,7 +73,35 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
 
 ## <a name="virtual-network-triggers-non-http"></a>虚拟网络触发器（非 HTTP）
 
-目前，若要在虚拟网络中使用不同于 HTTP 的函数触发器，必须在应用服务计划或应用服务环境中运行函数应用。
+目前，可以通过以下两种方式之一从虚拟网络内使用非 HTTP 触发器函数：
+
++ 在高级计划中运行函数应用，并启用虚拟网络触发器支持。
++ 在应用服务计划或应用服务环境中运行函数应用。
+
+### <a name="premium-plan-with-virtual-network-triggers"></a>具有虚拟网络触发器的高级计划
+
+运行高级计划时，可以将非 HTTP 触发器函数连接到在虚拟网络中运行的服务。 为此，必须为函数应用启用虚拟网络触发器支持。 虚拟网络触发器支持设置处于 [Azure 门户](https://portal.azure.cn)中的“配置” > “函数运行时设置”下。
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+还可以使用以下 Azure CLI 命令启用虚拟网络触发器：
+
+```azurecli
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
+
+版本 2.x 和更高版本的 Functions 运行时支持虚拟网络触发器。 支持以下非 HTTP 触发器类型。
+
+| 分机 | 最低版本 |
+|-----------|---------| 
+|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 或更高版本 |
+|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 或更高版本|
+|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 或更高版本|
+|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 或更高版本|
+|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 或更高版本|
+
+> [!IMPORTANT]
+> 启用虚拟网络触发器支持时，只有上表中显示的触发器类型才能随应用程序进行动态缩放。 仍可以使用不在该表中的触发器，但它们不会缩放到超出其预热实例计数。 有关触发器的完整列表，请参阅[触发器和绑定](./functions-triggers-bindings.md#supported-bindings)。
 
 ### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>具有虚拟网络触发器的应用服务计划和应用服务环境
 
@@ -90,9 +119,9 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
 
 ## <a name="outbound-ip-restrictions"></a>出站 IP 限制
 
-出站 IP 限制在应用服务计划或应用服务环境中可用。 可以为部署了应用服务环境的虚拟网络配置出站限制。
+高级计划、应用服务计划或应用服务环境中提供出站 IP 限制。 可以为部署应用服务环境的虚拟网络配置出站限制。
 
-将应用服务计划中的函数应用与虚拟网络集成时，默认情况下，该应用仍可对 Internet 进行出站调用。 通过添加应用程序设置 `WEBSITE_VNET_ROUTE_ALL=1`，可强制将所有出站流量发送到虚拟网络中，在其中可以使用网络安全组规则限制流量。
+将高级计划或应用服务计划中的函数应用与虚拟网络集成时，默认情况下，应用仍可对 Internet 进行出站呼叫。 通过添加应用程序设置 `WEBSITE_VNET_ROUTE_ALL=1`，可强制将所有出站流量发送到虚拟网络中，在其中可以使用网络安全组规则限制流量。
 
 ## <a name="automation"></a>自动化
 以下 API 可让你以编程方式管理区域虚拟网络集成：

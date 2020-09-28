@@ -10,17 +10,19 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-origin.date: 03/16/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 772bfec5dfc08fa6efa15ad008525a98f4f62788
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 0b96240ed98132780d930bf411a04c3549114e0b
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413544"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244944"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>教程：基于 URL 对远程文件进行编码并流式传输视频 - REST
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 使用 Azure 媒体服务可以将媒体文件编码为可在各种浏览器和设备上播放的格式。 例如，可能需要以 Apple 的 HLS 或 MPEG DASH 格式流式传输内容。 在流式传输之前，应该对高质量的数字媒体文件进行编码。 有关编码指南，请参阅[编码概念](encoding-concept.md)。
 

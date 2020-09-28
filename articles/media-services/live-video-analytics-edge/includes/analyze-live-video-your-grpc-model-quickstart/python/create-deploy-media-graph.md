@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 54b43c071f62f246a56d0dc6cc66139bdbec0165
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: ebbbf48b6fec6908e17398f975b705346190a336
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414070"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245496"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>检查和编辑示例文件
 
@@ -30,6 +30,49 @@ ms.locfileid: "89414070"
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * 在 GraphTopologyDelete 下，编辑名称：
     * `"name"` : `"InferencingWithGrpcExtension"`
+
+> [!NOTE]
+> <p>
+> <details>
+> <summary>展开此项并查看如何在拓扑中实现 MediaGraphGrpcExtension 节点</summary>
+> <pre><code>
+> {
+>   "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+>   "name": "grpcExtension",
+>   "endpoint": {
+>       "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+>       "url": "${grpcExtensionAddress}",
+>       "credentials": {
+>           "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+>           "username": "${grpcExtensionUserName}",
+>           "password": "${grpcExtensionPassword}"
+>       }
+>   },
+>   "dataTransfer": {
+>       "mode": "sharedMemory",
+>       "SharedMemorySizeMiB": "5"
+>   },
+>   "image": {
+>       "scale": {
+>           "mode": "${imageScaleMode}",
+>           "width": "${frameWidth}",
+>           "height": "${frameHeight}"
+>       },
+>       "format": {
+>           "@type": "#Microsoft.Media.MediaGraphImageFormatEncoded",
+>           "encoding": "${imageEncoding}",
+>           "quality": "${imageQuality}"
+>       }
+>   },
+>   "inputs": [
+>       {
+>           "nodeName": "motionDetection"
+>       }
+>   ]
+> }          
+> </code></pre>
+> </details>    
+> </p>
     
 ### <a name="generate-and-deploy-the-iot-edge-deployment-manifest"></a>生成并部署 IoT Edge 部署清单
 

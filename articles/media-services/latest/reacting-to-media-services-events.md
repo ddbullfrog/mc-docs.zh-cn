@@ -8,18 +8,20 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 08/08/2019
-ms.date: 07/27/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 6293982a31d8c2dd8101f9ee0320b0762cb349e5
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: e4057205b5943e5ee8a3f603a3890403dcc54c3b
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162784"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244965"
 ---
 # <a name="handling-event-grid-events"></a>处理事件网格事件
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 媒体服务事件允许应用程序使用新式无服务器体系结构对不同事件（例如，作业状态更改事件）进行响应。 为此，它无需复杂的代码或高价低效的轮询服务。 相反，可以通过 [Azure 事件网格](/event-grid/)向事件处理程序（如 [Azure Functions](/functions/)、[Azure 逻辑应用](/logic-apps/)），甚至是向自己的 Webhook 推送事件，且仅需为已使用的内容付费。 有关定价的详细信息，请参阅[事件网格定价](https://azure.cn/pricing/details/event-grid/)。
 

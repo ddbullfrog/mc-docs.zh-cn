@@ -4,19 +4,19 @@ titleSuffix: Azure Kubernetes Service
 description: 了解如何使用 Azure 门户快速创建 Kubernetes 群集、部署应用程序，以及监视 Azure Kubernetes 服务 (AKS) 中的性能。
 services: container-service
 ms.topic: quickstart
-origin.date: 08/18/2020
+origin.date: 09/11/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: de1db00f433c9a393866f723b01c5db2184350ba
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 15eacd525a01c8711d9783aac3cc6c3d43a4fa3f
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020817"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146658"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -166,7 +166,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: dockerhub.azk8s.cn/microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m

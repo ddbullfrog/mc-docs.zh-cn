@@ -11,18 +11,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-origin.date: 04/08/2020
-ms.date: 09/07/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: cf3d54fa08a846f5a81b5cdf9c4e05f25c27540d
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 6df2001c289b009194cea96f7ec4de70e02e2df6
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413748"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245107"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>媒体服务中的实时事件和实时输出
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 使用 Azure 媒体服务可将实时事件传送到 Azure 云中的客户。 若要在媒体服务 v3 中设置实时传送视频流事件，需了解本文中所述的概念。
 

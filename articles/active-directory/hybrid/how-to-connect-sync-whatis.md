@@ -4,24 +4,24 @@ description: 介绍 Azure AD Connect 同步的工作原理以及如何自定义�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 11/08/2017
-ms.date: 11/12/2018
-ms.component: hybrid
+ms.topic: how-to
+ms.date: 09/24/2020
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 778a0abf782d215fae0f16ba1b8181394ea35b8e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c9c82fdf5dde578e3d4a9049938476db5a4b9244
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63824261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245006"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 同步：理解和自定义同步
 Azure Active Directory Connect 同步服务（Azure AD Connect 同步）是 Azure AD Connect 的一个主要组件。 它负责在本地环境与 Azure AD 之间同步标识数据的所有相关操作。 Azure AD Connect 同步是 DirSync、Azure AD Sync 和 Forefront Identity Manager 的后继版本，同时配置了 Azure Active Directory 连接器。
@@ -56,7 +56,7 @@ Azure Active Directory Connect 同步服务（Azure AD Connect 同步）是 Azur
 | [重复属性复原](how-to-connect-syncservice-duplicate-attribute-resiliency.md) |介绍如何启用并使用 **userPrincipalName** 和 **proxyAddresses** 重复属性值复原。 |
 | **操作和 UI** | |
 | [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) |介绍 Synchronization Service Manager UI，包括 [操作](how-to-connect-sync-service-manager-ui-operations.md) 、[连接器](how-to-connect-sync-service-manager-ui-connectors.md) 、[Metaverse 设计器](how-to-connect-sync-service-manager-ui-mvdesigner.md) 和 [Metaverse 搜索](how-to-connect-sync-service-manager-ui-mvsearch.md) 选项卡。 |
-| [操作任务和注意事项](how-to-connect-sync-operations.md) |描述操作注意事项，例如灾难恢复。 |
+| [操作任务和注意事项](./how-to-connect-sync-staging-server.md) |描述操作注意事项，例如灾难恢复。 |
 | **如何...** | |
 | [重置 Azure AD 帐户](how-to-connect-azureadaccount.md) |如何重置用于从 Azure AD Connect 同步连接到 Azure AD 的服务帐户凭据。 |
 | **详细信息和参考资料** | |
@@ -65,5 +65,5 @@ Azure Active Directory Connect 同步服务（Azure AD Connect 同步）是 Azur
 | [函数引用](reference-connect-sync-functions-reference.md) |列出声明性预配中可用的所有函数。 |
 
 ## <a name="additional-resources"></a>其他资源
-- [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
+* [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 

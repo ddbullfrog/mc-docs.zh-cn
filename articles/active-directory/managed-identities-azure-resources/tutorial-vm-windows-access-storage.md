@@ -3,7 +3,7 @@ title: 使用 Windows VM 系统分配的托管标识访问 Azure 存储 | Micros
 description: 本教程将指导你完成使用 Windows VM 系统分配的托管标识访问 Azure 存储的过程。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfbd1e53e827ce784f55dc6cde71bfa4fd390065
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7dec5db1f34c626a7a0dda36925fa0964708aea4
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77067684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245358"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>教程：使用 Windows VM 系统分配的托管标识访问 Azure 存储
 
@@ -184,6 +184,5 @@ namespace StorageOAuthToken
 在本教程中，你已学习了如何启用 Windows VM 的系统分配的标识以访问 Azure 存储。  若要详细了解 Azure 存储，请参阅：
 
 > [!div class="nextstepaction"]
-> [Azure 存储](/storage/common/storage-introduction)
+> [Azure 存储](../../storage/common/storage-introduction.md)
 
-<!-- Update_Description: wording update -->

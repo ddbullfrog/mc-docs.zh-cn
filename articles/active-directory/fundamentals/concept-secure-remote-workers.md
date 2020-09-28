@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 05/25/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cf0af42febab27535c248642ef6fbb456c73040
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: ed2843f672da47f7aa5758453fc1716cfc7b12cf
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186997"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245284"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>使用 Azure AD 快速响应以保护标识
 
@@ -79,7 +79,7 @@ ms.locfileid: "84186997"
 | [指定多个全局管理员](../users-groups-roles/directory-emergency-access.md) | 至少分配两个仅限云的永久性全局管理员帐户，以便在紧急情况下使用。 这些帐户不是每日使用，应该具有复杂的长密码。 Break Glass 帐户确保你可在紧急情况下访问该服务。 |
 | [尽可能使用非全局管理角色](../users-groups-roles/directory-assign-admin-roles.md) | 只为管理员分配他们必须访问的区域的访问权限。 并非所有管理员都需要是全局管理员。 |
 | [启用 Microsoft 的密码指导](https://www.microsoft.com/research/publication/password-guidance/) | 停止要求用户按照设置的计划更改其密码，禁用复杂性要求，用户更倾向于记住他们习惯的密码，并妥善保管其密码。 |
-| [针对来宾用户访问权限创建计划](../b2b/what-is-b2b.md) | 通过让来宾用户使用其自己的工作、学校或社交标识登录应用和服务，实现与来宾用户的协作。 |
+| [针对来宾用户访问权限创建计划](../external-identities/what-is-b2b.md) | 通过让来宾用户使用其自己的工作、学校或社交标识登录应用和服务，实现与来宾用户的协作。 |
 
 ### <a name="guidance-for-azure-ad-premium-plan-2-customers"></a>用于 Azure AD Premium 计划 2 客户的指南。
 
@@ -100,7 +100,7 @@ ms.locfileid: "84186997"
 | [指定多个全局管理员](../users-groups-roles/directory-emergency-access.md) | 至少分配两个仅限云的永久性全局管理员帐户，以便在紧急情况下使用。 这些帐户不是每日使用，应该具有复杂的长密码。 Break Glass 帐户确保你可在紧急情况下访问该服务。 |
 | [尽可能使用非全局管理角色](../users-groups-roles/directory-assign-admin-roles.md) | 只为管理员分配他们必须访问的区域的访问权限。 并非所有管理员都需要是全局管理员。 |
 | [启用 Microsoft 的密码指导](https://www.microsoft.com/research/publication/password-guidance/) | 停止要求用户按照设置的计划更改其密码，禁用复杂性要求，用户更倾向于记住他们习惯的密码，并妥善保管其密码。 |
-| [针对来宾用户访问权限创建计划](../b2b/what-is-b2b.md) | 通过让来宾用户使用其自己的工作、学校或社交标识登录应用和服务，实现与来宾用户的协作。 |
+| [针对来宾用户访问权限创建计划](../external-identities/what-is-b2b.md) | 通过让来宾用户使用其自己的工作、学校或社交标识登录应用和服务，实现与来宾用户的协作。 |
 | [启用 Privileged Identity Management](../privileged-identity-management/pim-configure.md) | 让你能够管理、控制和监视对组织中重要资源的访问，从而确保管理员只在需要且得到批准时才有访问权限 |
 
 ## <a name="next-steps"></a>后续步骤

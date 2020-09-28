@@ -2,18 +2,18 @@
 title: 使用 PowerShell 和模板部署资源
 description: 使用 Azure Resource Manager 和 Azure PowerShell 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
 ms.topic: conceptual
-origin.date: 07/21/2020
+origin.date: 09/08/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: b5b07d9e4bf559a8e501f6e4600c46797af96ee5
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 201ec594a67fa6baee8c508c085f9d673f94edcc
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807751"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146702"
 ---
 <!--Verify Successfully-->
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>使用 ARM 模板和 Azure PowerShell 部署资源
@@ -28,33 +28,33 @@ ms.locfileid: "88807751"
 
 * 若要部署到**资源组**，请使用 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment)：
 
-  ```azurepowershell
-  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
-  ```
+    ```azurepowershell
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+    ```
 
 * 若要部署到订阅，请使用 New-AzSubscriptionDeployment：
 
-  ```azurepowershell
-  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
-  ```
+    ```azurepowershell
+    New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
+    ```
 
-  有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
+    有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
 
 * 若要部署到管理组，请使用 [New-AzManagementGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/New-AzManagementGroupDeployment)。
 
-  ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
-  ```
+    ```azurepowershell
+    New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
+    ```
 
-  有关管理组级部署的详细信息，请参阅[在管理组级别创建资源](deploy-to-management-group.md)。
+    有关管理组级部署的详细信息，请参阅[在管理组级别创建资源](deploy-to-management-group.md)。
 
 * 若要部署到租户，请使用 [New-AzTenantDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-aztenantdeployment)。
 
-  ```azurepowershell
-  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
-  ```
+    ```azurepowershell
+    New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
+    ```
 
-  有关租户级别部署的详细信息，请参阅[在租户级别创建资源](deploy-to-tenant.md)。
+    有关租户级别部署的详细信息，请参阅[在租户级别创建资源](deploy-to-tenant.md)。
 
 本文中的示例使用资源组部署。
 
@@ -132,6 +132,8 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](secure-template-with-sas-token.md)。 若要完成教程，请参阅[教程：在 ARM 模板部署中集成 Azure Key Vault](template-tutorial-use-key-vault.md)。
 
+<!--Not Available on ## Deploy template spec-->
+<!--REASON: TEMPLATE SPEC IS PRIVATE PREVIEW-->
 ## <a name="preview-changes"></a>预览更改
 
 在部署模板之前，可以预览模板将对环境做出的更改。 使用[假设操作](template-deploy-what-if.md)验证模板是否进行了预期的更改。 模拟操作还验证模板是否有错误。

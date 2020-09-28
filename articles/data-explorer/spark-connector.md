@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: maraheja
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 07/29/2020
-ms.date: 08/13/2020
-ms.openlocfilehash: 04dc466735491b79612a88fc217bb655d2f9f73d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 4856cd84a9da0fc40921fbc0e56dd9d0b005fc59
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516021"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146495"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark"></a>适用于 Apache Spark 的 Azure 数据资源管理器连接器
 
@@ -47,7 +47,7 @@ ms.locfileid: "88516021"
 
 ### <a name="build-prerequisites"></a>生成先决条件
 
-1. 安装[依赖项](https://github.com/Azure/azure-kusto-spark#dependencies)中列出的库，包括以下 [Kusto Java SDK](/data-explorer/kusto/api/java/kusto-java-client-library) 库：
+1. 安装[依赖项](https://github.com/Azure/azure-kusto-spark#dependencies)中列出的库，包括以下 [Kusto Java SDK](kusto/api/java/kusto-java-client-library.md) 库：
     * [Kusto 数据客户端](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-data)
     * [Kusto 引入客户端](https://mvnrepository.com/artifact/com.microsoft.azure.kusto/kusto-ingest)
 
@@ -128,7 +128,7 @@ Azure AD 应用程序身份验证是最简单且最常用的身份验证方法�
 * 对于读取操作（数据源），Azure AD 标识必须对目标数据库拥有“查看者”特权，或者对目标表拥有“管理员”特权。  
 * 对于写入操作（数据接收器），Azure AD 标识必须对目标数据库拥有“引入者”特权。  此外，它必须对目标数据库拥有“用户”特权，这样才能创建新表。  如果目标表已存在，则必须配置对目标表的“管理员”权限。 
  
-有关 Azure 数据资源管理器主体角色的详细信息，请参阅[基于角色的授权](/data-explorer/kusto/management/access-control/role-based-authorization)。 有关如何管理安全角色，请参阅[安全角色管理](/data-explorer/kusto/management/security-roles)。
+有关 Azure 数据资源管理器主体角色的详细信息，请参阅[基于角色的授权](kusto/management/access-control/role-based-authorization.md)。 有关如何管理安全角色，请参阅[安全角色管理](kusto/management/security-roles.md)。
 
 ## <a name="spark-sink-writing-to-azure-data-explorer"></a>Spark 接收器：写入 Azure 数据资源管理器
 
@@ -198,7 +198,7 @@ Azure AD 应用程序身份验证是最简单且最常用的身份验证方法�
 
 ## <a name="spark-source-reading-from-azure-data-explorer"></a>Spark 源：从 Azure 数据资源管理器读取数据
 
-1. 读取[少量数据](/data-explorer/kusto/concepts/querylimits)时，可以定义数据查询：
+1. 读取[少量数据](kusto/concepts/querylimits.md)时，可以定义数据查询：
 
     ```scala
     import com.microsoft.kusto.spark.datasource.KustoSourceOptions

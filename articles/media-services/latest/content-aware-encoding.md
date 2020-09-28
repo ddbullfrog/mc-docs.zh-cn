@@ -8,19 +8,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 04/29/2020
-ms.date: 07/27/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.custom: ''
-ms.openlocfilehash: 1862bca03b0560baec188a94a4778b395c74f681
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: af408abc32d56d329f2b69fc828ff6a75ccbbb73
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162350"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245700"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>使用内容感知编码预设来查找给定分辨率的最佳比特率值
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 若要准备通过[自适应比特率流式处理](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)传送的内容，需以多个比特率（从高到低）编码视频。 这可以确保质量的平稳降级，因为比特率会降低，而视频的分辨率也会降低。 此类多比特率编码利用所谓的编码梯度 – 分辨率和比特率的表；请参阅媒体服务的[内置编码预设](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)。
 

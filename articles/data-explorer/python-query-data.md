@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 08/05/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: 41f3652e1e0e13a3ac211fdc677588946c3ded1a
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.date: 09/24/2020
+ms.openlocfilehash: 876126f7374d572beaa7b883f749af5d04aeca4c
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951345"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146287"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>使用 Azure 数据资源管理器 Python 库查询数据
 
@@ -37,17 +37,12 @@ Azure 数据资源管理器提供[适用于 Python 的数据客户端库](https:
 pip install azure-kusto-data
 ```
 
-> [!NOTE]
-> 请将终结点从  
-> `CLOUD_LOGIN_URL = "https://login.partner.microsoftonline.cn"` 到 `CLOUD_LOGIN_URL = "https://login.partner.microsoftonline.cn"`  
-> （在下载的库文件 `<YourPythonInstallPath>\Lib\site-packages\azure\kusto\data\security.py` 中），使其可在 Azure 中国内运行。
-
 ## <a name="add-import-statements-and-constants"></a>添加导入语句和常量
 
-从库中导入类以及数据分析库 pandas  。
+从库中导入类以及数据分析库 pandas**。
 
 ```python
-from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
+from azure.kusto.data import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
 from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
@@ -59,7 +54,7 @@ Azure 数据资源管理器使用 AAD 租户 ID，以对应用程序进行身份
 https://login.chinacloudapi.cn/<YourDomain>/.well-known/openid-configuration/
 ```
 
-例如，如果域名为 contoso.com，则该 URL 将是：[https://login.chinacloudapi.cn/contoso.com/.well-known/openid-configuration/](https://login.chinacloudapi.cn/contoso.com/.well-known/openid-configuration/)。 单击此 URL 以查看结果；第一行如下所示。
+例如，如果域名为 contoso.com，则该 URL 将是：[https://login.chinacloudapi.cn/contoso.com/.well-known/openid-configuration/](https://login.chinacloudapi.cn/contoso.com/.well-known/openid-configuration/)  。 单击此 URL 以查看结果；第一行如下所示。
 
 ```
 "authorization_endpoint":"https://login.chinacloudapi.cn/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
@@ -83,7 +78,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>连接到Azure 数据资源管理器并执行查询
 
-针对群集执行查询，并将输出存储在数据帧中。 此代码运行时，它将返回如下消息：要登录，请使用 Web 浏览器打开页面 https://microsoft.com/devicelogin ，并输入代码 F3W4VWZDM 进行身份验证。 按照步骤登录，然后返回以运行下一个代码块。
+针对群集执行查询，并将输出存储在数据帧中。 运行此代码时，它会返回如下消息：若要登录，请使用 Web 浏览器打开页面 https://microsoft.com/devicelogin ，然后输入代码 F3W4VWZDM 进行身份验证  。 按照步骤登录，然后返回以运行下一个代码块。
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB)

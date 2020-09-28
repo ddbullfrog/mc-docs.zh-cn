@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 06/08/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: d24a1d9322578f5e05c50137db994a3d334f2770
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: edcb2fdd1bfb095033df05ed08711888cb78b0da
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096248"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245590"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Haivision KB 实时编码器发送单比特率实时流  
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Haivision KB 实时编码器发送单比特率实时流
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)

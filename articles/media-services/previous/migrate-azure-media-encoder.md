@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 oirgin.date: 08/21/2019
-ms.date: 02/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: a462be09a3d3e153b31a8e7f1083dbe5f8b1d11c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d90ce3449a874a1e0c8f173c459c2db226d0cfff
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494544"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244734"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>从 Azure 媒体编码器迁移到 Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 本文介绍了从旧 Azure 媒体编码器 (AME) 媒体处理器（即将停用）迁移到 Media Encoder Standard 媒体处理器的步骤。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。
 

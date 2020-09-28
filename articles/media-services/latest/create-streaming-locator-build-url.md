@@ -8,18 +8,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 03/04/2020
-ms.date: 04/06/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 828d2fbc82cd2f1f2fcd1eefb15029440b30fad6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f461fb151cee6a6f783c19ae97197cc991c336cc
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80625852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244811"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>创建流定位器并生成 URL
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 在 Azure 媒体服务中，若要生成流式处理 URL，首先需要创建[流式处理定位符](streaming-locators-concept.md)。 然后连接[流式处理终结点](https://docs.microsoft.com/rest/api/media/streamingendpoints)主机名和流式处理定位符  路径。 此示例使用默认的**流式处理终结点**  。 首次创建媒体服务帐户时，此默认的流式处理终结点  将处于停止状态，因此需要调用“Start”   来启动流式处理。
 

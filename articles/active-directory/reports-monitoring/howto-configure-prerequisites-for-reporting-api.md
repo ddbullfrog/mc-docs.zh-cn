@@ -9,26 +9,26 @@ editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/24/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d11ce23995f766785f16fd9495b97e104ad002f7
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: 22bbbeb436f7e491d1ecbd8837bf5849844eeac1
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126789"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245615"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>访问 Azure Active Directory 报告 API 的先决条件
 
 Azure Active Directory (Azure AD) 报告 API 通过一组基于 REST 的 API，让你以编程方式访问数据。 可从编程语言和工具中调用这些 API。
 
-报告 API 使用 [OAuth](/api-management/api-management-howto-protect-backend-with-aad) 授权访问 Web API。
+报告 API 使用 [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) 授权访问 Web API。
 
 若要准备访问报告 API，需要执行以下操作：
 
@@ -212,7 +212,7 @@ Azure AD 租户只有在关联了 Azure AD Premium 许可证的情况下才能�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [审核 API 参考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [登录活动报告 API 参考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [使用具有证书的 Azure Active Directory 报告 API 获取数据](tutorial-access-api-with-certificates.md)
+* [审核 API 参考](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [登录活动报告 API 参考](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
 
-<!-- Update_Description: wording update -->

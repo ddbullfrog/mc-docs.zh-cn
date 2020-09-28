@@ -5,12 +5,12 @@ author: rockboyfor
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: v-yeche
-ms.openlocfilehash: d7836ace728530f65e0f0f429271816d557f973d
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 896e81d9858b8600c5976f349a1bf91e26ab323f
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098642"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146509"
 ---
 <!--PRIVATE PREVIEW NOT SUIT FOR OUTSIDE OF MICROSOFT-->
 <!--RELEASE BEFORE CONFIRM-->
@@ -126,12 +126,12 @@ Resource changes: 1 to modify.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要在部署模板前预览更改，请使用 [az deployment group what-if](https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-what-if) 或 [az deployment sub what-if](https://docs.azure.cn/cli/deployment/sub?view=azure-cli-latest#az-deployment-sub-what-if)。
+若要在部署模板前预览更改，请使用 [az deployment group what-if](https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest#az_deployment_group_what_if) 或 [az deployment sub what-if](https://docs.microsoft.com/cli/azure/deployment/sub?view=azure-cli-latest#az_deployment_sub_what_if)。
 
 * 对于资源组部署，请使用 `az deployment group what-if`
 * 对于订阅级别部署，请使用 `az deployment sub what-if`
 
-可以使用 `--confirm-with-what-if` 开关（或其缩写形式 `-c`）预览更改，并让系统显示是否继续部署的提示。 将此开关添加到 [az deployment group create](https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create) 或 [az deployment sub create](https://docs.azure.cn/cli/deployment/sub?view=azure-cli-latest#az-deployment-sub-create)。
+可以使用 `--confirm-with-what-if` 开关（或其缩写形式 `-c`）预览更改，并让系统显示是否继续部署的提示。 将此开关添加到 [az deployment group create](https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest#az_deployment_group_create) 或 [az deployment sub create](https://docs.microsoft.com/cli/azure/deployment/sub?view=azure-cli-latest#az_deployment_sub_create)。
 
 * 对于资源组部署，请使用 `az deployment group create --confirm-with-what-if` 或 `-c`
 * 对于订阅级别的部署，请使用 `az deployment sub create --confirm-with-what-if` 或 `-c`

@@ -8,19 +8,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.custom: ''
-origin.date: 05/14/2019
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 568153c746db65fa674b19b79f8b2f7c7a152f8c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: ec9320aa4b4b5bce15f0dea8f6f2fba1e7569d24
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244801"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>如何对自定义转换进行编码 - REST
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 使用 Azure 媒体服务进行编码时，可以根据[流式传输文件](stream-files-tutorial-with-rest.md#create-a-transform)教程中演示的行业最佳做法，使用推荐的内置预设之一快速入门。 也可以构建自定义预设以针对特定方案或设备要求。
 

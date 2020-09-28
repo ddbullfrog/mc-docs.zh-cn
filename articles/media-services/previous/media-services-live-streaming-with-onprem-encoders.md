@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 05/11/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: d275e669c18137f7c1e6d7ddf3481e2c0d4143d6
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.openlocfilehash: b42c084e6fe6ec7efc94c5e3a6a2b20f1df8786c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507744"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245683"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>使用从本地编码器接收多比特率实时流的频道
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > 自 2018 年 5 月 12 日起，实时频道将不再支持 RTP/MPEG-2 传输流引入协议。 请从 RTP/MPEG-2 迁移到 RTMP 或分段 MP4（平滑流式处理）引入协议。

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 07/23/2019
 ms.date: 09/16/2019
-ms.openlocfilehash: 28cb34a51ac962b7b81f1d323411710ff56af6b8
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: d4a58d2aa05e79f97c82f1584cffd8b98b33ae22
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516564"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394544"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>为 Azure HDInsight 群集创建虚拟网络
 
@@ -50,7 +50,7 @@ ms.locfileid: "85516564"
 > [!IMPORTANT]  
 > 更改此示例中的 `hdirule1` 和 `hdirule2` 的 IP 地址，使之与要使用的 Azure 区域匹配。 在 [HDInsight 管理 IP 地址](hdinsight-management-ip-addresses.md)中可找到此信息。
 
-```powershell
+```azurepowershell
 $vnetName = "Replace with your virtual network name"
 $resourceGroupName = "Replace with the resource group the virtual network is in"
 $subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
@@ -153,7 +153,7 @@ $vnet | Set-AzVirtualNetwork
 
 此示例演示如何添加规则，以便在所需的 IP 地址上允许入站流量。 它不包含限制从其他源进行入站访问的规则。 以下代码演示如何允许来自 Internet 的 SSH 访问：
 
-```powershell
+```azurepowershell
 Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
 Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 ```
@@ -192,7 +192,9 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
     此命令返回类似于以下文本的值：
 
-        "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    ```output
+    "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    ```
 
 4. 使用以下命令将网络安全组应用于子网。 将 `GUID` 和 `RESOURCEGROUP` 值替换为从上一步骤中返回的值。 将 `VNETNAME` 和 `SUBNETNAME` 替换为要创建的虚拟网络名称和子网名称。
 
@@ -229,7 +231,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
 
     将 `RESOURCEGROUP` 替换为包含虚拟网络的资源组的名称，然后输入命令：
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```

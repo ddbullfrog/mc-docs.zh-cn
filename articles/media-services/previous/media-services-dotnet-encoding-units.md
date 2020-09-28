@@ -13,17 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: milangada
-ms.openlocfilehash: 3b97bbf2bd9d1ef690836c5dd89c52ee11792ffe
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d25f40dc97ec00c9832822635326a7ae6cbe68d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162251"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245635"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>如何使用 .NET SDK 缩放编码
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [门户](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)

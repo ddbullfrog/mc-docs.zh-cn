@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/06/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 792fa2961ad69d6c115821d328a14a7402addaec
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 643e6a715a4bd8b980b081355d0b500218be328e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245475"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>使用媒体服务 v2 实现故障转移流式处理
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 本演练演示如何将内容 (blob) 从一个资产复制到另一个资产，以便处理按需流式处理的冗余。 如果想要将 Azure 内容分发网络设置为当某个数据中心发生中断时在两个数据中心之间故障转移，则很适合采用此方案。 本演练使用 Azure 媒体服务 SDK、Azure 媒体服务 REST API 和 Azure 存储 SDK 来演示以下任务：
 

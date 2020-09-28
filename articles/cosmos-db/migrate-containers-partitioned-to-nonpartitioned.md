@@ -1,20 +1,21 @@
 ---
 title: 将未分区的 Azure Cosmos 容器迁移到已分区的容器
 description: 了解如何将所有现有的未分区容器迁移到已分区的容器。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/25/2019
-ms.date: 08/17/2020
-ms.testscope: no
-ms.testdate: ''
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: cebadb11bd217051b516bd225443907739f6d380
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 23c8dee5c84abc448fdc16aecefa7957a0c99441
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222955"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246407"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>将未分区的容器迁移到已分区的容器
 

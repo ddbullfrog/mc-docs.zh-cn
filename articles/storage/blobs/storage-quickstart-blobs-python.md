@@ -4,17 +4,17 @@ description: 本快速入门介绍如何使用适用于 Python 的 Azure Blob �
 author: WenJason
 ms.author: v-jay
 origin.date: 07/24/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 4113fe626714060bc86e617b55965076ce24e34c
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 7567b5ccdf434f21c4fc8cd05ec1c53fa1e8ccd2
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753629"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026626"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>快速入门：使用 Python v12 SDK 管理 blob
 
@@ -83,10 +83,10 @@ pip install azure-storage-blob
 
     ```python
     import os, uuid
-    from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+    from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, __version__
 
     try:
-        print("Azure Blob storage v12 - Python quickstart sample")
+        print("Azure Blob storage v" + __version__ + " - Python quickstart sample")
         # Quick start code goes here
     except Exception as ex:
         print('Exception:')

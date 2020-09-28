@@ -1,19 +1,21 @@
 ---
 title: Azure Windows Communication Foundation (WCF) 中继混合本地/云应用程序 (.NET) | Azure
 description: 了解如何使用 Azure 中继向云中的 Web 应用程序公开本地 WCF 服务
+ms.service: service-bus
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 origin.date: 06/23/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: 9e53f608239da241393e96e36aa70604e2dcbc94
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 6dfbd23066c36e5f5cf67a7cb5f8ead51be7086f
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947117"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146541"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>使用 Azure 中继向云中的 Web 应用程序公开本地 WCF 服务
 
@@ -250,7 +252,10 @@ ms.locfileid: "88947117"
     ![指定身份验证][18]
 
 1. 返回“创建新 ASP.NET Web 应用程序”，选择“创建”以创建 MVC 应用。
-1. 配置新 Web 应用的 Azure 资源。 遵循[发布 Web 应用](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard)中的步骤。 然后，返回本教程并继续执行下一步。
+1. 配置新 Web 应用的 Azure 资源。 遵循发布 Web 应用中的步骤。 然后，返回本教程并继续执行下一步。
+
+    <!--Not Available on [Publish your web app](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard)-->
+    
 1. 在“解决方案资源管理器”中，右键单击“模型”并选择“添加” > “类”。
 1. 将类命名为 *Product.cs*，然后选择“添加”。
 
@@ -445,7 +450,7 @@ ms.locfileid: "88947117"
 
 1. 关闭浏览器窗口，停止正在运行的应用程序。
 
-<a name="set-productsportal-as-web-app"></a> 在云中运行应用程序之前，必须确保将 ProductsPortal 作为 Web 应用从 Visual Studio 中启动。
+    <a name="set-productsportal-as-web-app"></a> 在云中运行应用程序之前，必须确保将 ProductsPortal 作为 Web 应用从 Visual Studio 中启动。
 
 1. 在 Visual Studio 中，右键单击“ProductsPortal”项目并选择“属性” 。
 1. 选择“Web”。 在“启动操作”下，选择“启动 URL”。 输入以前部署的 Web 应用的 URL，在本示例中为 `https://productsportal20190906122808.chinacloudsites.cn/`。
@@ -501,6 +506,7 @@ ms.locfileid: "88947117"
 [37]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
 [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
 [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
-[43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
+
+<!--Not Available on [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

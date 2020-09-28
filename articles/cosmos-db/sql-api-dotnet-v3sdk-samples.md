@@ -1,19 +1,22 @@
 ---
 title: Azure Cosmos DB - SQL API 的 .NET (Microsoft.Azure.Cosmos) 示例
 description: 在 GitHub 上查找使用 Azure Cosmos DB SQL API 的常见任务的 C# .NET V3 SDK 示例。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 10/07/2019
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d389308d5094b2105280ba1c3dba5ed3de4bc1de
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 2b7e6bc05dfc91485d592374587fa2835cf0cbe1
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246732"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>SQL API 的 Azure Cosmos DB.NET V3 SDK (Microsoft.Azure.Cosmos) 示例
 
@@ -44,7 +47,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- 可以[激活 Visual Studio 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/index.html)：Visual Studio 订阅每月提供可用来试用付费版 Azure 服务的信用额度。
+- 可以[激活 Visual Studio 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn//)：Visual Studio 订阅每月提供可用来试用付费版 Azure 服务的信用额度。
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 > [!NOTE]
@@ -57,10 +60,10 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 | 任务 | API 参考 |
 | --- | --- |
-| [创建数据库](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L68) |[CosmosClient.CreateDatabaseIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet) |
-| [按 ID 读取数据库](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L80) |[Database.ReadAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.readasync?view=azure-dotnet) |
-| [读取帐户的所有数据库](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L96) |[CosmosClient.GetDatabaseQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient.getdatabasequeryiterator?view=azure-dotnet) |
-| [删除数据库](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L106) |[Database.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet) |
+| [创建数据库](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L68) |[CosmosClient.CreateDatabaseIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) |
+| [按 ID 读取数据库](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L80) |[Database.ReadAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.readasync) |
+| [读取帐户的所有数据库](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L96) |[CosmosClient.GetDatabaseQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient.getdatabasequeryiterator) |
+| [删除数据库](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L106) |[Database.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.deleteasync) |
 
 ## <a name="container-examples"></a>容器示例
 
@@ -68,12 +71,12 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 | 任务 | API 参考 |
 | --- | --- |
-| [创建容器](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L97-L107) |[Database.CreateContainerIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet) |
-| [使用自定义索引策略创建容器](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L111-L127) |[Database.CreateContainerIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet) |
-| [更改容器的已配置性能](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L149-L171) |[Container.ReplaceThroughputAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet) |
-| [按 ID 获取容器](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L176-L185) |[Container.ReadContainerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readcontainerasync?view=azure-dotnet) |
-| [读取数据库中的所有容器](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L193-L205) |[Database.GetContainerQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.getcontainerqueryiterator?view=azure-dotnet) |
-| [删除容器](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L213-L2018) |[Container.DeleteContainerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.deletecontainerasync?view=azure-dotnet) |
+| [创建容器](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L97-L107) |[Database.CreateContainerIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) |
+| [使用自定义索引策略创建容器](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L111-L127) |[Database.CreateContainerIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) |
+| [更改容器的已配置性能](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L149-L171) |[Container.ReplaceThroughputAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync) |
+| [按 ID 获取容器](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L176-L185) |[Container.ReadContainerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readcontainerasync) |
+| [读取数据库中的所有容器](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L193-L205) |[Database.GetContainerQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.getcontainerqueryiterator) |
+| [删除容器](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L213-L2018) |[Container.DeleteContainerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.deletecontainerasync) |
 
 ## <a name="item-examples"></a>项示例
 
@@ -81,13 +84,13 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 | 任务 | API 参考 |
 | --- | --- |
-| [创建项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L161-L200) |[Container.CreateItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) |
-| [按 ID 读取项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L203-L241) |[container.ReadItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet) |
-| [查询项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L244-L320) |[container.GetItemQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator?view=azure-dotnet) |
-| [替换项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L323-L363) |[container.ReplaceItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.replaceitemasync?view=azure-dotnet) |
-| [更新插入项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L366-L411) |[container.UpsertItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) |
-| [删除项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L414-L424) |[container.DeleteItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.deleteitemasync?view=azure-dotnet) |
-| [使用条件 ETag 检查替换项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L585-L674) |[RequestOptions.IfMatchEtag](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.requestoptions.ifmatchetag?view=azure-dotnet) |
+| [创建项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L161-L200) |[Container.CreateItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.createitemasync) |
+| [按 ID 读取项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L203-L241) |[container.ReadItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync) |
+| [查询项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L244-L320) |[container.GetItemQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) |
+| [替换项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L323-L363) |[container.ReplaceItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.replaceitemasync) |
+| [更新插入项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L366-L411) |[container.UpsertItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync) |
+| [删除项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L414-L424) |[container.DeleteItemAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.deleteitemasync) |
+| [使用条件 ETag 检查替换项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L585-L674) |[RequestOptions.IfMatchEtag](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.requestoptions.ifmatchetag) |
 
 ## <a name="indexing-examples"></a>索引示例
 
@@ -95,9 +98,9 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 | 任务 | API 参考 |
 | --- | --- |
-| [从索引中排除项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L130-L186) |[IndexingDirective.Exclude](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.indexingdirective?view=azure-dotnet) |
-| [使用延迟索引](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L198-L220) |[IndexingPolicy.IndexingMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.indexingpolicy.indexingmode?view=azure-dotnet) |
-| [从索引中排除指定的项路径](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L230-L297) |[IndexingPolicy.ExcludedPaths](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.indexingpolicy.excludedpaths?view=azure-dotnet) |
+| [从索引中排除项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L130-L186) |[IndexingDirective.Exclude](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.indexingdirective) |
+| [使用延迟索引](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L198-L220) |[IndexingPolicy.IndexingMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.indexingpolicy.indexingmode) |
+| [从索引中排除指定的项路径](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L230-L297) |[IndexingPolicy.ExcludedPaths](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.indexingpolicy.excludedpaths) |
 
 ## <a name="query-examples"></a>查询示例
 
@@ -105,9 +108,9 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 | 任务 | API 参考 |
 | --- | --- |
-| [查询单个分区中的项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L154-L186) |[container.GetItemQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator?view=azure-dotnet) |
-| [查询多个分区中的项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L215-L275) |[container.GetItemQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator?view=azure-dotnet) |
-| [使用 SQL 语句进行查询](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L189-L212) |[container.GetItemQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator?view=azure-dotnet) |
+| [查询单个分区中的项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L154-L186) |[container.GetItemQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) |
+| [查询多个分区中的项](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L215-L275) |[container.GetItemQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) |
+| [使用 SQL 语句进行查询](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L189-L212) |[container.GetItemQueryIterator](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) |
 
 ## <a name="change-feed-examples"></a>更改源示例
 
@@ -115,10 +118,10 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 | 任务 | API 参考 |
 | --- | --- |
-| [基本的更改源功能](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L91-L119) |[Container.GetChangeFeedProcessorBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getchangefeedprocessorbuilder?view=azure-dotnet) |
-| [读取特定时间的更改源](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L127-L162) |[Container.GetChangeFeedProcessorBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getchangefeedprocessorbuilder?view=azure-dotnet) |
-| [从头读取更改源](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L170-L198) |[ChangeFeedProcessorBuilder.WithStartTime(DateTime)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.changefeedprocessorbuilder.withstarttime?view=azure-dotnet) |
-| [从更改源处理器迁移到 V3 SDK 中的更改源](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L256-L333) |[Container.GetChangeFeedProcessorBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getchangefeedprocessorbuilder?view=azure-dotnet) |
+| [基本的更改源功能](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L91-L119) |[Container.GetChangeFeedProcessorBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getchangefeedprocessorbuilder) |
+| [读取特定时间的更改源](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L127-L162) |[Container.GetChangeFeedProcessorBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getchangefeedprocessorbuilder) |
+| [从头读取更改源](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L170-L198) |[ChangeFeedProcessorBuilder.WithStartTime(DateTime)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.changefeedprocessorbuilder.withstarttime) |
+| [从更改源处理器迁移到 V3 SDK 中的更改源](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs#L256-L333) |[Container.GetChangeFeedProcessorBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.getchangefeedprocessorbuilder) |
 
 ## <a name="server-side-programming-examples"></a>服务器端编程示例
 
@@ -126,8 +129,8 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 | 任务 | API 参考 |
 | --- | --- |
-| [创建存储过程](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ServerSideScripts/Program.cs#L116) |[Scripts.CreateStoredProcedureAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.scripts.scripts.createstoredprocedureasync?view=azure-dotnet) |
-| [执行存储过程](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ServerSideScripts/Program.cs#L135) |[Scripts.ExecuteStoredProcedureAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.scripts.scripts.executestoredprocedureasync?view=azure-dotnet) |
-| [删除存储过程](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ServerSideScripts/Program.cs#L351) |[Scripts.DeleteStoredProcedureAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.scripts.scripts.deletestoredprocedureasync?view=azure-dotnet) |
+| [创建存储过程](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ServerSideScripts/Program.cs#L116) |[Scripts.CreateStoredProcedureAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.scripts.scripts.createstoredprocedureasync) |
+| [执行存储过程](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ServerSideScripts/Program.cs#L135) |[Scripts.ExecuteStoredProcedureAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.scripts.scripts.executestoredprocedureasync) |
+| [删除存储过程](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ServerSideScripts/Program.cs#L351) |[Scripts.DeleteStoredProcedureAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.scripts.scripts.deletestoredprocedureasync) |
 
 <!-- Update_Description: update meta properties, wording update, update link -->

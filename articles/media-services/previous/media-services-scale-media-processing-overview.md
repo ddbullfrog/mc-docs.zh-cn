@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/26/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: dc79ba76ca2af6b9d69b2b2c122ebee4dc2a611a
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 7e0921c590d86feb7ef84975126e2827049abb94
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245580"
 ---
 # <a name="scaling-media-processing-overview"></a>调整媒体处理的规模概述 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 此页概述了如何以及为何调整媒体处理的规模。 
 
 ## <a name="overview"></a>概述

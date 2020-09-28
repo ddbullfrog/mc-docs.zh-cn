@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: b961e0623d5d0fd2a31b4ef9eabc81ea65197bf4
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 8beb104d83b8e007a2c06c8b6bb94be61a9b5ef5
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515820"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146286"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>使用 Azure 数据资源管理器 Python 库引入数据
 

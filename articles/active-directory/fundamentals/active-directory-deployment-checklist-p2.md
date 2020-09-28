@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab9be1644214325f9b4316aae2c08a62f3eead3
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: c94c212d8841c1b6e1df0b13e6251917f32c41c6
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046444"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244640"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 功能部署指南
 
@@ -33,7 +33,7 @@ ms.locfileid: "89046444"
 * [Azure AD 许可](https://www.azure.cn/pricing/details/active-directory/)
 * [Microsoft 365 企业版](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [企业移动性 + 安全性](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Azure AD B2B 许可指南](../b2b/licensing-guidance.md)
+* [Azure AD B2B 许可指南](../external-identities/licensing-guidance.md)
 
 ## <a name="phase-1-build-a-foundation-of-security"></a>阶段 1：构建安全基础
 
@@ -57,11 +57,11 @@ ms.locfileid: "89046444"
 
 | 任务 | 详细信息 | 所需的许可证 |
 | ---- | ------ | ---------------- |
-| [安装 Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | 准备将现有本地目录中的用户同步到云。 | Azure AD Free |
-| [实现密码哈希同步](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | 同步密码哈希，以便能够复制密码更改、检测并补救错误密码，以及报告已泄漏的凭据。 | Azure AD Free |
-| [实现密码写回](../authentication/howto-sspr-writeback.md) | 允许将云中的密码更改写回到本地 Windows Server Active Directory 环境。 | Azure AD Premium P1 |
+| [安装 Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md) | 准备将现有本地目录中的用户同步到云。 | Azure AD Free |
+| [实现密码哈希同步](../hybrid/how-to-connect-password-hash-synchronization.md) | 同步密码哈希，以便能够复制密码更改、检测并补救错误密码，以及报告已泄漏的凭据。 | Azure AD Free |
+| [实现密码写回](../authentication/tutorial-enable-sspr-writeback.md) | 允许将云中的密码更改写回到本地 Windows Server Active Directory 环境。 | Azure AD Premium P1 |
 | [按 Azure Active Directory 中的组成员资格将许可证分配给用户](../users-groups-roles/licensing-groups-assign.md) | 创建许可组来按组启用或禁用功能，而无需按用户进行设置，这样可以节省时间和精力。 | |
-| [针对来宾用户访问权限创建计划](../b2b/what-is-b2b.md) | 让来宾用户使用其自己的工作、学校或社交标识登录到你的应用和服务，借此来与他们协作。 | [Azure AD B2B 许可指南](../b2b/licensing-guidance.md) |
+| [针对来宾用户访问权限创建计划](../external-identities/what-is-b2b.md) | 让来宾用户使用其自己的工作、学校或社交标识登录到你的应用和服务，借此来与他们协作。 | [Azure AD B2B 许可指南](../external-identities/licensing-guidance.md) |
 
 ## <a name="phase-3-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>阶段 3：审核特权标识、完成访问评审和管理用户生命周期
 

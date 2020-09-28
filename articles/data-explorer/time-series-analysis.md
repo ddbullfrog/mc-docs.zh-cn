@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: adieldar
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.data: 04/07/2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 63e3eeba440e717b9cc164bb005e52ec5d92dfe7
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: a0cae9bb5545322a6c7ce8368436c646095b1003
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516016"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146534"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 数据资源管理器中的时序分析
 
@@ -35,19 +35,18 @@ demo_make_series1 | take 10
 
 生成的表包含一个时间戳列、三个上下文维度列，但不包含指标：
 
-|   |   |   |   |   |
-| --- | --- | --- | --- | --- |
-|   | 时间戳 | BrowserVer | OsVer | 国家/地区 |
-|   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | 英国 |
-|   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
-|   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | 英国 |
-|   | 2016-08-25 09:12:46.5100000 | Chrome 52.0 | Windows 10 | 英国 |
-|   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | 立陶宛共和国 |
-|   | 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | 印度 |
-|   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | 英国 |
-|   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | 荷兰 |
-|   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | 英国 |
-|   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | 印度 |
+| 时间戳 | BrowserVer | OsVer | 国家/地区 |
+| --- | --- | --- | --- |
+| 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | 英国 |
+| 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
+| 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | 英国 |
+| 2016-08-25 09:12:46.5100000 | Chrome 52.0 | Windows 10 | 英国 |
+| 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | 立陶宛共和国 |
+| 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | 印度 |
+| 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | 英国 |
+| 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | 荷兰 |
+| 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | 英国 |
+| 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | 印度 |
 
 由于没有指标，我们只能生成一组时序，用于表示由 OS 使用以下查询分区的流量计数本身：
 
@@ -61,10 +60,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- 使用 [`make-series`](/data-explorer/kusto/query/make-seriesoperator) 运算符创建由三个时序组成的集，其中：
+- 使用 [`make-series`](kusto/query/make-seriesoperator.md) 运算符创建由三个时序组成的集，其中：
     - `num=count()`：流量的时序
     - `range(min_t, max_t, 1h)`：时序是在时间范围（表记录的最旧和最新时间戳）的 1 小时箱中创建的
-    - `default=0`：指定缺失箱的填充方法，以创建正则时序。 或者，使用 [`series_fill_const()`](/data-explorer/kusto/query/series-fill-constfunction)、[`series_fill_forward()`](/data-explorer/kusto/query/series-fill-forwardfunction)、[`series_fill_backward()`](/data-explorer/kusto/query/series-fill-backwardfunction) 和 [`series_fill_linear()`](/data-explorer/kusto/query/series-fill-linearfunction) 进行更改
+    - `default=0`：指定缺失箱的填充方法，以创建正则时序。 或者，使用 [`series_fill_const()`](kusto/query/series-fill-constfunction.md)、[`series_fill_forward()`](kusto/query/series-fill-forwardfunction.md)、[`series_fill_backward()`](kusto/query/series-fill-backwardfunction.md) 和 [`series_fill_linear()`](kusto/query/series-fill-linearfunction.md) 进行更改
     - `byOsVer`：由 OS 分区
 - 实际时序数据结构是每个时间箱的聚合值的数值数组。 我们将使用 `render timechart` 进行可视化。
 
@@ -75,14 +74,14 @@ demo_make_series1
 ## <a name="time-series-analysis-functions"></a>时序分析函数
 
 在本部分，我们将执行典型的时序处理函数。
-创建一组时序后，ADX 支持使用[时序文档](/data-explorer/kusto/query/machine-learning-and-tsa)中所述的一系列函数（该列表不断扩充）来处理和分析这些时序。 下面将介绍几个用于处理和分析时序的有代表性函数。
+创建一组时序后，ADX 支持使用[时序文档](kusto/query/machine-learning-and-tsa.md)中所述的一系列函数（该列表不断扩充）来处理和分析这些时序。 下面将介绍几个用于处理和分析时序的有代表性函数。
 
 ### <a name="filtering"></a>筛选
 
 在信号处理中，筛选是常见的活动，可用于完成时序处理任务（例如，平滑化干扰信号、变化检测）。
 - 有两个泛型筛选函数：
-    - [`series_fir()`](/data-explorer/kusto/query/series-firfunction)：应用 FIR 筛选器。 用于方便计算变化检测中时序的移动平均值和差异。
-    - [`series_iir()`](/data-explorer/kusto/query/series-iirfunction)：应用 IIR 筛选器。 用于指数平滑与累计求和。
+    - [`series_fir()`](kusto/query/series-firfunction.md)：应用 FIR 筛选器。 用于方便计算变化检测中时序的移动平均值和差异。
+    - [`series_iir()`](kusto/query/series-iirfunction.md)：应用 IIR 筛选器。 用于指数平滑与累计求和。
 - 通过将大小为 5 个箱的新移动平均时序（名为 *ma_num*）添加到查询，来 `Extend`（扩展）时序集：
 
 **\[** [**单击以运行查询**](https://dataexplorer.azure.cn/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPQavCMBCE7/6KOSYQ4fXgSfobPDx517C2q4bXpLLZQBV/vKkFQTx5WRh25tvZgRUxJK9ooWPuaCAxPcfRR/pnn1kC5wZ35BIjSbjxbDf7EPlXKV6s3a6GmUHTVwya3hkf9tUds1wvEqnEthtLUmPR85HKoO0PxoQXBSFBKJ3YPP9xSyWH5mxxuGKX/1gqlCfl1Neln5EL3R+DmCodhC9MahqHjXVQKbxMW5NScyzQerA7k+gDa1tswzsBAAA=) **\]**
@@ -101,8 +100,8 @@ demo_make_series1
 ### <a name="regression-analysis"></a>回归分析
 
 ADX 支持使用分段线性回归分析来评估时序的趋势。
-- 使用 [series_fit_line()](/data-explorer/kusto/query/series-fit-linefunction) 将最佳线条拟合到时序即可实现一般趋势检测。
-- 使用 [series_fit_2lines()](/data-explorer/kusto/query/series-fit-2linesfunction) 可以检测相对于基线的趋势变化，这种变化在监视方案中非常有用。
+- 使用 [series_fit_line()](kusto/query/series-fit-linefunction.md) 将最佳线条拟合到时序即可实现一般趋势检测。
+- 使用 [series_fit_2lines()](kusto/query/series-fit-2linesfunction.md) 可以检测相对于基线的趋势变化，这种变化在监视方案中非常有用。
 
 时序查询中 `series_fit_line()` 和 `series_fit_2lines()` 函数的示例：
 
@@ -138,8 +137,8 @@ demo_series3
 
 ![时序季节性](media/time-series-analysis/time-series-seasonality.png)
 
-- 使用 [series_periods_detect()](/data-explorer/kusto/query/series-periods-detectfunction) 自动检测时序中的周期。 
-- 如果知道某个指标应有特定的非重复周期，并且想要验证这些周期是否存在，则使用 [series_periods_validate()](/data-explorer/kusto/query/series-periods-validatefunction)。
+- 使用 [series_periods_detect()](kusto/query/series-periods-detectfunction.md) 自动检测时序中的周期。 
+- 如果知道某个指标应有特定的非重复周期，并且想要验证这些周期是否存在，则使用 [series_periods_validate()](kusto/query/series-periods-validatefunction.md)。
 
 > [!NOTE]
 > 如果特定的非重复周期不存在，则表示出现异常
@@ -153,17 +152,16 @@ demo_series3
 | extend days=2h*todouble(periods)/1d
 ```
 
-|   |   |   |   |
-| --- | --- | --- | --- |
-|   | periods | 评分 | days |
-|   | 84 | 0.820622786055595 | 7 |
-|   | 12 | 0.764601405803502 | 1 |
+| periods | 评分 | days |
+| --- | --- | --- |
+| 84 | 0.820622786055595 | 7 |
+| 12 | 0.764601405803502 | 1 |
 
 该函数会检测每日和每周季节性。 每日评分小于每周评分，因为周末的天数不同于工作日天数。
 
 ### <a name="element-wise-functions"></a>元素对应的函数
 
-可针对时序执行算术和逻辑运算。 使用 [series_subtract()](/data-explorer/kusto/query/series-subtractfunction) 可以计算残差时序（原始指标与平滑化指标之差），并查看剩留信号中的异常：
+可针对时序执行算术和逻辑运算。 使用 [series_subtract()](kusto/query/series-subtractfunction.md) 可以计算残差时序（原始指标与平滑化指标之差），并查看剩留信号中的异常：
 
 **\[** [**单击以运行查询**](https://dataexplorer.azure.cn/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WQQU/DMAyF7/sVT5waqWjrgRPqb+AAgmPltR6LSNLJcdhA+/G4izRAnLhEerbfl2cHVkSfBkUPnfNIgaSZOM5DpDceMovn3OGMXGIk8Z+8jDdPPvKjUjw4d78KC4NO/2LQ6Tfjz/jqjEXeVolUYj/OJWnjMPGOStB+gznhSoFPEEqv3Fz2aWukFt3eYfuBh/zMYlA+KafJmsOCrPRh56Ux2UL4wKRN1+LOtVApXF/37RTOfioUfvpz2arQqBVS2Q7rtc6wa4wlkPLVCLXIqE7DHvcsXOOh73Hz4tM0HzO6zQ1gDOx8UOvZrtayst0Y7z4babkkYQxMyQbGPYnCiGIxTS/fXGpfwk+n7uQBAAA=) **\]**
 
@@ -195,13 +193,12 @@ demo_many_series1
 | take 4 
 ```
 
-|   |   |   |   |   |   |
-| --- | --- | --- | --- | --- | --- |
-|   | TIMESTAMP | Loc | anonOp | DB | DataRead |
-|   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 262 | 0 |
-|   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 241 | 0 |
-|   | 2016-09-11 21:00:00.0000000 | Loc 9 | -865998331941149874 | 262 | 279862 |
-|   | 2016-09-11 21:00:00.0000000 | Loc 9 | 371921734563783410 | 255 | 0 |
+| TIMESTAMP | Loc | anonOp | DB | DataRead |
+| --- | --- | --- | --- | --- |
+| 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 262 | 0 |
+| 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 241 | 0 |
+| 2016-09-11 21:00:00.0000000 | Loc 9 | -865998331941149874 | 262 | 279862 |
+| 2016-09-11 21:00:00.0000000 | Loc 9 | 371921734563783410 | 255 | 0 |
 
 和简单的统计信息：
 
@@ -212,10 +209,9 @@ demo_many_series1
 | summarize num=count(), min_t=min(TIMESTAMP), max_t=max(TIMESTAMP) 
 ```
 
-|   |   |   |   |
-| --- | --- | --- | --- |
-|   | num | min\_t | max\_t |
-|   | 2177472 | 2016-09-08 00:00:00.0000000 | 2016-09-11 23:00:00.0000000 |
+| num | min\_t | max\_t |
+| --- | --- | --- |
+| 2177472 | 2016-09-08 00:00:00.0000000 | 2016-09-11 23:00:00.0000000 |
 
 在读取指标的 1 小时箱中生成时序（总共 4 天 * 24 小时 = 96 个点）会产生正态模式波动：
 
@@ -243,10 +239,9 @@ demo_many_series1
 | count
 ```
 
-|   |   |
-| --- | --- |
-|   | 计数 |
-|   | 18339 |
+| 计数 |
+| --- |
+| 18339 |
 
 现在，我们将创建由读取计数指标的 18339 个时序组成的集。 将 `by` 子句添加到 make-series 语句，应用线性回归，并选择具有最明显递减趋势的前两个时序：
 
@@ -278,11 +273,10 @@ demo_many_series1
 | project Loc, Op, DB, slope 
 ```
 
-|   |   |   |   |   |
-| --- | --- | --- | --- | --- |
-|   | Loc | Op | DB | slope |
-|   | Loc 15 | 37 | 1151 | -102743.910227889 |
-|   | Loc 13 | 37 | 1249 | -86303.2334644601 |
+| Loc | Op | DB | slope |
+| --- | --- | --- | --- |
+| Loc 15 | 37 | 1151 | -102743.910227889 |
+| Loc 13 | 37 | 1249 | -86303.2334644601 |
 
 在不到两分钟的时间内，ADX 分析了接近 20,000 个时序并检测到了读取计数骤然下降的两个异常时序。
 

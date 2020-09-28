@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 37c70c2a7f63443eda3d6a675a101859dfc74eb1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: bfec0fba2e830534aee372ba714d6de7403fd80f
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71124594"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245057"
 ---
 # <a name="quotas-and-limitations"></a>配额和限制
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 本文介绍与 Azure 媒体服务关联的配额和限制。
 

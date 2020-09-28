@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 204087bb09d9cae602842affc8a52f286b560103
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c899d4fe6cd7779f95b455dc4df556b1b70b8c53
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162166"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245686"
 ---
-# <a name="publish-media-services-content-using-net"></a>使用 .NET 发布媒体服务内容  
+# <a name="publish-media-services-content-using-net"></a>使用 .NET 发布媒体服务内容
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)

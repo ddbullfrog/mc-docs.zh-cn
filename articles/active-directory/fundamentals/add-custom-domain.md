@@ -2,23 +2,23 @@
 title: 添加自定义域 - Azure Active Directory | Microsoft Docs
 description: 介绍如何使用 Azure Active Directory 添加自定义域。
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 05/29/2020
+ms.topic: how-to
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eab3708337308569225e8a8493a68ed635378d65
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 5b4b7bef6f6a338383e146acbb56af13e71173e1
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186715"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245575"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 门户添加自定义域名
 
@@ -116,5 +116,5 @@ ms.locfileid: "84186715"
 
 - 在 Azure AD 中管理域名信息。 有关详细信息，请参阅[管理自定义域名](../users-groups-roles/domains-manage.md)。
 
-- 若要结合 Azure Active Directory 使用 Windows Server 的本地版本，请参阅[将本地目录与 Azure Active Directory 集成](../connect/active-directory-aadconnect.md)。
+- 若要结合 Azure Active Directory 使用 Windows Server 的本地版本，请参阅[将本地目录与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)。
 

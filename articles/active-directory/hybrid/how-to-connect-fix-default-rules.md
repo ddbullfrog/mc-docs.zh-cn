@@ -8,17 +8,17 @@ editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 03/24/2020
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9791c89ba70326716bd9ab54a29cf71c544b9c67
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2013f343f2e7ec07ed713e241c27edeee3a05125
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243065"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245517"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>在 Azure AD Connect 中修复已修改的默认规则
 
@@ -89,7 +89,7 @@ Azure Active Directory (Azure AD) Connect 使用默认规则进行同步。  遗
 
 将“联接规则”保留为空。  这表示此规则将使用标准默认规则中定义的联接条件。 这是不禁用或删除标准默认规则的另一个原因。 如果没有联接条件，属性不会流动。 
 
-为属性添加适当的转换。 可以分配一个常量用于将常量值流送到目标属性。 可以在源或目标属性之间使用直接映射。 或者，可对属性使用表达式。 下面是可以使用的各种[表达式函数](/active-directory/hybrid/reference-connect-sync-functions-reference)。
+为属性添加适当的转换。 可以分配一个常量用于将常量值流送到目标属性。 可以在源或目标属性之间使用直接映射。 或者，可对属性使用表达式。 下面是可以使用的各种[表达式函数](./reference-connect-sync-functions-reference.md)。
 
 #### <a name="add-an-outbound-sync-rule"></a>添加出站同步规则
 若要将属性链接到目标目录，需要创建出站规则。 这表示源是 Metaverse，目标是连接的系统。 若要创建出站规则，请启动“同步规则编辑器”，将“方向”更改为“出站”，然后选择“添加新规则”。     
@@ -195,4 +195,3 @@ Azure AD Sync 负责处理大部分对象。 你可以缩小对象的范围，�
 - [快速设置](how-to-connect-install-express.md)
 - [自定义设置](how-to-connect-install-custom.md)
 
-<!-- Update_Description: wording update -->

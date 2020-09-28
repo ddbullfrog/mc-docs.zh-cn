@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 09/24/2018
-ms.date: 05/09/2020
-ms.openlocfilehash: bf435a9056e1ab85d527e34a1758a163c9993039
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: 83186bc5fce90bab980f18236c6561fb62f438e7
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417545"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146249"
 ---
 # <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>疑难解答：无法完成 Azure 数据资源管理器的群集创建
 

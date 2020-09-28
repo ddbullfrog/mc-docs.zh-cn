@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 4f241b7a6ad7aecbfbb420ae2c4cbf244cb77ea5
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 15e1f40393a90a90fab10e6e789ea1fadb1e2256
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223249"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246789"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>快速入门：使用 Azure Cosmos DB Gremlin API 帐户生成 Node.js 应用程序
@@ -149,7 +149,7 @@ ms.locfileid: "88223249"
     );
     ```
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 1. 打开 *config.js* 文件。 
 

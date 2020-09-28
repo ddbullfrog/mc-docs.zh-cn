@@ -4,19 +4,22 @@ description: Azure 队列用于在应用程序组件之间进行可靠的异步�
 author: WenJason
 ms.author: v-jay
 origin.date: 05/08/2020
-ms.date: 07/20/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 7074794ea69c656bf511e14ad7749098b5fb995b
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.custom: devx-track-csharp
+ms.openlocfilehash: be7a1a3828c75e69401990eda8ce6effc13ea37b
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414600"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026506"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>通过 .NET 开始使用 Azure 队列存储
+
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 ## <a name="overview"></a>概述
 

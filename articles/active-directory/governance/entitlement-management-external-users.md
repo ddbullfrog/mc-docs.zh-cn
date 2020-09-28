@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16a8099c95d0b5488abd30e5010795ea114e543
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: bf2845493073f4d31c4f7299c49b82ee0bba95c0
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593822"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245572"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中管理外部用户的访问权限
 
@@ -104,7 +104,7 @@ Azure AD 权利管理利用 [Azure AD 企业对企业 (B2B) 解决方案](../ext
 
 ### <a name="review-your-microsoft-365-group-sharing-settings"></a>查看 Microsoft 365 组共享设置
 
-- 若要在外部用户的访问包中包括 Microsoft 365 组，请确保将“允许用户向组织添加新来宾”设置为“启用”，以允许来宾访问。 有关详细信息，请参阅[管理对 Microsoft 365 组的来宾访问](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)。
+- 若要在外部用户的访问包中包括 Microsoft 365 组，请确保将“允许用户向组织添加新来宾”设置为“启用”，以允许来宾访问。 有关详细信息，请参阅[管理对 Microsoft 365 组的来宾访问](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=Microsoft 365-worldwide#manage-groups-guest-access)。
 
 - 如果希望外部用户能够访问与 Microsoft 365 组关联的 SharePoint Online 站点和资源，请确保启用 SharePoint Online 外部共享。 有关详细信息，请参阅[打开或关闭外部共享](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)。
 

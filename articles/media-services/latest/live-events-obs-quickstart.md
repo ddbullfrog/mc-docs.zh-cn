@@ -6,16 +6,18 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: v-jay
 author: WenJason
-origin.date: 04/16/2020
-ms.date: 07/27/2020
-ms.openlocfilehash: 3a0903db29abd0501bfc08bf3d3181cad5b241c8
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+origin.date: 08/31/2020
+ms.date: 09/28/2020
+ms.openlocfilehash: 82ae7a5fd11cee6c8ed0324ec0a1fdb82ac7124e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162214"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245131"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>使用 OBS 创建 Azure 媒体服务实时传送流
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本快速入门帮助你使用 Azure 门户和 Open Broadcasting Studio (OBS) 创建 Azure 媒体服务实时传送流。 本文假设你有一个 Azure 订阅，并已创建媒体服务帐户。
 

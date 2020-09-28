@@ -6,15 +6,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: tzgitlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 09/08/2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 04bc9c42ca1a491ac10e7d44eaef7b0bb79e2724
-ms.sourcegitcommit: 73697fa9c19a40d235df033400c74741e7d0f3f4
+ms.date: 09/24/2020
+ms.openlocfilehash: fcb52a5303f7bd2f0cb433de5df8e97b0d85a93a
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84574901"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146469"
 ---
 # <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>使用 Azure 数据工厂模板从数据库批量复制到 Azure 数据资源管理器 
 

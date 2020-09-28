@@ -9,21 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 05/01/2019
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 48369be6b23758f2e5f485b5f940cdee5bf4eb34
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 22374ab6cb01a5d7d93671a13af8dcf19f910902
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244994"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI 示例：创建并提交作业
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 在媒体服务 v3 中提交作业来处理视频时，必须告知媒体服务查找输入视频的位置。 其中一个选项是指定 HTTPS URL 作为作业输入（如本文中所示）。 
 

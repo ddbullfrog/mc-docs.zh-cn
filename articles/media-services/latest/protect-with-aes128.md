@@ -11,18 +11,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/09/2020
-ms.date: 09/07/2020
+ms.topic: tutorial
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: c1ea87a32c072e2df3611abbdc7c993c6f362358
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: c00225a7851d09b1e2634cca0b776c0b28e60d81
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413218"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244978"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>教程：使用 AES-128 来加密视频以及使用密钥传送服务
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。
@@ -30,13 +32,13 @@ ms.locfileid: "89413218"
 > [!NOTE]
 > 尽管本教程使用了 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 示例，但 [REST API](https://docs.microsoft.com/rest/api/media/liveevents)、[CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 或其他受支持的 [SDK](media-services-apis-overview.md#sdks) 的常规步骤是相同的。
 
-借助媒体服务，可以传送使用 AES 通过 128 位加密密钥加密的 HTTP Live Streaming (HLS)、MPEG-DASH 和平滑流。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 如果希望媒体服务动态加密视频，需要将加密密钥与流定位器相关联，并配置内容密钥策略。 当播放器请求流时，媒体服务将使用指定的密钥通过 AES-128 动态加密内容。 为了解密流，播放器将从密钥传送服务请求密钥。 为了确定是否已授权用户获取密钥，服务将评估你为密钥指定的内容密钥策略。
+借助媒体服务，可以传送使用 AES 通过 128 位加密密钥加密的 HTTP Live Streaming (HLS)、MPEG-DASH 和平滑流。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 如果希望媒体服务动态加密视频，需要将加密密钥与流定位器相关联，并配置内容密钥策略。 当播放器请求流时，媒体服务将使用指定的密钥通过 AES-128 动态加密内容。 为解密流，播放器从密钥传送服务请求密钥。 为了确定是否已授权用户获取密钥，服务将评估你为密钥指定的内容密钥策略。
 
 可以使用多个加密类型（AES-128、PlayReady、FairPlay）来加密每个资产。 请参阅[流式处理协议和加密类型](content-protection-overview.md#streaming-protocols-and-encryption-types)，以了解有效的组合方式。 另请参阅[如何使用 DRM 进行保护](protect-with-drm.md)。
 
 本文中示例的输出包括 Azure Media Player 的 URL、清单 URL，以及播放内容所需的 AES 令牌。 该示例将 JSON Web 令牌 (JWT) 令牌的过期时间设置为 1 小时。 可以打开浏览器并粘贴生成的 URL 来启动 Azure Media Player 演示页，其中已经填充了该 URL 和令牌（采用以下格式：```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```）。
 
-本教程演示如何：
+本教程介绍了如何：
 
 > [!div class="checklist"]
 > * 下载本文中介绍的 [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) 示例。
@@ -79,7 +81,7 @@ ms.locfileid: "89413218"
 
 ## <a name="start-using-media-services-apis-with-net-sdk"></a>开始结合使用媒体服务 API 与 .NET SDK
 
-若要开始将媒体服务 API 与 .NET 结合使用，请创建 AzureMediaServicesClient 对象  。 若要创建对象，需要提供客户端所需凭据以使用 Azure AD 连接到 Azure。 在本文开头克隆的代码中，**GetCredentialsAsync** 函数根据本地配置文件中提供的凭据创建 ServiceClientCredentials 对象。
+若要开始将媒体服务 API 与 .NET 结合使用，请创建 AzureMediaServicesClient 对象****。 若要创建对象，需要提供客户端所需凭据以使用 Azure AD 连接到 Azure。 在本文开头克隆的代码中，**GetCredentialsAsync** 函数根据本地配置文件中提供的凭据创建 ServiceClientCredentials 对象。
 
 ```c#
 private static async Task<IAzureMediaServicesClient> CreateMediaServicesClientAsync(ConfigWrapper config)
@@ -123,7 +125,7 @@ private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClien
  
 ## <a name="get-or-create-an-encoding-transform"></a>获取或创建编码转换
 
-创建新实例时，需要指定希望生成的输出内容[转换](https://docs.microsoft.com/rest/api/media/transforms)。 所需参数是 **TransformOutput** 对象，如以下代码所示。 每个 TransformOutput 包含一个预设   。 预设介绍了视频和/或音频处理操作的分步说明，这些操作将用于生成所需的 TransformOutput   。 本文中的示例使用名为 AdaptiveStreaming 的内置预设  。 此预设将输入的视频编码为基于输入的分辨率和比特率自动生成的比特率阶梯（比特率 - 分辨率对），然后通过与每个比特率 - 分辨率对相对应的 H.264 视频和 AAC 音频生成 ISO MP4 文件。
+创建新实例时，需要指定希望生成的输出内容[转换](https://docs.microsoft.com/rest/api/media/transforms)。 所需参数是 **TransformOutput** 对象，如以下代码所示。 每个 TransformOutput 包含一个预设   。 预设介绍了视频和/或音频处理操作的分步说明，这些操作将用于生成所需的 TransformOutput 。 本文中的示例使用名为 AdaptiveStreaming 的内置预设。 此预设将输入的视频编码为基于输入的分辨率和比特率自动生成的比特率阶梯（比特率 - 分辨率对），然后通过与每个比特率 - 分辨率对相对应的 H.264 视频和 AAC 音频生成 ISO MP4 文件。
 
 在创建新的[转换](https://docs.microsoft.com/rest/api/media/transforms)之前，请先检查是否已存在使用 **Get** 方法的转换，如以下代码中所示。 在 Media Services v3**获取**实体上的方法返回**null**如果实体不存在 （不区分大小写的名称检查）。
 
@@ -165,7 +167,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
 
 ## <a name="submit-job"></a>提交作业
 
-如上所述，[转换](https://docs.microsoft.com/rest/api/media/transforms)对象为脚本，[作业则是](https://docs.microsoft.com/rest/api/media/jobs)对媒体服务的实际请求，请求将转换应用到给定输入视频或音频内容  。 Job 指定输入视频位置和输出位置等信息  。
+如上所述，[转换](https://docs.microsoft.com/rest/api/media/transforms)对象为脚本，[作业则是](https://docs.microsoft.com/rest/api/media/jobs)对媒体服务的实际请求，请求将转换应用到给定输入视频或音频内容。 Job 指定输入视频位置和输出位置等信息。
 
 本教程基于直接从 [HTTPs 源 URL](job-input-from-http-how-to.md) 引入的文件创建作业的输入。
 
@@ -254,9 +256,9 @@ private static async Task<Job> WaitForJobToFinishAsync(IAzureMediaServicesClient
 
 ## <a name="create-a-content-key-policy"></a>创建内容密钥策略
 
-内容密钥提供对资产的安全访问。 需要创建一个**内容密钥策略**，用于配置如何将内容密钥传送到终端客户端。 内容密钥与**流定位器**相关联。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。
+内容密钥提供对资产的安全访问。 需要创建一个内容密钥策略，用于配置如何将内容密钥传送到终端客户端。 内容密钥与**流定位器**相关联。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。
 
-当播放器请求流时，媒体服务将使用指定的密钥通过 AES 加密来动态加密内容（本例中使用 AES 加密）。为了解密流，播放器将从密钥传送服务请求密钥。 为了确定是否已授权用户获取密钥，服务将评估你为密钥指定的内容密钥策略。
+当播放器请求流时，媒体服务将使用指定的密钥通过 AES 加密来动态加密内容（本例中使用 AES 加密）。为解密流，播放器从密钥传送服务请求密钥。 为了确定是否已授权用户获取密钥，服务将评估你为密钥指定的内容密钥策略。
 
 ```c#
 private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
@@ -372,7 +374,7 @@ private static string GetTokenAsync(string issuer, string audience, string keyId
 
 ## <a name="build-a-dash-streaming-url"></a>生成 DASH 流 URL
 
-创建[流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)后，即可获取流式处理 URL。 若要生成 URL，需要连接 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 主机名称和流定位器路径****。 此示例使用默认的**流式处理终结点**。 首次创建媒体服务帐户时，此默认的**流式处理终结点**处于停止状态，因此需要调用 **Start**。
+创建[流式处理定位符](https://docs.microsoft.com/rest/api/media/streaminglocators)后，即可获取流式处理 URL。 若要生成 URL，需要连接 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 主机名称和流定位器路径****。 此示例使用默认的**流式处理终结点**。 首次创建媒体服务帐户时，此默认的**流式处理终结点**处于停止状态，因此需要调用 **Start**。
 
 ```c#
 private static async Task<string> GetDASHStreamingUrlAsync(

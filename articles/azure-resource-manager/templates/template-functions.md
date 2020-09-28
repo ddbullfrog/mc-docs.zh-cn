@@ -2,15 +2,16 @@
 title: 模板函数
 description: 介绍在 Azure Resource Manager 模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。
 ms.topic: conceptual
-origin.date: 04/27/2020
-ms.date: 06/22/2020
+origin.date: 09/01/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.author: v-yeche
-ms.openlocfilehash: ce05f7c5a9610e5c97de1f2098c2c6af49635f40
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 1ee1c495e9dfae64f1ac0e92376d00f74ff3dda5
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098601"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146741"
 ---
 # <a name="arm-template-functions"></a>ARM 模板函数
 
@@ -20,21 +21,21 @@ ms.locfileid: "85098601"
 
 大多数函数在部署到资源组、订阅、管理组或租户时工作方式相同。 某些函数并非可以在所有范围内使用。 下表对这些函数进行了说明。
 
-<a name="array" aria-hidden="true" />
-<a name="concatarray" aria-hidden="true" />
-<a name="contains" aria-hidden="true" />
-<a name="createarray" aria-hidden="true" />
-<a name="empty" aria-hidden="true" />
-<a name="first" aria-hidden="true" />
-<a name="intersection" aria-hidden="true" />
-<a name="last" aria-hidden="true" />
-<a name="length" aria-hidden="true" />
-<a name="min" aria-hidden="true" />
-<a name="max" aria-hidden="true" />
-<a name="range" aria-hidden="true" />
-<a name="skip" aria-hidden="true" />
-<a name="take" aria-hidden="true" />
-<a name="union" aria-hidden="true" />
+<a name="array" aria-hidden="true"></a>
+<a name="concatarray" aria-hidden="true"></a>
+<a name="contains" aria-hidden="true"></a>
+<a name="createarray" aria-hidden="true"></a>
+<a name="empty" aria-hidden="true"></a>
+<a name="first" aria-hidden="true"></a>
+<a name="intersection" aria-hidden="true"></a>
+<a name="last" aria-hidden="true"></a>
+<a name="length" aria-hidden="true"></a>
+<a name="min" aria-hidden="true"></a>
+<a name="max" aria-hidden="true"></a>
+<a name="range" aria-hidden="true"></a>
+<a name="skip" aria-hidden="true"></a>
+<a name="take" aria-hidden="true"></a>
+<a name="union" aria-hidden="true"></a>
 
 ## <a name="array-functions"></a>数组函数
 
@@ -56,12 +57,12 @@ Resource Manager 提供以下用于处理数组的函数。
 * [take](template-functions-array.md#take)
 * [union](template-functions-array.md#union)
 
-<a name="coalesce" aria-hidden="true" />
-<a name="equals" aria-hidden="true" />
-<a name="less" aria-hidden="true" />
-<a name="lessorequals" aria-hidden="true" />
-<a name="greater" aria-hidden="true" />
-<a name="greaterorequals" aria-hidden="true" />
+<a name="coalesce" aria-hidden="true"></a>
+<a name="equals" aria-hidden="true"></a>
+<a name="less" aria-hidden="true"></a>
+<a name="lessorequals" aria-hidden="true"></a>
+<a name="greater" aria-hidden="true"></a>
+<a name="greaterorequals" aria-hidden="true"></a>
 
 ## <a name="comparison-functions"></a>比较函数
 
@@ -74,9 +75,9 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 * [greater](template-functions-comparison.md#greater)
 * [greaterOrEquals](template-functions-comparison.md#greaterorequals)
 
-<a name="deployment" aria-hidden="true" />
-<a name="parameters" aria-hidden="true" />
-<a name="variables" aria-hidden="true" />
+<a name="deployment" aria-hidden="true"></a>
+<a name="parameters" aria-hidden="true"></a>
+<a name="variables" aria-hidden="true"></a>
 
 ## <a name="date-functions"></a>日期函数
 
@@ -94,11 +95,11 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 * [parameters](template-functions-deployment.md#parameters)
 * [variables](template-functions-deployment.md#variables)
 
-<a name="and" aria-hidden="true" />
-<a name="bool" aria-hidden="true" />
-<a name="if" aria-hidden="true" />
-<a name="not" aria-hidden="true" />
-<a name="or" aria-hidden="true" />
+<a name="and" aria-hidden="true"></a>
+<a name="bool" aria-hidden="true"></a>
+<a name="if" aria-hidden="true"></a>
+<a name="not" aria-hidden="true"></a>
+<a name="or" aria-hidden="true"></a>
 
 ## <a name="logical-functions"></a>逻辑函数
 
@@ -110,16 +111,16 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 * [not](template-functions-logical.md#not)
 * [or](template-functions-logical.md#or)
 
-<a name="add" aria-hidden="true" />
-<a name="copyindex" aria-hidden="true" />
-<a name="div" aria-hidden="true" />
-<a name="float" aria-hidden="true" />
-<a name="int" aria-hidden="true" />
-<a name="minint" aria-hidden="true" />
-<a name="maxint" aria-hidden="true" />
-<a name="mod" aria-hidden="true" />
-<a name="mul" aria-hidden="true" />
-<a name="sub" aria-hidden="true" />
+<a name="add" aria-hidden="true"></a>
+<a name="copyindex" aria-hidden="true"></a>
+<a name="div" aria-hidden="true"></a>
+<a name="float" aria-hidden="true"></a>
+<a name="int" aria-hidden="true"></a>
+<a name="minint" aria-hidden="true"></a>
+<a name="maxint" aria-hidden="true"></a>
+<a name="mod" aria-hidden="true"></a>
+<a name="mul" aria-hidden="true"></a>
+<a name="sub" aria-hidden="true"></a>
 
 ## <a name="numeric-functions"></a>数值函数
 
@@ -136,7 +137,7 @@ Resource Manager 提供以下用于处理整数的函数：
 * [mul](template-functions-numeric.md#mul)
 * [sub](template-functions-numeric.md#sub)
 
-<a name="json" aria-hidden="true"/>
+<a name="json" aria-hidden="true"></a>
 
 ## <a name="object-functions"></a>对象函数
 
@@ -169,6 +170,9 @@ Resource Manager 提供以下用于获取资源值的函数：
 * [listKeys](template-functions-resource.md#listkeys)
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
+    
+    <!--Not Available on * [pickZones](template-functions-resource.md#pickzones)-->
+    
 * [providers](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup) - 只能在部署到资源组时使用。
@@ -177,36 +181,36 @@ Resource Manager 提供以下用于获取资源值的函数：
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
-<a name="base64" aria-hidden="true" />
-<a name="base64tojson" aria-hidden="true" />
-<a name="base64tostring" aria-hidden="true" />
-<a name="concat" aria-hidden="true" />
-<a name="containsstring" aria-hidden="true" />
-<a name="datauri" aria-hidden="true" />
-<a name="datauritostring" aria-hidden="true" />
-<a name="emptystring" aria-hidden="true" />
-<a name="endswith" aria-hidden="true" />
-<a name="firststring" aria-hidden="true" />
-<a name="guid" aria-hidden="true" />
-<a name="indexof" aria-hidden="true" />
-<a name="laststring" aria-hidden="true" />
-<a name="lastindexof" aria-hidden="true" />
-<a name="lengthstring" aria-hidden="true" />
-<a name="padleft" aria-hidden="true" />
-<a name="replace" aria-hidden="true" />
-<a name="skipstring" aria-hidden="true" />
-<a name="split" aria-hidden="true" />
-<a name="startswith" aria-hidden="true" />
-<a name="string" aria-hidden="true" />
-<a name="substring" aria-hidden="true" />
-<a name="takestring" aria-hidden="true" />
-<a name="tolower" aria-hidden="true" />
-<a name="toupper" aria-hidden="true" />
-<a name="trim" aria-hidden="true" />
-<a name="uniquestring" aria-hidden="true" />
-<a name="uri" aria-hidden="true" />
-<a name="uricomponent" aria-hidden="true" />
-<a name="uricomponenttostring" aria-hidden="true" />
+<a name="base64" aria-hidden="true"></a>
+<a name="base64tojson" aria-hidden="true"></a>
+<a name="base64tostring" aria-hidden="true"></a>
+<a name="concat" aria-hidden="true"></a>
+<a name="containsstring" aria-hidden="true"></a>
+<a name="datauri" aria-hidden="true"></a>
+<a name="datauritostring" aria-hidden="true"></a>
+<a name="emptystring" aria-hidden="true"></a>
+<a name="endswith" aria-hidden="true"></a>
+<a name="firststring" aria-hidden="true"></a>
+<a name="guid" aria-hidden="true"></a>
+<a name="indexof" aria-hidden="true"></a>
+<a name="laststring" aria-hidden="true"></a>
+<a name="lastindexof" aria-hidden="true"></a>
+<a name="lengthstring" aria-hidden="true"></a>
+<a name="padleft" aria-hidden="true"></a>
+<a name="replace" aria-hidden="true"></a>
+<a name="skipstring" aria-hidden="true"></a>
+<a name="split" aria-hidden="true"></a>
+<a name="startswith" aria-hidden="true"></a>
+<a name="string" aria-hidden="true"></a>
+<a name="substring" aria-hidden="true"></a>
+<a name="takestring" aria-hidden="true"></a>
+<a name="tolower" aria-hidden="true"></a>
+<a name="toupper" aria-hidden="true"></a>
+<a name="trim" aria-hidden="true"></a>
+<a name="uniquestring" aria-hidden="true"></a>
+<a name="uri" aria-hidden="true"></a>
+<a name="uricomponent" aria-hidden="true"></a>
+<a name="uricomponenttostring" aria-hidden="true"></a>
 
 ## <a name="string-functions"></a>字符串函数
 

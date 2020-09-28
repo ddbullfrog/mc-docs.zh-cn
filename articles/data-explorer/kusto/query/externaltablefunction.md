@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/21/2019
 ms.date: 08/18/2020
-ms.openlocfilehash: 74dba7188d331ade974d5486915f3efee1deb09d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: d2dbccfb406ef604b4506b1ff7f973d04537316b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515632"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146254"
 ---
 # <a name="external_table"></a>external_table()
 
@@ -27,7 +27,7 @@ external_table('StormEvent')
 > [!NOTE]
 > * `external_table` 函数与 [table](tablefunction.md) 函数具有类似的限制。
 > * [外部表](schema-entities/externaltables.md)
-> * [用于管理外部表的命令](../management/externaltables.md)
+> * [用于管理外部表的命令](../management/external-sql-tables.md)
 
 ## <a name="syntax"></a>语法
 

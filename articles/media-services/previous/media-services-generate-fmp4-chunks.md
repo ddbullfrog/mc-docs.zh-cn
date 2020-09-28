@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 015cb9bb571fa56c385e03e13ef178ee9073f283
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2ea4692d5fd1c58ae23fa4eff34306907e9ddaea
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71124479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244915"
 ---
-#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>创建生成 fMP4 区块的编码任务
+# <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>创建生成 fMP4 区块的编码任务
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>概述
 

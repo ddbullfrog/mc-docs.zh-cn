@@ -1,23 +1,22 @@
 ---
 title: Azure Cosmos DB 监视数据参考 | Azure
 description: 来自 Azure Cosmos DB 的监视数据的日志和指标参考。
-author: rockboyfor
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: reference
+services: cosmos-db
+ms.service: cosmos-db
+ms.topic: how-to
 origin.date: 07/17/2020
-ms.date: 08/17/2020
-ms.testscope: no
-ms.testdate: ''
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: subject-monitoring
-ms.subservice: logs
-ms.openlocfilehash: 2a88d441ca922597a27c267143cb0a0ee12af492
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: dc40383c403c35b44dc662e4159187de19548fc9
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222565"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246384"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Azure Cosmos DB 监视数据参考
 

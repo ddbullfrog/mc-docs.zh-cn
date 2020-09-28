@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-origin.date: 03/15/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: cli,portal
-ms.openlocfilehash: a3f7da5bfb15343d6ef769b61b9bd17b8e07e8d9
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: be827262a08453ca97d3dcd00ae0d85ddc7105e4
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414090"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245644"
 ---
 # <a name="find-your-azure-subscription"></a>查找你的 Azure 订阅
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

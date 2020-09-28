@@ -3,17 +3,17 @@ ms.service: azure-policy
 ms.topic: include
 origin.date: 09/10/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 09/25/2020
 ms.testscope: yes
 ms.testdate: 09/21/2020
 ms.author: v-yeche
 ms.custom: generated
-ms.openlocfilehash: 6a2881e594ddd92d6004239dc302724ee9aab069
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 6442a955123f983cf6f0c24b42eddf2ffd87c3b1
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822428"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246304"
 ---
 <!--Verified successfully-->
 

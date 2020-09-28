@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 3aad9f2e6a63a57f5e3154772dba2400ae9ccc45
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: b4b3cde1e58859cbd08f730f88d9e2c8d7e12a01
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515869"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146764"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>使用 PowerShell 创建 Azure 数据资源管理器群集和数据库
 

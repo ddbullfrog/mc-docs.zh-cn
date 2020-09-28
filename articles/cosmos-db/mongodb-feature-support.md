@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 origin.date: 10/16/2019
-ms.date: 08/17/2020
+ms.date: 09/28/2020
 ms.testscope: no
-ms.testdate: ''
+ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: aff4d471407702a6a1863935127816653ceb2ffa
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 2de93b29fd20e77b42355733dc7fb07e3a11a6dd
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246401"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Azure Cosmos DB 的 API for MongoDB（3.2 版本）：支持的功能和语法
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 ## <a name="protocol-support"></a>协议支持
 
-Azure Cosmos DB 的 API for MongoDB 的所有新帐户都与 MongoDB 服务器版本 **3.6** 兼容。 本文介绍 MongoDB 版本 3.2。 支持的运算符以及限制或例外已列在下面。 任何理解这些协议的客户端驱动程序都应该能够连接到 Azure 中国 Cosmos DB 的用于 MongoDB 的 API。
+Azure Cosmos DB 的 API for MongoDB 的所有新帐户都与 MongoDB 服务器版本 **3.6** 兼容。 本文介绍 MongoDB 版本 3.2。 支持的运算符以及限制或例外已列在下面。 任何理解这些协议的客户端驱动程序应该都能够连接到 Azure Cosmos DB 的 MongoDB API。
 
 ## <a name="query-language-support"></a>查询语言支持
 
@@ -235,7 +235,7 @@ Azure Cosmos DB 的 MongoDB API 支持以下数据库命令：
 
 <!--Correct on the table: Deleted unnecessary column-->
 
-操作员 | 示例 |
+运算符 | 示例 |
 --- | --- |
 $eq | `{ "Volcano Name": { $eq: "Rainier" } }` |
 $gt | `{ "Elevation": { $gt: 4000 } }` |
@@ -297,7 +297,7 @@ $regex | `{ "Volcano Name": { $regex: "^Rain"} }`|
 
 ### <a name="geospatial-operators"></a>地理空间运算符
 
-操作员 | 示例 | 支持 |
+运算符 | 示例 | 支持 |
 --- | --- | --- |
 $geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | 是 |
 $geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | 是 |
@@ -317,7 +317,7 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 ## <a name="additional-operators"></a>其他运算符
 
-操作员 | 示例 | 说明
+运算符 | 示例 | 说明
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
@@ -351,7 +351,7 @@ Cosmos DB 支持基于文档时间戳的生存时间 (TTL)。 转到 [Azure 门�
 
 ## <a name="user-and-role-management"></a>用户和角色管理
 
-Cosmos DB 尚不支持用户和角色。 不过 Cosmos DB 支持基于角色的访问控制 (RBAC) 以及读写和只读密码/密钥，可通过 [Azure 门户](https://portal.azure.cn)（连接字符串页面）获取这些内容。
+Cosmos DB 尚不支持用户和角色。 不过 Cosmos DB 支持 Azure 基于角色的访问控制 (Azure RBAC) 以及读写和只读密码/密钥，可通过 [Azure 门户](https://portal.azure.cn)（连接字符串页面）获取这些内容。
 
 ## <a name="replication"></a>复制
 

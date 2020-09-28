@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 06/12/2019
 ms.date: 12/09/2019
 ms.author: larryfr
-ms.openlocfilehash: 4b350e26eddb589e5fbe2bb57b2793b877b6639d
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 97359caab917049e13ab4728096b51415bda860e
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516752"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394523"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -139,7 +139,7 @@ New-AzHDInsightCluster `
 
 创建 HDInsight 群集可能需要最多 20 分钟。
 
-`-DisksPerWorkerNode` 参数配置 Kafka on HDInsight 的可伸缩性。 Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。
+`-DisksPerWorkerNode` 参数配置 Kafka on HDInsight 的可伸缩性。 Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。
 
 托管磁盘的类型可以为“标准”(HDD) 或“高级”(SSD)。 磁盘类型取决于辅助角色节点（Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。 可以使用 `-WorkerNodeSize` 参数设置 VM 类型。 有关参数的详细信息，请参阅 [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) 文档。
 

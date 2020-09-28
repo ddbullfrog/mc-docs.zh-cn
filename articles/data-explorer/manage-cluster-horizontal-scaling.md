@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 12/09/2019
-ms.date: 07/08/2020
-ms.openlocfilehash: 8e1aa33b9a1b69d90d099711fb07da1349941ad2
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 556f2b511429dd5f510a266bf6b3bbe9be078c13
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515821"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146688"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>在 Azure 数据资源管理器中管理水平缩放（横向扩展）群集以适应不断变化的需求
 

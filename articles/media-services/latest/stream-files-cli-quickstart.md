@@ -10,18 +10,20 @@ keywords: Azure 媒体服务, 流式传输
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: ''
-origin.date: 08/19/2019
-ms.date: 04/06/2020
+ms.custom: devx-track-azurecli
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: c0a215e8a6d1dcb1847deeb74a3e9eadee4e9fdd
-ms.sourcegitcommit: 1f890a4085e184cc678485d05f08dd6de8dc973f
+ms.openlocfilehash: 7e8666f32e04db41f682dd17807a1d6e45687b9a
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84438931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244951"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>教程：基于 URL 对远程文件进行编码并流式传输视频 - Azure CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本教程介绍如何使用 Azure 媒体服务和 Azure CLI 在各种浏览器与设备上轻松编码和流式传输视频。 可以使用 HTTPS、SAS URL 或位于 Azure Blob 存储中的文件路径来指定输入内容。
 

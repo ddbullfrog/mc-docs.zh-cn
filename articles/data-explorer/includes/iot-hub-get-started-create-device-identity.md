@@ -2,19 +2,19 @@
 title: include 文件
 description: include 文件
 services: iot-hub
-author: dominicbetts
+author: orspod
 ms.service: iot-hub
 ms.topic: include
 origin.date: 09/07/2018
-ms.date: 05/15/2020
+ms.date: 08/18/2020
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 6a9c42b4699f2235b596e5daf00bf4126592aac0
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.openlocfilehash: a13d17f950f7295837266b841a3fb20719596e9b
+ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417755"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "91146723"
 ---
 在本部分中，将使用 Azure CLI 为本文创建设备标识。 设备 ID 区分大小写。
 

@@ -2,7 +2,7 @@
   href: index.yml
 - name: 概述
   items:
-    - name: 关于 Azure Bastion
+    - name: 什么是 Azure Bastion？
       href: bastion-overview.md
 - name: 快速入门
   items:
@@ -38,8 +38,6 @@
           href: bastion-vm-full-screen.md
     - name: 使用 NSG
       href: bastion-nsg.md
-    - name: 配置和访问诊断日志
-      href: diagnostic-logs.md
     - name: 监视和管理会话
       href: session-monitoring.md
     - name: 疑难解答
@@ -51,7 +49,7 @@
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/virtualnetwork/bastionhosts'
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/network/bastion?view=azure-cli-latest'
+      href: 'https://docs.microsoft.com/cli/azure/network/bastion'
 - name: 资源
   items:
     - name: Bastion 常见问题解答

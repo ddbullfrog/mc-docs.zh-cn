@@ -1,19 +1,21 @@
 ---
 title: 将应用程序包部署到计算节点
 description: 使用 Azure Batch 的应用程序包功能轻松管理要安装在 Batch 计算节点上的多个应用程序和版本。
+ms.service: batch
 ms.topic: how-to
 origin.date: 04/26/2019
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 04/29/2020
 ms.author: v-yeche
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b34a8599640555178efb7135807f929b092dc70f
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.custom: H1Hack27Feb2017, devx-track-csharp
+ms.openlocfilehash: 6185cb6938964a5ea13f1ab6fed4023b6a3ddb24
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88655003"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146285"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>使用 Batch 应用程序包将应用程序部署到计算节点
 
@@ -336,24 +338,24 @@ foreach (ApplicationSummary app in applications)
 * [Batch REST API][api_rest] 还提供应用程序包的使用支持。 有关示例，请参阅[将池添加到帐户][rest_add_pool]中的 [applicationPackageReferences][rest_add_pool_with_packages] 元素，了解如何使用 REST API 指定要安装的包。 若要深入了解如何使用 Batch REST API 获取应用程序信息，请参阅[应用程序][rest_applications]。
 * 了解如何以编程方式[使用 Batch Management .NET 管理 Azure Batch 帐户和配额](batch-management-dotnet.md)。 [Batch Management .NET][api_net_mgmt] 库可以启用 Batch 应用程序或服务的帐户创建和删除功能。
 
-[api_net]: https://docs.azure.cn/dotnet/api/overview/batch/client?view=azure-dotnet
-[api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet
+[api_net]: https://docs.azure.cn/dotnet/api/overview/batch/client
+[api_net_mgmt]: https://docs.azure.cn/dotnet/api/overview/batch/management
 [api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [storage_pricing]: https://www.azure.cn/pricing/details/storage/
 [net_appops]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.applicationoperations
-[net_appops_listappsummaries]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.applicationoperations
-[net_cloudpool]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool
-[net_cloudpool_pkgref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool
-[net_cloudtask]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask
-[net_cloudtask_pkgref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask
-[net_nodestate]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode
-[net_pkgref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.applicationpackagereference
+[net_appops_listappsummaries]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.applicationoperations
+[net_cloudpool]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudpool
+[net_cloudpool_pkgref]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudpool
+[net_cloudtask]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudtask
+[net_cloudtask_pkgref]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudtask
+[net_nodestate]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.computenode
+[net_pkgref]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.applicationpackagereference
 [portal]: https://portal.azure.cn
 [rest_applications]: https://docs.microsoft.com/rest/api/batchservice/application
 [rest_add_pool]: https://docs.microsoft.com/rest/api/batchservice/pool/add
-[rest_add_pool_with_packages]: https://docs.microsoft.com/rest/api/batchservice/pool/add?view=azure-dotnet#bk_apkgreference
+[rest_add_pool_with_packages]: https://docs.microsoft.com/rest/api/batchservice/pool/add#bk_apkgreference
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "应用程序包概要关系图"
 [2]: ./media/batch-application-packages/app_pkg_02.png "Azure 门户中的应用程序磁贴"

@@ -3,9 +3,9 @@ title: 快速入门 - 使用 Azure CLI 部署 AKS 群集
 description: 了解如何使用 Azure CLI 快速创建 Kubernetes 群集、部署应用程序，以及监视 Azure Kubernetes 服务 (AKS) 中的性能。
 services: container-service
 ms.topic: quickstart
-origin.date: 08/18/2020
+origin.date: 09/11/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
@@ -17,12 +17,13 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: 1d8be07b51b74ecea07c1a4092e6a41bbc0ce961
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+- contperfq1
+ms.openlocfilehash: 0bcad3261cbf3df507911287fcace8379607b8bf
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020814"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146650"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务群集
 
@@ -76,7 +77,7 @@ az group create --name myResourceGroup --location chinaeast2
 使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 以下示例创建一个具有一个节点的名为 myAKSCluster 的群集。 此操作将需要几分钟才能完成。
 
 > [!NOTE]
-> 使用 --enable-addons monitoring 参数启用适用于容器的 Azure Monitor，这需要在订阅上注册 Microsoft.OperationsManagement 和 Microsoft.OperationalInsights。 若要检查注册状态，请使用以下命令：
+> 使用 --enable-addons monitoring 参数启用[适用于容器的 Azure Monitor][azure-monitor-containers]，这需要在订阅上注册 Microsoft.OperationsManagement 和 Microsoft.OperationalInsights  。 若要检查注册状态，请使用以下命令：
 > 
 > ```azurecli
 > az provider show -n Microsoft.OperationsManagement -o table
@@ -114,7 +115,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 > [!NOTE]
-> 以上命令使用 Kubernetes 配置文件的默认位置，即 `~/.kube/config`。 可以使用 --file 为 Kubernetes 配置文件指定其他位置。
+> 以上命令使用 [Kubernetes 配置文件][kubeconfig-file]的默认位置，即 `~/.kube/config`。 可以使用 --file 为 Kubernetes 配置文件指定其他位置。
 
 若要验证到群集的连接，请使用 [kubectl get][kubectl-get] 命令返回群集节点列表。
 
@@ -131,7 +132,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## <a name="run-the-application"></a>运行应用程序
 
-Kubernetes 清单文件定义群集的所需状态，例如，要运行哪些容器映像。 在本快速入门中，清单用于创建运行 Azure Vote 应用程序所需的所有对象。 此清单包括两个 [Kubernetes 部署][kubernetes-deployment] - 一个用于 Azure Vote Python 示例应用程序，另一个用于 Redis 实例。 此外，还会创建两个 [Kubernetes 服务][kubernetes-service] - 一个内部服务用于 Redis 实例，一个外部服务用于从 Internet 访问 Azure Vote 应用程序。
+[Kubernetes 清单文件][kubernetes-deployment]定义群集的所需状态，例如，要运行哪些容器映像。 在本快速入门中，清单用于创建运行 [Azure Vote 应用程序][azure-vote-app]所需的所有对象。 此清单包括两个 [Kubernetes 部署][kubernetes-deployment] - 一个用于 Azure Vote Python 示例应用程序，另一个用于 Redis 实例。 此外，还会创建两个 [Kubernetes 服务][kubernetes-service] - 一个内部服务用于 Redis 实例，一个外部服务用于从 Internet 访问 Azure Vote 应用程序。
 
 创建名为 `azure-vote.yaml` 的文件，并将其复制到以下 YAML 定义中。 如果使用 Azure 本地 Shell，则可以使用 `code`、`vi` 或 `nano` 来创建此文件，就像在虚拟或物理系统中操作一样：
 
@@ -194,7 +195,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: dockerhub.azk8s.cn/microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m
@@ -262,7 +263,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 :::image type="content" source="./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png" alt-text="Azure Kubernetes 服务中部署的投票应用":::
 
-创建 AKS 群集时，即已启用了[用于容器的 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 来捕获群集节点和 Pod 的运行状况指标。 Azure 门户提供这些运行状况指标。
+创建 AKS 群集时，即已启用了[用于容器的 Azure Monitor][azure-monitor-containers] 来捕获群集节点和 Pod 的运行状况指标。 Azure 门户提供这些运行状况指标。
 
 ## <a name="delete-the-cluster"></a>删除群集
 
@@ -273,9 +274,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> 删除群集时，AKS 群集使用的 Azure Active Directory 服务主体不会被删除。 有关如何删除服务主体的步骤，请参阅 [AKS 服务主体的注意事项和删除][sp-delete]。
-
-<!--Not Available on managed identity-->
+> 删除群集时，AKS 群集使用的 Azure Active Directory 服务主体不会被删除。 有关如何删除服务主体的步骤，请参阅 [AKS 服务主体的注意事项和删除][sp-delete]。 如果你使用了托管标识，则该标识由平台托管，不需要删除。
 
 ## <a name="get-the-code"></a>获取代码
 
@@ -298,6 +297,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 
 <!--Not Available on [azure-dev-spaces]: ../dev-spaces/index.yml-->
 
@@ -313,6 +313,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-group-create]: https://docs.azure.cn/cli/group#az-group-create
 [az-group-delete]: https://docs.azure.cn/cli/group#az-group-delete
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
+[azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.cn
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

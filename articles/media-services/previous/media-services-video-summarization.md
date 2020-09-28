@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: milanga
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f391157d8425fbd0827975f7ed4a16952c4a5251
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 4d6e3244ca507510fb0f8a00e2ad4af1b9c88977
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245579"
 ---
-# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒体视频缩略图创建视频摘要  
+# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒体视频缩略图创建视频摘要
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Azure Media Video Thumbnails  媒体处理器将停用。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。

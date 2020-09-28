@@ -4,17 +4,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于高�
 services: container-service
 ms.topic: article
 origin.date: 08/21/2020
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 03/27/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 59a1d6a86f135058be5c147ec308fe59ee7ccb73
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 4164371c93ab8d9dfa2daaca4469b6d3fdad4f72
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021537"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146800"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于计算密集型工作负荷
 
@@ -151,6 +151,7 @@ daemonset "nvidia-device-plugin" created
 
 <!--Not Available on ## Use the AKS specialized GPU image (preview)-->
 <!--Not Available on ### Use the AKS specialized GPU image on new clusters (preview)-->
+
 ## <a name="confirm-that-gpus-are-schedulable"></a>确认 GPU 是可计划的
 
 创建 AKS 群集后，确认 GPU 在 Kubernetes 中是可计划的。 首先，使用 [kubectl get nodes][kubectl-get] 命令列出群集中的节点：
@@ -404,7 +405,7 @@ kubectl delete jobs samples-tf-mnist-demo
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [azure-pricing]: https://www.azure.cn/pricing/
-[azure-availability]: https://status.azure.com/status/
+[azure-availability]: https://azure.microsoft.com/global-infrastructure/services/
 [nvidia-github]: https://github.com/NVIDIA/k8s-device-plugin
 
 <!-- LINKS - internal -->

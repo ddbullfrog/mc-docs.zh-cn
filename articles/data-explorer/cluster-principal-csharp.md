@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 02/03/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: ad7f2821b37faf9855f3ddb117010240d5b15abd
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 84812939451ef327948ffb6ae1aeb69cb77f5513
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515946"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146770"
 ---
 # <a name="add-cluster-principals-for-azure-data-explorer-by-using-c"></a>使用 C# 向 Azure 数据资源管理器添加群集主体
 

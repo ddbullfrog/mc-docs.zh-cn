@@ -3,24 +3,24 @@ title: 使用 PowerShell 在虚拟机规模集上配置托管标识 - Azure AD
 description: 分步说明如何使用 PowerShell 在虚拟机规模集上配置系统分配的托管标识和用户分配的托管标识。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39ad06f499c4bfb7a3679e57eaea12a1578dc787
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 1e29e434f80a03dd7af23a21fe43d9dad3e59c6f
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245658"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>使用 PowerShell 在虚拟机规模集上配置 Azure 资源的托管标识
 
@@ -43,9 +43,9 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
     > [!NOTE]
     > 无需其他 Azure AD 目录角色分配。
 
-    - [虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统分配的托管标识和/或用户分配的托管标识。
-    - [托管标识参与者](/role-based-access-control/built-in-roles#managed-identity-contributor)角色，可以创建用户分配的托管标识。
-    - [托管标识操作员](/role-based-access-control/built-in-roles#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的托管标识。
+    - [虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统分配的托管标识和/或用户分配的托管标识。
+    - [托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色，可以创建用户分配的托管标识。
+    - [托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的托管标识。
 - 安装[最新版本的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)（如果尚未安装）。 
 
 ## <a name="system-assigned-managed-identity"></a>系统分配的托管标识
@@ -150,22 +150,5 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "Sys
 - 有关完整的 Azure VM 创建快速入门，请参阅：
   
   - [使用 PowerShell 创建 Windows 虚拟机](../../virtual-machines/windows/quick-create-powershell.md) 
-  - [使用 PowerShell 创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-powershell.md) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  - [使用 PowerShell 创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-powershell.md)
 

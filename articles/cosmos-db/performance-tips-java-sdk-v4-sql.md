@@ -1,22 +1,22 @@
 ---
 title: Azure Cosmos DB Java SDK v4 性能提示
 description: 了解用于提高 Java SDK v4 的 Azure Cosmos 数据库性能的客户端配置选项
-author: rockboyfor
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 07/08/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: aea5db6bd142d50b8bf10a9e2e17792b97baa0f7
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7c3f94f741456c65fe80fcaddb1b15cd2cab3dd9
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246512"
 ---
 <!--Verified successfully, ONLY CHARACTERS CONTENT-->
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4 性能提示
@@ -36,7 +36,7 @@ ms.locfileid: "88222468"
 Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 凭借 Azure Cosmos DB，无需对体系结构进行重大更改或编写复杂的代码即可缩放数据库。 扩展和缩减操作就像执行单个 API 调用或 SDK 方法调用一样简单。 但是，由于 Azure Cosmos DB 是通过网络调用访问的，因此，使用 Azure Cosmos DB Java SDK v4 时，可以通过客户端优化获得最高性能。
 
 如果有“如何改善数据库性能？”的疑问， 请考虑以下选项：
-
+     
 ## <a name="networking"></a>网络
 
 * **连接模式：使用直接模式**
@@ -51,8 +51,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
      如下所示，使用 directMode() 或 gatewayMode() 方法在 Azure Cosmos DB 客户端生成器中配置数据平面请求的连接模式。 若要使用默认设置配置任一模式，请调用任一方法而不使用参数。    否则，以参数（directMode() 的是 DirectConnectionConfig，gatewayMode() 的是 GatewayConnectionConfig）的形式传递配置设置类实例。
 
-    <a name="override-default-consistency-javav4"></a>
-    ### <a name="java-v4-sdk"></a>Java V4 SDK
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
     # <a name="async"></a>[异步](#tab/api-async)
 
@@ -176,8 +175,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     由于以下原因，directMode() 方法额外被替代。 控制平面操作（如数据库和容器 CRUD）始终使用网关模式；如果用户已为数据平面操作配置了直接模式，控制平面操作将使用默认的网关模式设置。 大多数用户是这种情况。 但是，如果用户想将直接模式用于数据平面操作，同时获得控制平面网关模式参数的可调性，则可以使用以下 directMode() 的重写：
 
-    <a name="override-default-consistency-javav4"></a>
-    ### <a name="java-v4-sdk"></a>Java V4 SDK
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
     # <a name="async"></a>[异步](#tab/api-async)
 
@@ -289,8 +287,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     以下代码片段演示了如何分别针对异步 API 或同步 API 操作初始化 Azure Cosmos DB 客户端：
 
-    <a name="override-default-consistency-javav4"></a>
-    ### <a name="java-v4-sdk"></a>Java V4 SDK
+    ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
     # <a name="async"></a>[异步](#tab/api-async)
 
@@ -392,8 +389,8 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     Azure Cosmos DB Java SDK 的异步功能基于 [netty](https://netty.io/) 非阻止 IO。 SDK 使用固定数量的 IO netty 事件循环线程（数量与计算机提供的 CPU 核心数相同）来执行 IO 操作。 API 返回的 Flux 会将结果发送到某个共享 IO 事件循环 netty 线程上。 因此，切勿阻塞共享的 IO 事件循环 netty 线程。 针对 IO 事件循环 netty 线程执行 CPU 密集型工作或者阻塞操作可能导致死锁，或大大减少 SDK 吞吐量。
 
-    例如，以下代码针对事件循环 IO netty 线程执行 CPU 密集型工作：<a name="java4-noscheduler"></a>
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a>Java SDK V4 (Maven com.azure::azure-cosmos) 异步 API
+    例如，以下代码针对事件循环 IO netty 线程执行 CPU 密集型工作：
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-noscheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
 
@@ -411,8 +408,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     收到结果后，如果想要针对结果执行 CPU 密集型工作，应避免针对事件循环 IO netty 线程执行。 你可以改为提供自己的计划程序，以便提供自己的线程来运行工作，如下所示（需要 `import reactor.core.scheduler.Schedulers`）。
 
-    <a name="java4-scheduler"></a>
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a>Java SDK V4 (Maven com.azure::azure-cosmos) 异步 API
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
 
@@ -452,7 +448,9 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
  * **OS 打开文件资源限制**
 
-    某些 Linux 系统（例如 Red Hat）对打开的文件数和连接总数施加了上限。 运行以下命令以查看当前限制：
+    <!-- Notice: Replace the Red Hat with CentOS-->
+
+    某些 Linux 系统（例如 CentOS）对打开的文件数和连接总数施加了上限。 运行以下命令以查看当前限制：
 
     ```bash
     ulimit -a
@@ -526,11 +524,36 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     Azure Cosmos DB 的索引策略允许使用索引路径（setIncludedPaths 和 setExcludedPaths）指定要在索引中包括或排除的文档路径。 在事先知道查询模式的方案中，使用索引路径可改善写入性能并降低索引存储空间，因为索引成本与索引的唯一路径数目直接相关。 例如，以下代码演示如何使用“*”通配符从索引编制中纳入和排除文档的整个部分（也称为子树）。
 
-    <a name="java4-indexing"></a>
-    
-    <!--Pending for global document refreshment-->
-    
-    有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos"></a><a id="java4-indexing"></a>Java SDK V4 (Maven com.azure::azure-cosmos)
+
+    ```java
+
+    CosmosContainerProperties containerProperties = new CosmosContainerProperties(containerName, "/lastName");
+
+    // Custom indexing policy
+    IndexingPolicy indexingPolicy = new IndexingPolicy();
+    indexingPolicy.setIndexingMode(IndexingMode.CONSISTENT);
+
+    // Included paths
+    List<IncludedPath> includedPaths = new ArrayList<>();
+    includedPaths.add(new IncludedPath("/*"));
+    indexingPolicy.setIncludedPaths(includedPaths);
+
+    // Excluded paths
+    List<ExcludedPath> excludedPaths = new ArrayList<>();
+    excludedPaths.add(new ExcludedPath("/name/*"));
+    indexingPolicy.setExcludedPaths(excludedPaths);
+
+    containerProperties.setIndexingPolicy(indexingPolicy);
+
+    ThroughputProperties throughputProperties = ThroughputProperties.createManualThroughput(400);
+
+    database.createContainerIfNotExists(containerProperties, throughputProperties);
+    CosmosAsyncContainer containerIfNotExists = database.getContainer(containerName);
+
+    ```
+
+    有关详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
 
 ## <a name="throughput"></a>吞吐量
 <a name="measure-rus"></a>

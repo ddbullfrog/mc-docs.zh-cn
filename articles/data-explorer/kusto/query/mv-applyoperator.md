@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 95b61697f723ada2e2d119aeef67169de79f1b36
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 9730e407a9b133685cc8bb9d039e0cf3681afe1e
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515659"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146781"
 ---
 # <a name="mv-apply-operator"></a>mv-apply 运算符
 
@@ -164,7 +164,7 @@ _data
 |3|8|
 |4|10|
 
-## <a name="using-the-mv-apply-operator-to-sort-the-output-of-makelist-aggregate-by-some-key"></a>使用 `mv-apply` 运算符按某个键对 `makelist` 聚合的输出进行排序
+## <a name="using-the-mv-apply-operator-to-sort-the-output-of-make_list-aggregate-by-some-key"></a>使用 `mv-apply` 运算符按某个键对 `make_list` 聚合的输出进行排序
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

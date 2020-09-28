@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26a31dec76cd88f02c55a6f73fd16d47472ab810
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: dd8524d1f6d8595f15a0bf1f12927f59a65bb7fc
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245660"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>使用 PowerShell 在 Azure VM 上配置 Azure 资源的托管标识
 
@@ -44,7 +44,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>在创建 Azure VM 的过程中启用系统分配托管标识
 
-若要创建启用了系统分配的托管标识的 Azure VM，你的帐户需要[虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)角色分配。  无需其他 Azure AD 目录角色分配。
+若要创建启用了系统分配的托管标识的 Azure VM，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色分配。  无需其他 Azure AD 目录角色分配。
 
 1. 请参阅以下 Azure VM 快速入门之一，仅完成必要部分（“登录到 Azure”、“创建资源组”、“创建网络组”、“创建 VM”）。
 
@@ -61,7 +61,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>在现有 Azure VM 上启用系统分配托管标识
 
-若要在最初未预配系统分配的托管标识的 VM 上启用该托管标识，你的帐户需要[虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)角色分配。  无需其他 Azure AD 目录角色分配。
+若要在最初未预配系统分配的托管标识的 VM 上启用该托管标识，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色分配。  无需其他 Azure AD 目录角色分配。
 
 1. 使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 Azure 门户。 使用与包含 VM 的 Azure 订阅关联的帐户。
 
@@ -108,7 +108,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 ## <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>从 Azure VM 中禁用系统分配的托管标识
 
-若要在 VM 上禁用系统分配的托管标识，你的帐户需要[虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)角色分配。  无需其他 Azure AD 目录角色分配。
+若要在 VM 上禁用系统分配的托管标识，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色分配。  无需其他 Azure AD 目录角色分配。
 
 如果某个虚拟机不再需要系统分配的托管标识，但仍需要用户分配的托管标识，请使用以下 cmdlet：
 
@@ -140,7 +140,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 
 ### <a name="assign-a-user-assigned-managed-identity-to-a-vm-during-creation"></a>在创建过程中向 VM 分配用户分配的托管标识
 
-若要将用户分配的标识分配给 VM，你的帐户需要[虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)和[托管标识操作员](/role-based-access-control/built-in-roles#managed-identity-operator)角色分配。 无需其他 Azure AD 目录角色分配。
+若要将用户分配的标识分配给 VM，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)和[托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色分配。 无需其他 Azure AD 目录角色分配。
 
 1. 请参阅以下 Azure VM 快速入门之一，仅完成必要部分（“登录到 Azure”、“创建资源组”、“创建网络组”、“创建 VM”）。
 
@@ -157,7 +157,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>向现有 Azure VM 分配用户分配托管标识
 
-若要将用户分配的标识分配给 VM，你的帐户需要[虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)和[托管标识操作员](/role-based-access-control/built-in-roles#managed-identity-operator)角色分配。 无需其他 Azure AD 目录角色分配。
+若要将用户分配的标识分配给 VM，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)和[托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色分配。 无需其他 Azure AD 目录角色分配。
 
 1. 使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 Azure 门户。 使用与包含 VM 的 Azure 订阅关联的帐户。
 
@@ -187,7 +187,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>从 Azure VM 中删除用户分配的托管标识
 
-若要从 VM 中删除用户分配的标识，你的帐户需要[虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)角色分配。
+若要从 VM 中删除用户分配的标识，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色分配。
 
 如果 VM 具有多个用户分配的托管标识，则可以使用以下命令将这些标识删除到只剩一个。 请务必将 `<RESOURCE GROUP>` 和 `<VM NAME>` 参数值替换为自己的值。 `<USER ASSIGNED IDENTITY NAME>` 是用户分配的托管标识的名称属性，该属性应保留在 VM 上。 可以通过查询 VM 对象的 `Identity` 属性找到该信息。  例如，`$vm.Identity`：
 

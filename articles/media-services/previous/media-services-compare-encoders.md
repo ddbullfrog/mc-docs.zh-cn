@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 09/07/2019
+ms.date: 09/28/2019
 ms.author: v-jay
 ms.reviewer: anilmur
-ms.openlocfilehash: 5ad6b697e69b1dd87d23bf5f16352d3af21fc07e
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 055b24f564be0421ae40adfdba006ceaa6d894ac
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413777"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245555"
 ---
-# <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器之间的对比  
+# <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器之间的对比
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 本主题对 **Media Encoder Standard** 和**媒体编码器高级工作流**的编码功能进行了比较。
 

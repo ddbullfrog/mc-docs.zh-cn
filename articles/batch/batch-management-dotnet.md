@@ -2,18 +2,20 @@
 title: 使用 Batch Management .NET 库管理帐户资源
 description: 使用 Batch Management .NET 库创建、删除和修改 Azure Batch 帐户资源。
 ms.topic: how-to
+ms.service: batch
 origin.date: 04/24/2017
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: yes|no
 ms.testdate: 09/07/2018
 ms.author: v-yeche
-ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 2010fc25527aca661111745bcda9a9dce306d5b4
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.custom: seodec18, has-adal-ref, devx-track-csharp
+ms.openlocfilehash: 9e80d7089f63b01c3b5fb8163648ae6b45f5d509
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654917"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146379"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 
@@ -173,23 +175,23 @@ Batch Management .NET 库是 Azure 资源提供程序客户端，可与 [Azure �
 [aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "将应用程序与 Azure Active Directory 集成"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch
-[api_mgmt_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch
+[api_mgmt_net]: https://docs.azure.cn/dotnet/api/overview/batch
 [azure_portal]: https://portal.azure.cn
 [azure_storage]: https://www.azure.cn/home/features/storage/
-[azure_tokencreds]: https://docs.microsoft.com/previous-versions/azure/reference/mt167728(v=azure.100?view=azure-dotnet)
+[azure_tokencreds]: https://docs.microsoft.com/previous-versions/azure/reference/mt167728(v=azure.100)
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [net_batch_client]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.batchclient
-[net_list_keys]: https://docs.microsoft.com/previous-versions/azure/mt463199(v=azure.100?view=azure-dotnet)
+[net_list_keys]: https://docs.microsoft.com/previous-versions/azure/mt463199(v=azure.100)
 [net_create]: https://docs.microsoft.com/previous-versions/azure/mt463210(v=azure.100)
 [net_delete]: https://docs.microsoft.com/previous-versions/azure/mt463128(v=azure.100)
-[net_regenerate_keys]: https://docs.microsoft.com/previous-versions/azure/mt463210(v=azure.100)previous-versions/azure/mt463213(v=azure.100)
+[net_regenerate_keys]: https://docs.microsoft.com/previous-versions/azure/mt463213(v=azure.100)
 [net_sharedkeycred]: https://docs.azure.cn/dotnet/api/microsoft.azure.batch.auth.batchsharedkeycredentials
-[net_mgmt_client]: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batch.batchmanagementclient
-[net_mgmt_subscriptions]: https://docs.microsoft.com/previous-versions/azure/mt463210(v=azure.100)previous-versions/azure/mt592937(v=azure.100?view=azure-dotnet)
-[net_mgmt_listaccounts]: https://docs.microsoft.com/previous-versions/azure/mt463210(v=azure.100)previous-versions/azure/mt463134(v=azure.100)
-[resman_api]: https://docs.microsoft.com/previous-versions/azure/mt463210(v=azure.100)previous-versions/azure/mt463134(v=azure.100)
+[net_mgmt_client]: https://docs.azure.cn/dotnet/api/microsoft.azure.management.batch.batchmanagementclient
+[net_mgmt_subscriptions]: https://docs.microsoft.com/previous-versions/azure/mt592937(v=azure.100)
+[net_mgmt_listaccounts]: https://docs.microsoft.com/previous-versions/azure/mt463134(v=azure.100)
+[resman_api]: https://docs.microsoft.com/previous-versions/azure/mt463134(v=azure.100)
 [resman_client]: https://docs.azure.cn/dotnet/api/microsoft.azure.management.resourcemanager
-[resman_subclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager
+[resman_subclient]: https://docs.azure.cn/dotnet/api/microsoft.azure.management.resourcemanager
 [resman_overview]: ../azure-resource-manager/management/overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png

@@ -5,19 +5,19 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: adieldar
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 12/04/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: 61a97c9b7ee2403a0b2226353e12a33653b6c3a7
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 39dd5f3abc1bab410ba1c113c212c5c12606513e
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515837"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146264"
 ---
 # <a name="debug-kusto-query-language-inline-python-using-vs-code"></a>使用 VS Code 调试 Kusto 查询语言内联 Python
 
-Azure 数据资源管理器支持使用 [python() 插件](/data-explorer/kusto/query/pythonplugin)运行 Kusto 查询语言中嵌入的 Python 代码。 插件运行时托管在沙盒中，这是一个隔离的安全 Python 环境。 python() 插件功能扩展了 Kusto 查询语言的本机功能，并提供了大量的 OSS Python 包。 使用此扩展，你可以在查询中运行高级算法，例如机器学习、人工智能、统计和时间系列。
+Azure 数据资源管理器支持使用 [python() 插件](kusto/query/pythonplugin.md)运行 Kusto 查询语言中嵌入的 Python 代码。 插件运行时托管在沙盒中，这是一个隔离的安全 Python 环境。 python() 插件功能扩展了 Kusto 查询语言的本机功能，并提供了大量的 OSS Python 包。 使用此扩展，你可以在查询中运行高级算法，例如机器学习、人工智能、统计和时间系列。
 
 Kusto 查询语言工具不适用于开发和调试 Python 算法。 因此，请在你喜欢使用的 Python 集成开发环境（例如 Jupyter、PyCharm、VS 或 VS Code）中开发算法。 完成算法后，复制并粘贴到 KQL 中。 为了改进和简化此工作流，Azure 数据资源管理器支持在 Kusto Explorer 或 Web UI 客户端与 VS Code 之间进行集成，以便创作和调试 KQL 内联 Python 代码。 
 

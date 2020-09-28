@@ -1,17 +1,21 @@
 ---
 title: 计划作业
 description: 使用作业计划来管理任务。
-ms.topic: article
-ms.date: 04/29/2020
-ms.author: v-tawe
-ms.custom: seodec18
+ms.topic: how-to
+ms.service: batch
 origin.date: 02/20/2020
-ms.openlocfilehash: ceb2fd9b9e7688c6d0390e242aaccd078b4d25a1
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: 02/20/2020
+ms.author: v-yeche
+ms.custom: seodec18
+ms.openlocfilehash: 76c099f409e8daca3eae0e4123994fa57c706b0f
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126779"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146390"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>计划作业以提高效率
 
@@ -23,13 +27,11 @@ ms.locfileid: "84126779"
 
 ## <a name="use-the-portal-to-schedule-a-job"></a>使用门户来计划作业
 
-   1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-   2. 选择要在其中计划作业的 Batch 帐户。
+2. 选择要在其中计划作业的 Batch 帐户。
 
-   3. 选择“添加”以创建新的作业计划，并填写“基本窗体”。  
-
-
+3. 选择“添加”以创建新的作业计划，并填写“基本窗体”。  
 
 ![计划作业][1]
 
@@ -49,7 +51,6 @@ ms.locfileid: "84126779"
 
 ![指定池][2]
 
-
 **池 ID**：标识要在其中运行作业的池。
 
 **作业配置任务**：选择“更新”，以便为作业管理器任务以及作业准备和释放任务（如果使用这些任务）命名。 
@@ -66,20 +67,15 @@ ms.locfileid: "84126779"
 
 选择“保存”后，如果在左侧导航栏中转到“作业计划”，则可通过选择“执行信息”来跟踪作业的执行情况。   
 
-
 ## <a name="for-more-information"></a>更多信息
 
-若要使用 Azure CLI 来管理作业，请参阅 [az batch job-schedule](https://docs.azure.cn/cli/batch/job-schedule?view=azure-cli-latest)。
+若要使用 Azure CLI 来管理作业，请参阅 [az batch job-schedule](https://docs.azure.cn/cli/batch/job-schedule#az-batch-job-schedule)。
 
 ## <a name="next-steps"></a>后续步骤
 
 [创建任务依赖关系以运行依赖于其他任务的任务](batch-task-dependencies.md)。
 
-
-
-
-
 [1]: ./media/batch-job-schedule/add_job_schedule-02.png
 [2]: ./media/batch-job-schedule/add_job_schedule-03.png
 
-
+<!-- Update_Description: update meta properties, wording update, update link -->

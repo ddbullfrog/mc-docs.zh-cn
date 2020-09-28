@@ -4,16 +4,16 @@ description: 介绍了为 Azure 门户构造 UI 定义时要使用的元素。
 ms.topic: conceptual
 origin.date: 07/13/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 460f0b01ea9dc886e3acbaa4e73609918ef65ba1
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 885967d3828a138c7cc69977469b9a0821db0747
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807915"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146585"
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition 元素
 
@@ -53,6 +53,7 @@ ms.locfileid: "88807915"
 
 - [Microsoft.Common.CheckBox](microsoft-common-checkbox.md)
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
+- [Microsoft.Common.EditableGrid](microsoft-common-editablegrid.md)
 - [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
 - [Microsoft.Common.InfoBox](microsoft-common-infobox.md)
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)

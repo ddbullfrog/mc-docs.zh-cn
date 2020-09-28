@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 06/08/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 4b55005f584a21d9f26b71c2c0650d002cd5b5f2
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c7010802e2fd485ffc02ef85f23af402aaa2b15c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439538"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245634"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在客户端上插入广告
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 本文包含有关如何在客户端上插入各种类型的广告的信息。
 
 有关实时流式处理视频中隐藏式字幕和广告支持的详细信息，请参阅[支持的隐藏式字幕和广告插入标准](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads)。

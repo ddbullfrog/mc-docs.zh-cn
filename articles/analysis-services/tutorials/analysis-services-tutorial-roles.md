@@ -1,19 +1,21 @@
 ---
 title: 教程 - 配置 Azure Analysis Services 角色 | Azure
-description: 了解如何使用 Azure 门户或 SQL Server Management Studio 配置 Azure Analysis Services 管理员和用户角色。
-author: rockboyfor
+description: 在本教程中了解如何使用 Azure 门户或 SQL Server Management Studio 配置 Azure Analysis Services 管理员和用户角色。
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 10/30/2019
-ms.date: 03/23/2020
+origin.date: 08/31/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: c31b54b870c70854682668ac35988527359c1327
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: ee2b5ffe321b007b696568d7865d329dcea7a016
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79543739"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146753"
 ---
 <!--Notice: Verify successfully-->
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>教程：配置服务器管理员和用户角色
@@ -48,7 +50,7 @@ ms.locfileid: "79543739"
 
 <!--MOONCAKE: Remove the four empty chars to avoid the wrong code format-->
 
-![在 Azure 中获取服务器名称](./media/analysis-services-tutorial-roles/aas-copy-server-name.png)
+:::image type="content" source="./media/analysis-services-tutorial-roles/aas-copy-server-name.png" alt-text="在 Azure 中获取服务器名称":::
 
 <!--MOONCAKE: Remove the four empty chars to avoid the wrong code format-->
 
@@ -58,28 +60,28 @@ ms.locfileid: "79543739"
 
 1. 在 SSMS >“对象资源管理器”  中，单击“连接”   > “Analysis Services”  。
 
-    ![连接](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-ssms-connect.png" alt-text="“连接”":::
 
 2. 在“连接到服务器”对话框的“服务器名称”中，粘贴从门户复制的服务器名称。   在“身份验证”  中选择“具有 MFA 支持的 Active Directory 通用版”  ，  输入用户帐户，然后按“连接”。
 
-    ![在 SSMS 中连接](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png" alt-text="在 SSMS 中连接":::
 
     > [!TIP]
-    > 建议选择“具有 MFA 支持的 Active Directory 通用版”。 这种身份验证类型支持[非交互式多重身份验证](../../sql-database/sql-database-ssms-mfa-authentication.md)。 
+    > 建议选择“具有 MFA 支持的 Active Directory 通用版”。 这种身份验证类型支持[非交互式多重身份验证](../../azure-sql/database/authentication-mfa-ssms-overview.md)。 
 
 3. 在“对象资源管理器”  中，以展开方式查看服务器对象。 右键单击即可查看服务器属性。
 
-    ![在 SSMS 中连接](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png" alt-text="SSMS 中的对象资源管理器":::
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>将用户帐户添加到服务器管理员角色
 
-在此任务中，请将用户或组帐户从 Azure AD 添加到服务器管理员角色。 如果要添加安全组，必须将 `MailEnabled` 属性设置为 `True`。
+在此任务中，请将用户或组帐户从 Azure AD 添加到服务器管理员角色。 如果指定安全组，请使用 `obj:groupid@tenantid`。
 
 1. 在“对象资源管理器”中，右键单击服务器名称，然后单击“属性”。   
 2. 在“Analysis Server 属性”  窗口中，单击“安全性”   >   “添加”。
 3. 在“选择用户或组”窗口的 Azure AD 中输入用户或组帐户，然后单击“添加”。   
 
-    ![添加服务器管理员](./media/analysis-services-tutorial-roles/aas-add-server-admin.png)
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-add-server-admin.png" alt-text="添加服务器管理员":::
 
 4. 单击“确定”  ，关闭“Analysis Server 属性”  。
 
@@ -93,11 +95,11 @@ ms.locfileid: "79543739"
 1. 在“对象资源管理器”  中，展开“数据库”   > “adventureworks”   >   “角色”。 
 2. 右键单击“Internet 销售管理员”，  然后单击“充当的脚本角色”   > “CREATE OR REPLACE TO”   >   “新建查询编辑器窗口”。
 
-    ![新建查询编辑器窗口](./media/analysis-services-tutorial-roles/aas-add-db-admin.png)
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-add-db-admin.png" alt-text="新建查询编辑器窗口":::
 
 3. 在“XMLAQuery”中将“memberName:”的值更改为 Azure AD 中的某个用户或组帐户。   默认情况下，已经包括登录时使用的帐户；但是，你不需添加自己的帐户，因为你已经是服务器管理员。
 
-    ![XMLA 查询中的 TMSL 脚本](./media/analysis-services-tutorial-roles/aas-add-db-admin-script.png)
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-add-db-admin-script.png" alt-text="XMLA 查询中的 TMSL 脚本":::
 
 4. 按 **F5** 执行脚本。
 
@@ -137,7 +139,7 @@ ms.locfileid: "79543739"
 1. 在“对象资源管理器”中单击服务器名，然后单击“刷新”或按 **F5**。 
 2. 展开“数据库” > “adventureworks” > “角色”。   验证在前述任务中添加的用户帐户和新角色更改是否显示。   
 
-    ![在对象资源管理器中验证](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png" alt-text="在对象资源管理器中验证":::
 
 ## <a name="clean-up-resources"></a>清理资源
 

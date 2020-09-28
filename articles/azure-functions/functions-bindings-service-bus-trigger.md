@@ -4,14 +4,15 @@ description: 了解如何在创建 Azure 服务总线消息时运行 Azure Funct
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 08/11/2020
+ms.date: 09/25/2020
 ms.author: v-junlch
-ms.openlocfilehash: 6d177210664903b54d02e6ae81f4d98ec0fcdb9b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 701f40c67f6e50365fe7cdaee2aa4f8c95725db0
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246707"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Functions 的 Azure 服务总线触发器
 

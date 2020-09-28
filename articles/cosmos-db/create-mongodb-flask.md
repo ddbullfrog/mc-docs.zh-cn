@@ -1,21 +1,23 @@
 ---
-title: 使用 Azure Cosmos DB API for MongoDB 构建 Python Flask Web 应用
-description: 提供了一个 Python Flask 代码示例，可以参考该示例使用 Azure Cosmos DB API for MongoDB 进行连接和查询。
-author: rockboyfor
+title: 使用 Azure Cosmos DB 的 API for MongoDB 构建 Python Flask Web 应用
+description: 演示了一个 Python Flask 代码示例，可以参考该示例使用 Azure Cosmos DB 的用于 MongoDB 的 API 进行连接和查询。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 12/26/2018
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: tracking-python
-ms.openlocfilehash: 36f6e935af8c48a7e609c337b2ef77a488ca1107
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.custom: devx-track-python
+ms.openlocfilehash: bb6f0c11f360917bd39be38c6712a71042896b18
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098675"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246785"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 Python 应用
 
@@ -95,7 +97,7 @@ ms.locfileid: "85098675"
     heading = "ToDo Reminder"
     ```
 
-## <a name="run-the-web-app"></a>运行 Web 应用
+## <a name="run-the-web-app"></a><a name="run-the-web-app"></a>运行 Web 应用
 
 1. 确保 Azure Cosmos DB 模拟器正在运行。
 
@@ -113,7 +115,7 @@ ms.locfileid: "85098675"
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 若要针对实时 Azure Cosmos DB 帐户测试代码，请获取连接字符串信息。 然后将其复制到此应用中。
 
@@ -131,14 +133,16 @@ ms.locfileid: "85098675"
 
 ## <a name="deploy-to-azure"></a>“部署到 Azure”
 
-若要部署此应用，可在 Azure 中创建新的 Web 应用，并使用此 GitHub 存储库分支启用持续部署。 按照此[教程](/app-service/deploy-continuous-deployment)，在 Azure 中使用 GitHub 设置持续部署。
+若要部署此应用，可在 Azure 中创建新的 Web 应用，并使用此 GitHub 存储库分支启用持续部署。
+
+<!--Not Available on  [tutorial](/app-service/deploy-continuous-deployment)-->
 
 部署到 Azure 时，应删除应用程序密钥并确保以下部分未被注释掉：
 
 ```python
-client = MongoClient(os.getenv("MONGOURL"))
-db = client.test    #Select the database
-db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
+    client = MongoClient(os.getenv("MONGOURL"))
+    db = client.test    #Select the database
+    db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
 然后需要将 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 添加到应用程序设置中。 可参阅此[教程](/app-service/configure-common#configure-app-settings)了解有关 Azure Web 应用中应用程序设置的详细信息。

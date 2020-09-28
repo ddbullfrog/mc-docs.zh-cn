@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: da8cb891784ec523319166a4b143db1143371d48
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 4645405eead8b655657ec093b14c1f745e735a33
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413277"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245048"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何获取媒体处理器实例
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)

@@ -8,18 +8,18 @@ author: WenJason
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/09/2020
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 8bbcbede718785dae93b39c3f8b3648751c9bae2
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 316fcd531dd2f664b8773972a50daf9b16dc1e7f
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098613"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026611"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>为 Azure 负载均衡器配置 TCP 空闲超时设置
 
@@ -68,6 +68,6 @@ $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 
 [内部负载均衡器概述](load-balancer-internal-overview.md)
 
-[开始配置面向 Internet 的负载均衡器](quickstart-create-standard-load-balancer-powershell.md)
+[开始配置面向 Internet 的负载均衡器](quickstart-load-balancer-standard-public-powershell.md)
 
 [配置负载均衡器分发模式](load-balancer-distribution-mode.md)

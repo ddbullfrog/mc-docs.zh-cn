@@ -8,18 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-origin.date: 11/28/2018
-ms.date: 10/10/2019
+ms.topic: overview
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3234ff762fb8f5dc7fb0d7f998cea101deea381a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: aa0c9454e0a65c733d951b4795c315830f927700
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72292096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245525"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>什么是与 Azure AD 的联合？
 
@@ -36,10 +35,9 @@ ms.locfileid: "72292096"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [什么是混合标识？](/active-directory/hybrid/whatis-hybrid-identity)
+- [什么是混合标识？](./whatis-hybrid-identity.md)
 - [什么是密码哈希同步？](whatis-phs.md)
 - [什么是联合身份验证？](whatis-fed.md)
 - [联合身份验证的工作原理](how-to-connect-fed-whatis.md)
 - [使用 PingFederate 进行联合身份验证](how-to-connect-install-custom.md#configuring-federation-with-pingfederate)
 
-<!-- Update_Description: link update -->

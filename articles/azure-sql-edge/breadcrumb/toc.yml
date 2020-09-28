@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Azure SQL Edge
+      tocHref: /azure-sql-edge/
+      topicHref: /azure-sql-edge/index
+      items:
+        - name: 安全性
+          tocHref: 'https://docs.microsoft.com/sql/linux/'
+          topicHref: /azure-sql-edge/index

@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/21/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 98f5e52005c19a01f2b2d5345fc2b8344ba1c708
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 7678743e25edc10159413b5c5bc6a8a4743e6a8c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244751"
 ---
-# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>授权 Microsoft&reg; 平滑流式处理客户端移植工具包 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>授权 Microsoft&reg; 平滑流式处理客户端移植工具包
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 ## <a name="overview"></a>概述
 Microsoft 平滑流式处理客户端移植工具包（简称 **SSPK**）是经过优化的平滑流式处理客户端实现，可帮助嵌入式设备制造商、有线和移动运营商、内容服务提供商、手持设备制造商、独立软件供应商 (ISV) 和解决方案提供商创建产品和服务，用于流式传输平滑流式处理格式的自适应内容。 SSPK 是平滑流式处理客户端的与设备和平台无关的实现，许可接受方可将它移植到任何设备和平台。 
 

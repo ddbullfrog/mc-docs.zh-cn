@@ -2,19 +2,21 @@
 title: 创建 Azure 防火墙测试环境
 description: 此脚本示例创建防火墙和测试网络环境。 网络具有一个包含三个子网的 VNet。
 services: virtual-network
-author: rockboyfor
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
 origin.date: 11/19/2019
-ms.date: 01/06/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: e84b5c540ac28f013322dc73bb95e8a34d6fc2a6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a41a9fe43a178808f6b0fea9ffa347c1f3e80786
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75600121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246793"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>创建 Azure 防火墙测试环境
 
@@ -27,6 +29,8 @@ ms.locfileid: "75600121"
 创建了用户定义的一个路由，它引导来自 ServersSubnet 的网络流量穿过应用了防火墙规则的防火墙。
 
 可以通过本地 PowerShell 安装来运行脚本。 
+
+<!--Not Available on Azure Cloud Shell-->
 
 如果在本地运行 PowerShell，则此脚本需要 Azure PowerShell。 要查找已安装的版本，请运行 `Get-Module -ListAvailable Az`。 
 
@@ -152,7 +156,6 @@ Remove-AzResourceGroup -Name AzfwSampleScriptChinaEast -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->
-<!--ms.date: 07/22/2019-->

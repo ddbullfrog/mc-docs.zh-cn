@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
-ms.openlocfilehash: 37322d0f20ce99251ac9989483cb9a53c65d43f1
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 0cd82d33bdf8f745fd9d86068a7ee89987b4d6e0
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245613"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>快速入门：从 Azure Active Directory (Azure AD) 租户中删除应用程序
 
@@ -31,7 +31,7 @@ ms.locfileid: "89046466"
 - 可选：完成[配置应用](add-application-portal-configure.md)。
 
 >[!IMPORTANT]
->使用非生产性环境测试本快速入门中的步骤。
+>使用非生产环境测试本快速入门中的步骤。
 
 ## <a name="delete-an-application-from-your-azure-ad-tenant"></a>从 Azure AD 租户中删除应用程序
 

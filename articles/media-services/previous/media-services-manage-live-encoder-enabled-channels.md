@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 06/08/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: juliako
-ms.openlocfilehash: f53f15812e804aaf998e9e85c4a64a4ae9d92b9e
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: bb951e1b17b9ebc3a992dcd0e2293773ad2ea473
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439535"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244896"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒体服务执行实时流式处理以创建多比特率流
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > 自 2018 年 5 月 12 日起，实时频道将不再支持 RTP/MPEG-2 传输流引入协议。 请从 RTP/MPEG-2 迁移到 RTMP 或分段 MP4（平滑流式处理）引入协议。

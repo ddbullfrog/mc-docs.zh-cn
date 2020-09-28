@@ -1,21 +1,22 @@
 ---
 title: 创建和部署模板规格
 description: 了解如何通过 ARM 模板创建模板规格。 然后，将模板规格部署到订阅中的资源组。
+origin.date: 08/31/2020
 author: rockboyfor
-origin.date: 08/06/2020
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: f0ecc19c8c671a7437807d3e785dac46f2d4ec4b
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: dcb39a074e77e2c9e7d54164fbf66f8e1413e7b0
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807932"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146507"
 ---
-<!--Waiting for approval via sending request on 08/25/2020-->
+<!--Not Avaialble on Mooncake-->
+<!--REASON: IS PRIVATE PREVIEW TILL 09/22/2020-->
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>快速入门：创建和部署模板规格（预览）
 
 本快速入门介绍如何将 Azure 资源管理器模板（ARM 模板）打包为[模板规格](template-specs.md)，然后部署该模板规格。模板规格包含用于部署存储帐户的 ARM 模板。
@@ -27,13 +28,13 @@ ms.locfileid: "88807932"
 > [!NOTE]
 > 模板规格当前提供预览版。 若要使用它，必须[注册等待列表](https://aka.ms/templateSpecOnboarding)。
 >
-> 从等待列表获得批准后，你将获得有关安装预览版 PowerShell 模块的说明。
+> 从等待列表获得批准后，你将获得有关安装预览版 PowerShell 模块和预览版 CLI 模块的说明。
 
 ## <a name="create-template-spec"></a>创建模板规格
 
-模板规格是名为 Microsoft.Resources/templateSpecs 的新资源类型。 若要创建模板规格，你可以使用 Azure PowerShell 或 ARM 模板。 在所有选项中，你都需要打包在模板规格中的 ARM 模板。
+模板规格是名为 Microsoft.Resources/templateSpecs 的新资源类型。 若要创建模板规格，可以使用 Azure PowerShell、Azure CLI 或 ARM 模板。 在所有选项中，你都需要打包在模板规格中的 ARM 模板。
 
-使用 PowerShell 时，ARM 模板作为参数传递给命令。 对于 ARM 模板，要打包在模板规格中的 ARM 模板嵌入在模板规格定义中。
+使用 PowerShell 和 CLI 时，ARM 模板作为参数传递给命令。 对于 ARM 模板，要打包在模板规格中的 ARM 模板嵌入在模板规格定义中。
 
 这些选项如下所示。
 
@@ -105,13 +106,90 @@ ms.locfileid: "88807932"
 
 1. 然后，在该资源组中创建模板规格。 将新的模板规格命名为 storageSpec。
 
-    ```powershell
+    ```azurepowershell
     New-AzTemplateSpec `
-     -ResourceGroupName templateSpecRG `
-     -Name storageSpec `
-     -Version "1.0" `
-     -Location chinanorth2 `
-     -TemplateJsonFile "c:\Templates\azuredeploy.json"
+      -Name storageSpec `
+      -Version "1.0" `
+      -ResourceGroupName templateSpecRG `
+      -Location chinanorth2 `
+      -TemplateJsonFile "c:\Templates\azuredeploy.json"
+    ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+1. 使用 CLI 创建模板规格时，可以传入本地模板。 复制以下模板并将其本地保存到名为 azuredeploy.json 的文件中。 本快速入门假设你已将模板保存到路径 c:\Templates\azuredeploy.json，不过你可以使用任何路径。
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "storageAccountType": {
+          "type": "string",
+          "defaultValue": "Standard_LRS",
+          "allowedValues": [
+            "Standard_LRS",
+            "Standard_GRS",
+            "Premium_LRS"
+          ],
+          "metadata": {
+            "description": "Storage Account type"
+          }
+        },
+        "location": {
+          "type": "string",
+          "defaultValue": "[resourceGroup().location]",
+          "metadata": {
+            "description": "Location for all resources."
+          }
+        }
+      },
+      "variables": {
+        "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
+        "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
+        "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Storage/storageAccounts",
+          "apiVersion": "2019-04-01",
+          "name": "[variables('storageAccountName')]",
+          "location": "[parameters('location')]",
+          "sku": {
+            "name": "[parameters('storageAccountType')]"
+          },
+          "kind": "StorageV2",
+          "properties": {}
+        }
+      ],
+      "outputs": {
+        "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
+        "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
+        "storageAccountName": {
+          "type": "string",
+          "value": "[variables('storageAccountName')]"
+        }
+      }
+    }
+    ```
+
+1. 创建新的资源组以包含模板规格。
+
+    ```azurecli
+    az group create \
+      --name templateSpecRG \
+      --location chinanorth2
+    ```
+
+1. 然后，在该资源组中创建模板规格。 将新的模板规格命名为 storageSpec。
+
+    ```azurecli
+    az ts create \
+      --name storageSpec \
+      --version "1.0" \
+      --resource-group templateSpecRG \
+      --location "chinanorth2" \
+      --template-file "c:\Templates\azuredeploy.json"
     ```
 
 # <a name="arm-template"></a>[ARM 模板](#tab/azure-resource-manager)
@@ -123,115 +201,115 @@ ms.locfileid: "88807932"
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {},
-       "functions": [],
-       "variables": {},
-       "resources": [
-           {
-               "type": "Microsoft.Resources/templateSpecs",
-               "apiVersion": "2019-06-01-preview",
-               "name": "storageSpec",
-               "location": "chinanorth2",
-               "properties": {
-                   "displayName": "Storage template spec"
-               },
-               "tags": {},
-               "resources": [
-                   {
-                       "type": "versions",
-                       "apiVersion": "2019-06-01-preview",
-                       "name": "1.0",
-                       "location": "chinanorth2",
-                       "dependsOn": [ "storageSpec" ],
-                       "properties": {
-                           "template": {
-                               "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                               "contentVersion": "1.0.0.0",
-                               "parameters": {
-                                   "storageAccountType": {
-                                       "type": "string",
-                                       "defaultValue": "Standard_LRS",
-                                       "allowedValues": [
-                                           "Standard_LRS",
-                                           "Standard_GRS",
-                                           "Premium_LRS"
-                                       ],
-                                       "metadata": {
-                                           "description": "Storage Account type"
-                                       }
-                                   },
-                                   "location": {
-                                       "type": "string",
-                                       "defaultValue": "[[resourceGroup().location]",
-                                       "metadata": {
-                                           "description": "Location for all resources."
-                                       }
-                                   }
-                               },
-                               "variables": {
-                                   "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "functions": [],
+      "variables": {},
+      "resources": [
+        {
+          "type": "Microsoft.Resources/templateSpecs",
+          "apiVersion": "2019-06-01-preview",
+          "name": "storageSpec",
+          "location": "chinanorth2",
+          "properties": {
+            "displayName": "Storage template spec"
+          },
+          "tags": {},
+          "resources": [
+            {
+              "type": "versions",
+              "apiVersion": "2019-06-01-preview",
+              "name": "1.0",
+              "location": "chinanorth2",
+              "dependsOn": [ "storageSpec" ],
+              "properties": {
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                  "contentVersion": "1.0.0.0",
+                  "parameters": {
+                    "storageAccountType": {
+                      "type": "string",
+                      "defaultValue": "Standard_LRS",
+                      "allowedValues": [
+                        "Standard_LRS",
+                        "Standard_GRS",
+                        "Premium_LRS"
+                      ],
+                      "metadata": {
+                        "description": "Storage Account type"
+                      }
+                    },
+                    "location": {
+                      "type": "string",
+                      "defaultValue": "[[resourceGroup().location]",
+                      "metadata": {
+                        "description": "Location for all resources."
+                      }
+                    }
+                  },
+                  "variables": {
+                    "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
 
-                                   "storageAccountName": "[[concat('store', uniquestring(resourceGroup().id))]"
-                               },
-                               "resources": [
-                                   {
-                                       "type": "Microsoft.Storage/storageAccounts",
-                                       "apiVersion": "2019-04-01",
-                                       "name": "[[variables('storageAccountName')]",
-                                       "location": "[[parameters('location')]",
-                                       "sku": {
-                                           "name": "[[parameters('storageAccountType')]"
-                                       },
-                                       "kind": "StorageV2",
-                                       "properties": {}
-                                   }
-                               ],
-                               "outputs": {
+                    "storageAccountName": "[[concat('store', uniquestring(resourceGroup().id))]"
+                  },
+                  "resources": [
+                    {
+                      "type": "Microsoft.Storage/storageAccounts",
+                      "apiVersion": "2019-04-01",
+                      "name": "[[variables('storageAccountName')]",
+                      "location": "[[parameters('location')]",
+                      "sku": {
+                        "name": "[[parameters('storageAccountType')]"
+                      },
+                      "kind": "StorageV2",
+                      "properties": {}
+                    }
+                  ],
+                  "outputs": {
 
-                                   "storageAccountName": {
-                                       "type": "string",
-                                       "value": "[[variables('storageAccountName')]"
-                                   }
-                               }
-                           }
-                       },
-                       "tags": {}
-                   }
-               ]
-           }
-       ],
-       "outputs": {}
+                    "storageAccountName": {
+                      "type": "string",
+                      "value": "[[variables('storageAccountName')]"
+                    }
+                  }
+                }
+              },
+              "tags": {}
+            }
+          ]
+        }
+      ],
+      "outputs": {}
     }
     ```
 
 1. 使用 Azure CLI 或 PowerShell 创建新的资源组。
 
-    ```azurecli
-    az group create \
-     --name templateSpecRG \
-     --location chinanorth2
-    ```
-
     ```azurepowershell
     New-AzResourceGroup `
-     -Name templateSpecRG `
-     -Location chinanorth2
+      -Name templateSpecRG `
+      -Location chinanorth2
+    ```
+
+    ```azurecli
+    az group create \
+      --name templateSpecRG \
+      --location chinanorth2
     ```
 
 1. 使用 Azure CLI 或 PowerShell 部署模板。
 
-    ```azurecli
-    az deployment group create \
-     --name templateSpecRG \
-     --template-file "c:\Templates\azuredeploy.json"
-    ```
-
     ```azurepowershell
     New-AzResourceGroupDeployment `
-     -ResourceGroupName templateSpecRG `
-     -TemplateFile "c:\Templates\azuredeploy.json"
+      -ResourceGroupName templateSpecRG `
+      -TemplateFile "c:\Templates\azuredeploy.json"
+    ```
+
+    ```azurecli
+    az deployment group create \
+      --name templateSpecRG \
+      --template-file "c:\Templates\azuredeploy.json"
     ```
 
 ---
@@ -246,8 +324,8 @@ ms.locfileid: "88807932"
 
     ```azurepowershell
     New-AzResourceGroup `
-     -Name storageRG `
-     -Location chinanorth2
+      -Name storageRG `
+      -Location chinanorth2
     ```
 
 1. 获取模板规格的资源 ID。
@@ -268,9 +346,45 @@ ms.locfileid: "88807932"
 
     ```azurepowershell
     New-AzResourceGroupDeployment `
-     -TemplateSpecId $id `
-     -ResourceGroupName storageRG `
-     -StorageAccountType Standard_GRS
+      -TemplateSpecId $id `
+      -ResourceGroupName storageRG `
+      -storageAccountType Standard_GRS
+    ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+1. 创建资源组以包含新的存储帐户。
+
+    ```azurecli
+    az group create \
+      --name storageRG \
+      --location chinanorth2
+    ```
+
+1. 获取模板规格的资源 ID。
+
+    ```azurecli
+    id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+    ```
+
+    > [!NOTE]
+    > 获取模板规格 ID 并将其分配到 Windows PowerShell 中的变量时存在一个已知问题。
+
+1. 部署模板规格。
+
+    ```azurecli
+    az deployment group create \
+      --resource-group storageRG \
+      --template-spec $id
+    ```
+
+1. 提供的参数与 ARM 模板的完全一样。 使用存储帐户类型的参数重新部署模板规格。
+
+    ```azurecli
+    az deployment group create \
+      --resource-group storageRG \
+      --template-spec $id \
+      --parameters storageAccountType='Standard_GRS'
     ```
 
 # <a name="arm-template"></a>[ARM 模板](#tab/azure-resource-manager)
@@ -305,30 +419,30 @@ ms.locfileid: "88807932"
 
 1. 使用 Azure CLI 或 PowerShell 为存储帐户创建新的资源组。
 
-    ```azurecli
-    az group create \
-     --name storageRG \
-     --location chinanorth2
-    ```
-
     ```azurepowershell
     New-AzResourceGroup `
-     -Name storageRG `
-     -Location chinanorth2
+      -Name storageRG `
+      -Location chinanorth2
+    ```
+
+    ```azurecli
+    az group create \
+      --name storageRG \
+      --location chinanorth2
     ```
 
 1. 使用 Azure CLI 或 PowerShell 部署模板。
 
-    ```azurecli
-    az deployment group create \
-     --name storageRG \
-     --template-file "c:\Templates\storage.json"
-    ```
-
     ```azurepowershell
     New-AzResourceGroupDeployment `
-     -ResourceGroupName storageRG `
-     -TemplateFile "c:\Templates\storage.json"
+      -ResourceGroupName storageRG `
+      -TemplateFile "c:\Templates\storage.json"
+    ```
+
+    ```azurecli
+    az deployment group create \
+      --name storageRG \
+      --template-file "c:\Templates\storage.json"
     ```
 
 ---
@@ -353,5 +467,4 @@ ms.locfileid: "88807932"
 
 若要了解有关创建包含关联模板的模板规格的信息，请参阅[创建关联模板的模板规格](template-specs-create-linked.md)。
 
-<!-- Update_Description: new article about quickstart create template specs -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

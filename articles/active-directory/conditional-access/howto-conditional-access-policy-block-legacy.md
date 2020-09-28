@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e1a470bb2ddc500fa0a417dd62c797b635b96e3
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 0ec4bc1a5d74a0e943b09ad45ecc12578d63a66d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244703"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>条件访问：阻止传统身份验证
 
@@ -26,7 +26,7 @@ ms.locfileid: "89593688"
 
 以下步骤将帮助创建条件访问策略以阻止旧身份验证请求。 此策略最初将置于“仅限报告”模式，以便管理员确定其对现有用户产生的影响。 当管理员认为策略按预期方式应用时，可以通过添加特定组并排除其他组来切换到“开”或暂存部署。
 
-1. 以全局管理员、安全管理员或条件访问管理员的身份登录到 Azure 门户。
+1. 以全局管理员身份登录到 **Azure 门户**。
 1. 浏览到“Azure Active Directory” > “安全性” > “条件访问”。
 1. 选择“新策略”。
 1. 为策略指定一个名称。 建议组织创建一个有意义的策略名称标准。
@@ -37,16 +37,16 @@ ms.locfileid: "89593688"
 1. 在“云应用或操作”下，选择“所有云应用”。
    1. 选择“完成”。
 1. 在“条件” > “客户端应用”下，将“配置”设置为“是”   。
-   1. 仅勾选“Exchange ActiveSync 客户端”和“其他客户端”框。  若要在 Azure 中部署 Exchange ActiveSync 条件访问策略，用户还必须是全局管理员。
+   1. 仅勾选“Exchange ActiveSync 客户端”和“其他客户端”框。 
    1. 选择“完成”。
 1. 在“访问控制” > “授予”下，选择“阻止访问”。
-   1. 选择“选择”  。
+   1. 选择“选择”。
 1. 确认设置并将“启用策略”设置为“仅限报告”。
-1. 选择“创建”  ，以便创建启用策略所需的项目。
+1. 选择“创建”进行创建并启用策略。
 
 ## <a name="next-steps"></a>后续步骤
 
-[条件访问常见策略](concept-conditional-access-policy-common.md)
+[常用条件访问策略](concept-conditional-access-policy-common.md)
 
 [使用条件访问 What If 工具模拟登录行为](troubleshoot-conditional-access-what-if.md)
 

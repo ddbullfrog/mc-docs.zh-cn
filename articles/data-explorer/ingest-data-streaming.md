@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: alexefro
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 07/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 54cc3ac9f642f9fe5a69f88e1cad31c861dffa75
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 30c9188c737bda2428878647746cda7676869f0c
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515937"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146374"
 ---
 # <a name="configure-streaming-ingestion-on-your-azure-data-explorer-cluster-using-the-azure-portal"></a>使用 Azure 门户在 Azure 数据资源管理器群集上配置流式引入
 

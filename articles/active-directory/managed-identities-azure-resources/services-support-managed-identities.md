@@ -2,21 +2,21 @@
 title: 支持托管标识的 Azure 服务 - Azure AD
 description: 支持 Azure 资源托管标识和 Azure AD 身份验证的服务列表
 services: active-directory
-author: MarkusVi
+author: barclayn
 ms.author: v-junlch
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: markvi
+manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: ea71ab5fb85f21366fb0974e18dd10b0c299b8df
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: d0fe0daa4e6286185b937d66084f9815f8e9dede
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046307"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245373"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支持 Azure 资源托管标识的服务
 
@@ -39,7 +39,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 请参阅以下列表来配置 Azure API 管理的托管标识（在可用的区域中）：
 
-- [Azure Resource Manager 模板](/api-management/api-management-howto-use-managed-service-identity)
+- [Azure Resource Manager 模板](../../api-management/api-management-howto-use-managed-service-identity.md)
 
 
 ### <a name="azure-app-service"></a>Azure 应用服务
@@ -51,10 +51,10 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 请参阅以下列表来配置 Azure 应用服务的托管标识（在可用的区域中）：
 
-- [Azure 门户](/app-service/overview-managed-identity#using-the-azure-portal)
-- [Azure CLI](/app-service/overview-managed-identity#using-the-azure-cli)
-- [Azure PowerShell](/app-service/overview-managed-identity#using-azure-powershell)
-- [Azure Resource Manager 模板](/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Azure 门户](../../app-service/overview-managed-identity.md#using-the-azure-portal)
+- [Azure CLI](../../app-service/overview-managed-identity.md#using-the-azure-cli)
+- [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
+- [Azure Resource Manager 模板](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
 ### <a name="azure-arc-enabled-kubernetes"></a>已启用 Azure Arc 的 Kubernetes
 
@@ -157,10 +157,10 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 请参阅以下列表来配置 Azure Functions 的托管标识（在可用的区域中）：
 
-- [Azure 门户](/app-service/overview-managed-identity#using-the-azure-portal)
-- [Azure CLI](/app-service/overview-managed-identity#using-the-azure-cli)
-- [Azure PowerShell](/app-service/overview-managed-identity#using-azure-powershell)
-- [Azure Resource Manager 模板](/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Azure 门户](../../app-service/overview-managed-identity.md#using-the-azure-portal)
+- [Azure CLI](../../app-service/overview-managed-identity.md#using-the-azure-cli)
+- [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
+- [Azure Resource Manager 模板](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
 ### <a name="azure-iot-hub"></a>Azure IoT 中心
 
@@ -186,7 +186,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 | 用户分配 | ![可用][check] | ![可用][check] | 不可用 | ![可用][check] |
 
 
-有关详细信息，请参阅[在 Azure Kubernetes 服务中使用托管标识](/aks/use-managed-identity)。
+有关详细信息，请参阅[在 Azure Kubernetes 服务中使用托管标识](../../aks/use-managed-identity.md)。
 
 
 ### <a name="azure-logic-apps"></a>Azure 逻辑应用
@@ -199,8 +199,8 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 请参阅以下列表来配置 Azure 逻辑应用的托管标识（在可用的区域中）：
 
-- [Azure 门户](/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Azure Resource Manager 模板](/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+- [Azure 门户](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
+- [Azure Resource Manager 模板](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
 
 ### <a name="azure-policy"></a>Azure Policy
@@ -221,7 +221,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
 
-[Service Fabric 应用程序的托管标识](/service-fabric/concepts-managed-identity)在所有区域中均可用。
+[Service Fabric 应用程序的托管标识](../../service-fabric/concepts-managed-identity.md)在所有区域中均可用。
 
 托管标识类型 | 所有正式发布版<br>全球 Azure 区域 | Azure Government | Azure 德国 | Azure 中国世纪互联 |
 | --- | :-: | :-: | :-: | :-: |
@@ -271,6 +271,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager 模板](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
+- [Azure SDK](qs-configure-sdk-windows-vm.md)
 
 
 ### <a name="azure-vm-image-builder"></a>Azure VM 映像生成器

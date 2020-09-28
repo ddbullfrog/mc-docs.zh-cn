@@ -1,21 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中预配容器吞吐量
 description: 了解如何使用 Azure 门户、CLI、PowerShell 以及各种其他 SDK 在 Azure Cosmos DB 中预配容器级别的吞吐量。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 05/10/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: d19d5806d8f6ff991484feb99605af1beaa56e9d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 863af81f7f0d1af9ab9dfdb44410c9e6158711d3
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222696"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246458"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>在 Azure Cosmos 容器上预配标准（手动）吞吐量
 

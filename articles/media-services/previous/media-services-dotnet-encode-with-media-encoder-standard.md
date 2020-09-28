@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: anilmur
-ms.openlocfilehash: 21735e5d44b65e081f2c0c4939a5e5d3183ccccf
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a0fe2447bf655b0adc021b341376a4affba006e7
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71124524"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244931"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 通过 Media Encoder Standard 对资产进行编码  
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 通过 Media Encoder Standard 对资产进行编码
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 编码作业是媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 进行编码时，可以使用媒体服务内置的 Media Encoder。 另外，也可以使用媒体服务合作伙伴提供的编码器；第三方编码器可通过 Azure 市场购得。 
 

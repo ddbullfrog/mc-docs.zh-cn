@@ -2,14 +2,17 @@
 title: 在不录制的情况下分析实时视频 - Azure
 description: 使用媒体图，可以仅从实时视频流中提取分析，而不在边缘或云中进行录制。 本文讨论了这一概念。
 ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 07/27/2020
-ms.openlocfilehash: df93242602dac5bf3d707bf1a2b5cd0e6d29f185
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.date: 09/28/2020
+ms.openlocfilehash: 6bf53ee4c98d85cd5d296f88931194757b423976
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162749"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245489"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>在不录制的情况下分析实时视频
 
@@ -26,19 +29,22 @@ ms.locfileid: "87162749"
 
 下方显示的媒体图包含一个 [RTSP 源](media-graph-concept.md#rtsp-source)节点、一个[动作检测处理器](media-graph-concept.md#motion-detection-processor)节点和一个[IoT 中心消息接收器](media-graph-concept.md#iot-hub-message-sink)节点。 可在[此处](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-detection/topology.json)找到此类媒体图的图形拓扑的 JSON 表示形式。 此图让你可以检测传入实时视频流中的运动，并通过 IoT 中心消息接收器节点将动作事件中继到其他应用和服务。 外部应用或服务可以触发警报，或向相应人员发送通知。
 
-![基于运动检测的实时视频分析](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="基于运动检测的实时视频分析":::
 
 ### <a name="analyzing-video-using-a-custom-vision-model"></a>使用自定义视觉模型分析视频 
 
 下方显示的媒体图让你可以使用打包在不同模块中的自定义视觉模型来分析实时视频流。 可在[此处](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json)找到此类媒体图的图形拓扑的 JSON 表示形式。 可在[此处](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis)查看一些示例，了解如何将模型包装到作为推理服务运行的 IoT Edge 模块中。
 
-![基于外部推理模块的实时视频分析](./media/analyze-live-video/external-inferencing-module.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detected-frames.svg" alt-text="基于外部推理模块的实时视频分析":::
 
 在此媒体图中，帧速率筛选器处理器节点会降低传入实时视频流的帧速率，然后将其发送到 [HTTP 扩展处理器程序](media-graph-concept.md#http-extension-processor)节点，该节点会通过 REST 将图像帧（以 JPEG、BMP 或 PNG 格式）发送到外部推理服务。 来自外部推理服务的结果由 HTTP 扩展节点检索，并通过 IoT 中心消息接收器节点中继到 IoT Edge 中心。 这种类型的媒体图可用于为各种场景构建解决方案，例如了解路口车辆的时序分布、了解零售商店中的消费者流量模式等。
 
 增强此示例的一种方法是，在抵达帧速率筛选器处理器节点之前使用动作检测器处理器。 这将减少推理服务上的负载，因为仅在视频中有运动活动时使用它。
 
-![基于通过外部推理模块实现的运动检测帧的实时视频分析](./media/analyze-live-video/motion-detected-frames.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/custom-model.png" alt-text="基于通过外部推理模块实现的运动检测帧的实时视频分析":::
 
 ## <a name="next-steps"></a>后续步骤
 

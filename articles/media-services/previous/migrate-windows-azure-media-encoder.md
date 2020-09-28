@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2019
-ms.date: 02/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 0c0a8d4d3270d19bf7b12857e36cceb77c82505f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6212fcc0e58b337d0e00a3bccc55c9509a613784
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494486"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245578"
 ---
 # <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>从 Windows Azure 媒体编码器迁移到 Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 本文介绍了从旧 Windows Azure 媒体编码器 (WAME) 媒体处理器（即将停用）迁移到 Media Encoder Standard 媒体处理器的步骤。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。
 

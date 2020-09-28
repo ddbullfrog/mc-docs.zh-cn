@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: reference
 origin.date: 07/24/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 4f34077ae055ac27e414a04da468ca4c0ee0a2fb
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 1f5fc9076249eac42de8e78fb3d0578c9ab5e345
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753571"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026616"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -301,7 +301,7 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.chinaclou
 
 **--output-type** 字符串   命令输出的格式。 选项包括：text、json。 默认值为 `text`。 （默认值为“text”）
 
---trusted-microsoft-suffixes 字符串指定可向其中发送 Azure Active Directory 登录令牌的其他域后缀。  默认为 `*.core.chinacloudapi.cn;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`。 此处列出的任何内容都会添加到默认值。 为安全起见，应只在此处放置 Azure 域。 用分号分隔多个条目。
+--trusted-microsoft-suffixes 字符串指定可向其中发送 Azure Active Directory 登录令牌的其他域后缀。  默认为 `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`。 此处列出的任何内容都会添加到默认值。 为安全起见，应只在此处放置 Azure 域。 用分号分隔多个条目。
 
 ## <a name="see-also"></a>另请参阅
 

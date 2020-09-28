@@ -1,19 +1,22 @@
 ---
 title: 快速入门 - 使用 PowerShell Azure Analysis Services 创建 Azure Analysis Services | Azure
-description: 了解如何使用 PowerShell 创建 Azure Analysis Services 服务器
-author: rockboyfor
+description: 本快速入门介绍如何使用 PowerShell 创建 Azure Analysis Services 服务器
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 03/30/2020
-ms.date: 04/30/2020
+origin.date: 08/31/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8b6f24ac27f3ffeb4c1572becb1d9edc732cc70c
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.custom: references_regions , devx-track-azurepowershell
+ms.openlocfilehash: 79768eb19ed48dc2328fdf4c01ceef82e33f55cd
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392236"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146232"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>快速入门：创建服务器 - PowerShell
 
@@ -80,8 +83,6 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 本快速入门介绍了如何使用 PowerShell 在 Azure 订阅中创建服务器。 创建服务器后，可以通过配置（可选）的服务器防火墙对其进行保护。 还可以直接从门户将基本示例数据模型添加到服务器。 拥有一个示例模型有助于了解如何配置模型数据库角色和测试客户端连接。 若要了解更多信息，请继续学习有关添加示例模型的教程。
 
 > [!div class="nextstepaction"]
-> [快速入门：配置服务器防火墙 - 门户](analysis-services-qs-firewall.md)      
-> [!div class="nextstepaction"]
-> [教程：将示例模型添加到服务器](analysis-services-create-sample-model.md)
+> [快速入门：配置服务器防火墙 - 门户](analysis-services-qs-firewall.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

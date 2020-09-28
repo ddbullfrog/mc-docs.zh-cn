@@ -3,14 +3,14 @@ title: Durable Functions 的单一实例 - Azure
 description: 如何使用 Azure Functions 的 Durable Functions 扩展中的单一实例。
 author: cgillum
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 09/25/2020
 ms.author: v-junlch
-ms.openlocfilehash: 88868543fd64795cee238256c051c2af5baf0d4e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e125ffbeb7a18d6ecd6f082a6a82f0d72b30d924
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428816"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246637"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions 中的单一实例业务流程协调程序 (Azure Functions)
 
@@ -44,9 +44,10 @@ public static async Task<HttpResponseMessage> RunSingle(
     else
     {
         // An instance with the specified ID exists, don't create one.
-        return req.CreateErrorResponse(
-            HttpStatusCode.Conflict,
-            $"An instance with ID '{instanceId}' already exists.");
+        return new HttpResponseMessage(HttpStatusCode.Conflict)
+        {
+            Content = new StringContent($"An instance with ID '{instanceId}' already exists."),
+        };
     }
 }
 ```

@@ -6,18 +6,20 @@ keywords: 编码;编码器;媒体
 author: WenJason
 manager: digimobile
 ms.author: v-jay
-origin.date: 04/16/2020
-ms.date: 07/27/2020
-ms.topic: article
+origin.date: 08/31/2020
+ms.date: 09/28/2020
+ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: bcaf5dd719a880c1199076cc2a529428efee3432
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 702cd7a7a9a8ec3e3454aacf640791552e92a04e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162228"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244964"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>经过验证的本地实时传送视频流编码器
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 在 Azure 媒体服务中，[直播活动](https://docs.microsoft.com/rest/api/media/liveevents)（频道）表示用于处理实时传送视频流内容的管道。 直播活动通过以下两种方式之一接收实时输入流。
 

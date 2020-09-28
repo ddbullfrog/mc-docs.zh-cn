@@ -9,18 +9,20 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: tutorial
-origin.date: 08/11/2020
-ms.date: 09/07/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 92b6b3273c6915fe207ca63572554da4fbff2994
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 689a70d8ecd7b1621f78c4df12d43c6f12a63be8
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414088"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245643"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>上传媒体以进行流式处理或编码
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 在媒体服务中，可以将数字文件（媒体）上传到与资产关联的 blob 容器中。 [资产](https://docs.microsoft.com/rest/api/media/operations/asset)实体可以包含视频、音频、图片、缩略图集合、文本轨道和隐藏式字幕文件（以及这些文件的相关元数据）。 将文件上传到资产的容器中后，相关内容即安全地存储在云中供后续处理和流式传输。
 

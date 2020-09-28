@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 11/28/2019
-ms.date: 08/13/2020
-ms.openlocfilehash: 75fe58b59522dc3c39b55a862a1dc66e4dd329a2
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: db8f4a6557697f7cc49b2e87bcad73bcfe7586c1
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515858"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146384"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>使用 Azure 资源管理器模板为 Azure 数据资源管理器创建 IoT 中心数据连接
 

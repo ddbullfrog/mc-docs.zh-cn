@@ -2,14 +2,14 @@
 title: Azure Functions Java 开发人员参考
 description: 了解如何使用 Java 开发函数。
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 92a20a107f6640bc5bfbb75cf213cb3cf1aa4c89
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 5cdbe8199964444836b0c94c8b955745a7ed79c7
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413844"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246705"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -248,7 +248,7 @@ az functionapp config appsettings set \
 "WEBSITE_USE_PLACEHOLDER=0" \
 --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-#### <a name="dedicated-plan"></a>[专用计划](#tab/dedicated)
+#### <a name="dedicated-plan--premium-plan"></a>[专用计划/高级计划](#tab/dedicated+premium)
 ```azurecli
 az functionapp config appsettings set \
 --settings "JAVA_OPTS=-Djava.awt.headless=true" \

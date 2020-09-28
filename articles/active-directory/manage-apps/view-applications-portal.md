@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: db3b9427f14455c83573b3662a53c130e590f477
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 07476ab46681ffbf8d1fca46bf1c92104d554f43
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046487"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245668"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>快速入门：查看使用 Azure Active Directory (Azure AD) 租户进行标识管理的应用程序列表
 
@@ -27,7 +27,7 @@ ms.locfileid: "89046487"
 
 若要查看已在 Azure AD 租户中注册的应用程序，你需要：
 
-- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 一个 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 >[!IMPORTANT]
 >建议使用非生产环境来测试本快速入门中的步骤。

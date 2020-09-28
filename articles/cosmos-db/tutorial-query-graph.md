@@ -1,20 +1,23 @@
 ---
 title: 如何查询 Azure Cosmos DB 中的图数据？
 description: 了解如何使用 Gremlin 查询从 Azure Cosmos DB 查询图形数据
-author: rockboyfor
-ms.author: v-yeche
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 origin.date: 12/03/2018
-ms.date: 02/10/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: ''
+ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: ae02e2a4662d1e606c9122b69794da1520f6663c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ebdcd2b4d6d98f8a9eb4fca1e12ce983b4b73778
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77067889"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246811"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>教程：使用 Gremlin 查询 Azure Cosmos DB Gremlin API

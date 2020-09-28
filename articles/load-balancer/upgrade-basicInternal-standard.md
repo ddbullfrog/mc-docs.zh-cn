@@ -8,12 +8,12 @@ ms.topic: how-to
 origin.date: 08/07/2020
 ms.date: 08/31/2020
 ms.author: v-jay
-ms.openlocfilehash: 001a704bf52c1a550d6f22baa504d0c8b007766c
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: de28581ea5e749bbb23af63e846f5ccf95bada07
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045748"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026564"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>升级 Azure 内部负载均衡器 - 不需出站连接
 [Azure 标准负载均衡器](load-balancer-overview.md)提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](/load-balancer/skus#skus)。
@@ -49,7 +49,7 @@ ms.locfileid: "89045748"
 
 ## <a name="download-the-script"></a>下载脚本
 
-从 [PowerShell 库](https://www.powershellgallery.com/packages/AzureILBUpgrade/4.0)下载迁移脚本。
+从 [PowerShell 库](https://www.powershellgallery.com/packages/AzureILBUpgrade/5.0)下载迁移脚本。
 ## <a name="use-the-script"></a>使用脚本
 
 根据本地 PowerShell 环境的设置和首选项，可以使用两个选项：

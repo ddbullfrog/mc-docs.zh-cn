@@ -3,24 +3,25 @@ title: 管理用户分配的托管标识 - Azure CLI - Azure AD
 description: 分步说明如何使用 Azure CLI 创建、列出和删除用户分配的托管标识。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf4870b88bf5e1eade504d72ceafbc36c7aa25c1
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 7b4e2accd06286037315ba08a00b33b11d7740d9
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945182"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245667"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>使用 Azure CLI 创建、列出或删除用户分配的托管标识
 
@@ -41,7 +42,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 ## <a name="create-a-user-assigned-managed-identity"></a>创建用户分配的托管标识 
 
-若要创建用户分配的托管标识，你的帐户需要[托管标识参与者](/role-based-access-control/built-in-roles#managed-identity-contributor)角色分配。
+若要创建用户分配的托管标识，你的帐户需要[托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色分配。
 
 使用 [az identity create](https://docs.microsoft.com/en-us/cli/azure/identity#az-identity-create) 命令创建用户分配的托管标识。 `-g` 参数指定要从中创建用户分配的托管标识的资源组，`-n` 参数指定其名称。 将 `<RESOURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>` 参数值替换为自己的值：
 
@@ -52,7 +53,7 @@ az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-managed-identities"></a>列出用户分配的托管标识
 
-若要列出/读取用户分配的托管标识，你的帐户需要[托管标识操作员](/role-based-access-control/built-in-roles#managed-identity-operator)或[托管标识参与者](/role-based-access-control/built-in-roles#managed-identity-contributor)角色分配。
+若要列出/读取用户分配的托管标识，你的帐户需要[托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)或[托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色分配。
 
 若要列出用户分配的托管标识，请使用 [az identity list](https://docs.microsoft.com/en-us/cli/azure/identity#az-identity-list) 命令。 将 `<RESOURCE GROUP>` 替换为自己的值：
 
@@ -65,7 +66,7 @@ az identity list -g <RESOURCE GROUP>
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>删除用户分配的托管标识
 
-若要删除用户分配的托管标识，你的帐户需要[托管标识参与者](/role-based-access-control/built-in-roles#managed-identity-contributor)角色分配。
+若要删除用户分配的托管标识，你的帐户需要[托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色分配。
 
 若要删除用户分配的托管标识，请使用 [az identity delete](https://docs.microsoft.com/en-us/cli/azure/identity#az-identity-delete) 命令。  -n 参数指定其名称，-g 参数指定创建了用户分配的托管标识的资源组。 将 `<USER ASSIGNED IDENTITY NAME>` 和 `<RESOURCE GROUP>` 参数值替换为自己的值：
 
@@ -82,5 +83,4 @@ az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>
 有关如何向 Azure VM 分配用户分配的托管标识的信息，请参阅[使用 Azure CLI 在 Azure VM 上配置 Azure 资源的托管标识](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
 
 
- 
 

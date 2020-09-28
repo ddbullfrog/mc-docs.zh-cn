@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 08/02/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: d2556cd625e023b1e25699df13f4d43a8f28b1d4
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 89d1df84333bb2e78332b3ab0b80473c63ddc7ef
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556477"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146772"
 ---
 # <a name="secure-your-cluster-using-disk-encryption-in-azure-data-explorer---azure-portal"></a>在 Azure 数据资源管理器中使用磁盘加密保护群集 - Azure 门户
 

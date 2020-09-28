@@ -2,19 +2,21 @@
 title: 创建具有链接模板的模板规格
 description: 了解如何创建具有链接模板的模板规格。
 ms.topic: conceptual
-origin.date: 07/22/2020
-ms.date: 08/24/2020
+origin.date: 08/31/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f3dba82ee47f8920e6103a5e02914148bd118241
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: e5c51d9e0906ce5ad9cc5db700c4840757db2436
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807938"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146500"
 ---
-<!--Waiting for approval via sending request on 08/25/2020-->
+<!--Not Available on MOONCAKE-->
+<!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>教程：创建具有链接模板的模板规格（预览）
 
 了解如何创建具有[链接模板](linked-templates.md#linked-template)的[模板规格](template-specs.md)。 使用模板规格与组织中的其他用户共享 ARM 模板。 本文介绍如何使用部署资源的新 `relativePath` 属性创建模板规格以打包主模板及其链接模板。
@@ -175,28 +177,59 @@ ms.locfileid: "88807938"
 
 模板规格存储在资源组中。  创建资源组，然后使用以下脚本创建模板规格。 模板规格的名称为 webSpec。
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name templateSpecRG `
   -Location chinanorth2
 
 New-AzTemplateSpec `
-  -ResourceGroupName templateSpecRG `
   -Name webSpec `
   -Version "1.0.0.0" `
+  -ResourceGroupName templateSpecRG `
   -Location chinanorth2 `
   -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name templateSpecRG \
+  --location chinanorth2
+
+az ts create \
+  --name webSpec \
+  --version "1.0.0.0" \
+  --resource-group templateSpecRG \
+  --location "chinanorth2" \
+  --template-file "c:\Templates\linkedTS\azuredeploy.json"
+```
+
+---
+
 完成后，可以从 Azure 门户或使用以下 cmdlet 查看模板规格：
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
+```
+
+---
+
 ## <a name="deploy-template-spec"></a>部署模板规格
 
 现在即可部署模板规格。部署模板规格就像部署它包含的模板一样，只不过你传入了模板规格的资源 ID。使用相同的部署命令，并在需要时为模板规格传递参数值。
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -210,9 +243,27 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName webRG
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location chinanorth2
+
+id = $(az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
+
+az deployment group create \
+  --resource-group webRG \
+  --template-spec $id
+```
+
+> [!NOTE]
+> 获取模板规格 ID 并将其分配到 Windows PowerShell 中的变量时存在一个已知问题。
+
+---
+
 ## <a name="next-steps"></a>后续步骤
 
 若要了解如何将模板规格部署为链接模板，请参阅[教程：将模板规格部署为链接模板](template-specs-deploy-linked-template.md)。
 
-<!-- Update_Description: new article about template specs create linked -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

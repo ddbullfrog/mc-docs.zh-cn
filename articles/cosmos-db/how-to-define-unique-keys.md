@@ -1,21 +1,21 @@
 ---
 title: 为 Azure Cosmos 容器定义唯一键
 description: 了解如何使用 Azure 门户、PowerShell、.Net、Java 和各种其他 SDK 为 Azure Cosmos 容器定义唯一键。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 12/02/2019
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: tracking-python, devx-track-javascript
-ms.openlocfilehash: 8926b706f11797f9565774f06b95d9a02bc43763
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 6c6129bcab1c498a4c9fa55738ea19bba8f9ca56
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223230"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246806"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>为 Azure Cosmos 容器定义唯一键
 

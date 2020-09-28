@@ -9,17 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-origin.date: 04/20/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: aa3ca11ef15418fb98681c57e0912a43b8cf31f8
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 93538b9e2a02ddaf0c939d3b47571d45816a34cf
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245153"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Azure 媒体服务 v3 文档更新
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文讨论最新的媒体服务 v3 文档更新。
 

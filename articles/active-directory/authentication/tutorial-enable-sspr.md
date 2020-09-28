@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d695708692d19526ffd71046a0731360244d56fa
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 4dadd6157188f2034cfcb903eb7207d9a6de55b6
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593712"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244717"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>教程：使用户能够使用 Azure Active Directory 自助式密码重置来解锁其帐户或重置密码
 
@@ -37,7 +37,8 @@ Azure Active Directory (Azure AD) 自助式密码重置 (SSPR) 使用户能够�
 
 需有以下资源和特权才能完成本教程：
 
-* 一个至少启用了 Azure AD Premium P1 或试用版许可证的有效 Azure AD 租户。
+* 一个至少启用了 Azure AD Free 或试用版许可证的有效 Azure AD 租户。 在免费层中，SSPR 仅适用于 Azure AD 中的云用户。
+    * 对于本系列中的后续教程，本地密码写回需要 Azure AD Premium P1 或试用版许可证。
     * 如果需要，可[创建一个](https://www.azure.cn/pricing/1rmb-trial)。
 * 一个拥有“全局管理员”特权的帐户。
 * 你知道其密码的非管理员测试用户，例如 *testuser*。 在本教程中，你将使用此帐户来测试最终用户的 SSPR 体验。

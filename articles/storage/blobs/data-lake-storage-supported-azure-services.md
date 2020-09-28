@@ -9,12 +9,12 @@ origin.date: 08/05/2020
 ms.date: 08/24/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 31773898c9023a6342b3b132ef1aae119739edef
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: aefdd28ba7182cc17b165756e7442d8fc8a8cd01
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753520"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026546"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>支持 Azure Data Lake Storage Gen2 的 Azure 服务
 
@@ -27,8 +27,8 @@ ms.locfileid: "88753520"
 > [!NOTE]
 > 支持级别仅指 Data Lake Storage Gen2 支持该服务的方式。
 
-|Azure 服务 |支持级别 |相关文章 |
-|---------------|-------------------|---|
+|Azure 服务 |支持级别 |Azure AD |共享密钥| 相关文章 |
+|---------------|-------------------|---|---|---|
 |Azure 数据工厂|正式发布|是|是|[使用 Azure 数据工厂将数据加载到 Azure Data Lake Storage Gen2 中](https://docs.azure.cn/data-factory/load-azure-data-lake-storage-gen2?toc=%2fstorage%2fblobs%2ftoc.json)|
 |Azure 事件中心|正式发布|否|是|[通过 Azure Blob 存储或 Azure Data Lake Storage 中的 Azure 事件中心来捕获事件](https://docs.azure.cn/event-hubs/event-hubs-capture-overview)|
 |Azure 逻辑应用|正式发布|否|是|[概述 - 什么是 Azure 逻辑应用？](https://docs.azure.cn/logic-apps/logic-apps-overview)|

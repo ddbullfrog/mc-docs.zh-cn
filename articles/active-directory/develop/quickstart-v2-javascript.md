@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 64e782823bf3176397af01b24ccda6bf27c59fce
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 8dfd7ace6c65896617496521ea55968a24b0af26
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245192"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>快速入门：在 JavaScript SPA 中登录用户并获得访问令牌
 
@@ -151,7 +151,7 @@ ms.locfileid: "88647610"
 使用 [Node.js](https://nodejs.org/en/download/) 在 Web 服务器中运行项目：
 
 1. 若要启动服务器，请从项目目录运行以下命令：
-    ```batch
+    ```cmd
     npm install
     npm start
     ```
@@ -179,7 +179,7 @@ MSAL 库会将登录用户，并请求用于访问受 Microsoft 标识平台保�
 
 另外，如果已安装 Node.js，则可通过 Node.js 包管理器 (npm) 下载最新版本：
 
-```batch
+```cmd
 npm install msal
 ```
 

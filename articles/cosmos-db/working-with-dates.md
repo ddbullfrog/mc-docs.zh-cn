@@ -2,19 +2,20 @@
 title: 使用 Azure Cosmos DB 中的日期
 description: 了解如何在 Azure Cosmos DB 中存储、索引和查询 DataTime 对象
 ms.service: cosmos-db
-author: rockboyfor
 ms.topic: conceptual
 origin.date: 04/03/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 05d725fdc0b68b291e3f40c49579286cfd63efa2
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a3ecccbf44c34a79c5b592dd569b93d2e4ac7029
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223050"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246303"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的日期
 

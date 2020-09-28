@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 01d9bbf8e2fabd75f6a56b2da7b24a154b665751
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: eb9106ca10b669c9f3767b87a0c3d142e01e1198
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223353"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246775"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>快速入门：使用 Node.js 和 Azure Cosmos DB 生成表 API 应用
@@ -72,7 +72,7 @@ ms.locfileid: "88223353"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
@@ -140,7 +140,7 @@ ms.locfileid: "88223353"
     }
     ```
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 这样，应用程序就可以与托管的数据库进行通信。 
 

@@ -1,18 +1,20 @@
 ---
 title: 适用于 Azure Analysis Services 中长时间运行的操作的最佳做法 | Azure
 description: 本文介绍了长时间运行的操作的最佳做法。
-author: rockboyfor
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/14/2020
-ms.date: 05/06/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: yes
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6acf725e413618f5183c7836694c8f7146364992
-ms.sourcegitcommit: 81241aa44adbcac0764e2b5eb865b96ae56da6b7
+ms.openlocfilehash: b3d8522f31c0b6fd0f5ae1e828cc6364c5fd8163
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "83002209"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146748"
 ---
 # <a name="best-practices-for-long-running-operations"></a>长时间运行的操作的最佳做法
 
@@ -53,5 +55,4 @@ REST API 能实现这样的重启，但不能灵活实现部分创建和删除�
 
 <!--Not Available on [Retry guidance for Azure services](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)-->
 
-<!-- Update_Description: new article about analysis services long operations -->
-<!--NEW.date: 05/06/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

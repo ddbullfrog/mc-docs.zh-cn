@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 06/03/2020
-ms.date: 09/07/2020
+ms.topic: reference
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 281ff39891a0e337f744d90352a9e878c6c33965
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: d447a8ef5650a50ee91bf38e4fbb765edd24057a
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413217"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245491"
 ---
 # <a name="output-metadata"></a>输出元数据
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 编码作业与要执行部分编码任务的输入资产相关联。 例如，将 MP4 文件编码为 H.264 MP4 自适应比特率集；创建缩略图；创建叠加。 完成任务后，会生成一个输出资产。  输出资产包含视频、音频、缩略图和其他文件。 输出资产还包含提供输出资产相关元数据的文件。 元数据 JSON 文件的名称采用以下格式：`<source_file_name>_manifest.json`（例如 `BigBuckBunny_manifest.json`）。 应扫描任何 *_metadata.json 并查询其中的文件路径字符串，以找到源文件名（无截断）。
 

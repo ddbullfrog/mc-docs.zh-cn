@@ -3,23 +3,23 @@ title: 停止使用托管标识 VM 扩展 - Azure AD
 description: 有关停止使用 VM 扩展并开始使用 Azure 实例元数据服务 (IMDS) 进行身份验证的分步说明。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
-ms.openlocfilehash: 4d283a51eab41907d81dc242cb3ee14a36232772
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: fa596133524438551809e8433e40c06f083aa151
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244643"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>如何停止使用虚拟机托管标识扩展并开始使用 Azure 实例元数据服务
 
@@ -44,26 +44,26 @@ ms.locfileid: "82126532"
 
 还可以使用 Azure 资源管理器部署模板预配 VM 扩展，方法是将以下 JSON 添加到模板中的 `resources` 节（使用 `ManagedIdentityExtensionForLinux` 指定名称，使用 type 元素指定 Linux 版本）。
 
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2018-06-01",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForWindows",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+    "apiVersion": "2018-06-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.ManagedIdentity",
+        "type": "ManagedIdentityExtensionForWindows",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "port": 50342
         }
     }
-    ```
+}
+```
     
     
 如果使用虚拟机规模集，则还可以使用 [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension) cmdlet 来预配 Azure 资源托管标识虚拟机规模集扩展。 可以传递 `ManagedIdentityExtensionForWindows` 或 `ManagedIdentityExtensionForLinux`（取决于虚拟机规模集的类型），并使用 `-Name` 参数将其命名。 `-Settings` 参数指定 OAuth 令牌终结点用于令牌获取的端口：
@@ -75,23 +75,23 @@ ms.locfileid: "82126532"
    ```
 若要使用 Azure 资源管理器部署模板预配虚拟机规模集扩展，请将以下 JSON 添加到模板中的 `extensionpProfile` 节（使用 `ManagedIdentityExtensionForLinux` 指定名称，使用 type 元素指定 Linux 版本）。
 
-    ```json
-    "extensionProfile": {
-        "extensions": [
-            {
-                "name": "ManagedIdentityWindowsExtension",
-                "properties": {
-                    "publisher": "Microsoft.ManagedIdentity",
-                    "type": "ManagedIdentityExtensionForWindows",
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "settings": {
-                        "port": 50342
-                    },
-                    "protectedSettings": {}
-                }
+```json
+"extensionProfile": {
+    "extensions": [
+        {
+            "name": "ManagedIdentityWindowsExtension",
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+                },
+                "protectedSettings": {}
             }
-    ```
+        }
+```
 
 由于 DNS 查找失败，虚拟机扩展的预配可能会失败。 如果发生这种情况，请重启虚拟机，然后重试。 
 
@@ -196,7 +196,7 @@ Azure 资源托管标识虚拟机扩展当前不支持将其架构导出到资�
 
 ## <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
-[Azure 实例元数据服务 (IMDS)](/virtual-machines/windows/instance-metadata-service) 是一个 REST 终结点，提供有关可用于管理和配置虚拟机的正在运行的虚拟机实例的信息。 该终结点位于已知不可路由的 IP 地址 (`169.254.169.254`)，该地址只能从虚拟机中访问。
+[Azure 实例元数据服务 (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) 是一个 REST 终结点，提供有关可用于管理和配置虚拟机的正在运行的虚拟机实例的信息。 该终结点位于已知不可路由的 IP 地址 (`169.254.169.254`)，该地址只能从虚拟机中访问。
 
 使用 Azure IMDS 请求令牌可获得多种优势。 
 
@@ -212,5 +212,5 @@ Azure 资源托管标识虚拟机扩展当前不支持将其架构导出到资�
 ## <a name="next-steps"></a>后续步骤
 
 * [如何在 Azure 虚拟机上使用 Azure 资源的托管标识获取访问令牌](how-to-use-vm-token.md)
-* [Azure 实例元数据服务](/virtual-machines/windows/instance-metadata-service)
+* [Azure 实例元数据服务](../../virtual-machines/windows/instance-metadata-service.md)
 

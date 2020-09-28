@@ -1,20 +1,21 @@
 ---
 title: 使用 Azure Active Directory 对 Batch Management 解决方案进行身份验证
 description: 探讨如何通过 Azure Active Directory 在使用 Batch Management .NET 库的应用程序中进行身份验证。
+ms.service: batch
 ms.topic: how-to
-author: rockboyfor
 origin.date: 04/27/2017
-ms.date: 08/24/2020
-ms.testscope: yes|no
-ms.testdate: 08/24/2020null
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: yes
+ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.custom: has-adal-ref
-ms.openlocfilehash: bfab00728776cb914a783303d93f869dbd4a13c2
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.custom: has-adal-ref, devx-track-csharp
+ms.openlocfilehash: 8991df7747db38238eacfd97640eec9a78c061c4
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88655006"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146186"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 管理解决方案进行身份验证
 

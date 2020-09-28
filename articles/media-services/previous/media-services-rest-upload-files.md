@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 5b12e883f116194f160627655ba4686a1030f65d
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 7291ef8bd1a8718fe2e4f5164d104b219d67f0d9
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413867"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245456"
 ---
-# <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户  
+# <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)

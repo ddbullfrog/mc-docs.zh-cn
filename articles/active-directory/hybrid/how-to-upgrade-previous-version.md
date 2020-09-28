@@ -9,20 +9,19 @@ editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Identity
-origin.date: 04/08/2019
-ms.date: 05/10/2019
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be3b25093ed876ba18ae3749eae7eb11bf7693ed
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2ba3394709a8ab10f9641ad479c1835d11fc3464
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65520749"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245512"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：从以前版本升级到最新版本
 本主题介绍可将 Azure Active Directory (Azure AD) Connect 安装升级到最新版本的不同方法。 建议使用最新版本的 Azure AD Connect。 进行重大配置更改时，也可以使用[交叉迁移](#swing-migration)部分所述的步骤。
@@ -55,9 +54,9 @@ ms.locfileid: "65520749"
 
 在就地升级过程中，可能会引入更改，要求在升级完成后执行特定同步活动（包括完全导入步骤和完全同步步骤）。 若要推迟这些活动，请参考[如何在升级后推迟完全同步](#how-to-defer-full-synchronization-after-upgrade)部分。
 
-如果正在将 Azure AD Connect 与非标准连接器（例如泛型 LDAP 连接器和泛型 SQL 连接器）配合使用，则必须在就地升级后，刷新 [Synchronization Service Manager](/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) 中的相应连接器配置。 有关如何刷新连接器配置的详细信息，请参阅文章[连接器版本发行历史记录 - 故障排除](/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting)。 如果不刷新配置，针对连接器的导入和导出运行步骤将无法正常工作。 将在应用程序事件日志中收到如下错误，内容为“AAD 连接器配置 ("X.X.XXX.X") 中的程序集版本低于 "C:\Program Files\Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll" 的实际版本 ("X.X.XXX.X")  。
+如果正在将 Azure AD Connect 与非标准连接器（例如泛型 LDAP 连接器和泛型 SQL 连接器）配合使用，则必须在就地升级后，刷新 [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) 中的相应连接器配置。 有关如何刷新连接器配置的详细信息，请参阅文章[连接器版本发行历史记录 - 故障排除](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting)。 如果不刷新配置，针对连接器的导入和导出运行步骤将无法正常工作。 将在应用程序事件日志中收到如下错误，内容为“AAD 连接器配置 ("X.X.XXX.X") 中的程序集版本低于 "C:\Program Files\Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll" 的实际版本 ("X.X.XXX.X")  。
 
-## <a name="swing-migration"></a>交叉迁移 <a name="swing-migration"></a>
+## <a name="swing-migration"></a>交叉迁移
 如果部署复杂或者有多个对象，在活动的系统上进行就地升级可能不切合实际。 对于某些客户来说，此过程可能要花费几天时间，在此期间无法处理任何增量更改。 如果打算对配置进行重大更改，并且希望在将这些更改推送到云之前对其进行测试，则也可以使用此方法。
 
 针对这些方案的建议方法是使用交叉迁移。 至少需要两台服务器，一台是活动服务器，另一台是过渡服务器。 活动服务器（在下图中以蓝色实线表示）负责处理活动的生产负载。 过渡服务器（以紫色虚线表示）已升级到最新版本或配置。 完全就绪以后，该服务器处于活动状态。 将目前安装了旧版本或配置的前一台活动服务器设为过渡服务器，并进行升级。
@@ -88,7 +87,7 @@ ms.locfileid: "65520749"
 
 * 与相同林的连接
 * 任何域和 OU 筛选
-* 相同的可选功能，例如密码同步
+* 相同的可选功能，例如密码同步和密码写回
 
 **移动自定义同步规则**  
 若要移动自定义同步规则，请执行以下操作：
@@ -171,4 +170,3 @@ PowerShell cmdlet 将报告错误“找不到指定的 MA”  。
 ## <a name="next-steps"></a>后续步骤
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
-<!-- Update_Description: wording update -->

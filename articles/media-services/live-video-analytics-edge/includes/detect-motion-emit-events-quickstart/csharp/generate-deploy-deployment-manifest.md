@@ -1,13 +1,11 @@
 ---
-ms.openlocfilehash: 6912d9ad78bcfe96833f4c0aeb306b8fb2fc8271
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: d90fa7bc74c3c7445c4460f229c5aa021905fd0f
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413424"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244818"
 ---
-## <a name="generate-and-deploy-the-deployment-manifest"></a>生成并部署部署清单
-
 部署清单定义要部署到边缘设备的模块。 它还定义了这些模块的配置设置。 
 
 请按照以下步骤从模板文件生成清单，然后将其部署到边缘设备。

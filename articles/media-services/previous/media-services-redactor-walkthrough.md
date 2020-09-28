@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 3c85c66329617ef4d7e43c8e697dd86dfdd0f119
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6b4a74791b193471bd59900de842e1f9560d4736
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71124599"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244763"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>使用 Azure 媒体分析进行面部修订演练
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>概述
 

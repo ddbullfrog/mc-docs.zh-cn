@@ -4,6 +4,12 @@
   items:
     - name: 什么是 Azure 防火墙？
       href: overview.md
+- name: 快速入门
+  expanded: true
+  items:
+    - name: 使用多个地址进行部署 - ARM 模板
+      displayName: Resource Manager
+      href: quick-create-multiple-ip-template.md
 - name: 教程
   items:
     - name: 部署和配置
@@ -12,20 +18,10 @@
       href: tutorial-hybrid-portal.md
     - name: 使用 DNAT 筛选入站流量
       href: tutorial-firewall-dnat.md
-    - name: 监视诊断日志
-      href: tutorial-diagnostics.md
-- name: 快速入门
-  expanded: true
-  items:
-    - name: 使用多个地址进行部署 - ARM 模板
-      displayName: Resource Manager
-      href: quick-create-multiple-ip-template.md
 - name: 示例
   items:
     - name: Azure PowerShell
       href: sample-powershell.md
-    - name: Azure Monitor 日志
-      href: log-analytics-samples.md
 - name: 概念
   items:
     - name: Azure 防火墙功能
@@ -48,6 +44,8 @@
       href: remote-work-support.md
     - name: 网络规则中的 FQDN
       href: fqdn-filtering-network-rules.md
+    - name: 安全基线
+      href: security-baseline.md
 - name: 操作指南
   items:
     - name: 使用 Azure PowerShell 进行部署
@@ -68,6 +66,10 @@
       href: protect-azure-kubernetes-service.md
     - name: DNS 设置
       href: dns-settings.md
+    - name: 监视诊断日志
+      href: firewall-diagnostics.md
+    - name: Azure Monitor 日志
+      href: log-analytics-samples.md
 - name: 参考
   items:
     - name: Azure CLI
@@ -75,9 +77,9 @@
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.network/new-azfirewall'
     - name: .NET
-      href: 'https://docs.azure.cn/dotnet/api/overview/'
+      href: 'https://docs.microsoft.com/dotnet/api'
     - name: Java
-      href: 'https://docs.azure.cn/java/api/overview/'
+      href: 'https://docs.microsoft.com/java/api'
     - name: Node.js
       href: 'https://docs.azure.cn/develop/nodejs/#azure-sdk'
     - name: Python

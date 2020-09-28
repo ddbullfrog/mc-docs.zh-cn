@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: abhishgu
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 08/10/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 5b7f919bee490b98e9434e7a2346f20261826e8b
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: ea5e3dae39f7215f8638177808b28c18586b8e29
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556479"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146734"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-go-sdk"></a>使用 Azure 数据资源管理器 Go SDK 引入数据 
 
@@ -33,6 +33,8 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 * 安装 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 * 安装满足 [Go SDK 最低要求](kusto/api/golang/kusto-golang-client-library.md#minimum-requirements)的 [Go](https://golang.org/)。 
 * 创建 [Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)。
+
+<!-- * Create an [App Registration and grant it permissions to the database](provision-azure-ad-app.md). Save the client ID and client secret for later use. -->
 
 ## <a name="install-the-go-sdk"></a>安装 Go SDK
 

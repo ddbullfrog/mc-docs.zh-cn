@@ -1,22 +1,23 @@
 ---
 title: 快速入门 - 将表 API 与 .NET 配合使用 - Azure Cosmos DB
 description: 本快速入门介绍如何在 Azure 门户和 .NET 中使用 Azure Cosmos DB 表 API 创建应用程序
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/28/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7f68b0e676a06864621c4b73e0799326b1a60be7
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 181a4ee854ccc1a25ebf0f2b1bb41356e9ebeebb
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223357"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246780"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 生成表 API 应用 
@@ -216,7 +217,7 @@ ms.locfileid: "88223357"
 
     ```
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 这样，应用程序就可以与托管的数据库进行通信。 
 

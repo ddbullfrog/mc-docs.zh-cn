@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: ea1b21f2a521ff3514f4c830b3b0c2c40c06600b
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: a86e1e99f2e4a8eba874217b150f7bd0591c3480
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417614"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146783"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>将数据从 Kafka 引入到 Azure 数据资源管理器
  

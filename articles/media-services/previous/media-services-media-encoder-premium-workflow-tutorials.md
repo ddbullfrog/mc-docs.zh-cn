@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 8f35fe2d2e2d9541ef1bb8b91a3dba24c9c3c1d0
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 0d4c073a03384058e4f59c2a91892d7295634dd1
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413769"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245503"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>高级媒体编码器高级工作流教程
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>概述
 本文档包含的演练说明如何使用**工作流设计器**自定义工作流。 可以在[此处](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples)找到实际的工作流文件。  
 

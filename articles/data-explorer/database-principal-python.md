@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 02/03/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: e9a667f0c2d200e6ad1c93bf52fce4295fdd5457
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: df337ec21a949d7c28871e78443c9ea1927f2ecb
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515840"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146446"
 ---
 # <a name="add-database-principals-for-azure-data-explorer-by-using-python"></a>使用 Python 向 Azure 数据资源管理器添加数据库主体
 

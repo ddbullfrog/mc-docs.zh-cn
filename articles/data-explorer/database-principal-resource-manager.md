@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 02/03/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 911058ffaabd6a761b8e4f5ea2decaff4d90255b
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 29ab1f418a47eab7a44c932667ac9671560d5225
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515841"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146442"
 ---
 # <a name="add-database-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板向 Azure 数据资源管理器添加数据库主体
 

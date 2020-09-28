@@ -12,12 +12,12 @@ origin.date: 08/30/2019
 ms.date: 02/24/2020
 ms.reviewer: klam, divswa, LADocs
 tags: connectors
-ms.openlocfilehash: f91220632444276909c5992df8b55533b3979ab4
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.openlocfilehash: 0a4ca5a61c655ff4ef971951e7a73e3f751b43ef
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029625"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146802"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>从 Azure 逻辑应用连接到 SAP 系统
 
@@ -556,7 +556,7 @@ SAP 连接器通过[本地数据网关](../logic-apps/logic-apps-gateway-connect
 
 ## <a name="connector-reference"></a>连接器参考
 
-有关触发器、操作和限制（请参阅连接器的 OpenAPI（以前称为 Swagger）说明）的技术详细信息，请查看[连接器的参考页](/connectors/sap/)。
+有关触发器、操作和限制（请参阅连接器的 OpenAPI（以前称为 Swagger）说明）的技术详细信息，请查看[连接器的参考页](https://docs.microsoft.com/connectors/sap/)。
 
 ## <a name="next-steps"></a>后续步骤
 

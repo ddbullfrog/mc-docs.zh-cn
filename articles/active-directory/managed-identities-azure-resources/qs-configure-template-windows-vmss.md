@@ -3,24 +3,24 @@ title: 配置模板以对虚拟机规模集使用托管标识 - Azure AD
 description: 分步说明如何使用 Azure 资源管理器模板在虚拟机规模集上配置 Azure 资源托管标识。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbb644908904d39ada8b703b0d272d1944bcc8a
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 120c7d2733efb9871d2e64bd17abbe316e47709a
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945150"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245568"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>使用模板在 Azure 虚拟机规模集上为 Azure 资源配置托管标识
 
@@ -41,9 +41,9 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
     > [!NOTE]
     > 无需其他 Azure AD 目录角色分配。
 
-    - [虚拟机参与者](/role-based-access-control/built-in-roles#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统和/或用户分配托管标识。
-    - [托管标识参与者](/role-based-access-control/built-in-roles#managed-identity-contributor)角色，可以创建用户分配的托管标识。
-    - [托管标识操作员](/role-based-access-control/built-in-roles#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的托管标识。
+    - [虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统和/或用户分配托管标识。
+    - [托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色，可以创建用户分配的托管标识。
+    - [托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的托管标识。
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
 
@@ -51,7 +51,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
    - 使用 [Azure 市场中的自定义模板](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)，这样可以从头开始创建模板，也可以在现有常见模板或[快速启动模板](https://azure.microsoft.com/documentation/templates/)的基础之上操作。
    - 派生自现有资源组，具体方法是从[原始部署](../../azure-resource-manager/templates/export-template-portal.md)或[当前部署](../../azure-resource-manager/templates/export-template-portal.md)导出模板。
-   - 使用本地 [JSON 编辑器（例如 VS Code）](../../azure-resource-manager/resource-manager-create-first-template.md)，然后使用 PowerShell 或 CLI 进行上传和部署。
+   - 使用本地 [JSON 编辑器（例如 VS Code）](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)，然后使用 PowerShell 或 CLI 进行上传和部署。
    - 使用 Visual Studio [Azure 资源组项目](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)同时创建和部署模板。  
 
 无论选择哪种方法，在初始部署和重新部署期间，模板语法都是相同的。 在新 VM 或现有 VM 上启用 Azure 资源托管标识的方式相同。 此外，默认情况下，Azure 资源管理器还会对部署执行[增量更新](../../azure-resource-manager/templates/deployment-modes.md)。

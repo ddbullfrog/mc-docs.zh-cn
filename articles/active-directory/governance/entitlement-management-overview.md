@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: bcab5d347e92a9b60cb7fe159d13041b224441e7
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 49716b56a63ca48e2fd6f31e9cb9f91d69360425
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593820"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245260"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 权利管理是什么？
 
@@ -44,7 +44,7 @@ Azure AD 权利管理可帮助你更加高效地管理内部用户及需要访�
 - 没有人能够知晓其他组织目录中的所有特定个人，因此有可能无法邀请到他们
 - 即使他们能够邀请这些用户，但该组织中可能没有人会记得以一致地方式管理用户的全部访问权限
 
-Azure AD 权利管理可以帮助解决这些难题。  若要了解有关客户如何使用 Azure AD 权利管理的详细信息，可以参阅 [Avanade 案例研究](https://customers.microsoft.com/story/avanade-professional-services-azure-canada)和 [Centrica 案例研究](https://customers.microsoft.com/story/757467-centrica-energy-azure)。  
+Azure AD 权利管理可以帮助解决这些难题。  若要了解有关客户如何使用 Azure AD 权利管理的详细信息，可以参阅 [Avanade 案例研究](https://customers.microsoft.com/story/avanade-professional-services-azure-canada)和 [Centrica 案例研究](https://customers.microsoft.com/story/757467-centrica-energy-azure)。  此视频概述了权利管理及其价值：
 
 ## <a name="what-can-i-do-with-entitlement-management"></a>可以使用权利管理做什么？
 
@@ -145,7 +145,7 @@ Azure AD 权利管理可以帮助解决这些难题。  若要了解有关客户
 - 被委托了管理任务的用户（例如目录创建者、目录所有者和访问包管理员）无需任何许可证。
 - 有权请求访问包但并不请求访问包的来宾无需任何许可证 。
 
-对于为成员用户（员工）购买的每个付费 Azure AD Premium P2 许可证，你可以使用 Azure AD B2B 邀请至多 5 位来宾用户。 这些来宾用户也可以使用 Azure AD Premium P2 功能。 有关详细信息，请参阅 [Azure AD B2B 协作许可指南](../external-identities/licensing-guidance.md)。
+Azure AD External Identities（来宾用户）定价基于月度活动用户数 (MAU)，这是对一个日历月内具有身份验证活动的独立用户的计数。 此模型将替换 1:5 比率计费模型，该模型允许租户中的每个 Azure AD Premium 许可证最多 5 个来宾用户。 当你的租户链接到订阅时，如果使用 External Identities 功能与来宾用户协作，则将使用基于 MAU 的计费模型自动计费。 有关详细信息，请参阅 [Azure AD External Identities](../external-identities/external-identities-pricing.md) 的计费模型。
 
 有关许可证的详细信息，请参阅[使用 Azure Active Directory 门户分配或删除许可证](../fundamentals/license-users-groups.md)。
 

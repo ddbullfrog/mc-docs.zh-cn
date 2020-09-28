@@ -2,20 +2,20 @@
 title: 使用 Azure PowerShell 部署和配置 Azure 防火墙
 description: 本文介绍如何使用 Azure PowerShell 部署和配置 Azure 防火墙。
 services: firewall
-author: rockboyfor
 ms.service: firewall
-origin.date: 04/10/2019
-ms.date: 08/03/2020
+origin.date: 08/28/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.topic: how-to
-ms.openlocfilehash: c5c833bbfbd0bf4252b9ec73aa08a0a0214aa392
-ms.sourcegitcommit: 362814dc7ac5b56cf0237b9016a67c35d8d72c32
+ms.openlocfilehash: aa5978c8db197ea36fd0b9ea0f4fbe5d2637852e
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87455597"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246801"
 ---
 <!--Verify Successfully by changing some of the parameters to fit Azure China-->
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>使用 Azure PowerShell 部署和配置 Azure 防火墙
@@ -39,13 +39,12 @@ ms.locfileid: "87455597"
 
 在本文中，学习如何：
 
-> [!div class="checklist"]
-> * 设置测试网络环境
-> * 部署防火墙
-> * 创建默认路由
-> * 配置一个应用程序规则以允许访问 www.qq.com
-> * 配置网络规则，以允许访问外部 DNS 服务器
-> * 测试防火墙
+* 设置测试网络环境
+* 部署防火墙
+* 创建默认路由
+* 配置一个应用程序规则以允许访问 www.qq.com
+* 配置网络规则，以允许访问外部 DNS 服务器
+* 测试防火墙
 
 如果需要，可以使用 [Azure 门户](tutorial-firewall-deploy-portal.md)完成此过程。
 

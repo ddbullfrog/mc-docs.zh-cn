@@ -10,20 +10,22 @@ tags: ''
 keywords: azure 媒体服务, 流, 广播, 实时, 脱机
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: media
-origin.date: 01/21/2020
-ms.date: 07/27/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 571f1b5d9e0820af0437229839fa86039a24d5bd
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 2d8a9c14e4d45d23ad20fcb4532e35a2f8252352
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245594"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>使用门户创建并监视带有事件网格的 Azure 媒体服务事件
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure 事件网格是针对云的事件处理服务。 此服务使用[事件订阅](../../event-grid/concepts.md#event-subscriptions)将事件消息路由到订阅方。 媒体服务事件包含响应数据中的更改所需的所有信息。 可以识别媒体服务事件，因为 eventType 属性以“Microsoft.Media”开头。 有关详细信息，请参阅[媒体服务事件架构](media-services-event-schemas.md)。
 
@@ -34,7 +36,7 @@ Azure 事件网格是针对云的事件处理服务。 此服务使用[事件订
 ## <a name="prerequisites"></a>先决条件 
 
 * 拥有一个有效的 Azure 订阅。
-* 按照[本快速入门](create-account-cli-quickstart.md)所述，创建新的 Azure 媒体服务帐户。
+* 按照[本快速入门](./create-account-howto.md)所述，创建新的 Azure 媒体服务帐户。
 
 ## <a name="create-a-message-endpoint"></a>创建消息终结点
 
@@ -42,7 +44,7 @@ Azure 事件网格是针对云的事件处理服务。 此服务使用[事件订
 
 1. 选择“部署到 Azure”将解决方案部署到你的订阅。 在 Azure 门户中，为参数提供值。
 
-   <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![图像显示标记为“部署到 Azure”的按钮。](https://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
 
 1. 部署可能需要几分钟才能完成。 部署成功后，请查看 Web 应用以确保它正在运行。 在 Web 浏览器中导航到 `https://<your-site-name>.chinacloudsites.cn`
 

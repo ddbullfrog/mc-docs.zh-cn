@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: 81e9151d9e67955a06f73c2bf9cc4ed39c43a009
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 74b913aebb0abe5b10117643f8e88180fa2e2f7f
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463065"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394536"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>自动缩放 Azure HDInsight 群集
 
@@ -70,8 +70,10 @@ Azure HDInsight 的免费“自动缩放”功能可根据先前设置的条件�
 
 | 版本 | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6  | 是 | 是 | 是 | 是* | 否 | 否 | 否 |
-| HDInsight 4.0  | 是 | 是 | 是 | 是* | 否 | 否 | 否 |
+| 不包含 ESP 的 HDInsight 3.6 | 是 | 是 | 是 | 是* | 否 | 否 | 否 |
+| 不包含 ESP 的 HDInsight 4.0 | 是 | 是 | 是 | 是* | 否 | 否 | 否 |
+| 包含 ESP 的 HDInsight 3.6 | 是 | 是 | 是 | 是* | 否 | 否 | 否 |
+| 包含 ESP 的 HDInsight 4.0 | 是 | 是 | 是 | 是* | 否 | 否 | 否 |
 
 \* 只能为 HBase 群集配置基于计划的缩放，不能为其配置基于负载的缩放。
 

@@ -3,14 +3,14 @@ title: Azure Functions JavaScript 开发者参考
 description: 了解如何使用 JavaScript 开发函数。
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e109c6c500958b487db10c71f556fd7e432a0d63
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 43f4f68d9c0febc2e47bf15cd112a7e3aafb2560
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246792"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -437,7 +437,7 @@ HTTP 和 webhook 触发器以及 HTTP 输出绑定使用请求和响应对象来
 
 ## <a name="scaling-and-concurrency"></a>缩放和并发
 
-默认情况下，Azure Functions 会自动监视应用程序上的负载，并按需为 Node.js 创建更多主机实例。 Functions 针对不同触发器类型使用内置（用户不可配置）阈值来确定何时添加实例，例如 QueueTrigger 的消息和队列大小。 有关详细信息，请参阅[消耗计划的工作原理](functions-scale.md#how-the-consumption-plans-work)。
+默认情况下，Azure Functions 会自动监视应用程序上的负载，并按需为 Node.js 创建更多主机实例。 Functions 针对不同触发器类型使用内置（用户不可配置）阈值来确定何时添加实例，例如 QueueTrigger 的消息和队列大小。 有关详细信息，请参阅[消耗计划和高级计划的工作原理](functions-scale.md#how-the-consumption-and-premium-plans-work)。
 
 此缩放行为足以满足多个 Node.js 应用程序的需求。 对于占用大量 CPU 的应用程序，可使用多个语言工作进程进一步提高性能。
 

@@ -7,16 +7,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 05/05/2020
-ms.date: 06/01/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6fa5c80c0bb2aae44dfb355b4a13b62711137ada
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 13ba7fed2d4feaaabb538b4ea1f7cf9f47dde030
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199397"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026512"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>灾难恢复和存储帐户故障转移
 
@@ -66,4 +66,5 @@ Azure 还建议将应用程序设计为可以应对可能出现的写入故障�
 ## <a name="see-also"></a>另请参阅
 
 - [使用异地冗余设计高度可用的应用程序](geo-redundant-design.md)
+- [检查存储帐户的“上次同步时间”属性](last-sync-time-get.md)
 - [教程：生成使用 Blob 存储的高可用性应用程序](../blobs/storage-create-geo-redundant-storage.md)

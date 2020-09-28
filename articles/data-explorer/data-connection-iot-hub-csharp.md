@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 10/07/2019
-ms.date: 08/13/2020
-ms.openlocfilehash: 69f168e9e26584548866f4a4ab094d60be630b1f
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 1390e524bd9e06d5b5e604afb26aa6bf0f967ac0
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515860"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146580"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-c-preview"></a>使用 C#（预览版）为 Azure 数据资源管理器创建 IoT 中心数据连接
 

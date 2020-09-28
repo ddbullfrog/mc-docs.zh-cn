@@ -1,20 +1,23 @@
 ---
-title: 使用 Azure Cosmos DB API for MongoDB 和 .NET SDK 生成 Web 应用
+title: 使用 Azure Cosmos DB 的用于 MongoDB 的 API 和 .NET SDK 生成 Web 应用
 description: 演示一个 .NET 代码示例，可以参考该示例使用 Azure Cosmos DB 的用于 MongoDB 的 API 进行连接和查询。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5263f19a6da4a90b36864191c97c2270e19755cd
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 868468e90ea853cf08a4b5d6b1b4443724afc682
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098668"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246786"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 .NET Web 应用 
 
@@ -109,25 +112,26 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     collection.Find(new BsonDocument()).ToList();
     ```
 
-* 创建任务并将其插入到集合
+创建任务并将其插入到集合
 
-    ```csharp
-    public void CreateTask(MyTask task)
+```csharp
+public void CreateTask(MyTask task)
+{
+    var collection = GetTasksCollectionForEdit();
+    try
     {
-        var collection = GetTasksCollectionForEdit();
-        try
-        {
-            collection.InsertOne(task);
-        }
-        catch (MongoCommandException ex)
-        {
-            string msg = ex.Message;
-        }
+        collection.InsertOne(task);
     }
-    ```
-    同样，可以使用 [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) 和 [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) 方法更新和删除文档。 
+    catch (MongoCommandException ex)
+    {
+        string msg = ex.Message;
+    }
+}
+```
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+同样，可以使用 [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) 和 [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) 方法更新和删除文档。 
+
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
@@ -171,4 +175,3 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 > [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->
-

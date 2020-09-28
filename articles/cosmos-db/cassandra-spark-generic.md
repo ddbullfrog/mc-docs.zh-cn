@@ -11,12 +11,12 @@ ms.date: 08/17/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9a9e6ac5fa069e1e646800246e500db72309bb5b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: af5c42d409046926e96785094774d9ff8b221664
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222776"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246577"
 ---
 <!--Verify sucessfully-->
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>从 Spark 连接到 Azure Cosmos DB Cassandra API
@@ -118,7 +118,7 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a><a name="next-steps"></a>后续步骤
 
 以下文章演示了 Spark 与 Azure Cosmos DB Cassandra API 的集成。 
 

@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24aadff84418dd9679e4849845b3b4b2c0ea76d4
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 080a05d6e1503434f8c9abd05f6d6d57bd511eff
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413215"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245064"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容  
+# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 

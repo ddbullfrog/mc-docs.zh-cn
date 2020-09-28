@@ -2,18 +2,20 @@
 title: Azure 快速入门 - 在 Azure 门户中运行第一个 Batch 作业
 description: 了解如何使用 Azure 门户创建 Batch 帐户、计算节点池以及在池中运行基本任务的作业。
 ms.topic: quickstart
-origin.date: 08/13/2020
-ms.date: 08/24/2020
+ms.service: batch
+origin.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 04/29/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7c7cea2592d216e293cd21f11db894fc11c58916
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: 8d3181a6fb7202873dac15206d3f3a3b3af53e0b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654987"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146263"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>快速入门：在 Azure 门户中运行第一个 Batch 作业
 
@@ -53,19 +55,19 @@ Now that you have a Batch account, create a sample pool of Windows compute nodes
 
 1. In **Operating System**, select the following settings (you can explore other options).
 
-   |Setting  |Value  |
-   |---------|---------|
-   |**Image Type**|Marketplace|
-   |**Publisher** |microsoftwindowsserver|
-   |**Offer** |windowsserver|
-   |**Sku** |2019-datacenter-core-smalldisk|
+    |Setting  |Value  |
+    |---------|---------|
+    |**Image Type**|Marketplace|
+    |**Publisher** |microsoftwindowsserver|
+    |**Offer** |windowsserver|
+    |**Sku** |2019-datacenter-core-smalldisk|
 
 1. Scroll down to enter **Node Size** and **Scale** settings. The suggested node size offers a good balance of performance versus cost for this quick example.
 
-   |Setting  |Value  |
-   |---------|---------|
-   |**Node pricing tier** |Standard A1|
-   |**Target dedicated nodes** |2|
+    |Setting  |Value  |
+    |---------|---------|
+    |**Node pricing tier** |Standard A1|
+    |**Target dedicated nodes** |2|
 
 1. Keep the defaults for remaining settings, and select **OK** to create the pool.
 

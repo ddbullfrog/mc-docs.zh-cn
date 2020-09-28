@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 3b6bb5b77b2990594bf56223c3f0281841f98e3b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e1e6911491eb69617e2572ee68b5487b49144026
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245556"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Media Encoder Standard 自动生成比特率阶梯  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Media Encoder Standard 自动生成比特率阶梯
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## <a name="overview"></a>概述
 

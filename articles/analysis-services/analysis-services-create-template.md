@@ -1,40 +1,42 @@
 ---
 title: 快速入门 - 使用 Azure 资源管理器模板创建 Azure Analysis Services 服务器资源
 description: 以快速入门的方式介绍如何使用 Azure 资源管理器模板创建 Azure Analysis Services 服务器资源。
-author: rockboyfor
 tags: azure-resource-manager
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 04/14/2020
-ms.date: 07/13/2020
+origin.date: 08/31/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.custom: subject-armqs
-ms.openlocfilehash: 16e8f0b9e0b9beabeaeaf7e6351d4d6c2c77b9a4
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.custom: subject-armqs, references_regions
+ms.openlocfilehash: 02d1d5f47e4b28d2ee0bd20ed70f6b1eec34512b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426538"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146233"
 ---
 <!--Verified successfully-->
-# <a name="quickstart-create-a-server---azure-resource-manager-template"></a>快速入门：创建服务器 - Azure 资源管理器模板
+# <a name="quickstart-create-a-server---arm-template"></a>快速入门：创建服务器 - ARM 模板
 
-本快速入门介绍如何使用资源管理器模板在 Azure 订阅中创建 Analysis Services 服务器资源。
+本快速入门介绍如何使用 Azure 资源管理器模板（ARM 模板）在 Azure 订阅中创建 Analysis Services 服务器资源。
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
+
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
 * **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)来创建一个帐户。
 * **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联。 并且，需要使用 Azure Active Directory 中的一个帐户登录 Azure。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 
-## <a name="create-a-server"></a>创建服务器
+## <a name="review-the-template"></a>查看模板
 
-### <a name="review-the-template"></a>查看模板
-
-本快速入门中使用的模板来自 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-analysis-services-create/)。
+本快速入门中使用的模板来自 [Azure 快速启动模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-analysis-services-create/)。
 
 ```json
 {
@@ -50,13 +52,6 @@ ms.locfileid: "87426538"
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location of all resources."
-      }
-    },
-    "serverLocation": {
-      "type": "string",
-      "defaultValue": "China North",
       "metadata": {
         "description": "Location of the Azure Analysis Services server. For supported regions, see https://docs.azure.cn/analysis-services/analysis-services-overview#availability-by-region"
       }
@@ -95,16 +90,16 @@ ms.locfileid: "87426538"
       "type": "string",
       "defaultValue": "",
       "metadata": {
-        "description": "The SAS URI to a private Azure Blob Storage container with read, write and list permissions. Required only if you intend to use the backup/restore functionality. See https://docs.azure.cn/analysis-services/analysis-services-backup"
+        "description": "The SAS URI to a private Azure Blob Storage container with read, write and list permissions. Required only if you intend to use the backup/restore functionality. See https://docs.azure.cn/analysis-services/analysis-services-backup "
       }
     }
   },
   "resources": [
     {
-      "apiVersion": "2017-08-01",
       "type": "Microsoft.AnalysisServices/servers",
+      "apiVersion": "2017-08-01",
       "name": "[parameters('serverName')]",
-      "location": "[parameters('serverLocation')]",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "[parameters('skuName')]",
         "capacity": "[parameters('capacity')]"
@@ -118,13 +113,15 @@ ms.locfileid: "87426538"
 }
 ```
 
-该模板中定义了包含防火墙规则的单个 [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure/templates/microsoft.analysisservices/2017-08-01/servers) 资源。 
+该模板中定义了包含防火墙规则的单个 Microsoft.AnalysisServices/servers 资源。
 
-### <a name="deploy-the-template"></a>部署模板
+<!--Not Available on [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure/templates/microsoft.analysisservices/servers)-->
+
+## <a name="deploy-the-template"></a>部署模板
 
 1. 选择以下“部署到 Azure”链接，登录到 Azure 并打开一个模板。 此模板用来创建 Analysis Services 服务器资源，并指定必需属性和可选属性。
 
-    [![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
+    [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
 
 2. 选择或输入以下值。
 
@@ -148,7 +145,7 @@ ms.locfileid: "87426538"
 
 3. 选择“购买”。 成功部署服务器后，你会收到通知：
 
-    ![资源管理器模板，部署门户通知](./media/analysis-services-create-template/notification.png)
+    :::image type="content" source="./media/analysis-services-create-template/notification.png" alt-text="ARM 模板，部署门户通知":::
 
 ## <a name="validate-the-deployment"></a>验证部署
 
@@ -189,9 +186,9 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你使用 Azure 资源管理器模板创建了新的资源组和 Azure Analysis Services 服务器资源。 在使用模板创建服务器资源后，请考虑执行以下操作：
-- [快速入门：创建服务器 - PowerShell](analysis-services-create-powershell.md)
-- [从门户中添加示例模型](analysis-services-create-sample-model.md)
-- [配置服务器管理员和用户角色](tutorials/analysis-services-tutorial-roles.md)
+在本快速入门中，你已使用 ARM 模板创建了新的资源组和 Azure Analysis Services 服务器资源。 在使用模板创建服务器资源后，请考虑执行以下操作：
+
+> [!div class="nextstepaction"]
+> [快速入门：配置服务器防火墙 - 门户](analysis-services-qs-firewall.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

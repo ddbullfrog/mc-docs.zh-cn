@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 02/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: e6e7607747eab9242072f64195a2780b726c4658
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1de8e6bf32502e4a6f6d7457391695346d43b95b
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494311"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245061"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>使用媒体编码器高级工作流进行高级编码
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>概述
 Azure 媒体服务即将推出**媒体编码器高级工作流**媒体处理器。 此处理器针对高级按需工作流提供高级编码功能。

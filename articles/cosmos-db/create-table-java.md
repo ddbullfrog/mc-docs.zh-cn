@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: dd884b82ed25ebe8043750e1113233e65cb90462
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 503ea2e76c0b95d4c8a830d0b30fc227b829b780
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223356"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246777"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB 表 API 数据
@@ -73,7 +73,7 @@ ms.locfileid: "88223356"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
@@ -160,7 +160,7 @@ ms.locfileid: "88223356"
     }
     ```
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 这样，应用程序就可以与托管的数据库进行通信。 
 

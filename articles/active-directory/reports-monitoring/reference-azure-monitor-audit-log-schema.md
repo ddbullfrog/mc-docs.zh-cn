@@ -13,17 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-origin.date: 04/18/2019
-ms.date: 05/13/2019
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: decfd6890616d6b8c741868c899b6de0b13b5f24
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 95938cfa8283c6ffb66bc7e24ac975463f35b109
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65598786"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245346"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>解释 Azure Monitor 中的 Azure AD 审核日志架构（预览版）
 
@@ -179,6 +178,7 @@ ms.locfileid: "65598786"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure 诊断日志](/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [解释 Azure Monitor 中的登录日志架构](reference-azure-monitor-sign-ins-log-schema.md)
+* [Azure 诊断日志](../../azure-monitor/platform/platform-logs-overview.md)
+* [常见问题解答和已知的问题](concept-activity-logs-azure-monitor.md#frequently-asked-questions)
 
-<!-- Update_Description: update metedata properties -->

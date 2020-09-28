@@ -5,16 +5,16 @@ author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-origin.date: 07/31/2020
-ms.date: 08/24/2020
+origin.date: 08/25/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 6def341dfb750918629e319af0481c5cd08ce675
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: c5859dbf8641d9c2aa253dcb016ed3bbeab392d5
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753516"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026545"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中可用的 Blob 存储功能
 
@@ -44,9 +44,10 @@ Blob 存储功能（例如[诊断日志记录](../common/storage-analytics-loggi
 |静态网站|预览|[Azure 存储中的静态网站托管](storage-blob-static-website.md)|
 |不可变存储|预览|[使用不可变的存储来存储业务关键型 Blob 数据](storage-blob-immutable-storage.md)|
 |Blob 软删除|尚不支持|[blob 的软删除](storage-blob-soft-delete.md)|
-|更改源|尚不支持|[Azure Blob 存储中的更改源支持](storage-blob-change-feed.md)|
 |Blob 容器 ACL|尚不支持<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |自定义域|尚不支持|[将自定义域映射到 Azure Blob 存储终结点](storage-custom-domain-name.md)|
+|加密范围|尚不支持|[创建和管理加密范围（预览）](encryption-scope-manage.md)|
+|更改源|尚不支持|[Azure Blob 存储中的更改源支持](storage-blob-change-feed.md)|
 
 <div id="blob-container-ACL"><sup>1</sup> 你可以在容器的根文件夹上设置 ACL，但不能在容器本身上设置 ACL。</div><br>
 ## 另请参阅

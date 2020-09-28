@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 4e95d3c93aab952354d0813f540a8f5f507fca79
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 90c892ff4b5d67664886685ec30d46d23b20ff6d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414012"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245624"
 ---
 # <a name="create-content-keys-with-rest"></a>使用 REST 创建内容密钥
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)

@@ -4,17 +4,17 @@ description: 说明在使用 Azure 资源管理器部署资源时如何解决 Az
 ms.topic: troubleshooting
 origin.date: 02/15/2019
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: ba681beb3c96c328bdc803125d8b3f0093e79c7e
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: d8e3596e8493c57280b069ef79fea2f2056e3b0e
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807896"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146400"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解决资源提供程序注册的错误
 

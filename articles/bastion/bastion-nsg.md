@@ -6,16 +6,16 @@ ms.service: bastion
 ms.topic: conceptual
 origin.date: 07/07/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 28718c2929af2e41356150d5ea8af90237ab6277
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 06242589ad90ac372f667a123c7cee09d7bcad6e
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89654956"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146461"
 ---
 <!--Verified succesfully for only charactors only-->
 # <a name="working-with-nsg-access-and-azure-bastion"></a>使用 NSG 访问和 Azure Bastion
@@ -65,5 +65,4 @@ Azure Bastion 将专门部署到 ***AzureBastionSubnet***。
 
 有关 Azure Bastion 的详细信息，请参阅[常见问题解答](bastion-faq.md)。
 
-<!-- Update_Description: new article about bastion nsg -->
-<!--NEW.date: 07/27/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

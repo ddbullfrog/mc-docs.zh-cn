@@ -1,17 +1,19 @@
 ---
-author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
 origin.date: 09/10/2020
-ms.date: 09/15/2020
-ms.author: v-tawe
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: yes
+ms.testdate: 09/21/2020
+ms.author: v-yeche
 ms.custom: generated
-ms.openlocfilehash: 3935b06fa1a0d7215d309b29c6e8a97acbc37333
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 4d28e487e36a329523cdd3edae5414ce4006ceab
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524029"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146402"
 ---
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -30,3 +32,6 @@ ms.locfileid: "90524029"
 |[需要资源上的标记及其值](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e30110a-5ceb-460c-a204-c1c3969c6d62) |强制执行所需的标记及其值。 不要应用到资源组。 |deny |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTagAndValue_Deny.json) |
 |[需要资源组上的标记](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F96670d01-0a4d-4649-9c89-2d3abc0a5025) |强制要求资源组中存在某个标记。 |deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/ResourceGroupRequireTag_Deny.json) |
 |[需要资源上的标记](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F871b6d14-10aa-478d-b590-94f262ecfa99) |强制要求存在某个标记。 不要应用到资源组。 |deny |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTag_Deny.json) |
+
+<!-- Update_Description: new article about policies tags -->
+<!--NEW.date: 09/21/2020-->

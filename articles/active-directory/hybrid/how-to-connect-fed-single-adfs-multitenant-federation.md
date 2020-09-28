@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 09/23/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9db46047debac60c907bb42a92f5ebd393ce47c9
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: d2063f02416025863aa548e45a67061af54869ea
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245514"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>将 Azure AD 的多个实例与 AD FS 的单个实例联合
 
@@ -39,7 +39,7 @@ ms.locfileid: "86164870"
 
 ## <a name="step-1-establish-a-two-way-trust"></a>步骤 1：建立双向信任
  
-若要让 contoso.com 中的 AD FS 能够对 fabrikam.com 中的用户进行身份验证，需在 contoso.com 和 fabrikam.com 之间建立双向信任。 请按照[此文](https://technet.microsoft.com/library/cc816590.aspx)中的准则创建双向信任。
+若要让 contoso.com 中的 AD FS 能够对 fabrikam.com 中的用户进行身份验证，需在 contoso.com 和 fabrikam.com 之间建立双向信任。 请按照[此文](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816590(v=ws.10))中的准则创建双向信任。
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>步骤 2：修改 contoso.com 联合身份验证设置 
  

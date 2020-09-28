@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 979f7664e5367c1279aea45b4e2120058ed43984
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: de5c381a7dbe17dfac07c53ae7aafe2538241361
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947586"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245509"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何将 Azure Monitor 工作簿用于 Azure Active Directory 报表
 
@@ -42,13 +42,13 @@ ms.locfileid: "88947586"
 
 - 深入了解登录日志查询、显示获得或未获得访问权限用户数的工作簿报表，以及访问资源时绕过条件访问策略的用户数。
 
-- 为帮助解决这些问题，Azure Active Directory 提供了用于监视的工作簿。 [Azure Monitor 工作簿](/azure-monitor/platform/workbooks-overview)可将文本、分析查询、指标和参数合并到丰富的交互式报表中。
+- 为帮助解决这些问题，Azure Active Directory 提供了用于监视的工作簿。 [Azure Monitor 工作簿](../../azure-monitor/platform/workbooks-overview.md)可将文本、分析查询、指标和参数合并到丰富的交互式报表中。
 
 
 
 本文：
 
-- 假设你熟悉如何[使用 Monitor 工作簿创建交互式报表](/azure-monitor/platform/workbooks-overview)。
+- 假设你熟悉如何[使用 Monitor 工作簿创建交互式报表](../../azure-monitor/platform/workbooks-overview.md)。
 
 - 介绍如何使用 Monitor 工作簿了解条件访问策略的效果，以排查登录失败并识别旧式身份验证。
  
@@ -58,11 +58,11 @@ ms.locfileid: "88947586"
 
 要使用 Monitor 工作簿，需要：
 
-- 拥有高级 (P1 或 P2) 许可证的 Azure Active Directory 租户。 了解如何[获得高级许可证](/active-directory/fundamentals/active-directory-get-started-premium)。
+- 拥有高级 (P1 或 P2) 许可证的 Azure Active Directory 租户。 了解如何[获得高级许可证](../fundamentals/active-directory-get-started-premium.md)。
 
-- [Log Analytics 工作区](/azure-monitor/learn/quick-create-workspace)。
+- [Log Analytics 工作区](../../azure-monitor/learn/quick-create-workspace.md)。
 
-- 对 Log Analytics 工作区的[访问权限](/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)
+- 对 Log Analytics 工作区的[访问权限](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions)
 - Azure Active Directory 中的以下角色（如果要通过 Azure Active Directory 门户访问 Log Analytics）
     - 安全管理员
     - 安全读取者
@@ -70,7 +70,7 @@ ms.locfileid: "88947586"
     - 全局管理员
 
 ## <a name="roles"></a>角色
-必须是以下角色之一，并且可以[访问基础 Log Analytics](/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) 工作区以管理工作簿：
+必须是以下角色之一，并且可以[访问基础 Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) 工作区以管理工作簿：
 -   全局管理员
 -   安全管理员
 -   安全读取者
@@ -302,5 +302,5 @@ ms.locfileid: "88947586"
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用 Monitor 工作簿创建交互式报表](/azure-monitor/platform/workbooks-overview)。
+[使用 Monitor 工作簿创建交互式报表](../../azure-monitor/platform/workbooks-overview.md)。
 

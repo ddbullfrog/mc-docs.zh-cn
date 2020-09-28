@@ -8,19 +8,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 03/04/2020
-ms.date: 09/07/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b78bfa45c87491d73e82aa074609bc74eee2720
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: b1e705a9b271c98d796138c71bd6747a4f97c0bf
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414023"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245149"
 ---
 # <a name="download-the-results-of-a-job"></a>下载作业结果
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 在 Azure 媒体服务中，处理视频（例如编码）时，需要创建一个输出[资产](assets-concept.md)来存储[作业](transforms-jobs-concept.md)结果。 然后，可以使用媒体服务和存储 API 将这些结果下载到本地文件夹。 
 

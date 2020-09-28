@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: radennis
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 1f413d33d43825b8039877025c98447f51a7813d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: c2cf39b6a4a628f502de763e7590ab1265240eaa
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515873"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146766"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>使用 Azure CLI 创建 Azure 数据资源管理器群集和数据库
 
@@ -33,7 +33,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 <!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
 
-如果选择在本地安装并使用 Azure CLI，本文需要 Azure CLI 2.0.4 或更高版本。 请运行 `az --version` 检查版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+如果选择在本地安装并使用 Azure CLI，本文需要 Azure CLI 2.0.4 或更高版本。 请运行 `az --version` 检查版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="configure-the-cli-parameters"></a>配置 CLI 参数
 

@@ -8,18 +8,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 11/09/2018
-ms.date: 07/27/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: db057400b4d2717f85dfefc305386e824404187c
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: bdb7796990cace75ab3320432e32736cf69903b0
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245605"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>使用 Azure CLI 创建并通过事件网格监视 Azure 媒体服务事件
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure 事件网格是针对云的事件处理服务。 此服务使用[事件订阅](../../event-grid/concepts.md#event-subscriptions)将事件消息路由到订阅方。 媒体服务事件包含响应数据中的更改所需的所有信息。 可以识别媒体服务事件，因为 eventType 属性以“Microsoft.Media”开头。 有关详细信息，请参阅[媒体服务事件架构](media-services-event-schemas.md)。
 
@@ -30,7 +33,7 @@ Azure 事件网格是针对云的事件处理服务。 此服务使用[事件订
 - 一个有效的 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full)。
 - 在本地安装并使用 CLI，本文要求使用 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
-- [创建媒体服务帐户](create-account-cli-how-to.md)。
+- [创建媒体服务帐户](./create-account-howto.md)。
 
     请务必记住用于资源组名称和媒体服务帐户名称的值。
 
@@ -40,7 +43,7 @@ Azure 事件网格是针对云的事件处理服务。 此服务使用[事件订
 
 1. 选择“部署到 Azure”将解决方案部署到你的订阅。 在 Azure 门户中，为参数提供值。
 
-   <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![图像显示标记为“部署到 Azure”的按钮。](https://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
 
 1. 部署可能需要几分钟才能完成。 部署成功后，请查看 Web 应用以确保它正在运行。 在 Web 浏览器中导航到 `https://<your-site-name>.chinacloudsites.cn`
 

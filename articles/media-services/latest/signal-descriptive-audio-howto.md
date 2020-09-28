@@ -8,19 +8,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.custom: ''
-origin.date: 09/25/2019
-ms.date: 09/07/2020
+ms.topic: how-to
+ms.custom: devx-track-csharp
+origin.date: 08/31/220
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 1a86beed1dcc8d4685696a00efa159ddfb6d2878
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: e37ade2763b92ede7176d33907473a17c965a5b5
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244959"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>指示描述性音频轨道
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 可以向视频中添加旁白轨道，以帮助视力受损的客户通过倾听旁白来跟随视频录制。 在媒体服务 v3 中，我们通过在清单文件中注释音频轨道来指示描述性音频轨道。
 

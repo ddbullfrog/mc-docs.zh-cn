@@ -1,23 +1,24 @@
 ---
 title: 使用批量执行程序 .NET 库在 Azure Cosmos DB 中执行批量导入和更新操作
 description: 使用批量执行程序 .NET 库，批量导入和更新 Azure Cosmos DB 文档。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 origin.date: 03/23/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 4c4f0a22ba35c99395d52f8b792aa2ad7f05023e
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2c4227d749c4bdda53b6fd506ea61678db2b3f7b
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222790"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246588"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>使用批量执行程序 .NET 库在 Azure Cosmos DB 中执行批量操作
 
@@ -54,8 +55,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 “BulkImportSample”应用程序生成随机文档并将其批量导入 Azure Cosmos 帐户。 “BulkUpdateSample”应用程序通过指定要对特定文档字段执行的修补操作，来批量更新导入的文档。 在后续部分，我们将查看其中每个示例应用中的代码。
 
-<a name="bulk-import-data-to-an-azure-cosmos-account"></a>
-## <a name="bulk-import-data-to-an-azure-cosmos-account"></a>将数据批量导入到 Azure Cosmos 帐户
+## <a name="bulk-import-data-to-an-azure-cosmos-account"></a><a name="bulk-import-data-to-an-azure-cosmos-account"></a>将数据批量导入到 Azure Cosmos 帐户
 
 1. 导航到“BulkImportSample”文件夹并打开“BulkImportSample.sln”文件。  
 
@@ -98,7 +98,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
     client.ConnectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 0;
     ```
 
-5. 应用程序调用 BulkImportAsync API。 .NET 库提供批量导入 API 的两个重载 - 一个重载接受序列化的 JSON 文档列表，另一个重载接受反序列化的 POCO 文档列表。 若要详细了解其中每个重载方法的定义，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet)。
+5. 应用程序调用 BulkImportAsync API。 .NET 库提供批量导入 API 的两个重载 - 一个重载接受序列化的 JSON 文档列表，另一个重载接受反序列化的 POCO 文档列表。 若要详细了解其中每个重载方法的定义，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync)。
 
     ```csharp
     BulkImportResponse bulkImportResponse = await bulkExecutor.BulkImportAsync(
@@ -130,11 +130,11 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>批量更新 Azure Cosmos 帐户中的数据
 
-可以使用 BulkUpdateAsync API 更新现有文档。 此示例将 `Name` 字段设置为新值，并从现有文档中删除 `Description` 字段。 有关完整的受支持更新操作集，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)。
+可以使用 BulkUpdateAsync API 更新现有文档。 此示例将 `Name` 字段设置为新值，并从现有文档中删除 `Description` 字段。 有关完整的受支持更新操作集，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate)。
 
 1. 导航到“BulkUpdateSample”文件夹并打开“BulkUpdateSample.sln”文件。  
 
-2. 定义更新项以及相应的字段更新操作。 此示例使用 `SetUpdateOperation` 更新 `Name` 字段，并使用 `UnsetUpdateOperation` 从所有文档中删除 `Description` 字段。 还可以执行其他操作，例如，根据特定的值递增文档字段、将特定的值推送到数组字段，或者从数组字段中删除特定的值。 若要了解批量更新 API 提供的不同方法，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet)。
+2. 定义更新项以及相应的字段更新操作。 此示例使用 `SetUpdateOperation` 更新 `Name` 字段，并使用 `UnsetUpdateOperation` 从所有文档中删除 `Description` 字段。 还可以执行其他操作，例如，根据特定的值递增文档字段、将特定的值推送到数组字段，或者从数组字段中删除特定的值。 若要了解批量更新 API 提供的不同方法，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate)。
 
     ```csharp
     SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -151,14 +151,14 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
     }
     ```
 
-3. 应用程序调用 BulkUpdateAsync API。 若要了解 BulkUpdateAsync 方法的定义，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet)。  
+3. 应用程序调用 BulkUpdateAsync API。 若要了解 BulkUpdateAsync 方法的定义，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync)。  
 
     ```csharp
     BulkUpdateResponse bulkUpdateResponse = await bulkExecutor.BulkUpdateAsync(
-     updateItems: updateItems,
-     maxConcurrencyPerPartitionKeyRange: null,
-     maxInMemorySortingBatchSize: null,
-     cancellationToken: token);
+      updateItems: updateItems,
+      maxConcurrencyPerPartitionKeyRange: null,
+      maxInMemorySortingBatchSize: null,
+      cancellationToken: token);
     ```  
     **BulkUpdateAsync 方法接受以下参数：**
 
@@ -191,19 +191,19 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 * 在应用程序的 App.Config 中，确保启用 **gcServer** 以获得更好的性能
     ```xml  
     <runtime>
-    <gcServer enabled="true" />
+      <gcServer enabled="true" />
     </runtime>
     ```
 * 库会发出跟踪，可将其收集到日志文件或控制台。 若要启用上述两项功能，请将以下代码添加到应用程序的 App.Config 文件。
 
     ```xml
     <system.diagnostics>
-    <trace autoflush="false" indentsize="4">
-      <listeners>
-        <add name="logListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="application.log" />
-        <add name="consoleListener" type="System.Diagnostics.ConsoleTraceListener" />
-      </listeners>
-    </trace>
+      <trace autoflush="false" indentsize="4">
+        <listeners>
+          <add name="logListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="application.log" />
+          <add name="consoleListener" type="System.Diagnostics.ConsoleTraceListener" />
+        </listeners>
+      </trace>
     </system.diagnostics>
     ```
 

@@ -10,22 +10,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 12/21/2018
-ms.date: 09/07/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 1238a477e607131798bd77fb676e265955646913
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 29dd5516984c3a3ae328936e0ada845bee756f4e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413885"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245165"
 ---
-# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>设计带访问控制的多 DRM 内容保护系统 
+# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>设计带访问控制的多 DRM 内容保护系统
 
-> [!NOTE]
-> Google Widevine 内容保护服务目前在 Azure 中国区域不可用。
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 针对 over-the-top (OTT) 或在线流解决方案设计和构建数字版权管理 (DRM) 子系统是相当复杂的任务。 运营商/在线视频提供商通常会将此任务外包给专门的 DRM 服务提供商。 本文档旨在陈述 OTT 或在线流解决方案中端到端 DRM 子系统的参考设计和参考实现。
 
@@ -104,7 +103,7 @@ DRM 子系统可能包含以下组件：
 
 以下部分介绍密钥管理的设计。
 
-| **ContentKey-to-asset** | **方案** |
+| **ContentKey-to-asset** | **应用场景** |
 | --- | --- |
 | 一对一 |最简单的情况。 它提供最精细的控制。 但是，此排列方式通常产生最高的许可证传送成本。 每个受保护的资产需要至少一个许可证请求。 |
 | 一对多 |可以对多个资产使用相同的内容密钥。 例如，对于如流派或流派子集（或电影基因）的逻辑组中的所有资产，可以使用单个内容密钥。 |
@@ -117,11 +116,11 @@ DRM 子系统可能包含以下组件：
 
 如果针对许可证传送使用公有云，持久性和非持久性许可证对于许可证传送成本有直接影响。 下面演示了两种不同的设计方案：
 
-* 月度订阅：使用永久性许可证，以及一对多内容密钥到资产映射。 例如，对于所有儿童影片，使用单个内容密钥进行加密。 在这种情况下：
+* 每月订阅：使用永久性许可证，以及一对多内容密钥到资产映射。 例如，对于所有儿童影片，使用单个内容密钥进行加密。 在这种情况下：
 
     所有儿童影片/设备的许可证总数 = 1
 
-* 月度订阅：在内容密钥与资产之间使用非永久性许可证以及一对一映射。 在这种情况下：
+* 每月订阅：在内容密钥与资产之间使用非永久性许可证以及一对一映射。 在这种情况下：
 
     所有儿童影片/设备的许可证总数 = [观看影片数] x [会话数]
 
@@ -134,7 +133,7 @@ DRM 子系统可能包含以下组件：
 
 | **构建基块** | **技术** |
 | --- | --- |
-| **播放器** |Azure Media Player |
+| **球员** |Azure Media Player |
 | **标识提供者 (IDP)** |Azure Active Directory (Azure AD) |
 | **安全令牌服务 (STS)** |Azure AD |
 | **DRM 保护工作流** |Azure 媒体服务动态保护 |
@@ -177,7 +176,7 @@ DRM 子系统可能包含以下组件：
 ### <a name="implementation-procedures"></a>实现过程
 实现包括下列步骤：
 
-1. 准备测试资产。 将测试视频编码/打包为媒体服务中的多比特率分段 MP4。 此资产不受 DRM 保护。  DRM 保护稍后由动态保护完成。
+1. 准备测试资产。 将测试视频编码/打包为媒体服务中的多比特率分段 MP4。 此资产不受 DRM 保护。 DRM 保护稍后由动态保护完成。
 
 2. 创建密钥 ID 和内容密钥（可以选择从密钥种子中获取）。 在此情况下，不需要密钥管理系统，因为只需要对一些测试资产使用单个密钥 ID 和内容密钥。
 
@@ -231,7 +230,7 @@ DRM 子系统可能包含以下组件：
 
     ![JWT](./media/design-multi-drm-system-with-access-control/media-services-1st-gotcha.png)
 
-* 在应用程序的“配置”选项卡上，将权限添加到 Azure AD 中的应用程序。  对于本地版本和已部署的版本，需要提供每个应用程序的权限。
+* 在应用程序的“配置”选项卡上，将权限添加到 Azure AD 中的应用程序。**** 对于本地版本和已部署的版本，需要提供每个应用程序的权限。
 
     ![权限](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
 
@@ -247,11 +246,11 @@ DRM 子系统可能包含以下组件：
     <add key="ida:issuer" value="https://willzhanad.partner.onmschina.cn/" />
     ```
 
-    GUID 是 Azure AD 租户 ID。 可以在 Azure 门户上的“终结点”弹出菜单中找到该 GUID。 
+    GUID 是 Azure AD 租户 ID。 可以在 Azure 门户上的“终结点”弹出菜单中找到该 GUID。****
 
 * 授予组成员资格声明权限。 确保 Azure AD 应用程序清单文件中包含以下内容： 
 
-    "groupMembershipClaims":"All"   （默认值为 null）
+    "groupMembershipClaims": "All"（默认值为 null）
 
 * 创建限制要求时，请设置适当的 TokenType。
 
@@ -282,7 +281,7 @@ DRM 子系统可能包含以下组件：
 
 由于 Azure AD 信任 Microsoft 帐户域，因此可以将以下任何域的任何帐户添加到自定义 Azure AD 租户，并使用该帐户登录：
 
-| **域名** | **域** |
+| **域名** | **Domain** |
 | --- | --- |
 | **自定义 Azure AD 租户域** |somename.partner.onmschina.cn |
 | **企业域** |microsoft.com |
@@ -348,6 +347,6 @@ Windows 10 上的 Microsoft Edge 和 Internet Explorer 11 中的 EME 允许在�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [常见问题](frequently-asked-questions.md)
+* [常见问题解答](frequently-asked-questions.md)
 * [内容保护概述](content-protection-overview.md)
 * [使用 DRM 保护内容](protect-with-drm.md)

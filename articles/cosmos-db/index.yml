@@ -9,14 +9,16 @@ metadata:
   ms.topic: landing-page
   ms.collection: collection
   author: rockboyfor
-  ms.date: 06/22/2020
+  ms.date: 09/28/2020
+  ms.testscope: no
+  ms.testdate: 09/28/2020
   ms.author: v-yeche
-  ms.openlocfilehash: d4b45eb14b1b3f8d3cef557e6533a765e51c01a3
-  ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+  ms.openlocfilehash: 48befb0f76a8a3eed5393caffdf71122c8690efc
+  ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/19/2020
-  ms.locfileid: "85098568"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91246682"
 landingContent:
 - title: 关于 Azure Cosmos DB
   linkLists:
@@ -27,7 +29,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: 与 MongoDB 的网络协议兼容性
-      url: mongodb-feature-support.md
+      url: mongodb-feature-support-36.md
     - text: 与 Apache Cassandra 的网络协议兼容性
       url: cassandra-support.md
     - text: 与 Tinkerpop Gremlin 的线路协议兼容性
@@ -182,7 +184,7 @@ landingContent:
       url: sql-api-sdk-dotnet.md
     - text: Java
       url: sql-api-sdk-java.md
-    - text: Javascript
+    - text: JavaScript
       url: sql-api-sdk-node.md
     - text: REST
       url: /rest/api/cosmos-db/
@@ -302,17 +304,17 @@ landingContent:
       url: cassandra-migrate-cosmos-db-blitzz.md
     - text: 迁移 100 TB 的数据
       url: migrate-cosmosdb-data.md
-- title: 将内置分析功能与 Apache Spark 配合使用
+- title: 使用 Azure Synapse Link 进行分析
   linkLists:
   - linkListType: concept
     links:
-    - text: 分析用例
-      url: analytics-usecases.md
-    - text: Lambda 架构
-      url: lambda-architecture.md
+    - text: Synapse Link for Azure Cosmos DB
+      url: synapse-link.md
+    - text: Azure Cosmos DB 分析存储
+      url: analytical-store-introduction.md
+    - text: Synapse Link 用例
+      url: synapse-link-use-cases.md
   - linkListType: how-to-guide
     links:
-    - text: 使用 Cosmos DB 到 Spark 的连接器
-      url: spark-connector.md
-    - text: 将 Cosmos DB 与 Apache Kafka 配合使用
-      url: /hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+    - text: 配置 Azure Synapse Link
+      url: configure-synapse-link.md

@@ -12,17 +12,19 @@ ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/01/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0c3c61057e58dbcc2d4db87169c09665d16d24b4
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 582a24349d30d94a73695d405d48d50373e144d0
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414029"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244866"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 这些 Azure 媒体服务发行说明汇总了与以前版本相比的变更之处和已知的问题。
 
@@ -53,7 +55,7 @@ ms.locfileid: "89414029"
 
 ## <a name="february-2020"></a>2020 年 2 月
 
-一些分析媒体处理器将停用。 有关停用日期，请参阅[旧版组件](legacy-components.md)主题。
+一些分析媒体处理器将停用。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。
 ## <a name="august-2019"></a>2019 年 8 月
 
 ### <a name="deprecation-of-media-processors"></a>停用媒体处理器

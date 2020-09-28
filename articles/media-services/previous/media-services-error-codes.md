@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: cbdcfbe64d74bd7a490a491c6ad7803b13a61440
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 0c2a10f61cc9a9117bf1bd977b4813860d7c02f8
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244923"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒体服务错误代码
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 使用 Azure 媒体服务时，可能会从服务收到因问题而异的 HTTP 错误代码，例如身份验证令牌到期或媒体服务不支持操作。 以下是媒体服务可能返回的 **HTTP 错误代码**及可能的错误原因的列表。  
 
 ## <a name="400-bad-request"></a>400 错误的请求

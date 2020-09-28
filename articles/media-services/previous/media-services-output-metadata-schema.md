@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: d5f37bcb3ab1733db0f1c7ff161dda96a3a4b799
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: aa40ab9943499bda2c5b2587fe73f4fe65cf0992
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245583"
 ---
 # <a name="output-metadata"></a>输出元数据
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>概述
 编码作业与要执行部分编码任务的输入资产相关联。 例如，将 MP4 文件编码为 H.264 MP4 自适应比特率集；创建缩略图；创建叠加。 完成任务后，会生成一个输出资产。  该输出资产包含视频、音频、缩略图等。输出资产还包含提供输出资产相关元数据的文件。 元数据 XML 文件的名称采用下列格式：&lt;source_file_name&gt;_manifest.xml（例如，BigBuckBunny_manifest.xml）。  
 

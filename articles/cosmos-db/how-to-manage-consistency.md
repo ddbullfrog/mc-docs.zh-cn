@@ -1,21 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中管理一致性
 description: 了解如何使用 Azure 门户、.NET SDK、Java SDK 和各种其他 SDK 在 Azure Cosmos DB 中配置和管理一致性级别
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 06/10/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: ea90a6d7b520bf0d4bf73260bc54da2b332287b9
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: d0d12408622adccad45dabf0e521f063de2af057
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223224"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246804"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理一致性级别
 
@@ -31,7 +31,7 @@ ms.locfileid: "88223224"
 
 若要查看或修改默认一致性级别，请登录到 Azure 门户。 找到你的 Azure Cosmos 帐户，打开“默认一致性”窗格****。 选择你希望用作新的默认值的一致性级别，然后选择“保存”****。 
 
-<!--MOONCAKE: music notes in cosmos db NOT AVAILABLE till on 06/19/2020-->
+<!--MOONCAKE: music notes in cosmos db NOT AVAILABLE till on 09/28/2020-->
 <!--Not Available on The Azure portal also provides a visualization of different consistency levels with music notes. -->
 
 :::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Azure 门户中的一致性菜单":::

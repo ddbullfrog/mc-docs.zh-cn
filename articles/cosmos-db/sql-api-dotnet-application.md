@@ -1,22 +1,23 @@
 ---
 title: 使用 Azure Cosmos DB 的 ASP.NET Core MVC Web 应用教程
 description: ASP.NET Core MVC 教程介绍如何创建使用 Azure Cosmos DB 的 MVC Web 应用程序。 我们将存储 JSON 并从 Azure 应用服务上托管的待办事项应用中访问数据 - ASP NET Core MVC 教程分步说明。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 05/08/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 513eac29e1c2710c57c3ba24fe4170502bfef142
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: caa3ea0d3fc1011c2828e1ae87b427903ac6e4eb
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222437"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246767"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>教程：通过 .NET SDK 开发使用 Azure Cosmos DB 的 ASP.NET Core MVC Web 应用程序
 
@@ -146,38 +147,20 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 <a name="add-views"></a>
 ### <a name="add-views"></a>添加视图
 
-接下来，让我们创建以下三个视图。
+接下来，让我们添加以下视图。
 
-* 添加“列出项”视图
-* 添加“新建项”视图
-* 添加“编辑项”视图
+* 创建项视图
+* 删除项视图
+* 用于获取项详细信息的视图
+* 编辑项视图
+* 用于列出所有项的视图
 
-<a name="AddItemIndexView"></a>
-#### <a name="add-a-list-item-view"></a>添加“列表项”视图
+<a name="AddNewIndexView"></a>
+#### <a name="create-item-view"></a>创建项视图
 
 1. 在“解决方案资源管理器”中，右键单击“视图”文件夹并选择“添加” > “新建文件夹”。    将文件夹命名为“项”。
 
 1. 右键单击空的“项”文件夹，并选择“添加” > “视图”。  
-
-1. 在“添加 MVC 视图”中提供以下值：
-
-    * 在“视图名称”中，输入“索引”。
-    * 在“模板”中，选择“列出”。 
-    * 在“模型类”中，选择“项(todo.Models)”。 
-    * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。
-
-    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="显示“添加 MVC 视图”对话框的屏幕截图":::
-
-1. 在添加这些值之后，选择“添加”，让 Visual Studio 创建新的模板视图。
-
-完成后，Visual Studio 会打开它所创建的 *cshtml* 文件。 可以在 Visual Studio 中关闭该文件。 稍后我们将返回到该文件。
-
-<a name="AddNewIndexView"></a>
-#### <a name="add-a-new-item-view"></a>添加“新建项”视图
-
-与创建视图来列出项一样，请执行以下步骤，以便创建新视图来创建项：
-
-1. 在“解决方案资源管理器”中，再次右键单击“项”文件夹，并选择“添加” > “视图”。   
 
 1. 在“添加 MVC 视图”中进行以下更改：
 
@@ -187,10 +170,189 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
     * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。
     * 选择 **添加** 。
 
+    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="显示“添加 MVC 视图”对话框的屏幕截图":::
+
+1. 接下来，选择“添加”并让 Visual Studio 创建新的模板视图。 将生成的文件中的代码替换为以下内容：
+
+    ```csharp
+   @model todo.Models.Item
+
+   @{
+       ViewBag.Title = "Create";
+       Layout = "~/Views/Shared/_Layout.cshtml";
+   }
+
+   <h2>Create a new To-Do Item</h2>
+
+   @using (Html.BeginForm()) 
+   {
+       @Html.AntiForgeryToken()
+
+       <div class="form-horizontal">
+           <hr />
+           @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+           <div class="form-group">
+               @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+               <div class="col-md-10">
+                   @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                   @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+               </div>
+           </div>
+
+           <div class="form-group">
+               @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+               <div class="col-md-10">
+                   @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                   @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+               </div>
+           </div>
+
+           <div class="form-group">
+               @Html.LabelFor(model => model.Completed, htmlAttributes: new { @class = "control-label col-md-2" })
+               <div class="col-md-10">
+                   <div class="checkbox">
+                       @Html.EditorFor(model => model.Completed)
+                       @Html.ValidationMessageFor(model => model.Completed, "", new { @class = "text-danger" })
+                   </div>
+               </div>
+           </div>
+
+           <div class="form-group">
+               <div class="col-md-offset-2 col-md-10">
+                   <input type="submit" value="Create" class="btn btn-default" />
+               </div>
+           </div>
+       </div>
+   }
+
+   <div>
+       @Html.ActionLink("Back to List", "Index")
+   </div>
+   <script src="~/bundles/jqueryval"></script>
+    ```
+
+<a name="AddEditIndexView"></a>
+#### <a name="delete-item-view"></a>删除项视图
+
+1. 在“解决方案资源管理器”中，再次右键单击“项”文件夹，并选择“添加” > “视图”。   
+
+1. 在“添加 MVC 视图”中进行以下更改：
+
+   * 在“视图名称”框中键入“删除”。
+   * 在“模板”框中，选择“删除” 。
+   * 在“模型类”框中，选择“项(todo.Models)”。 
+   * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。
+   * 选择 **添加** 。
+
+1. 接下来，选择“添加”并让 Visual Studio 创建新的模板视图。 将生成的文件中的代码替换为以下内容：
+
+   ```csharp
+   @model todo.Models.Item
+
+   @{
+       ViewBag.Title = "Delete";
+       Layout = "~/Views/Shared/_Layout.cshtml";
+   }
+
+   <h2>Delete a To-Do Item</h2>
+
+   <h3>Are you sure you want to delete this?</h3>
+   <div>
+       <hr />
+       <dl class="dl-horizontal">
+           <dt>
+               @Html.DisplayNameFor(model => model.Name)
+           </dt>
+
+           <dd>
+               @Html.DisplayFor(model => model.Name)
+           </dd>
+
+           <dt>
+               @Html.DisplayNameFor(model => model.Description)
+           </dt>
+
+           <dd>
+               @Html.DisplayFor(model => model.Description)
+           </dd>
+
+           <dt>
+               @Html.DisplayNameFor(model => model.Completed)
+           </dt>
+
+           <dd>
+               @Html.DisplayFor(model => model.Completed)
+           </dd>
+       </dl>
+
+       @using (Html.BeginForm()) {
+           @Html.AntiForgeryToken()
+
+           <div class="form-actions no-color">
+               <input type="submit" value="Delete" class="btn btn-default" /> |
+               @Html.ActionLink("Back to List", "Index")
+           </div>
+       }
+   </div>
+   ```
+
+<a name="AddItemIndexView"></a>
+#### <a name="add-a-view-to-get-an-item-details"></a>添加用于获取项详细信息的视图
+
+1. 在“解决方案资源管理器”中，再次右键单击“项”文件夹，并选择“添加” > “视图”。   
+
+1. 在“添加 MVC 视图”中提供以下值：
+
+    * 在“视图名称”中，输入“详细信息”。
+    * 在“模板”中选择“详细信息” 。
+    * 在“模型类”中，选择“项(todo.Models)”。 
+    * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。
+
+1. 接下来，选择“添加”并让 Visual Studio 创建新的模板视图。 将生成的文件中的代码替换为以下内容：
+
+    ```csharp
+   @model todo.Models.Item
+
+   <h2>View To-Do Item Details</h2>
+
+   <div>
+       <h4>Item</h4>
+       <hr />
+       <dl class="dl-horizontal">
+           <dt>
+               @Html.DisplayNameFor(model => model.Name)
+           </dt>
+
+           <dd>
+               @Html.DisplayFor(model => model.Name)
+           </dd>
+
+           <dt>
+               @Html.DisplayNameFor(model => model.Description)
+           </dt>
+
+           <dd>
+               @Html.DisplayFor(model => model.Description)
+           </dd>
+
+           <dt>
+               @Html.DisplayNameFor(model => model.Completed)
+           </dt>
+
+           <dd>
+               @Html.DisplayFor(model => model.Completed)
+           </dd>
+
+       </dl>
+   </div>
+   <p>
+       @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+       @Html.ActionLink("Back to List", "Index")
+   </p>
+    ```
+
 <a name="AddEditIndexView"></a>
 #### <a name="add-an-edit-item-view"></a>添加“编辑项”视图
-
-最后，通过以下步骤添加一个用于编辑项目的视图：
 
 1. 在“解决方案资源管理器”中，再次右键单击“项”文件夹，并选择“添加” > “视图”。   
 
@@ -202,7 +364,132 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
     * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。
     * 选择 **添加** 。
 
-完成这些步骤后，请关闭 Visual Studio 中的所有 *cshtml* 文档，因为稍后要返回到这些视图。
+1. 接下来，选择“添加”并让 Visual Studio 创建新的模板视图。 将生成的文件中的代码替换为以下内容：
+
+    ```csharp
+   @model todo.Models.Item
+
+   <h2>Edit a To-Do Item</h2>
+
+   @using (Html.BeginForm())
+   {
+       @Html.AntiForgeryToken()
+
+       <div class="form-horizontal">
+           <h4>Item</h4>
+           <hr />
+           @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+           @Html.HiddenFor(model => model.Id)
+
+           <div class="form-group">
+               @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+               <div class="col-md-10">
+                   @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                   @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+               </div>
+           </div>
+
+           <div class="form-group">
+               @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+               <div class="col-md-10">
+                   @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                   @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+               </div>
+           </div>
+
+           <div class="form-group">
+               @Html.LabelFor(model => model.Completed, htmlAttributes: new { @class = "control-label col-md-2" })
+               <div class="col-md-10">
+                   <div class="checkbox">
+                       @Html.EditorFor(model => model.Completed)
+                       @Html.ValidationMessageFor(model => model.Completed, "", new { @class = "text-danger" })
+                   </div>
+               </div>
+           </div>
+
+           <div class="form-group">
+               <div class="col-md-offset-2 col-md-10">
+                   <input type="submit" value="Save" class="btn btn-default" />
+               </div>
+           </div>
+       </div>
+   }
+
+   <div>
+       @Html.ActionLink("Back to List", "Index")
+   </div>
+
+   <script src="~/bundles/jqueryval"></script>
+    ```
+
+<a name="AddEditIndexView"></a>
+#### <a name="add-a-view-to-list-all-the-items"></a>添加用于列出所有项的视图
+
+最后，通过以下步骤添加一个用于获取所有项的视图：
+
+1. 在“解决方案资源管理器”中，再次右键单击“项”文件夹，并选择“添加” > “视图”。   
+
+1. 在“添加 MVC 视图”中进行以下更改：
+
+    * 在“视图名称”框中，键入“索引”。******
+    * 在“模板”框中，选择“列表”。********
+    * 在“模型类”框中，选择“项(todo.Models)”。 
+    * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。
+    * 选择 **添加** 。
+
+1. 接下来，选择“添加”并让 Visual Studio 创建新的模板视图。 将生成的文件中的代码替换为以下内容：
+
+    ```csharp
+   @model IEnumerable<todo.Models.Item>
+
+   @{
+       ViewBag.Title = "List of To-Do Items";
+       Layout = "~/Views/Shared/_Layout.cshtml";
+   }
+
+   <h2>List of To-Do Items</h2>
+
+   <table class="table">
+       <tr>
+           <th>
+               @Html.DisplayNameFor(model => model.Name)
+           </th>
+           <th>
+               @Html.DisplayNameFor(model => model.Description)
+           </th>
+           <th>
+               @Html.DisplayNameFor(model => model.Completed)
+           </th>
+           <th></th>
+       </tr>
+
+   @foreach (var item in Model) {
+       <tr>
+           <td>
+               @Html.DisplayFor(modelItem => item.Name)
+           </td>
+           <td>
+               @Html.DisplayFor(modelItem => item.Description)
+           </td>
+           <td>
+               @Html.DisplayFor(modelItem => item.Completed)
+           </td>
+           <td>
+               @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+               @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+               @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+           </td>
+       </tr>
+   }
+
+   </table>
+
+   <p>
+       @Html.ActionLink("Create New", "Create")
+   </p>
+    ```
+
+完成这些步骤后，请在 Visual Studio 中关闭所有 cshtml 文档。
 
 <a name="initialize-services"></a>
 ### <a name="declare-and-initialize-services"></a>声明并初始化服务
@@ -370,7 +657,6 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
        "ContainerName": "Item"
      }
     }
-    
     ```
 
 <a name="add-a-controller"></a>
@@ -392,7 +678,7 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
        using System;
        using System.Threading.Tasks;
        using Microsoft.AspNetCore.Mvc;
-       using Models;
+       using todo.Models;
 
        public class ItemController : Controller
        {
@@ -512,7 +798,7 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
 
 1. 选择“新建”链接，并在“名称”和“说明”字段中添加值。   将“已完成”复选框保留未选中状态。 如果选中此复选框，应用会添加处于已完成状态的新项。 该项不再会显示在初始列表中。
 
-1. 选择“创建”。 应用会将你返回到“索引”视图，项将显示在列表中。 可以在 **To-Do** 列表中额外添加几个项。
+1. 选择“创建”  。 应用会将你返回到“索引”视图，项将显示在列表中。 可以在 **To-Do** 列表中额外添加几个项。
 
     :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="“索引”视图的屏幕截图":::
 

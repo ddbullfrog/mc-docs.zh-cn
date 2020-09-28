@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 09/08/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7121a76952bfaee6d30f9f331373e9d92ba570db
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: bf8acbc430bb0fa545b0fbf65a97cf8e2b62dd0b
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593851"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245154"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Azure Active Directory 中的管理单元管理（预览）
 
@@ -27,7 +27,7 @@ ms.locfileid: "89593851"
 
 管理单元允许你授予仅限于你定义的部门、区域或组织的其他部门的管理权限。 你能够使用管理单元将权限委派给区域管理员或以粒度级别设置策略。 例如，用户帐户管理员可以更新配置文件信息、重置密码，并仅为其管理单元中的用户分配许可证。
 
- 例如，委派给区域支持专家[支持管理员](directory-assign-admin-roles.md#helpdesk-administrator)角色，该角色限制为仅管理其支持的区域中的用户。
+例如，委派给区域支持专家[支持管理员](directory-assign-admin-roles.md#helpdesk-administrator)角色，该角色限制为仅管理其支持的区域中的用户。
 
 ## <a name="deployment-scenario"></a>部署场景
 
@@ -54,7 +54,7 @@ ms.locfileid: "89593851"
 
 管理单元可用于对 Azure AD 资源进行逻辑分组。 例如，对于 IT 部门分散在世界各地的组织而言，创建定义这些地理边界的管理单元可能有意义。 在另一种情况下，如果一个跨国组织具有不同的“子组织”，这些子组织的运营是半自主的，那么每个子组织可以由一个管理单元表示。
 
-创建管理单元的条件将遵循组织的独特要求。 管理单元是跨 M365 服务定义结构的常用方法。 建议你在准备管理单元时考虑它们在各项 M365 服务中的使用。 如果可以在管理单元下跨 M365 关联共有资源，则可以通过管理单元获取最大价值。
+创建管理单元的条件将遵循组织的独特要求。 管理单元是跨 Microsoft 365 服务定义结构的常用方法。 建议你在准备管理单元时考虑它们在各项 Microsoft 365 服务中的使用。 如果可以在管理单元下跨 Microsoft 365 关联共有资源，则可以通过管理单元获取最大价值。
 
 组织中管理单元的创建会经历以下阶段：
 
@@ -64,7 +64,7 @@ ms.locfileid: "89593851"
 
 ## <a name="currently-supported-scenarios"></a>当前支持的场景
 
-全局管理员或特权角色管理员可以使用 Azure AD 门户创建管理单元，将用户添加为管理单元的成员，然后将 IT 人员分配给管理单元范围管理员角色。 然后，管理单元范围管理员可以使用 Office 365 门户对其管理单元中的用户进行基本管理。
+全局管理员或特权角色管理员可以使用 Azure AD 门户创建管理单元，将用户添加为管理单元的成员，然后将 IT 人员分配给管理单元范围管理员角色。 然后，管理单元范围管理员可以使用 Microsoft 365 管理中心对其管理单元中的用户进行基本管理。
 
 此外，组可以添加为管理单元的成员，并且管理单元范围组管理员可以使用 PowerShell、Microsoft Graph 和 Azure AD 门户管理它们。
 
@@ -95,7 +95,7 @@ ms.locfileid: "89593851"
 组属性和成员的管理单元范围管理     |  支持   |    支持    |  不支持
 组许可的管理单元范围管理   |    支持  |    支持   |   不支持
 
-管理单元仅对管理权限应用范围。 它们不会阻止成员或管理员使用其[默认用户权限](../fundamentals/users-default-permissions.md)浏览管理单元外部的其他用户、组或资源。 在 Office 365 门户中，范围管理员的管理单元以外的用户会被筛选出，但你可以在 Azure AD 门户、PowerShell 和其他 Microsoft 服务中浏览其他用户。
+管理单元仅对管理权限应用范围。 它们不会阻止成员或管理员使用其[默认用户权限](../fundamentals/users-default-permissions.md)浏览管理单元外部的其他用户、组或资源。 在 Microsoft 365 管理中心，范围管理员的管理单元以外的用户将被筛除，但你可以在 Azure AD 门户、PowerShell 和其他 Microsoft 服务中浏览其他用户。
 
 ## <a name="next-steps"></a>后续步骤
 

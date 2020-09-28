@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: johndeu
-ms.openlocfilehash: b54a88db4e1efb65a4feb7311acbe5c5ffab09ef
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 93c396b816b8e69ac7e3296fe0e92c833a9c3098
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413562"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245454"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述 
+# <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](../latest/index.yml)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)

@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/06/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: milanga
-ms.openlocfilehash: 1ede00b144cf7f5d0997f9d54c5e1abcd827b69a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5f37b0952636f5817f948be714086246ae6620dc
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80625734"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244926"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒体分析检测面部和情绪
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Azure Media Face Detector  媒体处理器将停用。 有关停用日期，请参阅此[旧组件](legacy-components.md)主题。
@@ -168,8 +171,8 @@ ms.locfileid: "80625734"
 
 || 默认值 | 最大值 | 最小值 |
 |--- | --- | --- | --- |
-| AggregateEmotionWindowMs |0.5 |2 |0.25|
-| AggregateEmotionIntervalMs |0.5 |1 |0.25|
+| **AggregateEmotionWindowMs** |0.5 |2 |0.25|
+| **AggregateEmotionIntervalMs** |0.5 |1 |0.25|
 
 ### <a name="json-output"></a>JSON 输出
 聚合情绪的 JSON 输出（已截断）：

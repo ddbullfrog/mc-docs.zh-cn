@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 10/16/2019
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 097a05237badc3c6238411e35da6082637aa50cf
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 3e3a846dcd22770d0cf6cdbd9b83cbba44a05b7b
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753307"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026586"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 文件可伸缩性和性能目标
 

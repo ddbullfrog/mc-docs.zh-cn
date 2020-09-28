@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: gabilehner
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 11/07/2019
-ms.date: 08/13/2020
-ms.openlocfilehash: b8592dc59e2daee79c7be119f673210b47fde1c1
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 58e8de6a8c4c3670313d48bc31ff6bf6063ccdbc
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515822"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146735"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>在 Azure 数据资源管理器中使用后继数据库来附加数据库
 
@@ -208,7 +208,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 |附加的数据库配置名称    |    附加的数据库配置对象的名称。 该名称可以是在群集级别唯一的任何字符串。     |
 |数据库名称     |      要后继的数据库的名称。 若要后继所有先导数据库，请使用“*”。   |
 |先导群集资源 ID    |   先导群集的资源 ID。      |
-|默认主体修改类型    |   默认的主体修改类型。 可以是 `Union`、`Replace` 或 `None`。 有关默认主体修改类型的详细信息，请参阅[主体修改类型控制命令](/data-explorer/kusto/management/cluster-follower#alter-follower-database-principals-modification-kind)。      |
+|默认主体修改类型    |   默认的主体修改类型。 可以是 `Union`、`Replace` 或 `None`。 有关默认主体修改类型的详细信息，请参阅[主体修改类型控制命令](kusto/management/cluster-follower.md#alter-follower-database-principals-modification-kind)。      |
 |位置   |   所有资源的位置。 先导和后继数据库必须位于同一位置。       |
  
 ### <a name="verify-that-the-database-was-successfully-attached"></a>验证是否已成功附加数据库
@@ -369,7 +369,7 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 
 ### <a name="manage-principals"></a>管理主体
 
-附加数据库时，请指定“默认主体修改类型”。 默认设置会保留[已授权主体](/data-explorer/kusto/management/access-control/index#authorization)的先导数据库集合
+附加数据库时，请指定“默认主体修改类型”。 默认设置会保留[已授权主体](kusto/management/access-control/index.md#authorization)的先导数据库集合
 
 |**种类** |**说明**  |
 |---------|---------|
@@ -377,7 +377,7 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 |**将**   |    不会从原始数据库继承主体。 必须为附加的数据库创建新主体。     |
 |**无**   |   附加的数据库主体只包括原始数据库的主体，而不包括其他主体。      |
 
-有关使用控制命令配置已授权主体的详细信息，请参阅[用于管理后继群集的控制命令](/data-explorer/kusto/management/cluster-follower)。
+有关使用控制命令配置已授权主体的详细信息，请参阅[用于管理后继群集的控制命令](kusto/management/cluster-follower.md)。
 
 ### <a name="manage-permissions"></a>管理权限
 
@@ -385,7 +385,7 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 
 ### <a name="configure-caching-policy"></a>配置缓存策略
 
-后继数据库管理员可以修改附加数据库或者该数据库在托管群集上的任何表的[缓存策略](/data-explorer/kusto/management/cache-policy)。 默认设置是保留数据库和表级缓存策略的先导数据库集合。 例如，可对先导数据库使用一个 30 天缓存策略以运行每月报告，并对后继数据库使用一个 3 天缓存策略，以仅查询最近的数据进行故障排除。 有关使用控制命令对后继数据库或表配置缓存策略的详细信息，请参阅[用于管理后继群集的控制命令](/data-explorer/kusto/management/cluster-follower)。
+后继数据库管理员可以修改附加数据库或者该数据库在托管群集上的任何表的[缓存策略](kusto/management/cache-policy.md)。 默认设置是保留数据库和表级缓存策略的先导数据库集合。 例如，可对先导数据库使用一个 30 天缓存策略以运行每月报告，并对后继数据库使用一个 3 天缓存策略，以仅查询最近的数据进行故障排除。 有关使用控制命令对后继数据库或表配置缓存策略的详细信息，请参阅[用于管理后继群集的控制命令](kusto/management/cluster-follower.md)。
 
 ## <a name="limitations"></a>限制
 
@@ -398,4 +398,4 @@ poller = kusto_management_client.clusters.detach_follower_databases(resource_gro
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关后继群集配置的信息，请参阅[用于管理后继群集的控制命令](/data-explorer/kusto/management/cluster-follower)。
+* 有关后继群集配置的信息，请参阅[用于管理后继群集的控制命令](kusto/management/cluster-follower.md)。

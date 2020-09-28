@@ -2,7 +2,7 @@
 title: 将 Azure 中继命名空间移到另一个区域
 description: 本文介绍了如何将 Azure 中继命名空间从当前区域移到另一个区域。
 ms.topic: how-to
-ms.service: azure-relay
+ms.service: service-bus
 origin.date: 09/03/2020
 author: rockboyfor
 ms.date: 09/21/2020
@@ -10,12 +10,12 @@ ms.testscope: yes
 ms.testdate: 09/17/2020
 ms.author: v-yeche
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 74de486c8a71583c97e449dd4f797d8cbdbb8605
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 99951b853584f64bb0cd9626dab345d540abbf6e
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822444"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146242"
 ---
 <!--Verified successfully on 09/17/2020-->
 # <a name="move-an-azure-relay-namespace-to-another-region"></a>将 Azure 中继命名空间移到另一个区域

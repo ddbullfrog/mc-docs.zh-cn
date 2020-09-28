@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/01/2019
-ms.date: 05/11/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 928fd30b2f7953645717b10b00dbef199cd46ccd
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.openlocfilehash: d6c55a770c216203b45f70b41c0a6c3f9e5e8ddb
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245493"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>使用媒体服务 v3 进行适用于 Windows 10 的 PlayReady 脱机流式处理
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。

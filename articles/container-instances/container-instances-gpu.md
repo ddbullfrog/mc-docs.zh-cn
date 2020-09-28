@@ -3,16 +3,16 @@ title: 部署已启用 GPU 的容器实例
 description: 了解如何使用 GPU 资源部署 Azure 容器实例，以运行计算密集型容器应用。
 ms.topic: article
 origin.date: 07/22/2020
-ms.date: 08/10/2020
+ms.date: 09/25/2020
 ms.testscope: no
 ms.testdate: 03/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3e61b75d1bc63159406d65c42715ca704fb9cede
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 501ae8aff1318fa0aef5ce94275de8b871702bcd
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917150"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246690"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>部署使用 GPU 资源的容器实例
 

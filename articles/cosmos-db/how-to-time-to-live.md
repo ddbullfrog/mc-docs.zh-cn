@@ -1,21 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中配置和管理生存时间
 description: 了解如何在 Azure Cosmos DB 中配置和管理容器和项的生存时间
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 03/27/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: bfc52747b3478e4cac3dd686e8c92ac33d4e8694
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 39f79eb57d1bd976058cc27c1bcc1624f492e9b0
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222920"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246454"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置生存时间
 

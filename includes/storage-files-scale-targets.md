@@ -3,14 +3,14 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 05/06/2019
-ms.date: 06/01/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 20ed275284b58c7d27dea3ba54c71547ef29fe0a
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 7aa2177b20822fd9755d42479c3daff7f538aac7
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753309"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026587"
 ---
 | 资源 | 标准文件共享 | 高级文件共享 |
 |----------|---------------|------------------------------------------|
@@ -18,7 +18,7 @@ ms.locfileid: "88753309"
 | 文件共享的最大大小 | 100 TiB*、5 TiB | 100 TiB |
 | 文件共享中文件的最大大小 | 1 TiB | 4 TiB |
 | 文件共享中的文件数上限 | 无限制 | 无限制 |
-| 每个共享的最大 IOPS | 10,000 IOPS*、1,000 IOPS | 100,000 IOPS |
+| 每个共享的最大 IOPS | 10,000 IOPS*、1,000 IOPS 或 100ms 100 个请求 | 100,000 IOPS |
 | 每个文件共享的存储的访问策略的最大数目 | 5 | 5 |
 | 单个文件共享的目标吞吐量 | 最高 300 MiB/秒*、最高 60 MiB/秒  | 查看高级文件共享流入量和流出量值|
 | 单个文件共享的最大流出量 | 查看标准文件共享目标吞吐量 | 最多 6,204 MiB/秒 |

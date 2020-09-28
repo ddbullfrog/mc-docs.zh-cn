@@ -1,8 +1,8 @@
 ---
 title: Azure 资源管理器的 Azure Policy 法规遵从性控制
 description: 列出可用于 Azure 资源管理器的 Azure Policy 法规遵从性控制。 这些内置的策略定义提供了管理 Azure 资源符合性的常用方法。
-origin.date: 07/22/2020
-ms.date: 08/24/2020
+origin.date: 09/10/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: sample
@@ -10,12 +10,12 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: azure-resource-manager
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 57743e7dfbaf4cd2056e8b7245964be100bd9dfa
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 454af6ab743a1d88814c5ffca75424d4a091d1c9
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715644"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146405"
 ---
 <!--Include files updated-->
 <!--Pending to check [!INCLUDE [azure-policy-compliancecontrols-arm] in the next update-->
@@ -27,7 +27,7 @@ Azure Policy 中的法规符合性为与不同符合性标准相关的“符合�
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 
-<!--Not Available on [!INCLUDE [azure-policy-compliancecontrols-arm](../../../includes/policy/standards/byrp/microsoft.resources.md)]-->
+[!INCLUDE [azure-policy-compliancecontrols-arm](../../../includes/policy/standards/byrp/microsoft.resources.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

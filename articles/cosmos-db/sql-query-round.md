@@ -1,19 +1,21 @@
 ---
 title: Azure Cosmos DB 查询语言中的 ROUND
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 ROUND。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 7776677544d5bcf09210ed27fa3f72a1d0a077ef
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 64c7333d92331b3a6f5b8521668926cae0647083
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134755"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246815"
 ---
 # <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
  返回一个数值，四舍五入到最接近的整数值。  
@@ -35,7 +37,7 @@ ROUND(<numeric_expr>)
 
 ## <a name="remarks"></a>备注
 
-执行的四舍五入运算遵循远离零的中点四舍五入。 如果输入是正好介于两个整数之间的数值表达式，则结果将是离零最近的整数值。  
+  执行的四舍五入运算遵循远离零的中点四舍五入。 如果输入是正好介于两个整数之间的数值表达式，则结果将是离零最近的整数值。 此系统函数将从[范围索引](index-policy.md#includeexclude-strategy)中获益。
 
   |<numeric_expr>|已四舍五入|
   |-|-|
@@ -57,10 +59,6 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```json
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
-
-## <a name="remarks"></a>备注
-
-此系统函数将从[范围索引](index-policy.md#includeexclude-strategy)中获益。
 
 ## <a name="next-steps"></a>后续步骤
 

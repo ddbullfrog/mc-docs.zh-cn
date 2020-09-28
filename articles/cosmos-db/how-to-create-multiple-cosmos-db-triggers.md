@@ -1,20 +1,21 @@
 ---
 title: 为 Cosmos DB 创建多个独立的 Azure Functions 触发器
 description: 了解如何配置多个独立的适用于 Cosmos DB 的 Azure Functions 触发器以创建事件驱动的体系结构。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 07/17/2019
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 915ed1be634b37ad55257e1d1c2285388a83c784
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c2c00ef4104abeaa35658c205d6590290bf7456e
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223231"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246769"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>创建多个适用于 Cosmos DB 的 Azure Functions 触发器
 

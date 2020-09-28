@@ -3,7 +3,7 @@ title: 教程：使用 SAS 凭据访问 Azure 存储 - Linux - Azure AD
 description: 本教程介绍了如何使用 Linux VM 系统分配的托管标识通过 SAS 凭据（而不是存储帐户访问密钥）访问 Azure 存储。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a481933792d509382de7bdcd21c957c3f78aa3ec
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 46361aefee73f78a9edbb09021cdbe92bb13e2f7
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945155"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245360"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>教程：使用 Linux VM 系统分配的标识通过 SAS 凭据访问 Azure 存储
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教程介绍如何使用系统分配的托管标识为 Linux 虚拟机 (VM) 获取存储共享访问签名 (SAS) 凭据。 具体而言，是[服务 SAS 凭据](/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)。 
+本教程介绍如何使用系统分配的托管标识为 Linux 虚拟机 (VM) 获取存储共享访问签名 (SAS) 凭据。 具体而言，是[服务 SAS 凭据](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)。 
 
 > [!NOTE]
 > 本教程中生成的 SAS 密钥不会受 VM 限制/绑定到 VM。  
@@ -86,7 +86,7 @@ Azure 存储原本不支持 Azure AD 身份验证。  但是，可以使用 VM �
 
 在本教程的剩余部分中，我们从先前创建的 VM 入手。
 
-若要完成这些步骤，需要使用 SSH 客户端。 如果使用的是 Windows，可以在[适用于 Linux 的 Windows 子系统](https://msdn.microsoft.com/commandline/wsl/install_guide)中使用 SSH 客户端。 如果需要有关配置 SSH 客户端密钥的帮助，请参阅[如何在 Azure 上将 SSH 密钥与 Windows 配合使用](../../virtual-machines/linux/ssh-from-windows.md)或[如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对](../../virtual-machines/linux/mac-create-ssh-keys.md)。
+若要完成这些步骤，需要使用 SSH 客户端。 如果使用的是 Windows，可以在[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)中使用 SSH 客户端。 如果需要有关配置 SSH 客户端密钥的帮助，请参阅[如何在 Azure 上将 SSH 密钥与 Windows 配合使用](../../virtual-machines/linux/ssh-from-windows.md)或[如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对](../../virtual-machines/linux/mac-create-ssh-keys.md)。
 
 1. 在 Azure 门户中，导航到“虚拟机”，转到 Linux 虚拟机，然后在“概述”页中单击顶部的“连接”。 复制用于连接到 VM 的字符串。 
 2. 使用 SSH 客户端连接到 VM。  
@@ -231,5 +231,5 @@ az storage blob download --container-name
 在本教程中，你已学习了如何使用 Linux VM 系统分配的托管标识通过 SAS 凭据来访问 Azure 存储。  若要深入了解 Azure 存储 SAS，请参阅：
 
 > [!div class="nextstepaction"]
->[使用共享访问签名 (SAS)](/storage/common/storage-dotnet-shared-access-signature-part-1)
+>[使用共享访问签名 (SAS)](../../storage/common/storage-sas-overview.md)
 

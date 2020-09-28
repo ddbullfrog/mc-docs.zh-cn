@@ -9,19 +9,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 01/21/2020
-ms.date: 05/11/2020
+ms.topic: overview
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.custom: seodec18
-ms.openlocfilehash: 9f0e235f1ed3f285fdc63bcbca075e1d52d23c4a
-ms.sourcegitcommit: 1f890a4085e184cc678485d05f08dd6de8dc973f
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: b6670e3a08510182f3de577e97f8a27e812a877d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84438952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245129"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>媒体服务实体的筛选、排序和分页
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本主题讨论在列出 Azure 媒体服务 v3 实体时可以使用的 OData 查询选项和分页支持。
 

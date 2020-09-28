@@ -5,15 +5,15 @@ ms.topic: conceptual
 origin.date: 08/24/2020
 author: rockboyfor
 ms.date: 09/21/2020
-ms.testscope: yes|no
-ms.testdate: 09/21/2020null
+ms.testscope: yes
+ms.testdate: 09/21/2020
 ms.author: v-yeche
-ms.openlocfilehash: 308ede1b61703fdfc74223d9a02566e0d422ac8e
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 3de44d726d800ca7f2ab62e31853dfe1946c6fda
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822434"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146747"
 ---
 <!--Verified successfully-->
 # <a name="microsoftcommoneditablegrid-ui-element"></a>Microsoft.Common.EditableGrid UI 元素

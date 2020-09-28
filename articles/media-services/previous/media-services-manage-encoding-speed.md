@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 7cbf7fb158df7d6f56a923a36b4f7a3d2d1271ea
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0a176f6bd7f71a701d10e9a07c4da9165bfab15a
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71124386"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244898"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>管理编码的速度和并发  
+#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>管理编码的速度和并发
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 本文简要概述了如何管理编码作业/任务的速度和并发。
 

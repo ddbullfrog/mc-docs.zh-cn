@@ -10,18 +10,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-origin.date: 04/22/2019
-ms.date: 04/06/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 00f3ac4e8eab05b62594c7c7de46f666eaeff0e7
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 58dd3d8fe7b62a7eea4afb3a929d0122bb859508
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413996"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245122"
 ---
 # <a name="live-event-low-latency-settings"></a>直播活动低延迟设置
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文展示了如何在[直播活动](https://docs.microsoft.com/rest/api/media/liveevents)上设置较低的延迟。 它还讨论了在各种播放器中使用低延迟设置时看到的典型结果。 结果因网络延迟而异。
 

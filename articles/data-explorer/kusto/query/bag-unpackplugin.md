@@ -8,19 +8,21 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/15/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: fc07db8e6f97fd9cd814127d9d15220717b750e6
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: bb291b8bb3dcd563f65a1db194b06acde3f25dbf
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515767"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146257"
 ---
 # <a name="bag_unpack-plugin"></a>bag_unpack 插件
 
 `bag_unpack` 插件通过将每个属性包顶级槽视为列来解压缩 `dynamic` 类型的单个列。
 
-    T | evaluate bag_unpack(col1)
+```kusto
+T | evaluate bag_unpack(col1)
+```
 
 ## <a name="syntax"></a>语法
 

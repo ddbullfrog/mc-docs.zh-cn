@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: 9076430974312b18cd8955bce95869c2943ae23d
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: fc1e3fa3b1071939140bf694e5512a5f7385e7ac
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417564"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146538"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-tableau"></a>在 Tableau 中直观显示来自 Azure 数据资源管理器的数据
 

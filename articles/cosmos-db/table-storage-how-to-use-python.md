@@ -12,13 +12,13 @@ ms.testdate: 08/10/2020
 author: rockboyfor
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.custom: tracking-python
-ms.openlocfilehash: 04168aa6ef81936baf67350dc8a8510301957aab
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-python
+ms.openlocfilehash: b23eeb7b35b3680a6631e132c322164ad71248f5
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246341"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>通过 Python 开始使用 Azure 表存储和 Azure Cosmos DB 表 API
 
@@ -125,7 +125,7 @@ task.priority = 100
 table_service.insert_entity('tasktable', task)
 ```
 
-### <a name="partitionkey-and-rowkey"></a>PartitionKey 和 RowKey
+### <a name="partitionkey-and-rowkey"></a><a name="partitionkey-and-rowkey"></a>PartitionKey 和 RowKey
 
 必须为每个实体同时指定 PartitionKey 和 RowKey 属性。 这些是实体的唯一标识符，它们一起构成了实体的主键。 由于只对这些属性编制了索引，因此可使用这些值进行查询，速度比查询任何其他实体属性都要快。
 

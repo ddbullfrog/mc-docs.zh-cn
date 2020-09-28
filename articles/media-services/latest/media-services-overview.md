@@ -14,18 +14,20 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-origin.date: 03/09/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 1a68a4961bcfca2fe5833bf24d3289a64ab671e8
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: b4298652773bae7e720ff4eb78f5832833d55f7d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414057"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244795"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure 媒体服务 v3 概述
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure 媒体服务是一个基于云的平台，用于生成解决方案，以便实现广播质量的视频流、增强可访问性和分发，等等。 无论你是应用开发人员、呼叫中心、政府机构还是娱乐公司，媒体服务都能帮助你创建应用，通过当今最热门的移动设备和浏览器向广大受众提供品质卓越的媒体体验。
 

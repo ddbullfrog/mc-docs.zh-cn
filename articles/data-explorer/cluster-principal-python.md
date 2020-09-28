@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 02/03/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 824fb278b17ce4a700b6c78a0ea76d7048d4ce01
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 2ca6ace2f839d747f10250c694e83041505a2b29
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515934"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146768"
 ---
 # <a name="add-cluster-principals-for-azure-data-explorer-by-using-python"></a>使用 Python 向 Azure 数据资源管理器添加群集主体
 

@@ -4,17 +4,17 @@ description: 列出 Azure 逻辑应用的 Azure Policy 内置策略定义。 这
 origin.date: 06/23/2020
 ms.date: 07/20/2020
 ms.testscope: no
-ms.testdate: 06/15/2020
+ms.testdate: 09/25/2020
 ms.author: v-yeche
 ms.topic: sample
 ms.suite: integration
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 26bec09fbc40758911847af3ceb9b0bb088472df
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 4a9f1804a2700c52c6ed650800bfd01d11536d95
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414591"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246297"
 ---
 <!--Verified successfully-->
 

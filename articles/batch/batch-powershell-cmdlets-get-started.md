@@ -2,18 +2,20 @@
 title: PowerShell 入门
 description: 快速介绍可用于管理 Batch 资源的 Azure PowerShell cmdlet。
 ms.topic: how-to
+ms.service: batch
 origin.date: 01/15/2019
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
-ms.testdate: 08/15/2019
+ms.testdate: ''
 ms.author: v-yeche
-ms.custom: seodec18
-ms.openlocfilehash: 5bd8c5574b902b2cfc78add50c68fa1a3aee300c
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 2ecfdbaf9c04d97599ba505dcb913c8141880fe8
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654979"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146271"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell cmdlet 管理 Batch 资源
 

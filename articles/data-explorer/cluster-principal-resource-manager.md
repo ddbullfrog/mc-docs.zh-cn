@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 02/03/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: f45957e54defe778f088769fcd2b13a775625148
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: cf32d8ba97acc95fc746cbfd3611d416a64ab143
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515804"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146767"
 ---
 # <a name="add-cluster-principals-for-azure-data-explorer-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板向 Azure 数据资源管理器添加群集主体
 

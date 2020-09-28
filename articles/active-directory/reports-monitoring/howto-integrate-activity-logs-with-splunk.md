@@ -9,20 +9,20 @@ editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/27/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 851d9206455cbbb0c7e4bbd1ffc183a30c17e844
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: dab5826a9c63c122713bab37b3ead7e4aa6ed331
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245221"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>如何：使用 Azure Monitor 将 Azure Active Directory 日志与 Splunk 集成
 
@@ -32,7 +32,7 @@ ms.locfileid: "84186986"
 
 若要使用此功能，需满足以下条件:
 
-- 包含 Azure AD 活动日志的 Azure 事件中心。 了解如何[将活动日志流式传输到事件中心](quickstart-azure-monitor-stream-logs-to-event-hub.md)。 
+- 包含 Azure AD 活动日志的 Azure 事件中心。 了解如何[将活动日志流式传输到事件中心](./tutorial-azure-monitor-stream-logs-to-event-hub.md)。 
 
 -  [适用于 Splunk 的 Azure 加载项](https://splunkbase.splunk.com/app/3757/)。 
 
@@ -58,3 +58,5 @@ ms.locfileid: "84186986"
 
 * [解释 Azure Monitor 中的审核日志架构](reference-azure-monitor-audit-log-schema.md)
 * [解释 Azure Monitor 中的登录日志架构](reference-azure-monitor-sign-ins-log-schema.md)
+* [常见问题解答和已知的问题](concept-activity-logs-azure-monitor.md#frequently-asked-questions)
+

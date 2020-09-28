@@ -9,18 +9,20 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 07/01/2019
-ms.date: 09/07/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: d038b0cfab71ebb30d7603e70d33029ae02616ba
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 05a14c7c598e24bfbc025cb4dbe1f733911fe648
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413993"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244958"
 ---
 # <a name="azure-storage-accounts"></a>Azure 存储帐户
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 若要开始管理、加密、编码和流式处理 Azure 中的媒体内容，需要创建媒体服务帐户。 创建媒体服务帐户时，需要提供 Azure 存储帐户资源的名称。 指定存储帐户会附加到媒体服务帐户。
 

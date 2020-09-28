@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 7ef174e39eba50fe83ddf323c90b37aa0679c742
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 450e9600e7a84415af1a4578f214ec94e0a9e629
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244812"
 ---
-
-![概览](../../../media/quickstarts/overview-qs4.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="../../../media/quickstarts/overview-qs4.svg" alt-text="信号流":::
 
 上图显示本快速入门中信号的流动方式。 [Edge 模块](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)模拟托管实时流协议 (RTSP) 服务器的 IP 相机。 [RTSP 源](../../../media-graph-concept.md#rtsp-source)节点从该服务器拉取视频源，并将视频帧发送到[运动检测处理器](../../../media-graph-concept.md#motion-detection-processor)节点。 RTSP 源会将同一视频帧发送到[信号入口处理器](../../../media-graph-concept.md#signal-gate-processor)节点，该节点在被事件触发前会保持关闭状态。
 

@@ -2,14 +2,17 @@
 title: 什么是媒体图扩展 - Azure
 description: 使用 IoT Edge 上的实时视频分析，可以通过图形扩展节点扩展媒体图处理功能。
 ms.topic: overview
+author: WenJason
+ms.author: v-jay
+ms.service: media-services
 origin.date: 09/14/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: 3ebaafb608af0451b708418b2a26436d11192281
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 09/28/2020
+ms.openlocfilehash: 89cbb44cb8196e2a4e90368d33ad50007c31e66d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245695"
 ---
 # <a name="media-graph-extension"></a>媒体图扩展
 
@@ -50,13 +53,14 @@ gRPC 扩展处理器可用于发送媒体属性以及交换推理消息。
 媒体图扩展允许你在任何可用的推理运行时（如 ONNX、TensorFlow、PyTorch 或你自己的 docker 容器中的其他运行时）上运行所选的推理模型。 推断自定义扩展应与实时视频分析边缘模块一起部署，以获得最佳性能，然后将通过图形拓扑中包含的 HTTP 扩展处理器或 gRPC 扩展处理器进行调用。 另外，可以通过在媒体扩展处理器的上游添加[运动检测器处理器](media-graph-concept.md#motion-detection-processor)和[帧速率筛选处理器](media-graph-concept.md#frame-rate-filter-processor)来限制对自定义扩展的调用频率。
 
 下图描绘了大致数据流：
- 
-![数据流](./media/media-graph-extension/data-flow.png)
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph-extension/analyze-live-video-with-AI-inference-service.svg" alt-text="AI 推理服务":::
 
 ## <a name="samples"></a>示例
 
-查看关于实时视频分析的 [Jupyter 笔记本](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md)示例。 这些笔记本将为你提供以下方面的分步说明：
+查看关于实时视频分析的 [Jupyter 笔记本](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md)示例。 这些笔记本将为你提供以下方面的媒体图扩展分步说明：
 
 * 如何创建扩展服务的 Docker 容器映像
 * 如何将扩展服务与实时视频分析容器一起部署为容器
-* 如何使用带有扩展客户端的实时视频分析媒体图并将其指向扩展 gRPC 终结点
+* 如何使用带有扩展客户端的实时视频分析媒体图并将其指向扩展终结点 (HTTP/gRPC)

@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 84bc0931ffea8ae2e07890e6b14c752303237ba6
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 77d78ecdbc0d2d6640cd1bdcc4e2a99bbcf79244
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413200"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245477"
 ---
-# <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 将文件上传到媒体服务帐户 
+# <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 将文件上传到媒体服务帐户
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](../latest/index.yml)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)

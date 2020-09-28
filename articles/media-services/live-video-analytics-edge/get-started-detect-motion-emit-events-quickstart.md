@@ -2,14 +2,17 @@
 title: IoT Edge 上的实时视频分析入门 - Azure
 description: 本快速入门演示如何开始使用 IoT Edge 上的实时视频分析。 了解如何检测实时视频流中的运动。
 ms.topic: quickstart
+author: WenJason
+ms.author: v-jay
+ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: 7e12d3f1c2b8b715ae95e49314ab37029603902a
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 09/28/2020
+ms.openlocfilehash: e84be22a676ee06f52266727d07c911a6c455b5e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413391"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245560"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>快速入门：入门 - IoT Edge 上的实时视频分析
 
@@ -17,7 +20,8 @@ ms.locfileid: "89413391"
 
 完成设置步骤后，你将能通过媒体图运行模拟实时视频流，该媒体图可检测和报告该流中的任何运动。 下图显示了该媒体图的图形表示形式。
 
-![基于运动检测的实时视频分析](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="基于运动检测的实时视频分析":::
 
 ## <a name="prerequisites"></a>先决条件
 

@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-origin.date: 03/15/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d518218237bce884f494c066315829830eddd721
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 7bb23cf73341a8f17454bada4c174c81ccc204d9
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413372"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245657"
 ---
 # <a name="create-a-media-services-account"></a>创建媒体服务帐户
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 若要开始加密、编码、管理和流式处理 Azure 中的媒体内容，需要创建媒体服务帐户。 媒体服务帐户需与一个或多个存储帐户相关联。 本文介绍创建新 Azure 媒体服务帐户的步骤。
 

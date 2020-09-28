@@ -1,19 +1,21 @@
 ---
 title: Azure 中继混合连接 - .NET 中的 WebSocket
 description: 为 Azure 中继混合连接 WebSocket 编写 C# 控制台应用程序。
+ms.service: service-bus
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 origin.date: 06/23/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: 0e10ea8f943077a97a88d98fc42b5502a3e9360a
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 2a8d1fa66d7fe6624ef6f4a990f51c654c47cf05
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162413"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146725"
 ---
 <!--Verified successfully-->
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>开始在 .NET 中使用中继混合连接 WebSocket
@@ -57,7 +59,7 @@ ms.locfileid: "87162413"
 2. 运行客户端应用程序并输入一些文本。
 3. 确保服务器应用程序控制台显示了客户端应用程序中输入的文本。
 
-    ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
+    :::image type="content" source="./media/relay-hybrid-connections-dotnet-get-started/running-applications.png" alt-text="running-applications":::
 
 祝贺你，你已创建了一个完整的混合连接应用程序！
 

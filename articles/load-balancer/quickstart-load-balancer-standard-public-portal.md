@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/17/2020
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 182690ddc34fd0b84956fe3148639adc82184378
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: f31a3b24e758dbb882acdf0c2168c2e25edee96f
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045813"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026630"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建公共负载均衡器，以便对 VM 进行负载均衡
 
@@ -37,14 +37,12 @@ ms.locfileid: "89045813"
 
 ---
 
-# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[选项 1（默认）：创建公共负载均衡器（标准 SKU）](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**标准 SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。  有关 SKU 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
 
 在本部分，你将创建一个负载均衡器来对虚拟机进行负载均衡。 
-
-可以创建公共负载均衡器或内部负载均衡器。 
 
 创建公共负载均衡器时，还会为该负载均衡器创建一个配置为前端（默认情况下命名为“LoadBalancerFrontend”）的新公共 IP 地址。
 
@@ -52,7 +50,7 @@ ms.locfileid: "89045813"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | 值                                              |
+    | 设置                 | Value                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中输入 myResourceGroupLB 。|
@@ -102,7 +100,7 @@ ms.locfileid: "89045813"
 
 2. 在“设置”下，依次选择“运行状况探测”、“添加”。
     
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入 **myHealthProbe**。 |
     | 协议 | 选择“HTTP”。 |
@@ -130,7 +128,7 @@ ms.locfileid: "89045813"
 
 3. 使用以下值配置负载均衡规则：
     
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入 **myHTTPRule**。 |
     | IP 版本 | 选择“IPv4” |
@@ -271,7 +269,7 @@ ms.locfileid: "89045813"
 
 3. 使用以下值配置出站规则：
 
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入 myOutboundRule。 |
     | 前端 IP 地址 | 选择“新建”。 </br> 在“名称”中输入“LoadBalancerFrontEndOutbound”。 </br> 选择“IP 地址”或“IP 前缀”。 </br> 在“公共 IP 地址”或“公共 IP 前缀”下选择“新建”。 </br> 对于“名称”，请输入“myPublicIPOutbound”或“myPublicIPPrefixOutbound”。 </br> 选择“添加”  。|
@@ -300,16 +298,14 @@ ms.locfileid: "89045813"
 
 7. 选择“添加”  。
 
-8. 选择“保存” 。
+8. 选择“保存” ****。
 
-# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[选项 2：创建公共负载均衡器（基本 SKU）](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**基本 SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。  有关 SKU 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
 
 在本部分，你将创建一个负载均衡器来对虚拟机进行负载均衡。 
-
-可以创建公共负载均衡器或内部负载均衡器。 
 
 创建公共负载均衡器时，还会为该负载均衡器创建一个配置为前端（默认情况下命名为“LoadBalancerFrontend”）的新公共 IP 地址。
 
@@ -317,7 +313,7 @@ ms.locfileid: "89045813"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | 值                                              |
+    | 设置                 | Value                                              |
     | ---                     | ---                                                |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中键入 myResourceGroupLB 。|
@@ -396,7 +392,7 @@ ms.locfileid: "89045813"
 
 3. 在“添加后端池”页上，输入或选择：
     
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入“myBackendPool”。 |
     | 虚拟网络 | 选择“myVNet”。 |
@@ -414,7 +410,7 @@ ms.locfileid: "89045813"
 
 2. 在“设置”下，依次选择“运行状况探测”、“添加”。
     
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入 **myHealthProbe**。 |
     | 协议 | 选择“HTTP”。 |
@@ -442,7 +438,7 @@ ms.locfileid: "89045813"
 
 3. 使用以下值配置负载均衡规则：
     
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入 **myHTTPRule**。 |
     | IP 版本 | 选择“IPv4” |
@@ -577,7 +573,7 @@ ms.locfileid: "89045813"
     # Add a new htm file that displays server name
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
-8. 关闭与 *myVM1* 之间的 RDP 会话。
+8. 关闭与 **myVM1** 之间的 RDP 会话。
 
 9. 重复步骤 1 到步骤 6，在 **myVM2** 和 **myVM3** 上安装 IIS 和已更新的 iisstart.htm 文件。
 

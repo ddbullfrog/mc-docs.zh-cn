@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/17/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: ff6299462a756046f14966b4e36257038864dd43
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: c433dcbec0e310dc4d4107a63c5771e19e2ce116
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556481"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146468"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>使用 Azure 数据资源管理器查询 Azure Data Lake 中的数据
 

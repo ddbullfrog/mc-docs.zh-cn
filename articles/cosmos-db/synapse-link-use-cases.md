@@ -1,20 +1,20 @@
 ---
 title: Azure Synapse Link for Azure Cosmos DB 的实时分析用例
 description: 了解如何在供应链分析、预测、报告、实时个性化设置和 IOT 预测性维护中使用 Azure Synapse Link for Azure Cosmos DB。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/19/2020
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: feaebe2125d09d58fdd9d0e1163925be746ce584
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 9edd9d999833a602546c616b717c226e9d4a3793
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223422"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246721"
 ---
 <!--Verified successfully-->
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link for Azure Cosmos DB：准实时分析用例

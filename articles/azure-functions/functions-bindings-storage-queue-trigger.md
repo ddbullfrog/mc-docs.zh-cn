@@ -3,15 +3,15 @@ title: 适用于 Azure Functions 的 Azure 队列存储触发器
 description: 了解如何在 Azure 队列存储数据更改时运行 Azure Function。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 09/25/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, cc996988-fb4f-47
-ms.openlocfilehash: 042b690e3fe888c10e7abaa77e58a115847e24d8
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: bb8bb17509a84a024d24e920237b80cbc14800b4
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413808"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246635"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>适用于 Azure Functions 的 Azure 队列存储触发器
 
@@ -332,7 +332,7 @@ public class QueueTriggerDemo {
 - 找到消息后，运行时将等待两秒钟，然后检查是否有其他消息
 - 如果未找到任何消息，它将等待大约四秒钟，然后重试。
 - 如果后续尝试获取队列消息失败，则等待时间会继续增加，直到达到最长等待时间（默认为 1 分钟）。
-- 可以通过 [host.json 文件](functions-host-json.md#queues)中的 `maxPollingInterval` 属性配置最大等待时间。
+- 可以通过 [host.json 文件](functions-host-json-v1.md#queues)中的 `maxPollingInterval` 属性配置最大等待时间。
 
 对于本地开发，最大轮询间隔默认为两秒。
 

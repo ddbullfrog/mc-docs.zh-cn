@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 17074c36b88f8156b4bc7c8b6a1213a430caee6e
-ms.sourcegitcommit: 362814dc7ac5b56cf0237b9016a67c35d8d72c32
+ms.openlocfilehash: b7c8914e4c43a5c8b4ef6969352bdd267ce1b909
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87455570"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246479"
 ---
 <!--Verify Successfully -->
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>教程：使用 Azure 门户在混合网络中部署和配置 Azure 防火墙
@@ -287,7 +287,7 @@ ms.locfileid: "87455570"
 4. 在“允许从 VNet-hub 转发到 VNet-Spoke 的流量”下，选择“已启用”。
 5. 选择“保存”。
 
-## <a name="create-the-routes"></a>创建路由
+## <a name="create-the-routes"></a><a name="create-the-routes"></a>创建路由
 
 接下来创建一对路由：
 

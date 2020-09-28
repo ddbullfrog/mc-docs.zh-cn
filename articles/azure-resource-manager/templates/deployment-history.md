@@ -6,12 +6,12 @@ ms.topic: conceptual
 origin.date: 05/26/2020
 ms.date: 06/22/2020
 ms.author: v-yeche
-ms.openlocfilehash: c9295780e06f0744d7fa671e639f48801bb3da1b
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 8a22765b8931be4fa8e454695f7c150d7901b392
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098331"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146516"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>使用 Azure 资源管理器查看部署历史记录
 
@@ -149,7 +149,7 @@ Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -Deployme
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要查看部署到资源组的部署操作，请使用 [az deployment operation group list](https://docs.azure.cn/cli/deployment/operation/group?view=azure-cli-latest#az-deployment-operation-group-list) 命令。 必须具有 Azure CLI 2.6.0 或更高版本。
+若要查看部署到资源组的部署操作，请使用 [az deployment operation group list](https://docs.microsoft.com/cli/azure/deployment/group#az_deployment_operation_group_list) 命令。 必须具有 Azure CLI 2.6.0 或更高版本。
 
 ```azurecli
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment

@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 04/01/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 086f6181766baad4e0ed49e350dc2d2ca5ea75b2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e64924112c0828caf562d6b19d83a429806eaedb
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63861082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245473"
 ---
-# <a name="h264-multiple-bitrate-1080p-audio-51"></a>H264 多比特率 1080p Audio 5.1 
+# <a name="h264-multiple-bitrate-1080p-audio-51"></a>H264 多比特率 1080p Audio 5.1
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 `Media Encoder Standard` 定义了一组在创建编码作业时可使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  
   

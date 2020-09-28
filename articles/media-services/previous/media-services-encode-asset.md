@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/25/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 2c98088a2c6189f770667413fec9880bfb0589f4
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 5898d7916b614a5ad822d8f3f27a4b2a82eba4fd
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413182"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244752"
 ---
-# <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器概述 
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器概述
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](../latest/index.yml)。 另请参阅[从 v2 到 v3 的迁移指南](../latest/migrate-from-v2-to-v3.md)
@@ -61,7 +63,7 @@ Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所
 [此处](media-services-output-metadata-schema.md)说明了编码器输出元数据。
 
 ### <a name="generate-thumbnails"></a>生成缩略图
-有关信息，请参阅[如何使用 Media Encoder Standard 生成缩略图](media-services-advanced-encoding-with-mes.md#thumbnails)。
+有关信息，请参阅[如何使用 Media Encoder Standard 生成缩略图](media-services-advanced-encoding-with-mes.md)。
 
 ### <a name="trim-videos-clipping"></a>修剪视频（裁剪）
 有关信息，请参阅[如何使用 Media Encoder Standard 剪裁视频](media-services-advanced-encoding-with-mes.md#trim_video)。

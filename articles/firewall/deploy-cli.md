@@ -2,20 +2,20 @@
 title: 使用 Azure CLI 部署和配置 Azure 防火墙
 description: 本文介绍如何使用 Azure CLI 部署和配置 Azure 防火墙。
 services: firewall
-author: rockboyfor
 ms.service: firewall
 origin.date: 08/29/2019
-ms.date: 08/03/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.topic: how-to
-ms.openlocfilehash: e1827c2eb7ddb291b22fb186553b15ec907f603d
-ms.sourcegitcommit: 362814dc7ac5b56cf0237b9016a67c35d8d72c32
+ms.openlocfilehash: eed0c3cb2ea57a2ece07baf9f03d29245acdfc42
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87455598"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246802"
 ---
 <!--Verify Successsfully-->
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>使用 Azure CLI 部署和配置 Azure 防火墙
@@ -39,13 +39,12 @@ ms.locfileid: "87455598"
 
 在本文中，学习如何：
 
-> [!div class="checklist"]
-> * 设置测试网络环境
-> * 部署防火墙
-> * 创建默认路由
-> * 配置一个应用程序规则以允许访问 www.qq.com
-> * 配置网络规则，以允许访问外部 DNS 服务器
-> * 测试防火墙
+* 设置测试网络环境
+* 部署防火墙
+* 创建默认路由
+* 配置一个应用程序规则以允许访问 www.qq.com
+* 配置网络规则，以允许访问外部 DNS 服务器
+* 测试防火墙
 
 如果你愿意，可以使用 [Azure 门户](tutorial-firewall-deploy-portal.md)或 [Azure PowerShell](deploy-ps.md) 完成此过程。
 
@@ -57,7 +56,7 @@ ms.locfileid: "87455598"
 
 ### <a name="azure-cli"></a>Azure CLI
 
-如果选择在本地安装并使用 CLI，请运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 有关安装或升级的信息，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，请运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 有关安装或升级的信息，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 安装 Azure 防火墙扩展：
 

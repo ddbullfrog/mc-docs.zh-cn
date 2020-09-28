@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 11/18/2019
 ms.author: v-yiso
 ms.date: 12/23/2019
-ms.openlocfilehash: e1868456cf983f08af5b4aae8e060ea5a518335f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0560939385369caa6091b1ac8fb59a3604a2e038
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75335967"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394532"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>将 Apache Spark 结构化流式处理与 Apache Kafka 和 Azure Cosmos DB 配合使用
 
@@ -146,7 +146,9 @@ az cosmosdb keys list --name $name --resource-group $resourceGroupName --type ke
 
 1. 在 Web 浏览器中，连接到 Spark 群集上的 Jupyter Notebook。 在下列 URL 中，将 `CLUSTERNAME` 替换为你的 __Spark__ 群集名：
 
+    ```http
         https://CLUSTERNAME.azurehdinsight.cn/jupyter
+    ```
 
     出现提示时，输入创建群集时使用的群集登录名（管理员）和密码。
 

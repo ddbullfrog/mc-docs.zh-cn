@@ -6,16 +6,18 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: v-jay
 author: WenJason
-origin.date: 03/25/2020
-ms.date: 05/11/2020
-ms.openlocfilehash: 48540928718bbad3458fb28d83410d8b4d08c6fe
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+origin.date: 08/31/2020
+ms.date: 09/28/2020
+ms.openlocfilehash: de98b0188f4aabe345c7b135d69385da586e8651
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507705"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245119"
 ---
 # <a name="create-an-azure-media-services-live-stream"></a>创建 Azure 媒体服务实时传送流
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本快速入门帮助你使用 Azure 门户和 Telestream Wirecast 创建 Azure 媒体服务实时传送流。 本文假设你有一个 Azure 订阅，并已创建媒体服务帐户。
 

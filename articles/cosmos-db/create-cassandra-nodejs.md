@@ -11,12 +11,12 @@ ms.date: 08/17/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 85591578e1393c74745e3293d6992b1ad48233ef
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 1c4f9f35436d35929b8bddf0057688fed7ed629b
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246541"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>快速入门：使用 Node.js SDK 和 Azure Cosmos DB 构建 Cassandra 应用
@@ -64,7 +64,7 @@ ms.locfileid: "88222998"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-nodejs-getting-started.git
@@ -170,7 +170,7 @@ ms.locfileid: "88222998"
     }
     ```  
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 连接字符串使应用能与托管数据库进行通信。
 

@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: tutorial
 origin.date: 05/19/2020
-ms.date: 08/13/2020
-ms.openlocfilehash: 8f2537308eb227baa10fd349c31a2a3ec8df7f2b
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 956b9fd864917170f3012f8989951b2f05a049bf
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515825"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146738"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>通过 C# 以端到端方式将 blob 引入到 Azure 数据资源管理器中
 

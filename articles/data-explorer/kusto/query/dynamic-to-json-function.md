@@ -8,13 +8,13 @@ ms.reviewer: elgevork
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/05/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 5193ed55666af8f1bd8e48451d0f1062a055d75f
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: dbe9a5b62a366a65d4df9e8ea7fb7514eb5f5259
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556521"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146597"
 ---
 # <a name="dynamic_to_json"></a>dynamic_to_json()
 
@@ -37,16 +37,58 @@ ms.locfileid: "88556521"
 
 表达式：
 
-  let bag1 = dynamic_to_json(dynamic({ 'Y10':dynamic({ }), 'X8': dynamic({ 'c3':1, 'd8':5, 'a4':6 }),'D1':114, 'A1':12, 'B1':2, 'C1':3, 'A14':[15, 13, 18]})); print bag1
+```kusto
+  let bag1 = dynamic_to_json(dynamic({ 'Y10':dynamic({ }), 'X8': dynamic({ 'c3':1, 'd8':5, 'a4':6 }),'D1':114, 'A1':12, 'B1':2, 'C1':3, 'A14':[15, 13, 18]}));
+  print bag1
+```
   
-结果:
+结果：
 
-"{ ""A1"":12, ""A14"": [ 15, 13, 18 ], ""B1"":2, ""C1"":3, ""D1"":114, ""X8"": { ""c3"":1, ""d8"":5, ""a4"":6 }, ""Y10"": {} }"
+```
+"{
+  ""A1"": 12,
+  ""A14"": [
+    15,
+    13,
+    18
+  ],
+  ""B1"": 2,
+  ""C1"": 3,
+  ""D1"": 114,
+  ""X8"": {
+    ""c3"": 1,
+    ""d8"": 5,
+    ""a4"": 6
+  },
+  ""Y10"": {}
+}"
+```
 
 表达式：
 
- let bag2 = dynamic_to_json(dynamic({ 'X8': dynamic({ 'a4':6, 'c3':1, 'd8':5}), 'A14':[15, 13, 18], 'C1':3, 'B1':2, 'Y10': dynamic({ }), 'A1':12, 'D1':114})); print bag2
+```kusto
+ let bag2 = dynamic_to_json(dynamic({ 'X8': dynamic({ 'a4':6, 'c3':1, 'd8':5}), 'A14':[15, 13, 18], 'C1':3, 'B1':2, 'Y10': dynamic({ }), 'A1':12, 'D1':114}));
+ print bag2
+```
  
-结果:
+结果：
 
-{ "A1":12, "A14": [ 15, 13, 18 ], "B1":2, "C1":3, "D1":114, "X8": { "a4":6, "c3":1, "d8":5 }, "Y10": {} }
+```
+{
+  "A1": 12,
+  "A14": [
+    15,
+    13,
+    18
+  ],
+  "B1": 2,
+  "C1": 3,
+  "D1": 114,
+  "X8": {
+    "a4": 6,
+    "c3": 1,
+    "d8": 5
+  },
+  "Y10": {}
+}
+```

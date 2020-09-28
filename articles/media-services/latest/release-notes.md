@@ -9,17 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-origin.date: 06/03/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 1beff717816b59f57698b9578ba0da919112e5e5
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 9d64ee6466a167b4405b19588720bea22b5e629a
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244960"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒体服务 v3 发行说明
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >通过将此 URL (`https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us`) 复制并粘贴到 RSS 源阅读器中获取有关何时重新访问此页以获得更新的通知。
 
@@ -250,6 +252,13 @@ Azure AD 身份验证和基于角色的访问控制 (RBAC) 通过 Azure AD 中�
     创建直播活动时，现在会得到 4 个引入 URL。 这 4 个引入 URL 几乎是相同的，具有相同的流式处理令牌 (AppId)，仅端口号部分不同。 其中两个 URL 是 RTMPS 的主要和备份 URL。 
 - 24 小时转码支持。 
 - 通过 SCTE35 改进了 RTMP 中的广告信号支持。
+
+#### <a name="improved-event-grid-support"></a>改进了事件网格支持
+
+可以看到以下事件网格支持改进：
+
+- 可通过逻辑应用和 Azure Functions 更轻松地开发 Azure 事件网格集成。 
+- 订阅事件的编码、直播频道等。
 
 ### <a name="cmaf-support"></a>CMAF 支持
 

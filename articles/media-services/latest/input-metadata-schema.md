@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 04/14/2020
-ms.date: 07/27/2020
+ms.topic: reference
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 5f5456b9aff1f9a886bcc49b89e0e4d8f4b9827a
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 2174e58875b77d2100f7e78765b1ef7f55c0140c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245610"
 ---
-# <a name="input-metadata"></a>输入元数据 
+# <a name="input-metadata"></a>输入元数据
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 编码作业与要执行部分编码任务的输入资产相关联。  完成任务后，会生成一个输出资产。 输出资产包含视频、音频、缩略图、清单和其他文件。 
 

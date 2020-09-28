@@ -3,19 +3,19 @@ title: 快速入门 - 创建 Azure Kubernetes 服务 (AKS) 群集
 description: 了解如何使用 Azure 资源管理器模板快速创建 Kubernetes 群集，并在 Azure Kubernetes 服务 (AKS) 中部署应用程序
 services: container-service
 ms.topic: quickstart
-origin.date: 08/18/2020
+origin.date: 09/11/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: e9da3b4bd3c68c0c8658c6273584d0a284bdf55c
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: ee77aadaa6b7e5ff4ba2e7eb5845a28b861750dd
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020822"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146654"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>快速入门：使用 ARM 模板部署 Azure Kubernetes 服务 (AKS) 群集
@@ -59,9 +59,7 @@ ssh-keygen -t rsa -b 2048
 
 ### <a name="create-a-service-principal"></a>创建服务主体
 
-若要允许 AKS 群集与其他 Azure 资源交互，请使用 Azure Active Directory 服务主体。 使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令创建服务主体。 `--skip-assignment` 参数限制分配任何其他权限。 默认情况下，此服务主体的有效期为一年。
-
-<!--Not Available on [Use managed identities](use-managed-identity.md)-->
+若要允许 AKS 群集与其他 Azure 资源交互，请使用 Azure Active Directory 服务主体。 使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令创建服务主体。 `--skip-assignment` 参数限制分配任何其他权限。 默认情况下，此服务主体的有效期为一年。 请注意，可以使用托管标识而不是服务主体。 有关详细信息，请参阅[使用托管标识](use-managed-identity.md)。
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -339,7 +337,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: dockerhub.azk8s.cn/microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m
@@ -416,9 +414,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> 删除群集时，AKS 群集使用的 Azure Active Directory 服务主体不会被删除。 有关如何删除服务主体的步骤，请参阅 [AKS 服务主体的注意事项和删除][sp-delete]。
-
-<!--Not Available on managed identity-->
+> 删除群集时，AKS 群集使用的 Azure Active Directory 服务主体不会被删除。 有关如何删除服务主体的步骤，请参阅 [AKS 服务主体的注意事项和删除][sp-delete]。 如果你使用了托管标识，则该标识由平台托管，不需要删除。
 
 ## <a name="get-the-code"></a>获取代码
 

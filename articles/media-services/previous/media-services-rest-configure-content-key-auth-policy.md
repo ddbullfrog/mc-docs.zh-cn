@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f57622331acf870ae74fa0793c5943df3e532e7b
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: fb6c908f33c649adf1fdf27fdb7b09984f93f056
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245625"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略  
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。

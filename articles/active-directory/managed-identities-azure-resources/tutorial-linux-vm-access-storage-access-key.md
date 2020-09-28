@@ -1,9 +1,9 @@
 ---
-title: 使用 Linux VM 系统分配的托管标识访问 Azure 存储
+title: 教程`:`使用托管标识通过访问密钥访问 Azure 存储 - Linux - Azure AD
 description: 本教程将指导你完成使用 Linux VM 系统分配的托管标识访问 Azure 存储的过程。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/20/2017
-ms.date: 08/05/2019
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaf67a70061b32ad34f221d1b072c5abeb59cd3e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 13ebf6b2e795346927ec3f1a7adb49723b0d76b9
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "68818619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245363"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>教程：使用 Linux VM 系统分配的托管标识通过访问密钥访问 Azure 存储
 
@@ -79,7 +78,7 @@ ms.locfileid: "68818619"
 
 在本教程的剩余部分中，我们从先前创建的 VM 入手。
 
-若要完成这些步骤，需要使用 SSH 客户端。 如果使用的是 Windows，可以在[适用于 Linux 的 Windows 子系统](https://msdn.microsoft.com/commandline/wsl/install_guide)中使用 SSH 客户端。 如果需要有关配置 SSH 客户端密钥的帮助，请参阅[如何在 Azure 上将 SSH 密钥与 Windows 配合使用](../../virtual-machines/linux/ssh-from-windows.md)或[如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对](../../virtual-machines/linux/mac-create-ssh-keys.md)。
+若要完成这些步骤，需要使用 SSH 客户端。 如果使用的是 Windows，可以在[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)中使用 SSH 客户端。 如果需要有关配置 SSH 客户端密钥的帮助，请参阅[如何在 Azure 上将 SSH 密钥与 Windows 配合使用](../../virtual-machines/linux/ssh-from-windows.md)或[如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对](../../virtual-machines/linux/mac-create-ssh-keys.md)。
 
 1. 在 Azure 门户中，导航到“虚拟机”  ，转到 Linux 虚拟机，然后在“概述”  页中单击顶部的“连接”  。 复制用于连接到 VM 的字符串。 
 2. 使用 SSH 客户端连接到 VM。  
@@ -200,5 +199,5 @@ az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --
 在本教程中，你已学习了如何使用 Linux VM 系统分配的托管标识通过访问密钥来访问 Azure 存储。  若要详细了解 Azure 存储访问密钥，请参阅：
 
 > [!div class="nextstepaction"]
->[管理存储访问密钥](/storage/common/storage-create-storage-account)
+>[管理存储访问密钥](../../storage/common/storage-account-create.md)
 

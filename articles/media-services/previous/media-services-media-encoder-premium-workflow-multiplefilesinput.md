@@ -13,18 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: anilmur;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6934f2a60193192b0529129c5b57fc64e3c6a53a
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 1573ccf465cf8fa862675cda826d34b638bf2b30
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244909"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>在高级编码器中使用多个输入文件和组件属性
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>概述
 在某些情况下，可能需要在使用**媒体编码器高级工作流**媒体处理器提交任务时自定义组件属性、指定剪辑列表 XML 内容或发送多个输入文件。 一些示例如下：
 

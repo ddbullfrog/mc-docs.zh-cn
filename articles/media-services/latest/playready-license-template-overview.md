@@ -10,18 +10,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 10/16/2018
-ms.date: 07/27/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 2ee81c3d334975eb4126f358be4f3ddf6a83bcbb
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5a91c012ea7ff74f33ffe32b7afa2fbb461e9d5d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162224"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244977"
 ---
-# <a name="media-services-v3-with-playready-license-template"></a>带有 PlayReady 许可证模板的媒体服务 v3 
+# <a name="media-services-v3-with-playready-license-template"></a>带有 PlayReady 许可证模板的媒体服务 v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 通过 Azure 媒体服务，可使用 Microsoft PlayReady 加密内容  。 媒体服务还提供用于交付 PlayReady 许可证的服务。 可使用媒体服务 API 来配置 PlayReady 许可证。 当播放器尝试播放受 PlayReady 保护的内容时，将向许可证交付服务发送请求以获取许可证。 如果许可证服务批准了该请求，则会颁发该许可证，该许可证将发送到客户端，并用来解密和播放指定的内容。
 

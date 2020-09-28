@@ -2,20 +2,20 @@
 title: Azure Cosmos DB 中的数据建模
 titleSuffix: Azure Cosmos DB
 description: 了解 NoSQL 数据库中的数据建模，在关系数据库中与在文档数据库中对数据进行建模的区别。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: fb9a7efb9b41036d9c8a00a56e30bd43d72455cb
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: b342ab47399e674265d02808ee4f5fbab60c40d9
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222483"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246406"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据建模
 
@@ -332,7 +332,7 @@ Joining documents:
 
 ```json
 Author documents:
-{"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
+{"id": "a1", "name": "Thomas Andersen", "books": ["b1", "b2", "b3"]}
 {"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 
 Book documents:

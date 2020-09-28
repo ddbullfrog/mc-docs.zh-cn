@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: tutorial
 origin.date: 04/07/2019
-ms.date: 07/08/2020
-ms.openlocfilehash: 6977da4ddb870ba71ee3ecc32fb25ab14d5ff4e5
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.date: 09/24/2020
+ms.openlocfilehash: 7964fece48e18a7e08bf83111da3a808b0c98ffa
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951289"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146731"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure 数据资源管理器的编写查询
 
@@ -72,7 +72,7 @@ StormEvents
 
 ### <a name="count"></a>count
 
-[**count**](/data-explorer/kusto/query/countoperator)：返回表中的行数。
+[**count**](kusto/query/countoperator.md)：返回表中的行数。
 
 以下查询返回 StormEvents 表中的行数。
 
@@ -84,7 +84,7 @@ StormEvents | count
 
 ### <a name="take"></a>take
 
-[take](/data-explorer/kusto/query/takeoperator)：返回最多指定数量的数据行。
+[take](kusto/query/takeoperator.md)：返回最多指定数量的数据行。
 
 以下查询从 StormEvents 表返回 5 行。 关键字“limit”是“take”的别名。
 
@@ -99,7 +99,7 @@ StormEvents | take 5
 
 ### <a name="project"></a>project
 
-[project](/data-explorer/kusto/query/projectoperator)：选择列的子集。
+[project](kusto/query/projectoperator.md)：选择列的子集。
 
 以下查询将返回一组特定的列。
 
@@ -113,7 +113,7 @@ StormEvents
 
 ### <a name="where"></a>其中
 
-[**where**](/data-explorer/kusto/query/whereoperator)：筛选表，获取满足谓词的行子集。
+[**where**](kusto/query/whereoperator.md)：筛选表，获取满足谓词的行子集。
 
 以下查询依据 `EventType` 和 `State` 来筛选数据。
 
@@ -128,7 +128,7 @@ StormEvents
 
 ### <a name="sort"></a>sort
 
-[**sort**](/data-explorer/kusto/query/sortoperator)：按照一个或多个列的顺序对输入表的行排序。
+[**sort**](kusto/query/sortoperator.md)：按照一个或多个列的顺序对输入表的行排序。
 
 以下查询依据 `DamageProperty` 按降序对数据进行排序。
 
@@ -147,7 +147,7 @@ StormEvents
 
 ### <a name="top"></a>top
 
-[top](/data-explorer/kusto/query/topoperator)：返回按指定列排序的前 *N* 列。
+[top](kusto/query/topoperator.md)：返回按指定列排序的前 *N* 列。
 
 以下查询返回与上面相同的结果，并减少了一个运算符。
 
@@ -162,7 +162,7 @@ StormEvents
 
 ### <a name="extend"></a>extend
 
-[extend](/data-explorer/kusto/query/extendoperator)：计算派生的列。
+[extend](kusto/query/extendoperator.md)：计算派生的列。
 
 以下查询通过计算每行中的值来创建新列。
 
@@ -180,7 +180,7 @@ StormEvents
 
 ### <a name="summarize"></a>summarize
 
-[summarize](/data-explorer/kusto/query/summarizeoperator)：聚合行组。
+[summarize](kusto/query/summarizeoperator.md)：聚合行组。
 
 以下查询返回按 `State` 统计的事件计数。
 
@@ -213,7 +213,7 @@ summarize 运算的结果是：
 
 ### <a name="render"></a>render
 
-[render](/data-explorer/kusto/query/renderoperator)：以图形输出的形式呈现结果。
+[render](kusto/query/renderoperator.md)：以图形输出的形式呈现结果。
 
 以下查询显示柱形图。
 
@@ -271,7 +271,7 @@ StormEvents
 
 ### <a name="bin"></a>bin()
 
-[**bin()** ](/data-explorer/kusto/query/binfunction)：将值向下舍入到给定 bin 大小的整数倍。
+[**bin()** ](kusto/query/binfunction.md)：将值向下舍入到给定 bin 大小的整数倍。
 
 以下查询计算一天存储桶大小的计数。
 
@@ -285,7 +285,7 @@ StormEvents
 
 ### <a name="case"></a>case()
 
-[case()](/data-explorer/kusto/query/casefunction)：计算谓词列表，并返回第一个满足其谓词的结果表达式，或最终的 else 表达式。 此运算符可用于分类或分组数据：
+[case()](kusto/query/casefunction.md)：计算谓词列表，并返回第一个满足其谓词的结果表达式，或最终的 else 表达式。 此运算符可用于分类或分组数据：
 
 以下查询将返回一个新列 `deaths_bucket`，并按编号对死亡进行分组。
 
@@ -304,7 +304,7 @@ StormEvents
 
 ### <a name="extract"></a>extract()
 
-[**extract()** ](/data-explorer/kusto/query/extractfunction)：从文本字符串中获取正则表达式的匹配项。
+[**extract()** ](kusto/query/extractfunction.md)：从文本字符串中获取正则表达式的匹配项。
 
 以下查询从跟踪中提取特定属性值。
 
@@ -320,7 +320,7 @@ MyData
 
 ### <a name="parse_json"></a>parse_json()
 
-[**parse_json()** ](/data-explorer/kusto/query/parsejsonfunction)：将字符串解释为 JSON 值并以动态方式返回值。 当需要提取 JSON 复合对象的多个元素时，使用它比使用 extractjson() 函数更好。
+[**parse_json()** ](kusto/query/parsejsonfunction.md)：将字符串解释为 JSON 值并以动态方式返回值。 当需要提取 JSON 复合对象的多个元素时，使用它比使用 extractjson() 函数更好。
 
 以下查询从数组中提取 JSON 元素。
 
@@ -358,7 +358,7 @@ MyData
 
 ### <a name="ago"></a>ago()
 
-[**ago()** ](/data-explorer/kusto/query/agofunction)：从当前 UTC 时钟时间减去给定时间跨度。
+[**ago()** ](kusto/query/agofunction.md)：从当前 UTC 时钟时间减去给定时间跨度。
 
 以下查询返回最近 12 个小时的数据。
 
@@ -374,7 +374,7 @@ print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
 
 ### <a name="startofweek"></a>startofweek()
 
-[**startofweek()** ](/data-explorer/kusto/query/startofweekfunction)：返回包含日期的一周的起点，根据偏移量移动（如提供）
+[**startofweek()** ](kusto/query/startofweekfunction.md)：返回包含日期的一周的起点，根据偏移量移动（如提供）
 
 以下查询将返回带不同偏移量的一周的起点。
 
@@ -385,11 +385,11 @@ range offset from -1 to 1 step 1
 | project weekStart = startofweek(now(), offset),offset
 ```
 
-此查询使用 range 运算符，将生成单列值表。 另请参阅：[startofday()](/data-explorer/kusto/query/startofdayfunction)、[startofweek()](/data-explorer/kusto/query/startofweekfunction)、[startofyear()](/data-explorer/kusto/query/startofyearfunction))、[startofmonth()](/data-explorer/kusto/query/startofmonthfunction)、[endofday() ](/data-explorer/kusto/query/endofdayfunction)、[endofweek() ](/data-explorer/kusto/query/endofweekfunction)、[endofmonth() ](/data-explorer/kusto/query/endofmonthfunction) 和 [endofyear() ](/data-explorer/kusto/query/endofyearfunction)。
+此查询使用 range 运算符，将生成单列值表。 另请参阅：[startofday()](kusto/query/startofdayfunction.md)、[startofweek()](kusto/query/startofweekfunction.md)、[startofyear()](kusto/query/startofyearfunction.md))、[startofmonth()](kusto/query/startofmonthfunction.md)、[endofday() ](kusto/query/endofdayfunction.md)、[endofweek() ](kusto/query/endofweekfunction.md)、[endofmonth() ](kusto/query/endofmonthfunction.md) 和 [endofyear() ](kusto/query/endofyearfunction.md)。
 
 ### <a name="between"></a>between()
 
-[**between()** ](/data-explorer/kusto/query/betweenoperator)：匹配包含范围内的输入。
+[**between()** ](kusto/query/betweenoperator.md)：匹配包含范围内的输入。
 
 以下查询依据给定日期范围来筛选数据。
 
@@ -417,7 +417,7 @@ Kusto 有多个表格运算符，本文的其他部分介绍了其中一些运�
 
 ### <a name="parse"></a>parse
 
-[**parse**](/data-explorer/kusto/query/parseoperator)：计算字符串表达式并将其值分析为一个或多个计算列。 有三种分析方法：简单分析（默认）、正则表达式分析和宽松分析。
+[**parse**](kusto/query/parseoperator.md)：计算字符串表达式并将其值分析为一个或多个计算列。 有三种分析方法：简单分析（默认）、正则表达式分析和宽松分析。
 
 以下查询使用默认的简单分析来分析跟踪并提取相关值。 表达式（也称为“StringConstant”）是常规字符串值，并且有严格的匹配要求：扩展列必须匹配所需的类型。
 
@@ -477,7 +477,7 @@ MyTrace
 
 ### <a name="make-series"></a>make-series
 
-[make-series](/data-explorer/kusto/query/make-seriesoperator)：将 [summarize](/data-explorer/kusto/query/summarizeoperator) 之类的行组聚合在一起，但每个 by 值组合会生成一个（时间）序列向量。
+[make-series](kusto/query/make-seriesoperator.md)：将 [summarize](kusto/query/summarizeoperator.md) 之类的行组聚合在一起，但每个 by 值组合会生成一个（时间）序列向量。
 
 以下查询将返回一组有关每日风暴事件计数的时间序列。 该查询涵盖了每个州三个月的时段，用常数 0 填充缺少的量化：
 
@@ -502,7 +502,7 @@ StormEvents
 | render timechart
 ```
 
-有关详细信息，请查看完整的[序列函数](/data-explorer/kusto/query/scalarfunctions#series-processing-functions)列表。
+有关详细信息，请查看完整的[序列函数](kusto/query/scalarfunctions.md#series-processing-functions)列表。
 
 ## <a name="advanced-aggregations"></a>高级聚合
 
@@ -510,7 +510,7 @@ StormEvents
 
 ### <a name="top-nested"></a>top-nested
 
-[**top-nested**](/data-explorer/kusto/query/topnestedoperator)：生成分层式最佳结果，其中每个级别都是对上一级别值的深化。
+[**top-nested**](kusto/query/topnestedoperator.md)：生成分层式最佳结果，其中每个级别都是对上一级别值的深化。
 
 此操作符对于仪表板可视化场景或者需要回答以下问题时非常有用：“找出 K1 的前 N 个值（使用一些聚合）；对于上述每一个值，找出 K2 的前 M 个值（使用另一个聚合）；……”
 
@@ -527,7 +527,7 @@ top-nested 1 of EndLocation by sum(BeginLat)
 
 ### <a name="pivot-plugin"></a>pivot() 插件
 
-[**pivot() plugin**](/data-explorer/kusto/query/pivotplugin)：通过将输入表某列中的唯一值转换成输出表中的多个列来旋转表。 该运算符将在最终输出中的任何剩余列值上执行聚合。
+[**pivot() plugin**](kusto/query/pivotplugin.md)：通过将输入表某列中的唯一值转换成输出表中的多个列来旋转表。 该运算符将在最终输出中的任何剩余列值上执行聚合。
 
 以下查询应用筛选器，并将行旋转成列。
 
@@ -543,7 +543,7 @@ StormEvents
 
 ### <a name="dcount"></a>dcount()
 
-[**dcount()** ](/data-explorer/kusto/query/dcount-aggfunction)：返回对组中某个表达式的非重复值数的估计值。 使用 [count()](/data-explorer/kusto/query/countoperator) 来计数所有值。
+[**dcount()** ](kusto/query/dcount-aggfunction.md)：返回对组中某个表达式的非重复值数的估计值。 使用 [count()](kusto/query/countoperator.md) 来计数所有值。
 
 以下查询根据 `State` 来计数非重复 `Source`。
 
@@ -556,7 +556,7 @@ StormEvents
 
 ### <a name="dcountif"></a>dcountif()
 
-[**dcountif()** ](/data-explorer/kusto/query/dcountif-aggfunction)：返回谓词计算结果为 true 的行表达式非重复值数量的估计值。
+[**dcountif()** ](kusto/query/dcountif-aggfunction.md)：返回谓词计算结果为 true 的行表达式非重复值数量的估计值。
 
 以下查询将计数其中 `DamageProperty < 5000` 的 `Source` 的非重复值。
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcount_hll"></a>dcount_hll()
 
-[**dcount_hll()** ](/data-explorer/kusto/query/dcount-hllfunction)：从 HyperLogLog 结果计算 dcount（由 [**hll**](/data-explorer/kusto/query/hll-aggfunction) or [**hll_merge**](/data-explorer/kusto/query/hll-merge-aggfunction) 生成）。
+[**dcount_hll()** ](kusto/query/dcount-hllfunction.md)：从 HyperLogLog 结果计算 dcount（由 [**hll**](kusto/query/hll-aggfunction.md) or [**hll_merge**](kusto/query/hll-merge-aggfunction.md) 生成）。
 
 以下查询使用 HLL 算法来生成计数。
 
@@ -585,7 +585,7 @@ StormEvents
 
 ### <a name="arg_max"></a>arg_max()
 
-[**arg_max()** ](/data-explorer/kusto/query/arg-max-aggfunction)：在最大化表达式的组中查找行，并返回另一个表达式的值（或使用 * 返回整个行）。
+[**arg_max()** ](kusto/query/arg-max-aggfunction.md)：在最大化表达式的组中查找行，并返回另一个表达式的值（或使用 * 返回整个行）。
 
 以下查询返回每个州上次洪水报告的时间。
 
@@ -600,7 +600,7 @@ StormEvents
 
 ### <a name="makeset"></a>makeset()
 
-[**makeset()** ](/data-explorer/kusto/query/makeset-aggfunction)：返回表达式在组中所获取非重复值集的动态 (JSON) 数组。
+[**makeset()** ](kusto/query/makeset-aggfunction.md)：返回表达式在组中所获取非重复值集的动态 (JSON) 数组。
 
 以下查询返回每个州报告洪水的所有时间，并从非重复值集中创建一个数组。
 
@@ -615,7 +615,7 @@ StormEvents
 
 ### <a name="mv-expand"></a>mv-expand
 
-[**mv-expand**](/data-explorer/kusto/query/mvexpandoperator)：从动态类型的列扩展多值集合，以便集合中的每个值都获得一个单独的行。 将复制扩展行中的所有其他列。 它与 makelist 相反。
+[**mv-expand**](kusto/query/mvexpandoperator.md)：从动态类型的列扩展多值集合，以便集合中的每个值都获得一个单独的行。 将复制扩展行中的所有其他列。 它与 makelist 相反。
 
 以下查询通过创建一组数据，然后用其演示 **mv-expand** 功能来生成示例数据。
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()** ](/data-explorer/kusto/query/percentiles-aggfunction)：返回表达式定义的人口中指定[**最近排名百分位数**](/data-explorer/kusto/query/percentiles-aggfunction)的估计值。 准确性取决于百分位区域中的填充密度。 只能在 [summarize](/data-explorer/kusto/query/summarizeoperator) 内的聚合上下文中使用。
+[**percentiles()** ](kusto/query/percentiles-aggfunction.md)：返回表达式定义的人口中指定[**最近排名百分位数**](kusto/query/percentiles-aggfunction.md)的估计值。 准确性取决于百分位区域中的填充密度。 只能在 [summarize](kusto/query/summarizeoperator.md) 内的聚合上下文中使用。
 
 以下查询计算风暴持续时间的百分位数。
 
@@ -665,7 +665,7 @@ StormEvents
 
 ### <a name="let"></a>let
 
-[**let**](/data-explorer/kusto/query/letstatement)：改进模块化和重复使用。 let 语句可以将潜在的复杂表达式拆分为多个部分，每个部分绑定到一个名称，然后将这些部分组合在一起。 此外，let 语句还可用于创建用户定义的函数和视图（表的结果类似于新表的表达式）。 通过 let 语句绑定的表达式可以是标量类型、表格类型或用户定义的函数 (lambda)。
+[**let**](kusto/query/letstatement.md)：改进模块化和重复使用。 let 语句可以将潜在的复杂表达式拆分为多个部分，每个部分绑定到一个名称，然后将这些部分组合在一起。 此外，let 语句还可用于创建用户定义的函数和视图（表的结果类似于新表的表达式）。 通过 let 语句绑定的表达式可以是标量类型、表格类型或用户定义的函数 (lambda)。
 
 以下示例创建一个表格类型变量，并在后续表达式中使用。
 
@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**join**](/data-explorer/kusto/query/joinoperator)：通过匹配每个表中指定列的值，合并两个表的行以组成新表。 Kusto 支持一系列完整的联接类型：fullouter、inner、innerunique、leftanti、leftantisemi、leftouter、leftsemi、rightanti、rightantisemi、rightouter 、rightsemi 。
+[**join**](kusto/query/joinoperator.md)：通过匹配每个表中指定列的值，合并两个表的行以组成新表。 Kusto 支持一系列完整的联接类型：fullouter、inner、innerunique、leftanti、leftantisemi、leftouter、leftsemi、rightanti、rightantisemi、rightouter 、rightsemi 。
 
 以下示例使用内部联接来联接两个表。
 
@@ -715,7 +715,7 @@ X
 
 ### <a name="serialize"></a>serialize
 
-[**serialize**](/data-explorer/kusto/query/serializeoperator)：序列化行集，以便可以使用需要序列化数据的函数，如 row_number()。
+[**serialize**](kusto/query/serializeoperator.md)：序列化行集，以便可以使用需要序列化数据的函数，如 row_number()。
 
 以下查询将成功执行，因为已序列化数据。
 
@@ -741,7 +741,7 @@ StormEvents
 
 ### <a name="cross-database-and-cross-cluster-queries"></a>跨数据库和跨群集查询
 
-[跨数据库和跨群集查询](/data-explorer/kusto/query/cross-cluster-or-database-queries)：可以通过将同一群集引用为 `database("MyDatabase").MyTable` 来查询其中的数据库。 你可以通过将远程群集引用为 `cluster("MyCluster").database("MyDatabase").MyTable` 来查询其中的数据库。
+[跨数据库和跨群集查询](kusto/query/cross-cluster-or-database-queries.md)：可以通过将同一群集引用为 `database("MyDatabase").MyTable` 来查询其中的数据库。 你可以通过将远程群集引用为 `cluster("MyCluster").database("MyDatabase").MyTable` 来查询其中的数据库。
 
 以下查询从一个群集中调用，并查询 `MyCluster` 群集中的数据。 若要运行此查询，使用你自己的群集名称和数据库名称。
 
@@ -757,7 +757,7 @@ cluster("MyCluster").database("Wiki").PageViews
 
 ### <a name="activity_counts_metrics-plugin"></a>activity_counts_metrics 插件
 
-[**activity_counts_metrics plugin**](/kusto/query/activity-counts-metrics-plugin)：计算有用的活动指标（总计数值、非重复计数值、新值的非重复计数和聚合非重复计数）。 计算每个时间窗口的指标，然后将它们进行比较，并与之前的所有时间窗口进行聚合。
+[**activity_counts_metrics plugin**](kusto/query/activity-counts-metrics-plugin.md)：计算有用的活动指标（总计数值、非重复计数值、新值的非重复计数和聚合非重复计数）。 计算每个时间窗口的指标，然后将它们进行比较，并与之前的所有时间窗口进行聚合。
 
 以下查询通过计算每日活动计数来分析用户采用。
 
@@ -791,7 +791,7 @@ window)
 
 ### <a name="activity_engagement-plugin"></a>activity_engagement 插件
 
-[**activity_engagement plugin**](/data-explorer/kusto/query/activity-engagement-plugin)：在滑动时间线窗口中，根据 ID 列计算活动参与比率。 activity_engagement 插件可用于计算 DAU、WAU 和 MAU（每日、每周和每月的活动用户）。
+[**activity_engagement plugin**](kusto/query/activity-engagement-plugin.md)：在滑动时间线窗口中，根据 ID 列计算活动参与比率。 activity_engagement 插件可用于计算 DAU、WAU 和 MAU（每日、每周和每月的活动用户）。
 
 以下查询在一个移动的七天窗口中，返回使用每日应用程序的不同用户总数，与使用每周应用程序的不同用户总数之间的比率。
 
@@ -817,7 +817,7 @@ range _day from _start to _end step 1d
 
 ### <a name="activity_metrics-plugin"></a>activity_metrics 插件
 
-[**activity_metrics plugin**](/data-explorer/kusto/query/activity-metrics-plugin)：根据当前阶段窗口和前一阶段窗口计算有用的活动指标（非重复计数值、新值的不同计数、保留率和改动率）。
+[**activity_metrics plugin**](kusto/query/activity-metrics-plugin.md)：根据当前阶段窗口和前一阶段窗口计算有用的活动指标（非重复计数值、新值的不同计数、保留率和改动率）。
 
 以下查询计算给定数据集的改动率和保留率。
 
@@ -842,7 +842,7 @@ range _day from _start to _end step 1d
 
 ### <a name="new_activity_metrics-plugin"></a>new_activity_metrics 插件
 
-[**new_activity_metrics plugin**](/data-explorer/kusto/query/new-activity-metrics-plugin)：为新用户队列计算有用的活动指标（非重复计数值、非重复计数的新值、保留率和改动率）。 此插件的概念类似于 [activity_metrics 插件](/data-explorer/kusto/query/activity-metrics-plugin)，但关注的是新用户。
+[**new_activity_metrics plugin**](kusto/query/new-activity-metrics-plugin.md)：为新用户队列计算有用的活动指标（非重复计数值、非重复计数的新值、保留率和改动率）。 此插件的概念类似于 [activity_metrics 插件](kusto/query/activity-metrics-plugin.md)，但关注的是新用户。
 
 以下查询计算新用户队列（第一周到达的用户）在周间窗口的保留率和改动率。
 
@@ -864,7 +864,7 @@ range Day from _start to _end step 1d
 
 ### <a name="session_count-plugin"></a>session_count 插件
 
-[**session_count plugin**](/data-explorer/kusto/query/session-count-plugin)：基于某个时间线的 ID 列计算会话计数。
+[**session_count plugin**](kusto/query/session-count-plugin.md)：基于某个时间线的 ID 列计算会话计数。
 
 以下查询返回会话计数。 如果用户 ID 在 100 个时间段的时间范围内出现至少一次，而会话回查窗口为 41 个时段，会话将被视为处于活动状态。
 
@@ -884,7 +884,7 @@ _data
 
 ### <a name="funnel_sequence-plugin"></a>funnel_sequence 插件
 
-[**funnel_sequence plugin**](/data-explorer/kusto/query/funnel-sequence-plugin)：计算已获取州序列的用户的非重复计数；显示序列产生或遵循的前一个和下一个州的分布。
+[**funnel_sequence plugin**](kusto/query/funnel-sequence-plugin.md)：计算已获取州序列的用户的非重复计数；显示序列产生或遵循的前一个和下一个州的分布。
 
 以下查询显示在 2007 年的所有龙卷风事件之前和之后发生了哪些事件。
 
@@ -900,7 +900,7 @@ StormEvents
 
 ### <a name="funnel_sequence_completion-plugin"></a>funnel_sequence_completion 插件
 
-[**funnel_sequence_completion plugin**](/data-explorer/kusto/query/funnel-sequence-completion-plugin)：计算不同时间段内已完成序列步骤的漏斗图。
+[**funnel_sequence_completion plugin**](kusto/query/funnel-sequence-completion-plugin.md)：计算不同时间段内已完成序列步骤的漏斗图。
 
 以下查询检查序列中的完成漏斗图：在一小时、四小时和一天 (`[1h, 4h, 1d]`) 的“总体”时间中的 `Hail -> Tornado -> Thunderstorm -> Wind`。
 
@@ -918,7 +918,7 @@ StormEvents
 
 ## <a name="functions"></a>函数
 
-本部分介绍[**函数**](/data-explorer/kusto/query/functions/index)：存储在服务器上的可重用查询。 函数可由查询和其他函数调用（不支持递归函数）。
+本部分介绍[**函数**](kusto/query/functions/index.md)：存储在服务器上的可重用查询。 函数可由查询和其他函数调用（不支持递归函数）。
 
 > [!NOTE]
 > 你不能在只读的帮助群集上创建函数。 在此部分使用你自己的测试群集。
@@ -949,4 +949,4 @@ MyFunction ("Texas")
 
 ## <a name="next-steps"></a>后续步骤
 
-[Kusto 查询语言参考](/data-explorer/kusto)
+[Kusto 查询语言参考](https://aka.ms/kustolangref)

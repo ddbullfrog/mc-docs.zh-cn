@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 01/28/2020
 ms.date: 03/23/2020
-ms.openlocfilehash: 42ff70e4c5259aab055643b52c01a7dc86b9a3ca
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e86b36eb4fc938f3714577d4bafa6df370432bf0
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79296262"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394513"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用
 
@@ -49,7 +49,9 @@ HDInsight 提供各种示例数据集，它们存储在 `/example/data` 和 `/Hd
 
 该文件中的每个日志都包含一行字段，其中包含一个 `[LOG LEVEL]` 字段，用于显示类型和严重性，例如：
 
-    2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```output
+2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```
 
 在前面的示例中，日志级别为 ERROR。
 
@@ -60,15 +62,15 @@ HDInsight 提供各种示例数据集，它们存储在 `/example/data` 和 `/Hd
 
 下面的 Pig Latin 作业从 HDInsight 群集的默认存储加载 `sample.log` 文件。 然后，它会执行一系列转换，对输入数据中出现的每个日志级别进行计数。 结果会写入 STDOUT。
 
-    ```
-    LOGS = LOAD 'wasb:///example/data/sample.log';
-    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-    RESULT = order FREQUENCIES by COUNT desc;
-    DUMP RESULT;
-    ```
+```output
+LOGS = LOAD 'wasb:///example/data/sample.log';
+LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+RESULT = order FREQUENCIES by COUNT desc;
+DUMP RESULT;
+```
 
 下图概要显示每个转换对数据的影响。
 

@@ -111,6 +111,8 @@
           href: how-to-connect-sync-feature-prevent-accidental-deletes.md
         - name: 启用 AD 回收站
           href: how-to-connect-sync-recycle-bin.md
+        - name: 配置 AD DS 连接器帐户
+          href: how-to-connect-configure-ad-ds-connector-account.md
         - name: 更改 Azure ADSync 服务帐户密码
           href: how-to-connect-sync-change-serviceacct-pass.md
         - name: 更改 Azure AD 连接器帐户密码

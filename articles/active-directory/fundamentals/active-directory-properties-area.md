@@ -2,23 +2,23 @@
 title: 添加组织的隐私信息 - Azure Active Directory | Microsoft Docs
 description: 有关如何在 Azure Active Directory“属性”区域中添加组织的隐私信息的顺明。
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3368d207477db0d166222bb36826e63222c13a01
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 4140f2a1c33bc3a8ce6f3573fbbbd75355e95e30
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164901"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245296"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>使用 Azure Active Directory 添加组织的隐私信息
 本文介绍租户管理员如何通过 Azure 门户将与隐私相关的信息添加到组织的 Azure Active Directory (Azure AD) 租户。
@@ -56,7 +56,6 @@ ms.locfileid: "86164901"
 4. 选择“保存” 。
 
 ## <a name="next-steps"></a>后续步骤
-- [Azure Active Directory B2B 协作邀请兑换](../b2b/redemption-experience.md)
+- [Azure Active Directory B2B 协作邀请兑换](../external-identities/redemption-experience.md)
 - [在 Azure Active Directory 中添加或更改用户的个人资料信息](active-directory-users-profile-azure-portal.md)
 
-<!-- Update_Description: wording update -->

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 1ca64f11f9721c8cdf2b3cdaccd7310808c6c45a
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: b7609783f3263ab84195183eabe83fdaf9ab389d
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "89413803"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246601"
 ---
 CRON 表达式使用的默认时区为协调世界时 (UTC)。 若要让 CRON 表达式基于其他时区，请为你的函数应用创建一个名为 `WEBSITE_TIME_ZONE` 的应用设置。 
 
@@ -12,7 +12,7 @@ CRON 表达式使用的默认时区为协调世界时 (UTC)。 若要让 CRON �
 
 |操作系统 |计划 |值 |
 |-|-|-|
-| **Windows** |All | 将值设置为所需时区的名称，如 [Microsoft 时区索引](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10) 中所示。 |
+| **Windows** |All | 将值设置为所需时区的名称，如 [Microsoft 时区索引](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10))中所示。 |
 
 > [!NOTE]
 > Linux 消耗计划目前不支持 `WEBSITE_TIME_ZONE`。

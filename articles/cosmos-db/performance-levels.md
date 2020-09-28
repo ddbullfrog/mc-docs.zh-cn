@@ -1,20 +1,21 @@
 ---
 title: 已停用的 Azure Cosmos DB 性能级别
 description: 了解 Azure Cosmos DB 中以前提供的 S1、S2 和 S3 性能级别。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/04/2018
+author: rockboyfor
 ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3aba596cf75de4587b56dea841b85315d50e808b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3aece702f18abbc8584642caab0b2105f8920a39
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222976"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246517"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
@@ -79,6 +80,9 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
 
 <!--Not Available ## How will my billing change after I migrated to the single partition collections?-->
 
+假设你在中国东部区域使用 10 个 S1 集合，其中每个集合的存储为 1 GB，现在要将这 10 个 S1 集合迁移到吞吐量为 400 RU/秒（最低级别）的 10 个单分区集合。 如果将 10 个单分区集合保留一整月，帐单将如下所示：
+
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="10 个 S1 集合价格与 10 个单分区集合价格的比较" border="false":::
 
 <a name="more-storage-needed"></a>
 

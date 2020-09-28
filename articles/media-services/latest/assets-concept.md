@@ -9,19 +9,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 03/09/2020
-ms.date: 09/07/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: dc15eb2621cc22d0d182ac8cdef0ef7222711760
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 0a79d0bb52ed8a5b97d8d06ee6dd3467bfadbcfb
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414059"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245005"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Azure 媒体服务 v3 中的资产
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 在 Azure 媒体服务中，[资产](https://docs.microsoft.com/rest/api/media/assets)是一个核心概念。 你可以在其中输入媒体（例如，通过上传或实时引入）、输出媒体（从作业输出）以及从中发布媒体（用于流式处理）。 
 
@@ -39,7 +41,7 @@ ms.locfileid: "89414059"
 
 ### <a name="blobs"></a>Blob
 
-资产中的文件/blob 名称必须符合 [Blob 名称要求](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)和 [NTFS 名称要求](/windows/win32/fileio/naming-a-file)。 符合这些要求的原因是可以将文件从 Blob 存储复制到本地 NTFS 磁盘进行处理。
+资产中的文件/blob 名称必须符合 [Blob 名称要求](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)和 [NTFS 名称要求](https://docs.microsoft.com/windows/win32/fileio/naming-a-file)。 符合这些要求的原因是可以将文件从 Blob 存储复制到本地 NTFS 磁盘进行处理。
 
 ## <a name="next-steps"></a>后续步骤
 

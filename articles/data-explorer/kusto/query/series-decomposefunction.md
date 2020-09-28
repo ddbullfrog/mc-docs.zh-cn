@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/26/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: f2c9ea15865c4ac5ba020f944cddd9a134a5a70e
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/24/2020
+ms.openlocfilehash: bfe68897a336b69d6158d245dc5f160c3f5890b1
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841166"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146577"
 ---
 # <a name="series_decompose"></a>series_decompose()
 
@@ -22,11 +22,11 @@ ms.locfileid: "87841166"
 
 采用包含序列（动态数值数组）的表达式作为输入，并将其分解为周期性、趋势和残差组件。
  
-**语法**
+## <a name="syntax"></a>语法
 
 `series_decompose(`*Series* `[,` *Seasonality*`,` *Trend*`,` *Test_points*`,` *Seasonality_threshold*`])`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Series：动态数组单元格（数值数组），通常是 [make-series](make-seriesoperator.md) 或 [make_list](makelist-aggfunction.md) 运算符生成的输出
 * Seasonality：一个用于控制周期性分析的整数，其中包含
@@ -65,9 +65,9 @@ ms.locfileid: "87841166"
 
 **有关序列分解的更多信息**
 
-此方法通常应用于预计会表现出周期性和/或趋势行为的指标的时序。 你可以使用此方法来预测将来的指标值并/或检测异常值。 此回归过程的隐含假设是，除了周期性和趋势行为外，时序是随机确定的且随机分布。 通过周期性和趋势组件预测将来的指标值，同时忽略残差部件。 仅基于残差部件上的离群值检测来检测异常值。 如需进一步的详细信息，可参阅[时序分解章节](https://www.otexts.org/fpp/6)。
+此方法通常应用于预计会表现出周期性和/或趋势行为的指标的时序。 你可以使用此方法来预测将来的指标值并/或检测异常值。 此回归过程的隐含假设是，除了周期性和趋势行为外，时序是随机确定的且随机分布。 通过周期性和趋势组件预测将来的指标值，同时忽略残差部件。 仅基于残差部件上的离群值检测来检测异常值。 如需进一步的详细信息，可参阅[时序分解章节](https://otexts.com/fpp2/decomposition.html)。
 
-**示例**
+## <a name="examples"></a>示例
 
 **每周周期性**
 

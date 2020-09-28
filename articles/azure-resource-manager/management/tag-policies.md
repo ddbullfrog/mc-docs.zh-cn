@@ -3,14 +3,17 @@ title: 用于标记资源的策略
 description: 介绍可分配的用于确保标记符合性的 Azure 策略。
 ms.topic: conceptual
 origin.date: 03/20/2020
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: yes
+ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 57cc15f08aa3bef3f361a1256d2145db39330700
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 8f0e928b724f570be372dc681c56811ca14983b1
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098625"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146403"
 ---
 <!--Verified successfully-->
 # <a name="assign-policies-for-tag-compliance"></a>分配用于确保标记符合性的策略
@@ -19,7 +22,7 @@ ms.locfileid: "85098625"
 
 ## <a name="policies"></a>策略
 
-[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/reference/bycat/policies-tags.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

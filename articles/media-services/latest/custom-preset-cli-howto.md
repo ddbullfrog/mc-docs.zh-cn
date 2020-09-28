@@ -8,19 +8,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-origin.date: 05/14/2019
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: ee5fe8f4a2f480181ce3dbd56f11335bb25d29a9
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: fe562ebcc3d907580eb763d4528962a58c9a9296
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244802"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>如何对自定义转换进行编码 - Azure CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 使用 Azure 媒体服务进行编码时，可以根据[流式传输文件](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding)快速入门中演示的行业最佳做法，使用推荐的内置预设之一快速入门。 也可以构建自定义预设以针对特定方案或设备要求。
 

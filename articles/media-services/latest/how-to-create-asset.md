@@ -12,18 +12,20 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 08/18/2020
-ms.date: 09/07/2020
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 343d0685feb67303314c6571c1fa21809b3b8ad5
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 02543b36c5815dacff36c6e3d07ad4b3ba6640a6
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414099"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245648"
 ---
 # <a name="create-an-asset"></a>创建资产
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文介绍如何创建媒体服务资产。  你将使用资产来保存用于编码和流式传输的媒体内容。  若要了解有关媒体服务资产的详细信息，请参阅 [Azure 媒体服务 v3 中的资产](assets-concept.md)
 

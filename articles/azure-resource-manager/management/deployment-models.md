@@ -4,16 +4,16 @@ description: 介绍 Resource Manager 部署模型与经典（或服务管理）�
 ms.topic: conceptual
 origin.date: 02/06/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 44d93e9adc3246b4074aa14ae03698bec1433dad
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 82307adc27d1ec9bb97be7bc6794a18c1b6abfbc
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807919"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146774"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure 资源管理器和经典部署：了解部署模型和资源状态
 
@@ -127,7 +127,7 @@ SRP：存储资源提供程序；CRP：计算资源提供程序；NRP：网络�
 
 如果已准备好将资源从经典部署迁移到 Resource Manager 部署，请参阅：
 
-1. [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](../../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+1. [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](../../virtual-machines/migration-classic-resource-manager-deep-dive.md)
 2. [平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 3. [使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [使用 Azure CLI 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)

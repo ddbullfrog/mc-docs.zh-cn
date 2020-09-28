@@ -1,22 +1,23 @@
 ---
 title: 诊断和排查在使用 Azure Cosmos DB .NET SDK 时出现的问题
 description: 通过客户端日志记录等功能及其他第三方工具来识别、诊断和排查在使用 .NET SDK 时出现的 Azure Cosmos DB 问题。
-author: rockboyfor
 ms.service: cosmos-db
 origin.date: 06/16/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: aa1325fdbad2b0512b2f7447307f16332f75d7a1
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: d02bbc931fa970b280df5975c837b78b8f9b90eb
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222389"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246329"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>诊断和排查在使用 Azure Cosmos DB .NET SDK 时出现的问题
@@ -37,7 +38,7 @@ ms.locfileid: "88222389"
 * 查看[性能提示](performance-tips.md)并按照建议的做法进行操作。 这有助于避免缩放、延迟和其他性能问题。
 * 启用 SDK 日志记录以帮助排查问题。 启用日志记录可能会影响性能，因此，最好是只在排查问题时才启用日志记录。 可以启用以下日志：
 * 使用 Azure 门户[记录指标](monitor-accounts.md)。 门户指标显示 Azure Cosmos DB 遥测数据，这有助于确定问题是否与 Azure Cosmos DB 相关，或者是否由客户端造成。
-* 记录点操作响应中的[诊断字符串](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet)（在 V2 SDK 中）或[诊断](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet)（在 V3 SDK 中）。
+* 记录点操作响应中的[诊断字符串](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring)（在 V2 SDK 中）或[诊断](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics)（在 V3 SDK 中）。
 * 记录所有查询响应中的 [SQL 查询指标](sql-api-query-metrics.md) 
 * 遵循针对 [SDK 日志记录]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)的设置步骤
 
@@ -70,7 +71,7 @@ ms.locfileid: "88222389"
 | 413 | [请求实体太大](concepts-limits.md#per-item-limits) |
 | 429 | [请求过多](troubleshoot-request-rate-too-large.md) |
 | 449 | 仅在进行写入操作时才发生的暂时性错误，可安全重试 |
-| 500 | 操作由于意外服务错误而失败。 联系支持人员。 请参阅“申报 [Azure 支持问题](https://aka.ms/azure-support)”。 |
+| 500 | 操作由于意外服务错误而失败。 联系支持人员。 请参阅“申报 [Azure 支持问题](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)”。 |
 | 503 | [服务不可用](troubleshoot-service-unavailable.md) | 
 
 <a name="snat"></a>
@@ -87,7 +88,7 @@ ms.locfileid: "88222389"
 
 <a name="high-network-latency"></a>
 ### <a name="high-network-latency"></a>网络延迟过高
-可以使用 V2 SDK 中的 [diagnosticsstring](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) 或 V3 SDK 中的 [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) 来识别网络延迟过高的情况。
+可以使用 V2 SDK 中的 [diagnosticsstring](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) 或 V3 SDK 中的 [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) 来识别网络延迟过高的情况。
 
 如果未发生[超时](troubleshoot-dot-net-sdk-request-timeout.md)，并且诊断根据 `ResponseTime` 和 `RequestStartTime`之差显示单个请求的延迟明显较高（在本示例中超过 300 毫秒），如下所示：
 
@@ -99,7 +100,7 @@ ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: r
 这种延迟的可能原因有多种：
 
 * 应用程序不是在 Azure Cosmos DB 帐户所在的同一区域中运行。
-* [PreferredLocations](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet) 或 [ApplicationRegion](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion?view=azure-dotnet) 配置不正确，尝试连接到的区域不是当前正在运行应用程序的区域。
+* [PreferredLocations](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) 或 [ApplicationRegion](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) 配置不正确，尝试连接到的区域不是当前正在运行应用程序的区域。
 * 由于流量较大，网络接口可能出现了瓶颈。 如果应用程序在 Azure 虚拟机上运行，则有两种可能的解决方法：
     * 考虑使用[启用了加速网络的虚拟机](../virtual-network/create-vm-accelerated-networking-powershell.md)。
     * 启用[现有虚拟机上的加速网络](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms)。

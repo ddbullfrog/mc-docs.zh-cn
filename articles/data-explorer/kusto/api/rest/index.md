@@ -8,17 +8,17 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/29/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: ac26999d01028c72b8835a8b98ed1a7af6f49dc4
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 09/24/2020
+ms.openlocfilehash: 6f32a88ad932a3f464766164e4a8a84b209236b8
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226250"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146349"
 ---
 # <a name="azure-data-explorer-rest-api"></a>Azure 数据资源管理器 REST API
 
-本文介绍如何通过 HTTPS 与 Kusto 交互。
+本文介绍如何通过 HTTPS 与 Azure 数据资源管理器交互。
 
 ## <a name="supported-actions"></a>支持的操作
 

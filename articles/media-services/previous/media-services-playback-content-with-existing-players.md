@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 06/08/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 4fa7254db23c1f0f12f17f4d0256a510531929e5
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: a0b3c9a7ea2fae192b5e7ae7be92980be47a326d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439525"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245582"
 ---
 # <a name="playing-your-content-with-existing-players"></a>使用现有播放器播放内容
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Azure 媒体服务支持多种常用的流式处理格式，如平滑流、HTTP 实时流和 MPEG-Dash。 本主题列出了可用于测试流的现有播放器。
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Azure 门户媒体服务内容播放器

@@ -11,18 +11,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 origin.date: 08/13/2020
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: a7b1ee0d620656c35be0c49ccc34b39e9eb6a6ca
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 95af8c30b9de4aefe5b16c8d0bddaf3ed8f22942
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245144"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>媒体服务 v3 中的动态打包
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。
@@ -45,7 +47,7 @@ Azure 媒体服务动态打包仅支持 MP4 容器格式的视频和音频文件
 
 要使编码资产中的视频可供客户端播放，必须创建[流式处理定位符](streaming-locators-concept.md)，然后生成流式处理 URL。 然后，根据流式处理客户端清单中指定的格式（HLS、MPEG DASH 或平滑流式处理），使用你选择的协议接收流。
 
-因此，用户只需以单一存储格式存储文件并为其付费，媒体服务服务就会基于客户端的请求构建并提供相应响应。
+因此，只需以单一存储格式存储文件并为其付费，然后媒体服务服务就会基于客户端的请求构建并提供相应响应。
 
 如果计划使用媒体服务动态加密来保护内容，请参阅[流式处理协议和加密类型](content-protection-overview.md#streaming-protocols-and-encryption-types)。
 

@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5eab7a63b912673c034d8ae52e778e9fcda27f8c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 3376ba5b859a75cf33d86a82cb82dfeae9cb413e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413764"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245626"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 动态加密和密钥传递服务
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-aes128.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -180,7 +183,7 @@ QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
 #EXT-X-MEDIA-SEQUENCE:0
 #EXT-X-TARGETDURATION:9
 #EXT-X-KEY:METHOD=AES-128,
-URI="https://wamsbayclus001kd-hs.cloudapp.cn/HlsHandler.ashx?
+URI="https://wamsbayclus001kd-hs.chinacloudapp.cn/HlsHandler.ashx?
         kid=da3813af-55e6-48e7-aa9f-a4d6031f7b4d",
         IV=0XD7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7
 #EXT-X-PROGRAM-DATE-TIME:1970-01-01T00:00:00.000+00:00

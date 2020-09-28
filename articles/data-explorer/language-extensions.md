@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: orhasban
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 04/01/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: ea418c3dd100e6108c9fa7b9ceefef83b60a1e4d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: e2ff43009e9e3c540d8eee4fc507d281534f58fd
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515970"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146355"
 ---
 # <a name="manage-language-extensions-in-your-azure-data-explorer-cluster-preview"></a>管理 Azure 数据资源管理器群集（预览版）中的语言扩展
 

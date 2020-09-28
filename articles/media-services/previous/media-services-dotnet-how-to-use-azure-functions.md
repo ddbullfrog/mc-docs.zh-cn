@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 09/28/2019
 ms.author: v-jay
-ms.openlocfilehash: 9402c962c9db755d87870939a070a40b8cf043c4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6cac3e19aa977681b31999461c379376bf7929f0
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292478"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245585"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>开发使用媒体服务的 Azure Functions
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 本文介绍如何开始创建使用媒体服务的 Azure Functions。 本文中定义的 Azure Function 可监视新 MP4 文件中名为“输入”的存储帐户容器  。 将文件放入存储容器后，blob 触发器就会执行此函数。 要查看 Azure 函数，请参阅 Azure 函数部分的[概述](../../azure-functions/functions-overview.md)和其他主题  。
 

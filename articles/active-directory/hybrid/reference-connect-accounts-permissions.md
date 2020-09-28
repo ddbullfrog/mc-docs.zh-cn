@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/27/2020
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bb170a13d2407947126067756699c943c35a1f5
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 0cc2ef930e62c1c9e34e9cb56214ec723d4c1c1b
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245315"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 
@@ -133,7 +133,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 >[!IMPORTANT]
 >内部版本 1.1.880.0（发布于 2018 年 8 月）中引入了名为 ADSyncConfig.psm1 的新 PowerShell 模块，其中包括有助于为 Azure AD DS 连接器帐户配置正确 Active Directory 权限的 cmdlet 集合。
 >
-
+>有关详细信息，请参阅 [Azure AD Connect：配置 AD DS 连接器帐户权限](how-to-connect-configure-ad-ds-connector-account.md)
 
 “连接目录”页上指定的帐户必须在安装之前存在于 Active Directory 中。  Azure AD Connect 版本 1.1.524.0 及更高版本提供了相应选项，让 Azure AD Connect 向导创建用于连接 Active Directory 的 AD DS 连接器帐户。  
 
@@ -147,8 +147,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 | 密码哈希同步 |<li>复制目录更改</li>  <li>复制所有目录更改 |
 | Exchange 混合部署 |针对用户、组和联系人的属性的写入权限，详见[Exchange 混合写回](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)。 |
 | Exchange 邮件公用文件夹 |对 [Exchange 邮件公用文件夹](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)中所述的公用文件夹属性的读取权限。 | 
-| 密码写回 |针对用户的属性的写入权限，详见[密码管理入门](../authentication/howto-sspr-writeback.md)。 |
-| 组写回 |允许你将 **Office 365 组**写回到已安装 Exchange 的林中。|
+| 密码写回 |针对用户的属性的写入权限，详见[密码管理入门](../authentication/tutorial-enable-sspr-writeback.md)。 |
 
 ## <a name="upgrade"></a>升级
 从 Azure AD Connect 的一个版本升级到新版本时，需要拥有以下权限：
@@ -196,8 +195,8 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 - 非粗体 - 支持的选项
 - 本地帐户 - 服务器上的本地用户帐户
 - 域帐户 - 域用户帐户
-- sMSA - [独立托管服务帐户](https://technet.microsoft.com/library/dd548356.aspx)
-- gMSA - [组托管服务帐户](https://technet.microsoft.com/library/hh831782.aspx)
+- sMSA - [独立托管服务帐户](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA - [组托管服务帐户](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>自定义 | 远程 SQL</br>自定义 |
 | --- | --- | --- | --- |
@@ -214,11 +213,11 @@ VSA 旨在当同步引擎和 SQL 位于同一服务器上时使用。 如果使�
 此功能需要 Windows Server 2008 R2 或更高版本。 如果在 Windows Server 2008 上安装 Azure AD Connect，则安装将回退改用[用户帐户](#user-account)。
 
 #### <a name="group-managed-service-account"></a>组托管服务帐户
-如果使用远程 SQL Server，则建议使用**组托管服务帐户**。 若要详细了解如何为组托管服务帐户准备 Active Directory ，请参阅 [Group Managed Service Accounts Overview](https://technet.microsoft.com/library/hh831782.aspx)（组托管服务帐户概述）。
+如果使用远程 SQL Server，则建议使用**组托管服务帐户**。 若要详细了解如何为组托管服务帐户准备 Active Directory ，请参阅 [Group Managed Service Accounts Overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))（组托管服务帐户概述）。
 
 要使用此选项，请在[安装所需组件](how-to-connect-install-custom.md#install-required-components)页上，选择“使用现有服务帐户”，并选择“托管服务帐户”。  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-还支持使用[独立托管服务帐户](https://technet.microsoft.com/library/dd548356.aspx)。 但是，这些帐户只能在本地计算机上使用，因此使用这些帐户相对默认虚拟服务帐户而言并没有好处。
+还支持使用[独立托管服务帐户](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))。 但是，这些帐户只能在本地计算机上使用，因此使用这些帐户相对默认虚拟服务帐户而言并没有好处。
 
 此功能需要 Windows Server 2012 或更高版本。 如果需要使用早期版本的操作系统和远程 SQL，则必须使用[用户帐户](#user-account)。
 
@@ -269,4 +268,3 @@ Azure AD 将同步服务帐户数目限制为 20 个。 若要在 Azure AD 中�
 ## <a name="next-steps"></a>后续步骤
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
-<!-- Update_Description: wording update -->

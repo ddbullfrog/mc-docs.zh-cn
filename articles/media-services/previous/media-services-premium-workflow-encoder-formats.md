@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 11/18/2019
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: anilmur
-ms.openlocfilehash: 5397962b7a417fcc0d02cd86de6fc2c783d264ae
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 21e4d5c01047c2a066e455e1a38ce9f97a672bfb
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292377"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245677"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒体编码器高级工作流格式和编解码器
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 本文档包含受**媒体编码器高级工作流**公开预览版编码器支持的输入和输出文件格式及编解码器列表。
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb713666889e0992741c3971df8bbb08d06caa3
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 90bb216ea61fd90c7365c51dd319fd6bd6d0b0ef
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046333"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245287"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>为 Azure AD 帐户 配置“保持登录状态？”提示
 
@@ -73,5 +73,5 @@ ms.locfileid: "89046333"
 了解影响登录会话超时的其他设置：
 
 * Microsoft 365 - [空闲会话超时](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
-* Azure portal - [目录级别非活动超时](/azure-portal/admin-timeout)
+* Azure portal - [目录级别非活动超时](../../azure-portal/set-preferences.md#change-the-directory-timeout-setting-admin)
 
