@@ -1,23 +1,23 @@
 ---
 title: 快速入门 - 将 Cassandra API 与 Python 配合使用 - Azure Cosmos DB
 description: 本快速入门介绍如何配合 Python 使用 Azure Cosmos DB 的 Apache Cassandra API 创建配置文件应用程序。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
-origin.date: 05/18/2020
-ms.date: 08/17/2020
+origin.date: 08/13/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: tracking-python
-ms.openlocfilehash: 968d776ff848b76168986936bcae5dff7f0031bc
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-python
+ms.openlocfilehash: d36013dee26ab2d218af0cd6d29c95071dbdfa60
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222993"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246534"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>快速入门：使用 Python SDK 和 Azure Cosmos DB 构建 Cassandra 应用
@@ -65,7 +65,7 @@ ms.locfileid: "88222993"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started.git
@@ -75,70 +75,66 @@ ms.locfileid: "88222993"
 
 此步骤是可选的。 如果有意了解如何通过代码创建数据库资源，可以查看以下代码片段。 这些代码片段全部摘自 pyquickstart.py 文件。 否则，可以直接跳转到[更新连接字符串](#update-your-connection-string)。 
 
-* 用户名和密码值是使用 Azure 门户中的连接字符串页设置的。 `path\to\cert` 提供 X509 证书的路径。 
+* 使用从 Azure 门户检索的 `contactPoint` 和 `port` 信息对 `cluster` 进行初始化。 然后，`cluster` 使用 `connect()` 方法连接到 Azure Cosmos DB Cassandra API。 授权连接是通过使用用户名、密码和默认证书或显式证书（如果你在配置文件中提供了一个）来建立的。
 
     ```python
     ssl_opts = {
-            'ca_certs': 'path\to\cert',
-            'ssl_version': ssl.PROTOCOL_TLSv1_2
-            }
-    auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
-    cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts)
-    session = cluster.connect()
+        'ca_certs': DEFAULT_CA_BUNDLE_PATH,
+        'ssl_version': PROTOCOL_TLSv1_2,
+    }
 
-    ```
+    if 'certpath' in cfg.config:
+        ssl_opts['ca_certs'] = cfg.config['certpath']
 
-* 使用 contactPoint 信息初始化 `cluster`。 从 Azure 门户中检索 contactPoint。
-
-    ```python
-    cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider)
-    ```
-
-* `cluster` 连接到 Azure Cosmos DB Cassandra API。
-
-    ```python
+    auth_provider = PlainTextAuthProvider(
+        username=cfg.config['username'], password=cfg.config['password'])
+    cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts
+    )
     session = cluster.connect()
     ```
-
 * 创建新的键空间。
 
     ```python
-    session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }')
+    print ("\nCreating Keyspace")
+    session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter\' : \'1\' }');
     ```
 
 * 创建新表。
 
     ```
+    print ("\nCreating Table")
     session.execute('CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)');
     ```
 
 * 插入键/值实体。
 
     ```Python
-    insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
-    session.execute(insert_data, [1,'Lybkov','Seattle'])
-    session.execute(insert_data, [2,'Doniv','Dubai'])
-    session.execute(insert_data, [3,'Keviv','Chennai'])
-    session.execute(insert_data, [4,'Ehtevs','Pune'])
-    session.execute(insert_data, [5,'Dnivog','Belgaum'])
+    session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [1,'Lybkov','Seattle'])
+    session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [2,'Doniv','Dubai'])
+    session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [3,'Keviv','Chennai'])
+    session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [4,'Ehtevs','Pune'])
+    session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [5,'Dnivog','Belgaum'])
+    session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [6,'Ateegk','Narewadi'])
+    session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [7,'KannabbuS','Yamkanmardi'])
     ....
 
-    ```
-
-* 用于获取所有键值的查询。
+* Query to get all key values.
 
     ```Python
+    print ("\nSelecting All")
     rows = session.execute('SELECT * FROM uprofile.user')
+    PrintTable(rows)
     ```  
 
 * 用于获取键-值的查询。
 
     ```Python
-
+    print ("\nSelecting Id=1")
     rows = session.execute('SELECT * FROM uprofile.user where user_id=1')
+    PrintTable(rows)
     ```  
 
-## <a name="update-your-connection-string"></a>更新连接字符串
+## <a name="update-your-connection-string"></a><a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 连接字符串使应用能与托管数据库进行通信。
 
