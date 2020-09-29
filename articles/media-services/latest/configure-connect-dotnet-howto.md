@@ -10,19 +10,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 09/18/2019
-ms.date: 09/07/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.custom: has-adal-ref
-ms.openlocfilehash: 916425d14a2b559a338ac0646a030b5e9fdb4d0d
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: has-adal-ref, devx-track-csharp
+ms.openlocfilehash: 3a288f0964d69a3b16b6f5ae1555b4436ba06a98
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413367"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245500"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>连接到媒体服务 v3 API - .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 本文介绍如何使用服务主体登录方法连接到 Azure 媒体服务 v3 .NET SDK。
 
@@ -232,6 +234,7 @@ namespace ConsoleApp1
 
 - [教程：对视频进行上传、编码和流式处理 - .NET](stream-files-tutorial-with-api.md) 
 - [教程：通过媒体服务 v3 进行实时流式传输 - .NET](stream-live-tutorial-with-api.md)
+- [教程：使用媒体服务 v3 来分析视频 - .NET](analyze-videos-tutorial-with-api.md)
 - [从本地文件创建作业输入 - .NET](job-input-from-local-file-how-to.md)
 - [从 HTTPS URL 创建作业输入 - .NET](job-input-from-http-how-to.md)
 - [对自定义转换进行编码 - .NET](customize-encoder-presets-how-to.md)

@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: 26f437efd9e5b5ca718c908a2731d4e8741099fe
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: b0cf8350939f508b86b69bc2ec949c2d295a4f33
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515744"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146762"
 ---
 # <a name="buildschema-aggregation-function"></a>Buildschema()（聚合函数）
 
@@ -35,7 +35,11 @@ summarize `buildschema(`*DynamicExpr*`)`
 组内“`Expr`”的最大值。
 
 > [!TIP] 
-> 如果 `buildschema(json_column)` 指示语法错误：*你的 `json_column` 是字符串，不是动态对象？* 则使用 `buildschema(parsejson(json_column))`。
+> 如果 `buildschema(json_column)` 指示语法错误：
+>
+> > *你的 `json_column` 是字符串，不是动态对象？*
+>
+> 则使用 `buildschema(parsejson(json_column))`。
 
 ## <a name="example"></a>示例
 
@@ -50,12 +54,14 @@ summarize `buildschema(`*DynamicExpr*`)`
 
 生成的架构可能为：
 
-    { 
-      "x":["int", "string"], 
-      "y":["double", {"w": "string"}], 
-      "z":{"`indexer`": ["int", "string"]}, 
-      "t":{"`indexer`": "string"} 
-    }
+```kusto
+{ 
+    "x":["int", "string"],
+    "y":["double", {"w": "string"}],
+    "z":{"`indexer`": ["int", "string"]},
+    "t":{"`indexer`": "string"}
+}
+```
 
 此架构表示：
 
@@ -71,19 +77,22 @@ summarize `buildschema(`*DynamicExpr*`)`
 
 返回架构的语法是：
 
-    Container ::= '{' Named-type* '}';
-    Named-type ::= (name | '"`indexer`"') ':' Type;
-    Type ::= Primitive-type | Union-type | Container;
-    Union-type ::= '[' Type* ']';
-    Primitive-type ::= "int" | "string" | ...;
+```output
+Container ::= '{' Named-type* '}';
+Named-type ::= (name | '"`indexer`"') ':' Type;
+Type ::= Primitive-type | Union-type | Container;
+Union-type ::= '[' Type* ']';
+Primitive-type ::= "int" | "string" | ...;
+```
 
 这些值等效于 TypeScript 类型批注的子集，作为 Kusto 动态值编码。 在 Typescript 中，示例架构应为：
 
-    var someobject: 
-    { 
-      x?: (number | string), 
-      y?: (number | { w?: string}), 
-      z?: { [n:number] : (int | string)},
-      t?: { [n:number]: string } 
-    }
-    
+```typescript
+var someobject: 
+{
+    x?: (number | string),
+    y?: (number | { w?: string}),
+    z?: { [n:number] : (int | string)},
+    t?: { [n:number]: string }
+}
+```

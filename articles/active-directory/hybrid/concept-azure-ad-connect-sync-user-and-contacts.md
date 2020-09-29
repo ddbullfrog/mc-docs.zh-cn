@@ -11,17 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 01/15/2018
-ms.date: 10/25/2019
+ms.date: 09/23/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b65e1f5463e3988d4f9bf2fafd26dc3cdde31c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5bc1dec4a7bc26f39e4772d70307f3047dec9113
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72912780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245017"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 同步：了解用户、组和联系人
 有几个不同的原因导致你会有多个 Active Directory 林，并且还有几个不同的部署拓扑。 常见的模型包括合并和收购之后的帐户-资源部署和 GAL 同步的林。 但即使有纯模型，混合模型也是常见的模型。 Azure AD Connect 同步中的默认配置是不会假定任何特定模型，但观察到的行为可能会有所不同，这具体取决于安装指南中如何选择用户匹配。
@@ -40,7 +39,9 @@ ms.locfileid: "72912780"
 
 * Azure AD Connect 会从目录同步中排除内置安全组。
 
-* Azure AD Connect 不支持将[主要组成员身份](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx)同步到 Azure AD。
+* Azure AD Connect 不支持将[主要组成员身份](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11))同步到 Azure AD。
+
+* Azure AD Connect 不支持将[动态分发组成员身份](https://docs.microsoft.com/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019)同步到 Azure AD。
 
 * 若要以启用邮件的组的形式将 Active Directory 组同步到 Azure AD：
 
@@ -70,11 +71,9 @@ ms.locfileid: "72912780"
 假设是，如果找到已禁用的用户帐户，那么之后我们将找不到另一个有效帐户，并且在找到 userPrincipalName 和 sourceAnchor 的情况下，对象会设置到 Azure AD。 如果另一个有效帐户联接到相同的 metaverse 对象，则会使用其 userPrincipalName 和 sourceAnchor。
 
 ## <a name="changing-sourceanchor"></a>更改 sourceAnchor
-当对象已导出到 Azure AD 时，则不再允许更改 sourceAnchor。 当已导出对象时，则采用 Azure AD 接受的 **sourceAnchor** 值设置 metaverse 属性 **cloudSourceAnchor**。 如果更改了 **sourceAnchor**，且不匹配 **cloudSourceAnchor**，规则 **Out to AAD - User Join** 将引发错误“sourceAnchor 属性已更改”  。 在这种情况下，必须更正配置或数据，以便相同的 sourceAnchor 再次在 metaverse 中出现，才能再次同步对象。
+当对象已导出到 Azure AD 时，则不再允许更改 sourceAnchor。 当已导出对象时，则采用 Azure AD 接受的 **sourceAnchor** 值设置 metaverse 属性 **cloudSourceAnchor**。 如果更改了 **sourceAnchor**，且不匹配 **cloudSourceAnchor**，规则 **Out to AAD - User Join** 将引发错误“sourceAnchor 属性已更改”。 在这种情况下，必须更正配置或数据，以便相同的 sourceAnchor 再次在 metaverse 中出现，才能再次同步对象。
 
 ## <a name="additional-resources"></a>其他资源
-* [Azure AD Connect Sync：自定义同步选项](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步：自定义同步选项](how-to-connect-sync-whatis.md)
 * [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
-
-<!-- Update_Description: wording update -->

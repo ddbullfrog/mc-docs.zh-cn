@@ -1,6 +1,6 @@
 ---
 title: 使用 .NET 创建内容密钥
-description: 了解如何创建提供对资产进行安全访问的内容密钥。
+description: 本文演示如何创建提供对资产的安全访问的内容密钥。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 3f082f1579ef3534b5da324f7d3112b5eedfa377
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6be0e38dce2a6734661b1dfffd0f751d4cedbd94
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291639"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245062"
 ---
-# <a name="create-contentkeys-with-net"></a>使用 .NET 创建内容密钥 
+# <a name="create-contentkeys-with-net"></a>使用 .NET 创建内容密钥
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
