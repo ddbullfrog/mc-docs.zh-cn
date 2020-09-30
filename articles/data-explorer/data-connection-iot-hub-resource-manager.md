@@ -18,7 +18,7 @@ ms.locfileid: "91146384"
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>使用 Azure 资源管理器模板为 Azure 数据资源管理器创建 IoT 中心数据连接
 
 > [!div class="op_single_selector"]
-> * [门户](ingest-data-iot-hub.md)
+> * [Portal](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager 模板](data-connection-iot-hub-resource-manager.md)
