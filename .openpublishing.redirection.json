@@ -1,5 +1,26 @@
 {
-    "redirections": [{
+    "redirections": [
+        {
+            "source_path": "articles/iot-dps/concepts-auto-provisioning.md",
+            "redirect_url": "/iot-dps/concepts-roles-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md",
+            "redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-template",
+            "redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-dps/concepts-security.md",
+            "redirect_url": "/iot-dps/concepts-service#attestation-mechanism",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/key-vault/secrets/tutorial-python-linux-virtual-machine.md",
             "redirect_url": "/key-vault/general/tutorial-python-virtual-machine",
             "redirect_document_id": false
