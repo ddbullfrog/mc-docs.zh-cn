@@ -9,26 +9,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/24/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f5d4a59e4b7e62d68dd7384850737103c380ead
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 8a459f0f5b1d680e26a3df41a031075ae88e1160
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291063"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245193"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>将 Xamarin iOS 与 MSAL.NET 配合使用时的注意事项
-在 Xamarin iOS 上使用适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 时，应该： 
+
+在 Xamarin iOS 上使用适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 时，应该：
 
 - 重写并实现 `AppDelegate` 中的 `OpenUrl` 函数。
 - 启用密钥链组。
 - 启用令牌缓存共享。
 - 启用密钥链访问。
-- 了解 iOS 12 和身份验证的已知问题。
+- 了解有关 iOS 12 和 iOS 13 以及身份验证的已知问题。
 
 ## <a name="implement-openurl"></a>实现 OpenUrl
 
@@ -42,11 +42,12 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 }
 ```
 
-另外执行以下任务： 
-* 定义 URL 方案。
+另外，请执行以下任务：
+
+* 定义重定向 URI 方案。
 * 获取所需的权限，使应用能够调用另一个应用。
-* 对重定向 URL 采用特定的格式。
-* 在 [Azure 门户](https://portal.azure.cn)中注册该重定向 URL。
+* 为重定向 URI 采用特定形式。
+* 在 Azure 门户中[注册重定向 URI](quickstart-register-app.md#add-a-redirect-uri)。
 
 ### <a name="enable-keychain-access"></a>启用密钥链访问
 
@@ -55,6 +56,7 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 若要从缓存和单一登录 (SSO) 中获益，请在所有应用程序中将密钥链访问组设置为相同的值。
 
 此设置示例使用 MSAL 4.x：
+
 ```csharp
 var builder = PublicClientApplicationBuilder
      .Create(ClientId)
@@ -75,7 +77,7 @@ var builder = PublicClientApplicationBuilder
 
 使用 `WithIosKeychainSecurityGroup()` API 时，MSAL 会自动将安全组追加到应用程序团队 ID 的末尾 (`AppIdentifierPrefix`)。  MSAL 之所以添加安全组，是因为当你在 Xcode 中生成应用程序时，它会执行相同的操作。 正因如此，`Entitlements.plist` 文件中的权利需要在密钥链访问组的前面包含 `$(AppIdentifierPrefix)`。
 
-有关详细信息，请参阅 [iOS 权利文档](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps)。 
+有关详细信息，请参阅 [iOS 权利文档](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps)。
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>启用 iOS 应用程序之间的令牌缓存共享
 
@@ -88,11 +90,7 @@ var builder = PublicClientApplicationBuilder
 本文前面已提到，每次使用 `WithIosKeychainSecurityGroup()` API 时，MSAL 都会添加 `$(AppIdentifierPrefix)`。 MSAL 之所以添加此元素，是因为团队 ID `AppIdentifierPrefix` 确保只有同一发布者构建的应用程序可以共享密钥链访问。
 
 > [!NOTE]
-> `KeychainSecurityGroup` 属性已弃用。
-> 
-> 从 MSAL 2.x 开始，开发人员在使用 `TeamId` 属性时必须包含 `KeychainSecurityGroup` 前缀。 但从 MSAL 2.7.x 开始，使用新的 `iOSKeychainSecurityGroup` 属性时，MSAL 会在运行时期间解析 `TeamId` 前缀。 使用此属性时，请不要在值中包含 `TeamId` 前缀。 该前缀不是必需的。
->
-> `KeychainSecurityGroup` 属性已过时，请使用 `iOSKeychainSecurityGroup` 属性。
+> `KeychainSecurityGroup` 属性已弃用。 改用 `iOSKeychainSecurityGroup` 属性。 使用 `iOSKeychainSecurityGroup` 时，不要求有 `TeamId` 前缀。
 
 ### <a name="use-microsoft-authenticator"></a>使用 Microsoft Authenticator
 
@@ -105,11 +103,49 @@ var builder = PublicClientApplicationBuilder
 有关如何启用中介的详细信息，请参阅[在 Xamarin iOS 和 Android 应用程序中使用 Microsoft Authenticator 或 Microsoft Intune 公司门户](msal-net-use-brokers-with-xamarin-apps.md)。
 
 ## <a name="known-issues-with-ios-12-and-authentication"></a>iOS 12 和身份验证的已知问题
-Microsoft 已发布[安全公告](https://github.com/aspnet/AspNetCore/issues/4647)，其中提供了有关 iOS 12 与某些身份验证类型之间的不兼容性的信息。 这种不兼容性会中断社交、WSFed 和 OIDC 登录。该安全公告可帮助开发人员了解如何在其应用程序中消除 ASP.NET 安全限制，使其与 iOS 12 兼容。  
 
-在 Xamarin iOS 上开发 MSAL.NET 应用程序的过程中，尝试从 iOS 12 登录到网站时，你可能会看到无限循环。 此行为类似于此 [ADAL 问题](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329)。 
+Microsoft 已发布[安全公告](https://github.com/aspnet/AspNetCore/issues/4647)，其中提供了有关 iOS 12 与某些身份验证类型之间的不兼容性的信息。 这种不兼容性会中断社交、WSFed 和 OIDC 登录。该安全公告有助于了解如何删除应用程序中的 ASP.NET 安全限制，以使这些应用程序与 iOS 12 兼容。
+
+在 Xamarin iOS 上开发 MSAL.NET 应用程序的过程中，尝试从 iOS 12 登录到网站时，你可能会看到无限循环。 此类行为类似于 GitHub 上的这一 ADAL 问题：[尝试从 iOS 12 登录到网站时出现无限循环 #1329](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329)。
 
 此外，你还可能会看到 iOS 12 Safari 中发生 ASP.NET Core OIDC 身份验证中断。 有关详细信息，请参阅此 [WebKit 问题](https://bugs.webkit.org/show_bug.cgi?id=188165)。
+
+## <a name="known-issues-with-ios-13-and-authentication"></a>iOS 13 和身份验证方面的已知问题
+
+如果你的应用需要条件访问或证书身份验证支持，请让你的应用能够与 Microsoft Authenticator 代理应用通信。 然后，MSAL 会负责处理你的应用程序与 Microsoft Authenticator 之间的请求和响应。
+
+在 iOS 13 上，Apple 删除了应用程序在通过自定义 URL 方案从外部应用程序接收响应时读取源应用程序的功能，进行了一项重大的 API 更改。
+
+Apple 关于 `UIApplicationOpenURLOptionsSourceApplicationKey` 的文档中有如下说明：
+
+> 如果请求源自属于你的团队的另一个应用，UIKit 会将此键的值设置为该应用的 ID。如果源应用的团队标识符不同于当前应用的团队标识符，则该键的值为 nil。
+
+此更改对 MSAL 有重大影响，因为它依赖于 `UIApplication.SharedApplication.OpenUrl` 来验证 MSAL 和 Microsoft Authenticator 应用之间的通信。
+
+另外，在 iOS 13 上，开发人员在使用 `ASWebAuthenticationSession` 时需要提供呈现控制器。
+
+如果你使用 Xcode 11 进行生成，并且使用 iOS 代理或者 `ASWebAuthenticationSession`，你的应用就会受影响。
+
+在这些情况下，请使用 [MSAL.NET 4.4.0+](https://www.nuget.org/packages/Microsoft.Identity.Client/)，以便能够成功进行身份验证。
+
+### <a name="additional-requirements"></a>其他需求
+
+- 使用最新的 MSAL 库时，请确保设备上安装了 Microsoft Authenticator 6.3.19 或更高版本。
+- 更新到 MSAL.NET 4.4.0 或更高版本时，请更新 info.plist 文件中的 `LSApplicationQueriesSchemes` 并添加 `msauthv3`：
+
+    ```xml
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+         <string>msauthv2</string>
+         <string>msauthv3</string>
+    </array>
+    ```
+
+    对于在支持 iOS 13 的设备上检测是否存在最新 Microsoft Authenticator 应用程序而言，将 `msauthv3` 添加到 info.plist 是必要的。
+
+## <a name="report-an-issue"></a>报告问题
+
+如果你有问题，或者需要报告在 MSAL.NET 中发现的问题，请在 GitHub 上的 [AzureAD/microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) 存储库中创建问题。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -121,4 +157,3 @@ Microsoft 已发布[安全公告](https://github.com/aspnet/AspNetCore/issues/46
 
 <!--- https://github.com/Azure-Samples/active-directory-xamarin-native-v2/blob/master/ReadmeFiles/Topology.png -->
 
-<!-- Update_Description: wording update -->
