@@ -7,16 +7,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/13/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 00fa5ed1a4747eab99b7f9902586a85674c2c5bd
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 3b79e779dc9534f841c39f987a69a9a3764c8bdd
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753412"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026513"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>通过 Azure 门户使用 Azure Key Vault 配置客户管理的密钥
 
@@ -46,11 +46,11 @@ Azure 存储加密支持 2048、3072 和 4096 大小的 RSA 密钥。 有关密�
 
 ## <a name="specify-a-key"></a>指定密钥
 
-启用客户管理的密钥后，可以指定要与存储帐户关联的密钥。 你也可以指示 Azure 存储是否应该自动轮换客户管理的密钥，或者你是否将会手动轮换密钥。
+启用客户管理的密钥后，可以指定要与存储帐户关联的密钥。 还可以指示 Azure 存储是否应将客户管理的密钥自动更新到最新版本，或者你是否会手动更新密钥版本。
 
 ### <a name="specify-a-key-from-a-key-vault"></a>从 Key Vault 指定密钥
 
-从密钥保管库中选择客户管理的密钥时，会自动启用密钥自动轮换。 若要手动管理密钥版本，请改为指定密钥 URI，并包含密钥版本。 有关详细信息，请参阅[将密钥指定为 URI](#specify-a-key-as-a-uri)。
+从密钥保管库中选择客户管理的密钥时，会启用自动更新密钥版本。 若要手动管理密钥版本，请改为指定密钥 URI，并包含密钥版本。 有关详细信息，请参阅[将密钥指定为 URI](#specify-a-key-as-a-uri)。
 
 若要指定 Key Vault 中的密钥，请执行以下步骤：
 
@@ -65,7 +65,12 @@ Azure 存储加密支持 2048、3072 和 4096 大小的 RSA 密钥。 有关密�
 
 ### <a name="specify-a-key-as-a-uri"></a>将密钥指定为 URI
 
-指定密钥 URI 时，请省略密钥版本，以启用自动轮换客户管理的密钥。 如果密钥 URI 中包含密钥版本，则不启用自动轮换，你必须自行管理密钥版本。 若要详细了解如何更新密钥版本，请参阅[手动更新密钥版本](#manually-update-the-key-version)。
+Azure 存储可以自动更新客户管理的密钥（用于加密），以使用最新密钥版本。 当在 Azure Key Vault 中轮换客户管理的密钥时，Azure 存储会自动开始将最新版本的密钥用于加密。
+
+> [!NOTE]
+> 若要轮换密钥，请在 Azure Key Vault 中创建密钥的新版本。 Azure 存储不会处理 Azure Key Vault 中的密钥轮换，因此你将需要手动轮换密钥，或创建一个函数以便按计划轮换密钥。
+
+指定密钥 URI 时，请从 URI 中省略密钥版本，以启用自动更新到最新密钥版本。 如果在密钥 URI 中包含密钥版本，则不会启用自动更新，你必须自行管理密钥版本。 若要详细了解如何更新密钥版本，请参阅[手动更新密钥版本](#manually-update-the-key-version)。
 
 若要将某个密钥指定为 URI，请执行下列步骤：
 
@@ -75,25 +80,25 @@ Azure 存储加密支持 2048、3072 和 4096 大小的 RSA 密钥。 有关密�
     ![显示 Key Vault 密钥 URI 的屏幕截图](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
 1. 在存储帐户的“加密密钥”设置中，选择“输入密钥 URI”选项。 
-1. 将复制的 URI 粘贴到“密钥 URI”字段中。 从 URI 中省略密钥版本以启用自动轮换。
+1. 将复制的 URI 粘贴到“密钥 URI”字段中。 从 URI 中省略密钥版本，以启用自动更新密钥版本。
 
    ![显示如何输入密钥 URI 的屏幕截图](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. 指定包含密钥保管库的订阅。
 1. 保存所做更改。
 
-指定密钥后，Azure 门户会指示是否已启用自动密钥轮换，并显示当前用于加密的密钥版本。
+指定密钥后，Azure 门户会指示是否已启用自动更新密钥版本，并显示当前用于加密的密钥版本。
 
-:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="屏幕截图，显示已启用自动轮换客户管理的密钥":::
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="屏幕截图，其中显示已启用自动更新密钥版本":::
 
 ## <a name="manually-update-the-key-version"></a>手动更新密钥版本
 
-默认情况下，Azure 存储会为你自动轮换客户管理的密钥（如前几节中所述）。 如果选择自行管理密钥版本，则每次创建密钥的新版本时都必须更新为存储帐户指定的密钥版本。
+默认情况下，在 Key Vault 中创建客户管理的密钥的新版本时，Azure 存储会自动将该新版本用于使用客户管理的密钥进行的加密，如前一部分中所述。 如果选择自行管理密钥版本，则每次创建密钥的新版本时，都必须更新与存储帐户关联的密钥版本。
 
 若要更新存储帐户以使用新的密钥版本，请执行以下步骤：
 
 1. 导航到你的存储帐户，并显示“加密”设置。
-1. 输入新密钥版本的 URI。 或者，可以再次选择 Key Vault 和密钥以更新版本。
+1. 输入新版本密钥的 URI。 或者，可以再次选择 Key Vault 和密钥以更新版本。
 1. 保存所做更改。
 
 ## <a name="switch-to-a-different-key"></a>切换到其他密钥

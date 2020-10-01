@@ -2,18 +2,18 @@
 title: 模板函数 - 资源
 description: 介绍可在 Azure Resource Manager 模板中用于检索资源相关值的函数。
 ms.topic: conceptual
-origin.date: 06/18/2020
+origin.date: 09/03/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b1cc45cb54f813ce11cae6006810914bba71d30c
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 860c89a044e19bfc6e0eaa74fa6d40084e7ac869
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807833"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146567"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 模板的资源函数
 
@@ -21,6 +21,9 @@ ms.locfileid: "88807833"
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
+    
+    <!--Not Available on * [pickZones](#pickzones)-->
+    
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -106,6 +109,76 @@ ms.locfileid: "88807833"
 }
 ```
 
+部署到管理组的自定义策略定义是作为扩展资源实现的。 若要创建和分配策略，请将以下模板部署到管理组。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "targetMG": {
+            "type": "string",
+            "metadata": {
+                "description": "Target Management Group"
+            }
+        },
+        "allowedLocations": {
+            "type": "array",
+            "defaultValue": [
+                "chinaeast2",
+                "australiasoutheast",
+                "australiacentral"
+            ],
+            "metadata": {
+                "description": "An array of the allowed locations, all other locations will be denied by the created policy."
+            }
+        }
+    },
+    "variables": {
+        "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
+        "policyDefinition": "LocationRestriction"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyDefinitions",
+            "name": "[variables('policyDefinition')]",
+            "apiVersion": "2019-09-01",
+            "properties": {
+                "policyType": "Custom",
+                "mode": "All",
+                "parameters": {
+                },
+                "policyRule": {
+                    "if": {
+                        "not": {
+                            "field": "location",
+                            "in": "[parameters('allowedLocations')]"
+                        }
+                    },
+                    "then": {
+                        "effect": "deny"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "name": "location-lock",
+            "apiVersion": "2019-09-01",
+            "dependsOn": [
+                "[variables('policyDefinition')]"
+            ],
+            "properties": {
+                "scope": "[variables('mgScope')]",
+                "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', variables('policyDefinition'))]"
+            }
+        }
+    ]
+}
+```
+
+内置策略定义是租户级别的资源。 有关部署内置策略定义的示例，请参阅 [tenantResourceId](#tenantresourceid)。
+
 <a name="listkeys"></a>
 <a name="list"></a>
 
@@ -117,10 +190,10 @@ ms.locfileid: "88807833"
 
 ### <a name="parameters"></a>parameters
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | resourceName 或 resourceIdentifier |是 |string |资源的唯一标识符。 |
-| apiVersion |是 |string |资源运行时状态的 API 版本。 通常采用 **yyyy-mm-dd**格式。 |
+| apiVersion |是 |字符串 |资源运行时状态的 API 版本。 通常采用 **yyyy-mm-dd**格式。 |
 | functionValues |否 |object | 具有函数值的对象。 仅为支持接收具有参数值的对象的函数提供此对象，例如存储帐户上的 listAccountSas。 本文中演示了传递函数值的示例。 |
 
 ### <a name="valid-uses"></a>有效使用
@@ -136,6 +209,11 @@ ms.locfileid: "88807833"
 | 资源类型 | 函数名称 |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](https://docs.microsoft.com/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/authorizationserver/listsecrets) |
+| Microsoft.ApiManagement/service/gateways | [listKeys](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway/listkeys) |
+| Microsoft.ApiManagement/service/identityProviders | [listSecrets](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
+| Microsoft.ApiManagement/service/namedValues | [listValue](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
+| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
 | Microsoft.Automation/automationAccounts | [listKeys](https://docs.microsoft.com/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](https://docs.microsoft.com/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.Cache/redis | [listKeys](https://docs.microsoft.com/rest/api/redis/redis/listkeys) |
@@ -143,10 +221,15 @@ ms.locfileid: "88807833"
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](https://docs.microsoft.com/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](https://docs.microsoft.com/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](https://docs.microsoft.com/rest/api/containerregistry/registries/listusages) |
+| Microsoft.ContainerRegistry/registries/agentpools | listQueueStatus |
+| Microsoft.ContainerRegistry/registries/buildTasks | listSourceRepositoryProperties |
+| Microsoft.ContainerRegistry/registries/buildTasks/steps | listBuildArguments |
+| Microsoft.ContainerRegistry/registries/taskruns | listDetails |
 | Microsoft.ContainerRegistry/registries/webhooks | [listEvents](https://docs.microsoft.com/rest/api/containerregistry/webhooks/listevents) |
 | Microsoft.ContainerRegistry/registries/runs | [listLogSasUrl](https://docs.microsoft.com/rest/api/containerregistry/runs/getlogsasurl) |
 | Microsoft.ContainerRegistry/registries/tasks | [listDetails](https://docs.microsoft.com/rest/api/containerregistry/tasks/getdetails) |
 | Microsoft.ContainerService/managedClusters | [listClusterAdminCredential](https://docs.microsoft.com/rest/api/aks/managedclusters/listclusteradmincredentials) |
+| Microsoft.ContainerService/managedClusters | [listClusterMonitoringUserCredential](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials) |
 | Microsoft.ContainerService/managedClusters | [listClusterUserCredential](https://docs.microsoft.com/rest/api/aks/managedclusters/listclusterusercredentials) |
 | Microsoft.ContainerService/managedClusters/accessProfiles | [listCredential](https://docs.microsoft.com/rest/api/aks/managedclusters/getaccessprofile) |
 | Microsoft.DataBox/jobs | listCredentials |
@@ -156,8 +239,9 @@ ms.locfileid: "88807833"
 | Microsoft.Devices/iotHubs/iotHubKeys | [listkeys](https://docs.microsoft.com/rest/api/iothub/iothubresource/getkeysforkeyname) |
 | Microsoft.Devices/provisioningServices/keys | [listkeys](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/listkeysforkeyname) |
 | Microsoft.Devices/provisioningServices | [listkeys](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/listkeys) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/2020-04-01/notebookworkspaces/listconnectioninfo) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](https://docs.microsoft.com/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](https://docs.microsoft.com/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](https://docs.microsoft.com/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -192,6 +276,7 @@ ms.locfileid: "88807833"
 | Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/notificationhubs/notificationhubs/listkeys) |
 | Microsoft.OperationalInsights/workspaces | [list](https://docs.microsoft.com/rest/api/loganalytics/workspaces/list) |
+| Microsoft.OperationalInsights/workspaces | listKeys |
 | Microsoft.PolicyInsights/remediations | [listDeployments](https://docs.microsoft.com/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
 | Microsoft.Relay/namespaces/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/relay/namespaces/listkeys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
@@ -199,10 +284,10 @@ ms.locfileid: "88807833"
 | Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/relay/wcfrelays/listkeys) |
 | Microsoft.Search/searchServices | [listAdminKeys](https://docs.microsoft.com/rest/api/searchmanagement/adminkeys/get) |
 | Microsoft.Search/searchServices | [listQueryKeys](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/servicebus/namespaces/listkeys) |
-| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/servicebus/disasterrecoveryconfigs/listkeys) |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/servicebus/queues/listkeys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/servicebus/topics/listkeys) |
+| Microsoft.ServiceBus/namespaces/authorizationRules | listkeys |
+| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
+| Microsoft.ServiceBus/namespaces/queues/authorizationRules | listkeys |
+| Microsoft.ServiceBus/namespaces/topics/authorizationRules | listkeys |
 | Microsoft.SignalRService/SignalR | [listkeys](https://docs.microsoft.com/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listkeys](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/listkeys) |
@@ -224,7 +309,7 @@ ms.locfileid: "88807833"
 | Microsoft.Web/sites/slots/config | [list](https://docs.microsoft.com/rest/api/appservice/webapps/listconfigurationsslot) |
 | microsoft.web/sites/slots/functions | [listsecrets](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctionsecretsslot) |
 
-<!--Not available on Microsoft.AppConfiguration on line 135 + 2-->
+<!--MOONCAKE: THE FOUR LINK ABOUT Microsoft.ServiceBus IS NOT AVAILABLE ON GLOBAL LINK-->
 <!--Not available on BatchAI and BlockChain on line 135 + 3-->
 <!--Not available on DateShare on line 148 + 5-->
 <!--Not available on DevTestLabs on line 152 + 4-->
@@ -276,7 +361,9 @@ ms.locfileid: "88807833"
 
 ### <a name="list-example"></a>List 示例
 
-以下示例在为[部署脚本](deployment-script-template.md)设置值时使用了 listKeys。
+以下示例在为部署脚本设置值时使用了 listKeys。
+
+<!--Not Available on [deployment scripts](deployment-script-template.md)-->
 
 ```json
 "storageAccountSettings": {
@@ -305,6 +392,8 @@ ms.locfileid: "88807833"
 ```
 
 <!--Not available on For a listKeyValue example, see [Quickstart: Automated VM deployment with App Configuration and Resource Manager template](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).-->
+
+<!--Not Available on ## pickZones-->
 
 ## <a name="providers"></a>providers
 
@@ -392,8 +481,8 @@ ms.locfileid: "88807833"
 | 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | resourceName 或 resourceIdentifier |是 |字符串 |资源的名称或唯一标识符。 当引用当前模板中的资源时，请仅提供资源名称作为参数。 当引用以前部署的资源或者资源名称不明确时，请提供资源 ID。 |
-| apiVersion |否 |string |指定的资源的 API 版本。 如果资源不是在同一模板中预配的，则需要此参数。 通常采用 **yyyy-mm-dd**格式。 |
-| 'Full' |否 |string |一个值，指定是否要返回完整资源对象。 如果未指定 `'Full'`，仅返回资源的属性对象。 完整对象包括资源 ID 和位置等值。 |
+| apiVersion |否 |字符串 |指定的资源的 API 版本。 如果资源不是在同一模板中预配的，则需要此参数。 通常采用 **yyyy-mm-dd**格式。 |
+| 'Full' |否 |字符串 |一个值，指定是否要返回完整资源对象。 如果未指定 `'Full'`，仅返回资源的属性对象。 完整对象包括资源 ID 和位置等值。 |
 
 <!-- Not Available on [template reference](https://docs.microsoft.com/azure/templates/)-->
 
@@ -721,7 +810,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 |:--- |:--- |:--- |:--- |
 | subscriptionId |否 |字符串（GUID 格式） |默认值为当前订阅。 如果需要检索另一个订阅中的资源，请指定此值。 仅在资源组或订阅的范围内部署时才提供此值。 |
 | resourceGroupName |否 |字符串 |默认值为当前资源组。 如果需要检索另一个资源组中的资源，请指定此值。 仅在资源组的范围内部署时才提供此值。 |
-| resourceType |是 |string |资源类型，包括资源提供程序命名空间。 |
+| resourceType |是 |字符串 |资源类型，包括资源提供程序命名空间。 |
 | resourceName1 |是 |字符串 |资源的名称。 |
 | resourceName2 |否 |字符串 |下一个资源名称段（如果需要）。 |
 
@@ -735,23 +824,27 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-用于[订阅级别部署](deploy-to-subscription.md)中时，将返回以下格式的资源 ID：
+可以对其他部署范围使用 resourceId 函数，但 ID 的格式会发生更改。
+
+如果在部署到订阅时使用 resourceId，则会按以下格式返回资源 ID：
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-在[管理组级别部署](deploy-to-management-group.md)或租户级别部署中使用时，将使用以下格式返回资源 ID：
+如果在部署到管理组或租户时使用 resourceId，则会按以下格式返回资源 ID：
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-若要获取其他格式的 ID，请参阅：
+为避免混淆，建议你在使用部署到订阅、管理组或租户的资源时不使用 resourceId， 而改用针对范围设计的 ID 函数。
 
-* [extensionResourceId](#extensionresourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+对于[订阅级别的资源](deploy-to-subscription.md)，请使用 [subscriptionResourceId](#subscriptionresourceid) 函数。
+
+对于[管理组级别的资源](deploy-to-management-group.md)，请使用 [extensionResourceId](#extensionresourceid) 函数来引用作为管理组的扩展实现的资源。 例如，部署到管理组的自定义策略定义是管理组的扩展。 请使用 [tenantResourceId](#tenantresourceid) 函数来引用已部署到租户但在你的管理组中可用的资源。 例如，内置策略定义是作为租户级别的资源实现的。
+
+对于[租户级别的资源](deploy-to-tenant.md)，请使用 [tenantResourceId](#tenantresourceid) 函数。 请对内置策略定义使用 tenantResourceId，因为内置策略定义是在租户级别实现的。
 
 ### <a name="remarks"></a>备注
 
@@ -857,10 +950,10 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
-| sameRGOutput | 字符串 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | 字符串 | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
@@ -1014,6 +1107,44 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 ### <a name="remarks"></a>备注
 
 我们使用此函数获取部署到租户的资源的资源 ID。 返回的 ID 不同于其他资源 ID 函数返回的值，区别在于不包含资源组值或订阅值。
+
+### <a name="tenantresourceid-example"></a>tenantResourceId 示例
+
+内置策略定义是租户级别的资源。 若要部署引用内置策略定义的策略分配，请使用 tenantResourceId 函数。
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+      }
+    },
+    "policyDefinitionID": {
+      "type": "string",
+      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
+      "metadata": {
+        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+      }
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>后续步骤
 
