@@ -1,36 +1,31 @@
 ---
-title: 如何通过 Python 使用 Azure 队列存储 v2.1 - Azure 存储
-description: 了解如何通过 Python 使用 Azure 队列服务 v2.1 创建和删除队列，以及插入、获取和删除消息。
+title: 如何通过 Python 使用 Azure 队列存储 - Azure 存储
+description: 了解如何通过 Python 使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。
 author: WenJason
 ms.author: v-jay
-origin.date: 09/17/2019
-ms.date: 07/20/2020
+origin.date: 08/25/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.custom: seo-javascript-october2019, tracking-python
-ms.openlocfilehash: 6ee125c60a66ba53eecfee5ead7ca02be9dfa82f
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.custom: seo-javascript-october2019, devx-track-python
+ms.openlocfilehash: eaa7989ca7cf6b680cbda97da1f131a432267483
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414597"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026639"
 ---
-# <a name="how-to-use-azure-queue-storage-v21-from-python"></a>如何通过 Python 使用 Azure 队列存储 v2.1
+# <a name="how-to-use-azure-queue-storage-from-python"></a>如何通过 Python 使用 Azure 队列存储
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-本文演示使用 Azure 队列存储服务的常见方案。 介绍的方案包括插入、扫视、获取和删除队列消息以及创建和删除队列。
-
-> [!IMPORTANT]
-> 本文是指适用于 Python 的 Azure 存储客户端库的旧版本。 若要开始使用最新版本，请参阅[快速入门：适用于 Python 的 Azure 队列存储客户端库](storage-quickstart-queues-python.md)
-
-[!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
-
 ## <a name="overview"></a>概述
 
-本文中的示例用 Python 编写并使用[Microsoft Azure Storage SDK for Python]。 有关队列的详细信息，请参阅[后续步骤](#next-steps)部分。
+本文演示使用 Azure 队列存储服务的常见方案。 涵盖的方案包括插入、速览、获取和删除队列消息。 还介绍了用于创建和删除队列的代码。
+
+本文中的示例是用 Python 编写的，使用[用于 Python 的 Azure 队列存储客户端库]。 有关队列的详细信息，请参阅[后续步骤](#next-steps)部分。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -40,115 +35,330 @@ ms.locfileid: "86414597"
 
 [用于 Python 的 Azure 存储 SDK](https://github.com/azure/azure-storage-python) 需要 Python 2.7、3.3 或更高版本。
  
-### <a name="install-via-pypi"></a>通过 PyPi 安装
+### <a name="install-via-pypi"></a>通过 PyPI 安装
 
 要通过 Python 包索引 (PyPI) 安装，请键入：
 
-```bash
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+```console
+pip install azure-storage-queue
+```
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+```console
 pip install azure-storage-queue==2.1.0
 ```
+
+---
 
 > [!NOTE]
 > 如果要从适用于 Python 的 Azure 存储 SDK 版本 0.36 或更早版本升级，请在安装最新软件包之前使用 `pip uninstall azure-storage` 卸载旧版 SDK。
 
-有关备用安装方法，请参阅[适用于 Python 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-python/)。
+有关其他安装方法，请参阅[适用于 Python 的 Azure SDK]。
 
-## <a name="view-the-sample-application"></a>查看示例应用程序
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-若要查看和运行示例应用程序，该应用程序演示如何将 Python 与 Azure 队列配合使用，请参阅 [Azure Storage:Getting Started with Azure Queues in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started)（Azure 存储：开始在 Python 中使用 Azure 队列）。 
+## <a name="configure-your-application-to-access-queue-storage"></a>配置应用程序以访问队列存储
 
-若要运行示例应用程序，请确保已安装 `azure-storage-queue` 和 `azure-storage-common` 软件包。
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+可通过 [QueueClient](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient) 对象来处理队列。 在你希望以编程方式访问服务总线的任何 Python 文件中，将以下代码添加到顶部附近：
+
+```python
+from azure.storage.queue import (
+        QueueClient,
+        BinaryBase64EncodePolicy,
+        BinaryBase64DecodePolicy
+)
+
+import os, uuid
+```
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+可以通过 [QueueService](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2) 对象来处理队列。 以下代码创建 `QueueService` 对象。 在你希望以编程方式访问 Azure 存储的任何 Python 文件中，将以下代码添加到顶部附近：
+
+```python
+from azure.storage.queue import (
+        QueueService, 
+        QueueMessageFormat
+)
+
+import os, uuid
+```
+
+---
+
+`os` 包支持检索环境变量。 `uuid` 包支持为队列名称生成唯一标识符。
 
 ## <a name="create-a-queue"></a>创建队列
 
-可以通过 [QueueService](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) 对象来处理队列。 以下代码创建 `QueueService` 对象。 在希望在其中以编程方式访问 Azure 存储的任何 Python 文件中，将以下代码添加到文件的顶部附近：
+连接字符串是从前面设置的 `AZURE_STORAGE_CONNECTION_STRING` 环境变量检索的。
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+以下代码使用存储连接字符串创建 `QueueClient` 对象。
 
 ```python
-from azure.storage.queue import QueueService
+# Retrieve the connection string from an environment
+# variable named AZURE_STORAGE_CONNECTION_STRING
+connect_str = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
+
+# Create a unique name for the queue
+queue_name = "queue-" + str(uuid.uuid4())
+
+# Instantiate a QueueClient object which will
+# be used to create and manipulate the queue
+print("Creating queue: " + queue_name)
+queue_client = QueueClient.from_connection_string(connect_str, queue_name)
+
+# Create the queue
+queue_client.create_queue()
 ```
 
-以下代码使用存储帐户名称和帐户密钥创建一个 `QueueService` 对象。 将 myaccount 和 mykey 替换为帐户名称和密钥。
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+以下代码使用存储连接字符串创建 `QueueService` 对象。
 
 ```python
-queue_service = QueueService(account_name='myaccount', account_key='mykey', endpoint_suffix='core.chinacloudapi.cn')
+# Retrieve the connection string from an environment
+# variable named AZURE_STORAGE_CONNECTION_STRING
+connect_str = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
 
-queue_service.create_queue('taskqueue')
+# Create a unique name for the queue
+queue_name = "queue-" + str(uuid.uuid4())
+
+# Create a QueueService object which will
+# be used to create and manipulate the queue
+print("Creating queue: " + queue_name)
+queue_service = QueueService(connection_string=connect_str)
+
+# Create the queue
+queue_service.create_queue(queue_name)
 ```
+
+---
 
 ## <a name="insert-a-message-into-a-queue"></a>在队列中插入消息
 
-若要在队列中插入消息，可使用 [put_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) 方法创建一条新消息并将其添加到队列中。
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+若要在队列中插入消息，请使用 [send_message](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) 方法。
 
 ```python
-queue_service.put_message('taskqueue', u'Hello World')
+message = u"Hello World"
+print("Adding message: " + message)
+queue_client.send_message(message)
 ```
 
-Azure 队列消息以文本形式存储。 如果要存储二进制数据，请在将消息放入队列之前，在队列服务对象上设置 Base64 编码和解码函数。
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+若要在队列中插入消息，可使用 [put_message](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) 方法创建一条新消息并将其添加到队列中。
 
 ```python
-# setup queue Base64 encoding and decoding functions
+message = u"Hello World"
+print("Adding message: " + message)
+queue_service.put_message(queue_name, message)
+```
+
+---
+
+Azure 队列消息以文本形式存储。 如果要存储二进制数据，请在将消息放入队列之前设置 Base64 编码和解码函数。
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+在队列客户端对象上配置 Base64 编码和解码函数。
+
+```python
+# Setup Base64 encoding and decoding functions
+queue_client.message_encode_policy = BinaryBase64EncodePolicy()
+queue_client.message_decode_policy = BinaryBase64DecodePolicy()
+```
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+在队列服务对象上配置 Base64 编码和解码函数。
+
+```python
+# Setup Base64 encoding and decoding functions
 queue_service.encode_function = QueueMessageFormat.binary_base64encode
 queue_service.decode_function = QueueMessageFormat.binary_base64decode
 ```
 
-## <a name="peek-at-the-next-message"></a>扫视下一条消息
+---
 
-通过调用 [peek_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-) 方法，可以扫视队列最前面的消息，而不必从该队列中将其删除。 默认情况下，`peek_messages` 扫视单条消息。
+## <a name="peek-at-messages"></a>扫视消息
 
-```python
-messages = queue_service.peek_messages('taskqueue')
-for message in messages:
-    print(message.content)
-```
+# <a name="python-v12"></a>[Python v12](#tab/python)
 
-## <a name="dequeue-messages"></a>取消消息的排队
-
-代码分两步从队列中删除消息。 在调用 [get_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) 时，默认情况下会获得队列中的下一条消息。 从 `get_messages` 返回的消息对于从此队列读取消息的任何其他代码都是不可见的。 默认情况下，此消息持续 30 秒不可见。 若要完成从队列中删除消息，还必须调用 [delete_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-message-queue-name--message-id--pop-receipt--timeout-none-)。 此删除消息的两步过程可确保当代码因硬件或软件故障而无法处理消息时，其他代码实例可以获取同一消息并重试。 代码在处理消息后会立即调用 `delete_message`。
+可以通过调用 [peek_messages](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) 方法来速览消息，而不必将其从队列中删除。 默认情况下，`peek_messages` 扫视单条消息。
 
 ```python
-messages = queue_service.get_messages('taskqueue')
-for message in messages:
-    print(message.content)
-    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
+# Peek at the first message
+messages = queue_client.peek_messages()
+
+for peeked_message in messages:
+    print("Peeked message: " + peeked_message.content)
 ```
 
-可通过两种方式自定义队列中消息的检索。 首先，可获取一批消息（最多 32 条）。 其次，可以设置更长或更短的不可见超时时间，从而允许代码使用更多或更少时间来完全处理每个消息。 以下代码示例使用 `get_messages` 方法在一次调用中获取 16 条消息。 然后，它会使用 for 循环处理每条消息。 它还将每条消息的不可见超时时间设置为 5 分钟。
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+可以通过调用 [peek_messages](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#peek-messages-queue-name--num-messages-none--timeout-none-) 方法来速览消息，而不必将其从队列中删除。 默认情况下，`peek_messages` 扫视单条消息。
 
 ```python
-messages = queue_service.get_messages(
-    'taskqueue', num_messages=16, visibility_timeout=5*60)
-for message in messages:
-    print(message.content)
-    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
+messages = queue_service.peek_messages(queue_name)
+
+for peeked_message in messages:
+    print("Peeked message: " + peeked_message.content)
 ```
+
+---
 
 ## <a name="change-the-contents-of-a-queued-message"></a>更改已排队消息的内容
 
-可以更改队列中现有消息的内容。 如果消息表示工作任务，可使用此功能来更新该工作任务的状态。 以下代码使用 [update_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) 方法来更新消息。 可见性超时设为 0，这意味着消息会立刻出现且内容将更新。
+可以更改队列中现有消息的内容。 如果消息表示某个任务，则可以使用此功能来更新该任务的状态。
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+以下代码使用 [update_message](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) 方法来更新消息。 可见性超时设为 0，这意味着消息会立刻出现且内容将更新。
 
 ```python
-messages = queue_service.get_messages('taskqueue')
+messages = queue_client.receive_messages()
+list_result = next(messages)
+
+message = queue_client.update_message(
+        list_result.id, list_result.pop_receipt,
+        visibility_timeout=0, content=u'Hello World Again')
+
+print("Updated message to: " + message.content)
+```
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+以下代码使用 [update_message](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) 方法来更新消息。 可见性超时设为 0，这意味着消息会立刻出现且内容将更新。
+
+```python
+messages = queue_service.get_messages(queue_name)
+
 for message in messages:
     queue_service.update_message(
-        'taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
+        queue_name, message.id, message.pop_receipt, 0, u"Hello World Again")
 ```
+
+---
 
 ## <a name="get-the-queue-length"></a>获取队列长度
 
-可以获取队列中消息的估计数。 [get_queue_metadata](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) 方法要求队列服务返回有关队列的元数据和 `approximate_message_count`。 结果仅是近似值，因为在队列服务响应请求之后，可能添加或删除了消息。
+可以获取队列中消息的估计数。
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+[get_queue_properties](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#get-queue-properties---kwargs-) 方法要求队列服务返回有关队列的属性，包括 `approximate_message_count`。
 
 ```python
-metadata = queue_service.get_queue_metadata('taskqueue')
-count = metadata.approximate_message_count
+properties = queue_client.get_queue_properties()
+count = properties.approximate_message_count
+print("Message count: " + str(count))
 ```
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+[get_queue_metadata](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) 方法要求队列服务返回有关队列的元数据，包括 `approximate_message_count`。
+
+```python
+metadata = queue_service.get_queue_metadata(queue_name)
+count = metadata.approximate_message_count
+print("Message count: " + str(count))
+```
+
+---
+
+结果仅是近似值，因为在队列服务响应请求之后，可能添加或删除了消息。
+
+## <a name="dequeue-messages"></a>取消消息的排队
+
+通过两个步骤从队列中删除消息。 如果你的代码未能处理消息，此两步过程可确保你可以获取同一消息并重试。 在消息成功处理后调用 `delete_message`。
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+在调用 [receive_messages](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) 时，默认情况下会获得队列中的下一条消息。 从 `receive_messages` 返回的消息对于从此队列读取消息的任何其他代码都是不可见的。 默认情况下，此消息持续 30 秒不可见。 若要完成从队列中删除消息，还必须调用 [delete_message](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#delete-message-message--pop-receipt-none----kwargs-)。
+
+```python
+messages = queue_client.receive_messages()
+
+for message in messages:
+    print("Dequeueing message: " + message.content)
+    queue_client.delete_message(message.id, message.pop_receipt)
+```
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+在调用 [get_messages](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) 时，默认情况下会获得队列中的下一条消息。 从 `get_messages` 返回的消息对于从此队列读取消息的任何其他代码都是不可见的。 默认情况下，此消息持续 30 秒不可见。 若要完成从队列中删除消息，还必须调用 [delete_message](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-message-queue-name--message-id--pop-receipt--timeout-none-)。
+
+```python
+messages = queue_service.get_messages(queue_name)
+
+for message in messages:
+    print("Deleting message: " + message.content)
+    queue_service.delete_message(queue_name, message.id, message.pop_receipt)
+```
+
+---
+
+可通过两种方式自定义队列中消息的检索。 首先，可获取一批消息（最多 32 条）。 其次，可以设置更长或更短的不可见超时时间，从而允许代码使用更多或更少时间来完全处理每个消息。
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+以下代码示例使用 [receive_messages](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) 方法成批获取消息。 然后，它使用嵌套的 `for` 循环来处理每批中的每条消息。 它还将每条消息的不可见超时时间设置为 5 分钟。
+
+```python
+messages = queue_client.receive_messages(messages_per_page=5, visibility_timeout=5*60)
+
+for msg_batch in messages.by_page():
+   for msg in msg_batch:
+      print("Batch dequeue message: " + msg.content)
+      queue_client.delete_message(msg)
+```
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+以下代码示例使用 [get_messages](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) 方法在一次调用中获取 16 条消息。 然后，使用 `for` 循环处理每条消息。 它还将每条消息的不可见超时时间设置为 5 分钟。
+
+```python
+messages = queue_service.get_messages(queue_name, num_messages=16, visibility_timeout=5*60)
+
+for message in messages:
+    print("Deleting message: " + message.content)
+    queue_service.delete_message(queue_name, message.id, message.pop_receipt)
+```
+
+---
 
 ## <a name="delete-a-queue"></a>删除队列
 
-若要删除队列及其中包含的所有消息，请调用 [delete_queue](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-queue-queue-name--fail-not-exist-false--timeout-none-) 方法。
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+若要删除队列及其中包含的所有消息，请调用 [delete_queue](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) 方法。
 
 ```python
-queue_service.delete_queue('taskqueue')
+print("Deleting queue: " + queue_client.queue_name)
+queue_client.delete_queue()
 ```
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+若要删除队列及其中包含的所有消息，请调用 [delete_queue](https://docs.microsoft.com/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-queue-queue-name--fail-not-exist-false--timeout-none-) 方法。
+
+```python
+print("Deleting queue: " + queue_name)
+queue_service.delete_queue(queue_name)
+```
+
+---
+
+[!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -158,5 +368,6 @@ queue_service.delete_queue('taskqueue')
 * [Python 开发人员中心](/develop/python/)
 * [Azure 存储服务 REST API](https://msdn.microsoft.com/library/azure/dd179355)
 
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
+[用于 Python 的 Azure 队列存储客户端库]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
+[Azure SDK for Python]: https://github.com/azure/azure-sdk-for-python
+[Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

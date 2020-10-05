@@ -4,23 +4,25 @@ titlesuffix: Azure Virtual Network
 description: 了解如何使用 Azure 命令行接口 (CLI) 将多个 IP 地址分配给虚拟机。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0cb8cec80b934f3efeed327e7ee11f45d1432e85
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: bac22b9fbb68cb30c87b509d57f5a4a2c31e7d5d
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487051"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564165"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 将多个 IP 地址分配给虚拟机
 
@@ -36,130 +38,126 @@ ms.locfileid: "84487051"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)（如果尚未安装）。
+1. 安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)（如果尚未安装）。
 2. 通过完成[为 Linux VM 创建 SSH 公钥和私钥对](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-network%2ftoc.json)中的步骤创建适用于 Linux VM 的 SSH 公钥和私钥对。
 3. 从命令行界面使用命令 `az login` 登录，并选择要使用的订阅。
 4. 通过在 Linux 或 Mac 计算机上执行以下脚本创建 VM。 该脚本创建 1 个资源组、1 个虚拟网络 (VNet)、1 个具有 3 个 IP 配置的 NIC，以及附加 2 个 NIC 的 VM。 NIC、公共 IP 地址、虚拟网络和 VM 资源均必须位于同一位置和订阅。 虽然资源不必都存在于同一资源组中，但是在以下脚本中资源都存在于同一资源组中。
 
-    ```bash
+```bash
 
-    #!/bin/sh
+#!/bin/sh
 
-    # Sign in the Azure China Cloud
-    az cloud set -n AzureChinaCloud
-    az login 
+RgName="myResourceGroup"
+Location="chinaeast"
+az group create --name $RgName --location $Location
 
-    RgName="myResourceGroup"
-    Location="chinaeast"
-    az group create --name $RgName --location $Location
+# Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
+# do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
+# of IP addresses unique to each Azure region. Download and view the file from
+# https://www.microsoft.com/download/confirmation.aspx?id=57062 that lists the ranges for each region.
 
-    # Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
-    # do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
-    # of IP addresses unique to each Azure region. Download and view the file from
-    # https://www.microsoft.com/download/confirmation.aspx?id=57062 that lists the ranges for each region.
+PipName="myPublicIP"
 
-    PipName="myPublicIP"
+# This name must be unique within an Azure location.
+DnsName="myDNSName"
 
-    # This name must be unique within an Azure location.
-    DnsName="myDNSName"
+az network public-ip create \
+--name $PipName \
+--resource-group $RgName \
+--location $Location \
+--dns-name $DnsName\
+--allocation-method Static
 
-    az network public-ip create \
-    --name $PipName \
-    --resource-group $RgName \
-    --location $Location \
-    --dns-name $DnsName\
-    --allocation-method Static
+# Create a virtual network with one subnet
 
-    # Create a virtual network with one subnet
+VnetName="myVnet"
+VnetPrefix="10.0.0.0/16"
+VnetSubnetName="mySubnet"
+VnetSubnetPrefix="10.0.0.0/24"
 
-    VnetName="myVnet"
-    VnetPrefix="10.0.0.0/16"
-    VnetSubnetName="mySubnet"
-    VnetSubnetPrefix="10.0.0.0/24"
+az network vnet create \
+--name $VnetName \
+--resource-group $RgName \
+--location $Location \
+--address-prefix $VnetPrefix \
+--subnet-name $VnetSubnetName \
+--subnet-prefix $VnetSubnetPrefix
 
-    az network vnet create \
-    --name $VnetName \
-    --resource-group $RgName \
-    --location $Location \
-    --address-prefix $VnetPrefix \
-    --subnet-name $VnetSubnetName \
-    --subnet-prefix $VnetSubnetPrefix
+# Create a network interface connected to the subnet and associate the public IP address to it. Azure will create the
+# first IP configuration with a static private IP address and will associate the public IP address resource to it.
 
-    # Create a network interface connected to the subnet and associate the public IP address to it. Azure will create the
-    # first IP configuration with a static private IP address and will associate the public IP address resource to it.
+NicName="MyNic1"
+az network nic create \
+--name $NicName \
+--resource-group $RgName \
+--location $Location \
+--subnet $VnetSubnet1Name \
+--private-ip-address 10.0.0.4
+--vnet-name $VnetName \
+--public-ip-address $PipName
 
-    NicName="MyNic1"
-    az network nic create \
-    --name $NicName \
-    --resource-group $RgName \
-    --location $Location \
-    --subnet $VnetSubnet1Name \
-    --private-ip-address 10.0.0.4
-    --vnet-name $VnetName \
-    --public-ip-address $PipName
+# Create a second public IP address, a second IP configuration, and associate it to the NIC. This configuration has a
+# static public IP address and a static private IP address.
 
-    # Create a second public IP address, a second IP configuration, and associate it to the NIC. This configuration has a
-    # static public IP address and a static private IP address.
+az network public-ip create \
+--resource-group $RgName \
+--location $Location \
+--name myPublicIP2 \
+--dns-name mypublicdns2 \
+--allocation-method Static
 
-    az network public-ip create \
-    --resource-group $RgName \
-    --location $Location \
-    --name myPublicIP2 \
-    --dns-name mypublicdns2 \
-    --allocation-method Static
+az network nic ip-config create \
+--resource-group $RgName \
+--nic-name $NicName \
+--name IPConfig-2 \
+--private-ip-address 10.0.0.5 \
+--public-ip-name myPublicIP2
 
-    az network nic ip-config create \
-    --resource-group $RgName \
-    --nic-name $NicName \
-    --name IPConfig-2 \
-    --private-ip-address 10.0.0.5 \
-    --public-ip-name myPublicIP2
+# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
 
-    # Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
+az network nic ip-config create \
+--resource-group $RgName \
+--nic-name $NicName \
+--private-ip-address 10.0.0.6 \
+--name IPConfig-3
 
-    az network nic ip-config create \
-    --resource-group $RgName \
-    --nic-name $NicName \
-    --private-ip-address 10.0.0.6 \
-    --name IPConfig-3
+# Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
+# to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs 
+# article: https://docs.azure.cn/virtual-network/virtual-network-deploy-multinic-arm-cli.
 
-    # Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
-    # to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs 
-    # article: https://docs.azure.cn/virtual-network/virtual-network-deploy-multinic-arm-cli.
+# Create a VM and attach the NIC.
 
-    # Create a VM and attach the NIC.
+VmName="myVm"
 
-    VmName="myVm"
+# Replace the value for the following **VmSize** variable with a value from the
+# https://docs.azure.cn/virtual-machines/sizes article. The script fails if the VM size
+# is not supported in the location you select. Run the `azure vm sizes --location chinaeast` command to get a full list
+# of VMs in China East, for example.
 
-    # Replace the value for the following **VmSize** variable with a value from the
-    # https://docs.azure.cn/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
-    # is not supported in the location you select. Run the `azure vm sizes --location chinaeast` command to get a full list
-    # of VMs in China East, for example.
+VmSize="Standard_DS1"
 
-    VmSize="Standard_DS1"
+# Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
+# `az vm image list` command.
 
-    # Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
-    # `az vm image list` command.
+OsImage="credativ:Debian:8:latest"
 
-    OsImage="credativ:Debian:8:latest"
+Username="adminuser"
 
-    Username="adminuser"
+# Replace the following value with the path to your public key file. If you're creating a Windows VM, remove the following
+# line and you'll be prompted for the password you want to configure for the VM.
 
-    # Replace the following value with the path to your public key file. If you're creating a Windows VM, remove the following
-    # line and you'll be prompted for the password you want to configure for the VM.
+SshKeyValue="~/.ssh/id_rsa.pub"
 
-    SshKeyValue="~/.ssh/id_rsa.pub"
-
-    az vm create \
-    --name $VmName \
-    --resource-group $RgName \
-    --image $OsImage \
-    --location $Location \
-    --size $VmSize \
-    --nics $NicName \
-    --admin-username $Username \
-    --ssh-key-value $SshKeyValue
-    ```
+az vm create \
+--name $VmName \
+--resource-group $RgName \
+--image $OsImage \
+--location $Location \
+--size $VmSize \
+--nics $NicName \
+--admin-username $Username \
+--ssh-key-value $SshKeyValue
+```
 
 除了创建具有附带 3 个 IP 配置的 NIC 的 VM，该脚本还创建：
 
@@ -177,7 +175,7 @@ ms.locfileid: "84487051"
 
 完成以下步骤可将其他专用和公共 IP 地址添加到现有 Azure 网络接口。 示例根据本文所述的 [方案](#scenario) 生成。
 
-1. 打开命令行界面，并在单个会话中完成本部分的剩余步骤。 如果尚未安装并配置 Azure CLI，请完成 [Azure CLI 安装](https://docs.azure.cn/cli/install-az-cli2?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)一文中的步骤，并使用 `az-login` 命令登录到 Azure 帐户。
+1. 打开命令行界面，并在单个会话中完成本部分的剩余步骤。 如果尚未安装并配置 Azure CLI，请完成 [Azure CLI 安装](https://docs.azure.cn/cli/install-az-cli2?toc=%2fvirtual-network%2ftoc.json)一文中的步骤，并使用 `az-login` 命令登录到 Azure 帐户。
 
 2. 根据要求完成以下部分之一中的步骤：
 
@@ -235,11 +233,13 @@ ms.locfileid: "84487051"
 
         返回的输出：
 
-            Name        PublicIpAddressId
+        ```output
+        Name        PublicIpAddressId
 
-            ipconfig1   /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
-            IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
-            IPConfig-3
+        ipconfig1   /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+        IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+        IPConfig-3
+        ```
 
         由于输出中 **IpConfig-3** 的 *PublicIpAddressId* 列空白，因此其当前未关联公共 IP 地址资源。 可将现有公共 IP 地址资源添加到 IpConfig-3，或输入以下命令进行创建：
 
@@ -273,11 +273,13 @@ ms.locfileid: "84487051"
 
     返回的输出： <br />
 
-        Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
+    ```output
+    Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
 
-        ipconfig1   10.0.0.4            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
-        IPConfig-2  10.0.0.5            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
-        IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
+    ipconfig1   10.0.0.4            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+    IPConfig-2  10.0.0.5            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+    IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
+    ```
 
 4. 根据本文[将 IP 地址添加到 VM 操作系统](#os-config)部分中的说明，将添加到 NIC 的专用 IP 地址添加到 VM 操作系统。 请勿向操作系统添加公共 IP 地址。
 

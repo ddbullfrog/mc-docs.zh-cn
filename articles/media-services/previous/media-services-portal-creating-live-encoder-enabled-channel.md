@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 04/01/2019
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 70f55671bf8e18c2110f32bd1f3667c617b84083
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 1e4e512da4a9b1ed5851e78938b32bb69713214a
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245631"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437650"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>使用媒体服务实时传送视频流，通过 Azure 门户创建多比特率流
 
@@ -182,7 +182,7 @@ ms.locfileid: "91245631"
 * 除非想要继续以点播流形式提供直播活动的存档，否则可以停止流式处理终结点。 如果通道处于停止状态，则不会产生任何费用。
 
 ## <a name="view-archived-content"></a>查看存档的内容
-即使你停止并删除了事件，只要没有删除资产，用户也能够按需将已存档内容作为视频进行流式传输。 如果资产被某个事件使用，则无法将其删除，必须先删除该事件。 
+即使你停止并删除了事件，只要没有删除资产，用户也能够按需将已存档内容作为视频进行流式传输。 如果资产被某个事件使用，则不应将其删除；必须先删除该事件。 
 
 若要管理资产，请选择“设置”，再单击“资产”   。
 

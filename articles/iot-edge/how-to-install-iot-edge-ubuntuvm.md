@@ -7,15 +7,16 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 03/19/2020
-ms.date: 03/30/2020
+origin.date: 06/29/2020
+ms.date: 09/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 766c4680a5513f4266df53892dfb14dc8caba674
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2862a1086ea4719ec837f82f88bf2843fc7d6e8b
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917302"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564491"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虚拟机上运行 Azure IoT Edge
 
@@ -112,13 +113,12 @@ ms.locfileid: "87917302"
     若要为 authenticationType 使用 `password`，请参阅以下示例： 
 
    ```azurecli
-   az group deployment create \
-   --name edgeVm \
+   az deployment group create \
    --resource-group IoTEdgeResources \
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
    --parameters authenticationType='password' \
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
@@ -130,16 +130,14 @@ ms.locfileid: "87917302"
     ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
 
     #Create a VM using the iotedge-vm-deploy script
-    az group deployment create \
-    --name edgeVm \
+    az deployment group create \
     --resource-group IoTEdgeResources \
     --template-uri "https://aka.ms/iotedge-vm-deploy" \
     --parameters dnsLabelPrefix='my-edge-vm1' \
     --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-    --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
-     
     ```
 
 1. 验证部署是否已成功完成。  虚拟机资源应已部署到所选的资源组中。  请记下计算机名称，此名称应采用 `vm-0000000000000` 格式。 另外，请记下关联的“DNS 名称”，其格式应为 `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com。 

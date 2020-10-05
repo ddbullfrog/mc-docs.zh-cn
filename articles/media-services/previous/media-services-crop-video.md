@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: juliako
-ms.openlocfilehash: dad5e89e670671bc59fca9ba0e3bb1829c5dc8e3
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 60e46d5d54b5cf0f6dfb61bfed36d37ccb665181
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245587"
 ---
-# <a name="crop-videos-with-media-encoder-standard"></a>使用 Media Encoder Standard 裁剪视频  
+# <a name="crop-videos-with-media-encoder-standard"></a>使用 Media Encoder Standard 裁剪视频
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 可以使用 Media Encoder Standard (MES) 裁剪输入视频。 裁剪是指在视频帧内选择一个矩形窗口并且只编码该窗口内的像素的过程。 下图可帮助说明该过程。
 

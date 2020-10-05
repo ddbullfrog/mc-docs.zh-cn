@@ -6,18 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 08/03/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom:
-- mvc
-- amqp
-ms.openlocfilehash: 5bdf4dca9f4c4b5294072df63be73b697c50bbe7
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.custom: mvc, amqp, devx-track-csharp
+ms.openlocfilehash: dc8bd192ffbd9a98465f7c3ab820b445dbd8a940
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957813"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564201"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教程：开发适用于 Windows 设备的 C# IoT Edge 模块
 

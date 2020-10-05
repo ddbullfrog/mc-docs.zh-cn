@@ -83,6 +83,8 @@
           href: iot-edge-security-manager.md
         - name: IoT Edge 证书
           href: iot-edge-certs.md
+        - name: 机密计算
+          href: deploy-trusted-applications.md
     - name: 平台支持
       href: support.md
     - name: 生产部署清单
@@ -181,11 +183,7 @@
           href: how-to-store-data-blob.md
         - name: 部署 blob 存储模块
           href: how-to-deploy-blob.md
-    - name: 使用 DevOps 工具进行管理
-      items:
-        - name: Azure DevOps
-          href: how-to-ci-cd.md
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 标准诊断步骤
           href: troubleshoot.md

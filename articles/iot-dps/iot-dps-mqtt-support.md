@@ -5,24 +5,25 @@ author: rajeevmv
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.author: ravokkar
+origin.date: 10/16/2019
+ms.date: 09/30/2020
+ms.author: v-tawe
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73ef62df5574641fd03a3d73f3aed9f8770ca5e5
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: 9b4bf36788eec45835d6ae6f5d3f2b80b18e0f47
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951316"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564624"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>使用 MQTT 协议与 DPS 通信
 
 DPS 可让设备使用以下协议来与 DPS 设备终结点通信：
 
 * 在端口 8883 上使用 [MQTT v3.1.1](https://mqtt.org/)
-* 在端口 443 上使用基于 WebSocket 的 [MQTT v3.1.1](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718127)。
+* 在端口 443 上使用基于 WebSocket 的 [MQTT v3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718127)。
 
 DPS 不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准中指定的所有行为。 本文介绍设备如何使用受支持的 MQTT 行为通过 DPS 进行通信。
 
@@ -82,7 +83,7 @@ DPS 不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准中指
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解有关 MQTT 协议的详细信息，请参阅 [MQTT 文档](https://mqtt.org/documentation)。
+若要了解有关 MQTT 协议的详细信息，请参阅 [MQTT 文档](https://mqtt.org/)。
 
 若要进一步探索 DPS 的功能，请参阅：
 

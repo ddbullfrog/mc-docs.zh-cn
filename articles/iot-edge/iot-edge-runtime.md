@@ -5,19 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 11/01/2019
-ms.date: 06/01/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom:
-- amqp
-- mqtt
-ms.openlocfilehash: 9532f46ca364147c16ae11d74395f285d12d9eff
-ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+ms.custom: amqp, mqtt, devx-track-csharp
+ms.openlocfilehash: 8330fa8fc5529a6f84f940f34f8d4b97da44246b
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275572"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564372"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 运行时及其体系结构
 

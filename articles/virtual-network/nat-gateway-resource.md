@@ -4,8 +4,7 @@ titleSuffix: Azure Virtual Network NAT
 description: 了解如何使用 NAT 网关资源设计虚拟网络。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
 Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
@@ -13,25 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2020
+origin.date: 08/11/2020
+author: rockboyfor
+ms.date: 08/10/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 403689466fc502389276f70802206e3a6044108c
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 9db213cc82ae45422eef085926ee15294d3e1efe
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441212"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564534"
 ---
 <!--Verified successfully-->
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>使用 NAT 网关资源设计虚拟网络
 
 NAT 网关资源是[虚拟网络 NAT](nat-overview.md) 的一部分，为虚拟网络的一个或多个子网提供出站 Internet 连接。 虚拟网络的子网指明要使用的 NAT 网关。 NAT 为子网提供源网络地址转换 (SNAT)。  NAT 网关资源指定虚拟机在创建出站流时要使用的静态 IP 地址。 静态 IP 地址来自公共 IP 地址资源和/或公共 IP 前缀资源。 如果使用公共 IP 前缀资源，则由 NAT 网关资源使用整个公共 IP 前缀资源的所有 IP 地址。 NAT 网关资源最多可以使用公共 IP 地址资源或公共 IP 前缀资源中的 16 个（总计）静态 IP 地址。
 
-
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="用于出站 Internet 连接的虚拟网络 NAT">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="用于出站 Internet 连接的虚拟网络 NAT">
 </p>
 
 *图：用于出站 Internet 连接的虚拟网络 NAT*
@@ -57,7 +57,7 @@ NAT 网关资源：
 下图显示了不同 Azure 资源管理器资源之间的可写引用。  箭头指示引用的方向，从可写位置开始。 审阅 
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="虚拟网络 NAT 对象模型">
+  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="虚拟网络 NAT 对象模型">
 </p>
 
 *图：虚拟网络 NAT 对象模型*
@@ -256,7 +256,7 @@ NAT 网关是使用虚拟网络中某个子网上的属性定义的。 虚拟网
 有关此示例中使用的 Azure 资源管理器模板的详细信息，请参阅：
 
 - [快速入门：创建 NAT 网关 - 资源管理器模板](quickstart-create-nat-gateway-template.md)
-- [虚拟网络 NAT](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm/)
+- [虚拟网络 NAT](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nat-gateway-1-vm/)
 
 ## <a name="design-guidance"></a>设计指南
 
@@ -289,7 +289,7 @@ NAT 网关与以下资源兼容：
 开发新的部署时，请从标准 SKU 着手。
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="用于出站 Internet 连接的虚拟网络 NAT">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="用于出站 Internet 连接的虚拟网络 NAT">
 </p>
 
 *图：用于出站 Internet 连接的虚拟网络 NAT*
@@ -299,7 +299,7 @@ NAT 网关与以下资源兼容：
 #### <a name="nat-and-vm-with-instance-level-public-ip"></a>使用实例级公共 IP 的 NAT 和 VM
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="300" title="使用实例级公共 IP 的虚拟网络 NAT 和 VM">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="使用实例级公共 IP 的虚拟网络 NAT 和 VM">
 </p>
 
 *图：使用实例级公共 IP 的虚拟网络 NAT 和 VM*
@@ -314,7 +314,7 @@ VM 将使用 NAT 网关建立出站连接。  来源入站连接不受影响。
 #### <a name="nat-and-vm-with-public-load-balancer"></a>使用公共负载均衡器的 NAT 和 VM
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="350" title="使用公共负载均衡器的虚拟网络 NAT 和 VM">
+  <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="使用公共负载均衡器的虚拟网络 NAT 和 VM">
 </p>
 
 *图：使用公共负载均衡器的虚拟网络 NAT 和 VM*
@@ -329,7 +329,7 @@ VM 将使用 NAT 网关建立出站连接。  来源入站连接不受影响。
 #### <a name="nat-and-vm-with-instance-level-public-ip-and-public-load-balancer"></a>使用实例级公共 IP 和公共负载均衡器的 NAT 与 VM
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="425" title="使用实例级公共 IP 和公共负载均衡器的虚拟网络 NAT 与 VM">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="使用实例级公共 IP 和公共负载均衡器的虚拟网络 NAT 与 VM">
 </p>
 
 *图：使用实例级公共 IP 和公共负载均衡器的虚拟网络 NAT 与 VM*
@@ -353,7 +353,7 @@ NAT 网关优先于子网的出站方案。 无法通过适当的转换来调整
 
 每个 NAT 网关资源最多可提供 50 Gbps 的吞吐量。 可以将部署拆分成多个子网，为每个子网或子网组分配一个 NAT 网关，以便进行横向扩展。
 
-对于所分配的每个出站 IP 地址，每个 NAT 网关可支持 64000 个连接。  请查看下面的有关源网络地址转换 (SNAT) 的部分来获取详细信息，并查看[故障排除文章](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat)来了解具体的问题解决指南。
+对于所分配的每个出站 IP 地址，每个 NAT 网关可支持 64000 个连接。  请查看下面的有关源网络地址转换 (SNAT) 的部分来获取详细信息，并查看[故障排除文章](/virtual-network/troubleshoot-nat)来了解具体的问题解决指南。
 
 ## <a name="source-network-address-translation"></a>源网络地址转换
 
@@ -372,7 +372,7 @@ NAT 网关优先于子网的出站方案。 无法通过适当的转换来调整
 
 发生 PAT 后，这些流可能类似于：
 
-| 流向 | 源元组 | 经过 SNAT 处理的源元组 | 目标元组 |
+| 流向 | 源元组 | 经过 SNAT 处理的源元组 | 目标元组 | 
 |:---:|:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
@@ -390,7 +390,7 @@ NAT 提供的 SNAT 在多个方面不同于[负载均衡器](../load-balancer/lo
 NAT 为新的出站流量流提供按需 SNAT 端口。 配置了 NAT 的子网上的任何虚拟机将使用库存中所有可用的 SNAT 端口。 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="虚拟网络 NAT 按需出站 SNAT">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T." width="550" title="虚拟网络 NAT 按需出站 SNAT">
 </p>
 
 *图：虚拟网络 NAT 按需出站 SNAT*
@@ -398,7 +398,7 @@ NAT 为新的出站流量流提供按需 SNAT 端口。 配置了 NAT 的子网�
 虚拟机的任何 IP 配置都可以按需创建出站流。  不需要进行预先分配和按实例的规划，包括根据每个实例的最差情况进行过度预配。  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="耗尽方案的差异">
+  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T with exhaustion threshold." width="550" title="耗尽方案的差异">
 </p>
 
 *图：耗尽方案的差异*
@@ -429,7 +429,7 @@ NAT 网关资源与 UDP 和 TCP 流的 IP 和 IP 传输标头交互，对应用�
 
 以下计时器用于 SNAT 端口释放：
 
-| Timer | Value |
+| Timer | 值 |
 |---|---|
 | TCP FIN | 60 秒 |
 | TCP RST | 10 秒 |
@@ -444,7 +444,6 @@ NAT 网关资源与 UDP 和 TCP 流的 IP 和 IP 传输标头交互，对应用�
 
 - NAT 与标准 SKU 公共 IP、公共 IP 前缀和负载均衡器资源兼容。   基本资源（例如基本负载均衡器）以及派生自这些资源的任何产品都与 NAT 不兼容。  必须将基本资源放在未配置 NAT 的子网中。
 - 支持 IPv4 地址系列。  NAT 不会与 IPv6 地址系列交互。  NAT 不能部署在具有 IPv6 前缀的子网中。
-- 使用 NAT 时不支持 NSG 流日志记录。
 - NAT 不能跨多个虚拟网络。
 
 ## <a name="suggestions"></a>建议
@@ -467,14 +466,15 @@ NAT 网关资源与 UDP 和 TCP 流的 IP 和 IP 传输标头交互，对应用�
     - [模板](./quickstart-create-nat-gateway-template.md)
 * 了解 NAT 网关资源 API
     - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+    - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest)
     - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
     
     <!--Not Available on * Learn about [availability zones](../availability-zones/az-overview.md)-->
-    <!--Not Available on * Learn about [standard load balancer](../load-balancer/load-balancer-standard-overview.md)-->
-    <!--Not Available on * Learn about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).-->
+
+* 了解[标准负载均衡器](../load-balancer/load-balancer-standard-overview.md)。
+
+    <!--Not Available on * Learn about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md)-->
 
 * [在 UserVoice 中告诉我们接下来想要为虚拟网络 NAT 开发什么功能](https://aka.ms/natuservoice)。
 
-<!-- Update_Description: new article about nat gateway resource -->
-<!--NEW.date: 07/13/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

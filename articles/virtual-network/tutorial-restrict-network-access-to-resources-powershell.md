@@ -3,8 +3,8 @@ title: 限制对 PaaS 资源的网络访问 - Azure PowerShell
 description: 本文介绍如何使用 Azure PowerShell 通过虚拟网络服务终结点限制对 Azure 资源（例如 Azure 存储和 Azure SQL 数据库）的网络访问。
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
 manager: digimobile
+editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
@@ -14,15 +14,18 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/14/2018
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: 797b4d65c9b0ee8247ba596102face5c3a4bf265
-ms.sourcegitcommit: af71b9199d47fb81e85d70da0cfb265cc814a644
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5bf40c92424ead1ddd6e3c593fed3e03c871dc0c
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969045"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564616"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>使用 PowerShell 通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 

@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 02/03/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: d51570aacc2686c98810b3c8b11b5c393a6c4fe4
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: f1f7889fb30951f49943d3b5b58d9f13fbead684
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515843"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146447"
 ---
 # <a name="add-database-principals-for-azure-data-explorer-by-using-c"></a>使用 C# 添加 Azure 数据资源管理器的数据库主体
 

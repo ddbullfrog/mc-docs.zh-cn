@@ -6,21 +6,27 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 03/03/2020
+origin.date: 08/11/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: d9a30db9f9b26c7cc5031129ffb182ee4bb0512c
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 518fdec97c73a59145ea8b6b49c5c158b7f6faac
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723608"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394789"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 管理 IP 地址
 
+本文列出了 Azure HDInsight 运行状况和管理服务使用的 IP 地址。 如果使用网络安全组 (NSG) 或用户定义的路由 (UDR)，则可能需要将其中一些 IP 地址添加到入站网络流量的允许列表中。
+
+## <a name="introduction"></a>简介
+ 
 > [!Important]
-> 在大多数情况下，现在可以对网络安全组使用[服务标记](hdinsight-service-tags.md)功能，而不是手动添加 IP 地址。 将仅为服务标记添加新区域，并且最终将弃用静态 IP 地址。
+> 在大多数情况下，现在可以对网络安全组使用 [服务标记](hdinsight-service-tags.md)，而不是手动添加 IP 地址。 我们不会为新的 Azure 区域发布 IP 地址，这些区域仅具有已发布的服务标记。 管理 IP 地址的静态 IP 地址最终将被弃用。
 
 如果使用网络安全组 (NSG) 或用户定义的路由 (UDR) 来控制流向 HDInsight 群集的入站流量，则必须确保群集能够与关键的 Azure 运行状况和管理服务通信。  这些服务的有些 IP 地址特定于区域，而有些则适用于所有 Azure 区域。 如果使用的不是自定义 DNS，则可能还需要允许来自 Azure DNS 服务的流量。
+
+如果需要此处未列出的区域的 IP 地址，则可以使用[服务标记发现 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 查找所在区域的 IP 地址。 如果无法使用该 API，请下载[服务标记 JSON 文件](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)并搜索所需的区域。
 
 以下部分介绍了必须允许的特定 IP 地址。
 

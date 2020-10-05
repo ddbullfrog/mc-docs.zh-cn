@@ -1,29 +1,29 @@
 ---
-title: 教程 - 创建 NAT 网关 - Azure PowerShell
+title: 创建 NAT 网关 - Azure PowerShell
 titlesuffix: Azure Virtual Network NAT
 description: 本快速入门介绍如何使用 Azure PowerShell 创建 NAT 网关
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 manager: digimobile
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/18/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0d0e9f83c24f5c4ec7d4d9f1e68e4ea88212a7ed
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 622bbecc92e907d8fd669848047933c86cdb2648
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441220"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564617"
 ---
 <!--Verified successfully-->
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell"></a>教程：使用 Azure PowerShell 创建 NAT 网关
@@ -199,7 +199,8 @@ ssh-keygen -t rsa -b 2048
 ```
 有关如何创建 SSH 密钥对的更多详细信息，包括 PuTTy 的用法，请参阅[如何将 SSH 密钥与 Windows 配合使用](/virtual-machines/linux/ssh-from-windows)。
 
-<!--Not Available on If you create the SSH key pair using the local Shell, the key pair is stored in a container image. This [storage account is automatically created](/cloud-shell/persisting-shell-storage). Don't delete the storage account, or the file share within, until after you've retrieved your keys.-->
+<!--Not Available on If you create the SSH key pair using the local Shell, the key pair is stored in a container image. This storage account is automatically created. Don't delete the storage account, or the file share within, until after you've retrieved your keys.-->
+<!--Not Available on [storage account is automatically created](/cloud-shell/persisting-shell-storage)-->
 
 #### <a name="create-vm-configuration"></a>创建 VM 配置
 
@@ -299,5 +300,4 @@ Remove-AzResourceGroup -Name myResourceGroupNAT
 - 有关[使用 Azure 门户部署 NAT 网关资源](./quickstart-create-nat-gateway-portal.md)的快速入门。
 > [!div class="nextstepaction"]
 
-<!-- Update_Description: new article about quickstart create nat gateway powershell -->
-<!--NEW.date: 07/13/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

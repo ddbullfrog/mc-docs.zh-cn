@@ -2,22 +2,22 @@
 title: 快速入门 - 将 Docker 容器部署到容器实例 - PowerShell
 description: 本快速入门将使用 Azure PowerShell 快速部署在隔离的 Azure 容器实例中运行的容器化 Web 应用
 services: container-instances
-author: rockboyfor
-manager: digimobile
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 origin.date: 03/21/2019
-ms.date: 01/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6263cf58a769e9b42183e658df061a8dc1cbf15a
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 2913586e9b83ab978a29ac900bd94cae2e8091fe
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199585"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564293"
 ---
-<!--Verified Failed-->
+<!--Not Avaialble on Mooncake till 09/29/2020-->
 <!--Windows Container Instance is invalid on MOONCAKE-->
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 在 Azure 中部署容器实例
 

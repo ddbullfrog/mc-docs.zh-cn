@@ -1,10 +1,9 @@
 ---
 title: 创建虚拟网络 - 快速入门 - Azure PowerShell
 titlesuffix: Azure Virtual Network
-description: 本快速入门介绍如何使用 Azure 门户创建虚拟网络。 虚拟网络能让 Azure 资源（例如虚拟机）彼此之间私下通信以及与 Internet 进行通信。
+description: 本快速入门将使用 Azure 门户创建虚拟网络。 虚拟网络能让 Azure 资源互相通信以及与 Internet 通信。
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,22 +12,27 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 12/04/2018
-ms.date: 11/25/2019
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0e4b06500beed4707b4e3ec876e1af4217397f7f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9386ae261c372ad773fa61285aa46aa085f0ca96
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291631"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564621"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>快速入门：使用 PowerShell 创建虚拟网络
 
 虚拟网络能让 Azure 资源（例如虚拟机 (VM)）彼此之间以及与 Internet 进行私下通信。 本快速入门介绍如何创建虚拟网络。 创建虚拟网络后，将两个 VM 部署到该虚拟网络中。 然后可以从 Internet 连接到 VM，并通过虚拟网络进行私下通信。
 
+## <a name="prerequisites"></a>先决条件
 如果还没有 Azure 订阅，请现在就创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-<!--[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-powershell.md)]-->
+<!--Not Needed here [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-powershell.md)]-->
 
 如果决定在本地安装并使用 PowerShell，则本快速入门需要使用 Azure PowerShell 模块 1.0.0 版本或更高版本。 要查找已安装的版本，请运行 `Get-Module -ListAvailable Az`。 请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)，获取安装和升级信息。
 
@@ -50,7 +54,7 @@ New-AzResourceGroup -Name myResourceGroup -Location ChinaEast
 
 ### <a name="create-the-virtual-network"></a>创建虚拟网络
 
-使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络。 以下示例在“ChinaEast”位置创建名为“myVirtualNetwork”的默认虚拟网络   ：
+使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络。 以下示例在“ChinaEast”位置创建名为“myVirtualNetwork”的默认虚拟网络****：
 
 ```powershell
 $virtualNetwork = New-AzVirtualNetwork `
@@ -126,7 +130,7 @@ New-AzVm `
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>从 Internet 连接到 VM
 
-使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 返回 VM 的公共 IP 地址。 此示例返回 myVm1  VM 的公共 IP 地址：
+使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 返回 VM 的公共 IP 地址。 此示例返回 myVm1 VM 的公共 IP 地址：
 
 ```powershell
 Get-AzPublicIpAddress `
@@ -143,20 +147,20 @@ Get-AzPublicIpAddress `
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-1. 出现提示时，选择“连接”  。
+1. 出现提示时，选择“连接”。
 
 1. 输入在创建 VM 时指定的用户名和密码。
 
     > [!NOTE]
-    > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据。
+    > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据 。
 
-1. 选择“确定”  。
+1. 选择“确定”。
 
-1. 可能会收到证书警告。 如果收到证书警告，选择“确定”或“继续”   。
+1. 可能会收到证书警告。 如果收到证书警告，选择“确定”或“继续” 。
 
 ## <a name="communicate-between-vms"></a>VM 之间进行通信
 
-1. 在 myVm1 远程桌面中，打开 PowerShell  。
+1. 在 myVm1 远程桌面中，打开 PowerShell。
 
 1. 输入 `ping myVm2`。
 
@@ -177,7 +181,7 @@ mstsc /v:<publicIpAddress>
 
     由于使用 Internet 控制消息协议 (ICMP)，执行 ping 操作失败。 默认情况下，不允许 ICMP 通过 Windows 防火墙。
 
-1. 要允许 myVm2  在后面的步骤中对 myVm1 执行 ping 操作  ，请输入以下命令：
+1. 要允许 myVm2 在后面的步骤中对 myVm1 执行 ping 操作，请输入以下命令：
 
     ```powershell
     New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
@@ -187,7 +191,7 @@ mstsc /v:<publicIpAddress>
 
 1. 关闭与 *myVm1* 的远程桌面连接。
 
-1. 重复[从 Internet 连接到 VM](#connect-to-a-vm-from-the-internet) 中的步骤。 这一次，连接到 myVm2  。
+1. 重复[从 Internet 连接到 VM](#connect-to-a-vm-from-the-internet) 中的步骤。 这一次，连接到 myVm2。
 
 1. 在 *myVm2* VM上的命令提示符处，输入 `ping myvm1`。
 
@@ -222,8 +226,9 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你创建了默认的虚拟网络和两个 VM。 你从 Internet 连接到了其中一个 VM，然后该 VM 与另一个 VM 进行了私下通信。 若要了解有关虚拟网络设置的详细信息，请参阅[管理虚拟网络](manage-virtual-network.md)。
-
-Azure 可让虚拟机彼此之间进行不受限制的私下通信。 默认情况下，Azure 仅允许从 Internet 到 Windows VM 的入站远程桌面连接。 要了解有关配置不同类型的 VM 网络通信的详细信息，请转到[筛选网络流量](tutorial-filter-network-traffic.md)教程。
+在本快速入门中，你创建了默认的虚拟网络和两个 VM。 从 Internet 连接到了其中一个 VM，并在两个 VM 之间进行了私下通信。
+Azure 可让 VM 之间进行不受限制的私下通信。 默认情况下，Azure 仅允许从 Internet 到 Windows VM 的入站远程桌面连接。 转到下一篇文章，详细了解如何配置不同类型的 VM 网络通信：
+> [!div class="nextstepaction"]
+> [筛选网络流量](tutorial-filter-network-traffic.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

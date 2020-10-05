@@ -2,17 +2,19 @@
 title: 将容器组部署到 Azure 虚拟网络
 description: 了解如何使用 Azure 命令行接口将容器组部署到新的或现有的 Azure 虚拟网络。
 ms.topic: article
-origin.date: 04/29/2020
-ms.date: 07/27/2020
+origin.date: 07/02/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: a1b01eaff9567b077059600e0c49f3ee3bbb2337
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.custom: devx-track-js
+ms.openlocfilehash: 8df8815f252a5ff4994705f660f8fa47ed8385b7
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863174"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564265"
 ---
 <!--Verified successfully-->
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>将容器实例部署到 Azure 虚拟网络
@@ -147,7 +149,7 @@ az network profile list --resource-group myResourceGroup \
 获取网络配置文件 ID 后，将以下 YAML 复制到名为 *vnet-deploy-aci.yaml* 的新文件中。 在 `networkProfile` 下，将 `id` 值替换为刚刚检索到的 ID，然后保存文件。 此 YAML 会在虚拟网络中创建名为 *appcontaineryaml* 的容器组。
 
 ```YAML
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: chinaeast2
 name: appcontaineryaml
 properties:
@@ -242,9 +244,9 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 
 <!-- LINKS - Internal -->
 
-[az-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-show]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show
-[az-network-vnet-create]: https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create
-[az-network-profile-list]: https://docs.azure.cn/cli/network/profile?view=azure-cli-latest#az-network-profile-list
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
+[az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
+[az-network-vnet-create]: https://docs.azure.cn/cli/network/vnet#az-network-vnet-create
+[az-network-profile-list]: https://docs.azure.cn/cli/network/profile#az-network-profile-list
 
 <!-- Update_Description: update meta properties, wording update, update link -->

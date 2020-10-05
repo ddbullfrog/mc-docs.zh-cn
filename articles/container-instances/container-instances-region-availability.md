@@ -3,14 +3,15 @@ title: 资源可用性（按区域）
 description: Azure 容器实例服务的计算和内存资源在不同 Azure 区域的可用性。
 ms.topic: article
 origin.date: 04/27/2020
-ms.date: 09/25/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: 52e3cfc8971a8346735af8188a36e405f81cb694
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: d0660aedd19777772ce255efc4b66a6bde3376b7
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246810"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564283"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 容器实例在 Azure 区域的资源可用性
 
@@ -52,9 +53,6 @@ ms.locfileid: "91246810"
 ## <a name="availability---gpu-resources-preview"></a>可用性 - GPU 资源（预览版）
 
 以下是使用 [GPU 资源](container-instances-gpu.md)（预览版）部署的容器组可以使用的区域和最大资源数。
-
-> [!IMPORTANT]
-> GPU 资源仅在请求后可用。 若要请求访问 GPU 资源，请提交 [Azure 支持请求][azure-support]。
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]

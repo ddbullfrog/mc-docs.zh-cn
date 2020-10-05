@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/30/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 937ab4d69d0587394050c5192228ba102ca5d903
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: d4673a84d89eb4cadfab7c2bad3aa873cccef436
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957789"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564198"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 C# IoT Edge 模块
 

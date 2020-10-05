@@ -3,23 +3,26 @@ title: 配置和验证虚拟网络或 VPN 连接
 description: 有关配置和验证各种 Azure VPN 与虚拟网络部署的分步指导
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: dcscontentpm
+editor: ''
 ms.assetid: 0433a4f4-b5a0-476d-b398-1506c57eafa2
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/25/2019
-ms.date: 11/25/2019
+origin.date: 08/28/2019
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: 758bb19ea806fae58d2612ad689d2b50625c6775
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.openlocfilehash: ad574e99633c9e030b335d2e92bad067d0906eb0
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029685"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564546"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>配置和验证虚拟网络或 VPN 连接
 

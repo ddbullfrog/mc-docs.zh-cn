@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: bb388ba81bd44da3d05317553c166b717681ae27
-ms.sourcegitcommit: e1a0ea64b617b7f96655c29cd8edd69890cbd553
+ms.openlocfilehash: f252cd5180243aa4367a2357f8438c644da2a0d7
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89592491"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394527"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>使用 ID 代理（预览版）进行凭据管理
 
@@ -111,7 +111,7 @@ SSH 身份验证要求 Azure AD DS 中存在哈希。 如果只想将 SSH 用于
 获取 OAuth 令牌后，可以在向群集网关（例如 <clustername>-int.azurehdinsight.cn）发出的 HTTP 请求的授权标头中使用该令牌。 例如，livy API 的示例 curl 命令可能如下所示：
     
 ```bash
-curl -k -v -H "Authorization: TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.cn/livy/batches" -H "X-Requested-By: UPN"
+curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.cn/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
 
 ## <a name="next-steps"></a>后续步骤

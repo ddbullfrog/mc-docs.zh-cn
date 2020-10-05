@@ -11,13 +11,13 @@ metadata:
   ms.author: v-tawe
   manager: philmea
   origin.date: 08/05/2019
-  ms.date: 06/01/2020
-  ms.openlocfilehash: 0ab6704a8bbed09ac3173da227dcd9e1ab64c34c
-  ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+  ms.date: 09/30/2020
+  ms.openlocfilehash: f8d7da59a1bf824db6a66658a3107a31c32b2322
+  ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/02/2020
-  ms.locfileid: "84275590"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91564483"
 landingContent:
 - title: 针对 Linux 设备进行开发
   linkLists:
@@ -101,8 +101,6 @@ landingContent:
     links:
     - text: 使用 Azure CLI 大规模部署并监视
       url: how-to-deploy-cli-at-scale.md
-    - text: 使用 Azure Pipelines 创建 CI/CD 管道
-      url: how-to-ci-cd.md
   - linkListType: deploy
     links:
     - text: 适用于 IoT 中心的 REST API

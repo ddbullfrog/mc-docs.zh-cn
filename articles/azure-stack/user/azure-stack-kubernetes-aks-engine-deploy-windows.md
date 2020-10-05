@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 中的 Windows 上部署 AKS 引擎
 description: 了解如何在 Azure Stack Hub 中使用 Windows 计算机托管 AKS 引擎，以便部署和管理 Kubernetes 群集。
 author: WenJason
 ms.topic: article
-origin.date: 07/24/2020
-ms.date: 08/31/2020
+origin.date: 09/16/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 21995bba8111e31db096ab132f2332d073d2722d
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 6e0d4c003d86e79fb38d93db42f7337ce58655ee
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867776"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437526"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>在 Azure Stack Hub 中的 Windows 上安装 AKS 引擎
 
@@ -41,10 +41,10 @@ AKS 引擎是一种命令行工具，用于部署和管理 Kubernetes 群集。 
 5. 从提升的提示符运行以下命令，并添加版本号：
 
     ```PowerShell  
-        choco install aks-engine --version 0.51.0 -y
+        choco install aks-engine --version 0.55.4 -y
     ```
 
-> [!Note]  
+> [!NOTE]  
 > 如果此安装方法失败，可以在[断开连接的环境](#install-in-a-disconnected-environment)或者 [Try GoFish](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish)（一个备用包管理器）中尝试这些步骤。
 
 ## <a name="install-in-a-disconnected-environment"></a>在已断开连接的环境中安装
@@ -66,7 +66,7 @@ AKS 引擎是一种命令行工具，用于部署和管理 Kubernetes 群集。 
 7.  在提升的提示符下运行以下命令。 包括正确的版本号：
 
     ```PowerShell  
-        choco install aks-engine --version 0.51.0 -y
+        choco install aks-engine --version 0.55.4 -y
     ```
 
 ## <a name="verify-the-installation"></a>验证安装

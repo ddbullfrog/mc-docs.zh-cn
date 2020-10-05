@@ -4,22 +4,24 @@ titlesuffix: Azure Virtual Network
 description: 介绍如何在 Azure 中为 SMTP 横幅检查配置反向查找区域
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
-manager: digimobile
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 10/31/2018
-ms.date: 04/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6c3ab44eb384c2f330bc7d1ce4ca44a0e94957f4
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.openlocfilehash: 57f6c494e0703f2b0f04038786a514753137110f
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093339"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564468"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>为 SMTP 横幅检查配置反向查找区域
 
@@ -39,12 +41,12 @@ ms.locfileid: "82093339"
 
 配置 PTR 记录时，请确保 IP 地址和反向 FQDN 为订阅所有。 如果尝试设置不属于订阅的反向 FQDN，将收到以下错误消息：
 
-```console
-Set-AzPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
+```output
+Set-AzPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership:
 
-1) ReverseFqdn matches fqdn of any public ip resource under the subscription; 
-2) ReverseFqdn resolves to the fqdn (through CName records chain) of any public ip resource under the subscription; 
-3) It resolves to the ip address (through CName and A records chain) of a static public ip resource under the subscription. 
+1) ReverseFqdn matches fqdn of any public ip resource under the subscription;
+2) ReverseFqdn resolves to the fqdn (through CName records chain) of any public ip resource under the subscription;
+3) It resolves to the ip address (through CName and A records chain) of a static public ip resource under the subscription.
 ```
 
 如果将 SMTP 横幅手动更改为与默认反向 FQDN 相匹配，远程邮件服务器仍可能失败，因为它可能期望 SMTP 横幅主机与域的 MX 记录相匹配。

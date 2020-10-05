@@ -144,7 +144,7 @@
           href: network-watcher-nsg-auditing-powershell.md
     - name: 诊断 VPN 网关和连接
       items:
-        - name: 疑难解答
+        - name: 故障排除
           items:
             - name: Azure PowerShell
               href: network-watcher-troubleshoot-manage-powershell.md
@@ -179,7 +179,7 @@
     - name: .NET
       href: 'https://docs.azure.cn/dotnet/api/overview/virtual-network'
     - name: Node.js
-      href: /javascript/api/@azure/arm-network
+      href: 'https://docs.microsoft.com/javascript/api/@azure/arm-network'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/network-watcher/'
 - name: 资源

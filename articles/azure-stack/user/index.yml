@@ -9,13 +9,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 03/19/2020
-  ms.date: 08/31/2020
-  ms.openlocfilehash: 8d368137875d90f9fa4b8b7b01530a56b81f9f81
-  ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+  ms.date: 10/12/2020
+  ms.openlocfilehash: 6cbea38afe36d37f0ad98f9328392a15a3a691b4
+  ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/26/2020
-  ms.locfileid: "88867966"
+  ms.lasthandoff: 09/29/2020
+  ms.locfileid: "91437651"
 landingContent:
 - title: 关于 Azure Stack Hub
   linkLists:
@@ -59,14 +59,18 @@ landingContent:
       url: azure-stack-dev-start-vscode-azure.md
 - title: Azure Stack Hub 上的基础结构即服务 (IaaS)
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 快速入门 - 创建 VM
+      url: azure-stack-quick-linux-portal.md
   - linkListType: how-to-guide
     links:
+    - text: 迁移 VM
+      url: vm-move-overview.md
     - text: 使用模板在 IaaS 中部署 VM
       url: azure-stack-create-vm-template.md
     - text: 配置虚拟网络
       url: deploy-foundational-patterns.md
-    - text: 快速入门 - 创建 VM
-      url: azure-stack-quick-linux-portal.md
     - text: 托管用代码编写的应用
       url: azure-stack-dev-start-deploy-app.md
 - title: Azure Stack Hub 上的平台即服务 (PaaS)

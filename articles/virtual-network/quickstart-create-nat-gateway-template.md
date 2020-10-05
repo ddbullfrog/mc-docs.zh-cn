@@ -1,33 +1,33 @@
 ---
-title: 教程 - 创建 NAT 网关 - 资源管理器模板
+title: 创建 NAT 网关 - 资源管理器模板
 titleSuffix: Azure Virtual Network NAT
 description: 本快速入门介绍如何使用 Azure 资源管理器模板创建 NAT 网关。
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
 manager: digimobile
 Customer intent: I want to create a NAT gateway by using an Azure Resource Manager template so that I can provide outbound connectivity for my virtual machines.
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/09/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: subject-armqs
-ms.openlocfilehash: 81e3036eb715b32925af110c494f522b32faa9de
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 7a3faaacd73563778dda66becfdeaba43ec5b482
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441219"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564175"
 ---
 <!--Verified successfully-->
-# <a name="tutorial-create-a-nat-gateway---resource-manager-template"></a>教程：创建 NAT 网关 - 资源管理器模板
+# <a name="create-a-nat-gateway---resource-manager-template"></a>创建 NAT 网关 - 资源管理器模板
 
 通过 Azure 资源管理器模板完成虚拟网络 NAT 入门。  此模板部署虚拟网络、NAT 网关资源和 Ubuntu 虚拟机。 Ubuntu 虚拟机将部署到与 NAT 网关资源关联的子网。
 
@@ -445,7 +445,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 **Azure 门户**
 
-[![“部署到 Azure”](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>查看已部署的资源
 
@@ -457,13 +457,13 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 4. 验证是否在资源组中创建了以下资源：
 
-    ![虚拟网络 NAT 资源组](./media/quick-create-template/nat-gateway-template-rg.png)
+    :::image type="content" source="./media/quick-create-template/nat-gateway-template-rg.png" alt-text="部署到 Azure":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
 **Azure CLI**
 
-如果不再需要上述资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) 命令将其删除。
+如果不再需要上述资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/cli/group#az-group-delete) 命令将其删除。
 
 ```azurecli 
   az group delete \
@@ -498,5 +498,4 @@ Remove-AzResourceGroup -Name myResourceGroupNAT
 * 了解 [NAT 网关资源](nat-gateway-resource.md)
 * 了解有关 [Azure 资源管理器](../azure-resource-manager/management/overview.md)的详细信息
 
-<!-- Update_Description: new article about quickstart create nat gateway template -->
-<!--NEW.date: 07/13/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,20 +5,20 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 06/02/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-- devx-track-javascript
-ms.openlocfilehash: fe0223aa2056b3ad31ab538041a5a3f8213b624c
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+- devx-track-js
+ms.openlocfilehash: efb27f9eb30ae83385206b9c564ead8793ef14ca
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957798"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564225"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>将下游设备连接到 Azure IoT Edge 网关
 

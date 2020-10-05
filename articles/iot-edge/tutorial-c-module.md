@@ -2,20 +2,20 @@
 title: 教程：开发适用于 Linux 的 C 模块 - Azure IoT Edge | Microsoft Docs
 description: 本教程介绍如何使用 C 代码创建 IoT Edge 模块并将其部署到运行 IoT Edge 的 Linux 设备
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/30/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e3475ea8d2b72147a8997126bb6d3212e3bdb044
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 8ab4b536c920df8556d4593ee06b34ceca4a0c1b
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957812"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564202"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 C IoT Edge 模块
 
@@ -373,3 +373,5 @@ IoT Edge 扩展尝试从 Azure 中拉取容器注册表凭据并将其填充到�
 > [Functions](tutorial-deploy-function.md)
 > [流分析](tutorial-deploy-stream-analytics.md)
 > [自定义视觉服务](tutorial-deploy-custom-vision.md)
+
+<!-- > [Machine Learning](tutorial-deploy-machine-learning.md)-->

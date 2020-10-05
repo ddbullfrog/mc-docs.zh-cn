@@ -3,8 +3,7 @@ title: 限制对 PaaS 资源的网络访问 - Azure CLI
 description: 本文介绍如何使用 Azure CLI 通过虚拟网络服务终结点限制对 Azure 资源（例如 Azure 存储和 Azure SQL 数据库）的网络访问。
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
-manager: digimobile
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -15,15 +14,18 @@ ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 origin.date: 03/14/2018
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: b577e50fd5a1abba85315eed1a3eeba9e7b97f0c
-ms.sourcegitcommit: af71b9199d47fb81e85d70da0cfb265cc814a644
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a16147e766d1e809a21d4411d72c526c6b44b0bf
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969047"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564615"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>使用 Azure CLI 通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -40,11 +42,11 @@ ms.locfileid: "85969047"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。 
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
-创建虚拟网络之前，必须为虚拟网络创建资源组以及本文中创建的所有其他资源。 使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+创建虚拟网络之前，必须为虚拟网络创建资源组以及本文中创建的所有其他资源。 使用 [az group create](https://docs.azure.cn/cli/group#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
 ```azurecli
 az group create \
@@ -52,7 +54,7 @@ az group create \
   --location chinaeast
 ```
 
-使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建包含一个子网的虚拟网络。
+使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet#az-network-vnet-create) 创建包含一个子网的虚拟网络。
 
 ```azurecli
 az network vnet create \
@@ -65,7 +67,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>启用服务终结点 
 
-只能为支持服务终结点的服务启用服务终结点。 使用 [az network vnet list-endpoint-services](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-list-endpoint-services) 查看某个 Azure 位置中可用的启用了服务终结点的服务。 以下示例返回 *chinaeast* 区域中可用的启用了服务终结点的服务列表。 随着更多的 Azure 服务启用服务终结点，返回的服务列表将随时间增大。
+只能为支持服务终结点的服务启用服务终结点。 使用 [az network vnet list-endpoint-services](https://docs.azure.cn/cli/network/vnet#az-network-vnet-list-endpoint-services) 查看某个 Azure 位置中可用的启用了服务终结点的服务。 以下示例返回 *chinaeast* 区域中可用的启用了服务终结点的服务列表。 随着更多的 Azure 服务启用服务终结点，返回的服务列表将随时间增大。
 
 ```azurecli
 az network vnet list-endpoint-services \
@@ -73,7 +75,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-使用 [az network vnet subnet create](https://docs.azure.cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) 在虚拟网络中创建另一个子网。 在此示例中，将为子网创建一个用于 *Microsoft.Storage* 的服务终结点： 
+使用 [az network vnet subnet create](https://docs.azure.cn/cli/network/vnet/subnet#az-network-vnet-subnet-create) 在虚拟网络中创建另一个子网。 在此示例中，将为子网创建一个用于 *Microsoft.Storage* 的服务终结点： 
 
 ```azurecli
 az network vnet subnet create \
@@ -86,7 +88,7 @@ az network vnet subnet create \
 
 ## <a name="restrict-network-access-for-a-subnet"></a>限制子网的网络访问
 
-使用 [az network nsg create](https://docs.azure.cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create) 创建网络安全组。 以下示例创建名为 *myNsgPrivate* 的网络安全组。
+使用 [az network nsg create](https://docs.azure.cn/cli/network/nsg#az-network-nsg-create) 创建网络安全组。 以下示例创建名为 *myNsgPrivate* 的网络安全组。
 
 ```azurecli
 az network nsg create \
@@ -94,7 +96,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-使用 [az network vnet subnet update](https://docs.azure.cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 将该网络安全组关联到 *Private* 子网。 以下示例将 *myNsgPrivate* 网络安全组关联到 *Private* 子网：
+使用 [az network vnet subnet update](https://docs.azure.cn/cli/network/vnet/subnet#az-network-vnet-subnet-update) 将该网络安全组关联到 *Private* 子网。 以下示例将 *myNsgPrivate* 网络安全组关联到 *Private* 子网：
 
 ```azurecli
 az network vnet subnet update \
@@ -104,7 +106,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-使用 [az network nsg rule create](https://docs.azure.cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) 创建安全规则。 下面的规则允许对分配给 Azure 存储服务的公共 IP 地址进行出站访问： 
+使用 [az network nsg rule create](https://docs.azure.cn/cli/network/nsg/rule#az-network-nsg-rule-create) 创建安全规则。 下面的规则允许对分配给 Azure 存储服务的公共 IP 地址进行出站访问： 
 
 ```azurecli
 az network nsg rule create \
@@ -161,7 +163,7 @@ az network nsg rule create \
 
 ### <a name="create-a-storage-account"></a>创建存储帐户
 
-使用 [az storage account create](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 创建一个 Azure 存储帐户。 将 `<replace-with-your-unique-storage-account-name>` 替换为在所有 Azure 位置中唯一的、长度为 3-24 个字符且仅使用数字和小写字母的名称。
+使用 [az storage account create](https://docs.azure.cn/cli/storage/account#az-storage-account-create) 创建一个 Azure 存储帐户。 将 `<replace-with-your-unique-storage-account-name>` 替换为在所有 Azure 位置中唯一的、长度为 3-24 个字符且仅使用数字和小写字母的名称。
 
 ```azurecli
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -173,7 +175,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-创建存储帐户后，使用 [az storage account show-connection-string](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string) 将存储帐户的连接字符串检索到一个变量中。 在后面的步骤中将使用此连接字符串来创建文件共享。
+创建存储帐户后，使用 [az storage account show-connection-string](https://docs.azure.cn/cli/storage/account#az-storage-account-show-connection-string) 将存储帐户的连接字符串检索到一个变量中。 在后面的步骤中将使用此连接字符串来创建文件共享。
 
 ```azurecli
 saConnectionString=$(az storage account show-connection-string \
@@ -191,7 +193,7 @@ echo $saConnectionString
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>在存储帐户中创建文件共享
 
-使用 [az storage share create](https://docs.azure.cn/cli/storage/share?view=azure-cli-latest#az-storage-share-create) 在存储帐户中创建一个文件共享。 在后面的步骤中，将装载此文件共享来确认对它的网络访问。
+使用 [az storage share create](https://docs.azure.cn/cli/storage/share#az-storage-share-create) 在存储帐户中创建一个文件共享。 在后面的步骤中，将装载此文件共享来确认对它的网络访问。
 
 ```azurecli
 az storage share create \
@@ -202,7 +204,7 @@ az storage share create \
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>拒绝对存储帐户的所有网络访问
 
-默认情况下，存储帐户接受来自任何网络中的客户端的网络连接。 若要仅允许所选的网络进行访问，请使用 [az storage account update](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-update) 将默认操作更改为 *Deny*。 在拒绝网络访问后，将无法从任何网络访问存储帐户。
+默认情况下，存储帐户接受来自任何网络中的客户端的网络连接。 若要仅允许所选的网络进行访问，请使用 [az storage account update](https://docs.azure.cn/cli/storage/account#az-storage-account-update) 将默认操作更改为 *Deny*。 在拒绝网络访问后，将无法从任何网络访问存储帐户。
 
 ```azurecli
 az storage account update \
@@ -213,7 +215,7 @@ az storage account update \
 
 ### <a name="enable-network-access-from-a-subnet"></a>启用从子网的网络访问
 
-使用 [az storage account network-rule add](https://docs.azure.cn/cli/storage/account/network-rule?view=azure-cli-latest#az-storage-account-network-rule-add) 允许从 *Private* 子网对存储帐户进行网络访问。
+使用 [az storage account network-rule add](https://docs.azure.cn/cli/storage/account/network-rule#az-storage-account-network-rule-add) 允许从 *Private* 子网对存储帐户进行网络访问。
 
 ```azurecli
 az storage account network-rule add \
@@ -228,7 +230,7 @@ az storage account network-rule add \
 
 ### <a name="create-the-first-virtual-machine"></a>创建第一个虚拟机
 
-使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 在公共子网中创建一个 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。
+使用 [az vm create](https://docs.azure.cn/cli/vm#az-vm-create) 在公共子网中创建一个 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。
 
 ```azurecli
 az vm create \
@@ -327,7 +329,7 @@ sudo mount --types cifs //storage-account-name>.file.core.chinacloudapi.cn/my-fi
 
 退出与 *myVmPublic* VM 建立的 SSH 会话。
 
-从计算机中，尝试使用 [az storage share list](https://docs.azure.cn/cli/storage/share?view=azure-cli-latest#az-storage-share-list) 查看存储帐户中的共享。 将 `<account-name>` 和 `<account-key>` 替换为在[创建存储帐户](#create-a-storage-account)中获得的存储帐户名称和密钥：
+从计算机中，尝试使用 [az storage share list](https://docs.azure.cn/cli/storage/share#az-storage-share-list) 查看存储帐户中的共享。 将 `<account-name>` 和 `<account-key>` 替换为在[创建存储帐户](#create-a-storage-account)中获得的存储帐户名称和密钥：
 
 ```azurecli
 az storage share list \
@@ -339,7 +341,7 @@ az storage share list \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/cli/index?view=azure-cli-latest#az-group-delete) 将其删除。
+如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/cli/index#az-group-delete) 将其删除。
 
 ```azurecli 
 az group delete --name myResourceGroup --yes

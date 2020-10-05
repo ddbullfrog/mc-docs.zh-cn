@@ -8,13 +8,15 @@ ms.testscope: yes
 ms.testdate: 09/21/2020
 ms.author: v-yeche
 ms.custom: generated
-ms.openlocfilehash: 4d28e487e36a329523cdd3edae5414ce4006ceab
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: f161e84539af9cce6fa41363e57a9c533678b971
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146402"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564359"
 ---
+<!--Verified successfully-->
+
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[将标记添加到资源组](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F726aca4c-86e9-4b04-b0c5-073027359532) |创建或更新任何缺少此标记的资源组时添加指定的标记和值。 可以通过触发修正任务来修正现有资源组。 如果存在具有不同值的标记，则不会更改该资源组。 |modify |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_ResourceGroup_Modify.json) |

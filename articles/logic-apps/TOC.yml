@@ -182,14 +182,10 @@
           href: logic-apps-enterprise-integration-edifact.md
         - name: Excel Online 商业版或 OneDrive 版
           href: ../connectors/connectors-create-api-excel.md
-        - name: 文件系统
-          href: logic-apps-using-file-connector.md
         - name: 平面文件
           href: logic-apps-enterprise-integration-flatfile.md
         - name: FTP
           href: ../connectors/connectors-create-api-ftp.md
-        - name: GitHub
-          href: ../connectors/connectors-create-api-github.md
         - name: HTTP
           href: ../connectors/connectors-native-http.md
         - name: HTTP + Swagger
@@ -198,10 +194,6 @@
           href: ../connectors/connectors-native-webhook.md
         - name: 集成帐户
           href: logic-apps-enterprise-integration-metadata.md
-        - name: MailChimp
-          href: ../connectors/connectors-create-api-mailchimp.md
-        - name: Microsoft Translator
-          href: ../connectors/connectors-create-api-microsofttranslator.md
         - name: MQ
           href: ../connectors/connectors-create-api-mq.md
         - name: Office 365 Outlook

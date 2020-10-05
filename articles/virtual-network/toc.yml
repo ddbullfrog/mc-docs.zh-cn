@@ -12,6 +12,8 @@
       href: quick-create-powershell.md
     - name: 创建虚拟网络 - Azure CLI
       href: quick-create-cli.md
+    - name: 创建虚拟网络 - ARM 模板
+      href: quick-create-template.md
   expanded: true
 - name: 教程
   items:
@@ -35,9 +37,6 @@
       href: powershell-samples.md
     - name: 资源管理器模板
       href: template-samples.md
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 概念
   items:
     - name: 业务连续性
@@ -88,18 +87,25 @@
           href: ipv6-overview.md
         - name: 公共 IPv6 地址前缀
           href: ipv6-public-ip-address-prefix.md
+        - name: 公共 IP 安全基线
+          href: public-ip-security-baseline.md
     - name: 安全性
       items:
         - name: 网络安全组
-          href: security-overview.md
+          items:
+            - name: 概述
+              href: network-security-groups-overview.md
+            - name: 工作原理
+              href: network-security-group-how-it-works.md
         - name: 应用程序安全组
           href: application-security-groups.md
         - name: 服务标记
           href: service-tags-overview.md
-        - name: 服务终结点策略
-          href: virtual-network-service-endpoint-policies-overview.md
         - name: Kubernetes 网络策略
           href: kubernetes-network-policies.md
+        - name: Azure Policy 的安全控件
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: 子网
       items:
         - name: 子网扩展
@@ -204,6 +210,12 @@
               href: ipv6-reserve-public-ip-address-prefix.md
         - name: IP 寻址
           items:
+            - name: 创建公共 IP 地址 - 门户
+              href: create-public-ip-portal.md
+            - name: 创建公共 IP 地址 - PowerShell
+              href: create-public-ip-powershell.md
+            - name: 创建公共 IP 地址 - Azure CLI
+              href: create-public-ip-cli.md
             - name: 管理公共 IP 地址
               href: virtual-network-public-ip-address.md
             - name: 管理公共 IP 前缀
@@ -353,11 +365,11 @@
 - name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.azure.cn/cli/network?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/network'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.network'
     - name: .NET
-      href: 'https://docs.azure.cn/dotnet/api/overview/virtual-network?view=azure-dotnet'
+      href: 'https://docs.azure.cn/dotnet/api/overview/virtual-network'
     - name: Java
       href: 'https://docs.azure.cn/java/api/'
     - name: Node.js
@@ -368,6 +380,9 @@
       href: 'https://docs.microsoft.com/rest/api/virtual-network'
     - name: 代码示例
       href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: 网络博客

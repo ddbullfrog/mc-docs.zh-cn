@@ -3,8 +3,7 @@ title: 为 VM 配置专用 IP 地址（经典）- Azure 门户 | Azure
 description: 了解如何使用 Azure 门户为虚拟机（经典）配置专用 IP 地址。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: dcscontentpm
 tags: azure-service-management
 ms.assetid: b8ef8367-58b2-42df-9f26-3269980950b8
 ms.service: virtual-network
@@ -14,15 +13,18 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/04/2016
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2804cc645f3e1c348e8fe512200ffeef28a50fdf
-ms.sourcegitcommit: af71b9199d47fb81e85d70da0cfb265cc814a644
+ms.openlocfilehash: c8e5d0ab33ed4a0d9bb313398f56a4fb0a267ae3
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969032"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564613"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>使用 Azure 门户为虚拟机（经典）配置专用 IP 地址
 
@@ -44,33 +46,33 @@ ms.locfileid: "85969032"
 1. 在浏览器中导航到 https://portal.azure.cn ，并在必要时使用 Azure 帐户登录。
 2. 选择“新建” > “计算” > “Windows Server 2012 R2 Datacenter”（注意“选择部署模型”列表已显示“经典”），然后选择“创建”。     
 
-    ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
+    :::image type="content" source="./media/virtual-networks-static-ip-classic-pportal/figure01.png" alt-text="在 Azure 门户中创建 VM":::
 3. 在“创建 VM”下，输入要创建的 VM 的名称（在此方案中为 *DNS01*）、本地管理员帐户和密码。
 
-    ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
+    :::image type="content" source="./media/virtual-networks-static-ip-classic-pportal/figure02.png" alt-text="在 Azure 门户中创建 VM":::
 4. 选择“可选配置” > “网络” > “虚拟网络”，然后选择“TestVNet”。    如果 **TestVNet** 不可用，请确保你使用的位置为“中国北部”，并已创建本文开头所述的测试环境。
 
-    ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
+    :::image type="content" source="./media/virtual-networks-static-ip-classic-pportal/figure03.png" alt-text="在 Azure 门户中创建 VM":::
 5. 在“网络”下，确保当前选定的子网为“FrontEnd”，选择“IP 地址”，在“IP 地址分配”下选择“静态”，并输入 *192.168.1.101* 作为“IP 地址”，如下所示。   
 
-    ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure04.png)    
+    :::image type="content" source="./media/virtual-networks-static-ip-classic-pportal/figure04.png" alt-text="在 Azure 门户中创建 VM":::    
 6. 在“IP 地址”下选择“确定”，在“网络”下选择“确定”，然后在“可选配置”下选择“确定”。     
 7. 在“创建 VM”下，选择“创建”。  注意，以下磁贴会显示在仪表板中：
 
-    ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
+    :::image type="content" source="./media/virtual-networks-static-ip-classic-pportal/figure05.png" alt-text="在 Azure 门户中创建 VM":::
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>如何检索 VM 的静态专用 IP 地址信息
 若要查看使用以上步骤创建的 VM 的静态专用 IP 地址信息，请执行以下步骤。
 
 1. 在 Azure 门户中，选择“浏览全部” > “虚拟机（经典）” > “DNS01” > “所有设置” > “IP 地址”，并请注意如下所示的 IP 地址分配和 IP 地址。    
 
-    ![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
+    :::image type="content" source="./media/virtual-networks-static-ip-classic-pportal/figure06.png" alt-text="在 Azure 门户中创建 VM":::
 
 ## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>如何从 VM 中删除静态专用 IP 地址
 
 在“IP 地址”下，在“IP 地址分配”右侧选择“动态”，选择“保存”，然后选择“是”，如下图中所示：
 
-![在 Azure 门户中创建 VM](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
+:::image type="content" source="./media/virtual-networks-static-ip-classic-pportal/figure07.png" alt-text="在 Azure 门户中创建 VM":::
 
 <!--CORRECT NO LEFT 4 PADDING BLANK-->
 

@@ -1,18 +1,18 @@
 ---
 title: 推送和拉取 OCI 项目
 description: 在 Azure 中使用专用容器注册表推送和拉取开放容器计划 (OCI) 项目
-author: rockboyfor
-manager: digimobile
+manager: gwallace
 ms.topic: article
-origin.date: 03/11/2020
-ms.date: 04/06/2020
+origin.date: 08/12/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: db90dc243402c149aa2b3cfa167a714b1d89bafd
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.openlocfilehash: 18ae7f90821b56883df33fd520bbc16678a1aaa0
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093247"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564421"
 ---
 <!--Verify successfully-->
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>使用 Azure 容器注册表推送和拉取 OCI 项目
@@ -26,7 +26,7 @@ ms.locfileid: "82093247"
 * **Azure 容器注册表** - 在 Azure 订阅中创建容器注册表。 例如，使用 [Azure 门户](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
 * **ORAS 工具** - 从 [GitHub 存储库](https://github.com/deislabs/oras/releases)下载并安装适合操作系统的最新 ORAS 版本。 此工具以压缩 tarball（`.tar.gz` 文件）形式发布。 使用适合操作系统的标准过程提取并安装该文件。
 * **Azure Active Directory 服务主体（可选）** - 若要使用 ORAS 直接进行身份验证，请创建一个用于访问注册表的[服务主体](container-registry-auth-service-principal.md)。 请确保为服务主体分配一个角色（例如 AcrPush），使之有权推送和拉取项目。
-* **Azure CLI（可选）** - 若要使用单个标识，需在本地安装 Azure CLI。 建议使用 2.0.71 或更高版本。 运行 `az --version `即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+* **Azure CLI（可选）** - 若要使用单个标识，需在本地安装 Azure CLI。 建议使用 2.0.71 或更高版本。 运行 `az --version `即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 * **Docker（可选）** - 若要使用单个标识，还必须在本地安装 Docker，以便通过注册表进行身份验证。 Docker 提供的包可在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
 
 ## <a name="sign-in-to-a-registry"></a>登录到注册表
@@ -45,9 +45,9 @@ oras login myregistry.azurecr.cn --username $SP_APP_ID --password $SP_PASSWD
 
 ### <a name="sign-in-with-azure-cli"></a>使用 Azure CLI 登录
 
-使用标识[登录](https://docs.azure.cn/cli/authenticate-azure-cli?view=azure-cli-latest)到 Azure CLI，以便通过容器注册表推送和拉取项目。
+使用标识[登录](https://docs.azure.cn/cli/authenticate-azure-cli)到 Azure CLI，以便通过容器注册表推送和拉取项目。
 
-然后，使用 Azure CLI 命令 [az acr login](https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login) 访问注册表。 例如，若要向名为 *myregistry* 的注册表进行身份验证，请执行以下命令：
+然后，使用 Azure CLI 命令 [az acr login](https://docs.azure.cn/cli/acr#az-acr-login) 访问注册表。 例如，若要向名为 *myregistry* 的注册表进行身份验证，请执行以下命令：
 
 ```azurecli
 az login
@@ -151,6 +151,9 @@ az acr repository delete \
     --image samples/artifact:1.0
 ```
 
+<!--Not Available on ## Example: Build Docker image from OCI artifact-->
+<!--REASON: az acr build show "oci://cyregistry.azurecr.cn/hello-world:1.0" does not exist.-->
+
 ## <a name="next-steps"></a>后续步骤
 
 * 详细了解 [ORAS 库](https://github.com/deislabs/oras/tree/master/docs)，包括如何为项目配置清单。
@@ -164,8 +167,7 @@ az acr repository delete \
 
 <!-- LINKS - internal -->
 
-[az-acr-repository-show]: https://docs.azure.cn/cli/acr/repository??view=azure-cli-latest#az-acr-repository-show
-[az-acr-repository-delete]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-delete
+[az-acr-repository-show]: https://docs.azure.cn/cli/acr/repository?#az-acr-repository-show
+[az-acr-repository-delete]: https://docs.azure.cn/cli/acr/repository#az-acr-repository-delete
 
-<!-- Update_Description: new article about container registry oci artifacts -->
-<!--ms.date: 09/30/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

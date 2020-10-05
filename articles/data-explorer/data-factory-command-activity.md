@@ -6,15 +6,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: tzgitlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 09/15/2019
-ms.date: 08/13/2020
-ms.openlocfilehash: 14f735403c084f6379d070a0aa050b1a94370da7
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.date: 09/24/2020
+ms.openlocfilehash: 7ea917bd56b0ed2592cd91120cca2ca82c4c23b0
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951299"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146482"
 ---
 # <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>使用 Azure 数据工厂命令活动运行 Azure 数据资源管理器控制命令
 
@@ -153,7 +153,7 @@ ms.locfileid: "88951299"
     > 命令活动具有以下限制：
     > * 大小限制：1 MB 响应大小
     > * 时间限制：20 分钟（默认），1 小时（最大）。
-    > * 如果需要，可以使用 [AdminThenQuery](https://docs.azure.cn/kusto/management/index#combining-queries-and-control-commands) 将查询追加到结果，以减少最终的大小/时间。
+    > * 如果需要，可以使用 [AdminThenQuery](kusto/management/index.md#combining-queries-and-control-commands) 将查询追加到结果，以减少最终的大小/时间。
 
 1. 管道现已准备就绪。 可以单击管道名称返回到主管道视图。
 

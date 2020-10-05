@@ -4,7 +4,6 @@ titlesuffix: Azure Virtual Network
 description: 本教程介绍如何使用 Azure 门户通过路由表路由网络流量。
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -12,16 +11,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2020
-ms.date: 08/24/2020
-ms.testscope: no
-ms.testdate: 06/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: c79cb4a58566b496f115d20c3166ac6f7350442f
-ms.sourcegitcommit: b5664d4a6d24ec949bdd2f2962bfe94207374c5f
+ms.openlocfilehash: 09777edcbb36c6d312243766d3df9c93a12dc22b
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88602594"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564343"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>教程：使用 Azure 门户通过路由表路由网络流量
 
@@ -56,7 +56,7 @@ ms.locfileid: "88602594"
     | **项目详细信息** | 订阅 | 选择订阅。 |
     | | 资源组 | 选择“新建”，输入 *myResourceGroup*，然后选择“确定” 。 |
     | **实例详细信息** | 虚拟机名称 | 输入 *myVmNva*。 |
-    | | 区域 | 选择“中国东部”。 |
+    | | 区域 | 选择“(US) 中国东部”****。 |
     | | 可用性选项 | 选择“无需基础结构冗余”。 |
     | | 映像 | 选择“Windows Server 2016 Datacenter”。 |
     | | 大小 | 保留默认值“标准 DS1 v2”。 |
@@ -66,7 +66,7 @@ ms.locfileid: "88602594"
     | **入站端口规则** | 公共入站端口 | 选择“无”。 |
     | **节省资金** | 已有 Windows Server 许可证? | 选取“否”。 |
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/basics-create-virtual-machine.png" alt-text="“基本信息”，创建虚拟机，Azure 门户":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/basics-create-virtual-machine.png" alt-text="Windows Server 2016 Datacenter，创建 VM，Azure 门户":::
 
     然后选择页面底部的“下一步:磁盘 >”。
 
@@ -134,10 +134,10 @@ ms.locfileid: "88602594"
     | 名称 | *myRouteTablePublic* |
     | 订阅 | 订阅 |
     | 资源组 | **myResourceGroup** |
-    | 位置 | **中国东部** |
+    | 位置 | (US) 中国东部**** |
     | 虚拟网络网关路由传播 | **已启用** |
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/create-route-table.png" alt-text="创建路由表，Azure 门户":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/create-route-table.png" alt-text="Windows Server 2016 Datacenter，创建 VM，Azure 门户":::
 
 5. 选择“创建”。
 
@@ -149,7 +149,7 @@ ms.locfileid: "88602594"
 
 1. 选择“路由” > “添加”。 
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/add-route.png" alt-text="创建路由，路由表，Azure 门户":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/add-route.png" alt-text="Windows Server 2016 Datacenter，创建 VM，Azure 门户":::
 
 1. 在“添加路由”中，输入或选择以下信息：
 
@@ -174,7 +174,7 @@ ms.locfileid: "88602594"
 
 1. 在“路由表”中选择创建的路由表 (**myRouteTablePublic**)，然后选择“保存”以将路由表关联到“公共”子网。 
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/associate-route-table.png" alt-text="关联路由表，子网列表，虚拟网络，Azure 门户":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/associate-route-table.png" alt-text="Windows Server 2016 Datacenter，创建 VM，Azure 门户":::
 
 ## <a name="turn-on-ip-forwarding"></a>启用 IP 转发
 
@@ -188,13 +188,13 @@ ms.locfileid: "88602594"
 
 1. 选择“myvmnva123”。 这是 Azure 为 VM 创建的网络接口。 Azure 将添加数字来确保接口的名称保持唯一。
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/virtual-machine-networking.png" alt-text="网络，网络虚拟设备 (NVA) 虚拟机 (VM)，Azure 门户":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/virtual-machine-networking.png" alt-text="Windows Server 2016 Datacenter，创建 VM，Azure 门户":::
 
 1. 在网络接口菜单栏中选择“IP 配置”。
 
 1. 在“IP 配置”页中，将“IP 转发”设置为“已启用”，然后选择“保存”。   
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="启用 IP 转发，IP 配置，网络接口，网络虚拟设备 (NVA) 虚拟机 (VM)，Azure 门户":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Windows Server 2016 Datacenter，创建 VM，Azure 门户":::
 
 ## <a name="create-public-and-private-virtual-machines"></a>创建公共和专用虚拟机
 
@@ -363,5 +363,5 @@ ms.locfileid: "88602594"
 > [!div class="nextstepaction"]
 > [限制 PaaS 资源的网络访问](tutorial-restrict-network-access-to-resources.md)
 
-<!--Not Avaiable on [quickstart on analyzing your costs](/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)-->
+<!--Not Availbale on /cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn-->
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -3,18 +3,19 @@ title: 配置 Azure Stack Hub 遥测
 titleSuffix: Azure Stack
 description: 了解 Azure Stack Hub 遥测，以及如何使用 PowerShell 配置遥测设置。
 author: WenJason
+ms.service: azure-stack
 ms.topic: conceptual
 origin.date: 1/16/2020
-ms.date: 05/18/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 5d3b42f68f1704f6a2aea461d7084a80707dc10e
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: c6f6ef42628806a97a50afd7ff1e00f4d8cb432e
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422379"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437724"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>配置 Azure Stack Hub 遥测
 
@@ -22,7 +23,7 @@ Azure Stack Hub 遥测通过互连用户体验将系统数据自动上传到 Azu
 
 遥测可为 Azure Stack Hub 操作员提供宝贵的见解来让他们洞察企业部署，并提供有助于构思 Azure Stack Hub 新版本的看法。
 
-Azure Stack Hub 遥测基于 Windows Server 2016 互连用户体验与遥测组件。 此组件使用 [Windows 事件跟踪 (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) 跟踪日志记录技术来收集和存储遥测事件与数据。 Azure Stack 组件使用相同的技术，发布使用公共操作系统事件日志记录和跟踪 API 收集的事件与数据。 这些 Azure Stack Hub 组件的示例包括以下提供程序：网络资源、存储资源、监视资源和更新资源。 互连用户体验与遥测组件使用 SSL 加密数据，并使用证书关联通过 HTTPS 将数据传输到 Microsoft 数据管理服务。
+Azure Stack Hub 遥测基于 Windows Server 2016 互连用户体验与遥测组件。 此组件使用 [Windows 事件跟踪 (ETW)](https://docs.microsoft.com/windows/win32/tracelogging/trace-logging-about) 跟踪日志记录技术来收集和存储遥测事件与数据。 Azure Stack 组件使用相同的技术，发布使用公共操作系统事件日志记录和跟踪 API 收集的事件与数据。 这些 Azure Stack Hub 组件的示例包括以下提供程序：网络资源、存储资源、监视资源和更新资源。 互连用户体验与遥测组件使用 SSL 加密数据，并使用证书关联通过 HTTPS 将数据传输到 Microsoft 数据管理服务。
 
 > [!IMPORTANT]
 > 若要启用遥测数据流，必须在网络中开放端口 443 (HTTPS)。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务（位于 `https://v10.events.data.microsoft.com`）。 互连用户体验与遥测组件还连接到 `https://settings-win.data.microsoft.com` 来下载配置信息。 其他诊断数据服务连接 `https://watson.telemetry.microsoft.com` 来报告错误。

@@ -4,16 +4,17 @@ description: 如何使用 Azure IoT 中心设备预配服务 (DPS) 中的自定�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/14/2019
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 76e1bb1b755211e021bfc2332d2bbc1aba1218f1
-ms.sourcegitcommit: 89ca2993f5978cd6dd67195db7c4bdd51a677371
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bd00671fb635eed21fa59e18c15e326bbe522a46
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82588599"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564631"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自定义分配策略
 
@@ -44,7 +45,7 @@ ms.locfileid: "82588599"
 
 以下先决条件适用于 Windows 开发环境。 对于 Linux 或 macOS，请参阅 SDK 文档的[准备开发环境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)中的相应部分。
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019，已启用[“使用 C++ 的桌面开发”](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads)工作负载。 Visual Studio 2015 和 Visual Studio 2017 也受支持。
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019，已启用[“使用 C++ 的桌面开发”](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development)工作负载。 Visual Studio 2015 和 Visual Studio 2017 也受支持。
 
 * 已安装最新版本的 [Git](https://git-scm.com/download/)。
 
@@ -297,7 +298,7 @@ ms.locfileid: "82588599"
 
 ## <a name="create-the-enrollment"></a>创建注册
 
-在本部分，你将创建一个使用自定义分配策略的新注册组。 为简单起见，本文将在注册中使用[对称密钥证明](concepts-symmetric-key-attestation.md)。 对于更安全的解决方案，请考虑使用具有信任链的 [X.509 证书证明](concepts-security.md#x509-certificates)。
+在本部分，你将创建一个使用自定义分配策略的新注册组。 为简单起见，本文将在注册中使用[对称密钥证明](concepts-symmetric-key-attestation.md)。 对于更安全的解决方案，请考虑使用具有信任链的 [X.509 证书证明](concepts-x509-attestation.md)。
 
 1. 仍在 [Azure 门户](https://portal.azure.cn)中操作，打开预配服务。
 
@@ -560,8 +561,8 @@ ms.locfileid: "82588599"
 
 | 方案 | 预配服务的注册结果 | 预配 SDK 结果 |
 | -------- | --------------------------------------------- | ------------------------ |
-| Webhook 返回“200 正常”，其中“iotHubHostName”设置为有效的 IoT 中心主机名 | 结果状态：已分配  | SDK 返回 PROV_DEVICE_RESULT_OK 和中心信息 |
-| Webhook 返回“200 正常”，响应中存在“iotHubHostName”，但设置为空字符串或 null | 结果状态：已失败<br><br> 错误代码：CustomAllocationIotHubNotSpecified (400208) | SDK 返回 PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| Webhook 返回 200 OK，其中“iotHubHostName”被设置为有效的 IoT 中心主机名 | 结果状态：已分配  | SDK 返回 PROV_DEVICE_RESULT_OK 和中心信息 |
+| Webhook 返回 200 OK，其中在响应中显示“iotHubHostName”，但被设置为空字符串或 null | 结果状态：已失败<br><br> 错误代码：CustomAllocationIotHubNotSpecified (400208) | SDK 返回 PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | Webhook 返回 401 未授权 | 结果状态：已失败<br><br>错误代码：CustomAllocationUnauthorizedAccess (400209) | SDK 返回 PROV_DEVICE_RESULT_UNAUTHORIZED |
 | 创建了个人注册，以禁用设备 | 结果状态：已禁用 | SDK 返回 PROV_DEVICE_RESULT_DISABLED |
 | Webhook 返回错误代码 > = 429 | DPS 业务流程将多次重试。 重试策略当前：<br><br>&nbsp;&nbsp;- 重试计数：10 个<br>&nbsp;&nbsp;- 初始时间间隔：1 秒<br>&nbsp;&nbsp;- 增量：9 秒 | SDK 将忽略错误并在指定时间提交另一个获取状态消息 |

@@ -148,7 +148,7 @@
   items:
     - name: 映像
       href: shared-image-galleries.md
-    - name: Azure 资源管理器
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 资源管理器模板
@@ -321,7 +321,7 @@
           href: migration-classic-resource-manager-errors.md
         - name: 用于迁移的社区工具
           href: migration-classic-resource-manager-community-tools.md
-        - name: 常见问题
+        - name: 常见问题解答
           href: ../migration-classic-resource-manager-faq.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 使用映像
       displayName: 'SIG, AMI, image'
@@ -548,7 +548,7 @@
           items:
             - name: 代理概述
               href: ../../azure-monitor/platform/agents-overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-            - name: 常见问题
+            - name: 常见问题解答
               href: ../../azure-monitor/faq.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json#agents
             - name: Azure 诊断扩展
               items:
@@ -595,7 +595,7 @@
                       href: ../../azure-monitor/platform/data-sources-custom-logs.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
                     - name: 自定义字段
                       href: ../../azure-monitor/platform/custom-fields.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-            - name: 疑难解答
+            - name: 故障排除
               items:
                 - name: Log Analytics VM 扩展
                   href: ../../azure-monitor/platform/vmext-troubleshoot.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
@@ -665,8 +665,6 @@
           href: incremental-snapshots.md
         - name: 加密
           items:
-            - name: 启用主机加密 - PowerShell
-              href: disks-enable-host-based-encryption-powershell.md
             - name: 启用客户管理的密钥 - PowerShell
               href: disks-enable-customer-managed-keys-powershell.md
         - name: 迁移和转换
@@ -733,7 +731,7 @@
           href: ../extensions/extensions-rmpolicy-howto-ps.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 导出扩展
           href: ../extensions/export-templates.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-        - name: 疑难解答
+        - name: 故障排除
           href: ../extensions/troubleshoot.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: Azure 磁盘加密
           href: ../extensions/azure-disk-enc-windows.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
@@ -786,7 +784,7 @@
               href: aws-to-azure.md
             - name: 使用 Azure Site Recovery
               href: ../../site-recovery/migrate-overview.md?bc=/virtual-machines/windows/breadcrumb/toc.json&toc=/virtual-machines/windows/toc.json
-- name: 疑难解答
+- name: 故障排除
   href: ../troubleshooting/index.yml
 - name: 参考
   items:
@@ -821,5 +819,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: 视频
       href: 'https://www.azure.cn/video-center/'
-    - name: 常见问题
+    - name: 常见问题解答
       href: faq.md

@@ -3,7 +3,6 @@ title: 无法在 Azure 中删除虚拟网络 | Azure
 description: 了解如何排查无法在 Azure 中删除虚拟网络的问题。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -13,18 +12,21 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/31/2018
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 87271e8ef39da92137f00c453263892a7107ac63
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: 0d4bd072d680efcea3da11b044c90cf67fcf1622
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487048"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564511"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>故障排除：无法在 Azure 中删除虚拟网络
 
-尝试在 Azure 中删除虚拟网络时，可能会收到错误。 本文提供解决此问题的故障排除步骤。 
+尝试在 Azure 中删除虚拟网络时，可能会收到错误。 本文提供解决此问题的故障排除步骤。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -45,11 +47,11 @@ ms.locfileid: "84487048"
 
 对于经典虚拟网络，请在 Azure 门户中转到经典虚拟网络的“概述”页。 在“VPN 连接”部分中，如果网关正在虚拟网络中运行，则会显示该网关的 IP 地址。 
 
-![检查网关是否正在运行](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
+:::image type="content" source="media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png" alt-text="检查网关是否正在运行":::
 
 对于虚拟网络，请转到虚拟网络的“概述”页。 检查虚拟网络网关的“已连接设备”。
 
-![检查已连接的设备](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+:::image type="content" source="media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png" alt-text="检查网关是否正在运行":::
 
 在删除网关之前，请先删除该网关中的所有“连接”对象。 
 
@@ -57,7 +59,7 @@ ms.locfileid: "84487048"
 
 转到虚拟网络的“概述”页。 检查应用程序网关的“已连接设备”。
 
-![检查已连接的设备](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+:::image type="content" source="media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png" alt-text="检查网关是否正在运行":::
 
 如果存在应用程序网关，则必须先将其删除，然后才能删除虚拟网络。
 
@@ -65,7 +67,7 @@ ms.locfileid: "84487048"
 
 如果 Active Directory 域服务已启用并已连接到虚拟网络，则无法删除此虚拟网络。 
 
-![检查已连接的设备](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+:::image type="content" source="media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png" alt-text="检查网关是否正在运行":::
 
 <!-- Not Available on  [Disable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/active-directory-ds-disable-aadds.md). -->
 
@@ -89,7 +91,9 @@ ms.locfileid: "84487048"
 
 如果虚拟网络停滞在迁移状态，则无法将其删除。 请运行以下命令中止迁移，然后删除虚拟网络。
 
-    Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
+```azurepowershell
+Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
+```
 
 ## <a name="next-steps"></a>后续步骤
 

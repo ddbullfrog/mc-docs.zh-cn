@@ -5,12 +5,12 @@ ms.author: v-tawe
 origin.date: 08/07/2020
 ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8dad02ec9e99aac9dcd67f2f3ea44110a3c6d1f7
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: a5d99ed35fda5ff8ceff280ddac3c5bd3793e4f7
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524063"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564260"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure Policy 的来宾配置
 
@@ -218,7 +218,8 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 来宾配置内置策略示例在以下位置提供：
 
-- [内置策略定义 - 来宾配置](../samples/built-in-policies.md#guest-configuration)
+<!-- - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration) -->
+
 - [内置计划 - 来宾配置](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy 示例 GitHub 存储库](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
 

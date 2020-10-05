@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/30/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ec97e2721f7f34b0dfee03560b240b44423477eb
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 6903d2f7db3cfa1c36f0554d6d10086e612aaa39
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957788"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564199"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教程：在边缘使用自定义视觉服务进行图像分类
 
@@ -153,7 +153,7 @@ Azure IoT Edge 可以将工作负荷从云移到边缘，让 IoT 解决方案更
    | 提供解决方案名称 | 输入解决方案的描述性名称（例如 **CustomVisionSolution**），或者接受默认名称。 |
    | 选择模块模板 | 选择“Python 模块”。  |
    | 提供模块名称 | 将模块命名为 **classifier**。<br><br>必须确保此模块名称为小写。 IoT Edge 在引用模块时区分大小写，而此解决方案使用的库会将所有请求格式化为小写。 |
-   | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是在上一步预先填充的。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。<br><br>最终的字符串看起来类似于 **\<registry name\>.azurecr.cn/classifier**。 |
+   | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是在上一步预先填充的。 将 localhost:5000 替换为 Azure 容器注册表中的“登录服务器”值 。 可以在 Azure 门户的容器注册表的“概述”页中检索登录服务器。<br><br>最终的字符串看起来类似于 **\<registry name\>.azurecr.cn/classifier**。 |
  
    ![提供 Docker 映像存储库](./media/tutorial-deploy-custom-vision/repository.png)
 

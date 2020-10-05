@@ -5,12 +5,12 @@ ms.topic: article
 origin.date: 04/22/2020
 ms.date: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 19218007bbe41be68351083097c8e47b6fd99efd
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 9fb579c6aeda17a1c7772dd33e10550766d991d4
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426515"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564611"
 ---
 <!--Verified successfully-->
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>使用资源管理器模板运行 ACR 任务
@@ -53,10 +53,12 @@ ms.locfileid: "87426515"
 
 使用 [az deployment group create][az-deployment-group-create] 命令部署模板。 本示例将生成 helloworld-node:testrun 映像，并将该映像推送到名为 mycontainerregistry 的注册表中 。
 
+<!--CORRECT ON /main NOT /master-->
+
 ```azurecli
 az deployment group create \
   --resource-group myResourceGroup \
-  --template-uri https://raw.githubusercontent.com/Azure/acr/master/docs/tasks/run-as-deployment/quickdockerbuild/azuredeploy.json \
+  --template-uri https://raw.githubusercontent.com/Azure/acr/main/docs/tasks/run-as-deployment/quickdockerbuild/azuredeploy.json \
   --parameters \
     registryName=mycontainerregistry \
     repository=helloworld-node \
@@ -197,10 +199,12 @@ az role assignment create \
 
 使用 [az deployment group create][az-deployment-group-create] 命令部署模板。 本示例将生成 helloworld-node:testrun 映像，并将该映像推送到名为 mycontainerregistry 的注册表中 。 基础映像从 mybaseregistry.azurecr.cn 中拉取。
 
+<!--CORRECT BRANCH ON /main not /master-->
+
 ```azurecli
 az deployment group create \
   --resource-group myResourceGroup \
-  --template-uri https://raw.githubusercontent.com/Azure/acr/master/docs/tasks/run-as-deployment/quickdockerbuildwithidentity/azuredeploy.json \
+  --template-uri https://raw.githubusercontent.com/Azure/acr/main/docs/tasks/run-as-deployment/quickdockerbuildwithidentity/azuredeploy.json \
   --parameters \
     registryName=mycontainerregistry \
     repository=helloworld-node \

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 44cb40748e7e2b7bc08b78bbed74a41192d9652c
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: cbc64060c8e02ba38a8bf1bdec5f8a2092fcd1f2
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947139"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402609"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 触发器
 
@@ -428,7 +428,7 @@ public HttpResponseMessage<String> HttpTrigger(
 | <a name="http-auth"></a>**authLevel** |  AuthLevel |确定请求中需要提供的密钥（如果有），以便调用此函数。 授权级别可以是以下值之一： <ul><li><code>anonymous</code>&mdash;无需 API 密钥。</li><li><code>function</code>&mdash;特定于函数的 API 密钥是必需的。 如果未提供任何值，该值为默认值。</li><li><code>admin</code>&mdash;无需主密钥。</li></ul> 有关详细信息，请参阅有关[授权密钥](#authorization-keys)的部分。 |
 | methods |**方法** | HTTP 方法的数组，该函数将响应此方法。 如果未指定，该函数将响应所有 HTTP 方法。 请参阅[自定义 HTTP 终结点](#customize-the-http-endpoint)。 |
 | route | **Route** | 定义路由模板，控制函数将响应的请求 URL。 如果未提供任何值，则默认值为 `<functionname>`。 有关详细信息，请参阅[自定义 HTTP 终结点](#customize-the-http-endpoint)。 |
-| webHookType | WebHookType | 仅支持 1.x 版运行时。<br/><br/>将 HTTP 触发器配置为充当指定提供程序的 [webhook](https://en.wikipedia.org/wiki/Webhook) 接收器。 如果未设置此属性，请不要设置 `methods` 属性。 Webhook 类型可以是以下值之一：<ul><li><code>genericJson</code>&mdash;不包含特定提供程序逻辑的常规用途 webhook 终结点。 此设置会将请求限制为仅请求使用 HTTP POST 以及内容类型为 `application/json`。</li><li><code>github</code>&mdash;该函数响应 [GitHub Webhook](https://developer.github.com/webhooks/)。 不要对 GitHub Webhook 使用 authLevel 属性。 有关详细信息，请参阅本文后面的“GitHub Webhook”部分。</li><li><code>slack</code>&mdash;该函数响应 [Slack Webhook](https://api.slack.com/outgoing-webhooks)。 不要对 Slack Webhook 使用 authLevel 属性。 有关详细信息，请参阅本文后面的“Slack Webhook”部分。</li></ul>|
+| webHookType | WebHookType | 仅支持 1.x 版运行时。<br/><br/>将 HTTP 触发器配置为充当指定提供程序的 `webhook` 接收器。 如果未设置此属性，请不要设置 `methods` 属性。 Webhook 类型可以是以下值之一：<ul><li><code>genericJson</code>&mdash;不包含特定提供程序逻辑的常规用途 webhook 终结点。 此设置会将请求限制为仅请求使用 HTTP POST 以及内容类型为 `application/json`。</li><li><code>github</code>&mdash;该函数响应 `GitHub webhooks`。 不要对 GitHub Webhook 使用 authLevel 属性。 有关详细信息，请参阅本文后面的“GitHub Webhook”部分。</li><li><code>slack</code>&mdash;该函数响应 [Slack Webhook](https://api.slack.com/outgoing-webhooks)。 不要对 Slack Webhook 使用 authLevel 属性。 有关详细信息，请参阅本文后面的“Slack Webhook”部分。</li></ul>|
 
 ## <a name="payload"></a>有效负载
 

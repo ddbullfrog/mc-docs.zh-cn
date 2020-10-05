@@ -8,12 +8,12 @@ ms.date: 08/30/2020
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: a6db0baf35716dd162ecf725fc4ce09b73533419
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 87d22d9cf3ec9653a36fad9d8d89c87bc2216319
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867995"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437642"
 ---
 # <a name="new-registrationtoken"></a>New-RegistrationToken
 
@@ -24,7 +24,7 @@ ms.locfileid: "88867995"
 
 ```
 New-RegistrationToken [[-MsAssetTag] <Object>] [[-AgreementNumber] <Object>] [[-BillingModel] <Object>]
- [-UsageReportingEnabled] [-MarketplaceSyndicationEnabled] [-AsJob]
+ [-MarketplaceSyndicationEnabled] [-AsJob]
 ```
 
 ## <a name="parameters"></a>parameters
@@ -45,21 +45,6 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-marketplacesyndicationenabled"></a>-MarketplaceSyndicationEnabled
- 
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### <a name="-usagereportingenabled"></a>-UsageReportingEnabled
  
 
 ```yaml
@@ -121,4 +106,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的详细信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

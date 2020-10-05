@@ -3,17 +3,18 @@ title: 可用于 Azure Stack Hub 的 Azure 市场项
 description: 了解哪些 Azure 市场项可以在 Azure Stack Hub 中使用。
 author: WenJason
 ms.topic: article
-origin.date: 08/07/2020
-ms.date: 08/31/2020
+ms.service: azure-stack
+origin.date: 09/09/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 3014017bca16231a5dfc07da643f9c12f2610149
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 3ea69a71bc4fd0e64d9465b69a3a1d201b9074b9
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868082"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437688"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>可用于 Azure Stack Hub 的 Azure 市场项
 
@@ -68,9 +69,9 @@ Azure Stack Hub 支持下述 Azure 市场 VM 和解决方案模板。 请根据�
 | ![Barracuda Web 应用程序防火墙 (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web 应用程序防火墙 (WAF)](https://market.azure.cn/zh-cn/marketplace/apps/vstecscloud.barracuda_web_application_firewall_formigration?tab=Overview) | 一种安全性和 DDoS 防护，防范自动化针对性攻击。 | Barracuda Networks, Inc. |
 | ![Barracuda CloudGen 防火墙控制中心](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen 防火墙控制中心](https://market.azure.cn/zh-cn/marketplace/apps/vstecscloud.cloudgen_firewall_controlcenter?tab=Overview) | 集中管理数百个 Barracuda CloudGen 防火墙，不管其位置和外形规格。 | Barracuda Networks, Inc. |
 | ![用于 Azure 的 Barracuda CloudGen 防火墙](media/azure-stack-marketplace-azure-items/barracuda.png) | [用于 Azure 的 Barracuda CloudGen 防火墙](https://market.azure.cn/zh-cn/marketplace/apps/vstecscloud.barracuda_cloudgenfirewall?tab=Overview) | 在应用和数据驻留的位置提供防火墙保护，而不是仅仅在连接终止的位置提供保护。 | Barracuda Networks, Inc. |
-| ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://market.azure.cn/zh-cn/marketplace/apps/vstecscloud.commvault_backup_suite?tab=Overview) | 一个综合性解决方案，适用于备份和恢复、将应用和 VM 迁移到 Azure Stack Hub，以及在单个解决方案中针对 Azure Stack Hub 环境进行灾难恢复。 | Commvault |
+| :::image type="icon" source="media/azure-stack-marketplace-azure-items/commvault.png" border="false"::: | [Commvault](https://market.azure.cn/zh-cn/marketplace/apps/vstecscloud.commvault_backup_suite?tab=Overview) | 一个综合性解决方案，适用于备份和恢复、将应用和 VM 迁移到 Azure Stack Hub，以及在单个解决方案中针对 Azure Stack Hub 环境进行灾难恢复。 | Commvault |
 | ![FortiGate 下一代防火墙](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate 下一代防火墙](https://market.azure.cn/zh-cn/marketplace/apps/fortinet-cn.fortinet_fortigate-vm_v6_0?tab=Overview) | 一种防火墙技术，通过一个包含强大安全功能的综合性套件提供完整的内容和网络保护。 可以协调使用应用控制、防病毒、IPS、Web 筛选、VPN 以及多种高级功能（例如漏洞管理），以便确定并缓解最新且复杂的安全威胁。 | Fortinet |
-| ![kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-aks-engine.md) | 此解决方案会使用 AKS-Engine 生成的模板部署一个 Kubernetes 群集，该群集以独立群集的形式运行。<br>此解决方案模板还需要 Ubuntu Server 16.04 LTS 以及适用于 Linux 2.0 的自定义脚本。| Microsoft |
+| :::image type="icon" source="media/azure-stack-marketplace-azure-items/kubernetes.png" border="false"::: | [Kubernetes](azure-stack-aks-engine.md) | 此解决方案会使用 AKS-Engine 生成的模板部署一个 Kubernetes 群集，该群集以独立群集的形式运行。<br>此解决方案模板还需要 Ubuntu Server 16.04 LTS 以及适用于 Linux 2.0 的自定义脚本。| Microsoft |
 | ![Service Fabric 群集](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric 群集](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | 此解决方案将 Service Fabric 部署为在虚拟机规模集上运行的独立群集。 <br>**此解决方案模板还需要下载 Windows Server 2016 Datacenter**| Microsoft |
 | ![Palo Alto VM 系列下一代防火墙](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 系列下一代防火墙](https://market.azure.cn/zh-cn/marketplace/apps/WestconSolutionsChina.vmseries800?tab=Overview) | VM 系列下一代防火墙可以让客户安全地将其应用和数据迁移到 Azure Stack Hub，使用应用允许列表和威胁防范策略保护客户免受已知和未知的威胁。 **此映像需要模板来部署；请参阅此[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以获取重要信息。**| Palo Alto Networks, Inc. |
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://market.azure.cn/zh-cn/marketplace/apps/questchina.rapidrecoverycore?tab=Overview) | Rapid Recovery 高级数据保护在单个易用的软件解决方案中集中了备份、复制和恢复功能。 | Quest Software |

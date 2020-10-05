@@ -4,21 +4,21 @@ description: 本教程演示如何在 Azure 门户中跨负载均衡的 IoT 中�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/12/2019
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 610e9bb55e7c125da9ca7305be88088766d541b9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6c4bacc448f0d278db2f3d53b316fff726d04285
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494377"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564227"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>教程：跨负载均衡的 IoT 中心预配设备
 
-本教程演示如何使用设备预配服务为多个负载均衡的 IoT 中心预配设备。 本教程介绍如何执行下列操作：
+本教程演示如何使用设备预配服务为多个负载均衡的 IoT 中心预配设备。 在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 使用 Azure 门户将另一台设备预配到另一个 IoT 中心 
@@ -49,14 +49,14 @@ ms.locfileid: "77494377"
 分配策略是一项设备预配服务设置，用于确定将设备分配到 IoT 中心的方式。 支持三种分配策略： 
 
 1. **最低延迟**：将设备预配到具有最低延迟的 IoT 中心。
-2. **均匀加权分发**（默认）：链接的 IoT 中心等可能地获得预配到它们的设备。 此设置为默认设置。 如果只将设备预配到一个 IoT 中心，则可以保留此设置。 
-3. **通过注册列表进行静态配置**：注册列表中所需 IoT 中心的规范优先于设备预配服务级别的分配策略。
+2. **均衡加权分布**（默认）：链接的 IoT 中心等可能地获得预配到它们的设备。 这是默认设置。 如果只将设备预配到一个 IoT 中心，则可以保留此设置。 
+3. **通过注册列表进行静态注册**：注册列表中所需 IoT 中心的规范优先于设备预配服务级别的分配策略。
 
 请按照以下步骤设置分配策略：
 
 1. 若要设置分配策略，请单击“设备预配服务”页上的“管理分配策略”  。
 2. 将分配策略设置为“均匀加权分发”  。
-3. 单击“保存”  。
+3. 单击“ **保存**”。
 
 ## <a name="link-the-new-iot-hub-to-the-device-provisioning-service"></a>将新的 IoT 中心链接到设备预配服务
 
@@ -66,17 +66,17 @@ ms.locfileid: "77494377"
 2. 在“设备预配服务”页上，单击“链接 IoT 中心”  。
 3. 单击“添加”  。
 4. 在“将链接添加到 IoT 中心”页上，使用单选按钮指定链接的 IoT 中心位于当前订阅中还是其他订阅中  。 然后，从“IoT 中心”框中选择该 IoT 中心的名称  。
-5. 单击“保存”  。
+5. 单击“ **保存**”。
 
-## <a name="next-steps"></a>后续步骤
-
-在本教程中，你已学习了如何执行以下操作：
+在本教程中，你了解了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 使用 Azure 门户将另一台设备预配到另一个 IoT 中心 
 > * 添加第二台设备的注册列表条目
-> * 将设备预配服务分配策略设置为“均匀分发” 
+> * 将设备预配服务分配策略设置为“均匀分发”****
 > * 将新的 IoT 中心链接到设备预配服务
+
+## <a name="next-steps"></a>后续步骤
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md

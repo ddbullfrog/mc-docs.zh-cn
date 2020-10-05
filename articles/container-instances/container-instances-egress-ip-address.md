@@ -4,16 +4,16 @@ description: 为针对入口和出口使用防火墙公共 IP 地址的 Azure �
 ms.topic: article
 origin.date: 07/16/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/05/2020
 ms.testscope: yes
 ms.testdate: 09/21/2020
 ms.author: v-yeche
-ms.openlocfilehash: bc8fb5a91821cd375581fcec4062d3831b01e3c6
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 52af28be68bd2b2f022e1672c5534f3e002b3462
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822445"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564304"
 ---
 <!--Verified successfully on 09/17/2020-->
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>为容器组的出站和入站流量配置单个公共 IP 地址
@@ -289,21 +289,20 @@ az container logs \
 若要详细了解如何管理流量和保护 Azure 资源，请参阅 [Azure 防火墙](../firewall/index.yml)文档。
 
 [az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-container-create]: https://docs.microsoft.com/cli/azure/container#az-container-create
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
 [az-network-vnet-subnet-create]: https://docs.azure.cn/cli/network/vnet/subnet#az-network-vnet-subnet-create
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-network-firewall-update]: https://docs.microsoft.com/cli/azure/ext#ext-azure-firewall-az-network-firewall-update
+[az-extension-add]: https://docs.microsoft.com/cli/azure/extension#az_extension_add
+[az-network-firewall-update]: https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall#ext-azure-firewall-az-network-firewall-update
 [az-network-public-ip-show]: https://docs.azure.cn/cli/network/public-ip/#az-network-public-ip-show
 [az-network-route-table-create]: https://docs.azure.cn/cli/network/route-table/#az-network-route-table-create
 [az-network-route-table-route-create]: https://docs.azure.cn/cli/network/route-table/route#az-network-route-table-route-create
-[az-network-firewall-ip-config-list]: https://docs.microsoft.com/cli/azure/ext#ext-azure-firewall-az-network-firewall-ip-config-list
+[az-network-firewall-ip-config-list]: https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-list
 [az-network-vnet-subnet-update]: https://docs.azure.cn/cli/network/vnet/subnet#az-network-vnet-subnet-update
-[az-container-exec]: https://docs.microsoft.com/cli/azure/container#az-container-exec
+[az-container-exec]: https://docs.microsoft.com/cli/azure/container#az_container_exec
 [az-vm-create]: https://docs.azure.cn/cli/vm#az-vm-create
 [az-vm-open-port]: https://docs.azure.cn/cli/vm#az-vm-open-port
 [az-vm-list-ip-addresses]: https://docs.azure.cn/cli/vm#az-vm-list-ip-addresses
-[az-network-firewall-application-rule-create]: https://docs.microsoft.com/cli/azure/ext#ext-azure-firewall-az-network-firewall-application-rule-create
-[az-network-firewall-nat-rule-create]: https://docs.microsoft.com/cli/azure/ext#ext-azure-firewall-az-network-firewall-nat-rule-create
+[az-network-firewall-application-rule-create]: https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/application-rule#ext-azure-firewall-az-network-firewall-application-rule-create
+[az-network-firewall-nat-rule-create]: https://docs.microsoft.com/cli/azure/ext/azure-firewall/network/firewall/nat-rule#ext-azure-firewall-az-network-firewall-nat-rule-create
 
-<!-- Update_Description: new article about container instances egress ip address -->
-<!--NEW.date: 09/21/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

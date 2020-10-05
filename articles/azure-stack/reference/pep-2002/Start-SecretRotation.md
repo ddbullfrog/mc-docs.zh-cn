@@ -8,12 +8,12 @@ ms.date: 08/31/2020
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 5ce1a3c63347c4af33854b2d26c02e849070654c
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 7d6ae4418cbc1fbc7e0f88335b44815d611edb02
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867979"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437659"
 ---
 # <a name="start-secretrotation"></a>Start-SecretRotation
 
@@ -86,6 +86,8 @@ Accept wildcard characters: False
 我们将使用正确的 CA 密码重新生成 pfx 文件。
 
 用法：
+
+```console
     # Rotates external certificates only
     Start-SecretRotation -PfxFilesPath \<String\> -PathAccessCredential \<PSCredential\> -CertificatePassword \<SecureString\>
 
@@ -97,6 +99,7 @@ Accept wildcard characters: False
 
     # Reruns external certificates only
     Start-SecretRotation -ReRun
+```
 
 ```yaml
 Type: Object

@@ -205,7 +205,7 @@
   expanded: false
   items:
     - name: Azure CLI
-      href: 'https://docs.azure.cn/cli/acr?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/acr'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/containerregistry'
     - name: PowerShell

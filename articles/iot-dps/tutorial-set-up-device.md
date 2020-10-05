@@ -4,22 +4,22 @@ description: 本教程介绍如何在设备制造过程中通过 IoT 中心设�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/12/2019
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 92e3bb96c26a7fab753647e60eb26323ad978c60
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 07413ed936b137a7732d6e0b27c3cd194dcaaa49
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850591"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564566"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>教程：使用 Azure IoT 中心设备预配服务设置设备以进行预配
 
-前面的教程介绍了设置 Azure IoT 中心设备预配服务以将设备自动预配到 IoT 中心的方法。 本教程介绍如何在制造过程中设置设备，使之能够通过 IoT 中心进行自动预配。 设备在首先启动并连接到预配服务之后，即可根据其[证明机制](concepts-device.md#attestation-mechanism)进行预配。 本教程涵盖以下任务：
+前面的教程介绍了设置 Azure IoT 中心设备预配服务以将设备自动预配到 IoT 中心的方法。 本教程介绍如何在制造过程中设置设备，使之能够通过 IoT 中心进行自动预配。 设备在首先启动并连接到预配服务之后，即可根据其[证明机制](concepts-service.md#attestation-mechanism)进行预配。 本教程涵盖以下任务：
 
 > [!div class="checklist"]
 > * 生成特定于平台的设备预配服务客户端 SDK
@@ -30,7 +30,7 @@ ms.locfileid: "78850591"
 
 本教程使用[用于 C 存储库的 Azure IoT SDK 和库](https://github.com/Azure/azure-iot-sdk-c)，该存储库包含用于 C 的设备预配服务客户端 SDK。此 SDK 目前为运行在 Windows 或 Ubuntu 实现上的设备提供 TPM 和 X.509 支持。 本教程以 Windows 开发客户端的使用为基础，而使用该客户端的前提是基本熟悉 Visual Studio 的使用。 
 
-如果不熟悉自动预配过程，请务必在继续操作之前查看[自动预配概念](concepts-auto-provisioning.md)。 
+如果你不熟悉自动预配过程，请在继续操作之前查看[预配](about-iot-dps.md#provisioning-process)概述。 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "78850591"
 
 以下先决条件适用于 Windows 开发环境。 对于 Linux 或 macOS，请参阅 SDK 文档的[准备开发环境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)中的相应部分。
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019，已启用[“使用 C++ 的桌面开发”](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads)工作负荷。 Visual Studio 2015 和 Visual Studio 2017 也受支持。
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019，已启用[“使用 C++ 的桌面开发”](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development)工作负荷。 Visual Studio 2015 和 Visual Studio 2017 也受支持。
 
 * 已安装最新版本的 [Git](https://git-scm.com/download/)。
 
@@ -101,9 +101,9 @@ ms.locfileid: "78850591"
 
 - 对于 X.509 设备，你需要获取为设备颁发的证书。 预配服务公开了两种类型的注册条目，它们使用 X.509 认证机制控制对设备的访问。 所需的证书取决于你将使用的注册类型。
 
-    - 个人注册：针对特定的单个设备的注册。 此类型的注册条目需要[最终实体、“叶”、证书](concepts-security.md#end-entity-leaf-certificate)。
+    - 个人注册：针对特定的单个设备的注册。 此类型的注册条目需要[最终实体、“叶”、证书](concepts-x509-attestation.md#end-entity-leaf-certificate)。
     
-    - 注册组：此类型的注册条目需要中间证书或根证书。 有关详细信息，请参阅[使用 X.509 证书控制设备对预配服务的访问](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)。
+    - 注册组：此类型的注册条目需要中间证书或根证书。 有关详细信息，请参阅[使用 X.509 证书控制设备对预配服务的访问](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)。
 
 ### <a name="simulated-devices"></a>模拟设备
 

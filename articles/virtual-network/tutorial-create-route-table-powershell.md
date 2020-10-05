@@ -3,7 +3,6 @@ title: 路由网络流量 - Azure PowerShell | Azure
 description: 本文介绍了如何使用 PowerShell 通过路由表来路由网络流量。
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -11,19 +10,22 @@ Customer intent: I want to route traffic from one subnet, to a different subnet,
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 11/25/2019
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: 2b01fc5f49dd2e2889a767c0bbe23416f86f1f90
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c166efde46ddaf2f14d0a99c2d86ebc4f349fbc4
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74658052"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564335"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>使用 PowerShell 通过路由表路由网络流量
 

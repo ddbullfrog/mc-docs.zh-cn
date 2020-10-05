@@ -10,16 +10,16 @@ ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7f37359bdbd18f8c188d7c23a72fa2d1b4b60bb5
-ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+ms.openlocfilehash: 4ce57b0dcc94f7ccb7111ec7d2a0b74a184b4186
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275581"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564630"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>使用对称密钥证明创建和预配 IoT Edge 设备
 
-可以使用[设备预配服务](../iot-dps/index.yml)自动预配 Azure IoT Edge 设备，就像预配未启用 Edge 的设备一样。 如果你不熟悉自动预配过程，请在继续操作之前查看[自动预配的概念](../iot-dps/concepts-auto-provisioning.md)。
+可以使用[设备预配服务](../iot-dps/index.yml)自动预配 Azure IoT Edge 设备，就像预配未启用 Edge 的设备一样。 如果你不熟悉自动预配过程，请在继续操作之前查看[自动预配的概念](../iot-dps/concepts-roles-operations.md)。
 
 本文介绍如何通过以下步骤，在 IoT Edge 设备上使用对称密钥证明创建设备预配服务的单个注册：
 

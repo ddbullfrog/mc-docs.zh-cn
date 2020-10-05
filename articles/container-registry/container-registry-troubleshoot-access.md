@@ -4,16 +4,16 @@ description: 访问位于虚拟网络中或防火墙后面的 Azure 容器注册
 ms.topic: article
 origin.date: 08/11/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3d4666806f4204548836e7b00fe02092990d69c8
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: eed8cc1d7d9a85d6cd7f6405e6f2b20c00602f96
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021681"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564144"
 ---
 <!--Verified Successfully-->
 # <a name="troubleshoot-network-issues-with-registry"></a>排查与注册表相关的网络问题

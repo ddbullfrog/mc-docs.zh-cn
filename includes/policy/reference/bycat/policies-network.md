@@ -3,18 +3,18 @@ author: rockboyfor
 ms.service: azure-policy
 ms.topic: include
 origin.date: 09/10/2020
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: v-yeche
 ms.custom: generated
-ms.openlocfilehash: 3ebe07c6e5da0b14d6bee0eb68c78807259bcb50
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 442158a74009251815b3259d0c883db40e7e8fb3
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395235"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564360"
 ---
 <!--Verified successfully-->
-<!-- |[All Internet traffic should be routed via your deployed Azure Firewall](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |Azure Security Center has identified that some of your subnets aren't protected with a next generation firewall. Protect your subnets from potential threats by restricting access to them with Azure Firewall or a supported next generation firewall |AuditIfNotExists, Disabled |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) | -->
+<!-- |[All Internet traffic should be routed via your deployed Azure Firewall](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c)-->
 
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

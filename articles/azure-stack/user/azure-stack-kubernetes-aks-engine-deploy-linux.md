@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 中的 Linux 上安装 AKS 引擎
 description: 了解如何在 Azure Stack Hub 中使用 Linux 计算机托管 AKS 引擎，以便部署和管理 Kubernetes 群集。
 author: WenJason
 ms.topic: article
-origin.date: 06/19/2020
-ms.date: 08/31/2020
+origin.date: 09/16/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 06/19/2020
-ms.openlocfilehash: 7060938c16171d5a801632b71c8cafb36bada0e5
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: dfa531471f463802bceecc1819dbbcfaba0e1ca7
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867774"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437533"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>在 Azure Stack Hub 中的 Linux 上安装 AKS 引擎
 
@@ -34,16 +34,16 @@ AKS 引擎是一种用于部署和管理 Kubernetes 群集的命令行工具。 
 
 1. 在 Azure Stack Hub 中创建 Linux VM。 有关说明，请参阅[快速入门：通过使用 Azure Stack Hub 门户创建 Linux 服务器 VM](./azure-stack-quick-linux-portal.md)。
 2. 连接到 VM。
-3. 在[受支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)表中查找 AKS 引擎的版本。 AKS 基础映像必须已在 Azure Stack Hub 市场中提供。 运行该命令时，必须指定版本 `--version v0.51.0`。 如果不指定版本，该命令将安装最新版，这样可能就会需要市场中未提供的 VHD 映像。
+3. 在[受支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)表中查找 AKS 引擎的版本。 AKS 基础映像必须已在 Azure Stack Hub 市场中提供。 运行该命令时，必须指定版本 `--version v0.55.4`。 如果不指定版本，该命令将安装最新版，这样可能就会需要市场中未提供的 VHD 映像。
 4. 运行以下命令：
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.51.0
+        ./get-akse.sh --version 0.55.4
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > 如果此安装方法失败，可以尝试[离线环境](#install-in-a-disconnected-environment)中的步骤，或者[尝试 GoFish](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish)（一个备用包管理器）。
 
 ## <a name="install-in-a-disconnected-environment"></a>在离线环境中安装

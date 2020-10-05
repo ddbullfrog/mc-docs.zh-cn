@@ -3,7 +3,6 @@ title: 使用 VNet 对等互连连接虚拟网络 - Azure PowerShell
 description: 在本文中，你将学习如何使用 Azure PowerShell 通过虚拟网络对等互连来连接虚拟网络。
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.assetid: ''
@@ -13,15 +12,18 @@ ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: 13f7804173a2a0f0d90cd249bd38dfbf130f2e8f
-ms.sourcegitcommit: af71b9199d47fb81e85d70da0cfb265cc814a644
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6df4f1bf1b7d4d9199bb95f1a516bb70290a0f68
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969011"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564168"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>通过 PowerShell 使用虚拟网络对等互连连接虚拟网络
 
@@ -141,7 +143,6 @@ New-AzVm `
   -SubnetName "Subnet1" `
   -ImageName "Win2016Datacenter" `
   -Name "myVm1" `
-  -Size "Standard_A1" `
   -AsJob
 ```
 
@@ -154,7 +155,6 @@ New-AzVm `
   -VirtualNetworkName "myVirtualNetwork2" `
   -SubnetName "Subnet1" `
   -ImageName "Win2016Datacenter" `
-  -Size "Standard_A1" `
   -Name "myVm2"
 ```
 

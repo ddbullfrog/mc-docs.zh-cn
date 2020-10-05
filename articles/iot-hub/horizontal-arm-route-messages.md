@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: e9029cc1209e008b6e0f629a98e284584b13aff1
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: ab2cc9f665c3f7b960038e22db7f95062fabcc34
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463991"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394783"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>快速入门：使用 ARM 模板部署 Azure IoT 中心和存储帐户
 
@@ -184,8 +184,8 @@ ms.locfileid: "89463991"
 ```
 
 该模板中定义了两个 Azure 资源： 
-* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.iothubs)
-* [Microsoft.Storage/](/azure/templates/microsoft.storage)
+* [Microsoft.Devices/Iothubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs)
+* [Microsoft.Storage/](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions)
 
 ## <a name="deploy-the-template-and-run-the-sample-app"></a>部署模板并运行示例应用
 
@@ -198,7 +198,7 @@ ms.locfileid: "89463991"
 
     [![部署到 Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. 下载并解压缩 [IoT C# 示例](https://Azure-Samples/azure-iot-samples-csharp)。
+1. 下载并解压缩 [IoT C# 示例](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/)。
 
 1. 打开一个命令窗口并转到你将 IoT C# 示例解压缩到的文件夹。 查找包含 arm-read-write.csproj 文件的文件夹。 可以在此命令窗口中创建环境变量。 登录到 [Azure 门户](https://portal.azure.cn)以获取密钥。 选择“资源组”，然后选择用于此快速入门的资源组。
 

@@ -4,18 +4,18 @@ description: 本教程介绍如何使用 .NET 通过 Azure IoT 中心设备预�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/12/2019
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
-ms.openlocfilehash: 808c5bc146cb8ac0d92c156d35c41a09c76c9179
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 50757565e3479c5eeeb422902ef0b71a356cc500
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494381"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564238"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>教程：使用 Azure IoT 中心设备预配服务客户端将设备登记到 IoT 中心 (.NET)
 

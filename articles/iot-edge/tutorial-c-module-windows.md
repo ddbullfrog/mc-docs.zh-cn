@@ -2,20 +2,20 @@
 title: 有关开发适用于 Windows 的 C 模块的教程 - Azure IoT Edge | Microsoft Docs
 description: 本教程介绍如何使用 C 代码创建 IoT Edge 模块并将其部署到运行 IoT Edge 的 Windows 设备
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 05/28/2019
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d2402eda8f826fd7666f1bd8e0fcfd8a1b42da3a
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: d29220006413ba6255667f4e8098b91d1e39f1c8
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957814"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564208"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教程：开发适用于 Windows 设备的 C IoT Edge 模块
 

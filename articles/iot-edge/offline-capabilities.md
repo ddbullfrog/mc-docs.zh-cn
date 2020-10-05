@@ -4,16 +4,16 @@ description: 了解 IoT Edge 设备和模块如何能够长时间在无 Internet
 author: kgremban
 ms.author: v-tawe
 origin.date: 11/22/2019
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 83f32ed53834ea46b7623d4c80b4fbe1a7b47174
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 66050e0127f0d1561cd5a3f387b738aa23355578
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957810"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564597"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>了解有关 IoT Edge 设备、模块和子设备的扩展脱机功能
 

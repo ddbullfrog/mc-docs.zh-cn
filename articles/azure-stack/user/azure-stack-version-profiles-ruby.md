@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 中将 API 版本配置文件与 Ruby 配合使用
 description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 Ruby 配合使用。
 author: WenJason
 ms.topic: article
-origin.date: 05/05/2020
-ms.date: 06/22/2020
+origin.date: 09/03/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: f02ed690e6e21dde58b45fd3d8c89e87b71a4623
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 8791b3f0004ebefdc99d7a2816666919d3b23c1d
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096433"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437629"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -39,7 +39,7 @@ API 配置文件是资源提供程序和服务版本的组合。 可以使用 AP
   - 在 Ruby 安装过程中出现提示时，安装开发工具包。
   - 接下来，使用以下命令安装捆绑程序： 
 
-       ```Ruby
+       ```ruby
        Gem install bundler
        ```
 
@@ -51,7 +51,7 @@ API 配置文件是资源提供程序和服务版本的组合。 可以使用 AP
 
 可以直接安装 Azure RubyGem 包。
 
-```Ruby  
+```ruby  
 gem install azure_mgmt_compute
 gem install azure_mgmt_storage
 gem install azure_mgmt_resources
@@ -60,7 +60,7 @@ gem install azure_mgmt_network
 
 也可以在 Gemfile 中使用这些包。
 
-```Ruby
+```ruby
 gem 'azure_mgmt_storage'
 gem 'azure_mgmt_compute'
 gem 'azure_mgmt_resources'
@@ -75,7 +75,7 @@ Azure 资源管理器 Ruby SDK 为预览版，在即将推出的版本中可能�
 
 可使用以下命令安装 azure_sdk 汇总 gem：  
 
-```Ruby  
+```ruby  
 gem install 'azure_sdk'
 ```
 
@@ -121,7 +121,7 @@ Azure 资源管理器是一种管理框架，可供管理员用来部署、管�
 
 若要设置环境变量，请在 Windows 命令提示符下使用以下格式：
 
-```shell
+```console
 set AZURE_TENANT_ID=<YOUR_TENANT_ID>
 ```
 
@@ -147,7 +147,7 @@ export AZURE_TENANT_ID=<YOUR_TENANT_ID>
 
 使用以下代码实例化配置文件客户端。 此参数只是 Azure Stack Hub 或其他私有云所需要的。 默认情况下，公有云 Azure 已经有这些设置。
 
-```Ruby  
+```ruby  
 active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
 
 provider = MsRestAzure::ApplicationTokenProvider.new(
@@ -170,7 +170,7 @@ client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(option
 
 可以使用配置文件客户端来访问单个资源提供程序，例如计算、存储和网络提供程序：
 
-```Ruby  
+```ruby  
 # To access the operations associated with Compute
 profile_client.compute.virtual_machines.get 'RESOURCE_GROUP_NAME', 'VIRTUAL_MACHINE_NAME'
 
@@ -186,7 +186,7 @@ purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::
 
 若要通过 Azure Stack Hub 环境进行服务主体身份验证，请使用 `get_active_directory_settings()` 来定义终结点 此方法使用之前设置的 **ARM_Endpoint** 环境变量：
 
-```Ruby  
+```ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
 def get_active_directory_settings(armEndpoint)
   settings = MsRestAzure::ActiveDirectoryServiceSettings.new
@@ -221,13 +221,13 @@ end
 
 1. 克隆存储库：
 
-   ```bash
+   ```console
    git clone https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups.git
    ```
 
 2. 使用捆绑安装依赖项：
 
-   ```Bash
+   ```console
    cd Hybrid-Resource-Manager-Ruby-Resources-And-Groups
    bundle install
    ```
@@ -259,7 +259,7 @@ end
 
 5. 若要定位正确的活动目录终结点，如果你使用的是 Azure Stack Hub 或其他私有云，请添加以下代码行：
 
-   ```Ruby  
+   ```ruby  
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
@@ -301,7 +301,7 @@ end
 
 9. 运行该示例。
 
-   ```Ruby
+   ```ruby
    bundle exec ruby example.rb
    ```
 

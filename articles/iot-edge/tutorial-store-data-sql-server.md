@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 08/04/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 1c36988656780cc14a709de639036104db86dd51
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: dfc43490ce15de5101c309da80e227781187b492
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957815"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564627"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教程：使用 SQL Server 数据库存储边缘中的数据
 
@@ -88,7 +88,7 @@ IoT Edge 扩展尝试从 Azure 中拉取容器注册表凭据并将其填充到�
 
 ### <a name="select-your-target-architecture"></a>选择目标体系结构
 
-目前，Visual Studio Code 可以开发适用于 Linux AMD64 和 Linux ARM32v7 设备的 C 模块。 需要选择面向每个解决方案的体系结构，因为每种体系结构类型的容器的生成和运行方式均不相同。 默认值为 Linux AMD64。
+需要选择面向每个解决方案的体系结构，因为每种体系结构类型的容器的生成和运行方式均不相同。 默认值为 Linux AMD64。
 
 1. 打开命令面板并搜索 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或选择窗口底部侧栏中的快捷方式图标。
 
@@ -259,7 +259,7 @@ IoT Edge 扩展尝试从 Azure 中拉取容器注册表凭据并将其填充到�
 
 可以通过 IoT 中心设置设备上的模块，但是也可以通过 Visual Studio Code 访问 IoT 中心和设备。 在此部分，请先设置对 IoT 中心的访问权限，然后使用 VS Code 将解决方案部署到 IoT Edge 设备。
 
-1.  在 Visual Studio Code 资源管理器中的“Azure IoT 中心”部分下，展开“设备”可查看 IoT 设备的列表。 
+1. 在 Visual Studio Code 资源管理器中的“Azure IoT 中心”部分下，展开“设备”可查看 IoT 设备的列表。 
 
 2. 右键单击要将其作为部署目标的设备，然后选择“为单个设备创建部署”。
 

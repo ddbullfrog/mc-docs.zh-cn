@@ -3,18 +3,20 @@ title: 使用服务终结点限制访问
 description: 使用 Azure 虚拟网络中的服务终结点限制对 Azure 容器注册表的访问。 服务终结点访问是高级服务层级的一项功能。
 ms.topic: article
 origin.date: 05/04/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: yes
-ms.testdate: 07/27/2020
+ms.testdate: 09/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3f0de6efe9a7b7198a07b577196f2d580586e61e
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: ad4ecbec937752e8eb5c84b7021eb3a2dc615f42
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863415"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564261"
 ---
-<!--Verified successfully-->
+<!--NOT AVAILABLE ON MOONCAKE TILL ON 09/30/2020-->
+<!--FOLLOW THE GLOBAL LATEST INTRODUCE NOT SUITABLE TO AZURE CHINA-->
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>使用 Azure 虚拟网络中的服务终结点限制对容器注册表的访问
 
 [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)为 Azure 资源和本地资源提供安全的专用网络。 使用[服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)可以保护容器注册表的公共 IP 地址，仅在自己的虚拟网络中对其进行访问。 此终结点为流量提供通过 Azure 主干网络到达资源的最优路径。 虚拟网络和子网的标识也随每个请求进行传输。
@@ -177,7 +179,7 @@ az acr update --name myContainerRegistry --default-action Allow
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果所有 Azure 资源都是在同一资源组中创建的并且不再需要，你以选择使用单个 [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) 命令删除资源：
+如果所有 Azure 资源都是在同一资源组中创建的并且不再需要，你以选择使用单个 [az group delete](https://docs.azure.cn/cli/group#az-group-delete) 命令删除资源：
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -208,28 +210,27 @@ az group delete --name myResourceGroup
 
 <!-- LINKS - Internal -->
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-create]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-create
-[az-acr-show]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-show
-[az-acr-repository-show]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show
-[az-acr-repository-list]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-list
-[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
-[az-acr-network-rule-add]: https://docs.azure.cn/cli/acr/network-rule/?view=azure-cli-latest#az-acr-network-rule-add
-[az-acr-network-rule-remove]: https://docs.azure.cn/cli/acr/network-rule/?view=azure-cli-latest#az-acr-network-rule-remove
-[az-acr-network-rule-list]: https://docs.azure.cn/cli/acr/network-rule/?view=azure-cli-latest#az-acr-network-rule-list
-[az-acr-run]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-run
-[az-acr-update]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-update
-[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-[az-vm-create]: https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create
-[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet/?view=azure-cli-latest#az-network-vnet-subnet-show
-[az-network-vnet-subnet-update]: https://docs.azure.cn/cli/network/vnet/subnet/?view=azure-cli-latest#az-network-vnet-subnet-update
-[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet/?view=azure-cli-latest#az-network-vnet-subnet-show
-[az-network-vnet-list]: https://docs.azure.cn/cli/network/vnet/?view=azure-cli-latest#az-network-vnet-list
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-create]: https://docs.azure.cn/cli/acr#az-acr-create
+[az-acr-show]: https://docs.azure.cn/cli/acr#az-acr-show
+[az-acr-repository-show]: https://docs.azure.cn/cli/acr/repository#az-acr-repository-show
+[az-acr-repository-list]: https://docs.azure.cn/cli/acr/repository#az-acr-repository-list
+[az-acr-login]: https://docs.azure.cn/cli/acr#az-acr-login
+[az-acr-network-rule-add]: https://docs.azure.cn/cli/acr/network-rule/#az-acr-network-rule-add
+[az-acr-network-rule-remove]: https://docs.azure.cn/cli/acr/network-rule/#az-acr-network-rule-remove
+[az-acr-network-rule-list]: https://docs.azure.cn/cli/acr/network-rule/#az-acr-network-rule-list
+[az-acr-run]: https://docs.azure.cn/cli/acr#az-acr-run
+[az-acr-update]: https://docs.azure.cn/cli/acr#az-acr-update
+[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az-ad-sp-create-for-rbac
+[az-group-create]: https://docs.azure.cn/cli/group
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
+[az-vm-create]: https://docs.azure.cn/cli/vm#az-vm-create
+[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet/#az-network-vnet-subnet-show
+[az-network-vnet-subnet-update]: https://docs.azure.cn/cli/network/vnet/subnet/#az-network-vnet-subnet-update
+[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet/#az-network-vnet-subnet-show
+[az-network-vnet-list]: https://docs.azure.cn/cli/network/vnet/#az-network-vnet-list
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.cn
 
-<!-- Update_Description: new article about container registry vnet -->
-<!--NEW.date: 07/27/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

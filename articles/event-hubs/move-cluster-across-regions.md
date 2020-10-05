@@ -5,12 +5,12 @@ ms.topic: how-to
 origin.date: 09/01/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
-ms.openlocfilehash: b60cac6934e9861dd87b449dba54f133c9bf445e
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 35d771536f20f0a53143cbc8b16da79b05e072bd
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90064634"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564596"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>将 Azure 事件中心专用群集移到另一个区域
 本文介绍如何导出现有事件中心专用群集的 Azure 资源管理器模板，然后使用该模板在另一个区域中创建具有相同配置设置的群集。 
@@ -18,7 +18,9 @@ ms.locfileid: "90064634"
 如果在包含事件中心群集的 Azure 资源组中还有命名空间和事件中心等其他资源，则可能需要在资源组级别导出模板，以便可以通过一个步骤将所有相关资源移动到新区域。 本文中的步骤演示如何将事件中心群集导出到模板。 将资源组导出到模板的步骤类似。 
 
 ## <a name="prerequisites"></a>必备条件
-确保可以在目标区域创建专用群集。 最简单的方法是使用 Azure 门户尝试[创建事件中心专用群集](event-hubs-dedicated-cluster-create-portal.md)。 此时会显示创建群集时所支持的区域的列表。 
+确保可以在目标区域创建专用群集。
+
+ <!-- The easiest way to find out is to use the Azure portal to try to [create an Event Hubs dedicated cluster](event-hubs-dedicated-cluster-create-portal.md). You see the list of regions that are supported at that point of time for creating the cluster.  -->
 
 ## <a name="prepare"></a>准备
 若要开始，请导出资源管理器模板。 此模板包含描述事件中心专用群集的设置。
@@ -52,7 +54,7 @@ ms.locfileid: "90064634"
     4. 在“设置”部分中，执行以下步骤：    
         1. 输入新的群集名称。 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="部署资源管理器模板":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="下载资源管理器模板":::
     5. 在页面底部选择“查看 + 创建”。 
     1. 在“查看 + 创建”页上查看设置，然后选择“创建” 。  
 

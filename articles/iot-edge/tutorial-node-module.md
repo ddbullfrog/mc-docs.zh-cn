@@ -2,20 +2,20 @@
 title: 有关开发适用于 Linux 的 Node.js 模块的教程 - Azure IoT Edge | Microsoft Docs
 description: 本教程介绍如何使用 Node.js 代码创建 IoT Edge 模块并将其部署到边缘设备
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/30/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, devx-track-python, devx-track-javascript
-ms.openlocfilehash: e30468b80b39dc1d3b89154faf0048ae6bf8b24d
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.custom: mvc, devx-track-python, devx-track-js
+ms.openlocfilehash: 6db171783b06f142686f54b3e9fb6fa4c4b69d21
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957817"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564553"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>教程：为 Linux 设备开发并部署 Node.js IoT Edge 模块
 

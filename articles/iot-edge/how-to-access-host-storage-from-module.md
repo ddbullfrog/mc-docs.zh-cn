@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 08/14/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bccf2752d9484e20218c1442f8db39db2fa381e3
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 8c9dded4189b092899d0f89d2ec9fecb754fc5e8
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957757"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564559"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>向模块授予对设备本地存储的访问权限
 

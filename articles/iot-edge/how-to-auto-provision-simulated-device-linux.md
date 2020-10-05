@@ -9,16 +9,16 @@ ms.date: 08/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4de5cdd67d4cddb1a2cc2bc7f0c12c625258d3ff
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 7dadc874286f00f124c74f22476b44bf6203b2b2
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957803"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564556"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>在 Linux 上使用 TPM 创建和预配 IoT Edge 设备
 
-本文介绍如何使用受信任的平台模块 (TPM) 在 Linux IoT Edge 设备上测试自动预配。 可以使用[设备预配服务](../iot-dps/index.yml)自动预配 Azure IoT Edge 设备。 如果你不熟悉自动预配过程，请在继续操作之前查看[自动预配的概念](../iot-dps/concepts-auto-provisioning.md)。
+本文介绍如何使用受信任的平台模块 (TPM) 在 Linux IoT Edge 设备上测试自动预配。 可以使用[设备预配服务](../iot-dps/index.yml)自动预配 Azure IoT Edge 设备。 如果你不熟悉自动预配过程，请在继续操作之前查看[自动预配的概念](../iot-dps/concepts-roles-operations.md)。
 
 任务如下：
 

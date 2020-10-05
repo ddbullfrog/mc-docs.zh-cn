@@ -3,8 +3,7 @@ title: 包含双层应用程序的混合连接 | Azure
 description: 了解如何部署虚拟设备和 UDR 以便在 Azure 中创建多层应用程序环境
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: carmonm
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
 ms.devlang: na
@@ -12,14 +11,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/05/2016
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 24d8403bc07aa05cc3f546833f90184e441c25f8
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: 7dd5c767f2b930fdebb9ead1eb5399e2510bf9d0
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487001"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564583"
 ---
 # <a name="virtual-appliance-scenario"></a>虚拟设备方案
 在较大的 Azure 客户中，一种常见情况是需要向 Internet 公开某个双层应用程序，同时允许从本地数据中心访问后端层。 本文档指导实施一种使用用户定义的路由 (UDR)、VPN 网关和网络虚拟设备部署双层环境的方案，该方案可满足以下要求：
@@ -34,8 +36,8 @@ ms.locfileid: "84487001"
 
 |  | 优点 | 缺点 |
 | --- | --- | --- |
-| NSG |无需付费。 <br/>已集成到 Azure RBAC 中。 <br/>可以在 Azure 资源管理器模板中创建规则。 |在大型环境中复杂性各不相同。 |
-| 防火墙 |完全控制数据平面。 <br/>通过防火墙控制台进行集中管理。 |防火墙设备的费用。 <br/>不与 Azure RBAC 集成。 |
+| **NSG** |无需付费。 <br/>已集成到 Azure RBAC 中。 <br/>可以在 Azure 资源管理器模板中创建规则。 |在大型环境中复杂性各不相同。 |
+| **Firewall** |完全控制数据平面。 <br/>通过防火墙控制台进行集中管理。 |防火墙设备的费用。 <br/>不与 Azure RBAC 集成。 |
 
 以下解决方案使用防火墙虚拟设备来实施外围网络 (DMZ)/受保护网络方案。
 
@@ -48,7 +50,7 @@ ms.locfileid: "84487001"
 * **IP 转发**。 默认情况下，仅当数据包目标 IP 地址与 NIC IP 地址匹配时，Azure 网络引擎才将数据包转发到虚拟网络接口卡 (NIC)。 因此，如果 UDR 定义必须将数据包发送到给定的虚拟设备，则 Azure 网络引擎会丢弃该数据包。 为了确保将数据包传送到并非数据包实际目标的 VM（在本例中为虚拟设备），需要为虚拟设备启用 IP 转发。
 * **网络安全组 (NSG)** 。 以下示例未使用 NSG，但可以在此解决方案中使用应用到子网和/或 NIC 的 NSG 来进一步筛选传入和传出子网与 NIC 的流量。
 
-![IPv6 连接](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
+:::image type="content" source="./media/virtual-network-scenario-udr-gw-nva/figure01.png" alt-text="IPv6 连接":::
 
 在本示例中，有一个包含以下项的订阅：
 
@@ -169,4 +171,4 @@ AZF2 代表包含以下规则的 Azure 虚拟设备：
 4. 预配从 **onpremvnet** 到 **azurevnet** 的隧道。
 5. 预配所有资源后，登录到 **onpremvm2** 并 ping 10.0.3.101，以测试 **onpremsn2** 与 **azsn3** 之间的连接。
 
-<!-- Update_Description: update meta properties, wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

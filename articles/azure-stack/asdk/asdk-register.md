@@ -2,18 +2,19 @@
 title: 将 ASDK 注册到 Azure
 description: 了解如何将 Azure Stack 开发工具包 (ASDK) 注册到 Azure，以实现市场联合并报告使用情况。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
 origin.date: 06/14/2019
 ms.date: 06/22/2020
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: a7c8bc10e0bb78adca8049bb36baa88ba642c87c
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 31cc8c8ba8c10cd6a8408ea45fb8e13afd09dc5b
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096519"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437524"
 ---
 # <a name="register-the-asdk-with-azure"></a>将 ASDK 注册到 Azure
 
@@ -69,7 +70,6 @@ $ExecutionContext.SessionState.LanguageMode
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
     -RegistrationName $RegistrationName `
-    -UsageReportingEnabled:$true
     ```
 
 3. 该脚本完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。****
@@ -96,7 +96,6 @@ $ExecutionContext.SessionState.LanguageMode
    # File path to save the token. This example saves the file as C:\RegistrationToken.txt.
    $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
-   -UsageReportingEnabled:$false `
    -PrivilegedEndpoint AzS-ERCS01 `
    -BillingModel Development `
    -MarketplaceSyndicationEnabled:$false `

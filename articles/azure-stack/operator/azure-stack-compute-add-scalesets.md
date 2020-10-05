@@ -3,21 +3,22 @@ title: 在 Azure Stack Hub 中提供虚拟机规模集
 description: 了解云操作员如何向 Azure Stack Hub 市场中添加虚拟机规模集。
 author: WenJason
 ms.topic: article
-origin.date: 05/04/2020
-ms.date: 06/22/2020
+ms.service: azure-stack
+origin.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: a51337d09aca3dcfa705192e789bdefcb5fec29c
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: c6f4ab97f51acba90618e5372942cdb599bc82f7
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096302"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437734"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>在 Azure Stack Hub 中提供虚拟机规模集
 
-虚拟机规模集是一种 Azure Stack Hub 计算资源。 可以使用规模集部署和管理一组相同的虚拟机 (VM)。 由于所有 VM 的配置方式相同，因此规模集不需要预配 VM。 可以更轻松构建面向大型计算、大数据、容器化工作负荷的大规模服务。
+虚拟机规模集是一种 Azure Stack Hub 计算资源。 可以使用规模集部署和管理一组相同的虚拟机 (VM)。 由于所有 VM 的配置方式相同，因此规模集不需要预配 VM。 可以更方便地构建面向大型计算、大数据、容器化工作负荷的大规模服务。
 
 本文将指导你完成在 Azure Stack Hub 市场中提供规模集的过程。 完成此过程之后，用户将可以将虚拟机规模集添加到其订阅。
 
@@ -29,9 +30,6 @@ ms.locfileid: "85096302"
 * **操作系统映像：** 在创建虚拟机规模集之前，必须从 [Azure Stack Hub 市场](azure-stack-download-azure-marketplace-item.md)下载 VM 映像，以便在规模集中使用。 必须已存在映像，然后用户才能创建新的规模集。
 
 ## <a name="use-the-azure-stack-hub-portal"></a>使用 Azure Stack Hub 门户
-
->[!IMPORTANT]  
-> 当使用的是 Azure Stack Hub 版本 1808 或更高版本时，本部分中的信息适用。
 
 1. 登录到 Azure Stack Hub 门户。 然后，依次转到“所有服务”和“虚拟机规模集”，并在“计算”下选择“虚拟机规模集”。   
    ![选择虚拟机规模集](media/azure-stack-compute-add-scalesets/all-services.png)

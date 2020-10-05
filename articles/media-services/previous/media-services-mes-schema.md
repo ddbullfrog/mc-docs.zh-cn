@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard 架构 | Microsoft Docs
-description: 本文概述 Media Encoder Standard 架构。
+description: 本文描述 Media Encoder Standard 预设基于的 XML 架构的一些元素和类型。
 author: WenJason
 manager: digimobile
 editor: ''
@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 09/23/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 4d94b31f16c36e4fe621b29c8b2bbc3fdb37545d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 33155822a682c361dc62bc21b086f637b199566f
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71124367"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245684"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 本文介绍 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本文将解释元素及其有效值。  
 
 ## <a name="preset-root-element"></a><a name="Preset"></a> 预设（根元素）

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 7c2ca38b3078b8e2bf45a04a55754c207fdf61b4
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 2f44c2a86fab09e3db38dd97d9b6769939691007
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723830"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394634"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>HDInsight 中的 Azure 存储概述
 
@@ -44,7 +44,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
 * **没有连接到群集的存储帐户中的公共容器或公共 Blob：** 你对这些容器中的 Blob 具有只读权限。
   
   > [!NOTE]  
-  > 利用公共容器，可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅[管理对容器和 Blob 的匿名读取访问](../storage/blobs/storage-manage-access-to-resources.md)。
+  > 利用公共容器，可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，仅在知道正确 URL 时才可访问 Blob。 
 
 * **没有连接到群集的存储帐户中的专用容器：** 不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。
 
@@ -79,4 +79,3 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
 
 * [Azure Data Lake Storage Gen2 简介](../storage/blobs/data-lake-storage-introduction.md)
 * [Azure 存储简介](../storage/common/storage-introduction.md)
-* [Azure Data Lake Storage Gen1 概述](./overview-data-lake-storage-gen1.md)

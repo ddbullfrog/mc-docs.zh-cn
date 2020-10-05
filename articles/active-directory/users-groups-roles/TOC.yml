@@ -10,7 +10,7 @@
       href: ../fundamentals/add-users-azure-active-directory.md
     - name: 将许可证分配给用户
       href: ../fundamentals/license-users-groups.md
-    - name: 授权执行无限次应用注册
+    - name: 创建无限次应用注册
       href: roles-quickstart-app-registration-limits.md
     - name: 设置组过期策略
       href: groups-quickstart-expiration.md

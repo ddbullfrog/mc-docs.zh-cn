@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/29/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 24f4bcd7cd1cacc39ca9fca1d99656609cdc43df
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 638f780a81525993295936bff1d4c1b48d14a210
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957808"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564628"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教程：将 Azure Functions 作为 IoT Edge 模块进行部署
 
@@ -72,7 +72,7 @@ ms.locfileid: "88957808"
    | 提供解决方案名称 | 输入解决方案的描述性名称（例如 **FunctionSolution**），或者接受默认名称。 |
    | 选择模块模板 | 选择“Azure Functions - C#”。  |
    | 提供模块名称 | 将模块命名为 **CSharpFunction**。 |
-   | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是在上一步预先填充的。 将 localhost:5000 替换为 Azure 容器注册表中的“登录服务器”值 。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 最终的字符串看起来类似于 \<registry name\>.azurecr.cn/CSharpFunction。 |
+   | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是在上一步预先填充的。 将 localhost:5000 替换为 Azure 容器注册表中的“登录服务器”值 。 可以在 Azure 门户的容器注册表的“概述”页中检索登录服务器。 最终的字符串看起来类似于 \<registry name\>.azurecr.cn/CSharpFunction。 |
 
    ![提供 Docker 映像存储库](./media/tutorial-deploy-function/repository.png)
 

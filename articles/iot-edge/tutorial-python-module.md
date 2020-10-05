@@ -2,21 +2,21 @@
 title: 创建自定义 Python 模块 - Azure IoT Edge | Microsoft Docs
 description: 本教程介绍如何使用 Python 代码创建 IoT Edge 模块并将其部署到边缘设备。
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
 ms.reviewer: kgremban
 ms.author: v-tawe
 origin.date: 08/04/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e5adbb8371c84ac59d68a9b1ac6fd82aa52fc33b
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: aa92d2bebfac863dea4adfdc494ead87bf6eccbf
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957816"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564612"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>教程：为 Linux 设备开发并部署 Python IoT Edge 模块
 

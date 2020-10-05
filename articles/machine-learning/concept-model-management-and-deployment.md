@@ -12,12 +12,12 @@ ms.author: v-yiso
 origin.date: 02/21/2020
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 572b07187a780224ba30ecbbc9a47cc006d2045a
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: bb61a0f6ca5c48319cb8b88f79cf94b5e0166466
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947056"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395329"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps：使用 Azure 机器学习进行模型管理、部署和监视
 
@@ -159,7 +159,7 @@ Azure ML 提供使用元数据跟踪所有 ML 资产的端到端审核线索的�
 > [!TIP]
 > 系统会自动捕获有关模型和数据集的某些信息，同时你可以使用“标记”添加其他信息。 在工作区中查找已注册的模型和数据集时，可以使用标记作为筛选器。
 >
-> 可以选择将数据集与已注册的模型相关联。 若要了解如何在注册模型时引用数据集，请参阅 [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py) 类参考信息。
+> 可以选择将数据集与已注册的模型相关联。 若要了解如何在注册模型时引用数据集，请参阅 [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true) 类参考信息。
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>针对 ML 生命周期中的事件发出通知和警报以及进行自动化处理

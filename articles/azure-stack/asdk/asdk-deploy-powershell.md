@@ -2,18 +2,19 @@
 title: 使用 Powershell 从命令行部署 ASDK
 description: 了解如何使用 PowerShell 从命令行部署 ASDK。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
-origin.date: 05/06/2019
-ms.date: 06/22/2020
+origin.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: misainat
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 51e8a8cf78c608262ed388941e8ffcab512da8ee
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.lastreviewed: 09/23/2020
+ms.openlocfilehash: 45d9428e7bf9e23fa3e4bf95b8477ea8a1a9578c
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096387"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437519"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>使用 Powershell 从命令行部署 ASDK
 
@@ -27,8 +28,6 @@ Azure Stack 开发工具包 (ASDK) 是一个测试和开发环境，可以在部
 
 **[查看 ASDK 部署要求和注意事项](asdk-deploy-considerations.md)** 。
 
-> [!TIP]
-> 安装操作系统以后，可以使用 [Azure Stack 部署要求检查工具](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b)来确认硬件是否满足所有要求。
 
 ## <a name="download-and-extract-the-deployment-package"></a>下载并提取部署包
 在确保 ASDK 主机满足安装 ASDK 的基本要求以后，下一步是下载并提取 ASDK 部署包。 部署包包括 Cloudbuilder.vhdx 文件，该文件是一个虚拟硬盘驱动器，其中包括一个可启动的操作系统，以及 Azure Stack 安装文件。

@@ -6,15 +6,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: jasonh
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 04/15/2019
-ms.date: 06/09/2020
-ms.openlocfilehash: adc2cb008e7ebd4b3aa52b504931fdca12dd792e
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: af7faba819428b6e89b8e85d3411da1710c827b3
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515854"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146478"
 ---
 # <a name="copy-data-to-azure-data-explorer-by-using-azure-data-factory"></a>使用 Azure 数据工厂将数据复制到 Azure 数据资源管理器 
 
@@ -144,7 +144,7 @@ Azure 数据工厂是一个完全托管的基于云的数据集成服务。 可�
 现已创建新的 Azure 数据资源管理器链接服务，用于将数据复制到本部分指定的 Azure 数据资源管理器目标表（接收器）。
 
 > [!NOTE]
-> 可以[使用 Azure 数据工厂命令活动运行 Azure 数据资源管理器控制命令](data-factory-command-activity.md)，并可使用任何[“从查询引入”命令](/data-explorer/kusto/management/data-ingestion/ingest-from-query)（例如 `.set-or-replace`）。
+> 可以[使用 Azure 数据工厂命令活动运行 Azure 数据资源管理器控制命令](data-factory-command-activity.md)，并可使用任何[“从查询引入”命令](kusto/management/data-ingestion/ingest-from-query.md)（例如 `.set-or-replace`）。
 
 #### <a name="create-the-azure-data-explorer-linked-service"></a>创建 Azure 数据资源管理器链接服务
 
@@ -208,7 +208,7 @@ Azure 数据工厂是一个完全托管的基于云的数据集成服务。 可�
 
     * 取消选择不需要定义列映射的列。
 
-    b. 将此表格数据引入 Azure 数据资源管理器时，会发生第二个映射。 映射是根据 [CSV 映射规则](/data-explorer/kusto/management/mappings#csv-mapping)执行的。 即使源数据不采用 CSV 格式，Azure 数据工厂也会将数据转换为表格格式。 因此，在此阶段，只有 CSV 映射才是相关的映射。 请执行以下操作：
+    b. 将此表格数据引入 Azure 数据资源管理器时，会发生第二个映射。 映射是根据 [CSV 映射规则](kusto/management/mappings.md#csv-mapping)执行的。 即使源数据不采用 CSV 格式，Azure 数据工厂也会将数据转换为表格格式。 因此，在此阶段，只有 CSV 映射才是相关的映射。 请执行以下操作：
 
     * （可选）在“Azure 数据资源管理器(Kusto)接收器属性”下，添加相关的“引入映射名称”，以便可以使用列映射。 
 

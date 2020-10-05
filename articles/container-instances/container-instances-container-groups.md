@@ -3,15 +3,18 @@ title: 容器组简介
 description: 了解 Azure 容器实例中的容器组 - 共享生命周期和资源（例如 CPU、存储和网络）的实例集合
 ms.topic: article
 origin.date: 11/01/2019
-ms.date: 06/08/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d749b6c26caac334f33d6307cec6e141930402b7
-ms.sourcegitcommit: c4fc01b7451951ef7a9616fca494e1baf29db714
+ms.openlocfilehash: 9066683de3dec589a672cff4c9a1a02a7e6c9932
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84564337"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564310"
 ---
 <!--Verified successfully-->
 # <a name="container-groups-in-azure-container-instances"></a>Azure 容器实例中的容器组
@@ -35,9 +38,7 @@ Azure 容器实例中的顶层资源是容器组。** 本文介绍容器组的�
 * 包含两个 Azure 文件共享作为卷装载，每个容器本地装载一个共享。
 
 > [!NOTE]
-> 多容器组目前仅支持 Linux 容器。
-
-<!--Not Available on  For Windows containers, Azure Container Instances only supports deployment of a single container instance. While we are working to bring all features to Windows containers, you can find current platform differences in the service [Overview](container-instances-overview.md#linux-and-windows-containers).-->
+> 多容器组目前仅支持 Linux 容器。 对于 Windows 容器，Azure 容器实例仅支持部署单个容器实例。 虽然我们正致力于为 Windows 容器提供全部功能，但你可在服务[概述](container-instances-overview.md#linux-and-windows-containers)中了解当前的平台差异。
 
 ## <a name="deployment"></a>部署
 
@@ -62,7 +63,7 @@ Azure 容器实例通过添加组中实例的[资源请求][resource-requests]�
 在这种情况下，可将容器实例的资源限制设置为最多 2 个 CPU。 此配置允许该容器实例最多使用 2 个 CPU（如果可用）。
 
 > [!NOTE]
-> 服务的底层基础结构使用了容器组的少量资源。 你的容器将能够访问分配给该组的大部分而不是全部资源。 因此，为组中的容器请求资源时，请规划一个小型资源缓冲区。
+> 服务的底层基础结构使用了容器组的少量资源。 容器将能够访问分配给该组的大部分而不是全部资源。 因此，为组中的容器请求资源时，请规划一个小型资源缓冲区。
 
 ### <a name="minimum-and-maximum-allocation"></a>最小和最大分配
 
@@ -76,7 +77,7 @@ Azure 容器实例通过添加组中实例的[资源请求][resource-requests]�
 
 在容器组中，容器实例可以通过任何端口上的本地主机相互访问，即使这些端口未在组的 IP 地址对外公开，或者未从容器公开。
 
-<!--Not Available on  [Azure virtual network][virtual-network]-->
+（可选）将容器组部署到 [Azure 虚拟网络][virtual-network]，使容器能够与该虚拟网络中的其他资源安全通信。
 
 ## <a name="storage"></a>存储
 
@@ -113,7 +114,7 @@ Azure 容器实例通过添加组中实例的[资源请求][resource-requests]�
 <!-- LINKS - External -->
 
 [dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/
-[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod/
+[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/
 
 <!-- LINKS - Internal -->
 
@@ -124,13 +125,11 @@ Azure 容器实例通过添加组中实例的[资源请求][resource-requests]�
 [resource-limits]: https://docs.microsoft.com/rest/api/container-instances/containergroups/createorupdate#resourcelimits
 [resource-requirements]: https://docs.microsoft.com/rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
-
-<!--Not Available on [virtual-network]: container-instances-vnet.md-->
-
+[virtual-network]: container-instances-virtual-network-concepts.md
 [secret]: container-instances-volume-secret.md
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
 [empty-directory]: container-instances-volume-emptydir.md
-[az-container-export]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-export
+[az-container-export]: https://docs.microsoft.com/cli/azure/container#az_container_export
 
 <!-- Update_Description: update meta properties, wording update, update link -->

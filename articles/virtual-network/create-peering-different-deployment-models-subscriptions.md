@@ -4,24 +4,24 @@ titlesuffix: Azure Virtual Network
 description: 了解如何在通过不同 Azure 订阅中的不同 Azure 部署模型创建的虚拟网络间创建虚拟网络对等互连。
 services: virtual-network
 documentationcenter: ''
-author: rockboyfor
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/25/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: yes
-ms.testdate: 07/13/2020
+ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.reviewer: anavin
-ms.openlocfilehash: 8548c94552867e14da5ff16fb8486191c8f24c4a
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: c6d16c9d2036c9e3ca229f39daaebee5609b4804
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440892"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564551"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>创建虚拟网络对等互连 - 不同的部署模型和不同的订阅
 
@@ -103,7 +103,7 @@ ms.locfileid: "86440892"
 <a name="cli"></a>
 ## <a name="create-peering---azure-cli"></a>创建对等互连 - Azure CLI
 
-本教程为每个订阅使用不同的帐户。 如果使用的帐户可访问这两个订阅，则可使用相同帐户完成所有步骤，可跳过注销 Azure 的步骤，并删除创建用户角色分配的脚本行。 将以下所有脚本中的 UserA@azure.com 和 UserB@azure.com 替换为 UserA 和 UserB 使用的用户名。 使用 Azure 经典 CLI 和 Azure CLI 完成以下步骤。 可以通过在本地计算机上安装[经典 CLI](https://docs.azure.cn/cli/install-classic-cli?view=azure-cli-latest) 和 [CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 并运行命令来完成这些步骤。
+本教程为每个订阅使用不同的帐户。 如果使用的帐户可访问这两个订阅，则可使用相同帐户完成所有步骤，可跳过注销 Azure 的步骤，并删除创建用户角色分配的脚本行。 将以下所有脚本中的 UserA@azure.com 和 UserB@azure.com 替换为 UserA 和 UserB 使用的用户名。 使用 Azure 经典 CLI 和 Azure CLI 完成以下步骤。 可以通过在本地计算机上安装[经典 CLI](https://docs.azure.cn/cli/install-classic-cli) 和 [CLI](https://docs.azure.cn/cli/install-azure-cli) 并运行命令来完成这些步骤。
 
 1. 使用 `azure login -e AzureChinaCloud` 命令打开命令会话并登录 Azure。
     
@@ -115,6 +115,7 @@ ms.locfileid: "86440892"
     ```console
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "China East"
     ```
+
 4. 必须使用 bash shell 和 Azure CLI（非经典 CLI）完成其余步骤。
 5. 将以下脚本复制到电脑上的文本编辑器。 将 `<SubscriptionB-Id>` 替换为订阅 ID。 如果不知道订阅 ID，请输入 `az account show` 命令。 输出中的 **id** 值就是订阅 ID。复制修改后的脚本，将其粘贴到 CLI 会话中，然后按 `Enter`。
     
@@ -196,7 +197,7 @@ ms.locfileid: "86440892"
 
 本教程为每个订阅使用不同的帐户。 如果使用的帐户可访问这两个订阅，则可使用相同帐户完成所有步骤，可跳过注销 Azure 的步骤，并删除创建用户角色分配的脚本行。 将以下所有脚本中的 UserA@azure.com 和 UserB@azure.com 替换为 UserA 和 UserB 使用的用户名。 
 
-1. 安装最新版本的 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 和 [Az](https://www.powershellgallery.com/packages/Az) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json)。
+1. 安装最新版本的 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 和 [Az](https://www.powershellgallery.com/packages/Az) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/?toc=%2fvirtual-network%2ftoc.json)。
 2. 启动 PowerShell 会话。
 3. 在 PowerShell 中输入 `Add-AzureAccount -Environment AzureChinaCloud` 命令，以 UserB 的身份登录到 UserB 的订阅。 用于登录的帐户必须拥有创建虚拟网络对等互连的必要权限。 有关权限列表，请参阅[虚拟网络对等互连权限](virtual-network-manage-peering.md#permissions)。
 4. 若要通过 PowerShell 创建虚拟网络（经典），必须新建网络配置文件，或修改现有网络配置文件。 了解如何[导出、更新和导入网络配置文件](virtual-networks-using-network-configuration-file.md)。 该文件应包括本教程中使用的虚拟网络的以下 **VirtualNetworkSite** 元素：
@@ -344,6 +345,5 @@ ms.locfileid: "86440892"
 
 - 在针对生产用途创建虚拟网络对等互连之前，请充分熟悉重要的[虚拟网络对等互连约束和行为](virtual-network-manage-peering.md#requirements-and-constraints)。
 - 了解所有的[虚拟网络对等互连设置](virtual-network-manage-peering.md#create-a-peering)。
-
-<!--Not Available on - Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)-->
+- 了解如何使用虚拟网络对等互连[创建中心和分支网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering)。
 <!--Update_Description: update meta properties, wording update, update link -->

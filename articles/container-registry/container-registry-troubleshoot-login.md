@@ -4,16 +4,16 @@ description: 登录到 Azure 容器注册表时的常见问题的症状、原因
 ms.topic: article
 origin.date: 08/11/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: f4b6da4fff7c798cd8ba5c13c903f86ff7f8ff7e
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: cde6341caa73791529c20a7c06af567a6b474698
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021671"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564143"
 ---
 <!--Verified Successfully-->
 # <a name="troubleshoot-registry-login"></a>注册表登录故障排除
@@ -113,7 +113,7 @@ az acr login --name myregistry
 * [使用存储库范围内的令牌登录](container-registry-repository-scoped-permissions.md)
 * [使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)
 * [使用门户来创建可以访问资源的 Azure AD 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)
-* [创建新的应用程序机密](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+* [创建新的应用程序机密](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
 * [Azure AD 身份验证和授权代码](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### <a name="check-that-credentials-arent-expired"></a>检查凭据是否未过期
@@ -151,5 +151,4 @@ az acr login --name myregistry
 * [Microsoft 问答](https://docs.microsoft.com/answers/products/)
 * [开具支持票证](https://support.azure.cn/support/support-azure/) - 根据你提供的信息，可能会针对注册表中的身份验证失败运行快速诊断
 
-<!-- Update_Description: new article about container registry troubleshoot login -->
-<!--NEW.date: 09/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

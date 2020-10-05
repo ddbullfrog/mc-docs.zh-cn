@@ -3,23 +3,25 @@ title: Azure 虚拟机的多个 IP 地址 - PowerShell | Azure
 description: 了解如何使用 PowerShell 将多个 IP 地址分配给虚拟机。 | 资源管理器
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/24/2017
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 22a67e9f3540837c9698f7ed7df0f49e28e60227
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: 91df93900229ebc009ea12be3aa6b14022f06ac6
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487080"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564542"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>使用 PowerShell 将多个 IP 地址分配到虚拟机
 
@@ -35,7 +37,7 @@ ms.locfileid: "84487080"
 
 下面的步骤说明如何根据方案中所述，创建具有多个 IP 地址的示例 VM。 根据实现的需要，更改变量值。
 
-1. 打开 PowerShell 命令提示符，在单个 PowerShell 会话中完成本部分余下的步骤。 如果尚未安装并配置 PowerShell，请先完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 一文中所述的步骤。
+1. 打开 PowerShell 命令提示符，在单个 PowerShell 会话中完成本部分余下的步骤。 如果尚未安装并配置 PowerShell，请先完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 一文中所述的步骤。
 2. 使用 `Connect-AzAccount -Environment AzureChinaCloud` 命令登录帐户。
 3. 将 myResourceGroup** 和 chinanorth** 替换为所选名称和位置。 创建资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
@@ -198,7 +200,7 @@ ms.locfileid: "84487080"
 
 完成以下步骤可将专用和公共 IP 地址添加到 Azure 网络接口。 以下部分的示例假定用户的 VM 已完成本文 [方案](#scenario) 中描述的三项 IP 配置，但这不是必需的。
 
-1. 打开 PowerShell 命令提示符，在单个 PowerShell 会话中完成本部分余下的步骤。 如果尚未安装并配置 PowerShell，请先完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 一文中所述的步骤。
+1. 打开 PowerShell 命令提示符，在单个 PowerShell 会话中完成本部分余下的步骤。 如果尚未安装并配置 PowerShell，请先完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 一文中所述的步骤。
 2. 将以下 $Variable 的“值”分别更改为要向其添加 IP 地址的 NIC 名称，以及 NIC 所在的资源组和位置：
 
     ```powershell

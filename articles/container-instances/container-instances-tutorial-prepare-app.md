@@ -3,15 +3,16 @@ title: 教程 - 准备用于部署的容器映像
 description: Azure 容器实例教程第 1 部分（共 3 部分）- 准备容器映像中的应用以部署到 Azure 容器实例
 ms.topic: tutorial
 origin.date: 03/21/2018
-ms.date: 01/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
-ms.custom: seodec18, mvc
-ms.openlocfilehash: da028d0813f7e2178805b7b3668d6a7035245963
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: seodec18, mvc, devx-track-js
+ms.openlocfilehash: 138aedb552192108a8cdefa416ee93b47e0aaf54
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75965096"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564279"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>教程：创建要部署到 Azure 容器实例的容器映像
 
@@ -156,7 +157,6 @@ a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 
 <!-- LINKS - Internal -->
 
-[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 
-<!-- Update_Description: new article about container instances tutorial prepare app -->
-<!--NEW.date: 01/15/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

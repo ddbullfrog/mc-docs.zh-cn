@@ -3,18 +3,21 @@ title: 快速入门 - 将 Docker 容器部署到容器实例 - Azure CLI
 description: 本快速入门将使用 Azure CLI 快速部署在隔离的 Azure 容器实例中运行的容器化 Web 应用
 ms.topic: quickstart
 origin.date: 03/21/2019
-ms.date: 04/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
 ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-ms.openlocfilehash: 83988ffb4972ffbd4bf7940c172a6e2bc33c4c32
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+- devx-track-js
+- devx-track-azurecli
+ms.openlocfilehash: d001fa7865cd097148206d4dda305c9af339679f
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80517009"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564290"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure 中部署容器实例
@@ -37,7 +40,7 @@ ms.locfileid: "80517009"
 
 Azure 容器实例（例如所有 Azure 资源）都必须部署到资源组中。 使用资源组可以组织和管理相关的 Azure 资源。
 
-首先，使用以下 [az group create][az-group-create] 命令在 chinaeast2  位置中创建一个名为“myResourceGroup”  的资源组：
+首先，使用以下 [az group create][az-group-create] 命令在 chinaeast2 位置中创建一个名为“myResourceGroup”的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast2
@@ -104,7 +107,7 @@ listening on port 80
 az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
-附加后，刷新浏览器数次，以生成其他一些输出。 完成后，使用 `Control+C` 分离控制台。 应该会看到与下面类似的输出：
+附加后，刷新浏览器数次，以生成其他一些输出。 完成后，使用 `Control+C` 分离控制台。 会得到类似于下面的输出：
 
 ```output
 Container 'mycontainer' is in state 'Running'...
@@ -131,7 +134,7 @@ listening on port 80
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-若要验证已删除该容器，请执行 [az container list](https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-list) 命令：
+若要验证已删除该容器，请执行 [az container list](https://docs.microsoft.com/cli/azure/container#az_container_list) 命令：
 
 ```azurecli
 az container list --resource-group myResourceGroup --output table
@@ -168,16 +171,15 @@ az group delete --name myResourceGroup
 
 <!-- LINKS - Internal -->
 
-[az-container-attach]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-attach
-[az-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-delete]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-delete
-[az-container-list]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-list
-[az-container-logs]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show
-[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
-[az-group-delete]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete
-[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+[az-container-attach]: https://docs.microsoft.com/cli/azure/container#az_container_attach
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
+[az-container-delete]: https://docs.microsoft.com/cli/azure/container#az_container_delete
+[az-container-list]: https://docs.microsoft.com/cli/azure/container#az_container_list
+[az-container-logs]: https://docs.microsoft.com/cli/azure/container#az_container_logs
+[az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
+[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
+[az-group-delete]: https://docs.azure.cn/cli/group#az-group-delete
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
 
-<!-- Update_Description: new article about container instances quickstart -->
-<!--NEW.date: 01/15/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

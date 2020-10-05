@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: a6ecf6e89bca5569c75786b0795c62e71c6e23bb
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 08eec2098386078242bd81ff1836b8e9eafc7637
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245553"
 ---
-# <a name="input-metadata"></a>输入元数据 
+# <a name="input-metadata"></a>输入元数据
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 编码作业与要执行部分编码任务的输入资产相关联。  完成任务后，会生成一个输出资产。  输出资产包含视频、音频、缩略图、清单等。输出资产还包含提供输入资产相关元数据的文件。 元数据 XML 文件的名称采用下列格式：&lt;asset_id&gt;_metadata.xml（例如，41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml），其中 &lt;asset_id&gt; 是输入资产的 AssetId 值。  
 

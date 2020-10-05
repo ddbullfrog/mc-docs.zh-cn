@@ -4,8 +4,7 @@ titleSuffix: Azure Virtual Network
 description: 了解 Azure 虚拟网络 NAT 可用的 Azure Monitor 指标和警报。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
 Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
@@ -14,16 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/04/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 1e39006cc33eb532d8734e1ce7cd2c9449cb29b9
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: bb10dc7ef38b5b46b10821ee106652e1736703bc
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441211"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564527"
 ---
 <!--Verified successfully-->
 # <a name="azure-virtual-network-nat-metrics"></a>Azure 虚拟网络 NAT 指标
@@ -31,7 +31,7 @@ ms.locfileid: "86441211"
 Azure 虚拟网络 NAT 网关资源提供多维指标。 可以使用这些指标来观察操作以及进行[故障排除](troubleshoot-nat.md)。  可以针对严重问题（例如 SNAT 耗尽）配置警报。
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="用于出站 Internet 连接的虚拟网络 NAT">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="用于出站 Internet 连接的虚拟网络 NAT">
 </p>
 
 图：*用于出站 Internet 连接的虚拟网络 NAT*
@@ -64,5 +64,4 @@ NAT 网关资源在 Azure Monitor 中提供以下多维指标：
 * 了解如何[排查 NAT 网关资源问题](troubleshoot-nat.md)。
 * [在 UserVoice 中告诉我们下一步为虚拟网络 NAT 构建什么](https://aka.ms/natuservoice)。
 
-<!-- Update_Description: new article about nat metrics -->
-<!--NEW.date: 07/13/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -3,8 +3,7 @@ title: 向 Azure VM 添加网络接口或从中删除网络接口
 description: 了解如何向虚拟机中添加网络接口或从中删除网络接口。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,16 +13,17 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/13/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: yes
-ms.testdate: 07/13/2020
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 64d4427ce66ca762e0aedf98ca14b587be3591aa
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 760315673cca1514fa8e3f2b3417a13c20605205
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441085"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564540"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>在虚拟机中添加或删除网络接口。
 
@@ -49,7 +49,7 @@ ms.locfileid: "86441085"
 
 - **Azure 命令行接口 (CLI) 用户**：在计算机中运行 CLI。 
 
-    如果在本地运行 Azure CLI，请使用 Azure CLI 2.0.26 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 运行 `az login`，创建与 Azure 的连接。
+    如果在本地运行 Azure CLI，请使用 Azure CLI 2.0.26 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。 运行 `az login`，创建与 Azure 的连接。
 
     <!--Not Available on Either run the commands in the [Azure local Shell](https://shell.azure.com)-->
 
@@ -63,7 +63,7 @@ ms.locfileid: "86441085"
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic create](https://docs.azure.cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-network-nic-create)|
+|CLI|[az network nic create](https://docs.azure.cn/cli/network/nic?toc=%2fvirtual-network%2ftoc.json#az-network-nic-create)|
 |PowerShell|[New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
 
 <a name="vm-add-nic"></a>
@@ -92,7 +92,7 @@ ms.locfileid: "86441085"
 
 |工具|命令|
 |---|---|
-|CLI|[az vm nic add](https://docs.azure.cn/cli/vm/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-vm-nic-add)（参考）；[详细步骤](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|CLI|[az vm nic add](https://docs.azure.cn/cli/vm/nic?toc=%2fvirtual-network%2ftoc.json#az-vm-nic-add)（参考）；[详细步骤](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
 |PowerShell|[Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fvirtual-network%2ftoc.json)（参考）；[详细步骤](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 <a name="vm-view-nic"></a>
@@ -115,7 +115,7 @@ ms.locfileid: "86441085"
 
 |工具|命令|
 |---|---|
-|CLI|[az vm nic list](https://docs.azure.cn/cli/vm/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-vm-nic-list)|
+|CLI|[az vm nic list](https://docs.azure.cn/cli/vm/nic?toc=%2fvirtual-network%2ftoc.json#az-vm-nic-list)|
 |PowerShell|[Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?toc=%2fvirtual-network%2ftoc.json)|
 
 <a name="vm-remove-nic"></a>
@@ -140,7 +140,7 @@ ms.locfileid: "86441085"
 
 |工具|命令|
 |---|---|
-|CLI|[az vm nic remove](https://docs.azure.cn/cli/vm/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-vm-nic-remove)（参考）；[详细步骤](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|CLI|[az vm nic remove](https://docs.azure.cn/cli/vm/nic?toc=%2fvirtual-network%2ftoc.json#az-vm-nic-remove)（参考）；[详细步骤](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
 |PowerShell|[Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fvirtual-network%2ftoc.json)（参考）；[详细步骤](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="constraints"></a>约束

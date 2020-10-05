@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 中将 API 版本配置文件与 Python 配合使用
 description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 Python 配合使用。
 author: WenJason
 ms.topic: article
-origin.date: 01/23/2020
-ms.date: 05/18/2020
+origin.date: 09/03/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 924e6ee00cda2bfa6426d13d725b8832ea4aace6
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 995dd852f5588e6b1bf56e81909c132de9bba29f
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422586"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437722"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 Python 配合使用
 
@@ -38,7 +38,7 @@ Python SDK 支持以下 API 配置文件：
 
 ## <a name="install-the-azure-python-sdk"></a>安装 Azure Python SDK
 
-1. 从[官方站点](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)安装 Git。
+1. [安装 Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 2. 有关如何安装 Python SDK 的说明，请参阅[面向 Python 开发人员的 Azure](https://docs.microsoft.com/python/azure/python-sdk-azure-install?view=azure-python)。
 3. 如果此文不适用，请创建订阅，并保存订阅 ID 供以后使用。 有关创建订阅的说明，请参阅[在 Azure Stack Hub 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
 4. 创建服务主体并保存其 ID 和机密。 有关如何为 Azure Stack Hub 创建服务主体的说明，请参阅[提供对 Azure Stack Hub 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。

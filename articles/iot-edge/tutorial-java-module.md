@@ -6,19 +6,19 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/30/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: f882cd59ca9622a5258fd43428a6639daebb7dc6
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 86577ff3e087d1f0cc41ce906c81aa2e47b3d724
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957818"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564475"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 Java IoT Edge 模块
 

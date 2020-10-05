@@ -5,16 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 03/21/2019
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7d52f35b2707acd5306e81b6aa0b221665d51ca3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 89fd4bdf6c43ab7a94a0f2464ef3839a64b94ad5
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494053"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564472"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模块
 

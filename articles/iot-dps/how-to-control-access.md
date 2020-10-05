@@ -7,15 +7,15 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 origin.date: 04/09/2019
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.author: v-tawe
-ms.custom: devx-track-javascript
-ms.openlocfilehash: dd7a1fa3d12fb64785e8ff06372f18d6f64651a7
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: fc9def13bf8ab65152b4d466494e3cd44646020c
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951318"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564259"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>控制对 Azure IoT 中心设备预配服务的访问
 

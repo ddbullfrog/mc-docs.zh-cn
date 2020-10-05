@@ -8,16 +8,16 @@ metadata:
   ms.service: container-instances
   ms.topic: landing-page
   ms.collection: collection
-  author: rockboyfor
   origin.date: 09/25/2019
-  ms.date: 06/08/2020
+  author: rockboyfor
+  ms.date: 10/05/2020
   ms.author: v-yeche
-  ms.openlocfilehash: 6f11d8c16efa409e8c8a4d38c163933d8cbdb5f9
-  ms.sourcegitcommit: c4fc01b7451951ef7a9616fca494e1baf29db714
+  ms.openlocfilehash: fe71923fed471e5b30d7d94414280b8fa7834d6e
+  ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/09/2020
-  ms.locfileid: "84564243"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91564264"
 landingContent:
 - title: 关于 Azure 容器实例
   linkLists:

@@ -3,14 +3,16 @@ title: 使用 Cloud Native Buildpack 生成映像
 description: 在不使用 Dockerfile 的情况下，使用 az acr pack build 命令从应用生成容器映像并将其推送到 Azure 容器注册表。
 ms.topic: article
 origin.date: 10/24/2019
-ms.date: 04/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: b5ecdf9f77d57028371ad57166795d61d647d82e
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.custom: devx-track-js
+ms.openlocfilehash: a265b3d144f93b97bd61d1e17f2699502ca49293
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093561"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564142"
 ---
 <!--Verified successfully-->
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>使用 Cloud Native Buildpack 从应用生成映像并推送该映像
@@ -49,9 +51,13 @@ az acr pack build \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
+<!--MOONCAKE: CUSTOMIZE-->
+
 > [!NOTE]
 > 在 PowerShell 环境中运行上述 Azure CLI 脚本时，应将 `--image` 参数节替换为以下样式。
 > `--image '{{.Run.Registry}}/node-app:1.0'`
+
+<!--MOONCAKE: CUSTOMIZE-->
 
 此示例生成具有 `1.0` 标记的 `node-app` 映像，并将其推送到 myregistry 容器注册表中  。 在此示例中，已将目标注册表名称显式追加到映像名称的前面。 如果未指定目标注册表名称，则会自动将注册表登录服务器名称追加到映像名称的前面。
 
@@ -83,9 +89,13 @@ az acr pack build \
     https://github.com/buildpack/sample-java-app.git
 ```
 
+<!--MOONCAKE: CUSTOMIZE-->
+
 > [!NOTE]
 > 在 PowerShell 环境中运行上述 Azure CLI 脚本时，应将 `--image` 参数节替换为以下样式。
 > `--image 'java-app:{{.Run.ID}}'`
+
+<!--MOONCAKE: CUSTOMIZE-->
 
 此示例生成使用命令的运行 ID 标记的 `java-app` 映像，并将其推送到 myregistry 容器注册表中  。
 
@@ -119,11 +129,8 @@ docker run --rm -p 8080:8080 myregistry.azurecr.cn/java-app:runid
 
 <!-- LINKS - Internal -->
 
-[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-build]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest
-[az-acr-pack-build]: https://docs.microsoft.com/cli/azure/acr/pack#az-acr-pack-build
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-build]: https://docs.azure.cn/cli/acr/task
+[az-acr-pack-build]: https://docs.microsoft.com/cli/azure/acr/pack#az_acr_pack_build
 
-<!--CORRECT ON https://docs.microsoft.com/cli/azure/acr/pack#az-acr-pack-build-->
-
-<!-- Update_Description: new article about container registry tasks pack build -->
-<!--NEW.date: 04/06/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

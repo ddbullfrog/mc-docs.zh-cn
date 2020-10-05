@@ -4,17 +4,17 @@ description: 本教程介绍如何使用 Azure IoT 中心设备预配服务 (DPS
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/12/2019
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e2b36a3c286183b13c8dcf72494c118bf0aa33dd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 575f9352f29ddfc7b7071dbed1425de6605b7519
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494379"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564234"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>教程：使用 Azure IoT 中心设备预配服务将设备预配到 IoT 中心
 
@@ -29,12 +29,12 @@ ms.locfileid: "77494379"
 
 继续之前，请确保已按[使用 Azure IoT 中心设备预配服务设置要预配的设备](./tutorial-set-up-device.md)教程所述配置设备。
 
-如果不熟悉自动预配过程，请务必在继续操作之前查看[自动预配概念](concepts-auto-provisioning.md)。
+如果你不熟悉自动预配过程，请在继续操作之前查看[预配](about-iot-dps.md#provisioning-process)概述。
 
 <a id="enrolldevice"></a>
 ## <a name="enroll-the-device"></a>注册设备
 
-此步骤需要将设备的唯一安全项目添加到设备预配服务。 这些安全项目基于设备的[证明机制](concepts-device.md#attestation-mechanism)，如下所示：
+此步骤需要将设备的唯一安全项目添加到设备预配服务。 这些安全项目基于设备的[证明机制](concepts-service.md#attestation-mechanism)，如下所示：
 
 - 对于基于 TPM 的设备，你需要提供：
     - 特定于每个 TPM 芯片或模拟的“认可密钥”  ，可以从 TPM 芯片制造商处获得。  请阅读[了解 TPM 认可密钥](https://technet.microsoft.com/library/cc770443.aspx)获取详细信息。
@@ -49,7 +49,7 @@ ms.locfileid: "77494379"
 
 可通过两种方法向设备预配服务注册设备：
 
-- **注册组** 表示共享特定证明机制的一组设备。 对于共享所需初始配置的大量设备，或者全部转到同一租户的设备，建议使用注册组。 有关注册组的标识认证的详细信息，请参阅[安全性](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)。
+- **注册组** 表示共享特定证明机制的一组设备。 对于共享所需初始配置的大量设备，或者全部转到同一租户的设备，建议使用注册组。 有关注册组的标识认证的详细信息，请参阅[安全性](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)。
 
     [![在门户中为 X.509 证明添加组注册](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 

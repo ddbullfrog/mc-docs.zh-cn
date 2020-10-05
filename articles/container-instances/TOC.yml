@@ -11,8 +11,6 @@
       href: container-instances-quickstart.md
     - name: 部署容器实例 - 门户
       href: container-instances-quickstart-portal.md
-    - name: 部署容器实例 - PowerShell
-      href: container-instances-quickstart-powershell.md
     - name: 部署容器实例 - ARM 模板
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
@@ -98,7 +96,7 @@
       items:
         - name: Azure 文件共享
           href: container-instances-volume-azure-files.md
-        - name: Secret
+        - name: 机密
           href: container-instances-volume-secret.md
         - name: 空目录
           href: container-instances-volume-emptydir.md
@@ -122,7 +120,7 @@
           href: container-instances-get-logs.md
         - name: 使用 Azure Monitor 日志进行日志记录
           href: container-instances-log-analytics.md
-    - name: 疑难解答
+    - name: 故障排除
       items:
         - name: 排查常见问题
           href: container-instances-troubleshooting.md

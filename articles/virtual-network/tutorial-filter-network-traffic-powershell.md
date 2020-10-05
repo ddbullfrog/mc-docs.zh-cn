@@ -3,8 +3,8 @@ title: 筛选网络流量 - Azure PowerShell | Azure
 description: 本文介绍如何在 PowerShell 中使用网络安全组筛选发往子网的网络流量。
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
 manager: digimobile
+editor: ''
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.assetid: ''
@@ -14,15 +14,18 @@ ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/30/2018
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 18399559a38811a51ac97129c2e2db978f5701e3
-ms.sourcegitcommit: af71b9199d47fb81e85d70da0cfb265cc814a644
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: f276ada72e1bcb62114bb5deafb4604ceb340a68
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969048"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564514"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>在 PowerShell 中使用网络安全组筛选网络流量
 
@@ -307,4 +310,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 默认情况下，Azure 在子网之间路由流量。 你也可以选择通过某个 VM（例如，充当防火墙的 VM）在子网之间路由流量。 若要了解操作方法，请参阅[创建路由表](tutorial-create-route-table-powershell.md)。
 
-<!-- Update_Description: wording update, update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->
