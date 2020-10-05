@@ -11,12 +11,12 @@ author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: 0f2a9a9dede69f656c539508f4e75120d9db1df5
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: e7b173f16deca695ccdf64d015175c8314dd2d82
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021158"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395228"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>使用 Azure 机器学习创建、查看和部署自动化机器学习模型
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,7 +69,7 @@ ms.locfileid: "90021158"
 
     1. 选择“下一步”，以打开“数据存储和文件选择”窗体。 在此窗体上，你需选择要将数据集上传到何处：将数据集上传到在工作区中自动创建的默认存储容器，或选择要用于试验的存储容器。 
     
-        1. 如果数据位于虚拟网络后面，则需要启用“跳过验证”功能以确保工作区可以访问数据。 详细了解[网络隔离和隐私](how-to-enable-virtual-network.md#machine-learning-studio)。 
+        1. 如果数据位于虚拟网络后面，则需要启用“跳过验证”功能以确保工作区可以访问数据。 有关详细信息，请参阅[在 Azure 虚拟网络中使用 Azure 机器学习工作室](how-to-enable-studio-virtual-network.md)。 
     
     1. 选择“浏览”以上传数据集的数据文件。 
 
@@ -120,7 +120,9 @@ ms.locfileid: "90021158"
 
 1. 在“任务类型和设置”窗体中选择任务类型：分类、回归或预测。 有关详细信息，请参阅[支持的任务类型](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)。
 
-    1. 对于分类，还可以启用用于文本特征化的深度学习。
+    1. 如需**分类**，还可以启用深度学习。
+    
+        如果启用了深度学习，则只能使用“训练/验证数据拆分”进行验证。 [详细了解验证选项](how-to-configure-cross-validation-data-splits.md)。
 
     1. 对于预测，可以 
     
@@ -135,10 +137,10 @@ ms.locfileid: "90021158"
     其他配置|说明
     ------|------
     主要指标| 用于对模型进行评分的主要指标。 [详细了解模型指标](how-to-configure-auto-train.md#primary-metric)。
-    解释最佳模型 | 选择启用或禁用，以确定是否显示建议的最佳模型的可解释性。
-    阻止的算法| 选择要从训练作业中排除的算法。
+    解释最佳模型 | 选择启用或禁用，以确定是否显示建议的最佳模型的说明。 <br> 此功能当前不可用于[特定的预测算法](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model)。 
+    阻止的算法| 选择要从训练作业中排除的算法。 <br><br> 允许算法只适用于 [SDK 试验](how-to-configure-auto-train.md#supported-models)。 <br> 请参阅[每种任务类型支持的模型](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true)。
     退出条件| 如果满足其中的任一条件，则会停止训练作业。 <br> *训练作业时间(小时)* ：允许训练作业运行多长时间。 <br> *指标评分阈值*：所有管道的最低指标评分。 这可以确保在你具有一个要实现的已定义目标指标时，无需花费不必要的时间来完成训练作业。
-    验证| 选择要在训练作业中使用的交叉验证选项之一。 [详细了解交叉验证](how-to-configure-cross-validation-data-splits.md#prerequisites)。
+    验证| 选择要在训练作业中使用的交叉验证选项之一。 <br> [详细了解交叉验证](how-to-configure-cross-validation-data-splits.md#prerequisites)。<br> <br>预测只支持 k-折交叉验证。
     并发| *最大并发迭代数*：要在训练作业中测试的最大管道（迭代）数。 作业运行的迭代数不会超过指定的数目。
 
 1. （可选）查看特征化设置：如果选择在“其他配置设置”窗体中启用“自动特征化”，则会应用默认的特征化技术 。 在“查看特征化设置”中，可以更改这些默认设置并相应地进行自定义。 了解如何[自定义特征化](#customize-featurization)。 
@@ -156,13 +158,13 @@ ms.locfileid: "90021158"
 
 统计信息|说明
 ------|------
-Feature| 正在汇总的列的名称。
+功能| 正在汇总的列的名称。
 配置文件| 基于推理的类型显示的内联可视化效果。 例如，字符串、布尔值和日期包含值计数，而小数（数字）则包含近似的直方图。 这样，就可以快速了解数据的分布。
 类型分布| 列中类型的内联值计数。 Null 是其自身的类型，因此，此可视化效果可用于检测反常值或缺失值。
 类型|列的推理类型。 可能的值包括：字符串、布尔值、日期和小数。
 Min| 列的最小值。 对于其类型不采用固有顺序（例如布尔值）的特征，将显示空白条目。
 Max| 列的最大值。 
-计数| 列中缺失和未缺失条目的总数。
+Count| 列中缺失和未缺失条目的总数。
 非缺失计数| 列中未缺失的条目数。 空字符串和误差被视为值，因此它们不会计入“未缺少计数”。
 分位数| 每个分位数中的近似值，用于提供数据分布的概观。
 平均值| 列的算术中间值或平均值。
@@ -222,7 +224,7 @@ Variance| 此列数据与其平均值之间的分散程度度量。
 
 1. 填充“部署模型”窗格。
 
-    字段| 值
+    字段| Value
     ----|----
     名称| 输入部署的唯一名称。
     说明| 输入说明，以更清楚地指出此部署的用途。

@@ -12,33 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/27/2020
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873c4a4e947c64ad18105db86aaa1b2a678be9e9
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 823b2beddf15cb57a8e5522bc622b27180c9b190
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947156"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245174"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
 属性按照相关的 Azure AD 应用进行分组。
 
 ## <a name="attributes-to-synchronize"></a>要同步的属性
-常见的问题是：要同步的最小属性的列表是什么。 默认的（也是建议的）方法是保留默认属性，以便可以在云中构造完整的 GAL（全局地址列表），并获取 Office 365 工作负荷中的所有功能。 在某些情况下，组织并不想要将某些属性同步到云中，因为这些属性包含敏感数据或 PII（个人身份信息），如以下示例中所示：  
+常见的问题是：要同步的最小属性的列表是什么。 默认的（也是建议的）方法是保留默认属性（以便可以在云中构造完整的 GAL（全局地址列表）），并获取 Microsoft 365 工作负荷中的所有功能。 在某些情况下，组织并不想要将某些属性同步到云中，因为这些属性包含敏感的个人数据，如以下示例中所示：  
 ![错误的属性](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-在此情况下，请从本主题中的属性列表着手，并识别包含敏感数据或 PII 数据、因而不能同步的属性。 然后在安装期间使用 [Azure AD 应用和属性筛选](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering)取消选择这些属性。
+在此情况下，请从本主题中的属性列表着手，并识别包含个人数据而不能同步的属性。 然后在安装期间使用 [Azure AD 应用和属性筛选](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering)取消选择这些属性。
 
 > [!WARNING]
 > 取消选择属性时，应该小心，只取消选择那些绝对不能同步的属性。 取消选择其他属性可能会对功能造成负面影响。
 >
 >
 
-## <a name="office-365-proplus"></a>Office 365 ProPlus
+## <a name="microsoft-365-apps-for-enterprise"></a>Microsoft 365 企业应用版
 | 属性名称 | 用户 | 注释 |
 | --- |:---:| --- |
 | accountEnabled |X |如果启用了帐户，则进行定义。 |
@@ -375,7 +375,7 @@ ms.locfileid: "88947156"
 * Yammer（只使用 User）
 * [SharePoint 等资源提供的混合企业到企业 (B2B) 跨组织协作方案](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-如果不使用 Azure AD 目录来支持 Office 365、Dynamics 或 Intune，则可以使用这一组属性。 它包含一小部分核心属性。
+如果不使用 Azure AD 目录来支持 Microsoft 365、Dynamics 或 Intune，则可以使用这一组属性。 它包含一小部分核心属性。
 
 | 属性名称 | User | 联系人 | 组 | 注释 |
 | --- |:---:|:---:|:---:| --- |

@@ -5,17 +5,17 @@ services: container-service
 ms.topic: article
 origin.date: 06/18/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ecf432b5d70b77e0404bb08681861a758e4ecb9d
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: aea4eb3ddfaf9da75493401642cdc5db7f5c3664
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021526"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146727"
 ---
 <!--Verified successfully-->
 <!--Verified on Portal-->
@@ -52,6 +52,7 @@ ms.locfileid: "90021526"
 * 系统节点池需要一个至少具有 2 个 vCPU 和 4GB 内存的 VM SKU。
 * 系统节点池必须支持至少 30 个 Pod，如 [Pod 的最小值和最大值公式][maximum-pods]中所述。
 * 现成节点池需要用户节点池。
+* 添加其他系统节点池或更改哪个节点池为系统节点池不会自动移动系统 Pod。 即使将系统 Pod 更改为用户节点池，该系统 Pod 也可以继续在同一节点池上运行。 如果删除或纵向缩减运行系统 Pod 的节点池（以前是系统节点池），则这些系统 Pod 将通过优先调度重新部署到新的系统节点池。
 
 对于节点池，可以执行以下操作：
 

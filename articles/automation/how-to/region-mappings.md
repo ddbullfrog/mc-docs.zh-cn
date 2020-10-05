@@ -6,21 +6,25 @@ ms.service: automation
 ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 06/12/2020
-ms.date: 08/10/2020
+origin.date: 09/03/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
 manager: digimobile
 ms.custom: references_regions
-ms.openlocfilehash: 8a7e6a93a4a1a0c61084873d773f5c70e4d84841
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: 63f58cb52015a438f44af62b5a864adc4eb414db
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790543"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246727"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>链接的 Log Analytics 工作区支持的区域
 
-在 Azure 自动化中，可以为 VM 启用更新管理。 只有某些区域在订阅中支持链接 Log Analytics 工作区与自动化帐户。 区域映射仅适用于自动化帐户和 Log Analytics 工作区。 Log Analytics 工作区和自动化帐户必须位于相同的订阅中，但是可以位于部署到相同区域的不同资源组中。 有关更多信息，请参阅 [Log Analytics 工作区和自动化帐户](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)。
+在 Azure 自动化中，可以为服务器和虚拟机启用更新管理。 此功能依赖于 Log Analytics 工作区，因此需要将工作区链接到自动化帐户。 但是，只有某些区域才支持将它们链接在一起。 通常，如果你计划将自动化帐户链接到不会启用这些功能的工作区，则该映射不适用。
+
+本文提供了支持的映射，以便在自动化帐户中成功启用和使用这些功能。
+
+有关更多信息，请参阅 [Log Analytics 工作区和自动化帐户](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)。
 
 ## <a name="supported-mappings"></a>支持的映射
 

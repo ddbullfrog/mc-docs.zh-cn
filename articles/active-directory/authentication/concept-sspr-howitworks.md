@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da4a6e104ff0a266c8b99ba20a94a1f62930402
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: f58ddc366b725199f4b0549bf1c816a13fbd109d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593729"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244735"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>工作原理：Azure AD 自助密码重置
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) 自助式密码重置 (SSPR) 使用户能够�
 >
 > 如果你的 IT 团队尚未启用重置自己密码的功能，请联系支持人员以获得更多帮助。
 
-## <a name="how-does-the-password-reset-portal-work"></a>密码重置门户的工作原理
+## <a name="how-does-the-password-reset-process-work"></a>密码重置过程如何工作？
 
 用户可以使用 [SSPR 门户](https://passwordreset.activedirectory.windowsazure.cn)来重置或更改其密码。 他们必须首先注册其所需的身份验证方法。 当用户访问 SSPR 门户时，Azure 平台会考虑以下因素：
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) 自助式密码重置 (SSPR) 使用户能够�
 
 如果用户从某个应用程序或页面选择了“无法访问你的帐户”链接，或直接转到了 [https://passwordreset.activedirectory.windowsazure.cn](https://passwordreset.activedirectory.windowsazure.cn)，则 SSPR 门户中使用的语言基于以下选项：
 
-* 默认情况下，将使用浏览器区域设置以相应的语言显示 SSPR。 密码重置体验已本地化为 [Office 365 所支持的语言](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec)。
+* 默认情况下，将使用浏览器区域设置以相应的语言显示 SSPR。 密码重置体验已本地化为 [Microsoft 365 支持](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec)的相同语言。
 * 如果要链接到采用特定本地化语言的 SSPR，请将 `?mkt=` 连同所需的区域设置一起追加到密码重置 URL 末尾。
     * 例如，若要指定西班牙语 (es-us) 区域设置，请使用 `?mkt=es-us` - [https://passwordreset.activedirectory.windowsazure.cn/?mkt=es-us](https://passwordreset.activedirectory.windowsazure.cn/?mkt=es-us)。
 
@@ -59,6 +59,11 @@ Azure Active Directory (Azure AD) 自助式密码重置 (SSPR) 使用户能够�
 
 如果前面的所有检查都已成功完成，则指导用户完成重置或更改其密码的过程。
 
+> [!NOTE]
+> SSPR 可能会在密码重置过程中向用户发送电子邮件通知。 这些电子邮件是使用 SMTP 中继服务发送的，该服务跨多个区域以主动-主动模式运行。
+>
+> SMTP 中继服务接收并处理电子邮件正文，但不存储它。 可能包含客户提供的信息的 SSPR 电子邮件正文未存储在 SMTP 中继服务日志中。 这些日志只包含协议元数据。
+
 若要开始使用 SSPR，请完成以下教程：
 
 > [!div class="nextstepaction"]
@@ -72,7 +77,7 @@ Azure Active Directory (Azure AD) 自助式密码重置 (SSPR) 使用户能够�
 
 可以启用此选项在用户使用 Azure AD 登录到任何应用程序时要求用户完成 SSPR 注册。 此工作流包括以下应用程序：
 
-* Office 365
+* Microsoft 365
 * Azure 门户
 * 访问面板
 * 联合应用程序
@@ -221,7 +226,7 @@ SSPR 在 Active Directory 中执行管理员发起的密码重置的等效操作
 
 所有企业到企业 (B2B) 配置完全支持密码重置和更改。 以下三种情况支持 B2B 用户密码重置：
 
-* **已有 Azure AD 租户的合作伙伴组织中的用户**：如果与你合作的组织已有 Azure AD 租户，我们将遵守该租户中已启用的任何密码重置策略。 要使密码重置正常工作，合作伙伴组织只需确保启用 Azure AD SSPR。 对于 Office 365 客户，不会额外收费。
+* **已有 Azure AD 租户的合作伙伴组织中的用户**：如果与你合作的组织已有 Azure AD 租户，我们将遵守该租户中已启用的任何密码重置策略。 要使密码重置正常工作，合作伙伴组织只需确保启用 Azure AD SSPR。 对于 Microsoft 365 客户，不会额外收费。
 * 通过自助注册**注册的用户**：如果与你合作的组织使用[自助注册](../users-groups-roles/directory-self-service-signup.md)功能来访问租户，我们会允许他们使用已注册的电子邮件来重置密码。
 * **B2B 用户**：使用新的 [Azure AD B2B 功能](../external-identities/what-is-b2b.md)创建的任何新的 B2B 用户也可以使用他们在邀请过程中注册的电子邮件来重置其密码。
 

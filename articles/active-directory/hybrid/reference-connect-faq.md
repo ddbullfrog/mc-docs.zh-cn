@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/27/2020
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5524977a38a68cd22ec4a4ad23f1c7d86043ec8
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: e4e9c3ddf450ad098c494c45fed9e0e992914371
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946954"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245179"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常见问题解答
 
@@ -74,6 +74,46 @@ Microsoft 建议强化 Azure AD Connect 服务器，以降低这一 IT 环境关
 
 为简单起见，我们建议安装 Azure AD Connect 的用户是 SQL 中的系统管理员。 但是，在最新的版本中，现在也可以根据[使用 SQL 委派的管理员权限安装 Azure AD Connect](how-to-connect-install-sql-delegation.md) 中所述，使用委派的 SQL 管理员。
 
+**问：有哪些来自现场实践的最佳做法？请列举一些。**  
+
+下面的文档信息丰富，其中提供了工程人员、支持人员和我们的顾问多年来得出的一些最佳做法。  该文档以项目符号列表的形式显示，可供快速参考。  虽然我们尽量提供了详尽的列表，但可能还有其他一些最佳做法不在列表中。
+
+- 如果使用完整 SQL，则应保证本地和远程
+    - 跃点数更少
+    - 更易于排除故障
+    - 复杂程度更低
+    - 需要为 SQL 指定资源并考虑 Azure AD Connect 和操作系统的开销
+- 绕过代理（若可能）；如果无法绕过代理，则需要确保超时值大于 5 分钟。
+- 如果需要代理，必须将代理添加到 machine.config 文件中
+- 注意本地 SQL 作业和维护及其对 Azure AD Connect 的影响，尤其是重新编制索引
+- 确保 DNS 可在外部解析
+- 确保[服务器规范](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect)遵循每项建议（无论是使用物理服务器还是虚拟服务器）
+- 确保需要的资源是专用资源（如果使用虚拟服务器）
+- 确保磁盘和磁盘配置符合 SQL Server 的最佳做法
+- 使用 Azure AD Connect 内置的删除阈值。
+- 仔细检查要为所有更改和可能添加的新属性准备的版本更新
+- 备份所有内容
+    - 备份密钥
+    - 备份同步规则
+    - 备份服务器配置
+    - 备份 SQL 数据库
+- 确保没有第三方备份代理在没有 SQL VSS 编写器的情况下备份 SQL（这种备份在具有第三方快照的虚拟服务器中较为常见）
+- 限制使用的自定义同步规则的数量，因为它们会增加复杂性
+- 将 Azure AD Connect 服务器视为第 0 层服务器
+- 在未充分了解影响和正确的业务驱动因素时，谨慎修改云同步规则
+- 确保正确的 URL 和防火墙端口已打开，以支持 Azure AD Connect
+- 利用云端筛选的属性来排查和阻止虚拟对象
+- 使用暂存服务器时，确保使用 Azure AD Connect 配置文档管理器在服务器之间保持一致性
+- 暂存服务器应位于不同的数据中心（物理位置）
+- 暂存服务器并不是一种高可用性解决方案，但你可以有多个暂存服务器
+- 引入“延迟”暂存服务器可在出现错误的情况下减少一些可能的停机时间
+- 首先测试并验证暂存服务器上的所有升级
+- 在切换到暂存服务器之前始终验证导出内容。  利用暂存服务器执行全部导入和全部同步操作，以降低业务影响
+- 尽可能使 Azure AD Connect 服务器之间的版本保持一致 
+
+**问：能否允许 Azure AD Connect 在工作组计算机上创建 Azure AD 连接器帐户？**
+否。  为了允许 Azure AD Connect 自动创建 Azure AD 连接器帐户，计算机必须已加入域。  
+
 ## <a name="network"></a>网络
 **问：我的防火墙、网络设备或其他软硬件会限制在网络上打开连接的时间。使用 Azure AD Connect 时，客户端超时阈值应设为多少？**  
 所有网络软件、物理设备或其他软硬件限制最长连接时间的阈值应该至少为 5 分钟 (300 秒)，使装有 Azure AD Connect 客户端的服务器能够与 Azure Active Directory 连接。 此项建议同样适用于以前发布的所有 Microsoft 标识同步工具。
@@ -94,10 +134,10 @@ Azure AD Connect 不支持纯 IPv6 环境。
 否，不支持通过 NAT 使用 Azure AD Connect。 
 
 ## <a name="federation"></a>联合
-**问：如果我收到一封电子邮件，要求我续订 Office 365 证书，该怎么办？**  
+**问：如果我收到一封电子邮件，要求我续订 Microsoft 365 证书，我该怎么办？**  
 有关续订证书的指导，请参阅[续订证书](how-to-connect-fed-o365-certs.md)。
 
-**问：我为 Office 365 信赖方设置了“自动更新信赖方”。当我的令牌签名证书自动滚动时，我是否需要采取任何措施？**  
+**问：我为 Microsoft 365 信赖方设置了“自动更新信赖方”。当我的令牌签名证书自动滚动更新时，我是否需要采取任何措施？**  
 请参考[续订证书](how-to-connect-fed-o365-certs.md)一文中所述的指导。
 
 ## <a name="environment"></a>环境
@@ -110,14 +150,14 @@ Azure AD Connect 不支持纯 IPv6 环境。
 **问：如果我在 Azure 门户中禁用了同步设备（例如：HAADJ），为什么要重新启用它？**<br>
 可以在本地创作或掌控同步设备。 如果在本地启用了同步设备，即使管理员之前禁用了该设备，也可能会在 Azure 门户中重新启用它。 若要禁用同步设备，请使用本地 Active Directory 禁用计算机帐户。
 
-**问：如果我阻止同步用户在 Office 365 或 Azure AD 门户上登录，为什么再次登录时会取消阻止？**<br>
+**问：如果我阻止已同步用户在 Microsoft 365 或 Azure AD 门户上登录，为什么再次登录时会取消阻止？**<br>
 可以在本地创作或掌控同步用户。 如果在本地启用了该帐户，则可以取消管理员放置的登录阻止。
 
 ## <a name="identity-data"></a>标识数据
 **问：Azure AD 中的 userPrincipalName (UPN) 属性为何与本地 UPN 不匹配？**  
 有关信息，请参阅以下文章：
 
-* [Office 365、Azure 或 Intune 中的用户名与本地 UPN 或备用登录 ID 不匹配](https://support.microsoft.com/kb/2523192)
+* [Microsoft 365、Azure 或 Intune 中的用户名与本地 UPN 或备用登录 ID 不匹配](https://support.microsoft.com/kb/2523192)
 * [在将用户帐户的 UPN 更改为使用不同的联合域后，Azure Active Directory 同步工具未同步更改](https://support.microsoft.com/kb/2669550)
 
 还可以根据 [Azure AD Connect 同步服务功能](how-to-connect-syncservice-features.md)中所述配置 Azure AD，以允许同步引擎更新 UPN。
@@ -197,22 +237,25 @@ Office 团队会更新 Office 门户，使之反映当前的产品名称。 它�
 
 **问：如果自动升级失败，是否会通过电子邮件通知我？怎么才能知道升级成功？**  
 你不会收到升级结果的通知。 我们正在评估是否在将来的版本中推出此功能。
-  
+
+**问：你们是否会发布一个关于何时计划推出自动升级的时间线？**  
+自动升级是新版本发布过程的第一个步骤。 只要有新版本，我们就会自动推送升级。 
+
 **问：你们是否也会自动升级暂存模式下的 Azure AD Connect 服务器？**  
 是的，可以自动升级暂存模式下的 Azure AD Connect 服务器。
 
 **问：如果自动升级失败而 Azure AD Connect 服务器无法启动，该怎么办？**  
-Azure AD Connect 服务偶尔会在升级以后无法启动。 在这种情况下，重新启动服务器通常就会解决问题。 如果 Azure AD Connect 服务仍然无法启动，请开具支持票证。 有关详细信息，请参阅[创建服务请求以联系 Office 365 支持部门](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/)。 
+Azure AD Connect 服务偶尔会在升级以后无法启动。 在这种情况下，重新启动服务器通常就会解决问题。 如果 Azure AD Connect 服务仍然无法启动，请开具支持票证。 有关详细信息，请参阅[创建服务请求以联系 Microsoft 365 客户支持](https://docs.microsoft.com/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support)。 
 
 **问：我不知道升级到新版 Azure AD Connect 后会有什么风险。你们能通过电话帮助我升级吗？**  
-如果在升级到新版 Azure AD Connect 时需要帮助，请参阅[创建服务请求以联系 Office 365 支持部门](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/)开具支持票证。
+如果在升级到新版 Azure AD Connect 时需要帮助，请参阅[创建服务请求以联系 Microsoft 365 客户支持](https://docs.microsoft.com/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support)创建支持票证。
 
 ## <a name="operational-best-practice"></a>操作方面的最佳做法    
 下面是在 Windows Server Active Directory 和 Azure Active Directory 之间同步时应实施的一些最佳做法。
 
 **为所有已同步的帐户应用多重身份验证** Azure 多重身份验证有助于保护对数据和应用程序的访问，同时满足用户对简单性的需求。 它通过要求第二种形式的身份验证提供额外的安全性，并通过一系列简单的身份验证方法提供增强式身份验证。 根据管理员制定的配置决策，用户可能会受到 MFA 的质疑，也可能不会受到 MFA 的质疑。 有关 MFA 的详细信息，可参阅此文： https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
-**遵循 Azure AD Connect 服务器安全指导原则** Azure AD Connect 服务器包含关键标识数据，应将其视为第 0 层组件，如 [Active Directory 管理层模型](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)中所述。 另请参阅我们的 [AADConnect 服务器安全指南](/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server)。
+**遵循 Azure AD Connect 服务器安全指导原则** Azure AD Connect 服务器包含关键标识数据，应将其视为第 0 层组件，如 [Active Directory 管理层模型](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)中所述。 另请参阅我们的 [AADConnect 服务器安全指南](./how-to-connect-install-prerequisites.md#azure-ad-connect-server)。
 
 
 ## <a name="troubleshooting"></a>故障排除

@@ -1,28 +1,29 @@
 ---
 title: 使用 Azure 防火墙保护 Azure Kubernetes 服务 (AKS) 部署
 description: 了解如何使用 Azure 防火墙保护 Azure Kubernetes 服务 (AKS) 部署
-author: rockboyfor
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-origin.date: 06/30/2020
-ms.date: 08/03/2020
+origin.date: 09/03/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/03/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1de08df1d5287e240e0d12997dd8d40eb1a90d7c
-ms.sourcegitcommit: 362814dc7ac5b56cf0237b9016a67c35d8d72c32
+ms.openlocfilehash: 976f3ea1fac8e9395fed7639ba1da2dde7573c5e
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457485"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246713"
 ---
 <!--Verify Successfully-->
+<!--With Content about Endpoints-->
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>使用 Azure 防火墙保护 Azure Kubernetes 服务 (AKS) 部署
 
 Azure Kubernetes 服务 (AKS) 提供 Azure 上的托管 Kubernetes 群集。 它通过将大量管理工作量卸载到 Azure，来降低管理 Kubernetes 所产生的复杂性和操作开销。 AKS 可以处理关键任务（例如运行状况监视和维护），并提供受到辅助治理的企业级安全群集。
 
-Kubernetes 根据虚拟机的可用计算资源和每个容器的资源要求，协调虚拟机群集并安排容器在这些虚拟机上运行。 容器组合到 pod 中（Kubernetes 的基本操作单位），这些 pod 可缩放到你的理想状态。
+Kubernetes 根据虚拟机的可用计算资源和每个容器的资源要求，协调虚拟机群集并安排容器在这些虚拟机上运行。 容器将分组到 Pod（Kubernetes 的基本操作单位）中，这些 Pod 可以缩放到你所需的状态。
 
 为了便于管理和操作，AKS 群集中的节点需要访问特定的端口和完全限定的域名 (FQDN)。 这些操作可以是与 API 服务器通信，或者下载并安装核心 Kubernetes 群集组件和节点安全更新。 Azure 防火墙可以帮助你锁定环境并筛选出站流量。
 
@@ -50,14 +51,34 @@ Azure 防火墙提供 AKS FQDN 标记以简化此配置。 使用以下步骤允
     - 如果有应用需要与 API 服务器通信，则需要 TCP [IPAddrOfYourAPIServer]:443。 创建群集后，可以设置此更改。
     - TCP 端口 9000 和 UDP 端口 1194，使隧道前端 pod 与 API 服务器上的隧道后端进行通信。
 
-        更具体地，请参阅 *.hcp.<location>.cx.prod.service.azk8s.cn 及下表中的地址。
+        有关更具体的信息，请参阅 *.hcp.<location>.cx.prod.service.azk8s.cn 及下表中的地址：
+
+    | 目标终结点                                                             | 协议 | 端口    | 用途  |
+    |----------------------------------------------------------------------------------|----------|---------|------|
+    | **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:1194` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:1194` <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 用于节点与控制平面之间的隧道安全通信。 |
+    | **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:9000` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:9000` <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 用于节点与控制平面之间的隧道安全通信。 |
+
     - UDP 端口 123，用于网络时间协议 (NTP) 时间同步（Linux 节点）。
     - 如果你有可直接访问 API 服务器的 pod，则还必须具有用于 DNS 的 UDP 端口 53。
-- 配置 AzureMonitor 和存储服务标记。 Azure Monitor 接收日志分析数据。 还可以单独允许工作区 URL：`<worksapceguid>.ods.opinsights.azure.com` 和 `<worksapceguid>.oms.opinsights.azure.com`。
+
+    有关详细信息，请参阅[控制 Azure Kubernetes 服务 (AKS) 中群集节点的出口流量](../aks/limit-egress-traffic.md)。
+- 配置 AzureMonitor 和存储服务标记。 Azure Monitor 接收日志分析数据。
+
+    还可以单独允许工作区 URL：`<worksapceguid>.ods.opinsights.azure.com` 和 `<worksapceguid>.oms.opinsights.azure.com`。 可以通过以下方式之一来解决此问题：
+
+    - 允许从主机池子网到 `*. ods.opinsights.azure.com` 和 `*.oms. opinsights.azure.com` 的 https 访问。 这些通配符 FQDN 会允许所需的访问，但限制更少。
+    - 使用以下日志分析查询列出所需的确切 FQDN，然后在防火墙应用程序规则中显式允许这些 FQDN：
+    ```
+    AzureDiagnostics 
+    | where Category == "AzureFirewallApplicationRule" 
+    | search "Allow" 
+    | search "*. ods.opinsights.azure.com" or "*.oms. opinsights.azure.com"
+    | parse msg_s with Protocol " request from " SourceIP ":" SourcePort:int " to " FQDN ":" * 
+    | project TimeGenerated,Protocol,FQDN 
+    ```
 
 ## <a name="next-steps"></a>后续步骤
 
 - 若要详细了解 Azure Kubernetes 服务，请参阅[适用于 Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念](../aks/concepts-clusters-workloads.md)。
 
-<!-- Update_Description: new article about protect azure kubernetes service -->
-<!--NEW.date: 08/03/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

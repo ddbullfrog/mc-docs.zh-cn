@@ -9,23 +9,23 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 01/02/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: 098e882ee49b8b797099845322dc7c0ca5234221
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 09/24/2020
+ms.openlocfilehash: 5df4766dd3cd074e855ef7b8522c372930927f4a
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226304"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146348"
 ---
 # <a name="ms-tds-with-azure-active-directory"></a>将 MS-TDS 与 Azure Active Directory 配合使用
 
-## <a name="aad-user-authentication"></a>AAD 用户身份验证
+## <a name="azure-ad-user-authentication"></a>Azure AD 用户身份验证
 
-支持 AAD 用户身份验证的 SQL 客户端可以与 Kusto 一起使用。
+支持 Azure AD 用户身份验证的 SQL 客户端可以与 Azure 数据资源管理器配合使用。
 
 ### <a name="net-sql-client-user"></a>.NET SQL 客户端（用户）
 
-例如，对于集成 AAD：
+例如，对于集成 Azure AD：
 ```csharp
     var csb = new SqlConnectionStringBuilder()
     {
@@ -81,13 +81,13 @@ public class Sample {
 }
 ```
 
-## <a name="aad-application-authentication"></a>AAD 应用程序身份验证
+## <a name="azure-ad-application-authentication"></a>Azure AD 应用程序身份验证
 
-为 Kusto 预配的 AAD 应用程序可使用支持 AAD 的 SQL 客户端库连接到 Kusto。 有关 AAD 应用程序的详细信息，请参阅[创建 AAD 应用程序](../../management/access-control/how-to-provision-aad-app.md)。
+为 Kusto 预配的 Azure AD 应用程序可使用支持 Azure AD 的 SQL 客户端库连接到 Kusto。 有关 Azure AD 应用程序的详细信息，请参阅[创建 Azure AD 应用程序](../../management/access-control/how-to-provision-aad-app.md)。
 
 ### <a name="net-sql-client-application"></a>.NET SQL 客户端（应用程序）
 
-在假设你已为 AAD 应用程序预配了 ApplicationClientId 和 ApplicationKey，并授予其访问群集 ClusterDnsName 上的数据库 DatabaseName 的权限的情况下，以下示例演示如何使用 .NET SQL 客户端从此 AAD 应用程序进行查询。
+在假设你已为 Azure AD 应用程序预配了 ApplicationClientId 和 ApplicationKey，并授予其访问群集 ClusterDnsName 上的数据库 DatabaseName 的权限的情况下，以下示例演示如何使用 .NET SQL 客户端从此 Azure AD 应用程序进行查询。
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;

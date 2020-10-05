@@ -3,18 +3,18 @@ title: Azure Cosmos 模拟器下载和发行说明
 description: 获取不同版本的 Azure Cosmos 模拟器发行说明并下载信息。
 ms.service: cosmos-db
 ms.topic: tutorial
-author: rockboyfor
 origin.date: 06/20/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: dbbe5633acc529fe5902bf85cd9aa780fb6655a5
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 0be2f9f6ddd223afcd62e248cf52bd3e78addf65
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223439"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246681"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos 模拟器 - 发行说明和下载信息
 
@@ -28,6 +28,12 @@ ms.locfileid: "88223439"
 |**入门**|[使用 Azure Cosmos 模拟器在本地开发](local-emulator.md)|
 
 ## <a name="release-notes"></a>发行说明
+
+### <a name="2115-08232020"></a>2.11.5 (08/23/2020)
+
+- 此版本添加了两个新的 Cosmos 模拟器启动选项： 
+* “/EnablePreview”- 它为 Cosmos 模拟器启用预览功能；这些功能仍在开发中，可以通过 CI 和示例编写进行访问。
+* “/EnableAadAuthentication”- 它允许 Cosmos 模拟器接受自定义 AAD 令牌作为 Cosmos 主密钥的替代项。 此功能仍在开发中；目前不支持特定角色分配和其他与权限相关的设置。
 
 ### <a name="2112-07072020"></a>2.11.2 (2020/07/07)
 

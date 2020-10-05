@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/04/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f5756a6f77343fa201aefe41f90ccb22ec72e64
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: b74963fa570e110d4fff5cbf3093adbd2400cb11
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596192"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245029"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>规划 Azure Active Directory 访问评审部署
 
@@ -63,17 +63,6 @@ ms.locfileid: "89596192"
 
 * **降低成本**。 访问评审内置于云中，并且原生可与云资源（例如组、应用程序和访问包）配合使用。 与构建你自己的工具或升级本地工具集相比，使用访问评审的成本更低。
 
-### <a name="training-resources"></a>训练资源
-
-可通过以下视频了解有关访问评审的信息：
-
-* [What are Access Reviews in Azure AD?](https://youtu.be/kDRjQQ22Wkk)（Azure AD 中的访问评审是什么？）
-
-* [How to create Access Reviews in Azure AD](https://youtu.be/6KB3TZ8Wi40)（如何在 Azure AD 中创建访问评审）
-
-* [How to enable Access Reviews in Azure AD](https://youtu.be/X1SL2uubx9M)（如何在 Azure AD 中启用访问评审）
-
-* [How to review access using My Access](https://youtu.be/tIKdQhdHLXU)（如何使用“我的访问权限”评审访问权限）
 
 ### <a name="licenses"></a>许可证
 
@@ -93,7 +82,7 @@ ms.locfileid: "89596192"
 
 * **IT 管理**：管理 IT 基础结构和云投资应用。 该团队将：
 
-   * 评审对基础结构和应用（包括 Office 365 和 Azure AD）的特权访问权限。
+   * 评审对基础结构和应用（包括 Microsoft 365 和 Azure AD）的特权访问权限。
 
    * 在用于维护例外列表或 IT 试点项目的组上计划和运行访问评审，以维护最新的访问权限列表。
 
@@ -150,8 +139,6 @@ ms.locfileid: "89596192"
 
   ![审阅者电子邮件](./media/deploy-access-review/2-plan-reviewer-email.png)
 
-选择“开始评审”后，审阅者会被转到 [myAccess 门户](https://myapplications.microsoft.com/)进行组和应用程序访问评审。 审阅者可以通过该门户概览有权访问他们所评审资源的所有用户，以及基于上次登录和访问信息的系统建议。
-
 ### <a name="plan-a-pilot"></a>规划试点
 
 我们鼓励客户最初使用一个小组对访问评审进行试点，并将非关键资源作为目标。 试点有助于根据需要调整流程和通信，并增强用户和审阅者满足安全性和合规性要求的能力。
@@ -176,7 +163,7 @@ ms.locfileid: "89596192"
 
 典型的评审目标包括：
 
-* 组[成员身份](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)（同步到 Azure AD，或者在 Azure AD 或 Office 365 中创建，包括 Microsoft Teams）。
+* 组[成员身份](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)（同步到 Azure AD，或者在 Azure AD 或 Microsoft 365 中创建，包括 Microsoft Teams）。
 
 * [访问包](../governance/entitlement-management-overview.md)：用于将资源（组、应用和站点）分组到单个包中以管理访问权限。
 
@@ -300,7 +287,7 @@ ms.locfileid: "89596192"
 
 ## <a name="plan-access-reviews-for-groups"></a>为组规划访问评审
 
-除访问包外，评审组成员身份是管理访问权限的最有效方法。 建议通过[安全组或 Office 365 组](../fundamentals/active-directory-manage-groups.md)分配资源访问权限，并将用户添加到这些组以获取访问权限。
+除访问包外，评审组成员身份是管理访问权限的最有效方法。 建议通过[安全组或 Microsoft 365 组](../fundamentals/active-directory-manage-groups.md)分配资源访问权限，并将用户添加到这些组以获取访问权限。
 
 可以为单个组授予对所有相应资源的访问权限。 可以为该组分配对各个资源的访问权限，或者为其分配对某个已将应用程序和其他资源组合在一起的访问包的权限。 使用此方法，你可以评审单个用户对组的访问权限，而不是评审其对每个应用程序的访问权限。 
 
@@ -318,9 +305,9 @@ ms.locfileid: "89596192"
 
 建议组所有者对成员身份进行评审，因为他们最了解谁需要访问权限。 组的所有权因组的类型而异：
 
-在 Office 365 和 Azure AD 中创建的组有一个或多个定义好的所有者。 大多数情况下，这些所有者是他们自己的组的理想的审阅者，因为他们知道谁应该有访问权限。 
+在 Microsoft 365 和 Azure AD 中创建的组有一个或多个已明确定义的所有者。 大多数情况下，这些所有者是他们自己的组的理想的审阅者，因为他们知道谁应该有访问权限。 
 
-例如，Microsoft Teams 使用 Office 365 组作为基础授权模型，为用户授予对 SharePoint、Exchange、OneNote 或其他 Office 365 服务中的资源的访问权限。 团队的创建者自动成为所有者，并应负责证明该组的成员身份。 
+例如，Microsoft Teams 使用 Microsoft 365 组作为基础授权模型，为用户授予对 SharePoint、Exchange、OneNote 或其他 Microsoft 365 服务中的资源的访问权限。 团队的创建者自动成为所有者，并应负责证明该组的成员身份。 
 
 在 Azure AD 门户中手动创建的组或通过 Microsoft Graph 使用脚本创建的组可能不必定义所有者。 建议你通过 Azure AD 门户在组的“所有者”部分中定义它们，或通过 Graph 来这样做。
 
@@ -338,6 +325,7 @@ ms.locfileid: "89596192"
 可以[使用 Azure AD 访问评审管理从条件访问策略中排除的用户](conditional-access-exclusion.md)。
 
 ### <a name="review-external-users-group-memberships"></a>评审外部用户的组成员身份
+
 
 注意：由于访问评审而从组中删除的外部用户不会从租户中删除。 
 
@@ -397,7 +385,7 @@ ms.locfileid: "89596192"
 
 * 安全管理员
 
-* 所有 Office 365 和 Dynamics 服务管理角色
+* 所有 Microsoft 365 和 Dynamics 服务管理角色
 
 此处选择的角色包括永久角色和符合条件的角色。 
 

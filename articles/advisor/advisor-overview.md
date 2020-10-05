@@ -3,32 +3,32 @@ title: Azure 顾问简介
 description: 使用 Azure 顾问优化 Azure 部署。
 ms.topic: article
 origin.date: 02/01/2019
-ms.date: 06/28/2020
-ms.author: v-tawe
-ms.openlocfilehash: 050ef4ee26f2cfc5ff1a2de607696037754396a3
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.date: 09/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 17d0d89c814ca59b03ce555d6b6f2669531298a7
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516636"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402646"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure 顾问简介
 
 了解 Azure 顾问的主要功能，获取常见问题的答案。
 
 ## <a name="what-is-advisor"></a>顾问是什么？
-顾问是一种个性化的云顾问，可帮助遵循最佳做法来优化 Azure 部署。 它可分析资源配置和遥测使用情况，并推荐解决方案，有助于提高 Azure 资源的经济效益、性能、高可用性和安全性。
+顾问是一种个性化的云顾问，可帮助遵循最佳做法来优化 Azure 部署。 它分析你的资源配置和使用情况遥测数据，然后推荐可以帮助你提高 Azure 资源的成本效益、性能、可靠性（以前称为“高可用性”）和安全性的解决方案。
 
 使用顾问可以：
 * 获取主动的、可操作的以及个性化的最佳做法建议。 
-* 提高资源的性能、安全性和高可用性，同时确定机会减少总体 Azure 支出。
+* 随着你发现减少总体 Azure 支出的机会，提高资源的性能、安全性和可靠性。
 * 通过提议的内联操作获取建议。
 
 可通过 [Azure 门户](https://aka.ms/azureadvisor_cn)访问顾问。 登录到[门户](https://portal.azure.cn)，在导航菜单中查找“顾问”，或在“所有服务”菜单中搜索它 。
 
-顾问仪表板显示针对所有订阅的个性化建议。  可为特定的订阅和资源类型应用筛选器，以显示相关建议。  建议分为四类： 
+顾问仪表板显示针对所有订阅的个性化建议。  可为特定的订阅和资源类型应用筛选器，以显示相关建议。  建议分为五类： 
 
-* **高可用性**：确保并提高业务关键应用程序的连续性。 有关详细信息，请参阅[顾问高可用性建议](advisor-high-availability-recommendations.md)。
+* 可靠性（以前称为“高可用性”）：确保并提高业务关键应用程序的连续性。 有关详细信息，请参阅[顾问可靠性建议](advisor-high-availability-recommendations.md)。
 * 安全性：检测可能引起安全问题的威胁和漏洞。 有关详细信息，请参阅[顾问安全性建议](advisor-security-recommendations.md)。
 * **性能**：提高应用程序的速度。 有关详细信息，请参阅[顾问性能建议](advisor-performance-recommendations.md)。
 * **成本**：优化并降低 Azure 总支出。 有关详细信息，请参阅[顾问成本建议](advisor-cost-recommendations.md)。
@@ -53,13 +53,13 @@ ms.locfileid: "85516636"
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>需要哪些权限才能访问顾问？
  
-可以访问订阅的所有者、参与者或读者身份访问顾问建议  。
+你可以作为订阅、资源组或资源的所有者、参与者或读者访问顾问建议。
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>顾问为哪些资源提供建议？
 
-顾问提供了有关应用程序网关、应用服务、可用性集、Azure 缓存、Azure 数据工厂、Azure Database for MySQL、Azure Database for PostgreSQL、Azure Database for MariaDB、Azure ExpressRoute、Azure Cosmos DB、Azure 公共 IP 地址、SQL 数据仓库、SQL Server、存储帐户、流量管理器配置文件和虚拟机的建议。
+顾问提供了有关应用程序网关、应用服务、可用性集、Azure 缓存、Azure 数据工厂、Azure Database for MySQL、Azure Database for PostgreSQL、Azure Database for MariaDB、Azure ExpressRoute、Azure Cosmos DB、Azure 公共 IP 地址、Azure Synapse Analytics、SQL Server、存储帐户、流量管理器配置文件和虚拟机的建议。
 
-Azure 顾问还包括来自 [Azure 安全中心](/security-center/security-center-recommendations)的建议，其中可能包含有关其他资源类型的建议。
+Azure 顾问还包括来自 [Azure 安全中心](../security-center/security-center-recommendations.md)的建议，其中可能包含有关其他资源类型的建议。
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>是否可以推迟或消除建议？
 
@@ -70,7 +70,8 @@ Azure 顾问还包括来自 [Azure 安全中心](/security-center/security-cente
 若要了解有关顾问建议的详细信息，请参阅以下资源：
 
 * [顾问入门](advisor-get-started.md)
-* [顾问高可用性建议](advisor-high-availability-recommendations.md)
+* [顾问可靠性建议](advisor-high-availability-recommendations.md)
 * [顾问安全性建议](advisor-security-recommendations.md)
 * [顾问性能建议](advisor-performance-recommendations.md)
 * [顾问成本建议](advisor-cost-recommendations.md)
+

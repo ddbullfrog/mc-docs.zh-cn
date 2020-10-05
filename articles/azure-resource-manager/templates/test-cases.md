@@ -2,18 +2,18 @@
 title: 测试工具包的测试用例
 description: 介绍由 ARM 模板测试工具包运行的测试。
 ms.topic: conceptual
-origin.date: 06/19/2020
-ms.date: 08/31/2020
-ms.testscope: yes|no
-ms.testdate: 08/31/2020null
+origin.date: 09/02/2020
+ms.date: 09/21/2020
+ms.testscope: yes
+ms.testdate: 08/31/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: b70e66cebd8cb5b01047c2ccf16029a5b6365416
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 31a7edf49bb5fe2db28fb3f352e4276eea795a0f
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807930"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146217"
 ---
 <!--Verified successfully-->
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>ARM 模板测试工具包的默认测试用例
@@ -104,6 +104,37 @@ ms.locfileid: "88807930"
         "type": "SecureString"
     }
 }
+```
+
+## <a name="environment-urls-cant-be-hardcoded"></a>环境 URL 不能硬编码
+
+测试名称：**DeploymentTemplate 不得包含硬编码 Uri**
+
+请勿在模板中对环境 URL 进行硬编码。 请改用[环境函数](template-functions-deployment.md#environment)在部署期间动态获取这些 URL。 有关被阻止的 URL 主机的列表，请参阅[测试用例](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1)。
+
+下面的示例未通过此测试，因为 URL 已进行硬编码。
+
+```json
+"variables":{
+    "AzureURL":"https://management.chinacloudapi.cn"
+}
+```
+
+与 [concat](template-functions-string.md#concat) 或 [uri](template-functions-string.md#uri) 一起使用时，此测试也会失败。
+
+```json
+"variables":{
+    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+}
+```
+
+下面的示例通过了此测试。
+
+```json
+"variables": {
+    "AzureSchemaURL": "[environment().gallery]"
+},
 ```
 
 ## <a name="location-uses-parameter"></a>位置使用参数
@@ -355,7 +386,7 @@ ms.locfileid: "88807930"
 
 ## <a name="artifacts-parameter-defined-correctly"></a>项目参数定义正确
 
-测试名称：项目-参数
+测试名称：项目参数
 
 当包含 `_artifactsLocation` 和 `_artifactsLocationSasToken` 的参数时，请使用正确的默认值和类型。 若要通过此测试，必须满足以下条件：
 
@@ -518,9 +549,9 @@ ms.locfileid: "88807930"
 
 对于 `reference` 和 `list*`，当使用 `concat` 构造资源 ID 时，无法通过测试。
 
-## <a name="dependson-cant-be-conditional"></a>dependsOn 不能是条件性的
+## <a name="dependson-best-practices"></a>dependsOn 最佳做法
 
-测试名称：DependsOn 不能是条件性的
+测试名称：DependsOn 最佳做法
 
 设置部署依赖项时，不要使用 [if](template-functions-logical.md#if) 函数来测试某个条件。 如果一个资源依赖于[基于条件部署](conditional-resource-deployment.md)的资源，设置依赖项时应与任何其他资源一样。 条件资源未部署时，Azure 资源管理器会自动将其从所需依赖项中删除。
 
@@ -576,7 +607,7 @@ ms.locfileid: "88807930"
 
 ## <a name="use-stable-vm-images"></a>使用稳定的 VM 映像
 
-测试名称：Virtual-Machines-Should-Not-Be-Preview
+测试名称：虚拟机不应为预览版
 
 虚拟机不应使用预览映像。
 
@@ -664,5 +695,4 @@ ms.locfileid: "88807930"
 
 若要了解如何运行测试工具包，请参阅[使用 ARM 模板测试工具包](test-toolkit.md)。
 
-<!-- Update_Description: new article about test cases -->
-<!--NEW.date: 08/31/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

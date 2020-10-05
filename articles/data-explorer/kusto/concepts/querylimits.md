@@ -4,22 +4,22 @@ description: 本文介绍了 Azure 数据资源管理器中的查询限制。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/12/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 4861b962bd80027ac3563d30368ffa2107df9e97
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 6c59dc4a88a6b45ebe278162df53ced26d82c534
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516120"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146709"
 ---
 # <a name="query-limits"></a>查询限制
 
 Kusto 是一个即席查询引擎，它承载着大型数据集，并尝试通过在内存中保留所有相关数据来满足查询。
-存在一个固有的风险，即查询会无限地独占服务资源。 Kusto 以默认查询限制的形式提供了许多内置保护。
+存在一个固有的风险，即查询会无限地独占服务资源。 Kusto 以默认查询限制的形式提供了许多内置保护。 如果要考虑消除这些限制，请首先确定这样做实际上是否会带来任何价值。
 
 ## <a name="limit-on-query-concurrency"></a>有关查询并发性的限制
 
@@ -31,7 +31,7 @@ Kusto 是一个即席查询引擎，它承载着大型数据集，并尝试通�
 
 ## <a name="limit-on-result-set-size-result-truncation"></a>有关结果集大小的限制（结果截断）
 
-**结果截断**是针对查询返回的结果集默认设置的限制。 Kusto 将返回给客户端的记录数限制为 **500,000**，将这些记录的总内存限制为 **64 MB**。 当超出其中任一限制时，查询将失败并显示“部分查询失败”。 超出总内存将生成包含以下消息的异常：
+**结果截断**是针对查询返回的结果集默认设置的限制。 Kusto 将返回给客户端的记录数限制为 500,000，将这些记录的总数据大小限制为 64 MB。 当超出其中任一限制时，查询将失败并显示“部分查询失败”。 超出总数据大小将生成包含以下消息的异常：
 
 ```
 The Kusto DataEngine has failed to execute a query: 'Query result set has exceeded the internal data size limit 67108864 (E_QUERY_RESULT_SET_TOO_LARGE).'
@@ -48,7 +48,7 @@ The Kusto DataEngine has failed to execute a query: 'Query result set has exceed
 * 将查询修改为仅返回令人感兴趣的数据，从而减小结果集的大小。 当初始的失败查询范围太广时，此策略非常有用。 例如，查询未抛弃不需要的数据列。
 * 通过将查询后处理（例如聚合）切换到查询本身中来减小结果集的大小。 当查询输出被馈送到另一个处理系统并且该系统随后执行其他聚合时，此策略非常有用。
 * 要从服务中导出大量数据时，请从查询切换到使用[数据导出](../management/data-export/index.md)。
-* 指示服务抑制此查询限制。
+* 使用下面列出的 `set` 语句或[客户端请求属性](../api/netfx/request-properties.md)中的标志来指示服务取消此查询限制。
 
 用于减小查询生成的结果集大小的方法包括：
 
@@ -72,16 +72,12 @@ MyTable | take 1000000
 ```kusto
 set truncationmaxsize=1048576;
 set truncationmaxrecords=1105;
-MyTable | where User=="Ploni"
+MyTable | where User=="UserId1"
 ```
 
-Kusto 客户端库当前假定存在此限制。 虽然你可以无限地增大此限制，但最终你将达到当前不可配置的客户端限制。
+去除结果截断限制意味着你打算将大量数据移出 Kusto。
 
-客户如果不想在一个批操作中拉取所有数据，可以尝试以下解决方法：
-* 将某些 SDK 切换到流式传输模式（KustoConnectionStringBuilder 上的 Streaming=true 属性）
-* 切换到 .NET v2 API
-
-让 Kusto 团队了解你是否遇到了此问题，以便我们提高流式传输客户端的优先级。
+你可以去除结果截断限制，以方便使用 `.export` 命令进行导出，或方便以后进行聚合。 如果选择稍后进行聚合，请考虑使用 Kusto 进行聚合。
 
 Kusto 提供的许多客户端库能够以将“无限大的”结果流式传输给调用方的方式来处理这些结果。 请使用这些库中的一个，并将其配置为流式传输模式。 例如，使用 .NET Framework 客户端 (Microsoft.Azure.Kusto.Data)，并将连接字符串的 streaming 属性设置为 *true*，或使用始终会流式传输结果的 *ExecuteQueryV2Async()* 调用。
 
@@ -116,10 +112,6 @@ set maxmemoryconsumptionperiterator=68719476736;
 MyTable | ...
 ```
 
-在考虑消除这些限制时，首先要确定这样做是否真的有任何价值。 特别是，移除结果截断限制意味着你打算将大量数据移出 Kusto。
-你可以使用 `.export` 命令消除结果截断限制，以方便进行导出，或方便以后进行聚合（在这种情况下，请考虑使用 Kusto 进行聚合）。
-如果无法通过这些建议的解决方案满足你的业务方案，请告知 Kusto 团队。  
-
 在许多情况下，可以通过对数据集采样来避免超出此限制。 下面的两个查询展示了如何进行采样。 第一个是统计采样，它使用一个随机数生成器。 第二个是确定性采样，它是通过对数据集中的某个列（通常是某个 ID）进行哈希处理来执行的。
 
 ```kusto
@@ -145,9 +137,7 @@ MyTable | ...
 ```
 Runaway query (E_RUNAWAY_QUERY). (message: 'Accumulated string array getting too large and exceeds the limit of ...GB (see https://aka.ms/kustoquerylimits)')
 
-Runaway query (E_RUNAWAY_QUERY). (message: 'Accumulated string array getting too large and exceeds the maximum count of 2G items (see http://aka.ms/kustoquerylimits)')
-
-Runaway query (E_RUNAWAY_QUERY). (message: 'Single string size shouldn't exceed the limit of 2GB (see http://aka.ms/kustoquerylimits)')
+Runaway query (E_RUNAWAY_QUERY). (message: 'Accumulated string array getting too large and exceeds the maximum count of ..GB items (see http://aka.ms/kustoquerylimits)')
 ```
 
 目前没有任何开关可用来增加最大字符串集大小。
