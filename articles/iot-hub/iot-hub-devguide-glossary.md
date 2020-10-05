@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/15/2019
 ms.author: v-yiso
 ms.date: 05/11/2020
-ms.openlocfilehash: 49b9b699387795829db73cc8448b8f3bb2f41cb0
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.openlocfilehash: 142288e1e91ba58360ea428d1a7190ffcf635937
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507728"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394772"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -23,7 +23,8 @@ ms.locfileid: "82507728"
 [高级消息队列协议 (AMQP)](https://www.amqp.org/) 是 [IoT 中心](#iot-hub)支持的一种消息传送协议，适用于与设备通信。 有关 IoT 中心支持的消息传递协议的详细信息，请参阅[使用 IoT 中心发送和接收消息](./iot-hub-devguide-messaging.md)。
 
 ## <a name="automatic-device-management"></a>自动设备管理
-Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的任务自动化，包括在大型设备阵列的整个生命周期内对其进行管理。 使用自动设备管理，可以根据设备的属性将一组设备指定为目标、定义所需的配置，并在设备进入管理范畴时让 IoT 中心更新这些设备。  包括[自动设备配置](iot-hub-auto-device-config.md)和 [IoT Edge 自动部署](../iot-edge/how-to-deploy-monitor.md)。
+
+Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的任务自动化，包括在大型设备阵列的整个生命周期内对其进行管理。 使用自动设备管理，可以根据设备的属性将一组设备指定为目标、定义所需的配置，并在设备进入管理范畴时让 IoT 中心更新这些设备。  包括[自动设备配置](iot-hub-auto-device-config.md)和 [IoT Edge 自动部署](../iot-edge/how-to-deploy-at-scale.md)。
 
 ## <a name="automatic-device-configuration"></a>自动设备配置
 解决方案后端可以使用[自动设备配置](iot-hub-auto-device-config.md)将所需属性分配到一组[设备孪生](#device-twin)，并使用系统指标和自定义指标来报告状态。 
@@ -55,7 +56,8 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 [Azure PowerShell](../powershell-install-configure.md) 是一个 cmdlet 集合，可用于通过 Windows PowerShell 管理 Azure。 可以使用 cmdlet 来创建、测试、部署和管理通过 Azure 平台传送的解决方案和服务。
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-可以使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 将解决方案中的资源作为一个组进行处理。 可以通过一个协调操作为解决方案部署、更新或删除资源。
+
+可以使用 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 将解决方案中的资源作为一个组进行处理。 可以通过一个协调操作为解决方案部署、更新或删除资源。
 
 ## <a name="azure-service-bus"></a>Azure 服务总线
 通过[服务总线](/service-bus-messaging/)，可在云端使用企业消息传递进行通信，也可采用中继进行通信，帮助将本地解决方案与云端连接。 某些 IoT 中心教程使用服务总线[队列](../service-bus-messaging/service-bus-messaging-overview.md)。
@@ -102,7 +104,8 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 指从已连接设备发送到 [IoT 中心](#iot-hub)的消息。 这些消息可能是[数据点](#data-point-message)或[交互式](#interactive-message)消息。 有关详细信息，请参阅[使用 IoT 中心发送和接收消息](./iot-hub-devguide-messaging.md)。
 
 ## <a name="device"></a>设备
-在 IoT 上下文中，设备通常是指小型、独立的计算设备，可用于收集数据或控制其他设备。 例如，设备可以是环境监视设备，也可以是控制器，控制温室中的浇水和通风系统。 [设备目录](https://catalog.azureiotsuite.com/)提供经过认证的可用于 [IoT 中心](#iot-hub)的硬件设备列表。
+
+在 IoT 上下文中，设备通常是指小型、独立的计算设备，可用于收集数据或控制其他设备。 例如，设备可以是环境监视设备，也可以是控制器，控制温室中的浇水和通风系统。 [设备目录](https://catalog.azureiotsolutions.com/)提供经过认证的可用于 [IoT 中心](#iot-hub)的硬件设备列表。
 
 ## <a name="device-app"></a>设备应用
 设备应用在用户的[设备](#device)上运行，处理与 [IoT 中心](#iot-hub)的通信。 通常情况下，实现设备应用时会使用一个 [Azure IoT 设备 SDK](#azure-iot-device-sdks) 。 在许多 IoT 教程中，为方便起见使用 [模拟设备](#simulated-device) 。
@@ -264,7 +267,8 @@ Azure 订阅是发生计费的地方。 用户创建的每个 Azure 资源或使
 可以使用令牌服务对设备实施身份验证机制。 它使用包含 [DeviceConnect](#shared-access-policy) 权限的 IoT 中心 **共享访问策略** 创建 *设备范围的* 令牌。 这些令牌可让设备连接到 IoT 中心。 设备通过令牌服务使用自定义的身份验证机制进行身份验证。 如果设备成功通过身份验证，那么令牌服务向设备颁发 SAS 令牌用于访问 IoT 中心。
 
 ## <a name="twin-queries"></a>孪生查询
-[设备和模块孪生查询](iot-hub-devguide-query-language.md)使用类似于 SQL 的 IoT 中心查询语言从设备孪生或模块孪生中检索信息。 可以使用相同的 IoT 中心查询语言，检索在 IoT 中心内运行的 [](#job) 的相关信息。
+
+[设备和模块孪生查询](iot-hub-devguide-query-language.md)使用类似于 SQL 的 IoT 中心查询语言从设备孪生或模块孪生中检索信息。 可以使用相同的 IoT 中心查询语言，检索在 IoT 中心内运行的[作业](#job)的相关信息。
 
 ## <a name="twin-synchronization"></a>孪生同步
 孪生同步使用设备孪生或模块孪生中的[所需属性](#desired-properties)配置设备或模块，并检索其中的[报告属性](#reported-properties)，以将这些属性存储在孪生中。

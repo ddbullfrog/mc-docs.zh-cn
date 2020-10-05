@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 12/23/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: f055113c586ac59adcd8b8d2104c955d6271279d
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: e9ad2e9ac8d0777a2306ca787f3dd1fd1c32387a
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516754"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394807"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虚拟网络中的 HDInsight 上创建 Apache HBase 群集
 了解如何在 [Azure 虚拟网络][1]中创建 Azure HDInsight Apache HBase 群集。
@@ -44,11 +44,9 @@ ms.locfileid: "85516754"
 > * **子网名称**：subnet1
 > * **子网地址范围**：10.0.0.0/24
 >
-> &lt;群集名称> 会替换为使用模板时提供的群集名称。
->
->
+> `CLUSTERNAME` 会替换为使用模板时提供的群集名称。
 
-1. 单击下面的图像可在 Azure 门户中打开模板。 模板位于 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/)中。
+1. 选择下面的图像即可在 Azure 门户中打开该模板。 该模板位于 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/)中。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
 
@@ -137,10 +135,12 @@ ms.locfileid: "85516754"
 
 要在 Java 应用程序中使用此信息，可以按照[使用 Apache Maven 构建将 Apache HBase 与 HDInsight (Hadoop) 配合使用的 Java 应用程序](./apache-hbase-build-java-maven-linux.md)中的步骤来创建应用程序。 若要让应用程序连接到远程 HBase 服务器，请修改本示例中的 **hbase-site.xml** 文件，以对 Zookeeper 使用 FQDN。 例如：
 
-    <property>
-        <name>hbase.zookeeper.quorum</name>
-        <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
-    </property>
+```xml
+<property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
+</property>
+```
 
 > [!NOTE]
 > 有关 Azure 虚拟网络中的名称解析的详细信息，包括如何使用自己的 DNS 服务器，请参阅[名称解析 (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。

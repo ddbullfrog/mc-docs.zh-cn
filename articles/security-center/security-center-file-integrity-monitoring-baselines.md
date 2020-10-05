@@ -3,7 +3,7 @@ title: Azure 安全中心内的文件完整性监视
 description: 了解如何使用 Azure 安全中心的文件完整性监视来比较基线。
 services: security-center
 documentationcenter: na
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
 ms.service: security-center
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2020
-ms.author: v-tawe
+ms.date: 09/14/2020
+ms.author: v-johya
 origin.date: 05/29/2019
-ms.openlocfilehash: 0b93d664fb87af6a0146594ad36cae0f9cf2ba7a
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 6ad25ad5e1052c02658fdb92b0be7757d20208b6
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83423019"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402413"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>使用文件完整性监视 (FIM) 比较基线
 
@@ -42,7 +42,7 @@ FIM 注册表配置单元的默认设置提供了一种简便的方法来监视�
 >[!NOTE]
 > 递归检查仅适用于建议的安全配置单元，不适用于自定义注册表路径。  
 
-## <a name="adding-a-custom-registry-check"></a>添加自定义注册表检查
+## <a name="add-a-custom-registry-check"></a>添加自定义注册表检查
 
 FIM 基线首先确定操作系统和支持应用程序的已知良好状态的特征。  在此示例中，我们将重点介绍 Windows Server 2008 及更高版本的密码策略配置。
 
@@ -74,14 +74,14 @@ FIM 基线首先确定操作系统和支持应用程序的已知良好状态的�
 
       ![对注册表启用 FIM](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>跟踪 Windows 文件的更改
+## <a name="track-changes-to-windows-files"></a>跟踪 Windows 文件的更改
 
 1. 在“添加 Windows 文件以跟踪更改”窗口的“输入路径”文本框中，输入包含要跟踪的文件的文件夹。在下图的示例中，Contoso Web 应用位于 D:\ 驱动器的 ContosWebApp 文件夹结构中。  
 1. 通过提供设置类的名称、启用递归并使用通配符 (*) 后缀指定顶级文件夹，来创建自定义 Windows 文件条目。
 
     ![对文件启用 FIM](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>检索变更数据
+## <a name="retrieve-change-data"></a>检索更改数据
 
 文件完整性监视数据位于 Azure Log Analytics / ConfigurationChange 表集中。  
 
@@ -120,3 +120,4 @@ FIM 基线首先确定操作系统和支持应用程序的已知良好状态的�
 可以将报告导出到 CSV 进行存档以及/或者导出为 Power BI 报告。  
 
 ![FIM 数据](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)
+

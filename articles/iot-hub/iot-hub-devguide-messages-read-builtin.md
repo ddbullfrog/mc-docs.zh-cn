@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/01/2020
 ms.author: v-yiso
 ms.date: 06/08/2020
-ms.openlocfilehash: b56bbd3eb48ace62e0b1214fb2610510f2246f74
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 3a812de321489c1937200f1cc3dad54584c2990e
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226160"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394768"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>从内置终结点读取设备到云的消息
 
@@ -56,7 +56,7 @@ IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端�
 | 主机名 | abcd1234namespace.servicebus.chinacloudapi.cn |
 | 命名空间 | abcd1234namespace |
 
-然后，可以使用具有 **ServiceConnect** 权限的任何共享访问策略连接到指定的事件中心。
+然后，可以从下拉菜单中选择任何共享访问策略，如上面的屏幕截图中所示。 它仅显示可用于连接到指定事件中心的具有“ServiceConnect”权限的策略。
 
 可以用来连接到内置的、与事件中心兼容的且由 IoT 中心公开的终结点的 SDK 包括：
 
@@ -71,6 +71,7 @@ IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端�
 
 * [Azure Functions](/azure-functions/)。 
 * [Azure 流分析](/stream-analytics/)。 请参阅[将数据作为流分析的输入进行流式传输](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub)。
+* [时序见解](/time-series-insights/)。 
 * [Apache Storm Spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md)。 可以在 GitHub 上查看 [Spout 源代码](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 。
 * [Apache Spark 集成](../hdinsight/spark/apache-spark-eventhub-streaming.md)。
 

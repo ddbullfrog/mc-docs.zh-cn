@@ -3,14 +3,14 @@ title: 升级 Azure 恢复服务 (MARS) 代理
 description: 了解如何升级 Azure 恢复服务 (MARS) 代理。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 05/15/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: 1e113e14ebd3e7dd98310b49bdd4908bebbf91b7
-ms.sourcegitcommit: 08b42258a48d96d754244064d065e4d5703f1cfb
+ms.openlocfilehash: d4446402d52c9a2a08eaa80947c3f763e11047f9
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83445245"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402312"
 ---
 # <a name="upgrade-the-azure-recovery-services-mars-agent"></a>升级 Azure 恢复服务 (MARS) 代理
 
@@ -24,8 +24,8 @@ ms.locfileid: "83445245"
 对于 Azure 备份代理和 Azure 备份服务器的安装：
 
 1. 导航到可能由旧版代理备份的已注册服务器所在的恢复服务保管库。 可以在 Azure 发出的 Azure 备份更新警报中，找到包含旧版 Azure 备份代理的保管库的代表性列表。
-1. 在恢复服务保管库的左侧“设置”部分，选择“管理”部分下的“备份基础结构”。  
-1. 若要发现在安装 Azure 备份服务器过程中一起安装的 Azure 备份代理，请转到“管理服务器”下的“备份管理服务器”。  此时会列出包含 Azure 备份服务器安装的服务器，以及关联 Azure 备份代理的版本号。
+1. 在恢复服务保管库的左侧“设置”部分，选择“管理”部分下的“备份基础结构”  。
+1. 若要发现在安装 Azure 备份服务器过程中一起安装的 Azure 备份代理，请转到“管理服务器”下的“备份管理服务器” 。 此时会列出包含 Azure 备份服务器安装的服务器，以及关联 Azure 备份代理的版本号。
 
     ![在安装 Azure 备份服务器过程中一起安装的 MARS 代理列表](./media/upgrade-mars-agent/backup-management-servers.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "83445245"
 
     ![装有 MARS 代理的服务器列表](./media/upgrade-mars-agent/protected-servers.png)
 
-1. 通过单击 MARS 代理安装对应的“代理版本”列，或 Azure 备份服务器安装对应的“Azure 备份代理版本”列，来对 Azure 备份代理版本列进行排序。 
+1. 通过选择 MARS 代理安装对应的“代理版本”列，或 Azure 备份服务器安装对应的“Azure 备份代理版本”列，来对 Azure 备份代理版本列进行排序 。
 
 1. 上述步骤会列出包含 2.0.9083.0 以下版本的 Azure 备份代理或者代理版本为空白的服务器。 需要在这些服务器中更新 Azure 备份代理。
 
@@ -41,18 +41,18 @@ ms.locfileid: "83445245"
 
 确定需要进行 Azure 备份代理更新的服务器后，针对确定的每台服务器执行以下步骤（使用 Azure 备份服务器或 MARS 代理）。 在执行以下步骤之前，请[下载最新版本的 Azure 备份代理](https://aka.ms/azurebackup_agent)。
 
-1. 单击版本低于 2.0.9083.0 或者为空白的 Azure 备份代理所在的行。 此时会打开服务器详细信息屏幕。
+1. 选择版本低于 2.0.9083.0 或者为空白的 Azure 备份代理所在的行。 此时会打开服务器详细信息屏幕。
 
     ![代理版本已过时的受保护服务器](./media/upgrade-mars-agent/old-agent-version.png)
 
     ![代理版本已过时的 Azure 备份服务器](./media/upgrade-mars-agent/backup-management-servers-old-versions.png)
 
-1. 单击“连接”接收一个用于连接服务器的远程桌面连接文件，或者通过服务器上的远程桌面连接直接连接到服务器。
+1. 选择“连接”以接收用于连接服务器的远程桌面连接文件，或者通过服务器上的远程桌面连接直接连接到服务器。
 
     ![通过远程桌面连接连接到服务器](./media/upgrade-mars-agent/connect-to-server.png)
 
     >[!NOTE]
-    > 如果列出的服务器不存在或已被解除，则你可以忽略下面的剩余步骤，并跳转到下一台服务器。
+    > 如果列出的服务器不存在或已被解除，则可以忽略下面的剩余步骤，并跳转到下一台服务器。
 
 1. 输入管理登录详细信息并登录。
 
@@ -66,9 +66,9 @@ ms.locfileid: "83445245"
 
     ![Azure 恢复服务代理升级向导](./media/upgrade-mars-agent/agent-upgrade-wizard.png)
 
-1. 单击“下一步”。
+1. 选择“下一步”  。
 
-1. 单击“升级”。
+1. 选择“升级”。
 
     ![Azure 恢复服务代理的安装](./media/upgrade-mars-agent/upgrade-installation.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "83445245"
 
 1. 以管理员身份登录到 SC DPM 服务器。
 2. 打开 DPM 控制台。
-3. 单击控制台左下导航栏中的“管理”。
+3. 选择控制台左下导航栏中的“管理”。
 4. 在左侧导航栏上显示的信息中，查看 Azure 备份代理版本信息。
 5. 如果版本低于 2.0.9083.0，请下载最新的 Azure 备份代理安装程序，并在 DPM 服务器上运行该安装程序以更新 Azure 备份代理。
 

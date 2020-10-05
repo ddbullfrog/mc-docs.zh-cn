@@ -2,20 +2,20 @@
 title: 配置使用 SQL FQDN 的 Azure 防火墙应用程序规则
 description: 本文介绍如何在 Azure 防火墙应用程序规则中配置 SQL FQDN。
 services: firewall
-author: rockboyfor
 ms.service: firewall
 ms.topic: how-to
 origin.date: 06/18/2020
-ms.date: 08/03/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3b50502088e3c934c90688c2149ba7a2b79696ba
-ms.sourcegitcommit: 362814dc7ac5b56cf0237b9016a67c35d8d72c32
+ms.openlocfilehash: 52de81d5885daf3b05d25f87b89b81ff92c208f7
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87455584"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246433"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>使用 SQL FQDN 配置 Azure 防火墙应用程序规则
 
@@ -23,7 +23,7 @@ ms.locfileid: "87455584"
 
 使用 SQL FQDN 可以筛选流量：
 
-- 从 VNet 发往 Azure SQL 数据库或 Azure SQL 数据仓库的流量。 例如：仅允许访问 *sql-server1.database.chinacloudapi.cn*。
+- 从 VNet 到 Azure SQL 数据库或 Azure Synapse Analytics。 例如：仅允许访问 *sql-server1.database.chinacloudapi.cn*。
 - 从本地发往 VNet 中运行的 Azure SQL 托管实例或 SQL IaaS 的流量。
 - 从“分支到分支”到 VNet 中运行的 Azure SQL 托管实例或 SQL IaaS。
 
@@ -33,7 +33,7 @@ ms.locfileid: "87455584"
 ## <a name="configure-using-azure-cli"></a>使用 Azure CLI 进行配置
 
 1. [使用 Azure CLI 部署 Azure 防火墙](deploy-cli.md)。
-2. 如果筛选发往 Azure SQL 数据库、SQL 数据仓库或 SQL 托管实例的流量，请确保将 SQL 连接模式设置为“代理”。 若要了解如何切换 SQL 连接模式，请参阅 [Azure SQL 连接设置](/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli)。
+2. 如果筛选发往 Azure SQL 数据库、Azure Synapse Analytics 或 SQL 托管实例的流量，请确保将 SQL 连接模式设置为“代理”。 若要了解如何切换 SQL 连接模式，请参阅 [Azure SQL 连接设置](/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli)。
 
     > [!NOTE]
     > 与重定向相比，SQL 代理模式可能会导致更大的延迟。 若要继续使用重定向模式（在 Azure 中建立客户端连接的默认模式），可以在防火墙[网络规则](tutorial-firewall-deploy-portal.md#configure-a-network-rule)中使用 SQL [服务标记](service-tags.md)筛选访问流量。
@@ -55,13 +55,13 @@ ms.locfileid: "87455584"
 
 ## <a name="configure-using-the-azure-portal"></a>使用 Azure 门户进行配置
 1. [使用 Azure CLI 部署 Azure 防火墙](deploy-cli.md)。
-2. 如果筛选发往 Azure SQL 数据库、SQL 数据仓库或 SQL 托管实例的流量，请确保将 SQL 连接模式设置为“代理”。 若要了解如何切换 SQL 连接模式，请参阅 [Azure SQL 连接设置](/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli)。  
+2. 如果筛选发往 Azure SQL 数据库、Azure Synapse Analytics 或 SQL 托管实例的流量，请确保将 SQL 连接模式设置为“代理”。 若要了解如何切换 SQL 连接模式，请参阅 [Azure SQL 连接设置](/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli)。  
 
     > [!NOTE]
     > 与重定向相比，SQL 代理模式可能会导致更大的延迟。 若要继续使用重定向模式（在 Azure 中建立客户端连接的默认模式），可以在防火墙[网络规则](tutorial-firewall-deploy-portal.md#configure-a-network-rule)中使用 SQL [服务标记](service-tags.md)筛选访问流量。
 3. 在应用程序规则中添加相应的协议、端口和 SQL FQDN，然后选择“保存”。
     
-    ![使用 SQL FQDN 的应用程序规则](media/sql-fqdn-filtering/application-rule-sql.png)
+    :::image type="content" source="media/sql-fqdn-filtering/application-rule-sql.png" alt-text="使用 SQL FQDN 的应用程序规则":::
 4. 从通过防火墙筛选流量的 VNet 中的虚拟机访问 SQL。 
 5. 验证 [Azure 防火墙日志](log-analytics-samples.md)是否显示允许流量。
 

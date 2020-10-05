@@ -4,14 +4,14 @@ description: 本文介绍如何使用 Azure 备份的新旧诊断事件。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 10/30/2019
-ms.date: 07/31/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: 5b7b4cd6f9c0b79172f6d20010a1c5ba6a4790f1
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.openlocfilehash: 98be6aafee9e570cf8290b54ed125631385d7383
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508439"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402437"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>使用恢复服务保管库的诊断设置
 
@@ -32,15 +32,15 @@ Azure 备份提供以下诊断事件。 每个事件都提供一组特定的备�
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-如果使用[旧事件](/backup/backup-azure-diagnostic-events#legacy-event) AzureBackupReport，则建议尽快切换到使用上述事件。
+如果仍在使用[旧事件](#legacy-event) AzureBackupReport，则建议切换为使用以上事件。
 
-有关详细信息，请参阅 [Azure 备份诊断事件的数据模型](/backup/backup-azure-reports-data-model)。
+有关详细信息，请参阅 [Azure 备份诊断事件的数据模型](./backup-azure-reports-data-model.md)。
 
 可以将这些事件的数据发送到存储帐户、Log Analytics 工作区或事件中心。 如果要将这些数据发送到 Log Analytics 工作区，请在“诊断设置”屏幕上选择“资源专用”开关。 有关详细信息，请参阅以下部分。
 
 ## <a name="use-diagnostics-settings-with-log-analytics"></a>将诊断设置与 Log Analytics 配合使用
 
-现在，可以使用 Azure 备份将保管库诊断数据发送到专用 Log Analytics 表进行备份。 这些表称为[资源专用表](/azure-monitor/platform/resource-logs-collect-workspace#resource-specific)。
+现在，可以使用 Azure 备份将保管库诊断数据发送到专用 Log Analytics 表进行备份。 这些表称为[资源专用表](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)。
 
 若要将保管库诊断数据发送到 Log Analytics，请执行以下操作：
 
@@ -55,23 +55,23 @@ Azure 备份提供以下诊断事件。 每个事件都提供一组特定的备�
 数据流入 Log Analytics 工作区后，将在工作区中为以上各个事件创建专用表。 你可以直接查询这些表中的任何一个。 如果需要，还可以在这些表之间执行联接或联合。
 
 > [!IMPORTANT]
-> 只有在资源专用模式下，[备份报表](/backup/configure-reports)才支持这六个事件，即 CoreAzureBackup、AddonAzureBackupJobs、AddonAzureBackupAlerts、AddonAzureBackupPolicy、AddonAzureBackupStorage 和 AddonAzureBackupProtectedInstance。 如果尝试在 Azure 诊断模式下发送这六个事件的数据，则在备份报表中将看不到任何数据。
+> 只有在资源专用模式下，[备份报表](./configure-reports.md)才支持这六个事件，即 CoreAzureBackup、AddonAzureBackupJobs、AddonAzureBackupAlerts、AddonAzureBackupPolicy、AddonAzureBackupStorage 和 AddonAzureBackupProtectedInstance。 如果尝试在 Azure 诊断模式下发送这六个事件的数据，则在备份报表中将看不到任何数据。
 
 ## <a name="legacy-event"></a>旧事件
 
 在传统上，保管库的所有与备份相关的诊断数据都包含在名为“AzureBackupReport”的单个事件中。 此处所述的这六个事件实质上是 AzureBackupReport 中包含的所有数据的分解。
 
-目前，如果用户仍在对此事件运行自定义查询，为了实现向后兼容，我们将继续支持 AzureBackupReport 事件。 示例包括自定义日志警报和自定义可视化效果。 建议尽早迁移到[新事件](/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users)。 新事件：
+目前，如果用户仍在对此事件运行自定义查询，为了实现向后兼容，我们将继续支持 AzureBackupReport 事件。 示例包括自定义日志警报和自定义可视化效果。 建议尽早迁移到[新事件](#diagnostics-events-available-for-azure-backup-users)。 新事件：
 
 * 在日志查询中使用数据时更方便。
 * 提高了架构及其结构的可发现性。
 * 改善了引入延迟和查询时间的性能。
 
-Azure 诊断模式下的旧事件最终将被弃用。选择新事件可以帮助你避免以后进行复杂的迁移。 使用 Log Analytics 的[报告解决方案](/backup/configure-reports)也将停止支持旧事件的数据。
+Azure 诊断模式下的旧事件最终将被弃用。选择新事件可以帮助你避免以后进行复杂的迁移。 使用 Log Analytics 的[报告解决方案](./configure-reports.md)也将停止支持旧事件的数据。
 
 ### <a name="steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace"></a>迁移到 Log Analytics 工作区的新诊断设置的步骤
 
-1. 通过使用旧事件及其所属的订阅，确定哪些保管库正在将数据发送到 Log Analytics 工作区。 运行以下工作区以标识这些保管库和订阅。
+1. 通过使用旧事件及其所属的订阅，确定哪些保管库正在将数据发送到 Log Analytics 工作区。 在每个工作区中运行以下查询来标识这些保管库和订阅。
 
     ````Kusto
     let RangeStart = startofday(ago(3d));
@@ -85,9 +85,9 @@ Azure 诊断模式下的旧事件最终将被弃用。选择新事件可以帮�
         | where TimeGenerated >= RangeStart | where OperationName == "Vault"
         | summarize arg_max(TimeGenerated, *) by ResourceId
         | project ResourceId, Category};
-        // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
+        // Some Workspaces will not have AzureDiagnostics Table, so you need to use isFuzzy
     let CombinedVaultTable = (){
-        CombinedTable | union isfuzzy = true
+        union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
         (VaultUnderResourceSpecific() )
         | distinct ResourceId, Category};
@@ -99,7 +99,11 @@ Azure 诊断模式下的旧事件最终将被弃用。选择新事件可以帮�
     | project ResourceId, SubscriptionId, VaultName
     ````
 
-1. 使用 Azure 备份的[内置 Azure Policy 定义](/backup/azure-policy-configure-diagnostics)，为指定范围内的所有保管库添加新的诊断设置。 此策略会将新的诊断设置添加到没有诊断设置或仅具有旧诊断设置的保管库。 可以一次性将此策略分配给整个订阅或资源组。 你必须对分配了此策略的每个订阅都具有所有者访问权限。
+    以下屏幕截图显示了在其中一个工作区中运行的查询：
+
+    ![工作区查询](./media/backup-azure-diagnostics-events/workspace-query.png)
+
+2. 使用 Azure 备份的[内置 Azure Policy 定义](./azure-policy-configure-diagnostics.md)，为指定范围内的所有保管库添加新的诊断设置。 此策略会将新的诊断设置添加到没有诊断设置或仅具有旧诊断设置的保管库。 可以一次性将此策略分配给整个订阅或资源组。 你必须对分配了此策略的每个订阅都具有所有者访问权限。
 
 在迁移所有自定义查询以使用新表中的数据之前，可以选择为 AzureBackupReport 和六个新事件创建单独的诊断设置。 下图显示了采用两项诊断设置的保管库示例。 第一项设置名为 Setting1，它以 Azure 诊断模式将 AzureBackupReport 事件的数据发送到 Log Analytics 工作区。 第二项设置名为 Setting2，它以资源专用模式将六个新 Azure 备份事件的数据发送到 Log Analytics 工作区。
 
@@ -129,5 +133,5 @@ Azure 备份和 Azure Site Recovery 事件从同一个恢复服务保管库发�
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解诊断事件的 Log Analytics 数据模型](/backup/backup-azure-reports-data-model)
+[了解诊断事件的 Log Analytics 数据模型](./backup-azure-reports-data-model.md)
 

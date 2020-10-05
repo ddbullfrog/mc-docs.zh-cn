@@ -1,24 +1,26 @@
 ---
 title: 在 Azure 中使用负载均衡服务 | Azure
-description: 本教程介绍如何使用以下 Azure 负载均衡产品组合创建方案：流量管理器、应用程序网关和负载均衡器。
+description: 本教程说明如何使用以下 Azure 负载均衡产品组合创建方案：流量管理器、应用程序网关和负载均衡器。
 services: traffic-manager
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/27/2016
-ms.date: 04/30/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: e6d2270bdb9a45063958feeaec497c3fb8e899cf
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.openlocfilehash: 26754fd464261d008b1daa67ad4c549e1cf3619f
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392472"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395399"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>在 Azure 中使用负载均衡服务
 
@@ -57,7 +59,7 @@ Azure 提供多种服务用于管理网络流量的分发和负载均衡方式�
 
 下图显示了此方案的体系结构：
 
-![负载均衡体系结构关系图](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
+:::image type="content" source="./media/traffic-manager-load-balancing-azure/scenario-diagram.png" alt-text="负载均衡体系结构关系图":::
 
 > [!NOTE]
 > 此示例只是 Azure 提供的负载均衡服务的众多可能配置之一。 可以根据负载均衡需求混合搭配使用流量管理器、应用程序网关和负载均衡器。 例如，如果不需要 TLS 卸载或第 7 层处理，则可以使用负载均衡器来代替应用程序网关。
@@ -104,7 +106,7 @@ Azure 提供多种服务用于管理网络流量的分发和负载均衡方式�
 
 选择后端池时，使用基于路径的规则配置的应用程序网关采用请求 URL 加轮循机制分配法的路径模式。 在此方案中，我们要添加基于路径的规则，将包含“/images/\*”的任意 URL 定向到映像服务器池。 如需详细了解如何为应用程序网关配置基于 URL 路径的路由，请参阅[为应用程序网关创建基于路径的规则](../application-gateway/application-gateway-create-url-route-portal.md)。
 
-![应用程序网关 Web 层关系图](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
+:::image type="content" source="./media/traffic-manager-load-balancing-azure/web-tier-diagram.png" alt-text="负载均衡体系结构关系图":::
 
 1. 从资源组转到在前面部分创建的应用程序网关实例。
 2. 在“设置”下面选择“后端池”，然后选择“添加”，添加要与 Web 层后端池关联的 VM。  
@@ -160,7 +162,7 @@ Azure 提供多种服务用于管理网络流量的分发和负载均衡方式�
 
 在此方案中，负载均衡器将连接从 Web 层分发到高可用性群集中的数据库。
 
-如果高可用性数据库群集使用 SQL Server AlwaysOn，请参阅[配置一个或多个 Always On 可用性组侦听器](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)了解分步说明。
+如果高可用性数据库群集使用 SQL Server AlwaysOn，请参阅[配置一个或多个 Always On 可用性组侦听器](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md)了解分步说明。
 
 有关配置内部负载均衡器的详细信息，请参阅[在 Azure 门户中创建内部负载均衡器](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)。
 

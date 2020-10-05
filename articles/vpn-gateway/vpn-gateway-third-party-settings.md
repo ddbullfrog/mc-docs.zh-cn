@@ -1,27 +1,20 @@
 ---
-title: 适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置 | Microsoft Docs
+title: 适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置
 description: 了解适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置。
 services: vpn-gateway
-documentationcenter: ''
 author: WenJason
 manager: digimobile
-editor: ''
-tags: azure-vpn-gateway
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 06/15/2018
-ms.date: 03/04/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 56df5520e5288ddd10868c179a7c72c3c5105c25
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: ef9dca5a009f93fe4c132156043711325b9aeb6b
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "64339290"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395507"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置
 
@@ -41,7 +34,7 @@ ms.locfileid: "64339290"
 |Cisco ASR  |[适用于 Azure VPN 上的 Cisco ASR 的社区建议解决方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
 |Sonicwall |在 [Sonicwall 站点](https://www.sonicwall.com/en-us/support)上搜索 **Azure VPN** |
 | Checkpoint    |在 [Checkpoint 站点](https://supportcenter.checkpoint.com/supportcenter/portal)上搜索 **Azure VPN** |
-|Juniper |在 [Juniper 站点]( http://www.juniper.net/search/public/)上搜索 **Azure VPN**|
+|Juniper |在 [Juniper 站点](https://www.juniper.net/search/public/)上搜索 **Azure VPN**|
 |Barracuda  |[适用于 Azure VPN 上的 Barracuda 的社区建议解决方案](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |
 |F5         |[适用于 Azure VPN 上的 F5 的社区建议解决方案](https://support.f5.com/csp/#/federated-search?q=%22Azure%20VPN%22&source=support)          |
 |Palo       |[适用于 Azure VPN 上的 Palo 的社区建议解决方案](https://live.paloaltonetworks.com/t5/forums/searchpage/tab/message?q=Azure+VPN)        |

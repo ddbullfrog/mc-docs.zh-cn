@@ -3,14 +3,14 @@ title: 使用 Azure Policy 在创建 VM 时自动启用备份
 description: 本文介绍如何使用 Azure Policy 为在给定范围内创建的所有 VM 自动启用备份
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 05/15/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: 0a362595f549a135513c3af92dc08e3c7dd45dea
-ms.sourcegitcommit: 08b42258a48d96d754244064d065e4d5703f1cfb
+ms.openlocfilehash: 0bab76d8a7f355ffc08f52a749599dec5fcae3d6
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83445273"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402453"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>使用 Azure Policy 在创建 VM 时自动启用备份
 
@@ -20,7 +20,7 @@ ms.locfileid: "83445273"
 
 ## <a name="supported-scenarios"></a>支持的方案
 
-* 内置策略当前仅支持 Azure VM。 用户必须确保分配期间指定的保留策略是 VM 保留策略。
+* 内置策略当前仅支持 Azure VM。 用户必须确保分配期间指定的保留策略是 VM 保留策略。 若要查看此策略支持的所有 VM SKU，请参阅[此](./backup-azure-policy-supported-skus.md)文档。
 
 * 策略一次可以分配给一个位置和订阅。 若要跨位置和订阅启用 VM 备份，需要创建策略分配的多个实例，位置和订阅的每个组合都需要创建一个实例。
 
@@ -35,22 +35,22 @@ ms.locfileid: "83445273"
 若要将策略分配到所需的范围，请执行以下步骤：
 
 1. 登录到 Azure 门户并导航到“策略”仪表板。
-2. 在左边的菜单中选择“定义”以获取跨 Azure 资源的所有内置策略的列表。
-3. 在列表中筛选“类别=备份”的项。 你将看到该列表显示按名为“将某个位置的 VM 上的备份配置到同一位置的现有中央保管库”的策略进行筛选后的结果。
+1. 在左边的菜单中选择“定义”以获取跨 Azure 资源的所有内置策略的列表。
+1. 在列表中筛选“类别=备份”的项。 你将看到该列表显示按名为“将某个位置的 VM 上的备份配置到同一位置的现有中央保管库”的策略进行筛选后的结果。
 ![Policy 仪表板](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
-4. 单击该策略的名称。 随后会重定向到此策略的详细定义。
-![策略定义边栏选项卡](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
-5. 单击边栏选项卡顶部的“分配”按钮。 随后会重定向到“分配策略”边栏选项卡。
-6. 在“基础”下，单击“范围”字段旁边的三个点 。 随即在右侧打开一个上下文边栏选项卡，可以在其中选择要应用策略的订阅。 还可以选择资源组，使该策略仅应用于特定资源组中的 VM。
+1. 选择该策略的名称。 随后会重定向到该策略的详细定义。
+![策略定义窗格](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
+1. 选择窗格顶部的“分配”按钮。 随后会重定向到“分配策略”窗格。
+1. 在“基础”下，选择“范围”字段旁边的三个点 。 随即在右侧打开一个上下文窗格，可以在其中选择要应用策略的订阅。 还可以选择资源组，使该策略仅应用于特定资源组中的 VM。
 ![策略分配基础知识](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
-7. 在“参数”选项卡中，从下拉列表中选择一个位置，然后选择范围中的 VM 必须关联的保管库和备份策略。
+1. 在“参数”选项卡中，从下拉列表中选择一个位置，然后选择范围中的 VM 必须关联的保管库和备份策略。
 ![策略分配参数](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
-8. 确保将“效果”设置为 deployIfNotExists。
-9. 导航到“查看+创建”，然后单击“创建” 。
+1. 确保将“效果”设置为 deployIfNotExists。
+1. 导航到“查看+创建”，然后选择“创建” 。
 
 > [!NOTE]
 >
-> 也可以通过使用[修正](/governance/policy/how-to/remediate-resources)，在现有 VM 上使用 Azure Policy。
+> 也可以通过使用[修正](../governance/policy/how-to/remediate-resources.md)，在现有 VM 上使用 Azure Policy。
 
 > [!NOTE]
 >
@@ -58,5 +58,5 @@ ms.locfileid: "83445273"
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解有关 Azure Policy 的详细信息](/governance/policy/overview)
+[了解有关 Azure Policy 的详细信息](../governance/policy/overview.md)
 

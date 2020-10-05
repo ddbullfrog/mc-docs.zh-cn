@@ -3,7 +3,7 @@ title: 在 Azure 安全中心集成安全解决方案
 description: 了解如何将 Azure 安全中心与合作伙伴集成，以增强 Azure 资源的总体安全性。
 services: security-center
 documentationcenter: na
-author: memildin
+author: Johnnytechn
 manager: rkarlin
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/13/2020
-ms.author: v-tawe
+ms.date: 09/14/2020
+ms.author: v-johya
 origin.date: 03/20/2019
-ms.openlocfilehash: 903e540f7bf7a401edda3503fee41dbe4f7131db
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 029428beadab5bc5f4136eb4340b62eb8d45ecc4
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822363"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402632"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 安全中心集成安全解决方案
 本文档介绍如何管理已连接到 Azure 安全中心的安全解决方案，以及如何添加新的安全解决方案。
@@ -36,14 +36,8 @@ ms.locfileid: "90822363"
 > [!NOTE]
 > 安全中心不会在合作伙伴虚拟设备上安装 Log Analytics 代理，因为大多数安全供应商都禁止在其设备上运行外部代理。
 
-要详细了解如何在 Qualys 中集成漏洞扫描工具（包括可供标准层客户使用的内置扫描程序），请参阅： 
-
-- [用于虚拟机的集成漏洞扫描程序](built-in-vulnerability-assessment.md)。
-- [部署合作伙伴漏洞扫描解决方案](partner-vulnerability-assessment.md)。
-
-安全中心还为以下项提供漏洞分析：
-
-* Azure 容器注册表映像 - 请参阅 [Azure 容器注册表与安全中心（预览版）的集成](azure-container-registry-integration.md)
+<!--Not available in MC: deploy-vulnerability-assessment-vm.md -->
+<!--Not available in MC: security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports-->
 
 ## <a name="how-security-solutions-are-integrated"></a>安全中心如何集成
 从安全中心部署的 Azure 安全解决方案是自动连接的。 还可以连接其他安全数据源，包括在本地或其他云中运行的计算机。
@@ -85,9 +79,10 @@ ms.locfileid: "90822363"
 
    ![合作伙伴解决方案详细信息](./media/security-center-partner-integration/partner-solutions-detail.png)
 
+
 ### <a name="discovered-solutions"></a>已发现解决方案
 
-安全中心会自动发现在 Azure 中运行但未连接到安全中心的安全解决方案，并在“发现的解决方案”部分中显示这些解决方案。 这些解决方案包括 Azure 解决方案，例如 <!--active-directory/identity-protection/overview-identity-protection  is not available --> 合作伙伴解决方案。
+<!--active-directory/identity-protection/overview-identity-protection  is not available --> 安全中心会自动发现在 Azure 中运行但未连接到安全中心的安全解决方案，并在“发现的解决方案”部分中显示这些解决方案。 这些解决方案包括 Azure 解决方案，例如合作伙伴解决方案。
 
 > [!NOTE]
 > 在订阅级别，安全中心标准层是已发现解决方案功能所必需的。 若要详细了解定价层，请参阅[定价](security-center-pricing.md)。
@@ -101,11 +96,12 @@ ms.locfileid: "90822363"
 
 ![数据源](./media/security-center-partner-integration/add-data-sources.png)
 
-<!-- Exporting data  is not available -->
 
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了如何在安全中心集成合作伙伴的解决方案。 若要详细了解安全中心，请参阅以下文章：
+本文介绍了如何在安全中心集成合作伙伴的解决方案。 有关更多信息，请参阅以下文章：
 
+* [导出安全警报和建议](continuous-export.md)。 了解如何设置与 Azure Sentinel 或任何其他 SIEM 的集成。
 * [在安全中心进行安全运行状况监视](security-center-monitoring.md)。 了解如何监视 Azure 资源的运行状况。
+

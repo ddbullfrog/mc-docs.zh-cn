@@ -4,14 +4,14 @@ description: 本文介绍如何使用 PowerShell 或从 Azure 门户管理运行
 services: automation
 ms.subservice: shared-capabilities
 origin.date: 06/26/2020
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0a520fb5bfed17a9983a7877194fbe0c65b76ff4
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 54eb7496afea888790708f0bc066e9cdc3318450
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462897"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246726"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>管理 Azure 自动化运行方式帐户
 
@@ -24,16 +24,16 @@ Azure 自动化使用两种类型的运行方式帐户：
 * Azure 运行方式帐户
 * Azure 经典运行方式帐户
 
-默认情况下，运行方式帐户的服务主体没有读取 Azure AD 的权限。 如果希望添加读取或管理 Azure AD 的权限，则需要在“API 权限”下对服务主体授予该权限。 有关详细信息，请参阅[添加用于访问 Web API 的权限](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)。
+默认情况下，运行方式帐户的服务主体没有读取 Azure AD 的权限。 如果希望添加读取或管理 Azure AD 的权限，则需要在“API 权限”下对服务主体授予该权限。 若要了解详细信息，请参阅[添加用于访问 Web API 的权限](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)。
 
 ### <a name="run-as-account"></a>运行方式帐户
 
 运行方式帐户管理[资源管理器部署模型](../azure-resource-manager/management/deployment-models.md)资源。 它可执行以下任务。
 
 * 将创建使用自签名证书的 Azure AD 应用程序，在 Azure AD 中为此应用程序创建服务主体帐户，并在当前订阅中为此帐户分配“参与者”角色。 可将证书设置更改为“所有者”或其他任何角色。 有关详细信息，请参阅 [Azure 自动化中基于角色的访问控制](automation-role-based-access-control.md)。
-  
+
 * 在指定的自动化帐户中创建名为 `AzureRunAsCertificate` 的自动化证书资产。 该证书资产保存 Azure AD 应用程序使用的证书私钥。
-  
+
 * 在指定的自动化帐户中创建名为 `AzureRunAsConnection` 的自动化连接资产。 该连接资产保存应用程序 ID、租户 ID、订阅 ID 和证书指纹。
 
 ### <a name="azure-classic-run-as-account"></a>Azure 经典运行方式帐户
@@ -78,7 +78,7 @@ Azure 经典运行方式帐户执行以下任务。
 
 1. 在 Azure 门户上的“Azure Active Directory”窗格中，选择“用户”。 
 2. 选择“所有用户”。
-3. 选择名称，然后选择“配置文件”。 
+3. 选择名称，然后选择“配置文件”。
 4. 请确保用户配置文件下“用户类型”属性的值未设置为“来宾” 。
 
 ### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>获取配置经典运行方式帐户时所需的权限
@@ -97,7 +97,7 @@ Azure 经典运行方式帐户执行以下任务。
 
 4. 在左侧窗格中，选择帐户设置部分中的“运行方式帐户”。
 
-5. 根据所需帐户，选择“Azure 运行方式帐户”或“Azure 经典运行方式帐户” 。 
+5. 根据所需帐户，选择“Azure 运行方式帐户”或“Azure 经典运行方式帐户” 。
 
 6. 根据所需的帐户，使用“添加 Azure 运行方式帐户”或“添加 Azure 经典运行方式帐户”窗格 。 查看概述信息后，单击“创建”。
 
@@ -111,7 +111,7 @@ Azure 经典运行方式帐户执行以下任务。
 
 2. 在左侧窗格中，选择帐户设置部分中的“运行方式帐户”。
 
-3. 在“运行方式帐户”属性页上，选择要删除的运行方式帐户或经典运行方式帐户。 
+3. 在“运行方式帐户”属性页上，选择要删除的运行方式帐户或经典运行方式帐户。
 
 4. 在所选帐户的“属性”窗格中单击“删除”。
 
@@ -125,7 +125,7 @@ Azure 经典运行方式帐户执行以下任务。
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>续订自签名证书
 
-为运行方式帐户创建的自签名证书自创建日期算起的一年后过期。 在运行方式帐户过期之前的某个时间点，必须续订证书。 可以在该证书过期之前的任何时间续订。 
+为运行方式帐户创建的自签名证书自创建日期算起的一年后过期。 在运行方式帐户过期之前的某个时间点，必须续订证书。 可以在该证书过期之前的任何时间续订。
 
 续订自签名证书时，将保留当前的有效证书，以确保已排队等候或正在主动运行且使用运行方式帐户进行身份验证的任何 Runbook 不会受到负面影响。 该证书在过期之前将保持有效。
 
@@ -166,10 +166,10 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-可确定运行方式帐户使用的服务主体是在参与者角色定义中还是在自定义角色定义中。 
+可确定运行方式帐户使用的服务主体是在参与者角色定义中还是在自定义角色定义中。
 
 1. 转到自动化帐户，然后在帐户设置部分中选择“运行方式帐户”。
-2. 选择“Azure 运行方式帐户”。 
+2. 选择“Azure 运行方式帐户”。
 3. 选择“角色”以查找正在使用的角色定义。
 
 :::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="验证运行方式帐户角色。" lightbox="media/manage-runas-account/verify-role-expanded.png":::
@@ -205,7 +205,7 @@ $roleDefinition | Set-AzRoleDefinition
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-可通过删除并重新创建运行方式帐户来快速解决该帐户的问题。
+可通过删除并重新创建运行方式帐户来快速解决这些运行方式帐户问题。
 
 ## <a name="next-steps"></a>后续步骤
 

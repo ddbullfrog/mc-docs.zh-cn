@@ -3,22 +3,23 @@ title: 配置子网流量路由 - Azure 流量管理器
 description: 本文介绍了如何配置流量管理器以从特定子网路由流量。
 services: traffic-manager
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/17/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4fb2ccd97976fee0061f8e6af7277a53dd72e0fb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 9205ee1e70194a6ed15b57011fe1f5c1da39a6a6
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653225"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395412"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理器，基于用户子网，将流量定向到特定终结点
 
@@ -90,7 +91,7 @@ ms.locfileid: "77653225"
 
 8. 创建 VM 可能需要数分钟的时间。 在两个 VM 完成创建之前，不要继续执行剩余的步骤。
 
-    ![创建 VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
+    :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/createVM.png" alt-text="创建 VM":::
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>安装 IIS 并自定义默认网页
 
@@ -137,6 +138,8 @@ ms.locfileid: "77653225"
 4. 针对位于 *myResourceGroupTM1* 资源组中名为 *myIISVMChinaNorth* 的 VM 重复步骤 1-3。
 
 ### <a name="create-test-vms"></a>创建测试 VM
+
+<!--CORRECT ON myVMChinaEast-->
 
 在本部分中，将在每个 Azure 区域（“中国东部”和“中国北部”）创建一个 VM（myVMChinaEast  和 myVMChinaNorth  ）   。 稍后将使用这些 VM 来测试当你浏览到该网站时，流量管理器如何将流量路由到最近的 IIS 服务器。
 
@@ -188,14 +191,14 @@ ms.locfileid: "77653225"
 
     | 设置                 | Value                                              |
     | ---                     | ---                                                |
-    | 名称                   | 此名称必须在 trafficmanager.cn 区域中唯一，并会生成用于访问流量管理器配置文件的 DNS 名称 trafficmanager.cn。                                   |
+    | 名称                    | 此名称必须在 trafficmanager.cn 区域中唯一，并会生成用于访问流量管理器配置文件的 DNS 名称 trafficmanager.cn。                                   |
     | 路由方法          | 选择“子网”路由方法  。                                       |
     | 订阅            | 选择订阅。                          |
     | 资源组          | 选择“现有”，然后输入 myResourceGroupTM1   。 |
-    | |                              |
+    |                 |                              |
     |
 
-    ![创建流量管理器配置文件](./media/traffic-manager-subnet-routing-method/create-traffic-manager-profile.png)
+    :::image type="content" source="./media/traffic-manager-subnet-routing-method/create-traffic-manager-profile.png" alt-text="创建 VM":::
 
 ## <a name="add-traffic-manager-endpoints"></a>添加流量管理器终结点
 
@@ -216,7 +219,7 @@ ms.locfileid: "77653225"
 4. 重复步骤 2 和 3，为名为 *myIISVMChinaNorth* 的 IIS 服务器 VM 所关联的公共 IP 地址 *myIISVMChinaNorth-ip* 添加名为 *myProductionEndpoint* 的另一个终结点。 对于“子网路由”设置，添加测试 VM myVMChinaNorth 的 IP 地址   。 源自此测试 VM 的任何用户查询都将路由到终结点 myProductionWebsiteEndpoint  。
 5. 添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”  中，并且其监视状态为“联机”  。
 
-    ![添加流量管理器终结点](./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-eastus.png)
+    :::image type="content" source="./media/traffic-manager-subnet-routing-method/customize-endpoint-with-subnet-routing-eastus.png" alt-text="创建 VM":::
 
     <!--MOONCAKE: should be routing-eastus.png-->
 
@@ -239,7 +242,7 @@ ms.locfileid: "77653225"
 1. 单击“概览”。 
 2. “流量管理器配置文件”  会显示新建的流量管理器配置文件的 DNS 名称。 在生产部署中，可以使用 DNS CNAME 记录配置一个指向流量管理器域名的虚构域名。
 
-    ![流量管理器 DNS 名称](./media/traffic-manager-subnet-routing-method/traffic-manager-dns-name.png)
+    :::image type="content" source="./media/traffic-manager-subnet-routing-method/traffic-manager-dns-name.png" alt-text="创建 VM":::
 
 ### <a name="view-traffic-manager-in-action"></a>查看正在运行的流量管理器
 在本部分，我们可以查看流量管理器的运作方式。
@@ -251,7 +254,7 @@ ms.locfileid: "77653225"
 5. 你可能会在登录过程中收到证书警告。 如果收到警告，请选择“是”或“继续”以继续连接。  
 1. 在 VM *myVMChinaEast* 上的 Web 浏览器中，键入流量管理器配置文件的 DNS 名称，以查看网站。 由于 VM myVMChinaEast IP 地址与终结点 myIISVMChinaEast 关联，因此 Web 浏览器启动测试网站服务器 myIISVMChinaEast    。
 
-    ![测试流量管理器配置文件](./media/traffic-manager-subnet-routing-method/test-traffic-manager.png)
+    :::image type="content" source="./media/traffic-manager-subnet-routing-method/test-traffic-manager.png" alt-text="创建 VM":::
 
 2. 接下来，使用步骤 1-5 连接到位于“中国北部”的 VM *myVMChinaNorth*，然后从此 VM 浏览到流量管理器配置文件域名。  由于 VM myVMChinaNorth IP 地址与终结点 myIISVMChinaNorth 关联，因此 Web 浏览器将启动测试网站服务器 myIISVMChinaNorth    。
     
@@ -266,4 +269,4 @@ ms.locfileid: "77653225"
 - 了解[优先级路由方法](traffic-manager-configure-priority-routing-method.md)。
 - 了解[地理路由方法](traffic-manager-configure-geographic-routing-method.md)。
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

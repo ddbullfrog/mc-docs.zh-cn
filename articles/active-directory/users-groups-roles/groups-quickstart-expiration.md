@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/26/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0300100f65144e4d28e73d80b49748c650216371
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 4d8c1bbd499e9ca4acbfa503ada2f6f25f81f569
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947627"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245325"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>快速入门：将 Azure Active Directory 中的 Microsoft 365 组设置为过期
 
@@ -33,7 +33,7 @@ ms.locfileid: "88947627"
 - 已删除的 Microsoft 365 组可以由组所有者或 Azure AD 管理员在 30 天内还原
 
 > [!NOTE]
-> 现在，组使用 Azure AD 智能，根据是否在最近使用而自动续订。 此续订决策基于 Office 365 服务（如 Outlook、SharePoint、Teams、Yammer 等）中组的用户活动。
+> 现在，组使用 Azure AD 智能，根据是否在最近使用而自动续订。 此续订决策根据 Microsoft 365 服务（如 Outlook、SharePoint、Teams 和 Yammer 等）中组的用户活动作出。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 

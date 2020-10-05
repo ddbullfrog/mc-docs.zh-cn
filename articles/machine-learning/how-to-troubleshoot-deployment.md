@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 4083d2d5d5bb488b37bbeea591150ff4a4bc9757
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 597616f5d945a07cd7ab608920479b883456d2ba
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946944"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395448"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>使用 Azure Kubernetes 服务和 Azure 容器实例对模型的 Docker 部署进行故障排除 
 
@@ -25,7 +25,7 @@ ms.locfileid: "88946944"
 ## <a name="prerequisites"></a>先决条件
 
 * 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习试用版](https://www.azure.cn/pricing/1rmb-trial)。
-* [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
+* [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 * [用于 Azure 机器学习的 CLI 扩展](reference-azure-machine-learning-cli.md)。
 * 若要在本地调试，则必须在本地系统上安装一个有效的 Docker。
@@ -36,7 +36,7 @@ ms.locfileid: "88946944"
 
 在 Azure 机器学习中部署模型时，系统将执行大量任务。
 
-推荐使用的模型部署方法是使用 [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API 并以 [Environment](how-to-use-environments.md) 对象作为输入参数。 在这种情况下，服务将在部署阶段创建一个基础 docker 映像，并在一次调用中装载所需的全部模型。 基本部署任务包括：
+推荐使用的模型部署方法是使用 [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API 并以 [Environment](how-to-use-environments.md) 对象作为输入参数。 在这种情况下，服务将在部署阶段创建一个基础 docker 映像，并在一次调用中装载所需的全部模型。 基本部署任务包括：
 
 1. 在工作区模型注册表中注册模型。
 
@@ -52,7 +52,7 @@ ms.locfileid: "88946944"
 
 如果遇到任何问题，首先需要将部署任务（上述）分解为单独的步骤，以查出问题所在。
 
-假设你使用新的/推荐的部署方法，也就是使用 [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API 并以 [Environment](how-to-use-environments.md) 对象作为输入参数，则你的代码可以分为三个主要步骤：
+假设你使用新的/推荐的部署方法，也就是使用 [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API 并以 [Environment](how-to-use-environments.md) 对象作为输入参数，则你的代码可以分为三个主要步骤：
 
 1. 注册模型。 下面是一些示例代码：
 
@@ -163,7 +163,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > 可从服务所使用的 `InferenceConfig` 对象指定的位置重新加载该脚本。
 
-若要更改模型、Conda 依赖项或部署配置，请使用 [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-)。 以下示例更新服务使用的模型：
+若要更改模型、Conda 依赖项或部署配置，请使用 [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#&preserve-view=trueupdate--args-)。 以下示例更新服务使用的模型：
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -171,7 +171,7 @@ service.update([different_model], inference_config, deployment_config)
 
 ### <a name="delete-the-service"></a>删除服务
 
-要删除服务，请使用 [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--)。
+要删除服务，请使用 [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#&preserve-view=truedelete--)。
 
 ### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> 检查 Docker 日志
 
@@ -201,7 +201,7 @@ print(ws.webservices['mysvc'].get_logs())
 
 ## <a name="function-fails-get_model_path"></a>函数故障：get_model_path()
 
-通常情况下，在评分脚本的 `init()` 函数中，会调用 [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 来查找容器中的模型文件或模型文件的文件夹。 如果找不到模型文件或文件夹，函数将失败。 调试此错误的最简单方法是在容器 shell 中运行以下 Python 代码：
+通常情况下，在评分脚本的 `init()` 函数中，会调用 [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) 来查找容器中的模型文件或模型文件的文件夹。 如果找不到模型文件或文件夹，函数将失败。 调试此错误的最简单方法是在容器 shell 中运行以下 Python 代码：
 
 ```python
 from azureml.core.model import Model
@@ -276,7 +276,7 @@ Azure Kubernetes 服务部署支持自动缩放，这允许添加副本以支持
     > [!NOTE]
     > 如果收到请求高峰大于新的最小副本可以处理的数量，则可能会再次收到 503 代码。 例如，服务流量增加时，可能需要增加最小副本数据。
 
-有关设置 `autoscale_target_utilization`、`autoscale_max_replicas` 和 `autoscale_min_replicas` 的详细信息，请参阅 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 模块参考。
+有关设置 `autoscale_target_utilization`、`autoscale_max_replicas` 和 `autoscale_min_replicas` 的详细信息，请参阅 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true) 模块参考。
 
 ## <a name="http-status-code-504"></a>HTTP 状态代码 504
 
@@ -287,6 +287,8 @@ Azure Kubernetes 服务部署支持自动缩放，这允许添加副本以支持
 ## <a name="advanced-debugging"></a>高级调试
 
 某些情况下，可能需要以交互方式调试包含在模型部署中的 Python 代码。 例如，如果输入脚本失败，并且无法通过其他记录确定原因。 通过使用 Visual Studio Code 和 debugpy，可以附加到在 Docker 容器中运行的代码。 有关详细信息，请访问[在 VS Code 指南中进行交互式调试](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments)。
+
+## <a name="model-deployment-user-forum"></a>[模型部署用户论坛](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
 
 ## <a name="next-steps"></a>后续步骤
 

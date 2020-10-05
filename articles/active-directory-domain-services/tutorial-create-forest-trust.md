@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: v-junlch
-ms.openlocfilehash: 3595746d07e087e9fc386596892cf9ffde59102c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: ed7b6202eb8570960ab0afa137b31f30b2db3f53
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413286"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402407"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>教程：在 Azure Active Directory 域服务中创建到本地域的出站林信任
 
@@ -207,10 +207,9 @@ ms.locfileid: "89413286"
 > * 在 Azure AD DS 中创建单向出站林信任
 > * 测试并验证用于身份验证和资源访问的信任关系
 
-有关 Azure AD DS 中的林类型的更多概念信息，请参阅[什么是资源林？][concepts-forest]和[林信任在 Azure AD DS 中的工作原理是什么？][concepts-trust]
+有关 Azure AD DS 中的林类型的更多概念信息，请参阅[林信任在 Azure AD DS 中的工作原理是什么？][concepts-trust]
 
 <!-- INTERNAL LINKS -->
-[concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md

@@ -1,23 +1,23 @@
 ---
 title: 还原 Azure VM 上的 SAP HANA 数据库
 description: 本文介绍如何还原在 Azure 虚拟机上运行的 SAP HANA 数据库。
-author: lingliw
 ms.topic: conceptual
 origin.date: 11/7/2019
-ms.date: 07/31/2020
-ms.author: v-lingwu
-ms.openlocfilehash: 506b02a660b27b17096d299c3be71c5af11b7bcb
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+author: Johnnytechn
+ms.date: 09/22/2020
+ms.author: v-johya
+ms.openlocfilehash: d3b2a815f096512f6bb979152fdbc310edce16a0
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508397"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402638"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>还原 Azure VM 上的 SAP HANA 数据库
 
 本文介绍如何还原在 Azure 虚拟机 (VM) 上运行的、已由 Azure 备份服务备份到恢复服务保管库的 SAP HANA 数据库。 可以通过还原来为开发/测试方案创建数据的副本，或返回到以前的状态。
 
-有关如何备份 SAP HANA 数据库的详细信息，请参阅[备份 Azure VM 上的 SAP HANA 数据库](/backup/backup-azure-sap-hana-database)。
+有关如何备份 SAP HANA 数据库的详细信息，请参阅[备份 Azure VM 上的 SAP HANA 数据库](./backup-azure-sap-hana-database.md)。
 
 ## <a name="restore-to-a-point-in-time-or-to-a-recovery-point"></a>还原到某个时间点或恢复点
 
@@ -31,29 +31,29 @@ Azure 备份可以还原在 Azure VM 上运行的 SAP HANA 数据库，如下所
 
 在还原数据库之前，请注意以下事项：
 
-* 只能将数据库还原到同一区域中的 SAP HANA 实例
+* 只能将数据库还原到同一区域中的 SAP HANA 实例。
 
-* 目标实例必须注册到与源相同的保管库
+* 目标实例必须注册到与源相同的保管库。
 
 * Azure 备份不能识别同一 VM 上两个不同的 SAP HANA 实例。 因此，无法将数据从同一 VM 上的一个实例还原到另一个实例。
 
 * 若要确保目标 SAP HANA 实例已准备好进行还原，请检查其**备份就绪情况**状态：
 
-  1. 打开在其中注册目标 SAP HANA 实例的保管库
+  1. 打开在其中注册目标 SAP HANA 实例的保管库。
 
-  1. 在保管库仪表板上，在“开始使用”  下选择“备份” 
+  1. 在保管库仪表板上，在“开始使用”下选择“备份”。
 
       ![保管库仪表板中的备份](./media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. 在“备份”  中，在“你希望备份什么?”  下选择“Azure VM 中的 SAP HANA” 
+  1. 在“备份”中，在“你希望备份什么?”下选择“Azure VM 中的 SAP HANA”。
 
       ![选择“Azure VM 中的 SAP HANA”](./media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. 在“发现 VM 中的 DB”下，单击“查看详细信息” 
+  1. 在“发现 VM 中的 DB”下，选择“查看详细信息” 。
 
       ![查看详细信息](./media/sap-hana-db-restore/view-details.png)
 
-  1. 查看目标 VM 的**备份就绪情况**
+  1. 查看目标 VM 的备份就绪情况。
 
       ![受保护的服务器](./media/sap-hana-db-restore/protected-servers.png)
 

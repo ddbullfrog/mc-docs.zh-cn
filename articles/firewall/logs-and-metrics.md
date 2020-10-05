@@ -2,24 +2,28 @@
 title: Azure 防火墙日志和指标的概述
 description: 可以使用防火墙日志来监视 Azure 防火墙。 此外，可以使用活动日志来审核对 Azure 防火墙资源执行的操作。
 services: firewall
-author: rockboyfor
 ms.service: firewall
 ms.topic: article
-origin.date: 01/22/2020
-ms.date: 02/24/2020
+origin.date: 08/25/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4826e690c8f46e14216ccfa1b3c17cd944a6e211
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 3be42a04aca42b1dc44426e7d7b863e6c6f15bfd
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244554"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246795"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure 防火墙日志和指标
 
 可以使用防火墙日志来监视 Azure 防火墙。 此外，可以使用活动日志来审核对 Azure 防火墙资源执行的操作。
 
 可通过门户访问其中部分日志。 可将日志发送到 Azure Monitor 日志、存储和事件中心，并使用 Azure Monitor 日志或其他工具（例如 Excel 和 Power BI）对其进行分析。
+
+<!--Not Available on  [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md)-->
 
 指标是能够为近实时方案提供支持的轻型数据，因此，它们特别适合用于警报和快速检测问题。
 
@@ -102,29 +106,33 @@ Azure Monitor 中的指标是数字值，用于描述系统某些方面在特定
 
     单位：计数
 
-- **处理的数据量** - 遍历防火墙的数据量。
+- **已处理的数据** - 在给定时间范围内遍历防火墙的数据总和。
 
     单位：字节
+
+- **吞吐量** - 数据每秒遍历防火墙的速率。
+
+    单位：每秒位数
 
 - **防火墙运行状况状态** - 基于 SNAT 端口可用性指示防火墙的运行状况。
 
     单位：百分比
 
-    此指标有两个维度：
-    - 状态：可能的值为“正常”、“已降级”和“不正常”。   
+    该指标包含两个维度：
+    - 状态：可能的值为“正常”、“已降级”和“不正常”。  
     - 原因:指示防火墙出现相应状态的原因。 
 
-        如果已用 SNAT 端口数 > 95%，则视为该端口已用尽，并且运行状况为 50%，状态为“已降级”  ，原因为“SNAT 端口”  。 防火墙继续处理流量，并且现有连接不受影响。 但是，可能间歇性地无法建立新连接。
+        如果已用 SNAT 端口数 > 95%，则视为该端口已用尽，并且运行状况为 50%，状态为“已降级”，原因为“SNAT 端口”。 防火墙继续处理流量，现有连接不受影响。 但是，系统可能不会间歇地建立新连接。
 
         如果已用 SNAT 端口数 < 95%，则视为防火墙正常，并且运行状况显示为 100%。
 
-        如果未报告 SNAT 端口使用情况，则运行状况显示为 0%。 
+        如果系统未报告 SNAT 端口使用率，则运行状况显示为 0%。 
 
 - **SNAT 端口利用率** - 防火墙利用的 SNAT 端口数百分比。
 
     单位：百分比
 
-    将更多公共 IP 地址添加到防火墙时，将有更多的 SNAT 端口可用，从而减小 SNAT 端口利用率。 此外，当防火墙出于各种原因而横向扩展时（例如，增加 CPU 或吞吐量），也有更多的 SNAT 端口可用。 因此，如果不添加任何公共 IP 地址，而只是横向扩展了服务，给定的 SNAT 端口利用率百分比实际上可能会下降。可以直接控制可用的公共 IP 地址数来增加防火墙上的可用端口。 但无法直接控制防火墙缩放。 目前，只为前五个公共 IP 地址添加了 SNAT 端口。   
+    如果你将更多公共 IP 地址添加到防火墙，则更多的 SNAT 端口可用，从而降低 SNAT 端口的利用率。 此外，当防火墙出于不同的原因（例如 CPU 或吞吐量）而横向扩展后，可用的 SNAT 端口也会变得更多。 因此，如果不添加任何公共 IP 地址，而只是横向扩展了服务，给定的 SNAT 端口利用率百分比实际上可能会下降。可以直接控制可用的公共 IP 地址数来增加防火墙上的可用端口。 但无法直接控制防火墙缩放。
 
 <!--Verify successfully-->
 

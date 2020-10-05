@@ -1,23 +1,23 @@
 ---
 title: Azure Cosmos DB - SQL Async Java API、SDK 和资源
 description: 了解有关 SQL Async Java API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB SQL Async Java SDK 各版本之间所做的更改。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 05/11/2020
-ms.date: 08/17/2020
+origin.date: 08/12/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: d8cbdec9f4b69effd6a55da689a282baf8ed4d07
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 1db880fae3c8f7bee60fc3c0d207c02b197e29fb
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222424"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246373"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Async Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -29,6 +29,9 @@ ms.locfileid: "88222424"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark 连接器](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api
 > * [REST 资源提供程序](/azure-resource-manager/management/azure-services-resource-providers)
@@ -45,12 +48,15 @@ SQL API Async Java SDK 与 SQL API Java SDK 的区别在于，前者通过支持
 | |  |
 |---|---|
 | **SDK 下载** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
-|**API 文档** |[Java API 参考文档](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable) | 
+|**API 文档** |[Java API 参考文档](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) | 
 |**参与 SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
 |**入门** | [Async Java SDK 入门](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
 |**代码示例** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
 | **性能提示**| [GitHub 自述文件](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
-| 受支持的最小运行时|[JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) | 
+| 受支持的最小运行时|[JDK 8](https://docs.microsoft.com/java/azure/jdk/) | 
+
+## <a name="2610---2020-08-31"></a>2.6.10 - 2020-08-31
+- 解决了直接 tcp 调用的区域故障转移问题；将在其他可用区域中重试因网络而失败的直接 tcp 调用，但不会将当前区域标记为不可用，随后的 tcp 请求仍将发送到当前区域。([#351](https://github.com/Azure/azure-cosmosdb-java/pull/351))
 
 ## <a name="269---2020-06-15"></a>2.6.9 - 2020-06-15
 - 修复了从继续标记恢复时 order by 结果重复的问题 ([#341](https://github.com/Azure/azure-cosmosdb-java/pull/341))
@@ -286,7 +292,7 @@ Azure 会在停用 SDK 时至少提前 12 个月发出通知，以便用户顺�
 | 1.0.1 |2018 年 4 月 20 日|2020 年 8 月 30 日 |
 | 1.0.0 |2018 年 2 月 27 日|2020 年 8 月 30 日 |
 
-## <a name="faq"></a>常见问题
+## <a name="faq"></a>常见问题解答
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>另请参阅

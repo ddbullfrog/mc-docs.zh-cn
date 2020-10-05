@@ -4,14 +4,14 @@ description: 借助 Azure 备份，可以使用 Azure 导入/导出服务在网�
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 1/28/2020
-ms.date: 07/31/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: ee5bba4b75246fa3f04ee4b5094bc653587084b9
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.openlocfilehash: 489aa7a21219142f353d23db306dc3e19d845f90
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508444"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402473"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>DPM 和 Azure 备份服务器 (MABS) 的脱机备份工作流
 
@@ -51,12 +51,12 @@ Azure 备份的脱机种子设定过程与 [Azure 导入/导出服务](../storag
 
 * 在 DPM 或 MABS 服务器上，确保已安装 Microsoft Edge 或 Internet Explorer 11，并已启用 JavaScript。
 * 在与恢复服务保管库相同的订阅中创建一个 Azure 存储帐户。
-* 确保你具有创建 Azure Active Directory 应用程序的[必要权限](/active-directory/develop/howto-create-service-principal-portal)。 脱机备份工作流在与 Azure 存储帐户关联的订阅中创建一个 Azure Active Directory 应用程序。 该应用程序的目的是为 Azure 备份提供脱机备份工作流所需的对 Azure 导入服务的安全且范围内的访问。
+* 确保你具有创建 Azure Active Directory 应用程序的[必要权限](../active-directory/develop/howto-create-service-principal-portal.md)。 脱机备份工作流在与 Azure 存储帐户关联的订阅中创建一个 Azure Active Directory 应用程序。 该应用程序的目的是为 Azure 备份提供脱机备份工作流所需的对 Azure 导入服务的安全且范围内的访问。
 * 使用包含 Azure 存储帐户的订阅注册 Microsoft.ImportExport 资源提供程序。 要注册资源提供程序，请执行以下操作：
-    1. 在主菜单中，单击“订阅”。
+    1. 在主菜单中选择“订阅”。
     2. 如果你订阅了多个订阅，请选择用于脱机备份的订阅。 如果仅使用一个订阅，则会显示你的订阅。
-    3. 在订阅菜单中，单击“资源提供程序”以查看提供程序列表。
-    4. 在提供程序列表中，向下滚动到 Microsoft.ImportExport。 如果状态为“NotRegistered”，请单击“注册”。
+    3. 在订阅菜单中，选择“资源提供程序”以查看提供程序列表。
+    4. 在提供程序列表中，向下滚动到 Microsoft.ImportExport。 如果状态为“NotRegistered”，请选择“注册”。
 
        ![注册资源提供程序](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
@@ -66,11 +66,11 @@ Azure 备份的脱机种子设定过程与 [Azure 导入/导出服务](../storag
 
 ## <a name="workflow"></a>工作流
 
-本部分中的信息有助于完成“脱机备份工作流”，以便可以将你的数据传输到 Azure 数据中心并上转到 Azure 存储。 如果你对导入服务或该过程的任何方面有疑问，请参阅上面引用的[导入服务概述](/storage/common/storage-import-export-service)。
+本部分中的信息有助于完成“脱机备份工作流”，以便可以将你的数据传输到 Azure 数据中心并上转到 Azure 存储。 如果你对导入服务或该过程的任何方面有疑问，请参阅上面引用的[导入服务概述](../storage/common/storage-import-export-service.md)。
 
 ## <a name="initiate-offline-backup"></a>启动脱机备份
 
-1. 在创建具有联机保护的新保护组或将联机保护添加到现有保护组时，将看到以下屏幕。 要选择初始联机复制方法，请选择“使用我自己的磁盘传输”，然后单击“下一步”。
+1. 在创建具有联机保护的新保护组或将联机保护添加到现有保护组时，将看到以下屏幕。 若要选择初始在线复制方法，请选择“使用我自己的磁盘传输”并选择“下一步”。
 
     ![导入屏幕](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
@@ -126,7 +126,7 @@ AzureOfflineBackupDiskPrep 实用工具准备好要发送到最近的 Azure 数�
     | 参数 | 说明 |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |此项必需的输入用于提供在“启动脱机备份”部分的工作流中所输入的暂存位置的路径。 |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |此可选输入用于提供在“启动脱机备份”部分的工作流中所输入的 Azure 发布设置文件的路径。 |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |此可选输入用于提供 Azure 发布设置文件的路径。 |
 
     运行命令时，该实用工具会请求选择与需要准备的驱动器相对应的 Azure 导入作业。 如果仅单个导入作业与提供的暂存位置相关联，则会看到类似下面的屏幕。
 
@@ -162,7 +162,7 @@ AzureOfflineBackupDiskPrep 实用工具准备好要发送到最近的 Azure 数�
 * 返回磁盘的送货详细信息
 
    1. 登录到你的 Azure 订阅。
-   2. 在主菜单中，单击“所有服务”，然后在“所有服务”对话框中，键入“导入”。 当看到“导入/导出作业”时，单击它。
+   2. 在主菜单中选择“所有服务”，然后在“所有服务”对话框中键入“导入”。 看到“导入/导出作业”时，请选择它。
        ![输入送货信息](./media/backup-azure-backup-server-import-export/search-import-job.png)
 
        “导入/导出作业”菜单列表将打开，并显示所选订阅中所有导入/导出作业的列表。
@@ -171,11 +171,11 @@ AzureOfflineBackupDiskPrep 实用工具准备好要发送到最近的 Azure 数�
 
        ![查看送货信息](./media/backup-azure-backup-server-import-export/import-job-found.png)
 
-   4. 在导入作业的“设置”菜单上，单击“管理送货信息”，然后输入退货运送详细信息。
+   4. 在导入作业的“设置”菜单中，选择“管理寄送信息”并输入回件寄送详细信息。
 
        ![存储送货信息](./media/backup-azure-backup-server-import-export/shipping-info.png)
 
-   5. 从装运承运人获得跟踪号后，请在“Azure 导入作业概述”页面中单击横幅，然后输入以下详细信息：
+   5. 在收到快递公司提供的跟踪号后，请选择 Azure 导入作业概述页中的横幅，并输入以下详细信息：
 
       > [!IMPORTANT]
       > 确保在创建 Azure 导入作业后的两周内更新承运人信息和跟踪号。 两周内未能验证此信息可能导致删除作业，且不会处理驱动器。
@@ -190,11 +190,11 @@ AzureOfflineBackupDiskPrep 实用工具准备好要发送到最近的 Azure 数�
 
 ### <a name="monitor-azure-import-job-status"></a>监视 Azure 导入作业状态
 
-可以通过导航到“导入/导出作业”页面并选中你的作业，从 Azure 门户监视导入作业的状态。 有关导入作业状态的详细信息，请参阅[存储导入导出服务](/storage/common/storage-import-export-service)一文。
+可以通过导航到“导入/导出作业”页面并选中你的作业，从 Azure 门户监视导入作业的状态。 有关导入作业状态的详细信息，请参阅[存储导入导出服务](../storage/common/storage-import-export-service.md)一文。
 
 ### <a name="complete-the-workflow"></a>完成工作流
 
-导入作业完成后，存储帐户中将提供初始备份数据。 在下一次计划备份时，Azure 备份将数据内容从存储帐户复制到恢复服务保管库。
+导入作业完成后，存储帐户中将提供初始备份数据。 下一次运行计划的备份时，Azure 备份会将数据内容从存储帐户复制到恢复服务保管库。
 
 在下一个计划的联机副本创建作业时，Data Protection Manager 会对初始备份复制执行增量备份。
 

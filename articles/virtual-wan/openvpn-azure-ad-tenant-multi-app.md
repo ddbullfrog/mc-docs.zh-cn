@@ -2,20 +2,22 @@
 title: 虚拟 WAN - 适用于不同用户组的 Azure AD 租户 - Azure AD 身份验证
 description: 可以使用 P2S VPN 通过 Azure AD 身份验证连接到 VNet
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
-ms.topic: conceptual
-origin.date: 02/19/2020
-ms.date: 05/06/2020
+ms.topic: how-to
+origin.date: 03/19/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: cda82c1c86cbc73e1b281efe3791acf8a6b6bb6d
-ms.sourcegitcommit: 81241aa44adbcac0764e2b5eb865b96ae56da6b7
+ms.openlocfilehash: db63d071dd2a989c8d150c00599dda8e85fdebc5
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "83001882"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246725"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>为 P2S OpenVPN 协议连接创建 Azure Active Directory 租户
+# <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>为 P2S OpenVPN 协议连接创建 Azure Active Directory (AD) 租户
 
 连接到 VNet 时，可以使用基于证书的身份验证或 RADIUS 身份验证。 但是，在使用开放 VPN 协议时，还可以使用 Azure Active Directory 身份验证。 如果希望不同的用户集能够连接到不同的网关，则可在 AD 中注册多个应用并将其链接到不同的网关。
 
@@ -40,6 +42,8 @@ P2S 配置定义连接远程客户端的参数。
     $aadTenant = "https://login.partner.microsoftonline.cn/00000000-abcd-abcd-abcd-999999999999"    
     ```
 
+<!--MOONCAKE Correct on the https://login.partner.microsoftonline.cn-->
+
 2. 运行以下命令创建配置：
 
     ```powershell
@@ -58,9 +62,9 @@ P2S 配置定义连接远程客户端的参数。
 
     ![新建站点](media/openvpn-azure-ad-tenant-multi-app/p2s4.jpg)
 
-3. 单击“编辑虚拟中心”  。
+3. 单击“编辑虚拟中心”。
 
-4. 选中“包括点到站点网关”  复选框，然后选择所需的网关缩放单元  。
+4. 选中“包括点到站点网关”复选框，然后选择所需的网关缩放单元。
 
     ![新建站点](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
 
@@ -75,9 +79,9 @@ P2S 配置定义连接远程客户端的参数。
 
 使用 VPN 配置文件来配置客户端。
 
-1. 在虚拟 WAN 的页面上，单击“用户 VPN 配置”  。
+1. 在虚拟 WAN 的页面上，单击“用户 VPN 配置”。
 
-2. 在页面顶部，单击“下载用户 VPN 配置”  。
+2. 在页面顶部，单击“下载用户 VPN 配置”。
 
 3. 完成创建文件后，可以单击相应的链接下载该文件。
 
@@ -176,5 +180,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 若要详细了解虚拟 WAN，请参阅[虚拟 WAN 概述](virtual-wan-about.md)页。
 
-<!-- Update_Description: new article about openvpn azure ad tenant multi app -->
-<!--NEW.date: 02/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

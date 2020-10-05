@@ -3,20 +3,20 @@ title: 使用 MARS 代理备份 Windows 计算机
 description: 使用 Azure 恢复服务 (MARS) 代理备份 Windows 计算机。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 07/31/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: 113fe52d60895c0846af4772f1806fd3fb04335f
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.openlocfilehash: 2280626c0383319ca6eef6ac803b0cd22d6653ea
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508330"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402526"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>将 Windows Server 文件和文件夹备份到 Azure
 
 本文介绍如何使用 [Azure 备份](backup-overview.md)服务和 Azure 恢复服务 (MARS) 代理备份 Windows 计算机。 MARS 也称为 Azure 备份代理。
 
-本文介绍如何执行以下操作：
+本文将指导如何进行以下操作：
 
 > [!div class="checklist"]
 >
@@ -83,7 +83,8 @@ Azure 备份不会自动考虑夏令时 (DST)。 此默认设置可能会导致�
 
 1. 在“选择初始备份类型”页上，确定如何通过网络或使用脱机备份创建初始备份。 若要通过网络创建初始备份，请选择“自动通过网络” > “下一步”。 
 
-<!--Not available in MC: Azure Data Box -->
+    有关脱机备份的详细信息，请参阅[使用 Azure Data Box 进行脱机备份](offline-backup-azure-data-box.md)。
+
     ![选择初始备份类型](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
 
 1. 在“确认”页上复查信息，然后选择“完成”。 
@@ -105,11 +106,12 @@ Azure 备份不会自动考虑夏令时 (DST)。 此默认设置可能会导致�
 1. 将备份数据写入暂存位置。
 1. 使用 AzureOfflineBackupDiskPrep 工具将暂存位置中的数据复制到一个或多个 SATA 磁盘。
 
-    该工具会创建 Azure 导入作业。 有关详细信息，请参阅[什么是 Azure 导入/导出服务](/storage/common/storage-import-export-service)。
+    该工具会创建 Azure 导入作业。 有关详细信息，请参阅[什么是 Azure 导入/导出服务](../storage/common/storage-import-export-service.md)。
 1. 将 SATA 磁盘寄送到 Azure 数据中心。
 
     在数据中心，磁盘数据将复制到 Azure 存储帐户。 Azure 备份将数据从存储帐户复制到保管库，并计划增量备份。
-<!--Not available in MC: Azure Data Box -->
+
+有关脱机种子设定的详细信息，请参阅[使用 Azure Data Box 进行脱机备份](offline-backup-azure-data-box.md)。
 
 ### <a name="enable-network-throttling"></a>启用网络限制
 
@@ -125,7 +127,7 @@ Azure 备份中的网络限制在本地操作系统上使用[服务质量 (QoS)]
 1. 在“限制”选项卡上，选择“为备份操作启用 Internet 带宽使用限制”。
 
     ![针对备份操作设置网络限制](./media/backup-configure-vault/throttling-dialog.png)
-1. 指定在工作时间和下班时间允许的带宽。 带宽值最小为 512 Kbps，最大为 1,023 MBps。 然后选择“确定”。
+1. 指定在工作时间和下班时间允许的带宽。 带宽值最小为 512 Kbps，最大为 1,023 Mbps。 然后选择“确定”。
 
 ## <a name="run-an-on-demand-backup"></a>运行按需备份
 

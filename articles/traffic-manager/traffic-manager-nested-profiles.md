@@ -4,22 +4,24 @@ titleSuffix: Azure Traffic Manager
 description: 本文介绍了 Azure 流量管理器的“嵌套式配置文件”功能
 services: traffic-manager
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/22/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: fe251a0174da667d4974e239b8ff5dcc10f082c9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2649a15a0427383d02d028fdc4d2c85dd85d2300
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653211"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395241"
 ---
 <!-- Region Map  West US China North, West Europe China North 2, and East Asia China East-->
 # <a name="nested-traffic-manager-profiles"></a>嵌套式流量管理器配置文件
@@ -32,13 +34,13 @@ ms.locfileid: "77653211"
 
 ## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>示例 1：组合使用“性能”和“加权”流量路由
 
-假设在以下 Azure 区域部署了一个应用程序：中国北部、中国北部 2 区和中国东部。 使用流量管理器的“性能”流量路由方法将流量分发到最靠近用户的区域。
+假设在以下 Azure 区域部署了一个应用程序：中国北部、中国北部 2 和中国东部。 使用流量管理器的“性能”流量路由方法将流量分发到最靠近用户的区域。
 
 <!-- Region Map  West US China North, West Europe China North 2, and East Asia China East-->
 
 ![单个流量管理器配置文件][4]
 
-现在，假设用户要针对服务的某项更新进行测试，再推广该更新。 你想要使用“加权”流量路由方法，以便将少部分流量定向到测试部署。 你在中国北部设置了测试部署和现有的生产部署。
+现在，假设用户要针对服务的某项更新进行测试，再推广该更新。 你想要使用“加权”流量路由方法，以便将少部分流量定向到测试部署。 你在中国北部 2 设置了测试部署和现有的生产部署。
 
 无法在单个配置文件中结合使用“加权”和“性能”流量路由方法。 若要支持此方案，可以使用位于中国北部 2 区的两个终结点和“加权”流量路由方法创建流量管理器配置文件。 接下来，将此“子”配置文件作为终结点添加到“父”配置文件。 父配置文件仍使用“性能”流量路由方法，并且仍包含终结点形式的其他全局部署。
 
@@ -48,9 +50,9 @@ ms.locfileid: "77653211"
 
 ![嵌套式流量管理器配置文件][2]
 
-在此配置中，通过父配置文件定向的流量可跨区域正常分发。 在中国北部 2 区，嵌套式配置文件根据分配的权重将流量分发到生产和测试终结点。
-
 <!-- Notice: Europe West against China North 2-->
+
+在此配置中，通过父配置文件定向的流量可跨区域正常分发。 在中国北部 2 区，嵌套式配置文件根据分配的权重将流量分发到生产和测试终结点。
 
 当父配置文件使用“性能”流量路由方法时，必须为每个终结点分配一个位置。 可在配置终结点时分配该位置。 请选择离部署最近的 Azure 区域。 Azure 区域是 Internet 延迟表支持的位置值。 有关详细信息，请参阅[流量管理器“性能”流量路由方法](traffic-manager-routing-methods.md#performance)。
 
@@ -58,7 +60,7 @@ ms.locfileid: "77653211"
 
 流量管理器会主动监视每个服务终结点的运行状况。 如果终结点不正常，流量管理器会将用户定向到替代终结点，保持服务的可用性。 这种终结点监视和故障转移行为适用于所有流量路由方法。 有关详细信息，请参阅 [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md)（流量管理器终结点监视）。 终结点监视的工作方式不同于嵌套式配置文件。 对于嵌套式配置文件，父配置文件不会针对子配置文件直接执行运行状况检查。 子配置文件的终结点运行状况用于计算子配置文件的总体运行状况。 此运行状况信息会在嵌套式配置文件层次结构中向上传播。 父配置文件使用聚合运行状况信息确定是否将流量定向到子配置文件。 有关嵌套式配置文件运行状况监视的完整详细信息，请参阅[常见问题解答](traffic-manager-FAQs.md#traffic-manager-nested-profiles)。
 
-回到前面的示例，假设中国北部的生产部署发生故障。 默认情况下，“子”配置文件会将所有流量定向到测试部署。 如果测试部署也发生故障，父配置文件将确定子配置文件是否不应接收流量，因为所有子终结点都不正常。 然后，父配置文件将流量分发到其他区域。
+回到前面的示例，假设中国北部 2 的生产部署发生故障。 默认情况下，“子”配置文件会将所有流量定向到测试部署。 如果测试部署也发生故障，父配置文件将确定子配置文件是否不应接收流量，因为所有子终结点都不正常。 然后，父配置文件将流量分发到其他区域。
 
 ![嵌套式配置文件故障转移（默认行为）][3]
 
@@ -83,7 +85,7 @@ ms.locfileid: "77653211"
 
 ![首选故障转移的“性能”流量路由][6]
 
-由于中国北部 2 区终结点的优先级高于中国北部终结点，因此当两个终结点都处于联机状态时，所有流量将发送到中国北部 2 区终结点。 如果中国北部 2 区发生故障，则其流量会定向到中国北部。 如果使用嵌套式配置文件，仅当中国北部和中国北部 2 区都发生故障时，流量才定向到中国东部。
+由于中国北部 2 区终结点的优先级高于中国北部终结点，因此当两个终结点都处于联机状态时，所有流量将发送到中国北部 2 区终结点。 如果中国北部 2 区发生故障，则其流量会定向到中国北部。 如果使用嵌套式配置文件，仅当中国北部 2 和中国北部都发生故障时，流量才会定向到中国东部。
 
 可以针对所有区域重复此模式。 将父配置文件中的所有三个终结点替换为三个子配置文件，每个子配置文件提供故障转移优先顺序。
 

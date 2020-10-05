@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 04/23/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: 52507385f05b2bfcbb2a07422d6c6544368550df
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: e998e0a9fa41d1ea0747f9201208c789818ac869
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715387"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394545"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志
 
@@ -53,6 +53,31 @@ YARN Timeline Server 包括以下类型的数据：
 在此路径中，`user` 是启动应用程序的用户的名称。 `applicationId` 是 YARN RM 分配给应用程序的唯一标识符。
 
 无法直接阅读聚合日志，因为它们是以 TFile（由容器编制索引的二进制格式）编写的。 使用 YARN `ResourceManager` 日志或 CLI 工具以纯文本的形式查看感兴趣的应用程序或容器的这些日志。
+
+## <a name="yarn-logs-in-an-esp-cluster"></a>ESP 群集中的 Yarn 日志
+
+必须将两个配置添加到 Ambari 中的自定义 `mapred-site`。
+
+1. 在 Web 浏览器中，导航到 `https://CLUSTERNAME.azurehdinsight.net`，其中 `CLUSTERNAME` 是群集的名称。
+
+1. 在 Ambari UI 中，导航到“MapReduce2” > “配置” > “高级” > “自定义 mapred-site”   。
+
+1. 添加以下属性集之一：
+
+    **集 1**
+
+    ```
+    mapred.acls.enabled=true
+    mapreduce.job.acl-view-job=*
+    ```
+
+    **集 2**
+
+    ```
+    mapreduce.job.acl-view-job=<user1>,<user2>,<user3>
+    ```
+
+1. 保存更改并重启所有受影响的服务。
 
 ## <a name="yarn-cli-tools"></a>YARN CLI 工具
 

@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 03/02/2020
 ms.author: v-junlch
-ms.openlocfilehash: 9c49d36024f78350aa2a8b0f3e2a88f1760191c6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 67d8d8c6bafc995d53ca3e32a47778672ae9a194
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292257"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402606"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Azure Functions HTTP 触发器和绑定概述
 
-Azure Functions 可以通过 HTTP 请求调用，以构建无服务器 API 并响应 [Webhook](https://en.wikipedia.org/wiki/Webhook)。
+Azure Functions 可以通过 HTTP 请求调用，以构建无服务器 API 并响应 `webhooks`。
 
 | 操作 | 类型 |
 |---------|---------|

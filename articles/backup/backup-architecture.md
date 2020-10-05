@@ -1,22 +1,21 @@
 ---
 title: 体系结构概述
 description: 概述 Azure 备份服务使用的体系结构、组件和流程。
-author: lingliw
-manager: digimobile
+author: Johnnytechn
 ms.topic: conceptual
 origin.date: 02/19/2019
-ms.date: 12/04/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 518d538f5c17e33aec357f4d4bf6745b0a09c48c
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.date: 09/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 1c988019856a9fc9c4264bbcf2aa813b6ee87dd2
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852010"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402627"
 ---
-# <a name="azure-backup-architecture-and-components"></a>Azure 备份体系结构和组件 <a name="architecture-built-in-azure-vm-backup"></a>
+# <a name="azure-backup-architecture-and-components"></a>Azure 备份体系结构和组件
 
-可以使用 [Azure 备份服务](backup-overview.md)将数据备份到 Microsoft Azure 云平台。 本文汇总了 Azure 备份体系结构、组件和流程。
+可以使用 [Azure 备份服务](backup-overview.md)将数据备份到 Azure 云平台。 本文汇总了 Azure 备份体系结构、组件和流程。
 
 ## <a name="what-does-azure-backup-do"></a>Azure 备份有什么功能？
 
@@ -46,11 +45,11 @@ Azure 备份将备份的数据存储在恢复服务保管库中。 保管库是 
 - 使用保管库可以方便地组织备份数据，并将管理开销降至最低。
 - 在每个 Azure 订阅中，最多可以创建 500 个保管库。
 - 可以监视保管库中的备份项，包括 Azure VM 和本地计算机。
-- 可以使用 Azure [基于角色的访问控制 (RBAC)](/role-based-access-control/role-assignments-portal) 来管理对保管库的访问。
+- 可以使用 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) 来管理对保管库的访问。
 - 指定如何复制保管库中的数据以实现冗余：
-    - **本地冗余存储 (LRS)** ：若要防范数据中心发生故障，可以使用 LRS。 LRS 将数据复制到存储缩放单元。 [了解详细信息](/storage/common/storage-redundancy-lrs)。
-    - **异地冗余存储 (GRS)** ：若要防范区域范围的服务中断，可以使用 GRS。 GRS 会将数据复制到次要区域。 [了解详细信息](/storage/common/storage-redundancy-grs)。 
-    - 恢复服务保管库默认使用 GRS。 
+  - **本地冗余存储 (LRS)** ：若要防范数据中心发生故障，可以使用 LRS。 LRS 将数据复制到存储缩放单元。 [了解详细信息](../storage/common/storage-redundancy.md)。
+  - **异地冗余存储 (GRS)** ：若要防范区域范围的服务中断，可以使用 GRS。 GRS 会将数据复制到次要区域。 [了解详细信息](../storage/common/storage-redundancy.md)。
+  - 恢复服务保管库默认使用 GRS。
 
 ## <a name="backup-agents"></a>备份代理
 
@@ -106,21 +105,32 @@ Azure 备份提供不同的备份代理，具体取决于要备份哪种类型�
 
 ![表键](./media/backup-architecture/table-key.png)
 
+<!--Not available in MC: Azure File Share-->
 ## <a name="backup-policy-essentials"></a>备份策略概要
 
 - 备份策略是按保管库创建的。
-- 可为以下工作负荷的备份创建备份策略
-  - Azure VM
-  - Azure VM 中的 SQL
+- 可为以下工作负载的备份创建备份策略：Azure VM、Azure VM 中的 SQL 以及 Azure VM 中的 SAP HANA。 在 MARS 控制台中指定了使用 MARS 代理进行文件和文件夹备份的策略。
 - 可将一个策略分配到多个资源。 可以使用一个 Azure VM 备份策略来保护多个 Azure VM。
 - 策略由两个部分组成
   - 计划：何时创建备份
   - 保留期：每个备份应保留多长时间。
 - 可将计划定义为带有特定时间点的“每日”或“每周”计划。
 - 可以针对“每日”、“每周”、“每月”、“每年”备份点定义保留期。
-- “每周”是指在特定的星期日期进行备份，“每月”是指在特定的月份日期进行备份，“每年”是指在特定的年份日期进行备份。
-- “每月”、“每年”备份点的保留期称为“LongTermRetention”。
-- 创建保管库时，也会为 Azure VM 备份创建名为“DefaultPolicy”的策略，此策略可用于备份 Azure VM。
+  - “每周”是指一周中某天的备份
+  - “每月”是指一月中某天的备份
+  - “每年”是指一年中某天的备份
+- “每月”、“每年”备份点的保留期称为“长期保留 (LTR)”
+- 创建保管库时，还会创建“DefaultPolicy”，“DefaultPolicy”可用于备份资源。
+- 对备份策略保留期所做的任何更改都将以追溯方式应用于除新恢复点以外的所有旧恢复点。
+
+### <a name="additional-reference"></a>其他参考
+
+- Azure VM 计算机：如何[创建](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings)和[修改](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm)策略。
+- Azure VM 计算机中的 SQL Server 数据库：如何[创建](./backup-sql-server-database-azure-vms.md#create-a-backup-policy)和[修改](./manage-monitor-sql-database-backup.md#modify-policy)策略。
+- SAP HANA：如何[创建](./backup-azure-sap-hana-database.md#create-a-backup-policy)和[修改](./sap-hana-db-manage.md#change-policy)策略。
+- MARS：如何[创建](./backup-windows-with-mars-agent.md#create-a-backup-policy)和[修改](./backup-azure-manage-mars.md#modify-a-backup-policy)策略。
+- [根据工作负载类型计划备份是否有任何限制？](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [如果更改保留策略，现有恢复点会发生什么情况？](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>体系结构：内置 Azure VM 备份
 
@@ -135,10 +145,10 @@ Azure 备份提供不同的备份代理，具体取决于要备份哪种类型�
 1. 创建快照后，数据将传输到保管库。
     - 只会复制自上次备份以来发生更改的数据块。
     - 不会加密数据。 Azure 备份可以备份使用 Azure 磁盘加密进行加密的 Azure VM。
-    - 快照数据可能不会立即复制到保管库。 在高峰期，可能需要好几个小时才能完成备份。 每日备份策略规定的 VM 备份总时间不会超过 24 小时。
-1. 将数据发送到保管库后，将创建恢复点。 默认情况下，快照会保留两天，然后再删除。 此功能允许从这些快照执行还原操作，从而缩短还原时间。 它减少了从保管库转换数据和复制回数据所需的时间。 请参阅 [Azure 备份即时还原功能](/backup/backup-instant-restore-capability)。
+    - 快照数据可能不会立即复制到保管库。 在高峰期，可能需要好几个小时才能完成备份。 每日备份策略规定，VM 总备份时间不超过 24 小时。
+1. 将数据发送到保管库后，将创建恢复点。 默认情况下，快照会保留两天，然后再删除。 此功能允许从这些快照执行还原操作，从而缩短还原时间。 它减少了从保管库转换数据和复制回数据所需的时间。 请参阅 [Azure 备份即时还原功能](./backup-instant-restore-capability.md)。
 
-Azure VM 需要能够访问 Internet 才能执行控制命令。 如果备份 VM 中的工作负荷（例如 SQL Server 数据库备份），则也需要访问 Internet 来传输后端数据。
+无需明确允许 Internet 连接来备份 Azure VM。
 
 ![备份 Azure VM](./media/backup-architecture/architecture-azure-vm.png)
 
@@ -185,9 +195,8 @@ Azure VM 使用磁盘来存储其操作系统、应用和数据。 每个 Azure 
 
 有关磁盘存储和 VM 可用的磁盘类型的详细信息，请参阅以下文章：
 
-- [适用于 Windows VM 的 Azure 托管磁盘](../virtual-machines/windows/managed-disks-overview.md)
-- [适用于 Linux VM 的 Azure 托管磁盘](../virtual-machines/linux/managed-disks-overview.md)
-- [VM 可用的磁盘类型](../virtual-machines/windows/disks-types.md)
+- [适用于 Linux VM 的 Azure 托管磁盘](../virtual-machines/managed-disks-overview.md)
+- [VM 可用的磁盘类型](../virtual-machines/disks-types.md)
 
 ### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>备份和还原使用高级存储的 Azure VM
 
@@ -196,7 +205,7 @@ Azure VM 使用磁盘来存储其操作系统、应用和数据。 每个 Azure 
 - 在备份使用高级存储的 VM 过程中，备份服务将在存储帐户中创建名为 *AzureBackup-* 的临时暂存位置。 暂存位置大小与恢复点快照大小相同。
 - 确保高级存储帐户有足够的可用空间，可以容纳临时暂存位置。 有关详细信息，请参阅[高级页 blob 存储帐户的可伸缩性目标](../storage/blobs/scalability-targets-premium-page-blobs.md)。 不要修改暂存位置。
 - 备份作业完成后，将删除暂存位置。
-- 用于暂存位置的存储的价格与[高级存储定价](../virtual-machines/windows/disks-types.md#billing)相一致。
+- 用于暂存位置的存储的价格与[高级存储定价](../virtual-machines/disks-types.md#billing)相一致。
 
 还原使用高级存储的 Azure VM 时，可将其还原到高级或标准存储。 通常情况下，你会将它们还原到高级存储。 但如果你只需要 VM 中的一部分文件，则还原到标准存储可能更具成本效益。
 
@@ -220,6 +229,7 @@ Azure VM 使用磁盘来存储其操作系统、应用和数据。 每个 Azure 
   - [备份 Azure VM](backup-azure-arm-vms-prepare.md)。
   - 不使用备份服务器[直接备份 Windows 计算机](tutorial-backup-windows-server-to-azure.md)。
   - [设置 MABS](backup-azure-microsoft-azure-backup.md) 以备份到 Azure，然后将工作负荷备份到 MABS。
+  - [设置 DPM](backup-azure-dpm-introduction.md) 以备份到 Azure，然后将工作负荷备份到 DPM。
 
 [green]: ./media/backup-architecture/green.png
 [yellow]: ./media/backup-architecture/yellow.png

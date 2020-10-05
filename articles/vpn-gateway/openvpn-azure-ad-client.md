@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 06/25/2020
-ms.date: 09/07/2020
+origin.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 082e5545c1d25ca2463dc4ecdf6377bdc82ec8c1
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 111387cc393cee09f115eac5c2d38f2f08451edf
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463166"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395505"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Azure Active Directory 身份验证：配置用于 P2S OpenVPN 协议连接的 VPN 客户端
 
@@ -21,6 +21,8 @@ ms.locfileid: "89463166"
 
 > [!NOTE]
 > Azure AD 身份验证仅支持用于 OpenVPN®协议连接。
+>
+> Azure AD 身份验证需要 Azure VPN 客户端，该客户端仅适用于 Windows 10。
 >
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>使用客户端配置文件

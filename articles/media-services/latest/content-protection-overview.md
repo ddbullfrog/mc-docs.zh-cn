@@ -11,19 +11,21 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 10/29/2019
-ms.date: 04/06/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.custom: seodec18
-ms.openlocfilehash: 0bf3656a77698c5f2af223f60058dd1018dc17a2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: f80509dd593e9bed0db8cc5edbaf33cc20774788
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80625797"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245656"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>使用媒体服务动态加密保护内容
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。
@@ -156,12 +158,16 @@ MPEG-DASH 协议支持以下容器格式和加密方案：
 |---|---|---|
 |fMP4|AES|`https://amsv3account-cne21.streaming.media.chinacloudapi.cn/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
 |fMP4 | CENC (PlayReady) |`https://amsv3account-cne21.streaming.media.chinacloudapi.cn/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
+|fMP4 | PIFF 1.1 (PlayReady) |`https://amsv3account-cne21.streaming.media.chinacloudapi.cn/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> PIFF 1.1 支持作为智能电视（Samsung、LG）的后向兼容解决方案提供，实现了通用加密的早期“Silverlight”版本。 建议仅在需要时使用 PIFF 格式：用于支持在 2009-2015 年间发布的、可支持 PIFF 1.1 版本的 PlayReady 加密的旧版 Samsung 或 LG 智能电视。 
 
 ### <a name="browsers"></a>浏览器
 
 常用的浏览器支持以下 DRM 客户端：
 
-|浏览者|Encryption|
+|浏览者|加密|
 |---|---|
 |Microsoft Edge、Internet Explorer 11|PlayReady|
 |Safari|FairPlay|
@@ -183,7 +189,7 @@ MPEG-DASH 协议支持以下容器格式和加密方案：
 
 ### <a name="token-replay-prevention"></a>令牌重放防护
 
-*令牌重放防护*功能允许媒体服务客户对同一令牌可用于请求密钥或许可证的次数设置限制。 客户可以在令牌中添加 `urn:microsoft:azure:mediaservices:maxuses` 类型的声明，其中值是令牌可用于获取许可证或密钥的次数。 对密钥传送服务使用同一令牌的所有后续请求都将返回未经授权的响应。 请参阅“如何在 [DRM 示例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601)中添加声明”。
+令牌重放预防功能允许媒体服务客户设置一个限制，以限制可使用同一令牌请求密钥或许可证的次数。 客户可以在令牌中添加 `urn:microsoft:azure:mediaservices:maxuses` 类型的声明，其中值是令牌可用于获取许可证或密钥的次数。 对密钥传送服务使用同一令牌的所有后续请求都将返回未经授权的响应。 请参阅“如何在 [DRM 示例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601)中添加声明”。
  
 #### <a name="considerations"></a>注意事项
 
@@ -244,7 +250,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 有关使用自定义许可证/密钥获取 URL 的 REST 示例，请参阅[流式处理策略 - 创建](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)。
 
-## <a name="troubleshoot"></a>故障排除
+## <a name="troubleshoot"></a>疑难解答
 
 如果收到 `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` 错误，请确保指定适当的流式处理策略。
 
@@ -256,5 +262,5 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 * [使用 DRM 提供保护](protect-with-drm.md)
 * [设计带访问控制的多 DRM 内容保护系统](design-multi-drm-system-with-access-control.md)
 * [存储端加密](storage-account-concept.md#storage-side-encryption)
-* [常见问题](frequently-asked-questions.md)
+* [常见问题解答](frequently-asked-questions.md)
 * [JSON Web 令牌处理程序](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

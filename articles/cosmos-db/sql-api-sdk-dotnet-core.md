@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB - SQL .NET Core API、SDK 和资源
 description: 了解有关 SQL .NET Core API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB .NET Core SDK 各版本之间所做的更改。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-origin.date: 08/05/2020
-ms.date: 08/24/2020
+origin.date: 08/12/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
-ms.testdate: 08/24/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1c77f20665ffd14fcdb5fddb2ede51d8aedd11ac
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 482d9271c87d1ddee8370ac0f51ff9e6779f120b
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807771"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246360"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB .NET Core SDK v2：发行说明和资源
 > [!div class="op_single_selector"]
@@ -28,6 +29,9 @@ ms.locfileid: "88807771"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark 连接器](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api
 > * [REST 资源提供程序](/azure-resource-manager/management/azure-services-resource-providers)
@@ -38,7 +42,7 @@ ms.locfileid: "88807771"
 | |  |
 |---|---|
 |**SDK 下载**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
-|**API 文档**|[ 参考文档](https://docs.azure.cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)|
+|**API 文档**|[ 参考文档](https://docs.azure.cn/dotnet/api/overview/cosmosdb)|
 |**示例**|[.NET代码示例](sql-api-dotnet-samples.md)|
 |**入门**|[Azure Cosmos DB .NET 入门](sql-api-sdk-dotnet.md)|
 |**Web 应用教程**|[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-dotnet-application.md)|

@@ -1,19 +1,21 @@
 ---
-title: 将虚拟网络网关连接到 Azure 虚拟 WAN | Azure
+title: 将虚拟网络网关连接到 Azure 虚拟 WAN
 description: 本文介绍如何将 Azure 虚拟网络网关连接到 Azure 虚拟 WAN VPN 网关
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
-ms.topic: conceptual
-origin.date: 11/04/2019
-ms.date: 03/09/2020
+ms.topic: how-to
+origin.date: 07/28/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: ba2e5353ab7c95f5b61c8b8c242ae118cadf7389
-ms.sourcegitcommit: 6c1e5be9f310adf5b6740ad3284b7582fca9de86
+ms.openlocfilehash: 4b6ef09f526cc1ccffa848dbfbbabac5410fed42
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84683579"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246831"
 ---
 <!--Verified by-pass-->
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>将 VPN 网关（虚拟网络网关）连接到虚拟 WAN
@@ -36,19 +38,21 @@ Azure 虚拟网络
 * 创建不带任何虚拟网络网关的虚拟网络。 确认本地网络的任何子网都不会与要连接到的虚拟网络重叠。 要在 Azure 门户中创建虚拟网络，请参阅[快速入门](../virtual-network/quick-create-portal.md)。
 
 <a name="vnetgw"></a>
-## <a name="1-create-an-azure-virtual-network-gateway"></a>1.创建 Azure 虚拟网络网关
+## <a name="1-create-a-vpn-gateway-virtual-network-gateway"></a>1.创建 VPN 网关虚拟网络网关
 
-以主动-主动模式为虚拟网络创建 VPN 网关虚拟网络网关。 创建网关时，可将现有公共 IP 地址用于该网关的两个实例，或者可以创建新的公共 IP。 设置虚拟 WAN 站点时将使用这些公共 IP。 有关主动-主动模式的详细信息，请参阅[配置主动-主动连接](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway)。
+以主动-主动模式为虚拟网络创建 VPN 网关虚拟网络网关。 创建网关时，可将现有公共 IP 地址用于该网关的两个实例，或者可以创建新的公共 IP。 设置虚拟 WAN 站点时将使用这些公共 IP。 有关主动-主动 VPN 网关和配置步骤的详细信息，请参阅[配置主动-主动 VPN 网关](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway)。
 
 <a name="active-active"></a>
 ### <a name="active-active-mode-setting"></a>主动-主动模式设置
+
+在虚拟网络网关“配置”页上，启用主动-主动模式。
 
 ![主动-主动](./media/connect-virtual-network-gateway-vwan/active.png "主动-主动")
 
 <a name="BGP"></a>
 ### <a name="bgp-setting"></a>BGP 设置
 
-BGP ASN 不能是 65515。 66515 将由 Azure 虚拟 WAN 使用。
+在虚拟网络网关“配置”页上，可以配置“BGP ASN” 。 更改 BGP ASN。 BGP ASN 不能是 65515。 66515 将由 Azure 虚拟 WAN 使用。
 
 ![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
@@ -67,16 +71,16 @@ BGP ASN 不能是 65515。 66515 将由 Azure 虚拟 WAN 使用。
 1. 选择“+创建站点”。
 2. 在“创建 VPN 站点”页上键入以下值：
 
-    * **区域** -（Azure VPN 网关虚拟网络网关所在的区域）
-    * **设备供应商** - 输入设备供应商（任意名称）
-    * **专用地址空间** -（输入一个值；如果启用了 BGP，请将此字段留空）
-    * **边界网关协议** -（如果为 Azure VPN 网关虚拟网络网关启用了 BGP，请将此字段设置为“启用”）
-    * **连接到中心** -（从下拉列表中选择在“先决条件”部分创建的中心）
+    * 区域 - Azure VPN 网关虚拟网络网关所在的区域。
+    * 设备供应商 - 输入设备供应商（任意名称）。
+    * 专用地址空间 - 输入一个值；如果启用了 BGP，请将此字段留空。
+    * 边界网关协议 - 如果为 Azure VPN 网关虚拟网络网关启用了 BGP，请将此字段设置为“启用” 。
+    * 连接到中心 - 从下拉列表中选择在“先决条件”部分创建的中心。 如果看不到中心，请验证是否为中心创建了站点到站点 VPN 网关。
 3. 在“链接”下输入以下值：
 
-    * **提供商名称** - 输入链接名称和提供商名称（任意名称）
-    * **速度** - 速度（任意数字）
-    * **IP 地址** - 输入 IP 地址（与（VPN 网关）虚拟网络网关属性下显示的第一个公共 IP 地址相同）
+    * 提供程序名称 - 输入链接名称和提供程序名称（任意名称）。
+    * 速度 - 速度（任意数字）。
+    * IP 地址 - 输入 IP 地址（与（VPN 网关）虚拟网络网关属性下显示的第一个公共 IP 地址相同）。
     * **BGP 地址**和 **ASN** - BGP 地址和 ASN。 这些值必须与某个 BGP 对等 IP 地址以及在[步骤 1](#vnetgw) 中配置的 VPN 网关虚拟网络网关的 ASN 相同。
 4. 检查设置，然后选择“确认”以创建站点。
 5. 重复上述步骤，创建与 VPN 网关虚拟网络网关的第二个实例匹配的第二个站点。 保留相同的设置，不过这一次要使用 VPN 网关配置中的第二个公共 IP 地址和第二个 BGP 对等 IP 地址。
@@ -124,12 +128,12 @@ BGP ASN 不能是 65515。 66515 将由 Azure 虚拟 WAN 使用。
     * **本地网络网关：** 此连接会将虚拟网络网关连接到本地网络网关。 选择前面创建的本地网络网关之一。
     * **共享密钥：** 输入共享密钥。
     * **IKE 协议：** 选择 IKE 协议。
-    * **BGP：** 如果通过 BGP 建立连接，请选择“启用 BGP”。
 3. 单击“确定”以创建连接。
 4. 可在虚拟网络网关的“连接”页中查看连接。
 
     ![Connection](./media/connect-virtual-network-gateway-vwan/connect.png "连接")
 5. 重复上述步骤创建第二个连接。 对于第二个连接，请选择已创建的另一个本地网络网关。
+6. 如果是通过 BGP 建立连接，则在创建连接之后，导航到连接并选择“配置”。 在“配置”页上，对于“BGP”，请选择“已弃用”  。 然后单击“保存” 。 对第二个连接重复该操作。
 
 <a name="test"></a>
 ## <a name="6-test-connections"></a>6.测试连接
@@ -152,5 +156,4 @@ BGP ASN 不能是 65515。 66515 将由 Azure 虚拟 WAN 使用。
 有关配置自定义 IPsec 策略的步骤，请参阅[为虚拟 WAN 配置自定义 IPsec 策略](virtual-wan-custom-ipsec-portal.md)。
 有关虚拟 WAN 的详细信息，请参阅[关于 Azure 虚拟 WAN](virtual-wan-about.md) 和 [Azure 虚拟 WAN 常见问题解答](virtual-wan-faq.md)。
 
-<!-- Update_Description: new article about connect virtual network gateway vwan -->
-<!--NEW.date: 03/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

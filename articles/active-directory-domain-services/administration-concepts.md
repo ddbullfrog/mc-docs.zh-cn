@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.author: v-junlch
-ms.openlocfilehash: 46ffd77e59f0a3db5223e59f44c6ce93c444dfce
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: c4378ae1d110ddc03cf77eb44f2dcf993263b296
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028592"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402315"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Azure Active Directory 域服务中有关用户帐户、密码和管理的管理概念
 
@@ -72,7 +72,7 @@ Azure AD DS 包括一个默认的密码策略，该策略定义了帐户锁定�
 
 在 Azure AD DS 资源林中，用户从本地 AD DS 通过单向林信任进行身份验证 。 采用此方法时，用户对象和密码哈希不会同步到 Azure AD DS。 用户对象和凭据仅存在于本地 AD DS 中。 此方法使企业可以在 Azure 中托管依赖于经典身份验证（如 LDAPS、Kerberos 或 NTLM）的资源和应用程序平台，不过可消除任何身份验证问题或疑虑。
 
-有关 Azure AD DS 中的林类型的详细信息，请参阅[什么是资源林？][concepts-forest]和[林信任在 Azure AD DS 中的工作原理是什么？][concepts-trust]
+有关 Azure AD DS 中的林类型的详细信息，请参阅[林信任在 Azure AD DS 中的工作原理是什么？][concepts-trust]
 
 ## <a name="azure-ad-ds-skus"></a>Azure AD DS SKU
 
@@ -115,7 +115,6 @@ Azure AD DS 包括一个默认的密码策略，该策略定义了帐户锁定�
 [azure-ad-password-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [create-instance]: tutorial-create-instance.md
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
-[concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
 
 <!-- EXTERNAL LINKS -->

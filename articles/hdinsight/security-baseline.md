@@ -9,12 +9,12 @@ origin.date: 04/09/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
 ms.custom: security-benchmark
-ms.openlocfilehash: 2b74c0775d94172da4ad586d555226ac31937270
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: de169b02e90a62bd3164778377485603036112e3
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723503"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394787"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>HDInsight 的 Azure 安全基线
 
@@ -26,7 +26,7 @@ HDInsight 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 ## <a name="network-security"></a>网络安全
 
-有关详细信息，请参阅[安全控制：** 网络安全性](https://docs.azure.cn/security/benchmarks/security-control-network-security)。
+有关详细信息，请参阅[安全控制：网络安全性](https://docs.azure.cn/security/benchmarks/security-control-network-security)。
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络中使用网络安全组或 Azure 防火墙保护资源
 
@@ -221,7 +221,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
 ## <a name="logging-and-monitoring"></a>日志记录和监视
 
-有关详细信息，请参阅[安全控制：** 日志记录和监视](https://docs.azure.cn/security/benchmarks/security-control-logging-monitoring)。
+有关详细信息，请参阅[安全控制：日志记录和监视](https://docs.azure.cn/security/benchmarks/security-control-logging-monitoring)。
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1：使用批准的时间同步源
 
@@ -370,7 +370,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 ## <a name="identity-and-access-control"></a>标识和访问控制
 
-有关详细信息，请参阅[安全控制：** 标识和访问控制](https://docs.azure.cn/security/benchmarks/security-control-identity-access-control)。
+有关详细信息，请参阅[安全控制：标识和访问控制](https://docs.azure.cn/security/benchmarks/security-control-identity-access-control)。
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
@@ -592,7 +592,7 @@ https://docs.microsoft.com/azure/active-directory/identity-protection/howto-iden
 
 ## <a name="data-protection"></a>数据保护
 
-有关详细信息，请参阅[安全控制：** 数据保护](https://docs.azure.cn/security/benchmarks/security-control-data-protection)。
+有关详细信息，请参阅[安全控制：数据保护](https://docs.azure.cn/security/benchmarks/security-control-data-protection)。
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1：维护敏感信息的清单
 
@@ -663,7 +663,7 @@ https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overvi
 
 了解 Azure 存储帐户的传输中加密：
 
-https://docs.microsoft.com/azure/storage/blobs/security-recommendations
+https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
 
 **Azure 安全中心监视**：是
 
@@ -771,7 +771,7 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 ## <a name="vulnerability-management"></a>漏洞管理
 
-有关详细信息，请参阅[安全控制：** 漏洞管理。](https://docs.azure.cn/security/benchmarks/security-control-vulnerability-management)
+有关详细信息，请参阅[安全控制：漏洞管理。](https://docs.azure.cn/security/benchmarks/security-control-vulnerability-management)
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1：运行自动漏洞扫描工具
 
@@ -783,7 +783,7 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 如何手动安装 Rapid7 代理：
 
-https://insightvm.help.rapid7.com/docs/azure-security-center
+https://insightvm.help.rapid7.com/docs/install
 
 
 如何手动安装 Qualys 代理：
@@ -851,14 +851,13 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 ## <a name="inventory-and-asset-management"></a>清单和资产管理
 
-有关详细信息，请参阅[安全控制：** 清单和资产管理](https://docs.azure.cn/security/benchmarks/security-control-inventory-asset-management)。
+有关详细信息，请参阅[安全控制：清单和资产管理](https://docs.azure.cn/security/benchmarks/security-control-inventory-asset-management)。
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1：使用 Azure 资产发现
 
 **指导**：使用 Azure Resource Graph 查询/发现订阅中的所有资源（例如计算、存储、网络、端口和协议等），包括 Azure HDInsight 群集。  确保你在租户中拥有适当的（读取）权限，并且可以枚举所有 Azure 订阅，以及订阅中的资源。
 
-
-尽管可以通过 Azure Resource Graph 发现经典 Azure 资源，但我们强烈建议今后创建并使用 Azure 资源管理器资源。
+尽管可以通过 Resource Graph 发现经典 Azure 资源，但我们强烈建议你今后还是创建并使用 Azure 资源管理器资源。
 
 
 如何使用 Azure Resource Graph 创建查询：
@@ -934,7 +933,8 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 如何配置和管理 Azure Policy： https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-如何使用 Azure Resource Graph 创建查询： https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+如何使用 Azure Graph 创建查询： https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 
 **Azure 安全中心监视**：目前不可用
@@ -953,8 +953,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **指导**：使用 Azure Resource Graph 查询/发现订阅中的所有资源（例如计算、存储、网络、端口和协议等），包括 Azure HDInsight 群集。  删除发现的任何未批准 Azure 资源。 对于 Azure HDInsight 群集节点，请实施第三方解决方案来删除未批准的软件或对其发出警报。
 
-
-如何使用 Azure Resource Graph 创建查询：
+如何使用 Azure Graph 创建查询：
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -1024,7 +1023,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 ## <a name="secure-configuration"></a>安全配置
 
-有关详细信息，请参阅[安全控制：** 安全配置](https://docs.azure.cn/security/benchmarks/security-control-secure-configuration)。
+有关详细信息，请参阅[安全控制：安全配置](https://docs.azure.cn/security/benchmarks/security-control-secure-configuration)。
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1：为所有 Azure 资源建立安全配置
 
@@ -1206,7 +1205,7 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="malware-defense"></a>恶意软件防护
 
-有关详细信息，请参阅[安全控制：** 恶意软件防护](https://docs.azure.cn/security/benchmarks/security-control-malware-defense)。
+有关详细信息，请参阅[安全控制：恶意软件防护](https://docs.azure.cn/security/benchmarks/security-control-malware-defense)。
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1：使用集中管理的反恶意软件
 
@@ -1252,7 +1251,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 ## <a name="data-recovery"></a>数据恢复
 
-有关详细信息，请参阅[安全控制：** 数据恢复](https://docs.azure.cn/security/benchmarks/security-control-data-recovery)。
+有关详细信息，请参阅[安全控制：数据恢复](https://docs.azure.cn/security/benchmarks/security-control-data-recovery)。
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1：确保定期执行自动备份
 
@@ -1262,7 +1261,6 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 如何为 Azure 存储帐户配置存储冗余：
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
-
 
 如何为 Azure SQL 数据库配置冗余：
 
@@ -1328,7 +1326,7 @@ https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azu
 
 ## <a name="incident-response"></a>事件响应
 
-有关详细信息，请参阅[安全控制：** 事件响应](https://docs.azure.cn/security/benchmarks/security-control-incident-response)。
+有关详细信息，请参阅[安全控制：事件响应](https://docs.azure.cn/security/benchmarks/security-control-incident-response)。
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
@@ -1410,13 +1408,13 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>渗透测试和红队练习
 
-有关详细信息，请参阅[安全控制：** 渗透测试和红队演练](https://docs.azure.cn/security/benchmarks/security-control-penetration-tests-red-team-exercises)。
+有关详细信息，请参阅[安全控制：渗透测试和红队演练](https://docs.azure.cn/security/benchmarks/security-control-penetration-tests-red-team-exercises)。
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1：定期对 Azure 资源执行渗透测试，确保在 60 天内修正所有发现的关键安全问题
 
 **指导**：请遵循 Microsoft 互动规则，确保你的渗透测试不违反 Microsoft 政策：
 
-https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 。
+https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
 
 

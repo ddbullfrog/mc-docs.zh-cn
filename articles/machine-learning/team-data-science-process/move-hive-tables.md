@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3eb421baabe2d675f698d29e5cae25fe547a1aac
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 51eac7317ed4a8f289a71c80b9312d2e82b1ce08
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440954"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395236"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>从 Blob 存储创建 Hive 表和加载数据
 
@@ -59,7 +59,7 @@ Hive 查询类似于 SQL。 如果熟悉 SQL，可能会发现[适用于 SQL 用
 有三种方法可在 Hadoop 命令行中提交 Hive 查询：
 
 * 直接提交
-* 使用 .hql 文件
+* 使用“.hql”文件
 * 使用 Hive 命令控制台
 
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>直接在 Hadoop 命令行中提交 Hive 查询。
@@ -67,10 +67,12 @@ Hive 查询类似于 SQL。 如果熟悉 SQL，可能会发现[适用于 SQL 用
 
 ![用于提交 Hive 查询的命令以及来自 Hive 查询的输出](./media/move-hive-tables/run-hive-queries-1.png)
 
-#### <a name="submit-hive-queries-in-hql-files"></a>在 .hql 文件中提交 Hive 查询
-如果 Hive 查询更加复杂并且具有多个行，那么在命令行或 Hive 命令控制台中编辑查询的方法并不可行。 另一种方法是在 Hadoop 群集的头节点中使用文本编辑器，将 Hive 查询保存到头节点本地目录中的 .hql 文件中。 然后可使用如下所示的 `-f` 参数将 .hql 文件中的 Hive 查询进行提交：
+#### <a name="submit-hive-queries-in-hql-files"></a>在“.hql”文件中提交 Hive 查询
+如果 Hive 查询更加复杂并且具有多个行，那么在命令行或 Hive 命令控制台中编辑查询的方法并不可行。 另一种方法是在 Hadoop 群集的头节点中使用文本编辑器，将 Hive 查询保存到头节点本地目录中的“.hql”文件中。 然后可使用如下所示的 `-f` 参数将“.hql”文件中的 Hive 查询进行提交：
 
-    hive -f "<path to the .hql file>"
+```console
+hive -f "<path to the '.hql' file>"
+```
 
 ![.hql 文件中的 Hive 查询](./media/move-hive-tables/run-hive-queries-3.png)
 
@@ -78,8 +80,10 @@ Hive 查询类似于 SQL。 如果熟悉 SQL，可能会发现[适用于 SQL 用
 
 默认情况下，在 Hadoop 命令行中提交了 Hive 查询后，Map/Reduce 作业的进度会打印在屏幕上。 若要取消在屏幕上打印 Map/Reduce 作业的进度，可在命令行中使用参数 `-S`（“S”大写），如下所示：
 
-    hive -S -f "<path to the .hql file>"
-    hive -S -e "<Hive queries>"
+```console
+hive -S -f "<path to the '.hql' file>"
+hive -S -e "<Hive queries>"
+```
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>在 Hive 命令控制台中提交 Hive 查询。
 也可以首先通过在 Hadoop 命令行中运行命令 `hive` 输入 Hive 命令控制台，然后在 Hive 命令控制台中提交 Hive 查询。 以下是示例。 在此示例中，两个红色框分别突出显示了用于输入 Hive 命令控制台的命令，以及在 Hive 命令控制台中提交的 Hive 查询。 绿色框突出显示了 Hive 查询的输出。
@@ -91,7 +95,9 @@ Hive 查询类似于 SQL。 如果熟悉 SQL，可能会发现[适用于 SQL 用
 **将 Hive 查询结果输出到本地文件。**
 要将 Hive 查询结果输出到头节点上的本地目录，必须按如下所示的那样在 Hadoop 命令行中提交 Hive 查询：
 
-    hive -e "<hive query>" > <local path in the head node>
+```console
+hive -e "<hive query>" > <local path in the head node>
+```
 
 在下面的示例中，Hive 查询的输出将写入到目录 `C:\apps\temp` 中的文件 `hivequeryoutput.txt` 中。
 
@@ -101,7 +107,9 @@ Hive 查询类似于 SQL。 如果熟悉 SQL，可能会发现[适用于 SQL 用
 
 还可以将 Hive 查询结果输出到 Azure blob，其位于 Hadoop 群集的默认容器中。 以下是使用此方法的 Hive 查询：
 
-    insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+```console
+insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+```
 
 在下面的示例中，Hive 查询的输出将写入到一个 blob 目录 `queryoutputdir`，该目录位于 Hadoop 群集的默认容器中。 此处，只需提供目录名称，无需提供 blob 名称。 如果同时提供目录名称和 blob 名称，会引发错误，例如：`wasb:///queryoutputdir/queryoutput.txt`。
 
@@ -122,18 +130,20 @@ Hive 查询在 [GitHub 存储库](https://github.com/Azure/Azure-MachineLearning
 
 以下是创建一个 Hive 表的 Hive 查询。
 
-    create database if not exists <database name>;
-    CREATE EXTERNAL TABLE if not exists <database name>.<table name>
-    (
-        field1 string,
-        field2 int,
-        field3 float,
-        field4 double,
-        ...,
-        fieldN string
-    )
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
-    STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
+```hiveql
+create database if not exists <database name>;
+CREATE EXTERNAL TABLE if not exists <database name>.<table name>
+(
+    field1 string,
+    field2 int,
+    field3 float,
+    field4 double,
+    ...,
+    fieldN string
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
+STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
+```
 
 以下是需要插入的字段以及其他配置的说明：
 
@@ -147,9 +157,11 @@ Hive 查询在 [GitHub 存储库](https://github.com/Azure/Azure-MachineLearning
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>将数据加载到 Hive 表
 以下是将数据加载到 Hive 表的 Hive 查询。
 
-    LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
+```hiveql
+LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
+```
 
-* **\<path to blob data\>** ：如果要上传到 Hive 表的 blob 文件位于 HDInsight Hadoop 群集的默认容器中，则 \<path to blob data\> 的格式应当为“wasb://\<directory in this container>/\<blob file name>”。 blob 文件也可以在 HDInsight Hadoop 群集的其他容器中。 在这种情况下， *\<path to blob data\>* 的格式应为 *'wasb://\<container name>\<storage account name>.blob.core.windows.net/\<blob file name>'* 。
+* **\<path to blob data\>** ：如果要上传到 Hive 表的 blob 文件位于 HDInsight Hadoop 群集的默认容器中，则 \<path to blob data\> 的格式应当为“wasb://\<directory in this container>/\<blob file name>”。 blob 文件也可以在 HDInsight Hadoop 群集的其他容器中。 在这种情况下，\<path to blob data\> 的格式应为 'wasb://\<container name>@\<storage account name>.blob.core.windows.net/\<blob file name>' 。
 
   > [!NOTE]
   > 要上传到 Hive 表的 blob 数据必须位于 Hadoop 群集存储帐户的默认或其他容器中。 否则，*LOAD DATA* 查询会失败，并声称它无法访问数据。
@@ -164,69 +176,83 @@ Hive 查询在 [GitHub 存储库](https://github.com/Azure/Azure-MachineLearning
 ### <a name="partitioned-table"></a>已分区表
 以下是创建已分区表并将数据加载到其中的 Hive 查询。
 
-    CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
-    (field1 string,
-    ...
-    fieldN string
-    )
-    PARTITIONED BY (<partitionfieldname> vartype) ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
-         lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
-    LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
-        PARTITION (<partitionfieldname>=<partitionfieldvalue>);
+```hiveql
+CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
+(field1 string,
+...
+fieldN string
+)
+PARTITIONED BY (<partitionfieldname> vartype) ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
+    lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
+LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
+    PARTITION (<partitionfieldname>=<partitionfieldvalue>);
+```
 
 查询已分区表时，建议在 `where` 子句的开头添加分区条件，这样能提高搜索效率。
 
-    select
-        field1, field2, ..., fieldN
-    from <database name>.<partitioned table name>
-    where <partitionfieldname>=<partitionfieldvalue> and ...;
+```hiveql
+select
+    field1, field2, ..., fieldN
+from <database name>.<partitioned table name>
+where <partitionfieldname>=<partitionfieldvalue> and ...;
+```
 
 ### <a name="store-hive-data-in-orc-format"></a><a name="orc"></a>将 Hive 数据存储为 ORC 格式
 不能直接将 Blob 存储中的数据加载到存储为 ORC 格式的 Hive 表中。 下面的步骤介绍了如何将 Azure blob 中的数据加载到存储为 ORC 格式的 Hive 表中。
 
 创建外部表 **STORED AS TEXTFILE**，然后将 Blob 存储中的数据加载到此表。
 
-        CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
-        (
-            field1 string,
-            field2 int,
-            ...
-            fieldN date
-        )
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
-            lines terminated by '<line separator>' STORED AS TEXTFILE
-            LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
+```hiveql
+CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
+(
+    field1 string,
+    field2 int,
+    ...
+    fieldN date
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
+    lines terminated by '<line separator>' STORED AS TEXTFILE
+    LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
 
-        LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
+LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
+```
 
 使用与步骤 1 中的外部表相同的架构和相同的字段分隔符创建内部表，并且将 Hive 数据存储为 ORC 格式。
 
-        CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
-        (
-            field1 string,
-            field2 int,
-            ...
-            fieldN date
-        )
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
+```hiveql
+CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
+(
+    field1 string,
+    field2 int,
+    ...
+    fieldN date
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
+```
 
 从步骤 1 中的外部表选择数据，然后将其插入到 ORC 表
 
-        INSERT OVERWRITE TABLE <database name>.<ORC table name>
-            SELECT * FROM <database name>.<external textfile table name>;
+```hiveql
+INSERT OVERWRITE TABLE <database name>.<ORC table name>
+    SELECT * FROM <database name>.<external textfile table name>;
+```
 
 > [!NOTE]
 > 如果 TEXTFILE 表 *\<database name\>.\<external textfile table name\>* 具有分区，则在步骤 3 中，`SELECT * FROM <database name>.<external textfile table name>` 命令将选择分区变量作为返回数据集中的字段。 将其插入到 *\<database name\>.\<ORC table name\>* 中将失败，因为 *\<database name\>.\<ORC table name\>* 没有将分区变量作为表架构中的字段。 在这种情况下，需要专门选择要插入到 *\<database name\>.\<ORC table name\>* 的字段， 如下所示：
 >
 >
 
-        INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
-           SELECT field1, field2, ..., fieldN
-           FROM <database name>.<external textfile table name>
-           WHERE <partition variable>=<partition value>;
+```hiveql
+INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
+    SELECT field1, field2, ..., fieldN
+    FROM <database name>.<external textfile table name>
+    WHERE <partition variable>=<partition value>;
+```
 
-将所有数据插入到 *\<database name\>.\<ORC table name\>* 后，使用以下查询时可以放心地删除 *\<external textfile table name\>* ：
+将所有数据插入到 *\<database name\>.\<ORC table name\>* 后，使用以下查询时可以放心地删除 *\<external text file table name\>* ：
 
-        DROP TABLE IF EXISTS <database name>.<external textfile table name>;
+```hiveql
+    DROP TABLE IF EXISTS <database name>.<external textfile table name>;
+```
 
 完成此过程后，应该拥有一个可用的表，此表中具有 ORC 格式的数据。  

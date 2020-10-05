@@ -3,12 +3,12 @@ title: Azure Functions C# developer reference（Azure Functions C# 开发人员�
 description: '了解如何开发使用 C # 的 Azure 功能。'
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 9a3474913bae07a71baf99f64748ea29893d4571
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 032bd16cc10318cf7e06a088255a78be4c21ea3e
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223407"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402676"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -356,7 +356,7 @@ public static class EnvironmentVariablesExample
 
 ## <a name="binding-at-runtime"></a>在运行时绑定
 
-在 C# 和其他 .NET 语言中，可以使用[命令性](https://en.wikipedia.org/wiki/Imperative_programming)绑定模式，而不是在属性中使用“声明性”[*绑定*](https://en.wikipedia.org/wiki/Declarative_programming) 。 当绑定参数需要在运行时（而非在设计时）计算时，命令性绑定很有用。 通过此模式，可以在函数代码中动态绑定到受支持的输入和输出绑定。
+在 C# 和其他 .NET 语言中，可以使用 `imperative` 绑定模式，而不是在属性中使用声明性绑定。 当绑定参数需要在运行时（而非在设计时）计算时，命令性绑定很有用。 通过此模式，可以在函数代码中动态绑定到受支持的输入和输出绑定。
 
 如下所示定义命令性绑定：
 

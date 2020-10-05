@@ -9,12 +9,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 01/18/2019
 ms.date: 01/20/2020
 ms.author: v-yiso
-ms.openlocfilehash: dde7c5ce6c281a4f29f18d6d62720eed3962b63f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 82159a08aebf5d41695640e085fb877fbf1752c5
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "76966548"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394742"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用适用于 Visual Studio Code 的 Azure IoT 工具在设备和 IoT 中心之间发送和接收消息
 
@@ -38,7 +38,7 @@ ms.locfileid: "76966548"
 - 一个有效的 Azure 订阅。
 - 已在订阅中创建一个 Azure IoT 中心。
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [适用于 VS Code 的 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 或[在 Visual Studio Code 中打开此链接](vscode:extension/vsciot-vscode.azure-iot-tools)。
+- [适用于 VS Code 的 Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 或复制此 URL 并将其粘贴到浏览器窗口中：`vscode:extension/vsciot-vscode.azure-iot-tools`
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>登录以访问 IoT 中心
 

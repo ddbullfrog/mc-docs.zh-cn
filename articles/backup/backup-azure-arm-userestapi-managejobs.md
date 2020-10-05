@@ -1,19 +1,18 @@
 ---
 title: 使用 REST API 管理备份作业
 description: 本文介绍如何使用 REST API 跟踪和管理 Azure 备份的备份和还原作业。
-author: lingliw
-manager: digimobile
 ms.topic: conceptual
+author: Johnnytechn
 origin.date: 08/03/2018
-ms.date: 11/20/2019
-ms.author: v-lingwu
+ms.date: 09/22/2020
+ms.author: v-johya
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: e1dbfecbad66ea856652a8b954731a3107eef57c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e6b50f4cd97363a48cdae4f0e8177c4603107d0a
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291459"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402447"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>使用 REST API 跟踪备份和还原作业
 
@@ -21,7 +20,7 @@ Azure 备份服务会触发各种情况下在后台运行的作业，例如触�
 
 ## <a name="fetch-job-information-from-operations"></a>从操作中提取作业信息
 
-操作（例如触发备份）将始终返回 jobID。 例如：[触发备份 REST API 操作](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3)的最终响应如下所示：
+操作（例如触发备份）将始终返回 jobID。 例如：[触发备份 REST API 操作](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup)的最终响应如下所示：
 
 ```http
 {
@@ -113,3 +112,4 @@ X-Powered-By: ASP.NET
 }
 
 ```
+

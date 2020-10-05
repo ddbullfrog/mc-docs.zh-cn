@@ -4,19 +4,19 @@ description: 本文介绍使用 Azure 门户对 Azure 备份工作负荷执行�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 12/04/2019
-ms.date: 06/22/2020
+ms.date: 09/22/2020
 ms.author: v-johya
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 224df8d0b35ebdc4dabaf0a778ae1d359e03d2a4
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 952afc732869f0a00f18b08f5fe262833f724271
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851979"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402435"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>监视 Azure 备份工作负荷
 
-Azure 备份根据备份要求和基础结构拓扑（本地或 Azure）提供多个备份解决方案。 任何备份用户或管理员都会看到所有解决方案中发生的情况，并会在出现重大情况时收到通知。 本文详细介绍了 Azure 备份服务提供的监视和通知功能。
+Azure 备份根据备份要求和基础结构拓扑（本地或 Azure）提供多个备份解决方案。 任何备份用户或管理员都应看到所有解决方案中发生的情况，并会在出现重大情况时收到通知。 本文详细介绍了 Azure 备份服务提供的监视和通知功能。
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>恢复服务保管库中的 Azure 备份作业
 
@@ -31,12 +31,12 @@ Azure 备份针对 Azure 备份保护的工作负荷提供内置的监视和警�
 - Azure VM 备份
 - Azure 文件备份
 - Azure 工作负荷备份，例如 SQL 和 SAP HANA 备份
-- Azure 备份代理 (MAB)
+- Microsoft Azure 恢复服务 (MARS) 代理
 
 不会显示 System Center Data Protection Manager (SC-DPM) 和 Microsoft Azure 备份服务器 (MABS) 中的作业。
 
 > [!NOTE]
-> Azure VM 中的 Azure 工作负荷（例如 SQL 和 SAP HANA 备份）包含大量的备份作业。 例如，日志备份可能每隔 15 分钟运行一次。 因此，对于此类数据库工作负荷，只会显示用户触发的操作。 不显示计划的备份操作。
+> Azure VM 中的 Azure 工作负荷（例如 SQL 和 SAP HANA 备份）包含大量的备份作业。 例如，日志备份可能每隔 15 分钟运行一次。 因此，对于此类数据库工作负荷，只会显示用户触发的操作。 不会显示计划的备份操作。
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>恢复服务保管库中的备份警报
 
@@ -47,7 +47,7 @@ Azure 备份针对 Azure 备份保护的工作负荷提供内置的监视和警�
 以下方案由服务定义为可发出警报的方案。
 
 - 备份/还原失败
-- 备份成功，但出现 Azure 备份代理 (MAB) 的警告
+- 备份成功，并显示针对 Microsoft Azure 恢复服务 (MARS) 代理的警告
 - 停止保护并保留数据/停止保护并删除数据
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>此处会显示以下 Azure 备份解决方案中的警报
@@ -55,7 +55,7 @@ Azure 备份针对 Azure 备份保护的工作负荷提供内置的监视和警�
 - Azure VM 备份
 - Azure 文件备份
 - Azure 工作负荷备份，例如 SQL 备份、SAP HANA 备份
-- Azure 备份代理 (MAB)
+- Microsoft Azure 恢复服务 (MARS) 代理
 
 > [!NOTE]
 > 此处不会显示 System Center Data Protection Manager (SC-DPM) 和 Microsoft Azure 备份服务器 (MABS) 中的警报。
@@ -73,7 +73,7 @@ Azure 备份针对 Azure 备份保护的工作负荷提供内置的监视和警�
 - VM 备份作业失败，因为备份的 Azure VM 不再存在
 - [合并的警报](#consolidated-alerts)
 
-之所以设计上述异常，是因为我们知道，这些操作的结果（主要是用户触发的操作）会立即显示在门户/PS/CLI 客户端中。 因此，用户会立即了解相关情况，不需要通知。
+之所以设计上述异常，是因为我们知道，这些操作的结果（主要是用户触发的操作）会立即在门户/PS/CLI 客户端中显示。 因此，用户会立即了解相关情况，不需要通知。
 
 ### <a name="alert-types"></a>警报类型
 
@@ -103,7 +103,7 @@ Azure 备份针对 Azure 备份保护的工作负荷提供内置的监视和警�
 
 ## <a name="inactivating-alerts"></a>停用警报
 
-若要停用/解决某个活动警报，可以单击与要停用的警报相对应的列表项。 这将打开一个屏幕，其中会显示有关警报的详细信息，顶部有一个“停用”按钮。 单击该按钮会将警报的状态更改为“非活动”。 还可以通过以下方式停用警报：右键单击与警报对应的列表项并选择“停用”。
+若要停用/解决某个活动警报，可以选择与要停用的警报相对应的列表项。 这将打开一个屏幕，其中会显示有关警报的详细信息，顶部有一个“停用”按钮。 选择此按钮会将警报的状态更改为“非活动”。 还可以通过以下方式停用警报：右键单击与警报对应的列表项并选择“停用”。
 
 ![停用恢复服务保管库警报](./media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

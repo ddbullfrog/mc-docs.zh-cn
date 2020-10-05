@@ -1,19 +1,18 @@
 ---
 title: 使用 REST API 创建备份策略
-description: 本文介绍如何使用 REST API 创建和管理备份策略（计划和保留期）。
-author: lingliw
-manager: digimobile
+description: 在本文中，你将学习如何使用 REST API 创建和管理备份策略（计划和保留期）。
 ms.topic: conceptual
+author: Johnnytechn
 origin.date: 08/21/2018
-ms.date: 11/20/2019
-ms.author: v-lingwu
+ms.date: 09/22/2020
+ms.author: v-johya
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: a9763384da3d6ab545be9cf48d4acef5c4c91503
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 97443dd9dfb1f6982a862487c9e9e687cb14f13d
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77497553"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402474"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>使用 REST API 创建 Azure 恢复服务备份策略
 
@@ -24,7 +23,7 @@ ms.locfileid: "77497553"
 若要创建或更新 Azure 备份策略，请使用以下 *PUT* 操作
 
 ```http
-PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
+PUT https://management.chinacloudapi.cn/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
 ```
 
 `{policyName}` 和 `{vaultName}` 在 URI 中提供。 其他信息在请求正文中提供。
@@ -137,7 +136,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="responses"></a>响应
 
-创建/更新备份策略是一项[异步操作](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 这意味着，此操作会创建另一个需要单独跟踪的操作。
+创建/更新备份策略是一项[异步操作](../azure-resource-manager/management/async-operations.md)。 这意味着，此操作会创建另一个需要单独跟踪的操作。
 
 它将返回两个响应：创建另一个操作时为 202（已接受），该操作完成时为 200（正常）。
 
@@ -154,7 +153,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 HTTP/1.1 202 Accepted
 Pragma: no-cache
 Retry-After: 60
-Azure-AsyncOperation: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operations/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+Azure-AsyncOperation: https://management.chinacloudapi.cn/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operations/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
 X-Content-Type-Options: nosniff
 x-ms-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-client-request-id: e1f94eef-9b2d-45c4-85b8-151e12b07d03; e1f94eef-9b2d-45c4-85b8-151e12b07d03
@@ -164,7 +163,7 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
+Location: https://management.chinacloudapi.cn/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
@@ -272,3 +271,4 @@ GET https://management.chinacloudapi.cn/Subscriptions/00000000-0000-0000-0000-00
 
 - [Azure 恢复服务提供程序 REST API](https://docs.microsoft.com/rest/api/recoveryservices/)
 - [Azure REST API 入门](https://docs.microsoft.com/rest/api/azure/)
+

@@ -13,12 +13,12 @@ origin.date: 07/30/2018
 ms.date: 12/10/2018
 ms.author: v-junlch
 ms.reviewer: librown
-ms.openlocfilehash: 464140bc50739e1109109f9f1da4008e53e75751
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d6397de842a0584f05b1f8098685095eb07ec29e
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63849297"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402621"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft 验证器应用入门
 
@@ -40,7 +40,7 @@ Microsoft Authenticator 应用可以帮助阻止未经授权的人员访问帐�
 
 ## <a name="install-the-app"></a>安装应用
 
-Microsoft Authenticator 应用适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。 为了获得最佳体验，应确保应用能够根据请求收到通知。 
+Microsoft Authenticator 应用适用于 Android、iOS 和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。 为了获得最佳体验，应确保应用能够根据请求收到通知。 
 
 ## <a name="add-accounts-to-the-app"></a>将帐户添加到应用
 

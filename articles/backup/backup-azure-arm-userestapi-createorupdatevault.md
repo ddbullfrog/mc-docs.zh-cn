@@ -1,23 +1,22 @@
 ---
 title: 使用 REST API 创建恢复服务保管库
 description: 本文介绍如何使用 REST API 管理 Azure VM 备份的备份和还原操作。
-author: lingliw
-manager: digimobile
 ms.topic: conceptual
+author: Johnnytechn
 origin.date: 08/21/2018
-ms.date: 09/21/2019
-ms.author: v-lingwu
+ms.date: 09/22/2020
+ms.author: v-johya
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 5ea6d83090e4a2f971b2e4c2966c802da8590faa
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 620d1e7b551e8d3446b1c0240b90f012a9bc8cd9
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74982119"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402446"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>使用 REST API 创建 Azure 恢复服务保管库
 
-[创建保管库 REST API](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) 文档中概述了使用 REST API 创建 Azure 恢复服务保管库的步骤。 让我们使用本文档作为参考在“中国东部”区域中创建一个名为“testVault”的保管库。
+[创建保管库 REST API](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) 文档中概述了使用 REST API 创建 Azure 恢复服务保管库的步骤。 让我们使用此文档作为参考，在“中国东部”创建一个名为“testVault”的保管库。
 
 若要创建或更新 Azure 恢复服务保管库，请使用以下 *PUT* 操作。
 
@@ -104,3 +103,4 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceG
 
 - [Azure 恢复服务提供程序 REST API](https://docs.microsoft.com/rest/api/recoveryservices/)
 - [Azure REST API 入门](https://docs.microsoft.com/rest/api/azure/)
+

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73b3aa373632fe65bdf1e0a2040b368f10846927
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: ab3bdada339dba2b9450002d4539fd7441e658af
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245534"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>为具有 Azure Active Directory 的用户分配管理员和非管理员角色
 
@@ -28,10 +28,10 @@ ms.locfileid: "89046481"
 
 ## <a name="assign-roles"></a>分配角色
 
-向用户分配 Azure AD 角色的一种常用方式是使用用户的“分配的角色”页面。 还可以使用 Privileged Identity Management (PIM) 将用户资格配置为即时提升为某个角色。 若要详细了解如何使用 PIM，请参阅 [Privileged Identity Management](/active-directory/privileged-identity-management)。
+向用户分配 Azure AD 角色的一种常用方式是使用用户的“分配的角色”页面。 还可以使用 Privileged Identity Management (PIM) 将用户资格配置为即时提升为某个角色。 若要详细了解如何使用 PIM，请参阅 [Privileged Identity Management](../privileged-identity-management/index.yml)。
 
 > [!Note]
-> 如果你有 Azure AD Premium P2 许可计划并已使用 PIM，则所有角色管理任务都在 [Privileged Identity Management 体验](../users-groups-roles/directory-manage-roles-portal.md)中执行。
+> 如果你有 Azure AD Premium P2 许可计划并已使用 PIM，则所有角色管理任务都在 [Privileged Identity Management 体验](../users-groups-roles/directory-manage-roles-portal.md)中执行。 此功能当前限制为一次只分配一个角色。 当前不能同时选择多个角色并将它们分配给用户。
 >
 > ![在 PIM 中为已使用 PIM 且具有 Premium P2 许可证的用户管理的 Azure AD 角色](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
@@ -79,7 +79,7 @@ ms.locfileid: "89046481"
 
 - [添加或更改个人资料信息](active-directory-users-profile-azure-portal.md)
 
-- [添加另一个目录中的来宾用户](../b2b/what-is-b2b.md)
+- [添加另一个目录中的来宾用户](../external-identities/what-is-b2b.md)
 
 可以查看的其他用户管理任务在 [Azure Active Directory 用户管理文档](../users-groups-roles/index.yml)中提供。
 

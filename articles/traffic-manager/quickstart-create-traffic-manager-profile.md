@@ -1,8 +1,7 @@
 ---
-title: 快速入门：为应用程序的 HA 创建配置文件 - Azure 门户 - Azure 流量管理器
+title: 快速入门 - 为应用程序的 HA 创建配置文件 - Azure 门户 - Azure 流量管理器
 description: 本快速入门文章介绍如何创建流量管理器配置文件，以便生成高度可用的 Web 应用程序。
 services: traffic-manager
-author: rockboyfor
 manager: digimobile
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -11,14 +10,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/28/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 041acb194d183e9cb8f2170bd625b6dedefc44a2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 90e99111ea4243ee9c569f7dc68741a2b01720ba
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653067"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395170"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建流量管理器配置文件
@@ -31,25 +33,25 @@ ms.locfileid: "77653067"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-登录到 [Azure 门户](https://portal.azure.cn)。
+登录 [Azure 门户](https://portal.azure.cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
-本快速入门需要两个部署在两个不同的 Azure 区域（中国东部和中国北部）的 Web 应用程序实例。   每个都可以充当流量管理器的主终结点和故障转移终结点。
+本快速入门需要两个部署在两个不同的 Azure 区域（中国东部和中国北部）的 Web 应用程序实例。**** 每个都可以充当流量管理器的主终结点和故障转移终结点。
 
-1. 在屏幕的左上方，选择“创建资源”   > “Web + 移动”   >   “Web 应用”。
+1. 在屏幕的左上方，选择“创建资源” > “Web + 移动” > “Web 应用”。
     
     <!--MOONCAKE: Customize **Web + Mobile** , last checkdate 07/23/2019 -->
     
 1. 在“创建 Web 应用”中，在“基本信息”选项卡中键入或选择以下值：  
 
    - **订阅** > **资源组**：选择“新建”，然后键入 **myResourceGroupTM1**。 
-   - “实例详细信息”   >   “名称”：键入“myWebAppChinaEast”  。
+   - “实例详细信息” > “名称”：键入“myWebAppChinaEast”。
    - “实例详细信息”   >   “发布”：选择“代码”  。
    - **实例详细信息** > **运行时堆栈**：选择“ASP.NET V4.7” 
    - **实例详细信息** > 操作系统  ：选择“Windows”  。
-   - “实例详细信息” > “区域”：   选择“中国东部”。 
-   - “应用服务计划”   >   “Windows 计划(中国东部)”：选择“新建”，然后键入“myAppServicePlanChinaEast”  
+   - “实例详细信息” > “区域”： 选择“中国东部”。
+   - “应用服务计划” > “Windows 计划(中国东部)”：选择“新建”，然后键入“myAppServicePlanChinaEast” 
    - **应用服务计划** > **SKU 和大小**：选择“标准版 S1”  。
 
 3. 选择“监视”选项卡，或选择“下一步: 监视”   。  在“监视”下，将“Application Insights” > “启用 Application Insights”设置为“否”     。
@@ -58,7 +60,7 @@ ms.locfileid: "77653067"
 
 5. 查看设置，并单击“创建”。   Web 应用在成功部署后会创建默认的网站。
 
-6. 按上述步骤创建名为“myWebAppChinaNorth”  的第二个 Web 应用，其**资源组**名称为“myResourceGroupTM2”  、**区域**为“中国北部”  、**应用服务计划**名称为“myAppServicePlanChinaNorth”  ，其他所有设置与 myWebAppChinaEast  相同。
+6. 按上述步骤创建名为“myWebAppChinaNorth”的第二个 Web 应用，其**资源组**名称为“myResourceGroupTM2”、**区域**为“中国北部”、**应用服务计划**名称为“myAppServicePlanChinaNorth”，其他所有设置与 myWebAppChinaEast 相同。
 
 ## <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 
@@ -66,11 +68,11 @@ ms.locfileid: "77653067"
 
 <!--CORRECT ON **See All**-->
 
-1. 在屏幕左上方，选择“创建资源”   > “网络”   >    “全部查看” > “流量管理器配置文件”  。
+1. 在屏幕左上方，选择“创建资源” > “网络” >  “全部查看” > “流量管理器配置文件”。
 
 2. 在“创建流量管理器配置文件”中，输入或选择以下设置： 
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | --------| ----- |
     | 名称 | 为流量管理器配置文件输入唯一名称。|
     | 路由方法 | 选择“优先级”。 |
@@ -82,33 +84,33 @@ ms.locfileid: "77653067"
 
 ## <a name="add-traffic-manager-endpoints"></a>添加流量管理器终结点
 
-将“中国东部”区域的网站添加为用于路由所有用户流量的主终结点。  将“中国北部”区域的网站添加为故障转移终结点。  当主终结点不可用时，流量自动路由到故障转移终结点。
+将“中国东部”区域的网站添加为用于路由所有用户流量的主终结点。** 将“中国北部”区域的网站添加为故障转移终结点。** 当主终结点不可用时，流量自动路由到故障转移终结点。
 
 1. 在门户的搜索栏中，输入在上一部分创建的流量管理器配置文件名称。
 2. 从搜索结果中选择该配置文件。
 3. 在“流量管理器配置文件”  的“设置”  部分，选择“终结点”  ，然后选择  “添加”。
 4. 输入或选择以下设置：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ------|
     | 类型 | 选择“Azure 终结点”。  |
     | 名称 | 输入 *myPrimaryEndpoint*。 |
     | 目标资源类型 | 选择“应用服务”。  |
-    | 目标资源 | 选择“选择应用服务”   >   “中国东部”。 |
-    | 优先级 | 选择“1”。  如果此终结点处于正常状态，则所有流量都会转到此终结点。 |
+    | 目标资源 | 选择“选择应用服务” > “中国东部”。 |
+    | 优先度 | 选择“1”。  如果此终结点处于正常状态，则所有流量都会转到此终结点。 |
 
-    ![将终结点添加到流量管理器配置文件的屏幕截图。](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="将终结点添加到流量管理器配置文件的屏幕截图。":::
 
 5. 选择“确定”  。
 6. 若要为第二个 Azure 区域创建故障转移终结点，请使用以下设置重复步骤 3 和 4：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | ------- | ------|
     | 类型 | 选择“Azure 终结点”。  |
     | 名称 | 输入 *myFailoverEndpoint*。 |
     | 目标资源类型 | 选择“应用服务”。  |
-    | 目标资源 | 选择“选择应用服务”   >   “中国北部”。 |
-    | 优先级 | 选择 **2**。 如果主终结点不正常，则所有流量都会转到此故障转移终结点。 |
+    | 目标资源 | 选择“选择应用服务” > “中国北部”。 |
+    | 优先度 | 选择 **2**。 如果主终结点不正常，则所有流量都会转到此故障转移终结点。 |
 
 7. 选择“确定”  。
 
@@ -124,7 +126,7 @@ ms.locfileid: "77653067"
 2. 选择流量管理器配置文件。 此时会显示“概览”  。
 3. “流量管理器配置文件”  会显示新建的流量管理器配置文件的 DNS 名称。
 
-   ![流量管理器 DNS 名称位置的屏幕截图](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="将终结点添加到流量管理器配置文件的屏幕截图。":::
 
 ### <a name="view-traffic-manager-in-action"></a>查看正在运行的流量管理器
 
@@ -133,7 +135,7 @@ ms.locfileid: "77653067"
     > [!NOTE]
     > 在本快速入门方案中，所有请求都路由到主终结点。 它设置为“优先级 1”。 
 
-    ![用于确认流量管理器配置文件可用性的网页的屏幕截图](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="将终结点添加到流量管理器配置文件的屏幕截图。":::
 
 2. 若要查看流量管理器故障转移如何进行，请禁用主站点：
     1. 在“流量管理器配置文件”页的“概览”部分，选择“myPrimaryEndpoint”。  
@@ -155,4 +157,4 @@ ms.locfileid: "77653067"
 > [!div class="nextstepaction"]
 > [流量管理器教程](tutorial-traffic-manager-improve-website-response.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

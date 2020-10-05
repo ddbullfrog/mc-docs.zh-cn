@@ -2,23 +2,23 @@
 title: 体系结构概述 - Azure Active Directory | Microsoft Docs
 description: 了解什么是 Azure Active Directory 租户，以及如何使用 Azure Active Directory 管理 Azure。
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf70d383e466bca7813de82a3cadcf9a72dea955
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f6c91d84a7ac860f5c523ddeb05d04be560c597f
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653095"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402600"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>什么是 Azure Active Directory 体系结构？
 
@@ -79,7 +79,7 @@ Azure AD 体系结构的组件包括主要副本和次要副本。
 
 在确认某个写入操作之前，会持续将该操作提交到至少两个数据中心。 这通过首先将写入操作提交到主数据中心，然后立即将写入操作复制到其他至少一个数据中心来实现。 此写入操作可以确保托管主副本的数据中心发生潜在灾难性损失时不会导致数据丢失。
 
-Azure AD维护零[恢复时间目标 (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective)，以便不会丢失故障转移数据。 这包括：
+Azure AD 维持零 `Recovery Time Objective (RTO)`，确保故障转移时不会丢失数据。 这包括：
 
 * 令牌颁发和目录读取操作
 * 目录写入仅允许大约 5 分钟的 RTO
@@ -123,5 +123,5 @@ Azure AD 实施所有数据的每日备份，因此，在发生任何逻辑删�
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Active Directory 开发人员指南](/active-directory/develop)
+[Azure Active Directory 开发人员指南](../develop/index.yml)
 

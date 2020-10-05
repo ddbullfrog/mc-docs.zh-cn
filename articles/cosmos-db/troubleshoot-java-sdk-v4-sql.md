@@ -12,12 +12,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: abc28943f1114f611830e20b45964154e2753892
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 65fdfa9110ece9ec3d496cc7d1ea52403b6cf49f
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222397"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246328"
 ---
 <!--Verified successfully, ONLY CHARACTORS CONTENT-->
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>排查将 Azure Cosmos DB Java SDK v4 与 SQL API 帐户配合使用时出现的问题
@@ -58,8 +58,10 @@ Azure Cosmos DB Java SDK v4 提供客户端逻辑表示用于访问 Azure Cosmos
 
 <a name="connection-limit-on-host"></a>
 ##### <a name="connection-limit-on-a-host-machine"></a>主机上的连接限制
-某些 Linux 系统（例如 Red Hat）的打开文件总数存在上限。 Linux 中的套接字以文件形式实现，因此，此上限也限制了连接总数。
+某些 Linux 系统（例如 CentOS）对打开的文件总数存在上限。 Linux 中的套接字以文件形式实现，因此，此上限也限制了连接总数。
 运行以下命令。
+
+<!-- Notice: Replace the Red Hat with CentOS-->
 
 ```bash
 ulimit -a

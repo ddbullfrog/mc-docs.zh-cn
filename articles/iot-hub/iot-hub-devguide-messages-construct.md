@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/08/2019
 ms.author: v-yiso
 ms.date: 09/30/2019
-ms.openlocfilehash: 0afd035cbd76029fb59c9fba4c38ea0a96e48802
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: eceb7074e95e03328d3339e91a23b0fc8782edfb
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226123"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394769"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 
@@ -84,8 +84,9 @@ IoT 中心消息由以下部分组成：
 |contentType|content-type|contentType|ContentType|iothub-content-type|
 |contentEncoding|content-encoding|contentEncoding|ContentEncoding|iothub-content-encoding|
 |iothub-enqueuedtime|iothub-enqueuedtime|enqueuedTime| 空值 |iothub-enqueuedtime|
-|iothub-interface-name|iothub-interface-name|interfaceName|Iothub-interface-name|iothub-interface-name|
 |CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
+|dt-dataschema|dt-dataschema|dt-dataschema|dt-dataschema|dt-dataschema|
+|dt-subject|dt-subject|dt-subject|dt-subject|dt-subject|
 
 ## <a name="message-size"></a>消息大小
 

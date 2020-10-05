@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 991fe7ce99eaec2fac09f7c03e93a52adbc70004
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 73c08a5f31a1d034a3c9f08f1be2d492bb9a0493
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021621"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395348"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>使用 Azure 中的 Ubuntu Data Science Virtual Machine 完成数据科学任务
 
@@ -225,7 +225,7 @@ accuracy
 * JupyterHub
 * Rattle
 * PostgreSQL 和 SQuirreL SQL
-* SQL Server 数据仓库
+* Azure Synapse Analytics（以前称为 SQL DW）
 
 ### <a name="xgboost"></a>XGBoost
 
@@ -503,9 +503,9 @@ SELECT * from data order by word_freq_3d desc;
 
 如果希望使用 PostgreSQL 数据库中存储的数据执行机器学习，请考虑使用 [MADlib](https://madlib.incubator.apache.org/)。
 
-### <a name="sql-data-warehouse"></a>SQL 数据仓库
+### <a name="azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics（以前称为 SQL DW）
 
-Azure SQL 数据仓库是一种基于云的向外扩展数据库，可以处理大量数据（关系数据和非关系数据）。 有关详细信息，请参阅[什么是 Azure SQL 数据仓库？](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure Synapse Analytics 是一种基于云的横向扩展数据库，可以处理大量数据（包括关系数据和非关系数据）。 有关详细信息，请参阅[什么是 Azure Synapse Analytics？](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 若要连接到数据仓库并创建表，请从命令提示符运行以下命令：
 

@@ -7,16 +7,18 @@ metadata:
   services: virtual-wan
   ms.service: virtual-wan
   ms.topic: landing-page
+  origin.date: 08/19/2020
   author: rockboyfor
-  origin.date: 05/08/2020
-  ms.date: 06/15/2020
+  ms.date: 09/28/2020
+  ms.testscope: yes
+  ms.testdate: 09/28/2020
   ms.author: v-yeche
-  ms.openlocfilehash: f8d2585eeef83c5f8a52108b9909ba5363121aa5
-  ms.sourcegitcommit: 6c1e5be9f310adf5b6740ad3284b7582fca9de86
+  ms.openlocfilehash: ff9f26fbe5832d8d235a97d58289a49922fcdfbd
+  ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/11/2020
-  ms.locfileid: "84683573"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91246731"
 landingContent:
 - title: 关于虚拟 WAN
   linkLists:
@@ -26,9 +28,11 @@ landingContent:
       url: virtual-wan-about.md
   - linkListType: concept
     links:
+    - text: 迁移到虚拟 WAN
+      url: migrate-from-hub-spoke-topology.md
     - text: 使用位置和合作伙伴
       url: virtual-wan-locations-partners.md
-    - text: 常见问题
+    - text: 常见问题解答
       url: virtual-wan-faq.md
 - title: 入门
   linkLists:
@@ -40,23 +44,53 @@ landingContent:
       url: virtual-wan-expressroute-portal.md
     - text: 创建用户 VPN（点到站点）连接
       url: virtual-wan-point-to-site-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: 将流量从虚拟中心路由到 NVA
-      url: virtual-wan-route-table-portal.md
-    - text: 为虚拟 WAN 合作伙伴配置自动化
-      url: virtual-wan-configure-automation-providers.md
   - linkListType: concept
     links:
     - text: IPsec 连接的默认策略
       url: virtual-wan-ipsec.md
+    - text: 适用于虚拟 WAN 合作伙伴的自动化指南
+      url: virtual-wan-configure-automation-providers.md
+  - linkListType: how-to-guide
+    links:
+    - text: 为虚拟 WAN 配置基于 ExpressRoute 的 IPsec
+      url: vpn-over-expressroute.md
+    - text: 将 VPN 网关连接到虚拟 WAN
+      url: connect-virtual-network-gateway-vwan.md
 - title: 体系结构
   linkLists:
   - linkListType: concept
     links:
     - text: 迁移到虚拟 WAN
       url: migrate-from-hub-spoke-topology.md
+  - linkListType: architecture
+    links:
     - text: 全球传输网络体系结构
       url: virtual-wan-global-transit-network-architecture.md
     - text: SD-WAN 连接体系结构
       url: sd-wan-connectivity-architecture.md
+- title: 路由
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 关于虚拟中心路由
+      url: about-virtual-hub-routing.md
+    - text: 场景 - 任意位置到任意位置
+      url: scenario-any-to-any.md
+    - text: 场景 - 隔离 VNet
+      url: scenario-isolate-vnets.md
+    - text: 场景 - 共享服务 VNet
+      url: scenario-shared-services-vnet.md
+  - linkListType: how-to-guide
+    links:
+    - text: 配置虚拟中心路由
+      url: how-to-virtual-hub-routing.md
+- title: 参考
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/ext/virtual-wan/network
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.network#networking
+    - text: REST
+      url: https://docs.microsoft.com/rest/api/virtualwan

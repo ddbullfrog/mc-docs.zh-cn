@@ -5,22 +5,22 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
-origin.date: 04/17/2020
-ms.date: 07/27/2020
+origin.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 952e79d5c83c887e8ec0621627f72637ede8c55a
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.openlocfilehash: bcc367aad83186318617b993bf820ffbd718a236
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974322"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395429"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>为 P2S OpenVPN 协议连接创建 Azure Active Directory 租户
 
 连接到 VNet 时，可以使用基于证书的身份验证或 RADIUS 身份验证。 但是，在使用开放 VPN 协议时，还可以使用 Azure Active Directory 身份验证。 本文帮助设置用于 P2S Open VPN 身份验证的 Azure AD 租户。
 
 > [!NOTE]
-> Azure AD 身份验证仅支持用于 OpenVPN®协议连接。
+> Azure AD 身份验证仅支持 OpenVPN® 协议连接，并且需要 Azure VPN 客户端，后者仅适用于 Windows 10。
 >
 
 

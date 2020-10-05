@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: v-junlch
-ms.openlocfilehash: 649a0d67a5159de6ec86a17ce304aa9f060e2412
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: be938ff89cfb1d1d69d145e0dfbe3ee2e2cf5c6e
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946878"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402612"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>有关 .NET 中的持久实体的开发人员指南
 
@@ -276,7 +276,7 @@ context.SignalEntity<ICounter>("myCounter", ...);
 
 ## <a name="entity-serialization"></a>实体序列化
 
-由于实体的状态会持久保存，因此实体类必须可序列化。 Durable Functions 运行时使用 [Json.NET](https://www.newtonsoft.com/json) 库来实现此目的，该库支持使用多个策略和特性来控制序列化和反序列化过程。 最常用的 C# 数据类型（包括数组和集合类型）已经可序列化，并可轻松用于定义持久实体的状态。
+由于实体的状态会持久保存，因此实体类必须可序列化。 Durable Functions 运行时使用 `Json.NET` 库来实现此目的，该库支持使用多个策略和特性来控制序列化和反序列化过程。 最常用的 C# 数据类型（包括数组和集合类型）已经可序列化，并可轻松用于定义持久实体的状态。
 
 例如，Json.NET 可以轻松序列化和反序列化以下类：
 

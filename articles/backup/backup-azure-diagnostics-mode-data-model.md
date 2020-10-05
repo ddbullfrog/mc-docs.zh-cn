@@ -5,13 +5,13 @@ author: Johnnytechn
 origin.date: 09/24/2018
 ms.author: v-johya
 ms.topic: conceptual
-ms.date: 07/31/2020
-ms.openlocfilehash: f795e6bf184940d78c69786f5451f72a25161899
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.date: 09/22/2020
+ms.openlocfilehash: 5f566c732a86d9dd983cff2603cf52cf7a3f255f
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508438"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402639"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure 备份数据的 Log Analytics 数据模型
 
@@ -21,7 +21,7 @@ ms.locfileid: "87508438"
 
 > [!NOTE]
 >
-> 此数据模型参考了将诊断事件发送到 Log Analytics (LA) 的 Azure 诊断模式。 若要了解新的资源特定模式的数据模型，可以参考以下文章：[Azure 备份诊断事件的数据模型](/backup/backup-azure-reports-data-model)
+> 此数据模型参考了将诊断事件发送到 Log Analytics (LA) 的 Azure 诊断模式。 若要了解新的资源特定模式的数据模型，可以参考以下文章：[Azure 备份诊断事件的数据模型](./backup-azure-reports-data-model.md)
 
 ## <a name="using-azure-backup-data-model"></a>使用 Azure 备份数据模型
 
@@ -97,14 +97,14 @@ ms.locfileid: "87508438"
 
 | 字段 | 数据类型 | 说明 |
 | --- | --- | --- |
-| EventName_s |文本 |此字段表示此事件的名称，始终为 AzureBackupCentralReport |  
+| EventName_s |文本 |此字段表示此事件的名称。 始终为 AzureBackupCentralReport |  
 | BackupItemUniqueId_s |文本 |备份项的唯一 ID |
-| SchemaVersion_s |文本 |此字段表示架构的当前版本，值为 **V2** |
+| SchemaVersion_s |文本 |此字段表示架构的当前版本。 值为“V2” |
 | State_s |文本 |备份项关联对象的当前状态，例如 Active、Deleted |
 | BackupManagementType_s |文本 |服务器正在对其执行备份作业的提供程序类型，例如 IaaSVM、FileFolder |
 | BackupItemSourceSize_s |文本 | 备份项的前端大小 |
 | BackupManagementServerUniqueId_s |文本 | 用于唯一标识保护备份项所用的备份管理服务器的字段（如果适用） |
-| Category |文本 |此字段表示推送到 Log Analytics 的诊断数据的类别，值为 AzureBackupReport |
+| Category |文本 |此字段表示推送到 Log Analytics 的诊断数据的类别。 值为 AzureBackupReport |
 | OperationName |文本 |此字段表示当前操作的名称 - BackupItemAssociation |
 | 资源 |文本 |这是正在收集其数据的资源，显示恢复服务保管库名称 |
 | ProtectedContainerUniqueId_s |文本 |与备份项关联的受保护服务器的唯一标识符（在 V1 中为 ProtectedServerUniqueId_s） |
@@ -112,7 +112,7 @@ ms.locfileid: "87508438"
 | SourceSystem |文本 |当前数据的源系统 - Azure |
 | ResourceId |文本 |正在收集其数据的资源标识符。 例如“恢复服务保管库资源 ID” |
 | SubscriptionId |文本 |正在收集其数据的资源（例如 恢复服务保管库）的订阅标识符 |
-| resourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的订阅标识符 |
+| ResourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的订阅标识符 |
 | ResourceProvider |文本 |正在收集其数据的资源提供程序，例如 Microsoft.RecoveryServices |
 | ResourceType |文本 |正在收集其数据的资源类型，例如 Vaults |
 
@@ -131,7 +131,7 @@ ms.locfileid: "87508438"
 | SourceSystem |文本 |当前数据的源系统 - Azure |
 | ResourceId |文本 |正在收集其数据的资源标识符。 例如“恢复服务保管库资源 ID” |
 | SubscriptionId |文本 |正在收集其数据的资源（例如 恢复服务保管库）的订阅标识符 |
-| resourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的订阅标识符 |
+| ResourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的订阅标识符 |
 | ResourceProvider |文本 |正在收集其数据的资源提供程序，例如 Microsoft.RecoveryServices |
 | ResourceType |文本 |正在收集其数据的资源类型，例如 Vaults |
 
@@ -147,7 +147,7 @@ ms.locfileid: "87508438"
 | State_s |文本 |作业对象的当前状态，例如 Active、Deleted |
 | BackupManagementType_s |文本 |服务器正在对其执行备份作业的提供程序类型，例如 IaaSVM、FileFolder |
 | OperationName |文本 |此字段表示当前操作的名称 - Job |
-| Category |文本 |此字段表示推送到 Azure Monitor 日志的诊断数据的类别，值为 AzureBackupReport |
+| Category |文本 |此字段表示推送到 Azure Monitor 日志的诊断数据的类别。 值为 AzureBackupReport |
 | 资源 |文本 |这是正在收集其数据的资源，显示恢复服务保管库名称 |
 | ProtectedServerUniqueId_s |文本 |与作业关联的受保护服务器的唯一标识符 |
 | ProtectedContainerUniqueId_s |文本 | 用于标识运行作业的受保护容器的唯一 ID |
@@ -163,11 +163,11 @@ ms.locfileid: "87508438"
 | JobUniqueId_g |文本 |用于标识作业的唯一 ID |
 | RecoveryJobDestination_s |文本 | 恢复作业的目标，数据将恢复到其中 |
 | RecoveryJobRPDateTime_s |DateTime | 要恢复的恢复点的创建日期和时间 |
-| RecoveryJobRPLocation_s |文本 | 要恢复的恢复点已还原到的位置|
+| RecoveryJobRPLocation_s |文本 | 要恢复的恢复点的存储位置|
 | SourceSystem |文本 |当前数据的源系统 - Azure |
 | ResourceId |文本 |正在收集其数据的资源标识符。 例如“恢复服务保管库资源 ID”|
 | SubscriptionId |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
-| resourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
+| ResourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
 | ResourceProvider |文本 |正在收集其数据的资源提供程序。 例如 Microsoft.RecoveryServices |
 | ResourceType |文本 |正在收集其数据的资源类型。 例如 Vaults |
 
@@ -177,12 +177,12 @@ ms.locfileid: "87508438"
 
 | 字段 | 数据类型 | 适用版本 | 说明 |
 | --- | --- | --- | --- |
-| EventName_s |文本 ||此字段表示此事件的名称，始终为 AzureBackupCentralReport |
-| SchemaVersion_s |文本 ||此字段表示架构的当前版本，值为 **V2** |
+| EventName_s |文本 ||此字段表示此事件的名称。 始终为 AzureBackupCentralReport |
+| SchemaVersion_s |文本 ||此字段表示架构的当前版本。 值为“V2” |
 | State_s |文本 ||策略对象的当前状态，例如 Active、Deleted |
 | BackupManagementType_s |文本 ||服务器正在对其执行备份作业的提供程序类型，例如 IaaSVM、FileFolder |
 | OperationName |文本 ||此字段表示当前操作的名称 - Policy |
-| Category |文本 ||此字段表示推送到 Azure Monitor 日志的诊断数据的类别，值为 AzureBackupReport |
+| Category |文本 ||此字段表示推送到 Azure Monitor 日志的诊断数据的类别。 值为 AzureBackupReport |
 | 资源 |文本 ||这是正在收集其数据的资源，显示恢复服务保管库名称 |
 | PolicyUniqueId_g |文本 ||用于标识策略的唯一 ID |
 | PolicyName_s |文本 ||已定义的策略的名称 |
@@ -199,7 +199,7 @@ ms.locfileid: "87508438"
 | MonthlyRetentionTimes_s |文本 ||配置每月保留时的日期和时间 |
 | MonthlyRetentionFormat_s |文本 ||每月保留的配置类型，例如基于日期的每日、基于周次的每周 |
 | MonthlyRetentionDaysOfTheWeek_s |文本 ||选择进行每月保留的日期（星期几） |
-| MonthlyRetentionWeeksOfTheMonth_s |文本 ||配置每月保留时的当月周次，例如 First、Last 等 |
+| MonthlyRetentionWeeksOfTheMonth_s |文本 ||配置每月保留时的当月时间（第几周），例如第一周、最后一周 |
 | YearlyRetentionDuration_s |十进制数 ||所配置备份的总保留时间（按年算） |
 | YearlyRetentionTimes_s |文本 ||配置每年保留时的日期和时间 |
 | YearlyRetentionMonthsOfTheYear_s |文本 ||选择进行每年保留的月份 |
@@ -215,7 +215,7 @@ ms.locfileid: "87508438"
 | SourceSystem |文本 ||当前数据的源系统 - Azure |
 | ResourceId |文本 ||正在收集其数据的资源标识符。 例如“恢复服务保管库资源 ID” |
 | SubscriptionId |文本 ||正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
-| resourceGroup |文本 ||正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
+| ResourceGroup |文本 ||正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
 | ResourceProvider |文本 ||正在收集其数据的资源提供程序。 例如 Microsoft.RecoveryServices |
 | ResourceType |文本 ||正在收集其数据的资源类型。 例如 Vaults |
 
@@ -225,12 +225,12 @@ ms.locfileid: "87508438"
 
 | 字段 | 数据类型 | 适用版本 | 说明 |
 | --- | --- | --- | --- |
-| EventName_s |文本 ||此字段表示此事件的名称，始终为 AzureBackupCentralReport |
-| SchemaVersion_s |文本 ||此字段表示架构的当前版本，值为 **V2** |
+| EventName_s |文本 ||此字段表示此事件的名称。 始终为 AzureBackupCentralReport |
+| SchemaVersion_s |文本 ||此字段表示架构的当前版本。 值为“V2” |
 | State_s |文本 ||策略对象的当前状态，例如 Active、Deleted |
 | BackupManagementType_s |文本 ||服务器正在对其执行备份作业的提供程序类型，例如 IaaSVM、FileFolder |
 | OperationName |文本 ||此字段表示当前操作的名称 - PolicyAssociation |
-| Category |文本 ||此字段表示推送到 Azure Monitor 日志的诊断数据的类别，值为 AzureBackupReport |
+| Category |文本 ||此字段表示推送到 Azure Monitor 日志的诊断数据的类别。 值为 AzureBackupReport |
 | 资源 |文本 ||这是正在收集其数据的资源，显示恢复服务保管库名称 |
 | PolicyUniqueId_g |文本 ||用于标识策略的唯一 ID |
 | VaultUniqueId_s |文本 ||此策略所属的保管库的唯一 ID |
@@ -238,7 +238,7 @@ ms.locfileid: "87508438"
 | SourceSystem |文本 ||当前数据的源系统 - Azure |
 | ResourceId |文本 ||正在收集其数据的资源标识符。 例如“恢复服务保管库资源 ID” |
 | SubscriptionId |文本 ||正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
-| resourceGroup |文本 ||正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
+| ResourceGroup |文本 ||正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
 | ResourceProvider |文本 ||正在收集其数据的资源提供程序。 例如 Microsoft.RecoveryServices |
 | ResourceType |文本 ||正在收集其数据的资源类型。 例如 Vaults |
 
@@ -269,19 +269,19 @@ ms.locfileid: "87508438"
 | --- | --- | --- |
 | CloudStorageInBytes_s |十进制数 |备份所用的云备份存储量，基于最新值计算（此字段仅适用于 v1 架构）|
 | ProtectedInstances_s |十进制数 |用于计算账单中前端存储量的受保护实例的数目，基于最新值进行计算 |
-| EventName_s |文本 |此字段表示此事件的名称，始终为 AzureBackupCentralReport |
-| SchemaVersion_s |文本 |此字段表示架构的当前版本，值为 **V2** |
+| EventName_s |文本 |此字段表示此事件的名称。 始终为 AzureBackupCentralReport |
+| SchemaVersion_s |文本 |此字段表示架构的当前版本。 值为“V2” |
 | State_s |文本 |存储对象的当前状态，例如 Active、Deleted |
 | BackupManagementType_s |文本 |服务器正在对其执行备份作业的提供程序类型，例如 IaaSVM、FileFolder |
 | OperationName |文本 |此字段表示当前操作的名称 - Storage |
-| Category |文本 |此字段表示推送到 Azure Monitor 日志的诊断数据的类别，值为 AzureBackupReport |
+| Category |文本 |此字段表示推送到 Azure Monitor 日志的诊断数据的类别。 值为 AzureBackupReport |
 | 资源 |文本 |这是正在收集其数据的资源，显示恢复服务保管库名称 |
 | ProtectedServerUniqueId_s |文本 |计算其存储的受保护服务器的唯一 ID |
 | VaultUniqueId_s |文本 |计算其存储的保管库的唯一 ID |
 | SourceSystem |文本 |当前数据的源系统 - Azure |
 | ResourceId |文本 |正在收集其数据的资源标识符。 例如“恢复服务保管库资源 ID” |
 | SubscriptionId |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
-| resourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
+| ResourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
 | ResourceProvider |文本 |正在收集其数据的资源提供程序。 例如 Microsoft.RecoveryServices |
 | ResourceType |文本 |正在收集其数据的资源类型。 例如 Vaults |
 | StorageUniqueId_s |文本 |用于标识存储实体的唯一 ID |
@@ -296,7 +296,7 @@ ms.locfileid: "87508438"
 | 字段 | 数据类型 | 说明 |
 | --- | --- |  --- |
 | StorageUniqueId_s |文本 |用于标识存储实体的唯一 ID |
-| SchemaVersion_s |文本 |此字段表示架构的当前版本，值为 **V2** |
+| SchemaVersion_s |文本 |此字段表示架构的当前版本。 值为“V2” |
 | BackupItemUniqueId_s |文本 |用于标识与存储实体相关的备份项的唯一 ID |
 | BackupManagementServerUniqueId_s |文本 |用于标识与存储实体相关的备份管理服务器的唯一 ID|
 | VaultUniqueId_s |文本 |用于标识与存储实体相关的保管库的唯一 ID|
@@ -309,11 +309,11 @@ ms.locfileid: "87508438"
 
 | 字段 | 数据类型 | 说明 |
 | --- | --- | --- |
-| EventName_s |文本 |此字段表示此事件的名称，始终为 AzureBackupCentralReport |
-| SchemaVersion_s |文本 |此字段表示架构的当前版本，值为 **V2** |
+| EventName_s |文本 |此字段表示此事件的名称。 始终为 AzureBackupCentralReport |
+| SchemaVersion_s |文本 |此字段表示架构的当前版本。 值为“V2” |
 | State_s |文本 |保管库对象的当前状态，例如 Active、Deleted |
 | OperationName |文本 |此字段表示当前操作的名称 - Vault |
-| Category |文本 |此字段表示推送到 Azure Monitor 日志的诊断数据的类别，值为 AzureBackupReport |
+| Category |文本 |此字段表示推送到 Azure Monitor 日志的诊断数据的类别。 值为 AzureBackupReport |
 | 资源 |文本 |这是正在收集其数据的资源，显示恢复服务保管库名称 |
 | VaultUniqueId_s |文本 |保管库的唯一 ID |
 | VaultName_s |文本 |保管库的名称 |
@@ -322,7 +322,7 @@ ms.locfileid: "87508438"
 | SourceSystem |文本 |当前数据的源系统 - Azure |
 | ResourceId |文本 |正在收集其数据的资源标识符。 例如“恢复服务保管库资源 ID” |
 | SubscriptionId |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
-| resourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
+| ResourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
 | ResourceProvider |文本 |正在收集其数据的资源提供程序。 例如 Microsoft.RecoveryServices |
 | ResourceType |文本 |正在收集其数据的资源类型。 例如 Vaults |
 
@@ -464,35 +464,37 @@ ms.locfileid: "87508438"
     ````
 
 ## <a name="v1-schema-vs-v2-schema"></a>V1 架构与 V2 架构
-之前，Azure 备份代理和 Azure VM 备份的诊断数据已发送到称为“V1 架构”的架构中的 Azure 诊断表。 随后，添加了新列以支持其他方案和工作负载，并且已将诊断数据推送到称为“V2 架构”的新架构。 
 
-出于向后兼容的原因，Azure 备份代理和 Azure VM 备份的诊断数据当前发送到 V1 和 V2 架构中的 Azure 诊断表（V1 架构现在位于弃用路径上）。 可以通过在日志查询中筛选 SchemaVersion_s=="V1" 的记录来确定 Log Analytics 中的哪些记录属于 V1 架构。 
+之前，Azure 备份代理和 Azure VM 备份的诊断数据已发送到称为“V1 架构”的架构中的 Azure 诊断表。 随后，添加了新列以支持其他方案和工作负载，并且已将诊断数据推送到称为“V2 架构”的新架构。  
 
-请参阅上面所述的[数据模型](/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model)中的第三列“说明”，以确定哪些列仅属于 V1 架构。
+出于向后兼容的原因，Azure 备份代理和 Azure VM 备份的诊断数据当前发送到 V1 和 V2 架构中的 Azure 诊断表（V1 架构现在位于弃用路径上）。 可以通过在日志查询中筛选 SchemaVersion_s=="V1" 的记录来确定 Log Analytics 中的哪些记录属于 V1 架构。
+
+请参阅上面所述的[数据模型](#using-azure-backup-data-model)中的第三列“说明”，以确定哪些列仅属于 V1 架构。
 
 ### <a name="modifying-your-queries-to-use-the-v2-schema"></a>修改查询以使用 V2 架构
+
 由于 V1 架构位于弃用路径上，因此建议在 Azure 备份诊断数据的所有自定义查询中仅使用 V2 架构。 下面的示例演示如何更新查询以删除 V1 架构的依赖项：
 
 1. 确定查询是否正使用仅适用于 V1 架构的任何字段。 假设你有一个用于列出所有备份项及其关联的受保护服务器的查询，如下所示：
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
-````
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+    ````
 
-以上查询使用字段 ProtectedServerUniqueId_s，该字段仅适用于 V1 架构。 此字段的 V2 架构等效项是 ProtectedContainerUniqueId_s（请参阅上表）。 字段 BackupItemUniqueId_s 甚至适用于 V2 架构，并且可以在此查询中使用相同的字段。
+    以上查询使用字段 ProtectedServerUniqueId_s，该字段仅适用于 V1 架构。 此字段的 V2 架构等效项是 ProtectedContainerUniqueId_s（请参阅上表）。 字段 BackupItemUniqueId_s 甚至适用于 V2 架构，并且可以在此查询中使用相同的字段。
 
-2. 更新查询以使用 V2 架构字段名称。 建议在所有查询中使用筛选器 'where SchemaVersion_s=="V2"'，以便查询仅解析与 V2 架构对应的记录：
+2. 更新查询以使用 V2 架构字段名称。 建议在所有查询中使用筛选器“where SchemaVersion_s=="V2"”，以便查询仅解析与 V2 架构对应的记录：
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| where SchemaVersion_s=="V2"
-| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
-````
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | where SchemaVersion_s=="V2"
+    | distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s
+    ````
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,15 +3,15 @@ title: Azure Functions 的 Azure 表存储绑定
 description: 了解如何在 Azure Functions 中使用 Azure 表存储绑定。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 09/25/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 91e255179d85190b99f9861171a2f4089b1ef300
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: e72918adab2d6509a86339a652603c242a8e8774
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246708"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 表存储绑定
 
@@ -94,7 +94,7 @@ public class TableStorage
 
 ### <a name="cloudtable"></a>CloudTable
 
-[Functions v2 运行时](functions-versions.md)不支持 `IQueryable`。 一种替代方法是使用 `CloudTable` 方法参数通过 Azure 存储 SDK 来读取表。 下面是一个查询 Azure Functions 日志表的函数示例：
+`IQueryable` 仅在 [Functions v1 运行时](functions-versions.md)中受支持。 一种替代方法是使用 `CloudTable` 方法参数通过 Azure 存储 SDK 来读取表。 下面是一个查询 Azure Functions 日志表的函数示例：
 
 ```csharp
 using Microsoft.Azure.WebJobs;

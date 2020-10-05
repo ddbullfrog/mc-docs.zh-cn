@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b2ca4dd0a58affdbe9e447712ab5d328216da684
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b628208d7d6f2edd4f79112a139f4268d589efca
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75599015"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395326"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Azure Data Science Virtual Machine 示例
 
@@ -25,7 +25,7 @@ Azure Data Science Virtual Machine (DSVM) 包含一整套示例代码。 这些�
 
 ## <a name="prerequisites"></a>先决条件
 
-为了运行这些示例，必须预配 Data Science Virtual Machine。 请参阅 [Windows](./provision-vm.md) 和 [Ubuntu](./dsvm-ubuntu-intro.md) 的快速入门。
+为了运行这些示例，必须预配 [Ubuntu Data Science Virtual Machine](./dsvm-ubuntu-intro.md)。
 
 ## <a name="available-samples"></a>可用示例
 | 示例类别 | 说明 | 位置 |
@@ -46,7 +46,7 @@ Azure Data Science Virtual Machine (DSVM) 包含一整套示例代码。 这些�
 
 ## <a name="access-jupyter"></a>访问 Jupyter 
 
-若要访问 Jupyter，请选择桌面或应用程序菜单中的 Jupyter 图标  。 还可以在 Linux 版的 DSVM 上访问 Jupyter。 若要在 Web 浏览器中执行远程访问，请在 Ubuntu 上转到 `https://<Full Domain Name or IP Address of the DSVM>:8000`。
+若要访问 Jupyter，请选择桌面或应用程序菜单中的 Jupyter 图标****。 还可以在 Linux 版的 DSVM 上访问 Jupyter。 若要在 Web 浏览器中执行远程访问，请在 Ubuntu 上转到 `https://<Full Domain Name or IP Address of the DSVM>:8000`。
 
 若要添加例外并允许通过浏览器访问 Jupyter，请使用以下指南：
 

@@ -1,20 +1,20 @@
 ---
 title: 适用于 Blob 的热、冷、存档访问层 - Azure 存储
-description: Azure 存储帐户的热、冷、存档访问层。
+description: 了解 Azure Blob 存储的热、冷和存档访问层。 查看支持分层的存储帐户。 比较块 Blob 存储选项。
 author: WenJason
 ms.author: v-jay
-origin.date: 03/23/2019
-ms.date: 07/20/2020
+origin.date: 08/27/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 2917a880cf43d80ce8f8bd35c562342bc6036565
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: b0469f3210059b9243092fe2a292a081eb074155
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426407"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026585"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob 存储：热、冷、存档访问层
 
@@ -121,7 +121,7 @@ Blob 存储生命周期管理提供丰富的基于规则的策略，用于将数
 | **可用性**                          | 99.9%                     | 99.9%        | 99%                 | Offline           |
 | **可用性** <br> （RA-GRS 读取）  | 空值                       | 99.99%       | 99.9%               | Offline           |
 | 使用费                         | 存储费用较高，访问和事务费用较低 | 存储费用较高，访问和事务费用较低 | 存储费用较低，访问和事务费用较高 | 存储费用最低，访问和事务费用最高 |
-| 最小对象大小                   | 不适用                       | 空值          | 空值                 | 空值               |
+| 最小对象大小                   | 空值                       | 空值          | 不适用                 | 空值               |
 | 最短存储持续时间              | 空值                       | 空值          | 30 天<sup>1</sup> | 180 天
 | **延迟** <br> （距第一字节时间） | 一位数的毫秒数 | 毫秒 | 毫秒        | 小时<sup>2</sup> |
 
@@ -142,7 +142,7 @@ Blob 存储生命周期管理提供丰富的基于规则的策略，用于将数
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>更改 GPv2 或 Blob 存储帐户的默认帐户访问层
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 在 Azure 门户中，搜索并选择“所有资源”。
 
@@ -154,7 +154,7 @@ Blob 存储生命周期管理提供丰富的基于规则的策略，用于将数
 
 1. 单击顶部的“保存”。
 
-![更改存储帐户层](media/storage-tiers/account-tier.png)
+![在 Azure 门户中更改默认帐户层](media/storage-tiers/account-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 以下 PowerShell 脚本可用于更改帐户层。 必须使用资源组名称初始化 `$rgName` 变量。 必须使用存储帐户名称初始化 `$accountName` 变量。 
@@ -170,7 +170,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>更改 GPv2 或 Blob 存储帐户中 Blob 的层
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 在 Azure 门户中，搜索并选择“所有资源”。
 
@@ -184,7 +184,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. 选择底部的“保存”。
 
-![更改存储帐户层](media/storage-tiers/blob-access-tier.png)
+![在 Azure 门户中更改 Blob 层](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 以下 PowerShell 脚本可用于更改 blob 层。 必须使用资源组名称初始化 `$rgName` 变量。 必须使用你的存储帐户名初始化 `$accountName` 变量。 必须使用容器名称初始化 `$containerName` 变量。 必须使用 blob 名称初始化 `$blobName` 变量。 

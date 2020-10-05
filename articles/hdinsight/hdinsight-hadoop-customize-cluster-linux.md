@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 04/21/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: 37408dd90b3c7be124a5dd4cd1188d0110d46ec4
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 11a9531ba3d652cdd4dcdab5eb3d1f8ca588eff7
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917085"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394726"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用脚本操作自定义 Azure HDInsight 群集
 
@@ -73,6 +73,8 @@ Azure HDInsight 提供名为脚本操作的配置方法，该方法可以调用�
 
 * 可以通过 Azure 门户、Azure PowerShell、Azure CLI 或 HDInsight .NET SDK 使用。
 
+* 删除或修改 VM 上的服务文件的脚本操作可能会影响服务的运行状况和可用性。
+
 群集保留已运行的所有脚本的历史记录。 需要查找要升级或降级的脚本的 ID 时，历史记录很有用。
 
 > [!IMPORTANT]  
@@ -110,10 +112,12 @@ Azure HDInsight 提供名为脚本操作的配置方法，该方法可以调用�
 
 将脚本应用到群集时，群集状态将从“正在运行”更改为“已接受”。**** **** 然后，状态将更改为“HDInsight 配置”，最后恢复为“正在运行”，表示脚本成功。**** **** 脚本状态记录在脚本操作历史记录中。 此信息告知脚本是成功还是失败。 例如，`Get-AzHDInsightScriptActionHistory` PowerShell cmdlet 显示脚本的状态。 此命令返回类似于以下文本的信息：
 
-    ScriptExecutionId : 635918532516474303
-    StartTime         : 8/14/2017 7:40:55 PM
-    EndTime           : 8/14/2017 7:41:05 PM
-    Status            : Succeeded
+```output
+ScriptExecutionId : 635918532516474303
+StartTime         : 8/14/2017 7:40:55 PM
+EndTime           : 8/14/2017 7:41:05 PM
+Status            : Succeeded
+```
 
 > [!IMPORTANT]  
 > 如果在创建群集后更改群集用户、管理员和密码，针对此群集运行的脚本操作可能会失败。 如果任何持久性脚本操作以工作节点为目标，则缩放群集时，这些脚本可能失败。
@@ -348,12 +352,14 @@ Submit-AzureRmHDInsightScriptAction -ClusterName $clusterName `
 
 操作完成后，会收到类似于以下文本的信息：
 
-    OperationState  : Succeeded
-    ErrorMessage    :
-    Name            : Giraph
-    Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-    Parameters      :
-    NodeTypes       : {HeadNode, WorkerNode}
+```output
+OperationState  : Succeeded
+ErrorMessage    :
+Name            : Giraph
+Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+Parameters      :
+NodeTypes       : {HeadNode, WorkerNode}
+```
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>从 Azure CLI 将脚本操作应用到正在运行的群集
 

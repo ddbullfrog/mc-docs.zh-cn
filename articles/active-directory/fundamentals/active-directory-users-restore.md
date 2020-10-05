@@ -1,25 +1,24 @@
 ---
-title: 还原或永久删除最近删除的用户 - Azure Active Directory | Microsoft Docs
+title: 还原或永久移除最近删除的用户 - Azure AD
 description: 如何使用 Azure Active Directory 查看可还原的用户、还原已删除的用户或永久删除用户。
 services: active-directory
-author: eross-msft
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-origin.date: 04/01/2018
-ms.date: 04/08/2019
+ms.topic: how-to
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e7a6c2553ccc8da8e7e0a523a6b3b14e17ef9d1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d0a37e7837064fbce264a0da5732f5e5e2c93dcf
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63823024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245577"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>使用 Azure Active Directory 还原或删除最近删除的用户
 删除用户后，帐户将保持挂起状态 30 天。 在此 30 天期间，可以还原用户帐户及其所有属性。 30 天期限过后，将自动且永久删除用户。
@@ -84,6 +83,8 @@ ms.locfileid: "63823024"
 - [向用户分配角色](active-directory-users-assign-role-azure-portal.md)
 
 - [添加或更改配置文件信息](active-directory-users-profile-azure-portal.md)
+
+- [添加来自其他组织的来宾用户](../external-identities/what-is-b2b.md)
 
 有关其他可用的用户管理任务的详细信息，请参阅 [Azure AD 用户管理文档](../users-groups-roles/index.yml)。
 

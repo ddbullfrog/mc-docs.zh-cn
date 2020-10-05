@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 7421addf50b61cb9056dbcaba388649f76a9a1b3
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 5f7c6e5d62d942af1a0844f7167d817e41279a88
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715262"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394586"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>如何在 HDInsight 中使用 Azure Monitor 日志监视群集可用性
 
@@ -29,6 +29,8 @@ HDInsight 群集包括 Azure Monitor 日志集成，它提供可查询的指标�
 在门户上的 HDInsight 群集资源页中，选择“Azure Monitor”。**** 然后选择“启用”并从下拉列表中选择你的 Log Analytics 工作区。****
 
 ![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
+
+默认情况下，这会将 OMS 代理安装在除边缘节点外的所有群集节点上。 由于群集边缘节点上未安装 OMS 代理，因此默认情况下，Log Analytics 中没有关于边缘节点的遥测数据。
 
 ## <a name="query-metrics-and-logs-tables"></a>查询指标和日志表
 

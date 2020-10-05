@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.topic: conceptual
 origin.date: 05/19/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: fryu
-ms.custom: monitoring
-ms.openlocfilehash: 3f3aa5bb14eb563704ff5a1494a30d50837cfc16
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: monitoring, devx-track-csharp
+ms.openlocfilehash: 1ae8199f4b7147eea89af4a0e71a2f7471c07335
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753345"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026646"
 ---
 # <a name="monitor-azure-storage"></a>监视 Azure 存储
 
@@ -31,7 +31,7 @@ ms.locfileid: "88753345"
 ## <a name="what-is-azure-monitor"></a>说明是 Azure Monitor？
 Azure 存储使用 [Azure Monitor](../../azure-monitor/overview.md) 来创建监视数据，Azure Monitor 是 Azure 中的一项完整堆栈监视服务。 Azure Monitor 提供了一整套用于监视 Azure 资源以及其他云和本地资源的功能。 
 
-要详细了解 Azure Monitor，请参阅[使用 Azure Monitor 监视 Azure 资源](../../azure-monitor/insights/monitor-azure-resource.md)。 本文介绍了以下主题：
+可先阅读文章[使用 Azure Monitor 监视 Azure 资源](../../azure-monitor/insights/monitor-azure-resource.md)，其中介绍了以下内容：
 
 - 说明是 Azure Monitor？
 - 与监视相关的成本
@@ -41,7 +41,7 @@ Azure 存储使用 [Azure Monitor](../../azure-monitor/overview.md) 来创建监
 
 本文中的以下各部分将介绍从 Azure 存储收集的特定数据。 其中的示例演示了如何配置数据收集并通过 Azure 工具分析这些数据。
 
-## <a name="monitor-data-from-azure-storage"></a>监视 Azure 存储中的数据
+## <a name="monitoring-data-from-azure-storage"></a>监视来自 Azure 存储的数据
 
 Azure 存储会收集与其他 Azure 资源类型相同的监视数据，如[监视 Azure 资源中的数据](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data)中所述。 如需详细了解 Azure 存储创建的日志和指标，请参阅 [Azure 存储监视数据参考](monitor-storage-reference.md)。
 
@@ -85,13 +85,13 @@ Azure Monitor 中的指标和日志仅支持 Azure 资源管理器存储帐户�
 
 此外，还必须指定要为其收集日志的操作的类别。 此表列出了 Azure 存储的类别。
 
-| 类别 | 说明 |
+| Category | 说明 |
 |:---|:---|
 | StorageRead | 对象上的读取操作。 |
 | StorageWrite | 对象上的写入操作。 |
 | StorageDelete | 对象上的删除操作。 |
 
-## <a name="analyze-metric-data"></a>分析指标数据
+## <a name="analyzing-metric-data"></a>分析指标数据
 
 你可以使用指标资源管理器通过其他 Azure 服务中的指标分析 Azure 存储的指标。 从 Azure Monitor 菜单中选择“指标”，可打开指标资源管理器 。 有关使用此工具的详细信息，请参阅 [Azure 指标资源管理器入门](../../azure-monitor/platform/metrics-getting-started.md)。 
 
@@ -116,7 +116,7 @@ Azure 存储的所有指标都位于以下命名空间中：
 有关所有 Azure Monitor 支持指标（包括 Azure Storage）的列表，请参阅 [Azure Monitor 支持的指标](/azure-monitor/platform/metrics-supported)。
 
 
-### <a name="access-metrics"></a>访问指标
+### <a name="accessing-metrics"></a>访问指标
 
 > [!TIP]
 > 若要查看 Azure CLI 或 .NET 示例，请选择此处列出的相应选项卡。
@@ -134,7 +134,7 @@ Azure 存储的所有指标都位于以下命名空间中：
    Get-AzMetricDefinition -ResourceId $resourceId
 ```
 
-#### <a name="read-metric-values"></a>读取指标值
+#### <a name="reading-metric-values"></a>读取指标值
 
 你可以读取存储帐户或单个存储服务（如 blob、文件、表或队列服务）的帐户级指标值。 使用 [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) cmdlet。
 
@@ -204,7 +204,7 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 ```
 
-#### <a name="read-account-level-metric-values"></a>读取帐户级指标值
+#### <a name="reading-account-level-metric-values"></a>读取帐户级别指标值
 
 以下示例演示如何读取帐户级别的 `UsedCapacity` 数据：
 
@@ -250,7 +250,7 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 ```
 
-#### <a name="read-multidimensional-metric-values"></a>读取多维指标值
+#### <a name="reading-multidimensional-metric-values"></a>读取多维指标值
 
 对于多维指标，如果需要读取基于特定维度值的指标数据，则需定义元数据筛选器。
 
@@ -305,7 +305,7 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 ---
 
-## <a name="analyze-log-data"></a>分析日志数据
+## <a name="analyzing-log-data"></a>分析日志数据
 
 你可以将资源日志作为存储帐户中的 blob 以及事件数据进行访问，也可以通过 Log Analytics 查询访问资源日志。
 
@@ -314,7 +314,7 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 > [!NOTE]
 > Azure Monitor 中的 Azure 存储日志目前为公共预览版。 不支持经典存储帐户。
 
-### <a name="access-logs-in-a-storage-account"></a>访问存储帐户中的日志
+### <a name="accessing-logs-in-a-storage-account"></a>访问存储帐户中的日志
 
 日志显示为存储到目标存储帐户中的容器的 blob。 数据作为按行分隔的 JSON 有效负载进行收集并存储在单个 blob 中。 Blob 的名称遵循以下命名约定：
 
@@ -324,7 +324,7 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 `https://mylogstorageaccount.blob.core.chinacloudapi.cn/insights-logs-storagewrite/resourceId=/subscriptions/`<br>`208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/y=2019/m=07/d=30/h=23/m=12/PT1H.json`
 
-### <a name="access-logs-in-an-event-hub"></a>访问事件中心内的日志
+### <a name="accessing-logs-in-an-event-hub"></a>访问事件中心内的日志
 
 发送到事件中心的日志并没有存储为文件，但你可以验证事件中心是否收到了日志信息。 在 Azure 门户中，请转到事件中心，然后验证“传入消息”计数是否大于零。 
 
@@ -332,7 +332,7 @@ Azure Monitor 提供 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 你可以使用安全信息和事件管理以及监视工具来访问和读取发送到事件中心的日志数据。 有关详细信息，请参阅[可对发送到事件中心的监视数据执行什么操作？](/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)。
 
-### <a name="access-logs-in-a-log-analytics-workspace"></a>访问 Log Analytics 工作区中的日志
+### <a name="accessing-logs-in-a-log-analytics-workspace"></a>访问 Log Analytics 工作区中的日志
 
 你可以使用 Azure Monitor 日志查询来访问发送到 Log Analytics 工作区的日志。
 
@@ -405,7 +405,7 @@ Data Lake Storage Gen2 的日志不会出现在专用表中。 这是因为 Data
 
 **Azure 存储是否支持托管磁盘或非托管磁盘的指标？**
 
-不是。 Azure 计算支持磁盘上的指标。 有关详细信息，请参阅 [托管和非托管磁盘的每个磁盘指标](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)。
+否。 Azure 计算支持磁盘上的指标。 有关详细信息，请参阅 [托管和非托管磁盘的每个磁盘指标](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)。
 
 ## <a name="next-steps"></a>后续步骤
 

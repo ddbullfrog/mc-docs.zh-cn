@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 8908c337944ff83c7cafa74295a42186ea66a465
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: bc420cff709d01e94d8aff241bef99ca142a0741
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021657"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395421"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>使用 Python SDK 创建用于模型训练和部署的计算目标
 
@@ -31,8 +31,12 @@ ms.locfileid: "90021657"
 ## <a name="prerequisites"></a>先决条件
 
 * 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用 [Azure 机器学习的免费版或付费版](https://aka.ms/AMLFree)
-* [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * 一个 [Azure 机器学习工作区](how-to-manage-workspace.md)
+
+## <a name="limitations"></a>限制
+
+本文档中列出的某些场景标记为“预览”。 提供的预览版功能不附带服务级别协议，我们不建议将其用于生产工作负载。 某些功能可能不受支持或者受限。 
 
 ## <a name="whats-a-compute-target"></a>什么是计算目标？
 
@@ -55,21 +59,38 @@ Azure 机器学习为不同的计算目标提供不同的支持。 典型的模�
 * [远程虚拟机](#vm)
 * [Azure HDInsight](#hdinsight)
 
+## <a name="compute-targets-for-inference"></a>推理的计算目标
+
+执行推理时，Azure 机器学习会创建托管模型和使用该模型所需的关联资源的 Docker 容器。 然后，在以下任一部署场景中使用此容器：
+
+* 作为用于实时推理的 Web 服务。 Web 服务部署使用以下计算目标之一：
+
+    * [本地计算机](#local)
+    * [Azure 机器学习计算实例](#instance)
+    * [Azure 容器实例](#aci)
+    * [Azure Kubernetes 服务](how-to-create-attach-kubernetes.md)
+    * Azure Functions（预览版）。 Azure Functions 的部署仅依赖 Azure 机器学习来生成 Docker 容器。 在此处，使用 Azure Functions 对其进行部署。 有关详细信息，请参阅[将机器学习模型部署到 Azure Functions（预览版）](how-to-deploy-functions.md)。
+
+* 作为用于定期处理批量数据的批量推理终结点。 批量推理使用 [Azure 机器学习计算群集](#amlcompute)。
+
+* 转到 IoT 设备（预览版）。 IoT 设备的部署仅依赖 Azure 机器学习来生成 Docker 容器。 在此处，使用 Azure IoT Edge 对其进行部署。 有关详细信息，请参阅[部署为 IoT Edge 模块（预览版）](/iot-edge/tutorial-deploy-machine-learning)。
 
 ## <a name="local-computer"></a><a id="local"></a>本地计算机
 
 使用本地计算机进行训练时，无需创建计算目标。  只需从本地计算机[提交训练运行](how-to-set-up-training-targets.md)。
 
+使用本地计算机进行推理时，必须安装 Docker。 若要执行部署，请使用 [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) 来定义 Web 服务将使用的端口。 然后使用[通过 Azure 机器学习部署模型](how-to-deploy-and-where.md)中所述的常规部署流程。
+
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure 机器学习计算群集
 
 Azure 机器学习计算群集是一个托管的计算基础结构，可让你轻松创建单节点或多节点计算。 该计算是在工作区区域内部创建的，是可与工作区中的其他用户共享的资源。 提交作业时，计算会自动扩展，并可以放入 Azure 虚拟网络。 计算在容器化环境中执行，将模型的依赖项打包在 [Docker 容器](https://www.docker.com/why-docker)中。
 
-可以使用 Azure 机器学习计算在云中的 CPU 或 GPU 计算节点群集之间分配训练进程。 有关包括 GPU 的 VM 大小的详细信息，请参阅 [GPU 优化的虚拟机大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)。 
+可以使用 Azure 机器学习计算在云中的 CPU 或 GPU 计算节点群集之间分配训练或批量推理过程。 有关包括 GPU 的 VM 大小的详细信息，请参阅 [GPU 优化的虚拟机大小](/virtual-machines/linux/sizes-gpu)。 
 
 Azure 机器学习计算对可以分配的核心数等属性实施默认限制。 有关详细信息，请参阅[管理和请求 Azure 资源的配额](how-to-manage-quotas.md)。
 
 > [!TIP]
-> 一般情况下，只要所需核心数方面的配额足够，群集就可以扩展到多达 100 个节点。 默认情况下，设置群集时会启用群集节点之间的通信（例如，为了支持 MPI 作业）。 但是，可以将群集扩展到数千个节点，只需[提交支持票证](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)并请求将你的订阅、工作区或特定群集加入允许列表以禁用节点间通信即可。 
+> 一般情况下，只要所需核心数方面的配额足够，群集就可以扩展到多达 100 个节点。 默认情况下，设置群集时会启用群集节点之间的通信（例如，为了支持 MPI 作业）。 但是，可以将群集扩展到数千个节点，只需[提交支持票证](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)并请求将你的订阅、工作区或特定群集加入允许列表以禁用节点间通信即可。 
 
 可在不同的运行中重复使用 Azure 机器学习计算。 计算可与工作区中的其他用户共享，并在每次运行之后保留，它会根据提交的运行数以及群集上设置的 max_nodes 自动纵向扩展或缩减节点。 min_nodes 设置控制可用节点数的下限。
 
@@ -80,7 +101,24 @@ Azure 机器学习计算对可以分配的核心数等属性实施默认限制�
     * **vm_size**：Azure 机器学习计算创建的节点的 VM 系列。
     * **max_nodes**：在 Azure 机器学习计算中运行作业时自动扩展到的最大节点数。
     
-   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
+   ```Python
+   from azureml.core.compute import ComputeTarget, AmlCompute
+    from azureml.core.compute_target import ComputeTargetException
+
+    # Choose a name for your CPU cluster
+    cpu_cluster_name = "cpucluster"
+
+    # Verify that cluster does not exist already
+    try:
+        cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
+        print('Found existing cluster, use it.')
+    except ComputeTargetException:
+        compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                            max_nodes=4)
+        cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+
+    cpu_cluster.wait_for_completion(show_output=True)
+   ```
 
    还可以在创建 Azure 机器学习计算时配置多个高级属性。 使用这些属性可以创建固定大小的持久性群集，或者在订阅中的现有 Azure 虚拟网络内创建持久性群集。  有关详细信息，请参阅 [AmlCompute 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     )。
@@ -107,7 +145,7 @@ Azure 机器学习计算对可以分配的核心数等属性实施默认限制�
     
 * 使用 CLI 设置 `vm-priority`：
     
-    ```azurecli-interactive
+    ```azurecli
     az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
     ```
 
@@ -201,8 +239,15 @@ Azure 机器学习计算对可以分配的核心数等属性实施默认限制�
         instance.wait_for_completion(show_output=True)
     ```
 
-附加计算并配置运行后，下一步是[提交训练运行](how-to-set-up-training-targets.md)
+附加计算并配置运行后，下一步是[提交训练运行](how-to-set-up-training-targets.md)或[部署推理模型](how-to-deploy-local-container-notebook-vm.md)。
 
+## <a name="azure-container-instance"></a><a id="aci"></a>Azure 容器实例
+
+Azure 容器实例 (ACI) 是在部署模型时动态创建的。 不能以任何其他方式创建 ACI 和将其附加到工作区。 有关详细信息，请参阅[将模型部署到 Azure 容器实例](how-to-deploy-azure-container-instance.md)。
+
+## <a name="azure-kubernetes-service"></a>Azure Kubernetes 服务
+
+与 Azure 机器学习一起使用时，Azure Kubernetes 服务 (AKS) 支持多种配置选项。 有关详细信息，请参阅[如何创建和附加 Azure Kubernetes 服务](how-to-create-attach-kubernetes.md)。
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>远程虚拟机
 
@@ -243,7 +288,25 @@ Azure 机器学习还支持将自己的计算资源附加到工作区。 任意�
 
 1. **配置**：为 DSVM 计算目标创建运行配置。 Docker 与 conda 用于在 DSVM 上创建和配置训练环境。
 
-   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
+   ```Python
+   from azureml.core import ScriptRunConfig
+    from azureml.core.environment import Environment
+    from azureml.core.conda_dependencies import CondaDependencies
+
+    # Create environment
+    myenv = Environment(name="myenv")
+
+    # Specify the conda dependencies
+    myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+
+    # If no base image is explicitly specified the default CPU image "azureml.core.runconfig.DEFAULT_CPU_IMAGE" will be used
+    # To use GPU in DSVM, you should specify the default GPU base Docker image or another GPU-enabled image:
+    # myenv.docker.enabled = True
+    # myenv.docker.base_image = azureml.core.runconfig.DEFAULT_GPU_IMAGE
+
+    # Configure the run configuration with the Linux DSVM as the compute target and the environment defined above
+    src = ScriptRunConfig(source_directory=".", script="train.py", compute_target=compute, environment=myenv)
+```
 
 
 附加计算并配置运行后，下一步是[提交训练运行](how-to-set-up-training-targets.md)。
@@ -288,7 +351,22 @@ Azure HDInsight 是用于大数据分析的热门平台。 该平台提供的 Ap
 
 1. **配置**：为 HDI 计算目标创建运行配置。 
 
-   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
+   ```Python
+   from azureml.core.runconfig import RunConfiguration
+    from azureml.core.conda_dependencies import CondaDependencies
+
+
+    # use pyspark framework
+    run_hdi = RunConfiguration(framework="pyspark")
+
+    # Set compute target to the HDI cluster
+    run_hdi.target = hdi_compute.name
+
+    # specify CondaDependencies object to ask system installing numpy
+    cd = CondaDependencies()
+    cd.add_conda_package('numpy')
+    run_hdi.environment.python.conda_dependencies = cd
+   ```
 
 
 附加计算并配置运行后，下一步是[提交训练运行](how-to-set-up-training-targets.md)。
@@ -437,7 +515,7 @@ except ComputeTargetException:
 有关更详细的示例，请参阅 GitHub 上的 [示例笔记本](https://aka.ms/pl-adla)。
 
 > [!TIP]
-> Azure 机器学习管道只能处理 Data Lake Analytics 帐户的默认数据存储中存储的数据。 如果需要处理的数据不在默认存储中，可以在训练之前使用 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) 复制数据。
+> Azure 机器学习管道只能处理 Data Lake Analytics 帐户的默认数据存储中存储的数据。 如果需要处理的数据不在默认存储中，可以在训练之前使用 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) 复制数据。
 
 ## <a name="notebook-examples"></a>Notebook 示例
 

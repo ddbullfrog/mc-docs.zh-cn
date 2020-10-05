@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 08/13/2020
 ms.date: 09/14/2020
 ms.author: v-yiso
-ms.openlocfilehash: a6f5b1af016dfa39ee8f71e8588fa4ed70ee7604
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: fe8db26d854d6a7425be39760ff791515d7927cf
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462953"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394796"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>适用于 Azure HDInsight 的 Apache 组件和版本
 
@@ -37,7 +37,7 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 从 2017 �
 | Apache Hadoop 和 YARN | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
 | Apache Pig             | 0.16.0        | 0.16.0                      |
-| Apache Hive            | 3.1.0         | 1.2.1                       |
+| Apache Hive            | 3.1.0         | 1.2.1（在 ESP Interactive Query 上为 2.1.0） |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
 | Apache HBase           | 2.1.6         | 1.1.2                       |
@@ -82,7 +82,7 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 从 2017 �
 | HDInsight 版本 | VM OS | 发行日期 | 支持到期日期 | 停用日期 | 高可用性 |  在 Azure 门户中的可用性 |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |是 |是 |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日      | *2021 年 6 月 31 日 |2021 年 6 月 31 日 |是 |是 |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日      | *2021 年 6 月 30 日 |2021 年 6 月 30 日 |是 |是 |
 
 *我们将延长对特定 HDInsight 3.6 群集类型的支持时间范围
 
@@ -137,4 +137,4 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 从 2017 �
 - [为 HDInsight 上的 Apache Hadoop、Spark 和其他组件设置群集](hdinsight-hadoop-provision-linux-clusters.md)
 - [使用 Windows 电脑在 HDInsight 上的 Apache Hadoop 中工作](hdinsight-hadoop-windows-tools.md)
 - [与 Azure HDInsight 版本相关的 Hortonworks 发行说明](./hortonworks-release-notes.md)
-
+- [企业安全性套餐](./enterprise-security-package.md)

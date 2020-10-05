@@ -5,20 +5,20 @@ ms.reviewer: sogup
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 06/22/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: ec721225dea5b99c298918e5a4c0ca0af1a2aabb
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: d05af27b5545592f008d760c33de1b82fb48abdb
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852079"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402650"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>使用 Azure 备份即时还原功能获得更高的备份和还原性能
 
 > [!NOTE]
-> 根据用户的反馈，我们正在将“VM 备份堆栈 V2”重命名为“即时还原”，以减少与 Azure Stack 功能的混淆。
-> 所有 Azure 备份用户现在已升级到**即时还原**。
+> 根据用户的反馈，我们已将“VM 备份堆栈 V2”重命名为“即时还原”，以减少与 Azure Stack 功能的混淆。
+> 所有 Azure 备份用户现在已升级到“即时还原”。
 
 即时还原的新模型提供以下功能增强：
 
@@ -47,8 +47,8 @@ ms.locfileid: "85852079"
 * 快照将连同磁盘一起存储，以提高恢复点的创建速度并加快还原操作。 因此，可以查看 7 天内创建的快照的相应存储成本。
 * 增量快照作为页 blob 存储。 使用非托管磁盘的所有用户需要为其本地存储帐户中存储的快照付费。 由于托管 VM 备份使用的还原点集合在基础存储级别使用 Blob 快照，因此对于托管磁盘，你将看到与 Blob 快照定价对应的成本，并且成本是递增的。
 * 对于高级存储帐户，为即时恢复点创建的快照计入分配空间的 10-TB 限制。
-* 可以根据还原需求配置快照保留期。 可按如下所述，在备份策略边栏选项卡中根据要求将快照保留期设置为最短一天。 如果不经常执行还原，这可帮助节省保留快照的成本。
-* 这是单向升级，一旦升级到即时还原，就不能回退。
+* 可以根据还原需求配置快照保留期。 可按如下所述，在备份策略窗格中根据要求将快照保留期设置为最短一天。 如果不经常执行还原，这可帮助节省保留快照的成本。
+* 这是单向升级。 一旦升级到即时还原，就不能回退。
 
 >[!NOTE]
 >使用此即时还原升级，所有客户（**包含新客户和现有客户**）的快照保留期都将设置为两天的默认值。 但是，可以根据需要将持续时间设置为 1 到 5 天之间的任意值。
@@ -65,7 +65,7 @@ ms.locfileid: "85852079"
 
 ### <a name="using-azure-portal"></a>使用 Azure 门户
 
-在 Azure 门户中可以看到，“即时还原”部分下的“VM 备份策略”边栏选项卡中添加了一个字段。  对于与特定备份策略关联的所有 VM，可以在“VM 备份策略”边栏选项卡中更改快照保留持续时间。
+在 Azure 门户中可以看到，“即时还原”部分下的“VM 备份策略”窗格中添加了一个字段。  对于与特定备份策略关联的所有 VM，可以在“VM 备份策略”窗格中更改快照保留持续时间。
 
 ![即时还原功能](./media/backup-azure-vms/instant-restore-capability.png)
 
@@ -80,7 +80,7 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-每个策略的默认快照保留期设置为 2 天。 用户可以将此值更改为 1 到 5 天。 就每周策略来说，快照保留期固定为 5 天。
+每个策略的默认快照保留期设置为 2 天。 可以将此值更改为 1 到 5 天。 就每周策略来说，快照保留期固定为 5 天。
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
@@ -112,18 +112,11 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 除非删除快照（第 1 层），否则新模型不允许删除还原点（第 2 层）。 建议将还原点（第 2 层）保留期设置为大于快照保留期。
 
-### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>为何我即使在备份策略中设置了保留期，我的快照也仍然存在？
+### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>为何我即使在备份策略中设置了保留期，我的快照也仍然存在？
 
-如果恢复点包含快照并且存在最新可用的 RP，则该快照会一直保留到下一次成功备份为止。 这符合当前设计的“垃圾回收”(GC) 策略，该策略强制要求始终至少有一个最新的 RP，以防 VM 中的问题导致所有备份进一步出错。 正常情况下，在 RP 过期后，将在最多 24 小时内予以清理。
+如果恢复点包含快照并且它是可用的最新恢复点，则它会一直保留到下一次成功备份为止。 这取决于指定的“垃圾回收”(GC) 策略。 它要求至少始终存在一个最新的恢复点，以防所有后续备份由于 VM 中出现问题而失败。 正常情况下，在恢复点过期后，将在最多 24 小时内进行清理。
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>我不需要即时还原功能。 是否可以禁用它？
 
 为所有人启用了即时还原功能，不能禁用它。 可以将快照保留期缩短到最少一天。
-
->[!NOTE]
-> **Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性磁盘备份和还原。**
->
->如今，Azure 备份支持使用虚拟机备份解决方案将 VM 中的所有磁盘（操作系统和数据）备份到一起。 使用排除磁盘功能，可以选择从 VM 的多个数据磁盘中备份一个或多个数据磁盘。 这样就提供了一个高效且经济的针对备份和还原需求的解决方案。 每个恢复点都包含备份操作中包含的磁盘的数据，因此还可以在还原操作过程中从给定的恢复点还原部分磁盘。 这适用于从快照和保管库进行的还原。
->
->**若要注册预览版，请向 AskAzureBackupTeam@microsoft.com 发送邮件**
 

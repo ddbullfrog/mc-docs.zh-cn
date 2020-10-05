@@ -4,14 +4,14 @@ description: 本文解答有关使用 Azure 备份服务备份 SAP HANA 数据�
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 11/7/2019
-ms.date: 07/31/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: a4ab384207ec504a0a181d9c685af9e2dedb48b7
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.openlocfilehash: e5d2ab64eebb77e6cf7d167108a7e077d5b20773
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508395"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402629"
 ---
 # <a name="frequently-asked-questions---back-up-sap-hana-databases-on-azure-vms"></a>常见问题 - 备份 Azure VM 上的 SAP HANA 数据库
 
@@ -25,11 +25,11 @@ ms.locfileid: "87508395"
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>成功的备份作业是否会创建警报？
 
-否。 成功的备份作业不会生成警报。 仅针对失败的备份作业发送警报。 [此文](/backup/backup-azure-monitoring-built-in-monitor)介绍了门户警报的详细行为。 但是，如果希望在作业成功的情况下也收到警报，可以使用 [Azure Monitor](/backup/backup-azure-monitoring-use-azuremonitor)。
+否。 成功的备份作业不会生成警报。 仅针对失败的备份作业发送警报。 [此文](./backup-azure-monitoring-built-in-monitor.md)介绍了门户警报的详细行为。 但是，如果希望在作业成功的情况下也收到警报，可以使用 [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md)。
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>“备份作业”菜单中是否会显示计划的备份作业？
 
-“备份作业”菜单只显示临时备份作业。 对于计划的作业，请使用 [Azure Monitor](/backup/backup-azure-monitoring-use-azuremonitor)。
+“备份作业”菜单只显示临时备份作业。 对于计划的作业，请使用 [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md)。
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>未来的数据库会自动添加备份吗？
 
@@ -54,7 +54,7 @@ ms.locfileid: "87508395"
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>将 SAP HANA 从 SDC 迁移到 MDC 后，备份是否正常进行？
 
-请参考故障排除指南中的[说明](/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid)。
+请参考故障排除指南中的[说明](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid)。
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>是否可以针对虚拟 IP（负载均衡器）而不是虚拟机设置 Azure HANA 备份？
 
@@ -62,15 +62,19 @@ ms.locfileid: "87508395"
 
 ### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>如何将按需备份移动到本地文件系统而不是 Azure 保管库？
 
-1. 等待当前正在运行的备份在目标数据库上完成（可从 studio 检查是否已完成）。
+1. 等待当前正在运行的备份在目标数据库上完成（可从工作室检查是否已完成）。
 1. 按照以下步骤禁用日志备份并将目录备份设置为所需 DB 的文件系统：
 1. 双击“SYSTEMDB” -> “配置” -> “选择数据库” -> “筛选器(日志)”   。
     1. 将 enable_auto_log_backup 设置为“否”
-    1. 将 log_backup_using_backint 设置为 false
-1. 在所需的数据库上执行按需备份，并等待备份和目录备份完成。
+    1. 将 catalog_backup_using_backint 设置为 false
+1. 在所需的数据库上执行按需备份（完整/差异/增量），并等待备份和目录备份完成。
+1. 如果还要将日志备份移动到文件系统，请将 enable_auto_log_backup 设置为“是”
 1. 恢复到以前的设置，以允许备份流向 Azure 保管库：
     1. 将 enable_auto_log_backup 设置为“是”
-    1. 将 log_backup_using_backint 设置为 true
+    1. 将 catalog_backup_using_backint 设置为 true
+
+>[!NOTE]
+>如果将备份移动到本地文件系统并再次切换回 Azure 保管库，则可能会导致保管库中日志备份的日志链中断。 这会触发完整备份，成功完成后，将开始备份日志。
 
 ### <a name="how-can-i-use-sap-hana-backup-with-my-hana-replication-set-up"></a>如何在设置 HANA 复制的情况下使用 SAP HANA 备份？
 
@@ -110,7 +114,7 @@ ms.locfileid: "87508395"
 
 ### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>为什么我看不到要将数据库还原到的 HANA 系统？
 
-检查是否满足还原到目标 SAP HANA 实例所需的所有先决条件。 有关详细信息，请参阅[先决条件 - 还原 Azure VM 中的 SAP HANA 数据库](/backup/sap-hana-db-restore#prerequisites)。
+检查是否满足还原到目标 SAP HANA 实例所需的所有先决条件。 有关详细信息，请参阅[先决条件 - 还原 Azure VM 中的 SAP HANA 数据库](./sap-hana-db-restore.md#prerequisites)。
 
 ### <a name="why-is-the-overwrite-db-restore-failing-for-my-database"></a>为什么我的数据库的“覆盖 DB”还原会失败？
 
@@ -126,5 +130,5 @@ ms.locfileid: "87508395"
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何[备份 SAP HANA 数据库](/backup/backup-azure-sap-hana-database)（在 Azure VM 上运行）。
+了解如何[备份 SAP HANA 数据库](./backup-azure-sap-hana-database.md)（在 Azure VM 上运行）。
 

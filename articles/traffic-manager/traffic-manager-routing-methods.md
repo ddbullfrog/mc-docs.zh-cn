@@ -2,21 +2,23 @@
 title: Azure 流量管理器 - 流量路由方法
 description: 本文讲解流量管理器使用的各种流量路由方法。
 services: traffic-manager
-author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/17/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8ed8edeba527769a7bcc22b9c004a38412a59445
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5d7af11254e3dc7752e85f046457a844902905a5
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292517"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395238"
 ---
 # <a name="traffic-manager-routing-methods"></a>流量管理器路由方法
 
@@ -34,13 +36,11 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 所有流量管理器配置文件都包括监视终结点运行状况以及终结点自动故障转移的设置。 有关详细信息，请参阅[流量管理器终结点监视](traffic-manager-monitoring.md)。 一个流量管理器配置文件只能使用一种流量路由方法。 可以随时为配置文件选择其他流量路由方法。 一分钟内即可应用所做的更改，不会导致停机。 可以通过嵌套式流量管理器配置文件来组合使用多种流量路由方法。 使用嵌套可以启用复杂且灵活的流量路由配置，满足更大、更复杂应用程序的需求。 有关详细信息，请参阅[嵌套式流量管理器配置文件](traffic-manager-nested-profiles.md)。
 
 <a name="priority"></a>
-<a name="priority-traffic-routing-method"></a>
-
-## <a name="priority-traffic-routing-method"></a>优先级流量路由方法
+## <a name="priority-traffic-routing-method"></a><a name="priority-traffic-routing-method"></a>优先级流量路由方法
 
 组织往往会提供一个或多个备份服务来防范主服务发生故障，从而确保其服务的可靠性。 Azure 客户可以通过“优先级”流量路由方法来轻松实现此故障转移模式。
 
-![Azure 流量管理器的“优先级”流量路由方法](media/traffic-manager-routing-methods/priority.png)
+:::image type="content" source="media/traffic-manager-routing-methods/priority.png" alt-text="Azure 流量管理器的“优先级”流量路由方法":::
 
 流量管理器配置文件包含服务终结点的优先顺序列表。 默认情况下，流量管理器将所有流量发送到主终结点（优先级最高）。 如果主终结点不可用，流量管理器会将流量路由到第二个终结点。 如果主终结点和辅助终结点都不可用，流量将转到第三个终结点，依此类推。 终结点的可用性取决于配置的状态（已启用或已禁用）和正在进行的终结点监视。
 
@@ -49,11 +49,10 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 在 Azure 资源管理器中，可以使用每个终结点的“priority”属性显式配置终结点优先级。 此属性是一个介于 1 和 1000 之间的值。 值越小，优先级越高。 终结点不能共享优先级值。 该属性的设置是可选的。 如果省略该属性，会根据终结点顺序使用默认优先级。
 
 <a name="weighted"></a>
-
 ## <a name="weighted-traffic-routing-method"></a>加权流量路由方法
 使用“加权”流量路由方法可以均匀分布流量，或使用预定义的权重。
 
-![Azure 流量管理器的“加权”流量路由方法](media/traffic-manager-routing-methods/weighted.png)
+:::image type="content" source="media/traffic-manager-routing-methods/weighted.png" alt-text="Azure 流量管理器的“优先级”流量路由方法":::
 
 在“加权”流量路由方法中，需要为流量管理器配置文件中的每个终结点分配一个权重。 该权重是从 1 到 1000 的整数。 此参数是可选的。 如果省略此参数，流量管理器将使用默认权重“1”。 权重越高，优先级就越高。
 
@@ -84,7 +83,7 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 
 <!--MOONCAKE: CORRECT ON globl to country or region-->
 
-![Azure 流量管理器的“性能”流量路由方法](media/traffic-manager-routing-methods/performance.png)
+:::image type="content" source="media/traffic-manager-routing-methods/performance.png" alt-text="Azure 流量管理器的“优先级”流量路由方法":::
 
 “最靠近”的终结点不一定是地理距离最近的终结点。 “性能”流量路由方法通过测试网络延迟来确定最靠近的终结点。 流量管理器维护一份 Internet 延迟表，用于跟踪 IP 地址范围与每个 Azure 数据中心之间的往返时间。
 
@@ -106,7 +105,6 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 * 选择终结点的算法是确定性的。 同一个客户端重复发出的 DNS 查询会定向到同一个终结点。 通常，客户端在遍历时使用不同的递归 DNS 服务器。 客户端可以路由到不同的终结点。 更新 Internet 延迟表也可能会影响路由。 因此，“性能”流量路由方法不保证始终将客户端路由到同一个终结点。
 * 更改 Internet 延迟表时，可能会注意到某些客户端被定向到其他终结点。 这种路由更改基于当前延迟数据，因此更加准确。 进行这些更新很重要，可以确保在 Internet 持续发展的情况下“性能”流量路由的准确性。
 
-
 <a name="geographic"></a>
 ## <a name="geographic-traffic-routing-method"></a>地理流量路由方法
 
@@ -122,7 +120,7 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 
 将一个或一组区域分配到某个终结点后，来自这些区域的任何请求仅路由到该终结点。 流量管理器使用 DNS 查询的源 IP 地址来确定用户从中进行查询的区域 - 通常，这将是代表用户执行查询的本地 DNS 解析程序的 IP 地址。  
 
-![Azure 流量管理器的“地理”流量路由方法](./media/traffic-manager-routing-methods/geographic.png)
+:::image type="content" source="./media/traffic-manager-routing-methods/geographic.png" alt-text="Azure 流量管理器的“优先级”流量路由方法":::
 
 流量管理器读取 DNS 查询的源 IP 地址，并确定它所源自的地理区域。 随后，它会查找并查看是否存在此地理区域所映射到的终结点。 此查找从最低粒度级别（即“省/自治区/直辖市”如果支持的话，否则为“国家/地区”级别）开始，一直向上查找，直到最高级别（即“世界”）。  使用此遍历找到的第一个匹配项将指定为要在查询响应中返回的终结点。 当与“嵌套”类型终结点匹配时，将基于其路由方法返回该子配置文件中的终结点。 以下几点适用于此行为：
 
@@ -200,4 +198,4 @@ Azure 流量管理器支持使用六种流量路由方法来确定如何将网�
 
 了解如何使用[流量管理器终结点监视](traffic-manager-monitoring.md)开发高可用性应用程序
 
-<!--Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

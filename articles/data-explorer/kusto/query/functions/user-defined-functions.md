@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/12/2020
-ms.date: 07/31/2020
-ms.openlocfilehash: 7ab03a4c292780024c66f9fe983c0b54e904871a
-ms.sourcegitcommit: 4e1bc2e9b2a12dbcc05c52db5dbd1ae290aeb18d
+ms.date: 09/24/2020
+ms.openlocfilehash: fe6bec0f3cb7ece097bf6e6faa7099aacba03f17
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87509502"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146420"
 ---
 # <a name="user-defined-functions"></a>用户定义的函数
 
@@ -45,9 +45,6 @@ ms.locfileid: "87509502"
 有效的用户定义的函数名称必须遵循与其他实体相同的[标识符命名规则](../schema-entities/entity-names.md#identifier-naming-rules)。
 
 该名称在定义的范围内也必须是唯一的。
-
-> [!NOTE]
-> 不支持函数重载。 不能使用同一名称定义多个函数。
 
 ## <a name="input-arguments"></a>输入参数
 
@@ -107,7 +104,7 @@ MyFilter((range x from 1 to 10 step 1), 9)
 |x|
 |---|
 |9|
-|10 个|
+|10|
 
 使用未指定列的表格输入的表格函数。
 可将任意表传递给函数，并且不能在函数内引用任何表列。
@@ -155,7 +152,7 @@ let f=(s:string, i:long) {
 > [!NOTE]
 > 函数体内不支持“顶级”查询所支持的其他类型的[查询语句](../statements.md)。
 
-### <a name="examples-of-user-defined-functions"></a>用户定义的函数示例
+### <a name="examples-of-user-defined-functions"></a>用户定义的函数示例 
 
 **使用 let 语句的用户定义的函数**
 
@@ -330,3 +327,11 @@ let Table2 = datatable(Column:long)[1235];
 let f = (hours:long) { range x from 1 to hours step 1 | summarize make_list(x) };
 Table2 | where Column != 123 | project d = f(Column)
 ```
+
+## <a name="features-that-are-currently-unsupported-by-user-defined-functions"></a>用户定义的函数当前不支持的功能
+
+为了确保完整性，下面列出了用户定义的函数当前不支持的一些常见请求功能：
+
+1.  函数重载：目前没有办法重载函数（即创建多个具有相同名称和不同输入架构的函数）。
+
+2.  默认值：函数的标量参数默认值必须是标量文本（常量）。 此外，存储函数的默认值不能为 `dynamic` 类型。

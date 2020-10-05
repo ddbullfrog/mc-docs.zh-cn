@@ -1,20 +1,23 @@
 ---
 title: Azure Cosmos DB 表 API .NET Standard SDK 和资源
 description: 了解有关 Azure Cosmos DB 表 API 和 .NET Standard SDK 的所有信息，包括发布日期、停用日期和各版本之间所做的更改。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 03/18/2019
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a25f47dd3f2aabf875c2a248b06ebaa4caae0730
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: a40ac6b62a6e369a78e8b3ff4d5e2d2882434145
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320755"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246344"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET Standard API：下载和发行说明
@@ -44,6 +47,15 @@ ms.locfileid: "85320755"
 
 ## <a name="release-notes-for-100-series"></a>1\.0.0 系列的发行说明
 1.0.0 系列依赖于 [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)。
+
+<a name="1.0.8"></a>
+### <a name="108"></a>1.0.8
+* 添加了支持以便在是 cosmosdb 终结点时设置 TTL 属性 
+* 在超时和任务取消异常时遵从重试策略
+* 修复了 asp .NET 应用程序中出现的间歇性任务取消异常
+* 修复了仅在位置模式下从辅助终结点进行的 azure 表存储检索
+* 将 `Microsoft.Azure.DocumentDB.Core` 依赖项版本更新为 2.11.2，该版本修复了间歇性 null 引用异常
+* 将 `Odata.Core` 依赖项版本更新为 7.6.4，该版本修复了与 azure shell 的兼容性冲突
 
 <a name="1.0.7"></a>
 ### <a name="107"></a>1.0.7

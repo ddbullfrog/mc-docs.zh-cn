@@ -4,15 +4,15 @@ description: 本文介绍如何使用 Azure 门户在 Azure Database for MySQL �
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 6/30/2020
-ms.date: 07/20/2020
-ms.openlocfilehash: 2c297a5cb4f2e18210d75e79a05926245351caa2
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 09/28/2020
+ms.openlocfilehash: dbeecb8c96f984ef7bd45ac621a241cd6369e63e
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440554"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395473"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MySQL 中备份和还原服务器
 
@@ -77,6 +77,12 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 
 通过时间点还原创建的新服务器具有在所选时间点对现有服务器有效的相同服务器管理员登录名和密码。 可以从新服务器的“概述”页更改密码。
 
+此外，还原操作完成后，有两个服务器参数将在还原操作后重置为默认值（而不是从主服务器复制）
+*   time_zone - 此值设置为默认值“SYSTEM”
+*   event_scheduler - 还原服务器上的 event_scheduler 设置为“OFF”
+
+你将需要从主服务器复制该值，然后通过重新配置[服务器参数](howto-server-parameters.md)在还原服务器上对其进行设置
+
 在还原期间创建的新服务器没有原始服务器上存在的 VNet 服务终结点。 需要为此新服务器单独设置这些规则。 将从原始服务器还原防火墙规则。
 
 ## <a name="geo-restore"></a>异地还原
@@ -90,7 +96,7 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 
 3. 选择“备份”作为“数据源”。 此操作将加载一个下拉列表，其中提供已启用“异地冗余备份”的服务器列表。
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="选择数据源。":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="导航到 Azure Database for MySQL。":::
     
    > [!NOTE]
    > 首次创建服务器时，该服务器可能不会立即可用于异地还原。 填充必需的元数据可能需要几个小时。
@@ -98,21 +104,21 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 
 4. 选择“备份”下拉列表。
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="选择“备份”下拉列表。":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="导航到 Azure Database for MySQL。":::
 
 5. 选择要从其还原的源服务器。
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="选择备份。":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="导航到 Azure Database for MySQL。":::
 
 6. 服务器将默认设置为“vCore 数”、“备份保留期”、“备份冗余选项”、“引擎版本”和“管理凭据”的值。 选择“继续”。 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="继续进行备份。":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="导航到 Azure Database for MySQL。":::
 
 7. 根据需要填写窗体的其余部分。 可以选择任意**位置**。
 
     选择位置后，可以选择“配置服务器”以更新“计算代系”（如果在已选择的区域中可用）、“vCore 数”、“备份保留期”和“备份冗余选项”。 不支持在还原过程中更改**定价层**（“基本”、“常规用途”或“内存优化”）或**存储**大小。
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="填写表单。"::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="导航到 Azure Database for MySQL。"::: 
 
 8. 选择“查看 + 创建”，查看所选内容。 
 

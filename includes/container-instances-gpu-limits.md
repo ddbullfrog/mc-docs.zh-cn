@@ -2,16 +2,19 @@
 author: rockboyfor
 ms.service: container-instances
 ms.topic: include
-ms.date: 03/02/2020
+origin.date: 01/31/2020
+ms.date: 09/25/2020
+ms.testscope: no
+ms.testdate: 03/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1d6e3e7bc7b5088088a947887c00d436a491b5f9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6133d0a6818a672e370bbe225f9927e2627240ad
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78213754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246689"
 ---
-### <a name="resource-availability"></a>资源可用性
+### <a name="maximum-resources-per-sku"></a>每个 SKU 的最大资源数
 
 | OS | GPU SKU | GPU 计数 | 最大 CPU | 最大内存 (GB) | 存储器 (GB) |
 | --- | --- | --- | --- | --- | --- |
@@ -20,4 +23,5 @@ ms.locfileid: "78213754"
 | Linux | V100 | 4 | 24 | 448 | 50 |
 
 <!--Not Avaialble on K80, P100-->
+<!--VM NCv3 match to Linux V100-->
 <!-- Update_Description: update meta properties, wording update, update link -->

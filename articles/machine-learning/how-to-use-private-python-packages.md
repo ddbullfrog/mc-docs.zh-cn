@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 054b0fa9974695ebc58b344a8c52da28283244e8
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 14f8b315e9f3e9a6c5f712804e5f72ae580034cf
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021515"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395184"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>将专用 Python 包与 Azure 机器学习一起使用
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,12 +31,12 @@ ms.locfileid: "90021515"
 
 ## <a name="prerequisites"></a>先决条件
 
- * [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+ * [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
  * 一个 [Azure 机器学习工作区](how-to-manage-workspace.md)
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>使用少量包进行开发和测试
 
-对于单个工作区的少量专用包，请使用静态 [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) 方法。 此方法可让你快速地将专用包添加到工作区，并且非常适用于开发和测试目的。
+对于单个工作区的少量专用包，请使用静态 [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) 方法。 此方法可让你快速地将专用包添加到工作区，并且非常适用于开发和测试目的。
 
 将文件路径参数指向本地 wheel 文件，然后运行 ```add_private_pip_wheel``` 命令。 该命令返回用于跟踪工作区中包位置的 URL。 捕获存储 URL，并将其传递给 `add_pip_package()` 方法。
 
@@ -58,7 +58,7 @@ Azure 机器学习服务在内部将 URL 替换为安全的 SAS URL，使 wheel 
 
  1. 为 Azure DevOps 实例[创建个人访问令牌 (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat)。 将令牌的范围设为 Packaging > Read。 
 
- 2. 使用 [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-) 方法添加 Azure DevOps URL 和 PAT 作为工作区属性。
+ 2. 使用 [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-) 方法添加 Azure DevOps URL 和 PAT 作为工作区属性。
 
      ```python
     from azureml.core import Workspace
@@ -91,16 +91,10 @@ Azure 机器学习服务在内部将 URL 替换为安全的 SAS URL，使 wheel 
 
 可以在组织的防火墙内使用 Azure 存储帐户的包。 该存储帐户可以包含一组特选包，或者可公开使用的包的内部镜像。
 
-设置此类专用存储：
-
- 1. [将工作区放入虚拟网络 (VNET)](how-to-enable-virtual-network.md)。
- 2. 创建存储帐户，并[禁用公共访问](/storage/common/storage-network-security)。
- 2. 将要使用的 Python 包置于存储帐户中的容器 
- 3. [允许从工作区 VNET 进行存储帐户访问](/storage/common/storage-network-security#grant-access-from-a-virtual-network) 
-1. [将工作区的 Azure 容器注册表 (ACR) 放置在 VNet 后](how-to-enable-virtual-network.md#azure-container-registry)。
+若要设置此类专用存储，请参阅[保护 Azure 机器学习工作区和关联资源](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)。 还必须[将 Azure 容器注册表 (ACR) 放置在 VNet 后](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)。
 
     > [!IMPORTANT]
-    > 必须完成此步骤才能使用专用包存储库训练或部署模型。
+    > You must complete this step to be able to train or deploy models using the private package repository.
 
 完成这些部署后，便可以通过 Azure Blob 存储中的完整 URL 引用 Azure 机器学习环境定义中的包。
 

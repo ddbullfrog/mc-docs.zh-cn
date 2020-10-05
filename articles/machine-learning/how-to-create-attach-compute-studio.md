@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: e6540ef611eb3e924f6f1a700c71a1790d5f3b8e
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: c9d6e24ba842092a7e894ee702bd9bc72a6241e2
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021658"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395493"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>在 Azure 机器学习工作室中创建计算目标以进行模型训练和部署
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,11 +57,11 @@ ms.locfileid: "90021658"
 
 1. 如果你没有计算目标，请选择页面中间的“创建”。
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="创建计算目标":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="查看计算目标的列表":::
 
 1. 如果看到计算资源的列表，请选择列表上方的“+ 新建”。
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="选择“新建”":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="查看计算目标的列表":::
 
 
 1. 为你的计算类型填写表单：
@@ -75,14 +75,14 @@ ms.locfileid: "90021658"
 
 1. 通过在列表中选择计算目标来查看创建操作的状态：
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="从列表中查看计算状态":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="查看计算目标的列表":::
 
 
 ### <a name="compute-instance"></a>计算实例
 
 使用[上述步骤](#portal-create)创建计算实例。  然后按如下所示填写表单：
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="新建计算实例":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="查看计算目标的列表":::
 
 
 |字段  |说明  |
@@ -119,6 +119,9 @@ ms.locfileid: "90021658"
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
 ### <a name="inference-clusters"></a>推理群集
+
+> [!IMPORTANT]
+> 将 Azure Kubernetes 服务与 Azure 机器学习配合使用有多个配置选项。 某些场景（如网络）需要额外的设置和配置。 有关将 AKS 与 Azure 机器学习配合使用的详细信息，请参阅[创建和附加 Azure Kubernetes 服务群集](how-to-create-attach-kubernetes.md)。
 
 创建或附加 Azure Kubernetes 服务 (AKS) 群集以用于大规模推理。 使用[上述步骤](#portal-create)创建 AKS 群集。  然后按如下所示填写表单：
 

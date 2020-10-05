@@ -3,82 +3,107 @@ title: 使用 Azure 顾问降低服务成本
 description: 使用 Azure 顾问优化 Azure 部署的成本。
 ms.topic: article
 origin.date: 01/29/2019
-ms.date: 07/29/2020
-ms.author: lingliw
-ms.openlocfilehash: a78f695ee505d4e574ad3556908eb868fe8b487b
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.date: 09/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 4430eb7bf6b8a9abc60b9cc1f95ec55fe840fd6f
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508331"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402651"
 ---
-# <a name="reduce-service-costs-using-azure-advisor"></a>使用 Azure 顾问降低服务成本
+# <a name="reduce-service-costs-by-using-azure-advisor"></a>使用 Azure 顾问降低服务成本
 
-通过识别闲置和未充分利用的资源，顾问有助于优化和降低 Azure 总支出。 可在顾问仪表板的“成本”选项卡获取成本建议。
+通过识别闲置和未充分利用的资源，Azure 顾问可帮助优化和降低 Azure 总支出。 可在顾问仪表板的“成本”选项卡获取成本建议。
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>通过调整或关闭未充分利用的实例来优化虚拟机花费 
 
-虽然某些应用程序方案有意使虚拟机利用率较低，但通过管理虚拟机大小和数量通常可降低成本。 如果过去 7 天内 CPU 使用率的最大值不到 3%，网络使用率的最大值不到 2%（在 95% 的情况下），则顾问的高级评估模型会考虑关闭虚拟机。 如果可以在较小的 SKU 中（在同一 SKU 系列中）适应当前负荷，或者可以在减少实例数的情况下这样做，使得当前的负荷在不是面向用户的工作负荷的情况下不超出 80% 的使用率，在是面向用户的工作负荷的情况下不超出 40% 的使用率，则可认为虚拟机的大小合适。 在这里，可以通过分析工作负荷的 CPU 使用率特征来确定工作负荷的类型。
+虽然某些应用程序方案有意使虚拟机利用率较低，但通过管理虚拟机大小和数量通常可降低成本。 
 
-建议的操作是关机或重设大小，具体取决于这种情况下建议使用的资源。 顾问显示了与建议的操作（重设大小或关机）相对应的成本节省估算值。 另外，对于重设大小这种建议的操作，顾问提供了当前 SKU 信息和目标 SKU 信息。 
+建议的操作是关机或重设大小，具体取决于要评估的资源。
 
-若要加强对低使用率虚拟机的标识，可在每个订阅的基础上调整 CPU 使用率。
+顾问中的高级评估模型在满足以下所有条件时考虑关闭虚拟机： 
+- CPU 利用率最大值的第 95 个百分位数小于 3%。 
+- 7 天内的网络利用率低于 2%。
+- 内存压力低于阈值
+
+如果可以在较小 SKU（同一 SKU 系列内）或较少数量的实例中容纳当前负载，则顾问会考虑重设虚拟机大小，以使：
+- 不面向用户的工作负荷的当前负载利用率不超过 80%。 
+- 面向用户的工作负荷的负载利用率不超过 40%。 
+
+在这里，顾问通过分析工作负荷的 CPU 利用率特征来确定工作负荷的类型。
+
+顾问会显示与建议的操作（重设大小或关机）相对应的成本节省估算值。 对于重设大小，顾问提供当前 SKU 信息和目标 SKU 信息。
+
+若要加强对低利用率虚拟机的识别，可在每个订阅的基础上调整 CPU 利用率规则。
 
 ## <a name="optimize-spend-for-mariadb-mysql-and-postgresql-servers-by-right-sizing"></a>通过适当调整大小优化 MariaDB、MySQL 和 PostgreSQL 服务器的支出 
-若 MariaDB/MySQL/PostgreSQL 数据库服务器资源在过去 7 天内长时间未被充分利用，顾问将分析使用情况并提出建议。 资源利用率低会导致不必要的支出，这个问题可以在不显著影响性能的情况下得到修复。 为了降低成本并高效管理资源，我们建议将计算大小 (vCore) 减少一半。
+顾问会分析使用情况并评估 MariaDB、MySQL 或 PostgreSQL 数据库服务器资源在过去 7 天内是否长时间未被充分利用。 资源利用率低会导致不必要的支出，可在不显著影响性能的情况下解决这一问题。 若要降低成本并高效管理资源，我们建议将计算大小 (vCore) 减少一半。
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>通过消除未设置的 ExpressRoute 线路来降低成本
 
-顾问将识别提供程序状态为“未设置”长达一个月以上的 ExpressRoute 线路将被顾问标识，如果没有使用连接性提供程序配置该线路的计划，顾问将建议删除它。
+顾问会识别处于“未预配”提供程序状态超过一个月的 Azure ExpressRoute 线路。 如果你不打算通过连接提供程序预配线路，则建议删除该线路。
 
 ## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>通过删除或重新配置空闲虚拟网络网关来降低成本
 
-顾问会识别已闲置超过 90 天的虚拟网关。 由于这些网关按小时计费，因此如果不打算再使用它们，则应考虑重新配置或删除它们。 
+顾问会识别已闲置超过 90 天的虚拟网关。 因为这些网关按小时计费，所以如果不打算再使用它们，则应考虑重新配置或删除它们。 
 
 ## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>购买虚拟机预留实例可节省即用即付成本
 
-顾问将查看过去 30 天的虚拟机使用情况，并确定是否可以通过购买 Azure 预留来节省资金。 顾问将展示可能在其中最大程度节省资金的区域和大小，并展示通过购买预留节约下来的估算费用。 
+顾问会查看过去 30 天的虚拟机使用情况，以确定是否可以通过购买 Azure 预留来节省成本。 顾问会显示节省潜力最高的区域和大小，以及可通过购买预留实现的成本节省估算值。 通过 Azure 预留，可以预先购买虚拟机的基本成本。 折扣会自动应用于新的或现有的 VM，这些 VM 具有与预留相同的大小和区域。
 
-顾问还会向你通知在接下来的 30 天内将过期的预留实例。 它将建议你购买新的预留实例来避免即用即付定价。
+顾问还会向你通知在接下来的 30 天内将过期的预留实例。 它会建议你购买新的预留实例来避免即用即付定价。
 
-## <a name="buy-reserved-instances-for-several-resource-types-to-save-over-your-pay-for-advance-costs"></a>购买多个资源类型的预留实例，以节省预付费成本
+## <a name="buy-reserved-instances-for-several-resource-types-to-save-over-your-pay-as-you-go-costs"></a>购买多个资源类型的预留实例，以节省即用即付成本
 
-我们分析了过去 30 天内以下资源列表的使用模式，并推荐可以最大限度节省成本的预留容量购买方式。 
-### <a name="cosmos-db-reserved-capacity"></a>Cosmos DB 保留容量
-我们分析了过去 30 天的 Cosmos DB 使用模式，并建议购买保留容量以优化成本。 使用预留容量，你可以按小时预购买 Cosmos DB，从而节省预付费成本。 预留容量是一项计费权益，它将自动应用于新部署或现有部署。 基于 3 年期预留定价并根据过去 30 天内观察到的使用模式进行推测，从而计算各订阅成本节省的预估值。 通过购买预留可以获得共享范围建议，并且可以进一步增加节省额。
+顾问会分析以下资源在过去 30 天内的使用模式，并建议可优化成本的预留容量购买量。
+
+### <a name="azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB 预留容量
+顾问会分析 Azure Cosmos DB 在过去 30 天内的使用模式，并建议可优化成本的预留容量购买量。 通过使用预留容量，可以预购买按小时计的 Azure Cosmos DB 使用量，从而节省即用即付成本。 预留容量是一项计费权益，它会自动应用于新部署和现有部署。 顾问基于 3 年期预留定价并根据过去 30 天内观察到的使用模式进行推测，从而计算各订阅的成本节省估算值。 共享范围建议适用于预留容量购买，并可提高成本节省。
 
 ### <a name="sql-paas-reserved-capacity"></a>SQL PaaS 预留容量
-我们分析了过去 30 天内的 SQL PaaS 弹性池和托管实例使用模式，建议你购买预留容量，以最大限度地节省成本。 通过使用预留容量，可以预购买 SQL DB 按小时计的使用量，从而节省 SQL 计算成本。 SQL 许可证单独收费，不会因预留而打折。 预留容量是一项计费权益，它将自动应用于新部署或现有部署。 基于 3 年期预留定价并根据过去 30 天内观察到的使用模式进行推测，从而计算各订阅成本节省的预估值。 通过购买预留可以获得共享范围建议，并且可以进一步提高成本节省。
+顾问会分析 SQL PaaS 弹性数据库池和 SQL 托管实例在过去 30 天内的使用模式， 然后建议可优化成本的预留容量购买量。 通过使用预留容量，可以预购买按小时计的 SQL DB 使用量，从而节省 SQL 计算成本。 SQL 许可证单独收费，不会因预留而打折。 预留容量是一项计费权益，它会自动应用于新部署和现有部署。 顾问基于 3 年期预留定价并根据过去 30 天内观察到的使用模式进行推测，从而计算各订阅的成本节省估算值。 共享范围建议适用于预留容量购买，并可提高成本节省。
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>应用服务印花费预留容量
-我们会分析你在过去 30 天内的应用服务独立环境印花费使用模式，建议你购买可最大限度地节省成本的预留容量。 通过预留容量，可以为独立环境印花费预购买按小时计的使用量，比预付费方式节省更多成本。 请注意，预留容量仅适用于印花费，不适用于应用服务实例。 预留容量是一项计费权益，它将自动应用于新部署或现有部署。 基于 3 年期预留定价并根据过去 30 天内的使用模式，计算各订阅成本节省的预估值。
+顾问会分析 Azure 应用服务隔离环境在过去 30 天内的印花费使用模式，并建议可优化成本的预留容量购买量。 通过使用预留容量，可以为隔离环境印花费预购买按小时计的使用量，从而节省即用即付成本。 请注意，预留容量仅适用于印花费，而不适用于应用服务实例。 预留容量是一项计费权益，它会自动应用于新部署和现有部署。 顾问基于 3 年期预留定价并根据过去 30 天内的使用模式计算各订阅的成本节省估算值。
 
 ### <a name="blob-storage-reserved-capacity"></a>Blob 存储预留容量
-我们分析了你在过去 30 天内的 Azure Blob 存储使用情况，并计算出了可最大限度节省成本的预留容量购买。 通过预留容量，可以预购买按小时计的使用量，比当前的按需方式节省更多成本。 Blob 存储预留容量仅适用于存储在 Azure Blob (GPv2)和 Azure Data Lake Storage (Gen 2) 上的数据。 预留容量是一项计费权益，它将自动应用于新部署或现有部署。 基于 3 年期预留定价并根据过去 30 天内观察到的使用模式，计算各订阅成本节省的预估值。 通过购买预留可以获得共享范围建议，并且可以进一步提高成本节省。
+顾问会分析 Azure Blob 存储和 Azure Data Lake Storage 在过去 30 天内的使用情况， 然后计算可优化成本的预留容量购买量。 通过预留容量，可以预购买按小时计的使用量，从而节省按需成本。 Blob 存储预留容量仅适用于存储在 Azure Blob 常规用途 v2 和 Azure Data Lake Storage Gen2 帐户上的数据。 预留容量是一项计费权益，它会自动应用于新部署和现有部署。 顾问基于 3 年期预留定价以及过去 30 天内观察到的使用模式计算各订阅的成本节省估算值。 共享范围建议适用于预留容量购买，并可提高成本节省。
 
 ### <a name="mariadb-mysql-and-postgresql-reserved-capacity"></a>MariaDB、MySQL 和 PostgreSQL 预留容量
-我们会分析你在过去 30 天内的 Azure Database for MariaDB、Azure Database for MySQL 和 Azure Database for PostgreSQL 使用模式，建议你购买可最大限度地节省成本的预留容量。 通过预留容量，可以预购买按小时计的 MariaDB、MySQL 和 PostgreSQL 使用量，节省更多成本。 预留容量是一项计费权益，它将自动应用于新部署或现有部署。 基于 3 年期预留定价并根据过去 30 天内的使用模式，计算各订阅成本节省的预估值。 通过购买预留可以获得共享范围建议，并且可以进一步提高成本节省。
+顾问会分析 Azure Database for MariaDB、Azure Database for MySQL 和 Azure Database for PostgreSQL 在过去 30 天内的使用模式， 然后建议可优化成本的预留容量购买量。 通过使用预留容量，可以预购买按小时计的 MariaDB、MySQL 和 PostgreSQL 使用量，从而节省当前成本。 预留容量是一项计费权益，它会自动应用于新部署和现有部署。 顾问基于 3 年期预留定价以及过去 30 天内观察到的使用模式计算各订阅的成本节省估算值。 共享范围建议适用于预留容量购买，并可提高成本节省。
 
-### <a name="synapse-analytics-formerly-sql-dw-reserved-capacity"></a>Synapse Analytics（以前称为 SQL DW）预留容量
-我们会分析你在过去 30 天内的 Azure Synapse Analytics 使用模式，建议你购买可以最大限度节省成本的预留容量。 通过使用预留容量，可以预购买 Synapse Analytics 按小时计的使用量，与按需成本相比节省更多成本。 预留容量是一项计费权益，它将自动应用于新部署或现有部署。 基于 3 年期预留定价并根据过去 30 天内观察到的使用模式，计算各订阅成本节省的预估值。 通过购买预留可以获得共享范围建议，并且可以进一步提高成本节省。
+### <a name="azure-synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Azure Synapse Analytics（以前称为 SQL 数据仓库）预留容量
+顾问会分析 Azure Synapse Analytics 在过去 30 天内的使用模式，并建议可优化成本的预留容量购买量。 通过使用预留容量，可以预购买按小时计的 Synapse Analytics 使用量，从而节省按需成本。 预留容量是一项计费权益，它会自动应用于新部署和现有部署。 顾问基于 3 年期预留定价以及过去 30 天内观察到的使用模式计算各订阅的成本节省估算值。 共享范围建议适用于预留容量购买，并可提高成本节省。
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>删除未关联的公共 IP 地址可节省资金
 
-顾问可以标识目前未关联到 Azure 资源（例如负载均衡器或 VM）的公共 IP 地址。 这些公共 IP 地址会产生少许费用。 如果不打算使用它们，删除它们可以节省成本。
+顾问可识别与负载均衡器和 VM 等 Azure 资源无关的公共 IP 地址。 这些公共 IP 地址会产生少许费用。 如果不打算使用它们，则可以通过删除它们来节省成本。
 
 ## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>删除将要发生故障的 Azure 数据工厂管道
 
-Azure 顾问会检测到反复发生故障的 Azure 数据工厂管道，并建议你解决问题，或者在不需要这些故障管道的情况下将其删除。 即使这些管道在发生故障时未为你提供服务，我们也会向你收取相关费用。 
+顾问会检测重复失败的 Azure 数据工厂管道， 并建议解决问题或在不需要时删除管道。 即使这些管道在发生故障时没有为你提供服务，我们也会向你收取相关费用。
+
+<!--Not available in MC: ## Use standard snapshots for managed disks-->
+## <a name="use-lifecycle-management"></a>使用生命周期管理
+通过使用有关 Azure Blob 存储对象计数、总大小和事务的情报，顾问可检测是否应启用生命周期管理来对一个或多个存储帐户上的数据执行分层。 它会提示你创建生命周期管理规则，以将数据自动分层到冷存储或存档存储，从而优化存储成本，并将数据保留在 Azure Blob 存储中来确保应用程序兼容性。
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>创建临时 OS 磁盘的建议
-使用[临时 OS 磁盘](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks)，客户可获得以下好处：节省 OS 磁盘的存储成本。 降低 OS 磁盘的读取/写入延迟。 通过将 OS（和临时磁盘）重置为其原始状态，加速 VM 重置映像操作。 对于生存期较短的 IaaS VM 或具有无状态工作负载的 VM，最好使用临时 OS 磁盘。 顾问对可利用临时 OS 磁盘的资源提出了建议。 
+借助[临时 OS 磁盘](../virtual-machines/ephemeral-os-disks.md)，你可以： 
+- 节省 OS 磁盘的存储成本。 
+- 降低 OS 磁盘的读取/写入延迟。 
+- 通过将 OS（和临时磁盘）重置为其原始状态，加速 VM 重置映像操作。
 
+对于生存期较短的 IaaS VM 或具有无状态工作负荷的 VM，最好使用临时 OS 磁盘。 顾问提供有关可从临时 OS 磁盘中受益的资源的建议。
+
+## <a name="reduce-azure-data-explorer-table-cache-period-policy-for-cluster-cost-optimization-preview"></a>缩短 Azure 数据资源管理器表缓存期（策略），实现群集成本优化（预览版）
+顾问会识别符合以下要求的资源：缩短表缓存策略将释放具有低 CPU 利用率、内存和高缓存大小配置的 Azure 数据资源管理器群集节点。
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>如何访问 Azure 顾问中的成本建议
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 在任意页面中搜索并选择[顾问](https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade)。
+1. 在任意页面中搜索并选择[顾问](https://aka.ms/azureadvisor_cn)。
 
 1. 在顾问仪表板中，选择“成本”选项卡 。
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 72ce260080f5baf28dc170088e1f4e21a4727f0a
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: f10c8f789e900a9a982a6bdf226b14ce0f2bea87
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021368"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395478"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure 机器学习的企业安全性
 
@@ -105,7 +105,6 @@ ms.locfileid: "90021368"
 
 Azure 机器学习依赖于其他 Azure 服务提供计算资源。 计算资源（计算目标）用于训练和部署模型。 可以在虚拟网络中创建这些计算目标。 例如，可以使用 Azure Data Science Virtual Machine 来训练模型，然后将模型部署到 AKS。  
 
-有关详细信息，请参阅[如何在独立的虚拟网络中安全地运行试验和推理](how-to-enable-virtual-network.md)。
 
 
 
@@ -119,7 +118,7 @@ Azure 机器学习依赖于其他 Azure 服务提供计算资源。 计算资源
 ### <a name="encryption-at-rest"></a>静态加密
 
 > [!IMPORTANT]
-> 如果工作区包含敏感数据，我们建议在创建工作区时设置 [hbi_workspace 标志](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)。 只能在创建工作区时设置 `hbi_workspace` 标志。 不能更改现有工作区的这个标志。
+> 如果工作区包含敏感数据，我们建议在创建工作区时设置 [hbi_workspace 标志](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)。 只能在创建工作区时设置 `hbi_workspace` 标志。 不能更改现有工作区的这个标志。
 
 `hbi_workspace` 标志控制 [Microsoft 为诊断而收集的数据](#microsoft-collected-data)量，并[在 Microsoft 托管环境中启用其他加密](../security/fundamentals/encryption-atrest.md)。 此外，该标志启用以下操作：
 
@@ -157,13 +156,14 @@ Azure 机器学习在 Azure Cosmos DB 实例中存储指标和元数据。 此�
     * `cmk_keyvault`：此参数是订阅中密钥保管库的资源 ID。 此密钥保管库位于要用于 Azure 机器学习工作区的同一区域和订阅中。 
     
         > [!NOTE]
-        > 此密钥保管库实例可能不同于在预配工作区时 Azure 机器学习创建的密钥保管库。 如果要对工作区使用相同的密钥保管库实例，请在使用 [key_vault 参数](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)预配工作区时传递相同的密钥保管库。 
+        > 此密钥保管库实例可能不同于在预配工作区时 Azure 机器学习创建的密钥保管库。 如果要对工作区使用相同的密钥保管库实例，请在使用 [key_vault 参数](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)预配工作区时传递相同的密钥保管库。 
 
-此 Cosmos DB 实例是在订阅的 Microsoft 托管资源组中创建的。 托管资源组的命名格式为 `<AML Workspace Resource Group Name><GUID>`。
+此 Cosmos DB 实例及其所需的全部资源是在订阅的 Microsoft 托管资源组中创建的。 托管资源组的命名格式为 `<AML Workspace Resource Group Name><GUID>`。 如果 Azure 机器学习工作区使用专用终结点，则还会为 Cosmos DB 实例创建一个虚拟网络。 此 VNet 用于保护 Cosmos DB 与 Azure 机器学习之间的通信。
 
 > [!IMPORTANT]
-> * 如果需要删除此 Cosmos DB 实例，则必须删除使用该实例的 Azure 机器学习工作区。 
-> * 此 Cosmos DB 帐户的默认[请求单位数](../cosmos-db/request-units.md)设置为“8000” 。 不支持更改此值。 
+> * 请勿删除包含此 Cosmos DB 实例的资源组，也不要删除此组中自动创建的任何资源。 如果需要删除该资源组和 Cosmos DB 实例等内容，必须删除使用它的 Azure 机器学习工作区。 删除与资源组、Cosmos DB 实例和其他自动创建的资源相关联的工作区时，这些资源都将被删除。
+> * 此 Cosmos DB 帐户的默认[请求单位数](../cosmos-db/request-units.md)设置为“8000” 。 不支持更改此值。
+> * 不能提供自己的 VNet 来与创建的 Cosmos DB 实例一起使用。 也不能修改虚拟网络。 例如，你不能更改它使用的 IP 地址范围。
 
 如果需要轮换或撤销密钥，则可以随时执行此操作。 轮换密钥时，Cosmos DB 将开始使用新密钥（最新版本）来加密静态数据。 撤消（禁用）密钥时，Cosmos DB 会处理失败的请求。 轮换或撤消操作通常需要一小时才能生效。
 
@@ -197,7 +197,7 @@ Azure 机器学习在 Azure Cosmos DB 实例中存储指标和元数据。 此�
 
 有关如何创建和使用部署配置的详细信息，请参阅以下文章：
 
-* [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) 参考
+* [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) 参考
 * [部署方式和位置](how-to-deploy-and-where.md)
 * [将模型部署到 Azure 容器实例](how-to-deploy-azure-container-instance.md)
 
@@ -218,9 +218,6 @@ Azure 存储中存储的每个计算节点的 OS 磁盘，已通过 Azure 机器
 
 每个虚拟机还包含一个本地临时磁盘用于 OS 操作。 如果需要，可以使用该磁盘来暂存训练数据。 对于其 `hbi_workspace` 参数设置为 `TRUE` 的工作区，默认会加密磁盘。 此环境仅在运行期间短暂存在，加密支持仅限于系统管理的密钥。
 
-#### <a name="azure-databricks"></a>Azure Databricks
-
-Azure Databricks 可在 Azure 机器学习管道中使用。 默认情况下，Azure Databricks 使用的 Databricks 文件系统 (DBFS) 使用 Microsoft 托管密钥进行加密。 若要将 Azure Databricks 配置为使用客户管理的密钥，请参阅[在默认（根）DBFS 上配置客户管理的密钥](/azure/databricks/security/customer-managed-keys-dbfs)。
 
 ### <a name="encryption-in-transit"></a>传输中加密
 
@@ -246,7 +243,7 @@ Azure HDInsight 等计算目标和 VM 的 SSH 密码与密钥存储在与 Micros
 
 Microsoft 可能会收集非用户标识信息，如资源名称（例如数据集名称或机器学习试验名称）或用于诊断的作业环境变量。 所有此类数据都使用 Microsoft 托管密钥存储在 Microsoft 拥有的订阅中托管的存储中，并遵循 [Microsoft 的标准隐私策略和数据处理标准](https://privacy.microsoft.com/privacystatement)。
 
-Microsoft 还建议不要在环境变量中存储敏感信息（如帐户密钥机密）。 我们会记录、加密和存储环境变量。 同样，为 [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) 命名时，请避免包含用户名或机密项目名称等敏感信息。 此信息可能会出现在可供 Microsoft 支持部门工程师访问的遥测日志中。
+Microsoft 还建议不要在环境变量中存储敏感信息（如帐户密钥机密）。 我们会记录、加密和存储环境变量。 同样，为 [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) 命名时，请避免包含用户名或机密项目名称等敏感信息。 此信息可能会出现在可供 Microsoft 支持部门工程师访问的遥测日志中。
 
 预配工作区时，可以通过将 `hbi_workspace` 参数设置为 `TRUE` 来选择退出收集诊断数据。 使用 AzureML Python SDK、CLI、REST API 或 Azure 资源管理器模板时支持此功能。
 
@@ -266,7 +263,7 @@ Microsoft 还建议不要在环境变量中存储敏感信息（如帐户密钥�
 
 指标包含有关运行、部署和注册的信息。
 
-有关详细信息，请参阅 [Azure Monitor 中的指标](/azure/azure-monitor/platform/data-platform-metrics)。
+有关详细信息，请参阅 [Azure Monitor 中的指标](/azure-monitor/platform/data-platform-metrics)。
 
 ### <a name="activity-log"></a>活动日志
 
@@ -367,6 +364,5 @@ Microsoft 还建议不要在环境变量中存储敏感信息（如帐户密钥�
 * [使用 TLS 保护 Azure 机器学习 Web 服务](how-to-secure-web-service.md)
 * [使用部署为 Web 服务的机器学习模型](how-to-consume-web-service.md)
 * [将 Azure 机器学习与 Azure 防火墙配合使用](how-to-access-azureml-behind-firewall.md)
-* [通过 Azure 虚拟网络使用 Azure 机器学习](how-to-enable-virtual-network.md)
 * [有关构建建议系统的最佳实践](https://github.com/Microsoft/Recommenders)
 * [在 Azure 上生成实时建议 API](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

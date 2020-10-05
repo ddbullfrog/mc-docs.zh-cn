@@ -1,8 +1,7 @@
 ---
-title: 快速入门：创建配置文件以实现应用程序的高可用性 - Azure PowerShell - Azure 流量管理器
+title: 快速入门 - 创建配置文件以实现应用程序的高可用性 - Azure PowerShell - Azure 流量管理器
 description: 本快速入门文章介绍如何创建流量管理器配置文件，以生成高度可用的 Web 应用程序。
 services: traffic-manager
-author: rockboyfor
 mnager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -10,15 +9,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/04/2019
-ms.date: 02/24/2020
+origin.date: 08/25/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 23a0b3d96302b924d2c6b0af478737ff392fb0f2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2376164639c3c66edbeccfc0b53d7a4150e0d455
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653065"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395427"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建流量管理器配置文件以实现 Web 应用程序的高可用性
 
@@ -30,7 +32,7 @@ ms.locfileid: "77653065"
 
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 
 ## <a name="create-a-resource-group"></a>创建资源组。
 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组。
@@ -67,7 +69,7 @@ New-AzTrafficManagerProfile `
 
 ## <a name="create-web-apps"></a>创建 Web 应用
 
-本快速入门需要两个部署在两个不同的 Azure 区域（中国北部和中国东部）的 Web 应用程序实例。   每个都可以充当流量管理器的主终结点和故障转移终结点。
+本快速入门需要两个部署在两个不同的 Azure 区域（中国北部和中国东部）的 Web 应用程序实例。**** 每个都可以充当流量管理器的主终结点和故障转移终结点。
 
 ### <a name="create-web-app-service-plans"></a>创建 Web 应用服务计划
 使用 [New-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/new-azappserviceplan) 为要部署在两个不同 Azure 区域中的两个 Web 应用程序实例创建 Web 应用服务计划。
@@ -86,7 +88,7 @@ New-AzAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName MyResourceGroup -
 
 ```
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>在应用服务计划中创建 Web 应用
-在应用服务计划中使用 [New-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/new-azwebapp) 在“中国北部”和“中国东部”Azure 区域中创建 Web 应用程序的两个实例。  
+在应用服务计划中使用 [New-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/new-azwebapp) 在“中国北部”和“中国东部”Azure 区域中创建 Web 应用程序的两个实例。****
 
 ```powershell
 $App1ResourceId=(New-AzWebApp -Name $App1Name -ResourceGroupName MyResourceGroup -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
@@ -96,8 +98,8 @@ $App2ResourceId=(New-AzWebApp -Name $App2Name -ResourceGroupName MyResourceGroup
 
 ## <a name="add-traffic-manager-endpoints"></a>添加流量管理器终结点
 使用 [New-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) 将两个 Web 应用作为流量管理器终结点添加到流量管理器配置文件，如下所示：
-- 将“中国北部”Azure 区域中的 Web 应用添加为主要终结点，以路由所有用户流量。  
-- 将“中国东部”Azure 区域中的 Web 应用添加为故障转移终结点。  当主终结点不可用时，流量自动路由到故障转移终结点。
+- 将“中国北部”Azure 区域中的 Web 应用添加为主要终结点，以路由所有用户流量。** 
+- 将“中国东部”Azure 区域中的 Web 应用添加为故障转移终结点。** 当主终结点不可用时，流量自动路由到故障转移终结点。
 
 ```powershell
 New-AzTrafficManagerEndpoint -Name "$App1Name-$Location1" `
@@ -144,7 +146,7 @@ Get-AzTrafficManagerProfile -Name $mytrafficmanagerprofile `
     -ResourceGroupName MyResourceGroup `
     -Force
     ```
-3. 复制流量管理器配置文件的 DNS 名称 (http://<relativednsname>.trafficmanager.cn)，以在新的 Web 浏览器会话中查看该网站。  
+3. 复制流量管理器配置文件的 DNS 名称 (http://<relativednsname>.trafficmanager.cn)，以在新的 Web 浏览器会话中查看该网站。 
 4. 验证 Web 应用是否仍然可用。
 
 ## <a name="clean-up-resources"></a>清理资源

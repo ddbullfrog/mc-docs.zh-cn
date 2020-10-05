@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/26/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45178ed496ab5c2443ca925d6dd6134ec0cbefe9
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 309f6b9db527a9e97093cf49db64830357167418
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947624"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245318"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>快速入门：为 Azure Active Directory 中的组命名策略
 
@@ -33,7 +33,7 @@ ms.locfileid: "88947624"
 
 ## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>在 Azure 门户中配置组命名策略
 
-1. 使用用户管理员帐户登录到 [Azure AD 管理中心](https://portal.azure.cn)。
+1. 使用用户管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
 1. 选择“组”，然后选择“命名策略”，以便打开“命名策略”页。  
 
     ![在管理中心打开“命名策略”页](./media/groups-naming-policy/policy.png)
@@ -68,7 +68,7 @@ ms.locfileid: "88947624"
 
 本快速入门介绍了如何通过 Azure 门户设置 Azure AD 组织的命名策略。
 
-请转到下一篇文章以获取详细信息，包括用于命名策略的 PowerShell cmdlet、技术限制、添加自定义阻止字词的列表，以及跨 Office 365 应用的最终用户体验。
+请转到下一篇文章以获取详细信息，包括用于命名策略的 PowerShell cmdlet、技术限制、添加自定义阻止字词的列表，以及跨 Microsoft 365 应用的最终用户体验。
 > [!div class="nextstepaction"]
 > [命名策略 PowerShell](groups-naming-policy.md)
 

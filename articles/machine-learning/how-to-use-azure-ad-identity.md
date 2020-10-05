@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 7024d0545cbb7fdd9daa9c2cac63d8f6a2d383ca
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: ac341d99647cbe4431010f887704361fd3b1c6d2
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021516"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395485"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>对 Azure Kubernetes 服务中的机器学习 Web 服务使用 Azure AD 标识
 
@@ -23,7 +23,7 @@ ms.locfileid: "90021516"
 
 ## <a name="prerequisites"></a>先决条件
 
-- [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
+- [机器学习服务的 Azure CLI 扩展](reference-azure-machine-learning-cli.md)、[用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 或 [Azure 机器学习 Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)。
 
 - 使用 `kubectl` 命令访问 AKS 群集。 有关详细信息，请参阅[连接到群集](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
 
@@ -152,7 +152,7 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> 本例使用 DefaultAzureCredential。 若要使用特定访问策略授予标识访问权限，请参阅[第 4 部分：从 Azure Key Vault 中检索机密](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python)。
+> 本例使用 DefaultAzureCredential。 若要使用特定访问策略向标识授予访问权限，请参阅[使用 Azure CLI 分配密钥保管库访问策略](/key-vault/general/assign-access-policy-cli)。
 
 ### <a name="access-blob-from-your-web-service"></a>从 Web 服务访问 Blob
 

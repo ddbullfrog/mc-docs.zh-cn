@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 3/18/2020
-ms.date: 06/01/2020
-ms.openlocfilehash: eb2460d2ef5c2d47c4314db4beedd3c10d29f438
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.date: 09/28/2020
+ms.openlocfilehash: b2d39ef44cd23125184ce88c428ddb967601870d
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199697"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395425"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的安全性
 
@@ -24,7 +24,7 @@ ms.locfileid: "84199697"
 Azure Database for MySQL 使用传输层安全性来加密动态数据，通过这种方式来保护数据。 默认情况下，强制实施加密 (SSL/TLS)。
 
 ### <a name="at-rest"></a>静态
-Azure Database for MySQL 服务使用 FIPS 140-2 验证的加密模块对静态数据进行存储加密。 数据（包括备份）在磁盘上加密，运行查询时创建的临时文件除外。 该服务使用包含在 Azure 存储加密中的 AES 256 位密码，并且密钥由系统进行管理。 存储加密始终处于启用状态，无法禁用。
+Azure Database for MySQL 服务使用 FIPS 140-2 验证的加密模块对静态数据进行存储加密。 数据（包括备份）在磁盘上加密，包括运行查询时创建的临时文件。 该服务使用包含在 Azure 存储加密中的 AES 256 位密码，并且密钥由系统进行管理。 存储加密始终处于启用状态，无法禁用。
 
 
 ## <a name="network-security"></a>网络安全性

@@ -4,13 +4,13 @@ description: 了解 Azure VM 中 SQL Server 的软删除以及 Azure VM 工作�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 06/09/2020
-ms.openlocfilehash: 963e5e7d028e065c2339af33696d92a82d884ada
-ms.sourcegitcommit: 285649db9b21169f3136729c041e4d04d323229a
+ms.date: 09/22/2020
+ms.openlocfilehash: 0455513925e431dfda3750b6f383d265f84df794
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84685437"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402374"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Azure VM 中 SQL Server 的软删除和 Azure VM 工作负荷中 SAP HANA 的软删除
 
@@ -19,7 +19,7 @@ Azure 备份现在为 Azure VM 中的 SQL Server 和 Azure VM 工作负荷中的
 [软删除](backup-azure-security-feature-cloud.md)是一项可帮助保护备份数据的安全功能，即使删除了备份数据，也能予以恢复。 在使用软删除的情况下，即使恶意行动者删除了数据库的备份（或用户意外删除了备份数据），备份数据也会再保留 14 天。 这样就可以恢复该备份项，而不会丢失数据。 以“软删除”状态将备份数据额外保留 14 天不会向客户收取任何费用。
 
 >[!NOTE]
->为某个订阅启用预览版后，就不可能仅对 SQL Server 或 SAP HANA DB 禁用软删除，而仍为同一保管库中的虚拟机保留软删除的启用状态。 可以创建单独的保管库以进行精细控制。
+>为某个订阅启用预览后，不能仅对 SQL Server 或 SAP HANA DB 禁用软删除，而仍对同一保管库中的虚拟机启用软删除。 可以创建单独的保管库以进行精细控制。
 
 ## <a name="steps-to-enroll-in-preview"></a>预览版注册步骤
 
@@ -64,7 +64,7 @@ Azure 备份现在为 Azure VM 中的 SQL Server 和 Azure VM 工作负荷中的
 >[!NOTE]
 >这些说明也适用于 Azure VM 中的 SAP HANA。
 
-1. 若要删除 SQL Server 中数据库的备份数据，必须停止备份。 在 Azure 门户中转到你的恢复服务保管库，转到备份项，然后选择“停止备份”****。
+1. 若要删除 SQL Server 中数据库的备份数据，必须停止备份。 在 Azure 门户中，转到恢复服务保管库，转到备份项，然后选择“停止备份”。
 
    ![停止备份](./media/soft-delete-sql-saphana-in-azure-vm/stop-backup.png)
 
@@ -101,7 +101,7 @@ Azure 备份现在为 Azure VM 中的 SQL Server 和 Azure VM 工作负荷中的
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>使用 Azure PowerShell 删除备份项
 
-使用 [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet 删除备份项。
+使用 [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PowerShell cmdlet 删除备份项。
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -111,7 +111,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoint
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>使用 Azure PowerShell 撤销删除操作
 
-首先，获取处于软删除状态（即将删除）的相关备份项。
+首先，提取处于软删除状态（也就是即将删除）的相关备份项。
 
 ```powershell
 Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
@@ -119,7 +119,7 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-然后，使用 [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.8.0) PS cmdlet 执行撤消-删除操作。
+然后，使用 [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PowerShell cmdlet 执行撤消删除操作。
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

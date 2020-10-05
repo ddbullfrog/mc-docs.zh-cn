@@ -1,29 +1,30 @@
 ---
 title: 如何替换磁带基础结构
 description: 了解 Azure 备份如何提供类似于磁带的语义，让你在 Azure 中备份和还原数据
-author: lingliw
-manager: digimobile
 ms.topic: conceptual
 origin.date: 04/30/2017
-ms.date: 09/23/2019
-ms.author: v-lingwu
-ms.openlocfilehash: b91fb95ea7b1fffcaac5cdd8295e1db0fedeec41
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+author: Johnnytechn
+ms.date: 09/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 0d3f7d6900daa1731f3c102c738f1c09a43971f4
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77497555"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402455"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>将长期存储从磁带移动到 Azure 云
+
 Azure 备份和 System Center Data Protection Manager 客户可以：
 
 * 按照最适合组织需求的计划备份数据
-* 长期保留备份数据
+* 长期保留备份数据。
 * 使用 Azure（而不是磁带）解决其长期保留数据的需求。
 
 本文介绍客户如何启用备份和保留策略。 使用磁带解决长期数据保留需求的客户现在可以使用一种强大而可行并且同样提供此功能的替代解决方案。 最新版本的 Azure 备份（可从[此处](https://aka.ms/azurebackup_agent)获取）中已启用该功能。 System Center DPM 客户必须在使用具有 Azure 备份服务的 DPM 之前至少更新到 DPM 2012 R2 UR5。
 
 ## <a name="what-is-the-backup-schedule"></a>什么是备份计划？
+
 备份计划指示备份操作的频率。 例如，下面屏幕中的设置表示要在每天下午 6 点和午夜执行备份。
 
 ![每日计划](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
@@ -33,19 +34,21 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 ![每周计划](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
 
 ## <a name="what-is-the-retention-policy"></a>什么是保留策略？
+
 保留策略指定备份必须存储的时间长短。 客户可以根据备份的创建时间指定不同的保留策略，而不只是为所有备份点指定一个“通用的策略”。 例如，每天创建的备份点（用作操作恢复点）可以保留 90 天。 在每个季度结束时针对审核用途创建的备份点可以保留更长时间。
 
 ![保留策略](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
 此策略中指定的“保留点”总数为 90（每日点数）+ 40（10 年内每个季度为一点）= 130。
 
-## <a name="example--putting-both-together"></a>示例 � 组合策略
+## <a name="example---putting-both-together"></a>示例 - 组合策略
+
 ![示例屏幕](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **每日保留策略**：每日创建的备份存储 7 天。
-2. **每周保留策略**：每天午夜和星期六下午 6 点创建的备份保留 4 周
-3. **每月保留策略**：每个月最后一个星期六午夜和下午 6 点创建的备份保留 12 个月
-4. **每年保留策略**：每年三月最后一个星期六午夜执行的备份保留 10 年
+2. **每周保留策略**：午夜和星期六下午 6 点创建的备份保留 4 周。
+3. **每月保留策略**：每个月最后一个星期六午夜和下午 6 点创建的备份保留 12 个月。
+4. **每年保留策略**：每年三月最后一个星期六午夜创建的备份保留 10 年。
 
 上图中“保留点”总数（客户可从中还原数据的恢复点）计算方法如下：
 
@@ -62,12 +65,14 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 
 ## <a name="advanced-configuration"></a>高级配置
 
-通过单击上述屏幕中的“**修改**”，客户可以进一步灵活指定保留计划。
+通过选择上述屏幕中的“修改”，客户可以进一步灵活指定保留计划。
 
-![修改](./media/backup-azure-backup-cloud-as-tape/modify.png)
+![修改策略窗口](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
 ## <a name="next-steps"></a>后续步骤
 
 关于 Azure 备份的详细信息，请参阅：
 
-* [Azure 备份简介](backup-introduction-to-azure-backup.md)
+* [Azure 备份简介](./backup-overview.md)
+* [尝试 Azure 备份](./backup-windows-with-mars-agent.md)
+

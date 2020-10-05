@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 10/08/2019
 ms.date: 02/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: 3516162ebfce1a4a93870dab1bfa3e58b3a4547a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 19aa64cdcc4a7265df75e98913ee0a21706e5c69
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77068292"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394759"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 设备 SDK 平台支持
 
@@ -125,7 +125,7 @@ Microsoft 与许多合作伙伴合作，通过 Azure IoT 测试和认证的设�
 
 ## <a name="support-and-other-resources"></a>支持和其他资源
 
-如果在使用 Azure IoT 设备 SDK 时遇到问题，可以通过多种方式来寻求支持。 可尝试使用以下渠道之一：
+如果在使用 Azure IoT 设备 SDK 时遇到问题，可通过以下总结的多种方式寻求支持。 
 
 **报告 bug** – 可在相关 GitHub 项目的“问题”页上报告设备 SDK 中的 Bug。 修复很快就会从项目实施到产品更新中。
 

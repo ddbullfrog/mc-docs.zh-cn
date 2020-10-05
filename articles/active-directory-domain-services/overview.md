@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/21/2020
 ms.author: v-junlch
 ms.custom: contperfq1
-ms.openlocfilehash: 2cd7ff37e5d3dd086aaf02ac3d5ac4585763f6ee
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 1418873552efb2a5e794700355b2b64616d9b9c6
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715170"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402540"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>什么是 Azure Active Directory 域服务？
 
@@ -97,7 +97,6 @@ Azure AD DS 的以下功能简化了部署和管理操作：
 [synchronization]: synchronization.md
 [tutorial-create]: tutorial-create-instance.md
 [password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md
-[forest-trusts]: concepts-resource-forest.md
 [administration-concepts]: administration-concepts.md
 [synchronization]: synchronization.md
 [concepts-replica-sets]: concepts-replica-sets.md

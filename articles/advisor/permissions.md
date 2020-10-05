@@ -2,18 +2,19 @@
 title: Azure 顾问中的权限
 description: 介绍顾问权限以及如何通过这些权限来阻止用户配置订阅或者推迟或取消建议。
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 09/22/2020
 origin.date: 04/03/2019
-ms.openlocfilehash: 6eeeffb60222c32889049bc45e84b054ec591114
-ms.sourcegitcommit: b81ea2ab9eafa986986fa3eb1e784cfe9bbf9ec1
+ms.author: v-johya
+ms.openlocfilehash: ac55849bb1ef28eb7da94bfceb911dd6b2303232
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83367813"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402662"
 ---
 # <a name="permissions-in-azure-advisor"></a>Azure 顾问中的权限
 
-Azure 顾问根据 Azure 资源和订阅的使用情况和配置来提供建议。 顾问使用[基于角色的访问控制](https://docs.azure.cn/role-based-access-control/overview) (RBAC) 提供的[内置角色](https://docs.azure.cn/role-based-access-control/built-in-roles)来管理你对建议和顾问功能的访问。 
+Azure 顾问根据 Azure 资源和订阅的使用情况和配置来提供建议。 顾问使用[基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md) 提供的[内置角色](../role-based-access-control/built-in-roles.md)来管理你对建议和顾问功能的访问。 
 
 ## <a name="roles-and-their-access"></a>角色及其访问权限
 
@@ -40,15 +41,16 @@ Azure 顾问根据 Azure 资源和订阅的使用情况和配置来提供建议�
 
 ### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>无法配置订阅或资源组
 
-尝试在顾问中配置订阅或资源组时，可能会看到“包括”或“排除”选项已禁用。 此状态表明你对该资源组或订阅没有足够级别的权限。 若要解决此问题，请了解如何[授予用户访问权限](https://docs.azure.cn/role-based-access-control/quickstart-assign-role-user-portal)。
+尝试在顾问中配置订阅或资源组时，可能会看到“包括”或“排除”选项已禁用。 此状态表明你对该资源组或订阅没有足够级别的权限。 若要解决此问题，请了解如何[授予用户访问权限](../role-based-access-control/quickstart-assign-role-user-portal.md)。
 
 ### <a name="unable-to-postpone-or-dismiss-a-recommendation"></a>无法推迟或取消建议
 
-如果在尝试推迟或取消建议时收到错误，可能是因为你没有足够的权限。 请确保你至少对要推迟或取消的建议所影响的资源具有参与者访问权限。 若要解决此问题，请了解如何[授予用户访问权限](https://docs.azure.cn/role-based-access-control/quickstart-assign-role-user-portal)。
+如果在尝试推迟或取消建议时收到错误，可能是因为你没有足够的权限。 请确保你至少对要推迟或取消的建议所影响的资源具有参与者访问权限。 若要解决此问题，请了解如何[授予用户访问权限](../role-based-access-control/quickstart-assign-role-user-portal.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
 本文概述了顾问如何使用 RBAC 来控制用户权限以及如何解决常见问题。 若要详细了解顾问，请参阅以下资源：
 
-- [什么是 Azure 顾问？](https://docs.azure.cn/advisor/advisor-overview)
-- [Azure 顾问入门](https://docs.azure.cn/advisor/advisor-get-started)
+- [什么是 Azure 顾问？](./advisor-overview.md)
+- [Azure 顾问入门](./advisor-get-started.md)
+

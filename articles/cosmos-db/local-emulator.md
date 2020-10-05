@@ -3,18 +3,19 @@ title: 使用 Azure Cosmos 模拟器在本地开发
 description: 利用 Azure Cosmos 模拟器，无需创建 Azure 订阅即可在本地免费开发和测试应用程序。
 ms.service: cosmos-db
 ms.topic: how-to
+origin.date: 08/19/2020
 author: rockboyfor
-origin.date: 01/31/2020
-ms.date: 08/17/2020
-ms.testscope: no
-ms.testdate: ''
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8efff2210fb39d7f2db18ba2b5ce9686e4feb346
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b2f72370e9957e74d20c2d3c906ca4b7e4203dc6
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223438"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246812"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模拟器进行本地开发和测试
 
@@ -38,6 +39,7 @@ Azure Cosmos 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它�
 
 * 目前，模拟器中的数据资源管理器支持 SQL API 的客户端。 不完全支持在数据资源管理器查看和操作 Azure Cosmos DB API，例如 MongoDB API、表 API、Graph API 和 Cassandra API。
 * Azure Cosmos 模拟器只支持单一固定帐户和公开的主密钥。 不可在 Azure Cosmos 模拟器中重新生成密钥，但可使用命令行选项更改默认密钥。
+* Azure Cosmos 模拟器支持[预配吞吐量](set-throughput.md)模式下的 Azure Cosmos 帐户；它目前不支持[无服务器](serverless.md)模式下的 Azure Cosmos 帐户。
 * Azure Cosmos 模拟器是一项不可伸缩的服务，不支持大量容器。
 * Azure Cosmos 模拟器只提供一种 [Azure Cosmos DB 一致性级别](consistency-levels.md)。
 * Azure Cosmos 模拟器不提供[多区域复制](distribute-data-globally.md)。
@@ -71,7 +73,7 @@ Azure Cosmos 模拟器具有以下硬件和软件要求：
 
 运行模拟器时，在 Windows 任务栏通知区域中会显示一个图标。 
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Azure Cosmos DB 本地模拟器任务栏通知":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="选择“开始”按钮或按 Windows 键，开始键入“Azure Cosmos 模拟器”，再从应用程序列表中选择该模拟器":::
 
 默认情况下，Azure Cosmos 模拟器在本地计算机（“localhost”）上运行，侦听端口 8081。
 
@@ -81,7 +83,7 @@ Azure Cosmos 模拟器默认安装到 `C:\Program Files\Azure Cosmos DB Emulator
 
 Azure Cosmos 模拟器启动时，会在浏览器中自动打开 Azure Cosmos 数据资源管理器。 地址显示为 `https://localhost:8081/_explorer/index.html`。 如果关闭了资源管理器且稍后想要重新打开它，可在浏览器中打开 URL，或者通过 Windows 托盘图标中的 Azure Cosmos 模拟器进行启动，如下所示。
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Azure Cosmos 本地模拟器数据资源管理器启动器":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="选择“开始”按钮或按 Windows 键，开始键入“Azure Cosmos 模拟器”，再从应用程序列表中选择该模拟器":::
 
 ## <a name="checking-for-updates"></a>检查更新
 
@@ -117,12 +119,13 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 
 ### <a name="sql-api"></a>SQL API
 
-在桌面上运行 Azure Cosmos 模拟器后，可使用任意受支持的 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 与模拟器进行交互。 Azure Cosmos 模拟器还包括内置数据资源管理器，它让你无需编写任何代码即可为 SQL API 创建容器（或为 Mongo DB API 创建 Cosmos DB）并查看和编辑项目。
+在桌面上运行 Azure Cosmos 模拟器后，可使用任意受支持的 [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) 或 [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 与模拟器进行交互。 Azure Cosmos 模拟器还包括内置数据资源管理器，它让你无需编写任何代码即可为 SQL API 创建容器（或为 Mongo DB API 创建 Cosmos DB）并查看和编辑项目。
 
 ```csharp
 // Connect to the Azure Cosmos Emulator running locally
-DocumentClient client = new DocumentClient(
-   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+CosmosClient client = new CosmosClient(
+   "https://localhost:8081", 
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 ```
 
@@ -227,7 +230,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 为了获得用于语言和运行时（未与 Windows 证书存储集成）的证书，需要通过 Windows 证书管理器将其导出。 可通过运行 certlm.msc 进行启动，也可按照[导出 Azure Cosmos 模拟器证书](./local-emulator-export-ssl-certificates.md)中的分步说明进行操作。 证书管理器开始运行后，打开个人证书（如下所示），并将友好名称为“DocumentDBEmulatorCertificate”的证书导出为 BASE-64 编码的 X.509 (.cer) 文件。
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-ssl_certificate.png" alt-text="Azure Cosmos DB 本地模拟器 TLS/SSL 证书":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-ssl_certificate.png" alt-text="选择“开始”按钮或按 Windows 键，开始键入“Azure Cosmos 模拟器”，再从应用程序列表中选择该模拟器":::
 
 可按照[将证书添加到 Java CA 证书存储](https://docs.azure.cn/java/java-sdk-add-certificate-ca-store?view=azure-java-stable)中的说明，将 X.509 证书导入 Java 证书存储。 证书导入证书存储后，SQL 和 MongoDB 的 Azure Cosmos DB API 的客户端就能连接到 Azure Cosmos 模拟器。
 
@@ -239,7 +242,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 ## <a name="command-line-tool-reference"></a>命令行工具参考
 从安装位置中，可以使用命令行启动和停止模拟器、配置选项和执行其他操作。
 
-### <a name="command-line-syntax"></a>命令行语法
+### <a name="command-line-syntax"></a><a name="command-line-syntax"></a>命令行语法
 
 ```cmd
 Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
@@ -328,7 +331,7 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 `Get-CosmosDbEmulatorStatus`
 
-**注释**
+**备注**
 
 返回以下 ServiceControllerStatus 值之一：ServiceControllerStatus.StartPending、ServiceControllerStatus.Running 或 ServiceControllerStatus.Stopped。
 
@@ -338,7 +341,7 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
-**注释**
+**备注**
 
 启动模拟器。 默认情况下，此命令会一直等待，直至模拟器做好接受请求的准备。 如果希望 cmdlet 在启动模拟器后立即返回，请使用 -NoWait 选项。
 
@@ -348,7 +351,7 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 `Stop-CosmosDbEmulator [-NoWait]`
 
-**注释**
+**备注**
 
 停止模拟器。 默认情况下，此命令会一直等待，直至模拟器完全关闭。 如果希望 cmdlet 在模拟器开始关闭后立即返回，请使用 -NoWait 选项。
 
@@ -358,12 +361,12 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
-**注释**
+**备注**
 
 卸载模拟器，并可视需要删除 $env:LOCALAPPDATA\CosmosDbEmulator 的完整内容。
 此 cmdlet 可确保在卸载模拟器之前，模拟器已停止。
 
-## <a name="running-on-docker"></a>在 Docker 上运行
+## <a name="running-on-docker"></a><a name="running-on-docker"></a>在 Docker 上运行
 
 可在用于 Windows 的 Docker 上运行 Azure Cosmos 模拟器。 该模拟器不适合于用于 Oracle Linux 的 Docker。
 
@@ -435,7 +438,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 
 ## <a name="running-on-mac-or-linux"></a>在 Mac 或 Linux 上运行<a name="mac"></a>
 
-目前 Cosmos 模拟器只能在 Windows 上运行。 运行 Mac 或 Linux 的用户可以在托管虚拟机监控程序（如 Parallels 或 VirtualBox）的 Windows 虚拟机中运行模拟器。 以下是启用此功能的步骤。
+目前 Cosmos 模拟器只能在 Windows 上运行。 运行 Mac 或 Linux 的用户可以在虚拟机监控程序（例如 Parallels 或 VirtualBox）中托管的 Windows 虚拟机中运行模拟器。 以下是启用此功能的步骤。
 
 在 Windows VM 中运行以下命令并记下 IPv4 地址。
 
@@ -451,7 +454,70 @@ ipconfig.exe
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-最后，我们需要将模拟器 CA 证书导入到 Linux 或 Mac 环境中。
+最后，我们需要解决在 Linux 或 Mac 环境中运行的应用程序与模拟器之间的证书信任过程问题。 有两种做法：
+
+1. 在应用程序中禁用 SSL 验证：
+
+# <a name="net-standard-21"></a>[.NET Standard 2.1+](#tab/ssl-netstd21)
+
+   对于在与 .NET Standard 2.1 或更高版本兼容的框架中运行的任何应用程序，我们可以利用 `CosmosClientOptions.HttpClientFactory`：
+
+   ```csharp
+   CosmosClientOptions cosmosClientOptions = new CosmosClientOptions()
+   {
+       HttpClientFactory = () =>
+       {
+           HttpMessageHandler httpMessageHandler = new HttpClientHandler()
+           {
+               ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+           };
+
+           return new HttpClient(httpMessageHandler);
+       },
+       ConnectionMode = ConnectionMode.Gateway
+   };
+
+   CosmosClient client = new CosmosClient(endpoint, authKey, cosmosClientOptions);
+
+   ```
+
+# <a name="net-standard-20"></a>[.NET Standard 2.0](#tab/ssl-netstd20)
+
+   对于在与 .NET Standard 2.0 兼容的框架中运行的任何应用程序，我们可以利用 `CosmosClientOptions.HttpClientFactory`：
+
+   ```csharp
+   CosmosClientOptions cosmosClientOptions = new CosmosClientOptions()
+   {
+       HttpClientFactory = () =>
+       {
+           HttpMessageHandler httpMessageHandler = new HttpClientHandler()
+           {
+               ServerCertificateCustomValidationCallback = (req, cert, chain, errors) => true
+           };
+
+           return new HttpClient(httpMessageHandler);
+       },
+       ConnectionMode = ConnectionMode.Gateway
+   };
+
+   CosmosClient client = new CosmosClient(endpoint, authKey, cosmosClientOptions);
+
+   ```
+
+# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
+
+   对于 Node.js 应用程序，可以在启动应用程序时修改 `package.json` 文件以设置 `NODE_TLS_REJECT_UNAUTHORIZED`：
+
+   ```json
+   "start": NODE_TLS_REJECT_UNAUTHORIZED=0 node app.js
+   ```
+
+--- 
+
+> [!NOTE]
+> 建议仅出于开发目的禁用 SSL 验证，并且在生产环境中运行时不应这样做。
+
+2. 将模拟器 CA 证书导入到 Linux 或 Mac 环境中：
 
 ### <a name="linux"></a>Linux
 
@@ -493,11 +559,11 @@ Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7
 
 1. 打开该特定项的上下文菜单，选择“获取项”，然后在“信任” > “使用此证书时”选项下选择“始终信任”。   
 
-    :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="打开该特定项的上下文菜单，选择“获取项”，然后在“信任 - 使用此证书时”选项下选择“始终信任”":::
+    :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="选择“开始”按钮或按 Windows 键，开始键入“Azure Cosmos 模拟器”，再从应用程序列表中选择该模拟器":::
 
 完成这些步骤后，当连接到通过 `/AllowNetworkAccess` 公开的 IP 地址时，你的环境将信任模拟器使用的证书。
 
-## <a name="troubleshooting"></a>疑难解答
+## <a name="troubleshooting"></a>故障排除
 
 使用以下提示来帮助解决使用 Azure Cosmos 模拟器时遇到的问题：
 
@@ -515,15 +581,17 @@ Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7
 
 - 如果收到“服务不可用”消息，模拟器可能无法初始化网络堆栈。 请查看是否安装了 Pulse 安全客户端或 Juniper 网络客户端，因为其网络筛选器驱动程序可能会导致该问题。 卸载第三方网络筛选器驱动程序通常可修复此问题。 或者，使用 /DisableRIO 启动模拟器，这会将模拟器网络通信切换到常规 Winsock。 
 
+- 如果遇到“禁止”-“消息”：“正在使用传输协议或密码中禁止的加密方法发出请求。请检查帐户 SSL/TLS 允许的最低协议设置...”连接问题，这可能是由 OS 中的多区域更改（例如，Insider Preview 版本 20170）或启用 TLS 1.3 作为默认值的浏览器设置导致的。 使用 SDK 对 Cosmos 模拟器执行请求时，可能会发生类似错误，例如“Microsoft.Azure.Documents.DocumentClientException:正在使用传输协议或密码中禁止的加密方法发出请求。请检查帐户 SSL/TLS 允许的最低协议设置”。 此时这是预期情况，因为 Cosmos 模拟器仅接受并使用 TLS 1.2 协议。 建议的解决方法是将设置和默认值更改为 TLS 1.2；例如，在 IIS 管理器中，导航到“站点”->“默认网站”，找到端口 8081 的“网站绑定”并进行编辑，以禁用 TLS 1.3。 可以通过“设置”选项对 Web 浏览器执行类似操作。
+
 - 在模拟器运行时，如果计算机进入了睡眠模式或运行了任何 OS 更新，则你可能会看到“服务当前不可用”消息。 请右键单击 Windows 通知托盘中显示的图标，再选择“重置数据”来重置模拟器的数据。
 
 <a name="trace-files"></a>
 ### <a name="collect-trace-files"></a>收集跟踪文件
 
-若要收集调试跟踪，请从管理命令提示符运行以下命令：
+若要收集调试跟踪，请在管理命令提示符下运行以下命令：
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `Microsoft.Azure.Cosmos.Emulator.exe /shutdown` 列中的一个值匹配。 监视系统托盘，确保该程序已关闭，这可能需要几分钟时间。 还可仅单击 Azure Cosmos 模拟器用户界面中的“退出”。
+2. `Microsoft.Azure.Cosmos.Emulator.exe /shutdown`. 监视系统托盘，确保该程序已关闭，这可能需要几分钟时间。 还可仅单击 Azure Cosmos 模拟器用户界面中的“退出”。
 3. `Microsoft.Azure.Cosmos.Emulator.exe /startwprtraces`
 4. `Microsoft.Azure.Cosmos.Emulator.exe`
 5. 再现问题。 如果数据资源管理器无法运行，只需等待几秒钟，待浏览器打开以捕获错误。

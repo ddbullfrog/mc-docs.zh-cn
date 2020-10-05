@@ -1,20 +1,20 @@
 ---
 title: 如何在 Azure Cosmos DB 中选择合适的吞吐量产品/服务
 description: 了解如何为工作负载选择标准（手动）预配的吞吐量和自动缩放配置的吞吐量。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/19/2020
-ms.date: 08/17/2020
+origin.date: 08/19/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b343d1323b1b3dad0fb14ac942b323a8a349381b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: f7852b7ee860001e6f650c77bc83be27feecbb59
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222705"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246807"
 ---
 <!--Verified successfully-->
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>如何在标准（手动）和自动缩放预配的吞吐量之间进行选择 
@@ -41,7 +41,10 @@ Azure Cosmos DB 支持两种类型或提供预配的吞吐量：标准（手动�
 ## <a name="understand-your-traffic-patterns"></a>了解流量模式
 
 ### <a name="new-applications"></a>新应用程序
-如果你正在生成一个新应用程序，但还不知道流量模式，你可能想要从入口点 RU/s（或最小 RU/s）开始，以避免在开始时过度预配。 或者，如果你有一个不需要大规模的小型应用程序，你可能只需要预配最小的入口点 RU/s 来优化成本。 在这两种情况下，标准（手动）或自动缩放都适用。 下面是你应考虑的事项：
+
+如果你正在生成一个新应用程序，但还不知道流量模式，你可能想要从入口点 RU/s（或最小 RU/s）开始，以避免在开始时过度预配。 或者，如果你有一个不需要大规模的小型应用程序，你可能只需要预配最小的入口点 RU/s 来优化成本。 对于预期流量较低的小型应用程序，还可以考虑[无服务器](throughput-serverless.md)容量模式。
+
+无论计划使用标准（手动）还是自动缩放，都应该考虑以下事项：
 
 如果在 400 RU/s 的入口点预配标准（手动）RU/s，则无法消耗超过 400 RU/s 的吞吐量，除非手动更改吞吐量。 你将以每小时标准（手动）预配的吞吐量为 400 RU/s 计费。
 
@@ -54,7 +57,7 @@ Azure Cosmos DB 支持两种类型或提供预配的吞吐量：标准（手动�
 如果现有应用程序使用标准（手动）预配的吞吐量，则可以使用 [Azure Monitor 指标](../azure-monitor/insights/cosmosdb-insights-overview.md)来确定流量模式是否适合自动缩放。 
 
 
-<!--Not Available on  [Learn more](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) about the metric.-->
+<!--Not Available on  [Learn more](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric)-->
 <!--Not Available on [normalized request unit consumption metric](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric)-->
 
 接下来，确定规范化利用率随时间变化的方式。 如果发现规范化利用率是可变的或不可预测的，请考虑在数据库或容器上启用自动缩放。 相反，如果它是稳定和可预测的，则考虑保持标准（手动）预配的吞吐量。 

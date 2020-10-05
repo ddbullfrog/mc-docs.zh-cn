@@ -14,12 +14,12 @@ ms.workload: na
 origin.date: 02/11/2020
 ms.date: 09/14/2020
 ms.author: v-johya
-ms.openlocfilehash: 1e140f308e98a61403130bf5f756f79ae352b37f
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 7b3206fc25769877f70df00a9df8a35b06eeb7fb
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822390"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402607"
 ---
 # <a name="protect-your-machines-and-applications"></a>保护计算机和应用程序
 在 Azure 安全中心识别出潜在的安全漏洞时，它会创建建议，指导你完成配置所需控件以强化和保护资源的过程。
@@ -166,9 +166,7 @@ ms.locfileid: "90822390"
 
 ![Kubernetes 服务](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Azure Kubernetes 服务 (AKS) 群集。 [了解安全中心的 AKS 捆绑包](azure-kubernetes-service-integration.md)
 
-![容器注册表](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure 容器注册表 (ACR) 注册表。 [了解安全中心的 ACR 捆绑包](azure-container-registry-integration.md)
-
-有关如何使用容器安全性功能的说明，请参阅[监视容器的安全性](monitor-container-security.md)。
+![容器注册表](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure 容器注册表 (ACR) 注册表。
 
 
 

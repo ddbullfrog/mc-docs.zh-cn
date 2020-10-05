@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB 批量执行程序库概述
 description: 通过批量执行程序库提供的批量导入和批量更新 API 功能，在 Azure Cosmos DB 中执行批量操作。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 05/28/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 5fe38b573a8464c33ae26599f184368023ab8a69
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 49e02ada3a4c42a1237c046b26dce69ed2ab4d00
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222785"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246582"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 批量执行程序库概述
 
@@ -28,6 +28,9 @@ Azure Cosmos DB 是一种快速且灵活的多区域分布式数据库服务，�
 
 > [!NOTE] 
 > 目前，批量执行程序库支持导入和更新操作，但该库仅受 Azure Cosmos DB SQL API 和 Gremlin API 帐户支持。
+
+> [!IMPORTANT]
+> [无服务器](serverless.md)帐户目前不支持批量执行工具库。 在 .NET 上，建议使用 SDK V3 版本中提供的[批量支持](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/)。
 
 ## <a name="key-features-of-the-bulk-executor-library"></a>批量执行程序库的主要功能  
 
@@ -56,4 +59,4 @@ Azure Cosmos DB 是一种快速且灵活的多区域分布式数据库服务，�
 * 批量执行程序库已集成到 Cosmos DB Spark 连接器中。若要进行详细的了解，请参阅 [Azure Cosmos DB Spark 连接器](spark-connector.md)一文。  
 * 批量执行程序库也已集成到新版 [Azure Cosmos DB 连接器](../data-factory/connector-azure-cosmos-db.md)中，可供 Azure 数据工厂复制数据。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

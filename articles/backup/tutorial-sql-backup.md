@@ -4,14 +4,14 @@ description: 在本教程中，了解如何将 Azure VM 上运行的 SQL Server 
 ms.topic: tutorial
 author: Johnnytechn
 origin.date: 06/18/2019
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: ce8b3c6c1392ff1fa9df5d20079b787c703335ff
-ms.sourcegitcommit: 08b42258a48d96d754244064d065e4d5703f1cfb
+ms.openlocfilehash: 63a5cf08016110436ee77b005c39199c668a3965
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83445170"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402325"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>在 Azure VM 中备份 SQL Server 数据库
 
@@ -36,9 +36,9 @@ ms.locfileid: "83445170"
 
 ### <a name="establish-network-connectivity"></a>建立网络连接
 
-对于所有操作，SQL Server VM 需要与 Azure 公共 IP 地址建立连接。 如果未连接到公共 IP 地址，VM 操作（数据库发现、配置备份、计划备份、还原恢复点等）将失败。 使用以下选项之一建立连接：
+对于所有操作，SQL Server VM 需要与 Azure 中国 IP 地址建立连接。 如果未连接到公共 IP 地址，VM 操作（数据库发现、配置备份、计划备份、还原恢复点等）将失败。 使用以下选项之一建立连接：
 
-- **允许 Azure 数据中心 IP 范围**：允许下载中的 [IP 范围](https://docs.azure.cn/zh-cn/downloads/)。 若要访问网络安全组 (NSG)，请使用 **Set-AzureNetworkSecurityRule** cmdlet。
+* **允许 Azure 数据中心 IP 范围**：允许下载中的 [IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)。 若要访问网络安全组 (NSG)，请使用 **Set-AzureNetworkSecurityRule** cmdlet。
 * **部署用于路由流量的 HTTP 代理服务器**：在 Azure VM 中备份 SQL Server 数据库时，该 VM 上的备份扩展将使用 HTTPS API 将管理命令发送到 Azure 备份，并将数据发送到 Azure 存储。 备份扩展还使用 Azure Active Directory (Azure AD) 进行身份验证。 通过 HTTP 代理路由这三个服务的备份扩展流量。 该扩展是为了访问公共 Internet 而配置的唯一组件。
 
 每个选项各有其优缺点
@@ -56,7 +56,7 @@ ms.locfileid: "83445170"
 * 为了发现虚拟机上的数据库，Azure 备份会创建帐户 NT SERVICE\AzureWLBackupPluginSvc  。 此帐户用于备份和还原，需要拥有 SQL sysadmin 权限。
 * Azure 备份利用 **NT AUTHORITY\SYSTEM** 帐户进行数据库发现/查询，因此此帐户需是 SQL 上的公共登录名。
 
-如果 SQL Server VM 不是从 Azure 市场创建的，你可能会收到错误 **UserErrorSQLNoSysadminMembership**。 如果发生此错误，请[遵照这些说明](backup-azure-sql-database.md#set-vm-permissions)予以解决。
+如果 SQL Server VM 不是从 Azure 市场创建的，你可能会收到错误 UserErrorSQLNoSysadminMembership。 如果发生此错误，请[遵照这些说明](backup-azure-sql-database.md#set-vm-permissions)予以解决。
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>验证 Azure 备份的数据库命名准则
 
@@ -67,7 +67,7 @@ ms.locfileid: "83445170"
 * 右方括号“]”
 * 数据库名称以“F:\”开头
 
-对于 Azure 表不支持的字符，可以使用别名，但我们建议避免使用别名。 [了解详细信息](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)。
+对于 Azure 表不支持的字符，可以使用别名，但我们建议避免使用别名。 [了解详细信息](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model)。
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -107,7 +107,7 @@ ms.locfileid: "83445170"
     * Azure 备份在 VM 上安装 **AzureBackupWindowsWorkload** 扩展。 不会在 SQL 数据库中安装任何代理。
     * Azure 备份在 VM 上创建服务帐户 **NT Service\AzureWLBackupPluginSvc**。
       * 所有备份和还原操作使用该服务帐户。
-      * **NT Service\AzureWLBackupPluginSvc** 需要 SQL sysadmin 权限。 在 Azure 市场中创建的所有 SQL Server VM 已预装 **SqlIaaSExtension**。 **AzureBackupWindowsWorkload** 扩展使用 **SQLIaaSExtension** 自动获取所需的权限。
+      * **NT Service\AzureWLBackupPluginSvc** 需要 SQL sysadmin 权限。 在 Azure 市场中创建的所有 SQL Server VM 已预装 SqlIaaSExtension。 **AzureBackupWindowsWorkload** 扩展使用 **SQLIaaSExtension** 自动获取所需的权限。
     * 如果 VM 不是从市场创建的，则该 VM 上未安装 **SqlIaaSExtension**，并且发现操作将会失败并出现错误消息 **UserErrorSQLNoSysAdminMembership**。 请按照[说明](backup-azure-sql-database.md#set-vm-permissions)解决此问题。
 
         ![选择 VM 和数据库](./media/backup-azure-sql-database/registration-errors.png)
@@ -120,7 +120,7 @@ ms.locfileid: "83445170"
 
    ![选择“配置备份”](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. 单击“配置备份”，随即显示”选择要备份的项目”边栏选项卡   。 这将列出所有已注册的可用性组和独立的 SQL Server。 展开行左侧的 V 形图标，以查看该实例或 Always on AG 中所有未受保护的数据库。  
+2. 选择“配置备份”，将显示“选择要备份的项”窗格 。 这将列出所有已注册的可用性组和独立的 SQL Server。 展开行左侧的 V 形图标，以查看该实例或 Always on AG 中所有未受保护的数据库。  
 
     ![显示包含独立数据库的所有 SQL Server 实例](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -132,11 +132,11 @@ ms.locfileid: "83445170"
 
      * 或者，可以通过在“自动保护”列中的相应下拉列表内选择“打开”选项，针对整个实例或 Always On 可用性组启用自动保护   。 自动保护功能不仅可以一次性针对所有现有数据库启用保护，而且还会自动保护将来要添加到该实例或可用性组的所有新数据库。  
 
-4. 单击“确定”以打开“备份策略”边栏选项卡   。
+4. 选择“确定”以打开“备份策略”窗格 。
 
     ![针对 Always On 可用性组启用自动保护](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. 在“选择备份策略”中选择一个策略，然后单击“确定”。  
+5. 在“选择备份策略”中选择一个策略，然后选择“确定”。 
 
    * 选择默认策略：HourlyLogBackup。
    * 选择前面为 SQL 创建的现有备份策略。
@@ -164,8 +164,8 @@ ms.locfileid: "83445170"
 
 创建备份策略：
 
-1. 在保管库中，单击“备份策略” > “添加”。  
-2. 在“添加”菜单中，单击“Azure VM 中的 SQL Server”以定义策略类型   。
+1. 在保管库中，选择“备份策略” > “添加”。 
+2. 在“添加”菜单中，选择“Azure VM 中的 SQL Server”以定义策略类型。 
 
    ![为新的备份策略选择策略类型](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -174,7 +174,7 @@ ms.locfileid: "83445170"
 
    * 如果选择“每日”，请选择备份作业开始时的小时和时区。 
    * 必须运行完整备份，因为不能禁用“完整备份”选项  。
-   * 单击“完整备份”以查看策略  。
+   * 选择“完整备份”以查看策略。
    * 对于每日完整备份，无法创建差异备份。
    * 如果选择“每周”，请选择备份作业开始时的星期、小时和时区。 
 
@@ -217,7 +217,7 @@ ms.locfileid: "83445170"
 ## <a name="run-an-on-demand-backup"></a>运行按需备份
 
 1. 在恢复服务保管库中，选择“备份项目”。
-2. 单击“Azure VM 中的 SQL”。
+2. 选择“Azure VM 中的 SQL”。
 3. 右键单击数据库，并选择“立即备份”。
 4. 选择“备份类型”（完整/差异/日志/仅复制完整）和“压缩”（启用/禁用）
 5. 选择“确定”，开始备份。

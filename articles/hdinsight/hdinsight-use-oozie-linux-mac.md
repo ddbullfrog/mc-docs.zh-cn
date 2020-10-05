@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/27/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: c0fdbf1762fcc8d4e331e3f925d66e253829e4e3
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 8358bdb1469a762b586f29ad6b85c03ce064d639
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917275"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394689"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在基于 Linux 的 Azure HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
 
@@ -49,9 +49,11 @@ ms.locfileid: "87917275"
 
 1. Hive 操作运行 HiveQL 脚本，以从 HDInsight 随附的 `hivesampletable` 中提取记录。 每个数据行描述特定移动设备的访问。 显示的记录格式如下文所示：
 
-        8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-        23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-        23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```output
+    8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+    23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+    23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```
 
     本文档中使用的 Hive 脚本将统计每个平台（例如 Android 或 iPhone）的总访问次数，并将计数存储到新的 Hive 表中。
 
@@ -273,9 +275,9 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
     会看到类似于以下文本的输出：
 
-    ```
+    ```output
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-    oozietest       dbo     mobiledata      BASE TABLE
+    oozietest       dbo             mobiledata      BASE TABLE
     ```
 
 4. 在 `1>` 提示符下输入 `exit` 以退出 tsql 实用工具。
@@ -433,7 +435,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
     此命令返回类似于以下文本的信息：
 
-    ```
+    ```output
     Job ID : 0000005-150622124850154-oozie-oozi-W
     ------------------------------------------------------------------------------------------------------------------------------------
     Workflow Name : useooziewf
@@ -460,7 +462,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
     如果在运行此命令后检查状态，会发现作业处于正在运行状态，并且返回了作业中操作的信息。  该作业可能需要几分钟时间才能完成。
 
-6. 编辑以下代码，将 `<serverName>` 替换为 Azure SQL 服务器名称，将 `<sqlLogin>` 替换为 Azure SQL 服务器登录名。  任务成功完成后，可使用以下命令验证是否已生成数据并且已将导出到 SQL 数据库表。  在提示符下输入密码。
+6. 编辑以下代码，将 `<serverName>` 替换为服务器名称，将 `<sqlLogin>` 替换为服务器登录名。  任务成功完成后，可以使用以下命令验证是否已生成数据并已将其导出到 SQL 数据库表。  在提示符下输入密码。
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <sqlLogin> -p 1433 -D oozietest
@@ -475,14 +477,16 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
     返回的信息类似于以下文本：
 
-        deviceplatform  count
-        Android 31591
-        iPhone OS       22731
-        proprietary development 3
-        RIM OS  3464
-        Unknown 213
-        Windows Phone   1791
-        (6 rows affected)
+    ```output
+    deviceplatform  count
+    Android 31591
+    iPhone OS       22731
+    proprietary development 3
+    RIM OS  3464
+    Unknown 213
+    Windows Phone   1791
+    (6 rows affected)
+    ```
 
 有关 Oozie 命令的详细信息，请参阅 [Apache Oozie 命令行工具](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html)。
 

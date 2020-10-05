@@ -1,23 +1,23 @@
 ---
 title: Azure Cosmos DB - SQL Java API、SDK 和资源
 description: 了解有关 SQL Java API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB SQL Java SDK 各版本之间所做的更改。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 06/03/2020
-ms.date: 08/17/2020
+origin.date: 08/12/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
-ms.testdate: ''
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 61b7ee4441e9852b31f710a0ddf40b25701ebff1
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: ee7df6d80e20c1bba768e8322f9c2433a2403ac5
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222409"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246834"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -29,6 +29,9 @@ ms.locfileid: "88222409"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark 连接器](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -49,7 +52,7 @@ ms.locfileid: "88222409"
 |**参与 SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**入门**|[Java SDK 入门](sql-api-java-get-started.md)|
 |**Web 应用教程**|[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-java-application.md)|
-|受支持的最小运行时|[Java 开发工具包 (JDK) 7+](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)|
+|受支持的最小运行时|[Java 开发工具包 (JDK) 7+](https://docs.microsoft.com/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>发行说明
 
@@ -311,11 +314,9 @@ ms.locfileid: "88222409"
 Azure 会在停用 SDK 时至少提前 12 个月发出通知，以便用户顺利转换为更高版本/受支持版本。 新特性和功能以及优化仅添加到当前 SDK，因此建议始终尽早升级到最新 SDK 版本。
 
 > [!WARNING]
-> 适用于 Java 的 SQL SDK 的所有 1.x 版本将于 2020 年 5 月 30 日停用 。 1\.0.0 版之前的所有 Azure SQL SDK for Java 版本都已在 2016 年 2 月 29 日停用 。
-> 
-> 
-
-<br/>
+> 在 2020 年 5 月 30 日之后，Azure Cosmos DB 将不再进行 bug 修复，不再添加新功能，也不再支持 1.x 版的 Azure Cosmos DB Java SDK for SQL API。 如果你不想升级，则从 1.x 版 SDK 发送的请求将继续由 Azure Cosmos DB 服务处理。
+>
+> 在 2016 年 2 月 29 日之后，Azure Cosmos DB 将不再进行 bug 修复，不再添加新功能，也不再支持 0.x 版的 Azure Cosmos DB Java SDK for SQL API。 如果你不想升级，则从 0.x 版 SDK 发送的请求将继续由 Azure Cosmos DB 服务处理。
 
 | 版本 | 发布日期 | 停用日期 |
 | --- | --- | --- |

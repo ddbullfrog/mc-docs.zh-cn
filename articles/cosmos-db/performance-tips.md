@@ -1,20 +1,21 @@
 ---
 title: 适用于 .NET SDK v2 的 Azure Cosmos DB 性能提示
 description: 了解用于提高 Azure Cosmos DB .NET v2 SDK 性能的客户端配置选项。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 06/26/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: dfada693f7af02c92fb86a5fa9d93a3d02fdc937
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 1278daa105dc7b4cdcc18eaef652a4b27937cf37
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246511"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>适用于 Azure Cosmos DB 和 .NET SDK v2 的性能提示
 
@@ -76,7 +77,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 * 网关模式（默认）
 
-    网关模式受所有 SDK 平台支持并已配置为 [Microsoft.Azure.DocumentDB SDK](sql-api-sdk-dotnet.md) 的默认设置。 如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是：每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。 在套接字连接数量有限的环境中运行应用程序时，我们也建议使用网关连接模式。
+    网关模式受所有 SDK 平台支持并已配置为 [Microsoft.Azure.DocumentDB SDK](sql-api-sdk-dotnet.md) 的默认设置。 如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个 DNS 终结点。 但是，对于性能的影响是：每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。 在套接字连接数量有限的环境中运行应用程序时，我们也建议使用网关连接模式。
 
     在 Azure Functions 中使用 SDK 时，尤其是在[消耗计划](../azure-functions/functions-scale.md#consumption-plan)中使用时，请注意当前的[连接限制](../azure-functions/manage-connections.md)。 这种情况下，如果还在 Azure Functions 应用程序中使用其他基于 HTTP 的客户端，则使用网关模式可能更好。
 
@@ -84,15 +85,13 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     直接模式支持通过 TCP 协议的连接。
 
-在网关模式下，当你使用 Azure Cosmos DB API for MongoDB 时，Azure Cosmos DB 会使用端口 443 以及端口 10250、10255 和 10256。 端口 10250 映射到没有异地复制功能的默认 MongoDB 实例。 端口 10255 和 10256 映射到具有异地复制功能的 MongoDB 实例。
-
-在直接模式下使用 TCP 时，除了网关端口，还需确保 10000 到 20000 这个范围的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口（在专用终结点上使用直接模式时，必须打开整个范围的 TCP 端口（即从 0 到 65535））。 如果这些端口未处于打开状态，你会在尝试使用 TCP 时收到“503 服务不可用”错误。 下表显示了可用于各种 API 的连接模式，以及用于每个 API 的服务端口：
+在直接模式下使用时 TCP 时，除了网关端口外，还需确保 10000 到 20000 这个范围的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口。 当在专用终结点上使用直接模式时，应打开从 0 到 65535 的整个 TCP 端口范围。 如果这些端口未处于打开状态，你会在尝试使用 TCP 协议时收到“503 服务不可用”错误。 下表显示了可用于各种 API 的连接模式，以及用于每个 API 的服务端口：
 
 <!--Not Available on [private endpoints](./how-to-configure-private-endpoints.md)-->
 
 |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
 |---------|---------|---------|---------|
-|网关  |   HTTPS    |  所有 SDK    |   SQL (443)、MongoDB（10250、10255、10256）、表 (443)、Cassandra (10350)、Graph (443)    |
+|网关  |   HTTPS    |  所有 SDK    |   SQL (443)、MongoDB（10250、10255、10256）、表 (443)、Cassandra (10350)、Graph (443) <br /> 端口 10250 映射到没有异地复制功能的默认 Azure Cosmos DB API for MongoDB 实例。 而端口 10255 和 10256 映射到具有异地复制功能的实例。   |
 |直接    |     TCP    |  .NET SDK    | 使用公共/服务终结点时：端口介于 10000 到 20000 之间<br />使用专用终结点时：端口介于 0 到 65535 之间 |
 
 Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 TCP 协议使用 TLS 来进行初始身份验证和加密通信。 为了获得最佳性能，请尽可能使用 TCP 协议。
@@ -126,8 +125,8 @@ new ConnectionPolicy
 
 在具有稀疏访问且与网关模式访问相比连接计数更高的情况下，可以：
 
-* 将 [ConnectionPolicy.PortReuseMode](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode?view=azure-dotnet) 属性配置为 `PrivatePortPool`（Framework 版本 >= 4.6.1 且 .NET Core 版本 >= 2.0 时有效）：此属性使 SDK 可以针对不同 Azure Cosmos DB 目标终结点使用一小部分临时端口。
-* 配置 [ConnectionPolicy.IdleConnectionTimeout](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout?view=azure-dotnet) 属性必须大于或等于 10 分钟。 建议值介于 20 分钟到 24 小时之间。
+* 将 [ConnectionPolicy.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) 属性配置为 `PrivatePortPool`（Framework 版本 >= 4.6.1 且 .NET Core 版本 >= 2.0 时有效）：此属性使 SDK 可以针对不同 Azure Cosmos DB 目标终结点使用一小部分临时端口。
+* 配置 [ConnectionPolicy.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) 属性必须大于或等于 10 分钟。 建议值介于 20 分钟到 24 小时之间。
 
 **调用 OpenAsync 以避免首次请求时启动延迟**
 
@@ -221,7 +220,7 @@ readDocument.RequestDiagnosticsString
 > [!NOTE] 
 > `maxItemCount` 属性不应仅用于分页目的。 它的主要用途是通过减少单个页面中返回的最大项数来提高查询性能。  
 
-也可以使用提供的 Azure Cosmos DB SDK 设置页面大小。 `FeedOptions` 中的 [MaxItemCount](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 属性允许你设置要在枚举操作中返回的最大项数。 当 `maxItemCount` 设置为 -1 时，SDK 会根据文档大小自动查找最佳值。 例如：
+也可以使用提供的 Azure Cosmos DB SDK 设置页面大小。 `FeedOptions` 中的 [MaxItemCount](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount) 属性允许你设置要在枚举操作中返回的最大项数。 当 `maxItemCount` 设置为 -1 时，SDK 会根据文档大小自动查找最佳值。 例如：
 
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

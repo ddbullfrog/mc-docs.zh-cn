@@ -1,24 +1,24 @@
 ---
 title: 使用 Bulk Executor Java 库在 Azure Cosmos DB 中执行批量导入和更新操作
 description: 使用 Bulk Executor Java 库批量导入和更新 Azure Cosmos DB 文档
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-origin.date: 06/05/2020
-ms.date: 08/17/2020
+origin.date: 08/26/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: ef8e2b281b7bd7dfd47bce50e5dc8ecfc0efcb98
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 4dd46c574bc491239b41ef0c6cdd855e7696f314
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222787"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246586"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 Bulk Executor Java 库针对 Azure Cosmos DB 数据执行批量操作
 
@@ -34,7 +34,7 @@ ms.locfileid: "88222787"
 
     <!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 
-* [Java 开发工具包 (JDK) 1.7+](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)  
+* [Java 开发工具包 (JDK) 1.7+](https://docs.microsoft.com/java/azure/jdk/)  
     - 在 Ubuntu 上运行 `apt-get install default-jdk`，以便安装 JDK。  
 
     - 请确保设置 JAVA_HOME 环境变量，使之指向在其中安装了 JDK 的文件夹。
@@ -82,11 +82,11 @@ ms.locfileid: "88222787"
 
     // Builder pattern
     Builder bulkExecutorBuilder = DocumentBulkExecutor.builder().from(
-     client,
-     DATABASE_NAME,
-     COLLECTION_NAME,
-     collection.getPartitionKey(),
-     offerThroughput) // throughput you want to allocate for bulk import out of the container's total throughput
+      client,
+      DATABASE_NAME,
+      COLLECTION_NAME,
+      collection.getPartitionKey(),
+      offerThroughput) // throughput you want to allocate for bulk import out of the container's total throughput
 
     // Instantiate DocumentBulkExecutor
     DocumentBulkExecutor bulkExecutor = bulkExecutorBuilder.build()
@@ -163,8 +163,8 @@ ms.locfileid: "88222787"
 
     List<UpdateItem> updateItems = new ArrayList<>(cfg.getNumberOfDocumentsForEachCheckpoint());
     IntStream.range(0, cfg.getNumberOfDocumentsForEachCheckpoint()).mapToObj(j -> {                     
-    return new UpdateItem(Long.toString(prefix + j), Long.toString(prefix + j), updateOperations);
-    }).collect(Collectors.toCollection(() -> updateItems));
+     return new UpdateItem(Long.toString(prefix + j), Long.toString(prefix + j), updateOperations);
+     }).collect(Collectors.toCollection(() -> updateItems));
     ```
 
 2. 调用 updateAll API，以便生成随后要批量导入 Azure Cosmos 容器的随机文档。 可以在 CmdLineConfiguration.java 文件中配置要传递的命令行配置。
@@ -194,7 +194,8 @@ ms.locfileid: "88222787"
     |int getNumberOfDocumentsUpdated()  |   从提供给批量更新 API 调用的文档中成功更新的文档总数。      |
     |double getTotalRequestUnitsConsumed() |  批量更新 API 调用消耗的请求单位 (RU) 总数。       |
     |Duration getTotalTimeTaken()  |   批量更新 API 调用完成执行所花费的总时间。      |
-    |List\<Exception> getErrors()   |       如果分批提供给批量更新 API 调用的某些文档无法插入，则获取错误列表。      |
+    |List\<Exception> getErrors()   |       获取与更新操作相关的操作或网络问题列表。      |
+    |List\<BulkUpdateFailure> getFailedUpdates()   |       获取无法完成的更新列表以及导致失败的特定异常。|
 
 3. 准备好批量更新应用程序后，请使用“mvn clean package”命令从源代码生成命令行工具。 此命令在目标文件夹中生成一个 jar 文件：  
 

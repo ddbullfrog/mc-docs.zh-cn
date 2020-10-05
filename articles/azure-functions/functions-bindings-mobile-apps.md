@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 08/11/2020
 ms.author: v-junlch
-ms.openlocfilehash: 3a441be17a17bb633b83ab6f9e2766cf76d5c7f9
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: a6350b49b0ba0efed4c2737acc177e5ba2a875c6
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223029"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402542"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions 的移动应用绑定 
 
@@ -151,7 +151,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---usage"></a>输入 - 用法
 
-在 C# 函数中，当找到具有指定 ID 的记录时，该记录会传递到命名的 [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) 参数。 未找到该记录时，参数值为 `null`。 
+在 C# 函数中，当找到具有指定 ID 的记录时，该记录会传递到命名的 `JObject` 参数。 未找到该记录时，参数值为 `null`。 
 
 在 JavaScript 函数中，该记录会传递给 `context.bindings.<name>` 对象。 未找到该记录时，参数值为 `null`。 
 

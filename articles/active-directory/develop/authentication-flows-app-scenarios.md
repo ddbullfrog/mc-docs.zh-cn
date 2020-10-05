@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 29f1212ea5ff4d449cde3c4a359590a59b04e4c0
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 0cacc51bd4da4172120b7b664f9bbcf354450571
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244708"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>身份验证流和应用程序方案
 
@@ -93,13 +93,13 @@ Microsoft 标识平台终结点支持对以下应用体系结构进行身份验�
 
 ### <a name="single-page-application"></a>单页应用程序
 
-许多新式 Web 应用都是作为客户端单页应用程序构建的。 这些应用程序使用 JavaScript 或框架（例如 Angular、Vue.js 和 React.js）。 这些应用程序在 Web 浏览器中运行。
+许多新式 Web 应用都是作为客户端单页应用程序构建的。 这些应用程序使用 JavaScript 或框架（例如 Angular、Vue 和 React）。 这些应用程序在 Web 浏览器中运行。
 
-单页应用程序在身份验证特征方面与传统的服务器端 Web 应用不同。 单页应用程序可以使用 Microsoft 标识平台将用户登录，并获取用于访问后端服务或 Web API 的令牌。
+单页应用程序在身份验证特征方面与传统的服务器端 Web 应用不同。 单页应用程序可以使用 Microsoft 标识平台将用户登录，并获取用于访问后端服务或 Web API 的令牌。 Microsoft 标识平台为 JavaScript 应用程序提供了两种授权类型： 
 
-![单页应用程序](./media/scenarios/spa-app.svg)
-
-有关详细信息，请参阅[单页应用程序](scenario-spa-overview.md)。
+| MSAL.js (2.x) | MSAL.js (1.x) |
+|---|---|
+| ![单页应用程序身份验证](./media/scenarios/spa-app-auth.svg) | ![隐式单页应用程序](./media/scenarios/spa-app.svg) |
 
 ### <a name="web-app-that-signs-in-a-user"></a>以用户身份登录的 Web 应用
 
@@ -109,7 +109,7 @@ Microsoft 标识平台终结点支持对以下应用体系结构进行身份验�
 
 - 如果在 .NET 中进行开发，请使用包含 ASP.NET OpenID Connect 中间件的 ASP.NET 或 ASP.NET Core。 保护资源涉及到验证安全令牌，为此，可以使用[适用于 .NET 的 IdentityModel 扩展](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki)，但不能使用 MSAL 库。
 
-- 如果在 Node.js 中进行开发，将使用 Passport.js。
+- 如果在 Node.js 中进行开发，将使用 [Passport.js](https://github.com/AzureAD/passport-azure-ad)。
 
 有关详细信息，请参阅[可将用户登录的 Web 应用](scenario-web-app-sign-user-overview.md)。
 
@@ -196,7 +196,14 @@ MSAL iOS 和 MSAL Android 默认使用系统 Web 浏览器。 但是，你可以
  </thead>
  <tbody>
   <tr>
-   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App" src="media/scenarios/spa-app.svg"></a></td>
+   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App with Auth code" src="media/scenarios/spa-app-auth.svg"></a></td>
+   <td><a href="scenario-spa-overview.md">单页应用</a></td>
+   <td>采用 PKCE 的<a href="v2-oauth2-auth-code-flow.md">授权代码</a></td>
+   <td>工作或学校帐户和 Azure Active Directory B2C (Azure AD B2C)</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App with Implicit" src="media/scenarios/spa-app.svg"></a></td>
    <td><a href="scenario-spa-overview.md">单页应用</a></td>
    <td><a href="v2-oauth2-implicit-grant-flow.md">隐式</a></td>
    <td>工作或学校帐户和 Azure Active Directory B2C (Azure AD B2C)</td>
@@ -293,7 +300,8 @@ Microsoft 身份验证库支持多种平台：
 
 |方案  | Windows | Linux | Mac | iOS | Android
 |--|--|--|--|--|--|--|
-| [单页应用](scenario-spa-overview.md) <br/>[![单页应用](./media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [单页应用](scenario-spa-overview.md) <br/>[![单页应用身份验证](./media/scenarios/spa-app-auth.svg)](scenario-spa-overview.md) | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [单页应用](scenario-spa-overview.md) <br/>[![隐式单页应用](./media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
 | [用于登录用户的 Web 应用](scenario-web-app-sign-user-overview.md) <br/>[![可将用户登录的 Web 应用](./media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
 | [用于调用 Web API 的 Web 应用](scenario-web-app-call-api-overview.md) <br/> <br/>[![调用 Web API 的 Web 应用](./media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python
 | [用于调用 Web API 的 桌面应用](scenario-desktop-overview.md) <br/> <br/>[![调用 Web API 的桌面应用](./media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![设备代码流](./media/scenarios/device-code-flow-app.svg) | ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> ![iOS / Objective C 或 swift](./media/sample-v2-code/small_logo_iOS.png) MSAL.objc |

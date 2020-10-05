@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
-ms.openlocfilehash: c4e1a50c410891f236902e6b8e8a5b5154a568b6
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 79d5ba3d5be3e51f542d7a512f4e5d546d7f1ef6
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647700"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244682"
 ---
 # <a name="authentication-flows"></a>身份验证流
 
@@ -219,7 +219,7 @@ IWA 不会绕过多重身份验证。 如果配置了多重身份验证，需要
 这意味着需要符合以下条件之一：
 
 - 开发人员已在 Azure 门户中自行选择“授权”。
-- 租户管理员已在 Azure 门户中的应用注册的“API 权限”选项卡中选择了“授予/撤销 {租户域} 的管理员许可”（请参阅[添加用于访问 Web API 的权限](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)） 。
+- 租户管理员已在 Azure 门户中的应用注册的“API 权限”选项卡中选择了“授予/撤销 {租户域} 的管理员许可”（请参阅[添加用于访问 Web API 的权限](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)） 。
 - 你已提供某种方式让用户同意应用程序（请参阅[请求个人用户同意](v2-permissions-and-consent.md#requesting-individual-user-consent)）。
 - 你已提供某种方式让租户管理员同意应用程序（请参阅[管理员同意](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)）。
 

@@ -1,21 +1,22 @@
 ---
 title: 关于 MARS 代理
 description: 了解 MARS 代理如何支持备份方案
-ms.reviewer: srinathv
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 06/09/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: 9d414a6562abdf19f69a03e7b543bad4f3bfff2d
-ms.sourcegitcommit: 285649db9b21169f3136729c041e4d04d323229a
+ms.openlocfilehash: 1ca416709d233c1e2a7c02061cdceb435d8f2b02
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84683930"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402625"
 ---
 # <a name="about-the-azure-recovery-services-mars-agent"></a>关于 Azure 恢复服务 (MARS) 代理
 
 本文介绍 Azure 备份服务如何使用 Azure 恢复服务 (MARS) 代理将本地计算机中的文件、文件夹以及卷或系统状态备份和还原到 Azure。
+
+## <a name="backup-scenarios"></a>备份方案
 
 MARS 代理支持以下备份方案：
 
@@ -25,13 +26,21 @@ MARS 代理支持以下备份方案：
 - **卷级别**：保护计算机的整个 Windows 卷。
 - **系统级别**：保护整个 Windows 系统状态。
 
+### <a name="additional-scenarios"></a>其他方案
+
+- **备份 Azure 虚拟机中的特定文件和文件夹**：备份 Azure 虚拟机 (VM) 的主要方法是在 VM 上使用 Azure 备份扩展。 该扩展可备份整个 VM。 若要备份 VM 中的特定文件和文件夹，可在 Azure VM 中安装 MARS 代理。 有关详细信息，请参阅[体系结构：内置 Azure VM 备份](./backup-architecture.md#architecture-built-in-azure-vm-backup)。
+
+- **脱机种子设定**：最初在 Azure 中创建完整数据备份时，通常会传输大量的数据，并会占用更多的网络带宽。 后续的备份只会传输差异数量（增量）的数据。 Azure 备份可压缩初始备份。 通过脱机种子设定过程，Azure 备份可以使用磁盘将压缩后的初始备份数据脱机上传到 Azure。** 有关详细信息，请参阅使用 [Azure Data Box 对 Azure 备份进行脱机备份](offline-backup-azure-data-box.md)。
+
+## <a name="restore-scenarios"></a>还原方案
+
 MARS 代理支持以下还原方案：
 
 ![MARS 恢复方案](./media/backup-try-azure-backup-in-10-mins/restore-scenarios.png)
 
 - **同一服务器**：最初在其上创建备份的服务器。
   - **文件和文件夹**：选择要还原的各个文件和文件夹。
-  - **卷级别**：选择要还原的卷和恢复点，然后将其还原到同一计算机上的同一位置或备用位置。  创建现有文件的副本、覆盖现有文件，或跳过现有文件的恢复。
+  - **卷级别**：选择要还原的卷和恢复点。 然后将其还原到同一台计算机上的同一位置或其他位置。  创建现有文件的副本、覆盖现有文件，或跳过现有文件的恢复。
   - **系统级别**：选择要还原到同一计算机上的指定位置的系统状态和恢复点。
 
 - **备用服务器**：在其上创建备份的服务器以外的服务器。
@@ -42,10 +51,10 @@ MARS 代理支持以下还原方案：
 ## <a name="backup-process"></a>备份过程
 
 1. 在 Azure 门户中创建[恢复服务保管库](install-mars-agent.md#create-a-recovery-services-vault)，并从“备份目标”中选择文件、文件夹和系统状态****。
-2. [将恢复服务保管库凭据和代理安装程序下载](/backup/install-mars-agent#download-the-mars-agent)到本地计算机。
+2. [将恢复服务保管库凭据和代理安装程序下载](./install-mars-agent.md#download-the-mars-agent)到本地计算机。
 
-3. [安装代理](/backup/install-mars-agent#install-and-register-the-agent)并使用下载的保管库凭据将计算机注册到恢复服务保管库。
-4. 从客户端上的代理控制台中，[配置备份](/backup/backup-windows-with-mars-agent#create-a-backup-policy)，指定要备份的内容、何时备份（计划）、备份应在 Azure 中保留多长时间（保留策略）并开始保护。
+3. [安装代理](./install-mars-agent.md#install-and-register-the-agent)并使用下载的保管库凭据将计算机注册到恢复服务保管库。
+4. 从客户端上的代理控制台中，[配置备份](./backup-windows-with-mars-agent.md#create-a-backup-policy)，指定要备份的内容、何时备份（计划）、备份应在 Azure 中保留多长时间（保留策略）并开始保护。
 
 ![Azure 备份代理示意图](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
@@ -55,18 +64,11 @@ MARS 代理支持以下还原方案：
 
 - “增量备份”（后续备份）根据指定的计划运行****。 在增量备份期间，将会标识已更改的文件，并创建新的 VHD。 该 VHD 经过压缩和加密，然后发送到保管库。 增量备份完成后，新 VHD 将与初始复制后创建的 VHD 合并。 此合并的 VHD 提供最新状态，用于对现行备份进行比较。
 
-- MARS 代理可以使用 USN（更新序列号）变更日志在优化模式下运行备份作业，也可以通过扫描整个卷来检查目录或文件的更改，在未优化模式下运行备份作业**** ****。 未优化模式的速度较慢，因为代理必须扫描卷上的每个文件，并与元数据进行比较以确定更改的文件。  “初始备份”始终在未优化模式下运行****。 如果上一个备份失败，则下一个计划的备份作业将在未优化模式下运行。
-
-### <a name="additional-scenarios"></a>其他方案
-
-- **备份 Azure 虚拟机中的特定文件和文件夹**：备份 Azure 虚拟机 (VM) 的主要方法是在 VM 上使用 Azure 备份扩展。 该扩展可备份整个 VM。 若要备份 VM 中的特定文件和文件夹，可在 Azure VM 中安装 MARS 代理。 有关详细信息，请参阅[体系结构：内置 Azure VM 备份](/backup/backup-architecture#architecture-built-in-azure-vm-backup)。
-
-- **脱机种子设定**：最初在 Azure 中创建完整数据备份时，通常会传输大量的数据，并会占用更多的网络带宽。 后续的备份只会传输差异数量（增量）的数据。 Azure 备份可压缩初始备份。 通过脱机种子设定过程，Azure 备份可以使用磁盘将压缩后的初始备份数据脱机上传到 Azure。**
-<!--Not available in MC: offline-backup-azure-data-box.md-->
+- MARS 代理可以使用 USN（更新序列号）变更日志在优化模式下运行备份作业，也可以通过扫描整个卷来检查目录或文件的更改，在未优化模式下运行备份作业**** ****。 未优化模式的速度较慢，因为代理必须扫描卷上的每个文件，并与元数据进行比较以确定更改的文件。  “初始备份”始终在未优化模式下运行****。 如果上一个备份失败，则下一个计划的备份作业将在未优化模式下运行。 若要详细了解这些模式及其验证方法，请参阅[这篇文章](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode)。
 
 ## <a name="next-steps"></a>后续步骤
 
-[MARS 代理支持矩阵](/backup/backup-support-matrix-mars-agent)
+[MARS 代理支持矩阵](./backup-support-matrix-mars-agent.md)
 
-[MARS 代理常见问题解答](/backup/backup-azure-file-folder-backup-faq)
+[MARS 代理常见问题解答](./backup-azure-file-folder-backup-faq.md)
 

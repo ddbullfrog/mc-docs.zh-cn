@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 11/11/2019
 ms.date: 12/23/2019
-ms.openlocfilehash: f0d86cb1b6f5277f89ed7f2f2e1b85fe1a1dc7b2
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 73b266f7f4d7c494218b2c67951fa8338a04ea82
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516663"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394794"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Azure HDInsight 支持的高可用性服务
 
@@ -63,7 +63,8 @@ Microsoft 为下表中所述的 HDInsight 群集中的四个 Apache 服务提供
 | 适用于 Hadoop MapReduce 的作业历史记录服务器 | 活动头节点 | 除 Kafka 以外的所有服务 | 维护 MapReduce 作业的调试数据。|
 | Apache Livy | 活动头节点 | Spark | 用于通过 REST 接口轻松与 Spark 群集交互 |
 
-
+>[!Note]
+> HDInsight 企业安全性套餐 (ESP) 群集目前仅提供 Ambari 服务器高可用性。
 
 ### <a name="architecture"></a>体系结构
 

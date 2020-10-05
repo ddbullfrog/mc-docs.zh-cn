@@ -1,21 +1,22 @@
 ---
-title: 使用 Azure PowerShell 的 Azure 流量管理器子网替代 | Azure Docs
+title: 使用 Azure PowerShell 的 Azure 流量管理器子网替代 | Azure
 description: 本文帮助你了解如何使用流量管理器子网替代来替代流量管理器配置文件的路由方法，以便使用 Azure PowerShell 通过预定义的 IP 范围到终结点的映射，基于最终用户 IP 地址将流量定向到某个终结点。
 services: traffic-manager
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
-ms.topic: article
+ms.topic: how-to
 ms.service: traffic-manager
 origin.date: 09/18/2019
-ms.date: 05/06/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3c0f39cee106fa4da92603359de0b04342b75ab5
-ms.sourcegitcommit: 81241aa44adbcac0764e2b5eb865b96ae56da6b7
+ms.openlocfilehash: 045521ce8b8c791e4d856f2efbefad603f327d09
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "83001885"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395312"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>使用 Azure PowerShell 的流量管理器子网替代
 
@@ -40,7 +41,10 @@ ms.locfileid: "83001885"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-可以通过从计算机运行 PowerShell 来运行命令。  
+可以通过从本地计算机运行 PowerShell 来运行命令。  
+
+<!--Not Available on Azure Cloud Shell-->
+
 如果在计算机上运行 PowerShell，则需要 Azure PowerShell 模块 1.0.0 或更高版本。 可以运行 `Get-Module -ListAvailable Az` 来查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 以登录到 Azure。
 
 1. **检索流量管理器终结点：**
@@ -55,7 +59,7 @@ ms.locfileid: "83001885"
 
     ```
 2. **将 IP 地址范围添加到终结点：**
-    
+
     若要将 IP 地址范围添加到终结点，请使用 [Add-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) 添加范围。
 
     ```powershell
@@ -68,7 +72,7 @@ ms.locfileid: "83001885"
 
     ### Add a range of IPs with a subnet ###
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
-    
+
     ```
     添加范围后，使用 [Set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) 更新终结点。
 

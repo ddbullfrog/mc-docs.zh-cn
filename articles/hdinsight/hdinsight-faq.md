@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 11/20/2019
 ms.date: 02/24/2020
-ms.openlocfilehash: 33e7e22adbb93a5502834f302d87598238bbb635
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 0ef83292554b52192525cf3c2f2be46f4ecf0ee4
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715248"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394546"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight：常见问题
 
@@ -106,6 +106,10 @@ ms.locfileid: "88715248"
 
 否，策略定义位于 Ranger 数据库中，因此，迁移 Ranger 数据库会迁移其策略。
 
+### <a name="can-you-migrate-a-hive-metastore-from-an-enterprise-security-package-esp-cluster-to-a-non-esp-cluster-and-the-other-way-around"></a>是否可以将 Hive 元存储从企业安全性套餐 (ESP) 群集迁移到非 ESP 群集，且反之亦然？
+
+是，可以将 Hive 元存储从 ESP 群集迁移到非 ESP 群集。
+
 ### <a name="how-can-i-estimate-the-size-of-a-hive-metastore-database"></a>如何估算 Hive 元存储数据库的大小？
 
 Hive 元存储用于存储 Hive 服务器所用数据源的元数据。 其大小要求一定程度上取决于 Hive 数据源的数量和复杂性。 这些项目无法预先估算。 如 [Hive 元存储指南](hdinsight-use-external-metadata-stores.md#hive-metastore-guidelines)中所述，你可以从 S2 层开始。 该层提供 50 DTU 和 250 GB 的存储；如果遇到瓶颈，请纵向扩展数据库。
@@ -173,9 +177,19 @@ ktutil: q
 
 若要将 VM 加入域，必须有一个域控制器。 Azure AD DS 是托管域控制器，可将其视为 Azure Active Directory 的扩展。 Azure AD DS 提供以托管方式生成安全 Hadoop 群集所需满足的所有 Kerberos 要求。 用作托管服务的 HDInsight 可与 Azure AD DS 集成来提供安全性。
 
+### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>是否可在 AAD DS 安全 LDAP 设置中使用自签名证书并预配 ESP 群集？
 
+建议使用证书颁发机构颁发的证书。 但在 ESP 上，也支持使用自签名证书。 有关详细信息，请参阅：
 
-### <a name="can-i-disable-clamscan-on-my-cluster"></a>是否可在群集上禁用 Clamscan？
+- [启用 Azure Active Directory 域服务](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
+
+- [教程：为 Azure Active Directory 域服务托管域配置安全 LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md)
+
+### <a name="how-can-i-pull-login-activity-shown-in-ranger"></a>如何拉取 Ranger 中显示的登录活动？
+
+出于审核要求，Microsoft 建议按[使用 Azure Monitor 日志监视 HDInsight 群集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial)中的说明启用 Azure Monitor 日志。
+
+### <a name="can-i-disable-clamscan-on-my-cluster"></a>是否可在群集上禁用 `Clamscan`？
 
 Clamscan 是在 HDInsight 群集上运行的防病毒软件，Azure 安全性服务 (azsecd) 使用它来防范群集遭到病毒攻击。 Microsoft 强烈建议用户不要对默认的 Clamscan 配置进行任何更改。
 
@@ -192,6 +206,13 @@ Clamscan 是在 HDInsight 群集上运行的防病毒软件，Azure 安全性服
    `/usr/local/bin/azsecd manual -s clamav`
 
 有关如何设置和运行 Cron 作业的详细信息，请参阅[如何设置 Cron 作业](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)？
+
+### <a name="why-is-llap-available-on-spark-esp-clusters"></a>为什么在 Spark ESP 群集上可使用 LLAP？
+启用 LLAP 是出于安全（而非性能）原因 (Apache Ranger)。 使用较大的节点 VM 来适应 LLAP 的资源使用（例如最低 D13V2）。 
+
+### <a name="how-can-i-add-additional-aad-groups-after-creating-an-esp-cluster"></a>如何在创建 ESP 群集后添加其他 AAD 组？
+可通过两种方式实现此目的：1- 可以重新创建群集，并在创建群集时添加其他组。 如果你使用 AAD-DS 中范围内的同步功能，请确保组 B 包含在范围内的同步中。
+2- 将组作为之前用于创建 ESP 群集的组的嵌套子组进行添加。 例如，如果已使用组 `A` 创建了一个 ESP 群集，则稍后可将组 `B` 添加为 `A` 的嵌套子组，在大约一小时后，它将自动同步并在群集中可用。 
 
 ## <a name="storage"></a>存储
 

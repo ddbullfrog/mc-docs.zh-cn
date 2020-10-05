@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/19/2019
 ms.author: v-yiso
 ms.date: 01/13/2020
-ms.openlocfilehash: 5f7760617770118f2de61701970c5f8f632f3f92
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 3c3192ff4d32f698d81cf66300bbadb966bad748
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463099"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394543"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>在 HDInsight 上为 Apache HBase 和 Apache Phoenix 设置备份与复制
 
@@ -66,7 +66,7 @@ HDInsight 中的 HBase 使用创建群集时选择的默认存储：Azure 存储
 
 ## <a name="export-then-import"></a>导出再导入
 
-在源 HDInsight 群集上，使用“导出”实用工具（HBase 已随附）将数据从源表导出到默认的附加存储。 然后，可将导出的文件夹复制到目标存储位置，并在目标 HDInsight 群集上运行“导入”实用工具。
+在源 HDInsight 群集上，使用[“导出”实用工具](https://hbase.apache.org/book.html#export)（HBase 已随附）将数据从源表导出到默认的附加存储。 然后，可将导出的文件夹复制到目标存储位置，并在目标 HDInsight 群集上运行[“导入”实用工具](https://hbase.apache.org/book.html#import)。
 
 若要导出表数据，请先通过 SSH 连接到源 HDInsight 群集的头节点，然后运行以下 `hbase` 命令：
 
@@ -95,7 +95,9 @@ hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<expo
 
 此方法提供表级粒度。 还可以指定日期范围以包含相应的行，这样，便能以递增方式执行该过程。 每个日期从 Unix 时期开始算起，以毫秒为单位。
 
-    hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
+```console
+hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
+```
 
 请注意，必须指定要导出的每行的版本数。 若要在日期范围中包含所有版本，请将 `<numberOfVersions>` 设置为大于可能行版本数上限的值，例如 100000。
 

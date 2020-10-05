@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 12/06/2019
-ms.date: 06/22/2020
+ms.date: 09/22/2020
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: a0009f55b9fd43f66b1bf0c5798adfa1ef419e6b
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 2bc4c1a0b238193ea0f3f53a61999431d98e31e6
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852025"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402308"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>使用 REST API 更新 Azure 恢复服务保管库配置
 
@@ -20,9 +20,9 @@ ms.locfileid: "85852025"
 
 ## <a name="soft-delete-state"></a>软删除状态
 
-删除受保护项的备份是一项必须加以监视的重要操作。 为防止意外删除，Azure 恢复服务保管库具有软删除功能。 此功能允许客户在删除后的某个时间段内还原已删除的备份（如有必要）。
+删除受保护项的备份是一项必须加以监视的重要操作。 为防止意外删除，Azure 恢复服务保管库具有软删除功能。 此功能允许你在删除备份后的某个时间段内还原已删除的备份（如有必要）。
 
-但某些情况下，不需要此功能。 如果保管库包含备份项（甚至是软删除的备份项），则无法删除 Azure 恢复服务保管库。 如果需要立即删除保管库，这可能会导致出现问题。 例如：部署操作通常会删除同一工作流中的已创建资源。 部署操作可以创建保管库，为项配置备份，执行测试还原，然后继续删除备份项和保管库。 如果保管库删除失败，则整个部署也可能会失败。 禁用软删除是确保立即删除的唯一方法。
+但在某些情况下，不需要此功能。 如果 Azure 恢复服务保管库包含备份项，即使是软删除的备份项，也无法删除该保管库。 如果需要立即删除保管库，这可能会导致出现问题。 例如：部署操作通常会删除同一工作流中的已创建资源。 部署操作可以创建保管库，为项配置备份，执行测试还原，然后继续删除备份项和保管库。 如果保管库删除失败，则整个部署也可能会失败。 禁用软删除是确保立即删除的唯一方法。
 
 因此，你需要根据具体方案谨慎选择是否对特定保管库禁用软删除。 有关详细信息，请参阅[软删除](backup-azure-security-feature-cloud.md)一文。
 
@@ -106,7 +106,7 @@ PATCH https://management.chinacloudapi.cn/Subscriptions/00000000-0000-0000-0000-
 }
 ```
 
-#### <a name="responses"></a>响应
+#### <a name="responses-for-the-patch-operation"></a>PATCH 操作的响应
 
 PATCH 操作的成功响应如下所示：
 
@@ -114,7 +114,7 @@ PATCH 操作的成功响应如下所示：
 |---------|---------|---------|
 |200 正常     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
-##### <a name="example-response"></a>示例响应
+##### <a name="example-response-for-the-patch-operation"></a>PATCH 操作的响应示例
 
 提交 PATCH 请求后，将返回 200 （成功）响应。
 

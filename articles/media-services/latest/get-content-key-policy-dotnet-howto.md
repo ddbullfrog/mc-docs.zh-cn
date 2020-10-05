@@ -1,5 +1,5 @@
 ---
-title: 使用媒体服务 v3 .NET SDK 从现有策略中获取签名密钥 - Azure | Microsoft Docs
+title: 使用 Azure 媒体服务 v3 .NET 从策略获取签名密钥
 description: 本主题说明如何使用媒体服务 v3 .NET SDK 从现有策略中获取签名密钥。
 services: media-services
 documentationcenter: ''
@@ -8,19 +8,21 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-origin.date: 04/15/2019
-ms.date: 03/04/2020
+ms.topic: how-to
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: b98767858b4ec02733ad58666aab83b79da1976f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: d154f0c6ffc625036ee3b998fb477f4f7ba3f636
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245647"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>从现有策略获取签名密钥
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Google Widevine 内容保护服务目前在 Azure 中国区域不可用。

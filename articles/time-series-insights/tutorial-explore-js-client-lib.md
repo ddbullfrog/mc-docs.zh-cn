@@ -10,12 +10,12 @@ origin.date: 07/29/2019
 ms.date: 09/02/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 0704c422abaa21ea2216dd5438b4446b7c29cc59
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 607cd1b075eb721905a496ef762894005c67794a
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77068347"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402347"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教程：探索 Azure 时序见解 JavaScript 客户端库
 
@@ -35,11 +35,11 @@ ms.locfileid: "77068347"
 > * 时序见解示例应用源文件在 [GitHub 示例存储库](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)中提供。
 > * 请阅读[时序见解客户端参考文档](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)。
 
-如果没有 Azure 订阅，请注册一个[试用的 Azure 订阅](https://wwww.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请注册一个[试用的 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 
-本教程使用浏览器的“开发人员工具”功能  。 现代 Web 浏览器（[Microsoft Edge](https://docs.microsoft.com/microsoft-edge/devtools-guide)、[Chrome](https://developers.google.com/web/tools/chrome-devtools/)、[Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)、[Safari](https://developer.apple.com/safari/tools/) 等）通常可以通过键盘上的 F12 热键访问“Web 检查器视图”  。 访问该视图的另一种方法是右键单击网页，然后选择“检查元素”  。
+本教程使用浏览器的“开发人员工具”功能  。 新式 Web 浏览器（[Microsoft Edge](https://docs.microsoft.com/microsoft-edge/devtools-guide)、Chrome、[Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)、[Safari](https://developer.apple.com/safari/tools/) 等）通常支持通过键盘上的 F12 热键访问“Web 检查器视图”。 访问该视图的另一种方法是右键单击网页，然后选择“检查元素”  。
 
 ## <a name="sample-application"></a>示例应用程序
 
@@ -261,7 +261,7 @@ ms.locfileid: "77068347"
 
 * **折线图**
 * **饼图**
-* <bpt id="p1">**</bpt>bar chart<ept id="p1">**</ept>
+* ****
 * **heatmap**
 * **层次结构控件**
 * **可访问网格**

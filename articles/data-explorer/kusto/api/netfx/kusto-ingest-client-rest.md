@@ -9,13 +9,13 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 02/19/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 7300993492e3c34a1de5c258b84d241531ae5e69
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 09/24/2020
+ms.openlocfilehash: b7d4fd310119331868ab78db3fcaf1211c1cb760
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226348"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146558"
 ---
 # <a name="ingestion-without-kustoingest-library"></a>在不使用 Kusto.Ingest 库的情况下进行引入
 
@@ -284,7 +284,7 @@ internal static string PrepareIngestionMessage(string db, string table, string d
 最后，将你构造的消息发布到你从 Azure 数据资源管理器获取的选定引入队列。
 
 > [!NOTE]
-> .Net 存储客户端（在使用的情况下）默认将消息编码为 base64。 有关详细信息，请参阅[存储文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.encodemessage?view=azure-dotnet-legacy#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_EncodeMessage)。如果未使用该客户端，请确保正确地对消息内容进行编码。
+> 默认情况下，低于 v12 的 .Net 存储客户端版本将消息编码为 base64。有关详细信息，请参阅[存储文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.encodemessage?view=azure-dotnet-legacy#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_EncodeMessage)。如果使用的是 v12 以上的 .Net 存储客户端版本，则必须正确编码消息内容。
 
 ```csharp
 internal static void PostMessageToQueue(string queueUriWithSas, string message)

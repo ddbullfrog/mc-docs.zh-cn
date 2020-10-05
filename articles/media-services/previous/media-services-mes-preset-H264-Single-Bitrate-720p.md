@@ -1,6 +1,6 @@
 ---
 title: H264 单比特率 720p Media Encoder Standard 预设 - Azure | Microsoft 文档
-description: 本主题概述 **H264 单比特率 720p** 任务预设。
+description: 本文概述了 Media Encoder Standard“H264 单比特率 720p”任务预设。
 author: WenJason
 manager: digimobile
 editor: ''
@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 04/01/2019
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 63fae9e4f7d3d3aceedcda0d4126ce155e39fad0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d2999004e4d76c5a7c10f1f77fb3b7dfb7eb17b2
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63859747"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244748"
 ---
 # <a name="h264-single-bitrate-720p"></a>H264 单比特率 720p
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 `Media Encoder Standard` 定义了一组在创建编码作业时可使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  
   
  本主题介绍 XML 和 JSON 格式的 `H264 Single Bitrate 720p` 预设。  

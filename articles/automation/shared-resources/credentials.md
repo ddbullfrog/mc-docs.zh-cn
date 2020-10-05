@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
-origin.date: 01/31/2020
-ms.date: 08/10/2020
+origin.date: 09/10/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: e6a2dc62096461f741e0a7d87118e30657e77802
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: da05ac97548ab05dd227c4f2fe4c7d0b2789696b
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788331"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246485"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>在 Azure 自动化中管理凭据
 
@@ -73,15 +73,15 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 
 ### <a name="create-a-new-credential-asset-with-the-azure-portal"></a>使用 Azure 门户创建新的凭据资产
 
-1. 从自动化帐户中，选择“共享资源”下的“凭据”。
-1. 选择“添加凭据”。
-2. 在“新建凭据”窗格中，根据你的命名标准输入合适的凭据名称。 
-3. 在“用户名”字段中键入你的访问 ID。 
+1. 在自动化帐户的左侧窗格中，选择“共享资源”下的“凭据” 。
+1. 在“凭据”页上，选择“添加凭据” 。
+2. 在“新建凭据”窗格中，根据你的命名标准输入合适的凭据名称。
+3. 在“用户名”字段中键入你的访问 ID。
 4. 对于两个密码字段，请输入机密访问密钥。
 
     ![创建新凭据](../media/credentials/credential-create.png)
 
-5. 如果选中了“多重身份验证”框，请将其取消选中。 
+5. 如果选中了“多重身份验证”框，请将其取消选中。
 6. 单击“创建”以保存新的凭据资产。
 
 > [!NOTE]
@@ -137,11 +137,11 @@ Connect-AzAccount -Credential $myPsCred
 
 可以通过在图形编辑器的“库”窗格中右键单击凭据并选择“添加到画布”，将内部 `Get-AutomationPSCredential` cmdlet 的活动添加到图形 Runbook。
 
-![将凭据添加到画布](../media/credentials/credential-add-canvas.png)
+![将凭据 cmdlet 添加到画布](../media/credentials/credential-add-canvas.png)
 
 下图显示了在图形 Runbook 中使用凭据的示例。 在本例中，凭据为 Runbook 提供针对 Azure 资源的身份验证。 第一个活动检索有权访问 Azure 订阅的凭据。 然后，帐户连接活动使用此凭据为它之后的任何活动提供身份验证。 此处使用了一个[管道链接](../automation-graphical-authoring-intro.md#use-links-for-workflow)，因为 `Get-AutomationPSCredential` 需要单个对象。  
 
-![将凭据添加到画布](../media/credentials/get-credential.png)
+![带有管道链接示例的凭据工作流](../media/credentials/get-credential.png)
 
 ## <a name="use-credentials-in-a-dsc-configuration"></a>在 DSC 配置中使用凭据
 
@@ -166,4 +166,4 @@ print cred["password"]
 
 * 若要了解有关用于访问凭据的 cmdlet 的详细信息，请参阅[在 Azure 自动化中管理模块](modules.md)。
 * 有关 Runbook 的常规信息，请参阅[在 Azure 自动化中执行 Runbook](../automation-runbook-execution.md)。
-* 有关 DSC 配置的详细信息，请参阅 [Azure 自动化 State Configuration 概述](../automation-dsc-overview.md)。 
+* 有关 DSC 配置的详细信息，请参阅 [Azure 自动化 State Configuration 概述](../automation-dsc-overview.md)。

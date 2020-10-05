@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 4a30f2202c596b36e69a7d1e427e7e1c229e03cc
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 6201b6286a4b1903ff5dbeffc57bb68d3cc37e49
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021185"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395481"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure 机器学习的工作原理：体系结构和概念
 
@@ -110,7 +110,7 @@ Azure 机器学习在试验中记录所有运行并存储以下信息：
 
 ### <a name="estimators"></a>估算器
 
-为了便于使用流行框架进行模型训练，可以通过估算器类轻松构造运行配置。 可以创建并使用泛型[估算器](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)来提交使用所选任何学习框架（例如 scikit-learn）的训练脚本。
+为了便于使用流行框架进行模型训练，可以通过估算器类轻松构造运行配置。 可以创建并使用泛型[估算器](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true)来提交使用所选任何学习框架（例如 scikit-learn）的训练脚本。
 
 有关估算器的详细信息，请参阅[使用估算器训练 ML 模型](how-to-train-ml-models.md)。
 
@@ -123,7 +123,9 @@ Azure 机器学习在试验中记录所有运行并存储以下信息：
 
 ### <a name="logging"></a>日志记录
 
-开发解决方案时，请在 Python 脚本中使用 Azure 机器学习 Python SDK 记录任意指标。 运行后，查询指标以确定运行是否生成了要部署的模型。
+Azure 机器学习会自动为你记录标准运行指标。 不过，你也可以[使用 Python SDK 记录任意指标](how-to-track-experiments.md)。
+
+查看日志的方法有多种：实时监视运行状态，或在完成后查看结果。 有关详细信息，请参阅[监视和查看 ML 运行日志](how-to-monitor-view-training-logs.md)。
 
 
 > [!NOTE]
@@ -189,6 +191,17 @@ Azure 机器学习与框架无关。 创建模型时，可以使用任何流行�
 
 有关将模型部署为 Web 服务的示例，请参阅[在 Azure 容器实例中部署映像分类模型](tutorial-deploy-models-with-aml.md)。
 
+#### <a name="real-time-endpoints"></a>实时终结点
+
+在设计器（预览版）中部署经过训练的模型时，可以[将模型部署为实时终结点](tutorial-designer-automobile-price-deploy.md)。 实时终结点通常通过 REST 终结点接收单个请求，并实时返回预测结果。 这与批处理相反，批处理一次处理多个值，并将完成后的结果保存到数据存储中。
+
+#### <a name="pipeline-endpoints"></a>管道终结点
+
+管道终结点允许通过 REST 终结点以编程方式调用 [ML 管道](#ml-pipelines)。 管道终结点可用于自动执行管道工作流。
+
+管道终结点是已发布管道的集合。 通过这种逻辑组织，你可以使用同一终结点管理和调用多个管道。 管道终结点中的每个已发布管道都经过版本控制。 你可以为终结点选择默认管道，也可以在 REST 调用中指定版本。
+ 
+
 #### <a name="iot-module-endpoints"></a>IoT 模块终结点
 
 已部署 IoT 模块终结点是一个 Docker 容器，其中包含模型和关联脚本或应用程序，以及任何其他依赖项。 在边缘设备上使用 Azure IoT Edge 部署这些模块。
@@ -212,12 +225,13 @@ Azure IoT Edge 将确保模块正在运行并且监视托管它的设备。
 
 ### <a name="studio"></a>工作室
 
-[Azure 机器学习工作室](https://studio.ml.azure.cn)提供了你的工作区中所有项目的 Web 视图。  你可以查看数据集、试验、管道、模型和终结点的结果和详细信息。  你还可以在工作室中管理计算资源和数据存储。
+[Azure 机器学习工作室](overview-what-is-machine-learning-studio.md)提供了你的工作区中所有项目的 Web 视图。  你可以查看数据集、试验、管道、模型和终结点的结果和详细信息。  你还可以在工作室中管理计算资源和数据存储。
 
 你还可以通过工作室访问 Azure 机器学习中包含的交互工具：
 
 + [Azure 机器学习设计器（预览版）](concept-designer.md)，用于执行工作流步骤，无需你编写任何代码
 + [自动化机器学习](concept-automated-ml.md)的 Web 体验
++ [Azure 机器学习笔记本](how-to-run-jupyter-notebooks.md)，用于在集成的 Jupyter 笔记本服务器中编写和运行你自己的代码。
 + [数据标记项目](how-to-create-labeling-projects.md)，用于创建、管理和监视项目以标记数据
 
 ### <a name="programming-tools"></a>编程工具
@@ -226,7 +240,7 @@ Azure IoT Edge 将确保模块正在运行并且监视托管它的设备。
 > 下面标记了“（预览版）”的工具目前为公共预览版。
 > 该预览版在提供时没有附带服务级别协议，建议不要将其用于生产工作负载。 某些功能可能不受支持或者受限。 
 
-+  使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 来与任何 Python 环境中的服务交互。
++  使用[适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 来与任何 Python 环境中的服务交互。
 + 使用[适用于 R 的 Azure 机器学习 SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)（预览版）与任何 R 环境中的服务交互。
 + 使用 [Azure 机器学习 CLI](/machine-learning/reference-azure-machine-learning-cli) 实现自动化。
 + [多模型解决方案加速器](https://aka.ms/many-models)（预览版）在 Azure 机器学习的基础上构建，使你能够训练、操作和管理数百甚至数千个机器学习模型。

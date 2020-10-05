@@ -5,18 +5,18 @@ ms.reviewer: sogup
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/17/2019
-ms.date: 06/09/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: ba47a4dc69e86e4ef4864d546d2ef174e4777786
-ms.sourcegitcommit: 285649db9b21169f3136729c041e4d04d323229a
+ms.openlocfilehash: f1dd4394da3f0c489809962efdb8efd9998b5440
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84683884"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402634"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常见问题 - 备份 Azure VM
 
-本文解答有关使用 [Azure 备份](backup-introduction-to-azure-backup.md)服务备份 Azure VM 的常见问题。
+本文解答有关使用 [Azure 备份](./backup-overview.md)服务备份 Azure VM 的常见问题。
 
 ## <a name="backup"></a>Backup
 
@@ -86,7 +86,7 @@ ms.locfileid: "84683884"
 
 Azure 备份无法备份已启用 WA 的磁盘，但可以将其从备份中排除。 但是，备份不会提供数据库一致性，因为未备份已启用 WA 的磁盘上的信息。 如果需要备份操作系统磁盘和备份未启用 WA 的磁盘，则可以使用此配置备份磁盘。
 
-Azure 备份为 SAP HANA 数据库提供了流式备份解决方案，其 RPO 为 15 分钟。 其通过 SAP 进行了 Backint 认证，利用 SAP HANA 的本机 API 提供本机备份支持。 了解[有关在 Azure VM 中备份 SAP HANA 数据库](/backup/sap-hana-db-about)的详细信息。
+Azure 备份为 SAP HANA 数据库提供了流式备份解决方案，其 RPO 为 15 分钟。 其通过 SAP 进行了 Backint 认证，利用 SAP HANA 的本机 API 提供本机备份支持。 了解[有关在 Azure VM 中备份 SAP HANA 数据库](./sap-hana-db-about.md)的详细信息。
 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>从我在 VM 备份策略中设置的计划备份时间开始，我可以预期的备份开始时间的最大延迟是多少？
 
@@ -102,11 +102,7 @@ Azure 虚拟机备份策略支持的最短保持期为 7 天，最长为 9999 �
 
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>能否备份或还原附加到 VM 的选择性磁盘？
 
-Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性磁盘备份和还原。
-
-如今，Azure 备份支持使用虚拟机备份解决方案将 VM 中的所有磁盘（操作系统和数据）备份到一起。 使用排除磁盘功能，可以选择从 VM 的多个数据磁盘中备份一个或一些数据磁盘。 这样就提供了一个高效且经济的针对备份和还原需求的解决方案。 每个恢复点都包含备份操作中包含的磁盘的数据，因此还可以在还原操作过程中从给定的恢复点还原部分磁盘。 这适用于从快照和保管库进行的还原。
-
-若要注册预览版，请向 AskAzureBackupTeam@microsoft.com 发送邮件
+Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性磁盘备份和还原。 有关详细信息，请参阅 [Azure VM 的选择性磁盘备份和还原](selective-disk-backup-restore.md)。
 
 ## <a name="restore"></a>还原
 
@@ -132,7 +128,11 @@ Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性�
 
 [详细了解](backup-azure-vms-automation.md#restore-an-azure-vm)如何在 PowerShell 中执行此操作。
 
-### <a name="can-i-restore-the-vm-thats-been-deleted"></a>是否可以还原已删除的 VM？
+### <a name="if-the-restore-fails-to-create-the-vm-what-happens-to-the-disks-included-in-the-restore"></a>如果还原无法创建 VM，还原中包含的磁盘会发生什么情况？
+
+如果是托管 VM 还原，则即使 VM 创建失败，也仍会还原磁盘。
+
+### <a name="can-i-restore-a-vm-thats-been-deleted"></a>能否还原已删除的 VM？
 
 是的。 即使删除了 VM，也仍可以转到保管库中的相应备份项，然后从恢复点还原。
 
@@ -146,13 +146,13 @@ Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性�
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>更改已加密 VM 的密钥保管库设置时会发生什么情况？
 
-更改已加密 VM 的密钥保管库设置后，备份将继续使用新的详细信息集。 但是，从更改之前的恢复点还原后，必须先在密钥保管库中还原机密，然后才能从中创建 VM。 有关详细信息，请参阅[此文](/backup/backup-azure-restore-key-secret)。
+更改已加密 VM 的密钥保管库设置后，备份将继续使用新的详细信息集。 但是，从更改之前的恢复点还原后，必须先在密钥保管库中还原机密，然后才能从中创建 VM。 有关详细信息，请参阅[此文](./backup-azure-restore-key-secret.md)。
 
-机密/密钥滚动更新等操作不需要此步骤，还原后可以使用相同的密钥保管库。
+机密/密钥滚动更新等操作不需要此步骤，还原后可使用原来的密钥保管库。
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>在还原后我是否由于 VM 与域控制器的关系被破坏而可以访问 VM？
 
-可以，由于 VM 与域控制器的关系被破坏，因此在还原后可以访问 VM。 有关详细信息，请参阅[此文](/backup/backup-azure-arm-restore-vms#post-restore-steps)
+可以，由于 VM 与域控制器的关系被破坏，因此在还原后可以访问 VM。 有关详细信息，请参阅[此文](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>管理 VM 备份
 
@@ -169,7 +169,7 @@ VM 是使用已修改策略或新策略中的计划和保留设置备份的。
 2. 若要移动配置了 Azure 备份的虚拟机，请执行以下步骤：
 
    1. 找到虚拟机的位置。
-   2. 找到含有以下命名模式的资源组：`AzureBackupRG_<location of your VM>_1`。 例如，AzureBackupRG_chinanorth2_1
+   2. 找到包含以下命名模式的资源组：`AzureBackupRG_<location of your VM>_1`。 例如，AzureBackupRG_chinanorth2_1
    3. 在 Azure 门户中，查看“显示隐藏的类型”。
    4. 查找类型为 Microsoft.Compute/restorePointCollections 的资源，其命名模式为 `AzureBackup_<name of your VM that you're trying to move>_###########`。
    5. 删除此资源。 此操作仅删除即时恢复点，不删除保管库中的备份数据。
@@ -191,4 +191,12 @@ VM 是使用已修改策略或新策略中的计划和保留设置备份的。
 ### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>对于可与同一备份策略关联的 VM 数是否有限制？
 
 有，可以从门户关联到同一备份策略的 VM 数量限制为 100 个。 我们建议，如果 VM 数超过 100 个，请创建具有相同计划或不同计划的多个备份策略。
+
+### <a name="how-can-i-view-the-retention-settings-for-my-backups"></a>如何查看备份的保留设置？
+
+目前，你可根据分配给 VM 的备份策略来查看备份项 (VM) 级别的保留设置。
+
+要查看备份的保留设置，一种方法是在 Azure 门户中导航到 VM 的备份项[仪表板](/backup/backup-azure-manage-vms#view-vms-on-the-dashboard)。 选择指向其备份策略的链接有助于查看与 VM 关联的全部每日、每周、每月和每年保留点的保留期。
+
+还可使用[备份资源管理器](/backup/monitor-azure-backup-with-backup-explorer)在单一管理平台查看所有 VM 的保留设置。 从任何恢复服务保管库中导航到备份资源管理器，转到“备份项”选项卡，然后选择“高级视图”，查看每个 VM 的详细保留信息。
 

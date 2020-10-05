@@ -3,21 +3,21 @@ title: 快速入门 - 使用 PowerShell 备份 VM
 description: 在本快速入门中，你将了解如何使用 Azure PowerShell 模块备份 Azure 虚拟机。
 ms.devlang: azurecli
 ms.topic: quickstart
-author: lingliw
+author: Johnnytechn
 origin.date: 04/16/2019
-ms.date: 09/16/2019
-ms.author: v-lingwu
-ms.custom: mvc
-ms.openlocfilehash: 87b5702522f3ab01bdac1b0ab118c0c624d9f57a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/22/2020
+ms.custom: mvc, devx-track-azurepowershell
+ms.author: v-johya
+ms.openlocfilehash: 9ad10fdef2a2c28207ff773b5b6cd8b9aead7311
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75858500"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402512"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 
-[Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 模块用于从命令行或脚本创建和管理 Azure 资源。
+[Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 模块用于从命令行或脚本创建和管理 Azure 资源。
 
 [Azure 备份](backup-overview.md)可备份本地计算机和应用以及 Azure VM。 本文说明如何使用 AZ 模块备份 Azure VM。 或者，可以使用 [Azure CLI](quick-backup-vm-cli.md) 或在 [Azure 门户](quick-backup-vm-portal.md)中备份 VM。
 
@@ -34,6 +34,7 @@ ms.locfileid: "75858500"
     ```powershell
     Connect-AzAccount -Environment AzureChinaCloud
     ```
+
 2. 首次使用 Azure 备份时，必须使用 [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.Resources/Register-azResourceProvider) 在订阅中注册 Azure 恢复服务提供程序，如下所示：
 
     ```powershell
@@ -47,11 +48,10 @@ ms.locfileid: "75858500"
 创建保管库时：
 
 - 对于资源组和位置，指定要备份的 VM 的资源组和位置。
-- 如果使用此[示例脚本](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)创建了 VM，则资源组为 myResourceGroup****，VM 为 *myVM****，资源位于“中国东部”**** 区域中。
-- Azure 备份会自动处理备份数据的存储。 默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy-grs.md)。 异地冗余可确保将备份数据复制到距主区域数百英里以外的辅助 Azure 区域。
+- 如果使用此[示例脚本](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)创建 VM，则资源组为 myResourceGroup，VM 为 *myVM，资源位于 chinanorth 区域。
+- Azure 备份会自动处理备份数据的存储。 默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md)。 异地冗余可确保将备份数据复制到距主区域数百英里以外的辅助 Azure 区域。
 
 现在创建保管库：
-
 
 1. 使用 [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) 创建保管库：
 
@@ -69,12 +69,13 @@ ms.locfileid: "75858500"
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. 使用 [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty) 更改保管库的存储冗余性配置 (LRS/GRS)，如下所示：
-    
+3. 使用 [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) 更改保管库的存储冗余性配置 (LRS/GRS)，如下所示：
+
     ```powershell
     Get-AzRecoveryServicesVault `
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
+
     > [!NOTE]
     > 只有在没有受保管库保护的备份项的情况下，才能修改存储冗余性。
 
@@ -110,7 +111,8 @@ ms.locfileid: "75858500"
 - 初始备份之后，每个备份作业都会创建增量恢复点。
 - 增量恢复点有利于存储并具有时效性，因为它们仅传输自上次备份以来所做的更改。
 
-若要运行按需备份，可使用 [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)。 
+若要运行按需备份，可使用 [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)。
+
 - 使用 [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) 指定保管库中保存备份数据的容器。
 - 要备份的每个 VM 被视为一个项。 若要启动备份作业，请使用 [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) 获取有关 VM 的信息。
 
@@ -139,6 +141,7 @@ ms.locfileid: "75858500"
     ```powershell
     Get-AzRecoveryservicesBackupJob
     ```
+
     输出类似于以下示例，该示例显示作业处于“正在进行”  状态：
 
     ```output
@@ -153,6 +156,7 @@ ms.locfileid: "75858500"
 ## <a name="clean-up-the-deployment"></a>清理部署
 
 如果不再需要备份 VM，则可以清理它。
+
 - 如果要尝试还原 VM，请跳过清理。
 - 如果使用了现有的 VM，可以跳过最后一个 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet，以保留资源组和 VM。
 
@@ -167,7 +171,7 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何创建恢复服务保管库，如何在 VM 上启用保护，以及如何创建初始恢复点。 
+本快速入门介绍了如何创建恢复服务保管库，如何在 VM 上启用保护，以及如何创建初始恢复点。
 
 - [了解如何](tutorial-backup-vm-at-scale.md)在 Azure 门户中备份 VM。
 - [了解如何](tutorial-restore-disk.md)快速还原 VM

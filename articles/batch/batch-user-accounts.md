@@ -2,18 +2,20 @@
 title: 在用户帐户下运行任务
 description: 了解用户帐户的类型以及如何配置它们。
 ms.topic: how-to
-origin.date: 11/18/2019
-ms.date: 08/24/2020
+ms.service: batch
+origin.date: 08/20/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 12/04/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: cf34f43af83d961858ae27c011df4069e8f09a2f
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: 13e7d8ab13358c0f416f9292e04702281cddb96c
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88655009"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146795"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在批处理中的用户帐户下运行任务
 
@@ -53,18 +55,13 @@ Azure Batch 提供两种类型的用户帐户来运行任务：
 
 ## <a name="auto-user-accounts"></a>自动用户帐户
 
-默认情况下，任务在批处理中的自动用户帐户下，以没有提升访问权限但具有任务范围的标准用户身份运行。 如果为任务范围配置了自动用户规范，批处理服务只为该任务创建自动用户帐户。
+默认情况下，任务在 Batch 中的自动用户帐户下，以没有提升访问权限但具有工作范围的标准用户身份运行。 池范围意味着任务在可供池中任何任务使用的自动用户帐户下运行。 有关池范围的详细信息，请参阅[以具有池范围的自动用户身份运行任务](#run-a-task-as-an-auto-user-with-pool-scope)。
 
-任务范围的替代设置为池范围。 如果为池范围配置了某个任务的自动用户规范，该任务会在可供池中任何任务使用的自动用户帐户下运行。 有关池范围的详细信息，请参阅[以具有池范围的自动用户身份运行任务](#run-a-task-as-an-auto-user-with-pool-scope)。
-
-在 Windows 和 Linux 节点上，默认范围不同：
-
-- 在 Windows 节点上，任务默认在任务范围下运行。
-- Linux 节点始终在池范围下运行。
+池范围的替代设置为任务范围。 如果为任务范围配置了自动用户规范，批处理服务只为该任务创建自动用户帐户。
 
 自动用户规范有四种可能的配置，其中每种配置对应于一个唯一的自动用户帐户：
 
-- 具有任务范围的非管理员访问权限（默认的自动用户规范）
+- 具有任务范围的非管理员访问权限
 - 具有任务范围的管理员（提升的）访问权限
 - 具有池范围的非管理员访问权限
 - 具有池范围的管理员访问权限
@@ -79,7 +76,7 @@ Azure Batch 提供两种类型的用户帐户来运行任务：
 > [!NOTE]
 > 仅在必要时才使用提升的访问权限。 最佳做法建议，只授予实现所需结果而要必须用到的最低特权。 例如，如果某个启动任务要为当前用户而不是所有用户安装软件，可以避免向该任务授予提升的访问权限。 可以针对需要在同一帐户下运行的所有任务（包括启动任务）配置池范围和非管理员访问权限的自动用户规范。
 
-以下代码片段演示如何配置自动用户规范。 这些示例将提升级别设置为 `Admin`，将范围设置为 `Task`。 任务范围是默认设置，但此处出于示范目的包含了此设置。
+以下代码片段演示如何配置自动用户规范。 这些示例将提升级别设置为 `Admin`，将范围设置为 `Task`。
 
 #### <a name="batch-net"></a>批处理 .NET
 
@@ -94,7 +91,7 @@ taskToAdd.withId(taskId)
             .withAutoUser(new AutoUserSpecification()
                 .withElevationLevel(ElevationLevel.ADMIN))
                 .withScope(AutoUserScope.TASK));
-        .withCommandLine("cmd /c echo hello");                        
+        .withCommandLine("cmd /c echo hello");
 ```
 
 #### <a name="batch-python"></a>批处理 Python
@@ -118,7 +115,7 @@ batch_client.task.add(job_id=jobid, task=task)
 
 为自动用户指定池范围时，使用管理员访问权限运行的所有任务会在同一个池范围自动用户帐户下运行。 同样，不使用管理员权限运行的任务也在单个池范围自动用户帐户下运行。
 
-> [!NOTE] 
+> [!NOTE]
 > 两个池范围自动用户帐户是独立的帐户。 在池范围管理帐户下运行的任务不能与标准帐户下运行的任务共享数据，反之亦然。
 
 在同一自动用户帐户下运行任务的优势在于，任务可与同一个节点上运行的其他任务共享数据。

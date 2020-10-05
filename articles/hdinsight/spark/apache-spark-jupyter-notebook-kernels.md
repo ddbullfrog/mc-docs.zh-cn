@@ -18,12 +18,12 @@ ms.topic: article
 origin.date: 05/27/2019
 ms.date: 07/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 288f8d0fbba3f18ff185b76dbafbcc776e6ed2d1
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 67b51c1e51a95d657d7f410f47b21d1403f4e016
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186444"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394785"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 群集上的 Jupyter notebook 的内核 
 
@@ -71,7 +71,7 @@ HDInsight Spark 群集提供可在 [Apache Spark](./apache-spark-overview.md) �
 
     因此，不需要运行如下语句来设置上下文：
 
-    ```
+    ```sql
     sc = SparkContext('yarn-client')
     sqlContext = HiveContext(sc)
     ```
@@ -113,8 +113,10 @@ HDInsight Spark 群集提供可在 [Apache Spark](./apache-spark-overview.md) �
 
 **示例：**
 
-    %%sql -q -m sample -r 0.1 -n 500 -o query2
-    SELECT * FROM hivesampletable
+```sql
+%%sql -q -m sample -r 0.1 -n 500 -o query2
+SELECT * FROM hivesampletable
+```
 
 上述语句执行以下操作：
 
@@ -136,9 +138,11 @@ HDInsight Spark 群集提供可在 [Apache Spark](./apache-spark-overview.md) �
 
 将笔记本保存到存储帐户的方式与 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 兼容。 如果通过 SSH 连接到群集，可以使用文件管理命令：
 
-    hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory - everything in this directory is visible to Jupyter from the home page
-    hdfs dfs -copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
-    hdfs dfs -copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter
+| Command | 说明 |
+|---------|-------------|
+| `hdfs dfs -ls /HdiNotebooks` | # 列出根目录中的所有内容 - Jupyter 可以从主页看到此目录中的所有内容 |
+| `hdfs dfs �copyToLocal /HdiNotebooks` | # 下载 HdiNotebooks 文件夹的内容|
+| `hdfs dfs �copyFromLocal example.ipynb /HdiNotebooks` | # 将笔记本 example.ipynb 上传到根文件夹，使其在 Jupyter 中可见 |
 
 不论群集是使用 Azure 存储还是 Azure Data Lake Storage 作为默认存储帐户，笔记本还是会保存在群集头节点上的 `/var/lib/jupyter` 中。
 
@@ -146,7 +150,7 @@ HDInsight Spark 群集提供可在 [Apache Spark](./apache-spark-overview.md) �
 
 Google Chrome 仅支持 Spark HDInsight 群集中的 Jupyter Notebook。
 
-## <a name="feedback"></a>反馈
+## <a name="suggestions"></a>建议
 
 新内核正处于发展阶段，一段时间后将变得成熟。 因此，API 会随着这些内核的成熟而改变。 如果在使用这些新内核时有任何反馈，我们将不胜感激。 此反馈对于塑造这些内核的最终版本会很有帮助。 可以在本文末尾的“反馈”部分下面留下意见/反馈。
 

@@ -2,21 +2,21 @@
 title: 使用 PowerShell 在混合网络中部署和配置 Azure 防火墙
 description: 本文介绍如何使用 Azure PowerShell 部署和配置 Azure 防火墙。
 services: firewall
-author: rockboyfor
 ms.service: firewall
 ms.topic: how-to
-origin.date: 01/08/2020
-ms.date: 08/03/2020
+origin.date: 08/28/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: ed06ba3347ecc150d4f1259582cf4206cf82c81b
-ms.sourcegitcommit: 362814dc7ac5b56cf0237b9016a67c35d8d72c32
+ms.openlocfilehash: b5652640c16bb9a1121bb81bb8cf259641cb658b
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87455571"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246717"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>使用 Azure PowerShell 在混合网络中部署和配置 Azure 防火墙
 
@@ -30,21 +30,20 @@ ms.locfileid: "87455571"
 - **VNet-Spoke** - 分支虚拟网络代表 Azure 中的工作负荷。
 - **VNet-Onprem** - 本地虚拟网络代表本地网络。 在实际部署中，可以使用 VPN 或 ExpressRoute 来连接它。 为简单起见，本文将使用 VPN 网关连接，并使用 Azure 中的某个虚拟网络来代表本地网络。
 
-![混合网络中的防火墙](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
+:::image type="content" source="media/tutorial-hybrid-ps/hybrid-network-firewall.png" alt-text="混合网络中的防火墙":::
 
 在本文中，学习如何：
 
-> [!div class="checklist"]
-> * 声明变量
-> * 创建防火墙中心虚拟网络
-> * 创建分支虚拟网络
-> * 创建本地虚拟网络
-> * 配置和部署防火墙
-> * 创建并连接 VPN 网关
-> * 将中心和分支虚拟网络对等互连
-> * 创建路由
-> * 创建虚拟机
-> * 测试防火墙
+* 声明变量
+* 创建防火墙中心虚拟网络
+* 创建分支虚拟网络
+* 创建本地虚拟网络
+* 配置和部署防火墙
+* 创建并连接 VPN 网关
+* 将中心和分支虚拟网络对等互连
+* 创建路由
+* 创建虚拟机
+* 测试防火墙
 
 如果想改用 Azure 门户来完成本教程，请参阅[教程：使用 Azure 门户在混合网络中部署和配置 Azure 防火墙](tutorial-hybrid-portal.md)。
 
@@ -208,6 +207,9 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>配置网络规则
 
+<!--- $Rule3 = New-AzFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+   -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
+
 ```azurepowershell
 $Rule1 = New-AzFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
@@ -319,7 +321,7 @@ Add-AzVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -RemoteVir
 Add-AzVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
 
-## <a name="create-the-routes"></a>创建路由
+## <a name="create-the-routes"></a><a name="create-the-routes"></a>创建路由
 
 接下来创建一对路由：
 
@@ -426,6 +428,16 @@ Set-AzVMExtension `
     -Location $Location1
 ```
 
+<!---#Create a host firewall rule to allow ping in
+Set-AzVMExtension `
+    -ResourceGroupName $RG1 `
+    -ExtensionName IIS `
+    -VMName VM-Spoke-01 `
+    -Publisher Microsoft.Compute `
+    -ExtensionType CustomScriptExtension `
+    -TypeHandlerVersion 1.4 `
+    -SettingString '{"commandToExecute":"powershell New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4"}' `
+    -Location $Location1--->
 
 ### <a name="create-the-on-premises-virtual-machine"></a>创建本地虚拟机
 
@@ -452,6 +464,10 @@ $NIC.IpConfigurations.privateipaddress
 
 在 Azure 门户中，连接到 **VM-Onprem** 虚拟机。
 
+<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
+
+   You should get a reply.--->
+
 在 VM-Onprem 上打开 Web 浏览器并浏览到 http://\<VM-spoke-01 private IP\>。
 
 应会看到 Internet Information Services 的默认页。
@@ -461,6 +477,8 @@ $NIC.IpConfigurations.privateipaddress
 连接应会成功，并且应该可以使用所选的用户名和密码登录。
 
 现已验证防火墙规则可正常工作：
+
+<!---- You can ping the server on the spoke VNet.--->
 
 - 可以浏览分支虚拟网络中的 Web 服务器。
 - 可以使用 RDP 连接到分支虚拟网络中的服务器。
