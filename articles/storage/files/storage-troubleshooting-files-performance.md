@@ -4,16 +4,16 @@ description: 排查 Azure 文件共享的已知性能问题。 遇到这些问�
 author: WenJason
 ms.service: storage
 ms.topic: troubleshooting
-origin.date: 04/25/2019
-ms.date: 08/24/2020
+origin.date: 08/24/2019
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 57f63920ca9cf13e2a55eccb62b00561cabf1c90
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 1d911fb77b184ff5fc69a7be79bc5dcc0ec303ae
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753365"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026500"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>排查 Azure 文件存储性能问题
 
@@ -21,9 +21,9 @@ ms.locfileid: "88753365"
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>高延迟、低吞吐量和一般性能问题
 
-### <a name="cause-1-share-experiencing-throttling"></a>原因 1：共享遇到限制
+### <a name="cause-1-share-was-throttled"></a>原因 1：共享受限
 
-高级共享上的默认配额为 100 GiB，这可以提供 100 个基线 IOPS （一小时内可能会激增到 300）。 有关预配及其与 IOPS 之间的关系的详细信息，请参阅规划指南中的[预配的共享](storage-files-planning.md#understanding-provisioning-for-premium-file-shares)部分。
+当达到文件共享的 IOPS、入口或出口限制时，将会限制请求。 若要了解标准文件共享和高级文件共享的限制，请参阅[文件共享和文件缩放目标](/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets)。
 
 若要确认共享是否受到限制，可以利用门户中的“Azure 指标”。
 
@@ -48,7 +48,8 @@ ms.locfileid: "88753365"
 
 ### <a name="solution"></a>解决方案
 
-- 通过在共享中指定更高的配额来增大共享预配的容量。
+- 如果使用的是标准文件共享，请在存储帐户上启用[大型文件共享](/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal)。 大型文件共享支持每个共享最多 10,000 IOPS。
+- 如果使用的是高级文件共享，请增加预配的文件共享大小，以便提高 IOPS 限制。 若要了解详细信息，请参阅 Azure 文件存储规划指南中的[了解高级文件共享的预配](/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)部分。
 
 ### <a name="cause-2-metadatanamespace-heavy-workload"></a>原因 2：元数据/命名空间密集型工作负荷
 
@@ -201,7 +202,7 @@ CentOS/RHEL 不支持大于 1 的 IO 深度。
 12. 填写**警报详细信息**，例如**警报规则名称**、**说明**和**严重性**。
 13. 单击“创建警报规则”以创建警报。
 
-若要详细了解如何在 Azure Monitor 中配置警报，请参阅 [Microsoft Azure 中的警报概述](/azure-monitor/platform/alerts-overview)。
+若要详细了解如何在 Azure Monitor 中配置警报，请参阅 [Azure 中的警报概述](/azure-monitor/platform/alerts-overview)。
 
 ## <a name="see-also"></a>另请参阅
 * [在 Windows 中排查 Azure 文件问题](storage-troubleshoot-windows-file-connection-problems.md)

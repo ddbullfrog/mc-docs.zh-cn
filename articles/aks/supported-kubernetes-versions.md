@@ -3,22 +3,22 @@ title: Azure Kubernetes 服务中支持的 Kubernetes 版本
 description: 了解 Azure Kubernetes 服务 (AKS) 中的 Kubernetes 版本支持策略和群集生命周期
 services: container-service
 ms.topic: article
-origin.date: 07/08/2020
-ms.date: 09/14/2020
+origin.date: 09/08/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 2b499b60f6757d8246d2dc28590e3b96149892c0
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 98b085f8748df7d4ce70e5dec99b1f6de47ceb97
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021237"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146587"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中支持的 Kubernetes 版本
 
-Kubernetes 社区大约会每隔三个月发布次要版本。 这些版本包括新增功能和改进。 修补程序版本更为频繁（有时会每周发布），并且仅用于次要版本中的关键 Bug 修复。 这些修补程序版本包括针对安全漏洞或主要 bug 的修复。
+Kubernetes 社区大约会每隔三个月发布次要版本。 最近，Kubernetes 社区[将每个版本的支持时间从 9 个月增加到了 12 个月](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/)，从版本 1.19 开始。 这些版本包括新增功能和改进。 补丁发布更为频繁（有时每周都会发布），适用于次要版本中的关键 Bug 修复。 这些修补程序版本包括针对安全漏洞或主要 bug 的修复。
 
 ## <a name="kubernetes-versions"></a>Kubernetes 版本
 
@@ -44,8 +44,8 @@ Example:
 
 AKS 定义了一个正式发布版，所有 SLO 或 SLA 衡量方案都采用此版本，并且在所有区域提供。 AKS 支持三个 Kubernetes GA 次要版本：
 
-* AKS 中发布的最新 GA 次要版本（我们将其称为 N）。 
-* 以前的两个次要版本。 
+* AKS 中发布的最新 GA 次要版本（我们将其称为 N）。
+* 以前的两个次要版本。
 * 每个受支持的次要版本还支持最多两 (2) 个稳定的修补程序。
 * AKS 可能还支持预览版本，这些版本带有明确的标签，使用时需遵守[预览版条款和条件][preview-terms]。
 
@@ -148,6 +148,10 @@ az aks get-versions --location chinaeast2 --output table
 \* 待定的上游发布日期确认。
 
 ## <a name="faq"></a>常见问题解答
+
+**我应该多久升级一次 Kubernetes 版本才能始终获得支持？**
+
+从 Kubernetes 1.19 开始，[开源社区已将支持时间延长到 1 年](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/)。 AKS 承诺至少启用补丁并提供与上游承诺使用量匹配的支持。 这意味着从 1.19 版的 AKS 群集开始，你将能够每年至少升级一次，这样就能始终使用受支持的版本。 对于 1.18 或更低版本，支持时间仍为 9 个月，这要求你每 9 个月升级一次才能始终使用受支持的版本。 强烈建议你定期测试新版本，并准备升级到更新的版本，以便在 Kubernetes 中捕获最新的稳定增强功能。
 
 **用户升级的 Kubernetes 群集具有不受支持的次要版本时，会发生什么情况？**
 

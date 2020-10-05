@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/10/2020
 ms.date: 08/24/2020
 ms.author: v-jay
-ms.openlocfilehash: c77b054e91988deff02c4ece561c461411639512
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 270a09ef680891159d018675b1c2067025798354
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753670"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026497"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Azure 存储资源管理器支持生命周期和策略
 
@@ -22,7 +22,7 @@ ms.locfileid: "88753670"
 
 ## <a name="update-schedule-and-process"></a>更新计划和进程
 
-Azure 存储资源管理器每年发布四到六次。 Microsoft 也可能在计划时间以外发布关键问题的修复。
+Azure 存储资源管理器每年发布四到六次。 Azure 也可能在计划时间以外发布关键问题的修复。
 
 存储资源管理器每小时检查一次更新，并在更新可用时下载更新。 但需要用户接受才能启动安装过程。 如果用户选择在其他时间进行更新，他们可以手动检查更新。 在 Windows 和 Linux 上，用户可以通过从“帮助”菜单中选择“检查更新”来检查更新 。 在 macOS 上，可以在“应用菜单”下找到“检查更新” 。 用户也可以直接转到[存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)下载页，下载并安装最新版本。
 

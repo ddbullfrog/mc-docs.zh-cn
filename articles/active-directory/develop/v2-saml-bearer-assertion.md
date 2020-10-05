@@ -2,22 +2,21 @@
 title: Microsoft 标识平台和 SAML 持有者断言流 | Azure
 description: 了解如何从 Microsoft Graph 提取数据，而无需使用 SAML 持有者断言流提示用户提供凭据。
 services: active-directory
-author: umeshbarapatre
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.reviewer: paulgarn
-ms.custom: aaddev
-ms.openlocfilehash: 7507ea397d25e98b984d2ad8838d4330aa3c3d3f
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 6bd27a449203dec37870014d27f175d72c52dd83
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245524"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft 标识平台和 OAuth 2.0 SAML 持有者断言流
 当客户端需要使用现有的信任关系时，你可以通过 OAuth 2.0 SAML 持有者断言流使用 SAML 断言请求 OAuth 访问令牌。 应用于 SAML 断言的签名提供已授权应用的身份验证。 SAML 断言是标识提供者颁发的 XML 安全令牌，由服务提供者使用。 出于安全相关的目的，该服务提供者依赖于其内容来识别断言的使用者。
@@ -28,7 +27,7 @@ SAML 断言将发布到 OAuth 令牌终结点。  该终结点根据应用的先
 
 对于执行基于浏览器的交互式登录以获取 SAML 断言，然后要添加对 OAuth 所保护 API（例如 Microsoft Graph）的访问权限的应用程序，可以发出 OAuth 请求来获取 API 的访问令牌。 将浏览器重定向到 Azure AD 以便对用户进行身份验证时，浏览器将从 SAML 登录中拾取会话，而用户无需输入其凭据。
 
-对于使用已联合到 Active Directory 的标识提供者（例如 Azure Active Directory 联合身份验证服务 (ADFS)）进行身份验证的用户，也支持 OAuth SAML 持有者断言流。  可在 OAuth 流中使用从 ADFS 获取的 SAML 断言对用户进行身份验证。
+对于使用标识提供者（例如联合到 Azure Active Directory 的 Active Directory 联合身份验证服务 (ADFS)）进行身份验证的用户，仅支持 OAuth SAML 持有者断言流。  可在 OAuth 流中使用从 ADFS 获取的 SAML 断言对用户进行身份验证。
 
 ![OAuth 流](./media/v2-saml-bearer-assertion/1.png)
 
@@ -37,7 +36,7 @@ SAML 断言将发布到 OAuth 令牌终结点。  该终结点根据应用的先
 
 ### <a name="prerequisites"></a>先决条件
 
-在授权服务器/环境 (Microsoft 365) 与标识提供者或 SAML 2.0 持有者断言 (ADFS) 颁发者之间建立信任关系。 
+在授权服务器/环境 (Microsoft 365) 与标识提供者或 SAML 2.0 持有者断言 (ADFS) 颁发者之间建立信任关系。 若要将 ADFS 配置为单一登录和标识提供者，可以参阅[此文](https://docs.microsoft.com/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365)。
 
 在[门户](https://portal.azure.cn/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)中注册应用程序：
 1. 登录到[门户的应用注册边栏选项卡](https://portal.azure.cn/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)（请注意，我们将对图形 API 使用 v2.0 终结点，因此需要在此门户中注册应用程序。 否则可以使用 Azure Active Directory 中的注册）。 

@@ -2,18 +2,18 @@
 title: 管理资源组 - Azure PowerShell
 description: 使用 Azure PowerShell 通过 Azure 资源管理器管理资源组。 说明如何创建、列出和删除资源组。
 ms.topic: conceptual
-origin.date: 02/11/2019
+origin.date: 09/01/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0e3e6d96ca3c1a4352a71e6c713d6286e9268f08
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 3020645e7617b7293561af84f5ebf6497eb82718
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807758"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146670"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 资源管理器资源组
 
@@ -34,15 +34,10 @@ ms.locfileid: "88807758"
 
 ## <a name="create-resource-groups"></a>创建资源组
 
-以下 PowerShell 脚本将创建一个资源组，然后显示该资源组。
+以下 PowerShell 脚本将创建一个资源组。
 
 ```powershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-
-Get-AzResourceGroup -Name $resourceGroupName
+New-AzResourceGroup -Name demoResourceGroup -Location chinanorth
 ```
 
 ## <a name="list-resource-groups"></a>列出资源组

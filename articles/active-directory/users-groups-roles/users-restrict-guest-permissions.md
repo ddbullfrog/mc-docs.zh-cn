@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: v-junlch
 manager: daveba
-ms.date: 09/04/2020
+ms.date: 09/24/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1338913c6d7e62af14800c6df601257ed961cbc
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 4fe500579e0e104845b3a3c06183e8a65a4d7ba9
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596203"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245205"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>在 Azure Active Directory 中限制来宾访问权限（预览版）
 
@@ -40,10 +40,7 @@ Azure Active Directory (Azure AD) 允许你在 Azure AD 中限制外部来宾用
 
 我们对 Azure 门户中针对来宾用户权限的现有控件进行了更改。
 
-> [!IMPORTANT]
-> 在短时间内，只有使用 URL [https://portal.azure.cn](https://portal.azure.cn) 才能看到用于来宾用户权限的新门户控件。 PowerShell 和 Microsoft Graph 仍可用来设置控件，更改将显示在门户中。
-
-1. 使用全局管理员权限登录到 [Azure AD 管理中心](https://portal.azure.cn)。
+1. 使用全局管理员权限登录到 [Azure 门户](https://portal.azure.cn)。
 1. 在你的组织的“Azure Active Directory”概览页上，选择“用户设置”。
 1. 在“外部用户”下，选择“管理外部协作设置”。  
 1. 在“外部协作设置”页上，选择“来宾用户访问权限限制为其自己的目录对象的属性和成员身份”选项。
@@ -157,7 +154,7 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 
 问题 | Answer
 -------- | ------
-这些权限在何处适用？ | 这些目录级权限跨 Azure AD 服务和门户（包括 Microsoft Graph、PowerShell v2、Azure 门户和“我的应用”门户）强制执行。 利用 Office 365 组执行协作方案的 Microsoft 365 服务（特别是 Outlook、Microsoft Teams 和 SharePoint）也会受到影响。
+这些权限在何处适用？ | 这些目录级权限跨 Azure AD 服务和门户（包括 Microsoft Graph、PowerShell v2、Azure 门户和“我的应用”门户）强制执行。 利用 Microsoft 365 组执行协作方案的 Microsoft 365 服务（特别是 Outlook、Microsoft Teams 和 SharePoint）也会受到影响。
 此功能影响“我的应用”门户的哪些部分？ | “我的应用”门户中的组功能会认可这些新权限。 这包括用来在“我的应用”中查看组列表和组成员身份的所有路径。 未对组磁贴可用性进行任何更改。 组磁贴可用性仍由 Azure 管理门户中的现有组设置控制。
 这些权限是否替代了 SharePoint 或 Microsoft Teams 来宾设置？ | 否。 这些现有设置仍然会控制这些应用程序中的体验和访问权限。 例如，如果你在 SharePoint 中看到问题，请仔细检查你的外部共享设置。
 Planner 和 Yammer 中有哪些已知的兼容性问题？ | <li>当权限设置为“受限制”时，已登录到 Planner 应用或访问 Microsoft Teams 中的 Planner 的来宾将无法访问其计划或任何任务。<li>当权限设置为“受限制”时，登录到 Yammer 的来宾将无法离开组。

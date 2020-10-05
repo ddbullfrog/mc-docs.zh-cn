@@ -6,15 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 2/22/2020
-ms.date: 07/20/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 8b0e21a3fe755b649d97d6c47e123eef6ae533c6
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.custom: devx-track-azurecli, references_regions
+ms.openlocfilehash: cfd67082f3675e476696c4511c8a491e5f57f316
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414742"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026526"
 ---
 # <a name="create-an-azure-file-share"></a>创建 Azure 文件共享
 若要创建 Azure 文件共享，需要回答有关你将如何使用它的三个问题：
@@ -227,6 +228,67 @@ az storage share create \
 
 > [!Note]  
 > 文件共享的名称必须是全部小写。 若要全面且详细地了解如何为文件共享和文件命名，请参阅 [命名和引用共享、目录、文件和元数据](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
+
+### <a name="create-a-hot-or-cool-file-share"></a>创建热文件共享或冷文件共享
+**常规用途 v2 (GPv2) 存储帐户**可以包含经过事务优化的热文件共享或冷文件共享（或二者的混合）。 事务优化共享可在所有 Azure 区域中提供，但热文件共享和冷文件共享仅在[部分区域](storage-files-planning.md#storage-tiers)提供。 可使用 Azure PowerShell 预览模块或 Azure CLI 创建热或冷文件共享。 
+
+# <a name="portal"></a>[门户](#tab/azure-portal)
+Azure 门户尚不支持创建热文件共享和冷文件共享，也不支持将现有的事务优化的文件共享移动到热或冷文件共享。 请查看有关使用 PowerShell 或 Azure CLI 创建文件共享的说明。
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+```PowerShell
+# Update the Azure storage module to use the preview version. You may need to close and 
+# reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
+# the following:
+# - Run the below cmdlets as an administrator.
+# - Have PowerShellGet 2.2.3 or later. Uncomment the following line to check.
+# Get-Module -ListAvailable -Name PowerShellGet
+Remove-Module -Name Az.Storage -ErrorAction SilentlyContinue
+Uninstall-Module -Name Az.Storage
+Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -AllowPrerelease 
+
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
+# storage accounts. Standard tiers are only available in standard storage accounts. 
+$shareName = "myhotshare"
+
+New-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Hot
+
+# You can also change an existing share's tier.
+Update-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Cool
+```
+
+> [!Note]  
+> 预览版 Az.Storage PowerShell 模块中提供了通过 PowerShell 设置和更改层级的功能。 这些 cmdlet 或其输出在正式发布的 Az.Storage PowerShell 模块中发布之前可能会发生更改，因此，创建脚本时请记住这一点。
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+最新的 Azure CLI 更新中提供了在特定层中创建文件共享或将文件共享移动到特定层的功能。 更新 Azure CLI 的操作特定于你使用的操作系统/Linux 发行版。 有关如何在你的系统上更新 Azure CLI 的说明，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+
+```bash
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
+# storage accounts. Standard tiers are only available in standard storage accounts.
+shareName="myhotshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --access-tier "Hot"
+```
+
+> [!Note]  
+> 最新的 Azure CLI 包中提供了使用 `--access-tier` 参数设置层级的功能（预览版）。 此命令或其输出在标记为正式发布之前可能会发生更改，因此，创建脚本时请记住这一点。
+
+---
 
 ## <a name="next-steps"></a>后续步骤
 - [规划 Azure 文件存储的部署](storage-files-planning.md)。 

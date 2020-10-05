@@ -8,17 +8,19 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/24/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 2b1e6372a8cd0dda9c04d9de0d1910b87d8b4e6a
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 8af607efa62064cb9140d1010267b785c4bb9680
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515886"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146352"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>在 Azure 存储或 Azure Data Lake 中创建和更改外部表
 
 以下命令介绍了如何创建位于 Azure Blob 存储、Azure Data Lake Store Gen1 或 Azure Data Lake Store Gen2 中的外部表。 
+
+有关外部 Azure 存储表功能的简介，请参阅[使用 Azure 数据资源管理器查询 Azure Data Lake 中的数据](../../data-lake-query-data.md)。
 
 ## <a name="create-or-alter-external-table"></a>.create 或 .alter external table
 
@@ -82,6 +84,7 @@ ms.locfileid: "88515886"
   *PartitionName* `:` `datetime` `=` (`startofyear` \| `startofmonth` \| `startofweek` \| `startofday`) `(` *ColumnName* `)`  
   *PartitionName* `:` `datetime` `=` `bin` `(` *ColumnName* `,` *TimeSpan* `)`
 
+若要检查分区定义的正确性，请在创建外部表时使用属性 `sampleUris`。
 
 <a name="path-format"></a>
 *PathFormat*
@@ -113,6 +116,8 @@ ms.locfileid: "88515886"
 | `bin(`*Column*`, 1m)` | `yyyy/MM/dd/HH/mm` |
 
 如果在外部表定义中省略了 PathFormat，则会假定使用 `/` 分隔符分隔所有分区，分区的顺序与定义它们的顺序完全相同。 分区是使用其默认字符串表示形式呈现的。
+
+若要检查路径格式定义的正确性，请在创建外部表时使用属性 `sampleUris`。
 
 <a name="format"></a>
 *Format*
@@ -239,9 +244,6 @@ dataformat=parquet
 )
 ```
 
-> [!NOTE]
-> 目前，以下数据格式不支持虚拟列：`CSV`、`TSV`、`TSVE`、`SCsv`、`SOHsv`、`PSV`、`RAW` 和 `TXT`。
-
 <a name="file-filtering"></a>
 **文件筛选逻辑**
 
@@ -258,7 +260,7 @@ dataformat=parquet
 满足所有条件时，查询引擎将提取并处理该文件。
 
 > [!NOTE]
-> 初始 URI 模式是使用查询谓词值构建的。 这最适用于有限的字符串值集以及闭合时间范围。 
+> 初始 URI 模式是使用查询谓词值构建的。 这最适用于有限的字符串值集以及闭合时间范围。
 
 ## <a name="show-external-table-artifacts"></a>.show external table artifacts
 

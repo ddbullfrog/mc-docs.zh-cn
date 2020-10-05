@@ -10,18 +10,20 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
-origin.date: 06/13/2019
-ms.date: 04/06/2020
+ms.topic: conceptual
+origin.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: ec88fc6001035ecbed3202d25493d0e9b6b1128d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: deda41c83c9e87a05828a6b03a15f7fe1ceb9b62
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80625788"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245111"
 ---
 # <a name="live-event-types-comparison"></a>实时事件类型比较
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 在 Azure 媒体服务中，可以将[直播活动](https://docs.microsoft.com/rest/api/media/liveevents)设为“直通”  （本地实时编码器发送多比特率流）或“实时编码”  （本地实时编码器发送单比特率流）。 
 
@@ -84,8 +86,7 @@ ms.locfileid: "80625788"
 | 200 |340 |192 |30 |高 |
 
 > [!NOTE]
-> 如果需要自定义实时编码预设，请通过 Azure 门户开具支持票证。 你应当指定所需的分辨率和比特率的表。 请确认只有一个 720p 的图层，最多有 6 个图层。 此外，请务必指定你要请求 Standard 实时编码器的预设。
-> 比特率和分辨率的特定值今后可能会调整
+> 如果需要自定义实时编码预设，请通过 Azure 门户开具支持票证。 你应当指定所需的视频分辨率和比特率的表。 不支持自定义音频编码比特率。 请确认只有一个 720p 的图层，最多有 6 个图层。 此外，请务必指定你要请求预设。
 
 ### <a name="output-video-streams-for-default1080p"></a>Default1080p 的输出视频流
 
@@ -101,8 +102,7 @@ ms.locfileid: "80625788"
 | 200 |320 |180 |30 |高 |
 
 > [!NOTE]
-> 如果需要自定义实时编码预设，请通过 Azure 门户开具支持票证。 你应当指定所需的分辨率和比特率的表。 请务必确认只有一个层的分辨率为 1080p，且最多有 6 个层。 此外，请务必指定你要请求 Premium1080p 实时编码器的预设。
-> 比特率和分辨率的特定值今后可能会调整。
+> 如果需要自定义实时编码预设，请通过 Azure 门户开具支持票证。 你应当指定所需的分辨率和比特率的表。 请确认只有一个层的分辨率为 1080p，且最多有 6 个层。 此外，请指定你要请求 Premium1080p 实时编码器的预设。 比特率和分辨率的特定值今后可能会调整。
 
 ### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Default720p 和 Default1080p 的输出音频流
 

@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 9fc503b6c26f87d6692c98d127b2d777e18f3a34
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: fc3e59caaafa85c0a84eda0919d8244403e43077
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515870"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146566"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 创建 Azure 数据资源管理器群集和数据库
 
@@ -123,16 +123,16 @@ pip install azure-mgmt-kusto
     poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
 
-        [!NOTE]
-        If you are using Python version 0.4.0 or below, use Database instead of ReadWriteDatabase.
+    > [!NOTE]
+    > 如果使用的是 Python 版本 0.4.0 或更低版本，请使用 Database 而不是 ReadWriteDatabase。
 
    |**设置** | **建议的值** | **字段说明**|
    |---|---|---|
-   | cluster_name | mykustocluster  | 将在其中创建数据库的群集的名称。|
-   | database_name | mykustodatabase  | 数据库名称。|
+   | cluster_name | mykustocluster** | 将在其中创建数据库的群集的名称。|
+   | database_name | mykustodatabase** | 数据库名称。|
    | resource_group_name | *testrg* | 将在其中创建群集的资源组名称。 |
-   | soft_delete_period | 3650 天，0:00:00  | 供查询使用的数据的保留时间。 |
-   | hot_cache_period | 3650 天，0:00:00  | 数据将在缓存中保留的时间。 |
+   | soft_delete_period | *3650 天，0:00:00* | 供查询使用的数据的保留时间。 |
+   | hot_cache_period | *3650 天，0:00:00* | 数据将在缓存中保留的时间。 |
 
 1. 若要查看已创建的数据库，请运行以下命令：
 

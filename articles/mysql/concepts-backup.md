@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 3/27/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 16657876c027671308ad26b2295bf473e803bd6a
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 09/28/2020
+ms.openlocfilehash: c1f62175dc711ae9158cbf4d1f2456a3ba7667e7
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029628"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395288"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行备份和还原
 
@@ -31,6 +31,11 @@ Azure Database for MySQL 对数据文件和事务日志进行备份。 我们会
 
 通常情况下，完整备份每周进行一次，差异备份每天进行两次，事务日志备份每五分钟进行一次。 创建服务器后，立即计划完整备份的第一个快照。 在大型还原服务器上，初始完整备份可能需要更长时间。 新服务器可以还原到的最早时间点是完成初始完整备份的时间。
 
+### <a name="backup-retention"></a>备份保留
+
+根据服务器上的备份保持期设置来保留备份。 可以选择 7 到 35 天的保留期。 默认保持期为 7 天。 可以在服务器创建期间或以后通过使用 [Azure 门户](/mysql/howto-restore-server-portal#set-backup-configuration)或 [Azure CLI](/mysql/howto-restore-server-cli#set-backup-configuration) 更新备份配置来设置保留期。 
+
+备份保留期控制可以往回检索多长时间的时间点还原，因为它基于可用备份。 从恢复的角度来看，备份保留期也可以视为恢复时段。 在备份保留期间内执行时间点还原所需的所有备份都保留在备份存储中。 例如，如果备份保留期设置为 7 天，则可认为恢复时段是最近 7 天。 在这种情况下，将保留在过去 7 天内还原服务器所需的所有备份。 备份保留期为 7 天：服务器将保留最多 2 个完整数据库备份、所有差异备份和自最早的完整数据库备份以来执行的事务日志备份。
 ### <a name="backup-redundancy-options"></a>备份冗余选项
 
 使用 Azure Database for MySQL 时，可以灵活地在“常规用途”层和“内存优化”层中选择本地冗余或异地冗余备份存储。 当备份存储在异地冗余备份存储中时，这些备份不仅会存储在托管服务器所在的区域中，还会复制到[配对的数据中心](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 这样可以在发生灾难时提供更好的保护，并且可以将服务器还原到其他区域。 “基本”层仅提供本地冗余备份存储。
@@ -44,7 +49,7 @@ Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作�
 
 可以通过使用 Azure 门户中提供的 Azure Monitor 中的[已使用的备份存储](concepts-monitoring.md)指标来监视服务器使用的备份存储。 使用的备份存储指标表示根据为服务器设置的备份保留期保留的所有完整数据库备份、差异备份和日志备份所消耗的存储的总和。 备份的频率由服务进行管控，已在前面进行了说明。 无论数据库的总大小如何，如果服务器上的事务性活动繁重，都会导致备份存储使用率增加。 对于异地冗余存储，备份存储使用率是本地冗余存储的两倍。 
 
-控制备份存储成本的主要方法是设置适当的备份保留期，并选择正确的备份冗余选项以满足所需的恢复目标。 可以选择 7 到 35 天的保留期。 常规用途和内存优化服务器可以选择使用异地冗余存储进行备份。
+控制备份存储成本的主要方法是设置适当的备份保留期，并选择正确的备份冗余选项以满足恢复目标。 可以选择 7 到 35 天的保留期。 常规用途和内存优化服务器可以选择使用异地冗余存储进行备份。
 
 ## <a name="restore"></a>还原
 
@@ -63,6 +68,13 @@ Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作�
 ### <a name="point-in-time-restore"></a>时间点还原
 
 可以还原到备份保留期中的任意时间点，不管备份冗余选项如何。 新服务器在原始服务器所在的 Azure 区域中创建。 它在创建时，使用原始服务器在定价层、计算的代、vCore 数、存储大小、备份保留期和备份冗余选项方面的配置。
+
+> [!NOTE]
+> 还原操作完成后，有两个服务器参数重置为默认值（而不是从主服务器复制）
+> * time_zone - 此值设置为默认值“SYSTEM”
+> * event_scheduler - 还原的服务器上的 event_scheduler 设置为“OFF”
+>
+> 需要通过重新配置[服务器参数](howto-server-parameters.md)来设置这些服务器参数
 
 多种情况下可以使用时间点还原。 例如，用户意外删除了数据、删除了重要的表或数据库，或者应用程序因为缺陷而意外地使用错误数据覆盖了正确数据。
 

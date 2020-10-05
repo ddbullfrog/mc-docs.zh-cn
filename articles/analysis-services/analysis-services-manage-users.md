@@ -1,21 +1,21 @@
 ---
 title: Azure Analysis Services 身份验证和用户权限 | Azure
 description: 本文了解 Azure Analysis Services 如何使用 Azure Active Directory (Azure AD) 进行身份管理和用户身份验证。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 05/19/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9ce1557c645d4848f01e8c8152009520fe3b77ad
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 503dd1dde36dee3417421e454f2dd61ff693f8b5
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226092"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146474"
 ---
 # <a name="authentication-and-user-permissions"></a>身份验证和用户权限
 
@@ -28,7 +28,9 @@ Azure Analysis Services 使用 Azure Active Directory (Azure AD) 进行标识管
 
 ## <a name="authentication"></a>身份验证
 
-所有客户端应用程序和工具都使用一个或多个 Analysis Services [客户端库](/analysis-services/client-libraries?view=azure-analysis-services-current)（AMO、MSOLAP、ADOMD）连接到服务器。 
+<!--MOONCAKE: CORRECT ON [client libraries](https://docs.microsoft.com/analysis-services/client-libraries)-->
+
+所有客户端应用程序和工具都使用一个或多个 Analysis Services [客户端库](https://docs.microsoft.com/analysis-services/client-libraries)（AMO、MSOLAP、ADOMD）连接到服务器。 
 
 所有 3 个客户端库均支持 Azure AD 交互流和非交互式身份验证方法。 可在利用 AMOMD 和 MSOLAP 的应用程序中使用两种非交互式方法，即 Active Directory 密码和 Active Directory 集成身份验证方法。 这两种方法绝对不会产生弹出式对话框。
 
@@ -70,9 +72,9 @@ Excel 用户可使用 Windows 帐户、组织 ID（电子邮件地址）或外�
 
 **Azure 资源所有者**。 资源所有者管理 Azure 订阅的资源。 资源所有者可通过以下方式在订阅中向“所有者角色”或“参与者角色”添加 Azure AD 用户标识：在 Azure 门户中使用“访问控制”或使用 Azure 资源管理器模板。 
 
-![Azure 门户中的访问控制](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
+:::image type="content" source="./media/analysis-services-manage-users/aas-manage-users-rbac.png" alt-text="Azure 门户中的访问控制":::
 
-此级别的角色适用于符合以下条件的用户或帐户：需要执行可在门户中完成或使用 Azure 资源管理器模板完成的任务。 若要了解详细信息，请参阅[基于角色的访问控制](../role-based-access-control/overview.md)。 
+此级别的角色适用于符合以下条件的用户或帐户：需要执行可在门户中完成或使用 Azure 资源管理器模板完成的任务。 若要了解详细信息，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md)。 
 
 ## <a name="database-roles"></a>数据库角色
 
@@ -85,6 +87,6 @@ Excel 用户可使用 Windows 帐户、组织 ID（电子邮件地址）或外�
 [使用 Azure Active Directory 组管理对资源的访问权限](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [管理数据库角色和用户](analysis-services-database-users.md)  
 [管理服务器管理员](analysis-services-server-admins.md)  
-[基于角色的访问控制](../role-based-access-control/overview.md)
+[Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md)
 
-<!--Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

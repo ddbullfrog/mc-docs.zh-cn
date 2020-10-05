@@ -6,15 +6,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 01/28/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 6c5f5e09be2b6e5bc462078f9b9439b5ca5607b9
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 3af529b6f1b9cd0af605dcb952896e9c4635a9e6
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515876"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146300"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>使用 Azure 数据资源管理器（预览版）查询 Azure Monitor 中的数据
 
@@ -60,6 +60,9 @@ Azure 数据资源管理器代理流：
 
 可以使用支持 Kusto 查询的客户端工具运行查询，例如：Kusto 资源管理器、ADX Web UI、Jupyter Kqlmagic、Flow、PowerQuery、PowerShell、Jarvis、Lens、REST API。
 
+> [!NOTE]
+> ADX 代理功能仅用于检索数据。 有关详细信息，请参阅[函数可支持性](#function-supportability)。
+
 > [!TIP]
 > * 数据库名称应与代理群集中指定的资源名称相同。 名称区分大小写。
 > * 在跨群集查询中，请确保 Application Insights 应用和 Log Analytics 工作区的命名正确。
@@ -76,13 +79,13 @@ Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 
 ![查询 LA 工作区](media/adx-proxy/query-la.png)
 
-### <a name="cross-query-of-your-la-or-ai-adx-proxy-cluster-and-the-adx-native-cluster"></a>对 LA 或 AI ADX 代理群集和 ADX 本机群集进行交叉查询 
+### <a name="cross-query-of-your-la-or-ai-adx-proxy-cluster-and-the-adx-native-cluster"></a>对 LA 或 AI ADX 代理群集和 ADX 本机群集进行交叉查询
 
 从代理运行跨群集查询时，请确认是否在左窗格中选择了 ADX 本机群集。 以下示例演示如何将 ADX 群集表与 LA 工作区合并到一起（使用 `union`）。
 
 ```kusto
 union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
-| take 10 
+| take 10
 ```
 
 ```kusto
@@ -104,7 +107,8 @@ Azure 数据资源管理器代理群集支持 Application Insights 和 Log Analy
 * `.show function {FunctionName}`
 * `.show database {DatabaseName} schema as json`
 
-下图描述了一个从 Azure 数据资源管理器 Web UI 查询表格函数的示例。 若要使用此函数，请在“查询”窗口中运行名称。
+下图描述了一个从 Azure 数据资源管理器 Web UI 查询表格函数的示例。
+若要使用此函数，请在“查询”窗口中运行名称。
 
   [ ![从 Azure 数据资源管理器 Web UI 查询表格函数](media/adx-proxy/function-query-adx-proxy.png)](media/adx-proxy/function-query-adx-proxy.png#lightbox)
 

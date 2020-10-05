@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: adieldar
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 04/01/2020
-ms.date: 06/09/2020
-ms.openlocfilehash: dc278e83f78df4e058de1487623e5b7d53b3e116
-ms.sourcegitcommit: 73697fa9c19a40d235df033400c74741e7d0f3f4
+ms.date: 09/24/2020
+ms.openlocfilehash: 9399aac87eb630d07a78ad377a3e659e1a33e3a4
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84574905"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146272"
 ---
 # <a name="use-azure-notebooks-to-analyze-data-in-azure-data-explorer"></a>使用 Azure Notebooks 分析 Azure 数据资源管理器中的数据
 
@@ -29,7 +29,7 @@ ms.locfileid: "84574905"
 
 1. 在标题中选择“我的项目”标签页。 
 
-    [![](media/azurenotebooks/an-myprojects.png "My projects")](media/azurenotebooks/an-myprojects.png#lightbox)
+    :::image type="content" source="media/azurenotebooks/an-myprojects.png" alt-text="“项目”页、“我的项目”选项卡、Microsoft Azure Notebooks、Azure 数据资源管理器" lightbox="media/azurenotebooks/an-myprojects.png#lightbox":::
 
 1. 选择“+ 新建项目”。
     
@@ -91,7 +91,7 @@ ms.locfileid: "84574905"
 
 1. 返回到笔记本以查看身份验证的结果。 
 
-[![](media/azurenotebooks/an-python-commands.png "Python commands")](media/azurenotebooks/an-python-commands.png#lightbox)
+:::image type="content" source="media/azurenotebooks/an-python-commands.png" alt-text="“项目”页、“我的项目”选项卡、Microsoft Azure Notebooks、Azure 数据资源管理器" lightbox="media/azurenotebooks/an-python-commands.png#lightbox":::
 
 ## <a name="execute-a-kusto-query"></a>执行 Kusto 查询
 
@@ -104,7 +104,7 @@ ms.locfileid: "84574905"
         print(", ".join(row))
     ```    
 
-[![](media/azurenotebooks/an-commands.png "Python commands")](media/azurenotebooks/an-commands.png#lightbox)
+:::image type="content" source="media/azurenotebooks/an-commands.png" alt-text="“项目”页、“我的项目”选项卡、Microsoft Azure Notebooks、Azure 数据资源管理器" lightbox="media/azurenotebooks/an-commands.png#lightbox":::
 
 ## <a name="next-steps"></a>后续步骤
 

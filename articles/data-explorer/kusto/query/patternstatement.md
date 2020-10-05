@@ -8,15 +8,15 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
+ms.date: 09/24/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: b4ff0b9d21adde8ffc24bcfc22368c2ba7c9e662
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.openlocfilehash: 6eff09c81a90ae709f86537478d967df0ee7334d
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841610"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146758"
 ---
 # <a name="pattern-statement"></a>pattern 语句
 
@@ -47,7 +47,7 @@ app("ApplicationX").StartEvents
 
 此查询会在 Kusto 中生成错误，指示无法解析接下来的模式调用：`app("ApplicationX")["StartEvents"]` 和 `app("ApplicationX")["StopEvents"]`。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `declare` `pattern` *PatternName*
 
@@ -68,7 +68,7 @@ app("ApplicationX").StartEvents
 
 为每个匹配的模式提供的表达式是表名或对 [let 语句](letstatement.md)的引用。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `declare` `pattern` *PatternName* = `(`*ArgName* `:` *ArgType* [`,` ... ]`)` [`[` *PathName* `:` *PathArgType* `]`] `{`
 &nbsp;&nbsp;&nbsp;&nbsp; `(` *ArgValue1* [`,` *ArgValue2* ... ] `)` [ `.[` *PathValue `]` ] `=` `{`  *expression*  `};` &nbsp;&nbsp;&nbsp;&nbsp; [ &nbsp;&nbsp;&nbsp;&nbsp; `(` *ArgValue1_2* [`,` *ArgValue2_2* ... ] `)` [ `.[` *PathValue_2* `]` ] `=` `{`  *expression_2*  `};` &nbsp;&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;&nbsp;&nbsp; ] `}`
@@ -158,7 +158,7 @@ union (App('a1').Text), (App('a2').Text)
 
 **语义错误**：
 
-     SEM0036: One or more pattern references weren't declared. Detected pattern references: ["App('a1').['Text']","App('a2').['Text']"].
+> SEM0036:未声明一个或多个模式引用。 检测到的模式引用: ["App('a1').['Text']","App('a2').['Text']"]。
 
 ```kusto
 declare pattern App;
@@ -174,7 +174,7 @@ union (App('a2').Metrics), (App('a3').Metrics)
 
 **返回了语义错误**：
 
-    SEM0036: One or more pattern references weren't declared. Detected pattern references: ["App('a2').['Metrics']","App('a3').['Metrics']"].
+> SEM0036:未声明一个或多个模式引用。 检测到的模式引用: ["App('a2').['Metrics']","App('a3').['Metrics']"]。
 
 ::: zone-end
 

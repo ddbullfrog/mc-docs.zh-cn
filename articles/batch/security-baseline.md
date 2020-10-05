@@ -5,17 +5,17 @@ ms.service: security
 ms.topic: conceptual
 origin.date: 04/09/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
-ms.testdate: ''
+ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.custom: security-benchmark
-ms.openlocfilehash: 7ffd2e86e60b68576ad9021852d135b30de2cd33
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: ba9c7d144ce596708f839353b79ad22eff1b7030
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524000"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146793"
 ---
 <!--Verified successfully on Characters content only-->
 # <a name="azure-security-baseline-for-batch"></a>Batch 的 Azure 安全基线
@@ -576,13 +576,13 @@ https://docs.azure.cn/storage/common/storage-security-guide
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指导**：使用 Azure Active Directory (AAD) 基于角色的访问控制 (RBAC) 来控制对 Azure 资源（包括 Batch 帐户、Batch 池和存储帐户）的管理平面的访问。
+**指南**：使用 Azure 基于角色的访问控制 (Azure RBAC) 来控制对 Azure 资源（包括 Batch 帐户、Batch 池和存储帐户）的管理平面的访问。
 
 了解 Azure RBAC：
 
 https://docs.azure.cn/role-based-access-control/overview
 
-如何在 Azure 中配置 RBAC：
+如何配置 Azure RBAC：
 
 https://docs.azure.cn/role-based-access-control/role-assignments-portal
 
@@ -898,13 +898,13 @@ https://docs.azure.cn/governance/policy/tutorials/create-and-manage
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6：安全存储自定义操作系统映像
 
-**指导**：如果你为 Azure Batch 池使用自定义映像，请使用基于角色的访问控制 (RBAC) 来确保只有经授权的用户才能访问映像。
+**指南**：如果为 Azure Batch 池使用自定义映像，请使用 Azure 基于角色的访问控制 (Azure RBAC) 来确保只有经授权的用户才能访问映像。
 
-了解 Azure 中的 RBAC：
+了解 Azure RBAC：
 
 https://docs.azure.cn/role-based-access-control/rbac-and-directory-admin-roles
 
-如何在 Azure 中配置 RBAC：
+如何配置 Azure RBAC：
 
 https://docs.azure.cn/role-based-access-control/quickstart-assign-role-user-portal
 
@@ -964,13 +964,13 @@ https://docs.azure.cn/governance/policy/tutorials/create-and-manage
 
 <!--Not Available on https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity-->
 
-如何创建 Azure Key Vault：
+<!--Not Available on https://docs.azure.cn/key-vault/general/quick-create-portal-->
 
-https://docs.azure.cn/key-vault/quick-create-portal
+如何向 Key Vault 进行身份验证：
 
-如何使用托管标识提供 Key Vault 身份验证： 
+https://docs.azure.cn/key-vault/general/authentication
 
-https://docs.azure.cn/key-vault/managed-identity
+<!--Not Available on https://docs.azure.cn/key-vault/general/assign-access-policy-portal-->
 
 **Azure 安全中心监视**：是
 
@@ -1128,8 +1128,6 @@ https://docs.azure.cn/security-center/security-center-planning-and-operations-gu
 
 **指导**：如果 Microsoft 安全响应中心 (MSRC) 发现非法或未经授权的某方访问了你的数据，Azure 将使用安全事件联系人信息与你取得联系。
 
-<!--CORRECT ON Microsoft Security Response Center (MSRC)-->
-
 如何设置 Azure 安全中心安全联系人：
 
 https://docs.azure.cn/security-center/security-center-provide-security-contact-details
@@ -1175,5 +1173,4 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 - 参阅 [Azure 安全基准](../security/benchmarks/overview.md)
 - 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)
 
-<!-- Update_Description: new article about security baseline -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

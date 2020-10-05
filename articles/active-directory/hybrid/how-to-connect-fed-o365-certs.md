@@ -1,6 +1,6 @@
 ---
-title: Office 365 和 Azure AD 用户证书续订 | Microsoft Docs
-description: 本文向 Office 365 用户说明了如何解决向其发送证书续订通知的电子邮件的问题。
+title: Microsoft 365 和 Azure AD 用户证书续签 | Microsoft Docs
+description: 本文向 Microsoft 365 用户说明了如何解决向其发送证书续签通知的电子邮件的问题。
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 09/23/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46c8fce4e3c0c61527186c1c11895c98be7ac349
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 8f5396ba0e895d97cbc026f16f463ad7aa80819e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164877"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245519"
 ---
-# <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>续订 Office 365 和 Azure Active Directory 的联合身份验证证书
+# <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>续签 Microsoft 365 和 Azure Active Directory 的联合身份验证证书
 ## <a name="overview"></a>概述
 为使 Azure Active Directory (Azure AD) 与 Active Directory 联合身份验证服务 (AD FS) 之间能够成功联合，AD FS 用来为 Azure AD 签名安全令牌的证书应该与在 Azure AD 中所配置的证书相匹配。 任何不匹配情况都可能导致信任破坏。 Azure AD 确保在部署 AD FS 时，此信息保持同步。
 
@@ -34,7 +34,7 @@ ms.locfileid: "86164877"
 * 正在使用第三方标识提供者。
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>令牌签名证书的默认 AD FS 配置
-令牌签名证书和令牌解密证书通常是自签名证书，有效期为一年。 默认情况下，AD FS 包含名为 **AutoCertificateRollover**的自动续订进程。 如果使用的是 AD FS 2.0 或更高版本，Office 365 和 Azure AD 会在证书过期之前自动对其进行更新。
+令牌签名证书和令牌解密证书通常是自签名证书，有效期为一年。 默认情况下，AD FS 包含名为 **AutoCertificateRollover**的自动续订进程。 如果使用的是 AD FS 2.0 或更高版本，Microsoft 365 和 Azure AD 会在证书过期之前自动对其进行更新。
 
 ### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>来自 Microsoft 365 管理中心或电子邮件的续订通知
 > [!NOTE]
@@ -135,12 +135,12 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 * 令牌签名证书不是自签名证书。 这种情况最常见的原因是，组织通过组织证书颁发机构来管理注册的 AD FS 证书。
 * 网络安全性不允许公开提供联合元数据。
 
-在这些案例中，每当更新令牌签名证书时，还必须使用 PowerShell 命令 Update-MsolFederatedDomain 更新 Office 365 域。
+在这些情况下，每当更新令牌签名证书时，还必须使用 PowerShell 命令 Update-MsolFederatedDomain 更新 Microsoft 365 域。
 
 ### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>步骤 1：确保 AD FS 具有新的令牌签名证书
 **非默认配置**
 
-若使用 AD FS 的非默认配置（即 **AutoCertificateRollover** 设置为 **False**），则很有可能你使用的是自定义证书（非自签名）。 有关如何续订 AD FS 令牌签名证书的详细信息，请阅读 [Guidance for customers not using AD FS self-signed certificates](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert)（针对未使用 AD FS 自签名证书的客户的指南）。
+若使用 AD FS 的非默认配置（即 **AutoCertificateRollover** 设置为 **False**），则很有可能你使用的是自定义证书（非自签名）。 若要详细了解如何续签 AD FS 令牌签名证书，请参阅[联合服务器的证书要求](https://docs.microsoft.com/windows-server/identity/ad-fs/design/certificate-requirements-for-federation-servers)。
 
 **无法公开获取联盟元数据**
 
@@ -162,8 +162,8 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 此时会列出两个证书，其中一个的 **NotAfter** 日期大约为未来的 1 年，其 **IsPrimary** 值为 **False**。
 
-### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>步骤 2：更新 Office 365 信任的新令牌签名证书
-按如下方式，使用要用于信任的新令牌签名证书更新 Office 365。
+### <a name="step-2-update-the-new-token-signing-certificates-for-the-microsoft-365-trust"></a>步骤 2：更新 Microsoft 365 信任的新令牌签名证书
+使用将要用于信任的新令牌签名证书更新 Microsoft 365，如下所示。
 
 1. 打开用于 Windows PowerShell 的 Azure Active Directory 模块。
 2. 运行 $cred=Get-Credential。 当此 cmdlet 提示输入凭据时，键入云服务管理员帐户凭据。

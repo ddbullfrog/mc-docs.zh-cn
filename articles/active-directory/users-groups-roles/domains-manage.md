@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53188b45bbc2fd177063fd5cc5fdbca22fa7ffa9
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: ffa564c65d900f37e6d68d8e189c5c05eb6c7e0b
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593831"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245327"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自定义域名
 
@@ -55,7 +55,7 @@ ms.locfileid: "89593831"
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>更改自定义域名的 DNS 注册机构会发生什么情况
 
-如果更改 DNS 注册机构，不需要 Azure AD 中执行额外的配置任务。 可以继续对 Azure AD 使用该域名，而不会遇到中断。 如果在 Office 365、Intune 或其他依赖于 Azure AD 中的自定义域名的服务中使用自定义域名，请参阅这些服务的文档。
+如果更改 DNS 注册机构，不需要 Azure AD 中执行额外的配置任务。 可以继续对 Azure AD 使用该域名，而不会遇到中断。 如果在 Microsoft 365、Intune 或其他依赖于 Azure AD 中的自定义域名的服务中使用自定义域名，请参阅这些服务的文档。
 
 ## <a name="delete-a-custom-domain-name"></a>删除自定义域名
 
@@ -75,7 +75,7 @@ ms.locfileid: "89593831"
 
 若要在 Azure 门户中调用 **ForceDelete**，必须确保对该域名的引用少于 1000 个，并且必须在 [Exchange 管理中心](https://outlook.office365.com/ecp/)更新或删除预配服务是 Exchange 的所有引用。 这包括支持 Exchange 邮件的安全组和分发列表；有关详细信息，请参阅[删除支持邮件的安全组](https://docs.microsoft.com/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)。 此外，如果存在以下任一情况，则 **ForceDelete** 操作不会成功：
 
-* 通过 Office 365 域订阅服务购买了域
+* 通过 Microsoft 365 域订阅服务购买了域
 * 你是代表另一客户组织的合作伙伴管理员
 
 在执行 **ForceDelete** 操作过程中，将执行以下操作：

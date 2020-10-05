@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/18/2018
 ms.author: v-yiso
 ms.date: 06/08/2020
-ms.openlocfilehash: 61ace01a0f08fbde95518e90d8bc080671d9c2bc
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 47f37fe5cb98315459dbf25655d6d05cc72cd09f
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226158"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394764"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中心的访问权限
 
@@ -357,7 +357,12 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices&sig=JdyscqTpXdEJs49elI
 
 设备可以使用 X.509 证书或安全令牌进行身份验证，但不能同时使用这两者。
 
-有关使用证书颁发机构进行身份验证的详细信息，请参阅[使用 X.509 CA 证书进行设备身份验证](iot-hub-x509ca-overview.md)。
+使用 X.509 CA 身份验证的设备不支持以下功能：
+
+* HTTPS、基于 WebSocket 的 MQTT 和基于 WebSocket 的 AMQP 协议。
+* 文件上传（所有协议）。
+
+有关使用证书颁发机构进行身份验证的详细信息，请参阅[使用 X.509 CA 证书进行设备身份验证](iot-hub-x509ca-overview.md)。 若要了解如何使用 IoT 中心上传和验证证书，请参阅[在 Azure IoT 中心设置 X.509 安全性](iot-hub-security-x509-get-started.md)。
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>为设备注册 X.509 证书
 
@@ -436,7 +441,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ## <a name="iot-hub-permissions"></a>IoT 中心权限
 下表列出了可用于控制对 IoT 中心的访问的权限。
 
-| 权限 | 注释 |
+| 权限 | 说明 |
 | --- | --- |
 | **RegistryRead** |授予对标识注册表的读取访问权限。 有关详细信息，请参阅[标识注册表](iot-hub-devguide-identity-registry.md)。 <br/>后端云服务会使用此权限。 |
 | **RegistryReadWrite** |授予对标识注册表的读取和写入访问权限。 有关详细信息，请参阅[标识注册表](iot-hub-devguide-identity-registry.md)。 <br/>后端云服务会使用此权限。 |

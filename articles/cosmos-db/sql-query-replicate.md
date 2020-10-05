@@ -1,19 +1,21 @@
 ---
 title: Azure Cosmos DB 查询语言中的 REPLICATE
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 REPLICATE。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 0f418214f57d214671983db8bdcc1a3d711c189d
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 071add7d670e923d4a35613e9a53fec1c8f1baeb
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134760"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246718"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICATE (Azure Cosmos DB)
  将一个字符串值重复指定的次数。
@@ -37,7 +39,8 @@ REPLICATE(<str_expr>, <num_expr>)
   返回一个字符串表达式。
 
 ## <a name="remarks"></a>备注
-  结果的最大长度为 10,000 个字符，即 (length(*str_expr*)  *  *num_expr*) <= 10,000。
+
+  结果的最大长度为 10,000 个字符，即 (length(str_expr) * num_expr) <= 10,000。 此系统函数不会使用索引。
 
 ## <a name="examples"></a>示例
 
@@ -52,10 +55,6 @@ SELECT REPLICATE("a", 3) AS replicate
 ```json
 [{"replicate": "aaa"}]
 ```  
-
-## <a name="remarks"></a>备注
-
-此系统函数不会使用索引。
 
 ## <a name="next-steps"></a>后续步骤
 

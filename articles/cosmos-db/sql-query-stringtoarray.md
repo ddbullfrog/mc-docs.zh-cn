@@ -1,19 +1,21 @@
 ---
 title: Azure Cosmos DB 查询语言中的 StringToArray
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 StringToArray。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/03/2020
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 1ed83c9f0cec01acbd599591a7fc314f9802e2f2
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: d37155e2b8e65fab01abf28afaea2cf65da11a5b
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134709"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246348"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
  返回已转换为数组的表达式。 如果表达式无法转换，则返回未定义的表达式。  
@@ -34,7 +36,7 @@ StringToArray(<str_expr>)
   返回一个数组表达式或未定义的表达式。 
 
 ## <a name="remarks"></a>备注
-  嵌套字符串值必须用双引号写成有效的 JSON。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)
+  嵌套字符串值必须用双引号写成有效的 JSON。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)。此系统函数不会使用索引。
 
 ## <a name="examples"></a>示例
 
@@ -91,10 +93,6 @@ SELECT
 ```json
 [{}]
 ```
-
-## <a name="remarks"></a>备注
-
-此系统函数不会使用索引。
 
 ## <a name="next-steps"></a>后续步骤
 

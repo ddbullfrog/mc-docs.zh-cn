@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 origin.date: 02/20/2020
-ms.date: 06/22/2020
-ms.openlocfilehash: 460ed92824298b8cf3687a1297baa6e0a86d60be
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.date: 09/28/2020
+ms.openlocfilehash: 23fe0bcbd4ebe7279bdf51b7a703898e17f65074
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098277"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246817"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>将 SQL Server Integration Services 包迁移到 Azure SQL 托管实例
 如果使用 SQL Server Integration Services (SSIS) 并想将 SSIS 项目/包从 SQL Server 托管的源 SSISDB 迁移到 Azure SQL 托管实例托管的目标 SSISDB，可以使用 Azure 数据库迁移服务。
@@ -86,7 +86,7 @@ ms.locfileid: "85098277"
 
     有关如何在 Azure 门户中创建虚拟网络的详细信息，请参阅[使用 Azure 门户创建虚拟网络](/virtual-network/quick-create-portal)一文。
 
-    有关更多详细信息，请参阅[使用 Azure 数据库迁移服务迁移 Azure SQL 数据库托管实例的网络拓扑](/dms/resource-network-topologies)一文。
+    有关更多详细信息，请参阅[使用 Azure 数据库迁移服务迁移 Azure SQL 托管实例的网络拓扑](/dms/resource-network-topologies)一文。
 
 6. 选择定价层。
 

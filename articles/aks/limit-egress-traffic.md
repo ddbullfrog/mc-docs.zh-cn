@@ -4,18 +4,18 @@ description: 了解控制 Azure Kubernetes Service (AKS) 中的出口流量所�
 services: container-service
 ms.topic: article
 origin.date: 06/29/2020
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
 author: rockboyfor
-ms.openlocfilehash: 5b982258b7f8aeaf2d5f5bbfe266ea62e05a8087
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 9ac994a29371d74b6022865d5ad03822d33db2fc
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020805"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146652"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>控制 Azure Kubernetes 服务 (AKS) 中群集节点的出口流量
 
@@ -147,7 +147,9 @@ AKS 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 |--------------------------------------------------------------------------------|---------------|----------|
 | **`security.ubuntu.com`、`azure.archive.ubuntu.com`、`changelogs.ubuntu.com`** | **`HTTP:80`** | 此地址允许 Linux 群集节点下载必需的安全修补程序和更新。 |
 
-如果选择阻止/不允许这些 FQDN，则仅当进行[节点映像升级](node-image-upgrade.md)或[群集升级](upgrade-cluster.md)时，节点才会接收 OS 更新。
+如果选择阻止/不允许这些 FQDN，则在进行[群集升级](upgrade-cluster.md)时，节点将仅接收 OS 更新。
+
+<!--Not Avaialble on [node image upgrade](node-image-upgrade.md)-->
 
 ## <a name="gpu-enabled-aks-clusters"></a>启用 GPU 的 AKS 群集
 
@@ -291,11 +293,11 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
 
 预配包含两个单独子网的虚拟网络，其中一个子网用于群集，一个子网用于防火墙。 还可以选择为内部服务入口创建一个。
 
-:::image type="content" source="media/limit-egress-traffic/empty-network.png" alt-text="空网络拓扑":::
+:::image type="content" source="media/limit-egress-traffic/empty-network.png" alt-text="锁定的拓扑":::
 
 创建一个资源组来存放所有资源。
 
-```azure-cli
+```azurecli
 # Create Resource Group
 
 az group create --name $RG --location $LOC
@@ -309,6 +311,7 @@ az group create --name $RG --location $LOC
 az network vnet create \
     --resource-group $RG \
     --name $VNET_NAME \
+    --location $LOC \
     --address-prefixes 10.42.0.0/16 \
     --subnet-name $AKSSUBNET_NAME \
     --subnet-prefix 10.42.1.0/24
@@ -326,20 +329,11 @@ az network vnet subnet create \
 
 必须配置 Azure 防火墙入站和出站规则。 防火墙的主要用途是使组织能够针对传入和传出 AKS 群集的流量配置精细的规则。
 
-:::image type="content" source="media/limit-egress-traffic/firewall-udr.png" alt-text="防火墙和 UDR":::
-
-> [!IMPORTANT]
-> 如果群集或应用程序创建众多定向到相同目标或目标子集的出站连接，则可能需要更多的防火墙前端 IP 来避免用尽每个前端 IP 的端口。
-> 有关如何创建具有多个 IP 的 Azure 防火墙的详细信息，请参阅[此处](../firewall/quick-create-multiple-ip-template.md)
-
-创建将用作 Azure 防火墙前端地址的标准 SKU 公共 IP 资源。
-
-```azure-cli
-az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
+:::image type="content" source="media/limit-egress-traffic/firewall-udr.png" alt-text="锁定的拓扑"
 ```
 
 注册预览版 CLI 扩展以创建 Azure 防火墙。
-```azure-cli
+```azurecli
 # Install Azure Firewall preview CLI extension
 
 az extension add --name azure-firewall
@@ -354,7 +348,7 @@ az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 > 设置 Azure 防火墙的公共 IP 地址可能需要几分钟时间。
 > 若要对网络规则使用 FQDN，需要启用 DNS 代理。如果启用，防火墙将侦听端口 53，并将 DNS 请求转发到上面指定的 DNS 服务器。 这将允许防火墙自动转换该 FQDN。
 
-```azure-cli
+```azurecli
 # Configure Firewall IP Config
 
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
@@ -378,10 +372,10 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 
 创建一个要与给定子网关联的空路由表。 该路由表将下一跃点定义为前面创建的 Azure 防火墙。 每个子网可以有一个与之关联的路由表，也可以没有。
 
-```azure-cli
+```azurecli
 # Create UDR and add a route for Azure Firewall
 
-az network route-table create -g $RG -l -$LOC --name $FWROUTE_TABLE_NAME
+az network route-table create -g $RG -l $LOC --name $FWROUTE_TABLE_NAME
 az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP --subscription $SUBID
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
@@ -412,7 +406,7 @@ az network firewall application-rule create -g $RG -f $FWNAME --collection-name 
 
 若要将群集与防火墙相关联，群集子网的专用子网必须引用前面创建的路由表。 可以通过向包含群集和防火墙的虚拟网络发出更新群集子网路由表的命令来执行关联。
 
-```azure-cli
+```azurecli
 # Associate route table with next hop to Firewall to the AKS subnet
 
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
@@ -422,13 +416,13 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 现在，可将 AKS 群集部署到现有的虚拟网络。 还将使用[出站类型`userDefinedRouting`](egress-outboundtype.md)，此功能确保通过防火墙强制执行任何出站流量，并且不存在其他传出路径（默认情况下，可以使用负载均衡器出站类型）。
 
-:::image type="content" source="media/limit-egress-traffic/aks-udr-fw.png" alt-text="aks-deploy":::
+:::image type="content" source="media/limit-egress-traffic/aks-udr-fw.png" alt-text="锁定的拓扑":::
 
 ### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>创建有权在现有虚拟网络中进行预配的服务主体
 
 AKS 使用服务主体来创建群集资源。 创建时传递的服务主体用于创建底层 AKS 资源，例如 AKS 使用的存储资源、IP 和负载均衡器（还可以改为使用[托管标识](use-managed-identity.md)）。 如果未授予以下适当的权限，则无法预配 AKS 群集。
 
-```azure-cli
+```azurecli
 # Create SP and Assign Permission to Virtual Network
 
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
@@ -436,7 +430,7 @@ az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 
 现在，请将下面的 `APPID` 和 `PASSWORD` 替换为前一命令输出自动生成的服务主体 appid 和服务主体密码。 将引用 VNET 资源 ID 来向服务主体授予权限，使 AKS 能够将资源部署到其中。
 
-```azure-cli
+```azurecli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
 PASSWORD="<SERVICEPRINCIPAL_PASSWORD_GOES_HERE>"
 VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
@@ -475,8 +469,7 @@ SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKS
 <!--Not Available on Additional features can be added to the cluster deployment such as **Private Cluster**-->
 <!--Not Available on [**Private Cluster**](private-clusters.md)-->
 
-
-```azure-cli
+```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
   --node-count 3 --generate-ssh-keys \
   --network-plugin $PLUGIN \
@@ -507,14 +500,14 @@ az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/3
 
 使用 [az aks get-credentials][az-aks-get-credentials] 命令将 `kubectl` 配置为连接到新建的 Kubernetes 群集。 
 
-```azure-cli
+ ```azurecli
 az aks get-credentials -g $RG -n $AKSNAME
 ```
 
 ### <a name="deploy-a-public-service"></a>部署公共服务
 现在可以开始公开服务并将应用程序部署到此群集。 此示例将公开公共服务，但也可以选择通过[内部负载均衡器](internal-lb.md)公开内部服务。
 
-:::image type="content" source="media/limit-egress-traffic/aks-create-svc.png" alt-text="公共服务 DNAT":::
+:::image type="content" source="media/limit-egress-traffic/aks-create-svc.png" alt-text="锁定的拓扑":::
 
 通过将以下 yaml 复制为名为 `example.yaml` 的文件来部署 Azure 投票应用程序。
 
@@ -769,7 +762,7 @@ SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].
 ```
 
 运行以下内容来添加 NAT 规则：
-```azure-cli
+```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
 ```
 
@@ -779,13 +772,13 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 
 应看到 AKS 投票应用程序。 此示例中，防火墙公共 IP 为 `52.253.228.132`。
 
-:::image type="content" source="media/limit-egress-traffic/aks-vote.png" alt-text="aks-vote":::
+:::image type="content" source="media/limit-egress-traffic/aks-vote.png" alt-text="锁定的拓扑":::
 
 ### <a name="clean-up-resources"></a>清理资源
 
 若要清理 Azure 资源，请删除 AKS 资源组。
 
-```azure-cli
+```azurecli
 az group delete -g $RG
 ```
 

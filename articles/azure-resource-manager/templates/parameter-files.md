@@ -2,18 +2,18 @@
 title: 创建参数文件
 description: 创建用于在 Azure 资源管理器模板部署过程中传入值的参数文件
 ms.topic: conceptual
-origin.date: 06/19/2020
+origin.date: 09/01/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b4fbe0d93515ba2d99b76b554619641e1ab5227b
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 7eb52ec0e659d7c9ad68f2406490beecf758668b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807917"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146510"
 ---
 <!--Verify successfully-->
 # <a name="create-resource-manager-parameter-file"></a>创建资源管理器参数文件
@@ -159,6 +159,8 @@ ms.locfileid: "88807917"
 
 <!--MOONCAKE: Not Available on Standard_ZRS-->
 
+参数文件只能包含在模板中定义的参数的值。 如果参数文件包含与模板中的参数不匹配的额外参数，则会收到错误。
+
 ## <a name="parameter-type-formats"></a>参数类型格式
 
 以下示例演示不同参数类型的格式。
@@ -195,10 +197,30 @@ ms.locfileid: "88807917"
 
 ## <a name="deploy-template-with-parameter-file"></a>使用参数文件部署模板
 
-请参阅：
+若要通过 Azure CLI 传递本地参数文件，请使用 @ 和参数文件的名称。
 
-- [使用 ARM 模板和 Azure CLI 部署资源](./deploy-cli.md#parameters)
-- [使用 ARM 模板和 Azure PowerShell 部署资源](./deploy-powershell.md#pass-parameter-values)
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
+```
+
+有关详细信息，请参阅[使用 ARM 模板和 Azure CLI 部署资源](./deploy-cli.md#parameters)。
+
+若要通过 Azure PowerShell 传递本地参数文件，请使用 `TemplateParameterFile` 参数。
+
+```azurepowershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+```
+
+有关详细信息，请参阅[使用 ARM 模板和 Azure PowerShell 部署资源](./deploy-powershell.md#pass-parameter-values)
+
+> [!NOTE]
+> 不能在门户中将参数文件与自定义模板边栏选项卡一起使用。
 
 ## <a name="file-name"></a>文件名
 
@@ -210,7 +232,7 @@ ms.locfileid: "88807917"
 
 可以在同一部署操作中使用内联参数和本地参数文件。 例如，可以在本地参数文件中指定某些值，并在部署期间添加其他内联值。 如果同时为本地参数文件中的参数和内联参数提供值，则内联值优先。
 
-可以通过提供文件的 URI 来使用外部参数文件。 执行此操作时，不能传递是内联值或来自本地文件的其他值。 会忽略所有内联参数。 提供外部文件中的所有参数值。
+可以通过提供文件的 URI 来使用外部参数文件。 使用外部参数文件时，不能传递是内联值的或来自本地文件的其他值。 会忽略所有内联参数。 提供外部文件中的所有参数值。
 
 ## <a name="parameter-name-conflicts"></a>参数名冲突
 

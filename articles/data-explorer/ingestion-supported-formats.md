@@ -7,13 +7,13 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 03/19/2020
-ms.date: 06/09/2020
-ms.openlocfilehash: bd5c68f9726ea90c67852a49044585513b48f9fa
-ms.sourcegitcommit: 73697fa9c19a40d235df033400c74741e7d0f3f4
+ms.date: 09/24/2020
+ms.openlocfilehash: 65331935be30db2778dc6f4a01e9145a02e26312
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84574892"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146178"
 ---
 # <a name="data-formats-supported-by-azure-data-explorer-for-ingestion"></a>Azure 数据资源管理器支持的用于引入的数据格式
 
@@ -35,6 +35,7 @@ ms.locfileid: "84574892"
 |TSV      |`.tsv`      |一个采用制表符分隔值 (`\t`) 的文本文件。|
 |TSVE     |`.tsv`      |一个采用制表符分隔值 (`\t`) 的文本文件。 反斜杠字符 (`\`) 用于转义。|
 |TXT      |`.txt`      |一个文本文件，使用 `\n` 分隔的行。 空行将被跳过。|
+|W3CLOGFILE |`.log`    |由 W3C 标准化的 [Web 日志文件](https://www.w3.org/TR/WD-logfile.html)格式。|
 
 ## <a name="supported-data-compression-formats"></a>支持的数据压缩格式
 
@@ -49,7 +50,7 @@ ms.locfileid: "84574892"
 
 例如：
 * `MyData.csv.zip` 指示格式化为 CSV 且使用 ZIP 进行压缩的 blob 或文件（存档或单个文件）
-* `MyData.csv.gz` 指示格式化为 CSV 且使用 GZip 进行压缩的 blob 或文件
+* `MyData.json.gz` 指示格式化为 JSON 且使用 GZip 进行压缩的 blob 或文件。
 
 不包含格式扩展名而只包含压缩名的 Blob 名或文件名（例如 `MyData.zip`）也受支持。 在这种情况下，必须将文件格式指定为引入属性，因为不能对它进行推断。
 

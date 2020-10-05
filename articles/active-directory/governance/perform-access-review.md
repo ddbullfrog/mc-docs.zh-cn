@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 05/29/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11e4de6d927105b5078f2572d9be91200ca54099
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: b5e25cef5e08f0bebf70be3f35da3dbf96b70097
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244666"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>在 Azure AD 访问评审中评审对组和应用程序的访问权限
 
-Azure Active Directory (Azure AD) 借助称为“Azure AD 访问评审”的功能，简化了企业对 Azure AD 及其他 Microsoft Online Services 中的组和应用程序访问权限的管理方式。 本文介绍指定的审阅者如何对有权访问应用程序的组成员或用户执行访问评审。 
+Azure Active Directory (Azure AD) 借助称为“Azure AD 访问评审”的功能，简化了企业对 Azure AD 及其他 Microsoft Online Services 中的组和应用程序访问权限的管理方式。 本文介绍指定的审阅者如何对有权访问应用程序的组成员或用户执行访问评审。 如果想要评审对包的访问权限，请阅读[在 Azure AD 权利管理中评审访问包的访问权限](entitlement-management-access-reviews-review-access.md)
 
 ## <a name="perform-access-review-using-my-apps"></a>使用“我的应用”执行访问评审
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) 借助称为“Azure AD 访问评审”的功�
 - **电子邮件**：
 
 >[!IMPORTANT]
-> 接收电子邮件可能存在延迟，在某些情况下，可能需要长达 24 小时来接收。 将 azure-noreply@microsoft.com 加入允许列表可确保收到所有电子邮件。
+> 接收电子邮件可能存在延迟，在某些情况下，可能需要长达 24 小时来接收。 将 azure-noreply@microsoft.com 添加到安全收件人列表以确保收到所有电子邮件。
 
 1. 查找要求你执行访问评审的 Microsoft 电子邮件。 以下示例电子邮件要求评审对某个组的访问权限。
 
@@ -110,5 +110,4 @@ Azure Active Directory (Azure AD) 借助称为“Azure AD 访问评审”的功�
 ## <a name="next-steps"></a>后续步骤
 
 - [完成组或应用程序的访问评审](complete-access-review.md)
-
 

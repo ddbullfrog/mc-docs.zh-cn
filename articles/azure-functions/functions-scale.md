@@ -1,20 +1,20 @@
 ---
 title: Azure Functions 的缩放和托管
-description: 了解如何在 Azure Functions 消耗计划之间进行选择。
+description: 了解如何在 Azure Functions 消耗计划和高级计划之间进行选择。
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/25/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 352f69a0116a2282d598018d728d016382f328d9
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: b2b4296f62d65a74d40cbf24d96301ff3f489246
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413448"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246638"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
-在 Azure 中创建函数应用时，必须为应用选择托管计划。 有三个基本托管计划可用于 Azure Functions：[消耗计划](#consumption-plan)和[专用(应用服务)计划](#app-service-plan)。
+在 Azure 中创建函数应用时，必须为应用选择托管计划。 有三个基本托管计划可用于 Azure Functions：[消耗计划](#consumption-plan)、[高级计划](#premium-plan)和[专用（应用服务）计划](#app-service-plan)。
 
 选择的托管计划决定了以下行为：
 
@@ -22,7 +22,9 @@ ms.locfileid: "89413448"
 * 每个函数应用实例可用的资源。
 * 对 Azure 虚拟网络连接等高级功能的支持。
 
-消耗计划在代码运行时自动添加计算能力。 应用在需要处理负载时会横向扩展，在代码停止运行时会缩小。 此外，对于消耗计划，无需提前支付空闲 VM 或预留容量的费用。  
+消耗计划和高级计划都是在代码运行时自动添加计算能力。 应用在需要处理负载时会横向扩展，在代码停止运行时会缩小。 此外，对于消耗计划，无需提前支付空闲 VM 或预留容量的费用。  
+
+高级计划提供了额外的功能，例如高级计算实例、使实例始终保持预热状态的功能，以及 VNet 连接。
 
 选择应用服务计划可以利用你管理的专用基础结构。 函数应用不会基于事件进行缩放，这意味着，它永远不会缩小到零。 （要求启用 [Always On](#always-on)。）
 
@@ -43,9 +45,32 @@ ms.locfileid: "89413448"
 
 若要详细了解在消耗计划中运行时如何估算成本，请参阅[了解消耗计划成本](functions-consumption-costs.md)。
 
+## <a name="premium-plan"></a><a name="premium-plan"></a>高级计划
+
+就像消耗计划一样，使用高级计划时，会根据传入事件数添加和删除 Azure Functions 主机实例。  高级计划支持以下功能：
+
+* 永久预热实例以避免任何冷启动
+* VNet 连接
+* 无限制的执行持续时间（保证 60 分钟）
+* 高级实例大小（单核心、双核心和四核心实例）
+* 更可预测的定价
+* 具有多个函数应用的计划的高密度应用分配
+
+若要了解如何在高级计划中创建函数应用，请参阅 [Azure Functions 高级计划](functions-premium-plan.md)。
+
+高级计划按照在必需实例与预热实例中使用的核心秒数和内存收费，而不是按照执行和消耗的内存收费。 每个计划必须至少有一个实例始终处于预热状态。 这意味着，无论执行次数是多少，每个活动计划都存在每月最低成本。 请记住，高级计划中的所有函数应用共享预热的和活动的实例。
+
+请考虑下列情况中的 Azure Functions 高级计划：
+
+* 函数应用持续或几乎持续运行。
+* 你的消耗计划具有大量的小型执行操作，具有较高的执行费用但较低的 GB 秒费用。
+* 你需要的 CPU 或内存选项超出消耗计划提供的选项。
+* 你的代码所需的运行时间超过消耗计划[允许的最长执行时间](#timeout)。
+* 你需要只有高级计划才会提供的功能，例如虚拟网络连接。 
+
 ## <a name="dedicated-app-service-plan"></a><a name="app-service-plan"></a>专用（应用服务）计划
 
-函数应用也可以像其他应用服务应用（基本、标准和隔离 SKU）一样在相同的专用 VM 上运行。
+函数应用也可以像其他应用服务应用（基本、标准、高级和隔离 SKU）一样在相同的专用 VM 上运行。
 
 对于以下情况，可以考虑使用应用服务计划：
 
@@ -54,7 +79,7 @@ ms.locfileid: "89413448"
 
 应用服务计划中函数应用的费用与其他应用服务资源（例如 Web 应用）的费用相同。 如需详细了解如何使用应用服务计划，请参阅 [Azure 应用服务计划深入概述](../app-service/overview-hosting-plans.md)。
 
-借助应用服务计划，可通过添加更多 VM 实例手动进行横向扩展。 也可以启用自动缩放。 有关详细信息，请参阅[手动或自动缩放实例计数](../azure-monitor/platform/autoscale-get-started.md)。 还可以通过选择不同的应用服务计划来进行增加。 有关详细信息，请参阅[增加 Azure 中的应用](../app-service/manage-scale-up.md)。 
+借助应用服务计划，可通过添加更多 VM 实例手动进行横向扩展。 也可以启用自动缩放。 有关详细信息，请参阅[手动或自动缩放实例计数](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)。 还可以通过选择不同的应用服务计划来进行增加。 有关详细信息，请参阅[增加 Azure 中的应用](../app-service/manage-scale-up.md)。 
 
 在应用服务计划上运行 JavaScript 函数时，应选择具有较少 vCPU 的计划。 有关详细信息，请参阅[选择单核应用服务计划](functions-reference-node.md#choose-single-vcpu-app-service-plans)。 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
@@ -83,7 +108,7 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-此命令的输出为 `dynamic` 时，函数应用采用消耗计划。 所有其他值均表示应用服务计划的不同层。
+此命令的输出为 `dynamic` 时，函数应用采用消耗计划。 此命令的输出为 `ElasticPremium` 时，函数应用采用高级计划。 所有其他值均表示应用服务计划的不同层。
 
 ## <a name="storage-account-requirements"></a>存储帐户要求
 
@@ -97,9 +122,9 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 若要了解有关存储帐户类型的详细信息，请参阅 [Azure 存储服务简介](../storage/common/storage-introduction.md#core-storage-services)。
 
-## <a name="how-the-consumption-plans-work"></a>消耗计划的工作原理
+## <a name="how-the-consumption-and-premium-plans-work"></a>消耗计划和高级计划的工作原理
 
-在消耗计划中，Azure Functions 基础结构通过根据触发函数的事件数添加额外的 Functions 主机实例来自动缩放 CPU 和内存资源。 消耗计划中 Functions 主机的每个实例限制为 1.5 GB 内存和 1 个 CPU。  主机实例是整个函数应用，这意味着函数应用中的所有函数共享某个实例中的资源并同时缩放。 共享同一消耗计划的函数应用单独缩放。  
+在消耗计划和高级计划中，Azure Functions 基础结构通过根据触发函数的事件数添加额外的 Functions 主机实例来缩放 CPU 和内存资源。 消耗计划中 Functions 主机的每个实例仅限使用 1.5 GB 内存和 1 个 CPU。  主机实例是整个函数应用，这意味着函数应用中的所有函数共享某个实例中的资源并同时缩放。 共享同一消耗计划的函数应用单独缩放。  在高级计划中，计划大小将决定该实例上该计划中所有应用的可用内存和 CPU。  
 
 函数代码文件存储在函数主要存储帐户中的 Azure 文件共享上。 删除函数应用的主存储帐户时，函数代码文件将被删除并且无法恢复。
 
@@ -113,7 +138,7 @@ Azure Functions 的缩放单位为函数应用。 横向扩展函数应用时，
 
 ### <a name="cold-start"></a>冷启动
 
-当你的函数应用空闲一定的分钟数后，平台可能会将用于运行你的应用的实例数量缩减为零。 下次请求将存在从零扩展到一所增加的延迟。 此延迟称为“冷启动”。 你的函数应用必须加载的依赖项的数目可能会影响冷启动时间。 冷启动对于同步操作（例如，必须返回响应的 HTTP 触发器）来说更是一个问题。 如果冷启动会影响你的函数，请考虑在启用了“始终可用”功能的专用计划中运行。   
+当你的函数应用空闲一定的分钟数后，平台可能会将用于运行你的应用的实例数量缩减为零。 下次请求将存在从零扩展到一所增加的延迟。 此延迟称为“冷启动”。 你的函数应用必须加载的依赖项的数目可能会影响冷启动时间。 冷启动对于同步操作（例如，必须返回响应的 HTTP 触发器）来说更是一个问题。 如果冷启动会影响你的函数，请考虑在高级计划中运行，或在启用了“始终可用”功能的专用计划中运行。   
 
 ### <a name="understanding-scaling-behaviors"></a>了解缩放行为
 
@@ -121,13 +146,13 @@ Azure Functions 的缩放单位为函数应用。 横向扩展函数应用时，
 
 * 单个函数应用最多只能横向扩展到 200 个实例。 不过，单个实例每次可以处理多个消息或请求，因此，对并发执行数没有规定的限制。  可根据需要[指定一个较低的最大值](#limit-scale-out)来限制缩放。
 * 对于 HTTP 触发器，将最多每隔 1 秒分配一次新实例。
-* 对于非 HTTP 触发器，将最多每隔 30 秒分配一次新实例。
+* 对于非 HTTP 触发器，将最多每隔 30 秒分配一次新实例。 在[高级计划](#premium-plan)中运行时，缩放速度会更快。
 * 对于服务总线触发器，请使用资源的_管理_权限，以实现最有效的缩放。 使用_侦听_权限时，由于队列长度不能用于通知缩放决策，缩放不够准确。 若要详细了解如何在服务总线访问策略中设置权限，请参阅[共享访问授权策略](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies)。
 * 有关事件中心触发器，请参阅参考文章中的[缩放指南](functions-bindings-event-hubs-trigger.md#scaling)。 
 
 ### <a name="limit-scale-out"></a>限制横向扩展
 
-建议限制应用可横向扩展的实例数。  最常见的情况是下游组件（如数据库）的吞吐量有限。  默认情况下，消耗计划函数最多可横向扩展到 200 个实例。  可修改 `functionAppScaleLimit` 值来指定特定应用的较低最大值。  若要不受限制，可将 `functionAppScaleLimit` 设置为 0 或 null，或介于 1 和应用最大值之间的有效值。
+建议限制应用可横向扩展的实例数。  最常见的情况是下游组件（如数据库）的吞吐量有限。  默认情况下，消耗计划函数将横向扩展到最多 200 个实例，高级计划函数将横向扩展到最多 100 个实例。  可修改 `functionAppScaleLimit` 值来指定特定应用的较低最大值。  若要不受限制，可将 `functionAppScaleLimit` 设置为 0 或 null，或介于 1 和应用最大值之间的有效值。
 
 ```azurecli
 az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <function_app_name>/config/web --set properties.functionAppScaleLimit=<scale_limit>
@@ -158,6 +183,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 | | |
 | --- | --- |  
 |**[消耗计划](#consumption-plan)**| 在函数运行时自动缩放，你只需为计算资源付费。 在消耗计划中，会根据传入事件数动态添加和删除 Functions 主机的实例。<br/> ✔ 默认托管计划。<br/>✔ 仅当函数运行时才产生费用。<br/>✔ 即使是在负载较高期间也可自动横向扩展。|  
+|**[高级计划](#premium-plan)**|在根据需求自动缩放时，将使用预热的工作器在空闲后立即运行应用程序，在功能更强大的实例上运行，并连接到 VNET。 除了应用服务计划的所有功能之外，还请考虑下列情况中的 Azure Functions 高级计划： <br/>✔ 你的函数应用持续地运行，或者近乎持续地运行。<br/>✔ 你的消耗计划具有大量的小型执行操作，具有较高的执行费用但较低的 GB 秒费用。<br/>✔ 你需要的 CPU 或内存选项超出消耗计划提供的选项。<br/>✔ 你的代码所需的运行时间超过消耗计划允许的最长执行时间。<br/>✔ 你需要只有高级计划才会提供的功能，例如虚拟网络连接。|  
 |**[专用计划](#app-service-plan)** <sup>1</sup>|在应用服务计划中以定期应用服务计划费率运行你的函数。 非常适合长时间运行的操作，以及需要更具预测性的缩放和成本的情况。 对于以下情况，可以考虑使用应用服务计划：<br/>✔ 具有已运行其他应用服务实例的、未充分利用的现成 VM。<br/>✔ 需要提供用于运行函数的自定义映像。|  
 |**[ASE](#app-service-plan)** <sup>1</sup>|应用服务环境 (ASE) 是一项应用服务功能，可提供完全隔离和专用的环境，以便高度安全地运行应用服务应用。 ASE 适用于有以下要求的应用程序工作负荷： <br/>✔ 极高的缩放性。<br/>✔ 隔离和安全的网络访问。<br/>✔ 高内存利用率。|  
 | **Kubernetes** | Kubernetes 提供了一个在 Kubernetes 平台之上运行的完全隔离的专用环境。  Kubernetes 适用于有以下要求的应用程序工作负荷： <br/>✔ 自定义硬件要求。<br/>✔ 隔离和安全的网络访问。<br/>✔ 能够在混合或多云环境中运行。<br/>✔ 与现有的 Kubernetes 应用程序和服务一起运行。|  
@@ -169,11 +195,14 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 | | Linux<sup>1</sup><br/>仅限代码 | Windows<sup>2</sup><br/>仅限代码 | Linux<sup>1、3</sup><br/>Docker 容器 |
 | --- | --- | --- | --- |
 | **[消耗计划](#consumption-plan)** | .NET Core<br/>Node.js<br/>Java| .NET Core<br/>Node.js<br/>Java<br/>PowerShell Core | 不支持  |
+| **[高级计划](#premium-plan)** | .NET Core<br/>Node.js<br/>Java|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core | 
 | **[专用计划](#app-service-plan)** <sup>4</sup> | .NET Core<br/>Node.js<br/>Java |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |
 | **[ASE](#app-service-plan)** <sup>4</sup> | .NET Core<br/>Node.js<br/>Java  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core | 
 | **Kubernetes** | 不适用 | 不适用 |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |
 
+<sup>1</sup>对于 Python 运行时堆栈，Linux 是唯一受支持的操作系统。  
 <sup>2</sup> 对于 PowerShell 运行时堆栈，Windows 是唯一受支持的操作系统。   
+<sup>3</sup>对于 Docker 容器，Linux 是唯一受支持的操作系统。
 <sup>4</sup> 有关各种应用服务计划选项的特定限制，请参阅[应用服务计划限制](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)。
 
 ### <a name="scale"></a>缩放
@@ -181,6 +210,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 | | 向外扩展 | 最大实例数 |
 | --- | --- | --- |
 | **[消耗计划](#consumption-plan)** | 事件驱动型。 即使是在负载较高期间也可自动扩展。 Azure Functions 基础结构可根据触发函数的事件数添加额外的 Functions 主机实例，因此可以缩放 CPU 和内存资源。 | 200 |
+| **[高级计划](#premium-plan)** | 事件驱动型。 即使是在负载较高期间也可自动扩展。 Azure Functions 基础结构可根据触发函数的事件数添加额外的 Functions 主机实例，因此可以缩放 CPU 和内存资源。 |100|
 | **[专用计划](#app-service-plan)** <sup>1</sup> | 手动/自动缩放 |10-20|
 | **[ASE](#app-service-plan)** <sup>1</sup> | 手动/自动缩放 |100 |
 | **Kubernetes**  | 对使用 [KEDA](https://keda.sh) 的 Kubernetes 群集进行事件驱动型自动缩放。 | 因群集而异。&nbsp;&nbsp;&nbsp;&nbsp;|
@@ -192,6 +222,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 |    |    | 
 | -- | -- |
 | **[消耗&nbsp;计划](#consumption-plan)** | 如果空闲一段时间，应用数可能会缩减为零，这意味着某些请求在启动时可能会产生额外的延迟。  消耗计划有一些可缩短冷启动时间的优化措施，包括从已经运行函数主机和语言进程的预热占位符函数中进行拉取。 |
+| **[高级计划](#premium-plan)** | 永久预热实例以避免任何冷启动。 |
 | **[专用计划](#app-service-plan)** <sup>1</sup> | 在专用计划中运行时，函数主机可以连续运行，这意味着冷启动实际上不是问题。 |
 | **[ASE](#app-service-plan)** <sup>1</sup> | 在专用计划中运行时，函数主机可以连续运行，这意味着冷启动实际上不是问题。 |
 | **Kubernetes**  | 依赖于 KEDA 配置。 可将应用配置为始终运行且绝不会冷启动，也可以将应用配置为缩减为零，这将导致在出现新事件时进行冷启动。 
@@ -211,6 +242,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 | | | 
 | --- | --- |
 | **[消耗计划](#consumption-plan)** | 只需为函数运行时间付费。 账单将基于执行数量、执行时间和所用内存。 |
+| **[高级计划](#premium-plan)** | 高级计划基于在必需实例和预热实例中使用的核心秒数和内存。 每个计划必须至少有一个实例始终处于预热状态。 此计划提供更可预测的定价。 |
 | **[专用计划](#app-service-plan)** <sup>1</sup> | 应用服务计划中函数应用的费用与其他应用服务资源（例如 Web 应用）的费用相同。|
 | **[ASE](#app-service-plan)** <sup>1</sup> | ASE 每月会产生统一的基础结构使用费，该费率不会随 ASE 的大小变化而改变。 此外，每个应用服务计划 vCPU 也会产生费用。 ASE 中托管的所有应用都在“隔离”定价 SKU 中。 |
 | **Kubernetes**| 只需支付 Kubernetes 群集的费用；Functions 无额外费用。 函数应用作为应用程序工作负荷在群集之上运行，就像普通应用一样。 |

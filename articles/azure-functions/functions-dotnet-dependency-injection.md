@@ -4,15 +4,15 @@ description: 了解如何在 .NET 函数中使用依赖项注入来注册和使�
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 09/02/2020
+ms.date: 09/25/2020
 ms.author: v-junlch
 ms.reviewer: jehollan
-ms.openlocfilehash: 185904a340f8a309c0d764a709b74c8668c623f0
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 5ff1ddffe10c6e359c2da9175bfc8902c81d9194
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246415"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用依赖项注入
 
@@ -170,9 +170,9 @@ namespace MyNamespace
     "version": "2.0",
     "logging": {
         "applicationInsights": {
-            "samplingExcludedTypes": "Request",
             "samplingSettings": {
-                "isEnabled": true
+                "isEnabled": true,
+                "excludedTypes": "Request"
             }
         },
         "logLevel": {
@@ -253,7 +253,7 @@ public class HttpTrigger
 
 有关使用选项的更多详细信息，请参阅 [ASP.NET Core 中的选项模式](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)。
 
-### <a name="customizing-configuration-sources"></a>自定义配置源
+## <a name="customizing-configuration-sources"></a>自定义配置源
 
 > [!NOTE]
 > 从 Azure Functions 主机版本 2.0.14192.0 和 3.0.14191.0 开始，可以使用配置源自定义。
@@ -280,7 +280,8 @@ namespace MyNamespace
 
             builder.ConfigurationBuilder
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
-                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
+                .AddEnvironmentVariables();
         }
     }
 }
@@ -303,7 +304,7 @@ namespace MyNamespace
 ```
 
 > [!IMPORTANT]
-> 对于在消耗计划中运行的函数应用，对在触发器中使用的配置值所做的修改可能导致缩放错误。 由 `FunctionsStartup` 类对这些属性所做的任何更改都会导致函数应用启动错误。
+> 对于在消耗计划或高级计划中运行的函数应用，对在触发器中使用的配置值所做的修改可能导致缩放错误。 由 `FunctionsStartup` 类对这些属性所做的任何更改都会导致函数应用启动错误。
 
 ## <a name="next-steps"></a>后续步骤
 

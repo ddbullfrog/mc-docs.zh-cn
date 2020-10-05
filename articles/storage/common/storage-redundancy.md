@@ -1,22 +1,22 @@
 ---
 title: 数据冗余
 titleSuffix: Azure Storage
-description: 复制 Azure 存储帐户中的数据，实现持久性和高可用性。 冗余配置包括本地冗余存储 (LRS)、异地冗余存储 (GRS) 和读取访问权限异地冗余存储 (RA-GRS)。
+description: 了解 Azure 存储中的数据冗余。 复制 Azure 存储帐户中的数据，实现持久性和高可用性。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: conceptual
-origin.date: 06/22/2020
-ms.date: 07/20/2020
+origin.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 67105bb1c899c6cedfba1c6a9c4daaefe7de5781
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: 907370a327b8b2adb1474f807e832ef830270200
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414670"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026621"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 存储冗余
 
@@ -25,7 +25,7 @@ Azure 存储始终会存储数据的多个副本，以防范各种计划内和�
 在确定最适合自己方案的冗余选项时，请考虑如何在较低成本与较高可用性和持久性之间做出取舍。 可帮助你确定应选择哪种冗余选项的因素包括：  
 
 - 如何在主要区域中复制数据
-- 数据是否要复制到在地理上与主要区域相距较远的另一个位置，以防范区域性的灾难
+- 是否要将你的数据复制到地理上距主要区域较远的另一个区域，以防范区域性灾难
 - 应用程序是否要求在主要区域出于任何原因而不可用时，能够对次要区域中复制的数据进行读取访问
 
 ## <a name="redundancy-in-the-primary-region"></a>主要区域中的冗余

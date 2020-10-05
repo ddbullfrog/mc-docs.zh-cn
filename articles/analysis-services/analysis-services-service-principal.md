@@ -1,21 +1,21 @@
 ---
 title: 使用服务主体自动完成 Azure Analysis Services 任务 | Azure
 description: 了解如何创建服务主体以自动完成 Azure Analysis Services 管理任务。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 05/26/2020
-ms.date: 07/13/2020
+origin.date: 07/07/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed47e5b603b8557517623735d8f5f08431cb241a
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: fbc4b6d9a9c794d8f75be37c4744c5c03876c35f
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226082"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146638"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 
@@ -41,7 +41,7 @@ Analysis Services 还支持由托管标识使用服务主体执行的操作。 �
 
 ## <a name="add-service-principals-to-server-admin-role"></a>将服务主体添加到服务器管理员角色
 
-在使用服务主体进行 Analysis Services 服务器管理操作之前，必须将其添加到服务器管理员角色。 有关详细信息，请参阅[将服务主体添加到服务器管理员角色](analysis-services-addservprinc-admins.md)。
+在使用服务主体进行 Analysis Services 服务器管理操作之前，必须将其添加到服务器管理员角色。 必须直接将服务主体添加到服务器管理员角色。 不支持先将服务主体添加到安全组，然后再将该安全组添加到服务器管理员角色。 有关详细信息，请参阅[将服务主体添加到服务器管理员角色](analysis-services-addservprinc-admins.md)。
 
 ## <a name="service-principals-in-connection-strings"></a>连接字符串中的服务主体
 
@@ -114,7 +114,7 @@ db.Model.SaveChanges();
 
 ## <a name="next-steps"></a>后续步骤
 [使用 Azure PowerShell 进行登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[使用逻辑应用进行刷新](analysis-services-refresh-logic-app.md)
+[使用逻辑应用进行刷新](analysis-services-refresh-logic-app.md)  
   
 <!--Not Available on [Refresh with Azure Automation](analysis-services-refresh-azure-automation.md)-->
 

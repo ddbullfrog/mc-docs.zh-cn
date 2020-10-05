@@ -1,22 +1,22 @@
 ---
 title: 监视 Azure Cosmos DB | Azure
 description: 了解如何监视 Azure Cosmos DB 的性能和可用性。
-author: rockboyfor
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
-origin.date: 07/22/2020
-ms.date: 08/17/2020
-ms.testscope: no
-ms.testdate: ''
+ms.topic: how-to
+origin.date: 08/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: subject-monitoring
-ms.openlocfilehash: 6d985d88f79a3731b9fd0d0b3fbbceae6ceaf367
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: e776d44f7fd1682955b77611664751d05e1da20c
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223458"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246391"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>监视 Azure Cosmos DB
 
@@ -66,7 +66,7 @@ Azure Cosmos DB 会收集与[来自 Azure 资源的监视数据](../azure-monito
 
 Azure 门户中每个 Azure Cosmos 数据库的“概述”页都提供数据库使用情况的简要视图，其中包括该数据库的请求和每小时计费。 这些信息非常有用，但只提供少量监视数据。 创建数据库后，系统会立即自动收集上述某些数据并使其可用于分析；同时，你可以使用某项配置启用其他数据收集。
 
-:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="概述页":::
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Azure 门户中提供的监视选项":::
 
 <a name="analyze-metric-data"></a>
 ## <a name="analyzing-metric-data"></a>分析指标数据
@@ -87,27 +87,27 @@ Azure Cosmos DB 提供了一个自定义体验来用于处理指标。 若要详
 
 1. 在左侧导航栏中选择“监视”，然后选择“指标”。 
 
-    :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Azure Monitor 中的“指标”窗格":::
+    :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Azure 门户中提供的监视选项":::
 
 1. 在“指标”窗格中选择一个资源，然后选择所需的订阅和资源组。    对于“资源类型”，请选择“Azure Cosmos DB 帐户”，选择一个现有的 Azure Cosmos 帐户，然后选择“应用”。  
 
-    :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="选择 Cosmos DB 帐户以查看指标":::
+    :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Azure 门户中提供的监视选项":::
 
 1. 接下来，可以从可用指标列表中选择一个指标。 可以选择特定于请求单位、存储、延迟、可用性、Cassandra 和其他方面的指标。 若要详细了解此列表中的所有可用指标，请参阅[按类别划分的指标](monitor-cosmos-db-reference.md)一文。 在此示例中，让我们选择“请求单位”和“平均”作为聚合值。
 
     除这些详细信息外，还可以选择指标的“时间范围”和“时间粒度”。  可以查看过去最长 30 天的指标。  应用筛选器后，系统会根据该筛选器显示图表。 可以查看所选时间段内每分钟消耗的平均请求单位数。  
 
-    :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="从 Azure 门户中选择指标":::
+    :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Azure 门户中提供的监视选项":::
 
 ### <a name="add-filters-to-metrics"></a>向指标添加筛选器
 
 还可以按 **CollectionName**、**DatabaseName**、**OperationType**、**Region** 和 **StatusCode** 筛选指标及显示的图表。 若要筛选指标，请选择“添加筛选器”，选择所需的属性（例如 **OperationType**），然后选择一个值（例如 **Query**）。 然后，图表中会显示查询操作在所选时间段内消耗的请求单位数。 不会记录通过存储过程执行的操作，因此 OperationType 指标下不会显示这些操作。
 
-:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="添加筛选器以选择指标粒度":::
+:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Azure 门户中提供的监视选项":::
 
 可以使用“应用拆分”选项将指标分组。 例如，可按操作类型将请求单位分组，并一次性查看所有操作的图表，如下图所示：
 
-:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="添加“应用拆分”筛选器":::
+:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Azure 门户中提供的监视选项":::
 
 <a name="analyze-log-data"></a>
 ## <a name="analyzing-log-data"></a>分析日志数据
@@ -167,14 +167,16 @@ Azure Monitor 日志中的数据以表形式存储，每个表包含自己独有
 若要访问其他指标，请使用 [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)。 可以通过调用以下命令检索可用的指标定义：
 
 ```http
-https://management.chinacloudapi.cn/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
+https://management.chinacloudapi.cn/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01
 ```
 
-用于检索各个指标的查询使用以下格式：
+若要检索单个指标，请使用以下格式：
 
 ```http
-https://management.chinacloudapi.cn/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+https://management.chinacloudapi.cn/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metrics?timespan={StartTime}/{EndTime}&interval={AggregationInterval}&metricnames={MetricName}&aggregation={AggregationType}&`$filter={Filter}&api-version=2018-01-01
 ```
+
+若要了解详细信息，请参阅 [Azure 监视 REST API](../azure-monitor/platform/rest-api-walkthrough.md) 一文。
 
 ## <a name="next-steps"></a>后续步骤
 

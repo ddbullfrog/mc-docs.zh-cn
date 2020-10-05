@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: reference
 origin.date: 07/24/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8c2f4fb09db31636063310363d54c987253fc78a
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 1f635ebb68013394c603e8f98fb7c4e3356f48c3
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753595"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026614"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -100,7 +100,7 @@ azcopy login --service-principal --certificate-path /path/to/my/cert --applicati
 
 ## <a name="options"></a>选项
 
-“--aad-endpoint”字符串要使用的 Azure Active Directory 终结点。 默认值 (https://login.microsoftonline.com) 适用于公共 Azure 云。 在国家云中进行身份验证时设置此参数。 请参阅 [Azure AD 身份验证终结点](/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints)。
+“--aad-endpoint”字符串要使用的 Azure Active Directory 终结点。 默认值 (https://login.microsoftonline.com) 适用于公共 Azure 云。 在国家云中进行身份验证时设置此参数。 托管服务标识不需要。
 
 “--application-id”字符串 - 用户分配标识的应用程序 ID。 服务主体身份验证所需。
 

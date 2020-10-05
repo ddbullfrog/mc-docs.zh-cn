@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: tzgitlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 01/08/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 8ddaf4c2ad92ef3b26222683c88abc8ddc5dc95e
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 46df62196ff0e15f1bc802d0a3c848f84249ee31
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515965"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146724"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>将数据从 IoT 中心引入到 Azure 数据资源管理器 
 
@@ -26,6 +26,8 @@ ms.locfileid: "88515965"
 [!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
 
 本文介绍如何将数据从 IoT 中心（大数据流处理平台和 IoT 引入服务）引入 Azure 数据资源管理器。
+
+有关从 IoT 中心将数据引入到 Azure 数据资源管理器的常规信息，请参阅[连接到 IoT 中心](ingest-data-iot-hub-overview.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -100,14 +102,20 @@ ms.locfileid: "88515965"
     |---|---|---|
     | 表 | *TestTable* | 在“testdb”**** 中创建的表。 |
     | 数据格式 | *JSON* | 支持的格式为 Avro、CSV、JSON、MULTILINE JSON、ORC、PARQUET、PSV、SCSV、SOHSV、TSV、TXT、TSVE、APACHEAVRO 和 W3CLOG。|
-    | 列映射 | TestMapping** | 在 **testdb** 中创建的[映射](/data-explorer/kusto/management/mappings)将传入的 JSON 数据映射到 **testdb** 的列名称和数据类型。 对于 JSON、多行 JSON 和 AVRO 是必需的，对于其他格式是可选的。|
+    | 列映射 | TestMapping** | 在 **testdb** 中创建的[映射](kusto/management/mappings.md)将传入的 JSON 数据映射到 **testdb** 的列名称和数据类型。 对于 JSON、多行 JSON 和 AVRO 是必需的，对于其他格式是可选的。|
     | | |
 
     > [!NOTE]
     > * 选择“我的数据包含路由信息”**** 以使用动态路由，其中你的数据包含必要的路由信息，如[示例应用](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)注释中所示。 如果同时设置了静态和动态属性，则动态属性将覆盖静态属性。 
     > * 只有创建数据连接后进入队列的事件才会被引入。
 
-[!INCLUDE [data-explorer-container-system-properties](includes/data-explorer-container-system-properties.md)]
+### <a name="event-system-properties-mapping"></a>事件系统属性映射
+
+> [!Note]
+> * 单记录事件支持系统属性。
+> * 对于 `csv` 映射，属性将添加到记录的开头。 对于 `json` 映射，将根据下拉列表中显示的名称添加属性。
+
+如果在表的“数据源”部分选择了“事件系统属性”，则必须在表架构和映射中包含[系统属性](ingest-data-iot-hub-overview.md#system-properties)。
 
 ## <a name="generate-sample-data-for-testing"></a>生成用于测试的示例数据
 
@@ -163,8 +171,8 @@ ms.locfileid: "88515965"
     ![显示引入数据结果](media/ingest-data-iot-hub/show-ingested-data.png)
 
     > [!NOTE]
-    > * Azure 数据资源管理器具有用于数据引入的聚合（批处理）策略，旨在优化引入过程。 默认情况下，该策略配置为 5 分钟或 500 MB 数据，因此你可能会遇到延迟。 有关聚合选项，请参阅[批处理策略](/data-explorer/kusto/management/batchingpolicy)。 
-    > * 配置表以支持流式处理并消除响应时间延迟。 请参阅[流式处理策略](/data-explorer/kusto/management/streamingingestionpolicy)。 
+    > * Azure 数据资源管理器具有用于数据引入的聚合（批处理）策略，旨在优化引入过程。 默认情况下，该策略配置为 5 分钟或 500 MB 数据，因此你可能会遇到延迟。 有关聚合选项，请参阅[批处理策略](kusto/management/batchingpolicy.md)。 
+    > * 配置表以支持流式处理并消除响应时间延迟。 请参阅[流式处理策略](kusto/management/streamingingestionpolicy.md)。 
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -178,7 +186,7 @@ ms.locfileid: "88515965"
 
 1. 在“test-resource-group”**** 下，选择“删除资源组”****。
 
-2. 在新窗口中键入要删除的资源组的名称，然后选择“删除”。
+1. 在新窗口中键入要删除的资源组的名称，然后选择“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 

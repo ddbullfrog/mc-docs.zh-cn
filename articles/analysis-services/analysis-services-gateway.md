@@ -1,19 +1,21 @@
 ---
 title: Azure Analysis Services 的本地数据网关 | Azure
 description: 如果 Azure 中的 Analysis Services 服务器要连接到本地数据源，则本地网关是必需的。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/21/2020
-ms.date: 03/23/2020
+origin.date: 07/29/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fc5cabc1629469d03b557283a7490cd77180444
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 50aac72a50c7143b95c03c33035cc8fc76fa22ab
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79543764"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146749"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>使用本地数据网关连接到本地数据源
 
@@ -29,12 +31,12 @@ ms.locfileid: "79543764"
 
 - **在 Azure 中创建网关资源** - 此步骤在 Azure 中创建网关资源。
 
-- **将服务器连接到网关资源** - 拥有网关资源后，可以开始将服务器连接到该资源。 可以连接多个服务器和其他资源，前提是它们位于同一区域中。
+- **将网关资源连接到服务器** - 拥有网关资源后，可以开始将服务器连接到该资源。 可以连接多个服务器和其他资源，前提是它们位于同一区域中。
 
-## <a name="how-it-works"></a><a name="how-it-works"> </a>工作原理
+## <a name="how-it-works"></a><a name="how-it-works"></a>工作原理
 在你组织中的计算机上安装的网关作为 Windows 服务（本地数据网关）  运行。 此本地服务是通过 Azure 服务总线向网关云服务注册的。 然后，为 Azure 订阅创建本地数据网关资源。 Azure Analysis Services 服务器随后会连接到 Azure 网关资源。 当你服务器上的模型需要连接到你的本地数据源进行查询或处理时，查询和数据的流将遍历网关资源、Azure 服务总线、本地数据网关服务，以及你的数据源。 
 
-![工作原理](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+:::image type="content" source="./media/analysis-services-gateway/aas-gateway-how-it-works.png" alt-text="工作原理":::
 
 查询和数据流：
 
@@ -49,11 +51,17 @@ ms.locfileid: "79543764"
 
 针对 Azure Analysis Services 环境进行安装时，必须按[为 Azure Analysis Services 安装和配置本地数据网关](analysis-services-gateway-install.md)中介绍的步骤操作。 本文专门针对 Azure Analysis Services。 它包含在 Azure 中设置本地数据网关资源并将 Azure Analysis Services 服务器连接到该资源所需的其他步骤。
 
+## <a name="connecting-to-a-gateway-resource-in-a-different-subscription"></a>连接到不同订阅中的网关资源
+
+建议在服务器所在的订阅中创建 Azure 网关资源。 但是，可以将服务器配置为连接到其他订阅中的网关资源。 在门户中配置现有服务器设置或创建新服务器时，不支持连接到其他订阅中的网关资源，但可以使用 PowerShell 进行配置。 若要了解详细信息，请参阅[将网关资源连接到服务器](analysis-services-gateway-install.md#connect-gateway-resource-to-server)。
+
 ## <a name="ports-and-communication-settings"></a>端口和通信设置
 
 网关会创建与 Azure 服务总线之间的出站连接。 它在以下出站端口上进行通信：TCP 443（默认值）、5671、5672、9350 到 9354。 网关不需要入站端口。
 
-可能需要在防火墙中包括数据区域的 IP 地址。 可以下载 [Azure 数据中心 IP 列表](https://www.microsoft.com/download/confirmation.aspx?id=57062)。 该列表每周都会进行更新。 Azure 数据中心 IP 列表中列出的 IP 地址使用的是 CIDR 表示法。 若要了解详细信息，请参阅 [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)（无类别域际路由）。
+可能需要在防火墙中包括数据区域的 IP 地址。 可以下载 [Azure 数据中心 IP 列表](https://www.microsoft.com/download/confirmation.aspx?id=57062)。 该列表每周都会进行更新。 Azure 数据中心 IP 列表中列出的 IP 地址使用的是 CIDR 表示法。
+
+<!--Not Available on [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-->
 
 以下是该网关所用的完全限定域名。
 
@@ -70,12 +78,12 @@ ms.locfileid: "79543764"
 | login.chinacloudapi.cn |443 |HTTPS |
 | *.msftncsi.com |443 |在 Power BI 服务无法访问网关时用于测试 Internet 连接。 |
 | *.microsoftonline-p.com |443 |用于根据配置进行身份验证。 |
-| dc.services.visualstudio.com  |443 |由 AppInsights 用来收集遥测数据。 |
+| dc.services.visualstudio.com    |443 |由 AppInsights 用来收集遥测数据。 |
 
 <a name="force-https"></a>
 ### <a name="forcing-https-communication-with-azure-service-bus"></a>强制与 Azure 服务总线进行 HTTPS 通信
 
-可以强制网关使用 HTTPS 而非直接 TCP 与 Azure 服务总线进行通信，但此操作可能会显著降低性能。 若要修改 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 文件  ，可将值从 `AutoDetect` 更改为 `Https`。 通常情况下，此文件位于 *C:\Program Files\On-premises data gateway*。
+可以强制网关使用 HTTPS 而非直接 TCP 与 Azure 服务总线进行通信，但此操作可能会显著降低性能。 若要修改 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 文件**，可将值从 `AutoDetect` 更改为 `Https`。 通常情况下，此文件位于 *C:\Program Files\On-premises data gateway*。
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -89,7 +97,7 @@ ms.locfileid: "79543764"
 
 * [本地数据网关常见问题解答](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
 * [使用本地数据网关应用](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
-* [租户级别管理](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
+* [租户级管理](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
 * [配置代理设置](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
 * [调整通信设置](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
 * [配置日志文件](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   

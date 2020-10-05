@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 01/10/2020
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: ca62ffb7f7022d82da91e783035f23c51917f353
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 42653515c2d9855cbabbd1f76ae759fa7043637f
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516694"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394600"
 ---
 # <a name="run-apache-sqoop-jobs-with-azure-powershell-in-hdinsight"></a>在 HDInsight 中使用 Azure PowerShell 运行 Apache Sqoop 作业
 
@@ -37,7 +37,7 @@ ms.locfileid: "85516694"
 
 ## <a name="sqoop-export"></a>Sqoop 导出
 
-从 Hive 到 SQL Server。
+从 Hive 到 SQL。
 
 此示例将数据从 Hive `hivesampletable` 表导出到 SQL 数据库中的 `mobiledata` 表。 设置以下变量的值，然后执行命令。
 
@@ -276,7 +276,7 @@ Get-AzHDInsightJobOutput `
 ## <a name="limitations"></a>限制
 基于 Linux 的 HDInsight 存在以下限制：
 
-* 批量导出：用于将数据导出到 Microsoft SQL Server 或 Azure SQL 数据库的 Sqoop 连接器目前不支持批量插入。
+* 批量导出：用于将数据导出到 SQL 的 Sqoop 连接器目前不支持批量插入。
 
 * 批处理：如果在执行插入时使用 `-batch` 开关，Sqoop 将执行多次插入而不是批处理插入操作。 
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 3235126fa3768097a45a1ddea551d7e555c63b4f
-ms.sourcegitcommit: f9a819b7429a2cca868eba0d9241d4e6b3cf905a
+ms.openlocfilehash: f20d5583d3f2b54937ca413ff7116d8105f2c90a
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88866204"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394722"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>在 Azure HDInsight 中控制网络流量
 
@@ -32,11 +32,15 @@ ms.locfileid: "88866204"
 
 1. 确定计划用于 HDInsight 的 Azure 区域。
 
-2. 确定 HDInsight 需要的用于你所在区域的服务标记。 有关详细信息，请参阅 [Azure HDInsight 的网络安全组 (NSG) 服务标记](hdinsight-service-tags.md)。
+2. 确定 HDInsight 需要的用于你所在区域的服务标记。 有多种方法可以获取这些服务标记：
+    1. 请参阅 [Azure HDInsight 的网络安全组 (NSG) 服务标记](hdinsight-service-tags.md)中的已发布服务标记列表。 
+    2. 如果你的区域未出现在列表中，请使用[服务标记发现 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 查找你所在区域的服务标记。
+    3. 如果无法使用该 API，请下载[服务标记 JSON 文件](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)并搜索所需的区域。
+
 
 3. 为计划将 HDInsight 安装到其中的子网创建或修改网络安全组。
 
-    * ____ 网络安全组：在端口 443 上允许来自 IP 地址的入站流量。____ ____ 这将确保 HDInsight 管理服务可以从虚拟网络外部访问群集。 对于启用了 Kafka REST 代理的群集，还要在端口 9400 上允许入站流量  。 这将确保 Kafka REST 代理服务器可访问。
+    * ____ 网络安全组：在端口 443 上允许来自 IP 地址的入站流量。____ ____ 这将确保 HDInsight 管理服务可从虚拟网络外部访问群集。 对于启用了 Kafka REST 代理的群集，还要在端口 9400 上允许入站流量  。 这将确保 Kafka REST 代理服务器可访问。
 
 有关网络安全组的详细信息，请参阅[网络安全组概述](../virtual-network/security-overview.md)。
 
@@ -51,10 +55,6 @@ ms.locfileid: "88866204"
 有兴趣设置强制隧道的客户应使用[自定义元存储](./hdinsight-use-external-metadata-stores.md)，并设置从群集子网或本地网络到这些自定义元存储的适当连接。
 
 若要查看有关使用 Azure 防火墙设置 UDR 的示例，请参阅[配置 Azure HDInsight 群集的出站网络流量限制](hdinsight-restrict-outbound-traffic.md)。
-
-## <a name="required-ip-addresses"></a>需要的 IP 地址
-
-如果使用网络安全组或用户定义的路由来控制流量，请参阅 [HDInsight 管理 IP 地址](hdinsight-management-ip-addresses.md)。
 
 ## <a name="required-ports"></a>必需端口
 

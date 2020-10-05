@@ -13,12 +13,12 @@ ms.workload: big-data
 origin.date: 08/06/2020
 ms.date: 08/31/2020
 ms.author: v-yiso
-ms.openlocfilehash: 902fb989f899fefbd7af6d8acd69b5fa70a9de1c
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: a43bb701d8312014fdae421cf6a45a9b17b51b2e
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715174"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394581"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
 
@@ -104,6 +104,7 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 
 |属性 |说明 |
 |---|---|
+|企业安全数据包|可选：选中此复选框可使用“企业安全性套餐”。 有关详细信息，请参阅[使用 Azure Active Directory 域服务配置具有企业安全性套餐的 HDInsight 群集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)。|
 |TLS|可选：从下拉列表中选择 TLS 版本。 有关详细信息，请参阅[传输层安全性](./transport-layer-security.md)。|
 |虚拟网络|可选：从下拉列表中选择现有的虚拟网络和子网。 有关信息，请参阅[为 Azure HDInsight 群集规划虚拟网络部署](hdinsight-plan-virtual-network-deployment.md)。 本文包含虚拟网络的特定配置要求。|
 |磁盘加密设置|可选：选中此复选框即可使用加密。 有关详细信息，请参阅[客户管理的密钥磁盘加密](./disk-encryption.md)。|

@@ -1,25 +1,25 @@
 ---
 title: 适用于 SQL API 的 Azure Cosmos DB Apache Spark 连接器发行说明和资源
 description: 了解有关适用于 SQL API 的 Azure Cosmos DB Apache Spark 连接器的所有信息，包括发行日期、停用日期和 Azure Cosmos DB SQL Async Java SDK 各版本之间所做的更改。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 08/05/2020
-ms.date: 08/24/2020
-ms.testscope: yes
-ms.testdate: 08/24/2020
+origin.date: 08/12/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 9371180b831f271282440b44adfb33737dd02a09
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 18ab0618a0497247a12d03f15ad9113275cc7d76
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947052"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246835"
 ---
-<!--Waiting for PM comments on release-->
+<!--Verified successfully-->
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>适用于核心 (SQL) API 的 Azure Cosmos DB Apache Spark 连接器：发行说明和资源
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -30,7 +30,8 @@ ms.locfileid: "88947052"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 连接器](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
@@ -134,5 +135,4 @@ ms.locfileid: "88947052"
 
 若要详细了解 Apache Spark，请参阅[主页](https://spark.apache.org/)。
 
-<!-- Update_Description: new article about sql api sdk java spark -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

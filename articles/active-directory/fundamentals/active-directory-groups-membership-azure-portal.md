@@ -2,23 +2,23 @@
 title: 从另一个组中添加或删除组 - Azure AD
 description: 有关如何使用 Azure Active Directory 在组中添加或删除另一个组的说明。
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 01/06/2020
+ms.topic: how-to
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03ba04c86d95a1a99b757a716a8f4813759f7987
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7e21bdaedc488980f2c39250981239dd859fef15
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75777017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244627"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>使用 Azure Active Directory 在组中添加或删除另一个组
 本文可帮助使用 Azure Active Directory 在其他组中添加和删除组。
@@ -30,7 +30,7 @@ ms.locfileid: "75777017"
 可以将现有安全组添加到其他现有安全组（也称为“嵌套组”），以创建成员组（子组）和父组。 成员组会继承父组的特性和属性，从而节省配置时间。
 
 >[!Important]
->当前不支持：<ul><li>将组添加到与本地 Active Directory 同步的组。</li><li>将安全组添加到 Office 365 组。</li><li>将 Office 365 组添加到安全组或其他 Office 365 组。</li><li>将应用分配到嵌套组。</li><li>将许可证应用于嵌套组。</li><li>在嵌套方案中添加通讯组。</li></ul>
+>当前不支持：<ul><li>将组添加到与本地 Active Directory 同步的组。</li><li>将安全组添加到 Microsoft 365 组。</li><li>将 Microsoft 365 组添加到安全组或其他 Microsoft 365 组。</li><li>将应用分配到嵌套组。</li><li>将许可证应用于嵌套组。</li><li>在嵌套方案中添加通讯组。</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>若要将组作为成员添加到其他组
 

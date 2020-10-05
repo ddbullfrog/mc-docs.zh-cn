@@ -2,25 +2,21 @@
 title: JavaScript 单页应用方案 - Microsoft 标识平台 | Azure
 description: 了解如何使用 Microsoft 标识平台构建单页应用程序（方案概述）。
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/06/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b969136010928c0c9f0071fcabe0d93491a96187
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e21ce54c2e7efcde17febe150e082f3174ece89c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75777041"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244850"
 ---
 # <a name="scenario-single-page-application"></a>方案：单页应用程序
 
@@ -39,11 +35,17 @@ ms.locfileid: "75777041"
 
 ## <a name="overview"></a>概述
 
-许多新式 Web 应用程序都是作为客户端单页应用程序构建的。 开发人员使用 JavaScript 或 SPA 框架（如 Angular、Vue.js 和 React.js）进行编写。 这些应用程序在 Web 浏览器上运行，与传统的服务器端 Web 应用程序相比，它们具有不同的身份验证特征。 
+许多新式 Web 应用程序都是作为客户端单页应用程序构建的。 开发人员使用 JavaScript 或 SPA 框架（例如 Angular、Vue 和 React）来编写它们。 这些应用程序在 Web 浏览器上运行，与传统的服务器端 Web 应用程序相比，它们具有不同的身份验证特征。 
 
-Microsoft 标识平台可让单页应用程序使用 [OAuth 2.0 隐式流](./v2-oauth2-implicit-grant-flow.md)将用户登录，并获取用于访问后端服务或 Web API 的令牌。 隐式流允许应用程序获取 ID 令牌来表示已经过身份验证的用户以及调用受保护 API 所需的访问令牌。
+Microsoft 标识平台提供了**两个**选项来允许单页应用程序登录用户并获取用于访问后端服务或 Web API 的令牌。
 
-![单页应用程序](./media/scenarios/spa-app.svg)
+- [OAuth 2.0 授权代码流（使用 PKCE）](./v2-oauth2-auth-code-flow.md)。 授权代码流允许应用程序用授权代码来交换 **ID** 令牌（表示已经过身份验证的用户），以及交换调用受保护 API 所需的**访问**令牌。 此外，它还返回**刷新**令牌，这类令牌提供以用户身份长期访问资源而无需与这些用户交互的权限。 这是**建议的**做法。
+
+![单页应用程序 - 授权](./media/scenarios/spa-app-auth.svg)
+
+- [OAuth 2.0 隐式流](./v2-oauth2-implicit-grant-flow.md)。 隐式授权流允许应用程序获取 **ID** 和**访问**令牌。 与授权代码流不同，隐式授权流不会返回**刷新令牌**。
+
+![单页应用程序 - 隐式](./media/scenarios/spa-app.svg)
 
 此身份验证流不包括使用 Electron 和 React-Native 之类的跨平台 JavaScript 框架的应用程序方案。 它们需要使用其他功能才能与本机平台交互。
 
@@ -51,13 +53,12 @@ Microsoft 标识平台可让单页应用程序使用 [OAuth 2.0 隐式流](./v2-
 
 若要为应用程序启用此方案，需要：
 
-* 通过 Azure Active Directory (Azure AD) 进行应用程序注册。 此注册需要启用隐式流并设置重定向 URI，方便令牌返回。
+* 通过 Azure Active Directory (Azure AD) 进行应用程序注册。 在隐式授权流和授权代码流的注册步骤不同。
 * 带有注册的应用程序属性（例如应用程序 ID）的应用程序配置。
-* 使用 Microsoft 身份验证库 (MSAL) 执行身份验证流以登录并获取令牌。
+* 使用适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js) 执行身份验证流以登录并获取令牌。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [应用注册](scenario-spa-app-registration.md)
 
-<!-- Update_Description: wording update -->

@@ -5,15 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 1/3/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 34f3fca1e8d3e4de2f9f3bcfcfda8b18669a3614
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: references_regions
+ms.openlocfilehash: 4d0126a3b4fcc4d5dc7203aace82d0ca011ae178
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753583"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026530"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>规划 Azure 文件部署
 可通过以下主要方式部署 [Azure 文件存储](storage-files-introduction.md)：直接装载无服务器 Azure 文件共享。
@@ -85,7 +86,7 @@ Azure 文件共享的软删除（预览版）是一种存储帐户级别设置�
 ## <a name="storage-tiers"></a>存储层
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-通常，Azure 文件存储功能以及与其他服务的互操作性在高级文件共享和标准文件共享之间是相同的，但有几个重要区别：
+通常，Azure 文件存储功能以及与其他服务的互操作性在高级文件共享和标准文件共享（包括事务优化文件共享、热文件共享和冷文件共享）之间是相同的，但有几个重要区别：
 - **冗余选项**
     - 高级文件共享仅适用于本地冗余 (LRS) 存储。
     - 标准文件共享可用于本地冗余、异地冗余 (GRS) 和异地区域冗余 (GZRS) 存储。

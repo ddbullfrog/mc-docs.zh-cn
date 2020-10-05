@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f83b9147667c751370d9b03503975af4d11d775
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: ef35675b89207a8aaf25c0f65d8d57a21d09c57c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046348"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244728"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Azure 多重身份验证的功能和许可证
 
@@ -41,7 +41,7 @@ ms.locfileid: "89046348"
 
 下表提供了 Azure 多重身份验证的各个版本中可用的功能列表。 规划保护用户身份验证的需求，然后确定哪种方法符合这些要求。 例如，尽管 Azure AD Free 提供安全默认值来实现 Azure 多重身份验证，但只能通过手机验证器应用显示身份验证提示，而不能通过电话呼叫或短信来显示。 如果无法确保将手机身份验证应用安装到用户的个人设备上，此方法可能存在限制。
 
-| 功能 | Azure AD Free - 安全默认值 | Azure AD Free - Azure AD 全局管理员 | Office 365 应用 | Azure AD Premium P1 或 P2 |
+| 功能 | Azure AD Free - 安全默认值 | Azure AD Free - Azure AD 全局管理员 | Microsoft 365 应用 | Azure AD Premium P1 或 P2 |
 | --- |:---:|:---:|:---:|:---:|
 | 使用 MFA 保护 Azure AD 租户管理员帐户 | ● | ●（仅限“Azure AD 全局管理员”帐户） | ● | ● |
 | 将移动应用用作第二个因素 | ● | ● | ● | ● |
@@ -51,7 +51,7 @@ ms.locfileid: "89046348"
 
 ## <a name="purchase-and-enable-azure-multi-factor-authentication"></a>购买和启用 Azure 多重身份验证
 
-若要使用 Azure 多重身份验证，请注册或购买符合条件的 Azure AD 层。 Azure Active Directory (Azure AD) 提供四个版本：免费版、Office 365 应用、高级版 P1 和 高级版 P2。
+若要使用 Azure 多重身份验证，请注册或购买符合条件的 Azure AD 层。 Azure AD 提供四个版本：免费版、Microsoft 365 应用、高级版 P1 和高级版 P2。
 
 Free 版本随附在 Azure 订阅中。 有关如何使用安全默认值或者使用“Azure AD 全局管理员”角色保护帐户的信息，请参阅[下面的部分](#azure-ad-free-tier)。
 

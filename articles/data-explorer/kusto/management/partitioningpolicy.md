@@ -8,19 +8,19 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/10/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: a420763aa7cca36141633f118c65c9174f04e516
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: f9a765686d4a2093ad57c2a621151fdcd240d5e9
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516072"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146430"
 ---
 # <a name="data-partitioning-policy"></a>数据分区策略
 
 分区策略定义了对于特定表，是否以及如何对[盘区（数据分片）](../management/extents-overview.md)进行分区。
 
-该策略的主要目的是提高已知查询的性能，以缩小分区列中的值数据集，或对高基数字符串列进行聚合/联接。 该策略还可能导致更好的数据压缩。
+该策略的主要目的是提高已知可以通过对分区列进行筛选来缩小数据集的查询的性能，或对高基数字符串列进行聚合/联接。 该策略还可能导致更好的数据压缩。
 
 > [!CAUTION]
 > 没有对可以定义策略的表数量设置硬编码限制。 但是，每个附加表都会增加在群集节点上运行的后台数据分区过程的开销。 这可能会导致使用更多的群集资源。 有关详细信息，请参阅[监视](#monitoring)和[容量](#capacity)。
@@ -42,7 +42,6 @@ ms.locfileid: "88516072"
 > * 大多数查询在大维度（基数为 10M 或更高）的特定 `string` 类型列（例如 `application_ID`、`tenant_ID` 或 `user_ID`）上聚合/联接。
 
 * 哈希取模函数用于对数据进行分区。
-* 属于同一分区的所有同类（已分区）盘区都分配给同一个数据节点。
 * 同类（已分区）盘区中的数据按哈希分区键排序。
   * 如果表上定义了哈希分区键，则不需要在[行顺序策略](roworderpolicy.md)中包含哈希分区键。
 * 如果查询使用[无序策略](../query/shufflequery.md)，并且 `join`、`summarize` 或 `make-series` 中使用的 `shuffle key` 是表的哈希分区键，那么查询的性能将会更好，因为需要跨群集节点移动的数据量显著减少。
@@ -52,16 +51,21 @@ ms.locfileid: "88516072"
 * `Function` 是要使用的哈希取模函数的名称。
   * 支持的值：`XxHash64`。
 * `MaxPartitionCount` 是每个时间段要创建的最大分区数（哈希取模函数的取模参数）。
-  * 支持的值范围为 `(1,1024]`。
+  * 支持的值范围为 `(1,2048]`。
     * 该值预计为：
-      * 大于群集中的节点数
+      * 大于群集中节点数的 5 倍。
       * 小于列的基数。
     * 值越大，群集节点上数据分区过程的开销就越大，每个时间段的盘区数量也就越大。
-    * 建议从值 `256` 开始。
-      * 基于以上考虑因素，或者基于查询性能的优势与数据引入后分区的开销，根据需要调整该值。
+    * 对于节点少于 50 个的群集，建议你从值 `256` 开始。
+      * 基于以上考虑因素（例如，群集中的节点数增加），或者基于查询性能的优势与数据在引入后进行分区的开销，根据需要调整该值。
 * `Seed` 是用于随机化哈希值的值。
   * 该值应为正整数。
   * 建议的值是 `1`，如果未指定，这是默认值。
+* `PartitionAssignmentMode` 模式用于将分区分配给群集中的节点。
+  * 支持的模式：
+    * `Default`：属于同一分区的所有同类（已分区）盘区都分配给同一个节点。
+    * `Uniform`：将忽略盘区的分区值，并将盘区统一分配给群集的节点。
+  * 如果查询不根据哈希分区键联接或聚合，请使用 `Uniform`。 否则使用 `Default`。
 
 #### <a name="example"></a>示例
 
@@ -75,7 +79,8 @@ ms.locfileid: "88516072"
   "Properties": {
     "Function": "XxHash64",
     "MaxPartitionCount": 256,
-    "Seed": 1
+    "Seed": 1,
+    "PartitionAssignmentMode": "Default"
   }
 }
 ```
@@ -154,7 +159,8 @@ ms.locfileid: "88516072"
       "Properties": {
         "Function": "XxHash64",
         "MaxPartitionCount": 256,
-        "Seed": 1
+        "Seed": 1,
+        "PartitionAssignmentMode": "Default"
       }
     },
     {

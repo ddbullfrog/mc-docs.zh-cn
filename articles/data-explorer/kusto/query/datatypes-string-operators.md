@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 42acdadc3694b4de043c00e7cd5925196b83fa4a
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 4b3902efd391c335fd5c8e389bfe01d1394478da
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516085"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146733"
 ---
 # <a name="string-operators"></a>字符串运算符
 
@@ -26,7 +26,7 @@ Kusto 将为所有列（包括 `string` 类型的列）编制索引。 将根据
 
 ### <a name="what-is-a-term"></a>什么是词语？ 
 
-默认情况下，每个 `string` 值都分解为 ASCII 字母数字字符的最大序列，并将每个序列都转换为一个词语。
+默认情况下，每个 `string` 值都分解为 ASCII 字母数字字符的最大序列，并将这些序列中的每一个都转换为一个词语。
 例如，在下面的 `string` 中，词语是 `Kusto`、`WilliamGates3rd` 以及以下子字符串：`ad67d136`、`c1db`、`4f9f`、`88ef`、`d94f3b6b0b5a`。
 
 ```

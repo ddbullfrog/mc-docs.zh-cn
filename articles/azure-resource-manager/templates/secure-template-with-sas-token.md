@@ -2,22 +2,26 @@
 title: 使用 SAS 令牌安全部署模板
 description: 使用受 SAS 令牌保护的 Azure 资源管理器模板将资源部署到 Azure。 显示 Azure PowerShell 和 Azure CLI。
 ms.topic: conceptual
-origin.date: 08/14/2019
+origin.date: 08/25/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: yes
+ms.testdate: 01/20/2020
 ms.author: v-yeche
-ms.date: 01/06/2020
-ms.openlocfilehash: 9f9b1c68e29e4399b235a21112e553f3d6768fff
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 589384a8f914cbcbef7bde7a857dc5e506c18617
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291254"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146508"
 ---
 <!--Verify successfully-->
 <!--Merge with two files which contain PowerShell and CLI seperated-->
+# <a name="deploy-private-arm-template-with-sas-token"></a>使用 SAS 令牌部署专用 ARM 模板
 
-# <a name="deploy-private-resource-manager-template-with-sas-token"></a>使用 SAS 令牌部署专用 Resource Manager 模板
+如果 Azure 资源管理器模板（ARM 模板）位于存储帐户中，可以限制对该模板的访问，以免将其公开暴露。 访问受保护模板的方法是：为模板创建一个共享访问签名 (SAS) 令牌，在部署时提供该令牌。 本文介绍如何使用 Azure PowerShell 或 Azure CLI 通过 SAS 令牌来部署模板。
 
-如果模板位于存储帐户中，可以限制对该模板的访问，以免将其公开暴露。 访问受保护模板的方法是：为模板创建一个共享访问签名 (SAS) 令牌，在部署时提供该令牌。 本文介绍如何使用 Azure PowerShell 或 Azure CLI 通过 SAS 令牌来部署模板。
+<!--Not Available on [template specs](template-specs.md)-->
 
 ## <a name="create-storage-account-with-secured-container"></a>使用受保护的容器创建存储帐户
 
@@ -123,6 +127,8 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+下面的示例在本地 Shell 中使用 Bash 环境。 其他环境可能需要不同的语法来创建 SAS 令牌的到期时间。
+
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
@@ -141,7 +147,7 @@ url=$(az storage blob url \
     --name azuredeploy.json \
     --output tsv \
     --connection-string $connection)
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```
@@ -151,7 +157,7 @@ az group deployment create \
 有关将 SAS 令牌与链接模板配合使用的示例，请参阅[将已链接的模版与 Azure 资源管理器配合使用](linked-templates.md)。
 
 ## <a name="next-steps"></a>后续步骤
-* 有关部署模板的简介，请参阅[使用 Resource Manager 模板和 Azure PowerShell 部署资源](deploy-powershell.md)。
+* 有关部署模板的简介，请参阅[使用 ARM 模板和 Azure PowerShell 部署资源](deploy-powershell.md)。
 * 若要在模板中定义参数，请参阅[创作模板](template-syntax.md#parameters)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

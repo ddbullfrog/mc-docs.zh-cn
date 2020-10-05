@@ -1,7 +1,7 @@
 ---
 title: 配置调用 Web API 的移动应用 | Azure
 titleSuffix: Microsoft identity platform
-description: 了解如何构建调用 Web API 的移动应用（应用的代码配置）
+description: 了解如何将移动应用的代码配置为调用 Web API
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 1dc9280266d8ed617aeb4fb7d770af6ba915b852
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: bf5625ca4862fe452f7c949a66df66f11b206bb2
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593792"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244857"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>配置调用 Web API 的移动应用
 

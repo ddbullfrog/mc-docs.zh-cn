@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 09/23/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eb577a69441e190f1416a816f818821600d2ac0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 28643af77b90f216298056f6ae4ccf0690a43aaa
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77067694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245031"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步：了解默认配置
 本文介绍现成的配置规则。 其中将说明这些规则及其对配置有何影响。 此外还会逐步介绍如何完成 Azure AD Connect 同步的默认配置。其目的是让读者了解配置模型（名为声明性设置）在实际示例中的运行情形。 本文假设已使用安装向导安装并配置了 Azure AD Connect 同步。
@@ -223,7 +223,7 @@ NULL
 | 名称 | 注释 |
 |:--- |:--- |
 | In from AD - User Join |联接连接器空间对象与 metaverse 的规则。 |
-| In from AD - UserAccount Enabled |登录 Azure AD 和 Office 365 所需的属性。 我们可以从已启用的帐户获取这些属性。 |
+| In from AD - UserAccount Enabled |登录到 Azure AD 和 Microsoft 365 所需的属性。 我们可以从已启用的帐户获取这些属性。 |
 | In from AD - User Common from Exchange |在全局地址列表中找到的属性。 我们假设用户邮箱所在的林中具有最佳的数据质量。 |
 | In from AD - User Common |在全局地址列表中找到的属性。 如果找不到邮箱，可由任何其他联接对象提供属性值。 |
 | In from AD - User Exchange |仅当检测到 Exchange 时才存在。 传递所有基础结构 Exchange 属性。 |
@@ -241,4 +241,3 @@ NULL
 * [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
 
-<!-- Update_Description: wording update -->

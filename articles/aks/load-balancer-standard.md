@@ -5,17 +5,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用标准 SKU �
 services: container-service
 ms.topic: article
 origin.date: 06/14/2020
-ms.date: 08/10/2020
+ms.date: 09/21/2020
 ms.testscope: yes|no
 ms.testdate: 07/09/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: e0f8a569fec6c5b5b3d1c4a3bdc7142c76c071d7
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 29222017e4b9c8f226fc1c24fb5e403ac787685a
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020807"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146673"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用公共标准负载均衡器
 
@@ -278,7 +278,7 @@ az aks update \
 
 ## <a name="restrict-inbound-traffic-to-specific-ip-ranges"></a>将入站流量限制为特定 IP 范围
 
-默认情况下，与负载均衡器的虚拟网络关联的网络安全组 (NSG) 包含一个允许所有入站外部流量的规则。 可以更新此规则，以便仅允许来自特定 IP 范围的入站流量。 以下清单使用 *loadBalancerSourceRanges* 来指定允许其发送入站外部流量的新 IP 范围：
+以下清单使用 *loadBalancerSourceRanges* 来指定允许其发送入站外部流量的新 IP 范围：
 
 ```yaml
 apiVersion: v1
@@ -294,6 +294,9 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+
+> [!NOTE]
+> 入站、外部流量从负载均衡器流向 AKS 群集的虚拟网络。 该虚拟网络有一个网络安全组 (NSG)，该安全组允许来自负载均衡器的所有入站流量。 此 NSG 使用 LoadBalancer 类型的[服务标记][service-tags]允许来自负载均衡器的流量。
 
 ## <a name="maintain-the-clients-ip-on-inbound-connections"></a>维护入站连接上的客户端 IP
 
@@ -317,14 +320,14 @@ spec:
 
 下面是类型 `LoadBalancer` 的 Kubernetes 服务支持的注释列表，这些注释仅适用于入站流：
 
-| Annotation | Value | 描述
+| Annotation | Value | 说明
 | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` 或 `false`                     | 指定负载均衡器是否应为“内部”。 如果未设置，则默认为“公共”。
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | 子网的名称                    | 指定内部负载均衡器应绑定到的子网。 如果未设置，则默认为云配置文件中配置的子网。
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | 公共 IP 上的 DNS 标签的名称   | 指定公共服务的 DNS 标签的名称。 如果设置为空字符串，则不会使用公共 IP 中的 DNS 条目。
 | `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` 或 `false`                     | 指定应使用可能与其他服务共享的 Azure 安全规则公开服务，交易规则的特定性，以增加可公开的服务数量。 此注释依赖于网络安全组的 Azure [扩充式安全规则](../virtual-network/security-overview.md#augmented-security-rules)功能。 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | 资源组的名称            | 指定与群集基础结构（节点资源组）不在同一资源组中的负载均衡器公共 IP 的资源组。
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | 允许的服务标记列表          | 指定以逗号隔开的允许[服务标记](../virtual-network/security-overview.md#service-tags)的列表。
+| `service.beta.kubernetes.io/azure-allowed-service-tags`           | 允许的服务标记列表          | 指定以逗号隔开的允许[服务标记][service-tags]的列表。
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP 空闲超时（以分钟为单位）          | 指定 TCP 连接空闲超时在负载均衡器上发生的时间（以分钟为单位）。 默认值和最小值为 4。 最大值为 30。 必须为整数。
 |`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | 为 SLB 禁用 `enableTcpReset`
 
@@ -425,5 +428,6 @@ spec:
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
+[service-tags]: ../virtual-network/security-overview.md#service-tags
 
 <!-- Update_Description: update meta properties, wording update, update link -->

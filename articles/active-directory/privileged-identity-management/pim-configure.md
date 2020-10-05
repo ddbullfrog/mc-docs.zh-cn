@@ -10,24 +10,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 393ce3918dadfffb5dc372207fe5a75630dd890e
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 82dabf19b79ce6950dfa4c1cc823ad02d23a1e76
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593624"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245177"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什么是 Azure AD Privileged Identity Management？
 
- Privileged Identity Management (PIM) 是 Azure Active Directory (Azure AD) 中用于管理、控制和监视对组织中重要资源的访问的服务。 这些资源包括访问 Azure AD、Azure 和其他 Microsoft Online Services（例如 Office 365 或 Microsoft Intune）中的资源。
+ Privileged Identity Management (PIM) 是 Azure Active Directory (Azure AD) 中用于管理、控制和监视对组织中重要资源的访问的服务。 这些资源包括 Azure AD、Azure 和其他 Microsoft Online Services（例如 Microsoft 365 或 Microsoft Intune）中的资源。
 
 ## <a name="reasons-to-use"></a>使用原因
 
-组织希望尽量减少拥有访问权限的人员以保护信息或资源安全，因为这样可以减少恶意行动者获得相应访问权限，或者已授权用户无意中影响敏感资源的可能性。 但是，用户仍需在 Azure AD、Azure、Office 365 或 SaaS 应用中执行特权操作。 组织可以授予用户对 Azure 资源和 Azure AD 的实时特许访问权限。 在这种情况下，需要监督这些用户使用其管理员特权执行了哪些操作。
+组织希望尽量减少拥有访问权限的人员以保护信息或资源安全，因为这样可以减少恶意行动者获得相应访问权限，或者已授权用户无意中影响敏感资源的可能性。 但是，用户仍需在 Azure AD、Azure、Microsoft 365 或 SaaS 应用中执行特权操作。 组织可以授予用户对 Azure 资源和 Azure AD 的实时特许访问权限。 在这种情况下，需要监督这些用户使用其管理员特权执行了哪些操作。
 
 ## <a name="what-does-it-do"></a>它有什么作用？
 

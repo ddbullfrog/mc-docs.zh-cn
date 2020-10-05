@@ -9,33 +9,33 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 09/09/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: 1b3d3b1b6d764f218d316eb79f9df83d76313f3c
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 46b257a7003cca9ccc1446e3af88a8485e44a036
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245162"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>双因素验证以及工作或学校帐户的常见问题
 
-Azure Active Directory (Azure AD) 组织可以启用双重验证 (2FV)。 有一些常见的 2FV 问题，似乎发生得比我们任何一个人预期得都要频繁。 我们编写了这篇文章，以介绍最常见问题的修复方法。
+有一些常见的双因素验证问题，似乎发生得比我们任何一个人预期得都要频繁。 我们编写了这篇文章，以介绍最常见问题的修复方法。
 
-打开 2FV 时，帐户登录需要以下数据的组合：
+Azure Active Directory (Azure AD) 组织可以为你的帐户启用双重验证。 当启用了双重验证时，帐户登录需要以下数据的组合：
 
 - 您的用户名
 - 你的密码
 - 移动设备或手机
 
-2FV 比密码更安全，因为 2FV 需要你知道的密码加上你拥有的设备 。 黑客没有你的实体电话。
+双重验证比单纯使用密码更安全，因为双重验证需要你知道的事情和拥有的物品。  黑客没有你的实体电话。
 
 >[!Important]
 >如果你是管理员，可以在 [Azure AD 文档](../index.yml)中详细了解如何创建和管理 Azure AD 环境。
 
-此内容旨在帮助你解决工作或学校帐户出现的问题，该帐户是由组织提供给你的帐户（例如 dritan@contoso.com）。 如果在个人 Microsoft 帐户（即你为自己设置的帐户，例如 danielle@outlook.com）上遇到双重验证问题，请参阅[为你的 Microsoft 帐户启用或禁用双重验证](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)。
+此内容可以帮助你解决工作或学校帐户出现的问题，该帐户是由组织提供给你的帐户（例如 dritan@contoso.com）。 如果在个人 Microsoft 帐户（即你为自己设置的帐户，例如 danielle@outlook.com）上遇到双重验证问题，请参阅[为你的 Microsoft 帐户启用或禁用双重验证](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)。
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>我没有随身携带移动设备
 
@@ -51,7 +51,13 @@ Azure Active Directory (Azure AD) 组织可以启用双重验证 (2FV)。 有一
 
 2. 选择备用验证方法，然后继续进行双因素验证流程。
 
-## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>我的移动设备丢失或被盗
+## <a name="i-cant-turn-two-factor-verification-off"></a>我无法禁用双因素验证
+
+- 如果你是将双重验证用于工作或学校帐户，那么这很可能意味着你的组织已决定你必须使用这一附加的安全功能。 无法单独将其关闭。
+
+如果无法禁用双因素验证，也可能是因为在组织级别应用了安全默认值。 若要详细了解安全默认值，请参阅[什么是安全默认值？](../fundamentals/concept-fundamentals-security-defaults.md)
+
+## <a name="my-device-was-lost-or-stolen"></a>我的设备丢失或被盗
 
 如果移动设备丢失或被盗，可以执行以下任一操作：
 
@@ -72,14 +78,14 @@ Azure Active Directory (Azure AD) 组织可以启用双重验证 (2FV)。 有一
 确保设备有信号且已连接 Internet | 确保你的移动设备能够接听电话和接收短信。 让朋友给你打电话和发短信，以确保你都能收到。 如果接不到电话或收不到短信，请先进行检查，确保你的移动设备已开机。 如果设备已开机，但仍未收到呼叫或电话，则可能是网络有问题。 需要与你的提供商联系。 
 禁用“请勿打扰” | 确保没有在移动设备上启用“请勿打扰”功能。 在此功能启用后，就会禁止在移动设备上发出通知来提醒你。 若要了解如何禁用此功能，请参阅移动设备的手册。
 取消阻止电话号码 | 在美国，Microsoft 语音呼叫的号码如下：+1 (866) 539 4191、+1 (855) 330 8653 和 +1 (877) 668 6536。
-检查电池相关设置 | 此操作表面上看起来有点奇怪。 但如果你已设置电池优化来阻止不太常用的应用在后台保持活跃，你的通知系统很可能已经受到了影响。 若要尝试修复此问题，请禁用针对身份验证应用和短信应用的电池优化。 然后再次尝试登录你的帐户。
-禁用第三方安全应用 | 某些手机安全应用会阻止来自未知号码的骚扰短信和电话。 此类应用可能会阻止你的手机接收验证码。 请尝试在电话上禁用任何第三方安全应用，然后请求发送另一个验证码。
+检查电池相关设置 | 如果你已设置电池优化来阻止不太常用的应用在后台保持活动状态，你的通知系统很可能已经受到了影响。 请尝试针对你的身份验证应用和消息应用关闭电池优化。 然后再次尝试登录你的帐户。
+禁用第三方安全应用 | 某些手机安全应用会阻止来自未知号码的骚扰短信和电话。 安全应用可能会阻止你的手机接收验证码。 请尝试在电话上禁用任何第三方安全应用，然后请求发送另一个验证码。
 
 ## <a name="im-not-being-prompted-for-my-second-verification-information"></a>我没有看到提供第二个验证信息的提示
 
 使用你的用户名和密码登录到工作或学校帐户。 接下来，系统会提示你提供其他安全验证信息。 如果未出现提示，则可能尚未设置设备。 必须将移动设备设置为使用特定的附加安全验证方法。
 
-若要确保移动设备已打开且可用，请参阅[管理双重验证方法设置](multi-factor-authentication-end-user-manage-settings.md)一文。 如果你知道自己还没有设置设备或帐户，可以立即按照[为我的帐户设置双重验证](multi-factor-authentication-end-user-first-time.md)一文中的步骤操作。
+你可能尚未设置设备。 必须将移动设备设置为使用特定的附加安全验证方法。 有关使移动设备可以用于你的验证方法的步骤，请参阅[管理双重验证方法设置](multi-factor-authentication-end-user-manage-settings.md)。 如果你知道自己还没有设置设备或帐户，可以按照[为我的帐户设置双重验证](multi-factor-authentication-end-user-first-time.md)一文中的步骤操作。
 
 ## <a name="i-have-a-new-phone-number-and-i-want-to-add-it"></a>我有新的电话号码，我想添加它
 
@@ -92,6 +98,14 @@ Azure Active Directory (Azure AD) 组织可以启用双重验证 (2FV)。 有一
 1. 按照[为我的帐户设置双重验证](multi-factor-authentication-end-user-first-time.md)一文中的步骤操作，将设备设置为使用你的帐户。
 
 1. 在“附加安全验证”页中，更新你的帐户和设备信息。 通过删除旧设备并添加新设备来执行更新。 有关详细信息，请参阅[更改双因素验证方法设置](multi-factor-authentication-end-user-manage-settings.md)一文。
+
+可选步骤：
+
+- 按照[管理双因素验证方法设置](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)一文中的“在受信任的设备上启用双因素验证提示”部分中的步骤操作，为受信任的设备启用双因素验证。
+
+## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>旅行时，我在移动设备上登录时遇到问题
+
+你可能会发现，当你身处国外时，使用与移动设备相关的验证方法（比如短信）会更加困难。 你的移动设备还可能会导致产生漫游费用。 对于这种情况，建议使用带有连接到 Wi-Fi 热点的选项的 Microsoft Authenticator 应用。 
 
 ## <a name="i-cant-turn-off-two-factor-verification"></a>我无法禁用双重验证
 

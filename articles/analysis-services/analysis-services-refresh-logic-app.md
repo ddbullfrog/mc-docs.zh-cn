@@ -1,18 +1,21 @@
 ---
 title: 使用逻辑应用对 Azure Analysis Services 模型执行刷新 | Azure
 description: 本文介绍如何使用 Azure 逻辑应用对 Azure Analysis Services 的异步刷新进行编码。
-author: rockboyfor
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 10/30/2019
-ms.date: 03/23/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3bef78d9cc58a18ea22fca6ac4fa71ecdbd4a5e8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: references_regions
+ms.openlocfilehash: 48b325a2a083c2f352b54958604f1c0368383039
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79543758"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146303"
 ---
 # <a name="refresh-with-logic-apps"></a>使用逻辑应用进行刷新
 
@@ -47,19 +50,19 @@ ms.locfileid: "79543758"
 
 1. 在逻辑应用设计器中，选择“收到 HTTP 请求时”作为第一个操作。 
 
-    ![添加已收到 HTTP 请求时的活动](./media/analysis-services-async-refresh-logic-app/1.png)
+    :::image type="content" source="./media/analysis-services-async-refresh-logic-app/1.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
     保存逻辑应用后，此步骤将会填充 HTTP POST URL。
 
 2. 添加新步骤并搜索 **HTTP**。  
 
-    ![添加 HTTP 活动](./media/analysis-services-async-refresh-logic-app/9.png)
+    :::image type="content" source="./media/analysis-services-async-refresh-logic-app/9.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
-    ![添加 HTTP 活动](./media/analysis-services-async-refresh-logic-app/10.png)
+    :::image type="content" source="./media/analysis-services-async-refresh-logic-app/10.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
 3. 选择“HTTP”以添加此操作。 
 
-    ![添加 HTTP 活动](./media/analysis-services-async-refresh-logic-app/2.png)
+    :::image type="content" source="./media/analysis-services-async-refresh-logic-app/2.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
 按如下所示配置 HTTP 活动：
 
@@ -78,11 +81,11 @@ ms.locfileid: "79543758"
 
 示例：
 
-![已完成 HTTP 活动](./media/analysis-services-async-refresh-logic-app/7.png)
+:::image type="content" source="./media/analysis-services-async-refresh-logic-app/7.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
 现在请测试该逻辑应用。  在逻辑应用设计器中单击“运行”。 
 
-![测试逻辑应用](./media/analysis-services-async-refresh-logic-app/8.png)
+:::image type="content" source="./media/analysis-services-async-refresh-logic-app/8.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
 ## <a name="consume-the-logic-app-with-azure-data-factory"></a>通过 Azure 数据工厂使用逻辑应用
 
@@ -90,7 +93,7 @@ ms.locfileid: "79543758"
 
 下面是执行此操作的示例 Azure 数据工厂 Web 活动。
 
-![数据工厂 Web 活动](./media/analysis-services-async-refresh-logic-app/11.png)
+:::image type="content" source="./media/analysis-services-async-refresh-logic-app/11.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
 ## <a name="use-a-self-contained-logic-app"></a>使用独立的逻辑应用
 
@@ -98,19 +101,19 @@ ms.locfileid: "79543758"
 
 沿用上面的示例，请删除第一个活动，并将其替换为“计划”活动。 
 
-![计划活动](./media/analysis-services-async-refresh-logic-app/12.png)
+:::image type="content" source="./media/analysis-services-async-refresh-logic-app/12.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
-![计划活动](./media/analysis-services-async-refresh-logic-app/13.png)
+:::image type="content" source="./media/analysis-services-async-refresh-logic-app/13.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
 本示例将使用“重复周期”。 
 
 添加活动后，配置“间隔”和“频率”，然后添加新参数并选择“在这些时间”。 
 
-![计划活动](./media/analysis-services-async-refresh-logic-app/16.png)
+:::image type="content" source="./media/analysis-services-async-refresh-logic-app/16.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
 选择所需的小时数。
 
-![计划活动](./media/analysis-services-async-refresh-logic-app/15.png)
+:::image type="content" source="./media/analysis-services-async-refresh-logic-app/15.png" alt-text="添加已收到 HTTP 请求时的活动":::
 
 保存逻辑应用。
 

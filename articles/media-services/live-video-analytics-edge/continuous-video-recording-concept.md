@@ -2,14 +2,17 @@
 title: 连续视频录制 - Azure
 description: 连续视频录制 (CVR) 是指从视频源连续录制视频的过程。 本主题将讨论什么是 CVR。
 ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: 1168cb23d00bbb61effbc798bcb60427be343fea
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 09/28/2020
+ms.openlocfilehash: 1066c50afe9c39237116db357b19d88dd1472508
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245485"
 ---
 # <a name="continuous-video-recording"></a>连续视频录制  
 
@@ -22,7 +25,8 @@ ms.locfileid: "89413171"
 
 连续视频录制 (CVR) 是指从视频源连续录制视频的过程。 IoT Edge 上的实时视频分析通过包含 RTSP 源节点和资产接收器节点的[媒体图](media-graph-concept.md)从 CCTV 相机全天候连续录制视频。 下图显示了该媒体图的图形表示形式。 可在[此处](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset)找到此类媒体图的[图形拓扑](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances)的 JSON 表示形式。
 
-![连续视频录制](./media/continuous-video-recording/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="连续视频录制":::
 
 上面所示的媒体图可以在边缘设备上运行，资产接收器将视频录制到 Azure 媒体服务[资产](terminology.md#asset)。 只要媒体图保持激活状态，视频就会被录制。 由于视频被录制为资产，因此可以使用媒体服务的现有流式传输功能播放视频。 有关更多详细信息，请参阅[播放录制的内容](video-playback-concept.md)。
 
@@ -31,10 +35,11 @@ ms.locfileid: "89413171"
 IoT Edge 上的实时视频分析支持在不太理想的网络情况下操作，在这种情况下，边缘设备偶尔可能会与云断开连接，或者可能会出现可用带宽下降的情况。 为此，将源中的视频录制到本地缓存中，并定期自动与资产同步。 如果检查[图形拓扑 JSON](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json)，将看到定义了以下属性：
 
 ```
-    "segmentLength": "PT30S",
-    "localMediaCacheMaximumSizeMiB": "2048",
-    "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
+"segmentLength": "PT30S",
+"localMediaCacheMaximumSizeMiB": "2048",
+"localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
+
 后两个属性与可复原的录制相关（两者也都是资产接收器节点的必需属性）。 localMediaCachePath 属性告知资产接收器在上传到资产之前，使用该文件夹路径来缓存媒体数据。 可以在[此](../../iot-edge/how-to-access-host-storage-from-module.md)文章中了解边缘模块如何利用设备的本地存储。 localMediaCacheMaximumSizeMiB 属性定义资产接收器可用作缓存的磁盘空间（1 MiB = 1024 * 1024 个字节）。 
 
 如果边缘模块长时间断开连接，并且缓存文件夹中存储的内容达到 localMediaCacheMaximumSizeMiB 值，则资产接收器将开始从缓存中丢弃数据，从最早的数据开始。 例如，如果设备在上午 10 点断开连接，而缓存在下午 6 点达到最大限制，则资产接收器将开始删除在上午 10 点录制的数据。 
@@ -49,15 +54,13 @@ IoT Edge 上的实时视频分析支持在不太理想的网络情况下操作�
 
 segmentLength 属性确保边缘模块每 segmentLength 秒最多上传一次视频。 此属性的最小值为 30 秒（也是默认值），可以 30 秒递增，最大值为 5 分钟。
 
->[!NOTE]
->请参阅[此](playback-recordings-how-to.md)文章了解 segmentLength 对播放的影响。
-
+> [!NOTE]
+> 请参阅[播放录制内容](playback-recordings-how-to.md)一文，了解 segmentLength 对播放的影响。
 
 ## <a name="see-also"></a>另请参阅
 
 * [基于事件的视频录制](event-based-video-recording-concept.md)
 * [播放录制的内容](video-playback-concept.md)
-
 
 ## <a name="next-steps"></a>后续步骤
 

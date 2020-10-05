@@ -1,20 +1,20 @@
 ---
-title: 在 Azure 存储表设计中对关系建模 | Microsoft Docs
-description: 了解设计桌面存储解决方案时的建模流程。
+title: 在 Azure 表存储设计中对关系建模 | Microsoft Docs
+description: 了解设计 Azure 表存储解决方案时的建模流程。 了解一对多、一对一和继承关系。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/23/2018
-ms.date: 02/25/2019
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: tables
-ms.openlocfilehash: 61e861412c8a855309b0941b1455d2c27f015c7c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: fbe80467b0935186f24f9fb2f11fc0411682b253
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63821835"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026522"
 ---
 # <a name="modeling-relationships"></a>为关系建模
 本文讨论可帮助设计 Azure 表存储解决方案的建模流程。
@@ -37,7 +37,7 @@ ms.locfileid: "63821835"
 
 ![员工实体](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
 
-有关详细信息，请参阅本指南后面的[反规范化模式](table-storage-design-patterns.md#denormalization-pattern)。  
+有关详细信息，请参阅本指南后面的 [反规范化模式](table-storage-design-patterns.md#denormalization-pattern) 。  
 
 下表总结了上述每种方法对于存储具有一对多关系的员工和部门的优缺点。 还应考虑希望执行各种操作的频率：如果设计中包含的代价高昂的操作很少发生，则这可能是可以接受的。  
 
@@ -52,7 +52,7 @@ ms.locfileid: "63821835"
 <td>
 <ul>
 <li>可以使用单个操作来更新部门实体。</li>
-<li>如果需要在更新/插入/删除员工实体时修改部门实体，则可以使用 EGT 来保持一致性。 例如，如果维护每个部门的部门员工计数。</li>
+<li>如果需要每当更新/插入/删除员工实体时就修改部门实体，则可以使用实体组事务* (EGT) 来保持一致性。 例如，如果维护每个部门的部门员工计数。</li>
 </ul>
 </td>
 <td>
@@ -94,10 +94,13 @@ ms.locfileid: "63821835"
 </tr>
 </table>
 
+*有关详细信息，请参阅[实体组事务](table-storage-design.md#entity-group-transactions)  
+
+
 如何在这些选项中进行选择，以及哪些优点和缺点最重要，取决于特定应用程序方案。 例如，修改部门实体的频率；所有员工查询是否都需要附加部门信息；有多接近对分区或存储帐户的伸缩性限制？  
 
 ## <a name="one-to-one-relationships"></a>一对一关系
-域模型可能包括实体之间的一对一关系。 如果需要在表服务中实现一对一关系，还必须选择在需要检索两个相关的实体时如何链接这两个实体。 此链接可为隐式或显式，前者基于键值中的约定，后者在每个实体中按 **PartitionKey** and **RowKey** 值的形式存储指向其相关实体的链接。 若要了解是否应在同一分区存储相关实体，请参阅[一对多关系](#one-to-many-relationships)部分。  
+域模型可能包括实体之间的一对一关系。 如果需要在表服务中实现一对一关系，还必须选择在需要检索两个相关的实体时如何链接这两个实体。 此链接可为隐式或显式，前者基于键值中的约定，后者在每个实体中按 **PartitionKey** and **RowKey** 值的形式存储指向其相关实体的链接。 有关是否应将相关实体存储在同一个分区中的讨论，请参阅[一对多关系](#one-to-many-relationships)这部分。  
 
 还有可能引导在表服务中实现一对一关系的实现注意事项：  
 

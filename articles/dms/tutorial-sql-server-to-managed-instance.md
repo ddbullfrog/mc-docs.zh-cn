@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 origin.date: 01/08/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 5c46f05ff325f0656027ab19981874de034abd15
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.date: 09/28/2020
+ms.openlocfilehash: 1e806c9fef93548974dc9b85b00751455b69ed33
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045741"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246706"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>教程：使用 DMS 将 SQL Server 脱机迁移到 Azure SQL 托管实例
 
@@ -114,7 +114,7 @@ ms.locfileid: "89045741"
 
     有关如何在 Azure 门户中创建虚拟网络的详细信息，请参阅[使用 Azure 门户创建虚拟网络](/virtual-network/quick-create-portal)一文。
 
-    有关更多详细信息，请参阅[使用 Azure 数据库迁移服务迁移 Azure SQL DB 托管实例的网络拓扑](/dms/resource-network-topologies)一文。
+    有关更多详细信息，请参阅[使用 Azure 数据库迁移服务迁移 Azure SQL 托管实例的网络拓扑](/dms/resource-network-topologies)一文。
 
 6. 选择定价层。
 

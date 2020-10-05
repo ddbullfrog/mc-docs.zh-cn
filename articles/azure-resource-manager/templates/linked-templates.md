@@ -2,18 +2,18 @@
 title: 用于部署的链接模板
 description: 介绍如何使用 Azure Resource Manager 模板中的链接模板创建一个模块化的模板的解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。
 ms.topic: conceptual
-origin.date: 07/21/2020
+origin.date: 09/08/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 52281e157f3d3470fd37d72c28a4cf743da36648
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 2852a8b1165cb27673e0c4c42e509fc07767fc43
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807756"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146718"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -24,7 +24,9 @@ ms.locfileid: "88807756"
 如需教程，请参阅[教程：创建链接的 Azure 资源管理器模板](./deployment-tutorial-linked-template.md)。
 
 > [!NOTE]
-> 对于链接模板或嵌套模板，只能使用[增量](deployment-modes.md)部署模式。
+> 对于链接模板或嵌套模板，只能将部署模式设置为[增量](deployment-modes.md)。 但是，主模板可以在完整模式下进行部署。 如果在完整模式下部署主模板，并且链接模板或嵌套模板以相同的资源组为目标，则在链接模板或嵌套模板中部署的资源会包括在针对完整模式部署进行的评估中。 将在主模板和链接模板或嵌套模板中部署的资源的合并集合与资源组中的现有资源进行比较。 此合并集合中未包含的任何资源都会被删除。
+>
+> 如果链接模板或嵌套模板针对不同的资源组，则该部署使用增量模式。
 >
 
 ## <a name="nested-template"></a>嵌套模板
@@ -374,6 +376,9 @@ ms.locfileid: "88807756"
 
 不能同时使用内联参数和指向参数文件的链接。 同时指定 `parametersLink` 和 `parameters` 时，部署将失败，并出现错误。
 
+<!--Not Available on ## Template specs-->
+<!--REASON: PRIVATE PREVIEW TILL ON 09/22/2020-->
+
 ## <a name="contentversion"></a>contentVersion
 
 无需为 `templateLink` 或 `parametersLink` 属性提供 `contentVersion` 属性。 如果未提供 `contentVersion`，则会部署模板的当前版本。 如果提供内容版本值，它必须与链接的模板中的版本相匹配；否则，部署失败并产生错误。
@@ -621,41 +626,41 @@ ms.locfileid: "88807756"
 
 资源管理器将每个模板作为部署历史记录中的单独部署进行处理。 包含三个链接模板或嵌套模板的主模板在部署历史记录中显示为：
 
-:::image type="content" source="./media/linked-templates/deployment-history.png" alt-text="部署历史记录":::
+:::image type="content" source="./media/linked-templates/deployment-history.png" alt-text="部署历史记录&quot;:::
 
 部署后，可以使用历史记录中这些不同的条目来检索输出值。 以下模板创建一个公共 IP 地址并输出该 IP 地址：
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "publicIPAddresses_name": {
-      "type": "string"
+  &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&quot;,
+  &quot;contentVersion&quot;: &quot;1.0.0.0&quot;,
+  &quot;parameters&quot;: {
+    &quot;publicIPAddresses_name&quot;: {
+      &quot;type&quot;: &quot;string&quot;
     }
   },
-  "variables": {},
-  "resources": [
+  &quot;variables&quot;: {},
+  &quot;resources&quot;: [
     {
-      "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2018-11-01",
-      "name": "[parameters('publicIPAddresses_name')]",
-      "location": "chinaeast",
-      "properties": {
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Static",
-        "idleTimeoutInMinutes": 4,
-        "dnsSettings": {
-          "domainNameLabel": "[concat(parameters('publicIPAddresses_name'), uniqueString(resourceGroup().id))]"
+      &quot;type&quot;: &quot;Microsoft.Network/publicIPAddresses&quot;,
+      &quot;apiVersion&quot;: &quot;2018-11-01&quot;,
+      &quot;name&quot;: &quot;[parameters('publicIPAddresses_name')]&quot;,
+      &quot;location&quot;: &quot;chinaeast&quot;,
+      &quot;properties&quot;: {
+        &quot;publicIPAddressVersion&quot;: &quot;IPv4&quot;,
+        &quot;publicIPAllocationMethod&quot;: &quot;Static&quot;,
+        &quot;idleTimeoutInMinutes&quot;: 4,
+        &quot;dnsSettings&quot;: {
+          &quot;domainNameLabel&quot;: &quot;[concat(parameters('publicIPAddresses_name'), uniqueString(resourceGroup().id))]&quot;
         }
       },
-      "dependsOn": []
+      &quot;dependsOn&quot;: []
     }
   ],
-  "outputs": {
-    "returnedIPAddress": {
-      "type": "string",
-      "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]"
+  &quot;outputs&quot;: {
+    &quot;returnedIPAddress&quot;: {
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;value&quot;: &quot;[reference(parameters('publicIPAddresses_name')).ipAddress]&quot;
     }
   }
 }
@@ -665,25 +670,25 @@ ms.locfileid: "88807756"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
+  &quot;$schema&quot;: &quot;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&quot;,
+  &quot;contentVersion&quot;: &quot;1.0.0.0&quot;,
+  &quot;parameters&quot;: {
   },
-  "variables": {},
-  "resources": [
+  &quot;variables&quot;: {},
+  &quot;resources&quot;: [
     {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "[concat('linkedTemplate', copyIndex())]",
-      "copy": {
-        "count": 3,
-        "name": "ip-loop"
+      &quot;type&quot;: &quot;Microsoft.Resources/deployments&quot;,
+      &quot;apiVersion&quot;: &quot;2019-10-01&quot;,
+      &quot;name&quot;: &quot;[concat('linkedTemplate', copyIndex())]&quot;,
+      &quot;copy&quot;: {
+        &quot;count&quot;: 3,
+        &quot;name&quot;: &quot;ip-loop&quot;
       },
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-        "uri": "[uri(deployment().properties.templateLink.uri, 'static-public-ip.json')]",
-        "contentVersion": "1.0.0.0"
+      &quot;properties&quot;: {
+        &quot;mode&quot;: &quot;Incremental&quot;,
+        &quot;templateLink&quot;: {
+        &quot;uri&quot;: &quot;[uri(deployment().properties.templateLink.uri, 'static-public-ip.json')]&quot;,
+        &quot;contentVersion&quot;: &quot;1.0.0.0"
         },
         "parameters":{
           "publicIPAddresses_name":{"value": "[concat('myip-', copyIndex())]"}
@@ -727,6 +732,8 @@ done
 也可将参数文件限制为通过 SAS 令牌进行访问。
 
 目前，无法链接到位于 [Azure 存储防火墙](../../storage/common/storage-network-security.md)后面的存储帐户中的模板。
+
+<!--Not Available on [template spec](template-specs.md)-->
 
 以下示例演示在链接到模板时如何传递 SAS 令牌：
 

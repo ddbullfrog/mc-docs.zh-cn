@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 03/24/2020
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8f99be64335ba80c048e90631e63efe79d94a2f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0814b401376c6f8ffda72a57bbd81e7e3fc54cb1
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243061"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245417"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>标识同步和重复属性复原
 重复属性复原是 Azure Active Directory 的一项功能，它将消除运行 Microsoft 的一种同步工具时 UserPrincipalName  和 SMTP ProxyAddress  冲突引起的摩擦。
@@ -40,7 +40,7 @@ ms.locfileid: "80243061"
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>重复属性复原的行为
 Azure Active Directory 并不是完全无法预配或更新具有重复属性的对象，而是“隔离”违反唯一性约束的重复属性。 如果预配时需要此属性（例如 UserPrincipalName），则服务将分配占位符值。 这些临时值的格式为  
-_**\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.partner.onmschina.cn**_ 。
+_**\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.partner.onmschina.cn**_。
 
 属性复原过程仅处理 UPN 和 SMTP ProxyAddress  值。
 
@@ -126,7 +126,7 @@ _**\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.partner.onmschina.c
 
 ![活动用户](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "活动用户")
 
-有关如何在 Microsoft 365 管理中心查看目录同步错误的说明，请参阅[识别 Office 365 中的目录同步错误](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)。
+有关如何在 Microsoft 365 管理中心查看目录同步错误的说明，请参阅[识别 Microsoft 365 中的目录同步错误](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)。
 
 ### <a name="identity-synchronization-error-report"></a>标识同步错误报告
 使用此新行为处理具有重复属性冲突的对象时，通知将包含在标准标识同步错误报告电子邮件中，而该电子邮件将发送给租户的技术通知联系人。 但是，此行为有一项重大变化。 在过去，有关重复属性冲突的信息包含在每个后续错误报告中，直到解决冲突为止。 使用此新行为，给定冲突的错误通知只出现一次 - 在冲突属性被隔离时。
@@ -177,7 +177,6 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
 ## <a name="see-also"></a>另请参阅
 * [Azure AD Connect 同步](how-to-connect-sync-whatis.md)
 * [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
-* [识别 Office 365 中的目录同步错误](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [识别 Microsoft 365 中的目录同步错误](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 
 
-<!-- Update_Description: wording update -->

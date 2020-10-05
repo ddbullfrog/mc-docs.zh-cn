@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 12c1509525a13a8acfd3a3db55b730e1dbfa8d1f
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 8334e1febd07f4f01bd0dee0444cfd3b8d25f6e8
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165016"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244729"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和账户限制
 
@@ -43,7 +43,7 @@ ms.locfileid: "86165016"
 
 密码策略应用于直接在 Azure AD 中创建和管理的所有用户帐户。
 
-密码策略不应用于使用 Azure AD Connect 从本地 AD DS 环境同步的用户帐户。
+除非启用 EnforceCloudPasswordPolicyForPasswordSyncedUsers，否则密码策略不适用于使用 Azure AD Connect 从本地 AD DS 环境同步的用户帐户。
 
 定义了下列密码策略选项：
 
@@ -107,7 +107,7 @@ Microsoft 为任意 Azure 管理员角色强制实施默认强*双门*密码重�
 
 还可以使用 PowerShell cmdlet 删除永不过期配置，或者查看已将哪些用户密码设置为永不过期。
 
-本指南适用于其他提供程序（如 Intune 和 Office 365），这些提供程序也依赖于 Azure AD 提供标识和目录服务。 密码过期是策略中唯一可更改的部分。
+本指南适用于其他提供程序（如 Intune 和 Microsoft 365），这些提供程序也依赖于 Azure AD 提供标识和目录服务。 密码过期是策略中唯一可更改的部分。
 
 > [!NOTE]
 > 只能将未通过 Azure AD Connect 进行同步的用户帐户的密码配置为永不过期。 有关目录同步的详细信息，请参阅[将 AD 与 Azure AD 连接](../hybrid/whatis-hybrid-identity.md)。

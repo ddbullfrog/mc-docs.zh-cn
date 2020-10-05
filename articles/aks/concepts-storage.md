@@ -3,17 +3,18 @@ title: 概念 - Azure Kubernetes 服务 (AKS) 中的存储
 description: 了解 Azure Kubernetes 服务 (AKS) 中的存储，其中包括卷、永久性卷、存储类和声明
 services: container-service
 ms.topic: conceptual
-origin.date: 03/01/2019
-ms.date: 08/10/2020
+origin.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 440eb6bba708799d4cc917c2567a5ae467e99b19
-ms.sourcegitcommit: fce0810af6200f13421ea89d7e2239f8d41890c0
+ms.openlocfilehash: c01e17911e51ce13bb5c0db44be0b8e9dd6a7d1e
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842560"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146594"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的应用程序存储选项
 
@@ -36,9 +37,6 @@ ms.locfileid: "87842560"
 
 - *Azure 磁盘*可用于创建 Kubernetes *DataDisk* 资源。 Azure 磁盘可以使用由高性能 SSD 支持的 Azure 高级存储，也可以使用由普通 HDD 支持 Azure 标准存储。 对于大部分生产和开发工作负荷，请使用高级存储。 Azure 磁盘以 ReadWriteOnce 的形式装载，因此仅可用于单个 Pod。 对于可同时由多个 Pod 访问的存储卷，请使用 Azure 文件存储。
 - *Azure 文件*可用于将 Azure 存储帐户支持的 SMB 3.0 共享装载到 Pod。 借助 Azure 文件,可跨多个节点和 Pod 共享数据。 文件可以使用由常规 HDD 支持的 Azure 标准存储，也可以使用由高性能 SSD 支持的Azure 高级存储。
-    
-    > [!NOTE] 
-    > Azure 文件存储支持运行 Kubernetes 1.13 或更高版本的 AKS 群集中的高级存储。
 
 在 Kubernetes 中，卷不仅仅能够表示可以存储和检索信息的传统磁盘。 Kubernetes 卷还可以用于将数据注入 Pod 以供容器使用。 Kubernetes 中常见的其他卷类型包括：
 
@@ -52,7 +50,7 @@ ms.locfileid: "87842560"
 
 Azure 磁盘或文件用于提供 PersistentVolume。 如上一部分中对卷所做的说明，选择磁盘还是文件通常取决于并发访问数据或性能层的需求。
 
-:::image type="content" source="media/concepts-storage/persistent-volumes.png" alt-text="Azure Kubernetes 服务 (AKS) 群集中的永久性卷":::
+:::image type="content" source="media/concepts-storage/persistent-volumes.png" alt-text="Azure Kubernetes 服务 (AKS) 群集中的应用程序存储选项":::
 
 PersistentVolume 可以由群集管理员*静态*创建，或者由 Kubernetes API 服务器*动态*创建。 如果已计划 Pod 并请求当前不可用的存储，则 Kubernetes 可以创建基础 Azure 磁盘或文件存储并将其附加到 Pod。 动态预配使用 *StorageClass* 来标识需要创建的 Azure 存储类型。
 
@@ -60,12 +58,18 @@ PersistentVolume 可以由群集管理员*静态*创建，或者由 Kubernetes A
 
 若要定义不同的存储层（例如高级和标准），可创建 *StorageClass*。 StorageClass 还定义 *reclaimPolicy*。 删除 Pod 后且可能不再需要永久性卷时，此 reclaimPolicy 可控制基础 Azure 存储资源在此情况下的行为。 可删除基础存储资源，也可保留基础存储资源以便与未来的 Pod 配合使用。
 
-在 AKS 中会创建 4 个初始 StorageClass：
+在 AKS 中，将使用树中存储插件为群集创建四个初始 `StorageClasses`：
 
-- default：使用 Azure 标准 SSD 存储创建托管磁盘。 回收策略指示在删除使用基础 Azure 磁盘的持久卷后，将删除该磁盘。
-- *managed-premium*：使用 Azure 高级存储创建托管磁盘。 回收策略再次指示在删除使用基础 Azure 磁盘的持久卷后，将删除该磁盘。
-- azurefile：使用 Azure 标准存储创建 Azure 文件共享。 回收策略指示在删除使用基础 Azure 文件共享的永久性卷后，将删除该文件共享。
-- azurefile-premium：使用 Azure 高级存储创建 Azure 文件共享。 回收策略指示在删除使用基础 Azure 文件共享的永久性卷后，将删除该文件共享。
+- `default` - 使用 Azure StandardSSD 存储创建托管磁盘。 回收策略确保在删除使用基础 Azure 磁盘的持久卷时会删除该磁盘。
+- `managed-premium` - 使用 Azure 高级存储创建托管磁盘。 同样，回收策略确保在删除使用基础 Azure 磁盘的持久卷时会删除该磁盘。
+- `azurefile` - 使用 Azure 标准存储创建 Azure 文件共享。 回收策略确保在删除使用基础 Azure 文件共享的永久卷时会删除该文件共享。
+- `azurefile-premium` - 使用 Azure 高级存储创建 Azure 文件共享。 回收策略确保在删除使用基础 Azure 文件共享的永久卷时会删除该文件共享。
+
+对于使用新的容器存储接口 (CSI) 外部插件（预览版）的群集，将创建以下额外的 `StorageClasses`：
+- `managed-csi` - 使用 Azure StandardSSD 本地冗余存储 (LRS) 创建托管磁盘。 回收策略确保在删除使用基础 Azure 磁盘的持久卷时会删除该磁盘。 存储类还会将永久卷配置为可扩展的卷，你只需使用新的大小编辑永久卷声明即可。
+- `managed-csi-premium` - 使用 Azure 高级本地冗余存储 (LRS) 创建托管磁盘。 同样，回收策略确保在删除使用基础 Azure 磁盘的持久卷时会删除该磁盘。 同样，此存储类也允许扩展永久卷。
+- `azurefile-csi` - 使用 Azure 标准存储创建 Azure 文件共享。 回收策略确保在删除使用基础 Azure 文件共享的永久卷时会删除该文件共享。
+- `azurefile-csi-premium` - 使用 Azure 高级存储创建 Azure 文件共享。 回收策略确保在删除使用基础 Azure 文件共享的永久卷时会删除该文件共享。
 
 如果没有为永久性卷指定 StorageClass，则会使用默认 StorageClass。 请求永久性卷时应小心，以便它们使用你需要的适当存储。 可使用 `kubectl` 创建 StorageClass 来满足其他需求。 以下示例使用高级托管磁盘并指定在删除 Pod 时应该*保留*基础 Azure 磁盘：
 
@@ -88,39 +92,7 @@ parameters:
 
 PersistentVolumeClaim 会请求特定 StorageClass、访问模式和大小的磁盘或文件存储。 如果根据定义的 StorageClass 没有现有资源可用于实现声明，Kubernetes API 服务器可在 Azure 中动态预配基础存储资源。 卷连接到 Pod 后，Pod 定义即会包含装载。
 
-:::image type="content" source="media/concepts-storage/persistent-volume-claims.png" alt-text="Azure Kubernetes 服务 (AKS) 群集中的永久性卷声明":::
-
-可用存储资源分配给请求它的 Pod 后，PersistentVolume 就会*绑定*到 PersistentVolumeClaim。 永久性卷与声明之间存在 1:1 的映射。
-
-以下示例 YAML 清单显示使用 *managed-premium* StorageClass 并请求 *5Gi* 存储的永久性卷声明：
-
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: azure-managed-disk
-spec:
-  accessModes:
-  - ReadWriteOnce
-  storageClassName: managed-premium
-  resources:
-    requests:
-      storage: 5Gi
-```
-
-创建 Pod 定义时，将指定永久性卷声明来请求所需的存储。 随后还会为应用程序指定用于读取和写入数据的 *volumeMount*。 以下示例 YAML 清单说明如何使用先前的永久性卷声明来将卷装载到 */mnt/azure*：
-
-```yaml
-kind: Pod
-apiVersion: v1
-metadata:
-  name: nginx
-spec:
-  containers:
-    - name: myfrontend
-      image: nginx
-      volumeMounts:
-      - mountPath: "/mnt/azure"
+:::image type="content" source="media/concepts-storage/persistent-volume-claims.png" alt-text="Azure Kubernetes 服务 (AKS) 群集中的应用程序存储选项"
         name: volume
   volumes:
     - name: volume

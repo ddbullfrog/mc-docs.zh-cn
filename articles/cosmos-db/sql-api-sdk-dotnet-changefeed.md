@@ -1,22 +1,22 @@
 ---
 title: Azure Cosmos DB .NET 更改源处理器 API、SDK 发行说明
 description: 了解有关更改源处理器 API 和 SDK 的所有信息，包括发布日期、停用日期和 .NET 更改源处理器 SDK 各版本之间所做的更改。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-origin.date: 05/11/2020
-ms.date: 08/17/2020
+origin.date: 08/12/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 00c78eec1879011c2441e3f162200db4f2e5f37e
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 74172201ec3126add2c923fbc1774fe120c6e2da
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222415"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246366"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 更改源处理器 SDK：下载和发行说明
 
@@ -30,6 +30,9 @@ ms.locfileid: "88222415"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark 连接器](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api
@@ -40,7 +43,7 @@ ms.locfileid: "88222415"
 |   |   |
 |---|---|
 |**SDK 下载**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**API 文档**|[更改源处理器库 API 参考文档](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**API 文档**|[更改源处理器库 API 参考文档](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.changefeedprocessor)|
 |**入门**|[更改源处理器 .NET SDK 入门](change-feed.md)|
 |**当前受支持的框架**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)<br /> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
@@ -50,6 +53,10 @@ ms.locfileid: "88222415"
 ## <a name="release-notes"></a>发行说明
 
 ### <a name="v2-builds"></a>v2 版本
+
+<a name="2.3.2"></a>
+### <a name="232"></a>2.3.2
+* 添加了与 [V3 SDK](sql-api-sdk-dotnet-standard.md) 的租用存储兼容性，以支持热迁移路径。 应用程序可以迁移到 V3 SDK 再迁移回更改源处理器库，而不会丢失任何状态。
 
 <a name="2.3.1"></a>
 ### <a name="231"></a>2.3.1
@@ -219,6 +226,7 @@ Azure 会在停用 SDK 时至少提前 12 个月发出通知，以便用户顺�
 
 | 版本 | 发布日期 | 停用日期 |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |2020 年 8 月 11 日 |--- |
 | [2.3.1](#2.3.1) |2020 年 7 月 30 日 |--- |
 | [2.3.0](#2.3.0) |2020 年 4 月 2 日 |--- |
 | [2.2.8](#2.2.8) |2019 年 10 月 28 日 |--- |

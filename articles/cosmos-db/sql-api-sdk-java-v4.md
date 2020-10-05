@@ -1,23 +1,23 @@
 ---
 title: 用于 SQL API 的 Azure Cosmos DB Java SDK v4 的发行说明和资源
 description: 了解有关用于 SQL API 的 Azure Cosmos DB Java SDK v4 和 SDK 的所有信息，包括发行日期、停用日期和 Azure Cosmos DB SQL Async Java SDK 各版本之间所做的更改。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 05/20/2020
-ms.date: 08/17/2020
+origin.date: 08/12/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 5a3add914148d8acc240f3ab784f959f7d61a732
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: e94a5ff32e0d49b7dc72089f3ec72879f8e48900
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246833"
 ---
 <!--Verified successfully-->
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>用于 Core (SQL) API 的 Azure Cosmos DB Java SDK v4：发行说明和资源
@@ -30,6 +30,9 @@ ms.locfileid: "88222411"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark 连接器](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -43,33 +46,61 @@ ms.locfileid: "88222411"
 > 这些发行说明仅适用于 Azure Cosmos DB Java SDK v4。 如果你当前使用的是早于 v4 的版本，请参阅[迁移到 Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) 指南，获取升级到 v4 的相关帮助。
 >
 > 以下是快速操作的三个步骤！
-> 1. 安装[最低支持的 Java 运行时版本，JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)，以便可以使用 SDK。
+> 1. 安装[最低支持的 Java 运行时版本，JDK 8](https://docs.microsoft.com/java/azure/jdk/)，以便可以使用 SDK。
 > 2. 通过 [Azure Cosmos DB Java SDK v4 快速入门指南](/cosmos-db/create-sql-api-java)，可以访问 Maven 项目并完成基本的 Azure Cosmos DB 请求。
 > 3. 阅读 Azure Cosmos DB Java SDK v4 [性能提示](performance-tips-java-sdk-v4-sql.md)和[疑难解答](troubleshoot-java-sdk-v4-sql.md)指南，以优化应用程序的 SDK。
 >
 > 此外，[Azure Cosmos DB 研讨会和实验室](https://aka.ms/cosmosworkshop)也是了解如何使用 Azure Cosmos DB Java SDK v4 的绝佳资源！
 >
 
-| |  |
+## <a name="helpful-content"></a>帮助性内容
+
+| Content | 链接 |
 |---|---|
-| **SDK 下载** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
+|**SDK 下载**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 |**API 文档** | [Java API 参考文档](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
-|**参与 SDK** | [GitHub 上用于 Java 的 Azure SDK 中央存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos) | 
-|**入门** | [快速入门：生成 Java 应用以管理 Azure Cosmos DB SQL API 数据](/cosmos-db/create-sql-api-java)   [具有快速入门代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
-|**基本代码示例** | [Azure Cosmos DB：SQL API 的 Java 示例](sql-api-java-sdk-samples.md)   [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
-|**包含更改源的控制台应用**| [更改源 - Java SDK v4 示例](create-sql-api-java-changefeed.md)   [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 
-|**Web 应用示例**| [使用 Java SDK v4 构建 Web 应用](sql-api-java-application.md)   [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app)|
+|**参与 SDK** | [GitHub 上用于 Java 的 Azure SDK 中央存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
+|**入门** | [快速入门：生成 Java 应用以管理 Azure Cosmos DB SQL API 数据](/cosmos-db/create-sql-api-java) <br /> [具有快速入门代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
+|**基本代码示例** | [Azure Cosmos DB：SQL API 的 Java 示例](sql-api-java-sdk-samples.md) <br /> [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
+|**包含更改源的控制台应用**| [更改源 - Java SDK v4 示例](create-sql-api-java-changefeed.md) <br /> [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 
+|**Web 应用示例**| [使用 Java SDK v4 构建 Web 应用](sql-api-java-application.md) <br /> [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app)|
 | **性能提示**| [适用于 Java SDK v4 的性能提示](performance-tips-java-sdk-v4-sql.md)| 
 | **故障排除** | [排查 Java SDK v4 问题](troubleshoot-java-sdk-v4-sql.md) |
 | **从旧 SDK 迁移到 v4** | [迁移到 Java V4 SDK](migrate-java-v4-sdk.md) |
-| 受支持的最小运行时|[JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) | 
+| 受支持的最小运行时|[JDK 8](https://docs.microsoft.com/java/azure/jdk/) | 
 | **Azure Cosmos DB 研讨会和实验室** |[Cosmos DB 研讨会主页](https://aka.ms/cosmosworkshop)
 
 <!--Correct om the **API documentation** https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable-->
 
 ## <a name="release-history"></a>版本历史记录
 
-### <a name="440-beta1-unreleased"></a>4.4.0-beta.1（未发布）
+### <a name="440-beta2-unreleased"></a>4.4.0-beta.2（未发布）
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了启用 tcnative 时引发的 RequestTimeoutException。
+
+### <a name="440-beta1-2020-08-27"></a>4.4.0-beta.1 (2020-08-27)
+#### <a name="new-features"></a>新功能
+* 添加了新的 API，用于高效地通过 pk/id 对列表来加载多个文档，或加载与一组 pk 值对应的所有文档。
+* 添加了新的 `deleteItem` API。
+* 默认情况下启用了查询指标。
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了 `GatewayAddressCache` 中的 NPE。
+* 修复了零项响应的查询指标问题。
+* 提高了地址分析和主密钥身份验证的性能（降低了 CPU 使用率）。
+
+### <a name="432-beta2-2020-08-17"></a>4.3.2-beta.2 (2020-08-17)
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 与以前版本相比没有变化，因为与 spring 数据模块的兼容性问题而发布。
+
+### <a name="432-beta1-2020-08-14"></a>4.3.2-beta.1 (2020-08-14)
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了 RntbdServiceEndpoint 中的问题，以避免未使用的 TCP 连接提前关闭。
+
+### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了 `GROUP BY` 查询的问题。在该查询中，它仅返回一页。
+* 根据中央 SDK 准则修复了用户代理字符串格式。
+* 增强了诊断信息，使之包括查询计划诊断。
 
 ### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
 #### <a name="new-features"></a>新功能
@@ -180,7 +211,7 @@ ms.locfileid: "88222411"
 ## <a name="faq"></a>常见问题
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>另请参阅
+## <a name="next-steps"></a>后续步骤
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

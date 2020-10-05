@@ -2,18 +2,18 @@
 title: 使用 Azure CLI 和模板部署资源
 description: 使用 Azure 资源管理器和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
 ms.topic: conceptual
-origin.date: 07/21/2020
+origin.date: 09/08/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 27a71e147ee670a43f0c00c5540780c8a5d5fe20
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: e98fb5bde4d4adbd966c0477ae5fb57f3c8644b7
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807778"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146705"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>通过 ARM 模板和 Azure CLI 来部署资源
 
@@ -27,20 +27,19 @@ ms.locfileid: "88807778"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-
 ## <a name="deployment-scope"></a>部署范围
 
 可将部署目标设定为资源组、订阅、管理组或租户。 大多数情况下，我们会将以资源组指定为部署目标。 若要在更大范围内应用策略和角色分配，请使用订阅、管理组或租户部署。 部署到订阅时，可以创建资源组并将资源部署到该资源组。
 
 根据部署范围使用不同的命令。
 
-* 若要部署到资源组****，请使用 [az deployment group create](https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create)：
+* 若要部署到资源组****，请使用 [az deployment group create](https://docs.microsoft.com/cli/azure/deployment/group#az_deployment_group_create)：
 
     ```azurecli
     az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
     ```
 
-* 若要部署到订阅****，请使用 [az deployment sub create](https://docs.microsoft.com/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create)：
+* 若要部署到订阅****，请使用 [az deployment sub create](https://docs.microsoft.com/cli/azure/deployment/sub#az_deployment_sub_create)：
 
     ```azurecli
     az deployment sub create --location <location> --template-file <path-to-template>
@@ -48,7 +47,7 @@ ms.locfileid: "88807778"
 
     有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
 
-* 若要部署到管理组****，请使用 [az deployment mg create](https://docs.microsoft.com/cli/deployment/mg?view=azure-cli-latest#az-deployment-mg-create)：
+* 若要部署到管理组****，请使用 [az deployment mg create](https://docs.microsoft.com/cli/azure/deployment/mg#az_deployment_mg_create)：
 
     ```azurecli
     az deployment mg create --location <location> --template-file <path-to-template>
@@ -56,7 +55,7 @@ ms.locfileid: "88807778"
 
     有关管理组级部署的详细信息，请参阅[在管理组级别创建资源](deploy-to-management-group.md)。
 
-* 若要部署到租户****，请使用 [az deployment tenant create](https://docs.microsoft.com/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create)：
+* 若要部署到租户****，请使用 [az deployment tenant create](https://docs.microsoft.com/cli/azure/deployment/tenant#az_deployment_tenant_create)：
 
     ```azurecli
     az deployment tenant create --location <location> --template-file <path-to-template>
@@ -136,6 +135,9 @@ az deployment group create \
 
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](secure-template-with-sas-token.md)。
 
+<!--Not Available on ## Deploy template spec-->
+<!--Private Preview till on 09/22/2020-->
+
 ## <a name="preview-changes"></a>预览更改
 
 在部署模板之前，可以预览模板将对环境做出的更改。 使用[假设操作](template-deploy-what-if.md)验证模板是否进行了预期的更改。 模拟操作还验证模板是否有错误。
@@ -189,6 +191,28 @@ arrayContent.json 格式为：
     "value2"
 ]
 ```
+
+若要传入对象（例如用于设置标记），请使用 JSON。 例如，模板可能包含如下所示的参数：
+
+```json
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Cost Center": "IT Department"
+      }
+    }
+```
+
+在这种情况下，可以传入 JSON 字符串来设置参数，如以下 Bash 脚本中所示：
+
+```bash
+tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
+az deployment group create --name addstorage  --resource-group myResourceGroup \
+--template-file $templateFile \
+--parameters resourceName=abcdef4556 resourceTags="$tags"
+```
+
+在要传递给对象的 JSON 两侧使用双引号。
 
 ### <a name="parameter-files"></a>参数文件
 

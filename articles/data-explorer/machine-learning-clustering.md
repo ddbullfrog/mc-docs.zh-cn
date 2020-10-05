@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: adieldar
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 04/29/2019
-ms.date: 07/08/2020
-ms.openlocfilehash: cf20a31374adc912fc85a8521581c9a5573d78f3
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 5f0d5c597192ae895a24ca5f3765d5d16dc8768a
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515819"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146695"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Azure 数据资源管理器中的机器学习功能
 
@@ -27,7 +27,7 @@ Azure 数据资源管理器是一个大数据分析平台。 它用于监视服�
 
 由于这些诊断方案在 Azure 数据资源管理器中很常用，其中提供了机器学习插件来简化诊断过程及缩短 RCA 的持续时间。
 
-Azure 数据资源管理器包含三个机器学习插件：[`autocluster`](/data-explorer/kusto/query/autoclusterplugin)、[`basket`](/data-explorer/kusto/query/basketplugin) 和 [`diffpatterns`](/data-explorer/kusto/query/diffpatternsplugin)。 所有插件实现聚类算法。 `autocluster` 和 `basket` 插件聚类单个记录集，`diffpatterns` 插件聚类两个记录集之间的差异。
+Azure 数据资源管理器包含三个机器学习插件：[`autocluster`](kusto/query/autoclusterplugin.md)、[`basket`](kusto/query/basketplugin.md) 和 [`diffpatterns`](kusto/query/diffpatternsplugin.md)。 所有插件实现聚类算法。 `autocluster` 和 `basket` 插件聚类单个记录集，`diffpatterns` 插件聚类两个记录集之间的差异。
 
 ## <a name="clustering-a-single-record-set"></a>聚类单个记录集
 
@@ -119,7 +119,7 @@ demo_clustering1
 
 ### <a name="use-autocluster-for-single-record-set-clustering"></a>使用 autocluster() 聚类单个记录集
 
-即使异常数不到 1000 个，也仍很难发现常见段，因为每个列中包含多个值。 可以使用 [`autocluster()`](](/data-explorer/kusto/query/autoclusterplugin) 插件即时提取常见段的简短列表，并在高峰的两分钟时段内找出相关的聚类，如以下查询中所示：
+即使异常数不到 1000 个，也仍很难发现常见段，因为每个列中包含多个值。 可以使用 [`autocluster()`](kusto/query/autoclusterplugin.md) 插件即时提取常见段的简短列表，并在高峰的两分钟时段内找出相关的聚类，如以下查询所示：
 
 **\[** [**单击以运行查询**](https://dataexplorer.azure.cn/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4WOsQrCMBRF937FG5OhJYkoovQfBN1DbC8aTNqSvlgHP94IQkf3c+65AUzRD3aCe1hue8dgHyGM0rta7WuzIb09KCWPVfii7vUPNQXtEUfbhTwzkh9uunrTckcCnRI6P+NSvDO7ONEVvACDWD80zRqRRcTThVxa5DKPv00hP81KL1+4AAAA) **\]**
 
@@ -145,7 +145,7 @@ autocluster 使用专属算法来挖掘多个维度并提取相关的段。 “�
 
 ### <a name="use-basket-for-single-record-set-clustering"></a>使用 basket() 聚类单个记录集
 
-也可以按以下查询中所示使用 [`basket()`](/data-explorer/kusto/query/basketplugin) 插件：
+也可以按以下查询中所示使用 [`basket()`](kusto/query/basketplugin.md) 插件：
 
 **\[** [**单击以运行查询**](https://dataexplorer.azure.cn/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4WOsQ6CMBgGd57iH9sB0tZojMZ3MNG9KfBFG1og7Y84+PDWidH9LncBTNGPdoYbLF96x2AfIYzSh1oda7MjvT8pJc9V+KHu/Q81Be0RJ9uFJTOSHx+6+tD6RAJdEzqfcS/ejV2cqQWvwCi2h6bZIrKIeLmwlBa1Lg9gIb9KJv2TswAAAA==) **\]**
 
@@ -179,7 +179,7 @@ Basket 实现了用于项集挖掘的“Apriori”算法。 它提取记录集�
 
 ## <a name="clustering-the-difference-between-two-records-sets"></a>聚类两个记录集之间的差异
 
-[`diffpatterns()`](](/data-explorer/kusto/query/diffpatternsplugin) 插件克服了 `autocluster` 和 `basket` 的限制。 `Diffpatterns` 采用两个记录集，并提取不同的主段。 一个集通常包含正在调查的异常记录集。 一个集由 `autocluster` 和 `basket` 进行分析。 另一个集包含参考记录集，即基线。
+[`diffpatterns()`](kusto/query/diffpatternsplugin.md) 插件克服了 `autocluster` 和 `basket` 的限制。 `Diffpatterns` 采用两个记录集，并提取不同的主段。 一个集通常包含正在调查的异常记录集。 一个集由 `autocluster` 和 `basket` 进行分析。 另一个集包含参考记录集，即基线。
 
 以下查询使用 `diffpatterns` 查找高峰的两分钟时段内的相关聚类，这不同于基线中的聚类。 我们将基线时间范围定义为 15:00 之前的 8 分钟（开始出现高峰的时间）。 可以按二元列 (AB) 进行扩展，并指定特定的记录是属于基线还是异常集。 `Diffpatterns` 实现监督式学习算法，其中，会按异常标志与基线标志 (AB) 生成两个类标签。
 

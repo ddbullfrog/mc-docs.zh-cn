@@ -1,19 +1,21 @@
 ---
 title: 安装 Azure Analysis Services 的本地数据网关 | Azure
 description: 了解如何安装和配置本地数据网关，以从 Azure Analysis Services 服务器连接到本地数据源。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/17/2020
-ms.date: 03/23/2020
+origin.date: 07/29/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 46d21226d7bc01a8fa690a320c9f9dee1ca81181
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 547944e1044b63ff3e14f67765f7d99bfa6b4e2b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79543775"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146754"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 
@@ -48,8 +50,6 @@ ms.locfileid: "79543775"
     
 * 如果数据源位于 Azure 虚拟网络 (VNet) 上，则必须配置 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 服务器属性。
 
-    <!--MOONCAKE Not Available on * The (unified) gateway described here is not supported in Azure Germany regions. Instead, use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal.-->
-
 <a name="download"></a>
 ## <a name="download"></a>下载
 
@@ -62,15 +62,15 @@ ms.locfileid: "79543775"
 
 2. 选择“本地数据网关”。 
 
-    ![选择](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+    :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-installer-select.png" alt-text="Select":::
 
 2. 选择位置，接受条款，并单击“安装”。 
 
-    ![安装位置和许可条款](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
+    :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-installer-accept.png" alt-text="Select":::
 
 3. 登录 Azure。 该帐户必须在租户的 Azure Active Directory 中。 这是网关管理员使用的帐户。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
 
-    ![登录 Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+    :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-installer-account.png" alt-text="Select":::
 
     > [!NOTE]
     > 如果使用域帐户登录，它将映射到你在 Azure AD 中的组织帐户。 你的组织帐户将用作网关管理员。
@@ -82,14 +82,14 @@ ms.locfileid: "79543775"
 
 1. 选择“在此计算机上注册新网关”  。
 
-    ![注册](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-register-new.png" alt-text="Select":::
 
 2. 键入网关的名称和恢复密钥。 默认情况下，网关使用订阅的默认区域。 如需选择不同的区域，请选择“更改区域”。 
 
     > [!IMPORTANT]
     > 将恢复密钥保存在安全位置。 接管、迁移或还原网关时需要使用恢复密钥。 
 
-    ![注册](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+    :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-register-name.png" alt-text="Select":::
 
 <a name="create-resource"></a>
 ## <a name="create-an-azure-gateway-resource"></a>创建 Azure 网关资源
@@ -98,13 +98,13 @@ ms.locfileid: "79543775"
 
 1. 在 Azure 门户中单击“创建资源”，接着搜索“本地数据网关”，然后单击“创建”。   
 
-    ![创建网关资源](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
+    :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png" alt-text="Select":::
 
 2. 在“创建连接网关”中，输入以下设置： 
 
     * **名称**：输入网关资源的名称。 
 
-    * **订阅**：选择要与网关资源关联的 Azure 订阅。 
+    * 订阅：选择要与网关资源关联的 Azure 订阅。 
 
         默认订阅取决于用来登录的 Azure 帐户。
 
@@ -114,32 +114,58 @@ ms.locfileid: "79543775"
 
     * **安装名称**：如果尚未选择网关安装，请选择在计算机上安装并注册的网关。 
 
-        完成后，单击“创建”  。
+    完成后，单击“创建”  。
 
 <a name="connect-servers"></a>
-## <a name="connect-servers-to-the-gateway-resource"></a>将服务器连接到网关资源
+## <a name="connect-gateway-resource-to-server"></a><a name="connect-gateway-resource-to-server"></a>将网关资源连接到服务器
 
-1. 在 Azure Analysis Services 服务器概述中，单击“本地数据网关”。 
+> [!NOTE]
+> 门户不支持从服务器连接到不同订阅中的网关资源，但 PowerShell 支持。
 
-    ![将服务器连接到网关](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
+# <a name="portal"></a>[门户](#tab/azure-portal)
 
-2. 在“选择要连接的本地数据网关”中选择自己的网关资源，并单击“连接选定网关”。  
+1. 在 Azure Analysis Services 服务器概述中，单击“本地数据网关”****。
 
-    ![将服务器连接到网关资源](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
+    :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-connect-server.png" alt-text="Select":::
+
+2. 在“选取要连接的本地数据网关”****，选择你的网关资源，然后单击“连接所选网关”****。
+
+    :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-connect-resource.png" alt-text="Select":::
 
     > [!NOTE]
     > 如果列表中不显示你的网关，很可能是你的服务器与你注册网关时指定的区域不在同一个区域。
 
-    在服务器和网关资源之间成功建立连接以后，状态会显示“已连接”。 
+    在服务器和网关资源之间成功建立连接以后，状态会显示“已连接”。****
 
-    ![将服务器连接到网关资源成功](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
+    :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-connect-success.png" alt-text="Select":::
 
-就这么简单。 如需打开端口或执行任何故障排除，请务必查看[本地数据网关](analysis-services-gateway.md)。
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+使用 [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) 获取网关 ResourceID。 然后，通过在 [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) 或 [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) 中指定“-GatewayResourceID”，将网关资源连接到现有服务器或新服务器。
+
+若要获取网关资源 ID：
+
+```powershell
+Connect-AzAccount -Environment AzureChinaCloud -Tenant $TenantId -Subscription $subscriptionIdforGateway -Environment "AzureCloud"
+$GatewayResourceId = $(Get-AzResource -ResourceType "Microsoft.Web/connectionGateways" -Name $gatewayName).ResourceId  
+
+```
+
+若要配置现有服务器：
+
+```powershell
+Connect-AzAccount -Environment AzureChinaCloud -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Environment "AzureCloud"
+Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
+
+```
+---
+
+就这么简单。 如果你需要打开端口或执行任何故障排除时，一定要签出[本地数据网关](analysis-services-gateway.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [管理 Analysis Services](analysis-services-manage.md)   
-* [从 Azure Analysis Services 获取数据](analysis-services-connect.md)   
+* [从 Azure Analysis Services 中获取数据](analysis-services-connect.md)   
 * [对 Azure 虚拟网络上的数据源使用网关](analysis-services-vnet-gateway.md)
 
-<!-- Update_Description: update meta properties, wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: lugoldbe
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.data: 06/03/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 04dcfc86a795c10c4ca35c94e2c9d77683b0bca0
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: ac4de50547da1c6632103a35aa03f0b9498221cb
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515872"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146765"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>使用 C# 创建 Azure 数据资源管理器群集和数据库
 
@@ -100,13 +100,13 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
     await kustoManagementClient.Databases.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, database);
     ```
 
-        [!NOTE]
-        If you are using C# version 2.0.0 or below, use Database instead of ReadWriteDatabase.
+    > [!NOTE]
+    > 如果使用的是 C# 版本 2.0.0 或更低版本，请使用 Database 而不是 ReadWriteDatabase。
 
    |**设置** | **建议的值** | **字段说明**|
    |---|---|---|
-   | clusterName | mykustocluster  | 将在其中创建数据库的群集的名称。|
-   | databaseName | mykustodatabase  | 数据库名称。|
+   | clusterName | mykustocluster** | 将在其中创建数据库的群集的名称。|
+   | databaseName | mykustodatabase** | 数据库名称。|
    | resourceGroupName | *testrg* | 将在其中创建群集的资源组名称。 |
    | softDeletePeriod | *3650:00:00:00* | 供查询使用的数据的保留时间。 |
    | hotCachePeriod | *3650:00:00:00* | 数据将在缓存中保留的时间。 |

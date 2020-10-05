@@ -2,18 +2,19 @@
 title: Azure 资源管理器概述
 description: 介绍如何使用 Azure 资源管理器在 Azure 上部署和管理资源以及对其进行访问控制。
 ms.topic: overview
-origin.date: 04/21/2020
+origin.date: 09/01/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5ac4506b443d70c1b9862434737cb820dd73e0d5
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.custom: contperfq1
+ms.openlocfilehash: aa0b27a2e7d654a6ac875c01c58e5383b25e5704
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807881"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146415"
 ---
 # <a name="what-is-azure-resource-manager"></a>什么是 Azure 资源管理器？
 
@@ -27,7 +28,7 @@ Azure 资源管理器是 Azure 的部署和管理服务。 它提供了一个管
 
 下图演示了 Azure 资源管理器在处理 Azure 请求时发挥的作用。
 
-:::image type="content" source="./media/overview/consistent-management-layer.png" alt-text="Resource Manager 请求模型":::
+:::image type="content" source="./media/overview/consistent-management-layer.png" alt-text="资源管理器请求模型":::
 
 在门户中提供的所有功能也可以通过 PowerShell、Azure CLI、REST API 和客户端 SDK 来提供。 最初通过 API 发布的功能将在初次发布后的 180 天内在门户中提供。
 
@@ -63,7 +64,7 @@ Azure 资源管理器是 Azure 的部署和管理服务。 它提供了一个管
 
 Azure 提供四个级别的范围：[管理组](../../governance/management-groups/overview.md)、订阅、[资源组](#resource-groups)和资源。 下图显示了这些层的一个示例。
 
-:::image type="content" source="./media/overview/scope-levels.png" alt-text="管理级别":::
+:::image type="content" source="./media/overview/scope-levels.png" alt-text="资源管理器请求模型":::
 
 将在上述任何级别的作用域中应用管理设置。 所选的级别确定应用设置的广泛程度。 较低级别继承较高级别的设置。 例如，将[策略](../../governance/policy/overview.md)应用于订阅时，该策略将应用于订阅中的所有资源组和资源。 在资源组上应用策略时，该策略将应用于资源组及其所有资源。 但是，其他资源组没有该策略分配。
 
@@ -73,9 +74,9 @@ Azure 提供四个级别的范围：[管理组](../../governance/management-grou
 
 定义资源组时，需要考虑以下几个重要因素：
 
-* 组中的所有资源应该共享相同的生命周期。 一起部署、更新和删除这些资源。 如果某个资源（例如服务器）需要采用不同的部署周期，则它应在另一个资源组中。
+* 资源组中的所有资源应该具有相同的生命周期。 一起部署、更新和删除这些资源。 如果某个资源（例如服务器）需要采用不同的部署周期，则它应在另一个资源组中。
 
-* 每个资源只能在一个资源组中。
+* 每个资源只能存在于一个资源组中。
 
 * 某些资源可能存在于资源组之外。 这些资源将部署到[订阅](../templates/deploy-to-subscription.md)、[管理组](../templates/deploy-to-management-group.md)或[租户](../templates/deploy-to-tenant.md)。 这些范围仅支持特定的资源类型。
 
@@ -83,17 +84,25 @@ Azure 提供四个级别的范围：[管理组](../../governance/management-grou
 
 * 可以将资源从一个资源组移到另一个组。 有关详细信息，请参阅[将资源移到新资源组或订阅](move-resource-group-and-subscription.md)。
 
-* 资源组可以包含位于不同区域的资源。
+* 资源组中的资源可以位于与资源组不同的区域。
 
-* 资源组可用于划分对管理操作的访问控制。
+* 创建资源组时，需要提供该资源组的位置。 你可能想知道，“为什么资源组需要一个位置？ 另外，如果资源的位置和资源组不同，那为什么资源组的位置很重要呢？ ” 资源组存储有关资源的元数据。 当指定资源组的位置时，也就指定了元数据的存储位置。 出于合规性原因，可能需要确保数据存储在某一特定区域。
 
-* 资源可与其他资源组中的资源进行交互。 如果两个资源相关，但不共享相同的生命周期，那么这种交互很常见（例如，Web 应用连接到数据库）。
+    如果资源组的区域临时不可用，则不能更新资源组中的资源，因为元数据不可用。 其他区域中的资源仍将按预期运行，但你无法更新它们。 有关构建可靠应用程序的详细信息，请参阅[设计可靠的 Azure 应用程序](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)。
 
-创建资源组时，需要提供该资源组的位置。 你可能想知道，“为什么资源组需要一个位置？ 另外，如果资源的位置和资源组不同，那为什么资源组的位置很重要呢？ ” 资源组存储有关资源的元数据。 当指定资源组的位置时，也就指定了元数据的存储位置。 出于合规性原因，可能需要确保数据存储在某一特定区域。
+* 资源组可用于划分对管理操作的访问控制。 要管理资源组，可分配 [Azure 策略](../../governance/policy/overview.md)、[RBAC 角色](../../role-based-access-control/role-assignments-portal.md)或[资源锁](lock-resources.md)。
 
-如果资源组的区域临时不可用，则不能更新资源组中的资源，因为元数据不可用。 其他区域中的资源仍可按预期运行，但你不能更新它们。 
+* 可以对资源组[应用标记](tag-resources.md)。 资源组中的资源不会继承这些标记。
 
-<!--Not Available on [Designing reliable Azure applications](https://docs.microsoft.com/azure/architecture/reliability/)-->
+* 资源可以连接到其他资源组中的资源。 以下情况很常见：两个资源相关，但不具有相同的生命周期。 例如，一个连接到其他资源组中数据库的 Web 应用。
+
+* 删除一个资源组时，该资源组中的所有资源也会被删除。 如需了解 Azure 资源管理器如何编排这些删除，请参阅 [Azure 资源管理器资源组和资源删除](delete-resource-group.md)。
+
+* 最多可在每个资源组中部署 800 个资源类型实例。 某些资源类型[不受 800 个实例限制](resources-without-resource-group-limit.md)的约束。
+
+* 某些资源可能存在于资源组之外。 这些资源将部署到[订阅](../templates/deploy-to-subscription.md)、[管理组](../templates/deploy-to-management-group.md)或[租户](../templates/deploy-to-tenant.md)。 这些范围仅支持特定的资源类型。
+
+* 要创建资源组，可使用[门户](manage-resource-groups-portal.md#create-resource-groups)、[PowerShell](manage-resource-groups-powershell.md#create-resource-groups)、[Azure CLI](manage-resource-groups-cli.md#create-resource-groups) 或 [Azure 资源管理器 (ARM) 模板](../templates/deploy-to-subscription.md#resource-groups)。
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure 资源管理器的复原能力
 

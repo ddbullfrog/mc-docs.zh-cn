@@ -10,22 +10,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2020
+ms.topic: troubleshooting
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51d05d43d3b3d95bb59b69e582c444255842bbda
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5e7b34c72a7d359c400e7c4362f5a96c0ebcd5f4
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "76116769"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245669"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>排查同步过程中发生的错误
 将标识数据从 Windows Server Active Directory (AD DS) 同步到 Azure Active Directory (Azure AD) 时可能会发生错误。 本文概述不同类型的同步错误、导致这些错误的某些可能情况，以及这些错误的可能解决方法。 本文介绍常见错误类型，不一定涵盖所有可能的错误。
 
  本文假设读者熟悉 [ Azure AD 和 Azure AD Connect 的基础设计概念](plan-connect-design-concepts.md)。
+
 
 从 2016 年 9 月 1 日开始，默认将为所有*新的* Azure Active Directory 租户启用 [Azure Active Directory 重复属性复原](how-to-connect-syncservice-duplicate-attribute-resiliency.md)功能。 在接下来的几个月，会自动为现有租户启用此功能。
 
@@ -102,17 +103,17 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 >
 
 #### <a name="related-articles"></a>相关文章
-* [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)（Office 365 中的重复或无效属性导致无法进行目录同步）
+* [重复或无效属性导致无法在 Microsoft 365 中进行目录同步](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
 #### <a name="description"></a>说明
 当 Azure AD 尝试对两个对象进行软匹配时，“对象类型”（如用户、组、联系人等）不同的两个对象可能对用于执行软匹配的属性使用了相同值。 由于 Azure AD 中不允许这些属性重复，相应操作可能会导致“ObjectTypeMismatch”同步错误。
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>发生 ObjectTypeMismatch 错误的示例情景
-* 在 Office 365 中创建了一个支持邮件的安全组。 管理员在本地 AD 中添加了一个新用户或联系人（尚未同步到 Azure AD），并且该对象的 ProxyAddresses 属性值与 Office 365 组的该属性值相同。
+* 在 Microsoft 365 中创建了一个支持邮件的安全组。 管理员在本地 AD 中添加了一个新用户或联系人（尚未同步到 Azure AD），并且该对象的 ProxyAddresses 属性值与 Microsoft 365 组的该属性值相同。
 
 #### <a name="example-case"></a>案例
-1. 管理员在 Office 365 中为税务部门创建一个支持邮件的新安全组，并提供了电子邮件地址 tax@contoso.com。 为此组分配的 ProxyAddresses 属性值为 **smtp: tax\@contoso.com**
+1. 管理员在 Microsoft 365 中为税务部门创建了一个支持邮件的新安全组，并提供了电子邮件地址 tax@contoso.com。 为此组分配的 ProxyAddresses 属性值为 **smtp: tax\@contoso.com**
 2. 有一个新用户加入了 Contoso.com，管理员在本地为该用户创建了 proxyAddress 为 **smtp: tax\@contoso.com** 的帐户
 3. 当 Azure AD Connect 同步新用户帐户时，会出现“ObjectTypeMismatch”错误。
 
@@ -160,7 +161,7 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 4. 如果在本地 AD 中进行更改，请让 Azure AD Connect 同步更改，使错误得到解决。
 
 #### <a name="related-articles"></a>相关文章
--[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)（Office 365 中的重复或无效属性导致无法进行目录同步）
+-[重复或无效属性导致无法在 Microsoft 365 中进行目录同步](https://support.microsoft.com/kb/2647098)
 
 ## <a name="data-validation-failures"></a>数据验证失败
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
@@ -175,7 +176,7 @@ b. UserPrincipalName 属性不符合所需的格式。
 a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式。
 
 #### <a name="related-articles"></a>相关文章
-* [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)（准备在 Office 365 中通过目录同步来预配用户）
+* [通过与 Microsoft 365 进行目录同步来准备预配用户](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>说明
@@ -242,7 +243,6 @@ a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式�
 >当本地用户对象与 Azure AD 用户对象之间的软匹配完成后，可以再次将管理角色分配给现有用户对象。
 
 ## <a name="related-links"></a>相关链接
-* [Locate Active Directory Objects in Active Directory Administrative Center](https://technet.microsoft.com/library/dd560661.aspx)（在 Active Directory 管理中心查找 Active Directory 对象）
-* [How to query Azure Active Directory for an object using Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)（如何使用 Azure Active Directory PowerShell 在 Azure Active Directory 中查询对象）
+* [Locate Active Directory Objects in Active Directory Administrative Center](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560661(v=ws.10))（在 Active Directory 管理中心查找 Active Directory 对象）
+* [How to query Azure Active Directory for an object using Azure Active Directory PowerShell](https://docs.microsoft.com/previous-versions/azure/jj151815(v=azure.100))（如何使用 Azure Active Directory PowerShell 在 Azure Active Directory 中查询对象）
 
-<!-- Update_Description: wording update -->

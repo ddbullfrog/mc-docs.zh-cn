@@ -6,30 +6,31 @@ ms.service: storage
 ms.topic: how-to
 ms.author: v-jay
 ms.reviewer: dineshm
-origin.date: 05/14/2020
-ms.date: 08/24/2020
+origin.date: 09/04/2020
+ms.date: 09/28/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a807ae41d8d45ca742e6e3dcff551b32eba5ee3b
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: a8a3b0c1676cd4e63214a9366bafce30f57b290b
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753446"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026627"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 存储中的静态网站托管
 
-可以直接通过名为 *$web* 的存储容器提供静态内容（HTML、CSS、JavaScript 和图像文件）。 通过将内容托管在 Azure 存储中，你可以使用无服务器体系结构，包括 [Azure Functions](/azure-functions/functions-overview) 和其他平台即服务 (PaaS) 服务。
+可以直接通过名为 *$web* 的存储容器提供静态内容（HTML、CSS、JavaScript 和图像文件）。 通过将内容托管在 Azure 存储中，你可以使用无服务器体系结构，包括 [Azure Functions](/azure-functions/functions-overview) 和其他平台即服务 (PaaS) 服务。  如果你不需要 Web 服务器来呈现内容，Azure 存储静态网站托管是一个不错的选择。
+
+如果需要 Web 服务器来呈现内容，可以使用 [Azure 应用服务](/app-service/)。
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> 如果你的站点依赖于服务器端代码，请改用 [Azure 应用服务](/app-service/overview)。
-确保创建常规用途 v2 标准存储帐户。 静态网站在任何其他类型的存储帐户中都不可用。
+> 确保创建常规用途 v2 标准存储帐户。 静态网站在任何其他类型的存储帐户中都不可用。
 
 ## <a name="setting-up-a-static-website"></a>设置静态网站
 
-静态网站托管是你必须在存储帐户上启用的一项功能。
+静态网站托管是必须在存储帐户上启用的一项功能。
 
 若要启用静态网站托管，请选择默认文件的名称，然后可以提供自定义 404 页面的路径。 如果帐户中尚不存在名为 **$web** 的 blob 存储容器，则会为你创建一个。 将站点的文件添加到此容器。
 

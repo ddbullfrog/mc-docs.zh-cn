@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46279efeb273a152ee3fbf67bffb645137395845
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 77d3dec928c37b93817e725894f009ad70f81b66
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593627"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245672"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什么是 Azure AD Identity Governance？
 
@@ -48,7 +48,7 @@ Identity Governance 可帮助组织在以下需求之间实现平衡：工作效
 
 对于许多组织而言，员工的标识生命周期与该用户在 HCM（人力资本管理）系统中的表示形式密切相关。  Azure AD Premium 在 Active Directory 和 Azure Active Directory 中自动维护 Workday 中表示的人员的用户标识。  Azure AD Premium 还包含可从 SAP、Oracle eBusiness 和 Oracle PeopleSoft 等本地 HCM 系统导入记录的 Microsoft Identity Manager。
 
-越来越多的方案需要与组织外部的人员协作。 使用 [Azure AD B2B](/active-directory/b2b/) 协作可以安全地将组织的应用程序和服务与来自任何组织的来宾用户和外部合作伙伴共享，同时保持对自己公司数据的控制。  使用 [Azure AD 权利管理](entitlement-management-overview.md)可以选择允许哪些组织的用户请求访问权限，并将其作为 B2B 来宾添加到组织的目录中，同时确保在他们不再需要访问时删除这些来宾。
+越来越多的方案需要与组织外部的人员协作。 使用 [Azure AD B2B](/active-directory/external-identities/) 协作可以安全地将组织的应用程序和服务与来自任何组织的来宾用户和外部合作伙伴共享，同时保持对自己公司数据的控制。  使用 [Azure AD 权利管理](entitlement-management-overview.md)可以选择允许哪些组织的用户请求访问权限，并将其作为 B2B 来宾添加到组织的目录中，同时确保在他们不再需要访问时删除这些来宾。
 
 ## <a name="access-lifecycle"></a>访问生命周期
 
@@ -59,7 +59,7 @@ Identity Governance 可帮助组织在以下需求之间实现平衡：工作效
 通常，IT 部门会将访问权限审批决策委托给业务决策人。  此外，IT 部门可能涉及到用户本身的事务。  例如，访问公司的市场营销应用程序中的机密客户数据的用户需要知道该公司的策略。 来宾用户可能不知道他们受邀访问的组织的数据处理要求。
 
 
-当用户尝试访问应用程序时，Azure AD 会实施[条件访问](../conditional-access/index.yml)策略。 
+当用户尝试访问应用程序时，Azure AD 会实施[条件访问](../conditional-access/index.yml)策略。 例如，条件访问策略可以包括[确保用户在访问应用程序之前同意这些条款](../conditional-access/require-tou.md)。
 
 ## <a name="privileged-access-lifecycle"></a>特权访问权限生命周期
 
@@ -67,7 +67,7 @@ Identity Governance 可帮助组织在以下需求之间实现平衡：工作效
 
 ![特权访问权限生命周期](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 提供用于保护 Azure AD、Azure 和其他 Microsoft Online Services 中的资源访问权限的其他定制控制措施。  Azure AD PIM 提供的实时访问和角色更改警报功能，以及多重身份验证和条件访问，共同提供了一套综合性的监管控制措施，可帮助保护公司的资源（目录、Office 365 和 Azure 资源角色）。 与处理其他形式的访问权限一样，组织可以使用访问评审来针对充当管理员角色的所有用户配置定期的访问权限重新认证。
+[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 提供用于保护 Azure AD、Azure 和其他 Microsoft Online Services 中的资源访问权限的其他定制控制措施。  Azure AD PIM 提供的实时访问和角色更改警报功能，以及多重身份验证和条件访问，共同提供了一套综合性的监管控制措施，可帮助保护公司的资源（目录、Microsoft 365 和 Azure 资源角色）。 与处理其他形式的访问权限一样，组织可以使用访问评审来针对充当管理员角色的所有用户配置定期的访问权限重新认证。
 
 ## <a name="getting-started"></a>入门
 

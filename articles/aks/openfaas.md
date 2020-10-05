@@ -1,18 +1,18 @@
 ---
 title: 结合使用 OpenFaaS 与 Azure Kubernetes 服务 (AKS)
 description: 了解如何在 Azure Kubernetes 服务 (AKS) 群集上部署和使用 OpenFaaS，以便使用容器构建无服务器函数。
-author: rockboyfor
 ms.topic: conceptual
 origin.date: 03/05/2018
-ms.date: 05/25/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e9c7d9e1ab2bb022883412bd5130949d373f8fe7
-ms.sourcegitcommit: 7e6b94bbaeaddb854beed616aaeba6584b9316d9
+ms.openlocfilehash: b70f073144152bfb4cc4ea4bd147cf509dca40fa
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735077"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146729"
 ---
 # <a name="using-openfaas-on-aks"></a>在 AKS 上使用 OpenFaaS
 
@@ -86,12 +86,17 @@ prometheus-config    2     20s
 alertmanager-config  1     20s
 
 {snip}
-
-NOTES:
-To verify that openfaas has started, run:
-
-  kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
+
+<!--MOONCAKE: CUSTOMIZE ON APPEND MISSING ```-->
+
+
+> [!NOTE]
+> 若要验证 openfaas 是否已启动，请运行：
+>
+> ```console
+> kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
+> ```
 
 创建了一个用于访问 OpenFaaS 网关的公共 IP 地址。 若要检索此 IP 地址，请使用 [kubectl get service][kubectl-get] 命令。 将 IP 地址分配到服务可能需要一分钟时间。
 
@@ -109,7 +114,7 @@ gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP  
 
 若要测试 OpenFaaS 系统，请在端口 8080 上浏览到外部 IP 地址，在本例中为 `http://52.186.64.52:8080`。 系统会提示你登录。 若要获取密码，请输入 `echo $PASSWORD`。
 
-![OpenFaaS UI](media/container-service-serverless/openfaas.png)
+:::image type="content" source="media/container-service-serverless/openfaas.png" alt-text="OpenFaaS UI":::
 
 最后，安装 OpenFaaS CLI。 此示例使用了 brew，有关更多选项，请参阅 [OpenFaaS CLI 文档][open-faas-cli]。
 
@@ -136,12 +141,7 @@ echo -n $PASSWORD | faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 
 单击“部署新函数”并搜索 Figlet 。 选择 Figlet 函数，然后单击“部署”。
 
-![Figlet](media/container-service-serverless/figlet.png)
-
-使用 curl 来调用该函数。 将下例中的 IP 地址替换为 OpenFaas 网关的 IP 地址。
-
-```console
-curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
+:::image type="content" source="media/container-service-serverless/figlet.png" alt-text="OpenFaaS UI"
 ```
 
 输出：
@@ -245,7 +245,7 @@ curl -s http://52.186.64.52:8080/function/cosmos-query
 
 还可以在 OpenFaaS UI 中测试函数。
 
-![替换文字](media/container-service-serverless/OpenFaaSUI.png)
+:::image type="content" source="media/container-service-serverless/OpenFaaSUI.png" alt-text="OpenFaaS UI":::
 
 ## <a name="next-steps"></a>后续步骤
 

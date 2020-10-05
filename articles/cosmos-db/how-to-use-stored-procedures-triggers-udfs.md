@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure Cosmos DB SDK 注册和使用存储过程、触发器与用户定义的函数
 description: 了解如何使用 Azure Cosmos DB SDK 注册和调用存储过程、触发器与用户定义的函数
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 06/16/2020
-ms.date: 08/17/2020
-ms.testscope: no
-ms.testdate: ''
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: tracking-python, devx-track-javascript
-ms.openlocfilehash: 3279d06d56b02f0408ab8337abe456e9420242c4
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 7b9b3c78a84e1cef84cf3461c53375f1f41231ee
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222912"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246688"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中注册和使用存储过程、触发器与用户定义的函数
 
@@ -200,30 +200,48 @@ const {body: result} = await container.scripts.storedProcedure(sprocId).execute(
 
 ### <a name="stored-procedures---python-sdk"></a>存储过程 - Python SDK
 
-以下示例演示如何使用 Python SDK 注册存储过程
+以下示例演示如何使用 Python SDK 注册存储过程：
+
+<!--MOONCAKE: New Code Verified--> 
 
 ```python
+import azure.cosmos.cosmos_client as cosmos_client
+
+url = "your_cosmos_db_account_URI"
+key = "your_cosmos_db_account_key"
+database_name = 'your_cosmos_db_database_name'
+container_name = 'your_cosmos_db_container_name'
+
 with open('../js/spCreateToDoItems.js') as file:
     file_contents = file.read()
-container_link = 'dbs/myDatabase/colls/myContainer'
-sproc_definition = {
-    'id': 'spCreateToDoItems',
+
+sproc = {
+    'id': 'spCreateToDoItem',
     'serverScript': file_contents,
 }
-sproc = client.CreateStoredProcedure(container_link, sproc_definition)
+client = cosmos_client.CosmosClient(url, key)
+database = client.get_database_client(database_name)
+container = database.get_container_client(container_name)
+created_sproc = container.scripts.create_stored_procedure(body=sproc) 
 ```
 
-以下代码演示如何使用 Python SDK 调用存储过程
+以下代码演示如何使用 Python SDK 调用存储过程：
 
 ```python
-sproc_link = 'dbs/myDatabase/colls/myContainer/sprocs/spCreateToDoItems'
-new_item = [{
-    'category':'Personal',
-    'name':'Groceries',
-    'description':'Pick up strawberries',
-    'isComplete': False
-}]
-client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
+import uuid
+
+new_id= str(uuid.uuid4())
+
+# Creating a document for a container with "id" as a partition key.
+
+new_item =   {
+      "id": new_id, 
+      "category":"Personal",
+      "name":"Groceries",
+      "description":"Pick up strawberries",
+      "isComplete":False
+   }
+result = container.scripts.execute_stored_procedure(sproc=created_sproc,params=[[new_item]], partition_key=new_id) 
 ```
 
 <a name="pre-triggers"></a>
@@ -363,26 +381,34 @@ await container.items.create({
 以下代码演示如何使用 Python SDK 注册前触发器：
 
 ```python
+import azure.cosmos.cosmos_client as cosmos_client
+
+url = "your_cosmos_db_account_URI"
+key = "your_cosmos_db_account_key"
+database_name = 'your_cosmos_db_database_name'
+container_name = 'your_cosmos_db_container_name'
+
 with open('../js/trgPreValidateToDoItemTimestamp.js') as file:
     file_contents = file.read()
-container_link = 'dbs/myDatabase/colls/myContainer'
+
 trigger_definition = {
     'id': 'trgPreValidateToDoItemTimestamp',
     'serverScript': file_contents,
     'triggerType': documents.TriggerType.Pre,
-    'triggerOperation': documents.TriggerOperation.Create
+    'triggerOperation': documents.TriggerOperation.All
 }
-trigger = client.CreateTrigger(container_link, trigger_definition)
+client = cosmos_client.CosmosClient(url, key)
+database = client.get_database_client(database_name)
+container = database.get_container_client(container_name)
+trigger = container.scripts.create_trigger(trigger_definition)
 ```
 
 以下代码演示如何使用 Python SDK 调用前触发器：
 
 ```python
-container_link = 'dbs/myDatabase/colls/myContainer'
 item = {'category': 'Personal', 'name': 'Groceries',
         'description': 'Pick up strawberries', 'isComplete': False}
-client.CreateItem(container_link, item, {
-                  'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
+container.create_item(item, {'pre_trigger_include': 'trgPreValidateToDoItemTimestamp'})
 ```
 
 <a name="post-triggers"></a>
@@ -511,26 +537,34 @@ await container.items.create(item, {postTriggerInclude: [triggerId]});
 以下代码演示如何使用 Python SDK 注册后触发器：
 
 ```python
-with open('../js/trgPostUpdateMetadata.js') as file:
+import azure.cosmos.cosmos_client as cosmos_client
+
+url = "your_cosmos_db_account_URI"
+key = "your_cosmos_db_account_key"
+database_name = 'your_cosmos_db_database_name'
+container_name = 'your_cosmos_db_container_name'
+
+with open('../js/trgPostValidateToDoItemTimestamp.js') as file:
     file_contents = file.read()
-container_link = 'dbs/myDatabase/colls/myContainer'
+
 trigger_definition = {
-    'id': 'trgPostUpdateMetadata',
+    'id': 'trgPostValidateToDoItemTimestamp',
     'serverScript': file_contents,
     'triggerType': documents.TriggerType.Post,
-    'triggerOperation': documents.TriggerOperation.Create
+    'triggerOperation': documents.TriggerOperation.All
 }
-trigger = client.CreateTrigger(container_link, trigger_definition)
+client = cosmos_client.CosmosClient(url, key)
+database = client.get_database_client(database_name)
+container = database.get_container_client(container_name)
+trigger = container.scripts.create_trigger(trigger_definition)
 ```
 
 以下代码演示如何使用 Python SDK 调用后触发器：
 
 ```python
-container_link = 'dbs/myDatabase/colls/myContainer'
-item = {'name': 'artist_profile_1023', 'artist': 'The Band',
-        'albums': ['Hellujah', 'Rotators', 'Spinning Top']}
-client.CreateItem(container_link, item, {
-                  'postTriggerInclude': 'trgPostUpdateMetadata'})
+item = {'category': 'Personal', 'name': 'Groceries',
+        'description': 'Pick up strawberries', 'isComplete': False}
+container.create_item(item, {'post_trigger_include': 'trgPreValidateToDoItemTimestamp'})
 ```
 
 <a name="udfs"></a>
@@ -656,22 +690,30 @@ const {result} = await container.items.query(sql).toArray();
 以下代码演示如何使用 Python SDK 注册用户定义的函数：
 
 ```python
+import azure.cosmos.cosmos_client as cosmos_client
+
+url = "your_cosmos_db_account_URI"
+key = "your_cosmos_db_account_key"
+database_name = 'your_cosmos_db_database_name'
+container_name = 'your_cosmos_db_container_name'
+
 with open('../js/udfTax.js') as file:
     file_contents = file.read()
-container_link = 'dbs/myDatabase/colls/myContainer'
 udf_definition = {
     'id': 'Tax',
     'serverScript': file_contents,
 }
-udf = client.CreateUserDefinedFunction(container_link, udf_definition)
+client = cosmos_client.CosmosClient(url, key)
+database = client.get_database_client(database_name)
+container = database.get_container_client(container_name)
+udf = container.scripts.create_user_defined_function(udf_definition)
 ```
 
 以下代码演示如何使用 Python SDK 调用用户定义的函数：
 
 ```python
-container_link = 'dbs/myDatabase/colls/myContainer'
-results = list(client.QueryItems(
-    container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
+results = list(container.query_items(
+    'query': 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
 ## <a name="next-steps"></a>后续步骤

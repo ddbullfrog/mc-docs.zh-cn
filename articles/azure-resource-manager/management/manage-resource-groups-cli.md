@@ -2,19 +2,19 @@
 title: 管理资源组 - Azure CLI
 description: 使用 Azure CLI 通过 Azure 资源管理器管理资源组。 说明如何创建、列出和删除资源组。
 ms.topic: conceptual
-origin.date: 02/11/2019
+origin.date: 09/01/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 555899b52cf6b8d6a464d33e7ac91bbe193fb938
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: b9bebce7e8b146d8871835d4b27a88d5de060159
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807761"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146742"
 ---
 <!--Verfiy successfully-->
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>使用 Azure CLI 管理 Azure 资源管理器资源组
@@ -36,14 +36,10 @@ ms.locfileid: "88807761"
 
 ## <a name="create-resource-groups"></a>创建资源组
 
-以下 CLI 脚本将创建一个资源组，然后显示该资源组。
+以下 CLI 命令将创建一个资源组。
 
 ```azurecli
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-echo "Enter the location (i.e. chinaeast):" &&
-read location &&
-az group create --name $resourceGroupName --location $location
+az group create --name demoResourceGroup --location chinanorth
 ```
 
 ## <a name="list-resource-groups"></a>列出资源组

@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: tzgitlin
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 08/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 3ac9b9805053a8cdced9337bdca779bee319d1f3
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 40750430e1f13e1c362f4e5cff15cfc014843816
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515698"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146635"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>将数据从事件中心引入到 Azure 数据资源管理器
 
@@ -26,6 +26,8 @@ ms.locfileid: "88515698"
 [!INCLUDE [data-connector-intro](includes/data-connector-intro.md)]
 
 Azure 数据资源管理器可从事件中心引入（加载数据），是一个大数据流式处理平台和事件引入服务。 [事件中心](/event-hubs/event-hubs-about)每秒可以近实时处理数百万个事件。 在本文中，将创建事件中心，从 Azure 数据资源管理器中连接到该事件中心，并查看通过系统的数据流。
+
+有关从事件中心引入到 Azure 数据资源管理器的常规信息，请参阅[连接到事件中心](ingest-data-event-hub-overview.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -44,11 +46,11 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
 
 1. 若要创建事件中心，请使用以下按钮开始部署。 右键单击并选择“在新窗口中打开”****，以便按本文中的剩余步骤操作。
 
-    [![部署到 Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![“部署到 Azure”按钮](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     “部署到 Azure”**** 按钮将转到 Azure 门户以填写部署窗体。
 
-    ![“部署到 Azure”](media/ingest-data-event-hub/deploy-to-azure.png)
+    ![“创建事件中心”窗体](media/ingest-data-event-hub/deploy-to-azure.png)
 
 1. 选择要在其中创建事件中心的订阅，并创建名为 test-hub-rg** 的资源组。
 
@@ -74,7 +76,7 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
 
 1. 在工具栏上选择“通知”以监视预配过程。**** 部署成功可能需要几分钟时间，但现在可以继续执行下一步。
 
-    ![通知](media/ingest-data-event-hub/notifications.png)
+    ![通知图标](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>在 Azure 数据资源管理器中创建目标表
 
@@ -120,7 +122,7 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
     | 事件中心命名空间 | 唯一的命名空间名称 | 先前选择的用于标识命名空间的名称。 |
     | 事件中心 | *test-hub* | 你创建的事件中心。 |
     | 使用者组 | *test-group* | 在创建的事件中心定义的使用者组。 |
-    | 事件系统属性 | 选择相关属性 | [事件中心系统属性](/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations)。 如果每个事件消息有多个记录，则系统属性将添加到第一个记录中。 添加系统属性时，[创建](/data-explorer/kusto/management/create-table-command)或[更新](/data-explorer/kusto/management/alter-table-command)表架构和[映射](/data-explorer/kusto/management/mappings)以包括所选属性。 |
+    | 事件系统属性 | 选择相关属性 | [事件中心系统属性](/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations)。 如果每个事件消息有多个记录，则系统属性将添加到第一个记录中。 添加系统属性时，[创建](kusto/management/create-table-command.md)或[更新](kusto/management/alter-table-command.md)表架构和[映射](kusto/management/mappings.md)以包括所选属性。 |
     | 压缩 | *无* | 事件中心消息有效负载的压缩类型。 支持的压缩类型：None、GZip。|
     | | |
 
@@ -133,7 +135,7 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
     |---|---|---|
     | 表 | *TestTable* | 在“TestDatabase”**** 中创建的表。 |
     | 数据格式 | *JSON* | 支持的格式为 Avro、CSV、JSON、MULTILINE JSON、ORC、PARQUET、PSV、SCSV、SOHSV、TSV、TXT、TSVE、APACHEAVRO 和 W3CLOG。 |
-    | 列映射 | TestMapping** | 在 **TestDatabase** 中创建的[映射](/data-explorer/kusto/management/mappings)，它将传入的 JSON 数据映射到 **TestTable** 的列名称和数据类型。 对于 JSON 或多行 JSON 是必需的，对于其他格式是可选的。|
+    | 列映射 | TestMapping** | 在 **TestDatabase** 中创建的[映射](kusto/management/mappings.md)，它将传入的 JSON 数据映射到 **TestTable** 的列名称和数据类型。 对于 JSON 或多行 JSON 是必需的，对于其他格式是可选的。|
     | | |
 
     > [!NOTE]
@@ -200,9 +202,9 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
     ![消息结果集](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > * Azure 数据资源管理器具有用于数据引入的聚合（批处理）策略，旨在优化引入过程。 默认情况下，该策略配置为 5 分钟或 500 MB 数据，因此你可能会遇到延迟。 有关聚合选项，请参阅[批处理策略](/data-explorer/kusto/management/batchingpolicy)。 
+    > * Azure 数据资源管理器具有用于数据引入的聚合（批处理）策略，旨在优化引入过程。 默认情况下，该策略配置为 5 分钟或 500 MB 数据，因此你可能会遇到延迟。 有关聚合选项，请参阅[批处理策略](kusto/management/batchingpolicy.md)。 
     > * 事件中心引入包括 10 秒或 1 MB 的事件中心响应时间。 
-    > * 配置表以支持流式处理并消除响应时间延迟。 请参阅[流式处理策略](/data-explorer/kusto/management/streamingingestionpolicy)。 
+    > * 配置表以支持流式处理并消除响应时间延迟。 请参阅[流式处理策略](kusto/management/streamingingestionpolicy.md)。 
 
 ## <a name="clean-up-resources"></a>清理资源
 

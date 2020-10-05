@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
-origin.date: 04/04/2019
-ms.date: 08/10/2020
+origin.date: 09/10/2019
+ms.date: 09/28/2020
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 3f08d010a5e710c1832a103bce7ec6995624dd7b
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: d380ff1fd45df439f82960bc7a390906b1a45272
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788329"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246481"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>管理 Azure 自动化中的计划
 
@@ -29,7 +29,7 @@ ms.locfileid: "87788329"
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>用于访问计划的 PowerShell cmdlet
 
-下表中的 cmdlet 使用 PowerShell 创建和管理自动化计划。 它们作为 [Az 模块](modules.md#az-modules)的一部分提供。 
+下表中的 cmdlet 使用 PowerShell 创建和管理自动化计划。 它们作为 [Az 模块](modules.md#az-modules)的一部分提供。
 
 | Cmdlet | 说明 |
 |:--- |:--- |
@@ -50,23 +50,33 @@ ms.locfileid: "87788329"
 
 ### <a name="create-a-new-schedule-in-the-azure-portal"></a>在 Azure 门户中创建新计划
 
-1. 在 Azure 门户中，从你的自动化帐户中，从左侧的“共享资源”部分下选择“计划”。 
-1. 选择页面顶部的“添加计划”。
-1. 在“新建计划”窗格中，输入新计划的名称和（可选）说明。
-1. 通过选择“一次”或“定期”来选择该计划是运行一次，还是按计划重复运行。 如果选择“一次”，请指定开始时间，然后选择“创建” 。 如果选择“定期”，请指定开始时间。 对于“重复间隔”，请选择想要 runbook 重复运行的频率。 选择“时”、“天”、“周”或“月”。
-    1. 如果选择“周”，则会显示一周中可供选择的日期。 根据需要选择天数。 计划的第一次运行将在开始时间之后选择的第一天进行。 例如，若要选择周末计划，请选择“星期六”和“星期日”。
-    
-       ![设置周末定期计划](../media/schedules/week-end-weekly-recurrence.png)
+1. 在自动化帐户的左侧窗格中，选择“共享资源”下的“计划” 。
+2. 在“计划”页上选择“添加计划”。
+3. 在“新建计划”页中，输入新计划的名称，还可以选择输入新计划的说明。
 
-    2. 如果选择“月”，则会看到不同的选项。 对于“每月进行次数”选项，请选择“每月天数”或“每周天数”  。 如果选择“每月天数”，则会显示一个可根据需要选择天数的日历。 如果选择当月不存在的日期（例如 31 日），则计划将不会运行。 如果希望计划在最后一天运行，请在“在月份的最后一天运行”下选择“是” 。 如果选择“每周天数”，则会显示“重复间隔”选项 。 选择“第一”、“第二”、“第三”、“第四”或“最后”    。 最后选择一天进行重复。
+    >[!NOTE]
+    >自动化计划目前不支持在计划名称中使用特殊字符。
+    >
 
-       ![在每月第一天、第十五天和最后一天运行的每月计划](../media/schedules/monthly-first-fifteenth-last.png)
+4. 通过选择“一次”或“定期”来选择该计划是运行一次，还是按计划重复运行。 如果选择“一次”，请指定开始时间，然后选择“创建” 。 如果选择“定期”，请指定开始时间。 对于“重复间隔”，请选择想要 runbook 重复运行的频率。 选择“时”、“天”、“周”或“月”。
 
-1. 完成后，请选择“创建”。
+    * 如果选择“周”，则会显示一周中可供选择的日期。 根据需要选择天数。 计划的第一次运行将在开始时间之后选择的第一天进行。 例如，若要选择周末计划，请选择“星期六”和“星期日”。
+
+    ![设置周末定期计划](../media/schedules/week-end-weekly-recurrence.png)
+
+    * 如果选择“月”，则会看到不同的选项。 对于“每月进行次数”选项，请选择“每月天数”或“每周天数”  。 如果选择“每月天数”，则会显示一个可根据需要选择天数的日历。 如果选择当月不存在的日期（例如 31 日），则计划将不会运行。 如果希望计划在最后一天运行，请在“在月份的最后一天运行”下选择“是” 。 如果选择“每周天数”，则会显示“重复间隔”选项 。 选择“第一”、“第二”、“第三”、“第四”或“最后”    。 最后选择一天进行重复。
+
+    ![在每月第一天、第十五天和最后一天运行的每月计划](../media/schedules/monthly-first-fifteenth-last.png)
+
+5. 完成后，请选择“创建”。
 
 ### <a name="create-a-new-schedule-with-powershell"></a>使用 PowerShell 创建新计划
 
 使用 [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet 创建计划。 必须指定计划的开始时间以及运行频率。 以下示例演示如何创建许多不同的计划场景。
+
+>[!NOTE]
+>自动化计划目前不支持在计划名称中使用特殊字符。
+>
 
 #### <a name="create-a-one-time-schedule"></a>创建一次性计划
 
@@ -182,13 +192,13 @@ Set-AzAutomationSchedule -AutomationAccountName $automationAccountName `
 
 ### <a name="remove-a-schedule-using-the-azure-portal"></a>使用 Azure 门户删除计划
 
-1. 在你的自动化帐户中的“共享资源”下选择“计划” 。
-2. 单击某个计划的名称以打开详细信息窗格。
+1. 在自动化帐户的左侧窗格中，选择“共享资源”下的“计划” 。
+2. 选择某个计划的名称以打开详细信息窗格。
 3. 单击 **“删除”** 。
 
 ### <a name="remove-a-schedule-with-powershell"></a>使用 PowerShell 删除计划
 
-可以按如下所示使用 `Remove-AzAutomationSchedule` cmdlet 来删除现有计划。 
+可以按如下所示使用 `Remove-AzAutomationSchedule` cmdlet 来删除现有计划。
 
 ```azurepowershell
 $automationAccountName = "MyAutomationAccount"

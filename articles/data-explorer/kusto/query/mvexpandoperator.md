@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/24/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: a4e88075a3f9fa52c6a0489276648e32401ddd79
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: ecaf7bf1e525fce63a16bed22a4c6bf9f765bd4c
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515658"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146777"
 ---
 # <a name="mv-expand-operator"></a>mv-expand 运算符
 
@@ -33,7 +33,7 @@ ms.locfileid: "88515658"
 * *ColumnName*：在结果中，已命名列中的数组将扩展为多行。 
 * *ArrayExpression*：生成数组的表达式。 如果使用此形式，则会添加新列并保留现有列。
 * *Name*：新列的名称。
-* Typename：指示数组元素的基础类型，该类型将成为运算符生成的列的类型。 不能转换数组中不一致的值， 而只能让这些值采用 `null` 值。
+* Typename：指示数组元素的基础类型，该类型将成为 `mv-apply` 运算符生成的列的类型。 应用类型的操作仅限强制转换，不包括分析或类型转换。 不符合声明类型的数组元素将为 `null` 值。
 * *RowLimit*：从每个原始行生成的最大行数。 默认值为 2147483647。 
 
   > [!Note]

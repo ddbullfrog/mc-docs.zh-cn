@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: a71dac110e5843fb607a4ad86287fcba8adf6f6e
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 5498eea30f2ebcaf5b5d7249afb838ac0ad52ed5
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244696"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>如何：向应用提供可选声明
 
@@ -129,7 +129,7 @@ ms.locfileid: "89593677"
 
 **通过 UI 配置可选声明：**
 
-[![演示如何使用 UI 配置可选声明](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![在 UI 中配置可选声明](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. 从“管理”部分中选择“令牌配置” 。
 1. 选择“添加可选声明”。
@@ -177,7 +177,7 @@ ms.locfileid: "89593677"
 
 ### <a name="optionalclaims-type"></a>OptionalClaims 类型
 
-声明应用程序请求的可选声明。 应用程序可以配置可选声明，以在它能够从安全令牌服务收到的每种令牌（共三种，即 ID 令牌、访问令牌、SAML 令牌）中返回。 应用程序可以配置为要在每种令牌类型中返回一组不同的可选声明。 Application 实体的 OptionalClaims 属性是一个 OptionalClaims 对象。
+声明应用程序请求的可选声明。 应用程序可以配置为要在它能够从安全令牌服务收到的每种令牌（共三种，即 ID 令牌、访问令牌和 SAML 2 令牌）中返回可选声明。 应用程序可以配置为要在每种令牌类型中返回一组不同的可选声明。 Application 实体的 OptionalClaims 属性是一个 OptionalClaims 对象。
 
 **表 5：OptionalClaims 类型属性**
 
@@ -304,7 +304,7 @@ ms.locfileid: "89593677"
 
     **UI 配置：**
 
-    [![演示如何使用 UI 配置可选声明](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![配置可选声明](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
     **应用程序清单条目：**
 
@@ -325,7 +325,7 @@ ms.locfileid: "89593677"
 
     **UI 配置：**
 
-    [![演示如何使用 UI 配置可选声明](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![清单中的可选声明](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **应用程序清单条目：**
 
@@ -391,7 +391,7 @@ ms.locfileid: "89593677"
 
 1. 选择“添加可选声明”，选择 SAML 令牌类型，从声明列表中选择 extn.skypeID（仅当创建了名为 skypeID 的 Azure AD 用户对象时才适用），然后选择“添加”   。
 
-    [![演示如何使用 UI 配置可选声明](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![SAML 令牌的可选声明](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **清单配置：**
 

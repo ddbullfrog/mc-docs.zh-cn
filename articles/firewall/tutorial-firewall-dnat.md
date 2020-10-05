@@ -1,26 +1,28 @@
 ---
-title: 在门户中通过 Azure 防火墙 DNAT 筛选入站 Internet 流量
+title: 教程 - 在门户中通过 Azure 防火墙 DNAT 筛选入站 Internet 流量
 description: 本教程介绍如何使用 Azure 门户部署和配置 Azure 防火墙 DNAT。
 services: firewall
-author: rockboyfor
 ms.service: firewall
 ms.topic: tutorial
-origin.date: 03/02/2020
-ms.date: 04/06/2020
+origin.date: 08/28/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: de2500c390e7c670cc139146585c90f46bc56d5f
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.openlocfilehash: 0da2450b3c8f431988d982398b024ea8d75bc5da
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093251"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246424"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>教程：在 Azure 门户中通过 Azure 防火墙 DNAT 筛选入站 Internet 流量
 
 可以配置 Azure 防火墙目标网络地址转换 (DNAT)，以转换和筛选到子网的入站 Internet 流量。 配置 DNAT 时，NAT 规则收集操作设置为“Dnat”。  然后，可以使用 NAT 规则集合中的每个规则将防火墙公用 IP 和端口转换为专用 IP 和端口。 DNAT 规则会隐式添加一个对应的网络规则来允许转换后的流量。 可以通过以下方法替代此行为：显式添加一个网络规则集合并在其中包含将匹配转换后流量的拒绝规则。 若要详细了解 Azure 防火墙规则处理逻辑，请参阅 [Azure 防火墙规则处理逻辑](rule-processing.md)。
 
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 设置测试网络环境
@@ -29,12 +31,9 @@ ms.locfileid: "82093251"
 > * 配置 DNAT 规则
 > * 测试防火墙
 
+## <a name="prerequisites"></a>先决条件
+
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-
-请为本教程创建两个对等互连的 VNet：
-
-- **VN-Hub** - 防火墙在此 VNet 中。
-- **VN-Spoke** - 工作负荷服务器在此 VNet 中。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -46,6 +45,11 @@ ms.locfileid: "82093251"
 6. 选择“创建”  。
 
 ## <a name="set-up-the-network-environment"></a>设置网络环境
+
+请为本教程创建两个对等互连的 VNet：
+
+- **VN-Hub** - 防火墙在此 VNet 中。
+- **VN-Spoke** - 工作负荷服务器在此 VNet 中。
 
 首先创建 VNet，然后将其对等互连。
 
@@ -59,7 +63,7 @@ ms.locfileid: "82093251"
 6. 对于“订阅”，请选择自己的订阅。 
 7. 对于“资源组”，请选择“使用现有”，然后选择“RG-DNAT-Test”。   
 8. 对于“位置”，请选择前面使用的同一位置。 
-9. 在“子网”下，为“名称”键入 **AzureFirewallSubnet**。  
+9. 在“子网”下，为“名称”键入 **AzureFirewallSubnet**。 
 
      防火墙将位于此子网中，子网名称**必须**是 AzureFirewallSubnet。
      
@@ -146,10 +150,10 @@ ms.locfileid: "82093251"
 3. 依次选择“防火墙”、“创建”。   
 4. 在“创建防火墙”页上，使用下表配置防火墙： 
 
-    |设置  |Value  |
+    |设置  |值  |
     |---------|---------|
     |名称     |FW-DNAT-test|
-    |订阅     |\<订阅\>|
+    |订阅     |\<your subscription\>|
     |资源组     |**使用现有项**：RG-DNAT-Test |
     |位置     |选择前面使用的同一位置|
     |选择虚拟网络     |**使用现有项**：VN-Hub|
@@ -168,7 +172,7 @@ ms.locfileid: "82093251"
 
 1. 在 Azure 门户主页上，选择“所有服务”。 
 2. 在“网络”下，选择“路由表”。  
-3. 选择“添加”   。
+3. 选择 **添加** 。
 4. 对于“名称”，请键入“RT-FWroute”。  
 5. 对于“订阅”，请选择自己的订阅。 
 6. 对于“资源组”，请选择“使用现有”，然后选择“RG-DNAT-Test”。   
@@ -203,7 +207,7 @@ ms.locfileid: "82093251"
 10. 对于“目标端口”，键入 **3389**。  
 11. 对于“已翻译的地址”  ，键入 Srv-Workload 虚拟机的专用 IP 地址。 
 12. 对于“已翻译的端口”  ，键入 **3389**。 
-13. 选择“添加”   。 
+13. 选择 **添加** 。 
 
 ## <a name="test-the-firewall"></a>测试防火墙
 
@@ -216,7 +220,7 @@ ms.locfileid: "82093251"
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
+在本教程中，你了解了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 设置测试网络环境

@@ -1,18 +1,20 @@
 ---
 title: 有关用于 Azure Cosmos DB 的 Cassandra API 的常见问题解答
 description: 获取有关 Azure Cosmos DB 的 Cassandra API 的常见问题的解答
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/09/2020
-ms.date: 06/22/2020
+origin.date: 08/12/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a25154c9c5429086cd64a2f1f05aded301e35d09
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 4cfa804700bbb5c02b4b5a3c8ac88ebec7a09d55
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098319"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246580"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中 Cassandra API 的常见问题解答。
 
@@ -80,13 +82,13 @@ Azure Cosmos DB 针对操作设置上限，在性能和延迟方面提供保障�
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>主键是否映射到 Azure Cosmos DB 的分区键概念？
 
-是，分区键用来将实体放置在正确位置。 在 Azure Cosmos DB 中，它用来查找存储在物理分区中的正确逻辑分区。 [在 Azure Cosmos DB 中分区和缩放](partition-data.md)一文中很好地解释了分区概念。 此处，必须记住的一点是，逻辑分区不应当超出 10-GB 限制。
+是，分区键用来将实体放置在正确位置。 在 Azure Cosmos DB 中，它用来查找存储在物理分区中的正确逻辑分区。 [在 Azure Cosmos DB 中分区和缩放](partition-data.md)一文中很好地解释了分区概念。 此处必须记住的一点是，逻辑分区不应当超出 20-GB 限制。
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>当收到分区已满通知时，会发生什么情况？
 
 Azure Cosmos DB 是基于服务级别协议 (SLA) 的系统。 可提供无限缩放，并在延迟、吞吐量、可用性和一致性方面提供保障。 此无限制的存储是通过使用分区作为键概念的数据水平横向扩展实现的。 [在 Azure Cosmos DB 中分区和缩放](partition-data.md)一文中很好地解释了分区概念。
 
-应当遵循每个逻辑分区的实体数或项数不超过 10-GB 的限制。 为确保应用程序能够很好地进行缩放，建议*不要*创建热分区，即，将所有信息存储在一个分区内并查询它。 只有存在数据倾斜时，也就是说，当一个分区键有大量数据（超过 10&nbsp;GB）时，才会发生此错误。 可以使用存储门户查明数据的分布。 修复此错误的方法是：重新创建表并选择一个细粒度的主键（分区键），这可以实现更好的数据分布。
+应当遵循每个逻辑分区的实体数或项数不超过 20-GB 的限制。 为确保应用程序能够很好地进行缩放，建议*不要*创建热分区，即，将所有信息存储在一个分区内并查询它。 只有存在数据倾斜时，也就是说，当一个分区键有大量数据（超过 20 GB）时，才会发生此错误。 可以使用存储门户查明数据的分布。 修复此错误的方法是：重新创建表并选择一个细粒度的主键（分区键），这可以实现更好的数据分布。
 
 ### <a name="can-i-use-the-cassandra-api-as-a-key-value-store-with-millions-or-billions-of-partition-keys"></a>是否可以将 Cassandra API 用作具有数百万或数十亿分区键的键值存储？
 

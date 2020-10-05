@@ -2,23 +2,23 @@
 title: ARM 模板测试工具包
 description: 描述如何在模板上运行 ARM 模板测试工具包。 使用该工具包可以查看是否已实现了建议的做法。
 ms.topic: conceptual
-origin.date: 06/19/2020
-ms.date: 08/31/2020
+origin.date: 09/02/2020
+ms.date: 09/21/2020
 ms.testscope: yes|no
 ms.testdate: 08/31/2020null
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: eead2f3fc6310c26572604c44d69fd293962aa7a
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 9e2e0ad47c99855a3661c7a681115682019c3daa
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807925"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146218"
 ---
 <!--Verified successfully-->
 # <a name="use-arm-template-test-toolkit"></a>使用 ARM 模板测试工具包
 
-[ARM 模板测试工具包](https://aka.ms/arm-ttk)检查模板是否使用建议的做法。 如果模板不符合建议的做法，它将返回包含建议的更改的警告列表。 通过使用测试工具包，可以了解如何避免模板开发中的常见问题。
+[Azure 资源管理器 (ARM) 模板测试工具包](https://aka.ms/arm-ttk)检查模板是否使用建议的做法。 如果模板不符合建议的做法，它将返回包含建议的更改的警告列表。 通过使用测试工具包，可以了解如何避免模板开发中的常见问题。
 
 测试工具包提供[一组默认测试](test-cases.md)。 这些测试是建议，而不是要求。 你可以确定哪些测试与目标相关，并自定义要运行哪些测试。
 
@@ -26,53 +26,103 @@ ms.locfileid: "88807925"
 
 工具包是一组可从 PowerShell 或 CLI 中的命令运行的 PowerShell 脚本。
 
-## <a name="download-test-toolkit"></a>下载测试工具包
+## <a name="install-on-windows"></a>在 Windows 上安装
 
-若要使用测试工具包，可以分叉并克隆包含脚本的[存储库](https://aka.ms/arm-ttk)，或[下载最新的 .zip 文件](https://aka.ms/arm-ttk-latest)。
+1. 如果还没有 PowerShell，请[在 Windows 上安装 PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)。
 
-根据运行脚本的计算机的执行策略，你可能会收到有关从 Internet 运行脚本的错误消息。 必须更改[执行策略](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies)或[取消阻止脚本文件](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/unblock-file)。
+1. [下载测试工具包的最新 .zip 文件](https://aka.ms/arm-ttk-latest)，并将其解压缩。
 
-## <a name="run-on-powershell"></a>在 PowerShell 上运行
+1. 启动 PowerShell。
 
-在运行测试之前，导入模块。
+1. 导航到在其中解压缩测试工具包的文件夹。 在该文件夹中，导航到 arm-ttk 文件夹。
 
-```powershell
-Import-Module .\arm-ttk.psd1 # from the same directory as .\arm-ttk.psd1
-```
+1. 如果[执行策略](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies)阻止来自 Internet 的脚本，则需要取消阻止脚本文件。 请确保处于 arm-ttk 文件夹中。
 
-若要在“PowerShell”中运行测试，请使用以下命令：
+    ```powershell
+    Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+    ```
 
-```powershell
-Test-AzTemplate -TemplatePath $TemplateFolder
-```
+1. 导入模块。
 
-## <a name="run-on-linux"></a>在 Linux 上运行
+    ```powershell
+    Import-Module .\arm-ttk.psd1
+    ```
 
-在运行测试之前，安装 [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux)。
+1. 若要运行测试，请使用以下命令：
 
-若要在 Bash 的“Linux”上运行测试，请使用以下命令：
+   ```powershell
+   Test-AzTemplate -TemplatePath \path\to\template
+   ```
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+## <a name="install-on-linux"></a>在 Linux 上安装
 
-还可以在 pwsh.exe 上运行测试。
+1. 如果还没有 PowerShell，请[在 Linux 上安装 PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux)。
 
-## <a name="run-on-macos"></a>在 macOS 上运行
+1. [下载测试工具包的最新 .zip 文件](https://aka.ms/arm-ttk-latest)，并将其解压缩。
 
-在运行测试之前，安装 [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-macos)。 
+1. 启动 PowerShell。
 
-安装 `coreutils`：
+   ```bash
+   pwsh
+   ```
 
-```bash
-brew install coreutils
-```
+1. 导航到在其中解压缩测试工具包的文件夹。 在该文件夹中，导航到 arm-ttk 文件夹。
 
-若要在“macOS”上运行测试，请使用以下命令：
+1. 如果[执行策略](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies)阻止来自 Internet 的脚本，则需要取消阻止脚本文件。 请确保处于 arm-ttk 文件夹中。
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+    ```powershell
+    Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+    ```
+
+1. 导入模块。
+
+    ```powershell
+    Import-Module ./arm-ttk.psd1
+    ```
+
+1. 若要运行测试，请使用以下命令：
+
+    ```powershell
+    Test-AzTemplate -TemplatePath /path/to/template
+    ```
+
+## <a name="install-on-macos"></a>在 macOS 上安装
+
+1. 如果还没有 PowerShell，请[在 macOS 上安装 PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-macos)。
+
+1. 安装 `coreutils`：
+
+    ```bash
+    brew install coreutils
+    ```
+
+1. [下载测试工具包的最新 .zip 文件](https://aka.ms/arm-ttk-latest)，并将其解压缩。
+
+1. 启动 PowerShell。
+
+    ```bash
+    pwsh
+    ```
+
+1. 导航到在其中解压缩测试工具包的文件夹。 在该文件夹中，导航到 arm-ttk 文件夹。
+
+1. 如果[执行策略](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies)阻止来自 Internet 的脚本，则需要取消阻止脚本文件。 请确保处于 arm-ttk 文件夹中。
+
+    ```powershell
+    Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+    ```
+
+1. 导入模块。
+
+    ```powershell
+    Import-Module ./arm-ttk.psd1
+    ```
+
+1. 若要运行测试，请使用以下命令：
+
+    ```powershell
+    Test-AzTemplate -TemplatePath /path/to/template
+    ```
 
 ## <a name="result-format"></a>结果格式
 
@@ -238,5 +288,4 @@ param(
 
 若要了解默认测试，请参阅[工具包的测试用例](test-cases.md)。
 
-<!-- Update_Description: new article about test toolkit -->
-<!--NEW.date: 08/31/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

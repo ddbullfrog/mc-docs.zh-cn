@@ -2,15 +2,18 @@
 title: 使用自己的 HTTP 模型分析实时视频 - Azure
 description: 在本快速入门中，你将应用计算机视觉来分析来自（模拟）IP 相机的实时视频源。
 ms.topic: quickstart
+author: WenJason
+ms.author: v-jay
+ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 09/07/2020
+ms.date: 09/28/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 4fe5169d7cf1804570fa7a66e0d59aee8651ed7a
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 179955ff687a061c12b6393ec077f6ca106ed7da
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413603"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245601"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>快速入门：使用自己的 HTTP 模型分析实时视频
 
@@ -18,63 +21,57 @@ ms.locfileid: "89413603"
 
 此快速入门将 Azure VM 用作 IoT Edge 设备，并使用模拟的实时视频流。 它基于用 C# 编写的示例代码，并以[检测运动并发出事件](detect-motion-emit-events-quickstart.md)快速入门为基础。 
 
-::: zone pivot="programming-language-csharp"
+# <a name="c"></a><a name="programming-language-csharp"></a>[C#](#tab/programming-language-csharp)
 [!INCLUDE [header](includes/analyze-live-video-your-http-model-quickstart/csharp/header.md)]
-::: zone-end
 
-::: zone pivot="programming-language-python"
+# <a name="python"></a><a name="programming-language-python"></a>[Python](#tab/programming-language-python)
 [!INCLUDE [header](includes/analyze-live-video-your-http-model-quickstart/python/header.md)]
-::: zone-end
+---
 
 ## <a name="prerequisites"></a>先决条件
 
-::: zone pivot="programming-language-csharp"
+# <a name="c"></a><a name="programming-language-csharp"></a>[C#](#tab/programming-language-csharp)
 [!INCLUDE [prerequisites](includes/analyze-live-video-your-http-model-quickstart/csharp/prerequisites.md)]
-::: zone-end
 
-::: zone pivot="programming-language-python"
+# <a name="python"></a><a name="programming-language-python"></a>[Python](#tab/programming-language-python)
 [!INCLUDE [prerequisites](includes/analyze-live-video-your-http-model-quickstart/python/prerequisites.md)]
-::: zone-end
+---
 
 ## <a name="review-the-sample-video"></a>观看示例视频
 
-::: zone pivot="programming-language-csharp"
+# <a name="c"></a><a name="programming-language-csharp"></a>[C#](#tab/programming-language-csharp)
 [!INCLUDE [review-sample-video](includes/analyze-live-video-your-http-model-quickstart/csharp/review-sample-video.md)]
-::: zone-end
 
-::: zone pivot="programming-language-python"
+# <a name="python"></a><a name="programming-language-python"></a>[Python](#tab/programming-language-python)
 [!INCLUDE [review-sample-video](includes/analyze-live-video-your-http-model-quickstart/python/review-sample-video.md)]
-::: zone-end
+---
 
 ## <a name="overview"></a>概述
 
-::: zone pivot="programming-language-csharp"
+# <a name="c"></a><a name="programming-language-csharp"></a>[C#](#tab/programming-language-csharp)
 [!INCLUDE [overview](includes/analyze-live-video-your-http-model-quickstart/csharp/overview.md)]
-::: zone-end
 
-::: zone pivot="programming-language-python"
+# <a name="python"></a><a name="programming-language-python"></a>[Python](#tab/programming-language-python)
 [!INCLUDE [overview](includes/analyze-live-video-your-http-model-quickstart/python/overview.md)]
-::: zone-end
+---
 
 ## <a name="create-and-deploy-the-media-graph"></a>创建和部署媒体图
 
-::: zone pivot="programming-language-csharp"
+# <a name="c"></a><a name="programming-language-csharp"></a>[C#](#tab/programming-language-csharp)
 [!INCLUDE [create-deploy-media-graph](includes/analyze-live-video-your-http-model-quickstart/csharp/create-deploy-media-graph.md)]
-::: zone-end
 
-::: zone pivot="programming-language-python"
+# <a name="python"></a><a name="programming-language-python"></a>[Python](#tab/programming-language-python)
 [!INCLUDE [create-deploy-media-graph](includes/analyze-live-video-your-http-model-quickstart/python/create-deploy-media-graph.md)]
-::: zone-end
+---
 
 ## <a name="interpret-results"></a>解释结果
 
-::: zone pivot="programming-language-csharp"
+# <a name="c"></a><a name="programming-language-csharp"></a>[C#](#tab/programming-language-csharp)
 [!INCLUDE [interpret-results](includes/analyze-live-video-your-http-model-quickstart/csharp/interpret-results.md)]
-::: zone-end
 
-::: zone pivot="programming-language-python"
+# <a name="python"></a><a name="programming-language-python"></a>[Python](#tab/programming-language-python)
 [!INCLUDE [interpret-results](includes/analyze-live-video-your-http-model-quickstart/python/interpret-results.md)]
-::: zone-end
+---
 
 ## <a name="clean-up-resources"></a>清理资源
 

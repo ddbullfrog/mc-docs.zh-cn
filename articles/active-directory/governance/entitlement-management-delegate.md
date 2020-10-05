@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 665476757ec32c104f6c0bfed033eadb932a9cf9
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 20f9505262cb558df318988727e93bd91dd0f462
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593815"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245257"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 权利管理中的委托和角色
 
@@ -116,11 +116,11 @@ Hana 可以采用下面这种方式将访问管理委托给市场营销部、财
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>将资源添加到目录所需的角色
 
-全局管理员可以在目录中添加或删除任何组（云创建的安全组，或云创建的 Office 365 组）、应用程序或 SharePoint Online 站点。 用户管理员可以添加或删除目录中的任何组或应用程序，但配置为可分配给目录角色的组除外。
+全局管理员可以在目录中添加或删除任何组（云创建的安全组，或云创建的Microsoft 365 组）、应用程序或 SharePoint Online 站点。 用户管理员可以添加或删除目录中的任何组或应用程序，但配置为可分配给目录角色的组除外。
 
 对于不充当全局管理员或用户管理员的用户，若要将组、应用程序或 SharePoint Online 站点添加到目录，该用户必须同时具有所需的 Azure AD 目录角色和目录所有者权利管理角色。** 下表列出了将资源添加到目录所需的角色组合。 若要从目录中删除资源，必须具有相同的角色。
 
-| Azure AD 目录角色 | 权利管理角色 | 可以添加安全组 | 可以添加 Office 365 组 | 可以添加应用 | 可以添加 SharePoint Online 站点 |
+| Azure AD 目录角色 | 权利管理角色 | 可以添加安全组 | 可以添加 Microsoft 365 组 | 可以添加应用 | 可以添加 SharePoint Online 站点 |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [全局管理员](../users-groups-roles/directory-assign-admin-roles.md) | 不适用 |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [用户管理员](../users-groups-roles/directory-assign-admin-roles.md) | 不适用 |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -133,7 +133,7 @@ Hana 可以采用下面这种方式将访问管理委托给市场营销部、财
 | 用户 | 目录所有者 | 仅限组所有者 | 仅限组所有者 | 仅限应用所有者 |  |
 
 > [!NOTE]
-> 如果用户添加安全组或 Office 365 组，则该组不能是可分配角色的组。 如果用户在创建访问包时添加了可分配角色的组，则他们还必须是该可分配角色的组的所有者。 
+> 如果用户添加安全组或 Microsoft 365 组，则该组不能是可分配角色的组。 如果用户在创建访问包时添加了可分配角色的组，则他们还必须是该可分配角色的组的所有者。
 
 若要确定任务的最小特权角色，还可以参考[按 Azure Active Directory 中的管理员任务划分的管理员角色](../users-groups-roles/roles-delegate-by-task.md#entitlement-management)。
 

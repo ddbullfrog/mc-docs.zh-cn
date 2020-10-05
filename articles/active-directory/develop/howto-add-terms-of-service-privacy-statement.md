@@ -6,18 +6,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 03/20/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
-ms.reviwer: lenalepa, sureshja
+ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 5a0b21f6e2a14b72e44d5f49c00391b6cdc9f2a2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c54c8f47d1fd63c1aa0fa184bbb2172ff6b65ce1
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243156"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244687"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>如何：配置应用的服务条款和隐私声明
 
@@ -58,7 +58,7 @@ ms.locfileid: "80243156"
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>使用 Azure 门户
 在 Azure 门户中执行以下步骤。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)，选择正确的 AzureAD 租户（而非 B2C）。
 2. 导航到“应用注册”部分并选择应用  。
 3. 打开“品牌”  窗格。
 4. 填写“服务条款 URL”和“隐私声明 URL”字段   。
@@ -69,6 +69,11 @@ ms.locfileid: "80243156"
 ### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>使用应用对象 JSON
 
 如果想要直接修改应用对象 JSON，可以使用 Azure 门户中的清单编辑器来包含指向应用的服务条款和隐私声明的链接。
+
+1. 导航到“应用注册”部分并选择应用。
+2. 打开“清单”窗格。
+3. 按 Ctrl+F，搜索“informationalUrls”。 填写信息。
+4. 保存所做更改。
 
 ```json
     "informationalUrls": { 

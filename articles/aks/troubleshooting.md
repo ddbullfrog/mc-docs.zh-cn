@@ -4,16 +4,17 @@ description: 了解如何排查和解决在使用 Azure Kubernetes 服务 (AKS) 
 services: container-service
 ms.topic: troubleshooting
 origin.date: 06/20/2020
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 930d4637cd0bf4a383a010e618c1361e4e4265e1
-ms.sourcegitcommit: fce0810af6200f13421ea89d7e2239f8d41890c0
+ms.openlocfilehash: 85c9afec659591da5a431d29e0f6215dc67c14ac
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842572"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146473"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -103,6 +104,10 @@ AKS 具有 HA 控制平面，可以根据内核数进行垂直缩放，以确保
 
 确保端口 22、9000 和 1194 已打开，以便连接到 API 服务器。 使用 `kubectl get pods --namespace kube-system` 命令检查 `tunnelfront` 或 `aks-link` Pod 是否正在 kube-system 命名空间中运行。 如果没有，请强制删除 Pod，它会重启。
 
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>当连接到 AKS API 时，我从客户端收到 `"tls: client offered only unsupported versions"`。   应采取何种操作？
+
+AKS 支持的最低 TLS 版本是 TLS 1.2。
+
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>我在尝试进行升级或缩放时收到 `"Changing property 'imageReference' is not allowed"` 错误。 如何修复此问题？
 
 收到此错误的原因可能是，你修改了 AKS 群集内代理节点中的标记。 如果修改或删除 MC_* 资源组中资源的标记和其他属性，可能会导致意外结果。 更改 AKS 群集中 MC_ * 组下的资源会中断服务级别目标 (SLO)。
@@ -184,6 +189,10 @@ Azure 平台和 AKS 都实施了命名限制。 如果资源名称或参数违�
 * 使用现有服务主体，该主体已跨区域传播，并可在群集创建时传入 AKS。
 * 如果使用自动化脚本，请在创建服务主体和创建 AKS 群集之间增加延迟时间。
 * 如果使用 Azure 门户，请在创建期间返回到群集设置，然后在几分钟后重试验证页面。
+
+## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>使用 AKS API 时，我收到 `"AADSTS7000215: Invalid client secret is provided."`。   应采取何种操作？
+
+这通常是由于服务主体凭据过期导致的。 [更新 AKS 群集的凭据。](update-credentials.md)
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>在限制出口流量后收到错误消息
 

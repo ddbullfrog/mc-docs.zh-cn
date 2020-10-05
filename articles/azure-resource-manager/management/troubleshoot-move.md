@@ -1,19 +1,19 @@
 ---
 title: 排查迁移错误
-description: 使用 Azure Resource Manager 将资源移到新的资源组或订阅。
+description: 排查将资源移到新资源组或订阅时出现的问题。
 ms.topic: conceptual
 origin.date: 08/27/2019
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3497aef22b105c5ca78c04c043b70a7050da9558
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: ffbeec842f2bc8b3d4efcaa0b5d34b02f5306e8b
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807718"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146769"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>排查将 Azure 资源移到新的资源组或订阅时遇到的问题
@@ -26,8 +26,8 @@ ms.locfileid: "88807718"
 
 <!--MOONCAKE: CORRECT ON FOLLOWING UPGRADE SUBSCRIPTION-->
 
-* 若要升级试用版，请参阅[将试用版或 Azure Imagine Azure 订阅升级为标准预付费套餐](/billing/billing-upgrade-1rmb-trial/)。
-* 若要更改标准预付费套餐帐户，请参阅[将 Azure 标准预付费套餐订阅更改为其他套餐](/billing/billing-upgrade-to-ea/)。
+* 若要升级试用版，请参阅[将试用版或 Azure Imagine Azure 订阅升级为标准预付费套餐](https://docs.azure.cn/billing/billing-upgrade-1rmb-trial/)。
+* 若要更改标准预付费套餐帐户，请参阅[将 Azure 标准预付费套餐订阅更改为其他套餐](https://docs.azure.cn/billing/billing-upgrade-to-ea/)。
 
 <!--MOONCAKE: CORRECT ON /billing/billing-upgrade-1rmb-trial AND /billing/billing-upgrade-to-ea-->
 

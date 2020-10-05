@@ -5,15 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 05/29/2020
-ms.date: 07/20/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: f53392f0072e96646a8a1ed4b853e192680518b0
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: f32351f287118450405dbeab4ade2ceb5ca06b1f
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414732"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026527"
 ---
 # <a name="enable-and-create-large-file-shares"></a>启用和创建大型文件共享
 
@@ -23,7 +24,7 @@ ms.locfileid: "86414732"
 
 - 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full)。
 - 如果你打算使用 Azure CLI，请[安装最新版本](/cli/install-azure-cli?view=azure-cli-latest)。
-- 如果你打算使用 Azure PowerShell，请[安装最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)。
+- 如果你打算使用 Azure PowerShell 模块，请[安装最新版本](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0)。
 
 ## <a name="restrictions"></a>限制
 

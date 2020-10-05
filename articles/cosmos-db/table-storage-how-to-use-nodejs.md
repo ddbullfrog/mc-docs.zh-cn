@@ -6,18 +6,18 @@ ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 07/23/2020
-ms.date: 08/17/2020
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 43f3e5a327bb14accb811ee586939ccb1833ea44
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 73ecf7b6d69d3f81cf4f7cc3376b65c6a202c4b3
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223073"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246342"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储或 Azure Cosmos DB 表 API
 
@@ -128,7 +128,7 @@ function (returnObject, finalCallback, next)
 
 在此回调中并且在处理 `returnObject`（来自对服务器请求的响应）后，回调必须调用 `next`（如果存在），继续处理其他筛选器，或者只调用 `finalCallback`，结束服务调用。
 
-Azure SDK for Node.js 中附带了两个实现了重试逻辑的筛选器，分别是 ExponentialRetryPolicyFilter 和 LinearRetryPolicyFilter。以下代码创建使用 ExponentialRetryPolicyFilter 的 TableService 对象：
+Azure SDK for Node.js 中包含实现重试逻辑的两个筛选器：`ExponentialRetryPolicyFilter` 和 `LinearRetryPolicyFilter`。 下面创建使用 `ExponentialRetryPolicyFilter` 的 `TableService` 对象：
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -195,7 +195,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
-## <a name="update-an-entity"></a>更新实体
+## <a name="update-an-entity"></a><a name="update-an-entity'></a>更新实体
 
 可使用多种方法来更新现有实体：
 
@@ -495,8 +495,11 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 * GitHub 上的[用于 Node.js 的 Microsoft Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 存储库。
     
     <!--Not Available on * [Azure for Node.js Developers](/developer/javascript/)-->
-    
+
 * [在 Azure 中创建 Node.js Web 应用](../app-service/app-service-web-get-started-nodejs.md)
+
+    <!-Pending on * [Create a Node.js web app in Azure](../app-service/quickstart-nodejs.md)-->
+
 * [生成 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

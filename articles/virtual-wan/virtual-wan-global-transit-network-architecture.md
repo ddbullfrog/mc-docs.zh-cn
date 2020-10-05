@@ -1,20 +1,22 @@
 ---
 title: 体系结构 - 全球传输网络体系结构
 titleSuffix: Azure Virtual WAN
-description: 了解虚拟 WAN 的全局传输网络体系结构
+description: 了解 Azure 虚拟 WAN 如何通过支持在云工作负载之间建立无处不在的、任意点到任意点的连接，来实现全局传输网络体系结构。
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/07/2020
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 44950cefb5946706d590e82da27275fea89db914
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.openlocfilehash: 1073b4b10e326cd597976a5a8d845ee0221d4191
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84654900"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246427"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>全局传输网络体系结构和虚拟 WAN
 
@@ -28,7 +30,7 @@ ms.locfileid: "84654900"
 * 远程用户
 * Internet
 
-![中心和辐射](./media/virtual-wan-global-transit-network-architecture/figure1.png)
+:::image type="content" source="./media/virtual-wan-global-transit-network-architecture/figure1.png" alt-text="中心和辐射":::
 
 图 1：**全局传输中心辐射型网络**
 
@@ -41,7 +43,7 @@ Azure 虚拟 WAN 是 Azure 托管的云网络服务。 构成此服务的所有�
 
 Azure 虚拟 WAN 支持在 VNet 中的全局分布式云工作负荷集、分支站点、SaaS 和 PaaS 应用程序与用户之间随时建立任意点到任意点的连接，从而实现全局传输网络体系结构。
 
-![Azure 虚拟 WAN](./media/virtual-wan-global-transit-network-architecture/figure2.png)
+:::image type="content" source="./media/virtual-wan-global-transit-network-architecture/figure2.png" alt-text="中心和辐射":::
 
 图 2：**全局传输网络和虚拟 WAN**
 
@@ -50,11 +52,11 @@ Azure 虚拟 WAN 支持在 VNet 中的全局分布式云工作负荷集、分支
 若要建立虚拟 WAN，可以在包含最多辐射（分支、VNet、用户）的区域中创建单个虚拟 WAN 中心，然后将其他区域中的辐射连接到该中心。 如果企业的运营足迹主要在包括少量几个远程辐射的单个区域内，则这是一个不错的选择。  
 
 <a name="hubtohub"></a>
-## <a name="hub-to-hub-connectivity-preview"></a>中心到中心的连接（预览）
+## <a name="hub-to-hub-connectivity"></a>中心到中心的连接
 
-企业云足迹可以跨多个云区域，最好是从最靠近其物理站点和用户的区域访问云（改善延迟）。 全局传输网络体系结构的重要原则之一是在所有云与本地网络终结点之间实现跨区域连接。 这意味着，与一个区域中的云相连接的分支发出的流量，可以使用 [Azure 全球网络](https://www.azure.cn/global-infrastructure/global-network/)实现的中心到中心连接抵达不同区域中的另一个分支或 VNet。
+企业云足迹可以跨多个云区域，最好是从最靠近其物理站点和用户的区域访问云（改善延迟）。 全局传输网络体系结构的重要原则之一是在所有云与本地网络终结点之间实现跨区域连接。 这意味着，与一个区域中的云相连接的分支发出的流量，可以使用 [Azure 全球网络](https://azure.microsoft.com/global-infrastructure/global-network/)实现的中心到中心连接抵达不同区域中的另一个分支或 VNet。
 
-![跨区域](./media/virtual-wan-global-transit-network-architecture/figure3.png)
+:::image type="content" source="./media/virtual-wan-global-transit-network-architecture/figure3.png" alt-text="中心和辐射":::
 
 图 3：**虚拟 WAN 跨区域连接**
 
@@ -69,7 +71,7 @@ Azure 虚拟 WAN 支持在 VNet 中的全局分布式云工作负荷集、分支
 
 在全局体系结构环境中，任意点到任意点的连接可让企业中的全局分布式用户、分支、数据中心、VNet 和应用程序通过传输中心相互连接。 Azure 虚拟 WAN 充当全局传输系统。
 
-![任意点到任意点](./media/virtual-wan-global-transit-network-architecture/figure4.png)
+:::image type="content" source="./media/virtual-wan-global-transit-network-architecture/figure4.png" alt-text="中心和辐射":::
 
 图 4：**虚拟 WAN 流量路径**
 
@@ -139,11 +141,14 @@ VNet 到 VNet 传输使 VNet 能够相互连接，以互连跨多个 VNet 实施
 
 Azure 虚拟 WAN 中心将互连整个混合网络中的所有网络终结点，可能会看到所有传输网络流量。 可以在 VWAN 中心内部署 Azure 防火墙以启用基于云的安全、访问和策略控制，将虚拟 WAN 中心转换为安全虚拟中心。 虚拟 WAN 中心内的 Azure 防火墙协调可由 Azure 防火墙管理器执行。
 
-[Azure 防火墙管理器](https://go.microsoft.com/fwlink/?linkid=2107683)提供管理和缩放全局传输网络安全性的功能。 Azure 防火墙管理器提供通过第三方工具和 Azure 防火墙集中管理路由、全局策略和高级 Internet 安全服务的功能。
+[Azure 防火墙管理器](https://docs.microsoft.com/azure/firewall-manager/)提供管理和缩放全局传输网络安全性的功能。 Azure 防火墙管理器提供通过第三方工具和 Azure 防火墙集中管理路由、全局策略和高级 Internet 安全服务的功能。
 
-![使用 Azure 防火墙的安全虚拟中心](./media/virtual-wan-global-transit-network-architecture/figure5.png)
+:::image type="content" source="./media/virtual-wan-global-transit-network-architecture/figure5.png" alt-text="中心和辐射":::
 
 图 5：**使用 Azure 防火墙的安全虚拟中心**
+
+> [!NOTE]
+> 当前不支持在中心间配置防火墙。 中心之间的流量将直接绕过每个中心的 Azure 防火墙移动。
 
 虚拟 WAN 的 Azure 防火墙支持以下全局安全传输连接路径。 括号中的字母对应于图 5 中的标识。
 

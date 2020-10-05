@@ -1,21 +1,23 @@
 ---
-title: Azure 防火墙日志分析示例
+title: Azure 防火墙的 Azure Monitor 日志
 description: Azure Monitor 日志可用于分析 Azure 防火墙。 示例文件是在 Azure Monitor 的视图设计器中构建的。
 services: firewall
-author: rockboyfor
 ms.service: firewall
-ms.topic: article
-origin.date: 01/23/2020
-ms.date: 02/24/2020
+ms.topic: how-to
+origin.date: 09/11/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: yes
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5005bf920e4e999f390403705f87bb245973db75
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 634625d6af42a0dc4d40bc929c7946f96a2bb15f
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540240"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246800"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Azure 防火墙日志分析示例
+# <a name="azure-monitor-logs-for-azure-firewall"></a>Azure 防火墙的 Azure Monitor 日志
 
 以下 Azure Monitor 日志示例可用于分析 Azure 防火墙日志。 示例文件是在 Azure Monitor 的视图设计器中构建的，[Azure Monitor 中的视图设计器](/azure-monitor/platform/view-designer)一文提供了有关视图设计概念的更多信息。
 
@@ -35,7 +37,7 @@ ms.locfileid: "77540240"
 
 以下是视图查找应用程序规则日志数据的方式：
 
-![应用程序规则日志数据](./media/log-analytics-samples/azurefirewall-applicationrulelogstats.png)
+:::image type="content" source="./media/log-analytics-samples/azurefirewall-applicationrulelogstats.png" alt-text="应用程序规则日志数据":::
 
 以及查找网络规则日志数据的方式：
 
@@ -174,14 +176,13 @@ AzureDiagnostics
 
 以下日志示例显示了日志条目中包含的数据。
 
-![日志条目](media/log-analytics-samples/log1.png)
+:::image type="content" source="media/log-analytics-samples/log1.png" alt-text="应用程序规则日志数据":::
 
-![日志条目](media/log-analytics-samples/log2.png)
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="应用程序规则日志数据":::
 
-![日志条目](media/log-analytics-samples/log3.png)
-
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="应用程序规则日志数据":::
 ## <a name="next-steps"></a>后续步骤
 
 若要了解 Azure 防火墙监视和诊断，请参阅[教程：监视 Azure 防火墙日志和指标](tutorial-diagnostics.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

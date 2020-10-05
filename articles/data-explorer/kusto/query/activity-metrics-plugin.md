@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 687bed70b459b6bfa388d565706f6fab1638ea5a
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: e833a992164b43b555276913fd1c22cd31083abe
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515797"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146605"
 ---
 # <a name="activity_metrics-plugin"></a>activity_metrics 插件
 
@@ -54,15 +54,15 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
 
 一段时间内 `Retention Rate` 的计算方法为：
 
-    # of customers returned during the period
-    / (divided by)
-    # customers at the beginning of the period
+> 在此期间返回的客户数  
+> /（除以）  
+> 此期间开始时的客户数  
 
 其中的 `# of customers returned during the period` 定义为：
 
-    # of customers at end of period
-    - (minus)
-    # of new customers acquired during the period
+> 此期间结束时的客户数  
+> \-（减）  
+> 此期间获取的新客户数  
 
 `Retention Rate` 可以在从 0.0 到 1.0 的范围内变化  
 分数越高表示返回用户的数量越大。
@@ -72,15 +72,15 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
 
 一段时间内 `Churn Rate` 的计算方法为：
     
-    # of customers lost in the period
-    / (divided by)
-    # of customers at the beginning of the period
+> 此期间流失的客户数  
+> /（除以）  
+> 此期间开始时的客户数  
 
 其中的 `# of customer lost in the period` 定义为：
 
-    # of customers at the beginning of the period
-    - (minus)
-    # of customers at the end of the period
+> 此期间开始时的客户数  
+> \-（减）  
+> 此期间结束时的客户数  
 
 `Churn Rate` 可以在从 0.0 到 1.0 的范围内变化。分数越高，表示不返回到服务的用户数量越多。
 
@@ -88,7 +88,7 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
 
 派生自 `Churn Rate` 和 `Retention Rate` 的定义，以下公式始终成立：
 
-    [Retention rate] = 100.0% - [Churn Rate]
+> [`Retention Rate`] = 100.0% - [`Churn Rate`]
 
 
 ## <a name="examples"></a>示例
@@ -185,4 +185,4 @@ range _day from _start to _end  step 1d
 |2017-05-22 00:00:00.0000000|1740|1017|
 |2017-05-29 00:00:00.0000000|960|756|
 
-:::image type="content" source="images/activity-metrics-plugin/activity-metrics-dcount-and-dcount-newvalues.png" border="false" alt-text="活动指标 dcount 和 dcount 新值":::
+:::image type="content" source="images/activity-metrics-plugin/activity-metrics-dcount-and-dcount-newvalues.png" border="false" alt-text="活动指标改动和保留":::

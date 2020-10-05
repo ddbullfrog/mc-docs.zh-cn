@@ -6,17 +6,18 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 07/13/2020
-ms.date: 08/24/2020
+origin.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 4c0d67bb018b9d8c9622c64776b0001f16b7fb1d
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d81bcc67351a6dd28e27c2ef34a9055ed9433821
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753408"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026501"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>通过 PowerShell 使用 Azure Key Vault 配置客户管理的密钥
 
@@ -82,13 +83,16 @@ Azure 存储加密支持 2048、3072 和 4096 大小的 RSA 密钥。 有关密�
 
 Azure 存储加密默认使用 Microsoft 托管的密钥。 在这一步中，请将 Azure 存储帐户配置为通过 Azure Key Vault 使用客户管理的密钥，然后指定要与存储帐户关联的密钥。
 
-在使用客户管理的密钥配置加密时，可以选择在关联的密钥保管库中的版本发生更改时自动轮换用于加密的密钥。 也可以显式指定在手动更新密钥版本之前要用于加密的密钥版本。
+在使用客户管理的密钥配置加密时，可以选择在关联的密钥保管库中的密钥版本发生更改时自动更新用于加密的密钥。 也可以显式指定在手动更新密钥版本之前要用于加密的密钥版本。
 
-### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>为自动轮换客户管理的密钥配置加密
+> [!NOTE]
+> 若要轮换密钥，请在 Azure Key Vault 中创建密钥的新版本。 Azure 存储不会处理 Azure Key Vault 中的密钥轮换，因此你将需要手动轮换密钥，或创建一个函数以便按计划轮换密钥。
 
-若要为自动轮换客户管理的密钥配置加密，请安装 [Az. Storage](https://www.powershellgallery.com/packages/Az.Storage) 模块版本 2.0.0 或更高版本。
+### <a name="configure-encryption-to-automatically-update-the-key-version"></a>配置加密以自动更新密钥版本
 
-若要自动轮换客户管理的密钥，请在为存储帐户配置客户管理的密钥时省略密钥版本。 调用 [AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) 以更新存储帐户的加密设置（如以下示例所示），并包含 -KeyvaultEncryption 选项，以便为存储帐户启用客户管理的密钥。 请记得将括号中的占位符值替换为自己的值，并使用前面示例中定义的变量。
+若要使用客户管理的密钥配置加密以自动更新密钥版本，请安装 [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) 模块 2.0.0 版或更高版本。
+
+若要自动更新客户管理密钥的密钥版本，请在使用客户管理的密钥为存储帐户配置加密时省略密钥版本。 调用 [AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) 以更新存储帐户的加密设置（如以下示例所示），并包含 -KeyvaultEncryption 选项，以便为存储帐户启用客户管理的密钥。 请记得将括号中的占位符值替换为自己的值，并使用前面示例中定义的变量。
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -98,7 +102,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>为手动轮换密钥版本配置加密
+### <a name="configure-encryption-for-manual-updating-of-key-versions"></a>配置加密以手动更新密钥版本
 
 若要显式指定用于加密的密钥版本，请在为存储帐户配置使用客户管理的密钥进行加密时提供该密钥版本。 调用 [AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) 以更新存储帐户的加密设置（如以下示例所示），并包含 -KeyvaultEncryption 选项，以便为存储帐户启用客户管理的密钥。 请记得将括号中的占位符值替换为自己的值，并使用前面示例中定义的变量。
 
@@ -111,7 +115,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-手动轮换密钥版本时，需要更新存储帐户的加密设置以使用新版本。 首先调用 [Get-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultkey) 以获取最新密钥版本。 然后调用 [Set-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) 来更新存储帐户的加密设置，以使用该密钥的新版本，如前面示例所示。
+手动更新密钥版本时，需要更新存储帐户的加密设置以使用新版本。 首先调用 [Get-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultkey) 以获取最新密钥版本。 然后调用 [Set-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) 来更新存储帐户的加密设置，以使用该密钥的新版本，如前面示例所示。
 
 ## <a name="use-a-different-key"></a>使用其他密钥
 

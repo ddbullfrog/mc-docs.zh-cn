@@ -2,18 +2,18 @@
 title: 完整模式删除
 description: 显示资源类型如何在 Azure 资源管理器模板中进行完全模式删除。
 ms.topic: conceptual
-origin.date: 07/06/2020
+origin.date: 08/25/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 21a32647456b920540c3f4c886b2ac7659e9196e
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 949586c8b6fab20086e3071bbf7470fe48ccf408
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807777"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146519"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>针对完全模式部署的 Azure 资源删除
 
@@ -112,6 +112,7 @@ ms.locfileid: "88807777"
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
+> | advisorScore | 否 |
 > | 配置 | 否 |
 > | generateRecommendations | 否 |
 > | metadata | 否 |
@@ -157,6 +158,8 @@ ms.locfileid: "88807777"
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
+> | accessReviewScheduleDefinitions | 否 |
+> | accessReviewScheduleSettings | 否 |
 > | classicAdministrators | 否 |
 > | dataAliases | 否 |
 > | denyAssignments | 否 |
@@ -166,13 +169,16 @@ ms.locfileid: "88807777"
 > | 权限 | 否 |
 > | policyAssignments | 否 |
 > | policyDefinitions | 否 |
+> | policyExemptions | 否 |
 > | policySetDefinitions | 否 |
 > | privateLinkAssociations | 否 |
 > | providerOperations | 否 |
-> | resourceManagementPrivateLinks | 否 |
+> | resourceManagementPrivateLinks | 是 |
 > | roleAssignments | 否 |
 > | roleAssignmentsUsageMetrics | 否 |
 > | roleDefinitions | 否 |
+
+<!--Not Available on ## Microsoft.Automanage-->
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -199,6 +205,7 @@ ms.locfileid: "88807777"
 > | ------------- | ----------- |
 > | b2cDirectories | 是 |
 > | b2ctenants | 否 |
+> | guestUsages | 是 |
 
 <!--Not Available on ## Microsoft.AzureData-->
 
@@ -351,12 +358,16 @@ ms.locfileid: "88807777"
 > | storageAccounts / vmImages | 否 |
 > | vmImages | 否 |
 
+<!--Not Available on ## Microsoft.Codespaces-->
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
 > | accounts | 是 |
+> | accounts / privateEndpointConnectionProxies | 否 |
+> | accounts / privateEndpointConnections | 否 |
+> | accounts / privateLinkResources | 否 |
 
 <!--Not Available on ## Microsoft.Commerce-->
 
@@ -366,6 +377,7 @@ ms.locfileid: "88807777"
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
 > | availabilitySets | 是 |
+> | cloudServices | 是 |
 > | diskAccesses | 是 |
 > | diskEncryptionSets | 是 |
 > | disks | 是 |
@@ -435,16 +447,16 @@ ms.locfileid: "88807777"
 > | registries / queueBuild | 否 |
 > | registries / regenerateCredential | 否 |
 > | registries / regenerateCredentials | 否 |
-> | registries / replications | 是 |
+> | registries/replications | 是 |
 > | registries / runs | 否 |
 > | registries / runs / cancel | 否 |
 > | registries / scheduleRun | 否 |
 > | registries / scopeMaps | 否 |
 > | registries / taskRuns | 否 |
-> | registries / tasks | 是 |
+> | registries/tasks | 是 |
 > | registries / tokens | 否 |
 > | registries / updatePolicies | 否 |
-> | registries / webhooks | 是 |
+> | registries/webhooks | 是 |
 > | registries / webhooks / getCallbackConfig | 否 |
 > | registries / webhooks / ping | 否 |
 
@@ -537,6 +549,7 @@ ms.locfileid: "88807777"
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
+> | flexibleServers | 是 |
 > | serverGroups | 是 |
 > | servers | 是 |
 > | servers / advisors | 否 |
@@ -550,7 +563,6 @@ ms.locfileid: "88807777"
 > | servers / virtualNetworkRules | 否 |
 > | servers / waitStatistics | 否 |
 > | serversv2 | 是 |
-> | singleServers | 是 |
 
 <!--Not Available on ## Microsoft.DeploymentManager-->
 <!--Not Available on ## Microsoft.DesktopVirtualization-->
@@ -569,6 +581,7 @@ ms.locfileid: "88807777"
 > | ProvisioningServices | 是 |
 > | usages | 否 |
 
+<!--Not Available on ## Microsoft.DeviceUpdate-->
 <!--Not Available on ## Microsoft.DevOps-->
 <!--Not Available on ## Microsoft.DevSpaces-->
 <!--Not Available on ## Microsoft.DevTestLab-->
@@ -581,6 +594,7 @@ ms.locfileid: "88807777"
 > | ------------- | ----------- |
 > | databaseAccountNames | 否 |
 > | databaseAccounts | 是 |
+> | restorableDatabaseAccounts | 否 |
 
 <!--Not Available on ## Microsoft.DomainRegistration-->
 <!--Not Available on ## Microsoft.DynamicsLcs-->
@@ -740,6 +754,9 @@ ms.locfileid: "88807777"
 > | workspaces | 是 |
 > | workspaces / computes | 否 |
 > | workspaces / eventGridFilters | 否 |
+> | workspaces / inferenceEndpoints | 是 |
+> | workspaces / inferenceEndpoints / deployments | 是 |
+> | workspaces / linkedServices | 否 |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -749,6 +766,7 @@ ms.locfileid: "88807777"
 > | applyUpdates | 否 |
 > | configurationAssignments | 否 |
 > | maintenanceConfigurations | 是 |
+> | publicMaintenanceConfigurations | 否 |
 > | updates | 否 |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -801,15 +819,15 @@ ms.locfileid: "88807777"
 > | mediaservices / liveEventOperations | 否 |
 > | mediaservices / liveEvents | 是 |
 > | mediaservices / liveEvents / liveOutputs | 否 |
-> | mediaservices/liveEvents/privateEndpointConnectionProxies | 否 |
 > | mediaservices / liveOutputOperations | 否 |
 > | mediaservices / mediaGraphs | 否 |
+> | mediaservices / privateEndpointConnectionOperations | 否 |
+> | mediaservices / privateEndpointConnectionProxies | 否 |
+> | mediaservices / privateEndpointConnections | 否 |
 > | mediaservices / streamingEndpointOperations | 否 |
 > | mediaservices / streamingEndpoints | 是 |
-> | mediaservices/streamingEndpoints/privateEndpointConnectionProxies | 否 |
 > | mediaservices / streamingLocators | 否 |
 > | mediaservices / streamingPolicies | 否 |
-> | mediaservices / streamingPrivateEndpointConnectionProxyOperations | 否 |
 > | mediaservices / transforms | 否 |
 > | mediaservices / transforms / jobs | 否 |
 
@@ -881,6 +899,7 @@ ms.locfileid: "88807777"
 > | privateDnsZones / TXT | 否 |
 > | privateDnsZones / virtualNetworkLinks | 是 |
 > | privateEndpoints | 是 |
+> | privateLinkServices | 是 |
 > | publicIPAddresses | 是 |
 > | publicIPPrefixes | 是 |
 > | routeFilters | 是 |
@@ -950,6 +969,7 @@ ms.locfileid: "88807777"
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
+> | attestations | 否 |
 > | policyEvents | 否 |
 > | policyMetadata | 否 |
 > | policyStates | 否 |
@@ -1082,6 +1102,7 @@ ms.locfileid: "88807777"
 > | automations | 是 |
 > | AutoProvisioningSettings | 否 |
 > | Compliances | 否 |
+> | 连接器 | 否 |
 > | dataCollectionAgents | 否 |
 > | deviceSecurityGroups | 否 |
 > | discoveredSecuritySolutions | 否 |
@@ -1093,7 +1114,10 @@ ms.locfileid: "88807777"
 > | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | 否 |
 > | iotSecuritySolutions / iotAlerts | 否 |
 > | iotSecuritySolutions / iotAlertTypes | 否 |
+> | iotSecuritySolutions / iotRecommendations | 否 |
+> | iotSecuritySolutions / iotRecommendationTypes | 否 |
 > | jitNetworkAccessPolicies | 否 |
+> | jitPolicies | 否 |
 > | 策略 | 否 |
 > | pricings | 否 |
 > | regulatoryComplianceStandards | 否 |
@@ -1295,7 +1319,7 @@ ms.locfileid: "88807777"
 > | sites / eventGridFilters | 否 |
 > | sites / hostNameBindings | 否 |
 > | sites / networkConfig | 否 |
-> | sites / premieraddons | 是 |
+> | sites/premieraddons | 是 |
 > | sites/slots | 是 |
 > | sites / slots / eventGridFilters | 否 |
 > | sites / slots / hostNameBindings | 否 |

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5779e6d4fba6348b3a95b68a0b7db8cc324115a7
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 0bb64580f1d8979b81c78a6293eb16aedb953470
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593804"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245433"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>在 Azure AD 访问评审中创建对组和应用程序的访问评审
 
@@ -96,22 +96,31 @@ ms.locfileid: "89593804"
 
 1. 若要指定评审完成后发生的情况，请展开“完成后的设置”部分。 
 
-    ![创建访问评审 -“完成后操作”设置](./media/create-access-review/upon-completion-settings.png)
+    ![创建访问评审 -“完成后操作”设置](./media/create-access-review/upon-completion-settings-new.png)
 
-1. 如果要自动删除被拒绝用户的访问权限，请将“将结果自动应用到资源”设置为“启用” 。 若要在评审完成后手动应用结果，请将开关设置为“禁用”。 
+2. 如果要自动删除被拒绝用户的访问权限，请将“将结果自动应用到资源”设置为“启用” 。 若要在评审完成后手动应用结果，请将开关设置为“禁用”。 
 
-1. 使用“如果审阅者未答复”列表指定对于审阅者在评审期限内未评审的用户要执行的操作。  此设置不影响审阅者已手动评审的用户。 如果最终的审阅者决策是“拒绝”，则会删除用户的访问权限。
+3. 使用“如果审阅者未答复”列表指定对于审阅者在评审期限内未评审的用户要执行的操作。 此设置不影响审阅者已手动评审的用户。 如果最终的审阅者决策是“拒绝”，则会删除用户的访问权限。
 
     - **不更改** - 将用户访问权限保持不变
     - **删除访问权限** - 删除用户的访问权限
     - **批准访问权限** - 批准用户的访问权限
     - **采用建议** - 根据系统的建议拒绝或批准用户的持续访问权限
 
+4. （预览版）使用将应用于被拒绝的用户的“操作”，以指定来宾用户被拒绝时发生的情况。
+    - **选项 1** 会删除被拒绝用户对要评审的组或应用程序的访问权限，它们仍将能登录到租户。 
+    - **选项 2** 会阻止被拒绝用户登录到租户，无论他们是否有权访问其他资源。 如果出现错误，或者管理员决定重新启用某人的访问权限，该管理员可以在用户被禁用后 30 天内执行此操作。 如果没有对禁用的用户执行任何操作，则会从租户中删除这些用户。
+
+若要详细了解删除不能再访问你组织中资源的来宾用户的最佳做法，请阅读标题为[使用 Azure AD Identity Governance 评审和删除不再具有资源访问权限的外部用户](access-reviews-external-users.md)的文章。
+
+>[!NOTE]
+> 只有你之前已将评审作用域设置为“仅来宾用户”时，应用于被拒绝用户的操作才起作用（请参阅**创建一个或多个访问评审**部分的步骤 8）
+
 ### <a name="advanced-settings"></a>高级设置
 
 1. 若要指定其他设置，请展开“高级设置”部分。 
 
-    ![创建访问评审 - 高级设置](./media/create-access-review/advanced-settings-preview.png)
+    ![创建访问评审 - 高级设置](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. 将“显示建议”设置为“启用”，以基于用户的访问权限信息向评审者显示系统建议。  
 

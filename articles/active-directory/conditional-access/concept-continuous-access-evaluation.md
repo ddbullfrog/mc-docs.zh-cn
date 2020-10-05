@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 09/21/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 600b34a6c3bf5f50e0050d41506c1f24af661710
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 7263f439096e6a3b3d137fb0667cf713de196303
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244715"
 ---
 # <a name="continuous-access-evaluation"></a>连续访问评估
 
@@ -107,7 +107,7 @@ Exchange 和 SharePoint 能够同步关键的条件访问策略，因此可以�
 1. 在这种情况下，资源提供程序会拒绝访问，并将 401+ 声明质询发送回客户端。
 1. 支持 CAE 的客户端理解 401+ 声明质询。 它绕过缓存并返回到步骤 1，将其刷新令牌和声明质询一起发送回 Azure AD。 然后在此情况下，Azure AD 将重新评估所有条件，并提示用户重新进行身份验证。
 
-### <a name="user-condition-change-flow-public-preview"></a>用户条件更改流（公共预览版）：
+### <a name="user-condition-change-flow-preview"></a>用户条件更改流（预览）：
 
 在下面的示例中，条件访问管理员配置了一个基于位置的条件访问策略，仅允许来自特定 IP 范围的访问：
 
@@ -134,6 +134,13 @@ Exchange 和 SharePoint 能够同步关键的条件访问策略，因此可以�
 
 ## <a name="troubleshooting"></a>疑难解答
 
+### <a name="supported-location-policies"></a>支持的位置策略
+
+对于 CAE，我们只了解基于命名 IP 的命名位置。 我们不了解其他位置设置，例如[受 MFA 信任的 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) 或基于国家/地区的位置。 如果用户来自受 MFA 信任的 IP 或来自受信任的位置（其中包含受 MFA 信任的 IP 或国家/地区位置），则在用户移到其他位置之后，将不会强制执行 CAE。 在这些情况下，我们会颁发 1 小时 CAE 令牌，不进行即时 IP 强制检查。
+
+> [!IMPORTANT]
+> 在配置连续访问评估的位置时，请仅使用[基于 IP 的条件访问位置条件](../conditional-access/location-condition.md#preview-features)并配置所有 IP 地址（包括 IPv4 和 IPv6），这些地址可通过标识提供者和资源提供程序查看。 不要使用国家/地区位置条件，也不要使用 Azure 多重身份验证的服务设置页中提供的受信任的 IP 功能。
+
 ### <a name="ip-address-configuration"></a>IP 地址配置
 
 标识提供者和资源提供程序可能会看到不同的 IP 地址。 这种不匹配可能是由组织的网络代理实现导致的，或者是由标识提供者与资源提供程序之间不正确的 IPv4/IPv6 配置导致的。 例如：
@@ -143,9 +150,6 @@ Exchange 和 SharePoint 能够同步关键的条件访问策略，因此可以�
 - 标识提供者所看到的 IP 地址是策略中允许的 IP 范围的一部分，但来自资源提供程序的 IP 地址不是。
 
 如果你的环境中存在此方案，为避免无限循环，Azure AD 会颁发一个有效期为一小时的 CAE 令牌，但不会强制更改客户端位置。 即使在这种情况下，与传统的一小时令牌相比，安全性也得到了提高，因为除了客户端位置更改事件之外，我们还评估[其他事件](#critical-event-evaluation)。
-
-> [!IMPORTANT]
-> 配置用于连续访问评估的位置时，请仅使用[基于 IP 的条件访问位置条件](../conditional-access/location-condition.md)。 不要使用国家/地区位置条件，也不要使用 Azure 多重身份验证的服务设置页中提供的受信任的 IP 功能。
 
 ### <a name="office-and-web-account-manager-settings"></a>Office 和 Web 帐户管理器设置
 

@@ -3,21 +3,21 @@ title: 混合标识文档
 summary: Microsoft 的标识解决方案跨越本地和基于云的功能，创建单一用户标识对所有资源进行身份验证和授权，而不考虑其位置。 我们称此为混合标识。
 metadata:
   author: billmath
-  description: Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365 和 Azure 应用程序的用户提供一个通用标识。
+  description: Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样，便可为集成了 Azure AD 的 Microsoft 365、Azure 应用程序的用户提供一个通用标识。
   manager: daveba
   ms.author: v-junlch
   ms.collection: na
-  ms.date: 04/23/2020
+  ms.date: 09/24/2020
   ms.service: active-directory
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: 04be16bb4f5c22d0d8e29b27a40e1f5e5a199eaa
-  ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+  ms.openlocfilehash: dd705ede17e8be58a63709984f77cb701a196a58
+  ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/24/2020
-  ms.locfileid: "82126556"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91245508"
 landingContent:
 - title: 关于混合标识
   linkLists:

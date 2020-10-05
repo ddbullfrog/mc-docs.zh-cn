@@ -6,15 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 10/10/2019
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: fea81069dc635c1504c1b11a455be20b5fc71847
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4a9eb1884512ec8556e2527260240d3b55bdb760
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753497"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026493"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 存储的性能与可伸缩性查检表
 
@@ -48,6 +49,7 @@ Azure 存储在容量、事务速率和带宽方面存在可伸缩性与性能�
 | &nbsp; |重试 |[对于不可重试的错误，应用程序是否会避免重试？](#non-retryable-errors) |
 | &nbsp; |复制 Blob |[是否以最高效的方式复制 Blob？](#blob-copy-apis) |
 | &nbsp; |复制 Blob |[是否使用最新版本的 AzCopy 执行批量复制操作？](#use-azcopy) |
+| &nbsp; |复制 Blob |[是否要使用 Azure Data Box 系列导入大量数据？](#use-azure-data-box) |
 | &nbsp; |内容分发 |[是否要使用 CDN 进行内容分发？](#content-distribution) |
 | &nbsp; |使用元数据 |[是否会将频繁使用的有关 Blob 的元数据存储在其元数据中？](#use-metadata) |
 | &nbsp; |快速上传 |[尝试快速上传一个 Blob 时，是否会以并行方式上传块？](#upload-one-large-blob-quickly) |
@@ -64,7 +66,7 @@ Azure 存储在容量、事务速率和带宽方面存在可伸缩性与性能�
 
 如果即将达到特定订阅/区域组合允许的最大存储帐户数，请评估你的方案并确定是否符合以下任何条件：
 
-- 是否使用存储帐户作为非托管磁盘，并将这些磁盘添加到虚拟机 (VM)？ 对于此方案，Azure 建议使用托管磁盘。 托管磁盘可自动缩放，你无需创建和管理单个存储帐户。 有关详细信息，请参阅 [Azure 托管磁盘简介](../../virtual-machines/windows/managed-disks-overview.md)
+- 是否使用存储帐户作为非托管磁盘，并将这些磁盘添加到虚拟机 (VM)？ 对于此方案，Azure 建议使用托管磁盘。 托管磁盘可自动缩放，你无需创建和管理单个存储帐户。 有关详细信息，请参阅 [Azure 托管磁盘简介](../../virtual-machines/managed-disks-overview.md)
 - 是否对每个客户使用一个存储帐户，以实现数据隔离？ 对于此方案，Azure 建议对每个客户使用 Blob 容器，而不要使用整个存储帐户。 Azure 存储现在允许基于每个容器分配 Azure 角色。 有关详细信息，请参阅[在 Azure 门户中使用 RBAC 授予对 Azure Blob 和队列数据的访问权限](../common/storage-auth-aad-rbac-portal.md)。
 - 是否使用多个存储帐户进行分片，以增加流入量、流出量、每秒 I/O 操作次数 (IOPS) 或容量？ 对于此方案，Azure 建议在可能的情况下，利用存储帐户的更高限制来减少工作负荷所需的存储帐户数。 若要请求提高存储帐户的限制，请联系 [Azure 支持部门](https://support.azure.cn/zh-cn/support/contact/)。
 
@@ -243,6 +245,10 @@ Azure 存储提供多种解决方案用于在存储帐户内部、在存储帐�
 ### <a name="use-azcopy"></a>使用 AzCopy
 
 AzCopy 命令行实用工具是向/从以及跨存储帐户批量传输 Blob 的简单高效选项。 AzCopy 已针对此方案进行优化，可以实现较高的传输速率。 AzCopy 版本 10 使用 `Put Block From URL` 操作跨存储帐户复制 Blob 数据。 有关详细信息，请参阅[使用 AzCopy v10 将数据复制或移到 Azure 存储](/storage/common/storage-use-azcopy-v10)。  
+
+### <a name="use-azure-data-box"></a>使用 Azure Data Box
+
+若要将大量数据导入 Blob 存储，请考虑使用 Azure Data Box 系列进行脱机传输。 当你受到时间、网络可用性或成本的限制时，Azure 提供的 Data Box 设备是将大量数据移至 Azure 的理想选择。 有关详细信息，请参阅 [Azure DataBox 文档](/databox/)。
 
 ## <a name="content-distribution"></a>内容分发
 

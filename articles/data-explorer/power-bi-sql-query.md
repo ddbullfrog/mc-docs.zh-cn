@@ -5,15 +5,15 @@ author: orspod
 ms.author: v-tawe
 ms.reviewer: gabil
 ms.service: data-explorer
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 07/10/2019
-ms.date: 05/09/2020
-ms.openlocfilehash: 28eb91863d472d0fe17dba92e8b67ad6268fef62
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.date: 09/24/2020
+ms.openlocfilehash: 2ae07e9c36335e6f8195fdd3b43c9868062c3a20
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417604"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146304"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>在 Power BI 中使用 SQL 查询直观显示 Azure 数据资源管理器中的数据
 
@@ -51,7 +51,7 @@ Azure 数据资源管理器提供三个可以在 Power BI 中连接到数据的�
 
     **设置** | **值** | **字段说明**
     |---|---|---|
-    | 服务器 | *help.kusto.chinacloudapi.cn* | 帮助群集的 URL（没有 *https://* ）。 其他群集的 URL 采用 *\<ClusterName\>.\<区域\>.kusto.chinacloudapi.cn* 格式。 |
+    | 服务器 | *help.kusto.chinacloudapi.cn* | 帮助群集的 URL（没有 *https://* ）。 其他群集的 URL 采用“\<ClusterName\>.\<Region\>.kusto.chinacloudapi.cn”格式。 |
     | 数据库 | *示例* | 托管在要连接到的群集上的示例数据库。 |
     | 数据连接模式 | *导入* | 确定 Power BI 是导入数据还是直接连接到数据源。 可以对此连接器使用任一选项。 |
     | 命令超时 | 留空 | 查询会在运行多长时间之后引发超时错误。 |

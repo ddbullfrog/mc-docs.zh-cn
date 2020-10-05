@@ -1,21 +1,24 @@
 ---
 title: Azure Analysis Services 数据库备份和还原 | Azure
 description: 本文介绍如何从 Azure Analysis Services 数据库备份和还原模型元数据和数据。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 03/30/2020
-ms.date: 04/30/2020
+origin.date: 07/13/2020
+author: rockboyfor
+ms.date: 09/21/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: cfd6492665f11976a45a7bd40788f75b7ec4cbbc
-ms.sourcegitcommit: c4fc01b7451951ef7a9616fca494e1baf29db714
+ms.custom: references_regions
+ms.openlocfilehash: b9bdf55f12e9ae24a815763aef733bcb178f51ba
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84564314"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146757"
 ---
-# <a name="backup-and-restore"></a>备份和还原
+# <a name="analysis-services-database-backup-and-restore"></a>Analysis Services 数据库备份和还原
 
 在 Azure Analysis Services 中备份表格模型数据库与在本地 Analysis Services 中备份大致相同。 主要区别在于存储备份文件的位置。 必须将备份文件保存到 [Azure 存储帐户](../storage/common/storage-create-storage-account.md)的容器中。 可以使用已有存储帐户和容器，也可以在为服务器配置存储设置时创建。
 
@@ -35,21 +38,21 @@ ms.locfileid: "84564314"
 ### <a name="to-configure-storage-settings"></a>配置存储设置
 1. 在 Azure 门户中，转到“设置”****，单击“备份”****。
 
-    ![设置中的备份](./media/analysis-services-backup/aas-backup-backups.png)
+    :::image type="content" source="./media/analysis-services-backup/aas-backup-backups.png" alt-text="设置中的备份":::
 
 2. 单击“已启用”****，并单击“存储设置”****。
 
-    ![启用](./media/analysis-services-backup/aas-backup-enable.png)
+    :::image type="content" source="./media/analysis-services-backup/aas-backup-enable.png" alt-text="设置中的备份":::
 
 3. 选择存储帐户，或新建一个。
 
 4. 选择容器，或新建一个。
 
-    ![选择容器](./media/analysis-services-backup/aas-backup-container.png)
+    :::image type="content" source="./media/analysis-services-backup/aas-backup-container.png" alt-text="设置中的备份":::
 
 5. 保存备份设置。
 
-    ![保存备份设置](./media/analysis-services-backup/aas-backup-save.png)
+    :::image type="content" source="./media/analysis-services-backup/aas-backup-save.png" alt-text="设置中的备份":::
 
 ## <a name="backup"></a>Backup
 

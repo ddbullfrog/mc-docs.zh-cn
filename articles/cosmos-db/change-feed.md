@@ -1,22 +1,22 @@
 ---
 title: 使用 Azure Cosmos DB 中的更改源支持
 description: 使用 Azure Cosmos DB 的更改源支持跟踪文档中发生的更改，基于事件的处理（例如触发器），使缓存和分析系统保持最新状态
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/08/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 132087e73787f96f9963ab0cd3a2b79d3d399f5b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 92569ddba9fe615a09f301d234f77fc1869f7b3c
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246574"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源
 
@@ -59,7 +59,7 @@ Azure Cosmos DB 中更改源支持的工作原理是侦听 Azure Cosmos 容器�
 
 ### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>更改源和 _etag、_lsn 或 _ts
 
-_etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _ts 是修改或创建时间戳。 可以使用 _ts 进行时间顺序比较。 _lsn 是仅为更改源添加的批 ID；它表示事务 ID。 许多项可能具有相同的 _lsn。 FeedResponse 上的 ETag 不同于项上看到的 _etag。 _etag 是用于并发控制的内部标识符，它告知项的版本，而 ETag 用于将源定序。
+_etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _ts 是修改或创建时间戳。 可以使用 _ts 进行时间顺序比较。 _lsn 是仅为更改源添加的批 ID；它表示事务 ID。 许多项可能具有相同的 _lsn。 FeedResponse 上的 ETag 不同于项上看到的 _etag。 _etag 是内部标识符，用于并发控制。 _etag 属性指示项的版本，而 ETag 属性用于对源进行排序。
 
 ## <a name="working-with-change-feed"></a>使用更改源
 

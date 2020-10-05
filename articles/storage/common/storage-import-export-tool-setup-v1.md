@@ -1,20 +1,20 @@
 ---
 title: 设置 Azure 导入/导出工具 v1 | Microsoft Docs
-description: 了解如何设置 Azure 导入/导出服务的驱动器准备和修复工具。 本文所述的导入/导出工具为 v1 版本。
+description: 了解如何设置 Azure 导入/导出服务的驱动器准备和修复工具。 本文是指导入/导出工具版本 1。
 author: WenJason
 services: storage
 ms.service: storage
 ms.topic: how-to
 origin.date: 01/15/2017
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: d55781a929867871e16941722c7b9dcd70f902c8
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 9161f7a8ad84731ee63017db47597fa41f8db187
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753597"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026622"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>设置 Azure 导入/导出工具 v1
 Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱动器准备和修复工具。 可以使用该工具实现以下功能：  
@@ -26,11 +26,11 @@ Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱�
 -   通过某个已完成的导出作业收到驱动器后，可以使用此工具修复这些驱动器上已损坏或丢失的任何文件。  
 
 ## <a name="prerequisites"></a>必备条件  
-若要为导出作业准备驱动器，需要满足以下先决条件：  
+若要为导入作业准备驱动器，需要满足以下先决条件：  
 
 -   必须拥有一个有效的 Azure 订阅。  
 
--   该订阅必须包含一个存储帐户，其中有足够的可用空间可存储所要导入的文件。  
+-   该订阅必须包含一个存储帐户，其中有足够的可用空间来存储所要导入的文件。  
 
 -   需要存储帐户的至少一个帐户密钥。  
 
@@ -254,5 +254,4 @@ Examples:
 * [预览导出作业的驱动器使用情况](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
 * [使用复制日志文件查看作业状态](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [修复导入作业](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [修复导出作业](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [排查 Azure 导入/导出工具问题](storage-import-export-tool-troubleshooting-v1.md)
+* [修复导出作业](../storage-import-export-tool-repairing-an-export-job-v1.md)

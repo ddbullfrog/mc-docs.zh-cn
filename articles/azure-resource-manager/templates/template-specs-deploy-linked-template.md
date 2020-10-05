@@ -2,22 +2,24 @@
 title: 将模板规格部署为链接模板
 description: 了解如何在链接的部署中部署现有模板规格。
 ms.topic: conceptual
-origin.date: 07/20/2020
-ms.date: 08/24/2020
+origin.date: 08/31/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7f4a5e290ea3455adc525b439170afdb7041fe47
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 60325bfae17b2bcda3cb623109f0cdf70c26340e
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807937"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146549"
 ---
-<!--Waiting for approval via sending request on 08/25/2020-->
+<!--Not Available on MOONCAKE-->
+<!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>教程：将模板规格部署为链接模板（预览版）
 
-了解如何使用[链接的部署](linked-templates.md#linked-template)部署现有[模板规格](template-specs.md)。 使用模板规格与组织中的其他用户共享 ARM 模板。 创建模板规格后，可以使用 Azure PowerShell 部署模板规格。 还可以使用链接的模板将模板规格作为解决方案的一部分进行部署。
+了解如何使用[链接的部署](linked-templates.md#linked-template)部署现有[模板规格](template-specs.md)。 使用模板规格与组织中的其他用户共享 ARM 模板。 创建模板规格后，可以使用 Azure PowerShell 或 Azure CLI 部署模板规格。 还可以使用链接的模板将模板规格作为解决方案的一部分进行部署。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -124,9 +126,22 @@ ms.locfileid: "88807937"
 
 模板规格 ID 是使用 [`resourceID()`](template-functions-resource.md#resourceid) 函数生成的。 如果 templateSpec 位于当前部署的同一资源组中，则 resourceID() 函数中的资源组参数是可选的。  还可以直接将资源 ID 作为参数传入。 若要获取 ID，请使用：
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
 $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+id = $(az ts show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+```
+
+> [!NOTE]
+> 获取模板规格 ID 并将其分配到 Windows PowerShell 中的变量时存在一个已知问题。
+
+---
 
 将参数传递给模板规格的语法为：
 
@@ -145,6 +160,8 @@ $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateS
 
 部署链接的模板时，它将同时部署 Web 应用程序和存储帐户。 其部署过程与部署其他 ARM 模板相同。
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name webRG `
@@ -154,6 +171,21 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
   -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location chinanorth2
+
+az deployment group create \
+  --resource-group webRG \
+  --template-file "c:\Templates\deployTS\azuredeploy.json"
+
+```
+
+---
 
 ## <a name="next-steps"></a>后续步骤
 

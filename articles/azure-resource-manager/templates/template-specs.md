@@ -2,20 +2,21 @@
 title: 模板规格概述
 description: 介绍如何创建模板规格并与组织中的其他用户共享。
 ms.topic: conceptual
-origin.date: 08/06/2020
-ms.date: 08/24/2020
+origin.date: 08/31/2020
+ms.date: 09/21/2020
 ms.testscope: yes|no
 ms.testdate: 08/24/2020null
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: e5453a0e154a52337f1797e1b273b03b385ee9d2
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 5e191456a170c93165c65035d80b0e8eaba4f300
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807936"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146713"
 ---
-<!--Waiting for approval via sending request on 08/25/2020-->
+<!--Not Available on MOONCAKE-->
+<!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure 资源管理器模板规格（预览版）
 
 模板规格是一种新资源类型，用于在 Azure 中存储 Azure 资源管理器模板（ARM 模板），以便之后进行部署。 通过该资源类型，你可以与组织中的其他用户共享 ARM 模板。 与任何其他 Azure 资源一样，模板规格也可以使用基于角色的访问控制 (RBAC) 来共享。
@@ -73,21 +74,59 @@ Microsoft.Resources/templateSpecs 是模板规格的新资源类型。 它包含
 
 使用以下命令创建模板规格：
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -TemplateJsonFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location chinanorth2 -TemplateJsonFile ./mainTemplate.json
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0" \
+  --resource-group templateSpecRG \
+  --location "chinanorth2" \
+  --template-file "./mainTemplate.json"
+```
+
+---
+
 可以使用以下命令查看订阅中的所有模板规格：
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzTemplateSpec
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts list
+```
+
+---
+
 可以使用以下命令查看模板规格的详细信息（包括其版本）：
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts show \
+    --name storageSpec \
+    --resource-group templateSpecRG \
+    --version "1.0"
+```
+
+---
 
 ## <a name="deploy-template-spec"></a>部署模板规格
 
@@ -101,7 +140,9 @@ Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 
 请注意，资源 ID 包括模板规格的版本号。
 
-例如，可以使用以下 PowerShell 命令部署模板规格。
+例如，可以使用以下命令部署模板规格。
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
@@ -111,15 +152,41 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+---
+
 实际上，通常需要运行 `Get-AzTemplateSpec` 来获取要部署的模板规格的 ID。
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
 
 New-AzResourceGroupDeployment `
-  -TemplateSpecId $id `
-  -ResourceGroupName demoRG
+  -ResourceGroupName demoRG `
+  -TemplateSpecId $id
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+---
 
 ## <a name="parameters"></a>参数
 
@@ -127,12 +194,25 @@ New-AzResourceGroupDeployment `
 
 若要以内联方式传递参数，请使用：
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName demoRG `
   -StorageAccountType Standard_GRS
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id \
+  --parameters storageAccountType='Standard_GRS'
+```
+
+---
 
 若要创建本地参数文件，请使用：
 
@@ -150,12 +230,25 @@ New-AzResourceGroupDeployment `
 
 并使用以下命令传递该参数文件：
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName demoRG `
   -TemplateParameterFile ./mainTemplate.parameters.json
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id \
+  --parameters "./mainTemplate.parameters.json"
+```
+
+---
 
 ## <a name="create-a-template-spec-with-linked-templates"></a>创建具有链接模板的模板规格
 
@@ -256,5 +349,4 @@ New-AzResourceGroupDeployment `
 
 * 有关将模板规格部署为链接模板的详细信息，请参阅[教程：将模板规格部署为链接模板](template-specs-deploy-linked-template.md)。
 
-<!-- Update_Description: new article about template specs -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -12,27 +12,40 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/17/2020
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: ce8f417249d361596d751ac95074686d9a847a5f
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: 3b4a1b098aaf3593c0dd1bc6acb9109b2415f6f9
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045864"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026613"
 ---
 # <a name="azure-load-balancer-with-azure-virtual-machine-scale-sets"></a>Azure 负载均衡器和 Azure 虚拟机规模集
 
 使用虚拟机规模集和负载均衡器时，应考虑以下准则：
 
-## <a name="multiple-virtual-machine-scale-sets-cant-use-the-same-load-balancer"></a>多个虚拟机规模集不能使用同一负载均衡器
 ## <a name="port-forwarding-and-inbound-nat-rules"></a>端口转发和入站 NAT 规则：
   * 创建规模集后，无法为负载均衡器的运行状况探测所用的负载均衡规则修改后端端口。 为了更改端口，可以通过更新 Azure 虚拟机规模集来删除运行状况探测，更新端口，然后重新配置运行状况探测。
   * 在负载均衡器的后端池中使用虚拟机规模集时，会自动创建默认的入站 NAT 规则。
 ## <a name="inbound-nat-pool"></a>入站 NAT 池：
   * 每个虚拟机规模集必须有至少一个入站 NAT 池。 
   * 入站 NAT 池是入站 NAT 规则的集合。 一个入站 NAT 池不能支持多个虚拟机规模集。
-  
+  * 若要从现有虚拟机规模集中删除 NAT 池，需要先从规模集中删除 NAT 池。 下面显示了一个使用 CLI 的完整示例：
+```azurecli
+  az vmss update
+     --resource-group MyResourceGroup
+     --name MyVMSS
+     --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
+  az vmss update-instances
+     -�instance-ids *
+     --resource-group MyResourceGroup
+     --name MyVMSS
+  az network lb inbound-nat-pool delete
+     --resource-group MyResourceGroup
+     -�lb-name MyLoadBalancer
+     --name MyNatPool
+```
 ## <a name="load-balancing-rules"></a>负载均衡规则：
   * 在负载均衡器的后端池中使用虚拟机规模集时，会自动创建默认的负载均衡规则。
 ## <a name="outbound-rules"></a>出站规则：

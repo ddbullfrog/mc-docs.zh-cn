@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e20ca8b3e4135d4385a79ce0c3db3542e12cef79
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 6cec4367aad9ccf57ef0118672054e328690c034
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593807"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245022"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限是什么？
 在 Azure Active Directory (Azure AD) 中，所有用户都被授予一组默认权限。 用户的访问权限由用户的类型、其[角色分配](active-directory-users-assign-role-azure-portal.md)及其对单个对象的所有权构成。 本文将会介绍这些默认权限，并将成员和来宾用户的默认权限进行比较。 只能在 Azure AD 的用户设置中更改默认用户权限。
 
 ## <a name="member-and-guest-users"></a>成员和来宾用户
-获得的默认权限集取决于用户是租户的本机成员（成员用户），还是用户作为 B2B 协作来宾（来宾用户）从另一个目录转入。 有关添加来宾用户的详细信息，请参阅[什么是 Azure AD B2B 协作？](../b2b/what-is-b2b.md)。
+获得的默认权限集取决于用户是租户的本机成员（成员用户），还是用户作为 B2B 协作来宾（来宾用户）从另一个目录转入。 有关添加来宾用户的详细信息，请参阅[什么是 Azure AD B2B 协作？](../external-identities/what-is-b2b.md)。
 * 成员用户可以注册应用程序、管理自己的个人资料照片和手机号码、更改自己的密码，以及邀请 B2B 来宾。 此外，用户可以读取所有目录信息（少数用户除外）。 
 * 来宾用户的目录权限受到限制。 他们可以管理自己的个人资料、更改自己的密码并检索其他用户、组和应用的某些信息，但无法读取所有目录信息。 例如，来宾用户无法枚举用户、组和其他 Directory 对象。 可将来宾添加到管理员角色，从而向他们授予角色中包含的完全读取和写入权限。 来宾还可以邀请其他来宾。
 
@@ -33,7 +33,7 @@ ms.locfileid: "89593807"
 **区域** | **成员用户权限** | 默认来宾用户权限 | 受限来宾用户权限（预览）
 ------------ | --------- | ---------- | ----------
 用户和联系人 | <ul><li>读取用户和联系人的所有公共属性</li><li>邀请来宾<li>更改自己的密码<li>管理自己的手机号码<li>管理自己的照片<li>使自己的刷新令牌失效</li></ul> | <ul><li>读取自己的属性<li>读取其他用户和联系人的显示名称、电子邮件、登录名、照片、用户主体名称和用户类型属性<li>更改自己的密码<li>按显示名称、用户主体名称或 ObjectId（如果允许）搜索另一个用户<li>读取其他用户的管理员信息和直接报表信息</li></ul> | <ul><li>读取自己的属性<li>更改自己的密码</li></ul>
-组 | <ul><li>创建安全组<li>创建 Office 365 组<li>读取组的所有属性<li>读取非隐藏的组成员身份<li>读取加入的组的隐藏 Office 365 组成员身份<li>管理用户拥有的组的属性、所有权和成员身份<li>将来宾添加到拥有的组<li>管理动态成员身份设置<li>删除拥有的组<li>还原拥有的 Office 365 组</li></ul> | <ul><li>读取所有非隐藏组的属性，包括成员身份和所有权（甚至是未加入的组）<li>读取加入的组的隐藏 Office 365 组成员身份<li>按显示名称或 ObjectId（如果允许）搜索组</li></ul> | 无权限
+组 | <ul><li>创建安全组<li>创建 Microsoft 365 组<li>读取组的所有属性<li>读取非隐藏的组成员身份<li>读取加入的组的隐藏 Microsoft 365 组成员身份<li>管理用户拥有的组的属性、所有权和成员身份<li>将来宾添加到拥有的组<li>管理动态成员身份设置<li>删除拥有的组<li>还原拥有的 Microsoft 365 组</li></ul> | <ul><li>读取所有非隐藏组的属性，包括成员身份和所有权（甚至是未加入的组）<li>读取加入的组的隐藏 Microsoft 365 组成员身份<li>按显示名称或 ObjectId（如果允许）搜索组</li></ul> | 无权限
 应用程序 | <ul><li>注册（创建）新应用程序<li>读取已注册的应用程序和企业应用程序的属性<li>管理拥有的应用程序的应用程序属性、分配和凭据<li>创建或删除用户的应用程序密码<li>删除拥有的应用程序<li>还原拥有的应用程序</li></ul> | <ul><li>读取已注册的应用程序和企业应用程序的属性</li></ul> | <ul><li>读取已注册的应用程序和企业应用程序的属性
 设备</li></ul> | <ul><li>读取设备的所有属性<li>管理拥有的设备的所有属性</li></ul> | 无权限 | 无权限
 Directory | <ul><li>读取所有公司信息<li>读取所有域<li>读取所有合作伙伴协定</li></ul> | <ul><li>读取显示名称和已验证的域</li></ul> | <ul><li>读取显示名称和已验证的域</li></ul>
@@ -50,7 +50,7 @@ Directory | <ul><li>读取所有公司信息<li>读取所有域<li>读取所有�
 用户可以注册应用程序 | 将此选项设置为“否”可阻止用户创建应用程序注册。 然后，通过将特定的个人添加到“应用程序开发人员”角色，可以将该能力重新授予这些个人。
 允许用户使用 LinkedIn 连接工作或学校帐户 | 将此选项设置为“否”可阻止用户使用其 LinkedIn 帐户连接其工作或学校帐户。  
 能够创建安全组 | 将此选项设置为“否”可阻止用户创建安全组。 全局管理员和用户管理员仍可创建安全组。 有关操作方法，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)。
-能够创建 Office 365 组 | 将此选项设置为“否”可阻止用户创建 Office 365 组。 将此选项设置为“某些”可让选定的一组用户创建 Office 365 组。 全局管理员和用户管理员仍可创建 Office 365 组。 有关操作方法，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)。
+能够创建 Microsoft 365 组 | 将此选项设置为“否”可阻止用户创建 Microsoft 365 组。 将此选项设置为“某些”可让选定的一组用户创建 Microsoft 365 组。 全局管理员和用户管理员仍可创建 Microsoft 365 组。 有关操作方法，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)。
 限制访问 Azure AD 管理门户 | 如果将此选项设为“否”，则允许非管理员使用 Azure AD 管理门户读取和管理 Azure AD 资源。 如果设为“是”，则限制所有非管理员在管理门户中访问任何 Azure AD 数据。<p>注意：此设置不限制通过 PowerShell 或其他客户端（例如 Visual Studio）对 Azure AD 数据的访问。设为“是”时，若要向特定的非管理员用户授予使用 Azure AD 管理门户的权限，请分配任何管理角色（如“目录读取者者”角色）。<p>此角色允许读取基本目录信息，默认情况下成员用户有这些信息（来宾和服务主体没有）。
 能够读取其他用户 | 此设置仅可在 PowerShell 中使用。 将此标记设置为 $false 可阻止所有非管理员用户从目录读取用户信息。 此标记不会阻止读取其他 Microsoft 服务（如 Exchange Online）中的用户信息。 此设置适用于特殊情况，因此不建议将此标记设置为 $false。
 
@@ -65,9 +65,9 @@ Directory | <ul><li>读取所有公司信息<li>读取所有域<li>读取所有�
 权限 | 设置说明
 ---------- | ------------
 来宾用户访问限制（预览） | 如果将此选项设置为“来宾用户与成员用户具有相同访问权限”，则默认为来宾用户授予所有成员用户权限。<p>如果将此选项设置为“来宾用户仅能访问自己的 Directory 对象的属性和成员身份”，则默认将来宾用户限制为仅可访问自己的用户配置文件。 即使按用户主体名称或 ObjectId 进行搜索，也不再允许访问其他用户。 同样也不再允许访问组，包括组成员身份。 此设置不会阻止对其他 Microsoft 服务（例如 Microsoft Teams）中的组的访问。 有关详细信息，请参阅 [Microsoft Teams 来宾访问]()。<p>无论此权限设置如何，仍可将来宾用户添加到管理员角色。
-来宾可发出邀请 | 如果将此选项设置为“是”，则允许来宾邀请其他来宾。 有关详细信息，请参阅[委托 B2B 协作邀请](/active-directory/external-identities/delegate-invitations#configure-b2b-external-collaboration-settings)。
-成员可发出邀请 | 成员可发出邀请。如果将此选项设置为“是”，则允许目录的非管理员成员邀请来宾。 有关详细信息，请参阅[委托 B2B 协作邀请](/active-directory/external-identities/delegate-invitations#configure-b2b-external-collaboration-settings)。
-拥有来宾邀请者角色的管理员和用户可发出邀请 | 如果将此选项设置为“是”，则允许管理员和具有“来宾邀请者”角色的用户邀请来宾。 如果设置为“是”，则无论“成员可发出邀请”设置如何，具有“来宾邀请者”角色的用户仍可以邀请来宾。 有关详细信息，请参阅[委托 B2B 协作邀请](/active-directory/external-identities/delegate-invitations#assign-the-guest-inviter-role-to-a-user)。
+来宾可发出邀请 | 如果将此选项设置为“是”，则允许来宾邀请其他来宾。 有关详细信息，请参阅[委托 B2B 协作邀请](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings)。
+成员可发出邀请 | 成员可发出邀请。如果将此选项设置为“是”，则允许目录的非管理员成员邀请来宾。 有关详细信息，请参阅[委托 B2B 协作邀请](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings)。
+拥有来宾邀请者角色的管理员和用户可发出邀请 | 如果将此选项设置为“是”，则允许管理员和具有“来宾邀请者”角色的用户邀请来宾。 如果设置为“是”，则无论“成员可发出邀请”设置如何，具有“来宾邀请者”角色的用户仍可以邀请来宾。 有关详细信息，请参阅[委托 B2B 协作邀请](../external-identities/delegate-invitations.md#assign-the-guest-inviter-role-to-a-user)。
 
 ## <a name="object-ownership"></a>对象所有权
 

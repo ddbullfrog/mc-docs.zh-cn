@@ -10,16 +10,16 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 416e4345a4f41b5192aea7da27518070da7fffad
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 8c967e69b1fe63755f0c1fa089013a28dca27f5b
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164888"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245044"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](how-to-connect-install-express.md)不能满足部署或拓扑的所有情况。
@@ -44,15 +44,15 @@ ms.locfileid: "86164888"
 | 指定自定义同步组 |默认情况下，在安装同步服务时，Azure AD Connect 会在服务器本地创建四个组。 这些组是：管理员组、操作员组、浏览组和密码重置组。 在此可以指定自己的组。 组必须在服务器本地，并且不能位于域中。 |
 
 ### <a name="user-sign-in"></a>用户登录
-安装所需的组件后，系统会要求你选择用户登录方法。 下表提供了可用选项的简短说明。 有关登录方法的完整说明，请参阅[用户登录](plan-connect-user-signin.md)。
+在安装所需的组件后，需要选择用户单一登录方法。 下表提供了可用选项的简短说明。 有关登录方法的完整说明，请参阅[用户登录](plan-connect-user-signin.md)。
 
 ![用户登录](./media/how-to-connect-install-custom/usersignin4.png)
 
-| 登录选项 | 说明 |
+| 单一登录选项 | 说明 |
 | --- | --- |
-| 密码哈希同步 |用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。 用户密码作为密码哈希同步到 Azure AD，并在云中进行身份验证。 有关详细信息，请参阅[密码哈希同步](how-to-connect-password-hash-synchronization.md)。 |
-| 使用 AD FS 进行联合身份验证 |用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。  用户被重定向到他们的本地 AD FS 实例以进行登录，并在本地完成身份验证。 |
-| 使用 PingFederate 进行联合身份验证|用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。  用户被重定向到他们的本地 PingFederate 实例以进行登录，并在本地完成身份验证。 |
+| 密码哈希同步 |用户能够使用他们在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Microsoft 365。 用户密码作为密码哈希同步到 Azure AD，并在云中进行身份验证。 有关详细信息，请参阅[密码哈希同步](how-to-connect-password-hash-synchronization.md)。 |
+| 使用 AD FS 进行联合身份验证 |用户能够使用他们在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Microsoft 365。  用户被重定向到他们的本地 AD FS 实例以进行登录，并在本地完成身份验证。 |
+| 使用 PingFederate 进行联合身份验证|用户能够使用他们在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Microsoft 365。  用户被重定向到他们的本地 PingFederate 实例以进行登录，并在本地完成身份验证。 |
 | 不配置 |不安装和配置用户登录功能。 如果已有第三方联合服务器或部署了另一个现有解决方案，请选择此选项。 |
 
 ### <a name="connect-to-azure-ad"></a>连接到 Azure AD
@@ -93,13 +93,13 @@ ms.locfileid: "86164888"
 在此页中，可以查看本地 AD DS 中存在的 UPN 域，以及已在 Azure AD 中验证的 UPN 域。 还可以在此页中配置要用于 userPrincipalName 的属性。
 
 ![未验证的域](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
-查看标记为“未添加”和“未验证”的每个域。  确保使用的域都已在 Azure AD 中验证。 验证域后，请单击“刷新”符号。 有关详细信息，请参阅[添加和验证域](../add-custom-domain.md)
+查看标记为“未添加”和“未验证”的每个域。  确保使用的域都已在 Azure AD 中验证。 验证域后，请单击“刷新”符号。 有关详细信息，请参阅[添加和验证域](../fundamentals/add-custom-domain.md)
 
 **UserPrincipalName** - 属性 userPrincipalName 是用户登录 Azure AD 和 Office 365 时使用的属性。 应在同步处理用户前在 Azure AD 中对使用的域（也称为 UPN 后缀）进行验证。 Microsoft 建议保留默认属性 userPrincipalName。 如果此属性不可路由且无法验证，可以选择另一个属性。 例如，可以选择 email 作为保存登录 ID 的属性。 使用除 userPrincipalName 以外的其他属性被称为“替代 ID” 。 “替代 ID”属性值必须遵循 RFC822 标准。 替代 ID 可以配合密码同步和联合使用。 不得在 Active Directory 中将该属性定义为多值，即使它只有单个值。
 
 
 > [!WARNING]
-> 所有 Office 365 工作负荷都不允许使用替代 ID。 有关详细信息，请参阅 [配置替代登录 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)。
+> 所有 Microsoft 365 工作负荷都不允许使用替代 ID。 有关详细信息，请参阅 [配置替代登录 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)。
 >
 >
 
@@ -154,6 +154,15 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 在成熟的生产部署中，往往很难维护包含要同步的所有对象的单个组。 在这种情况下，应该使用[配置筛选](how-to-connect-sync-configure-filtering.md)中所述的方法之一。
 
 ### <a name="optional-features"></a>可选功能
+此屏幕可让你针对特定方案选择可选功能。
+
+>[!WARNING]
+>Azure AD Connect 版本 **1.0.8641.0** 及更早版本依赖于 Azure 访问控制服务进行密码写回。  该服务将于 **2018 年 11 月 7 日**停用。  如果你使用上述任一版本的 Azure AD Connect 并启用了密码写回，则一旦服务停用，用户可能无法更改或重置其密码。 将不支持使用这些版本的 Azure AD Connect 进行密码写回。
+>
+>若要下载最新版本的 Azure AD Connect，请单击[此处](https://www.microsoft.com/download/details.aspx?id=47594)。
+
+![可选功能](./media/how-to-connect-install-custom/optional2.png)
+
 > [!WARNING]
 > 如果当前启用了 DirSync 或 Azure AD Sync，请勿激活 Azure AD Connect 中的任何写回功能。
 
@@ -161,10 +170,11 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 
 | 可选功能 | 说明 |
 | --- | --- |
-| Exchange 混合部署 |Exchange 混合部署功能使 Exchange 邮箱能够在本地和 Office 365 中共存。 Azure AD Connect 将特定的[属性](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)集从 Azure AD 同步回到本地目录。 |
+| Exchange 混合部署 |Exchange 混合部署功能使 Exchange 邮箱能够在本地和 Microsoft 365 中共存。 Azure AD Connect 将特定的[属性](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)集从 Azure AD 同步回到本地目录。 |
 | Exchange 邮件公用文件夹 | “Exchange 邮件公用文件夹”功能可以将支持邮件功能的公用文件夹对象从本地 Active Directory 同步到 Azure AD。 |
 | Azure AD 应用程序和属性筛选 |通过启用 Azure AD 应用和属性筛选，可以定制同步的属性集。 此选项会在向导中额外添加两个配置页。 有关详细信息，请参阅 [Azure AD 应用程序和属性筛选](#azure-ad-app-and-attribute-filtering)。 |
 | 密码哈希同步 |如果选择了联合作为登录解决方案，则可以启用此选项。 然后，可将密码哈希同步用作备份选项。 有关更多信息，请参阅[密码哈希同步](how-to-connect-password-hash-synchronization.md)。 </br></br>有关更多信息，请参阅[密码哈希同步](how-to-connect-password-hash-synchronization.md)。|
+| 密码写回 |通过启用密码写回，源自 Azure AD 的密码更改将写回到本地目录。 有关详细信息，请参阅[密码管理入门](../authentication/tutorial-enable-sspr.md)。 |
 | 目录扩展属性同步 |通过启用目录扩展属性同步，可将指定的属性同步到 Azure AD。 有关详细信息，请参阅[目录扩展](how-to-connect-sync-feature-directory-extensions.md)。 |
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Azure AD 应用程序和属性筛选
@@ -262,7 +272,7 @@ AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory �
 ![Azure AD 域](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>验证选择用于联合的 Azure AD 域
-选择要联合的域时，Azure AD Connect 将提供所需的信息来验证尚未验证的域。 有关如何使用此信息，请参阅[添加和验证域](../add-custom-domain.md)。
+选择要联合的域时，Azure AD Connect 将提供所需的信息来验证尚未验证的域。 有关如何使用此信息，请参阅[添加和验证域](../fundamentals/add-custom-domain.md)。
 
 ![Azure AD 域](./media/how-to-connect-install-custom/verifyfeddomain.png)
 
@@ -273,7 +283,7 @@ AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory �
 
 ## <a name="configuring-federation-with-pingfederate"></a>配置使用 PingFederate 的联合身份验证
 使用 Azure AD Connect 配置 PingFederate 非常简单，只需单击几下鼠标即可。 但是，以下先决条件是必需的。
-- PingFederate 8.4 或更高版本。  有关详细信息，请参阅 [PingFederate 与 Azure Active Directory 和 Office 365 的集成](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
+- PingFederate 8.4 或更高版本。  有关详细信息，请参阅 [PingFederate 与 Azure Active Directory 和 Microsoft 365 的集成](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
 - 要使用的联合身份验证服务名称（例如 sts.contoso.com）的 TLS/SSL 证书
 
 ### <a name="verify-the-domain"></a>验证域
@@ -316,9 +326,9 @@ Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索�
 ![已准备好配置](./media/how-to-connect-install-custom/readytoconfigure2.png)
 
 ### <a name="staging-mode"></a>过渡模式
-在过渡模式下，可以同时设置新的同步服务器。 系统仅支持将一台同步服务器导出到云中的一个目录。 但如果想要从另一台服务器（例如运行 DirSync 的服务器）迁移，则可以启用过渡模式的 Azure AD Connect。 启用后，同步引擎将像平时一样导入并同步数据，但不会将任何内容导出到 Azure AD。 密码同步功能在过渡模式下已禁用。
+在过渡模式下，可以同时设置新的同步服务器。 系统仅支持将一台同步服务器导出到云中的一个目录。 但如果想要从另一台服务器（例如运行 DirSync 的服务器）迁移，则可以启用过渡模式的 Azure AD Connect。 启用后，同步引擎将像平时一样导入并同步数据，但不会将任何内容导出到 Azure AD。 密码同步和密码写回功能会在过渡模式下禁用。
 
-![暂存模式](./media/how-to-connect-install-custom/stagingmode.png)
+![过渡模式](./media/how-to-connect-install-custom/stagingmode.png)
 
 在过渡模式下，可以对同步引擎进行所需的更改，并复查要导出的内容。 如果配置看起来正常，请再次运行安装向导，并禁用过渡模式。 现在，已将数据从此服务器导出到 Azure AD。 确保同时禁用其他服务器，以便只有一台服务器在主动导出。
 
@@ -343,6 +353,8 @@ Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索�
 若要验证端到端身份验证是否成功，应当手动执行下列一个或多个测试：
 
 * 在同步完成后，使用 Azure AD Connect 中的”验证联合登录”附加任务来验证你选择的本地用户帐户的身份验证。
+* 在 Intranet 上，通过已加入域的计算机上的浏览器验证是否能够登录：连接到 https://account.activedirectory.windowsazure.cn/r#/applications ，并使用登录帐户验证登录。 内置的 AD DS 管理员帐户未同步，因此无法用于验证。
+* 验证是否可以从 Extranet 中的设备登录。 在家庭计算机或移动设备上连接到 https://account.activedirectory.windowsazure.cn/r#/applications ，并提供凭据。
 * 验证富客户端登录。 连接到 https://testconnectivity.microsoft.com ，选择“Office 365”选项卡，并选择“Office 365 单一登录测试”。 
 
 ## <a name="troubleshooting"></a>故障排除

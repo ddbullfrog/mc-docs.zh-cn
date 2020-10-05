@@ -1,27 +1,27 @@
 ---
 title: 管理 Azure Cosmos DB 中的索引策略
 description: 了解如何管理索引策略、在索引中包括或排除属性、如何使用不同的 Azure Cosmos DB SDK 定义索引
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
-origin.date: 04/28/2020
-ms.date: 08/17/2020
+origin.date: 08/04/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: tracking-python, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: b6cb6bdcd98428d6b99853d92db56bd1fd79101b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-python, devx-track-javascript, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: aeac83915b1a3d9421a8668b23b3830a0b4ffa81
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246441"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引策略
 
 在 Azure Cosmos DB 中，数据是按照为每个容器定义的[索引策略](index-policy.md)编制索引的。 新建容器的默认索引策略会对任何字符串或数字强制使用范围索引。 可以使用你自己的自定义索引策略覆盖此策略。
 
-## <a name="indexing-policy-examples"></a>索引策略示例
+## <a name="indexing-policy-examples"></a><a name="indexing-policy-examples"></a>索引策略示例
 
 下面是以 [JSON 格式](index-policy.md#include-exclude-paths)显示的一些索引策略示例，该格式是在 Azure 门户上公开索引策略的方式。 可以通过 Azure CLI 或任何 SDK 设置相同的参数。
 
@@ -347,7 +347,7 @@ WHERE c.name = "Tim" AND c.age > 18
 [索引策略更新](index-policy.md#modifying-the-indexing-policy)会触发索引转换。 还可以通过 SDK 跟踪此转换的进度。
 
 > [!NOTE]
-> 更新索引策略时，对 Azure Cosmos DB 的写入不会中断。 在重新编制索引期间，查询可能会在更新索引时返回部分结果。
+> 更新索引策略时，对 Azure Cosmos DB 的写入不会中断。 详细了解[索引转换](indexing-policy.md#modifying-the-indexing-policy)
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 门户
 

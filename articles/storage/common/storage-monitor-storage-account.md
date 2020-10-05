@@ -10,12 +10,12 @@ ms.author: v-jay
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c3faf928a0497a95c4dd79b7fc358c5099f67079
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: e524bdacd19b896a00d7dd473c2e8a94328d47ab
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414738"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026537"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>监视 Azure 门户中的存储帐户
 
@@ -140,7 +140,7 @@ ms.locfileid: "86414738"
     ![在 Azure 门户中配置日志记录。](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. 单击“保存” 。
 
-诊断日志保存在存储帐户下名为 $logs 的 Blob 容器中。 可以使用 [Microsoft 存储资源管理器](https://storageexplorer.com)等存储资源管理器，或者使用存储客户端库或 PowerShell 以编程方式来查看日志数据。
+诊断日志保存在存储帐户下名为 $logs 的 Blob 容器中。 可以使用 [Microsoft Azure 存储资源管理器](https://storageexplorer.com)等存储资源管理器来查看日志数据，也可以使用存储客户端库或 PowerShell 以编程方式这样做。
 
 有关如何访问 $logs 容器的信息，请参阅[存储分析日志记录](storage-analytics-logging.md)。
 

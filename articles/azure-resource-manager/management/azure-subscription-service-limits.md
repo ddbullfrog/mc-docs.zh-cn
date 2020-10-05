@@ -1,19 +1,19 @@
 ---
 title: Azure 订阅限制和配额
-description: 提供常见的 Azure 订阅和服务限制、配额和约束的列表。
+description: 提供常见的 Azure 订阅和服务限制、配额和约束的列表。 本文包括有关如何增加限制以及最大值的信息。
 ms.topic: conceptual
+origin.date: 09/02/2020
 author: rockboyfor
-origin.date: 06/04/2020
-ms.date: 08/10/2020
+ms.date: 09/25/2020
 ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 094059cf18852e5ff575c301a3925c4456215085
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: a4b4757d898a4565fe66eed2024eadb73bb7ae9c
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246549"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 
@@ -33,6 +33,9 @@ ms.locfileid: "89316461"
 > 如果可以调整限制，则表中包含“默认限制”和“最大限制”表头。 可以将限制提高到默认限制以上，但不能超过最大限制。
 >
 > 如果想要提高限制或配额，使其超出默认限制，可以[免费建立联机客户支持请求](../templates/error-resource-quota.md)。
+>
+> 术语“软限制”和“硬限制”通常非正式地用于描述当前可调整的限制（软限制）和最大限制（硬限制）。 如果某个限制不可调整，则不会有软限制，只有硬限制。
+>
 
 [试用订阅](https://www.azure.cn/pricing/1rmb-trial-full)。
 
@@ -284,6 +287,9 @@ ms.locfileid: "89316461"
 [!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
 
 <a name="private-link-limits"></a>
+### <a name="private-link-limits"></a>专用链接限制
+
+[!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
 <!--Not Available on Private Link
 
@@ -357,7 +363,7 @@ ms.locfileid: "89316461"
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
-<!--Not Available on ### Azure File Sync limits-->
+<!--Not Available on ### Azure File Sync limits confirmed on 09/21/2020-->
 
 ### <a name="azure-queue-storage-limits"></a>Azure 队列存储限制
 

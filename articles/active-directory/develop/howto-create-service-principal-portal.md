@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: ae83608efed80f7541eae9d01e98a60d60e5041f
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 9df9ae521d35521899bd7953663e1a7b648c16c5
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244691"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体
 
@@ -87,7 +87,7 @@ ms.locfileid: "88647479"
 
 ## <a name="assign-a-role-to-the-application"></a>将角色分配给应用程序
 
-若要访问订阅中的资源，必须将角色分配给应用程序。 判定哪个角色能为应用程序提供适当的权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](../../role-based-access-control/built-in-roles.md)。
+若要访问订阅中的资源，必须将角色分配给应用程序。 判定哪个角色能为应用程序提供适当的权限。 若要了解可用角色，请参阅 [Azure 内置角色](../../role-based-access-control/built-in-roles.md)。
 
 可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域会继承权限。 例如，将某个应用程序添加到资源组的“读者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
 

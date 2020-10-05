@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/12/2020
 ms.date: 03/02/2020
-ms.openlocfilehash: 59943c7722985f3f119ecb4198541150e44d6c21
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 348c46603ed03319f6670232dd9c1783df7260f5
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462891"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394719"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他组件在 HDInsight 中设置群集
 
@@ -138,7 +138,7 @@ HDInsight 群集可以使用以下存储选项：
 
 ### <a name="metastore-settings"></a>元存储设置
 
-你可以创建可选的 Hive 或 Apache Oozie 元存储。 但是，并非所有群集类型都支持元存储，并且 Azure SQL 数据仓库与元存储不兼容。
+你可以创建可选的 Hive 或 Apache Oozie 元存储。 但是，并非所有群集类型都支持元存储，Azure Synapse Analytics 与元存储不兼容。
 
 有关详细信息，请参阅[在 Azure HDInsight 中使用外部元数据存储](./hdinsight-use-external-metadata-stores.md)。
 
@@ -168,7 +168,13 @@ Ambari 用于监视 HDInsight 群集，进行配置更改，以及存储群集�
 
 ![hdinsight 创建选项 选择企业安全数据包](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png)
 
+### <a name="enterprise-security-package"></a>企业安全数据包
 
+对于 Hadoop、Spark、HBase、Kafka 和 Interactive Query 群集类型，可选择启用“企业安全性套餐”。 启用此套餐，可通过使用 Apache Ranger 并与 Azure Active Directory 集成来实现更安全的群集设置。 有关详细信息，请参阅 [Azure HDInsight 中的企业安全性概述](./domain-joined/hdinsight-security-overview.md)。
+
+企业安全数据包允许将 HDInsight 与 Active Directory 和 Apache Ranger 集成。 可使用企业安全数据包创建多个用户。
+
+有关如何创建已加入域的 HDInsight 群集的详细信息，请参阅[创建已加入域的 HDInsight 沙盒环境](./domain-joined/apache-domain-joined-configure.md)。
 
 ### <a name="tls"></a>TLS
 

@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB 查询语言中的 GetCurrentTimestamp
 description: 了解 Azure Cosmos DB 中的 SQL 系统函数 GetCurrentTimestamp。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 07/09/2020
-ms.date: 08/17/2020
+origin.date: 08/19/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: df111268261b600dfdd576a9199860dfb3421c2d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: c51885aa78766f8a1a9c0a1912b87dad54320ffe
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246816"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
 
@@ -29,13 +29,13 @@ GetCurrentTimestamp ()
 
 ## <a name="return-types"></a>返回类型
 
-  返回一个数字值，表示自 Unix 纪元开始消逝的秒数，即自 1970 年 1 月 1 日星期四 00:00:00 开始消逝的毫秒数。
+返回一个有符号的数值，表示自 Unix 纪元以来当前已经过的毫秒数，即自 1970 年 1 月 1 日星期四 00:00:00 以来已经过的毫秒数。
 
 ## <a name="remarks"></a>备注
 
-  GetCurrentTimestamp() 是非确定性的函数。
+GetCurrentTimestamp() 是非确定性的函数。 返回的结果采用 UTC（协调世界时）格式。
 
-  返回的结果采用 UTC（协调世界时）格式。
+此系统函数不会使用索引。
 
 ## <a name="examples"></a>示例
 

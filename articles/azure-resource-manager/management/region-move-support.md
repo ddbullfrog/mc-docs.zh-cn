@@ -3,18 +3,18 @@ title: 跨区域移动 Azure 资源的支持
 description: 列出可跨 Azure 区域移动的 Azure 资源类型
 ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 07/21/2020
+origin.date: 08/25/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: da8aa73c7973dedd6c389b0f98569a30413cdb3d
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: a2f2af408456516773575ee1715db4f84e858199
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807877"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146407"
 ---
 <!--Verify Successfully-->
 # <a name="support-for-moving-azure-resources-across-regions"></a>跨区域移动 Azure 资源的支持
@@ -234,9 +234,9 @@ ms.locfileid: "88807877"
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 区域移动 | 
 > | ------------- | ----------- |
-> | availabilitysets | 否 | 
+> | availabilitysets | 是 | 
 > | diskencryptionsets | 否 | 
-> | disks | 否 | 
+> | disks | 是 | 
 > | galleries | 否 | 
 > | galleries/images | 否 | 
 > | galleries/images/versions | 否 | 
@@ -537,6 +537,7 @@ ms.locfileid: "88807877"
 > | privatednszones |  否 |  
 > | privatednszones/virtualnetworklinks |  否 |  
 > | privateendpoints | 否 | 
+> | privatelinkservices | 否 | 
 > | publicipaddresses | 是<br/><br/> 可以将现有公共 IP 地址配置导出为模板，然后在新区域中部署该模板。 [详细了解](../../virtual-network/move-across-regions-publicip-portal.md)如何移动公共 IP 地址。 |
 > | publicipprefixes | 否 | 
 > | routefilters | 否 | 
@@ -628,6 +629,10 @@ ms.locfileid: "88807877"
 > | ------------- | ----------- |
 > | 查询 |  否 |  
 
+<!--Not Available on ## Microsoft.Resources-->
+<!--Not Available on deploymentScripts-->
+<!--Not Available on templateSpecs-->
+
 <!--Not Available on ## Microsoft.SaaS-->
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
@@ -703,12 +708,14 @@ ms.locfileid: "88807877"
 > | 资源类型 | 区域移动 | 
 > | ------------- | ----------- |
 > | instancepools | 否 | 
-> | managedinstances | 是 | 
+> | managedinstances | 是 <br/><br/> [详细了解](/azure-sql/database/move-resources-across-regions)如何在区域之间移动托管实例。 | 
 > | managedinstances/databases | 是 | 
 > | servers | 是 | 
-> | servers/databases | 是 | 
-> | servers/elasticpools | 是 | 
+> | servers/databases | 是 <br/><br/> [详细了解](/azure-sql/database/move-resources-across-regions)如何在区域之间移动数据库。  | 
+> | servers/elasticpools | 是 <br/><br/> [详细了解](/azure-sql/database/move-resources-across-regions)如何在区域之间移动弹性池。  | 
 > | virtualclusters | 是 | 
+
+<!--MOONCAKE: Not Available on [Learn more](../../resource-mover/tutorial-move-region-sql.md)-->
 
 <!--Not Available on ## Microsoft.SqlVirtualMachine-->
 <!--Not Available on ## Microsoft.SqlVM-->

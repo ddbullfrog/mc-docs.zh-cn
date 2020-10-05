@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: reference
 origin.date: 07/24/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 2862eb67299912daa02ea26b211a21b5fc7fdb00
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 46140675f092e222f779c6a43697adc53d288977
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753483"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026576"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -151,6 +151,10 @@ azcopy sync "https://[account].file.core.chinacloudapi.cn/[share]/[path/to/dir]?
 **--include-pattern** 字符串   仅包括名称与模式列表相匹配的文件。 例如：`*.jpg;*.pdf;exactName`
 
 **--log-level** 字符串 - 定义日志文件的日志详细程度，可用级别：`INFO`（所有请求和响应）、`WARNING`（缓慢响的应）、`ERROR`（仅限失败的请求）和 `NONE`（无输出日志）。 （默认值为 `INFO`）。 
+
+**--preserve-smb-info** - 默认值为 False。 保留 SMB 感知资源（Windows 和 Azure 文件存储）之间的 SMB 属性信息（上次写入时间、创建时间、属性位）。 此标志同时适用于文件和文件夹，除非指定了“仅文件”筛选器（例如包含模式）。 为文件夹传输的信息与为文件传输的信息几乎相同，只是“上次写入时间”除外，不会为文件夹保留该信息。
+
+**--preserve-smb-permissions** - 默认值为 False。 保留感知资源（Windows 和 Azure 文件存储）之间的 SMB ACl。 此标志同时适用于文件和文件夹，除非指定了“仅文件”筛选器（例如 `include-pattern`）。
 
 **--put-md5** - 创建每个文件的 MD5 哈希，并将该哈希另存为目标 Blob 或文件的 Content-MD5 属性。 （默认不会创建哈希。）仅在上传时可用。
 

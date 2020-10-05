@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6005ad34c0e41faa34901ea45c83423ea9145811
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: c62c79cd6d14e585238030c9c00bca8245ea8377
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244730"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>自助式密码重置常见问题解答
 
@@ -104,7 +104,7 @@ ms.locfileid: "89593736"
   > * 请检查是否对目录中的身份验证数据进行了正确的格式设置，例如，+1 4255551234 或 user\@contoso.com。 
 * **问：密码重置支持哪些语言？**
 
-  > **答:** 密码重置 UI、短信和语音呼叫实现了相同语言的本地化，这些语言与 Office 365 所支持的语言相同。
+  > **答:** 密码重置 UI、短信和语音呼叫以 Microsoft 365 支持的相同语言本地化。
   >
   >
 * **问：在自己目录的配置选项卡中设置组织品牌项目后，哪些密码重置体验部分会带有品牌信息？**

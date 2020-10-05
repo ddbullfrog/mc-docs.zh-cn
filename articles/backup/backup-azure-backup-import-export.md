@@ -5,14 +5,14 @@ ms.reviewer: saurse
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 05/17/2018
-ms.date: 07/31/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: 0c4c5c49271c2bd88d5f8ea71e5433439fd571be
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.openlocfilehash: 3937aeab5023d9d4623627fce7f8c3a2bb6a5bba
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508455"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402480"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure 备份中的脱机备份工作流
 
@@ -139,7 +139,7 @@ Azure 备份的脱机种子设定过程与 [Azure 导入/导出服务](../storag
     | 参数 | 说明 |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |此项必需的输入用于提供在“启动脱机备份”部分的工作流中所输入的暂存位置的路径。 |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |此可选输入用于提供在“启动脱机备份”部分的工作流中所输入的 Azure 发布设置文件的路径。 |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |此可选输入用于提供 Azure 发布设置文件的路径。  |
 
     运行该命令时，该实用工具将请求选择需要准备的驱动器对应的 Azure 导入作业。 如果只有一个与提供的暂存位置关联的导入作业，会显示如下所示的页面。
 
@@ -151,7 +151,7 @@ Azure 备份的脱机种子设定过程与 [Azure 导入/导出服务](../storag
 
     ![Azure 订阅登录](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
-    该工具随后便开始准备磁盘和复制备份数据。 可能需要根据工具的提示附加其他磁盘，以防提供的磁盘没有足够空间来容纳备份数据。 <br/>
+    该工具随后便开始准备磁盘和复制备份数据。 在该工具提示你附加更多磁盘时，你可能需要附加更多磁盘（如果提供的磁盘没有足够空间来容纳备份数据）。 <br/>
 
     成功结束该工具的执行时，命令提示符会提供三段信息：
 

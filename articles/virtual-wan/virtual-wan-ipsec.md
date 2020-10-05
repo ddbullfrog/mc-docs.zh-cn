@@ -1,19 +1,21 @@
 ---
 title: Azure 虚拟 WAN 默认 IPsec 策略 | Azure
-description: 本文提供有关虚拟 WAN 的 IPsec 策略的信息。
+description: 了解 Azure 虚拟 WAN IPsec 连接策略，包括默认发起方和响应方策略以及自定义策略组合。
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 10/07/2019
-ms.date: 03/30/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: f76b616682634148ffcbbca0bc37b4432520c111
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a46cb9c0c34bf70f9b9254b9183cdb8aad6fde6d
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80291279"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246418"
 ---
 # <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>用于 IPsec 连接的虚拟 WAN 默认策略
 
@@ -29,7 +31,7 @@ ms.locfileid: "80291279"
 
 ## <a name="next-steps"></a>后续步骤
 
+有关配置自定义 IPsec 策略的步骤，请参阅[为虚拟 WAN 配置自定义 IPsec 策略](virtual-wan-custom-ipsec-portal.md)。
 有关虚拟 WAN 的详细信息，请参阅[关于 Azure 虚拟 WAN](virtual-wan-about.md) 和 [Azure 虚拟 WAN 常见问题解答](virtual-wan-faq.md)。
 
-<!--Update_Description: new articles on virtual wan ipsec -->
-<!--ms.date: 07/01/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -3,26 +3,26 @@ title: 使用 Azure DevOps Services 测试数据科学代码 - Team Data Science
 description: 通过 Team Data Science Process 和 Azure DevOps Services，在 Azure 上使用 UCI 成人收入预测数据集进行数据科学代码测试
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/19/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 06f5b0dce34ea14e5278e1a98c0e36fa8ba553a0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 3f32554355a02d1bc79270a9ee681140f1ff4c3e
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75598507"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395282"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>在 Azure 上使用 Team Data Science Process 和 Azure DevOps Services 进行数据科学代码测试
 本文提供的初步指导适用于在数据科学工作流中测试代码。 数据科学家可以通过此类测试以系统且有效的方式查看其代码的质量和预期结果。 我们使用的 Team Data Science Process (TDSP) [项目使用 UCI 成人收入数据集](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)，该数据集是我们以前发布的，目的是演示代码测试方法。 
 
 ## <a name="introduction-on-code-testing"></a>代码测试简介
-“单元测试”是一种长期存在的用于软件开发的做法。 但对于数据科学来说，通常并不清楚此做法的具体涵义，也不清楚应如何进行代码测试以应对不同阶段的数据科学生命周期，例如：
+“单元测试”是一种长期存在的用于软件开发的做法。 但对于数据科学来说，“单元测试”的具体含义通常并不清晰，你应如何对数据科学生命周期的不同阶段进行代码测试通常也不明确，例如：
 
 * 数据准备工作
 * 数据质量检查
@@ -124,11 +124,11 @@ ms.locfileid: "75598507"
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. 为生成命名并选择代理。 如果需要使用 DSVM 来完成生成过程，可以选择此处的默认设置。 有关如何设置代理的详细信息，请参阅 [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts)（生成并发布代理）。
+    d. 为生成命名并选择代理。 如果需要使用 DSVM 来完成生成过程，可以在这里选择默认值。 有关如何设置代理的详细信息，请参阅 [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts)（生成并发布代理）。
     
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
-    e. 在左窗格中选择“+”，  添加适合此生成阶段的任务。 由于我们将运行 Python 脚本 **test1.py** 来完成所有检查，因此此任务将使用 PowerShell 命令来运行 Python 代码。
+    e. 在左窗格中选择“+”，  添加适合此生成阶段的任务。 由于我们将运行 Python 脚本 test1.py 来完成所有检查，因此该任务将使用 PowerShell 命令来运行 Python 代码。
     
        !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
 
@@ -138,11 +138,11 @@ ms.locfileid: "75598507"
     
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-    g. 选择“保存并排队”，以完成生成管道过程。 
+    g. 选择“保存并排队”，以完成生成管道过程。
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
-现在，每次将新提交的内容推送到代码存储库时，生成过程就会自动启动。 （在这里，我们使用 master 作为存储库，但你可以定义任何分库。）此过程运行代理计算机中的 **test1.py** 文件，目的是确保代码中定义的所有内容都能正确运行。 
+现在，每次将新提交的内容推送到代码存储库时，生成过程就会自动启动。 你可以定义任何分支。 此过程运行代理计算机中的 **test1.py** 文件，目的是确保代码中定义的所有内容都能正确运行。 
 
 如果警报设置正确，系统会在生成完成以后通过电子邮件通知你。 也可在 Azure DevOps 中检查生成状态。 如果生成失败，则可检查生成的详细信息，找出出错的片段。
 
@@ -154,8 +154,8 @@ ms.locfileid: "75598507"
 * 如需通过具体的示例来了解数据科学方案的单元测试，请参阅 [UCI 收入预测存储库](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)。
 * 请按你自己的数据科学项目的 UCI 收入预测方案中的上述大纲和示例进行操作。
 
-## <a name="references"></a>参考
-* [团队数据科学过程](https://aka.ms/tdsp)
+## <a name="references"></a>参考资料
+* [Team Data Science Process](https://aka.ms/tdsp)
 * [Visual Studio 测试工具](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Azure DevOps 测试资源](https://www.visualstudio.com/team-services/)
 * [数据科学虚拟机](/virtual-machines/data-science-virtual-machines/)

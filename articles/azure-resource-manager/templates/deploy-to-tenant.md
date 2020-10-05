@@ -2,18 +2,18 @@
 title: 将资源部署到租户
 description: 介绍如何在 Azure 资源管理器模板中的租户范围内部署资源。
 ms.topic: conceptual
-origin.date: 07/27/2020
+origin.date: 09/04/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: eff5351e0a73976f7a996e9d1a3fd4056acacfce
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 91d2ccf69a526a8acc9a245903967761a8ee3e63
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807734"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146513"
 ---
 <!--Verified successfully-->
 # <a name="create-resources-at-the-tenant-level"></a>在租户级别创建资源
@@ -92,7 +92,7 @@ Azure Active Directory 的全局管理员不自动拥有分配角色的权限。
 
 用于租户部署的命令与资源组部署使用的命令不同。
 
-对于 Azure CLI，请使用 [az deployment tenant create](https://docs.microsoft.com/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create)：
+对于 Azure CLI，请使用 [az deployment tenant create](https://docs.microsoft.com/cli/azure/deployment/tenant#az-deployment-tenant-create)：
 
 ```azurecli
 az deployment tenant create \
@@ -161,7 +161,7 @@ New-AzTenantDeployment `
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-mg
                 }
             }
         }
@@ -177,9 +177,11 @@ New-AzTenantDeployment `
 * 不支持 [resourceGroup()](template-functions-resource.md#resourcegroup) 函数。
 * 不支持 [subscription()](template-functions-resource.md#subscription) 函数。
 * 支持 [reference()](template-functions-resource.md#reference) 和 [list()](template-functions-resource.md#list) 函数。
-* 使用 [tenantResourceId()](template-functions-resource.md#tenantresourceid) 函数可获得在租户级别部署的资源的 ID。
+* 请勿使用 [resourceId()](template-functions-resource.md#resourceid) 获取在租户级别部署的资源的资源 ID。
 
-    例如，若要获取策略定义的资源 ID，请使用：
+    请改用 [tenantResourceId()](template-functions-resource.md#tenantresourceid) 函数。
+
+    例如，若要获取内置策略定义的资源 ID，请使用：
 
     ```json
     tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))

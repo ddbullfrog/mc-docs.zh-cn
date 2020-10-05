@@ -1,5 +1,5 @@
 ---
-title: 使用指标和警报进行诊断 - Azure 标准负载均衡器
+title: 通过指标、警报和资源运行状况进行诊断 - Azure 标准负载均衡器
 description: 使用可用的指标、警报和资源运行状况信息对 Azure 标准负载均衡器进行诊断。
 services: load-balancer
 documentationcenter: na
@@ -11,20 +11,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/14/2019
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 1201ee12707d5be6a8e017f6ab74ae26609554aa
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: f1f5b8f992554d62844d9049747365b4992f2137
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045768"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026620"
 ---
-# <a name="standard-load-balancer-diagnostics-with-metrics-and-alerts"></a>使用指标和指标进行标准负载均衡器诊断
+# <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>通过指标、警报和资源运行状况进行标准负载均衡器诊断
 
 Azure 标准负载均衡器公开了以下诊断功能：
 
 * **多维指标和警报**：通过 [Azure Monitor](/azure-monitor/overview) 针对标准负载均衡器配置提供多维诊断功能。 可以监视、管理和排查标准负载均衡器资源问题。
+
+* **资源运行状况**：负载均衡器的资源运行状况状态显示在“监视器”下的“资源运行状况”页面中。 此自动检查会通知你负载均衡器资源当前的可用性。
 
 本文概要介绍这些功能，以及如何对标准负载均衡器使用这些功能。 
 
@@ -90,7 +92,7 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-frontend"></a>数据路径是否正常可用并适用于我的负载均衡器前端？
 <details><summary>展开</summary>
 
-数据路径可用性指标描述区域中用于 VM 所在计算主机的数据路径的运行状况。 此指标反映了 Azure 基础结构的运行状况。 使用此指标可以：
+“数据路径可用性”指标描述区域中用于 VM 所在计算主机的数据路径的运行状况。 此指标反映了 Azure 基础结构的运行状况。 使用此指标可以：
 - 监视服务的外部可用性
 - 深入分析和了解部署服务的平台是否正常，或者来宾 OS 或应用程序实例是否正常。
 - 查明某个事件是与服务还是底层数据平面相关。 请不要将此指标与运行状况探测状态（“后端实例可用性”）相混淆。
@@ -109,7 +111,7 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 
 会定期生成与部署前端和规则匹配的数据包。 该服务在区域中从源遍历到后端池中 VM 所在的主机。 负载均衡器基础结构执行的负载均衡和转换运算与针对其他所有流量执行的操作一样。 此探测在负载均衡终结点上的带内执行。 探测抵达后端池中正常 VM 所在的计算主机后，计算主机会针对探测服务生成响应。 VM 看不到此流量。
 
-数据路径可用性探测会出于以下原因而失败：
+数据路径可用性探测会由于以下原因而失败：
 - 后端池中没有剩余的可用于部署的正常 VM。 
 - 发生基础结构服务中断。
 
@@ -154,14 +156,14 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>如何检查 SNAT 端口用量和分配？
 <details>
   <summary>展开</summary>
-“SNAT 用量”指标指示在 Internet 源与负载均衡器后面的且没有公共 IP 地址的后端 VM 或虚拟机规模集之间建立了多少个唯一流。 将此指标与“SNAT 分配”指标进行比较，可以确定服务是否遇到了 SNAT 耗尽问题或者面临着这种风险，并导致出站流失败。 
+“使用的 SNAT 端口数”指标跟踪使用的 SNAT 端口数来维护出站流。 它指示在 Internet 源与负载均衡器后面的没有公共 IP 地址的后端 VM 或虚拟机规模集之间建立了多少个唯一流。 通过将你使用的 SNAT 端口数与“分配的 SNAT 端口数”指标进行比较，可以确定服务是否因为遇到了 SNAT 耗尽问题或者面临着这种风险而导致出站流失败。 
 
 如果指标指出了[出站流](/load-balancer/load-balancer-outbound-connections)失败的风险，请参考相应的文章并采取缓解措施，以确保服务正常运行。
 
 若要查看 SNAT 端口用量和分配：
 1. 将图形的时间聚合设置为 1 分钟，以确保显示所需的数据。
-1. 选择“SNAT 用量”和/或“SNAT 分配”作为指标类型，选择“平均”作为聚合类型   
-    * 默认情况下，这是分配到每个后端 VM 或 VMSS 或者它们使用的平均 SNAT 端口数，对应于映射到负载均衡器的所有前端公共 IP，是基于 TCP 和 UDP 聚合得出的。
+1. 选择“使用的 SNAT 端口数”和/或“分配的 SNAT 端口数”作为指标类型，选择“平均值”作为聚合
+    * 默认情况下，这些指标是分配到每个后端 VM 或 VMSS 的或者它们使用的平均 SNAT 端口数，对应于映射到负载均衡器的所有前端公共 IP，是基于 TCP 和 UDP 聚合得出的。
     * 若要查看负载均衡器使用的或者为其分配的 SNAT 端口总数，请使用指标聚合“求和” 
 1. 根据特定的“协议类型”、一组“后端 IP”和/或“前端 IP”进行筛选。   
 1. 若要监视每个后端或前端实例的运行状况，请应用拆分。 
@@ -227,6 +229,38 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 
 客户可以使用该图表来自行排查部署问题，而无需猜测或询问支持部门是否发生了其他问题。 此服务之所以不可用，是因为配置不当或应用程序故障导致运行状况探测失败。
 </details>
+
+## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>资源运行状况
+
+可以通过“Monitor”>“服务运行状况”下面的现有“资源运行状况”公开标准负载均衡器资源的运行状况。********
+
+若要查看公共标准负载均衡器资源的运行状况，请执行以下步骤：
+1. 选择“Monitor” > “服务运行状况”。
+
+   ![“Monitor”页](./media/load-balancer-standard-diagnostics/LBHealth1.png)
+
+   *图：Azure Monitor 中的“服务运行状况”链接*
+
+2. 选择“资源运行状况”，然后确保正确选择“订阅 ID”和“资源类型 = 负载均衡器”。************
+
+   ![资源运行状况](./media/load-balancer-standard-diagnostics/LBHealth3.png)
+
+   *图：选择要查看其运行状况的资源*
+
+3. 在列表中，选择要查看其历史运行状况的负载均衡器资源。
+
+    ![负载均衡器运行状况](./media/load-balancer-standard-diagnostics/LBHealth4.png)
+
+   *图：负载均衡器资源运行状况视图*
+ 
+[RHC 文档](/service-health/resource-health-overview)中提供了一般的资源运行状况状态说明。 下表列出了 Azure 负载均衡器的特定状态： 
+
+| 资源运行状况 | 说明 |
+| --- | --- |
+| 可用 | 标准负载均衡器资源正常且可用。 |
+| 已降级 | 标准负载均衡器具有平台或用户启动的影响性能的事件。 “数据路径可用性”指标至少有两分钟报告了低于 90% 但高于 25% 的运行状况。 你将遇到中等到严重程度的性能影响。 [按照数据路径可用性故障排除指南]来确定是否存在用户启动的影响你的可用性的事件。
+| 不可用 | 标准负载均衡器资源不正常。 “数据路径可用性”指标至少有两分钟报告了低于 25% 的运行状况。 你会遇到严重的性能影响，或者入站连接不可用。 可能存在导致不可用的用户或平台事件。 [按照数据路径可用性故障排除指南]来确定是否存在用户启动的影响你的可用性的事件。 |
+| Unknown | 标准负载均衡器资源的资源运行状况状态尚未更新，或者最近 10 分钟内未收到数据路径可用性信息。 此状态应该是暂时性的，系统在收到数据后会立即反映正确的状态。 |
 
 ## <a name="next-steps"></a>后续步骤
 

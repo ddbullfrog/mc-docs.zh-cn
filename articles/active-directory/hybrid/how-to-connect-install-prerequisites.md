@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d521843cb418424b9fbeccf89cd33caf32166945
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: a6764907d032df0a2ac4143b06002cf3ce41a795
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593798"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245408"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本文介绍 Azure Active Directory (Azure AD) Connect 的先决条件和硬件要求。
@@ -32,11 +32,11 @@ ms.locfileid: "89593798"
 ### <a name="azure-ad"></a>Azure AD
 * 需要 Azure AD 租户。 通过 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)获得一个租户。 可以使用以下门户之一来管理 Azure AD Connect：
   * [Azure 门户](https://portal.azure.cn)。
-* [添加并验证域](../add-custom-domain.md)，该域是计划在 Azure AD 中使用的。 例如，如果计划让用户使用 contoso.com，请确保此域已经过验证，并且不是直接使用 contoso.partner.onmschina.cn 默认域。
-* 默认情况下，一个 Azure AD 租户允许 5 万个对象。 在验证域后，该限制增加到 30 万个对象。 如果 Azure AD 中需要更多的对象，则请创建支持案例来请求增大此限制。 如果需要 50 万个以上的对象，则需要购买 Office 365、Azure AD Premium 或企业移动性 + 安全性等许可证。
+* [添加并验证域](../fundamentals/add-custom-domain.md)，该域是计划在 Azure AD 中使用的。 例如，如果计划让用户使用 contoso.com，请确保此域已经过验证，并且不是直接使用 contoso.partner.onmschina.cn 默认域。
+* 默认情况下，一个 Azure AD 租户允许 5 万个对象。 在验证域后，该限制增加到 30 万个对象。 如果 Azure AD 中需要更多的对象，则请创建支持案例来请求增大此限制。 如果需要 50 万个以上的对象，则需要具备许可证，例如 Microsoft 365、Azure AD Premium 或企业移动性 + 安全性。
 
 ### <a name="prepare-your-on-premises-data"></a>准备本地数据
-* 使用 [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) 确定目录中的错误，如重复项和格式设置问题，然后同步到 Azure AD 和 Office 365。
+* 使用 [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) 识别目录中的错误，如重复项和格式设置问题，然后同步到 Azure AD 和 Microsoft 365。
 * 查看[可以在 Azure AD 中启用的可选同步功能](how-to-connect-syncservice-features.md)并评估应启用哪些功能。
 
 ### <a name="on-premises-active-directory"></a>本地 Active Directory
@@ -79,7 +79,7 @@ Azure AD Connect 服务器包含关键标识数据。 确保对此服务器的�
 
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect 所使用的 SQL Server
-* Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 默认安装 SQL Server 2012 Express LocalDB（轻量版本的 SQL Server Express）。 SQL Server Express 有 10-GB 的大小限制，允许管理大约 100,000 个对象。 如果需要管理更多的 Directory 对象，请将安装向导指向不同的 SQL Server 安装。 SQL Server 安装的类型可能会影响 [Azure AD Connect 的性能](/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors)。
+* Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 默认安装 SQL Server 2012 Express LocalDB（轻量版本的 SQL Server Express）。 SQL Server Express 有 10-GB 的大小限制，允许管理大约 100,000 个对象。 如果需要管理更多的 Directory 对象，请将安装向导指向不同的 SQL Server 安装。 SQL Server 安装的类型可能会影响 [Azure AD Connect 的性能](./plan-connect-performance-factors.md#sql-database-factors)。
 * 如果使用不同的 SQL Server 安装，则以下要求适用：
   * Azure AD Connect 支持从 2012（包含最新的服务包）到 SQL Server 2019 的所有 SQL Server 版本。 不支持将 Azure SQL 数据库用作数据库。
   * 必须使用不区分大小写的 SQL 排序规则。 可通过名称中的 \_CI_ 识别这些排序规则。 不支持使用区分大小写的排序规则，该规则可通过其名称中的 \_CS_ 识别。
@@ -124,10 +124,10 @@ Azure AD Connect 服务器包含关键标识数据。 确保对此服务器的�
         </system.net>
     ```
 
-* 如果代理配置是在现有设置中完成的，则需要重新启动一次 Azure AD Sync 服务，以便 Azure AD Connect 读取代理配置和更新行为。 
+* 如果代理配置是在现有设置中完成的，则需要重启一次 Azure AD Sync 服务，以便 Azure AD Connect 读取代理配置并更新行为。 
 * 当 Azure AD Connect 在目录同步过程中将 Web 请求发送到 Azure AD 时，Azure AD 可能需要最多 5 分钟才能响应。 代理服务器具有连接空闲超时配置很常见。 确保配置设置为至少 6 分钟或更长时间。
 
-有关[默认代理元素](https://msdn.microsoft.com/library/kd3cf2ex.aspx)的详细信息，请参阅 MSDN。
+有关[默认代理元素](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)的详细信息，请参阅 MSDN。
 有关遇到连接问题时的详细信息，请参阅[排查连接问题](tshoot-connect-connectivity.md)。
 
 ### <a name="other"></a>其他
@@ -146,9 +146,9 @@ Azure AD Connect 依赖于 Microsoft PowerShell 和 .NET Framework 4.5.1。 服�
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>为 Azure AD connect 启用 TLS 1.2
-在 1.1.614.0 版以前，Azure AD Connect 默认情况下使用 TLS 1.0 对同步引擎服务器和 Azure AD 之间的通信进行加密。 默认情况下，可以将 .NET 应用程序配置为在服务器上使用 TLS 1.2。 有关 TLS 1.2 的详细信息，请参阅 [Microsoft 安全公告 2960358](https://technet.microsoft.com/security/advisory/2960358)。
+在 1.1.614.0 版以前，Azure AD Connect 默认情况下使用 TLS 1.0 对同步引擎服务器和 Azure AD 之间的通信进行加密。 默认情况下，可以将 .NET 应用程序配置为在服务器上使用 TLS 1.2。 有关 TLS 1.2 的详细信息，请参阅 [Microsoft 安全公告 2960358](https://docs.microsoft.com/security-updates/SecurityAdvisories/2015/2960358)。
 
-1. 请确保已为操作系统安装了 .NET 4.5.1 修补程序。 有关详细信息，请参阅 [Microsoft 安全公告 2960358](https://technet.microsoft.com/security/advisory/2960358)。 服务器上可能已经安装了此修补程序或更高版本的修补程序。
+1. 请确保已为操作系统安装了 .NET 4.5.1 修补程序。 有关详细信息，请参阅 [Microsoft 安全公告 2960358](https://docs.microsoft.com/security-updates/SecurityAdvisories/2015/2960358)。 服务器上可能已经安装了此修补程序或更高版本的修补程序。
 
 1. 对于所有操作系统，设置此注册表项并重新启动服务器。
     ```

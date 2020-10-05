@@ -8,19 +8,19 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/10/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 427f21cdf45d57a9460b4e6809889594f957c312
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 09/24/2020
+ms.openlocfilehash: 0f1e831e4a2934b54feb5899072dd627791d7b76
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226178"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146609"
 ---
-# <a name="about-kusto-net-sdk"></a>关于 Kusto .NET SDK
+# <a name="about-azure-data-explorer-net-sdk"></a>关于 Azure 数据资源管理器 .NET SDK
 
-Kusto .NET SDK 是一组库，.NET 应用程序可以使用这些库与 Kusto 服务通信。
+Azure 数据资源管理器 .NET SDK 是一组库，.NET 应用程序可以使用这些库与 Azure 数据资源管理器服务通信。
 
-Kusto .NET SDK 可从 [NuGet 库](https://www.nuget.org/)中获得。
+Azure 数据资源管理器 .NET SDK 可从 [NuGet 库](https://www.nuget.org/)获得。
 每个包均提供 .NET Framework 4.6.2 和 .NET Core 2.0 库。
 
 |程序包                                                                                             |说明        |

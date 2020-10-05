@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 03/11/2019
 ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: edefa3ae7236e448b0120e20a174348246d82ccf
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 26d237ec48abc4817a3204fb9b4bc39e253b5498
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186630"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394801"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Apache Spark 流式处理概述
 
@@ -73,7 +73,7 @@ val ssc = new StreamingContext(sc, Seconds(1))
 
 #### <a name="create-a-dstream"></a>创建 DStream
 
-使用 StreamingContext 实例，为输入源创建输入 DStream。 在本例中，应用程序监视附加到 HDInsight 群集的默认存储中的新文件的外观。
+使用 StreamingContext 实例，为输入源创建输入 DStream。 在这种情况下，应用程序会监视默认附加存储中的新文件的外观。
 
 ```
 val lines = ssc.textFileStream("/uploads/Test/")

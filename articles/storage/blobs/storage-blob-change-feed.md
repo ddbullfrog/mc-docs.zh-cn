@@ -1,22 +1,22 @@
 ---
-title: Azure Blob 存储中的更改源（预览版）| Microsoft Docs
+title: Azure Blob 存储中的更改源 | Microsoft Docs
 description: 了解 Azure Blob 存储中的更改源日志以及如何使用这些日志。
 author: WenJason
 ms.author: v-jay
-origin.date: 11/04/2019
-ms.date: 08/24/2020
+origin.date: 09/08/2020
+ms.date: 09/28/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: e1673c52c39241afb2b65629de46cae2d528ce9c
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: bb903aa131d368091f28225d8c5c70e153c93624
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753463"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026581"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob 存储中的更改源支持（预览版）
+# <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob 存储中的更改源支持
 
 更改源的用途是提供存储帐户中 Blob 和 Blob 元数据发生的所有更改的事务日志。 更改源提供这些更改的有序、有保证、持久、不可变、只读的日志。     客户端应用程序可以在流式处理或批处理模式下随时读取这些日志。 使用更改源可以生成高效且可缩放的解决方案，因此能够以较低的成本处理 Blob 存储帐户中发生的更改事件。
 
@@ -81,10 +81,10 @@ ms.locfileid: "88753463"
 
 2. 关闭 PowerShell 控制台，然后重新将其打开。
 
-3. 安装 Az.Storage 预览版模块。
+3. 安装 Az.Storage 模块 2.5.0 版或更高版本。
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
    ```
 
 4. 使用 `Connect-AzAccount` 命令登录到 Azure 订阅，然后按照屏幕上的说明进行身份验证。
@@ -285,42 +285,18 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 ```
 
-<a id="register"></a>
-
-## <a name="register-your-subscription-preview"></a>注册订阅（预览版）
-
-由于更改源仅以公共预览版形式提供，因此你需要注册订阅才能使用该功能。
-
-### <a name="register-by-using-powershell"></a>使用 PowerShell 注册
-
-在 PowerShell 控制台中运行以下命令：
-
-```powershell
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-   
-### <a name="register-by-using-azure-cli"></a>使用 Azure CLI 注册
-
-运行以下命令：
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Changefeed
-az provider register --namespace 'Microsoft.Storage'
-```
-
 <a id="conditions"></a>
 
-## <a name="conditions-and-known-issues-preview"></a>条件和已知问题（预览版）
+## <a name="conditions-and-known-issues"></a>条件和已知问题
 
-本部分介绍当前的更改源公共预览版中的已知问题和条件。 
-- 更改源只捕获创建、更新、删除和复制操作。 还会捕获 Blob 属性和元数据更改。 但当前未捕获访问层属性。 
+本部分介绍当前的更改源版本中的已知问题和条件。 
+
 - 任何一项更改的更改事件记录可能会在更改源中出现多次。
 - 暂时无法通过对更改源日志文件设置基于时间的保留策略来管理其生存期，且无法删除 Blob。
 - 日志文件的 `url` 属性目前始终是空的。
 - segments.json 文件的 `LastConsumable` 属性不会列出更改源最终处理的第一个段。 此问题只会在对第一个段进行最终处理之后才出现。 第一个小时之后的所有后续段会准确捕获到 `LastConsumable` 属性中。
 - 目前，在调用 ListContainers API 时看不到 $blobchangefeed 容器，且在 Azure 门户或存储资源管理器中也看不到该容器。 可以通过直接在 $blobchangefeed 容器上调用 ListBlobs API 来查看内容。
-- 以前启动了[帐户故障转移](../common/storage-disaster-recovery-guidance.md)的存储帐户可能会出现不显示日志文件的问题。 在预览期，将来的任何帐户故障转移也可能会影响日志文件。
+- 以前启动了[帐户故障转移](../common/storage-disaster-recovery-guidance.md)的存储帐户可能会出现不显示日志文件的问题。 将来的任何帐户故障转移也可能会影响日志文件。
 
 ## <a name="faq"></a>常见问题
 

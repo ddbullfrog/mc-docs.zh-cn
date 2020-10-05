@@ -1,0 +1,333 @@
+### YamlMime:ContentNav
+category:
+  href: /
+  title: 由世纪互联运营的 Microsoft Azure
+items:
+- title: 为什么选择 Azure
+  items:
+  - href: https://updates.azure.cn/what-is-azure/
+    title: 什么是 Azure
+  - href: https://www.microsoft.com/china/azure
+    title: 由世纪互联运营的 Microsoft Azure 以及全球 Azure
+  - href: https://azure.microsoft.com/zh-cn/global-infrastructure/services/?products=all&regions=china-non-regional,china-north,china-north-2,china-east,china-east-2
+    title: Azure 服务的可用性
+  - href: https://webinars.azure.cn/zh-cn/webinars/
+    title: Azure 直播课
+- title: 产品
+  items:
+  - title: AI
+    items:
+    - href: https://azure.microsoft.com/services/cognitive-services/
+      title: 认知服务
+    - href: https://azure.microsoft.com/services/cognitive-services/face/
+      title: 人脸
+    - href: https://azure.microsoft.com/services/cognitive-services/computer-vision/
+      title: 计算机视觉
+    - href: https://azure.microsoft.com/services/cognitive-services/content-moderator/
+      title: 内容审查器
+    - href: https://azure.microsoft.com/services/cognitive-services/ext-analytics/
+      title: 文本分析
+    - href: https://azure.microsoft.com/services/cognitive-services/translator-text-api/
+      title: 文本翻译
+    - href: https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/
+      title: 语言理解
+    - href: https://azure.microsoft.com/services/cognitive-services/speech-services
+      title: 语音服务
+  - href: https://azure.microsoft.com/overview/azure-stack/
+    title: Azure Stack
+  - title: 安全性
+    items:
+    - href: https://azure.microsoft.com/services/key-vault/
+      title: 密钥保管库
+    - href: https://azure.microsoft.com/services/active-directory/
+      title: Azure Active Directory
+    - href: https://azure.microsoft.com/services/application-gateway/
+      title: 应用程序网关
+    - href: https://azure.microsoft.com/services/vpn-gateway/
+      title: VPN 网关
+    - href: https://azure.microsoft.com/services/security-center/
+      title: 安全中心
+    - href: https://azure.microsoft.com/services/information-protection/
+      title: Azure 信息保护
+  - title: 标识
+    items:
+    - href: https://azure.microsoft.com/services/active-directory/
+      title: Azure Active Directory
+    - href: https://azure.microsoft.com/services/active-directory-b2c/
+      title: Azure Active Directory B2C
+    - href: https://www.azure.cn/home/features/multi-factor-authentication/
+      title: 多重身份验证
+    - href: https://azure.microsoft.com/services/information-protection/
+      title: Azure 信息保护
+  - title: 存储
+    items:
+    - href: https://azure.microsoft.com/services/storage/
+      title: Azure 存储
+    - href: https://azure.microsoft.com/services/storage/blobs/
+      title: Blob 存储
+    - href: https://azure.microsoft.com/services/storage/data-lake-storage/
+      title: Azure Data Lake Storage
+    - href: https://azure.microsoft.com/services/storage/disks/
+      title: 磁盘存储
+    - href: https://azure.microsoft.com/services/storage/disks/
+      title: 托管磁盘
+    - href: https://azure.microsoft.com/services/storage/queues/
+      title: 队列存储
+    - href: https://azure.microsoft.com/services/storage/files/
+      title: 文件存储
+  - title: 分析
+    items:
+    - href: https://azure.microsoft.com/services/synapse-analytics/
+      title: SQL 数据仓库
+    - href: https://azure.microsoft.com/services/hdinsight/
+      title: HDInsight
+    - href: https://azure.microsoft.com/services/stream-analytics/
+      title: 流分析
+    - href: https://azure.microsoft.com/services/power-bi-embedded/
+      title: Power BI Embedded
+    - href: https://azure.microsoft.com/services/analysis-services/
+      title: Azure Analysis Services
+    - href: https://azure.microsoft.com/services/event-hubs/
+      title: 事件中心
+    - href: https://azure.microsoft.com/services/data-factory/
+      title: Data Factory
+    - href: https://azure.microsoft.com/services/data-explorer/
+      title: Azure 数据资源管理器
+  - title: 管理工具
+    items:
+    - href: https://azure.microsoft.com/features/azure-portal/
+      title: Azure 门户
+    - href: https://azure.microsoft.com/services/advisor/
+      title: Azure 顾问
+    - href: https://azure.microsoft.com/services/automation/
+      title: 自动化
+    - href: https://azure.microsoft.com/services/backup/
+      title: Backup
+    - href: https://azure.microsoft.com/services/site-recovery/
+      title: 站点恢复
+    - href: https://azure.microsoft.com/services/scheduler/
+      title: 计划程序
+    - href: https://azure.microsoft.com/services/monitor/
+      title: Azure Monitor
+    - href: https://azure.microsoft.com/features/service-health/
+      title: Azure 服务运行状况
+    - href: https://azure.microsoft.com/services/traffic-manager/
+      title: 流量管理器
+    - href: https://azure.microsoft.com/services/network-watcher/
+      title: 网络观察程序
+    - href: https://azure.microsoft.com/services/azure-policy/
+      title: Azure Policy
+    - href: https://azure.microsoft.com/features/resource-manager/
+      title: Azure Resource Manager
+    - href: https://www.azure.cn/home/features/resource-graph/
+      title: Azure Resource Graph
+  - title: 集成
+    items:
+    - href: https://azure.microsoft.com/services/service-bus/
+      title: 服务总线
+    - href: https://azure.microsoft.com/services/api-management/
+      title: API 管理
+    - href: https://azure.microsoft.com/services/event-grid/
+      title: 事件网格
+  - title: 计算
+    items:
+    - href: https://azure.microsoft.com/services/virtual-machines/
+      title: 虚拟机
+    - href: https://azure.microsoft.com/services/virtual-machine-scale-sets/
+      title: 虚拟机规模集
+    - href: https://azure.microsoft.com/services/app-service/
+      title: 应用服务
+    - href: https://azure.microsoft.com/services/batch/
+      title: 批处理
+    - href: https://azure.microsoft.com/services/service-fabric/
+      title: Service Fabric
+    - href: https://azure.microsoft.com/services/cloud-services/
+      title: 云服务
+    - href: https://azure.microsoft.com/services/functions/
+      title: Azure Functions
+    - href: https://azure.microsoft.com/services/kubernetes-service/
+      title: Azure Kubernetes 服务 (AKS)
+  - title: 网络
+    items:
+    - href: https://azure.microsoft.com/services/cdn/
+      title: CDN
+    - href: https://azure.microsoft.com/services/expressroute/
+      title: Express Route
+    - href: https://azure.microsoft.com/services/dns/
+      title: Azure DNS
+    - href: https://azure.microsoft.com/services/virtual-network/
+      title: 虚拟网络
+    - href: https://azure.microsoft.com/services/traffic-manager/
+      title: 流量管理器
+    - href: https://azure.microsoft.com/services/load-balancer/
+      title: 负载均衡器
+    - href: https://azure.microsoft.com/services/vpn-gateway/
+      title: VPN 网关
+    - href: https://azure.microsoft.com/services/application-gateway/
+      title: 应用程序网关
+    - href: https://azure.microsoft.com/services/network-watcher/
+      title: 网络观察程序
+    - href: https://www.azure.cn/home/features/cloud-connection-service/
+      title: 云连接服务
+    - href: https://azure.microsoft.com/services/azure-firewall/
+      title: Azure 防火墙
+    - href: https://azure.microsoft.com/services/virtual-wan/
+      title: Azure 虚拟 WAN
+  - href: https://azure.microsoft.com/services/media-services/
+    title: 媒体服务
+  - title: 迁移
+    items:
+    - href: https://azure.microsoft.com/services/database-migration/
+      title: Azure 数据库迁移服务
+    - href: https://azure.microsoft.com/services/site-recovery/
+      title: 站点恢复
+  - title: 容器
+    items:
+    - href: https://azure.microsoft.com/services/service-fabric/
+      title: Service Fabric
+    - href: https://azure.microsoft.com/services/container-registry/
+      title: 容器注册表
+    - href: https://azure.microsoft.com/services/container-registry/
+      title: 容器注册表
+    - href: https://azure.microsoft.com/services/app-service/
+      title: 应用服务
+    - href: https://azure.microsoft.com/services/batch/
+      title: 批处理
+    - href: https://azure.microsoft.com/services/kubernetes-service/
+      title: Azure Kubernetes 服务 (AKS)
+    - href: https://azure.microsoft.com/services/container-instances/
+      title: 容器实例
+  - title: 数据库
+    items:
+    - href: https://azure.microsoft.com/services/sql-database/
+      title: Azure SQL 数据库
+    - href: https://azure.microsoft.com/services/synapse-analytics/
+      title: SQL 数据仓库
+    - href: https://azure.microsoft.com/services/sql-server-stretch-database/
+      title: SQL Server Stretch Database
+    - href: https://azure.microsoft.com/services/cosmos-db/
+      title: Azure Cosmos DB
+    - href: https://azure.microsoft.com/services/cache/
+      title: 用于 Redis 的 Azure 缓存
+    - href: https://azure.microsoft.com/services/postgresql/
+      title: Azure Database for PostgreSQL
+    - href: https://azure.microsoft.com/services/mysql/
+      title: Azure Database for MySQL
+    - href: https://azure.microsoft.com/services/mariadb/
+      title: Azure Database for MariaDB
+    - href: https://azure.microsoft.com/services/data-factory/
+      title: Data Factory
+    - href: https://azure.microsoft.com/services/database-migration/
+      title: Azure 数据库迁移服务
+  - title: Web
+    items:
+    - href: https://azure.microsoft.com/services/app-service/
+      title: 应用服务
+    - href: https://azure.microsoft.com/services/app-service/web/
+      title: Web 应用
+    - href: https://azure.microsoft.com/services/notification-hubs/
+      title: 通知中心
+    - href: https://azure.microsoft.com/services/api-management/
+      title: API 管理
+    - href: https://azure.microsoft.com/services/cdn/
+      title: CDN
+    - href: https://azure.microsoft.com/services/signalr-service/
+      title: Azure SignalR 服务
+  - title: 物联网
+    items:
+    - href: https://azure.microsoft.com/services/iot-hub/
+      title: Azure IoT 中心
+    - href: https://azure.microsoft.com/services/iot-edge/
+      title: Azure IoT Edge
+    - href: https://azure.microsoft.com/services/event-hubs/
+      title: 事件中心
+    - href: https://azure.microsoft.com/services/event-grid/
+      title: 事件网格
+    - href: https://azure.microsoft.com/services/stream-analytics/
+      title: 流分析
+    - href: https://azure.microsoft.com/services/logic-apps/
+      title: 逻辑应用
+    - href: https://azure.microsoft.com/services/notification-hubs/
+      title: 通知中心
+    - href: https://azure.microsoft.com/services/cosmos-db/
+      title: Azure Cosmos DB
+    - href: https://azure.microsoft.com/services/api-management/
+      title: API 管理
+    - href: https://azure.microsoft.com/services/time-series-insights/
+      title: Azure Time Series Insights
+  - title: 移动
+    items:
+    - href: https://azure.microsoft.com/services/app-service/
+      title: 应用服务
+    - href: https://azure.microsoft.com/services/app-service/web/
+      title: Web 应用
+    - href: https://azure.microsoft.com/services/app-service/mobile/
+      title: Mobile Apps
+    - href: https://azure.microsoft.com/services/notification-hubs/
+      title: 通知中心
+    - href: https://azure.microsoft.com/services/app-service/api/
+      title: API Apps
+- href: https://www.azure.cn/pricing/
+  title: 定价
+- href: https://azure.microsoft.com/zh-cn/solutions/
+  title: 解决方案
+- title: 合作伙伴
+  items:
+  - href: https://customers.azure.cn/
+    title: 案例研究
+  - href: https://www.microsoft.com/solution-providers/home
+    title: 查找合作伙伴
+- title: 购买和计费
+  items:
+  - href: /articles/azure-china-purchasing-guidance/
+    title: Azure 中国购买指南
+  - href: /articles/azure-global-purchasing-guidance/
+    title: Azure 全球购买指南
+  - href: /billing/
+    title: Azure 中国计费文档
+  - href: /enterprise-agreement-billing/
+    title: Azure 中国 EA 计费文档
+  - href: /articles/azure-china-migration-playbook/
+    title: Azure 中国云迁移指南
+- href: https://azure.microsoft.com/zh-cn/blog/
+  title: 博客
+- href: https://docs.microsoft.com/zh-cn/learn/azure/
+  title: 培训
+- title: 支持
+  items:
+  - href: https://support.azure.cn/zh-cn/support/contact/
+    title: 联系我们
+  - href: https://support.azure.cn/zh-cn/support/plans/
+    title: 支持计划
+  - href: https://status.azure.com/status
+    title: 服务仪表板
+  - href: https://www.azure.cn/support/legal/
+    title: 法律信息
+  - href: https://www.trustcenter.cn/en-us/
+    title: 信任中心
+  - href: https://updates.azure.cn/azure-ip-advantage/
+    title: Azure IP Advantage
+  - href: https://www.azure.cn/support/icp/
+    title: ICP 填写
+  - href: https://www.azure.cn/support/announcement/public-security-registration/
+    title: 公安备案
+  - href: https://support.azure.cn/zh-cn/support/faq/
+    title: 常见问题
+- href: https://market.azure.cn/
+  title: 市场
+- href: https://azure.microsoft.com/global-infrastructure/china/
+  title: Azure 全球/中国
+callToAction:
+  primary:
+    href: https://wd.azure.cn/pricing/1rmb-trial/
+    title: 1 元人民币的试用订阅
+  secondary:
+    href: https://portal.azure.cn/
+    title: 门户
+metadata:
+  ms.openlocfilehash: 812959e0264eb68bc460fc314ed829f9ab7e19e1
+  ms.sourcegitcommit: e6cbb4d91e258eb2b20134c42a6dfd2de6ac66ba
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 09/10/2020
+  ms.locfileid: "91645142"

@@ -3,22 +3,24 @@ title: Azure 流量管理器工作原理 | Azure
 description: 本文将帮助你了解流量管理器如何路由流量以确保 Web 应用程序的高性能和可用性
 services: traffic-manager
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/05/2019
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8d14df2b6f9e528513628b9ccb8629e94dce4871
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2cab6b79e80ef0ac7f1080d74364889cf3af16b3
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653215"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395395"
 ---
 # <a name="how-traffic-manager-works"></a>流量管理器的工作原理
 
@@ -35,7 +37,7 @@ ms.locfileid: "77653215"
 
 ## <a name="traffic-manager-example"></a>流量管理器示例
 
-Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 https://partners.contoso.com/login.aspx 。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并在全球最大程度地提高性能，他们使用流量管理器将客户端流量分布到最靠近的可用终结点。
+Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 `https://partners.contoso.com/login.aspx` 。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并在全球最大程度地提高性能，他们使用流量管理器将客户端流量分布到最靠近的可用终结点。
 
 为了实现此配置，他们完成以下步骤：
 
@@ -54,7 +56,7 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 htt
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>客户端如何使用流量管理器进行连接
 
-沿用前面的示例，当客户端请求页面 https://partners.contoso.com/login.aspx 时，会执行以下步骤来解析 DNS 名称并建立连接：
+沿用前面的示例，当客户端请求页面 `https://partners.contoso.com/login.aspx` 时，会执行以下步骤来解析 DNS 名称并建立连接：
 
 ![使用流量管理器建立连接][2]
 
@@ -67,8 +69,11 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 htt
     - 每个终结点的当前运行状况，可通过流量管理器运行状况检查来确定。 有关详细信息，请参阅[流量管理器终结点监视](traffic-manager-monitoring.md)。
     - 所选的流量路由方法。 有关详细信息，请参阅[流量管理器路由方法](traffic-manager-routing-methods.md)。
 
-5. 选择的终结点以另一个 DNS CNAME 记录的形式返回。 在本例中，假设返回了 contoso-east.chinacloudapp.cn。
-6. 接下来，递归 DNS 服务将查找“chinacloudapp.cn”域的名称服务器。 它会联系这些名称服务器以请求“contoso-east.chinacloudapp.cn”DNS 记录。 返回的 DNS“A”记录包含位于东部的服务终结点的 IP 地址。
+5. 选择的终结点以另一个 DNS CNAME 记录的形式返回。 在本例中，假设返回了 contoso-north.chinacloudapp.cn。
+6. 接下来，递归 DNS 服务将查找“chinacloudapp.cn”域的名称服务器。 它会联系这些名称服务器以请求“contoso-north.chinacloudapp.cn”DNS 记录。 返回的 DNS“A”记录包含位于中国北部的服务终结点的 IP 地址。
+
+<!--MOONCAKE CUSTOMIZATION ON: EU MAP TO CHINA NORTH based-->
+
 7. 递归 DNS 服务将结果合并，向客户端返回单个 DNS 响应。
 8. 客户端接收 DNS 结果，并连接到给定的 IP 地址。 客户端直接连接到应用程序服务终结点，而不是通过流量管理器连接。 由于这是一个 HTTPS 终结点，客户端将执行必要的 SSL/TLS 握手，然后针对“/login.aspx”页面发出 HTTP GET 请求。
 
@@ -109,4 +114,4 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 htt
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!-- Update_Description: wording updte, update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

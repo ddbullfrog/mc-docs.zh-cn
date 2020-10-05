@@ -3,24 +3,24 @@ title: 如何将 Azure 资源托管标识用于 Azure 虚拟机
 description: Azure 资源托管标识用于 Azure 虚拟机的说明。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: ''
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: mvc
-ms.date: 06/29/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf678fbcaf405c31c06132f24a36ca69b8acb4ac
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: c60f0f9fe8cf4dfa00f00b01d0b0d667676aeb0c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245390"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>如何将 Azure 资源托管标识用于 Azure 虚拟机
 
@@ -55,7 +55,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 3. Azure 资源管理器通过使用服务主体客户端 ID 和证书更新 Azure 实例元数据服务标识终结点来配置 VM 上的标识。
 
-4. VM 有了标识以后，请根据服务主体信息向 VM 授予对 Azure 资源的访问权限。 若要调用 Azure 资源管理器，请在 Azure AD 中使用基于角色的访问控制 (RBAC) 向 VM 服务主体分配相应的角色。 若要调用 Key Vault，请授予代码对 Key Vault 中特定机密或密钥的访问权限。
+4. VM 有了标识以后，请根据服务主体信息向 VM 授予对 Azure 资源的访问权限。 要调用 Azure 资源管理器，请使用 Azure 基于角色的访问控制 (Azure RBAC) 向 VM 服务主体分配相应的角色。 若要调用 Key Vault，请授予代码对 Key Vault 中特定机密或密钥的访问权限。
 
 5. 在 VM 上运行的代码可以从只能从 VM 中访问的 Azure 实例元数据服务终结点请求令牌：`http://169.254.169.254/metadata/identity/oauth2/token`
     - resource 参数指定了要向其发送令牌的服务。 若要向 Azure 资源管理器进行身份验证，请使用 `resource=https://management.chinacloudapi.cn/`。
@@ -73,7 +73,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 3. Azure 资源管理器收到在 VM 上配置用户分配的托管标识的请求，并使用用户分配的托管标识服务主体客户端 ID 和证书更新 Azure 实例元数据服务标识终结点。
 
-4. 创建用户分配托管标识以后，请根据服务主体信息向标识授予对 Azure 资源的访问权限。 若要调用 Azure 资源管理器，请在 Azure AD 中使用 RBAC 向用户分配标识的服务主体分配相应的角色。 若要调用 Key Vault，请授予代码对 Key Vault 中特定机密或密钥的访问权限。
+4. 创建用户分配托管标识以后，请根据服务主体信息向标识授予对 Azure 资源的访问权限。 要调用 Azure 资源管理器，请使用 Azure RBAC 向用户分配的标识的服务主体分配相应角色。 若要调用 Key Vault，请授予代码对 Key Vault 中特定机密或密钥的访问权限。
 
    > [!Note]
    > 也可在步骤 3 之前执行此步骤。
@@ -92,5 +92,5 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 请参阅以下快速入门，开始使用 Azure 资源托管标识功能：
 
 * [使用 Windows VM 系统分配托管标识访问资源管理器](tutorial-windows-vm-access-arm.md)
-* [使用 Linux VM 系统分配托管标识访问资源管理器](tutorial-linux-vm-access-arm.md) how-managed-identities-work-vm
+* [使用 Linux VM 系统分配托管标识访问资源管理器](tutorial-linux-vm-access-arm.md)
 

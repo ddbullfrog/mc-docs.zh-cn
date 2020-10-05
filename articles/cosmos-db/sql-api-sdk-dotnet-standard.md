@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB - SQL .NET Standard API、SDK 和资源
 description: 了解有关 SQL API 和 .NET SDK 的所有信息，包括发布日期、停用日期以及 Azure Cosmos DB .NET SDK 各版本之间的更改。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-origin.date: 08/05/2020
-ms.date: 08/24/2020
-ms.testscope: yes|no
-ms.testdate: 08/24/2020null
+origin.date: 08/12/2020
+author: rockboyfor
+ms.date: 09/28/2020
+ms.testscope: no
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: e3340a83e2407dcac74c4e05a783591e16a82f11
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 97367064992652261faf6609a4acb7f606a8f459
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807767"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246361"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>适用于 SQL API 的 Azure Cosmos DB .NET SDK v3：下载和发行说明
 > [!div class="op_single_selector"]
@@ -28,6 +29,9 @@ ms.locfileid: "88807767"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark 连接器](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -38,7 +42,7 @@ ms.locfileid: "88807767"
 | |  |
 |---|---|
 |**SDK 下载**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
-|**API 文档**|[ 参考文档](https://docs.azure.cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)|
+|**API 文档**|[ 参考文档](https://docs.azure.cn/dotnet/api/overview/cosmosdb)|
 |**示例**|[.NET代码示例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
 |**入门**|[Azure Cosmos DB .NET SDK 入门](sql-api-get-started.md)|
 |**Web 应用教程**|[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-dotnet-application.md)|
@@ -271,7 +275,7 @@ ms.locfileid: "88807767"
 - [#1107](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1107) 源链接支持。
 - [#1121](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1121) `StandByFeedIterator` 广度优先读取策略。
 
-#### <a name="fixed"></a>已修复
+#### <a name="fixed"></a>固定
 
 - [#1105](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1105) 自定义序列化程序不再调用 SDK 拥有的会导致序列化异常的类型。
 - [#1112](https://github.com/Azure/azure-cosmos-dotnet-v3/pull/1112) 修复了 `DatabaseProperties` 之类的 SDK 属性，使其具有相同的 JSON 特性。

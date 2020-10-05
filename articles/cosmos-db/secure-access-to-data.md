@@ -1,20 +1,21 @@
 ---
 title: 了解如何保护对 Azure Cosmos DB 中数据的访问
 description: 了解有关 Azure Cosmos DB 中的访问控制概念，包括主密钥、只读密钥、用户和权限。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 01/21/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 881215682ae607125ee70571e6db14795326cedc
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 045df8998244481c1db494afe04c1e27d443164d
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246735"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>保护对 Azure Cosmos DB 中数据的访问
 
@@ -27,9 +28,7 @@ Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数�
 |[主密钥](#master-keys) |用于管理资源：数据库帐户、数据库、用户和权限|
 |[资源令牌](#resource-tokens)|用于应用程序资源：容器、文档、附件、存储过程、触发器和 UDF|
 
-<a name="master-keys"></a>
-
-## <a name="master-keys"></a>主密钥
+## <a name="master-keys"></a><a name="master-keys"></a>主密钥
 
 主密钥提供对数据库帐户的所有管理资源的访问权限。 主密钥：
 
@@ -46,7 +45,7 @@ Azure Cosmos DB 帐户除了有两个主密钥以外，还有两个只读密钥�
 
 :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Azure 门户中的访问控制 (IAM) - 演示 NoSQL 数据库安全性":::
 
-### <a name="key-rotation"></a>密钥轮换<a name="key-rotation"></a>
+### <a name="key-rotation"></a><a name="key-rotation"></a>密钥轮换
 
 轮换主密钥的过程相当简单。 
 
@@ -56,11 +55,11 @@ Azure Cosmos DB 帐户除了有两个主密钥以外，还有两个只读密钥�
 4. 验证新主密钥是否适用于所有资源。 密钥轮换过程可能需要不到一分钟，也可能需要几小时，具体取决于 Cosmos DB 帐户的大小。
 5. 将辅助密钥替换为新的主密钥。
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Azure 门户中的主密钥轮换 - 演示 NoSQL 数据库安全性" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Azure 门户中的访问控制 (IAM) - 演示 NoSQL 数据库安全性" border="false":::
 
 ### <a name="code-sample-to-use-a-master-key"></a>有关使用主密钥的代码示例
 
-以下代码示例演示如何使用 Cosmos DB 帐户终结点和主密钥来实例化 DocumentClient 并创建数据库。
+以下代码示例演示如何使用 Cosmos DB 帐户终结点和主密钥来实例化 DocumentClient 并创建数据库：
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -73,7 +72,107 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-## <a name="resource-tokens"></a>资源令牌 <a name="resource-tokens"></a>
+以下代码示例演示如何使用 Azure Cosmos DB 帐户终结点和主密钥来实例化 `CosmosClient` 对象：
+
+<!--MOONCAKE CUSTOMIZATION ON :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::-->
+
+```python
+HOST = config.settings["host"]
+MASTER_KEY = config.settings["master_key"]
+
+DATABASE_ID = config.settings["database_id"]
+CONTAINER_ID = config.settings["container_id"]
+PARTITION_KEY = PartitionKey(path="/username")
+
+
+# User that you want to give access to
+USERNAME, USERNAME_2 = "user", "user2"
+
+CONTAINER_ALL_PERMISSION = "CONTAINER_ALL_PERMISSION"
+PARTITION_READ_PERMISSION = "PARTITION_READ_PERMISSION"
+DOCUMENT_ALL_PERMISSION = "DOCUMENT_ALL_PERMISSION"
+
+
+def create_user_if_not_exists(db, username):
+    try:
+        user = db.create_user(body={"id": username})
+    except exceptions.CosmosResourceExistsError:
+        user = db.get_user_client(username)
+
+    return user
+
+
+def create_permission_if_not_exists(user, permission_definition):
+    try:
+        permission = user.create_permission(permission_definition)
+    except exceptions.CosmosResourceExistsError:
+        permission = user.get_permission(permission_definition["id"])
+
+    return permission
+
+
+def token_client_upsert(container, username, item_id):
+    try:
+        container.upsert_item(
+            {
+                "id": item_id,
+                "username": username,
+                "msg": "This is a message for " + username,
+            }
+        )
+    except exceptions.CosmosHttpResponseError:
+        print("Error in upserting item with id '{0}'.".format(item_id))
+
+
+def token_client_read_all(container):
+    try:
+        items = list(container.read_all_items())
+        for i in items:
+            print(i)
+    except exceptions.CosmosResourceNotFoundError:
+        print("Cannot read items--container '{0}' not found.".format(container.id))
+    except exceptions.CosmosHttpResponseError:
+        print("Error in reading items in container '{0}'.".format(container.id))
+
+
+def token_client_read_item(container, username, item_id):
+    try:
+        item = container.read_item(item=item_id, partition_key=username)
+        print(item)
+    except exceptions.CosmosResourceNotFoundError:
+        print("Cannot read--item with id '{0}' not found.".format(item_id))
+    except exceptions.CosmosHttpResponseError:
+        print("Error in reading item with id '{0}'.".format(item_id))
+
+
+def token_client_delete(container, username, item_id):
+    try:
+        container.delete_item(item=item_id, partition_key=username)
+    except exceptions.CosmosResourceNotFoundError:
+        print("Cannot delete--item with id '{0}' not found.".format(item_id))
+    except exceptions.CosmosHttpResponseError:
+        print("Error in deleting item with id '{0}'.".format(item_id))
+
+
+def token_client_query(container, username):
+    try:
+        for item in container.query_items(
+            query="SELECT * FROM my_container c WHERE c.username=@username",
+            parameters=[{"name": "@username", "value": username}],
+            partition_key=username,
+        ):
+            print(json.dumps(item, indent=True))
+    except exceptions.CosmosHttpResponseError:
+        print("Error in querying item(s)")
+
+
+def run_sample():
+    client = cosmos_client.CosmosClient(HOST, {"masterKey": MASTER_KEY})
+```
+
+<!--MOONCAKE CUSTOMIZATION ON :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::-->
+
+## <a name="resource-tokens"></a><a name="resource-tokens"></a>资源令牌 
 
 资源令牌提供对数据库中应用程序资源的访问权限。 资源令牌：
 
@@ -100,13 +199,13 @@ Cosmos DB 资源令牌提供一种安全的替代方案，使客户端能够根�
 7. 手机应用可以继续使用该资源令牌以该资源令牌定义的权限按照该资源令牌允许的间隔直接访问 Cosmos DB 资源。
 8. 资源令牌到期后，后续请求收到 401 未经授权的异常。  此时，手机应用会重新建立标识，并请求新的资源令牌。
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure Cosmos DB 资源令牌工作流" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure 门户中的访问控制 (IAM) - 演示 NoSQL 数据库安全性" border="false":::
 
 资源令牌的生成和管理由本机 Cosmos DB 客户端库处理；但是，如果使用 REST，必须构造请求/身份验证标头。 有关为 REST 创建身份验证标头的详细信息，请参阅 [Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)或我们的 [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) 或 [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts) 的源代码。
 
 有关用于生成或代理资源令牌的中间层服务的示例，请参阅 [ResourceTokenBroker 应用](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)。
 
-## <a name="users"></a>用户<a name="users"></a>
+## <a name="users"></a><a name="users"></a>用户
 
 Azure Cosmos DB 用户与 Cosmos 数据库相关联。  每个数据库可以包含零个或更多 Cosmos DB 用户。 以下代码示例展示了如何使用 [Azure Cosmos DB .NET SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement) 创建 Cosmos DB 用户。
 
@@ -120,7 +219,7 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > 每个 Cosmos DB 用户都有一个 ReadAsync() 方法，可以使用此方法检索与用户关联的[权限](#permissions)的列表。
 
-## <a name="permissions"></a>权限<a name="permissions"></a>
+## <a name="permissions"></a><a name="permissions"></a>权限
 
 权限资源与用户相关联，并在容器以及分区键级别进行分配。 每个用户可能包含零个或多个权限。 用户在尝试访问某个特定容器或访问特定分区键中的数据时需要一个安全令牌，权限资源提供对该安全令牌的访问权限。 权限资源提供两种可用的访问级别：
 

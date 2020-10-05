@@ -3,23 +3,23 @@ title: 使用模板部署脚本 | Azure
 description: 了解如何使用 Azure 资源管理器模板中的部署脚本。
 services: azure-resource-manager
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
+manager: carmonm
 editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 04/23/2020
+origin.date: 08/25/2020
+author: rockboyfor
 ms.date: 06/22/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 4510ab3c92ebcf24a811a787146b82174216d601
-ms.sourcegitcommit: 873e5c5e4156efed505a78d4f5a6e50c494e76d4
+ms.openlocfilehash: 96604e28e3cd0d51ed6fa8712444b01d826d2ed9
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86036745"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146544"
 ---
 <!--Not Available on Azure China Cloud-->
 <!--Not Available on Microsoft.Resources.deploymentScripts-->
@@ -43,21 +43,21 @@ ms.locfileid: "86036745"
 
 若要完成本文，需要做好以下准备：
 
-* **包含资源管理器工具扩展的 [Visual Studio Code](https://code.visualstudio.com/)** 。 请参阅[使用 Visual Studio Code 创建 ARM 模板](./use-vs-code-to-create-template.md)。
+* **包含资源管理器工具扩展的 [Visual Studio Code](https://code.visualstudio.com/)** 。 请参阅[快速入门：使用 Visual Studio Code 创建 Azure 资源管理器模板](./quickstart-create-templates-use-visual-studio-code.md)。
 
-* **在订阅级别具有参与者角色的用户分配的托管标识**。 此标识用来执行部署脚本。 若要创建一个标识，请参阅[用户分配的托管标识](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity)。 部署模板时需要此标识 ID。 标识符的格式为：
+* **在订阅级别具有参与者角色的用户分配的托管标识**。 此标识用来执行部署脚本。 若要创建一个标识，请参阅[用户分配的托管标识](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)。 部署模板时需要此标识 ID。 标识符的格式为：
 
-  ```json
-  /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
-  ```
+    ```json
+    /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
+    ```
 
-  使用以下 CLI 脚本通过提供资源组名称和标识名称来获取 ID。
+    使用以下 CLI 脚本通过提供资源组名称和标识名称来获取 ID。
 
-  ```azurecli
-  echo "Enter the Resource Group name:" &&
-  read resourceGroupName &&
-  az identity list -g $resourceGroupName
-  ```
+    ```azurecli
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    az identity list -g $resourceGroupName
+    ```
 
 ## <a name="open-a-quickstart-template"></a>打开快速入门模板
 
@@ -262,7 +262,10 @@ ms.locfileid: "86036745"
     * **kind**：指定脚本类型。 目前仅支持 PowerShell 脚本。
     * **forceUpdateTag**：确定是否应执行部署脚本，即使脚本源未更改。 可以是当前时间戳或 GUID。 若要了解详细信息，请参阅[多次运行脚本](./deployment-script-template.md#run-script-more-than-once)。
     * **azPowerShellVersion**：指定要使用的 Azure PowerShell 模块版本。 目前，部署脚本支持版本 2.7.0、2.8.0 和 3.0.0。
-    * **timeout**：指定 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601)中指定的脚本执行最大允许时间。 默认值为 **P1D**。
+    * **timeout**：指定 ISO 8601 格式中规定的脚本执行最大允许时间。 默认值为 **P1D**。
+        
+        <--不可用于 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601)-->
+        
     * **arguments**：指定参数值。 请以空格分隔这些值。
     * **scriptContent**：指定脚本内容。 若要运行外部脚本，请改用 **primaryScriptURI**。 有关详细信息，请参阅[使用外部脚本](./deployment-script-template.md#use-external-scripts)。
         仅当在本地计算机上测试脚本时，才需要声明 **$DeploymentScriptOutputs**。 通过声明该变量，可在本地计算机和 deploymentScript 资源中运行脚本，而无需进行更改。 分配给 $DeploymentScriptOutputs 的值可用作部署中的输出。 有关详细信息，请参阅[使用 PowerShell 部署脚本的输出](./deployment-script-template.md#work-with-outputs-from-powershell-script)或[使用 CLI 部署脚本的输出](./deployment-script-template.md#work-with-outputs-from-cli-script)。
@@ -287,8 +290,9 @@ ms.locfileid: "86036745"
 
 ## <a name="deploy-the-template"></a>部署模板
 
-按照[部署模板](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)中的说明执行操作。 在本地电脑上下载 azuredeploy.json 和 azuredeploy.parameters.json，然后使用以下 PowerShell 脚本部署模板：
 <!--Not Available on upload to the Cloud shell-->
+
+1. 运行以下 PowerShell 脚本以部署该模板。
 
     ```powershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
@@ -307,23 +311,23 @@ ms.locfileid: "86036745"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-    The deployment script service needs to create additional deployment script resources for script execution. The preparation and the cleanup process can take up to one minute to complete in addition to the actual script execution time.
+    部署脚本服务需要为脚本执行创建其他部署脚本资源。 除了实际的脚本执行时间外，准备和清理过程最多可能需要一分钟才能完成。
 
-    The deployment is failed because of the invalid command, **Write-Output1** is used in the script. You shall get an error saying:
+    部署将因为无效的命令而失败，脚本中使用了 **Write-Output1**。 你会收到一个错误，指出：
 
     ```error
     The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
     program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
     ```
 
-    The deployment script execution result is stored in the deployment script resources for the troubleshooting purpose.
+    部署脚本执行结果存储在部署脚本资源中以用于排除故障。
 
 ## <a name="debug-the-failed-script"></a>调试失败的脚本
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 打开资源组。 资源组是追加了 **rg** 的项目名称。 你会看到，该资源组中总共有两个其他资源。 这些资源称为*部署脚本资源*。
 
-    ![资源管理器模板部署脚本资源](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
+    :::image type="content" source="./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png" alt-text="资源管理器模板部署脚本资源":::
 
     这两个文件的后缀都是 **azscripts**。 一个是存储帐户，另一个是容器实例。
 
@@ -341,10 +345,10 @@ ms.locfileid: "86036745"
 
 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
 2. 在“按名称筛选”字段中输入资源组名称。
 3. 选择资源组名称。  应会看到，该资源组中总共有六个资源。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -353,5 +357,4 @@ ms.locfileid: "86036745"
 > [!div class="nextstepaction"]
 > [使用条件](./template-tutorial-use-conditions.md)
 
-<!-- Update_Description: new article about template tutorial deployment script -->
-<!--NEW.date: 06/22/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

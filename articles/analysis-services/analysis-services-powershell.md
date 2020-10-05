@@ -1,21 +1,21 @@
 ---
 title: 使用 PowerShell 管理 Azure Analysis Services | Azure
 description: 介绍用于执行常见管理任务（如创建服务器、挂起操作或更改服务级别）的 Azure Analysis Services PowerShell cmdlet。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 05/19/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 03/23/2020
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 72ba6644bfc1cbb3f9aef7cc0eaa43c2498fefe9
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 1ab6eca7005c44f34ea12392614f4b2fe6a59c1e
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226087"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146291"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
@@ -29,7 +29,7 @@ ms.locfileid: "86226087"
 
 大多数 PowerShell 任务要求用户在所管理的 Analysis Services 服务器上具有管理员权限。 已计划的 PowerShell 任务是无人参与操作。 运行计划程序的帐户或服务主体必须具有对 Analysis Services 服务器的管理权限。 
 
-对于使用 Azure PowerShell cmdlet 进行的服务器操作，帐户或运行计划程序的帐户还必须属于 [Azure 基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 中资源的所有者角色。 
+对于使用 Azure PowerShell cmdlet 进行的服务器操作，你的帐户或运行计划程序的帐户还必须属于 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md) 中资源的所有者角色。 
 
 ## <a name="resource-and-server-operations"></a>资源和服务器操作 
 
@@ -67,4 +67,4 @@ SqlServer 模块提供任务特定的数据库管理 cmdlet，以及接受表格
 * [PowerShell 库中的 SqlServer 模块](https://www.powershellgallery.com/packages/SqlServer)    
 * [Tabular Model Programming for Compatibility Level 1200 and higher](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)（适用于兼容级别 1200 及更高级别的表格模型编程）
 
-<!--Update_Description:Update meta propreties, update link, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

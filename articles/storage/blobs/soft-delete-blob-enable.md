@@ -7,20 +7,20 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origi n.date: 07/15/2020
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7a51564ac6f891cba6e3c1f41d377534a07c9584
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 92b1e887d542a98896217c50f39dac97a0359ff6
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753651"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026603"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>启用和管理 blob 的软删除
 
-Blob 软删除可防止意外或错误地修改或删除数据。 为存储帐户启用 blob 软删除时，该存储帐户中的 blob、blob 版本（预览版）和快照被删除后可以在指定的保留期内恢复。
+Blob 软删除可防止意外或错误地修改或删除数据。 为存储帐户启用了 Blob 软删除时，该存储帐户中的 Blob 和快照被删除后可以在指定的保留期内恢复。
 
 如果你的数据有可能被应用程序或其他存储帐户用户意外修改或删除，Azure 建议启用 blob 软删除。 本文介绍如何为 blob 启用软删除。 有关 blob 软删除的更多详细信息，请参阅 [blob 的软删除](soft-delete-blob-overview.md)。
 

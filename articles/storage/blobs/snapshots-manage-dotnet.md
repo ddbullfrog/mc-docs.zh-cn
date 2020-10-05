@@ -1,27 +1,28 @@
 ---
 title: 在 .NET 中创建和管理 blob 快照
 titleSuffix: Azure Storage
-description: 了解如何在指定时刻及时创建 blob 的只读快照以备份 blob 数据。
+description: 了解如何使用 .NET 客户端库在指定时刻及时创建 blob 的只读快照以备份 blob 数据。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 04/02/2020
-ms.date: 08/24/2020
+origin.date: 08/27/2020
+ms.date: 09/28/2020
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 12b3b7e4f3cb15ddae646555486c564f6b6fed54
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c473fed54eb070d50d95278e037f73eefc2be040
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753464"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026599"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>在 .NET 中创建和管理 blob 快照
 
 快照是在某一时间点拍摄的只读版本的 Blob。 本文介绍如何使用[适用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/storage?view=azure-dotnet)创建和管理 blob 快照。
 
-有关 Azure 存储中 blob 快照的详细信息，请参阅[在 .NET 中创建和管理 blob 快照](snapshots-overview.md)。
+有关 Azure 存储中 blob 快照的详细信息，请参阅 [Blob 快照](snapshots-overview.md)。
 
 ## <a name="create-a-snapshot"></a>创建快照
 

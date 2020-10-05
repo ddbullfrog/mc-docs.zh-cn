@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/20/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 82d93d6bafceaff57b265d5ef2aa2d95a0440ebc
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 4f4167b2433c14c6e52f57ed0c04219f1c448fa7
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515653"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146779"
 ---
 # <a name="summarize-operator"></a>summarize 运算符
 
@@ -149,7 +149,9 @@ Activities | summarize Min = min(Timestamp), Max = max(Timestamp)
 
 为每个大陆创建一行，并显示发生活动的城市的计数。 由于“continent”的值很少，因此“by”子句中不需要使用任何分组函数：
 
-    Activities | summarize cities=dcount(city) by continent
+```kusto
+Activities | summarize cities=dcount(city) by continent
+```
 
 |`cities`|`continent`
 |---:|---

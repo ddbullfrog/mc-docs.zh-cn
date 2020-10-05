@@ -1,20 +1,20 @@
 ---
 title: Azure Cosmos DB 中的开发和测试优化
 description: 本文介绍 Azure Cosmos DB 为服务的免费开发和测试提供多个选项的情况。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/27/2020
-ms.date: 08/17/2020
+origin.date: 08/19/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 73f9a5348520d3d3c6a3b3ce4526a8bfe0c74652
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 04b41e0e5ab389176291c83dd8593a0b6d14fc02
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223451"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246376"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化开发和测试成本
 
@@ -28,6 +28,9 @@ ms.locfileid: "88223451"
 
 使用 Azure Cosmos DB 免费层，可以轻松上手、开发和测试应用程序，甚至免费运行小型生产工作负载。 在帐户上启用免费层后，一开始你将在该帐户中免费获得 400 RU/秒的吞吐量和 5 GB 的存储空间。 还可以创建包含 25 个容器的共享吞吐量数据库，这些容器在数据库级别的吞吐量均为 400 RU/秒，所有这些操作都可以通过免费层实现（免费层帐户的限制为 5 个共享吞吐量数据库）。 使用免费层时，如果预配的共享数据库的最小吞吐量为 400 RU/秒，则该数据库中的所有容器都可以共享吞吐量。 任何具有共享吞吐量的新数据库或具有专用吞吐量的容器都将按常规定价计费。
 
+> [!NOTE]
+> 免费层仅可在“预配吞吐量”模式下使用。
+
 免费层在帐户的生命周期内无限期地持续有效，并且附带常规 Azure Cosmos DB 帐户的所有[优点和功能](introduction.md#key-benefits)，包括无限制的存储和吞吐量（RU/秒）、SLA、高可用性以及在所有 Azure 中国区域进行统包式多区域分布等。 每个 Azure 订阅最多可以有一个免费层帐户，并且必须在创建帐户时选择加入使用。 首先，[在 Azure 门户中创建一个启用了免费层的新帐户](create-cosmosdb-resources-portal.md) 或使用 [ARM 模板](manage-sql-with-resource-manager.md#free-tier)。 如需更多详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 
 <!--Not Available on ## Try Azure Cosmos DB for free-->
@@ -35,7 +38,13 @@ ms.locfileid: "88223451"
 
 ## <a name="azure-trial-account"></a>Azure 试用帐户
 
-Azure Cosmos DB 包含在 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)中，该帐户提供 Azure 信用额度和资源，可以免费使用特定的一段时间。 特别对于 Azure Cosmos DB，该试用帐户提供 5 GB 的存储和 400 RU 的全年预配吞吐量。 任何开发人员都可以通过此体验轻松地测试 Azure Cosmos DB 的功能，或者将其与其他 Azure 服务集成，没有任何费用。 Azure 试用帐户提供 $200 的信用额度，可以在头 30 天使用。 在选择升级之前，即使开始使用服务也不会收费。 若要开始操作，请访问 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)页。
+Azure Cosmos DB 包含在 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)中，该帐户提供 Azure 信用额度和资源，可以免费使用特定的一段时间。 特别对于 Azure Cosmos DB，该试用帐户提供 5 GB 的存储和 400 RU 的全年预配吞吐量。 任何开发人员都可以通过此体验轻松地测试 Azure Cosmos DB 的功能，或者将其与其他 Azure 服务集成，没有任何费用。 使用 Azure 试用帐户可获得 1500 元信用额度，该额度可以在前 30 天使用。 在选择升级之前，即使开始使用服务也不会收费。 若要开始操作，请访问 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)页。
+
+<!--MOONCAKE CORRECT ON: CNY 1500-->
+
+## <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB 无服务器
+
+[Azure Cosmos DB 无服务器](serverless.md)让你以一种基于消耗的方式使用 Azure Cosmos 帐户。在这种方式下，你只需为数据库操作所消耗的请求单位和数据所消耗的存储空间付费。 在无服务器模式下使用 Azure Cosmos DB 时不涉及最低费用。 因为它消除了预配容量的概念，所以它最适合于开发或测试活动，尤其是在数据库大部分时间处于空闲状态的情况下。
 
 ## <a name="use-shared-throughput-databases"></a>使用共享吞吐量数据库
 
@@ -47,8 +56,8 @@ Azure Cosmos DB 包含在 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb
 
 可以按照以下文章的说明，开始使用模拟器或免费的 Azure Cosmos DB 帐户：
 
-* 详细了解[开发和测试优化](optimize-dev-test.md)
 * 详细了解[了解 Azure Cosmos DB 帐单](understand-your-bill.md)
+* 详细了解 [Azure Cosmos DB 无服务器](serverless.md)
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)

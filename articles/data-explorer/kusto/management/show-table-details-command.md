@@ -8,16 +8,15 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/04/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 4051fbcacd124eccbd7133d7bd7f4fca1c0e415e
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 09/24/2020
+ms.openlocfilehash: 0b5dec233ee381f93639236ef1092469365f02ea
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470447"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146694"
 ---
 # <a name="show-table-details"></a>.show table details
-
 返回一个集合，其中包含指定的表或数据库中的所有表，以及每个表的属性的详细摘要。
 
 需要[数据库查看者权限](../management/access-control/role-based-authorization.md)。
@@ -31,18 +30,18 @@ ms.locfileid: "86470447"
 **输出**
 
 | 输出参数           | 类型     | 说明                                                                                     |
-| -------------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+|----------------------------|----------|-------------------------------------------------------------------------------------------------|
 | `TableName`                | 字符串   | 表的名称。                                                                          |
 | `DatabaseName`             | String   | 表所属的数据库。                                                         |
 | `Folder`                   | String   | 表的文件夹。                                                                             |
 | `DocString`                | String   | 一个用来记录表的字符串。                                                                 |
 | `TotalExtents`             | Int64    | 表中的总盘区数。                                                       |
-| `TotalExtentSize`          | Double   | 表中盘区的总大小（压缩大小 + 索引大小）。                          |
-| `TotalOriginalSize`        | Double   | 表中数据的原始总大小。                                                   |
+| `TotalExtentSize`          | Double   | 表中的区的总大小（压缩大小 + 索引大小，以字节为单位）。               |
+| `TotalOriginalSize`        | Double   | 表中数据的原始总大小（以字节为单位）。                                        |
 | `TotalRowCount`            | Int64    | 表中的总行数。                                                          |
 | `HotExtents`               | Int64    | 存储在热缓存中的表中的总盘区数。                              |
-| `HotExtentSize`            | Double   | 存储在热缓存中的表中盘区的总大小（压缩大小 + 索引大小）。 |
-| `HotOriginalSize`          | Double   | 存储在热缓存中的表中数据的原始总大小。                          |
+| `HotExtentSize`            | Double   | 存储在热缓存中的表中的区的总大小（压缩大小 + 索引大小，以字节为单位）。 |
+| `HotOriginalSize`          | Double   | 存储在热缓存中的表中数据的原始总大小（以字节为单位）。               |
 | `HotRowCount`              | Int64    | 存储在热缓存中的表中的总行数。                                 |
 | `AuthorizedPrincipals`     | String   | 表的已授权主体（序列化为 JSON）。                                          |
 | `RetentionPolicy`          | String   | 表的有效`*` 保留策略（序列化为 JSON）。                                  |
@@ -59,6 +58,6 @@ ms.locfileid: "86470447"
 **输出示例**
 
 | TableName         | DatabaseName | 文件夹 | DocString | TotalExtents | TotalExtentSize | TotalOriginalSize | TotalRowCount | HotExtents | HotExtentSize | HotOriginalSize | HotRowCount | AuthorizedPrincipals                                                                                                                                                                               | RetentionPolicy                                                                                                                                       | CachingPolicy                                                                        | ShardingPolicy                                                                    | MergePolicy                                                                                                                                             | StreamingIngestionPolicy | MinExtentsCreationTime      | MaxExtentsCreationTime      |
-| ----------------- | ------------ | ------ | --------- | ------------ | --------------- | ----------------- | ------------- | ---------- | ------------- | --------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | --------------------------- | --------------------------- |
+|-------------------|--------------|--------|-----------|--------------|-----------------|-------------------|---------------|------------|---------------|-----------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|-----------------------------|-----------------------------|
 | 操作        | 操作   |        |           | 1164         | 37687203        | 53451358          | 223325        | 29         | 838752        | 1388213         | 5117        | [{"Type":"AAD User", "DisplayName":"My Name (upn: alias@fabrikam.com)", "ObjectId": "a7a77777-4c21-4649-95c5-350bf486087b", "FQN": "aaduser=a7a77777-4c21-4649-95c5-350bf486087b", "Notes": ""}] | {"SoftDeletePeriod":"365.00:00:00", "ContainerRecyclingPeriod":"1.00:00:00", "ExtentsDataSizeLimitInBytes":0, "OriginalDataSizeLimitInBytes":0 }  | { "DataHotSpan":"4.00:00:00", "IndexHotSpan":"4.00:00:00", "ColumnOverrides": [] } | { "MaxRowCount":750000, "MaxExtentSizeInMb":1024, "MaxOriginalSizeInMb":2048 } | { "RowCountUpperBoundForMerge":0, "MaxExtentsToMerge":100, "LoopPeriod":"01:00:00", "MaxRangeInHours":3, "AllowRebuild": true, "AllowMerge": true } | Null                     |
 | ServiceOperations | 操作   |        |           | 1109         | 76588803        | 91553069          | 110125        | 27         | 2635742       | 2929926         | 3162        | [{"Type":"AAD User", "DisplayName":"My Name (upn: alias@fabrikam.com)", "ObjectId": "a7a77777-4c21-4649-95c5-350bf486087b", "FQN": "aaduser=a7a77777-4c21-4649-95c5-350bf486087b", "Notes": ""}] | { "SoftDeletePeriod":"365.00:00:00", "ContainerRecyclingPeriod":"1.00:00:00", "ExtentsDataSizeLimitInBytes":0, "OriginalDataSizeLimitInBytes":0 } | { "DataHotSpan":"4.00:00:00", "IndexHotSpan":"4.00:00:00", "ColumnOverrides": [] } | { "MaxRowCount":750000, "MaxExtentSizeInMb":1024, "MaxOriginalSizeInMb":2048 } | { "RowCountUpperBoundForMerge":0, "MaxExtentsToMerge":100, "LoopPeriod":"01:00:00", "MaxRangeInHours":3, "AllowRebuild": true, "AllowMerge": true } | Null                     | 2018-02-08 15:30:38.8489786 | 2018-02-14 07:47:28.7660267 |

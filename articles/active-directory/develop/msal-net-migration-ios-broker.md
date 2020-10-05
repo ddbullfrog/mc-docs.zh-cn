@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: c4471268f6136e0a8f49701d998455e84696b3eb
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 8b53a1fe8469e1fbbc1bffb33178ae27cdbcb8a1
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593652"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245196"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>将使用 Microsoft Authenticator 的 iOS 应用程序从 ADAL.NET 迁移到 MSAL.NET
 
@@ -239,6 +239,19 @@ ADAL.NET 和 MSAL.NET 都使用 `-canOpenURL:` 来检查是否在设备上安装
 </table>
 
 若要详细了解如何在 Azure 门户中注册重定向 URI，请参阅[步骤 7：向应用注册中添加重定向 URI](msal-net-use-brokers-with-xamarin-apps.md#step-7-add-a-redirect-uri-to-your-app-registration)。
+
+### <a name="step-7-set-the-entitlementsplist"></a>**步骤 7：设置 Entitlements.plist**
+
+在 Entitlements.plist 文件中启用密钥链访问：
+
+```xml
+ <key>keychain-access-groups</key>
+    <array>
+      <string>$(AppIdentifierPrefix)com.microsoft.adalcache</string>
+    </array>
+```
+
+若要详细了解如何启用密钥链访问，请参阅[启用密钥链访问](msal-net-xamarin-ios-considerations.md#enable-keychain-access)。
 
 ## <a name="next-steps"></a>后续步骤
 

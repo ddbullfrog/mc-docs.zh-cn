@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 08/17/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3028690943d8fbd93d14edac97afba10c8f45455
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 1ccc930bf405bc25c5246c4d114f98c57d119300
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020839"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146759"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用静态公共 IP 地址创建入口控制器
 
@@ -57,7 +57,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_chi
 ```
 
 > [!NOTE]
-> 以上命令创建一个 IP 地址，如果你删除了 AKS 群集，该 IP 地址会被删除。 或者，你可以在不同的资源组中创建一个 IP 地址，该资源组可以与你的 AKS 群集分开管理。 如果在不同的资源组中创建 IP 地址，请确保 AKS 群集使用的服务主体具有委托给其他资源组的权限，例如网络参与者。
+> 以上命令创建一个 IP 地址，如果你删除了 AKS 群集，该 IP 地址会被删除。 或者，你可以在不同的资源组中创建一个 IP 地址，该资源组可以与你的 AKS 群集分开管理。 如果在不同的资源组中创建 IP 地址，请确保 AKS 群集使用的服务主体具有委托给其他资源组的权限，例如网络参与者。 有关详细信息，请参阅[将静态公共 IP 地址和 DNS 标签用于 AKS 负载均衡器][aks-static-ip]。
 
 现在，通过 Helm 部署 *nginx-ingress* 图表。 对于增加的冗余，NGINX 入口控制器的两个副本会在部署时具备 `--set controller.replicaCount` 参数。 若要充分利用正在运行的入口控制器副本，请确保 AKS 群集中有多个节点。
 
@@ -385,15 +385,15 @@ certificate.cert-manager.io/tls-secret created
 
 如果将 Let's Encrypt 更改为使用 `prod` 而不是 `staging`，则会使用由 Let's Encrypt 颁发的可信证书，如以下示例所示：
 
-:::image type="content" source="media/ingress/certificate.png" alt-text="Let's Encrypt 证书":::
+:::image type="content" source="media/ingress/certificate.png" alt-text="Let's Encrypt 临时证书":::
 
 演示应用程序显示在 Web 浏览器中：
 
-:::image type="content" source="media/ingress/app-one.png" alt-text="应用程序示例 1":::
+:::image type="content" source="media/ingress/app-one.png" alt-text="Let's Encrypt 临时证书":::
 
 现在向 FQDN 添加 */hello-world-two* 路径，例如 *`https://demo-aks-ingress.chinaeast2.cloudapp.chinacloudapi.cn/hello-world-two`* 。 下面显示了带自定义标题的第二个演示应用程序：
 
-:::image type="content" source="media/ingress/app-two.png" alt-text="应用程序示例 2":::
+:::image type="content" source="media/ingress/app-two.png" alt-text="Let's Encrypt 临时证书":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -502,5 +502,6 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_chi
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[aks-static-ip]: static-ip.md
 
 <!-- Update_Description: update meta properties, wording update, update link -->

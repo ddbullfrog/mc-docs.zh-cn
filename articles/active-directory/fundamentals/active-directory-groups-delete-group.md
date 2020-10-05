@@ -2,23 +2,23 @@
 title: 删除组 - Azure Active Directory | Microsoft Docs
 description: 关于如何使用 Azure Active Directory 删除组的说明。
 services: active-directory
-author: eross-msft
-manager: mtillman
+author: ajburnle
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
-ms.topic: conceptual
-origin.date: 08/29/2018
-ms.date: 01/21/2019
+ms.subservice: fundamentals
+ms.topic: how-to
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 2630262d0bee0d4fffe64431b319c388e57c5a40
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3dce39983587cde88b1ab1d2fc428ad37377d5f4
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63823187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244630"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>使用 Azure Active Directory 删除组
 可以因为各种原因删除 Azure Active Directory (Azure AD) 组，但通常是因为：
@@ -48,6 +48,5 @@ ms.locfileid: "63823187"
 
 - 如果误删除某个组，可以重新创建。 有关详细信息，请参阅[如何创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
 
-- 如果误删除 Office 365 组，可能能够将其还原。 有关详细信息，请参阅[还原已删除的 Office 365 组](../users-groups-roles/groups-restore-deleted.md)。
+- 如果误删除了 Microsoft 365 组，可以将其还原。 有关详细信息，请参阅[还原已删除的 Office 365 组](../users-groups-roles/groups-restore-deleted.md)。
 
-<!-- Update_Description: wording update -->

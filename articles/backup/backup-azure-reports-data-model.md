@@ -4,14 +4,14 @@ description: 此数据模型参考了将诊断事件发送到 Log Analytics (LA)
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 10/30/2019
-ms.date: 06/22/2020
+ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: d4d70bc9da568836f05191b26427ab9509f71bff
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: ebd800ae0ad355d0588f7a463e06deb86106ccb2
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851940"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402382"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Azure 备份诊断事件的数据模型
 
@@ -56,7 +56,7 @@ ms.locfileid: "85851940"
 | ProtectedContainerWorkloadType    | 文本          | 受保护的已备份容器的类型。 例如 IaaSVMContainer |
 | ProtectionGroupName               | 文本          | SC DPM 和 MABS 的保护组名称，其中的备份项受保护（如果适用） |
 | ResourceGroupName                 | 文本          | 所收集数据的资源（例如，恢复服务保管库）的资源组 |
-| schemaVersion                     | 文本          | 此字段表示架构的当前版本，值为 **V2** |
+| schemaVersion                     | 文本          | 此字段表示架构的当前版本。 值为“V2” |
 | SecondaryBackupProtectionState    | 文本          | 是否为备份项启用了辅助保护  |
 | 状态                             | 文本          | 备份项对象的状态。 例如 Active、Deleted |
 | StorageReplicationType            | 文本          | 保管库的存储复制类型。 例如 GeoRedundant |
@@ -139,7 +139,7 @@ ms.locfileid: "85851940"
 | ProtectedContainerUniqueId     | 文本          | 与作业关联的受保护服务器的唯一标识符 |
 | RecoveryJobDestination         | 文本          | 恢复作业的目标，数据将恢复到其中   |
 | RecoveryJobRPDateTime          | DateTime      | 要恢复的恢复点的创建日期和时间 |
-| RecoveryJobLocation            | 文本          | 要恢复的恢复点已还原到的位置 |
+| RecoveryJobLocation            | 文本          | 要恢复的恢复点的存储位置 |
 | RecoveryLocationType           | 文本          | 恢复位置的类型                                |
 | schemaVersion                  | 文本          | 架构的当前版本，例如 **V2**            |
 | 状态                          | 文本          | 作业对象的当前状态，例如 Active、Deleted |
@@ -168,12 +168,12 @@ ms.locfileid: "85851940"
 | DiffBackupTime                  | 时间           | Azure VM 备份中 SQL 差异备份的时间     |
 | LogBackupFrequency              | 十进制数 | SQL 日志备份的频率                            |
 | LogBackupRetentionDuration      | 十进制数 | Azure VM 备份中 SQL 日志备份的保留期 |
-| MonthlyRetentionDaysOfTheMonth  | 文本           | 配置每月保留时的当月周次。  例如，First、Last，等等。 |
+| MonthlyRetentionDaysOfTheMonth  | 文本           | 配置每月保留时的当月周次。  例如，First、Last |
 | MonthlyRetentionDaysOfTheWeek   | 文本           | 选择进行每月保留的日期（星期几）              |
 | MonthlyRetentionDuration        | 文本           | 所配置备份的总保留时间（按月算）    |
 | MonthlyRetentionFormat          | 文本           | 每月保留的配置类型。 例如基于日期的每日、基于周次的每周 |
 | MonthlyRetentionTimes           | 文本           | 配置每月保留时的日期和时间           |
-| MonthlyRetentionWeeksOfTheMonth | 文本           | 配置每月保留时的当月周次。   例如，First、Last，等等。 |
+| MonthlyRetentionWeeksOfTheMonth | 文本           | 配置每月保留时的当月周次。   例如，First、Last |
 | PolicyName                      | 文本           | 已定义的策略的名称                                   |
 | PolicyUniqueId                  | 文本           | 用于标识策略的唯一 ID                             |
 | PolicyTimeZone                  | 文本           | 在日志中指定策略时间字段时采用的时区 |
@@ -223,6 +223,6 @@ ms.locfileid: "85851940"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [了解如何将诊断数据发送到 Log Analytics](/backup/backup-azure-diagnostic-events)
-- [了解如何针对特定于资源的表编写查询](/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)
+- [了解如何将诊断数据发送到 Log Analytics](./backup-azure-diagnostic-events.md)
+- [了解如何针对特定于资源的表编写查询](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries)
 

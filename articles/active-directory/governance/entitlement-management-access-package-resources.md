@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97a50b2c687710aedf2bfc984be7490bbe33a03a
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 9710a9eb71772acb39333be5e9600d3b10bac0b5
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947414"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245675"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中更改访问包的资源角色
 
@@ -72,12 +72,12 @@ ms.locfileid: "88947414"
 - 如果某个组或团队是访问包的一部分，而某个用户已分配到该访问包，则该用户将添加到该组或团队（如果未在其中）。
 - 当用户的访问包分配过期时，他们将从组或团队中删除，除非他们当前已分配到包含同一个组或团队的其他访问包。
 
-可以选择任意 [Azure AD 安全组或 Office 365 组](../fundamentals/active-directory-groups-create-azure-portal.md)。 管理员可将任何组添加到目录；如果目录所有者是组的所有者，则他们可将任何组添加到该目录中。 选择组时，请记住以下 Azure AD 约束：
+可以选择任意 [Azure AD 安全组或 Microsoft 365 组](../fundamentals/active-directory-groups-create-azure-portal.md)。 管理员可将任何组添加到目录；如果目录所有者是组的所有者，则他们可将任何组添加到该目录中。 选择组时，请记住以下 Azure AD 约束：
 
 - 当用户（包括来宾）作为成员添加到组或团队时，他们可以查看该组或团队的所有其他成员。
 - Azure AD 无法更改使用 Azure AD Connect 从 Windows Server Active Directory 同步的组的成员身份，或在 Exchange Online 中作为通讯组创建的组的成员身份。  
 
-有关详细信息，请参阅[比较组](https://docs.microsoft.com/office365/admin/create-groups/compare-groups)和 [Office 365 组和 Microsoft Teams](https://docs.microsoft.com/microsoftteams/office-365-groups)。
+有关详细信息，请参阅[比较组](https://docs.microsoft.com/office365/admin/create-groups/compare-groups)和 [Microsoft 365 组和 Microsoft Teams](https://docs.microsoft.com/microsoftteams/office-365-groups)。
 
 1. 在“将资源角色添加到访问包”页上，单击“组和团队”打开“选择组”窗格。 
 
@@ -93,8 +93,8 @@ ms.locfileid: "88947414"
     | --- | --- |
     | 安全 | 用于授予对资源的访问权限。 |
     | 分发 | 用于向一组人员发送通知。 |
-    | O365 | 未启用 Teams 的 Office 365 组。 用于公司内部和外部用户之间的协作。 |
-    | 组 | 启用了 Teams 的 Office 365 组。 用于公司内部和外部用户之间的协作。 |
+    | Microsoft 365 | 未启用 Teams 的 Microsoft 365 组。 用于公司内部和外部用户之间的协作。 |
+    | 组 | 已启用 Teams 的 Microsoft 365 组。 用于公司内部和外部用户之间的协作。 |
 
 1. 在“角色”列表中，选择“所有者”或“成员”。************
 
@@ -177,7 +177,7 @@ ms.locfileid: "88947414"
 
 在权利管理中，Azure AD 每天会多次处理访问包中的分配和资源的批量更改。 因此，如果你做了分配或更改了访问包的资源角色，可能需要在长达 24 小时之后，才会在 Azure AD 中做出该项更改，此外，还需要花费一段时间将这些更改传播到其他 Microsoft Online Services 或连接的 SaaS 应用程序。 如果所做的更改只影响几个对象，则更改可能在几分钟后即可在 Azure AD 中应用，之后，其他 Azure AD 组件会检测到该更改并更新 SaaS 应用程序。 如果所做的更改会影响数千个对象，则应用更改需要花费较长的时间。 例如，如果某个访问包具有 2 个应用程序分配和 100 个用户分配，而你决定将一个 SharePoint 站点角色添加到该访问包，则在将所有用户加入 SharePoint 站点角色之前可能会出现延迟。 可以通过 Azure AD 审核日志、Azure AD 预配日志和 SharePoint 站点审核日志来监视进度。
 
-删除团队成员时，也会将其从 Office 365 组中删除。 从团队的聊天功能中删除可能会延迟。 有关详细信息，请参阅[组成员身份](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)。
+删除团队成员时，也会将其从 Microsoft 365 组中删除。 从团队的聊天功能中删除可能会延迟。 有关详细信息，请参阅[组成员身份](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,21 +1,21 @@
 ---
 title: Azure 虚拟 WAN 合作伙伴自动化指南 | Azure
-description: 本文帮助合作伙伴设置 Azure 虚拟 WAN 自动化。
+description: 设置自动化环境以连接和配置 Azure 虚拟 WAN 的本地 VPN 或 SD-WAN CPE 或分支设备。
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 06/29/2020
-ms.date: 08/03/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: dffeb8418d2581a86fcdc2ba39813fdca401690a
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 5b3ad023da2bf4948983436db05d47aa3d1e2b09
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426382"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246712"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>适用于虚拟 WAN 合作伙伴的自动化指南
 

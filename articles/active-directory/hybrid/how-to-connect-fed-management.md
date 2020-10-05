@@ -1,7 +1,7 @@
 ---
 title: Azure AD Connect - AD FS 管理和自定义 | Microsoft Docs
 description: 使用 Azure AD Connect 管理 AD FS 并使用 Azure AD Connect 和 PowerShell 自定义用户的 AD FS 登录体验。
-keywords: AD FS, ADFS, AD FS 管理, AAD Connect, Connect, 登录, AD FS 自定义, 修复信任, O365, 联合, 信赖方
+keywords: AD FS, ADFS, AD FS 管理, AAD Connect, Connect, 登录, AD FS 自定义, 修复信任, M365, 联合, 信赖方
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 09/23/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d51f898bf1559925acf994de5a1eafde9585f5
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: f30f0d55f0bb08e8821bb5c3d2e9e95f378ce33d
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245265"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自定义 Active Directory 联合身份验证服务
 本文介绍如何使用 Azure Active Directory (Azure AD) Connect 管理和自定义 Active Directory 联合身份验证服务 (AD FS)。 另外，还介绍了可能需要针对完整的 AD FS 场配置执行的其他常见 AD FS 任务。
@@ -31,7 +31,7 @@ ms.locfileid: "86164906"
 | 主题 | 内容 |
 |:--- |:--- |
 | **管理 AD FS** | |
-| [修复信任](#repairthetrust) |如何修复与 Office 365 的联合信任。 |
+| [修复信任](#repairthetrust) |如何修复与 Microsoft 365 的联合信任。 |
 | [使用备用登录 ID 与 Azure AD 联合](#alternateid) | 使用备用登录 ID 配置联合  |
 | [添加 AD FS 服务器](#addadfsserver) |如何使用附加的 AD FS 服务器扩展 AD FS 场。 |
 | [添加 AD FS Web 应用程序代理服务器](#addwapserver) |如何使用附加的 Web 应用程序代理 (WAP) 服务器扩展 AD FS 场。 |
@@ -42,7 +42,7 @@ ms.locfileid: "86164906"
 | [添加登录说明](#addsignindescription) |如何添加登录页说明。 |
 | [修改 AD FS 声明规则](#modclaims) |如何修改各种联合方案的 AD FS 声明。 |
 
-## <a name="manage-ad-fs"></a>管理 AD FS <a name="ad-fs-management"></a>
+## <a name="manage-ad-fs"></a>管理 AD FS
 使用 Azure AD Connect 向导，可以在最少的用户干预的 Azure AD Connect 中执行各种 AD FS 相关任务。 在通过运行向导来完成安装 Azure AD Connect 后，可以再次运行向导，以执行其他任务。
 
 ## <a name="repair-the-trust"></a><a name="repairthetrust"></a>修复信任 
@@ -85,7 +85,7 @@ ms.locfileid: "86164906"
     若要纠正缺少知识库 (KB) 情况下的配置，请安装所需的 [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590)，并借助[修复 AAD 和 AD FS 信任](#repairthetrust)修复信任。
 
 > [!NOTE]
-> 有关 AlternateID 和手动配置步骤的详细信息，请阅读[配置备用登录 ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
+> 有关 AlternateID 和手动配置步骤的详细信息，请阅读[配置备用登录 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 
 ## <a name="add-an-ad-fs-server"></a><a name="addadfsserver"></a>添加 AD FS 服务器 
 
@@ -174,7 +174,7 @@ ms.locfileid: "86164906"
 
    ![Azure AD 域](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
-    选择域后，向导将提供有关向导将采取的进一步操作以及配置产生的影响的适当信息。 在某些情况下，如果选择的域尚未在 Azure AD 中进行验证，则向导将提供帮助验证域的信息。 有关更多详细信息，请参阅[将自定义域名添加到 Azure Active Directory](../add-custom-domain.md)。
+    选择域后，向导将提供有关向导将采取的进一步操作以及配置产生的影响的适当信息。 在某些情况下，如果选择的域尚未在 Azure AD 中进行验证，则向导将提供帮助验证域的信息。 有关更多详细信息，请参阅[将自定义域名添加到 Azure Active Directory](../fundamentals/add-custom-domain.md)。
 
 5. 单击“下一步”  。 “已准备好配置”页会显示 Azure AD Connect 将要执行的操作列表。  单击“安装”  完成配置。
 
@@ -207,7 +207,7 @@ Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requi
 ```
 
 ## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>修改 AD FS 声明规则 
-AD FS 支持丰富的声明语言，让你用来创建自定义声明规则。 有关详细信息，请参阅[声明规则语言的作用](https://technet.microsoft.com/library/dd807118.aspx)。
+AD FS 支持丰富的声明语言，让你用来创建自定义声明规则。 有关详细信息，请参阅[声明规则语言的作用](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807118(v=ws.11))。
 
 以下部分详细介绍了如何针对与 Azure AD 和 AD FS 联合身份验证有关的某些情况编写自定义规则。
 

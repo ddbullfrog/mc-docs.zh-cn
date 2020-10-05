@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5231c3519bcc36ba9a9ac23b3b09416ca579d99
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: e9adc70337a38197ff89e84c616d1374a71b2911
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245313"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>用于组管理的 Azure Active Directory 版本 2 cmdlet
 
@@ -53,7 +53,7 @@ ms.locfileid: "89593740"
 现在可以开始使用模块中的 cmdlet 了。 有关 Azure AD 模块中 cmdlet 的完整说明，请参阅 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) 的联机参考文档。
 
 > [!NOTE]
-> Azure AD PowerShell cmdlet 不适用于新版 Powershell 7，因为它基于 .Net Core。 我们意识到这一点，此 cmdlet 正在更新过程中。 从现在开始，我们建议使用 Windows Powershell 5.x 模块来执行 Azure AD PowerShell 操作。 
+> Azure AD PowerShell cmdlet 不适用于新版 Powershell 7，因为它基于 .Net Core。 我们意识到这一点，此 cmdlet 正在更新过程中。 到目前为止，我们建议使用 Windows PowerShell 5.x 模块来执行 Azure AD PowerShell 操作。 
 
 
 ## <a name="connect-to-the-directory"></a>连接到目录
@@ -328,13 +328,13 @@ ObjectId 参数是要将成员添加到的组的 ObjectID，-RefObjectId 是要�
 
 ## <a name="group-writeback-to-on-premises-preview"></a>到本地的组写回（预览版）
 
-如今，许多组仍在本地 Active Directory 中管理。 为了响应将云组同步回本地的请求，适用于 Azure AD 的 Office 365 组写回功能现在推出了预览版。
+如今，许多组仍在本地 Active Directory 中管理。 为了响应将云组同步回本地的请求，适用于 Azure AD 的 Microsoft 365 组写回功能现在推出了预览版。
 
-Office 365 组在云中创建和管理。 使用写回功能，可以将 Office 365 组作为通讯组回写到安装了 Exchange 的 Active Directory 林。 然后，具有本地 Exchange 邮箱的用户可以从这些组发送和接收电子邮件。 组写回功能不支持 Azure AD 安全组或通讯组。
+Microsoft 365 组是在云中创建和管理的。 使用写回功能，可以将 Microsoft 365 组作为通讯组写回到安装了 Exchange 的 Active Directory 林。 然后，具有本地 Exchange 邮箱的用户可以从这些组发送和接收电子邮件。 组写回功能不支持 Azure AD 安全组或通讯组。
 
 有关更多详细信息，请参阅 [Azure AD Connect 同步服务](../hybrid/how-to-connect-syncservice-features.md)的文档。
 
-Office 365 组写回是 Azure Active Directory (Azure AD) 的一项公共预览版功能，可通过任何付费 Azure AD 许可计划获得。 有关预览版的一些法律信息，请参阅 [Azure 预览版补充使用条款](https://www.azure.cn/support/legal/)。
+Microsoft 365 组写回是 Azure Active Directory (Azure AD) 的一项公共预览功能，可通过任何付费 Azure AD 许可计划获得。 有关预览版的一些法律信息，请参阅 [Azure 预览版补充使用条款](https://www.azure.cn/support/legal/)。
 
 ## <a name="next-steps"></a>后续步骤
 

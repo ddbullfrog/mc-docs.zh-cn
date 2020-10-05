@@ -1,24 +1,24 @@
 ---
 title: 教程 - 使用参数文件部署模板
 description: 使用参数文件，其中包含的值可用于部署 Azure 资源管理器模板。
-origin.date: 03/27/2020
+origin.date: 09/10/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1e1a3cbb4c26b85b1e462a2be084eb0d657c79ed
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: a8e97e4e7d9d21c70a933aaa4a07367d9e0e96e3
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807921"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146565"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>教程：使用参数文件部 ARM 模板
 
-本教程介绍如何使用[参数文件](parameter-files.md)存储在部署过程中传递的值。 在以前的教程中，我们通过部署命令使用了内联参数。 此方法适用于测试 Azure 资源管理器 (ARM) 模板，但是当自动执行部署时，可以更容易地为环境传递一组值。 参数文件可以方便你针对特定的环境将参数值打包。 在本教程中，我们将针对开发和生产环境创建参数文件。 完成该过程需要大约 **12 分钟**。
+本教程介绍如何使用[参数文件](parameter-files.md)存储在部署过程中传递的值。 在以前的教程中，我们通过部署命令使用了内联参数。 此方法适用于测试 Azure 资源管理器模板（ARM 模板），但是当自动执行部署时，可以更容易地为环境传递一组值。 参数文件可以方便你针对特定的环境将参数值打包。 在本教程中，我们将针对开发和生产环境创建参数文件。 完成该过程需要大约 **12 分钟**。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -48,7 +48,6 @@ ms.locfileid: "88807921"
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS",
-        "Standard_RAGZRS"
       ]
     },
     "location": {
@@ -154,6 +153,12 @@ ms.locfileid: "88807921"
 
 参数文件是 JSON 文件，其结构类似于模板。 在文件中，我们提供需要在部署过程中传入的参数值。
 
+在参数文件中，为模板中的参数提供值。 参数文件中每个参数的名称必须与模板中的参数名称相匹配。 该名称不区分大小写，但为了方便查看匹配的值，我们建议你匹配模板中的大小写。
+
+无需为每个参数提供值。 如果未指定的参数具有默认值，则在部署过程中将使用该值。 如果参数没有默认值，并且未在参数文件中指定值，系统会在部署过程中提示你提供值。
+
+不能在参数文件中指定与模板中的参数名称不匹配的参数名称。 如果提供了未知参数，会收到错误。
+
 在 VS Code 中，创建包含以下内容的新文件。 使用名称 **azuredeploy.parameters.dev.json** 保存文件。
 
 ```json
@@ -241,7 +246,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要运行此部署命令，必须具有 Azure CLI 的 [最新版本](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+若要运行此部署命令，必须具有 Azure CLI 的 [最新版本](https://docs.azure.cn/cli/install-azure-cli)。
 
 ```azurecli
 templateFile="{path-to-the-template-file}"

@@ -1,7 +1,7 @@
 ---
 title: 应用品牌准则 | Azure
 titleSuffix: Microsoft identity platform
-description: 介绍面向开发人员的 Azure Active Directory 资源的综合性指南
+description: 了解 Microsoft 标识平台的应用程序品牌准则。
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
-ms.reviewer: arielgo
+ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: ca4642323e303986495ca1320441c11ada38ee63
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 89fbc01aab4311c178f44f65692c12cb2c59a879
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244700"
 ---
 # <a name="branding-guidelines-for-applications"></a>适用于应用程序的品牌准则
 
-使用 Azure Active Directory (Azure AD) 开发应用程序时，如果客户想要使用工作或学校帐户（在 Azure AD 中托管）进行注册和登录到应用程序，你需要指导客户进行相关操作。
+如果开发使用 Microsoft 标识平台的应用程序，你需要在你的客户想要使用工作或学校帐户（在 Azure AD 中托管）注册和登录到你的应用程序时指导客户进行相关操作。
 
 在本文中，你将：
 

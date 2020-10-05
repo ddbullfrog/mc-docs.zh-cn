@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB：SQL .NET API、SDK 和资源
 description: 了解有关 SQL .NET API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB .NET SDK 各版本之间所做的更改。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-origin.date: 05/11/2020
-ms.date: 08/17/2020
+origin.date: 08/12/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
-ms.testdate: ''
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: f93e2c60417d18eea05838b12c6bf0c96467c346
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: face66316c186220bad1af7e6c813b9bcddf7851
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222413"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246357"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>适用于 SQL API 的 Azure Cosmos DB .NET SDK v2：下载和发行说明
 > [!div class="op_single_selector"]
@@ -28,6 +29,9 @@ ms.locfileid: "88222413"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark 连接器](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -38,7 +42,7 @@ ms.locfileid: "88222413"
 | |  |
 |---|---|
 |**SDK 下载**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
-|**API 文档**|[ 参考文档](https://docs.azure.cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)|
+|**API 文档**|[ 参考文档](https://docs.azure.cn/dotnet/api/overview/cosmosdb)|
 |**示例**|[.NET代码示例](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
 |**入门**|[Azure Cosmos DB .NET SDK 入门](sql-api-get-started.md)|
 |**Web 应用教程**|[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-dotnet-application.md)|
@@ -50,6 +54,17 @@ ms.locfileid: "88222413"
 > 如果使用的是 .NET Framework，请参阅面向 .NET Standard 的 [.NET SDK](sql-api-sdk-dotnet-standard.md) 最新版本 3.x。
 
 以下 .NET SDK 子版本可在 2.x.x 版本下使用：
+
+<a name="2.11.6"></a>
+### <a name="2116"></a>2.11.6
+
+* 修复了问题：对存储过程、触发器和用户定义的函数执行 CRUD 操作时发生“请求标头太长”的错误
+
+<a name="2.11.5"></a>
+### <a name="2115"></a>2.11.5
+
+* 改进了对查询操作期间区域故障转移情况的检测。
+* 提高了暂时性 ReadSessionNotAvailable 情形时的复原能力。 
 
 <a name="2.11.4"></a>
 ### <a name="2114"></a>2.11.4

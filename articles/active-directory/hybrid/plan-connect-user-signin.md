@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 09/24/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e9545bd3f5f45b64207b42b92f934cfbd9c2ab
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: 9b478037780fd1df156d5ef6817a7ef6a6eae638
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126553"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245617"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 用户登录选项
 Azure Active Directory (Azure AD) Connect 可让用户使用同一组密码登录云和本地资源。 本文介绍每个标识模型的重要概念，以帮助你选择登录到 Azure AD 时想要使用的标识。
@@ -45,11 +45,12 @@ Azure AD 支持以下身份验证方法：
 
 * **联合身份验证** - 如果选择此身份验证方法，Azure AD 会将身份验证过程移交给单独的受信任身份验证系统（例如 AD FS 或第三方联合身份验证服务）来验证用户的登录。 
 
-由于大多数组织只想让用户登录 Office 365 和其他基于 Azure AD 的资源，因此，我们建议使用默认的密码哈希同步选项。
+对于只想让用户登录 Microsoft 365 和其他基于 Azure AD 的资源的大多数组织，我们建议使用默认的密码哈希同步选项。
 
 
 ### <a name="password-hash-synchronization"></a>密码哈希同步
-凭借密码哈希同步，可将用户密码的哈希从本地 Active Directory 同步到 Azure AD。 当在本地更改或重置密码时，新密码哈希将立即同步到 Azure AD，以便用户始终可用相同密码访问云资源与本地资源。 密码绝不会被发送到 Azure AD，也不会以明文的形式存储在 Azure AD 中。
+凭借密码哈希同步，可将用户密码的哈希从本地 Active Directory 同步到 Azure AD。 当在本地更改或重置密码时，新密码哈希将立即同步到 Azure AD，以便用户始终可用相同密码访问云资源与本地资源。 密码绝不会被发送到 Azure AD，也不会以明文的形式存储在 Azure AD 中。 你可将密码哈希同步与密码写回一起使用，以在 Azure AD 中启用自助密码重置。
+
 ![密码哈希同步](./media/plan-connect-user-signin/passwordhash.png)
 
 有关详细信息，请参阅[密码哈希同步](how-to-connect-password-hash-synchronization.md)一文。
@@ -118,12 +119,12 @@ Azure AD 登录页列出了针对本地 Active Directory 定义的 UPN 后缀，
 可以单击“刷新”按钮，从 Azure AD 中重新提取自定义域最新的状态。
 
 ### <a name="selecting-the-attribute-for-the-user-principal-name-in-azure-ad"></a>选择 Azure AD 中的用户主体名的属性
-属性 userPrincipalName 是用户登录 Azure AD 和 Office 365 时使用的属性。 应在同步处理用户之前对在 Azure AD 中使用的域（也称为 UPN 后缀）进行验证。
+属性 userPrincipalName 是用户登录 Azure AD 和 Microsoft 365 时使用的属性。 应在同步处理用户之前对在 Azure AD 中使用的域（也称为 UPN 后缀）进行验证。
 
 强烈建议保留默认属性 userPrincipalName。 如果此属性不可路由且无法验证，则可以选择另一个属性（例如 email）作为保存登录 ID 的属性。 这就是所谓的备用 ID。 “备用 ID”属性值必须遵循 RFC 822 标准。
 
 > [!NOTE]
-> 所有 Office 365 工作负荷都不允许使用替代 ID。 有关详细信息，请参阅[配置备用登录 ID](https://technet.microsoft.com/library/dn659436.aspx)。
+> 所有 Microsoft 365 工作负荷都不允许使用替代 ID。 有关详细信息，请参阅[配置备用登录 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)。
 >
 >
 

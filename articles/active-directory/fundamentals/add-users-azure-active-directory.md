@@ -2,24 +2,23 @@
 title: 添加或删除用户 - Azure Active Directory | Microsoft Docs
 description: 有关如何使用 Azure Active Directory 添加新用户或删除现有用户的说明。
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-origin.date: 11/12/2019
-ms.date: 11/28/2019
+ms.topic: how-to
+ms.date: 09/23/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 545834f4c893fa5e0cd9bbe67790b40183556fab
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.openlocfilehash: 330b88d99188bb38fa7a5216cd07782f31d56e91
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507634"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245573"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>使用 Azure Active Directory 添加或删除用户
 
@@ -45,7 +44,7 @@ ms.locfileid: "82507634"
 
    - **用户名**。 必需。 新用户的用户名。 例如，`mary@contoso.com`。
 
-     用户名的域名部分必须是初始默认域名 *\<yourdomainname>.partner.onmschina.cn*，或者是一个自定义域名，例如 *contoso.com*。 若要详细了解如何创建自定义域名，请参阅[使用 Azure Active Directory 门户添加自定义域名](add-custom-domain.md)。
+     用户名的域部分必须使用初始默认域名 \<yourdomainname>.partner.onmschina.cn，或者使用自定义域名，例如 contoso.com。 若要详细了解如何创建自定义域名，请参阅[使用 Azure Active Directory 门户添加自定义域名](add-custom-domain.md)。
 
    - **组**。 （可选）可以将用户添加到一个或多个现有组。 也可以在以后将用户添加到组中。 有关将用户添加到组的详细信息，请参阅[使用 Azure Active Directory 创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
 
@@ -58,6 +57,10 @@ ms.locfileid: "82507634"
 1. 选择“创建”  。
 
 随即会创建该用户，并将其添加到 Azure AD 组织中。
+
+## <a name="add-a-new-guest-user"></a>添加新的来宾用户
+
+还可以通过从“新用户”页中选择“邀请用户”来邀请新的来宾用户与你的组织进行协作。 如果组织的外部协作设置已配置为允许你邀请来宾，则会向用户发送电子邮件邀请，用户需要接受邀请才能开始协作。 有关邀请 B2B 协作用户的详细信息，请参阅[邀请 B2B 用户加入 Azure Active Directory](../external-identities/add-users-administrator.md)
 
 ## <a name="add-a-consumer-user"></a>添加使用者用户
 
@@ -100,6 +103,5 @@ ms.locfileid: "82507634"
 
 - [创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
 
-或者，可以执行其他用户管理任务，例如[还原已删除的用户](active-directory-users-restore.md)。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理和文档](../users-groups-roles/index.yml)。
+也可执行其他用户管理任务，例如[从其他目录添加来宾用户](../external-identities/what-is-b2b.md)或[还原已删除的用户](active-directory-users-restore.md)。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理和文档](../users-groups-roles/index.yml)。
 
-<!-- Update_Description: wording update -->

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: a124d0ce96eacd0e93d2b65aa422b87a1d1805fa
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: c7828d52d2dba27792fa3357db0dc8413ce6faf5
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593653"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244677"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft 标识平台 ID 令牌
 
@@ -85,6 +85,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |`unique_name` | String | 提供一个用户可读值，用于标识令牌使用者。 此值在任何给定时间点都是唯一的，但随着电子邮件和其他标识符的重复使用，此值可能会重新出现在其他帐户上，因此只应该用于显示目的。 仅在 v1.0 `id_tokens` 中颁发。 |
 |`uti` | 不透明字符串 | Azure 用来重新验证令牌的内部声明。 应忽略。 |
 |`ver` | 字符串，1.0 或 2.0 | 指示 id_token 的版本。 |
+|`hasgroups`|布尔|如果存在，始终为 true，表示该用户至少在一个组中。 如果完整组声明将导致 URI 片段超出 URL 长度限制（当前为 6 个或更多组），则在隐式授权流中用来替代 JWT 的组声明。 指示客户端应当使用 Microsoft Graph API 来确定用户的组 (`https://microsoftgraph.chinacloudapi.cn/v1.0/users/{userID}/getMemberObjects`)。|
+|`groups:src1`|JSON 对象 | 对于长度不受限制（参阅上文中的 `hasgroups`）但对于令牌而言仍然太大的令牌请求，将包括指向用户的完整组列表的链接。 对于 JWT，作为分布式声明；对于 SAML，作为新声明替代 `groups` 声明。 <br><br>JWT 值示例： <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://microsoftgraph.chinacloudapi.cn/v1.0/users/{userID}/getMemberObjects" }`<br><br> 有关详细信息，请参阅[组超额声明](#groups-overage-claim)。|
 
 > [!NOTE]
 > v1.0 和 v2.0 id_token 携带的信息量存在差异，如上述示例所示。 版本基于终结点，从该终结点处其接受请求。 尽管现有应用程序可能使用 Azure AD 终结点，但新应用程序应使用 v2.0“Microsoft 标识平台”终结点。
@@ -102,6 +104,26 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 > 请不要为了尝试跨租户关联用户而使用 `idp` 声明来存储有关用户的信息。  它不会起作用，因为按设计，用户的 `oid` 和 `sub` 声明会跨租户更改，以确保应用程序无法跨租户跟踪用户。  
 >
 > 来宾方案（用户托管在一个租户中，在另一个租户中进行身份验证）应将用户视为服务的全新用户。  Contoso 租户中的文档和权限不适用于 Fabrikam 租户。 这对于防止跨租户的意外数据泄漏非常重要。
+
+### <a name="groups-overage-claim"></a>组超额声明
+为确保令牌大小不超过 HTTP 标头的大小限制，Azure AD 会限制它在 `groups` 声明中包含的对象 ID 的数量。 如果某用户所属的组超过超额限制（对于 SAML 令牌，为 150；对于 JWT 令牌，为 200），则 Azure AD 不会在令牌中发出组声明。 但是，它会在令牌中包含超额声明，该声明指示应用程序查询 Microsoft Graph API 以检索用户的组成员身份。
+
+```json
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
+       }
+     }
+  ...
+ }
+```
 
 ## <a name="validating-an-id_token"></a>验证 id_token
 

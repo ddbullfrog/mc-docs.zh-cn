@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/01/2019
 ms.date: 08/24/2020
 ms.author: v-jay
-ms.openlocfilehash: 012168a23bb0bbddb6ae8e91262e80e85c9e70b6
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: 0ec83301fe75faaac4f0463ae2f6aca539ad8a55
+ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753640"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91026484"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>具有中高速网络带宽的大型数据集的数据传输
  
@@ -40,7 +40,7 @@ ms.locfileid: "88753640"
 
 - 如果预测网络传输速度很慢，应使用物理设备。 在这种情况下，推荐的选项是 Azure Data Box 系列的离线传输设备或使用自己的磁盘执行 Azure 导入/导出。
 
-    - “用于脱机传输的 Azure Data Box 系列” - 当受到时间、网络可用性或成本的限制时，使用 Microsoft 提供的 Data Box 设备将大量数据移动到 Azure。 使用工具（例如 Robocopy）复制本地数据。 根据要传输的数据的大小，你可以选择 Data Box Disk。
+    - **用于脱机传输的 Azure Data Box 系列** – 当受到时间、网络可用性或成本的限制时，使用 Azure 提供的 Data Box 设备将大量数据移到 Azure。 使用工具（例如 Robocopy）复制本地数据。 根据要传输的数据的大小，你可以选择 Data Box Disk。
     - **Azure 导入/导出** - 通过寄送自己的磁盘驱动器，使用 Azure 导入/导出服务安全地将大量数据导入 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure Blob 存储传输到磁盘驱动器，然后再寄送到本地站点。
 
 - 如果预测出网络传输比较合理，那么可以使用以下在[高速网络带宽](#high-network-bandwidth)中详细介绍的工具。

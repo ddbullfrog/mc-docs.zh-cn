@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/24/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: e54b99ee87f6e0b41c28ce3b57ad9b85184b951e
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: ac2db6edaf219e3fb8f48a0ac30598cda2723c90
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515933"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146350"
 ---
 # <a name="create-and-alter-external-sql-tables"></a>创建和更改外部 SQL 表
 
@@ -58,7 +58,7 @@ ms.locfileid: "88515933"
 **示例** 
 
 ```kusto
-.create external table ExternalSql (x:long, s:string) 
+.create external table MySqlExternalTable (x:long, s:string) 
 kind=sql
 table=MySqlTable
 ( 
@@ -78,14 +78,14 @@ with
 
 | TableName   | TableType | 文件夹         | DocString | 属性                            |
 |-------------|-----------|----------------|-----------|---------------------------------------|
-| ExternalSql | Sql       | ExternalTables | Docs      | {<br> "TargetEntityKind": "sqltable`",<br> "TargetEntityName":"MySqlTable",<br> "TargetEntityConnectionString":"Server=tcp:myserver.database.chinacloudapi.cn,1433;Authentication=Active Directory Integrated;Initial Catalog=mydatabase;",<br> "FireTriggers": true,<br> "CreateIfNotExists": true,<br> "PrimaryKey": "x"<br>} |
+| MySqlExternalTable | Sql       | ExternalTables | Docs      | {<br> "TargetEntityKind": "sqltable`",<br> "TargetEntityName":"MySqlTable",<br> "TargetEntityConnectionString":"Server=tcp:myserver.database.chinacloudapi.cn,1433;Authentication=Active Directory Integrated;Initial Catalog=mydatabase;",<br> "FireTriggers": true,<br> "CreateIfNotExists": true,<br> "PrimaryKey": "x"<br>} |
 
-## <a name="querying-an-external-table-of-type-sql"></a>查询 SQL 类型的外部表 
+## <a name="querying-an-external-table-of-type-sql"></a>查询 SQL 类型的外部表
 
 支持查询外部 SQL 表。 请参阅[查询外部表](../../data-lake-query-data.md)。 
 
 > [!Note]
-> SQL 外部表查询实现将从 SQL 表中执行完整的“SELECT *”（或选择相关列）。 查询的其余部分将在 Kusto 端执行。 
+> SQL 外部表查询实现将执行 `SELECT x, s FROM MySqlTable` 语句，其中 `x` 和 `s` 为外部表列名。 查询的其余部分将在 Kusto 端执行。
 
 请考虑以下外部表查询： 
 
@@ -93,7 +93,7 @@ with
 external_table('MySqlExternalTable') | count
 ```
 
-Kusto 将对 SQL 数据库执行“SELECT * from TABLE”查询，然后在 Kusto 端计数。 在这种情况下，如果直接用 T-SQL 来编写 ('SELECT COUNT(1) FROM TABLE') 并使用 [sql_request 插件](../query/sqlrequestplugin.md)来执行（而不是使用外部表函数），则性能会更好。 同样，筛选器不会推送到 SQL 查询。  
+Kusto 将对 SQL 数据库执行 `SELECT x, s FROM MySqlTable` 查询，然后在 Kusto 端计数。 在这种情况下，如果直接用 T-SQL 来编写 (`SELECT COUNT(1) FROM MySqlTable`) 并使用 [sql_request 插件](../query/sqlrequestplugin.md)来执行（而不是使用外部表函数），则性能应会更好。 同样，筛选器不会推送到 SQL 查询。  
 
 如果查询需要读取整个表（或相关列）以便在 Kusto 端进一步执行，请使用外部表来查询 SQL 表。 如果 SQL 查询可在 T-SQL 中优化，请使用 [sql_request 插件](../query/sqlrequestplugin.md)。
 

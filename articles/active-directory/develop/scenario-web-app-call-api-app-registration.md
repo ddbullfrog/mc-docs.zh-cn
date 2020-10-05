@@ -2,24 +2,21 @@
 title: 注册调用 Web API 的 Web 应用 - Microsoft 标识平台 | Azure
 description: 了解如何注册调用 Web API 的 Web 应用
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: bf4fa93ba211fb2e64b6ed064944cd4a17d51bdc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0d11068301775c6c3aa326416364583342f5f14c
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77067626"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244641"
 ---
 # <a name="a-web-app-that-calls-web-apis-app-registration"></a>调用 Web API 的 Web 应用：应用注册
 
@@ -31,11 +28,10 @@ ms.locfileid: "77067626"
 
 ## <a name="api-permissions"></a>API 权限
 
-Web 应用代表已登录用户调用 API。 为此，它们必须请求委托的权限  。 有关详细信息，请参阅[添加用于访问 Web API 的权限](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)。
+Web 应用代表已登录用户调用 API。 为此，它们必须请求委托的权限  。 有关详细信息，请参阅[添加用于访问 Web API 的权限](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [调用 Web API 的 Web 应用：代码配置](scenario-web-app-call-api-app-configuration.md)
 
-<!-- Update_Description: wording update -->

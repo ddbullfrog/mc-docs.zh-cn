@@ -1,19 +1,20 @@
 ---
-title: Azure 中继常见问题解答
+title: Azure 中继常见问题解答 | Azure
 description: 本文提供了一些有关 Azure 中继服务的常见问题解答 (FAQ)。
+ms.service: service-bus
 ms.topic: article
 origin.date: 06/23/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: d296011dc31b22b78dc7ff81ca7f1a92a3093c89
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: c4fbb5044c043c4d8cb514d9af367f50d37ec853
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162421"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146780"
 ---
 # <a name="azure-relay-faqs"></a>Azure 中继常见问题解答
 
@@ -78,8 +79,8 @@ WCF 中继仅适用于标准层命名空间。 其他中继的定价和[连接�
 | 中继上的并发侦听器数 |实体 |系统会拒绝后续的附加连接请求，且调用代码会收到异常。 |25 |
 | 服务命名空间中所有中继终结点的并发中继连接数 |命名空间 |- |5,000 |
 | 每个服务命名空间的中继终结点数 |命名空间 |- |10,000 |
-| [NetOnewayRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.netonewayrelaybinding?view=azure-dotnet) 和 [NetEventRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.neteventrelaybinding?view=azure-dotnet) 中继的消息大小 |命名空间 |会拒绝超过这些配额的传入消息，且调用代码会收到异常。 |64 KB |
-| [HttpRelayTransportBindingElement](https://docs.azure.cn/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement?view=azure-dotnet) 和 [NetTcpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.nettcprelaybinding?view=azure-dotnet) 中继的消息大小 |命名空间 |对消息大小没有限制。 |无限制 |
+| [NetOnewayRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.netonewayrelaybinding) 和 [NetEventRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.neteventrelaybinding) 中继的消息大小 |命名空间 |会拒绝超过这些配额的传入消息，且调用代码会收到异常。 |64 KB |
+| [HttpRelayTransportBindingElement](https://docs.azure.cn/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) 和 [NetTcpRelayBinding](https://docs.azure.cn/dotnet/api/microsoft.servicebus.nettcprelaybinding) 中继的消息大小 |命名空间 |对消息大小没有限制。 |无限制 |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>中继是否具有任何使用率配额？
 默认情况下，对于任何云服务，Azure 都会设置一个聚合的每月使用率配额，此配额基于客户的所有订阅进行计算。 我们了解，有时候，你的需求可能会超过这些限制。 你可以随时联系客户服务人员，以便我们了解你的需求并相应地调整这些限制。 对于服务总线，聚合的使用率配额为如下所示：
@@ -123,7 +124,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>什么是共享访问签名？哪些语言可以用来生成签名？
 共享访问签名 (SAS) 是基于 SHA–256 安全哈希或 URI 的身份验证机制。 有关如何在 Node.js、PHP、Python、Java、C 和 C# 中生成自有签名的信息，请参阅[使用共享访问签名进行服务总线身份验证][Shared Access Signatures]。
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>是否可以将中继终结点加入允许列表？
+### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>是否可以仅允许某些中继终结点？
 是的。 中继客户端使用完全限定的域名连接到 Azure 中继服务。 客户可以在支持 DNS 允许列表的防火墙上为 `*.servicebus.chinacloudapi.cn` 添加一个条目。
 
 ## <a name="next-steps"></a>后续步骤

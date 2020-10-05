@@ -3,24 +3,18 @@ author: orspod
 ms.service: data-explorer
 ms.topic: include
 origin.date: 02/27/2020
-ms.date: 05/15/2020
+ms.date: 09/24/2020
 ms.author: v-tawe
-ms.openlocfilehash: ed6d8d12cea4eaca9a8c520badb8679c453e98f4
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.openlocfilehash: f8e8cd290a13d95655ec838d6d63668217c639d0
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417632"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146613"
 ---
-### <a name="event-system-properties-mapping"></a>事件系统属性映射
+### <a name="schema-mapping-examples"></a>架构映射示例
 
-> [!Note]
-> * 单记录事件支持系统属性。
-> * 对于 `csv` 映射，属性将添加到记录的开头。 对于 `json` 映射，将根据下拉列表中显示的名称添加属性。
-
-如果在表的“数据源”  部分中选择了“事件系统属性”  ，则必须在表架构和映射中包含以下属性。
-
-**表架构示例**
+**表架构映射示例**
 
 如果数据包含三列（`Timespan`、`Metric` 和 `Value`）并且包含的属性是 `x-opt-enqueued-time` 和 `x-opt-offset`，请使用以下命令创建或更改表架构：
 
@@ -45,7 +39,7 @@ ms.locfileid: "83417632"
  
 **JSON 映射示例**
 
-使用出现在“数据连接”  边栏选项卡“事件系统属性”  列表中的系统属性名称添加数据。 运行以下命令：
+使用系统属性映射添加数据。 运行以下命令：
 
 ```kusto
     .create table TestTable ingestion json mapping "JsonMapping1"

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: fc8525ecb04bb5ade15b7c81de0aaca0227cf502
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 76422861589caec0e6732c65af8d6f5a781d7e97
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647492"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244689"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft 标识平台开发人员术语表
 
@@ -164,7 +164,7 @@ Microsoft 标识平台是 Azure Active Directory (Azure AD) 标识服务和开�
 
 角色是资源定义的字符串（例如“开支审批人”、“只读”、“Directory.ReadWrite.All”），在 [Azure 门户][AZURE-portal]中通过资源的[应用程序清单](#application-manifest)进行管理，并且存储在资源的 [appRoles 属性][Graph-Sp-Resource]中。 也可通过 Azure 门户为用户分配“用户”角色，并配置用于访问“应用程序”角色的客户端[应用程序权限](#permissions)。
 
-有关 Microsoft Graph API 公开的应用程序角色的详细讨论，请参阅 [Graph API 权限范围][Graph-Perm-Scopes]。 有关分步实现示例，请参阅[使用 RBAC 和 Azure 门户管理访问权限][AAD-RBAC]。
+有关 Microsoft Graph API 公开的应用程序角色的详细讨论，请参阅 [Graph API 权限范围][Graph-Perm-Scopes]。 有关分步实现示例，请参阅[使用 Azure 门户添加或删除 Azure 角色分配][AAD-RBAC]。
 
 ## <a name="scopes"></a>范围
 
@@ -176,7 +176,7 @@ Microsoft 标识平台是 Azure Active Directory (Azure AD) 标识服务和开�
 
 ## <a name="security-token"></a>安全令牌
 
-包含 OAuth2 令牌等声明的已签名文档。 对于 OAuth2 [授权](#authorization-grant)，[访问令牌](#access-token) (OAuth2)、[刷新令牌](#refresh-token)和 [ID 令牌](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)都是安全令牌类型，并且所有这些类型都作为 [JSON Web 令牌 (JWT)][JWT] 实现。
+包含 OAuth2 令牌或 SAML 2.0 断言等声明的已签名文档。 对于 OAuth2 [授权](#authorization-grant)，[访问令牌](#access-token) (OAuth2)、[刷新令牌](#refresh-token)和 [ID 令牌](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)都是安全令牌类型，并且所有这些类型都作为 [JSON Web 令牌 (JWT)][JWT] 实现。
 
 ## <a name="service-principal-object"></a>应用程序对象
 

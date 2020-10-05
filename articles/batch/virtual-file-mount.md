@@ -2,17 +2,20 @@
 title: 在池上装载虚拟文件系统
 description: 了解如何在 Batch 池上装载虚拟文件系统。
 ms.topic: how-to
+ms.service: batch
+ms.custom: devx-track-csharp
 origin.date: 08/13/2019
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 09/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2e4b1cd04228659f74f2bfabb2b30cdc9e57e750
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: 2e69b25e8b9a8af45fe9437cd9f80a7ae15ec5b3
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654995"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146714"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>在 Batch 池上装载虚拟文件系统
 
@@ -21,20 +24,21 @@ Azure Batch 现在支持在 Batch 池的 Windows 或 Linux 计算节点上装载
 <!--Not Available on Network File System (NFS) including an [Avere vFXT cache](../avere-vfxt/avere-vfxt-overview.md)-->
 <!--Not Available on or Common Internet File System (CIFS)-->
 
-在本文中，你将了解如何使用[适用于 .NET 的 Batch 管理库](https://docs.azure.cn/dotnet/api/overview/batch?view=azure-dotnet)在计算节点池上装载虚拟文件系统。
+在本文中，你将了解如何使用[适用于 .NET 的 Batch 管理库](https://docs.azure.cn/dotnet/api/overview/batch)在计算节点池上装载虚拟文件系统。
 
 > [!NOTE]
 > 2019-08-19 或之后创建的 Batch 池上支持装载虚拟文件系统。 2019-08-19 之前创建的 Batch 池不支持此功能。
 > 
-> 用于在计算节点上装载文件系统的 API 是 [Batch .NET](https://docs.azure.cn/dotnet/api/microsoft.azure.batch?view=azure-dotnet) 库的组成部分。
+> 用于在计算节点上装载文件系统的 API 是 [Batch .NET](https://docs.azure.cn/dotnet/api/microsoft.azure.batch) 库的组成部分。
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>装载在池上的好处
 
 将文件系统装载到池中，而不是让任务从大型数据集中检索自己的数据，可以使任务能够更轻松且更高效地访问所需的数据。
 
-考虑具有多个任务的场景，这些任务需要访问一组通用数据，例如渲染电影。 每个任务每次渲染场景文件中的一个或多个帧。 通过装载包含场景文件的驱动器，计算节点可以更轻松地访问共享数据。 此外，可以根据同时访问数据的计算节点数量所需的性能和规模（吞吐量和 IOPS）来单独选择基础文件系统以及对其进行缩放。 Blobfuse 仅在 Linux 节点上可用，但是，[Azure 文件](https://azure.microsoft.com/blog/a-new-era-for-azure-files-bigger-faster-better/)提供类似的工作流，并可在 Windows 和 Linux 上使用。
+考虑具有多个任务的场景，这些任务需要访问一组通用数据，例如渲染电影。 每个任务每次渲染场景文件中的一个或多个帧。 通过装载包含场景文件的驱动器，计算节点可以更轻松地访问共享数据。 此外，可以根据同时访问数据的计算节点数量所需的性能和规模（吞吐量和 IOPS）来单独选择基础文件系统以及对其进行缩放。 [Azure 文件存储](https://azure.microsoft.com/blog/a-new-era-for-azure-files-bigger-faster-better/)提供了类似的工作流，在 Windows 和 Linux 上均可用。
 
 <!--Not Available on  [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md)-->
+<!--Not Available on Blobfuse is only available on Linux nodes, however-->
 
 ## <a name="mount-a-virtual-file-system-on-a-pool"></a>在池上装载虚拟文件系统  
 
@@ -84,35 +88,7 @@ new PoolAddParameter
 }
 ```
 
-### <a name="azure-blob-file-system"></a>Azure Blob 文件系统
-
-装载 Blob 文件系统需要为存储帐户使用 `AccountKey` 或 `SasKey`。 有关获取这些密钥的信息，请参阅[管理存储帐户访问密钥](../storage/common/storage-account-keys-manage.md)或[使用共享访问签名 (SAS)](../storage/common/storage-sas-overview.md)。 有关使用 blobfuse 的详细信息，请参阅 blobfuse [故障排除常见问题解答](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)。 要获得对 blobfuse 装载目录的默认访问权限，请以管理员身份运行任务。 Blobfuse 在用户空间处将装载目录，在创建池时将其作为根装载。 在 Linux 中，所有管理员任务都是根。 [FUSE 参考页](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)中介绍了 FUSE 模块的所有选择方案。
-
-<!--Not Available on [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)-->
-
-除了故障排除指南之外，还可借助 blobfuse 存储库中的“GitHub 问题”来检查当前的 blobfuse 问题以及解决方案。 有关详细信息，请参阅 [blobfuse 问题](https://github.com/Azure/azure-storage-fuse/issues)。
-
-```csharp
-new PoolAddParameter
-{
-    Id = poolId,
-    MountConfiguration = new[]
-    {
-        new MountConfiguration
-        {
-            AzureBlobFileSystemConfiguration = new AzureBlobFileSystemConfiguration
-            {
-                AccountName = "StorageAccountName",
-                ContainerName = "containerName",
-                AccountKey = "StorageAccountKey",
-                SasKey = "",
-                RelativeMountPath = "RelativeMountPath",
-                BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
-            },
-        }
-    }
-}
-```
+<!--Not Available on ### Azure Blob file system-->
 
 ### <a name="network-file-system"></a>网络文件系统
 
@@ -175,27 +151,32 @@ new PoolAddParameter
 
 ## <a name="supported-skus"></a>支持的 SKU
 
-| 发布者 | 产品/服务 | SKU | Azure 文件存储共享 | Blobfuse | NFS 装载 | CIFS 装载 |
-|---|---|---|---|---|---|---|
-| 批处理 | rendering-centos73 | 呈现 | :heavy_check_mark: <br />注意：与 CentOS 7.7 兼容<br />| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Canonical | UbuntuServer | 16.04-LTS、18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br />注意：与 CentOS 7.4 兼容。 <br /> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br />注意：支持 A_8 或 9 存储<br /> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS-HPC | 7.4、7.3、7.1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Windows | WindowsServer | 2012、2016、2019 | :heavy_check_mark: | :x: | :x: | :x: |
+<!--MOONCAKE: REMOVE Blobfuse COLUMN-->
+
+| 发布者 | 产品/服务 | SKU | Azure 文件存储共享 | NFS 装载 | CIFS 装载 |
+|---|---|---|---|---|---|
+| 批处理 | rendering-centos73 | 呈现 | :heavy_check_mark: <br />注意：与 CentOS 7.7 兼容<br />| :heavy_check_mark: | :heavy_check_mark: |
+| Canonical | UbuntuServer | 16.04-LTS、18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 8| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br />注意：与 CentOS 7.4 兼容。 <br /> | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br />注意：支持 A_8 或 9 存储<br /> | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| OpenLogic | CentOS-HPC | 7.4、7.3、7.1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Windows | WindowsServer | 2012、2016、2019 | :heavy_check_mark: | :x: | :x: |
 
 <!--Not Available on | Oracle | Oracle-Linux -->
+<!--MOONCAKE: REMOVE Blobfuse COLUMN-->
 
 ## <a name="next-steps"></a>后续步骤
 
 - 了解有关将 Azure 存储文件共享装载到 [Windows](../storage/files/storage-how-to-use-files-windows.md) 或 [Linux](../storage/files/storage-how-to-use-files-linux.md) 的详细信息。
-- 了解有关使用和装载 [blobfuse](https://github.com/Azure/azure-storage-fuse) 虚拟文件系统的信息。
+    
+    <!--Not Available on [blobfuse](https://github.com/Azure/azure-storage-fuse)-->
+    
 - 要了解 NFS 及其应用程序，请参阅[网络文件系统概述](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)。
 - 要详细了解 SMB，请参阅 [Microsoft SMB 协议和 CIFS 协议概述](https://docs.microsoft.com/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview)。
 

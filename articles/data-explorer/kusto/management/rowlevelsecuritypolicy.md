@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/25/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 356d3d675ef0bc66c443107c63e26c9951798119
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/24/2020
+ms.openlocfilehash: 2d54235d357bba209540fa5eff3420552aa3b39c
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515668"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146708"
 ---
 # <a name="row-level-security-preview"></a>行级别安全性（预览版）
 
@@ -31,9 +31,6 @@ ms.locfileid: "88515668"
 * 以上都是
 
 有关详细信息，请参阅[用于管理行级别安全性策略的控制命令](../management/row-level-security-policy.md)。
-
-> [!NOTE]
-> 你在生产数据库上配置的 RLS 策略还将在随从数据库中生效。 不能在生产数据库和随从数据库上配置不同的 RLS 策略。
 
 > [!TIP]
 > 以下函数通常用于 row_level_security 查询：
@@ -108,7 +105,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 
 例如：
 
-```
+```kusto
 .create-or-alter function RLSForCustomersTables(TableName: string) {
     table(TableName)
     | ...
@@ -118,7 +115,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 然后通过以下方式在多个表上配置 RLS：
 
 
-```
+```kusto
 .alter table Customers1 policy row_level_security enable "RLSForCustomersTables('Customers1')"
 .alter table Customers2 policy row_level_security enable "RLSForCustomersTables('Customers2')"
 .alter table Customers3 policy row_level_security enable "RLSForCustomersTables('Customers3')"
@@ -128,7 +125,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 
 如果希望未经授权的表用户收到错误而不希望返回空表，请使用 [`assert()`](../query/assert-function.md) 函数。 以下示例演示如何在 RLS 函数中生成此错误：
 
-```
+```kusto
 .create-or-alter function RLSForCustomersTables() {
     MyTable
     | where assert(current_principal_is_member_of('aadgroup=mygroup@mycompany.com') == true, "You don't have access")
@@ -136,6 +133,21 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 ```
 
 可以将此方法与其他示例组合在一起。 例如，可以向不同 AAD 组中的用户显示不同的结果，并为所有其他人生成一个错误。
+
+### <a name="control-permissions-on-follower-databases"></a>控制对后继数据库的权限
+
+你在生产数据库上配置的 RLS 策略还将在随从数据库中生效。 不能在生产数据库和随从数据库上配置不同的 RLS 策略。 但是，你可以在 RLS 查询中使用 [`current_cluster_endpoint()`](../query/current-cluster-endpoint-function.md) 函数来达到与在后继表中使用不同 RLS 查询相同的效果。
+
+例如：
+
+```kusto
+.create-or-alter function RLSForCustomersTables() {
+    let IsProductionCluster = current_cluster_endpoint() == "mycluster.eastus.kusto.windows.net";
+    let DataForProductionCluster = TempTable | where IsProductionCluster;
+    let DataForFollowerClusters = TempTable | where not(IsProductionCluster) | extend CreditCardNumber = "****";
+    union DataForProductionCluster, DataForFollowerClusters
+}
+```
 
 ## <a name="more-use-cases"></a>更多用例
 

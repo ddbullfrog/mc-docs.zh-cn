@@ -5,18 +5,18 @@ description: 说明 Microsoft 标识平台对重定向 URI（回复 URL）格式
 author: SureshJa
 ms.author: v-junlch
 manager: CelesteDG
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 7a68e232f1a09d1fd5caa23dcf93b70554078d8e
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: d039a46c01c469deecd0c834ef47a9370802424e
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91244647"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>重定向 URI（回复 URL）限制和局限
 
@@ -64,6 +64,8 @@ Azure Active Directory (Azure AD) 应用程序模型目前同时支持 HTTP 和 
 * 不要注册多个只有端口不同的重定向 URI。 登录服务器会任意选择一个，并使用与该重定向 URI 关联的行为（例如，是 `web` 类型的、`native` 类型的还是 `spa` 类型的重定向）。
 * 如果需要在 localhost 上注册多个重定向 URI，以在开发过程中测试不同的流，请使用 URI 的 *path* 组件来区分它们。 例如，`http://127.0.0.1/MyWebApp` 与 `http://127.0.0.1/MyNativeApp` 不匹配。
 * 根据 RFC 指导，不应在重定向 URI 中使用 `localhost`， 而应使用实际环回 IP 地址 `127.0.0.1`。 这可防止应用被错误配置的防火墙或重命名的网络接口破坏。
+
+    若要将 `http` 方案与环回地址 (127.0.0.1) 而不是 localhost 一起使用，必须编辑[应用程序清单](/active-directory/develop/reference-app-manifest#replyurls-attribute)。 
 
     当前不支持 IPv6 环回地址 (`[::1]`)。
 

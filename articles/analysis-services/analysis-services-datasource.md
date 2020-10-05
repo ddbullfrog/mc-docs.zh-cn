@@ -1,21 +1,21 @@
 ---
 title: Azure Analysis Services 中支持的数据源 | Azure
 description: 介绍 Azure Analysis Services 中的表格 1200 和更高版本数据模型所支持的数据源和连接器。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 05/19/2020
-ms.date: 07/13/2020
+origin.date: 08/21/2020
+author: rockboyfor
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 03/23/2020
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: c8c8f61fa33c50317be3a882a331035aaa9398bf
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 697a287ea54297cd343e0f954b21bb6d8d8a8d04
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226096"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146227"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -42,7 +42,7 @@ ms.locfileid: "86226096"
 
 <a name="tab1400a">1</a> - 仅限表格 1400 和更高模型。  
 <a name="azprovider">2</a> - 在表格 1200 和更高版本的模型中指定为“提供程序”数据源时，内存中模型和 DirectQuery 模型都需要 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL（推荐）、SQL Server Native Client 11.0 或 .NET Framework Data Provider for SQL Server。  
-<a name="azsqlmanaged">3</a> - 支持 Azure SQL 托管实例。 由于托管实例使用专用 IP 地址在 Azure VNet 中运行，因此必须在实例上启用公共终结点。 如果未启用，则需要[本地数据网关](analysis-services-gateway.md)。  
+<a name="azsqlmanaged">3</a> - 支持 Azure SQL 托管实例。 由于 SQL 托管实例在具有专用 IP 地址的 Azure VNet 中运行，因此必须在该实例上启用公共终结点。 如果未启用，则需要[本地数据网关](analysis-services-gateway.md)。  
 <a name="gen2">5</a> - 目前不支持 ADLS Gen2 连接器，但是，Azure Blob 存储连接器可以与 ADLS Gen2 数据源一起使用。
 
 <!--Not Available on <a name="databricks">4</a> - Azure Databricks using the Spark connector is currently not supported.-->
@@ -87,7 +87,7 @@ ms.locfileid: "86226096"
 <a name="tab1400b">6</a> - 仅限表格 1400 和更高版本的模型。  
 <a name="sqlim">7</a> - 在表格 1200 和更高版本的模型中指定为“提供程序”数据源时，请指定 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL（推荐）、SQL Server Native Client 11.0 或 .NET Framework Data Provider for SQL Server。  
 <a name="instgw">8</a> - 如果指定 MSOLEDBSQL 作为数据提供程序，则可能需要在本地数据网关所在的同一计算机上下载并安装 [Microsoft OLE DB Driver for SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server)。  
-<a name="oracle">9</a> - 对于表格 1200 模型，或者作为表格 1400+ 模型中的“提供程序”数据源时，请指定用于 .NET 的 Oracle 数据提供程序。  
+<a name="oracle">9</a> - 对于表格 1200 模型，或者作为表格 1400+ 模型中的“提供程序”数据源时，请指定用于 .NET 的 Oracle 数据提供程序。 如果指定为结构化数据源，请务必[启用 Oracle 托管提供程序](#enable-oracle-managed-provider)。   
 <a name="teradata">10</a> - 对于表格 1200 模型，或者作为表格 1400+ 模型中的“提供程序”数据源时，请指定用于 .NET 的 Teradata 数据提供程序。  
 <a name="filesSP">11</a> - 不支持本地 SharePoint 中的文件。
 
@@ -103,15 +103,15 @@ ms.locfileid: "86226096"
 
 若要启用提供程序数据源，请在 Visual Studio 中单击“工具” > “选项” > “Analysis Services 表格” > “数据导入”，然后选择“启用旧数据源”。    
 
-![启用旧数据源](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
+:::image type="content" source="media/analysis-services-datasource/aas-enable-legacy-datasources.png" alt-text="启用旧数据源":::
 
 启用旧数据源后，在表格模型资源管理器中，右键单击“数据源”，并单击“从数据源(旧的)导入”。  > 
 
-![“表格模型资源管理器”中的旧数据源](media/analysis-services-datasource/aas-import-legacy-datasources.png)
+:::image type="content" source="media/analysis-services-datasource/aas-import-legacy-datasources.png" alt-text="启用旧数据源":::
 
 与使用表格 1200 模型项目一样，请使用**表导入向导**连接到数据源。 在连接页上，单击“高级”。 在“设置高级属性”中，指定数据提供程序和其他连接设置。
 
-![旧数据源高级属性](media/analysis-services-datasource/aas-import-legacy-advanced.png)
+:::image type="content" source="media/analysis-services-datasource/aas-import-legacy-advanced.png" alt-text="启用旧数据源":::
 
 ## <a name="impersonation"></a>模拟
 某些情况下可能需要指定其他模拟帐户。 可以在 Visual Studio 或 SQL Server Management Studio (SSMS) 中指定模拟帐户。
@@ -127,9 +127,45 @@ ms.locfileid: "86226096"
 
 ## <a name="oauth-credentials"></a>OAuth 凭据
 
-对于在 1400 和更高兼容性级别下使用内存模式的表格模型，Azure SQL 数据库、Azure Synapse（以前称为 SQL 数据仓库）、Dynamics 365 和 SharePoint 列表支持 OAuth 凭据。 Azure Analysis Services 管理 OAuth 数据源的令牌刷新，以避免长时间运行的刷新操作超时。 若要生成有效的令牌，请使用 SSMS 设置凭据。
+对于在 1400 和更高兼容性级别下使用内存模式的表格模型，Azure SQL 数据库、Azure Synapse（以前称为 SQL 数据仓库）、Dynamics 365 和 SharePoint 列表支持 OAuth 凭据。 Azure Analysis Services 管理 OAuth 数据源的令牌刷新，以避免长时间运行的刷新操作超时。 若要生成有效的令牌，请使用 Power Query 设置凭据。
 
 OAuth 凭据不支持直接查询模式。
+
+## <a name="enable-oracle-managed-provider"></a>启用 Oracle 托管提供程序
+
+在某些情况下，对 Oracle 数据源的 DAX 查询可能会返回意外的结果。 这可能是由用于数据源连接的提供程序导致的。
+
+如[了解提供程序](#understanding-providers)部分所述，表格模型连接到结构化数据源或提供程序 数据源形式的数据源。 对于将 Oracle 数据源指定为提供程序数据源的模型，请确保指定的提供程序是适用于 .NET 的 Oracle 数据提供程序 (Oracle.DataAccess.Client)。 
+
+如果将 Oracle 数据源指定为结构化数据源，请启用 **MDataEngine\UseManagedOracleProvider** 服务器属性。 设置此属性可确保模型使用建议的适用于 .NET 托管提供程序的 Oracle 数据提供程序连接到 Oracle 数据源。
+
+若要启用 Oracle 托管提供程序，请执行以下操作：
+
+1. 在 SQL Server Management Studio 中，连接到你的服务器。
+2. 使用以下脚本创建一个 XMLA 查询。 将 **ServerName** 替换为完整的服务器名称，然后执行查询。
+
+    ```xml
+    <Alter AllowCreate="true" ObjectExpansion="ObjectProperties" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+        <Object />
+        <ObjectDefinition>
+            <Server xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" 
+    xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" 
+    xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" 
+    xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500">
+                <ID>ServerName</ID>
+                <Name>ServerName</Name>
+                <ServerProperties>
+                    <ServerProperty>
+                        <Name>MDataEngine\UseManagedOracleProvider</Name>
+                        <Value>1</Value>
+                    </ServerProperty>
+                </ServerProperties>
+            </Server>
+        </ObjectDefinition>
+    </Alter>
+    ```
+
+3. 重新启动服务器。
 
 ## <a name="next-steps"></a>后续步骤
 

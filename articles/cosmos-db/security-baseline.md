@@ -1,21 +1,21 @@
 ---
 title: Cosmos DB 的 Azure 安全基线
 description: Cosmos DB 的 Azure 安全基线
-author: rockboyfor
 ms.service: security
 ms.topic: conceptual
 origin.date: 03/16/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: security-benchmark
-ms.openlocfilehash: 34b09d37788c56393623aad7a8a98a45277b921e
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 902ffa75d3c93e0ec78831c312c724c2aac3f997
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246722"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB 的 Azure 安全基线
 
@@ -77,10 +77,8 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 **责任**：客户
 
 <!--Not Available on ### 1.4: Deny communications with known malicious IP addresses-->
-
 <!--Not Available on https://docs.azure.cn/cosmos-db/cosmos-db-advanced-threat-protection-->
 <!--Not Available on  https://docs.azure.cn/virtual-network/manage-ddos-protection-->
-<!--Not Available on  https://docs.azure.cn/security-center/security-center-alerts-service-layer-->
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5：记录网络数据包和流日志
 
@@ -198,8 +196,6 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 <!--Not Available on ### 2.7: Enable alerts for anomalous activity-->
 <!--Not Available on https://docs.azure.cn/sentinel/quickstart-onboard-->
 
-使用 Azure Monitor 创建、查看和管理日志警报： https://docs.azure.cn/azure-monitor/platform/alerts-log
-
 ### <a name="28-centralize-anti-malware-logging"></a>2.8：集中管理反恶意软件日志记录
 
 **指导**：不适用；Azure Cosmos DB 不会处理或生成与反恶意软件相关的日志。
@@ -232,7 +228,7 @@ Cosmos DB 的 Azure 安全基线包含可帮助你改善部署安全态势的建
 
 **指导**：可以使用 Azure 门户中的“标识和访问控制(IAM)”窗格配置基于角色的访问控制 (RBAC)，并维护有关 Azure Cosmos DB 资源的库存。 角色将应用到 Active Directory 中的用户、组、服务主体和托管标识。 对于个人和组，可使用内置角色或自定义角色。
 
-Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 RBAC。 在 Azure Active Directory (AD) 中创建了配置文件的个人可将这些 RBAC 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure Cosmos DB 中的资源和操作的访问权限。
+Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的 RBAC。 在 Azure Active Directory (AD) 中拥有配置文件的个人可将这些 Azure 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure Cosmos DB 中的资源和操作的访问权限。
 
 还可以使用 Azure AD PowerShell 模块执行即席查询，以发现属于管理组的成员的帐户。 
 
@@ -408,7 +404,7 @@ Cosmos DB 安全性概述： https://docs.azure.cn/cosmos-db/database-security
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指导**：Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的基于角色的访问控制 (RBAC)。 在 Azure Active Directory 中创建了配置文件的个人可将这些 RBAC 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure Cosmos DB 中的资源和操作的访问权限。 角色分配范围仅限控制平面访问，包括对 Azure Cosmos 帐户、数据库、容器和套餐（吞吐量）的访问。
+**指导**：Azure Cosmos DB 为 Azure Cosmos DB 中的常见管理方案提供内置的基于角色的访问控制 (RBAC)。 在 Azure Active Directory 中拥有配置文件的个人可将这些 Azure 角色分配给用户、组、服务主体或托管标识，以授予或拒绝对 Azure Cosmos DB 中的资源和操作的访问权限。 角色分配范围仅限控制平面访问，包括对 Azure Cosmos 帐户、数据库、容器和套餐（吞吐量）的访问。
 
 如何在 Azure Cosmos DB 中实施 RBAC： https://docs.azure.cn/cosmos-db/role-based-access-control
 
@@ -624,7 +620,7 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 **责任**：不适用
 
-### <a name="611-limit-users-ability-to-interact-with-azureresources-manager-via-scripts"></a>6.11：限制用户通过脚本与 Azure 资源管理器进行交互的功能
+### <a name="611-limit-users-ability-to-interact-with-azureresources-manager-via-scripts"></a>6.11：限制用户通过脚本与 Azure 资源管理器进行交互的能力
 
 **指导**：通过为“Azure 管理”应用配置“阻止访问”，使用 Azure 条件访问来限制用户与 Azure 资源管理器交互的功能。 这可防止在高度安全的环境中创建和更改资源。
 
@@ -747,7 +743,6 @@ Azure 安全中心提供的支持功能： https://docs.azure.cn/security-center
 
 <!--Not Available on ### 7.11: Manage Azure secrets securely-->
 <!--Not Available on https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity-->
-
 <!--Not Available on ### 7.12: Manage identities securely and automatically-->
 <!--Not Available on https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity-->
 
@@ -910,7 +905,6 @@ Azure 安全响应中心事件剖析： https://msrc-blog.microsoft.com/2019/07/
 <!--Not Available on ### 10.5: Incorporate security alerts into your incident response system-->
 <!--Not Available on https://docs.azure.cn/security-center/continuous-export-->
 <!--Not Available on  https://docs.azure.cn/sentinel/connect-azure-security-center-->
-
 <!--Not Available on  ### 10.6: Automate the response to security alerts-->
 <!--Not Available on   https://docs.azure.cn/security-center/workflow-automation-->
 

@@ -2,18 +2,18 @@
 title: 将资源部署到管理组
 description: 介绍如何通过 Azure 资源管理器模板在管理组范围部署资源。
 ms.topic: conceptual
-origin.date: 07/27/2020
+origin.date: 09/04/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 454f7e8207efbbc7f5bdbb574c2735031db10cb9
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 45f55d9281060a2155c70928c84a9e53d49c5195
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807739"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146703"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>在管理组级别创建资源
 
@@ -74,7 +74,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 管理组部署的命令与资源组部署的命令不同。
 
-对于 Azure CLI，请使用 [az deployment mg create](https://docs.azure.cn/cli/deployment/mg?view=azure-cli-latest#az-deployment-mg-create)：
+对于 Azure CLI，请使用 [az deployment mg create](https://docs.microsoft.com/cli/azure/deployment/mg#az_deployment_mg_create)：
 
 ```azurecli
 az deployment mg create \
@@ -145,7 +145,7 @@ New-AzManagementGroupDeployment `
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-different-mg
                 }
             }
         }
@@ -181,7 +181,7 @@ New-AzManagementGroupDeployment `
               "properties": {
                 "mode": "Incremental",
                 "template": {
-                  nested-template
+                  nested-template-with-resources-in-resource-group
                 }
               }
             }
@@ -193,6 +193,8 @@ New-AzManagementGroupDeployment `
 }
 ```
 
+若要使用管理组部署在订阅中创建资源组并将存储帐户部署到该资源组，请参阅[部署到订阅和资源组](#deploy-to-subscription-and-resource-group)。
+
 ## <a name="use-template-functions"></a>使用模板函数
 
 对于管理组部署，在使用模板函数时有一些重要注意事项：
@@ -200,87 +202,91 @@ New-AzManagementGroupDeployment `
 * 不支持 [resourceGroup()](template-functions-resource.md#resourcegroup) 函数。
 * 不支持 [subscription()](template-functions-resource.md#subscription) 函数。
 * 支持 [reference()](template-functions-resource.md#reference) 和 [list()](template-functions-resource.md#list) 函数。
-* 支持 [resourceId()](template-functions-resource.md#resourceid) 函数。 可以使用它获取在管理组级别部署中使用的资源的资源 ID。 不要为资源组参数提供值。
+* 请勿对部署到管理组的资源使用 [resourceId()](template-functions-resource.md#resourceid) 函数。
 
-    例如，若要获取策略定义的资源 ID，请使用：
+    对于作为管理组的扩展实现的资源，请改用 [extensionResourceId()](template-functions-resource.md#extensionresourceid) 函数。 部署到管理组的自定义策略定义是管理组的扩展。
+
+    若要获取管理组级别的自定义策略定义的资源 ID，请使用：
 
     ```json
-    resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+    "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
     ```
 
-    返回的资源 ID 具有以下格式：
+    对于管理组中可用的租户资源，请使用 [tenantResourceId](template-functions-resource.md#tenantresourceid) 函数。 内置策略定义是租户级别资源。
+
+    若要获取内置策略定义的资源 ID，请使用：
 
     ```json
-    /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+    "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
     ```
 
 ## <a name="azure-policy"></a>Azure Policy
 
-### <a name="define-policy"></a>定义策略
-
-以下示例展示如何在管理组级别[定义](../../governance/policy/concepts/definition-structure.md)策略。
+下面的示例演示如何[定义](../../governance/policy/concepts/definition-structure.md)管理组级别策略，并对其进行分配。
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2018-05-01",
-      "name": "locationpolicy",
-      "properties": {
-        "policyType": "Custom",
-        "parameters": {},
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "equals": "chinaeast2"
-          },
-          "then": {
-            "effect": "deny"
-          }
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "targetMG": {
+            "type": "string",
+            "metadata": {
+                "description": "Target Management Group"
+            }
+        },
+        "allowedLocations": {
+            "type": "array",
+            "defaultValue": [
+                "chinaeast2",
+                "chineeast",
+                "chinanorth"
+            ],
+            "metadata": {
+                "description": "An array of the allowed locations, all other locations will be denied by the created policy."
+            }
         }
-      }
-    }
-  ]
-}
-```
-
-### <a name="assign-policy"></a>分配策略
-
-以下示例将现有的策略定义分配到管理组。 如果策略使用参数，请将参数作为对象提供。 如果策略不使用参数，请使用默认的空对象。
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string"
     },
-    "policyName": {
-      "type": "string"
+    "variables": {
+        "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
+        "policyDefinition": "LocationRestriction"
     },
-    "policyParameters": {
-      "type": "object",
-      "defaultValue": {}
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('policyName')]",
-      "properties": {
-        "policyDefinitionId": "[parameters('policyDefinitionID')]",
-        "parameters": "[parameters('policyParameters')]"
-      }
-    }
-  ]
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyDefinitions",
+            "name": "[variables('policyDefinition')]",
+            "apiVersion": "2019-09-01",
+            "properties": {
+                "policyType": "Custom",
+                "mode": "All",
+                "parameters": {
+                },
+                "policyRule": {
+                    "if": {
+                        "not": {
+                            "field": "location",
+                            "in": "[parameters('allowedLocations')]"
+                        }
+                    },
+                    "then": {
+                        "effect": "deny"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "name": "location-lock",
+            "apiVersion": "2019-09-01",
+            "dependsOn": [
+                "[variables('policyDefinition')]"
+            ],
+            "properties": {
+                "scope": "[variables('mgScope')]",
+                "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', variables('policyDefinition'))]"
+            }
+        }
+    ]
 }
 ```
 

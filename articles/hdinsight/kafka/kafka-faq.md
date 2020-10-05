@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 08/14/2019
 ms.date: 03/23/2020
-ms.openlocfilehash: bb3f54fa227809f2c86030062b0a66fd2cc91fcd
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 934c0f198c358698e6446c509a69b2f83cabd86d
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723692"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394798"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>有关 Azure HDInsight 中的 Apache Kafka 的常见问题解答
 
@@ -45,6 +45,9 @@ HDInsight Kafka 群集包含以下资源：
 
 是的，可通过 Ambari 门户更改。 门户中的每个组件都附带一个“配置”部分，可在该部分更改组件配置。**** 某些更改可能需要重启代理。
 
+## <a name="what-type-of-authentication-does-hdinsight-support-for-apache-kafka"></a>对于 Apache Kafka，HDInsight 支持哪种类型的身份验证？
+
+使用[企业安全性套餐 (ESP)](../domain-joined/apache-domain-joined-architecture.md)，可以获得 Kafka 群集的主题级别安全性。 有关详细信息，请参阅[教程：在带有企业安全性套餐（预览）的 HDInsight 中配置 Apache Kafka 策略](../domain-joined/apache-domain-joined-run-kafka.md)。
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>我的数据是否已加密？ 是否可以使用我自己的密钥？
 

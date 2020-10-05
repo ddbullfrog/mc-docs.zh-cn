@@ -3,18 +3,18 @@ title: 排查常见部署错误
 description: 说明如何解决使用 Azure Resource Manager 将资源部署到 Azure 时的常见错误。
 tags: top-support-issue
 ms.topic: troubleshooting
-origin.date: 06/25/2020
+origin.date: 09/09/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b46f42c0434dc76a86a8b19a96cf22f6ba91aaab
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 6981fef79482d02fdccd4ba1197dcee7b416e46e
+ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807786"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91146707"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 
@@ -73,7 +73,7 @@ ms.locfileid: "88807786"
 | RequestDisallowedByPolicy | 订阅中的某个资源策略阻止你在部署期间尝试执行的操作。 请找出阻止该操作的策略。 如果可能，请更改部署，使之符合策略的限制。 | [解决策略问题](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | 提供不包含保留名称的资源名称。 | [保留的资源名称](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 等待删除操作完成。 | |
-| ResourceGroupNotFound | 检查部署的目标资源组的名称。 目标资源组必须已存在于订阅中。 请检查订阅上下文。 | [Azure CLI](https://docs.azure.cn/cli/account??view=azure-cli-latest#az-account-set) [PowerShell](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceGroupNotFound | 检查部署的目标资源组的名称。 目标资源组必须已存在于订阅中。 请检查订阅上下文。 | [Azure CLI](https://docs.azure.cn/cli/account?#az-account-set) [PowerShell](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | 部署引用了一个无法解析的资源。 请验证所使用的  reference 函数是否包括方案所需的参数。 | [解决引用问题](error-not-found.md) |
 | ResourceQuotaExceeded | 部署尝试创建的资源超过了订阅、资源组或区域的配额。 请尽可能修改基础结构，使之保持在配额范围内。 否则，请考虑请求更改配额。 | [解决配额问题](error-resource-quota.md) |
 | SkuNotAvailable | 选择可在所选位置中使用的 SKU（例如 VM 大小）。 | [解决 SKU 问题](error-sku-not-available.md) |
@@ -82,7 +82,7 @@ ms.locfileid: "88807786"
 | StorageAccountNotFound | 检查尝试使用的存储帐户的订阅、资源组和名称。 | |
 | SubnetsNotInSameVnet | 一个虚拟机只能有一个虚拟网络。 部署多个 NIC 时，请确保它们属于同一虚拟网络。 | [多个 NIC](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotFound | 无法访问用于部署的指定订阅。 有可能是订阅 ID 错误，部署模板的用户没有足够的权限部署到订阅，或者订阅 ID 格式错误。 使用嵌套部署[跨范围部署](cross-scope-deployment.md)时，应为订阅提供 GUID。 | |
-| SubscriptionNotRegistered | 部署网络资源时，Microsoft.Network 资源提供程序会自动在订阅中注册。 有时，自动注册未及时完成。 若要避免此间歇性错误，请在部署之前注册 Microsoft.Network 资源提供程序。 | [解决注册问题](error-register-resource-provider.md) |
+| SubscriptionNotRegistered | 部署资源时，必须为订阅注册资源提供程序。 使用 Azure 资源管理器模板进行部署时，会在订阅中自动注册资源提供程序。 有时，自动注册未及时完成。 若要避免此间歇性错误，请在部署前注册资源提供程序。 | [解决注册问题](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | 删除不必要的依赖项。 | [解决循环依赖项](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | 减少单个部署的资源组数。 | [跨范围部署](cross-scope-deployment.md) |
 
@@ -108,7 +108,7 @@ ms.locfileid: "88807786"
 
 选择消息获取更多详细信息。 下图显示了一条 **InvalidTemplateDeployment** 错误，以及一条指出策略阻止了部署的消息。
 
-:::image type="content" source="./media/common-deployment-errors/validation-details.png" alt-text="显示验证详细信息":::
+:::image type="content" source="./media/common-deployment-errors/validation-details.png" alt-text="显示门户验证错误":::
 
 ### <a name="deployment-errors"></a>部署错误
 
@@ -128,15 +128,15 @@ az deployment operation group list --name exampledeployment -g examplegroup --qu
 
 在门户中，选择通知。
 
-:::image type="content" source="./media/common-deployment-errors/notification.png" alt-text="通知错误":::
+:::image type="content" source="./media/common-deployment-errors/notification.png" alt-text="显示门户验证错误":::
 
 查看有关部署的更多详细信息。 选择查找有关错误的详细信息的选项。
 
-:::image type="content" source="./media/common-deployment-errors/deployment-failed.png" alt-text="部署失败":::
+:::image type="content" source="./media/common-deployment-errors/deployment-failed.png" alt-text="显示门户验证错误":::
 
 看到错误消息和错误代码。 请注意有两个错误代码。 第一个错误代码 (DeploymentFailed) 表示常规错误，不提供解决错误所需的详细信息****。 第二个错误代码 (**StorageAccountNotFound**) 提供所需的详细信息。
 
-:::image type="content" source="./media/common-deployment-errors/error-details.png" alt-text="错误详细信息":::
+:::image type="content" source="./media/common-deployment-errors/error-details.png" alt-text="显示门户验证错误":::
 
 ## <a name="enable-debug-logging"></a>启用调试日志记录
 

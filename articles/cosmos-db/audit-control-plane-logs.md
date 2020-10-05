@@ -1,20 +1,20 @@
 ---
 title: 如何审核 Azure Cosmos DB 控制平面操作
 description: 了解如何在 Azure Cosmos DB 中审核控制平面操作，例如添加区域、更新吞吐量、区域故障转移、添加 VNet，等等
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 06/25/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 09/28/2020
 ms.testscope: yes
-ms.testdate: 08/10/2020
+ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8406a4a8fbc64ed20dd2fcda67712e489aee03ab
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: fe23640c526af7b675a7ec00be84d0ef2fab8ab0
+ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223363"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91246589"
 ---
 <!--Verified successfully on whole content-->
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>如何审核 Azure Cosmos DB 控制平面操作
@@ -73,17 +73,17 @@ Azure Cosmos DB 中的控制平面是一项 RESTful 服务，可用于对 Azure 
 
 以下屏幕截图捕获了更改 Azure Cosmos 帐户的一致性级别时的日志：
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="添加 VNet 时的控制平面日志":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="启用控制平面请求日志记录":::
 
 以下屏幕截图捕获创建密钥空间或 Cassandra 帐户的表时以及更新吞吐量时的日志。 分别记录用于数据库和容器上的创建及更新操作的控制平面日志，如以下屏幕截图所示：
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="更新吞吐量时的控制平面日志":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="启用控制平面请求日志记录":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>识别与特定操作关联的标识
 
 若要进一步进行调试，可以使用活动 ID 或者按照操作的时间戳，来识别“活动日志”中的特定操作。**** 时间戳用于某些未显式传递活动 ID 的资源管理器客户端。 “活动日志”提供有关用于启动操作的标识的详细信息。 以下屏幕截图显示如何使用活动 ID，以及如何在“活动日志”中查找与该 ID 关联的操作：
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="使用活动 ID 和查找操作":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="启用控制平面请求日志记录":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Azure Cosmos 帐户的控制平面操作
 
@@ -197,6 +197,22 @@ AzureDiagnostics 
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
 | where  OperationName startswith "SqlContainersThroughputUpdate"
+```
+
+通过查询获取 activityId 和发起容器删除操作的调用方：
+
+```kusto
+(AzureDiagnostics
+| where Category == "ControlPlaneRequests"
+| where OperationName == "SqlContainersDelete"
+| where TimeGenerated >= todatetime('9/3/2020, 5:30:29.300 PM')
+| summarize by activityId_g )
+| join (
+AzureActivity
+| parse HTTPRequest with * "clientRequestId\": \"" activityId_g "\"" * 
+| summarize by Caller, HTTPRequest, activityId_g)
+on activityId_g
+| project Caller, activityId_g
 ```
 
 ## <a name="next-steps"></a>后续步骤

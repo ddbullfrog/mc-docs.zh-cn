@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 07/06/2020
+ms.date: 09/24/2020
 ms.author: v-junlch
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28a7f5b065751037643f184e9f190e02f2e98dae
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 22e296555ff1ab147645c3381f081a7b43747fb9
+ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165030"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91245608"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>用于许可的产品名称和服务计划标识符
 
@@ -118,7 +118,7 @@ ms.locfileid: "86165030"
 | 含 PROJECT FOR OFFICE 365 的 PROJECT ONLINE    | PROJECTONLINE_PLAN_2  | f82a60b8-1ee3-4cfb-a4fe-1c6a53c2656c  | FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3)<br/>SHAREPOINT_PROJECT (fe71d6c3-a2ea-4499-9778-da042bf08063)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) | MICROSOFT FORMS (PLAN E1) (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3)<br/>SHAREPOINT_PROJECT (fe71d6c3-a2ea-4499-9778-da042bf08063)<br/>SHAREPOINT ONLINE (PLAN 2) (5dbe027f-2339-4123-9542-606e4d348a72)<br/>OFFICE ONLINE (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) |
 | SHAREPOINT ONLINE（计划 1）    | SHAREPOINTSTANDARD    | 1fc08a02-8b3d-43b9-831e-f76859e04e1a  | SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1) | SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1) |
 | SHAREPOINT ONLINE（计划 2）    | SHAREPOINTENTERPRISE  | a9732ec9-17d9-494c-a51c-d6b45b384dcb  | SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72) | SHAREPOINT ONLINE (PLAN 2) (5dbe027f-2339-4123-9542-606e4d348a72) |
-| SKYPE FOR BUSINESS CLOUD PBX  | MCOEV | e43b5b99-8dfb-405f-9987-dc307f34bcbd  | MCOEV (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) | PHONE SYSTEM (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) |
+| MICROSOFT 365 PHONE SYSTEM    | MCOEV | e43b5b99-8dfb-405f-9987-dc307f34bcbd  | MCOEV (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) | PHONE SYSTEM (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) |
 | SKYPE FOR BUSINESS ONLINE（计划 1）    | MCOIMP    | b8b749f8-a4ef-4887-9539-c95b1eaa5db7  | MCOIMP (afc06cb0-b4f4-4473-8286-d644f70d8faf) | SKYPE FOR BUSINESS ONLINE (PLAN 1) (afc06cb0-b4f4-4473-8286-d644f70d8faf) |
 | SKYPE FOR BUSINESS ONLINE（计划 2）    | MCOSTANDARD   | d42c793f-6c78-4f43-92ca-e8f6a02b035f  | MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c) | SKYPE FOR BUSINESS ONLINE（计划 2）(0feaeb32-d00e-4d66-bd5a-43b5b83db82c) |
 | SKYPE FOR BUSINESS PSTN 国内和国际呼叫    | MCOPSTN2  | d3b4fe1f-9992-4930-8acb-ca6ec609365e  | MCOPSTN2 (5a10155d-f5c1-411a-a8ec-e99aae125390) | DOMESTIC AND INTERNATIONAL CALLING PLAN (5a10155d-f5c1-411a-a8ec-e99aae125390) |
