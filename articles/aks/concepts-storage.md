@@ -92,7 +92,7 @@ parameters:
 
 PersistentVolumeClaim 会请求特定 StorageClass、访问模式和大小的磁盘或文件存储。 如果根据定义的 StorageClass 没有现有资源可用于实现声明，Kubernetes API 服务器可在 Azure 中动态预配基础存储资源。 卷连接到 Pod 后，Pod 定义即会包含装载。
 
-:::image type="content" source="media/concepts-storage/persistent-volume-claims.png" alt-text="Azure Kubernetes 服务 (AKS) 群集中的应用程序存储选项"
+:::image type="content" source="media/concepts-storage/persistent-volume-claims.png" alt-text="Azure Kubernetes 服务 (AKS) 群集中的应用程序存储选项":::
         name: volume
   volumes:
     - name: volume
