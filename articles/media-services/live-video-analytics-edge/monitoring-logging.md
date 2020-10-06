@@ -25,7 +25,7 @@ ms.locfileid: "91245636"
 IoT Edge 上的实时视频分析根据以下分类发出事件或遥测数据。
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="事件的分类&quot;:::
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="事件的分类":::
 
 * 可操作：事件是用户执行的操作的一部分，或者是在执行[媒体图](media-graph-concept.md)期间生成的。
    
