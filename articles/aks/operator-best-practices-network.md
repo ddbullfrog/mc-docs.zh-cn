@@ -69,7 +69,7 @@ Kubenet 适用于小型开发或测试工作负荷，因为无需从 AKS 群集�
 
 Azure 负载均衡器可以将客户流量分配到 AKS 群集中的各个应用程序，但是对这些流量的了解有限。 负载均衡器资源在第 4 层工作，并根据协议或端口分配流量。 大多数使用 HTTP 或 HTTPS 的 Web 应用程序应使用在第 7 层工作的 Kubernetes 入口资源和控制器。 入口可以根据应用程序的 URL 分配流量并处理 TLS/SSL 终端。 此功能还可以减少公开和映射的 IP 地址数。 使用负载平衡器，每个应用程序通常需要分配一个公共 IP 地址并映射到 AKS 群集中的服务。 使用入口资源，单个 IP 地址可以将流量分配给多个应用程序。
 
-:::image type="content" source="media/operator-best-practices-network/aks-ingress.png" alt-text="显示两个节点的示意图，其中的网桥将每个节点连接到单个 Azure VNet"
+:::image type="content" source="media/operator-best-practices-network/aks-ingress.png" alt-text="显示两个节点的示意图，其中的网桥将每个节点连接到单个 Azure VNet":::
 spec:
  tls:
  - hosts:
