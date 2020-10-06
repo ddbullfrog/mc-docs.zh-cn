@@ -4,18 +4,18 @@ description: 本快速入门将使用 C 设备 SDK 创建一个将对称密钥�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 01/14/2020
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 69a16df3aff9b585026e2eedc4c4fc6e428de69d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d7955a174b308ddc9c80864d40011d90f007dbb8
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80586808"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564606"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>快速入门：使用对称密钥预配模拟设备
 
@@ -23,7 +23,7 @@ ms.locfileid: "80586808"
 
 虽然本文演示了使用单个注册进行预配，但你也可以使用注册组。 使用注册组时有一些不同之处。 例如，必须将派生的设备密钥与设备的唯一注册 ID 一起使用。 虽然对称密钥注册组不限于旧设备，但[如何使用对称密钥证明预配旧设备](how-to-legacy-device-symm-key.md)提供了注册组示例。 有关详细信息，请参阅[对称密钥证明的组注册](concepts-symmetric-key-attestation.md#group-enrollments)。
 
-如果你不熟悉自动预配过程，请查看[自动预配的概念](concepts-auto-provisioning.md)。 
+如果不熟悉自动预配过程，请查看[预配](about-iot-dps.md#provisioning-process)概述。 
 
 另外，在继续学习本快速入门之前，请确保已完成[通过 Azure 门户设置 IoT 中心设备预配服务](./quick-setup-auto-provision.md)中的步骤。 本快速入门需要你已创建设备预配服务实例。
 
@@ -37,7 +37,7 @@ ms.locfileid: "80586808"
 
 以下先决条件适用于 Windows 开发环境。 对于 Linux 或 macOS，请参阅 SDK 文档的[准备开发环境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)中的相应部分。
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019，已启用[“使用 C++ 的桌面开发”](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads)工作负载。 Visual Studio 2015 和 Visual Studio 2017 也受支持。
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019，已启用[“使用 C++ 的桌面开发”](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development)工作负荷。 Visual Studio 2015 和 Visual Studio 2017 也受支持。
 
 * 已安装最新版本的 [Git](https://git-scm.com/download/)。
 
@@ -57,7 +57,7 @@ SDK 包含模拟设备的示例代码。 该模拟设备将尝试在设备启动
 
 2. 单击“标记”  ，然后在 [Azure IoT C SDK 的版本页](https://github.com/Azure/azure-iot-sdk-c/releases/latest)上查找最新版本的标记名称。
 
-3. 打开命令提示符或 Git Bash shell。 运行以下命令以克隆最新版本的 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存储库。 使用在上一步中找到的标记作为 `-b` 参数的值：
+3. 打开命令提示符或 Git Bash shell。 运行以下命令，克隆最新版 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存储库。 使用在上一步找到的标记作为 `-b` 参数的值：
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -177,7 +177,7 @@ SDK 包含模拟设备的示例代码。 该模拟设备将尝试在设备启动
 
 7. 右键单击“prov\_dev\_client\_sample”项目，  然后选择“设为启动项目”。  
 
-8. 在 Visual Studio 菜单中，选择“调试” > “开始执行(不调试)”以运行该解决方案。   出现重新生成项目的提示时，请选择“是”，以便在运行项目之前重新生成项目  。
+8. 在 Visual Studio 菜单中，选择“调试” > “开始执行(不调试)”以运行该解决方案。   对于重新生成项目的提示，请选择“是”，以便在运行项目之前重新生成项目  。
 
     以下输出是模拟设备成功启动并连接到要分配到 IoT 中心的预配服务实例的示例：
 

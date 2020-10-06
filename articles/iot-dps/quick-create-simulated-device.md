@@ -4,7 +4,7 @@ description: 本快速入门使用单独注册。 本快速入门使用适用于
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2019
-ms.date: 06/01/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -13,12 +13,12 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-ms.openlocfilehash: bbfb768eba933dfd402eb1d39b10617ba5905c69
-ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+ms.openlocfilehash: 26d880eb7ec7db5529a8acaa0ee43385f6c8a064
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275512"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564575"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>快速入门：使用 Azure IoT C SDK 预配模拟的 TPM 设备
 
@@ -26,7 +26,7 @@ ms.locfileid: "84275512"
 
 本快速入门介绍如何在 Windows 开发计算机上创建和运行受信任平台模块 (TPM) 设备模拟器。 然后使用设备预配服务实例将此模拟设备连接到 IoT 中心。 我们将借助 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 中的示例代码在设备预配服务实例中注册设备，并模拟设备的启动序列。
 
-如果不熟悉自动预配过程，请查看[自动预配的概念](concepts-auto-provisioning.md)。 另外，在继续学习本快速入门之前，请确保已完成[通过 Azure 门户设置 IoT 中心设备预配服务](./quick-setup-auto-provision.md)中的步骤。 
+如果不熟悉自动预配过程，请查看[预配](about-iot-dps.md#provisioning-process)概述。 另外，在继续学习本快速入门之前，请确保已完成[通过 Azure 门户设置 IoT 中心设备预配服务](./quick-setup-auto-provision.md)中的步骤。 
 
 Azure IoT 设备预配服务支持两类注册：
 - [注册组](concepts-service.md#enrollment-group)：用于注册多个相关设备。
@@ -40,7 +40,7 @@ Azure IoT 设备预配服务支持两类注册：
 
 以下先决条件适用于 Windows 开发环境。 对于 Linux 或 macOS，请参阅 SDK 文档的[准备开发环境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)中的相应部分。
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019，已启用[“使用 C++ 的桌面开发”](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads)工作负载。 Visual Studio 2015 和 Visual Studio 2017 也受支持。
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019，已启用[“使用 C++ 的桌面开发”](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development)工作负荷。 Visual Studio 2015 和 Visual Studio 2017 也受支持。
 
 * 已安装最新版本的 [Git](https://git-scm.com/download/)。
 
@@ -54,9 +54,9 @@ Azure IoT 设备预配服务支持两类注册：
 
     在进行 `CMake` 安装**之前**，必须在计算机上安装 Visual Studio 必备组件（Visual Studio 和“使用 C++ 的桌面开发”工作负荷）。 满足先决条件并验证下载内容后，安装 CMake 生成系统。
 
-2. 查找[最新版本](https://github.com/Azure/azure-iot-sdk-c/releases/latest) SDK 的标记名称。
+2. 找到[最新版](https://github.com/Azure/azure-iot-sdk-c/releases/latest) SDK 的标记名称。
 
-3. 打开命令提示符或 Git Bash shell。 运行以下命令以克隆最新版本的 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存储库。 使用在上一步中找到的标记作为 `-b` 参数的值：
+3. 打开命令提示符或 Git Bash shell。 运行以下命令，克隆最新版 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存储库。 使用在上一步找到的标记作为 `-b` 参数的值：
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -75,7 +75,7 @@ Azure IoT 设备预配服务支持两类注册：
 
 ## <a name="build-the-sdk-and-run-the-tpm-device-simulator"></a>生成 SDK 并运行 TPM 设备模拟器
 
-在本部分，我们将生成包含 TPM 设备模拟器示例代码的 Azure IoT C SDK。 此示例通过共享访问签名 (SAS) 令牌身份验证提供 TPM [证明机制](concepts-security.md#attestation-mechanism)。
+在本部分，我们将生成包含 TPM 设备模拟器示例代码的 Azure IoT C SDK。 此示例通过共享访问签名 (SAS) 令牌身份验证提供 TPM [证明机制](concepts-service.md#attestation-mechanism)。
 
 1. 从 azure-iot-sdk-c git 存储库中创建的 `cmake` 子目录，运行以下命令以生成示例。 此生成命令还将生成模拟设备的 Visual Studio 解决方案。
 
@@ -221,8 +221,8 @@ Azure IoT 设备预配服务支持两类注册：
 
 1. 关闭计算机上的设备客户端示例输出窗口。
 2. 关闭计算机上的 TPM 模拟器窗口。
-3. 在 Azure 门户的左侧菜单中选择“所有资源”，然后选择设备预配服务。 打开服务的“管理注册”，然后选择“个人注册”选项卡 。选中在本快速入门中注册的设备的“注册 ID”旁边的复选框，然后按窗格顶部的“删除”按钮。 
-4. 在 Azure 门户的左侧菜单中选择“所有资源”，然后选择 IoT 中心。 打开中心的“IoT 设备”，选中在本快速入门中注册的设备的“设备 ID”旁边的复选框，然后按窗格顶部的“删除”按钮。
+3. 在 Azure 门户的左侧菜单中选择“所有资源”，然后选择设备预配服务  。 打开服务的“管理注册”，然后选择“个人注册”选项卡   。选中在本快速入门中注册的设备的“注册 ID”旁边的复选框，然后按窗格顶部的“删除”按钮   。 
+4. 在 Azure 门户的左侧菜单中选择“所有资源”，然后选择 IoT 中心  。 打开中心的“IoT 设备”，选中在本快速入门中注册的设备的“设备 ID”旁边的复选框，然后按窗格顶部的“删除”按钮    。
 
 ## <a name="next-steps"></a>后续步骤
 

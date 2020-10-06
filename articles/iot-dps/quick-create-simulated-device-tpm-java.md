@@ -4,18 +4,18 @@ description: 快速入门 - 使用适用于 Azure IoT 中心设备预配服务 (
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2018
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 088e4270bafa20971ac8b1fc658864c88a6f5926
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: f2fcbc6d6ef54ef622c3cbbd6ebc78d679b6b8af
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951314"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564603"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>快速入门：使用适用于 Azure IoT 中心设备预配服务的 Java 设备 SDK 创建和预配模拟的 TPM 设备
 
@@ -25,7 +25,7 @@ ms.locfileid: "88951314"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 查看[自动预配概念](concepts-auto-provisioning.md)。
+- 熟悉[预配](about-iot-dps.md#provisioning-process)概念。
 - 完成[通过 Azure 门户设置 IoT 中心设备预配服务](./quick-setup-auto-provision.md)。
 - 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
 - [Java SE 开发工具包 8](https://aka.ms/azure-jdks)。
