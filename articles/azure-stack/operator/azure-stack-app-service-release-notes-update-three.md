@@ -3,18 +3,19 @@ title: Azure Stack Hub 上的应用服务 Update 3 发行说明
 description: 了解 Azure Stack Hub 上的应用服务 Update 3 中的改进、修复和已知问题。
 author: WenJason
 manager: digimobile
+ms.service: azure-stack
 ms.topic: article
 origin.date: 03/25/2019
 ms.date: 06/22/2020
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: d9ab1768148de80c5d89cc9367e8a58fabb1051a
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 0ef4858a1318e18e31220a7feafff086db894e59
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096485"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437603"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>Azure Stack Hub 上的应用服务 Update 3 发行说明
 
@@ -127,9 +128,9 @@ Azure Stack Hub 上的 Azure 应用服务 Update 3 包含以下改进和修复�
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. 将登录名迁移到包含的数据库用户。
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)

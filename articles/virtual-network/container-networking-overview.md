@@ -1,28 +1,29 @@
 ---
 title: Azure 虚拟网络的容器网络 | Azure
-description: 了解如何启用容器以使用 Azure 虚拟网络。
+description: 了解 Azure 虚拟网络容器网络接口 (CNI) 插件以及如何启用容器以使用 Azure 虚拟网络。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: NarayanAnnamalai
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/18/2018
-ms.date: 04/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: 08d00ae08fc44c1e242df2a679d8640530be90b1
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.openlocfilehash: 752f20e1bb22ca6320b861a245b7b40e33353caf
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093359"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564188"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>启用容器以使用 Azure 虚拟网络功能
 
@@ -38,7 +39,7 @@ ms.locfileid: "82093359"
 
 下图显示了该插件向 Pod 提供 Azure 虚拟网络功能的工作原理：
 
-![容器网络概述](./media/container-networking/container-networking-overview.png)
+:::image type="content" source="./media/container-networking/container-networking-overview.png" alt-text="容器网络概述":::
 
 该插件同时支持 Linux 和 Windows 平台。
 
@@ -46,9 +47,9 @@ ms.locfileid: "82093359"
 
 Pod 将显示在属于虚拟网络一部分的虚拟机中。 Pod 的 IP 地址池配置为虚拟机网络接口上的辅助地址。 Azure CNI 为 Pod 设置基本的网络连接并管理池中 IP 地址的使用率。 当 Pod 显示在虚拟机中后，Azure CNI 从池中分配可用的 IP 地址，并将 Pod 连接到虚拟机中的软件桥。 Pod 终止时，IP 地址会被添加回池。 下图显示了 Pod 连接到虚拟网络的工作原理：
 
-![容器网络详细信息](./media/container-networking/container-networking-detail.png)
+:::image type="content" source="./media/container-networking/container-networking-detail.png" alt-text="容器网络概述":::
 
-## <a name="internet-access"></a>Internet 访问
+## <a name="internet-access"></a>Internet 访问权限
 
 为了使 Pod 能够访问 Internet，该插件将 iptables  规则配置为网络地址转换 (NAT)，通过 Internet 绑定 Pod 流量。 包的源 IP 地址被转换为虚拟机的网络接口上的主 IP 地址。 Windows 虚拟机自动为流往虚拟机所属子网范围之外的 IP 地址的流量进行源 NAT (SNAT)。 通常会转换流往虚拟机 IP 范围之外的 IP 地址的所有流量。
 

@@ -4,16 +4,16 @@ description: 配置本地网络与 Azure Stack Hub 虚拟网络之间的站点�
 author: WenJason
 ms.author: v-jay
 origin.date: 05/12/2020
-ms.date: 07/20/2020
+ms.date: 10/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: d40c6b6b0a9e818b391ecd7481a33ee7968f883f
-ms.sourcegitcommit: e9ffd50aa5eaab402a94bfabfc70de6967fe6278
+ms.openlocfilehash: 0e527a4ce1dbaaa6c2c9848cd3c3de12bc1e32a7
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86307441"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437521"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>排查站点到站点 VPN 连接问题
 
@@ -22,6 +22,9 @@ ms.locfileid: "86307441"
 如果本文未解决你的 Azure Stack Hub 问题，可以访问 [Azure Stack Hub MSDN 论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home)。
 
 还可提交 Azure 支持请求。 请参阅 [Azure Stack Hub 支持](../operator/azure-stack-manage-basics.md#where-to-get-support)。
+
+> [!NOTE]
+> 在两个 Azure Stack Hub 部署之间只能创建一个站点到站点 VPN 连接。 这是因为平台中的某个限制仅允许同一 IP 地址具有单个 VPN 连接。 由于 Azure Stack Hub 利用多租户网关，该网关将单一公共 IP 用于 Azure Stack Hub 系统中的所有 VPN 网关，因此两个 Azure Stack Hub 系统之间只能有一个 VPN 连接。 此限制也适用于将多个站点到站点 VPN 连接连接到使用单一 IP 地址的任何 VPN 网关。 Azure Stack Hub 不允许使用同一 IP 地址创建多个本地网络网关资源。
 
 ## <a name="initial-troubleshooting-steps"></a>初始故障排除步骤
 
