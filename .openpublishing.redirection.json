@@ -27971,16 +27971,26 @@
             "redirect_url": "https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage",
             "redirect_document_id": false
         },
-    {
-      "source_path": "articles/mysql/policy-samples.md",
-      "redirect_url": "/mysql/policy-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-stack/operator/azure-stack-create-vpn-connection-one-node.md",
-      "redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways",
-      "redirect_document_id": false
-    }
+        {
+            "source_path": "articles/mysql/policy-samples.md",
+            "redirect_url": "/mysql/policy-reference",
+            "redirect_document_id": false
+    	},
+    	{
+      		"source_path": "articles/azure-stack/operator/azure-stack-create-vpn-connection-one-node.md",
+      		"redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways",
+      		"redirect_document_id": false
+    	},
+        {
+            "source_path": "articles/backup/policy-samples.md",
+            "redirect_url": "/backup/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/api-management/policy-samples.md",
+            "redirect_url": "/api-management/policy-reference",
+            "redirect_document_id": false
+        }
 
 
 
