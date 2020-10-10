@@ -1,19 +1,19 @@
 ---
-title: 如何在 Azure Stack Hub 上备份存储帐户
+title: 在 Azure Stack Hub 上备份存储帐户
 description: 了解如何在 Azure Stack Hub 上备份存储帐户。
 author: WenJason
 ms.topic: how-to
 origin.date: 5/27/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: aecb33c31867a98361936cc71343108fd5b7b6c2
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 6b127cec44736a1de82b7919e0a31e5a4c94399e
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867935"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437550"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>在 Azure Stack Hub 上备份存储帐户
 
@@ -23,7 +23,7 @@ ms.locfileid: "88867935"
 
 本部分探讨解决方案的整体结构和主要组成部分。
 
-![Azure Stack Hub 存储备份](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
+![该图显示 Azure Stack Hub 存储备份的总体结构。](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
 
 ### <a name="application-layer"></a>应用层
 
@@ -61,7 +61,7 @@ AzCopy 是一个极佳的工具，可用于复制本地文件系统、Azure 云�
 
 1. 检索源和目标存储帐户的 Blob 终结点。
 
-    ![Azure Stack Hub 存储备份](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
+    ![该屏幕截图显示源和目标存储帐户的主 Blob 终结点。](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
 
 2. 创建并记下源和目标存储帐户的 SAS 令牌。
 

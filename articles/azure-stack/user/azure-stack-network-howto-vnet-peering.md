@@ -1,19 +1,19 @@
 ---
-title: 如何通过 VNET 对等互连连接两个 Azure Stack Hub
+title: 通过 VNET 对等互连连接两个 Azure Stack Hub
 description: 了解如何通过 VNET 对等互连连接两个 Azure Stack Hub。
 author: WenJason
 ms.topic: how-to
 origin.date: 5/27/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 0d454971d3ba4205b6385aab8ba29ec5b1837230
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 585560c2220c7dbbc98be6806d7fa6e0d8641c50
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867811"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437542"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VM 所在的 Azure Stack Hub 中的 VNET 对等互连
 
@@ -24,7 +24,7 @@ ms.locfileid: "88867811"
 可以在 [Azure 智能边缘模式](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) GitHub 存储库中找到这些模板。 该模板位于 **S2SVPNTunnel** 文件夹中。
 
-![替换文字](./media/azure-stack-network-howto-vnet-peering/overview.svg)
+![此图显示了一个实现，该实现在两个 NET 之间提供一个 VPN 隧道。 每个 VNET 上都有一个 RRAS 服务器、一个内部子网和一个隧道子网。](./media/azure-stack-network-howto-vnet-peering/overview.svg)
 
 ## <a name="requirements"></a>要求
 
@@ -47,12 +47,12 @@ ms.locfileid: "88867811"
 
 ## <a name="options"></a>选项
 
-- 可以通过 _artifactsLocation 和 _artifactsLocationSasToken 参数使用自己的 Blob 存储帐户和 SAS 令牌。
+- 可以通过 _artifactsLocation 和 _artifactsLocationSasToken 参数使用自己的 Blob 存储帐户和 SAS 令牌
 - 此模板上有两个输出 INTERNALSUBNETREFVNET1 和 INTERNALSUBNETREFVNET2，这是内部子网的资源 ID（如果要在管道样式部署模式中使用）。
 
 此模板为 VNet 命名和 IP 寻址提供默认值。 它需要管理员 (rrasadmin) 的密码，还提供了将自己的存储 blob 与 SAS 令牌配合使用的功能。 请谨慎地使这些值保持在合法的范围内，否则部署可能失败。 PowerShell DSC 包将在每个 RRAS VM 上执行，并安装路由和所有必需的依赖服务和功能。 如果需要，可以进一步自定义此 DSC。 自定义脚本扩展运行以下脚本，`Add-Site2Site.ps1` 使用共享密钥在两个 RRAS 服务器之间配置 VPNS2S 隧道。 可以查看自定义脚本扩展的详细输出，以查看 VPN 隧道配置的结果
 
-![替换文字](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
+![该图（标题为 S2SVPNTunnel）显示了两个由站点到站点 VPN 隧道连接的 VNET。](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
 
 ## <a name="next-steps"></a>后续步骤
 

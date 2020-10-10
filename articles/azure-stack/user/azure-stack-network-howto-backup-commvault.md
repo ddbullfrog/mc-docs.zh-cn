@@ -1,19 +1,19 @@
 ---
-title: 如何使用 Commvault 在 Azure Stack Hub 上备份 VM
+title: 使用 Commvault 在 Azure Stack Hub 上备份 VM
 description: 了解如何使用 Commvault 在 Azure Stack Hub 上备份 VM。
 author: WenJason
 ms.topic: how-to
 origin.date: 04/20/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 6a8ba63c7eba59316e7fd4210547eb6026b6f3c3
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 3b6233df07fbd56e86816d5287b4cadd7103cb13
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867953"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437714"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>使用 Commvault 在 Azure Stack Hub 上备份 VM
 
@@ -23,7 +23,7 @@ ms.locfileid: "88867953"
 
 下图显示了使用 Commvault 备份 VM 时的总体解决方案。
 
-![](./media/azure-stack-network-howto-backup-commvault/bcdr-commvault-overall-arc.png)
+![此图显示了如何使用 Commvault 将数据从一个 Azure Stack 复制到另一个 Azure Stack 或复制到 Azure 云。](./media/azure-stack-network-howto-backup-commvault/bcdr-commvault-overall-arc.png)
 
 本文内容：
 
@@ -39,7 +39,7 @@ ms.locfileid: "88867953"
 
 此方法的拓扑如下图所示：
 
-![](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.svg)
+![此图显示了从 Azure Stack Hub 1 上的 COMMVAULT VSA 代理到 Azure Stack Hub 2 的数据路径。Azure Stack Hub 2 有一个可在需要备份 Hub 1 时联机的恢复 VM。](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.svg)
 
 ## <a name="create-the-commvault-vm-from-the-commvault-marketplace-item"></a>从 Commvault 市场项创建 Commvault VM
 
@@ -47,7 +47,7 @@ ms.locfileid: "88867953"
 
 2. 选择“创建资源” > “计算” > “Commvault”。  
 
-    > [!Note]  
+    > [!NOTE]  
     > 如果 Commvault 不可用，请与云操作员联系。
 
     ![创建 VM](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
@@ -72,11 +72,11 @@ ms.locfileid: "88867953"
     
     i. 选择“确定” 。
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-02.png)
+    ![“仪表板 > 新建 > 创建虚拟机 > 选择大小”对话框显示了可为该虚拟机选择的大小的列表。](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-02.png)
 
 4. 选择 Commvault VM 的大小。 用于备份的 VM 大小应至少有 10 GB 的 RAM，以及 100 GB 的存储。
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png)。
+    ![“仪表板 > 新建 > 创建虚拟机 > 设置”对话框显示要用于创建虚拟机的设置。](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png).
 
 5. 选择 Commvault VM 的设置。
 
@@ -130,7 +130,7 @@ ms.locfileid: "88867953"
 
 3. 在 Commvault 安装到 Commvault VM 后，打开 Commcell 控制台。 在“开始”中，选择“Commvault” > “Commvault Commcell 控制台”。 
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
+    ![Commcell 控制台中的左侧有一个导航窗格，其标题为“Commcell 浏览器”。 右侧窗格显示“入门”选项卡式页面。](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
 
 4. 在 Commvault Commcell 控制台中，将备份存储库配置为使用 Azure Stack Hub 外部的存储。 在 CommCell 浏览器中，选择“存储资源”>“存储池”。 单击右键并选择“添加存储池”。 选择“云”。
 
@@ -138,7 +138,7 @@ ms.locfileid: "88867953"
 
 6. 选择“创建” > “云存储”。 
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
+    ![StorageDevice# 对话框显示“常规”选项卡式页面，其中包含用于指定要创建的存储设备的各种列表和文本框。](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
 
 7. 选择云服务提供商。 在此过程中，我们将使用位于不同位置的另一个 Azure Stack Hub。 选择“Microsoft Azure 存储”。
 
@@ -158,7 +158,7 @@ ms.locfileid: "88867953"
 
 10. 根据[创建 Azure Stack Hub 客户端](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm)中的说明创建 Azure Stack Hub 客户端
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commcell-ceate-client.png)
+    ![“创建 Azure Stack 客户端”对话框中包含用于指定客户端特征的列表和文本框。](./media/azure-stack-network-howto-backup-commvault/commcell-ceate-client.png)
 
 11. 选择要保护的 VM 或资源组并附加备份策略。
 
@@ -174,21 +174,21 @@ ms.locfileid: "88867953"
 
 2. 有关 Commvault Live Sync 的配置步骤，请参阅 [Azure Stack Hub 的 Live Sync 复制](https://documentation.commvault.com/commvault/v11_sp13/article?p=94386.htm)。
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-1.png)
+    ![Commcell 控制台显示了选项卡式页面“vm-cvlt > 客户端计算机 > ASIC Azure Stack > 虚拟服务器 > Azure Stack > defaultBackupSet”。 页面上的“Off Stack Protection”的上下文菜单包含“实时同步 > 配置”选项。](./media/azure-stack-network-howto-backup-commvault/live-sync-1.png)
  
 3. 在配置 Live Sync 期间，需要提供目标 Azure Stack Hub 和虚拟服务器代理的详细信息。
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-2.png)
+    ![子客户端“Off Stack Protection”的“实时同步选项”向导的“目标”步骤提供用于指定虚拟化客户端和代理客户端的列表框。](./media/azure-stack-network-howto-backup-commvault/live-sync-2.png)
 
 4. 继续配置，并添加目标存储帐户（用于托管副本磁盘）、资源组（用于放置副本 VM），以及要附加到副本 VM 的名称。
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-3.png)
+    ![子客户端“Off Stack Protection”的“实时同步选项”向导的“虚拟机”步骤允许你添加和删除 VM。](./media/azure-stack-network-howto-backup-commvault/live-sync-3.png)
 
 5. 还可以选择每个 VM 旁边的“配置”，来更改 VM 大小和配置网络设置。
 
 6. 设置复制到目标 Azure Stack Hub 的频率
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-5.png)
+    ![子客户端“Off Stack Protection”的“实时同步选项”向导的“作业选项”步骤用于指定备份计划。](./media/azure-stack-network-howto-backup-commvault/live-sync-5.png)
 
 7. 检查设置并保存配置。 然后，系统将创建恢复环境，复制将按所选的间隔开始进行。
 
@@ -197,15 +197,15 @@ ms.locfileid: "88867953"
 
 使用 Commvault Live Sync 可将计算机从一个 Azure Stack Hub 故障转移到另一个 Azure Stack Hub，并可以进行故障回复，以恢复原始 Azure Stack Hub 上的操作。 该工作流会自动完成，并会记录日志。
 
-![](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
+![管理控制台的“复制监视器”页面显示“复制 RPO”窗格的各种子窗格没有可用的数据。 “复制监视器”窗格显示两个 VM 已列出。 其中的每个 VM 都有一行复制信息。](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
 
 选择要故障转移到恢复 Azure Stack Hub 的 VM，然后选择计划性或非计划故障转移。 计划性故障转移适用于有时间正常关闭生产环境，然后在恢复站点中恢复操作的情况。 计划性故障转移会关闭生产 VM，将最终更改复制到恢复站点，使包含最新数据的恢复 VM 联机，并应用配置 Live Sync 期间指定的 VM 大小和网络配置。 非计划性故障转移会尝试关闭生产 VM，但如果生产环境不可用，则故障转移会继续进行。它只会使恢复 VM 联机，并对 VM 应用最后收到的复制数据集以及所选的大小和网络配置。 下图演示了非计划性故障转移，其中，Commvault Live Sync 已使恢复 VM 联机。
 
-![](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
+![“作业摘要”显示有关灾难恢复事件的信息，包括“类型”、“优先级”、“开始时间”和“结束时间”。](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
 
-![](./media/azure-stack-network-howto-backup-commvault/fail-over-2.png)
+![标题为“事件”的列表显示单个事件（已描述为“DR 业务流程作业已完成”）。 此事件还有其他信息。](./media/azure-stack-network-howto-backup-commvault/fail-over-2.png)
 
-![](./media/azure-stack-network-howto-backup-commvault/fail-over-3.png)
+![标题为“阶段详细信息”的列表显示四台计算机的六个事件。 每个事件都有阶段名称、状态、开始时间和结束时间。 阶段名称为“关机”、“开机”、“禁用同步”和“后操作”。](./media/azure-stack-network-howto-backup-commvault/fail-over-3.png)
 
 ## <a name="next-steps"></a>后续步骤
 

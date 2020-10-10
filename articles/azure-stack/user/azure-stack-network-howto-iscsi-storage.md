@@ -3,17 +3,17 @@ title: 如何使用 Azure Stack Hub 连接到 iSCSI 存储
 description: 了解如何使用 Azure Stack Hub 连接到 iSCSI 存储。
 author: WenJason
 ms.topic: how-to
-origin.date: 04/20/2020
-ms.date: 06/22/2020
+origin.date: 08/24/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 8a1d56d7d38d6e7a114e804a14f0f524ef671533
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: de23df20f8e3056f3614bb3eb938af603ff23733
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096363"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437551"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>使用 Azure Stack Hub 连接到 iSCSI 存储
 
@@ -25,7 +25,7 @@ ms.locfileid: "85096363"
 
 下图显示了托管在 Azure Stack Hub 上的 VM，其中包含从本地 Windows 计算机（物理或虚拟机）装载的 iSCSI 磁盘，它允许通过 iSCSI 协议将 Azure Stack Hub 外部的存储装载到 Azure Stack Hub 托管的 VM 内部。
 
-![替换文字](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
+![此图显示了 Azure Stack Hub 上托管的、访问外部 iSCSI 已装载磁盘的 VM。](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>要求
 
@@ -58,7 +58,7 @@ ms.locfileid: "85096363"
 
 下图显示了通过模板部署的资源，这些资源用于创建可供连接到 iSCSI 目标的 iSCSI 客户端。 此模板将部署 VM 和其他资源，此外，它还运行 prepare-iSCSIClient.ps1 并重新启动 VM。
 
-![替换文字](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
+![此图显示了通过模板部署的资源，这些资源用于创建要连接到 iSCSI 目标的 iSCSI 客户端。 它显示带有内部子网和 NIC（网卡）的文件服务器、内部 PIP（专用 Internet 协议）和 NSG（网络安全组）。](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>部署过程
 
@@ -69,11 +69,11 @@ ms.locfileid: "85096363"
 3. 使用模板输出的 IP 地址和服务器名称作为 iSCSI 目标（可以是虚拟机或物理服务器）上脚本的输入输出参数，来运行 `Create-iSCSITarget.ps1`。
 4. 使用 iSCSI 目标服务器的外部 IP 地址作为输入来运行 `Connect-toiSCSITarget.ps1` 脚本。 
 
-![替换文字](./media/azure-stack-network-howto-iscsi-storage/process.svg)
+![此图显示上面列出的四个步骤中的前三个步骤，并包括输入和输出。 步骤如下：部署基础结构、创建 iSCSI 目标，以及连接到 iSCSI。](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>azuredeploy.json 的输入
 
-|**参数**|default |**description**|
+|**Parameters**|**default**|description|
 |------------------|---------------|------------------------------|
 |WindowsImageSKU         |2019-Datacenter   |请选择 Windows VM 基础映像
 |VMSize                  |Standard_D2_v2    |请输入 VM 大小
@@ -98,7 +98,7 @@ ms.locfileid: "85096363"
 
 也可以在现有虚拟机上运行脚本，以从 iSCSI 客户端连接到 iSCSI 目标。 下面是自行创建 iSCSI 目标的流程。 下图显示 PowerShell 脚本的执行流。 这些脚本可在 Script 目录中找到：
 
-![替换文字](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
+![此图显示了下面讨论的三个脚本。 这些脚本是（按执行顺序列出）：Prepare-iSCSIClient.ps1（在客户端上执行）、Create iSCSITarget.ps1（在目标上执行）和 Connect-toiSCSITarget.ps1（在客户端上执行）。](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient.ps1
 
@@ -113,9 +113,9 @@ ms.locfileid: "85096363"
 
 ### <a name="create-iscsitargetps1"></a>Create-iSCSITarget.ps1
 
-`Create-iSCSITarget.ps1 ` 脚本将在提供存储的系统上运行。 可以创建受到发起端限制的多个磁盘和目标。 可运行此脚本多次，以创建多个可附加到不同目标的虚拟磁盘。 可将多个磁盘连接到一个目标。 
+`Create-iSCSITarget.ps1` 脚本将在存储服务器上运行。 可以创建受到发起端限制的多个磁盘和目标。 可运行此脚本多次，以创建多个可附加到不同目标的虚拟磁盘。 可将多个磁盘连接到一个目标。 
 
-|**输入**|default |**description**|
+|**输入**|**default**|description|
 |------------------|---------------|------------------------------|
 |RemoteServer         |FileServer               |连接到 iSCSI 目标的服务器的名称
 |RemoteServerIPs      |1.1.1.1                  |iSCSI 流量的来源 IP 地址
@@ -130,7 +130,7 @@ ms.locfileid: "85096363"
 
 `Connect-toiSCSITarget.ps1` 是最后一个脚本，它在 iSCSI 客户端上运行，将 iSCSI 目标提供的磁盘装载到 iSCSI 客户端。
 
-|**输入**|default |**description**|
+|**输入**|**default**|description|
 |------------------|---------------|------------------------------|
 |TargetiSCSIAddresses   |"2.2.2.2","2.2.2.3"    |iSCSI 目标的 IP 地址
 |LocalIPAddresses       |"10.10.1.4"            |这是 iSCSI 流量的来源内部 IP 地址
