@@ -2,18 +2,19 @@
 title: Azure Stack Hub 计算容量
 description: 了解适用于 Azure Stack Hub 部署的计算容量规划。
 author: WenJason
-ms.topic: article
+ms.topic: conceptual
+ms.service: azure-stack
 origin.date: 03/04/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: e199eac7ad284bf3c8be6207c41b9a1fc5660e24
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 6b9621b2fcf8e478448eec952fca620a7bd152fa
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867874"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437741"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub 计算容量
 
@@ -28,7 +29,7 @@ Azure Stack Hub 定位引擎跨可用的主机放置租户 VM。
 
 放置 VM 时，Azure Stack Hub 使用两个考虑因素。 第一个考虑因素是主机上是否有足够的内存可供该 VM 类型使用？ 第二个考虑因素是 VM 是否是[可用性集](/virtual-machines/windows/manage-availability)或[虚拟机规模集](/virtual-machine-scale-sets/overview)的一部分？
 
-为了在 Azure Stack Hub 中实现多 VM 生产系统的高可用性，可以将虚拟机 (VM) 置于横跨多个容错域的可用性集中。 可用性集中的容错域定义为缩放单元中的单个节点。 为了与 Azure 保持一致，Azure Stack Hub 支持的可用性集最多有三个容错域。 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack Hub 主机）中。 如果发生硬件故障，出现故障的容错域中的 VM 将在其他容错域中重启。 如果可能，它们将保留在同一可用性集中与其他 VM 不同的容错域中。 当主机重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。  
+为了在 Azure Stack Hub 中实现多 VM 生产工作负载的高可用性，虚拟机 (VM) 会被置于横跨多个容错域的可用性集中。 可用性集中的容错域定义为缩放单元中的单个节点。 为了与 Azure 保持一致，Azure Stack Hub 支持的可用性集最多有三个容错域。 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack Hub 节点）中。 如果发生硬件故障，出现故障的容错域中的 VM 将在其他容错域中重启。 如果可能，它们将保留在同一可用性集中与其他 VM 不同的容错域中。 当主机重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。  
 
 虚拟机规模集在后端使用可用性集，并确保每个虚拟机规模集实例都位于不同的容错域。 这意味着规模集使用不同的 Azure Stack Hub 基础结构节点。 例如，在四节点 Azure Stack Hub 系统中，可能存在这样一种情况：由于缺少四节点容量，无法将三个虚拟机规模集实例放置在三个单独的 Azure Stack Hub 节点上，因此由三个实例组成的虚拟机规模集在创建时将失败。 此外，Azure Stack Hub 节点可能先在不同的级别填满，然后尝试放置。
 
@@ -44,15 +45,7 @@ Azure Stack Hub 不会过度提交内存。 但是，允许过度提交物理核
 
 ## <a name="consideration-for-batch-deployment-of-vms"></a>VM 的批量部署注意事项
 
-在 2002 版本以及之前的版本中，每批部署 2-5 个 VM，各批次之间间隔 5 分钟，就可以提供可靠的 VM 部署，以达到 700 个 VM 的规模。 使用 2005 版本的 Azure Stack Hub，我们能够通过每批部署 50 个 VM，各批量部署之间间隔 5 分钟，稳定地预配 VM。
-
-## <a name="considerations-for-deallocation"></a>解除分配的注意事项
-
-当 VM 处于“解除分配”__ 状态时，不会使用内存资源。 这允许将其他 VM 放置在系统中。
-
-如果随后再次启动已解除分配的 VM，则内存使用或分配将像放置在系统中的新 VM 一样处理，并占用可用内存。
-
-如果没有可用内存，则 VM 将不会启动。
+在 2002 版本以及之前的版本中，每批部署 2-5 个 VM，各批次之间间隔 5 分钟，就可以提供可靠的 VM 部署，以达到 700 个 VM 的规模。 使用 2005 版本的 Azure Stack Hub，我们能够通过每批部署 40 个 VM，各批部署之间间隔 5 分钟，可靠地预配 VM。
 
 ## <a name="azure-stack-hub-memory"></a>Azure Stack Hub 内存
 
@@ -92,11 +85,86 @@ VM 放置的可用内存 = 主机总内存 - 复原保留 - 运行租户 VM 所�
 
 值 V（缩放单元中的最大 VM）是动态变化的，具体取决于最大的租户 VM 内存大小。 例如，最大 VM 值可能是 7 GB 或 112 GB，或者是 Azure Stack Hub 解决方案中任何其他受支持的 VM 内存大小。 更改 Azure Stack Hub 结构上最大的 VM 会导致增大复原预留量，同时还会导致 VM 本身的内存增加。
 
+## <a name="considerations-for-deallocation"></a>解除分配的注意事项
+
+当 VM 处于“解除分配”__ 状态时，不会使用内存资源。 这允许将其他 VM 放置在系统中。
+
+如果随后再次启动已解除分配的 VM，则内存使用或分配将像放置在系统中的新 VM 一样处理，并占用可用内存。 如果没有可用内存，则 VM 将不会启动。
+
+当前已部署的大型 VM 显示已分配的内存为 112 GB，而这些 VM 的内存需求约为 2-3 GB。
+    
+| 名称 | 分配的内存 (GB) | 内存需求 (GB) | 计算机名 |  
+| ---- | -------------------- | ------------------ | ------------ |                                        
+| ca7ec2ea-40fd-4d41-9d9b-b11e7838d508 |                 112  |     2.2392578125  |  LISSA01P-NODE01 |
+| 10cd7b0f-68f4-40ee-9d98-b9637438ebf4  |                112  |     2.2392578125  |   LISSA01P-NODE01 |
+| 2e403868-ff81-4abb-b087-d9625ca01d84   |               112   |    2.2392578125  |   LISSA01P-NODE04 |
+
+使用公式“复原功能的预留量 = H + R * ((N-1) * H) + V * (N-2)”为放置 VM 而释放内存的方法有三种：
+* 减小最大 VM 的大小
+* 增加节点的内存
+* 添加节点
+
+### <a name="reduce-the-size-of-the-largest-vm"></a>减小最大 VM 的大小 
+
+将最大 VM 的大小减少到缩放单元 (24 GB) 中的下一个最小 VM 大小将减小复原功能的预留量大小。
+
+![减小 VM 大小](media/azure-stack-capacity-planning/decrease-vm-size.png)        
+        
+ 复原功能的预留量 = 384 + 172.8 + 48 = 604.8 GB
+        
+| 总内存量 | Infra GB | 租户 GB | 复原功能的预留量 | 预留的总内存量          | 可用于放置的总 GB 数 |
+|--------------|--------------------|---------------------|--------------------|--------------------------------|----------------------------------|
+| 1536 GB      | 258 GB             | 329.25 GB           | 604.8 GB           | 258 + 329.25 + 604.8 = 1168 GB | ~344 GB                         |
+     
+### <a name="add-a-node"></a>添加节点
+
+[添加 Azure Stack Hub 节点](/azure-stack/operator/azure-stack-add-scale-node)会通过在两个节点之间平均分配内存来释放内存。
+
+![添加节点](media/azure-stack-capacity-planning/add-a-node.png)
+
+复原功能的预留量 = 384 + (0.15) ((5)*384) + 112 * (3) = 1008  GB
+    
+| 内存总量 | Infra GB | 租户 GB | 复原功能的预留量 | 预留的总内存量          | 可用于放置的总 GB 数 |
+|--------------|--------------------|---------------------|--------------------|--------------------------------|----------------------------------|
+| 1536 GB      | 258 GB             | 329.25 GB           | 604.8 GB           | 258 + 329.25 + 604.8 = 1168 GB | ~ 344 GB                         |
+
+### <a name="increase-memory-on-each-node-to-512-gb"></a>将每个节点上的内存增加到 512 GB
+
+[增加每个节点的内存](/azure-stack/operator/azure-stack-manage-storage-physical-memory-capacity)将增加可用内存总量。
+
+![增加节点的大小](media/azure-stack-capacity-planning/increase-node-size.png)
+
+复原功能的预留量 = 512 + 230.4 + 224 = 966.4 GB
+    
+| 内存总量    | Infra GB | 租户 GB | 复原功能的预留量 | 预留的总内存量 | 可用于放置的总 GB 数 |
+|-----------------|----------|-----------|--------------------|-----------------------|----------------------------------|
+| 2048 (4*512) GB | 258 GB   | 505.75 GB | 966.4 GB           | 1730.15 GB            | ~ 318 GB                         |
+
 ## <a name="frequently-asked-questions"></a>常见问题
 
 **问**：我的租户部署了新的 VM，管理员门户上的容量图表要多久才显示剩余容量？
 
 **答**：容量边栏选项卡每隔 15 分钟刷新一次，请考虑到这一点。
+
+**问**：如何查看可用核心和已分配的核心？
+
+**答**：在 PowerShell 中运行 `test-azurestack -include AzsVmPlacement -debug`，这将生成类似于以下内容的输出：
+
+```console
+    Starting Test-AzureStack
+    Launching AzsVmPlacement
+     
+    Azure Stack Scale Unit VM Placement Summary Results
+     
+    Cluster Node    VM Count VMs Running Physical Core Total Virtual Co Physical Memory Total Virtual Mem
+    ------------    -------- ----------- ------------- ---------------- --------------- -----------------
+    LNV2-Node02     20       20          28            66               256             119.5            
+    LNV2-Node03     17       16          28            62               256             110              
+    LNV2-Node01     11       11          28            47               256             111              
+    LNV2-Node04     10       10          28            49               256             101              
+    
+    PASS : Azure Stack Scale Unit VM Placement Summary
+```
 
 **问**：我的 Azure Stack Hub 上部署的 VM 数量没有变化，但我的容量却在波动。 为什么？
 

@@ -3,16 +3,17 @@ title: 使用 Windows Admin Center 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows Admin Center 为 Azure Stack HCI 创建服务器群集
 author: WenJason
 ms.topic: how-to
-origin.date: 08/11/2020
-ms.date: 08/31/2020
+ms.service: azure-stack
+origin.date: 09/21/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 94161325bfbe0994932df8224490fe4a004246ef
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: c04f003975078ffcef51ed9fbffe953076c4923a
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871652"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437754"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 创建 Azure Stack HCI 群集
 
@@ -67,7 +68,7 @@ ms.locfileid: "88871652"
 
 1. 完成后，单击“创建”。 现在，你将看到“创建群集”向导，如下所示。
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="“创建群集”向导 - 开始" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="创建群集向导- HCI 选项" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>步骤 1：入门
 
@@ -97,7 +98,10 @@ ms.locfileid: "88871652"
 
 ## <a name="step-2-networking"></a>步骤 2：网络
 
-向导的步骤 2 引导你为群集配置各种网络元素。 让我们开始：
+向导的步骤 2 将引导你完成为群集配置虚拟交换机和其他网络元素的过程。
+
+> [!NOTE]
+> 如果在任何网络或虚拟交换机步骤中看到列出了错误，请尝试再次单击“应用并测试”。
 
 1. 在完成时选择“下一步:网络”。
 1. 在“验证网络适配器”下，等待每个适配器旁边出现绿色的复选框，然后选择“下一步”。 
@@ -106,9 +110,9 @@ ms.locfileid: "88871652"
 
     管理适配器有两个配置选项：
 
-    - 使用单个物理适配器进行管理。 同时支持 DHCP 和静态 IP 地址分配。
+    - 一个用于管理的物理网络适配器。 对于此选项，DHCP 或静态 IP 地址分配受支持。
 
-    - 组合使用两个物理适配器。 组合使用一对适配器时，仅支持静态 IP 地址分配。 如果所选适配器使用 DHCP 寻址（不管是针对其中的一个还是两个），则 DHCP IP 地址会在创建虚拟交换机之前转换为静态 IP 地址。
+    - 两个已组成一组以用于管理的物理网络适配器。 组合使用一对适配器时，仅支持静态 IP 地址分配。 如果所选适配器使用 DHCP 寻址（不管是针对其中的一个还是两个），则 DHCP IP 地址会在创建虚拟交换机之前转换为静态 IP 地址。
 
     可以通过使用组合的适配器与多个交换机建立单一连接，但只使用单个 IP 地址。 负载均衡会变得可用，并且容错功能是即时启用的，不需等待 DNS 记录更新。
 
@@ -130,10 +134,13 @@ ms.locfileid: "88871652"
 
 1. 在“虚拟交换机”下，根据情况选择以下选项之一。 并非所有选项都会显示，具体取决于存在的适配器数量：
 
-    - 创建一个用于 Hyper-V 和存储的虚拟交换机
-    - 创建一个只用于 Hyper-V 的虚拟交换机
-    - 创建两个虚拟交换机，一个用于 Hyper-V，另一个用于存储
-    - 不创建虚拟交换机
+    - **跳过虚拟交换机创建**
+    - **创建一个同时用于计算和存储的虚拟交换机**
+    - **创建一个仅用于计算的虚拟交换机**
+    - **创建两个虚拟交换机**
+
+    > [!NOTE]
+    > 如果打算部署用于 SDN 的网络控制器（在向导的“步骤 5:SDN”中），你将需要一个虚拟交换机。 因此，如果你在此处选择不创建虚拟交换机，并且不在向导外创建它，则向导将不会部署网络控制器。
 
     下表显示了针对各种网络适配器配置支持和启用的虚拟交换机配置：
 
@@ -144,9 +151,6 @@ ms.locfileid: "88871652"
     | 两个交换机 | 不支持 | enabled | enabled |
 
 1. 根据需要更改交换机和其他配置设置的名称，然后单击“应用并测试”。 创建虚拟交换机后，每台服务器的“状态”列都应显示为“已通过”。
-
-> [!NOTE]
-> 如果在任何网络或虚拟交换机步骤中看到列出了错误，请尝试再次单击“应用并测试”。 网络连接检查可能间歇性地失败，这可能会导致向导在初始尝试时遇到服务器 ping 故障。
 
 ## <a name="step-3-clustering"></a>步骤 3：群集功能
 
@@ -171,7 +175,6 @@ ms.locfileid: "88871652"
 
 向导的步骤 4 将引导你为群集设置存储空间直通。
 
-
 1. 在完成时选择“下一步:存储”。
 1. 在“验证驱动器”下，单击每台服务器旁边的 **>** 图标以验证磁盘是否正常工作并处于已连接状态，然后单击“下一步” 。
 1. 在“清理驱动器”下，单击“清理驱动器”以清空数据驱动器。  准备就绪后，单击“下一步”。
@@ -186,7 +189,42 @@ ms.locfileid: "88871652"
 
 如果解析群集在一段时间后未成功，则在大多数情况下，你可以使用群集中的服务器名称来代替群集名称。
 
-## <a name="after-you-run-the-wizard"></a>运行向导之后
+## <a name="step-5-sdn-optional"></a>步骤 5：SDN（可选）
+
+向导的步骤 5 将指导你完成在群集上为软件定义的网络 (SDN) 设置网络控制器的过程。 网络控制器在经过设置之后便可用于配置 SDN 的其他组件，如软件负载均衡器和 RAS 网关。
+
+> [!NOTE]
+> 向导的这一步是可选的。
+
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="创建群集向导- HCI 选项" lightbox="media/cluster/create-cluster-network-controller.png":::
+
+1. 在完成时选择“下一步:SDN”。
+1. 在“主机”下，输入网络控制器的名称。
+1. 指定 Azure Stack HCI VHD 文件的路径。 使用“浏览”可更快地找到它。
+1. 指定要专用于网络控制器的 VM 数量。 建议使用三到五个 VM 以实现高可用性。
+1. 在“网络”下，输入 VLAN ID。
+1. 对于“VM 网络寻址”，请选择“DHCP”或“静态”。
+1. 如果选择了“DHCP”，请输入网络控制器 VM 的名称和 IP 地址。
+1. 如果选择了“静态”，请执行以下操作：
+    1. 指定子网前缀。
+    1. 指定默认网关。
+    1. 指定一个或多个 DNS 服务器。 单击“添加”添加其他 DNS 服务器。
+1. 在“凭据”下，输入用于将网络控制器 VM 加入到群集域的用户名和密码。
+1. 输入这些 VM 的本地管理密码。
+1. 在“高级”下，输入 VM 的路径。
+1. 输入“MAC 地址池起始地址”的值和“MAC 地址池结束地址”的值。
+1. 完成后，单击 **“下一步”** 。
+1. 一直等到向导完成其作业。 在所有进度任务完成之前，请留在此页上。 然后单击“完成”。
+ 
+如果网络控制器部署失败，请先执行以下操作，然后再重试：
+
+- 停止并删除向导创建的所有网络控制器 VM。  
+
+- 清理向导创建的任何 VHD 装入点。  
+
+- 确保 Hyper-V 主机上至少有 50-100GB 的可用空间。  
+
+## <a name="after-you-complete-the-wizard"></a>完成向导后
 
 向导完成后，你仍需完成一些重要任务。
 
@@ -209,4 +247,5 @@ ms.locfileid: "88871652"
 - 将群集注册到 Azure。 请参阅[管理 Azure 注册](../manage/manage-azure-registration.md)。
 - 对群集进行最终验证。 请参阅[验证 Azure Stack HCI 群集](validate.md)
 - 预配 VM。 请参阅[使用 Windows Admin Center 管理 Azure Stack HCI 上的 VM](../manage/vm.md)。
-- 也可以使用 PowerShell 创建群集。 请参阅[使用 PowerShell 创建 Azure Stack HCI 群集](create-cluster-powershell.md)。
+- 还可以使用 PowerShell 部署群集。 请参阅[使用 PowerShell 创建 Azure Stack HCI 群集](create-cluster-powershell.md)。
+- 还可以使用 PowerShell 部署网络控制器。 请参阅[使用 PowerShell 部署网络控制器](network-controller-powershell.md)。

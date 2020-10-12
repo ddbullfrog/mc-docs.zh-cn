@@ -1,28 +1,28 @@
 ---
-title: 了解 Azure Stack HCI 中的缓存
+title: 了解 Azure Stack HCI 中的存储池缓存
 description: 存储空间直通和 Azure Stack HCI 中读取和写入缓存的工作原理。
 author: WenJason
 ms.author: v-jay
 ms.topic: conceptual
-origin.date: 08/11/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 387478bb1c9eb2e085151ede1ddd26453e774d8e
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+origin.date: 09/04/2020
+ms.service: azure-stack
+ms.date: 10/12/2020
+ms.openlocfilehash: 7ed514887658a4af7d3f09b06e46ab254763ed50
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867940"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437587"
 ---
-# <a name="understanding-the-cache-in-azure-stack-hci"></a>了解 Azure Stack HCI 中的缓存
+# <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>了解 Azure Stack HCI 中的存储池缓存
 
 > 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-[存储空间直通](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)提供一个内置的服务器端缓存用于实现最佳存储性能。 此缓存是一个大型的持久性实时读取和写入缓存。 启用存储空间直通时，系统会自动配置该缓存。 在大多数情况下，无需进行任何手动管理。
-缓存的工作原理取决于现有的驱动器类型。
+Azure Stack HCI 提供内置的服务器端缓存，以最大程度地提高存储性能。 此缓存是一个大型的持久性实时读取和写入缓存。 部署 Azure Stack HCI 后，会自动配置该缓存。 在大多数情况下，无需进行任何手动管理。 缓存的工作原理取决于现有的驱动器类型。
 
 ## <a name="drive-types-and-deployment-options"></a>驱动器类型和部署选项
 
-存储空间直通目前适用于四种类型的驱动器：
+Azure Stack HCI 目前使用四种类型的驱动器：
 
 | 驱动器类型 | 描述 |
 |----------------------|--------------------------|
@@ -37,21 +37,21 @@ ms.locfileid: "88867940"
 
 “全部闪存”部署旨在最大化存储性能，不包括机械硬盘 (HDD)。
 
-![All-Flash-Deployment-Possibilities](media/cache/All-Flash-Deployment-Possibilities.png)
+![该图显示了“全闪存”部署，包括将 NVMe 用于容量，将 NVMe 用于缓存且将 SSD 用于容量，以及将 SSD 用于容量。](media/cache/All-Flash-Deployment-Possibilities.png)
 
 ### <a name="hybrid-deployment-possibilities"></a>混合部署的可行性
 
 混合部署旨在平衡性能和容量或者最大化容量，包括机械硬盘 (HDD)。
 
-![Hybrid-Deployment-Possibilities](media/cache/Hybrid-Deployment-Possibilities.png)
+![该图显示了“混合”部署，包括将 NVMe 用于缓存且将 HDD 用于容量，将 SSD 用于缓存且将 HDD 用于容量，以及将 NVMe 用于缓存且将 HDD 和 SSD 用于容量。](media/cache/Hybrid-Deployment-Possibilities.png)
 
 ## <a name="cache-drives-are-selected-automatically"></a>自动选择缓存驱动器
 
-在使用多种类型的驱动器的部署中，存储空间直通自动将“速度最快”的所有驱动器类型用于缓存。 剩余的驱动器用于提供容量。
+在使用多种类型的驱动器的部署中，Azure Stack HCI 会自动将“速度最快”类型的所有驱动器用于缓存。 剩余的驱动器用于提供容量。
 
 可根据以下层次结构来确定“最快”的类型。
 
-![Drive-Type-Hierarchy](media/cache/Drive-Type-Hierarchy.png)
+![该图显示了按速度（从快到慢）排列的磁盘类型，其顺序为：NVMe、SSD、无标记磁盘（表示 HDD）。](media/cache/Drive-Type-Hierarchy.png)
 
 例如，如果你有 NVMe 和 SSD，则 NVMe 将为 SSD 提供缓存。
 
@@ -69,7 +69,7 @@ ms.locfileid: "88867940"
 
 根据要提供缓存的驱动器类型自动确定缓存的行为。 为固态硬盘提供缓存时（例如，为 SSD 提供 NVMe 缓存），只缓存写入内容。 为机械硬盘提供缓存时（例如 SSD 为 HDD 提供缓存），读取和写入内容都将缓存。
 
-![Cache-Read-Write-Behavior](media/cache/Cache-Read-Write-Behavior.png)
+![该图将用于“全闪存”部署的缓存（其中会缓存写入但不缓存读取）和用于“混合”部署的缓存（其中会缓存读取和写入）相比较。](media/cache/Cache-Read-Write-Behavior.png)
 
 ### <a name="write-only-caching-for-all-flash-deployments"></a>全闪存部署的只写缓存
 
@@ -83,9 +83,9 @@ ms.locfileid: "88867940"
 
 为机械硬盘 (HDD) 提供缓存时，会同时缓存读取和写入内容，以便为读取和写入操作提供类似于闪存的延迟（通常可将延迟改善大约 10 倍）。 读取缓存存储最近和经常读取的数据以进行快速访问，并尽量减少发往 HDD 的随机流量。 （由于 HDD 的寻轨和旋转延迟，随机访问 HDD 时出现的滞后时间和时间损失会很明显。）写入内容将会缓存，以缓解数据突发，并与前面所述一样，写入和重写将会合并，以将发往容量驱动器的累积流量减到最小。
 
-存储空间直通实现某种算法来反随机化写入，然后将其解除暂存，这样，即使来自工作负荷（例如虚拟机）的实际 IO 是随机的，也能模拟磁盘的 IO 模式，使其看似是有序的。 这可以将 HDD 的 IOPS 和吞吐量最大化。
+Azure Stack HCI 实现了一种算法来反随机化写入，然后将其解除暂存，这样，即使来自工作负载（例如虚拟机）的实际 IO 是随机的，也能模拟磁盘的 IO 模式，使其看似是有序的。 这可以将 HDD 的 IOPS 和吞吐量最大化。
 
-### <a name="caching-in-deployments-with-drives-of-all-three-types"></a>使用所有上述三种驱动器的部署中的缓存
+### <a name="caching-in-deployments-with-nvme-ssd-and-hdd"></a>在使用 NVMe、SSD 和 HDD 的部署中缓存
 
 使用所有上述三种类型的驱动器时，NVMe 驱动器将为 SSD 和 HDD 提供缓存。 行为如上所述：对于 SSD，仅缓存写入；对于 HDD，同时缓存读取和写入。 HDD 的缓存负担均匀分散在各个缓存驱动器之间。
 
@@ -108,9 +108,9 @@ ms.locfileid: "88867940"
 
 由于缓存的级别低于剩余 Windows 软件定义的存储堆栈，因此它不运用，也无需意识到“存储空间”或“容错”之类的概念。 可将它看作是创建“混合”（一部分是快闪，一部分是磁盘）驱动器，然后将其提供给 Windows。 与实际的混合驱动器一样，在外部几乎看不到物理媒体上速度较快和较慢部分之间冷热数据的实时移动。
 
-假设存储空间直通中的复原功能至少位于服务器级别（这意味着，数据副本始终写入不同的服务器；每个服务器最多有一个副本），则缓存中的数据与不在缓存中的数据享有相同的复原能力。
+考虑到 Azure Stack HCI 中的复原能力至少是服务器级别的（这意味着，数据副本始终写入到不同的服务器；每个服务器最多有一个副本），因此，缓存中的数据与不在缓存中的数据享有相同的复原能力。
 
-![Cache-Server-Side-Architecture](media/cache/Cache-Server-Side-Architecture.png)
+![该图表示通过存储空间层中的三向镜像联接的三个服务器，三向镜像会访问缓存层的 NVMe 驱动器，而这些驱动器会访问未标记的容量驱动器。](media/cache/Cache-Server-Side-Architecture.png)
 
 例如，在使用三向镜像时，任何数据的三个副本将写入不同的服务器，然后从服务器进入缓存。 无论以后是否解除暂存这些副本，都始终有三个副本。
 
@@ -118,7 +118,7 @@ ms.locfileid: "88867940"
 
 缓存驱动器与容量驱动器之间的绑定可以采用任何比率，从 1:1 到 1:12 甚至更高都可以。 每当添加或移除驱动器（例如扩展时或在故障后）时，这种绑定会动态调整。 这意味着，只要有需要，都可以单独添加缓存驱动器或容量驱动器。
 
-![Dynamic-Binding](media/cache/Dynamic-Binding.gif)
+![该动态图显示了两个 NVMe 缓存驱动器，它们以动态方式先映射到前四个容量驱动器，然后映射到六个容量驱动器，然后再映射到八个容量驱动器。](media/cache/Dynamic-Binding.gif)
 
 为了对称，容量驱动器的数目最好是缓存驱动器数目的倍数。 例如，如果你有 4 个缓存驱动器，则配置 8 个容量驱动器（1:2 比例）的性能比配置 7 个或 9 个容量驱动器更均衡。
 
@@ -130,7 +130,7 @@ ms.locfileid: "88867940"
 
 因为会发生这种情况，每台服务器至少需要两个缓存驱动器才能保留良好的性能。
 
-![Handling-Failure](media/cache/Handling-Failure.gif)
+![该动态图显示两个 SSD 缓存驱动器已映射到六个容量驱动器，直到一个缓存驱动器发生故障，这导致所有六个驱动器映射到剩余的缓存驱动器。](media/cache/Handling-Failure.gif)
 
 然后，可以像更换其他任何驱动器一样更换缓存驱动器。
 
@@ -141,9 +141,9 @@ ms.locfileid: "88867940"
 
 Windows 软件定义的存储堆栈中有多个其他不相关的缓存。 例如，存储空间写回缓存，以及群集共享卷 (CSV) 内存中读取缓存。
 
-使用存储空间直通时，不应修改存储空间写回缓存的默认行为。 例如，不应在 **New-Volume** cmdlet 中使用 **-WriteCacheSize** 之类的参数。
+使用 Azure Stack HCI 时，不应修改存储空间写回缓存的默认行为。 例如，不应在 **New-Volume** cmdlet 中使用 **-WriteCacheSize** 之类的参数。
 
-你可以自行决定是否使用 CSV 缓存。 CSV 缓存在存储空间直通中默认已禁用，但它不与本主题中所述的新缓存发生任何冲突。 在某些情况下，它可以提供宝贵的性能增益。 有关详细信息，请参阅[如何启用 CSV 缓存](https://docs.microsoft.com/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional)。
+你可以自行决定是否使用 CSV 缓存。 默认情况下，它在 Azure Stack HCI 中处于启用状态，但它不会以任何方式与本主题中所述的缓存发生冲突。 在某些情况下，它可以提供宝贵的性能增益。 有关详细信息，请参阅[将 CSV 内存中读取缓存与 Azure Stack HCI 配合使用](../manage/use-csv-cache.md)。
 
 ## <a name="manual-configuration"></a>手动配置
 
@@ -155,7 +155,7 @@ Windows 软件定义的存储堆栈中有多个其他不相关的缓存。 例�
 
 在所有驱动器都属于同一类型的部署中（例如，全使用 NVMe 或全使用 SSD 的部署），由于 Windows 无法自动分辨同一类型的驱动器的特征（例如写入持久性），因此不会配置缓存。
 
-若要使用持久性较高的驱动器为类型相同但持久性较低的驱动器提供缓存，可以使用 **Enable-ClusterS2D** cmdlet 的 **-CacheDeviceModel** 参数指定要使用的驱动器型号。 启用存储空间直通后，该型号的所有驱动器将用于缓存。
+若要使用持久性较高的驱动器为类型相同但持久性较低的驱动器提供缓存，可以使用 **Enable-ClusterS2D** cmdlet 的 **-CacheDeviceModel** 参数指定要使用的驱动器型号。 该模型的所有驱动器均将用于缓存。
 
    >[!TIP]
    > 请确保型号字符串与 **Get-PhysicalDisk** 输出中显示的字符串完全一样。
@@ -189,13 +189,13 @@ Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 
 手动配置支持以下部署可行性：
 
-![Exotic-Deployment-Possibilities](media/cache/Exotic-Deployment-Possibilities.png)
+![该图显示了各种部署可行性，包括将 NVMe 用于缓存和容量、将 SSD 用于缓存和容量、将 SSD 用于缓存，以及将混合的 SSD 和 HDD 用于容量。](media/cache/Exotic-Deployment-Possibilities.png)
 
 ### <a name="set-cache-behavior"></a>设置缓存行为
 
 可以重写缓存的默认行为。 例如，即使在全闪存部署中，也可将其设置为缓存读取。 除非你确定默认行为不符合工作负荷，否则我们不建议修改行为。
 
-若要重写行为，请结合 **-CacheModeSSD** 与 **-CacheModeHDD** 参数使用 **Set-ClusterStorageSpacesDirect** cmdlet。 **CacheModeSSD** 参数设置在为固态硬盘提供缓存时的缓存行为。 **CacheModeHDD** 参数设置在为机械硬盘提供缓存时的缓存行为。 可以在启用存储空间直通后的任何时间执行此操作。
+若要重写行为，请结合 **-CacheModeSSD** 与 **-CacheModeHDD** 参数使用 **Set-ClusterStorageSpacesDirect** cmdlet。 **CacheModeSSD** 参数设置在为固态硬盘提供缓存时的缓存行为。 **CacheModeHDD** 参数设置在为机械硬盘提供缓存时的缓存行为。
 
 可以使用 **Get-ClusterStorageSpacesDirect** 来验证是否已设置该行为。
 

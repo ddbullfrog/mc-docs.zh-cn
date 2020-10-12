@@ -2,18 +2,19 @@
 title: Azure Stack Hub 已知问题
 description: 了解 Azure Stack Hub 发行版中的已知问题。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
-origin.date: 08/13/2020
-ms.date: 08/31/2020
+origin.date: 09/18/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: 449e880a85620331f753da9310cd41127b634f68
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: e14f7a38a2349719ec08fb2f6e729680d2d1d1c1
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868092"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437507"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -35,13 +36,6 @@ ms.locfileid: "88868092"
 有关已知的 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates)。
 
 ## <a name="portal"></a>门户
-
-### <a name="subscription-permissions"></a>订阅权限
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：无法使用 Azure Stack Hub 门户查看订阅的权限。
-- 补救措施：使用 [PowerShell 验证权限](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment)。
-- 发生次数：通用
 
 ### <a name="administrative-subscriptions"></a>管理订阅
 
@@ -98,11 +92,36 @@ ms.locfileid: "88868092"
 
 ## <a name="compute"></a>计算
 
+### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>使用门户部署 Standard_DS2_v2 大小的虚拟机规模集时遇到的问题
+
+- 适用于：此问题适用于 2005 版本。
+- 原因：门户 bug 导致创建 Standard_DS2_v2 大小的规模集失败。
+- 补救措施：使用 PowerShell 或 CLI 部署此虚拟机规模集 VM 大小。
+
+### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>在 Ubuntu Server 20.04 中使用 VM 扩展时遇到的问题
+
+- 适用于：此问题适用于 Ubuntu Server 20.04 LTS。
+- 原因：某些 Linux 发行版已转换为 Python 3.8，并完全删除了 Python 的旧版 `/usr/bin/python` 入口点。 已转换到 Python 3.x 的 Linux 发行版用户在尝试将这些扩展部署到自己的 VM 之前，必须确保存在旧版 `/usr/bin/python` 入口点。 否则，扩展部署可能会失败。
+- 补救措施：请按照[在启用 Python 3 的 Linux Azure 虚拟机系统中使用 VM 扩展时遇到的问题](/virtual-machines/extensions/issues-using-vm-extensions-python-3)中的解决步骤操作，但请跳过步骤 2，因为 Azure Stack Hub 没有“运行命令”功能。
+
 ### <a name="nvv4-vm-size-on-portal"></a>门户上的 NVv4 VM 大小
 
 - 适用于：此问题适用于 2002 及更高版本。
-- 原因：完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 拥有基于 AMD Mi25 的 Azure Stack Hub GPU 预览版所需的硬件的客户可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。
+- 原因：完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 如果客户拥有基于 AMD MI25 的 Azure Stack Hub GPU 预览版所需的硬件，那么这些客户可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。
 - 补救措施：按照设计为 Azure Stack Hub GPU 预览版做准备。
+
+### <a name="consumed-compute-quota"></a>已消耗的计算配额
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：创建新虚拟机时，可能会收到一则错误消息，例如“此订阅在此位置的区域 vCPU 总数已达到上限。此订阅使用了所有可用的 50 个区域 vCPU”。 这表示可用的核心配额总计已达到上限。
+- 补救措施：请求操作员提供配额更高的附加计划。 编辑当前计划的配额不起作用，也不会反映提高的配额。
+- 发生次数：罕见
+
+### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM 概述边栏选项卡未显示正确的计算机名称
+
+- 适用于：此问题适用于所有版本。
+- 原因：在概述边栏选项卡中查看 VM 的详细信息时，计算机名称显示为“(不可用)”。 这是针对从专用磁盘/磁盘快照创建的 VM 设计的，也会为市场映像而出现。
+- 补救措施：在“设置”下查看“属性”边栏选项卡。
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
 
@@ -111,6 +130,16 @@ ms.locfileid: "88868092"
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在包含 3 个容错域的可用性集中创建 VM 以及创建虚拟机规模集实例失败，在一个 4 节点 Azure Stack Hub 环境中进行更新时出现 **FabricVmPlacementErrorUnsupportedFaultDomainSize** 错误。
 - 补救措施：可以在包含 2 个容错域的可用性集中成功创建单一 VM。 但是，在 4 节点 Azure Stack Hub 部署中进行更新时，仍然不能创建规模集实例。
+
+## <a name="storage"></a>存储
+
+### <a name="retention-period-reverts-to-0"></a>保留期恢复为 0
+
+- 适用于：此问题适用于版本 2002 和 2005。
+- 原因：如果在保留期设置中指定非 0 的时间段，则它将在 2002 或 2005 更新期间恢复为 0（此设置的默认值）。 这个 0 天的设置将在更新完成后立即生效，从而导致所有现有已删除的存储帐户和任何即将新删除的存储帐户立即不予保留，并标记为需要进行定期垃圾回收（每小时运行一次）。
+- 补救措施：将保留期手动指定为正确的时间段。 在指定新的保留期之前已进行垃圾回收的任何存储帐户都不可恢复。  
+
+## <a name="resource-providers"></a>资源提供程序
 
 ### <a name="sqlmysql"></a>SQL/MySQL
 
@@ -135,7 +164,7 @@ ms.locfileid: "88868092"
 
 应用 2002 更新后，管理员门户中可能会错误地显示“时间源无效”警报。 这个警报是可忽略的误报，会在即将发布的版本中得到解决。 
 
-有关已知的其他 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-troubleshooting.md)。
+有关已知的 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates)。
 
 ## <a name="portal"></a>门户
 
@@ -236,22 +265,23 @@ ms.locfileid: "88868092"
   - [指定自定义的 IPsec/IKE 策略](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>计算
-### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>无法在门户中创建 Standard_DS2_v2 VM 大小的 VMSS
+
+### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>无法在门户中使用 Standard_DS2_v2 VM 大小创建规模集
 
 - 适用于：此问题适用于 2002 版本。
-- 原因：存在一个门户 bug，它阻止创建 Standard_DS2_v2 VM 大小的 VMSS。 创建即会产生错误：“{"code":"DeploymentFailed","message":":"至少一项资源部署操作失败。 请列出部署操作以获取详细信息。 请参阅 https://aka.ms/arm-debug 了解使用情况详细信息。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 虚拟机大小 Standard_DS2_v2 不在 VM 大小的允许列表中，不能在 VM 规模集 /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss 的索引 0 处的 VM 上启用加速网络。 允许的大小：.\"\r\n }\r\n}"}]}"
-- 补救措施：使用 PowerShell 或资源管理器模板创建 VMSS。
+- 原因：存在一个门户 bug，它阻止使用Standard_DS2_v2 VM 大小创建规模集。 创建即会产生错误：“{"code":"DeploymentFailed","message":":"至少一项资源部署操作失败。 请列出部署操作以获取详细信息。 请参阅 https://aka.ms/arm-debug 了解使用情况详细信息。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 虚拟机大小 Standard_DS2_v2 不在 VM 大小的允许列表中，不能在 VM 规模集 /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss 的索引 0 处的 VM 上启用加速网络。 允许的大小：.\"\r\n }\r\n}"}]}"
+- 补救措施：使用 PowerShell 或资源管理器模板创建虚拟机规模集。
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM 概述边栏选项卡未显示正确的计算机名称
 
 - 适用于：此问题适用于所有版本。
-- 原因：在概述边栏选项卡中查看 VM 的详细信息时，计算机名称显示为“(不可用)”。 这是针对从专用磁盘/磁盘快照创建的 VM 设计的。
+- 原因：在概述边栏选项卡中查看 VM 的详细信息时，计算机名称显示为“(不可用)”。 这是针对从专用磁盘/磁盘快照创建的 VM 设计的，也会为市场映像而出现。
 - 补救措施：在“设置”下查看“属性”边栏选项卡。
 
 ### <a name="nvv4-vm-size-on-portal"></a>门户上的 NVv4 VM 大小
 
 - 适用于：此问题适用于版本 2002 及更高版本。
-- 原因：完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 拥有基于 AMD Mi25 的 Azure Stack Hub GPU 预览版所需的硬件的客户可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。
+- 原因：完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 如果客户拥有基于 AMD MI25 的 Azure Stack Hub GPU 预览版所需的硬件，那么这些客户可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。
 - 补救措施：按照设计为 Azure Stack Hub GPU 预览版做准备。
 
 ### <a name="vm-boot-diagnostics"></a>VM 启动诊断
@@ -296,6 +326,14 @@ ms.locfileid: "88868092"
 - 适用于：此问题适用于新安装的 2002 及更高版本，或任何启用了 TLS 1.2 的早期版本。
 - 原因：当使用现有存储帐户配置 SQL VM 的自动备份时，它会失败并显示错误“SQL Server IaaS 代理:基础连接已关闭:发送时出现意外错误。”
 - 发生次数：通用
+
+## <a name="storage"></a>存储
+
+### <a name="retention-period-revert-to-0"></a>保留期恢复为 0
+
+- 适用于：此问题适用于版本 2002 和 2005。
+- 原因：如果以前在保留期设置中指定了非 0 的时间段，则它将在 2002 或 2005 更新期间恢复回 0（此设置的默认值）。 这个 0 天的设置会在更新完成后立即生效，从而导致所有现有已删除的存储帐户和任何即将新删除的存储帐户立即不予保留，并标记为需要进行定期垃圾回收（每小时运行一次）。 
+- 补救措施：将保留期手动指定为正确的时间段。 但是，在指定新的保留期之前已进行垃圾回收的任何存储帐户都不可恢复。  
 
 ## <a name="resource-providers"></a>资源提供程序
 

@@ -1,19 +1,19 @@
 ---
-title: 如何跨两个 Azure Stack Hub 实例部署 F5
+title: 跨两个 Azure Stack Hub 实例部署 F5
 description: 了解如何跨两个 Azure Stack Hub 实例部署 F5。
 author: WenJason
 ms.topic: how-to
-origin.date: 04/20/2020
-ms.date: 05/18/2020
+origin.date: 08/24/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 888ef318eb3b3191645896440a81f1c475d6f86b
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 9e99f77c0aeff78b12bd23283cc60bb79adc5670
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422576"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437736"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>如何跨两个 Azure Stack Hub 实例部署 F5
 
@@ -47,23 +47,23 @@ Azure Stack Hub 具有独立于 Azure 的市场。 仅可添加特定项目。 �
 
 4. 选择“F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations)”  。
 
-    ![](./media/network-howto-f5/image1.png)
+    ![“仪表板 > 新建 > 市场 > 全部内容 > F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations)”对话框中的搜索框内显示了 f5。 单个搜索结果为“F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations)”。](./media/network-howto-f5/image1.png)
 
-5. 在下一页的底部，选择“创建”  。
+5. 在下一页的底部，选择“创建”。
 
-    ![](./media/network-howto-f5/image2.png)
+    ![“F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations)”对话框提供了有关 BIG-IP VE 和可部署的模块的信息，具体取决于你的许可证。 有一个“创建”按钮。](./media/network-howto-f5/image2.png)
 
-6. 创建一个名为“F5-GSLB”的新资源组  。
+6. 创建一个名为“F5-GSLB”的新资源组****。
 
 7. 使用以下值作为示例来完成部署：
 
-    ![](./media/network-howto-f5/image3.png)
+    ![Microsoft.Template 对话框的“输入”页显示了 15 个包含有关示例部署的值的文本框，如“VIRTUALMACHINENAME”和“ADMINUSERNAME”。](./media/network-howto-f5/image3.png)
 
 8. 验证部署是否成功完成。
 
-    ![](./media/network-howto-f5/image4.png)
+    ![Microsoft.Template 对话框的“概述”页报告了“部署完成”，并提供有关该部署的详细信息。](./media/network-howto-f5/image4.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > 每个 BIG-IP 部署大约需要 20 分钟。
 
 ## <a name="configure-big-ip-appliances"></a>配置 BIG-IP 设备
@@ -72,7 +72,7 @@ Azure Stack Hub 具有独立于 Azure 的市场。 仅可添加特定项目。 �
 
 1. 登录到 Azure Stack Hub 实例 A 上的 Azure Stack Hub 用户门户，查看通过 BIG-IP 模板部署创建的资源。
 
-    ![](./media/network-howto-f5/image18.png)
+    ![F5-GSLB 对话框的“概述”页列出了已部署的资源和相关的信息。](./media/network-howto-f5/image18.png)
 
 2. 遵循 F5 上有关 [BIG-IP 配置项](https://clouddocs.f5.com/training/community/dns/html/class1/class1.html)的说明。 
 
@@ -91,14 +91,14 @@ Azure Stack Hub 具有独立于 Azure 的市场。 仅可添加特定项目。 �
 
 1. 登录到 BIG-IP 并创建 DNS 同步组。 有关说明，请参阅[创建 BIG-IP DNS 同步组](https://f5-dns-automation-demo-12-1-x.readthedocs.io/en/latest/lab2/sync-group.html)。
 
-    > [!Note]  
+    > [!NOTE]  
     > 可在 **F5-GSLB** 资源组中找到 BIP-IP 设备的本地 IP。 网络接口为“f5stack1-ext”，而你可连接到公共 IP 或专用 IP（取决于访问权限）。
 
-    ![](./media/network-howto-f5/image5.png)
+    ![“DNS >> GSLB :数据中心 :数据中心列表”对话框列出了数据中心和状态。 有“启用”、“禁用”和“删除”按钮可应用于所选的数据中心。](./media/network-howto-f5/image5.png)
           
-    ![](./media/network-howto-f5/image6.png)
+    ![“DNS >> GSLB :服务器 :服务器列表”对话框列出了服务器和状态。 有“启用”、“禁用”、“删除”和“重新连接”按钮可应用于所选的服务器。](./media/network-howto-f5/image6.png)
 
-1. 选择新资源组“F5-GSLB”并选择“f5stack1”虚拟机，然后在“设置”下选择“网络”     。
+1. 选择新资源组“F5-GSLB”并选择“f5stack1”虚拟机，然后在“设置”下选择“网络”****************。
 
 ## <a name="post-install-configurations"></a>安装后配置
 
@@ -110,20 +110,20 @@ Azure Stack Hub 具有独立于 Azure 的市场。 仅可添加特定项目。 �
 
 3. GTM_DNS 规则设置为允许端口 53 (DNS) 流量进入，且 BIG-IP 解析程序将立即开始工作。 侦听器已创建。
 
-    ![](./media/network-howto-f5/image7.png)
+    ![“网络接口”对话框的 fStack1-ext 页显示有关 fstack1-ext 接口的信息，以及有关其 NSG（即 fstack1-ext-nsg）的信息。 有选项卡可供选择来查看入站端口规则或出站端口规则。](./media/network-howto-f5/image7.png)
 
 4. 在 Azure Stack Hub 环境中部署基本 Web 应用程序工作负荷，以在 BIG-IP 之后进行负载均衡。 可从[在 Docker 上部署 NGINX 和 NGINX Plus](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/) 中找到使用 NGNIX 服务器的示例。
 
-    > [!Note]  
+    > [!NOTE]  
     > 在 Azure Stack Hub A 和 Azure Stack Hub B 上部署 NGNIX 实例。
 
 5. 在每个 Azure Stack Hub 实例中将 NGINX 部署到 Ubuntu VM 上的 Docker 容器中后，请验证是否可以访问服务器上的默认网页。
 
-    ![](./media/network-howto-f5/image8.png)
+    ![“欢迎使用 nginx!” 页指示 nginx Web 服务器已成功安装，并且需要进一步的配置。 有两个指向支持信息的链接。](./media/network-howto-f5/image8.png)
 
-6. 登录到 BIG-IP 设备的管理界面。 在此示例中，使用“f5-stack1-ext”公共 IP 地址  。
+6. 登录到 BIG-IP 设备的管理界面。 在此示例中，使用“f5-stack1-ext”公共 IP 地址****。
 
-    ![](./media/network-howto-f5/image9.png)
+    ![BIG-IP 配置实用工具的登录屏幕要求提供用户名和密码。](./media/network-howto-f5/image9.png)
 
 7. 通过 BIG-IP 公开访问 NGINX。
     
@@ -133,55 +133,55 @@ Azure Stack Hub 具有独立于 Azure 的市场。 仅可添加特定项目。 �
 
 9. 选择 NGINX 网络接口。
 
-    ![](./media/network-howto-f5/image10.png)
+    ![“仪表板 > 资源组 > NGINX > ubuntu2673”对话框的“概述”页显示了有关 ubuntu2673 网络接口的信息。](./media/network-howto-f5/image10.png)
 
-10. 在 BIG-IP 控制台中，转到“本地流量”>“池”>“池列表”，然后选择“+”   。 使用表中的值配置池。 将所有其他字段保留为默认值。
+10. 在 BIG-IP 控制台中，转到“本地流量”>“池”>“池列表”，然后选择“+”********。 使用表中的值配置池。 将所有其他字段保留为默认值。
 
-    ![](./media/network-howto-f5/image11.png)
+    ![左侧窗格提供了导航功能，以用于创建新池。 右侧窗格的标题为“本地流量 >> 池:池列表 >> 新建池”，并且右侧窗格提供了指定新池相关信息的功能。 有一个“已完成”按钮。](./media/network-howto-f5/image11.png)
     
-    | 键 | Value |
+    | 键 | 值 |
     | --- | --- |
     | 名称 | NGINX_Pool |
     | 运行状况监视器 | HTTPS |
     | 节点名称 | NGINX |
-    | 地址 | \<你的 NGINX 专用 IP 地址> |
+    | 地址 | \<your NGINX private IP address> |
     | 服务端口 | 443 |
 
-11. 选择“已完成”  。 如果正确配置，池状态为绿色。
+11. 选择“完成”。 如果正确配置，池状态为绿色。
 
-    ![](./media/network-howto-f5/image12.png)
+    ![右侧窗格的标题为“本地流量 >> 池 :池列表”，并且新创建的池是列表中的唯一条目。](./media/network-howto-f5/image12.png)
 
     现在，你需要配置虚拟服务器。 为此，你首先需要找到 F5 BIG-IP 的专用 IP。
 
-12. 在 BIG-IP 控制台中，转到“网络”>“Self IP”并记下 IP 地址  。
+12. 在 BIG-IP 控制台中，转到“网络”>“Self IP”并记下 IP 地址****。
 
-    ![](./media/network-howto-f5/image13.png)
+    ![左侧窗格提供了导航功能，以用于显示“自身 IP”。 右侧窗格的标题为“网络 >> 自身 IP”。 两个“自身 IP”已列出，并且第一个（即 self_2nic）已突出显示。](./media/network-howto-f5/image13.png)
 
-13. 通过转到“本地流量” > “虚拟服务器” > “虚拟服务器列表”并选择“+”来创建虚拟服务器     。 使用表中的值配置池。 将所有其他字段保留为默认值。
+13. 通过转到“本地流量” > “虚拟服务器” > “虚拟服务器列表”并选择“+”来创建虚拟服务器   。 使用表中的值配置池。 将所有其他字段保留为默认值。
 
-    | 键 | Value |
+    | 键 | 值 |
     | --- | --- |
     |名称 | NGINX |
-    |目标地址 | \<BIG-IP 的 Self IP 地址> |
+    |目标地址 | \<Self IP address of the BIG-IP> |
     |服务端口 | 443 |
     |SSL 配置文件（客户端） | clientssl |
     |源地址转换 | 自动映射 |
         
-    ![](./media/network-howto-f5/image14.png)
+    ![左侧窗格用于将右侧窗格导航到“本地流量 >> 虚拟服务器 :虚拟服务器列表 >> NGINX”，其中已输入所需的信息。](./media/network-howto-f5/image14.png)
 
-    ![](./media/network-howto-f5/image15.png)
+    ![此页提供了输入其他信息的功能。 有“更新”和“删除”按钮。](./media/network-howto-f5/image15.png)
 
 14. 现在，你已完成 NGINX 应用程序的 BIG-IP 配置。 若要验证功能是否正常，请浏览站点并验证 F5 统计信息。
 
 15. 打开浏览器以转到 `https://<F5-public-VIP-IP>`，并确保它显示 NGINX 默认页。
 
-    ![](./media/network-howto-f5/image16.png)
+    ![“欢迎使用 nginx!” 页指示 nginx Web 服务器已成功安装，并且需要进一步的配置。 有两个指向支持信息的链接。](./media/network-howto-f5/image16.png)
 
-16. 现在，通过导航到“统计信息”>“模块统计信息”>“本地流量”检查虚拟服务器的统计信息，从而验证流量  。
+16. 现在，通过导航到“统计信息”>“模块统计信息”>“本地流量”检查虚拟服务器的统计信息，从而验证流量****。
 
-17. 在“统计信息类型”下，选择“虚拟服务器”   。
+17. 在“统计信息类型”下，选择“虚拟服务器”********。
 
-    ![](./media/network-howto-f5/image17.png)
+    ![左侧窗格已将右侧窗格导航到“统计信息 >> 模块统计信息 :本地流量 >> 虚拟服务器”，并且列表显示了 NGINX 虚拟服务器和其他虚拟服务器。 NGINX 已突出显示。](./media/network-howto-f5/image17.png)
 
 
 ## <a name="for-more-information"></a>更多信息

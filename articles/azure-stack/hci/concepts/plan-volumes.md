@@ -3,15 +3,16 @@ title: 在 Azure Stack HCI 中规划卷
 description: 如何在 Azure Stack HCI 中规划存储卷。
 author: WenJason
 ms.author: v-jay
+ms.service: azure-stack
 ms.topic: conceptual
 origin.date: 07/27/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: f107410248b2c9c6b38ec655a01398615bbbb2d9
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.date: 10/12/2020
+ms.openlocfilehash: b32fa47302cb343cf618882de7872fef1a30d71b
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867929"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437750"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>在 Azure Stack HCI 中规划卷
 
@@ -26,11 +27,11 @@ ms.locfileid: "88867929"
    >[!NOTE]
    > 在有关存储空间直通的整篇文档中，我们使用术语“卷”共指卷及其下的虚拟磁盘，包括群集共享卷 (CSV) 和 ReFS 等其他内置 Windows 功能所提供的功能。 不了解这些实现级别的差异也能成功规划和部署存储空间直通。
 
-![what-are-volumes](media/plan-volumes/what-are-volumes.png)
+![该图显示了三个已标记为卷的文件夹，每个都与一个标记为卷的虚拟磁盘相关联，全部都与一个公用磁盘存储池相关联。](media/plan-volumes/what-are-volumes.png)
 
 群集中的所有服务器可以同时访问所有卷。 创建卷后，这些卷将显示在所有服务器上的 **C:\ClusterStorage\\** 中。
 
-![csv-folder-screenshot](media/plan-volumes/csv-folder-screenshot.png)
+![屏幕捕获显示了标题为 ClusterStorage 的文件资源管理器窗口，其中包含名为 Volume1、Volume2 和 Volume3 的卷。](media/plan-volumes/csv-folder-screenshot.png)
 
 ## <a name="choosing-how-many-volumes-to-create"></a>选择要创建的卷数
 
@@ -60,17 +61,17 @@ ms.locfileid: "88867929"
 
 双向镜像为所有数据保留两个副本，每台服务器中的驱动器上有一个副本。 其存储效率为 50%；若要写入 1 TB 数据，存储池中至少需要 2 TB 的物理存储容量。 双向镜像每次可安全承受一次硬件故障（一台服务器或驱动器的故障）。
 
-![双向镜像](media/plan-volumes/two-way-mirror.png)
+![该图显示标记为数据的卷和标记为副本的卷由环形箭头连接，并且这两个卷与服务器中的磁盘组相关联。](media/plan-volumes/two-way-mirror.png)
 
 嵌套复原在具有双向镜像的服务器之间提供数据复原，然后在具有双向镜像或镜像加速奇偶校验的服务器中添加复原功能。 即使其中一台服务器正在重启或不可用，嵌套功能也提供数据复原。 具有嵌套双向镜像的存储效率为 25%，而镜像加速奇偶校验的效率大约为 35-40%。 嵌套复原可以安全承受同时发生两次硬件故障（两个驱动器，或者一台服务器加上剩余服务器上的驱动器的故障）。 由于添加了数据复原功能，我们建议在两个服务器群集的生产部署上使用嵌套复原。 有关详细信息，请参阅[嵌套复原](https://docs.microsoft.com/windows-server/storage/storage-spaces/nested-resiliency)。
 
-![嵌套镜像加速奇偶校验](media/plan-volumes/nested-mirror-accelerated-parity.png)
+![该图显示了嵌套镜像加速奇偶校验，其中服务器之间的双向镜像与每个服务器内的双向镜像（对应于每个服务器内的奇偶校验层）相关联。](media/plan-volumes/nested-mirror-accelerated-parity.png)
 
 ### <a name="with-three-servers"></a>已安装三个服务器
 
 如果安装了三个服务器，你应使用三向镜像，以便获得更好的容错和更高的性能。 三向镜像将保留所有数据的三个副本，每个服务器的驱动器上都会保留一个副本。 其存储效率为 33.3% – 若要写入 1 TB 数据，存储池中至少需要 3 TB 的物理存储容量。 三向镜像可以安全承受[至少两个硬件（驱动器或服务器）同时出现问题](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#examples)。 如果有 2 个节点不可用，存储池将由于 2/3 的磁盘不可用而失去仲裁，并且虚拟磁盘将不可访问。 但是，某个节点可以关闭，另一个节点上的一个或多个磁盘可以发生故障，在此情况下，虚拟磁盘仍会保持联机。 例如，如果你正在重新启动一台服务器，此时另一个驱动器或服务器突然发生故障，在这种情况下，所有数据将保持安全，可供持续访问。
 
-![三向镜像](media/plan-volumes/three-way-mirror.png)
+![该图显示了由循环箭头连接的一个已标记为数据的卷和两个已标记为副本的卷，每个卷与一个包含物理磁盘的服务器关联。](media/plan-volumes/three-way-mirror.png)
 
 ### <a name="with-four-or-more-servers"></a>已安装四个或更多个服务器
 
@@ -78,7 +79,7 @@ ms.locfileid: "88867929"
 
 双奇偶校验提供了与三向镜像相同的容错，但存储效率更好。 使用四台服务器时，其存储效率为 50.0%；若要存储 2 TB 数据，存储池中需要 4 TB 物理存储容量。 使用七台服务器时，其存储效率增大至 66.7%，最高可提升至 80.0%。 弊端是奇偶校验编码需要进行更多的计算，这可能会限制其性能。
 
-![双奇偶校验](media/plan-volumes/dual-parity.png)
+![该图显示了由循环箭头连接的两个已标记为数据的卷和两个已标记为奇偶校验的卷，每个卷与一个包含物理磁盘的服务器关联。](media/plan-volumes/dual-parity.png)
 
 要使用的复原类型取决于你的工作负载需求。 下表汇总了每种复原类型适用的工作负荷，以及每种复原类型的性能和存储效率。
 
@@ -132,7 +133,7 @@ ms.locfileid: "88867929"
 
 卷的占用空间需要能够容纳到存储池中。
 
-![大小与占用空间](media/plan-volumes/size-versus-footprint.png)
+![该图显示了与存储池中的 6 TB 占用空间相比的一个 2 TB 的卷，其乘数指定为 3。](media/plan-volumes/size-versus-footprint.png)
 
 ### <a name="reserve-capacity"></a>保留容量
 
@@ -140,7 +141,7 @@ ms.locfileid: "88867929"
 
 我们建议为每个服务器保留相当于一个容量驱动器的容量，最多可保留 4 个驱动器的容量。 你可以自行决定保留更多容量，但此最低容量建议可以保证在任何驱动器发生故障后均能够成功进行即时、就地、并行修复。
 
-![保留](media/plan-volumes/reserve.png)
+![该图显示了一个与存储池中的多个磁盘关联的卷，以及标记为“保留”的未关联磁盘。](media/plan-volumes/reserve.png)
 
 例如，如果你安装了 2 个服务器，并且你使用的是 1 TB 的容量驱动器，请留出 2 x 1 = 2 TB 的池作为保留容量。 如果你安装了 3 个服务器和 1TB 的容量驱动器，请留出 3 x 1 = 3 TB 作为保留容量。 如果你安装了 4 个或更多个服务器以及 1TB 的容量驱动器，请留出 4 x 1 = 4 TB 作为保留容量。
 
@@ -177,7 +178,7 @@ ms.locfileid: "88867929"
 
 我们池中的可用物理存储容量完全能够装下这四个卷。 太完美了！
 
-![示例](media/plan-volumes/example.png)
+![该图显示了两个 12 TB 的三向镜像卷（每个与 36 TB 的存储相关联）和两个 12 TB 的双奇偶校验卷（每个与 24 TB 的存储相关联），它们总共在存储池中占用了 120 TB。](media/plan-volumes/example.png)
 
    >[!TIP]
    > 你无需立即创建所有卷。 你始终可以在稍后扩展卷或创建新卷。
