@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 07/28/2020
 ms.date: 09/14/2020
-ms.openlocfilehash: fe47b84fb28443d51edcc704cdc2ccd34c75c80d
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 947c751f1c4382c1cd0cd16808c0c1e6fbb5d4c2
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014192"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872435"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>使用 DTU 购买模型的弹性池的资源限制
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -116,7 +116,7 @@ ms.locfileid: "90014192"
 | 每个数据库的最大存储空间 (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
-<sup>1</sup> 请参阅 [SQL 数据库定价选项](https://azure.microsoft.com/pricing/details/sql-database/elastic/)，详细了解由于任何预配的额外存储导致的额外成本。
+<sup>1</sup> 请参阅 [SQL 数据库定价选项](https://azure.cn/pricing/details/sql-database/)，详细了解由于任何预配的额外存储导致的额外成本。
 <sup>1</sup> 如需了解任何单个数据库的最大并发辅助角色数（请求数），请参阅[单一数据库资源限制](resource-limits-vcore-single-databases.md)。 例如，如果弹性池使用 Gen5 且每个数据库的最大 vCore 数设置为 2，则最大并发辅助角色数目值为 200。  如果每个数据库的最大 vCore 数设置为 0.5，则最大并发辅助角色数目值为 50，因为 Gen5 上每个 vCore 的最大并发辅助角色数为 100。 对于每个数据库的最大 vCore 设置小于 1 个 vCore 或更少的其他情况，最大并发辅助角色数会相应重新缩放。
 
 ### <a name="premium-elastic-pool-limits-continued"></a>高级弹性池限制（续）

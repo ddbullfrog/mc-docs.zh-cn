@@ -1,11 +1,9 @@
-- name: 流分析文档
+- name: Azure 流分析文档
   href: index.yml
 - name: 概述
   items:
     - name: 什么是流分析？
       href: stream-analytics-introduction.md
-    - name: 端到端解决方案模式
-      href: stream-analytics-solution-patterns.md
 - name: 快速入门
   expanded: true
   items:
@@ -28,15 +26,17 @@
   items:
     - name: 代码示例
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 概念
   items:
+    - name: 端到端解决方案模式
+      href: stream-analytics-solution-patterns.md
     - name: 选择流分析技术
       href: streaming-technologies.md
     - name: 安全性
       items:
+        - name: Azure Policy 的安全控件
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: 安全基线
           href: security-baseline.md
     - name: 作业的输入类型
@@ -52,12 +52,28 @@
         - name: 输出概述
           href: stream-analytics-define-outputs.md
           displayName: 'adls, sql, blob, event hubs, table, service bus, cosmos, functions'
-        - name: 输出到 Cosmos DB
-          href: stream-analytics-documentdb-output.md
-        - name: 输出到 Azure SQL DB
+        - name: Azure SQL 数据库
+          href: sql-database-output.md
+        - name: SQL Database 性能
           href: stream-analytics-sql-output-perf.md
+        - name: Blob 存储和 Azure Data Lake Gen 2
+          href: blob-storage-azure-data-lake-gen2-output.md
         - name: Blob 自定义路径模式
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+        - name: 事件中心
+          href: event-hubs-output.md
+        - name: 表存储
+          href: table-storage-output.md
+        - name: 服务总线队列
+          href: service-bus-queues-output.md
+        - name: 服务总线主题
+          href: service-bus-topics-output.md
+        - name: Azure Cosmos DB
+          href: azure-cosmos-db-output.md
+        - name: Cosmos DB 优化
+          href: stream-analytics-documentdb-output.md
+        - name: Azure Functions
+          href: azure-functions-output.md
     - name: 使用函数扩展查询
       items:
         - name: 函数概述
@@ -95,7 +111,7 @@
       href: stream-analytics-concepts-checkpoint-replay.md
     - name: 错误策略
       href: stream-analytics-output-error-policy.md
-- name: 操作方式指南
+- name: 操作指南
   items:
     - name: 管理
       items:
@@ -115,6 +131,8 @@
           href: stream-analytics-clean-up-your-job.md
         - name: 进行作业配对以确保可靠性
           href: stream-analytics-job-reliability.md
+        - name: 异地冗余
+          href: geo-redundancy.md
     - name: 构建解决方案
       items:
         - name: 实时欺诈检测
@@ -529,13 +547,17 @@
       href: 'https://docs.microsoft.com/rest/api/streamanalytics'
     - name: 资源管理器模板
       href: /azure/templates/microsoft.streamanalytics/allversions
+    - name: Azure CLI
+      href: /cli/ext/stream-analytics/stream-analytics
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
-    - name: 流分析预览版
-      href: stream-analytics-previews.md
     - name: Azure 路线图
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 博客
+      href: 'https://azure.microsoft.com/blog/tag/azure-stream-analytics/'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/stream-analytics/'
     - name: 定价计算器

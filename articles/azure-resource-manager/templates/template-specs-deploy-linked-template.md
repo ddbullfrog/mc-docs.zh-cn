@@ -4,16 +4,16 @@ description: 了解如何在链接的部署中部署现有模板规格。
 ms.topic: conceptual
 origin.date: 08/31/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 60325bfae17b2bcda3cb623109f0cdf70c26340e
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: e3e3849aa3f61ea0578d443f88b4374a50e8d2b2
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146549"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937172"
 ---
 <!--Not Available on MOONCAKE-->
 <!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
@@ -129,7 +129,7 @@ ms.locfileid: "91146549"
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
-$id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Versions.Id
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)

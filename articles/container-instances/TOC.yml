@@ -120,7 +120,7 @@
           href: container-instances-get-logs.md
         - name: 使用 Azure Monitor 日志进行日志记录
           href: container-instances-log-analytics.md
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 排查常见问题
           href: container-instances-troubleshooting.md
@@ -137,7 +137,7 @@
     - name: Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/containerinstance'
     - name: Java
-      href: 'https://docs.azure.cn/java/api/overview/azure/containerinstance'
+      href: 'https://docs.microsoft.com/java/api/overview/azure/containerinstance'
     - name: Node.js
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/containerinstances'
     - name: YAML

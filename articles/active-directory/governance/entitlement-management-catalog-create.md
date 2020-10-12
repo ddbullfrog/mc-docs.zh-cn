@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2180a28219094f2d098f429ff1c8414e87c1686e
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 4ec76e3d6d5903aed5967b7a9aed5f76c4fda34c
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947384"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936943"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中创建和管理资源目录
 
@@ -100,6 +100,7 @@ ms.locfileid: "88947384"
 1. 选择要删除的资源。
 
 1. 单击“删除”（或单击省略号 (**...**)，然后单击“删除资源”）。********
+
 
 ## <a name="add-additional-catalog-owners"></a>添加其他目录所有者
 

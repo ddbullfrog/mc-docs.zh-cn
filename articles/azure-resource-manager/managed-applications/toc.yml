@@ -11,10 +11,6 @@
       href: publish-service-catalog-app.md
     - name: 部署服务目录应用
       href: deploy-service-catalog-quickstart.md
-- name: 教程
-  items:
-    - name: 发布市场应用程序
-      href: publish-marketplace-app.md
 - name: 示例
   items:
     - name: Azure CLI
@@ -163,3 +159,5 @@
       href: 'https://www.azure.cn/pricing/calculator/'
     - name: 资源管理器模板最佳做法
       href: 'https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'

@@ -8,14 +8,14 @@ metadata:
   ms.topic: landing-page
   origin.date: 07/21/2020
   author: rockboyfor
-  ms.date: 08/10/2020
+  ms.date: 10/12/2020
   ms.author: v-yeche
-  ms.openlocfilehash: 2096bd94e4a3c6ab00d46cafd3fba1746367feed
-  ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+  ms.openlocfilehash: 90d86cc8b6166e76e192a10ce5c4a6835a3450f0
+  ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/11/2020
-  ms.locfileid: "90020843"
+  ms.lasthandoff: 10/10/2020
+  ms.locfileid: "91936990"
 landingContent:
 - title: 关于 Azure Kubernetes 服务 (AKS)
   linkLists:
@@ -51,6 +51,14 @@ landingContent:
       url: kubernetes-walkthrough-portal.md
     - text: 资源管理器模板
       url: kubernetes-walkthrough-rm-template.md
+- title: 利用 Bridge to Kubernetes 开发和调试应用程序
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 将 Kubernetes 桥接用于 Visual Studio Code
+      url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+    - text: 将 Kubernetes 桥接用于 Visual Studio
+      url: https://docs.microsoft.com/visualstudio/containers/bridge-to-kubernetes
 - title: 部署、管理和更新应用程序
   linkLists:
   - linkListType: tutorial

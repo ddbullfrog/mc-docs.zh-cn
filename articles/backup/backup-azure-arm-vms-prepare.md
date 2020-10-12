@@ -4,14 +4,14 @@ description: 介绍如何使用 Azure 备份将 Azure VM 备份到恢复服务�
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 04/03/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: a23ea994993e6630bf367e227b8a99488451d5da
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: e7eeca44c1f88d6b0133b8b24117fdfbc778f7d6
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402477"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871189"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>将 Azure VM 备份到恢复服务保管库中
 
@@ -44,10 +44,10 @@ ms.locfileid: "91402477"
 
 ### <a name="modify-storage-replication"></a>修改存储复制
 
-默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md)。
+默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。
 
 * 如果保管库是你的主要备份机制，则建议使用 GRS。
-* 可使用[本地冗余存储 (LRS)](../storage/common/storage-redundancy.md?toc=/storage/blobs/toc.json) 来降低费用。
+* 可使用[本地冗余存储 (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) 来降低费用。
 
 按如下所述修改存储复制类型：
 

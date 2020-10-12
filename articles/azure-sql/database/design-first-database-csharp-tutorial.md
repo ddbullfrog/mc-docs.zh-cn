@@ -4,19 +4,19 @@ description: 了解如何使用 ADO.NET 通过 C# 在 Azure SQL 数据库中设�
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-csharp
 ms.topic: tutorial
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: sstein
 origin.date: 07/29/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: d2650f2d780d495f3faeeab2ba8614ec28ac10a1
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: ad4c3b782c44b64fcef46584312302f3171cbfc9
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227575"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872305"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>教程：在 Azure SQL 数据库 C&#x23; 和 ADO.NET 中设计关系数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -83,7 +83,7 @@ Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本�
 
 9. 在工具栏上，单击“通知”可监视部署过程。
 
-   ![通知](./media/design-first-database-csharp-tutorial/notification.png)
+   ![屏幕截图显示了 Azure 门户中的“正在进行部署”通知。](./media/design-first-database-csharp-tutorial/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>创建服务器级 IP 防火墙规则
 

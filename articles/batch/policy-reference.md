@@ -1,21 +1,21 @@
 ---
 title: Azure Batch 的内置策略定义
-description: 列出 Azure Batch 的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法
-origin.date: 09/10/2020
+description: 列出 Azure Batch 的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
+origin.date: 09/16/2020
 ms.service: batch
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 09/25/2020
 ms.author: v-yeche
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8793c6d133a87ce1faca1a109a127c095dab433e
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 60853445e0716f56a17f422a42ec3444695bf743
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246305"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937525"
 ---
 <!--Verified successfully on 09/17/2020-->
 # <a name="azure-policy-built-in-definitions-for-azure-batch"></a>Azure Batch 的 Azure Policy 内置定义
@@ -34,5 +34,4 @@ ms.locfileid: "91246305"
 - 查看 [Azure Policy 定义结构](../governance/policy/concepts/definition-structure.md)。
 - 查看[了解策略效果](../governance/policy/concepts/effects.md)。
 
-<!-- Update_Description: new article about policy reference -->
-<!--NEW.date: 09/21/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

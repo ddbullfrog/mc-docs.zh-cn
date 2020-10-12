@@ -1,18 +1,18 @@
 ---
 title: 适用于流分析的 Azure 安全基线
 description: 适用于流分析的 Azure 安全基线
-author: msmbaldwin
+author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 10/09/2020
 ms.author: v-johya
-ms.custom: security-benchmark
-ms.openlocfilehash: a64ecbad38d9e56d8d98f15ab1e490cefce06dc5
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 7ca2612c2c8e9ca25a4e573ac8c464b646a6049d
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715717"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936831"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>适用于流分析的 Azure 安全基线
 
@@ -44,7 +44,7 @@ ms.locfileid: "88715717"
 
 ### <a name="13-protect-critical-web-applications"></a>1.3：保护关键 Web 应用程序
 
-**指南**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
+**指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
 **Azure 安全中心监视**：不适用
 
@@ -80,7 +80,7 @@ ms.locfileid: "88715717"
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7：管理发往 Web 应用程序的流量
 
-**指南**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
+**指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
 **Azure 安全中心监视**：不适用
 
@@ -378,6 +378,8 @@ ms.locfileid: "88715717"
 
 **指导**：通过将输入、输出和存储帐户放在同一订阅中来隔离流分析作业。 你可以限制流分析，以控制对应用程序和企业环境所需流分析资源的访问级别。 可以通过 Azure AD RBAC 控制对 Azure 流分析的访问。
 
+* [如何创建其他 Azure 订阅](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+
 * [如何创建管理组](/governance/management-groups/create)
 
 * [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
@@ -546,6 +548,8 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 - 不允许的资源类型
 - 允许的资源类型
 
+* [如何创建其他 Azure 订阅](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+
 * [如何创建管理组](/governance/management-groups/create)
 
 * [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
@@ -644,7 +648,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13：以物理或逻辑方式隔离高风险应用程序
 
-**指南**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
+**指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
 **Azure 安全中心监视**：不适用
 
@@ -930,6 +934,8 @@ Azure 存储 Blob 的软删除：/storage/blobs/storage-blob-soft-delete?tabs=az
 
 **指南**：使用连续导出功能导出 Azure 安全中心警报和建议，以帮助确定 Azure 资源的风险。 使用连续导出可以手动导出或者持续导出警报和建议。 可以使用 Azure 安全中心数据连接器将警报流式传输到 Azure Sentinel。
 
+* [如何配置连续导出](/security-center/continuous-export)
+
 **Azure 安全中心监视**：不适用
 
 **责任**：客户
@@ -937,6 +943,8 @@ Azure 存储 Blob 的软删除：/storage/blobs/storage-blob-soft-delete?tabs=az
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6：自动响应安全警报
 
 **指导**：使用 Azure 安全中心内的工作流自动化功能，通过“逻辑应用”针对安全警报和建议自动触发响应，以保护 Azure 资源。
+
+* [如何配置工作流自动化和逻辑应用](/security-center/workflow-automation)
 
 **Azure 安全中心监视**：不适用
 

@@ -8,21 +8,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/30/2018
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7bb8790f08735f64383a90268f504d06a74e84bf
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 765291dfca8e2b7f80fcfa69e7f0bcb03637cdea
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222506"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872451"
 ---
-<!--Verified Redirect files-->
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>教程：在 Azure 虚拟机上手动配置 SQL Server 可用性组
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,13 +42,13 @@ ms.locfileid: "88222506"
 
 | 要求 |说明 |
 |----- |----- |----- |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **两个 SQL Server 实例** | - 位于 Azure 可用性集中 <br/> - 位于单个域中 <br/> - 已安装故障转移群集功能 |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Windows Server** | 用于群集见证的文件共享 |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **SQL Server 服务帐户** | 域帐户 |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **SQL Server 代理服务帐户** | 域帐户 |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **防火墙端口已打开** | - SQL Server：对于默认实例，为 1433 <br/> - 数据库镜像终结点：5022 或任何可用端口 <br/> - 可用性组负载均衡器 IP 地址运行状况探测：59999 或任何可用端口 <br/> - 群集核心负载均衡器 IP 地址运行状况探测：58888 或任何可用端口 |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **添加故障转移群集功能** | 两个 SQL Server 实例都需要此功能 |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **安装域帐户** | - 每个 SQL Server 上的本地管理员帐户 <br/> - 每个 SQL Server 实例的 SQL Server sysadmin 固定服务器角色的成员  |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **两个 SQL Server 实例** | - 位于 Azure 可用性集中 <br/> - 位于单个域中 <br/> - 已安装故障转移群集功能 |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Windows Server** | 用于群集见证的文件共享 |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **SQL Server 服务帐户** | 域帐户 |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **SQL Server 代理服务帐户** | 域帐户 |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **防火墙端口已打开** | - SQL Server：对于默认实例，为 1433 <br/> - 数据库镜像终结点：5022 或任何可用端口 <br/> - 可用性组负载均衡器 IP 地址运行状况探测：59999 或任何可用端口 <br/> - 群集核心负载均衡器 IP 地址运行状况探测：58888 或任何可用端口 |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **添加故障转移群集功能** | 两个 SQL Server 实例都需要此功能 |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **安装域帐户** | - 每个 SQL Server 上的本地管理员帐户 <br/> - 每个 SQL Server 实例的 SQL Server sysadmin 固定服务器角色的成员  |
 
 
 开始本教程之前，需要[完成先决条件以便在 Azure 虚拟机中创建 Always On 可用性组](availability-group-manually-configure-prerequisites-tutorial.md)。 如果已满足这些先决条件，可转到 [创建群集](#CreateCluster)。

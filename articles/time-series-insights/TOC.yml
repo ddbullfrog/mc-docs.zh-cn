@@ -96,6 +96,10 @@
           items:
             - name: 如何编辑模型
               href: how-to-edit-your-model.md
+        - name: 连接器
+          items:
+            - name: 如何连接到 Power BI
+              href: how-to-connect-power-bi.md
         - name: 迁移
           items:
             - name: 如何迁移到新的 API 版本

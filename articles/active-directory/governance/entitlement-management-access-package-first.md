@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6e55cfcb01af6e620a64d743768e0d2ffaafe92
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 283620934b5734c8dcba8063083972d3ce75be9e
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947447"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937290"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>教程：在 Azure AD 权利管理中创建第一个访问包
 
@@ -29,7 +29,7 @@ ms.locfileid: "88947447"
 
 本教程假设你在 Woodgrove Bank 担任 IT 管理员。 该组织要求你为某个市场营销活动创建资源包，内部用户通过自助服务请求该包。 请求不需要经过审批，用户的访问权限将在 30 天后过期。 对于本教程，市场营销活动资源只是单个组中的成员身份，但也可以是组、应用程序或 SharePoint Online 站点的集合。
 
-![方案概述](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
+![显示方案概述的示意图。](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 在本教程中，你将了解如何执行以下操作：
 
@@ -102,9 +102,9 @@ ms.locfileid: "88947447"
 
 9. 在“选择组”窗格中，找到并选择之前创建的“市场营销资源”组  。
 
-    默认情况下，会看到“常规”目录内部和外部的组。  选择“常规”目录外部的组时，该组将添加到“常规”目录。  
+     默认情况下，会看到“常规”目录内部的组。 选择“常规”目录外部的组（选中“查看全部”复选框即可显示）时，该组将添加到“常规”目录。
 
-    ![新建访问包 -“资源角色”选项卡](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
+    ![此屏幕截图显示了“新建访问包 - 资源角色”选项卡和“选择组”窗口。](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
 10. 单击“选择”将该组添加到列表中。 
 

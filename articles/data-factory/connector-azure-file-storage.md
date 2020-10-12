@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 08/31/2020
 ms.date: 09/21/2020
-ms.openlocfilehash: 2e40718194ef24318a37408da314e819056907ed
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 51796e1c4eb42efd2bf6d5b058c8551bbc1e4de5
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523689"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943516"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>使用 Azure 数据工厂从/向 Azure 文件存储复制数据
 
@@ -98,13 +98,13 @@ ms.locfileid: "90523689"
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;EndpointSuffix=core.chinacloudapi.cn;",
             "fileShare": "<file share name>",
-            "accountKey": {�
-                "type":�"AzureKeyVaultSecret",�
-                "store": {�
-                    "referenceName":�"<Azure Key Vault linked service name>",�
-                    "type":�"LinkedServiceReference"�
-                },�
-                "secretName":�"<secretName>"�
+            "accountKey": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {
@@ -164,13 +164,13 @@ ms.locfileid: "90523689"
                 "type": "SecureString",
                 "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.file.core.chinacloudapi.cn/>"
             },
-            "sasToken": {�
-                "type":�"AzureKeyVaultSecret",�
-                "store": {�
-                    "referenceName":�"<Azure Key Vault linked service name>",�
-                    "type":�"LinkedServiceReference"�
-                },�
-                "secretName":�"<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"�
+            "sasToken": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
             }
         },
         "connectVia": {

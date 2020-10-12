@@ -4,14 +4,14 @@ description: 本文指导如何创建、测试和发布简单的 PowerShell 工�
 services: automation
 ms.subservice: process-automation
 origin.date: 04/19/2020
-ms.date: 08/10/2020
+ms.date: 10/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 1740ee0f214a32b19e6a1d04b651d087689d5ee6
-ms.sourcegitcommit: f837837326a4856b06d1924d17521a0a7e892850
+ms.openlocfilehash: bfb43ed3c4b392d18716eeb6fb6a21e20d707dde
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89449798"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943489"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>教程：创建 PowerShell 工作流 Runbook
 
@@ -110,17 +110,17 @@ ms.locfileid: "89449798"
 
 6. 请注意，作业状态显示在“作业摘要”中。 此状态与测试 Runbook 时看到的状态相符。
 
-   ![作业摘要](../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png" alt-text="Runbook 作业窗格的屏幕截图，其中突出显示了“作业摘要”部分。":::
 
 7. 在 Runbook 状态显示为“已完成”后，单击“输出”。 此时会打开“输出”页，可以在其中看到 `Hello World` 消息。
 
-   ![作业摘要](../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Runbook 作业窗格的屏幕截图，其中突出显示了“作业摘要”部分。":::
 
 8. 关闭“输出”页。
 
 9. 单击“所有日志”打开 Runbook 作业的“流”窗格。 在输出流中应该只会看到 `Hello World`。 请注意，“流”窗格可以显示 Runbook 作业的其他流，例如，详细流和错误流（如果 Runbook 向其写入内容）。
 
-   ![作业摘要](../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Runbook 作业窗格的屏幕截图，其中突出显示了“作业摘要”部分。":::
 
 10. 关闭“流”窗格和“作业”窗格以返回到 MyFirstRunbook 页。
 

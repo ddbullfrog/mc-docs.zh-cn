@@ -3,16 +3,17 @@ title: 移动 Azure 应用服务资源
 description: 使用 Azure 资源管理器将应用服务资源移到新的资源组或订阅。
 ms.topic: conceptual
 origin.date: 08/10/2020
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.testscope: yes
-ms.testdate: 0null
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4d59bc60e830222610117b57125f767761485eec
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: e04e64dc7f998accc177b10360db595fffa12cdf
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807753"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937194"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>针对应用服务资源的移动指南
 

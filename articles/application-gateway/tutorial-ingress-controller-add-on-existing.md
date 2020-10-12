@@ -1,18 +1,18 @@
 ---
-title: 使用现有的 Azure 应用程序网关为现有的 AKS 群集启用入口控制器加载项
+title: 教程：使用现有 Azure 应用程序网关为现有的 AKS 群集启用入口控制器加载项
 description: 本教程介绍了如何使用现有的应用程序网关为现有的 AKS 群集启用入口控制器加载项
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: how-to
-ms.date: 08/03/2020
+ms.topic: tutorial
+ms.date: 09/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: 644778f96b1c55f414bc54d81fb808cb67bfe122
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: 10727a4616c0649d16d918eb0945836c75cc4ca3
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796333"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937504"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>教程：通过 Azure CLI 使用现有的应用程序网关为现有 AKS 群集启用应用程序网关入口控制器加载项（预览版）
 
@@ -28,6 +28,8 @@ ms.locfileid: "87796333"
 > * 将应用程序网关虚拟网络与 AKS 群集虚拟网络对等互连
 > * 在 AKS 群集上部署将 AGIC 用于入口的示例应用程序
 > * 检查是否可以通过应用程序网关访问应用程序
+
+## <a name="prerequisites"></a>先决条件
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -149,8 +151,7 @@ az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* [详细了解如何禁用 AGIC 加载项](./ingress-controller-disable-addon.md)
-* [详细了解 AGIC 支持哪些注释](./ingress-controller-annotations.md)
-* [排查 AGIC 的问题](./ingress-controller-troubleshoot.md)
 
+> [!div class="nextstepaction"]
+> [详细了解如何禁用 AGIC 加载项](./ingress-controller-disable-addon.md)
 

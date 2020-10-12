@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 07/17/2020
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 3b4a1b098aaf3593c0dd1bc6acb9109b2415f6f9
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 13cbb6f43bb03a6dcaf82886cf39bfa9895e863a
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026613"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943459"
 ---
 # <a name="azure-load-balancer-with-azure-virtual-machine-scale-sets"></a>Azure 负载均衡器和 Azure 虚拟机规模集
 
@@ -38,12 +38,12 @@ ms.locfileid: "91026613"
      --name MyVMSS
      --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
   az vmss update-instances
-     -�instance-ids *
+     --instance-ids *
      --resource-group MyResourceGroup
      --name MyVMSS
   az network lb inbound-nat-pool delete
      --resource-group MyResourceGroup
-     -�lb-name MyLoadBalancer
+     --lb-name MyLoadBalancer
      --name MyNatPool
 ```
 ## <a name="load-balancing-rules"></a>负载均衡规则：

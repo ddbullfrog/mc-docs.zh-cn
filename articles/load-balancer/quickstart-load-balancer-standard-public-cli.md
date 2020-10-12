@@ -17,12 +17,12 @@ origin.date: 08/23/2020
 ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: 1e6935eb9bd1fc946ad4e9175d763f7433d0ca11
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: ad3e72dd58b9731e19d7cbd2f11b945990813bd2
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026637"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943518"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -477,7 +477,7 @@ runcmd:
 
 ### <a name="create-outbound-frontend-ip-configuration"></a>创建出站前端 IP 配置
 
-使用 [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) 创建新的前端 IP 配置：
+使用 [az network lb frontend-ip create](/cli/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) 创建新的前端 IP 配置：
 
 根据上一步中的决定选择公共 IP 或公共 IP 前缀命令。
 

@@ -3,30 +3,29 @@ title: 使用 Azure 自动化管理 Azure API Management
 description: 了解如何使用 Azure 自动化服务来管理 Azure API Management。
 services: api-management, automation
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: eamono
 editor: ''
 ms.assetid: 2e53c9af-f738-47f8-b1b6-593050a7c51b
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
+ms.date: 09/29/2020
+ms.author: v-johya
 origin.date: 02/13/2018
-ms.author: v-yiso
-ms.date: 03/11/2019
-ms.openlocfilehash: 6cdfa953242643c6d233d5d3b5f02a52f7d16727
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0e0f54319fdf763e9f53d07ceb98a0443408a9fa
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63857810"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871217"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>使用 Azure 自动化管理 Azure API Management
 本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure API 管理的管理。
 
 ## <a name="what-is-azure-automation"></a>什么是 Azure 自动化？
-[Azure 自动化](/automation/)是用于通过流程自动化简化云管理的一项 Azure 服务。 使用 Azure 自动化可以自动完成那些人工操作、重复、长时间运行且易出错的任务，从而改善组织的可靠性、效率和价值生成时间。
+[Azure 自动化](https://www.azure.cn/home/features/automation/)是用于通过流程自动化简化云管理的一项 Azure 服务。 使用 Azure 自动化可以自动完成那些人工操作、重复、长时间运行且易出错的任务，从而改善组织的可靠性、效率和价值生成时间。
 
 Azure 自动化提供了具有高可靠性和高可用性的工作流执行引擎，该引擎可以根据需求进行缩放。 利用 Azure 自动化，流程可以手动、通过第三方系统或按计划时间间隔启动，从而使任务完全根据需求进行。
 
@@ -37,10 +36,10 @@ Azure 自动化提供了具有高可靠性和高可用性的工作流执行引�
 
 以下是利用 Powershell 使用 API 管理的一些示例：
 
-* [适用于 API 管理的 Azure PowerShell 示例](/api-management/powershell-samples)
+* [适用于 API 管理的 Azure PowerShell 示例](./powershell-samples.md)
 
 ## <a name="next-steps"></a>后续步骤
 在了解 Azure 自动化以及如何使用它来管理 Azure API Management 的基础知识后，请使用以下链接了解更多信息。
 
-* 请参阅 Azure 自动化[入门教程](../automation/automation-first-runbook-graphical.md)。
+* 请参阅 Azure 自动化[入门教程](../automation/learn/automation-tutorial-runbook-graphical.md)。
 

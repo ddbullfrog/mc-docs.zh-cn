@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sstein, carlrab, bonova
+ms.reviewer: sstein, bonova
 origin.date: 12/14/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: 3aa33f6566b23a3151efc5dfa3969c2b58f9e9ae
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: fd3c265cb4a94e5348bfb01ec46bf4d1b04714ed
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227757"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872457"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>快速入门：使用 SSMS 将数据库还原到 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -75,7 +75,7 @@ ms.locfileid: "86227757"
      'https://mitutorials.blob.core.chinacloudapi.cn/databases/WideWorldImporters-Standard.bak'
    ```
 
-    ![还原](./media/restore-sample-database-quickstart/restore.png)
+    ![屏幕截图显示在对象资源管理器中运行的脚本，并显示一条成功消息。](./media/restore-sample-database-quickstart/restore.png)
 
 6. 运行以下脚本跟踪还原状态。
 

@@ -3,18 +3,18 @@ title: 教程 - 将标记添加到模板中的资源
 description: 将标记添加到在 Azure 资源管理器模板中部署的资源。 可以通过标记对资源进行逻辑组织。
 origin.date: 03/27/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b7de7ffb3898919ef1335385bba2e394bfa26779
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: efc9a7e4218733d5c02a5b16379e62d73c7f2ffe
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807794"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937161"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>教程：在 ARM 模板中添加标记
 
@@ -47,8 +47,7 @@ ms.locfileid: "88807794"
         "Standard_LRS",
         "Standard_GRS",
         "Standard_RAGRS",
-        "Premium_LRS",
-        "Standard_RAGZRS"
+        "Premium_LRS"
       ]
     },
     "location": {
@@ -163,8 +162,7 @@ ms.locfileid: "88807794"
         "Standard_LRS",
         "Standard_GRS",
         "Standard_RAGRS",
-        "Premium_LRS",
-        "Standard_RAGZRS"
+        "Premium_LRS"
       ]
     },
     "location": {
@@ -284,7 +282,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要运行此部署命令，必须具有 Azure CLI 的 [最新版本](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+若要运行此部署命令，必须具有 Azure CLI 的 [最新版本](https://docs.azure.cn/cli/install-azure-cli)。
 
 ```azurecli
 az deployment group create \
@@ -297,7 +295,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> 如果部署失败，请将 **debug** 开关和部署命令配合使用来显示调试日志。  还可以使用 **verbose** 开关来显示完整的调试日志。
+> 如果部署失败，请使用“详细”开关获取有关正在创建的资源的信息。 使用“调试”开关获取调试的详细信息。
 
 ## <a name="verify-deployment"></a>验证部署
 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/07/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: 3a85b80227ff0e115306887e6db83046ea349ad0
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: 13f4192d3ac01621ef0982dbb18bf9001223b589
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028582"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937037"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>自我管理型 Azure Active Directory 域服务、Azure Active Directory 和托管型 Azure Active Directory 域服务的比较
 
@@ -26,7 +26,7 @@ ms.locfileid: "88028582"
 * **Active Directory 域服务 (AD DS)** - 随时可在企业中部署的轻型目录访问协议 (LDAP) 服务器，提供标识和身份验证、计算机对象管理、组策略和信任等关键功能。
     * AD DS 是使用本地 IT 环境的众多组织中的一个中心组件，提供核心用户帐户身份验证和计算机管理功能。
     * 有关详细信息，请参阅 [Windows Server 文档中的 Active Directory 域服务概述][overview-adds]。
-* **Azure Active Directory (Azure AD)** - 基于云的标识和移动设备管理，为 Office 365、Azure 门户或 SaaS 应用程序等资源提供用户帐户和身份验证服务。
+* **Azure Active Directory (Azure AD)** - 基于云的标识和移动设备管理，为 Microsoft 365、Azure 门户或 SaaS 应用程序等资源提供用户帐户和身份验证服务。
     * Azure AD 可与本地 AD DS 环境同步，以便为原本就在云中工作的用户提供单个标识。
     * 有关 Azure AD 的详细信息，请参阅[什么是 Azure Active Directory？][whatis-azuread]
 * **Azure Active Directory 域服务 (Azure AD DS)** - 为托管域服务提供一部分完全兼容的传统 AD DS 功能，例如域加入、组策略、LDAP 和 Kerberos/NTLM 身份验证。

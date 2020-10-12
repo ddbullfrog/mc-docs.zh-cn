@@ -4,16 +4,16 @@ description: 介绍可在 Azure Resource Manager 模板中用于检索资源相�
 ms.topic: conceptual
 origin.date: 09/03/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 860c89a044e19bfc6e0eaa74fa6d40084e7ac869
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 1f41d9ae85f7e99424bd545161f2a03e9904dde5
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146567"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937175"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 模板的资源函数
 
@@ -284,10 +284,10 @@ ms.locfileid: "91146567"
 | Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/relay/wcfrelays/listkeys) |
 | Microsoft.Search/searchServices | [listAdminKeys](https://docs.microsoft.com/rest/api/searchmanagement/adminkeys/get) |
 | Microsoft.Search/searchServices | [listQueryKeys](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | listkeys |
-| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | listkeys |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | listkeys |
+| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/servicebus/stable/namespaces%20-%20authorization%20rules/listkeys) |
+| Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
+| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](https://docs.microsoft.com/rest/api/servicebus/stable/queues%20-%20authorization%20rules/listkeys) |
+| Microsoft.ServiceBus/namespaces/topics/authorizationRules |  |
 | Microsoft.SignalRService/SignalR | [listkeys](https://docs.microsoft.com/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listkeys](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/listkeys) |
@@ -315,6 +315,7 @@ ms.locfileid: "91146567"
 <!--Not available on DevTestLabs on line 152 + 4-->
 <!--Not available on LbaService on line 163 + 2-->
 <!--Not available on StorSimple on line 205 + 4-->
+<!--Not Available on Microsoft.ServiceBus/namespaces/topics/authorizationRules ListKey link-->
 
 若要确定哪些资源类型具有列表操作，请使用以下选项：
 
@@ -950,7 +951,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | Value |
+| 名称 | 类型 | 值 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

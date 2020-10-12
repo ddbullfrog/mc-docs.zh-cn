@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: v-junlch
-  ms.date: 08/03/2020
-  ms.openlocfilehash: 53f0ad79133c8dc9807c644c63649e0df16c2eb6
-  ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+  ms.date: 09/29/2020
+  ms.openlocfilehash: 81bd3d951f74dc9d87dab2826ff79a9e9a9e60a9
+  ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/05/2020
-  ms.locfileid: "87796316"
+  ms.lasthandoff: 10/10/2020
+  ms.locfileid: "91937430"
 landingContent:
 - title: 了解应用程序网关
   linkLists:
@@ -27,6 +27,10 @@ landingContent:
     links:
     - text: 常见问题
       url: application-gateway-faq.md
+  - linkListType: whats-new
+    links:
+    - text: 新增功能
+      url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
 - title: 支持高流量
   linkLists:
   - linkListType: concept

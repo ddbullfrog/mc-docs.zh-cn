@@ -5,15 +5,15 @@ description: 本文概述了应用程序网关上的 Web 应用程序防火墙 (
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/15/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
 ms.topic: conceptual
-ms.openlocfilehash: 65847ae3732ff9b847383f32a228df384a051f39
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 67842c808462454461ecd0d6194fbe62350af9f2
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721193"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937521"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>什么是 Azure 应用程序网关上的 Azure Web 应用程序防火墙？
 
@@ -75,9 +75,21 @@ Azure 应用程序网关提供的 Azure Web 应用程序防火墙 (WAF) 可以�
 - 按地理位置筛选流量，以允许或阻止从特定的国家/地区访问你的应用程序。 （预览版）
 - 使用机器人缓解规则集防范应用程序遭到机器人攻击。 （预览版）
 
-## <a name="waf-policy"></a>WAF 策略
+## <a name="waf-policy-and-rules"></a>WAF 策略和规则
 
-若要在应用程序网关上启用 Web 应用程序防火墙，必须创建 WAF 策略。 此策略是指存在所有托管规则、自定义规则、排除项和其他自定义项（如文件上传限制）的位置。 
+若要在应用程序网关上启用 Web 应用程序防火墙，必须创建 WAF 策略。 此策略是指存在所有托管规则、自定义规则、排除项和其他自定义项（如文件上传限制）的位置。
+
+可以配置一个 WAF 策略，然后将该策略与一个或多个应用程序网关相关联，以提供保护。 WAF 策略包含两种类型的安全规则：
+
+- 你创建的自定义规则
+
+- 托管规则集，即由 Azure 托管的预配置规则集的集合
+
+如果两者均存在，则先处理自定义规则，然后处理托管规则集中的规则。 规则由匹配条件、优先级和操作组成。 支持的操作类型包括：ALLOW、BLOCK 和 LOG。 可以组合托管规则和自定义规则以创建满足特定应用程序保护要求的完全自定义策略。
+
+策略中的规则按优先顺序进行处理。 “优先级”是唯一的整数，定义规则的处理顺序。 整数值越小表示优先级越高，这些规则的评估顺序先于整数值较大的规则。 匹配规则后，规则中定义的相应操作将应用于请求。 处理此类匹配后，不再进一步处理优先级较低的规则。
+
+由应用程序网关提供的 Web 应用，可以在全局级别、每个站点级别或每个 URI 级别与 WAF 策略关联。
 
 ### <a name="core-rule-sets"></a>核心规则集
 

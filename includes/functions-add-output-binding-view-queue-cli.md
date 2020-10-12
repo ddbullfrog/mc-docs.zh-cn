@@ -2,14 +2,14 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: b675fd72be66ff78329486cc34083fc8ac82cc77
-ms.sourcegitcommit: f1a76ee3242698123a3d77f44c860db040b48f70
+ms.openlocfilehash: 89461570f347bf8a56a59bd29ebaf3201bc0ea88
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84563721"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937855"
 ---
 可以在 [Azure 门户](../articles/storage/queues/storage-quickstart-queues-portal.md)或 [Azure 存储资源管理器](https://storageexplorer.com/)中查看队列。 也可以按以下步骤中所述，在 Azure CLI 中查看队列：
 
@@ -18,7 +18,7 @@ ms.locfileid: "84563721"
     # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
-    AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
+    export AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
     ```
     
     # <a name="powershell"></a>[PowerShell](#tab/powershell)

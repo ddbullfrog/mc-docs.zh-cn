@@ -7,21 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 11/19/2019
-ms.date: 04/06/2020
+origin.date: 04/29/2020
+ms.date: 10/19/2020
 ms.author: v-yiso
-ms.openlocfilehash: 1ab907528503fdead85ac6227c0689fb8f900bfc
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: ddfea8a7be00487034c790217e504ea4f73b04eb
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917288"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937148"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>使用脚本操作在 Azure HDInsight 上安全管理 Python 环境
-
-> [!div class="op_single_selector"]
-> * [使用单元格 magic](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [使用脚本操作](apache-spark-python-package-installation.md)
 
 HDInsight 在 Spark 群集中有两个内置 Python 安装，即 Anaconda Python 2.7 和 Python 3.5。 客户可能需要自定义 Python 环境。 例如，安装外部 Python 包或其他 Python 版本。 本文介绍的最佳做法涉及如何安全地管理 HDInsight 上 Apache Spark 群集的 Python 环境。
 
@@ -38,7 +34,7 @@ HDInsight 服务中有两种类型的开放源代码组件：
 |组件 |说明 |
 |---|---|
 |内置|这些组件已预先安装在 HDInsight 群集上，并提供群集的核心功能。 例如，Apache Hadoop YARN 资源管理器、Apache Hive 查询语言 (HiveQL) 及 Mahout 库均属于此类别。 [HDInsight 提供的 Apache Hadoop 群集版本的新增功能](../hdinsight-component-versioning.md)中提供了群集组件的完整列表。|
-|“自定义”|群集用户可以安装或者在工作负荷中使用由社区提供的或自己创建的任何组件。|
+|自定义|群集用户可以安装或者在工作负荷中使用由社区提供的或自己创建的任何组件。|
 
 > [!IMPORTANT]   
 > 完全支持通过 HDInsight 群集提供的组件。 Microsoft 支持部门可帮助找出并解决与这些组件相关的问题。
@@ -53,7 +49,7 @@ HDInsight Spark 群集是通过 Anaconda 安装创建的。 群集中有两个 P
 |----|----|----|
 |路径|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Spark 版本|默认设置为 2.7|空值|
-|Livy 版本|默认设置为 2.7|空值|
+|Livy 版本|默认设置为 2.7|不适用|
 |Jupyter|PySpark 内核|PySpark3 内核|
 
 ## <a name="safely-install-external-python-packages"></a>安全安装外部 Python 包

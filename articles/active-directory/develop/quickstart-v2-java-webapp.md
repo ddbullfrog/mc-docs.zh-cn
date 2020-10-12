@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 889e6d44c58486297b0b096d80f28a24c09dc4f3
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: d19f9bd1463726b43718b7eb0a20be2daa719d0f
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647609"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937475"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>快速入门：向 Java Web 应用添加 Microsoft 登录功能
 
@@ -193,15 +193,16 @@ ms.locfileid: "88647609"
 3.   Tomcat 的默认 HTTP 端口为 8080，但需通过端口 8443 进行 HTTPS 连接。 对此进行配置：
         - 转到 tomcat/conf/server.xml
         - 搜索 `<connector>` 标记，并将现有连接器替换为：
-        ```
+
+        ```xml
         <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ``` 
-       
+        ```
+
 4. 打开命令提示符，转到此示例的根文件夹（pom.xml 位于其中），然后运行 `mvn package` 以生成项目
     - 这会在 /targets 目录中生成一个 `msal-web-sample-0.1.0.war` 文件。
     - 将此文件重命名为 `msal4jsample.war`
@@ -249,17 +250,12 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 import com.microsoft.aad.msal4j.*;
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>后续步骤
 
-了解有关权限和许可的详细信息：
+若要深入了解如何生成在 Microsoft 标识平台上将用户登录的 Web 应用，请继续学习我们的多部分方案系列：
 
 > [!div class="nextstepaction"]
-> [权限和许可](./v2-permissions-and-consent.md)
-
-若要详细了解此方案的授权流，请查看 Oauth 2.0 授权代码流：
-
-> [!div class="nextstepaction"]
-> [授权代码 Oauth 流](./v2-oauth2-auth-code-flow.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[场景：可将用户登录的 Web 应用](scenario-web-app-sign-user-overview.md?tabs=java)
 

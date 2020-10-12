@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
-ms.date: 08/20/2020
-ms.openlocfilehash: 3ffdd94cdcaaf5109701d7fd0ab1880df59aa5a1
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 10/09/2020
+ms.openlocfilehash: 2e8ad21ca62c79331b3647ae6c92684b9e395f52
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715715"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936846"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure 流分析作业
 
@@ -122,7 +122,7 @@ ms.locfileid: "88715715"
 
    提供以下值：
 
-   |properties  |说明  |
+   |属性  |描述  |
    |---------|---------|
    |**订阅**     | 从下拉列表中选择自己的 Azure 订阅。        |
    |**资源组**     | 指定是要创建新的资源组还是使用现有的资源组。 资源组是用于保存 Azure 解决方案相关资源的容器。 有关详细信息，请参阅 [Azure 资源组概述](../azure-resource-manager/management/overview.md)。 |
@@ -175,10 +175,5 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-## <a name="next-steps"></a>后续步骤
-
-在本快速入门中，你已使用 ARM 模板创建了 Azure 流分析作业，并验证了部署。 要了解如何使用 VS Code 导出现有作业的 ARM 模板，请继续阅读下一篇文章。
-
-> [!div class="nextstepaction"]
 <!--Not available in MC: resource-manager-export.md-->
 

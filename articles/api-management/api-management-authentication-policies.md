@@ -12,14 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: de8edab2163247ae836c8b02c1341f7aa29a1def
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: db036863718cc566b9985eac059f55a9407f2e42
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440307"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871265"
 ---
 # <a name="api-management-authentication-policies"></a>API 管理身份验证策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://docs.azure.cn/api-management/api-management-policies)。
@@ -61,7 +61,7 @@ ms.locfileid: "86440307"
 |password|指定基本凭据的密码。|是|空值|
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](api-management-howto-policies.md#sections)和[范围](api-management-howto-policies.md#scopes)中使用。
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站
 
@@ -189,7 +189,7 @@ ms.locfileid: "86440307"
 |ignore-error|布尔值。 如果设置为 `true`，即使未获得访问令牌，策略管道也将继续执行。|否|false|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](/api-management-howto-policies/#sections)和[范围](/api-management-howto-policies/#scopes)中使用。  
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
 -   **策略节：** 入站  
   
@@ -200,6 +200,6 @@ ms.locfileid: "86440307"
 
 + [API 管理中的策略](api-management-howto-policies.md)
 + [转换 API](transform-api.md)
-+ [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
++ [策略参考](./api-management-policies.md)，获取策略语句及其设置的完整列表
 + [策略示例](policy-samples.md)
 

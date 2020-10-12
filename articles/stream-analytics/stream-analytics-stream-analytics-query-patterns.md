@@ -8,14 +8,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 origin.date: 12/18/2019
-ms.date: 08/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a7734c04e827687b42c04b75018f3a561c5eab96
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 10/09/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: f3642bc6e85040d3c0e424c250b1c52e0c0c3e8c
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715770"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936806"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Azure 流分析中的常见查询模式
 
@@ -858,10 +858,10 @@ MATCH_RECOGNIZE 是一种高级模式匹配机制，可用于将一系列事件�
 
 ```SQL
 SELECT *
-FROM intput TIMESTAMP BY time OVER ATM_id
+FROM input TIMESTAMP BY time OVER ATM_id
 MATCH_RECOGNIZE (
-    PARTITON BY ATM_id
     LIMIT DURATION(minute, 1)
+    PARTITON BY ATM_id
     MEASURES
         First(Warning.ATM_id) AS ATM_id,
         First(Warning.Operation_Id) AS First_Warning_Operation_id,

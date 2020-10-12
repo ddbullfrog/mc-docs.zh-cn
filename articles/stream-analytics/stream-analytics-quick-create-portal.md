@@ -1,19 +1,19 @@
 ---
 title: 快速入门 - 使用 Azure 门户创建流分析作业
 description: 本快速入门介绍如何开始创建流分析作业、配置输入和输出，以及定义查询。
-author: lingliw
-ms.author: v-lingwu
-manager: digimobile
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 10/09/2020
 ms.topic: quickstart
 ms.service: stream-analytics
 origin.date: 06/21/2019
-ms.date: 08/20/2020
-ms.openlocfilehash: cb1998b934a150eb37648405c32ac859d83dbb78
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.custom: mvc
+ms.openlocfilehash: 39272eb0a103fb7f132b94a76bba4deb6c428ba9
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715772"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936835"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建流分析作业
 
@@ -46,7 +46,7 @@ ms.locfileid: "88715772"
 
 4. 在完成时选择“下一步:**** 设置大小和规模”。
 
-5. 选择“定价和缩放层”****。 就本快速入门来说，请选择“F1 - 免费”层（前提是此层在订阅上仍然可用）****。 有关详细信息，请参阅 [IoT 中心定价](https://azure.microsoft.com/pricing/details/iot-hub/)。
+5. 选择“定价和缩放层”****。 就本快速入门来说，请选择“F1 - 免费”层（前提是此层在订阅上仍然可用）****。 有关详细信息，请参阅 [IoT 中心定价](https://www.azure.cn/pricing/details/iot-hub/)。
 
    ![设置 IoT 中心的大小和规模](./media/stream-analytics-quick-create-portal/iot-hub-size-and-scale.png)
 
@@ -101,7 +101,7 @@ ms.locfileid: "88715772"
 
 6. 此时会在浏览器窗口右上角显示“正在部署...”通知。** 
 
-## <a name="configure-job-input"></a>配置作业输入 <a name="configure-job-input"></a>
+## <a name="configure-job-input"></a>配置作业输入
 
 在此部分，需配置流分析作业的 IoT 中心设备输入。 使用在本快速入门的上一部分创建的 IoT 中心。
 

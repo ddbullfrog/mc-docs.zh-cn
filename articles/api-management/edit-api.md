@@ -1,25 +1,24 @@
 ---
 title: 使用 Azure 门户编辑 API
-description: 本教程演示如何使用 API 管理 (APIM) 编辑 API。
+description: 了解如何使用 API 管理 (APIM) 编辑 API。 在 APIM 实例中添加、删除或重命名操作，或编辑 API 的 Swagger。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/08/2017
-ms.date: 02/26/2018
-ms.author: v-yiso
-ms.openlocfilehash: bdc160707d5e6d5e0936708698e007cff6e817e9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.openlocfilehash: afdfe4f9bce5a63fb77d22f7858b79594861d4c7
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "64339197"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871220"
 ---
 # <a name="edit-an-api"></a>编辑 API
 
@@ -28,7 +27,7 @@ ms.locfileid: "64339197"
 + 可以通过在 APIM 实例中添加、删除、重命名操作来执行此操作。 
 + 可以编辑 API 的 swagger。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 + [创建一个 Azure API 管理实例](get-started-create-service-instance.md)
 + [导入和发布第一个 API](import-and-publish.md)
@@ -39,18 +38,18 @@ ms.locfileid: "64339197"
 
 ![编辑 API](./media/edit-api/edit-api001.png)
 
-1. 单击“API”选项卡。 
+1. 单击“API”选项卡。****
 2. 选择以前导入的某个 API。
-3. 选择“设计”  选项卡。
+3. 选择“设计”选项卡。
 4. 选择要编辑的操作。
-5. 若要重命名该操作，请在“前端”窗口中选择“铅笔”。
+5. 若要重命名该操作，请在“前端”**** 窗口中选择“铅笔”****。
 
 ## <a name="update-the-swagger"></a>更新 swagger
 
 可以通过执行以下步骤来从 Azure 门户更新后端 API：
 
-1. 选择“所有操作” 
-2. 单击“前端”  窗口中的铅笔。
+1. 选择“所有操作”
+2. 单击“前端”**** 窗口中的铅笔。
 
     ![编辑 API](./media/edit-api/edit-api002.png)
 
@@ -59,7 +58,7 @@ ms.locfileid: "64339197"
     ![编辑 API](./media/edit-api/edit-api003.png)
 
 3. 更新 swagger。
-4. 按“保存”  。
+4. 按“保存”。
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
@@ -68,3 +67,4 @@ ms.locfileid: "64339197"
 > [!div class="nextstepaction"]
 > [APIM 策略示例](policy-samples.md)
 > [转换和保护已发布的 API](transform-api.md)
+

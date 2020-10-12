@@ -3,18 +3,18 @@ title: 教程 - 创建和部署模板
 description: 创建第一个 Azure 资源管理器模板。 本教程将介绍模板文件语法，以及如何部署存储帐户。
 origin.date: 06/10/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e5be8487675556ddf47f0806780430fd1da0fc8
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 6ac6d08b6f95cf99065cc492e0dcc14427cadc19
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807796"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937164"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>教程：创建和部署第一个 ARM 模板
 
@@ -39,11 +39,11 @@ ms.locfileid: "88807796"
 还需要使用 Azure PowerShell 或 Azure CLI 来部署模板。 如果使用 Azure CLI，则必须具有最新版本。 有关安装说明，请参阅：
 
 - [安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
-- [在 Windows 上安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-windows?view=azure-cli-latest)
-- [在 Linux 上安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-linux?view=azure-cli-latest)
-- [在 macOS 上安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-macos?view=azure-cli-latest)
+- [在 Windows 上安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-windows)
+- [在 Linux 上安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-linux)
+- [在 macOS 上安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-macos)
 
-安装 Azure PowerShell 或 Azure CLI 后，请务必完成首次登录。 有关帮助，请参阅[登录 - PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#sign-in) 或[登录 - Azure CLI](https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest#sign-in)。
+安装 Azure PowerShell 或 Azure CLI 后，请务必完成首次登录。 有关帮助，请参阅[登录 - PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#sign-in) 或[登录 - Azure CLI](https://docs.azure.cn/cli/get-started-with-azure-cli#sign_in)。
 
 > [!IMPORTANT]
 > 如果使用的是 Azure CLI，请确保安装 2.6 或更高版本。 如果使用的是较低版本，本教程中所示的命令将不起作用。 要查看已安装版本，请使用 `az --version`。
@@ -156,7 +156,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要运行此部署命令，必须具有 Azure CLI 的 [最新版本](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+若要运行此部署命令，必须具有 Azure CLI 的 [最新版本](https://docs.azure.cn/cli/install-azure-cli)。
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
@@ -172,16 +172,16 @@ az deployment group create \
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-:::image type="content" source="./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png" alt-text="PowerShell 部署预配状态":::
+:::image type="content" source="./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png" alt-text="资源管理器模板 - Visual Studio Code First 模板":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-:::image type="content" source="./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png" alt-text="Azure CLI 部署预配状态":::
+:::image type="content" source="./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png" alt-text="资源管理器模板 - Visual Studio Code First 模板":::
 
 ---
 
 > [!NOTE]
-> 如果部署失败，请将 **debug** 开关和部署命令配合使用来显示调试日志。  还可以使用 **verbose** 开关来显示完整的调试日志。
+> 如果部署失败，请使用“详细”开关获取有关正在创建的资源的信息。 使用“调试”开关获取调试的详细信息。
 
 ## <a name="verify-deployment"></a>验证部署
 
@@ -189,21 +189,21 @@ az deployment group create \
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。
 
-1. 在左侧菜单中选择“资源组”。
+1. 在左侧菜单中选择“资源组”。 
 
 1. 选择在上一过程中部署的资源组。 默认名称为 **myResourceGroup**。 你应会看到，该资源组中未部署任何资源。
 
 1. 请注意，在概述的右上角显示了部署状态。 选择“1 成功”。
 
-    :::image type="content" source="./media/template-tutorial-create-first-template/deployment-status.png" alt-text="查看部署状态":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/deployment-status.png" alt-text="资源管理器模板 - Visual Studio Code First 模板":::
 
 1. 将会看到该资源组的部署历史记录。 选择“blanktemplate”。
 
-    :::image type="content" source="./media/template-tutorial-create-first-template/select-from-deployment-history.png" alt-text="选择部署":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/select-from-deployment-history.png" alt-text="资源管理器模板 - Visual Studio Code First 模板":::
 
 1. 将会看到部署摘要。 在本例中，显示的信息不是很多，因此尚未部署任何资源。 在本教学系列的后续教程中，你可能会发现，查看部署历史记录中的摘要非常有用。 请注意，在左侧可以查看部署过程中使用的输入、输出和模板。
 
-    :::image type="content" source="./media/template-tutorial-create-first-template/view-deployment-summary.png" alt-text="查看部署摘要":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/view-deployment-summary.png" alt-text="资源管理器模板 - Visual Studio Code First 模板":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -211,10 +211,10 @@ az deployment group create \
 
 如果就此停止学习，请删除该资源组。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
 2. 在“按名称筛选”字段中输入资源组名称。
 3. 选择资源组名称。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 

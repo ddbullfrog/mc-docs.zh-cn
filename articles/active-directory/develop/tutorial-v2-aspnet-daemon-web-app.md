@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b46c92b32c479502bfa5fe907415d08d0a7d1315
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 3f23ef9ff3562de3e6c82f83f6e424c909addcd3
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945226"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936963"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>教程：生成使用 Microsoft 标识平台终结点的多租户守护程序
 
@@ -41,7 +41,7 @@ ms.locfileid: "85945226"
 
 由于该应用是面向 Microsoft 企业客户的多租户应用，因此它必须为客户提供一种“注册”应用程序或将应用程序“连接”到其公司数据的方法。 在连接流期间，公司管理员首先将应用程序权限直接授予应用，使该应用能够以非交互方式访问公司数据，而无需用户登录。 本示例中的大部分逻辑介绍了如何使用标识平台[管理员许可](v2-permissions-and-consent.md#using-the-admin-consent-endpoint)终结点来实现此连接流。
 
-![拓扑](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![关系图显示了 UserSync 应用，上面有 3 个本地项连接到 Azure，其中 Startup.Auth 需要令牌以交互方式连接到 Azure AD，AccountController 获取管理员同意来连接到 Azure AD，而 SyncController 读取用户来连接到 Microsoft Graph。](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 有关此示例中使用的概念的详细信息，请阅读[标识平台终结点的客户端凭据协议文档](v2-oauth2-client-creds-grant-flow.md)。
 
@@ -116,7 +116,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 1. 在应用的页面列表中，选择“身份验证”。 然后：
    - 在“高级设置”部分，将“注销 URL”设置为 **https://localhost:44316/Account/EndSession** 。 
    - 在“高级设置” > “隐式授权”部分，选择“访问令牌”和“ID 令牌”。    本示例需要启用[隐式授权流](v2-oauth2-implicit-grant-flow.md)，使用户能够登录并调用 API。
-1. 选择“保存” 。
+1. 选择“保存”。 
 1. 在“证书和机密”页上的“客户端机密”部分选择“新建客户端机密”。   然后：
 
    1. 输入密钥说明（例如“应用机密”）。
@@ -211,7 +211,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>创建 dotnet-web-daemon-v2 并将其发布到 Azure 网站
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录 [Azure 门户](https://portal.azure.cn)。
 1. 在左上角，选择“创建资源”。
 1. 选择“Web” > “Web 应用”，然后为网站命名。  例如，将它命名为“dotnet-web-daemon-v2-contoso.chinacloudsites.cn”。
 1. 选择“订阅”、“资源组”和“应用服务计划和位置”的信息。   为“OS”选择“Windows”，为“发布”选择“代码”。   
@@ -224,9 +224,9 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
    1. 在解决方案资源管理器中右键单击该项目，然后选择“发布”。
    1. 在底部栏上选择“导入配置文件”，然后导入先前下载的发布配置文件。
 1. 选择“配置” 。
-1. 在“连接”选项卡上更新目标 URL，使其使用“https”。 例如，使用 `https://dotnet-web-daemon-v2-contoso.chinacloudsites.cn`。 选择“**下一步**”。
+1. 在“连接”选项卡上更新目标 URL，使其使用“https”。 例如，使用 `https://dotnet-web-daemon-v2-contoso.chinacloudsites.cn`。 选择“**下一页**”。
 1. 在“设置”选项卡上，确保已清除“启用组织身份验证”。 
-1. 选择“保存” 。 在主屏幕上选择“发布”。
+1. 选择“保存”。  在主屏幕上选择“发布”。
 
 Visual Studio 将发布项目，同时自动打开浏览器并加载该项目的 URL。 如果看到该项目的默认网页，则表示发布成功。
 
@@ -241,7 +241,7 @@ Visual Studio 将发布项目，同时自动打开浏览器并加载该项目的
 1. 在“身份验证” > “重定向 URI”菜单的值列表中添加相同的 URL。  如果有多个重定向 URL，请确保每个重定向 URL 都有一个使用应用服务的 URI 的新条目。
 
 ## <a name="clean-up-resources"></a>清理资源
-不再需要时，请删除在[注册应用程序](#register-your-application)步骤中创建的应用对象。  若要删除应用程序，请按照[删除你或你的组织编写的应用程序](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization)中的说明进行操作。
+如果不再需要，请删除[注册应用程序](#register-your-application) 步骤中创建的应用对象。  若要删除应用程序，请按照[删除你或你的组织编写的应用程序](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization)中的说明进行操作。
 
 ## <a name="get-help"></a>获取帮助
 

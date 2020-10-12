@@ -3,14 +3,14 @@ title: Durable Functions 的单一实例 - Azure
 description: 如何使用 Azure Functions 的 Durable Functions 扩展中的单一实例。
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: e125ffbeb7a18d6ecd6f082a6a82f0d72b30d924
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 81d42887ab91eb5a25abe22608c4cede495f7a4c
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246637"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937500"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions 中的单一实例业务流程协调程序 (Azure Functions)
 
@@ -31,11 +31,14 @@ public static async Task<HttpResponseMessage> RunSingle(
     string instanceId,
     ILogger log)
 {
-    // Check if an instance with the specified ID already exists.
+    // Check if an instance with the specified ID already exists or an existing one stopped running(completed/failed/terminated).
     var existingInstance = await starter.GetStatusAsync(instanceId);
-    if (existingInstance == null)
+    if (existingInstance == null 
+    || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Completed 
+    || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Failed 
+    || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Terminated)
     {
-        // An instance with the specified ID doesn't exist, create one.
+        // An instance with the specified ID doesn't exist or an existing one stopped running, create one.
         dynamic eventData = await req.Content.ReadAsAsync<object>();
         await starter.StartNewAsync(functionName, instanceId, eventData);
         log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
@@ -43,7 +46,7 @@ public static async Task<HttpResponseMessage> RunSingle(
     }
     else
     {
-        // An instance with the specified ID exists, don't create one.
+        // An instance with the specified ID exists or an existing one still running, don't create one.
         return new HttpResponseMessage(HttpStatusCode.Conflict)
         {
             Content = new StringContent($"An instance with ID '{instanceId}' already exists."),
@@ -95,16 +98,19 @@ module.exports = async function(context, req) {
     const instanceId = req.params.instanceId;
     const functionName = req.params.functionName;
 
-    // Check if an instance with the specified ID already exists.
+    // Check if an instance with the specified ID already exists or an existing one stopped running(completed/failed/terminated).
     const existingInstance = await client.getStatus(instanceId);
-    if (!existingInstance) {
-        // An instance with the specified ID doesn't exist, create one.
+    if (!existingInstance 
+        || existingInstance.runtimeStatus == "Completed" 
+        || existingInstance.runtimeStatus == "Failed" 
+        || existingInstance.runtimeStatus == "Terminated") {
+        // An instance with the specified ID doesn't exist or an existing one stopped running, create one.
         const eventData = req.body;
         await client.startNew(functionName, instanceId, eventData);
         context.log(`Started orchestration with ID = '${instanceId}'.`);
         return client.createCheckStatusResponse(req, instanceId);
     } else {
-        // An instance with the specified ID exists, don't create one.
+        // An instance with the specified ID exists or an existing one still running, don't create one.
         return {
             status: 409,
             body: `An instance with ID '${instanceId}' already exists.`,

@@ -3,18 +3,18 @@ title: 教程 - 将输出添加到模板
 description: 将输出添加到 Azure 资源管理器模板以简化语法。
 origin.date: 03/27/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: da6aab8c2030e32425b76b803a097a56e278e084
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 5f72b882abda03455eaaf8ca9d36474fb3a7d351
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807824"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937170"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>教程：将输出添加到 ARM 模板
 
@@ -47,8 +47,7 @@ ms.locfileid: "88807824"
         "Standard_LRS",
         "Standard_GRS",
         "Standard_RAGRS",
-        "Premium_LRS",
-        "Standard_RAGZRS"
+        "Premium_LRS"
       ]
     },
     "location": {
@@ -102,8 +101,7 @@ ms.locfileid: "88807824"
         "Standard_LRS",
         "Standard_GRS",
         "Standard_RAGRS",
-        "Premium_LRS",
-        "Standard_RAGZRS"
+        "Premium_LRS"
       ]
     },
     "location": {
@@ -165,7 +163,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要运行此部署命令，必须具有 Azure CLI 的 [最新版本](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+若要运行此部署命令，必须具有 Azure CLI 的 [最新版本](https://docs.azure.cn/cli/install-azure-cli)。
 
 ```azurecli
 az deployment group create \
@@ -191,7 +189,7 @@ az deployment group create \
 ```
 
 > [!NOTE]
-> 如果部署失败，请将 **debug** 开关和部署命令配合使用来显示调试日志。  还可以使用 **verbose** 开关来显示完整的调试日志。
+> 如果部署失败，请使用“详细”开关获取有关正在创建的资源的信息。 使用“调试”开关获取调试的详细信息。
 
 ## <a name="review-your-work"></a>回顾所做的工作
 
@@ -209,19 +207,19 @@ az deployment group create \
 
 1. 可以在历史记录中看到所有部署。 选择名为 **addoutputs** 的部署。
 
-    :::image type="content" source="./media/template-tutorial-add-outputs/show-history.png" alt-text="显示部署历史记录":::
+    :::image type="content" source="./media/template-tutorial-add-outputs/show-history.png" alt-text="选择部署":::
 
 1. 可以查看输入。
 
-    :::image type="content" source="./media/template-tutorial-add-outputs/show-inputs.png" alt-text="显示输入":::
+    :::image type="content" source="./media/template-tutorial-add-outputs/show-inputs.png" alt-text="选择部署":::
 
 1. 可以查看输出。
 
-    :::image type="content" source="./media/template-tutorial-add-outputs/show-outputs.png" alt-text="显示输出":::
+    :::image type="content" source="./media/template-tutorial-add-outputs/show-outputs.png" alt-text="选择部署":::
 
 1. 可以查看模板。
 
-    :::image type="content" source="./media/template-tutorial-add-outputs/show-template.png" alt-text="显示模板":::
+    :::image type="content" source="./media/template-tutorial-add-outputs/show-template.png" alt-text="选择部署":::
 
 ## <a name="clean-up-resources"></a>清理资源
 

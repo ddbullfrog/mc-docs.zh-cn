@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/23/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: e35b43b7f7a5fd1a7aaaec8116b67ff1aad102e6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c26e5379da2a6db7b4002e4ea4577f09a4a30970
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79293253"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937321"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 IoT 中心
 
@@ -51,7 +51,7 @@ ms.locfileid: "79293253"
     > [!TIP]
     > 上一示例在美国西部位置创建资源组。 可以通过运行以下命令来查看可用位置列表： 
     >
-    >``` bash
+    > ```azurecli
     >az account list-locations -o table
     >```
     >

@@ -4,14 +4,14 @@ description: 了解 Azure 备份服务器中的新功能。 本文介绍如何�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 11/13/2018
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 83350b29fd83677659b163cabf4cd9f8a332a668
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 9e4e945d6967ec5ae1b789cc3838c1753e049718
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402617"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871198"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>将存储添加到 Azure 备份服务器
 
@@ -21,7 +21,7 @@ Azure 备份服务器 V2 及更高版本支持新式备份存储，后者可提�
 > 若要使用新式备份存储，必须在 Windows Server 2016 上运行备份服务器 V2 或 V3，或者在 Windows Server 2019 上运行备份服务器 V3。
 > 如果在早期版本的 Windows Server 上运行备份服务器 V2，则 Azure 备份服务器无法利用新式备份存储。 而是采用与备份服务器 V1 相同的方式来保护工作负载。 有关详细信息，请参阅备份服务器版本[保护矩阵](backup-mabs-protection-matrix.md)。
 >
-> 若要实现增强的备份性能，建议在 Windows Server 2019 上部署具有分层存储的 MABS v3。 有关配置分层存储的步骤，请参阅 DPM 文章[使用分层存储设置 MBS](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)。
+> 若要实现增强的备份性能，建议在 Windows Server 2019 上部署具有分层存储的 MABS v3。 有关配置分层存储的步骤，请参阅 DPM 文章[使用分层存储设置 MBS](https://docs.microsoft.com/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage)。
 
 ## <a name="volumes-in-backup-server"></a>备份服务器中的卷
 

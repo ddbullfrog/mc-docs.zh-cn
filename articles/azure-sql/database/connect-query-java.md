@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
-origin.date: 08/05/2020
-ms.date: 09/14/2020
+origin.date: 06/26/2020
+ms.date: 10/12/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 3329498d1a06f85a9834cf6c6ef79203e9cc6c88
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 756c36fce8d388dac8db3731d7a2aaf361225de9
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014265"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872335"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>在 Azure SQL 数据库中使用 Java 和 JDBC
 
@@ -131,7 +131,7 @@ az sql db create \
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>8.2.2.jre8</version>
+            <version>7.4.1.jre8</version>
         </dependency>
     </dependencies>
 </project>

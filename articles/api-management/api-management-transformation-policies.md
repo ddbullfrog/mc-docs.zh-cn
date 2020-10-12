@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/09/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 39d97d61b4bff39526e34f41c99070e00753c006
-ms.sourcegitcommit: 81241aa44adbcac0764e2b5eb865b96ae56da6b7
+ms.openlocfilehash: be61c86c501eea0a06740a39e99a862c15331302
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "83001941"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871188"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -82,8 +82,7 @@ ms.locfileid: "83001941"
 |parse-date|设为 `false` 时，转换时则只是简单地复制日期值|否|是|
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-<!-- Correct in China: api-management-howto-policies.md#sections and api-management-howto-policies.md#scopes -->
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站、出站、错误时
 
@@ -127,8 +126,7 @@ ms.locfileid: "83001941"
 |consider-accept-header|属性必须设置为以下值之一。<br /><br /> -   true - 如果在请求的 Accept 标头中请求了 JSON，则应用转换。<br />-   false - 始终应用转换。|否|是|
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-<!-- Correct in China: api-management-howto-policies.md#sections and api-management-howto-policies.md#scopes -->
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站、出站、错误时
 
@@ -163,8 +161,7 @@ ms.locfileid: "83001941"
 |to|替换字符串。 指定一个零长度的替换字符串，以便删除搜索字符串。|是|空值|
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-<!-- Correct in China: api-management-howto-policies.md#sections and api-management-howto-policies.md#scopes -->
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站、出站、后端、错误时
 
@@ -195,8 +192,7 @@ ms.locfileid: "83001941"
 |redirect-content-urls|根元素。|是|
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-<!-- Correct in China: api-management-howto-policies.md#sections and api-management-howto-policies.md#scopes -->
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站、出站
 
@@ -281,9 +277,8 @@ ms.locfileid: "83001941"
 |sf-listener-name|只有在后端为 Service Fabric 服务且使用“backend-id”指定时才适用。 使用 Service Fabric Reliable Services 可在服务中创建多个侦听器。 当后端可靠服务具有多个侦听器时，此属性用于选择特定侦听器。 如果未指定此属性，API 管理将尝试使用没有名称的侦听器。 没有名称的侦听器对于只有一个侦听器的 Reliable Services 来说是非常典型的。 |否|空值|
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-<!-- Correct in China: api-management-howto-policies.md#sections and api-management-howto-policies.md#scopes -->
-  
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
+
 -   **策略节：** 入站、后端
 
 -   **策略范围：** 所有范围
@@ -452,9 +447,8 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-<!-- Correct in China: api-management-howto-policies.md#sections and api-management-howto-policies.md#scopes -->
-  
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
+
 -   **策略节：** 入站、出站、后端
 
 -   **策略范围：** 所有范围
@@ -529,8 +523,7 @@ OriginalUrl.
 |name|指定要设置的标头的名称。|是|空值|
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-<!-- Correct in China: api-management-howto-policies.md#sections and api-management-howto-policies.md#scopes -->
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站、出站、后端、错误时
 
@@ -585,8 +578,7 @@ OriginalUrl.
 |name|指定要设置的查询参数的名称。|是|空值|
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-<!-- Correct in China: api-management-howto-policies.md#sections and api-management-howto-policies.md#scopes -->
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站、后端
 
@@ -664,8 +656,7 @@ OriginalUrl.
 |copy-unmatched-params|指定是否将原始 URL 模板中不存在的传入请求中的查询参数添加到重新编写模板定义的 URL|否|是|
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-<!-- Correct in China: api-management-howto-policies.md#sections and api-management-howto-policies.md#scopes -->
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站
 
@@ -729,8 +720,7 @@ OriginalUrl.
 |xsl:stylesheet|根样式表元素。 在其中定义的所有元素和属性都遵循标准的 [XSLT 规范](https://www.w3.org/TR/xslt)|是|
 
 ### <a name="usage"></a>使用情况
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-<!-- Correct in China: api-management-howto-policies.md#sections and api-management-howto-policies.md#scopes -->
+ 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站、出站
 
@@ -741,6 +731,6 @@ OriginalUrl.
 有关详细信息，请参阅以下主题：
 
 + [API 管理中的策略](api-management-howto-policies.md)
-+ [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
++ [策略参考](./api-management-policies.md)，获取策略语句及其设置的完整列表
 + [策略示例](policy-samples.md)
 

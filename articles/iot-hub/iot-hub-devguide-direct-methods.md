@@ -9,12 +9,12 @@ origin.date: 07/17/2018
 ms.custom: H1Hack27Feb2017
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: 1262a62bea051a9f45d1486d6d18475a44ae890a
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 99d9016bbd73fb4448104bff1be7a8b5e0135cfa
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394773"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937189"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解和调用 IoT 中心的直接方法
 借助 IoT 中心，用户可以从云中对设备调用直接方法。 直接方法表示与设备进行的请求-答复式交互，类似于会立即成功或失败（在用户指定的超时时间后）的 HTTP 调用。 此方法用于即时操作过程不同的情况，即时操作的不同取决于设备能否响应。
@@ -51,7 +51,7 @@ ms.locfileid: "91394773"
 
 设备上的直接方法调用是 HTTPS 调用，它由以下项构成：
 
-* 特定于设备的请求 URI 以及 [API 版本](https://docs.microsoft.com/en-us/rest/rest/api/iothub/service/devicemethod/invokedevicemethod)：
+* 特定于设备的请求 URI 以及 [API 版本](https://docs.microsoft.com/rest/api/iothub/service/devices/invokemethod)：
 
     ```http
     https://fully-qualified-iothubname.azure-devices.cn/twins/{deviceId}/methods?api-version=2018-06-30

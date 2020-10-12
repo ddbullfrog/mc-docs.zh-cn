@@ -9,14 +9,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: v-masebo
 origin.date: 07/29/2019
-ms.date: 07/13/2020
+ms.date: 10/12/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 498df827c0a7b64850c8f24df5d305090d82b231
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.openlocfilehash: 103bb29e56318cdadd15ea0fe2903efb7b799c6e
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227463"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872307"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>教程：使用 SSMS 在 Azure SQL 数据库中设计关系数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -93,7 +93,7 @@ Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本�
 
 9. 在工具栏上，单击“通知”可监视部署过程。
 
-   ![通知](./media/design-first-database-tutorial/notification.png)
+   ![屏幕截图显示了包含“正在进行部署”的“通知”菜单。](./media/design-first-database-tutorial/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>创建服务器级 IP 防火墙规则
 

@@ -6,12 +6,12 @@ origin.date: 11/7/2019
 author: Johnnytechn
 ms.date: 09/22/2020
 ms.author: v-johya
-ms.openlocfilehash: d3b2a815f096512f6bb979152fdbc310edce16a0
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 349ea3b2ba83f1ce6ac8747b8943bfddfac99c1c
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402638"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871339"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>还原 Azure VM 上的 SAP HANA 数据库
 
@@ -253,6 +253,7 @@ Azure 备份可以还原在 Azure VM 上运行的 SAP HANA 数据库，如下所
     > [!NOTE]
     > 在多数据库容器 (MDC) 还原中，在将系统数据库还原到目标实例之后，需要再次运行预注册脚本。 只有这样，随后的租户数据库还原才会成功。 若要了解详细信息，请参阅[故障排除 - MDC 还原](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore)。
 
+<!--Not available in MC: ## Cross Region Restore-->
 ## <a name="next-steps"></a>后续步骤
 
 * [了解如何](sap-hana-db-manage.md)管理使用 Azure 备份进行备份的 SAP HANA 数据库

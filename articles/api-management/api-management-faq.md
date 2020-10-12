@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 origin.date: 11/19/2017
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: deaf22f3e676e9ad98d9f85cb5f54a0ac68edf34
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: 65cc2d40b3d8a9c56d7ff5fc258f2dffbbd0816f
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440537"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871394"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常见问题解答
 了解有关 Azure API 管理的常见问题解答、模式和最佳做法。
@@ -78,7 +78,7 @@ ms.locfileid: "84440537"
 2. 转到具有要更新的 API 管理实例的资源组。
 3. 在 API 管理中，将“API 管理服务参与者”角色分配给该用户。
 
-现在，新添加的参与者可以使用 Azure PowerShell [cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 下面是以管理员身份登录的方法：
+现在，新添加的参与者可以使用 Azure PowerShell [cmdlet](https://docs.microsoft.com/powershell/azure/)。 下面是以管理员身份登录的方法：
 
 1. 使用 `Connect-AzAccount` cmdlet 登录。
 2. 使用 `Set-AzContext -SubscriptionID <subscriptionGUID>` 将上下文设置为具有该服务的订阅。
@@ -86,7 +86,7 @@ ms.locfileid: "84440537"
 4. 使用 URL 访问管理门户。
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>想要添加的策略为何在策略编辑器中不可用？
-如果要添加的策略在策略管理器中显示为变暗或有阴影，请确保你处于该策略的正确范围内。 每个策略声明都设计为在特定范围和策略部分中使用。 若要查看策略部分和策略范围，请参阅 [API 管理策略](/api-management/api-management-policies)中的策略的用法部分。
+如果要添加的策略在策略管理器中显示为变暗或有阴影，请确保你处于该策略的正确范围内。 每个策略声明都设计为在特定范围和策略部分中使用。 若要查看策略部分和策略范围，请参阅 [API 管理策略](./api-management-policies.md)中的策略的用法部分。
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>如何在单个 API 中设置多个环境？
 若要在单个 API 中设置多个环境（例如，一个测试环境和一个生产环境），则有两个选项可用。 方法：
@@ -95,7 +95,7 @@ ms.locfileid: "84440537"
 * 在不同租户上托管相同的 API。
 
 ### <a name="can-i-use-soap-with-api-management"></a>是否可将 SOAP 用于 API 管理？
-当前已提供 [SOAP 传递](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/)支持。 管理员可以导入其 SOAP 服务的 WSDL，以便 Azure API 管理创建一个 SOAP 前端。 开发人员门户文档、测试控制台、策略和分析都可用于 SOAP 服务。
+当前已提供 [SOAP 传递](https://azure.microsoft.com/blog/soap-pass-through/)支持。 管理员可以导入其 SOAP 服务的 WSDL，以便 Azure API 管理创建一个 SOAP 前端。 开发人员门户文档、测试控制台、策略和分析都可用于 SOAP 服务。
 
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>是否可以使用 AD FS 安全配置 OAuth 2.0 授权服务器？
 若要了解如何使用 Active Directory 联合身份验证服务 (AD FS) 安全配置 OAuth 2.0 授权服务器，请参阅[在 API 管理中使用 ADFS](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/)。

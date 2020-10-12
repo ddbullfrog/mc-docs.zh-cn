@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: ccf0526b3ae207e4f9131494ba90a807f4864444
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 4895597350a2564e570f6fbfb7d5ca889800a8fe
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097113"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871353"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>在 Azure API 管理中将 Azure Function App 作为 API 导入
 
@@ -71,7 +71,7 @@ Azure API 管理支持将 Azure Function App 作为新 API 导入或将其追加
     > [!NOTE]
     > 可以只导入基于 HTTP 触发器的 Functions，并将授权级别设置设为“匿名”或“函数”。 
 
-7. 切换到“完整”视图并将“产品”分配到新 API 。 如果需要，请在创建过程中指定其他字段，也可以稍后转到“设置”选项卡来配置这些字段。在[导入和发布第一个 API](import-and-publish.md) 教程中对这些设置进行了说明。
+7. 切换到“完整”视图并将“产品”分配到新 API 。 如果需要，请在创建过程中指定其他字段，也可以稍后转到“设置”选项卡来配置这些字段。在[导入和发布第一个 API](import-and-publish.md#-import-and-publish-a-backend-api) 教程中对这些设置进行了说明。
 8. 单击**创建**。
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> 将 Azure Function App 追加到现有 API

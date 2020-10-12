@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 13/05/2020
 ms.author: v-johya
-ms.date: 05/13/2020
-ms.openlocfilehash: 38cfc04254de4aed2d88f842b99b938d3be9cd28
-ms.sourcegitcommit: 08b42258a48d96d754244064d065e4d5703f1cfb
+ms.date: 09/28/2020
+ms.openlocfilehash: ee9c44ccce17afb27548c1e540f4a78f2a815db7
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83445292"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871276"
 ---
 # <a name="azure-backup-compliance-offerings"></a>Azure 备份合规性产品
 
@@ -34,7 +34,7 @@ ms.locfileid: "83445292"
 
 ## <a name="us-government"></a>美国政府
 
-* [DoD DISA L2, L4, L5](https://docs.microsoft.com/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide)
+* [DoD DISA L2, L4, L5](https://docs.microsoft.com/microsoft-365/compliance/offering-dod-disa-l2-l4-l5)
 * [FedRAMP](https://docs.microsoft.com/microsoft-365/compliance/offering-fedramp)
 * [FIPS 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2)
 

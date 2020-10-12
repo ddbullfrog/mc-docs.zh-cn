@@ -8,23 +8,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/09/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c557d8df4812d256c4140268c4e9252efcbd2298
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 7c23c144ea6410a0dd3d4bcb298f77e5849ec857
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164917"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937457"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>方案：用于调用 Web API 的守护程序应用程序
 
 了解在构建用于调用 Web API 的守护程序应用程序时需要的所有项目。
-
-## <a name="prerequisites"></a>先决条件
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="overview"></a>概述
 
@@ -58,6 +54,10 @@ ms.locfileid: "86164917"
 - 在[注册应用程序](./scenario-daemon-app-registration.md)期间，回复 URI 不是必需的。 你需要与 Azure AD 共享机密或证书或已签名断言。 你还需要请求应用程序权限，并授予管理员许可才能使用这些应用权限。
 - [应用程序配置](./scenario-daemon-app-configuration.md)需要提供客户端凭据，这些凭据是在应用程序注册期间与 Azure AD 共享的。
 - 用于通过客户端凭据流获取令牌的[作用域](scenario-daemon-acquire-token.md#scopes-to-request)必须是静态作用域。
+
+## <a name="recommended-reading"></a>推荐阅读内容
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,14 +3,14 @@ title: Durable Functions 中的诊断 - Azure
 description: 了解如何使用 Azure Functions 的 Durable Functions 扩展诊断问题。
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: 2527121ce98da4c84f1d36a8b44f22afcb2ced30
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: a45ba26f409343d2970a596c323ce51c25232150
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413264"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937554"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure Durable Functions 中的诊断
 
@@ -369,7 +369,7 @@ GET /runtime/webhooks/durabletask/instances/instance123?code=XYZ
 
 客户端将收到以下响应：
 
-```http
+```json
 {
   "runtimeStatus": "Running",
   "input": null,

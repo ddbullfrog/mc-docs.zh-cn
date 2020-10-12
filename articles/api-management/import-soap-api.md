@@ -1,8 +1,9 @@
 ---
 title: 使用 Azure 门户导入 SOAP API
-description: 了解如何使用 API 管理导入 SOAP API。
+description: 了解如何导入 SOAP API 的标准 XML 表示形式，以及如何在 Azure 和开发人员门户中测试该 API。
 services: api-management
 documentationcenter: ''
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -10,15 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 11/22/2017
-author: Johnnytechn
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: c807335aa292d1902a43083342b4a59b220d3420
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 29ba1ba3069cb4e219dbedd4d66586429c629776
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097107"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871266"
 ---
 # <a name="import-soap-api"></a>导入 SOAP API
 
@@ -46,7 +46,7 @@ ms.locfileid: "85097107"
 3. 在“WSDL 规范”，输入要将 SOAP API 放到的 URL。
 4. “SOAP 直通”选按钮默认处于选中状态。 进行此选择，API 将作为 SOAP 公开。 使用者必须使用 SOAP 规则。 若要“REST 化”API，请按照[导入 SOAP API 并将其转换为 REST](restify-soap-api.md) 中的步骤进行操作。
 
-    ![直通](./media/import-soap-api/pass-through.png)
+    ![屏幕截图显示了“从 WSDL 创建”对话框，你可以在其中输入 WSDL 规范。](./media/import-soap-api/pass-through.png)
 5. 按 Tab 键。
 
     以下字段中填充了来自 SOAP API 的信息：显示名称、名称、说明。
@@ -59,7 +59,7 @@ ms.locfileid: "85097107"
 
     * **初学者**
     * **无限制**   
-8. 输入其他 API 设置。 可以在创建过程中设置这些值，也可以稍后转到“设置”选项卡来配置这些值。在[导入和发布第一个 API](import-and-publish.md) 教程中对这些设置进行了说明。
+8. 输入其他 API 设置。 可以在创建过程中设置这些值，也可以稍后转到“设置”选项卡来配置这些值。在[导入和发布第一个 API](import-and-publish.md#-import-and-publish-a-backend-api) 教程中对这些设置进行了说明。
 9. 选择“创建” 。
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>在管理门户中测试新的 API

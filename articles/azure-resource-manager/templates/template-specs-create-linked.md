@@ -4,16 +4,16 @@ description: 了解如何创建具有链接模板的模板规格。
 ms.topic: conceptual
 origin.date: 08/31/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: e5c51d9e0906ce5ad9cc5db700c4840757db2436
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 41ef08befa22ef5aedca645978aa4a53395b4c12
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146500"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937174"
 ---
 <!--Not Available on MOONCAKE-->
 <!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
@@ -163,6 +163,7 @@ ms.locfileid: "91146500"
       ],
       "outputs": {
 
+        "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
         "storageAccountName": {
           "type": "string",
           "value": "[variables('storageAccountName')]"
@@ -189,7 +190,7 @@ New-AzTemplateSpec `
   -Version "1.0.0.0" `
   -ResourceGroupName templateSpecRG `
   -Location chinanorth2 `
-  -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -236,7 +237,7 @@ New-AzResourceGroup `
   -Name webRG `
   -Location chinanorth2
 
-$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Versions.Id
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `

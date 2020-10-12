@@ -4,14 +4,14 @@ description: 本文介绍如何还原 Azure VM 上运行的、使用 Azure 备�
 ms.topic: conceptual
 origin.date: 05/22/2019
 author: Johnnytechn
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: fabfc1595687dfa7172aa5157e055ae1dde21cf9
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 6f4c6eb3b07ec95a15596c5d211d7eb0c917a0db
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402501"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871407"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>还原 Azure VM 上的 SQL Server 数据库
 
@@ -32,8 +32,8 @@ Azure 备份可以还原 Azure VM 上运行的 SQL Server 数据库，如下所�
 
 - 可将数据库还原到同一 Azure 区域中的 SQL Server 实例。
 - 目标服务器必须注册到与源服务器相同的保管库。
-- 若要将 TDE 加密的数据库还原到另一个 SQL Server，需先[将证书还原到目标服务器](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017)。
-- 应使用[还原为文件](#restore-as-files)选项还原启用了 [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) 的数据库。
+- 若要将 TDE 加密的数据库还原到另一个 SQL Server，需先[将证书还原到目标服务器](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)。
+- 应使用[还原为文件](#restore-as-files)选项还原启用了 [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) 的数据库。
 - 在还原“master”数据库之前，请使用启动选项 **-m AzureWorkloadBackup** 在单用户模式下启动 SQL Server 实例。
   - **-m** 的值是客户端的名称。
   - 只能使用指定的客户端名称打开连接。
@@ -172,6 +172,7 @@ Azure 备份可以还原 Azure VM 上运行的 SQL Server 数据库，如下所�
 
   ![还原包含大文件的数据库](./media/backup-azure-sql-database/restore-large-files.jpg)
 
+<!-- Not available in MC: Cross Region Restore -->
 ## <a name="next-steps"></a>后续步骤
 
 [管理和监视](manage-monitor-sql-database-backup.md) Azure 备份服务备份的 SQL Server 数据库。

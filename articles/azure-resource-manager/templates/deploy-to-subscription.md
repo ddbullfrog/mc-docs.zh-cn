@@ -2,18 +2,18 @@
 title: 将资源部署到订阅
 description: 介绍了如何在 Azure 资源管理器模板中创建资源组。 它还展示了如何在 Azure 订阅范围内部署资源。
 ms.topic: conceptual
-origin.date: 09/04/2020
+origin.date: 09/24/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: fb69dfe540f6e9921fcde415fc0cf512b43cbc7e
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 27f1916eb5a54286206087e5ac13e11a153308a2
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146699"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937543"
 ---
 <!--Verify Successfully-->
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>在订阅级别创建资源组和资源
@@ -88,43 +88,6 @@ https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTem
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
-## <a name="deployment-commands"></a>部署命令
-
-用于订阅级别部署的命令与资源组部署使用的命令不同。
-
-对于 Azure CLI，请使用 [az deployment sub create](https://docs.microsoft.com/cli/azure/deployment/sub#az_deployment_sub_create)。 以下示例会部署一个模板来创建资源组：
-
-<!--CORRECT ON https://docs.microsoft.com/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create-->
-
-```azurecli
-az deployment sub create \
-  --name demoSubDeployment \
-  --location chinaeast \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
-  --parameters rgName=demoResourceGroup rgLocation=chinaeast
-```
-
-对于 PowerShell 部署命令，请使用 [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment) 或 **New-AzSubscriptionDeployment**。 以下示例会部署一个模板来创建资源组：
-
-```powershell
-New-AzSubscriptionDeployment `
-  -Name demoSubDeployment `
-  -Location chinaeast `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" `
-  -rgName demoResourceGroup `
-  -rgLocation chinaeast
-```
-
-对于 REST API，请使用[部署 - 在订阅范围内创建](https://docs.microsoft.com/rest/api/resources/deployments/createorupdateatsubscriptionscope)。
-
-## <a name="deployment-location-and-name"></a>部署位置和名称
-
-对于订阅级别部署，必须为部署提供位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。
-
-可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
-
-每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
-
 ## <a name="deployment-scopes"></a>部署范围
 
 部署到订阅时，可以将一个订阅和该订阅中的任何资源组作为目标。 无法部署到与目标订阅不同的订阅。 部署模板的用户必须有权访问指定的作用域。
@@ -157,7 +120,7 @@ New-AzSubscriptionDeployment `
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template-with-resource-group-resources
+                    resource-group-resources
                 }
             }
         }
@@ -168,15 +131,50 @@ New-AzSubscriptionDeployment `
 
 在本文中，你可以找到显示如何将资源部署到不同范围的模板。 有关创建资源组并向其部署存储帐户的模板，请参阅[创建资源组和资源](#create-resource-group-and-resources)。 对于可创建资源组、对其应用锁并为资源组分配角色的模板，请参阅[访问控制](#access-control)。
 
+## <a name="deployment-commands"></a>部署命令
+
+用于订阅级别部署的命令与资源组部署使用的命令不同。
+
+对于 Azure CLI，请使用 [az deployment sub create](https://docs.azure.cn/cli/deployment/sub#az_deployment_sub_create)。 以下示例会部署一个模板来创建资源组：
+
+<!--CORRECT ON https://docs.azure.cn/cli/deployment/sub#az_deployment_sub_create-->
+
+```azurecli
+az deployment sub create \
+  --name demoSubDeployment \
+  --location chinaeast \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
+  --parameters rgName=demoResourceGroup rgLocation=chinaeast
+```
+
+对于 PowerShell 部署命令，请使用 [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment) 或 **New-AzSubscriptionDeployment**。 以下示例会部署一个模板来创建资源组：
+
+```powershell
+New-AzSubscriptionDeployment `
+  -Name demoSubDeployment `
+  -Location chinaeast `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" `
+  -rgName demoResourceGroup `
+  -rgLocation chinaeast
+```
+
+对于 REST API，请使用[部署 - 在订阅范围内创建](https://docs.microsoft.com/rest/api/resources/deployments/createorupdateatsubscriptionscope)。
+
+## <a name="deployment-location-and-name"></a>部署位置和名称
+
+对于订阅级别部署，必须为部署提供位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。
+
+可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
+
+每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
+
 ## <a name="use-template-functions"></a>使用模板函数
 
 对于订阅级别部署，在使用模板函数时有一些重要注意事项：
 
 * 不支持 [resourceGroup()](template-functions-resource.md#resourcegroup) 函数。
 * 支持 [reference()](template-functions-resource.md#reference) 和 [list()](template-functions-resource.md#list) 函数。
-* 请勿使用 [resourceId()](template-functions-resource.md#resourceid) 获取在订阅级别部署的资源的资源 ID。
-
-    请改用 [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) 函数。
+* 请勿使用 [resourceId()](template-functions-resource.md#resourceid) 获取在订阅级别部署的资源的资源 ID。 请改用 [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) 函数。
 
     例如，若要获取部署到订阅的策略定义的资源 ID，请使用：
 
@@ -580,7 +578,7 @@ New-AzSubscriptionDeployment `
     "principalId": {
       "type": "string",
       "metadata": {
-        "description": "principalId if the user that will be given contributor access to the resourceGroup"
+        "description": "principalId of the user that will be given contributor access to the resourceGroup"
       }
     },
     "roleDefinitionId": {

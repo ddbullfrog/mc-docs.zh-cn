@@ -7,14 +7,15 @@ author: WenJason
 ms.service: dns
 ms.topic: quickstart
 origin.date: 3/11/2019
-ms.date: 01/13/2020
+ms.date: 10/19/2020
 ms.author: v-jay
-ms.openlocfilehash: 5111a3559515d2e4c85cc2599a8833547604b1e1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6b37b4827e104bc7eb8c32b69a345b8aef213dd7
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75777451"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943481"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure DNS 区域和记录
 
@@ -89,7 +90,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
 
    应当会看到类似以下屏幕的内容：
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![屏幕截图显示一个命令提示符窗口，其中包含 nslookup 命令以及服务器、地址、名称和地址的值。](media/dns-getstarted-portal/nslookup.PNG)
 
 主机名 www\.contoso.xyz 解析为 10.10.10.10，正如你配置的那样   。 此结果表明名称解析正常工作。
 

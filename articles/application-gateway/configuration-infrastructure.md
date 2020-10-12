@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: 20919a16731be43f749b1ba70d7e868e3b067368
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 089e546276077b60757b383629503c40081ff8ed
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721294"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936936"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>应用程序网关基础结构配置
 
@@ -20,10 +20,10 @@ ms.locfileid: "90721294"
 
 ## <a name="virtual-network-and-dedicated-subnet"></a>虚拟网络和专用子网
 
-应用程序网关是虚拟网络中的专用部署。 需要在虚拟网络中为应用程序网关配置一个专用子网。 在子网中，可以创建给定应用程序网关部署的多个实例。 还可以在该子网中部署其他应用程序网关。 但不能在应用程序网关子网中部署其他任何资源。
+应用程序网关是虚拟网络中的专用部署。 需要在虚拟网络中为应用程序网关配置一个专用子网。 在子网中，可以创建给定应用程序网关部署的多个实例。 还可以在该子网中部署其他应用程序网关。 但不能在应用程序网关子网中部署其他任何资源。 不能在同一子网中混合使用 Standard_v2 和 Standard Azure 应用程序网关。
 
 > [!NOTE]
-> 不能在同一子网中混合使用 Standard_v2 和 Standard Azure 应用程序网关。
+> 应用程序网关子网中当前不支持[虚拟网络服务终结点策略](../virtual-network/virtual-network-service-endpoint-policies-overview.md)。
 
 ### <a name="size-of-the-subnet"></a>子网的大小
 

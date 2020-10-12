@@ -4,60 +4,19 @@ description: 了解 Azure VM 中 SQL Server 的软删除以及 Azure VM 工作�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 09/22/2020
-ms.openlocfilehash: 0455513925e431dfda3750b6f383d265f84df794
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.date: 09/28/2020
+ms.openlocfilehash: acc21e4d6f2e5575a3ec086f5ae7d3d61a44dc0d
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402374"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871333"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Azure VM 中 SQL Server 的软删除和 Azure VM 工作负荷中 SAP HANA 的软删除
 
 Azure 备份现在为 Azure VM 中的 SQL Server 和 Azure VM 工作负荷中的 SAP HANA 提供软删除。 这是对已支持的 [Azure 虚拟机软删除方案](soft-delete-virtual-machines.md)的补充。
 
 [软删除](backup-azure-security-feature-cloud.md)是一项可帮助保护备份数据的安全功能，即使删除了备份数据，也能予以恢复。 在使用软删除的情况下，即使恶意行动者删除了数据库的备份（或用户意外删除了备份数据），备份数据也会再保留 14 天。 这样就可以恢复该备份项，而不会丢失数据。 以“软删除”状态将备份数据额外保留 14 天不会向客户收取任何费用。
-
->[!NOTE]
->为某个订阅启用预览后，不能仅对 SQL Server 或 SAP HANA DB 禁用软删除，而仍对同一保管库中的虚拟机启用软删除。 可以创建单独的保管库以进行精细控制。
-
-## <a name="steps-to-enroll-in-preview"></a>预览版注册步骤
-
-1. 登录 Azure 帐户。
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. 选择要注册预览版的订阅：
-
-   ```powershell
-   Get-AzureRmSubscription -SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-
-3. 在预览版计划中注册此订阅：
-
-   ```powershell
-   Register-AzureRMProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-4. 等待 30 分钟，以便此订阅注册到预览版中。
-
-5. 若要检查状态，请运行以下 cmdlet：
-
-   ```powershell
-   Get-AzureRmProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-6. 如果订阅显示为已注册，请运行以下命令：
-
-   ```powershell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
->[!NOTE]
->每次在启用了软删除的订阅下创建新的保管库时，都需要重新运行以下命令，以便为新创建的保管库启用该功能。<BR>
-> `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 ## <a name="soft-delete-for-sql-server-in-azure-vm-using-azure-portal"></a>使用 Azure 门户对 Azure VM 中的 SQL Server 进行软删除
 

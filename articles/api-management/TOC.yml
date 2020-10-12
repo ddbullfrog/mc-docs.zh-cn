@@ -6,13 +6,19 @@
       href: api-management-key-concepts.md
     - name: API 管理功能可用性
       href: api-management-features.md
+    - name: 管理在 AKS 中部署的微服务
+      href: api-management-kubernetes.md
 - name: 快速入门
   expanded: true
   items:
+    - name: 创建实例 - CLI
+      href: get-started-create-service-instance-cli.md
     - name: 创建实例 - 门户
       href: get-started-create-service-instance.md
     - name: 创建实例 - PowerShell
       href: powershell-create-service-instance.md
+    - name: 创建实例 - Visual Studio Code
+      href: vscode-create-service-instance.md
 - name: 教程
   items:
     - name: 1 - 导入第一个 API
@@ -39,8 +45,6 @@
       href: ./policies/index.md
     - name: Azure PowerShell
       href: powershell-samples.md
-    - name: Azure Policy 内置策略定义
-      href: ./policy-samples.md
 - name: 概念
   items:
     - name: 术语
@@ -59,6 +63,10 @@
           href: api-management-security-controls.md
     - name: 订阅
       href: api-management-subscriptions.md
+    - name: 版本
+      href: api-management-versions.md
+    - name: 修订
+      href: api-management-revisions.md
     - name: 使用自动化进行管理
       href: automation-manage-api-management.md
     - name: 错误处理。
@@ -67,6 +75,8 @@
       href: api-management-api-import-restrictions.md
     - name: 自托管网关概述
       href: self-hosted-gateway-overview.md
+    - name: 可观察性
+      href: observability.md
 - name: 操作指南
   items:
     - name: 定义 API
@@ -187,6 +197,8 @@
       items:
         - name: 设置或编辑策略
           href: set-edit-policies.md
+        - name: 调试策略
+          href: api-management-debug-policies.md
         - name: 策略表达式
           href: api-management-policy-expressions.md
         - name: 自定义缓存
@@ -211,6 +223,8 @@
           href: api-management-cross-domain-policies.md
         - name: 转换策略
           href: api-management-transformation-policies.md
+        - name: 分布式 Application Runtime (Dapr) 集成策略
+          href: api-management-dapr-policies.md
     - name: 在生产环境中进行管理
       items:
         - name: 管理组
@@ -251,11 +265,14 @@
       href: 'https://docs.microsoft.com/rest/api/apimanagement/'
     - name: REST（原始）
       href: 'https://docs.microsoft.com/rest/api/apimanagement/ApiManagementREST/api-management-REST'
-    - name: Resource Manager 模板
+    - name: 资源管理器模板
       href: /azure/templates/microsoft.apimanagement/allversions
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
-    - name: 常见问题
+    - name: 常见问题解答
       href: api-management-faq.md
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/api-management/'

@@ -4,16 +4,16 @@ description: 使用 Azure Resource Manager 和 Azure PowerShell 将资源部署�
 ms.topic: conceptual
 origin.date: 09/08/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 201ec594a67fa6baee8c508c085f9d673f94edcc
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: b6f2b5a0176f3590eed8599afa2af007d1c2f4fa
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146702"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937548"
 ---
 <!--Verify Successfully-->
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>使用 ARM 模板和 Azure PowerShell 部署资源

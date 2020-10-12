@@ -6,17 +6,17 @@ services: container-service
 ms.topic: quickstart
 origin.date: 09/11/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 15eacd525a01c8711d9783aac3cc6c3d43a4fa3f
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: f0ac6f1b3d1bbb3d17d0ff6fd6067c4c72b37dc7
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146658"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936992"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -48,7 +48,7 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
     - **主节点池**：选择 AKS 节点的 VM **节点大小**。 一旦部署 AKS 群集，则不能更改 VM 大小。 
         - 选择要部署到群集中的节点数。 对于本快速入门，请将“节点计数”设置为“1”。 部署群集后，可以调整节点计数。
     
-    :::image type="content" source="media/kubernetes-walkthrough-portal/create-cluster-basics.png" alt-text="创建 AKS 群集 - 提供基本信息":::
+    :::image type="content" source="media/kubernetes-walkthrough-portal/create-cluster-basics.png" alt-text="浏览到 Azure Vote 示例应用程序的图像":::
 
     在完成时选择“下一步:**缩放”** 。
 
@@ -67,7 +67,7 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 
 创建 AKS 群集需要几分钟时间。 完成部署后，单击“转到资源”，或浏览到 AKS 群集资源组（如 myResourceGroup），然后选择 AKS 资源（如 myAKSCluster）。 此时会显示 AKS 群集仪表板，如以下示例所示：
 
-:::image type="content" source="media/kubernetes-walkthrough-portal/aks-portal-dashboard.png" alt-text="Azure 门户中的示例 AKS 仪表板":::
+:::image type="content" source="media/kubernetes-walkthrough-portal/aks-portal-dashboard.png" alt-text="浏览到 Azure Vote 示例应用程序的图像":::
 
 ## <a name="connect-to-the-cluster"></a>连接到群集
 
@@ -77,7 +77,7 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 
 <!--Not Available on Open Azure Cloud Shell using the `>_` button on the top of the Azure portal.-->
 
-<!--Not Available on  :::image type="content" source="media/kubernetes-walkthrough-portal/aks-cloud-shell.png" alt-text="Open the Azure Cloud Shell in the portal":::-->
+<!--Not Available on  :::image type="content" source="media/kubernetes-walkthrough-portal/aks-cloud-shell.png" alt-text="浏览到 Azure Vote 示例应用程序的图像":::-->
 
 若要将 `kubectl` 配置为连接到 Kubernetes 群集，请使用 [az aks get-credentials][az-aks-get-credentials] 命令。 此命令将下载凭据，并将 Kubernetes CLI 配置为使用这些凭据。 以下示例获取名为 *myResourceGroup* 的资源组中群集名称 *myAKSCluster* 的凭据：
 
@@ -247,11 +247,11 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 将显示 *azure-vote-back* 和 *azure-vote-front* 容器，如下面的示例中所示：
 
-:::image type="content" source="media/kubernetes-walkthrough-portal/monitor-containers.png" alt-text="查看在 AKS 中运行的容器的运行状况":::
+:::image type="content" source="media/kubernetes-walkthrough-portal/monitor-containers.png" alt-text="浏览到 Azure Vote 示例应用程序的图像":::
 
 若要查看 `azure-vote-front` Pod 的日志，请从容器列表的下拉列表中选择“查看容器日志”。 这些日志包括容器中的 *stdout* 和 *stderr* 流。
 
-:::image type="content" source="media/kubernetes-walkthrough-portal/monitor-container-logs.png" alt-text="查看 AKS 中的容器日志":::
+:::image type="content" source="media/kubernetes-walkthrough-portal/monitor-container-logs.png" alt-text="浏览到 Azure Vote 示例应用程序的图像":::
 
 ## <a name="delete-cluster"></a>删除群集
 

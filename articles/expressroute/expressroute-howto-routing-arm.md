@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/24/2019
+origin.date: 12/13/2019
 ms.author: v-yiso
-ms.date: 12/23/2019
-ms.openlocfilehash: 86c1c0886ff52d16deab34f2c9d7c5d7e7a4c0be
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 10/19/2020
+ms.openlocfilehash: d6445309a2b1df75e46c5fcd403439eaf79fbfb4
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021379"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937385"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 创建和修改 ExpressRoute 线路的对等互连
 
@@ -185,31 +185,31 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
    必须从 [PowerShell 库](https://www.powershellgallery.com/) 安装最新的 PowerShell 安装程序，并将 Azure 资源管理器模块导入 PowerShell 会话，以便开始使用 ExpressRoute cmdlet。 需要以管理员身份运行 PowerShell。
 
-   ```powershell
+   ```azurepowershell
    Install-Module Az
    ```
 
    导入已知语义版本范围内的所有 Az.\* 模块。
 
-   ```powershell
+   ```azurepowershell
    Import-Module Az
    ```
 
    也可以只导入已知语义版本范围内的 select 模块。
 
-   ```powershell
+   ```azurepowershell
    Import-Module Az.Network 
    ```
 
    登录到帐户。
 
-   ```powershell
+   ```azurepowershell
    Connect-AzAccount -EnvironmentName AzureChinaCloud
    ```
 
    选择要创建 ExpressRoute 线路的订阅。
 
-   ```powershell
+   ```azurepowershell
    Select-AzSubscription -SubscriptionId "<subscription ID>"
    ```
 2. 创建 ExpressRoute 线路。
@@ -218,7 +218,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 
-   ```powershell
+   ```azurepowershell
    Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
    ```
 
@@ -258,7 +258,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
    使用以下示例为线路配置 Azure 专用对等互连：
 
-   ```powershell
+   ```azurepowershell
    Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -266,7 +266,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
    如果选择使用 MD5 哈希，请使用以下示例：
 
-   ```powershell
+   ```azurepowershell
    Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
    ```
 
@@ -279,7 +279,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 可以使用以下示例来获取配置详细信息：
 
-```powershell
+```azurepowershell
 $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
@@ -289,7 +289,7 @@ Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRoute
 
 可以使用以下示例来更新配置的任何部分。 在此示例中，线路的 VLAN ID 将从 100 更新为 500。
 
-```powershell
+```azurepowershell
 Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -304,7 +304,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 > 
 > 
 
-```powershell
+```azurepowershell
 Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt

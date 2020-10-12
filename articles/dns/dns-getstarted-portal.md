@@ -1,23 +1,24 @@
 ---
-title: 快速入门 - 使用 Azure 门户创建 Azure DNS 区域和记录
+title: 快速入门：创建 DNS 区域和记录 - Azure 门户
+titleSuffix: Azure DNS
 description: 使用此分步快速入门指南了解如何使用 Azure 门户创建 Azure DNS 区域和记录。
 services: dns
 author: WenJason
 ms.service: dns
 ms.topic: quickstart
 origin.date: 3/11/2019
-ms.date: 05/20/2019
+ms.date: 10/19/2019
 ms.author: v-jay
-ms.openlocfilehash: e859e7c38566703bb4484b65d1f6baa92b333f4d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 87adf6702d18f7ff9831bad23bea6fa50baab573
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65731920"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943482"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Azure DNS 区域和记录
 
-可以将 Azure DNS 配置为在公共域中解析主机名称。 例如，如果从某个域名注册机构购买了 contoso.xyz 域名，则可配置 Azure DNS 来托管 contoso.xyz 域，并将 www.contoso.xyz 解析为 Web 服务器或 Web 应用的 IP 地址    。
+可以将 Azure DNS 配置为解析公共域中的主机名。 例如，如果从某个域名注册机构购买了 contoso.xyz 域名，则可配置 Azure DNS 以托管 contoso.xyz 域，并将 `www.contoso.xyz` 解析为 Web 服务器或 Web 应用的 IP 地址    。
 
 在本快速入门中，你将创建一个测试域，然后创建一个地址记录来将 *www* 解析为 IP 地址 *10.10.10.10*。
 
@@ -42,7 +43,7 @@ DNS 区域包含域的 DNS 条目。 若要开始在 Azure DNS 中托管域，�
 
 1. 在“创建 DNS 区域”  页上，键入或选择以下值：
 
-   - **名称**：对于本快速入门示例，键入 contoso.xyz  。 DNS 区域名称可以是尚未在 Azure DNS 服务器上配置的任何值。 实际值可以是从域名注册机构购买的域。
+   - **Name**：对于本快速入门示例，键入 contoso.xyz  。 DNS 区域名称可以是尚未在 Azure DNS 服务器上配置的任何值。 实际值可以是从域名注册机构购买的域。
    - **资源组**：选择“新建”，输入 MyResourceGroup，然后选择“确定”    。 资源组名称在 Azure 订阅中必须唯一。 
 
 1. 选择“创建”  。
@@ -63,7 +64,7 @@ DNS 区域包含域的 DNS 条目。 若要开始在 Azure DNS 中托管域，�
 
 1. 在“添加记录集”  页上，键入或选择以下值：
 
-   - **名称**：键入 www  。 记录名称是你要解析为指定 IP 地址的主机名。
+   - **Name**：键入 www  。 记录名称是你要解析为指定 IP 地址的主机名。
    - **类型**：选择 A  。“A”记录是最常见的，但是也有其他适用于邮件服务器（“MX”）、IP v6 地址（“AAAA”）等的记录类型。 
    - **TTL**：键入 1  。 DNS 请求的*存活时间*指定 DNS 服务器和客户端可以将响应缓存多长时间。
    - **TTL 单位**：选择“小时”  。 这是用于 **TTL** 值的时间单位。 
@@ -97,7 +98,7 @@ DNS 区域包含域的 DNS 条目。 若要开始在 Azure DNS 中托管域，�
 
    应当会看到类似以下屏幕的内容：
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![屏幕截图显示一个命令提示符窗口，其中包含 nslookup 命令以及服务器、地址、名称和地址的值。](media/dns-getstarted-portal/nslookup.PNG)
 
 主机名 www\.contoso.xyz 解析为 10.10.10.10，正如你配置的那样   。 此结果表明名称解析正常工作。 
 

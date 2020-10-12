@@ -7,15 +7,15 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high
-origin.date: 09/04/2019
-ms.date: 07/27/2020
+origin.date: 09/17/2019
+ms.date: 10/17/2020
 ms.author: v-jay
-ms.openlocfilehash: 18091f5716dd71c65bcf403726f878ebe250a215
-ms.sourcegitcommit: c3f15613c875bb52d5a105445efd0f36b9f24c9c
+ms.openlocfilehash: 1eac828d23fd30f8c4fd5a4ec00737df5136ee23
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86473465"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943438"
 ---
 ::: zone target="docs"
 
@@ -69,7 +69,12 @@ ms.locfileid: "86473465"
 
       ![托管磁盘资源组](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-  - 如果复制了 VHDX 或动态/差异 VHD，则 VHDX/VHD 会作为块 blob 上传到临时存储帐户。 请转到临时存储帐户 > Blob，然后选择响应的容器 - StandardSSD、StandardHDD 或 PremiumSSD。 VHDX/VHD 应会在临时存储帐户中显示为块 blob。
+    > [!NOTE]
+    > 如果在数据复制过程中页 blob 未成功转换为托管磁盘，它会保留在存储帐户中，你需要为存储付费。
+
+  -  如果复制了 VHDX 或动态/差异 VHD，则 VHDX/VHD 会作为块 blob 上传到临时存储帐户。 请转到临时存储帐户 > Blob，然后选择响应的容器 - StandardSSD、StandardHDD 或 PremiumSSD。 VHDX/VHD 应会在临时存储帐户中显示为块 blob。
+  
+
   
 ::: zone-end
 
@@ -85,7 +90,7 @@ ms.locfileid: "86473465"
 
     - **对于 Azure 文件存储**： https://<storage_account_name>.file.core.chinacloudapi.cn/<sharename>/files/a.txt
 
-- 托管磁盘资源组。 创建托管磁盘时，VHD 作为页 blob 进行上传，然后转换为托管磁盘。 托管磁盘会附加到在创建排序时指定的资源组上。
+- 托管磁盘资源组。 创建托管磁盘时，会将 VHD 作为页 Blob 上传，然后将其转换为托管磁盘。 托管磁盘会附加到在创建排序时指定的资源组上。
 
 ::: zone-end
 

@@ -12,14 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: c8161549b061d4ac4111678487173c450d473deb
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: 37bb083fbb377841487379df165687128a5300be
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440306"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871443"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API 管理策略中的错误处理
 
@@ -52,7 +52,7 @@ Azure API 管理中的策略分为 `inbound`、`backend`、`outbound` 和 `on-er
 `on-error` 策略节可以在任何范围内使用。 API 发布者可配置自定义行为，例如将错误记录到事件中心，或者创建新的需要返回到调用方的响应。
 
 > [!NOTE]
->  默认情况下，`on-error` 节不存在于策略中。 要将 `on-error` 节添加到策略，请在策略编辑器中浏览到所需策略，然后将其添加进去。 有关配置策略的详细信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
+> 默认情况下，`on-error` 节不存在于策略中。 要将 `on-error` 节添加到策略，请在策略编辑器中浏览到所需策略，然后将其添加进去。 有关配置策略的详细信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。
 >
 > 如果没有 `on-error` 节，则在出现错误情况时，调用方会收到 400 或 500 HTTP 响应消息。
 
@@ -190,6 +190,6 @@ Azure API 管理中的策略分为 `inbound`、`backend`、`outbound` 和 `on-er
 
 -   [API 管理中的策略](api-management-howto-policies.md)
 -   [转换 API](transform-api.md)
--   [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
+-   [策略参考](./api-management-policies.md)，获取策略语句及其设置的完整列表
 -   [策略示例](policy-samples.md)
 <!--Correct in MC: api-management-policies.md-->

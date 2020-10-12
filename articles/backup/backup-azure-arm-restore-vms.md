@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/17/2019
 ms.author: v-johya
-ms.date: 09/22/2020
-ms.openlocfilehash: abeb1a0872c0e1adfe10745a7227aed5c8368c29
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.date: 09/28/2020
+ms.openlocfilehash: a6a384384ef31df27a02db5a221251ead92b76eb
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402592"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871400"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>如何在 Azure 门户中还原 Azure VM 数据
 

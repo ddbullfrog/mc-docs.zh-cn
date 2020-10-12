@@ -1,6 +1,6 @@
 ---
-title: 修改 Microsoft 标识平台应用帐户 | Azure
-description: 配置注册到 Microsoft 标识平台的应用程序，更改能够访问应用程序的人或具体帐户。
+title: 快速入门：修改 Microsoft 标识平台应用帐户 | Azure
+description: 在本快速入门中，你将配置注册到 Microsoft 标识平台的应用程序，以更改可以访问该应用程序的人员或帐户。
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 076cb30cdc9af38b9ee0d142a355a231b87bd42c
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 1a741f8d7be68434c8f9736dc300caae9e5b16fb
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945232"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936959"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>快速入门：修改应用程序支持的帐户
 
@@ -27,11 +27,7 @@ ms.locfileid: "85945232"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要开始，请确保满足下列先决条件：
-
-* 了解支持的[权限和许可](v2-permissions-and-consent.md)，这是在生成其他用户或应用程序需要使用的应用程序时必须理解的。
-* 拥有一个其中已注册了应用程序的租户。
-  * 如果尚未注册应用，请[了解如何将应用程序注册到 Microsoft 标识平台](quickstart-register-app.md)。
+* 完成[快速入门：将应用程序注册到 Microsoft 标识平台](quickstart-register-app.md)
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>登录到 Azure 门户，并选择应用
 
@@ -73,18 +69,10 @@ ms.locfileid: "85945232"
 1. 在应用的“概览”页中，选择“身份验证”部分。 
 1. 在“高级设置”下找到“隐式授权”部分。 
 1. 选择“ID 令牌”和/或“访问令牌”。 
-1. 选择“保存” 。
+1. 选择“保存”。
 
 ## <a name="next-steps"></a>后续步骤
 
-了解下述其他相关的应用管理快速入门：
-
-* [将应用程序注册到 Microsoft 标识平台](quickstart-register-app.md)
-* [配置客户端应用程序以访问 Web API](quickstart-configure-app-access-web-apis.md)
-* [配置应用程序以公开 Web API](quickstart-configure-app-expose-web-apis.md)
-* [删除注册到 Microsoft 标识平台的应用程序](quickstart-remove-app.md)
-
-了解有关表示已注册应用程序的两个 Azure AD 对象及它们之间的关系的详细信息，请参阅[应用程序对象和服务主体对象](app-objects-and-service-principals.md)。
-
-深入了解使用 Azure Active Directory 开发应用程序时应使用的品牌准则，请参阅[应用程序的品牌准则](howto-add-branding-in-azure-ad-apps.md)。
+> [!div class="nextstepaction"]
+> [适用于应用程序的品牌准则](howto-add-branding-in-azure-ad-apps.md)
 

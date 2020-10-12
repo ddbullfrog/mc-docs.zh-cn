@@ -4,14 +4,16 @@ description: 描述 Azure 托管应用程序的概念，这些应用程序提供
 author: rockboyfor
 ms.topic: overview
 origin.date: 07/12/2019
-ms.date: 04/30/2020
+ms.date: 10/12/2020
+ms.testscope: no
+ms.testdate: 04/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: d5532aa9679680cd43f1d155c5bb0a65c665c81f
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: dad9fb039f7d45675ef8ce065348ae204a0aa094
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146799"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937532"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 托管应用程序概述
 
@@ -59,7 +61,7 @@ IT 团队可以使用托管应用程序为组织中的用户提供预先批准�
 
 下图显示了发布者请求托管资源组所有者角色的方案。 发布者在此资源组中针对使用者放置了一个只读锁。 授予对托管资源组的访问权限的发布者标识不受该锁控制。
 
-![资源组访问权限](./media/overview/access.png)
+:::image type="content" source="./media/overview/access.png" alt-text="资源组访问权限":::
 
 ### <a name="application-resource-group"></a>应用程序资源组
 
@@ -77,7 +79,7 @@ IT 团队可以使用托管应用程序为组织中的用户提供预先批准�
 
 ## <a name="azure-policy"></a>Azure Policy
 
-可以应用 [Azure Policy](../../governance/policy/overview.md) 来审核托管应用程序。 可以应用策略定义以确保托管应用程序的已部署实例满足数据和安全要求。 如果应用程序与敏感数据进行交互，请确保你已评估应当如何对该数据进行保护。 例如，如果应用程序与来自 Office 365 的数据进行交互，则可应用策略定义来确保启用数据加密。
+可以应用 [Azure Policy](../../governance/policy/overview.md) 来审核托管应用程序。 可以应用策略定义以确保托管应用程序的已部署实例满足数据和安全要求。 如果应用程序与敏感数据进行交互，请确保你已评估应当如何对该数据进行保护。 例如，如果应用程序与来自 Microsoft 365 的数据进行交互，则可应用策略定义来确保启用数据加密。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -86,4 +88,4 @@ IT 团队可以使用托管应用程序为组织中的用户提供预先批准�
 > [!div class="nextstepaction"]
 > [快速入门：发布 Azure 托管应用程序定义](publish-service-catalog-app.md)
 
-<!-- Update_Description: wording change, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

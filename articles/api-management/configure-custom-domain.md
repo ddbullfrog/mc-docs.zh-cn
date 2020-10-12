@@ -4,23 +4,23 @@ titleSuffix: Azure API Management
 description: 本主题介绍了如何为 Azure API 管理实例配置自定义域名。
 services: api-management
 documentationcenter: ''
+author: Johnnytechn
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 01/13/2020
-author: Johnnytechn
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: ca7ff714adcfa487330001042df90be6862df3ef
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 1e8059f3288878229e60791f726c416807af6334
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852076"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871218"
 ---
-# <a name="configure-a-custom-domain-name"></a>配置自定义域名
+# <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>为 Azure API 管理实例配置自定义域名
 
 创建 Azure API 管理服务实例时，Azure 会为其分配 `azure-api.cn` 的子域（例如，`apim-service-name.azure-api.cn`）。 不过，你可以使用自己的自定义域名（例如 **contoso.com**）公开 API 管理终结点。 本教程演示了如何将现有的自定义 DNS 名称映射到 API 管理实例公开的终结点。
 
@@ -72,8 +72,8 @@ ms.locfileid: "85852076"
     > 通配符域名（例如 `*.contoso.com`）在除消耗层以外的所有层中都受支持。
 
     > [!TIP]
-    > 我们建议使用 [Azure Key Vault 管理证书](/key-vault/certificates/about-certificates)并将其设置为“自动续订”。
-    > 如果使用 Azure Key Vault 来管理自定义域 TLS/SSL 证书，请确保该证书[作为证书](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)而不是机密插入到 Key Vault 中 。
+    > 我们建议使用 [Azure Key Vault 管理证书](../key-vault/certificates/about-certificates.md)并将其设置为“自动续订”。
+    > 如果使用 Azure Key Vault 来管理自定义域 TLS/SSL 证书，请确保该证书[作为证书](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate)而不是机密插入到 Key Vault 中 。
     >
     > 若要提取 TLS/SSL 证书，API 管理必须对包含该证书的 Azure Key Vault 具有“列表”和“获取机密”权限。 使用 Azure 门户时，所有必要的配置步骤都将自动完成。 使用命令行工具或管理 API 时，必须手动授予这些权限。 此过程分为两个步骤。 首先，使用 API 管理实例上的“托管标识”页确保已启用“托管标识”并记下该页上显示的主体 ID。 其次，在包含证书的 Azure Key Vault 上为此主体 ID 提供权限列表并获取机密权限。
     >

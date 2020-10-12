@@ -1,19 +1,19 @@
 ---
 title: 创建和部署模板规格
 description: 了解如何通过 ARM 模板创建模板规格。 然后，将模板规格部署到订阅中的资源组。
-origin.date: 08/31/2020
+origin.date: 09/25/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: dcb39a074e77e2c9e7d54164fbf66f8e1413e7b0
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: d3ac61656c94335672f3b9a016eed2141400061f
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146507"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937422"
 ---
 <!--Not Avaialble on Mooncake-->
 <!--REASON: IS PRIVATE PREVIEW TILL 09/22/2020-->
@@ -112,7 +112,7 @@ ms.locfileid: "91146507"
       -Version "1.0" `
       -ResourceGroupName templateSpecRG `
       -Location chinanorth2 `
-      -TemplateJsonFile "c:\Templates\azuredeploy.json"
+      -TemplateFile "c:\Templates\azuredeploy.json"
     ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -146,7 +146,6 @@ ms.locfileid: "91146507"
       },
       "variables": {
         "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
-        "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
         "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
       },
       "resources": [
@@ -163,7 +162,6 @@ ms.locfileid: "91146507"
         }
       ],
       "outputs": {
-        "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
         "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
         "storageAccountName": {
           "type": "string",
@@ -331,15 +329,15 @@ ms.locfileid: "91146507"
 1. 获取模板规格的资源 ID。
 
     ```azurepowershell
-    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Version.Id
+    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Versions.Id
     ```
 
 1. 部署模板规格。
 
     ```azurepowershell
     New-AzResourceGroupDeployment `
-     -TemplateSpecId $id `
-     -ResourceGroupName storageRG
+      -TemplateSpecId $id `
+      -ResourceGroupName storageRG
     ```
 
 1. 提供的参数与 ARM 模板的完全一样。 使用存储帐户类型的参数重新部署模板规格。

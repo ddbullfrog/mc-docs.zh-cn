@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 78dc8e19159f4f310e817c95e1ffebbe2f8ba526
-ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
+ms.openlocfilehash: a32a2df9c76f1f53195baac13a617d675dac9625
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90828770"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937096"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>适用于 Azure Active Directory B2C 的建议和最佳做法
 
@@ -56,7 +56,6 @@ ms.locfileid: "90828770"
 | 了解如何排查 Azure AD B2C 问题 | 了解如何在开发期间[排查自定义策略问题](/active-directory-b2c/troubleshoot-custom-policies?tabs=applications)。 了解常规身份验证流的大致形式，并使用相应的工具来发现异常和错误。 |
 | 利用我们的经受验证的自定义策略模式库 | 查找多个增强型 Azure AD B2C 客户标识和访问管理 (CIAM) 用户旅程的[示例](https://github.com/azure-ad-b2c/samples)。 |
 
-
 ## <a name="testing"></a>测试
 
 测试并自动化 Azure AD B2C 的实施。
@@ -79,7 +78,7 @@ ms.locfileid: "90828770"
 |--|--|
 | 创建多个环境 | 为了更轻松地实施操作和部署，请创建单独的环境用于开发、测试、预生产和生产。 为每个环境创建 Azure AD B2C 租户。 |
 | 对自定义策略使用版本控制 | 考虑对 Azure AD B2C 自定义策略使用 GitHub、Azure Repos 或其他基于云的版本控制系统。 |
-| 使用 Microsoft Graph API 将 B2C 租户管理自动化 | Microsoft Graph API：<br/>管理 [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta)（自定义策略）<br/>[“键”](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[用户流](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| 使用 Microsoft Graph API 将 B2C 租户管理自动化 | Microsoft Graph API：<br/>管理 [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true)（自定义策略）<br/>[“键”](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[用户流](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | 与 Azure DevOps 集成 | CI/CD 管道可在不同环境之间轻松移动代码，并确保在所有时间都能实现生产就绪。   |
 | 与 Azure Monitor 集成 | 审核日志事件仅保留七天。 [与 Azure Monitor 集成](azure-monitor.md)，以保留日志供长期使用，或者将其与第三方安全信息和事件管理 (SIEM) 工具相集成，以获取有关环境的见解。 |
 | 设置有效警报和监视 | 使用 Application Insights 在 Azure AD B2C 中跟踪用户行为。 |

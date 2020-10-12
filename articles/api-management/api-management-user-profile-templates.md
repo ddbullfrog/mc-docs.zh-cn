@@ -3,27 +3,26 @@ title: Azure API 管理中的用户配置文件模板 | Azure
 description: 了解如何在 Azure API 管理中自定义开发人员门户中的用户配置文件页面的内容。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: erikre
 editor: ''
+origin.date: 11/04/2019
 ms.assetid: 2e3b73ef-d223-44fe-9280-c3af3fd4a030
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 11/04/2019
-ms.author: v-yiso
-ms.date: 11/18/2019
-ms.openlocfilehash: f655aca9640dcdeb0a45a41ddb0866573c3addc6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.openlocfilehash: 7cabd3fc63c2e85df162432fca50b89c4ff65004
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291595"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871193"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的用户配置文件模板
-通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
+通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](api-management-template-resources.md#strings)、[字形资源](api-management-template-resources.md#glyphs)和[页面控件](api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
   
  本部分中的模板可用于自定义开发人员门户中的用户配置文件页面的内容。  
   
@@ -37,7 +36,9 @@ ms.locfileid: "79291595"
   
 > [!NOTE]
 >  示例默认模板包含在后续文档中，但是会因持续改进而有所更改。 通过导航到所需单个模板，可在开发人员门户中查看实时的默认模板。 如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
+
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="profile"></a><a name="Profile"></a> 配置文件  
@@ -98,7 +99,7 @@ ms.locfileid: "79291595"
 ```  
   
 ### <a name="controls"></a>控制  
- 此模板可能不使用任何[页面控件](./api-management-page-controls.md)。  
+ 此模板可能不使用任何[页面控件](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>数据模型  
   
@@ -126,7 +127,7 @@ ms.locfileid: "79291595"
     "firstName": "Administrator",  
     "lastName": "",  
     "companyName": "Contoso",  
-    "addresserEmail": "apimgmt-noreply@mail.windowsazure.com",  
+    "addresserEmail": "apimgmt-noreply@mail.windowsazure.cn",  
     "email": "admin@live.com",  
     "developersUsageStatisticsLink": "/Developer/Analytics",  
     "subscriptions": [  
@@ -317,9 +318,9 @@ ms.locfileid: "79291595"
 ```  
   
 ### <a name="controls"></a>控制  
- 此模板使用以下[页面控件](./api-management-page-controls.md)。  
+ 此模板使用以下[页面控件](api-management-page-controls.md)。  
   
--   [subscription-cancel](./api-management-page-controls.md#subscription-cancel)  
+-   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>数据模型  
   
@@ -347,7 +348,7 @@ ms.locfileid: "79291595"
     "firstName": "Administrator",  
     "lastName": "",  
     "companyName": "Contoso",  
-    "addresserEmail": "apimgmt-noreply@mail.windowsazure.com",  
+    "addresserEmail": "apimgmt-noreply@mail.windowsazure.cn",  
     "email": "admin@live.com",  
     "developersUsageStatisticsLink": "/Developer/Analytics",  
     "subscriptions": [  
@@ -480,9 +481,9 @@ ms.locfileid: "79291595"
 ```  
   
 ### <a name="controls"></a>控制  
- 此模板使用以下[页面控件](./api-management-page-controls.md)。  
+ 此模板使用以下[页面控件](api-management-page-controls.md)。  
   
--   [app-actions](./api-management-page-controls.md#app-actions)  
+-   [app-actions](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>数据模型  
   
@@ -607,10 +608,10 @@ ms.locfileid: "79291595"
 ```  
   
 ### <a name="controls"></a>控制  
- 此模板可能不使用任何[页面控件](./api-management-page-controls.md)。  
+ 此模板可能不使用任何[页面控件](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>数据模型  
- [用户帐户信息](./api-management-template-data-model-reference.md#UserAccountInfo)实体。  
+ [用户帐户信息](api-management-template-data-model-reference.md#UserAccountInfo)实体。  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   
@@ -627,4 +628,5 @@ ms.locfileid: "79291595"
 ```
 
 ## <a name="next-steps"></a>后续步骤
-如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。
+如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](api-management-developer-portal-templates.md)。
+

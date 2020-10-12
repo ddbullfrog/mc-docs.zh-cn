@@ -4,15 +4,15 @@ description: 了解如何在 Azure 中使用备份和恢复服务还原磁盘并
 ms.topic: tutorial
 author: Johnnytechn
 origin.date: 01/31/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
 ms.custom: mvc
-ms.openlocfilehash: 79cfe8c299a46bbd9d66dbb140eaadcc7c69c46e
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: e97a7ef3068ad568acca7193e27d4feffa70c271
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402309"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871297"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>使用 Azure CLI 还原 VM
 
@@ -50,7 +50,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 az backup recoverypoint list \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
-    --backup-management-type AzureIaasVM
+    --backup-management-type AzureIaasVM \
     --container-name myVM \
     --item-name myVM \
     --query [0].name \

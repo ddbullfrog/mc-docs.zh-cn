@@ -13,12 +13,12 @@ metadata:
   ms.reviewer: carlrab
   origin.date: 05/27/2020
   ms.date: 09/14/2020
-  ms.openlocfilehash: c335a7649f84cf8b2213480e042b89d360bdfe5b
-  ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+  ms.openlocfilehash: e478b5e39e67f97c15a17717be35c23ebcd6ebaf
+  ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/11/2020
-  ms.locfileid: "90014313"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91872452"
 landingContent:
 - title: Azure VM 上的 SQL Server
   linkLists:
@@ -75,7 +75,7 @@ landingContent:
     - text: Azure 门户
       url: windows/sql-vm-create-portal-quickstart.md
     - text: Azure CLI 示例
-      url: /cli/azure/sql/vm
+      url: /cli/sql/vm
     - text: PowerShell 示例
       url: windows/sql-vm-create-powershell-quickstart.md
   - linkListType: download

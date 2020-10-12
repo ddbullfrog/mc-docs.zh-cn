@@ -4,16 +4,16 @@ description: 介绍如何使用 Azure Resource Manager 模板中的链接模板�
 ms.topic: conceptual
 origin.date: 09/08/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2852a8b1165cb27673e0c4c42e509fc07767fc43
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: ed603045fdc819e8a7b81cf12cd9ccac00c694b3
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146718"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937526"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -626,7 +626,7 @@ ms.locfileid: "91146718"
 
 资源管理器将每个模板作为部署历史记录中的单独部署进行处理。 包含三个链接模板或嵌套模板的主模板在部署历史记录中显示为：
 
-:::image type="content" source="./media/linked-templates/deployment-history.png" alt-text="部署历史记录":::
+:::image type="content" source="./media/linked-templates/deployment-history.png" alt-text="部署历史记录&quot;:::
 
 部署后，可以使用历史记录中这些不同的条目来检索输出值。 以下模板创建一个公共 IP 地址并输出该 IP 地址：
 

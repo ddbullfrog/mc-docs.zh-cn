@@ -17,12 +17,12 @@ origin.date: 08/20/2020
 ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: a2679d60abd963647c9346b4d94ffdaca044c54d
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 4e9a0f3a1309be3260e005f8c02f9476a7b45c48
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91050211"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943495"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -30,7 +30,7 @@ ms.locfileid: "91050211"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 - 在本地安装 Azure CLI
 
 本快速入门需要 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。

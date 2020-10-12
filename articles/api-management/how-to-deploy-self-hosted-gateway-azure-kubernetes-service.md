@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 1dfec8520e0cfa16503fbc94c84007fc3e4d173f
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: 5f7f9426fda99bcdb1352a0e06d0916dc17066fa
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440769"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871213"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>部署到 Azure Kubernetes 服务
 
@@ -29,14 +29,14 @@ ms.locfileid: "84440769"
 
 ## <a name="deploy-the-self-hosted-gateway-to-aks"></a>将自承载网关部署到 AKS
 
-1. 在“设置”下选择“网关”。 
+1. 选择“部署和基础结构”下的“网关” 。
 2. 选择要部署的自承载网关资源。
 3. 选择“部署”。
 4. 请注意，“令牌”文本框中已自动生成使用默认“过期时间”和“机密密钥”值的新令牌。   根据需要调整其中的一个或两个值，然后选择“生成”以创建新令牌。
 5. 确保在“部署脚本”下选择“Kubernetes”。 
 6. 选择“部署”旁边的“<网关名称>.yml”文件链接以下载该文件。 
 7. 在该 yml 文件中根据需要调整端口映射和容器名称。
-8. 根据你的方案，你可能需要更改[服务类型](/aks/concepts-network#services)。 默认值为 `NodePort`。
+8. 根据你的方案，你可能需要更改[服务类型](../aks/concepts-network.md#services)。 默认值为 `NodePort`。
 9. 选择“部署”文本框右侧的“复制”图标，将 `kubectl` 命令保存到剪贴板。 
 10. 将该命令粘贴到终端（或命令）窗口。 请注意，该命令要求下载的环境文件位于当前目录中。
 ```console
@@ -63,11 +63,7 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 ## <a name="next-steps"></a>后续步骤
 
 * 若要详细了解自承载网关，请参阅 [Azure API 管理自承载网关概述](self-hosted-gateway-overview.md)
-* 详细了解 [Azure Kubernetes 服务](/aks/intro-kubernetes)
+* 详细了解 [Azure Kubernetes 服务](../aks/intro-kubernetes.md)
 * 了解[如何在云中配置和保留日志](how-to-configure-cloud-metrics-logs.md)
 * * 了解[如何在本地配置和保留日志](how-to-configure-local-metrics-logs.md)
-
-
-
-
 

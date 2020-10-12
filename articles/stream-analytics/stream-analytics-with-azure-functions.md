@@ -1,20 +1,19 @@
 ---
 title: 教程 - 在 Azure 流分析作业中运行 Azure Functions
 description: 本教程介绍如何将 Azure Functions 配置为流分析作业的输出接收器。
-services: stream-analytics
-author: lingliw
-ms.author: v-lingwu
-manager: digimobile
+author: Johnnytechn
+ms.author: v-johya
 ms.service: stream-analytics
 ms.topic: tutorial
+ms.custom: mvc, devx-track-csharp
+ms.date: 10/09/2020
 origin.date: 01/27/2020
-ms.date: 02/27/2020
-ms.openlocfilehash: 69ba88582d08d865a97ec49897d65b606ab2b497
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 5160b13dbb43db74e2e41055dd9b2c3d7c9aef12
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78154595"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936804"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>教程：从 Azure 流分析作业运行 Azure Functions 
 
@@ -22,7 +21,7 @@ ms.locfileid: "78154595"
 
 流分析通过 HTTP 触发调用 Functions。 通过 Functions 输出适配器，用户可以将 Functions 连接到流分析，以便基于流分析查询触发事件。 
 
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建和运行流分析作业
@@ -30,7 +29,7 @@ ms.locfileid: "78154595"
 > * 创建 Azure 函数
 > * 在用于 Redis 的 Azure 缓存中检查结果
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>创建流分析作业以运行函数 
 
@@ -54,7 +53,7 @@ ms.locfileid: "78154595"
 
 1. 请参阅 Functions 文档的[创建函数应用](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)一节。 本部分演示如何使用 CSharp 语言[在 Azure Functions 中创建函数应用和 HTTP 触发的函数](../azure-functions/functions-create-first-azure-function.md#create-function)。  
 
-2. 浏览到 run.csx  函数。 将其更新为以下代码。 将“\<在此处放置用于 Redis 的 Azure 缓存连接字符串\>”  替换为上一节中检索到的用于 Redis 的 Azure 缓存主连接字符串。 
+2. 浏览到 run.csx  函数。 将其更新为以下代码。 将“\<your Azure Cache for Redis connection string goes here\>”替换为上一节中检索到的 Azure Cache for Redis 主连接字符串。 
 
     ```csharp
     using System;
@@ -152,7 +151,7 @@ ms.locfileid: "78154595"
    |函数| Functions 应用中函数的名称（run.csx 函数的名称）。|
    |最大批大小|设置发送到函数的每个输出批的最大大小（以字节为单位）。 默认情况下，此值设置为 262,144 字节 (256 KB)。|
    |最大批数|指定发送给函数的每个批次中的最大事件数。 默认值为 100。 此属性是可选的。|
-   |键|可以使用其他订阅中的函数。 提供用于访问你的函数的键值。 此属性是可选的。|
+   |密钥|可以使用其他订阅中的函数。 提供用于访问你的函数的键值。 此属性是可选的。|
 
 3. 命名输出别名。 在本教程中，我们将其命名为 saop1  ，但你可以使用所选的任何名称。 填写其他详细信息。
 
@@ -188,26 +187,28 @@ ms.locfileid: "78154595"
    此命令应会打印指定键的值：
 
    ![用于 Redis 的 Azure 缓存输出的屏幕截图](./media/stream-analytics-with-azure-functions/image5.png)
-   
-## <a name="error-handling-and-retries"></a>错误处理和重试
-如果在将事件发送到 Azure Functions 时失败，流分析会重试，直至成功完成操作。 不过，有些失败不会进行重试，如下所示：
 
- 1. HttpRequestExceptions
- 2. 请求实体太大（Http 错误代码 413）
- 3. ApplicationExceptions
+## <a name="error-handling-and-retries"></a>错误处理和重试
+
+如果在将事件发送到 Azure Functions 时失败，流分析会重试大多数操作。 将会重试所有 http 异常，直至成功，但 http 错误 413（实体太大）除外。 实体太大错误被视为数据错误，遵循[重试或删除策略](stream-analytics-output-error-policy.md)。
+
+> [!NOTE]
+> 从流分析到 Azure Functions 的 HTTP 请求的超时设置为 100 秒。 如果 Azure Functions 应用处理批处理所用的时间超过100 秒，则流分析会出错。
 
 ## <a name="known-issues"></a>已知问题
 
 在 Azure 门户中，尝试将最大批次大小/最大批次数值重置为空（默认），值将在保存时改回上次输入的值。 这时，请手动输入这些字段的默认值。
 
-流分析当前不支持在 Azure Functions 上使用 [Http 路由](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp)。
+流分析当前不支持在 Azure Functions 上使用 [HTTP 路由](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp)。
+
+不支持连接到虚拟网络中托管的 Azure Functions。
 
 ## <a name="clean-up-resources"></a>清理资源
 
 若不再需要资源组、流式处理作业以及所有相关资源，请将其删除。 删除作业可避免对作业使用的流单元进行计费。 如果计划在将来使用该作业，可以先停止它，等到以后需要时再重启它。 如果不打算继续使用该作业，请按照以下步骤删除本快速入门创建的所有资源：
 
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。   
-2. 在资源组页上单击“删除”  ，在文本框中键入要删除的资源的名称，并单击“删除”  。
+1. 在 Azure 门户的左侧菜单中，单击“资源组”  ，并单击已创建资源的名称。  
+2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。  
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -215,7 +216,4 @@ ms.locfileid: "78154595"
 
 > [!div class="nextstepaction"]
 > [在流分析作业中运行 JavaScript 用户定义的函数](stream-analytics-javascript-user-defined-functions.md)
-
-
-
 

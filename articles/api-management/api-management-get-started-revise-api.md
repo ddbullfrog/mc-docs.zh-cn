@@ -1,31 +1,31 @@
 ---
-title: 在 Azure API 管理中使用修订安全地进行非重大更改
+title: 在 API 管理中使用修订安全做出非重大更改
+titleSuffix: Azure API Management
 description: 遵循本教程中的步骤了解如何在 API 管理中使用修订进行非重大更改。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
+ms.date: 09/29/2020
+ms.author: v-johya
 origin.date: 11/04/2019
-ms.date: 11/18/2019
-ms.author: v-yiso
-ms.openlocfilehash: ea9928f0fef421dda6f4ccfc6d4c0fb1567a5954
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 097fb8206c03139dce1d5ba434538ce1ebc7bfde
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73831450"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871432"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>使用修订安全做出非重大更改
-当 API 准备就绪并即将供开发人员使用时，你最终需要对该 API 进行更改，同时避免干扰 API 的调用方。 另一种有效的做法是让开发人员知道所做的更改。 可以在 Azure API 管理中使用**修订**实现此目的。 有关详细信息，请参阅[版本和修订](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/)以及[使用 Azure API 管理进行 API 版本控制](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/)。
+当 API 准备就绪并即将供开发人员使用时，你最终需要对该 API 进行更改，同时避免干扰 API 的调用方。 另一种有效的做法是让开发人员知道所做的更改。 可以在 Azure API 管理中使用**修订**实现此目的。 有关详细信息，请参阅[版本和修订](https://azure.microsoft.com/blog/versions-revisions/)以及[使用 Azure API 管理进行 API 版本控制](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/)。
 
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 添加新的修订版
@@ -33,17 +33,17 @@ ms.locfileid: "73831450"
 > * 将修订版设为当前版本并添加更改日志项目
 > * 浏览开发人员门户以查看更改与更改日志
 
-![开发人员门户上的更改日志](media/api-management-getstarted-revise-api/azure_portal.PNG)
+![开发人员门户上的更改日志](./media/api-management-getstarted-revise-api/azure_portal.PNG)
 
 ## <a name="prerequisites"></a>先决条件
 
 + 了解 [Azure API 管理术语](api-management-terminology.md)。
-+ 完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)。
++ 请完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)。
 + 此外，请完成以下教程：[导入和发布第一个 API](import-and-publish.md)。
 
 ## <a name="add-a-new-revision"></a>添加新的修订版
 
-![添加 API 修订版本](media/api-management-getstarted-revise-api/07-AddRevisions-01-AddNewRevision.png)
+![添加 API 修订版本](./media/api-management-getstarted-revise-api/07-AddRevisions-01-AddNewRevision.png)
 
 1. 选择“API”页。 
 2. 从 API 列表中选择“演示会议 API”（或想要添加修订的其他 API）  。
@@ -62,7 +62,7 @@ ms.locfileid: "73831450"
 
 ## <a name="make-non-breaking-changes-to-your-revision"></a>对修订版进行非重大更改
 
-![修改修订版本](media/api-management-getstarted-revise-api/07-AddRevisions-02-MakeChanges.png)
+![修改修订版本](./media/api-management-getstarted-revise-api/07-AddRevisions-02-MakeChanges.png)
 
 1. 从 API 列表中选择“演示会议 API”  。
 2. 选择靠近屏幕顶部的“设计”选项卡。 
@@ -78,9 +78,11 @@ ms.locfileid: "73831450"
 8. 请注意，新操作未出现在“修订版 1”中。  
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>将修订版设为当前版本并添加更改日志项目
+
 1. 在靠近页面顶部的菜单中选择“修订”选项卡。 
 
-    ![修订屏幕上的修订菜单。](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+    ![修订屏幕上的修订菜单。](./media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+
 2. 打开“修订版 2”对应的上下文菜单 ( **...** )。 
 3. 选择“设为当前版本”。 
 4. 如果想要发布有关此更改的说明，请选中“发布有关此 API 的公共更改日志”  。 提供可让开发人员看到的更改说明，例如，“测试修订。  添加了新的“测试”操作。
@@ -92,12 +94,12 @@ ms.locfileid: "73831450"
 2. 在顶部菜单中选择“开发人员门户”。 
 3. 依次选择“API”、“演示会议 API”。  
 4. 请注意，新的“测试”操作现已显示。 
-5. 单击 API 名称附近的 **Changelog**。
+5. 单击 API 名称附近的“Changelog”  。
 6. 请注意，更改日志项目已显示在此列表中。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
+在本教程中，你了解了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 添加新的修订版
@@ -105,7 +107,8 @@ ms.locfileid: "73831450"
 > * 将修订版设为当前版本并添加更改日志项目
 > * 浏览开发人员门户以查看更改与更改日志
 
-进入下一教程：
+转到下一教程：
 
 > [!div class="nextstepaction"]
 > [发布 API 的多个版本](api-management-get-started-publish-versions.md)
+

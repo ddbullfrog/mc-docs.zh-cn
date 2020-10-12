@@ -144,7 +144,7 @@
           href: network-watcher-nsg-auditing-powershell.md
     - name: 诊断 VPN 网关和连接
       items:
-        - name: 故障排除
+        - name: 疑难解答
           items:
             - name: Azure PowerShell
               href: network-watcher-troubleshoot-manage-powershell.md
@@ -175,7 +175,7 @@
     - name: Ruby
       href: 'https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher'
     - name: Python
-      href: /python/api/overview/azure/network
+      href: 'https://docs.microsoft.com/python/api/overview/azure/network'
     - name: .NET
       href: 'https://docs.azure.cn/dotnet/api/overview/virtual-network'
     - name: Node.js

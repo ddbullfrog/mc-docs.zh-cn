@@ -3,23 +3,23 @@ title: Azure API 管理术语
 description: 本文提供 API 管理特定的术语定义。
 services: api-management
 documentationcenter: ''
-author: Juliako
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 10/11/2017
-ms.date: 02/26/2018
-ms.author: v-yiso
-ms.openlocfilehash: 325b1b0458c8efe61f2e38f6f0bcb1807b437fbe
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.openlocfilehash: 891fabef073be6a8cf79466b70639e99676f8c09
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63857813"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871187"
 ---
-# <a name="terminology"></a>术语
+# <a name="azure-api-management-terminology"></a>Azure API 管理术语
 
 本文提供 API 管理 (APIM) 特定的术语定义。
 
@@ -37,4 +37,5 @@ ms.locfileid: "63857813"
 
 > [!div class="nextstepaction"]
 > [创建实例](get-started-create-service-instance.md)
+
 

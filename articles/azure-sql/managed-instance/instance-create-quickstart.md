@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 origin.date: 09/26/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 2516f031e158239b717eaad5b34f0c4fafed4333
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: b3399a1f587b4744fcea859a1cf6822044163bc9
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014338"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872468"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>快速入门：创建 SQL 托管实例的托管实例
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -50,7 +50,7 @@ ms.locfileid: "90014338"
    | 设置| 建议的值 | 描述 |
    | ------ | --------------- | ----------- |
    | **订阅** | 你的订阅。 | 你有权在其中创建新资源的订阅。 |
-   | **资源组** | 新的或现有的资源组。|如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)（命名规则和限制）。|
+   | **资源组** | 新的或现有的资源组。|有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)（命名规则和限制）。|
    | **托管实例名称** | 任何有效的名称。|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)，了解什么是有效的名称。|
    | **区域** |要在其中创建托管实例的区域。|有关区域的信息，请参阅 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。|
    | **托管实例管理员登录名** | 任何有效的用户名。 | 请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)，了解什么是有效的名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。|
@@ -120,7 +120,7 @@ ms.locfileid: "90014338"
 > 3. 选择正在进行的 SQL 托管实例部署操作。
 
 > [!IMPORTANT]
-> - 创建 SQL 托管实例是一种长时间运行的操作，可能一次需要数个小时，具体取决于特定情况。 请参阅[管理操作持续时间](management-operations-overview.md#management-operations-duration)以了解典型创建时间。
+> - 创建 SQL 托管实例是一种长时间运行的操作，可能一次需要数个小时，具体取决于特定情况。 请参阅[管理操作持续时间](management-operations-overview.md#duration)以了解典型创建时间。
 > - 当存在其他冲突操作（例如，在同一子网中的其他托管实例上长时间运行的还原或缩放操作）时，SQL 托管实例创建的开始可能会延迟。 若要了解详细信息，请参阅[管理操作交叉影响](management-operations-overview.md#management-operations-cross-impact)。
 > - 若要获取托管实例创建状态，需要有资源组的**读取权限**。 如果没有此权限，或者在托管实例创建过程中将其撤消，则可能会导致 SQL 托管实例在资源组部署列表中不可见。
 >

@@ -9,83 +9,121 @@ metadata:
   ms.subservice: B2C
   ms.topic: landing-page
   ms.collection: collection
-  author: mmacy
+  author: msmimart
   ms.author: v-junlch
-  ms.date: 02/05/2020
-  ms.openlocfilehash: 226ea6fd41bd77bea7a3497b9a759789a6554c37
-  ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+  ms.date: 09/29/2020
+  ms.openlocfilehash: 0fd152d1538e15689592e88c88d309718885edd4
+  ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "77028168"
+  ms.lasthandoff: 10/10/2020
+  ms.locfileid: "91937136"
 landingContent:
-- title: 了解基础知识
+- title: Azure AD B2C
   linkLists:
   - linkListType: overview
     links:
     - text: 什么是 Azure AD B2C？
       url: overview.md
+    - text: 比较外部标识的解决方案
+      url: /active-directory/b2b/compare-with-b2c
+    - text: Azure AD B2C 入门
+      url: tutorial-create-tenant.md
     - text: 技术和功能概述
       url: technical-overview.md
-  - linkListType: get-started
-    links:
-    - text: 创建 Azure AD B2C 租户
-      url: tutorial-create-tenant.md
-    - text: 注册应用程序
-      url: tutorial-register-applications.md
-    - text: 设置用户流
-      url: tutorial-create-user-flows.md
-- title: 将标识添加到 ASP.NET 应用
+    - text: 定价
+      url: https://www.azure.cn/pricing/details/active-directory-b2c/
+- title: 基础
   linkLists:
-  - linkListType: tutorial
+  - linkListType: learn
     links:
-    - text: 在 .NET Web 应用程序中对用户进行身份验证
-      url: tutorial-web-app-dotnet.md
-    - text: 向 .NET Web 应用程序授予 API 访问权限
-      url: tutorial-web-api-dotnet.md
-  - linkListType: download
-    links:
-    - text: 适用于 Web 应用和 API 的代码示例
-      url: code-samples.md#web-apps-and-apis
-- title: 将标识添加到单页应用
+    - text: 身份验证和授权
+      url: /active-directory/develop/authentication-vs-authorization
+    - text: 令牌
+      url: /active-directory/develop/security-tokens
+    - text: 协议
+      url: /active-directory/develop/v2-app-types
+    - text: 身份验证库
+      url: /active-directory/develop/msal-overview
+    - text: 构建网站：HTML、CSS、JavaScript
+      url: https://docs.microsoft.com/learn/modules/build-simple-website/
+- title: 常见用例
   linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 在单页应用中对用户进行身份验证
-      url: tutorial-single-page-app.md
-    - text: 向单页应用授予 API 访问权限
-      url: tutorial-single-page-app-webapi.md
-  - linkListType: download
-    links:
-    - text: 适用于单页应用的代码示例
-      url: code-samples.md#single-page-apps
-- title: 将标识添加到桌面应用
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 在本机客户端中对用户进行身份验证
-      url: tutorial-desktop-app.md
-    - text: 向本机客户端授予 API 访问权限
-      url: tutorial-desktop-app-webapi.md
-  - linkListType: download
-    links:
-    - text: 适用于移动应用和桌面应用的代码示例
-      url: code-samples.md
-- title: 配置通用标识方案
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 用户流简介
-      url: user-flow-overview.md
   - linkListType: how-to-guide
     links:
-    - text: 用户注册和登录
-      url: tutorial-create-user-flows.md
-    - text: 自定义用户界面
+    - text: 启用自助登录
+      url: user-flow-overview.md
+    - text: 启用单一登录 (SSO)
+      url: session-overview.md
+    - text: 自定义 UI/UX
       url: customize-ui-overview.md
-- title: 构建高级标识方案
+    - text: 用户和应用迁移
+      url: user-migration.md
+- title: 向应用程序添加登录
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: 本机/移动应用
+      url: code-samples.md#mobile-and-desktop-apps
+    - text: 单页应用
+      url: code-samples.md#single-page-apps
+    - text: Web 应用
+      url: code-samples.md#web-apps-and-apis
+- title: Authorization:调用和保护 API
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 请求访问令牌
+      url: access-tokens.md
+    - text: 注册和保护 API
+      url: tutorial-web-api-dotnet.md
+    - text: 示例：Web 应用和 API
+      url: code-samples.md#web-apps-and-apis
+    - text: 与 API 网关集成
+      url: secure-api-management.md?tabs=app-reg-ga
+- title: 安全性、隐私性和符合性
   linkLists:
   - linkListType: concept
     links:
-    - text: 自定义策略简介
-      url: custom-policy-overview.md
+    - text: 管理威胁
+      url: threat-management.md
+    - text: 法规
+      url: overview.md
+    - text: 用户访问和使用条款
+      url: manage-user-access.md
+- title: 操作
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 监视
+      url: azure-monitor.md
+    - text: 针对管理员的基于角色的访问
+      url: overview.md
+    - text: 用户管理
+      url: manage-user-accounts-graph-api.md
+    - text: 疑难解答
+      url: troubleshoot-custom-policies.md?tabs-app-reg-ga
+    - text: 最佳做法
+      url: best-practices.md
+- title: 资源
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
+    - text: GitHub
+      url: https://github.com/azure-ad-b2c/samples
+    - text: 培训
+      url: solution-articles.md
+    - text: 服务更新
+      url: https://azure.microsoft.com/updates/?product=active-directory-b2c
+    - text: 常见问题
+      url: faq.md
+    - text: Microsoft 支持
+      url: support-options.md
+- title: 常见集成
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Monitor：保留和分析日志
+      url: azure-monitor.md

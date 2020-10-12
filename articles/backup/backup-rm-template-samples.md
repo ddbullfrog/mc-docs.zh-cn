@@ -2,22 +2,22 @@
 title: Azure 资源管理器模板
 description: 用于恢复服务保管库和 Azure 备份功能的 Azure 资源管理器模板
 ms.topic: sample
-author: lingliw
-ms.date: 01/31/2019
-ms.author: v-lingwu
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 09/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 5a937decd55946dc4d875b447355835fd83c9726
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 229189c370109dbab2e6985e677d1e2f40e57433
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74838885"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871267"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>用于 Azure 备份的 Azure 资源管理器模板
 
-下表包含可以与恢复服务保管库和 Azure 备份功能配合使用的 Azure 资源管理器模板的链接。
+下表包含可以与恢复服务保管库和 Azure 备份功能配合使用的 Azure 资源管理器模板的链接。 若要了解 JSON 语法和属性，请参阅 [Microsoft.RecoveryServices 资源类型](https://docs.microsoft.com/azure/templates/microsoft.recoveryservices/allversions)。
 
-|   |   |
+| 模板 | 说明 |
 |---|---|
 |**恢复服务保管库** | |
 | [创建恢复服务保管库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vault-create)| 创建恢复服务保管库。 此保管库可以用于 Azure 备份和 Azure Site Recovery。 |
@@ -30,8 +30,6 @@ ms.locfileid: "74838885"
 |**监视备份作业** |  |
 | [将 Azure Monitor 日志与 Azure Backup 配合使用](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | 模板部署用于 Azure 备份的 Azure Monitor 日志，后者用于监视备份和还原作业、备份警报以及在恢复服务保管库中使用的云存储。|  
 |**在 Azure VM 中备份 SQL Server** |  |
-| [在 Azure VM 中备份 SQL Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | 模板创建特定于恢复服务保管库和工作负荷的备份策略。 它使用 Azure 备份服务注册 VM 并在该 VM 上配置保护。 目前，它仅适用于 SQL 库映像。 |
+| [在 Azure VM 中备份 SQL Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | 模板创建特定于恢复服务保管库和工作负载的备份策略。 它使用 Azure 备份服务注册 VM 并在该 VM 上配置保护。 目前，它仅适用于 SQL 库映像。 |
 |   |   |
 
-
-<!-- Update_Description: update metedata properties -->

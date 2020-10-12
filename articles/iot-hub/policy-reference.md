@@ -1,18 +1,18 @@
 ---
 title: Azure IoT 中心的内置策略定义
 description: 列出 Azure IoT 中心的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 9ce05994a6d9734ada229bdd403de86da9636577
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 6444ee0df1dc533020b6e31e9df9580efa291605
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394850"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937523"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Azure IoT 中心的 Azure Policy 内置定义
 

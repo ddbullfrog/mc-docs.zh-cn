@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2279d63cf39b79df833bbb02180d7deb7506bd12
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: da2c8225956e9066a76c6477de3301121979a4d4
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647539"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936956"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>教程：在 Android 应用程序中使用共享设备模式
 
@@ -241,7 +241,7 @@ private void onSignOutClicked()
 
 ![“注册设备”屏幕](./media/tutorial-v2-shared-device-mode/register-device.png)
 
-![登录](./media/tutorial-v2-shared-device-mode/sign-in.png)
+![屏幕截图显示了登录页面。](./media/tutorial-v2-shared-device-mode/sign-in.png)
 
 设备现在已处于共享模式。
 

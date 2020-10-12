@@ -2,20 +2,20 @@
 title: 快速入门 - 使用专用 IP 地址连接到虚拟机 - Azure Bastion
 description: 本文介绍如何从虚拟机创建 Azure Bastion 主机并使用专用 IP 地址进行安全连接。
 services: bastion
-author: rockboyfor
 ms.service: bastion
 ms.topic: quickstart
 origin.date: 03/11/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 737654a1edaade1800d4a1719ab4c6c462e7705d
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 5fb9829649afdaca6704df7d1d5a305f60f7c2dc
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655140"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937359"
 ---
 <!--Verified successfully on 09/07/2020-->
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>快速入门：使用专用 IP 地址和 Azure Bastion 连接到虚拟机
@@ -49,11 +49,11 @@ ms.locfileid: "89655140"
 
 1. 打开 [Azure 门户](https://portal.azure.cn)。 转到虚拟机，然后单击“连接”。
 
-    ![虚拟机设置](./media/quickstart-host-portal/vm-settings.png)
+    :::image type="content" source="./media/quickstart-host-portal/vm-settings.png" alt-text="虚拟机设置":::
 1. 在下拉列表中，选择“Bastion”。
 1. 在“连接”页上，选择“使用 Bastion”。
 
-    ![选择“Bastion”](./media/quickstart-host-portal/select-bastion.png)
+    :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="虚拟机设置":::
 
 1. 在“Bastion”页上，填写以下设置字段：
 
@@ -65,13 +65,13 @@ ms.locfileid: "89655140"
         * 指定以 CIDR 表示法表示的地址范围。 例如 10.1.254.0/27。
         * 选择“确定”以创建子网。 在页面顶部，导航回 Bastion 以完成其余设置。
 
-            ![导航到 Bastion 设置](./media/quickstart-host-portal/navigate-bastion.png)
+            :::image type="content" source="./media/quickstart-host-portal/navigate-bastion.png" alt-text="虚拟机设置":::
             
     * **公共 IP 地址**：这是要在其上通过端口 443 访问 RDP/SSH 的 Bastion 资源的公共 IP。 新建公共 IP，或使用现有公共 IP。 公共 IP 地址必须与要创建的 Bastion 资源位于同一区域。
     * **公共 IP 地址名称**：公共 IP 地址资源的名称。
 1. 在“验证”屏幕上，单击“创建”。 请等待大约 5 分钟，以创建和部署 Bastion 资源。
 
-    ![创建 Bastion 主机](./media/quickstart-host-portal/bastion-settings.png)
+    :::image type="content" source="./media/quickstart-host-portal/bastion-settings.png" alt-text="虚拟机设置":::
 
 <a name="connect"></a>
 ## <a name="connect"></a>连接
@@ -80,10 +80,10 @@ ms.locfileid: "89655140"
 
 1. 键入虚拟机的用户名和密码。 然后，选择“连接”。
 
-    ![连接](./media/quickstart-host-portal/connect.png)
+    :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="虚拟机设置":::
 1. 通过 Bastion 连接到此虚拟机的 RDP 将使用端口 443 和 Bastion 服务在 Azure 门户中（通过 HTML5）直接打开。
 
-    ![RDP 连接](./media/quickstart-host-portal/443-rdp.png)
+    :::image type="content" source="./media/quickstart-host-portal/443-rdp.png" alt-text="虚拟机设置":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -104,5 +104,4 @@ ms.locfileid: "89655140"
 * 有关包含 Azure Bastion 主机设置解释的说明，请参阅[教程](bastion-create-host-portal.md)。
 * 若要连接到虚拟机规模集，请参阅[使用 Azure Bastion 连接到虚拟机规模集](bastion-connect-vm-scale-set.md)。
 
-<!-- Update_Description: new article about quickstart host portal -->
-<!--NEW.date: 07/27/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

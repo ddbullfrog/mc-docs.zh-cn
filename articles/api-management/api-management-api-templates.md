@@ -12,15 +12,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.custom: tracking-python
-ms.openlocfilehash: 6e9d3699f4f78c82e37c5e4e653508499e6c4a03
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.custom: devx-track-python
+ms.openlocfilehash: d5389bf29a6f720033b4144241230e1f80c77999
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440549"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871270"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API 管理中的 API 模板
 

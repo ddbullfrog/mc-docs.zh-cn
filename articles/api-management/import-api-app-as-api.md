@@ -3,6 +3,7 @@ title: 使用 Azure 门户将 API 应用作为 API 导入
 description: 本教程演示如何使用 API 管理 (APIM) 将 API 应用导入为 API。
 services: api-management
 documentationcenter: ''
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -10,15 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 11/22/2017
-author: Johnnytechn
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 046886b65459082456c6871c85be4d4da740b154
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 1ffe9cb6530637a6cd8f937e4e93791a223e6122
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097319"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871348"
 ---
 # <a name="import-an-api-app-as-an-api"></a>将 API 应用导入为 API
 
@@ -33,8 +33,8 @@ ms.locfileid: "85097319"
 
 ## <a name="prerequisites"></a>先决条件
 
-+ 完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)
-+ 确保订阅中已有 API 应用。 有关详细信息，请参阅[应用服务文档](/app-service/)
++ 请完成以下快速入门：[创建一个 Azure API 管理实例](get-started-create-service-instance.md)
++ 确保订阅中已有 API 应用。 有关详细信息，请参阅[应用服务文档](../app-service/index.yml)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -55,10 +55,10 @@ ms.locfileid: "85097319"
 
     默认情况下，每个 API 管理实例附带两个示例产品：
 
-    * **初学者**
-    * **无限制**   
-7. 输入其他 API 设置。 可以在创建过程中设置这些值，也可以稍后转到“设置”选项卡来配置这些值。在[导入和发布第一个 API](import-and-publish.md) 教程中对这些设置进行了说明。
-8. 选择“创建” 。
+    * **入门**
+    * **不受限制**   
+7. 输入其他 API 设置。 可以在创建过程中设置这些值，也可以稍后转到“设置”选项卡来配置这些值。在[导入和发布第一个 API](import-and-publish.md#-import-and-publish-a-backend-api) 教程中对这些设置进行了说明。
+8. 选择“创建”。
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>在 Azure 门户中测试新的 API
 

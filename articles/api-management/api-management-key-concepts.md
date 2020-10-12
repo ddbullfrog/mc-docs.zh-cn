@@ -3,24 +3,23 @@ title: Azure API 管理概述和关键概念
 description: 了解有关 API、产品、角色、组和其他 API 管理关键概念。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: erikre
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 origin.date: 11/15/2017
-ms.date: 05/27/2019
-ms.author: v-yiso
+ms.date: 09/29/2020
+ms.author: v-johya
 ms.custom: mvc
-ms.openlocfilehash: 3fd49953213b26ef2af716a2989423abdf7a304a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: eed09c7bb043217111588f051c423e3889f2aeb5
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292986"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871254"
 ---
 # <a name="about-api-management"></a>关于 API 管理
 
@@ -55,7 +54,7 @@ API 管理有助于组织将 API 发布给外部、合作伙伴和内部开发�
   * 设置策略，如 API 的配额或转换。
   * 从分析中获得见解。
   * 管理用户。
-* **开发人员门户** 是面向开发人员的主要 Web 平台，可以在其中执行以下操作：
+* **开发人员门户**是面向开发人员的主要 Web 平台，可以在其中执行以下操作：
   
   * 阅读 API 文档。
   * 通过交互式控制台试用 API。
@@ -104,10 +103,10 @@ API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发�
 ## <a name="policies"></a><a name="policies"> </a> 策略
 策略是 API 管理的一项强大功能，允许 Azure 门户通过配置更改 API 的行为。 策略是一组语句，在请求或 API 的响应时按顺序执行。 流行的语句包含 XML 格式转换为 JSON 和调用速率限制，以限制从开发人员传入的呼叫数，还有许多其他策略可用。
 
-在任何 API 管理策略中，策略表达式可以用作属性值或文本值，除非该策略另外指定。 某些策略（如[控制流](/api-management/api-management-advanced-policies#choose)和[设置变量](/api-management/api-management-advanced-policies#set-variable)策略）基于策略表达式。 有关详细信息，请参阅[高级策略](/api-management/api-management-advanced-policies#AdvancedPolicies)和[策略表达式](/api-management/api-management-policy-expressions)。
+在任何 API 管理策略中，策略表达式可以用作属性值或文本值，除非该策略另外指定。 某些策略（如[控制流](./api-management-advanced-policies.md#choose)和[设置变量](./api-management-advanced-policies.md#set-variable)策略）基于策略表达式。 有关详细信息，请参阅[高级策略](./api-management-advanced-policies.md#AdvancedPolicies)和[策略表达式](./api-management-policy-expressions.md)。
 
 
-有关 API 管理策略的完整列表，请参阅 [策略参考][Policy reference]。 有关使用和配置策略的详细信息，请参阅 [API 管理策略][API Management policies]。 有关使用速率限制和配额策略创建产品的教程，请参阅 [如何创建和配置高级产品设置][How create and configure advanced product settings]。 
+有关 API 管理策略的完整列表，请参阅 [策略参考][Policy reference]。 有关使用和配置策略的详细信息，请参阅 [API 管理策略][API Management policies]。 有关使用速率限制和配额策略创建产品的教程，请参阅 [如何创建和配置高级产品设置][How create and configure advanced product settings]。
 
 
 ## <a name="developer-portal"></a><a name="developer-portal"> </a> 开发人员门户
@@ -130,17 +129,14 @@ API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发�
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: import-and-publish.md
-[How to add operations to an API]: mock-api-responses.md
-[How to create and publish a product]: ./api-management-howto-add-products.md
-[How to create and use groups]: ./api-management-howto-create-groups.md
-[How to associate groups with developers]: ./api-management-howto-create-groups.md#associate-group-developer
+[How to create APIs]: ./import-and-publish.md
+[How to add operations to an API]: ./mock-api-responses.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 [How create and configure advanced product settings]: transform-api.md
-[How to create or invite developers]: ./api-management-howto-create-or-invite-developers.md
+[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
 [Policy reference]: ./api-management-policies.md
-[API Management policies]: ./api-management-howto-policies.md
+[API Management policies]: api-management-howto-policies.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-
-
-
 

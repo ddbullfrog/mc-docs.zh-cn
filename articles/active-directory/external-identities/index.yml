@@ -1,23 +1,23 @@
 ### YamlMime:Landing
 title: 外部标识文档
-summary: “外部标识”是一组功能，可供组织用来保护和管理任何外部用户（包括客户和合作伙伴）。 “外部标识”以 B2B 协作为基础，提供了更多用来与组织外的用户进行交互和连接的功能。
+summary: “外部标识”是一组功能，可供组织用来保护和管理任何外部用户（包括客户和合作伙伴）。 “外部标识”以 B2B 协作为基础，让你有更多的方式与组织外部的用户急性交互的联系。
 metadata:
   title: 外部标识文档
-  description: “外部标识”是一组功能，可供组织用来保护和管理任何外部用户（包括客户和合作伙伴）。 “外部标识”以 B2B 协作为基础，提供了更多用来与组织外的用户进行交互和连接的功能。
+  description: “外部标识”是一组功能，可供组织用来保护和管理任何外部用户（包括客户和合作伙伴）。 “外部标识”以 B2B 协作为基础，让你有更多的方式与组织外部的用户急性交互的联系。
   ms.service: active-directory
   ms.subservice: B2B
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 08/17/2020
+  ms.date: 10/09/2020
   author: msmimart
   ms.author: v-junlch
   manager: celested
-  ms.openlocfilehash: 679ec11303089dcb7525718bf0e8ec428cac745c
-  ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+  ms.openlocfilehash: eeb72ddaa68ffdeeb7dee854bd13d08d2e13a1da
+  ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88648077"
+  ms.lasthandoff: 10/10/2020
+  ms.locfileid: "91937564"
 landingContent:
 - title: 关于外部标识
   linkLists:
@@ -25,47 +25,43 @@ landingContent:
     links:
     - text: 比较外部标识解决方案
       url: compare-with-b2c.md
-    - text: 什么是 B2B 来宾用户访问权限？
+    - text: 什么是 Azure AD B2B 协作？
       url: what-is-b2b.md
-- title: 邀请 B2B 来宾用户
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: B2B 来宾如何兑现邀请
-      url: redemption-experience.md
-  - linkListType: quickstart
-    links:
-    - text: 使用 PowerShell 添加来宾用户
-      url: b2b-quickstart-invite-powershell.md
-  - linkListType: how-to-guide
-    links:
-    - text: 管理员如何邀请来宾
-      url: add-users-administrator.md
-- title: 自定义 B2B 协作
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 启用 B2B 协作
-      url: delegate-invitations.md
-  - linkListType: tutorial
-    links:
-    - text: 实施多重身份验证
-      url: b2b-tutorial-require-mfa.md
-  - linkListType: reference
-    links:
-    - text: B2B 协作代码和 PowerShell 示例
-      url: code-samples.md
-- title: 管理来宾用户
+    - text: 什么是 Azure AD B2C（企业到消费者）标识？
+      url: /active-directory-b2c/overview
+- title: 与组织外部的用户协作（B2B 协作）
   linkLists:
   - linkListType: concept
     links:
     - text: 了解 B2B 来宾用户
       url: user-properties.md
+    - text: B2B 来宾如何兑现邀请
+      url: redemption-experience.md
   - linkListType: how-to-guide
     links:
-    - text: 针对 B2B 来宾用户进行审核和报告
-      url: auditing-and-reporting.md
-    - text: 向 B2B 来宾授权
-      url: add-guest-to-role.md
-    - text: 允许或阻止组织
-      url: allow-deny-list.md
+    - text: 配置外部协作设置
+      url: delegate-invitations.md
+    - text: 添加和邀请来宾用户
+      url: add-users-administrator.md
+    - text: 以来宾用户身份离开组织
+      url: leave-the-organization.md
+- title: 将应用扩展给消费者和客户 (Azure AD B2C)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 关于 Azure AD B2C
+      url: /active-directory-b2c/overview
+    - text: 技术和功能概述
+      url: /active-directory-b2c/technical-overview
+    - text: 查看所有 Azure AD B2C 文档
+      url: /active-directory-b2c/
+  - linkListType: concept
+    links:
+    - text: Azure AD B2C 用户流
+      url: /active-directory-b2c/user-flow-overview
+    - text: Azure AD B2C 自定义策略
+      url: /active-directory-b2c/custom-policy-overview
+  - linkListType: tutorial
+    links:
+    - text: 在 Azure AD B2C 中创建用户流
+      url: /active-directory-b2c/tutorial-create-user-flows

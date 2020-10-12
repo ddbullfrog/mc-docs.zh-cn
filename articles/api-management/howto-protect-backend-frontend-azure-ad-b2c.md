@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
 ms.custom: fasttrack-new
-ms.openlocfilehash: 9fa8ca94bfbacf3c48b0ec77af4096658d45aee9
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: 86b0d970be0b424abdd3086d0feb0b8b2f8f2593
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440772"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871340"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>通过 OAuth 2.0、Azure Active Directory B2C 和 Azure API 管理保护 SPA 后端
 
@@ -458,6 +458,8 @@ ms.locfileid: "84440772"
 可以调整和编辑上述步骤，以通过 API 管理实现 Azure AD B2C 的多种不同用途。
 
 ## <a name="next-steps"></a>后续步骤
+* 详细了解 [Azure Active Directory 和 OAuth2.0](../active-directory/develop/authentication-vs-authorization.md)。
+* 观看有关 API 管理的更多[视频](https://azure.microsoft.com/documentation/videos/index/?services=api-management)。
 * 有关保护后端服务的其他方法，请参阅[使用证书进行相互身份验证](api-management-howto-mutual-certificates.md)。
 * [创建 API 管理服务实例](get-started-create-service-instance.md)。
 * [管理第一个 API](import-and-publish.md)。

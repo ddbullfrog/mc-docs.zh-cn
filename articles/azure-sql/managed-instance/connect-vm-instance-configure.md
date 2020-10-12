@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sstein, carlrab, srbozovi, bonova
+ms.reviewer: sstein, srbozovi, bonova
 origin.date: 02/18/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: c8dcf3b121c53a6163b5488ebf71a8481a6045ed
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: 6d8af97dd75211d6028458efb8830b169909b488
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014178"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872459"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>快速入门：配置 Azure VM 以连接到 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,7 +79,7 @@ ms.locfileid: "90014178"
 
 2. 根据下表中的信息填充窗体：
 
-   | 设置| 建议的值 | 描述 |
+   | 设置| 建议的值 | 说明 |
    | ---------------- | ----------------- | ----------- |
    | **订阅** | 有效的订阅 | 必须是有权在其中创建新资源的订阅。 |
    | **资源组** |在[创建 SQL 托管实例](instance-create-quickstart.md)快速入门中指定的资源组|此资源组必须是 VNet 所在的资源组。|
@@ -111,7 +111,7 @@ ms.locfileid: "90014178"
 
 1. 部署完成后，转到虚拟机资源。
 
-    ![VM](./media/connect-vm-instance-configure/vm.png)  
+    ![屏幕截图显示了 Azure 门户，其中选择了虚拟机的“概览”页并突出显示了“连接”。](./media/connect-vm-instance-configure/vm.png)  
 
 2. 选择“连接” 。
 

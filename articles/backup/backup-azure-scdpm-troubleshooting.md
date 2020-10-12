@@ -1,23 +1,23 @@
 ---
 title: 排查 System Center Data Protection Manager 问题
 description: 在本文中，了解使用 System Center Data Protection Manager 时可能遇到的问题的解决方案。
-ms.topic: conceptual
-author: lingliw
+ms.topic: troubleshooting
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 09/28/2020
 origin.date: 01/30/2019
-ms.date: 07/06/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 766cb5097c1293543ed5632906a74c293b3136c3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 71e08401299dcafb071c4eda39e3800d80808f52
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74838616"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871108"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>排查 System Center Data Protection Manager 问题
 
 本文介绍在使用 Data Protection Manager 时可能遇到的问题的解决方法。
 
-有关 System Center Data Protection Manager 的最新发行说明，请参阅 [System Center 文档](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016)。 可在[此矩阵](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016)中详细了解 Data Protection Manager 支持的功能。
+有关 System Center Data Protection Manager 的最新发行说明，请参阅 [System Center 文档](https://docs.microsoft.com/system-center/dpm/dpm-release-notes)。 可在[此矩阵](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix)中详细了解 Data Protection Manager 支持的功能。
 
 ## <a name="error-replica-is-inconsistent"></a>错误：副本不一致
 

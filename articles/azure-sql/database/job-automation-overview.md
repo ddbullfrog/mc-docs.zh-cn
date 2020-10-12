@@ -2,21 +2,22 @@
 title: 作业自动化
 description: 使用作业自动化跨一个或多个数据库运行 Transact-SQL (T-SQL) 脚本
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlr
+ms.reviewer: sstein
 origin.date: 03/10/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: a51fde05f850e545a961aa3141d250876b28df53
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/12/2020
+ms.openlocfilehash: 5c9d8825cba7bd3c9f30d66336a74ccb39074a9b
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222570"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872422"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>使用数据库作业自动完成管理任务
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +52,7 @@ Azure SQL 数据库允许创建和计划可针对一个或多个数据库定期�
 - **SQL 代理作业**是经典的且经过实战检验的 SQL Server 作业计划组件，可在 Azure SQL 托管实例中使用。 SQL 代理作业在 Azure SQL 数据库中不可用。
 - **弹性数据库作业（预览）** 是针对一个或多个 Azure SQL 数据库中的数据库执行自定义作业的作业计划服务。
 
-值得注意的是，SQL 代理（可以在本地使用以及作为 SQL 托管实例的一部分使用）与数据库弹性作业代理（适用于 Azure SQL 数据库中的单一数据库和 SQL 数据仓库中的数据库）之间存在一些差异。
+值得注意的是，SQL 代理（可以在本地使用以及作为 SQL 托管实例的一部分使用）与数据库弹性作业代理（适用于 Azure SQL 数据库中的单一数据库和 Azure Synapse Analytics 中的数据库）之间存在一些差异。
 
 | |弹性作业 |SQL 代理 |
 |---------|---------|---------|

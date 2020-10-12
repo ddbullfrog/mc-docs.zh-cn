@@ -1,25 +1,24 @@
 ---
 title: 使用 Azure 门户导入 SOAP API 并将其转换为 REST
-description: 了解如何使用 API 管理导入 SOAP API 并将其转换为 REST。
+description: 了解如何导入 SOAP API，如何使用 API 管理将其转换为 REST，以及如何在 Azure 和开发人员门户中测试该 API。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/22/2017
-ms.date: 12/09/2019
-ms.author: apimpm
-ms.openlocfilehash: dbfc2025a69167ff51937d5f741dc7ff79eeedf2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.openlocfilehash: 6db5aa28a8f0934b8dad71fa02a09cb86d682c8b
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74657859"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871306"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>导入 SOAP API 并将其转换为 REST
 
@@ -44,7 +43,6 @@ ms.locfileid: "74657859"
 2. 从“添加新的 API”列表中选择“WSDL”   。
 
     ![SOAP API](./media/restify-soap-api/wsdl-api.png)
-    
 3. 在“WSDL 规范”，输入要将 SOAP API 放到的 URL。 
 4. 单击“SOAP 到 REST”单选按钮。  单击此选项后，APIM 会尝试在 XML 与 JSON 之间进行自动转换。 在这种情况下，使用者应以 Restful API 的形式调用该 API，这会返回 JSON API。 APIM 将每个请求转换为 SOAP 调用。
 
@@ -85,3 +83,4 @@ ms.locfileid: "74657859"
 
 > [!div class="nextstepaction"]
 > [转换和保护已发布的 API](transform-api.md)
+

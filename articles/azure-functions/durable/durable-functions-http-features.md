@@ -3,14 +3,14 @@ title: Durable Functions 中的 HTTP 功能 - Azure Functions
 description: 了解 Azure Functions 的 Durable Functions 扩展中的集成式 HTTP 功能。
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: 0e618bdadb4ada6d8f05af721ae4f898ff73c688
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 9c7bda81b8e85fa663510b39d7847acd056f0b3c
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222676"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937197"
 ---
 # <a name="http-features"></a>HTTP 功能
 
@@ -250,12 +250,12 @@ public static async Task RunOrchestrator(
     string vmName = "myVM";
     string apiVersion = "2019-03-01";
     
-    // Automatically fetches an Azure AD token for resource = https://management.core.chinacloudapi.cn
+    // Automatically fetches an Azure AD token for resource = https://management.core.chinacloudapi.cn/.default
     // and attaches it to the outgoing Azure Resource Manager API call.
     var restartRequest = new DurableHttpRequest(
         HttpMethod.Post, 
         new Uri($"https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/restart?api-version={apiVersion}"),
-        tokenSource: new ManagedIdentityTokenSource("https://management.core.chinacloudapi.cn"));
+        tokenSource: new ManagedIdentityTokenSource("https://management.core.chinacloudapi.cn/.default"));
     DurableHttpResponse restartResponse = await context.CallHttpAsync(restartRequest);
     if (restartResponse.StatusCode != HttpStatusCode.OK)
     {
@@ -274,7 +274,7 @@ module.exports = df.orchestrator(function*(context) {
     const resourceGroup = "myRG";
     const vmName = "myVM";
     const apiVersion = "2019-03-01";
-    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.chinacloudapi.cn");
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.chinacloudapi.cn/.default");
 
     // get a list of the Azure subscriptions that I have access to
     const restartResponse = yield context.df.callHttp(
@@ -290,7 +290,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-在以上示例中，`tokenSource` 参数配置为获取 [Azure 资源管理器](../../azure-resource-manager/management/overview.md)的 Azure AD 令牌。 该令牌由资源 URI `https://management.core.chinacloudapi.cn` 标识。 该示例假设当前函数应用在本地运行，或者已使用托管标识部署为函数应用。 假设本地标识或托管标识有权管理指定资源组 `myRG` 中的 VM。
+在以上示例中，`tokenSource` 参数配置为获取 [Azure 资源管理器](../../azure-resource-manager/management/overview.md)的 Azure AD 令牌。 该令牌由资源 URI `https://management.core.chinacloudapi.cn/.default` 标识。 该示例假设当前函数应用在本地运行，或者已使用托管标识部署为函数应用。 假设本地标识或托管标识有权管理指定资源组 `myRG` 中的 VM。
 
 在运行时，配置的令牌源会自动返回 OAuth 2.0 访问令牌。 然后，源会将该令牌作为持有者令牌添加到传出请求的 Authorization 标头中。 相比于将授权标头手动添加到 HTTP 请求，此模型是一种改进，原因如下：
 

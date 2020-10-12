@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 07/01/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: c4a08a7c5fb68ac67da9e13d4cd332975d78ead0
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 4a10a1b23aed7beb1e521bb0188902d398603d72
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021551"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936999"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 文件
 
@@ -40,6 +40,8 @@ ms.locfileid: "90021551"
     
 * *Standard_RAGRS* - 标准读取访问异地冗余存储 (RA-GRS)
 * *Premium_LRS* - 高级本地冗余存储 (LRS)
+
+    <!--Not Available on *Premium_ZRS*-->
 
 > [!NOTE]
 > Azure 文件存储在运行 Kubernetes 1.13 或更高版本的 AKS 群集中支持高级存储，最小高级文件共享为 100GB
@@ -169,7 +171,7 @@ Volumes:
 [...]
 ```
 
-## <a name="mount-options"></a>装载选项
+## <a name="mount-options"></a><a name="mount-options"></a>装载选项
 
 对于 Kubernetes 版本 1.13.0 及更高版本，fileMode 和 dirMode 的默认值为 0777。 如果使用存储类动态创建永久性卷，则可以在存储类对象上指定装载选项。 以下示例设置 *0777*：
 
@@ -217,13 +219,13 @@ parameters:
 
 <!-- LINKS - internal -->
 
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-group-list]: https://docs.azure.cn/cli/group#az-group-list
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-group-list]: https://docs.azure.cn/cli/group#az_group_list
 [az-resource-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
-[az-storage-account-create]: https://docs.azure.cn/cli/storage/account#az-storage-account-create
-[az-storage-create]: https://docs.azure.cn/cli/storage/account#az-storage-account-create
-[az-storage-key-list]: https://docs.azure.cn/cli/storage/account/keys#az-storage-account-keys-list
-[az-storage-share-create]: https://docs.azure.cn/cli/storage/share#az-storage-share-create
+[az-storage-account-create]: https://docs.azure.cn/cli/storage/account#az_storage_account_create
+[az-storage-create]: https://docs.azure.cn/cli/storage/account#az_storage_account_create
+[az-storage-key-list]: https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list
+[az-storage-share-create]: https://docs.azure.cn/cli/storage/share#az_storage_share_create
 [mount-options]: #mount-options
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md

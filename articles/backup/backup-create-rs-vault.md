@@ -4,14 +4,14 @@ description: 本文介绍如何创建和配置用于存储备份和恢复点的�
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 08/30/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 296c7d7ba127b522834a0380a8532e62065db92f
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 4d10999accf489fc18034e3ae6b8017415651dc6
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402635"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871158"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>创建和配置恢复服务保管库
 
@@ -32,14 +32,14 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
 
 1. 选择存储复制类型，然后选择“保存”。
 
-     ![设置新保管库的存储配置](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![设置新保管库的存储配置](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
    - 如果使用 Azure 作为主要备份存储终结点，则我们建议继续使用默认的“异地冗余”设置。
    - 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。
-   - 详细了解[异地冗余](../storage/common/storage-redundancy.md)和[本地冗余](../storage/common/storage-redundancy.md)。
+   - 详细了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)。
 
 <!--Not available in MC: Azure file share-->
-
+<!--Not available in MC: Cross Region Restore-->
 <!--Not available in MC: ## Set encryption settings-->
 ## <a name="modifying-default-settings"></a>修改默认设置
 

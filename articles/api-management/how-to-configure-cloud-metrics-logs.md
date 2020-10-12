@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: aaf813d6c3c656c9f40a25473fabfe354808e0c9
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: 09568f778cc6c37e524b804ebdb04d726b7a812c
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440759"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871216"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>为 Azure API 管理自承载网关配置云指标和日志
 
@@ -57,15 +57,13 @@ ms.locfileid: "84440759"
 
 ## <a name="logs"></a>日志
 
-自承载网关当前不向云发送[诊断日志](/api-management/api-management-howto-use-azure-monitor#diagnostic-logs)。 但是，可以在部署自承载网关[本地配置和保存日志](how-to-configure-local-metrics-logs.md)。 
+自承载网关当前不向云发送[诊断日志](./api-management-howto-use-azure-monitor.md#activity-logs)。 但是，可以在部署自承载网关[本地配置和保存日志](how-to-configure-local-metrics-logs.md)。 
 
-如果网关部署在 [Azure Kubernetes 服务](https://www.azure.cn/home/features/kubernetes-service/)中，则可以启用[适用于容器的 Azure Monitor](/azure-monitor/insights/container-insights-overview)，从容器收集日志并查看 Log Analytics 中的日志。 
+如果网关部署在 [Azure Kubernetes 服务](https://www.azure.cn/home/features/kubernetes-service/)中，则可以启用[适用于容器的 Azure Monitor](../azure-monitor/insights/container-insights-overview.md)，从容器收集日志并查看 Log Analytics 中的日志。 
 
 
 ## <a name="next-steps"></a>后续步骤
 
 * 若要详细了解自承载网关，请参阅 [Azure API 管理自承载网关概述](self-hosted-gateway-overview.md)
 * 了解[在本地配置和保存日志](how-to-configure-local-metrics-logs.md)
-
-
 

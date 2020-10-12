@@ -4,14 +4,14 @@ description: 本文介绍了如何先删除依赖项，然后删除 Azure 备份
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/20/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: df8667944267a5bffe7ca0fe374fa0424f7fdf1a
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: bee809fb94c7a324a47e1d2d247fea0e600b4d03
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402438"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871473"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>删除 Azure 备份恢复服务保管库
 
@@ -335,7 +335,7 @@ ms.locfileid: "91402438"
                        [--yes]
     ```
 
-    有关详细信息，请参阅 [此文](/cli/backup/vault?view=azure-cli-latest)
+    有关详细信息，请参阅 [此文](/cli/backup/vault)
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>使用 Azure 资源管理器删除恢复服务保管库
 

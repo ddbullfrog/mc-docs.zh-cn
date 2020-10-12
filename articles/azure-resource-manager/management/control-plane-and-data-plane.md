@@ -4,16 +4,16 @@ description: 介绍控制平面操作和数据平面操作之间的差异。 控
 ms.topic: conceptual
 origin.date: 09/10/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes|no
 ms.testdate: 09/21/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 3e5d94162e1f1f4a21d28edb137042eff4cee20d
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 354e3ea96f4ae8459362ef3004b9e768798eefe8
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822432"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937066"
 ---
 <!--Verified successfully-->
 # <a name="azure-control-plane-and-data-plane"></a>Azure 控制平面和数据平面
@@ -51,7 +51,7 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceG
 
 Azure 资源管理器处理所有控制平面请求。 它将自动应用已实现的 Azure 功能来管理资源，例如：
 
-* [Azure 基于角色的访问控制 (RBAC)](../../role-based-access-control/overview.md)
+* [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [管理锁](lock-resources.md)
 * [活动日志](view-activity-logs.md)
@@ -80,5 +80,4 @@ POST {Endpoint}/text/analytics/v2.0/languages
 
 * 若要详细了解策略定义对新资源和现有资源的影响，请参阅[评估新 Azure Policy 定义的影响](../../governance/policy/concepts/evaluate-impact.md)。
 
-<!-- Update_Description: new article about control plane and data plane -->
-<!--NEW.date: 09/21/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

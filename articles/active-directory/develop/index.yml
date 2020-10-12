@@ -3,18 +3,18 @@ title: Microsoft 标识平台文档
 summary: Microsoft 标识平台是一项身份验证服务，也是开源库和应用程序管理工具。 在我们的快速入门、教程和代码示例中了解如何创建基于标准的新式身份验证解决方案。 构建这样的应用程序，你的用户和客户登录它们来使用其 Microsoft 身份或社交帐户，或者它们授权访问你的 API 或 Microsoft API（例如 Microsoft Graph）。
 metadata:
   ms.topic: landing-page
-  ms.date: 09/22/2020
+  ms.date: 10/09/2020
   author: mmacy
   ms.author: v-junlch
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 78cf67ef2e71862654e3d583880878bdd9ee4dea
-  ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+  ms.openlocfilehash: bc458615f462c762bfb964da8a5af6e6cb09498f
+  ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/25/2020
-  ms.locfileid: "91244675"
+  ms.lasthandoff: 10/10/2020
+  ms.locfileid: "91937177"
 landingContent:
 - title: 关于 Microsoft 标识平台
   linkLists:
@@ -52,8 +52,8 @@ landingContent:
       url: quickstart-v2-aspnet-webapp.md
     - text: ASP.NET Core
       url: quickstart-v2-aspnet-core-webapp.md
-    - text: Python
-      url: quickstart-v2-python-webapp.md
+    - text: Blazor 服务器
+      url: tutorial-blazor-server.md
 - title: 移动/本机应用
   linkLists:
   - linkListType: get-started
@@ -71,7 +71,7 @@ landingContent:
     - text: ASP.NET
       url: quickstart-v2-dotnet-native-aspnet.md
     - text: ASP.NET Core
-      url: https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/calling-a-web-api-in-an-aspnet-core-web-application-using-azure-ad/
+      url: quickstart-v2-aspnet-core-web-api.md
 - title: Microsoft Graph
   linkLists:
   - linkListType: get-started
@@ -106,6 +106,12 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: 教程：Blazor Server
+      url: tutorial-blazor-server.md
+    - text: 快速入门：保护 ASP.NET Core Web API
+      url: quickstart-v2-aspnet-core-web-api.md
+    - text: MSAL Python API 参考
+      url: https://docs.microsoft.com/python/api/msal/
     - text: 快速入门：注册应用（重写）
       url: quickstart-register-app.md
     - text: 快速入门：公开 Web API（重写）

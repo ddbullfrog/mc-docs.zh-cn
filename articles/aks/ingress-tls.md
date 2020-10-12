@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 08/17/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 65c4008290783b201e5df892f6cedc6929e86ce9
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: c553e3bdbe9626bf0a32bc6f907018c959bf6596
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020833"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936984"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中创建 HTTPS 入口控制器
 
@@ -41,7 +41,7 @@ ms.locfileid: "90020833"
 
 <!--Not Available on [a custom domain][custom-domain]-->
 
-本文使用 [Helm 3][helm] 安装 NGINX 入口控制器和证书管理器。 请确保使用 Helm 的最新版本。 有关升级说明，请参阅 [Helm 安装文档][helm-install]。有关配置和使用 Helm 的详细信息，请参阅[在 Azure Kubernetes 服务 (AKS) 中使用 Helm 安装应用程序][use-helm]。
+本文使用 [Helm 3][helm] 安装 NGINX 入口控制器和证书管理器。 请确保使用最新版本的 Helm，并且有权访问 ingress-nginx 和 jetstack Helm 存储库 。 有关升级说明，请参阅 [Helm 安装文档][helm-install]。有关配置和使用 Helm 的详细信息，请参阅[在 Azure Kubernetes 服务 (AKS) 中使用 Helm 安装应用程序][use-helm]。
 
 本文还要求运行 Azure CLI 2.0.64 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
 
@@ -99,7 +99,7 @@ nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_I
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
-    --record-set-name '*' \
+    --record-set-name * \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
@@ -433,7 +433,7 @@ kubectl delete namespace ingress-basic
 
 - [创建具有外部网络连接的基本入口控制器][aks-ingress-basic]
 
-    <!--Not Available on - [Enable the HTTP application routing add-on][aks-http-app-routing]-->
+<!--Not Available on - [Enable the HTTP application routing add-on][aks-http-app-routing]-->
 
 - [创建使用内部、专用网络和 IP 地址的入口控制器][aks-ingress-internal]
 - [创建使用你自己的 TLS 证书的入口控制器][aks-ingress-own-tls]
@@ -441,7 +441,7 @@ kubectl delete namespace ingress-basic
 
 <!-- LINKS - external -->
 
-[az-network-dns-record-set-a-add-record]: https://docs.azure.cn/cli/network/dns/record-set/a#az-network-dns-record-set-a-add-record
+[az-network-dns-record-set-a-add-record]: https://docs.azure.cn/cli/network/dns/record-set/a#az_network_dns_record_set_a_add_record
 
 <!--Not Available on [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-the-domain-->
 
@@ -462,7 +462,7 @@ kubectl delete namespace ingress-basic
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
-[az-network-public-ip-create]: https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-create
+[az-network-public-ip-create]: https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_create
 [aks-ingress-internal]: ingress-internal-ip.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-ingress-basic]: ingress-basic.md

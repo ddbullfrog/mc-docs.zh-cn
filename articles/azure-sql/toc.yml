@@ -47,8 +47,8 @@
               href: ./database/security-controls-policy.md
             - name: 安全属性
               href: database/security-controls.md
-            - name: 高级数据安全
-              href: database/advanced-data-security.md
+            - name: Azure Defender for SQL
+              href: database/azure-defender-for-sql.md
             - name: 高级威胁防护
               href: database/threat-detection-overview.md
             - name: 数据发现和分类
@@ -545,9 +545,6 @@
           href: database/powershell-script-content-guide.md?tabs=single-database
         - name: Azure 资源管理器
           href: database/arm-templates-content-guide.md?tabs=single-database
-        - name: Azure Policy 内置策略定义
-          displayName: 'samples, policies, definitions'
-          href: ./database/policy-samples.md
         - name: 代码示例
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL 托管实例 (SQL MI)
@@ -685,9 +682,6 @@
           href: database/powershell-script-content-guide.md?tabs=managed-instance
         - name: Azure 资源管理器
           href: database/arm-templates-content-guide.md?tabs=managed-instance
-        - name: Azure Policy 内置策略定义
-          displayName: 'samples, policies, definitions'
-          href: ./database/policy-samples.md
         - name: 代码示例
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Azure VM 上的 SQL Server
@@ -702,8 +696,6 @@
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
         - name: 快速入门
           items:
-            - name: 创建 SQL VM
-              items: null
             - name: 门户
               href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
             - name: PowerShell
@@ -783,7 +775,7 @@
         - name: 参考
           items:
             - name: Azure PowerShell
-              href: 'https://docs.microsoft.com/powershell/azure/overview'
+              href: 'https://docs.microsoft.com/powershell/azure/'
             - name: Azure CLI
               href: /cli/
             - name: T-SQL
@@ -792,9 +784,12 @@
               href: 'https://docs.microsoft.com/sql/connect/sql-connection-libraries'
             - name: REST
               href: 'https://docs.microsoft.com/rest/api/'
+            - name: Azure Policy 内置策略定义
+              displayName: 'samples, policies, definitions'
+              href: ./database/policy-reference.md
         - name: 资源
           items:
-            - name: 常见问题
+            - name: 常见问题解答
               href: virtual-machines/windows/frequently-asked-questions-faq.md
             - name: 定价
               href: virtual-machines/windows/pricing-guidance.md
@@ -822,7 +817,7 @@
               href: virtual-machines/linux/sql-vm-create-portal-quickstart.md
         - name: 资源
           items:
-            - name: 常见问题
+            - name: 常见问题解答
               href: virtual-machines/linux/frequently-asked-questions-faq.md
             - name: “Linux 上的 SQL Server”文档
               href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-overview'
@@ -882,6 +877,9 @@
           href: 'https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server'
         - name: Ruby
           href: 'https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server'
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./database/policy-reference.md
 - name: 资源
   items:
     - name: 公共数据集
@@ -892,7 +890,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/zh-CN/home'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/sql-azure'
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 连接错误
           href: database/troubleshoot-common-errors-issues.md

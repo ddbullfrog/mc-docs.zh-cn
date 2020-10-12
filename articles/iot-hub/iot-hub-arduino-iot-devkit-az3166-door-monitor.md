@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 03/19/2018
 ms.date: 05/11/2020
 ms.author: liydu
-ms.openlocfilehash: 4f71722ea8aa0f25b74f0b11e41d657ca8b68b70
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 5d3ca628b6e3512177fd6a838a49bf1a77598f14
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186937"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937327"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>门监视器 - 使用 Azure Functions 和 SendGrid 在门打开时发送电子邮件           
 
@@ -67,13 +67,13 @@ MXChip IoT DevKit 包含内置的磁传感器。 在此项目中，请检测附�
 
 完成注册表单：
 
-* **资源组**：创建用于托管 SendGrid 服务的资源组，或使用现有资源组。 请参阅[使用资源组管理 Azure 资源](/azure-resource-manager/resource-group-portal)。
+   * **资源组**：创建用于托管 SendGrid 服务的资源组，或使用现有资源组。 请参阅[使用资源组管理 Azure 资源](../azure-resource-manager/management/manage-resource-groups-portal.md)。
 
-* **名称**：SendGrid 服务的名称。 选择一个不同于你的其他服务的唯一名称。
+   * **名称**：SendGrid 服务的名称。 选择一个不同于你的其他服务的唯一名称。
 
-  * **密码**：此服务需要一个密码，该密码将不用于此项目中的任何项。
+   * **密码**：此服务需要一个密码，该密码将不用于此项目中的任何项。
 
-* **电子邮件**：SendGrid 服务将向此电子邮件地址发送验证。
+   * **电子邮件**：SendGrid 服务将向此电子邮件地址发送验证。
 
 选中“固定到仪表板”选项，以便以后能够轻松查找此应用程序，然后单击“购买”以提交注册表单   。
  
@@ -196,8 +196,3 @@ DevKit 将重新启动并开始运行代码。
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [堆栈溢出](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>后续步骤
-
-你已经了解了如何将 DevKit 设备连接到 Azure IoT 远程监视解决方案加速器并使用 SendGrid 服务来发送电子邮件。 下面是建议的后续步骤：
-
-* [将 MXChip IoT DevKit 设备连接到 Azure IoT Central 应用程序](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

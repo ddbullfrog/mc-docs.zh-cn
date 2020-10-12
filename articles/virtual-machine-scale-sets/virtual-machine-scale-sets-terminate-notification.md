@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 07/10/2020
+ms.date: 09/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 2e8ed702763a17299a7e38e330cbcfe4578c867f
-ms.sourcegitcommit: 65a7360bb14b0373e18ec8eaa288ed3ac7b24ef4
+ms.openlocfilehash: 2e6fb4f36c5ae35b6ea97f9d9e302303dd110fd6
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86219748"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937518"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>为 Azure 虚拟机规模集实例终止通知
 规模集实例可以选择接收实例终止通知，并为终止操作设置预定义的延迟超时。 终止通知通过 Azure 元数据服务 - [Scheduled Events](../virtual-machines/windows/scheduled-events.md) 发送，该服务为影响性操作（如重新启动和重新部署）提供通知和延迟。 解决方案将另一个事件“终止”添加到 Scheduled Events 列表中，终止事件的关联延迟将取决于用户在其规模集模型配置中指定的延迟限制。
@@ -91,7 +91,7 @@ New-AzVmssConfig `
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
-  -TerminateScheduledEvents $true
+  -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 15
 ```
 上述示例对现有规模集启用终止通知，并为终止事件设置 15 分钟的超时。

@@ -10,12 +10,12 @@ origin.date: 03/25/2018
 ms.date: 12/02/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: c7ffc31fffcdb56e59ea61981d0298b586d6e7e9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2c0dd3b6f981be7737425774640918b5be25c618
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74389061"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937344"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>教程：第 2 部分 - 查看路由的消息
 
@@ -27,11 +27,11 @@ ms.locfileid: "74389061"
 
 下面是消息路由规则；这些规则是在本教程的第 1 部分设置的，本文（第二部分）将演示其工作方式。
 
-|value |结果|
+|值 |结果|
 |------|------|
 |级别=“storage” |写入到 Azure 存储。|
 |级别=“critical” |写入服务总线队列。 逻辑应用从队列检索消息并使用 Office 365 通过电子邮件发送该消息。|
-|默认值 |使用 Power BI 显示此数据。|
+|default |使用 Power BI 显示此数据。|
 
 现在，创建要将消息路由到的资源，运行某个应用以将消息发送到中心，然后查看路由的运作方式。
 
@@ -41,7 +41,7 @@ ms.locfileid: "74389061"
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，选择“+ 创建资源”。  在搜索框中输入“逻辑应用”，并单击 Enter  。 在显示的搜索结果中选择“逻辑应用”，然后选择“创建”进入“创建逻辑应用”窗格   。 填充字段。
 
-   **名称**：此字段是逻辑应用的名称。 本教程使用 ContosoLogicApp  。
+   **Name**：此字段是逻辑应用的名称。 本教程使用 ContosoLogicApp  。
 
    **订阅**：选择 Azure 订阅。
 
@@ -83,13 +83,13 @@ ms.locfileid: "74389061"
 
    ![Office365 选项](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
-8. 登录到 Office 365 帐户并设置连接。 如果此操作超时，只需重试即可。 为电子邮件收件人指定电子邮件地址。 同时指定主题，并在正文键入想要让收件人看到的消息。 测试时，可填入自己的电子邮件地址作为收件人。
+8. 登录到工作或学校帐户以设置连接。 如果此操作超时，只需重试即可。 为电子邮件收件人指定电子邮件地址。 同时指定主题，并在正文键入想要让收件人看到的消息。 测试时，可填入自己的电子邮件地址作为收件人。
 
    选择“添加动态内容”，以显示消息中可包含的内容  。 选择“内容”- 将包含电子邮件中的消息  。
 
    ![逻辑应用的电子邮件选项](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png)
 
-9. 选择“保存”  。 然后关闭逻辑应用设计器。
+9. 选择“保存”。  然后关闭逻辑应用设计器。
 
 ## <a name="set-up-azure-stream-analytics"></a>设置 Azure 流分析
 
@@ -111,11 +111,11 @@ ms.locfileid: "74389061"
 
    ![创建流分析作业](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
-3. 选择“创建”  来创建作业。 部署可能需要几分钟时间。
+3. 选择“创建”  来创建作业。 可能需要几分钟时间才能完成部署。
 
     若要返回到该作业，请选择“资源组”。  本教程使用 ContosoResources  。 选择资源组，然后在资源列表中选择流分析作业。
 
-### <a name="add-an-input-to-the-stream-analytics-job"></a>向流分析作业添加输入
+### <a name="add-an-input-to-the-stream-analytics-job"></a>将输入添加到流分析作业
 
 4. 在“作业拓扑”下选择“输入”。  
 
@@ -139,9 +139,9 @@ ms.locfileid: "74389061"
 
    ![设置流分析作业的输入](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
-6. 选择“保存”  。
+6. 选择“保存”。 
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>向流分析作业添加输出
+### <a name="add-an-output-to-the-stream-analytics-job"></a>将输出添加到流分析作业
 
 1. 在“作业拓扑”下选择“输出”。  
 
@@ -159,7 +159,7 @@ ms.locfileid: "74389061"
 
    ![设置流分析作业的输出](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
-4. 选择“保存”  。
+4. 选择“保存”。 
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>配置流分析作业的查询
 
@@ -171,19 +171,19 @@ ms.locfileid: "74389061"
 
    ![设置流分析作业的查询](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-query.png)
 
-4. 选择“保存”  。
+4. 选择“保存”。 
 
 5. 关闭“查询”窗格。 随后将返回到资源组中资源的视图。 选择流分析作业。 本教程中将其称为 **contosoJob**。
 
 ### <a name="run-the-stream-analytics-job"></a>运行流分析作业
 
-在流分析作业中，单击“启动”   > “立即”   >   “启动”。 成功启动作业以后，作业状态将从“已停止”  更改为“正在运行”  。
+在流分析作业中，单击“启动”   > “立即”   >   “启动”。 成功启动作业后，作业状态将从“已停止”  更改为“正在运行”  。
 
 设置 Power BI 报表需要数据，因此将先创建设备并运行设备模拟应用程序再设置 Power BI。
 
 ## <a name="run-simulated-device-app"></a>运行模拟设备应用
 
-在本教程的第 1 部分中，我们已设置一个使用 IoT 设备进行模拟的设备。 在本部分中，我们将下载 .NET 控制台应用，用于模拟设备向 IoT 中心发送设备到云的消息（假设在第 1 部分中尚未下载相应的应用和资源）。
+在本教程的第 1 部分，我们已设置一个使用 IoT 设备进行模拟的设备。 在本部分中，你将下载 .NET 控制台应用，用于模拟设备向 IoT 中心发送设备到云的消息（假设在第 1 部分尚未下载相应的应用和资源）。
 
 此应用程序针对每个不同的消息路由方法发送消息。 下载内容还带有一个文件夹，其中包含完整的 Azure 资源管理器模板和参数文件，以及 Azure CLI 和 PowerShell 脚本。
 
@@ -219,7 +219,7 @@ ms.locfileid: "74389061"
 
 2. 在 [Azure 门户](https://portal.azure.cn)中选择“资源组”，然后选择你的资源组  。 本教程使用 ContosoResources  。 
 
-    依次选择存储帐户、“容器”  和相应的容器。 本教程使用 contosoresults  。 现在应该可以看见一个文件夹，可继续深入查看目录，直到看见一个或多个文件。 打开其中某个文件；这些文件中包含路由到存储帐户的条目。 
+    依次选择“存储帐户”、“容器”、“容器”  。 本教程使用 contosoresults  。 现在应该可以看见一个文件夹，可继续深入查看目录，直到看见一个或多个文件。 打开其中某个文件；这些文件中包含路由到存储帐户的条目。 
 
    ![存储中的结果文件](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -257,11 +257,11 @@ ms.locfileid: "74389061"
 
    已创建一个折线图。 X 轴显示 UTC 时区的日期和时间。 Y 轴显示来自传感器的温度。
 
-6. 创建另一个折线图，显示某段时间的实时湿度。 若要设置第二个图表，请对第一个图表执行相同的过程，将 **EventEnqueuedUtcTime** 置于 x 轴（**轴**），将“湿度”  置于 y 轴（**值**）。
+6. 创建另一个折线图，显示某段时间的实时湿度。 要设置第二个折线图，请执行与第一个图表相同的步骤，将“EventEnqueuedUtcTime”置于 x 轴（“轴”），将“湿度”置于 y 轴（“值”）     。
 
    ![最终的 Power BI 报表，其中包含两个图表](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
 
-7. 选择“保存”  以保存报表，并在出现提示时输入报表名称。
+7. 选择“保存”以保存报表，如果出现提示，请输入报表的名称  。
 
 现在应在两个图表上都能看到数据。 此结果表示以下语句为 true：
 
@@ -273,7 +273,7 @@ ms.locfileid: "74389061"
 
 ## <a name="clean-up-resources"></a>清理资源 
 
-若要删除在本教程的两个部分中创建的所有 Azure 资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 在这种情况下，它会删除 IoT 中心、服务总线命名空间和队列、逻辑应用、存储帐户和资源组本身。 还可以删除 Power BI 资源并清除在教程中发送的电子邮件。
+若要删除在本教程的两个部分中创建的所有 Azure 资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 在这种情况下，它会删除 IoT 中心、服务总线命名空间和队列、逻辑应用、存储帐户和资源组本身。 还可以删除 Power BI 资源并清理使用教程期间发送的电子邮件。
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>清理 Power BI 可视化效果中的资源
 
@@ -297,7 +297,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ### <a name="clean-up-test-emails"></a>清理测试电子邮件
 
-你可能还希望删除收件箱中在设备应用程序运行时通过逻辑应用生成的电子邮件数。
+你可能还想要在运行设备应用程序的同时删除收件箱中通过逻辑应用生成的电子邮件数量。
 
 ## <a name="next-steps"></a>后续步骤
 

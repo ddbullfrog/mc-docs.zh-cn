@@ -1,21 +1,20 @@
 ---
 title: 如何启动 Azure 流分析作业
 description: 本文介绍如何从 Azure 门户、PowerShell 和 Visual Studio 启动流分析作业。
-services: stream-analytics
-author: lingliw
-ms.author: v-lingwu
-manager: digimobile
-ms.reviewer: jasonh
+author: Johnnytechn
+ms.author: v-johya
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 04/03/2019
-ms.date: 08/20/2020
-ms.openlocfilehash: a5885a7f916fee13c10cffcbdf082c995b13f65a
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 10/09/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 74204365536c08c959b8b014d78bbd20a5a236cb
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715728"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936843"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>如何启动 Azure 流分析作业
 
@@ -50,7 +49,7 @@ Start-AzStreamAnalyticsJob `
 
 **OutputStartMode** 有三个选项：*JobStartTime*、*CustomTime* 和 *LastOutputEventTime*。 如果此属性不存在，则默认值为 *JobStartTime*。 有关这些选项的详细信息，请参阅上文。
 
-有关 `Start-AzStreamAnalyitcsJob` cmdlet 的详细信息，请查看 [Start-AzStreamAnalyticsJob 参考](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob)。
+有关 `Start-AzStreamAnalyitcsJob` cmdlet 的详细信息，请查看 [Start-AzStreamAnalyticsJob 参考](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob)。
 
 ## <a name="next-steps"></a>后续步骤
 

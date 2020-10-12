@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 origin.date: 12/06/2018
-ms.date: 08/20/2020
-ms.custom: seodec18
-ms.openlocfilehash: 92dad03fe226a9740b790a6736df47000f5cef3c
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 10/09/2020
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 9181fcdd04032a8d6aee29acb92e000cc31515d7
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715747"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936808"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK：使用用于 .NET 的 Azure 流分析 API 设置和运行分析作业
 了解如何通过管理 .NET SDK 设置和运行使用 .NET 版流分析 API 的分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
@@ -306,7 +306,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 
 <!--Link references-->
 [azure.blob.storage]: /storage/
-[azure.blob.storage.use]: /storage/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage.use]: storage/blobs/storage-quickstart-blobs-dotnet
 
 [azure.event.hubs]: https://www.azure.cn/home/features/event-hubs/
 [azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx

@@ -371,7 +371,7 @@
     - name: .NET
       href: 'https://docs.azure.cn/dotnet/api/overview/virtual-network'
     - name: Java
-      href: 'https://docs.azure.cn/java/api/'
+      href: 'https://docs.azure.cn/java/api/overview/'
     - name: Node.js
       href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
     - name: Python

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ebaf881b1280b2233cb0e5e2af147b65030df4b5
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 5c7beba415ee433eb7c6cfc078fe7bfdd88f525c
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945197"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936954"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft 标识平台和 OpenID Connect 协议
 
@@ -248,7 +248,7 @@ Content-Type: application/x-www-form-urlencoded
 
 | 参数 | 说明 |
 | --- | --- |
-| `token` | 将用来调用 UserInfo 终结点的令牌。|
+| `access_token` | 将用来调用 UserInfo 终结点的令牌。|
 | `token_type` | 始终为“Bearer” |
 | `expires_in`| 访问令牌的有效期（秒）。 |
 | `scope` | 授予访问令牌的权限。  请注意，由于 UserInfo 终结点承载在 MS Graph 上，因此，如果之前已授权应用访问额外的 Graph 作用域（例如 user.read），此处可能会列出这些作用域。  这是因为给定资源的令牌始终包含当前授予给客户端的每个权限。  |

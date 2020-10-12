@@ -1,20 +1,20 @@
 ---
 title: Azure 资源管理器的内置策略定义
 description: 列出 Azure 资源管理器的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-origin.date: 09/10/2020
+origin.date: 09/16/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes|no
-ms.testdate: 09/21/2020null
+ms.testdate: ''
 ms.author: v-yeche
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f83b711fe32c047a3e0e6a2ab13940bc4bdf6c28
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: 5ce9070213ebc636f1e0974cbac56cef75831e8e
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822465"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936986"
 ---
 <!--Verified successfully-->
 # <a name="azure-policy-built-in-definitions-for-azure-resource-manager"></a>Azure 资源管理器的 Azure Policy 内置定义
@@ -33,5 +33,4 @@ ms.locfileid: "90822465"
 - 查看 [Azure Policy 定义结构](../../governance/policy/concepts/definition-structure.md)。
 - 查看[了解策略效果](../../governance/policy/concepts/effects.md)。
 
-<!-- Update_Description: new article about policy reference -->
-<!--NEW.date: 09/21/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

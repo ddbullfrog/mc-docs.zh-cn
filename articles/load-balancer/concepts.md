@@ -6,18 +6,18 @@ documentationcenter: na
 author: WenJason
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/13/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
-ms.openlocfilehash: d080dbf4ebaa4fd524fe332ffaaa65f682f1cb33
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: 3df6fb3f50e9afbc24051ec4eb37c066d1aaef41
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045797"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943513"
 ---
 # <a name="azure-load-balancer-concepts"></a>Azure 负载均衡器的概念
 
@@ -82,7 +82,7 @@ ms.locfileid: "89045797"
 
 ## <a name="limitations"></a><a name = "limitations"></a>限制
 
-- 对于内部负载均衡方案，辅助 IP 配置当前不支持浮动 IP。
+- 对于内部负载均衡方案或公共负载均衡方案，辅助 IP 配置当前不支持浮动 IP。
 
 - 负载均衡器规则不能跨越两个虚拟网络。  前端及其后端实例必须位于同一个虚拟网络中。  
 

@@ -148,7 +148,7 @@
   items:
     - name: 映像
       href: shared-image-galleries.md
-    - name: Azure Resource Manager
+    - name: Azure 资源管理器
       href: ../../azure-resource-manager/management/overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 资源管理器模板
@@ -595,7 +595,7 @@
                       href: ../../azure-monitor/platform/data-sources-custom-logs.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
                     - name: 自定义字段
                       href: ../../azure-monitor/platform/custom-fields.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-            - name: 故障排除
+            - name: 疑难解答
               items:
                 - name: Log Analytics VM 扩展
                   href: ../../azure-monitor/platform/vmext-troubleshoot.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
@@ -731,7 +731,7 @@
           href: ../extensions/extensions-rmpolicy-howto-ps.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 导出扩展
           href: ../extensions/export-templates.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-        - name: 故障排除
+        - name: 疑难解答
           href: ../extensions/troubleshoot.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: Azure 磁盘加密
           href: ../extensions/azure-disk-enc-windows.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
@@ -750,7 +750,7 @@
         - name: Azure Monitor
           items:
             - name: 诊断扩展
-              href: ../extensions/../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json?toc=/virtual-machines/extensions/toc.json
+              href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json?toc=/virtual-machines/extensions/toc.json
             - name: Log Analytics
               href: ../extensions/oms-windows.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
             - name: Azure Monitor Windows Dependency Agent
@@ -784,7 +784,7 @@
               href: aws-to-azure.md
             - name: 使用 Azure Site Recovery
               href: ../../site-recovery/migrate-overview.md?bc=/virtual-machines/windows/breadcrumb/toc.json&toc=/virtual-machines/windows/toc.json
-- name: 故障排除
+- name: 疑难解答
   href: ../troubleshooting/index.yml
 - name: 参考
   items:
@@ -795,7 +795,7 @@
     - name: .NET
       href: 'https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute'
     - name: Java
-      href: 'https://docs.azure.cn/java/api'
+      href: 'https://docs.azure.cn/java/api/overview/'
     - name: Node.js
       href: 'https://docs.azure.cn/develop/nodejs/#azure-sdk'
     - name: Python

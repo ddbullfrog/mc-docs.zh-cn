@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 08/27/2018
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 50826b3e45e93faa6a642b4c8de78abc8c33b890
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 3298cd0c3aff96d125c8443014857c434049bb72
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852124"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871277"
 ---
 # <a name="add-an-api-manually"></a>手动添加 API
 
@@ -39,15 +39,14 @@ ms.locfileid: "85852124"
 1. 在 Azure 门户中导航到 API 管理服务，然后从菜单中选择“API”。
 2. 在左侧菜单中，选择“+ 添加 API”。
 3. 从列表中选择“空白 API”。  
-
-    ![空白 API](./media/add-api-manually/blank-api.png)  
-4. 输入 API 的设置。 在[导入和发布第一个 API](import-and-publish.md) 教程中对这些设置进行了说明。
+    空白 API![](./media/add-api-manually/blank-api.png)  
+4. 输入 API 的设置。 在[导入和发布第一个 API](import-and-publish.md#-import-and-publish-a-backend-api) 教程中对这些设置进行了说明。
 5. 选择“创建” 。
 
 此时，API 管理中没有任何操作映射到后端 API 中的操作。 如果调用通过后端（而不是通过 API 管理）公开的操作，则会收到 404 错误。
 
 >[!NOTE] 
-> 默认情况下，在添加某个 API 时，除非已将某些操作列入允许列表，否则即使该 API 已连接到某个后端服务，APIM 也不会公开任何操作。 若要将后端服务的某个操作列入允许列表，请创建一个映射到后端操作的 APIM 操作。
+> 默认情况下，在添加某个 API 时，除非你允许，否则即使该 API 已连接到某个后端服务，APIM 也不会公开任何操作。 若要允许后端服务的某个操作，请创建一个映射到后端操作的 APIM 操作。
 
 ## <a name="add-and-test-an-operation"></a>添加并测试操作
 

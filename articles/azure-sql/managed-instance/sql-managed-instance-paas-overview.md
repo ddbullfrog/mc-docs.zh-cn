@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sstein, carlrab, vanto
+ms.reviewer: sstein, vanto
 origin.date: 08/14/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 5ee9666e3a133c32575c1e57abef23e01de8e3d4
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: 35246c48b17e6c349aa365cdbb4a899a4cb3a704
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014367"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872455"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>什么是 Azure SQL 托管实例？
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -203,7 +203,7 @@ SQL 托管实例支持与 SQL Server 2008 数据库的向后兼容。 支持从 
   
 下图概括描绘了 SQL 托管实例中外围应用的兼容性：  
 
-![迁移](./media/sql-managed-instance-paas-overview/migration.png)
+![外围应用兼容性](./media/sql-managed-instance-paas-overview/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-sql-managed-instance"></a>本地 SQL Server 与 SQL 托管实例之间的主要差异
 

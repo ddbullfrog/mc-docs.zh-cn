@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/23/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1eb72847fc7885310ccb4a5be5fda105223a4846
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: e7115e066a9739e449b81e1a44b22f66f85a03d3
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244834"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937200"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>快速入门：在 Azure Active Directory 中创建一个新租户
 可使用 Azure Active Directory (Azure AD) 门户执行所有管理任务，包括为组织创建新的租户。 
@@ -37,7 +37,7 @@ ms.locfileid: "91244834"
 
     ![Azure Active Directory 的“创建资源”页](./media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
-1. 选择“标识”，然后选择“Azure Active Directory”   。
+1. 搜索并选择“Azure Active Directory”  。
 
     随即出现“创建目录”页面  。
 

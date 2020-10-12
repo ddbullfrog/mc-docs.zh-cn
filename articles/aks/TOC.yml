@@ -114,6 +114,8 @@
           href: scale-cluster.md
         - name: 升级 AKS 群集
           href: upgrade-cluster.md
+        - name: 升级节点映像
+          href: node-image-upgrade.md
         - name: 处理节点 OS 更新
           href: node-updates-kured.md
         - name: 将 ACR 与 AKS 群集集成
@@ -160,6 +162,9 @@
               href: ingress-basic.md
             - name: 使用内部网络
               href: ingress-internal-ip.md
+            - name: 为现有 AKS 群集启用 AGIC 加载项
+              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
+              maintainContext: true
             - name: 将 TLS 与自己的证书配合使用
               href: ingress-own-tls.md
             - name: 将 TLS 与Let's Encrypt 配合使用
@@ -235,6 +240,10 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/aks/context/aks-context'
     - name: 开发和运行应用程序
       items:
+        - name: 将 Kubernetes 桥接用于 Visual Studio Code
+          href: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+        - name: 将 Kubernetes 桥接用于 Visual Studio
+          href: 'https://docs.microsoft.com/visualstudio/containers/bridge-to-kubernetes'
         - name: 通过 Helm 安装现有应用程序
           href: kubernetes-helm.md
         - name: 使用 OpenFaaS
@@ -276,7 +285,7 @@
           href: jenkins-continuous-deployment.md
         - name: 适用于 Kubernetes 的 GitHub 操作
           href: ../aks/kubernetes-action.md
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 常见问题
           href: troubleshooting.md
@@ -301,7 +310,7 @@
     - name: Java
       href: 'https://docs.microsoft.com/java/api/overview/azure/containerservice'
     - name: Node.js
-      href: /javascript/api/overview/azure/container-service
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/container-service'
     - name: Azure Policy 内置策略定义
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
@@ -311,6 +320,8 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 支持策略
       href: support-policies.md
+    - name: AKS 路线图
+      href: 'https://github.com/Azure/AKS/projects/1'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
     - name: 视频

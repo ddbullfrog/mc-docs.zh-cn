@@ -6,18 +6,18 @@ documentationcenter: ''
 author: WenJason
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: iaas-sql-server
 origin.date: 04/10/2018
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: cf2830829dce069cfbf042e61c90e24f35111a7e
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: d51a0da73fc85e917a7d9f70fb88bc448e18ad7a
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014379"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872419"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure 虚拟机 (Linux) 上的 SQL Server 概述
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,8 +53,8 @@ Azure 虚拟机在全球许多不同的[地理区域](https://azure.microsoft.co
 
 | 分发 | [数据库引擎](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [工具](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server 代理](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [全文搜索](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [HA 外接程序](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
-| RHEL | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
-| Ubuntu | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![是](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| RHEL | ![RHEL 和数据库引擎](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 和工具](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 和 SQL Server 代理](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 和全文搜索](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 和 SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 和 HA 加载项](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| Ubuntu | ![Ubuntu 和数据库引擎](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu 和工具](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu 和 SQL Server 代理](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu 和全文搜索](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu 和 SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu 和 HA 加载项](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 
 ## <a name="related-products-and-services"></a>相关产品和服务
 

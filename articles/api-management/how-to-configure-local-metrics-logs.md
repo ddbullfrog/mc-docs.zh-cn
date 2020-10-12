@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: d9d126fdd19c59bc7e8c2a452f7f8359dd64417d
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: f3f891785cadfd65ae074e40118a78b5ea3ee542
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440768"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871215"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>为 Azure API 管理自承载网关配置本地指标和日志
 
@@ -204,7 +204,7 @@ kubectl rollout restart deployment/<deployment-name>
 kubectl logs <pod-name>
 ```
 
-如果自承载网关部署在 Azure Kubernetes 服务中，则可以启用[适用于容器的 Azure Monitor](/azure-monitor/insights/container-insights-overview)，以便从工作负载收集 `stdout` 和 `stderr` 并查看 Log Analytics 中的日志。 
+如果自承载网关部署在 Azure Kubernetes 服务中，则可以启用[适用于容器的 Azure Monitor](../azure-monitor/insights/container-insights-overview.md)，以便从工作负载收集 `stdout` 和 `stderr` 并查看 Log Analytics 中的日志。 
 
 自承载网关还支持多种协议，包括 `localsyslog`、`rfc5424` 和 `journal`。 下表汇总了所有支持的选项。 
 
@@ -236,5 +236,4 @@ kubectl logs <pod-name>
 
 * 若要详细了解自承载网关，请参阅 [Azure API 管理自承载网关概述](self-hosted-gateway-overview.md)
 * 了解如何[在云中配置和保存日志](how-to-configure-local-metrics-logs.md)
-
 

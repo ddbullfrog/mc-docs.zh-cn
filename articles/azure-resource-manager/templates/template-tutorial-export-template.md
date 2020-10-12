@@ -3,18 +3,18 @@ title: 教程 - 从 Azure 门户导出模板
 description: 了解如何使用导出的模板完成模板开发。
 origin.date: 09/09/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0ee012d23239455e0effdb829b8306a631245241
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 3c408b83d713d81b2e050781058d0c596160cce2
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146743"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937545"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>教程：从 Azure 门户使用导出的模板
 
@@ -47,7 +47,7 @@ ms.locfileid: "91146743"
         "Standard_LRS",
         "Standard_GRS",
         "Standard_RAGRS",
-        "Premium_LRS",
+        "Premium_LRS"
       ]
     },
     "location": {
@@ -107,17 +107,17 @@ ms.locfileid: "91146743"
 
 1. 选择“转到资源”。 
 
-    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export-go-to-resource.png" alt-text="转到资源":::
+    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export-go-to-resource.png" alt-text="资源管理器模板 - 在门户中导出模板":::
 
 1. 选择“导出模板”  。
 
-    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export-template.png" alt-text="资源管理器模板 - 导出模板":::
+    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export-template.png" alt-text="资源管理器模板 - 在门户中导出模板":::
 
    导出模板功能将提取资源的当前状态，并生成用于部署该资源的模板。 导出模板可能有助于快速获取部署资源所需的 JSON。
 
 1. 查看导出的模板中的 Microsoft.Web/serverfarms 定义和参数定义。 不需要复制这些部分。 可以使用此导出的模板作为示例，了解如何将此资源添加到模板。
 
-    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-exported-template.png" alt-text="资源管理器模板 - 导出模板 - 导出的模板":::
+    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-exported-template.png" alt-text="资源管理器模板 - 在门户中导出模板":::
 
 > [!IMPORTANT]
 > 通常，导出的模板比创建模板时所需的信息更详细。 例如，导出的模板中的 SKU 对象包含五个属性。 此模板是可行的，但你只需使用 **name** 属性。 可以从导出的模板着手，然后根据要求对其进行修改。
@@ -147,7 +147,7 @@ ms.locfileid: "91146743"
         "Standard_LRS",
         "Standard_GRS",
         "Standard_RAGRS",
-        "Premium_LRS",
+        "Premium_LRS"
       ]
     },
     "location": {
@@ -238,7 +238,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> 如果部署失败，请将 **debug** 开关和部署命令配合使用来显示调试日志。  还可以使用 **verbose** 开关来显示完整的调试日志。
+> 如果部署失败，请使用“详细”开关获取有关正在创建的资源的信息。 使用“调试”开关获取调试的详细信息。
 
 ## <a name="verify-deployment"></a>验证部署
 

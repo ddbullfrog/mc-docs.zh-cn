@@ -45,6 +45,8 @@
       items:
         - name: ASP.NET
           href: quickstart-v2-dotnet-native-aspnet.md
+        - name: ASP.NET Core
+          href: quickstart-v2-aspnet-core-web-api.md
     - name: 移动和桌面应用
       items:
         - name: Android
@@ -75,6 +77,8 @@
       items:
         - name: ASP.NET
           href: tutorial-v2-asp-webapp.md
+        - name: Blazor 服务器
+          href: tutorial-blazor-server.md
     - name: 移动和桌面应用
       items:
         - name: Android

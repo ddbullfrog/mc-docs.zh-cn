@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 18da2e503f5e2885b5b4be9f2376b3d8c70581ab
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: cdd6c47d3e074ed46d33af58a1e9114e6b453c3b
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226068"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871458"
 ---
 # <a name="transform-and-protect-your-api"></a>转换和保护 API
 
@@ -151,8 +151,7 @@ ms.locfileid: "86226068"
       <outbound>
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
-        <find-and-replace from="://conferenceapi.chinacloudsites.cn:443" to="://apiphany.azure-api.net/conference"/>
-        <find-and-replace from="://conferenceapi.chinacloudsites.cn" to="://apiphany.azure-api.net/conference"/>
+        <redirect-content-urls />
         <base />
       </outbound>
       <on-error>

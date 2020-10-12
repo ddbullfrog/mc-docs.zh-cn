@@ -4,15 +4,15 @@ description: 本教程详细介绍了如何使用 Azure PowerShell 将多个 Azu
 ms.topic: tutorial
 author: Johnnytechn
 origin.date: 03/05/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.custom: mvc, devx-track-azurepowershell
 ms.author: v-johya
-ms.openlocfilehash: 3e2f4931b90576ee296cc0cf2faaf9a08338ef2c
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 262ed053181ce0ab4babdf763360b869d82c009c
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402363"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871302"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>使用 PowerShell 备份 Azure VM
 
@@ -51,7 +51,7 @@ ms.locfileid: "91402363"
 [恢复服务保管库](backup-azure-recovery-services-vault-overview.md)是一个逻辑容器，用于存储受保护资源（例如 Azure VM）的备份数据。 运行备份作业时，该作业会在恢复服务保管库中创建一个恢复点。 然后，可以使用其中一个恢复点将数据还原到给定的时间点。
 
 * 在本教程中，会在与要备份的 VM 相同的资源组和位置中创建保管库。
-* Azure 备份会自动处理备份数据的存储。 默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md)。 异地冗余可确保将备份数据复制到距主区域数百英里以外的辅助 Azure 区域。
+* Azure 备份会自动处理备份数据的存储。 默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。 异地冗余可确保将备份数据复制到距主区域数百英里以外的辅助 Azure 区域。
 
 按如下所述创建保管库：
 

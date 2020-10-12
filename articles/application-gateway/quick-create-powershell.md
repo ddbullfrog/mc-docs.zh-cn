@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 09/01/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: c7c3723d2d364313ae565b77282934ffcdac2466
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: b0c43df985804ff2cdeab6712e0001a846f49dd7
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413500"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937078"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>快速入门：通过 Azure PowerShell 使用 Azure 应用程序网关定向 Web 流量
 
@@ -51,6 +51,8 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。  应用程
 1. 使用 `New-AzVirtualNetworkSubnetConfig` 创建子网配置。
 2. 使用 `New-AzVirtualNetwork` 创建使用这些子网配置的虚拟网络。 
 3. 使用 `New-AzPublicIpAddress` 创建公共 IP 地址。 
+> [!NOTE]
+> 应用程序网关子网中当前不支持[虚拟网络服务终结点策略](../virtual-network/virtual-network-service-endpoint-policies-overview.md)。
 
 ```azurepowershell
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `

@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: Johnnytechn
   ms.author: v-johya
-  ms.date: 07/10/2020
-  ms.openlocfilehash: f76b9e2065420a3b79b76fba2c7736eb9071e62a
-  ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+  ms.date: 09/29/2020
+  ms.openlocfilehash: fadb1ed3173ba59801fb3a6cbfec2d980132bef3
+  ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/17/2020
-  ms.locfileid: "86440534"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91871114"
 landingContent:
 - title: 关于 API 管理
   linkLists:
@@ -29,10 +29,14 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Azure CLI
+      url: get-started-create-service-instance-cli.md
     - text: Azure 门户
       url: get-started-create-service-instance.md
     - text: Azure PowerShell
       url: powershell-create-service-instance.md
+    - text: Visual Studio Code
+      url: vscode-create-service-instance.md
 - title: 管理 API 管理
   linkLists:
   - linkListType: tutorial

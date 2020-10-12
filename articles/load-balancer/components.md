@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 06/04/2020
 ms.date: 08/31/2020
 ms.author: v-jay
-ms.openlocfilehash: 9e273591fef2e48fe7a998fd3070308866919e8e
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: e38b910736a10ae91c14abe5dd99a742f3788091
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045802"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943521"
 ---
 # <a name="azure-load-balancer-components"></a>Azure 负载均衡器组件
 
@@ -28,7 +28,7 @@ Azure 负载均衡器包含几个关键组件。 可以通过以下方式在订�
 * Azure PowerShell
 * 资源管理器模板
 
-## <a name="frontend-ip-configuration"></a>前端 IP 配置 <a name = "frontend-ip-configurations"></a>
+## <a name="frontend-ip-configuration"></a>前端 IP 配置
 
 Azure 负载均衡器的 IP 地址。 这是客户端的联系点。 这些 IP 地址可以是：
 
@@ -93,7 +93,7 @@ IP 地址的性质决定了所创建的负载均衡器的类型。 选择“专�
 2. 源端口
 3. 目标 IP 地址
 4. 目标端口
-5. protocol
+5. 协议
 
 HA 端口负载均衡规则可帮助实现关键方案，如虚拟网络内部网络虚拟设备 (NVA) 的高可用性和缩放。 当大量端口必须进行负载均衡时，此功能可以帮助完成。
 

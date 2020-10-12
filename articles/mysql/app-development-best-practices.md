@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 origin.date: 08/11/2020
 ms.date: 09/14/2020
-ms.openlocfilehash: 5a45bf8879bb1210c4332cc69826ba5e359559f4
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 14969caa15c423f0b1fadae340c85ed0071e0362
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395444"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943424"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>使用 Azure Database for MySQL 构建应用程序的最佳做法 
 
@@ -54,7 +54,7 @@ ms.locfileid: "91395444"
 下面是一些可以用来帮助调试应用程序性能问题的工具和做法。
 
 ### <a name="enable-slow-query-logs-to-identify-performance-issues"></a>启用慢查询日志来查明性能问题
-可以在服务器上启用[慢查询日志](https://docs.microsoft.com/azure/mysql/concepts-server-logs)和[审核日志](/mysql/concepts-audit-logs)。 对慢查询日志进行分析有助于查明性能瓶颈以进行故障排除。 
+可以在服务器上启用[慢查询日志](/mysql/concepts-server-logs)和[审核日志](/mysql/concepts-audit-logs)。 对慢查询日志进行分析有助于查明性能瓶颈以进行故障排除。 
 
 还可通过 Azure Monitor 日志、Azure 事件中心和存储帐户中的 Azure 诊断日志获得审核日志。 请参阅[如何排查查询性能问题](/mysql/howto-troubleshoot-query-performance)。
 

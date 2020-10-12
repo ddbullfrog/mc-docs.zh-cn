@@ -5,15 +5,15 @@ author: Johnnytechn
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 07/17/2018
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
 ms.custom: mvc
-ms.openlocfilehash: 077fb4db1ededb9ebf87abe3f6f144934a16c3b9
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 7fd68e8d3889cf251ef6fd7f55e92697740ca47e
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402514"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871409"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中备份虚拟机
 
@@ -86,7 +86,7 @@ VM 的“备份”窗口中显示了备份的状态，以及已完成的还原�
 6. 从列表中选择自己的资源组。 如果使用了 VM 快速入门教程中的示例命令，资源组名为 *myResourceGroup*。
 7. 选择“删除资源组”。 若要确认删除，请输入资源组名称，选择“删除”。
 
-    ![通过 Azure 门户删除资源组](./media/quick-backup-vm-portal/delete-resource-group.png)
+    ![通过 Azure 门户删除资源组](./media/quick-backup-vm-portal/delete-resource-group-from-portal.png)
 
 ## <a name="next-steps"></a>后续步骤
 

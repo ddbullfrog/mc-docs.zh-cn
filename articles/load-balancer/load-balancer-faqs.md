@@ -8,17 +8,17 @@ ms.topic: article
 origin.date: 04/22/2020
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 277e03a5ad91f1184143b622d0f4fe07606fbfa9
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 7d7a6bcb20b952f49936543269493850878083c2
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026572"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943457"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>负载均衡器常见问题解答
 
 ## <a name="what-types-of-load-balancer-exist"></a>存在哪些类型的负载均衡器？
-内部负载均衡器（用于均衡 VNET 中的流量）和外部负载均衡器（用于均衡进出 Internet 连接的终结点的流量）。 有关详细信息，请参阅[负载均衡器类型](components.md#frontend-ip-configurations)。 
+内部负载均衡器（用于均衡 VNET 中的流量）和外部负载均衡器（用于均衡进出 Internet 连接的终结点的流量）。 有关详细信息，请参阅[负载均衡器类型](components.md#frontend-ip-configuration)。 
 
 对于这两种类型，Azure 提供了基本 SKU 和标准 SKU，它们具有不同的功能、性能、安全性和运行状况跟踪功能。 [SKU 比较](skus.md)一文中介绍了这些差异。
 

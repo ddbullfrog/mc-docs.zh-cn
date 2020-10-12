@@ -3,24 +3,23 @@ title: Azure API 管理访问限制策略
 description: 了解可在 Azure API 管理中使用的访问限制策略。
 services: api-management
 documentationcenter: ''
-author: vladvino
 manager: erikre
 editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
+author: Johnnytechn
+ms.date: 09/29/2020
+ms.author: v-johya
 origin.date: 01/10/2020
-ms.author: v-yiso
-ms.date: 02/24/2020
-ms.openlocfilehash: 40758ced16c3e821761eb52e041c4cee68025e0a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 623609cd5df5bd60e5dde5ac84f943be83761f1f
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80290086"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871211"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 
@@ -78,7 +77,7 @@ ms.locfileid: "80290086"
 
 ### <a name="usage"></a>使用情况
 
-此策略可在以下策略[节](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[范围](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)中使用。
+此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站、出站
 
@@ -138,7 +137,7 @@ ms.locfileid: "80290086"
 
 ### <a name="usage"></a>使用情况
 
-此策略可在以下策略[节](/api-management-howto-policies/#sections)和[范围](/api-management-howto-policies/#scopes)中使用。
+此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站
 
@@ -151,7 +150,7 @@ ms.locfileid: "80290086"
 
 `rate-limit-by-key` 策略可以对调用速率进行限制，使每个指定时段的调用不超出指定的数目，避免单个密钥的 API 使用量暴增。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以添加可选增量条件，指定在判断请求数是否达到限制时应计入哪些请求。 触发此策略时，调用方会收到 `429 Too Many Requests` 响应状态代码。
 
-有关此策略的详细信息和示例，请参阅[使用 Azure API 管理进行高级请求限制](/api-management-sample-flexible-throttling/)。
+有关此策略的详细信息和示例，请参阅[使用 Azure API 管理进行高级请求限制](./api-management-sample-flexible-throttling.md)。
 
 > [!CAUTION]
 > 由于限制体系结构的分布式性质，速率限制永远不可能完全准确。 允许的请求的配置数字和实际数字之间的差异因请求量和速度、后端延迟以及其他因素而异。
@@ -202,8 +201,8 @@ ms.locfileid: "80290086"
 
 ### <a name="usage"></a>使用情况
 
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-  
+此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
+
 -   **策略节：** 入站
 
 -   **策略范围：** 所有范围
@@ -249,8 +248,8 @@ ms.locfileid: "80290086"
 
 ### <a name="usage"></a>使用情况
 
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-  
+此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
+
 -   **策略节：** 入站
 -   **策略范围：** 所有范围
 
@@ -306,7 +305,7 @@ ms.locfileid: "80290086"
 
 ### <a name="usage"></a>使用情况
 
-此策略可在以下策略[节](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[范围](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)中使用。
+此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站
 -   **策略范围：** 产品
@@ -318,7 +317,7 @@ ms.locfileid: "80290086"
 
 `quota-by-key` 策略允许根据密钥强制实施可续订或有生存期的调用量和/或带宽配额。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以添加可选增量条件，指定在判断请求数是否达到配额时应计入哪些请求。 如果多个策略增加相同的键值，则每个请求的键值仅增加一次。 达到调用限制时，调用方会收到 `403 Forbidden` 响应状态代码。
 
-有关此策略的详细信息和示例，请参阅[使用 Azure API 管理进行高级请求限制](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/)。
+有关此策略的详细信息和示例，请参阅[使用 Azure API 管理进行高级请求限制](./api-management-sample-flexible-throttling.md)。
 
 ### <a name="policy-statement"></a>策略语句
 
@@ -367,8 +366,8 @@ ms.locfileid: "80290086"
 
 ### <a name="usage"></a>使用情况
 
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
-  
+此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
+
 -   **策略节：** 入站
 -   **策略范围：** 所有范围
 
@@ -413,16 +412,16 @@ ms.locfileid: "80290086"
   </issuers>
   <required-claims>
     <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
-      <value>claim value as it is expected to appear in the token</value>  
-      <!-- if there is more than one allowed values, then add additional value elements -->  
-    </claim>  
-    <!-- if there are multiple possible allowed values, then add additional value elements -->  
-  </required-claims>  
-</validate-jwt>  
-  
-```  
-  
-### <a name="examples"></a>示例  
+      <value>claim value as it is expected to appear in the token</value>
+      <!-- if there is more than one allowed values, then add additional value elements -->
+    </claim>
+    <!-- if there are multiple possible allowed values, then add additional value elements -->
+  </required-claims>
+</validate-jwt>
+
+```
+
+### <a name="examples"></a>示例
 
 #### <a name="simple-token-validation"></a>简单的令牌验证
 
@@ -444,7 +443,7 @@ ms.locfileid: "80290086"
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.partner.microsoftonline.cn/contoso.onmicrosoft.com/.well-known/openid-configuration" />
+    <openid-config url="https://login.partner.microsoftonline.cn/contoso.partner.onmschina.cn/.well-known/openid-configuration" />
     <audiences>
         <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
     </audiences>
@@ -460,7 +459,7 @@ ms.locfileid: "80290086"
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.partner.microsoftonline.cn/tfp/contoso.onmicrosoft.com/b2c_1_signin/v2.0/.well-known/openid-configuration" />
+    <openid-config url="https://login.partner.microsoftonline.cn/tfp/contoso.partner.onmschina.cn/b2c_1_signin/v2.0/.well-known/openid-configuration" />
     <audiences>
         <audience>d313c4e4-de5f-4197-9470-e509a2f0b806</audience>
     </audiences>
@@ -507,18 +506,17 @@ ms.locfileid: "80290086"
 
 | 元素             | 说明                                                                                                                                                                                                                                                                                                                                           | 必须 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-|validate-jwt|根元素。|是|  
-|audiences|包含一系列可接受且可存在于令牌上的受众声明。 如果存在多个受众值，则会对每个值进行尝试，直到所有值都试完（这种情况表明验证失败），或者直到有一个值成功。 必须指定至少一个受众。|否|  
-|issuer-signing-keys|一系列 Base64 编码的安全密钥，用于验证签名的令牌。 如果存在多个安全密钥，则会对每个密钥进行尝试，直到所有密钥都试完（这种情况表明验证失败），或者直到有一个密钥成功（对令牌滚动更新十分有用）。 密钥元素有一个可选的 `id` 属性，用于与 `kid` 声明进行比较。|否|  
-|decryption-keys|用于解密令牌的 Base64 编码密钥列表。 如果存在多个安全密钥，则会对每个密钥进行尝试，直到所有密钥都试完（在这种情况下验证失败）或直到有一个密钥成功为止。 密钥元素有一个可选的 `id` 属性，用于与 `kid` 声明进行比较。|否|  
-|issuers|一系列可接受的、已颁发了令牌的主体。 如果存在多个颁发者值，则会对每个值进行尝试，直到所有值都试完（这种情况表明验证失败），或者直到有一个值成功。|否|  
-|openid-config|一个元素，用于指定兼容的 Open ID 配置终结点，以便从该终结点获取签名密钥和颁发者。|否|  
-|required-claims|包含一系列应存在于令牌上的声明，否则令牌会被视为无效。 将 `match` 属性设置为 `all` 时，策略中的每个声明值都必须存在于令牌中才会使验证成功。 将 `match` 属性设置为 `any` 时，至少一个声明必须存在于令牌中才会使验证成功。|否|  
+| validate-jwt        | 根元素。                                                                                                                                                                                                                                                                                                                                         | 是      |
+| audiences           | 包含一系列可接受且可存在于令牌上的受众声明。 如果存在多个受众值，则会对每个值进行尝试，直到所有值都试完（这种情况表明验证失败），或者直到有一个值成功。 必须指定至少一个受众。                                                                     | 否       |
+| issuer-signing-keys | 一系列 Base64 编码的安全密钥，用于验证签名的令牌。 如果存在多个安全密钥，则会对每个密钥进行尝试，直到所有密钥都试完（这种情况表明验证失败），或者直到有一个密钥成功（对令牌滚动更新十分有用）。 密钥元素有一个可选的 `id` 属性，用于与 `kid` 声明进行比较。               | 否       |
+| decryption-keys     | 用于解密令牌的 Base64 编码密钥列表。 如果存在多个安全密钥，则会对每个密钥进行尝试，直到所有密钥都试完（在这种情况下验证失败）或直到有一个密钥成功为止。 密钥元素有一个可选的 `id` 属性，用于与 `kid` 声明进行比较。                                                 | 否       |
+| issuers             | 一系列可接受的、已颁发了令牌的主体。 如果存在多个颁发者值，则会对每个值进行尝试，直到所有值都试完（这种情况表明验证失败），或者直到有一个值成功。                                                                                                                                         | 否       |
+| openid-config       | 一个元素，用于指定兼容的 Open ID 配置终结点，以便从该终结点获取签名密钥和颁发者。                                                                                                                                                                                                                        | 否       |
+| required-claims     | 包含一系列应存在于令牌上的声明，否则令牌会被视为无效。 将 `match` 属性设置为 `all` 时，策略中的每个声明值都必须存在于令牌中才会使验证成功。 将 `match` 属性设置为 `any` 时，至少一个声明必须存在于令牌中才会使验证成功。 | 否       |
 
-  
-### <a name="attributes"></a>属性  
-  
-|名称|说明|必须|默认|  
+### <a name="attributes"></a>属性
+
+| 名称                            | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                            | 必须                                                                         | 默认                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | clock-skew                      | 时间跨度。 用于指定令牌颁发者的系统时钟与 API 管理实例之间的最大预期时间差。                                                                                                                                                                                                                                                                                                               | 否                                                                               | 0 秒                                                                         |
 | failed-validation-error-message | JWT 未通过验证时会在 HTTP 响应正文中返回的错误消息。 此消息必须对任何特殊字符正确地进行转义。                                                                                                                                                                                                                                                                                                 | 否                                                                               | 默认错误消息取决于验证问题，例如“JWT 不存在”。 |
@@ -532,12 +530,12 @@ ms.locfileid: "80290086"
 | require-scheme                  | 令牌方案的名称，例如“Bearer”。 设置了此属性时，策略将确保 Authorization 标头值中存在指定的方案。                                                                                                                                                                                                                                                                                    | 否                                                                               | 不适用                                                                               |
 | require-signed-tokens           | 布尔值。 指定令牌是否需要签名。                                                                                                                                                                                                                                                                                                                                                                                           | 否                                                                               | 是                                                                              |
 | separator                       | 字符串。 指定要用于从多值声明中提取一组值的分隔符（例如 ","）。                                                                                                                                                                                                                                                                                                                                          | 否                                                                               | 不适用                                                                               |
-| url                             | Open ID 配置终结点 URL，从中可以获取 Open ID 配置元数据。 响应应符合以下 URL 中定义的规范：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。 对于 Azure Active Directory，请使用以下 URL：`https://login.partner.microsoftonline.cn/{tenant-name}/.well-known/openid-configuration`，将其中的 {tenant-name} 替换为你的目录租户名称，例如 `contoso.onmicrosoft.com`。 | 是                                                                              | 空值                                                                               |
+| url                             | Open ID 配置终结点 URL，从中可以获取 Open ID 配置元数据。 响应应符合以下 URL 中定义的规范：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。 对于 Azure Active Directory，请使用以下 URL：`https://login.partner.microsoftonline.cn/{tenant-name}/.well-known/openid-configuration`，将其中的 {tenant-name} 替换为你的目录租户名称，例如 `contoso.partner.onmschina.cn`。 | 是                                                                              | 空值                                                                               |
 | output-token-variable-name      | 字符串。 成功进行令牌验证后，将作为 [`Jwt`](api-management-policy-expressions.md) 类型的对象接收令牌值的上下文变量的名称                                                                                                                                                                                                                                                                                     | 否                                                                               | 不适用                                                                               |
 
 ### <a name="usage"></a>使用情况
 
-此策略可在以下策略[节](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[范围](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)中使用。
+此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。
 
 -   **策略节：** 入站
 -   **策略范围：** 所有范围
@@ -546,7 +544,8 @@ ms.locfileid: "80290086"
 
 有关如何使用策略的详细信息，请参阅：
 
-+ [API 管理中的策略](api-management-howto-policies.md)
-+ [转换 API](transform-api.md)
-+ [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
-+ [策略示例](policy-samples.md)   
+-   [API 管理中的策略](api-management-howto-policies.md)
+-   [转换 API](transform-api.md)
+-   [策略参考](./api-management-policies.md)，获取策略语句及其设置的完整列表
+-   [策略示例](policy-samples.md)
+

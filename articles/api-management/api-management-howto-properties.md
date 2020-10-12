@@ -1,6 +1,6 @@
 ---
 title: 如何在 Azure API 管理策略中使用命名值
-description: 了解如何在 Azure API 管理策略中使用命名值。
+description: 了解如何在 Azure API 管理策略中使用命名值。 命名值可以包含文本字符串和策略表达式。
 services: api-management
 documentationcenter: ''
 author: Johnnytechn
@@ -10,35 +10,35 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: e961928c1af56c5745d15e14767297ed71f03ef7
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: e26d7e61b34580490360b8902b20ef0040275771
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226065"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871357"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理策略中使用命名值
 
-API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置更改 API 的行为。 策略是一组语句，在请求或响应 API 时按顺序执行。 可以使用文字文本值、策略表达式和命名值构造策略语句。
+API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置更改 API 的行为。 策略是一组语句，在请求或 API 的响应时按顺序执行。 可以使用文字文本值、策略表达式和命名值构造策略语句。
 
 每个 API 管理服务实例都有一组键/值对（称为“命名值”），它们是服务实例的全局值。 对该集合中的项数没有施加限制。 命名值可以用来管理所有 API 配置和策略的常量字符串值。 每个命名值可能有以下属性：
 
-| 属性      | 类型            | 说明                                                                                                                            |
+| Attribute      | 类型            | 说明                                                                                                                            |
 | -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | string          | 用于在策略中引用命名值。 由 1 到 256 个字符组成的字符串。 只允许字母、数字、点和短划线。 |
-| `Value`        | string          | 实际值。 不得为空或只由空格组成。 最多 4096 个字符长。                                        |
+| `Display name` | 字符串          | 用于在策略中引用命名值。 由 1 到 256 个字符组成的字符串。 只允许字母、数字、点和短划线。 |
+| `Value`        | 字符串          | 实际值。 不得为空或只由空格组成。 最多 4096 个字符长。                                        |
 | `Secret`       | boolean         | 确定值是否为密钥以及是否应加密。                                                               |
 | `Tags`         | 字符串数组 | 用于筛选命名值列表。 最多 32 个标记。                                                                                    |
 
 ![命名值](./media/api-management-howto-properties/named-values.png)
 
-命名值可以包含文本字符串和[策略表达式](/api-management/api-management-policy-expressions)。 例如，`Expression` 的值是一个策略表达式，其返回的字符串包含当前日期和时间。 命名值 `Credential` 被标记为机密，因此默认情况下未显示其值。
+命名值可以包含文本字符串和[策略表达式](./api-management-policy-expressions.md)。 例如，`Expression` 的值是一个策略表达式，其返回的字符串包含当前日期和时间。 命名值 `Credential` 被标记为机密，因此默认情况下未显示其值。
 
-| 名称       | Value                      | Secret | Tags          |
+| 名称       | 值                      | 机密 | Tags          |
 | ---------- | -------------------------- | ------ | ------------- |
-| Value      | 42                         | False  | vital-numbers |
+| 值      | 42                         | False  | vital-numbers |
 | 凭据 | ••••••••••••••••••••••     | True   | security      |
 | 表达式 | @(DateTime.Now.ToString()) | False  |               |
 
@@ -49,13 +49,13 @@ API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置
 
 ![添加命名值](./media/api-management-howto-properties/add-property.png)
 
-1. 在“API”下选择“API” 。
+1. 在“API 管理”下面选择“API”。  
 2. 选择“命名值”。
 3. 按“+添加”。
 
     “名称”和“值”是必需值。 如果值为机密，请选中“这是机密”复选框。 输入一个或多个用于组织命名值的可选标记，并单击“保存”。
 
-4. 单击**创建**。
+4. 单击“创建”。
 
 创建命名值后，可以通过单击该值对其进行编辑。 如果更改命名值名称，则会自动更新引用该命名值的任何策略，以使用新名称。
 
@@ -110,8 +110,8 @@ API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置
 
 -   详细了解如何使用策略
     -   [API 管理中的策略](api-management-howto-policies.md)
-    -   [策略参考](/api-management/api-management-policies)
-    -   [策略表达式](/api-management/api-management-policy-expressions)
+    -   [策略参考](./api-management-policies.md)
+    -   [策略表达式](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

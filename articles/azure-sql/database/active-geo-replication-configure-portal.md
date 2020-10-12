@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 origin.date: 02/13/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: fd1c4e13e50f9b3ff9387b6aa8483e397559089b
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: f22a76a518f7677aa0f0452d47890664c27536ab
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227499"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872441"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>教程：在 Azure 门户中配置活动异地复制和故障转移（Azure SQL 数据库）
 
@@ -56,12 +56,12 @@ ms.locfileid: "86227499"
     ![配置异地复制](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. 选择或配置辅助数据库的服务器和定价层。
 
-    ![配置辅助数据库](./media/active-geo-replication-configure-portal/create-secondary.png)
+    ![创建辅助窗体](./media/active-geo-replication-configure-portal/create-secondary.png)
 4. 可以选择性地将辅助数据库添加到弹性池。 如果要在池中创建辅助数据库，请单击“弹性池”  ，并在目标服务器上选择池。 池必须已在目标服务器上存在。 此工作流不会创建池。
 5. 单击“创建”添加辅助数据库。
 6. 此时会创建辅助数据库，种子设定过程开始。
 
-    ![配置辅助数据库](./media/active-geo-replication-configure-portal/seeding0.png)
+    ![辅助映射](./media/active-geo-replication-configure-portal/seeding0.png)
 7. 完成种子设定过程时，辅助数据库会显示其状态。
 
     ![种子设定完成](./media/active-geo-replication-configure-portal/seeding-complete.png)

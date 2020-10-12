@@ -2,20 +2,21 @@
 title: 排查 Azure SQL 数据库的常见连接问题
 description: 提供步骤来排查 Azure SQL 数据库连接问题，并解决其他的 Azure SQL 数据库或 Azure SQL 托管实例特定问题
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: development
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab,vanto
+ms.reviewer: sstein,vanto
 origin.date: 01/14/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 944f5a07cd161cea2721cf32dfaf40cd34c601f4
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: 852a3e76204f787d180dcfaa6e73e451629a0ab2
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227646"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872472"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>排查 Azure SQL 数据库和 Azure SQL 托管实例的连接问题和其他问题
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -221,7 +222,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-如果异常是由查询问题触发的，则你会看到如下所示的调用堆栈（请注意对 **SqlCommand** 类的引用）。 对于这种情况，请[优化查询](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)。
+如果异常是由查询问题触发的，则你会看到如下所示的调用堆栈（请注意对 **SqlCommand** 类的引用）。 对于这种情况，请[优化查询](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)。
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

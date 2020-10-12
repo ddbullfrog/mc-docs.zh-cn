@@ -3,6 +3,7 @@ title: 在 Azure API 管理中导入和发布第一个 API
 description: 了解如何在 Azure 门户中将 OpenAPI 规范 API 导入 Azure API 管理并测试该 API。
 services: api-management
 documentationcenter: ''
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,15 +12,14 @@ ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 02/24/2019
-author: Johnnytechn
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 4f39e73bb9d7932b13d2c60b3bdaebe961e32139
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: fa06f50edd6e595b64c356dc70f80724c9d906c1
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440743"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871344"
 ---
 # <a name="import-and-publish-your-first-api"></a>导入和发布第一个 API
 
@@ -27,7 +27,7 @@ ms.locfileid: "84440743"
 
 将后端 API 导入 API 管理后，API 管理 API 将成为后端 API 的结构。 可以在 API 管理中自定义该结构，而无需修改后端 API。 有关详细信息，请参阅[转换和保护 API](transform-api.md)。
 
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 将 API 导入 API 管理
@@ -54,23 +54,23 @@ ms.locfileid: "84440743"
 
    ![创建 API](./media/api-management-import-and-publish/create-api.png)
 
-   |设置|Value|说明|
+   |设置|值|说明|
    |-------|-----|-----------|
    |**OpenAPI 规范**|*https:\//conferenceapi.chinacloudsites.cn?format=json*|实现 API 的服务。 API 管理将请求转发到此地址。|
    |**显示名称**|输入上述服务 URL 后，API 管理将根据 JSON 填写此字段。|显示在开发人员门户中的名称。|
    |**名称**|输入上述服务 URL 后，API 管理将根据 JSON 填写此字段。|API 的唯一名称。|
    |**说明**|输入上述服务 URL 后，API 管理将根据 JSON 填写此字段。|API 的可选说明。|
    |**URL 方案**|**HTTPS**|可以使用哪些协议来访问 API。|
-   |**API URL 后缀**|conference|追加到 API 管理服务基 URL 的后缀。 API 管理根据 API 的后缀区分 API，因此后缀对于给定发布者的每个 API 必须唯一。|
+   |**API URL 后缀**|会议|追加到 API 管理服务基 URL 的后缀。 API 管理根据 API 的后缀区分 API，因此后缀对于给定发布者的每个 API 必须唯一。|
    |**标记**| |用于组织搜索、分组或筛选 API 的标记。|
-   |**产品**|**无限制**|一个或多个 API 的关联。 每个 API 管理实例附带两个示例产品：**初学者**和**无限制**。 通过将 API 关联到某个产品（在本示例中为“无限制”）来发布该 API。<br/>可在一个产品中包含多个 API，并通过开发人员门户将其提供给开发人员。 若要将此 API 添加到另一个产品，请键入或选择产品名称。 重复此步骤以将 API 添加到多个产品。 以后也可以从“设置”页将 API 添加到产品。<br/>开发人员必须先订阅产品才能访问 API。 订阅时，他们会得到一个订阅密钥，此密钥对该产品中的任何 API 都有效。 <br/>如果你创建了 API 管理实例，那么你已是管理员，因此订阅了实例中的每个产品。|
+   |**产品**|**不受限制**|一个或多个 API 的关联。 每个 API 管理实例附带两个示例产品：**初学者**和**无限**。 通过将 API 关联到某个产品（在本示例中为“无限制”）来发布该 API。<br/>可在一个产品中包含多个 API，并通过开发人员门户将其提供给开发人员。 若要将此 API 添加到另一个产品，请键入或选择产品名称。 重复此步骤以将 API 添加到多个产品。 以后也可以从“设置”页将 API 添加到产品。<br/>开发人员必须先订阅产品才能访问 API。 订阅时，他们会得到一个订阅密钥，此密钥对该产品中的任何 API 都有效。 <br/>如果你创建了 API 管理实例，那么你已是管理员，因此订阅了实例中的每个产品。|
    |**网关**|**托管**|公开此 API 的 API 网关。 此字段仅在“开发人员”和“高级”层服务中提供。<br/>托管网关指示内置于 API 管理服务中并由 Microsoft 托管在 Azure 中的网关。 其他网关是[自承载网关](self-hosted-gateway-overview.md)，仅在“高级”和“开发人员”服务层中提供。 可以将这些网关部署在本地或其他云中。<br/>如果未选择任何网关，则无法使用此 API，API 请求不会成功。|
    |**对此 API 进行版本控制？**|选择或取消选择|有关版本控制的详细信息，请参阅[发布 API 的多个版本](api-management-get-started-publish-versions.md)。|
 
    > [!NOTE]
    > 若要向 API 使用者发布 API，必须将其与某个产品相关联。
 
-2. 选择“创建” 。
+2. 选择“创建”。
 
 如果在导入 API 定义时遇到问题，请参阅[已知问题列表和限制](api-management-api-import-restrictions.md)。
 
@@ -88,7 +88,7 @@ ms.locfileid: "84440743"
 
 ## <a name="next-steps"></a><a name="next-steps"> </a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
+在本教程中，你了解了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 导入第一个 API

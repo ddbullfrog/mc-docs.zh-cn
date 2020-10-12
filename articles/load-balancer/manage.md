@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 09/8/2020
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 24201d9f1576ed18a3524dcc083acc91397b711d
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: 3a1c2af1f42c3168ead594508c570cbce5898539
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91050192"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943435"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Azure 负载均衡器门户设置
 
@@ -39,7 +39,7 @@ Azure 负载均衡器是一个网络负载均衡器，用于在后端池中的 V
 | 资源组 | 选择“新建”并在文本框中键入资源组的名称。 如果有现有的已创建资源组，请选择它。 |
 | 名称 | 此设置是 Azure 负载均衡器的名称。 |
 | 区域 | 选择要在其中部署负载均衡器的 Azure 区域。 |
-| 类型 | 负载均衡器有两种类型： </br> 内部（专用） </br> 公共（外部）。</br> 内部负载均衡器 (ILB) 通过专用 IP 地址将流量路由到后端池成员。</br> 公共负载均衡器通过 Internet 将来自客户端的请求定向到后端池。</br> 详细了解[负载均衡器类型](components.md#frontend-ip-configuration-)。|
+| 类型 | 负载均衡器有两种类型： </br> 内部（专用） </br> 公共（外部）。</br> 内部负载均衡器 (ILB) 通过专用 IP 地址将流量路由到后端池成员。</br> 公共负载均衡器通过 Internet 将来自客户端的请求定向到后端池。</br> 详细了解[负载均衡器类型](components.md#frontend-ip-configuration)。|
 | SKU  | 选择“标准”。 </br> 负载均衡器有两种 SKU：“基本”和“标准” 。 </br> 基本 SKU 的功能有限。 </br> 对于生产型工作负载，建议使用标准 SKU。 </br> 详细了解 [SKU](skus.md)。 |
 
 如果选择“公共”作为类型，则会看到以下信息：

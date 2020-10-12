@@ -10,12 +10,12 @@ metadata:
   author: Johnnytechn
   ms.author: v-johya
   ms.date: 06/12/2020
-  ms.openlocfilehash: 48b83c699d01a61eaf679012626e46cc772fedad
-  ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+  ms.openlocfilehash: ff434b96ff664cb9a48de4bc510e67bf3d615e33
+  ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/21/2020
-  ms.locfileid: "88715759"
+  ms.lasthandoff: 10/10/2020
+  ms.locfileid: "91936833"
 landingContent:
 - title: 关于 Azure 流分析
   linkLists:
@@ -33,8 +33,6 @@ landingContent:
     links:
     - text: 流分析兼容性级别
       url: stream-analytics-compatibility-level.md
-    - text: 流分析预览功能
-      url: stream-analytics-previews.md
   - linkListType: concept
     links:
     - text: 选择流分析技术

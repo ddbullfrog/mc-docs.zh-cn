@@ -4,14 +4,14 @@ description: 使用 Azure 备份服务器备份系统状态，并提供裸机恢
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 05/15/2017
-ms.date: 06/09/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 2ff4be8dfcccda1fcff88e7123d0d87eea4acbc4
-ms.sourcegitcommit: 285649db9b21169f3136729c041e4d04d323229a
+ms.openlocfilehash: cab1943a72f641aea93d37df8cfb52fe7eb000b5
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84684042"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871143"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>使用 Azure 备份服务器备份系统状态并将计算机还原成裸机
 
@@ -160,10 +160,9 @@ Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 
 1. 在“选择联机复制”**** 页上，选择如何进行数据的初始完整复制。
 
-    可以通过网络复制，也可以脱机备份（脱机种子设定）。 脱机备份使用 Azure 导入功能。
-<!--Not available in MC: offline-backup-azure-data-box.md-->
+    可以通过网络复制，也可以脱机备份（脱机种子设定）。 脱机备份使用 Azure 导入功能。 有关详细信息，请参阅 [Azure 备份中的脱机备份工作流](offline-backup-azure-data-box.md)。
 
-1. 在“摘要”**** 页上，查看设置。 选择“创建组”**** 之后，就会进行数据的初始复制。 数据复制完成后，“状态”页上的保护组状态为“正常”**** ****。 然后，会根据保护组设置进行备份。
+1. 在“摘要”页上，查看设置。 选择“创建组”**** 之后，就会进行数据的初始复制。 数据复制完成后，“状态”页上的保护组状态为“正常”**** ****。 然后，会根据保护组设置进行备份。
 
 ## <a name="recover-system-state-or-bmr"></a>恢复系统状态或 BMR
 

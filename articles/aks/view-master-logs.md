@@ -4,16 +4,16 @@ description: 了解如何启用和查看 Azure Kubernetes 服务 (AKS) 中 Kuber
 services: container-service
 ms.topic: article
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: fdca5529e96d3fd1715cd124127103ac6a4b4f0c
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: d77716ea41119ec7fb6afc924eadee8308b4618b
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146726"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937433"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>启用和查看 Azure Kubernetes 服务 (AKS) 中 Kubernetes 主节点的日志
 
@@ -85,16 +85,18 @@ pod/nginx created
 在左侧选择“日志”。 若要查看 kube-audit 日志，请在文本框中输入以下查询：
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
+AzureDiagnostics
+| where Category == "kube-audit"
+| project log_s
 ```
 
 可能会返回多个日志。 若要缩小查询范围，以便查看上一步骤中创建的 NGINX pod 的相关日志，请额外添加一个 where 语句来搜索 nginx，如以下示例查询所示：
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
-| where Name contains "nginx"
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
 ```
 
 有关如何查询和筛选日志数据的详细信息，请参阅[查看或分析使用 Log Analytics 日志搜索收集的数据][analyze-log-analytics]。
@@ -138,9 +140,9 @@ KubePodInventory
 [analyze-log-analytics]: ../azure-monitor/log-query/get-started-portal.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
-[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
-[az-feature-list]: https://docs.azure.cn/cli/feature#az-feature-list
-[az-provider-register]: https://docs.azure.cn/cli/provider#az-provider-register
+[az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
+[az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
+[az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
 
 <!--Not Available on the NEXT 16 ROWS-->
 

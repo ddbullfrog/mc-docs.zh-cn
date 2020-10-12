@@ -1,20 +1,20 @@
 ---
 title: 快速入门：使用门户定向 Web 流量
 titleSuffix: Azure Application Gateway
-description: 了解如何使用 Azure 门户创建 Azure 应用程序网关，以便将 Web 流量定向到后端池中的虚拟机。
+description: 本快速入门介绍如何使用 Azure 门户创建 Azure 应用程序网关，以便将 Web 流量重定向到后端池中的虚拟机。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 06/24/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: e0234562e8290c2c5fd7aea4376ebb4346863517
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 5fb8c966f90b32b87761cdd4494351d0f4a057bf
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516718"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937562"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure 门户
 
@@ -25,8 +25,6 @@ ms.locfileid: "85516718"
 还可以使用 [Azure PowerShell](quick-create-powershell.md) 或 [Azure CLI](quick-create-cli.md) 完成本快速入门。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -42,11 +40,11 @@ ms.locfileid: "85516718"
 
 1. 在 Azure 门户菜单或“主页”页上，选择“创建资源” 。 此时会显示“新建”窗口。
 
-2. 选择“网络”，然后在“特色”列表中选择“应用程序网关” 。
+2. 选择“网络”  ，然后在“特色”列表中选择“应用程序网关”   。
 
 ### <a name="basics-tab"></a>“基本信息”选项卡
 
-1. 在“基本信息”选项卡上，输入这些值作为以下应用程序网关设置：
+1. 在“基本信息”选项卡上，输入这些值作为以下应用程序网关设置  ：
 
    - **资源组**：选择 **myResourceGroupAG** 作为资源组。 如果该资源组不存在，请选择“新建”，创建一个新的。
    - **应用程序网关名称**：输入 *myAppGateway* 作为应用程序网关的名称。
@@ -54,6 +52,9 @@ ms.locfileid: "85516718"
      ![新建应用程序网关：基础知识](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2. Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创建新的虚拟网络，或者使用现有的虚拟网络。 在此示例中，将在创建应用程序网关的同时创建新的虚拟网络。 在独立的子网中创建应用程序网关实例。 在本示例中创建两个子网：一个用于应用程序网关，另一个用于后端服务器。
+
+    > [!NOTE]
+    > 应用程序网关子网中当前不支持[虚拟网络服务终结点策略](../virtual-network/virtual-network-service-endpoint-policies-overview.md)。
 
     在“配置虚拟网络”下，通过选择“新建”创建新的虚拟网络 。 在打开的“创建虚拟网络”窗口中，输入以下值以创建虚拟网络和两个子网：
 
@@ -73,7 +74,7 @@ ms.locfileid: "85516718"
 
 ### <a name="frontends-tab"></a>“前端”选项卡
 
-1. 在“前端”选项卡上，验证“IP 地址类型”是否设置为“公共”  。 <br>可根据用例将前端 IP 配置为公共或专用 IP。 本示例将选择公共前端 IP。
+1. 在“前端”选项卡上，验证“IP 地址类型”是否设置为“公共”    。 <br>可根据用例将前端 IP 配置为公共或专用 IP。 本示例将选择公共前端 IP。
    > [!NOTE]
    > 对于应用程序网关 v2 SKU，必须有一个**公共**前端 IP 配置。 你仍可以同时有公共和专用前端 IP 配置，但目前没有为 v2 SKU 启用仅专用前端 IP 配置（仅限 ILB 模式）。 
 
@@ -87,39 +88,39 @@ ms.locfileid: "85516718"
 
 后端池用于将请求路由到为请求提供服务的后端服务器。 后端池可以包含 NIC、虚拟机规模集、公共 IP、内部 IP、完全限定的域名 (FQDN) 和多租户后端（例如 Azure 应用服务）。 在此示例中，将使用应用程序网关创建空的后端池，然后将后端目标添加到后端池。
 
-1. 在“后端”选项卡上，选择“+添加后端池” 。
+1. 在“后端”选项卡上，选择“+添加后端池”   。
 
-2. 在打开的“添加后端池”窗口中，输入以下值以创建空的后端池：
+2. 在打开的“添加后端池”窗口中，输入以下值以创建空的后端池  ：
 
-    - **名称**：输入“myBackendPool”作为后端池的名称。
+    - **名称**：输入“myBackendPool”作为后端池的名称  。
     - **添加不包含目标的后端池**：选择“是”以创建不包含目标的后端池。 你将在创建应用程序网关之后添加后端目标。
 
 3. 在“添加后端池”窗口中，选择“添加”以保存后端池配置并返回到“后端”选项卡  。
 
      ![新建应用程序网关：后端](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
-4. 在“后端”选项卡上，选择“下一步:配置”。
+4. 在“后端”  选项卡上，选择“下一步:  配置”。
 
 ### <a name="configuration-tab"></a>配置选项卡
 
-在“配置”选项卡上，将连接使用传递规则创建的前端和后端池。
+在“配置”选项卡上，将连接使用传递规则创建的前端和后端池  。
 
-1. 选择“传递规则”列中的“添加规则” 。
+1. 选择“传递规则”列中的“添加规则”   。
 
-2. 在打开的“添加传递规则”窗口中，输入“myRoutingRule”作为规则名称。
+2. 在打开的“添加传递规则”窗口中，输入“myRoutingRule”作为规则名称    。
 
-3. 传递规则需要侦听器。 在“添加传递规则”窗口中的“侦听器”选项卡上，输入侦听器的以下值 ：
+3. 传递规则需要侦听器。 在“添加传递规则”窗口中的“侦听器”选项卡上，输入侦听器的以下值   ：
 
-    - **侦听器名称**：输入“myListener”作为侦听器名称。
+    - **侦听器名称**：输入“myListener”作为侦听器名称  。
     - **前端 IP**：选择“公共”，以选择为前端创建的公共 IP。
   
       接受“侦听器”选项卡上其他设置的默认值，然后选择“后端目标”选项卡以配置剩余的传递规则 。
 
    ![新建应用程序网关：侦听器](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
 
-4. 在“后端目标”选项卡上，为“后端目标”选择“myBackendPool”  。
+4. 在“后端目标”选项卡上，为“后端目标”选择“myBackendPool”    。
 
-5. 对于“HTTP 设置”，选择“新建”以创建新的 HTTP 设置 。 HTTP 设置将决定传递规则的行为。 在打开的“添加 HTTP 设置”窗口中，为“HTTP 设置名称”输入“myHTTPSetting”，为“后端端口”输入“80”。 接受“添加 HTTP 设置”窗口中其他设置的默认值，然后选择“添加”以返回到“添加传递规则”窗口  。 
+5. 对于“HTTP 设置”，选择“新建”以创建新的 HTTP 设置   。 HTTP 设置将决定传递规则的行为。 在打开的“添加 HTTP 设置”窗口中，为“HTTP 设置名称”输入“myHTTPSetting”，为“后端端口”输入“80”。 接受“添加 HTTP 设置”窗口中其他设置的默认值，然后选择“添加”以返回到“添加传递规则”窗口  。 
 
      ![新建应用程序网关：HTTP 设置](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
@@ -127,11 +128,11 @@ ms.locfileid: "85516718"
 
      ![新建应用程序网关：传递规则](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
-7. 在完成时选择“下一步:标记”，然后选择“下一步:查看 + 创建”。
+7. 在完成时选择“下一步:  标记”，然后选择“下一步:  查看 + 创建”。
 
 ### <a name="review--create-tab"></a>“查看 + 创建”选项卡
 
-复查“查看 + 创建”选项卡上的设置，然后选择“创建”以创建虚拟网络、公共 IP 地址和应用程序网关 。 Azure 可能需要数分钟时间来创建应用程序网关。 请等待部署成功完成，然后再前进到下一部分。
+复查“查看 + 创建”选项卡上的设置，然后选择“创建”以创建虚拟网络、公共 IP 地址和应用程序网关   。 Azure 可能需要数分钟时间来创建应用程序网关。 请等待部署成功完成，然后再前进到下一部分。
 
 ## <a name="add-backend-targets"></a>添加后端目标
 
@@ -158,7 +159,7 @@ ms.locfileid: "85516718"
 5. 接受“磁盘”**选项卡的默认值**，然后选择“下一步:**网络”** 。
 6. 在“网络”选项卡上，验证是否已选择 **myVNet** 作为**虚拟网络**，以及是否已将“子网”设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”** 。<br>应用程序网关可与其所在的虚拟网络外部的实例进行通信，但需要确保已建立 IP 连接。
 7. 在“管理”选项卡上，将“启动诊断”设置为“关闭”。 接受其他默认值，然后选择“复查 + 创建”。
-8. 在“复查 + 创建”选项卡上复查设置，更正任何验证错误，然后选择“创建”。 
+8. 在“复查 + 创建”选项卡上复查设置，更正任何验证错误，然后选择“创建”。
 9. 等待虚拟机创建完成，然后再继续操作。
 
 ### <a name="install-iis-for-testing"></a>安装 IIS 用于测试
@@ -199,11 +200,10 @@ ms.locfileid: "85516718"
 
 5. 在“目标”下，从下拉列表中选择“myVM”和“myVM2”虚拟机及其关联的网络接口。
 
-
    > [!div class="mx-imgBorder"]
    > ![添加后端服务器](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-6. 选择“保存” 。
+6. 选择“保存”。
 
 7. 等待部署完成之后再继续下一步。
 
@@ -212,7 +212,7 @@ ms.locfileid: "85516718"
 虽然不需 IIS 即可创建应用程序网关，但本快速入门中安装了它，用来验证 Azure 是否已成功创建应用程序网关。 使用 IIS 测试应用程序网关：
 
 1. 在“概述”页面上查找应用程序网关的公共 IP 地址![记录应用程序网关公共 IP 地址](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)或者，可以选择“所有资源”，在搜索框中输入“myAGPublicIPAddress”，然后在搜索结果中选择该地址 。 Azure 会在“概览”页上显示公共 IP 地址。
-2. 复制公共 IP 地址，然后将其粘贴到浏览器的地址栏中以浏览该 IP 地址。
+2. 复制公共 IP 地址，然后将其粘贴到浏览器的地址栏中，以便浏览该 IP 地址。
 3. 检查响应。 有效响应验证应用程序网关是否已成功创建，以及是否能够成功连接后端。
 
    ![测试应用程序网关](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
@@ -227,8 +227,8 @@ ms.locfileid: "85516718"
 
 1. 在 Azure 门户菜单上，选择“资源组”，或搜索并选择“资源组”。
 2. 在“资源组”页的列表中搜索“myResourceGroupAG”，然后将其选中。 
-3. 在“资源组”页上，选择“删除资源组” 。
-4. 在“键入资源组名称”字段中输入“myResourceGroupAG”，然后选择“删除” 
+3. 在“资源组”页上，选择“删除资源组”   。
+4. 在“键入资源组名称”字段中输入“myResourceGroupAG”，然后选择“删除”
 
 ## <a name="next-steps"></a>后续步骤
 

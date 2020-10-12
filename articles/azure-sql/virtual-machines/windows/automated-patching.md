@@ -3,7 +3,7 @@ title: 自动修补 SQL Server VM (Resource Manager) | Microsoft Docs
 description: 本文介绍 Azure 上运行的、使用资源管理器的 SQL Server 虚拟机的自动修补功能。
 services: virtual-machines-windows
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/07/2018
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: 05581842ae1497fa4551de43e01b33f1bb8aa52b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 13eb9a673f6f41aee3122f49b06153b09f119cdd
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222503"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872450"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure 虚拟机（资源管理器）上 SQL Server 的自动修补
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,6 +41,7 @@ ms.locfileid: "88222503"
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
+* Windows Server 2019
 
 **SQL Server 版本**：
 
@@ -49,6 +50,7 @@ ms.locfileid: "88222503"
 * SQL Server 2014
 * SQL Server 2016
 * SQL Server 2017
+* SQL Server 2019
 
 **Azure PowerShell**：
 
@@ -62,7 +64,7 @@ ms.locfileid: "88222503"
 > 
 
 ## <a name="settings"></a>设置
-下表描述了可为自动修补配置的选项。 实际配置步骤根据你使用的是 Azure 门户还是 Azure Windows PowerShell 命令而有所不同。
+下表描述了可为自动修补配置的选项。 实际配置步骤根据使用的是 Azure 门户还是 Azure Windows PowerShell 命令而有所不同。
 
 | 设置 | 可能的值 | 说明 |
 | --- | --- | --- |
@@ -117,7 +119,7 @@ ms.locfileid: "88222503"
 
 以下示例使用 PowerShell 在现有的 SQL Server VM 上配置自动修补。 **New-AzVMSqlServerAutoPatchingConfig** 命令可为自动更新配置新的维护时段。
 
-```powershell
+```azurepowershell
 # Sign in the Azure China Cloud
 Connect-AzAccount -Environment AzureChinaCloud
 

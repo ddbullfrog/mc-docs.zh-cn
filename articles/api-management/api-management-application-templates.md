@@ -3,27 +3,26 @@ title: Azure API 管理中的应用程序模板
 description: 了解如何在 Azure API 管理中自定义开发人员门户中的应用程序页面的内容。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: erikre
 editor: ''
 ms.assetid: f3122c4d-e10e-4cdf-977b-36e8f4133fc8
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
+ms.date: 09/29/2020
+ms.author: v-johya
 origin.date: 11/04/2019
-ms.author: v-yiso
-ms.date: 11/18/2019
-ms.openlocfilehash: 99ebbe41c7c30d86ce00892c5d132d8356f93704
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a3ab3d6a5b8fb6d01445d5e65e97ddf8db41b496
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73831462"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871268"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Azure API 管理中的应用程序模板
-通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
+通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](api-management-template-resources.md#strings)、[字形资源](api-management-template-resources.md#glyphs)和[页面控件](api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
   
  本部分中的模板可用于自定义开发人员门户中的应用程序页面的内容。  
   
@@ -33,6 +32,7 @@ ms.locfileid: "73831462"
   
 > [!NOTE]
 >  示例默认模板包含在后续文档中，但是会因持续改进而有所更改。 通过导航到所需单个模板，可在开发人员门户中查看实时的默认模板。 如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
+
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -75,17 +75,17 @@ ms.locfileid: "73831462"
 ```  
   
 ### <a name="controls"></a>控制  
- `Product list` 模板可使用以下[页面控件](./api-management-page-controls.md)。  
+ `Product list` 模板可使用以下[页面控件](api-management-page-controls.md)。  
   
--   [paging-control](./api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>数据模型  
   
 |properties|类型|说明|  
 |--------------|----------|-----------------|  
-|Paging|[分页](./api-management-template-data-model-reference.md#Paging)实体。|应用程序集合的分页信息。|  
-|应用程序|[应用程序](./api-management-template-data-model-reference.md#Application)实体的集合。|对当前用户可见的应用程序。|  
-|CategoryName|字符串|应用程序的类别。|  
+|`Paging`|[分页](api-management-template-data-model-reference.md#Paging)实体。|应用程序集合的分页信息。|  
+|`Applications`|[应用程序](api-management-template-data-model-reference.md#Application)实体的集合。|对当前用户可见的应用程序。|  
+|`CategoryName`|字符串|应用程序的类别。|  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   
@@ -182,10 +182,10 @@ ms.locfileid: "73831462"
 ```  
   
 ### <a name="controls"></a>控制  
- `Application` 模板不允许使用任何[页面控件](./api-management-page-controls.md)。  
+ `Application` 模板不允许使用任何[页面控件](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>数据模型  
- [应用程序](./api-management-template-data-model-reference.md#Application)实体。  
+ [应用程序](api-management-template-data-model-reference.md#Application)实体。  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   
@@ -225,4 +225,5 @@ ms.locfileid: "73831462"
 ```
 
 ## <a name="next-steps"></a>后续步骤
-如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。
+如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](api-management-developer-portal-templates.md)。
+

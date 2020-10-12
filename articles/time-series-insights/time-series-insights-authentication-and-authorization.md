@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/28/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 2eb5224bb3cdf48487bb14eef349a4e2d24cb6b0
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 250ccfc26b957cdc4757d1a4357a890dfeb5c647
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413236"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937311"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure 时序见解 API 的身份验证和授权
 
@@ -85,7 +85,7 @@ Azure Active Directory 应用注册流程涉及三个主要步骤。
 
    1. 在 C# 中，以下代码可以代表应用程序获取令牌。 有关如何从 Gen1 环境查询数据的完整示例，请参阅[使用 C# 查询数据](time-series-insights-query-data-csharp.md)。
 
-        请参阅 [Azure 时序见解](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)存储库以访问 C# 代码。 
+        请参阅 [Azure 时序见解](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)存储库以访问 C# 代码。
 
    1. 随后可在应用程序调用 Azure 时序见解 API 时，将令牌传入 `Authorization` 标头。
 
@@ -117,7 +117,7 @@ Azure Active Directory 应用注册流程涉及三个主要步骤。
 > [!IMPORTANT]
 > 令牌必须严格颁发给 `https://api.timeseries.azure.cn/` 资源（也称为令牌的“受众”）。
 
-> * 因此，[Postman](https://www.getpostman.com/) **AuthURL** 将为：`https://login.partner.microsoftonline.cn/microsoft.partner.onmschina.cn/oauth2/authorize?scope=https://api.timeseries.azure.cn/.default`
+> * 因此，[Postman](https://www.getpostman.com/) **AuthURL** 将为：`https://login.partner.microsoftonline.cn/microsoft.partner.onmschina.cn/oauth2/authorize?scope=https://api.timeseries.azure.cn//.default`
 > * `https://api.timeseries.azure.cn/` 有效，但 `https://api.timeseries.azure.cn` 无效。
 
 可选请求标头如下所述。

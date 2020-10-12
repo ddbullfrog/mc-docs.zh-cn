@@ -4,16 +4,16 @@ description: 使用 Azure 门户通过 Azure 资源管理器管理资源组。 �
 ms.topic: conceptual
 origin.date: 03/26/2019
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: b3a78b33e16905ff6f469ad4b60c6b2749928eff
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 5c2bb8582f399799e8fbf65bd16a39af94776c18
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807769"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937196"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>使用 Azure 门户管理 Azure 资源管理器资源组
 
@@ -45,23 +45,23 @@ ms.locfileid: "88807769"
     - **资源组**：输入新的资源组名称。 
     - **区域**：选择某个 Azure 位置，例如“中国北部”。
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png" alt-text="创建资源组":::
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png" alt-text="添加资源组":::
 5. 选择“查看 + 创建”
 6. 选择“创建” 。 创建资源组需要几秒钟的时间。
 7. 在顶部菜单中选择“刷新”以刷新资源组列表，然后选择新建的资源组将其打开。 或者，选择顶部的“通知”（钟形图标），然后选择“转到资源组”打开新建的资源组 
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png" alt-text="转到资源组":::
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png" alt-text="添加资源组":::
 
 ## <a name="list-resource-groups"></a>列出资源组
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 若要列出资源组，请选择“资源组”
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png" alt-text="浏览资源组":::
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png" alt-text="添加资源组":::
 
 3. 若要自定义显示的资源组信息，请选择“编辑列”。 以下屏幕截图显示了可添加到画面中的附加列：
 
-## <a name="open-resource-groups"></a>打开资源组
+## <a name="open-resource-groups"></a><a name="pen-resource-groups"></a>打开资源组
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 选择“资源组”。
@@ -72,7 +72,7 @@ ms.locfileid: "88807769"
 1. 打开要删除的资源组。  参阅[打开资源组](#open-resource-groups)。
 2. 选择“删除资源组”。
 
-    :::image type="content" source="./media/manage-resource-groups-portal/delete-group.png" alt-text="删除 Azure 资源组":::
+    :::image type="content" source="./media/manage-resource-groups-portal/delete-group.png" alt-text="添加资源组":::
 
 若要详细了解 Azure 资源管理器如何控制资源的删除，请参阅 [Azure 资源管理器资源组的删除](delete-resource-group.md)。
 
@@ -93,7 +93,7 @@ ms.locfileid: "88807769"
 3. 若要将锁添加到资源组，请选择“添加”。
 4. 输入“锁定名”、“锁类型”和“备注”。   锁类型包括“只读”和“删除”。 
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png" alt-text="锁定 Azure 资源组":::
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png" alt-text="添加资源组":::
 
 有关详细信息，请参阅[锁定资源以防止意外更改](lock-resources.md)。
 
@@ -107,7 +107,7 @@ ms.locfileid: "88807769"
 
 ## <a name="manage-access-to-resource-groups"></a>管理对资源组的访问
 
-可以通过 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md) 管理对 Azure 中资源的访问权限。 有关详细信息，请参阅[使用 RBAC 和 Azure 门户管理访问权限](../../role-based-access-control/role-assignments-portal.md)。
+可以通过 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md) 管理对 Azure 中资源的访问权限。 有关详细信息，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

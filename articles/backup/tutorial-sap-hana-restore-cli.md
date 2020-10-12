@@ -4,15 +4,15 @@ description: 在本教程中，你将了解如何使用 Azure CLI 从 Azure 备�
 author: Johnnytechn
 ms.topic: tutorial
 origin.date: 11/7/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.custom: devx-track-azurecli
 ms.author: v-johya
-ms.openlocfilehash: 9a4e763d392cb491b738822e7107af6a3e9a2f74
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: ca947725f8ca1102f24e7582e4d5ca7ddb886121
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402311"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871113"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>教程：使用 Azure CLI 还原 Azure VM 中的 SAP HANA 数据库
 
@@ -94,7 +94,7 @@ Azure 备份可以还原在 Azure VM 上运行的 SAP HANA 数据库，如下所
 
 * **--target-item-name**：这是已还原数据库要使用的名称。 在本例中，我们使用名称 restored_database。
 * **--target-server-name**：这是成功注册到恢复服务保管库并且与要还原的数据库位于同一区域中的 SAP HANA 服务器的名称。 在本教程中，我们会将数据库还原到受保护的同一 SAP HANA 服务器，名为 hxehost。
-* **--target-server-type**：还原 SAP HANA 数据库时，必须使用 SapHanaDatabase。
+* **--target-server-type**：若要还原 SAP HANA 数据库，必须使用 HANAInstance。
 
 ```azurecli
 
