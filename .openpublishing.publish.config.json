@@ -15,7 +15,8 @@
         "ManagedReference": "Content",
         "LandingData": "Content",
         "RestApi": "Content",
-        "ContextObject": "Toc"
+        "ContextObject": "Toc",
+        "ContentNav": "Toc"
       },
       "build_entry_point": "docs",
       "template_folder": "_themes",
