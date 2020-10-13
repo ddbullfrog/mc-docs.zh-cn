@@ -1,19 +1,20 @@
 ---
-title: 使用基础结构备份服务恢复 Azure Stack Hub 中的数据
+title: 使用基础结构备份服务恢复 Azure Stack Hub 数据
 description: 了解如何使用基础结构备份服务在 Azure Stack Hub 中备份和还原配置和服务数据。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
 origin.date: 05/16/2019
-ms.date: 05/18/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1cf0927be88622056bf02d5a920d5fa6355e161f
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 0fe8a9a4cc81de1e5bce2ecc4c6df8415b942825
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422139"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437735"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>使用基础结构备份服务恢复 Azure Stack Hub 中的数据
 
@@ -41,7 +42,7 @@ ms.locfileid: "83422139"
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>验证基础结构备份服务的要求
 
 - **存储位置**  
-  需要可从 Azure Stack Hub 访问的文件共享，其中可以包含七个备份。 每个备份大约为 10 GB。 共享应能够存储 140 GB 的备份。 有关为基础结构备份服务选择存储位置的详细信息，请参阅[备份控制器要求](azure-stack-backup-reference.md#backup-controller-requirements)。
+  需要可从 Azure Stack Hub 访问的文件共享，其中可以包含 14 个备份。 每个备份大约为 10 GB。 文件共享应能够存储 140 GB 的备份。 有关为基础结构备份服务选择存储位置的详细信息，请参阅[备份控制器要求](azure-stack-backup-reference.md#backup-controller-requirements)。
 - **凭据**  
   你需要域用户帐户和凭据。 例如，可以使用 Azure Stack Hub 管理员凭据。
 - **加密证书**  

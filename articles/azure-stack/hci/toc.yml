@@ -30,6 +30,8 @@
       href: deploy/register-with-azure.md
     - name: 验证群集
       href: deploy/validate.md
+    - name: 部署网络控制器
+      href: deploy/network-controller-powershell.md
 - name: 管理
   items:
     - name: 管理 VM
@@ -48,12 +50,16 @@
           href: manage/create-volumes.md
         - name: 创建延伸卷
           href: manage/create-stretched-volumes.md
+        - name: 保护卷
+          href: manage/volume-encryption-deduplication.md
         - name: 扩展卷
           href: manage/extend-volumes.md
         - name: 删除卷
           href: manage/delete-volumes.md
         - name: 更换驱动器
           href: manage/replace-drives.md
+        - name: 使用 CSV 内存中读取缓存
+          href: manage/use-csv-cache.md
     - name: 管理群集
       items:
         - name: 管理群集
@@ -78,6 +84,8 @@
       items:
         - name: 将 Windows Admin Center 注册到 Azure
           href: manage/register-windows-admin-center.md
+        - name: 使用 Azure 门户
+          href: manage/azure-portal.md
         - name: 使用 Azure Monitor 进行监视
           href: manage/azure-monitor.md
         - name: 使用 Azure Site Recovery
@@ -96,14 +104,22 @@
       href: concepts/updates.md
     - name: 选择驱动器
       href: concepts/choose-drives.md
+    - name: 驱动器对称注意事项
+      href: concepts/drive-symmetry-considerations.md
     - name: 规划卷
       href: concepts/plan-volumes.md
-    - name: 了解缓存
+    - name: 软件定义的网络
+      href: concepts/software-defined-networking.md
+    - name: 了解存储池缓存
       href: concepts/cache.md
     - name: 容错和存储效率
       href: concepts/fault-tolerance.md
     - name: 群集和存储池仲裁
       href: concepts/quorum.md
+    - name: 计划 SDN 基础结构
+      href: concepts/plan-software-defined-networking-infrastructure.md
+    - name: 网络控制器
+      href: concepts/network-controller.md
     - name: 安全注意事项
       href: concepts/security.md
 - name: 参考
@@ -126,6 +142,8 @@
       href: 'https://docs.microsoft.com/powershell/module/dcbqos'
 - name: 相关内容
   items:
+    - name: Azure Stack HCI 上的 Azure Kubernetes 服务
+      href: ../aks-hci/overview.md
     - name: Azure Stack 系列
       href: ../index.yml
     - name: Azure 混合云

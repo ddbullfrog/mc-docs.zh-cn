@@ -2,18 +2,19 @@
 title: 在 Azure Stack Hub 中从灾难性数据丢失中恢复
 description: 了解如何在发生灾难性数据丢失后恢复和还原 Azure Stack Hub 中的基础结构数据。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e09bfa419bc1e064de0da43c6954013d6c7c3e72
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: be6c83a5c36f330433d5454cee9e069a283f04e7
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867884"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437737"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -25,7 +26,7 @@ Azure Stack Hub 在数据中心运行 Azure 服务，并且可以在如同安装
 
 | 方案                                                           | 数据丢失                            | 注意事项                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| 在由于灾难或产品 bug 而发生灾难性数据丢失后进行恢复。 | 所有基础结构及用户和应用数据。 | 用户应用和数据与基础结构数据分开进行保护。 |
+| 在由于灾难或产品 bug 而发生灾难性数据丢失后进行恢复。 | 所有基础结构及用户和应用数据。 | 可以还原到其他 OEM。<br/> 可以还原到不同代系的硬件。<br/> 可以还原到不同计数的缩放单元节点。<br/> 用户应用和数据与基础结构数据分开进行保护。 |
 
 ## <a name="workflows"></a>工作流
 

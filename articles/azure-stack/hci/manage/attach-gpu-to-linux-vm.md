@@ -3,15 +3,16 @@ title: 将 GPU 附加到 Azure Stack HCI 中的 Linux VM
 description: 如何配合使用 GPU 与 Azure Stack HCI 上 Ubuntu Linux VM 中运行的 AI 工作负载。
 author: WenJason
 ms.author: v-jay
-ms.topic: article
+ms.service: azure-stack
+ms.topic: how-to
 origin.date: 07/01/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 322067e3962d32c9c7dfb0cdb310196e92a69d9f
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.date: 10/12/2020
+ms.openlocfilehash: e161374fa8f71d8afb682624d8617b0b0a136171
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868075"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437757"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>将 GPU 附加到 Azure Stack HCI 上的 Ubuntu Linux VM
 
@@ -28,13 +29,16 @@ ms.locfileid: "88868075"
 4. 打开“设备管理器”，然后导航到“其他设备”部分。 此时应显示列出为“3D 视频控制器”的设备。
 5. 右键单击“3D 视频控制器”以打开“属性”页。 单击“详细信息”。 在“属性”下的下拉列表中，选择“位置路径”。
 6. 请注意字符串 PCIRoot 的值，以下屏幕截图中高亮显示了该值。 右键单击“值”以将其复制/保存。
-    :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="位置路径屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="位置路径屏幕截图&quot;:::
 7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
     ```PowerShell
-    Dismount-VMHostAssignableDevice -LocationPath "PCIROOT(16)#PCI(0000)#PCI(0000)" -force
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)" -force
     ```
 8. 确认设备在“设备管理器”的系统设备下列为“已卸除”。
-    :::image type="content" source="media/attach-gpu-to-linux-vm/dismounted.png" alt-text="“已卸除设备”屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/dismounted.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 ## <a name="create-and-configure-an-ubuntu-virtual-machine"></a>创建和配置 Ubuntu 虚拟机
 
@@ -55,7 +59,10 @@ ms.locfileid: "88868075"
     Get-VMAssignableDevice -VMName Ubuntu
     ```
 
-    成功将 GPU 分配到 VM 后将显示以下输出：:::image type="content" source="media/attach-gpu-to-linux-vm/assign-gpu.png" alt-text="分配 GPU 屏幕截图":::
+    成功将 GPU 分配到 VM 后将显示以下输出：:::image type="content" source="media/attach-gpu-to-linux-vm/assign-gpu.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
     按照[此处](https://docs.microsoft.com/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda)的 GPU 文档配置其他值：
 
@@ -75,7 +82,10 @@ ms.locfileid: "88868075"
 
 5. 使用 Hyper-V 管理器连接到 VM 并开始安装 Ubuntu OS。 选择默认值，在 VM 上安装 Ubuntu OS。
 
-6. 完成安装后，请使用 Hyper-V 管理器关闭 VM，并配置 VM 的“自动停止操作”以关闭来宾操作系统，如以下屏幕截图所示 ：:::image type="content" source="media/attach-gpu-to-linux-vm/guest-shutdown.png" alt-text="来宾操作系统关闭屏幕截图":::
+6. 完成安装后，请使用 Hyper-V 管理器关闭 VM，并配置 VM 的“自动停止操作”以关闭来宾操作系统，如以下屏幕截图所示 ：:::image type="content" source="media/attach-gpu-to-linux-vm/guest-shutdown.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 7. 登录到 Ubuntu 并打开终端以安装 SSH：
 
@@ -93,9 +103,15 @@ ms.locfileid: "88868075"
     > 如果 NVIDIA GPU 未显示为“3D 控制器”，请勿继续操作。 继续操作之前，请确保已遵循上述步骤。
 
 11. 在 VM 中，搜索并打开“软件和更新”。 导航到“其他驱动程序”，然后选择列出的最新 NVIDIA GPU 驱动程序。 单击“应用更改”按钮，完成驱动程序的安装。
-    :::image type="content" source="media/attach-gpu-to-linux-vm/driver-install.png" alt-text="驱动程序安装屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/driver-install.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
-12. 完成驱动程序的安装后，重启 Ubuntu VM。 VM 启动后，通过 SSH 客户端进行连接，并发出 nvidia-smi 命令，以验证 NVIDIA GPU 驱动程序安装是否已成功完成。 输出应类似于以下屏幕截图：:::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="nvidia-smi 屏幕截图":::
+12. 完成驱动程序的安装后，重启 Ubuntu VM。 VM 启动后，通过 SSH 客户端进行连接，并发出 nvidia-smi 命令，以验证 NVIDIA GPU 驱动程序安装是否已成功完成。 输出应类似于以下屏幕截图：:::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 13. 使用 SSH 客户端，设置存储库并安装 Docker CE 引擎：
 
@@ -189,7 +205,10 @@ ms.locfileid: "88868075"
     sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
     ```
 
-    如果安装成功，输出将类似于以下屏幕截图：:::image type="content" source="media/attach-gpu-to-linux-vm/docker.png" alt-text="Docker 安装成功屏幕截图":::
+    如果安装成功，输出将类似于以下屏幕截图：:::image type="content" source="media/attach-gpu-to-linux-vm/docker.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 5. 按照此处的说明操作，继续安装 Azure IoT Edge，跳过运行时安装：
 
@@ -218,7 +237,10 @@ ms.locfileid: "88868075"
 
     找到文件的预配配置，并取消注释“手动预配配置”节。 使用 IoT Edge 设备的连接字符串更新 device_connection_string 的值。 请确保注释掉任何其他预配部分。请确保 provisioning: 行前面没有空格，并且嵌套项缩进了两个空格：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/manual-provisioning.png" alt-text="手动预配配置屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/manual-provisioning.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
     若要将剪贴板内容粘贴到 Nano，请按住 shift 键并右键单击或按 shift 并按 insert。 保存并关闭 (Ctrl + X, Y, Enter) 文件。
 
@@ -262,7 +284,10 @@ ms.locfileid: "88868075"
 
     目录 /var/deepstream/custom_streams 的内容应类似于以下屏幕截图：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/custom-streams.png" alt-text="自定义流屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/custom-streams.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 11. 在 /var/deepstream/custom_configs 目录中，新建名为 test5_config_file_src_infer_azure_iotedge_edited.txt 文件。 使用文本编辑器打开文件并粘贴以下代码，然后保存并关闭文件。
 
@@ -421,65 +446,54 @@ ms.locfileid: "88868075"
 
 12. 导航到 Azure 门户。 选择“IoT 中心预配”，单击“自动设备管理”，然后单击 IoT Edge  ：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/iot-edge.png" alt-text="自动设备管理屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/iot-edge.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 13. 在右侧窗格中，选择上文所使用的设备连接字符串的设备标识。 单击“设置模块”：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/set-modules.png" alt-text="设置模块屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/set-modules.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 14. 在 IoT Edge 模块下，单击并选择“市场模块”：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="市场模块屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 15. 搜索 NVIDIA 并选择 DeepStream SDK，如下所示：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream.png" alt-text="DeepStream SDK 屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 16. 确保 NvidiaDeepStreamSDK 模块在 IoT Edge 模块下列出：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/edge-modules.png" alt-text="IoT Edge 模块屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/edge-modules.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 17. 单击“NVIDIADeepStreamSDK”模块，并选择“容器创建选项”。 默认配置如下所示：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/container-create-options.png" alt-text="“容器创建选项”屏幕截图":::
-
-    将以上配置替换为以下配置：
-
-    ```shell
-    {
-      "ExposedPorts": {
-        "8554/tcp": {}
-      },
-      "Entrypoint": [
-        "/usr/bin/deepstream-test5-app",
-        "-c",
-        "test5_config_file_src_infer_azure_iotedge_edited.txt",
-        "-p",
-        "1",
-        "-m",
-        "1"
-      ],
-      "HostConfig": {
-        "runtime": "nvidia",
-        "Binds": [
-          "/var/deepstream/custom_configs:/root/deepstream_sdk_v4.0.2_x86_64/sources/apps/sample_apps/deepstream-test5/custom_configs/",
-          "/var/deepstream/custom_streams:/root/deepstream_sdk_v4.0.2_x86_64/sources/apps/sample_apps/deepstream-test5/custom_streams/"
-        ],
-        "PortBindings": {
-          "8554/tcp": [
-            {
-              "HostPort": "8554"
-            }
-          ]
-        }
-      },
-      "WorkingDir": "/root/deepstream_sdk_v4.0.2_x86_64/sources/apps/sample_apps/deepstream-test5/custom_configs/"
+    :::image type="content" source="media/attach-gpu-to-linux-vm/container-create-options.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)"
     }
     ```
 
 18. 单击“查看和创建”，然后在下一页中单击“创建” 。 此时在 Azure 门户中应显示 IoT Edge 设备的以下三个模块：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/edge-hub-connections.png" alt-text="模块和 IoT Edge 中心连接屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/edge-hub-connections.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 19. 使用 SSH 客户端连接到 Ubuntu VM，并验证是否正在运行正确的模块：
 
@@ -487,13 +501,19 @@ ms.locfileid: "88868075"
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="iotedge 列表屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
     ```shell
     nvidia-smi
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-nvidia-smi.png" alt-text="nvidia-smi 屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-nvidia-smi.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
     > [!NOTE]
     > 下载 NvidiaDeepstream 容器需要几分钟时间。 可以使用命令“journalctl -u iotedge --no-pager --no-full”查看 iotedge 守护程序日志，以验证下载内容。
@@ -504,19 +524,28 @@ ms.locfileid: "88868075"
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="iotedge 列表屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
     ```shell
     sudo iotedge logs -f NVIDIADeepStreamSDK
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="iotedge 列表屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
     ```shell
     nvidia-smi
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="iotedge 列表屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 21. 使用 ifconfig 命令确认 Ubuntu VM 的 TCP/IP 地址，并查看 eth0 接口旁边的 TCP/IP 地址 。
 
@@ -526,7 +555,10 @@ ms.locfileid: "88868075"
 
     其中，ipaddress 是 VM 的 TCP/IP 地址。
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/vlc-player.png" alt-text="VLC 播放机屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/vlc-player.png" alt-text="位置路径屏幕截图&quot;:::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
+    ```PowerShell
+    Dismount-VMHostAssignableDevice -LocationPath &quot;PCIROOT(16)#PCI(0000)#PCI(0000)":::
 
 ## <a name="next-steps"></a>后续步骤
 

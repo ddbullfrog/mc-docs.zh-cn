@@ -4,14 +4,15 @@ description: 如何使用 Windows Admin Center 和 PowerShell 将操作系统和
 author: WenJason
 ms.author: v-jay
 ms.topic: how-to
-origin.date: 07/21/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 59cd6218da421383f76ac759d27465c7d09d7066
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.service: azure-stack
+origin.date: 08/31/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 4b73342389f87fb8fb7897c529a4516bb98b7408
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871632"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437746"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>更新 Azure Stack HCI 群集
 
@@ -22,6 +23,8 @@ ms.locfileid: "88871632"
 ## <a name="update-a-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 更新群集
 
 Windows Admin Center 利用简单的用户界面，简化了更新群集和应用操作系统和解决方案更新的过程。 如果你已从 Microsoft 硬件合作伙伴处购买了集成系统，则通过安装合适的合作伙伴更新扩展插件，可直接从 Windows Admin Center 轻松获取最新的驱动程序、固件和其他更新。 如果你的硬件不是作为集成系统购买的，则可能需要按照硬件供应商的建议单独更新固件和驱动程序。
+
+Windows Admin Center 会检查群集是否已正确配置为运行群集感知更新；会根据需要询问你是否希望 Windows Admin Center 为你配置 CAU，包括安装 CAU 群集角色和启用所需的防火墙规则。
 
 1. 在连接到群集时，如果一个或多个服务器已准备好安装更新，Windows Admin Center 仪表板会向你发出提醒，并提供立即更新的链接。 或者，你可以从左侧的“工具”菜单中选择“更新” 。
 1. 若要在 Windows Admin Center 中使用群集感知更新工具，必须启用凭据安全服务提供程序 (CredSSP) 并提供显式凭据。 当系统询问是否启用 CredSSP 时，单击“是”。

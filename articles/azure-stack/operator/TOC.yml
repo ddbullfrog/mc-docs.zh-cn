@@ -88,9 +88,10 @@
               href: azure-stack-validate-adfs.md
             - name: 验证图形集成
               href: azure-stack-validate-graph.md
-        - name: Azure Stack Hub 部署 PKI 要求
-          href: azure-stack-pki-certs.md
+        - name: PKI 要求和过程
           items:
+            - name: PKI 证书要求
+              href: azure-stack-pki-certs.md
             - name: 生成 PKI 证书
               href: azure-stack-get-pki-certs.md
             - name: 准备 Azure Stack Hub PKI 证书
@@ -180,6 +181,8 @@
           href: azure-stack-change-subscription-owner.md
         - name: 启动和停止 Azure Stack Hub
           href: azure-stack-start-and-stop.md
+        - name: Azure Site Recovery 工具
+          href: site-recovery-failback.md
         - name: 管理容量
           items:
             - name: 管理存储资源
@@ -262,8 +265,6 @@
           href: azure-stack-aks-engine.md
         - name: 提供 Kubernetes 市场项
           href: azure-stack-solution-template-kubernetes-cluster-add.md
-        - name: 创建站点到站点 VPN 连接
-          href: azure-stack-create-vpn-connection-one-node.md
         - name: 提供 Commvault 市场项
           href: azure-stack-network-offer-backup-commvault.md
     - name: 提供服务
@@ -448,6 +449,8 @@
           href: azure-stack-backup-reference.md
     - name: 获取支持
       items:
+        - name: 操作员访问工作站
+          href: operator-access-workstation.md
         - name: “帮助和支持”门户
           items:
             - name: 概述

@@ -3,17 +3,17 @@ title: Azure Stack Hub 上 AKS 引擎的支持策略
 description: 本主题包含 Azure Stack Hub 上 AKS 引擎的支持策略。
 author: WenJason
 ms.topic: article
-origin.date: 08/10/2020
-ms.date: 08/31/2020
+origin.date: 09/10/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: 94e453b45b0d349aae0c662ea514eca6524ecabb
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 09/01/2020
+ms.openlocfilehash: 173faa4e9308920588077f58955a61711dcad365
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867703"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437760"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上 AKS 引擎的支持策略
 
@@ -26,6 +26,10 @@ ms.locfileid: "88867703"
 创建群集时，客户需定义 AKS 引擎创建的 Kubernetes 主节点和工作器节点。 客户工作负荷将在这些节点上执行。 客户拥有并可以查看或修改主节点和工作器节点。 不小心修改的节点可能会导致数据和工作负荷丢失，并导致群集无法正常工作。 此外，AKS 引擎操作（如升级或缩放）将覆盖任何超出有效范围的更改。 例如，如果群集有静态 Pod，在执行了 AKS 引擎升级操作后不会保留这些 Pod。
 
 由于客户群集节点会执行专用代码并存储敏感数据，Azure 支持人员只能以受限的方式访问这些信息。 在未经得客户明确许可或者提供协助的情况下，Azure 支持人员登录到这些节点、在其中执行命令或查看其日志。
+
+## <a name="version-support"></a>版本支持
+
+AKS 引擎版本支持遵循其余 Azure Stack Hub 支持策略所建立的模式，即 Azure Stack Hub 上对 AKS 引擎版本的支持基于 n-2 公式。 例如，如果最新的 AKS 引擎版本为 v0.55.0，则支持的版本集为：0.48.0、0.51.0、0.55.0。 同样重要的是要遵循 Azure Stack Hub 更新版本和相应的对 AKS 引擎支持版本的映射（保留在 [AKS 引擎发行说明](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中）。
 
 ## <a name="aks-engine-supported-areas"></a>AKS 引擎支持的区域
 

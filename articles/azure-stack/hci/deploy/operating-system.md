@@ -1,23 +1,25 @@
 ---
 title: 部署 Azure Stack HCI 操作系统
-description: 本文介绍了如何通过各种方法来部署 Azure Stack HCI 操作系统，然后使用 Windows Admin Center 来连接到服务器。 它还提供了关于如何创建服务器群集的相关指导的参考，以及为服务器获取最新 Windows 更新和固件的可选步骤。
+description: 了解如何部署 Azure Stack HCI 操作系统，然后使用 Windows Admin Center 来连接到服务器。 了解如何创建服务器群集，并了解如何为服务器获取最新的 Windows 更新和固件。
 author: WenJason
 ms.author: v-jay
 ms.topic: tutorial
-origin.date: 07/21/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 2a19c86871949e715d3a37738d0fcdbca693552e
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+origin.date: 09/24/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: fadbf1117cbeae25da55ce633861e862ed8e487e
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871645"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437544"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>部署 Azure Stack HCI 操作系统
 
 > 适用于：Azure Stack HCI 版本 20H2
 
-在完成[部署 Azure Stack HCI 之前的准备工作](before-you-start.md#install-windows-admin-center)中的步骤后，部署 Azure Stack HCI 的第一步是在要加入群集的每台服务器上安装 Azure Stack HCI 操作系统。 本文介绍了部署该操作系统的各种方法，以及如何使用 Windows Admin Center 来连接到服务器。
+在完成[部署 Azure Stack HCI 之前的准备工作](before-you-start.md#install-windows-admin-center)中的步骤后，部署 Azure Stack HCI 的第一步是在要加入群集的每个服务器上[下载 Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) 并安装该操作系统。 本文介绍了部署该操作系统的各种方法，以及如何使用 Windows Admin Center 来连接到服务器。
 
 在部署操作系统之后，可以使用关于如何创建服务器群集的相关指南，并根据[创建 Azure Stack HCI 群集](create-cluster.md)中所述，为服务器获取最新的 Windows 更新和固件更新。
 
@@ -74,31 +76,31 @@ System Center Virtual Machine Manager (VMM) 是 System Center 套件的一部分
     > [!NOTE]
     > 此版本的操作系统不支持升级安装。
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="“安装 Azure Stack HCI”向导的安装类型选项页。":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="“安装 Azure Stack HCI”向导的语言页。":::
 
 1. 在“你想将 Azure Stack HCI 安装在哪里?”页面上，确认你想要安装操作系统的驱动器位置或更新该位置，然后选择“下一步”。
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="“安装 Azure Stack HCI”向导的驱动器位置页。":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="“安装 Azure Stack HCI”向导的语言页。":::
 
 1. 此时会出现“正在安装 Azure Stack HCI”页，以显示过程状态。
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-installing.png" alt-text="“安装 Azure Stack HCI”向导的状态页。":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-installing.png" alt-text="“安装 Azure Stack HCI”向导的语言页。":::
 
     > [!NOTE]
     > 安装过程会两次重启操作系统来完成该过程，并在打开管理员命令提示之前显示有关启动服务的通知。
 
 1. 在管理员命令提示下，选择“确定”以在登录到操作系统之前更改用户的密码，然后按 Enter。
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-change-admin-password.png" alt-text="更改密码提示。":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-change-admin-password.png" alt-text="“安装 Azure Stack HCI”向导的语言页。":::
 
 1. 在“为管理员输入新凭据”提示下输入一个新密码，再次输入该密码进行确认，然后按 Enter。
 1. 在“你的密码已更改”确认提示下，按 Enter。
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-admin-password-changed.png" alt-text="“已更改密码”确认提示":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-admin-password-changed.png" alt-text="“安装 Azure Stack HCI”向导的语言页。":::
 
 现在，你可以使用服务器配置工具 (Sconfig) 来执行重要任务了。 若要使用 Sconfig，请登录到运行 Azure Stack HCI 操作系统的服务器。 这可以通过键盘和监视器在本地进行，也可以使用远程管理（无外设或 BMC）控制器或远程桌面来进行。 当你登录到服务器时，Sconfig 工具会自动打开。
 
-:::image type="content" source="../media/operating-system/azure-stack-hci-sconfig-screen.png" alt-text="服务器配置工具界面。" lightbox="../media/operating-system/azure-stack-hci-sconfig-screen.png":::
+:::image type="content" source="../media/operating-system/azure-stack-hci-sconfig-screen.png" alt-text="“安装 Azure Stack HCI”向导的语言页。" lightbox="../media/operating-system/azure-stack-hci-sconfig-screen.png":::
 
 在 Sconfig 工具的主页中，你可以执行以下初始配置任务：
 - 配置网络，或确认已使用动态主机配置协议 (DHCP) 自动配置了网络。

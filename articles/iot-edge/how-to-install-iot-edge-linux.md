@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 06/22/2020
-ms.date: 08/27/2020
+origin.date: 09/04/2020
+ms.date: 09/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: cb23a19ecfe6ea8d32e8ff878e9b2ef0e852f54e
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 57ba94d3c480f7935772b074ef49818af733f625
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957787"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564216"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>在基于 Debian 的 Linux 系统上安装 Azure IoT Edge 运行时
 
@@ -26,7 +26,7 @@ ms.locfileid: "88957787"
 > [!NOTE]
 > Linux 软件存储库中的包受到每个包中的许可条款限制 (/usr/share/doc/*package-name*)。 使用程序包之前请阅读许可条款。 安装和使用程序包即表示接受这些条款。 如果不同意许可条款，则不要使用程序包。
 
-## <a name="install-iot-edge-and-container-runtimes"></a>安装 IoT Edge 和容器运行时
+## <a name="install-container-runtime-and-iot-edge"></a>安装容器运行时和 IoT Edge
 
 根据以下部分的说明，将最新版 Azure IoT Edge 运行时安装到设备上。
 
@@ -273,7 +273,7 @@ sudo iotedge list
 
 在资源受限的设备上，强烈建议按照[故障排除指南](troubleshoot.md)中的说明将 *OptimizeForPerformance* 环境变量设置为 *false*。
 
-如果网络具有代理服务器，请按照[配置 IoT Edge 设备以通过代理服务器进行通信](how-to-configure-proxy-support.md)中的步骤进行操作。
+如果设备无法连接到 IoT 中心且网络具有代理服务器，请按照[配置 IoT Edge 设备以通过代理服务器进行通信](how-to-configure-proxy-support.md)中的步骤进行操作。
 
 ### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>验证 Linux 内核的 Moby 兼容性
 
@@ -289,31 +289,15 @@ sudo iotedge list
 
 ## <a name="install-runtime-using-release-assets"></a>使用版本资产安装运行时
 
-如果想要安装特定版本的 Moby 和无法通过 `apt-get install` 获取的 Azure IoT Edge 运行时，请使用本部分中的步骤。 Microsoft 包列表仅包含有限的一组最新版本及其子版本，因此，这些步骤适用于想要安装较旧版本或候选发布版本的任何用户。
+如果想要安装特定版本的无法通过 `apt-get install` 获取的 Azure IoT Edge 运行时，请使用本部分中的步骤。 Microsoft 包列表仅包含有限的一组最新版本及其子版本，因此，这些步骤适用于想要安装较旧版本或候选发布版本的任何用户。
 
-使用 curl 命令，可以直接从 IoT Edge GitHub 存储库将组件文件作为目标。 使用以下步骤将所有 IoT Edge 组件安装到设备上：首先是 Moby 引擎和 CLI，然后是 libiothsm，最后是 IoT Edge 安全守护程序。
+使用 curl 命令，可以直接从 IoT Edge GitHub 存储库将组件文件作为目标。 使用以下步骤安装 libiothsm 和 IoT Edge 安全守护程序。
 
-1. 导航到 [Azure IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)，找到需要将其作为目标的发行版。
+1. 准备好安装了容器引擎的设备。 如果没有容器引擎，请按照本文的[安装容器运行时和 IoT Edge](#install-container-runtime-and-iot-edge) 部分中的步骤注册 Microsoft 存储库并安装 Moby。
 
-2. 展开该版本的“资产”部分。
+2. 导航到 [Azure IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)，找到需要将其作为目标的发行版。
 
-3. 任何给定版本中的 Moby 引擎不一定有更新。 如果看到以 **moby-engine** 和 **moby-cli** 开头的文件，请使用以下命令更新这些组件。 如果没有看到任何 Moby 文件，则请回到较低版资产，直至找到最新版本。
-
-   1. 找到与 IoT Edge 设备的体系结构匹配的 **moby-engine** 文件。 右键单击文件链接并复制链接地址。
-
-   2. 将复制的链接用在以下命令中，安装该版本的 Moby 引擎：
-
-      ```bash
-      curl -L <moby-engine link> -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
-      ```
-
-   3. 找到与 IoT Edge 设备的体系结构匹配的 **moby-cli** 文件。 Moby CLI 是一个可选组件，但在开发过程中可能很有用。 右键单击文件链接并复制链接地址。
-
-   4. 将复制的链接用在以下命令中，安装该版本的 Moby CLI：
-
-      ```bash
-      curl -L <moby-cli link> -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
-      ```
+3. 展开该版本的“资产”部分。
 
 4. 每个版本应该都有用于 IoT Edge 安全守护程序和 hsmlib 的新文件。 使用以下命令更新这些组件。
 

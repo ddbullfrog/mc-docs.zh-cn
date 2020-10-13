@@ -3,19 +3,21 @@ title: 将 Azure Stack Hub 注册到 Azure
 titleSuffix: Azure Stack Hub
 description: 了解如何将 Azure Stack Hub 集成系统注册到 Azure，以便可以下载 Azure 市场项并设置数据报告。
 author: WenJason
-ms.topic: article
+ms.service: azure-stack
+ms.topic: how-to
 origin.date: 04/06/2020
-ms.date: 06/22/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
+ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 872636ced1524d7e93954117bf1c65d1d7c61466
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: a6786b79ab5e1a3ee1376f8dc97f6da545870fec
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096330"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437706"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>将 Azure Stack Hub 注册到 Azure
 
@@ -80,13 +82,16 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 若要确保使用最新版本，请在注册到 Azure 之前删除 Azure Stack Hub 工具的任何现有版本，然后[从 GitHub 下载最新版本](azure-stack-powershell-download.md)。
 
 ### <a name="determine-your-billing-model"></a>确定计费模型
-::: zone pivot="state-connected"
- 连接的部署允许 Azure Stack Hub 连接到 Internet 和 Azure。 你也可以使用 Azure AD 或 Active Directory 联合身份验证服务 (AD FS) 作为标识存储，并从两种计费模型中进行选择：“即用即付”或“基于容量”。 稍后在运行注册脚本时指定计费模型。
-::: zone-end
 
-::: zone pivot="state-disconnected"
+# <a name="connected"></a><a name="state-connected"></a>[已连接](#tab/state-connected)
+
+ 连接的部署允许 Azure Stack Hub 连接到 Internet 和 Azure。 你也可以使用 Azure AD 或 Active Directory 联合身份验证服务 (AD FS) 作为标识存储，并从两种计费模型中进行选择：“即用即付”或“基于容量”。 稍后在运行注册脚本时指定计费模型。
+
+# <a name="disconnected"></a><a name="state-disconnected"></a>[已断开连接](#tab/state-disconnected)
+
  使用断开连接的部署，无需连接到 Internet 即可使用 Azure Stack Hub。 使用断开连接部署，你将受限于一个 AD FS 标识存储和基于容量的计费模型。 稍后在运行注册脚本时指定计费模型。
-::: zone-end
+
+---
 
 ### <a name="determine-your-unique-registration-name"></a>确定唯一注册名称
 
@@ -95,14 +100,10 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 > [!NOTE]
 > 使用基于容量的计费模型的 Azure Stack Hub 注册将需要在这些年度订阅到期后重新注册时更改唯一名称，除非你[删除过期的注册](#renew-or-change-registration)并重新注册到 Azure。
 
-若要确定 Azure Stack Hub 部署的云 ID，请在可以访问特权终结点的计算机上以管理员身份打开 PowerShell，运行以下命令，并记录 **CloudID** 值：
+若要确定 Azure Stack Hub 部署的云 ID，请参阅[查找云 ID](azure-stack-find-cloud-id.md)。
 
-```powershell
-Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
-Run: Get-AzureStackStampInformation
-```
+# <a name="connected"></a><a name="state-connected"></a>[已连接](#tab/state-connected)
 
-::: zone pivot="state-connected"
 ## <a name="register-with-pay-in-advance-billing"></a>使用预先支付计费模型注册
 
 执行以下步骤，使用预先支付计费模型将 Azure Stack Hub 注册到 Azure。
@@ -219,9 +220,9 @@ Run: Get-AzureStackStampInformation
    > 可以通过将参数设置为 false 来使用 **Set-AzsRegistration** cmdlet 的 UsageReportingEnabled 参数禁用使用情况报告。 
    
    有关 Set-AzsRegistration cmdlet 的详细信息，请参阅[注册参考](#registration-reference)。
-::: zone-end
 
-::: zone pivot="state-disconnected"
+# <a name="disconnected"></a><a name="state-disconnected"></a>[已断开连接](#tab/state-disconnected)
+
 ## <a name="register-with-capacity-billing"></a>使用容量计费模型注册
 
 若要在离线环境（未建立 Internet 连接）中注册 Azure Stack Hub，需要从 Azure Stack Hub 环境获取注册令牌。 然后在可连接到 Azure 的计算机上使用该令牌，并安装适用于 Azure Stack Hub 的 PowerShell。  
@@ -238,7 +239,7 @@ Run: Get-AzureStackStampInformation
 
    ```Powershell
    $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    有关 Get-AzsRegistrationToken cmdlet 的详细信息，请参阅[注册参考](#registration-reference)。
 
@@ -317,7 +318,8 @@ Run: Get-AzureStackStampInformation
   $ActivationKey = Get-Content -Path '<Path>\<Activation Key File>'
   New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
   ```
-::: zone-end
+
+---
 
 ## <a name="verify-azure-stack-hub-registration"></a>验证 Azure Stack Hub 注册
 
@@ -327,7 +329,7 @@ Run: Get-AzureStackStampInformation
 
 2. 在“仪表板”中，选择“区域管理”。****
 
-3. 选择“属性”****。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”、“未注册”或“已过期”。**** **** ****
+3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”、“未注册”或“已过期”。**** **** ****
 
     [![Azure Stack Hub 管理员门户中的“区域管理”磁贴](media/azure-stack-registration/admin1sm.png "“区域管理”磁贴")](media/azure-stack-registration/admin1.png#lightbox)
 
@@ -347,7 +349,8 @@ Run: Get-AzureStackStampInformation
 
 ## <a name="renew-or-change-registration"></a>续订或更改注册
 
-::: zone pivot="state-connected"
+# <a name="connected"></a><a name="state-connected"></a>[已连接](#tab/state-connected)
+
 在以下情况下，需要更新或续订注册：
 
 - 续订基于容量的年度订阅之后。
@@ -389,9 +392,9 @@ Run: Get-AzureStackStampInformation
   # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
-::: zone-end
 
-::: zone pivot="state-disconnected"
+# <a name="disconnected"></a><a name="state-disconnected"></a>[已断开连接](#tab/state-disconnected)
+
 在以下情况下，需要更新或续订注册：
 
 - 续订基于容量的年度订阅之后。
@@ -433,13 +436,15 @@ Run: Get-AzureStackStampInformation
 ### <a name="re-register-using-disconnected-steps"></a>使用适用于联网场景的步骤重新注册
 
 现已在离线场景中完全取消注册，接下来必须重复上述步骤，在离线场景中注册 Azure Stack Hub 环境。
-::: zone-end
+
+---
 
 ### <a name="disable-or-enable-usage-reporting"></a>禁用或启用使用情况报告
 
 对于使用容量计费模型的 Azure Stack Hub 环境，请将 **UsageReportingEnabled** 参数与 **Set-AzsRegistration** 或 **Get-AzsRegistrationToken** cmdlet 配合使用，以便关闭使用情况报告功能。 默认情况下，Azure Stack Hub 报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。
 
-::: zone pivot="state-connected"
+# <a name="connected"></a><a name="state-connected"></a>[已连接](#tab/state-connected)
+
 运行以下 PowerShell cmdlet：
 
    ```powershell  
@@ -451,13 +456,14 @@ Run: Get-AzureStackStampInformation
       -BillingModel Capacity
       -RegistrationName $RegistrationName
    ```
-::: zone-end
-::: zone pivot="state-disconnected"
+
+# <a name="disconnected"></a><a name="state-disconnected"></a>[已断开连接](#tab/state-disconnected)
+
 1. 若要更改注册令牌，请运行以下 PowerShell cmdlet：  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential 
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
@@ -465,7 +471,8 @@ Run: Get-AzureStackStampInformation
    > 注册令牌保存在为 *$FilePathForRegistrationToken* 指定的文件中。 可以自行更改文件路径或文件名。
 
 2. 保存此注册令牌，以便在连接 Azure 的计算机上使用。 可以从 *$FilePathForRegistrationToken* 复制文件或文本。
-::: zone-end
+
+---
 
 ## <a name="move-a-registration-resource"></a>移动注册资源
 
@@ -488,7 +495,7 @@ Run: Get-AzureStackStampInformation
 ```powershell
 Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
     <PSObject>] [[-ResourceGroupName] <String>] [[-ResourceGroupLocation] <String>] [[-BillingModel] <String>]
-    [-MarketplaceSyndicationEnabled] [-UsageReportingEnabled] [[-AgreementNumber] <String>] [[-RegistrationName]
+    [-MarketplaceSyndicationEnabled] [[-AgreementNumber] <String>] [[-RegistrationName]
     <String>] [<CommonParameters>]
 ```
 
@@ -511,7 +518,7 @@ Get-AzsRegistrationToken 根据输入参数生成注册令牌。
 
 ```powershell  
 Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
-    [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
+    [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
 | 参数 | 类型 | 说明 |
@@ -528,6 +535,8 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 ## <a name="registration-failures"></a>注册失败
 
+# <a name="connected"></a><a name="state-connected"></a>[已连接](#tab/state-connected)
+
 在尝试注册 Azure Stack Hub 时，可能会看到以下错误之一：
 
 - 无法检索 `$hostName` 的必需硬件信息。 请检查物理主机和连接性，然后尝试重新运行注册。
@@ -543,11 +552,30 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 - 尝试访问市场管理时，会在尝试同步发布产品时出错。
 
    原因：当 Azure Stack Hub 无法访问注册资源时，通常会发生这种情况。 这种情况的一种常见原因是，当 Azure 订阅的目录租户更改时，它会重置注册。 如果已更改订阅的目录租户，将无法访问 Azure Stack Hub 市场或报告使用情况。 需要重新注册才能解决此问题。
-::: zone pivot="state-disconnected"
+
+# <a name="disconnected"></a><a name="state-disconnected"></a>[已断开连接](#tab/state-disconnected)
+
+在尝试注册 Azure Stack Hub 时，可能会看到以下错误之一：
+
+- 无法检索 `$hostName` 的必需硬件信息。 请检查物理主机和连接性，然后尝试重新运行注册。
+
+- 无法连接到 `$hostName` 以获取硬件信息。 请检查物理主机和连接性，然后尝试重新运行注册。
+
+   原因：这通常是因为我们尝试从主机获取硬件详细信息（例如 UUID、Bios 和 CPU）以尝试激活，但却无法完成它，因为无法连接到物理主机。
+
+- 已注册云标识符 [`GUID`]。 不允许重复使用云标识符。
+
+   原因：如果 Azure Stack 环境已注册，则会发生这种情况。 若要使用不同的订阅或计费模型重新注册环境，请按照[续订或更改注册步骤](#renew-or-change-registration)进行操作。
+
+- 尝试访问市场管理时，会在尝试同步发布产品时出错。
+
+   原因：当 Azure Stack Hub 无法访问注册资源时，通常会发生这种情况。 这种情况的一种常见原因是，当 Azure 订阅的目录租户更改时，它会重置注册。 如果已更改订阅的目录租户，将无法访问 Azure Stack Hub 市场或报告使用情况。 需要重新注册才能解决此问题。
+
 - 在你已经通过离线过程注册戳记的情况下，市场管理仍会要求你注册并激活 Azure Stack Hub。
 
    原因：这是断开连接的环境的一个已知问题，需要你[验证你的注册状态](#verify-azure-stack-hub-registration)。 若要使用市场管理，请使用[脱机工具](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)。
-::: zone-end
+
+---
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,17 +3,17 @@ title: 升级 Azure Stack Hub 上的 Kubernetes 群集
 description: 了解如何升级 Azure Stack Hub 上的 Kubernetes 群集。
 author: WenJason
 ms.topic: article
-origin.date: 4/23/2020
-ms.date: 08/31/2020
+origin.date: 09/02/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 47bdddb23d5269be84d72189790fd163dacf6ba9
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 7dc1a4881594a15b0649d3ae593d7ad9455134ef
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867695"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437700"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>升级 Azure Stack Hub 上的 Kubernetes 群集
 
@@ -43,7 +43,7 @@ Azure 不管理群集。 但可使用 Azure 提供的工具和 VM 映像来管�
 
 ## <a name="steps-to-upgrade-to-a-newer-kubernetes-version"></a>升级到更新的 Kubernetes 版本的步骤
 
-> [!Note]  
+> [!NOTE]  
 > 如果使用的是较新版本的 aks-engine 且应用市场提供映像，也将升级 AKS 基础映像。
 
 下面的说明使用最少的步骤来执行升级。 有关详细信息，请参阅[升级 Kubernetes 群集](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md)一文。
@@ -51,11 +51,10 @@ Azure 不管理群集。 但可使用 Azure 提供的工具和 VM 映像来管�
 1. 需要首先确定可用于升级的版本。 此版本取决于当前拥有的版本，然后使用该版本值执行升级。 最新更新支持的 Kubernetes 版本为 1.14.7 和 1.15.10。 按此表查看可用的升级：
 
 | 当前版本 | 可用升级 |
-| --- | --- |
-|1.14.7 | 1.15.10 |
-|1.14.8 | 1.15.10 |
-|1.15.4 | 1.15.10 |
-|1.15.5 | 1.15.10 |
+| ------------------------- | ----------------------- |
+| 1.15.10 | 1.15.12 |
+| 1.15.12、1.16.8、1.16.9 | 1.16.14 |
+| 1.16.8、1.16.9、1.16.14 | 1.17.11 |
 
 有关 AKS 引擎、AKS 基础映像和 Kubernetes 版本的完整映射，请参阅[受支持的 AKS 引擎版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)。
 

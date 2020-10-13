@@ -6,16 +6,16 @@ ms.author: v-jay
 ms.service: azure-stack
 ms.topic: how-to
 origin.date: 12/09/2019
-ms.date: 06/22/2020
+ms.date: 10/12/2020
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 02c34851027ba7c391b326e03dcfba64b78a14fa
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: c55052a151e323ccf996233b3e995a6f922d5665
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096461"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437705"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>如何在 Azure Stack Hub 上安装事件中心
 
@@ -63,12 +63,12 @@ ms.locfileid: "85096461"
    [![市场管理 - 下载的包](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
 3. “事件中心”安装包页面会在顶部显示一条蓝色横幅。 选择该横幅，开始安装事件中心。
-   [![“市场管理”中的“事件中心”- 开始安装](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
+   [![此屏幕截图显示了如何在“市场管理”事件中心开始安装过程。](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>安装先决条件
 
 1. 接下来，你将转到“安装”页。 选择“安装必备组件”**** 开始安装过程。
-   ![“市场管理”中的“事件中心”- 必备组件](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
+   ![此屏幕截图显示了如何在“市场管理”事件中心安装必备组件。](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
  
 2. 等到必备组件安装成功。 在继续下一步之前，你应该会在“安装必备组件”**** 旁边看到一个绿色的复选标记。
 

@@ -4,14 +4,16 @@ description: Azure Stack HCI 部署过程的概述。
 author: WenJason
 ms.author: v-jay
 ms.topic: overview
-origin.date: 07/21/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 92fd9044882f2c91a71f8640f7e9398fc09a31a9
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+origin.date: 09/09/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 637c22c587ea57e126683757bb72dc71a6abd0c3
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871668"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437749"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Azure Stack HCI 的部署过程是什么？
 
@@ -43,7 +45,7 @@ Azure Stack HCI 使用带有本地附加的驱动器的行业标准服务器来�
 
 ### <a name="2-deploy-azure-stack-hci"></a>2.部署 Azure Stack HCI
 
-将 Azure Stack HCI [操作系统](operating-system.md)部署在要设置群集的每个服务器上。
+[下载 Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)，并在要加入群集的每个服务器上部署 Azure Stack HCI [操作系统](operating-system.md)。
 
 ### <a name="3-create-the-cluster"></a>3.创建群集
 

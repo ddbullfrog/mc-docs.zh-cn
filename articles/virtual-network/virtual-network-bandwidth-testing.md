@@ -1,24 +1,26 @@
 ---
 title: 测试 Azure VM 网络吞吐量
 titlesuffix: Azure Virtual Network
-description: 了解如何测试 Azure 虚拟机的网络吞吐量。
+description: 使用 NTTTCP 可以将网络作为测试目标，并尽量减少使用可能影响性能的其他资源。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/21/2017
-ms.date: 04/22/2019
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1e420ac1ff037fed0e10d15be8a9a331b8263731
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 4f7a6dc8421a60f2c52085e285b86a9817eebf6a
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63829217"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564442"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>带宽/吞吐量测试 (NTTTCP)
 
@@ -151,7 +153,7 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-发件方 \<Windows>：
+发送方 \<Windows>：
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
@@ -169,4 +171,4 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 * 阅读有关如何[为虚拟机分配带宽](virtual-machine-network-throughput.md)的信息
 * 通过 [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md) 了解详细信息
 
-<!--Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

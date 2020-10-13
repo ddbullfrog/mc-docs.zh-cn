@@ -1,22 +1,22 @@
 ---
-title: Azure Stack Hub 中的配额类型
-description: 查看和编辑可用于 Azure Stack Hub 中的服务和资源的不同配额类型。
+title: Azure Stack Hub 中的配额和配额类型
+description: 查看和编辑可用于 Azure Stack Hub 中的服务和资源的不同配额和配额类型。
 author: WenJason
+ms.service: azure-stack
 ms.topic: conceptual
-origin.date: 01/07/2020
-ms.date: 05/18/2020
+origin.date: 06/09/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: 8d4f280356893448960ca59d9f5305aa5ea1262a
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 69bc5d0d34375c3ca33aa8588529d5f51ad0e9f2
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422475"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437674"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Azure Stack Hub 中的配额类型
-
 
 [配额](service-plan-offer-subscription-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个虚拟机 (VM)。 每个资源都可以有自已的配额类型。
 
@@ -45,7 +45,7 @@ ms.locfileid: "83422475"
 | 存储帐户的总数 |20 个 |订阅可以在此位置创建的存储帐户数目上限。 |
 
 > [!NOTE]
-> 如果在一个订阅中超出“最大容量(GB)”，则无法在此订阅中创建新的存储资源。 但在 VM 中，可以继续使用此订阅中创建的非托管磁盘，这可能会导致总使用容量远远超出配额限制。<br>托管磁盘的最大容量独立于总存储配额。 可以在“计算配额”中设置此值。
+> 超过订阅的最大容量 (GB) 时，将无法在订阅中创建新的存储资源。 尽管仍可使用非托管磁盘创建 VM，但这样做可能会导致已用总容量超过配额限制。<br>托管磁盘的最大容量独立于总存储配额。 可以在“计算配额”中设置总存储配额。
 
 ## <a name="network-quota-types"></a>网络配额类型
 

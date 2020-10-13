@@ -2,18 +2,19 @@
 title: 立即发送 Azure Stack Hub 诊断日志
 description: 了解如何使用管理员门户或 PowerShell 脚本在 Azure Stack Hub 中按需收集诊断日志。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
-origin.date: 03/30/2020
-ms.date: 08/31/2020
+origin.date: 08/24/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: shisab
-ms.lastreviewed: 03/30/2020
-ms.openlocfilehash: b01504c390f6477d7197846465954da8b4a4c566
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 08/24/2020
+ms.openlocfilehash: e7fd4bdd940407cadf2ce3f337ccc4b171d118b1
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867869"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437733"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>立即发送 Azure Stack Hub 诊断日志
 
@@ -31,11 +32,17 @@ ms.locfileid: "88867869"
 ![“立即发送日志”选项的屏幕截图](media/azure-stack-help-and-support/send-logs-now.png)
 
 
+## <a name="save-logs-locally"></a>在本地保存日志
+
+当 Azure Stack Hub 与 Azure 断开连接时，可以将日志保存到本地 SMB 共享。 在“设置”边栏选项卡中，输入具有共享写入权限的路径、用户名和密码。 在支持案例期间，Azure 支持会提供详细步骤来说明如何传输这些本地日志。 如果管理员门户不可用，则可以使用 [Get-AzureStackLog](azure-stack-get-azurestacklog.md) 在本地保存日志。
+
+![诊断日志收集选项的屏幕截图](media/azure-stack-help-and-support/save-logs-locally.png)
+
 ## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>使用“帮助和支持”按需收集诊断日志
 
 为了排查问题，Azure 支持可能会请求 Azure Stack Hub 操作员根据需要收集上周特定时间范围的诊断日志。 在这种情况下，Azure 支持会为操作员提供一个 SAS URL 来上传收集的内容。 使用以下步骤，通过 Azure 支持提供的 SAS URL 配置按需日志收集：
 
-1. 打开“帮助和支持概览”，单击“立即收集日志”。  
+1. 打开“帮助 + 支持”>“日志收集”>“立即收集日志”。 
 1. 从过去七天选择 1-4 小时滑动窗口。 
 1. 选择本地时区。
 1. 输入 Azure 支持提供的 SAS URL。

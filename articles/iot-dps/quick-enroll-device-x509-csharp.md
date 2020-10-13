@@ -1,21 +1,21 @@
 ---
-title: 使用 C# 将 X.509 设备注册到 Azure 设备预配服务
+title: 快速入门 - 使用 C# 将 X.509 设备注册到 Azure 设备预配服务
 description: 本快速入门使用组注册。 本快速入门使用 C# 将 X.509 设备注册到 Azure IoT 中心设备预配服务 (DPS)。
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2019
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
-ms.openlocfilehash: 26b1383e449bed059efb741b04a998625b684c15
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: aef60e5d6b8e347670c50faf66c405c1117e1a0d
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494397"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564254"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>快速入门：使用 C# 将 X.509 设备注册到设备预配服务
 
@@ -66,7 +66,7 @@ ms.locfileid: "77494397"
 
 3. 根据[管理示例和教程的测试 CA 证书](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的步骤进行操作。
 
-除了使用 C SDK 中的工具之外，[用于 .NET 的 Microsoft Azure IoT SDK](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) 中的*组证书验证示例*演示了如何使用现有的 X.509 中间或根 CA 证书采用 C# 执行所有权证明操作。
+除了使用 C SDK 中的工具之外，*用于 .NET 的 Microsoft Azure IoT SDK* 中的[组证书验证示例](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample)演示了如何使用现有的 X.509 中间或根 CA 证书采用 C# 执行所有权证明操作。
 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>获取适用于预配服务的连接字符串
 
@@ -96,7 +96,7 @@ ms.locfileid: "77494397"
 
    此步骤会下载、安装 [Azure IoT 预配服务客户端 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet 包及其依赖项并添加对它的引用。
 
-1. 在 `using` 顶部的其他 `using` 语句之后添加以下 `Program.cs` 语句：
+1. 在 `Program.cs` 顶部的其他 `using` 语句之后添加以下 `using` 语句：
 
    ```csharp
    using System.Security.Cryptography.X509Certificates;
@@ -124,7 +124,7 @@ ms.locfileid: "77494397"
    > * 为预配服务管理员硬编码连接字符串不符合安全最佳做法。 与硬编码相反，连接字符串应采用安全方式进行存储，例如存储在安全配置文件或注册表中。
    > * 确保只上传签名证书的公用部分。 不要将包含私钥的 .pfx (PKCS12) 或 .pem 文件上传到预配服务。
 
-1. 将以下方法添加到 `Program` 类。 此代码创建一个注册组条目，然后调用 `CreateOrUpdateEnrollmentGroupAsync` 中的 `ProvisioningServiceClient` 方法，将注册组添加到预配服务。
+1. 将以下方法添加到 `Program` 类。 此代码创建一个注册组条目，然后调用 `ProvisioningServiceClient` 中的 `CreateOrUpdateEnrollmentGroupAsync` 方法，将注册组添加到预配服务。
 
    ```csharp
    public static async Task RunSample()

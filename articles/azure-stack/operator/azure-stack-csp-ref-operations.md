@@ -2,18 +2,19 @@
 title: 在 Azure Stack Hub 中注册租户以跟踪使用情况
 description: 了解如何在 Azure Stack Hub 中注册租户以及如何跟踪租户使用情况。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
-origin.date: 05/012020
-ms.date: 06/22/2020
+origin.date: 09/01/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 81d4941f7dd12b485852b86344cc9486cc25f0fa
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 631ce7e708927d139e36981ead7279c0cbd2e35f
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096353"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437536"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>在 Azure Stack Hub 中注册租户以跟踪使用情况
 
@@ -50,7 +51,7 @@ ms.locfileid: "85096353"
 
 ### <a name="powershell"></a>PowerShell
 
-使用 **New-AzureRmResource** cmdlet 添加一个租户。 [连接到 Azure Stack Hub](azure-stack-powershell-configure-admin.md)，然后从提升的提示符使用以下 cmdlet：
+使用 **New-AzureRmResource** cmdlet 添加一个租户。 [连接到 Azure](https://docs.microsoft.com/powershell/azure/get-started-azureps)，然后在提升的提示符下运行以下命令：
 
 ```powershell  
 New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

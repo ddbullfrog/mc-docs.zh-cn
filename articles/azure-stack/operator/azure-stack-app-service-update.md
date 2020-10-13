@@ -2,25 +2,25 @@
 title: 更新 Azure Stack Hub 上的 Azure 应用服务
 description: 了解如何更新 Azure Stack Hub 上的 Azure 应用服务。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
 origin.date: 05/05/2019
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 77b1512acc66570d42d25614d857ad7df8fd15d6
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 537185e6e8805e967e7cb136d754cc1008759a4d
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868021"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437609"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>更新 Azure Stack Hub 上的 Azure 应用服务
 
 [!INCLUDE [Azure Stack Hub update reminder](../includes/app-service-hub-update-banner.md)]
 
-::: zone pivot="state-connected"
+# <a name="connected"></a><a name="state-connected"></a>[已联网](#tab/state-connected)
 在本文中，你将了解如何升级在连接到 Internet 的 Azure Stack Hub 环境中部署的 [Azure 应用服务资源提供程序](azure-stack-app-service-overview.md)。
 
 > [!IMPORTANT]
@@ -46,7 +46,7 @@ ms.locfileid: "88868021"
 
 2. 以管理员身份运行 appservice.exe。
 
-    ![Azure 应用服务安装程序][1]
+    ![屏幕截图，显示如何在应用服务安装程序中启动部署或升级过程。][1]
 
 3. 单击“部署 Azure 应用服务或升级到最新版本”。****
 
@@ -56,13 +56,13 @@ ms.locfileid: "88868021"
 
 6. 确保 Azure Stack Hub Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 ASDK 部署过程中使用了默认设置，则此处可以接受默认值。 但是，如果在部署 Azure Stack Hub 时自定义了选项，则必须编辑此窗口中的值。 例如，如果使用域后缀 *mycloud.com*，则必须将 Azure Stack Hub Azure 资源管理器终结点更改为 *management.region.mycloud.com*。 确认信息后，单击“下一步”****。
 
-    ![Azure Stack Hub 云信息][2]
+    ![屏幕截图，显示要在应用服务安装程序中的何处配置 ARM 终结点。][2]
 
 7. 在下一页上执行以下操作：
 
     1. 选择要使用的连接方法 - “凭据”或“服务主体”**** ****
         - **凭据**
-            - 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack Hub 时提供的 Azure AD 管理员帐户和密码。 选择“连接” ****。
+            - 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack Hub 时提供的 Azure AD 管理员帐户和密码。 选择“连接” 。
             - 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，然后选择“连接”****。
         - **服务主体**
             - 使用的服务主体必须对“默认提供程序订阅”拥有“所有者”权限**** **** ****
@@ -74,23 +74,22 @@ ms.locfileid: "88868021"
 
     1. 如果检测到现有的 Azure 应用服务部署，则资源组和存储帐户会被填充并不可用。
 
-      ![检测到 Azure 应用服务安装][3]
+      ![屏幕截图，显示在应用服务安装程序中的何处指定 Azure Stack Hub 订阅信息。][3]
 
 8. 在摘要页上执行以下操作：
    1. 验证所做的选择。 若要进行更改，请使用“上一步”**** 按钮访问前面的页面。
    2. 如果配置正确，则选中此复选框。
    3. 若要开始升级，请单击“下一步”。****
 
-       ![Azure 应用服务升级摘要][4]
+       ![屏幕截图，显示安装程序中的应用服务升级摘要。][4]
 
 9. 升级进度页：
     1. 跟踪升级进度。 Azure Stack Hub 上的 Azure 应用服务升级持续时间取决于部署的角色实例数目。
     2. 升级成功完成后，单击“退出”。****
 
-        ![Azure 应用服务升级进度][5]
-::: zone-end
+        ![屏幕截图，显示应用服务安装程序中的部署进度。][5]
 
-::: zone pivot="state-disconnected"
+# <a name="disconnected"></a><a name="state-disconnected"></a>[已离线](#tab/state-disconnected)
 在本文中，你会了解如何升级部署在处于以下状态的 Azure Stack Hub 环境中的 [Azure 应用服务资源提供程序](azure-stack-app-service-overview.md)：
 
 * 未连接到 Internet
@@ -121,11 +120,11 @@ ms.locfileid: "88868021"
 
 1. 以管理员身份运行 appservice.exe
 
-    ![Azure 应用服务安装程序][11]
+    ![屏幕截图，显示如何在离线环境中开始升级。][11]
 
 2. 单击“高级”**** > ****“创建离线包”
 
-    ![Azure 应用服务安装程序高级设置][12]
+    ![屏幕截图，显示如何在应用服务安装程序中创建脱机包。][12]
 
 3. Azure 应用服务安装程序将创建离线升级包并显示其路径。  可以单击“打开文件夹”，在文件资源管理器中打开该文件夹。****
 
@@ -138,11 +137,11 @@ ms.locfileid: "88868021"
 
 1. 以管理员身份运行 appservice.exe。
 
-    ![Azure 应用服务安装程序][11]
+    ![屏幕截图，显示如何开始升级。][11]
 
 2. 单击“高级”**** > ****“完成离线安装或升级”。
 
-    ![Azure 应用服务安装程序高级设置][12]
+    ![屏幕截图，显示如何在应用服务安装程序中完成离线安装或升级。][12]
 
 3. 浏览到前面创建的离线升级包所在的位置，单击“下一步”。****
 
@@ -152,13 +151,13 @@ ms.locfileid: "88868021"
 
 6. 确保 Azure Stack Hub Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack Hub 时自定义了选项，则必须编辑此窗口中的值。 例如，如果使用域后缀 *mycloud.com*，则必须将 Azure Stack Hub Azure 资源管理器终结点更改为 *management.region.mycloud.com*。 确认信息后，单击“下一步”****。
 
-    ![Azure Stack Hub 云信息][13]
+    ![屏幕截图，显示要在安装程序中的何处配置 ARM 终结点。][13]
 
 7. 在下一页上执行以下操作：
 
    1. 选择要使用的连接方法 - “凭据”或“服务主体”**** ****
         - **凭据**
-            - 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack Hub 时提供的 Azure AD 管理员帐户和密码。 选择“连接” ****。
+            - 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack Hub 时提供的 Azure AD 管理员帐户和密码。 选择“连接” 。
             - 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，然后选择“连接”****。
         - **服务主体**
             - 使用的服务主体必须对“默认提供程序订阅”拥有“所有者”权限**** **** ****
@@ -170,20 +169,20 @@ ms.locfileid: "88868021"
    
    1. 如果检测到现有的应用服务部署，则资源组和存储帐户将被填充并灰显。
 
-      ![检测到 Azure 应用服务安装][14]
+      ![屏幕截图，显示要在安装程序中的何处配置 Azure Stack Hub 订阅。][14]
 8. 在摘要页上执行以下操作：
    1. 验证所做的选择。 若要进行更改，请使用“上一步”**** 按钮访问前面的页面。
    2. 如果配置正确，则选中此复选框。
    3. 若要开始升级，请单击“下一步”。****
 
-       ![Azure 应用服务升级摘要][15]
+       ![屏幕截图，显示在安装程序中收集的信息的摘要。][15]
 
 9. 升级进度页：
     1. 跟踪升级进度。 Azure Stack Hub 上的应用服务升级持续时间取决于部署的角色实例数目。
     2. 升级成功完成后，单击“退出”。****
 
-        ![Azure 应用服务升级进度][16]
-::: zone-end
+        ![屏幕截图，显示升级已成功完成。][16]
+---
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -2,18 +2,19 @@
 title: 在 Azure Stack Hub 中创建和发布市场项
 description: 了解如何创建并发布 Azure Stack Hub 市场项。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
-origin.date: 06/11/2020
-ms.date: 06/22/2020
+origin.date: 08/18/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 9942b54f82acb76ea3371dced98e3740674e978d
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 585b3eccd3fc45ced743f29acca4e408c018af37
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096238"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437731"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建并发布自定义 Azure Stack Hub 市场项
 
@@ -23,10 +24,14 @@ ms.locfileid: "85096238"
 
 本文中的示例演示如何创建 Windows 或 Linux 类型的单个 VM 市场套餐。
 
-## <a name="create-a-marketplace-item"></a>创建市场项
+### <a name="prerequisites"></a>先决条件
 
-> [!IMPORTANT]
-> 在创建 VM 市场项之前，请将自定义 VM 映像上传到 Azure Stack Hub 门户，并根据[将 VM 映像添加到 Azure Stack Hub](azure-stack-add-vm-image.md) 中的说明操作。 然后，根据本文中的说明打包映像（创建 .azpkg），并将其上传到 Azure Stack Hub 市场。
+创建 VM 市场项之前，请执行以下操作：
+
+1. 按照[将 VM 映像添加到 Azure Stack Hub](azure-stack-add-vm-image.md) 中的说明将自定义 VM 映像上传到 Azure Stack Hub 门户。 
+2. 按照本文中的说明打包映像（创建 .azpkg），并将其上传到 Azure Stack Hub 市场。
+
+## <a name="create-a-marketplace-item"></a>创建市场项
 
 若要创建自定义市场项，请执行以下操作：
 
@@ -47,6 +52,8 @@ ms.locfileid: "85096238"
    > [!NOTE]  
    > 切勿对 Azure 资源管理器模板中的任何机密（例如产品密钥、密码或任何客户身份信息）进行硬编码。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
 
+   建议在发布自己的自定义模板之前，尝试按原样发布示例，确保示例在你的环境中正常工作。 验证此步骤有效后，请从库中删除该示例，并进行迭代更改，直到对结果满意为止。
+
    以下模板是 Manifest.json 文件的示例：
 
     ```json
@@ -62,29 +69,19 @@ ms.locfileid: "85096238"
        "longSummary": "ms-resource:longSummary",
        "description": "ms-resource:description",
        "longDescription": "ms-resource:description",
-       "uiDefinition": {
-          "path": "UIDefinition.json" (7)
-          },
        "links": [
-        { "displayName": "ms-resource:documentationLink", "uri": "https://docs.azure.cn/zh-cn/azure-resource-manager/resource-group-authoring-templates" }
+        { "displayName": "ms-resource:documentationLink", "uri": "http://docs.azure.cn/zh-cn/azure-resource-manager/resource-group-authoring-templates" }
         ],
        "artifacts": [
           {
-             "name": "<Template name>",
-             "type": "Template",
-             "path": "DeploymentTemplates\\<Template name>.json", (8)
              "isDefault": true
           }
        ],
-       "categories":[ (9)
-          "Custom",
-          "<Template name>"
-          ],
        "images": [{
           "context": "ibiza",
           "items": [{
              "id": "small",
-             "path": "icons\\Small.png", (10)
+             "path": "icons\\Small.png", (7)
              "type": "icon"
              },
              {
@@ -114,10 +111,7 @@ ms.locfileid: "85096238"
     - (4) - 客户看到的名称。
     - (5) - 客户看到的发布者名称。
     - (6) - 发布者的法定名称。
-    - (7) - **UIDefinition.json** 文件的存储路径。  
-    - (8) - JSON 主模板文件的路径和名称。
-    - (9) - 显示此模板的类别的名称。
-    - (10) - 每个图标的路径和名称。
+    - (7) - 每个图标的路径和名称。
 
 5. 对于引用 **ms-resource** 的所有字段，必须在 **strings/resources.json** 文件中更改相应的值：
 
@@ -131,8 +125,6 @@ ms.locfileid: "85096238"
     "documentationLink": "Documentation"
     }
     ```
-
-    ![包显示](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![包显示](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. 为确保资源可以成功部署，请使用 [Azure Stack Hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md) 测试该模板。
 
@@ -187,12 +179,12 @@ ms.locfileid: "85096238"
 
 6. 成功将项发布到市场后，可以删除存储帐户中的内容。
 
-   > [!CAUTION]  
-   > 现在，无需身份验证，即可通过以下 URL 访问所有默认的库项目和自定义库项目：  
-   `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
-   `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
+   现在，无需身份验证，即可通过以下 URL 访问所有默认的库项目和自定义库项目：
 
-6. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如：
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+7. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如：
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose

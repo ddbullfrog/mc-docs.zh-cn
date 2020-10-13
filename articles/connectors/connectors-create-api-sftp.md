@@ -1,23 +1,24 @@
 ---
-title: 连接到 SFTP 帐户
-description: 使用 Azure 逻辑应用通过 SSH 自动完成用于监视、创建、管理、发送和接收 SFTP 服务器文件的任务与流程
+title: 连接到 SFTP 帐户（已弃用）
+description: 使用 Azure 逻辑应用自动执行用于监视、创建、管理、发送和接收 SFTP 服务器文件的任务与流程
 services: logic-apps
 ms.suite: integration
-author: rockboyfor
-ms.reviewer: divswa, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 origin.date: 11/01/2019
-ms.date: 03/09/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: d7ebfb946e87b0394bbf02322a386575328ac175
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ROBOTS: NOINDEX
+ms.openlocfilehash: 35cbfae79111cb9f244b54a7c3535768e376bc13
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78304671"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564608"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用监视、创建和管理 SFTP 文件
+# <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>在 Azure 逻辑应用中监视、创建和管理 SFTP 文件
 
 > [!IMPORTANT]
 > 请使用 [SFTP-SSH 连接器](../connectors/connectors-sftp-ssh.md)，因为 SFTP 连接器已弃用。 你不能再在逻辑应用设计器中选择 SFTP 触发器和操作。
@@ -118,7 +119,7 @@ SFTP 触发器的工作原理是轮询 SFTP 文件系统并查找自上次轮询
 
 ## <a name="connector-reference"></a>连接器参考
 
-有关触发器、操作和限制（请参阅连接器的 OpenAPI（以前称为 Swagger）说明）的技术详细信息，请查看连接器的[参考页](https://docs.microsoft.com/connectors/sftpconnector/)。
+有关触发器、操作和限制（请参阅连接器的 OpenAPI（以前称为 Swagger）说明）的技术详细信息，请查看连接器的[参考页](/data-factory/connector-sftp)。
 
 ## <a name="next-steps"></a>后续步骤
 

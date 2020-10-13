@@ -3,18 +3,19 @@ title: 更新 Azure Stack Hub SQL 资源提供程序
 titleSuffix: Azure Stack Hub
 description: 了解如何更新 Azure Stack Hub SQL 资源提供程序。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
-origin.date: 11/11/2019
-ms.date: 06/22/2020
+origin.date: 8/19/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d6d9e264689d121a9c25b1b9153e9a7256c61c4f
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 547d1b9ab812f3fe7d9426e77748066c431a7741
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096250"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437763"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
@@ -22,6 +23,12 @@ ms.locfileid: "85096250"
 > 在更新资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。 发行说明还指定资源提供程序所需的最低 Azure Stack Hub 版本。
 
 当 Azure Stack Hub 更新到新版本时，可能会发布新的 SQL 资源提供程序。 虽然现有的资源提供程序可以继续使用，但仍建议尽快更新到最新的内部版本。
+
+ |支持的 Azure Stack Hub 版本|SQL RP 版本|
+  |-----|-----|
+  |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
+  |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
+  |     |     |
 
 从 SQL 资源提供程序 1.1.33.0 版开始，更新是累积性的，只要你从 1.1.24.0 版或更高版本开始，就不需要按照发布的顺序安装更新。 例如，如果运行的是 1.1.24.0 版的 SQL 资源提供程序，则可以升级到 1.1.33.0 版或更高版本，而无需先安装 1.1.30.0 版。 若要查看可用的资源提供程序版本，以及支持它们的 Azure Stack Hub 版本，请参阅[部署资源提供程序的先决条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
@@ -69,7 +76,7 @@ ms.locfileid: "85096250"
 # Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.6.0
+Install-Module -Name AzureStack -RequiredVersion 1.8.2
 ```
 
 > [!NOTE]
@@ -120,7 +127,6 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
   -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
   -DependencyFilesLocalPath $tempDir\cert
-
  ```
 
 资源提供程序更新脚本完成后，请关闭当前的 PowerShell 会话。

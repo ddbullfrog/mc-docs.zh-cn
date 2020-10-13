@@ -1,19 +1,19 @@
 ---
-title: 排查 Azure Stack Hub 上的已知问题虚拟机
-description: 了解如何排查 Azure Stack Hub 上的已知问题虚拟机
+title: 排查 Azure Stack Hub 上的 VM 已知问题
+description: 了解如何排查 Azure Stack Hub 上的虚拟机已知问题
 author: WenJason
 ms.topic: troubleshooting
 origin.date: 07/09/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/09/2020
-ms.openlocfilehash: 41dd7f7ada34d966aeba35ef9b4e21a63b009541
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 0d6008d7db0b2b219cd16b5720bac86da6937f4e
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871626"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437505"
 ---
 # <a name="known-issues-vms-on-azure-stack-hub"></a>已知问题：Azure Stack Hub 上的 VM
 
@@ -26,6 +26,16 @@ ms.locfileid: "88871626"
     在概述边栏选项卡中查看 VM 的详细信息时，计算机名称显示为“(不可用)”。 显示是针对从专用磁盘/磁盘快照创建的 VM 设计的。  
 - **修正**  
     在门户中，选择“设置” > “属性” 。
+- **出现次数**  
+    通用  
+
+## <a name="nvv4-vm-size-on-portal"></a>门户上的 NVv4 VM 大小
+- **适用于**  
+    此问题适用于 Azure Stack Hub 版本 2002 及更高版本。  
+- **原因**  
+    完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 拥有基于 AMD MI25 的 Azure Stack Hub GPU 预览版所需的硬件的客户可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。  
+- **修正**  
+    无。  
 - **出现次数**  
     通用  
 
@@ -47,6 +57,16 @@ ms.locfileid: "88871626"
 - **修正**  
     使用先前使用的相同名称重新创建存储帐户。  
 - **出现次数** 常用  
+
+## <a name="consumed-compute-quota"></a>已消耗的计算配额
+- **适用于**  
+    此问题适用于所有支持的版本。  
+- **原因**   
+    创建新虚拟机时，可能会收到一则错误消息，例如“此订阅在此位置的区域 vCPU 总数已达到上限。 此订阅使用了所有可用的 50 个区域 vCPU”。 这表示可用的核心配额总计已达到上限。  
+- **修正**  
+    请求操作员提供配额更高的附加计划。 更改当前计划的配额将不起作用，也不会反映提高的配额。
+- **出现次数**  
+    极少  
 
 ## <a name="virtual-machine-scale-set"></a>虚拟机规模集
 

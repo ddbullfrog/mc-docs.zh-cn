@@ -1,24 +1,27 @@
 ---
 title: 通过 NVA 路由流量 - Azure PowerShell 脚本示例
-description: Azure PowerShell 脚本示例 - 通过防火墙网络虚拟设备路由流量。
+description: Azure PowerShell 脚本示例 - 通过防火墙 NVA 路由流量。
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
-manager: digimobile
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 03/20/2018
-ms.date: 11/25/2019
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0f7d1f930b50abff9df869736b35a09d036a3ded
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4104cc31ba65285e9e19dca048e57a754a4c0b53
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74658064"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564590"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>通过网络虚拟设备脚本示例路由流量
 
@@ -32,7 +35,7 @@ ms.locfileid: "74658064"
 
 ## <a name="sample-script"></a>示例脚本
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+<!--[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]-->
 
 ```powershell
 # Variables for common values
@@ -119,6 +122,7 @@ $routeTableBE = New-AzRouteTable -Name 'MyRouteTable-BackEnd' -ResourceGroupName
 # Associate the route table to the BackEnd subnet.
 Set-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name 'MySubnet-BackEnd' `
   -AddressPrefix '10.0.2.0/24' -RouteTable $routeTableBE
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -150,8 +154,8 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/)。
 
 可在[虚拟网络 PowerShell 示例](../powershell-samples.md)中查找其他虚拟网络 PowerShell 脚本示例。
 
-<!-- Update_Description: wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

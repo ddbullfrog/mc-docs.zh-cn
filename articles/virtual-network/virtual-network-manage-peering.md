@@ -1,10 +1,10 @@
 ---
 title: 创建、更改或删除 Azure 虚拟网络对等互连 | Azure
-description: 了解如何创建、更改或删除虚拟网络对等互连。
+description: 创建、更改或删除虚拟网络对等互连。 使用虚拟网络对等互连，可以连接同一区域和不同区域的虚拟网络。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: twooley
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
@@ -13,14 +13,17 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/01/2019
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: adf99d1dc30baee6d111e7d90211a28fe086d1dc
-ms.sourcegitcommit: af71b9199d47fb81e85d70da0cfb265cc814a644
+ms.openlocfilehash: 650009b03d8fa774c510a0a04bd3865d9985ac10
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969043"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564588"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>创建、更改或删除虚拟网络对等互连
 
@@ -36,8 +39,10 @@ ms.locfileid: "85969043"
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn ，并使用具有[所需权限](#permissions)的帐户登录，以处理对等互连。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要使用具有[所需权限](#permissions)的帐户运行 `Connect-AzAccount -Environment AzureChinaCloud` 来处理对等互连，以便与 Azure 建立连接。
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需要使用具有[所需权限](#permissions)的帐户运行 `az login` 来处理对等互连，以便与 Azure 建立连接。
+- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。 如果在本地运行 Azure CLI，则还需要使用具有[所需权限](#permissions)的帐户运行 `az login` 来处理对等互连，以便与 Azure 建立连接。
 
+    <!--Mooncake Customization on: No Cloud shell-->
+    
 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
 ## <a name="create-a-peering"></a><a name="create-a-peering"></a>创建对等互连
@@ -78,7 +83,7 @@ ms.locfileid: "85969043"
 
 ### <a name="commands"></a>命令
 
-- **Azure CLI**：[az network vnet peering create](https://docs.azure.cn/cli/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-create)
+- **Azure CLI**：[az network vnet peering create](https://docs.azure.cn/cli/network/vnet/peering#az-network-vnet-peering-create)
 - PowerShell：[Add-AzVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworkpeering)
 
 <a name="change-subnet"></a>
@@ -95,7 +100,7 @@ ms.locfileid: "85969043"
 
 命令
 
-- **Azure CLI**：[az network vnet peering list](https://docs.azure.cn/cli/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-list) 可列出虚拟网络的对等，[az network vnet peering show](https://docs.azure.cn/cli/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-show) 可显示特定对等的设置，[az network vnet peering update](https://docs.azure.cn/cli/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-update) 可更改对等设置。|
+- **Azure CLI**：[az network vnet peering list](https://docs.azure.cn/cli/network/vnet/peering#az-network-vnet-peering-list) 可列出虚拟网络的对等，[az network vnet peering show](https://docs.azure.cn/cli/network/vnet/peering#az-network-vnet-peering-show) 可显示特定对等的设置，[az network vnet peering update](https://docs.azure.cn/cli/network/vnet/peering#az-network-vnet-peering-update) 可更改对等设置。|
 - PowerShell：[Get-AzVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkpeering) 可检索视图对等互连设置，[Set-AzVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkpeering) 可更改设置。
 
 <a name="delete-subnet"></a>
@@ -115,11 +120,10 @@ ms.locfileid: "85969043"
 
 命令
 
-- **Azure CLI**：[az network vnet peering delete](https://docs.azure.cn/cli/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-delete)
+- **Azure CLI**：[az network vnet peering delete](https://docs.azure.cn/cli/network/vnet/peering#az-network-vnet-peering-delete)
 - PowerShell：[Remove-AzVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkpeering)
 
-<a name="requirements-and-contstraints"></a>
-## <a name="requirements-and-constraints"></a>要求和约束
+## <a name="requirements-and-constraints"></a><a name="requirements-and-constraints"></a>要求和约束
 
 - <a name="cross-region"></a>可在相同区域或不同区域中的虚拟网络之间建立对等互连。 不同区域中的对等互连虚拟网络也称为“全局 VNet 对等互连”。 
 - 创建全局对等互连时，对等虚拟网络可以存在于任何 Azure 中国云区域中 。 不能跨云对等互连。 例如，Azure 公有云中的 VNet 不能与 Azure 中国云中的 VNet 对等互连。
@@ -139,7 +143,7 @@ ms.locfileid: "85969043"
     
 - 进行对等互连的虚拟网络的 IP 地址空间不得重叠。
 - 虚拟网络与另一个虚拟网络对等后，不能向其添加或从中删除地址范围。 若要添加或删除地址范围，请删除对等，添加或删除地址范围，然后重新创建对等。 若要为虚拟网络添加或删除地址范围，请参阅[管理虚拟网络](manage-virtual-network.md)。
-- 可以对等互连两个通过 Resource Manager 部署的虚拟网络，或对等互连一个通过 Resource Manager 部署的虚拟网络与一个通过经典部署模型部署的虚拟网络。 不能对等互连两个通过经典部署模型创建的虚拟网络。 如果不熟悉 Azure 部署模型，请阅读[了解 Azure 部署模型](../azure-resource-manager/management/deployment-models.md?toc=%2fvirtual-network%2ftoc.json)一文。 可以使用 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)来连接两个通过经典部署模型创建的虚拟网络。
+- 可以对等互连两个通过 Resource Manager 部署的虚拟网络，或对等互连一个通过 Resource Manager 部署的虚拟网络与一个通过经典部署模型部署的虚拟网络。 不能对等互连两个通过经典部署模型创建的虚拟网络。 如果不熟悉 Azure 部署模型，请阅读[了解 Azure 部署模型](../azure-resource-manager/management/deployment-models.md?toc=%2fvirtual-network%2ftoc.json)一文。 可以使用 [VPN 网关](../vpn-gateway/design.md?toc=%2fvirtual-network%2ftoc.json)来连接两个通过经典部署模型创建的虚拟网络。
     
     <!--Not Avaialble on #V2V-->
     
@@ -147,11 +151,11 @@ ms.locfileid: "85969043"
     - *已启动：* 创建从第一个虚拟网络到第二个虚拟网络的对等互连时，对等互连状态为“已启动”。 
     - *已连接：* 创建从第二个虚拟网络到第一个虚拟网络的对等互连时，对等互连状态为“已连接”。 如果查看第一个虚拟网络的对等互连状态，会看到其状态从“已启动”更改为“已连接”。 直到两个虚拟网络对等互连的对等互连状态均为“已连接”时，对等互连才成功建立。
 - 将一个通过 Resource Manager 创建的虚拟网络与一个通过经典部署模型创建的虚拟网络对等互连时，只需为通过 Resource Manager 部署的虚拟网络配置对等互连。 不能为经典虚拟网络配置对等互连，也不能在两个通过经典部署模型部署的虚拟网络之间配置对等互连。 创建从 Resource Manager 虚拟网络到经典虚拟网络的对等互连时，对等互连状态先为“正在更新”，随后很快更改为“已连接”。
-- 对等互连是在两个虚拟网络之间建立的。 对等互连不可传递。 如果在以下虚拟网络之间创建对等互连：
-    - VirtualNetwork1 和 VirtualNetwork2
-    - VirtualNetwork2 和 VirtualNetwork3
+- 对等互连是在两个虚拟网络之间建立的。 对等互连本身不可传递。 如果在以下虚拟网络之间创建对等互连：
+    - VirtualNetwork1 和 VirtualNetwork2 - VirtualNetwork1 和 VirtualNetwork2
+    - VirtualNetwork2 和 VirtualNetwork3 - VirtualNetwork2 和 VirtualNetwork3
 
-  不会通过 VirtualNetwork2 在 VirtualNetwork1 和 VirtualNetwork3 之间形成对等互连。 如果要在 VirtualNetwork1 和 VirtualNetwork3 之间创建虚拟网络对等互连，必须在 VirtualNetwork1 和 VirtualNetwork3 之间创建对等互连。
+  不会通过 VirtualNetwork2 在 VirtualNetwork1 和 VirtualNetwork3 之间形成对等互连。 如果要在 VirtualNetwork1 和 VirtualNetwork3 之间创建虚拟网络对等互连，必须在 VirtualNetwork1 和 VirtualNetwork3 之间创建对等互连。 不会通过 VirtualNetwork2 在 VirtualNetwork1 和 VirtualNetwork3 之间形成对等互连。 如果希望 VirtualNetwork1 和 VirtualNetwork3 直接通信，则必须在 VirtualNetwork1 和 VirtualNetwork3 之间创建显式对等互连，或者通过中心网络中的 NVA 来通信。  
 - 无法使用默认 Azure 名称解析来解析已对等互连的虚拟网络中的名称。 若要解析其他虚拟网络中的名称，必须使用[适用于专用域的 Azure DNS](../dns/private-dns-overview.md?toc=%2fvirtual-network%2ftoc.json)，或使用自定义 DNS 服务器。 若要了解如何设置自己的 DNS 服务器，请参阅[使用自己的 DNS 服务器进行名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 - 同一区域中对等互连虚拟网络中的资源可以互相之间以相同的带宽和延迟进行通信，就如同资源是位于同一个虚拟网络中一样。 但是，每种虚拟机大小都有其自己的最大网络带宽。 若要深入了解不同虚拟机大小的最大网络带宽，请参阅 [Windows](../virtual-machines/windows/sizes.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机大小。
 - 一个虚拟网络可以对等互连到另一个虚拟网络，也可以通过 Azure 虚拟网关连接到另一个虚拟网络。 当虚拟网络同时通过对等互连和网关连接时，虚拟网络的流量会根据对等互连配置流动，而不是通过网关流动。

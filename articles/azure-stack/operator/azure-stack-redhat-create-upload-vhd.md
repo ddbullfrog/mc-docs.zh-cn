@@ -4,17 +4,18 @@ titleSuffix: Azure Stack Hub
 description: 了解如何创建和上传包含 Red Hat Linux 操作系统的 Azure 虚拟硬盘 (VHD)。
 author: WenJason
 ms.topic: article
-origin.date: 05/04/2020
-ms.date: 08/31/2020
+ms.service: azure-stack
+origin.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 1021bb7300dce0bafa2f26b6ad8a9d0368ad2e58
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 839887a32bd3dcf016c0a2d95067f764184d16d6
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868031"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437574"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>为 Azure Stack Hub 准备基于 Red Hat 的虚拟机
 
@@ -146,7 +147,7 @@ ms.locfileid: "88868031"
         waagent -version
         ```
 
-    [1910 版本之后] 按照以下说明下载兼容的 WALinuxAgent：
+    在 1910 版本之后，按照以下说明下载兼容的 WALinuxAgent：
     
     1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
 
@@ -160,7 +161,6 @@ ms.locfileid: "88868031"
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
-    
 
 1. 不要在操作系统磁盘上创建交换空间。
 
@@ -353,12 +353,12 @@ ms.locfileid: "88868031"
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-        1. 通过运行以下命令安装 Azure Linux 代理：
+    1. 通过运行以下命令安装 Azure Linux 代理：
 
-            ```bash
-            sudo yum install WALinuxAgent
-            sudo systemctl enable waagent.service
-            ```
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
 
 1. 不要在操作系统磁盘上创建交换空间。
 
@@ -554,17 +554,17 @@ ms.locfileid: "88868031"
     
     1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
-    1. 通过运行以下命令安装 Azure Linux 代理：
-        
+    1. 通过运行以下命令来安装 Azure Linux 代理：
+    
         ```bash
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
-        
+git        
 1. 不要在操作系统磁盘上创建交换空间。
 
     Azure Linux 代理可使用在 Azure 上预配 VM 后附加到 VM 的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是临时磁盘，在取消预配 VM 时可能会被清空。 在上一步中安装 Azure Linux 代理后，相应地在 `/etc/waagent.conf` 中修改以下参数：

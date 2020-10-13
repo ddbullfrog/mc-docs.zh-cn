@@ -3,17 +3,18 @@ title: Azure Stack Hub MySQL 资源提供程序 1.1.47.0 发行说明
 description: 查看发行说明以了解 Azure Stack Hub MySQL 资源提供程序 1.1.47.0 更新中的新增功能。
 author: WenJason
 ms.topic: article
+ms.service: azure-stack
 origin.date: 11/26/2019
-ms.date: 06/22/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 8f0ac6fd4bc46f6ead0bf22598c85f17ea928a87
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: b0590ab27b1463208cc6f7fb12570691c8299584
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096540"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437572"
 ---
 # <a name="mysql-resource-provider-11470-release-notes"></a>MySQL 资源提供程序 1.1.47.0 发行说明
 
@@ -40,7 +41,7 @@ ms.locfileid: "85096540"
 
 ## <a name="known-issues"></a>已知问题
 
-无。
+为 Azure Stack Hub 集成系统[轮换证书](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)时，即使不打算更新 Key Vault 证书密码，也必须使用 KeyVaultPfxPassword 参数。
 
 ## <a name="next-steps"></a>后续步骤
 

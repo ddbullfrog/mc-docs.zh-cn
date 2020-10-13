@@ -3,16 +3,17 @@ title: 响应注册表操作的 Webhook
 description: 了解如何使用 Webhook 在注册表存储库中发生推送或拉取操作时触发事件。
 ms.topic: article
 origin.date: 05/24/2019
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: d392e7d7f265b2a471a2ac947fdaeb3cdb5e080f
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: 2c8613af4188dd7a0153073b7be3955f00b43e63
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863196"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564263"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure 容器注册表 webhook
 
@@ -45,11 +46,11 @@ Azure 容器注册表可存储和管理专用 Docker 容器映像，其方式类
 
 示例 Webhook 窗体：
 
-![Azure 门户中的 ACR webhook 创建 UI](./media/container-registry-webhook/webhook.png)
+:::image type="content" source="./media/container-registry-webhook/webhook.png" alt-text="此屏幕截图显示了 Azure 门户中的 ACR Webhook 创建 UI。":::
 
 ## <a name="create-webhook---azure-cli"></a>创建 Webhook - Azure CLI
 
-若要使用 Azure CLI 创建 webhook，请使用 [az acr webhook create](https://docs.azure.cn/cli/acr/webhook?view=azure-cli-latest#az-acr-webhook-create) 命令。 以下命令为注册表 mycontainerregistry 中的所有映像删除事件创建 Webhook：
+若要使用 Azure CLI 创建 webhook，请使用 [az acr webhook create](https://docs.azure.cn/cli/acr/webhook#az-acr-webhook-create) 命令。 以下命令为注册表 mycontainerregistry 中的所有映像删除事件创建 Webhook：
 
 ```azurecli
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -65,17 +66,17 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 2. 在顶部工具栏中，选择“Ping”。
 3. 在“HTTP 状态”列中检查终结点的响应。
 
-![Azure 门户中的 ACR webhook 创建 UI](./media/container-registry-webhook/webhook-02.png)
+:::image type="content" source="./media/container-registry-webhook/webhook-02.png" alt-text="此屏幕截图显示了 Azure 门户中的 ACR Webhook 创建 UI。":::
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要使用 Azure CLI 测试 ACR webhook，请使用 [az acr webhook ping](https://docs.azure.cn/cli/acr/webhook?view=azure-cli-latest#az-acr-webhook-ping) 命令。
+若要使用 Azure CLI 测试 ACR webhook，请使用 [az acr webhook ping](https://docs.azure.cn/cli/acr/webhook#az-acr-webhook-ping) 命令。
 
 ```azurecli
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-若要查看结果，请使用 [az acr webhook list-events](https://docs.azure.cn/cli/acr/webhook?view=azure-cli-latest#az-acr-webhook-list-events) 命令。
+若要查看结果，请使用 [az acr webhook list-events](https://docs.azure.cn/cli/acr/webhook#az-acr-webhook-list-events) 命令。
 
 ```azurecli
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
@@ -102,4 +103,4 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 [Azure 容器注册表 Webhook 架构参考](container-registry-webhook-reference.md)
 
 <!--Not Available on  ### Event Grid events-->
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

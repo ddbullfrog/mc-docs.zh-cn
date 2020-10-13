@@ -3,17 +3,17 @@ title: 将存储资源管理器连接到 Azure Stack Hub 订阅或存储帐户
 description: 了解如何将存储资源管理器连接到 Azure Stack Hub 订阅
 author: WenJason
 ms.topic: conceptual
-origin.date: 11/11/2019
-ms.date: 03/23/2020
+origin.date: 08/24/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d6035d7293ee555631183fc1f34084a76ea6897e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1dd00bbd5e88f6dd2e507852443c6d1da8045d3a
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79547087"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437775"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack Hub 订阅或存储帐户
 
@@ -30,7 +30,7 @@ ms.locfileid: "79547087"
 
 需要可以直接访问 Azure Stack Hub 或 VPN 连接，存储资源管理器才能访问 Azure Stack Hub 订阅。 若要了解如何设置到 Azure Stack Hub 的 VPN 连接，请参阅[使用 VPN 连接到 Azure Stack Hub](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)。
 
-> [!Note]  
+> [!NOTE]  
 > 对于 ASDK，如果要通过 VPN 连接到 ASDK，请不要使用在 VPN 设置过程中创建的根证书 (CA.cer)。  这是 DER 编码的证书，不允许存储资源管理器检索 Azure Stack Hub 订阅。 请按照以下步骤导出 Base-64 编码证书，以用于存储资源管理器。
 
 对于断开连接的集成系统和 ASDK，建议使用内部企业证书颁发机构以 Base-64 格式导出根证书，然后将其导入 Azure 存储资源管理器。  
@@ -90,14 +90,15 @@ ms.locfileid: "79547087"
 
 ## <a name="connect-to-an-azure-stack-hub-subscription-with-ad-fs-account"></a>使用 AD FS 帐户连接到 Azure Stack Hub 订阅
 
-> [!Note]  
+> [!NOTE]  
 > Azure 联合身份验证服务 (AD FS) 登录体验支持存储资源管理器 1.2.0，或装有 Azure Stack Hub 1804 或更高更新版的更高存储资源管理器版本。
+
 使用以下步骤将存储资源管理器连接到属于 AD FS 帐户的 Azure Stack Hub 订阅。
 
 1. 选择“管理帐户”。  资源管理器会列出你登录到的 Azure 订阅。
 2. 选择“添加帐户”以连接到 Azure Stack Hub 订阅  。
 
-    ![添加帐户 - 存储资源管理器](media/azure-stack-storage-connect-se/add-an-account.png)
+    ![此屏幕截图显示了如何在存储资源管理器中添加帐户。](media/azure-stack-storage-connect-se/add-an-account.png)
 
 3. 选择“**下一页**”。 在“连接到 Azure 存储”对话框中的“Azure 环境”下，选择“使用自定义环境”，然后单击“下一步”。   
 
@@ -108,7 +109,7 @@ ms.locfileid: "79547087"
     | 字段 | 说明 |
     | ---   | ---   |
     | 环境名称 | 用户可以自定义此字段。 |
-    | Azure 资源管理器终结点 | Azure Stack 开发工具包的 Azure 资源管理器资源终结点示例。<br>对于运营商： https://adminmanagement.local.azurestack.external <br> 对于用户： https://management.local.azurestack.external |
+    | Azure 资源管理器终结点 | Azure Stack 开发工具包的 Azure 资源管理器资源终结点示例。<br>对于运营商： `https://adminmanagement.local.azurestack.external` <br> 对于用户： `https://management.local.azurestack.external` |
 
     如果使用 Azure Stack Hub 集成系统且不知道管理终结点，请与运营商联系。
 

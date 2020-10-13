@@ -3,18 +3,19 @@ title: SQL 资源提供程序维护操作
 titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 上的 SQL 资源提供程序维护操作。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
 origin.date: 10/02/2019
-ms.date: 05/18/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: e0188fbbac696526961546fb7364b92d40d3a9d2
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 8053df868cb1193bb3b37b1a80b1c989121efa12
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422546"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437765"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -45,6 +46,7 @@ SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护
 - [部署期间提供的](azure-stack-pki-certs.md)外部 SSL 证书。
 - 部署期间提供的资源提供程序 VM 本地管理员帐户密码。
 - 资源提供程序诊断用户 (dbadapterdiag) 密码。
+- （版本 >= 1.1.47.0）在部署过程中生成的 Key Vault 证书。
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>用于轮换机密的 PowerShell 示例
 
@@ -58,7 +60,8 @@ SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护
     -DiagnosticsUserPassword $passwd `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd  `
-    -VMLocalCredential $localCreds
+    -VMLocalCredential $localCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 **更改诊断用户密码。**
@@ -92,18 +95,30 @@ SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
+**更改 Key Vault 证书密码。**
+
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
+```
+
 ### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 参数
 
-|参数|说明|
-|-----|-----|
-|AzCredential|Azure Stack Hub 服务管理员帐户凭据。|
-|CloudAdminCredential|Azure Stack Hub 云管理域帐户凭据。|
-|PrivilegedEndpoint|用于访问 Get-AzureStackStampInformation 的特权终结点。|
-|DiagnosticsUserPassword|诊断用户帐户密码。|
-|VMLocalCredential|MySQLAdapter VM 上的本地管理员帐户。|
-|DefaultSSLCertificatePassword|默认 SSL 证书 (*pfx) 密码。|
-|DependencyFilesLocalPath|依赖项文件本地路径。|
-|     |     |
+|参数|说明|注释|
+|-----|-----|-----|
+|AzureEnvironment|用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称是 **AzureChinaCloud**。|可选|
+|AzCredential|Azure Stack Hub 服务管理员帐户凭据。|必需|
+|CloudAdminCredential|Azure Stack Hub 云管理域帐户凭据。|必需|
+|PrivilegedEndpoint|用于访问 Get-AzureStackStampInformation 的特权终结点。|必需|
+|DiagnosticsUserPassword|诊断用户帐户密码。|可选|
+|VMLocalCredential|MySQLAdapter VM 上的本地管理员帐户。|可选|
+|DefaultSSLCertificatePassword|默认 SSL 证书 (*.pfx) 密码。|可选|
+|DependencyFilesLocalPath|依赖项文件本地路径。|可选|
+|KeyVaultPfxPassword|用于为数据库适配器生成 Key Vault 证书的密码。|可选|
+|     |     |     |
 
 ### <a name="known-issues"></a>已知问题
 
@@ -229,18 +244,18 @@ $session | Remove-PSSession
 
 1. 登录到 Azure Stack Hub 管理员门户。
 
-2. 从左侧窗格中选择“虚拟机”，搜索 SQL 资源提供程序适配器 VM，然后选择该 VM  。
+2. 从左侧窗格中选择“虚拟机”，搜索 SQL 资源提供程序适配器 VM，然后选择该 VM****。
 
-3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志    。
+3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志************。
 ![转到诊断设置](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
 4. 添加 **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** 用于收集 SQL 资源提供程序操作事件日志。
 ![添加事件日志](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
-5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”   。
+5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”********。
 ![添加 IIS 日志](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
-6. 最后，选择“保存”以保存所有诊断设置  。
+6. 最后，选择“保存”以保存所有诊断设置****。
 
 为 SQL 资源提供程序配置事件日志和 IIS 日志收集后，即可在名为 **sqladapterdiagaccount** 的系统存储帐户中找到日志。
 

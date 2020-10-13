@@ -2,18 +2,19 @@
 title: 管理 Azure Stack Hub 中的存储容量
 description: 了解如何在 Azure Stack Hub 中监视和管理存储容量与可用性。
 author: WenJason
+ms.service: azure-stack
 ms.topic: conceptual
 origin.date: 1/22/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: c4cf64465f8cf84e403d29a730f844d03ea46c9c
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: d29997c258cec493fb1d513981c341c2c444325c
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868080"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437678"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储容量
 
@@ -215,7 +216,7 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
-   ![示例：迁移状态](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![此屏幕截图显示了迁移状态。](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6. 可以取消正在进行的迁移作业。 系统会以异步方式处理已取消的迁移作业。 可以使用 $jobid 跟踪取消操作：
 
@@ -227,7 +228,7 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
 7. 可以再次运行步骤 6 中的命令，直到迁移状态为 *Canceled*：  
 
-    ![示例：“已取消”状态](media/azure-stack-manage-storage-shares/cancelled.png)
+    ![此屏幕截图显示了一个已取消迁移状态的示例。](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>移动 VM 磁盘
 此选项仅适用于 Azure Stack Hub 集成系统。

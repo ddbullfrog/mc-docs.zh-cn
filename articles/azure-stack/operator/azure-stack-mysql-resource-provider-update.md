@@ -3,17 +3,18 @@ title: 在 Azure Stack Hub 中更新 MySQL 资源提供程序
 description: 了解如何在 Azure Stack Hub 中更新 Azure Stack Hub MySQL 资源提供程序。
 author: WenJason
 ms.topic: article
-origin.date: 1/22/2020
-ms.date: 06/22/2020
+ms.service: azure-stack
+origin.date: 8/19/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 56141f4063b37121f4571555a9750ac98f8ef79e
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 75b2e995335ab7330eb9009137223c44ff79eb90
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096507"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437747"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>在 Azure Stack Hub 中更新 MySQL 资源提供程序
 
@@ -21,6 +22,12 @@ ms.locfileid: "85096507"
 > 在更新资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。 发行说明还指定资源提供程序所需的最低 Azure Stack Hub 版本。
 
 更新 Azure Stack Hub 内部版本时，可能会发布新的 MySQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。
+
+  |支持的 Azure Stack Hub 版本|MySQL RP 版本|
+  |-----|-----|
+  |2005、2002、1910|[MySQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
+  |1908|[MySQL RP 版本 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
+  |     |     |
 
 从 MySQL 资源提供程序发行版 1.1.33.0 开始，更新是累积性的，不需按发布顺序进行安装，前提是你从 1.1.24.0 或更高版本开始。 例如，如果运行 1.1.24.0 版 MySQL 资源提供程序，则可升级到 1.1.33.0 或更高版本，不需先安装版本 1.1.30.0。 若要查看可用的资源提供程序版本，以及支持它们的 Azure Stack Hub 版本，请参阅[部署资源提供程序的先决条件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
@@ -42,7 +49,7 @@ ms.locfileid: "85096507"
 | 参数名称 | 说明 | 注释或默认值 | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | 访问特权终结点时所需的云管理员凭据。 | _必需_ | 
-| **AzCredential** | Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 | _必需_ | 
+| **AzCredential** | Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 如果用于 AzCredential 的帐户需要多重身份验证 (MFA)，则脚本将失败。 | _必需_ | 
 | **VMLocalCredential** |SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ | 
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ | 
 | **AzureEnvironment** | 用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称是 **AzureChinaCloud**。 | AzureChinaCloud |
@@ -66,7 +73,7 @@ ms.locfileid: "85096507"
 # Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.6.0
+Install-Module -Name AzureStack -RequiredVersion 1.8.2
 ```
 
 > [!NOTE]
@@ -110,14 +117,14 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
-.$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
--VMLocalCredential $vmLocalAdminCreds ` 
--CloudAdminCredential $cloudAdminCreds ` 
--PrivilegedEndpoint $privilegedEndpoint ` 
+.$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+-VMLocalCredential $vmLocalAdminCreds `
+-CloudAdminCredential $cloudAdminCreds `
+-PrivilegedEndpoint $privilegedEndpoint `
 -AzureEnvironment $AzureEnvironment `
--DefaultSSLCertificatePassword $PfxPass ` 
--DependencyFilesLocalPath $tempDir\cert ` 
--AcceptLicense 
+-DefaultSSLCertificatePassword $PfxPass `
+-DependencyFilesLocalPath $tempDir\cert `
+-AcceptLicense
 ```  
 
 资源提供程序更新脚本完成后，请关闭当前的 PowerShell 会话。

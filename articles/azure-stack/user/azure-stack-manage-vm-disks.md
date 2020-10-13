@@ -4,16 +4,16 @@ description: 在 Azure Stack Hub 中为虚拟机创建磁盘。
 author: WenJason
 ms.topic: conceptual
 origin.date: 07/27/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 05e9a6042f6ab4707ba6131cc202362d2ca03650
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: fd3f50d4b49f1fb6fda84594914a0af78862ebfe
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867808"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437558"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建 VM 磁盘存储
 
@@ -66,15 +66,15 @@ ms.locfileid: "88867808"
    ![示例：VM 仪表板](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2. 选择前面创建的 VM。
-   ![示例：在仪表板中选择 VM](media/azure-stack-manage-vm-disks/select-a-vm.png)
+   ![此屏幕截图显示了所选虚拟机。](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3. 对于 VM，依次选择“磁盘”、“添加数据磁盘”。 
-   ![示例：将新磁盘附加到 VM](media/azure-stack-manage-vm-disks/Attach-disks.png)
+   ![此屏幕截图显示了如何将新磁盘附加到 VM。](media/azure-stack-manage-vm-disks/Attach-disks.png)
 
 4. 对于“数据磁盘”：
    * 输入 **LUN**。 LUN 必须是有效的编号。
    * 选择“创建磁盘”。
-   ![示例：将新磁盘附加到 VM](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+   ![此屏幕截图显示了如何创建新的数据磁盘。](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
 5. 在“创建托管磁盘”边栏选项卡中：
    * 输入磁盘的**名称**。
@@ -115,7 +115,7 @@ ms.locfileid: "88867808"
 2. 选择要在其中放置数据磁盘的**容器**。 在“容器”边栏选项卡中，可根据需要创建新的容器。 然后，可以将新磁盘的位置更改为其自己的容器。 为每个磁盘使用单独的容器时，数据磁盘的位置是分散的，这样可以改进性能。
 3. 选择“选择”以保存所做的选择。
 
-    ![示例：选择容器](media/azure-stack-manage-vm-disks/select-container.png)
+    ![此屏幕截图显示了如何选择容器。](media/azure-stack-manage-vm-disks/select-container.png)
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>将现有数据磁盘附加到 VM
 
@@ -128,7 +128,7 @@ ms.locfileid: "88867808"
     ![示例：上传 VHD 文件](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
 2. 上传 .vhd 文件以后，即可将该 VHD 附加到 VM。 在左侧菜单中选择“虚拟机”。  
- ![示例：在仪表板中选择 VM](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+ ![此屏幕截图显示了所选虚拟机。](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 3. 从列表中选择 VM。
 

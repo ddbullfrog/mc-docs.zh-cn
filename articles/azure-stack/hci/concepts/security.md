@@ -3,15 +3,16 @@ title: Azure Stack HCI 安全注意事项
 description: 本主题提供有关 Azure Stack HCI 操作系统安全注意事项的指导。
 author: WenJason
 ms.author: v-jay
+ms.service: azure-stack
 ms.topic: conceptual
-origin.date: 07/21/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 689c25659314749196a3a0c33cb78b0894cf7148
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+origin.date: 09/10/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: e5ef804f79d8e471e49e5fcef83753c8e34b38ea
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871670"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437758"
 ---
 # <a name="azure-stack-hci-security-considerations"></a>Azure Stack HCI 安全注意事项
 
@@ -52,18 +53,8 @@ ms.locfileid: "88871670"
 本部分讨论如何使用 Windows Admin Center 来保护操作系统上的数据和工作负载：
 
 - **用于存储空间的 BitLocker** 可保护静态数据。 可以使用 BitLocker 为操作系统上存储空间数据卷的内容进行加密。 使用 BitLocker 保护数据有助于组织遵守政府、区域和特定于行业的标准，如 FIPS 140-2 和 HIPAA。
-
-    在 Windows Admin Center 中访问 BitLocker：
-
-    1. 连接到存储空间直通群集，然后在“工具”窗格上，选择“卷” 。
-    1. 在“卷”页上，选择“盘存”，然后在“可选功能”下，打开“加密 (BitLocker)”切换开关   。
-    
-        :::image type="content" source="./media/security/bitlocker-toggle-switch.png" alt-text="用于启用 BitLocker 的切换开关":::
-    
-    1. 在“加密 (BitLocker)”弹出项中，选择“开始”，然后在“启用加密”页上，提供凭据以完成工作流  。
-
-   >[!NOTE]
-   > 如果显示“先安装 BitLocker 功能”弹出项，请按照其说明在群集中的每个服务器上安装该功能，然后重新启动服务器。
+ 
+    若要详细了解如何在 Windows Admin Center 中使用 BitLocker，请参阅[启用卷加密、重复数据删除和压缩](../manage/volume-encryption-deduplication.md)
 
 - Windows 网络的 **SMB** 加密可保护传输中的数据。 服务器消息块 (SMB) 是一种网络文件共享协议，该协议允许计算机上的应用程序读取和写入文件，以及通过计算机网络中的服务器程序请求服务。
 
@@ -142,7 +133,7 @@ ms.locfileid: "88871670"
         有关详细信息，请参阅[软件定义的网络 (SDN)](https://docs.microsoft.com/windows-server/networking/sdn/)。
 
 ### <a name="protect-identities"></a>保护标识
-- **本地管理员密码解决方案 (LAPS)** 是一种轻型机制，适用于 Active Directory 加入域的系统，会定期将每台计算机的本地管理员帐户密码设置为新的随机值和唯一值。 密码存储在 Active Directory 中的相应计算机对象上的安全机密属性中，只有专门的授权用户才能检索到它们。 LAPS 使用本地帐户进行远程计算机管理，其应用方式与使用域帐户相比具有一些优势。 有关详细信息，请参阅[远程使用本地帐户：LAPS 改变一切](https://docs.microsoft.com/archive/blogs/secguide/remote-use-of-local-accounts-laps-changes-everything)。
+- 本地管理员密码解决方案 (LAPS) 是一种轻型机制，适用于加入 Active Directory 域的系统，会定期将每台计算机的本地管理员帐户密码设置为新的随机的唯一值。 密码存储在 Active Directory 中的相应计算机对象上的安全机密属性中，只有专门的授权用户才能检索到它们。 LAPS 使用本地帐户进行远程计算机管理，其应用方式与使用域帐户相比具有一些优势。 有关详细信息，请参阅[远程使用本地帐户：LAPS 改变一切](https://docs.microsoft.com/archive/blogs/secguide/remote-use-of-local-accounts-laps-changes-everything)。
 
     若要开始使用 LAPS，请下载[本地管理员密码解决方案 (LAPS)](https://www.microsoft.com/download/details.aspx?id=46899)。
 

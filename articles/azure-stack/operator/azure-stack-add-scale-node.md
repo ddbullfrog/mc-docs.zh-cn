@@ -2,18 +2,19 @@
 title: 在 Azure Stack Hub 中添加缩放单元节点
 description: 了解如何将缩放单元节点添加到 Azure Stack Hub 中的缩放单元。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
-origin.date: 08/03/2020
-ms.date: 08/31/2020
+origin.date: 09/09/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 08/03/2020
-ms.openlocfilehash: 2b0b8dfafe70fc6d6f64cf14970ba95861ad980f
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 079680ad3543fcc882d0564855acc9f525e1c236
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868039"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437745"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>在 Azure Stack Hub 中添加更多的缩放单元节点
 
@@ -28,14 +29,14 @@ Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现�
 
 添加新节点的操作可能需要数小时或数天才能完成。 添加其他缩放单元节点时，对系统上运行的工作负载没有影响。
 
-> [!Note]  
+> [!NOTE]  
 > 在添加缩放单元节点的操作已在进行时，请勿尝试任何下述操作：
 >
 >  - 更新 Azure Stack Hub
 >  - 轮换证书
 >  - 停止 Azure Stack Hub
 >  - 修复缩放单元节点
-
+>  - 添加另一个节点（前面的“添加节点”操作失败也被视为“正在进行中”）
 
 ## <a name="add-scale-unit-nodes"></a>添加缩放单元节点
 

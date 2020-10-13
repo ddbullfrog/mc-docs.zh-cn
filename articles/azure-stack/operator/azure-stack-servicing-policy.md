@@ -3,18 +3,19 @@ title: Azure Stack Hub 服务策略
 titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 服务策略以及如何使集成系统保持受支持状态。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
-origin.date: 08/11/2020
-ms.date: 08/31/2020
+origin.date: 09/25/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: a88e3f8a09b1600bd7facd078c00ea0d6d112134
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 2079c4768b1fe1bae3173dac37843f3dc4182138
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867832"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437726"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub 服务策略
 
@@ -26,7 +27,7 @@ Microsoft 会发布完整的更新包和修补程序包来解决特定问题。
 
 完整的更新包托管在安全的 Azure 终结点中。 可以使用 [Azure Stack Hub 更新下载程序工具](https://aka.ms/azurestackupdatedownload)手动下载它们。 如果缩放单元已连接，则更新会以“可用更新”的形式自动显示在管理员门户中。 有关每次发布的详细信息，可以单击本文[更新包发布频率](#update-package-release-cadence)部分的任何发布。
 
-修补程序更新包托管在同一个安全的 Azure 终结点中。 可以使用每篇相应的修补程序知识库文章（例如，[Azure Stack Hub 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)）中的嵌入式链接下载它们。 Azure Stack Hub 操作员可以按照[在 Azure Stack Hub 中应用更新](azure-stack-apply-updates.md)中的过程下载 .xml、.bin 和 .exe 文件并将其导入，这与操作完整的每月更新包类似。 使用已连接缩放单元的 Azure Stack Hub 操作员会看到修补程序自动出现在管理员门户中，并会看到消息“有可用更新”。
+修补程序更新包托管在同一个安全的 Azure 终结点中。 可以使用每篇相应的修补程序知识库文章（例如，[Azure Stack Hub 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)）中的嵌入式链接下载它们。 Azure Stack Hub 操作员可以按照[在 Azure Stack Hub 中应用更新](azure-stack-apply-updates.md)中的过程下载 .xml 和 .zip 文件并将其导入，这与操作完整的每月更新包类似。 使用已连接缩放单元的 Azure Stack Hub 操作员会看到修补程序自动出现在管理员门户中，并会看到消息“有可用更新”。
 
 如果缩放单元未连接，并且希望收到有关每个修补程序版本的通知，请订阅每个版本中记录的 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) 或 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) 源。
 
@@ -40,7 +41,9 @@ Microsoft 会发布完整的更新包和修补程序包来解决特定问题。
 
 ## <a name="update-package-release-cadence"></a>更新包发布频率
 
-Microsoft 预期每月发布软件更新包。 但是，可能一个月内发布多个更新或没有任何更新。 OEM 硬件供应商会根据需要发布更新。
+Microsoft 预期一年中多次发布软件更新包。
+
+OEM 硬件供应商会根据需要发布更新。 请咨询 OEM 以获取硬件的最新更新。
 
 在[管理更新概述](azure-stack-updates.md)文档中，可以了解如何规划和管理更新，以及如何确定当前版本。
 
@@ -71,7 +74,7 @@ Microsoft 预期每月发布软件更新包。 但是，可能一个月内发布
 
 为了使 Azure Stack Hub 实例保持受支持的状态，该实例必须运行最新发布的更新版本或运行之前的两个更新版本之一。
 
-修补程序不被视为主要更新版本。 如果 Azure Stack Hub 实例落后于“两个以上的更新”，则认为它不符合条件。 必须至少更新到最低支持版本才能获得支持。
+修补程序不被视为主要更新版本。 如果 Azure Stack Hub 实例落后于两个以上的更新，则认为它不符合。 必须至少更新到最低支持版本才能获得支持。
 
 例如，如果最新发布的更新版本为 1904，在此之前的两个更新包为版本 1903 和 1902，则 1902 和 1903 仍受支持， 但 1901 不受支持。 即使最近一到两个月没有发布任何版本，此策略也有效。 例如，如果最新版本为 1807，但没有版本 1806，则此前的两个更新包（1805 和 1804）仍受支持。
 

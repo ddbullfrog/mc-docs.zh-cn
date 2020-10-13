@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure 资源管理器模板设置 Azure IoT 中心设备预配
+title: 快速入门 - 使用 Azure 资源管理器模板设置 Azure IoT 中心设备预配
 description: Azure 快速入门 - 使用模板设置 Azure IoT 中心设备预配服务 (DPS)
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2019
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: c294d2ceb772e91015510009a9899917fc985e0d
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: abc80043d981ddaff9a4d7bc59da31f50f46bb4c
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917337"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564242"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板设置 IoT 中心设备预配服务
 
@@ -297,7 +297,7 @@ ms.locfileid: "87917337"
 
 请使用以下 Azure CLI 命令来部署模板和验证部署。
 
-1. 若要部署模板，请导航到包含模板和参数文件的文件夹，然后运行以下[部署命令](https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create)：
+1. 若要部署模板，请导航到包含模板和参数文件的文件夹，然后运行以下[部署命令](https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true)：
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -308,7 +308,7 @@ ms.locfileid: "87917337"
    ![预配输出](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. 若要验证部署，请运行下述[用于列出资源的命令](https://docs.azure.cn/cli/resource?view=azure-cli-latest#az-resource-list)，然后在输出中查找新预配服务和 IoT 中心：
+2. 若要验证部署，请运行下述[用于列出资源的命令](https://docs.azure.cn/cli/resource?view=azure-cli-latest#az-resource-list&preserve-view=true)，然后在输出中查找新预配服务和 IoT 中心：
 
     ```azurecli
      az resource list -g {your resource group name}

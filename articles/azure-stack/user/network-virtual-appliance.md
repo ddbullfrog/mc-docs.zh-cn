@@ -3,23 +3,23 @@ title: 排查 Azure Stack Hub 上的网络虚拟设备问题
 description: 排查在 Microsoft Azure Stack Hub 中使用网络虚拟设备 (NVA) 时遇到的 VM 或 VPN 连接问题。
 author: WenJason
 ms.author: v-jay
-origin.date: 05/12/2020
-ms.date: 07/20/2020
+origin.date: 09/08/2020
+ms.date: 10/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 5ca8e43020d4aa77cfade31f39d6712843bdfc6c
-ms.sourcegitcommit: e9ffd50aa5eaab402a94bfabfc70de6967fe6278
+ms.openlocfilehash: f1e70a8444763e49c0d6c7399452794030775b9a
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86307404"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437506"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>排查网络虚拟设备问题
 
 在 Azure Stack Hub 中使用网络虚拟设备 (NVA) 的虚拟机或 VPN 可能会出现连接问题。
 
-本文介绍如何通过相关步骤来验证针对 NVA 配置的 Azure Stack Hub 基本平台要求。
+本文可帮助你验证 Azure Stack Hub 的基本平台要求（针对 NVA 配置）。
 
 NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支持。
 
@@ -40,8 +40,8 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 ## <a name="basic-troubleshooting-steps"></a>基本故障排除步骤
 
 1. 检查基本配置。
-1. 检查 NVA 性能。
-1. 进行高级网络故障排除。
+2. 检查 NVA 性能。
+3. 进行高级网络故障排除。
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>检查 Azure 上 NVA 的最低配置要求
 
@@ -59,8 +59,8 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 #### <a name="use-the-azure-stack-hub-portal"></a>使用 Azure Stack Hub 门户
 
 1. 在 Azure Stack Hub 门户中找到 NVA 资源，选择“网络”，然后选择网络接口。****
-1. 在“网络接口”页上，选择“IP 配置”。**** ****
-1. 确保已启用 IP 转发。
+2. 在“网络接口”页上，选择“IP 配置”。**** ****
+3. 确保已启用 IP 转发。
 
 #### <a name="use-powershell"></a>使用 PowerShell
 
@@ -70,8 +70,9 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
    Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
    ```
 
-1. 检查“EnableIPForwarding”属性****。
-1. 如果未启用 IP 转发，请运行以下命令将其启用：
+2. 检查“EnableIPForwarding”属性****。
+
+3. 如果未启用 IP 转发，请运行以下命令将其启用：
 
    ```powershell
    $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
@@ -85,7 +86,7 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>检查流量是否可路由到 NVA
 
 1. 找到一个已配置为将流量重定向到 NVA 的 VM。
-1. 若要检查 NVA 是否为下一个跃点，请运行 **Tracert \<Private IP of NVA\>** （适用于 Windows）或 **Traceroute \<Private IP of NVA\>** 。
+1. 若要检查 NVA 是否为下一个跃点，请运行 `Tracert <Private IP of NVA>`（适用于 Windows）或 `Traceroute <Private IP of NVA>`。
 1. 如果 NVA 未列为下一跃点，请检查并更新 Azure Stack Hub 路由表。
 
 某些来宾级别的操作系统可能会设置防火墙策略来阻止 ICMP 通信。 请更新这些防火墙规则，使前面的命令生效。
@@ -93,7 +94,7 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 ### <a name="check-whether-traffic-can-reach-the-nva"></a>检查流量是否可到达 NVA
 
 1. 找到一个应该能够连接到 NVA 的 VM。
-1. 检查是否有任何网络安全组 (NSG) 阻止了流量。 对于 Windows，请运行 **ping** (ICMP) 或 **Test-NetConnection \<Private IP of NVA\>** (TCP)。 对于 Linux，请运行 **Tcpping \<Private IP of NVA\>** 。
+1. 检查是否有任何网络安全组 (NSG) 阻止了流量。 对于 Windows，请运行 `ping` (ICMP) 或 `Test-NetConnection <Private IP of NVA>` (TCP)。 对于 Linux，请运行 `Tcpping <Private IP of NVA>`。
 1. 如果你的 NSG 阻止流量，请将其修改为允许流量。
 
 ### <a name="check-whether-the-nva-and-vms-are-listening-for-expected-traffic"></a>检查 NVA 和 VM 是否正在侦听预期的流量
@@ -134,7 +135,7 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 
 ### <a name="capture-a-network-trace"></a>捕获网络跟踪
 
-运行 [**PsPing**](https://docs.microsoft.com/sysinternals/downloads/psping) 或 **Nmap** 时，请在源 VM、目标 VM 和 NVA 上捕获同步网络跟踪， 然后停止跟踪。
+运行 [`PsPing`](https://docs.microsoft.com/sysinternals/downloads/psping) 或 `Nmap` 时，请在源 VM、目标 VM 和 NVA 上捕获同步网络跟踪， 然后停止跟踪。
 
 1. 若要捕获同步网络跟踪，请运行以下命令：
 
@@ -150,9 +151,9 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
    sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
    ```
 
-2. 使用从源 VM 到目标 VM 的 PsPing 或 Nmap**** ****。 例如 **PsPing 10.0.0.4:80** 或 **Nmap -p 80 10.0.0.4**。
+2. 使用从源 VM 到目标 VM 的 PsPing 或 Nmap`PsPing` `Nmap`。 例如 `PsPing 10.0.0.4:80` 或 `Nmap -p 80 10.0.0.4`。
 
-3. 使用 **tcpdump** 或所选数据包分析器从目标 VM 打开网络跟踪。 为运行 PsPing 或 Nmap 的源 VM 的 IP 应用一个显示筛选器**** ****。 **IPv4.address==10.0.0.4** 是 Windows **netmon** 示例。 **tcpdump -nn -r vmtrace.cap src** 和 **dst host 10.0.0.4** 是 Linux 示例。
+3. 使用 **tcpdump** 或所选数据包分析器从目标 VM 打开网络跟踪。 为运行 PsPing 或 Nmap 的源 VM 的 IP 应用一个显示筛选器`PsPing` `Nmap`。 `IPv4.address==10.0.0.4` 是 Windows **netmon** 示例。 Linux 示例为 `tcpdump -nn -r vmtrace.cap src` 和 `dst host 10.0.0.4`。
 
 ### <a name="analyze-traces"></a>分析跟踪
 

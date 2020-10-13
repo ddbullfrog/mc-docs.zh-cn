@@ -3,7 +3,6 @@ title: Azure 虚拟网络中的子网委托是什么？
 description: 了解 Azure 虚拟网络中的子网委托
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 manager: digimobile
 ms.service: virtual-network
 ms.devlang: na
@@ -11,14 +10,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/20/2019
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a81228c4603100f05c941c339e2593cda77acd47
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: b6e488d4504b09d3a01a73594a7a79d599dfffa0
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84486984"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564345"
 ---
 <!--Verified successfully-->
 <!--Correct on Powershell cmdlet-->
@@ -53,6 +55,7 @@ ms.locfileid: "84486984"
 - 指定委托子网中的最小 IP 地址数。
 - 指定委托子网中来自专用 IP 地址空间（10.0.0.0/8、192.168.0.0/16、172.16.0.0/12）的 IP 地址空间。
 - 指定自定义 DNS 配置包含 Azure DNS 条目。
+- 需要先删除委派，然后才能删除子网或虚拟网络。
 
 注入的服务也可以添加自身的策略，如下所述：
 - **安全策略**：给定服务正常运行所需的安全规则集合。

@@ -4,16 +4,16 @@ description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 No
 author: WenJason
 ms.topic: article
 origin.date: 04/30/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 3435aa88195957e7b379c72f882a648c40323a06
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 4ca348bbe041d43bba7ffaae6d371f2e0798a524
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867766"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437500"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 Node.js 软件开发工具包 (SDK) 配合使用
 
@@ -56,7 +56,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 对于资源提供程序的特定 API 版本，请使用包中定义的特定 API 版本。
 
-  > [!Note]  
+  > [!NOTE]  
   > 可以在同一应用程序中组合所有选项。
 
 ## <a name="install-the-nodejs-sdk"></a>安装 Node.js SDK
@@ -113,7 +113,7 @@ Azure 资源管理器是一种管理框架，可供管理员用来部署、管�
 
 可以从资源管理器终结点获取元数据信息。 该终结点返回 JSON 文件，以及运行代码所需的信息。
 
-> [!Note]  
+> [!NOTE]  
 > Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external` 集成系统中的 **ResourceManagerUrl** 为 `https://management.region.<fqdn>/`，其中 `<fqdn>` 是完全限定的域名。
 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
@@ -222,16 +222,21 @@ function main() {
     git clone https://github.com/sijuman/storage-node-resource-provider-getting-started.git
     ```
 
+1. 使用 `cd` 命令转到存储库的克隆。
+
 2.  创建 Azure 服务主体并分配用于访问订阅的角色。 有关说明，请参阅[使用 Azure PowerShell 创建具有证书的服务主体](/azure-stack/azure-stack-create-service-principals)。
 
 3.  检索以下必需值：
     - 租户 ID
-    - 客户端 ID
+    - 客户端 ID（应用程序 ID）
     - 客户端机密
     - Azure 订阅 ID
     - Azure Stack Hub 资源管理器终结点
 
 4.  使用命令提示符，根据从已创建的服务主体检索的信息设置以下环境变量：
+
+    > [!NOTE]  
+    > 在 Windows 上，请使用 **set** 而不是 **export**。
 
     ```bash  
     export TENANT_ID=<your tenant id>
@@ -241,12 +246,9 @@ function main() {
     export ARM_ENDPOINT=<your Azure Stack Hub Resource manager URL>
     ```
 
-    > [!Note]  
-    > 在 Windows 上，请使用 **set** 而不是 **export**。
-
 5.  打开示例应用程序的 `index.js` 文件。
 
-6.  将位置变量设置为你的 Azure Stack Hub 位置。 例如，`LOCAL = "local"`。
+6.  将位置变量设置为你的 Azure Stack Hub 位置。 例如 `LOCAL = "local"`。
 
 7.  设置凭据，以便向 Azure Stack Hub 进行身份验证。 此代码部分包含在本示例的 index.js 文件中。
 

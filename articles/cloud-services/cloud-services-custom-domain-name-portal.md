@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 08/10/2020
 ms.author: v-junlch
-ms.openlocfilehash: 64b4ab51a035636880a15b36ca555bb5807b1de8
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: e2031e465ccb480fe86cd5a5f1503652e35c0069
+ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223380"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402605"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>为 Azure 云服务配置自定义域名
 创建云服务时，Azure 会将其分配给 **chinacloudapp.cn** 的子域。 例如，如果云服务名为“contoso”，则用户能够在 URL（如 `http://contoso.chinacloudapp.cn`）上访问应用程序。 Azure 还会分配一个虚拟 IP 地址。
@@ -41,7 +41,7 @@ CNAME（即别名记录）和 A 记录都允许将域名与特定服务器（在
 CNAME 记录会将特定  域（例如 **contoso.com** 或 **www\.contoso.com**）映射到规范域名。 在这种情况下，规范域名是 Azure 托管应用程序的 [myapp].chinacloudapp.cn 域名  。 创建完成后，CNAME 将为 [myapp].chinacloudapp.cn 创建一个别名  。 CNAME 条目将自动解析为 [myapp].chinacloudapp.cn 服务的 IP 地址，因此，如果该云服务的 IP 地址发生更改，则无需执行任何操作  。
 
 > [!NOTE]
-> 某些域注册机构只允许在使用 CNAME 记录（例如 www\.contoso.com）和非根名称（例如 contoso.com）时映射子域。 有关 CNAME 记录的详细信息，请参阅注册机构提供的文档、[CNAME 记录上的 Wikipedia 条目](https://en.wikipedia.org/wiki/CNAME_record)或 [IETF 域名 - 实现和规范](https://tools.ietf.org/html/rfc1035)文档。
+> 某些域注册机构只允许在使用 CNAME 记录（例如 www\.contoso.com）和非根名称（例如 contoso.com）时映射子域。 有关 CNAME 记录的详细信息，请参阅注册机构提供的文档或 [IETF 域名 - 实现和规范](https://tools.ietf.org/html/rfc1035)文档。
 
 ### <a name="a-record"></a>A 记录
 A 记录将域（例如 **contoso.com** 或 **www\.contoso.com**）或通配符域（例如 **\*.contoso.com**）映射到 IP 地址   。 对于 Azure 云服务案例，则映射到该服务的虚拟 IP。 因此，与 CNAME 记录相比，A 记录的主要优势是你可持有使用通配符的一个条目，例如 \* **.contoso.com**，用于处理多个子域（例如 **mail.contoso.com**、**login.contoso.com** 或 **www\.contso.com**）的请求。

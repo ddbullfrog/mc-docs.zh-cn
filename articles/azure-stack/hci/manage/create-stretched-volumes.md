@@ -3,15 +3,16 @@ title: 创建延伸群集卷并设置复制
 description: 如何使用 Windows Admin Center 和 PowerShell 在 Azure Stack HCI 中创建卷并为延伸群集设置复制。
 author: WenJason
 ms.author: v-jay
+ms.service: azure-stack
 ms.topic: how-to
 origin.date: 07/24/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: a2e1afbeab67bfd9d0709896d5c3e476b844eb6e
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.date: 10/12/2020
+ms.openlocfilehash: 08eaaed8286e1c243bf06a144496299bd829805b
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871712"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437595"
 ---
 # <a name="create-stretched-cluster-volumes-and-set-up-replication"></a>创建延伸群集卷并设置复制
 
@@ -23,7 +24,7 @@ ms.locfileid: "88871712"
 
 ## <a name="stretched-volumes-and-replication-using-windows-admin-center"></a>使用 Windows Admin Center 创建延伸卷并设置复制
 
-好了，让我们开始吧：
+若要创建卷并设置复制，请执行以下操作：
 
 1. 在 Windows Admin Center 中的“工具”下，选择“卷”。
 1. 在右侧窗格中，选择“清单”选项卡，然后选择“创建”。

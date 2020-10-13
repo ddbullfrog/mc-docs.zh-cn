@@ -3,14 +3,16 @@ title: 教程 - 通过基础映像更新触发映像生成
 description: 在本教程中，你将配置一个 Azure 容器注册表任务，以便在更新另一个专用 Azure 容器注册表中的基础映像时，在云中自动触发容器映像生成。
 ms.topic: tutorial
 origin.date: 01/22/2020
-ms.date: 04/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: d6bc7d50b5a9e0900a445ddb19b1e4cb52d39777
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.custom: devx-track-js
+ms.openlocfilehash: 6181ef2ab283cf0d2dda2181ce70b3d8ab930b17
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093509"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564266"
 ---
 <!--Verify sucessfully-->
 <!--Part content of released articles-->
@@ -176,7 +178,7 @@ az acr task run --registry $ACR_NAME --name taskhelloworld
 az acr login --name $ACR_NAME
 ```
 
-然后，使用 `docker run` 在本地运行容器。 将 **\<run-id\>** 替换为上一步骤的输出中的“运行 ID”（例如“da6”）。 此示例将容器命名为 `myapp`，并包含 `--rm` 参数，以便在停止容器后将其删除。
+然后，使用 `docker run` 在本地运行容器。 将 \<run-id\> 替换为上一步骤的输出中的“运行 ID”（例如“da6”）。 此示例将容器命名为 `myapp`，并包含 `--rm` 参数，以便在停止容器后将其删除。
 
 ```bash
 docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.cn/helloworld:<run-id>
@@ -184,7 +186,7 @@ docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.cn/helloworld:<run-
 
 在浏览器中导航到 `http://localhost:8080`，应看见呈现在 Web 页面中的 Node.js 版本号，如下所示。 在稍后的步骤中，会通过向版本字符串中添加“a”来提升版本。
 
-![浏览器中呈现示例应用程序的屏幕截图][base-update-01]
+![显示浏览器中呈现的示例应用程序的屏幕截图。][base-update-01]
 
 若要停止并删除容器，请运行以下命令：
 
@@ -300,18 +302,18 @@ docker stop updatedapp
 
 <!-- LINKS - Internal -->
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-build]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-build
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-create
-[az-acr-task-update]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-update
-[az-acr-task-run]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-run
-[az-acr-task-show]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-show
-[az-acr-task-credential-add]: https://docs.microsoft.com/cli/azure/acr/task/credential?view=azure-cli-latest#az-acr-task-credential-add
-[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
-[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-list-runs
-[az-acr-task]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-task
-[az-acr-show]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-show
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-build]: https://docs.azure.cn/cli/acr#az-acr-build
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az-acr-task-create
+[az-acr-task-update]: https://docs.azure.cn/cli/acr/task#az-acr-task-update
+[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az-acr-task-run
+[az-acr-task-show]: https://docs.azure.cn/cli/acr/task#az-acr-task-show
+[az-acr-task-credential-add]: https://docs.microsoft.com/cli/azure/acr/task/credential#az_acr_task_credential_add
+[az-acr-login]: https://docs.azure.cn/cli/acr#az-acr-login
+[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task#az-acr-task-list-runs
+[az-acr-task]: https://docs.azure.cn/cli/acr#az-acr-task
+[az-acr-show]: https://docs.azure.cn/cli/acr#az-acr-show
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
 
 <!-- IMAGES -->
 

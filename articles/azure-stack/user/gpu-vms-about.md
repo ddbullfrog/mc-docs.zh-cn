@@ -1,30 +1,31 @@
 ---
-title: Azure Stack Hub 上的图形处理单元 (GPU) 虚拟机 (VM)
+title: Azure Stack Hub 上的图形处理单元 (GPU) VM
 description: Azure Stack Hub 中的 GPU 计算参考。
 author: WenJason
-ms.author: digimobile
+ms.author: v-jay
 ms.service: azure-stack
 ms.topic: reference
 origin.date: 07/07/2020
-ms.date: 08/31/2020
+ms.date: 09/12/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 0d305393e840a0e2a73e76141ead946009a66f29
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 21faeadf0ba25c806ba03bb75bc251ff397a3cce
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871688"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437768"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上的图形处理单元 (GPU) 虚拟机 (VM)
 
 *适用于：Azure Stack 集成系统*
 
-在本文中，可以了解 Azure Stack Hub 多节点系统上支持哪些图形处理单元(GPU) 模型。 还可以找到有关安装与 GPU 配合使用的驱动程序的说明。 Azure Stack Hub 中的 GPU 支持实现了诸如人工智能、训练、推理和数据可视化之类的解决方案。 AMD Radeon Instinct Mi25 可用于支持图形密集型应用程序，如 Autodesk AutoCAD。
+本文介绍了 Azure Stack Hub 多节点系统上支持哪些图形处理单元(GPU) 模型。 还可以找到有关安装与 GPU 配合使用的驱动程序的说明。 Azure Stack Hub 中的 GPU 支持实现了诸如人工智能、训练、推理和数据可视化之类的解决方案。 可以使用 AMD Radeon Instinct MI25 来支持图形密集型应用程序，如 Autodesk AutoCAD。
 
-可以在公共预览期间从三个 GPU 模型中进行选择。 它们分别为 NVIDIA V100、NVIDIA T4 和 AMD Mi25 GPU。 这些物理 GPU 支持以下 Azure N 系列虚拟机 (VM) 类型，如下所示：
+可以在公共预览期间从三个 GPU 模型中进行选择。 它们分别为 NVIDIA V100 GPU、NVIDIA T4 GPU 和 AMD Mi25 GPU。 这些物理 GPU 支持以下 Azure N 系列虚拟机 (VM) 类型，如下所示：
 - [NCv3](/virtual-machines/ncv3-series)
-- NCas_T4_v3
+- [NVv4 (AMD MI25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+- NCas_v4
 
 > [!IMPORTANT]  
 > 公共预览版目前支持 Azure Stack Hub GPU。 若要参与预览，请完成 [aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview) 上的表单。
@@ -40,17 +41,25 @@ NCv3 系列 VM 采用 NVIDIA Tesla V100 GPU。 客户可将这些更新的 GPU �
 | Standard_NC12s_v3   | 12 | 224 | 1474 | 2 | 32 | 24 | 8 |
 | Standard_NC24s_v3   | 24 | 448 | 2948 | 4 | 64 | 32 | 8 |
 
-## <a name="ncas_t4_v3"></a>NCas_T4_v3
+## <a name="nvv4"></a>NVv4
 
-采用这种新的 NVIDIA T4 VM 大小可以在 Azure Stack Hub 上运行轻型 ML、推理和可视化工作负载。 当前，无法通过门户将此 VM 大小用于部署，而需要改用 powershell/cli。
+NVv4 系列虚拟机由 [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-MI25) GPU 提供支持。 通过 NVv4 系列，Azure Stack Hub 正在引入使用部分 GPU 的虚拟机。 此大小可用于 GPU 加速的图形应用程序和虚拟桌面。 NVv4 虚拟机目前只支持 Windows 来宾操作系统。 
+
+| 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | GPU | GPU 内存：GiB | 最大数据磁盘数 | 最大 NIC 数 | 
+| --- | --- | --- | --- | --- | --- | --- | --- |   
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
+
+## <a name="ncas_v4"></a>NCas_v4
+
+采用这种新的 NVIDIA T4 VM 大小可以在 Azure Stack Hub 上运行轻型 ML、推理和可视化工作负载。 目前，门户上未提供此 VM 大小以用于部署，将需要改用 powershell/cli。
 
 
 | 大小 | vCPU | 内存:GiB | GPU | GPU 内存：GiB | 最大数据磁盘数 | 最大 NIC 数 | 
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_T4_v3 |4 |28 | 1 | 16 | 8 | 4 | 
-| Standard_NC8as_T4_v3 |4 |56 | 1 | 16 | 16 | 8 | 
-| Standard_NC16as_T4_v3 |4 |112 | 1 | 16 | 32 | 8 | 
-| Standard_NC64as_T4_v3 |4 |448 | 4 | 64 | 32 | 8 | 
+| Standard_NC4as_v4 |4 |28 | 1 | 16 | 8 | 4 | 
+| Standard_NC8as_v4 |8 |56 | 1 | 16 | 16 | 8 | 
+| Standard_NC16as_v4 |16 |112 | 1 | 16 | 32 | 8 | 
+| Standard_NC64as_v4 |64 |448 | 4 | 64 | 32 | 8 | 
 
 
 ## <a name="patch-and-update-fru-behavior-of-vms"></a>VM 的修补升级以及 FRU 行为 
@@ -63,6 +72,9 @@ GPU VM 将在执行 Azure Stack Hub 的修补升级 (PnU) 以及硬件更换 (FR
 | 手动操作 | 如果 VM 需要在更新期间可用，并且可用 GPU 分区存在，则可通过单击“重启”按钮从门户重启 VM。 在更新后，使用“重启”按钮从门户重启 VM | 在更新期间无法使 VM 可用。 完成更新后，需要使用“停止”按钮停止对 VM 解除分配，并使用“开始”按钮开始备份 | 在更新期间无法使 VM 可用。完成更新后，需要使用“停止”按钮停止对 VM 解除分配，并使用“开始”按钮开始备份。| 
 
 ## <a name="guest-driver-installation"></a>来宾驱动程序安装 
+
+### <a name="amd-mi25"></a>AMD MI25
+[在运行 Windows 的 N 系列 VM 上安装 AMD GPU 驱动程序](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup)一文提供了有关在启用了 NVv4 GPU-P 的 VM 内安装 AMD Radeon Instinct MI25 的驱动程序的说明，以及有关如何验证驱动程序安装的步骤。 此扩展只能在联网模式下正常工作。
 
 ### <a name="nvidia"></a>NVIDIA
 

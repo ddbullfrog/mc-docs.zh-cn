@@ -3,18 +3,19 @@ title: 部署 SQL Server 资源提供程序
 titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 上部署 SQL Server 资源提供程序。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
 origin.date: 10/02/2019
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.lastreviewed: 03/18/2019
 ms.author: v-jay
 ms.reviewer: xiao
-ms.openlocfilehash: e4dd825bd077caf19fda85eb4d4055d80a2618a8
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 597b03305cc5da5323b18c6ad51b40c7f9c26416
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868071"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437764"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 SQL Server 资源提供程序
 
@@ -31,18 +32,13 @@ ms.locfileid: "88868071"
 
 - 下载 **Windows Server 2016 Datacenter - 服务器核心**映像，将所需的 Windows Server 核心 VM 添加到 Azure Stack Hub 市场。
 
-- 下载 SQL 资源提供程序二进制文件，然后运行自解压程序，将内容解压缩到一个临时目录。 资源提供程序具有相应的最低 Azure Stack Hub 版本。
+- 根据下面的版本映射表，下载受支持版本的 SQL 资源提供程序二进制文件。 运行自解压程序，将下载的内容解压缩到临时目录。 
 
-  |最低 Azure Stack Hub 版本|SQL RP 版本|
+  |支持的 Azure Stack Hub 版本|SQL RP 版本|
   |-----|-----|
-  |版本 1910 (1.1910.0.58)|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |版本 1808 (1.1808.0.97)|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
-  |版本 1808 (1.1808.0.97)|[SQL RP 版本 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
-  |版本 1804 (1.0.180513.1)|[SQL RP 版本 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
+  |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
+  |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
   |     |     |
-
-> [!IMPORTANT]
-> 在部署 SQL 资源提供程序版本 1.1.47.0 之前，应该将 Azure Stack Hub 系统升级到 1910 更新或更高版本。 以前不支持的 Azure Stack Hub 版本上的 SQL 资源提供程序版本 1.1.47.0 无法正常工作。
 
 - 请确保满足数据中心集成先决条件：
 
@@ -63,8 +59,8 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
 
 2. 然后，将下载的包复制到 USB 设备。
@@ -98,7 +94,10 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
  > [!IMPORTANT]
  > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
-若要部署 SQL 资源提供程序，请打开一个权限提升的 PowerShell（不是 PowerShell ISE）**新**窗口，并切换到解压缩后的 SQL 资源提供程序二进制文件所在的目录。 我们建议使用新的 PowerShell 窗口，以避免已加载的 PowerShell 模块造成问题。
+若要部署 SQL 资源提供程序，请打开一个权限提升的 PowerShell（不是 PowerShell ISE）**新**窗口，并切换到解压缩后的 SQL 资源提供程序二进制文件所在的目录。 
+
+> [!IMPORTANT]
+> 我们建议使用新的 PowerShell 窗口，以避免已加载的 PowerShell 模块造成问题。 或者，可以使用 clear-azurermcontext 在运行更新脚本之前清除缓存。
 
 运行 DeploySqlProvider.ps1 脚本，以完成以下任务：
 
@@ -197,15 +196,10 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 
 ## <a name="verify-the-deployment-using-the-azure-stack-hub-portal"></a>使用 Azure Stack Hub 门户验证部署
 
-可以使用以下步骤来验证是否已成功部署 SQL 资源提供程序。
-
 1. 以服务管理员身份登录到管理员门户。
 2. 选择“资源组”  。
 3. 选择 **system.\<location\>.sqladapter** 资源组。
 4. 在资源组概述摘要页上，应当没有失败的部署。
-
-    ![在 Azure Stack Hub 管理员门户中验证 SQL 资源提供程序的部署](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
 5. 最后，在管理员门户中选择“虚拟机”  ，以验证 SQL 资源提供程序 VM 是否已成功创建且正在运行。
 
 ## <a name="next-steps"></a>后续步骤

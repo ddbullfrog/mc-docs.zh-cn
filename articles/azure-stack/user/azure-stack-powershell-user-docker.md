@@ -3,17 +3,17 @@ title: 使用 Docker 在 Azure Stack Hub 中运行 PowerShell
 description: 使用 Docker 在 Azure Stack Hub 中运行 PowerShell
 author: WenJason
 ms.topic: how-to
-origin.date: 7/20/2020
-ms.date: 08/31/2020
+origin.date: 8/17/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 7/20/2020
-ms.openlocfilehash: c9e82a89964c8e5e2137e37a3e459290c31370cb
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 8/17/2020
+ms.openlocfilehash: 6fa9b4552db1dab5d6b2de75d50399115f08ffbf
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867701"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437553"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>使用 Docker 运行适用于 Azure Stack Hub 的 PowerShell
 
@@ -66,7 +66,13 @@ Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore*，其中已安�
 4. 生成映像以后，请输入以下内容，以便启动交互式容器：
 
     ```bash  
-        docker run -it azure-stack-powershell powershell
+    docker run -it azure-stack-powershell powershell
+    ```
+
+    记下容器名称。 可以使用相同的容器，而不是每次通过运行以下 Docker 命令来创建新容器：
+
+    ```bash  
+        docker exec -it "Container name" powershell
     ```
 
 5. 可以将此 shell 用于 cmdlet 了。
@@ -83,7 +89,8 @@ Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore*，其中已安�
     ```powershell
     $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
     $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
-    Connect-AzureRmAccount -ServicePrincipal -Credential $pscredential -TenantId <TenantID>
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint <Your Azure Resource Manager endoint>
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId <TenantID> -ServicePrincipal -Credential $pscredential
     ```
 
    PowerShell 返回帐户对象：
@@ -117,7 +124,7 @@ Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore*，其中已安�
     docker run -it mcr.microsoft.com/azurestack/powershell
     ```
 
-    可运行 Ubuntu、Debian 或 Centos。 可在 GitHub 存储库 [azurestack-powershell](https://github.com/Azure/azurestack-powershell) 中找到以下 Docker 文件。 有关 Docker 文件的最新更改，请参阅 GitHub 存储库。 每个 OS 均已标记。 用标记替换冒号后的标记。
+    可运行 Ubuntu、Debian 或 Centos。 可在 GitHub 存储库 [azurestack-powershell](https://github.com/Azure/azurestack-powershell) 中找到以下 Docker 文件。 有关 Docker 文件的最新更改，请参阅 GitHub 存储库。 每个 OS 均已标记。 将冒号之后部分的标记替换为所需 OS 的标记。
 
     | Linux | Docker 映像 |
     | --- | --- |

@@ -3,20 +3,21 @@ title: 从 Azure 下载市场项并发布到 Azure Stack Hub
 description: 了解如何从 Azure 下载市场项并发布到 Azure Stack Hub。
 author: WenJason
 ms.topic: conceptual
-origin.date: 07/09/2020
-ms.date: 08/31/2020
+ms.service: azure-stack
+origin.date: 08/19/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e8893d8147b8da87c0220aeca13adfbb8481dd14
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 80e4b3e42aae16094a184b0d692954c93371b73b
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867845"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437772"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub 
+# <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub
 
 云操作员可从市场将项下载 Azure Stack Hub，并使这些项可供所有使用 Azure Stack Hub 环境的用户使用。 可以选择的项来自 Azure 市场项的有序列表，这些项已预先经过测试，支持与 Azure Stack Hub 配合使用。 其他项会不断地添加到此列表中，因此请不时地返回查看新内容。
 
@@ -53,7 +54,7 @@ Azure Stack Hub 部署必须已建立 Internet 连接，并且已注册到 Azure
 
 4. 每个行项还显示当前可用版本。 如果某个市场项有多个可用版本，“版本”列会显示“多个”。**** **** 可以单击每个项查看其说明和附加信息，包括其下载大小：
 
-   ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
+   ![屏幕截图，显示市场项的可用版本。](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
 
 5. 如果某个项的版本显示为“多个”，你可以选择该项，然后从显示的版本选择器下拉列表中选择特定的版本****。 请注意，Microsoft 现在可以通过添加属性来阻止管理员下载由于各种属性（例如，Azure Stack 版本或计费模型）而与其 Azure Stack 不兼容的市场产品。 只有 Microsoft 才能添加以下属性：
 
@@ -86,14 +87,15 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 
   - 已建立 Internet 连接的计算机必须已安装 **Azure Stack Hub PowerShell 模块版本 1.2.11** 或更高版本。 如果未安装，请[安装 Azure Stack Hub 特定的 PowerShell 模块](azure-stack-powershell-install.md)。
 
-  - 若要启用导入已下载市场项，必须配置 [Azure Stack Hub 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md)。
+  - 为了能够导入已下载的市场项，必须配置 [Azure Stack Hub 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md)。
 
-- 使用以下命令从 PowerShell 库下载 Azs.Syndication.Admin 模块
-  ```
+- 使用以下命令从 PowerShell 库下载 Azs.Syndication.Admin 模块：
+
+  ```powershell
   Install-Module -Name Azs.Syndication.Admin
   ```
   
-- .NET Framework 4.7 或更高版本
+- .NET Framework 4.7 或更高版本。
 
 注册 Azure Stack 后，可以忽略市场管理边栏选项卡上显示的以下消息，因为此消息与离线用例无关：
 
@@ -106,29 +108,30 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
-2. 使用用于注册 Azure Stack Hub 的 Azure 帐户，登录到相应的 Azure 云和 AzureAD 目录租户。 若要添加帐户，请在 PowerShell 中运行 **Add-AzureRmAccount**。 
+2. 使用已用于注册 Azure Stack Hub 的 Azure 帐户登录到相应的 Azure 云和 AzureAD 目录租户。 若要添加该帐户，请在 PowerShell 中运行 `Add-AzureRmAccount`：
 
    ```powershell  
    Login-AzureRmAccount -Environment AzureChinaCloud -Tenant '<mydirectory>.partner.onmschina.cn'
    ```
+
    系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
 
    > [!NOTE]
-   > 如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 **Add-AzureRmAccount** 登录之前运行以下 cmdlet：**Remove-AzureRmAccount-Scope Process**。
+   > 如果会话过期、密码已更改或你需要切换帐户，请在使用 `Add-AzureRmAccount` 登录之前先运行以下 cmdlet：`Remove-AzureRmAccount -Scope Process`。
 
-3. 如果有多个订阅，请运行以下命令，选择已经用于注册的那个订阅：
+3. 如果有多个订阅，请运行以下命令，以选择已用于注册的订阅：
 
    ```powershell  
    Get-AzureRmSubscription -SubscriptionID 'Your Azure Subscription GUID' | Select-AzureRmSubscription
    ```
 
-4. 如果尚未在先决条件步骤中完成此操作，现在请下载最新版本的市场联合工具：
+4. 如果尚未在先决条件步骤中完成此操作，请下载最新版本的市场联合工具：
 
    ```powershell
    Install-Module -Name Azs.Syndication.Admin
    ```
 
-5. 若要选择要下载的市场项（例如 VM 映像、扩展或解决方案模板），请运行以下命令。 
+5. 若要选择要下载的市场项（如 VM 映像、扩展或解决方案模板），请运行以下命令：
 
    ```powershell
    $products = Select-AzsMarketplaceItem
@@ -136,17 +139,17 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 
    随后会显示一个表格，其中列出了所选订阅中可用的所有 Azure Stack 注册。 选择与要下载其市场项的 Azure Stack 环境相匹配的注册，然后选择“确定”。****
 
-     ![选择 Azure Stack 注册](media/azure-stack-download-azure-marketplace-item/select-registration.png)
+     ![屏幕截图，显示所选订阅中可用的所有 Azure Stack 注册的列表。](media/azure-stack-download-azure-marketplace-item/select-registration.png)
 
    此时应会看到另一个表格，其中列出了所有可供下载的市场项。 选择要下载的项，并记下**版本**。 可以按住 **Ctrl** 键选择多个映像。
-     ![选择 Azure Stack 注册](media/azure-stack-download-azure-marketplace-item/select-products.png)
+     ![屏幕截图，显示所选订阅中可用的所有 Azure Stack 注册的另一个列表。](media/azure-stack-download-azure-marketplace-item/select-products.png)
   
    也可通过“添加条件”选项来筛选映像的列表。****
    ![选择 Azure Stack 注册](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)
 
    做出选择后，选择“确定”。
 
-6. 选择下载的市场项的 ID 保存在 `$products` 变量中。 使用以下命令开始下载选定的项。 请将 destination folder path 替换为从 Azure 市场下载的文件的存储位置：
+6. 已经选择要下载的市场项的 ID 会保存在 `$products` 变量中。 使用以下命令开始下载选定的项。 请将 destination folder path 替换为从 Azure 市场下载的文件的存储位置：
 
     ```powershell
     $products | Export-AzsMarketplaceItem  -RepositoryDir "Destination folder path in quotes"

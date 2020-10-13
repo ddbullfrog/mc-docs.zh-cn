@@ -1,10 +1,9 @@
 ---
 title: 筛选 VM 网络流量 - Azure PowerShell 脚本示例
-description: Azure PowerShell 脚本示例 - 筛选入站和出站 VM 网络流量。
+description: 筛选入站和出站 VM 网络流量 - Azure PowerShell 脚本示例。
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
-manager: digimobile
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,14 +13,18 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 03/20/2018
-ms.date: 11/25/2019
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: b0106c4c4ec7fc55fd3058276d3fbb20562e219f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f211f433f79da1f87409ade89075b1f975cc32ac
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74657886"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564446"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>筛选入站和出站 VM 网络流量脚本示例
 
@@ -29,11 +32,13 @@ ms.locfileid: "74657886"
 
 可以通过本地 PowerShell 安装来执行脚本。 如果在本地使用 PowerShell，则此脚本需要 Azure PowerShell 模块 1.0.0 版或更高版本。 要查找已安装的版本，请运行 `Get-Module -ListAvailable Az`。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 
+<!-- Not Available on [Cloud Shell](https://shell.azure.com/bash) -->
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+<!--[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]-->
 
 ```powershell
 # Variables for common values
@@ -115,6 +120,7 @@ $vmconfig = Add-AzVMNetworkInterface -VM $vmConfig -id $nicVMbe.Id
 
 # Create a virtual machine
 $vm = New-AzVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署 
@@ -141,12 +147,12 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 | [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | 创建虚拟网络接口，并将其附加到虚拟网络的前端和后端子网。 |
 | [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | 创建 VM 配置。 此配置包括 VM 名称、操作系统和管理凭据等信息。 在创建 VM 期间将使用此配置。 |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | 创建虚拟机。 |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组及其中包含的所有资源。 |
+|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组及其中包含的所有资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/)。
 
 可在[虚拟网络 PowerShell 示例](../powershell-samples.md)中查找其他虚拟网络 PowerShell 脚本示例。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

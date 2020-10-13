@@ -3,16 +3,17 @@ title: 使用 Windows PowerShell 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows PowerShell 为 Azure Stack HCI 创建超融合群集
 author: v-jay
 ms.topic: how-to
+ms.service: azure-stack
 origin.date: 08/11/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 726a49b22bc22c98701b63ed4de682394cac5458
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 0bd5e007a15deb7ddd804714509329ed25171cf9
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871654"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437752"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>使用 Windows PowerShell 创建 Azure Stack HCI 群集
 
@@ -31,7 +32,7 @@ ms.locfileid: "88871654"
 
 有关延伸群集的更多详细信息，请参阅[延伸群集概述](../concepts/stretched-clusters.md)。
 
-如果你对测试 Azure Stack HCI 感兴趣但硬件有限或没有备用硬件，请查看 [Azure Stack HCI 评估指南](https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md)，其中介绍了如何使用嵌套虚拟化在 Azure 中或在本地单一物理系统上体验 Azure Stack HCI。
+如果你对测试 Azure Stack HCI 感兴趣但备用硬件有限或没有备用硬件，请查看 [Azure Stack HCI 评估指南](https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md)，在其中我们将指导你使用嵌套虚拟化在 Azure 中或在本地单一物理系统上体验 Azure Stack HCI。
 
 ## <a name="before-you-begin"></a>在开始之前
 
@@ -431,7 +432,7 @@ Get-ClusterFaultDomain -CimSession "ClusterS1"
 - 确定哪些节点位于哪些站点中
 - 确定每个节点具有的可用存储
 - 检查是否在每个节点上均安装了存储副本功能
-- 为每个站点创建一个存储池，并将其标识为与该站点相同的存储池
+- 为每个站点创建一个存储池，并使用站点名称标识它
 - 创建每个存储池中的数据和日志卷 - 每个站点一个
 
 以下命令可启用存储空间直通。 你还可以指定存储池的易记名称，如下所示：

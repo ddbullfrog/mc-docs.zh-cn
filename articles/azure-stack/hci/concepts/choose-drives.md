@@ -1,27 +1,29 @@
 ---
 title: 为 Azure Stack HCI 选择驱动器
-description: 如何为 Azure Stack HCI 中的存储空间直通选择驱动器。
+description: 如何为 Azure Stack HCI 选择驱动器。
 author: WenJason
 ms.author: v-jay
 ms.topic: conceptual
-origin.date: 07/22/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 5b34f5d0da431b79545032a4a87e94aae48bbf3a
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+origin.date: 09/01/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: ea9cc5d44ae80739791f9ed9b8667b4082fc7ff2
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867927"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437518"
 ---
-# <a name="choosing-drives-for-azure-stack-hci"></a>为 Azure Stack HCI 选择驱动器
+# <a name="choose-drives-for-azure-stack-hci"></a>为 Azure Stack HCI 选择驱动器
 
 > 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-本主题提供有关如何根据 Azure Stack HCI 的性能和容量要求，为[存储空间直通](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)选择驱动器的指导。
+本主题介绍如何根据你对 Azure Stack HCI 的性能和容量要求来选择驱动器。
 
 ## <a name="drive-types"></a>驱动器类型
 
-存储空间直通目前适用于四种类型的驱动器：
+Azure Stack HCI 目前使用四种类型的驱动器：
 
 | 驱动器类型 | 描述 |
 |----------------------|--------------------------|
@@ -32,17 +34,17 @@ ms.locfileid: "88867927"
 
 ## <a name="built-in-cache"></a>内置缓存
 
-存储空间直通提供内置的服务器端缓存。 此缓存是一个大型的持久性实时读取和写入缓存。 在包含多种类型的驱动器的部署中，该缓存自动配置为使用“最快”类型的所有驱动器。 剩余的驱动器用于提供容量。
+Azure Stack HCI 提供内置的服务器端缓存。 此缓存是一个大型的持久性实时读取和写入缓存。 在包含多种类型的驱动器的部署中，该缓存自动配置为使用“最快”类型的所有驱动器。 剩余的驱动器用于提供容量。
 
-有关详细信息，请查看[了解存储空间直通中的缓存](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-the-cache)。
+有关详细信息，请参阅[了解 Azure Stack HCI 中的缓存](cache.md)。
 
 ## <a name="option-1--maximizing-performance"></a>选项 1 - 最大化性能
 
 若要在随机读取和写入所有数据时实现可预测且一致的次毫秒级延迟，或要实现极高的 IOPS 或 IO 吞吐量，应改用“全闪存”。
 
-目前有三种方法可以实现此目的：
+有多种方法可以实现此目的：
 
-![All-Flash-Deployment-Possibilities](media/choose-drives/All-Flash-Deployment-Possibilities.png)
+![关系图显示了部署选项，包括“将所有 NVMe 用于容量”、“将 NVMe 用于缓存且将 SSD 用于容量”，以及“将所有 SSD 用于容量”。](media/choose-drives/All-Flash-Deployment-Possibilities.png)
 
 1. **全使用 NVMe。** 全部使用 NVMe 可以提供无与伦比的性能，包括最容易预测的低延迟。 如果所有驱动器的型号相同，则不会配置缓存。 也可以混用高持久性和低持久性的 NVMe 型号，并将前者配置为针对后者中的写入内容提供缓存（[需要进行设置](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration)）。
 
@@ -57,7 +59,7 @@ ms.locfileid: "88867927"
 
 在包含各种应用程序和工作负荷的环境中，有些环境会提出严格的性能要求，而有些环境则要求提供相当大的存储容量，在这种情况下，应“混合”使用 NVMe 或 SSD 来为较大的 HDD 提供缓存。
 
-![Hybrid-Deployment-Possibilities](media/choose-drives/Hybrid-Deployment-Possibilities.png)
+![关系图显示了部署可行性，包括将 NVMe 用于缓存且将 HDD 用于容量、将 SSD 用于缓存且将 HDD 用于容量，以及将 NVMe 用于缓存且将混合的 SSD 和 HDD 用于容量。](media/choose-drives/Hybrid-Deployment-Possibilities.png)
 
 1. **NVMe + HDD**。 NVMe 驱动器通过缓存来加速读取和写入操作。 缓存读取可让 HDD 专注于写入。 缓存写入可以消减 IO 突发，使写入内容可以合并，并仅在需要时才将其解除暂存，这种人为的序列化方式可将 HDD IOPS 和 IO 吞吐量最大化。 此方式提供类似于 NVMe 的写入特征，而对于频繁读取或最近读取的数据，它还提供类似于 NVMe 的读取特征。
 
@@ -97,8 +99,9 @@ ms.locfileid: "88867927"
 
 有关详细信息，请参阅：
 
-- [了解 Azure Stack HCI 中的缓存](cache.md)
-- [存储空间直通硬件要求](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
-- [在 Azure Stack HCI 中规划卷](plan-volumes.md)
+- [了解缓存](cache.md)
+- [确定硬件要求](../deploy/before-you-start.md#determine-hardware-requirements)
+- [驱动器对称注意事项](drive-symmetry-considerations.md)
+- [规划卷](plan-volumes.md)
 - [容错和存储效率](fault-tolerance.md)
 - [了解和部署永久性内存](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-pmem)

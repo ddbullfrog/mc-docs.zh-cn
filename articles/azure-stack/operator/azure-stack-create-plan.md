@@ -2,18 +2,19 @@
 title: 在 Azure Stack Hub 中创建计划
 description: 了解如何在 Azure Stack Hub 中创建可让订阅者预配虚拟机的计划。
 author: WenJason
+ms.service: azure-stack
 ms.topic: conceptual
 origin.date: 06/11/2019
-ms.date: 06/22/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: e82ca617a2955701d165444091b98ebb67ac58ba
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 517a40b95de4bec6c8887eb2de782ee607745651
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867760"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437610"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建计划
 
@@ -25,37 +26,37 @@ ms.locfileid: "88867760"
 
 2. 若要创建用户可以订阅的计划和套餐，请依次选择“创建资源”、“套餐 + 计划”、“计划”。  
   
-   ![在 Azure Stack Hub 管理员门户中选择计划](media/azure-stack-create-plan/select-plan.png)
+   ![此屏幕截图显示了如何在 Azure Stack Hub 管理员门户中选择计划。](media/azure-stack-create-plan/select-plan.png)
 
 3. 此时会显示标签式用户界面，在其中可为选定的每个服务指定计划名称、添加服务以及定义配额。 最重要的是，在决定创建套餐之前，可以先查看其详细信息。
 
    在“新建计划”窗口中的“基本信息”选项卡下，输入**显示名称**和**资源名称**。  显示名称是计划的易记名称，操作员可以看到它。 在管理员门户中，计划详细信息仅向操作员显示。
 
-   ![在 Azure Stack Hub 中指定新计划的详细信息](media/azure-stack-create-plan/plan-name.png)
+   ![此屏幕截图显示了如何在 Azure Stack Hub 中指定新计划的详细信息。](media/azure-stack-create-plan/plan-name.png)
 
 4. 创建一个新**资源组**或选择一个现有资源组，作为计划的容器。
 
-   ![在 Azure Stack Hub 中为新计划指定资源组](media/azure-stack-create-plan/resource-group.png)
+   ![此屏幕截图显示了如何在 Azure Stack Hub 中指定新计划的资源组。](media/azure-stack-create-plan/resource-group.png)
 
 5. 选择“服务”选项卡，或单击“下一步:服务 >”按钮，然后选择与 **Microsoft.Compute**、**Microsoft.Network**和 **Microsoft.Storage** 对应的复选框。
   
-   ![在 Azure Stack Hub 中为新计划选择服务](media/azure-stack-create-plan/services.png)
+   ![此屏幕截图显示了如何在 Azure Stack Hub 中为新计划选择服务。](media/azure-stack-create-plan/services.png)
 
 6. 选择“配额”选项卡，或单击“下一步:配额 >”按钮。 在“Microsoft.Storage”的旁边，从下拉框中选择默认配额，或选择“新建”以创建自定义的配额。 
   
-   ![在 Azure Stack Hub 中为新计划指定配额](media/azure-stack-create-plan/quotas.png)
+   ![此屏幕截图显示了如何在 Azure Stack Hub 中为新计划指定配额。](media/azure-stack-create-plan/quotas.png)
 
 7. 如果新建配额，请输入配额的**名称**，然后指定配额值。 选择“确定”以创建配额。
 
-   ![在 Azure Stack Hub 中为新计划创建新配额](media/azure-stack-create-plan/new-quota.png)
+   ![此屏幕截图显示了如何在 Azure Stack Hub 中为新计划创建新配额。](media/azure-stack-create-plan/new-quota.png)
 
 8. 重复步骤 6 到 7，为“Microsoft.Network”和“Microsoft.Compute”创建并分配配额。  为所有三个服务分配配额后，这些服务将如以下示例所示。
 
-   ![在 Azure Stack Hub 中完成新计划的配额分配](media/azure-stack-create-plan/all-quotas-assigned.png)
+   ![此屏幕截图显示了如何在 Azure Stack Hub 中完成新计划的配额分配。](media/azure-stack-create-plan/all-quotas-assigned.png)
 
 9. 选择“查看 + 创建”以查看计划。 查看所有值和配额以确保正确。 在界面中可以逐个展开所选计划中的配额，以查看计划中每个配额的详细信息。 你也可以返回进行任何必要的编辑。
 
-   ![在 Azure Stack Hub 中创建计划](media/azure-stack-create-plan/create.png)
+   ![此屏幕截图显示了如何在 Azure Stack Hub 中创建计划。](media/azure-stack-create-plan/create.png)
 
 10. 准备就绪后，选择“创建”以创建计划。
 

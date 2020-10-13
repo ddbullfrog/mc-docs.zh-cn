@@ -4,16 +4,16 @@ description: 如何取消预配使用 Azure IoT 中心设备预配服务 (DPS) �
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 05/11/2018
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 689098d681aa16300c3138d0948d75aa767cee02
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 8676a76b6f45979af021282ae50dd7c73825e4ba
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494107"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564379"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>如何取消预配以前自动预配的设备 
 
@@ -44,7 +44,7 @@ ms.locfileid: "77494107"
 
 
 ## <a name="enrollment-groups"></a>注册组
-使用 X.509 认证时，也可以通过登记组预配设备。 登记组中配置了一个签名证书（中间证书或根 CA 证书），可以使用其证书链中的该证书来控制设备对预配服务的访问。 若要详细了解登记组以及预配服务中的 X.509 证书，请参阅 [X.509 证书](concepts-security.md#x509-certificates)。 
+使用 X.509 认证时，也可以通过登记组预配设备。 登记组中配置了一个签名证书（中间证书或根 CA 证书），可以使用其证书链中的该证书来控制设备对预配服务的访问。 若要详细了解注册组以及预配服务中的 X.509 证书，请参阅 [X.509 证书证明](concepts-x509-attestation.md)。 
 
 若要查看已通过某个登记组预配的设备列表，可以查看该登记组的详细信息。 这样，便可以轻松了解每个设备已预配到哪个 IoT 中心。 查看设备列表： 
 
@@ -58,22 +58,10 @@ ms.locfileid: "77494107"
 使用登记组时，需要考虑两种情况：
 
 - 若要取消预配已通过注册组预配的所有设备，请执行以下操作：
-  1. 禁用其签名的证书的方块列表的注册组。 
+  1. 禁用注册组以禁止其签名证书。 
   2. 然后，可以使用该登记组的预配设备列表，从每个设备的相应 IoT 中心的标识注册表中禁用或删除该设备。 
   3. 从相应的 IoT 中心禁用或删除所有设备后，可以选择删除登记组。 但请注意，如果删除登记组，并且在一个或多个设备的证书链中为某个级别较高的签名证书启用了登记组，则这些设备可能重新登记。 
 
 - 若要从注册组取消预配单个设备，请执行以下操作：
   1. 创建其叶（设备）证书已禁用各个注册。 这会撤销该设备对预配服务的访问权限，同时仍允许链中具有登记组签名证书的其他设备访问。 不要删除设备的已禁用单独登记。 否则，设备会通过登记组重新登记。 
   2. 然后，可以使用登记组详细信息中的预配设备列表来查找设备已预配到的 IoT 中心，并从该中心的标识注册表中禁用或删除该设备。 
-  
-  
-
-
-
-
-
-
-
-
-
-

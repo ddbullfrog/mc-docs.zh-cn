@@ -1,25 +1,8 @@
 ---
-title: 对等互连两个虚拟网络 - Azure PowerShell 脚本示例
-description: Azure PowerShell 脚本示例 - 对等互连两个虚拟网络
-services: virtual-network
-documentationcenter: virtual-network
-author: rockboyfor
-manager: digimobile
-ms.service: virtual-network
-ms.devlang: powershell
-ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
-origin.date: 03/20/2018
-ms.date: 11/25/2019
-ms.author: v-yeche
-ms.openlocfilehash: 43fbb74c383acc354a621e506e0e7cdcb2120a46
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74658065"
+title:将两个虚拟网络对等互连 - Azure PowerShell 脚本示例 description:在同一区域中创建并连接两个虚拟网络。 使用两个对等虚拟网络的 Azure 脚本通过 Azure 网络来连接网络。
+services: virtual-network documentationcenter: virtual-network manager: mtillman ms.service: virtual-network ms.devlang: powershell ms.topic: sample ms.tgt_pltfrm: ms.workload： infrastructure origin.date:03/20/2018 author: rockboyfor ms.date:10/05/2020 ms.testscope: yes ms.testdate:08/10/2020 ms.author: v-yeche ms.custom: devx-track-azurepowershell
 ---
+
 # <a name="peer-two-virtual-networks-script-sample"></a>将两个虚拟网络脚本示例对等互连
 
 此脚本示例通过 Azure 网络在同一区域创建并连接两个虚拟网络。 运行脚本后，会在两个虚拟网络之间创建对等互连。
@@ -32,7 +15,7 @@ ms.locfileid: "74658065"
 
 ## <a name="sample-script"></a>示例脚本
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+<!--[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]-->
 
 ```powershell
 # Variables for common values
@@ -68,7 +51,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 此脚本使用以下命令创建资源组、虚拟机和所有相关资源。 下表中的每条命令均链接到特定于命令的文档：
 
-| Command | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork)| 创建 Azure 虚拟网络和子网。 |
@@ -77,7 +60,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/)。
 
 可在[虚拟网络 PowerShell 示例](../powershell-samples.md)中查找其他虚拟网络 PowerShell 脚本示例。
 

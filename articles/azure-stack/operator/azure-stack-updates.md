@@ -2,18 +2,19 @@
 title: 管理更新
 description: 了解如何在 Azure Stack Hub 中管理更新
 author: WenJason
+ms.service: azure-stack
 ms.topic: how-to
-origin.date: 07/16/2020
-ms.date: 08/31/2020
+origin.date: 09/25/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: 7fd6c0671147608691546e8e346ca28a288fad41
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: a71732ca88d2856bb2d8113f27d22e72e66b22e4
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867826"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437517"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>在 Azure Stack Hub 中管理更新
 
@@ -44,7 +45,7 @@ ms.locfileid: "88867826"
 
 这三种类型的更新按以下频率发布：
 
-- **Azure Stack Hub 软件更新**。 Microsoft 通常每个月发布一次软件更新包。
+- **Azure Stack Hub 软件更新**。 Microsoft 每年都会发布多个完整的快速软件更新包。
 
 - **Azure Stack Hub 修补程序**。 修补程序是随时可发布的时效性版本。 如果要从某个主版本升级到另一个主版本（例如 1.2002.x 到 1.2005.x），新的主版本中最新的修补程序（如果有）会自动安装。
 

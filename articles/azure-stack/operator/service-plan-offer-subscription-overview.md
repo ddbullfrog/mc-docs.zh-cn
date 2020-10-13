@@ -2,18 +2,19 @@
 title: Azure Stack Hub 服务、计划、套餐和订阅概述
 description: Azure Stack Hub 服务、计划、套餐和订阅的概述。
 author: WenJason
+ms.service: azure-stack
 ms.topic: conceptual
 origin.date: 12/18/2019
-ms.date: 07/20/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 3a20af57fc6942a3a9d0a8b5e48027d29741c215
-ms.sourcegitcommit: e9ffd50aa5eaab402a94bfabfc70de6967fe6278
+ms.openlocfilehash: c73d7dda7933b1a33fbeb341f697534d2bf58f8c
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86307380"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437620"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack Hub 服务、计划、套餐和订阅概述
 
@@ -75,6 +76,9 @@ Azure Stack Hub 操作员可以使用套餐、计划和订阅来配置及交付�
 ### <a name="base-plan"></a>基本计划
 
 创建套餐时，服务管理员可以包含基本计划。 当用户订阅该套餐时，默认会包括这些基本计划。 当用户订阅时，即可访问这些基本计划中指定的所有资源提供程序（附带相应的配额）。
+
+> [!NOTE]
+> 如果一个套餐包含多个基本计划，则这些计划的组合存储容量不能超过存储配额。
 
 ### <a name="add-on-plans"></a>附加计划
 

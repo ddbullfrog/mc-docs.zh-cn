@@ -1,20 +1,20 @@
 ---
-title: 在 Visual Studio 中开发和调试模块 - Azure IoT Edge | Microsoft Docs
+title: 在 Visual Studio 中开发和调试模块 - Azure IoT Edge
 description: 使用带有 Azure IoT Tools 的 Visual Studio 开发 C 或 C# IoT Edge 模块，并按照部署清单的配置将模块从 Azure IoT 中心推送到 IoT 设备。
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 03/27/2020
-ms.date: 03/30/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: e7221172861ed9048b1f6bc96741facee16d106b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: fd93bb7814e87b343867388845062cb02bd3324b
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80586677"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564212"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio 2019 开发和调试适用于 Azure IoT Edge 的模块
 
@@ -99,7 +99,7 @@ Visual Studio 中的 Azure IoT Edge 项目模板创建了一个项目，它可�
 
    ![创建新项目](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-1. 在“添加 IoT Edge 应用程序和模块”  窗口中，选择“C# 模块”  或“C 模块”  ，然后指定模块名称和模块映像存储库。 Visual Studio 使用“localhost:5000/<模块名\>自动填充模块名。 将其替换为你自己的注册表信息。 如果使用本地 Docker 注册表进行测试，则可以使用 localhost  。 如果使用 Azure 容器注册表，那么请从注册表的设置中使用登录服务器。 登录服务器类似于 **_\<注册表名称\>_ .azurecr.cn**。 仅替换字符串的 **localhost:5000** 部分，使最终结果看起来像 **\<*注册表名称*\>.azurecr.cn/ _\<模块名称\>_** 。 默认模块名称为“IotEdgeModule1” 
+1. 在“添加 IoT Edge 应用程序和模块”  窗口中，选择“C# 模块”  或“C 模块”  ，然后指定模块名称和模块映像存储库。 Visual Studio 使用“localhost:5000/<模块名\>自动填充模块名。 将其替换为你自己的注册表信息。 如果使用本地 Docker 注册表进行测试，则可以使用 localhost  。 如果使用 Azure 容器注册表，那么请从注册表的设置中使用登录服务器。 登录服务器类似于 **_\<registry name\>_ .azurecr.cn**。 仅替换字符串的 **localhost:5000** 部分，使最终结果类似于 **\<*registry name*\>.azurecr.cn/ _\<your module name\>_**。 默认模块名称为“IotEdgeModule1” 
 
    ![添加应用程序和模块](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 

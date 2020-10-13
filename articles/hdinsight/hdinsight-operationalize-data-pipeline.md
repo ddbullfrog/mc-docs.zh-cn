@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 12/25/2019
 ms.author: v-yiso
 ms.date: 02/24/2020
-ms.openlocfilehash: 2c703c62a90ccf9a2b5aaa6768d7984423a45065
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: f6b79e4bcea1f5282c44e9327cc3eeded58f98e7
+ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917347"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91394795"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>使数据分析管道可操作化
 
@@ -174,7 +174,7 @@ Azure SQL 数据库现已准备就绪。
 
 6. 若要创建 `flights` 表，请使用以下语句替换查询文本区域中的文本。 `flights` 表是 Hive 托管的表格，表中将加载到其中的数据按年、月和月份日期进行分区。 此表将包含全部历史航班数据，其中原始数据的呈现采用最小粒度，达到每个航班一行数据。
 
-    ```
+    ```sql
     SET hive.exec.dynamic.partition.mode=nonstrict;
 
     CREATE TABLE flights
@@ -275,11 +275,11 @@ Azure SQL 数据库现已准备就绪。
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
 
-    Oozie 变量使用语法 `${variableName}`。 这些变量按后续步骤所述在 `job.properties` 文件中进行设置。 Oozie 在运行时替换实际值。
+    Oozie 变量使用语法 `${variableName}`。 这些变量在 `job.properties` 文件中进行设置。 Oozie 在运行时替换实际值。
 
-2. 在文件 `hive-create-daily-summary-table.hql` 中创建查询。
+1. 在本地工作站中，创建名为 `hive-create-daily-summary-table.hql` 的文件。 使用以下代码作为该文件的内容。
 
-    ```
+    ```sql
     DROP TABLE ${hiveTableName};
     CREATE EXTERNAL TABLE ${hiveTableName}
     (
@@ -425,7 +425,9 @@ Azure SQL 数据库现已准备就绪。
 
 8. 当状态为 SUCCEEDED（成功）时，查询 SQL 数据库表以查看插入行。 使用 Azure 端口，导航到 SQL 数据库的窗格，选择“工具”，然后打开“查询编辑器”   。
 
-        SELECT * FROM dailyflights
+    ```sql
+    SELECT * FROM dailyflights
+    ```
 
 现在，工作流要针对单个测试日运行，可使用协调器包装此工作流，将工作流计划为每日运行。
 

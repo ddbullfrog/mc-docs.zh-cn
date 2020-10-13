@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f4fcf88e7812c32992b3b4fb732e370bd87b03aa
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: a888627983baad55edcdae4920079bc23868d032
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441158"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395322"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Team Data Science Process 的数据采集和理解阶段
 
@@ -55,7 +55,7 @@ TDSP 提供名为 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/mas
 对清理后数据的质量感到满意后，下一步是更好地理解数据中固有的模式。 此数据分析有助于为目标选择并开发合适的预测模型。 查找表明数据与目标的连接情况的证据。 然后确定在进行后续建模步骤时是否有足够的数据可用。 同样，此过程通常是迭代的。 可能需要查找包含更准确或更相关数据的新数据源，以增加在上一阶段中最初标识的数据集。 
 
 ### <a name="set-up-a-data-pipeline"></a>设置数据管道
-除了初始引入和清理数据以外，作为持续学习过程的一部分，通常还需设置对新数据进行评分或定期刷新数据的过程。 可通过设置数据管道或工作流来实现上述目的。 [使用 Azure 数据工厂将数据从本地 SQL Server 实例移动到 Azure SQL 数据库](move-sql-azure-adf.md)一文提供了如何使用 [Azure 数据工厂](/data-factory/)来设置管道的示例。 
+除了初始引入和清理数据以外，作为持续学习过程的一部分，通常还需设置对新数据进行评分或定期刷新数据的过程。 可以使用数据管道或工作流来完成评分。 [使用 Azure 数据工厂将数据从 SQL Server 实例移到 Azure SQL 数据库](move-sql-azure-adf.md)一文提供了一个示例，该示例介绍如何使用 [Azure 数据工厂](/data-factory/)来设置管道。 
 
 此阶段会开发数据管道的一个解决方案体系结构。 在数据科学项目的下一阶段，同时开发管道。 根据业务需求以及集成了此解决方案的现有系统的约束，管道可以是以下任一选项： 
 

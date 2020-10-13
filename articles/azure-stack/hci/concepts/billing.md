@@ -4,14 +4,16 @@ description: Azure Stack HCI 中计费和付款功能的原理。
 author: WenJason
 ms.author: v-jay
 ms.topic: conceptual
-origin.date: 07/21/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 5a595734f7a77072030696b95cca0390de15fcfa
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+origin.date: 09/01/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 0c2700e8f7a892ee23f7e03d5630ca3acee3db81
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871686"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437614"
 ---
 # <a name="azure-stack-hci-billing-and-payment"></a>Azure Stack HCI 计费和付款
 

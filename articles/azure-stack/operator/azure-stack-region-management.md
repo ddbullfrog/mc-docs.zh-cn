@@ -3,18 +3,19 @@ title: Azure Stack Hub 中的区域管理
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 中的区域管理概述。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
-origin.date: 05/04/2020
-ms.date: 06/22/2020
+origin.date: 08/27/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 6c59b5e7c7be65d263788292043dbaa903ecd174
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 0657b1c6cefa30034fc1f2c1db1d409f786d07a6
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096456"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437581"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Azure Stack Hub 中的区域管理
 
@@ -24,7 +25,7 @@ Azure Stack Hub 使用“区域”的概念，这些区域是由构成 Azure Sta
 
 ## <a name="information-available-through-the-region-management-tile"></a>通过区域管理磁贴提供的信息
 
-Azure Stack Hub 在“区域管理”**** 磁贴中提供了一组区域管理功能。 Azure Stack Hub 操作员可在管理员门户的默认仪表板上访问此磁贴。 在此磁贴中，可以监视和更新 Azure Stack Hub 区域和及其区域特定的组件。
+Azure Stack Hub 在“区域管理”**** 磁贴中提供了一组区域管理功能。 Azure Stack Hub 操作员可在管理员门户的默认仪表板上访问此磁贴。 在此屏幕中，可以监视和更新 Azure Stack Hub 区域以及其区域特定的组件。
 
 ![Azure Stack Hub 管理员门户中的“区域管理”磁贴](media/azure-stack-region-management/image1.png)
 

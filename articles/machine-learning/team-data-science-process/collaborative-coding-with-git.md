@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/23/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e44f753c739e2912db257d5d2d9d57a9e9ba680d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 145be69ed7585caadfe4c1b54ca98687e44318ad
+ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75598508"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395275"
 ---
 # <a name="collaborative-coding-with-git"></a>使用 Git 进行协作编程
 
@@ -29,7 +29,7 @@ ms.locfileid: "75598508"
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-在“创建分支”  对话框中，提供新的分支名称和基本 Azure Repos Git 存储库和基分支。 基本存储库必须与工作项位于同一 Azure DevOps 项目中。 基分支可以是主分支或其他某个现有分支。 选择“创建分支”  。 
+在“创建分支”  对话框中，提供新的分支名称和基本 Azure Repos Git 存储库和基分支。 基本存储库必须与工作项位于同一 Azure DevOps 项目中。 基本分支可以是任何现有分支。 选择“创建分支”  。 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "75598508"
 git checkout -b <new branch name> <base branch name>
 
 ```
-如果未指定\<基分支名称>，则新的分支将基于 `master`。 
+如果未指定 \<base branch name>，则新分支将基于 `master`。 
 
 若要切换到工作分支，请运行以下命令： 
 
@@ -80,7 +80,7 @@ git push origin script
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-如有必要，请在“新建拉取请求”  屏幕上，导航到要将更改合并到的 Git 存储库和分支。 添加或更改所需的任何其他信息。 在“审阅者”  下，添加需要评审你的更改的人员姓名，然后选择“创建”  。 
+如有必要，请在“新建拉取请求”  屏幕上，导航到要将更改合并到的 Git 存储库和分支。 添加或更改所需的任何其他信息。 在“审阅者”下，添加审阅者的姓名，然后选择“创建”。 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -98,7 +98,7 @@ git push origin script
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-返回到左侧导航栏中的“存储库”  时，可以看到已切换到主分支，因为 `script` 分支已被删除。
+返回到左侧导航栏中的“存储库”时，可以看到已切换到主分支，因为 `script` 分支已被删除。
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 

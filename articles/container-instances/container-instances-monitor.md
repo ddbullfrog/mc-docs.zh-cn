@@ -3,14 +3,15 @@ title: 监视容器实例
 description: 如何监视 Azure 容器实例中的容器消耗的计算资源，例如 CPU 和内存。
 ms.topic: article
 origin.date: 04/24/2019
-ms.date: 06/08/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9f9d19fe66a5ff95ea42e080d52f186c0812929a
-ms.sourcegitcommit: c4fc01b7451951ef7a9616fca494e1baf29db714
+ms.openlocfilehash: f275be106fa0b8b692f1e42406b35e142794dd0d
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84564361"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564299"
 ---
 <!--Verified successfully-->
 # <a name="monitor-container-resources-in-azure-container-instances"></a>监视 Azure 容器实例中的容器资源
@@ -47,7 +48,7 @@ Azure Monitor 提供下述 [Azure 容器实例指标][supported-metrics]。 这�
 1. 在“概览”页中选择一个指标图表，例如“CPU”。**** **** 
 1. 选择“应用拆分”按钮，然后选择“容器名称”****。****
 
-    ![维度][dimension]
+    ![屏幕捕获显示了一个容器实例的指标，其中选择了“应用拆分”和“容器名称”。][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>获取指标 - Azure CLI
 
@@ -146,10 +147,12 @@ Timestamp            Name          Containername             Average
 
 <!-- IMAGES -->
 
-[cpu-chart]: ./media/container-instances-monitor/cpu-multi.png
+<!--Not Avaialble on [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png-->
+
 [dimension]: ./media/container-instances-monitor/dimension.png
 [dual-chart]: ./media/container-instances-monitor/metrics.png
-[memory-chart]: ./media/container-instances-monitor/memory-multi.png
+
+<!--Not Avaialble on [memory-chart]: ./media/container-instances-monitor/memory-multi.png-->
 
 <!-- LINKS - External -->
 

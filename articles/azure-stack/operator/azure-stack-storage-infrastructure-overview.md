@@ -3,19 +3,20 @@ title: Azure Stack Hub 存储基础结构概述
 titleSuffix: Azure Stack
 description: 了解如何管理 Azure Stack Hub 的存储基础结构。
 author: WenJason
+ms.service: azure-stack
 ms.topic: conceptual
 origin.date: 05/11/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperfq4
-ms.openlocfilehash: 2c6fe1a2c66a6633a939c4994103be8c97b978ba
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 04917ae08e5d5dccd4f13f756527011fa372b4ac
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868004"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437727"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack Hub 存储基础结构概述
 
@@ -51,12 +52,12 @@ Azure Stack 部署可以最大化存储性能，或平衡性能和容量。
 
 “全部闪存”部署旨在最大化存储性能，不包括旋转式的 HDD。
 
-![Azure Stack Hub 存储基础结构](media/azure-stack-storage-infrastructure-overview/image1.png)
+![此关系图显示了“全闪存”部署分组。](media/azure-stack-storage-infrastructure-overview/image1.png)
 
 
 混合部署旨在平衡性能和容量或者最大化容量，包括旋转式的 HDD。
 
-![Azure Stack Hub 存储基础结构](media/azure-stack-storage-infrastructure-overview/image2.png)
+![此关系图显示了混合部署分组。](media/azure-stack-storage-infrastructure-overview/image2.png)
 
 ### <a name="caching-behavior"></a>缓存行为
 
@@ -66,7 +67,7 @@ Azure Stack 部署可以最大化存储性能，或平衡性能和容量。
 
 为 HDD 提供缓存时（例如，为 HDD 提供 SSD 缓存），会同时缓存读取和写入内容，以便为读取和写入操作提供类似于闪存的延迟（通常可将延迟改善大约 10 倍）。
 
-![Azure Stack Hub 存储基础结构](media/azure-stack-storage-infrastructure-overview/image3.svg)
+![此关系图显示了 Azure Stack Hub 存储缓存行为。](media/azure-stack-storage-infrastructure-overview/image3.svg)
 
 > [!NOTE]
 > 可以在同时采用 HDD 和 SSD（或 NVMe）驱动器的混合部署中提供 Azure Stack Hub 设备。 但是，速度较快的驱动器类型将用作缓存驱动器，所有剩余驱动器将以池的形式用作容量驱动器。 租户数据（Blob、表、队列和磁盘）放在容量驱动器上。 预配高级磁盘或选择高级存储帐户类型并不意味着保证将对象分配到 SSD 或 NVMe 驱动器。
@@ -75,7 +76,7 @@ Azure Stack 部署可以最大化存储性能，或平衡性能和容量。
 
 存储服务将可用的存储分区成独立的卷，这些卷可分配用于保存系统数据和租户数据。 卷将驱动器合并到存储池中，提供存储空间直通的容错、可伸缩性和性能优势。
 
-![Azure Stack Hub 存储基础结构](media/azure-stack-storage-infrastructure-overview/image4.svg)
+![此关系图显示了 Azure Stack Hub 存储服务分区。](media/azure-stack-storage-infrastructure-overview/image4.svg)
 
 ### <a name="volume-types"></a>卷类型
 
@@ -110,7 +111,7 @@ Azure Stack Hub 部署使用三向镜像来确保数据复原能力。 三向镜
 
 租户数据的三个副本将写入不同的服务器并保存在缓存中：
 
-![Azure Stack Hub 存储基础结构](media/azure-stack-storage-infrastructure-overview/image5.png)
+![此关系图显示了如何将租户数据的三个副本写入不同服务器。](media/azure-stack-storage-infrastructure-overview/image5.png)
 
 ## <a name="next-step"></a>后续步骤
 

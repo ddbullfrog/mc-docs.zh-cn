@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 上部署高度可用的网络虚拟设备
 description: 了解如何在 Azure Stack Hub 上部署高度可用的网络虚拟设备。
 author: WenJason
 ms.topic: how-to
-origin.date: 04/20/2020
-ms.date: 08/31/2020
+origin.date: 08/24/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 67b4447b8b591810c58a11e203e3828895c1b441
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: b07e0e8b37a9eff94805eb02ffec27dce36c456f
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867974"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437501"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署高度可用的网络虚拟设备
 
@@ -41,7 +41,7 @@ ms.locfileid: "88867974"
 
 NVA 可以采用许多不同的体系结构部署到外围网络中。 例如，下图演示了用于入口的单个 NVA 的使用。
 
-![自动生成的社交媒体文章说明的屏幕截图](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
+![此屏幕截图显示了用于入口的单个 NVA 的使用。](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 在此体系结构中，NVA 会检查所有入站和出站网络流量并且仅会放行符合网络安全规则的流量，从而提供一个安全的网络边界。 因为所有网络流量都必须通过 NVA，这意味着 NVA 是网络中的单一故障点。 如果 NVA 发生故障，则网络流量没有其他路径可用，并且所有后端子网都不可用。
 
@@ -79,7 +79,7 @@ NVA 可以采用许多不同的体系结构部署到外围网络中。 例如，
 
 在采用第 7 层 NVA 体系结构的入口-出口中，NVA 处理来自第 7 层负载均衡器的传入请求。 NVA 还处理负载均衡器的后端池中的工作负荷 VM 发出的传出请求。 由于传入流量是使用第 7 层负载均衡器路由的，而传出流量是通过 SLB（Azure Stack Hub 基本负载均衡器）路由的，因此，NVA 负责维护会话相关性。 也就是说，第 7 层负载均衡器维护入站和出站请求的映射，因此，它可以将正确的响应转发到原始请求者。 但是，内部负载均衡器无权访问第 7 层负载均衡器映射，它使用其自身的逻辑将响应发送到 NVA。 负载均衡器可能会将响应发送到起初没有从第 7 层负载均衡器收到请求的 NVA。 在这种情况下，各个 NVA 必须进行通信并在它们之间传输响应，以便正确的 NVA 可以将响应转发到第 7 层负载均衡器。
 
-> [!Note]  
+> [!NOTE]  
 > 你还可以通过确保 NVA 执行入站源网络地址转换 (SNAT) 来解决非对称路由问题。 这会将请求者的原始源 IP 替换为入站流上使用的 NVA 的 IP 地址之一。 这确保可以一次使用多个 NVA，同时保持路由对称性。
 
 ## <a name="next-steps"></a>后续步骤

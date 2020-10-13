@@ -2,15 +2,16 @@
 title: 收集和分析资源日志
 description: 了解如何从 Azure 容器实例中的容器组将资源日志和事件数据发送到 Azure Monitor 日志
 ms.topic: article
-origin.date: 04/07/2020
-ms.date: 04/30/2020
+origin.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: a3bde7a2bd37c97a62e2336492622e16fee6dc9b
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.openlocfilehash: 276c7108ba665ba2e77e2226e957a0e5a28adada
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392360"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564306"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>使用 Azure Monitor 日志进行容器组和实例日志记录
 
@@ -30,7 +31,7 @@ Log Analytics 工作区提供了一个集中的位置，用于存储和查询来
 若要在容器实例中启用日志记录，需具备以下条件：
 
 * [Log Analytics 工作区](../azure-monitor/learn/quick-create-workspace.md)
-* [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)
 
     <!--Not Avaialble on or [Cloud Shell](/cloud-shell/overview)-->
 
@@ -41,12 +42,7 @@ Azure 容器实例需要权限才能向 Log Analytics 工作区发送数据。 �
 若要获取 Log Analytics 工作区 ID 和主密钥，请执行以下操作：
 
 1. 在 Azure 门户中导航到 Log Analytics 工作区
-1. 在“设置”下，选择“高级设置” 
-1. 选择“连接的源” > “Linux 服务器” 
-
-    <!--Not Available on **Windows Servers**-->
-    <!--Not Available on  (or **Linux Servers**--the ID and keys are the same for both)-->
-    
+1. 在“设置”下，选择“代理管理”
 1. 记下以下内容：
     * **工作区 ID**
     * **主密钥**
@@ -75,7 +71,7 @@ az container create \
 如果喜欢使用 YAML 部署容器组，请使用此方法。 下面的 YAML 定义包含单个容器的容器组。 将 YAML 复制到一个新文件中，然后将 `LOG_ANALYTICS_WORKSPACE_ID` 和 `LOG_ANALYTICS_WORKSPACE_KEY` 替换为在前面的步骤中获得的值。 将该文件保存为 **deploy-aci.yaml**。
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: chinaeast2
 name: mycontainergroup001
 properties:
@@ -109,7 +105,9 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 ## <a name="view-logs"></a>查看日志
 
-部署容器组以后，可能需要等待数分钟（最多 10 分钟），第一个日志条目才会显示在 Azure 门户中。 若要查看 `ContainerInstanceLog_CL` 表中的容器组日志，请执行以下操作：
+部署容器组以后，可能需要等待数分钟（最多 10 分钟），第一个日志条目才会显示在 Azure 门户中。 
+
+若要查看 `ContainerInstanceLog_CL` 表中的容器组日志，请执行以下操作：
 
 1. 在 Azure 门户中导航到 Log Analytics 工作区
 1. 在“常规”下，选择“日志”  
@@ -181,6 +179,6 @@ ContainerInstanceLog_CL
 
 <!-- LINKS - Internal -->
 
-[az-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
 
 <!-- Update_Description: update meta properties, wording update, update link -->

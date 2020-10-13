@@ -2,31 +2,32 @@
 title: 查找云 ID
 description: 如何在 Azure Stack Hub 的“帮助 + 支持”中查找云 ID。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
 origin.date: 10/08/2019
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: fad8b52055b17eccaeb9f0d5bb7fe9f32d55a3e0
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: a57fc167506c4e75cc1559973c939a3f3dba2166
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867962"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437548"
 ---
 # <a name="find-your-cloud-id"></a>查找云 ID
 
-本主题介绍如何使用管理员门户或特权终结点 (PEP) 获取云 ID。 
+本主题介绍如何使用管理员门户或特权终结点 (PEP) 获取云 ID。 云 ID 是用于跟踪从特定缩放单元上传的支持数据的唯一 ID。 当上传诊断日志进行支持分析时，可以通过云 ID 将这些日志与该缩放单元相关联。
 
 ## <a name="use-the-administrator-portal"></a>使用管理员门户
 
 1. 打开管理员门户。 
-1. 单击“区域管理”。
+1. 选择“区域管理”。
 
    ![仪表板的屏幕截图](./media/azure-stack-automatic-log-collection/dashboard.png)
 
-1. 单击“属性”并复制“印花云 ID”。
+1. 选择“属性”并复制“缩放单元云 ID”。
 
    ![具有印花云 ID 的区域属性的屏幕截图](media/azure-stack-automatic-log-collection/region-properties-blade-with-stamp-cloud-id.png)
 

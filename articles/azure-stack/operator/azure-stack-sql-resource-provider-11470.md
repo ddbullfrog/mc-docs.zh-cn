@@ -3,17 +3,18 @@ title: Azure Stack Hub SQL 资源提供程序 1.1.47.0 发行说明
 description: 查看最新的 Azure Stack Hub SQL 资源提供程序更新中的新增内容，包括新功能、修复和已知问题。
 author: WenJason
 ms.topic: article
+ms.service: azure-stack
 origin.date: 11/26/2019
-ms.date: 06/22/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 08c27a9b4120ac8903dcbfdfc5ff8f9784350f20
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 0b2b7bc4bffcd8210f449c7de8a79297ac778558
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096326"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437725"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>SQL 资源提供程序 1.1.47.0 发行说明
 
@@ -41,7 +42,7 @@ Azure Stack Hub 升级到 1910 更新后，请按照资源提供程序更新过�
 
 ## <a name="known-issues"></a>已知问题
 
-无。
+为 Azure Stack Hub 集成系统[轮换证书](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)时，即使不打算更新 Key Vault 证书密码，也必须使用 KeyVaultPfxPassword 参数。
 
 ## <a name="next-steps"></a>后续步骤
 

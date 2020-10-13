@@ -3,17 +3,17 @@ title: 排查 Azure Stack Hub 上的 AKS 引擎问题
 description: 本文包含针对 Azure Stack Hub 上 AKS 引擎的故障排除步骤。
 author: WenJason
 ms.topic: article
-origin.date: 4/17/2020
-ms.date: 06/22/2020
+origin.date: 09/08/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 4/17/2020
-ms.openlocfilehash: aae61795ef3190c3d084dd72c25b99b1bec96129
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.lastreviewed: 09/08/2020
+ms.openlocfilehash: fe561c1788c05a268f582551db5556396c0d0ef4
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096841"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437759"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>排查 Azure Stack Hub 上的 AKS 引擎问题
 
@@ -71,21 +71,21 @@ ms.locfileid: "85096841"
 
 ## <a name="collect-aks-engine-logs"></a>收集 AKS 引擎日志
 
-可以访问由 AKS 引擎创建的审查信息。 应用程序运行时，AKS 引擎会报告状态和错误信息。 可以通过管道将输出传送到文本文件，也可以直接从命令行控制台复制输出。 请参阅[查看自定义脚本扩展错误代码](#review-custom-script-extension-error-codes)，查看 AKS 引擎触发的错误代码的列表。
+可以查看 AKS 引擎创建的信息。 应用程序运行时，AKS 引擎会报告状态和错误。 可以通过管道将输出传送到文本文件，也可以直接从命令行控制台复制输出。 请参阅[查看自定义脚本扩展错误代码](#review-custom-script-extension-error-codes)，查看 AKS 引擎触发的错误代码的列表。
 
 1.  从 AKS 引擎命令行工具中显示的信息中收集标准输出和错误信息。
 
-2. 从本地文件获取日志。 可以使用“--output-directory”参数设置输出目录****。
+2. 从本地文件获取日志。 可以通过设置“--output-directory”标志，使用 `get-logs` 命令来设置输出目录。
 
     设置日志的本地路径：
 
     ```bash  
-    aks-engine --output-directory <path to the directory>
+    aks-engine get-logs --output-directory <path to the directory>
     ```
 
 ## <a name="collect-kubernetes-logs"></a>收集 Kubernetes 日志
 
-除了 AKS 引擎日志之外，Kubernetes 组件还生成状态和错误消息。 可使用 Bash 脚本 [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3) 收集这些日志。
+除了 AKS 引擎日志之外，Kubernetes 组件还会生成状态和错误消息。 可使用 Bash 脚本 [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3) 收集这些日志。
 
 此脚本可实现自动收集以下日志： 
 
@@ -103,8 +103,8 @@ ms.locfileid: "85096841"
 要求：
 
  - Windows 上的 Linux VM、Git Bash 或 Bash。
- - 在运行脚本的计算机中安装了 [Azure CLI](azure-stack-version-profiles-azurecli2.md)。
- - 服务主体标识已登录到 Azure Stack Hub 的 Azure CLI 会话。 由于脚本能够发现并创建 ARM 资源来完成其工作，因此需要 Azure CLI 和服务主体标识。
+ - 在将运行脚本的计算机中安装了 [Azure CLI](azure-stack-version-profiles-azurecli2.md)。
+ - 服务主体标识已登录到 Azure Stack Hub 的 Azure CLI 会话。 由于脚本能够发现并创建 Azure Stack 资源管理器资源来完成其工作，因此需要 Azure CLI 和服务主体标识。
  - 用户帐户（订阅），且已在环境中选择了 Kubernetes 群集。 
 1. 将最新版本的脚本 tar 文件下载到客户端 VM，该 VM 应是有权访问 Kubernetes 群集的计算机，或是使用 AKS 引擎部署群集时使用的同一计算机。
 

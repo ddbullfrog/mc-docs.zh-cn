@@ -3,17 +3,17 @@ title: Azure Stack Hub 托管磁盘：差异与注意事项
 description: 了解 Azure Stack Hub 中托管磁盘和托管映像的差异与注意事项。
 author: WenJason
 ms.topic: article
-origin.date: 05/04/2020
-ms.date: 08/31/2020
+origin.date: 08/27/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: b96d7c479d9b878847348696628de0c2a6c4076f
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: fdc079f624c84bbeec3b8b87d5350979edd71dd6
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867812"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437665"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack Hub 托管磁盘：差异与注意事项
 
@@ -21,8 +21,7 @@ ms.locfileid: "88867812"
 
 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../operator/azure-stack-manage-storage-accounts.md)简化了 IaaS 虚拟机 (VM) 的磁盘管理。
 
-> [!NOTE]  
-> 从 1808 更新开始，推出了 Azure Stack Hub 上的托管磁盘。 从 1811 更新开始，使用 Azure Stack Hub 门户创建 VM 时，会默认启用该功能。
+使用 Azure Stack Hub 门户创建 VM 时，托管磁盘在默认情况下已启用。
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>速查表：托管磁盘的差异
 

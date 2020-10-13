@@ -3,17 +3,18 @@ title: 为 Azure Stack Hub 生成证书签名请求
 description: 了解如何在 Azure Stack Hub 集成系统中为 Azure Stack Hub PKI 证书生成证书签名请求。
 author: WenJason
 ms.topic: article
+ms.service: azure-stack
 origin.date: 09/10/2019
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 49ef23398bf672f396daea07f013cb60b84c0e2a
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: db384e8b48f5e2e30b6508ba2f7c15eeb6dd785f
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867961"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437592"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>为 Azure Stack Hub 生成证书签名请求
 
@@ -139,15 +140,15 @@ ms.locfileid: "88867961"
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. 声明 stampEndpoint。 例如：
+2. 以 Azure Stack Hub 系统的 regionname.domain.com 形式声明 stampEndpoint。 例如（如果 Azure Stack Hub 租户门户地址为 <code> https://</code><code>portal.east.azurestack.contoso.com</code>）：
 
     ```powershell  
-    $stampEndpoint = 'portal.east.azurestack.contoso.com'
+    $stampEndpoint = 'east.azurestack.contoso.com'
     ```
 
     > [!NOTE]  
-    > 上述终结点需要 HTTPS 连接。
-    > 上述终结点应与证书类型所需的证书之一匹配，例如，对于部署证书，需要 portal.region.domain 终结点；对于 AppServices，需要 sso.appservices.region.domain 等。绑定到终结点的证书将用于克隆属性，例如主题、密钥长度和签名算法。  只需要一个现有终结点，所有签名请求将创建所有必要的证书。
+    > 上述 Azure Stack Hub 系统需要 HTTPS 连接。
+    > 就绪检查器将使用 stampendpoint（区域和域）来构建一个指向证书类型所需的现有证书的指针。例如，对于部署证书，该工具会将“portal”前置，因此，对于 sso.appservices.east.azurestack.contoso.com 之类的 AppService，会将 portal.east.azurestack.contoso.com 用于证书克隆。绑定到已计算的终结点的证书将用于克隆属性，例如使用者、密钥长度和签名算法。  如果要更改其中任何属性，则应改为按照[为新部署生成证书签名请求](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments)的步骤进行操作。
 
 3. 声明已存在的输出目录。 例如：
 

@@ -1,25 +1,27 @@
 ---
 title: 添加、更改或删除 Azure 虚拟网络子网
 titlesuffix: Azure Virtual Network
-description: 了解如何在 Azure 中添加、更改或删除虚拟网络子网。
+description: 了解在何处可找到有关虚拟网络的信息，以及如何在 Azure 中添加、更改或删除虚拟网络子网。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/20/2020
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: cad338f176250eaa21b1cb409a305cbff8f84b21
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: 1b92e6316df11fb36196a416954b827bc92fc44c
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487076"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564330"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>添加、更改或删除虚拟网络子网
 
@@ -31,14 +33,18 @@ ms.locfileid: "84487076"
 如果你没有 Azure 帐户，请使用有效的订阅设置一个帐户。 [免费创建帐户](https://www.azure.cn/pricing/1rmb-trial/)。 然后在开始执行本文任一部分中的步骤之前完成以下任务之一： 
 
 - **门户用户**：使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.cn)。
-
+    
+    <!--Mooncake Customization: Not Available on Cloud Shell-->
+    
 - **PowerShell 用户**：
 
     如果在本地运行 PowerShell，请使用 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az.Network` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 另请运行 `Connect-AzAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 - **Azure 命令行接口 (CLI) 用户**： 
 
-    在计算机中运行 CLI。 使用 Azure CLI 版本 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 另请运行 `az login` 以创建与 Azure 的连接。
+    <!--Mooncake Customization: Not Available on Cloud Shell-->
+
+    在计算机中运行 CLI。 使用 Azure CLI 版本 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。 另请运行 `az login` 以创建与 Azure 的连接。
 
 登录或连接到 Azure 所用的帐户必须分配有[网络参与者角色](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
@@ -70,7 +76,7 @@ ms.locfileid: "84487076"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network vnet subnet create](https://docs.azure.cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) |
+| Azure CLI | [az network vnet subnet create](https://docs.azure.cn/cli/network/vnet/subnet#az-network-vnet-subnet-create) |
 | PowerShell | [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig) |
 
 ## <a name="change-subnet-settings"></a>更改子网设置
@@ -99,7 +105,7 @@ ms.locfileid: "84487076"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network vnet subnet update](https://docs.azure.cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) |
+| Azure CLI | [az network vnet subnet update](https://docs.azure.cn/cli/network/vnet/subnet#az-network-vnet-subnet-update) |
 | PowerShell | [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 <a name="delete-subnet"></a>
@@ -121,7 +127,7 @@ ms.locfileid: "84487076"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network vnet subnet delete](https://docs.azure.cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-delete) |
+| Azure CLI | [az network vnet subnet delete](https://docs.azure.cn/cli/network/vnet/subnet#az-network-vnet-subnet-delete) |
 | PowerShell | [Remove-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fvirtual-network%2ftoc.json) |
 
 ## <a name="permissions"></a>权限

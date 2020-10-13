@@ -1,20 +1,20 @@
 ---
-title: 如何将更新应用于 Azure Stack Hub 资源提供程序。
+title: 将更新应用于 Azure Stack Hub 资源提供程序
 description: 了解如何将服务更新应用于 Azure Stack Hub 上的资源提供程序。
 author: WenJason
 ms.author: v-jay
 ms.service: azure-stack
 ms.topic: how-to
 origin.date: 11/18/2019
-ms.date: 06/22/2020
+ms.date: 10/12/2020
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/18/2019
-ms.openlocfilehash: 6fbccab7c191d242b6547215387343808bf15644
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: d1ba26b1f9d5217614fb3ef59d21d08480ce14eb
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096527"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437622"
 ---
 # <a name="how-to-update-an-azure-stack-hub-resource-provider"></a>如何更新 Azure Stack Hub 资源提供程序
 
@@ -33,7 +33,7 @@ ms.locfileid: "85096527"
 
 3. 在“更新”页上的“资源提供程序”部分下，找到资源提供程序的更新 。
 
-   [![可用更新页](media/resource-provider-apply-updates/3-update-available.png)](media/resource-provider-apply-updates/3-update-available.png#lightbox)
+   [![显示“资源提供程序”部分的屏幕截图。](media/resource-provider-apply-updates/3-update-available.png)](media/resource-provider-apply-updates/3-update-available.png#lightbox)
 
 ## <a name="apply-an-update"></a>应用更新
 

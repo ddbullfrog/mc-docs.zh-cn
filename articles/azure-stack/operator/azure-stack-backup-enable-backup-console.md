@@ -1,19 +1,20 @@
 ---
-title: 从管理员门户为 Azure Stack Hub 启用备份
+title: 从管理员门户启用 Azure Stack Hub 备份
 description: 了解如何通过管理员门户启用基础结构备份服务，以便出现故障时可以还原 Azure Stack Hub。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
 origin.date: 08/21/2019
-ms.date: 05/18/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: c9426df272c36e5f9a3259623111a610ea0bd68b
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 8531587450524b84b130544419051f02b6ee9c1e
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422147"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437742"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>从管理员门户为 Azure Stack Hub 启用备份
 
@@ -78,7 +79,7 @@ ms.locfileid: "83422147"
 ## <a name="start-backup"></a>启动备份
 若要启动备份，请单击“立即备份”  以启动按需备份。 按需备份不会修改已计划的下次备份的时间。 任务完成后，可以在“概要”  中确认设置：
 
-![Azure Stack Hub - 按需备份](media/azure-stack-backup/scheduled-backup.png)
+![此屏幕截图显示了如何启动按需备份。](media/azure-stack-backup/scheduled-backup.png)
 
 还可以在 Azure Stack Hub 管理计算机上运行 PowerShell cmdlet **Start-AzsBackup**。 有关详细信息，请参阅[备份 Azure Stack Hub](azure-stack-backup-back-up-azure-stack.md)。
 

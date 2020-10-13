@@ -3,16 +3,16 @@ title: 使用服务和生成应用时 Azure Stack Hub 与 Azure 之间的差异
 description: 了解使用服务和生成应用时 Azure 与 Azure Stack Hub 之间的差异。
 author: WenJason
 ms.topic: overview
-origin.date: 06/11/2020
-ms.date: 08/31/2020
+origin.date: 09/21/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 1015629c67881053211e6809dc1b614228328ee8
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: ea96e9cb2fe42b7ebb3b2182012a64953508f959
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867938"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437693"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>使用服务和生成应用时 Azure Stack Hub 与 Azure 之间的差异
 
@@ -85,3 +85,4 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 * [Azure Stack Hub 中的 VM 注意事项](azure-stack-vm-considerations.md)
 * [Azure Stack Hub 中的存储注意事项](azure-stack-acs-differences.md)
 * [Azure Stack Hub 网络注意事项](azure-stack-network-differences.md)
+* [Azure Stack Hub SQL 资源提供程序的注意事项](../operator/azure-stack-sql-resource-provider.md)

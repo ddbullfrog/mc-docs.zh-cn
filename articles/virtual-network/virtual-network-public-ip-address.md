@@ -1,36 +1,38 @@
 ---
-title: 创建、更改或删除 Azure 公共 IP 地址 | Azure
-description: 了解如何创建、更改或删除公共 IP 地址。
+title: 管理公共 IP 地址 | Azure
+titleSuffix: Azure Virtual Network
+description: 管理公共 IP 地址。  还将了解公共 IP 地址如何成为自带可配置设置的资源。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/06/2019
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6721c7ef5500daf8c52614b224adb6b2fe7c104f
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: b9fb317f58d53d2169054a792dd7afbd16d848f6
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487002"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564586"
 ---
-# <a name="create-change-or-delete-a-public-ip-address"></a>创建、更改或删除公共 IP 地址
+# <a name="manage-public-ip-addresses"></a>管理公共 IP 地址
 
 了解公共 IP 地址，以及如何创建、更改和删除此类地址。 公共 IP 地址是一种自带可配置设置的资源。 将公共 IP 地址分配给支持公共 IP 地址的 Azure 资源以启用：
 - 从 Internet 到资源的入站通信，如 Azure 虚拟机 (VM)、Azure 应用程序网关、Azure 负载均衡器、Azure VPN 网关等。 如果 VM 没有分配有公共 IP 地址，则仍可通过 Internet 与某些资源（如 VM）进行通信，前提是 VM 是负载均衡器后端池的一部分且负载均衡器分配有公共 IP 地址。 若要确定是否可向特定 Azure 服务的资源分配公共 IP 地址，或是否可通过其他 Azure 资源的公共 IP 地址与之通信，请参阅该服务的文档。
 - 使用可预测的 IP 地址与 Internet 建立出站连接。 例如，如果某虚拟机未分配有公共 IP 地址，但其地址由 Azure 网络地址转换为可预测的公共地址，则默认情况下，该虚拟机可与 Internet 建立出站通信。 通过将公共 IP 地址分配给资源，可了解哪个 IP 地址用于出站连接。 尽管可预测，但地址可根据所选分配方法进行更改。 有关详细信息，请参阅[创建公共 IP 地址](#create-a-public-ip-address)。 有关从 Azure 资源建立出站连接的详细信息，请参阅[了解出站连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json)。
 
-<a name="before"></a>
 ## <a name="before-you-begin"></a>准备阶段
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -39,16 +41,18 @@ ms.locfileid: "84487002"
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
+    <!--Mooncake Customization on: No Cloud Shell-->
+    
 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
 公共 IP 地址会产生少许费用。 若要查看定价，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses/)页。
 
 ## <a name="create-a-public-ip-address"></a><a name="create-a-public-ip-address"></a>创建公共 IP 地址
 
-1. 在 Azure 门户菜单或“主页”页上，选择“创建资源”**** ****。
+1. 在 Azure 门户菜单或“主页”页上，选择“创建资源” 。
 2. 在“在市场中搜索”框中输入“公共 IP 地址”** **。 当“公共 IP 地址”出现在搜索结果中时，请选择它。****
 3. 在“公共 IP 地址”下，**** 选择“创建”****。
 4. 在“创建公共 IP 地址”下为以下设置输入或选择值，然后选择“创建”**** ****：
@@ -68,16 +72,15 @@ ms.locfileid: "84487002"
     |位置|是|必须与要将公共 IP 地址关联到的资源位于同一[位置](https://status.azure.com/status/)（也称为“区域”）。|
     
     <!-- Not Available on |SKU on **Availability zone** -->
-    <!-- Line 49 Not Available on [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
     <!-- Not Available on Available zone -->
 
-**** 命令
+命令
 
 虽然门户提供了用于创建两个公共 IP 地址资源（一个 IPv4 和一个 IPv6）的选项，但以下 CLI 和 PowerShell 命令可使用任一 IP 版本的地址创建一个资源。 如果需要两个公共 IP 地址资源（每个 IP 版本一个），必须运行此命令两次，为公共 IP 地址资源指定不同的名称和 IP 版本。
 
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip create](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
+|CLI|[az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-create)|
 |PowerShell|[New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress)|
 
 <a name="change"></a>
@@ -93,23 +96,23 @@ ms.locfileid: "84487002"
     >[!WARNING]
     >将分配方法从静态更改为动态时，将丢失分配给公共 IP 地址的 IP 地址。 尽管 Azure 公共 DNS 服务器会保留静态或动态地址与任何 DNS 名称标签（若已定义）之间的映射，但如果虚拟机在处于停止（解除分配）状态之后启动，动态 IP 地址可能更改。 为防止地址变化，请分配静态 IP 地址。
 
-**** 命令
+命令
 
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip list](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list) 用于列出公共 IP 地址；[az network public-ip show](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) 用于显示设置；[az network public-ip update](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-update) 用于更新；[az network public-ip delete](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-delete) 用于删除|
+|CLI|[az network public-ip list](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-list) 用于列出公共 IP 地址；[az network public-ip show](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-show) 用于显示设置；[az network public-ip update](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-update) 用于更新；[az network public-ip delete](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-delete) 用于删除|
 |PowerShell|[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 用于检索公共 IP 地址对象并查看其设置；[Set-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/set-azpublicipaddress) 用于更新设置；[Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress) 用于删除|
 
 ## <a name="assign-a-public-ip-address"></a>分配公共 IP 地址
 
 了解如何将公共 IP 地址分配给以下资源：
 
-- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json) VM（创建时）或[现有 VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json) VM（创建时）或[现有 VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
 - [面向 Internet 的负载均衡器](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fvirtual-network%2ftoc.json)
 - [Azure 应用程序网关](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fvirtual-network%2ftoc.json)
 - [使用 Azure VPN 网关建立站点到站点连接](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)
 
-<!--Not Available on - [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fvirtual-network%2ftoc.json)-->
+<!--Not Avaialble on - [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 ## <a name="permissions"></a>权限
 

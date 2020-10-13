@@ -1,23 +1,25 @@
 ---
 title: Azure Stack HCI 解决方案概述
-description: Azure Stack HCI 概述
+description: Azure Stack HCI 是一种超融合群集解决方案，它在混合的本地环境中运行虚拟化的 Windows 和 Linux 工作负载。 Azure 混合服务通过基于云的监视、站点恢复和 VM 备份等功能，以及 Azure 门户中所有 Azure Stack HCI 部署的中心视图增强群集。
 ms.topic: overview
 author: WenJason
 ms.author: v-jay
-origin.date: 07/29/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 16d7f6691fd1b4a958f675cc8e7217fe581904c7
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+origin.date: 09/24/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 8e2c673d3ed247937e723694dae2699aa6daee9d
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868052"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437611"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI 解决方案概述
 
 Azure Stack HCI 是一种超融合群集解决方案，它在混合的本地环境中运行虚拟化的 Windows 和 Linux 工作负载。 Azure 混合服务通过基于云的监视、站点恢复和 VM 备份等功能，以及 Azure 门户中所有 Azure Stack HCI 部署的中心视图增强群集。 你可以使用现有工具（包括 Windows Admin Center、System Center 和 PowerShell）管理群集。
 
-Azure Stack HCI 版本 20H2 是一种新的操作系统，现提供公共预览版。 它适用于运行虚拟化工作负载且内置混合云连接的本地群集。 因此，Azure Stack HCI 作为 Azure 服务交付，并根据 Azure 订阅计费。
+Azure Stack HCI 版本 20H2 是全新的操作系统，现在有公共预览版并[可供下载](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)。 它适用于运行虚拟化工作负载且内置混合云连接的本地群集。 因此，Azure Stack HCI 作为 Azure 服务交付，并根据 Azure 订阅计费。 Azure Stack HCI 现在还具备托管 Azure Kubernetes 服务的功能；有关详细信息，请参阅 [Azure Stack HCI 上的 Azure Kubernetes 服务](../aks-hci/overview.md)。
 
 从其核心来看，Azure Stack HCI 是一个结合了以下各项的解决方案：
 
@@ -32,7 +34,7 @@ Azure Stack HCI 版本 20H2 提供了 Windows Server 中不存在的新功能，
 
 ## <a name="use-cases-for-azure-stack-hci"></a>Azure Stack HCI 的用例
 
-Azure Stack HCI 有很多用例，尽管它不适用于非虚拟化的工作负载（SQL Server 除外，它在 Azure Stack HCI 上运行良好）。 客户通常会在以下情况下选择 Azure Stack HCI：
+Azure Stack HCI 有很多用例，尽管它不适用于非虚拟化的工作负载。 客户通常会在以下情况下选择 Azure Stack HCI：
 
 ### <a name="data-center-consolidation-and-modernization"></a>数据中心合并和现代化
 
@@ -93,7 +95,7 @@ Azure Stack HCI 是世界一流的集成虚拟化堆栈，基于已经大规模�
 - 群集中每个服务器的 Internet 连接，该服务器可以至少每 30 天通过 HTTPS 出站流量连接到以下终结点：*-azurestackhci-usage.azurewebsites.net
 - 对于跨站点延伸的群集，你需要在站点之间至少有 1 Gb 的连接（首选 25 Gb RDMA 连接），如果你想要在两个站点中同时进行写入的同步复制，则平均延迟为 5 毫秒往返
 
-有关详细信息，请参阅[准备工作](deploy/before-you-start.md)。
+有关详细信息，请参阅[准备工作](deploy/before-you-start.md)。 关于 Azure Stack HCI 上的 Azure Kubernetes 服务的要求，请参阅 [Azure Stack HCI 上的 AKS 要求](../aks-hci/overview.md#what-you-need-to-get-started)。
 
 ## <a name="hardware-partners"></a>硬件合作伙伴
 
@@ -196,7 +198,7 @@ Azure Stack HCI 属于 Azure 和 Azure Stack 系列，与 Azure Stack Hub 使用
 - [Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) - 在本地运行虚拟化应用、更换和整合过时的服务器基础结构，以及连接到 Azure 以使用云服务。
 - [Azure Stack Hub](../operator/azure-stack-overview.md) - 在连接中断时运行本地云应用，或者使用一致的 Azure 服务满足法规要求。
 
-:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack 系列解决方案关系图" border="false":::
+:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack HCI OS 在经过验证的硬件上运行，由 Windows Admin Center 管理，并连接到 Azure" border="false":::
 
 ## <a name="compare-windows-server-and-azure-stack-hci"></a>比较 Windows Server 和 Azure Stack HCI
 
@@ -250,6 +252,13 @@ Azure Stack HCI 属于 Azure 和 Azure Stack 系列，与 Azure Stack Hub 使用
 
 ## <a name="whats-new-in-azure-stack-hci"></a>Azure Stack HCI 的新增功能
 
+Windows Admin Center 版本 2009 为 Azure Stack HCI 添加了许多功能，其中包括：
+
+- Azure Kubernetes 服务托管功能：现在可以安装 [Azure Stack HCI 上的 Azure Kubernetes 服务](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)预览版。
+- 群集创建向导中包含软件定义的网络：群集创建向导现在提供了用于在群集创建过程中部署软件定义的网络 (SDN) 网络控制器功能的选项。
+
+若要详细了解 Windows Admin Center 中的新功能，请参阅 [Windows Admin Center 博客](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog)。
+
 与基于 Windows Server 2019 的解决方案相比，运行 Azure Stack HCI 版本 20H2 的群集具有以下新功能：
 
 - **Windows Admin Center 中的新功能**：由于能够通过直观的 UI 创建和更新超融合群集，Azure Stack HCI 比以往任何时候都更容易使用。
@@ -275,4 +284,5 @@ Windows Admin Center 版本 20H2 还为基于 Windows Server 的群集提供了�
 
 ## <a name="next-steps"></a>后续步骤
 
+- [下载 Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)
 - [在 Windows 管理中心使用 Azure Stack HCI](get-started.md)

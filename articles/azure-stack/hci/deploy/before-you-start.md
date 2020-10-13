@@ -1,17 +1,19 @@
 ---
-title: Azure Stack HCI 部署入门
+title: 部署 Azure Stack HCI 之前的准备工作
 description: 如何为部署 Azure Stack HCI 做准备。
 author: WenJason
 ms.author: v-jay
 ms.topic: how-to
-origin.date: 08/03/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 820e42cf88549b236b8950f4a8780344e3e06ffa
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+origin.date: 09/24/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: f5d659ef62c125ab960632f6cfa520d1de656dd1
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871659"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437756"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>部署 Azure Stack HCI 之前的准备工作
 
@@ -23,6 +25,8 @@ ms.locfileid: "88871659"
 - 确保未超出支持的最大硬件规格
 - 收集成功部署所需的信息
 - 在管理 PC 或服务器上安装 Windows Admin Center·
+
+关于 Azure Stack HCI 上 Azure Kubernetes 服务的要求，请参阅 [Azure Stack HCI 上的 AKS 要求](../../aks-hci/overview.md#what-you-need-to-get-started)。
 
 ## <a name="determine-hardware-requirements"></a>确定硬件要求
 
@@ -47,7 +51,6 @@ Azure Stack HCI 群集要求在各个服务器节点之间具有可靠的高带�
 - 验证是否至少有一个网络适配器可用且专用于群集管理。
 - 验证网络中的物理交换机是否已配置为允许你要使用的任何 VLAN 上的流量。
 
-
 服务器节点之间存在多种类型的通信：
 
 - 群集通信（节点加入、群集更新、注册表更新）
@@ -61,6 +64,16 @@ Azure Stack HCI 群集要求在各个服务器节点之间具有可靠的高带�
 - 运行状况 – 监视和管理对象（节点、驱动器、网卡、群集服务）
 
 对于延伸群集，还会有在站点之间流动的额外存储副本流量。 存储总线层 (SBL) 和群集共享卷 (CSV) 流量不会在站点之间传输，只能在每个站点中的服务器节点之间传输。
+
+### <a name="software-defined-networking-requirements"></a>软件定义的网络要求
+
+在使用 Windows Admin Center 创建 Azure Stack HCI 群集时，可以选择部署网络控制器，以启用软件定义的网络 (SDN)。 如果要在 Azure Stack HCI 上使用 SDN，请注意以下事项：
+
+- 请确保主机服务器至少有 50-100 GB 的可用空间，以用于创建网络控制器 VM。
+
+- 为了创建网络控制器 VM，必须将 Azure Stack HCI 操作系统的虚拟硬盘 (VHD) 复制到群集中的第一个节点。 准备 VHD 的方式可以是使用 [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-process-overview)，或者也可以是通过运行 [Convert-WindowsImage](https://gallery.technet.microsoft.com/scriptcenter/Convert-WindowsImageps1-0fe23a8f) 脚本将 .iso 文件转换为 VHD。
+
+关于在 Azure Stack HCI 中使用 SDN，若要详细了解如何为此进行准备，请参阅[规划软件定义的网络基础结构](../concepts/plan-software-defined-networking-infrastructure.md)和[规划部署网络控制器](../concepts/network-controller.md)。
 
 ### <a name="domain-requirements"></a>域要求
 
@@ -137,7 +150,7 @@ Azure Stack HCI 没有特殊的域功能级别要求，只是一个适用于你�
 ### <a name="storage-requirements"></a>存储要求
 
 - Azure Stack HCI 可使用直接连接的 SATA、SAS、NVMe 或永久性内存驱动器，每个驱动器使用物理方式仅连接到一个服务器。
-- 群集中的每台服务器应该具有相同的型号、大小和驱动器数量，所有磁盘上的扇区大小都应相同。 驱动器可以是服务器的内部驱动器，也可以是仅连接到一台服务器的外接盒。
+- 群集中每个服务器都应具有相同类型的驱动器，各类型驱动器的数量也应该相同。 另外，建议（但不要求）驱动器的大小和型号也相同。 驱动器可以是服务器的内部驱动器，也可以是仅连接到一台服务器的外接盒。 若要了解详细信息，请参阅[驱动器对称性注意事项](../concepts/drive-symmetry-considerations.md)。
 - 群集中的每台服务器都应有日志专用卷，日志存储至少与数据存储一样快。 延伸群集至少需要两个卷：一个用于复制的数据，一个用于日志数据。
 - 槽映射和标识需要 SCSI 机箱服务 (SES)。 每个外接盒都必须提供唯一标识符（唯一 ID）。 **不支持：** RAID 控制器卡或 SAN（光纤通道、iSCSI、FCoE）存储、连接到多台服务器的共享 SAS 机箱，或可以通过多个路径来访问驱动器的任何形式的多路径 IO (MPIO)。 主机总线适配器 (HBA) 卡必须实现简单的直通模式。
 - 有关更多帮助，请参阅[选择驱动器](../concepts/choose-drives.md)主题或[存储空间直通硬件要求](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)。

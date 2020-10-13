@@ -4,16 +4,16 @@ description: 了解如何安装 Visual Studio 并连接到 Azure Stack Hub。
 author: WenJason
 ms.topic: article
 origin.date: 06/11/2020
-ms.date: 06/22/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: d195db0a789d02d98b606333a1a1859ad79ef09c
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 2c0dbfadc1fd3e3232d8febfc9f22bbf8d5b2aee
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096538"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437713"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>安装 Visual Studio 并连接到 Azure Stack Hub
 
@@ -43,7 +43,7 @@ ms.locfileid: "85096538"
 
 3. 选择“管理帐户”，然后在新窗格中使用 Azure Active Directory (Azure AD) 凭据登录****。  
 
-    ![登录并连接到 Azure Stack Hub 后的 Cloud Explorer 屏幕截图](./media/azure-stack-install-visual-studio/image2.png)
+    ![此屏幕截图显示了登录并连接到 Azure Stack Hub 后的 Cloud Explorer](./media/azure-stack-install-visual-studio/image2.png)
 
 登录后，可以[部署模板](azure-stack-deploy-template-visual-studio.md)或浏览可用的资源类型和资源组以创建自己的模板。  
 
@@ -63,7 +63,7 @@ ms.locfileid: "85096538"
 
     Visual Studio 会调用 Azure 资源管理器，并发现终结点，包括 Active Directory 联合身份验证服务 (AD FS) 的身份验证终结点。
 
-    ![登录并连接到 Azure Stack Hub 后的 Cloud Explorer 屏幕截图](./media/azure-stack-install-visual-studio/image6.png)
+    ![此屏幕截图显示了 Azure 目录联合身份验证服务的终结点。](./media/azure-stack-install-visual-studio/image6.png)
 
 6. 在“视图”菜单中，选择“Cloud Explorer”。**** ****
 

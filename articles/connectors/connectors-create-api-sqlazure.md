@@ -6,17 +6,18 @@ ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 origin.date: 06/06/2020
-ms.date: 07/20/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: f33256d27ed895371b95494f435011cfe186f6f1
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: bfbfa91c37f9a7d69fb9a830c21951e9996f0738
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414686"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564327"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用自动完成 SQL 数据库的工作流
 
@@ -87,7 +88,8 @@ ms.locfileid: "86414686"
 
     此示例将继续使用 **Azure AD 集成**：
 
-    ![选择要使用的身份验证类型](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
+    ![此屏幕截图显示在其中打开了“身份验证类型”列表并选择了“Azure AD 集成”的“SQL Server”连接窗口。](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
+
 1. 在选择“Azure AD 集成”后，选择“登录”。 根据你使用的是 Azure SQL 数据库还是 Azure SQL 托管实例，选择用于身份验证的用户凭据。
 
 1. 为你的数据库选择以下值：
@@ -106,7 +108,7 @@ ms.locfileid: "86414686"
 
     此示例显示了这些值的可能外观：
 
-    ![创建到 SQL 数据库的连接](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+    :::image type="content" source="./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png" alt-text="创建到 SQL 数据库的连接":::
 
 1. 现在，继续在[添加 SQL 触发器](#add-sql-trigger)或[添加 SQL 操作](#add-sql-action)中执行你尚未完成的步骤。
 
@@ -130,7 +132,7 @@ ms.locfileid: "86414686"
 
     此示例将继续使用 **Windows 身份验证**：
 
-    ![选择要使用的身份验证类型](./media/connectors-create-api-sqlazure/select-windows-authentication.png)
+    :::image type="content" source="./media/connectors-create-api-sqlazure/select-windows-authentication.png" alt-text="创建到 SQL 数据库的连接":::
 
 1. 为你的 SQL 数据库选择或提供以下值：
 
@@ -141,7 +143,7 @@ ms.locfileid: "86414686"
     | **用户名** | 是 | 你用于 SQL Server 和数据库的用户名 |
     | **密码** | 是 | 你用于 SQL Server 和数据库的密码 |
     | **订阅** |  是（对于 Windows 身份验证） | 你之前在 Azure 中创建的数据网关资源的 Azure 订阅 |
-    | **连接网关** | 是（对于 Windows 身份验证） | 你之前在 Azure 中创建的数据网关资源的名称 <p><p>**提示**：如果网关未出现在列表中，请检查是否已经正确[设置网关](/logic-apps/logic-apps-gateway-connection)。 |
+    | **连接网关** | 是（对于 Windows 身份验证） | 你之前在 Azure 中创建的数据网关资源的名称 <p><p>**提示**：如果网关未出现在列表中，请检查是否已经正确[设置网关](../logic-apps/logic-apps-gateway-connection.md)。 |
     |||
 
     > [!TIP]
@@ -154,7 +156,7 @@ ms.locfileid: "86414686"
 
     此示例显示了这些值的可能外观：
 
-    ![创建 SQL Server 连接的操作已完成](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
+    :::image type="content" source="./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png" alt-text="创建到 SQL 数据库的连接":::
 
 1. 准备就绪后，选择“创建”。
 
@@ -194,7 +196,7 @@ ms.locfileid: "86414686"
 
 1. 在要添加 SQL 操作的触发器或操作下，选择“新建步骤”。
 
-    ![向逻辑应用中添加操作](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+    :::image type="content" source="./media/connectors-create-api-sqlazure/select-new-step-logic-app.png" alt-text="创建到 SQL 数据库的连接":::
 
     或者，若要在现有步骤之间添加操作，请将鼠标移到连接箭头上方。 选择出现的加号 ( **+** )，然后选择“添加操作”。
 
@@ -206,7 +208,7 @@ ms.locfileid: "86414686"
 
 1. 选择“表名”，在此示例中为 `SalesLT.Customer`。 输入所需记录的**行 ID**。
 
-    ![选择表名并指定行 ID](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
+    :::image type="content" source="./media/connectors-create-api-sqlazure/specify-table-row-id.png" alt-text="创建到 SQL 数据库的连接":::
 
     此操作仅从选定表返回一个行，不返回其他内容。 因此，若要查看此行中的数据，可以添加其他操作，以便创建一个文件（其中包含已返回行中的字段），然后将该文件存储在云存储帐户中。 若要了解此连接器的其他可用操作，请参阅[连接器的参考页](https://docs.microsoft.com/connectors/sql/)。
 

@@ -2,17 +2,18 @@
 title: 使用虚拟网络的方案
 description: 将容器组部署到 Azure 虚拟网络的方案、资源和限制。
 ms.topic: article
-origin.date: 04/29/2020
-ms.date: 07/27/2020
+origin.date: 08/11/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b343edf55c2db36c46410dd8b622922d69cedc9c
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: 893c1c70919614c3c3b5a54758f12cc43af61c67
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863411"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564274"
 ---
 <!--Verified successfully-->
 # <a name="virtual-network-scenarios-and-resources"></a>虚拟网络方案和资源
@@ -46,6 +47,8 @@ ms.locfileid: "86863411"
 * 不能在部署到虚拟网络的容器组中使用[托管标识](container-instances-managed-identity.md)。
 * 不能在部署到虚拟网络的容器组中启用[运行情况探测](container-instances-liveness-probe.md)或[就绪情况探测](container-instances-readiness-probe.md)。
 * 由于涉及到其他网络资源，部署到虚拟网络通常比部署标准容器实例要慢。
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="where-to-deploy"></a>部署位置
 
@@ -81,6 +84,7 @@ ms.locfileid: "86863411"
 
 * 有关使用 Azure CLI 的部署示例，请参阅[将容器实例部署到 Azure 虚拟网络](container-instances-vnet.md)。
 * 若要使用资源管理器模板部署新的虚拟网络、子网、网络配置文件和容器组，请参阅 [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet)（使用 VNet 创建 Azure 容器组）。
+* 使用 [Azure 门户](container-instances-quickstart-portal.md)创建容器实例时，还可以在“网络”选项卡上为新的或现有的虚拟网络提供设置。
 
 <!-- IMAGES -->
 
@@ -88,8 +92,7 @@ ms.locfileid: "86863411"
 
 <!-- LINKS - Internal -->
 
-[az-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[az-network-profile-list]: https://docs.azure.cn/cli/network/profile?view=azure-cli-latest#az-network-profile-list
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
+[az-network-profile-list]: https://docs.azure.cn/cli/network/profile#az-network-profile-list
 
-<!-- Update_Description: new article about container instances virtual network concepts -->
-<!--NEW.date: 07/27/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

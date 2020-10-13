@@ -3,15 +3,16 @@ title: 在 Azure Stack HCI 中扩展卷
 description: 如何使用 Windows Admin Center 和 PowerShell 在 Azure Stack HCI 中重设卷大小。
 author: WenJason
 ms.author: v-jay
+ms.service: azure-stack
 ms.topic: how-to
 origin.date: 07/21/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 200a66b9939bf0f4520a61cf6a280d275ab3aa40
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.date: 10/12/2020
+ms.openlocfilehash: 6d0bdce09e1ccf03d030a9c67880aad77825ed20
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868064"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437771"
 ---
 # <a name="extending-volumes-in-azure-stack-hci"></a>在 Azure Stack HCI 中扩展卷
 
@@ -44,7 +45,7 @@ ms.locfileid: "88868064"
 
 在存储空间直通中，每个卷都包含若干堆积对象：群集共享卷 (CSV)，这是一个卷；分区；磁盘，这是一个虚拟磁盘；一个或多个存储层（如果适用）。 若要重设卷的大小，需要重设其中几个对象的大小。
 
-![volumes-in-smapi](media/extend-volumes/volumes-in-smapi.png)
+![关系图显示了卷的各个层，包括群集分片卷层、卷层、分区层、磁盘层、虚拟磁盘层和存储层。](media/extend-volumes/volumes-in-smapi.png)
 
 若要自行熟悉这些卷，请尝试在 PowerShell 中运行具有相应名词的 **Get-** cmdlet，。
 
@@ -86,7 +87,7 @@ Get-VirtualDisk <FriendlyName> | Resize-VirtualDisk -Size <Size>
 
 重设 **VirtualDisk** 的大小时，接下来会自动重设 **Disk** 的大小。
 
-![Resize-VirtualDisk](media/extend-volumes/Resize-VirtualDisk.gif)
+![动态图显示了卷的虚拟磁盘变大，而其上紧邻的磁盘层会因此而自动变大。](media/extend-volumes/Resize-VirtualDisk.gif)
 
 #### <a name="with-storage-tiers"></a>有存储层
 
@@ -109,7 +110,7 @@ Get-StorageTier <FriendlyName> | Resize-StorageTier -Size <Size>
 
 重设 **StorageTier** 的大小时，接下来会自动重设 **VirtualDisk** 和 **Disk** 的大小。
 
-![Resize-StorageTier](media/extend-volumes/Resize-StorageTier.gif)
+![动态图显示了两个存储层先后变大，而其上的虚拟磁盘层和磁盘层也变大了。](media/extend-volumes/Resize-StorageTier.gif)
 
 ### <a name="step-2--resize-the-partition"></a>步骤 2 - 重设分区大小
 
@@ -130,7 +131,7 @@ $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).Si
 
 重设 **Partition** 的大小时，接下来会自动重设 **Volume** 和 **ClusterSharedVolume** 的大小。
 
-![Resize-Partition](media/extend-volumes/Resize-Partition.gif)
+![动态图显示了卷底部的虚拟磁盘层随着其上各层变大也变大。](media/extend-volumes/Resize-Partition.gif)
 
 就这么简单！
 

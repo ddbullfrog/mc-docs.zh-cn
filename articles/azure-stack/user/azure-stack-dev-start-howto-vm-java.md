@@ -1,19 +1,20 @@
 ---
-title: 将 Java WAR 部署到 Azure Stack Hub 中的虚拟机
+title: 将 Java WAR 部署到 Azure Stack Hub 中的 VM
 description: 将 Java WAR 部署到 Azure Stack Hub 中的虚拟机。
 author: WenJason
 ms.topic: how-to
 origin.date: 05/27/2020
-ms.date: 06/22/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/05/2020
-ms.openlocfilehash: bf5576da7a18d6ad4f0ad2ccd4e5b1b3a60e1d78
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.custom: conteperfq4
+ms.openlocfilehash: c557e8826c2aa0e4b3ec952d50fab9691e9b4bb7
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096444"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437686"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>将 Java Web 应用部署到 Azure Stack Hub 中的 VM
 
@@ -177,7 +178,7 @@ ms.locfileid: "85096444"
 
 1. 在 Azure Stack Hub 所在的同一网络中打开浏览器，然后打开服务器 *yourmachine.local.cloudapp.azurestack.external:8080*。
 
-    ![Azure Stack Hub VM 上的 Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![显示 Apache Tomcat 页的屏幕截图。](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
     此时会加载服务器上的 Apache Tomcat 页。 接下来，将服务器配置为允许你访问服务器状态、管理器应用和主机管理器。
 

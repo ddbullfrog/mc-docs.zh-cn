@@ -135,6 +135,8 @@
                   href: azure-stack-manage-vm-disks.md
                 - name: 托管磁盘注意事项
                   href: azure-stack-managed-disk-considerations.md
+                - name: 托管磁盘模板
+                  href: virtual-machines-use-managed-disks-template.md
                 - name: 删除带依赖项的 VM
                   href: delete-vm.md
                 - name: 保护 VM
@@ -145,6 +147,16 @@
                   href: vm-update-management.md
                 - name: SQL Server VM 注意事项
                   href: azure-stack-sql-server-vm-considerations.md
+                - name: 迁移 VM
+                  items:
+                    - name: 迁移 VM 概述
+                      href: vm-move-overview.md
+                    - name: Azure 中的 VM
+                      href: vm-move-from-azure.md
+                    - name: 本地专用 VM
+                      href: vm-move-specialized.md
+                    - name: 本地通用 VM
+                      href: vm-move-generalized.md
             - name: 存储
               items:
                 - name: 概述

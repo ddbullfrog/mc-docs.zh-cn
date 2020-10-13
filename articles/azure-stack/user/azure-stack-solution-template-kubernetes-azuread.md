@@ -3,21 +3,21 @@ title: 使用 Azure Active Directory (Azure AD) 将 Kubernetes 部署到 Azure S
 description: 了解如何使用 Azure Active Directory (Azure AD) 将 Kubernetes 部署到 Azure Stack Hub。
 author: WenJason
 ms.topic: article
-origin.date: 3/12/2020
-ms.date: 06/22/2020
+origin.date: 07/24/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: dd05fd6bca5bdc27d1c4876b3c14fa314438fb83
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 7d4e71d63f9eb61866fbe333b6c1c17bd6592579
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096851"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437585"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>使用 Azure Active Directory 将 Kubernetes 部署到 Azure Stack Hub
 
-> [!Note]  
+> [!NOTE]  
 > 仅使用 Kubernetes Azure Stack 市场项将部署群集作为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用 [AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
 
 在单个协调操作中使用 Azure Active Directory (Azure AD) 作为标识管理服务时，可以按照本文中的步骤部署和设置 Kubernetes 的资源。
@@ -92,13 +92,13 @@ ms.locfileid: "85096851"
 
 1. 选择“+ 创建资源” > “计算” > “Kubernetes 群集”。 单击**创建**。
 
-    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![此屏幕截图显示了如何创建 Kubernetes 群集。](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1.基础知识
 
 1. 在“创建 Kubernetes 群集”中选择“基本信息”。
 
-    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![此屏幕截图显示了如何添加 Kubernetes 群集基本信息。](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. 选择**订阅** ID。
 
@@ -110,7 +110,7 @@ ms.locfileid: "85096851"
 
 1. 在“创建 Kubernetes 群集”中选择“Kubernetes 群集设置”。
 
-    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
+    ![此屏幕截图显示了提供 Kubernetes 群集设置信息的位置。](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
 
 1. 输入 Linux VM 管理员用户名。 构成 Kubernetes 群集和 DVM 的 Linux 虚拟机的用户名。
 
@@ -118,7 +118,7 @@ ms.locfileid: "85096851"
 
 1. 输入特定于区域的**主配置文件 DNS 前缀**。 这必须是特定于区域的名称，例如 `k8s-12345`。 最佳做法是尝试选择与资源组名称相同的名称。
 
-    > [!Note]  
+    > [!NOTE]  
     > 为每个群集使用新且唯一的主配置文件 DNS 前缀。
 
 1. 选择“Kubernetes 主池配置文件计数”。 此计数包含主池中的节点数。 其范围为 1 到 7。 此值应当为奇数。

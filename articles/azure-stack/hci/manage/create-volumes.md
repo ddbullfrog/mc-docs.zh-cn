@@ -3,15 +3,16 @@ title: 在 Azure Stack HCI 中创建卷
 description: 如何使用 Windows Admin Center 和 PowerShell 在 Azure Stack HCI 中创建卷。
 author: WenJason
 ms.author: v-jay
+ms.service: azure-stack
 ms.topic: how-to
-origin.date: 07/21/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: aadd46244d89abe1907541fa9cfbc00777f0a361
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+origin.date: 09/10/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 39419eb9b2152464b490d2c6081cffd10ef72630
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868063"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437774"
 ---
 # <a name="create-volumes-in-azure-stack-hci"></a>在 Azure Stack HCI 中创建卷
 
@@ -63,15 +64,7 @@ ms.locfileid: "88868063"
 
 重复数据删除和压缩是根据每个卷进行管理的。 重复数据删除和压缩使用后处理模型，这意味着，在该功能运行之前，你看不到节省的空间。 该功能在运行时会处理所有文件，甚至包括以前就已存在的文件。
 
-1. 在 Windows Admin Center 中连接到存储空间直通群集，然后在“工具”窗格中选择“卷”。 
-2. 在“卷”页上选择“库存”选项卡。 
-3. 在卷列表中，选择要管理的卷的名称。
-4. 在卷详细信息页上，单击标为“重复数据删除和压缩”的开关。
-5. 在“启用重复数据删除”窗格中选择重复数据删除模式。
-
-    Windows Admin Center 可让你针对不同的工作负荷选择现成的配置文件，而无需进行复杂的设置。 如果你不确定要如何设置，请使用默认设置。
-
-6. 选择“启用”。
+若要了解详细信息，请参阅[启用卷加密、重复数据删除和压缩](volume-encryption-deduplication.md)
 
 ## <a name="create-volumes-using-windows-powershell"></a>使用 Windows PowerShell 创建卷
 

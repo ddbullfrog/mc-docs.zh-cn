@@ -3,19 +3,19 @@ title: 开发和调试 Azure IoT Edge 模块 | Microsoft Docs
 description: 使用 Visual Studio Code 开发、生成和调试使用 C#、Python、Node.js、Java 或 C 的 Azure IoT Edge 模块
 services: iot-edge
 keywords: ''
-author: shizn
+author: kgremban
 ms.author: v-tawe
 origin.date: 08/07/2019
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 040eccc7a9d80c9d8a480224aeaf317d735e785d
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.custom: devx-track-js
+ms.openlocfilehash: 5d17788e064be39d02f7e4e3e9f3ea3583c0f7ee
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957766"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564490"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 模块
 
@@ -27,8 +27,8 @@ ms.locfileid: "88957766"
 
 本文说明了如何以多种语言为多种体系结构开发和调试模块。 目前，Visual Studio Code 为用 C#、C、Python、Node.js 和 Java 编写的模块提供支持。 支持的设备体系结构为 X64 和 ARM32。 有关支持的操作系统、语言和体系结构的详细信息，请参阅[语言和体系结构支持](module-development.md#language-and-architecture-support)。
 
-<!-- >[!NOTE] -->
-<!-- >Develop and debugging support for Linux ARM64 devices is in public preview. For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview). -->
+>[!NOTE]
+>公共预览版中提供了对 Linux ARM64 设备的开发和调试支持。 有关详细信息，请参阅[在 Visual Studio Code（预览版）中开发和调试 ARM64 IoT Edge 模块](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)。
 
 ## <a name="prerequisites"></a>先决条件
 

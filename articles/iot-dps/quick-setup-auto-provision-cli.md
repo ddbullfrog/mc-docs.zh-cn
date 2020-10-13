@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure CLI 设置 Azure IoT 中心设备预配服务
+title: 快速入门 - 使用 Azure CLI 设置 Azure IoT 中心设备预配服务
 description: 快速入门 - 使用 Azure CLI 设置 Azure IoT 中心设备预配服务 (DPS)
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2019
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 157d5b1fc2f7ea832197202677f4a9915c539dec
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: 528be7cd1b92a8a60ec99be6e909456f20e105ba
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951292"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564248"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>快速入门：使用 Azure CLI 设置 IoT 中心设备预配服务
 
@@ -26,7 +26,6 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速�
 > 在本快速入门中创建的 IoT 中心和预配服务将会充当可以公开发现的 DNS 终结点。 如果决定更改用于这些资源的名称，请确保不使用任何敏感信息。
 >
 
-<!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
 
 
 ## <a name="create-a-resource-group"></a>创建资源组

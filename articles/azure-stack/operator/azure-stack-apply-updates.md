@@ -3,17 +3,18 @@ title: 安装 Azure Stack Hub 更新
 description: 了解如何安装 Azure Stack Hub 更新。
 author: WenJason
 ms.topic: how-to
+ms.service: azure-stack
 origin.date: 07/22/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: 414ab7b3a2691474d615daa5745efdf25d716a90
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 96ae9d4636602f0b96f307da6cc5b214e5060c77
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868006"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437601"
 ---
 # <a name="install-azure-stack-hub-updates"></a>安装 Azure Stack Hub 更新
 
@@ -49,7 +50,7 @@ ms.locfileid: "88868006"
 
 4. 选择“立即更新”。 
 
-    ![Azure Stack Hub 更新运行详细信息](./media/azure-stack-update-apply/image2.png)
+    ![此屏幕截图显示了如何在 Azure Stack Hub 中启动更新。](./media/azure-stack-update-apply/image2.png)
 
 5. 可以查看当更新进程循环访问 Azure Stack Hub 中的各个子系统时的概要状态。 示例子系统包括物理主机、Service Fabric、基础结构虚拟机，以及提供管理员用户和用户门户的服务。 在整个更新过程中，“更新”资源提供程序会报告有关更新的其他详细信息，例如成功的步骤数，以及正在进行的步骤数。
 

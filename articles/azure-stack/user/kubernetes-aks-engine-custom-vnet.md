@@ -3,17 +3,17 @@ title: 将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网�
 description: 了解如何将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络。
 author: WenJason
 ms.topic: article
-origin.date: 08/05/2020
-ms.date: 08/31/2020
+origin.date: 9/2/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 08/05/2020
-ms.openlocfilehash: 9dbeb73c96ea7d08a0634c3de10f8d222b693723
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 9/2/2020
+ms.openlocfilehash: 9ef290ac1f0404d8ad0bbb0a9fbc4295a2be21e1
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867968"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437648"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络 
 
@@ -136,11 +136,11 @@ AKS 引擎支持部署到现有虚拟网络中。 部署到现有子网中时，
 3. 在搜索框中输入虚拟网络的名称。
 4. 选择“子网”，然后选择包含群集的子网的名称。
     
-    ![路由表和网络安全组](media/kubernetes-aks-engine-custom-vnet/virtual-network-rt-nsg.png)
+    ![路由表和网络安全组](media/kubernetes-aks-engine-custom-vnet/virtual-network-route-table.png)
     
 5. 选择“路由表”，然后为群集选择路由表。
 
-> [!Note]  
+> [!NOTE]  
 > 用于 Kubernetes Windows 群集的自定义虚拟网络存在一个[已知问题](https://github.com/Azure/aks-engine/issues/371)。
 
 ## <a name="next-steps"></a>后续步骤

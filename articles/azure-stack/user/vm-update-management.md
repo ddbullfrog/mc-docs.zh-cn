@@ -1,19 +1,19 @@
 ---
 title: Azure Stack Hub 中的 VM 更新和管理自动化
-description: 了解如何在 Azure 自动化中使用用于 VM 的 Azure Monitor、更新管理、更改跟踪和清单解决方案来管理 Azure Stack Hub 中部署的 Windows 和 Linux VM。
+description: 在 Azure 自动化中使用用于 VM 的 Azure Monitor、更新管理、更改跟踪和库存等解决方案来管理 Azure Stack Hub 中部署的 Windows 和 Linux VM。
 author: WenJason
 ms.topic: article
 origin.date: 04/27/2020
-ms.date: 06/22/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: rtiberiu
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 92fe5ef95d96c037e3109bc6d94cf691de6ebf53
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: e79625e6002a3b2c219747a44ccb4cdf723cf562
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096794"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437626"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack Hub 中的 VM 更新和管理自动化
 使用以下 Azure 自动化解决方案功能来管理使用 Azure Stack Hub 部署的 Windows 和 Linux 虚拟机 (VM)：
@@ -48,7 +48,7 @@ ms.locfileid: "85096794"
 
 5. 重复步骤 2-4 以启用所有这三种解决方案。 
 
-   [![](media//vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media//vm-update-management/1-lg.PNG)
+   [![“诊断和解决问题”窗口显示了两个列表，其中突出显示了三个选项。“库存”处于选中状态。还有一个“Log Analytics 工作区”下拉列表和一个“启用”按钮。](media//vm-update-management/1-sm.PNG "启用 Azure 自动化帐户功能")](media//vm-update-management/1-lg.PNG)
 
 ### <a name="enable-azure-monitor-for-vms"></a>启用用于 VM 的 Azure Monitor
 
@@ -67,11 +67,11 @@ ms.locfileid: "85096794"
 ### <a name="in-the-azure-stack-hub-administrator-portal"></a>在 Azure Stack Hub 管理员门户
 在 Azure 门户中启用 Azure 自动化解决方案之后，接下来需要以云管理员身份登录到 Azure Stack Hub 管理员门户，然后在 Azure Stack Hub 市场下载 Azure Monitor 更新和配置管理，以及适用于 Linux 的 Azure Monitor 更新和配置管理扩展 。
 
-   ![Azure Monitor 更新和配置管理扩展市场项](media//vm-update-management/2.PNG) 
+   ![“主页 > 市场管理 > 从 Azure 添加 > Azure Monitor、更新和配置管理”对话框介绍了该扩展，并提供了“下载”按钮。](media//vm-update-management/2.PNG) 
 
 若要启用用于 VM 的 Azure Monitor 映射解决方案并深入了解网络依赖关系，请下载 Azure Monitor Dependency Agent：
 
-   ![Azure Monitor Linux Dependency Agent](media//vm-update-management/2-dependency.PNG) 
+   ![“主页 > 市场管理 > 从 Azure 添加 > Azure Monitor Dependency Agent”对话框介绍了该扩展，并提供了“下载”按钮。](media//vm-update-management/2-dependency.PNG) 
 
 ## <a name="enable-update-management-for-azure-stack-hub-vms"></a>为 Azure Stack Hub VM 启用更新管理
 按照以下步骤为 Azure Stack Hub VM 启用更新管理。
@@ -80,15 +80,15 @@ ms.locfileid: "85096794"
 
 2. 在 Azure Stack Hub 用户门户中，转到要为其启用这些解决方案的 VM 的“扩展”边栏选项卡，单击“+ 添加”，选择“Azure 更新和配置管理”扩展，然后单击“创建”  ：
 
-   [![](media//vm-update-management/3-sm.PNG "VM extension blade")](media//vm-update-management/3-lg.PNG)
+   [![“Azure 更新和配置管理”对话框提供了解释信息、用于添加该扩展的“创建”按钮（已突出显示），以及指向详细信息的链接。](media//vm-update-management/3-sm.PNG "VM 扩展边栏选项卡")](media//vm-update-management/3-lg.PNG)
 
 3. 提供之前创建的工作区 ID 和主密钥，将代理链接到 LogAnalytics 工作区。 然后单击“确定”部署扩展。
 
-   [![](media//vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media//vm-update-management/4-lg.PNG) 
+   [![“安装扩展”对话框中包含用于提供 Azure WorkspaceID 和 WorkspaceKey 的文本框。](media//vm-update-management/4-sm.PNG "提供工作区 ID 和密钥")](media//vm-update-management/4-lg.PNG) 
 
 4. 如[更新管理文档](/automation/automation-update-management)中所述，需要为要管理的每个 VM 启用更新管理解决方案。 若要为向工作区报告的所有 VM 启用解决方案，请选择“更新管理”，单击“管理计算机”，然后选择“在所有可用的和未来的计算机上启用”选项  。
 
-   [![](media//vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media//vm-update-management/5-lg.PNG) 
+   [![“管理计算机 - 更新管理”对话框显示了未启用更新管理的计算机。提供了三个启用选项，并且选中并突出显示了“在所有可用的和未来的计算机上启用”。有一个“启用”按钮。](media//vm-update-management/5-sm.PNG "在所有计算机上启用更新管理解决方案")](media//vm-update-management/5-lg.PNG) 
 
    > [!TIP]
    > 重复此步骤，为向工作区报告的 Azure Stack Hub VM 启用每个解决方案。 
@@ -97,7 +97,7 @@ ms.locfileid: "85096794"
 
 扫描 VM 后，它们将显示在更新管理解决方案的 Azure 自动化帐户中： 
 
-   [![](media//vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media//vm-update-management/6-lg.PNG) 
+   [![列出了已经过扫描的计算机。对于每一台，都提供符合性状态、平台、操作系统，以及缺少的关键更新的计数。总计数据中显示了需要关注的计算机的数量、缺少的更新的数量，等等。](media//vm-update-management/6-sm.PNG "更新管理中的 Azure 自动化帐户")](media//vm-update-management/6-lg.PNG) 
 
 > [!IMPORTANT]
 > 可能需要 30 分钟到 6 小时，仪表板才会显示受托管计算机提供的已更新数据。

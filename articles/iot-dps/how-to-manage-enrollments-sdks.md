@@ -4,23 +4,24 @@ description: 如何使用服务 SDK 管理 IoT 中心设备预配服务 (DPS) �
 author: robinsh
 ms.author: v-tawe
 origin.date: 04/04/2018
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-dps
+ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: dd0475e3f8e6e02ed37b8cdb0e37b6993be0d6c0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 13544021a24cac2e0271b5cf1b6f9686fde50865
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494126"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564386"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>如何使用 Azure 设备预配服务 SDK 管理设备注册
 “设备注册”将创建单台设备或一组设备在某一时刻向设备预配服务进行注册的记录  。 注册记录包含注册过程中设备所需的初始配置及所需的 IoT 中心。 这篇文章演示如何使用 Azure IoT 预配服务 SDK 以编程方式管理预配服务的设备注册。  SDK 可从 GitHub 上与 Azure IoT SDK 相同的存储库中获取。
 
 ## <a name="prerequisites"></a>先决条件
 * 从设备预配服务实例获取连接字符串。
-* 为所使用的[证明机制](concepts-security.md#attestation-mechanism)获取设备安全项目：
+* 为所使用的[证明机制](concepts-service.md#attestation-mechanism)获取设备安全项目：
     * [**受信任的平台模块 (TPM)** ](/iot-dps/concepts-security#trusted-platform-module)：
         * 单个注册：来自物理设备或 TPM 模拟器的注册 ID 和 TPM 认可密钥。
         * 注册组不适用于 TPM 证明。
@@ -40,7 +41,7 @@ ms.locfileid: "77494126"
     可按以下工作流使用 SDK 创建注册组：
 
     1. 对于注册组，证明机制使用 X.509 根证书。  使用根证书调用服务 SDK API ```X509Attestation.createFromRootCertificate```，以创建注册的证明。  X.509 根证书在 PEM 文件中提供或以字符串形式提供。
-    1. 使用 ```attestation``` 创建的唯一 ```enrollmentGroupId``` 创建一个新的 ```EnrollmentGroup``` 变量。  （可选）可设置 ```Device ID```、```IoTHubHostName```、```ProvisioningStatus``` 等参数。
+    1. 使用 ```attestation``` 创建的唯一 ```enrollmentGroupId``` 创建一个新的 ```EnrollmentGroup``` 变量。  （可选）可设置 ```IoTHubHostName```、```ProvisioningStatus``` 等参数。
     2. 使用 ```EnrollmentGroup``` 在后端应用程序中调用服务 SDK API ```createOrUpdateEnrollmentGroup``` 以创建注册组。
 
 * 单独注册是用于单个设备注册的条目  。 个人注册可使用 X.509 证书或 SAS 令牌（来自物理或虚拟 TPM）作为证明机制。 对于需要唯一初始配置的设备或仅能通过 TPM 或虚拟 TPM 使用 SAS 令牌作为证明机制的设备，建议为其使用个人注册。 单独注册可能会指定所需 IoT 中心设备 ID。

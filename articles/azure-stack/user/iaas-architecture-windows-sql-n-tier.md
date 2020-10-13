@@ -3,17 +3,17 @@ title: Azure Stack Hub 上使用 SQL Server 的 Windows N 层应用程序
 description: 了解如何在 Azure Stack Hub 上运行使用 SQL Server 的 Windows N 层应用程序。
 author: WenJason
 ms.topic: how-to
-origin.date: 04/20/2020
-ms.date: 08/31/2020
+origin.date: 08/24/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: fda836b340aaea8c62d67d4c2983d1ea7a57446f
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 4ec5758f31cf1e64e33502900848fae1d3a74e38
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867970"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437653"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Azure Stack Hub 上使用 SQL Server 的 Windows N 层应用程序
 
@@ -23,11 +23,11 @@ ms.locfileid: "88867970"
 
 该体系结构具有以下组件。
 
-![](./media/iaas-architecture-windows-sql-n-tier/image1.png)
+![此关系图显示了一个虚拟网络，其中包含六个子网：“应用程序网关”、“管理”、“Web 层”、“业务层”、“数据层”和“Active Directory”。 “数据层”子网使用云见证。 有三个负载均衡器。](./media/iaas-architecture-windows-sql-n-tier/image1.png)
 
 ## <a name="general"></a>常规
 
--   资源组  。 [资源组](/azure-resource-manager/resource-group-overview)用于对 Azure 资源进行分组，以便可以按生存期、所有者或其他条件对其进行管理。
+-   资源组。 [资源组](/azure-resource-manager/resource-group-overview)用于对 Azure 资源进行分组，以便可以按生存期、所有者或其他条件对其进行管理。
 
 -   **可用性集**。 可用性集是一种数据中心配置，用于提供 VM 冗余和可用性。 Azure Stack Hub 中的这种配置可以确保在发生计划内或计划外维护事件时，至少有一个虚拟机可用。 VM 放置在一个可用性集中，该可用性集将 VM 分散在多个容错域（Azure Stack Hub 主机）中
 
@@ -49,7 +49,7 @@ ms.locfileid: "88867970"
 
 -   **Active Directory 域服务 (AD DS) 服务器**。 故障转移群集及其关联的群集角色的计算机对象在 Active Directory 域服务 (AD DS) 中创建。 在同一虚拟网络中的 VM 上设置 AD DS 服务器是将其他 VM 加入 AD DS 的首选方法。 也可以使用 VPN 连接将虚拟网络连接到企业网络，将 VM 加入现有的企业 AD DS。 这两种方法需将虚拟网络 DNS 更改为 AD DS DNS 服务器（在虚拟网络或现有企业网络中），以解析 AD DS 域 FQDN。
 
--   **云见证**。 故障转移群集要求其节点的半数以上处于运行状态，这称为“建立仲裁”。 如果群集只有两个节点，则网络分区之后，每个节点都会认为自己是主节点。 在这种情况下，需要使用见证  来打破“僵持”局面，建立仲裁。 见证是一种可以充当僵持局面打破者并建立仲裁的资源，例如共享磁盘。 云见证是一种使用 Azure Blob 存储的见证。 若要详细了解仲裁的概念，请参阅[了解群集和池仲裁](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum)。 有关云见证的详细信息，请参阅[部署故障转移群集的云见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)。 Azure Stack Hub 中的云见证终结点与在 Azure 中不同。 
+-   **云见证**。 故障转移群集要求其节点的半数以上处于运行状态，这称为“建立仲裁”。 如果群集只有两个节点，则网络分区之后，每个节点都会认为自己是主节点。 在这种情况下，需要使用见证** 来打破“僵持”局面，建立仲裁。 见证是一种可以充当僵持局面打破者并建立仲裁的资源，例如共享磁盘。 云见证是一种使用 Azure Blob 存储的见证。 若要详细了解仲裁的概念，请参阅[了解群集和池仲裁](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum)。 有关云见证的详细信息，请参阅[部署故障转移群集的云见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)。 Azure Stack Hub 中的云见证终结点与在 Azure 中不同。 
 
 其外观类似于：
 
@@ -99,15 +99,15 @@ ms.locfileid: "88867970"
 
 ## <a name="sql-server-always-on-availability-groups"></a>SQL Server Always On 可用性组
 
-建议使用 [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15)以实现 SQL Server 高可用性。 在 Windows Server 2016 之前，Always On 可用性组需要一个域控制器，并且可用性组中的所有节点必须在同一 AD 域中。
+建议使用 [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15)以实现高可用性。 在 Windows Server 2016 之前，Always On 可用性组需要一个域控制器，并且可用性组中的所有节点必须在同一 AD 域中。
 
 为实现 VM 层高可用性，所有 SQL VM 应位于可用性集中。
 
-其他层通过[可用性组侦听器](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15)连接到数据库。 该侦听程序使得 SQL 客户端能够在不知道 SQL Server 物理实例名称的情况下进行连接。 访问数据库的 VM 必须加入域。 客户端（在本例中为另一个层）使用 DNS 将该侦听程序的虚拟网络名称解析为 IP 地址。
+其他层通过[可用性组侦听程序](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15)连接到数据库。 该侦听程序使得 SQL 客户端能够在不知道 SQL Server 物理实例名称的情况下进行连接。 访问数据库的 VM 必须加入域。 客户端（在本例中为另一个层）使用 DNS 将该侦听程序的虚拟网络名称解析为 IP 地址。
 
 如下所述配置 SQL Server Always On 可用性组：
 
-1.  创建一个 Windows Server 故障转移群集 (WSFC) 群集、一个 SQL Server Always On 可用性组和一个主要副本。 有关详细信息，请参阅 [Always On 可用性组入门](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15)。
+1.  创建一个 Windows Server 故障转移群集 (WSFC) 群集、一个 SQL Server Always On 可用性组和一个主要副本。 有关详细信息，请参阅 [Always On 可用性组入门 (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15)。
 
 2.  创建一个具有静态专用 IP 地址的内部负载均衡器。
 
@@ -115,14 +115,14 @@ ms.locfileid: "88867970"
 
 4.  为 SQL Server 侦听端口（默认情况下为 TCP 端口 1433）创建一个负载均衡器规则。 该负载均衡器规则必须启用*浮动 IP*，也称为“直接服务器返回”。 这将导致 VM 直接回复客户端，从而实现到主要副本的直接连接。
 
-> [!Note]
+> [!NOTE]
 > 当启用了浮动 IP 时，前端端口号必须与负载均衡器规则中的后端端口号相同。
 
-当 SQL 客户端尝试连接时，负载均衡器会将连接请求路由到主要副本。 如果发生到其他副本的故障转移，则负载均衡器会自动将新请求路由到新的主要副本。 有关详细信息，请参阅[为 SQL Server Always On 可用性组配置 ILB 侦听器](/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener)。
+当 SQL 客户端尝试连接时，负载均衡器会将连接请求路由到主要副本。 如果发生到其他副本的故障转移，则负载均衡器会自动将新请求路由到新的主要副本。 有关详细信息，请参阅[Configure an ILB listener for SQL Server Always On Availability Groups](/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener)（为 SQL Server Always On 可用性组配置 ILB 侦听程序）。
 
 在故障转移期间，现有的客户端连接将关闭。 在故障转移完成后，新连接将被路由到新的主要副本。
 
-如果应用程序执行的读取操作多于写入操作，则可以将一些只读查询转移到次要副本。 请参阅[使用侦听器连接到只读次要副本（只读路由）](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15#ConnectToSecondary)。
+如果应用程序执行的读取操作多于写入操作，则可以将一些只读查询转移到次要副本。 请参阅[Using a Listener to Connect to a Read-Only Secondary Replica (Read-Only Routing)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15#ConnectToSecondary)（使用侦听程序连接到只读次要副本（只读路由））。
 
 通过执行可用性组的[强制手动故障转移](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15)来测试部署。
 

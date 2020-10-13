@@ -1,18 +1,18 @@
 ---
-title: 使用安全地存放在 Azure Stack Hub 上的证书部署 VM
+title: 使用安全存储在 Azure Stack Hub 中的证书部署 VM
 description: 了解如何在 Azure Stack Hub 中部署虚拟机，并使用密钥保管库将证书推送到该虚拟机
 author: WenJason
 ms.topic: conceptual
-origin.date: 01/24/2020
-ms.date: 02/24/2020
+origin.date: 09/01/2020
+ms.date: 10/12/2020
 ms.author: v-jay
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: b8d4eb12688bad242db3f6c5943eed3f86aceaf9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: 8b9bb234d9436f8cd35a9dbad5bb03cc3cb366ce
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540783"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437535"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>使用安全地存放在 Azure Stack Hub 上的证书部署 VM
 
@@ -45,7 +45,7 @@ ms.locfileid: "77540783"
 
 ## <a name="create-a-key-vault-secret"></a>创建密钥保管库机密
 
-以下脚本会创建 .pfx 格式的证书、创建密钥保管库，并将该证书作为机密存储在密钥保管库中。
+以下脚本会创建 .pfx 格式的证书、创建密钥保管库，并将该证书作为机密存储在密钥保管库中。 机密的 `contentType` 必须设为 `pfx`。
 
 > [!IMPORTANT]
 > 创建密钥保管库时，必须使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。

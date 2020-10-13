@@ -4,23 +4,24 @@ description: 本文以概念的方式概述了使用 IoT 设备预配服务 (DPS
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 04/04/2019
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 56c01382ce57cda1f58f35e62d63d03e9b3f26b7
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 51974e5877397c7f0d151af9ccc53bd30d11a09f
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951320"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564400"
 ---
 # <a name="symmetric-key-attestation"></a>对称密钥证明
 
 本文介绍了在使用含设备预配服务的对称密钥时的标识证明过程。 
 
-对称密钥证明是一种通过设备预配服务实例对设备进行身份验证的简单方法。 此证明方法表示不熟悉设备预配或不具备严格安全要求的开发人员的“Hello world”体验。 使用 [TPM](concepts-tpm-attestation.md) 或 [X.509 证书](concepts-security.md#x509-certificates)的设备证明更加安全，且应用于更严格的安全要求。
+对称密钥证明是一种通过设备预配服务实例对设备进行身份验证的简单方法。 此证明方法表示不熟悉设备预配或不具备严格安全要求的开发人员的“Hello world”体验。 使用 [TPM](concepts-tpm-attestation.md) 或 [X.509 证书](concepts-x509-attestation.md)的设备证明更加安全，且应用于更严格的安全要求。
 
 对称密钥注册还为具有有限安全功能的旧设备提供了通过 Azure IoT 启动到云的绝佳方法。 有关旧设备的对称密钥证明的详细信息，请参阅[如何为旧设备使用对称密钥](how-to-legacy-device-symm-key.md)。
 
@@ -109,12 +110,12 @@ String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(mas
 
 每个设备的标识由注册 ID 和在中心安装的派生设备密钥表示。 设备密钥不会复制到其他位置，且组密钥不会存储在设备上。
 
-如果未在中心中安装设备密钥，应使用[硬件安全模块 HSM](concepts-security.md#hardware-security-module) 来安全存储设备标识。
+如果未在中心中安装设备密钥，应使用[硬件安全模块 HSM](concepts-service.md#hardware-security-module) 来安全存储设备标识。
 
 ## <a name="next-steps"></a>后续步骤
 
 了解对称密钥证明后，请参阅以下文章以了解更多信息：
 
 * [快速入门：使用对称密钥预配模拟设备](quick-create-simulated-device-symm-key.md)
-* [了解自动预配中的概念](./concepts-auto-provisioning.md)
+* [了解预配的概念](about-iot-dps.md#provisioning-process)
 * [自动预配入门](./quick-setup-auto-provision.md) 

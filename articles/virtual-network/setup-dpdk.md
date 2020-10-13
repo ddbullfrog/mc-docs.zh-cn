@@ -1,26 +1,28 @@
 ---
 title: Azure Linux VM 中的 DPDK | Azure
-description: 了解如何在 Linux 虚拟机中设置 DPDK。
+description: 了解数据平面开发工具包 (DPDK) 的优点，以及如何在 Linux 虚拟机上设置 DPDK。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: gedegrac
 editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/27/2018
-ms.date: 01/13/2020
+origin.date: 05/12/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: a385559f19ab235ba3e6627c9b0384724373703a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 923541ab33c642b818747fbadd99c3d7abb99973
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75859232"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564347"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>在 Linux 虚拟机中设置 DPDK
 
@@ -38,14 +40,14 @@ DPDK 可以在支持多个操作系统分发版的 Azure 虚拟机中运行。 D
 
 ## <a name="supported-operating-systems"></a>支持的操作系统
 
-支持 Azure 库中的以下分发版：
+支持 Azure 市场中的以下分发版：
 
-| Linux OS     | 内核版本        |
-|--------------|----------------       |
-| Ubuntu 16.04 | 4.15.0-1015-azure     |
-| Ubuntu 18.04 | 4.15.0-1015-azure     |
-| SLES 15      | 4.12.14-5.5-azure     |
-| CentOS 7.5   | 3.10.0-862.3.3.el7    |
+| Linux OS     | 内核版本               | 
+|--------------|---------------------------   |
+| Ubuntu 16.04 | 4.15.0-1014-azure+           | 
+| Ubuntu 18.04 | 4.15.0-1014-azure+           |
+| SLES 15 SP1  | 4.12.14-8.19-azure+          | 
+| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
 
 <!-- Not Available on  RHEL 7.5 -->
 
@@ -53,11 +55,13 @@ DPDK 可以在支持多个操作系统分发版的 Azure 虚拟机中运行。 D
 
 对于未列出的任何 Linux 内核版本，请参阅[用于生成 Azure 优化 Linux 内核的修补程序](https://github.com/microsoft/azure-linux-kernel)。 有关详细信息，还可以联系 [Azure 支持](https://www.azure.cn/support/contact/)。 
 
+<!--Correct on the link of Mail to microsoft-->
+
 ## <a name="region-support"></a>区域支持
 
 所有 Azure 区域都支持 DPDK。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 必须在 Linux 虚拟机上启用加速网络。 虚拟机应至少有两个网络接口，其中一个接口用于管理。 了解如何[创建启用加速网络的 Linux 虚拟机](create-vm-accelerated-networking-cli.md)。
 
@@ -82,13 +86,14 @@ sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev lib
 ### <a name="centos-75"></a>CentOS 7.5
 
 <!--Not Available on RHEL-->
+
 ```bash
 yum -y groupinstall "Infiniband Support"
 sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
 yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel
 ```
 
-### <a name="sles-15"></a>SLES 15
+### <a name="sles-15-sp1"></a>SLES 15 SP1
 
 **Azure 内核**
 
@@ -110,7 +115,7 @@ zypper \
 
 ## <a name="set-up-the-virtual-machine-environment-once"></a>设置虚拟机环境（一次性操作）
 
-1. [下载最新的 DPDK](https://core.dpdk.org/download)。 Azure 需要 18.02 或更高版本。
+1. [下载最新的 DPDK](https://core.dpdk.org/download)。 Azure 需要 18.11 版 LTS 或 19.11 版 LTS。
 2. 运行 `make config T=x86_64-native-linuxapp-gcc` 生成默认配置。
 3. 使用 `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config` 在生成的配置中启用 Mellanox PMDs。
 4. 使用 `make` 进行编译。
@@ -122,32 +127,30 @@ zypper \
 
 1. 巨页
 
-    * 针对所有 numa 节点运行以下命令一次，以配置巨页：
+    * 针对每个 numa 节点运行以下命令一次，以配置巨页：
 
         ```bash
-        echo 1024 | sudo tee
-        /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
+        echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
         ```
 
     * 使用 `mkdir /mnt/huge` 创建用于装载的目录。
     * 使用 `mount -t hugetlbfs nodev /mnt/huge` 装载巨页。
     * 运行 `grep Huge /proc/meminfo` 检查巨页是否已保留。
 
-         > [!NOTE]
-         > 可以将 grub 文件修改为，在启动时保留巨页，具体是按照适用于 DPDK 的[说明](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)操作。 页面底部提供了这些说明。 如果使用的是 Azure Linux 虚拟机，请改为将 /etc/config/grub.d  下的文件修改为跨重启保留巨页。
+         > [注意] 可以将 grub 文件修改为，在启动时保留巨页，具体是按照适用于 DPDK 的[说明](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)操作。 页面底部提供了这些说明。 如果使用的是 Azure Linux 虚拟机，请改为将 /etc/config/grub.d 下的文件修改为跨重启保留巨页。
 
-2. MAC 和 IP 地址：使用 `ifconfig -a` 查看网络接口的 MAC 和 IP 地址。 *VF* 网络接口和 *NETVSC* 网络接口具有相同的 MAC 地址，但只有 *NETVSC* 网络接口具有 IP 地址。 VF 接口以 NETVSC 接口的从属接口形式运行。
+2. MAC 和 IP 地址：使用 `ifconfig -a` 查看网络接口的 MAC 和 IP 地址。 *VF* 网络接口和 *NETVSC* 网络接口具有相同的 MAC 地址，但只有 *NETVSC* 网络接口具有 IP 地址。 VF 接口以 NETVSC 接口的从属接口形式运行 。
 
 3. PCI 地址
 
-    * 运行 `ethtool -i <vf interface name>` 确定对 VF  使用哪个 PCI 地址。
-    * 如果 eth0  已启用加速网络，请确保 testpmd 不会意外接管 eth0  的 VF PCI 设备。 如果 DPDK 应用程序意外接管管理网络接口，并导致 SSH 连接断开，请使用串行控制台来停止 DPDK 应用程序。 串行控制台还可用于停止或启动虚拟机。
+    * 运行 `ethtool -i <vf interface name>` 确定对 VF 使用哪个 PCI 地址。
+    * 如果 eth0 已启用加速网络，请确保 testpmd 不会意外接管 eth0 的 VF PCI 设备 。 如果 DPDK 应用程序意外接管管理网络接口，并导致 SSH 连接断开，请使用串行控制台来停止 DPDK 应用程序。 串行控制台还可用于停止或启动虚拟机。
 
 4. 每次重新启动后，使用 `modprobe -a ib_uverbs` 加载 *ibuverbs*。 （仅适用于 SLES 15）另外，使用 `modprobe -a mlx4_ib` 加载 *mlx4_ib*。
 
 ## <a name="failsafe-pmd"></a>防故障 PMD
 
-DPDK 应用程序必须通过 Azure 中公开的防故障 PMD 运行。 如果应用程序直接通过 VF PMD 运行，它不会收到发往 VM 的所有  包，因为一些包通过综合接口显示。 
+DPDK 应用程序必须通过 Azure 中公开的防故障 PMD 运行。 如果应用程序直接通过 VF PMD 运行，它不会收到发往 VM 的所有包，因为一些包通过综合接口显示。 
 
 通过防故障 PMD 运行 DPDK 应用程序，可保证应用程序收到发往 VM 的所有包。 此外，还能确保应用程序继续以 DPDK 模式运行，即使在为主机提供服务时撤销了 VF，也不例外。 若要详细了解防故障 PMD，请参阅[防故障轮询模式驱动程序库](https://doc.dpdk.org/guides/nics/fail_safe.html)。
 
@@ -181,7 +184,7 @@ DPDK 应用程序必须通过 Azure 中公开的防故障 PMD 运行。 如果�
 3. 启动后，运行 `show port info all` 检查端口信息。 应会看到一个或两个值为 net_failsafe（不是 *net_mlx4*）的 DPDK 端口。
 4. 使用 `start <port> /stop <port>` 启动流量。
 
-上面的命令在交互模式下启动 testpmd  ，这是建议用于试用 testpmd 命令的模式。
+上面的命令在交互模式下启动 testpmd，这是建议用于试用 testpmd 命令的模式。
 
 ### <a name="basic-single-sendersingle-receiver"></a>基本：单个发送端/单个接收端
 
@@ -260,4 +263,4 @@ DPDK 应用程序必须通过 Azure 中公开的防故障 PMD 运行。 如果�
 * [EAL 选项](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
 * [Testpmd 命令](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

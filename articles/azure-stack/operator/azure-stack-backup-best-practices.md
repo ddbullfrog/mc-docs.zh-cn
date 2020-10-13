@@ -1,19 +1,20 @@
 ---
-title: Azure Stack Hub 的基础结构备份服务最佳做法
+title: 基础结构备份服务最佳做法 - Azure Stack Hub
 description: 在部署和管理 Azure Stack Hub 时，请遵循这些最佳做法，这样有助于在发生灾难性故障时减少数据丢失。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
 origin.date: 02/08/2019
-ms.date: 07/20/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: e43aa8263c816fc6092cb392bad0b568fcc1d9fe
-ms.sourcegitcommit: e9ffd50aa5eaab402a94bfabfc70de6967fe6278
+ms.openlocfilehash: f808c02407fff73c7ff31496b3f2b061b56efcb5
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86307363"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437743"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
 
@@ -67,20 +68,23 @@ ms.locfileid: "86307363"
 FQDN：contoso.com  
 区域：nyc
 
-
+```console
     \\fileserver01.contoso.com\AzSBackups
     \\fileserver01.contoso.com\AzSBackups\contoso.com
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup
+```
 
 MASBackup 文件夹是 Azure Stack Hub 存储其备份数据的地方。 不要使用此文件夹来存储你自己的数据。 OEM 也不应使用此文件夹来存储任何备份数据。
 
 建议 OEM 将其组件的备份数据存储在区域文件夹下。 每台网络交换机、硬件生命周期主机 (HLH) 等等可以存储在其自己的子文件夹中。 例如：
 
+```console
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\DeploymentData
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Registration
+```
 
 ### <a name="monitoring"></a>监视
 

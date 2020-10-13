@@ -1,19 +1,19 @@
 ---
-title: 如何在 Azure Stack Hub 中使用 IPSEC 创建 VPN 隧道
+title: 在 Azure Stack Hub 中使用 IPSEC 创建 VPN 隧道
 description: 了解如何在 Azure Stack Hub 中使用 IPSEC 创建 VPN 隧道。
 author: WenJason
 ms.topic: how-to
 origin.date: 5/27/2020
-ms.date: 08/31/2020
+ms.date: 10/28/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 9a70e14ce833cbf38a8c341b8114f5c7ca68205e
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 66556d185b80a945aac7b03cfa9b496f137b46a4
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868081"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437728"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>如何在 Azure Stack Hub 中使用 IPSEC 创建 VPN 隧道
 
@@ -23,7 +23,7 @@ ms.locfileid: "88868081"
 
 可以在 [Azure 智能边缘模式](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub 存储库中找到这些模板。 该模板位于 **rras-gre-vnet-vnet** 文件夹中。 
 
-![替换文字](./media/azure-stack-network-howto-vpn-tunnel-ipsec/overview.png)
+![此图显示了一个实现，该实现在两个 VNET 之间提供一个 VPN 隧道。 每个 VNET 上都有一个 RRAS 服务器，此外还有一个内部子网和一个隧道子网。](./media/azure-stack-network-howto-vpn-tunnel-ipsec/overview.png)
 
 ## <a name="requirements"></a>要求
 
@@ -46,12 +46,12 @@ ms.locfileid: "88868081"
 
 ## <a name="optional"></a>可选
 
-- 可以通过 _artifactsLocation 和 _artifactsLocationSasToken 参数使用自己的 Blob 存储帐户和 SAS 令牌。
+- 可以通过 _artifactsLocation 和 _artifactsLocationSasToken 参数使用自己的 Blob 存储帐户和 SAS 令牌
 - 此模板上有两个输出 INTERNALSUBNETREFVNET1 和 INTERNALSUBNETREFVNET2，这是内部子网的资源 ID（如果要在管道样式部署模式中使用）。
 
 此模板为 VNet 命名和 IP 寻址提供默认值。  它需要管理员 (rrasadmin) 的密码，还提供了将自己的存储 blob 与 SAS 令牌配合使用的功能。  请谨慎地使这些值保持在合法的范围内，否则部署可能失败。  PowerShell DSC 包将在每个 RRAS VM 上执行，并安装路由和所有必需的依赖服务和功能。  如果需要，可以进一步自定义此 DSC。  自定义脚本扩展运行以下脚本，Add-Site2SiteIKE.ps1 使用共享密钥在两个 RRAS 服务器之间配置 VPNS2S 隧道。  可以查看自定义脚本扩展的详细输出，以查看 VPN 隧道配置的结果
 
-![替换文字](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
+![该图（标题为 S2SVPNTunnel）显示了两个由站点到站点 VPN 隧道连接的 VNET。](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
 
 ## <a name="next-steps"></a>后续步骤
 

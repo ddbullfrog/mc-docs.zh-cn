@@ -1,28 +1,28 @@
 ---
-title: Azure Stack Hub 上的 Azure Kubernetes 服务 (AKS) 引擎发行说明
+title: Azure Stack Hub 上 Azure Kubernetes 服务 (AKS) 引擎的发行说明
 description: 了解更新 Azure Stack Hub 上的 AKS 引擎需要采取的步骤。
 author: WenJason
 ms.topic: article
-origin.date: 06/29/2020
-ms.date: 08/31/2020
+origin.date: 09/16/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 06/25/2020
-ms.openlocfilehash: bb8f68b4c34eec1057f26644299e3edba7e9997b
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 0dccfe80252e26d53edd8c449063e49826f6071b
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867963"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437594"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上的 AKS 引擎发行说明
-适用于 ASK 引擎的版本 0.51.0。
+适用于 AKS 引擎的版本 v0.55.4。
 
 本文介绍了 Azure Stack Hub 上的 Azure Kubernetes 服务 (AKS) 引擎更新的内容。 此更新包括对面向 Azure Stack Hub 平台的最新版 AKS 引擎的改进和修复。 请注意，本文并不是为了记录 Azure 的 AKS 引擎的发布信息。
 
 ## <a name="update-planning"></a>更新规划
 
-AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理虚拟机 (VM)、网络、存储、Kubernetes 和业务流程任务。 应用更新之前，请务必查看本文中的信息。
+AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理虚拟机 (VM)、网络、存储、Kubernetes 和业务流程任务。 应用该更新之前，请务必查看发行说明信息。
 
 ### <a name="upgrade-considerations"></a>升级注意事项
 
@@ -68,9 +68,9 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 
 -   Azure Stack Hub 操作员需要将新的 AKS 基础 Ubuntu 映像下载到缩放单元市场：
 
-    -   名称：AKS 基础 Ubuntu 16.04-LTS 映像发行版 2020 年 5 月 (2020.05.13)
+    -   姓名：AKS 基础 Ubuntu 16.04-LTS 映像发行版，2020 年 8 月 (2020.09.14)
 
-    -   版本：2020.05.13
+    -   版本：2020.09.14
 
     -   按照[将 Azure Kubernetes 服务 (AKS) 引擎必备组件添加到 Azure Stack Hub 市场](../operator/azure-stack-aks-engine.md)一文中的说明进行操作
 
@@ -82,64 +82,55 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 | ----------------------------- | ------------------------ |
 | 1910 | 0.43.0、0.43.1 |
 | 2002 | 0.48.0、0.51.0 |
+| 2005 | 0.48.0、0.51.0、0.55.0、0.55.4 |
 
-## <a name="kubernetes-version-upgrade-path-in-aks-engine-0510"></a>AKS 引擎 0.51.0 中的 Kubernetes 版本升级路径
+## <a name="kubernetes-version-upgrade-path-in-aks-engine-v0554"></a>AKS 引擎 v0.55.4 中的 Kubernetes 版本升级路径
 
 可以在下表中找到 Azure Stack Hub 的当前版本和升级版本。 不要遵循 aks-engine get-versions 命令，因为该命令还包括全球 Azure 中支持的版本。 以下版本和升级表适用于 Azure Stack Hub 中的 AKS 引擎群集。
 
 | 当前版本 | 可用升级 |
 | ------------------------- | ----------------------- |
-| 1.14.7、1.14.8 | 1.15.12 |
-| 1.15.4、1.15.5、1.15.10 | 1.15.12、1.16.9 |
-| 1.15.12 | 1.16.9 |
-| 1.16.8 | 1.16.9 |
+| 1.15.10 | 1.15.12 |
+| 1.15.12、1.16.8、1.16.9 | 1.16.14 |
+| 1.16.8、1.16.9、1.16.14 | 1.17.11 |
 
-在 API 模型 json 文件中，请在 `orchestratorProfile` 部分下指定版本和版本值，例如，如果计划部署 Kubernetes 1.16.9，则必须设置以下两个值（请参阅示例 [kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json)）：
+在 API 模型 json 文件中，请在 `orchestratorProfile` 部分下指定发行版和版本值，例如，如果计划部署 Kubernetes 1.16.14，则必须设置以下两个值（请参阅示例 [kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json)）：
 
 ```json  
     -   "orchestratorRelease": "1.16",
-    -   "orchestratorVersion": "1.16.9"
+    -   "orchestratorVersion": "1.16.14"
 ```
 
 ## <a name="whats-new"></a>新增功能
 
--   添加了对 Kubernetes 1.15.12 的支持 ([#3212](https://github.com/Azure/aks-engine/issues/3212))
--   添加了对 Kubernetes 1.16.8 和 1.16.9 的支持（[#3157](https://github.com/Azure/aks-engine/issues/3157) 和 [#3087](https://github.com/Azure/aks-engine/issues/3087)）
--   Kubernetes 仪表板加载项 v2.0.0 ([#3140](https://github.com/Azure/aks-engine/issues/3140))
--   在 apt 操作已完成后删除多余的“ wait for no held apt locks”，以提高操作可靠性 ([#3049](https://github.com/Azure/aks-engine/issues/3049))
--   即使在连接到 K8s API 服务器时收到错误也完成脚本运行，以提高操作可靠性 ([#3022](https://github.com/Azure/aks-engine/issues/3022))
--   在连接前检查 DNS 配置状态，以提高操作可靠性 ([#3002](https://github.com/Azure/aks-engine/issues/3002))
--   修复了在为 windows 节点预配 kubenet 时出现的问题 ([#3300](https://github.com/Azure/aks-engine/issues/3300))
--   进行了修复以启动 systemd 和 etcd，从而确保幂等进程 ([#3126](https://github.com/Azure/aks-engine/issues/3126))
--   删除了对 Kubernetes 1.13 和 1.14 的支持（[#3310](https://github.com/Azure/aks-engine/issues/3310) 和 [#3059](https://github.com/Azure/aks-engine/issues/3059)）
--   确保了 pod-security-policy 是加载的第一个加载项 ([#3313](https://github.com/Azure/aks-engine/issues/3313))
--   已将 Azure CNI 版本更新为 v 1.1.0 ([#3075](https://github.com/Azure/aks-engine/issues/3075))（预览版）
--   添加了功能和修补程序以支持 Azure Stack Hub（预览版）中的 Windows 容器：
-    -   对 Windows 版本收集进行了修复 ([#2954](https://github.com/Azure/aks-engine/pull/2954))
-    -   更新了 Azure Stack Windows 二进制组件名称 ([#3231](https://github.com/Azure/aks-engine/issues/3231))
-    -   更新了 Azure Stack Hub 上的 Windows 映像验证 ([#3260](https://github.com/Azure/aks-engine/issues/3260))
-    -   更新了 Windows VHD 以包括五月修补程序 ([#3263](https://github.com/Azure/aks-engine/issues/3263))
-    -   使用 4B 修补程序更新了 Windows VHD ([#3115](https://github.com/Azure/aks-engine/issues/3115))
-    -   更新了 Windows VHD 以包括四月修补程序 ([#3101](https://github.com/Azure/aks-engine/issues/3101))
+- 添加了对 Azure Stack 上 K8s v1.17.11 的支持 [#3702](https://github.com/Azure/aks-engine/pull/3702)
+- 添加了对 Azure Stack 上 K8s v1.16.14 的支持 [#3704](https://github.com/Azure/aks-engine/pull/3704)
+- Linux VHD 更新至 2020.09.14 [#3750](https://github.com/Azure/aks-engine/pull/3750)
+- Windows VHD 更新至 8 月 [#3730](https://github.com/Azure/aks-engine/pull/3730)
+- 将 Kubernetes metrics-server 升级至 v0.3.7 [#3669](https://github.com/Azure/aks-engine/pull/3669)
+- 升级了 Docker 版本以修复日志轮换问题 [#3693](https://github.com/Azure/aks-engine/pull/3693)
+- 将 CoreDNS 升级至 v1.7.0 [#3608](https://github.com/Azure/aks-engine/pull/3608)
+- 使用 moby 19.03.x 包 [#3549](https://github.com/Azure/aks-engine/pull/3549)
+- azure-cni 更新策略的修补程序 [#3571](https://github.com/Azure/aks-engine/pull/3571)
 
 ## <a name="known-issues"></a>已知问题
 
 -   在单个群集内并行部署多个 Kubernetes 服务可能会导致基本负载均衡器配置错误。 如果可能，请一次部署一个服务。
--   此版本不支持 Kubernetes 1.17。 尽管有 PR 暗示 Kubernetes 1.17 受支持，但 1.17 实际上不受支持。
--   运行 aks-engine get-versions 将生成适用于 Azure 和 Azure Stack Hub 的信息，但是，没有明确的方法来识别与 Azure Stack Hub 对应的内容。 不要使用此命令来确定可升级的版本区域。 请使用上述升级参考表。
+-   运行 aks-engine get-versions 将生成适用于 Azure 和 Azure Stack Hub 的信息，但是，没有明确的方法来识别与 Azure Stack Hub 对应的内容。 请不要使用此命令来确定哪些版本可供升级。 请使用上述升级参考表。
 -   因为 aks-engine 工具是一个跨 Azure 和 Azure Stack Hub 的共享源代码存储库， 查看许多发行说明和拉取请求会使你相信该工具支持上面所列版本之外的其他版本的 Kubernetes 和 OS 平台，请忽略它们并使用上面的版本表作为此更新的官方指南。
-- 在将 Kubernetes 群集从版本 1.15.x 升级 (aks-engine upgrade) 到 1.16.x 的过程中，不会升级 Kubernetes kube-proxy 组件：
-  - 在联网环境中，此问题可能并不明显，因为群集中没有任何迹象表明 kube-proxy 未升级。 一切似乎都按预期进行。
-  - 在离线环境中，当你运行以下查询来了解系统 pod 的状态时，你会发现此问题，并会发现 **kube-proxy** pod 未处于 **Ready**状态：`kubectl get pods -n kube-system`。
-  - 若要解决此问题，请删除 kube-proxy deamonset，以便 Kubernetes 使用正确的版本重新启动它。 运行以下命令：`kubectl delete ds kube-proxy -n kube-system`。
 
 ## <a name="reference"></a>参考
 
 这是组合了 Azure 和 Azure Stack Hub 的发行说明的完整集合：
 
--   https://github.com/Azure/aks-engine/releases/tag/v0.49.0
--   https://github.com/Azure/aks-engine/releases/tag/v0.50.0
--   https://github.com/Azure/aks-engine/releases/tag/v0.51.0 适用于 ASK 引擎的 0.48.0 版或更低版本。
+- https://github.com/Azure/aks-engine/releases/tag/v0.51.1
+- https://github.com/Azure/aks-engine/releases/tag/v0.52.1
+- https://github.com/Azure/aks-engine/releases/tag/v0.53.1
+- https://github.com/Azure/aks-engine/releases/tag/v0.54.1
+- https://github.com/Azure/aks-engine/releases/tag/v0.55.0
+- https://github.com/Azure/aks-engine/releases/tag/v0.55.4
+
+适用于 AKS 引擎的 0.48.0 版或更低版本。
 
 本文介绍了 Azure Stack Hub 上的 Azure Kubernetes 服务 (AKS) 引擎更新的内容。 此更新包括对面向 Azure Stack Hub 平台的最新版 AKS 引擎的改进和修复。 请注意，本文的用途并非记录适用于全球 Azure 的 AKS 引擎的发布信息。
 
@@ -214,7 +205,7 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 
     - `"orchestratorVersion": "1.15.10"`
 
-    > [!Note]  
+    > [!NOTE]  
     > 如果在 API 模型 json 文件中没有显式地提供 Kubernetes 版本，则将使用版本 `1.15` ([\#2932](https://github.com/Azure/aks-engine/issues/2932))，而 orchestratorVersion 将默认为` 1.15.11`，这将导致在部署群集时出错。
 
 -   对于 aks-engine v0.43.1，云提供程序执行其控制循环和其他任务的默认频率设置不能很好地与 Azure Stack Hub 资源管理器对传入请求的阈值限制配合使用。 此更新将更改 Azure Stack Hub 的默认设置，以减少到 Azure Stack Hub 资源管理器的重试加载 ([\#2861](https://github.com/Azure/aks-engine/issues/2861))。

@@ -1,24 +1,26 @@
 ---
 title: Azure 虚拟网络对等互连
 titlesuffix: Azure Virtual Network
-description: 了解 Azure 中的虚拟网络对等互连。
+description: 了解 Azure 中的虚拟网络对等互连，包括如何通过它连接 Azure 虚拟网络中的网络。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/15/2019
-ms.date: 04/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7bfc0737e034ef136b2f6688aac55b926cfd46cf
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.openlocfilehash: 078f65d596f5017c551c8b9c81e37ad299c59465
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093414"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564585"
 ---
 # <a name="virtual-network-peering"></a>虚拟网络对等互连
 
@@ -73,7 +75,7 @@ Azure 支持以下类型的对等互连：
 
 还可以将对等互连的虚拟网络中的网关配置为本地网络的传输点。 在这种情况下，使用远程网关的虚拟网络不能有自身的网关。 一个虚拟网络只能有一个网关。 网关是对等互连虚拟网络中的本地网关或远程网关，如下图所示：
 
-![虚拟网络对等互连传输](./media/virtual-networks-peering-overview/local-or-remote-gateway-in-peered-virual-network.png)
+:::image type="content" source="./media/virtual-networks-peering-overview/local-or-remote-gateway-in-peered-virual-network.png" alt-text="虚拟网络对等互连传输":::
 
 虚拟网络对等互连和全局虚拟网络对等互连都支持网关传输。
 
@@ -89,8 +91,7 @@ Azure 支持以下类型的对等互连：
 
 也可尝试[排查虚拟网络对等互连问题](virtual-network-troubleshoot-peering-issues.md)。
 
-<a name="requirements-and-constraints"></a>
-## <a name="constraints-for-peered-virtual-networks"></a>对等互连虚拟网络的约束
+## <a name="constraints-for-peered-virtual-networks"></a>对等互连虚拟网络的约束<a name="requirements-and-constraints"></a>
 
 仅当虚拟网络全局对等互连时，以下约束适用：
 
@@ -112,7 +113,7 @@ Azure 支持以下类型的对等互连：
 >[!NOTE]
 > 本文档的旧版中已指出，虚拟网络对等互连费用不适用于具有网关传输功能的分支 VNet（或非网关 VNet）。 本文档现在根据定价页反映准确的定价。
 
-## <a name="next-steps"></a><a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>后续步骤
 
 * 可在两个虚拟网络之间创建对等互连。 网络可以属于同一订阅、同一订阅中的不同部署模型，或不同的订阅。 完成适用于以下方案之一的教程：
 

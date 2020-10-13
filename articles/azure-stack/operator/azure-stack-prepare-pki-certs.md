@@ -1,48 +1,48 @@
 ---
 title: 准备用于部署或轮换的 Azure Stack Hub PKI 证书
 titleSuffix: Azure Stack Hub
-description: 了解如何准备 PKI 证书，以便完成 Azure Stack Hub 集成系统部署，或在现有 Azure Stack Hub 环境中轮换机密。
+description: 了解如何为 Azure Stack Hub 部署或为轮换机密准备 PKI 证书。
 author: WenJason
-ms.topic: article
+ms.topic: how-to
+ms.service: azure-stack
 origin.date: 03/04/2020
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: af372dad9c1cace59e803c413cfdb4f930b8d1f9
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: 16a53498d1b74bb24f5859126ac42446630928f6
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868073"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437680"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>准备用于部署或轮换的 Azure Stack Hub PKI 证书
 
-必须使用与 Azure Stack Hub 的证书要求匹配的属性导入和导出[从所选证书颁发机构 (CA) 获取](azure-stack-get-pki-certs.md)的证书文件。
+必须使用符合 Azure Stack Hub 的证书要求的属性来导入和导出[从证书颁发机构 (CA) 获取](azure-stack-get-pki-certs.md)的证书文件。
 
-## <a name="prepare-certificates-for-deployment-with-azure-stack-readiness-checker"></a>使用 Azure Stack 就绪性检查器准备证书以待部署
-
-使用 Azure Stack Hub 就绪性检查器工具导入、打包和验证准备用于部署或轮换的证书。
+在本文中，你将了解如何导入、打包和验证证书，以便为 Azure Stack Hub 部署或机密轮换做准备。 
 
 ## <a name="prerequisites"></a>必备条件
 
 在打包用于 Azure Stack Hub 部署的 PKI 证书之前，系统应符合以下先决条件：
 
-- Azure Stack Hub 就绪性检查器
-- 以 .cer 格式在单个目录中从证书颁发机构返回的证书（其他可配置的格式 .cert、.sst 或 .pfx）。
-- Windows 10 或 Windows Server 2016 或更高版本
+- 从证书颁发机构返回的证书以 .cer 格式（其他可配置的格式，如 .cert、.sst 或 .pfx）存储在一个目录中。
+- Windows 10，或者是 Windows Server 2016 或更高版本
 - 使用生成证书签名请求的同一系统（除非要针对的是预打包到 PFX 中的证书）。
 
-## <a name="generate-certificate-signing-requests-for-new-deployments"></a>为新部署生成证书签名请求
+继续进行到相应的[准备证书（Azure Stack 就绪性检查器）](#prepare-certificates-azure-stack-readiness-checker)或[准备证书（手动步骤）](#prepare-certificates-manual-steps)部分。
 
-使用以下步骤来为新 Azure Stack Hub PKI 证书打包证书：
+## <a name="prepare-certificates-azure-stack-readiness-checker"></a>准备证书（Azure Stack 就绪性检查器）
 
-1. 在 PowerShell 提示符（5.1 或更高版本）下，运行以下 cmdlet 安装 AzsReadinessChecker：
+使用 Azure Stack 就绪性检查器 PowerShell cmdlet 将证书打包，步骤如下：
+
+1. 在 PowerShell 提示符（5.1 或更高版本）下，通过运行以下 cmdlet 来安装 Azure Stack 就绪性检查器模块：
 
     ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
-2. 声明证书驻留在磁盘上的 Path。 例如：
+2. 指定证书文件的路径。 例如：
 
     ```powershell  
         $Path = "$env:USERPROFILE\Documents\AzureStack"
@@ -125,9 +125,9 @@ ms.locfileid: "88868073"
 
     成功验证之后，可以提供用于部署或轮换的证书，而不需要任何其他步骤。
 
-## <a name="prepare-certificates-for-deployment-manual-steps"></a>为部署准备证书（手动步骤）
+## <a name="prepare-certificates-manual-steps"></a>准备证书（手动步骤）
 
-使用以下步骤来准备和验证 Azure Stack Hub PKI 证书，此类证书将用于部署新的 Azure Stack Hub 环境，或者用于在现有的 Azure Stack Hub 环境中轮换机密。
+对于新的 Azure Stack Hub PKI 证书，请使用以下手动步骤来打包证书。
 
 ### <a name="import-the-certificate"></a>导入证书
 
@@ -145,7 +145,7 @@ ms.locfileid: "88868073"
 
    ![配置用于证书导入的证书存储](./media/prepare-pki-certs/3.png)
 
-   a. 如果要导入 PFX，则会看到其他对话框。 在“私钥保护”页上，输入证书文件的密码，然后启用“将此密钥标记为可导出。这可让你在稍后备份或传输密钥”选项。 选择“下一步”  。
+   a. 如果要导入 PFX，则会看到其他对话框。 在“私钥保护”页上，输入证书文件的密码，然后启用“将此密钥标记为可导出。”  选项，这样就可在以后备份或传输密钥。 选择“下一步”  。
 
    ![将密钥标记为可导出](./media/prepare-pki-certs/2.png)
 
@@ -158,7 +158,7 @@ ms.locfileid: "88868073"
 
 打开证书管理员 MMC 控制台并连接到本地计算机证书存储。
 
-1. 打开 Microsoft 管理控制台。 若要在 Windows 10 中打开控制台，请右键单击“开始”菜单****，选择“运行”****，然后键入 **mmc** 并按 Enter。
+1. 打开 Microsoft 管理控制台。 若要在 Windows 10 中打开控制台，请右键单击“开始”菜单，选择“运行”，然后键入“mmc”并按 Enter 键  。
 
 2. 选择“文件” > “添加/删除管理单元”，然后选择“证书”并选择“添加”。
 
@@ -175,21 +175,21 @@ ms.locfileid: "88868073"
    > [!NOTE]
    > 根据你拥有 Azure Stack Hub 证书的数量，可能需要多次完成此过程。
 
-6. 选择“是，导出私钥”，并单击“下一步”。
+6. 选择“是，导出私钥”，然后选择“下一步” 。
 
 7. 在“导出文件格式”部分执行以下操作：
     
    - 选择“包括证书路径中的所有证书(如果可能)”。****  
    - 选择“导出所有扩展属性”。****  
    - 选择“启用证书隐私”。****  
-   - 单击“下一步”  。  
+   - 选择“**下一页**”。  
     
      ![包含选定选项的证书导出向导](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
 8. 选择“密码”**** 并为证书提供密码。 创建满足以下密码复杂性要求的密码：
 
     * 最小长度为 8 个字符。
-    * 至少包含以下字符中的三种：大写字母、小写字母、0-9 中的数字、特殊字符、不是大写也不是小写的字母字符。
+    * 至少包含以下字符中的三种字符：大写字母、小写字母、0-9 中的数字、特殊字符、不是大写也不是小写的字母字符。
 
     记下此密码。 需将它用作部署参数。
 

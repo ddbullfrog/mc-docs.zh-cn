@@ -1,10 +1,9 @@
 ---
 title: 为多层应用程序创建 VNet - Azure PowerShell 脚本示例
-description: Azure PowerShell 脚本示例 - 为多层应用程序创建虚拟网络。
+description: 为多层应用程序创建虚拟网络 - Azure PowerShell 脚本示例。
 services: virtual-network
 documentationcenter: virtual-network
-author: rockboyfor
-manager: digimobile
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,14 +13,18 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 12/13/2018
-ms.date: 11/25/2019
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 576ddb749d1c2556cd35d9a25f4489c69892bf0b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4f1a86f2c63a78138d11ad268df19970d3ed889f
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74658067"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564594"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>为多层应用程序创建网络脚本示例
 
@@ -29,11 +32,15 @@ ms.locfileid: "74658067"
 
 可以通过本地 PowerShell 安装来执行脚本。 如果在本地使用 PowerShell，则此脚本需要 Azure PowerShell 模块 1.0.0 版或更高版本。 要查找已安装的版本，请运行 `Get-Module -ListAvailable Az`。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 
+<!-- Not Available on [Cloud Shell](https://shell.azure.com/bash) -->
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+<!--[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]-->
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
+<!--Comment from Azure Global-->
 
 创建虚拟网络之后，将分配子网 ID；具体来说，使用带有 -Subnet 选项的 New-AzVirtualNetwork。 如果在调用 New-AzVirtualNetwork 之前使用 New-AzVirtualNetworkSubnetConfig cmdlet 配置了子网，则在调用 New-AzVirtualNetwork 之前，将看不到子网 ID。
 
@@ -136,6 +143,7 @@ $rule3 = New-AzNetworkSecurityRuleConfig -Name 'Deny-Internet-All' -Description 
 $nsgbe.SecurityRules.add($rule3)
 
 Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsgbe
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -164,8 +172,8 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/)。
 
 可在[虚拟网络 PowerShell 示例](../powershell-samples.md)中查找其他虚拟网络 PowerShell 脚本示例。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

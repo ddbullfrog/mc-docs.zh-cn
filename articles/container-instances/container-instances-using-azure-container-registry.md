@@ -3,16 +3,17 @@ title: 从 Azure 容器注册表部署容器映像
 description: 了解如何通过从 Azure 容器注册表拉取容器映像在 Azure 容器实例中部署容器。
 services: container-instances
 ms.topic: article
-origin.date: 02/18/2020
-ms.date: 04/30/2020
+origin.date: 07/02/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: eb09abc21dbf0be20763359230aac56bbe47c37c
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.openlocfilehash: 43229f8208ac33be26051caee078063d2854569f
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392251"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564278"
 ---
 <!--Verified successfully-->
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>从 Azure 容器注册表部署到 Azure 容器实例
@@ -23,24 +24,27 @@ ms.locfileid: "83392251"
 
 **Azure 容器注册表**：需要一个 Azure 容器注册表（注册表中的至少一个容器映像）才能完成本文中的步骤。 如果需要注册表，请参阅[使用 Azure CLI 创建容器注册表](../container-registry/container-registry-get-started-azure-cli.md)。
 
-**Azure CLI**：本文中的命令行示例使用 [Azure CLI](https://docs.azure.cn/cli/?view=azure-cli-latest)，并采用适用于 Bash shell 的格式。 可以在本地[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+**Azure CLI**：本文中的命令行示例使用 [Azure CLI](https://docs.azure.cn/cli/)，并采用适用于 Bash shell 的格式。 可以在本地[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 <!--Not Available on [Azure Cloud Shell][cloud-shell-bash]-->
 
 ## <a name="configure-registry-authentication"></a>配置注册表身份验证
 
-在生产方案中，如果要提供对“无外设”服务和应用程序的访问权限，建议使用[服务主体](../container-registry/container-registry-auth-service-principal.md)配置注册表访问权限。 使用服务主体可以提供对容器映像的[基于角色的访问控制](../container-registry/container-registry-roles.md)。 例如，可将服务主体配置为拥有注册表的仅限提取的访问权限。
+在生产方案中，如果要提供对“无外设”服务和应用程序的访问权限，建议使用[服务主体](../container-registry/container-registry-auth-service-principal.md)配置注册表访问权限。 使用服务主体可以提供对容器映像的 [Azure 基于角色的访问控制 (Azure RBAC)](../container-registry/container-registry-roles.md)。 例如，可将服务主体配置为拥有注册表的仅限提取的访问权限。
 
 Azure 容器注册表提供了附加的[身份验证选项](../container-registry/container-registry-authentication.md)。
 
 > [!NOTE]
 > 无法使用在同一容器组中配置的[托管标识](container-instances-managed-identity.md)向 Azure 容器注册表进行身份验证，以便在容器组部署期间拉取图像。
 
+> [!NOTE]
+> 目前，无法从部署到 Azure 虚拟网络的 [Azure 容器注册表](../container-registry/container-registry-vnet.md)拉取映像。
+
 在以下部分中，将创建一个 Azure 密钥保管库和一个服务主体，并将服务主体的凭据存储在保管库中。 
 
 ### <a name="create-key-vault"></a>创建 Key Vault
 
-如果 [Azure Key Vault](../key-vault/key-vault-overview.md) 中没有保管库，请在 Azure CLI 中使用以下命令创建一个保管库。
+如果 [Azure Key Vault](../key-vault/general/overview.md) 中没有保管库，请在 Azure CLI 中使用以下命令创建一个保管库。
 
 将 `RES_GROUP` 变量更新为要在其中创建 Key Vault 的现有资源组的名称，将 `ACR_NAME` 更新为容器注册表的名称。 为简洁起见，本文中的命令假设你的注册表、密钥保管库和容器实例都是在同一资源组中创建的。
 
@@ -73,7 +77,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-上述命令中的 `--role` 参数使用“acrpull”  角色配置服务主体，该角色授予其对注册表的只拉取访问权限。 若要同时授予推送和拉取访问权限，请将 `--role` 参数更改为“acrpush”  。
+上述命令中的 `--role` 参数使用“acrpull”角色配置服务主体，该角色授予其对注册表的只拉取访问权限。 若要同时授予推送和拉取访问权限，请将 `--role` 参数更改为“acrpush”。
 
 接下来，将服务主体的 *appId*（传递给 Azure 容器注册表用于身份验证的**用户名**）存储在保管库中。
 
@@ -159,14 +163,14 @@ az container create \
 
 <!-- LINKS - External -->
 
-[cloud-shell-bash]: https://shell.azure.com/bash
-[cloud-shell-try-it]: https://shell.azure.com/powershell
+<!--Not Available on [cloud-shell-bash]: https://shell.azure.com/bash-->
+<!--Not Available on [cloud-shell-try-it]: https://shell.azure.com/powershell-->
 
 <!-- LINKS - Internal -->
 
-[az-acr-show]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-show
-[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[az-keyvault-secret-set]: https://docs.azure.cn/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set
+[az-acr-show]: https://docs.azure.cn/cli/acr#az-acr-show
+[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az-ad-sp-create-for-rbac
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
+[az-keyvault-secret-set]: https://docs.azure.cn/cli/keyvault/secret#az-keyvault-secret-set
 
 <!-- Update_Description: update meta properties, wording update, update link -->

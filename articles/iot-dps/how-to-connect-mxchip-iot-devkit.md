@@ -1,24 +1,24 @@
 ---
 title: 如何使用 Azure IoT 中心设备预配服务的自动预配功能将 MXChip IoT DevKit 注册到 IoT 中心 | Microsoft Docs
 description: 如何使用 Azure IoT 中心设备预配服务 (DPS) 的自动预配功能将 MXChip IoT DevKit 注册到 IoT 中心。
-author: liydu
+author: wesmc7777
 ms.author: v-tawe
 origin.date: 06/25/2019
-ms.date: 03/02/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: jeffya
-ms.openlocfilehash: 72292266e34945ea6cdf745d8db2d0903c1ad934
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+manager: eliotgra
+ms.openlocfilehash: 7427981b29379eda832a8a64a51b79de3dcbd23c
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494149"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564402"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>使用 Azure IoT 中心设备预配服务的自动预配功能将 MXChip IoT DevKit 注册到 IoT 中心
 
-本文介绍如何使用 Azure IoT 中心设备预配服务的[自动预配](concepts-auto-provisioning.md)功能将 MXChip IoT DevKit 注册到 Azure IoT 中心 本教程介绍如何执行下列操作：
+本文介绍如何使用 Azure IoT 中心设备预配服务将 MXChip IoT DevKit [预配](about-iot-dps.md#provisioning-process)到 Azure IoT 中心。 本教程介绍如何执行下列操作：
 
 * 在设备上配置设备预配服务的全局终结点。
 * 使用唯一设备机密 (UDS) 生成 X.509 证书。
@@ -46,7 +46,7 @@ ms.locfileid: "77494149"
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>将唯一设备机密保存在设备安全存储上
 
-可以根据设备的[证明机制](concepts-security.md#attestation-mechanism)在设备上配置自动预配。 MXChip IoT DevKit 使用[受信任计算组](https://trustedcomputinggroup.org)提供的[设备标识组合引擎](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf)。 保存在 DevKit 上 STSAFE 安全芯片 ([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) 中的唯一设备机密 (UDS) 用于生成设备的唯一 [X.509 证书](concepts-security.md#x509-certificates)  。 稍后在设备预配服务中和运行时的注册过程中，可以使用该证书完成注册过程。
+可以根据设备的[证明机制](concepts-service.md#attestation-mechanism)在设备上配置自动预配。 MXChip IoT DevKit 使用[受信任计算组](https://trustedcomputinggroup.org)提供的[设备标识组合引擎](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf)。 保存在 DevKit 上 STSAFE 安全芯片 ([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) 中的唯一设备机密 (UDS) 用于生成设备的唯一 [X.509 证书](concepts-x509-attestation.md)  。 稍后在设备预配服务中和运行时的注册过程中，可以使用该证书完成注册过程。
 
 典型的 UDS 是长度为 64 个字符的字符串，如以下示例所示：
 

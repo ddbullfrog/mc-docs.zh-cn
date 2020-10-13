@@ -2,19 +2,20 @@
 title: 在 Azure Stack Hub 中部署应用服务
 description: 了解如何在 Azure Stack Hub 中部署应用服务。
 author: WenJason
+ms.service: azure-stack
 ms.topic: article
 origin.date: 05/05/2020
-ms.date: 06/22/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: b1f98cdb3b8829e6ba85c4b8e40c0fb56005374d
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 07130e36a2fffe1dfe811c57e89a9dfb490f1d1d
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096407"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437560"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>在 Azure Stack Hub 中部署应用服务
 
@@ -50,7 +51,7 @@ ms.locfileid: "85096407"
 
 2. 选择“部署应用服务或升级到最新版本”。
 
-    ![应用服务安装程序][1]
+    ![屏幕截图，显示 Azure 应用服务安装程序的主屏幕。][1]
 
 3. 查看并接受 Microsoft 软件许可条款，然后选择“下一步”。
 
@@ -60,7 +61,7 @@ ms.locfileid: "85096407"
 
    例如，如果使用域后缀 mycloud.com，则必须将“Azure Stack Hub 租户”Azure 资源管理器终结点更改为 management.&lt;区域&gt;.mycloud.com。 查看这些设置，然后选择“下一步”以保存设置。
 
-   ![应用服务安装程序][2]
+   ![屏幕截图，显示用于为应用服务指定 ARM 终结点的屏幕。][2]
 
 6. 在下一个应用服务安装程序页上，你将连接到 Azure Stack Hub：
 
@@ -78,7 +79,7 @@ ms.locfileid: "85096407"
 
     1. 在“Azure Stack Hub 位置”中，选择要部署到的区域所对应的位置。 例如，若要部署到 ASDK，请选择“本地”。
 
-    ![应用服务安装程序][3]
+    ![屏幕截图，显示在应用服务安装程序中的何处指定 Azure Stack Hub 订阅信息。][3]
 
 7. 现在，可以部署到[使用这些步骤](azure-stack-app-service-before-you-get-started.md#virtual-network)配置的现有虚拟网络中，或者让应用服务安装程序创建新的虚拟网络和子网。 若要创建 VNet，请执行以下步骤：
 
@@ -91,14 +92,14 @@ ms.locfileid: "85096407"
      - 为每个所需角色子网选择正确的“子网”值。
      - 选择“**下一步**”。
 
-   ![应用服务安装程序][4]
+   ![屏幕截图，显示在应用服务安装程序中配置虚拟网络时所在的屏幕。][4]
 
 8. 输入文件共享的信息，然后选择“下一步”。 文件共享的地址必须使用文件服务器的完全限定域名 (FQDN) 或 IP 地址。 例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites，或 \\\10.0.0.1\websites。  如果使用已加入域的文件服务器，则必须提供包含域的完整用户名。 例如 myfileserverdomain\FileShareOwner。
 
    >[!NOTE]
    >在继续下一步之前，安装程序会尝试测试与文件共享的连接。 不过，如果是部署到现有的虚拟网络，此连接测试可能会失败。 系统会发出警告，并提示你继续操作。 如果文件共享信息正确，请继续部署。
 
-   ![应用服务安装程序][7]
+   ![屏幕截图，显示应用服务安装程序中的文件共享配置。][7]
 
 9. 在下一“应用服务安装程序”页上，执行以下步骤：
 
@@ -112,7 +113,7 @@ ms.locfileid: "85096407"
 
    e. 选择“**下一步**”。
 
-   ![应用服务安装程序][9]
+   ![屏幕截图，显示要在应用服务安装程序中的何处键入标识应用信息。][9]
 
 10. 对于三个证书文件框的每一个框，请选择“浏览”并导航到相应的证书文件。 必须为每个证书提供密码。 这些证书是[在 Azure Stack Hub 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)中创建的证书。 输入所有信息后，选择“下一步”。
 
@@ -124,11 +125,11 @@ ms.locfileid: "85096407"
 
     如果在创建证书时使用了其他域后缀，证书文件名不要使用 *local.AzureStack.external*， 而要改用自定义域信息。
 
-    ![应用服务安装程序][10]
+    ![屏幕截图，显示要在应用服务安装程序中的何处键入证书位置和密码。][10]
 
 11. 为用于托管应用服务资源提供程序数据库的服务器实例输入 SQL Server 详细信息，然后选择“下一步”。 安装程序将验证 SQL 连接属性。<br><br>在继续下一步之前，应用服务安装程序会尝试测试与 SQL Server 的连接。 如果是部署到现有的虚拟网络，此连接测试可能会失败。 系统会发出警告，并提示你继续操作。 如果 SQL Server 信息正确，请继续部署。
 
-    ![应用服务安装程序][11]
+    ![屏幕截图，显示要在应用服务安装程序中的何处键入 SQL 配置信息。][11]
 
 12. 查看角色实例和 SKU 选项。 默认设置中填充了生产部署中每个角色的最小实例数和最低 SKU 层级。  对于 ASDK 部署，可以将实例纵向缩减到更低的 SKU，以减少核心和内存提交，但性能会下降。 提供 vCPU 和内存要求摘要是为了帮助你规划部署。 进行选择后，请选择“下一步”。
 
@@ -143,7 +144,7 @@ ms.locfileid: "85096407"
     | FrontEnd | 1 | Standard_A4_v2 -（4 核，8192 MB） | 将请求路由到应用服务应用。 |
     | 共享辅助角色 | 1 | Standard_A4_v2 -（4 核，8192 MB） | 托管 Web 应用或 API 应用和 Azure Functions 应用。 可能需要添加更多实例。 作为操作员，可以定义产品/服务，并选择任何 SKU 层。 这些层必须至少具有一个 vCPU。 |
 
-    ![应用服务安装程序][13]
+    ![屏幕截图，显示在应用服务安装程序中的何处配置辅助角色。][13]
 
     > [!NOTE]
     > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack Hub 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。**
@@ -158,7 +159,7 @@ ms.locfileid: "85096407"
 
      c. 选择“**下一步**”。
 
-    ![应用服务安装程序][15]
+    ![屏幕截图，显示要在应用服务安装程序中的何处配置辅助角色凭据。][15]
 
 15. 在“应用服务安装程序”摘要页上，执行以下步骤：
 
@@ -168,7 +169,7 @@ ms.locfileid: "85096407"
 
     c. 若要开始部署，请选择“下一步”。
 
-    ![应用服务安装程序][16]
+    ![屏幕截图，显示应用服务安装程序中的堆栈部署摘要信息。][16]
 
 16. 在下一“应用服务安装程序”页上，执行以下步骤：
 
@@ -176,7 +177,7 @@ ms.locfileid: "85096407"
 
     b. 安装程序成功完成后，请选择“退出”。
 
-    ![应用服务安装程序][17]
+    ![屏幕截图，显示应用服务安装程序中的部署进度。][17]
 
 ## <a name="post-deployment-steps"></a>部署后步骤
 

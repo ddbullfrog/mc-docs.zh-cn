@@ -5,16 +5,17 @@ description: 了解如何使用套餐、计划和服务在 Azure Stack Hub 中�
 author: WenJason
 ms.author: v-jay
 ms.topic: tutorial
+ms.service: azure-stack
 origin.date: 10/16/2019
-ms.date: 05/18/2020
+ms.date: 10/12/2020
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: ba4e179291319d8d06c0bf4f276499da62fdbc32
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: c6d52f67bf0c2a1231387647ae80d491346b3be0
+ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867965"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91437635"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>在 Azure Stack Hub 中为用户创建服务产品
 
@@ -79,23 +80,23 @@ Azure Stack Hub 中有两个常规资源提供程序类别：一个将资源部�
 
     然后选择“+ 创建资源” > “套餐 + 计划” > “套餐”  。
 
-    ![在 Azure Stack Hub 管理门户中新建套餐](media/tutorial-offer-services/1-create-resource-offer.png)
+    ![此屏幕截图显示了如何在 Azure Stack Hub 管理门户中新建套餐。](media/tutorial-offer-services/1-create-resource-offer.png)
 
 1. 在“创建新套餐”中的“基本信息”选项卡下，输入**显示名称**和**资源名称**，然后选择现有的或创建新的**资源组**。   “显示名称”是套餐的友好名称。 只有云操作员可以看到资源名称，管理员可以使用该名称将套餐作为 Azure 资源管理器资源进行处理。
 
-   ![Azure Stack Hub 管理门户中的显示名称](media/tutorial-offer-services/2-create-new-offer.png)
+   ![此屏幕截图显示了在 Azure Stack Hub 管理门户中添加基本信息的位置。](media/tutorial-offer-services/2-create-new-offer.png)
 
 1. 选择“基本计划”选项卡，然后选择“创建新计划”以创建新的计划。   计划也会作为基本计划添加到套餐。
 
-   ![在 Azure Stack Hub 管理门户中添加计划](media/tutorial-offer-services/3-create-new-offer-base-plans.png)
+   ![此屏幕截图显示了如何在 Azure Stack Hub 管理门户中添加计划。](media/tutorial-offer-services/3-create-new-offer-base-plans.png)
 
 1. 在“新建计划”中的“基本信息”选项卡下，输入**显示名称**和**资源名称**。   显示名称是用户可以看到的计划友好名称。 只有云操作员可以看到资源名称，云操作员可以使用该名称将计划作为 Azure 资源管理器资源处理。 “资源组”将设置为针对套餐指定的资源组。 
 
-   ![Azure Stack Hub 管理门户中的计划显示名称](media/tutorial-offer-services/4-create-new-plan-basics.png)
+   ![此屏幕截图显示了 Azure Stack Hub 管理门户中的计划显示名称。](media/tutorial-offer-services/4-create-new-plan-basics.png)
 
 1. 选择“服务”选项卡，此时会看到安装资源提供程序后提供的服务列表。  选择“Microsoft.Compute”、“Microsoft.Network”和“Microsoft.Storage”。   
 
-   ![在 Azure Stack Hub 管理门户中计划服务](media/tutorial-offer-services/5-create-new-plan-services.png)
+   ![此屏幕截图显示了 Azure Stack Hub 管理门户中的计划服务。](media/tutorial-offer-services/5-create-new-plan-services.png)
 
 1. 选择“配额”选项卡，此时会看到为此计划启用的服务列表。  选择“新建”并指定 **Microsoft.Compute** 的自定义配额。  配额的“名称”是必填字段；可以接受或更改每个配额值。  完成后选择“确定”，然后对剩余的服务重复上述步骤。 
 
@@ -129,7 +130,7 @@ Azure Stack Hub 中有两个常规资源提供程序类别：一个将资源部�
 1. 使用云管理员帐户登录到管理员门户。
 
     - 对于集成系统，URL 根据操作员所在区域和外部域名的不同而异，格式为 `https://adminportal.<region>.<FQDN>`。
-    - 如果使用的是 Azure Stack 开发工具包，则 URL 为 <https://adminportal.local.azurestack.external>。
+    - 如果使用的是 Azure Stack 开发工具包，则 URL 为 `https://adminportal.local.azurestack.external`。
 
     然后选择“+ 创建资源” > “套餐 + 计划” > “套餐”  。
 

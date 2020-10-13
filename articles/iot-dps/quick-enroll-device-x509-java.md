@@ -1,21 +1,21 @@
 ---
-title: 使用 Java 将 X.509 设备注册到 Azure 设备预配服务
+title: 快速入门 - 使用 Java 将 X.509 设备注册到 Azure 设备预配服务
 description: 本快速入门使用组注册和单独注册。 在本快速入门中，需使用 Java 将 X.509 设备注册到 Azure IoT 中心设备预配服务 (DPS)。
 author: wesmc7777
 ms.author: wesmc
 origin.date: 11/08/2019
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 089e210a45cb94a9076b1e3aead943e4f8fc8563
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: 7b8bb8fa5607314dc68f3f8814acd2351954ed6b
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951300"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564378"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>快速入门：使用 Java 将 X.509 设备注册到设备预配服务
 
