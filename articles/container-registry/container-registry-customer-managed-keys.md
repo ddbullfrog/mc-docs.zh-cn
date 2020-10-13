@@ -2,18 +2,19 @@
 title: 使用客户管理的密钥进行静态加密
 description: 了解 Azure 容器注册表的静态加密，以及如何使用 Azure Key Vault 中存储的客户管理的密钥来加密高级注册表
 ms.topic: article
-origin.date: 05/01/2020
-ms.date: 07/27/2020
+origin.date: 08/26/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 47710e79edb225a77a3972f4087466b523281dcf
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: 2f4b071c079442e8edabf0f4675bfaa3c9e515f2
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863161"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564139"
 ---
 <!--Verified successfully with PORTAL on 06/08/2020-->
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>使用客户管理的密钥加密注册表
@@ -26,14 +27,17 @@ ms.locfileid: "86863161"
 
 ## <a name="things-to-know"></a>使用须知
 
-* 目前只能在创建注册表时启用客户管理的密钥。
-* 对注册表启用客户管理的密钥后，无法禁用此功能。
+* 目前只能在创建注册表时启用客户管理的密钥。 启用密钥时，可配置用户分配托管标识以访问密钥保管库。
+* 对注册表启用使用客户管理的密钥进行的加密后，无法禁用加密。  
 * 使用客户管理的密钥加密的注册表目前不支持[内容信任](container-registry-content-trust.md)。
 * 在使用客户管理的密钥加密的注册表中，[ACR 任务](container-registry-tasks-overview.md)的运行日志目前只会保留 24 小时。 如果需要将日志保留更长时间，请参阅有关[导出和存储任务运行日志](container-registry-tasks-logs.md#alternative-log-storage)的指南。
 
+> [!NOTE]
+> 如果使用具有 [Key Vault 防火墙](../key-vault/general/network-security.md)的虚拟网络限制对 Azure 密钥保管库的访问，则需要执行额外的配置步骤。 在创建注册表并启用客户管理的密钥后，使用注册表的系统分配托管标识设置对密钥的访问权限，并将注册表配置为绕过 Key Vault 防火墙。 请首先按照本文中的步骤启用使用客户管理的密钥进行的加密，然后参阅本文后面部分中有关[高级方案：Key Vault 防火墙](#advanced-scenario-key-vault-firewall)的指导。
+
 ## <a name="prerequisites"></a>先决条件
 
-若要使用本文中所述的 Azure CLI 步骤，需要安装 Azure CLI 2.2.0 或更高版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+若要使用本文中所述的 Azure CLI 步骤，需要安装 Azure CLI 2.2.0 或更高版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="enable-customer-managed-key---cli"></a>启用客户管理的密钥 - CLI
 
@@ -52,7 +56,7 @@ az group create --name <resource-group-name> --location <location>
 ```azurecli
 az identity create \
   --resource-group <resource-group-name> \
-  --name <managed-identity-name> 
+  --name <managed-identity-name>
 ```
 
 记下命令输出中的以下值：`id` 和 `principalId`。 在后续步骤中，需要使用这些值来配置注册表对密钥保管库的访问。
@@ -80,11 +84,11 @@ identityID=$(az identity show --resource-group <resource-group-name> --name <man
 identityPrincipalID=$(az identity show --resource-group <resource-group-name> --name <managed-identity-name> --query 'principalId' --output tsv)
 ```
 
-### <a name="create-a-key-vault"></a>创建 key vault
+### <a name="create-a-key-vault"></a>创建密钥保管库
 
-使用 [az keyvault create][az-keyvault-create] 创建一个密钥保管库来存储用于加密注册表的客户管理的密钥。 
+使用 [az keyvault create][az-keyvault-create] 创建一个密钥保管库来存储用于加密注册表的客户管理的密钥。
 
-为了防止意外删除密钥或密钥保管库而导致数据丢失，必须启用以下设置：“软删除”和“清除保护”。 以下示例包含这些设置的参数： 
+为了防止意外删除密钥或密钥保管库而导致数据丢失，必须启用以下设置：“软删除”和“清除保护”。 以下示例包含这些设置的参数：
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -102,7 +106,7 @@ az keyvault set-policy \
   --resource-group <resource-group-name> \
   --name <key-vault-name> \
   --object-id $identityPrincipalID \
-  --key-permissions get unwrapKey wrapKey 
+  --key-permissions get unwrapKey wrapKey
 ```
 
 ### <a name="create-key-and-get-key-id"></a>创建密钥并获取密钥 ID
@@ -165,7 +169,7 @@ az acr create \
 若要显示是否启用了使用客户管理的密钥进行注册表加密，请运行 [az acr encryption show][az-acr-encryption-show] 命令：
 
 ```azurecli
-az acr encryption show --name <registry-name> 
+az acr encryption show --name <registry-name>
 ```
 
 输出类似于：
@@ -189,15 +193,15 @@ az acr encryption show --name <registry-name>
 
 在后续步骤中需要用到该标识的名称。
 
-![在 Azure 门户中创建用户分配的托管标识](./media/container-registry-customer-managed-keys/create-managed-identity.png)
+:::image type="content" source="./media/container-registry-customer-managed-keys/create-managed-identity.png" alt-text="在 Azure 门户中创建用户分配的托管标识":::
 
-### <a name="create-a-key-vault"></a>创建 key vault
+### <a name="create-a-key-vault"></a>创建密钥保管库
 
 有关创建密钥保管库的步骤，请参阅[快速入门：使用 Azure 门户在 Azure Key Vault 中设置和检索机密](../key-vault/secrets/quick-create-portal.md)。
 
 为客户管理的密钥创建密钥保管库时，请在“基本信息”选项卡中启用以下保护设置：“软删除”和“清除保护”。 这些设置可以帮助防止因意外删除密钥或密钥保管库而导致的数据丢失。
 
-![在 Azure 门户中创建密钥保管库](./media/container-registry-customer-managed-keys/create-key-vault.png)
+:::image type="content" source="./media/container-registry-customer-managed-keys/create-key-vault.png" alt-text="在 Azure 门户中创建用户分配的托管标识":::
 
 ### <a name="add-key-vault-access-policy"></a>添加密钥保管库访问策略
 
@@ -209,7 +213,7 @@ az acr encryption show --name <registry-name>
 1. 选择“选择主体”，然后选择用户分配的托管标识的资源名称。  
 1. 依次选择“添加”、“保存”。
 
-![创建密钥保管库访问策略](./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png)
+:::image type="content" source="./media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="在 Azure 门户中创建用户分配的托管标识":::
 
 ### <a name="create-key"></a>创建密钥
 
@@ -236,13 +240,13 @@ az acr encryption show --name <registry-name>
 1. 在“加密”选项卡中，选择“查看 + 创建”。
 1. 选择“创建”以部署注册表实例。
 
-![在 Azure 门户中创建容器注册表](./media/container-registry-customer-managed-keys/create-encrypted-registry.png)
+:::image type="content" source="./media/container-registry-customer-managed-keys/create-encrypted-registry.png" alt-text="在 Azure 门户中创建用户分配的托管标识":::
 
 若要在门户中查看注册表的加密状态，请导航到注册表。 在“设置”下，选择“加密”。
 
 ## <a name="enable-customer-managed-key---template"></a>启用客户管理的密钥 - 模板
 
-还可以使用资源管理器模板来创建注册表，并启用使用客户管理的密钥进行加密。 
+还可以使用资源管理器模板来创建注册表，并启用使用客户管理的密钥进行加密。
 
 以下模板创建新的容器注册表和用户分配的托管标识。 将以下内容复制到新文件，并使用类似于 `CMKtemplate.json` 的文件名保存该文件。
 
@@ -355,7 +359,7 @@ az acr encryption show --name <registry-name>
 * 密钥保管库，按名称标识
 * 密钥保管库密钥，按密钥 ID 标识
 
-运行以下 [az group deployment create][az-group-deployment-create] 命令，以使用上述模板文件创建注册表。 根据指示提供新的注册表名称和托管标识名称，以及你创建的密钥保管库名称和密钥 ID。 
+运行以下 [az group deployment create][az-group-deployment-create] 命令，以使用上述模板文件创建注册表。 根据指示提供新的注册表名称和托管标识名称，以及你创建的密钥保管库名称和密钥 ID。
 
 ```bash
 az group deployment create \
@@ -373,7 +377,7 @@ az group deployment create \
 若要显示注册表加密的状态，请运行 [az acr encryption show][az-acr-encryption-show] 命令：
 
 ```azurecli
-az acr encryption show --name <registry-name> 
+az acr encryption show --name <registry-name>
 ```
 
 ## <a name="use-the-registry"></a>使用注册表
@@ -382,12 +386,12 @@ az acr encryption show --name <registry-name>
 
 ## <a name="rotate-key"></a>轮换密钥
 
-在合规策略中轮换用于加密注册表的客户管理密钥。 创建新密钥或更新密钥版本，然后更新注册表以使用该密钥加密数据。 可以使用 Azure CLI 或者在门户中执行这些步骤。
+根据合规策略轮换用于加密注册表的客户管理的密钥。 创建新密钥或更新密钥版本，然后更新注册表以使用该密钥加密数据。 可以使用 Azure CLI 或者在门户中执行这些步骤。
 
 轮换密钥时，通常需要指定在创建注册表时所用的同一标识。 （可选）配置新的用户分配标识以用于进行密钥访问，或者启用并指定注册表的系统分配标识。
 
 > [!NOTE]
-> 确保针对为进行密钥访问而配置的标识设置了所需的[密钥保管库访问策略](#add-key-vault-access-policy)。 
+> 确保针对为进行密钥访问而配置的标识设置了所需的[密钥保管库访问策略](#add-key-vault-access-policy)。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -397,12 +401,12 @@ az acr encryption show --name <registry-name>
 # Create new version of existing key
 az keyvault key create \
   --name <key-name> \
-  --vault-name <key-vault-name> 
+  --vault-name <key-vault-name>
 
 # Create new key
 az keyvault key create \
   --name <new-key-name> \
-  --vault-name <key-vault-name> 
+  --vault-name <key-vault-name>
 ```
 
 然后运行 [az acr encryption rotate-key][az-acr-encryption-rotate-key] 命令（传递新密钥 ID 以及想要配置的标识）：
@@ -423,15 +427,15 @@ az acr encryption rotate-key \
 
 ### <a name="portal"></a>门户
 
-使用注册表的“加密”设置来更新客户管理的密钥所用的密钥版本、密钥、密钥保管库或标识设置。 
+使用注册表的“加密”设置来更新客户管理的密钥所用的密钥版本、密钥、密钥保管库或标识设置。
 
 例如，若要生成并配置新的密钥版本：
 
-1. 在门户中导航到你的注册表。 
+1. 在门户中导航到你的注册表。
 1. 在“设置”下，选择“加密” > “更改密钥”。
 1. 选择“选择密钥”
 
-    ![在 Azure 门户中轮换密钥](./media/container-registry-customer-managed-keys/rotate-key.png)
+    :::image type="content" source="./media/container-registry-customer-managed-keys/rotate-key.png" alt-text="在 Azure 门户中创建用户分配的托管标识":::
 1. 在“从 Azure Key Vault 中选择密钥”窗口中，选择前面配置的密钥保管库和密钥，然后在“版本”中选择“新建”。
 1. 在“创建密钥”窗口中，依次选择“生成”、“创建”。
 1. 完成密钥选择，然后选择“保存”。
@@ -449,15 +453,21 @@ az keyvault delete-policy \
 
 撤销密钥会有效阻止对所有注册表数据的访问，因为注册表无法访问加密密钥。 如果启用了对密钥的访问或者还原了已删除的密钥，则注册表将选取该密钥，使你可以再次访问已加密的注册表数据。
 
-## <a name="advanced-scenarios"></a>高级方案
+## <a name="advanced-scenario-key-vault-firewall"></a>高级方案：Key Vault 防火墙
 
-### <a name="system-assigned-identity"></a>系统分配的标识
+如果 Azure 密钥保管库部署在具有 Key Vault 防火墙的虚拟网络中，请在注册表中启用客户管理的密钥加密后执行以下附加步骤。
+
+1. 将注册表加密配置为使用注册表的系统分配的标识
+1. 使注册表可以绕过 Key Vault 防火墙
+1. 轮换客户管理的密钥
+
+### <a name="configure-system-assigned-identity"></a>配置系统分配的标识
 
 可以配置注册表的系统分配的托管标识，以访问密钥保管库中的加密密钥。 如果你不熟悉 Azure 资源的各种托管标识，请参阅[概述](../active-directory/managed-identities-azure-resources/overview.md)。
 
 若要在门户中启用注册表的系统分配的标识，请执行以下操作：
 
-1. 在门户中导航到你的注册表。 
+1. 在门户中导航到你的注册表。
 1. 选择“设置” >  “标识”。
 1. 在“系统分配”下，将“状态”设置为“开”。 选择“保存”。
 1. 复制标识的“对象 ID”。
@@ -472,18 +482,22 @@ az keyvault delete-policy \
 
 若要将注册表的加密设置更新为使用该标识，请执行以下操作：
 
-1. 在门户中导航到你的注册表。 
+1. 在门户中导航到你的注册表。
 1. 在“设置”下，选择“加密” > “更改密钥”。
 1. 在“标识”中选择“系统分配”，然后选择“保存”。
 
-### <a name="key-vault-firewall"></a>Key Vault 防火墙
+### <a name="enable-key-vault-bypass"></a>启用密钥保管库绕过
 
-如果你的 Azure 密钥保管库部署在带有 Key Vault 防火墙的虚拟网络中，请执行以下步骤：
+若要访问使用 Key Vault 防火墙配置的密钥保管库，注册表必须绕过防火墙。 将密钥保管库配置为允许任何[受信任的服务](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)进行访问。 Azure 容器注册表是受信任的服务之一。
 
-1. 将注册表加密配置为使用注册表的系统分配的标识。 请参阅前一部分。
-2. 将密钥保管库配置为允许任何[受信任的服务](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)进行访问。 
+1. 在门户中导航到你的密钥保管库。
+1. 选择“设置” > “网络”。 
+1. 确认、更新或添加虚拟网络设置。 有关详细步骤，请参阅[配置 Azure Key Vault 防火墙和虚拟网络](../key-vault/general/network-security.md)。
+1. 在“允许受信任的 Azure 服务跳过此防火墙”中选择“是”。  
 
-有关详细步骤，请参阅[配置 Azure Key Vault 防火墙和虚拟网络](../key-vault/general/network-security.md)。 
+### <a name="rotate-the-customer-managed-key"></a>轮换客户管理的密钥
+
+完成以上步骤后，将密钥轮换到防火墙后面的密钥保管库中的新密钥。 有关步骤，请参阅本文中的[轮换密钥](#rotate-key)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -494,21 +508,21 @@ az keyvault delete-policy \
 
 <!-- LINKS - internal -->
 
-[az-feature-register]: https://docs.azure.cn/cli/feature?view=azure-cli-latest#az-feature-register
-[az-feature-show]: https://docs.azure.cn/cli/feature?view=azure-cli-latest#az-feature-show
-[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
-[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
-[az-feature-register]: https://docs.azure.cn/cli/feature?view=azure-cli-latest#az-feature-register
-[az-group-deployment-create]: https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create
-[az-keyvault-create]: https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create
-[az-keyvault-key-create]: https://docs.azure.cn/cli/keyvault/key?view=azure-cli-latest#az-keyvault-key-create
-[az-keyvault-key]: https://docs.azure.cn/cli/keyvault/key?view=azure-cli-latest
-[az-keyvault-set-policy]: https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy
-[az-keyvault-delete-policy]: https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-delete-policy
-[az-resource-show]: https://docs.azure.cn/cli/resource?view=azure-cli-latest#az-resource-show
-[az-acr-create]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-create
-[az-acr-show]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-show
-[az-acr-encryption-rotate-key]: https://docs.azure.cn/cli/acr/encryption?view=azure-cli-latest#az-acr-encryption-rotate-key
-[az-acr-encryption-show]: https://docs.azure.cn/cli/acr/encryption?view=azure-cli-latest#az-acr-encryption-show
+[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
+[az-feature-show]: https://docs.azure.cn/cli/feature#az-feature-show
+[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
+[az-identity-create]: https://docs.microsoft.com/cli/azure/identity#az_identity_create
+[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
+[az-group-deployment-create]: https://docs.azure.cn/cli/group/deployment#az-group-deployment-create
+[az-keyvault-create]: https://docs.azure.cn/cli/keyvault#az-keyvault-create
+[az-keyvault-key-create]: https://docs.azure.cn/cli/keyvault/key#az-keyvault-key-create
+[az-keyvault-key]: https://docs.azure.cn/cli/keyvault/key
+[az-keyvault-set-policy]: https://docs.azure.cn/cli/keyvault#az-keyvault-set-policy
+[az-keyvault-delete-policy]: https://docs.azure.cn/cli/keyvault#az-keyvault-delete-policy
+[az-resource-show]: https://docs.azure.cn/cli/resource#az-resource-show
+[az-acr-create]: https://docs.azure.cn/cli/acr#az-acr-create
+[az-acr-show]: https://docs.azure.cn/cli/acr#az-acr-show
+[az-acr-encryption-rotate-key]: https://docs.azure.cn/cli/acr/encryption#az-acr-encryption-rotate-key
+[az-acr-encryption-show]: https://docs.azure.cn/cli/acr/encryption#az-acr-encryption-show
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,10 +1,9 @@
 ---
 title: 排查 Azure VM 间的连接问题 | Azure
-description: 了解如何排查 Azure VM 间的连接问题。
+description: 了解如何排查和解决在 Azure VM 之间可能会遇到的连接问题。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -13,14 +12,17 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/30/2018
-ms.date: 11/25/2019
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 29cf4b4b1967099ed34b4d38523c801b880c563a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7b3d77b10bf0c2a0cef4ef2a486c2e7d8892bde7
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74658037"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564513"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>排查 Azure VM 间的连接问题
 
@@ -82,11 +84,15 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 
 **Windows VM**
 
-    netstat -ano
+```console
+netstat -ano
+```
 
 **Linux VM**
 
-    netstat -l
+```console
+netstat -l
+```
 
 - 对虚拟机本身运行 telnet 命令，测试端口  。 如果测试失败，则应用程序或服务未配置为侦听该端口。
 
@@ -113,4 +119,4 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 ### <a name="need-help-contact-support"></a>需要帮助？ 联系支持人员。
 如果仍需帮助，请[联系支持人员](https://support.azure.cn/support/support-azure/)以快速解决问题。
 
-<!--Update_Description: wording update, update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

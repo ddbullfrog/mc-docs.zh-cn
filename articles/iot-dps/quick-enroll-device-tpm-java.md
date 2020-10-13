@@ -1,21 +1,21 @@
 ---
-title: 使用 Java 将 TPM 设备注册到 Azure 设备预配服务
+title: 快速入门 - 使用 Java 将 TPM 设备注册到 Azure 设备预配服务
 description: 快速入门 - 使用 Java 服务 SDK 将 TPM 设备注册到 Azure IoT 中心设备预配服务 (DPS)。 本快速入门使用单独注册。
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2019
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 5dae6553cfb9ab99a5daac8bbbfd1a01de75b6a2
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: 2a5552fda5704e2b7095442e230f5c09860c0ecf
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951307"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564571"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>快速入门：使用 Java 服务 SDK 将 TPM 设备注册到 IoT 中心设备预配服务
 

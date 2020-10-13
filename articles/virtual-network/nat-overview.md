@@ -4,8 +4,7 @@ titlesuffix: Azure Virtual Network
 description: 虚拟网络 NAT 功能、资源、体系结构和实现的概述。 了解虚拟网络 NAT 的工作原理，以及如何在云中使用 NAT 网关资源。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
 Customer intent: As an IT administrator, I want to learn more about Virtual Network NAT, its NAT gateway resources, and what I can use them for.
@@ -13,16 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2020
+origin.date: 08/25/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: fbb0585acadc2ffbcdcb76183dfcda35ba48bfa6
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 25233d00365a5b2374051d71926037b698d84621
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441227"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564525"
 ---
 <!--Verified successfully-->
 # <a name="what-is-virtual-network-nat"></a>什么是虚拟网络 NAT？
@@ -31,14 +32,12 @@ ms.locfileid: "86441227"
 
 <!-- 
 <img src="./media/nat-overview/flow-map.svg" width="270" align="center">
-![Virtual Network NAT](./media/nat-overview/flow-map.svg)
+:::image type="content" source="./media/nat-overview/flow-map.svg" alt-text="Virtual Network NAT":::
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/flow-map.svg" width="256" title="虚拟网络 NAT">
+  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="虚拟网络 NAT">
 </p>
-
-
 
 *图：虚拟网络 NAT*
 
@@ -74,11 +73,11 @@ NAT 及兼容的标准 SKU 功能可以识别流的启动方向。 入站和出�
 
 <!-- 
 <img src="./media/nat-overview/flow-direction4.svg" width="500" align="center">
-![Virtual Network NAT flow direction](./media/nat-overview/flow-direction4.svg)
+:::image type="content" source="./media/nat-overview/flow-direction4.svg" alt-text="Virtual Network NAT":::
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/flow-direction4.svg" width="512" title="虚拟网络 NAT 流方向">
+  <img src="./media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="512" title="虚拟网络 NAT 流方向">
 </p>
 
 *图：虚拟网络 NAT 流方向*
@@ -114,39 +113,26 @@ NAT 的公共端不会生成 TCP 重置数据包或其他任何流量。  只会
 
 在保持一般可用性的条件下，NAT 数据路径的可用性至少为 99.9%。
 
-
 ## <a name="pricing"></a>定价
 
-NAT 网关通过两个单独的计量器来计费：
+有关定价详细信息，请参阅[虚拟网络定价](https://www.azure.cn/pricing/details/virtual-network/)。
 
-<!--CORRECT ON CNY 0.458 BOTH NAT AND DATA PROCESSED-->
-
-| 计量 | 费率 |
-| --- | --- |
-| 资源小时数 | 0\.458 元/小时 |
-| 已处理的数据 | 0\.458 元/GB |
-
-资源小时数包括 NAT 网关资源的存在持续时间。
-处理的数据包括 NAT 网关资源处理的所有流量。
+<!--MOONCAKE CORRECT ON  https://www.azure.cn/pricing/details/virtual-network/-->
 
 ## <a name="availability"></a>可用性
 
 虚拟网络 NAT 和 NAT 网关资源在所有 Azure 中国云[区域](https://azure.microsoft.com/global-infrastructure/regions/)中都可用。
 
-## <a name="support"></a>支持
-
-通过正常的支持渠道为 NAT 提供支持。
+<!--MOONCAKE CUSTOMIZATION ON all Azure China cloud-->
 
 ## <a name="suggestions"></a>建议
 
 我们很想知道如何能够改进该服务。 请在 [UserVoice for NAT](https://aka.ms/natuservoice) 上为我们接下来要开发的功能提供建议和投票。
 
-
 ## <a name="limitations"></a>限制
 
 * NAT 与标准 SKU 公共 IP、公共 IP 前缀和负载均衡器资源兼容。 基本资源（例如基本负载均衡器）以及派生自这些资源的任何产品都与 NAT 不兼容。  必须将基本资源放在未配置 NAT 的子网中。
 * 支持 IPv4 地址系列。  NAT 不会与 IPv6 地址系列交互。  NAT 不能部署在具有 IPv6 前缀的子网中。
-* 使用 NAT 时不支持 NSG 流日志记录。
 * NAT 不能跨多个虚拟网络。
 
 ## <a name="next-steps"></a>后续步骤
@@ -154,5 +140,4 @@ NAT 网关通过两个单独的计量器来计费：
 * 了解 [NAT 网关资源](./nat-gateway-resource.md)。
 * [在 UserVoice 中告诉我们接下来想要为虚拟网络 NAT 开发什么功能](https://aka.ms/natuservoice)。
 
-<!-- Update_Description: new article about nat overview -->
-<!--NEW.date: 07/13/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

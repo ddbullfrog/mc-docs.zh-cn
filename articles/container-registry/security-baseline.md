@@ -1,32 +1,32 @@
 ---
 title: Azure 容器注册表的 Azure 安全基线
 description: Azure 容器注册表的 Azure 安全基线
-author: rockboyfor
 ms.service: security
 ms.topic: conceptual
 origin.date: 03/16/2020
-ms.date: 06/08/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
-ms.custom: security-benchmark
-ms.openlocfilehash: 65384617cb9fcd8679b20069e446b40a35b5417e
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 1a17e49b35367cf91f3cb1bf5d9c2be17dba8011
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84654884"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564502"
 ---
 <!--Verified successfully-->
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Azure 容器注册表的 Azure 安全基线
 
 Azure 容器注册表的 Azure 安全基线包含可帮助你改善部署安全状况的建议。
 
-此服务的基线摘自 [Azure 安全基准版本 1.0](/security/benchmarks/overview)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
+此服务的基线摘自 [Azure 安全基准版本 1.0](../security/benchmarks/overview.md)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
 
-有关详细信息，请参阅 [Azure 安全基线概述](/security/benchmarks/security-baselines-overview)。
+有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
 ## <a name="network-security"></a>网络安全
 
-有关详细信息，请参阅[安全控制：** 网络安全性](/security/benchmarks/security-control-network-security)。
+有关详细信息，请参阅[安全控制：网络安全性](../security/benchmarks/security-control-network-security.md)。
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1：在虚拟网络中使用网络安全组或 Azure 防火墙保护资源
 
@@ -94,11 +94,11 @@ Azure 安全中心实时网络访问控制： https://docs.azure.cn/security-cen
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6：部署基于网络的入侵检测/入侵防护系统 (IDS/IPS)
 
-**指导**：从 Azure 市场中选择一种产品/服务，该产品/服务应支持包含有效负载检查功能的 ID/IPS 功能。 如果不需要基于有效负载检查的入侵检测和/或防护，则可以使用包含威胁情报功能的 Azure 防火墙。 使用基于 Azure 防火墙威胁情报的筛选，能发出警报并拒绝往返于已知恶意 IP 地址和域的流量。 IP 地址和域源自 Azure 威胁智能源。
+**指导**：从 Azure 市场中选择一种产品/服务，该产品/服务应支持包含有效负载检查功能的 ID/IPS 功能。 如果不需要基于有效负载检查的入侵检测和/或防护，则可以使用包含威胁情报功能的 Azure 防火墙。 基于 Azure 防火墙威胁情报的筛选功能可以发出警报，并拒绝传入和传出已知恶意 IP 地址和域的流量。 IP 地址和域源自 Microsoft 威胁智能源。
 
 在组织的每个网络边界上部署所选的防火墙解决方案，以检测和/或拒绝恶意流量。
 
-Azure 市场： https://market.azure.cn/marketplace/?term=Firewall 
+Azure 市场： https://market.azure.cn/marketplace/apps/filter?search=Firewall 
 
 如何部署 Azure 防火墙： https://docs.azure.cn/firewall/tutorial-firewall-deploy-portal
 
@@ -130,7 +130,7 @@ Azure 市场： https://market.azure.cn/marketplace/?term=Firewall
 
 **指导**：使用 Azure Policy 为与 Azure 容器注册表关联的网络资源定义和实施标准安全配置。 在“Microsoft.ContainerRegistry”和“Microsoft.Network”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施你的容器注册表的网络配置。 
 
-你可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、RBAC 控制措施和策略），来简化大规模的 Azure 部署。 轻松将蓝图应用到新的订阅，并通过版本控制来微调控制措施和管理。
+你可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、Azure RBAC 控制措施和策略），来简化大规模的 Azure 部署。 轻松将蓝图应用到新的订阅，并通过版本控制来微调控制措施和管理。
 
 使用 Azure Policy 审核 Azure 容器注册表的合规性： https://docs.azure.cn/container-registry/container-registry-azure-policy
 
@@ -142,7 +142,7 @@ Azure 市场： https://market.azure.cn/marketplace/?term=Firewall
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10：阐述流量配置规则
 
-**指导**：客户可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、RBAC 控制措施和策略），来简化大规模的 Azure 部署。 轻松将蓝图应用到新的订阅，并通过版本控制来微调控制措施和管理。
+**指导**：客户可以使用 Azure 蓝图，通过在单个蓝图定义中打包关键环境项目（例如 Azure 资源管理器模板、Azure RBAC 控制措施和策略），来简化大规模的 Azure 部署。 轻松将蓝图应用到新的订阅，并通过版本控制来微调控制措施和管理。
 
 <!--Not Avaialble on [](https://docs.azure.cn/governance/blueprints/create-blueprint-portal)-->
 
@@ -164,7 +164,7 @@ Azure 市场： https://market.azure.cn/marketplace/?term=Firewall
 
 ## <a name="logging-and-monitoring"></a>日志记录和监视
 
-有关详细信息，请参阅[安全控制：** 日志记录和监视](/security/benchmarks/security-control-logging-monitoring)。
+有关详细信息，请参阅[安全控制：日志记录和监视](../security/benchmarks/security-control-logging-monitoring.md)。
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1：使用批准的时间同步源
 
@@ -206,7 +206,7 @@ Azure 市场： https://market.azure.cn/marketplace/?term=Firewall
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5：配置安全日志存储保留期
 
-**指导**：在 Azure Monitor 中，根据组织的合规性规章设置 Log Analytics 工作区保留期。 使用 Azure 存储帐户进行长期/存档存储。
+**指南**：在 Azure Monitor 中，根据组织的合规性规章设置 Log Analytics 工作区保留期。 使用 Azure 存储帐户进行长期/存档存储。
 
 如何为 Log Analytics 工作区设置日志保留参数： https://docs.azure.cn/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
@@ -266,7 +266,7 @@ Azure 市场： https://market.azure.cn/marketplace/?term=Firewall
 
 ## <a name="identity-and-access-control"></a>标识和访问控制
 
-有关详细信息，请参阅[安全控制：** 标识和访问控制](/security/benchmarks/security-control-identity-access-control)。
+有关详细信息，请参阅[安全控制：标识和访问控制](../security/benchmarks/security-control-identity-access-control.md)。
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1：维护管理帐户的清单
 
@@ -298,7 +298,7 @@ Azure 容器注册表管理员帐户： https://docs.azure.cn/container-registry
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3：使用专用管理帐户
 
-**指导**：围绕专用管理帐户的使用创建标准操作程序。 使用 Azure 安全中心标识和访问管理来监视管理帐户的数量。
+**指南**：围绕专用管理帐户的使用创建标准操作程序。 使用 Azure 安全中心标识和访问管理来监视管理帐户的数量。
 
 另外，请创建相关过程来启用容器注册表的内置管理员帐户。 不使用该帐户时请将其禁用。
 
@@ -428,7 +428,7 @@ Azure 容器注册表管理员帐户： https://docs.azure.cn/container-registry
 
 ## <a name="data-protection"></a>数据保护
 
-有关详细信息，请参阅[安全控制：** 数据保护](/security/benchmarks/security-control-data-protection)。
+有关详细信息，请参阅[安全控制：数据保护](../security/benchmarks/security-control-data-protection.md)。
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1：维护敏感信息的清单
 
@@ -512,9 +512,9 @@ https://docs.azure.cn/firewall/threat-intel
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
-**指导**：使用 Azure Active Directory (Azure AD) RBAC 控制对 Azure 容器注册表中的数据和资源的访问。 
+**指导**：使用 Azure 基于角色的访问控制 (Azure RBAC) 来控制对 Azure 容器注册表中的数据和资源的访问。 
 
-如何在 Azure 中配置 RBAC： https://docs.azure.cn/role-based-access-control/role-assignments-portal
+如何配置 Azure RBAC： https://docs.azure.cn/role-based-access-control/role-assignments-portal
 
 Azure 容器注册表角色和权限： https://docs.azure.cn/container-registry/container-registry-roles
 
@@ -558,7 +558,7 @@ Azure 容器注册表中客户管理的密钥： https://aka.ms/acr/cmk
 
 ## <a name="vulnerability-management"></a>漏洞管理
 
-有关详细信息，请参阅[安全控制：** 漏洞管理。](/security/benchmarks/security-control-vulnerability-management)
+有关详细信息，请参阅[安全控制：漏洞管理。](../security/benchmarks/security-control-vulnerability-management.md)
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1：运行自动漏洞扫描工具
 
@@ -616,7 +616,7 @@ Azure 容器注册表与安全中心的集成（预览版）： https://docs.azu
 
 ## <a name="inventory-and-asset-management"></a>清单和资产管理
 
-有关详细信息，请参阅[安全控制：** 清单和资产管理](/security/benchmarks/security-control-inventory-asset-management)。
+有关详细信息，请参阅[安全控制：清单和资产管理](../security/benchmarks/security-control-inventory-asset-management.md)。
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1：使用 Azure 资产发现
 
@@ -684,7 +684,7 @@ Azure 容器注册表与安全中心的集成（预览版）： https://docs.azu
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6：监视计算资源中未批准的软件应用程序
 
-**指导**：分析和监视 Azure 容器注册表日志，看其是否存在异常行为，可以定期查看结果。 使用 Azure Monitor 的 Log Analytics 工作区来查看日志并执行针对日志数据的查询。
+**指导**：分析和监视 Azure 容器注册表日志，看其是否存在异常行为，可以定期查看结果。 使用 Azure Monitor Log Analytics 工作区查看日志并对日志数据执行查询。
 
 用于诊断评估和审核的 Azure 容器注册表日志： https://docs.azure.cn/container-registry/container-registry-diagnostics-audit-logs
 
@@ -768,7 +768,7 @@ Azure 容器注册表与安全中心的集成（预览版）： https://docs.azu
 
 ## <a name="secure-configuration"></a>安全配置
 
-有关详细信息，请参阅[安全控制：** 安全配置](/security/benchmarks/security-control-secure-configuration)。
+有关详细信息，请参阅[安全控制：安全配置](../security/benchmarks/security-control-secure-configuration.md)。
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1：为所有 Azure 资源建立安全配置
 
@@ -817,6 +817,8 @@ Azure 容器注册表与安全中心的集成（预览版）： https://docs.azu
 **责任**：共享
 
 <!--Not Available on ### 7.5: Securely store configuration of Azure resources-->
+<!--Not Available on  [](https://docs.azure.cn/devops/repos/git/gitworkflow?view=azure-devops)-->
+<!--Not Available on  [](https://docs.azure.cn/devops/repos/index?view=azure-devops-->
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6：安全存储自定义操作系统映像
 
@@ -874,9 +876,11 @@ Azure 容器注册表与安全中心的集成（预览版）： https://docs.azu
 
 <!--Not Available on [](https://docs.azure.cn/azure-app-configuration/howto-integrate-azure-managed-service-identity)-->
 
-如何创建 Key Vault： https://docs.azure.cn/key-vault/quick-create-portal
+<!--Not Available on How to create a Key Vault:  [](https://docs.azure.cn/key-vault/general/quick-create-portal)-->
 
-如何提供使用托管标识进行的 Key Vault 身份验证： https://docs.azure.cn/key-vault/managed-identity
+如何对 Key Vault 进行身份验证： https://docs.azure.cn/key-vault/general/authentication
+
+<!--Not Available on How to assign a Key Vault access policy: [](https://docs.azure.cn/key-vault/general/assign-access-policy-portal)-->
 
 在 Azure 容器注册表任务中使用 Azure 托管标识： https://docs.azure.cn/container-registry/container-registry-tasks-authentication-managed-identity
 
@@ -898,7 +902,7 @@ Azure 容器注册表与安全中心的集成（预览版）： https://docs.azu
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13：消除意外的凭据透露
 
-**指导**：实施凭据扫描程序来识别代码中的凭据。 凭据扫描程序还会建议将发现的凭据转移到更安全的位置，例如 Azure Key Vault。
+**指南**：实施凭据扫描程序来识别代码中的凭据。 凭据扫描程序还会建议将发现的凭据转移到更安全的位置，例如 Azure Key Vault。
 
 如何设置凭据扫描程序： https://secdevtools.azurewebsites.net/helpcredscan.html
 
@@ -908,13 +912,13 @@ Azure 容器注册表与安全中心的集成（预览版）： https://docs.azu
 
 ## <a name="malware-defense"></a>恶意软件防护
 
-有关详细信息，请参阅[安全控制：** 恶意软件防护](/security/benchmarks/security-control-malware-defense)。
+有关详细信息，请参阅[安全控制：恶意软件防护](../security/benchmarks/security-control-malware-defense.md)。
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1：使用集中管理的反恶意软件
 
 **指导**：使用适用于 Azure 云服务和虚拟机的 Microsoft Antimalware 来持续监视和保护资源。 对于 Linux，请使用第三方反恶意软件解决方案。
 
-如何为云服务和虚拟机配置 Azure 反恶意软件： https://docs.azure.cn/security/fundamentals/antimalware
+如何为云服务和虚拟机配置 Microsoft Antimalware： https://docs.azure.cn/security/fundamentals/antimalware
 
 **Azure 安全中心监视**：不适用
 
@@ -922,7 +926,7 @@ Azure 容器注册表与安全中心的集成（预览版）： https://docs.azu
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2：预先扫描要上传到非计算 Azure 资源的文件
 
-**指导**：在支持 Azure 服务（例如 Azure 容器注册表）的底层主机上已启用 Azure 反恶意软件，但是，该软件不会针对客户内容运行。
+**指导**：在支持 Azure 服务（例如 Azure 容器注册表）的底层主机上已启用 Microsoft Antimalware，但是，该软件不会针对客户内容运行。
 
 预扫描任何上传到非计算 Azure 资源（例如应用服务、Data Lake Storage、Blob 存储等）的文件。
 
@@ -940,7 +944,7 @@ Azure 容器注册表与安全中心的集成（预览版）： https://docs.azu
 
 ## <a name="data-recovery"></a>数据恢复
 
-有关详细信息，请参阅[安全控制：** 数据恢复](/security/benchmarks/security-control-data-recovery)。
+有关详细信息，请参阅[安全控制：数据恢复](../security/benchmarks/security-control-data-recovery.md)。
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1：确保定期执行自动备份
 
@@ -990,17 +994,17 @@ Azure 容器注册表中的异地复制： https://docs.azure.cn/container-regis
 
 ## <a name="incident-response"></a>事件响应
 
-有关详细信息，请参阅[安全控制：** 事件响应](/security/benchmarks/security-control-incident-response)。
+有关详细信息，请参阅[安全控制：事件响应](../security/benchmarks/security-control-incident-response.md)。
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员的所有职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员的所有职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 如何在 Azure 安全中心配置工作流自动化： https://docs.azure.cn/security-center/security-center-planning-and-operations-guide
 
 关于建立自己的安全事件响应流程的指南： https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-Azure 安全响应中心事件分析： https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Microsoft 安全响应中心的事件剖析： https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
 客户还可以利用 NIST 的“计算机安全事件处理指南”来制定他们自己的事件响应计划： https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
@@ -1030,7 +1034,7 @@ Azure 安全响应中心事件分析： https://msrc-blog.microsoft.com/2019/07/
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4：提供安全事件联系人详细信息，并针对安全事件配置警报通知
 
-**指导**：如果 Azure 安全响应中心 (MSRC) 发现非法或未经授权的某方访问了客户的数据，Azure 将使用安全事件联系人信息与你取得联系。  事后审查事件，确保问题得到解决。
+**指导**：如果 Microsoft 安全响应中心 (MSRC) 发现非法或未经授权的某方访问了客户的数据，Azure 将使用安全事件联系人信息与你取得联系。  事后审查事件，确保问题得到解决。
 
 如何设置 Azure 安全中心安全联系人： https://docs.azure.cn/security-center/security-center-provide-security-contact-details
 
@@ -1047,7 +1051,7 @@ Azure 安全响应中心事件分析： https://msrc-blog.microsoft.com/2019/07/
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>渗透测试和红队练习
 
-有关详细信息，请参阅[安全控制：** 渗透测试和红队演练](/security/benchmarks/security-control-penetration-tests-red-team-exercises)。
+有关详细信息，请参阅[安全控制：渗透测试和红队演练](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)。
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1：定期对 Azure 资源执行渗透测试，确保在 60 天内修正所有发现的关键安全问题
 
@@ -1061,7 +1065,7 @@ Azure 安全响应中心事件分析： https://msrc-blog.microsoft.com/2019/07/
 
 ## <a name="next-steps"></a>后续步骤
 
-- 参阅 [Azure 安全基准](/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](/security/benchmarks/security-baselines-overview)
+- 参阅 [Azure 安全基准](../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

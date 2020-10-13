@@ -3,16 +3,17 @@ title: 管理已签名的映像
 description: 了解如何为 Azure 容器注册表启用内容信任，以及如何推送和拉取已签名的映像。 “内容信任”是高级服务层级的一项功能。
 ms.topic: article
 origin.date: 09/06/2019
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: 05/08/2020
 ms.author: v-yeche
-ms.openlocfilehash: 731561ac0722004406acb4aaed9661ed7489f69d
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: a734e9c6d1863326953485a759c03da13f46d89e
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863162"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564138"
 ---
 <!--Verified successfully on 05/08/2020-->
 # <a name="content-trust-in-azure-container-registry"></a>Azure 容器注册表中的内容信任
@@ -45,7 +46,7 @@ Azure 容器注册表实现了 Docker 的[内容信任][docker-content-trust]模
 
 若要为注册表启用内容信任，请先在 Azure 门户中导航到注册表。 在“策略”下选择“内容信任” > “启用” > “保存”。 你还可以在 Azure CLI 中使用 [az acr config content trust update][az-acr-config-content-trust-update] 命令。
 
-![在 Azure 门户中为注册表启用内容信任][content-trust-01-portal]
+![屏幕截图显示如何在 Azure 门户中为注册表启用内容信任。][content-trust-01-portal]
 
 ## <a name="enable-client-content-trust"></a>启用客户端内容信任
 
@@ -119,7 +120,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 `<service principal ID>` 可以是服务主体的 **appId**、**objectId** 或其 **servicePrincipalName** 之一。 若要详细了解如何使用服务主体和 Azure 容器注册表，请参阅[使用服务主体的 Azure 容器注册表身份验证](container-registry-auth-service-principal.md)。
 
 > [!IMPORTANT]
-> 在任何角色更改后，运行 `az acr login` 以刷新 Azure CLI 的本地标识令牌，以便新角色生效。 有关验证角色身份的信息，请参阅[使用 RBAC 和 Azure CLI 管理对 Azure 资源的访问权限](../role-based-access-control/role-assignments-cli.md)和 [Azure 资源的 RBAC 疑难解答](../role-based-access-control/troubleshooting.md)。
+> 在任何角色更改后，运行 `az acr login` 以刷新 Azure CLI 的本地标识令牌，以便新角色生效。 有关验证角色身份的信息，请参阅[使用 RBAC 和 Azure CLI 管理对 Azure 资源的访问权限](../role-based-access-control/role-assignments-cli.md)和 [Azure RBAC 疑难解答](../role-based-access-control/troubleshooting.md)。
 
 ## <a name="push-a-trusted-image"></a>推送受信任的映像
 
@@ -172,7 +173,7 @@ No valid trust data for unsigned
 
 运行 `docker pull` 时，Docker 客户端使用与 [Notary CLI][docker-notary-cli] 中的库相同的库为要拉取的标记请求 tag-to-SHA-256 摘要映射。 在验证信任数据上的签名以后，客户端会指示 Docker 引擎执行“按摘要进行的拉取”操作。 在拉取过程中，引擎使用 SHA-256 校验和作为内容地址，以便从 Azure 容器注册表请求映像清单并对其进行验证。
 
-## <a name="key-management"></a>密钥管理
+## <a name="key-management"></a><a name="key-management"></a>密钥管理
 
 如推送第一个受信任映像时的 `docker push` 输出中所述，根密钥是最敏感的。 请确保备份根密钥并将其存储在安全的位置。 默认情况下，Docker 客户端将签名密钥存储在以下目录中：
 
@@ -222,7 +223,7 @@ umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; 
 
 <!-- LINKS - internal -->
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-config-content-trust-update]: https://docs.azure.cn/cli/acr/config/content-trust?view=azure-cli-latest#az-acr-config-content-trust-update
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-config-content-trust-update]: https://docs.azure.cn/cli/acr/config/content-trust#az-acr-config-content-trust-update
 
 <!-- Update_Description: update meta properties, wording update, update link -->

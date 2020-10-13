@@ -3,22 +3,24 @@ title: 计划 Azure 虚拟网络 | Azure
 description: 了解如何基于隔离、连接性和位置需求来计划虚拟网络。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/08/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 488fa7cb6988bf6bc8117b40dcc858ed82598821
-ms.sourcegitcommit: af71b9199d47fb81e85d70da0cfb265cc814a644
+ms.openlocfilehash: 51b33e39f4192a9945841206e180a1bd493118a8
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969037"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564581"
 ---
 # <a name="plan-virtual-networks"></a>计划虚拟网络
 
@@ -26,7 +28,7 @@ ms.locfileid: "85969037"
 
 ## <a name="naming"></a>命名
 
-所有 Azure 资源都有名称。 该名称在一个范围内必须是唯一的，但每种资源类型可能会有所不同。 例如，虚拟网络的名称在[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)内必须是唯一的，但可在[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)或 Azure [区域](https://status.azure.com/status/)内重复。 当一段时间内管理多个网络资源时，定义命名资源时可一致使用的命名约定很有用。 有关建议，请参阅[命名约定](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork)。
+所有 Azure 资源都有名称。 该名称在一个范围内必须是唯一的，但每种资源类型可能会有所不同。 例如，虚拟网络的名称在[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)内必须是唯一的，但可在[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)或 Azure [区域](https://azure.microsoft.com/regions/#services)内重复。 当一段时间内管理多个网络资源时，定义命名资源时可一致使用的命名约定很有用。 有关建议，请参阅[命名约定](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork)。
 
 ## <a name="regions"></a>区域
 
@@ -76,7 +78,7 @@ ms.locfileid: "85969037"
 
 ### <a name="traffic-filtering"></a>流量筛选
 
-- 可使用网络安全组和/或筛选流量的 NVA 来筛选虚拟网络中资源之间的流量。 若要部署 NVA（如防火墙）来筛选流量，请参阅 [Azure 市场](https://market.azure.cn/marketplace/apps/category/networking?subcategories=appliances&page=1)。 使用 NVA 时，还可以创建自定义路由将流量从子网路由到 NVA。 详细了解[流量路由](#traffic-routing)。
+- 可使用网络安全组和/或筛选流量的 NVA 来筛选虚拟网络中资源之间的流量。 若要部署 NVA（如防火墙）来筛选流量，请参阅 [Azure 市场](https://market.azure.cn/marketplace/apps/filter?search=networking&subcategories=appliances&page=1)。 使用 NVA 时，还可以创建自定义路由将流量从子网路由到 NVA。 详细了解[流量路由](#traffic-routing)。
 - 网络安全组包含多个默认安全规则，允许或拒绝到达或来自资源的流量。 可将网络安全组关联到网络接口和/或网络接口所在的子网。 若要简化安全规则的管理，建议尽可能将网络安全组与单独的子网相关联，而不是与子网内单独的网络接口相关联。
 - 如果子网中不同 VM 需要应用不同的安全规则，则可将 VM 中的网络接口与一个或多个应用程序安全组相关联。 安全规则可以在其源和/或目标中指定应用程序安全组。 该规则仅适用于属于应用程序安全组成员的网络接口。 详细了解[网络安全组](security-overview.md)和[应用程序安全组](security-overview.md#application-security-groups)。
 - Azure 在每个网络安全组中创建了多个默认安全规则。 其中一个默认规则允许所有流量在虚拟网络中的所有资源之间流动。 若要替代此行为，可使用网络安全组和/或自定义路由将流量路由到 NVA。 建议熟悉 Azure 的所有[默认安全规则](security-overview.md#default-security-rules)，并了解网络安全组规则如何应用于资源。
@@ -88,7 +90,7 @@ ms.locfileid: "85969037"
 
 Azure 为子网中的出站流量创建多个默认路由。 可通过创建路由表并将其关联到子网来替代 Azure 的默认路由。 替代 Azure 的默认路由的常见原因是：
 - 想要子网之间的流量流经 NVA。 想要详细了解如何[配置路由表以强制流量通过 NVA](tutorial-create-route-table-portal.md)。
-- 想要通过 Azure VPN 网关强制所有 Internet 绑定流量通过 NVA 或本地。 强制 Internet 流量本地进行检查和记录通常被称为强制隧道。 详细了解如何配置[强制隧道](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)。
+- 想要通过 Azure VPN 网关强制所有 Internet 绑定流量通过 NVA 或本地。 强制 Internet 流量本地进行检查和记录通常被称为强制隧道。 详细了解如何配置[强制隧道](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fvirtual-network%2Ftoc.json)。
 
 如果需要实施自定义路由，建议熟悉 [Azure 中的路由](virtual-networks-udr-overview.md)。
 

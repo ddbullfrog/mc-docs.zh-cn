@@ -4,37 +4,37 @@ titlesuffix: Azure Virtual Network
 description: 了解服务标记。 服务标记有助于尽量降低创建安全规则时的复杂性。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/18/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: kumud
-ms.openlocfilehash: 33b9f05df353a888facfa0adc3e7bcfe462d9b6b
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: b8c95fdd44ee9473edc1725ecdc2b20be6e8b6b9
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441193"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564172"
 ---
 # <a name="virtual-network-service-tags"></a>虚拟网络服务标记
 <a name="network-service-tags"></a>
 
 服务标记代表给定 Azure 服务中的一组 IP 地址前缀。 Azure 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记，最大限度地降低频繁更新网络安全规则的复杂性。
 
-可以在[网络安全组](/virtual-network/security-overview#security-rules) 或  [Azure 防火墙](/firewall/service-tags)中使用服务标记来定义网络访问控制。 创建安全规则时，请使用服务标记代替特定 IP 地址。 在规则的相应源或目标字段中指定服务标记名称（例如 **ApiManagement**），即可允许或拒绝相应服务的流量。  **  
+可以在[网络安全组](/virtual-network/security-overview#security-rules) 或  [Azure 防火墙](/firewall/service-tags)中使用服务标记来定义网络访问控制。 创建安全规则时，请使用服务标记代替特定 IP 地址。 在规则的相应源或目标字段中指定服务标记名称（例如 ApiManagement），即可允许或拒绝相应服务的流量。  **  
 
 <!--CORRECT ON *AzureCloud*-->
 
 可使用服务标记来实现网络隔离，保护 Azure 资源免受常规 Internet 侵害，同时访问具有公共终结点的 Azure 服务。 可创建入站/出站网络安全组规则，以拒绝进出 Internet 的流量并允许进出 AzureCloud 或特定 Azure 服务的其他[可用服务标记](#available-service-tags)的流量 。
 
-## <a name="available-service-tags"></a>可用服务标记
+## <a name="available-service-tags"></a><a name="available-service-tags"></a>可用服务标记
 下表列出了可在[网络安全组](/virtual-network/security-overview#security-rules)规则中使用的所有服务标记。
 
 列指示标记是否：
@@ -67,7 +67,7 @@ ms.locfileid: "86441193"
 | **AzureEventGrid** | Azure 事件网格。 | 推送、请求和匿名 | 否 | 否 |
 | **AzureIoTHub** | Azure IoT 中心。 | 出站 | 否 | 否 |
 | **AzureKeyVault** | Azure Key Vault。<br/><br/>*注意：* 此标记依赖于 **AzureActiveDirectory** 标记。 | 出站 | 是 | 是 |
-| **AzureLoadBalancer** | Azure 基础结构负载均衡器。 此标记将转换为[主机的虚拟 IP 地址](security-overview.md#azure-platform-considerations) (168.63.129.16)，Azure 的运行状况探测源于该 IP。 这不包括到 Azure 负载均衡器资源的流量。 如果不使用 Azure 负载均衡器，则可替代此规则。 | 推送、请求和匿名 | 否 | 否 |
+| **AzureLoadBalancer** | Azure 基础结构负载均衡器。 此标记将转换为[主机的虚拟 IP 地址](security-overview.md#azure-platform-considerations) (168.63.129.16)，Azure 的运行状况探测源于该 IP。 这只包括探测流量，而不包括到后端资源的实际流量。 如果不使用 Azure 负载均衡器，则可替代此规则。 | 推送、请求和匿名 | 否 | 否 |
 | **AzureMachineLearning** | Azure 机器学习。 | 推送、请求和匿名 | 否 | 是 |
 | **AzureMonitor** | Log Analytics、Application Insights、AzMon 和自定义指标（GiG 终结点）。<br/><br/>*注意：* 对于 Log Analytics，此标记依赖于 Storage 标记。 | 出站 | 否 | 是 |
 | **AzurePlatformDNS** | 基本基础结构（默认）DNS 服务。<br/><br />可以使用此标记来禁用默认 DNS。 使用此标记时要格外小心。 建议你阅读 [Azure 平台注意事项](/virtual-network/security-overview#azure-platform-considerations)。 我们还建议你在使用此标记之前执行测试。 | 出站 | 否 | 否 |
@@ -94,12 +94,12 @@ ms.locfileid: "86441193"
 | **PowerQueryOnline** | Power Query Online。 | 推送、请求和匿名 | 否 | 否 |
 | **服务总线** | 使用高级服务层级的 Azure 服务总线流量。 | 出站 | 是 | 是 |
 | **ServiceFabric** | Azure Service Fabric。<br/><br/>*注意：* 此标记表示每个区域的控制平面的 Service Fabric 服务终结点。 这使得客户能够从其 VNET（例如终结点： https:// chinanorth.servicefabric.azure.com）对其 Service Fabric 群集执行管理操作。 | 推送、请求和匿名 | 否 | 否 |
-| **Sql** | Azure SQL 数据库、Azure Database for MySQL、Azure Database for PostgreSQL和 Azure SQL 数据仓库。<br/><br/>*注意：* 此标记代表服务，而不是服务的特定实例。 例如，标记可表示 Azure SQL 数据库服务，但不能表示特定的 SQL 数据库或服务器。 此标记不适用于 SQL 托管实例。 | 出站 | 是 | 是 |
+| **Sql** | Azure SQL 数据库、Azure Database for MySQL、Azure Database for PostgreSQL 和 Azure Synapse Analytics。<br/><br/>*注意：* 此标记代表服务，而不是服务的特定实例。 例如，标记可表示 Azure SQL 数据库服务，但不能表示特定的 SQL 数据库或服务器。 此标记不适用于 SQL 托管实例。 | 出站 | 是 | 是 |
 | **SqlManagement** | SQL 专用部署的管理流量。 | 推送、请求和匿名 | 否 | 是 |
 | **存储** | Azure 存储。 <br/><br/>*注意：* 此标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure 存储服务，但不能表示特定的 Azure 存储帐户。 | 出站 | 是 | 是 |
 | **VirtualNetwork** | 虚拟网络地址空间（为虚拟网络定义的所有 IP 地址范围）、所有连接的本地地址空间、[对等互连](virtual-network-peering-overview.md)的虚拟网络、已连接到[虚拟网络网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%3ftoc.json)的虚拟网络、[主机的虚拟 IP 地址](security-overview.md#azure-platform-considerations)以及在[用户定义的路由](virtual-networks-udr-overview.md)上使用的地址前缀。 此标记还可能包含默认路由。 | 推送、请求和匿名 | 否 | 否 |
 
-<!--MOONCAKE: CORRECT ON Line 50 AzureCloud-->
+<!--MOONCAKE: CORRECT ON Line 55 AzureCloud-->
 <!--Not Available on **AzureAdvancedThreatProtection**-->
 <!--Not Available on **AzureDataLake**-->
 <!--Not Available on **AzureDevSpaces**-->
@@ -133,7 +133,7 @@ ms.locfileid: "86441193"
 
 - [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [Azure CLI](https://docs.azure.cn/cli/network?view=azure-cli-latest#az-network-list-service-tags)
+- [Azure CLI](https://docs.azure.cn/cli/network#az-network-list-service-tags)
 
 > [!NOTE]
 > 在公共预览版中，发现 API 返回的信息可能不如 JSON 下载所返回的信息新。 （请参阅下一节。）
@@ -147,6 +147,8 @@ ms.locfileid: "86441193"
 - [Azure 美国政府版](https://www.microsoft.com/download/confirmation.aspx?id=57063)  
 - [Azure 中国](https://www.microsoft.com/download/confirmation.aspx?id=57062) 
 - [Azure 德国](https://www.microsoft.com/download/confirmation.aspx?id=57064)   
+
+这些文件中的 IP 地址范围采用 CIDR 表示法。 
 
 <!--MOONCAKE: CUSTOMIZED ON THE URL-->
 

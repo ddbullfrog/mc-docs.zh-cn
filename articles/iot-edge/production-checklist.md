@@ -5,19 +5,19 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/10/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: aedc791de87bc0d9ae49bdde648606b415aafbd1
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: f0d82162433e4b9d2e875611ec21f285e0fd2573
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957807"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564555"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>准备在生产环境中部署 IoT Edge 解决方案
 
@@ -42,7 +42,7 @@ IoT Edge 设备的类型多种多样，其中包括 Raspberry Pi、便携式计�
 生产环境中的每个 IoT Edge 设备上需要安装设备证书颁发机构 (CA) 证书。 然后，在 config.yaml 文件中将该 CA 证书声明到 IoT Edge 运行时。 对于开发和测试场景，如果 config.yaml 文件中没有声明证书，则 IoT Edge 运行时将创建临时证书。 但是，这些临时证书将在三个月后过期，并且对于生产方案而言并不安全。 对于生产方案，你应该提供自己的设备 CA 证书，不管是自签名证书颁发机构颁发的证书，还是从商业证书颁发机构购买的证书。
 
 > [!NOTE]
-> 目前存在一个 libiothsm 限制，会阻止使用在 2050 年 1 月 1 日或之后过期的证书。
+> 目前存在一个 libiothsm 限制，会阻止使用在 2038 年 1 月 1 日或之后到期的证书。
 
 若要了解设备 CA 证书的作用，请参阅 [Azure IoT Edge 如何使用证书](iot-edge-certs.md)。
 
@@ -314,11 +314,12 @@ Azure IoT 中心与 IoT Edge 之间的信道始终配置为出站。 对于大�
    }
    ```
 
-### <a name="consider-tests-and-cicd-pipelines"></a>考虑测试和 CI/CD 管道
+<!-- ### Consider tests and CI/CD pipelines
 
-为使 IoT Edge 部署方案获得最大的效率，请考虑将生产部署集成到测试和 CI/CD 管道中。 Azure IoT Edge 支持多个 CI/CD 平台，包括 Azure DevOps。 有关详细信息，请参阅[向 Azure IoT Edge 进行持续集成和持续部署](how-to-ci-cd.md)。
+For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md). -->
 
 ## <a name="next-steps"></a>后续步骤
 
 * 了解有关 [IoT Edge 自动部署](module-deployment-monitoring.md)的详细信息。
-* 了解 IoT Edge 如何支持[持续集成和持续部署](how-to-ci-cd.md)。
+
+<!-- * See how IoT Edge supports [Continuous integration and continuous deployment](how-to-continuous-integration-continuous-deployment.md). -->

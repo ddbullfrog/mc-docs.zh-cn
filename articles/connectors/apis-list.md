@@ -7,16 +7,16 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 origin.date: 06/11/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0122ad4a1f7403aa30cf5a899b6f88ea9c413a95
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: b8403ddb8a9f19d377ca79dfa2fcd6324ea54ee6
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146712"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564451"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>适用于 Azure 逻辑应用的连接器
 
@@ -62,7 +62,7 @@ ms.locfileid: "91146712"
     | [**集成帐户连接器**](#integration-account-connectors) | 创建和付费购买集成帐户时可以使用这些连接器，它们会转换和验证 XML、编码和解码平面文件，以及使用 AS2、EDIFACT 和 X12 协议处理企业到企业 (B2B) 消息。 |
     |||
 
-    <!--Not Available on Gmial connectors-->
+<!--Not Available on Gmial connectors-->
 
 <!--Not Available on ### Connect from an integration service environment (ISE)-->
 <!--Not Available on * [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)-->
@@ -134,7 +134,7 @@ ms.locfileid: "91146712"
 | [![“Azure 服务总线”托管连接器][azure-service-bus-icon]<br />Azure 服务总线][azure-service-bus-doc] | 使用逻辑应用中最常用的连接器管理异步消息、会话和主题订阅。 |
 | [![SQL Server 托管连接器][sql-server-icon]<br />SQL Server][sql-server-doc] | 连接到本地 SQL Server 或云中的 Azure SQL 数据库，以便可以管理记录、运行存储过程或执行查询。 |
 | [![“Azure Blob 存储”托管连接器][azure-blob-storage-icon]<br />Azure Blob<br />存储][azure-blob-storage-doc] | 连接到存储帐户，以便可以创建和管理 Blob 内容。 |
-| [![Office 365 Outlook 托管连接器][office-365-outlook-icon]<br />Office 365<br />Outlook][office-365-outlook-doc] | 连接到 Office 365 电子邮件帐户，以便可以创建和管理电子邮件、任务、日历事件和会议、联系人、请求，等等。 |
+| [![Office 365 Outlook 托管连接器][office-365-outlook-icon]<br />Office 365<br />Outlook][office-365-outlook-doc] | 连接到工作或学校电子邮件帐户，以便可以创建和管理电子邮件、任务、日历事件和会议、联系人、请求，等等。 |
 | [![ 托管连接器][sftp-ssh-icon]<br />SFTP-SSH][sftp-ssh-doc] | 使用 SSH 连接到可从 Internet 访问的 SFTP 服务器，以便可以处理文件和文件夹。 |
 | [![SharePoint Online 托管连接器][sharepoint-online-icon]<br />SharePoint<br />Online][sharepoint-online-doc] | 连接到 SharePoint Online，以便可以管理文件、附件、文件夹，等等。 |
 | [![“Azure 队列”托管连接器][azure-queues-icon]<br />Azure <br />队列][azure-queues-doc] | 连接到 Azure 存储帐户，以便创建和管理队列与消息。 |
@@ -155,32 +155,32 @@ ms.locfileid: "91146712"
 
 :::row:::
     :::column:::
-        [![BizTalk Server 连接器][biztalk-server-icon]<br>BizTalk <br>Server][biztalk-server-doc]
+        [![BizTalk Server 连接器][biztalk-server-icon]<br />BizTalk <br />Server][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![SQL Server 连接器][sql-server-icon]<br>SQL <br>Server][sql-server-doc]
+        [![SQL Server 连接器][sql-server-icon]<br />SQL <br />Server][sql-server-doc]
     :::column-end:::
     :::column:::
-        [![Teradata 连接器][teradata-icon]<br>Teradata][teradata-doc]
+        [![Teradata 连接器][teradata-icon]<br />Teradata][teradata-doc]
     :::column-end:::
         :::column:::
-        [![SharePoint Server 连接器][sharepoint-server-icon]<br>SharePoint <br>Server][sharepoint-server-doc]
+        [![SharePoint Server 连接器][sharepoint-server-icon]<br />SharePoint <br />Server][sharepoint-server-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![MySQL 连接器][mysql-icon]<br>MySQL][mysql-doc]
+        [![MySQL 连接器][mysql-icon]<br />MySQL][mysql-doc]
     :::column-end:::
     :::column:::
-        [![Oracle DB 连接器][oracle-db-icon]<br>Oracle DB][oracle-db-doc]
+        [![Oracle DB 连接器][oracle-db-icon]<br />Oracle DB][oracle-db-doc]
     :::column-end:::
     :::column:::
-        [![PostgreSQL 连接器][postgre-sql-icon]<br>PostgreSQL][postgre-sql-doc]
+        [![PostgreSQL 连接器][postgre-sql-icon]<br />PostgreSQL][postgre-sql-doc]
     :::column-end:::
     :::column:::
     :::column-end:::
 
-<!--We align the SQL <br>Server, **Teradata**, on FIRST ROW-->
+<!--We align the SQL Server, **Teradata**, on FIRST ROW-->
 <!--Not Available on [ibm-db2-icon]-->
 <!--Not Available on [ibm-informix-icon]-->
 
@@ -192,44 +192,44 @@ ms.locfileid: "91146712"
 
 :::row:::
     :::column:::
-        [![AS2 解码操作][as2-icon]<br>AS2 <br>解码][as2-doc]
+        [![AS2 解码操作][as2-icon]<br />AS2 <br />解码][as2-doc]
     :::column-end:::
     :::column:::
-        [![AS2 编码操作][as2-icon]<br>AS2 <br>编码][as2-doc]
+        [![AS2 编码操作][as2-icon]<br />AS2 <br />编码][as2-doc]
     :::column-end:::
     :::column:::
-        [![EDIFACT 解码操作][edifact-icon]<br>EDIFACT <br>解码][edifact-decode-doc]
+        [![EDIFACT 解码操作][edifact-icon]<br />EDIFACT <br />解码][edifact-decode-doc]
     :::column-end:::
     :::column:::
-        [![EDIFACT 编码操作][edifact-icon]<br>EDIFACT <br>编码][edifact-encode-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![平面文件解码操作][flat-file-decode-icon]<br>平面文件<br>解码][flat-file-decode-doc]
-    :::column-end:::
-    :::column:::
-        [![平面文件编码操作][flat-file-encode-icon]<br>平面文件<br>编码][flat-file-encode-doc]
-    :::column-end:::
-    :::column:::
-        [![集成帐户操作][integration-account-icon]<br>集成<br>帐户][integration-account-doc]
-    :::column-end:::
-    :::column:::
-        [![Liquid 转换操作][liquid-icon]<br>Liquid <br>转换][json-liquid-transform-doc]
+        [![EDIFACT 编码操作][edifact-icon]<br />EDIFACT <br />编码][edifact-encode-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![X12 解码操作][x12-icon]<br>X12 <br>解码][x12-decode-doc]
+        [![平面文件解码操作][flat-file-decode-icon]<br />平面文件<br />解码][flat-file-decode-doc]
     :::column-end:::
     :::column:::
-        [![X12 编码操作][x12-icon]<br>X12 <br>编码][x12-encode-doc]
+        [![平面文件编码操作][flat-file-encode-icon]<br />平面文件<br />编码][flat-file-encode-doc]
     :::column-end:::
     :::column:::
-        [![XML 转换操作][xml-transform-icon]<br>XML <br>转换][xml-transform-doc]
+        [![集成帐户操作][integration-account-icon]<br />集成<br />帐户][integration-account-doc]
     :::column-end:::
     :::column:::
-        [![XML 验证操作][xml-validate-icon]<br>XML <br>验证][xml-validate-doc]
+        [![Liquid 转换操作][liquid-icon]<br />Liquid <br />转换][json-liquid-transform-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![X12 解码操作][x12-icon]<br />X12 <br />解码][x12-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![X12 编码操作][x12-icon]<br />X12 <br />编码][x12-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![XML 转换操作][xml-transform-icon]<br />XML <br />转换][xml-transform-doc]
+    :::column-end:::
+    :::column:::
+        [![XML 验证操作][xml-validate-icon]<br />XML <br />验证][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -293,6 +293,7 @@ ms.locfileid: "91146712"
 <!--Not Available on integration service environment(ISE)-->
 
 <a name="block-connections"></a>
+
 ## <a name="block-creating-connections"></a>阻止创建连接
 
 如果组织不允许使用 Azure 逻辑应用中的连接器连接到特定资源，则可以在逻辑应用工作流中使用 [Azure Policy](../governance/policy/overview.md) [阻止为特定连接器创建这些连接的功能](../logic-apps/block-connections-connectors.md)。 有关详细信息，请参阅[在 Azure 逻辑应用中阻止特定连接器创建的连接](../logic-apps/block-connections-connectors.md)。
@@ -323,7 +324,9 @@ ms.locfileid: "91146712"
 [http-request-icon]: ./media/apis-list/request.png
 [http-response-icon]: ./media/apis-list/response.png
 [http-swagger-icon]: ./media/apis-list/http-swagger.png
-[http-webhook-icon]: ./media/apis-list/http-webhook.png
+
+<!--Not Available on [http-webhook-icon]: ./media/apis-list/http-webhook.png-->
+
 [inline-code-icon]: ./media/apis-list/inline-code.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
@@ -342,9 +345,13 @@ ms.locfileid: "91146712"
 [azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
 [azure-data-lake-icon]: ./media/apis-list/azure-data-lake.png
 [azure-devops-icon]: ./media/apis-list/azure-devops.png
-[azure-document-db-icon]: ./media/apis-list/azure-document-db.png
+
+<!--Not Available on [azure-document-db-icon]: ./media/apis-list/azure-document-db.png-->
+
 [azure-event-grid-icon]: ./media/apis-list/azure-event-grid.png
-[azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png
+
+<!--Not Available on [azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png-->
+
 [azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
 [azure-file-storage-icon]: ./media/apis-list/azure-file-storage.png
 [azure-key-vault-icon]: ./media/apis-list/azure-key-vault.png
@@ -393,7 +400,9 @@ ms.locfileid: "91146712"
 [pagerduty-icon]: ./media/apis-list/pagerduty.png
 [pinterest-icon]: ./media/apis-list/pinterest.png
 [postgre-sql-icon]: ./media/apis-list/postgre-sql.png
-[project-online-icon]: ./media/apis-list/projecton-line.png
+
+<!--Not Available on [project-online-icon]: ./media/apis-list/projecton-line.png-->
+
 [redmine-icon]: ./media/apis-list/redmine.png
 [salesforce-icon]: ./media/apis-list/salesforce.png
 [sap-icon]: ./media/apis-list/sap.png
@@ -479,10 +488,6 @@ ms.locfileid: "91146712"
 [azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "连接到 Azure 存储帐户，以便创建、更新和查询表与其他对象"
 [biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "连接到 BizTalk Server，以便将基于 BizTalk 的应用程序与 Azure 逻辑应用一起运行"
 
-<!--Not Available on [box-doc]: ./connectors-create-api-box.md-->
-<!--Not Available on [dropbox-doc]: ./connectors-create-api-dropbox.md-->
-<!--Not Available on [dynamics-365-doc]: ./connectors-create-api-crmonline.md-->
-<!--Not Available on [facebook-doc]: ./connectors-create-api-facebook.md-->
 <!--Not Available on [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md-->
 
 [ftp-doc]: ./connectors-create-api-ftp.md "连接到 FTP/FTPS 服务器以执行 FTP 任务，例如上传、获取、删除文件，等等"
@@ -490,7 +495,6 @@ ms.locfileid: "91146712"
 <!--Not Available on [github-doc]: ./connectors-create-api-github.md-->
 
 <!--Not Available on [google-calendar-doc]: ./connectors-create-api-googlecalendar.md-->
-<!--Not Available on [google-drive-doc]: ./connectors-create-api-googledrive.md-->
 <!--Not Available on [google-sheets-doc]: ./connectors-create-api-googlesheet.md-->
 <!--Not Available on [google-tasks-doc]: ./connectors-create-api-googletasks.md-->
 <!--Not Available on [ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md-->
@@ -500,29 +504,23 @@ ms.locfileid: "91146712"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "连接到本地或 Azure 中的 IBM MQ 以发送和接收消息"
 
 <!--Not Available on [instagram-doc]: ./connectors-create-api-instagram.md-->
-<!--Not Available on [mailchimp-doc]: ./connectors-create-api-mailchimp.md-->
 <!--Not Available on [mandrill-doc]: ./connectors-create-api-mandrill.md-->
 
 [mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "连接到本地 MySQL 数据库，以便读取和写入数据"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "连接到 Office 365 帐户，以便发送和接收电子邮件、管理日历和联系人，以及执行其他操作"
-[office-365-users-doc]: ./connectors-create-api-office365-users.md
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "连接到工作或学校帐户，以便发送和接收电子邮件、管理日历和联系人，以及执行其他操作"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "连接到个人 Azure OneDrive，以便上传、删除、列出文件，以及执行其他操作"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "连接到企业 Azure OneDrive，以便上传、删除、列出文件，以及执行其他操作"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "连接到 Oracle 数据库，以便添加、插入、删除行，以及执行其他操作"
 [outlook.com-doc]: ./connectors-create-api-outlook.md "连接到 Outlook 邮箱，以便管理电子邮件、日历、联系人，以及执行其他操作"
 [postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "连接到 PostgreSQL 数据库，以便从表中读取数据"
-
-<!--Not Available on [project-online-doc]: ./connectors-create-api-projectonline.md-->
-
-[rss-doc]: ./connectors-create-api-rss.md "发布和检索源项，在新项发布到 RSS 源时触发操作"
 [salesforce-doc]: ./connectors-create-api-salesforce.md "连接到 Salesforce 帐户。管理帐户、潜在客户、商机等"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "连接到本地 SAP 系统"
 
 <!--Not Available on [sendgrid-doc]: ./connectors-create-api-sendgrid.md-->
 
 [sftp-ssh-doc]: ./connectors-sftp-ssh.md "使用 SSH 连接到 SFTP 帐户。上传、获取、删除文件，等等"
-[sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "连接到 SharePoint 本地服务器。管理文档、列出项，等等"
-[sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "连接到 SharePoint Online。管理文档、列出项，等等"
+[sharepoint-server-doc]: ./connectors-create-api-sharepoint.md "连接到 SharePoint 本地服务器。管理文档、列出项，等等"
+[sharepoint-online-doc]: ./connectors-create-api-sharepoint.md "连接到 SharePoint Online。管理文档、列出项，等等"
 
 <!--Not Available on [slack-doc]: ./connectors-create-api-slack.md-->
 
@@ -533,10 +531,7 @@ ms.locfileid: "91146712"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "连接到 Azure SQL 数据库或 SQL Server。在 SQL 数据库表中创建、更新、获取和删除条目"
 [teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "连接到 Teradata 数据库以从表中读取数据"
 
-<!--Not Available on [trello-doc]: ./connectors-create-api-trello.md-->
 <!--Not Available on [twilio-doc]: ./connectors-create-api-twilio.md-->
-<!--Not Available on [twitter-doc]: ./connectors-create-api-twitter.md-->
-<!--Not Available on [yammer-doc]: ./connectors-create-api-yammer.md-->
 <!--Not Available on [youtube-doc]: ./connectors-create-api-youtube.md-->
 
 <!--Enterprise Intregation Pack doc links-->

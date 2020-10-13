@@ -1,20 +1,22 @@
 ---
 title: 排查 Azure VM 连接性问题
-author: rockboyfor
-ms.author: v-yeche
 manager: digimobile
 audience: ITPro
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: virtual-network
 localization_priority: Normal
 origin.date: 08/29/2019
-ms.date: 09/23/2019
-ms.openlocfilehash: a41ecf039ebce8e0106756a14b08eb90917d35d9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: 10/05/2020
+ms.author: v-yeche
+ms.openlocfilehash: cd834224f89b7a81b03569edccaedfefbfad5694
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71306878"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564548"
 ---
 # <a name="troubleshoot-azure-vm-connectivity-problems"></a>排查 Azure VM 连接性问题
 
@@ -40,7 +42,7 @@ ms.locfileid: "71306878"
 3. 导航到 TCping 所下载到的文件夹。
 4. 使用以下命令从源 VM ping 目标：
 
-    ![TCping](media/troubleshoot-vm-connectivity/tcping.png)
+    :::image type="content" source="media/troubleshoot-vm-connectivity/tcping.png" alt-text="屏幕截图显示一个连续对 IP 地址执行 ping 操作的命令提示符窗口。":::
 
     ```cmd
     tcping64.exe -t <destination VM address> 3389
@@ -129,7 +131,7 @@ Hops             : [
 
 1. 在收到的连接性检查响应的“跃点”部分，检查列出的**问题**。 
 
-    ![连接性响应](media/troubleshoot-vm-connectivity/connectivity-response.png)
+    :::image type="content" source="media/troubleshoot-vm-connectivity/connectivity-response.png" alt-text="屏幕截图显示一个连续对 IP 地址执行 ping 操作的命令提示符窗口。":::
 
 2. 在下表中找到相应的解决方法，按指示的步骤解决问题。
 
@@ -151,7 +153,7 @@ Hops             : [
 
 默认情况下，辅助网络适配器（也称为网络接口卡或网络适配器）未配置为拥有默认网关。 因此，辅助适配器上的通信流会限制在同一子网内。
 
-![IP 配置](media/troubleshoot-vm-connectivity/ipconfig.png)
+:::image type="content" source="media/troubleshoot-vm-connectivity/ipconfig.png" alt-text="屏幕截图显示一个连续对 IP 地址执行 ping 操作的命令提示符窗口。":::
 
 如果用户要启用辅助网络适配器，以在自己的子网外部通信，则必须在路由表中添加一个条目来配置网关。 为此，请执行以下步骤：
 
@@ -170,7 +172,7 @@ Hops             : [
 
 3. 运行 route print。 如果条目已成功添加，则会看到一个如下所示的条目：
 
-    ![IP 路由](media/troubleshoot-vm-connectivity/iproute.png)
+    :::image type="content" source="media/troubleshoot-vm-connectivity/iproute.png" alt-text="屏幕截图显示一个连续对 IP 地址执行 ping 操作的命令提示符窗口。":::
 
 现在，尝试连接到辅助网络适配器。 如果连接仍未成功，请转到下一步。
 
@@ -178,7 +180,7 @@ Hops             : [
 
 针对主网络适配器和辅助网络适配器，检查两个网络适配器上的默认“入站端口规则”（“允许 VNet 入站”、“允许负载均衡器入站”）。 还应确保优先级较低的规则下没有匹配的阻止规则。
 
-![NSG](media/troubleshoot-vm-connectivity/nsg.png)
+:::image type="content" source="media/troubleshoot-vm-connectivity/nsg.png" alt-text="屏幕截图显示一个连续对 IP 地址执行 ping 操作的命令提示符窗口。":::
 
 #### <a name="step-3-run-a-connectivity-check-to-the-secondary-network-adapter"></a>步骤 3：运行针对辅助网络适配器的连接性检查。
 
@@ -230,8 +232,14 @@ Hops             : [
 #### <a name="step-4-refer-the-table-under-step-5-and-follow-these-steps-to-resolve-the-issues"></a>步骤 4：参阅[步骤 5](#step-5-fix-the-issue-in-the-connectivity-check-result) 下的表，按这些步骤解决问题。
 
 <!--Not Available on ### Azure VM cannot connect to the internet-->
+<!--Not Available on portal
+7. Select the **Read/Write** option at the top of the portal.
+8. Select the **Edit** option.
+-->
 <!--Not Available on [Resource Explorer portal](https://resources.azure.com/)-->
 
 ## <a name="next-steps"></a>后续步骤
 
 [排查 Azure VM 间的连接问题](/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms)
+
+<!-- Update_Description: update meta properties, wording update, update link -->

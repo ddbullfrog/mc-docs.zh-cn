@@ -4,17 +4,17 @@ description: 概述了适用于准备在 Azure IoT 设备预配服务 (DPS) 中�
 author: timlt
 ms.author: v-tawe
 origin.date: 03/02/2020
-ms.date: 04/20/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 21122b471ecab8d5dd572750e80e6c22cd1abfbb
-ms.sourcegitcommit: 89ca2993f5978cd6dd67195db7c4bdd51a677371
+ms.openlocfilehash: ddee9f413f70aa1c74195d3b97a82c6768c71a68
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82588861"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564489"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>适用于 Azure IoT 设备制造商的安全做法
 随着越来越多的制造商发行 IoT 设备，了解常见做法指导会很有帮助。 本文汇总了在制造与 Azure IoT 设备预配服务 (DPS) 配合使用的设备时要考虑的建议安全做法。  
@@ -184,7 +184,7 @@ TPM 的缺点：
 #### <a name="step-5-device-is-installed-into-the-location"></a>步骤 5：将设备安装在目标位置
 设备抵达其最终目标位置后，将通过 DPS 完成自动预配过程。
 
-有关详细信息，请参阅[自动预配概念](concepts-auto-provisioning.md)和 [TPM 证明](concepts-tpm-attestation.md)。 
+有关详细信息，请参阅[预配](about-iot-dps.md#provisioning-process)和 [TPM 证明](concepts-tpm-attestation.md)。 
 
 ## <a name="resources"></a>资源
 

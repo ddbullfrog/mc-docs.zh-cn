@@ -1,9 +1,8 @@
 ---
 title: 在 Azure 中排查出站 SMTP 连接问题 | Azure
-description: 了解如何在 Azure 中排查出站 SMTP 连接问题。
+description: 了解发送电子邮件的建议方法，以及如何对 Azure 中的出站 SMTP 连接问题进行故障排除。
 services: virtual-network
-author: rockboyfor
-manager: digimobile
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-network
 ms.devlang: na
@@ -11,14 +10,17 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/20/2018
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: c88579539f50a6f8c5547c3d7ece44bc13b11df2
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: 149cfa9d40ce951e8f1d0e78225e9f3fe9159381
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487077"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564164"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>在 Azure 中排查出站 SMTP 连接问题
 

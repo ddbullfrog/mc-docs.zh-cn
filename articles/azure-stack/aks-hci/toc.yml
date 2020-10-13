@@ -1,0 +1,55 @@
+- name: Azure Stack HCI 上的 Azure Kubernetes 服务文档
+  href: index.yml
+- name: 概述
+  items:
+    - name: Azure Stack HCI 上的 Azure Kubernetes 服务
+      href: overview.md
+- name: 快速入门
+  expanded: true
+  items:
+    - name: 设置 Azure Stack HCI 上的 Azure Kubernetes 服务
+      items:
+        - name: 使用 Windows Admin Center
+          href: setup.md
+        - name: 使用 PowerShell
+          href: setup-powershell.md
+    - name: 创建 Kubernetes 群集
+      items:
+        - name: 使用 Windows Admin Center
+          href: create-kubernetes-cluster.md
+        - name: 使用 PowerShell
+          href: create-kubernetes-cluster-powershell.md
+- name: 教程
+  items:
+    - name: 使用 Windows Server 容器
+      href: deploy-windows-application.md
+    - name: 使用 Linux 容器
+      href: deploy-linux-application.md
+- name: 概念
+  items:
+    - name: Azure Stack HCI 上的 Azure Kubernetes 概念
+      href: kubernetes-concepts.md
+    - name: 系统要求
+      href: system-requirements.md
+- name: 操作指南
+  items:
+    - name: 针对混合 OS Kubernetes 群集调整应用
+      href: adapt-apps-mixed-os-clusters.md
+    - name: 在 Windows 容器中使用持久存储并为 gMSA 做好准备
+      href: persistent-storage-windows-nodes.md
+    - name: 故障排除
+      href: troubleshoot.md
+- name: 相关内容
+  items:
+    - name: Azure Stack HCI
+      href: ../hci/index.yml
+    - name: Windows Admin Center
+      href: 'https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center'
+    - name: Azure 混合云
+      href: 'https://docs.microsoft.com/hybrid'
+    - name: Windows Server
+      href: 'https://docs.microsoft.com/windows-server/'
+- name: 资源
+  items:
+    - name: 已知问题
+      href: known-issues.md

@@ -1,21 +1,21 @@
 ---
-title: 使用 Python 将模拟的 X.509 设备预配到 Azure IoT 中心
+title: 快速入门 - 使用 Python 将模拟的 X.509 设备预配到 Azure IoT 中心
 description: 快速入门 - 使用适用于 IoT 中心设备预配服务 (DPS) 的 Python 设备 SDK 创建和预配模拟的 X.509 设备。 本快速入门使用单独注册。
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2019
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 59a86d70f12ac4b0c182f308b2f969e834d9e9e3
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: 2c8479b17b9a5b8d6783a510660e02389659964e
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951308"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564577"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>快速入门：使用适用于 IoT 中心设备预配服务的 Python 设备 SDK 创建和预配模拟的 X.509 设备
 
@@ -25,7 +25,7 @@ ms.locfileid: "88951308"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 查看[自动预配概念](concepts-auto-provisioning.md)。
+- 熟悉[预配](about-iot-dps.md#provisioning-process)概念。
 - 完成[通过 Azure 门户设置 IoT 中心设备预配服务](./quick-setup-auto-provision.md)。
 - 具有活动订阅的 Azure 帐户。 [创建一个试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
 - [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/)，结合使用通过 C++ 进行的桌面开发。

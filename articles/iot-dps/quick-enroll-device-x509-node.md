@@ -1,21 +1,21 @@
 ---
-title: 使用 Node.js 将 X.509 设备注册到 Azure 设备预配服务
+title: 快速入门 - 使用 Node.js 将 X.509 设备注册到 Azure 设备预配服务
 description: 本快速入门使用组注册。 本快速入门将使用 Node.js 服务 SDK 将 X.509 设备注册到 Azure IoT 中心设备预配服务 (DPS)
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2019
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 90ebe783782e4209b7fd4d1cba1247ea6387c691
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: cb3db4e553763ec2bcca1a6034373a1950ca94ae
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951298"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564569"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>快速入门：使用 Node.js 将 X.509 设备注册到设备预配服务
 

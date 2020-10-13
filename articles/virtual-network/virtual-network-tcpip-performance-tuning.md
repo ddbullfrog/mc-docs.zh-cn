@@ -3,8 +3,7 @@ title: 适用于 Azure VM 的 TCP/IP 性能优化 | Azure
 description: 了解各种常用的 TCP/IP 性能优化技术及其与 Azure VM 之间的关系。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: paragk
 editor: ''
 ms.assetid: ''
 ms.service: virtual-network
@@ -13,14 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/02/2019
-ms.date: 07/22/2019
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 23c96bb11921c2f71359f08232a099e9ecdc8008
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
+ms.openlocfilehash: b1e6132150df4bf58b7647a876704d9505639cbf
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "68514182"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564509"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>适用于 Azure VM 的 TCP/IP 性能优化
 
@@ -127,16 +130,15 @@ PMTUD 过程的效率低下，会影响网络性能。 如果发送的数据包�
 
 <!--MOONCAKE: Beijing to Shangehai 1080-->
 
-| | | | |
-|-|-|-|-|
-|**Route**|**距离**|**单向时间**|**RTT**|
+| 路由 | 距离 | 单向时间 | RTT |
+| ----- | -------- | ------------ | --- |
 |北京到上海|1,080 公里|5.4 毫秒|10.8 毫秒|
 
 此表显示了两个位置之间的直线距离。 网络中的距离往往大于直线距离。 下面是计算受制于光速的最小 RTT 的简单公式：
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-可以使用 200 作为传播速度。 这是光在 1 毫秒内传播的距离（以米为单位）。
+可以使用 200 作为传播速度。 这是光在 1 毫秒内传播的距离（以千米为单位）。
 
 我们以从北京到上海为例。 两者之间的直线距离为 1,080 公里。 将该值插入公式，会得到以下结果：
 
@@ -164,9 +166,8 @@ PMTUD 过程的效率低下，会影响网络性能。 如果发送的数据包�
 
 下表显示了单个 TCP 连接的最大每秒兆字节吞吐量。 （为便于阅读，此处使用了每秒兆字节作为度量单位。）
 
-| | | | |
-|-|-|-|-|
-|**TCP 窗口大小（字节）**|**RTT 延迟（毫秒）**|**最大每秒兆字节吞吐量**|**最大每秒兆位吞吐量**|
+| TCP 窗口大小（字节） | RTT 延迟（毫秒） | 最大每秒兆字节吞吐量 | 最大每秒兆位吞吐量 |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65,535|1|65.54|524.29|
 |65,535|30|2.18|17.48|
 |65,535|60|1.09|8.74|
@@ -181,9 +182,8 @@ TCP 窗口缩放可以动态增大 TCP 窗口大小，以便在需要收到确�
 
 下表演示了这些关系：
 
-| | | | |
-|-|-|-|-|
-|**TCP 窗口大小（字节）**|**RTT 延迟（毫秒）**|**最大每秒兆字节吞吐量**|**最大每秒兆位吞吐量**|
+| TCP 窗口大小（字节） | RTT 延迟（毫秒） | 最大每秒兆字节吞吐量 | 最大每秒兆位吞吐量 |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65,535|30|2.18|17.48|
 |131,070|30|4.37|34.95|
 |262,140|30|8.74|69.91|
@@ -223,13 +223,12 @@ Set-NetTCPSetting
 
 下面是 `AutoTuningLevel` 的有效 TCP 设置：
 
-| | | | |
-|-|-|-|-|
-|**AutoTuningLevel**|**缩放因子**|**缩放乘数**|**用于计算<br/>最大窗口大小的公式**|
-|已禁用|无|无|窗口大小|
+| AutoTuningLevel | 缩放因子 | 缩放乘数 | 用于计算<br/>窗口大小的公式 |
+| --------------- | -------------- | ------------------ | -------------------------------------------- |
+|禁用|无|无|窗口大小|
 |受限|4|2^4|窗口大小 * (2^4)|
 |严格限制|2|2^2|窗口大小 * (2^2)|
-|一般|8|2^8|窗口大小 * (2^8)|
+|普通|8|2^8|窗口大小 * (2^8)|
 |实验|14|2^14|窗口大小 * (2^14)|
 
 这些设置很有可能会影响 TCP 性能，但请记住，Internet 中不受 Azure 控制的许多其他因素也可能会影响 TCP 性能。
@@ -293,7 +292,7 @@ Azure 提供多种 VM 大小和类型，每种大小和类型的性能各不相�
 
 Azure 虚拟机上至少附加了一个网络接口。 它们可能包含多个网络接口。 分配给某个虚拟机的带宽是流经所有网络接口（已连接到该虚拟机）的所有出站流量的总和。 换言之，带宽是按虚拟机分配的，而不管该虚拟机上附加了多少个网络接口。
 
-[Azure 中 Windows 虚拟机的大小](/virtual-machines/windows/sizes?toc=%2fvirtual-network%2ftoc.json)详细说明了每种 VM 大小支持的预期出站吞吐量和网络接口数。 若要查看最大吞吐量，请选择一种类型（例如“常规用途”），然后在结果页上找到有关大小系列的部分（例如“Dv2 系列”）。  对于每个系列，有一个表格的最后一列中提供了网络规范，其标题为“最大 NIC 数/预期网络带宽 (MBps)”。
+[Azure 中 Windows 虚拟机的大小](/virtual-machines/windows/sizes?toc=%2fvirtual-network%2ftoc.json)详细说明了每种 VM 大小支持的预期出站吞吐量和网络接口数。 若要查看最大吞吐量，请选择一种类型（例如“常规用途”），然后在结果页上找到有关大小系列的部分（例如“Dv2 系列”）。**** 对于每个系列，有一个表格的最后一列中提供了网络规范，其标题为“最大 NIC 数/预期网络带宽 (MBps)”。
 
 吞吐量限制适用于虚拟机。 吞吐量不受这些因素的影响：
 
@@ -331,7 +330,9 @@ Azure 区域由一个笼统的地理区域中的多个数据中心构成。 这�
 
 例如，同一个虚拟网络和子网中的两个 VM 可能位于不同的机架、设备排中，甚至位于不同的数据中心内。 它们可能会按光纤电缆的英尺或公里数相分隔。 这种变数可能会在不同的 VM 之间造成可变的延迟（相差几毫秒）。
 
-VM 的地理位置以及两个 VM 之间的潜在延迟可能受可用性集和可用性区域的配置影响。 但是，某个区域中数据中心之间的距离与该区域直接相关，主要受该区域中数据中心拓扑的影响。
+VM 的地理位置以及两个 VM 之间的潜在延迟可能受可用性集的配置影响。 但是，某个区域中数据中心之间的距离与该区域直接相关，主要受该区域中数据中心拓扑的影响。
+
+<!--Not Available on Availability Zones-->
 
 ### <a name="source-nat-port-exhaustion"></a>源 NAT 端口耗尽
 
@@ -347,7 +348,7 @@ Azure 中的部署可与 Azure 外部的公共 Internet 和/或公共 IP 地址�
 
 ### <a name="measure-round-trip-time-and-packet-loss"></a>测量往返时间和丢包率
 
-TCP 性能严重依赖于 RTT 和丢包率。 测量 RTT 和丢包率的最简单方法是使用 Windows 和 Linux 中提供的 PING 实用工具。 PING 的输出会显示源与目标之间的最小/最大/平均延迟。 它还会显示丢包率。 PING 默认使用 ICMP 协议。 可以使用 PsPing 来测试 TCP RTT。 有关详细信息，请参阅 [PsPing](https://docs.microsoft.com/zh-cn/sysinternals/downloads/psping)。
+TCP 性能严重依赖于 RTT 和丢包率。 测量 RTT 和丢包率的最简单方法是使用 Windows 和 Linux 中提供的 PING 实用工具。 PING 的输出会显示源与目标之间的最小/最大/平均延迟。 它还会显示丢包率。 PING 默认使用 ICMP 协议。 可以使用 PsPing 来测试 TCP RTT。 有关详细信息，请参阅 [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)。
 
 ### <a name="measure-actual-throughput-of-a-tcp-connection"></a>测量 TCP 连接的实际吞吐量
 
@@ -365,7 +366,7 @@ NTttcp 是用于测试 Linux 或 Windows VM 的 TCP 性能的工具。 可以更
 
 - [排查 Expressroute 网络性能问题](/expressroute/expressroute-troubleshooting-network-performance)
 
-- [如何验证虚拟网络的 VPN 吞吐量](/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
+- [如何验证到达虚拟网络的 VPN 吞吐量](/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>检测低效的 TCP 行为
 
@@ -378,3 +379,5 @@ NTttcp 是用于测试 Linux 或 Windows VM 的 TCP 性能的工具。 可以更
 ## <a name="next-steps"></a>后续步骤
 
 了解 Azure VM 的 TCP/IP 性能优化后，我们建议了解[规划虚拟网络](/virtual-network/virtual-network-vnet-plan-design-arm)时的其他考虑因素，或[详细了解如何连接和配置虚拟网络](/virtual-network/)。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

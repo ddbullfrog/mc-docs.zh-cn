@@ -4,7 +4,6 @@ titlesuffix: Azure Virtual Network
 description: 了解 Azure 中的公共 IP 地址。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 manager: digimobile
 ms.service: virtual-network
 ms.subservice: ip-services
@@ -13,14 +12,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/28/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: fabd7d9f4e918c59d7e41b11567436b39850863d
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: a0bfbf2340aa8dafe865ffc59eaebd1241a7b9bc
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946125"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564550"
 ---
 # <a name="public-ip-addresses"></a>公共 IP 地址
 
@@ -38,8 +40,7 @@ ms.locfileid: "85946125"
 
 公共 IP 地址是使用 IPv4 或 IPv6 地址创建的。 
 
-<a name="SKU"></a>
-## <a name="sku"></a>SKU
+## <a name="sku"></a><a name="sku"></a>SKU
 
 使用以下 SKU 之一创建公共 IP 地址：
 
@@ -167,11 +168,17 @@ ms.locfileid: "85946125"
 
 ## <a name="application-gateways"></a>应用程序网关
 
-将公共 IP 地址分配给网关的**前端**配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fvirtual-network%2ftoc.json)相关联。 此公共 IP 地址充当负载均衡型 VIP。 只能将动态基本公共 IP 地址分配给应用网关 V1 前端配置，并且只能将静态标准 SKU 地址分配给 V2 前端配置。
+将公共 IP 地址分配给网关的**前端**配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fvirtual-network%2ftoc.json)相关联。 
 
 * 将“动态”基本公共 IP 地址分配给应用程序网关 V1 前端配置。 
 
 <!--Not Available on * Assign a **static** standard SKU address to a V2 front-end configuration.-->
+
+## <a name="azure-firewall"></a>Azure 防火墙
+
+[Azure 防火墙](../firewall/overview.md?toc=%2fvirtual-network%2ftoc.json)使你可以跨订阅和虚拟网络创建、实施和记录应用程序与网络连接策略。
+
+只能将静态标准公共 IP 地址与防火墙关联。 这允许外部防火墙识别源自虚拟网络的流量。 
 
 ## <a name="at-a-glance"></a>概览
 
@@ -183,6 +190,7 @@ ms.locfileid: "85946125"
 | 面向 Internet 的负载均衡器 |前端配置 |是 |是 |
 | VPN 网关 |网关 IP 配置 |是 |否 |
 | 应用程序网关 |前端配置 |是（仅限 V1） |是（仅限 V2） |
+| Azure 防火墙 | 前端配置 | 否 | 是|
 
 ## <a name="limits"></a>限制
 
@@ -198,5 +206,4 @@ Azure 中的[网络限制](../azure-resource-manager/management/azure-subscripti
 * 了解 [Azure 中的专用 IP 地址](private-ip-addresses.md)
 * [使用 Azure 门户通过静态公共 IP 部署 VM](virtual-network-deploy-static-pip-arm-portal.md)
 
-<!-- Update_Description: new article about public ip addresses -->
-<!--NEW.date: 07/06/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,17 +5,17 @@ author: stevebus
 manager: philmea
 ms.author: v-tawe
 origin.date: 08/12/2020
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 7b291be2e9bfbaa0562bc3f58fdbb9f90a489920
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: f5be04f67e8fa25b6b6bdd69623d082214243c41
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957786"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564481"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>了解 Azure IoT Edge 使用证书的方式
 
@@ -35,7 +35,7 @@ IoT Edge 证书由模块和下游 IoT 设备用来验证 [IoT Edge 中心](iot-e
 ![典型证书关系图](./media/iot-edge-certs/edgeCerts-general.png)
 
 > [!NOTE]
-> 目前，存在一个 libiothsm 限制，会阻止使用在 2050 年 1 月 1 日或之后过期的证书。 此限制适用于设备 CA 证书、信任捆绑包中的任何证书和用于 X.509 预配方法的设备 ID 证书。
+> 目前存在一个 libiothsm 限制，会阻止使用在 2038 年 1 月 1 日或之后到期的证书。 此限制适用于设备 CA 证书、信任捆绑包中的任何证书和用于 X.509 预配方法的设备 ID 证书。
 
 ### <a name="certificate-authority"></a>证书颁发机构
 

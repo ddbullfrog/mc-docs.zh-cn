@@ -1,30 +1,12 @@
 ---
-title: 适用于虚拟网络的 Azure CLI 示例
-description: 适用于虚拟网络的 Azure CLI 示例。
-services: virtual-network
-documentationcenter: virtual-network
-author: rockboyfor
-manager: digimobile
-ms.service: virtual-network
-ms.devlang: na
-ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
-origin.date: 07/15/2019
-ms.date: 07/06/2020
-ms.author: v-yeche
-ms.openlocfilehash: c08d07e88cb6f287a0b4f26fb4f4aca511e78617
-ms.sourcegitcommit: af71b9199d47fb81e85d70da0cfb265cc814a644
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969001"
+title:适用于虚拟网络的 Azure CLI 示例：了解可用于在 Azure CLI 中完成任务的各种示例脚本，包括为多层应用程序创建虚拟网络。
+services: virtual-network documentationcenter: virtual-network manager: mtillman editor: '' tags: ms.assetid： ms.service: virtual-network ms.devlang: na ms.topic: sample ms.tgt_pltfrm: ms.workload: infrastructure origin.date:07/15/2019 author: rockboyfor ms.date:10/05/2020 ms.testscope: no ms.testdate: null ms.author: v-yeche ms.custom: devx-track-azurecli
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>适用于虚拟网络的 Azure CLI 示例
 
 下表包含指向使用 Azure CLI 命令的 bash 脚本的链接：
 
-| | |
+| Script | 说明 |
 |----|----|
 | [为多层应用程序创建虚拟网络](./scripts/virtual-network-cli-sample-multi-tier-application.md) | 创建包含前端和后端子网的虚拟网络。 传入前端子网的流量仅限 HTTP 和 SSH，而传入后端子网的流量限于 MySQL、端口 3306。 |
 | [两个对等虚拟网络](./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md) | 在同一区域中创建并连接两个虚拟网络。 |

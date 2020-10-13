@@ -3,15 +3,16 @@ title: 传输项目
 description: 使用 Azure 存储帐户创建传输管道，将映像集合或其他项目从一个容器注册表传输到另一个注册表
 ms.topic: article
 origin.date: 05/08/2020
-ms.date: 06/08/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 11d7788a14a4055f72f6d49d082124169e7060e5
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.openlocfilehash: 66d1de3865bc9c52046f2901348df8004c1bd410
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84654894"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564137"
 ---
 <!--Verified successfuly, ONLY CHARACTERS CONTENT-->
 <!--Parameter Value have been change in content-->
@@ -40,7 +41,7 @@ ms.locfileid: "84654894"
 * **存储帐户** - 在选择的订阅和位置中创建源和目标存储帐户。 出于测试目的，可使用与源和目标注册表相同的一个或多个订阅。 对于跨云方案，通常在每个云中创建一个单独的存储帐户。 如果需要，请使用 [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) 或其他工具创建存储帐户。 
 
     在每个帐户中创建用于传输项目的 blob 容器。 例如，创建一个名为 transfer 的容器。 两个或多个传输管道可以共享同一个存储帐户，但应使用不同的存储容器作用域。
-* **密钥保管库** - 需要使用密钥保管库来存储用于访问源和目标存储帐户的 SAS 令牌机密。 请在与源和目标注册表相同的一个或多个 Azure 订阅中创建源和目标密钥保管库。 如果需要，请使用 [Azure CLI](../key-vault/quick-create-cli.md) 或其他工具创建密钥保管库。
+* **密钥保管库** - 需要使用密钥保管库来存储用于访问源和目标存储帐户的 SAS 令牌机密。 请在与源和目标注册表相同的一个或多个 Azure 订阅中创建源和目标密钥保管库。 如果需要，请使用 [Azure CLI](../key-vault/secrets/quick-create-cli.md) 或其他工具创建密钥保管库。
 * **环境变量** - 对于本文中的示例命令，可为源和目标环境设置以下环境变量。 所有示例的格式都适用于 Bash shell。
     ```console
     SOURCE_RG="<source-resource-group>"
@@ -62,7 +63,7 @@ ms.locfileid: "84654894"
 * **[PipelineRun](#create-pipelinerun-for-export-with-resource-manager)** - 用于调用 ExportPipeline 或 ImportPipeline 资源的资源。  
     * 创建 PipelineRun 资源并指定要导出的项目可手动运行 ExportPipeline。  
     * 如果启用了导入触发器，ImportPipeline 则会自动运行。 还可以使用 PipelineRun 手动运行。 
-    * 当前每个 PipelineRun 最多可传输 10 个项目。
+    * 当前每个 PipelineRun 最多可传输 50 个项目。
 
 ### <a name="things-to-know"></a>使用须知
 * ExportPipeline 和 ImportPipeline 通常位于与源和目标云关联的不同 Active Directory 租户中。 此方案需要单独的托管标识和密钥保管库，以用于导出和导入资源。 出于测试目的，可以将这些资源放在同一个云中，以共享标识。
@@ -252,7 +253,7 @@ az deployment group create \
 
 ```azurecli
 az storage blob list \
-  --account-name $SA_SOURCE
+  --account-name $SOURCE_SA
   --container transfer
   --output table
 ```
@@ -261,7 +262,7 @@ az storage blob list \
 
 使用 AzCopy 工具或其他方法将 [blob 数据](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts)从源存储帐户传输到目标存储帐户。
 
-例如，以下 [`azcopy copy`](/storage/common/storage-ref-azcopy-copy) 命令会将源帐户下 transfer 容器中的 myblob 复制到目标帐户下的 transfer 容器 。 如果该 blob 存在于目标帐户中，则会被覆盖。 身份验证使用对源和目标容器具有相应权限的 SAS 令牌。 （未显示用于创建令牌的步骤。）
+例如，以下 [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) 命令会将源帐户下 transfer 容器中的 myblob 复制到目标帐户下的 transfer 容器 。 如果该 blob 存在于目标帐户中，则会被覆盖。 身份验证使用对源和目标容器具有相应权限的 SAS 令牌。 （未显示用于创建令牌的步骤。）
 
 ```console
 azcopy copy \
@@ -295,6 +296,8 @@ az acr repository list --name <target-registry-name>
 |pipelineResourceId     |  导入管道的资源 ID。<br/>示例： `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/importPipelines/myImportPipeline`       |
 |sourceName     |  存储帐户中已导出项目的现有 blob 名称，如 myblob
 
+如果重新部署具有相同属性的 PipelineRun 资源，则还必须使用 [forceUpdateTag](#redeploy-pipelinerun-resource) 属性。
+
 运行 [az deployment group create][az-deployment-group-create] 以运行资源。
 
 ```azurecli
@@ -308,6 +311,23 @@ az deployment group create \
 
 ```azurecli
 az acr repository list --name <target-registry-name>
+```
+
+## <a name="redeploy-pipelinerun-resource"></a><a name="redeploy-pipelinerun-resource"></a>重新部署 PipelineRun 资源
+
+如果重新部署具有相同属性的 PipelineRun 资源，则必须利用 forceUpdateTag 属性。 此属性指示应重新创建 PipelineRun 资源，即使配置未更改也是如此。 请确保 forceUpdateTag 在每次重新部署 PipelineRun 资源时都不同。 下面的示例重新创建 PipelineRun 以用于导出。 当前日期/时间用于设置 forceUpdateTag，从而确保此属性始终唯一。
+
+```console
+CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
+```
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipelineRun \
+  --parameters azuredeploy.parameters.json \
+  --parameters forceUpdateTag=$CURRENT_DATETIME
 ```
 
 ## <a name="delete-pipeline-resources"></a>删除管道资源
@@ -341,7 +361,7 @@ az deployment group delete \
 * **AzCopy 问题**
     * 请参阅 [AzCopy 问题疑难解答](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues)。  
 * **项目传输问题**
-    * 并未传输所有项目或者根本未传输任何项目。 确认导出运行中的项目拼写，以及导出和导入运行中的 blob 名称。 确认最多传输 10 个项目。
+    * 并未传输所有项目或者根本未传输任何项目。 确认导出运行中的项目拼写，以及导出和导入运行中的 blob 名称。 确认最多传输 50 个项目。
     * 管道运行可能未完成。 导出或导入运行可能需要一些时间。 
     * 对于其他管道问题，请向 Azure 容器注册表团队提供导出运行或导入运行的部署[相关 ID](../azure-resource-manager/templates/deployment-history.md)。
 
@@ -355,20 +375,19 @@ az deployment group delete \
 
 <!-- LINKS - Internal -->
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
-[az-identity-show]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-show
-[az-login]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login
-[az-keyvault-secret-set]: https://docs.azure.cn/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set
-[az-keyvault-secret-show]: https://docs.azure.cn/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show
-[az-keyvault-set-policy]: https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy
-[az-storage-container-generate-sas]: https://docs.azure.cn/cli/storage/container?view=azure-cli-latest#az-storage-container-generate-sas
-[az-storage-blob-list]: https://docs.azure.cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-list
-[az-deployment-group-create]: https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create
-[az-deployment-group-delete]: https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-delete
-[az-deployment-group-show]: https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-show
-[az-acr-repository-list]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-list
-[az-acr-import]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-import
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-identity-create]: https://docs.microsoft.com/cli/azure/identity#az_identity_create
+[az-identity-show]: https://docs.microsoft.com/cli/azure/identity#az_identity_show
+[az-login]: https://docs.azure.cn/cli/reference-index#az-login
+[az-keyvault-secret-set]: https://docs.azure.cn/cli/keyvault/secret#az-keyvault-secret-set
+[az-keyvault-secret-show]: https://docs.azure.cn/cli/keyvault/secret#az-keyvault-secret-show
+[az-keyvault-set-policy]: https://docs.azure.cn/cli/keyvault#az-keyvault-set-policy
+[az-storage-container-generate-sas]: https://docs.azure.cn/cli/storage/container#az-storage-container-generate-sas
+[az-storage-blob-list]: https://docs.azure.cn/cli/storage/blob#az-storage-blob-list
+[az-deployment-group-create]: https://docs.microsoft.com/cli/azure/deployment/group#az_deployment_group_create
+[az-deployment-group-delete]: https://docs.microsoft.com/cli/azure/deployment/group#az_deployment_group_delete
+[az-deployment-group-show]: https://docs.microsoft.com/cli/azure/deployment/group#az_deployment_group_show
+[az-acr-repository-list]: https://docs.azure.cn/cli/acr/repository#az-acr-repository-list
+[az-acr-import]: https://docs.azure.cn/cli/acr#az-acr-import
 
-<!-- Update_Description: new article about container registry transfer images -->
-<!--NEW.date: 06/01/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

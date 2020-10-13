@@ -1,10 +1,9 @@
 ---
 title: Azure 中网络虚拟设备问题故障排除 | Azure
-description: 了解如何对 Azure 中的网络虚拟设备问题进行故障排除。
+description: 对 Azure 中的网络虚拟设备 (NVA) 问题进行故障排除并验证 NVA 配置的基本 Azure 平台要求。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -13,14 +12,17 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/26/2018
-ms.date: 11/25/2019
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: e1b80b68dd9f1bcf9e6263b886f5be8c9b4a5bcb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 57e8b333724360d988498bc5d29b412be8cf37a8
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74658033"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564512"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure 中的网络虚拟设备问题
 
@@ -104,11 +106,15 @@ NVA 供应商提供了对第三方 NVA 及其与 Azure 平台集成的技术支�
 
     对于 Windows：
 
-        netstat -an
+    ```console
+    netstat -an
+    ```
 
     对于 Linux：
 
-        netstat -an | grep -i listen
+    ```console
+    netstat -an | grep -i listen
+    ```
 2. 如果未看到结果中列出的 NVA 软件使用的 TCP 端口，则必须在 NVA 和 VM 上配置应用程序，以侦听并响应到达这些端口的流量。 [如有需要，请联系 NVA 供应商以获取帮助](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)。
 
 ## <a name="check-nva-performance"></a>检查 NVA 性能
@@ -130,14 +136,14 @@ NVA 供应商提供了对第三方 NVA 及其与 Azure 平台集成的技术支�
 
     **对于 Windows**
 
-        netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection
+    `netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection`
 
     **对于 Linux**
 
-        sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
+    `sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap`
 
 2. 使用从源 VM 到目标 VM 的 PsPing 或 Nmap（例如：`PsPing 10.0.0.4:80` 或 `Nmap -p 80 10.0.0.4`）。
-3. 使用[网络监视器](https://www.microsoft.com/download/details.aspx?id=4865)或 tcpdump 从目标 VM 打开网络跟踪。 为运行 PsPing 或 Nmap 的源 VM 的 IP 应用显示筛选器，例如 `IPv4.address==10.0.0.4 (Windows netmon)` 或 `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux)。
+3. 使用[网络监视器](https://cnet-downloads.com/network-monitor)或 tcpdump 从目标 VM 打开网络跟踪。 为运行 PsPing 或 Nmap 的源 VM 的 IP 应用显示筛选器，例如 `IPv4.address==10.0.0.4 (Windows netmon)` 或 `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux)。
 
 ### <a name="analyze-traces"></a>分析跟踪
 
@@ -145,4 +151,4 @@ NVA 供应商提供了对第三方 NVA 及其与 Azure 平台集成的技术支�
 
 如果看到数据包传入但没有响应，则可能需要解决 VM 应用程序或防火墙问题。 对于上述任意问题，如有需要[请联系 NVA 供应商以获取帮助](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)。
 
-<!-- Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

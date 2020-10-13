@@ -5,32 +5,39 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-origin.date: 06/09/2020
-ms.date: 07/20/2020
+origin.date: 09/14/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 22d024efa74889bba85eeaf7bcf80f8395f1b102
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: e95f77b1552c56daf78de3eed6760bae1a3cc6da
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414669"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564158"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>从 Azure 逻辑应用通过 HTTP 或 HTTPS 调用服务终结点
 
-使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和内置 HTTP 触发器或操作，可以创建自动化任务和工作流，通过 HTTP 或 HTTPS 向服务终结点发送请求。 例如，可按特定的计划检查网站的服务终结点，从而对该终结点进行监视。 当该终结点上发生特定的事件（例如网站关闭）时，该事件会触发逻辑应用的工作流并运行该工作流中的操作。 如果要改为接收和响应入站 HTTPS 调用，请使用内置[请求触发器或响应操作](../connectors/connectors-native-reqres.md)。
+使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和内置 HTTP 触发器或操作，可以创建自动化任务和工作流，可通过 HTTP 或 HTTPS 向其他服务和系统上的终结点发送出站请求。 若要改为接收和响应入站 HTTPS 调用，请使用内置[请求触发器和响应操作](../connectors/connectors-native-reqres.md)。
+
+例如，可按特定的计划检查网站的服务终结点，从而对该终结点进行监视。 当该终结点上发生特定的事件（例如网站关闭）时，该事件会触发逻辑应用的工作流并运行该工作流中的操作。
 
 * 若要按定期计划检查或轮询某个终结点，可[添加 HTTP 触发器](#http-trigger)作为工作流中的第一个步骤。 每次触发器检查终结点时，触发器都会调用该终结点或向该终结点发送请求。 该终结点的响应确定了逻辑应用的工作流是否运行。 触发器将终结点响应中的任何内容传递到逻辑应用中的操作。
 
 * 若要从工作流中的任何其他位置调用终结点，请[添加 HTTP 操作](#http-action)。 该终结点的响应确定了工作流剩余操作的运行方式。
 
-本文演示如何将 HTTP 触发器或操作添加到逻辑应用的工作流。
+本文介绍如何使用 HTTP 触发器和 HTTP 操作，以便逻辑应用可以将出站调用发送到其他服务和系统。
+
+有关来自逻辑应用的出站调用（例如传输层安全性（TLS，以前称为安全套接字层 (SSL)）、自签名证书或 [Azure Active Directory 开放式身份验证 (Azure AD OAuth)](../active-directory/develop/index.yml)）的加密、安全性和授权的信息，请参阅[保护访问和数据 - 对其他服务和系统的出站调用的访问](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)。
+
+<!--Not Available on [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security)-->
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 帐户和订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 * 要调用的目标终结点的 URL
 
@@ -48,18 +55,17 @@ ms.locfileid: "86414669"
 
 1. 在设计器的搜索框下，选择“内置”。 在搜索框中，输入 `http` 作为筛选器。 在“触发器”列表中，选择“HTTP”触发器。 
 
-    ![选择 HTTP 触发器](./media/connectors-native-http/select-http-trigger.png)
+    :::image type="content" source="./media/connectors-native-http/select-http-trigger.png" alt-text="选择 HTTP 触发器":::
 
     此示例将触发器重命名为“HTTP trigger”，使步骤的名称更具描述性。 此外，该示例稍后会添加 HTTP 操作，因此，两个名称必须唯一。
 
 1. 提供要包含在目标终结点调用中的 [HTTP 触发器参数](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)的值。 设置重复周期，以确定触发器检查目标终结点的频率。
 
-    ![输入 HTTP 触发器参数](./media/connectors-native-http/http-trigger-parameters.png)
+    :::image type="content" source="./media/connectors-native-http/http-trigger-parameters.png" alt-text="选择 HTTP 触发器":::
 
     如果选择的身份验证类型不是“None”，则身份验证设置将根据你的选择而有所不同。 有关 HTTP 可用的身份验证类型的详细信息，请参阅以下主题：
 
     * [向出站调用添加身份验证](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
-    
     * [使用托管标识对资源访问者进行身份验证](../logic-apps/create-managed-service-identity.md)
 
 1. 若要添加其他可用参数，请打开“添加新参数”列表，并选择所需的参数。
@@ -84,39 +90,44 @@ ms.locfileid: "86414669"
 
 1. 在“选择操作”下，选择“内置”。  在搜索框中，输入 `http` 作为筛选器。 在“操作”列表中，选择“HTTP”操作。 
 
-    ![选择“HTTP”操作](./media/connectors-native-http/select-http-action.png)
+    :::image type="content" source="./media/connectors-native-http/select-http-action.png" alt-text="选择 HTTP 触发器":::
 
     此示例将操作重命名为“HTTP action”，使步骤的名称更具描述性。
 
 1. 提供要包含在目标终结点调用中的 [HTTP 操作参数](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)的值。
 
-    ![输入 HTTP 操作参数](./media/connectors-native-http/http-action-parameters.png)
+    :::image type="content" source="./media/connectors-native-http/http-action-parameters.png" alt-text="选择 HTTP 触发器":::
 
     如果选择的身份验证类型不是“None”，则身份验证设置将根据你的选择而有所不同。 有关 HTTP 可用的身份验证类型的详细信息，请参阅以下主题：
 
     * [向出站调用添加身份验证](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
-    
     * [使用托管标识对资源访问者进行身份验证](../logic-apps/create-managed-service-identity.md)
 
 1. 若要添加其他可用参数，请打开“添加新参数”列表，并选择所需的参数。
 
 1. 完成后，请记得保存逻辑应用。 在设计器工具栏上选择“保存”。
 
-<a name="tls-support"></a>
+## <a name="trigger-and-action-outputs"></a>触发器和操作输出
 
-## <a name="transport-layer-security-tls"></a>传输层安全 (TLS) (Transport Layer Security) (TLS)
+下面是有关 HTTP 触发器或操作的输出的详细信息，输出中将返回以下信息：
 
-出站调用支持传输层安全性 (TLS)（以前称为安全套接字层 (SSL)）版本 1.0、1.1 和 1.2，具体取决于目标终结点的功能。 逻辑应用通过使用可能支持的最高版本与终结点协商。
+| 属性 | 类型 | 说明 |
+|----------|------|-------------|
+| `headers` | JSON 对象 | 请求中的标头 |
+| `body` | JSON 对象 | 包含请求中正文内容的对象 |
+| `status code` | Integer | 请求中的状态代码 |
+|||
 
-例如，如果终结点支持 1.2 版，则 HTTP 连接器首先使用 1.2 版。 否则，连接器将使用下一个受支持的最高版本。
-
-<a name="self-signed"></a>
-
-## <a name="self-signed-certificates"></a>自签名证书
-
-* 对于全局多租户 Azure 环境中的逻辑应用，HTTP 连接器不允许自签名的 TLS/SSL 证书。 如果你的逻辑应用向服务器发出 HTTP 调用并提供了 TLS/SSL 自签名证书，则 HTTP 调用将失败并出现 `TrustFailure` 错误。
-
-<!--Not Available on [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)-->
+| 状态代码 | 说明 |
+|-------------|-------------|
+| 200 | OK |
+| 202 | 已接受 |
+| 400 | 错误的请求 |
+| 401 | 未授权 |
+| 403 | 禁止 |
+| 404 | 未找到 |
+| 500 | 内部服务器错误。 发生未知错误。 |
+|||
 
 ## <a name="content-with-multipartform-data-type"></a>具有多部分/表单数据类型的内容
 
@@ -138,7 +149,7 @@ ms.locfileid: "86414669"
 
 例如，假设你有一个逻辑应用，它使用该站点的 API（支持 `multipart/form-data` 类型）向网站发送对 Excel 文件的 HTTP POST 请求。 下面是此操作的可能外观：
 
-![多部分表单数据](./media/connectors-native-http/http-action-multipart.png)
+:::image type="content" source="./media/connectors-native-http/http-action-multipart.png" alt-text="选择 HTTP 触发器":::
 
 以下是在基础工作流定义中显示 HTTP 操作的 JSON 定义的同一示例：
 
@@ -163,6 +174,14 @@ ms.locfileid: "86414669"
    "type": "Http"
 }
 ```
+
+## <a name="content-with-applicationx-www-form-urlencoded-type"></a>具有 application/x-www-form-urlencoded 类型的内容
+
+若要在 HTTP 请求的正文中提供 form-urlencoded 数据，必须指定数据具有 `application/x-www-form-urlencoded` 内容类型。 在 HTTP 触发器或操作中，添加 `content-type` 标头。 将标头值设置为 `application/x-www-form-urlencoded`。
+
+例如，假设你有一个逻辑应用，它向支持 `application/x-www-form-urlencoded` 类型的网站发送 HTTP POST 请求。 下面是此操作的可能外观：
+
+:::image type="content" source="./media/connectors-native-http/http-action-urlencoded.png" alt-text="选择 HTTP 触发器":::
 
 <a name="asynchronous-pattern"></a>
 
@@ -199,7 +218,7 @@ ms.locfileid: "86414669"
 
 1. 找到“异步模式”设置，关闭此设置（如果已启用），然后选择“完成”。
 
-   ![禁用“异步模式”设置](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
+    ![禁用“异步模式”设置](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
 
 <a name="add-disable-async-pattern-option"></a>
 
@@ -235,7 +254,7 @@ HTTP 请求有一个[超时限制](../logic-apps/logic-apps-limits-and-config.md
 
 如果 HTTP 触发器或操作包含这些标头，则逻辑应用会从生成的请求消息中删除这些标头，且不显示任何警告或错误：
 
-* `Accept-*`
+* `Accept-*` 标头（`Accept-version` 除外）
 * `Allow`
 * `Content-*` 中含以下例外：`Content-Disposition`、`Content-Encoding` 和 `Content-Type`
 * `Cookie`
@@ -255,30 +274,9 @@ HTTP 请求有一个[超时限制](../logic-apps/logic-apps-limits-and-config.md
 * [HTTP 触发器参数](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [HTTP 操作参数](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-### <a name="output-details"></a>输出详细信息
-
-下面是有关 HTTP 触发器或操作的输出的详细信息，输出中将返回以下信息：
-
-| 属性 | 类型 | 说明 |
-|----------|------|-------------|
-| `headers` | JSON 对象 | 请求中的标头 |
-| `body` | JSON 对象 | 包含请求中正文内容的对象 |
-| `status code` | Integer | 请求中的状态代码 |
-|||
-
-| 状态代码 | 说明 |
-|-------------|-------------|
-| 200 | OK |
-| 202 | 已接受 |
-| 400 | 错误的请求 |
-| 401 | 未授权 |
-| 403 | 禁止 |
-| 404 | 未找到 |
-| 500 | 内部服务器错误。 发生未知错误。 |
-|||
-
 ## <a name="next-steps"></a>后续步骤
 
-* 了解其他[逻辑应用连接器](../connectors/apis-list.md)
+* [保护访问和数据 - 对其他服务和系统的出站调用的访问](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [适用于逻辑应用的连接器](../connectors/apis-list.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

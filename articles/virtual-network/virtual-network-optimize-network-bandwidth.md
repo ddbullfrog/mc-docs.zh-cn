@@ -1,26 +1,28 @@
 ---
 title: 优化 VM 网络吞吐量 | Azure
-description: 了解如何优化 Azure 虚拟机网络吞吐量。
+description: 优化 Azure Windows 和 Linux VM（包括 Ubuntu、CentOS 和 Red Hat 等主要发行版）的网络吞吐量。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: Gerald DeGrace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/15/2017
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 10/05/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: e95688a5de645194b227e46ba95a1c7abef82af7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1cf2b7bebeae4a2b4cb7f05e6281b3341213ea4c
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653260"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564584"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>优化 Azure 虚拟机网络吞吐量
 
@@ -144,4 +146,4 @@ sudo yum install microsoft-hyper-v
 * 阅读有关如何[为虚拟机分配带宽](virtual-machine-network-throughput.md)的信息
 * 通过 [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md) 了解详细信息
 
-<!--Update_Description: update meta properties, wording update，update link  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

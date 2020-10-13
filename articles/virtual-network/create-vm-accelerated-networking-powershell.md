@@ -1,10 +1,9 @@
 ---
 title: 创建具有加速网络的 Windows VM - Azure PowerShell
-description: 了解如何创建具有加速网络的 Linux 虚拟机。
+description: 创建具有加速网络的 Windows 虚拟机 (VM)，以大幅提高其网络性能。
 services: virtual-network
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
+manager: gedegrac
 editor: ''
 ms.assetid: ''
 ms.service: virtual-network
@@ -13,16 +12,17 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 04/15/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: yes
-ms.testdate: 07/13/2020
+ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 30ead2e84d62affb752a4c72039b577f954b432c
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: ec486223ef81a00144eec74598b340bd58bfd1c1
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440884"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564462"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>使用 Azure PowerShell 创建具有加速网络的 Windows VM
 
@@ -33,7 +33,7 @@ ms.locfileid: "86440884"
 
 使用加速网络可以实现对 VM 的单根 I/O 虚拟化 (SR-IOV)，大幅提升其网络性能。 这种高性能路径会绕过数据路径中的主机，为受支持 VM 类型上最苛刻的网络工作负载降低延迟、抖动和 CPU 利用率。 下图说明了在使用和不使用加速网络的情况下，两个 VM 如何通信：
 
-![在使用和不使用加速网络的情况下，Azure 虚拟机之间的通信](./media/create-vm-accelerated-networking/accelerated-networking.png)
+:::image type="content" source="./media/create-vm-accelerated-networking/accelerated-networking.png" alt-text="在使用和不使用加速网络的情况下，Azure 虚拟机之间的通信":::
 
 在不使用加速网络的情况下，传入和传出 VM 的所有网络流量必须遍历主机和虚拟交换机。 虚拟交换机针对网络流量实施所有策略，例如网络安全组、访问控制列表、隔离和其他网络虚拟化服务。
 
@@ -79,6 +79,8 @@ ms.locfileid: "86440884"
 ### <a name="regions"></a>区域
 
 加速网络在 Azure 中国云中可用。
+
+<!--Monncake Customization on the all global Azure regions and Azure China Cloud Cloud.-->
 
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>在正在运行的 VM 上启用加速网络
 
@@ -263,7 +265,7 @@ ms.locfileid: "86440884"
 
 8. 确认已显示“Mellanox ConnectX-3 虚函数以太网适配器”，如下图所示：
 
-    ![Mellanox ConnectX-3 虚函数以太网适配器，适用于加速网络的新网络适配器，设备管理器](./media/create-vm-accelerated-networking/device-manager.png)
+    :::image type="content" source="./media/create-vm-accelerated-networking/device-manager.png" alt-text="在使用和不使用加速网络的情况下，Azure 虚拟机之间的通信":::
 
 现在已为 VM 启用加速网络。
 

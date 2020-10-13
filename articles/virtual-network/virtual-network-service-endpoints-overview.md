@@ -4,24 +4,24 @@ titlesuffix: Azure Virtual Network
 description: 了解如何使用服务终结点通过虚拟网络直接访问 Azure 资源。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/08/2019
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/05/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 89daa5c52f4d9cc645c8f71df20d23a494506236
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: e2866c55eb825404baa98e7a0f9592dcecef6802
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441191"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564582"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
@@ -33,7 +33,7 @@ ms.locfileid: "86441191"
 
 - **[Azure 存储](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (Microsoft.Storage)：在所有 Azure 区域已推出正式版。
 - **[Azure SQL 数据库](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在所有 Azure 区域已推出正式版。
-- **[Azure SQL 数据仓库](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在所有 Azure 区域已推出正式版。
+- [Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json) (*Microsoft.Sql*)：在所有 Azure 区域已推出正式版。
 - **[Azure Database for PostgreSQL 服务器](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在可以使用数据库服务的 Azure 区域中通常可用。
 - **[Azure Database for MySQL 服务器](../mysql/howto-manage-vnet-using-portal.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.Sql)：在可以使用数据库服务的 Azure 区域中通常可用。
 - **[Azure Database for MariaDB](/mariadb/concepts-data-access-security-vnet)** (Microsoft.Sql)：在可以使用数据库服务的 Azure 区域中通常可用。
@@ -43,10 +43,14 @@ ms.locfileid: "86441191"
 
     <!--Not Available on - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)** (*Microsoft.EventHub*): Generally available in all Azure regions.-->
     <!--Not Available on - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Generally available in all Azure regions where ADLS Gen1 is available.-->
-    <!--Not Available on - **[Azure App Service](/app-service/app-service-ip-restrictions)**: Generally available in all Azure regions where App service is available-->
 
-<!--Not Available on **Public Preview**-->
-<!--Not Available on - **[Azure Container Registry](../container-registry/container-registry-vnet.md)** (*Microsoft.ContainerRegistry*):-->
+- [Azure 应用服务](/app-service/app-service-ip-restrictions) (*Microsoft.Web*)：通常可在应用服务可用的所有 Azure 区域中使用。
+
+    <!--Not Available on - **[Azure Cognitive Services](/cognitive-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft.CognitiveServices*): Generally available in all Azure regions where Cognitive services are available.-->
+
+**公共预览版**
+
+- [Azure 容器注册表](../container-registry/container-registry-vnet.md) (*Microsoft.ContainerRegistry*)：在可使用 Azure 容器注册表的有限 Azure 区域中提供了预览版。
 
 有关最新通知，请查看 [Azure 虚拟网络更新](https://updates.azure.cn/)页。
 
@@ -130,7 +134,7 @@ ExpressRoute：如果在本地使用 [ExpressRoute](../expressroute/expressroute
 
 对虚拟网络拥有写入访问权限的用户可在虚拟网络上独立配置服务终结点。 若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有“Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action”权限。 内置的服务管理员角色默认包括此权限。 可以通过创建自定义角色来修改权限。
 
-有关内置角色的详细信息，请参阅 [Azure 资源的内置角色](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json)。 有关将特定权限分配给自定义角色的详细信息，请参阅 [Azure 资源的自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
+有关内置角色的详细信息，请参阅 [Azure 内置角色](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json)。 有关将特定权限分配给自定义角色的详细信息，请参阅 [Azure 自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
 虚拟网络和 Azure 服务资源可以位于相同或不同的订阅中。 如果虚拟网络和 Azure 服务资源位于不同的订阅中，资源必须在相同的 Active Directory (AD) 租户下。 
 
@@ -153,7 +157,7 @@ ExpressRoute：如果在本地使用 [ExpressRoute](../expressroute/expressroute
 - [配置虚拟网络服务终结点](tutorial-restrict-network-access-to-resources.md)
 - [在虚拟网络中保护 Azure 存储帐户](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json)
 - [在虚拟网络中保护 Azure SQL 数据库](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)
-- [在虚拟网络中保护 Azure SQL 数据仓库](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fsql-data-warehouse%2ftoc.json)
+- [在虚拟网络中保护 Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fsql-data-warehouse%2ftoc.json)
 - [虚拟网络中的 Azure 服务集成](virtual-network-for-azure-services.md)
     
     <!--Not Available on - [Virtual Network Service Endpoint Policies](/virtual-network/virtual-network-service-endpoint-policies-overview)-->

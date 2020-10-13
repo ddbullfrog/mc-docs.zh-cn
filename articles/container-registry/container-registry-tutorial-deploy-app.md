@@ -2,20 +2,21 @@
 title: 教程 - 从异地复制的注册表进行部署
 description: 使用异地复制的 Azure 容器注册表中的容器映像将基于 Linux 的 Web 应用部署到两个不同的 Azure 区域。 由三个部分构成的教程系列的第二部分。
 ms.topic: tutorial
+origin.date: 08/20/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/05/2020
 ms.testscope: yes
 ms.testdate: 09/14/2020
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5b101025e76091f5800d42b9eaf3d238c7ab1bde
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 49f9fe4d219b93b7522396d79e7555672834f0b3
+ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021663"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564147"
 ---
-<!--Verified Successfully-->
+<!--Verified Successfully on 30/09/2020-->
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>教程：通过异地复制的 Azure 容器注册表部署 Web 应用
 
 本文是由三个部分构成的教程系列的第二部分。 在[第一部分](container-registry-tutorial-prepare-registry.md)中，已创建一个专用的异地复制容器注册表，已从源生成容器映像并将其推送到该注册表。 本文通过将容器部署到位于两个不同 Azure 区域的两个 Web 应用实例中，以利用异地复制注册表的“临近网络”特点。 然后，每个实例从最近的注册表中提取容器映像。
@@ -41,7 +42,7 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 ## <a name="deploy-a-web-app-for-containers-instance"></a>部署用于容器的 Web 应用实例
 
 <!--MOONCAKE CUSTOMIZATION ON: West US to China North, East US to China East -->
-<!--MOONCAKE CUSTOMIZATION ON: westus to chinanorth, eastus to chinanorth-->
+<!--MOONCAKE CUSTOMIZATION ON: westus to chinanorth, eastus to chinaeast-->
 
 此步骤在“中国北部”区域创建一个用于容器的 Web 应用实例。**
 
@@ -68,7 +69,7 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 
 选择“创建”，将 Web 应用预配到“中国北部”区域。******
 
-![Azure 门户中的“Linux 上的 Web 应用”配置][deploy-app-portal-02]
+![屏幕截图显示用于容器的 Web 应用，其中突出显示了“创建”按钮。][deploy-app-portal-02]
 
 ## <a name="view-the-deployed-web-app"></a>查看已部署的 Web 应用
 
@@ -78,11 +79,11 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 
 在“应用服务”概述的右上方选择该 Web 应用的超链接 URL，在浏览器中查看正在运行的应用程序  。
 
-![Azure 门户中的“Linux 上的 Web 应用”配置][deploy-app-portal-04]
+![屏幕截图显示应用服务概述，其中突出显示了 Web 应用 URL。][deploy-app-portal-04]
 
 从异地复制的容器注册表部署 Docker 映像后，站点会显示一个图像，表示托管容器注册表的 Azure 区域。
 
-![在浏览器中查看已部署的 Web 应用程序][deployed-app-westus]
+![屏幕截图显示在浏览器中查看的已部署 Web 应用程序。][deployed-app-westus]
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>部署第二个用于容器的 Web 应用实例
 
@@ -98,9 +99,9 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 
 选择“创建”，将 Web 应用预配到“中国东部”区域。******
 
-![Azure 门户中的“Linux 上的 Web 应用”配置][deploy-app-portal-06]
+![屏幕截图显示用于容器的 Web 应用创建窗口，其中突出显示了“创建”按钮。][deploy-app-portal-06]
 
-## <a name="view-the-deployed-web-app"></a>查看已部署的 Web 应用
+## <a name="view-the-second-deployed-web-app"></a>查看第二个已部署的 Web 应用
 
 如前所述，可在浏览器中导航到应用程序的 URL 来查看正在运行的应用程序。
 
@@ -115,7 +116,7 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 ![在浏览器中查看已部署的 Web 应用程序][deployed-app-eastus]
 
 <!--MOONCAKE CUSTOMIZATION ON: West US to China North, East US to China East -->
-<!--MOONCAKE CUSTOMIZATION ON: westus to chinanorth, eastus to chinanorth-->
+<!--MOONCAKE CUSTOMIZATION ON: westus to chinanorth, eastus to chinaeast-->
 
 ## <a name="next-steps"></a>后续步骤
 
