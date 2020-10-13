@@ -2,18 +2,18 @@
 title: 扩展资源类型
 description: 列出用于扩展其他资源类型的功能的 Azure 资源类型。
 ms.topic: conceptual
-origin.date: 07/28/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 180c90600cb788a8944ce10c708a55225a441f8b
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: c26edf8a351e64f146d420a014ad298e9ea9a585
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807916"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937065"
 ---
 <!--Verified successfully/Redirect file-->
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>用于扩展其他资源的功能的资源类型
@@ -27,6 +27,8 @@ ms.locfileid: "88807916"
 - Microsoft.Advisor/suppressions
 - Microsoft.AlertsManagement/alerts
 - Microsoft.AlertsManagement/alertsSummary
+- Microsoft.Authorization/accessReviewScheduleDefinitions
+- Microsoft.Authorization/accessReviewScheduleSettings
 - Microsoft.Authorization/checkAccess
 - Microsoft.Authorization/denyAssignments
 - Microsoft.Authorization/findOrphanRoleAssignments
@@ -36,10 +38,12 @@ ms.locfileid: "88807916"
 - Microsoft.Authorization/policyDefinitions
 - Microsoft.Authorization/policyExemptions
 - Microsoft.Authorization/policySetDefinitions
+- Microsoft.Authorization/privateLinkAssociations
 - Microsoft.Authorization/roleAssignments
 - Microsoft.Authorization/roleAssignmentsUsageMetrics
 - Microsoft.Authorization/roleDefinitions
 
+    <!--Not Available on - Microsoft.Automanage/*-->
     <!--Not Available on - Microsoft.Billing/*-->
     <!--Not Available on - Microsoft.Blueprint/*-->
     <!--Not Available on - Microsoft.Consumption/*-->
@@ -63,12 +67,13 @@ ms.locfileid: "88807916"
 - microsoft.insights/diagnosticSettingsCategories
 - microsoft.insights/eventtypes
 - microsoft.insights/extendedDiagnosticSettings
+- microsoft.insights/generateLiveToken
 - microsoft.insights/guestDiagnosticSettingsAssociation
 - microsoft.insights/logDefinitions
 - microsoft.insights/logs
+- microsoft.insights/metricbaselines
 - microsoft.insights/metricDefinitions
 - microsoft.insights/metricNamespaces
-- microsoft.insights/metricbaselines
 - microsoft.insights/metrics
 - microsoft.insights/myWorkbooks
 - microsoft.insights/topology
@@ -100,19 +105,19 @@ ms.locfileid: "88807916"
 - Microsoft.ResourceHealth/notifications
 - Microsoft.Resources/links
 - Microsoft.Resources/tags
-- Microsoft.Security/Compliances
-- Microsoft.Security/InformationProtectionPolicies
 - Microsoft.Security/adaptiveNetworkHardenings
 - Microsoft.Security/advancedThreatProtectionSettings
 - Microsoft.Security/assessmentMetadata
 - Microsoft.Security/assessments
 - Microsoft.Security/complianceResults
+- Microsoft.Security/Compliances
 - Microsoft.Security/dataCollectionAgents
 - Microsoft.Security/deviceSecurityGroups
+- Microsoft.Security/InformationProtectionPolicies
+- Microsoft.Security/iotSensors
 - Microsoft.Security/jitPolicies
 - Microsoft.Security/serverVulnerabilityAssessments
-
-    <!--Not Available on - Microsoft.SecurityInsights/*-->
+- Microsoft.Security/sqlVulnerabilityAssessments   <!--Not Available on - Microsoft.SecurityInsights/*-->
     <!--Not Available on - Microsoft.SoftwarePlan/*-->
     <!--Not Available on - Microsoft.Subscription/*-->
     <!--Not Available on - microsoft.support/*-->
