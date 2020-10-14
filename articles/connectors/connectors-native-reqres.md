@@ -70,9 +70,7 @@ ms.locfileid: "91564149"
 
 1. 在“请求正文 JSON 架构”框中，有选择性地输入一个用于描述传入请求中的正文的 JSON 架构，例如：
 
-    :::image type="content" source="./media/connectors-native-reqres/provide-json-schema.png" alt-text="选择请求触发器"
-    }
-    ```
+    :::image type="content" source="./media/connectors-native-reqres/provide-json-schema.png" alt-text="选择请求触发器":::
 
     若要生成基于预期有效负载（数据）的 JSON 架构，可以使用 [JSONSchema.net](https://jsonschema.net) 之类的工具，也可以执行以下步骤：
 
