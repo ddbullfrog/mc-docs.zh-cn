@@ -626,7 +626,7 @@ ms.locfileid: "91937526"
 
 资源管理器将每个模板作为部署历史记录中的单独部署进行处理。 包含三个链接模板或嵌套模板的主模板在部署历史记录中显示为：
 
-:::image type="content" source="./media/linked-templates/deployment-history.png" alt-text="部署历史记录&quot;:::
+:::image type="content" source="./media/linked-templates/deployment-history.png" alt-text="部署历史记录":::
 
 部署后，可以使用历史记录中这些不同的条目来检索输出值。 以下模板创建一个公共 IP 地址并输出该 IP 地址：
 
