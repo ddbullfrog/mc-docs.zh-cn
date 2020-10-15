@@ -80,11 +80,7 @@ ms.locfileid: "91564149"
 
     1. 输入示例有效负载，然后选择“完成”。
 
-        :::image type="content" source="./media/connectors-native-reqres/enter-payload.png" alt-text="选择请求触发器"
-            }
-         }
-        }
-        ```
+        :::image type="content" source="./media/connectors-native-reqres/enter-payload.png" alt-text="选择请求触发器":::
 
 1. 若要检查入站调用是否具有与指定架构匹配的请求正文，请执行以下步骤：
 
