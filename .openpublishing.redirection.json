@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path": "articles/app-service/environment/app-service-environment-with-internal-load-balancer.md",
+            "redirect_url": "/app-service/environment/create-ilb-ase",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/environment/app-service-web-how-to-create-an-app-service-environment.md",
+            "redirect_url": "/app-service/environment/create-ilb-ase",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Speech-Service/speech-to-text-basics.md",
+            "redirect_url": "/cognitive-services/speech-service/get-started-speech-to-text",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-dps/concepts-auto-provisioning.md",
             "redirect_url": "/iot-dps/concepts-roles-operations",
             "redirect_document_id": false
@@ -28016,36 +28031,96 @@
             "redirect_url": "/stream-analytics/cicd-overview",
             "redirect_document_id": false
         },
-    {
-      "source_path": "articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md",
-      "redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md",
-      "redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md",
-      "redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-template",
-      "redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-template",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/load-balancer/quickstart-create-standard-load-balancer-powershell.md",
-      "redirect_url": "/load-balancer/quickstart-load-balancer-standard-public-powershell",
-      "redirect_document_id": false
-    }
-
-
-
-
-
+		{
+				"source_path": "articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md",
+				"redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-portal",
+				"redirect_document_id": false
+		},
+		{
+				"source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md",
+				"redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-cli",
+				"redirect_document_id": false
+		},
+		{
+				"source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md",
+				"redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-powershell",
+				"redirect_document_id": false
+		},
+		{
+				"source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-template",
+				"redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-template",
+				"redirect_document_id": false
+		},
+		{
+				"source_path": "articles/load-balancer/quickstart-create-standard-load-balancer-powershell.md",
+				"redirect_url": "/load-balancer/quickstart-load-balancer-standard-public-powershell",
+				"redirect_document_id": false
+		},
+		{
+				"source_path": "articles/postgresql/policy-samples.md",
+				"redirect_url": "/postgresql/policy-reference",
+				"redirect_document_id": false
+		},
+		{
+				"source_path": "articles/mariadb/policy-samples.md",
+				"redirect_url": "/mariadb/policy-reference",
+				"redirect_document_id": false
+		},
+		{
+				"source_path": "articles/machine-learning/how-to-run-batch-predictions.md",
+				"redirect_url": "/machine-learning/how-to-use-parallel-run-step",
+				"redirect_document_id": false
+		},
+        {
+            "source_path": "articles/monitoring/monitoring-solutions.md",
+            "redirect_url": "/azure-monitor/insights/solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-security-responding-alerts.md",
+            "redirect_url": "/security-center/security-center-managing-and-responding-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/security-identity-management-overview.md",
+            "redirect_url": "/security/fundamentals/identity-management-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/fundamentals/response-center.md",
+            "redirect_url": "https://www.microsoft.com/en-us/msrc?rtc=1",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring/monitoring-data-collection.md",
+            "redirect_url": "/azure-monitor/platform/data-platform",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-enable-auditing-on-sql-databases.md",
+            "redirect_url": "/security-center/security-center-remediate-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-install-endpoint-protection.md",
+            "redirect_url": "/security-center/security-center-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-export-data-to-siem.md",
+            "redirect_url": "/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-overview.md",
+            "redirect_url": "/azure-monitor/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/computer-vision/home.md",
+            "redirect_url": "/cognitive-services/computer-vision/overview",
+            "redirect_document_id": false
+        },
 
 
     ]
