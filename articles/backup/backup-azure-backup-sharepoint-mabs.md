@@ -4,14 +4,14 @@ description: 使用 Azure 备份服务器备份和还原 SharePoint 数据。 �
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 06/08/2018
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: b78137600c47dd16d2fd8c7c77a3f972928c16fd
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 0c79631d37c3f1b764c5580cfc1778063873ed4e
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852007"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871474"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>使用 MABS 将 SharePoint 场备份到 Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "85852007"
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint 支持的版本与相关保护方案
 
-有关支持的 SharePoint 版本和备份这些版本所需的 MABS 版本的列表，请参阅 [MABS 保护矩阵](/backup/backup-mabs-protection-matrix)
+有关支持的 SharePoint 版本和备份这些版本所需的 MABS 版本的列表，请参阅 [MABS 保护矩阵](./backup-mabs-protection-matrix.md)
 
 ## <a name="before-you-start"></a>开始之前
 
@@ -35,7 +35,7 @@ ms.locfileid: "85852007"
 
 ### <a name="prerequisites"></a>先决条件
 
-在继续下一步之前，请确保符合使用 Azure 备份保护工作负载的所有先决条件。 先决条件包括如下任务：创建备份保管库、下载保管库凭据、安装 Azure 备份代理，以及在保管库中注册 Azure 备份服务器。
+在继续下一步之前，请确保符合[使用 Azure 备份保护工作负载的所有先决条件](backup-azure-dpm-introduction.md#prerequisites-and-limitations)。 先决条件包括如下任务：创建备份保管库、下载保管库凭据、安装 Azure 备份代理，以及在保管库中注册 Azure 备份服务器。
 
 其他先决条件和限制：
 
@@ -55,15 +55,29 @@ ms.locfileid: "85852007"
 
 ## <a name="configure-backup"></a>配置备份
 
-要备份 SharePoint 场，该帐户应是 WFE 服务器上本地管理员组的成员。 如果场管理员不是本地管理员，请在 WFE 服务器上授予以下权限：
+若要备份 SharePoint 场，请使用 ConfigureSharePoint.exe 配置 SharePoint 保护，然后在 MABS 中创建保护组。
 
-        * Grant the **WSS_Admin_WPG** group full control to the MABS folder (`%Program Files%\Data Protection Manager\DPM\`).
+1. **运行 ConfigureSharePoint.exe** - 此工具将配置 SharePoint VSS 编写器服务 \(WSS\) 并为保护代理提供 SharePoint 场的凭据。 部署保护代理之后，可在前端 Web 服务器上的 `<MABS Installation Path\>\bin` 文件夹中找到 ConfigureSharePoint.exe 文件。  如果有多台 WFE 服务器，只需在其中一台服务器上安装它即可。 请按如下所述运行：
 
-        * Grant the **WSS_Admin_WPG** group read access to the MABS Registry key (`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager`).
+    * 在 WFE 服务器上的命令提示符处，导航到 `\<MABS installation location\>\\bin\\` 并运行 `ConfigureSharePoint \[\-EnableSharePointProtection\] \[\-EnableSPSearchProtection\] \[\-ResolveAllSQLAliases\] \[\-SetTempPath <path>\]`，其中：
 
-        After running ConfigureSharePoint.exe, you'll need to rerun it if there's a change in the SharePoint farm administrator credentials.
+        * EnableSharePointProtection 启用对 SharePoint 场的保护、启用 VSS 编写器，并注册 DCOM 应用程序 WssCmdletsWrapper 的标识，以采用其凭据随此选项一起输入的用户身份运行。 此帐户应该是场管理员，也是前端 Web 服务器上的本地管理员。
 
-1. 若要创建保护组，请在 MABS 控制台中单击“保护” > “操作” > “创建保护组”，以打开“创建新保护组”向导   。
+        * **EnableSPSearchProtection** 通过使用前端 Web 服务器上 HKLM\\Software\\Microsoft\\ Microsoft Data Protection Manager\\Agent\\2.0\\ 下的注册表项 SharePointSearchEnumerationEnabled 启用 WSS 3.0 SP Search 保护，并注册 DCOM 应用程序 WssCmdletsWrapper 的标识，使其作为使用此选项输入凭据的用户运行。 此帐户应为前端 Web 服务器上的场管理员和本地管理员。
+
+        * **ResolveAllSQLAliases** 显示 SharePoint VSS 编写器报告的所有别名，并将它们解析为对应的 SQL Server。 它还显示这些别名解析的实例名称。 如果服务器已建立镜像，它还将显示镜像服务器。 它报告未解析为 SQL Server 的所有别名。
+
+        * SetTempPath 将环境变量 TEMP 和 TMP 设置为指定的路径。 如果正在恢复大网站集、站点、列表或项目，并且场管理员临时文件夹中的空间不足，则项目级恢复将失败。 通过此选项，你可以将临时文件的文件夹路径更改为具有充足空间来存储所恢复的网站集或站点的卷。
+
+    * 输入场管理员凭据。 此帐户应是 WFE 服务器上本地管理员组的成员。 如果场管理员不是本地管理员，请在 WFE 服务器上授予以下权限：
+
+        * 向 WSS_Admin_WPG 组授予对 MABS 文件夹 (`%Program Files%\Data Protection Manager\DPM\`) 的完全控制权限。
+
+        * 向 WSS_Admin_WPG 组授予对 MABS 注册表项 (`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager`) 的读取访问权限。
+
+        运行 ConfigureSharePoint.exe 后，如果 SharePoint 场管理员凭据发生更改，则需要重新运行。
+
+1. 若要创建保护组，请在 MABS 控制台中选择“保护” > “操作” > “创建保护组”，打开“创建新保护组”向导   。
 
 1. 在“选择保护组类型”中，选择“服务器” 。
 
@@ -81,7 +95,7 @@ ms.locfileid: "85852007"
 
 1. 在“选择副本创建方法”中，选择要如何处理初始完整数据复制。  如果选择通过网络进行复制，我们建议选择非高峰时间。 如果数据量很大或者网络状态欠佳，请考虑使用可移动媒体脱机复制数据。
 
-1. 在“选择一致性检查选项”中，选择要如何自动执行一致性检查。 可以仅在副本数据变得不一致时执行检查，或者按计划执行检查。 如果不想配置自动的一致性检查，你可以随时运行手动检查，可以右键单击 MABS 控制台的“保护”区域中的保护组，然后选择“执行一致性检查” 。
+1. 在“选择一致性检查选项”  中，选择要自动执行一致性检查的方式。 可以仅在副本数据变得不一致时执行检查，或者按计划执行检查。 如果不想配置自动的一致性检查，你可以随时运行手动检查，可以右键单击 MABS 控制台的“保护”区域中的保护组，然后选择“执行一致性检查” 。
 
 1. 如果选择使用 Azure 备份来备份到云，则在“指定在线保护数据”页上，确保选择要备份到 Azure 的工作负荷。
 
@@ -89,9 +103,9 @@ ms.locfileid: "85852007"
 
 1. 在“指定在线保留策略”中，可以指定如何在 Azure 中保留通过每日/每周/每月/每年备份创建的恢复点。
 
-1. 在“选择在线复制”中，指定如何进行数据的初始完整复制。 可以通过网络复制，也可以执行脱机备份（脱机设定种子）。 脱机备份使用 Azure 导入功能。 [了解详细信息](/backup/backup-azure-backup-import-export/)。
+1. 在“选择在线复制”中，指定如何进行数据的初始完整复制。 可以通过网络复制，也可以执行脱机备份（脱机设定种子）。 脱机备份使用 Azure 导入功能。 [了解详细信息](./backup-azure-backup-import-export.md)。
 
-1. 在“摘要”页上，查看设置。 单击“创建组”之后，进行数据的初始复制。 完成后，“状态”页上的保护组状态将显示为“正常” 。 然后，将根据保护组设置开始进行备份。
+1. 在“摘要”页上，查看设置。 选择“创建组”**** 之后，就会进行数据的初始复制。 完成后，“状态”页上的保护组状态将显示为“正常” 。 然后，将根据保护组设置开始进行备份。
 
 ## <a name="monitoring"></a>监视
 
@@ -103,17 +117,17 @@ ms.locfileid: "85852007"
 
 ### <a name="set-up-monitoring-notifications"></a>设置监视通知
 
-1. 在 MABS 管理员控制台中，单击“监视” > “操作” > “选项”  。
+1. 在 MABS 管理员控制台中，选择“监视” > “操作” > “选项”  。
 
-2. 单击“SMTP 服务器”，键入服务器名称、端口以及用于发送通知的电子邮件地址。 该地址必须为有效地址。
+2. 选择“SMTP 服务器”，键入服务器名称、端口以及用于发送通知的电子邮件地址。 该地址必须为有效地址。
 
 3. 在“经过身份验证的 SMTP 服务器”中，键入用户名和密码。 用户名和密码必须是其“发件人”地址在上一步中进行了描述的用户的域帐户名。 否则，发送通知将失败。
 
-4. 若要测试 SMTP 服务器设置，请单击“发送测试电子邮件”，键入 MABS 要发送测试邮件的目标电子邮件地址，然后单击“确定” 。 单击“选项” > “通知”，并选择收件人希望收到的警报类型 。 在“收件人”中，键入 MABS 要发送通知副本的每位收件人的电子邮件地址。
+4. 若要测试 SMTP 服务器设置，请选择“发送测试电子邮件”，键入 MABS 要发送测试邮件的目标电子邮件地址，然后选择“确定” 。 选择“选项” > “通知”，并选择收件人希望收到的警报类型 。 在“收件人”中，键入 MABS 要发送通知副本的每位收件人的电子邮件地址。
 
 ### <a name="publish-operations-manager-alerts"></a>发布 Operations Manager 警报
 
-1. 在 MABS 管理员控制台中，单击“监视” > “操作” > “选项” > “警报发布” > “发布活动警报”    
+1. 在 MABS 管理员控制台中，选择“监视” > “操作” > “选项” > “警报发布” > “发布活动警报”    
 
 2. 启用“警报发布”后，用户可能需要将所有现有 MABS 警报将发布到“MABS 警报”事件日志 。 在 MABS 服务器上安装的 Operations Manager 代理随后会将这些警报发布到 Operations Manager，并在生成新警报时继续更新控制台。
 
@@ -135,10 +149,10 @@ ms.locfileid: "85852007"
 5. 还可以浏览各个恢复点，并选择要恢复的数据库或项。 选择“**日期 > 恢复时间**”，并选择正确的“**数据库 > SharePoint 场 > 恢复点 > 项**”。
 
     ![MABS SharePoint 保护 7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. 右键单击该项，并选择“**恢复**”打开“**恢复向导**”。 单击“下一步”。
+6. 右键单击该项，并选择“**恢复**”打开“**恢复向导**”。 选择“**下一页**”。
 
     ![复查恢复选择](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
-7. 选择用户要执行的恢复类型，并单击“下一步” 。
+7. 选择用户要执行的恢复类型，然后选择“下一步”。
 
     ![恢复类型](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
@@ -156,10 +170,10 @@ ms.locfileid: "85852007"
 
     ![暂存位置 1](./media/backup-azure-backup-sharepoint/staging-location1.png)
 
-    MABS 将托管 SharePoint 项的内容数据库附加到临时 SQL Server 实例。 MABS 将从内容数据库恢复该项，并将它放在 MABS 上的暂存文件位置。 现在，需要将暂存位置中的已恢复项导出到 SharePoint 场上的暂存位置。
+    MABS 会将托管 SharePoint 项的内容数据库附加到临时 SQL Server 实例。 MABS 将从内容数据库恢复该项，并将它放在 MABS 上的暂存文件位置。 现在，需要将暂存位置中的已恢复项导出到 SharePoint 场上的暂存位置。
 
     ![暂存位置 2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. 选择“**指定恢复选项**”，并将安全设置应用到 SharePoint 场，或应用恢复点的安全设置。 单击“下一步”。
+10. 选择“**指定恢复选项**”，并将安全设置应用到 SharePoint 场，或应用恢复点的安全设置。 选择“**下一页**”。
 
     ![恢复选项](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -167,7 +181,7 @@ ms.locfileid: "85852007"
     > 可以选择限制网络带宽使用率。 这可以在生产时段最大程度地降低对生产服务器的影响。
     >
     >
-11. 复查摘要信息，并单击“恢复”开始恢复文件  。
+11. 复查摘要信息，并选择“恢复”以开始恢复文件。
 
     ![恢复摘要](./media/backup-azure-backup-sharepoint/recovery-summary.png)
 12. 现在，在“MABS 管理员控制台”中选择“监视”选项卡以查看恢复的“状态”。  
@@ -190,7 +204,7 @@ ms.locfileid: "85852007"
    > 由于 SharePoint 场在 Azure 中受长期保留保护，因此 MABS 服务器上没有可用的目录信息（元数据）。 这样，每当需要恢复时间点 SharePoint 内容数据库时，都需要重新编录 SharePoint 场。
    >
    >
-3. 单击“**重新编目**”。
+3. 选择“重新编录”。
 
     ![MABS SharePoint 保护 10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -198,10 +212,10 @@ ms.locfileid: "85852007"
 
     ![MABS SharePoint 保护 11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    完成编录后，状态更改为“成功” 。 单击“**关闭**”。
+    完成编录后，状态更改为“成功” 。 选择“关闭”  。
 
     ![MABS SharePoint 保护 12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. 单击 MABS“恢复”选项卡中显示的 SharePoint 对象，以获取内容数据库结构。 右键单击相应的项，并单击“**恢复**”。
+4. 选择 MABS“恢复”选项卡中显示的 SharePoint 对象，以获取内容数据库结构。 右键单击相应的项，并选择“恢复”。
 
     ![MABS SharePoint 保护 13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. 此时，请按照本文前面介绍的恢复步骤，从磁盘恢复 Sharepoint 内容数据库。
@@ -236,7 +250,7 @@ ms.locfileid: "85852007"
 
 1. 在 Server2 上的命令提示符处，将目录更改为 `_MABS installation location_\bin\` 并运行 ConfigureSharepoint。 有关 ConfigureSharePoint 的详细信息，请参阅[配置备份](#configure-backup)。
 
-1. 选择服务器场所属的保护组，然后单击“修改保护组”。
+1. 选择服务器场所属的保护组，然后选择“修改保护组”。
 
 1. 在“修改组”向导中，在“选择组成员”页上展开 Server2 并选择服务器场，然后完成向导。
 

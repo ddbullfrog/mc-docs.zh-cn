@@ -4,14 +4,14 @@ description: 在 Azure Stack 上使用 Azure 备份服务器备份和还原 Shar
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 06/08/2018
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: b39f5ccd32663163988543e479460a710fa62429
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 9b79f62ed50cc9079c231b66805bb06d72b6f058
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852072"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871163"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>在 Azure Stack 上备份 SharePoint 场
 
@@ -79,7 +79,7 @@ MABS 的 Azure 备份支持以下方案：
 
         运行 ConfigureSharePoint.exe 后，如果 SharePoint 场管理员凭据发生更改，则需要重新运行。
 
-1. 若要创建保护组，请在 MABS 控制台中单击“保护” > “操作” > “创建保护组”，以打开“创建新保护组”向导   。
+1. 若要创建保护组，请在 MABS 控制台中选择“保护” > “操作” > “创建保护组”，打开“创建新保护组”向导   。
 
 1. 在“选择保护组类型”中，选择“服务器” 。
 
@@ -105,9 +105,9 @@ MABS 的 Azure 备份支持以下方案：
 
 1. 在“指定在线保留策略”中，可以指定如何在 Azure 中保留通过每日/每周/每月/每年备份创建的恢复点。
 
-1. 在“选择在线复制”中，指定如何进行数据的初始完整复制。 可以通过网络复制，也可以执行脱机备份（脱机设定种子）。 脱机备份使用 Azure 导入功能。 [了解详细信息](/backup/backup-azure-backup-import-export.md)。
+1. 在“选择在线复制”中，指定如何进行数据的初始完整复制。 可以通过网络复制，也可以执行脱机备份（脱机设定种子）。 脱机备份使用 Azure 导入功能。 [了解详细信息](./backup-azure-backup-import-export.md)。
 
-1. 在“摘要”页上，查看设置。 单击“创建组”之后，进行数据的初始复制。 完成后，“状态”页上的保护组状态将显示为“正常” 。 然后，将根据保护组设置开始进行备份。
+1. 在“摘要”页上，查看设置。 选择“创建组”**** 之后，就会进行数据的初始复制。 完成后，“状态”页上的保护组状态将显示为“正常” 。 然后，将根据保护组设置开始进行备份。
 
 ## <a name="monitoring"></a>监视
 
@@ -119,17 +119,17 @@ MABS 的 Azure 备份支持以下方案：
 
 ### <a name="set-up-monitoring-notifications"></a>设置监视通知
 
-1. 在 MABS 管理员控制台中，单击“监视” > “操作” > “选项”  。
+1. 在 MABS 管理员控制台中，选择“监视” > “操作” > “选项”  。
 
-2. 单击“SMTP 服务器”，键入服务器名称、端口以及用于发送通知的电子邮件地址。 该地址必须为有效地址。
+2. 选择“SMTP 服务器”，键入服务器名称、端口以及用于发送通知的电子邮件地址。 该地址必须为有效地址。
 
 3. 在“经过身份验证的 SMTP 服务器”中，键入用户名和密码。 用户名和密码必须是其“发件人”地址在上一步中进行了描述的用户的域帐户名。 否则，发送通知将失败。
 
-4. 若要测试 SMTP 服务器设置，请单击“发送测试电子邮件”，键入 MABS 要发送测试邮件的目标电子邮件地址，然后单击“确定” 。 单击“选项” > “通知”，并选择收件人希望收到的警报类型 。 在“收件人”中，键入 MABS 要发送通知副本的每位收件人的电子邮件地址。
+4. 若要测试 SMTP 服务器设置，请选择“发送测试电子邮件”，键入 MABS 要发送测试邮件的目标电子邮件地址，然后选择“确定” 。 选择“选项” > “通知”，并选择收件人希望收到的警报类型 。 在“收件人”中，键入 MABS 要发送通知副本的每位收件人的电子邮件地址。
 
 ### <a name="publish-operations-manager-alerts"></a>发布 Operations Manager 警报
 
-1. 在 MABS 管理员控制台中，单击“监视” > “操作” > “选项” > “警报发布” > “发布活动警报”    
+1. 在 MABS 管理员控制台中，选择“监视” > “操作” > “选项” > “警报发布” > “发布活动警报”    
 
 2. 启用“警报发布”后，用户可能需要将所有现有 MABS 警报将发布到“MABS 警报”事件日志 。 在 MABS 服务器上安装的 Operations Manager 代理随后会将这些警报发布到 Operations Manager，并在生成新警报时继续更新控制台。
 
@@ -151,10 +151,10 @@ MABS 的 Azure 备份支持以下方案：
 5. 还可以浏览各个恢复点，并选择要恢复的数据库或项。 选择“**日期 > 恢复时间**”，并选择正确的“**数据库 > SharePoint 场 > 恢复点 > 项**”。
 
     ![MABS SharePoint 保护 7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. 右键单击该项，并选择“**恢复**”打开“**恢复向导**”。 单击“下一步”。
+6. 右键单击该项，并选择“**恢复**”打开“**恢复向导**”。 选择“**下一页**”。
 
     ![复查恢复选择](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
-7. 选择用户要执行的恢复类型，并单击“下一步” 。
+7. 选择用户要执行的恢复类型，然后选择“下一步”。
 
     ![恢复类型](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
@@ -172,10 +172,10 @@ MABS 的 Azure 备份支持以下方案：
 
     ![暂存位置 1](./media/backup-azure-backup-sharepoint/staging-location1.png)
 
-    MABS 将托管 SharePoint 项的内容数据库附加到临时 SQL Server 实例。 MABS 将从内容数据库恢复该项，并将它放在 MABS 上的暂存文件位置。 现在，需要将暂存位置中的已恢复项导出到 SharePoint 场上的暂存位置。
+    MABS 会将托管 SharePoint 项的内容数据库附加到临时 SQL Server 实例。 MABS 将从内容数据库恢复该项，并将它放在 MABS 上的暂存文件位置。 现在，需要将暂存位置中的已恢复项导出到 SharePoint 场上的暂存位置。
 
     ![暂存位置 2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. 选择“**指定恢复选项**”，并将安全设置应用到 SharePoint 场，或应用恢复点的安全设置。 单击“下一步”。
+10. 选择“**指定恢复选项**”，并将安全设置应用到 SharePoint 场，或应用恢复点的安全设置。 选择“**下一页**”。
 
     ![恢复选项](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -183,7 +183,7 @@ MABS 的 Azure 备份支持以下方案：
     > 可以选择限制网络带宽使用率。 这可以在生产时段最大程度地降低对生产服务器的影响。
     >
     >
-11. 复查摘要信息，并单击“恢复”开始恢复文件  。
+11. 复查摘要信息，并选择“恢复”以开始恢复文件。
 
     ![恢复摘要](./media/backup-azure-backup-sharepoint/recovery-summary.png)
 12. 现在，在“MABS 管理员控制台”中选择“监视”选项卡以查看恢复的“状态”。  
@@ -206,7 +206,7 @@ MABS 的 Azure 备份支持以下方案：
    > 由于 SharePoint 场在 Azure 中受长期保留保护，因此 MABS 服务器上没有可用的目录信息（元数据）。 这样，每当需要恢复时间点 SharePoint 内容数据库时，都需要重新编录 SharePoint 场。
    >
    >
-3. 单击“**重新编目**”。
+3. 选择“重新编录”。
 
     ![MABS SharePoint 保护 10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -214,10 +214,10 @@ MABS 的 Azure 备份支持以下方案：
 
     ![MABS SharePoint 保护 11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    完成编录后，状态更改为“成功” 。 单击“**关闭**”。
+    完成编录后，状态更改为“成功” 。 选择“关闭”  。
 
     ![MABS SharePoint 保护 12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. 单击 MABS“恢复”选项卡中显示的 SharePoint 对象，以获取内容数据库结构。 右键单击相应的项，并单击“**恢复**”。
+4. 选择 MABS“恢复”选项卡中显示的 SharePoint 对象，以获取内容数据库结构。 右键单击相应的项，并选择“恢复”。
 
     ![MABS SharePoint 保护 13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. 此时，请按照本文前面介绍的恢复步骤，从磁盘恢复 Sharepoint 内容数据库。
@@ -252,7 +252,7 @@ MABS 的 Azure 备份支持以下方案：
 
 1. 在 Server2 上的命令提示符处，将目录更改为 `_MABS installation location_\bin\` 并运行 ConfigureSharepoint。 有关 ConfigureSharePoint 的详细信息，请参阅[配置备份](#configure-backup)。
 
-1. 选择服务器场所属的保护组，然后单击“修改保护组”。
+1. 选择服务器场所属的保护组，然后选择“修改保护组”。
 
 1. 在“修改组”向导中，在“选择组成员”页上展开 Server2 并选择服务器场，然后完成向导。
 
