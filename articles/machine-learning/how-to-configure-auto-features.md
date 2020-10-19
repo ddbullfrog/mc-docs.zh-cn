@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7f8c696d6ca07c24dbee9f34a5656558b80d67ab
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 9e2a700ae88a552794a4938c23811ba3200bfa57
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021025"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118189"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>自动化机器学习中的特征化
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本指南中介绍：
 

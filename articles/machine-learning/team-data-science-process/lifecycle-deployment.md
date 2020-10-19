@@ -3,20 +3,20 @@ title: Team Data Science Process 生命周期部署阶段
 description: 你的数据科学项目部署阶段的目标、任务和可交付结果
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b197c5263cc65a06acec9f35752191f0d8a68d66
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c891b1d34074df1ac3b7688eb7e540c21c08b8ec
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75598452"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118212"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命周期部署阶段
 
@@ -50,7 +50,7 @@ ms.locfileid: "75598452"
    * 业务线应用程序 
    * 后端应用程序 
 
-有关使用 Azure 机器学习 Web 服务使模型可操作化的示例，请参阅[部署 Azure 机器学习 Web 服务](../studio/deploy-a-machine-learning-web-service.md)。 将遥测和监视功能构建到部署的生产模型和数据管道中是一种最佳做法。 此做法有助于后续进行系统状态报告和故障排除。  
+有关使用 Azure 机器学习 Web 服务使模型可操作化的示例，请参阅[部署 Azure 机器学习 Web 服务](../classic/deploy-a-machine-learning-web-service.md)。 将遥测和监视功能构建到部署的生产模型和数据管道中是一种最佳做法。 此做法有助于后续进行系统状态报告和故障排除。  
 
 ## <a name="artifacts"></a>项目
 

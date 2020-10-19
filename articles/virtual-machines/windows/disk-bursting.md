@@ -1,19 +1,21 @@
 ---
-title: 磁盘突发
+title: 托管磁盘突发
 description: 了解 Azure 磁盘的磁盘突发和 Azure 虚拟机的磁盘突发
+origin.date: 09/22/2020
 author: rockboyfor
-origin.date: 04/27/2020
-ms.date: 08/10/2020
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 2b12e29b1e662b27816816bd6d2b6a02636d9bae
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 647641756295682a8111a1047bd13a7350b80de5
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917296"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128225"
 ---
 # <a name="disk-bursting"></a>磁盘突发
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]

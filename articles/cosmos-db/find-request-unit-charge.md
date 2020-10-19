@@ -1,21 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中查找请求单位 (RU) 费用
 description: 了解如何查找针对 Azure Cosmos 容器执行的任何操作所产生的请求单位 (RU) 费用。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/01/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 63e742076929cb73e80c38d046934e5594a6c569
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-js
+ms.openlocfilehash: 25c53e13d2cda7128fb6f4e248cae57eee1dd353
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222872"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118582"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中查找请求单位费用
 
@@ -220,7 +220,7 @@ RU 费用由名为 `getLastRequestStatistics` 的自定义[数据库命令](http
 
 1. 选择“查询统计信息”，以显示执行的请求的实际请求费用。
 
-    :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Azure 门户中的 MongoDB 查询请求费用屏幕截图":::
+    :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Azure 门户中的 SQL 查询请求费用屏幕截图":::
 
 ### <a name="use-the-mongodb-net-driver"></a>使用 MongoDB .NET 驱动程序
 

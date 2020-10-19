@@ -1,6 +1,6 @@
 ---
 title: 教程`:`使用托管标识通过访问密钥访问 Azure 存储 - Linux - Azure AD
-description: 本教程将指导你完成使用 Linux VM 系统分配的托管标识访问 Azure 存储的过程。
+description: 本教程将指导你完成使用 Linux VM 系统分配的托管标识通过访问密钥访问 Azure 存储的过程。
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13ebf6b2e795346927ec3f1a7adb49723b0d76b9
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: a03793f6e0a6c6408d15f277c0f42476c34a6627
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245363"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041438"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>教程：使用 Linux VM 系统分配的托管标识通过访问密钥访问 Azure 存储
 

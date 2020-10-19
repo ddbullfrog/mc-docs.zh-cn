@@ -5,16 +5,16 @@ description: 了解如何使用 Linux Data Science Virtual Machine 执行多种�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 07/17/2020
-ms.openlocfilehash: 73c08a5f31a1d034a3c9f08f1be2d492bb9a0493
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.date: 09/17/2020
+ms.openlocfilehash: fdb9be17e2c0fbd9e13aa43a107f1a5b5264559c
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395348"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117862"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>使用 Azure 中的 Ubuntu Data Science Virtual Machine 完成数据科学任务
 

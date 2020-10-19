@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
 origin.date: 08/05/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: f5b07045d4c1954ea1a9cf8cfe96936f8a6689a6
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 72fc9a0e55ec07ab4bb36f8849ae6e536a385150
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228249"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170719"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络集成
 
@@ -68,7 +68,7 @@ Azure 应用服务有两种变体：
 
 若要创建网关，请执行以下操作：
 
-1. 在 VNet 中[创建网关子网][creategatewaysubnet]。  
+1. 在 VNet 中[创建网关子网][creategatewaysubnet]。
 
 1. [创建 VPN 网关][creategateway]。 选择基于路由的 VPN 类型。
 
@@ -165,30 +165,31 @@ Commands:
     list : List the virtual network integrations used in an appservice plan.
 ```
 
-Powershell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
+PowerShell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
 
 ```azurepowershell
 # Parameters
-$sitename="myWebApp"
-$resourcegroupname="myRG"
-$VNetname="myVNet"
-$location="myRegion"
-$integrationsubnetname = "myIntegrationSubnet"
-$subscriptionID = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+$sitename = 'myWebApp'
+$resourcegroupname = 'myRG'
+$VNetname = 'myVNet'
+$location = 'myRegion'
+$integrationsubnetname = 'myIntegrationSubnet'
+$subscriptionID = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'
 
 #Property array with the SubnetID
 $properties = @{
-      "subnetResourceId" = "/subscriptions/"+$subscriptionID+"/resourceGroups/"+$resourcegroupname+"/providers/Microsoft.Network/virtualNetworks/"+$VNetname+"/subnets/"+$integrationsubnetname;
-      }
-      
-#Creation of the VNet integration
-$resourceID = $sitename+"/VirtualNetwork"
-New-AzResource -ResourceName $resourceID `
--Location $location  `
--ResourceGroupName $resourcegroupname `
--ResourceType Microsoft.Web/sites/networkConfig `
--PropertyObject $properties 
+  subnetResourceId = "/subscriptions/$subscriptionID/resourceGroups/$resourcegroupname/providers/Microsoft.Network/virtualNetworks/$VNetname/subnets/$integrationsubnetname"
+}
 
+#Creation of the VNet integration
+$vNetParams = @{
+  ResourceName = "$sitename/VirtualNetwork"
+  Location = $location
+  ResourceGroupName = $resourcegroupname
+  ResourceType = 'Microsoft.Web/sites/networkConfig'
+  PropertyObject = $properties
+}
+New-AzResource @vNetParams
 ```
 
 
@@ -204,18 +205,18 @@ For gateway-required VNet Integration, you can integrate App Service with an Azu
 
 
 <!--Links-->
-[VNETOverview]: /virtual-network/virtual-networks-overview
+[VNETOverview]: ../virtual-network/virtual-networks-overview.md
 [AzurePortal]: https://portal.azure.cn/
 [ASPricing]: https://www.azure.cn/pricing/details/app-service/
 [VNETPricing]: https://www.azure.cn/pricing/details/vpn-gateway/
 [DataPricing]: https://www.azure.cn/pricing/details/data-transfer/
-[V2VNETP2S]: https://www.azure.cn/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[V2VNETP2S]: ../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md
 [ILBASE]: environment/create-ilb-ase.md
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
 [creategatewaysubnet]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
-[creategateway]: https://docs.azure.cn/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
-[setp2saddresses]: https://docs.azure.cn/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
-[VNETRouteTables]: https://docs.azure.cn/virtual-network/manage-route-table/
+[creategateway]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
+[setp2saddresses]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#addresspool
+[VNETRouteTables]: ../virtual-network/manage-route-table.md
 [installCLI]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest/

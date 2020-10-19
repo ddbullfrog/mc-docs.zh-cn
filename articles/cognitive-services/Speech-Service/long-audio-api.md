@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 08/11/2020
 ms.date: 09/02/2020
 ms.author: v-tawe
-ms.openlocfilehash: 01006a2ceb6a901e8c52a749a1a5038758b2c69f
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 04d1567684216cbee465a77f94033d762670221a
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678494"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128324"
 ---
 # <a name="long-audio-api-preview"></a>长音频 API（预览）
 
@@ -115,7 +115,7 @@ Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xx
 在纯文本或 SSML 文本中准备输入文本文件，然后将以下代码添加到 `voice_synthesis_client.py`：
 
 > [!NOTE]
-> “concatenateResult”是一个可选参数。 如果未设置此参数，则将按段落生成音频输出。 你还可以通过设置该参数，将音频连接成 1 个输出。 默认情况下，音频输出设置为 riff-16khz-16bit-mono-pcm。 有关支持的音频输出的详细信息，请参阅[音频输出格式](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats)。
+> “concatenateResult”是一个可选参数。 如果未设置此参数，则将按段落生成音频输出。 你还可以通过设置该参数，将音频连接成 1 个输出。 默认情况下，音频输出设置为 riff-16khz-16bit-mono-pcm。 有关支持的音频输出的详细信息，请参阅[音频输出格式](https://docs.azure.cn/cognitive-services/speech-service/long-audio-api#audio-output-formats)。
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')

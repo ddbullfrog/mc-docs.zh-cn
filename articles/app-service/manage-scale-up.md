@@ -4,15 +4,15 @@ description: 了解如何在 Azure 应用服务中纵向扩展应用。 获取�
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 origin.date: 08/19/2019
-ms.date: 06/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: ef097bc30e7913cb904e9b7a93e01fa40570effb
-ms.sourcegitcommit: 5055d580fb7ef1722e32e09a334d1d3e28295dd6
+ms.openlocfilehash: 16e83959954e55e79b52f8ae2f93f24e87341b11
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503335"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170563"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>在 Azure 应用服务中纵向扩展应用
 
@@ -20,7 +20,7 @@ ms.locfileid: "89503335"
 
 * 纵向扩展：获取更多 CPU、内存、磁盘空间和额外功能，例如专用虚拟机 (VM)、自定义域和证书、过渡槽、自动缩放以及更多功能。 可以通过更改应用所属的应用服务计划的定价层来提升。
 * 横向扩展：增加用于运行应用的 VM 实例数。
-  可以根据定价层，最多向外缩放到 30 个实例。 独立层中的[应用服务环境](environment/intro.md)会进一步将横向扩展计数增加到 100 个实例。 有关横向扩展的详细信息，请参阅[手动或自动缩放实例计数](/azure-monitor/platform/autoscale-get-started)。 可在该文中了解如何使用自动缩放，即根据预定义的规则和计划自动缩放实例计数。
+  可以根据定价层，最多向外缩放到 30 个实例。 独立层中的[应用服务环境](environment/intro.md)会进一步将横向扩展计数增加到 100 个实例。 有关横向扩展的详细信息，请参阅[手动或自动缩放实例计数](../azure-monitor/platform/autoscale-get-started.md)。 可在该文中了解如何使用自动缩放，即根据预定义的规则和计划自动缩放实例计数。
 
 缩放设置仅需几秒即可应用，并且会影响[应用服务计划](../app-service/overview-hosting-plans.md)中的所有应用。
 缩放设置不需要更改代码或重新部署应用程序。
@@ -61,7 +61,7 @@ ms.locfileid: "89503335"
    
     ![导航到资源组页面对 Azure 应用进行纵向扩展](./media/web-sites-scale/ResourceGroup.png)
 
-    若要纵向扩展相关资源，请参阅特定资源类型的文档。 例如，若要纵向扩展单个 SQL 数据库，请参阅[在 Azure SQL 数据库中缩放单一数据库资源](../sql-database/sql-database-single-database-scale.md)。 若要纵向扩展 Azure Database for MySQL 资源，请参阅[扩展 MySQL 资源](../mysql/concepts-pricing-tiers.md#scale-resources)。
+    若要纵向扩展相关资源，请参阅特定资源类型的文档。 例如，若要纵向扩展单个 SQL 数据库，请参阅[在 Azure SQL 数据库中缩放单一数据库资源](../azure-sql/database/single-database-scale.md)。 若要纵向扩展 Azure Database for MySQL 资源，请参阅[扩展 MySQL 资源](../mysql/concepts-pricing-tiers.md#scale-resources)。
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
@@ -70,15 +70,15 @@ ms.locfileid: "89503335"
 
 有关详细信息（例如每个定价层的 VM 大小），请参阅[应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service)。
 
-有关服务限制、配额和约束的表以及每个层级所支持的功能，请参阅[应用服务限制](../azure-subscription-service-limits.md#app-service-limits)。
+有关服务限制、配额和约束的表以及每个层级所支持的功能，请参阅[应用服务限制](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)。
 
 <a name="Next Steps"></a>
 
 ## <a name="more-resources"></a>更多资源
 
-[手动或自动缩放实例计数](../monitoring-and-diagnostics/insights-how-to-scale.md)
 <!-- [SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930 -->
 
+[手动或自动缩放实例计数](../azure-monitor/platform/autoscale-get-started.md)  
 [为应用服务配置 PremiumV2 层](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->

@@ -1,22 +1,22 @@
 ---
 title: 通过 C++ 使用 Azure 表存储和 Azure Cosmos DB 表 API
-description: 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
+description: 通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 origin.date: 10/07/2019
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: a2938d3fcfac4ac94a868d84b26f9efc7ac7b6ce
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: e1295191c77da67be0827280db10308d23c98c3c
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246616"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118530"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API
 
@@ -98,14 +98,14 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 
 使用 `<your_cosmos_db_account>` 的 Azure Cosmos DB 帐户名称。 输入 `<your_cosmos_db_account_key>` 的主密钥。 对于 `<your_cosmos_db_endpoint>`，请输入 [Azure 门户](https://portal.azure.cn)中列出的终结点。
 
-若要在基于 Windows 的本地计算机中测试应用程序，可以使用随 [Azure SDK](https://www.azure.cn/downloads/) 一起安装的 Azure 存储模拟器。 存储模拟器是一种用于模拟本地开发计算机上提供的 Azure Blob、队列和表服务的实用程序。 以下示例演示如何声明一个静态字段以将连接字符串保存到本地存储模拟器：  
+若要在基于 Windows 的本地计算机中测试应用程序，可以使用随 [Azure SDK](https://www.azure.cn/downloads/) 一起安装的 Azure 存储模拟器。 存储模拟器是一种用于模拟本地开发计算机上提供的 Azure Blob、队列和表服务的实用工具。 以下示例演示如何声明一个静态字段以将连接字符串保存到本地存储模拟器：  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-若要启动 Azure 存储模拟器，请从 Windows 桌面选择“开始”按钮或 Windows 键  。 输入并运行 Microsoft Azure 存储模拟器**。 有关详细信息，请参阅[使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
+若要启动 Azure 存储模拟器，请从 Windows 桌面选择“开始”按钮或 Windows 键。 输入并运行 Microsoft Azure 存储模拟器**。 有关详细信息，请参阅[使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
 
 <!--CORRECT ON *Microsoft Azure Storage Emulator*-->
 

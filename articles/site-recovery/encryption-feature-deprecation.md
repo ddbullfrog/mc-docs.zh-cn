@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 11/15/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 09b829eea2f26dcbbd2d11ec9e4177fc27e0465d
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 7c467031972e54686a661179f54c1e28c20ad418
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655314"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128113"
 ---
 <!--Characters Content only-->
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>弃用 Site Recovery 数据加密功能

@@ -1,24 +1,25 @@
 ---
 title: Edv4 和 Edsv4 系列
 description: 适用于 Ev4、Edv4、Esv4 和 Edsv4 系列 VM 的规格。
-author: rockboyfor
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 02/04/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 96f82127bf41ac8b0ff5876a3a6b33158f43c403
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 47736f6e54c40958049726a8bd8a9bf1d5da3baa
+ms.sourcegitcommit: 5eb78078e370c9173a41f22ad8ea4bb45bc20312
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052400"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088212"
 ---
+<!--Verified successfully from PG team confirmation-->
 <!--Pending GA on Q3 2020, only be suitable for China East 2 and China North 2 site-->
 <!--RELEASE BEFORE CONFIRME AND BE CAREFULLY-->
 # <a name="edv4-and-edsv4-series"></a>Edv4 和 Edsv4 系列
@@ -75,7 +76,7 @@ ACU：195-210
 | Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24000 |
 | Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
 
-<sup>1</sup> [受约束的可用核心大小）](./windows/constrained-vcpu.md)。
+<sup>1</sup> [受约束的可用核心大小）](./constrained-vcpu.md)。
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -94,7 +95,7 @@ ACU：195-210
 
 定价计算器：[定价计算器](https://www.azure.cn/pricing/calculator/)
 
-有关磁盘类型的详细信息：[磁盘类型](./linux/disks-types.md)
+有关磁盘类型的详细信息：[磁盘类型](./disks-types.md)
 
 ## <a name="next-steps"></a>后续步骤
 

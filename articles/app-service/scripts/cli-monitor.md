@@ -7,15 +7,15 @@ ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 36d95028ca6cc92fa31a594a69f0d5c3c6476188
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: eedca45b6d4636d507c5aced2190801791ecdcea
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228333"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170628"
 ---
 # <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>使用 Azure CLI 通过 Web 服务器日志监视应用服务应用
 

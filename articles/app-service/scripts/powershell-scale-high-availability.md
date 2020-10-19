@@ -5,15 +5,15 @@ tags: azure-service-management
 ms.assetid: 470f0129-1efe-462c-a029-5c66e04158a8
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: mvc
-ms.openlocfilehash: 45a7c2e7ae91704bc928202bf6996219786c3801
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: a4b4552b02c65703335e2b17452888853a006e34
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228123"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170457"
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>缩放具有高可用性体系结构的全球 Web 应用
 

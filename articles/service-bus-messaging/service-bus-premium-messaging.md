@@ -4,16 +4,16 @@ description: 本文介绍 Azure 服务总线的标准层和高级层。 比较�
 ms.topic: conceptual
 origin.date: 07/28/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0d6c64f87fc29ba85988891bef0636a184e44453
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: ba428c443fef363cf65a9f01809ec7ed9a56f269
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946938"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127666"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>服务总线高级和标准消息传送层
 
@@ -45,9 +45,9 @@ ms.locfileid: "88946938"
 
 ### <a name="express-entities"></a>快速实体
 
-由于高级消息传送在一个隔离的运行时环境中运行，因此高级命名空间中不支持快速实体。 有关快速功能的详细信息，请参阅 [QueueDescription.EnableExpress](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress?view=azure-dotnet#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 属性。
+由于高级消息传送在一个隔离的运行时环境中运行，因此高级命名空间中不支持快速实体。 有关快速功能的详细信息，请参阅 [QueueDescription.EnableExpress](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 属性。
 
-如果有在标准传送下运行的代码并且希望将其移植到高级层，请确保将 [EnableExpress](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress?view=azure-dotnet#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 属性设置为 **false**（默认值）。
+如果有在标准传送下运行的代码并且希望将其移植到高级层，请确保将 [EnableExpress](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 属性设置为 **false**（默认值）。
 
 ## <a name="premium-messaging-resource-usage"></a>高级消息传送资源使用情况
 通常，对实体进行的任何操作都可能导致 CPU 和内存使用率增高。 下面是一些这样的操作： 
@@ -77,7 +77,7 @@ ms.locfileid: "88946938"
     - 如果 CPU 使用率低于 20%，则可纵向缩减分配给命名空间的消息传送单元数。
     - 如果 CPU 使用率超过 70%，则以纵向扩展的方式增加分配给命名空间的消息传送单元数将有益于应用程序。
 
-可以使用 [Azure 自动化 Runbook](../automation/automation-quickstart-create-runbook.md) 来自动缩放分配给服务总线命名空间的资源。
+<!--Not Available on To learn how to configure a Service Bus namespace to automatically scale (increase or decrease messaging units), see [Automatically update messaging units](automate-update-messaging-units.md)-->
 
 > [!NOTE]
 > **缩放**分配给命名空间的资源的操作可以抢先进行，也可以被动进行。
@@ -101,12 +101,11 @@ ms.locfileid: "88946938"
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下链接：
 
-* [Azure 服务总线高级消息传送简介（博客文章）](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-    
-    <!--Not Available on * [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)-->
+<!--Not Available on - [Automatically update messaging units](automate-update-messaging-units.md)--->
 
-* [服务总线消息传送概述](service-bus-messaging-overview.md)
-* [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
+- [Azure 服务总线高级消息传送简介（博客文章）](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+
+<!--Not Available on - [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)-->
 
 <!--Image references-->
 

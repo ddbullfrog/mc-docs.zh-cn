@@ -6,40 +6,20 @@ ms.service: signalr
 ms.topic: overview
 ms.custom: devx-track-dotnet
 origin.date: 11/13/2019
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 47fcf723caec2a5319acb7a0030b9e9dbeab76d4
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 16605e52610f531ac7a4bc818df0cc04823448a8
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063351"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170778"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR 服务常见问题解答
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>Azure SignalR 服务是否随时可用于生产？
 
-是的。
-有关正式版的通告，请参阅 [Azure SignalR 服务现已推出正式版](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/)。 
-
-完全支持 [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)。
-
-对 ASP.NET SignalR 的支持目前仍以公共预览版提供。 [下面是代码示例](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom)。
-
-## <a name="the-client-connection-closes-with-the-error-message-no-server-available-what-does-it-mean"></a>客户端连接关闭并显示错误消息“没有可用的服务器”。 它意味着什么？
-
-仅当客户端正在向 Azure SignalR 服务发送消息时，才会发生此错误。
-
-如果你没有任何应用程序服务器且只使用 Azure SignalR 服务 REST API，则此行为是设计使然。
-在无服务器体系结构中，客户端连接处于“侦听”模式，不会向 Azure SignalR 服务发送任何消息。
-阅读[有关 REST API 的详细信息](./signalr-quickstart-rest-api.md)。
-
-如果你有应用程序服务器，则此错误消息意味着没有任何应用程序服务器连接到 Azure SignalR 服务实例。
-
-可能的原因包括：
-- 没有任何应用程序服务器连接到 Azure SignalR 服务。 检查应用程序服务器日志，以查看可能的连接错误。 在具有多个应用程序服务器的高可用性设置中，这种情况非常罕见。
-- Azure SignalR 服务实例存在连接问题。 此问题是暂时性的，实例将自动恢复。
-如果此问题持续一个小时以上，请[在 GitHub 上提出问题](https://github.com/Azure/azure-signalr/issues/new)，或者[在 Azure 中创建支持请求](https://support.azure.cn/support/support-azure/)。
+是的，对 [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) 和 [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) 的支持都已正式发布。
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>如果存在多个应用程序服务器，客户端消息是发送到所有服务器，还是只发送到其中的一个服务器？
 
@@ -69,7 +49,7 @@ Azure SignalR 服务将监视应用程序服务器的检测信号。
 
 默认情况下，Azure SignalR 服务提供 ASP.NET Core SignalR 所支持的所有三种传输。 无法对其进行配置。 Azure SignalR 服务将处理连接以及所有客户端连接的传输。
 
-可以按照 [ASP.NET Core SignalR 配置](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2)中所述配置客户端传输。
+可以按照 [ASP.NET Core SignalR 配置](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1)中所述配置客户端传输。
 
 ## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-shown-in-the-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Azure 门户中显示的指标（例如消息计数或连接计数）的含义是什么？ 我应该选择哪种聚合类型？
 
@@ -79,19 +59,22 @@ Azure SignalR 服务将监视应用程序服务器的检测信号。
 
 ## <a name="what-is-the-meaning-of-the-default-serverless-and-classic-service-modes-how-can-i-choose"></a>`Default`、`Serverless` 和 `Classic` 服务模式的含义是什么？ 如何选择？
 
-下面是有关各模式的信息：
-* `Default` 模式需要中心服务器。 在此模式下，Azure SignalR 服务会将客户端流量路由到其连接的中心服务器连接。 Azure SignalR 服务将检查已连接的中心服务器。 如果该服务找不到已连接的中心服务器，它将拒绝传入的客户端连接。 在此模式下，你还可使用管理 API 直接通过 Azure SignalR 服务管理已连接的客户端。
-* `Serverless` 模式不允许任何服务器连接。 也就是说，它将拒绝所有服务器连接。 所有客户端必须处于无服务器模式。 客户端连接到 Azure SignalR 服务时，用户通常使用 Azure Functions 等无服务器技术来处理中心逻辑。 请参阅在 Azure SignalR 服务中使用无服务器模式的[简单示例](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu)。
-* `Classic` 模式为混合状态。 当中心具有服务器连接时，新客户端将路由到中心服务器。 如果中心不具有服务器连接，则客户端将进入无服务器模式。 
+对于新应用程序，应只使用默认和无服务器模式。 主要区别在于你是否拥有与服务建立服务器连接的应用程序服务器（例如，使用 `AddAzureSignalR()` 连接到服务）。 如果是，则使用默认模式，否则使用无服务器模式。
 
-  这可能会导致问题。 例如，如果所有服务器连接暂时丢失，则某些客户端将进入无服务器模式，而不是路由到中心服务器。
+经典模式旨在实现现有应用程序的后向兼容性，因此不应将其用于新应用程序。
 
-以下是选择模式的一些准则：
-- 如果没有中心服务器，请选择 `Serverless`。
-- 如果所有中心都有中心服务器，请选择 `Default`。
-- 如果某些中心具有中心服务器，而其他中心不具有，可以选择 `Classic`，但这可能会导致问题。 更好的方法是创建两个实例：一个为 `Serverless`，另一个为 `Default`。
+有关服务模式的详细信息，请参阅[这篇文档](concept-service-mode.md)。
+
+## <a name="can-i-send-message-from-client-in-serverless-mode"></a>能否在无服务器模式下从客户端发送消息？
+
+如果在 SignalR 实例中配置 Upstream，则可以从客户端发送消息。 Upstream 是一组终结点，可接收来自 SignalR 服务的消息和连接事件。 如果未配置 Upstream，则将忽略来自客户端的消息。
+
+有关 Upstream 的详细信息，请参阅[这篇文档](concept-upstream.md)。
+
+Upstream 目前以公共预览版提供。
 
 ## <a name="are-there-any-feature-differences-in-using-azure-signalr-service-with-aspnet-signalr"></a>将 Azure SignalR 服务与 ASP.NET SignalR 结合使用时是否有功能差异？
+
 使用 Azure SignalR 服务时，ASP.NET SignalR 的某些 API 和功能不受支持：
 - 不支持在客户端和中心之间传递任意状态的功能（通常称为 `HubState`）。
 - 不支持 `PersistentConnection` 类。

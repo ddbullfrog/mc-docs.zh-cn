@@ -3,14 +3,14 @@ title: 在 CloudEvents 架构中将 Azure 事件网格与事件配合使用
 description: 说明如何对 Azure 事件网格中的事件使用 CloudEvents 架构。 该服务支持 CloudEvents 的 JSON 实现中的事件。
 author: Johnnytechn
 ms.topic: conceptual
-ms.date: 08/10/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3fad8f9fca6b3f4c6688ec3f7a9a0fcfa89c2222
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 10/10/2020
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 00b708d14d34645a187e242d97ea586126852e0d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228417"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127809"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>将 CloudEvents v1.0 架构与事件网格配合使用
 除了采用[默认事件架构](event-schema.md)的事件，Azure 事件网格本身还支持采用 [CloudEvents v1.0 的 JSON 架构](https://github.com/cloudevents/spec/blob/v1.0/json-format.md)和 [HTTP 协议绑定](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)的事件。 [CloudEvents](https://cloudevents.io/) 是一种用于描述事件数据的[开放规范](https://github.com/cloudevents/spec/blob/v1.0/spec.md)。
@@ -162,7 +162,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
         // If the request is for subscription validation, send back the validation code
         
         var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Add("Webhook-Allowed-Origin", "eventgrid.chinacloudapi.cn");
+        response.Add("Webhook-Allowed-Origin", "eventgrid.azure.cn");
 
         return response;
     }
@@ -191,7 +191,7 @@ module.exports = function (context, req) {
         
         context.log('Validate request received');
         context.res = { status: 200 };
-        context.res.headers.append('Webhook-Allowed-Origin', 'eventgrid.chinacloudapi.cn');
+        context.res.headers.append('Webhook-Allowed-Origin', 'eventgrid.azure.cn');
     }
     else
     {

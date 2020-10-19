@@ -5,14 +5,14 @@ author: JialinXin
 ms.service: signalr
 ms.topic: tutorial
 origin.date: 09/09/2020
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: e176b119e6efb3eaf3d37c1f62379e020751ebaa
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: ab45c576159a9e99624604492b00a5ff468552e5
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90064638"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170780"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>教程：构建 Blazor Server 聊天应用
 
@@ -418,7 +418,7 @@ ms.locfileid: "90064638"
    }
    ```
 
-1. 在 `appsetting.json` 中或使用[机密管理器](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=visual-studio#secret-manager)工具配置 Azure SignalR 服务 `ConnectionString`
+1. 在 `appsetting.json` 中或使用[机密管理器](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio&view=aspnetcore-3.1#secret-manager)工具配置 Azure SignalR 服务 `ConnectionString`
 
 > [!NOTE]
 > 可以对 SignalR SDK 使用 [`HostingStartupAssembly`](https://docs.microsoft.com/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) 来替换步骤 2。

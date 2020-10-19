@@ -10,15 +10,14 @@ author: saachigopal
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8eb953782be7bb5fc9e5e18487b547dc589bdd09
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: b2cb8524b25fbeef54d97bbba423073c2dc37436
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395585"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117956"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>使用自定义 Docker 映像训练模型
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 本文介绍在通过 Azure 机器学习训练模型时如何使用自定义 Docker 映像。 
 
@@ -101,11 +100,11 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
 
 ### <a name="create-or-attach-existing-amlcompute"></a>创建或附加现有 AmlCompute
-你需要创建一个[计算目标](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#compute-target)来训练模型。 在本教程中，创建 AmlCompute 作为训练计算资源。
+你需要创建一个[计算目标](concept-azure-machine-learning-architecture.md#compute-targets)来训练模型。 在本教程中，创建 AmlCompute 作为训练计算资源。
 
 创建 AmlCompute 需要花费大约 5 分钟。 如果工作区中已有使用该名称的 AmlCompute，则此代码会跳过创建流程。
 
-与其他 Azure 服务一样，与 Azure 机器学习服务关联的某些资源（例如 AmlCompute）存在限制。 若要了解默认限制以及申请更多配额的方法，请阅读[此文章](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas)。 
+与其他 Azure 服务一样，与 Azure 机器学习服务关联的某些资源（例如 AmlCompute）存在限制。 若要了解默认限制以及申请更多配额的方法，请阅读[此文章](how-to-manage-quotas.md)。 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -132,7 +131,7 @@ print(compute_target.get_status().serialize())
 ```
 
 ### <a name="create-a-scriptrunconfig"></a>创建 ScriptRunConfig
-此 ScriptRunConfig 会将作业配置为在所需[计算目标](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets#compute-targets-for-training)上执行。
+此 ScriptRunConfig 会将作业配置为在所需[计算目标](how-to-set-up-training-targets.md)上执行。
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -160,4 +159,4 @@ run.wait_for_completion(show_output=True)
 ## <a name="next-steps"></a>后续步骤
 本文介绍了如何使用自定义 Docker 映像来训练模型。 有关 Azure 机器学习的详细信息，请参阅以下其他文章。
 * 在训练期间[跟踪运行指标](how-to-track-experiments.md)
-* 使用自定义 Docker 映像[部署模型](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)。
+* 使用自定义 Docker 映像[部署模型](how-to-deploy-custom-docker-image.md)。

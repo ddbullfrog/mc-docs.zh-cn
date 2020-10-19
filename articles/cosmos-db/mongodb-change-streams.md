@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 origin.date: 06/04/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 3ae8b61c0984906fef02cb1fde5c0571a9545819
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 5c30a75c0af05b926523143d53918755c4e7cb7f
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246403"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118562"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB's API for MongoDB 中的更改流
 

@@ -72,9 +72,6 @@
   items:
     - name: 服务总线示例
       href: service-bus-samples.md
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 概念
   items:
     - name: 高级消息传送
@@ -93,6 +90,8 @@
       href: service-bus-throttling.md
     - name: 安全性
       items:
+        - name: 安全基线
+          href: security-baseline.md
         - name: 身份验证和授权
           href: service-bus-authentication-and-authorization.md
           items:
@@ -197,8 +196,6 @@
           href: service-bus-integrate-with-rabbitmq.md
     - name: 管理
       items:
-        - name: 自动更新消息传送单元
-          href: automate-update-messaging-units.md
         - name: 使用 Azure PowerShell 预配实体
           href: service-bus-manage-with-ps.md
         - name: 使用 Azure Monitor 监视服务总线
@@ -230,7 +227,7 @@
           href: private-link-service.md
         - name: 配置客户管理的密钥
           href: configure-customer-managed-key.md
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 故障排除指南
           href: service-bus-troubleshooting-guide.md
@@ -268,9 +265,12 @@
       href: service-bus-messaging-sql-filter.md
     - name: SQLRuleAction 语法
       href: service-bus-messaging-sql-rule-action.md
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
-    - name: 常见问题
+    - name: 常见问题解答
       href: service-bus-faq.md
     - name: 博客
       href: 'https://docs.microsoft.com/archive/blogs/servicebus/'

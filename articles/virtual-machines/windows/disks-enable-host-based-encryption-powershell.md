@@ -5,18 +5,18 @@ ms.service: virtual-machines
 ms.topic: how-to
 origin.date: 08/24/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: afe1a879023685fa057618cadb1de6300cd0cb09
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 43d5f6a7f98f0868c4ad594e91f872885c7b284c
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463014"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128353"
 ---
 <!--NOT AVAIABLE ON Mooncake, REQUEST SUBMIT WITHOUT REPLY-->
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>使用 Azure PowerShell 模块通过主机加密来启用端到端加密

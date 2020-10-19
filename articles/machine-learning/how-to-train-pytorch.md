@@ -5,21 +5,21 @@ description: 了解如何使用 Azure 机器学习 PyTorch 估算器类在企业
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.reviewer: peterlu
 ms.date: 08/01/2019
-ms.custom: seodec18
-ms.openlocfilehash: 8a5bdf22b013f16ab82e2c90f88d88afe265f2ba
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: c7495c1aae4ed2eb977e060d5386d1b5da9fcf43
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395452"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118506"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>使用 Azure 机器学习大规模训练 Pytorch 深度学习模型
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 在本文中，你将了解如何使用 Azure 机器学习 [PyTorch 估算器](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true)类在企业范围内运行 [PyTorch](https://pytorch.org/) 训练脚本。  
 

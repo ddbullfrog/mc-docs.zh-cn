@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 origin.date: 5/26/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: a1c4ebabe11d6a2bc148b008a8f9534b30853493
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 10/19/2020
+ms.openlocfilehash: 3593ed72006f58241ca34651dde020396474e722
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512886"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041853"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 PHP 连接到 Azure Database for MySQL 并查询其中的数据
 
@@ -52,7 +52,7 @@ ms.locfileid: "89512886"
 2. 在 Azure 门户的左侧菜单中，单击“所有资源”，然后搜索已创建的服务器（例如 mydemoserver）。
 3. 单击服务器名称。
 4. 从服务器的“概览”面板中记下“服务器名称”和“服务器管理员登录名”。   如果忘记了密码，也可通过此面板来重置密码。
- ![Azure Database for MySQL 服务器名称](./media/connect-php/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL 服务器名称":::
 
 ## <a name="connect-and-create-a-table"></a>进行连接并创建表
 使用以下代码进行连接，通过 CREATE TABLE SQL 语句创建表。 

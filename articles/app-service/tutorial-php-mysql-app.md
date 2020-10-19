@@ -5,16 +5,16 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 origin.date: 06/15/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: a00b5c618753e9cf1ca1be40a6fb4d73c0aa7a55
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 6d9450ca09f12377525d02e2fc2d5dfd8b0e656a
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228976"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170740"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 PHP 和 MySQL 应用
 
@@ -30,7 +30,7 @@ ms.locfileid: "88228976"
 
 ::: zone-end
 
-![在 Azure 应用服务中运行的 PHP 应用](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
+:::image type="content" source="./media/tutorial-php-mysql-app/complete-checkbox-published.png" alt-text="标题为“任务列表”的 PHP 应用示例的屏幕截图。":::
 
 在本教程中，你将了解如何执行以下操作：
 
@@ -155,7 +155,7 @@ php artisan serve
 
 ## <a name="create-mysql-in-azure"></a>在 Azure 中创建 MySQL
 
-此步骤在 [Azure Database for MySQL](/mysql) 中创建一个 MySQL 数据库。 稍后需要将 PHP 应用程序配置为连接到此数据库。
+此步骤在 [Azure Database for MySQL](../mysql/index.yml) 中创建一个 MySQL 数据库。 稍后需要将 PHP 应用程序配置为连接到此数据库。
 
 ### <a name="create-a-resource-group"></a>创建资源组
 
@@ -165,7 +165,7 @@ php artisan serve
 
 在 Windows 终端中，使用 [`az mysql server create`](/cli/mysql/server?view=azure-cli-latest#az-mysql-server-create) 命令在 Azure Database for MySQL 中创建一个服务器。
 
-在下列命令中，用唯一的服务器名称替换 \<mysql-server-name> 占位符，用用户名替换\<admin-user> 占位符，并用密码替换 \<admin-password> 占位符  。 此服务器名称用作 MySQL 终结点 (`https://<mysql-server-name>.mysql.database.azure.cn`) 的一部分，因此需在 Azure 的所有服务器中保持唯一。 有关选择 MySQL DB SKU 的详细信息，请参阅[为 MySQL 服务器创建 Azure 数据库](https://docs.azure.cn/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server)。
+在下列命令中，用唯一的服务器名称替换 \<mysql-server-name> 占位符，用用户名替换\<admin-user> 占位符，并用密码替换 \<admin-password> 占位符  。 此服务器名称用作 MySQL 终结点 (`https://<mysql-server-name>.mysql.database.azure.cn`) 的一部分，因此需在 Azure 的所有服务器中保持唯一。 有关选择 MySQL DB SKU 的详细信息，请参阅[为 MySQL 服务器创建 Azure 数据库](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server)。
 
 ```azurecli
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "China East" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -500,7 +500,7 @@ remote: Running deployment command...
 
 浏览到 `http://<app-name>.chinacloudsites.cn` 并在列表中添加一些任务。
 
-![在 Azure 应用服务中运行的 PHP 应用](./media/tutorial-php-mysql-app/php-mysql-in-azure.png)
+:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="标题为“任务列表”的 PHP 应用示例的屏幕截图。":::
 
 恭喜，你的数据驱动的 PHP 应用正在 Azure 应用服务中运行。
 

@@ -1,21 +1,21 @@
 ---
-title: 教程：将 ASP.NET Core 与 SQL 数据库配合使用
-description: 了解如何在 Azure 应用服务中运行 .NET Core 应用，同时使其连接到 SQL 数据库。
+title: 教程：将 ASP.NET Core 与 Azure SQL 数据库配合使用
+description: 了解如何在 Azure 应用服务中运行 .NET Core 应用，同时使其连接到 Azure SQL 数据库。
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 06/20/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 40b4f34a25194e6bc8f3c8f1dfc15ce4182a8f9a
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 1f77743f24d170acef7ccd4f25e3c65aba088238
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228980"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170757"
 ---
-# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 ASP.NET Core 和 SQL 数据库应用
+# <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 ASP.NET Core 和 Azure SQL 数据库应用
 
 ::: zone pivot="platform-windows"  
 
@@ -146,7 +146,7 @@ az sql server firewall-rule create --name AllowLocalClient --server <server-name
 
 ### <a name="create-a-database"></a>创建数据库
 
-使用 [`az sql db create`](/cli/sql/db?view=azure-cli-latest#az-sql-db-create) 命令在服务器中创建 [S0 性能级别](../sql-database/sql-database-service-tiers-dtu.md)的数据库。
+使用 [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) 命令在服务器中创建 [S0 性能级别](../azure-sql/database/service-tiers-dtu.md)的数据库。
 
 ```azurecli
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
@@ -157,7 +157,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 使用 [`az sql db show-connection-string`](/cli/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) 命令获取连接字符串。
 
 ```azurecli
-az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
+az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
 ```
 
 在命令输出中，将 \<username> 和 \<password> 替换为你先前使用的数据库管理员凭据 。

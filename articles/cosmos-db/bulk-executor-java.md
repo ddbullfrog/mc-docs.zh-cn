@@ -7,18 +7,18 @@ ms.devlang: java
 ms.topic: how-to
 origin.date: 08/26/2020
 author: rockboyfor
-ms.date: 09/28/2020
-ms.testscope: yes
+ms.date: 10/19/2020
+ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 4dd46c574bc491239b41ef0c6cdd855e7696f314
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 1f8badf8453bf72600c6db42183f5ddae9d20920
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246586"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118563"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 Bulk Executor Java 库针对 Azure Cosmos DB 数据执行批量操作
 
@@ -30,11 +30,14 @@ ms.locfileid: "91246586"
 
 * 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
 
-* 可以通过 `https://localhost:8081` 终结点使用 [Azure Cosmos DB 模拟器](/cosmos-db/local-emulator)。 [对请求进行身份验证](local-emulator.md#authenticating-requests)中提供了主密钥。  
+* 可以通过 `https://localhost:8081` 终结点使用 [Azure Cosmos DB 模拟器](https://docs.azure.cn/cosmos-db/local-emulator)。 [对请求进行身份验证](local-emulator.md#authenticate-requests)中提供了主密钥。  
 
     <!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 
-* [Java 开发工具包 (JDK) 1.7+](https://docs.microsoft.com/java/azure/jdk/)  
+* [Java 开发工具包 (JDK) 1.7+](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
+    
+    <!--CORRECT ON LINK TOGETHER ?view=azure-java-stable&preserve-view=true-->
+    
     - 在 Ubuntu 上运行 `apt-get install default-jdk`，以便安装 JDK。  
 
     - 请确保设置 JAVA_HOME 环境变量，使之指向在其中安装了 JDK 的文件夹。
@@ -142,7 +145,7 @@ ms.locfileid: "91246586"
 6. 生成目标依赖关系后，可使用以下命令调用批量导入程序应用程序：  
 
     ```bash
-    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>* -masterKey *<Fill in your Azure Cosmos DB's primary key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
     ```
 
     批量导入程序会创建新的数据库和集合，并在 App.config 文件中指定数据库名称、集合名称与吞吐量值。 
@@ -206,7 +209,7 @@ ms.locfileid: "91246586"
 4. 生成目标依赖关系后，可使用以下命令调用批量更新应用程序：
 
     ```bash
-    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's primary key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
     ```
 
 ## <a name="performance-tips"></a>性能提示 

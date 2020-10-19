@@ -5,15 +5,15 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 10/22/2019
-ms.date: 08/10/2020
-ms.openlocfilehash: b956b7a8a7f307832f92ccad2277996c2543ff6e
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 10/10/2020
+ms.openlocfilehash: a9dbb60fa56cdc7226fb7edddfc3ba6226b5ddc2
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228122"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128051"
 ---
-# <a name="dead-letter-and-retry-policies"></a>死信与重试策略
+# <a name="set-dead-letter-location-and-retry-policy"></a>设置死信位置和重试策略
 
 创建事件订阅时，可以自定义每个事件传递的设置。 本文介绍如何设置死信位置和自定义重试设置。 有关这些功能的信息，请参阅[事件网格消息传送和重试](delivery-and-retry.md)。
 

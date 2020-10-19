@@ -5,13 +5,13 @@ author: msangapu-msft
 ms.author: v-tawe
 ms.topic: tutorial
 origin.date: 06/20/2020
-ms.date: 08/13/2020
-ms.openlocfilehash: 11be8083286ed2b97df191835b98123959e0b821
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 10/19/2020
+ms.openlocfilehash: 8652b0a89485e0be137f53fd78b758eb4789ee85
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228974"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170728"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>教程：使用 Azure Monitor 排查应用服务应用的问题
 
@@ -19,9 +19,9 @@ ms.locfileid: "88228974"
 > Azure Monitor 与应用服务的集成目前以[预览版](https://aka.ms/appsvcblog-azmon)提供。
 >
 
-本教程介绍如何使用 [Azure Monitor](https://docs.azure.cn/azure-monitor/overview) 排查[应用服务](overview.md)应用问题。 示例应用中的代码故意耗尽内存并导致 HTTP 500 错误，使你可以使用 Azure Monitor 来诊断和解决问题。 完成后，某个示例应用将在与 [Azure Monitor](https://docs.azure.cn/azure-monitor/overview) 集成的“Linux 上的应用服务”中运行。
+本教程介绍如何使用 [Azure Monitor](../azure-monitor/overview.md) 排查[应用服务](overview.md)应用问题。 示例应用中的代码故意耗尽内存并导致 HTTP 500 错误，使你可以使用 Azure Monitor 来诊断和解决问题。 完成后，某个示例应用将在与 [Azure Monitor](../azure-monitor/overview.md) 集成的“Linux 上的应用服务”中运行。
 
-[Azure Monitor](https://docs.azure.cn/azure-monitor/overview) 提供用于收集、分析和处理来自云与本地环境的遥测数据的综合解决方案，可将应用程序和服务的可用性和性能最大化。
+[Azure Monitor](../azure-monitor/overview.md) 提供用于收集、分析和处理来自云与本地环境的遥测数据的综合解决方案，可将应用程序和服务的可用性和性能最大化。
 
 在本教程中，你将了解如何执行以下操作：
 
@@ -39,7 +39,7 @@ ms.locfileid: "88228974"
 若要完成本教程，你需要：
 
 - [Azure 订阅](https://wd.azure.cn/pricing/1rmb-trial/)
-- [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)
+- [Azure CLI](/cli/install-azure-cli)
 - [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>创建 Azure 资源
@@ -74,12 +74,12 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### <a name="create-a-diagnostic-setting"></a>创建诊断设置
 
-使用诊断设置可将特定 Azure 服务的指标收集到 Azure Monitor 日志中，以使用日志查询结合其他监视数据进行分析。 在本教程中，请启用 Web 服务器和标准输出/错误日志。 有关日志类型和说明的完整列表，请参阅[支持的日志类型](https://docs.azure.cn/app-service/troubleshoot-diagnostic-logs#supported-log-types)。
+使用诊断设置可将特定 Azure 服务的指标收集到 Azure Monitor 日志中，以使用日志查询结合其他监视数据进行分析。 在本教程中，请启用 Web 服务器和标准输出/错误日志。 有关日志类型和说明的完整列表，请参阅[支持的日志类型](./troubleshoot-diagnostic-logs.md#supported-log-types)。
 
 运行以下命令创建 AppServiceConsoleLogs（标准输出/错误）和 AppServiceHTTPLogs（Web 服务器日志）的诊断设置。 将 \<app-name> 和 \<workspace-name> 替换为你的值 。 
 
 > [!NOTE]
-> 前两个命令 `resourceID` 和 `workspaceID` 是要在 `az monitor diagnostic-settings create` 命令中使用的变量。 有关此命令的详细信息，请参阅[使用 Azure CLI 创建诊断设置](https://docs.azure.cn/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli)。
+> 前两个命令 `resourceID` 和 `workspaceID` 是要在 `az monitor diagnostic-settings create` 命令中使用的变量。 有关此命令的详细信息，请参阅[使用 Azure CLI 创建诊断设置](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli)。
 >
 
 ```bash
@@ -130,7 +130,7 @@ az monitor diagnostic-settings create --resource $resourceID \
 
 ### <a name="log-queries"></a>日志查询
 
-日志查询可帮助你充分利用 Azure Monitor 日志中收集的数据的价值。 使用日志查询可以识别 AppServiceHTTPLogs 和 AppServiceConsoleLogs 中的日志。 有关日志查询的详细信息，请参阅[日志查询概述](https://docs.azure.cn/azure-monitor/log-query/log-query-overview)。
+日志查询可帮助你充分利用 Azure Monitor 日志中收集的数据的价值。 使用日志查询可以识别 AppServiceHTTPLogs 和 AppServiceConsoleLogs 中的日志。 有关日志查询的详细信息，请参阅[日志查询概述](../azure-monitor/log-query/log-query-overview.md)。
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>使用日志查询查看 AppServiceHTTPLogs
 

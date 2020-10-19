@@ -7,17 +7,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 05/04/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
-ms.openlocfilehash: 38e4ede07b503682389b140e5cad799ab9a49a75
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: c998a232b7d8218caf8687b038c449983d74b2b1
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462843"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128293"
 ---
 <!--Verified successfully-->
 # <a name="create-a-vm-using-a-specialized-image"></a>使用专用化映像创建 VM 
@@ -136,6 +136,6 @@ Add-AzVMDataDisk `
 - [在共享映像库中创建映像版本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sig-image-version-create/)
 - [根据映像版本创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-sig/)
 
-有关共享映像库的详细信息，请参阅[概述](./windows/shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](./windows/troubleshooting-shared-images.md)。
+有关共享映像库的详细信息，请参阅[概述](./windows/shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](troubleshooting-shared-images.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

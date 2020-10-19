@@ -4,14 +4,14 @@ description: 查找用于评估组织 Azure 应用服务的安全控制的清单
 author: msmbaldwin
 ms.topic: conceptual
 origin.date: 09/04/2019
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 4f1293bebf89e35476d61686c7ae819524a45b5c
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: b88d525d27c5e5caf10bc8ef9922d5a573837a0c
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227976"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170840"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Azure 应用服务的安全控制
 

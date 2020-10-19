@@ -11,16 +11,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/19/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: dc07a5ae7b61cc2d5828d5a2fe9acf2e84a3bd9e
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 8b212f8351efa5558f622d126e645cd9e1bd8cb7
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456873"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127823"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>通过使用 Azure 门户将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除
 如果 Linux 虚拟机 (VM) 遇到启动或磁盘错误，则可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是 `/etc/fstab` 中存在无效条目，使 VM 无法成功启动。 本文详细介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 Linux VM 来修复所有错误，然后重新创建原始 VM。
@@ -31,7 +31,7 @@ ms.locfileid: "89456873"
 1. 停止受影响的 VM。
 1. 为 VM 的 OS 磁盘拍摄快照。
 1. 从快照创建虚拟硬盘。
-1. 将虚拟硬盘附加并装入到另一个 Windows VM，以便进行故障排除。
+1. 将虚拟硬盘附加并装入到另一个 Linux VM，以便进行故障排除。
 1. 连接到故障排除 VM。 编辑文件或运行任何工具以修复原始虚拟硬盘上的问题。
 1. 从故障排除 VM 卸载并分离虚拟硬盘。
 1. 交换 VM 的 OS 磁盘。
@@ -53,7 +53,7 @@ ms.locfileid: "89456873"
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。 在边栏中选择“虚拟机”，然后选择有问题的 VM。 
 1. 在左窗格中选择“磁盘”，然后选择 OS 磁盘的名称。 
-    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png" alt-text="有关 OS 磁盘名称的插图":::
+    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png" alt-text="查看 VM 启动诊断控制台日志":::
 1. 然后，在 OS 磁盘的“概述”页上，选择“创建快照”。  
 1. 在 OS 磁盘所在位置创建快照。
 
@@ -104,7 +104,7 @@ ms.locfileid: "89456873"
 
 1. 在门户中选择资源组，并选择故障排除 VM。 依次选择“磁盘”  、“编辑”  ，然后单击“添加数据磁盘”  ：
 
-    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png" alt-text="在门户中附加现有磁盘":::
+    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png" alt-text="查看 VM 启动诊断控制台日志":::
 
 2. 在“数据磁盘”  列表中，选择所标识的 VM 的 OS 磁盘。 如果看不到 OS 磁盘，请确保故障排除 VM 和 OS 磁盘位于同一区域（位置）。 
 3. 选择“保存”应用所做的更改。 
@@ -168,7 +168,7 @@ ms.locfileid: "89456873"
 
 2. 现在从 VM 中分离虚拟硬盘。 在门户中选择 VM，然后单击“磁盘”。  选择现有的虚拟硬盘，并单击“分离”： 
 
-    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png" alt-text="分离现有虚拟硬盘":::
+    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png" alt-text="查看 VM 启动诊断控制台日志":::
 
     等到 VM 成功分离数据磁盘，并继续操作。
 
@@ -178,7 +178,7 @@ Azure 门户现在支持更改 VM 的 OS 磁盘。 为此，请按照下列步�
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。 在边栏中选择“虚拟机”，然后选择有问题的 VM。 
 1. 在左窗格中选择“磁盘”，然后选择“交换 OS 磁盘”。  
-    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png" alt-text="有关在 Azure 门户中交换 OS 磁盘的插图":::
+    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png" alt-text="查看 VM 启动诊断控制台日志":::
 
 1. 选择已修复的新磁盘，然后键入 VM 的名称以确认更改。 如果在列表中看不到该磁盘，请在从故障排除 VM 中分离磁盘后等待 10 到 15 分钟。 另外，请确保该磁盘与 VM 位于同一位置。
 1. 选择“确定”。

@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: v-jay
 origin.date: 05/14/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 6087f6770de48c3476e7b594faa0d091dad7546e
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 10/19/2020
+ms.openlocfilehash: 73c7a95947769612293bcb3072818e7d0e31775e
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512944"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041857"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>快速入门：使用 ARM 模板创建 Azure Database for PostgreSQL 单一服务器
 
@@ -23,7 +23,7 @@ ms.locfileid: "89512944"
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-[![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -51,237 +51,238 @@ ms.locfileid: "89512944"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "serverName": {
-            "type": "string",
-            "metadata": {
-                "description": "Server Name for Azure database for PostgreSQL"
-            }
-        },
-        "administratorLogin": {
-            "type": "string",
-            "minLength": 1,
-            "metadata": {
-                "description": "Database administrator login name"
-            }
-        },
-        "administratorLoginPassword": {
-            "type": "securestring",
-            "minLength": 8,
-            "metadata": {
-                "description": "Database administrator password"
-            }
-        },
-        "skuCapacity": {
-            "type": "int",
-            "defaultValue": 2,
-            "metadata": {
-                "description": "Azure database for PostgreSQL compute capacity in vCores (2,4,8,16,32)"
-            }
-        },
-        "skuName": {
-            "type": "string",
-            "defaultValue": "GP_Gen5_2",
-            "metadata": {
-                "description": "Azure database for PostgreSQL sku name "
-            }
-        },
-        "skuSizeMB": {
-            "type": "int",
-            "defaultValue": 51200,
-            "metadata": {
-                "description": "Azure database for PostgreSQL Sku Size "
-            }
-        },
-        "skuTier": {
-            "type": "string",
-            "defaultValue": "GeneralPurpose",
-            "metadata": {
-                "description": "Azure database for PostgreSQL pricing tier"
-            }
-        },
-        "skuFamily": {
-            "type": "string",
-            "defaultValue": "Gen5",
-            "metadata": {
-                "description": "Azure database for PostgreSQL sku family"
-            }
-        },
-        "postgresqlVersion": {
-            "type": "string",
-            "allowedValues": [
-                "9.5",
-                "9.6",
-                "10",
-                "11"
-            ],
-            "defaultValue": "11",
-            "metadata": {
-                "description": "PostgreSQL version"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location for all resources."
-            }
-        },
-        "backupRetentionDays": {
-            "type": "int",
-            "defaultValue": 7,
-            "metadata": {
-                "description": "PostgreSQL Server backup retention days"
-            }
-        },
-        "geoRedundantBackup": {
-            "type": "string",
-            "defaultValue": "Disabled",
-            "metadata": {
-                "description": "Geo-Redundant Backup setting"
-            }
-        },
-        "virtualNetworkName": {
-            "type": "string",
-            "defaultValue": "azure_postgresql_vnet",
-            "metadata": {
-                "description": "Virtual Network Name"
-            }
-        },
-        "subnetName": {
-            "type": "string",
-            "defaultValue": "azure_postgresql_subnet",
-            "metadata": {
-                "description": "Subnet Name"
-            }
-        },
-        "virtualNetworkRuleName": {
-            "type": "string",
-            "defaultValue": "AllowSubnet",
-            "metadata": {
-                "description": "Virtual Network RuleName"
-            }
-        },
-        "vnetAddressPrefix": {
-            "type": "string",
-            "defaultValue": "10.0.0.0/16",
-            "metadata": {
-                "description": "Virtual Network Address Prefix"
-            }
-        },
-        "subnetPrefix": {
-            "type": "string",
-            "defaultValue": "10.0.0.0/16",
-            "metadata": {
-                "description": "Subnet Address Prefix"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serverName": {
+      "type": "string",
+      "metadata": {
+        "description": "Server Name for Azure database for PostgreSQL"
+      }
     },
-    "variables": {
-        "firewallrules": {
-            "batch": {
-                "rules": [
-                    {
-                        "Name": "rule1",
-                        "StartIpAddress": "0.0.0.0",
-                        "EndIpAddress": "255.255.255.255"
-                    },
-                    {
-                        "Name": "rule2",
-                        "StartIpAddress": "0.0.0.0",
-                        "EndIpAddress": "255.255.255.255"
-                    }
-                ]
-            }
-        }
+    "administratorLogin": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "Database administrator login name"
+      }
     },
-    "resources": [
-        {
-            "apiVersion": "2018-06-01",
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetworkName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[parameters('vnetAddressPrefix')]"
-                    ]
-                }
-            },
-            "resources": [
-                {
-                    "apiVersion": "2018-06-01",
-                    "type": "subnets",
-                    "location": "[parameters('location')]",
-                    "name": "[parameters('subnetName')]",
-                    "dependsOn": [
-                        "[parameters('virtualNetworkName')]"
-                    ],
-                    "properties": {
-                        "addressPrefix": "[parameters('subnetPrefix')]"
-                    }
-                }
-            ]
-        },
-        {
-            "apiVersion": "2017-12-01",
-            "type": "Microsoft.DBforPostgreSQL/servers",
-            "location": "[parameters('location')]",
-            "name": "[parameters('serverName')]",
-            "sku": {
-                "name": "[parameters('skuName')]",
-                "tier": "[parameters('skuTier')]",
-                "capacity": "[parameters('skuCapacity')]",
-                "size": "[parameters('skuSizeMB')]",
-                "family": "[parameters('skuFamily')]"
-            },
-            "properties": {
-                "version": "[parameters('postgresqlVersion')]",
-                "administratorLogin": "[parameters('administratorLogin')]",
-                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-                "storageProfile": {
-                    "storageMB": "[parameters('skuSizeMB')]",
-                    "backupRetentionDays": "[parameters('backupRetentionDays')]",
-                    "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
-                }
-            },
-            "resources": [
-                {
-                    "name": "[parameters('virtualNetworkRuleName')]",
-                    "type": "virtualNetworkRules",
-                    "apiVersion": "2017-12-01",
-                    "properties": {
-                        "virtualNetworkSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
-                        "ignoreMissingVnetServiceEndpoint": true
-                    },
-                    "dependsOn": [
-                        "[concat('Microsoft.DBforPostgreSQL/servers/', parameters('serverName'))]"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "[concat(parameters('serverName'),'/',variables('firewallrules').batch.rules[copyIndex()].Name)]",
-            "type": "Microsoft.DBforPostgreSQL/servers/firewallRules",
-            "apiVersion": "2017-12-01",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.DBforPostgreSQL/servers/', parameters('serverName'))]"
-            ],
-            "copy": {
-                "name": "firewallRulesCopy",
-                "mode": "Serial",
-                "batchSize": 1,
-                "count": "[length(variables('firewallrules').batch.rules)]"
-            },
-            "properties": {
-                "startIpAddress": "[variables('firewallrules').batch.rules[copyIndex()].StartIpAddress]",
-                "endIpAddress": "[variables('firewallrules').batch.rules[copyIndex()].EndIpAddress]"
-            }
+    "administratorLoginPassword": {
+      "type": "securestring",
+      "minLength": 8,
+      "metadata": {
+        "description": "Database administrator password"
+      }
+    },
+    "skuCapacity": {
+      "type": "int",
+      "defaultValue": 2,
+      "metadata": {
+        "description": "Azure database for PostgreSQL compute capacity in vCores (2,4,8,16,32)"
+      }
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "GP_Gen5_2",
+      "metadata": {
+        "description": "Azure database for PostgreSQL sku name "
+      }
+    },
+    "skuSizeMB": {
+      "type": "int",
+      "defaultValue": 51200,
+      "metadata": {
+        "description": "Azure database for PostgreSQL Sku Size "
+      }
+    },
+    "skuTier": {
+      "type": "string",
+      "defaultValue": "GeneralPurpose",
+      "metadata": {
+        "description": "Azure database for PostgreSQL pricing tier"
+      }
+    },
+    "skuFamily": {
+      "type": "string",
+      "defaultValue": "Gen5",
+      "metadata": {
+        "description": "Azure database for PostgreSQL sku family"
+      }
+    },
+    "postgresqlVersion": {
+      "type": "string",
+      "defaultValue": "11",
+      "allowedValues": [
+        "9.5",
+        "9.6",
+        "10",
+        "11"
+      ],
+      "metadata": {
+        "description": "PostgreSQL version"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
+    "backupRetentionDays": {
+      "type": "int",
+      "defaultValue": 7,
+      "metadata": {
+        "description": "PostgreSQL Server backup retention days"
+      }
+    },
+    "geoRedundantBackup": {
+      "type": "string",
+      "defaultValue": "Disabled",
+      "metadata": {
+        "description": "Geo-Redundant Backup setting"
+      }
+    },
+    "virtualNetworkName": {
+      "type": "string",
+      "defaultValue": "azure_postgresql_vnet",
+      "metadata": {
+        "description": "Virtual Network Name"
+      }
+    },
+    "subnetName": {
+      "type": "string",
+      "defaultValue": "azure_postgresql_subnet",
+      "metadata": {
+        "description": "Subnet Name"
+      }
+    },
+    "virtualNetworkRuleName": {
+      "type": "string",
+      "defaultValue": "AllowSubnet",
+      "metadata": {
+        "description": "Virtual Network RuleName"
+      }
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/16",
+      "metadata": {
+        "description": "Virtual Network Address Prefix"
+      }
+    },
+    "subnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/16",
+      "metadata": {
+        "description": "Subnet Address Prefix"
+      }
+    }
+  },
+  "variables": {
+    "firewallrules": {
+      "batch": {
+        "rules": [
+          {
+            "Name": "rule1",
+            "StartIpAddress": "0.0.0.0",
+            "EndIpAddress": "255.255.255.255"
+          },
+          {
+            "Name": "rule2",
+            "StartIpAddress": "0.0.0.0",
+            "EndIpAddress": "255.255.255.255"
+          }
+        ]
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-06-01",
+      "name": "[parameters('virtualNetworkName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vnetAddressPrefix')]"
+          ]
         }
-    ]
+      },
+      "resources": [
+        {
+          "type": "subnets",
+          "apiVersion": "2020-06-01",
+          "name": "[parameters('subnetName')]",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+            "[parameters('virtualNetworkName')]"
+          ],
+          "properties": {
+            "addressPrefix": "[parameters('subnetPrefix')]"
+          }
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.DBforPostgreSQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('serverName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('skuName')]",
+        "tier": "[parameters('skuTier')]",
+        "capacity": "[parameters('skuCapacity')]",
+        "size": "[parameters('skuSizeMB')]",
+        "family": "[parameters('skuFamily')]"
+      },
+      "properties": {
+        "createMode": "Default",
+        "version": "[parameters('postgresqlVersion')]",
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+        "storageProfile": {
+          "storageMB": "[parameters('skuSizeMB')]",
+          "backupRetentionDays": "[parameters('backupRetentionDays')]",
+          "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
+        }
+      },
+      "resources": [
+        {
+          "type": "virtualNetworkRules",
+          "apiVersion": "2017-12-01",
+          "name": "[parameters('virtualNetworkRuleName')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.DBforPostgreSQL/servers/', parameters('serverName'))]"
+          ],
+          "properties": {
+            "virtualNetworkSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
+            "ignoreMissingVnetServiceEndpoint": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.DBforPostgreSQL/servers/firewallRules",
+      "apiVersion": "2017-12-01",
+      "name": "[concat(parameters('serverName'),'/',variables('firewallrules').batch.rules[copyIndex()].Name)]",
+      "location": "[parameters('location')]",
+      "copy": {
+        "name": "firewallRulesCopy",
+        "mode": "Serial",
+        "batchSize": 1,
+        "count": "[length(variables('firewallrules').batch.rules)]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DBforPostgreSQL/servers/', parameters('serverName'))]"
+      ],
+      "properties": {
+        "startIpAddress": "[variables('firewallrules').batch.rules[copyIndex()].StartIpAddress]",
+        "endIpAddress": "[variables('firewallrules').batch.rules[copyIndex()].EndIpAddress]"
+      }
+    }
+  ]
 }
 ```
 
@@ -301,7 +302,7 @@ ms.locfileid: "89512944"
 
 选择以下链接以在 Azure 门户中部署 Azure Database for PostgreSQL 服务器模板：
 
-[![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 在“部署具有 VNet 的 Azure Database for PostgreSQL”页上：
 
@@ -311,7 +312,7 @@ ms.locfileid: "89512944"
 
 3. 输入服务器名称、管理员登录名和管理员登录密码  。
 
-    ![“部署具有 VNet 的 Azure Database for PostgreSQL”窗口，Azure 快速入门模板，Azure 门户](./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png)
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="部署到 Azure":::
 
 4. 根据需要更改其他默认设置：
 

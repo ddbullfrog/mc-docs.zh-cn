@@ -7,17 +7,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 05/04/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
-ms.openlocfilehash: c3a32db835f51a6d8c5ca7f4b51993a575bf89b0
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 7c9f82a767450e4446fd47b01cb366d44593e125
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463148"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127879"
 ---
 <!--Verified Successfully-->
 # <a name="create-a-vm-using-a-generalized-image"></a>使用通用化映像创建 VM 
@@ -157,6 +157,6 @@ New-AzVM `
 - [在共享映像库中创建映像版本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sig-image-version-create/)
 - [根据映像版本创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-sig/)
 
-有关共享映像库的详细信息，请参阅[概述](./windows/shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](./windows/troubleshooting-shared-images.md)。
+有关共享映像库的详细信息，请参阅[概述](./windows/shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](troubleshooting-shared-images.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

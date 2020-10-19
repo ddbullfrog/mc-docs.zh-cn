@@ -6,16 +6,16 @@ tags: azure-service-management
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 12/07/2017
-ms.date: 03/30/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18
-ms.openlocfilehash: c67bfaecd59ba9d8c3dc35311d01c4f1b4741c0a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 506c9fd2d30fd778b8177134ae04165544def1ad
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80522117"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170485"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>使用 CLI 从备份中还原 Web 应用
 

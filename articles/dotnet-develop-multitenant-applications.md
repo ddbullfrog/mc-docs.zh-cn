@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/05/2015
-ms.date: 09/10/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c309663d0b9855a3e6005e75c310b63cb48eef38
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 43709a1c5a249475c994b8b37e711729d18670dc
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020809"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170395"
 ---
 # <a name="multitenant-applications-in-azure"></a>Azure 中的多租户应用程序
 多租户应用程序是一种共享资源，它允许“单独租户中的用户”像使用其自己的应用程序一样查看应用程序。 适合实施多租户应用程序的典型情况是，不同租户中的所有应用程序用户都可能希望定制用户体验，但在其他方面具有相同的基本业务要求。 大型多租户应用程序的示例包括 Office 365、Outlook.com 和 visualstudio.com。
@@ -44,7 +44,7 @@ ms.locfileid: "90020809"
 
 总之，虽然提供高度可扩展的服务必须考虑很多事项，但对于许多多租户应用程序，也有一些共同的目标和要求。 有些要求在特定情况下可能并不相关，并且各个目标和要求的重要性在各种情况下也会有所不同。 作为多租户应用程序的提供商，你的目标和要求还有：满足租户的目标和要求、盈利能力、计费、多个服务级别、配置、可维护性监视以及自动化。
 
-有关多租户应用程序的其他设计注意事项的详细信息，请参阅[在 Azure 中托管多租户应用程序][Hosting a Multi-Tenant Application on Azure]。
+<!-- For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Azure][Hosting a Multi-Tenant Application on Azure]. For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). -->
 
 Azure 提供了许多功能，使你能够解决在设计多租户系统时遇到的关键问题。
 

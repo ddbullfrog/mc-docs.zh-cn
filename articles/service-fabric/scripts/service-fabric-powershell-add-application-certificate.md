@@ -3,7 +3,6 @@ title: 将应用程序证书添加到 Powershell 中的群集
 description: Azure PowerShell 脚本示例 - 将应用程序证书添加到 Service Fabric 群集。
 services: service-fabric
 documentationcenter: ''
-author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-service-management
@@ -12,15 +11,18 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 origin.date: 01/18/2018
-ms.date: 06/08/2020
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 0b9bbe96b95882e8e5fd91bbdc8251c528e75c07
-ms.sourcegitcommit: 0e178672632f710019eae60cea6a45ac54bb53a1
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 7c91e9020fff812f350eaabfc24f0b15d1fca5e0
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84356146"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127794"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>将应用程序证书添加到 Service Fabric 群集
 
@@ -28,7 +30,7 @@ ms.locfileid: "84356146"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount -Environment AzureChinaCloud` 创建与 Azure 的连接。 
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount -Environment AzureChinaCloud` 创建与 Azure 的连接。 
 
 ## <a name="create-a-certificate-in-key-vault"></a>在 Key Vault 中创建证书
 
@@ -84,7 +86,7 @@ $CertConfig = New-AzVmssVaultCertificateConfig -CertificateUrl (Get-AzKeyVaultSe
 $VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMSSName
 
 # If this KeyVault is already known by the virtual machine scale set, for example if the cluster certificate is deployed from this keyvault, use
-$VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($certConfig)
+$VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($CertConfig)
 
 # Otherwise use
 $VMSS = Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId (Get-AzKeyVault -VaultName $VaultName).ResourceId  -VaultCertificate $CertConfig
@@ -95,7 +97,6 @@ $VMSS = Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId (Get-AzKey
 Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMSS -VMScaleSetName $VMSSName
 ```
 
-> [!NOTE]
 > 如果希望将证书放置在群集中的多个节点上，应针对每个应具有证书的节点类型重复此脚本的第二个和第三部分。
 
 ## <a name="script-explanation"></a>脚本说明
@@ -114,7 +115,7 @@ Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMS
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/)。
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Azure Powershell 示例。
 

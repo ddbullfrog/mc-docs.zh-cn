@@ -6,18 +6,18 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
 origin.date: 08/07/2020
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c9eca173645882c4c472fc4f47bcc41c6cde90e6
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.custom: devx-track-js
+ms.openlocfilehash: 4ae7d6531633ba78b3e20106e573bba9e0ff2ae4
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246397"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118558"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>管理 Azure Cosmos DB 的用于 MongoDB 的 API 中的索引编制
 
@@ -78,7 +78,7 @@ Azure Cosmos DB 创建多键索引来为数组中存储的内容编制索引。 
 
 ### <a name="text-indexes"></a>文本索引
 
-Azure Cosmos DB 的用于 MongoDB 的 API 目前支持文本索引。 要对字符串运行文本搜索查询，应使用 [Azure 认知搜索](/search/search-howto-index-cosmosdb)与 Azure Cosmos DB 的集成。
+Azure Cosmos DB 的用于 MongoDB 的 API 目前支持文本索引。 要对字符串运行文本搜索查询，应使用 [Azure 认知搜索](https://docs.azure.cn/search/search-howto-index-cosmosdb)与 Azure Cosmos DB 的集成。
 
 ## <a name="wildcard-indexes"></a>通配符索引
 

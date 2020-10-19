@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 10/21/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 16f84ac5302e4041931aa4689a961b5af2b7827f
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 4030108102c1ba783e78a4f3b517332d528b6462
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655036"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128172"
 ---
 <!--Verify sucessfully-->
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>自定义目标 Azure VM 的网络配置
@@ -51,7 +51,7 @@ ms.locfileid: "89655036"
 4. 选择一个测试故障转移虚拟网络。 你可以选择将其留空，并在测试故障转移时选择一个。
 5. 选择要配置的 NIC 旁边的“编辑”。  在接下来打开的边栏选项卡中，在测试故障转移和故障转移位置中选择已预先创建的相应资源。
 
-    :::image type="content" source="media/azure-to-azure-customize-networking/nic-drilldown.png" alt-text="编辑 NIC 配置"::: 
+    :::image type="content" source="media/azure-to-azure-customize-networking/nic-drilldown.png" alt-text="自定义故障转移网络配置"::: 
 
 6. 选择“确定”  。
 

@@ -6,12 +6,12 @@ origin.date: 04/04/2020
 ms.date: 09/02/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9b2b37a127083db5315dda0d3e9033a28d13edc
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 17aab7c104cd93ea687be70e7a68d62ae92556e0
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317534"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127604"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -19,7 +19,7 @@ ms.locfileid: "89317534"
 
 > [!div class="checklist"]
 > * [设置开发环境并创建空项目](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programmming-language-csharp)
-> * [创建 Azure 语音资源](../../../../get-started.md)
+> * [创建 Azure 语音资源](../../../../overview.md#try-the-speech-service-for-free)
 > * [将源文件上传到 Azure blob](https://docs.azure.cn/storage/blobs/storage-quickstart-blobs-portal)
 > * 需要语音 SDK 1.11.0 或更高版本。
 

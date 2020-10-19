@@ -5,16 +5,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 07/14/2020
 author: rockboyfor
-ms.date: 09/14/2020
-ms.testscope: yes|no
-ms.testdate: 09/14/2020null
+ms.date: 10/19/2020
+ms.testscope: yes
+ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: aa34207daaafc14ddfbbebdc035bf0f7d6f642ab
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 22f5295009002e0aac422479738a90e5f042e7fa
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655747"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128120"
 ---
 <!--Verified successfully on Mooncake-->
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>使用专用终结点复制本地计算机
@@ -63,7 +63,7 @@ Azure Site Recovery 支持使用 [Azure 专用链接](../private-link/private-en
 
 1. 转到恢复服务保管库。 在“设置”下选择“标识” ：
 
-    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="显示标识设置页的屏幕截图。":::
+    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
 1. 将“状态”更改为“开”，然后选择“保存”  。
 
@@ -79,21 +79,21 @@ Azure Site Recovery 支持使用 [Azure 专用链接](../private-link/private-en
 
 1. 在 Azure 门户的搜索框中，搜索“专用链接”。 选择“专用链接”，转到专用链接中心：
 
-    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="显示在 Azure 门户中搜索专用链接中心的屏幕截图。":::
+    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
 1. 在左侧窗格中，选择“专用终结点”。 在“专用终结点”页上选择“添加”，开始为保管库创建专用终结点： 
 
-    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="显示如何在专用链接中心创建专用终结点的屏幕截图。":::
+    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
 1. 在“创建专用终结点”页面上，指定创建专用终结点连接的详细信息。
 
     1. **基本信息**。 提供专用终结点的基本详细信息。 使用用于旁路网络的区域：
 
-        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="显示用于创建专用终结点的“基本信息”选项卡的屏幕截图。":::
+        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
     1. **资源**。 在此选项卡上，需要指定要为其创建连接的平台即服务资源。 在所选订阅的“资源类型”下，选择“Microsoft.RecoveryServices/vaults” 。 在“资源”下，选择恢复服务保管库的名称。 选择“Azure Site Recovery”作为“目标子资源” 。
 
-        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="显示用于链接到专用终结点的“资源”选项卡的屏幕截图。":::
+        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
     1. **配置**。 在此选项卡上，指定要在其中创建专用终结点的旁路网络和子网。 
 
@@ -106,7 +106,7 @@ Azure Site Recovery 支持使用 [Azure 专用链接](../private-link/private-en
 
         要手动创建专用 DNS 区域，请按照[创建专用 DNS 区域并手动添加 DNS 记录](#create-private-dns-zones-and-add-dns-records-manually)中的步骤操作。
 
-        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="显示用于配置专用终结点的“配置”选项卡的屏幕截图。":::
+        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
     1. **标记**。 （可选）可以为专用终结点添加标记。
 
@@ -124,7 +124,7 @@ Azure Site Recovery 支持使用 [Azure 专用链接](../private-link/private-en
 
 在继续操作之前，可以先转到专用终结点资源，查看连接的状态：
 
-:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="显示保管库的专用终结点连接页和连接列表的屏幕截图。":::
+:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
 <a name="create-private-endpoints-for-the-cache-storage-account"></a>
 ### <a name="optional-create-private-endpoints-for-the-cache-storage-account"></a>（可选）为缓存存储帐户创建专用终结点
@@ -158,11 +158,11 @@ Azure Site Recovery 支持使用 [Azure 专用链接](../private-link/private-en
 
 1. 在“添加角色分配”部分，选择“添加” ：
 
-    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="显示存储帐户的访问控制 (IAM) 页的屏幕截图。":::
+    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
 1. 在“添加角色分配”页上的“角色”列表中，选择本节开头部分列出的角色 。 输入保管库的名称，然后选择“保存”。
 
-    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="显示“添加角色分配”页的屏幕截图。":::
+    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
 添加这些权限后，需要允许访问 Azure 信任的服务。 转到“防火墙和虚拟网络”，在“例外”中选择“允许受信任的 Microsoft 服务访问此存储帐户”  。
 
@@ -185,13 +185,13 @@ Azure Site Recovery 支持使用 [Azure 专用链接](../private-link/private-en
 
     1. 在“所有服务”搜索框中搜索“专用 DNS 区域”，然后在结果中选择“专用 DNS 区域” ：
 
-        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="显示在 Azure 门户的新建资源页上搜索专用 DNS 区域的屏幕截图。":::
+        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
     1. 在“专用 DNS 区域”页上，选择“添加”按钮以开始创建新区域 。
 
     1. 在“创建专用 DNS 区域”页上，输入所需的详细信息。 输入 privatelink.siterecovery.windowsazure.cn 作为专用 DNS 区域的名称。 可以选择任何资源组和任何订阅。
 
-        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="显示“创建专用 DNS 区域”页的“基本信息”选项卡的屏幕截图。":::
+        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
     1. 继续选择“查看 \+ 创建”选项卡，查看并创建 DNS 区域。
 
@@ -203,7 +203,7 @@ Azure Site Recovery 支持使用 [Azure 专用链接](../private-link/private-en
 
     1. 输入必需的详细信息。 在“订阅”和“虚拟网络”列表中，选择与旁路网络相对应的详细信息 。 保留其他字段中的默认值。
 
-        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="显示“添加虚拟网络链接”页的屏幕截图。":::
+        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
 1. 添加 DNS 记录。
 
@@ -220,7 +220,7 @@ Azure Site Recovery 支持使用 [Azure 专用链接](../private-link/private-en
 
         这些完全限定的域名采用以下格式：`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.cn`
 
-        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="显示“添加记录集”页的屏幕截图。":::
+        :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="显示 Azure Site Recovery 和专用终结点的体系结构的图表。":::
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -229,5 +229,4 @@ Azure Site Recovery 支持使用 [Azure 专用链接](../private-link/private-en
 - [部署本地配置服务器](./vmware-azure-deploy-configuration-server.md)
 - [对 Azure 设置本地 Hyper-V VM 的灾难恢复](./hyper-v-azure-tutorial.md)
 
-<!-- Update_Description: new article about hybrid how to enable replication private endpoints -->
-<!--NEW.date: 09/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -3,21 +3,21 @@ title: 快速入门：提取印刷体文本 - REST、JavaScript
 titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用计算机视觉 API 和 JavaScript 从图像中提取印刷体文本。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: v-johya
-ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: fcf7ec677682c50974d63b0336f28efd0f14a589
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.custom: seodec18, devx-track-js
+ms.openlocfilehash: c311d88f3d7a665befe1f3a13bbe93bc81ad6019
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023370"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128397"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>快速入门：使用计算机视觉 REST API 和 JavaScript 提取印刷体文本 (OCR)
 

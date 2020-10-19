@@ -6,14 +6,14 @@ ms.service: signalr
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 origin.date: 03/01/2019
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 7d584de7dd257740f0201df1957efdcbc3c89883
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 7d3f6d436668180485362c575b2b57db97d23a67
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063365"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170793"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>使用 Azure SignalR Service 缩放 ASP.NET Core SignalR 应用程序
 
@@ -35,7 +35,7 @@ ASP.NET Core SignalR 是以前版本的重写。 因此，ASP.NET Core SignalR �
 
 此外，通常情况下，WebSocket 是支持实时内容更新的首选技术。 但是，缩放时，负载均衡大量持久性 WebSocket 连接是要解决的复杂问题。 常见解决方案通常利用：DNS 负载均衡、硬件负载均衡器和软件负载均衡。 Azure SignalR 服务为用户解决此问题。
 
-使用它的另一原因可能是因为完全不需要实际托管一个 Web 应用程序。 Web 应用程序的逻辑可利用[无服务器计算](https://azure.microsoft.com/overview/serverless-computing/)。 例如，可能仅通过 [Azure Functions](https://docs.azure.cn/azure-functions/) 触发器按需托管和执行代码。 这种情况可能会很棘手，因为代码仅按需运行，并且不会与客户端维持长久连接。 Azure SignalR 服务可以处理这种情况，因为该服务已为用户管理连接。 有关详细信息，请参阅[如何结合使用 SignalR Service 和 Azure Functions 的概述](signalr-concept-azure-functions.md)。
+使用它的另一原因可能是因为完全不需要实际托管一个 Web 应用程序。 Web 应用程序的逻辑可利用[无服务器计算](https://azure.microsoft.com/overview/serverless-computing/)。 例如，可能仅通过 [Azure Functions](../azure-functions/index.yml) 触发器按需托管和执行代码。 这种情况可能会很棘手，因为代码仅按需运行，并且不会与客户端维持长久连接。 Azure SignalR 服务可以处理这种情况，因为该服务已为用户管理连接。 有关详细信息，请参阅[如何结合使用 SignalR Service 和 Azure Functions 的概述](signalr-concept-azure-functions.md)。
 
 ## <a name="how-does-it-scale"></a>它如何缩放？
 

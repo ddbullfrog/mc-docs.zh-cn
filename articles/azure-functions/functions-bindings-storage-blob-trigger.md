@@ -3,14 +3,14 @@ title: 适用于 Azure Functions 的 Azure Blob 存储触发器
 description: 了解如何在 Azure Blob 存储数据更改时运行 Azure 函数。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 08/11/2020
+ms.date: 10/16/2020
 ms.author: v-junlch
-ms.openlocfilehash: ef65d3fcb233687524f2c93c1c55ca75771d9dbd
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: bf5d06a2a84d9cd49875453065328d380c09d9b0
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222718"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121604"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>适用于 Azure Functions 的 Azure Blob 存储触发器
 

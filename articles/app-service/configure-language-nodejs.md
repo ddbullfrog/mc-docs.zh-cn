@@ -1,19 +1,19 @@
 ---
 title: 配置 Node.js 应用
 description: 了解如何在原生 Windows 实例、预构建的 Linux 容器或 Azure 应用服务中配置 Node.js 应用。 本文介绍最常见的配置任务。
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 06/02/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 776d3439e9e88cc07215da56d4a1cd54f38fca55
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 6ee790a4873cb3d7d4e32d1963150f4688477266
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228930"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170831"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>为 Azure 应用服务配置 Node.js 应用
 
@@ -187,6 +187,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 {
   "name"        : "worker",
   "script"      : "./index.js",
+  ...
 }
 ```
 

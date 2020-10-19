@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 origin.date: 01/22/2018
-ms.date: 07/27/2020
-ms.openlocfilehash: ca098e2b2aa571219d2cfbe0fd3d1dc88d2cd182
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.date: 10/19/2020
+ms.openlocfilehash: e05a70990d6100e9949f8b4cc63b691185ce5611
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974218"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121726"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>使用 PowerShell 以增量方式将 Azure SQL 数据库中的数据加载到 Azure Blob 存储
 
@@ -64,7 +64,7 @@ ms.locfileid: "86974218"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL 数据库**。 将数据库用作源数据存储。 如果没有 Azure SQL 数据库，请参阅[创建 Azure SQL 数据库中的数据库](../azure-sql/database/single-database-create-quickstart.md)，了解创建数据库的步骤。
+* **Azure SQL 数据库**。 将数据库用作源数据存储。 如果 Azure SQL 数据库没有数据库，请参阅[在 Azure SQL 数据库中创建数据库](../azure-sql/database/single-database-create-quickstart.md)，了解创建步骤。
 * **Azure 存储**。 将 Blob 存储用作接收器数据存储。 如果没有存储帐户，请参阅[创建存储帐户](../storage/common/storage-account-create.md)以获取创建步骤。 创建名为 adftutorial 的容器。 
 * **Azure PowerShell**。 遵循[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 中的说明。
 

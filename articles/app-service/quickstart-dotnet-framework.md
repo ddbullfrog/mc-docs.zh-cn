@@ -4,15 +4,15 @@ description: 了解如何通过部署 Visual Studio 提供的默认 C# ASP.NET W
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 origin.date: 08/06/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 7bbb52aac08c0051b492d5becfe8ea6f865b8642
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.custom: devx-track-csharp, mvc, devcenter, seodec18
+ms.openlocfilehash: 4a68cac5765c4a6144d0555bbc75959b694c08fe
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228960"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170546"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Framework Web 应用
 

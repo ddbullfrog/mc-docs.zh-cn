@@ -1,24 +1,25 @@
 ---
 title: Ddv4 和 Ddsv4 系列
 description: Dv4、Ddv4、Dsv4 和 Ddsv4 系列 VM 的规格。
-author: rockboyfor
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 06/01/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: e210f876c6d58697d55206516f704b18c9c35327
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: f473ac294bd570351c3f525eb00c882f0c0dc77c
+ms.sourcegitcommit: 5eb78078e370c9173a41f22ad8ea4bb45bc20312
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052423"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088213"
 ---
+<!--Verified successfully from PG team confirmation-->
 <!--Pending GA on Q3 2020, only be suitable for China East 2 site-->
 <!--RELEASE BEFORE CONFIRME AND BE CAREFULLY-->
 # <a name="ddv4-and-ddsv4-series"></a>Ddv4 和 Ddsv4 系列

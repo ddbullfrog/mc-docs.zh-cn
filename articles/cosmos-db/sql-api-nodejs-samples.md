@@ -1,22 +1,22 @@
 ---
 title: 管理 Azure Cosmos 数据库中数据的 Node.js 示例
 description: 在 GitHub 上查找用于 Azure Cosmos DB 中常见任务的 Node.js 示例，包括 CRUD 操作。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 08/23/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a9309022fc530f30e8de7d5d9f71f2a9a2daf450
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-js
+ms.openlocfilehash: 80964965a0901e8927244a34af16760b291e1d88
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222427"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117941"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中数据的 Node.js 示例
 
@@ -24,6 +24,7 @@ ms.locfileid: "88222427"
 > * [.NET V2 SDK 示例](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK 示例](sql-api-dotnet-v3sdk-samples.md)
 > * [Java V4 SDK 示例](sql-api-java-sdk-samples.md)
+> * [Spring Data V3 SDK 示例](sql-api-spring-data-sdk-samples.md)
 > * [Node.js 示例](sql-api-nodejs-samples.md)
 > * [Python 示例](sql-api-python-samples.md)
 > * [Azure 代码示例库](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

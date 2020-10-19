@@ -5,18 +5,18 @@ ms.service: cosmos-db
 ms.topic: tutorial
 origin.date: 11/05/2019
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 768e2458b6954984a1c3c40c35a71cce2861cf2b
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: 30e765c7894c9d92a34af8b65b910f2eee66a4c8
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246814"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118353"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>教程：使用 SQL API 设置 Azure Cosmos DB 多区域分发
 
@@ -182,7 +182,7 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
    ArrayList<String> preferredRegions = new ArrayList<String>();
    preferredRegions.add("China North");
-   preferredRegions.add( "China East");
+   preferredRegions.add("China East");
    preferredRegions.add("China East 2");
 
    CosmosAsyncClient client =
@@ -203,7 +203,7 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
    ArrayList<String> preferredRegions = new ArrayList<String>();
    preferredRegions.add("China North");
-   preferredRegions.add( "China East");
+   preferredRegions.add("China East");
    preferredRegions.add("China East 2");
 
    CosmosClient client =

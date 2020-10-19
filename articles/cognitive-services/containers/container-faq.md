@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.author: v-johya
-ms.openlocfilehash: e0d7ab5d1d6bdaa90fbc37c4b4939016fd6415da
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: dd4d6c9fa142294e79cf446b279da70382da840e
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023714"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128252"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure 认知服务容器常见问题解答 (FAQ)
 
@@ -95,7 +95,6 @@ ms.locfileid: "88023714"
 **答:** 类似于认知服务云，客户按消耗量付费。 容器需配置为向 Azure 发送计量数据，因此会相应地收取事务费。 跨托管服务和本地服务使用的资源将按分层定价计入到单个配额，并且会同时计入到这两个服务的用量。 有关更多详细信息，请参阅相应产品/服务的定价页。
 
 * [异常检测器][AD - 容器 - 计费]
-* [计算机视觉][cv-containers-billing]
 * [人脸][fa-containers-billing]
 * [表单识别器][FR - 容器 - 计费]
 * [语言理解 (LUIS)][lu-containers-billing]
@@ -122,7 +121,6 @@ ms.locfileid: "88023714"
 **答:** 认知服务容器是基于 x64 的容器，可运行任何兼容的 Linux 节点、VM，以及支持 x64 Linux Docker 容器的边缘设备。 这些设备都需要 CPU 处理器。 下面提供了每个容器产品/服务的最低和推荐配置：
 
 * [异常检测器][AD - 容器 - 建议]
-* [计算机视觉][cv-containers-recommendations]
 * [人脸][fa-containers-recommendations]
 * [表单识别器][FR - 容器 - 建议]
 * [语言理解 (LUIS)][lu-containers-recommendations]
@@ -151,17 +149,14 @@ ms.locfileid: "88023714"
 
 [!INCLUDE [Containers next steps](includes/containers-next-steps.md)]
 
-[cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: ../face/face-how-to-install-containers.md
 [lu-containers]: ../luis/luis-container-howto.md
 [ta-containers]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
 
-[cv-containers-billing]: ../computer-vision/computer-vision-how-to-install-containers.md#billing
 [fa-containers-billing]: ../face/face-how-to-install-containers.md#billing
 [lu-containers-billing]: ../luis/luis-container-howto.md#billing
 [ta-containers-billing]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing
 
-[cv-containers-recommendations]: ../computer-vision/computer-vision-how-to-install-containers.md#container-requirements-and-recommendations
 [fa-containers-recommendations]: ../face/face-how-to-install-containers.md#container-requirements-and-recommendations
 [lu-containers-recommendations]: ../luis/luis-container-howto.md#container-requirements-and-recommendations
 [ta-containers-recommendations]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#container-requirements-and-recommendations

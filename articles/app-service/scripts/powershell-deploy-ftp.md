@@ -5,15 +5,15 @@ tags: azure-service-management
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: mvc
-ms.openlocfilehash: b227fa65f89d487018ef7547ae5e73d369dd5995
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 5bf21c4ef3d026d43eb60d8c35e1f2b1eb565515
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228128"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170601"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>使用 FTP 将文件上传到 Web 应用
 

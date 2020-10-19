@@ -4,13 +4,13 @@ description: 教程：Azure 事件网格可以触发 Azure 存储中的 blob 上
 ms.topic: tutorial
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/10/2020
-ms.openlocfilehash: 08288ce32785dc566ae516d6c07226c7337a3dd9
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 10/10/2020
+ms.openlocfilehash: 19ef80a8bd31d1fdcb76ae71ecbc48dbf8b64f2d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228168"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128080"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>教程：使用事件网格自动调整上传图像的大小
 
@@ -22,11 +22,11 @@ ms.locfileid: "88228168"
 
 # <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
 
-![在浏览器中发布的 Web 应用](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![屏幕截图显示了在浏览器中为 \.NET v12 SDK 发布的 Web 应用。](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-![在浏览器中发布的 Web 应用](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+![屏幕截图显示了 \.NET v10 SDK 在浏览器中发布的 Web 应用。](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -263,7 +263,7 @@ az functionapp deployment source config --name $functionapp `
 
 1.  选择“集成”，然后依次选择“事件网格触发器”和“创建事件网格订阅”。
 
-    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="在 Azure 门户中导航到“添加事件网格订阅”" :::
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="在门户中选择 Thumbnail 函数" :::
 
 1. 使用表中指定的事件订阅设置。
     
@@ -301,7 +301,7 @@ az functionapp deployment source config --name $functionapp `
 
 请注意，上传的图像消失后，上传图像的副本将显示在“生成的缩略图”轮播中。 此图像在通过函数重设大小后会被添加到 *thumbnails* 容器中，再由 Web 客户端下载。
 
-![在浏览器中发布的 Web 应用](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![屏幕截图显示了 \.NET v12 SDK 在浏览器中发布的标题为“ImageResizer”的 Web 应用。](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 

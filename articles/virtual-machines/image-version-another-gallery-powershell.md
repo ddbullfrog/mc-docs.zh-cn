@@ -1,23 +1,23 @@
 ---
 title: 使用 PowerShell 复制另一个库中的映像
 description: 使用 Azure PowerShell 复制另一个库中的映像。
-author: rockboyfor
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 05/04/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
-ms.openlocfilehash: 06da65199a8e1faf707b311b76e1548965132204
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: e9f903bbdc1b5ea316be9986a0acbbb39b7c815c
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052390"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128386"
 ---
 <!--Verified successfully-->
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>使用 PowerShell 复制另一个库中的映像
@@ -111,7 +111,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
    -Name 'myDestinationImgDef' `
    -OsState specialized `
    -OsType Windows `
-   -HyperVGeneration v1
+   -HyperVGeneration v1 `
    -Publisher 'myPublisher' `
    -Offer 'myOffer' `
    -Sku 'mySKU'
@@ -154,13 +154,15 @@ $job.State
 > 创建映像版本时，还可以通过添加 `-StorageAccountType Premium_LRS` 在高级存储中存储映像。
 >
 
-<!--Not Available on , or [Zone Redundant Storage](/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS`-->
+<!--Not Avaialble on [Zone Redundant Storage](/storage/common/storage-redundancy-zrs)-->
+<!--Not Available on , or Zone Redundant Storage by adding `-StorageAccountType Standard_ZRS`-->
 
 ## <a name="next-steps"></a>后续步骤
 
 从[通用化](vm-generalized-image-version-powershell.md)或[专用化](vm-specialized-image-version-powershell.md)映像版本创建 VM。
 
 <!--Not Available on [Azure Image Builder (preview)](./linux/image-builder-overview.md)-->
-<!--Not Available on [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md)-->
+
+若要了解如何提供购买计划信息，请参阅[创建映像时提供 Azure 市场购买计划信息](marketplace-images.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

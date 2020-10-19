@@ -11,15 +11,15 @@ ms.author: sgilley
 origin.date: 03/18/2020
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 15c32eff15790ecacc8b3dcc8b12b347c1506dd1
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: b5755a3efab12e73e406d6b45da03c8aa437c86f
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395302"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118498"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>教程：在 Azure 容器实例中部署映像分类模型
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本教程是由两个部分构成的系列教程的第二部分  。 在[上一个教程](tutorial-train-models-with-aml.md)中，训练了机器学习模型，然后在云中的工作区内注册了模型。  现在，你已准备好将模型部署为 Web 服务。 Web 服务是一个映像，在本例中是 Docker 映像。 它用于封装评分逻辑和模型本身。 
 

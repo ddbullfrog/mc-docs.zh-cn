@@ -4,17 +4,17 @@ description: 在 Linux 上安装运行时和 SDK 并创建本地开发群集。 
 ms.topic: conceptual
 origin.date: 02/23/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e5ec00383df2ab7e2b3e72d9230ba86ca7eda112
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.custom: devx-track-js
+ms.openlocfilehash: 74bef6fba3f51afd9163fd2b944f2fd439eaaf2a
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655729"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127696"
 ---
 <!--RHEL SUPPORTED DEVELOPMENT ENVIRONMENT, NOT SERVICE FABRIC NODE OS CATEGORY -->
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境

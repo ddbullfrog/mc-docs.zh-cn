@@ -70,23 +70,23 @@
             - name: 从上传的 VHD 创建 VM
               href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
             - name: 附加 OS 磁盘
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
             - name: 从快照创建 VM
               href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
         - name: 管理存储
           items:
             - name: 从 VHD 创建托管磁盘
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
             - name: 从快照创建托管磁盘
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
             - name: 复制托管磁盘
               href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: 将快照作为 VHD 导出到存储帐户
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: 将托管磁盘的 VHD 导出到存储帐户
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
             - name: 从 VHD 创建快照
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
             - name: 复制快照
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: 安全
@@ -118,15 +118,15 @@
         - name: 管理存储
           items:
             - name: 从 VHD 创建托管磁盘
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
             - name: 从快照创建托管磁盘
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
             - name: 复制托管磁盘
               href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: 将快照作为 VHD 导出到存储帐户
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: 将托管磁盘的 VHD 导出到存储帐户
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
             - name: 复制快照
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: 网络
@@ -141,9 +141,6 @@
           items:
             - name: Azure Monitor
               href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ../policy-samples.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
 - name: 概念
   items:
     - name: 映像
@@ -175,7 +172,7 @@
         - name: VM 大小
           href: ../sizes.md
         - name: 第 2 代 VM
-          href: generation-2.md
+          href: ../generation-2.md
         - name: 常规用途
           items:
             - name: 概述
@@ -188,6 +185,10 @@
               href: ../dv2-dsv2-series.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
             - name: Dv3 和 Dsv3 系列
               href: ../dv3-dsv3-series.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+            - name: Ddv4 和 Ddsv4 系列
+              href: ../ddv4-ddsv4-series.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+            - name: Dv4 和 Dsv4 系列
+              href: ../dv4-dsv4-series.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 计算优化
           items:
             - name: 概述
@@ -203,6 +204,10 @@
               href: ../dv2-dsv2-series-memory.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
             - name: Ev3 和 Esv3 系列
               href: ../ev3-esv3-series.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+            - name: Edv4 和 Edsv4 系列
+              href: ../edv4-edsv4-series.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+            - name: Ev4 和 Esv4 系列
+              href: ../ev4-esv4-series.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
             - name: M 系列
               href: ../m-series.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
             - name: 约束的 vCPU
@@ -213,6 +218,10 @@
               href: ../sizes-gpu.md?bc=/virtual-machines/windows/breadcrumb/toc.json&toc=/virtual-machines/windows/toc.json
             - name: 安装 NVIDIA GPU 驱动程序
               href: n-series-driver-setup.md
+        - name: 不带临时磁盘的 Azure VM
+          href: ../azure-vms-no-temp-disk.md
+        - name: Azure VM 大小命名约定
+          href: ../vm-naming-conventions.md
         - name: 前几代
           displayName: D-series Ds-series A-series Basic
           href: ../sizes-previous-gen.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
@@ -236,6 +245,8 @@
           href: ../disks-types.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: Encryption
           href: disk-encryption.md
+        - name: 虚拟机和磁盘性能
+          href: disk-performance-windows.md
         - name: 为实现高性能而设计
           href: ../premium-storage-performance.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 磁盘突发
@@ -267,6 +278,8 @@
           href: virtual-machines-windows-security-controls.md
     - name: 状态和生命周期
       href: ../states-lifecycle.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+    - name: 启动诊断
+      href: ../../virtual-machines/boot-diagnostics.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 备份和恢复
       href: ../backup-recovery.md
 - name: 操作指南
@@ -336,7 +349,7 @@
                   items:
                     - name: 从 VM
                       href: ../image-version-vm-powershell.md
-                    - name: 从 VHD 或快照
+                    - name: 从托管磁盘或快照
                       href: ../image-version-snapshot-powershell.md
                     - name: 从托管映像迁移
                       href: ../image-version-managed-image-powershell.md
@@ -358,7 +371,7 @@
                   items:
                     - name: 从 VM
                       href: ../image-version-vm-cli.md
-                    - name: 从 VHD 或快照
+                    - name: 从托管磁盘或快照
                       href: ../image-version-snapshot-cli.md
                     - name: 从托管映像迁移
                       href: ../image-version-managed-image-cli.md
@@ -389,7 +402,7 @@
                 - name: 从映像版本创建 VM
                   href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-sig/'
             - name: 排查共享映像问题
-              href: troubleshooting-shared-images.md
+              href: ../troubleshooting-shared-images.md
         - name: 查找和使用映像
           href: cli-ps-findimage.md
         - name: 购买计划信息
@@ -423,9 +436,9 @@
                 - name: CLI
                   href: ../../bastion/create-host-cli.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
             - name: 使用 Bastion 进行连接
+              href: ../../bastion/bastion-connect-vm-ssh.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
               items:
                 - name: Bastion SSH 连接
-              href: ../../bastion/bastion-connect-vm-ssh.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
             - name: Bastion RDP 连接
               href: ../../bastion/bastion-connect-vm-rdp.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 加密
@@ -444,7 +457,7 @@
               href: disk-encryption-troubleshooting.md
             - name: 磁盘加密常见问题解答
               href: disk-encryption-faq.md
-            - name: 磁盘加密 - 以前的版本 (AAD)
+            - name: 磁盘加密 - 以前的版本 (Azure AD)
               items:
                 - name: 概述
                   href: disk-encryption-overview-aad.md
@@ -518,7 +531,7 @@
           href: instance-metadata-service.md
         - name: 启用嵌套虚拟化
           href: nested-virtualization.md
-    - name: 平台维护
+    - name: 维护控制
       items:
         - name: 维护通知
           items:
@@ -530,7 +543,7 @@
               href: ../maintenance-notifications-portal.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-notifications-powershell.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-        - name: 维护控制
+        - name: 平台维护
           items:
             - name: 概述
               href: ../maintenance-control.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
@@ -542,6 +555,10 @@
           href: scheduled-events.md
         - name: Windows 计划事件服务
           href: scheduled-event-service.md
+        - name: 虚拟机规模集 OS 映像升级
+          items:
+            - name: 自动 OS 升级
+              href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 监视 VM
       items:
         - name: 代理
@@ -571,6 +588,8 @@
                   href: ../../azure-monitor/platform/log-analytics-agent.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
                 - name: Windows 代理
                   href: ../../azure-monitor/platform/agent-windows.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
+                - name: 适用于 Windows 的 VM 扩展
+                  href: ../extensions/oms-windows.md?bc=/virtual-machines/windows/breadcrumb/toc.json?toc=/azure-monitor/toc.json&toc=/virtual-machines/windows/toc.json
                 - name: Log Analytics 网关
                   href: ../../azure-monitor/platform/gateway.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
                 - name: 代理管理
@@ -614,6 +633,7 @@
         - name: 高可用性
           href: manage-availability.md
         - name: 创建邻近放置组
+          displayName: ppg aligned colocation co-location
           items:
             - name: 门户
               href: proximity-placement-groups-portal.md
@@ -789,7 +809,7 @@
 - name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.azure.cn/cli/vm?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/vm'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/azure/'
     - name: .NET

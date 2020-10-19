@@ -3,21 +3,21 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/04/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: fe83681cb8bee6ebd1d48a35152d519fada0bbf9
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: d905bea0b80503e7ef535a060a2ace81bc06ee2e
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317520"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128938"
 ---
 ## <a name="prerequisites"></a>先决条件
 
 在开始之前，请务必：
 
 > [!div class="checklist"]
-> * [创建 Azure 语音资源](../../../../get-started.md)
+> * [创建 Azure 语音资源](../../../../overview.md#try-the-speech-service-for-free)
 > * [设置开发环境并创建空项目](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 > * 需要语音 SDK 1.11.0 或更高版本。
 

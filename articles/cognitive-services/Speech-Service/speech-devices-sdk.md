@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 03/11/2020
-ms.date: 06/19/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 86a9f98827808ddd1e9b06fb1bad9f4699afcc8b
-ms.sourcegitcommit: d24e12d49708bbe78db450466eb4fccbc2eb5f99
+ms.openlocfilehash: 839768a86373fbfde166bd624e71a2c3022b915f
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611881"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128107"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>什么是语音设备 SDK？
 
@@ -64,4 +64,4 @@ ms.locfileid: "85611881"
 > [!div class="nextstepaction"]
 > [选择语音设备](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [免费获取语音服务订阅密钥](get-started.md)
+> [免费获取语音服务订阅密钥](overview.md#try-the-speech-service-for-free)

@@ -3,16 +3,16 @@ title: 使用 ZIP 或 WAR 文件部署代码
 description: 了解如何使用 ZIP 文件（或者对于 Java 开发人员而言使用 WAR 文件）将应用部署到 Azure 应用服务。
 ms.topic: article
 origin.date: 08/12/2018
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 2f875a124539dace358f031653acd7ba724fc760
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 3d384078a291ab9ea8c74b055332f1a0e519ba81
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227939"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170842"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 文件将应用部署到 Azure 应用服务
 
@@ -35,7 +35,7 @@ WAR 文件部署将 WAR 文件部署到应用服务，以运行 Java Web 应用�
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本文中的步骤，请[创建一个应用服务应用](/app-service/)，或者使用为其他教程创建的应用。
+若要完成本文中的步骤，请[创建一个应用服务应用](./index.yml)，或者使用为其他教程创建的应用。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

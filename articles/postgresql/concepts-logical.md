@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 06/22/2020
-ms.date: 07/20/2020
-ms.openlocfilehash: f331bc237c869d52b7afd138d32d509c5f271bac
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 10/19/2020
+ms.openlocfilehash: a1c2780cb90b28cb5c343f5662efd19c7273b6c9
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440395"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041725"
 ---
 # <a name="logical-decoding"></a>逻辑解码
  
@@ -51,11 +51,11 @@ ms.locfileid: "86440395"
 
 1. 将 Azure 复制支持设置为“逻辑”。 选择“保存” 。
 
-   ![Azure Database for PostgreSQL - 复制 - Azure 复制支持](./media/concepts-logical/replication-support.png)
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Azure Database for PostgreSQL - 复制 - Azure 复制支持":::
 
 2. 通过选择“是”，重启服务器以应用更改。
 
-   ![Azure Database for PostgreSQL - 复制 - 确认重启](./media/concepts-logical/confirm-restart.png)
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL - 复制 - Azure 复制支持":::
 
 
 ## <a name="start-logical-decoding"></a>开始逻辑解码

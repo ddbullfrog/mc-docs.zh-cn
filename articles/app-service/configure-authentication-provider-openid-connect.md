@@ -3,15 +3,15 @@ title: 配置 OpenID Connect 提供程序（预览版）
 description: 了解如何将 OpenID Connect 提供程序配置为应用服务或 Azure Functions 应用的标识提供者。
 ms.topic: article
 origin.date: 07/08/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.reviewer: mahender
-ms.openlocfilehash: afbbe49f1d497d41907380114b96c915c9ec1f97
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 4543a3753550f7fe1d5f14de88dd997f83ac46e6
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228933"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170821"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>将应用服务或 Azure Functions 应用配置为使用 OpenID Connect 提供程序（预览版）进行登录
 
@@ -55,9 +55,9 @@ ms.locfileid: "88228933"
 本部分将指导你更新配置，使之包括新的 IDP。 后面提供了配置示例。
 
 1. 在 `identityProviders` 对象内，添加一个 `openIdConnectProviders` 对象（如果它尚不存在）。
-1. 在 `openIdConnectProviders` 对象内，为新的提供者添加密钥。 这是用于在配置的其余部分中引用提供者的友好名称。 例如，如果你想要求所有请求都通过此提供者进行身份验证，则可将 `globalValidation.unauthenticatedClientAction` 设置为“RedirectToLoginPage”，并将 `globalValidation.unauthenticatedClientAction` 设置为此易记名称。
+1. 在 `openIdConnectProviders` 对象内，为新的提供者添加密钥。 这是用于在配置的其余部分中引用提供者的友好名称。 例如，如果你想要求所有请求都通过此提供者进行身份验证，则可将 `globalValidation.unauthenticatedClientAction` 设置为“RedirectToLoginPage”，并将 `redirectToProvider` 设置为此易记名称。
 1. 向该密钥分配一个对象，在其中包含 `registration` 对象，还可以包含 `login` 对象：
-
+    
     ```json
     "myCustomIDP" : {
        "registration" : {},
@@ -129,7 +129,7 @@ ms.locfileid: "88228933"
         "tokenStore": {
             "enabled": true
         }
-    }
+    }     
 }
 ```
 

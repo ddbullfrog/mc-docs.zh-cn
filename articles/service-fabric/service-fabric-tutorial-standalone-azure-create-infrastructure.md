@@ -3,15 +3,18 @@ title: 在 Azure VM 上创建群集的基础结构
 description: 本教程介绍如何设置 Azure VM 基础结构来运行 Service Fabric 群集。
 ms.topic: tutorial
 origin.date: 07/22/2019
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: yes
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 87f2629de0a13e7058d45d5c9702f5f1aa03eea4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: aa16c17b5f515ae1ebc8fd0c72fcd69713938c21
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540558"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127783"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>教程：创建用于托管 Service Fabric 群集的 Azure VM 基础结构
@@ -52,7 +55,7 @@ Service Fabric 独立群集为你提供选择自己的环境的选项，并创�
 
 8. 接下来，将“NIC 网络安全组”设置为“高级”   。 创建新的安全组，记下其名称，并创建以下规则以允许来自任何源的 TCP 流量：
 
-    ![sf-inbound][sf-inbound]
+    ![屏幕截图显示允许入站 TCP 流量的规则创建。][sf-inbound]
 
     * 端口 `3389`，适用于 RDP 和 ICMP（基本连接）。
     * 端口 `19000-19003`，适用于 Service Fabric。
@@ -64,7 +67,7 @@ Service Fabric 独立群集为你提供选择自己的环境的选项，并创�
 
 9. 添加另一个规则。 将源设置为“服务标记”，并将源服务标记设置为“VirtualNetwork”   。 Service Fabric 需要为群集内通信打开以下端口：135、137-139、445、20001-20031、20606-20861。
 
-    ![vnet-inbound][vnet-inbound]
+    ![屏幕截图显示允许群集的 TCP 流量的规则创建。][vnet-inbound]
 
 10. 其他选项可以接受默认状态。 如果你愿意，可以查看它们，然后启动你的虚拟机。
 
@@ -141,4 +144,4 @@ Service Fabric 独立群集为你提供选择自己的环境的选项，并创�
 [sf-inbound]: ./media/service-fabric-tutorial-standalone-azure-create-infrastructure/sf-inbound.png
 [vnet-inbound]: ./media/service-fabric-tutorial-standalone-azure-create-infrastructure/vnet-inbound.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

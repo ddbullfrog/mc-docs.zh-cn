@@ -8,18 +8,18 @@ editor: ''
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 08/07/2020
+origin.date: 09/15/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7ee73dce6b38145f9c7b40814894d3d0a92863b7
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: 22189f58c5b029f9e78b35cb227e51b837c81270
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310320"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128066"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>对 Windows Azure 来宾代理进行故障排除
 
@@ -56,7 +56,7 @@ Microsoft Azure 来宾代理是一个虚拟机 (VM) 代理。 它使虚拟机能
 
     可以运行以下 PowerShell 命令以检查是否已将 VM 代理部署到 VM：
 
-    `Get-Az VM -ResourceGroup "RGNAME" - Name "VMNAME" -displayhint expand`
+    `Get-AzVM -ResourceGroupName "RGNAME" -Name "VMNAME" -DisplayHint expand`
 
     在输出中，找到“ProvisionVMAgent”属性，并检查该值是否设置为“True” 。 如果是，则表示已在 VM 上安装代理。
 
@@ -71,7 +71,7 @@ Microsoft Azure 来宾代理是一个虚拟机 (VM) 代理。 它使虚拟机能
     - WindowsAzureNetAgent.exe:Windows Azure 网络代理服务
     - WindowsAzureTelemetryService.exe:Windows Azure 遥测服务
 
-   如果找不到这些进程和服务，则表示你未安装 Microsoft Azure 来宾代理。
+    如果找不到这些进程和服务，则表示你未安装 Microsoft Azure 来宾代理。
 
 - 检查程序和功能
 
@@ -240,5 +240,4 @@ Npcap 环回适配器可能是由 WireShark 安装的。 尝试禁用它，然�
 
 若要进一步解决“Windows Azure 来宾代理不工作”问题，请[联系 Azure 支持](https://support.azure.cn/support/support-azure/)。
 
-<!-- Update_Description: new article about windows azure guest agent -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

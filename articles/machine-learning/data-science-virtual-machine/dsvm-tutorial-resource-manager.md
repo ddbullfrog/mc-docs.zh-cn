@@ -10,18 +10,16 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 9f75e45b25d2fc32d901b21ed1cfb5818c421d0e
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 190e70294438aabe4982fe3e62dcab72493b927b
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021524"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118027"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Ubuntu Data Science Virtual Machine
 
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
-本快速入门将介绍如何使用 Azure 资源管理器模板（ARM 模板）创建 Ubuntu 18.04 Data Science Virtual Machine。 Data Science Virtual Machine 是基于云的虚拟机，预加载了一套数据科学和机器学习框架及工具。 当部署在 GPU 驱动的计算资源上时，所有工具和库都配置为使用 GPU。 
+本快速入门将介绍如何使用 Azure 资源管理器模板（ARM 模板）创建 Ubuntu 18.04 Data Science Virtual Machine。 Data Science Virtual Machine 是基于云的虚拟机，预加载了一套数据科学和机器学习框架及工具。 当部署在 GPU 驱动的计算资源上时，所有工具和库都配置为使用 GPU。
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -33,7 +31,7 @@ ms.locfileid: "90021524"
 
 * Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
 
-* 若要从本地环境**** 使用本文档中的 CLI 命令，需要使用 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)
+* 若要从本地环境**** 使用本文档中的 CLI 命令，需要使用 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -136,7 +134,7 @@ ms.locfileid: "90021524"
 
 ## <a name="deploy-the-template"></a>部署模板
 
-若要通过 Azure CLI 使用该模板，请登录并选择你的订阅（请参阅[使用 Azure CLI 登录](/cli/authenticate-azure-cli?view=azure-cli-latest)）。 运行：
+若要通过 Azure CLI 使用该模板，请登录并选择你的订阅（请参阅[使用 Azure CLI 登录](/cli/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)）。 然后运行：
 
 ```azurecli
 read -p "Enter the name of the resource group to create:" resourceGroupName &&

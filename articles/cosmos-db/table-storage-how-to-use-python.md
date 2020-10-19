@@ -1,24 +1,24 @@
 ---
 title: 通过 Python 使用 Azure Cosmos DB 表 API 和 Azure 表存储
-description: 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
+description: 通过 Python 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
 origin.date: 07/23/2020
-ms.date: 08/17/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 author: rockboyfor
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: b23eeb7b35b3680a6631e132c322164ad71248f5
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: c8634d4010320be0f0b64809f0f8433ff2e1ac64
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246341"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118517"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>通过 Python 开始使用 Azure 表存储和 Azure Cosmos DB 表 API
 
@@ -245,7 +245,7 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>后续步骤
 
-* [常见问题解答 - 使用表 API 进行开发](/cosmos-db/faq)
+* [常见问题解答 - 使用表 API 进行开发](https://docs.azure.cn/cosmos-db/faq)
 * [用于 Python API 的 Azure Cosmos DB SDK 参考](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)
 * [Python 开发人员中心](https://docs.azure.cn/develop/python/)
     

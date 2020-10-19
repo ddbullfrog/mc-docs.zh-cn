@@ -4,15 +4,15 @@ description: 了解如何在 TLS 上对客户端证书进行身份验证。 Azur
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 origin.date: 10/01/2019
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: seodec18
-ms.openlocfilehash: d2577bd75b073f1418cadaaa3c797d8308ec323a
-ms.sourcegitcommit: 981a75a78f8cf74ab5a76f9e6b0dc5978387be4b
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 022d002958d27af11a65216885bd02ad5e56cf33
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801303"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170691"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>为 Azure 应用服务配置 TLS 相互身份验证
 

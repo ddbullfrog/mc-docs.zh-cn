@@ -4,17 +4,17 @@ description: 概述了为何使用微服务方法生成云应用程序对于开�
 ms.topic: conceptual
 origin.date: 01/07/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: sfrev
-ms.openlocfilehash: 252b94deceb57f354bce958b01b66c23a0c28dfe
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: a7e8dc871148c25b025fa5649ed931776b62ec75
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655644"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127589"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>为何使用微服务方法构建应用程序？
 
@@ -145,6 +145,8 @@ Azure 从提供盒装产品（通常是单一式）转换到提供服务后，Az
 
 Service Fabric 旨在解决构建和运行服务方面的难题，并有效地使用基础结构资源，使团队可以使用微服务方法来解决业务问题。
 
+<!--Not Available on https://channel9.msdn.com-->
+
 Service Fabric 可帮助你构建使用微服务方法的应用程序，它提供：
 
 * 提供系统服务的平台，用于部署、升级、检测和重启失败的服务、发现服务、路由消息、管理状态和监视运行状况。
@@ -207,4 +209,4 @@ Service Fabric 的目标是将构建微服务应用程序的复杂性降低，�
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 [Image3]: media/service-fabric-overview-microservices/microservices-migration.png
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

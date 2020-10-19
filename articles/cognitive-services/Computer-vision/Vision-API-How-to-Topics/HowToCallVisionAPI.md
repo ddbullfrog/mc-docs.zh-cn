@@ -1,138 +1,151 @@
 ---
-title: 示例：调用分析图像 API - 计算机视觉
-titlesuffix: Azure Cognitive Services
-description: 了解如何通过使用 Azure 认知服务中的 REST 调用计算机视觉 API。
+title: 调用计算机视觉 API
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用 Azure 认知服务中的 REST API 调用计算机视觉 API。
 services: cognitive-services
-author: KellyDF
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 origin.date: 03/21/2019
-ms.date: 05/14/2019
-ms.author: v-junlch
-ms.custom: seodec18
-ms.openlocfilehash: 7fd288ce95b8fb6edd24f23ed4c5544a693875b2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/16/2020
+ms.author: v-johya
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 98edfcf73394df1ce0a623e551ab3b6f4ca9d86d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65598873"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127885"
 ---
-# <a name="example-how-to-call-the-computer-vision-api"></a>示例：如何调用计算机视觉 API
+# <a name="call-the-computer-vision-api"></a>调用计算机视觉 API
 
-本指南演示如何使用 REST 调用计算机视觉 API。 这些示例是使用计算机视觉 API 客户端库以 C# 编写的，也是作为 HTTP POST/GET 调用编写的。 我们将重点介绍：
+本文演示如何使用 REST API 调用计算机视觉 API。 示例是使用计算机视觉 API 客户端库以 C# 语言作为 HTTP POST/GET 调用编写的。 本文重点介绍：
 
-- 如何获取 "Tags"、"Description" 和 "Categories"。
-- 如何获取“特定领域”的信息（名人）。
+- 获取标记、说明和类别
+- 获取特定于域的信息（或“名人”）
 
-### <a name="prerequisites"></a><a name="Prerequisites"></a>先决条件
+本文中的示例演示以下功能：
 
-- 本地存储图像的图像 URL 或路径。
-- 支持的输入方法：原始图像二进制，采用应用程序/八位字节流或图像 URL 的形式
-- 支持的图像格式：JPEG、PNG、GIF 和 BMP
-- 图像文件大小：小于 4MB
-- 图像维度：大于 50 x 50 像素
-  
-下面的示例演示了以下功能：
+* 分析图像以返回标记数组和说明
+* 使用特定于域的模型（具体而言，是“名人”模型）分析图像并以 JSON 格式返回相应结果
 
-1. 分析图像并返回标记数组和说明。
-2. 使用特定领域的模型（具体说来就是“名人”模型）分析图像，并在返回的 JSON 中获取相应的结果。
+这些功能提供以下选项：
 
-功能细分为：
+- **选项 1**：范围分析 - 仅分析指定的模型
+- **选项 2**：增强分析 - 使用 [86 类别分类法](../Category-Taxonomy.md)进行分析，以提供更多详细信息
 
-- **选项一：** 范围内分析 - 仅分析给定模型
-- **选项二：** 强化分析 - 经过分析可提供具有 [86 个类别分类](../Category-Taxonomy.md)的更多详细信息
+## <a name="prerequisites"></a>先决条件
+
+* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesComputerVision"  title="创建计算机视觉资源"  target="_blank">创建计算机视觉资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
+    * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到计算机视觉服务。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
+    * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
+* 本地存储的图像的图像 URL 或路径
+* 支持的输入方法：原始图像二进制，采用应用程序/八位字节流或图像 URL 的形式
+* 支持的图像文件格式：JPEG、PNG、GIF 和 BMP
+* 图像文件大小：4 MB 或更小
+* 图像尺寸：50 &times; 50 像素或以上
   
 ## <a name="authorize-the-api-call"></a>授权 API 调用
 
-每次调用计算机视觉 API 都需要提供订阅密钥。 需通过查询字符串参数传递此密钥，或者在请求标头中指定此密钥。
+每次调用计算机视觉 API 都需要订阅密钥。 此密钥必须通过查询字符串参数传递，或在请求标头中指定。
 
-你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
+可通过以下任一操作传递订阅密钥：
 
-1. 若要通过查询字符串传递订阅密钥，请参阅下面的计算机视觉 API 示例：
+* 通过查询字符串传递，如以下计算机视觉 API 示例所示：
 
-    ```https://api.cognitive.azure.cn/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
+  ```
+  https://api.cognitive.azure.cn/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+  ```
 
-1. 也可以在 HTTP 请求标头中指定订阅密钥的传递方式：
+* 在 HTTP 请求标头中指定：
 
-    ```ocp-apim-subscription-key: <Your subscription key>```
+  ```
+  ocp-apim-subscription-key: <Your subscription key>
+  ```
 
-1. 使用客户端库时，订阅密钥通过 VisionServiceClient 的构造函数传入：
+* 使用客户端库时，请通过 ComputerVisionClient 的构造函数传递密钥，并在客户端的某个属性中指定区域：
 
-    ```var visionClient = new VisionServiceClient("Your subscriptionKey");```
+    ```
+    var visionClient = new ComputerVisionClient(new ApiKeyServiceClientCredentials("Your subscriptionKey"))
+    {
+        Endpoint = "https://api.cognitive.azure.cn"
+    }
+    ```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>将图像上传到计算机视觉 API 服务并取回标记、说明和名人
+## <a name="upload-an-image-to-the-computer-vision-api-service"></a>将图像上传到计算机视觉 API 服务
 
-若要执行计算机视觉 API 调用，基本方式是直接上传图像。 为此，可将包含 application/octet-stream 内容类型的“POST”请求连同从图像中读取的数据一起发送。 至于 "Tags" 和 "Description"，此上传方法对于所有计算机视觉 API 调用都是相同的。 唯一的区别是用户指定的查询参数。 
+执行计算机视觉 API 调用的基本方法是直接上传图像以返回标记、说明和名人。 为此，可以发送一个“POST”请求并在其 HTTP 正文中包含二进制图像，另外包含从图像读取的数据。 所有计算机视觉 API 调用的上传方法相同。 唯一的差别在于指定的查询参数。 
 
-下面介绍如何获取给定图像的 "Tags" 和 "Description"：
+对于指定的图像，使用以下选项之一获取标记和说明：
 
-**选项一：** 获取“标记”列表和一个“说明”
+### <a name="option-1-get-a-list-of-tags-and-a-description"></a>选项 1：获取标记列表和说明
 
 ```
-POST https://api.cognitive.azure.cn/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+POST https://api.cognitive.azure.cn/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
 
 ```csharp
-using Microsoft.ProjectOxford.Vision;
-using Microsoft.ProjectOxford.Vision.Contract;
 using System.IO;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
-AnalysisResult analysisResult;
-var features = new VisualFeature[] { VisualFeature.Tags, VisualFeature.Description };
+ImageAnalysis imageAnalysis;
+var features = new VisualFeatureTypes[] { VisualFeatureTypes.Tags, VisualFeatureTypes.Description };
 
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
-  analysisResult = await visionClient.AnalyzeImageAsync(fs, features);
+  imageAnalysis = await visionClient.AnalyzeImageInStreamAsync(fs, features);
 }
 ```
 
-**选项二：** 只获取 "Tags" 的列表，或者只获取 "Description" 的列表：
+### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>选项 2：仅获取标记列表，或仅获取说明
 
-###### <a name="tags-only"></a>仅标记：
-
-```
-POST https://api.cognitive.azure.cn/vision/v2.0/tag&subscription-key=<Your subscription key>
-var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
-```
-
-###### <a name="description-only"></a>仅说明：
+（仅对于标记）运行：
 
 ```
-POST https://api.cognitive.azure.cn/vision/v2.0/describe&subscription-key=<Your subscription key>
+POST https://api.cognitive.azure.cn/vision/v2.1/tag?subscription-key=<Your subscription key>
+var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
+```
+
+（仅对于说明）运行：
+
+```
+POST https://api.cognitive.azure.cn/vision/v2.1/describe?subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
-  analysisResult = await visionClient.DescribeAsync(fs);
+  imageDescription = await visionClient.DescribeImageInStreamAsync(fs);
 }
 ```
 
-### <a name="get-domain-specific-analysis-celebrities"></a>获取特定领域的分析（名人）
+## <a name="get-domain-specific-analysis-celebrities"></a>获取特定领域的分析（名人）
 
-**选项一：** 范围内分析 - 仅分析给定模型
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>选项 1：范围分析 - 仅分析指定的模型
 ```
-POST https://api.cognitive.azure.cn/vision/v2.0/models/celebrities/analyze
+POST https://api.cognitive.azure.cn/vision/v2.1/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
 ```
 
-对于此选项来说，所有其他参数参数 {visualFeatures, details} 均无效。 若要查看所有支持的模型，请使用：
+对于此选项，所有其他查询参数 {visualFeatures, details} 无效。 如果要查看所有支持的模型，请使用：
 
 ```
-GET https://api.cognitive.azure.cn/vision/v2.0/models 
+GET https://api.cognitive.azure.cn/vision/v2.1/models 
 var models = await visionClient.ListModelsAsync();
 ```
 
-**选项二：** 强化分析 - 经过分析可提供具有 [86 个类别分类](../Category-Taxonomy.md)的更多详细信息
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>选项 2：增强分析 - 使用 86 类别分类法进行分析，以提供更多详细信息
 
-如果应用程序用户除了获取一个或多个特定领域模型中的详细信息，还需要获取泛型图像分析信息，则可使用带模型查询参数的扩展型 v1 API。
+对于你要从一个或多个特定于域的模型获取常规图像分析结果以及详细信息的应用程序，请使用模型查询参数扩展 v1 API。
 
 ```
-POST https://api.cognitive.azure.cn/vision/v2.0/analyze?details=celebrities
+POST https://api.cognitive.azure.cn/vision/v2.1/analyze?details=celebrities
 ```
 
-调用此方法时，将先调用“86 类”分类器。 如果某个类别与已知/匹配模型的类别相符，则会进行第二轮分类器调用。 例如，如果 "details=all"，或者 "details" 包括 ‘celebrities’，则会在调用“86 类”分类器后调用名人模型，结果就会包括人员类别。 与“选项一”相比，这会增加对名人感兴趣的用户的延迟。
+调用此方法时，请先调用 [86 类别](../Category-Taxonomy.md)分类器。 如果任一类别与某个已知或匹配模型的类别匹配，将执行第二轮分类器调用。 例如，如果“details=all”，或者“details”包括“celebrities”，则会在调用 86 类别分类器后调用 celebrities 模型。 结果包含人员类别。 相比“选项 1”，此方法会增大对名人感兴趣的用户所遇到的延迟
 
-在这种情况下，所有 v1 查询参数都会表现得一样。  如果未指定 visualFeatures=categories，则会隐式启用它。
+在这种情况下，所有 v1 查询参数的行为相同。 如果未指定 visualFeatures=categories，会隐式启用它。
 
 ## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>检索并了解 JSON 输出以进行分析
 
@@ -167,19 +180,19 @@ POST https://api.cognitive.azure.cn/vision/v2.0/analyze?details=celebrities
 
 字段 | 类型 | 内容
 ------|------|------|
-Tags  | `object` | 标记数组的顶级对象
-tags[].Name | `string`  | 标记分类器中的关键字
-tags[].Score    | `number`  | 置信度，介于 0 和 1 之间。
-description  | `object` | 说明的顶级对象。
-description.tags[] |    `string`    | 标记列表。  如果因置信度不够而无法生成标题，则调用方能够获得的唯一信息可能就是标记。
-description.captions[].text | `string`  | 描述图像的短语。
-description.captions[].confidence   | `number`  | 短语的置信度。
+Tags  | `object` | 标记数组的顶级对象。
+tags[].Name | `string`    | 标记分类器中的关键字。
+tags[].Score    | `number`    | 置信度评分，介于 0 和 1 之间。
+description     | `object`    | 说明的顶级对象。
+description.tags[] |    `string`    | 标记列表。  如果置信度不足，因此无法生成标题，则标记可能是可供调用方使用的唯一信息。
+description.captions[].text    | `string`    | 描述图像的短语。
+description.captions[].confidence    | `number`    | 短语的置信度评分。
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>检索并了解特定于域的模型的 JSON 输出
 
-**选项一：** 范围内分析 - 仅分析给定模型
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>选项 1：范围分析 - 仅分析指定的模型
 
-输出将会是标记数组，示例如下：
+输出是一个标记数组，如以下示例中所示：
 
 ```json
 {  
@@ -196,9 +209,9 @@ description.captions[].confidence   | `number`  | 短语的置信度。
 }
 ```
 
-**选项二：** 强化分析 - 经过分析可提供具有 86 个类别分类的更多详细信息
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>选项 2：增强分析 - 使用“86 类别”分类法进行分析，以提供更多详细信息
 
-对于使用“选项二(强化分析)”的特定领域模型，会扩展类别返回类型。 示例如下：
+对于使用“选项 2”（增强分析）的特定于域的模型，类别返回类型将会扩展，如以下示例中所示：
 
 ```json
 {  
@@ -225,23 +238,20 @@ description.captions[].confidence   | `number`  | 短语的置信度。
 }
 ```
 
-类别字段是一个列表，其中包含一个或多个 [86 类](../Category-Taxonomy.md)（按原始分类）。 另请注意，以下划线结尾的类别会匹配该类别及其子类别（例如，名人模型的 people_ 和 people_group）。
+类别字段是原始分类法中一个或多个 [86 类别](../Category-Taxonomy.md)的列表。 以下划线结尾的类别将匹配该类别及其子级（例如，在 celebrities 模型中匹配“people_”或“people_group”）。
 
-字段   | 类型  | 内容
+字段    | 类型    | 内容
 ------|------|------|
-Categories | `object`   | 顶级对象
-categories[].name    | `string` | “86 类”分类中的名称
-categories[].score  | `number`  | 置信度，介于 0 和 1 之间
-categories[].detail  | `object?`      | 可选详细信息对象
+categories | `object`    | 顶级对象
+categories[].name     | `string`    | 86 类别分类法列表中的名称。
+categories[].score    | `number`    | 置信度评分，介于 0 和 1 之间。
+categories[].detail     | `object?`      | （可选）详细信息对象。
 
-请注意，如果多个类别匹配（例如，当 model=celebrities 时，“86 类”分类器返回了一个针对 people_ 和 people_young 的置信度），则会将详细信息附加到最广泛级别的匹配（即该示例中的 people_）。
+如果多个类别匹配（例如，86 类别分类器在 model=celebrities 时同时返回“people_”和“people_young”的评分），则详细信息将附加到最宽泛级别的匹配项（在该示例中为“people_”）。
 
-## <a name="errors-responses"></a>错误响应
+## <a name="error-responses"></a>错误响应
 
-这些内容与 vision.analyze 相同，但增加了 NotSupportedModel 错误 (HTTP 400)，该错误可能会在使用“选项一”和“选项二”的情况下返回。 对于“选项二(强化分析)”，如果无法识别详细指定的任何模型，则 API 会返回 NotSupportedModel，即使其中的一个或多个是有效的。  用户可以调用 listModels，了解哪些模型受支持。
+这些错误与 vision.analyze 中的错误相同，另外还会出现 NotSupportedModel 错误 (HTTP 400)，该错误在使用“选项 1”和“选项 2”时都可能会返回。 对于“选项 2”（增强分析），如果无法识别详细信息中指定的任何模型，则即使一个或多个模型有效，API 也会返回 NotSupportedModel。 若要确定哪些模型受支持，可以调用 listModels。
 
-## <a name="next-steps"></a>后续步骤
+<!--Not GA in MC: https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b-->
 
-若要使用 REST API，请转到[计算机视觉 API 参考](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44)。
-
-<!-- Update_Description: wording update -->

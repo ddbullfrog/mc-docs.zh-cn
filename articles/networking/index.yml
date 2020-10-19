@@ -11,14 +11,14 @@ metadata:
   author: KumudD
   ms.author: v-tawe
   manager: mtillman
-  origin.date: 03/17/2020
-  ms.date: 07/01/2020
-  ms.openlocfilehash: 1b1809a0e6818d1383458e30630d6bd8a668e6eb
-  ms.sourcegitcommit: 4f84bba7e509a321b6f68a2da475027c539b8fd3
+  origin.date: 09/28/2020
+  ms.date: 10/16/2020
+  ms.openlocfilehash: 97581f383716ce68076224855ed0d7ad1d70dfdf
+  ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/01/2020
-  ms.locfileid: "85796240"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92128381"
 highlightedContent:
   items:
   - title: 什么是 Azure 网络？
@@ -48,7 +48,7 @@ conceptualContent:
       text: 排查网络流量筛选问题
     footerLink:
       url: ../virtual-network/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: 从本地连接到 Azure - VPN 加密
     links:
     - url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
@@ -65,7 +65,7 @@ conceptualContent:
       text: 排查 VPN 网关问题
     footerLink:
       url: ../vpn-gateway/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: 从本地扩展到 Azure - 专用连接
     links:
     - url: ../expressroute/expressroute-introduction.md
@@ -82,7 +82,7 @@ conceptualContent:
       text: 排查网络性能问题
     footerLink:
       url: ../expressroute/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: DNS
     links:
     - url: ../dns/dns-overview.md
@@ -96,24 +96,24 @@ conceptualContent:
       text: 排查 Azure DNS 问题
     footerLink:
       url: ../dns/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: 网络负载均衡器
     links:
     - url: ../load-balancer/load-balancer-overview.md
       itemType: overview
       text: 什么是 Azure 负载均衡器？
+    - url: https://updates.azure.cn
+      itemType: whats-new
+      text: 新增功能
     - url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
       itemType: quickstart
       text: 对传入 VM 的 Internet 流量进行负载均衡
-    - url: ../load-balancer/tutorial-load-balancer-port-forwarding-portal.md
-      itemType: tutorial
-      text: 配置端口转发
     - url: ../load-balancer/load-balancer-troubleshoot.md
       itemType: how-to-guide
       text: 对 Azure 负载均衡器进行故障排除
     footerLink:
       url: ../load-balancer/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: 基于 DNS 的负载均衡器
     links:
     - url: ../traffic-manager/traffic-manager-overview.md
@@ -130,7 +130,7 @@ conceptualContent:
       text: 排查流量管理器的降级状态
     footerLink:
       url: ../traffic-manager/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: Web 应用程序负载均衡器
     links:
     - url: ../application-gateway/overview.md
@@ -147,7 +147,7 @@ conceptualContent:
       text: 排查“错误的网关”错误
     footerLink:
       url: ../application-gateway/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: 监视网络运行状况
     links:
     - url: ../network-watcher/network-watcher-monitoring-overview.md
@@ -161,7 +161,7 @@ conceptualContent:
       text: 记录传入和传出 VM 的网络流量流
     footerLink:
       url: ../network-watcher/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: 网络防火墙
     links:
     - url: ../firewall/overview.md
@@ -175,7 +175,7 @@ conceptualContent:
       text: 使用 Azure 防火墙筛选入站 Internet 流量
     footerLink:
       url: ../firewall/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: Web 应用程序防火墙
     links:
     - url: ../web-application-firewall/ag/ag-overview.md

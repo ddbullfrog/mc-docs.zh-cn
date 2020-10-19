@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 06/11/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 3c13f3c9edc301de78fb8346df366b651ac6cd4c
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 3174d970399e88af3489dcb26dd8389153f4667d
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246803"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118576"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的冲突解决策略
 

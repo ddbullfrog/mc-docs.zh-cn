@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 07/05/2019
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 3caf471bc79d8ae98e7c18aaf73e0e34525ba8bf
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: b8c9f4a302de319ec41b8219c4f268ba6d6fb326
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317446"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128287"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>在语音 SDK 中启用日志记录
 

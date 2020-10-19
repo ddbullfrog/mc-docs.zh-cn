@@ -5,15 +5,15 @@ tags: azure-service-management
 ms.assetid: 27cf0680-c3a9-4a58-9f71-6dec09f6b874
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: mvc
-ms.openlocfilehash: e49e959f538483533467b004bbe7615ffd960005
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: c227699a1acde5ed351f8e15cc8cb05fefe9a468
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228125"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170465"
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>创建 Web 应用并将代码部署到过渡环境
 

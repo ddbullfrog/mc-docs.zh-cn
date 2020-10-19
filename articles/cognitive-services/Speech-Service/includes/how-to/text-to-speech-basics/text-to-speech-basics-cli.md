@@ -3,15 +3,26 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 08/11/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 174143cf9fe96ca577e0f28237b917a80baab433
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 966034edac2d8a4d6bcc965f229f9055233af74b
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323282"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127921"
 ---
+本快速入门介绍使用语音 SDK 进行文本到语音合成的常见设计模式。 首先，请进行基本的配置和合成，然后通过更高级的示例来了解自定义应用程序开发，其中包括：
+
+* 获取内存中流形式的响应
+* 自定义输出采样率和比特率
+* 使用 SSML（语音合成标记语言）提交合成请求
+* 使用神经语音
+
+## <a name="prerequisites"></a>先决条件
+
+本文假定你有 Azure 帐户和语音服务订阅。 如果你没有帐户和订阅，[可以免费试用语音服务](../../../overview.md#try-the-speech-service-for-free)。
+
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
 ## <a name="synthesize-speech-to-a-speaker"></a>将语音合成到扬声器

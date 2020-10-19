@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
 origin.date: 03/16/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 4dcb3e72c24dd030c693c35c2c76a3f6eed08c35
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 574b130bd5b536f89fed671422aca76027885e45
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228288"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170676"
 ---
 # <a name="app-service-networking-features"></a>应用服务网络功能
 
@@ -228,12 +228,12 @@ ASE 提供最佳的隔离和专用应用托管，但也附带了一些管理难�
 可以在其他前端应用中使用 VNet 集成，并在 API 应用及其子网中使用服务终结点，让多个前端应用使用同一个 API 应用。  
 
 <!--Links-->
-[appassignedaddress]: https://docs.azure.cn/app-service/configure-ssl-certificate
-[iprestrictions]: https://docs.azure.cn/app-service/app-service-ip-restrictions
-[serviceendpoints]: https://docs.azure.cn/app-service/app-service-ip-restrictions
-[hybridconn]: https://docs.azure.cn/app-service/app-service-hybrid-connections
-[vnetintegrationp2s]: https://docs.azure.cn/app-service/web-sites-integrate-with-vnet
-[vnetintegration]: https://docs.azure.cn/app-service/web-sites-integrate-with-vnet
-[networkinfo]: https://docs.azure.cn/app-service/environment/network-info
-[appgwserviceendpoints]: https://docs.azure.cn/app-service/networking/app-gateway-with-service-endpoints
-[privateendpoints]: https://docs.azure.cn/app-service/networking/private-endpoint
+[appassignedaddress]: ./configure-ssl-certificate.md
+[iprestrictions]: ./app-service-ip-restrictions.md
+[serviceendpoints]: ./app-service-ip-restrictions.md
+[hybridconn]: ./app-service-hybrid-connections.md
+[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
+[vnetintegration]: ./web-sites-integrate-with-vnet.md
+[networkinfo]: ./environment/network-info.md
+[appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
+[privateendpoints]: ./networking/private-endpoint.md

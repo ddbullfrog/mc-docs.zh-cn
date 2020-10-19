@@ -82,7 +82,7 @@
           href: service-fabric-tutorial-standalone-install-an-application.md
         - name: 4- 清理群集和删除基础结构
           href: service-fabric-tutorial-standalone-clean-up.md
-- name: 最佳做法
+- name: 最佳实践
   items:
     - name: Service Fabric 最佳做法概述
       href: service-fabric-best-practices-overview.md
@@ -108,9 +108,6 @@
       href: service-fabric-powershell-samples.md
     - name: Service Fabric CLI
       href: samples-cli.md
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 概念
   items:
     - name: 了解微服务
@@ -771,7 +768,7 @@
     - name: PowerShell
       href: 'https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps'
     - name: Azure CLI (az sf)
-      href: 'https://docs.azure.cn/cli/sf?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/sf'
     - name: Service Fabric CLI (sfctl)
       href: service-fabric-sfctl.md
       items:
@@ -814,7 +811,7 @@
     - name: Java API
       href: 'https://docs.azure.cn/java/api/overview/servicefabric'
     - name: .NET
-      href: 'https://docs.azure.cn/dotnet/api/overview/service-fabric?view=azure-dotnet'
+      href: 'https://docs.azure.cn/dotnet/api/overview/service-fabric'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/servicefabric'
     - name: Service Fabric 事件
@@ -836,6 +833,9 @@
           href: service-fabric-service-model-schema-element-groups.md
     - name: 环境变量
       href: service-fabric-environment-variables-reference.md
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: 常见问题

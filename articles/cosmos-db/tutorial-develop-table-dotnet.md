@@ -7,17 +7,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 12/03/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfe96b8a6797e06f5670f2424286a419b7ee323c
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 747b728cf2953616f1a38e34b2a018da3988f979
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246610"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117922"
 ---
 <!--Verify sucessfully-->
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>通过 .NET SDK 开始使用 Azure Cosmos DB 表 API 和 Azure 表存储
@@ -148,8 +148,6 @@ ms.locfileid: "91246610"
 
                 return storageAccount;
             }
-        }
-    }
     ```
 
 ## <a name="create-a-table"></a>创建表 
@@ -202,6 +200,7 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 namespace CosmosTableSamples.Model
 {
     using Microsoft.Azure.Cosmos.Table;
+
     public class CustomerEntity : TableEntity
     {
         public CustomerEntity()
@@ -215,6 +214,7 @@ namespace CosmosTableSamples.Model
         }
 
         public string Email { get; set; }
+
         public string PhoneNumber { get; set; }
     }
 }
@@ -224,7 +224,7 @@ namespace CosmosTableSamples.Model
 
 ## <a name="insert-or-merge-an-entity"></a>插入或合并实体
 
-以下代码示例创建实体对象并将其添加到表中。 [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 类中的 InsertOrMerge 方法用于插入或合并实体。 调用 [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync) 方法来执行此操作。 
+以下代码示例创建实体对象并将其添加到表中。 [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) 类中的 InsertOrMerge 方法用于插入或合并实体。 调用 [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet&preserve-view=true) 方法来执行此操作。 
 
 右键单击项目“CosmosTableSamples”。 选择“添加”、“新项”，并添加名为“SamplesUtils.cs”的类  。 此类存储对实体执行 CRUD 操作所需的全部代码。 
 
@@ -235,6 +235,7 @@ public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable tab
     {
         throw new ArgumentNullException("entity");
     }
+
     try
     {
         // Create the InsertOrReplace table operation
@@ -292,6 +293,7 @@ public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(Clou
         throw;
     }
 }
+
 ```
 
 ## <a name="delete-an-entity"></a>删除实体
@@ -325,6 +327,7 @@ public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(Clou
         throw;
     }
 }
+
 ```
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>对示例数据执行 CRUD 操作
@@ -433,7 +436,7 @@ namespace CosmosTableSamples
 
 立即生成解决方案并按 F5 运行该项目。 运行项目时，将在命令提示符中看到以下输出：
 
-:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="来自命令提示符的输出":::
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="“连接字符串”窗格中的“主连接字符串”":::
 
 如果收到说明在运行项目时无法找到 Settings.json 文件的错误，可以通过将以下 XML 条目添加到项目设置来解决该问题。 右键单击 CosmosTableSamples，选择“编辑 CosmosTableSamples.csproj”并添加以下 itemGroup： 
 
@@ -446,13 +449,13 @@ namespace CosmosTableSamples
 ```
 现在可以登录到 Azure 门户，并验证表中是否存在数据。 
 
-:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="门户中的结果":::
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="“连接字符串”窗格中的“主连接字符串”":::
 
 ## <a name="next-steps"></a>后续步骤
 
 现在可以继续学习下一教程，了解如何将数据迁移到 Azure Cosmos DB 表 API 帐户。 
 
 > [!div class="nextstepaction"]
->[如何查询数据](../cosmos-db/table-import.md)
+> [将数据迁移到 Azure Comsos DB 表 API](../cosmos-db/table-import.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

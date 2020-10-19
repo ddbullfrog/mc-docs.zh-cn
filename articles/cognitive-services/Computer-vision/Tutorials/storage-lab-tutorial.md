@@ -3,24 +3,27 @@ title: 教程：生成 Azure 图像的元数据
 titleSuffix: Azure Cognitive Services
 description: 本教程介绍如何将 Azure 计算机视觉服务集成到 Web 应用中，以便生成图像的元数据。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
 origin.date: 04/17/2019
-ms.date: 06/06/2019
-ms.author: v-junlch
-ms.openlocfilehash: eb0bbfe637753a7e18342176e87ad1b8c40eaa41
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/16/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8ec9a7f65300c92798253c51d3a42a136a1ab92a
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "66830048"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128393"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>教程：使用计算机视觉在 Azure 存储中生成图像元数据
 
-本教程介绍如何将 Azure 计算机视觉服务集成到 Web 应用中，以便生成已上传图像的元数据。 GitHub 上的 [Azure 存储和认知服务实验室](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md)提供了完整的应用指南，本教程主要介绍该实验室的练习 5。 你可能希望按照每一步来操作，以便创建端到端应用程序，但如果你只是想要了解如何将计算机视觉集成到现有的 Web 应用中，则阅读本文即可。
+本教程介绍如何将 Azure 计算机视觉服务集成到 Web 应用中，以便生成已上传图像的元数据。 这对于[数字资产管理 (DAM)](../overview.md#computer-vision-for-digital-asset-management) 方案非常有用，例如，如果公司希望为其所有图像快速生成描述性标题或可搜索的关键字。
+
+GitHub 上的 [Azure 存储和认知服务实验室](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md)提供了完整的应用指南，本教程主要介绍该实验室的练习 5。 你可能想要遵循每个步骤创建完整的应用程序，但如果你只想了解如何将计算机视觉集成到现有的 Web 应用，请参阅本文。
 
 本教程演示如何：
 
@@ -30,12 +33,12 @@ ms.locfileid: "66830048"
 > * 将元数据附加到 Azure 存储图像
 > * 使用 Azure 存储资源管理器查看图像元数据
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services/)。 
 
 ## <a name="prerequisites"></a>先决条件
 
 - [Visual Studio 2017 Community 版本](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)或更高版本，并已安装“ASP.NET 和 Web 开发”或“Azure 开发”工作负荷。
-- 一个 Azure 存储帐户，其中包含为图像分配的 Blob 容器（如果需要此步骤的帮助，请按 [Azure 存储实验的练习 1](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) 中的说明操作）。
+- 一个 Azure 存储帐户，其中包含为图像存储设置的 Blob 容器（如果需要此步骤的帮助，请按 [Azure 存储实验的练习 1](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) 中的说明操作）。
 - Azure 存储资源管理器工具（如果需要此步骤的帮助，请按 [Azure 存储实验的练习 2](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise2) 中的说明操作）。
 - 一个可以访问 Azure 存储的 ASP.NET Web 应用程序（如果需要快速创建这样的应用，请按 [Azure 存储实验室的练习 3](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3) 中的说明操作）。
 
@@ -43,11 +46,14 @@ ms.locfileid: "66830048"
 
 需要为 Azure 帐户创建计算机视觉资源；该资源管理你对 Azure 的计算机视觉服务的访问权限。 
 
-1. 按照[创建 Azure 认知服务资源](/cognitive-services/cognitive-services-apis-create-account#single-service-subscription)中的说明创建计算机视觉资源。
+1. 按照[创建 Azure 认知服务资源](../../cognitive-services-apis-create-account.md)中的说明创建计算机视觉资源。
 
 1. 然后，转到你的资源组的菜单，单击刚创建的计算机视觉 API 订阅。 将“终结点”  下的 URL 复制到可以随后轻松地进行检索的某个位置。 然后，单击“显示访问密钥”。 
 
     ![Azure 门户页面，其中列出了终结点 URL 和访问密钥链接](../Images/copy-vision-endpoint.png)
+    
+    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 
 1. 在下一窗口中，将“密钥 1”的值复制到剪贴板。 
 
@@ -55,7 +61,7 @@ ms.locfileid: "66830048"
 
 ## <a name="add-computer-vision-credentials"></a>添加计算机视觉凭据
 
-接下来，向应用添加所需凭据，以便该应用能够访问计算机视觉资源
+接下来，向应用添加所需凭据，使其能够访问计算机视觉资源。
 
 在 Visual Studio 中打开 ASP.NET Web 应用程序，导航到项目根目录中的 **Web.config** 文件。 将以下语句添加到文件的 `<appSettings>` 节，将 `VISION_KEY` 替换为你在上一步复制的键，将 `VISION_ENDPOINT` 替换为你在此前的步骤中保存的 URL。
 
@@ -68,7 +74,7 @@ ms.locfileid: "66830048"
 
 ## <a name="add-metadata-generation-code"></a>添加元数据生成代码
 
-接下来，添加可以实际利用计算机视觉服务的代码，以便为图像创建元数据。 这些步骤将应用到实验室中的 ASP.NET 应用，但你可以根据自己应用的情况修改它们。 重要的是，目前你有了一个 ASP.NET Web 应用程序，该应用程序可以将图像上传到 Azure 存储容器，从其中读取图像，然后在视图中显示图像。 如果对此不确定，最好是按照 [Azure 存储实验室的练习 3](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3) 中的说明操作。 
+接下来，添加可以实际利用计算机视觉服务的代码，以便为图像创建元数据。 这些步骤将应用到实验室中的 ASP.NET 应用，但你可以根据自己应用的情况修改它们。 重要的是，目前你有了一个 ASP.NET Web 应用程序，该应用程序可以将图像上传到 Azure 存储容器，从其中读取图像，然后在视图中显示图像。 如果对此步骤不确定，最好是按照 [Azure 存储实验室的练习 3](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3) 中的说明操作。 
 
 1. 在项目的 **Controllers** 文件夹中打开 *HomeController.cs* 文件，将下面的 `using` 语句添加到文件顶部：
 
@@ -101,7 +107,7 @@ ms.locfileid: "66830048"
     await photo.SetMetadataAsync();
     ```
 
-1. 接下来，转到同一文件中的 **Index** 方法；此方法枚举存储在目标 Blob 容器中的图像 Blob（采用 **IListBlobItem** 实例的形式），并将其传递到应用程序视图。 将此方法中的 `foreach` 块替换为以下代码。 此代码调用 **CloudBlockBlob.FetchAttributes**，以获取每个 Blob 的附加元数据。 它从元数据提取计算机生成的说明 (`caption`)，然后将它添加到 **BlobInfo** 对象，该对象会被传递到视图。
+1. 接下来，转到同一文件中的 **Index** 方法。 此方法枚举存储在目标 Blob 容器中的图像 Blob（采用 **IListBlobItem** 实例的形式），并将其传递到应用程序视图。 将此方法中的 `foreach` 块替换为以下代码。 此代码调用 **CloudBlockBlob.FetchAttributes**，以获取每个 Blob 的附加元数据。 它从元数据提取计算机生成的说明 (`caption`)，然后将它添加到 **BlobInfo** 对象，该对象会被传递到视图。
     
     ```csharp
     foreach (IListBlobItem item in container.ListBlobs())
@@ -135,13 +141,13 @@ ms.locfileid: "66830048"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-若要继续使用 Web 应用，请参阅 [后续步骤](#next-steps) 部分。 如果不打算继续使用此应用程序，则应删除所有特定于应用的资源。 为此，可以直接删除包含 Azure 存储订阅和计算机视觉资源的资源组。 这样会删除存储帐户、上传到其中的 Blob，以及与 ASP.NET Web 应用进行连接所需的应用服务资源。 
+若要继续使用 Web 应用，请参阅 [后续步骤](#next-steps) 部分。 如果不打算继续使用此应用程序，则应删除所有特定于应用的资源。 若要删除资源，可以删除包含 Azure 存储订阅和计算机视觉资源的资源组。 这样会删除存储帐户、上传到其中的 Blob，以及与 ASP.NET Web 应用进行连接所需的应用服务资源。 
 
-若要删除资源组，请在门户中打开“资源组”边栏选项卡，  导航到用于此项目的资源组，然后单击视图顶部的“删除资源组”。  系统会要求你键入资源组的名称来确认你要删除它，因为资源组一旦删除就不能恢复。
+若要删除资源组，请在门户中打开“资源组”选项卡，  导航到用于此项目的资源组，然后单击视图顶部的“删除资源组”。  系统会要求你键入资源组的名称来确认你要删除它，因为资源组一旦删除就不能恢复。
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何将 Azure 的计算机视觉服务集成到现有的 Web 应用中，以便在 Blob 图像上传时自动为其生成标题和关键字。 接下来请参阅 Azure 存储实验室的练习 6，了解如何向 Web 应用添加搜索功能。 这样就可以利用计算机视觉服务生成的搜索关键字。
+本教程介绍了如何在现有的 Web 应用中设置 Azure 的计算机视觉服务，以便在 Blob 图像上传时自动为其生成标题和关键字。 接下来请参阅 Azure 存储实验室的练习 6，了解如何向 Web 应用添加搜索功能。 这样就可以利用计算机视觉服务生成的搜索关键字。
 
 > [!div class="nextstepaction"]
 > [向应用添加搜索](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise6)

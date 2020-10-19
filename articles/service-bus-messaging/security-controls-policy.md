@@ -1,8 +1,8 @@
 ---
 title: Azure 服务总线消息传递的 Azure Policy 法规遵从性控制
 description: 列出可用于 Azure 服务总线消息传递的 Azure Policy 法规遵从性控制。 这些内置的策略定义提供了管理 Azure 资源符合性的常用方法。
-origin.date: 07/22/2020
-ms.date: 08/31/2020
+origin.date: 09/16/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.topic: sample
@@ -10,12 +10,12 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: service-bus-messaging
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f1a09e9d1d81940331090486fbe7052b99262770
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 9b12148894cebd41cf64ceadf0b477b1f4159f5b
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947614"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128186"
 ---
 <!--Verify Successfully: Innclde files updated-->
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-bus-messaging"></a>Azure 服务总线消息传递的 Azure Policy 法规遵从性控制
@@ -34,5 +34,4 @@ Azure Policy 中的法规符合性为与不同符合性标准相关的“符合�
 
 - 在 [Azure Policy GitHub 存储库](https://github.com/Azure/azure-policy)中查看这些内置项。
 
-<!-- Update_Description: new article about security controls policy -->
-<!--NEW.date: 08/17/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: 24e3e7eb-c160-49ff-8d46-e947818ef186
 ms.topic: article
 origin.date: 07/15/2020
-ms.date: 08/13/2020
+ms.date: 10/09/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e1ee3ba1b9cee29c1eae2e08748576f4d128c615
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 47de3ad52d90bf7f445354a78d55172ca607ed30
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88229013"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128406"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>应用服务环境的可用性区域支持
 
@@ -68,7 +68,7 @@ ms.locfileid: "88229013"
     ]
 ```
 
-若要使你的应用实现区域冗余，需要部署两个区域性 ILB ASE。 这两个区域性 ILB ASE 必须位于不同的可用性区域中。 然后，你需要将应用部署到每个 ILB ASE 中。 创建应用后，你需要配置负载均衡解决方案。 建议的解决方案是在区域性 ILB ASE 的上游部署[区域冗余应用程序网关](https://docs.azure.cn/application-gateway/application-gateway-autoscaling-zone-redundant)。 
+若要使你的应用实现区域冗余，需要部署两个区域性 ILB ASE。 这两个区域性 ILB ASE 必须位于不同的可用性区域中。 然后，你需要将应用部署到每个 ILB ASE 中。 创建应用后，你需要配置负载均衡解决方案。 建议的解决方案是在区域性 ILB ASE 的上游部署[区域冗余应用程序网关](../../application-gateway/application-gateway-autoscaling-zone-redundant.md)。 
 
 ## <a name="in-region-data-residency"></a>区域中数据驻留 ##
 

@@ -6,15 +6,15 @@ author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/17/2020
+ms.date: 10/16/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: faa5be1b8ddcab7468cc8e6c943ba7aa468467b5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: ed33bea659bc5d8a096d28458c2a4925625cc03b
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494590"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121603"
 ---
 可以将以下参数类型用于触发 blob：
 
@@ -22,7 +22,6 @@ ms.locfileid: "77494590"
 * `TextReader`
 * `string`
 * `Byte[]`
-* 可序列化为 JSON 的 POCO
 * `ICloudBlob`<sup>1</sup>
 * `CloudBlockBlob`<sup>1</sup>
 * `CloudPageBlob`<sup>1</sup>
@@ -32,5 +31,5 @@ ms.locfileid: "77494590"
 
 如果尝试绑定到某个存储 SDK 类型并收到错误消息，请确保已引用[正确的存储 SDK 版本](../articles/azure-functions/functions-bindings-storage-blob.md#azure-storage-sdk-version-in-functions-1x)。
 
-由于整个 Blob 内容都会加载到内存中，因此，只有当 Blob 较小时才建议绑定到 `string`、`Byte[]` 或 POCO。 平时，最好使用 `Stream` 或 `CloudBlockBlob` 类型。 有关详细信息，请参阅本文后面的[并发和内存使用情况](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage)。
+由于整个 Blob 内容都会加载到内存中，因此，只有当 Blob 较小时才建议绑定到 `string` 或 `Byte[]`。 平时，最好使用 `Stream` 或 `CloudBlockBlob` 类型。 有关详细信息，请参阅本文后面的[并发和内存使用情况](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage)。
 

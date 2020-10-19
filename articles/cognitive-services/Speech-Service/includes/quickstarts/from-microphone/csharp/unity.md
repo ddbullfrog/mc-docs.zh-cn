@@ -9,14 +9,14 @@ ms.subservice: speech-service
 ms.custom: devx-track-csharp
 ms.topic: include
 origin.date: 04/02/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 1360d053638f8a24afb48dea63d11ef858da102b
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: fd27d3cabc3ba98790d215c4ec536f2a3b77fa51
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317471"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128939"
 ---
 > [!NOTE]
 > 适用于 Unity 的语音 SDK 支持 Windows 桌面版（x86 和 x64）或通用 Windows 平台（x86、x64、ARM/ARM64）、Android（x86、ARM32/64）或 iOS（x64 模拟器、ARM32 和 ARM64）
@@ -26,7 +26,7 @@ ms.locfileid: "89317471"
 准备工作：
 
 > [!div class="checklist"]
-> * [创建一个 Azure 搜索资源](../../../../get-started.md)
+> * [创建一个 Azure 搜索资源](../../../../overview.md#try-the-speech-service-for-free)
 > * [设置开发环境并创建空项目](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
 > * 请确保你有权访问麦克风，以便进行音频捕获
 > * 需要语音 SDK 1.11.0 或更高版本。
@@ -44,7 +44,7 @@ ms.locfileid: "89317471"
 1. 在“项目名称”中输入 **csharp-unity**。
 1. 在“模板”中，如果尚未选择“3D”，请选择它。 
 1. 在“位置”中，选择或创建用于保存项目的文件夹。
-1. 选择“创建”  。
+1. 选择“创建” 。
 
 片刻之后，会显示 Unity 编辑器窗口。
 

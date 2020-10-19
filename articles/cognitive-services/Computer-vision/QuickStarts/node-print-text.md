@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: v-johya
-ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: c73af47752c53426f3163c9be068b8dbe52e6445
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.custom: seodec18, devx-track-js
+ms.openlocfilehash: 781af850fc7abbfa0763e1c12803b6a7a0b3497b
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023365"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128392"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>快速入门：使用计算机视觉 REST API 和 Node.js 提取印刷体文本 (OCR)
 

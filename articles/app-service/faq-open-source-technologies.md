@@ -7,15 +7,15 @@ tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 origin.date: 10/31/2018
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 2488d03c2a36c824a11bfb704c4f926837b3f21c
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 100a87279b7c57044eb6e2532d58f78601bd1a41
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227923"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170814"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>针对 Azure 中 Web 应用的开源技术常见问题的解答
 
@@ -81,7 +81,7 @@ ms.locfileid: "88227923"
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>我在应用服务中承载的我的 WordPress 应用中看到消息“建立数据库连接时出错”。 如何解决此问题？
 
-如果在 Azure WordPress 应用中看到此错误，则若要启用 php_errors.log 和 debug.log，请完成[启用 WordPress 错误日志](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)中详细介绍的步骤。
+如果在 Azure WordPress 应用中看到此错误，则若要启用 php_errors.log 和 debug.log，请完成[启用 WordPress 错误日志](https://docs.microsoft.com/archive/blogs/azureossds/logging-php-errors-in-wordpress-2)中详细介绍的步骤。
 
 启用日志后，重现错误，然后检查日志以了解是否耗尽连接：
 ```
@@ -98,11 +98,11 @@ ms.locfileid: "88227923"
 
 ## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>如何在应用服务 Web 应用或 API 应用中安装本机 Python 模块？
 
-某些包可能并不通过使用 pip 在 Azure 中安装。 该包可能在 Python 包索引上不可用，或可能需要编译器（编译器在运行应用服务中 Web 应用的计算机上不可用）。 有关在应用服务 Web 应用和 API 应用中安装本机模块的信息，请参阅[在应用服务中安装 Python 模块](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/)。
+某些包可能并不通过使用 pip 在 Azure 中安装。 该包可能在 Python 包索引上不可用，或可能需要编译器（编译器在运行应用服务中 Web 应用的计算机上不可用）。 有关在应用服务 Web 应用和 API 应用中安装本机模块的信息，请参阅[在应用服务中安装 Python 模块](https://docs.microsoft.com/archive/blogs/azureossds/install-native-python-modules-on-azure-web-apps-api-apps)。
 
 ## <a name="how-do-i-deploy-a-django-app-to-app-service-by-using-git-and-the-new-version-of-python"></a>如何通过使用 Git 和新版 Python 将 Django 应用部署到应用服务？
 
-有关安装 Django 的信息，请参阅[将 Django 应用部署到应用服务](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/)。
+有关安装 Django 的信息，请参阅[将 Django 应用部署到应用服务](https://docs.microsoft.com/archive/blogs/azureossds/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python)。
 
 ## <a name="where-are-the-tomcat-log-files-located"></a>Tomcat 日志文件位于何处？
 
@@ -184,7 +184,7 @@ The process cannot access the file because it is being used by another process.
 
 WordPress Buddy+ 是可用于在数据库中直接更新重定向 URL 的 Azure 站点扩展。 有关使用 WordPress Buddy+ 的详细信息，请参阅 [WordPress 工具及使用 WordPress Buddy+ 进行 MySQL 迁移](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)。
 
-或者，如果希望使用 SQL 查询或 PHPMyAdmin 手动更新重定向 URL，请参阅 [WordPress：重定向到错误 URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/)。
+或者，如果希望使用 SQL 查询或 PHPMyAdmin 手动更新重定向 URL，请参阅 [WordPress：重定向到错误 URL](https://docs.microsoft.com/archive/blogs/azureossds/wordpress-redirecting-to-wrong-url)。
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>如何更改我的 WordPress 登录密码？
 
@@ -198,12 +198,12 @@ WordPress Buddy+ 是可用于在数据库中直接更新重定向 URL 的 Azure 
 
 有多种方法可用于迁移连接到 WordPress 网站的 MySQL 数据库：
 
-* 开发人员：使用[命令提示符或 PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* 开发人员：使用[命令提示符或 PHPMyAdmin](https://docs.microsoft.com/archive/blogs/azureossds/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service)
 * 非开发人员：使用 [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>我如何提供帮助，可让 WordPress 更加安全？
 
-若要了解有关 WordPress 的安全性最佳做法，请参阅 [Azure 中的 WordPress 安全性最佳做法](https://blogs.msdn.microsoft.com/azureossds/2016/12/26/best-practices-for-wordpress-security-on-azure/)。
+若要了解有关 WordPress 的安全性最佳做法，请参阅 [Azure 中的 WordPress 安全性最佳做法](https://docs.microsoft.com/archive/blogs/azureossds/best-practices-for-wordpress-security-on-azure)。
 
 ## <a name="i-am-trying-to-use-phpmyadmin-and-i-see-the-message-access-denied-how-do-i-resolve-this"></a>我在尝试使用 PHPMyAdmin，但看到消息“拒绝访问”。 如何解决此问题？
 

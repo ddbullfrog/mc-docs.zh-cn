@@ -3,21 +3,21 @@ author: trrwilson
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 05/25/2020
-ms.date: 08/03/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: dee4a31bfde75cb41d44038233face1fa08a4fc3
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.openlocfilehash: c8a02892f9b8c80a335b65effc6b67fdf759c817
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317463"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128903"
 ---
 ## <a name="prerequisites"></a>先决条件
 
 准备工作：
 
 > [!div class="checklist"]
-> * [创建 Azure 语音资源](../../../../get-started.md)
+> * [创建 Azure 语音资源](../../../../overview.md#try-the-speech-service-for-free)
 > * [设置开发环境并创建空项目](../../../../quickstarts/setup-platform.md)
 > * 请确保你有权访问麦克风，以便进行音频捕获
 > * 需要语音 SDK 1.11.0 或更高版本。

@@ -1,21 +1,21 @@
 ---
 title: 通过 azure/service-bus Node.js 包使用 Azure 服务总线主题
 description: 了解如何通过使用 azure/service-bus 包的 Node.js 应用在 Azure 中使用服务总线主题和订阅。
-author: rockboyfor
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 08/31/2020
-ms.date: 08/24/2020
+origin.date: 08/09/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 390f783a2b55725b55442f72c2afbdcf51ed3042
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.custom: devx-track-js
+ms.openlocfilehash: 013a538b7b8d33ee3b25da6857ec59ecdb66de61
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946941"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128180"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>快速入门：如何通过 Node.js 和 azure-sb 包使用服务总线主题与订阅
 本教程介绍如何使用 [azure-sb](https://www.npmjs.com/package/azure-sb) 包创建 Node.js 应用程序，用于将消息发送到服务总线主题，并从服务总线订阅接收消息。 示例以 JavaScript 编写并使用 Node.js [Azure 模块](https://www.npmjs.com/package/azure)，该模块在内部使用 `azure-sb` 包。
@@ -36,7 +36,7 @@ ms.locfileid: "88946941"
 有关主题和订阅的详细信息，请参阅[后续步骤](#next-steps)一节。
 
 ## <a name="prerequisites"></a>先决条件
-- Azure 订阅。 要完成本教程，需要一个 Azure 帐户。 可以激活 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或者注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- Azure 订阅。 要完成本教程，需要一个 Azure 帐户。 可以激活 [Visual Studio 或 MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或者注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 遵循[快速入门：使用 Azure 门户创建服务总线主题以及对该主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)中的步骤创建服务总线**命名空间**并获取**连接字符串**。
 
     > [!NOTE]
@@ -344,7 +344,7 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sqlfilter?view=azure-node-latest
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[创建 Node.js 应用程序并将其部署到 Azure 网站]: ../app-service/app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application to Azure App Service]: ../app-service/quickstart-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 
 <!-- Update_Description: update meta properties, wording update, update link -->

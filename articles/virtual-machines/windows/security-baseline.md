@@ -5,17 +5,17 @@ ms.service: virtual-machines-windows
 ms.topic: conceptual
 origin.date: 07/13/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: security-benchmark
-ms.openlocfilehash: b922d66df71397bff11b7677131bb5c6513fb2f4
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: b23395769c17038d106bf4797ccbc40fb5ed767b
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523990"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128363"
 ---
 <!--All Links Verified Successfully-->
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>适用于 Windows 虚拟机的 Azure 安全基线
@@ -86,7 +86,7 @@ ms.locfileid: "90523990"
 
 * [了解 Azure 安全中心集成的威胁情报](../../security-center/threat-protection.md)
 
-* [了解 Azure 安全中心自适应网络强化](../../security-center/security-center-adaptive-network-hardening.md)
+<!--Not Available on [Understand Azure Security Center Adaptive Network Hardening](../../security-center/security-center-adaptive-network-hardening.md)-->
 
 * [了解 Azure 安全中心实时网络访问控制](../../security-center/security-center-just-in-time.md)
 
@@ -150,7 +150,7 @@ ms.locfileid: "90523990"
 
 * [如何配置和管理 Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-<!--Not Available on * [Azure Policy samples for networking](/governance/policy/samples/#network)-->
+* [用于网络的 Azure Policy 示例](/governance/policy/samples/#network)
 
 <!--Not Available on * [How to create an Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)-->
 
@@ -184,7 +184,7 @@ ms.locfileid: "90523990"
 
 * [如何配置和管理 Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-<!--Not Available on * [Azure Policy samples for networking](/governance/policy/samples/#network)-->
+* [用于网络的 Azure Policy 示例](/governance/policy/samples/#network)
 
 **Azure 安全中心监视**：不可用
 
@@ -777,7 +777,7 @@ Azure 使用传输层安全性 (TLS) 协议，在云服务和客户之间传输�
 
 * [如何配置和管理 Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-<!--Not Available on * [How to deny a specific resource type with Azure Policy](/governance/policy/samples/not-allowed-resource-types)-->
+* [如何使用 Azure Policy 拒绝特定的资源类型](/governance/policy/samples/not-allowed-resource-types)
 
 **Azure 安全中心监视**：是
 
@@ -975,7 +975,9 @@ Azure 使用传输层安全性 (TLS) 协议，在云服务和客户之间传输�
 
 * [如何创建 Key Vault](../../key-vault/secrets/quick-create-portal.md)
 
-* [如何使用托管标识提供 Key Vault 身份验证](../../key-vault/general/managed-identity.md)
+* [如何向 Key Vault 进行身份验证](../../key-vault/general/authentication.md)
+
+* [如何分配 Key Vault 访问策略](../../key-vault/general/assign-access-policy-portal.md)
 
 **Azure 安全中心监视**：是
 
@@ -1093,7 +1095,7 @@ Azure 使用传输层安全性 (TLS) 协议，在云服务和客户之间传输�
 
 * [VM 的软删除](../../backup/soft-delete-virtual-machines.md)
 
-    <!--Not Avaialble on * [Azure Key Vault soft-delete overview](../../key-vault/general/soft-delete-overview.md)-->
+* [Azure Key Vault 软删除概述](../../key-vault/general/soft-delete-overview.md)
 
 **Azure 安全中心监视**：是
 

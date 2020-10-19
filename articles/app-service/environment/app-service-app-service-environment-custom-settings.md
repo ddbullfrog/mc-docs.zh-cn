@@ -4,22 +4,22 @@ description: 配置应用到整个 Azure 应用服务环境的设置。 了解�
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-origin.date: 12/19/2019
-ms.date: 08/13/2020
+origin.date: 10/03/2020
+ms.date: 10/09/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18
-ms.openlocfilehash: fe93c67e11cb43ceb2f416fe1fe7fef250865c53
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 2727c9ac91117fa5c0fd7d331c5f9a239a6fb5aa
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227938"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127697"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>应用服务环境的自定义配置设置
 ## <a name="overview"></a>概述
 由于应用服务环境 (ASE) 对单个客户是隔离的，因此有一些可专门应用于应用服务环境的配置设置。 本文介绍各种可用于应用服务环境的特定自定义设置。
 
-如果没有应用服务环境，请参阅 [How to Create an App Service Environment](create-external-ase.md)（如何创建应用服务环境）。
+如果没有应用服务环境，请参阅 [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md)（如何创建应用服务环境）。
 
 可以在新的 **clusterSettings** 属性中使用数组存储应用服务环境自定义设置。 可以在 *hostingEnvironments* Azure 资源管理器实体的“Properties”字典中找到此属性。
 
@@ -56,12 +56,12 @@ ms.locfileid: "88227938"
 "clusterSettings": [
     {
         "name": "InternalEncryption",
-        "value": "1"
+        "value": "true"
     }
 ],
 ```
+这会对前端和辅助角色之间的 ASE 中的内部网络流量进行加密，还会对页面文件和辅助角色磁盘进行加密。 启用 InternalEncryption clusterSetting 后，可能会影响系统性能。 进行更改以启用 InternalEncryption 后，ASE 会处于不稳定状态，直到更改传播完毕。 更改的传播可能需要几个小时才能完成，具体取决于 ASE 中有多少实例。 强烈建议不要在它仍处于使用状态的情况下在 ASE 上启用它。 如果需要对主动使用的 ASE 启用此操作，强烈建议将流量转移到备份环境，直到操作完成。 
 
-启用 InternalEncryption clusterSetting 后，可能会影响系统性能。 进行更改以启用 InternalEncryption 后，ASE 会处于不稳定状态，直到更改传播完毕。 更改的传播可能需要几个小时才能完成，具体取决于 ASE 中有多少实例。 强烈建议不要在它仍处于使用状态的情况下在 ASE 上启用它。 如果需要对主动使用的 ASE 启用此操作，强烈建议将流量转移到备份环境，直到操作完成。 
 
 ## <a name="disable-tls-10-and-tls-11"></a>禁用 TLS 1.0 和 TLS 1.1
 

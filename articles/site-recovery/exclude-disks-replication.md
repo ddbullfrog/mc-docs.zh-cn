@@ -4,16 +4,16 @@ description: 如何使用 Azure Site Recovery 免于将磁盘复制到 Azure。
 ms.topic: conceptual
 origin.date: 12/17/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 07b8dbddfbc435d62678308918e7124c47564bf8
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 3d2ba31815baede7e1e23df54ba29ed312e2b63d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655681"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128117"
 ---
 <!--Verify successfully, It is splited content of released articles(hyper-v-exclude-disk.md)-->
 # <a name="exclude-disks-from-disaster-recovery"></a>将磁盘排除在灾难恢复之外
@@ -224,7 +224,7 @@ DB-Disk3 | Disk3 | F:\ | 用户数据 2
 
 Azure VM 上的页面文件设置如下所示：
 
-:::image type="content" source="./media/exclude-disks-replication/pagefile-azure-vm-after-failover.png" alt-text="Azure 虚拟机上的页面文件设置":::
+:::image type="content" source="./media/exclude-disks-replication/pagefile-azure-vm-after-failover.png" alt-text="源虚拟机上的页面文件设置":::
 
 ### <a name="paging-file-on-another-drive-not-d"></a>其他驱动器（非 D:）上的页面文件
 
@@ -241,7 +241,7 @@ DB-Disk3 | Disk3 | F:\ | 用户数据 2
 
 本地 VM 上的页面文件设置如下所示：
 
-:::image type="content" source="./media/exclude-disks-replication/pagefile-g-drive-source-vm.png" alt-text="本地虚拟机上的页面文件设置":::
+:::image type="content" source="./media/exclude-disks-replication/pagefile-g-drive-source-vm.png" alt-text="源虚拟机上的页面文件设置":::
 
 1. 为 VM 启用复制。
 2. 将 DB-Disk1 排除在复制之外。
@@ -259,7 +259,7 @@ DB-Disk3 | Disk3 | F:\ | 用户数据 2
 
 Azure VM 上的页面文件设置如下所示：
 
-:::image type="content" source="./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png" alt-text="Azure 虚拟机上的页面文件设置":::
+:::image type="content" source="./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png" alt-text="源虚拟机上的页面文件设置":::
 
 ## <a name="next-steps"></a>后续步骤
 

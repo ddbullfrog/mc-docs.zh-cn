@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 7/7/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 6ae7fec8ad90cf930bf883b652c1403547ce45c3
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 10/19/2020
+ms.openlocfilehash: 4287f7ee2cf79b7c160ee4f571eac9014f10ef9e
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029697"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041809"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的高可用性
 Azure Database for MySQL 服务提供有保证的高级别可用性，即，提供正常运行时间占比为 [99.99%](https://www.azure.cn/support/sla/mysql/index.html) 且具有财务支持的服务级别协议 (SLA)。 Azure Database for MySQL 在发生计划内事件（例如用户发起的缩放计算操作）期间提供高可用性，并且还在发生基础硬件、软件或网络故障等计划外事件时提供高可用性。 Azure Database for MySQL 在发生大多数严重状况时都可以快速恢复，确保用户在使用此服务时应用程序几乎不会停机。
@@ -30,7 +30,7 @@ Azure Database for MySQL 适合运行对正常运行时间要求很高的关键�
 ## <a name="planned-downtime-mitigation"></a>缓解计划内停机
 Azure Database for MySQL 设计为在计划内停机操作期间提供高可用性。 
 
-![Azure MySQL 中的弹性缩放的视图](./media/concepts-high-availability/elastic-scaling-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/elastic-scaling-mysql-server.png" alt-text="Azure MySQL 中的弹性缩放的视图":::
 
 下面是一些计划内维护方案：
 
@@ -47,7 +47,7 @@ Azure Database for MySQL 设计为在计划内停机操作期间提供高可用�
 意外的故障（包括基础硬件故障、网络问题和软件 bug）可能会导致计划外停机。 如果数据库服务器意外关闭，则会在数秒内自动预配一个新的数据库服务器。 远程存储会自动附加到新的数据库服务器。 MySQL 引擎使用 WAL 和数据库文件执行恢复操作，并打开数据库服务器以允许客户端进行连接。 未提交的事务将丢失，并且必须由应用程序重试。 虽然计划外停机无法避免，但 Azure Database for MySQL 可以通过在数据库服务器和存储层上自动执行恢复操作来减少停机时间，无需人工干预。 
 
 
-![Azure MySQL 中的高可用性的视图](./media/concepts-high-availability/availability-for-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="Azure MySQL 中的弹性缩放的视图":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>计划外停机：故障场景和服务恢复
 下面介绍了一些故障场景以及 Azure Database for MySQL 如何自动恢复：

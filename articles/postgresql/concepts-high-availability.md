@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 6/15/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: de1c6a5c8a135a5269c383d369a9dfb1883d26c5
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 10/19/2020
+ms.openlocfilehash: 6ae315e4ff557edf9061295b8b9a757b9d7ba564
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512878"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041852"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的高可用性
 Azure Database for PostgreSQL（单一服务器）服务提供有保证的高级别可用性，即，提供正常运行时间占比为 [99.99%](https://www.azure.cn/support/sla/postgresql/index.html) 且具有财务支持的服务级别协议 (SLA)。 Azure Database for PostgreSQL 在发生计划内事件（例如用户发起的缩放计算操作）期间提供高可用性，并且还在发生基础硬件、软件或网络故障等计划外事件时提供高可用性。 Azure Database for PostgreSQL 在发生大多数严重状况时都可以快速恢复，确保用户在使用此服务时应用程序几乎不会停机。
@@ -30,7 +30,7 @@ Azure Database for PostgreSQL 适合运行对正常运行时间要求很高的�
 ## <a name="planned-downtime-mitigation"></a>缓解计划内停机
 Azure Database for PostgreSQL 设计为在计划内停机操作期间提供高可用性。 
 
-![Azure PostgreSQL 中的弹性缩放的视图](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-elastic-scaling.png" alt-text="Azure PostgreSQL 中的弹性缩放的视图":::
 
 1. 在数秒内纵向扩展和缩减 PostgreSQL 数据库服务器
 2. 充当代理的网关，可以将客户端连接路由到适当的数据库服务器
@@ -50,7 +50,7 @@ Azure Database for PostgreSQL 设计为在计划内停机操作期间提供高�
 意外的故障（包括基础硬件故障、网络问题和软件 bug）可能会导致计划外停机。 如果数据库服务器意外关闭，则会在数秒内自动预配一个新的数据库服务器。 远程存储会自动附加到新的数据库服务器。 PostgreSQL 引擎使用 WAL 和数据库文件执行恢复操作，并打开数据库服务器以允许客户端进行连接。 未提交的事务将丢失，并且必须由应用程序重试。 虽然计划外停机无法避免，但 Azure Database for PostgreSQL 可以通过在数据库服务器和存储层上自动执行恢复操作来减少停机时间，无需人工干预。 
 
 
-![Azure PostgreSQL 中的高可用性的视图](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="Azure PostgreSQL 中的弹性缩放的视图":::
 
 1. 具有快速缩放功能的 Azure PostgreSQL 服务器。
 2. 充当代理的网关，可以将客户端连接路由到适当的数据库服务器。

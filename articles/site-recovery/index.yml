@@ -13,12 +13,12 @@ metadata:
   ms.testscope: no
   ms.testdate: 09/07/2020
   ms.author: v-yeche
-  ms.openlocfilehash: d6e92a20d7d8da6c92ab0c89fc8f1cbda7498722
-  ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+  ms.openlocfilehash: 2ac71bdc48082228c75ce578f42d0230ab313be2
+  ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/10/2020
-  ms.locfileid: "89655311"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92118526"
 landingContent:
 - title: 关于 Site Recovery
   linkLists:
@@ -48,8 +48,6 @@ landingContent:
       url: ./azure-to-azure-support-matrix.md
     - text: 常见问题
       url: ./azure-to-azure-common-questions.md
-    - text: 关于如何移动 Azure VM
-      url: ./azure-to-azure-move-overview.md
   - linkListType: how-to-guide
     links:
     - text: 用于 Azure VM 灾难恢复的网络

@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
 origin.date: 02/26/2019
-ms.date: 05/14/2019
+ms.date: 10/15/2020
 ms.author: v-junlch
 ms.custom: seodec18
 abstract:
@@ -34,18 +34,12 @@ sections:
         className: cardsM
         columns: 3
         items:
-          - href: /cognitive-services/computer-vision/home
+          - href: /cognitive-services/computer-vision/overview
             html: <p>了解计算机视觉 API。</p>
             image:
               src: ../media/index/i_overview.svg
               alt: “概述”图标
             title: 什么是计算机视觉？
-          - href: /cognitive-services/computer-vision/concept-recognizing-text
-            html: <p>了解有关文本识别的概念。</p>
-            image:
-              src: ../media/index/i_tasks.svg
-              alt: 任务列表图标
-            title: 识别打印文本和手写文本
           - href: /cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
             html: <p>了解有关计算机视觉 API 调用的基础知识。</p>
             image:
@@ -61,7 +55,7 @@ sections:
         items:
           - image:
               src: media/index/logo_Csharp.svg
-            text: 'C&#35;'
+            text: C&#35;
             alt: C sharp 徽标
             href: quickstarts-sdk/csharp-analyze-sdk.md
           - image:
@@ -91,7 +85,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="Tutorials/CSharpTutorial.md">使用 C# 创建计算机视觉应用</a>'
+          - html: <a href="Tutorials/CSharpTutorial.md">使用 C# 创建计算机视觉应用</a>
   - title: 参考
     items:
       - type: list
@@ -105,4 +99,4 @@ sections:
           - title: PowerShell
             html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
           - title: CLI
-            html: '<p><a href="/cli/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'
+            html: <p><a href="/cli/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>

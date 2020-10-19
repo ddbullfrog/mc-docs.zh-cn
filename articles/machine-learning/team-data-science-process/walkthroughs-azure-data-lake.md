@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2922607ff2eb1ad94db396c4f71995022ba3c019
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6d88d1fd90c50a6e13c8fb83e97107218cacd214
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75599193"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118130"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>使用 U-SQL 的 Azure Data Lake 数据科学演练
 
-这些演练在 Azure Data Lake 中使用 U-SQL 进行预测分析。 它们遵循 Team Data Science Process 中所述的步骤。 有关 Team Data Science Process 的概述，请参阅[数据科学过程](overview.md)。 有关 Azure Data Lake 的简介，请参阅 [Azure Data Lake Store 概述](../../data-lake-store/data-lake-store-overview.md)。
+这些演练在 Azure Data Lake 中使用 U-SQL 进行预测分析。 它们遵循 Team Data Science Process 中所述的步骤。 有关 Team Data Science Process 的概述，请参阅[数据科学过程](overview.md)。 
 
 其他执行 Team Data Science Process 的数据科学演练按所使用的**平台**分组。 有关这些示例的明细，请参阅[执行 Team Data Science Process 的演练](walkthroughs.md)。
 

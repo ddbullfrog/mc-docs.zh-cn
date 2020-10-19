@@ -3,17 +3,17 @@ title: 配置自己的密钥以用于加密 Azure 服务总线静态数据
 description: 本文介绍了如何配置自己的密钥以用于加密 Azure 服务总线静态数据。
 ms.topic: conceptual
 origin.date: 06/23/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: 2bdea5e6fdd74932f069484614fa2d953e7c8437
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 582e5a7f2c0e041dabdfc220cb415c0bc573f02b
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946998"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128031"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>使用 Azure 门户配置客户管理的密钥以用于加密 Azure 服务总线静态数据
 Azure 服务总线高级层提供了通过 Azure 存储服务加密 (Azure SSE) 对静态数据进行加密的功能。 服务总线高级层依赖于 Azure 存储来存储数据，默认情况下，通过 Azure 存储来存储的所有数据都是使用 Azure 管理的密钥进行加密的。 
@@ -49,12 +49,12 @@ Azure 服务总线现在支持可以选择通过 Azure 管理的密钥还是客�
 启用客户管理的密钥后，需要将客户管理的密钥关联到 Azure 服务总线命名空间。 服务总线仅支持 Azure Key Vault。 如果启用了上一部分所述的“使用客户管理的密钥进行加密”选项，则需要将密钥导入 Azure Key Vault。 此外，必须为密钥配置“软删除”和“不清除”。 可以使用 [PowerShell](../key-vault/general/soft-delete-powershell.md) 或 [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection) 配置这些设置。
 
 1. 若要创建新的密钥保管库，请遵循 Azure Key Vault [快速入门](../key-vault/general/overview.md)。 有关导入现有密钥的详细信息，请参阅[关于密钥、机密和证书](../key-vault/general/about-keys-secrets-certificates.md)。
-1. 若要在创建保管库时启用“软删除”和“清除保护”，请使用 [az keyvault create](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create) 命令。
+1. 若要在创建保管库时启用“软删除”和“清除保护”，请使用 [az keyvault create](https://docs.azure.cn/cli/keyvault#az_keyvault_create) 命令。
 
     ```azurecli
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location chinanorth --enable-soft-delete true --enable-purge-protection true
     ```    
-1. 若要向现有保管库（已启用“软删除”）添加“清除保护”，请使用 [az keyvault update](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-update) 命令。
+1. 若要向现有保管库（已启用“软删除”）添加“清除保护”，请使用 [az keyvault update](https://docs.azure.cn/cli/keyvault#az_keyvault_update) 命令。
 
     ```azurecli
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
@@ -62,15 +62,15 @@ Azure 服务总线现在支持可以选择通过 Azure 管理的密钥还是客�
 1. 遵循以下步骤创建密钥：
     1. 若要创建新密钥，请从“设置”  下的“密钥”  菜单中选择“生成/导入”  。
 
-        :::image type="content" source="./media/configure-customer-managed-key/select-generate-import.png" alt-text="选择“生成/导入”按钮":::
+        :::image type="content" source="./media/configure-customer-managed-key/select-generate-import.png" alt-text="启用客户管理的密钥":::
 
     1. 将“选项”  设置为“生成”  并提供密钥名称。
 
-        :::image type="content" source="./media/configure-customer-managed-key/create-key.png" alt-text="创建密钥"::: 
+        :::image type="content" source="./media/configure-customer-managed-key/create-key.png" alt-text="启用客户管理的密钥"::: 
 
     1. 现在，可以从下拉列表中选择要与服务总线命名空间关联的用于加密的密钥。 
 
-        :::image type="content" source="./media/configure-customer-managed-key/select-key-from-key-vault.png" alt-text="从密钥保管库中选择密钥":::
+        :::image type="content" source="./media/configure-customer-managed-key/select-key-from-key-vault.png" alt-text="启用客户管理的密钥":::
         > [!NOTE]
         > 最多可以添加 3 个密钥来实现冗余。 如果某个密钥已过期或不可访问，则会使用其他密钥进行加密。
 
@@ -85,12 +85,12 @@ Azure 服务总线现在支持可以选择通过 Azure 管理的密钥还是客�
     > 
     >   * 如果已经为服务总线命名空间启用了[异地灾难恢复](service-bus-geo-dr.md)，并且你想要启用客户管理的密钥，请执行以下操作： 
     >     * 断开配对
-    >     * 为密钥保管库[设置针对主要和辅助命名空间的托管标识的访问策略](../key-vault/general/managed-identity.md)。
+    >     * 为密钥保管库[设置针对主要和辅助命名空间的托管标识的访问策略](../key-vault/general/assign-access-policy-portal.md)。
     >     * 在主要命名空间上设置加密。
     >     * 将主要和辅助命名空间重新配对。
     > 
     >   * 如果想要对已设置客户管理的密钥的服务总线命名空间启用异地灾难恢复，请执行以下操作：
-    >     * 为密钥保管库[设置针对辅助命名空间的托管标识的访问策略](../key-vault/general/managed-identity.md)。
+    >     * 为密钥保管库[设置针对辅助命名空间的托管标识的访问策略](../key-vault/general/assign-access-policy-portal.md)。
     >     * 将主要和辅助命名空间配对。
 
 ## <a name="rotate-your-encryption-keys"></a>轮换加密密钥

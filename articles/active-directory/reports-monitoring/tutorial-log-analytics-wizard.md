@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e097476fbfa3e1555f4743722c6f6c2da1648759
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 798641e9db7e534311e8ce1ce2e13374ffdc84ae
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245236"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041573"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>教程：配置 Log Analytics 向导
 
@@ -72,7 +72,7 @@ ms.locfileid: "91245236"
 
 3. 在“Log Analytics 工作区”页上，单击“添加”。
 
-    ![添加](./media/tutorial-log-analytics-wizard/add.png)
+    ![屏幕截图显示了“Log Analytics 工作区”页中的“添加”按钮。](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  在“创建 Log Analytics 工作区”页上，执行以下步骤：
 
@@ -305,7 +305,7 @@ ms.locfileid: "91245236"
 
 3. 在“监视”部分，单击“工作簿” 。
 
-    ![工作簿](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![屏幕截图显示了“Azure 门户”菜单中选中“工作簿”的“监视”部分。](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. 在“快速入门”部分中，单击“空” 。
 
@@ -357,7 +357,7 @@ ms.locfileid: "91245236"
 
 3. 在“监视”部分，单击“工作簿” 。
 
-    ![工作簿](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![屏幕截图显示了菜单中选中“工作簿”的“监视”部分。](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. 在“条件访问”部分中，单击“条件访问见解和报表” 。
 

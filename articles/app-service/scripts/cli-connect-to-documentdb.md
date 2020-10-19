@@ -7,15 +7,15 @@ ms.assetid: bbbdbc42-efb5-4b4f-8ba6-c03c9d16a7ea
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 03/30/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e24e7c3899a90d0662c479ed71134cb519dc0312
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b4d4cf8d782783be2294e4ae80a228adb4b97fb8
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80522113"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170470"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>使用 CLI 将应用服务应用连接到 Cosmos DB
 

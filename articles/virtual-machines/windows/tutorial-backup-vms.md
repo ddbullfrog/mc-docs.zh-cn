@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.workload: infrastructure
 origin.date: 06/06/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c56756ee4dd7b74fd5d5f1e75e08b4b0470820cd
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 30af175ed08a85b8488e7fa7393cbeba9ba7b082
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462969"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128192"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>教程：在 Azure 中备份和还原 Windows 虚拟机的文件
 
@@ -61,13 +61,13 @@ ms.locfileid: "89462969"
 
 1. 打开浏览器，并连接到 VM 的 IP 地址来显示默认 IIS 页面。
 
-    :::image type="content" source="./media/tutorial-backup-vms/iis-working.png" alt-text="默认 IIS 网页":::
+    :::image type="content" source="./media/tutorial-backup-vms/iis-working.png" alt-text="恢复点":::
 
 1. 连接到 VM。
 1. 在 VM 上，打开**文件资源管理器**并导航到 \inetpub\wwwroot and delete the file **iisstart.png**。
 1. 在本地计算机上，刷新浏览器，检查默认 IIS 页面上的图像是否已消失。
 
-    :::image type="content" source="./media/tutorial-backup-vms/iis-broken.png" alt-text="默认 IIS 网页":::
+    :::image type="content" source="./media/tutorial-backup-vms/iis-broken.png" alt-text="恢复点":::
 
 1. 在本地计算机上，打开一个新选项卡，并转到 [Azure 门户](https://portal.azure.cn)。
 1. 在左侧菜单中，选择“虚拟机”，并从列表中选择 VM。

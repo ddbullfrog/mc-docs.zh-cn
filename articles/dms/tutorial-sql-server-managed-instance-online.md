@@ -10,15 +10,15 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 origin.date: 08/04/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: a06f837c3c41838ad465081405ed17d4822545fc
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/19/2020
+ms.openlocfilehash: 16dbcc4c0a8a75d6e4c48f0e497259a08ed2ff7a
+ms.sourcegitcommit: 7ed7a7d65ba142661f5494013451a91f045c4a73
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872302"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91990789"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>教程：使用 DMS 将 SQL Server 联机迁移到 Azure SQL 托管实例
 
@@ -71,7 +71,7 @@ ms.locfileid: "91872302"
     > * 选择允许所有网络访问该存储器帐户。
     > * 在 MI 子网中启用[子网委托](/virtual-network/manage-subnet-delegation)，并更新存储帐户防火墙规则以允许此子网。
 
-* 确保虚拟网络网络安全组规则未阻止到 Azure 数据库迁移服务的以下入站通信端口：443、53、9354、445、12000。 有关虚拟网络 NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](/virtual-network/virtual-networks-nsg)一文。
+* 请确保虚拟网络网络安全组规则未阻止到 Azure 数据库迁移服务的以下出站通信端口：443、53、9354、445、12000。 有关虚拟网络 NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](/virtual-network/virtual-networks-nsg)一文。
 * 配置[针对源数据库引擎访问的 Windows 防火墙](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
 * 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 SQL Server（默认情况下为 TCP 端口 1433）。
 * 如果使用动态端口运行多个命名 SQL Server 实例，则可能需要启用 SQL Browser 服务并允许通过防火墙访问 UDP 端口 1434，以便 Azure 数据库迁移服务可连接到源服务器上的命名实例。
@@ -244,7 +244,7 @@ ms.locfileid: "91872302"
 
     可以进一步展开数据库和登录类别，以监视相应服务器对象的迁移状态。
 
-   ![正在进行的迁移活动](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
+   ![迁移活动状态](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>执行迁移交接
 

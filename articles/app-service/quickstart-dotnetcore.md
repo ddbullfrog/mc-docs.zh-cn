@@ -3,17 +3,17 @@ title: 快速入门：创建 C# ASP.NET Core 应用
 description: 了解如何通过部署首个 ASP.NET Core 应用，在 Azure 应用服务中运行 Web 应用。
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-origin.date: 08/01/2020
-ms.date: 08/13/2020
+origin.date: 09/24/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 383c654edfa6bea43433cdf0164f2c5b9afb5ccf
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 362717e0994ccab7344423f2a470b1e5fb153a72
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228959"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170566"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>快速入门：在 Azure 中创建 ASP.NET Core Web 应用
 
@@ -61,8 +61,8 @@ ms.locfileid: "88228959"
 
 在设置应用服务的过程中，将会创建：
 
-- 一个新的[资源组](https://docs.azure.cn/azure-resource-manager/management/overview#terminology)，用于包含该服务的所有 Azure 资源。
-- 一个新的[托管计划](https://docs.azure.cn/app-service/overview-hosting-plans)，用于指定托管应用的 Web 服务器场的位置、大小和功能。
+- 一个新的[资源组](../azure-resource-manager/management/overview.md#terminology)，用于包含该服务的所有 Azure 资源。
+- 一个新的[托管计划](./overview-hosting-plans.md)，用于指定托管应用的 Web 服务器场的位置、大小和功能。
 
 遵循以下步骤创建应用服务并发布 Web 应用：
 
@@ -139,7 +139,7 @@ ms.locfileid: "88228959"
 
 在“应用服务”页上，选择 Web 应用的名称。
 
-![在门户中导航到 Azure 应用](./media/quickstart-dotnetcore/select-app-service.png)
+:::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="“应用程序服务”页面的屏幕截图，显示已选择一个示例 Web 应用。":::
 
 Web 应用的“概述”页包含用于基本管理（例如浏览、停止、启动、重启和删除）的选项。 左侧菜单提供用于配置应用的更多页面。
 
@@ -306,7 +306,7 @@ git push azure master
 
 在左侧菜单中单击**应用程序服务**，然后单击 Azure 应用的名称。
 
-![在门户中导航到 Azure 应用](./media/quickstart-dotnetcore/portal-app-service-list.png)
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="“应用程序服务”页面的屏幕截图，显示已选择一个示例 Web 应用。":::
 
 这里我们可以看到应用的“概述”页。 并可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 
 
@@ -324,4 +324,4 @@ git push azure master
 > [!div class="nextstepaction"]
 > [配置 ASP.NET Core 应用](configure-language-dotnetcore.md)
 
-::: zone-end  
+::: zone-end

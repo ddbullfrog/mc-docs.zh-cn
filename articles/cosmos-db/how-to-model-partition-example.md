@@ -1,21 +1,21 @@
 ---
 title: 使用真实示例为 Azure Cosmos DB 中的数据建模和分区
 description: 了解如何使用 Azure Cosmos DB Core API 为某个真实示例建模和分区
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 05/23/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 34aba288022461161ee3d6bab5b0a73dfd9dd6e5
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-js
+ms.openlocfilehash: b4030a81780d55e037fb0c186bbe572a55264b36
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222922"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118143"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>如何使用真实示例为 Azure Cosmos DB 中的数据建模和分区
 
@@ -42,9 +42,9 @@ ms.locfileid: "88222922"
 
 在开始之前，让我们通过标识解决方案的访问模式，来为初始规范提供某种结构。 设计 Azure Cosmos DB 的数据模型时，必须了解模型需要为哪些请求提供服务，以确保模型能够有效地为这些请求提供服务。
 
-为了使整个过程更易于执行，我们将这些不同的请求分类为命令或查询。
+为使整个过程更易于遵循，我们借用了 CQRS 中的某个词汇表，将这些不同的请求分类为命令或查询，其中，命令表示写入请求（即，更新系统的意图），查询表示只读的请求。
 
-<!--Not Available on , borrowing some vocabulary from [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation) where commands are write requests (that is, intents to update the system) and queries are read-only requests-->
+<!--Not Available on [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation)-->
 
 下面是平台必须公开的请求列表：
 
@@ -142,7 +142,7 @@ ms.locfileid: "88222922"
 
 通过读取 `users` 容器中的相应项来检索用户。
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="从用户容器检索单个项" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="将单个项写入用户容器" border="false":::
 
 | **延迟** | **RU 开销** | **“性能”** |
 | --- | --- | --- |
@@ -152,7 +152,7 @@ ms.locfileid: "88222922"
 
 类似于 **[C1]** ，我们只需写入到 `posts` 容器。
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="将单个项写入帖子容器" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="将单个项写入用户容器" border="false":::
 
 | **延迟** | **RU 开销** | **“性能”** |
 | --- | --- | --- |
@@ -162,7 +162,7 @@ ms.locfileid: "88222922"
 
 首先检索 `posts` 容器中的相应文档。 但这并不足够，根据规范，我们还需要聚合帖子作者的用户名以及此帖子产生的评论和点赞数，这需要发出 3 个附加的 SQL 查询。
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="检索帖子并聚合附加数据" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="将单个项写入用户容器" border="false":::
 
 每个附加查询根据相应容器的分区键进行筛选，而我们恰好需要使用分区来最大化性能和可伸缩性。 但是，我们最终需要执行四个操作才能返回一个帖子，因此，我们将在下一次迭代中改进此方法。
 
@@ -174,7 +174,7 @@ ms.locfileid: "88222922"
 
 首先，必须使用一个 SQL 查询来检索所需的帖子。该查询会提取对应于该特定用户的帖子。 但是，我们还需要发出附加的查询来聚合作者的用户名以及评论数和点赞数。
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="检索用户的所有帖子并聚合其附加数据" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="将单个项写入用户容器" border="false":::
 
 此实现存在许多缺点：
 
@@ -189,7 +189,7 @@ ms.locfileid: "88222922"
 
 通过在 `posts` 容器中写入相应的项来创建评论。
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="将单个项写入帖子容器" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="将单个项写入用户容器" border="false":::
 
 | **延迟** | **RU 开销** | **“性能”** |
 | --- | --- | --- |
@@ -199,7 +199,7 @@ ms.locfileid: "88222922"
 
 首先使用一个查询提取该帖子的所有评论，同样，我们也需要单独聚合每条评论的用户名。
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="检索帖子的所有评论并聚合其附加数据" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="将单个项写入用户容器" border="false":::
 
 尽管主查询会根据容器的分区键进行筛选，但单独聚合用户名会降低总体性能。 稍后我们将会改进。
 
@@ -211,7 +211,7 @@ ms.locfileid: "88222922"
 
 类似于 **[C3]** ，我们将在 `posts` 容器中创建相应的项。
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="将单个项写入帖子容器" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="将单个项写入用户容器" border="false":::
 
 | **延迟** | **RU 开销** | **“性能”** |
 | --- | --- | --- |
@@ -221,7 +221,7 @@ ms.locfileid: "88222922"
 
 类似于 **[Q4]** ，我们将查询该帖子的点赞数，然后聚合点赞者的用户名。
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="检索帖子的所有点赞并聚合其附加数据" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="将单个项写入用户容器" border="false":::
 
 | **延迟** | **RU 开销** | **“性能”** |
 | --- | --- | --- |
@@ -231,7 +231,7 @@ ms.locfileid: "88222922"
 
 我们通过查询 `posts` 容器来提取最近的帖子（按创建日期的降序排序），然后聚合每个帖子的用户名以及评论数和点赞数。
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="检索最近的帖子并聚合其附加数据" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="将单个项写入用户容器" border="false":::
 
 同样，我们的初始查询不会根据 `posts` 容器的分区键进行筛选，这会触发高开销的扇出。但这一次情况更糟，因为我们的目标是一个大得多的结果集，并要使用 `ORDER BY` 子句将结果排序，因此会消耗更多的请求单位。
 
@@ -342,7 +342,7 @@ function createComment(postId, comment) {
 
 在本示例中，每当用户更新其用户名时，我们都会使用 `users` 容器的更改源来做出反应。 如果发生这种情况，我们会针对 `posts` 容器调用另一个存储过程来传播更改：
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="将用户名反规范化为帖子容器" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="将单个项写入用户容器" border="false":::
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -382,7 +382,7 @@ function updateUsernames(userId, username) {
 
 完成反规范化后，只需提取单个项即可处理该请求。
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="从帖子容器检索单个项" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="将单个项写入用户容器" border="false":::
 
 | **延迟** | **RU 开销** | **“性能”** |
 | --- | --- | --- |
@@ -392,7 +392,7 @@ function updateUsernames(userId, username) {
 
 同样，我们无需发出额外的请求来提取用户名，最终只需运行一个可以根据分区键进行筛选的查询。
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="检索帖子的所有评论" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="将单个项写入用户容器" border="false":::
 
 | **延迟** | **RU 开销** | **“性能”** |
 | --- | --- | --- |
@@ -402,7 +402,7 @@ function updateUsernames(userId, username) {
 
 列出点赞时，情况完全相同。
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="检索帖子的所有点赞" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="将单个项写入用户容器" border="false":::
 
 | **延迟** | **RU 开销** | **“性能”** |
 | --- | --- | --- |
@@ -416,7 +416,7 @@ function updateUsernames(userId, username) {
 
 此请求已受益于 V2 中引入的改进，可以免除附加的查询。
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="检索用户的所有帖子" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="将单个项写入用户容器" border="false":::
 
 但是，剩余的查询仍不根据 `posts` 容器的分区键进行筛选。
 
@@ -460,11 +460,11 @@ function updateUsernames(userId, username) {
 
 若要实现这种反规范化，我们将再次使用更改源。 这一次，我们将对 `posts` 容器的更改源做出反应，以将任何新的或更新的帖子调度到 `users` 容器。 由于列出帖子不需要返回其完整内容，我们可以在列出过程中截断帖子。
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="将帖子反规范化为用户容器" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="将单个项写入用户容器" border="false":::
 
 现在，可将查询路由到 `users` 容器，并根据该容器的分区键进行筛选。
 
-:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="检索用户的所有帖子" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="将单个项写入用户容器" border="false":::
 
 | **延迟** | **RU 开销** | **“性能”** |
 | --- | --- | --- |
@@ -474,7 +474,7 @@ function updateUsernames(userId, username) {
 
 在此处必须处理类似的情况：尽管实现 V2 中引入的反规范化后无需运行附加的查询，但是，剩余的查询仍不会根据容器的分区键进行筛选：
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="检索最近的帖子" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="将单个项写入用户容器" border="false":::
 
 遵循相同的方法最大化此请求的性能和可伸缩性要求只命中一个分区。 这是一种可行的做法，因为我们只需返回有限数量的项；若要填充博客平台的主页，我们只需获取 100 个最近的帖子，而无需通过整个数据集分页。
 
@@ -499,7 +499,7 @@ function updateUsernames(userId, username) {
 
 若要实现反规范化，我们只需挂接前面引入的更改源管道，以将帖子调度到该新容器。 要记住的一个要点是，需要确保只存储 100 个最近的帖子；否则，容器内容可能会增大到超过分区的最大大小。 为此，可以在每次将文档添加到容器中时，调用 [post-trigger](stored-procedures-triggers-udfs.md#triggers)：
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="将帖子反规范化为源容器" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="将单个项写入用户容器" border="false":::
 
 下面是用于截断集合的 post-trigger 的正文：
 
@@ -550,7 +550,7 @@ function truncateFeed() {
 
 最后一步是将查询重新路由到新的 `feed` 容器：
 
-:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="检索最近的帖子" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="将单个项写入用户容器" border="false":::
 
 | **延迟** | **RU 开销** | **“性能”** |
 | --- | --- | --- |

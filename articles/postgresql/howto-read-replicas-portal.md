@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: how-to
 origin.date: 07/10/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: da4b46cd4636f3fb1336a8cb1e888d9f1c9689d0
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 10/19/2020
+ms.openlocfilehash: ef68191e87e4541b0f39f3e1c4a4325c67fcfed2
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029586"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041762"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>通过 Azure 门户创建和管理 Azure Database for PostgreSQL（单一服务器）中的只读副本
 
@@ -42,15 +42,15 @@ ms.locfileid: "88029586"
 
 3. 如果没有将 Azure 复制支持至少设置为“副本”，请进行此设置。 选择“保存” 。
 
-   ![Azure Database for PostgreSQL - 复制 - 设置副本并保存](./media/howto-read-replicas-portal/set-replica-save.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/set-replica-save.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
 
 4. 通过选择“是”，重启服务器以应用更改。
 
-   ![Azure Database for PostgreSQL - 复制 - 确认重启](./media/howto-read-replicas-portal/confirm-restart.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
 
 5. 操作完成后，会收到两个 Azure 门户通知。 一个通知是关于更新服务器参数的。 另一个通知是关于随后立即进行的服务器重启的。
 
-   ![成功通知](./media/howto-read-replicas-portal/success-notifications.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
 
 6. 刷新 Azure 门户页，更新“复制”工具栏。 现在可以为此服务器创建只读副本。
    
@@ -64,15 +64,15 @@ ms.locfileid: "88029586"
 
 3. 选择“添加副本”。
 
-   ![添加副本](./media/howto-read-replicas-portal/add-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
 
 4. 输入只读副本的名称。 
 
-    ![为副本命名](./media/howto-read-replicas-portal/name-replica.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
 
 5. 选择副本的位置。 默认位置与主服务器的位置相同。
 
-    ![选择位置](./media/howto-read-replicas-portal/location-replica.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
 
    > [!NOTE]
    > 若要详细了解可以在哪些区域中创建副本，请访问[只读副本概念文章](concepts-read-replicas.md)。 
@@ -81,7 +81,7 @@ ms.locfileid: "88029586"
 
 创建只读副本后，可以在“复制”窗口中查看它：
 
-![在“复制”窗口中查看新副本](./media/howto-read-replicas-portal/list-replica.png)
+:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 
 > [!IMPORTANT]
@@ -103,15 +103,15 @@ ms.locfileid: "88029586"
 
 3. 选择要停止复制的副本服务器。
 
-   ![选择副本](./media/howto-read-replicas-portal/select-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 4. 选择“停止复制”。
 
-   ![选择停止复制](./media/howto-read-replicas-portal/select-stop-replication.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 5. 选择“确定”以停止复制。
 
-   ![确认停止复制](./media/howto-read-replicas-portal/confirm-stop-replication.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 
 ## <a name="delete-a-master-server"></a>删除主服务器
@@ -126,11 +126,11 @@ ms.locfileid: "88029586"
 
 2. 此时会打开该服务器的“概述”页。 选择“删除” 。
 
-   ![在服务器的“概述”页上，选择删除主服务器](./media/howto-read-replicas-portal/delete-server.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 3. 输入要删除的主服务器的名称。 选择“删除”以确认删除主服务器。
 
-   ![确认删除主服务器](./media/howto-read-replicas-portal/confirm-delete.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 
 ## <a name="delete-a-replica"></a>删除副本
@@ -138,7 +138,7 @@ ms.locfileid: "88029586"
 
 - 在 Azure 门户中，打开只读副本的“概述”页。 选择“删除” 。
 
-   ![在副本的“概述”页上，选择删除该副本](./media/howto-read-replicas-portal/delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 也可以在“复制”窗口中遵循以下步骤删除只读副本：
 
@@ -148,15 +148,15 @@ ms.locfileid: "88029586"
 
 3. 选择要删除的只读副本。
 
-   ![选择要删除的副本](./media/howto-read-replicas-portal/select-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 4. 选择“删除副本”。
 
-   ![选择“删除副本”](./media/howto-read-replicas-portal/select-delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 5. 输入要删除的副本的名称。 选择“删除”以确认删除该副本。
 
-   ![确认删除副本](./media/howto-read-replicas-portal/confirm-delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 
 ## <a name="monitor-a-replica"></a>监视副本
@@ -169,7 +169,7 @@ ms.locfileid: "88029586"
 
 2.  选择“指标”。 在“指标”窗口中，选择“副本的最大滞后时间”。 
 
-    ![监视副本的最大滞后时间](./media/howto-read-replicas-portal/select-max-lag.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 3.  对于“聚合”，请选择“最大”。 
 
@@ -181,7 +181,7 @@ ms.locfileid: "88029586"
 
 2. 选择“指标”。 在“指标”窗口中，选择“副本滞后时间”。 
 
-   ![监视副本滞后时间](./media/howto-read-replicas-portal/select-replica-lag.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 3. 对于“聚合”，请选择“最大”。  
  

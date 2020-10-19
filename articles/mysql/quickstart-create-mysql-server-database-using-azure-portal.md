@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 origin.date: 7/15/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 043085bccbb9f2be353b34ca49ba4c5a6bbfa61b
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 10/19/2020
+ms.openlocfilehash: c78ece4e0ba8f5f2fca63fd46d117bd5df2e8b47
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029680"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041859"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Azure Database for MySQL 服务器
 
@@ -38,12 +38,12 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
   
 >[!div class="mx-imgBorder"]
-> ![Azure Database for MySQL 选项](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png" alt-text="Azure Database for MySQL 选项":::
 
 3. 使用以下信息填写“新服务器详细信息”窗体：
     
 >[!div class="mx-imgBorder"]
-> ![“创建服务器”窗体](./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Azure Database for MySQL 选项":::
 
 **设置** | **建议的值** | **字段说明** 
 ---|---|---
@@ -71,7 +71,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 默认情况下，创建的服务器使用防火墙进行保护，并且无法公开。 若要授予对 IP 的访问权限，请转到 Azure 门户中的服务器资源，然后从左侧菜单中为服务器资源选择“连接安全性”。 不知道如何找到资源时，请参阅[如何打开资源](/azure-resource-manager/management/manage-resources-portal#open-resources)。
 
 >[!div class="mx-imgBorder"]
-> ![连接安全性 - 防火墙规则](./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Azure Database for MySQL 选项":::
    
 现在选择“添加当前客户端 IP 地址”，然后选择“保存” 。 你可以添加其他 IP 或提供一个 IP 范围，从该范围中的 IP 连接到服务器。 有关详细信息，请参阅[如何在 Azure Database for MySQL 服务器上管理防火墙规则](./concepts-firewall-rules.md)
 
@@ -81,7 +81,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 ## <a name="connect-to-azure-database-for-mysql-server-using-mysql-command-line-client"></a>使用 mysql 命令行客户端连接到 Azure Database for MySQL 服务器
 可以选择 [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) 或 [MySQL Workbench](./connect-workbench.md)，以从本地环境连接到服务器。 
 
-1. 将值替换为实际的服务器名称和管理员用户登录名。 Azure Database for MySQL 的管理员用户名需要 @<servername>，如下所示  
+1. 将值替换为实际的服务器名称和管理员用户登录名。 Azure Database for MySQL 的管理员用户名需要“@\<servername>”，如下所示  
 
   ```azurecli
   mysql --host=mydemoserver.mysql.database.chinacloudapi.cn --user=myadmin@mydemoserver -p 
@@ -108,7 +108,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 若要删除服务器，可以单击服务器的“概述”页面上的“删除”按钮，如下所示 ：
 > [!div class="mx-imgBorder"]
-> ![删除资源](media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
+> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Azure Database for MySQL 选项":::
 
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]

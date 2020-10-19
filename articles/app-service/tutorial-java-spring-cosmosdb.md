@@ -5,19 +5,19 @@ author: rloutlaw
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 12/10/2018
-ms.date: 06/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 36c61d9bd8880274f45d173f4c9fbbfb70def69c
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 985e5b2823674f8b333edd427ed27731ad748a19
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678361"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170746"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>教程：使用 Linux 上的 Azure 应用服务和 Azure Cosmos DB 生成 Java Spring Boot Web 应用
 
-本教程将指导你完成在 Azure 上生成、配置、部署和缩放 Java Web 应用的过程。 完成本教程后，你将获得一个 [Spring Boot](https://projects.spring.io/spring-boot/) 应用程序，该应用程序可在 [Linux 上运行的 Azure 应用服务](overview.md)运行的 [Azure Cosmos DB](/cosmos-db) 中存储数据。
+本教程将指导你完成在 Azure 上生成、配置、部署和缩放 Java Web 应用的过程。 完成本教程后，你将获得一个 [Spring Boot](https://projects.spring.io/spring-boot/) 应用程序，该应用程序可在 [Linux 上运行的 Azure 应用服务](overview.md)运行的 [Azure Cosmos DB](../cosmos-db/index.yml) 中存储数据。
 
 ![在 Azure Cosmos DB 中存储数据的 Spring Boot 应用程序](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
@@ -36,12 +36,13 @@ ms.locfileid: "90678361"
 
 * 已在自己的计算机上安装 [Azure CLI](https://docs.microsoft.com/cli/overview)。
 * [Git](https://git-scm.com/)
-* [Java JDK](https://aka.ms/azure-jdks)
+* [Java JDK](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
 ## <a name="clone-the-sample-todo-app-and-prepare-the-repo"></a>克隆示例 TODO 应用并准备存储库
 
 本教程使用一个示例 TODO 列表应用，该应用的 Web UI 可以调用 [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb) 支持的 Spring REST API。 [GitHub](https://github.com/Microsoft/spring-todo-app) 上提供了该应用的代码。 若要详细了解如何使用 Spring 和 Cosmos DB 编写 Java 应用，请参阅 [Spring Boot Starter 与 Azure Cosmos DB SQL API 教程](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db )和 [Spring Data Azure Cosmos DB 快速入门](https://github.com/Microsoft/spring-data-cosmosdb#quick-start)。
+
 
 在终端中运行以下命令，以克隆示例存储库并设置示例应用环境。
 
@@ -187,7 +188,7 @@ bash-3.2$ mvn package spring-boot:run
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.9.1</version>
+        <version>1.11.0</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -252,7 +253,7 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.9.1:deploy (default-cli) @ spring-todo-app ---
+[INFO] --- azure-webapp-maven-plugin:1.11.0:deploy (default-cli) @ spring-todo-app ---
 [INFO] Auth Type : AZURE_CLI, Auth Files : [C:\Users\testuser\.azure\azureProfile.json, C:\Users\testuser\.azure\accessTokens.json]
 [INFO] Subscription : xxxxxxxxx
 [INFO] Target Web App doesn't exist. Creating a new one...
@@ -288,6 +289,7 @@ open https://spring-todo-app.chinacloudsites.cn
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
+
 ## <a name="scale-out-the-todo-app"></a>横向扩展 TODO 应用
 
 通过添加另一个辅助角色来横向扩展应用程序：
@@ -312,9 +314,9 @@ az group delete --name <your-azure-group-name>
 
 [面向 Java 开发人员的 Azure](/java/)
 [Spring Boot](https://spring.io/projects/spring-boot)
-[Spring Data for Cosmos DB](/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable)，[Azure Cosmos DB](/cosmos-db/sql-api-introduction) 和 [Linux 版应用服务](overview.md)。
+[Spring Data for Cosmos DB](/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable)，[Azure Cosmos DB](../cosmos-db/introduction.md) 和 [Linux 版应用服务](overview.md)。
 
 在开发人员指南中详细了解在 Linux 上的应用服务中运行 Java 应用。
 
-> [!div class="nextstepaction"]
+> [!div class="nextstepaction"] 
 > [Linux 版应用服务中的 Java 开发指南](configure-language-java.md?pivots=platform-linux)

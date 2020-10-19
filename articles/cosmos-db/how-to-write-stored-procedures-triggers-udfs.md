@@ -1,21 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中编写存储过程、触发器和 UDF
 description: 了解如何在 Azure Cosmos DB 中定义存储过程、触发器和用户定义的函数
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 06/16/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9f4e5c18c052ed47cd318fe310cfdbbbdf2241e5
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-js
+ms.openlocfilehash: f1afd4768e1dba1cf2279d0f5ace99a6ca195179
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222910"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118017"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中编写存储过程、触发器和用户定义的函数
 

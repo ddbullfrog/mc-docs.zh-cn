@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: f5a5ceb8413507d7a5659ae95b40f668eb4b2e86
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: d8da7f76799feae8e3cfd5d1d07d7170abe4d361
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244842"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121596"
 ---
 # <a name="single-page-application-app-registration"></a>单页应用程序：应用注册
 
@@ -29,9 +29,9 @@ ms.locfileid: "91244842"
 
 对于基于 MSAL 1.0 和 2.0 的应用程序，请先完成以下步骤以创建初始应用注册。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。 如果你的帐户有权访问多个租户，请在顶部菜单中选择“目录 + 订阅”筛选器，然后选择应包含你要创建的应用注册的租户。
+1. 登录 [Azure 门户](https://portal.azure.cn)。 如果你的帐户有权访问多个租户，请在顶部菜单中选择“目录 + 订阅”筛选器，然后选择应包含你要创建的应用注册的租户。
 1. 搜索并选择“Azure Active Directory”。
-1. 在“管理”下，选择“应用注册”。
+1. 在“管理”下，选择“应用注册”。 
 1. 选择“新注册”，输入应用程序的“名称”，并为应用程序选择“支持的帐户类型”。 请勿输入“重定向 URI”。 有关不同帐户类型的说明，请参阅 [使用 Azure 门户注册新应用程序](quickstart-register-app.md)。
 1. 选择“注册”以创建应用注册。
 

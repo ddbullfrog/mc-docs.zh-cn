@@ -5,14 +5,14 @@ author: chenkennt
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 08/19/2020
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 1e10b7b7a117707018b90f343875323f98649078
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: c488c4cddfa72bf799172f4d7eb258bff0bf3e05
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90064625"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170809"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Azure SignalR 服务中的服务模式
 
@@ -22,7 +22,7 @@ ms.locfileid: "90064625"
 
 稍后还可以在设置菜单中对其进行更改：
 
-:::image type="content" source="media/concept-service-mode/update.png" alt-text="更新服务模式":::
+:::image type="content" source="media/concept-service-mode/update.png" alt-text="创建时选择服务模式":::
 
 Azure SignalR 服务目前支持三种服务模式：默认、无服务器和经典  。 SignalR 资源在不同模式下的行为方式有所不同。 本文将介绍它们之间的差异，以及如何根据场景选择合适的服务模式。
 
@@ -30,7 +30,7 @@ Azure SignalR 服务目前支持三种服务模式：默认、无服务器和经
 
 默认模式是新建 SignalR 资源时服务模式的默认值。 在这种模式下，你的应用程序像典型的 ASP.NET Core（或 ASP.NET）SignalR 应用程序一样工作；在该应用程序中，你有一个托管集线器的 Web 服务器（以下称为集线器服务器），并且客户端可以与集线器服务器进行双工实时通信。 唯一的区别是，客户端和服务器都连接到 SignalR 服务并将该服务用作代理，而不是直接连接客户端和服务器。 下图说明了默认模式下的典型应用程序结构：
 
-:::image type="content" source="media/concept-service-mode/default.png" alt-text="默认模式下的应用程序结构":::
+:::image type="content" source="media/concept-service-mode/default.png" alt-text="创建时选择服务模式":::
 
 因此，如果你拥有 SignalR 应用程序并且希望与 SignalR 服务集成，则大多数情况下，默认模式应是正确选择。
 
@@ -52,15 +52,15 @@ Azure SignalR 服务目前支持三种服务模式：默认、无服务器和经
 > [!NOTE]
 > SignalR 服务[管理 SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md) 支持 REST API 和 WebSocket 方式。 如果使用的是 .NET 以外的语言，则还可以按照此[规范](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)手动调用 REST API。
 >
-> 如果使用的是 Azure Functions，则可以使用 [Azure Functions 的 SignalR 服务绑定](https://docs.azure.cn/azure-functions/functions-bindings-signalr-service)（以下称为函数绑定），将消息作为输出绑定发送。
+> 如果使用的是 Azure Functions，则可以使用 [Azure Functions 的 SignalR 服务绑定](../azure-functions/functions-bindings-signalr-service.md)（以下称为函数绑定），将消息作为输出绑定发送。
 
 服务器应用程序还可以从客户端接收消息和连接事件。 服务会使用 Webhook 将消息和连接事件传递到预配置的终结点（称为上游）。 相较于默认模式，无法保证粘性，且 HTTP 请求可能比 WebSocket 连接低效。
 
-有关如何配置上游的详细信息，请参阅此[文档](https://docs.azure.cn/azure-signalr/concept-upstream)。
+有关如何配置上游的详细信息，请参阅此[文档](./concept-upstream.md)。
 
 下图说明了无服务器模式的工作方式：
 
-:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="无服务器模式下的应用程序结构":::
+:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="创建时选择服务模式":::
 
 > [!NOTE]
 > 请注意，在默认模式下，如果你不想通过集线器服务器，还可以使用 REST API/管理 SDK/函数绑定将消息直接发送到客户端。 但在默认模式下，客户端连接仍由集线器服务器处理，且上游在该模式下无法正常工作。

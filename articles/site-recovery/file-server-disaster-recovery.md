@@ -6,17 +6,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 07/31/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ba6c3e3fade55bce2c4dab891c821e738f565c4e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: b7c47e883e01391dcf109f402d51f8cc38911364
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655319"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128114"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 

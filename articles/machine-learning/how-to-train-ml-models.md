@@ -11,17 +11,17 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e3dc48de2f3f1261cb444a37902d3494e445646d
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 07379ab152aac8626bd72d4b814621f9db62e19d
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395453"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117958"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>通过估算器使用 Azure 机器学习训练模型
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-凭借 Azure 机器学习，可以使用 [RunConfiguration 对象](how-to-set-up-training-targets.md#whats-a-run-configuration)和 [ScriptRunConfig 对象](how-to-set-up-training-targets.md#submit)轻松地将训练脚本提交到[各种计算目标](how-to-set-up-training-targets.md#compute-targets-for-training)。 该模式提供了很强的灵活性和最大程度的控制度。
+
+凭借 Azure 机器学习，可以使用 [RunConfiguration 对象](how-to-set-up-training-targets.md#whats-a-run-configuration)和 [ScriptRunConfig 对象](how-to-set-up-training-targets.md#submit)轻松地将训练脚本提交到[各种计算目标](how-to-set-up-training-targets.md)。 该模式提供了很强的灵活性和最大程度的控制度。
 
 
 借助估算器类，可以更轻松地通过深入学习和强化学习来训练模型。 它提供了一个高级抽象，可便于轻松地构造运行配置。 可以创建泛型[估算器](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true)，并使用它在所选的任何计算目标（无论是本地计算机、Azure 中的单个 VM 还是 Azure 中的 GPU 群集）上提交使用任何所选的学习框架（如 scikit-learn）的训练脚本。 对于 PyTorch、TensorFlow、Chainer 和强化学习任务，Azure 机器学习还提供了相应的 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true)、[TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true)、[Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true) 和[强化学习](how-to-use-reinforcement-learning.md)估算器来简化这些框架的使用。
@@ -129,7 +129,7 @@ print(run.get_portal_url())
 
 训练模型后，就可以将它保存并注册到工作区。 借助模型注册，可以在工作区中存储模型，并对它进行版本管理，从而简化[模型管理和部署](concept-model-management-and-deployment.md)。
 
-运行下面的代码会将模型注册到工作区，并可在远程计算上下文或部署脚本中按名称引用模型。 有关详细信息和其他参数，请参阅参考文档中的 [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)。
+运行下面的代码会将模型注册到工作区，并可在远程计算上下文或部署脚本中按名称引用模型。 有关详细信息和其他参数，请参阅参考文档中的 [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)。
 
 ```python
 model = run.register_model(model_name='sklearn-sample', model_path=None)

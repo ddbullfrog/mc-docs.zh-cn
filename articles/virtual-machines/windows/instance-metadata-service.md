@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 03/30/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 07/27/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 2cb8c8acfa349deb642af3e2ed120d9e6c304b00
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 6356b17d4f52d8296ab22fb5bdba2b338d887009
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463207"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127802"
 ---
 <!--Verified Successfully-->
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
@@ -541,10 +541,11 @@ caching | 缓存要求
 createOption | 有关 VM 创建方式的信息
 diffDiskSettings | 临时磁盘设置
 diskSizeGB | 磁盘大小 (GB)
-image   | 源用户映像虚拟硬盘
-lun     | 磁盘的逻辑单元号
+encryptionSettings | 磁盘的加密设置
+图像   | 源用户映像虚拟硬盘
 managedDisk | 托管磁盘参数
 name    | 磁盘名称
+osType  | 磁盘中包含的 OS 类型
 vhd     | 虚拟硬盘
 writeAcceleratorEnabled | 磁盘上是否启用了 writeAccelerator
 
@@ -556,11 +557,10 @@ caching | 缓存要求
 createOption | 有关 VM 创建方式的信息
 diffDiskSettings | 临时磁盘设置
 diskSizeGB | 磁盘大小 (GB)
-encryptionSettings | 磁盘的加密设置
-image   | 源用户映像虚拟硬盘
+图像   | 源用户映像虚拟硬盘
+lun     | 磁盘的逻辑单元号
 managedDisk | 托管磁盘参数
 name    | 磁盘名称
-osType  | 磁盘中包含的 OS 类型
 vhd     | 虚拟硬盘
 writeAcceleratorEnabled | 磁盘上是否启用了 writeAccelerator
 
@@ -869,7 +869,7 @@ Visual Basic  | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 如果找不到某个数据元素，或者请求的格式不正确，则实例元数据服务返回标准 HTTP 错误。 例如：
 
-HTTP 状态代码 | 原因
+HTTP 状态代码 | Reason
 -----------------|-------
 200 正常 |
 400 错误的请求 | 查询叶节点时缺少 `Metadata: true` 标头或缺少参数 `format=json`
@@ -936,7 +936,7 @@ HTTP 状态代码 | 原因
             ... (continues) ...
             ```
             
-        1. 确认该接口对应于 VM 的主 NIC 和主 IP。 可以通过在 Azure 门户中查看网络配置，或[通过 Azure CLI](https://docs.azure.cn/cli/vm/nic?view=azure-cli-latest#az-vm-nic-show) 查找来找到主 NIC/IP。 记下公共和专用 IP（如果使用 cli，还要记下 MAC 地址）。 PowerShell CLI 示例：
+        1. 确认该接口对应于 VM 的主 NIC 和主 IP。 可以通过在 Azure 门户中查看网络配置，或[通过 Azure CLI](https://docs.azure.cn/cli/vm/nic#az-vm-nic-show) 查找来找到主 NIC/IP。 记下公共和专用 IP（如果使用 cli，还要记下 MAC 地址）。 PowerShell CLI 示例：
             
             ```powershell
             $ResourceGroup = '<Resource_Group>'

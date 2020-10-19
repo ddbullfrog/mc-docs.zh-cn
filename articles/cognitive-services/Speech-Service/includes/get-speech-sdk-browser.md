@@ -3,15 +3,15 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/27/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e5f85eb2d77b982db6aff30dea31db666717507a
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.custom: devx-track-js
+ms.openlocfilehash: 70e050a5e34d4d582a27dddff0a887c69608c017
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317601"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128897"
 ---
 :::row:::
     :::column span="3":::
@@ -26,7 +26,7 @@ ms.locfileid: "89317601"
 :::row-end:::
 
 > [!TIP]
-> 尽管 JavaScript 语音 SDK 以 npm 包的形式提供，但是客户端 Web 浏览器和 Node.js 都可以使用它 - 请考虑每种环境的各种体系结构隐含内容。 例如，文档对象模型 (DOM) 不可用于服务器端应用程序，就像<a href="https://nodejs.org/api/fs.html" target="_blank">文件系统<span class="docon docon-navigate-external x-hidden-focus"></span></a>不可用于客户端应用程序一样。
+> 尽管 JavaScript 语音 SDK 以 npm 包的形式提供，但是客户端 Web 浏览器和 Node.js 都可以使用它 - 请考虑每种环境的各种体系结构隐含内容。 例如，<a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">文档对象模型 (DOM) <span class="docon docon-navigate-external x-hidden-focus"></span></a>不可用于服务器端应用程序，就像<a href="https://nodejs.org/api/fs.html" target="_blank">文件系统<span class="docon docon-navigate-external x-hidden-focus"></span></a>不可用于客户端应用程序一样。
 
 ### <a name="nodejs-package-manager-npm"></a>Node.js 包管理器 (NPM)
 

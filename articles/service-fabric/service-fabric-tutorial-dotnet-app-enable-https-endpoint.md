@@ -4,17 +4,17 @@ description: 本教程介绍如何使用 Kestrel 向 ASP.NET Core 前端 Web 服
 ms.topic: tutorial
 origin.date: 07/22/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 8f3aaa619e04b3c5036cb5ace8049a635fabde63
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 1bb8df4de3244b4726478f0ffa44e3d079f7cf4c
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655610"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128138"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教程：使用 Kestrel 向 ASP.NET Core Web API 前端服务添加 HTTPS 终结点
 
@@ -242,7 +242,7 @@ private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonNa
 
 若要从 **SetupEntryPoint** 点运行 PowerShell，可以在指向 PowerShell 文件的批处理文件中运行 PowerShell.exe。 首先，添加服务项目的批处理文件。  在“解决方案资源管理器”中，右键单击“VotingWeb”，选择“添加”->“新建项”，然后添加名为“Setup.bat”的新文件。    编辑 *Setup.bat* 文件，添加以下命令：
 
-```bat
+```cmd
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
@@ -357,7 +357,7 @@ if ($cert -eq $null)
 
 保存所有文件并按 F5，以便在本地运行应用程序。  在应用程序部署完以后，Web 浏览器会打开到 https:\//localhost:443。 如果使用自签名证书，则会看到一个警告，指出电脑不信任此网站的安全性。  转到该网页。
 
-![Voting 应用程序][image2]
+![使用 URL https://localhost/ 在浏览器窗口中运行的 Service Fabric Voting 示例应用的屏幕截图。][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>在群集节点上安装证书
 
@@ -376,7 +376,7 @@ if ($cert -eq $null)
 
 <!--Not Available on [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority)-->
 
-## <a name="open-port-443-in-the-azure-load-balancer"></a>在 Azure 负载均衡器中打开端口 443
+## <a name="open-port-443-in-the-azure-load-balancer-and-virtual-network"></a>在 Azure 负载均衡器和虚拟网络中打开端口 443
 
 在负载均衡器中打开端口 443（如果尚未打开）。
 
@@ -401,13 +401,33 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 $slb | Set-AzLoadBalancer
 ```
 
+对关联的虚拟网络执行相同的操作。
+
+```powershell
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
+$RGname="voting_RG"
+$port=443
+
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
+
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
+
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
+```
+
 ## <a name="deploy-the-application-to-azure"></a>将应用程序部署到 Azure
 
 保存所有文件，从“调试”切换到“发布”，然后按 F6 进行重新生成。  在“解决方案资源管理器”中，右键单击“Voting”并选择“发布” 。 选择在[将应用程序部署到群集](service-fabric-tutorial-deploy-app-to-party-cluster.md)中创建的群集的连接终结点，或者选择另一群集。  单击“发布”，将应用程序发布到远程群集。
 
 在应用程序部署后，打开 Web 浏览器，导航到 `https://mycluster.region.cloudapp.chinacloudapi.cn:443`（使用群集的连接终结点更新 URL）。 如果使用自签名证书，则会看到一个警告，指出电脑不信任此网站的安全性。  转到该网页。
 
-![Voting 应用程序][image3]
+![使用 URL https://mycluster.region.cloudapp.chinacloudapi.cn:443 在浏览器窗口中运行的 Service Fabric Voting 示例应用的屏幕截图。][image3]
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -421,7 +441,7 @@ $slb | Set-AzLoadBalancer
 > * 在 Azure 负载均衡器中打开端口 443
 > * 将应用程序部署到远程群集
 
-进入下一教程：
+转到下一教程：
 > [!div class="nextstepaction"]
 > [使用 Azure Pipelines 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 

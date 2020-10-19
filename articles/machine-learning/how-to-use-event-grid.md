@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 39dd91fc02a01fce0828ba93a44b62dd63c8ab3b
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 75cc673996b542090d02dc811c7ca2fd9b0344e6
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395492"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118588"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>基于 Azure 机器学习事件触发应用程序、进程或 CI/CD 工作流（预览）
 
@@ -61,7 +61,7 @@ Azure 机器学习在机器学习生命周期的各个点提供事件：
 
 设置事件时，可以应用筛选器，以仅在特定事件数据上触发。 在下面的示例中，对于运行状态更改事件，你可以按运行类型进行筛选。 仅当满足条件时才会触发该事件。 要了解可以作为筛选依据的事件数据，请参阅 [Azure 机器学习事件网格架构](/event-grid/event-schema-machine-learning)。 
 
-Azure 机器学习事件的订阅受基于角色的访问控制 (RBAC) 保护。 只有工作区[参与者或所有者](how-to-assign-roles.md#default-roles)可以创建、更新和删除事件订阅。  可在[创建](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest)事件订阅期间或以后将筛选器应用于事件订阅。 
+Azure 机器学习事件的订阅受基于角色的访问控制 (RBAC) 保护。 只有工作区[参与者或所有者](how-to-assign-roles.md#default-roles)可以创建、更新和删除事件订阅。  可在[创建](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true)事件订阅期间或以后将筛选器应用于事件订阅。 
 
 
 1. 转到 Azure 门户，选择新订阅或现有订阅。 
@@ -132,7 +132,7 @@ Azure 事件网格允许客户生成可由 Azure 机器学习事件触发的反�
 
 ### <a name="set-up-with-the-cli"></a>使用 CLI 进行设置
 
-可以安装最新版的 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
+可以安装最新版的 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
 
 若要安装事件网格扩展，请在 CLI 中使用以下命令：
 

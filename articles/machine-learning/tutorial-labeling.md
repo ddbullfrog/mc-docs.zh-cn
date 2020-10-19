@@ -10,15 +10,15 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 1a5781ff0d60408c07f6ecd06c9cd426aa0658de
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 58a879200a7192be3e69ecdd7ade7c67b4d587ea
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021282"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118568"
 ---
-# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>教程：创建用于多类图像分类的标记项目（预览） 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>教程：创建用于多类图像分类的标记项目 
+
 
 本教程介绍如何管理在构建机器学习模型时用作数据的图像的标记过程。 Azure 机器学习中的数据标记功能目前为公共预览版。
 
@@ -130,9 +130,9 @@ Azure 机器学习数据存储用于存储连接信息，例如订阅 ID 和令�
 
 1. 选择“**下一步**”。
 
-1. 如果使用的是企业版工作区，会看到“ML 辅助标记”部分。  将该复选框保留为未选中状态。 ML 辅助标记所需的数据比在本教程中使用的数据更多。
+1. 在“ML 辅助标记”部分中，让复选框保留未选中状态。 ML 辅助标记所需的数据比在本教程中使用的数据更多。
 
-1. 选择“创建项目”。
+1. 选择“创建项目”。 
 
 此页面不会自动刷新。 片刻之后，请手动刷新页面，直到项目状态更改为“已创建”。
 

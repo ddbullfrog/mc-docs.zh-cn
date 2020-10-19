@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 04/14/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: ad152d01dbcad3aed98892ec019ba54bc1c7c6c9
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 7c160d6bd78b2ea040d9fc2ded31c9de52bf33a5
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655003"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128115"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>排查 Hyper-V 到 Azure 的复制和故障转移的问题
 
@@ -105,7 +105,7 @@ ms.locfileid: "89655003"
     - 最后一招是尝试重新启动 VM。 这可能解决服务处于无响应状态的问题。
 3. 检查 VM 中是否不包含任何动态磁盘。 应用一致的快照不支持动态磁盘。 可在磁盘管理 (diskmgmt.msc) 中进行此项检查。
 
-    :::image type="content" source="media/hyper-v-azure-troubleshoot/dynamic-disk.png" alt-text="动态磁盘":::
+    :::image type="content" source="media/hyper-v-azure-troubleshoot/dynamic-disk.png" alt-text="复制运行状况":::
 
 4. 检查是否未将 iSCSI 磁盘附加到 VM。 不支持此操作。
 5. 检查是否已启用备份服务。 请在“Hyper-V 设置” > “Integration Services”中验证它是否已启用。
@@ -147,7 +147,7 @@ ms.locfileid: "89655003"
 1. 在事件查看器中显示分析和调试日志。 若要使日志可用，请在事件查看器中，单击“视图” > “显示分析和调试日志”。  分析日志显示在“Hyper-V-VMMS”下。
 2. 在“操作”窗格中，单击“启用日志”。 
 
-    :::image type="content" source="media/hyper-v-azure-troubleshoot/enable-log.png" alt-text="启用日志":::
+    :::image type="content" source="media/hyper-v-azure-troubleshoot/enable-log.png" alt-text="复制运行状况":::
 
 3. 启用后，日志将作为“事件跟踪会话”显示在“性能监视器”中的“数据收集器集”下。   
 4. 若要查看收集到的信息，请禁用日志，从而停止跟踪会话。 然后保存日志，并再次在事件查看器中打开日志，或使用其他工具根据需要转换日志。

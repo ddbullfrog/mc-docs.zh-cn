@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /legal/
+  topicHref: /index
+  items:
+    - name: 计算机视觉
+      tocHref: /legal/computer-vision
+      topicHref: /cognitive-services/Computer-vision/index
+      items:
+        - name: 计算机视觉空间分析
+          tocHref: /legal/cognitive-services/computer-vision/
+          topicHref: /cognitive-services/Computer-vision/index

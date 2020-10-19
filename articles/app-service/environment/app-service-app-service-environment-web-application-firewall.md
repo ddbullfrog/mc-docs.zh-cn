@@ -5,20 +5,20 @@ author: ccompy
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.topic: tutorial
 origin.date: 03/03/2018
-ms.date: 08/13/2020
+ms.date: 10/09/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9f7d29e4071c8aa2fed18d26d467d41804a00354
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: fd7370d6cd1f2087c6410e453b491b705fa639eb
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227937"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128236"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>为应用服务环境配置 Web 应用程序防火墙 (WAF)
 ## <a name="overview"></a>概述
 
-Web 应用程序防火墙 (WAF) 会检查入站 Web 流量，并阻止 SQL 注入、跨站点脚本、恶意软件上传和应用程序 DDoS 及其他攻击，有助于保护 Web 应用程序的安全。 为了进行数据丢失防护 (DLP)，该防火墙还会检查后端 Web 服务器的响应。 与隔离功能以及应用服务环境提供的附加缩放相结合，它可以提供一个理想的环境，用于托管需要承受恶意请求和大量流量的业务关键型 Web 应用程序。 Azure 通过[应用程序网关](https://docs.azure.cn/application-gateway/application-gateway-introduction)提供 WAF 功能。  若要了解如何将应用服务环境与应用程序网关集成，请阅读[将 ILB ASE 与应用程序网关集成](https://docs.azure.cn/app-service/environment/integrate-with-application-gateway)文档。
+Web 应用程序防火墙 (WAF) 会检查入站 Web 流量，并阻止 SQL 注入、跨站点脚本、恶意软件上传和应用程序 DDoS 及其他攻击，有助于保护 Web 应用程序的安全。 为了进行数据丢失防护 (DLP)，该防火墙还会检查后端 Web 服务器的响应。 与隔离功能以及应用服务环境提供的附加缩放相结合，它可以提供一个理想的环境，用于托管需要承受恶意请求和大量流量的业务关键型 Web 应用程序。 Azure 通过[应用程序网关](../../application-gateway/overview.md)提供 WAF 功能。  若要了解如何将应用服务环境与应用程序网关集成，请阅读[将 ILB ASE 与应用程序网关集成](./integrate-with-application-gateway.md)文档。
 
 除了 Azure 应用程序网关，还有多个市场选项，例如 [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure)，在 [Azure 市场](https://market.azure.cn/marketplace/apps/vstecscloud.barracuda_web_application_firewall_formigration?tab=Overview)中提供。 本文档其余部分重点介绍如何将应用服务环境与 Barracuda WAF 设备集成。
 
@@ -27,15 +27,15 @@ Web 应用程序防火墙 (WAF) 会检查入站 Web 流量，并阻止 SQL 注�
 ## <a name="setup"></a>设置
 在本文中，我们配置受多个 Barracuda WAF 负载均衡实例保护的应用服务环境，只让来自 WAF 的流量到达该应用服务环境，而且无法从 DMZ 访问该环境。 在 Barracuda WAF 实例的前面，我们还部署了 Azure 流量管理器，用于在 Azure 数据中心和区域实现负载均衡。 高级设置示意图如下所示：
 
-![体系结构][Architecture] 
+![图显示了可选 Azure 流量管理器连接到 Web 应用程序防火墙实例，连接到网络 A C L，以只允许来自包含两个区域的 Web、A P I 和移动应用的应用服务环境中的防火墙的流量。][Architecture] 
 
 > [!NOTE]
-> 通过引入[对应用服务环境的 ILB支持](create-ilb-ase.md)，可以将 ASE 配置为不可从 DMZ 访问，而仅可供专用网络访问。 
+> 通过引入[对应用服务环境的 ILB支持](app-service-environment-with-internal-load-balancer.md)，可以将 ASE 配置为不可从 DMZ 访问，而仅可供专用网络访问。 
 > 
 > 
 
 ## <a name="configuring-your-app-service-environment"></a>配置应用服务环境
-要配置应用服务环境，请参阅有关该主题的[文档](create-external-ase.md)。 创建应用服务环境后，可在此环境中创建 Web 应用、API 应用和[移动应用](../../app-service-mobile/app-service-mobile-value-prop.md)，下一部分中配置的 WAF 可保护所有这些应用。
+要配置应用服务环境，请参阅有关该主题的[文档](app-service-web-how-to-create-an-app-service-environment.md)。 创建应用服务环境后，可在此环境中创建 Web 应用、API 应用和[移动应用](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop)，下一部分中配置的 WAF 可保护所有这些应用。
 
 ## <a name="configuring-your-barracuda-waf-cloud-service"></a>配置 Barracuda WAF 云服务
 Barracuda 提供了有关在 Azure 中的虚拟机上部署其 WAF 的[详细文章](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure)。 但是，由于我们想要冗余，但不想要造成单一故障点，因此可以在遵循这些说明时，将至少两个 WAF 实例 VM 部署到相同的云服务中。
@@ -71,6 +71,7 @@ Barracuda WAF 使用 TCP 端口 8000 通过其管理门户进行配置。 如果
 
 ![管理添加服务][ManagementAddServices]
 
+<!-- 404 app-service-app-service-environment-control-inbound-traffic.md -->
 > [!NOTE]
 > 根据应用程序的配置方式与应用服务环境中正在使用的功能，需要转发非 80 和 443 TCP 端口的流量（例如，如果为应用服务应用设置了 IP TLS）。
 > 

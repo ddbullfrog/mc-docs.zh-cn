@@ -1,26 +1,26 @@
 ---
-title: 快速入门：识别存储在 Blob 存储中的语音
+title: 识别存储在 Blob 存储中的语音
 titleSuffix: Azure Cognitive Services
-description: 在本快速入门中，你将使用批量听录 REST API 以异步方式识别存储在 SAS Blob 中的语音。
+description: 在本操作说明中，你将使用批量听录 REST API 以异步方式识别存储在 SAS Blob 中的语音。
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 06/25/2020
-ms.date: 09/02/2020
+origin.date: 09/04/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.custom: devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 34cdaebff6ea7ead398132157cd76ef92c026ea7
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: ec64e0f3b61746b7b50469986a6083130b8c6139
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317532"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127607"
 ---
-# <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>快速入门：识别存储在 Blob 存储中的语音
+# <a name="recognize-speech-stored-in-blob-storage"></a>识别存储在 Blob 存储中的语音
 
 > [!IMPORTANT]
 > 需要语音 SDK 1.11.0 或更高版本。

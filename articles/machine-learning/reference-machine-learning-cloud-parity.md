@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4d2aa03de0104c56a4d68c96da923623acfde42f
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 55e514553e9a555a0556cbf094334cc9dec7efe2
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395446"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118134"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure 机器学习主权云平等性
 
@@ -49,9 +49,9 @@ ms.locfileid: "91395446"
 | 使用 Azure ML SDK 创建管道终结点                           | GA                   | YES                | YES         |
 | 使用 Azure ML SDK 创建、编辑和删除计划的管道运行 | GA                   | 是*               | 是*        |
 | 在工作室中查看管道运行详细信息                                        | GA                   | YES                | YES         |
-| 在 Azure ML 设计器中创建、运行、可视化和发布管道          | 公共预览版       | YES                | YES         |
+| 在 Azure ML 设计器中创建、运行、可视化和发布管道          | GA      | YES                | YES         |
 | Azure Databricks 与 ML 管道的集成                             | GA                   | 是                 | 是          |
-| 在 Azure ML 设计器中创建管道终结点                             | 公共预览版       | YES                | YES         |
+| 在 Azure ML 设计器中创建管道终结点                             | GA      | YES                | YES         |
 | **集成式笔记本** |   |  | | 
 | 工作区笔记本和文件共享                                        | GA                   | YES                | YES         |
 | R 和 Python 支持                                                       | GA                   | YES                | YES         |
@@ -162,9 +162,9 @@ ms.locfileid: "91395446"
 | 使用 Azure ML SDK 创建管道终结点                           | GA               | YES       | 空值        |
 | 使用 Azure ML SDK 创建、编辑和删除计划的管道运行 | GA               | YES       | 空值        |
 | 在工作室中查看管道运行详细信息                                        | GA               | YES       | 空值        |
-| 在 Azure ML 设计器中创建、运行、可视化和发布管道          | 公共预览版   | YES       | 空值        |
+| 在 Azure ML 设计器中创建、运行、可视化和发布管道          | GA  | YES       | 空值        |
 | Azure Databricks 与 ML 管道的集成                             | GA               | 是        | 空值        |
-| 在 Azure ML 设计器中创建管道终结点                             | 公共预览版   | YES       | 空值        |
+| 在 Azure ML 设计器中创建管道终结点                             | GA   | YES       | 空值        |
 | **集成式笔记本** |   | | |
 | 工作区笔记本和文件共享                                        | GA               | YES       | 空值        |
 | R 和 Python 支持                                                       | GA               | YES       | 空值        |

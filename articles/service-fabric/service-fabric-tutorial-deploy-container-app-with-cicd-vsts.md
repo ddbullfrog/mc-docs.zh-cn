@@ -3,15 +3,18 @@ title: 使用 CI/CD 部署容器应用程序
 description: 本教程介绍了如何使用 Visual Studio Azure DevOps 为 Azure Service Fabric 容器应用程序设置持续集成和部署。
 ms.topic: tutorial
 origin.date: 08/29/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: yes
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cbd36f5c4ef4d8e6b02fda7ebfb8b15bd108cc16
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b50a7871e66bb2ca9a66ce8735bb94188c7139c6
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540577"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128140"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>教程：通过 CI/CD 将容器应用程序部署到 Service Fabric 群集
 
@@ -48,11 +51,11 @@ ms.locfileid: "77540577"
 
 在“团队资源管理器”中的“推送”视图中，在“推送到 Azure DevOps”下选择“发布 Git 存储库”按钮。    
 
-![推送 Git 存储库][push-git-repo]
+![Visual Studio 中“团队资源管理器 - 同步”窗口的屏幕截图。 在“推送到 Azure DevOps”下，“发布到 Git 存储库”按钮已突出显示。][push-git-repo]
 
 验证你的电子邮件地址并在“帐户”下拉列表中选择你的组织。  如果还没有组织，可能必须设置一个组织。 输入你的存储库名称并选择“发布存储库”。 
 
-![推送 Git 存储库][publish-code]
+![“推送到 Azure DevOps”窗口的屏幕截图。 “电子邮件”、“帐户”、“存储库名称”和“发布存储库”按钮的设置已突出显示。][publish-code]
 
 发布存储库会在你的帐户中创建一个与本地存储库同名的新团队项目。 若要在现有团队项目中创建存储库，请单击“存储库名称”旁边的“高级”并选择一个团队项目。   可以通过选择“在 web 上查看”来在 web 上查看代码。 
 
@@ -142,7 +145,7 @@ Azure DevOps 发布定义描述了将应用程序程序包部署到群集的工�
 
 通过将一些代码更改签入到 Azure DevOps 来验证持续集成管道是否正常工作。
 
-在编写代码时，Visual Studio 会自动跟踪代码更改。 通过从右下角的状态栏中选择“挂起的更改”图标（![挂起的][pending]）来将更改提交到本地 Git 存储库。
+在编写代码时，Visual Studio 会自动跟踪代码更改。 通过从右下角的状态栏中选择“挂起的更改”图标（![“挂起的更改”图标显示一支铅笔和一个数字。][pending]）来将更改提交到本地 Git 存储库。
 
 在“团队资源管理器”中的“更改”视图中，添加一条消息来说明你的更新，然后提交更改。 
 
@@ -158,7 +161,7 @@ Azure DevOps 发布定义描述了将应用程序程序包部署到群集的工�
 
 验证部署是否已成功且应用程序是否正在群集中运行。  打开 Web 浏览器并导航到 `http://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/`。  记下应用程序版本，在本例中为“1.0.0.20170815.3”。
 
-![Service Fabric Explorer][sfx1]
+![Service Fabric Explorer 中 Voting 应用的屏幕截图。 在“基本信息”选项卡中，应用版本“1.0.0.20170815.3”已突出显示。][sfx1]
 
 ## <a name="update-the-application"></a>更新应用程序
 
@@ -166,11 +169,11 @@ Azure DevOps 发布定义描述了将应用程序程序包部署到群集的工�
 
 在应用程序升级开始后，可以在 Service Fabric Explorer 中观察升级进度：
 
-![Service Fabric Explorer][sfx2]
+![Service Fabric Explorer 中 Voting 应用的屏幕截图。 “正在进行升级”消息已突出显示，应用状态为“正在升级”。][sfx2]
 
 应用程序升级可能要花费几分钟时间才能完成。 当升级完成后，应用程序将运行下一版本。  在本例中为“1.0.0.20170815.4”。
 
-![Service Fabric Explorer][sfx3]
+![Service Fabric Explorer 中 Voting 应用的屏幕截图。 在“基本信息”选项卡中，更新的应用版本“1.0.0.20170815.4”已突出显示。][sfx3]
 
 <!--Not Available on  ## Next steps-->
 <!--Not Available on  > [!div class="checklist"]-->
@@ -204,4 +207,4 @@ Azure DevOps 发布定义描述了将应用程序程序包部署到群集的工�
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-container-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-container-app-with-cicd-vsts/NewServiceEndpointDialog.png
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

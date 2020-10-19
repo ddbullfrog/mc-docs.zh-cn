@@ -3,19 +3,29 @@ author: v-demjoh
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 07/14/2020
-ms.date: 08/03/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4b59baf139f79114bf4c883d9212af065f1f4019
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.custom: devx-track-js
+ms.openlocfilehash: 19f03f03690f9e068f56cf8fd33e07837212705a
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89323279"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127856"
 ---
+语音服务的核心功能之一是能够识别人类语音并将其翻译成其他语言。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音翻译。 此快速入门介绍以下主题：
+
+* 将语音翻译为文本
+* 将语音翻译为多种目标语言
+* 直接进行语音转语音翻译
+
+## <a name="skip-to-samples-on-github"></a>跳转到 GitHub 上的示例
+
+如果要直接跳到示例代码，请参阅 GitHub 上的 [JavaScript 快速入门示例](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node)。
+
 ## <a name="prerequisites"></a>先决条件
 
-本文假定你有 Azure 帐户和语音服务订阅。 如果你没有帐户和订阅，请[尝试语音服务](../../../get-started.md)。
+本文假定你有 Azure 帐户和语音服务订阅。 如果你没有帐户和订阅，[可以免费试用语音服务](../../../overview.md#try-the-speech-service-for-free)。
 
 ## <a name="install-the-speech-sdk"></a>安装语音 SDK
 

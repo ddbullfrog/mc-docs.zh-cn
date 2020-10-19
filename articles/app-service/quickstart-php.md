@@ -4,14 +4,15 @@ description: 在数分钟内将第一个 PHP Hello World 部署到 Azure 应用�
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 origin.date: 08/01/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 5c0d667ee08e39676118b6341d5a74ac43152343
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+zone_pivot_groups: app-service-platform-windows-linux
+ms.openlocfilehash: 1c47d0c3d156df087bef31d2b4cd86a88a967fcd
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228957"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170528"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>在 Azure 应用服务中创建 PHP Web 应用
 

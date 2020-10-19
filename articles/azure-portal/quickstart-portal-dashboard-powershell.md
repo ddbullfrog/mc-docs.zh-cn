@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.author: v-tawe
 origin.date: 07/24/2020
-ms.date: 08/27/2020
-ms.openlocfilehash: 2af55f3ce528bc41540a537c40c9ca11b4394108
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.date: 10/19/2020
+ms.openlocfilehash: 93d495c4d7cced9a9247a3fe9f55f250b56f7674
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947495"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170651"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>快速入门：使用 PowerShell 创建 Azure 门户仪表板
 
@@ -103,7 +103,7 @@ VM 部署现在将开始进行，通常需要几分钟才能完成。 部署完�
 
 ## <a name="download-the-dashboard-template"></a>下载仪表板模板
 
-由于 Azure 仪表板是资源，所以它们可以表示为 JSON。 下面的代码会下载示例仪表板的 JSON 表示形式。 有关详细信息，请参阅 [Azure 仪表板结构](/azure-portal/azure-portal-dashboards-structure)。
+由于 Azure 仪表板是资源，所以它们可以表示为 JSON。 下面的代码会下载示例仪表板的 JSON 表示形式。 有关详细信息，请参阅 [Azure 仪表板结构](./azure-portal-dashboards-structure.md)。
 
 ```azurepowershell
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'

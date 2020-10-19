@@ -1,21 +1,21 @@
 ---
 title: 使用 PowerShell 获取 Azure VM 的维护通知
 description: 使用 PowerShell 查看在 Azure 中运行的虚拟机的维护通知并启动自助维护。
-author: rockboyfor
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 11/19/2019
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 783d4ee46acb54511fde1ecb956f574c4b548bcd
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 960f780c21d47754a60f10989695420923fa7aea
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052362"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127959"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>使用 PowerShell 处理计划内维护
 
@@ -27,6 +27,18 @@ ms.locfileid: "89052362"
 
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
+```
+
+输出
+
+```
+MaintenanceRedeployStatus               : 
+  IsCustomerInitiatedMaintenanceAllowed : True
+  PreMaintenanceWindowStartTime         : 5/14/2018 12:30:00 PM
+  PreMaintenanceWindowEndTime           : 5/19/2018 12:30:00 PM
+  MaintenanceWindowStartTime            : 5/21/2018 4:30:00 PM
+  MaintenanceWindowEndTime              : 6/4/2018 4:30
+  LastOperationResultCode               : None 
 ```
 
 在 MaintenanceRedeployStatus 下返回以下属性： 

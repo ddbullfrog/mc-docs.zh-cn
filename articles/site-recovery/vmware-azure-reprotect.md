@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 12/17/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 05af6148d22d5ea4bbc1bc44852506d7cd8ef771
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 28c71fbbd359e6f7c90c4a388c69069c71c1193a
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655445"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127669"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>从 Azure 到本地进行重新保护
 
@@ -49,6 +49,9 @@ ms.locfileid: "89655445"
 - 重新保护恢复计划时，必须为每台受保护的计算机提供值。
 - 如果 VM 属于多虚拟机一致性的复制组，则只能使用恢复计划对其进行重新保护。 复制组中的 VM 必须使用相同的主目标服务器
 
+>[!NOTE]
+>在重新保护期间从 Azure 发送到 erstwhile 源的数据量可以是 0 字节到所有受保护计算机的磁盘大小总和之间的任何值，并且无法计算。
+
 ### <a name="before-you-start"></a>开始之前
 
 - 故障转移后，在 Azure 中启动 VM 后，会留出一段时间让代理重新注册到配置服务器（最多 15 分钟）。 在此期间，将无法进行重新保护并会返回一条错误消息，指出未安装代理。 如果发生这种情况，请等待几分钟，然后重新保护。
@@ -57,13 +60,13 @@ ms.locfileid: "89655445"
 
 按如下所述启用重新保护：
 
-1. 选择“保管库”   >   “复制的项”。 右键单击已故障转移的虚拟机，然后选择“重新保护”。  也可以从命令按钮中选择该计算机，然后选择“重新保护”。 
-2. 验证是否选择了“从 Azure 到本地”保护方向。 
-3. 在“主目标服务器”和“进程服务器”中，选择本地主目标服务器和进程服务器。    
-4. 对于“数据存储”，选择要将本地磁盘恢复到的数据存储。  删除本地虚拟机后，如果需要创建新磁盘，可使用此选项。 如果磁盘已存在，则会忽略此选项。 仍需指定一个值。
+1. 选择“保管库” > “复制的项”。 右键单击已故障转移的虚拟机，然后选择“重新保护”。**** 也可以从命令按钮中选择该计算机，然后选择“重新保护”。****
+2. 验证是否选择了“从 Azure 到本地”保护方向。****
+3. 在“主目标服务器”和“进程服务器”中，选择本地主目标服务器和进程服务器。********  
+4. 对于“数据存储”，选择要将本地磁盘恢复到的数据存储。**** 删除本地虚拟机后，如果需要创建新磁盘，可使用此选项。 如果磁盘已存在，则会忽略此选项。 仍需指定一个值。
 5. 选择保留驱动器。
 6. 将自动选择故障回复策略。
-7. 选择“确定”开始重新保护。 
+7. 选择“确定”开始重新保护。****
 
     :::image type="content" source="./media/vmware-azure-reprotect/reprotectinputs.png" alt-text="“重新保护”对话框":::
 

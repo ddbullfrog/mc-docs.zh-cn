@@ -14,16 +14,19 @@ origin.date: 08/31/2020
 ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 59efee5e8a664eec9f57508038a1f1ed6b56a98c
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 71e9eceb76eaae536ab59134f467c05baf5eed3e
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245501"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121725"
 ---
 # <a name="media-services-terminology-and-concepts"></a>媒体服务的术语和概念
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+> [!NOTE]
+> Google Widevine 内容保护服务目前在 Azure 中国区域不可用。
 
 本主题简要概述 Azure 媒体服务的术语和概念。 本文还会提供深入介绍媒体服务 v3 概念和功能的文章的链接。
 

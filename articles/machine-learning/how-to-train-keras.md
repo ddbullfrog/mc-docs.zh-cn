@@ -11,15 +11,15 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 73f9adcc93e3de98916088ebffbcbbffdf867937
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 095cab065f996320d860303fa1d31379ce2753d3
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395454"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117959"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>使用 Azure 机器学习训练和注册 Keras 分类模型
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本文介绍如何使用 Azure 机器学习训练和注册以 TensorFlow 为基础的 Keras 分类模型。 它凭借使用在 [TensorFlow](https://www.tensorflow.org/overview) 上运行的 [Keras Python 库](https://keras.io)构建的深度神经网络 (DNN)，采用热门的 [MNIST 数据集](http://yann.lecun.com/exdb/mnist/)对手写数字进行分类。
 

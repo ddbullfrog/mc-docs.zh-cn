@@ -1,30 +1,32 @@
 ---
 title: Azure Cosmos DB Gremlin 的限制
 description: 有关 Graph 引擎运行时限制的参考文档
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 origin.date: 10/04/2019
-ms.date: 10/28/2019
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0dbcc1e25aaddb6ec55f942c3518ebff3e5bc289
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 3b0702a6c73e9e16b05d4beb38278f3f099849ae
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72970267"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118058"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Azure Cosmos DB Gremlin 限制
 本文介绍 Azure Cosmos DB Gremlin 引擎的限制，并说明他们可能会如何影响客户遍历。
 
-Cosmos DB Gremlin 基于 Cosmos DB 基础结构而构建。 由于此原因，[Azure Cosmos DB 服务限制](/cosmos-db/concepts-limits)中所述的所有限制仍然适用。 
+Cosmos DB Gremlin 基于 Cosmos DB 基础结构而构建。 由于此原因，[Azure Cosmos DB 服务限制](https://docs.azure.cn/cosmos-db/concepts-limits)中所述的所有限制仍然适用。
 
 ## <a name="limits"></a>限制
 
 达到 Gremlin 限制时，遍历将会取消，并会显示 **x-ms-status-code** 429，以指示存在限制错误。 有关详细信息，请参阅 [Gremlin 服务器响应标头](gremlin-limits.md)。
 
-**资源**    | **默认限制** | **解释**
+**资源** | **默认限制** | **解释**
 --- | --- | ---
 脚本长度  | **64 KB** | 每个请求的 Gremlin 遍历脚本的最大长度。
 运算符深度  | **400** |  遍历中的唯一步骤的总数。 例如，```g.V().out()``` 的运算符计数为 2：V() 和 out()，```g.V('label').repeat(out()).times(100)``` 的运算符深度为 3：V()、repeat() 和 out()，因为 ```.times(100)``` 为 ```.repeat()``` 运算符的参数。
@@ -35,7 +37,7 @@ Cosmos DB Gremlin 基于 Cosmos DB 基础结构而构建。 由于此原因，[A
 每小时的资源令牌  | **100** | Gremlin 客户端在连接到某个区域中的 Gremlin 帐户时使用的唯一资源令牌的数目。 当应用程序超出每小时唯一令牌限制时，系统会针对下一次的身份验证请求返回 `"Exceeded allowed resource token limit of 100 that can be used concurrently"`。
 
 ## <a name="next-steps"></a>后续步骤
-* [Azure Cosmos DB Gremlin 响应标头](gremlin-headers.md) 
+* [Azure Cosmos DB Gremlin 响应标头](gremlin-headers.md)
 * [使用 Gremlin 的 Azure Cosmos DB 资源令牌](how-to-use-resource-tokens-gremlin.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

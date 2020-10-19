@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 03/23/2020
-ms.date: 06/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: df228f696b8e6fae523d340666de9f5549d4136a
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 22712a8d9d2972e09f2e0adf512509776f31cde1
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917342"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170434"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以编程方式创建 Azure 仪表板
 
@@ -56,7 +56,7 @@ ms.locfileid: "87917342"
 
 ![共享仪表板](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-选择“共享”时，系统会提示选择要发布到的订阅和资源组。  必须对所选订阅和资源组拥有写入访问权限。 有关详细信息，请参阅[使用 Azure RBAC 和 Azure 门户添加或删除角色分配](../role-based-access-control/role-assignments-portal.md)。
+选择“共享”时，系统会提示选择要发布到的订阅和资源组。  必须对所选订阅和资源组拥有写入访问权限。 有关详细信息，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)。
 
 ![对共享和访问权限进行更改](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,13 +79,13 @@ ms.locfileid: "87917342"
 在 Azure 中创建资源的 API 采用两种方法：
 
 * 命令式 API 一次创建一个资源。 有关详细信息，请参阅[资源](https://docs.microsoft.com/rest/api/resources/resources)。
-* 基于模板的部署系统使用单个 API 调用来创建多个依赖资源。 有关详细信息，请参阅[使用资源管理器模板和 Azure PowerShell 部署资源](../azure-resource-manager/resource-group-template-deploy.md)。
+* 基于模板的部署系统使用单个 API 调用来创建多个依赖资源。 有关详细信息，请参阅[使用资源管理器模板和 Azure PowerShell 部署资源](../azure-resource-manager/templates/deploy-powershell.md)。
 
 基于模板的部署支持参数化和模板化。 本文将使用此方法。
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>使用模板部署以编程方式从模板创建仪表板
 
-Azure 提供协调多资源部署的功能。 创建用于表达要部署的资源集的部署模板及资源之间的关系。  每个资源的 JSON 格式与逐个创建资源时的格式相同。 差别在于模板语言会添加一些概念，例如变量、参数、基本功能等。 此扩展语法仅在模板部署上下文中受支持。 如果与前述命令式 API 一起使用，则不起作用。 有关详细信息，请参阅[了解 Azure 资源管理器模板的结构和语法](../azure-resource-manager/resource-group-authoring-templates.md)。
+Azure 提供协调多资源部署的功能。 创建用于表达要部署的资源集的部署模板及资源之间的关系。  每个资源的 JSON 格式与逐个创建资源时的格式相同。 差别在于模板语言会添加一些概念，例如变量、参数、基本功能等。 此扩展语法仅在模板部署上下文中受支持。 如果与前述命令式 API 一起使用，则不起作用。 有关详细信息，请参阅[了解 Azure 资源管理器模板的结构和语法](../azure-resource-manager/templates/template-syntax.md)。
 
 应使用模板的参数语法来实现参数化。  替换之前找到的所有资源 ID 的实例，如下所示。
 
@@ -126,7 +126,7 @@ id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/v
 配置模板后，使用以下任意方法部署模板：
 
 * [REST API](https://docs.microsoft.com/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](/cli/group/deployment#az-group-deployment-create)
 * [Azure 门户模板部署页](https://portal.azure.cn/#create/Microsoft.Template)
 

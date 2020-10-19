@@ -1,22 +1,22 @@
 ---
 title: Azure 托管磁盘的服务器端加密 - PowerShell
 description: Azure 存储在将数据保存到存储群集之前会对其进行静态加密，以此保护数据。 可以依赖于 Azure 托管的密钥来加密托管磁盘，也可以使用客户管理的密钥通过自己的密钥来管理加密。
-origin.date: 07/10/2020
+origin.date: 09/23/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.topic: conceptual
 ms.author: v-yeche
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ef15258e6ea918ecae019136d6efe9470c37e2eb
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: ad15a0742e8158e1b5ebfb5bf11f1ff411a32e96
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463131"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127677"
 ---
 <!--Verified successfully-->
 <!--PG notified the Customer-managed keys GA on global-->
@@ -69,11 +69,10 @@ Azure 托管磁盘中的数据使用 256 位 AES 加密（可用的最强大分�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 通过 [PowerShell](disks-enable-host-based-encryption-powershell.md)使用主机加密启用端到端加密。
-
-    <!--Not Available on [Azure portal](disks-enable-host-based-encryption-portal.md)-->
-    <!--Not Available on [PowerShell](disks-enable-double-encryption-at-rest-powershell.md)-->
-    <!--Not Available on [Azure portal](disks-enable-double-encryption-at-rest-portal.md)-->
+<!--Not Avaialble on [PowerShell](disks-enable-host-based-encryption-powershell.md)-->
+<!--Not Available on [Azure portal](disks-enable-host-based-encryption-portal.md)-->
+<!--Not Available on [PowerShell](disks-enable-double-encryption-at-rest-powershell.md)-->
+<!--Not Available on [Azure portal](disks-enable-double-encryption-at-rest-portal.md)-->
     
 - 通过 [PowerShell](disks-enable-customer-managed-keys-powershell.md)为托管磁盘启用客户管理的密钥。
 

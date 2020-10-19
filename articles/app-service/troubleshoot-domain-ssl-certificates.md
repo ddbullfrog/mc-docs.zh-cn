@@ -6,15 +6,15 @@ manager: dcscontentpm
 tags: top-support-issue
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 104bd801c01b9a6ce10f185bde26e5459c8102f0
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 3b142f41b5a3493d44d4326be7c3e069667732c5
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228277"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170598"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>排查 Azure 应用服务中的域和 TLS/SSL 证书问题
 
@@ -134,7 +134,7 @@ Internet 浏览器可能仍在缓存域的旧 IP 地址。
 #### <a name="solution"></a>解决方案
 
 - 咨询订阅管理员，确保有权将主机名添加到应用。
-- 如果需要更多子域，我们建议将域托管服务更改为 Azure 域服务 (DNS)。 使用 Azure DNS 可将 500 个主机名添加到应用。 有关详细信息，请参阅[添加子域](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)。
+- 如果需要更多子域，我们建议将域托管服务更改为 Azure 域服务 (DNS)。 使用 Azure DNS 可将 500 个主机名添加到应用。 有关详细信息，请参阅[添加子域](https://docs.microsoft.com/archive/blogs/waws/mapping-a-custom-subdomain-to-an-azure-website)。
 
 ### <a name="dns-cant-be-resolved"></a>无法解析 DNS
 

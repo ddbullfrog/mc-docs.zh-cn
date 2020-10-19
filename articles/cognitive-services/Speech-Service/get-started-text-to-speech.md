@@ -1,5 +1,5 @@
 ---
-title: 语音合成快速入门 - 语音服务
+title: 文本转语音快速入门 - 语音服务
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用语音 SDK 将文本转换为语音。 本快速入门介绍有关语音合成的对象构造和设计模式、支持的音频输出格式、语音 CLI 以及自定义配置选项。
 services: cognitive-services
@@ -8,29 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 08/11/2020
-ms.date: 09/02/2020
+origin.date: 10/01/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-zone_pivot_groups: speech-full-stack
-ms.openlocfilehash: 14e9c9bf5544d892c0d7fb1d82c06965e79d7225
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+zone_pivot_groups: speech-full-stack-objectivec-swift
+keywords: 文本转语音
+ms.openlocfilehash: 753b5b18bf188fb5feeca4ad71b3e7b0cb7b33c0
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323285"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127924"
 ---
-# <a name="get-started-with-speech-synthesis"></a>语音合成入门
-
-本快速入门介绍使用语音 SDK 进行文本到语音合成的常见设计模式。 首先，请进行基本的配置和合成，然后通过更高级的示例来了解自定义应用程序开发，其中包括：
-
-* 获取内存中流形式的响应
-* 自定义输出采样率和比特率
-* 使用 SSML（语音合成标记语言）提交合成请求
-* 使用神经语音
-
-> [!TIP]
-> 如果要直接跳到示例代码，请参阅 GitHub 上的[快速入门示例](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart)。
+# <a name="get-started-with-text-to-speech"></a>开始使用文本转语音
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]
@@ -48,12 +39,16 @@ ms.locfileid: "89323285"
 [!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-javascript.md)]
 ::: zone-end
 
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [Objective-C and Swift Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-objectivec-swift.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-spx"
-[!INCLUDE [CLI include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
+[!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>后续步骤

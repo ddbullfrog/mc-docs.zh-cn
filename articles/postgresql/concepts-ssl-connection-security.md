@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 07/08/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: b1506ff3ccd2ada3d9b2cb856d78643647fdc1e6
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 10/19/2020
+ms.openlocfilehash: e0abf8fbb75153273f60c59326b6254dfc91afc9
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029630"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041833"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL（单一服务器）中配置 TLS 连接
 
@@ -34,7 +34,7 @@ Azure Database for PostgreSQL 倾向于使用传输层安全性 (TLS)（以前�
 
 访问 Azure Database for PostgreSQL 服务器，并单击“连接安全性”。 使用切换按钮来启用或禁用“强制实施 SSL 连接”设置。 然后单击“保存” 。
 
-![连接安全性 - 禁用强制实施 TLS/SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
+:::image type="content" source="./media/concepts-ssl-connection-security/1-disable-ssl.png" alt-text="连接安全性 - 禁用强制实施 TLS/SSL":::
 
 可以通过在“概述”页中查看“SSL 强制实施状态”指示器来确认设置。
 

@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.topic: overview
 origin.date: 04/19/2018
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 28b365475193ab83cf4514052d9ac0d56c61aa52
-ms.sourcegitcommit: 981a75a78f8cf74ab5a76f9e6b0dc5978387be4b
+ms.openlocfilehash: e42b78081ed6de823498d0e486a17558c835dbde
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801280"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170749"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>应用服务环境简介 #
  
@@ -21,11 +21,9 @@ ms.locfileid: "83801280"
 
 Azure 应用服务环境是一项 Azure 应用服务功能，可提供完全隔离和专用的环境，以便高度安全地运行应用服务应用。 此功能可以托管：
 
-<!-- Linux web apps/containers not available -->
-<!-- * Linux web apps -->
-<!-- * Docker containers -->
-
 * Windows Web 应用
+* Linux Web 应用 
+* Docker 容器
 * 移动应用
 * 函数
 
@@ -66,13 +64,13 @@ ASE 每月会产生统一的基础结构使用费，该费率不会随 ASE 的�
 
 ## <a name="virtual-network-support"></a>虚拟网络支持 ##
 
-ASE 功能直接将 Azure 应用服务部署到客户的 Azure 资源管理器虚拟网络。 若要了解有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络常见问题解答](https://docs.azure.cn/virtual-network/virtual-networks-faq)。 ASE 始终存在于虚拟网络之中，更准确地说，是在虚拟网络的子网内。 可使用虚拟网络的安全功能为应用控制入站和出站网络通信。
+ASE 功能直接将 Azure 应用服务部署到客户的 Azure 资源管理器虚拟网络。 若要了解有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络常见问题解答](../../virtual-network/virtual-networks-faq.md)。 ASE 始终存在于虚拟网络之中，更准确地说，是在虚拟网络的子网内。 可使用虚拟网络的安全功能为应用控制入站和出站网络通信。
 
 ASE 既可以是面向 Internet 的（使用公共 IP 地址），也可以是面向内部的（只使用 Azure 内部负载均衡器 (ILB) 地址）。
 
 [网络安全组][NSGs]将入站网络通信限制为 ASE 所在的子网。 可以在上游设备和服务（例如 WAF 和网络 SaaS 提供程序）后使用 NSG 来运行应用。
 
-应用还经常需要访问公司资源，例如内部数据库和 Web 服务。 如果在包含本地网络的 VPN 连接的虚拟网络中部署 ASE，ASE 中的应用可以访问本地资源。 无论 VPN 是[站点到站点](https://docs.azure.cn/vpn-gateway/vpn-gateway-multi-site) VPN，还是 [Azure ExpressRoute](https://www.azure.cn/home/features/expressroute/) VPN，都可以使用此功能。
+应用还经常需要访问公司资源，例如内部数据库和 Web 服务。 如果在包含本地网络的 VPN 连接的虚拟网络中部署 ASE，ASE 中的应用可以访问本地资源。 无论 VPN 是[站点到站点](../../vpn-gateway/vpn-gateway-multi-site.md) VPN，还是 [Azure ExpressRoute](https://www.azure.cn/home/features/expressroute/) VPN，都可以使用此功能。
 
 有关如何在虚拟网络和本地网络中使用 ASE 的详细信息，请参阅[应用服务环境网络注意事项][ASENetwork]。
 
@@ -93,7 +91,7 @@ ASE 既可以是面向 Internet 的（使用公共 IP 地址），也可以是�
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
@@ -101,5 +99,5 @@ ASE 既可以是面向 Internet 的（使用公共 IP 地址），也可以是�
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/waf-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 04/17/2019
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: v-johya
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 19343cb409e6c176de7c21ab8ebdcde9fd38955e
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.custom: seodec18, devx-track-python
+ms.openlocfilehash: c99522233dae8da05fb09a39c7d42351d7358324
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023408"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128249"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>快速入门：通过计算机视觉中的 REST API 和 Python 使用域模型
 

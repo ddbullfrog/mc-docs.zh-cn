@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/13/2020
 ms.date: 09/24/2020
-ms.openlocfilehash: 9c158e18fd7419789a33a7b458b9e301c51180d9
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 5883530e8dd33e9b00ff5ebf797e9d6699bbefbc
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146559"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128095"
 ---
 # <a name="create-a-connection-to-event-hub"></a>创建到事件中心的连接
 
@@ -46,7 +46,7 @@ ms.locfileid: "91146559"
 | IngestionMappingReference | 要使用的现有[引入映射](kusto/management/create-ingestion-mapping-command.md)的名称。 替代“`Data Connection`”窗格上设置的“`Column mapping`”。|
 | 压缩 | 数据压缩。`None`（默认值）或 `GZip` 压缩。|
 | 编码 | 数据编码，默认值为 UTF8。 可以是 [.NET 支持的任何编码](https://docs.microsoft.com/dotnet/api/system.text.encoding?view=netframework-4.8#remarks)。 |
-| 标记（预览版） | 将要与引入的数据（格式设置为 JSON 数组字符串）关联的[标记](kusto/management/extents-overview.md#extent-tagging)的列表。 使用标记时存在[性能影响](kusto/management/extents-overview.md#performance-notes-1)。 |
+| 标记（预览版） | 将要与引入的数据（格式设置为 JSON 数组字符串）关联的[标记](kusto/management/extents-overview.md#extent-tagging)的列表。 使用标记时存在[性能影响](kusto/management/extents-overview.md#performance-notes)。 |
 
 <!--| Database | Name of the existing target database.|-->
 <!--| Tags | String representing [tags](/kusto/management/extents-overview#extent-tagging) that will be attached to resulting extent. |-->

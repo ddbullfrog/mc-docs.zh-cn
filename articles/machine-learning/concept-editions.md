@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: 8e41865066f88d0f049cffc4e027b328bdcf8566
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 4ad929b6010cbba5520b9866bfcde752968370fd
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021358"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117865"
 ---
 # <a name="enterprise-preview-and-basic-editions-of-azure-machine-learning"></a>Azure 机器学习的 Enterprise（预览）和 Basic Edition 
 
@@ -21,7 +21,7 @@ Azure 机器学习提供了两个版本，专为你的机器学习需求提供�
 
 ## <a name="choose-an-edition"></a>选择版本
 
-你始终可以在创建工作区时分配版本。 客户负责在此期间因计算和其他 Azure 资源产生的成本。 了解如何[管理 Azure 机器学习的成本](concept-plan-manage-cost.md)。
+你始终可以在创建工作区时分配版本。 客户负责在此期间因计算和其他 Azure 资源产生的成本。 
 
 了解如何[将 Basic 工作区升级到 Enterprise（预览）Edition](how-to-manage-workspace.md#upgrade)。 
 

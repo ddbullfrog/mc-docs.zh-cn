@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: fd1c7c4039b770c5b192c04853c23d97bbc2b5a2
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: d16d43224b33a4e60a817053e85bd96d17899c67
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395455"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117960"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>在 Azure 机器学习训练运行中启用日志记录功能
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure 机器学习 Python SDK 允许使用默认的 Python 日志记录包和特定于 SDK 的功能记录实时信息。 你可以在本地进行记录，并将日志发送到门户中的工作区。
 
@@ -37,17 +37,17 @@ Azure 机器学习 Python SDK 允许使用默认的 Python 日志记录包和特
 
 ## <a name="data-types"></a>数据类型
 
-可以记录多个数据类型，包括标量值、列表、表、图像、目录等。 有关不同数据类型的详细信息和 Python 代码示例，请查看 [Run 类参考页](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true)。
+可以记录多个数据类型，包括标量值、列表、表、图像、目录等。 有关不同数据类型的详细信息和 Python 代码示例，请查看 [Run 类参考页](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)。
 
 ## <a name="interactive-logging-session"></a>交互式日志记录会话
 
-交互式日志记录会话通常用在笔记本环境中。 方法 [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) 启动交互式日志记录会话。 试验中会话期间记录的任何指标都会添加到运行记录中。 方法 [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) 结束会话并将运行标记为已完成。
+交互式日志记录会话通常用在笔记本环境中。 方法 [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-logging--args----kwargs-) 启动交互式日志记录会话。 试验中会话期间记录的任何指标都会添加到运行记录中。 方法 [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecomplete--set-status-true-) 结束会话并将运行标记为已完成。
 
-## <a name="scriptrunconfig-logs"></a>ScriptRunConfig 日志
+## <a name="scriptrun-logs"></a>ScriptRun 日志
 
-此部分介绍如何在 ScriptConfig 运行中添加日志记录代码。 可以使用 [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 类来封装用于可重复运行的脚本和环境。 还可以使用此选项来显示一个用于监视的 Jupyter Notebooks 视觉小组件。
+本部分介绍使用了 ScriptRunConfig 进行配置时，如何在创建的各次运行之内添加记录代码。 可以使用 [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 类来封装用于可重复运行的脚本和环境。 还可以使用此选项来显示一个用于监视的 Jupyter Notebooks 视觉小组件。
 
-此示例使用 [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----) 方法对 alpha 值执行参数扫描并捕获结果。
+此示例使用 [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true#&preserve-view=truelog-name--value--description----) 方法对 alpha 值执行参数扫描并捕获结果。
 
 1. 创建包含日志记录逻辑的训练脚本 `train.py`。
 
@@ -142,7 +142,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Azure 机器学习还可以在训练期间记录其他来源的信息，例如自动化机器学习运行或运行作业的 Docker 容器。 这些日志未进行记录，但如果你遇到问题并联系了 Microsoft 支持部门，他们可以在排除故障时使用这些日志。
 
-有关 Azure 机器学习设计器（预览版）中的日志记录指标的信息，请参阅[如何在设计器（预览版）中记录指标](how-to-track-designer-experiments.md)
+有关在 Azure 机器学习设计器中记录指标的信息，请参阅[如何在设计器中记录指标](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>示例笔记本
 下面的笔记本展示了本文中的概念：
@@ -155,6 +155,6 @@ Azure 机器学习还可以在训练期间记录其他来源的信息，例如�
 
 请参阅以下文章，详细了解如何使用 Azure 机器学习：
 
-* 了解如何[在 Azure 机器学习设计器（预览版）中记录指标](how-to-track-designer-experiments.md)。
+* 了解如何[在 Azure 机器学习设计器中记录指标](how-to-track-designer-experiments.md)。
 
 * 查看教程[使用 Azure 机器学习训练图像分类模型](tutorial-train-models-with-aml.md)中的示例，了解如何注册和部署最佳模型。

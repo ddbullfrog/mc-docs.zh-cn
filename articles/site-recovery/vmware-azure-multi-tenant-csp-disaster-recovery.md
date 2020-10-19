@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b7011addaccef986481698309aedb3df7fe4b837
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 7db3201785e1383ac76a869e2f1c8d26578a7dbc
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655456"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127786"
 ---
 <!--NOT SUITABLE FOR AZURE CHINA CLOUD DUE TO LIMIT DESCRIPTION-->
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>使用云解决方案提供商 (CSP) 计划在多租户环境中设置 VMware 灾难恢复
@@ -61,11 +61,11 @@ ms.locfileid: "89655456"
 2. 在租户帐户的“订阅”页上，可以监视现有的帐户订阅，并根据需要添加更多订阅。 
 3. 若要管理租户的灾难恢复操作，请选择“所有资源(Azure 门户)”  。 这将向你授予对租户的 Azure 订阅的访问权限。
 
-    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png" alt-text="“所有资源”链接":::  
+    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png" alt-text="“帐户信息”页":::  
 
 4. 可以单击 Azure 门户右上角的 Azure Active Directory 链接来验证访问权限。
 
-    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png" alt-text="Azure Active Directory 链接":::
+    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png" alt-text="“帐户信息”页":::
 
 现在可以在 Azure 门户中为租户执行和管理所有 Site Recovery 操作。 若要通过 CSP 来访问租户订阅以实现托管式灾难恢复，请按前述过程操作。
 
@@ -77,7 +77,7 @@ ms.locfileid: "89655456"
 
     a) 转到租户的 CSP 订阅页，然后选择“用户和许可证”选项。 
 
-        :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png" alt-text="The tenant's CSP subscription page":::
+    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png" alt-text="“帐户信息”页":::
 
     b) 现在可以创建新的用户，只需输入相关详细信息并选择权限，或者通过 CSV 文件上传用户列表即可。
 
@@ -87,7 +87,7 @@ ms.locfileid: "89655456"
 
     e) 单击“添加角色分配”**** 以添加具有相关访问级别的用户。 通过 CSP 门户创建的用户会显示在“角色分配”选项卡上。
 
-        :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png" alt-text="Add a user":::
+    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png" alt-text="“帐户信息”页":::
 
 - 对于大多数管理操作，“参与者”角色已足够。** 具有此访问级别的用户可以对订阅执行所有操作，更改访问级别除外（此操作需要“所有者”级别访问权限）。**
 - Site Recovery 还具有三个[预定义的用户角色](site-recovery-role-based-linked-access-control.md)，这些角色可用于根据需要进一步限制访问级别。

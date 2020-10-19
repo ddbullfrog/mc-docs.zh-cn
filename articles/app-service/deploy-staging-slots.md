@@ -4,20 +4,20 @@ description: 了解如何将应用部署到非生产槽并自动交换到生产�
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 origin.date: 04/30/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a0609e8aee9f77c1308c37e14dfdbeb49c09f0cf
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: efac34ab95c690c2381c688165edfb45715e37fb
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678390"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170765"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
 
-将 Web 应用、Linux 上的 Web 应用、移动后端或 API 应用部署到 [Azure 应用服务](https://docs.azure.cn/app-service/overview)时，如果应用在“标准”、“高级”或“隔离”应用服务计划层中运行，则可以使用单独的部署槽，而不是默认的生产槽。 部署槽是具有自身主机名的实时应用。 两个部署槽（包括生产槽）之间的应用内容与配置元素可以交换。 
+将 Web 应用、Linux 上的 Web 应用、移动后端或 API 应用部署到 [Azure 应用服务](./overview.md)时，如果应用在“标准”、“高级”或“隔离”应用服务计划层中运行，则可以使用单独的部署槽，而不是默认的生产槽。 部署槽是具有自身主机名的实时应用。 两个部署槽（包括生产槽）之间的应用内容与配置元素可以交换。 
 
 将应用程序部署到非生产槽具有以下优点：
 
@@ -64,7 +64,7 @@ ms.locfileid: "90678390"
 
 6. 选择此槽资源页中的应用 URL。 部署槽有其自己的主机名，同时也是动态应用。 若要限制对部署槽的公共访问权限，请参阅 [Azure 应用服务 IP 限制](app-service-ip-restrictions.md)。
 
-即使从其他槽克隆设置，新部署槽位也无内容。 例如，可以[使用 Git 发布到此槽](app-service-deploy-local-git.md)。 可以从其他存储库分支或不同的存储库部署到槽。
+即使从其他槽克隆设置，新部署槽位也无内容。 例如，可以[使用 Git 发布到此槽](./deploy-local-git.md)。 可以从其他存储库分支或不同的存储库部署到槽。
 
 <a name="AboutConfiguration"></a>
 
@@ -225,7 +225,7 @@ ms.locfileid: "90678390"
 
 ## <a name="monitor-a-swap"></a>监视交换
 
-如果[交换操作](#AboutConfiguration)需要很长时间才能完成，则可以在[活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中获取有关交换操作的信息。
+如果[交换操作](#AboutConfiguration)需要很长时间才能完成，则可以在[活动日志](../azure-monitor/platform/platform-logs-overview.md)中获取有关交换操作的信息。
 
 在门户的应用资源页上的左窗格中，选择“活动日志”。
 
@@ -338,7 +338,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-resource-manager-templates"></a>使用资源管理器模板自动执行
 
-[Azure 资源管理器模板](/azure-resource-manager/template-deployment-overview)是用于自动部署和配置 Azure 资源的声明性 JSON 文件。 为了使用资源管理器模板交换槽，你将在 Microsoft.Web/sites/slots 和 Microsoft.Web/sites 资源中设置两个属性：
+[Azure 资源管理器模板](../azure-resource-manager/templates/overview.md)是用于自动部署和配置 Azure 资源的声明性 JSON 文件。 为了使用资源管理器模板交换槽，你将在 Microsoft.Web/sites/slots 和 Microsoft.Web/sites 资源中设置两个属性：
 
 - `buildVersion`：这是一个字符串属性，表示槽中部署的应用的当前版本。 例如：“v1”、“1.0.0.1”或“2019-09-20T11:53:25.2887393-07:00”。
 - `targetBuildVersion`：这是一个字符串属性，指定槽应使用哪个 `buildVersion`。 如果 targetBuildVersion 不等于当前的 `buildVersion`，则此属性会通过查找指定了 `buildVersion` 的槽来触发交换操作。
@@ -426,7 +426,6 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
       ...
     </conditions>
     ```
-- 某些 [IP 限制规则](app-service-ip-restrictions.md)可能会阻止交换操作将 HTTP 请求发送到应用。 以 `10.` 和 `100.` 开头的 IPv4 地址范围是部署内部的地址。 应允许这些地址连接到你的应用。
 
 - 槽交换之后，应用可能会遇到意外的重启。 这是因为，在交换之后，主机名绑定配置会失去同步，这种情况本身不会导致重启。 但是，某些基础存储事件（例如存储卷故障转移）可能会检测到这些差异，因而强制所有工作进程重启。 为了尽量减少这种重启，请在所有槽中设置 [`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` 应用设置](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig)。 但是，此应用设置不适用于 Windows Communication Foundation (WCF) 应用。
 

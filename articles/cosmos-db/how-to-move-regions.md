@@ -6,16 +6,16 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 origin.date: 09/12/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 23193298190071812bcfe86dd7284ac2bf63eb78
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 943ec08a561890cf79d32e45f79571d595ae2544
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246943"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118129"
 ---
 <!--Verified Successfully-->
 # <a name="move-an-azure-cosmos-db-account-to-another-region"></a>将 Azure Cosmos DB 帐户移到另一个区域
@@ -84,5 +84,4 @@ SQL API 的几乎不停机的迁移需要使用[更改源](change-feed.md)或一
 * [管理 Azure Cosmos 帐户](how-to-manage-database-account.md)
 * [Azure Cosmos DB 中的更改源](change-feed.md)
 
-<!-- Update_Description: new article about how to move regions -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

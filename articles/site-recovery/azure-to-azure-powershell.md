@@ -6,16 +6,16 @@ manager: rochakm
 ms.topic: article
 origin.date: 03/29/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: fda8c571d5f8e0a3d37ffbef9a1ad6d239b35877
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 28c3b3c6884666f074d29a451e6a03bd774f3180
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655712"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128001"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复
 
@@ -48,7 +48,7 @@ ms.locfileid: "89655712"
 
 ## <a name="sign-in-to-your-azure-subscription"></a>登录到 Azure 订阅
 
-使用 `Connect-AzAccount` cmdlet 登录到你的 Azure 订阅。
+使用 `Connect-AzAccount -Environment AzureChinaCloud` cmdlet 登录到你的 Azure 订阅。
 
 ```azurepowershell
 Connect-AzAccount -Environment AzureChinaCloud

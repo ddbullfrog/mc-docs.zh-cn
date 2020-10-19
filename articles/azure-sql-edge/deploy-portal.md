@@ -10,24 +10,23 @@ ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 10/12/2020
 ms.date: 10/13/2020
-ms.openlocfilehash: 33ce43dbf8a40aba1c43aef22e261fd495343ce6
-ms.sourcegitcommit: 2e443a17dfd1857ecf483fdb84ef087e29c089fe
+ms.openlocfilehash: 3b8d1e8b5b3ccfc5d884891c0725adb11a00266e
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91990761"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127648"
 ---
 # <a name="deploy-azure-sql-edge-as-custom-iot-edge-module"></a>将 Azure SQL Edge 部署为自定义 IoT Edge 模块 
 
-Azure SQL Edge 是已针对 IoT 和 Azure IoT Edge 部署进行了优化的关系数据库引擎。 它提供了为 IoT 应用和解决方案创建高性能数据存储和处理层的功能。 本快速入门介绍如何将 Azure SQL Edge 部署为自定义 IoT Edge 模块。 若要从 Azure 市场部署 Azure SQL Edge，请参阅[使用门户部署 Azure SQL Edge](deploy-portal.md)。
+Azure SQL Edge 是已优化的关系数据库引擎，更适合 IoT 和 Azure IoT Edge 部署。 它提供了为 IoT 应用和解决方案创建高性能数据存储和处理层的功能。 本快速入门介绍如何将 Azure SQL Edge 部署为自定义 IoT Edge 模块。 若要从 Azure 市场部署 Azure SQL Edge，请参阅[使用门户部署 Azure SQL Edge](deploy-portal.md)。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="before-you-begin"></a>开始之前
 
 * 如果没有 Azure 订阅，请创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
-* 登录到 [Azure 门户](https://portal.azure.cn/)。
+* 登录 [Azure 门户](https://portal.azure.cn/)。
 * 创建 [Azure IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
 * [在 Azure 门户中注册 IoT Edge 设备](../iot-edge/how-to-register-device-portal.md)。
-* 准备 IoT Edge 设备，以[在 Azure 门户中部署 IoT Edge 模块](../iot-edge/how-to-deploy-modules-portal.md)。
 
 > [!NOTE]   
 > 若要将 Azure Linux VM 部署为 IoT Edge 设备，请参阅这篇[快速入门指南](../iot-edge/quickstart-linux.md)。
@@ -44,10 +43,10 @@ Azure SQL Edge 是已针对 IoT 和 Azure IoT Edge 部署进行了优化的关�
 
 5. 在“添加 IoT Edge 模块”边栏选项卡上的“模块设置”下，添加以下详细信息。
 
-    | 名称 | Value |
+    | 名称 | “值” |
     |------|-------|
     |IoT Edge 模块名称| AzureSQLEdge |
-    |映像 URI| mcr.microsoft.com/azure-sql-edge:latest |
+    |**映像 URI**| mcr.microsoft.com/azure-sql-edge:latest |
     |重启策略| 通用 |
     |所需状态| “正在运行” |   
 
@@ -211,7 +210,7 @@ Azure SQL Edge 是已针对 IoT 和 Azure IoT Edge 部署进行了优化的关�
 
 2. 要在容器中退出交互式命令提示，请键入 `exit`。 退出交互式 Bash Shell 后，容器将继续运行。
 
-## <a name="connect-from-outside-the-container"></a>从容器外连接
+## <a name="connect-from-outside-the-container"></a> 从容器外连接
 
 可以从支持 SQL 连接的任何外部 Linux、Windows 或 macOS 工具连接 Azure SQL Edge 实例，并对其运行 SQL 查询。 有关从外部连接到 SQL Edge 容器的详细信息，请参阅[连接和查询 Azure SQL Edge](https://docs.azure.cn/azure-sql-edge/connect)。
 

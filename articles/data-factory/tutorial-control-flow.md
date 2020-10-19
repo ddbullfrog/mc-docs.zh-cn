@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 origin.date: 9/27/2019
-ms.date: 07/27/2020
-ms.openlocfilehash: ebd6efdb64b311c690ada6fad00ca2e472467a0e
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.date: 10/19/2020
+ms.openlocfilehash: e3aa101aba0039962b4e02d6f2d83b8b8dc83390
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974284"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121610"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>数据工厂管道中的分支和链接活动
 
@@ -27,7 +27,7 @@ ms.locfileid: "86974284"
 
 下图概述了该方案：
 
-![概述](media/tutorial-control-flow/overview.png)
+![显示 Azure Blob 存储的关系图，该存储是副本的目标，如果成功，将发送包含详细信息的电子邮件，如果失败，则将发送包含错误详细信息的电子邮件。](media/tutorial-control-flow/overview.png)
 
 本教程介绍如何执行以下任务：
 

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
 origin.date: 8/7/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: a4c7cfa6bd69f8d6c699ba502fd7e8560064fe74
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 10/19/2020
+ms.openlocfilehash: 6868acde40df9bb116bc6d7de50ddaf634e8e0c5
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512931"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041839"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>如何配置 Azure Database for MySQL 的数据传入复制
 
@@ -103,15 +103,15 @@ ms.locfileid: "89512931"
 
    若要在 MySQL Workbench 中创建复制角色，请在“管理”面板中打开“用户和特权”面板。  然后单击“添加帐户”。 
  
-   ![用户和特权](./media/howto-data-in-replication/users_privileges.png)
+   :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="用户和特权":::
 
    在“登录名称”字段中键入用户名。 
 
-   ![同步用户](./media/howto-data-in-replication/syncuser.png)
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="用户和特权":::
  
    单击“管理角色”面板，然后从“全局特权”列表中选择“复制从属实例”。   然后单击“应用”，创建复制角色。
 
-   ![复制从属实例](./media/howto-data-in-replication/replicationslave.png)
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="用户和特权":::
 
 1. 将主服务器设置为只读模式
 
@@ -131,7 +131,7 @@ ms.locfileid: "89512931"
    ```
    结果应如下所示。 确保记下此二进制文件名，因为在后面的步骤中会用到它。
 
-   ![主机状态结果](./media/howto-data-in-replication/masterstatus.png)
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="用户和特权":::
  
 ## <a name="dump-and-restore-master-server"></a>转储并还原主服务器
 

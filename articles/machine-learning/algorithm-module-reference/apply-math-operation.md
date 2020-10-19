@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 325a03f026b2cdb71aeb5a468d84292558a06f2b
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 0817bca2ef7d4fb2ce319cc204ade78a69ccece9
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097400"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118481"
 ---
 # <a name="apply-math-operation"></a>应用数学运算
 
-本文介绍 Azure 机器学习设计器（预览版）的模块。
+本文介绍 Azure 机器学习设计器的某个模块。
 
 使用“应用数学运算”可创建应用于输入数据集中数值列的计算。 
 

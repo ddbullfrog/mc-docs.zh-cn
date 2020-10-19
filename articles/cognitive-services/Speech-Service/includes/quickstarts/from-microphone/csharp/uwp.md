@@ -8,22 +8,22 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 origin.date: 04/02/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8b4cd26553a2c1670f19fd593f19155e80491e8
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 8b5b42f507a0d4f02025dbcce7b1d3a732255891
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317470"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128887"
 ---
 ## <a name="prerequisites"></a>先决条件
 
 准备工作：
 
 > [!div class="checklist"]
-> * [创建一个 Azure 搜索资源](../../../../get-started.md)
+> * [创建一个 Azure 搜索资源](../../../../overview.md#try-the-speech-service-for-free)
 > * [设置开发环境并创建空项目](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 > * 请确保你有权访问麦克风，以便进行音频捕获
 > * 需要语音 SDK 1.11.0 或更高版本。

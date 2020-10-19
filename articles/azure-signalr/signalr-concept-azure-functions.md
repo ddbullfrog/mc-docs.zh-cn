@@ -5,14 +5,14 @@ author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 11/13/2019
-ms.date: 12/16/2019
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8abf1424e5d50f6f6ef0bd1d176f64de8af53f3d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a4e27842850cd8df97f155f6012338d9f1c97828
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75336051"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170800"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>使用 Azure Functions 和 Azure SignalR 服务生成实时应用
 
@@ -28,6 +28,7 @@ Azure Functions 允许你以 JavaScript、Python、C# 和 Java 等[多种语言]
 * HTTP 和 Webhook 请求
 * 周期性定时器
 * Azure 服务中的事件，例如：
+    - 事件网格
     - 事件中心
     - 服务总线
     - Cosmos DB 更改源

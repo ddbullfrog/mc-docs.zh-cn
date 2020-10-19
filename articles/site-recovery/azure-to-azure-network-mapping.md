@@ -6,20 +6,20 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/15/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0158568e2c09b5f1c5f74a5cc857627d53226538
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 4cf1791c7206f60bd8f2c3df1849f524b1ebe52a
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655578"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128349"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>设置 VNet 的网络映射和 IP 寻址
 
-<!-- Notice: Change Source Location East Asia(China East) MAP TO Sourth East Asia(China North) --> 
+<!-- Notice: Change Source Location East Asia(China East) MAP TO Sourth East Asia(China North) -->
 
 本文介绍如何映射不同 Azure 区域中的两个 Azure 虚拟网络 (VNet) 实例，以及如何设置网络之间的 IP 寻址。 启用复制时，网络映射为基于源网络的目标网络选择提供了默认行为。
 
@@ -39,13 +39,13 @@ ms.locfileid: "89655578"
     
     <!--MOONCAKE: Change as China East replicated to China North region -->
     
-    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png" alt-text="选择源和目标":::
+    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png" alt-text=" 创建网络映射":::
 
 3. 现在，创建反方向的网络映射。 在本示例中，源现在是“中国北部”，目标是“中国东部”。
     
     <!--MOONCAKE: Change as from China North region TO China East region-->
     
-    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png" alt-text="添加网络映射窗格 - 选择目标网络的源和目标位置":::
+    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png" alt-text=" 创建网络映射":::
 
 ## <a name="map-networks-when-you-enable-replication"></a>启用复制时映射网络
 
@@ -69,7 +69,7 @@ ms.locfileid: "89655578"
 - 如果目标网络中没有同名的子网，则按字母顺序设置第一个子网作为目标子网。
 - 可以在 VM 的“计算和网络”设置中修改目标子网。****
 
-    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png" alt-text="计算和网络计算属性窗口":::
+    :::image type="content" source="./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png" alt-text=" 创建网络映射":::
 
 ## <a name="set-up-ip-addressing-for-target-vms"></a>设置目标 VM 的 IP 寻址
 

@@ -5,15 +5,15 @@ author: anthonychu
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 03/01/2019
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: c8c95d0b5cda96febac6aa37908f6833db915f2e
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: c1145f1e22d89ecfce4327a281b46923bca9cfb7
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063361"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170795"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>使用 Azure SignalR 服务进行 Azure Functions 开发和配置
 

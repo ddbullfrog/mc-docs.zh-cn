@@ -10,12 +10,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 2ed165d9f5ed0b8a506a0c712ec811d5ed6970f5
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 1058f609331cd796b9a09c25050fd64914ee40dc
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228386"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117966"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>数据科学虚拟机数据引入工具
 
@@ -31,7 +31,6 @@ ms.locfileid: "88228386"
 | 支持的 DSVM 版本      | Windows      |
 | 典型用途      | 将多个 blob 从 Azure Blob 存储复制到 Azure Data Lake Store。      |
 |  如何使用/运行它？    |   打开命令提示符，键入 `adlcopy` 可获取帮助。    |
-| 指向示例的链接      | [使用 AdlCopy](/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | DSVM 上的相关工具      | AzCopy、Azure CLI     |
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -42,7 +41,7 @@ ms.locfileid: "88228386"
 | 支持的 DSVM 版本      | Windows、Linux     |
 | 典型用途      | 从 Azure 存储、Azure Data Lake Store 导出数据或将数据导入其中。      |
 |  如何使用/运行它？    |   打开命令提示符，键入 `az` 可获取帮助。    |
-| 指向示例的链接      | [使用 Azure CLI](https://docs.microsoft.com/cli/azure)     |
+| 指向示例的链接      | [使用 Azure CLI](/cli)     |
 | DSVM 上的相关工具      | AzCopy、AdlCopy      |
 
 

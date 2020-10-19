@@ -10,13 +10,13 @@ manager: digimobile
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 origin.date: 01/04/2018
-ms.date: 06/29/2020
-ms.openlocfilehash: e927aba75629dc197dd5638d46f9c1b74f0d5388
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 10/19/2020
+ms.openlocfilehash: af994cee889158276cc773aff54d2424ccc1291a
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524046"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121727"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>通过 Azure 门户在 Azure 数据工厂中使用 Hive 活动转换 Azure 虚拟网络中的数据
 
@@ -234,7 +234,7 @@ ms.locfileid: "90524046"
         ![脚本参数](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. 若要将项目发布到数据工厂，请单击“发布”。
 
-    ![发布](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    ![屏幕截图显示了用于发布到数据工厂的选项。](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
 ## <a name="trigger-a-pipeline-run"></a>触发管道运行
 

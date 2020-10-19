@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 origin.date: 11/04/2019
 ms.date: 03/16/2020
-ms.openlocfilehash: ea8d828a04e0aed4e077e5a275da2375ec1bd989
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 70124b6a9f5067875d3e3afb4ce2ffad5b5b41e9
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395449"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118387"
 ---
 # <a name="what-is-azure-machine-learning"></a>什么是 Azure 机器学习？
 
@@ -41,7 +41,7 @@ Azure 机器学习可用于任何类型的机器学习，从传统 ml 到深度�
 ## <a name="machine-learning-tools-to-fit-each-task"></a>适用于每个任务的机器学习工具 
 
 Azure 机器学习为其机器学习工作流提供了开发人员和数据科学家所需的所有工具，包括：
-+ [Azure 机器学习设计器](tutorial-designer-automobile-price-train-score.md)（预览版）：拖放模块以生成实验，然后部署管道。
++ [Azure 机器学习设计器](tutorial-designer-automobile-price-train-score.md)：拖放模块以生成试验，然后部署管道。
 
 + Jupyter 笔记本：使用我们的[示例笔记本](https://github.com/Azure/MachineLearningNotebooks)或创建自己的笔记本，以利用<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">适用于 Python 的 SDK</a> 示例进行机器学习。 
 
@@ -71,7 +71,7 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 
 [Azure 机器学习工作室](https://www.studio.ml.azure.cn)是 Azure 机器学习中的 Web 门户，提供用于模型训练、部署和资产管理的低代码和无代码选项。 工作室与 Azure 机器学习 SDK 集成，以实现无缝体验。 有关详细信息，请参阅[什么是 Azure 机器学习工作室](overview-what-is-machine-learning-studio.md)。
 
-+ **Azure 机器学习设计器（预览版）**
++ **Azure 机器学习设计器**
 
   使用[设计器](concept-designer.md)可在不编写任何代码的情况下训练和部署机器学习模型。 尝试[设计器教程](tutorial-designer-automobile-price-train-score.md)以开始使用。 
 
@@ -115,7 +115,7 @@ Azure 机器学习可与 Azure 平台上的其他服务配合使用，还能与�
 + __Azure 事件网格__。 有关详细信息，请参阅[使用 Azure 机器学习事件](concept-event-grid-integration.md)。
 + __Azure Monitor__。 有关详细信息，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
 + 如 __Azure 存储帐户__、__Azure Data Lake Storage__、__Azure SQL 数据库__、__Azure Database for PostgreSQL__ 和 __Azure 开放数据集__ 这样的数据存储。 有关详细信息，请参阅[访问 Azure 存储服务中的数据](how-to-access-data.md)和[使用 Azure 开放数据集创建数据集](how-to-create-register-datasets.md)。
-+ __Azure 虚拟网络__。 有关详细信息，请参阅[虚拟网络中的安全试验和推理](how-to-enable-virtual-network.md)。
++ __Azure 虚拟网络__。 
 + __Azure Pipelines__。 有关详细信息，请参阅[定型和部署机器学习模型](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning)。
 + __Git 存储库日志__。 有关详细信息，请参阅 [Git 集成](concept-train-model-git-integration.md)。
 + __MLFlow__。 有关详细信息，请参阅[使用 MLflow 跟踪指标并部署模型](how-to-use-mlflow.md) 
@@ -123,16 +123,7 @@ Azure 机器学习可与 Azure 平台上的其他服务配合使用，还能与�
 
 ### <a name="secure-communications"></a>安全通信
 
-Azure 存储帐户、计算目标和其他资源可在虚拟网络内安全地用于定型模型并执行推理。 有关详细信息，请参阅[虚拟网络中的安全试验和推理](how-to-enable-virtual-network.md)。
-
-## <a name="basic--enterprise-editions"></a><a name="sku"></a>Basic 和 Enterprise Edition
-
-Azure 机器学习提供了两个版本，专为你的机器学习需求提供：
-+ **基本**：适用于云规模的开放源代码开发，具有代码优先体验。
-
-+ **企业版**：所有基本功能以及 Web 界面（工作室）+ 安全、全面的 ML 生命周期管理，适用于所有技能级别。
-
-若要了解有关这些版本及其解锁的功能的详细信息，请阅读[“Azure 机器学习版本”一文](concept-editions.md)。
+Azure 存储帐户、计算目标和其他资源可在虚拟网络内安全地用于定型模型并执行推理。 
 
 ## <a name="next-steps"></a>后续步骤
 

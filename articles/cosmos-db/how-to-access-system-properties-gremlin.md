@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 origin.date: 09/10/2019
-ms.date: 08/17/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 8e8b46ee430dc7a1b081d84975a5f9e9385d4f1f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 07bf6b756db9a1219679117bbb0f1ffd7edd13e9
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223088"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118490"
 ---
 # <a name="system-document-properties"></a>系统文档属性
 

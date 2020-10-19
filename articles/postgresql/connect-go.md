@@ -8,13 +8,13 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 origin.date: 5/6/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 9025407a4b2d533e3c4cf932104397769b5c2f29
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 10/19/2020
+ms.openlocfilehash: 9e45cbb194b24394a451f8666a9ae22411f9312e
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512922"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041825"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>快速入门：使用 Go 语言连接到 Azure Database for PostgreSQL 并查询其中的数据 - 单一服务器
 
@@ -84,7 +84,7 @@ ms.locfileid: "89512922"
 2. 在 Azure 门户的左侧菜单中，单击“所有资源”，然后搜索已创建的服务器（例如 mydemoserver）。
 3. 单击服务器名称。
 4. 从服务器的“概览”面板中记下“服务器名称”和“服务器管理员登录名”。   如果忘记了密码，也可通过此面板来重置密码。
- ![Azure Database for PostgreSQL 服务器名称](./media/connect-go/1-connection-string.png)
+ :::image type="content" source="./media/connect-go/1-connection-string.png" alt-text="Azure Database for PostgreSQL 服务器名称":::
 
 ## <a name="build-and-run-go-code"></a>生成和运行 Go 代码 
 1. 若要编写 Golang 代码，可以使用纯文本编辑器，例如 Microsoft Windows 中的记事本、Ubuntu 中的 [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 或 [Nano](https://www.nano-editor.org/)，或者 macOS 中的 TextEdit。 如果偏好功能更丰富的交互式开发环境 (IDE)，可尝试 Jetbrains 推出的 [GoLand](https://www.jetbrains.com/go/)、Microsoft 推出的 [Visual Studio Code](https://code.visualstudio.com/)，或者 [Atom](https://atom.io/)。

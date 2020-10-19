@@ -10,15 +10,15 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5df525cacd545f360c410c07308e218f7f1424ab
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: f78a8c987b0e89bfa4da61ab947f56159b3aeb40
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395450"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117957"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>使用 Azure 机器学习大规模构建 TensorFlow 深度学习模型
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本文展示了如何使用 Azure 机器学习的 [TensorFlow 估算器](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true)类大规模运行 [TensorFlow](https://www.tensorflow.org/overview) 训练脚本。 此示例使用深度神经网络 (DNN) 训练并注册 TensorFlow 模型来对手写数字进行分类。
 

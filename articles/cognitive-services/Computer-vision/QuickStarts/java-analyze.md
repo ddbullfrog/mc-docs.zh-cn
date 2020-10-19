@@ -1,5 +1,5 @@
 ---
-title: 快速入门：分析远程图像 - REST、Java
+title: 快速入门：使用 REST API 和 Java 分析远程图像
 titleSuffix: Azure Cognitive Services
 description: 在该快速入门中，你将使用计算机视觉 API 和 Java 分析图像。
 services: cognitive-services
@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: v-johya
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 429e881ffa71edd0ca3c144c296193dae0c8cc5d
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: c0d8f004584c81a6f8b0ba7bba85a13210a74604
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023410"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128398"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>快速入门：使用计算机视觉 REST API 和 Java 分析远程图像
 

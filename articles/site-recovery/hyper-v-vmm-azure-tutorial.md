@@ -4,17 +4,17 @@ description: 了解如何使用 Site Recovery 设置 System Center VMM 云中的
 ms.topic: tutorial
 origin.date: 03/19/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: eafd9f0cd9b38ff42b97fc20f9198f65897902c7
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 0653e631cae96dd348446ab420d0c8879e0ff955
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655670"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127678"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复
 
@@ -66,7 +66,7 @@ ms.locfileid: "89655670"
 1. 下载保管库注册密钥。 运行提供程序安装程序时需要此密钥。 生成的密钥有效期为 5 天。
 1. 下载 Azure 恢复服务代理的安装程序。
 
-    :::image type="content" source="./media/hyper-v-vmm-azure-tutorial/download-vmm.png" alt-text="下载提供程序、注册密钥和代理":::
+    :::image type="content" source="./media/hyper-v-vmm-azure-tutorial/download-vmm.png" alt-text="复制目标":::
 
 ### <a name="install-the-provider-on-the-vmm-server"></a>安装 VMM 服务器上的提供程序
 
@@ -88,10 +88,14 @@ ms.locfileid: "89655670"
 在 Microsoft Azure 恢复服务代理安装程序向导中配置以下设置：
 
 1. **先决条件检查**。 选择“**下一页**”。 系统会自动安装任何缺少的必备组件。
-1. **安装设置**。 接受安装位置和缓存位置。 缓存驱动器需要至少 5 GB 的存储空间。 我们建议使用 600 GB 或更多可用空间的驱动器。 然后，选择“安装”。
+1. **安装设置**。 接受安装位置。 然后，选择“安装”。
+
+    >[!NOTE]
+    >对于 Azure Site Recovery，不需要缓存位置。
+
 1. **安装**。 安装完成后，选择“关闭”以完成向导。
 
-    :::image type="content" source="./media/hyper-v-vmm-azure-tutorial/mars-install.png" alt-text="安装代理":::
+    :::image type="content" source="./media/hyper-v-vmm-azure-tutorial/mars-install.png" alt-text="复制目标":::
 
 ## <a name="set-up-the-target-environment"></a>设置目标环境
 
@@ -109,7 +113,7 @@ Site Recovery 会检查是否有一个或多个兼容的 Azure 存储帐户和�
 1. **源网络**。 选择源本地 VM 网络。
 1. **目标网络**。 选择在故障转移后创建副本 Azure VM 时，这些 VM 所在的 Azure 网络。 选择“确定”。
 
-    :::image type="content" source="./media/hyper-v-vmm-azure-tutorial/network-mapping-vmm.png" alt-text="网络映射":::
+    :::image type="content" source="./media/hyper-v-vmm-azure-tutorial/network-mapping-vmm.png" alt-text="复制目标":::
 
 ## <a name="set-up-a-replication-policy"></a>设置复制策略
 

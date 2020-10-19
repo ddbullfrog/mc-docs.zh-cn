@@ -10,16 +10,16 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 5d33f4578a9f26f0276fecbc0ce58e751f20ad39
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 120dcd4c810087bca9dc825a80007de2fe295d99
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395424"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118224"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure 机器学习的强化学习（预览版）
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!NOTE]
 > Azure 机器学习强化学习目前是一项预览版功能。 目前仅支持 Ray 和 RLlib 框架。
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>提交运行
 
-[运行](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true)处理正在进行的或已完成的作业的运行历史记录。 
+[运行](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)处理正在进行的或已完成的作业的运行历史记录。 
 
 ```python
 run = exp.submit(config=rl_estimator)

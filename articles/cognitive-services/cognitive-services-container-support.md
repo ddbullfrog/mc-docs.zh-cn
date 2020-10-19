@@ -10,19 +10,18 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/07/2020
 ms.author: v-johya
-ms.openlocfilehash: 527a9ec72a3cc4ce5725aacc3949f875f2929ff8
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: b58079b6863c744f7cedd42dffd55fe1aab25bff
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023717"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128281"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 认知服务中的容器支持
 
 Azure 认知服务中的容器支持让开发人员能够使用与 Azure 中可用的 API 一样丰富的 API，并能够灵活地选择部署和托管随附 [Docker 容器](https://www.docker.com/what-container)的服务的位置。 容器支持目前适用于部分 Azure 认知服务，包括以下部分：
 
 > [!div class="checklist"]
-> * [计算机视觉][cv-containers]
 > * [人脸][fa-containers]
 > * [语言理解 (LUIS)][lu-containers]
 > * [文本分析][ta-containers]
@@ -47,7 +46,6 @@ Azure 认知服务容器提供以下一组 Docker 容器，其中每个容器都
 
 | 服务 | 支持的定价层 | 容器 | 描述 |
 |--|--|--|--|
-| [计算机视觉][cv-containers] | F0、S1 | **读取** | 从具有不同表面和背景的各种对象的图像中提取打印文本，例如收据、海报和名片。 读取容器还可检测图像中的手写文本，并提供 PDF/TIFF/多页支持。<br/><br/>**重要提示：** 读取容器目前仅适用于英语。 |
 | [人脸][fa-containers] | F0、S0 | **人脸** | 检测图像中的人脸并标识属性，包括人脸特征（例如，鼻子和眼睛）、性别、年龄和其他计算机预测的面部特征。 除检测外，“人脸”还可以使用置信评分检查同一/不同图像中的两张人脸，或根据数据库比较人脸，以查看是否已存在类似或相同的人脸。 还可以使用共享视觉特征将类似人脸整理为许多组。<br>[请求访问权限][request-access] |
 | [LUIS][lu-containers] | F0、S0 | **LUIS**（[映像](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)） | 可将已训练或已发布的语言理解模型（也称为 LUIS 应用）加载到 docker 容器中并提供对容器的 API 终结点中的查询预测的访问权限。 可以从容器中收集查询日志并将这些日志上传回 [LUIS 门户](https://luis.azure.cn)以提高应用的预测准确性。 |
 | [文本分析][ta-containers-keyphrase] | F0、S | 关键短语提取（[映像](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)）**** | 提取关键短语，以标识要点。 例如，针对输入文本“The food was delicious and there were wonderful staff”，该 API 会返回谈话要点：“food”和“wonderful staff”。 |
@@ -94,12 +92,10 @@ Azure 认知服务容器通过 Azure 订阅公开发布，并可以从 Microsoft
 
 安装和浏览 Azure 认知服务中的容器提供的功能：
 
-* [计算机视觉容器][cv-containers]
 * [人脸容器][fa-containers]
 * [语言理解 (LUIS) 容器][lu-containers]
 * [文本分析容器][ta-containers]
 
-[cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: face/face-how-to-install-containers.md
 [lu-containers]: luis/luis-container-howto.md
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md

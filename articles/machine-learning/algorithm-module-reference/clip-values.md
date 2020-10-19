@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 1b8908b08e92fd3902081c0a63df6e445503230b
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 30415316eeae7200f28d3efea543dd08aba958cd
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097392"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118470"
 ---
 # <a name="clip-values"></a>剪切值
 
-本文介绍 Azure 机器学习设计器（预览版）的一个模块。
+本文介绍 Azure 机器学习设计器的某个模块。
 
 使用“剪切值”模块来识别高于或低于指定阈值的数据值，并有选择地将该值替换为平均值、常量或其他替代值。  
 

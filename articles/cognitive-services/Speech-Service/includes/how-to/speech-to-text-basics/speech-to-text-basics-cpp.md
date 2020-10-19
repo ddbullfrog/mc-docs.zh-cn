@@ -3,18 +3,24 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/06/2020
-ms.date: 06/19/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 5097785d7cdcddab585bee265fd3002318a7e4ac
-ms.sourcegitcommit: d24e12d49708bbe78db450466eb4fccbc2eb5f99
+ms.openlocfilehash: 8def09c8f99dcc4e7bf82260d2cbee819224bc74
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85613392"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128176"
 ---
+语音服务的核心功能之一是能够识别并转录人类语音（通常称为语音转文本）。 本快速入门介绍如何在应用和产品中使用语音 SDK 来执行高质量的语音转文本转换。
+
+## <a name="skip-to-samples-on-github"></a>跳转到 GitHub 上的示例
+
+如果要直接跳到示例代码，请参阅 GitHub 上的 [C++ 快速入门示例](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows)。
+
 ## <a name="prerequisites"></a>先决条件
 
-本文假定你有 Azure 帐户和语音服务订阅。 如果你没有帐户和订阅，[可以免费试用语音服务](../../../get-started.md)。
+本文假定你有 Azure 帐户和语音服务订阅。 如果你没有帐户和订阅，[可以免费试用语音服务](../../../overview.md#try-the-speech-service-for-free)。
 
 ## <a name="install-the-speech-sdk"></a>安装语音 SDK
 
@@ -48,31 +54,27 @@ auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourService
 
 创建 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) 后，下一步是初始化 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)。 初始化 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) 时，需要向其传递 `speech_config`。 这会提供语音服务验证请求所需的凭据。
 
-如果使用设备的默认麦克风识别语音，则 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) 应如下所示：
-
 ```cpp
 auto recognizer = SpeechRecognizer::FromConfig(config);
 ```
 
-如果要指定音频输入设备，则需要创建一个 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) 并在初始化 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) 时提供 `audioConfig` 参数。
+## <a name="recognize-from-microphone-or-file"></a>从麦克风或文件识别
 
-> [!TIP]
-> [了解如何获取音频输入设备的设备 ID](../../../how-to-select-audio-input-devices.md)。
+如果要指定音频输入设备，则需要创建一个 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) 并在初始化 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) 时将其作为参数传递。
 
-首先，在 `#include` 定义后添加以下 `using namespace` 语句。
+若要使用设备麦克风识别语音，请使用 `FromDefaultMicrophoneInput()` 创建 `AudioConfig`，并在创建 `SpeechRecognizer` 对象时传递 audio config。
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
-```
 
-接下来，你将能够引用 `AudioConfig` 对象，如下所示：
-
-```cpp
 auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
 ```
 
-如果要提供音频文件而不是使用麦克风，则仍需要提供 `audioConfig`。 但是，当你创建 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)（而不是调用 `FromDefaultMicrophoneInput`）时，你将调用 `FromWavFileOutput` 并传递 `filename` 参数。
+> [!TIP]
+> [了解如何获取音频输入设备的设备 ID](../../../how-to-select-audio-input-devices.md)。
+
+如果要从音频文件（而不是使用麦克风）识别语音，则仍需要创建 `AudioConfig`。 但创建 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)（而不是调用 `FromDefaultMicrophoneInput()`）时，需要调用 `FromWavFileInput()` 并传递 `filename` 参数。
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
@@ -227,7 +229,7 @@ config->SetSpeechRecognitionLanguage("de-DE");
 
 ## <a name="improve-recognition-accuracy"></a>提高识别准确度
 
-可以通过多种方式使用语音 SDK 来提高识别的准确性。 让我们看一下短语列表。 短语列表用于标识音频数据中的已知短语，如人的姓名或特定位置。 可以将单个词或完整短语添加到短语列表。 在识别期间，如果音频中包含整个短语的完全匹配项，则使用短语列表中的条目。 如果找不到与短语完全匹配的项，则不支持识别。
+可以通过多种方式使用语音 SDK 来提高识别的准确度。 让我们看一下短语列表。 短语列表用于标识音频数据中的已知短语，如人的姓名或特定位置。 可以将单个词或完整短语添加到短语列表。 在识别期间，如果音频中包含整个短语的完全匹配项，则使用短语列表中的条目。 如果找不到与短语完全匹配的项，则不支持识别。
 
 > [!IMPORTANT]
 > 短语列表功能仅以英语提供。
@@ -249,7 +251,7 @@ phraseListGrammar->Clear();
 
 ### <a name="other-options-to-improve-recognition-accuracy"></a>提高识别精确度的其他方式
 
-短语列表只是提高识别准确度的一种方式。 你还可以： 
+短语列表只是提高识别准确度的一种方式。 也可执行以下操作： 
 
 * [使用自定义语音识别提高准确性](../../../how-to-custom-speech.md)
 

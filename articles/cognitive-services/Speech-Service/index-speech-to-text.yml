@@ -10,14 +10,14 @@ metadata:
   ms.service: speech-service
   ms.topic: landing-page
   origin.date: 03/19/2020
-  ms.date: 06/19/2020
+  ms.date: 10/16/2020
   ms.author: v-tawe
-  ms.openlocfilehash: 07f57a9548354f86841bbdc9c80a7fe700d0b3c9
-  ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+  ms.openlocfilehash: 61ee47d0d10a1edbc7b98821b632dd33bcd026c7
+  ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/18/2020
-  ms.locfileid: "88515955"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92128274"
 landingContent:
 - title: 关于语音转文本
   linkLists:
@@ -27,20 +27,12 @@ landingContent:
       url: speech-to-text.md
     - text: 什么是批量语音转文本？
       url: batch-transcription.md
-    - text: 语音识别基础知识
-      url: speech-to-text-basics.md
     - text: 使用语音 CLI 无需代码即可将语音转换为文本
       url: spx-overview.md
   - linkListType: quickstart
     links:
-    - text: 识别来自麦克风输入的语音
-      url: quickstarts/speech-to-text-from-microphone.md
-    - text: 识别音频文件中的语音
-      url: quickstarts/speech-to-text-from-file.md
-    - text: 识别存储在 Blob 存储中的语音
-      url: quickstarts/from-blob.md
-    - text: 通过参考输入进行发音评估
-      url: rest-speech-to-text.md#pronunciation-assessment-parameters
+    - text: 语音转文本入门
+      url: get-started-speech-to-text.md
 - title: 使用语音转文本进行开发
   linkLists:
   - linkListType: how-to-guide

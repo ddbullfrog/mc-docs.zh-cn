@@ -5,19 +5,19 @@ author: ccompy
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.topic: article
 origin.date: 08/29/2018
-ms.date: 08/13/2020
+ms.date: 10/09/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 88e9c3f17d8c1e309e86b96bd27de61bcf578e27
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 7f74af4299afa0548c7fc97f7ce524a69963485c
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227935"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128226"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>证书和应用服务环境 
 
-应用服务环境 (ASE) 是在 Azure 虚拟网络 (VNet) 中运行的 Azure 应用服务的部署。 可以使用能够通过 Internet 访问的应用程序终结点或者 VNet 中的应用程序终结点来部署 ASE。 如果使用可通过 Internet 访问的终结点部署 ASE，则该部署称为外部 ASE。 如果使用 VNet 中的终结点部署 ASE，则该部署称为 ILB ASE。 可以在[创建和使用 ILB ASE](create-ilb-ase.md) 文档中详细了解 ILB ASE。
+应用服务环境 (ASE) 是在 Azure 虚拟网络 (VNet) 中运行的 Azure 应用服务的部署。 可以使用能够通过 Internet 访问的应用程序终结点或者 VNet 中的应用程序终结点来部署 ASE。 如果使用可通过 Internet 访问的终结点部署 ASE，则该部署称为外部 ASE。 如果使用 VNet 中的终结点部署 ASE，则该部署称为 ILB ASE。 可以在[创建和使用 ILB ASE](./create-ilb-ase.md) 文档中详细了解 ILB ASE。
 
 ASE 是单租户系统。 由于它是单一租户，某些只能在 ASE 中使用的功能不能在多租户应用服务中使用。 
 

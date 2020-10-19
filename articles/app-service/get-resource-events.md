@@ -3,18 +3,18 @@ title: 获取 Azure 应用服务中的资源事件
 description: 了解如何通过活动日志和事件网格获取应用服务应用上的资源事件。
 ms.topic: article
 origin.date: 04/24/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 5b34e74ed2d5f694e8dcdd12a127a552cc629dd4
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 34bbe2bc4b7e673c98f56e8ad556d833242e8542
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228920"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170813"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>获取 Azure 应用服务中的资源事件
 
-Azure 应用服务提供用于监视资源的状态和运行状况的内置工具。 资源事件可帮助你了解对基础 Web 应用资源所做的任何更改，并在必要时采取措施。 事件示例包括：缩放实例、更新应用程序设置、重启 Web 应用等。 本文介绍如何查看 [Azure 活动日志](https://docs.azure.cn/azure-monitor/platform/activity-log-view)并启用[事件网格](https://docs.azure.cn/event-grid/)，监视与应用服务 Web 应用相关的资源事件。
+Azure 应用服务提供用于监视资源的状态和运行状况的内置工具。 资源事件可帮助你了解对基础 Web 应用资源所做的任何更改，并在必要时采取措施。 事件示例包括：缩放实例、更新应用程序设置、重启 Web 应用等。 本文介绍如何查看 [Azure 活动日志](../azure-monitor/platform/activity-log.md#view-the-activity-log)并启用[事件网格](../event-grid/index.yml)，监视与应用服务 Web 应用相关的资源事件。
 
 > [!NOTE]
 > 应用服务与事件网格的集成目前处于预览阶段。 [查看公告以了解更多详细信息。](https://aka.ms/app-service-event-grid-announcement)
@@ -34,15 +34,15 @@ Azure 活动日志包含对订阅中的资源执行的操作所发出的资源�
 
 可以使用 Azure 门户、PowerShell、REST API 或 CLI 查询 Azure 活动日志。 可以将日志发送到存储帐户、事件中心和 Log Analytics。 还可以在 Power BI 中分析这些日志或创建警报以随时了解资源事件。
 
-[查看和检索 Azure 活动日志事件。](https://docs.azure.cn/azure-monitor/platform/activity-log-view)
+[查看和检索 Azure 活动日志事件。](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 ## <a name="ship-activity-logs-to-event-grid"></a>将活动日志传送到事件网格
 
-虽然活动日志是以用户为基础的，但我们推出了一个新的[事件网格](https://docs.azure.cn/event-grid/)与应用服务的集成（预览版），可用于记录用户操作和自动化事件。 使用事件网格，可以配置处理程序以响应所述事件。 例如，使用事件网格在每次向 Blob 存储容器添加新照片时，立即触发无服务器功能运行图像分析。
+虽然活动日志是以用户为基础的，但我们推出了一个新的[事件网格](../event-grid/index.yml)与应用服务的集成（预览版），可用于记录用户操作和自动化事件。 使用事件网格，可以配置处理程序以响应所述事件。 例如，使用事件网格在每次向 Blob 存储容器添加新照片时，立即触发无服务器功能运行图像分析。
 
 或者，可使用具有逻辑应用的事件网格来处理任何位置的数据，而无需编写代码。 事件网格将数据源与事件处理程序连接。 例如，使用事件网格在每次向 Blob 存储容器添加新照片时，立即触发无服务器功能运行图像分析。
 
-[查看 Azure 应用服务事件的属性和架构。](https://docs.azure.cn/event-grid/event-schema-app-service)
+[查看 Azure 应用服务事件的属性和架构。](../event-grid/event-schema-app-service.md)
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> 后续步骤
 * [使用 Azure Monitor 查询日志](../azure-monitor/log-query/log-query-overview.md)

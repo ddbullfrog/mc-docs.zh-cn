@@ -4,14 +4,14 @@ description: 快速入门：使用 Azure 事件网格和 Azure CLI 或门户发�
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 11/05/2019
-ms.date: 08/10/2020
+ms.date: 10/10/2020
 ms.topic: quickstart
-ms.openlocfilehash: c13d8e9c43e6353eff4c95581537ea97f66b630e
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: c316ef3ebe5dd0042f0b36c5bdf02e4dc087229a
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228047"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127759"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>快速入门：使用事件网格将自定义事件路由到 Azure 函数
 
@@ -20,14 +20,17 @@ Azure 事件网格是针对云的事件处理服务。 Azure 函数是受支持�
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="create-azure-function"></a>创建 Azure 函数
+在订阅自定义主题之前，创建一个函数来处理事件。 
 
-在订阅自定义主题之前，让我们创建一个函数来处理事件。 在 Azure 门户中单击“创建资源”并键入“函数”，然后选择“函数应用”并单击创建。 选择资源组下的“新建”并为其指定名称。 本教程的余下部分将使用此资源组。 为函数应用命名，将“发布”切换按钮保持为“代码”，接着任意选择运行时和区域，然后点击“创建”。
+1. 按照[创建函数应用](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)中的说明创建函数应用。
+2. 使用事件网格触发器创建函数。 如果这是你第一次使用此触发器，可能需要单击“安装”来安装该扩展。
+    1. 在“函数应用”页上，选择左侧菜单上的“Functions”，在模板中搜索“事件网格”，然后选择“Azure 事件网格触发器”。 
 
-当你准备好函数应用时，请导航到它并单击“+ 新建函数”。 开发环境选择为“门户内”并单击“继续”。 在“创建函数”下，选择“更多模板”以查看更多模板，然后搜索“Azure 事件网格触发器”并选择它。 如果这是你第一次使用此触发器，可能需要单击“安装”来安装该扩展。
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="选择事件网格触发器":::
+3. 在“新建函数”页上，输入函数名称，然后选择“创建函数”。
 
-![函数事件网格触发器](./media/custom-event-to-function/grid-trigger.png)
-
-安装扩展后，单击“继续”，为函数命名，然后点击“创建”。
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="选择事件网格触发器":::
+4. 使用“代码 + 测试”页可以查看函数的现有代码并对其进行更新。 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -76,16 +79,20 @@ Azure 事件网格是针对云的事件处理服务。 Azure 函数是受支持�
 
 2. 在“创建事件订阅”页上执行以下步骤： 
     1. 输入事件订阅的“名称”  。
-    3. 选择“Azure 函数”作为“终结点类型”   。 
-    4. 选择“选择终结点”。  
+    2. 选择“Azure 函数”作为“终结点类型”   。 
+    3. 选择“选择终结点”。  
 
        ![提供事件订阅值](./media/custom-event-to-function/provide-subscription-values.png)
 
-    5. 对于函数终结点，选择你的函数应用所在的 Azure 订阅和资源组，然后选择之前创建的函数应用和函数。 选择“确认所选内容”  。
+    4. 对于函数终结点，选择你的函数应用所在的 Azure 订阅和资源组，然后选择之前创建的函数应用和函数。 选择“确认所选内容”  。
 
        ![提供终结点 URL](./media/custom-event-to-function/provide-endpoint.png)
-
-    6. 返回“创建事件订阅”页，选择“创建”。  
+    5. 此步骤是可选的，但建议在生产方案中使用。 在“创建事件订阅”页上，切换到“高级功能”选项卡，并设置“每批最大事件数”和“首选批大小(KB)”的值。 
+    
+        批处理可提高吞吐量。 对于“每批最大事件数”，请设置订阅要在一个批中包含的事件的最大数目。 首选批大小设置批大小的首选上限（以 KB 为单位），但如果单个事件大于此阈值，则可以超出此上限。
+    
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="选择事件网格触发器":::
+    6. 在“创建事件订阅”页上，选择“创建”。 
 
 ## <a name="send-an-event-to-your-topic"></a>向主题发送事件
 

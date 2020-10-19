@@ -6,15 +6,15 @@ tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.topic: sample
 origin.date: 11/21/2018
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 8664a8317b9d95ff41bd3700fd2469b61c35037e
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 31d0e2f5361cc2d95f0da21ea46d3c8b82667b74
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228134"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170613"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>使用 PowerShell 从备份中还原 Web 应用
 

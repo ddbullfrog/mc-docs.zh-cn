@@ -13,12 +13,12 @@ metadata:
   ms.testscope: no
   ms.testdate: 09/28/2020
   ms.author: v-yeche
-  ms.openlocfilehash: 48befb0f76a8a3eed5393caffdf71122c8690efc
-  ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+  ms.openlocfilehash: 91b14e099e82940a783b5600158a4a7b9b87822d
+  ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/25/2020
-  ms.locfileid: "91246682"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92118546"
 landingContent:
 - title: 关于 Azure Cosmos DB
   linkLists:
@@ -184,14 +184,10 @@ landingContent:
       url: sql-api-sdk-dotnet.md
     - text: Java
       url: sql-api-sdk-java.md
-    - text: JavaScript
+    - text: Javascript
       url: sql-api-sdk-node.md
     - text: REST
-      url: /rest/api/cosmos-db/
-  - linkListType: learn
-    links:
-    - text: 创建和管理 SQL API 数据
-      url: /learn/modules/store-access-data-cosmos-table-api/
+      url: https://docs.microsoft.com/rest/api/cosmos-db/
 - title: 使用 MongoDB API 构建应用
   linkLists:
   - linkListType: quickstart
@@ -240,10 +236,6 @@ landingContent:
       url: graph-partitioning.md
     - text: 优化 Gremlin 查询
       url: graph-execution-profile.md
-  - linkListType: learn
-    links:
-    - text: 存储和访问图数据
-      url: /learn/modules/store-access-data-cosmos-graph-api/
 - title: 使用 Cassandra API 构建应用
   linkLists:
   - linkListType: quickstart

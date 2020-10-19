@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 origin.date: 06/25/2019
-ms.date: 02/10/2020
-ms.openlocfilehash: 7b466d76f47e9b6b409e6841c190007055255062
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/19/2020
+ms.openlocfilehash: 398017269a069f3473d50b9283122db48cc6513f
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77068004"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041832"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for PostgreSQL - 单个服务器
 
@@ -39,33 +39,33 @@ ms.locfileid: "77068004"
 可以按照以下步骤创建用于 PostgreSQL 的 Azure 数据库：
 1. 在 Azure 门户的左上角单击“创建资源”。 
 2. 从“新建”页中选择“数据库”，并从“数据库”页中选择“用于 PostgreSQL 的 Azure 数据库”。    
-   ![用于 PostgreSQL 的 Azure 数据库 - 创建数据库](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/1-create-database.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
 
 3. 选择“单个服务器”部署选项  。
 
-   ![选择 Azure Database for PostgreSQL - 单个服务器部署选项](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/select-deployment-option.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
 
 4. 填写“基本”表单，其中包含以下信息  ：
 
-    ![创建服务器](./media/tutorial-design-database-using-azure-portal/create-basics.png)
+    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/create-basics.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
 
     设置|建议的值|说明
     ---|---|---
     订阅|订阅名称|要用于服务器的 Azure 订阅。 如果有多个订阅，请选择要计费的资源所在的订阅。
     资源组| myresourcegroup| 新的资源组名称，或订阅中的现有资源组。
     服务器名称 |*mydemoserver*|用于标识用于 PostgreSQL 的 Azure 数据库服务器的唯一名称。 域名 *postgres.database.chinacloudapi.cn* 将追加到所提供的服务器名称后面。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 该名称必须至少包含 3 到 63 个字符。
-    数据源 | *无* | 选择“无”，从头开始创建新的服务器  。 （如果是从现有 Azure Database for PostgreSQL 服务器的异地备份创建服务器，则会选择“备份”  ）。
+    数据源 | 无  | 选择“无”，从头开始创建新的服务器  。 （如果是从现有 Azure Database for PostgreSQL 服务器的异地备份创建服务器，则会选择“备份”  ）。
     管理员用户名 |*myadmin*| 连接到服务器时使用的自己的登录帐户。 管理员登录名不能是 **azure_superuser**、**azure_pg_admin**、**admin**、**administrator**、**root**、**guest** 或 **public**， 不能以 **pg_** 开头。
     密码 |你的密码| 服务器管理员帐户的新密码。 该密码必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字 (0 到 9)和非字母数字字符（!, $, #, % 等）。
     位置|离用户最近的区域| 最靠近用户的位置。
     版本|最新主版本| 除非另有特定的要求，否则为最新 PostgreSQL 主版本。
-    计算 + 存储 | **常规用途**、**第 5 代**、**2 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“配置服务器”  。 接下来，选择“常规用途”  选项卡。“第 5 代”、“4 个 vCore”、“100 GB”和“7 天”分别是“计算代系”、“vCore”、“存储”和“备份保持期”的默认值         。 可以按原样保留这些滑块，也可以对其进行调整。 若要在异地冗余存储中启用服务器备份，请从“备份冗余选项”  中选择“异地冗余”  。 若要保存此定价层选择，请选择“确定”  。 下一个屏幕截图捕获了这些选择。
+    计算 + 存储 | **常规用途**、**第 5 代**、**2 个 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“配置服务器”  。 接下来，选择“常规用途”  选项卡。“第 5 代”、“4 个 vCore”、“100 GB”和“7 天”分别是“计算代系”、“vCore”、“存储”和“备份保持期”的默认值         。 可以按原样保留这些滑块，也可以对其进行调整。 若要在异地冗余存储中启用服务器备份，请从“备份冗余选项”  中选择“异地冗余”  。 若要保存此定价层选择，请选择“确定”  。 下一个屏幕截图捕获了这些选择。
 
    > [!NOTE]
    > 如果轻量级计算和 I/O 足以满足工作负荷要求，请考虑使用“基本”定价层。 请注意，在“基本”定价层中创建的服务器以后不能扩展到“常规用途”或“内存优化”定价层。 有关详细信息，请参阅[定价页](https://azure.cn/pricing/details/postgresql/)。
    > 
 
-    ![“定价层”窗格](./media/quickstart-create-database-portal/2-pricing-tier.png)
+    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
 
     > [!TIP]
     > 启用“自动增长”  后，当接近分配的限制时，服务器会增加存储空间，而不会影响工作负荷。
@@ -74,7 +74,7 @@ ms.locfileid: "77068004"
 
 6. 在工具栏上选择“通知”图标（铃铛）以监视部署过程。  完成部署后，可以选择“固定到仪表板”  ，以便在 Azure 门户仪表板上为此服务器创建磁贴作为到此服务器“概述”  页的快捷方式。 选择“转到资源”  可打开此服务器的“概述”  页。
 
-    ![“通知”窗格](./media/quickstart-create-database-portal/3-notifications.png)
+    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
    
    默认情况下，会在服务器下创建 **postgres** 数据库。 [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 是供用户、实用工具和第三方应用程序使用的默认数据库。 （另一个默认数据库是 **azure_maintenance**， 其功能是将托管服务进程与用户操作分开。 你不能访问此数据库。）
 
@@ -85,13 +85,13 @@ Azure Database for PostgreSQL 服务在服务器级别使用防火墙。 默认�
 
 1. 部署完成后，请单击左侧菜单中的“所有资源”，并键入名称“mydemoserver”来搜索新创建的服务器   。 单击搜索结果中列出的服务器名称。 服务器的“概述”  页面随即打开，其中提供了用于进一步配置的选项。
 
-   ![用于 PostgreSQL 的 Azure 数据库 - 搜索服务器](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
 
 2. 在服务器页中，选择“连接安全性”  。 
 
-3. 单击“规则名称”下的文本框  ，并添加新的防火墙规则，以指定连接的 IP 范围。 输入 IP 范围。 单击“保存”  。
+3. 单击“规则名称”下的文本框  ，并添加新的防火墙规则，以指定连接的 IP 范围。 输入 IP 范围。 单击“ **保存**”。
 
-   ![用于 PostgreSQL 的 Azure 数据库 - 创建防火墙规则](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
 
 4. 单击“保存”，并单击“X”以关闭“连接安全性”页。   
 
@@ -105,13 +105,13 @@ Azure Database for PostgreSQL 服务在服务器级别使用防火墙。 默认�
 
 1. 在 Azure 门户中的左侧菜单中，单击“所有资源”  ，并搜索刚创建的服务器。
 
-   ![用于 PostgreSQL 的 Azure 数据库 - 搜索服务器](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
 
 2. 单击服务器名称 **mydemoserver**。
 
 3. 选择服务器的“概述”  页面。 记下“服务器名称”  和“服务器管理员登录名”  。
 
-   ![用于 PostgreSQL 的 Azure 数据库 - 服务器管理员登录名](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/6-server-name.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
 
 
 ## <a name="connect-to-postgresql-database-using-psql"></a>使用 psql 连接到 PostgreSQL 数据库
@@ -122,7 +122,7 @@ Azure Database for PostgreSQL 服务在服务器级别使用防火墙。 默认�
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”  的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
+   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
   
    ```
    psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -189,13 +189,13 @@ SELECT * FROM inventory;
 ## <a name="restore-data-to-a-previous-point-in-time"></a>将数据还原到之前的时间点
 假设意外删除了此表。 这种情况无法轻易还原。 使用 Azure Database for PostgreSQL 可以返回到服务器有其备份的任何时间点（由所配置的备份保留期确定），并可将此时间点还原到新服务器。 可以使用此新服务器恢复已删除的数据。 以下步骤将 **mydemoserver** 服务器还原到添加库存表之前的时间点。
 
-1. 在服务器的 Azure Database for PostgreSQL“概述”页中，单击工具栏上的“还原”   。 此时会打开“还原”  页。
+1. 在服务器的 Azure Database for PostgreSQL“概述”页中，单击工具栏上的“还原”   。 将打开“还原”  页面。
 
-   ![Azure 门户 - 还原窗体选项](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
 
 2. 使用必需信息填充“还原”  窗体：
 
-   ![Azure 门户 - 还原窗体选项](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="用于 PostgreSQL 的 Azure 数据库 - 创建数据库":::
 
    - **还原点**：选择更改服务器前的时间点
    - **目标服务器**：提供一个要还原到的新服务器名称

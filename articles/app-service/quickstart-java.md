@@ -7,27 +7,26 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: Java
 ms.topic: quickstart
 origin.date: 08/01/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 57b65771f96ac0419d9017e75381d8d3e3e8b34f
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 30d2b0b8269cb952d122d87904d9d312ad5e9c42
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88229008"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170501"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>快速入门：在 Azure 应用服务中创建 Java 应用
 
-[Azure 应用服务](overview.md)提供高度可缩放、自修复的 Web 托管服务。  本快速入门介绍如何将 [Azure CLI](https://docs.azure.cn/cli/get-started-with-azure-cli) 与[用于 Maven 的 Azure Web 应用插件](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)配合使用来部署 Java Web 存档 (WAR) 文件。
+[Azure 应用服务](overview.md)提供高度可缩放、自修复的 Web 托管服务。  本快速入门介绍如何将 [Azure CLI](/cli/get-started-with-azure-cli) 与[用于 Maven 的 Azure Web 应用插件](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)配合使用来部署 .jar 文件或 .war 文件。 使用选项卡在 Java SE 和 Tomcat 说明之间切换。
 
-> [!NOTE]
-> 在本文中，我们仅使用在 WAR 文件中打包的 Java 应用。
 
 > [!NOTE]
 > 也可使用 IntelliJ 和 Eclipse 等常见 IDE 执行相同的操作。 请查看 [Azure Toolkit for IntelliJ 快速入门](/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)或 [Azure Toolkit for Eclipse 快速入门](/java/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)中的类似文档。
->
+
+
 ![在 Azure 应用服务中运行的示例应用](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -36,7 +35,23 @@ ms.locfileid: "88229008"
 
 ## <a name="create-a-java-app"></a>创建 Java 应用
 
-在 Azure CLI 提示符下，执行以下 Maven 命令来创建一个名为 `helloworld` 的新应用：
+# <a name="java-se"></a>[Java SE](#tab/javase)
+
+克隆 [Spring Boot 入门](https://github.com/spring-guides/gs-spring-boot)示例项目。
+
+```bash
+git clone https://github.com/spring-guides/gs-spring-boot
+```
+
+将目录更改为已完成项目。
+
+```bash
+cd gs-spring-boot/complete
+```
+
+# <a name="tomcat"></a>[Tomcat](#tab/tomcat)
+
+在 Cloud Shell 提示符下，执行以下 Maven 命令来创建一个名为 `helloworld` 的新应用：
 
 ```bash
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
@@ -48,151 +63,157 @@ mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-Darc
 cd helloworld
 ```
 
+
 ## <a name="configure-the-maven-plugin"></a>配置 Maven 插件
 
-部署到 Azure 应用服务的过程会自动从 Azure CLI 选取 Azure 凭据。 如果未在本地安装 Azure CLI，Maven 插件将使用 Oauth 或设备登录名登录。 如果需要，请查看[使用 Maven 插件进行身份验证](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)了解详细信息。
+部署到 Azure 应用服务的过程会自动使用 Azure CLI 中的 Azure 凭据。 如果未在本地安装 Azure CLI，则 Maven 插件将使用 Oauth 或设备登录名进行身份验证。 有关详细信息，请参阅 [Maven 插件的身份验证](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)。
 
-你可以运行下面的 maven 命令来配置部署
+运行下面的 Maven 命令来配置部署。 此命令将帮助你设置应用服务操作系统、Java 版本和 Tomcat 版本。
+
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ```
 
-::: zone pivot="platform-windows" 
-系统会提示你选择 
-* 操作系统（默认值：`linux`）
-* Java 版本（默认值：`1.8`）
-* Web 容器（默认值：`tomcat 8.5`） 
- 
-请注意在第一步中输入 `2` 以选择 Windows 操作系统。 可以通过按 ENTER 来保留其他配置的默认值。 最后，在出现“Confirm (Y/N)”提示时按 `Y` 以完成配置。
+::: zone pivot="platform-windows"
 
-示例过程如下所示：
+# <a name="java-se"></a>[Java SE](#tab/javase)
 
-```console
-~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
-[INFO] Scanning for projects...
-[INFO]
-[INFO] ----------------------< example.demo:helloworld >-----------------------
-[INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
-[INFO] --------------------------------[ war ]---------------------------------
-[INFO]
-[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helloworld ---
-[WARNING] The plugin may not work if you change the os of an existing webapp.
-Define value for OS(Default: Linux):
-1. linux [*]
-2. windows
-3. docker
-Enter index to use: 2
-Define value for javaVersion(Default: 1.8): 
-1. 1.7
-2. 1.7.0_191_ZULU
-3. 1.7.0_51
-4. 1.7.0_71
-5. 1.7.0_80
-6. 1.8 [*]
-7. 1.8.0_102
-8. 1.8.0_111
-9. 1.8.0_144
-10. 1.8.0_172
-11. 1.8.0_172_ZULU
-12. 1.8.0_181
-13. 1.8.0_181_ZULU
-14. 1.8.0_202
-15. 1.8.0_202_ZULU
-16. 1.8.0_25
-17. 1.8.0_60
-18. 1.8.0_73
-19. 1.8.0_92
-20. 11
-21. 11.0.2_ZULU
-Enter index to use:
-Define value for webContainer(Default: tomcat 8.5): 
-1. jetty 9.1
-2. jetty 9.1.0.20131115
-3. jetty 9.3
-4. jetty 9.3.13.20161014
-5. tomcat 7.0
-6. tomcat 7.0.50
-7. tomcat 7.0.62
-8. tomcat 8.0
-9. tomcat 8.0.23
-10. tomcat 8.5 [*]
-11. tomcat 8.5.20
-12. tomcat 8.5.31
-13. tomcat 8.5.34
-14. tomcat 8.5.37
-15. tomcat 8.5.6
-16. tomcat 9.0
-17. tomcat 9.0.0
-18. tomcat 9.0.12
-19. tomcat 9.0.14
-20. tomcat 9.0.8
-Enter index to use:
-Please confirm webapp properties
-AppName : helloworld-1590394316693
-ResourceGroup : helloworld-1590394316693-rg
-Region : chinaeast2
-PricingTier : PremiumV2_P1v2
-OS : Windows
-Java : 1.8
-WebContainer : tomcat 8.5
-Deploy to slot : false
-Confirm (Y/N)? :
-[INFO] Saving configuration to pom.
-```
+1. 当系统提示“订阅”选项时，通过在行首输入数字来选择适当的 `Subscription`。
+1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>`。
+1. 当系统提示“OS”选项时，通过输入 `2` 选择 Windows。
+1. 按 Enter 使用默认的 Java 版本 1.8。
+1. 最后，出现最后一个提示时按 Enter 来确认所做的选择。
+
+    摘要输出将类似于下面所示的代码片段。
+
+    ```
+    Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
+    AppName : spring-boot-1599007390755
+    ResourceGroup : spring-boot-1599007390755-rg
+    Region : westeurope
+    PricingTier : PremiumV2_P1v2
+    OS : Windows
+    Java : 1.8
+    WebContainer : java 8
+    Deploy to slot : false
+    Confirm (Y/N)? : Y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 41.118 s
+    [INFO] Finished at: 2020-09-01T17:43:45-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
+
+# <a name="tomcat"></a>[Tomcat](#tab/tomcat)
+
+1. 当系统提示“订阅”选项时，通过在行首输入数字来选择适当的 `Subscription`。
+1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>`。
+1. 当系统提示“OS”选项时，通过输入 `2` 选择 Windows。
+1. 按 Enter 使用默认的 Java 版本 1.8。
+1. 按 Enter 使用默认 Web 容器 Tomcat 8.5。
+1. 最后，出现最后一个提示时按 Enter 来确认所做的选择。
+
+    摘要输出将类似于下面所示的代码片段。
+
+    ```
+    Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
+    AppName : helloworld-1599003152123
+    ResourceGroup : helloworld-1599003152123-rg
+    Region : westeurope
+    PricingTier : PremiumV2_P1v2
+    OS : Windows
+    Java : 1.8
+    WebContainer : tomcat 8.5
+    Deploy to slot : false
+    Confirm (Y/N)? : Y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 03:03 min
+    [INFO] Finished at: 2020-09-01T16:35:30-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
+
+---
+
 ::: zone-end
-::: zone pivot="platform-linux"  
+::: zone pivot="platform-linux"
 
-系统会提示你选择 
-* 操作系统（默认值：`linux`）
-* Java 版本（默认值：`Java 8`）
-* Web 容器（默认值：`Tomcat 8.5`） 
+### <a name="java-se"></a>[Java SE](#tab/javase)
 
-可以通过按 Enter 来保留所有配置的默认值。 最后，在出现“Confirm (Y/N)”提示时按 `Y` 以完成配置。
-示例过程如下所示：
+1. 当系统提示“订阅”选项时，通过在行首输入数字来选择适当的 `Subscription`。
+1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>`。
+1. 当系统提示“OS”选项时，按 Enter 键选择 Linux。
+1. 按 Enter 使用默认的 Java 版本 1.8。
+1. 最后，出现最后一个提示时按 Enter 来确认所做的选择。
 
-```cmd
-~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
-[INFO] Scanning for projects...
-[INFO]
-[INFO] ----------------------< example.demo:helloworld >-----------------------
-[INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
-[INFO] --------------------------------[ war ]---------------------------------
-[INFO]
-[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helloworld ---
-[WARNING] The plugin may not work if you change the os of an existing webapp.
-Define value for OS(Default: Linux):
-1. linux [*]
-2. windows
-3. docker
-Enter index to use:
-Define value for javaVersion(Default: jre8):
-1. Java 11
-2. Java 8 [*]
-Enter index to use:
-Define value for runtimeStack(Default: TOMCAT 8.5):
-1. TOMCAT 9.0
-2. TOMCAT 8.5 [*]
-Enter index to use:
-Please confirm webapp properties
-AppName : helloworld-1558400876966
-ResourceGroup : helloworld-1558400876966-rg
-Region : chinaeast2
-PricingTier : Premium_P1V2
-OS : Linux
-RuntimeStack : TOMCAT 8.5-jre8
-Deploy to slot : false
-Confirm (Y/N)? : Y
-```
+    ```
+    Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
+    AppName : spring-boot-1599007116351
+    ResourceGroup : spring-boot-1599007116351-rg
+    Region : westeurope
+    PricingTier : PremiumV2_P1v2
+    OS : Linux
+    RuntimeStack : JAVA 8-jre8
+    Deploy to slot : false
+    Confirm (Y/N)? : Y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 20.925 s
+    [INFO] Finished at: 2020-09-01T17:38:51-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
+
+### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
+
+1. 当系统提示“订阅”选项时，通过在行首输入数字来选择适当的 `Subscription`。
+1. 当系统提示“Web 应用”选项时，按 Enter 键接受默认选项 `<create>`。
+1. 当系统提示“OS”选项时，按 Enter 键选择 Linux。
+1. 按 Enter 使用默认的 Java 版本 1.8。
+1. 按 Enter 使用默认 Web 容器 Tomcat 8.5。
+1. 最后，出现最后一个提示时按 Enter 来确认所做的选择。
+
+    ```
+    Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
+    AppName : helloworld-1599003744223
+    ResourceGroup : helloworld-1599003744223-rg
+    Region : westeurope
+    PricingTier : PremiumV2_P1v2
+    OS : Linux
+    RuntimeStack : TOMCAT 8.5-jre8
+    Deploy to slot : false
+    Confirm (Y/N)? : Y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 50.785 s
+    [INFO] Finished at: 2020-09-01T16:43:09-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
+
+---
+
 ::: zone-end
 
-如果需要，可以直接在 `pom.xml` 文件中修改应用服务的配置，下面列出了一些常见配置：
+如果需要，可以直接在 `pom.xml` 中修改应用服务的配置。 下面列出了一些常见配置：
 
- 属性 | 必选 | 说明 | 版本
+属性 | 必须 | 说明 | 版本
 ---|---|---|---
 `<schemaVersion>` | false | 指定配置架构的版本。 支持的值是：`v1`、`v2`。 | 1.5.2
+`<subscriptionId>` | false | 指定订阅 ID。 | 0.1.0+
 `<resourceGroup>` | true | 用于 Web 应用的 Azure 资源组。 | 0.1.0+
 `<appName>` | true | Web 应用的名称。 | 0.1.0+
-`<region>` | 是 | 指定要托管 Web 应用的区域；默认值为“chinaeast2”。 [支持的区域](/java/api/overview/maven/azure-webapp-maven-plugin/readme)部分中列出了所有有效区域。 | 0.1.0+
+`<region>` | true | 指定要托管 Web 应用的区域；默认值为“chinaeast2”。 [支持的区域](/java/api/overview/maven/azure-webapp-maven-plugin/readme)部分中列出了所有有效区域。 | 0.1.0+
 `<pricingTier>` | false | Web 应用的定价层。 默认值为 **P1V2**。| 0.1.0+
 `<runtime>` | true | 运行时环境配置，可以在[此处](/java/api/overview/maven/azure-webapp-maven-plugin/readme)查看详细信息。 | 0.1.0+
 `<deployment>` | true | 部署配置，可以在[此处](/java/api/overview/maven/azure-webapp-maven-plugin/readme)查看详细信息。 | 0.1.0+
@@ -204,13 +225,14 @@ Confirm (Y/N)? : Y
 
 ## <a name="deploy-the-app"></a>部署应用
 
-部署到 Azure 应用服务的过程中会使用 Azure CLI 中的帐户凭据。 在继续操作之前[使用 Azure CLI 登录](/cli/authenticate-azure-cli?view=azure-cli-latest)。
+Maven 插件会使用 Azure CLI 中的帐户凭据来部署到应用服务。 在继续操作之前[使用 Azure CLI 登录](/cli/authenticate-azure-cli?view=azure-cli-latest)。
 
 ```azurecli
 az cloud set -n AzureChinaCloud
 az login
 ```
-然后可以使用以下命令将 Java 应用部署到 Azure：
+
+然后你可使用以下命令将 Java 应用部署到 Azure。
 
 ```bash
 mvn package azure-webapp:deploy
@@ -236,23 +258,26 @@ az group delete --name <your resource group name; for example: helloworld-155840
 此命令可能需要花费一点时间运行。
 
 ## <a name="next-steps"></a>后续步骤
-> [!div class="nextstepaction"]
-> [使用 Java 连接到 Azure SQL 数据库](/sql-database/sql-database-connect-query-java?toc=%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
-> [使用 Java 连接到 Azure DB for MySQL](/mysql/connect-java)
+> [使用 Java 连接到 Azure DB for PostgreSQL](../postgresql/connect-java.md)
+
+<!-- 
+> [!div class="nextstepaction"]
+> [Set up CI/CD](deploy-continuous-deployment.md)
+-->
 
 > [!div class="nextstepaction"]
-> [使用 Java 连接到 Azure DB for PostgreSQL](/postgresql/connect-java)
+> [定价信息](https://www.azure.cn/pricing/details/app-service/)
+
+> [!div class="nextstepaction"]
+> [聚合日志和指标](troubleshoot-diagnostic-logs.md)
+
+> [!div class="nextstepaction"]
+> [纵向扩展](manage-scale-up.md)
 
 > [!div class="nextstepaction"]
 > [面向 Java 开发人员的 Azure 资源](/java/)
 
 > [!div class="nextstepaction"]
 > [配置 Java 应用](configure-language-java.md)
-
-> [!div class="nextstepaction"]
-> [映射自定义域](app-service-web-tutorial-custom-domain.md)
-
-> [!div class="nextstepaction"]
-> [详细了解 Azure 的 Maven 插件](https://github.com/microsoft/azure-maven-plugins)

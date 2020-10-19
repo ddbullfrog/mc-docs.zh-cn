@@ -8,13 +8,13 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 origin.date: 05/26/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: bba0e0c261f1afc00ec08c8550998dbe8da53375
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 10/19/2020
+ms.openlocfilehash: 9cc0c8099902552c34e76867da273ba043cc3f51
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512930"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041866"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Go 语言在 Azure Database for MySQL 中进行连接并查询数据
 
@@ -90,7 +90,7 @@ ms.locfileid: "89512930"
 2. 在 Azure 门户的左侧菜单中，单击“所有资源”，然后搜索已创建的服务器（例如 mydemoserver）。
 3. 单击服务器名称。
 4. 从服务器的“概览”面板中记下“服务器名称”和“服务器管理员登录名”。   如果忘记了密码，也可通过此面板来重置密码。
- ![Azure Database for MySQL 服务器名称](./media/connect-go/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-go/1_server-overview-name-login.png" alt-text="Azure Database for MySQL 服务器名称":::
    
 
 ## <a name="build-and-run-go-code"></a>生成和运行 Go 代码 

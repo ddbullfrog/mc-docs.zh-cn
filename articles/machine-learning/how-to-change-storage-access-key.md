@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/06/2019
-ms.openlocfilehash: ce1afb84f3a1fbe702eaa0bf5673894ac7f89028
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.date: 06/19/2020
+ms.openlocfilehash: d984ef3e0e1aa0bdbef1456b393f87e055d574c2
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395357"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118196"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>重新生成存储帐户访问密钥
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 了解如何更改 Azure 机器学习使用的 Azure 存储帐户的访问密钥。 Azure 机器学习可以使用存储帐户来存储数据或训练后的模型。
 
@@ -140,4 +140,4 @@ for name, ds in datastores.items():
 
 ## <a name="next-steps"></a>后续步骤
 
-有关注册数据存储的详细信息，请参阅 [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py&preserve-view=true) 类参考。
+有关注册数据存储的详细信息，请参阅 [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true) 类参考。

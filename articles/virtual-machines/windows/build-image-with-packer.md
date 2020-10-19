@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 08/05/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 928cf7e4d920a60df1417bb7eebf7f6652675a0e
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 49201f9c51aa0e712271bec0ec38d33a676cd98f
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462932"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127863"
 ---
 <!--Verify Successfully with location set to 'China East 2'--> 
 # <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell：如何使用 Packer 在 Azure 中创建虚拟机映像
@@ -214,8 +214,9 @@ Build 'azure-arm' finished.
 
 ManagedImageResourceGroupName: myResourceGroup
 ManagedImageName: myPackerImage
-ManagedImageLocation: chinaeast
+ManagedImageLocation: chinaeast2
 ```
+<!--MONNCAKE CORRECT ON chinaeast2-->
 
 Packer 需要几分钟时间来生成 VM、运行设置程序并清理部署。
 

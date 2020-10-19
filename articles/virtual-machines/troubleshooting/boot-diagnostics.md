@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 origin.date: 10/31/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 033083b26dd0876a82d609c04109b308bc27aa43
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: d93fc83c5c7347e15b5de8998877ed58f19afa2f
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456862"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128374"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>如何使用启动诊断功能来排查 Azure 中虚拟机的问题
 
@@ -52,7 +52,7 @@ ms.locfileid: "89456862"
 
 在“管理”选项卡上的“监视”部分中********，确保“启动诊断”处于打开状态****。 从“诊断存储帐户”下拉列表中****，选择要将诊断文件放入到的存储帐户。
 
-:::image type="content" source="./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png" alt-text="创建 VM":::
+:::image type="content" source="./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png" alt-text="资源管理器":::
 
 > [!NOTE]
 > 启动诊断功能不支持高级存储帐户。 如果使用高级存储帐户进行启动诊断，则可能会在启动 VM 时收到 StorageAccountTypeNotSupported 错误。
@@ -93,12 +93,10 @@ ms.locfileid: "89456862"
 3. 在“启动诊断”设置中****，将状态更改为“开”****，然后从“存储帐户”下拉列表中选择所需的存储帐户****。 
 4. 保存更改。
 
-    :::image type="content" source="./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png" alt-text="更新现有 VM":::
-
-必须重新启动虚拟机才能使更改生效。
+    :::image type="content" source="./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png" alt-text="资源管理器":::
 
 ### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>使用 Azure CLI 启用启动诊断
 
-可以在现有的 Azure 虚拟机上使用 Azure CLI 启用启动诊断。 有关详细信息，请参阅 [az vm boot-diagnostics](https://docs.azure.cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics)。
+可以在现有的 Azure 虚拟机上使用 Azure CLI 启用启动诊断。 有关详细信息，请参阅 [az vm boot-diagnostics](https://docs.azure.cn/cli/vm/boot-diagnostics)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

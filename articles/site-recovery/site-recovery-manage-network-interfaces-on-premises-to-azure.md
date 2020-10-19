@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/09/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5a220d35103a0bdebc6f02cef2187153f7ed058d
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 10b127e3400d90302f87ad1fc1e79101e5af3ce1
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655705"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128210"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>管理用于本地到 Azure 灾难恢复的 VM 网络接口
 
@@ -63,7 +63,7 @@ Azure 中的虚拟机 (VM) 必须附加有至少一个网络接口。 它可以�
 
 3. 输入所需 IP 地址（根据需要）。
 
-    :::image type="content" source="./media/site-recovery-manage-network-interfaces-on-premises-to-azure/network-interface-settings.png" alt-text="网络接口设置":::
+    :::image type="content" source="./media/site-recovery-manage-network-interfaces-on-premises-to-azure/network-interface-settings.png" alt-text="网络设置":::
 
 4. 选择“确定”  以完成编辑，然后返回“计算和网络”  窗格。
 

@@ -8,14 +8,14 @@ metadata:
   ms.topic: landing-page
   author: v-chmccl
   origin.date: 03/11/2020
-  ms.date: 03/16/2020
+  ms.date: 10/19/2020
   ms.author: v-tawe
-  ms.openlocfilehash: 478d9bd5e275ad849eaf2b958285db85260eacaa
-  ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+  ms.openlocfilehash: 8d7d7460555dc7f0a411deb2909fe9b572b7ba4b
+  ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "80151713"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92170802"
 landingContent:
 - title: 关于 Azure SignalR 服务
   linkLists:
@@ -39,6 +39,8 @@ landingContent:
       url: signalr-quickstart-azure-functions-java.md
     - text: Azure Functions - Python
       url: signalr-quickstart-azure-functions-python.md
+    - text: Azure SignalR 服务部署 - ARM 模板
+      url: signalr-quickstart-azure-signalr-service-arm-template.md
     - text: REST API
       url: signalr-quickstart-rest-api.md
 - title: 构建 Azure SignalR 服务应用

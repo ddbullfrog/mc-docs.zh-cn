@@ -5,15 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.topic: tutorial
 origin.date: 03/01/2019
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 05f75302d6255920e5f0c9c80cd0d37046645107
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.custom: devx-track-js
+ms.openlocfilehash: aaa2d6dd5ac71a9cc605e084d34147221d9004ce
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063370"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170779"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>教程：使用 Azure Functions 进行 Azure SignalR 服务身份验证
 
@@ -359,13 +359,13 @@ Web 应用还需要使用一个 HTTP API 来发送聊天消息。 我们将创�
 
 ### <a name="configure-function-app-for-authentication"></a>为函数应用配置身份验证
 
-到目前为止，聊天应用程序以匿名方式工作。 在 Azure 中，我们将使用[应用服务身份验证](https://docs.azure.cn/app-service/overview-authentication-authorization)来验证用户的身份。 可将已经过身份验证的用户的用户 ID 或用户名传递给 *SignalRConnectionInfo* 绑定，以生成进行用户身份验证时所需的连接信息。
+到目前为止，聊天应用程序以匿名方式工作。 在 Azure 中，我们将使用[应用服务身份验证](../app-service/overview-authentication-authorization.md)来验证用户的身份。 可将已经过身份验证的用户的用户 ID 或用户名传递给 *SignalRConnectionInfo* 绑定，以生成进行用户身份验证时所需的连接信息。
 
 发送消息时，应用可以确定是要发送到所有已连接的客户端，还是仅发送到已对给定用户进行身份验证的客户端。
 
 1. 在 VS Code 中打开 **negotiate/function.json**。
 
-1. 将一个[绑定表达式](https://docs.azure.cn/azure-functions/functions-triggers-bindings)插入到 *SignalRConnectionInfo* 绑定的 *userId* 属性中：`{headers.x-ms-client-principal-name}`。 这会将值设置为经过身份验证的用户的用户名。 特性现在应如下所示。
+1. 将一个[绑定表达式](../azure-functions/functions-triggers-bindings.md)插入到 *SignalRConnectionInfo* 绑定的 *userId* 属性中：`{headers.x-ms-client-principal-name}`。 这会将值设置为经过身份验证的用户的用户名。 特性现在应如下所示。
 
     ```json
     {
@@ -434,8 +434,8 @@ Web 应用还需要使用一个 HTTP API 来发送聊天消息。 我们将创�
 
 1. 遵循所选登录提供程序的文档完成配置。
 
-    - [Azure Active Directory](https://docs.azure.cn/app-service/configure-authentication-provider-aad)
-    - [Microsoft 帐户](https://docs.azure.cn/app-service/configure-authentication-provider-microsoft)
+    - [Azure Active Directory](../app-service/configure-authentication-provider-aad.md)
+    - [Microsoft 帐户](../app-service/configure-authentication-provider-microsoft.md)
 
 ### <a name="update-the-web-app"></a>更新 Web 应用
 
@@ -517,4 +517,3 @@ Web 应用还需要使用一个 HTTP API 来发送聊天消息。 我们将创�
 > [使用 Azure Functions 生成实时应用](signalr-concept-azure-functions.md)
 
 [存在问题？请告诉我们。](https://aka.ms/asrs/qsauth)
-

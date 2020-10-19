@@ -5,15 +5,15 @@ keywords: Azure 应用服务, Web 应用, 常见问题解答, Linux, oss, 用于
 author: msangapu-msft
 ms.topic: article
 origin.date: 10/30/2018
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 27233aee4f170152772382a480a7d4ad48a917b1
-ms.sourcegitcommit: c8e590d907f20bbc9c4c05d9bfc93cf7cb1d776f
+ms.openlocfilehash: 6a6d60e420585f546d04c29856c65244708433b2
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88957821"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170687"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure 应用服务常见问题解答
 
@@ -173,6 +173,7 @@ Here are the rules for determining which container is accessible - in the order 
 - Application setting `WEBSITES_WEB_CONTAINER_NAME` set to the container name
 - The first container to define port 80 or 8080
 - If neither of the above is true, the first container defined in the file will be accessible (exposed) -->
+
 
 ## <a name="web-sockets"></a>Web 套接字
 

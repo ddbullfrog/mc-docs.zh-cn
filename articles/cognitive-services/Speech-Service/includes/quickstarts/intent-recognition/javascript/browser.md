@@ -3,15 +3,15 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/03/2020
-ms.date: 08/03/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a07bcbaf1eda870ff238091f1af9e5d340360a3d
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.custom: devx-track-js
+ms.openlocfilehash: a7c3cc98a4472490e6d0250b74fd696fd576705f
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317556"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127613"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>从一些样本代码入手
 

@@ -1,23 +1,23 @@
 ---
 title: 使用 Gremlin API 构建 Azure Cosmos DB Node.js 应用程序
 description: 演示了一个可以用来连接到 Azure Cosmos DB 并进行查询的 Node.js 代码示例
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 06/05/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 15e1f40393a90a90fab10e6e789ea1fadb1e2256
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.custom: devx-track-js
+ms.openlocfilehash: ca13a39d78bb7a280799f332332ea2abb54b71f2
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246789"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118598"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>快速入门：使用 Azure Cosmos DB Gremlin API 帐户生成 Node.js 应用程序
@@ -163,7 +163,7 @@ ms.locfileid: "91246789"
 
     `config.primaryKey = "PRIMARYKEY";`
 
-    :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Azure 门户“密钥”边栏选项卡":::
+    :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="在 Azure 门户的“概述”页面中，查看并复制访问密钥":::
 
 4. 输入数据库名称和图形（容器）名称作为 config.database 和 config.collection 的值。 
 

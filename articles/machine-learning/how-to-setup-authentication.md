@@ -11,15 +11,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: b95561dbe7aff466b9007ace7964c94d3ab9c6fb
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 86866afb3d82d6a41fc70c8fede1991fe2ae96d7
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021522"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117962"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>为 Azure 机器学习资源和工作流设置身份验证
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 了解如何向 Azure 机器学习工作区进行身份验证，以及如何向部署为 Web 服务的模型进行身份验证。
 
@@ -77,7 +77,7 @@ ms.locfileid: "90021522"
 >
 > 授予最低访问权限的原因是服务主体使用密码进行身份验证，并且该密码可以存储为自动化脚本的一部分。 如果密码泄漏，由于用户仅拥有执行特定任务所需的最低访问权限，因此可最大程度地减少对 SP 的恶意使用。
 
-创建 SP 并向其授予对工作区的访问权限的最简单方法是使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 若要创建服务主体并向其授予对工作区的访问权限，请执行以下步骤：
+创建 SP 并向其授予对工作区的访问权限的最简单方法是使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。 若要创建服务主体并向其授予对工作区的访问权限，请执行以下步骤：
 
 > [!NOTE]
 > 你必须是订阅的管理员才能执行所有这些步骤。
@@ -92,7 +92,7 @@ ms.locfileid: "90021522"
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    有关其他身份验证方法，请参阅[使用 Azure CLI 登录](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)。
+    有关其他身份验证方法，请参阅[使用 Azure CLI 登录](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)。
 
 1. 安装 Azure 机器学习扩展：
 
@@ -190,7 +190,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>从 Azure CLI 中使用服务主体
 
-可以将服务主体用于 Azure CLI 命令。 有关详细信息，请参阅[使用服务主体登录](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal)。
+可以将服务主体用于 Azure CLI 命令。 有关详细信息，请参阅[使用服务主体登录](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal)。
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>将服务主体用于 REST API（预览版）
 

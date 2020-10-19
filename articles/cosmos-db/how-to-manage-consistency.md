@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 06/10/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: d0d12408622adccad45dabf0e521f063de2af057
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: daf0243f6e90a53beaea1cec5bf39b340b2864b2
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246804"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118578"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理一致性级别
 
@@ -337,7 +337,7 @@ item = client.ReadItem(doc_link, options)
 
 最终一致性的最终程度如何？ 对于普通情况，我们是否可以提供版本历史和时间方面的过期限度。 [**概率有限过期 (PBS)** ](https://pbs.cs.berkeley.edu/) 指标尝试量化过期的概率并将其显示为指标。 若要查看 PBS 指标，请在 Azure 门户中转到你的 Cosmos 帐户。 打开“指标”**** 窗格，然后选择“一致性”**** 选项卡。查看名为“基于工作负载的强一致性读取的概率(请参阅 PBS)”的图。****
 
-:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Azure 门户中的 PBS 图":::
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Azure 门户中的一致性菜单":::
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,23 +1,23 @@
 ---
 title: 通过 Node.js 使用 Azure 表存储或 Azure Cosmos DB 表 API
-description: 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
+description: 通过 Node.js 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 07/23/2020
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 73ecf7b6d69d3f81cf4f7cc3376b65c6a202c4b3
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.custom: devx-track-js
+ms.openlocfilehash: 47764bb975e9bb827196a5b811fddc7345d4b1fd
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246342"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118525"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储或 Azure Cosmos DB 表 API
 
@@ -494,12 +494,8 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
 * GitHub 上的[用于 Node.js 的 Microsoft Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 存储库。
     
-    <!--Not Available on * [Azure for Node.js Developers](/developer/javascript/)-->
-
-* [在 Azure 中创建 Node.js Web 应用](../app-service/app-service-web-get-started-nodejs.md)
-
-    <!-Pending on * [Create a Node.js web app in Azure](../app-service/quickstart-nodejs.md)-->
-
+* [面向 Node.js 开发人员的 Azure](https://docs.microsoft.com/azure/developer/javascript/)
+* [在 Azure 中创建 Node.js Web 应用](../app-service/quickstart-nodejs.md)
 * [生成 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）
 
 <!-- Update_Description: update meta properties, wording update, update link -->

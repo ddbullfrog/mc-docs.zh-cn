@@ -12,13 +12,13 @@ metadata:
   author: mblythe
   ms.author: v-tawe
   origin.date: 08/05/2020
-  ms.date: 08/27/2020
-  ms.openlocfilehash: 596e4e5029638b2191d4bf61a62f6c7a6aebd26d
-  ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+  ms.date: 10/19/2020
+  ms.openlocfilehash: 17649beefb7d5c981ad74772dcfb4f9c3ef23207
+  ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/27/2020
-  ms.locfileid: "88946915"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92170401"
 landingContent:
 - title: 关于 Azure 门户
   linkLists:
@@ -44,13 +44,13 @@ landingContent:
     links:
     - text: 将 Azure 门户 URL 加入安全列表
       url: azure-portal-safelist-urls.md
-    - text: 仪表板的基于角色的访问控制
+    - text: 仪表板的 Azure 基于角色的访问控制
       url: azure-portal-dashboard-share-access.md
 - title: 使用辅助功能选项
   linkLists:
   - linkListType: reference
     links:
-    - text: 键盘快捷方式
+    - text: 键盘快捷键
       url: azure-portal-keyboard-shortcuts.md
   - linkListType: how-to-guide
     links:

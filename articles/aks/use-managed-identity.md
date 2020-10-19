@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: e3fe17b1b14028780789c8497acb385b1dbb2efb
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: e603b0c1a6f572c1bca09c18c927a9223d29bb74
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937442"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128264"
 ---
 <!--Verified successfully-->
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>在 Azure Kubernetes 服务中使用托管标识
@@ -121,7 +121,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 
 <!--Not Available on [aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters-->
 
-[az-identity-create]: https://docs.microsoft.com/cli/azure/identity#az_identity_create&preserve-view=true
-[az-identity-list]: https://docs.microsoft.com/cli/azure/identity#az_identity_list&preserve-view=true
+[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az_identity_create&preserve-view=true
+[az-identity-list]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az_identity_list&preserve-view=true
 
 <!-- Update_Description: update meta properties, wording update, update link -->

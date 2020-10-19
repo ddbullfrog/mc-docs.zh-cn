@@ -1,8 +1,8 @@
 ---
 title: Azure Service Fabric 的 Azure Policy 法规遵从性控制措施
 description: 列出可用于 Azure Service Fabric 的 Azure Policy 法规遵从性控制措施。 这些内置的策略定义提供了管理 Azure 资源符合性的常用方法。
-origin.date: 07/22/2020
-ms.date: 09/14/2020
+origin.date: 09/16/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.topic: sample
@@ -10,12 +10,12 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: service-fabric
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d4d1b45f606f1746dd6ea54450bb3ae2349002fc
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 4456b36769048c03185ef2ffd4508ab96429cd0e
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655663"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127734"
 ---
 <!--Verified successfully-->
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-fabric"></a>Azure Service Fabric 的 Azure Policy 法规遵从性控制措施
@@ -29,8 +29,6 @@ Azure Policy 中的法规符合性为与不同符合性标准相关的“符合�
 [!INCLUDE [azure-policy-compliancecontrols-servicefabric](../../includes/policy/standards/byrp/microsoft.servicefabric.md)]
 
 ## <a name="next-steps"></a>后续步骤
-
-<!--Not Available on - Learn more about [Azure Policy Regulatory Compliance](../governance/policy/concepts/regulatory-compliance.md)-->
 
 <!--Not Available on - Learn more about [Azure Policy Regulatory Compliance](../governance/policy/concepts/regulatory-compliance.md)-->
 

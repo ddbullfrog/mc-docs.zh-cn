@@ -5,14 +5,14 @@ author: chenyl
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 06/11/2020
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 2494b3877e611df430c7c0a390300ed512a42d3b
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 9ac1aeee085a65a20a1ea6b37cfe4117fb646660
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063318"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170808"
 ---
 # <a name="upstream-settings"></a>上游设置
 
@@ -83,13 +83,13 @@ http://host.com/chat/api/messages/broadcast
 3. 在“上游 URL 模式”下添加 URL。 然后，设置（如“中心规则”）会显示默认值。
 4. 若要设置“中心规则”、“事件规则”、“类别规则”和“上游身份验证”的设置，请选择“中心规则”的值。     此时会显示一个页面，你可以在其中编辑设置：
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Upstream 设置详细信息":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="上游设置":::
 
 5. 若要设置“上游身份验证”，请确保已先启用托管标识。 然后选择“使用托管标识”。 可以根据需要选择“身份验证资源 ID”下的任何选项。 有关详细信息，请参阅 [Azure SignalR 服务的托管标识](howto-use-managed-identity.md)。
 
 ## <a name="create-upstream-settings-via-resource-manager-template"></a>通过资源管理器模板创建上游设置
 
-若要使用 [Azure 资源管理器模板](https://docs.azure.cn/azure-resource-manager/templates/overview)创建上游设置，请在 `properties` 属性中设置 `upstream` 属性。 以下代码片段显示了如何设置用于创建和更新上游设置的 `upstream` 属性。
+若要使用 [Azure 资源管理器模板](../azure-resource-manager/templates/overview.md)创建上游设置，请在 `properties` 属性中设置 `upstream` 属性。 以下代码片段显示了如何设置用于创建和更新上游设置的 `upstream` 属性。
 
 ```JSON
 {

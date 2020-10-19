@@ -5,16 +5,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 03/25/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 611e7461afdbb7041d3afa850f4989b46d1bc626
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 3b4398779f45d7f4f0d4ac7a7b14c7c6b2fc2a9a
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655562"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128050"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>准备源计算机以推送安装移动代理
 
@@ -29,7 +29,11 @@ ms.locfileid: "89655562"
 2. 如果未使用域帐户，请在本地计算机上禁用远程用户访问控制，如下所述：
     - 在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 注册表项下，添加一个新的 DWORD：**LocalAccountTokenFilterPolicy**。 将值设置为 **1**。
     - 为此，请在命令提示符下运行以下命令：  
-        `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+
+        ```
+        REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
+        ```
+
 3. 在要保护的计算机上的 Windows 防火墙中，选择“允许应用或功能通过防火墙”。  启用“文件和打印机共享”和“Windows Management Instrumentation (WMI)”。   对于属于某个域的计算机，可以使用组策略对象 (GPO) 配置防火墙设置。
 
     :::image type="content" source="./media/vmware-azure-install-mobility-service/mobility1.png" alt-text="防火墙设置":::
@@ -54,7 +58,7 @@ ms.locfileid: "89655562"
 6. 取消注释该行，并将值更改为 **yes**。
 7. 找到以“Subsystem”  开头的行，并取消注释该行。
 
-    :::image type="content" source="./media/vmware-azure-install-mobility-service/mobility2.png" alt-text="Linux":::
+    :::image type="content" source="./media/vmware-azure-install-mobility-service/mobility2.png" alt-text="防火墙设置":::
 
 8. 重启 **sshd** 服务。
 9. 添加在 CSPSConfigtool 中创建的帐户。 若要执行此操作，请登录到你的配置服务器。
@@ -63,6 +67,8 @@ ms.locfileid: "89655562"
 12. 添加已创建的帐户。
 13. 输入为计算机启用复制时使用的凭据。
 14. 用于更新或保护 SUSE Linux Enterprise Server 11 SP3 计算机的其他步骤。 [确保配置服务器中提供了最新版本](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server)。
+
+<!--Not Available on OR RHEL 5 or CentOS 5 or Debian 7-->
 
 ## <a name="anti-virus-on-replicated-machines"></a>复制计算机上的防病毒
 

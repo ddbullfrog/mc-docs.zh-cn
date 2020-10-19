@@ -1,19 +1,19 @@
 ---
-title: 使用 ARM 模板创建 Azure DB for MySQL
-description: 本文介绍了如何使用 Azure 资源管理器模板创建集成了虚拟网络的 Azure Database for MySQL 服务器。
+title: 快速入门：创建 Azure DB for MySQL - ARM 模板
+description: 本快速入门介绍了如何使用 Azure 资源管理器模板创建集成了虚拟网络的 Azure Database for MySQL 服务器。
 author: WenJason
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: v-jay
 origin.date: 05/19/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: d4caa2c5e1116059031a82dd48934ebc077efa7b
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 10/19/2020
+ms.openlocfilehash: e5fb84c78b9b2d7225ae113be9141853c590a7d5
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029606"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041861"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>快速入门：使用 ARM 模板创建 Azure Database for MySQL 服务器
 
@@ -23,7 +23,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-[![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -51,235 +51,236 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 ```JSON
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "serverName": {
-            "type": "string",
-            "metadata": {
-                "description": "Server Name for Azure database for MySQL"
-            }
-        },
-        "administratorLogin": {
-            "type": "string",
-            "minLength": 1,
-            "metadata": {
-                "description": "Database administrator login name"
-            }
-        },
-        "administratorLoginPassword": {
-            "type": "securestring",
-            "minLength": 8,
-            "metadata": {
-                "description": "Database administrator password"
-            }
-        },
-        "skuCapacity": {
-            "type": "int",
-            "defaultValue": 2,
-            "metadata": {
-                "description": "Azure database for MySQL compute capacity in vCores (2,4,8,16,32)"
-            }
-        },
-        "skuName": {
-            "type": "string",
-            "defaultValue": "GP_Gen5_2",
-            "metadata": {
-                "description": "Azure database for MySQL sku name "
-            }
-        },
-        "SkuSizeMB": {
-            "type": "int",
-            "defaultValue": 5120,
-            "metadata": {
-                "description": "Azure database for MySQL Sku Size "
-            }
-        },
-        "SkuTier": {
-            "type": "string",
-            "defaultValue": "GeneralPurpose",
-            "metadata": {
-                "description": "Azure database for MySQL pricing tier"
-            }
-        },
-        "skuFamily": {
-            "type": "string",
-            "defaultValue": "Gen5",
-            "metadata": {
-                "description": "Azure database for MySQL sku family"
-            }
-        },
-        "mysqlVersion": {
-            "type": "string",
-            "allowedValues": [
-                "5.6",
-                "5.7"
-            ],
-            "defaultValue": "5.7",
-            "metadata": {
-                "description": "MySQL version"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location for all resources."
-            }
-        },
-        "backupRetentionDays": {
-            "type": "int",
-            "defaultValue": 7,
-            "metadata": {
-                "description": "MySQL Server backup retention days"
-            }
-        },
-        "geoRedundantBackup": {
-            "type": "string",
-            "defaultValue": "Disabled",
-            "metadata": {
-                "description": "Geo-Redundant Backup setting"
-            }
-        },
-        "virtualNetworkName": {
-            "type": "string",
-            "defaultValue": "azure_mysql_vnet",
-            "metadata": {
-                "description": "Virtual Network Name"
-            }
-        },
-        "subnetName": {
-            "type": "string",
-            "defaultValue": "azure_mysql_subnet",
-            "metadata": {
-                "description": "Subnet Name"
-            }
-        },
-        "virtualNetworkRuleName": {
-            "type": "string",
-            "defaultValue": "AllowSubnet",
-            "metadata": {
-                "description": "Virtual Network RuleName"
-            }
-        },
-        "vnetAddressPrefix": {
-            "type": "string",
-            "defaultValue": "10.0.0.0/16",
-            "metadata": {
-                "description": "Virtual Network Address Prefix"
-            }
-        },
-        "subnetPrefix": {
-            "type": "string",
-            "defaultValue": "10.0.0.0/16",
-            "metadata": {
-                "description": "Subnet Address Prefix"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serverName": {
+      "type": "string",
+      "metadata": {
+        "description": "Server Name for Azure database for MySQL"
+      }
     },
-    "variables": {
-        "firewallrules": {
-            "batch": {
-                "rules": [
-                    {
-                        "Name": "rule1",
-                        "StartIpAddress": "0.0.0.0",
-                        "EndIpAddress": "255.255.255.255"
-                    },
-                    {
-                        "Name": "rule2",
-                        "StartIpAddress": "0.0.0.0",
-                        "EndIpAddress": "255.255.255.255"
-                    }
-                ]
-            }
-        }
+    "administratorLogin": {
+      "type": "string",
+      "minLength": 1,
+      "metadata": {
+        "description": "Database administrator login name"
+      }
     },
-    "resources": [
-        {
-            "apiVersion": "2018-06-01",
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetworkName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[parameters('vnetAddressPrefix')]"
-                    ]
-                }
-            },
-            "resources": [
-                {
-                    "apiVersion": "2018-06-01",
-                    "type": "subnets",
-                    "location": "[parameters('location')]",
-                    "name": "[parameters('subnetName')]",
-                    "dependsOn": [
-                        "[parameters('virtualNetworkName')]"
-                    ],
-                    "properties": {
-                        "addressPrefix": "[parameters('subnetPrefix')]"
-                    }
-                }
-            ]
-        },
-        {
-            "apiVersion": "2017-12-01",
-            "type": "Microsoft.DBforMySQL/servers",
-            "location": "[parameters('location')]",
-            "name": "[parameters('serverName')]",
-            "sku": {
-                "name": "[parameters('skuName')]",
-                "tier": "[parameters('skuTier')]",
-                "capacity": "[parameters('skuCapacity')]",
-                "size": "[parameters('skuSizeMB')]",
-                "family": "[parameters('skuFamily')]"
-            },
-            "properties": {
-                "version": "[parameters('mysqlVersion')]",
-                "administratorLogin": "[parameters('administratorLogin')]",
-                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-                "storageProfile": {
-                    "storageMB": "[parameters('skuSizeMB')]",
-                    "backupRetentionDays": "[parameters('backupRetentionDays')]",
-                    "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
-                }
-            },
-            "resources": [
-                {
-                    "name": "[parameters('virtualNetworkRuleName')]",
-                    "type": "virtualNetworkRules",
-                    "apiVersion": "2017-12-01",
-                    "properties": {
-                        "virtualNetworkSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
-                        "ignoreMissingVnetServiceEndpoint": true
-                    },
-                    "dependsOn": [
-                        "[concat('Microsoft.DBforMySQL/servers/', parameters('serverName'))]"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "[concat(parameters('serverName'),'/',variables('firewallrules').batch.rules[copyIndex()].Name)]",
-            "type": "Microsoft.DBforMySQL/servers/firewallRules",
-            "apiVersion": "2017-12-01",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.DBforMySQL/servers/', parameters('serverName'))]"
-            ],
-            "copy": {
-                "name": "firewallRulesCopy",
-                "mode": "Serial",
-                "batchSize": 1,
-                "count": "[length(variables('firewallrules').batch.rules)]"
-            },
-            "properties": {
-                "StartIpAddress": "[variables('firewallrules').batch.rules[copyIndex()].StartIpAddress]",
-                "EndIpAddress": "[variables('firewallrules').batch.rules[copyIndex()].EndIpAddress]"
-            }
+    "administratorLoginPassword": {
+      "type": "securestring",
+      "minLength": 8,
+      "metadata": {
+        "description": "Database administrator password"
+      }
+    },
+    "skuCapacity": {
+      "type": "int",
+      "defaultValue": 2,
+      "metadata": {
+        "description": "Azure database for MySQL compute capacity in vCores (2,4,8,16,32)"
+      }
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "GP_Gen5_2",
+      "metadata": {
+        "description": "Azure database for MySQL sku name "
+      }
+    },
+    "SkuSizeMB": {
+      "type": "int",
+      "defaultValue": 5120,
+      "metadata": {
+        "description": "Azure database for MySQL Sku Size "
+      }
+    },
+    "SkuTier": {
+      "type": "string",
+      "defaultValue": "GeneralPurpose",
+      "metadata": {
+        "description": "Azure database for MySQL pricing tier"
+      }
+    },
+    "skuFamily": {
+      "type": "string",
+      "defaultValue": "Gen5",
+      "metadata": {
+        "description": "Azure database for MySQL sku family"
+      }
+    },
+    "mysqlVersion": {
+      "type": "string",
+      "defaultValue": "5.7",
+      "allowedValues": [
+        "5.6",
+        "5.7"
+      ],
+      "metadata": {
+        "description": "MySQL version"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
+    "backupRetentionDays": {
+      "type": "int",
+      "defaultValue": 7,
+      "metadata": {
+        "description": "MySQL Server backup retention days"
+      }
+    },
+    "geoRedundantBackup": {
+      "type": "string",
+      "defaultValue": "Disabled",
+      "metadata": {
+        "description": "Geo-Redundant Backup setting"
+      }
+    },
+    "virtualNetworkName": {
+      "type": "string",
+      "defaultValue": "azure_mysql_vnet",
+      "metadata": {
+        "description": "Virtual Network Name"
+      }
+    },
+    "subnetName": {
+      "type": "string",
+      "defaultValue": "azure_mysql_subnet",
+      "metadata": {
+        "description": "Subnet Name"
+      }
+    },
+    "virtualNetworkRuleName": {
+      "type": "string",
+      "defaultValue": "AllowSubnet",
+      "metadata": {
+        "description": "Virtual Network RuleName"
+      }
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/16",
+      "metadata": {
+        "description": "Virtual Network Address Prefix"
+      }
+    },
+    "subnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/16",
+      "metadata": {
+        "description": "Subnet Address Prefix"
+      }
+    }
+  },
+  "variables": {
+    "firewallrules": {
+      "batch": {
+        "rules": [
+          {
+            "Name": "rule1",
+            "StartIpAddress": "0.0.0.0",
+            "EndIpAddress": "255.255.255.255"
+          },
+          {
+            "Name": "rule2",
+            "StartIpAddress": "0.0.0.0",
+            "EndIpAddress": "255.255.255.255"
+          }
+        ]
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-06-01",
+      "name": "[parameters('virtualNetworkName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vnetAddressPrefix')]"
+          ]
         }
-    ]
+      },
+      "resources": [
+        {
+          "type": "subnets",
+          "apiVersion": "2020-06-01",
+          "name": "[parameters('subnetName')]",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+            "[parameters('virtualNetworkName')]"
+          ],
+          "properties": {
+            "addressPrefix": "[parameters('subnetPrefix')]"
+          }
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.DBforMySQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('serverName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('skuName')]",
+        "tier": "[parameters('skuTier')]",
+        "capacity": "[parameters('skuCapacity')]",
+        "size": "[parameters('skuSizeMB')]",
+        "family": "[parameters('skuFamily')]"
+      },
+      "properties": {
+        "createMode": "Default",
+        "version": "[parameters('mysqlVersion')]",
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+        "storageProfile": {
+          "storageMB": "[parameters('skuSizeMB')]",
+          "backupRetentionDays": "[parameters('backupRetentionDays')]",
+          "geoRedundantBackup": "[parameters('geoRedundantBackup')]"
+        }
+      },
+      "resources": [
+        {
+          "type": "virtualNetworkRules",
+          "apiVersion": "2017-12-01",
+          "name": "[parameters('virtualNetworkRuleName')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.DBforMySQL/servers/', parameters('serverName'))]"
+          ],
+          "properties": {
+            "virtualNetworkSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
+            "ignoreMissingVnetServiceEndpoint": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.DBforMySQL/servers/firewallRules",
+      "apiVersion": "2017-12-01",
+      "name": "[concat(parameters('serverName'),'/',variables('firewallrules').batch.rules[copyIndex()].Name)]",
+      "location": "[parameters('location')]",
+      "copy": {
+        "name": "firewallRulesCopy",
+        "mode": "Serial",
+        "batchSize": 1,
+        "count": "[length(variables('firewallrules').batch.rules)]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DBforMySQL/servers/', parameters('serverName'))]"
+      ],
+      "properties": {
+        "StartIpAddress": "[variables('firewallrules').batch.rules[copyIndex()].StartIpAddress]",
+        "EndIpAddress": "[variables('firewallrules').batch.rules[copyIndex()].EndIpAddress]"
+      }
+    }
+  ]
 }
 ```
 
@@ -299,7 +300,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 选择以下链接以在 Azure 门户中部署 Azure Database for MySQL 服务器模板：
 
-[![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
 在“部署具有 VNet 的 Azure Database for MySQL”页上：
 
@@ -309,7 +310,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 3. 输入服务器名称、管理员登录名和管理员登录密码  。
 
-    ![“部署具有 VNet 的 Azure Database for MySQL”窗口，Azure 快速入门模板，Azure 门户](./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png)
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="部署到 Azure":::
 
 4. 根据需要更改其他默认设置：
 
@@ -378,7 +379,7 @@ echo "Press [ENTER] to continue ..."
 
 ## <a name="review-deployed-resources"></a>查看已部署的资源
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 按照以下步骤查看新 Azure Database for MySQL 服务器的概览：
 
@@ -414,7 +415,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 如果不再需要该资源组，可以将其删除，这将删除资源组中的资源。
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“资源组”。
 

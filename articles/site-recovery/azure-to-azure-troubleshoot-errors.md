@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 04/07/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: ce85d4771f46d1a43048e5e9630335ce6f2abdc6
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 66a9b304d75aa51b57084ade59d2c596088806f1
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655243"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127998"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>排查 Azure 到 Azure VM 复制错误
 
@@ -284,14 +284,14 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 1. 转到“复制的项” >  VM 名称  > “磁盘”。
 1. 选择未受保护的磁盘，然后选择“启用复制”：
 
-    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="在 VM 磁盘上启用复制。":::
+    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="com-error。":::
 
 #### <a name="to-dismiss-the-warning"></a>消除警告
 
 1. 转到“复制的项” >  VM 名称。
 1. 选择“概述”部分选择警告，然后选择“确定”。 
 
-    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="消除新磁盘警告。":::
+    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="com-error。":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>从保管库中删除 VM 的操作已完成，但出现提示信息（错误代码 150225）
 
@@ -312,7 +312,7 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 1. 删除 VM 或 VM 资源组的锁。 例如，在下图中，必须删除名为 `MoveDemo` 的 VM 上的资源锁：
 
-    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="从 VM 中删除锁。":::
+    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error。":::
 
 1. 下载用于[删除过时的 Site Recovery 配置](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)的脚本。
 1. 运行脚本 _Cleanup-stale-asr-config-Azure-VM.ps1_。 提供订阅 ID、VM 资源组和 VM 名称作为参数。  
@@ -337,7 +337,7 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 1. 删除 VM 或 VM 资源组的锁。 例如，在下图中，必须删除名为 `MoveDemo` 的 VM 上的资源锁：
 
-    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="从 VM 中删除锁。":::
+    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error。":::
 
 1. 下载用于[删除过时的 Site Recovery 配置](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)的脚本。
 1. 运行脚本 _Cleanup-stale-asr-config-Azure-VM.ps1_。 提供订阅 ID、VM 资源组和 VM 名称作为参数。  
@@ -370,7 +370,7 @@ Site Recovery 当前要求源区域资源组和虚拟机应位于同一位置。
 
 1. 删除 VM 或 VM 资源组中的锁（如果有）。 例如，在下图中，必须删除名为 `MoveDemo` 的 VM 上的资源锁：
 
-    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="从 VM 中删除锁。":::
+    :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error。":::
 
 1. 下载用于[删除过时的 Site Recovery 配置](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)的脚本。
 1. 运行脚本 _Cleanup-stale-asr-config-Azure-VM.ps1_。 提供订阅 ID、VM 资源组和 VM 名称作为参数。  
@@ -407,17 +407,17 @@ Site Recovery 当前要求源区域资源组和虚拟机应位于同一位置。
 
 在配置灾难恢复期间，如果源 VM 在某个虚拟网络中，并且同一虚拟网络中的另一个 VM 已映射到目标资源组中的某个网络，则网络选择下拉列表框默认将不可用（灰显）。
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="网络选择列表不可用。":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="com-error。":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>问题 2：你之前已保护了 VM，然后禁用了复制
 
 禁用 VM 复制不会删除网络映射。 必须从保护 VM 的恢复服务保管库中删除映射。 选择“恢复服务保管库”，然后转到“管理” > “Site Recovery 基础结构” > “针对 Azure 虚拟机” > “网络映射”。    
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="删除网络映射。":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="com-error。":::
 
 可以在完成初始设置并保护 VM 之后更改在灾难恢复设置期间配置的目标网络。 若要**修改网络映射**，请选择网络名称：
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="修改网络映射。":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="com-error。":::
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ 或 VSS（错误代码 151025）
 
@@ -439,7 +439,7 @@ Site Recovery extension failed to install.
 1. 在 Windows 中打开“服务”控制台。
 1. 确保 COM+ 系统应用程序和卷影复制服务的“启动类型”未设置为“已禁用”。 
 
-    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="检查 COM+ 系统应用程序和卷影复制服务的启动类型。":::
+    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="com-error。":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>不支持的托管磁盘大小（错误代码 150172）
 

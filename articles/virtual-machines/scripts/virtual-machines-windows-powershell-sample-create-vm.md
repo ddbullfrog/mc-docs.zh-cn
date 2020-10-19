@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell 脚本示例 - 创建完全配置的 Windows VM
-description: Azure PowerShell 脚本示例 - 创建 Windows VM
+description: Azure PowerShell 脚本示例 - 创建完全配置的 Windows VM。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 manager: gwallace
@@ -12,18 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/02/2017
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 4aaa0026b1372e2513244de29c921c77e945815b
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: b93e9c58cefc8f24217ead2be2508e07dafab7e9
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414005"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128385"
 ---
+<!--Renamed File-->
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>使用 PowerShell 创建完全配置的虚拟机
 
 该脚本创建运行 Windows Server 2016 的 Azure 虚拟机。 运行脚本后，可通过 RDP 访问虚拟机。

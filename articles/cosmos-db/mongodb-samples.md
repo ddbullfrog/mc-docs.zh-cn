@@ -6,18 +6,18 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 12/26/2018
-ms.date: 08/17/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f95d14781da37893789894cc95b701c23751a36f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-js
+ms.openlocfilehash: 9b70fb67ae5194007ad84236544dc6d8ec415766
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223084"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118405"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>使用 Node.js 和 Azure Cosmos DB 的用于 MongoDB 的 API 生成应用 
 > [!div class="op_single_selector"]

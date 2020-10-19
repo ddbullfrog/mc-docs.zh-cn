@@ -1,25 +1,25 @@
 ---
 title: 图像分类教程：训练模型
 titleSuffix: Azure Machine Learning
-description: 了解如何通过 Azure 机器学习在 Python Jupyter notebook 中使用 scikit-learn 训练图像分类模型。 本教程是由两个部分构成的系列教程的第一部分。
+description: 通过 Azure 机器学习在 Python Jupyter notebook 中使用 scikit-learn 训练图像分类模型。 本教程是第一部分（共两部分）。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-origin.date: 02/10/2020
-ms.date: 03/16/2020
+origin.date: 03/18/2020
+ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 15406872145d743ea1349584c3d70fe65807723f
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 71d4064bcf5f55ddf968b853dc570d8edce5430c
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395182"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118552"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>教程：使用 MNIST 数据和 scikit-learn 训练图像分类模型 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 在本教程中，你将在远程计算资源上训练一个机器学习模型。 将在 Python Jupyter Notebook 中使用 Azure 机器学习的训练和部署工作流。  然后可以将 Notebook 用作模板，使用你自己的数据来定型机器学习。 本教程是由两个部分构成的系列教程的第一部分****。  
 
@@ -367,7 +367,7 @@ run
 
 ## <a name="monitor-a-remote-run"></a>监视远程运行
 
-总的来说，首次运行需要大约 10 分钟****。 但对于后续运行，只要不更改脚本依赖项，将重复使用相同的映像。 因此容器启动时间要快得多。
+总的来说，首次运行需要大约 10 分钟。 但对于后续运行，只要不更改脚本依赖项，将重复使用相同的映像。 因此容器启动时间要快得多。
 
 等待时会发生以下情况：
 

@@ -1,5 +1,5 @@
 ---
-title: 管理单元管理（预览版）- Azure AD | Microsoft Docs
+title: Azure Active Directory 中的管理单元 | Microsoft Docs
 description: 在 Azure Active Directory 中使用管理单元获得更精细的委派权限
 services: active-directory
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8acbc430bb0fa545b0fbf65a97cf8e2b62dd0b
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 5c966c54c58e31eea5ccffd9a8b4df7f0d225d37
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245154"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041435"
 ---
-# <a name="administrative-units-management-in-azure-active-directory-preview"></a>Azure Active Directory 中的管理单元管理（预览）
+# <a name="administrative-units-in-azure-active-directory"></a>Azure Active Directory 中的管理单元
 
-本文介绍 Azure Active Directory (Azure AD) 中的管理单元。 管理单元是一种 Azure AD 资源，它可以是其他 Azure AD 资源的容器。 在此预览版本中，管理单元只能包含用户和组。
+本文介绍 Azure Active Directory (Azure AD) 中的管理单元。 管理单元是一种 Azure AD 资源，它可以是其他 Azure AD 资源的容器。 管理单元只能包含用户和组。
 
 管理单元允许你授予仅限于你定义的部门、区域或组织的其他部门的管理权限。 你能够使用管理单元将权限委派给区域管理员或以粒度级别设置策略。 例如，用户帐户管理员可以更新配置文件信息、重置密码，并仅为其管理单元中的用户分配许可证。
 
@@ -44,11 +44,11 @@ ms.locfileid: "91245154"
 
 ## <a name="manage-administrative-units"></a>对管理单元进行管理
 
-在此预览版中，可以使用 Azure 门户、PowerShell cmdlet 和脚本或 Microsoft Graph 对管理单元进行管理。 请参阅我们的文档获取详细信息：
+可以使用 Azure 门户、PowerShell cmdlet 和脚本或 Microsoft Graph 对管理单元进行管理。 请参阅我们的文档获取详细信息：
 
 - [创建、删除、填充角色并将其添加到管理单元](roles-admin-units-manage.md)：完成操作指南过程
 - 处理管理单元：如何使用 PowerShell 处理管理单元
-- [管理单元 Graph 支持](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta)：有关适用于管理单元的 Microsoft Graph 的详细文档。
+- [管理单元 Graph 支持](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true)：有关适用于管理单元的 Microsoft Graph 的详细文档。
 
 ### <a name="planning-your-administrative-units"></a>规划管理单元
 

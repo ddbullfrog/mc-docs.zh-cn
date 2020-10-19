@@ -4,16 +4,16 @@ description: 在容器注册表上设置专用终结点，并实现在本地虚�
 ms.topic: article
 origin.date: 06/26/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 10/14/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: 91bce61362be33838949fd261ef84e3f8f943b9c
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: e625e4fdec1bce143a74eb83ed44b30652244f96
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564580"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118061"
 ---
 <!--Verified successfully both CLI and PORTAL-->
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>使用 Azure 专用链接以私密方式连接到 Azure 容器注册表
@@ -80,7 +80,9 @@ echo SUBNET_NAME=$SUBNET_NAME
 
 ### <a name="disable-network-policies-in-subnet"></a>在子网中禁用网络策略
 
-[禁用网络策略](../private-link/disable-private-endpoint-network-policy.md)，如用于专用终结点的子网中的网络安全组。 使用 [az network vnet subnet update][az-network-vnet-subnet-update] 更新子网配置：
+禁用网络策略，如用于专用终结点的子网中的网络安全组。 使用 [az network vnet subnet update][az-network-vnet-subnet-update] 更新子网配置：
+
+<!--Not Avaialble on [Disable network policies](../private-link/disable-private-endpoint-network-policy.md)-->
 
 ```azurecli
 az network vnet subnet update \
@@ -170,7 +172,7 @@ DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
 > [!NOTE]
 > 如果注册表是[异地复制](container-registry-geo-replication.md)，请查询每个注册表副本的附加数据终结点。
 
-### <a name="create-dns-records-in-the-private-zone"></a>在专用区域中创建 DNS 记录
+### <a name="create-dns-records-in-the-private-zone"></a><a name="create-dns-records-in-the-private-zone"></a>在专用区域中创建 DNS 记录
 
 以下命令在专用区域中为注册表终结点及其数据终结点创建 DNS 记录。 例如，如果在 chinaeast2 区域中有一个名为 myregistry 的注册表，则终结点名称是 `myregistry.azurecr.cn` 和 `myregistry.chinaeast2.data.azurecr.cn`。 
 
@@ -375,7 +377,9 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-使用本文中的步骤设置专用终结点连接时，注册表会自动接受来自对注册表拥有 RBAC 权限的客户端和服务的连接。 可以设置终结点以要求手动批准连接。 有关如何批准和拒绝专用终结点连接的信息，请参阅[管理专用终结点连接](../private-link/manage-private-endpoint.md)。
+使用本文中的步骤设置专用终结点连接时，注册表会自动接受来自对注册表拥有 RBAC 权限的客户端和服务的连接。 可以设置终结点以要求手动批准连接。 
+
+<!--Not Available on [Manage a Private Endpoint Connection](../private-link/manage-private-endpoint.md)-->
 
 ## <a name="add-zone-records-for-replicas"></a>为副本添加区域记录
 

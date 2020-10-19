@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 origin.date: 08/20/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: e56bc128f56b389177b6c1d95396fd3b5304ce7e
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 3142a57d35ad1ce50ec3df09187c383f436e212f
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317508"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127685"
 ---
 # <a name="what-is-the-speech-service"></a>什么是语音服务？
 
@@ -27,7 +27,7 @@ ms.locfileid: "89317508"
 
 以下功能是语音服务的一部分。 请使用下表中的链接详细了解每项功能的常见用例或浏览 API 参考信息。
 
-| 服务 | 功能 | 说明 | SDK | REST |
+| 服务 | 功能 | 说明 | SDK 中 IsInRole 中的声明 | REST |
 |---------|---------|-------------|-----|------|
 | [语音转文本](speech-to-text.md) | 实时语音转文本 | 语音转文本可将音频流或本地文件实时转录或翻译为文本，应用程序、工具或设备可以使用或显示这些文本。 结合[语言理解 (LUIS)](https://docs.azure.cn/cognitive-services/luis/) 使用语音转文本可以从听录的语音中派生用户意向，以及处理语音命令。 | [是](https://docs.azure.cn/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.azure.cn/cognitive-services/speech-service/rest-apis) |
 | | [批量语音转文本](batch-transcription.md) | 批量语音转文本支持对 Azure Blob 存储中存储的大量语音音频数据进行异步语音到文本转录。 除了将语音音频转换为文本，批量语音转文本还允许进行分割聚类和情感分析。 | 否 | [是](https://chinaeast2.cris.azure.cn/swagger/ui/index) |
@@ -38,7 +38,7 @@ ms.locfileid: "89317508"
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="try-the-speech-service"></a>试用语音服务
+## <a name="try-the-speech-service-for-free"></a>免费试用语音服务
 
 若要完成以下步骤，需要一个 Azure 帐户。 如果你没有 Azure 帐户，可以在[此处](https://wd.azure.cn/pricing/1rmb-trial/)注册试用版。
 
@@ -65,12 +65,10 @@ ms.locfileid: "89317508"
    - 选择免费 (F0) 或付费 (S0) 定价层。 若要查看每个层的定价和用量配额的完整信息，请选择“查看全部定价详细信息”  。
    - 为此“语音”订阅创建新的资源组或将订阅分配到现有资源组。 资源组有助于使多种 Azure 订阅保持有序状态。
    - 选择“创建”  。 系统随后会将你转到部署概述，并显示部署进度消息。
-
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-
 部署新的语音资源需要花费片刻时间。 部署完成后，选择“转到资源”，然后在左侧导航窗格中选择“密钥”以显示语音服务订阅密钥。   每个订阅有两个密钥；可在应用程序中使用任意一个密钥。 若要将密钥快速复制/粘贴到代码编辑器或其他位置，请选择每个密钥旁边的复制按钮，切换窗口，然后将剪贴板中的内容粘贴到所需位置。
 
 > [!IMPORTANT]
@@ -80,7 +78,7 @@ ms.locfileid: "89317508"
 
 我们提供了适用于大多数流行编程语言的快速入门，旨在让你了解基本设计模式并帮助你在 10 分钟以内运行代码。 请参阅以下列表，了解每项功能的快速入门。
 
-* [语音转文本快速入门](speech-to-text-basics.md)
+* [语音转文本快速入门](get-started-speech-to-text.md)
 * [文本转语音快速入门](get-started-text-to-speech.md)
 * [语音翻译快速入门](speech-translation-basics.md)
 * [意向识别快速入门](quickstarts/intent-recognition.md)

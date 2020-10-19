@@ -1,22 +1,23 @@
 ---
 title: 快速入门 - 使用 Node.js 查询 Azure Cosmos DB SQL API 帐户
 description: 如何使用 Node.js 创建连接 Azure Cosmos DB SQL API 帐户和查询数据的应用。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 05/11/2020
-ms.date: 08/17/2020
+origin.date: 09/22/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: bb1cf8b15811f93f5511e3154b1162e83de0152f
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.custom: devx-track-js
+ms.openlocfilehash: a32fc76a4a74a85f8c8cc2f9e6cafe3b23b8bb35
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246781"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118378"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Node.js 连接和查询 Azure Cosmos DB SQL API 帐户中的数据
 
@@ -24,6 +25,7 @@ ms.locfileid: "91246781"
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
 > - [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -43,7 +45,7 @@ ms.locfileid: "91246781"
 
 ## <a name="create-an-azure-cosmos-account"></a>创建 Azure Cosmos 帐户
 
-<!--REPLACE TRY AZURE COSMOS DB FOR FREE CONTENT-->
+<!--MOONCAKE CUSTOMZIE: REPLACE TRY AZURE COSMOS DB FOR FREE CONTENT-->
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -171,7 +173,7 @@ npm install @azure/cosmos
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，在你的 Azure Cosmos DB 帐户中，从左侧导航栏中选择“密钥”，然后选择“读写密钥”。 在下一步中，使用屏幕右侧的复制按钮将 URI 和主密钥复制到 _app.js_ 文件中。
 
-    :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥":::
+    :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Azure 门户 >“数据资源管理器”>“添加集合”窗格":::
 
 2. 打开 _config.js_ 文件。
 

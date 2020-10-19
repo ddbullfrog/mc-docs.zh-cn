@@ -1,20 +1,8 @@
 - name: 安全开发文档
   href: index.yml
-- name: 示例应用
-  expanded: true
-  items:
-    - name: 首次进行安全开发
-      items:
-        - name: 将 Web 应用与 Azure Active Directory 配合使用
-          href: secure-aad-app.md
-    - name: 符合行业标准的解决方案
-      items:
-        - name: 支付卡行业
-          href: secure-pci-web-app.md
 - name: 概念
-  expanded: true
   items:
-    - name: 最佳做法
+    - name: 最佳实践
       items:
         - name: 概述
           href: secure-dev-overview.md
@@ -24,8 +12,8 @@
           href: secure-develop.md
         - name: 部署安全的应用
           href: secure-deploy.md
-- name: 资源
   expanded: true
+- name: 资源
   items:
     - name: Microsoft 威胁建模工具
       displayName: stride
@@ -54,6 +42,10 @@
               href: threat-modeling-tool-releases-73002061.md
             - name: Threat Modeling Tool 更新版 7.3.00316.1 - 2020 年 3 月 22 日
               href: threat-modeling-tool-releases-73003161.md
+            - name: Threat Modeling Tool 更新版 7.3.00714.2 - 2020 年 7 月 14 日
+              href: threat-modeling-tool-releases-73007142.md
+            - name: Threat Modeling Tool 更新版 7.3.00729.1 - 2020 年 7 月 29 日
+              href: threat-modeling-tool-releases-73007291.md
         - name: 缓解措施
           href: threat-modeling-tool-mitigations.md
           items:
@@ -77,3 +69,4 @@
               href: threat-modeling-tool-sensitive-data.md
             - name: 会话管理
               href: threat-modeling-tool-session-management.md
+  expanded: true

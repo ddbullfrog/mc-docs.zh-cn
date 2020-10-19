@@ -5,15 +5,15 @@ tags: azure-service-management
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: mvc
-ms.openlocfilehash: efe4c2b8e10667b10afe690b25fee71a7ddd34b6
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: eaa43159e9a6982820e35410937913b490451a58
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228124"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170462"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>使用 Web 服务器日志监视 Web 应用
 

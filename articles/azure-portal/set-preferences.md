@@ -6,16 +6,16 @@ keywords: 设置, 超时, 语言, 区域
 author: mgblythe
 ms.author: v-tawe
 origin.date: 08/05/2020
-ms.date: 08/27/2020
+ms.date: 10/19/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 71b89890946ec3244c1a963243ca5d12b5f74bcd
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: ed7503c2e893c001b2cec66d3dbff192c8ee8de1
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947072"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170673"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>管理 Azure 门户设置和首选项
 
@@ -34,7 +34,7 @@ ms.locfileid: "88947072"
 
 1. 选择要在启动门户时用作默认订阅的订阅。 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="选择要在启动门户时用作默认订阅的订阅。"::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="按订阅筛选资源列表。"::: 
 
 
 ## <a name="choose-your-default-view"></a>选择默认视图 

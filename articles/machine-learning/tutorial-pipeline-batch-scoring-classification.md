@@ -1,7 +1,7 @@
 ---
 title: 教程：用于批量评分的 ML 管道
 titleSuffix: Azure Machine Learning
-description: 本教程介绍如何生成机器学习管道，用于对 Azure 机器学习中的图像分类模型运行批量评分。 机器学习管道可以优化工作流以提高其速度、可移植性和可重用性，使你能够将工作重心放在专业技术和机器学习，而不是在基础结构和自动化上。
+description: 本教程介绍如何生成机器学习管道，用于对图像分类模型执行批量评分。 Azure 机器学习使你能够将工作重心放在机器学习上，而不必关注基础设施和自动化。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,20 +11,20 @@ ms.author: trbye
 ms.reviewer: trbye
 origin.date: 03/11/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: 11bbf3175af8148a65421cb102498e0517dd3127
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: e807cf80b3c7c6421abeca81bbbfbd256a15149c
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395337"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118207"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>教程：生成用于批量评分的 Azure 机器学习管道
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-此高级教程介绍如何在 Azure 机器学习中构建管道来运行批量评分作业。 机器学习管道可以优化工作流以提高其速度、可移植性和可重用性，使你能够将工作重心放在机器学习上，而不必关注基础结构和自动化。 生成并发布管道后，你将配置一个 REST 终结点，用于从任何平台上的任何 HTTP 库触发该管道。 
 
-本示例使用 Tensorflow 中实现的预先训练的 [Inception-V3](https://arxiv.org/abs/1512.00567) 卷积神经网络模型来对不带标签的图像进行分类。 [详细了解机器学习管道](concept-ml-pipelines.md)。
+在本高级教程中，你将了解如何构建 [Azure 机器学习管道](concept-ml-pipelines.md)来运行批量评分作业。 机器学习管道可以优化工作流以提高其速度、可移植性和可重用性，使你能够将工作重心放在机器学习上，而不必关注基础结构和自动化。 生成并发布管道后，你将配置一个 REST 终结点，用于从任何平台上的任何 HTTP 库触发该管道。 
+
+本示例使用 Tensorflow 中实现的预先训练的 [Inception-V3](https://arxiv.org/abs/1512.00567) 卷积神经网络模型来对不带标签的图像进行分类。 
 
 在本教程中，请完成以下任务：
 
@@ -388,7 +388,7 @@ published_pipeline
 
 服务主体身份验证涉及到在 *Azure Active Directory* 中创建应用注册。 首先生成客户端机密，然后为服务主体授予对机器学习工作区的角色访问权限。 使用 [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) 类来管理身份验证流。 
 
-[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) 和 `ServicePrincipalAuthentication` 均继承自 `AbstractAuthentication`。 在这两种情况下，请以相同的方式使用 [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#&preserve-view=trueget-authentication-header--) 函数来提取标头：
+[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) 和 `ServicePrincipalAuthentication` 均继承自 `AbstractAuthentication`。 在这两种情况下，请以相同的方式使用 [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-authentication-header--) 函数来提取标头：
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

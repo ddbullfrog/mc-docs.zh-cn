@@ -3,20 +3,20 @@ title: 触发用于新数据的 ML 管道
 titleSuffix: Azure Machine Learning
 description: 了解如何使用 Azure 逻辑应用触发 ML 管道的运行。
 services: machine-learning
-author: sanpil
-ms.author: sanpil
+author: NilsPohlmann
+ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: how-to
 ms.date: 02/07/2020
-ms.custom: contperfq4
-ms.openlocfilehash: a6fc19df692888ace26224b32d12155c5d18f120
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.topic: conceptual
+ms.custom: how-to, contperfq4
+ms.openlocfilehash: 4d6d43ee5a60a57f1227b4815bccc592f67096c1
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097435"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117954"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>从逻辑应用触发机器学习管道的运行
 
@@ -39,9 +39,7 @@ ms.locfileid: "85097435"
 
 ## <a name="create-a-logic-app"></a>创建逻辑应用
 
-现在创建一个 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)实例。 如果需要，[使用集成服务环境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 并[设置客户管理的密钥](../logic-apps/customer-managed-keys-integration-service-environment.md)供逻辑应用使用。
-
-预配逻辑应用后，使用以下步骤为管道配置触发器：
+现在创建一个 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)实例。 预配逻辑应用后，使用以下步骤为管道配置触发器：
 
 1. [创建系统分配的托管标识](../logic-apps/create-managed-service-identity.md)以授予应用对你的 Azure 机器学习工作区的访问权限。
 
@@ -94,3 +92,14 @@ ms.locfileid: "85097435"
     > ![HTTP 设置](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. 选择“保存”，你的计划现已准备就绪。
+
+## <a name="next-steps"></a>后续步骤
+
+有关详细信息，请参阅：
+
+> [!div class="nextstepaction"]
+> [使用 Azure 机器学习管道进行批量评分](tutorial-pipeline-batch-scoring-classification.md)
+
+* 详细了解[管道](concept-ml-pipelines.md)
+* 详细了解如何[通过 Jupyter 探索 Azure 机器学习](samples-notebooks.md)
+

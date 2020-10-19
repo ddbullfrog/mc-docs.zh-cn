@@ -3,16 +3,17 @@ title: 如何使用 WebJobs SDK
 description: 详细了解如何为 WebJobs SDK 编写代码。 创建事件驱动的后台处理作业，用于访问 Azure 和第三方服务中的数据。
 author: ggailey777
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 origin.date: 02/18/2019
-ms.date: 06/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 63987d3b5e59038d5f9e072deece6edaf037cd1b
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 8833728ce48895e9b0e6c9ed2b9522d0db0069ee
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228258"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170700"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 进行事件驱动的后台处理
 
@@ -987,7 +988,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-`SamplingPercentageEstimatorSettings` 对象配置[自适应采样](https://docs.azure.cn/azure-monitor/app/sampling)。 这意味着，在某些大容量方案中，Application Insights 会向服务器发送选定的遥测数据子集。
+`SamplingPercentageEstimatorSettings` 对象配置[自适应采样](../azure-monitor/app/sampling.md)。 这意味着，在某些大容量方案中，Application Insights 会向服务器发送选定的遥测数据子集。
 
 创建遥测工厂后，可将其传入 Application Insights 日志记录提供程序：
 

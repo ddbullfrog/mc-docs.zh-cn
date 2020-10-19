@@ -10,14 +10,14 @@ author: luisquintanilla
 ms.author: v-yiso
 origin.date: 07/09/2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 55cc76d5096a4cbdf667769c99a62ed9780220d1
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 8d18113e09cda1e885e5c14dc20a2c93d77fd3bb
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228485"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117953"
 ---
-# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>使用 Azure 机器学习 Visual Studio Code 扩展训练和部署图像分类 TensorFlow 模型
+# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>使用 Azure 机器学习 Visual Studio Code 扩展（预览版）训练和部署图像分类 TensorFlow 模型
 
 了解如何使用 TensorFlow 和 Azure 机器学习 Visual Studio Code 扩展来训练和部署图像分类模型，以便识别手写数字。
 
@@ -61,7 +61,7 @@ ms.locfileid: "88228485"
 1. 选择“新建资源组”。 
 1. 将资源组命名为“TeamWorkspace-rg”，然后按 **Enter**。 
 1. 为工作区选择一个位置。 建议你在选择位置时，确保该位置最靠近你计划部署模型的位置。 
-1. 当系统提示选择工作区的类型时，请选择“基本”，创建一个基本工作区。 有关不同工作区产品/服务的详细信息，请参阅 [Azure 机器学习概述](./overview-what-is-azure-ml.md#sku)。
+1. 当系统提示选择工作区类型时，选择“基本”。
 
 此时，系统会向 Azure 发出请求，以便在你的帐户中创建新的工作区。 几分钟后，新工作区会显示在订阅节点中。 
 

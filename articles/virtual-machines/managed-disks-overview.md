@@ -5,17 +5,18 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 04/24/2020
 author: rockboyfor
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: a9e8bf0fe56b68b37043e98b8e3be3ed3964ec1f
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.custom: contperfq1
+ms.openlocfilehash: 87b098a006c572460dc18cec21cc6c589df84e32
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310362"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127958"
 ---
 <!--Verified successfully from renamed articles-->
 # <a name="introduction-to-azure-managed-disks"></a>Azure 托管磁盘简介
@@ -80,7 +81,7 @@ Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘�
 
 在 Azure 中有三个主要磁盘角色：数据磁盘、OS 磁盘和临时磁盘。 这些角色将映射到附加到虚拟机的磁盘。
 
-![操作中的磁盘角色](media/virtual-machines-managed-disks-overview/disk-types.png)
+:::image type="content" source="media/virtual-machines-managed-disks-overview/disk-types.png" alt-text="操作中的磁盘角色":::
 
 ### <a name="data-disk"></a>数据磁盘
 
@@ -134,13 +135,13 @@ Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘�
 
 下图描绘了如何使用三级预配系统为磁盘实时分配带宽和 IOPS：
 
-![显示带宽和 IOPS 分配情况的三级预配系统](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
+:::image type="content" source="media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png" alt-text="操作中的磁盘角色":::
 
 第一级预配设置每个磁盘的 IOPS 和带宽分配。  在第二级，计算服务器主机实现 SSD 预配，将其仅应用到存储在服务器的 SSD 上的数据。该 SSD 包括具有缓存功能（ReadWrite 和 ReadOnly）的磁盘以及本地磁盘和临时磁盘。 最后，在第三级进行 VM 网络预配，这适用于计算主机发送给 Azure 存储后端的任何 I/O。 使用此方案时，VM 的性能取决于许多因素，例如 VM 如何使用本地 SSD、附加的磁盘数，以及所附加的磁盘的性能和缓存类型。
 
 下面是有关这些限制的一个示例：Standard_DS1v1 VM 无法达到 P30 磁盘可能达到的 5,000 IOPS，不管它是否进行缓存，因为在 SSD 和网络级别存在限制：
 
-![Standard_DS1v1 示例分配](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+:::image type="content" source="media/virtual-machines-managed-disks-overview/example-vm-allocation.png" alt-text="操作中的磁盘角色":::
 
 Azure 对磁盘流量使用优先网络通道。 在出现网络争用时，这有助于磁盘保持预期的性能。 类似地，Azure 存储在后台使用自动负载均衡来处理资源争用和其他问题。 Azure 存储在你创建磁盘时分配所需资源，并应用主动和被动资源均衡来处理流量级别。 这进一步确保磁盘保持其预期的 IOPS 和吞吐量目标。 可以根据需要使用 VM 级别和磁盘级别的指标来跟踪性能和设置警报。
 
@@ -154,5 +155,7 @@ Azure 对磁盘流量使用优先网络通道。 在出现网络争用时，这�
 
 在有关磁盘类型的文章中，详细了解 Azure 提供的各个磁盘类型、哪个类型符合自己的需求，并了解其性能目标。
 
-<!-- Update_Description: new article about managed disks overview -->
-<!--NEW.date: 09/07/2020-->
+> [!div class="nextstepaction"]
+> [选择适用于 IaaS VM 的磁盘类型](disks-types.md)
+
+<!-- Update_Description: update meta properties, wording update, update link -->

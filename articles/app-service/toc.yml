@@ -25,6 +25,9 @@
       href: quickstart-ruby.md
     - name: 静态 HTML 站点
       href: quickstart-html.md
+    - name: ARM 模板
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
 - name: 教程
   items:
     - name: 将应用与 DB 配合使用
@@ -61,9 +64,6 @@
       href: samples-powershell.md
     - name: 资源管理器模板
       href: samples-resource-manager-templates.md
-    - name: Azure Policy 内置策略定义
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 概念
   items:
     - name: 应用服务计划
@@ -232,6 +232,9 @@
       href: 'https://docs.microsoft.com/rest/api/appservice/'
     - name: 资源管理器模板
       href: 'https://docs.microsoft.com/azure/templates/microsoft.web/allversions'
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
     - name: 定价
@@ -242,7 +245,7 @@
       href: 'https://www.azure.cn/what-is-new'
     - name: 迁移助手指南
       href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
-    - name: 最佳做法
+    - name: 最佳实践
       href: app-service-best-practices.md
     - name: 示例
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'

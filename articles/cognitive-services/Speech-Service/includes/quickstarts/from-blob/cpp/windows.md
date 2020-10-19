@@ -3,14 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 01/13/2020
-ms.date: 04/20/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 84cee0b192ed7c5795fb2decd9d1e091411ee337
-ms.sourcegitcommit: 304d3ef3c9e65c3e85977b3afb9985fbc0f908d6
+ms.openlocfilehash: 84c84bf7b00a1177e8b3df4f5a615fdc50a1be4b
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85095974"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127603"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -20,7 +20,7 @@ ms.locfileid: "85095974"
 > * [设置开发环境并创建空项目](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
 > * [创建 Azure 语音资源](../../../../get-started.md)
 > * [将源文件上传到 Azure blob](https://docs.azure.cn/storage/blobs/storage-quickstart-blobs-portal)
-> * 需要语音 SDK 版本 1.11.0 或更高版本。
+> * 需要语音 SDK 1.11.0 或更高版本。
 
 ## <a name="open-your-project-in-visual-studio"></a>在 Visual Studio 中打开项目
 

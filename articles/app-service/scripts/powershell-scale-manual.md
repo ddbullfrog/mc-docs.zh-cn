@@ -6,15 +6,15 @@ tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: mvc, seodec18
-ms.openlocfilehash: a37c20bbe0bf7a48a1f72be98382b3a466a2ec3e
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 3edd85653945e407360fd34b0bfca92adaa57243
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228121"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170455"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>使用 PowerShell 手动缩放 Web 应用
 
@@ -53,7 +53,7 @@ Set-AzAppServicePlan -NumberofWorkers 2 -Name AppServiceManualScalePlan -Resourc
 运行脚本示例后，可以使用以下命令删除资源组、Web 应用以及所有相关资源。
 
 ```powershell
-Remove-AzResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -64,6 +64,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/new-azappserviceplan) | 创建应用服务计划。 |
+| [Set-AzAppServicePlan](https://docs.microsoft.com/powershell/module/az.websites/set-azappserviceplan) | 修改应用服务计划的配置。 |
 | [New-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/new-azwebapp) | 创建 Web 应用。 |
 | [Set-AzWebApp](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp) | 修改 Web 应用的配置。 |
 

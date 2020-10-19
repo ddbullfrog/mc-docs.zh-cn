@@ -2,18 +2,18 @@
 title: 使用 Azure CLI 创建服务总线主题和订阅
 description: 本快速入门将介绍如何使用 Azure CLI 创建服务总线主题和该主题的订阅
 origin.date: 06/23/2020
-ms.date: 08/24/2020
-ms.testscope: yes|no
+ms.date: 10/19/2020
+ms.testscope: no
 ms.testdate: ''
 ms.topic: quickstart
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 76c40d47d8cee9a2509a8b9677972602a3fc7f63
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 47fec64aa42f10552ccbd1cd0ef70a5dd7aa59aa
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947065"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128372"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>使用 Azure CLI 创建一个服务总线主题和该主题的订阅
 在本快速入门中，你将使用 Azure CLI 创建服务总线主题，然后创建该主题的订阅。 
@@ -96,6 +96,9 @@ ms.locfileid: "88947065"
     ```azurecli
     az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3', 'Store4')"     
     ```
+    
+    <!--MOONCAKE CORRECT ON: "StoreId IN ('Store1'...-->
+    
 10. 运行以下命令，获取命名空间的主连接字符串。 使用此连接字符串连接到队列并发送和接收消息。 
 
     ```azurecli
@@ -111,6 +114,6 @@ ms.locfileid: "88947065"
 > [发布和订阅消息](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [trial account]: https://www.azure.cn/pricing/1rmb-trial/
-[完全限定的域名]： https://wikipedia.org （此网站在 AZURE 中国云上不可用）/wiki/Fully_qualified_domain_name [安装 Azure CLI]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest [az group create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az_group_createe
+[完全限定的域名]： https://wikipedia.org （此网站在 AZURE 中国云上不可用）/wiki/Fully_qualified_domain_name [安装 Azure CLI]: https://docs.azure.cn/cli/install-azure-cli [az group create]: https://docs.azure.cn/cli/group#az_group_createe
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -10,12 +10,12 @@ ms.topic: tutorial
 origin.date: 08/20/2020
 ms.date: 09/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffae48f179d8ce68e666fd1c8ed835171fe8d26b
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 1838c5ede6e9e62aafc3935ef778ed1c35058d34
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021599"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128337"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>教程：AI 使用 .NET SDK 从 Azure Blob 生成可搜索内容
 
@@ -297,7 +297,7 @@ public static void Main(string[] args)
 
 在此部分中，你将定义一组要应用于数据的扩充步骤。 每个扩充步骤称为“技能”，一组扩充步骤称为“技能集”。 本教程对技能集使用以下[内置认知技能](cognitive-search-predefined-skills.md)：
 
-+ [光学字符识别](cognitive-search-skill-ocr.md)：用于识别图像文件中的印刷文本和手写文本。
+<!-- + [Optical Character Recognition](cognitive-search-skill-ocr.md) to recognize printed and handwritten text in image files. -->
 
 + [文本合并](cognitive-search-skill-textmerger.md)：用于将字段集合中的文本合并到单个字段中。
 

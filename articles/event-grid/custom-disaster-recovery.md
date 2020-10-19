@@ -5,13 +5,14 @@ ms.topic: tutorial
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/21/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 7767b1161d82749adba08759e07604fafa98b442
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 10/10/2020
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c5ca22510789c00a791d0eeedd69478bb336c432
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228054"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127664"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>为事件网格中的自定义主题构建自己的灾难恢复方案
 灾难恢复侧重于从严重的应用程序功能丧失中恢复。 本教程逐步讲解如何设置事件处理体系结构，以便在特定区域中的事件网格服务不正常时能够予以恢复。
@@ -74,7 +75,7 @@ ms.locfileid: "88228054"
    * 选择终结点类型 Web Hook。
    * 将终结点设置为事件接收者的事件 URL，类似于 `https://<your-event-reciever>.chinacloudsites.cn/api/updates`
 
-     ![事件网格主要事件订阅](./media/custom-disaster-recovery/create-primary-es.png)
+     ![此屏幕截图显示了“创建事件订阅 - 基本”页，其中突出显示了“名称”、“终结点类型”和“终结点”值。](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. 重复相同的流程以创建辅助主题和订阅。 这一次，请将“-primary”后缀替换为“-secondary”以方便跟踪。 最后，请确保将它们放在不同的 Azure 区域。 尽管可将其放在任何位置，但建议使用 [Azure 配对区域](../best-practices-availability-paired-regions.md)。 将辅助主题和订阅放在不同的区域可确保即使主要区域出现故障，也仍可传送新事件。
 

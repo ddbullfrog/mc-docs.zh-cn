@@ -2,17 +2,18 @@
 title: 配置 ASP.NET Core 应用
 description: 了解如何在原生 Windows 实例、预构建的 Linux 容器或 Azure 应用服务中配置 ASP.NET Core 应用。 本文介绍最常见的配置任务。
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 origin.date: 06/02/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 082623e7aab928843296b767d2676d91323e700d
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: e4691f5f45842d50c82c8d1120a8356805f82629
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228931"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170787"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>为 Azure 应用服务配置 ASP.NET Core 应用
 
@@ -232,4 +233,3 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 > [应用服务 Linux 常见问题解答](faq-app-service-linux.md)
 
 ::: zone-end
-

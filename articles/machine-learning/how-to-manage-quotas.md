@@ -5,21 +5,21 @@ description: 了解 Azure 机器学习资源的配额以及如何请求更多配
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
-ms.custom: contperfq4
-ms.openlocfilehash: b3c0b7162a8845569417137f2097fc900afe79b4
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.topic: conceptual
+ms.custom: troubleshooting,contperfq4
+ms.openlocfilehash: cac8ad11695b65e51a0507b86560d08b638f7749
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946951"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118590"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>管理和增加 Azure 机器学习资源的配额
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本文将介绍 [Azure 机器学习](overview-what-is-azure-ml.md)订阅的针对 Azure 资源的预配置限制以及你可以管理的配额。 这些限制用于防止由于欺诈导致的预算超支，并且符合 Azure 容量限制。 
 
@@ -100,8 +100,6 @@ ms.locfileid: "88946951"
 
 
 > [!NOTE]
-> 这只是企业版功能。 如果订阅中有[基本版和企业版](overview-what-is-azure-ml.md#sku)工作区，则可以使用此方法仅对企业工作区设置配额。 基本工作区将继续具有订阅级别配额，这是默认行为。
->
 > 需要拥有订阅级别的权限才能在工作区级别设置配额。 这是一项强制性的要求，目的是避免单个工作区所有者编辑或提高其配额，然后开始侵占为其他工作区预留的资源。 因此，最适合由订阅管理员分配这些配额并将其分摊到各个工作区。
 
 

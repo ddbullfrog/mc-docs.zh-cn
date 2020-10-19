@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure Cosmos DB 为地理空间数据编制索引
 description: 使用 Azure Cosmos DB 为空间数据编制索引
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/03/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3b169ec6c6c90d970597cd99fd0b38257890f83c
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 0d542e535b2d5b2e8604b4856530dae4bfedf9da
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222631"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118527"
 ---
 <!--Verified successfully-->
 <!--Partial content for the verified articles-->
@@ -75,7 +75,7 @@ ms.locfileid: "88222631"
     await client.GetContainer("db", "spatial").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-## <a name="geography-data-indexing-examples"></a>地理数据索引示例
+## <a name="geography-data-indexing-examples"></a><a name="geometry-data-indexing-examples"></a>地理数据索引示例
 
 以下 JSON 代码片段显示了为**地理**数据类型启用空间索引的索引策略。 它适用于地理数据类型的空间数据，并将为文档中找到的任何 GeoJSON 点、多边形、MultiPolygon 或 LineString 编制索引以便进行空间查询。 如果要使用 Azure 门户修改索引策略，可以为索引策略指定以下 JSON，以便对容器启用空间索引：
 

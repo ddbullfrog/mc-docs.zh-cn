@@ -4,15 +4,15 @@ description: 了解如何使用 Azure 门户在 Azure Database for MySQL 中设�
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 6/10/2020
-ms.date: 06/29/2020
-ms.openlocfilehash: b8f773766caf70faf1e1fb22eef61bcff48c9aa1
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.date: 10/19/2020
+ms.openlocfilehash: a7ccac512989ca9317ae1c4eb5946fbacb1ef268
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516638"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041732"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MySQL 中创建和管理只读副本
 
@@ -43,15 +43,15 @@ ms.locfileid: "85516638"
 
 4. 选择“添加副本”。
 
-   ![Azure Database for MySQL - 复制](./media/howto-read-replica-portal/add-replica.png)
+   :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL - 复制":::
 
 5. 输入副本服务器的名称。
 
-    ![Azure Database for MySQL - 副本名称](./media/howto-read-replica-portal/replica-name.png)
+    :::image type="content" source="./media/howto-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL - 复制":::
 
 6. 选择副本服务器的位置。 默认位置与主服务器的位置相同。
 
-    ![Azure Database for MySQL - 副本位置](./media/howto-read-replica-portal/replica-location.png)
+    :::image type="content" source="./media/howto-read-replica-portal/replica-location.png" alt-text="Azure Database for MySQL - 复制":::
 
    > [!NOTE]
    > 若要详细了解可以在哪些区域中创建副本，请访问[只读副本概念文章](concepts-read-replicas.md)。 
@@ -63,7 +63,7 @@ ms.locfileid: "85516638"
 
 一旦创建副本服务器，可以从“复制”边栏选项卡中进行查看。
 
-   ![Azure Database for MySQL - 列出副本](./media/howto-read-replica-portal/list-replica.png)
+   :::image type="content" source="./media/howto-read-replica-portal/list-replica.png" alt-text="Azure Database for MySQL - 复制":::
 
 ## <a name="stop-replication-to-a-replica-server"></a>停止复制到副本服务器
 
@@ -78,15 +78,15 @@ ms.locfileid: "85516638"
 
 3. 选择要停止复制的副本服务器。
 
-   ![Azure Database for MySQL - 停止复制选择服务器](./media/howto-read-replica-portal/stop-replication-select.png)
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Azure Database for MySQL - 复制":::
 
 4. 选择“停止复制”。
 
-   ![Azure Database for MySQL - 停止复制](./media/howto-read-replica-portal/stop-replication.png)
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Azure Database for MySQL - 复制":::
 
 5. 通过单击“确定”，确认要停止复制。
 
-   ![Azure Database for MySQL - 停止复制确认](./media/howto-read-replica-portal/stop-replication-confirm.png)
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Azure Database for MySQL - 复制":::
 
 ## <a name="delete-a-replica-server"></a>删除副本服务器
 
@@ -98,15 +98,15 @@ ms.locfileid: "85516638"
 
 3. 选择要删除的副本服务器。
 
-   ![Azure Database for MySQL - 删除副本选择服务器](./media/howto-read-replica-portal/delete-replica-select.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-select.png" alt-text="Azure Database for MySQL - 复制":::
 
 4. 选择“删除副本”
 
-   ![Azure Database for MySQL - 删除副本](./media/howto-read-replica-portal/delete-replica.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL - 复制":::
 
 5. 键入副本的名称，然后单击“删除”以确认删除副本。  
 
-   ![Azure Database for MySQL - 删除副本确认](./media/howto-read-replica-portal/delete-replica-confirm.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database for MySQL - 复制":::
 
 ## <a name="delete-a-master-server"></a>删除主服务器
 
@@ -119,11 +119,11 @@ ms.locfileid: "85516638"
 
 2. 从“概览”中，选择“删除”。
 
-   ![Azure Database for MySQL - 删除主服务器](./media/howto-read-replica-portal/delete-master-overview.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL - 复制":::
 
 3. 键入主服务器的名称，然后单击“删除”以确认删除主服务器。  
 
-   ![Azure Database for MySQL - 删除主服务器](./media/howto-read-replica-portal/delete-master-confirm.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL - 复制":::
 
 ## <a name="monitor-replication"></a>监视复制
 
@@ -133,15 +133,15 @@ ms.locfileid: "85516638"
 
 3. 从可用指标的下拉列表中选择“复制延迟(秒)”。
 
-   ![选择复制延迟时间](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-select-replication-lag.png" alt-text="Azure Database for MySQL - 复制":::
 
 4. 选择要查看的时间范围。 下图选择 30 分钟的时间范围。
 
-   ![选择时间范围](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Azure Database for MySQL - 复制":::
 
 5. 查看所选时间范围的复制延迟时间。 下图显示过去的 30 分钟。
 
-   ![选择时间范围](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Azure Database for MySQL - 复制":::
 
 ## <a name="next-steps"></a>后续步骤
 

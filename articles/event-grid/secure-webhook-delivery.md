@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 11/18/2019
-ms.date: 08/10/2020
-ms.openlocfilehash: 50251cb0f73450c7f54e28b7486fbfa4323a45e4
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 10/10/2020
+ms.openlocfilehash: 6cfd3e19f7562e5f2ac1425b728ab59445e8e761
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227991"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128248"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>将事件发布到受 Azure Active Directory 保护的终结点
 
@@ -19,7 +19,6 @@ ms.locfileid: "88227991"
 
 本文使用 Azure 门户进行演示，但也可通过 CLI、PowerShell 或 SDK 来启用此功能。
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-an-azure-ad-application"></a>创建 Azure AD 应用程序
 

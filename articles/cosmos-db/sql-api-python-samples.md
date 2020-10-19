@@ -7,17 +7,17 @@ ms.devlang: python
 ms.topic: sample
 origin.date: 08/11/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: fa127062922a7770b3a29b09fff6abc6e97e0661
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 2e8379a29c3948d6e6b13c8922a2e389605e073f
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246370"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117938"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 示例
 
@@ -25,6 +25,7 @@ ms.locfileid: "91246370"
 > * [.NET V2 SDK 示例](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK 示例](sql-api-dotnet-v3sdk-samples.md)
 > * [Java V4 SDK 示例](sql-api-java-sdk-samples.md)
+> * [Spring Data V3 SDK 示例](sql-api-spring-data-sdk-samples.md)
 > * [Node.js 示例](sql-api-nodejs-samples.md)
 > * [Python 示例](sql-api-python-samples.md)
 > * [Azure 代码示例库](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -42,14 +43,15 @@ ms.locfileid: "91246370"
         * [Visual Studio 每月额度](https://www.azure.cn/offers/ms-mc-arz-msdn/)
         * [Azure Cosmos DB 免费层](/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
     * 不具有 Azure 有效订阅：
+        
+        <!--Not Available on * [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
+        
         * [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator) 
 - [Python 2.7 或 3.5.3+](https://www.python.org/downloads/)，以及 `PATH` 中的 `python` 可执行文件。
 - [Visual Studio Code](https://code.visualstudio.com/)。
 - [适用于 Visual Studio Code 的 Python 扩展](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)。
 - [Git](https://www.git-scm.com/downloads)。 
 - [用于 Python 的 Azure Cosmos DB SQL API SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
-
-<!--Not Available on  * [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/), a tests environment that lasts for 30 days.-->
 
 ## <a name="database-examples"></a>数据库示例
 

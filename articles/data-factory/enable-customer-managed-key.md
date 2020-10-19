@@ -7,15 +7,15 @@ author: WenJason
 ms.service: data-factory
 ms.topic: quickstart
 origin.date: 05/08/2020
-ms.date: 09/21/2020
+ms.date: 10/19/2020
 ms.author: v-jay
 ms.reviewer: mariozi
-ms.openlocfilehash: 6d786b6827fcd783ff0d1fc8ed4f06374f0777ab
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 579ea2394eb12e456a3b7ec477c18595b9dc9988
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523869"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121707"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>使用客户管理的密钥加密 Azure 数据工厂
 
@@ -69,7 +69,7 @@ Azure 数据工厂对静态数据进行加密，其中包括实体定义和在�
 
 ## <a name="enable-customer-managed-keys"></a>启用客户管理的密钥
 
-1. 确保数据工厂为空。 数据工厂不能包含链接服务、管道以及数据流等任何资源。 目前，将客户管理的密钥部署到非空工厂将会导致错误。
+1. 确保数据工厂为空。 数据工厂不能包含链接服务和管道等任何资源。 目前，将客户管理的密钥部署到非空工厂将会导致错误。
 
 1. 若要在 Azure 门户中找到密钥 URI，请导航到 Azure 密钥保管库，然后选择“密钥”设置。 选择所需密钥，然后单击该密钥以查看其版本。 选择密钥版本以查看设置
 

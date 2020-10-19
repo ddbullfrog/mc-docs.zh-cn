@@ -4,15 +4,15 @@ description: 本文介绍如何使用 Azure 门户在 Azure Database for Postgre
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 6/30/2020
-ms.date: 07/20/2020
-ms.openlocfilehash: f99ee14bc54f26a7254c799bd368c1dcd44addb7
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 10/19/2020
+ms.openlocfilehash: 9aeb7b56f319e47170de50401f22f4c3341b1ab7
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440345"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041781"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for PostgreSQL（单一服务器）中备份和还原服务器
 
@@ -29,7 +29,7 @@ Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功�
 
 通过 Azure 门户创建服务器时，在“定价层”窗口中为服务器选择是进行**本地冗余**备份还是**异地冗余**备份。 也在此窗口中选择“备份保留期” - 希望存储服务器备份多长时间（天数）。
 
-   ![定价层 - 选择备份冗余](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="定价层 - 选择备份冗余":::
 
 有关在创建过程中设置这些值的详细信息，请参阅 [Azure Database for PostgreSQL 服务器快速入门](quickstart-create-server-database-portal.md)。
 
@@ -38,7 +38,7 @@ Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功�
 2. 选择你的 Azure Database for PostgreSQL 服务器。 此操作将打开“概述”页。
 3. 在“设置”下，从菜单中选择“定价层”。 使用滑块可以根据需要更改**备份保留期**（7 天到 35 天）。
 在下面的屏幕截图中，该项已增加到 34 天。
-![增加的备份保留期](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="定价层 - 选择备份冗余":::
 
 4. 单击“确定”确认更改。
 
@@ -54,11 +54,11 @@ Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功�
 
 2. 在服务器“概述”页的工具栏中，选择“还原” 。
 
-   ![Azure Database for PostgreSQL - 概述 - 还原按钮](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="定价层 - 选择备份冗余":::
 
 3. 使用必需信息填写“还原”窗体：
 
-   ![Azure Database for PostgreSQL - 还原信息](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="定价层 - 选择备份冗余":::
    - **还原点**：选择要还原到的时间点。
    - **目标服务器**：提供新服务器的名称。
    - **位置**：不可选择区域。 默认情况下，此值与源服务器相同。
@@ -78,17 +78,17 @@ Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功�
 
 1. 选择门户左上角的“创建资源”按钮 (+)。 选择“数据库” > “用于 PostgreSQL 的 Azure 数据库”。
 
-   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="导航到 Azure Database for PostgreSQL。":::
+   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="定价层 - 选择备份冗余":::
 
 2. 选择“单个服务器”部署选项。
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="选择“Azure Database for PostgreSQL (单一服务器)”部署选项。":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="定价层 - 选择备份冗余":::
  
 3. 提供新服务器的订阅、资源组和名称。 
 
 4. 选择“备份”作为“数据源”。 此操作将加载一个下拉列表，其中提供已启用“异地冗余备份”的服务器列表。
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="选择数据源。":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="定价层 - 选择备份冗余":::
     
    > [!NOTE]
    > 首次创建服务器时，该服务器可能不会立即可用于异地还原。 填充必需的元数据可能需要几个小时。
@@ -96,21 +96,21 @@ Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功�
 
 5. 选择“备份”下拉列表。
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="选择“备份”下拉列表。":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="定价层 - 选择备份冗余":::
 
 6. 选择要从其还原的源服务器。
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="选择备份。":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="定价层 - 选择备份冗余":::
 
-7. 服务器将默认设置为“vCore 数”、“备份保留期”、“备份冗余选项”、“引擎版本”和“管理员凭据”的值。 选择“继续”。 
+7. 服务器将默认设置为“vCore 数”、“备份保留期”、“备份冗余选项”、“引擎版本”和“管理凭据”的值。 选择“继续”。 
    
-   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="继续进行备份。":::
+   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="定价层 - 选择备份冗余":::
 
 8. 根据需要填写窗体的其余部分。 可以选择任意**位置**。
 
     选择位置后，可以选择“配置服务器”以更新“计算代系”（如果在已选择的区域中可用）、“vCore 数”、“备份保留期”和“备份冗余选项”。 不支持在还原过程中更改**定价层**（“基本”、“常规用途”或“内存优化”）或**存储**大小。
 
-   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="填写表单。"::: 
+   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="定价层 - 选择备份冗余"::: 
 
 9. 选择“查看 + 创建”，查看所选内容。 
 

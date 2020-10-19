@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 05/12/2020
-ms.date: 06/01/2020
-ms.openlocfilehash: b6f4e3e267bf0305a964a991f8209e8861ed5c52
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.date: 10/19/2020
+ms.openlocfilehash: d788eefae8c4d801ddeac505c2b6d06a97e54e06
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199699"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041805"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的 Query Performance Insight
 
@@ -30,7 +30,7 @@ Query Performance Insight 可帮助你快速确定运行时间最长的查询、
 ### <a name="wait-statistics"></a>等待统计信息
 
 - 了解查询的等待性质
-- 了解资源等待趋势以及发生资源争用的位置
+- 了解资源等待的趋势以及存在资源争用的位置
 
 ## <a name="permissions"></a>权限
 
@@ -48,24 +48,24 @@ Azure 门户中的 [Query Performance Insight](concepts-query-performance-insigh
 
 ### <a name="long-running-queries"></a>长时间运行的查询
 
-“长时间运行的查询”选项卡按每次执行平均持续时间显示前 5 个查询，每隔 15 分钟聚合一次。 可以通过从“查询数量”下拉列表中进行选择来查看更多查询。 执行此操作时，特定查询 ID 的图表颜色可能会更改。
+“长时间运行的查询”选项卡每隔单次执行的平均持续时间将前 5 个查询显示一次，每隔 15 分钟聚合一次。 可以通过从“查询数量”下拉列表中进行选择来查看更多查询。 执行此操作时，特定查询 ID 的图表颜色可能会更改。
 
-可以在图表中单击并拖动以缩小到特定的时间窗口。 或者，使用放大和缩小图标分别查看更短或更长的时间段。
+可以在图表中单击并拖动以缩小到特定的时间窗口。 或者，使用“放大”和“缩小”图标分别查看更小或更大的时间段。
 
-![Query Performance Insight 长时间运行的查询](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Query Performance Insight 长时间运行的查询"::: 
 
 ### <a name="wait-statistics"></a>等待统计信息
 
 > [!NOTE]
-> 等待统计信息用于排查查询性能问题。 建议仅出于故障排除目的启用此功能。 <br>如果在 Azure 门户中查看等待统计信息时收到错误消息“遇到了针对 'Microsoft.DBforMySQL' 的问题; 无法完成请求。如果此问题仍然存在或出乎意料，请联系支持人员并提供此信息。” ，请使用更短的时间段。
+> 等待统计信息用于排查查询性能问题。 建议仅在进行故障排除时启用。 <br>如果在查看等待统计信息时在 Azure 门户中收到错误消息“’Microsoft.DBforMySQL’ 遇到问题；无法满足该请求。如果此问题仍然存在或意外出现，请与支持部门联系并提供此信息。” ，请使用较短的时间段。
 
-等待统计信息提供执行特定查询期间发生的等待事件的视图。 在 [MySQL 引擎文档](https://go.microsoft.com/fwlink/?linkid=2098206)中了解有关等待事件类型的详细信息。
+“等待统计信息”提供特定查询的执行期间发生的等待事件的视图。 若要详细了解等待事件类型，请参阅 [MySQL 引擎文档](https://go.microsoft.com/fwlink/?linkid=2098206)。
 
 选择“等待统计信息”选项卡以查看服务器中等待次数的相应可视化效果。
 
-等待统计信息视图中显示的查询按指定时间间隔内显示最大等待的查询进行分组。
+“等待统计信息”视图中显示的查询按指定时间间隔内显示最大等待时间的查询进行分组。
 
-![Query Performance Insight 等待统计信息](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight 长时间运行的查询":::
 
 ## <a name="next-steps"></a>后续步骤
 

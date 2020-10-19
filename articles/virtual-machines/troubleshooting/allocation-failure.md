@@ -15,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 868b8f9f1199247f13e418d6649b71e88b7869cf
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 1b7aae8dcb9a8aa8c755fa72d74ce0231c21ed20
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456863"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127610"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>在 Azure 中创建、重启 VM 或重设其大小时排查分配失败
 
@@ -28,7 +28,7 @@ ms.locfileid: "89456863"
 
 **错误代码**：AllocationFailed 或 ZonalAllocationFailed
 
-**错误消息**：“分配失败。 对于此区域中请求的 VM 大小，我们的容量不够。 在 https:\//aka.ms/allocation-guidance 阅读有关提高分配成功可能性的详细信息”
+**错误消息**：“分配失败。 对于此区域中请求的 VM 大小，我们的容量不够。 在 https://aka.ms/allocation-guidance 阅读有关提高分配成功可能性的详细信息”
 
 本文说明一些常见分配故障的原因，并建议可能的补救方法。
 
@@ -109,6 +109,6 @@ Azure 数据中心的服务器分区成群集。 通常会尝试向多个群集�
 ### <a name="why-allocation-failures-happen"></a>发生分配失败的原因
 当分配请求固定到某个群集时，由于可用的资源池较小，很可能找不到可用的资源。 此外，如果分配请求固定到某个群集，但该群集不支持你所请求的资源类型，那么，即使该群集有可用的资源，请求仍会失败。 下图 3 说明由于唯一候选群集没有可用的资源，导致已固定的分配失败的情况。 图 4 说明由于唯一候选群集不支持所请求的 VM 大小（虽然群集有可用的资源），导致已固定的分配失败的情况。
 
-:::image type="content" source="./media/virtual-machines-common-allocation-failure/Allocation2.png" alt-text="固定分配故障":::
+:::image type="content" source="./media/virtual-machines-common-allocation-failure/Allocation2.png" alt-text="分配图":::
 
 <!-- Update_Description: update meta properties, wording update, update link -->

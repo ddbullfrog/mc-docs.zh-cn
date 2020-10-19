@@ -5,19 +5,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 05/11/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 1fab4597bed6058d9c5f2c7ec31765b518281b9b
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: c9fb5958845602dc11acb8736a44b6d671a422ef
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246776"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118279"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>快速入门：生成 .NET 控制台应用以管理 Azure Cosmos DB SQL API 资源
 
@@ -25,6 +25,7 @@ ms.locfileid: "91246776"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -60,6 +61,8 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 如果你有自己的 Azure 订阅或者免费创建了订阅，则应显式创建 Azure Cosmos 帐户。 以下代码将创建具有会话一致性的 Azure Cosmos 帐户。 该帐户在 `China East` 和 `China North` 中复制。  
 
+<!--Not Available on You can use Azure Cloud Shell to create the Azure Cosmos account-->
+
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 <!--Not Available on  Select the **Try It** button and paste the code to run it in the Azure local Shell.-->
@@ -91,7 +94,7 @@ az cosmosdb create \
 
 创建 Azure Cosmos 帐户需要一段时间，操作成功后，可以看到确认输出。 该命令成功完成后，登录到 [Azure 门户](https://portal.azure.cn/)，验证是否存在指定名称的 Azure Cosmos 帐户。
 
-<!--Not Available on You can close the Azure local Shell window after the resource is created. -->
+<!--Not Available on You can close the Azure Close Shell window after the resource is created. -->
 
 <a name="create-dotnet-core-app"></a>
 ### <a name="create-a-new-net-app"></a>新建 .NET 应用

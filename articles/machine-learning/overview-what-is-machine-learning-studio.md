@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 55f07f0071e0beb5779909dbfd0971ee05d57182
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 3ec99de6bb22737f44b10a34b1bc8dfb05c75473
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021691"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118123"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什么是 Azure 机器学习工作室？
 
@@ -34,13 +34,13 @@ ms.locfileid: "90021691"
 
   在直接集成到工作室中的托管 [Jupyter Notebook 服务器](how-to-run-jupyter-notebooks.md)中编写和运行自己的代码。 
 
-+ **Azure 机器学习设计器（预览版）**
++ **Azure 机器学习设计器**
 
   使用设计器可在不编写任何代码的情况下训练和部署机器学习模型。 拖放数据集和模块以创建 ML 管道。 尝试[设计器教程](tutorial-designer-automobile-price-train-score.md)。
 
     ![Azure 机器学习设计器示例](media/concept-designer/designer-drag-and-drop.gif)
 
-+ **自动化机器学习 UI（预览版）**
++ **自动化机器学习 UI**
 
   了解如何通过易于使用的界面创建[自动化 ML 试验](tutorial-first-experiment-automated-ml.md)。 
 
@@ -82,7 +82,7 @@ Azure 机器学习工作室是 Azure 机器学习中的 Web 门户，其中包�
 
 | 功能 | 机器学习工作室（经典版） | Azure 机器学习 |
 |---| --- | --- |
-| 拖放界面 | 经典体验 | 更新的体验 - [Azure 机器学习设计器（预览版）](concept-designer.md) <br/>（需要企业工作区） | 
+| 拖放界面 | 经典体验 | 更新的体验 - [Azure 机器学习设计器](concept-designer.md)| 
 | 代码 SDK | 不支持 | 与 [Azure 机器学习 Python](https://docs.microsoft.com/python/api/overview/azure/ml/) 和 [R](tutorial-1st-r-experiment.md) SDK 完全集成 |
 | 试验 | 可缩放（10 GB 训练数据限制） | 使用计算目标进行缩放 |
 | 训练计算目标 | 专用计算目标，仅限 CPU 支持 | 各种可自定义的[训练计算目标](concept-compute-target.md#train)。 包括 GPU 和 CPU 支持 | 

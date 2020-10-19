@@ -1,23 +1,23 @@
 ---
 title: 通过 Java 使用 Azure 表存储或 Azure Cosmos DB 表 API
-description: 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
+description: 通过 Java 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 origin.date: 07/23/2020
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: ac302566a123dc5e1be5ea662a3c508c36e3d44c
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 2eec85531020a9adf55003f89d4e46a17897d46b
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246617"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118529"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>如何通过 Java 使用 Azure 表存储或 Azure Cosmos DB 表 API
 
@@ -26,7 +26,7 @@ ms.locfileid: "91246617"
 
 <!--MOONCAKE: CORRECT ON Azure Storage SDK for java/android-->
 
-本文介绍如何创建表、存储数据以及对数据执行 CRUD 操作。 选择 Azure 表服务或 Azure Cosmos DB 表 API。 这些示例用 Java 编写并使用[用于 Java 的世纪互联 Azure 存储 SDK][用于 Java 的世纪互联 Azure 存储 SDK]。 涉及的方案包括**创建**、**列出**和**删除**表，以及**插入**、**查询**、**修改**和**删除**表中的实体。 有关表的详细信息，请参阅[后续步骤](#next-steps)部分。
+本文介绍如何创建表、存储数据以及对数据执行 CRUD 操作。 选择 Azure 表服务或 Azure Cosmos DB 表 API。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]。 涉及的方案包括**创建**、**列出**和**删除**表，以及**插入**、**查询**、**修改**和**删除**表中的实体。 有关表的详细信息，请参阅[后续步骤](#next-steps)部分。
 
 > [!NOTE]
 > SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅[用于 Android 的 Azure 存储 SDK][Azure Storage SDK for Android]。
@@ -642,8 +642,6 @@ catch (Exception e)
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 存储客户端 SDK 参考]: https://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure Storage Team Blog]: https://azure.microsoft.com/blog/
-
-<!--CORRECT ON [Azure Storage Team Blog]: https://azure.microsoft.com/blog/-->
+[Azure Storage Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/
 
 <!-- Update_Description: update meta properties, wording update, update link -->

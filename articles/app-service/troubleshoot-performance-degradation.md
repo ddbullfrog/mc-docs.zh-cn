@@ -6,15 +6,15 @@ keywords: Web 应用性能，缓慢应用，应用缓慢
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 origin.date: 08/03/2016
-ms.date: 06/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 67b256bd30ecea7ce8aad7e632bad6c866a0c8be
-ms.sourcegitcommit: 4f84bba7e509a321b6f68a2da475027c539b8fd3
+ms.openlocfilehash: fb2bca7fcdbbe122af5b9772a95caeafb7e002ea
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85796192"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170750"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中应用性能缓慢的问题
 本文帮助排查 [Azure 应用服务](./overview.md)中应用性能缓慢的问题。
@@ -63,7 +63,7 @@ ms.locfileid: "85796192"
 有关详细信息，请参阅：
 
 * [监视 Azure 应用服务中的应用](web-sites-monitor.md)
-* [接收警报通知](/azure-monitor/platform/alerts-overview)
+* [接收警报通知](../azure-monitor/platform/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>监视 Web 终结点状态
 如果在“标准”定价层中运行应用，应用服务允许从三个地理位置监视两个终结点。
@@ -103,6 +103,10 @@ ms.locfileid: "85796192"
 
 有关如何在应用程序中配置日志记录的详细说明，请参阅[在 Azure 应用服务中启用应用的诊断日志记录](troubleshoot-diagnostic-logs.md)。
 
+#### <a name="use-the-diagnostics-tool"></a>使用诊断工具
+应用服务提供了智能的交互式体验，可帮助我们排查应用的问题，且无需配置。 如果应用确实出现问题，诊断工具会指出问题所在，并引导你获取适当的信息，以便更轻松快速地排查和解决问题。
+
+若要访问应用服务诊断，请在 [Azure 门户](https://portal.azure.cn)中导航到你的应用服务应用或应用服务环境。 在左侧导航栏中，单击“诊断并解决问题”。
 
 #### <a name="use-the-kudu-debug-console"></a>使用 Kudu 调试控制台
 应用服务随附可用于调试、浏览和上传文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为应用的 Kudu 控制台或 SCM 仪表板。 
@@ -120,13 +124,13 @@ Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可
 
 有关 Kudu 提供的功能的详细信息，请参阅[你应该了解的 Azure DevOps 工具](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)。
 
-<a name="mitigate" ></a>
+<a name="mitigate"></a>
 
 ### <a name="3-mitigate-the-issue"></a>3.缓解问题
 #### <a name="scale-the-app"></a>缩放应用
 在 Azure 应用服务中，为了提高性能和吞吐量，可以调整运行应用程序的规模。 纵向扩展应用涉及到两个相关操作：将应用服务计划更改为较高的定价层，以及在切换到较高的定价层后配置特定的设置。
 
-有关缩放的详细信息，请参阅[缩放 Azure 应用服务中的应用](web-sites-scale.md)。
+有关缩放的详细信息，请参阅[缩放 Azure 应用服务中的应用](manage-scale-up.md)。
 
 此外，可以选择在多个实例上运行应用程序。 扩展不仅能提供更强大的处理功能，而且还能提供一定程度的容错。 如果进程在某个实例上中断，其他实例会继续处理请求。
 
@@ -142,4 +146,4 @@ AutoHeal 会根据你选择的设置（例如配置更改、请求、基于内�
 
  ![重启应用以解决性能问题](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-还可以使用 Azure Powershell 管理应用。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。
+还可以使用 Azure Powershell 管理应用。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/management/manage-resources-powershell.md)。

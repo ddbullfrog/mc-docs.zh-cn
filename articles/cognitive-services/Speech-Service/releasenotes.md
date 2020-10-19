@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/17/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 78fb8fd02c46991e12871e06f1e8d924ce56a095
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 61c84f96638963fedf074ce836c735ad7b8ec552
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317567"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127851"
 ---
 # <a name="speech-service-release-notes"></a>语音服务发行说明
 
@@ -64,6 +64,7 @@ ms.locfileid: "89317567"
     * 修复了自动刷新问题。 
     * 修复了稳定性问题，包括“break”标记的导出错误和标点错误。    
 
+<!-- ## New speech-to-text locales: 2020-August Release -->
 
 
 ## <a name="speech-sdk-1130-2020-july-release"></a>语音 SDK 1.13.0：2020 年 7 月发行版

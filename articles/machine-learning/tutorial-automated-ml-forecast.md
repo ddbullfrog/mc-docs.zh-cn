@@ -10,20 +10,17 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: 44bfbc06d4b98bbf6de6e2ea541ff0a703c688c1
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 18f8d55fb9eb13bc0215c7845e95d457194d038a
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021288"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118383"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>教程：使用自动化机器学习预测需求
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 本教程将使用 Azure 机器学习工作室中的自动化机器学习（又称为自动化 ML）创建一个时序预测模型，用于预测单车共享服务的租赁需求。
-
->[!IMPORTANT]
-> Azure 机器学习工作室中的自动化 ML 体验处于预览状态。 某些功能可能不受支持或者受限。
 
 有关分类模型示例，请参阅[教程：使用 Azure 机器学习中的自动化 ML 创建分类模型](tutorial-first-experiment-automated-ml.md)。
 
@@ -38,8 +35,8 @@ ms.locfileid: "90021288"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 企业版 Azure 机器学习工作区。 如果没有工作区，请[创建企业版工作区](how-to-manage-workspace.md)。 
-    * Azure 机器学习工作室中的自动化机器学习仅适用于企业版工作区。 
+* Azure 机器学习工作区。 请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。 
+
 * 下载 [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) 数据文件
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>在 Azure 机器学习工作室中开始操作
@@ -50,7 +47,7 @@ ms.locfileid: "90021288"
 
 1. 选择创建的订阅和工作区。
 
-1. 选择“开始”。
+1. 选择“开始”。 
 
 1. 在左窗格的“创作”部分，选择“自动化 ML” 。
 
@@ -128,7 +125,7 @@ ms.locfileid: "90021288"
 
         1. 创建后，从下拉列表中选择新的计算目标。
 
-    1. 选择“**下一步**”。
+    1. 选择“**下一页**”。
 
 ## <a name="select-forecast-settings"></a>选择预测设置
 
@@ -239,7 +236,7 @@ Azure 机器学习工作室中的自动化机器学习可以通过几个步骤�
 + 详细了解[自动化机器学习](concept-automated-ml.md)。
 + 有关分类指标和图表的详细信息，请参阅[理解自动化机器学习结果](how-to-understand-automated-ml.md#classification)一文。
 + 详细了解[特征化](how-to-configure-auto-features.md#featurization)。
-+ 详细了解[数据分析](how-to-use-automated-ml-for-ml-models.md#profile)。
+
 
 >[!NOTE]
 > 此单车共享数据集已根据本教程修改。 此数据集是作为 [Kaggle 竞赛](https://www.kaggle.com/c/bike-sharing-demand/data)的一部分提供的，最初通过 [Capital Bikeshare](https://www.capitalbikeshare.com/system-data) 提供。 也可以在 [UCI 机器学习数据库](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset)中找到它。<br><br>

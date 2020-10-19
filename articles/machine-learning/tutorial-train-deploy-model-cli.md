@@ -9,19 +9,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 7e52fd9b5cd3779077b2eea3508d18f29c0b73fd
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 4d796c1ba17d08788a88f32af6564dc0b2622b90
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395179"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118566"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>教程：通过 CLI 训练和部署模型
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 在本教程中，你将使用 Azure CLI 的机器学习扩展来训练、注册和部署模型。
 
-本教程中的 Python 训练脚本使用 [scikit-learn](https://scikit-learn.org/) 来训练基本模型。 本教程的侧重点不是脚本或模型，而是使用 CLI 处理 Azure 机器学习的过程。
+本教程中的 Python 训练脚本使用 [scikit-learn](https://scikit-learn.org/) 来训练一个简单模型。 本教程的侧重点不是脚本或模型，而是使用 CLI 处理 Azure 机器学习的过程。
 
 了解如何执行以下操作：
 
@@ -39,7 +39,7 @@ ms.locfileid: "91395179"
 
 * Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
 
-* 若要从本地环境使用本文档中的 CLI 命令，需要使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+* 若要从本地环境使用本文档中的 CLI 命令，需要使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
 
 
 ## <a name="download-the-example-project"></a>下载示例项目
@@ -74,7 +74,7 @@ git clone https://github.com/microsoft/MLOps.git
 
 ## <a name="connect-to-your-azure-subscription"></a>连接到 Azure 订阅
 
-可使用多种方法通过 CLI 对 Azure 订阅进行身份验证。 最基本的方法是使用浏览器进行交互式身份验证。 若要以交互方式进行身份验证，请打开命令行或终端，然后使用以下命令：
+可使用多种方法通过 CLI 对 Azure 订阅进行身份验证。 最简单的方法是使用浏览器进行交互式身份验证。 若要以交互方式进行身份验证，请打开命令行或终端，然后使用以下命令：
 
 ```azurecli
 az login
@@ -100,7 +100,7 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是 Azure 平台上资源的基本容器。 使用 Azure 机器学习时，资源组将包含 Azure 机器学习工作区。 它还将包含工作区使用的其他 Azure 服务。 例如，如果使用基于云的计算资源训练模型，则该资源将在资源组中进行创建。
+资源组是 Azure 平台上资源的容器。 使用 Azure 机器学习时，资源组将包含 Azure 机器学习工作区。 它还将包含工作区使用的其他 Azure 服务。 例如，如果使用基于云的计算资源训练模型，则该资源将在资源组中进行创建。
 
 若要创建新的资源组，请使用以下命令。 将 `<resource-group-name>` 替换为此资源组使用的名称。 将 `<location>` 替换为此资源组使用的 Azure 区域：
 
@@ -127,7 +127,7 @@ az group create --name <resource-group-name> --location <location>
 }
 ```
 
-要详细了解如何使用资源组，请参阅 [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest)。
+要详细了解如何使用资源组，请参阅 [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest&preserve-view=true)。
 
 ## <a name="create-a-workspace"></a>创建工作区
 

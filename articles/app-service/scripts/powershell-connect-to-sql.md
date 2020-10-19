@@ -5,15 +5,15 @@ tags: azure-service-management
 ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: 9960798440ccbe9c5592a527fbdfae36fbeb6e72
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 2f4f6aac0bbcc489a84d26b4d1318356899bd10e
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228131"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170606"
 ---
 # <a name="connect-an-app-service-app-to-sql-database"></a>将应用服务应用连接到 SQL 数据库
 

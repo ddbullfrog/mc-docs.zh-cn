@@ -1,21 +1,21 @@
 ---
-title: 设计器管道和数据集示例
+title: 设计器的示例管道和数据集
 titleSuffix: Azure Machine Learning
 description: 使用 Azure 机器学习设计器中的示例来快速开始生成机器学习管道。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
-ms.date: 03/29/2020
+author: likebupt
+ms.author: v-yiso
+ms.date: 09/09/2020
 ms.custom: designer
-ms.openlocfilehash: 828ab18d96ff3bf93f3ec5d8200c258d20011997
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 9f867ee62eb40a61d7028028e5f4b6782ae0a722
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395272"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118138"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>用于 Azure 机器学习设计器的管道和数据集示例
 
@@ -24,7 +24,7 @@ ms.locfileid: "91395272"
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅。 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-* 使用企业 SKU 的 Azure 机器学习工作区。
+* Azure 机器学习工作区 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -138,5 +138,5 @@ ms.locfileid: "91395272"
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解有关预测分析和机器学习的基本知识，请参阅[教程：使用设计器预测汽车价格](tutorial-designer-automobile-price-train-score.md)
+使用以下教程了解有关预测分析和机器学习的基础知识 - [教程：使用设计器预测汽车价格](tutorial-designer-automobile-price-train-score.md)
 

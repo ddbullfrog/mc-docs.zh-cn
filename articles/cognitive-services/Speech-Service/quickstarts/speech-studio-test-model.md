@@ -1,26 +1,26 @@
 ---
-title: 快速入门：使用音频文件测试模型 - Speech Studio
+title: 使用音频文件测试模型 - Speech Studio
 titleSuffix: Azure Cognitive Services
-description: 在本快速入门中，你将使用 Speech Studio 在音频文件中测试语音识别。
+description: 在本操作说明中，你将使用 Speech Studio 在音频文件中测试语音识别。
 services: cognitive-services
 author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 06/25/2020
-ms.date: 07/29/2020
+origin.date: 09/04/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 6b073e889e369d8a43d28e004529929294818118
-ms.sourcegitcommit: 5d167ad5411b018522a0fac9f5435a48f4ceb3a6
+ms.openlocfilehash: f490d3a39c159bc6a4b6ae3f3973998326b60734
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87378159"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128371"
 ---
-# <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>快速入门：在 Speech Studio 中使用音频文件测试模型
+# <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>在 Speech Studio 中使用音频文件测试模型
 
-在本快速入门中，你将使用 Speech Studio 将音频文件中的语音转换为文本。 使用 Speech Studio，你可以使用相关文本、带有用户标记的听录内容的音频和你提供的发音指导来测试、比较、改进和部署语音识别模型。
+在本操作说明中，你将使用 Speech Studio 将音频文件中的语音转换为文本。 使用 Speech Studio，你可以使用相关文本、带有用户标记的听录内容的音频和你提供的发音指导来测试、比较、改进和部署语音识别模型。
 
 ## <a name="prerequisites"></a>先决条件
 

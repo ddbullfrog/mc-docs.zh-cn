@@ -4,17 +4,17 @@ description: 本教程介绍如何使用 ASP.NET Core 前端和 Reliable Service
 ms.topic: tutorial
 origin.date: 07/10/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.custom: mvc, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: cc42f85d3cabd6157d16cc634f659d11b1657de5
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.custom: mvc, devx-track-js, devx-track-csharp
+ms.openlocfilehash: ac5bd79ed0d4228448f6c5f212a05fc900ee6194
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655073"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128132"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教程：使用 ASP.NET Core Web API 前端服务和有状态后端服务创建并部署应用程序
 
@@ -61,15 +61,15 @@ ms.locfileid: "89655073"
 
 4. 将应用程序命名为“Voting”，然后单击“创建” 。
 
-    :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png" alt-text="Visual Studio 中的新建项目对话框":::
+    :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png" alt-text="连接到 Service Fabric 上的有状态后端服务的 AngularJS+ASP.NET API 前端":::
 
 5. 在“新建 Service Fabric 服务”页中，选择“无状态 ASP.NET Core”，将服务命名为“VotingWeb”，然后单击“创建”   。
 
-    :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png" alt-text="在新建服务对话框中选择 ASP.NET Web 服务"::: 
+    :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png" alt-text="连接到 Service Fabric 上的有状态后端服务的 AngularJS+ASP.NET API 前端"::: 
 
 6. 下一页将提供一组 ASP.NET Core 项目模板。 对于本教程，请选择“Web 应用程序(模型-视图-控制器)”，然后单击“创建” 。
 
-    :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png" alt-text="选择 ASP.NET 项目类型":::
+    :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png" alt-text="连接到 Service Fabric 上的有状态后端服务的 AngularJS+ASP.NET API 前端":::
 
     Visual Studio 会创建应用程序和服务项目，并在解决方案资源管理器中显示它们。
 
@@ -332,7 +332,7 @@ namespace VotingWeb.Controllers
 
 将“Voting”应用程序部署到本地 Service Fabric 群集后，Web 应用会在浏览器选项卡中自动打开，如下所示：
 
-:::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png" alt-text="ASP.NET Core 前端":::
+:::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png" alt-text="连接到 Service Fabric 上的有状态后端服务的 AngularJS+ASP.NET API 前端":::
 
 若要停止调试应用程序，请返回到 Visual Studio 并按 Shift+F5。
 
@@ -354,7 +354,7 @@ Service Fabric 允许使用 Reliable Collections 直接在服务内以一致、�
 
     Visual Studio 会创建 VotingData 服务项目，并在解决方案资源管理器中显示。
 
-    :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png" alt-text="解决方案资源管理器":::
+    :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png" alt-text="连接到 Service Fabric 上的有状态后端服务的 AngularJS+ASP.NET API 前端":::
 
 ### <a name="add-the-votedatacontrollercs-file"></a>添加 VoteDataController.cs 文件
 
@@ -594,7 +594,7 @@ public class VotesController : Controller
 * Web 前端服务 (VotingWeb) - ASP.NET Core Web 前端服务，可提供网页服务，并公开用于与后端服务进行通信的 Web API。
 * 后端服务 (VotingData) - ASP.NET Core Web 服务，可公开用于将投票结果存储在可靠字典中并保留在磁盘上的API。
 
-:::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png" alt-text="应用程序关系图":::
+:::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png" alt-text="连接到 Service Fabric 上的有状态后端服务的 AngularJS+ASP.NET API 前端":::
 
 在应用程序中投票时，将会发生以下事件：
 
@@ -606,7 +606,7 @@ public class VotesController : Controller
 
 ## <a name="debug-in-visual-studio"></a>在 Visual Studio 中进行调试
 
-在 Visual Studio 中调试应用程序时，使用的是本地 Service Fabric 开发群集。 可以根据方案需要调整调试体验。 在此应用程序中，我们使用可靠字典将数据存储到后端服务中。 停止调试程序时，Visual Studio 会默认删除应用程序。 删除应用程序后，后端服务中的数据也会随之一起删除。 若要跨调试会话保留数据，可以在 Visual Studio 中更改“应用程序调试模式” （“Voting” 项目属性）。
+在 Visual Studio 中调试应用程序时，使用的是本地 Service Fabric 开发群集。 可以根据方案需要调整调试体验。 在此应用程序中，我们使用可靠字典将数据存储到后端服务中。 停止调试程序时，Visual Studio 会默认删除应用程序。 删除应用程序后，后端服务中的数据也会随之一起删除。 若要跨调试会话保留数据，可以在 Visual Studio 中更改“应用程序调试模式” （“Voting” 项目属性）。  
 
 若要查看代码，请完成以下步骤：
 
@@ -620,7 +620,7 @@ public class VotesController : Controller
 
     1. 此时，浏览器中的 JavaScript 将请求发送到前端服务中的 Web API 控制器。
 
-        :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png" alt-text="添加投票前端服务":::
+        :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png" alt-text="连接到 Service Fabric 上的有状态后端服务的 AngularJS+ASP.NET API 前端":::
 
     2. 首先，为后端服务构建 ReverseProxy 的 URL **(1)** 。
     3. 然后，向 ReverseProxy 发送 HTTP PUT 请求 **(2)** 。
@@ -629,7 +629,7 @@ public class VotesController : Controller
 5. 按 F5 以继续操作。
     1. 此时，到达后端服务中的断点。
 
-        :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png" alt-text="添加投票后端服务":::
+        :::image type="content" source="./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png" alt-text="连接到 Service Fabric 上的有状态后端服务的 AngularJS+ASP.NET API 前端":::
 
     2. 方法 **(1)** 的第一行使用 `StateManager` 获取或添加 `counts` 可靠字典。
     3. 与可靠字典中的值进行的所有交互都需要使用事务，这个 using 语句 (2) 负责创建此事务。

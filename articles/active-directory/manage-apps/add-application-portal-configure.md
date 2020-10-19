@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
-ms.openlocfilehash: aa2f0197d9c57ff97385744bbfe0a17e72f2cfe6
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ec883cd7d97b703c2f9fa9a06e458cbf8105b3cb
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245522"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041594"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>快速入门：在 Azure Active Directory (Azure AD) 租户中配置应用程序的属性
 
@@ -46,7 +46,7 @@ ms.locfileid: "91245522"
 3. 请花点时间了解可用于配置的选项：
     - “是否启用以供用户登录?”决定分配到应用程序的用户能否登录。
     - “是否需要进行用户分配?”决定了未分配到应用程序的用户能否登录。
-    - “是否对用户可见?”决定分配到应用的用户能否在[我的应用](https://account.activedirectory.windowsazure.cn/r#/applications)和 Office 365 应用启动器中看到该应用。 （请参阅 Office 365 或 Microsoft 365 网站左上角的华夫饼菜单。）
+    - “是否对用户可见?”决定分配到应用的用户能否在[我的应用](https://account.activedirectory.windowsazure.cn/r#/applications)和 Microsoft 365 应用启动器中看到该应用。 （请参阅 Microsoft 365 网站左上角的华夫饼菜单。）
     
     > [!TIP]
     > 在导航的“用户和组”部分分配用户。

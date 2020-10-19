@@ -3,15 +3,15 @@ title: 为入站 IP 地址更改做准备
 description: 如果入站 IP 地址将要更改，请了解如何在更改后继续运行应用。
 ms.topic: article
 origin.date: 06/28/2018
-ms.date: 01/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e208625254fa110e2fcf45ce35aab34c1800e6ef
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 8d6738d679266c8d62e5b93047c269e42f338175
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75600462"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170811"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>如何为入站 IP 地址更改做准备
 

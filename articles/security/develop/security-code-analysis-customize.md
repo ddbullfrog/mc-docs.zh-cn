@@ -2,10 +2,10 @@
 title: 自定义 Microsoft 安全代码分析任务
 titleSuffix: Azure
 description: 本文介绍如何在 Microsoft 安全代码分析扩展中自定义任务
-author: sukhans
+author: Johnnytechn
 manager: sukhans
 ms.author: v-johya
-ms.date: 08/13/2020
+ms.date: 10/12/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 31e33c01c2e93d2132988c327e36a21ababe127d
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 093e70395233d21b74f38dcf2c21c168be5b58a6
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228972"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127985"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>配置和自定义生成任务
 
@@ -143,7 +143,7 @@ Windows Defender 使用 Windows 更新客户端来下载和安装签名。 如�
 >
 >   如果新任务在与原始任务相同的代理上运行，新任务的输出将覆盖 s 源文件夹中的原始任务输出。 尽管生成输出是相同的，我们建议运行 MSBuild，将输出复制到项目分段目录，然后运行 Roslyn 分析器。
 
-有关 Roslyn 分析器任务的其他资源，请参阅 Microsoft Docs 上的[基于 Roslyn 的分析器](https://docs.microsoft.com/dotnet/standard/analyzers/)。
+有关 Roslyn 分析器任务的其他资源，请参阅 Microsoft Docs 上的[基于 Roslyn 的分析器](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer)。
 
 可以在 NuGet 页 [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers) 上找到此生成任务安装并使用的分析器包。
 

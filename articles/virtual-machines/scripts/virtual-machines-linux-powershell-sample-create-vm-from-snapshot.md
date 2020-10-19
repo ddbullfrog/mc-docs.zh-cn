@@ -1,6 +1,6 @@
 ---
 title: 从快照创建 VM (Linux) - PowerShell 示例
-description: Azure PowerShell 脚本示例 - 从快照创建 VM
+description: Azure PowerShell 脚本示例 - 使用 Linux 示例从快照创建 VM。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 manager: kavithag
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 7fd76d28510deba3a2d9109d7dfc5731188fdc2c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: d4246baddbfe7205edb12b134e5d15faeb5ca1bc
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414037"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128085"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell-linux"></a>使用 PowerShell 从快照创建虚拟机 (Linux)
 
@@ -122,4 +122,4 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 可以在 [Azure Linux VM 文档](../linux/powershell-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -4,22 +4,22 @@ description: 在 Azure 应用服务中创建免费的证书、导入应用服务
 tags: buy-ssl-certificates
 ms.topic: tutorial
 origin.date: 10/25/2019
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 89f72d5e66e1690104827fe6a9f7cb1110578083
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 60c52586d1bfdcdc1a1994448f5eff67e79ad6e2
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227944"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170766"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>在 Azure 应用服务中添加 TLS/SSL 证书
 
 [Azure 应用服务](overview.md)提供高度可缩放、自修复的 Web 托管服务。 本文介绍如何创建私有证书或公用证书，或将其上传或导入到应用服务中。 
 
-将证书添加到应用服务应用或[函数应用](https://docs.azure.cn/azure-functions/)后，即可[使用它来保护自定义 DNS 名称](configure-ssl-bindings.md)或[在应用程序代码中使用它](configure-ssl-certificate-in-code.md)。
+将证书添加到应用服务应用或[函数应用](../azure-functions/index.yml)后，即可[使用它来保护自定义 DNS 名称](configure-ssl-bindings.md)或[在应用程序代码中使用它](configure-ssl-certificate-in-code.md)。
 
 下表列出了用于在应用服务中添加证书的选项：
 
@@ -28,7 +28,7 @@ ms.locfileid: "88227944"
 |选项|说明|
 |-|-|
 | 创建免费应用服务托管证书（预览版） | 如果只需保护 `www` [自定义域](app-service-web-tutorial-custom-domain.md)或应用服务中的任何非裸域，则可以轻松使用私有证书。 |
-| 导入来自 Key Vault 的证书 | 这在使用 [Azure Key Vault](https://docs.azure.cn/key-vault/) 管理 PKCS12 证书时很有用。 请参阅[私有证书要求](#private-certificate-requirements)。 |
+| 导入来自 Key Vault 的证书 | 这在使用 [Azure Key Vault](../key-vault/index.yml) 管理 [PKCS12 证书](https://wikipedia.org/wiki/PKCS_12)时很有用。 请参阅[私有证书要求](#private-certificate-requirements)。 |
 | 上传私有证书 | 如果你已有第三方提供商提供的私有证书，则可以上传它。 请参阅[私有证书要求](#private-certificate-requirements)。 |
 | 上传公用证书 | 公用证书不用于保护自定义域，但可以将其加载到代码中（如果需要它们来访问远程资源）。 |
 
@@ -36,7 +36,7 @@ ms.locfileid: "88227944"
 
 按照本操作方法指南操作：
 
-- [创建应用服务应用](/app-service/)。
+- [创建应用服务应用](./index.yml)。
 - 仅限免费证书：使用 [CNAME 记录](app-service-web-tutorial-custom-domain.md#map-a-cname-record)将子域（例如 `www.contoso.com`）映射到应用服务。
 
 ## <a name="private-certificate-requirements"></a>私有证书要求
@@ -45,8 +45,6 @@ ms.locfileid: "88227944"
 > Azure Web 应用**不**支持 AES256，并且所有 pfx 文件都应使用 TripleDES 进行加密。
 
 <!-- The [free App Service Managed Certificate](#create-a-free-certificate-preview) or the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service.  -->
-
-如果选择将私有证书上传或导入到应用服务，则证书必须满足以下要求：
 
 * 已导出为受密码保护的 PFX 文件
 * 包含长度至少为 2048 位的私钥
@@ -291,7 +289,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 在“名称”中，键入证书的名称。 在“CER 证书文件”中，选择 CER 文件。
 
-单击“上载” 。
+单击“上载” 。 
 
 ![将公用证书上传到应用服务中](./media/configure-ssl-certificate/upload-public-cert.png)
 

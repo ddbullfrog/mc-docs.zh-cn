@@ -8,12 +8,12 @@ origin.date: 03/25/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 24d5a994eb944d238dca9ebbad5bd4c71eb6ac4f
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: baae466c12d91ff853b59abf393c91faf3529f86
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063287"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170841"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>事件中心的 Azure 安全基线
 
@@ -63,7 +63,7 @@ ms.locfileid: "90063287"
 
 ### <a name="13-protect-critical-web-applications"></a>1.3：保护关键 Web 应用程序
 
-**指南**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
+**指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
 **Azure 安全中心监视**：不适用
 
@@ -115,7 +115,7 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall -->
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7：管理发往 Web 应用程序的流量
 
-**指南**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
+**指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
 **Azure 安全中心监视**：不适用
 
@@ -760,7 +760,7 @@ How to configure customer-managed keys for encrypting Azure Event Hubs: https://
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13：以物理或逻辑方式隔离高风险应用程序
 
-**指南**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
+**指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
 **Azure 安全中心监视**：不适用
 
@@ -915,6 +915,7 @@ Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?v
 
 **指南**：实施凭据扫描程序来识别代码中的凭据。 凭据扫描程序还会建议将发现的凭据转移到更安全的位置，例如 Azure Key Vault。
 
+<!-- do not need to change -->
 如何设置凭据扫描器： https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Azure 安全中心监视**：不适用

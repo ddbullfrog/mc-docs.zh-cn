@@ -3,21 +3,21 @@ title: OS 和运行时修补频率
 description: 了解 Azure 应用服务如何更新 OS 和运行时、你的应用具有哪些运行时和修补程序级别，以及如何获取更新公告。
 ms.topic: article
 origin.date: 02/02/2018
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 93b703a9dbf3e1ec718afd01380ba9faa8619734
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: dec5118ea7502838b2740a2054eadd618c857eec
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227886"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170635"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure 应用服务中的 OS 和运行时修补
 
 本文介绍如何有关[应用服务](overview.md)中的 OS 或软件的特定版本信息。 
 
-应用服务是一种平台即服务，这意味着，Azure 会自行管理 OS 和应用程序堆栈，而你只需管理自己的应用程序及其数据。 在 [Azure 虚拟机](https://docs.azure.cn/virtual-machines/)中，能够以更高的力度控制 OS 和应用程序堆栈。 考虑到这一点，应用服务用户了解以下方面的详细信息总会有好处：
+应用服务是一种平台即服务，这意味着，Azure 会自行管理 OS 和应用程序堆栈，而你只需管理自己的应用程序及其数据。 在 [Azure 虚拟机](../virtual-machines/index.yml)中，能够以更高的力度控制 OS 和应用程序堆栈。 考虑到这一点，应用服务用户了解以下方面的详细信息总会有好处：
 
 -   如何以及何时应用 OS 更新？
 -   应用服务如何修补重大漏洞（例如零日漏洞）？
@@ -27,7 +27,7 @@ ms.locfileid: "88227886"
 
 ## <a name="how-and-when-are-os-updates-applied"></a>如何以及何时应用 OS 更新？
 
-Azure 管理两个级别的 OS 修补：运行应用服务资源的物理服务器和来宾虚拟机 (VM)。 这两种方案会根据每月的[周二修补](https://technet.microsoft.com/security/bulletins.aspx)计划更新。 这些更新会自动应用，保证达到 Azure 服务的高可用性 SLA。 
+Azure 管理两个级别的 OS 修补：运行应用服务资源的物理服务器和来宾虚拟机 (VM)。 这两种方案会根据每月的[周二修补](https://docs.microsoft.com/security-updates/)计划更新。 这些更新会自动应用，保证达到 Azure 服务的高可用性 SLA。 
 
 有关如何应用更新的详细信息，请参阅[揭示应用服务 OS 背后的秘密](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html)。
 

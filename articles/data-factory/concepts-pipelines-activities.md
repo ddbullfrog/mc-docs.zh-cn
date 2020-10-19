@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 11/19/2019
-ms.date: 09/21/2020
-ms.openlocfilehash: 39138f86bd7f2b3c591b86bc9bb484c3df68f04b
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 10/19/2020
+ms.openlocfilehash: adde74df39859ec67043d055e2b0064586f15a32
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523709"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121692"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 数据工厂中的管道和活动
 
@@ -28,7 +28,7 @@ ms.locfileid: "90523709"
 
 管道中的活动定义对数据执行的操作。 例如，可使用复制活动将数据从 SQL Server 复制到 Azure Blob 存储。 然后，使用在 Azure HDInsight 群集上运行 Hive 脚本的 Hive 活动，将 Blob 存储中的数据处理/转换为生成输出数据。 最后，再使用一个复制活动将输出数据复制到 Azure Synapse Analytics 池，基于该池构建商业智能报告解决方案。
 
-数据工厂包含三组活动：[数据移动活动](copy-activity-overview.md)、[数据转换活动](transform-data.md)和[控制活动](control-flow-web-activity.md)。 每个活动可获取零个或多个输入[数据集](concepts-datasets-linked-services.md)，并生成一个或多个输出[数据集](concepts-datasets-linked-services.md)。 下图显示了数据工厂中管道、活动和数据集之间的关系：
+数据工厂包含三组活动：[数据移动活动](copy-activity-overview.md)、[数据转换活动](transform-data.md)和[控制活动](#control-flow-activities)。 每个活动可获取零个或多个输入[数据集](concepts-datasets-linked-services.md)，并生成一个或多个输出[数据集](concepts-datasets-linked-services.md)。 下图显示了数据工厂中管道、活动和数据集之间的关系：
 
 ![数据集、活动和管道之间的关系](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 

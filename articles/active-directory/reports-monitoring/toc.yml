@@ -29,6 +29,8 @@
   items:
     - name: 审核日志
       href: concept-audit-logs.md
+    - name: 新登录日志 - 预览
+      href: concept-all-sign-ins.md
     - name: 登录日志
       href: concept-sign-ins.md
     - name: Azure Monitor 中的 Azure AD 日志
@@ -60,7 +62,7 @@
           href: howto-integrate-activity-logs-with-splunk.md
         - name: 将活动日志与 SumoLogic 集成
           href: howto-integrate-activity-logs-with-sumologic.md
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 缺少审核数据
           href: troubleshoot-missing-audit-data.md

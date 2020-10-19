@@ -12,16 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/28/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 8df2019043d2d30124251c9482d39aa7c24df8a4
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 7c25642a6ab0779b34358e5552cdc3d1da46d69d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413788"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128077"
 ---
 <!--Verified successfully from renamed article-->
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell-windows"></a>使用 PowerShell 将托管磁盘的快照复制到同一订阅或不同订阅 (Windows)
@@ -101,5 +101,4 @@ New-AzSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -ResourceGr
 
 可以在 [Azure Windows VM 文档](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
 
-<!-- Update_Description: new article about virtual machines powershell sample copy snapshot to same or different subscription -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

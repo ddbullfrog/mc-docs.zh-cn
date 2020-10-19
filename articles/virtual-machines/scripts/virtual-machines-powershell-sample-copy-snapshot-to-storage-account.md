@@ -9,16 +9,16 @@ ms.topic: sample
 ms.workload: infrastructure
 origin.date: 06/05/2017
 author: rockboyfor
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+ms.date: 10/19/2020
+ms.testscope: yes
+ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: f4c65fcf47d8baadd7aa3438a34f8d0e921c3a4e
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 59ff117da50a574f3bf169d690fa0cbb59b44917
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414011"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127900"
 ---
 <!--Verified successfully from renamed articles-->
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>使用 PowerShell 将托管快照作为 VHD 导出/复制到不同区域中的存储帐户
@@ -85,13 +85,12 @@ Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageConta
 
 ## <a name="next-steps"></a>后续步骤
 
-[从 VHD 创建托管磁盘](virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+[从 VHD 创建托管磁盘](virtual-machines-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[从托管磁盘创建虚拟机](./virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+[从托管磁盘创建虚拟机](./virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/)。
 
 可以在 [Azure Linux VM 文档](../linux/powershell-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
 
-<!-- Update_Description: new article about virtual machines powershell sample copy snapshot to storage account -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

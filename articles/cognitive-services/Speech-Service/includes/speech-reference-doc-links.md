@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 origin.date: 12/06/2019
-ms.date: 06/19/2019
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 028dba55e183ccb7911cba5a1deca937043654f8
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.openlocfilehash: fcd73e076336d4bf122fb718ccbe031766597dbe
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317588"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128105"
 ---
 ## <a name="reference-docs"></a>参考文档
 
@@ -43,8 +43,7 @@ ms.locfileid: "89317588"
 
 有关各种语音服务 REST API 的参考，请参阅下面的列表：
 
-- [REST API：发音评估](../rest-speech-to-text.md#pronunciation-assessment-parameters)
-
 - [REST API：语音转文本](../rest-speech-to-text.md)
+- [REST API：发音评估](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [REST API：文本转语音](../rest-text-to-speech.md)
 - <a href="https://chinaeast2.cris.azure.cn/swagger/ui/index" target="_blank" rel="noopener">REST API：批量听录和自定义 <span class="docon docon-navigate-external x-hidden-focus"></span></a>

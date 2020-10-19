@@ -4,16 +4,16 @@ description: 了解如何使用 Visual Studio 将现有 .NET 应用程序容器�
 ms.topic: tutorial
 origin.date: 07/08/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 06/08/2020
 ms.author: v-yeche
-ms.openlocfilehash: 83524971b4a21b064b2388ef1480e754e15bb1a1
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: b632656cb4119d5720662ff0cddc215e43b8215d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655684"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128380"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教程：将 Windows 容器中的 .NET 应用程序部署到 Azure Service Fabric
 
@@ -44,7 +44,7 @@ ms.locfileid: "89655684"
 
 2. 验证 Fabrikam Fiber CallCenter 应用程序是否能正确无误地生成和运行。  以**管理员身份**启动 Visual Studio，然后打开 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 文件。  按 F5 调试并运行应用程序。
 
-    ![Fabrikam Web 示例][fabrikam-web-page]
+    ![本地主机上运行的 Fabrikam Fiber CallCenter 应用程序主页的屏幕截图。 该页显示一个仪表板，其中包含支持电话列表。][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>容器化应用程序
 
@@ -149,7 +149,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Na
 
 在群集（一组已连接网络的虚拟机或物理计算机）上运行 Service Fabric 应用程序。  需在 Azure 中创建一个 Service Fabric 群集，然后才能将应用程序部署到 Azure。
 
-可以：
+方法：
 
 * 通过 Visual Studio 创建一个测试群集。 可以通过此选项使用首选的配置直接从 Visual Studio 创建安全的群集。
 * [模板创建安全的群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
@@ -240,7 +240,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 在“输出”窗口中跟进部署进度。 应用程序部署完毕后，打开浏览器并键入群集地址和应用程序端口。 例如，`https://fabrikamfibercallcenter.chinaeast.cloudapp.chinacloudapi.cn:8659/`。
 
-![Fabrikam Web 示例][fabrikam-web-page-deployed]
+![azure.com 上运行的 Fabrikam Fiber CallCenter 应用程序主页的屏幕截图。 该页显示一个仪表板，其中包含支持电话列表。][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>使用 Service Fabric 群集设置持续集成和部署 (CI/CD)
 

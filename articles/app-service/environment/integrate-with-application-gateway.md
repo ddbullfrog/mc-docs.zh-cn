@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.topic: article
 origin.date: 03/03/2018
-ms.date: 05/22/2020
+ms.date: 10/09/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: ceb6da8206ba72ea25b3db9665e1467fc2f038c5
-ms.sourcegitcommit: 981a75a78f8cf74ab5a76f9e6b0dc5978387be4b
+ms.openlocfilehash: f044da4271764d82c4747c2fbace0e4952b38c07
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801285"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128265"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>将 ILB 应用服务环境与 Azure 应用程序网关集成 #
 
@@ -128,6 +128,6 @@ Azure 应用程序网关是一个虚拟设备，可提供第 7 层负载均衡�
 [9]: ./media/integrate-with-application-gateway/appgw-iplist.png
 
 <!--LINKS-->
-[appgw]: https://docs.azure.cn/application-gateway/application-gateway-introduction
+[appgw]: ../../application-gateway/overview.md
 [custom-domain]: ../app-service-web-tutorial-custom-domain.md
 [ilbase]: ./create-ilb-ase.md

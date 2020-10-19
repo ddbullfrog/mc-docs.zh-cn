@@ -1,19 +1,19 @@
 ---
 title: Azure 服务总线消息传送示例概述
 description: 服务总线消息传送示例演示 Azure 服务总线消息传送方面的关键功能。 提供指向 GitHub 上的示例的链接。
-author: rockboyfor
 ms.topic: article
 origin.date: 06/23/2020
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7adfce9b6087cc7477f711299d64adb197259f35
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 8d68769c7e28df99352a47d86bfe9565643c0fe9
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946604"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128407"
 ---
 # <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
 服务总线消息传送示例演示[服务总线消息传送](https://www.azure.cn/home/features/service-bus/)中的关键功能。 目前，可以在以下两个位置找到这些示例：
@@ -23,6 +23,7 @@ ms.locfileid: "88946604"
 | .NET、Java 和管理 | https://github.com/Azure/azure-service-bus/ |
 | Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
+| Go| https://github.com/Azure/azure-service-bus-go/ |
 
 ## <a name="service-bus-explorer"></a>服务总线资源管理器
 

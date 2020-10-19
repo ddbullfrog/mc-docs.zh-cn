@@ -5,14 +5,14 @@ author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 origin.date: 11/13/2019
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: e28bc37c5d768a37d90cceff681e9d70a3a56fc0
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: baae633699eb5323123b1f8ac03105da84aa8a53
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063354"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170782"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>快速入门：从控制台应用广播实时消息
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 10/09/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: d91635e45e88f1ad1f8eb6cac1f2afcb2bfb2b90
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 7913420de0fed47a2cb138d30753ec7170c90c0c
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456865"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127777"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>排查 fstab 错误导致的 Linux VM 启动问题

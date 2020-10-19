@@ -3,14 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 01/13/2020
-ms.date: 04/20/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8dd0d119952073c8fcbf5d8e97d82458a77e4943
-ms.sourcegitcommit: 304d3ef3c9e65c3e85977b3afb9985fbc0f908d6
+ms.openlocfilehash: 8fbcd365a069478dda5b05f37d363518244a9474
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85095973"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127606"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -18,7 +18,7 @@ ms.locfileid: "85095973"
 
 > [!div class="checklist"]
 > * [设置开发环境并创建空项目](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [创建 Azure 语音资源](../../../../get-started.md)
+> * [创建 Azure 语音资源](../../../../overview.md#try-the-speech-service-for-free)
 > * [将源文件上传到 Azure blob](https://docs.azure.cn/storage/blobs/storage-quickstart-blobs-portal)
 > * 需要语音 SDK 版本 1.11.0 或更高版本。
 

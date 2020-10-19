@@ -1,20 +1,20 @@
 ---
 title: 在 Azure Cosmos DB 存储过程和触发器中使用集成了 JavaScript 的查询 API
 description: 本文介绍了有关使用 JavaScript 语言集成式查询 API 在 Azure Cosmos DB 中创建存储过程和触发器的概念。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/07/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4340a4128b63f505a6c43ea399af6e78a956743d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-js
+ms.openlocfilehash: 365b677f38480bc437deed245f7a631536ba634e
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223343"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118543"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 JavaScript 查询 API
 

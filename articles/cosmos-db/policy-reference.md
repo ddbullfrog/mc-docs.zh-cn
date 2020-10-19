@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB 的内置策略定义
 description: 列出 Azure Cosmos DB 的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-origin.date: 09/10/2020
-ms.date: 09/25/2020
+origin.date: 09/16/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.topic: reference
@@ -10,12 +10,12 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b8d411458e3d665c951f1ec505980d0f67faf17e
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: b2d5f541ff44c8cf90a8d3922663d6181a9de3b0
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246955"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118400"
 ---
 <!--Verified Successfully-->
 # <a name="azure-policy-built-in-definitions-for-azure-cosmos-db"></a>Azure Cosmos DB 的 Azure Policy 内置定义
@@ -39,5 +39,4 @@ ms.locfileid: "91246955"
 - 查看 [Azure Policy 定义结构](../governance/policy/concepts/definition-structure.md)。
 - 查看[了解策略效果](../governance/policy/concepts/effects.md)。
 
-<!-- Update_Description: new article about policy reference -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

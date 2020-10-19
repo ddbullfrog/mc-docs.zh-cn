@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: v-johya
-ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: df6bb2deb6ca4b32542ae070a30dc30ac64deabf
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.custom: seodec18, devx-track-js
+ms.openlocfilehash: 507fee69d3458fc6429dadb4721124752bca34a6
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023367"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128395"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>快速入门：使用计算机视觉 REST API 和 JavaScript 生成缩略图
 

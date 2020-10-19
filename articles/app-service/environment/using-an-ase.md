@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 origin.date: 05/10/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 583edc3d02be3efdd3de4565d71b15e5cfd4a460
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 95d377c1ffd238305b131590178bbdbf17c673bf
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228508"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170406"
 ---
 # <a name="use-an-app-service-environment"></a>使用应用服务环境
 
@@ -197,7 +197,7 @@ ASE 为其中的所有应用提供 1 TB 存储空间。 “独立”定价 SKU �
 
 **创建警报**
 
-若要针对日志创建警报，请按[使用 Azure Monitor 创建、查看和管理日志警报][logalerts]中的说明操作。 简单地说：
+若要针对日志创建警报，请按[使用 Azure Monitor 创建、查看和管理日志警报](../../azure-monitor/platform/alerts-log.md)中的说明操作。 简单地说：
 
 * 在 ASE 门户中打开“警报”页面
 * 选择“新建警报规则”
@@ -295,7 +295,7 @@ For more specific examples, use: az find "az appservice ase"
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
@@ -305,5 +305,5 @@ For more specific examples, use: az find "az appservice ase"
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/platform/alerts-log.md

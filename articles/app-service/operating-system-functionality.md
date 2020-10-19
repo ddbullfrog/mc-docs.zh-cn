@@ -4,18 +4,18 @@ description: 了解 Windows 上 Azure 应用服务中的 OS 功能。 了解你�
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 origin.date: 10/30/2018
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 7932b003f7aa6719c9fdba3e584ea0b7a8f8706f
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: af5b40da1cc0b789f0765214a898d88c4f8ce143
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228472"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170763"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
-本文介绍了可供在 [Azure 应用服务](overview.md)上运行的所有 Windows 应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
+本文介绍了可供在 [Azure 应用服务](./overview.md)上运行的所有 Windows 应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
 
 <!-- container -->
 <!-- 
@@ -130,4 +130,3 @@ ms.locfileid: "88228472"
 ## <a name="more-information"></a>详细信息
 
 [Azure 应用服务沙盒](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - 有关应用服务的执行环境的最新信息。 此页由应用服务开发团队直接维护。
-

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/17/2020
 ms.date: 09/10/2020
-ms.openlocfilehash: a3c472bca42f3b86098e419ba0c66912f8646e6a
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 01e430c3e55e6e33bc9d8514f03a99d608ccc82d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021105"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128018"
 ---
 #   <a name="text-merge-cognitive-skill"></a>文本合并认知技能
 
@@ -76,7 +76,7 @@ Microsoft.Skills.Text.MergeSkill
 
 使用文本合并的一个常见场景是将图像的文本表示形式（OCR 技能中的文本或图像的描述文字）合并到文档的内容字段中。 
 
-以下示例技能使用 OCR 技能从文档中嵌入的图像中提取文本。 接下来，它会创建 merged_text 字段以包含每个图像的原始和 OCRed 文本。 可在[此处](./cognitive-search-skill-ocr.md)了解有关 OCR 技能的详细信息。
+以下示例技能使用 OCR 技能从文档中嵌入的图像中提取文本。 接下来，它会创建 merged_text 字段以包含每个图像的原始和 OCRed 文本。
 
 ```json
 {

@@ -1,24 +1,25 @@
 ---
 title: Dv4 和 Dsv4 系列 - Azure 虚拟机
 description: Dv4 和 Dsv4 系列 VM 的规范。
-author: rockboyfor
 ms.reviewer: cynthn
 ms.custom: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 06/08/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5b9a93311e2bb2bdc49a85010827e2c703788f4a
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: d89d7ecdf3c31123ffca80366d6dbcc9e7250089
+ms.sourcegitcommit: 5eb78078e370c9173a41f22ad8ea4bb45bc20312
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052406"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088209"
 ---
+<!--Verified successfully from PG team confirmation-->
 <!--Pending GA on Q3 2020, only be suitable for China East 2 site-->
 <!--RELEASE BEFORE CONFIRME AND BE CAREFULLY-->
 # <a name="dv4-and-dsv4-series"></a>Dv4 和 Dsv4 系列
@@ -32,9 +33,6 @@ Dv4 和 Dsv4 系列以超线程配置在 Intel&reg; Xeon&reg; Platinum 8272CL (C
 Dv4 系列规格在 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 上运行。 Dv4 系列规格为大多数生产工作负载提供 vCPU、内存和远程存储选项组合。 Dv4 系列 VM 采用 [Intel&reg; 超线程技术](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)。
 
 远程数据磁盘存储与虚拟机分开计费。 若要使用高级存储磁盘，请使用 Dsv4 规格。 Dsv4 规格的定价和计费标准与 Dv4 系列的相同。
-
-> [!IMPORTANT]
-> 这些新规格目前仅以公共预览版提供。 可在[此处](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)注册 Dv4 和 Dsv4 系列。 
 
 ACU：195-210
 
@@ -60,9 +58,6 @@ ACU：195-210
 
 Dsv4 系列规格在 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 上运行。 Dv4 系列规格为大多数生产工作负载提供 vCPU、内存和远程存储选项组合。 Dsv4 系列 VM 采用 [Intel&reg; 超线程技术](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)。 远程数据磁盘存储与虚拟机分开计费。
 
-> [!IMPORTANT]
-> 这些新规格目前仅以公共预览版提供。 可在[此处](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)注册 Dv4 和 Dsv4 系列。 
-
 ACU：195-210
 
 高级存储：支持
@@ -73,14 +68,14 @@ ACU：195-210
 
 内存保留更新：支持
 
-| 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大缓存吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 最大非缓存磁盘吞吐量：IOPS/MBps | 最大 NIC 数 | 预期的网络带宽 (Mbps) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v4 | 2 | 8  | 仅限远程存储 | 4 | 19000/120 (50) | 3000/48 | 2|1000 |
-| Standard_D4s_v4 | 4 | 16 | 仅限远程存储 | 8 | 38500/242 (100) | 6400/96 | 2|2000 |
-| Standard_D8s_v4 | 8 | 32 | 仅限远程存储 | 16 | 77000/485 (200) | 12800/192 | 4|4000 |
-| Standard_D16s_v4 | 16 | 64  | 仅限远程存储 | 32 | 154000/968 (400) | 25600/384 | 8|8000 |
-| Standard_D32s_v4 | 32 | 128 | 仅限远程存储 | 32 | 308000/1936 (800) | 51200/768 | 8|16000 |
-| Standard_D48s_v4 | 48 | 192 | 仅限远程存储 | 32 | 462000/2904 (1200) | 76800/1152 | 8|24000 |
-| Standard_D64s_v4 | 64 | 256 | 仅限远程存储 | 32 | 615000/3872 (1600) | 80000/1200 | 8|30000 |
+| 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大非缓存磁盘吞吐量：IOPS/MBps | 最大 NIC 数 | 预期的网络带宽 (Mbps) |
+|---|---|---|---|---|---|---|---|
+| Standard_D2s_v4 | 2 | 8  | 仅限远程存储 | 4 | 3200/48 | 2|1000 |
+| Standard_D4s_v4 | 4 | 16 | 仅限远程存储 | 8 | 6400/96 | 2|2000 |
+| Standard_D8s_v4 | 8 | 32 | 仅限远程存储 | 16 | 12800/192 | 4|4000 |
+| Standard_D16s_v4 | 16 | 64  | 仅限远程存储 | 32 | 25600/384 | 8|8000 |
+| Standard_D32s_v4 | 32 | 128 | 仅限远程存储 | 32 | 51200/768 | 8|16000 |
+| Standard_D48s_v4 | 48 | 192 | 仅限远程存储 | 32 | 76800/1152 | 8|24000 |
+| Standard_D64s_v4 | 64 | 256 | 仅限远程存储 | 32 | 80000/1200 | 8|30000 |
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 04/17/2019
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: v-johya
-ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: 9a1a89d8a12d41309e43fab27c23e7e690ce159e
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.custom: seodec18, devx-track-js
+ms.openlocfilehash: 95aac88ecbcc7320dbddc5b215396b038604d625
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023369"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128396"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 JavaScript 分析远程图像
 

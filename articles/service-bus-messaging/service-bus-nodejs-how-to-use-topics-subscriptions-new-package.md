@@ -1,27 +1,27 @@
 ---
 title: 通过 Node.js 使用 Azure/服务总线主题和订阅
 description: 快速入门 - 了解如何通过 Node.js 应用在 Azure 中使用服务总线主题和订阅。
-author: rockboyfor
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 06/23/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3badc80be7afafaedff32539afbf8679512503e9
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.custom: devx-track-js
+ms.openlocfilehash: 073d840a757263d2441dabfc1c8272f0600dd00d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946904"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128361"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>快速入门：如何将服务总线主题和订阅与 Node.js 和 azure/service-bus 包配合使用
 本教程介绍如何使用新的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 包编写一个 Node.js 程序，用于将消息发送到服务总线主题，并从服务总线订阅接收消息。 此包使用速度更快的 [AMQP 1.0 协议](service-bus-amqp-overview.md)，而旧版 [azure-sb](https://www.npmjs.com/package/azure-sb) 包使用的是[服务总线 REST 运行时 API](https://docs.microsoft.com/rest/api/servicebus/service-bus-runtime-rest)。 示例是使用 JavaScript 编写的。
 
 ## <a name="prerequisites"></a>先决条件
-- Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)或注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果你没有可用的主题和订阅，请遵循[使用 Azure 门户创建服务总线主题和订阅](service-bus-quickstart-topics-subscriptions-portal.md)一文中的步骤创建主题和订阅。 记下服务总线实例的连接字符串，以及创建的主题和订阅的名称。 我们将在示例中使用这些值。
 
 > [!NOTE]
@@ -89,7 +89,7 @@ npm install @azure/service-bus
 若要与服务总线订阅交互，首先需要实例化 [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) 类，并使用它来实例化 [SubscriptionClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/subscriptionclient) 类。 安装订阅客户端后，可以创建接收方，并在其上使用 [receiveMessages](https://docs.microsoft.com/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) 或 [registerMessageHandler](https://docs.microsoft.com/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) 方法来接收消息。
 
 1. 打开你喜好的编辑器，例如 [Visual Studio Code](https://code.visualstudio.com/)
-2. 创建一个名为 `recieve.js` 的文件，并将下面的代码粘贴到其中。 此代码尝试从订阅接收 10 条消息。 收到的实际消息计数取决于订阅中的消息数以及网络延迟。
+2. 创建一个名为 `receive.js` 的文件，并将下面的代码粘贴到其中。 此代码尝试从订阅接收 10 条消息。 收到的实际消息计数取决于订阅中的消息数以及网络延迟。
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -120,7 +120,7 @@ npm install @azure/service-bus
     });
     ```
 3. 输入以上代码中显示的连接字符串以及主题和订阅的名称。
-4. 然后在命令提示符下运行命令 `node receiveMessages.js` 以执行此文件。
+4. 然后在命令提示符下运行命令 `node receive.js` 以执行此文件。
 
 祝贺！ 你已从服务总线订阅收到了消息。
 

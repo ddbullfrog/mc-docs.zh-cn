@@ -3,14 +3,14 @@ title: 将 Blob 存储事件发送到 Web 终结点 - 模板
 description: 使用 Azure 事件网格和 Azure 资源管理器模板创建 Blob 存储帐户并订阅其事件。 将事件发送到 Webhook。
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/10/2020
+ms.date: 10/10/2020
 ms.topic: quickstart
-ms.openlocfilehash: e314c298b4576ca82588090873fd4d3a8bf4fb37
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: b043a0d0c6b6c0e06aa9670bc2f57480c97a32fc
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228419"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127962"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>使用 ARM 模板将 Blob 存储事件路由到 Web 终结点
 
@@ -46,95 +46,94 @@ Azure 事件网格是针对云的事件处理服务。 本文将使用 Azure 资
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageName": {
-            "type": "string",
-            "defaultValue": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "metadata": {
-                "description": "Provide a unique name for the Blob Storage account."
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Provide a location for the Blob Storage account that supports Event Grid."
-            }
-        },
-        "eventSubName": {
-            "type": "string",
-            "defaultValue": "subToStorage",
-            "metadata": {
-                "description": "Provide a name for the Event Grid subscription."
-            }
-        },
-        "endpoint": {
-            "type": "string",
-            "metadata": {
-                "description": "Provide the URL for the WebHook to receive events. Create your own endpoint for events."
-            }
-        },
-        "systemTopicName": {
-            "type": "String",
-            "defaultValue": "mystoragesystemtopic",
-            "metadata": {
-                "description": "Provide a name for the system topic."
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+      "type": "string",
+      "defaultValue": "[concat('storage', uniqueString(resourceGroup().id))]",
+      "metadata": {
+        "description": "Provide a unique name for the Blob Storage account."
+      }
     },
-    "resources": [
-        {
-            "name": "[parameters('storageName')]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2017-10-01",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "StorageV2",
-            "location": "[parameters('location')]",
-            "tags": {},
-            "properties": {
-                "accessTier": "Hot"
-            }
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Provide a location for the Blob Storage account that supports Event Grid."
+      }
+    },
+    "eventSubName": {
+      "type": "string",
+      "defaultValue": "subToStorage",
+      "metadata": {
+        "description": "Provide a name for the Event Grid subscription."
+      }
+    },
+    "endpoint": {
+      "type": "string",
+      "metadata": {
+        "description": "Provide the URL for the WebHook to receive events. Create your own endpoint for events."
+      }
+    },
+    "systemTopicName": {
+      "type": "String",
+      "defaultValue": "mystoragesystemtopic",
+      "metadata": {
+        "description": "Provide a name for the system topic."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[parameters('storageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "accessTier": "Hot"
+      }
+    },
+    {
+      "type": "Microsoft.EventGrid/systemTopics",
+      "apiVersion": "2020-04-01-preview",
+      "name": "[parameters('systemTopicName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[parameters('storageName')]"
+      ],
+      "properties": {
+        "source": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",
+        "topicType": "Microsoft.Storage.StorageAccounts"
+      }
+    },
+    {
+      "type": "Microsoft.EventGrid/systemTopics/eventSubscriptions",
+      "apiVersion": "2020-04-01-preview",
+      "name": "[concat(parameters('systemTopicName'), '/', parameters('eventSubName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.EventGrid/systemTopics', parameters('systemTopicName'))]"
+      ],
+      "properties": {
+        "destination": {
+          "properties": {
+            "endpointUrl": "[parameters('endpoint')]"
+          },
+          "endpointType": "WebHook"
         },
-        {
-            "name": "[parameters('systemTopicName')]",
-            "type": "Microsoft.EventGrid/systemTopics",
-            "apiVersion": "2020-04-01-preview",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[parameters('storageName')]"
-            ],
-            "properties": {
-                "source": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",
-                "topicType": "Microsoft.Storage.StorageAccounts"
-            }
-        },
-        {
-            "type": "Microsoft.EventGrid/systemTopics/eventSubscriptions",
-            "apiVersion": "2020-04-01-preview",
-            "name": "[concat(parameters('systemTopicName'), '/', parameters('eventSubName'))]",
-            "dependsOn": [
-                "[resourceId('Microsoft.EventGrid/systemTopics', parameters('systemTopicName'))]"
-            ],
-            "properties": {
-                "destination": {
-                    "properties": {
-                        "endpointUrl": "[parameters('endpoint')]"
-                    },
-                    "endpointType": "WebHook"
-                },
-                "filter": {
-                    "includedEventTypes": [
-                        "Microsoft.Storage.BlobCreated",
-                        "Microsoft.Storage.BlobDeleted"
-                    ]
-                }
-            }
+        "filter": {
+          "includedEventTypes": [
+            "Microsoft.Storage.BlobCreated",
+            "Microsoft.Storage.BlobDeleted"
+          ]
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 

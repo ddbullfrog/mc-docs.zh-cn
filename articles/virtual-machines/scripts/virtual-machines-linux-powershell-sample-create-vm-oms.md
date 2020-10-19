@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Linux 脚本示例 - Azure Monitor 日志
-description: Azure PowerShell 脚本示例 - Azure Monitor 日志
+description: Azure PowerShell Linux 脚本示例 - Azure Monitor 日志。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 manager: gwallace
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2017
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f5404ed733497be43888b12bb0383e29a716f8e3
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 07fa47d20cad84a7939e3d4bc35c84f8d9cdbb77
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414035"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128078"
 ---
 <!--Verify successfully-->
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>使用 PowerShell 创建 Azure Monitor VM

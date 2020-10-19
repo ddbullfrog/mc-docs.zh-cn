@@ -1,24 +1,24 @@
 ---
 title: 使用 Azure Cosmos DB 的 API for MongoDB 创建 Angular 应用（第 1 部分）
 description: 本教程系列的第 4 部分，介绍如何通过 Angular 和 Node 在 Azure Cosmos DB 上创建 MongoDB 应用，所使用的 API 与用于 MongoDB 的 API 完全相同
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 12/06/2018
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: f1fa0904c72bdae03471e5bdfb791799288d9796
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: f56c7e12910de4e75ef5c21b025da3d27303c59c
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223061"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117928"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>使用用于 MongoDB 的 Azure Cosmos DB's API 创建 Angular 应用 - 创建 Cosmos 帐户
 
@@ -36,7 +36,7 @@ ms.locfileid: "88223061"
 
 开始教程的此部分之前，请确保已完成教程[第 3 部分](tutorial-develop-mongodb-nodejs-part3.md)的步骤。 
 
-在教程的此部分，可以使用本地安装的 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+在教程的此部分，可以使用本地安装的 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 <!--MOONCAKE: Not Available on Azure Cloud Shell-->
 
@@ -51,7 +51,7 @@ ms.locfileid: "88223061"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 
-使用 [`az cosmosdb create`](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) 命令创建 Azure Cosmos DB 帐户。
+使用 [`az cosmosdb create`](https://docs.azure.cn/cli/cosmosdb#az_cosmosdb_create) 命令创建 Azure Cosmos DB 帐户。
 
 ```azurecli
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB

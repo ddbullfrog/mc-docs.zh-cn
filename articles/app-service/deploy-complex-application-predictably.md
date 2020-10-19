@@ -4,15 +4,15 @@ description: 了解如何使用 Azure 资源组管理模板和 PowerShell 脚本
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 origin.date: 01/06/2016
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 4e0063b3c22364c8ba1e5473c37781b0d9c77a0a
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 24c9ede9d9c6ca5011d3eb33a07ca11e51020b98
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227942"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170708"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>按可预见的方式在 Azure 中设置和部署微服务
 本教程演示如何通过使用 JSON 资源组模板和 PowerShell 脚本以一种可预见的方式，在 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)中由微服务构成的应用程序设置并部署为单个单元。 
@@ -41,7 +41,7 @@ ms.locfileid: "88227942"
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 或更高版本
 从版本 0.8.0 开始，Azure PowerShell 安装除了包括 Azure 模块外还包括 Azure 资源管理器模块。 使用此新模块可以编写资源组部署的脚本。
 
-有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)
+有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/management/manage-resources-powershell.md)
 
 <!-- ### Azure Resource Explorer -->
 <!-- This [preview tool](https://resources.azure.com) enables you to explore the JSON definitions of all the resource groups in your subscription and the individual resources. In the tool, you can edit the JSON definitions of a resource, delete an entire hierarchy of resources, and create new resources.  The information readily available in this tool is very helpful for template authoring because it shows you what properties you need to set for a particular type of resource, the correct values, etc. You can even create your resource group in the [Azure Portal](https://portal.azure.cn/), then inspect its JSON definitions in the explorer tool to help you templatize the resource group. -->
@@ -245,7 +245,7 @@ ms.locfileid: "88227942"
 * [创作 Azure Resource Manager 模板](../azure-resource-manager/templates/template-syntax.md)
 * [Azure Resource Manager 模板功能](../azure-resource-manager/templates/template-functions.md)
 * [使用 Azure 资源管理器模板部署应用程序](../azure-resource-manager/templates/deploy-powershell.md)
-* [将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/management/manage-resources-powershell.md)
 * [Azure 中的资源组部署故障排除](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>后续步骤

@@ -6,18 +6,18 @@ keywords: 502 错误的网关, 503 服务不可用, 错误 503, 错误 502
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 06/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 4a964b578902732fab1099f5a814d5d6804d81d4
-ms.sourcegitcommit: 4f84bba7e509a321b6f68a2da475027c539b8fd3
+ms.openlocfilehash: b05f6c3592d9c30fc458ed55b46cc8be0c6b8add
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85796194"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170594"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>排查 Azure 应用服务中出现的 HTTP 错误“502 错误的网关”和“503 服务不可用”
-[Azure 应用服务](overview.md)中托管的应用经常出现“502 错误的网关”和“503 服务不可用”错误。 本文帮助你排查这些错误。
+[Azure 应用服务](./overview.md)中托管的应用经常出现“502 错误的网关”和“503 服务不可用”错误。 本文帮助你排查这些错误。
 
 如果在本文中有任何需要协助的地方，可以联系 [MSDN Azure 和堆栈溢出论坛](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
 
@@ -62,12 +62,15 @@ ms.locfileid: "85796194"
 有关详细信息，请参阅：
 
 * [监视 Azure 应用服务中的应用](web-sites-monitor.md)
-* [接收警报通知](/azure-monitor/platform/alerts-overview)
+* [接收警报通知](../azure-monitor/platform/alerts-overview.md)
 
-<a name="collect" ></a>
+<a name="collect"></a>
 
 ### <a name="2-collect-data"></a>2.收集数据
+#### <a name="use-the-diagnostics-tool"></a>使用诊断工具
+应用服务提供了智能的交互式体验，可帮助我们排查应用的问题，且无需配置。 如果应用确实出现问题，诊断工具会指出问题所在，并引导你获取适当的信息，以便更轻松快速地排查和解决问题。
 
+若要访问应用服务诊断，请在 [Azure 门户](https://portal.azure.cn)中导航到你的应用服务应用或应用服务环境。 在左侧导航栏中，单击“诊断并解决问题”。
 
 #### <a name="use-the-kudu-debug-console"></a>使用 Kudu 调试控制台
 应用服务随附可用于调试、浏览和上传文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为应用的 *Kudu 控制台*或 *SCM 仪表板*。
@@ -107,5 +110,4 @@ AutoHeal 会根据你选择的设置（例如配置更改、请求、基于内�
 
  ![重新启动应用以解决 HTTP 错误“502 错误的网关”和“503 服务不可用”](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-还可以使用 Azure Powershell 管理应用。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。
-
+还可以使用 Azure Powershell 管理应用。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/management/manage-resources-powershell.md)。

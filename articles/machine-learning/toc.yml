@@ -15,21 +15,27 @@
 - name: 教程
   expanded: true
   items:
-    - name: Python SDK
+    - name: Python 第 1 天入门
       expanded: true
       items:
-        - name: 创建首个 ML 试验
-          items:
-            - name: 1. 设置工作区和开发环境
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. 训练你的第一个模型
-              href: tutorial-1st-experiment-sdk-train.md
+        - name: 1. 设置本地计算机
+          href: tutorial-1st-experiment-sdk-setup-local.md
+        - name: 2. “Hello world”
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 3. 训练模型
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 4. 自带数据
+          href: tutorial-1st-experiment-bring-data.md
+    - name: Jupyter Notebook
+      items:
         - name: 图像分类（MNIST 数据）
           items:
-            - name: 1. 训练模型
+            - name: 1. 设置计算实例
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. 训练模型
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 2. 部署模型
+            - name: 3. 部署模型
               href: tutorial-deploy-models-with-aml.md
         - name: 通过自动化 ML 进行回归分析（NYC 出租车数据）
           items:
@@ -90,17 +96,15 @@
       href: 'https://github.com/microsoft/MLOps'
 - name: 概念
   items:
-    - name: 企业版与基本版
-      href: concept-editions.md
     - name: 设计器（拖放 ML）
       items:
         - name: 设计器概述
           displayName: studio
           href: concept-designer.md
         - name: 算法备忘单
-          href: /azure/machine-learning/algorithm-cheat-sheet
+          href: algorithm-cheat-sheet.md
         - name: 如何选择算法
-          href: /azure/machine-learning/how-to-select-algorithms
+          href: how-to-select-algorithms.md
     - name: 自动化机器学习
       items:
         - name: 自动化 ML 概述
@@ -161,9 +165,18 @@
               href: how-to-use-azure-ad-identity.md
         - name: 网络安全
           items:
-            - name: 使用虚拟网络
-              displayName: 'vnet, blob'
-              href: how-to-enable-virtual-network.md
+            - name: 保护工作区资源
+              displayName: 'vnet, workspace, container instance, container registry'
+              href: how-to-secure-workspace-vnet.md
+            - name: 保护训练环境
+              displayName: vnet
+              href: how-to-secure-training-vnet.md
+            - name: 保护推理环境
+              displayName: vnet
+              href: how-to-secure-inferencing-vnet.md
+            - name: 在虚拟网络中使用工作室
+              displayName: vnet
+              href: how-to-enable-studio-virtual-network.md
             - name: 使用专用链接
             - name: 配置安全的 Web 服务
               displayName: 'ssl, tls'
@@ -182,6 +195,9 @@
         - name: 安全编码
           href: concept-secure-code-best-practice.md
           displayName: security threat
+        - name: 审核和管理合规性
+          href: how-to-integrate-azure-policy.md
+          displayName: policy
     - name: 负责的 ML
       items:
         - name: “负责的 ML”概述
@@ -216,6 +232,9 @@
         - name: 使用 Python SDK
           displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-create-attach-compute-sdk.md
+        - name: Azure Kubernetes 服务
+          displayName: 'AKS, inference'
+          href: how-to-create-attach-kubernetes.md
     - name: 设置你的环境
       items:
         - name: 设置开发环境
@@ -264,12 +283,15 @@
               href: how-to-designer-import-data.md
         - name: 访问数据
           items:
-            - name: 连接到 Azure 存储
-              displayName: 'blob, get, fileshare, access, mount, download, data lake'
+            - name: 连接到 Azure 存储 (Python)
+              displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
-            - name: 从数据存储中获取数据
+            - name: 从数据存储中获取数据 (Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
+            - name: 连接到数据 (UI)
+              displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set'
+              href: how-to-connect-data-ui.md
         - name: 管理并使用数据
           items:
             - name: 使用数据集进行训练
@@ -296,6 +318,11 @@
             - name: 优化超参数
               displayName: parameter
               href: how-to-tune-hyperparameters.md
+        - name: 使用 MLflow
+          items:
+            - name: 使用 MLflow 对试验进行跟踪
+              displayName: 'log, monitor, deploy, metrics,  model registry, register'
+              href: how-to-use-mlflow.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -304,6 +331,8 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: 使用自定义 Docker 映像进行训练
+          href: how-to-train-with-custom-image.md
         - name: 跟踪和监视培训
           items:
             - name: 启动、监视或取消运行
@@ -315,9 +344,6 @@
             - name: 查看日志
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-monitor-view-training-logs.md
-            - name: 使用 MLflow 对试验进行跟踪
-              displayName: 'log, monitor, metrics, Databricks'
-              href: how-to-use-mlflow.md
             - name: 使用 TensorBoard 将运行可视化
               displayName: 'log, monitor, metrics'
               href: how-to-monitor-tensorboard.md
@@ -421,6 +447,9 @@
         - name: 配置文件模型
           displayName: profile resource requirement
           href: how-to-deploy-profile-model.md
+        - name: 部署设计器模型
+          displayName: 'designer, studio'
+          href: how-to-deploy-model-designer.md
         - name: （预览）无代码部署
           displayName: no code
           href: how-to-deploy-no-code-deployment.md
@@ -468,9 +497,6 @@
         - name: 对并行运行步骤进行调试和故障排除
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-        - name: 迭代和发展机器学习管道
-          displayName: modularizing testing
-          href: concept-pipeline-practices-tips.md
     - name: 用于 CI/CD 的 Azure Pipelines
       displayName: 'continuous, integration, delivery'
       href: 'https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context'
@@ -511,6 +537,12 @@
       href: reference-pipeline-yaml.md
     - name: 主权云奇偶校验
       href: reference-machine-learning-cloud-parity.md
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
+    - name: 特选环境
+      displayName: 'environments, curated environments'
+      href: resource-curated-environments.md
 - name: 资源
   items:
     - name: 发行说明
@@ -533,6 +565,3 @@
     - name: 设计辅助功能
       displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
       href: designer-accessibility.md
-    - name: 精挑细选的环境
-      displayName: 'environments, curated environments'
-      href: resource-curated-environments.md

@@ -5,15 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 11/13/2019
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f6fa3a64211eb15cc2208fc810c7ceff6b04593e
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: ad4fcba2d60f15b450061da7aa9a9592dd640cca
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063322"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170804"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR 服务身份验证
 

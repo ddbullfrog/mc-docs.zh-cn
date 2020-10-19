@@ -4,15 +4,15 @@ description: 了解如何将 Azure Active Directory 身份验证配置为应用�
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 origin.date: 04/14/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: a51654625f9313d6079a4752f23232020a335cd1
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: e69419d146cd4b58da37555be7f70820dcc8d218
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227960"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170822"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>将应用服务或 Azure Functions 应用配置为使用 Azure AD 登录
 
@@ -111,7 +111,7 @@ ms.locfileid: "88227960"
 
 ## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>为服务到服务调用配置后台程序客户端应用程序
 
-应用程序可以获取令牌，代表自身（不代表用户）调用应用服务或 Functions 应用中托管的 Web API。 此方案适用于在没有登录用户的情况下执行任务的非守护程序应用程序。 它使用标准 OAuth 2.0 [客户端凭据](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)授权。
+应用程序可以获取令牌，代表自身（不代表用户）调用应用服务或 Functions 应用中托管的 Web API。 此方案适用于在没有登录用户的情况下执行任务的非交互式后台程序应用程序。 它使用标准 OAuth 2.0 [客户端凭据](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)授权。
 
 1. 在 [Azure 门户]中，选择“Active Directory” > “应用注册” > “新建注册”。
 1. 在“注册应用程序”页上的“名称”中，输入后台程序应用注册的名称。

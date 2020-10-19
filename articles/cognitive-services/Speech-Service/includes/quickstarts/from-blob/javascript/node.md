@@ -3,15 +3,15 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/12/2020
-ms.date: 08/03/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f58afc43c74a08d52a07f5d950ec1bd625b164b1
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.custom: devx-track-js
+ms.openlocfilehash: ed046771086db8a8c2e1d2f9350d29bf422e316b
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317526"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127602"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -19,7 +19,7 @@ ms.locfileid: "89317526"
 
 > [!div class="checklist"]
 > * [设置开发环境并创建空项目](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-javascript)
-> * [创建 Azure 语音资源](../../../../get-started.md)
+> * [创建 Azure 语音资源](../../../../overview.md#try-the-speech-service-for-free)
 > * [将源文件上传到 Azure blob](https://docs.azure.cn/storage/blobs/storage-quickstart-blobs-portal)
 > * 需要语音 SDK 1.11.0 或更高版本。
 

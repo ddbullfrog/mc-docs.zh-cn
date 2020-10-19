@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/16/2020
-ms.openlocfilehash: 8e80cac7741c05ae1809c4af4adedcc06628a7d9
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 09/16/2020
+ms.openlocfilehash: f45a0c91583e20ad925a9bbe0f0503a68a521dbc
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021151"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118411"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>提高 Azure 机器学习的复原能力
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本文介绍如何通过使用高可用性配置提高 Azure 机器学习资源的复原能力。 可以配置 Azure 机器学习所依赖的 Azure 服务以实现高可用性。 本文介绍了可以配置哪些服务来实现高可用性，并列出了多个链接来提供有关如何配置这些资源的其他信息。
 

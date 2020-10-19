@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 07/17/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: ce57a58c20654bbed9d2106ba0c39e71915dc4a8
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 10/19/2020
+ms.openlocfilehash: 15d675df57e6911de3836d3403c19a45a9b35a32
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029690"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041811"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Azure Database for MySQL 服务器防火墙规则
 
@@ -30,7 +30,7 @@ ms.locfileid: "88029690"
 
 来自 Internet 和 Azure 的连接尝试必须首先通过防火墙，才能访问 Azure Database for MySQL 数据库，如下图中所示：
 
-![防火墙工作流示例](./media/concepts-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="./media/concepts-firewall-rules/1-firewall-concept.png" alt-text="防火墙工作流示例":::
 
 ## <a name="connecting-from-the-internet"></a>从 Internet 连接
 服务器级防火墙规则适用于 Azure Database for MySQL 服务器上的所有数据库。
@@ -48,7 +48,7 @@ ms.locfileid: "88029690"
 > “允许访问 Azure 服务”选项将防火墙配置为允许来自 Azure 的所有连接，包括来自其他客户的订阅的连接。**** 选择该选项时，请确保登录名和用户权限将访问限制为仅允许授权用户访问。
 > 
 
-![在门户中配置“允许访问 Azure 服务”](./media/concepts-firewall-rules/allow-azure-services.png)
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="防火墙工作流示例":::
 
 ### <a name="connecting-from-a-vnet"></a>从 VNet 连接
 若要从 VNet 安全连接到 Azure Database for MySQL 服务器，请考虑使用 [VNet 服务终结点](./concepts-data-access-and-security-vnet.md)。 

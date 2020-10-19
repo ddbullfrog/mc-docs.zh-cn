@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 origin.date: 12/06/2019
 ms.date: 02/24/2020
-ms.openlocfilehash: bb2ce075d78e2a8ec030c7e3137a9e80555629e2
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: a5896ece5b9d14db6c1edfc3de480b182f0d5a16
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937535"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118571"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 中的机器学习
 
@@ -42,7 +42,7 @@ Azure 机器学习不仅提供预测分析建模工具，还提供完全托管�
 
 ![Microsoft Azure 机器学习概述](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-使用 [Hive 查询](../machine-learning/team-data-science-process/create-features-hive.md)，在 HDInsight Hadoop 群集中创建数据特征。 *特征工程*尝试通过从原始数据创建特征，简化学习过程，从而增加学习算法的预测能力。 可以使用[“导入数据”模块](../machine-learning/studio/import-data.md)从 Azure 机器学习工作室（经典）运行 HiveQL 查询，以及访问在 Hive 中处理和在 Blob 存储中存储的数据。
+使用 [Hive 查询](../machine-learning/team-data-science-process/create-features-hive.md)，在 HDInsight Hadoop 群集中创建数据特征。 *特征工程*尝试通过从原始数据创建特征，简化学习过程，从而增加学习算法的预测能力。 可以使用[“导入数据”模块](../machine-learning/classic/import-data.md)从 Azure 机器学习工作室（经典）运行 HiveQL 查询，以及访问在 Hive 中处理和在 Blob 存储中存储的数据。
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft 认知工具包
 

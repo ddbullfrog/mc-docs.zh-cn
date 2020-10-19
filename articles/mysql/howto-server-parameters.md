@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
 origin.date: 6/11/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: 5b099d7f2aee14ee557bdb9dc9028d3bac31e11c
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.date: 10/19/2020
+ms.openlocfilehash: 446bacc546e197000063e9e09b1428ad0fa8ae38
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395465"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041801"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>使用 Azure 门户在 Azure Database for MySQL 中配置服务器参数
 
@@ -25,13 +25,13 @@ ms.locfileid: "91395465"
 
 1. 登录到 Azure 门户，然后定位到适用于 MySQL 服务器的 Azure 数据库。
 2. 在“设置”部分下，单击“服务器参数”，打开 Azure Database for MySQL 服务器的“服务器参数”页。
-![Azure 门户中的服务器参数页](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+:::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Azure 门户中的服务器参数页":::
 3. 定位需要调整的任何设置。 查看“说明”列，了解用途和允许的值。
-![枚举下拉按钮](./media/howto-server-parameters/3-toggle_parameter.png)
+:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Azure 门户中的服务器参数页":::
 4. 单击“保存”，保存更改。
-![保存或放弃更改](./media/howto-server-parameters/4-save_parameters.png)
+:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Azure 门户中的服务器参数页":::
 5. 保存参数的新值后，随时可以通过选择“全部重置为默认设置”，将所有设置还原为默认值。
-![全部重置为默认设置](./media/howto-server-parameters/5-reset_parameters.png)
+:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Azure 门户中的服务器参数页":::
 
 ## <a name="setting-parameters-not-listed"></a>设置参数未列出
 
@@ -73,7 +73,7 @@ SELECT name FROM mysql.time_zone_name;
 
 可以从 Azure 门户中的“服务器参数”页设置全局级时区。 下面将全局时区值设置为“亚洲/上海”。
 
-![设置时区参数](./media/howto-server-parameters/timezone.png)
+:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Azure 门户中的服务器参数页":::
 
 ### <a name="setting-the-session-level-time-zone"></a>设置会话级时区
 

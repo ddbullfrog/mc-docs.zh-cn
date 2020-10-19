@@ -4,16 +4,16 @@ description: 本文档中列出了目前支持的用于将应用程序连接到 
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 3/18/2020
-ms.date: 06/29/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 03691146ae367e56752423904f9a358d25a8bf8c
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.date: 10/19/2020
+ms.custom: devx-track-python, devx-track-js
+ms.openlocfilehash: e37eb497523f7d7e85751c6c4109887f28a5abe8
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516727"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041740"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>如何将应用程序连接到 Azure Database for MySQL
 
@@ -23,7 +23,7 @@ ms.locfileid: "85516727"
 本主题列出了 Azure Database for MySQL 支持的连接字符串以及模板和示例。 你可能会在连接字符串中使用不同的参数和设置。
 
 - 若要获取证书，请参阅[如何配置 SSL](./howto-configure-ssl.md)。
-- {your_host} = <servername>.mysql.database.chinacloudapi.cn
+- {your_host} = \<servername>.mysql.database.chinacloudapi.cn
 - {your_user}@{servername} = userID 格式是用于身份验证的正确格式。  如果只使用 userID，身份验证将失败。
 
 ## <a name="adonet"></a>ADO.NET
@@ -68,7 +68,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>从 Azure 门户获取连接字符串详细信息
-在 [Azure 门户](https://portal.azure.cn)中，转到 Azure Database for MySQL 服务器，再单击“连接字符串”，以获取实例的字符串列表：![Azure 门户中的“连接字符串”窗格](./media/howto-connection-strings/connection-strings-on-portal.png)
+在 [Azure 门户](https://portal.azure.cn)中，转到 Azure Database for MySQL 服务器，再单击“连接字符串”，以获取实例的字符串列表：:::image type="content" source="./media/howto-connection-strings/connection-strings-on-portal.png" alt-text="Azure 门户中的“连接字符串”窗格":::
 
 字符串提供驱动程序、服务器和其他数据库连接参数等详细信息。 修改这些示例以使用自己的参数，例如数据库名称、密码等。 然后，可以在代码和应用程序中使用此字符串连接到服务器。
 

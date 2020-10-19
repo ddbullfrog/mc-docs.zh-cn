@@ -12,14 +12,14 @@ metadata:
   ms.service: speech-service
   ms.topic: hub-page
   origin.date: 03/24/2020
-  ms.date: 09/02/2020
+  ms.date: 10/16/2020
   ms.author: v-tawe
-  ms.openlocfilehash: 4f59262471e5df6066d2b0af72289c3c870972d6
-  ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+  ms.openlocfilehash: 3281a56571ac2fb22da9ae96cff963a5c70c83a5
+  ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89317476"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92127688"
 highlightedContent:
   items:
   - title: 什么是语音服务？
@@ -38,15 +38,15 @@ conceptualContent:
   items:
   - title: 语音转文本
     links:
+    - itemType: overview
+      text: 关于语音转文本
+      url: speech-to-text.md
     - itemType: quickstart
-      text: 识别来自麦克风的语音
-      url: quickstarts/speech-to-text-from-microphone.md
-    - itemType: quickstart
-      text: 识别音频文件中的语音
-      url: quickstarts/speech-to-text-from-file.md
+      text: 语音转文本入门
+      url: get-started-speech-to-text.md
     - itemType: how-to-guide
-      text: 语音识别基础知识
-      url: speech-to-text-basics.md
+      text: 使用自定义语音识别提高准确性
+      url: how-to-custom-speech.md
     footerLink:
       text: 更多
       url: index-speech-to-text.yml
@@ -127,7 +127,7 @@ tools:
   - title: Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
     url: https://aka.ms/csspeech/javaref
-  - title: JavaScript
+  - title: Javascript
     imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
     url: https://aka.ms/csspeech/javascriptref
   - title: Objective-C 和 Swift
