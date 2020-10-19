@@ -2,18 +2,19 @@
 title: 使用共享映像库创建自定义映像池
 description: 自定义映像池是配置计算节点以运行 Batch 工作负载的高效方法。
 ms.topic: conceptual
-origin.date: 07/01/2020
-ms.date: 08/24/2020
+origin.date: 09/15/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: e8001cdc0158bcf2faa764e65f52f02f21d97269
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: d037275a24c08c25127181d9f3d2a4eba69711b9
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654965"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936925"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>使用共享映像库创建自定义映像池
 
@@ -47,7 +48,9 @@ ms.locfileid: "88654965"
 - 共享映像库映像。 若要创建共享映像，需要具有或创建托管映像资源。 应该基于 VM 的 OS 磁盘快照及其附加的数据磁盘（可选）创建该映像。
 
 > [!NOTE]
-> 共享映像必须与 Batch 帐户位于同一订阅中。 只要映像的副本与 Batch 帐户位于同一区域，该映像就可以位于不同区域中。
+> 如果共享映像与 Batch 帐户不在同一订阅中，则必须[注册用于该订阅的 Microsoft.Batch 资源提供程序](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)。 两个订阅都必须属于同一 Azure AD 租户。
+>
+> 只要映像的副本与 Batch 帐户位于同一区域，该映像就可以位于不同区域中。
 
 如果使用 Azure AD 应用程序创建具有共享映像库映像的自定义映像池，则必须向该应用程序授予允许其访问共享映像的 [Azure 内置角色](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)。 可以通过导航到共享映像，选择“访问控制(IAM)”，并为应用程序添加角色分配，在 Azure 门户中授予此访问权限。
 
@@ -83,7 +86,7 @@ ms.locfileid: "88654965"
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>基于一个或多个快照创建映像
 
-若要基于快照创建托管映像，请使用 Azure 命令行工具，例如 [az image create](https://docs.azure.cn/cli/image?view=azure-cli-latest#az-image-create) 命令。 通过指定 OS 磁盘快照并有选择性地指定一个或多个数据磁盘快照来创建映像。
+若要基于快照创建托管映像，请使用 Azure 命令行工具，例如 [az image create](https://docs.azure.cn/cli/image#az-image-create) 命令。 通过指定 OS 磁盘快照并有选择性地指定一个或多个数据磁盘快照来创建映像。
 
 ### <a name="create-a-shared-image-gallery"></a>创建共享映像库
 

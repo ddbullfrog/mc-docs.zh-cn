@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 0cbe5dfe9bc4342a11cea8a1a890690d938c67a5
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 3826fec512d3589d9b66fc58721a084999d76b75
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244839"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937093"
 ---
 # <a name="protected-web-api-code-configuration"></a>受保护的 Web API：代码配置
 
@@ -110,6 +110,12 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 对包含 **[Authorize]** 属性的控制器操作调用某个应用时，ASP.NET 和 ASP.NET Core 将从 Authorization 标头的持有者令牌中提取访问令牌。 然后，该访问令牌将转发到 JwtBearer 中间件，而该中间件会调用适用于 .NET 的 Microsoft IdentityModel 扩展。
 
+#### <a name="microsoftidentityweb"></a>Microsoft.Identity.Web
+
+Microsoft 建议在使用 ASP.NET Core 开发 Web API 时使用 [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet 包。
+
+Microsoft.Identity.Web 提供 ASP.NET Core、身份验证中间件和适用于 .NET 的 [Microsoft 身份验证库 (MSAL)](msal-overview.md) 之间的连接。 它支持更清晰、更强大的开发人员体验，并利用 Microsoft 身份平台和 Azure AD B2C 的强大功能。
+
 #### <a name="using-microsoftidentityweb-templates"></a>使用 Microsoft.Identity.Web 模板
 
 可以通过使用 Microsoft.Identity.Web 项目模板从头开始创建一个 Web API。 有关详细信息，请参阅 [Microsoft.Identity.Web - Web API 项目模板](https://github.com/AzureAD/microsoft-identity-web/wiki/web-api-template)
@@ -133,7 +139,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- 目前，ASP.NET Core 模板会创建可将你的组织或任何组织中的用户登录的 Azure Active Directory (Azure AD) Web API。 可以将模板更改为使用 Microsoft 身份平台终结点，方法是使用 [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web)（以 NuGet 包的形式）替换 Startup.cs 中的代码：
+ 目前，ASP.NET Core 模板会创建可将你的组织或任何组织中的用户登录的 Azure Active Directory (Azure AD) Web API。 可以将模板更改为使用 Microsoft 身份平台终结点，方法是使用 [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) 替换 Startup.cs 中的代码：
 
 ```csharp
 using Microsoft.Identity.Web;

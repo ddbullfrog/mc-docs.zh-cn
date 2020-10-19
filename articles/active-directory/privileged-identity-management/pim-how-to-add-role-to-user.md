@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/27/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee44c422dc91cb24340d65fc0df15b0bac6ebd04
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 290d04c38b1e214329a7dd0e7f8259c7458aac0e
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046437"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937461"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中分配 Azure AD 角色
 
@@ -75,6 +75,30 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
     ![新建分配 - 通知](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
+## <a name="assign-a-role-with-restricted-scope"></a>向角色分配受限范围
+
+对于某些角色，所授予权限的范围可以限制为单个管理单元、服务主体或应用程序。 若要分配范围为一个管理单元的角色，则可参考此过程。 有关支持管理单元范围的角色列表，请参阅[分配范围限定为一个管理单元的角色](../users-groups-roles/roles-admin-units-assign-roles.md)。 此功能目前正在向 Azure AD 组织推出。
+
+1. 使用特权角色管理员权限登录到 [Azure Active Directory 管理中心](https://portal.azure.cn)。
+
+1. 选择“Azure Active Directory” > “角色和管理员”。 。
+
+1. 选择“用户管理员”。
+
+    ![在门户中打开角色时，可以使用“添加分配”命令](./media/pim-how-to-add-role-to-user/add-assignment.png)
+
+1. 选择“添加分配”。
+
+    ![如果角色支持范围，可以选择一个范围](./media/pim-how-to-add-role-to-user/add-scope.png)
+
+1. 在“添加分配”页上，你可以：
+
+   - 选择要分配给角色的用户或组
+   - 选择角色范围（本例中为管理单元）
+   - 对于范围，选择一个管理单元
+
+有关创建管理单元的详细信息，请参阅[添加和删除管理单元](../users-groups-roles/roles-admin-units-manage.md)。
+
 ## <a name="update-or-remove-an-existing-role-assignment"></a>更新或删除现有的角色分配
 
 按照以下步骤更新或删除现有的角色分配。
@@ -101,7 +125,7 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 1. 选择“角色”**** 或“成员”****。
 
-    ![Azure AD 角色](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![打开 Azure AD 角色](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. 选择“添加成员”打开“添加受管理成员”********。
 
@@ -111,7 +135,7 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 1. 依次选择“选择成员”****、要分配给角色的用户、“选择”****。
 
-    ![选择角色](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![选择要分配的用户或组](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. 在“添加受管理成员”中，选择“确定”，将该用户添加到角色********。
 
@@ -169,7 +193,7 @@ Azure AD Privileged Identity Management (PIM) 服务还允许特权角色管理�
 
 1. 在要求确认的消息中，选择“是”****。
 
-    ![删除角色](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![确认删除](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     随即会删除该角色分配。
 

@@ -4,17 +4,17 @@ description: 了解 Azure Kubernetes 服务 (AKS) 中的 Kubernetes 版本支持
 services: container-service
 ms.topic: article
 origin.date: 09/08/2020
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 98b085f8748df7d4ce70e5dec99b1f6de47ceb97
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 780df88eba3961e61ea467bebfa1e3593e436162
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146587"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937131"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中支持的 Kubernetes 版本
 
@@ -132,7 +132,7 @@ AKS 有权在不事先发出通行的情况下添加新的版本，或者删除�
 az aks get-versions --location chinaeast2 --output table
 ```
 
-## <a name="aks-kubernetes-release-calendar"></a>AKS Kubernetes 发布日历
+## <a name="aks-kubernetes-release-calendar"></a><a name="aks-kubernetes-release-calendar"></a>AKS Kubernetes 发布日历
 
 对于过去的发布历史记录，请参阅下表。
 
@@ -140,12 +140,11 @@ az aks get-versions --location chinaeast2 --output table
 
 |  K8s 版本 | 上游版本  | AKS 预览版  | AKS GA  | 生命周期终止 |
 |--------------|-------------------|--------------|---------|-------------|
+| 1.16  | 2019 年 9 月 19 日  | 2019 年 1 月   | 2020 年 3 月  | 1.19 GA | 
 | 1.17  | 19-12-09  | 2019 年 1 月   | 2020 年 7 月  | 1.20 GA | 
 | 1.18  | 20-03-23  | 2020 年 5 月   | 2020 年 8 月  | 1.21 GA | 
-| 1.19  | 20-08-04  | 2020 年 8 月   | 2020 年 11 月  | 1.22 GA | 
-| 1.20  | *2020 年 11 月    | *2020 年 12 月   | *2021 年 1 月  | 1.23 GA | 
-
-\* 待定的上游发布日期确认。
+| 1.19  | 20-08-04  | 2020 年 9 月   | 2020 年 11 月  | 1.22 GA | 
+| 1.20  | 2020 年 12 月 8 日  | 2021 年 1 月   | 2021 年 3 月  | 1.23 GA | 
 
 ## <a name="faq"></a>常见问题解答
 

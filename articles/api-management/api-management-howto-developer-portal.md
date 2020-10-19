@@ -1,7 +1,7 @@
 ---
 title: Azure API 管理开发人员门户概述
 titleSuffix: Azure API Management
-description: 了解 API 管理中的开发人员门户。
+description: 了解 API 管理中的开发人员门户。 使用者可以在开发人员门户找到你的 API。
 services: api-management
 documentationcenter: API Management
 author: Johnnytechn
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 11/22/2019
-ms.date: 07/10/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: ff89e5c54fbe40b09c9bb200b00af484730294fa
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 0d4559885bf0d4e86703b185ccdab19f4f8e7b79
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226078"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871379"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理开发人员门户概述
 
@@ -30,6 +30,9 @@ ms.locfileid: "86226078"
 ![API 管理开发人员门户](./media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a> 新的开发人员门户与旧版开发人员门户不兼容，因此无法自动迁移。 需要手动重新创建内容（页面、文本、媒体文件）并自定义新门户的外观。 有关指南，请参阅[开发人员门户教程](api-management-howto-developer-portal-customize.md)。
 
 ## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> 托管版本和自承载版本
 
@@ -71,29 +74,23 @@ API 管理内容包括 API、操作、产品和订阅等实体。
 
 ### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>如何从门户预览版迁移？
 
-你已使用开发人员门户预览版在 API 管理服务中预配了预览内容。 为了提供更好的用户体验，默认内容已在正式版中进行重大修改。 正式版中还包括新的小组件。
+首次启动开发人员门户预览版时，你在 API 管理服务中预配了其默认内容的预览版。 正式版中的默认内容已进行重大修改。 例如，默认内容的预览版不包括登录页面中的 OAuth 按钮，它使用不同的小组件来显示 API，并依赖有限的功能来构建开发人员门户页面。 即使内容存在差异，门户的引擎（包括基础小组件）也会在每次发布开发人员门户时自动更新。
 
-如果使用的是托管版本，请通过单击“操作”菜单部分中的“重置内容”来重置门户内容。  确认此操作会删除门户的所有内容并预配新的默认内容。 门户引擎已在 API 管理服务中自动更新。
+如果根据内容的预览版对门户进行了大量自定义，可以继续按原样使用它，并在门户的页面上手动放置新的小组件。 否则，建议将门户内容替换为新的默认内容。
+
+若要重置托管门户中的内容，请单击“操作”菜单部分中的“重置内容” 。 此操作将删除门户的所有内容并预配新的默认内容。 你将丢失所有开发人员门户自定义和更改。 不能撤消此操作。
 
 ![重置门户内容](./media/api-management-howto-developer-portal/reset-content.png)
 
-如果使用的是自承载版本，请使用 GitHub 存储库中的 `scripts/cleanup.bat` 和 `scripts/generate.bat` 删除现有内容并预配新内容。 确保提前将门户代码升级到 GitHub 存储库中的最新版本。
+如果使用的是自承载版本，请运行 GitHub 存储库中的 `scripts.v2/cleanup.bat` 和 `scripts.v2/generate.bat` 脚本删除现有内容并预配新内容。 确保提前将门户代码升级到 GitHub 存储库中的最新版本。
 
-如果不想要重置门户内容，可以考虑在整个页面中使用新的可用小组件。 现有的小组件已自动更新到最新版本。
+如果是在 2019 年 11 月正式发布后首次访问门户，则该门户应已具有新的默认内容，无需执行其他操作。
 
-如果门户是宣布推出正式版后预配的，则它应已具有新的默认内容。 你无需在自己的一端执行任何操作。
+### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>门户是否拥有旧门户的所有功能？
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>如何从旧开发人员门户迁移到开发人员门户？
+开发人员门户不再支持“应用程序”、“问题” 。
 
-这两个门户不兼容，需要手动迁移内容。
-
-### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>门户是否拥有旧门户的所有功能？
-
-开发人员门户不再支持“应用程序”和“问题” 。
-
-目前尚不支持在交互式开发人员控制台中使用 OAuth 进行身份验证。 可以通过 [GitHub 问题](https://github.com/Azure/api-management-developer-portal/issues/208)跟踪进度。
-
-### <a name="has-the-old-portal-been-deprecated"></a>旧门户是否已弃用？
+### <a name="has-the-legacy-portal-been-deprecated"></a>旧门户是否已弃用？
 
 旧的开发人员和发布者门户现在属于旧版功能 - 它们只会接收安全更新。 新功能只会在新开发人员门户中实现。
 
@@ -109,7 +106,19 @@ API 管理内容包括 API、操作、产品和订阅等实体。
 
 [GitHub 存储库的 Wiki 部分][2]介绍了该 API。 可以使用该 API 在环境之间自动迁移门户内容（例如，从测试环境迁移到生产环境）。 可以在 GitHub 上的[此文档](https://aka.ms/apimdocs/migrateportal)中详细了解此过程。
 
+### <a name="how-do-i-move-from-the-managed-to-the-self-hosted-version"></a>如何从托管版本迁移到自承载版本？
+
+详情请参阅 [GitHub 上的开发人员门户存储库的 Wiki 部分][2]文章。
+
+### <a name="can-i-have-multiple-developer-portals-in-one-api-management-service"></a>能否在一个 API 管理服务中有多个开发人员门户？
+
+可以有一个托管门户和多个自承载门户。 所有门户的内容都存储在同一个 API 管理服务中，因此它们是相同的。 如果希望门户的外观和功能不同，可以使用自己的自定义小组件对其进行自承载，以便在运行时上动态自定义页面（例如基于 URL）。
+
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>门户是否支持 Azure 资源管理器模板，和/或是否与 API 管理 DevOps 资源工具包兼容？
+
+否。
+
+### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>门户的内容是否随 API 管理中的备份/还原功能一起保存？
 
 否。
 

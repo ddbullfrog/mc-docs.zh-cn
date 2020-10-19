@@ -2,18 +2,18 @@
 title: 将资源部署到租户
 description: 介绍如何在 Azure 资源管理器模板中的租户范围内部署资源。
 ms.topic: conceptual
-origin.date: 09/04/2020
+origin.date: 09/24/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 91d2ccf69a526a8acc9a245903967761a8ee3e63
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: ab4665daf12c576b6e69023a837f6e5eb52bdbd4
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146513"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937542"
 ---
 <!--Verified successfully-->
 # <a name="create-resources-at-the-tenant-level"></a>在租户级别创建资源
@@ -52,7 +52,7 @@ ms.locfileid: "91146513"
 
 <!--Mooncake Customization on ## Supported resources-->
 
-### <a name="schema"></a>架构
+## <a name="schema"></a>架构
 
 用于租户部署的架构与资源组部署的架构不同。
 
@@ -88,38 +88,6 @@ Azure Active Directory 的全局管理员不自动拥有分配角色的权限。
 
 主体现已具有部署模板所需的权限。
 
-## <a name="deployment-commands"></a>部署命令
-
-用于租户部署的命令与资源组部署使用的命令不同。
-
-对于 Azure CLI，请使用 [az deployment tenant create](https://docs.microsoft.com/cli/azure/deployment/tenant#az-deployment-tenant-create)：
-
-```azurecli
-az deployment tenant create \
-  --name demoTenantDeployment \
-  --location ChinaNorth \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
-```
-
-对于 Azure PowerShell，请使用 [New-AzTenantDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-aztenantdeployment)。
-
-```powershell
-New-AzTenantDeployment `
-  -Name demoTenantDeployment `
-  -Location "China North" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
-```
-
-对于 REST API，请使用[部署 - 在租户范围内创建或更新](https://docs.microsoft.com/rest/api/resources/deployments/createorupdateattenantscope)。
-
-## <a name="deployment-location-and-name"></a>部署位置和名称
-
-对于租户级别的部署，必须提供部署位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。
-
-可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
-
-每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
-
 ## <a name="deployment-scopes"></a>部署范围
 
 部署到租户时，可以将租户或租户中的管理组、订阅和资源组作为目标。 部署模板的用户必须有权访问指定的作用域。
@@ -131,7 +99,7 @@ New-AzTenantDeployment `
     "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
-        tenant-level-resources
+        tenant-resources
     ],
     "outputs": {}
 }
@@ -161,7 +129,7 @@ New-AzTenantDeployment `
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template-with-resources-in-mg
+                    management-group-resources
                 }
             }
         }
@@ -169,6 +137,38 @@ New-AzTenantDeployment `
     "outputs": {}
 }
 ```
+
+## <a name="deployment-commands"></a>部署命令
+
+用于租户部署的命令与资源组部署使用的命令不同。
+
+对于 Azure CLI，请使用 [az deployment tenant create](https://docs.azure.cn/cli/deployment/tenant#az_deployment_tenant_create)：
+
+```azurecli
+az deployment tenant create \
+  --name demoTenantDeployment \
+  --location ChinaNorth \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
+```
+
+对于 Azure PowerShell，请使用 [New-AzTenantDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-aztenantdeployment)。
+
+```powershell
+New-AzTenantDeployment `
+  -Name demoTenantDeployment `
+  -Location "China North" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
+```
+
+对于 REST API，请使用[部署 - 在租户范围内创建或更新](https://docs.microsoft.com/rest/api/resources/deployments/createorupdateattenantscope)。
+
+## <a name="deployment-location-and-name"></a>部署位置和名称
+
+对于租户级别的部署，必须提供部署位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。
+
+可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
+
+每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
 
 ## <a name="use-template-functions"></a>使用模板函数
 

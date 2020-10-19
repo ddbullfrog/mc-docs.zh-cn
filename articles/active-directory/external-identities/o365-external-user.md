@@ -1,26 +1,26 @@
 ---
-title: Office 365 外部共享和 B2B 协作 - Azure AD
-description: 讨论使用 O365 和 Azure Active Directory B2B 协作与外部合作伙伴共享资源。
+title: Microsoft 365 外部共享和 B2B 协作 - Azure AD
+description: 讨论使用 Microsoft 365 和 Azure Active Directory B2B 协作与外部合作伙伴共享资源。
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57ef9a3469061c07f88af78f9dbbdb43017dbe1
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 8bff29bbe597a2dc9f95e18b5823907197add955
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402620"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937455"
 ---
-# <a name="office-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Office 365 外部共享与 Azure Active Directory (Azure AD) B2B 协作
+# <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Microsoft 365 外部共享与 Azure Active Directory (Azure AD) B2B 协作
 
-在 Azure AD B2B 协作和 Office 365 外部共享（OneDrive、SharePoint Online、统一组等）中，均使用 Azure AD B2B 对外部用户进行身份验证。
+在 Azure AD B2B 协作和 Microsoft 365 外部共享（OneDrive、SharePoint Online、统一组等）中，均使用 Azure AD B2B 对外部用户进行身份验证。
 
 ## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Azure AD B2B 与 SharePoint Online 中的外部共享有何区别？
 
@@ -37,7 +37,7 @@ OneDrive/SharePoint Online 具有单独的邀请管理器。 在 Azure AD 开发
 若要通过 Azure AD B2B 协作管理 OneDrive/SharePoint Online 中的外部共享，请将 OneDrive/SharePoint Online 外部共享设置设为“仅允许与组织的目录中已存在的外部用户共享”。 用户可以转到外部共享站点，从管理员已添加的外部协作者中进行选取。 管理员可以通过 B2B 协作邀请 API 添加外部协作者。
 
 
-![OneDrive/SharePoint Online 外部共享设置](./media/o365-external-user/odsp-sharing-setting.png)
+![OneDrive/SharePoint 外部共享设置](./media/o365-external-user/odsp-sharing-setting.png)
 
 启用外部共享后，默认情况下，搜索现有来宾用户的功能在 SharePoint Online (SPO) 人员选取器中处于“关闭”状态以匹配旧行为。
 

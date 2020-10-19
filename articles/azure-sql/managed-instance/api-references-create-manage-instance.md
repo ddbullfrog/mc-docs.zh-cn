@@ -4,20 +4,20 @@ description: 了解如何创建和配置 Azure SQL 托管实例的托管实例�
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: ''
 origin.date: 03/12/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: d85cffe03752d084dcd33d63405dc4016416dd82
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: 9f9fece17317c2e1a22df4bb4d0824e3dc18b8ed
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227222"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872470"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Azure SQL 托管实例的托管 API 参考
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,6 +45,8 @@ ms.locfileid: "86227222"
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|返回有关托管实例的详细信息。|
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|设置托管实例的属性。|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|删除托管实例。|
+|[Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation)|获取对托管实例执行的管理操作的列表或特定操作。|
+|[Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation)|取消对托管实例执行的特定管理操作。|
 |[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|创建 SQL 托管实例数据库。|
 |[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|返回有关 SQL 托管实例数据库的信息。|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|删除 SQL 托管实例数据库。|
@@ -64,6 +66,9 @@ ms.locfileid: "86227222"
 |[az sql mi show](/cli/sql/mi#az-sql-mi-show)|获取托管实例的详细信息。|
 |[az sql mi update](/cli/sql/mi#az-sql-mi-update)|更新托管实例。|
 |[az sql mi delete](/cli/sql/mi#az-sql-mi-delete)|删除托管实例。|
+|[az sql mi op list](/cli/sql/mi/op#az_sql_mi_op_list)|获取对托管实例执行的管理操作的列表。|
+|[az sql mi op show](/cli/sql/mi/op#az_sql_mi_op_show)|获取对托管实例执行的特定管理操作。|
+|[az sql mi op cancel](/cli/sql/mi/op#az_sql_mi_op_cancel)|取消对托管实例执行的特定管理操作。|
 |[az sql midb create](/cli/sql/midb#az-sql-midb-create) |创建托管数据库。|
 |[az sql midb list](/cli/sql/midb#az-sql-midb-list)|列出可用的托管数据库。|
 |[az sql midb restore](/cli/sql/midb#az-sql-midb-restore)|还原托管数据库。|
@@ -81,8 +86,8 @@ ms.locfileid: "86227222"
 
 | 命令 | 说明 |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|在 SQL 托管实例中创建新的实例数据库。 必须连接到 master 数据库才能新建数据库。|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |修改 SQL 托管实例中的实例数据库。|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|在 SQL 托管实例中创建新的实例数据库。 必须连接到 master 数据库才能新建数据库。|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |修改 SQL 托管实例中的实例数据库。|
 
 ## <a name="rest-api-create-and-configure-managed-instances"></a>REST API：创建和配置托管实例
 
@@ -96,6 +101,9 @@ ms.locfileid: "86227222"
 |[托管实例 - 列表](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|返回订阅中的托管实例列表。|
 |[托管实例 - 按资源组列出](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|返回资源组中的托管实例列表。|
 |[托管实例 - 更新](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|更新托管实例。|
+|[托管实例操作 - 按托管实例列出](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|获取对托管实例执行的管理操作的列表。|
+|[托管实例操作 - 获取](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|获取对托管实例执行的特定管理操作。|
+|[托管实例操作 - 取消](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|取消对托管实例执行的特定管理操作。|
 
 ## <a name="next-steps"></a>后续步骤
 

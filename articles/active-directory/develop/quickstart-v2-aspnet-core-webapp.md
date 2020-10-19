@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 2c937eb50a52ce260c9e0424b5db2a57b97dadaa
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: bfd3714401a344b980723bc488e540794db72363
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245204"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937480"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>快速入门：向 ASP.NET Core Web 应用添加 Microsoft 登录功能
 
@@ -93,18 +93,18 @@ ms.locfileid: "91245204"
 >    - 将 `Enter_the_Application_Id_here` 替换为在 Azure 门户中注册的应用程序的应用程序(客户端) ID。 可以在应用的“概览”页中找到“应用程序(客户端) ID”。
 >    - 将 `common` 替换为以下内容之一：
 >       - 如果应用程序仅支持此组织目录中的帐户，请将此值替换为目录（租户）ID (GUID) 或租户名称（例如，`contoso.partner.onmschina.cn`）  。 你可以在应用的概述页面上找到目录（租户）ID 。
->       - 如果应用程序支持**任何组织目录中的帐户**，请将此值替换为 `organizations`。对于此快速入门，请勿更改 appsettings.json 文件中的任何其他值。
+>       - 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为 `organizations`。对于此快速入门，请勿更改 appsettings.json 文件中的任何其他值。
 >
 > #### <a name="step-4-build-and-run-the-application"></a>步骤 4：生成并运行应用程序
-> 
+>
 > 通过选择“调试”菜单 >“开始调试”，或按 `F5` 键在 Visual Studio 中构建和运行应用 。
-> 
+>
 > 系统会提示你输入凭据，然后要求你同意应用所需的权限。 在同意提示上选择“接受”。
-> 
+>
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-01-consent.png" alt-text="“同意”对话框，显示应用从 > 用户请求的权限":::
-> 
+>
 > 同意请求的权限后，应用将显示你已使用 Azure Active Directory 凭据成功登录。
-> 
+>
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="“同意”对话框，显示应用从 > 用户请求的权限":::
 
 ## <a name="more-information"></a>详细信息

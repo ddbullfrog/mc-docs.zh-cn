@@ -1,18 +1,17 @@
 ---
 title: 使用 MARS 代理将文件还原到 Windows 服务器
 description: 在本文中，了解如何使用 Microsoft Azure 恢复服务 (MARS) 代理将存储在 Azure 中的数据还原到 Windows 服务器或 Windows 计算机。
-ms.reviewer: saurse
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/07/2018
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 4734cf3e67117cf37128356b4bf725076ed20318
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: c7a6edd73904501e27d3a52b0417f2841cc2068b
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852041"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871212"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>使用 MARS 代理将文件还原到 Windows 服务器
 
@@ -21,7 +20,7 @@ ms.locfileid: "85852041"
 * 将数据还原到备份时所在的同一台计算机。
 * 将数据还原到备用计算机。
 
-使用“即时还原”功能可将可写入的恢复点快照作为恢复卷装载。 然后，可以浏览恢复卷，并将文件复制到本地计算机，从而选择性地还原文件。
+使用“即时还原”功能可将可写入的恢复点快照作为恢复卷装载。 随后即可浏览恢复卷，并将文件复制到本地计算机，那样便可选择性地还原文件。
 
 > [!NOTE]
 > 若要使用“即时还原”还原数据，必须安装 [2017 年 1 月 Azure 备份更新](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) 。 此外，必须在支持文章所列的区域中的保管库内保护备份数据。 请查阅 [2017 年 1 月 Azure 备份更新](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) ，获取支持“即时还原”的区域的最新列表。
@@ -41,26 +40,26 @@ ms.locfileid: "85852041"
 
 2. 选择“恢复数据”以启动向导。
 
-    ![Azure 备份的屏幕截图，其中突出显示了“恢复数据”](./media/backup-azure-restore-windows-server/recover.png)
+    ![Azure 备份的屏幕截图，其中突出显示了“恢复数据”（还原到相同计算机）](./media/backup-azure-restore-windows-server/recover.png)
 
 3. 若要将数据还原到同一台服务器或计算机，请在“开始”页上选择“此服务器(`<server name>`)” > “下一步”。  
 
-    ![恢复数据向导“开始”页的屏幕截图](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
+    ![恢复数据向导“开始”页的屏幕截图（还原到相同计算机）](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
 4. 在“选择恢复模式”页上，选择“单个文件和文件夹”>“下一步”。  
 
-    ![恢复数据向导“选择恢复模式”页的屏幕截图](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+    ![恢复数据向导“选择恢复模式”页的屏幕截图（还原到相同计算机）](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > 还原单个文件和文件夹的选项需要 .NET Framework 4.5.2 或更高版本。 如果未看到“单个文件和文件夹”选项，则必须将 .NET Framework 升级到 4.5.2 或更高版本，然后重试。
 
    > [!TIP]
-   > 使用“单个文件和文件夹”选项可以快速访问恢复点数据。 它适用于恢复单个文件（总大小不超过 80 GB），并且在恢复期间提供高达 6 MBps 的传输或复制速度。 “卷”选项恢复指定卷中的所有备份数据。 此选项提供更快的传输速度（最高 40 MBps），非常适合恢复大型数据或整个卷。
+   > 使用“单个文件和文件夹”选项可以快速访问恢复点数据。 该选项适用于恢复单个文件，建议文件总大小不超过 80 GB。 在恢复过程中，它提供最高 6 MBps 的传输或复制速度。 “卷”选项恢复指定卷中的所有备份数据。 此选项提供更快的传输速度（最高 40 MBps），建议用于恢复大型数据或整个卷。
 
 5. 在“选择卷和日期”页上，选择包含想要还原的文件和文件夹的卷。
 
     在日历中选择恢复点。 以 **粗体** 显示的日期表示至少有一个可用的恢复点。 如果单个日期有多个可用的恢复点，请从“时间”下拉菜单中选择特定的恢复点。
 
-    ![恢复数据向导“选择卷和日期”页的屏幕截图](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
+    ![恢复数据向导“选择卷和数据”页的屏幕截图（还原到相同计算机）](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
 6. 选择要还原的恢复点之后，选择“装载”。
 
@@ -68,15 +67,15 @@ ms.locfileid: "85852041"
 
 7. 在“浏览和恢复文件”页上，选择“浏览”打开 Windows 资源管理器并找到所需的文件和文件夹。 
 
-    ![恢复数据向导“浏览和恢复文件”页的屏幕截图](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
+    ![恢复数据向导“浏览和恢复文件”页的屏幕截图（还原到相同计算机）](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 8. 在 Windows 资源管理器中，复制想要还原的文件和文件夹，将其粘贴到服务器或计算机本地的任何位置。 可从恢复卷直接打开或流式传输文件，并验证是否恢复的是正确的版本。
 
-    ![Windows 资源管理器的屏幕截图，其中已突出显示“复制”](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+    ![Windows 资源管理器的屏幕截图，其中突出显示了“复制”（还原到相同计算机）](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
-9. 完成后，在“浏览和恢复文件”页上，选择“卸载”。  然后选择“是”，确认要卸载该卷。
+9. 完成后，在“浏览和恢复文件”页上，选择“卸载” 。 然后选择“是”，确认要卸载该卷。
 
-    ![恢复数据向导“浏览和恢复文件”页的屏幕截图](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![恢复数据向导“浏览和恢复文件”页 - 确认恢复卷卸载的屏幕截图（还原到相同计算机）](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
     > 如果不选择“卸载”，恢复卷将保持装载 6 个小时（从装载时算起）。 但是，如果正在持续进行文件复制，装载时间延长至最多 24 小时。 装载卷时，不会运行任何备份操作。 计划为在装载卷时运行的任何备份操作会在卸载恢复卷后运行。
@@ -93,7 +92,7 @@ ms.locfileid: "85852041"
 * *示例保管库* - 源计算机和目标计算机注册到的恢复服务保管库。
 
 > [!NOTE]
-> 无法将备份还原到运行较低 操作系统版本的目标计算机。 例如，在 Windows 7 计算机中创建的备份可以还原到 Windows 7（或更高版本）的计算机上。 但是，在 Windows 8 计算机上创建的备份无法还原到 Windows 7 计算机。
+> 无法将备份还原到运行较低 操作系统版本的目标计算机。 例如，在 Windows 7 计算机中创建的备份可以还原到 Windows 7（或更高版本）的计算机上。 在 Windows 10 计算机上创建的备份无法还原到 Windows 7 计算机。
 >
 >
 
@@ -103,11 +102,11 @@ ms.locfileid: "85852041"
 
 3. 选择“恢复数据”打开“恢复数据向导”。 
 
-    ![Azure 备份的屏幕截图，其中突出显示了“恢复数据”](./media/backup-azure-restore-windows-server/recover.png)
+    ![Azure 备份的屏幕截图，其中突出显示了“恢复数据”（还原到备用计算机）](./media/backup-azure-restore-windows-server/recover.png)
 
 4. 在“开始”页上选择“另一台服务器”。 
 
-    ![恢复数据向导“开始”页的屏幕截图](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
+    ![恢复数据向导“开始”页的屏幕截图（还原到备用计算机）](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
 5. 提供对应于示例保管库的保管库凭据文件，并选择“下一步”。
 
@@ -115,31 +114,31 @@ ms.locfileid: "85852041"
 
 6. 在“选择备份服务器”窗格中，从显示的计算机列表中选择源计算机并提供通行短语。 然后，选择“下一步”。
 
-    ![恢复数据向导“选择备份服务器”页的屏幕截图](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
+    ![恢复数据向导“选择备份服务器”页的屏幕截图（还原到备用计算机）](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
 7. 在“选择恢复模式”页上，选择“单个文件和文件夹” > “下一步”。  
 
-    ![恢复数据向导“选择恢复模式”页的屏幕截图](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![恢复数据向导“选择恢复模式”页的屏幕截图（还原到备用计算机）](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
 8. 在“选择卷和日期”页上，选择包含想要还原的文件和文件夹的卷。
 
     在日历中选择恢复点。 以 **粗体** 显示的日期表示至少有一个可用的恢复点。 如果单个日期有多个可用的恢复点，请从“时间”下拉菜单中选择特定的恢复点。
 
-    ![恢复数据向导“选择卷和日期”页的屏幕截图](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
+    ![恢复数据向导“选择卷和数据”页的屏幕截图（还原到备用计算机）](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
 9. 选择“装载”，在本地将恢复点装载为目标计算机上的恢复卷。
 
 10. 在“浏览和恢复文件”页上，选择“浏览”打开 Windows 资源管理器并找到所需的文件和文件夹。 
 
-    ![恢复数据向导“浏览和恢复文件”页的屏幕截图](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
+    ![恢复数据向导“浏览和恢复文件”页的屏幕截图（还原到备用计算机）](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
 11. 在 Windows 资源管理器中，从恢复卷复制文件和文件夹，并将其粘贴到目标计算机位置。 可以从恢复卷直接打开或流式传输文件，并验证是否恢复了正确的版本。
 
-    ![Windows 资源管理器的屏幕截图，其中已突出显示“复制”](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
+    ![Windows 资源管理器的屏幕截图，其中突出显示了“复制”（还原到备用计算机）](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
-12. 完成后，在“浏览和恢复文件”页上，选择“卸载”。  然后选择“是”，确认要卸载该卷。
+12. 完成后，在“浏览和恢复文件”页上，选择“卸载” 。 然后选择“是”，确认要卸载该卷。
 
-    ![恢复数据向导“浏览和恢复文件”页的屏幕截图](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
+    ![卸载卷（还原到备用计算机）](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
     > 如果不选择“卸载”，恢复卷将保持装载 6 个小时（从装载时算起）。 但是，如果正在持续进行文件复制，装载时间延长至最多 24 小时。 装载卷时，不会运行任何备份操作。 计划为在装载卷时运行的任何备份操作会在卸载恢复卷后运行。

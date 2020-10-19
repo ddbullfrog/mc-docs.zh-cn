@@ -4,20 +4,20 @@ description: 了解如何在 Azure 备份中使用安全功能，使备份更加
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/13/2019
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: f3f3d221886d22655f0a3b7490b2aa2109e96c91
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 89fb4ba146c2f81d2fe2d0f9950ffc1da393da7e
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402379"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871118"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Azure 备份的软删除
 
 对安全问题（例如恶意软件、勒索软件、入侵）的关注在逐渐上升。 这些安全问题可能会代价高昂（就金钱和数据来说）。 为了防范此类攻击，Azure 备份现提供可帮助保护备份数据（即使数据已删除）的安全功能。
 
-其中的一项功能是软删除。 在使用软删除的情况下，即使恶意行动者删除了备份（或用户意外删除了备份数据），备份数据也仍会保留 14 天，因此可以恢复该备份项，而不会丢失数据。 以“软删除”状态将备份数据额外保留 14 天不会向客户收取任何费用。
+其中的一项功能是软删除。 在使用软删除的情况下，即使恶意行动者删除了备份（或用户意外删除了备份数据），备份数据也仍会保留 14 天，因此可以恢复该备份项，而不会丢失数据。 以“软删除”状态将备份数据额外保留 14 天不会向你收取任何费用。
 
 软删除保护适用于以下服务：
 
@@ -32,7 +32,7 @@ ms.locfileid: "91402379"
 
 软删除在新创建的保管库上默认启用，目的是防止意外或恶意删除备份数据。  建议不要禁用此功能。 唯一应该考虑禁用软删除的情况是，你打算将受保护的项移到新保管库，需要在删除后重新进行保护，因此等不及要求的 14 天（例如在测试环境中）。只有保管库所有者可以禁用此功能。 如果禁用此功能，将来删除任何受保护项将导致立即删除，而无法还原。 禁用此功能之前，以软删除状态存在的备份数据将在 14 天内保持软删除状态。 若要立即永久删除这些项，则需先取消删除，然后再次将其删除，这样就可以永久删除它们。
 
- 请记住，禁用软删除后，将为所有类型的工作负载（包括 SQL server 和 SAP HANA 工作负载）禁用该功能。 例如，为某个订阅启用了 [SQL Server/SAP HANA 预览](/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview)后，就不可能仅对 SQL Server 或 SAP HANA DB 禁用软删除而仍为同一保管库中的虚拟机保留软删除的启用状态。 可以创建单独的保管库以进行精细控制。
+务必记住，禁用软删除后，将对所有类型的工作负载禁用该功能。 例如，不能仅对 SQL Server 或 SAP HANA DB 禁用软删除，而仍对同一保管库中的虚拟机启用软删除。 可以创建单独的保管库以进行精细控制。
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>使用 Azure 门户禁用软删除
 
@@ -47,9 +47,9 @@ ms.locfileid: "91402379"
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>使用 Azure PowerShell 禁用软删除
 
 > [!IMPORTANT]
-> 使用 Azure PS 软删除所需的 Az.RecoveryServices 版本最低为 2.2.0。 可使用 ```Install-Module -Name Az.RecoveryServices -Force``` 获取最新版本。
+> 使用 Azure PowerShell 进行软删除所需的 Az.RecoveryServices 版本最低为 2.2.0。 可使用 ```Install-Module -Name Az.RecoveryServices -Force``` 获取最新版本。
 
-若要禁用，请使用 [AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS cmdlet。
+若要禁用，请使用 [Set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PowerShell cmdlet。
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -139,7 +139,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 如果在禁用软删除之前删除了项，则它们将处于已软删除状态。 若要立即删除它们，需要反转删除操作，然后再次执行。
 
-1. 首先，使用[此处](backup-azure-arm-userestapi-backupazurevms.md)提到的步骤撤消删除操作。
+1. 首先，使用[此处](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion)提到的步骤撤消删除操作。
 2. 然后遵循[此处](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)所述的步骤，使用 REST API 禁用软删除功能。
 3. 然后，使用[此处](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)所述的 REST API 删除备份。
 
@@ -179,7 +179,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>是否可以在 PowerShell 或 CLI 中执行软删除操作？
 
-可以使用 PowerShell 执行软删除操作。 目前不支持 CLI。
+可以使用 PowerShell 执行软删除操作。 目前，CLI 不受支持。
 
 ## <a name="next-steps"></a>后续步骤
 

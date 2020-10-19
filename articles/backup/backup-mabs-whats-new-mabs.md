@@ -4,14 +4,14 @@ description: Microsoft Azure 备份服务器提供用于保护 VM、文件和文
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 11/13/2018
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: fcde8188397a72e3cf2e56dfdda02377bb81af71
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 8c86a258152d9c31a17544f4e040db037b7d28c6
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852075"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871142"
 ---
 # <a name="whats-new-in-azure-backup-server-mabs"></a>Azure 备份服务器 (MABS) 中的新增功能
 
@@ -26,9 +26,9 @@ Azure 备份服务器 (MABS) 版本 3 UR1 是最新更新，其中包含重要�
 
 MABS V2 引入了[新式备份存储](backup-mabs-add-storage.md) (MBS)，从而提高了存储利用率和性能。 MBS 使用 ReFS 作为基础文件系统，并被设计为使用诸如分层存储之类的混合存储。
 
-若要通过 MBS 实现缩放和性能，建议将 MABS V3 UR1 的一小部分（占总存储的 4%）闪存 (SSD) 用作分层卷，并与 DPM HDD 存储结合使用。 具有分层存储的 MABS V3 UR1 的备份速度可提高 50-70%。 有关配置分层存储的步骤，请参阅 DPM 文章[使用分层存储设置 MBS](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)。
+若要通过 MBS 实现缩放和性能，建议将 MABS V3 UR1 的一小部分（占总存储的 4%）闪存 (SSD) 用作分层卷，并与 DPM HDD 存储结合使用。 具有分层存储的 MABS V3 UR1 的备份速度可提高 50-70%。 有关配置分层存储的步骤，请参阅 DPM 文章[使用分层存储设置 MBS](https://docs.microsoft.com/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage)。
 
-### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>支持 ReFS 卷和启用了重复数据删除的 ReFS 卷
+### <a name="support-for-refs-volumes"></a>对 ReFS 卷的支持
 
 借助 MABS V3 UR1，可以备份 ReFS 卷和部署在 ReFS 卷上的工作负载。 可以备份 ReFS 卷上部署的以下工作负载：
 
@@ -40,10 +40,9 @@ MABS V2 引入了[新式备份存储](backup-mabs-add-storage.md) (MBS)，从而
 >[!NOTE]
 > MABS V3 支持备份 ReFS 卷上存储的 Hyper-V VM
 
-### <a name="azure-vmware-solution-protection-support"></a>Azure VMware 解决方案保护支持
+>[重要说明] 我们已经发现了一些已删除重复数据的 ReFS 卷的备份问题。 我们正在努力解决这些问题，并将在有可用的修补程序后立即更新此部分。 在此之前，我们将从 MABSv3 UR1 中删除对删除重复数据的 ReFS 卷备份的支持。
 
-借助 MABS v3 UR1，现在可以保护部署在 [Azure VMware 解决方案](https://docs.microsoft.com/azure/azure-vmware/)中的虚拟机。
-
+<!--Not available in MC: ### Azure VMware Solution protection support-->    
 ### <a name="vmware-parallel-backups"></a>VMware 并行备份
 
 借助 MABS V3 UR1，单个保护组中的所有 VMware VM 备份将并行进行，从而使 VM 备份速度提高 25%。
@@ -59,7 +58,7 @@ MABS V3 UR1 为关键操作添加了额外的身份验证层。 当你执行“�
 
 ### <a name="offline-backup-improvements"></a>脱机备份改进
 
-MABS v3 UR1 通过 Azure 导入/导出服务改善了脱机备份体验。 
+MABS v3 UR1 通过 Azure 导入/导出服务改善了脱机备份体验。 有关详细信息，请参阅[此处](./backup-azure-backup-server-import-export.md)的更新步骤。
 
 ### <a name="new-cmdlet-parameter"></a>新的 cmdlet 参数
 
@@ -70,7 +69,7 @@ MABS V3 UR1 包含新参数 [-CheckReplicaFragmentation]。 新参数用于计�
 MABS v3 UR1 不再支持 32 位保护代理。 将 MABS v3 服务器升级到 UR1 后，你将无法保护 32 位工作负载。 任何现有的 32 位保护代理都将处于禁用状态；计划的备份将失败并显示“代理被禁用”错误。 如果要保留这些代理的备份数据，可以通过“保留数据”选项停止保护。 否则，可以删除保护代理。
 
 >[!NOTE]
->查看[更新的保护矩阵](/backup/backup-mabs-protection-matrix)，以了解 MABS UR1 支持保护的工作负载。
+>查看[更新的保护矩阵](./backup-mabs-protection-matrix.md)，以了解 MABS UR1 支持保护的工作负载。
 
 ## <a name="whats-new-in-mabs-v3-rtm"></a>MABS V3 RTM 中的新增功能
 
@@ -84,7 +83,7 @@ MABS V3 包含以下功能：
 
 ### <a name="prevent-unexpected-data-loss"></a>防止意外的数据丢失
 
-在企业中，MABS 由管理员团队管理。 尽管用于备份的存储有指导原则可供参考，但在 MABS 中提供错误的卷作为备份存储可能会导致关键数据丢失。 在 MABS V3 中，可以使用[这些 PowerShell cmdlet](/backup/backup-mabs-add-storage) 将这些卷配置为不可用于存储，来防止这种情况。
+在企业中，MABS 由管理员团队管理。 尽管用于备份的存储有指导原则可供参考，但在 MABS 中提供错误的卷作为备份存储可能会导致关键数据丢失。 在 MABS V3 中，可以使用[这些 PowerShell cmdlet](./backup-mabs-add-storage.md) 将这些卷配置为不可用于存储，来防止这种情况。
 
 ### <a name="custom-size-allocation"></a>自定义大小分配
 
@@ -115,7 +114,7 @@ MABS V3 可与用作 MABS 数据库的 SQL 2017 一同安装。 可将 SQL Serve
 可在 Windows Server 2019 中安装 MABS V3。 若要将 MABS V3 与 WS2019 配合使用，可以在安装/升级到 MABS V3 之前将 OS 升级到 WS2019，或者在 WS2016 中安装/升级 V3 之后升级 OS。
 
 MABS V3 是完整发行版，可直接安装在 Windows Server 2016、Windows Server 2019 中，或者从 MABS V2 升级。 在升级到或安装备份服务器 V3 之前，请阅读安装先决条件。
-在[此处](/backup/backup-azure-microsoft-azure-backup#software-package)可以找到有关 MABS 安装/升级步骤的详细信息。
+在[此处](./backup-azure-microsoft-azure-backup.md#software-package)可以找到有关 MABS 安装/升级步骤的详细信息。
 
 > [!NOTE]
 >

@@ -4,14 +4,14 @@ description: 本文介绍如何为本地 Windows 服务器解决系统状态备�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 author: Johnnytechn
-ms.date: 05/15/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: e8aa222349565b50953c139db4e76ad7670a1dad
-ms.sourcegitcommit: 08b42258a48d96d754244064d065e4d5703f1cfb
+ms.openlocfilehash: 5af1a481ada5674a7423dc958ba974729e0f5e2e
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83445275"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871175"
 ---
 # <a name="troubleshoot-system-state-backup"></a>解决系统状态备份的问题
 
@@ -19,14 +19,14 @@ ms.locfileid: "83445275"
 
 ## <a name="basic-troubleshooting"></a>基本故障排除
 
-建议在开始对系统状态备份进行故障排除之前执行以下验证：
+建议在开始对系统状态备份进行故障排除之前执行以下验证步骤：
 
 - [确保 Azure 恢复服务 (MARS) 代理是最新版](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [确保在 MARS 代理和 Azure 之间存在网络连接](/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [确保 MARS 代理与 Azure 之间存在网络连接](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - 确保 Azure 恢复服务正在运行（在服务控制台中）。 如有必要，请重启并重试操作
-- [确保在暂存文件夹位置有 5-10% 的可用卷空间](/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder)
-- [检查其他进程或防病毒软件是否正在干扰 Azure 备份](/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
-- [计划的备份失败，但手动备份成功](/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule)
+- [确保在暂存文件夹位置有 5-10% 的可用卷空间](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [检查其他进程或防病毒软件是否正在干扰 Azure 备份](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
+- [计划的备份失败，但手动备份成功](./backup-azure-mars-troubleshoot.md#backups-dont-run-according-to-schedule)
 - 确保 OS 有最新更新
 - [确保从备份中排除使用不受支持的属性的不受支持驱动器和文件](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - 请确保受保护系统上的系统时钟配置为正确时区 <br>
@@ -35,7 +35,7 @@ ms.locfileid: "83445275"
   - 确保在服务器上卸载代理并将其从门户中删除 <br>
   - 使用的密码正是一开始用于注册服务器的 <br>
 - 如果是脱机备份，请在开始脱机备份操作之前，确保源和副本计算机上都安装了 Azure PowerShell 版本 3.7.0
-- [在 Azure 虚拟机上运行备份代理时的注意事项](/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-backup-agent-running-on-an-azure-virtual-machine)
+- [在 Azure 虚拟机上运行备份代理时的注意事项](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine)
 
 ### <a name="limitation"></a>限制
 
@@ -68,31 +68,31 @@ Get-WindowsFeature Windows-Server-Backup
 
 若要使用服务器管理器安装 Windows Server 备份，请执行以下步骤：
 
-1. 在“服务器管理器”中，单击“添加角色和功能” 。 随即会显示“添加角色和功能向导”。
+1. 在“服务器管理器”中，选择“添加角色和功能” 。 随即会显示“添加角色和功能向导”。
 
     ![仪表板](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. 选择“安装类型”，然后单击“下一步” 。
+2. 选择“安装类型”，然后选择“下一步” 。
 
     ![安装类型](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. 从服务器池中选择服务器，然后单击“下一步”。 在“服务器角色”中，保留默认选择，然后单击“下一步”。
-4. 在“功能”选项卡中，选择“Windows Server 备份”，然后单击“下一步”  。
+3. 从服务器池中选择服务器，然后选择“下一步”。 在“服务器角色”中，保留默认选择，然后选择“下一步”。
+4. 在“功能”选项卡中，选择“Windows Server 备份”，然后选择“下一步”  。
 
-    ![features](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![选择功能窗口](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. 在“确认”选项卡中，单击“安装”以启动安装进程 。
+5. 在“确认”选项卡中，选择“安装”以启动安装进程 。
 6. “结果”选项卡中将显示 Windows Server 备份功能已成功安装到 Windows Server 上。
 
-    ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![安装结果](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>系统卷信息权限
 
-确保本地系统可以完全控制安装有 Windows 的卷中的“系统卷信息”文件夹。 通常，该文件夹为 C:\System Volume Information。 如果未正确设置上述权限，则 Windows Server 备份可能会失败
+确保本地系统可以完全控制安装有 Windows 的卷中的“系统卷信息”文件夹。 通常，该文件夹为 C:\System Volume Information。 如果未正确设置上述权限，则 Windows Server 备份可能会失败。
 
 ### <a name="dependent-services"></a>依赖的服务
 
-确保以下服务都处于“正在运行”状态：
+请确保下面的服务处于正在运行状态：
 
 **服务名称** | **启动类型**
 --- | ---
@@ -115,7 +115,7 @@ Microsoft 软件影子副本提供程序(SWPRV) | 手动
 
     - 如果失败并提示此错误，请在服务器计算机上重新安装 Windows Server 备份功能，如先决条件的步骤 1 中所述。
 
-  - 从权限提升的命令提示符运行以下命令，确保 WSB 备份正常工作：
+  - 从提升的命令提示符运行以下命令，确保 WSB 备份运行正常：
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 

@@ -9,41 +9,31 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/30/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df9ba7a1a411882dbd44109a6241e91540af2a8c
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 42f5b3de8603f5f3ccfe1cf949aca46cc24961ed
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945003"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937099"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>方案：用于调用 Web API 的 桌面应用
 
 了解构建用于调用 Web API 的桌面应用所需的一切。
 
-## <a name="prerequisites"></a>先决条件
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="get-started"></a>入门
 
-如果尚未创建第一个应用程序，请按照 .NET 桌面快速入门、通用 Windows 平台 (UWP) 快速入门或 macOS 本机应用程序快速入门进行创建：
+如果尚未创建你的首个应用程序，请完成以下快速入门进行创建：
 
-> [!div class="nextstepaction"]
-> [快速入门：获取令牌并从 Windows 桌面应用中调用 Microsoft Graph API](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [快速入门：获取令牌并从 UWP 应用中调用 Microsoft Graph API](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [快速入门：获取令牌并从 macOS 本机应用中调用 Microsoft Graph API](./quickstart-v2-ios.md)
+- [快速入门：获取令牌并从 Windows 桌面应用中调用 Microsoft Graph API](./quickstart-v2-windows-desktop.md)
+- [快速入门：获取令牌并从 UWP 应用中调用 Microsoft Graph API](./quickstart-v2-uwp.md)
+- [快速入门：获取令牌并从 macOS 本机应用中调用 Microsoft Graph API](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>概述
 
-编写桌面应用程序后，想要将用户登录到应用程序，并调用 Web API，如 Microsoft Graph、其他 Microsoft API 或自己的 Web API。 有几种可能的选择：
+编写桌面应用程序后，想要将用户登录到应用程序，并调用 Web API，如 Microsoft Graph、其他 Microsoft API 或自己的 Web API。 有几种选项：
 
 - 可以使用交互式令牌获取：
 
@@ -65,9 +55,12 @@ ms.locfileid: "85945003"
 
 桌面应用程序具有很多特性。 它们主要取决于你的应用程序是否使用交互式身份验证。
 
+## <a name="recommended-reading"></a>推荐阅读内容
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [桌面应用：应用注册](scenario-desktop-app-registration.md)
 
-<!-- Update_Description: wording update -->

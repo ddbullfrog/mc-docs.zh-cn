@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 03/03/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 671edbb45e99bfac25d65c6a339b5e60659d8748
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/12/2020
+ms.openlocfilehash: 4b5a8ba6de614357de5f99246c2e9d81ecafe98d
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223289"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872475"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL 数据库“超大规模”常见问题解答
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -115,11 +115,11 @@ ms.locfileid: "88223289"
 
 “超大规模”支持所有 SQL Server 工作负荷，但它主要针对 OLTP 进行了优化。 还可以引入混合 (HTAP) 和分析（数据市场）工作负荷。
 
-### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-azure-sql-database-hyperscale"></a>如何在 Azure SQL 数据仓库和 Azure SQL 数据库“超大规模”之间做出选择
+### <a name="how-can-i-choose-between-azure-synapse-analytics-and-azure-sql-database-hyperscale"></a>如何在 Azure Synapse Analytics 和 Azure SQL 数据库超大规模之间进行选择
 
 如果目前运行的是使用 SQL Server 作为数据仓库的交互式分析查询，“超大规模”是很好的选择，因为能以较低费用托管中小型数据仓库（例如几 TB 到 100 TB），并且只需对 T-SQL 代码进行极少量的更改，即可将 SQL Server 数据仓库工作负荷迁移到“超大规模”。
 
-如果大规模运行包含复杂查询且持续引入速率超过 100 MB/秒的数据分析，并使用并行数据仓库 (PDW)、Teradata 或其他大规模并行处理 (MPP) 数据仓库，则 SQL 数据仓库可能是最佳选择。
+如果大规模运行包含复杂查询且持续引入速率超过 100 MB/秒的数据分析，并使用并行数据仓库 (PDW)、Teradata 或其他大规模并行处理 (MPP) 数据仓库，则 Azure Synapse Analytics（旧称为 SQL 数据仓库）可能是最佳选择。
   
 ## <a name="hyperscale-compute-questions"></a>“超大规模”计算问题
 
@@ -230,7 +230,7 @@ ms.locfileid: "88223289"
 
 “超大规模”每秒能够使用 100 MB 的新数据/更改的数据，但将数据移入 Azure SQL 数据库中的数据库所需的时间也会受到可用网络吞吐量、源读取速度和目标数据库服务级别目标的影响。
 
-### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-sql-data-warehouse"></a>能否从 blob 存储读取数据并执行快速加载（如 SQL 数据仓库中的 Polybase）
+### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>能否从 blob 存储读取数据并执行快速加载（如 Azure Synapse Analytics 中的 Polybase）
 
 可让客户端应用程序从 Azure 存储中读取数据并将数据加载到“超大规模”数据库（就像对 Azure SQL 数据库中的任何其他数据库执行的操作一样）。 Azure SQL 数据库当前不支持 Polybase。 作为提供快速加载的替代方法，可以使用 [Azure 数据工厂](/data-factory/)。 SQL 的 Spark 连接器支持批量插入。
 
@@ -270,7 +270,7 @@ SQL Server 2005。 有关详细信息，请参阅[迁移到单一数据库或共
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-for-database-restore-in-hyperscale"></a>“超大规模”中的数据库还原的恢复点目标 (RPO)/恢复时间目标 (RTO) 是什么
 
-无论数据库大小，RPO 最少为 0，RTO 目标不超过 10 分钟。
+RPO 为 0 分钟。无论数据库大小如何，大多数还原操作都将在 60 分钟内完成。 对于较大的数据库，如果该数据库在还原时间点之前（直到还原时间点）进行了大量写入活动，则还原时间可能会更长。
 
 ### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>数据库备份是否影响主要副本或次要副本的计算性能
 
@@ -346,9 +346,9 @@ IOPS 和 IO 延迟根据工作负荷模式而异。 如果访问的数据缓存�
 
 是由最终用户触发的。 不是自动的。  
 
-### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>计算纵向扩展时，`tempdb` 数据库大小是否也会随之增长
+### <a name="does-the-size-of-my-tempdb-database-and-rbpex-cache-also-grow-as-the-compute-is-scaled-up"></a>计算纵向扩展时，`tempdb` 数据库和 RBPEX 缓存的大小是否也会随之增长
 
-是的。 `tempdb` 数据库会随着计算自动纵向扩展。  
+能。 随着内核数量的增加，计算节点上的 `tempdb` 数据库和 [RBPEX 缓存](service-tier-hyperscale.md#distributed-functions-architecture) 大小将自动增加。
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>能否预配多个主要计算副本（例如多主数据库系统，其中多个主要计算标头可以驱动更高的并发级别）？
 
@@ -362,7 +362,7 @@ IOPS 和 IO 延迟根据工作负荷模式而异。 如果访问的数据缓存�
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>如何连接到这些次要计算副本
 
-将连接字符串的 `ApplicationIntent` 参数设置为 `ReadOnly`，即可连接到这些额外的只读计算副本。 任何标记为 `ReadOnly` 的连接均自动路由到某个额外的只读计算副本。  
+将连接字符串的 `ApplicationIntent` 参数设置为 `ReadOnly`，即可连接到这些额外的只读计算副本。 任何标记为 `ReadOnly` 的连接均自动路由到某个额外的只读计算副本。 有关详细信息，请参阅[使用只读副本卸载只读的查询工作负载](read-scale-out.md)。
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-replica-using-ssms-or-other-client-tools"></a>如何使用 SSMS 或其他客户端工具验证是否已成功连接到辅助计算副本？
 
@@ -391,7 +391,7 @@ IOPS 和 IO 延迟根据工作负荷模式而异。 如果访问的数据缓存�
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>主要和次要计算副本之间的延迟是多少
 
-从在主要副本上提交事务的时间开始算起，到该事务显示在次要副本上的时间为止的数据延迟取决于当前日志生成速率。 典型的数据延迟只有几毫秒。
+从在主要副本上提交事务的时间开始算起，到该事务在次要副本上可读的时间为止，数据延迟取决于当前日志生成速率、事务大小、副本上的负载以及其他因素。 小型事务的典型数据延迟为数十毫秒，但数据延迟没有上限。 给定次要副本上的数据始终在事务上保持一致。 但在给定的时间点，不同次要副本的数据延迟可能不同。 需要立即读取已提交数据的工作负载应在主要副本上运行。
 
 ## <a name="next-steps"></a>后续步骤
 

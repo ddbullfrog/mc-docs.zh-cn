@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 944017168ae987f6a1fcb73018b203a0465c9b76
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 1f21bb982d638168bf7d4061a604f5c11a01d04b
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647596"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937464"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 应用清单
 
@@ -74,7 +74,7 @@ ms.locfileid: "88647596"
 | :--- | :--- |
 | addIns | 集合 |
 
-定义自定义行为，供消耗型服务在特定上下文中调用应用。 例如，呈现文件流的应用程序可以设置其“FileHandler”功能的 `addIns` 属性。 此参数将允许 Office 365 等服务在用户正在处理的文档的上下文中调用应用程序。
+定义自定义行为，供消耗型服务在特定上下文中调用应用。 例如，呈现文件流的应用程序可以设置其“FileHandler”功能的 `addIns` 属性。 Microsoft 365 等服务可以通过此参数在用户正在处理的文档上下文中调用该应用程序。
 
 示例：
 
@@ -604,11 +604,17 @@ ms.locfileid: "88647596"
 - `AzureADMyOrg` - 在我组织的 Azure AD 租户（例如单租户）中具有 Microsoft 工作或学校帐户的用户
 - `AzureADMultipleOrgs` - 在任何组织的 Azure AD 租户（例如多租户）中具有 Microsoft 工作或学校帐户的用户
 
+示例：
+
+```json
+    "signInAudience": "AzureADMyOrg",
+```
+
 ### <a name="tags-attribute"></a>tags 属性
 
 | 键 | 值类型 |
 | :--- | :--- |
-| tags | String Array  |
+| 标记 | String Array  |
 
 可用来对应用程序进行分类和标识的自定义字符串。
 
@@ -647,11 +653,11 @@ ms.locfileid: "88647596"
 
 尝试上传之前下载的清单时，可能会出现以下错误之一。 此错误很可能是因为清单编辑器现在支持较新版本的架构，该架构与你尝试上传的清单不匹配。
 
-* “无法更新 xxxxxx 应用程序。 错误详细信息：无效的对象标识符 'undefined'。 []。”
-* “无法更新 xxxxxx 应用程序。 错误详细信息：指定的一个或多个属性值无效。 []。”
-* “无法更新 xxxxxx 应用程序。 错误详细信息：不允许在此 api 版本中设置要更新的 availableToOtherTenants。 []。”
-* “无法更新 xxxxxx 应用程序。 错误详细信息：不允许对此应用程序的 replyUrls 属性进行更新。 请改用 'replyUrlsWithType' 属性。 []。”
-* “无法更新 xxxxxx 应用程序。 错误详细信息：找到了没有类型名称的值，并且没有可用的预期类型。 如果指定该模型，则有效负载中的每个值都必须具有可在有效负载中指定、显式由调用方调用或隐式从父值推断的类型。 []”
+* “无法更新 xxxxxx 应用程序。 错误详细信息：无效的对象标识符 'undefined'。 []."
+* “无法更新 xxxxxx 应用程序。 错误详细信息：指定的一个或多个属性值无效。 []."
+* “无法更新 xxxxxx 应用程序。 错误详细信息：不允许在此 api 版本中设置要更新的 availableToOtherTenants。 []."
+* “无法更新 xxxxxx 应用程序。 错误详细信息：不允许对此应用程序的 replyUrls 属性进行更新。 请改用 'replyUrlsWithType' 属性。 []."
+* “无法更新 xxxxxx 应用程序。 错误详细信息：找到了没有类型名称的值，并且没有可用的预期类型。 如果指定该模型，则有效负载中的每个值都必须具有可在有效负载中指定、显式由调用方调用或隐式从父值推断的类型。 []"
 
 显示这些错误之一时，建议执行以下操作：
 

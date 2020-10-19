@@ -3,15 +3,15 @@ title: MABS（Microsoft Azure 备份服务器）V3 UR1 保护矩阵
 description: 本文提供了一个支持矩阵，列出了受 Azure 备份服务器保护的所有工作负荷、数据类型和安装。
 author: Johnnytechn
 origin.date: 11/13/2018
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
 ms.author: v-johya
-ms.openlocfilehash: f2d6e7094bf444d19621260240542f5bad41f32d
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: c48b3dfa32296c198252c2a626f5f2bed10b27d7
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852060"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871149"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>MABS（Azure 备份服务器）V3 UR1 保护矩阵
 
@@ -27,6 +27,9 @@ ms.locfileid: "85852060"
 
 * 保护和恢复 - 列出有关工作负荷的详细信息，例如支持的存储容器或支持的部署。
 
+>[!NOTE]
+>MABS v3 UR1 不再支持 32 位保护代理。 请参阅[弃用 32 位保护代理](backup-mabs-whats-new-mabs.md#32-bit-protection-agent-deprecation)。
+
 ## <a name="protection-support-matrix"></a>保护支持矩阵
 
 以下部分详细介绍了 MABS 的保护支持矩阵：
@@ -40,8 +43,8 @@ ms.locfileid: "85852060"
 | **工作负载**               | **版本**                                                  | **Azure 备份服务器安装**                       | **支持的 Azure 备份服务器** | **保护和恢复**                                  |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------- | ------------------------------------------------------------ |
 | 客户端计算机（64 位） | Windows 10                                                  | 物理服务器  <br><br>    Hyper-V 虚拟机   <br><br>   VMware 虚拟机 | V3 UR1                            | 卷、共享、文件夹、文件、已删除重复数据的卷   <br><br>   受保护的卷必须采用 NTFS 格式。 不支持 FAT 和 FAT32。  <br><br>    卷必须至少有 1 GB 空间。 Azure 备份服务器使用卷影复制服务 (VSS) 来创建数据快照；仅当卷至少有 1 GB 空间时，快照才能正常工作。 |
-| 服务器（64 位）          | Windows Server 2019、2016、2012 R2、2012                    | Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）  <br><br>    物理服务器  <br><br>    Hyper-V 虚拟机 <br><br>     VMware 虚拟机  <br><br>    Azure Stack | V3 UR1                            | 卷、共享、文件夹、文件、已删除重复数据的卷（NTFS 和 ReFS）  <br><br>   系统状态和裸机（当工作负荷作为 Azure 虚拟机运行时不支持） |
-| 服务器（64 位）          | Windows Server 2008 R2 SP1、Windows Server 2008 SP2（需安装 [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)） | 物理服务器  <br><br>    Hyper-V 虚拟机  <br><br>      VMware 虚拟机  <br><br>   Azure Stack | V3 UR1                            | 卷、共享、文件夹、文件、系统状态/裸机        |
+| 服务器（64 位）          | Windows Server 2019、2016、2012 R2、2012                    | Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）  <br><br>    物理服务器  <br><br>    Hyper-V 虚拟机 <br><br>     VMware 虚拟机  <br><br>    Azure Stack | V3 UR1                            | 卷、共享、文件夹、文件 <br><br>    已删除重复数据的卷（仅限 NTFS）  <br><br>   系统状态和裸机（当工作负荷作为 Azure 虚拟机运行时不支持） |
+| 服务器（64 位）          | Windows Server 2008 R2 SP1、Windows Server 2008 SP2（需安装 [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)） | 物理服务器  <br><br>    Hyper-V 虚拟机  <br><br>      VMware 虚拟机  <br><br>   Azure Stack | V3 UR1                            | 卷、共享、文件夹、文件、系统状态/裸机        |
 | SQL Server                | SQL Server 2019、2017、2016 和[支持的 SP](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202016)、2014 和支持的 [SP](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202014) | 物理服务器  <br><br>     Hyper-V 虚拟机   <br><br>     VMware 虚拟机  <br><br>   Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）  <br><br>     Azure Stack | V3 UR1                            | 所有部署方案：数据库       <br><br>  MABS v3 UR1 支持备份基于 ReFS 卷的 SQL 数据库                  |
 | Exchange                   | Exchange 2019、2016                                         | 物理服务器   <br><br>   Hyper-V 虚拟机  <br><br>      VMware 虚拟机  <br><br>   Azure Stack  <br><br>    Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时） | V3 UR1                            | 保护（所有部署方案）：独立 Exchange 服务器、数据库可用性组 (DAG) 下的数据库  <br><br>    恢复（所有部署方案）：邮箱、DAG 下的邮箱数据库    <br><br>  MABS v3 UR1 支持备份基于 ReFS 的 Exchange |
 | SharePoint                 | 带最新 SP 的 SharePoint 2019、2016                       | 物理服务器  <br><br>    Hyper-V 虚拟机 <br><br>    VMware 虚拟机  <br><br>   Azure 虚拟机（工作负荷作为 Azure 虚拟机运行时）   <br><br>   Azure Stack | V3 UR1                            | 保护（所有部署方案）：场、前端 Web 服务器内容  <br><br>    恢复（所有部署方案）：场、数据库、Web 应用程序、文件或列表项、SharePoint 搜索、前端 Web 服务器  <br><br>    对于将 SQL Server 2012 AlwaysOn 功能用于内容数据库的 SharePoint 场，不支持对其进行保护。 |
@@ -57,7 +60,7 @@ ms.locfileid: "85852060"
 
 | **工作负载** | **版本**                               | **Azure 备份服务器安装**                      | **支持的 Azure 备份服务器** | **保护和恢复**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | 以 Hyper-V 或 VMware 来宾身份运行的 Linux | 物理服务器、本地 Hyper-V VM、VMWare 中的 Windows VM | V3 UR1                             | Hyper-V 必须在 Windows Server 2012 R2 或 Windows Server 2016 上运行。 保护：整个虚拟机   <br><br>   恢复：整个虚拟机   <br><br>    仅支持文件一致性快照。    <br><br>   有关支持的 Linux 发行版和版本的完整列表，请参阅 [Azure 认可的发行版中的 Linux](/virtual-machines/linux/endorsed-distros) 一文。 |
+| Linux        | 以 Hyper-V 或 VMware 来宾身份运行的 Linux | 物理服务器、本地 Hyper-V VM、VMWare 中的 Windows VM | V3 UR1                             | Hyper-V 必须在 Windows Server 2012 R2、Windows Server 2016 或 Windows Server 2019 上运行。 保护：整个虚拟机   <br><br>   恢复：整个虚拟机   <br><br>    仅支持文件一致性快照。    <br><br>   有关支持的 Linux 发行版和版本的完整列表，请参阅 [Azure 认可的发行版中的 Linux](../virtual-machines/linux/endorsed-distros.md) 一文。 |
 
 ## <a name="azure-expressroute-support"></a>Azure ExpressRoute 支持
 
@@ -68,7 +71,7 @@ ms.locfileid: "85852060"
 * `http://www.msftncsi.com/ncsi.txt`
 * `azure.cn`
 * `.WindowsAzure.cn`
-* `.microsoftonline.cn`
+* `.partner.microsoftonline.cn`
 * `.chinacloudapi.cn`
 
 使用 Microsoft 对等互连，选择以下服务/区域和相关社区值：
@@ -77,7 +80,7 @@ ms.locfileid: "85852060"
 * Azure 区域（取决于恢复服务保管库的位置）
 * Azure 存储（根据恢复服务保管库的位置）
 
-有关详细信息，请参阅 [ExpressRoute 路由要求](/expressroute/expressroute-routing.md)。
+有关详细信息，请参阅 [ExpressRoute 路由要求](../expressroute/expressroute-routing.md)。
 
 >[!NOTE]
 >对于新线路，公共对等互连已弃用。

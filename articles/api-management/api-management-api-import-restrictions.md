@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: 有关 Azure API 管理中 OpenAPI、WSDL 和 WADL 格式支持的已知问题和限制详细信息。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: vlvinogr
 editor: ''
 ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
@@ -12,17 +12,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
+ms.date: 09/29/2020
+ms.author: v-johya
 origin.date: 01/02/2020
-ms.author: v-yiso
-ms.date: 02/24/2020
-ms.openlocfilehash: c895e73c065b4913b72f14fbd978dcd5c49f9cba
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2989bd3c3f83b5094cd0813ab8c61818f90ffc09
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77497395"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871209"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
+
 ## <a name="about-this-list"></a>关于此列表
 
 导入 API 时，可能会遇到一些限制或识别问题，需要对其进行纠正才能成功执行导入。 本文将阐述这些限制，内容按照 API 的导入格式进行组织。 本文还将介绍 OpenAPI 导出的工作原理。
@@ -33,27 +34,31 @@ ms.locfileid: "77497395"
 
 ### <a name="general"></a><a name="open-api-general"> </a>总则
 
-* 路径和查询所需的参数必须具有唯一名称。 （在 OpenAPI 中，参数名称只需要在一个位置内是唯一的，例如路径、查询、标头。 但是，在 API 管理中，我们允许操作通过路径和查询参数进行区分（OpenAPI 不支持此方法）。 这就是要求参数名称在整个 URL 模板中是唯一的原因。）
-* **$ref** 指针不能引用外部文件。
-* 仅支持 **x-ms-paths** 和 **x-servers** 扩展。
-* 自定义扩展在导入时将被忽略，并且不会为导出保存或保留。
-* **递归** - API 管理目前不支持以递归方式定义的定义（例如，引用自身的架构）。
-* 源文件 URL（如果可用）应用于相对服务器 URL。
-* 忽略安全定义。
-* 不支持 API 操作的内联架构定义。 架构定义在 API 范围内定义，可在 API 操作请求或响应范围内引用。
-* 定义的 URL 参数需要是 URL 模板的一部分。
-* 不支持 **Produces** 关键字，该关键字描述 API 返回的 MIME 类型。 
+-   路径和查询所需的参数必须具有唯一名称。 （在 OpenAPI 中，参数名称只需要在一个位置内是唯一的，例如路径、查询、标头。 但是，在 API 管理中，我们允许操作通过路径和查询参数进行区分（OpenAPI 不支持此方法）。 这就是要求参数名称在整个 URL 模板中是唯一的原因。）
+-   `\$ref` 指针不能引用外部文件。
+-   仅支持 `x-ms-paths` 和 `x-servers` 扩展。
+-   自定义扩展在导入时将被忽略，并且不会为导出保存或保留。
+-   `Recursion` - API 管理目前不支持以递归方式界定的定义（例如引用其本身的架构）。
+-   源文件 URL（如果可用）应用于相对服务器 URL。
+-   忽略安全定义。
+-   不支持 API 操作的内联架构定义。 架构定义在 API 范围内定义，可在 API 操作请求或响应范围内引用。
+-   定义的 URL 参数需要是 URL 模板的一部分。
+-   不支持 `Produces` 关键字，该关键字描述 API 返回的 MIME 类型。 
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>OpenAPI 版本 2
 
-* 仅支持 JSON 格式。
+-   仅支持 JSON 格式。
 
 ### <a name="openapi-version-3"></a><a name="open-api-v3"> </a>OpenAPI 版本 3
 
-* 如果指定了多个服务器，API 管理将尝试选择第一个 HTTP URL  。 如果不存在任何 HTTP URL，则为第一个 HTTP URL。 如果不存在任何 HTTP URL，则服务器 URL 将为空。
-* 不支持“Examples”，但支持“example”   。
+-   如果指定了多个 `servers`，API 管理将尝试选择第一个 HTTP URL。 如果不存在任何 HTTP URL，则为第一个 HTTP URL。 如果不存在任何 HTTP URL，则服务器 URL 将为空。
+-   不支持 `Examples`，但支持 `example`。
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>OpenAPI 导入、更新和导出机制
+
+### <a name="general"></a><a name="open-import-export-general"> </a>常规
+
+-   从 API 管理服务导出的 API 定义主要用于 API 管理服务外部的应用程序，这些应用需要调用 API 管理服务中托管的 API。 导出的 API 定义不应重新导入到 API 管理服务中（无论服务是否相同）。 对于跨不同服务/环境的 API 定义的配置管理，请参阅有关将 API 管理服务与 Git 结合使用的文档。 
 
 ### <a name="add-new-api-via-openapi-import"></a>通过 OpenAPI 导入添加新的 API
 
@@ -120,4 +125,6 @@ WSDL 文件用于创建 SOAP 传递和 SOAP到 REST API。
 ```
 
 ## <a name="wadl"></a><a name="wadl"> </a>WADL
+
 目前没有已知的 WADL 导入问题。
+

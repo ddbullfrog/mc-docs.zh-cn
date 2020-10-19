@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 01/08/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 7e42da5bfcb795a330da8b8eb576d966e534e06f
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: de1c47a9e069ccb31c6f00b4c6b9ff7e2861278d
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014331"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872313"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>导入或导出 Azure SQL 数据库但不允许 Azure 服务访问服务器
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "90014331"
 
 1. 部署完成后，转到虚拟机资源。
 
-   ![VM](./media/database-import-export-azure-services-off/vm.png)  
+   ![屏幕截图显示有“连接”按钮的虚拟机“概述”页。](./media/database-import-export-azure-services-off/vm.png)  
 
 2. 选择“连接” 。
 

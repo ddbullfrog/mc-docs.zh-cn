@@ -1,9 +1,9 @@
 ---
 title: Azure API 管理策略表达式
-description: 了解 Azure API 管理中的策略表达式。
+description: 了解 Azure API 管理中的策略表达式。 请参阅示例，查看其他可用资源。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: erikre
 editor: ''
 origin.date: 03/22/2019
@@ -12,14 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 06af1bfcd0127a56eb48240ab60eca0ec5ab3835
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: ccdd4068dd551cc92b3fd1edd9169af1b0a7d90d
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226052"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871204"
 ---
 # <a name="api-management-policy-expressions"></a>API 管理策略表达式
 本文讨论 C# 7 中的策略表达式语法。 每个表达式都可以访问隐式提供的[上下文](api-management-policy-expressions.md#ContextVariables)变量以及允许的 .NET Framework 类型[子集](api-management-policy-expressions.md#CLRTypes)。
@@ -28,7 +28,7 @@ ms.locfileid: "86226052"
 
 - 了解如何向后端服务提供上下文信息。 使用[设置查询字符串参数](api-management-transformation-policies.md#SetQueryStringParameter)和[设置 HTTP 标头](api-management-transformation-policies.md#SetHTTPheader)策略来提供此信息。
 - 了解如何使用[验证 JWT](api-management-access-restriction-policies.md#ValidateJWT) 策略根据令牌声明预先授予操作访问权限。
-- 了解如何使用 [API 检查器](api-management-howto-api-inspector.md)跟踪查看策略求值方法和这些求值的结果。
+- 了解如何使用 [API 检查器](./api-management-howto-api-inspector.md)跟踪查看策略求值方法和这些求值的结果。
 - 了解如何对[从缓存获取](api-management-caching-policies.md#GetFromCache)和[存储到缓存](api-management-caching-policies.md#StoreToCache)策略使用表达式，以便配置 API 管理响应缓存。 设置持续时间，使之匹配由后端服务的 `Cache-Control` 指令指定的后端服务响应缓存。
 - 了解如何进行内容筛选。 删除使用[控制流](api-management-advanced-policies.md#choose)和[设置正文](api-management-transformation-policies.md#SetBody)策略从后端接收的响应中的数据元素。
 - 要下载策略语句，请参阅 [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub 存储库。
@@ -253,6 +253,6 @@ ms.locfileid: "86226052"
 
 + [API 管理中的策略](api-management-howto-policies.md)
 + [转换 API](transform-api.md)
-+ [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
++ [策略参考](./api-management-policies.md)，获取策略语句及其设置的完整列表
 + [策略示例](policy-samples.md)
 

@@ -4,16 +4,16 @@ description: 描述如何搜索资源属性。
 ms.topic: conceptual
 origin.date: 06/10/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4d3454959f4209021a372ff63d2df7f7983b59d8
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 42d213495cdeb65f4372d444b23c61c21da011e3
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807706"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937539"
 ---
 # <a name="discover-resource-properties"></a>发现资源属性
 
@@ -35,11 +35,11 @@ Visual Studio Code 和 Azure 资源管理器工具扩展有助于确切了解每
 
 以下屏幕截图显示了如何将存储帐户资源添加到模板：
 
-:::image type="content" source="./media/view-resources/resource-manager-tools-extension-snippets.png" alt-text="资源管理器工具扩展代码片段":::
+:::image type="content" source="./media/view-resources/resource-manager-tools-extension-snippets.png" alt-text="资源管理器资源提供程序命名空间映射":::
 
 该扩展还提供了用于配置属性的选项列表。
 
-:::image type="content" source="./media/view-resources/resource-manager-tools-extension-configurable-properties.png" alt-text="资源管理器工具扩展可配置值":::
+:::image type="content" source="./media/view-resources/resource-manager-tools-extension-configurable-properties.png" alt-text="资源管理器资源提供程序命名空间映射":::
 
 <!--Not Available on ## Use template reference-->
 
@@ -52,18 +52,18 @@ Visual Studio Code 和 Azure 资源管理器工具扩展有助于确切了解每
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 在搜索框中，输入“资源浏览器”，然后选择“资源浏览器”。
 
-    :::image type="content" source="./media/view-resources/azure-portal-resource-explorer.png" alt-text="Azure 门户资源浏览器":::
+    :::image type="content" source="./media/view-resources/azure-portal-resource-explorer.png" alt-text="资源管理器资源提供程序命名空间映射":::
 
 1. 从左侧展开“订阅”，然后展开你的 Azure 订阅。 在“提供程序”或“ResourceGroups”下可找到存储帐户。
 
-    :::image type="content" source="./media/view-resources/azure-portal-resource-explorer-home.png" alt-text="Azure 门户资源浏览器":::
+    :::image type="content" source="./media/view-resources/azure-portal-resource-explorer-home.png" alt-text="资源管理器资源提供程序命名空间映射":::
 
     - 提供程序：展开“提供程序” -> “Microsoft.Storage” -> “storageAccounts”，然后选择你的存储帐户。
     - ResourceGroups：选择包含该存储帐户的资源组，选择“资源”，然后选择该存储帐户。
 
     在右侧，可以看到现有存储帐户的 SKU 配置，如下所示：
 
-    :::image type="content" source="./media/view-resources/azure-portal-resource-explorer-sku.png" alt-text="Azure 门户资源浏览器存储帐户 sku":::
+    :::image type="content" source="./media/view-resources/azure-portal-resource-explorer-sku.png" alt-text="资源管理器资源提供程序命名空间映射":::
 
 <!--Not Available on ## Use Resources.azure.com-->
 

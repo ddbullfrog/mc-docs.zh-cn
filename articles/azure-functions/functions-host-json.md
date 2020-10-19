@@ -2,13 +2,13 @@
 title: Azure Functions 2.x 的 host.json 参考
 description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 1f32c69d74df8ad81c30668a0630ee92bab58852
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 09/28/2020
+ms.openlocfilehash: c5bc7468ef63942faf757505814c017d358543ba
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222714"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937121"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 及更高版本的 host.json 参考 
 
@@ -162,11 +162,11 @@ Application Insights 的控制选项，包括[采样选项](./functions-monitori
 | isEnabled | true | 启用或禁用采样。 | 
 | maxTelemetryItemsPerSecond | 20 | 每个服务器主机上每秒记录的遥测项的目标数目。 如果应用在多个主机上运行，请将此值降低至总体目标流量率的范围内。 | 
 | evaluationInterval | 01:00:00 | 会重新评估当前遥测速率的间隔。 评估以移动平均线形式进行执行。 可能想要缩短此间隔（如果遥测很容易就激增）。 |
-| initialSamplingPercentage| 1.0 | 采样过程开始时应用的初始采样百分比，以动态改变百分比。 不要在调试时减小值。 |
+| initialSamplingPercentage| 100.0 | 采样过程开始时应用的初始采样百分比，以动态改变百分比。 不要在调试时减小值。 |
 | samplingPercentageIncreaseTimeout | 00:00:01 | 采样百分比值更改时，此属性确定多久之后允许 Application Insights 再次提升采样百分比以捕获更多数据。 |
 | samplingPercentageDecreaseTimeout | 00:00:01 | 采样百分比值更改时，此属性确定多久之后允许 Application Insights 再次降低采样百分比以捕获更少数据。 |
 | minSamplingPercentage | 0.1 | 随着采样百分比变化，此属性确定允许的最小采样百分比。 |
-| maxSamplingPercentage | 0.1 | 随着采样百分比变化，此属性确定允许的最大采样百分比。 |
+| maxSamplingPercentage | 100.0 | 随着采样百分比变化，此属性确定允许的最大采样百分比。 |
 | movingAverageRatio | 1.0 | 在移动平均线的计算中，权重分配给最新的值。 使用等于或小于 1 的值。 较小的值会使算法不易受突然的更改影响。 |
 | excludedTypes | null | 不要采样的分号分隔类型列表。 承认的类型为：`Dependency`、`Event`、`Exception`、`PageView`、`Request` 和 `Trace`。 指定类型的所有实例都会传输；对未指定的类型进行采样。 |
 | includedTypes | null | 要采样的分号分隔类型列表；空列表暗示所有类型。 `excludedTypes` 中列出的类型替代此处列出的类型。 承认的类型为：`Dependency`、`Event`、`Exception`、`PageView`、`Request` 和 `Trace`。 指定类型的实例都会采样；未指定或未暗示的类型将进行传输而不采样。 |
@@ -247,8 +247,10 @@ Application Insights 的控制选项，包括[采样选项](./functions-monitori
 | 计划类型 | 默认值（分钟） | 最大值（分钟） |
 | -- | -- | -- |
 | 消耗 | 5 | 10 |
+| 高级<sup>1</sup> | 30 | -1（无限制）<sup>2</sup> |
 | 专用（应用服务） | 30 | -1（无限制）<sup>2</sup> |
 
+<sup>1</sup> 高级计划执行只能保证 60 分钟，但技术上不限时长。   
 <sup>2</sup> 值为 `-1` 表示无限制执行，但建议保留固定上限。
 
 ```json

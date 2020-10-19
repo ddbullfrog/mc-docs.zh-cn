@@ -4,20 +4,20 @@ description: 有关使用 Azure 备份来备份在 Azure VM 上运行的 SQL Ser
 ms.topic: troubleshooting
 author: Johnnytechn
 origin.date: 06/18/2019
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 70c301dad5b6281518da8681f24124b57e30471e
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: ecd254192704011afe03e6c88c491305609a21a7
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402530"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871446"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>排查使用 Azure 备份进行 SQL Server 数据库备份的问题
 
 本文针对 Azure 虚拟机上运行的 SQL Server 数据库提供故障排除信息。
 
-有关备份过程和限制的详细信息，请参阅[关于 Azure VM中的 SQL Server 备份](sql-support-matrix.md)。
+有关备份过程和限制的详细信息，请参阅[关于 Azure VM中的 SQL Server 备份](sql-support-matrix.md#feature-considerations-and-limitations)。
 
 ## <a name="sql-server-permissions"></a>SQL Server 权限
 
@@ -27,17 +27,17 @@ ms.locfileid: "91402530"
 
 创建和配置恢复服务保管库后，发现数据库和配置备份的过程分为两步。<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![备份目标 - Azure VM 中的 SQL Server](./media/backup-azure-sql-database/sql.png)
 
 在备份配置过程中，如果 SQL VM 及其实例在“发现 VM 中的 DB”和“配置备份”（参见上图）中不可见，请确保 ：
 
 ### <a name="step-1-discovery-dbs-in-vms"></a>步骤 1：发现 VM 中的 DB
 
-- 如果 VM 未在已发现的 VM 列表中列出，也未在另一个保管库中注册以进行 SQL 备份，请按照[发现 SQL Server 备份](/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases)步骤进行操作。
+- 如果 VM 未在已发现的 VM 列表中列出，也未在另一个保管库中注册以进行 SQL 备份，请按照[发现 SQL Server 备份](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases)步骤进行操作。
 
 ### <a name="step-2-configure-backup"></a>步骤 2：配置备份
 
-- 如果在其中注册了 SQL VM 的保管库与用于保护数据库的数据库相同，请按照[配置备份](/backup/backup-sql-server-database-azure-vms#configure-backup)步骤进行操作。
+- 如果在其中注册了 SQL VM 的保管库与用于保护数据库的数据库相同，请按照[配置备份](./backup-sql-server-database-azure-vms.md#configure-backup)步骤进行操作。
 
 如果需要在新保管库中注册 SQL VM，则必须将该 VM 从旧保管库中注销。  从保管库注销 SQL VM 需要停止保护所有受保护的数据源，然后才可以删除已备份的数据。 删除备份的数据是一种破坏性操作。  查看并采取注销 SQL VM 的所有预防措施后，请通过新保管库注册此 VM，然后重试备份操作。
 
@@ -47,14 +47,14 @@ ms.locfileid: "91402530"
 
 1. 通过防病毒扫描排除以下文件夹：
 
-    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.AzureBackupWindowsWorkload`
 
     将 `C:\` 替换为 SystemDrive 的字母。
 
 1. 通过防病毒扫描排除 VM 内运行的以下三个进程：
 
     - IaasWLPluginSvc.exe
-    - IaasWorkloadCoordinaorService.exe
+    - IaaSWorkloadCoordinatorService.exe
     - TriggerExtensionJob.exe
 
 1. SQL 还提供了一些有关使用防病毒程序的指南。 有关详细信息，请参阅[此文](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server)。
@@ -65,7 +65,7 @@ ms.locfileid: "91402530"
 
 | severity | 说明 | 可能的原因 | 建议的操作 |
 |---|---|---|---|
-| 警告 | 此数据库的当前设置不支持关联策略中的特定备份类型。 | <li>只能对 master 数据库执行完整数据库备份操作。 不能执行差异备份和事务日志备份。 </li> <li>简单恢复模式中的任何数据库都不允许进行事务日志备份。</li> | 将数据库设置修改为支持策略中的所有备份类型。 或者，将当前策略更改为只包含受支持的备份类型。 否则，在计划备份期间将跳过不受支持的备份类型，或者按需备份的备份作业将失败。
+| 警告 | 此数据库的当前设置不支持关联策略中的特定备份类型。 | <li>只能对 master 数据库执行完整数据库备份操作。 不可能执行差异备份和事务日志备份。 </li> <li>简单恢复模式中的任何数据库都不允许进行事务日志备份。</li> | 将数据库设置 sp 修改为支持策略中的所有备份类型。 或者，将当前策略更改为只包含受支持的备份类型。 否则，在计划备份期间将跳过不受支持的备份类型，或者按需备份的备份作业将失败。
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -90,7 +90,7 @@ ms.locfileid: "91402530"
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
-| Azure 备份无法连接到 SQL 实例。 | Azure 备份无法连接到 SQL Server 实例。 | 使用 Azure 门户上错误菜单中的“其他详细信息”缩小根本原因的范围。 请参阅 [SQL 备份故障排除](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine)来解决错误。<br/><ul><li>如果默认 SQL 设置不允许远程连接，请更改设置。 有关更改设置的信息，请参阅以下文章：<ul><li>[MSSQLSERVER_-1](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error?view=sql-server-ver15)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>如果出现登录问题，请使用以下链接予以修复：<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure 备份无法连接到 SQL 实例。 | Azure 备份无法连接到 SQL Server 实例。 | 使用 Azure 门户上错误菜单中的“其他详细信息”缩小根本原因的范围。 请参阅 [SQL 备份故障排除](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine)来解决错误。<br/><ul><li>如果默认 SQL 设置不允许远程连接，请更改设置。 有关更改设置的信息，请参阅以下文章：<ul><li>[MSSQLSERVER_-1](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error)</li><li>[MSSQLSERVER_2](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>如果出现登录问题，请使用以下链接予以修复：<ul><li>[MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -116,6 +116,13 @@ ms.locfileid: "91402530"
 |---|---|---|
 | 由于无法将数据库脱机，还原失败。 | 执行还原时，需将目标数据库脱机。 Azure 备份无法将此数据脱机。 | 使用 Azure 门户上错误菜单中的“其他详细信息”缩小根本原因的范围。 有关详细信息，请参阅 [SQL Server 文档](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms)。 |
 
+### <a name="wlextgenericiofaultusererror"></a>WlExtGenericIOFaultUserError
+
+|错误消息 |可能的原因  |建议的操作  |
+|---------|---------|---------|
+|在执行此操作期间出现了输入/输出错误。 请检查虚拟机上的常见 IO 错误。   |   目标上的访问权限或空间受限。       |  检查虚拟机上的常见 IO 错误。 确保计算机上的目标驱动器/网络共享满足以下条件： <li> 对计算机上的帐户 NT AUTHORITY\SYSTEM 具有读取/写入权限。 <li> 具有足够的空间，以使操作成功完成。<br> 有关详细信息，请参阅[作为文件还原](restore-sql-database-azure-vm.md#restore-as-files)。
+       |
+
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | 错误消息 | 可能的原因 | 建议的操作 |
@@ -126,7 +133,7 @@ ms.locfileid: "91402530"
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
-| 用于恢复的日志备份包含批量记录的更改。 它不能用来按照 SQL 准则随时停止。 | 当数据库处于批量记录恢复模式时，批量记录的事务与下一日志事务之间的数据将无法恢复。 | 请选择要恢复到的另一时间点。 [了解详细信息](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15)。
+| 用于恢复的日志备份包含批量记录的更改。 它不能用来按照 SQL 准则随时停止。 | 当数据库处于批量记录恢复模式时，批量记录的事务与下一日志事务之间的数据将无法恢复。 | 请选择要恢复到的另一时间点。 [了解详细信息](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server)。
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -144,7 +151,7 @@ ms.locfileid: "91402530"
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
-| Azure 备份服务使用 Azure VM 来宾代理执行备份，但来宾代理在目标服务器上不可用。 | 来宾代理未启用或不正常。 | 手动[安装 VM 来宾代理](../virtual-machines/extensions/agent-windows.md)。 |
+| Azure 备份服务使用 Azure VM 来宾代理执行备份，但来宾代理在目标服务器上不可用。 | 来宾代理未启用或运行不正常。 | 手动[安装 VM 来宾代理](../virtual-machines/extensions/agent-windows.md)。 |
 
 ### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
 
@@ -156,19 +163,19 @@ ms.locfileid: "91402530"
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
-操作已被阻止，因为你已达到 24 小时内允许的操作数量限制。 | 达到 24 小时内允许的最大操作数量限制后，会出现此错误。 <br> 例如：如果已达到每日可触发的配置备份作业数限制，而你尝试针对新项配置备份，则会出现此错误。 | 通常，在 24 小时后重试操作即可解决此问题。 但是，如果问题持续出现，可以联系 Microsoft 支持人员获得帮助。
+操作已被阻止，因为你已达到 24 小时内允许的操作数量限制。 | 达到 24 小时内允许的最大操作数量限制后，会出现此错误。 <br> 例如：如果已达到每日可触发的配置备份作业数限制，而你尝试针对新项配置备份，则将出现此错误。 | 通常，在 24 小时后重试操作即可解决此问题。 但是，如果问题持续出现，可以联系 Microsoft 支持人员获得帮助。
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
-操作被阻止，因为保管库已达到 24 小时内允许的最大此类操作数量限制。 | 达到 24 小时内允许的最大操作数量限制后，会出现此错误。 此错误通常发生在执行大规模操作（例如修改策略或自动保护）时。 与 CloudDosAbsoluteLimitReached 不同，没有太多的办法可以消除此状态，实际上，Azure 备份服务将在内部针对所有有问题的项重试操作。<br> 例如：如果使用某个策略保护了大量的数据源，而你尝试修改该策略，则会针对每个受保护项触发配置保护作业，因此有时可能会达到每日允许的最大此类操作数量限制。| Azure 备份服务会在 24 小时后自动重试此操作。
+操作被阻止，因为保管库已达到 24 小时内允许的最大此类操作数量限制。 | 达到 24 小时内允许的最大操作数量限制后，会出现此错误。 此错误通常出现在执行大规模操作（例如修改策略或自动保护）时。 与 CloudDosAbsoluteLimitReached 的情况不同，你对于缓解这种状态几乎无能为力。 事实上，Azure 备份服务将针对相关的所有项目，在内部重试操作。<br> 例如：如果使用某个策略保护了大量的数据源，而你尝试修改该策略，则会针对每个受保护项触发配置保护作业，因此有时可能会达到每日允许的最大此类操作数量限制。| Azure 备份服务会在 24 小时后自动重试此操作。
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
-由于 Internet 连接问题，VM 无法联系 Azure 备份服务。 | VM 需要与 Azure 备份服务、Azure 存储或 Azure Active Directory 服务建立出站连接。| - 如果使用 NSG 来限制连接，则应使用 AzureBackup 服务标记来允许对 Azure 备份服务、Azure 存储或 Azure Active Directory 服务进行出站访问。 请按照这些[步骤](/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags)授予访问权限。<br>- 确保 DNS 在解析 Azure 终结点。<br>- 检查 VM 是否在阻止访问 Internet 的负载均衡器后面。 向 VM 分配公共 IP 即可使用发现功能。<br>- 验证是否有防火墙/防病毒/代理在阻止调用上述三个目标服务。
+由于 Internet 连接问题，VM 无法联系 Azure 备份服务。 | VM 需要与 Azure 备份服务、Azure 存储或 Azure Active Directory 服务建立出站连接。| - 如果使用 NSG 来限制连接，则应使用 AzureBackup 服务标记来允许对 Azure 备份服务进行出站访问，同样也允许对 Azure AD (AzureActiveDirectory) 和 Azure 存储（存储）服务进行出站访问  。 请按照这些[步骤](./backup-sql-server-database-azure-vms.md#nsg-tags)授予访问权限。<br>- 确保 DNS 在解析 Azure 终结点。<br>- 检查 VM 是否在阻止访问 Internet 的负载均衡器后面。 向 VM 分配公共 IP 即可使用发现功能。<br>- 验证是否有防火墙/防病毒软件/代理在阻止调用上述三个目标服务。
 
 ## <a name="re-registration-failures"></a>重新注册失败
 
@@ -194,7 +201,7 @@ ms.locfileid: "91402530"
 - 删除了该 VM，并在该 VM 所在的同一资源组中创建了同名的另一个 VM。
 - 某个可用性组节点未收到完整的备份配置。 将可用性组注册到保管库或添加新节点时，可能会发生这种情况。
 
-对于上述场景，我们建议在 VM 上触发重新注册操作。 请参阅[此处](/backup/backup-azure-sql-automation#enable-backup)，了解关于如何在 PowerShell 中执行此任务的说明。
+对于上述场景，我们建议在 VM 上触发重新注册操作。 请参阅[此处](./backup-azure-sql-automation.md#enable-backup)，了解关于如何在 PowerShell 中执行此任务的说明。
 
 ## <a name="size-limit-for-files"></a>文件大小限制
 
@@ -264,11 +271,11 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
-  ```
+```
 
 应在触发还原操作之前放置此文件。
 
 ## <a name="next-steps"></a>后续步骤
 
-有 SQL Server VM 的 Azure 备份（公共预览版）的详细信息，请参阅 [SQL VM 的 Azure 备份](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup)。
-<!--Correct in MC: /virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup-->
+有 SQL Server VM 的 Azure 备份（公共预览版）的详细信息，请参阅 [SQL VM 的 Azure 备份](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup)。
+

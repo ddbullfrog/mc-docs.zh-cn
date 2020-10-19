@@ -1,7 +1,7 @@
 ---
 title: 事务复制
 titleSuffix: Azure SQL Managed Instance
-description: 了解如何对 Azure SQL 托管实例使用 SQL Server 事务复制。
+description: 了解如何对 Azure SQL 托管实例使用 SQL Server 事务复制（预览）。
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -10,17 +10,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: sstein
 origin.date: 04/20/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: bc0165359e3c41ade4eff09a134389139241e661
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: e7ad041669981345f5de8da8b52f6a3f6308b225
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014371"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872458"
 ---
-# <a name="transactional-replication-with-azure-sql-managed-instance"></a>使用 Azure SQL 托管实例进行事务性复制
+# <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Azure SQL 托管实例的事务复制（预览）
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 事务复制是 Azure SQL 托管实例和 SQL Server 的一项功能，用于将 Azure SQL 托管实例或 SQL Server 实例中表的数据复制到远程数据库中的表。 使用此功能可以同步不同数据库中的多个表。 

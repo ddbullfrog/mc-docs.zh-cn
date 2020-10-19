@@ -8,34 +8,29 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e21ce54c2e7efcde17febe150e082f3174ece89c
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 29968055eb4bd556c0b6b3b5b247787943ebde99
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244850"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937094"
 ---
 # <a name="scenario-single-page-application"></a>方案：单页应用程序
 
 了解生成单页应用程序 (SPA) 所需的一切。
 
-## <a name="prerequisites"></a>先决条件
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>入门
 
-可以按 JavaScript SPA 快速入门创建第一个应用程序：
+如果尚未创建你的首个应用，请通过完成 Javascript SPA 快速入门创建：
 
-> [!div class="nextstepaction"]
-> [快速入门：单页应用程序](./quickstart-v2-javascript.md)
+[快速入门：单页应用程序](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>概述
 
-许多新式 Web 应用程序都是作为客户端单页应用程序构建的。 开发人员使用 JavaScript 或 SPA 框架（例如 Angular、Vue 和 React）来编写它们。 这些应用程序在 Web 浏览器上运行，与传统的服务器端 Web 应用程序相比，它们具有不同的身份验证特征。 
+许多新式 Web 应用程序都是作为客户端单页应用程序构建的。 开发人员使用 JavaScript 或 SPA 框架（例如 Angular、Vue 和 React）来编写它们。 这些应用程序在 Web 浏览器上运行，与传统的服务器端 Web 应用程序相比，它们具有不同的身份验证特征。
 
 Microsoft 标识平台提供了**两个**选项来允许单页应用程序登录用户并获取用于访问后端服务或 Web API 的令牌。
 
@@ -56,6 +51,10 @@ Microsoft 标识平台提供了**两个**选项来允许单页应用程序登录
 * 通过 Azure Active Directory (Azure AD) 进行应用程序注册。 在隐式授权流和授权代码流的注册步骤不同。
 * 带有注册的应用程序属性（例如应用程序 ID）的应用程序配置。
 * 使用适用于 JavaScript 的 Microsoft 身份验证库 (MSAL.js) 执行身份验证流以登录并获取令牌。
+
+## <a name="recommended-reading"></a>推荐阅读内容
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

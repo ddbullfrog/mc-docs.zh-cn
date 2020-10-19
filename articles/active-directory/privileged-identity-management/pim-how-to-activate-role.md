@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/23/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4e3bd39e6ecd4d03f0bb78f8a99b1deb6715391
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: fe3e9223f4646e29d6ed642a3497e1c9ef729cad
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245535"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937458"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>在 PIM 中激活我的 Azure AD 角色
 
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 简化了
 
 # <a name="new-version"></a>[新版本](#tab/new)
 
-## <a name="activate-a-role"></a>激活角色
+## <a name="activate-a-role-for-new-version"></a>激活新版本的角色
 
 需要充当某个 Azure AD 角色时，可在 Privileged Identity Management 中通过打开“我的角色”请求激活。
 
@@ -80,7 +80,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 简化了
 
     ![“激活请求正在等待审批”通知](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests"></a>查看请求的状态
+## <a name="view-the-status-of-your-requests-for-new-version"></a>查看新版本的请求状态
 
 可以查看等待激活的请求的状态。
 
@@ -92,7 +92,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 简化了
 
 1. 向右滚动以查看“请求状态”**** 列。
 
-## <a name="cancel-a-pending-request"></a>取消挂起的请求
+## <a name="cancel-a-pending-request-for-new-version"></a>取消新版本的挂起请求
 
 如果不需要激活需要审批的角色，随时可以取消等待中的请求。
 
@@ -106,7 +106,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 简化了
 
    ![突出显示“取消”操作的“我的请求”列表](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>故障排除
+## <a name="troubleshoot-for-new-version"></a>对新版本进行故障排除
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>激活角色后，权限未被授予
 

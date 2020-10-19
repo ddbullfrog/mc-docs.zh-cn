@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/07/2018
-ms.date: 07/06/2020
-ms.openlocfilehash: abbebca6c5713c6b54a1faddf5f61c0659b48506
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/09/2020
+ms.openlocfilehash: 5fb211e8478190592a816348838e9dc20c7e9d79
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226167"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936805"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 流分析中的查询并行化
 本文说明了如何利用 Azure 流分析中的并行化。 了解如何通过配置输入分区和调整分析查询定义来缩放流分析作业。
@@ -41,7 +41,7 @@ ms.locfileid: "86226167"
 -   事件中心（需显式设置分区键）
 -   IoT 中心（需显式设置分区键）
 -   服务总线
-- 使用可选分区的 SQL 和 SQL 数据仓库：请在[“输出到 Azure SQL 数据库”页](/stream-analytics/stream-analytics-sql-output-perf)中查看详细信息。
+- 具有可选分区的 SQL：请在[“输出到 Azure SQL 数据库”页](/stream-analytics/stream-analytics-sql-output-perf)中查看详细信息。
 
 Power BI 不支持分区。 但仍可对输入进行分区，如[本节](#multi-step-query-with-different-partition-by-values)中所述 
 

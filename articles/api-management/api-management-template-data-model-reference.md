@@ -3,34 +3,35 @@ title: Azure API 管理模板数据模型参考
 description: 了解数据模型中常用项目的实体和类型表示形式，这些数据模型适用于 Azure API 管理中的开发人员门户模板。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: erikre
 editor: ''
+origin.date: 11/04/2019
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 11/04/2019
-ms.author: v-yiso
-ms.date: 11/18/2019
-ms.openlocfilehash: e230de285e3cddaf7bb9804de584d5a685ac932d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.openlocfilehash: aa306741d24e9d64a3b9e8deec0191069e13faa1
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291277"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871116"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理模板数据模型参考
 本主题介绍数据模型中常用项目的实体和类型表示形式，这些数据模型适用于 Azure API 管理中的开发人员门户模板。  
   
  如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
-  
+
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="reference"></a>参考
+
 -   [API](#API)  
 -   [API 摘要](#APISummary)  
 -   [应用程序](#Application)  
@@ -267,7 +268,7 @@ ms.locfileid: "79291277"
 |properties|类型|说明|  
 |--------------|----------|-----------------|  
 |`Properties`|字符串字典|此身份验证提供程序的属性。|  
-|`AuthenticationType`|字符串|提供程序类型。 （Azure Active Directory、Facebook 登录、Google 帐户、Microsoft 帐户、Twitter）。|  
+|`AuthenticationType`|字符串|提供程序类型。 （Azure Active Directory、Microsoft 帐户）。|  
 |`Caption`|字符串|提供程序的显示名称。|  
   
 ##  <a name="representation"></a><a name="Representation"></a> 表示形式  
@@ -288,7 +289,7 @@ ms.locfileid: "79291277"
 |`ProductTitle`|字符串|产品的名称。 不得为空。 最大长度为 100 个字符。|  
 |`ProductDescription`|字符串|产品说明。 不得为空。 可以包含 HTML 格式标记。 最大长度为 1000 个字符。|  
 |`ProductDetailsUrl`|字符串|指向产品详细信息的相对 URL。|  
-|`state`|字符串|订阅的状态。 可能的状态包括：<br /><br /> - `0 - suspended` – 订阅被阻止，订阅服务器无法调用产品的任何 API。<br /><br /> - `1 - active` – 订阅处于活动状态。<br /><br /> - `2 - expired` – 订阅已达到其到期日期，因此已停用。<br /><br /> - `3 - submitted` – 开发人员已提交订阅请求，但管理员尚未批准或拒绝该请求。<br /><br /> - `4 - rejected` – 管理员已拒绝订阅请求。<br /><br /> - `5 - cancelled` – 开发人员或管理员已取消订阅。|  
+|`state`|字符串|订阅的状态。 可能的状态包括：<br /><br /> - `0 - suspended` - 订阅被阻止，订阅服务器无法调用产品的任何 API。<br /><br /> - `1 - active` - 订阅处于活动状态。<br /><br /> - `2 - expired` - 订阅已达到其到期日期，因此已停用。<br /><br /> - `3 - submitted` - 开发人员已提交订阅请求，但管理员尚未批准或拒绝该请求。<br /><br /> - `4 - rejected` - 管理员已拒绝订阅请求。<br /><br /> - `5 - cancelled` - 开发人员或管理员已取消订阅。|  
 |`DisplayName`|字符串|订阅的显示名称。|  
 |`CreatedDate`|dateTime|订阅的创建日期，采用 ISO 8601 格式：`2014-06-24T16:25:00Z`。|  
 |`CanBeCancelled`|boolean|当前用户是否可以取消订阅。|  
@@ -362,4 +363,5 @@ ms.locfileid: "79291277"
 |`ProviderName`|字符串|身份验证提供程序名称。|
 
 ## <a name="next-steps"></a>后续步骤
-如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。
+如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](api-management-developer-portal-templates.md)。
+

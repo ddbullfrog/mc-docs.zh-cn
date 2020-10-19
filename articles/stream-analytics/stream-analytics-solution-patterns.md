@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/21/2019
-ms.date: 08/20/2020
-ms.openlocfilehash: 57de1e0cef7c5a797838dd867d4405dc1a60deb1
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 10/09/2020
+ms.openlocfilehash: 89be8c8a6e2303b009e89ac5f8296241ed837df5
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715768"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936823"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure 流分析解决方案模式
 
@@ -22,7 +22,7 @@ ms.locfileid: "88715768"
 <!--Not available in MC: Create a Stream Analytics job to power real-time dashboarding experience-->
 ## <a name="use-sql-for-dashboard"></a>对仪表板使用 SQL
 
-Power BI 仪表板提供较低的延迟，但无法用于生成完备的 Power BI 报表。 常见报告模式是先将数据输出到 SQL 数据库。 然后使用 Power BI 的 SQL 连接器在 SQL 中查询最新数据。
+常见报告模式是先将数据输出到 SQL 数据库。 然后使用 Power BI 的 SQL 连接器在 SQL 中查询最新数据。
 
 ![ASA SQL 仪表板](./media/stream-analytics-solution-patterns/sql-dashboard.png)
 
@@ -94,7 +94,7 @@ Azure 流分析的内置[异常情况检测模型](stream-analytics-machine-lear
 
 ## <a name="use-reference-data-for-enrichment"></a>使用引用数据进行扩充
 
-ETL 引擎通常需要数据扩充。 Azure 流分析支持使用 SQL 数据库和 Azure Blob 存储中的[参考数据](stream-analytics-use-reference-data.md)扩充数据。 可以扩充进入 Azure Data Lake 和 SQL 数据仓库的数据。
+ETL 引擎通常需要数据扩充。 Azure 流分析支持使用 SQL 数据库和 Azure Blob 存储中的[参考数据](stream-analytics-use-reference-data.md)扩充数据。 可以扩充进入 Azure Data Lake 和 Azure Synapse Analytics 的数据。
 
 
 ![使用数据扩充进行 ASA 脱机分析](./media/stream-analytics-solution-patterns/offline-analytics-enriched.png)

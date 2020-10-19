@@ -1,22 +1,22 @@
 ---
-title: 从通用化映像创建规模集
-description: 使用共享映像库中的通用化映像创建规模集。
+title: 使用 Azure PowerShell 根据通用化映像创建规模集
+description: 借助 PowerShell 使用共享映像库中的通用化映像创建规模集。
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
 ms.reviewer: akjosh
-ms.openlocfilehash: 52d53292715d25352d6287587dd6fa1031ba6bc3
-ms.sourcegitcommit: 87e789550ea49ff77c7f19bc68fad228009fcf44
+ms.openlocfilehash: 57e9a5ad378180ec5a4ab021852f25a0f273eb29
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749540"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937144"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>从通用化映像创建规模集
+# <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>使用 PowerShell 根据通用化映像创建规模集 
 
 从[共享映像库](shared-image-galleries.md)中存储的通用化映像版本创建 VM。 若要使用专用化映像创建规模集，请参阅[从专用化映像创建规模集实例](instance-specialized-image-version-powershell.md)。
 
@@ -27,7 +27,7 @@ ms.locfileid: "83749540"
 请注意，使用特定映像版本意味着：如果该特定映像版本由于已删除或已从区域中删除而无法使用，则自动化可能会失败。 建议使用映像定义 ID 来创建新的 VM（除非需要特定的映像版本）。
 
 
-以下示例在 chinanorth 位置的“myVMSSRG”资源组中创建名为“myScaleSet”的规模集。 将基于“myGalleryRG”资源组的“myGallery”映像库中的“myImageDefinition”映像创建该规模集。 出现提示时，请为该规模集中的 VM 实例设置自己的管理凭据。
+以下示例在 chinanorth2 位置的 myVMSSRG 资源组中创建一个名为 myScaleSet 的规模集  。 将基于“myGalleryRG”资源组的“myGallery”映像库中的“myImageDefinition”映像创建该规模集。 出现提示时，请为该规模集中的 VM 实例设置自己的管理凭据。
 
 
 ## <a name="simplified-parameter-set"></a>简化参数集
@@ -46,7 +46,7 @@ $cred = Get-Credential `
    -Message "Enter a username and password for the virtual machine."
 
 # Create the resource group and scale set
-New-AzResourceGroup -ResourceGroupName myVMSSRG -Location chinanorth
+New-AzResourceGroup -ResourceGroupName myVMSSRG -Location chinanorth2
 New-AzVmss `
    -Credential $cred `
    -VMScaleSetName myScaleSet `
@@ -77,7 +77,7 @@ $cred = Get-Credential `
 # Define variables for the scale set
 $resourceGroupName = "myVMSSRG"
 $scaleSetName = "myScaleSet"
-$location = "China North"
+$location = "China North 2"
 
 # Create a resource group
 New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location $location
@@ -180,5 +180,5 @@ New-AzVmss `
 - [在共享的映像库中创建映像定义](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [在共享映像库中创建映像版本](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-有关共享映像库的详细信息，请参阅[概述](shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](troubleshooting-shared-images.md)。
+有关共享映像库的详细信息，请参阅[概述](shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](../virtual-machines/troubleshooting-shared-images.md)。
 

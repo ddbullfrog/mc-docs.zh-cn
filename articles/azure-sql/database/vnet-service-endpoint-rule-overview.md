@@ -11,21 +11,21 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, genemi
 origin.date: 11/14/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 422bf14e847a38fe1280c00784331dfedbde949d
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: aa96c5a0e4e2541627f9e40906bc978fcca8dd25
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014359"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872473"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>使用适用于 Azure SQL 数据库中的服务器的虚拟网络服务终结点和规则
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*虚拟网络规则*是一种防火墙安全功能，用于控制是否允许 Azure [SQL 数据库](sql-database-paas-overview.md)中的数据库和弹性池的服务器或 [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 中数据库的数据库服务器接受从虚拟网络中的特定子网发送的通信。 本文说明了为何有时候最好选择虚拟网络规则功能来安全地启用到 Azure SQL 数据库中的数据库和 SQL 数据仓库的通信。
+*虚拟网络规则*是一种防火墙安全功能，用于控制是否允许 Azure [SQL 数据库](sql-database-paas-overview.md)中的数据库和弹性池的服务器或 [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 中数据库的数据库服务器接受从虚拟网络中的特定子网发送的通信。 本文说明了为何有时候最好选择虚拟网络规则功能来安全地启用到 Azure SQL 数据库中的数据库和 Azure Synapse Analytics（旧称为 SQL 数据仓库）的通信。
 
 > [!NOTE]
-> 本文适用于 Azure SQL 数据库和 Azure Synapse Analytics（以前的 SQL 数据仓库）。 为简单起见，术语“数据库”是指 Azure SQL 数据库中的数据库和 Azure Synapse Analytic 中的数据库。 同样，无论何时提及“服务器”，都是指托管 Azure SQL 数据库和 Azure Synapse Analytics[ 的逻辑 SQL Server](logical-servers.md)。
+> 本文同时适用于 Azure SQL 数据库和 Azure Synapse Analytics。 为简单起见，术语“数据库”是指 Azure SQL 数据库中的数据库和 Azure Synapse Analytic 中的数据库。 同样，无论何时提及“服务器”，都是指托管 Azure SQL 数据库和 Azure Synapse Analytics[ 的逻辑 SQL Server](logical-servers.md)。
 
 若要创建虚拟网络规则，首先必须具有可供规则引用的[虚拟网络服务终结点][vm-virtual-network-service-endpoints-overview-649d]。
 
@@ -105,7 +105,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>将 VNet 服务终结点与 Azure 存储配合使用的影响
 
-Azure 存储已实现相同的功能，允许限制到 Azure 存储帐户的连接。 如果选择将此功能与某个 Azure 存储帐户配合使用，而该帐户正由 Azure SQL 数据库使用，则可能会出现问题。 接下来会列出受此影响的 Azure SQL 数据库和 Azure SQL 数据仓库功能并对其进行讨论。
+Azure 存储已实现相同的功能，允许限制到 Azure 存储帐户的连接。 如果选择将此功能与某个 Azure 存储帐户配合使用，而该帐户正由 Azure SQL 数据库使用，则可能会出现问题。 接下来会列出受此影响的 Azure SQL 数据库和 Azure Synapse Analytics 功能并对其进行讨论。
 
 ### <a name="azure-synapse-polybase-and-copy-statement"></a>Azure Synapse PolyBase 和 COPY 语句
 

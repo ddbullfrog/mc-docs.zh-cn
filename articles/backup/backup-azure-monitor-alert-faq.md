@@ -5,14 +5,14 @@ ms.reviewer: srinathv
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 07/08/2019
-ms.date: 06/29/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: f50588560225c76c7249d0c42b3d393ea7e3d1f9
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 69539818477710ca067aced4396288916fa57ec2
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851978"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871223"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure 备份监视警报 - 常见问题解答
 
@@ -22,7 +22,7 @@ ms.locfileid: "85851978"
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>如何确定报告数据是否已开始流向 Log Analytics (LA) 工作区？
 
-导航到已配置的 LA 工作区，导航到“日志”菜单项，然后运行查询 CoreAzureBackup | 选择 1。 如果看到返回了记录，则表示数据已开始流入工作区。 初始数据推送可能需要长达 24 小时。
+导航到已配置的 LA 工作区。 导航到“日志”菜单项，然后运行查询 `CoreAzureBackup | take 1`。 如果看到返回了记录，则表示数据已开始流入工作区。 初始数据推送可能需要长达 24 小时。
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>向 LA 工作区推送数据的频率是怎样的？
 
@@ -41,27 +41,11 @@ ms.locfileid: "85851978"
 
 ### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>配置 LA 工作区后，报告中是否会显示我的所有数据？
 
- 在你配置诊断设置后生成的所有数据都会推送到 LA 工作区，并会显示在报告中。 不会为报表推送正在进行的作业。 作业完成或失败后，会将其发送到报告。
+ 在你配置诊断设置后生成的所有数据都会推送到 LA 工作区，并会显示在报告中。 不会为报表推送正在进行的作业。 作业完成或失败后，会将其发送到报表。
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>能否跨保管库和订阅查看报表？
 
 能，你可以跨保管库、订阅以及区域查看报告。 你的数据可能驻留在单个 LA 工作区或一组 LA 工作区中。
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>多长时间后，门户中会反映 Azure 备份代理作业状态？
-
-最长可能需要 15 分钟，Azure 门户才会反映 Azure 备份代理作业状态。
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>备份作业失败后，需要多长时间才会引发警报？
-
-Azure 备份失败后，会在 20 分钟内引发警报。
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>是否存在配置了通知却不发送电子邮件的情况？
-
-是的。 在以下情况下，不会发送通知：
-
-* 已将通知配置为每小时发送，并且在一小时内引发并解决了警报
-* 取消了作业
-* 由于原始备份作业正在进行，另一个备份作业失败
 
 ## <a name="recovery-services-vault"></a>恢复服务保管库
 

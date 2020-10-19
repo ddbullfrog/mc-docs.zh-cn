@@ -5,14 +5,14 @@ ms.reviewer: sogup
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/17/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: f1dd4394da3f0c489809962efdb8efd9998b5440
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: c683a9ea7e7f25bc6e44e68ad6c2a17dfc339e3b
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402634"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871464"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常见问题 - 备份 Azure VM
 
@@ -23,6 +23,12 @@ ms.locfileid: "91402634"
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>哪些 VM 映像可以在创建时启用备份功能？
 
 创建 VM 时，可以为运行[受支持操作系统](backup-support-matrix-iaas.md#supported-backup-actions)的 VM 启用备份。
+
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>为什么初始备份需要很长的时间才能完成？
+
+初始备份始终是完整备份，它取决于数据大小和处理备份的时间。 <br>
+若要提高备份性能，请参阅[备份最佳做法](/backup/backup-azure-vms-introduction#best-practices)、[备份注意事项](/backup/backup-azure-vms-introduction#backup-and-restore-considerations)和[备份性能](/backup/backup-azure-vms-introduction#backup-performance)<br>
+增量备份的总备份时间不超过 24 小时，但是，首次备份可能并非如此。
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>备份成本包含在 VM 成本内吗？
 
@@ -104,6 +110,10 @@ Azure 虚拟机备份策略支持的最短保持期为 7 天，最长为 9999 �
 
 Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性磁盘备份和还原。 有关详细信息，请参阅 [Azure VM 的选择性磁盘备份和还原](selective-disk-backup-restore.md)。
 
+### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>如果在备份过程中发生租户更改，是否保留托管标识？
+
+如果发生[租户更改](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection)，则需要禁用并重新启用[托管标识](/active-directory/managed-identities-azure-resources/overview)才能重新运行备份。
+
 ## <a name="restore"></a>还原
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>如何确定是仅还原磁盘还是要还原整个 VM？
@@ -153,6 +163,10 @@ Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性�
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>在还原后我是否由于 VM 与域控制器的关系被破坏而可以访问 VM？
 
 可以，由于 VM 与域控制器的关系被破坏，因此在还原后可以访问 VM。 有关详细信息，请参阅[此文](./backup-azure-arm-restore-vms.md#post-restore-steps)
+
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>为什么还原操作需要很长时间才能完成？
+
+总还原时间取决于存储帐户的每秒输入/输出操作次数 (IOPS) 和吞吐量。 如果目标存储帐户加载了其他应用程序读写操作，则总还原时间可能会受到影响。 若要改进还原操作，请选择未加载其他应用程序数据的存储帐户。
 
 ## <a name="manage-vm-backups"></a>管理 VM 备份
 

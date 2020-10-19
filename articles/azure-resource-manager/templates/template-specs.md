@@ -3,23 +3,23 @@ title: 模板规格概述
 description: 介绍如何创建模板规格并与组织中的其他用户共享。
 ms.topic: conceptual
 origin.date: 08/31/2020
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes|no
 ms.testdate: 08/24/2020null
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 5e191456a170c93165c65035d80b0e8eaba4f300
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: e751d8d38482ec78f730dd37ee265d7b66fa4e63
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146713"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937169"
 ---
 <!--Not Available on MOONCAKE-->
 <!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure 资源管理器模板规格（预览版）
 
-模板规格是一种新资源类型，用于在 Azure 中存储 Azure 资源管理器模板（ARM 模板），以便之后进行部署。 通过该资源类型，你可以与组织中的其他用户共享 ARM 模板。 与任何其他 Azure 资源一样，模板规格也可以使用基于角色的访问控制 (RBAC) 来共享。
+模板规格是一种新资源类型，用于在 Azure 中存储 Azure 资源管理器模板（ARM 模板），以便之后进行部署。 通过该资源类型，你可以与组织中的其他用户共享 ARM 模板。 与其他任何 Azure 资源一样，也可使用 Azure 基于角色的访问控制 (Azure RBAC) 来共享模板规格。
 
 Microsoft.Resources/templateSpecs 是模板规格的新资源类型。 它包含一个主模板和任意数量的链接模板。 Azure 将模板规格安全存储在资源组中。 模板规格支持[版本控制](#versioning)。
 

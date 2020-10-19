@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/09/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 6188f67b42b7753f4bc4860fbdd76b78ce37ade1
-ms.sourcegitcommit: 81241aa44adbcac0764e2b5eb865b96ae56da6b7
+ms.openlocfilehash: b382218ae5c199801c6fc1e4d854fc4784086b78
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "83001956"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871378"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何使用 Azure API 管理中的服务备份和还原实现灾难恢复
 
@@ -169,19 +169,25 @@ POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resource
 
 备份是长时间运行的操作，可能需要数分钟才能完成。 如果请求已成功且备份过程已开始，则会收到带有 `Location` 标头的 `202 Accepted` 响应状态代码。 向 `Location` 标头中的 URL 发出“GET”请求以查明操作状态。 当备份正在进行时，将继续收到“202 已接受”状态代码。 响应代码 `200 OK` 指示备份操作成功完成。
 
-发出备份或还原请求时请注意以下限制：
+#### <a name="constraints-when-making-backup-or-restore-request"></a>发出备份请求或还原请求时的限制
 
 -   请求正文中指定的**容器** **必须存在**。
 -   当备份正在进行时，请**避免在服务中进行管理更改**，例如 SKU 升级或降级、域名更改等。
 -   从创建时开始，**备份还原仅保证 30 天**。
--   用于创建分析报表的**用法数据** **不包括**在备份中。 使用 [Azure API 管理 REST API][azure api management rest api] 定期检索分析报表以保证安全。
--   此外，以下项不是备份数据的一部分：自定义域 TLS/SSL 证书、客户上传的任何中间证书或根证书、开发人员门户内容和虚拟网络集成设置。
--   执行服务备份的频率将影响恢复点目标。 为了最大程度减少它，建议实施定期备份，以及在对 API 管理服务进行更改后执行按需备份。
 -   备份操作正在进行时对服务配置（例如 API、策略、开发人员门户外观）所做的**更改** **可能不包含在备份中，会丢失**。
--   允许  从控制平面访问 Azure 存储帐户，前提是它已启用[防火墙][azure-storage-ip-firewall]。 客户应在其存储帐户上打开一组 [Azure API 管理控制平面 IP 地址][control-plane-ip-address]，以便将数据备份到其中或从其中还原数据。 
+-   允许  从控制平面访问 Azure 存储帐户，前提是它已启用[防火墙][azure-storage-ip-firewall]。 客户应在其存储帐户上打开一组 [Azure API 管理控制平面 IP 地址][control-plane-ip-address]，以便将数据备份到其中或从其中还原数据。 这是因为对 Azure 存储的请求不会通过“计算”>（Azure API 管理控制平面）以 SNAT 方式转换成公共 IP。 跨区域存储请求将进行 SNAT 转换。
 
-> [!NOTE]
-> 如果尝试在同一个 Azure 区域中使用启用了[防火墙][azure-storage-ip-firewall]的存储帐户从/向 API 管理服务进行备份/还原，那么这样做会无效。 这是因为对 Azure 存储的请求不会通过“计算”>（Azure API 管理控制平面）以 SNAT 方式转换成公共 IP。 跨区域存储请求将进行 SNAT 转换。
+#### <a name="what-is-not-backed-up"></a>不备份的内容
+-   用于创建分析报表的**用法数据** **不包括**在备份中。 使用 [Azure API 管理 REST API][azure api management rest api] 定期检索分析报表以保证安全。
+-   [自定义域 TLS/SSL](configure-custom-domain.md) 证书
+-   [自定义 CA 证书](api-management-howto-ca-certificates.md)，包括客户上传的中间或根证书
+-   [虚拟网络](api-management-using-with-vnet.md)集成设置。
+-   [托管的标识](api-management-howto-use-managed-service-identity.md)配置。
+-   [Azure Monitor 诊断](api-management-howto-use-azure-monitor.md)配置。
+-   [协议和密码](api-management-howto-manage-protocols-ciphers.md)设置。
+-   [开发人员门户](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management)内容。
+
+执行服务备份的频率将影响恢复点目标。 为了最大程度减少它，建议实施定期备份，以及在对 API 管理服务进行更改后执行按需备份。
 
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>还原 API 管理服务
 
@@ -229,7 +235,7 @@ POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resource
 
 -   [复制 Azure API 管理帐户](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [使用逻辑应用自动执行 API 管理备份和还原](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API 管理：备份和还原配置](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+-   [Azure API 管理：备份和还原配置](https://docs.microsoft.com/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration)
      Stuart 详述的方法与官方指南不匹配，但非常有趣。 
 
 [backup an api management service]: #step1

@@ -11,13 +11,13 @@ ms.author: v-jay
 author: WenJason
 ms.reviewer: sstein
 origin.date: 02/07/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: bad2564c83f97f9688378a879fdbbebf56c06685
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: 98a2a930d9b2d9190116f62b2567d5aaf8d72ef7
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014229"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872446"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>使用 Transact-SQL (T-SQL) 创建和管理弹性数据库作业（预览版）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -367,7 +367,7 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ```sql
 --Connect to the job database specified when creating the job agent
 
--- Delete history of a specific job�s executions older than the specified date
+-- Delete history of a specific job's executions older than the specified date
 EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-01 00:00:00'
 
 --Note: job history is automatically deleted if it is >45 days old
@@ -1033,7 +1033,7 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 服务器的名称。 refresh_credential_name 为 nvarchar(128)，没有默认值。
 
 [ **\@server_name =** ] 'server_name'  
-应添加到指定目标组的服务器的名称。 当 target_type 为“SqlServer”时，应指定 server_name。 server_name 为 nvarchar(128)，没有默认值。
+应添加到指定目标组的服务器的名称。 当 target_type 为 'SqlServer' 时，应指定 server_name。 server_name 为 nvarchar(128)，没有默认值。
 
 [ **\@database_name =** ] 'database_name'  
 应添加到指定目标组的数据库的名称。 当 target_type 为 'SqlDatabase' 时，应指定 database_name。 database_name 为 nvarchar(128)，没有默认值。
@@ -1239,7 +1239,7 @@ GO
 |**target_type**|nvarchar(128)|目标数据库或数据库集合的类型，其中包括一个服务器中的所有数据库、一个弹性池中的所有数据库，或者单个数据库。 target_type 的有效值为 'SqlServer'、'SqlElasticPool' 或 'SqlDatabase'。 NULL 指示这是父作业执行操作。
 |**target_id** | uniqueidentifier | 目标组成员的唯一 ID。  NULL 指示这是父作业执行操作。
 |**target_group_name** | nvarchar(128) | 目标组的名称。 NULL 指示这是父作业执行操作。
-|**target_server_name**|    nvarchar(256)|  包含在目标组中的 SQL 数据库服务器的名称。 仅当 target_type 为 'SqlServer' 时指定。 NULL 指示这是父作业执行操作。
+|**target_server_name** | nvarchar(256)  | 包含在目标组中的服务器的名称。 仅当 target_type 为 'SqlServer' 时指定。 NULL 指示这是父作业执行操作。
 |**target_database_name**|nvarchar(128)|包含在目标组中的数据库的名称。 仅当 target_type 为 'SqlDatabase' 时指定。 NULL 指示这是父作业执行操作。
 
 ### <a name="jobs-view"></a>作业视图
@@ -1285,7 +1285,7 @@ GO
 |**step_id**|int|步骤的唯一（是针对该作业的）标识符。|
 |**step_name**|nvarchar(128)|步骤的唯一（就此作业来说）名称。|
 |**command_type**|nvarchar(50)|要在作业步骤中执行的命令的类型。 就 v1 来说，值必须等于 'TSql'（默认设置）。|
-|**command_source** |nvarchar(50)|  命令的位置。 就 v1 来说，'Inline' 是默认值，也是唯一接受的值。|
+|**command_source**|nvarchar(50)|命令的位置。 就 v1 来说，'Inline' 是默认值，也是唯一接受的值。|
 |**command**|nvarchar(max)|将要由弹性作业按 command_type 执行的命令。|
 |**credential_name**|nvarchar(128)|用于执行作业的数据库范围的凭据的名称。|
 |**target_group_name**|nvarchar(128)|目标组的名称。|

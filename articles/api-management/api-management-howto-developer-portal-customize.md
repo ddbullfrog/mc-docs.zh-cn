@@ -3,7 +3,7 @@ title: 访问和自定义托管开发人员门户 - Azure API 管理 | Microsoft
 description: 了解如何使用 API 管理中的托管版开发人员门户。
 services: api-management
 documentationcenter: API Management
-author: mikebudzynski
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 11/22/2019
-ms.date: 12/16/2019
-ms.author: apimpm
-ms.openlocfilehash: c51daf18263ef0abf315bae5fabd9834be686374
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.openlocfilehash: baceebe52365cf506d8256fc84e25524cfd1a1b2
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291280"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871386"
 ---
 # <a name="access-and-customize-developer-portal"></a>访问和自定义开发人员门户
 
@@ -35,7 +35,7 @@ ms.locfileid: "79291280"
 
 可以在 [Azure API 管理开发人员门户概述](api-management-howto-developer-portal.md)中找到有关开发人员门户的详细信息。
 
-![API 管理开发人员门户 - 管理模式](media/api-management-howto-developer-portal-customize/cover.png)
+![API 管理开发人员门户 - 管理模式](./media/api-management-howto-developer-portal-customize/cover.png)
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -65,7 +65,7 @@ ms.locfileid: "79291280"
 
 ### <a name="layouts-and-pages"></a>布局和页面
 
-![页面和布局](media/api-management-howto-developer-portal-customize/pages-layouts.png)
+![页面和布局](./media/api-management-howto-developer-portal-customize/pages-layouts.png)
 
 布局定义页面的显示方式。 例如，默认内容中有两个布局 - 一个布局应用于主页，另一个布局应用于所有剩余页面。
 
@@ -75,7 +75,7 @@ ms.locfileid: "79291280"
 
 ### <a name="styling-guide"></a>样式指引
 
-![样式指引](media/api-management-howto-developer-portal-customize/styling-guide.png)
+![样式指引](./media/api-management-howto-developer-portal-customize/styling-guide.png)
 
 样式指引是根据设计器创建的面板。 在此面板中可以检查门户中的所有视觉元素并设置其样式。 样式是分层的 - 许多元素从其他元素继承属性。 例如，按钮元素使用文本和背景的颜色。 若要更改按钮颜色，需要更改原始颜色变体。
 
@@ -83,7 +83,7 @@ ms.locfileid: "79291280"
 
 ### <a name="save-button"></a>“保存”按钮
 
-![“保存”按钮](media/api-management-howto-developer-portal-customize/save-button.png)
+![“保存”按钮](./media/api-management-howto-developer-portal-customize/save-button.png)
 
 每当在门户中进行更改，都需要按下底部菜单中的“保存”按钮来手动保存更改。  保存更改时，修改的内容会自动上传到 API 管理服务。
 
@@ -114,7 +114,7 @@ ms.locfileid: "79291280"
 
 1. 请务必单击“保存”图标保存更改。 
 1. 在菜单的“操作”部分单击“发布网站”。   此操作可能需要几分钟的时间。  
-    ![发布门户](media/api-management-howto-developer-portal-customize/publish-portal.png)
+    ![发布门户](./media/api-management-howto-developer-portal-customize/publish-portal.png)
 
 > [!NOTE]
 > API 管理服务配置更改后，需要重新发布门户，例如分配自定义域、更新标识提供者、设置委托、指定登录和产品条款等。
@@ -123,8 +123,13 @@ ms.locfileid: "79291280"
 
 发布门户后，可以通过管理面板所用的相同 URL（例如 `https://contoso-api.developer.azure-api.cn`）访问该门户。 在单独的浏览器会话（incognito/专用浏览模式）中以外部访问者身份查看它。
 
+## <a name="apply-the-cors-policy-on-apis"></a>在 API 上应用 CORS 策略
+
+需要在 API 上启用 CORS（跨域资源共享），才能使门户的访问者能够通过内置交互控制台来测试该 API。 有关更多详细信息，请参阅[此文档文章](api-management-howto-developer-portal.md#cors)。
+
 ## <a name="next-steps"></a>后续步骤
 
 详细了解开发人员门户：
 
 - [Azure API 管理开发人员门户概述](api-management-howto-developer-portal.md)
+

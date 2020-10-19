@@ -2,19 +2,19 @@
 title: 将资源移动到新的订阅或资源组
 description: 使用 Azure Resource Manager 将资源移到新的资源组或订阅。
 ms.topic: conceptual
-origin.date: 09/11/2020
+origin.date: 09/15/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f0b3826f7aa7780fc437165edbbfb7d9666bdb20
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 05c0dd7916504e08b33c0e99f2d4012b284dca75
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146423"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937195"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>将资源移到新的资源组或订阅
 
@@ -32,8 +32,8 @@ ms.locfileid: "91146423"
 
 1. 某些服务在移动资源时有特定的限制或要求。 如果要移动以下任何服务，请在移动之前查看该指南。
 
-   * 如果使用 Azure Stack Hub，则无法在组之间移动资源。
-   * [应用程序服务移动指南](./move-limitations/app-service-move-limitations.md)
+    * 如果使用 Azure Stack Hub，则无法在组之间移动资源。
+    * [应用程序服务移动指南](./move-limitations/app-service-move-limitations.md)
         
         <!--Not Available on * [Azure DevOps Services move guidance](https://docs.microsoft.com/azure/devops/organizations/billing/change-azure-subscription?toc=/azure-resource-manager/toc.json)-->
     
@@ -43,7 +43,12 @@ ms.locfileid: "91146423"
         <!-- Not Available on * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure-resource-manager/toc.json)-->
 
     * [虚拟机移动指南](./move-limitations/virtual-machines-move-limitations.md)
-    
+
+
+1. 如果移动的资源具有直接分配给该资源（或子资源）的 Azure 角色，则该角色分配不会移动并会处于孤立状态。 移动后必须重新创建角色分配。 最终，会自动删除孤立的角色分配，但最好是在移动资源之前删除角色分配。
+
+    有关如何管理角色分配的信息，请参阅[列出 Azure 角色分配](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope)和[添加或删除 Azure 角色分配](../../role-based-access-control/role-assignments-portal.md)。
+  
     <!--MOONCAKE: CUSTOMIZED ON **Support type** category-->
         
 1. 源订阅和目标订阅必须处于活动状态。 如果在启用已禁用的帐户时遇到问题，请[创建 Azure 支持请求](https://support.azure.cn/support/support-azure/)。 在**支持类型**中选择“订阅管理”  作为问题类型。
@@ -189,7 +194,7 @@ Authorization: Bearer <access-token>
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="跨订阅移动方案":::
 
-若要启用移动选项，请选择要移动的资源。 若要选择所有资源，请选中列表顶部的复选框。 或者，分别选择各个资源。
+若要启用移动选项，请选择要移动的资源。 若要选择所有资源，请选中列表顶部的复选框。 或者，分别选择各个资源。 选择资源后，将启用移动选项。
 
 :::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="跨订阅移动方案":::
 
@@ -237,7 +242,7 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 <a name="use-azure-cli"></a>
 ## <a name="use-azure-cli"></a>使用 Azure CLI
 
-若要将现有资源移动到另一个资源组或订阅，请使用 [az resource move](https://docs.azure.cn/cli/resource#az-resource-move) 命令。 提供要移动的资源的资源 ID。 下面的示例演示了如何将多个资源移动到新的资源组。 在 `--ids` 参数中，提供要移动的资源 ID 的空格分隔列表。
+若要将现有资源移动到另一个资源组或订阅，请使用 [az resource move](https://docs.azure.cn/cli/resource#az_resource_move) 命令。 提供要移动的资源的资源 ID。 下面的示例演示了如何将多个资源移动到新的资源组。 在 `--ids` 参数中，提供要移动的资源 ID 的空格分隔列表。
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

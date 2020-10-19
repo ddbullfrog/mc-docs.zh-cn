@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 60a4c473a993c3e9c0b61e473dd60078dad71acf
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: aed7f51df2e4a5b13d1662d0f469cccbb93bcaf5
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297696"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937052"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 OpenID Connect 进行 Web 登录
 
@@ -219,7 +219,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | {policy} | 是 | 用于获取原始刷新令牌的用户流。 无法在此请求中使用不同的用户流。 将此参数添加到查询字符串中，而不是添加到 POST 正文中。 |
 | client_id | 是 | [Azure 门户](https://portal.azure.cn/)分配给应用程序的应用程序 ID。 |
 | client_secret | 是，在 Web 应用中 | 在 [Azure 门户](https://portal.azure.cn/)中生成的应用程序机密。 客户端密码在此流中用于 Web 应用场景，在其中客户端可以安全地存储客户端密码。 对于本机应用（公共客户端）场景，客户端密码不能安全地存储，因此不能用于此调用。 如果使用客户端密码，请定期更改。 |
-| grant_type | 是 | 授予类型，必须是此授权代码流部分的刷新令牌。 |
+| grant_type | 是 | 授予类型，该类型必须是这一部分授权代码流的 `refresh_token`。 |
 | refresh_token | 是 | 在流的第二部分获取的原始刷新令牌。 必须在授权和令牌请求中使用范围 `offline_access`，才能接收刷新令牌。 |
 | redirect_uri | 否 | 在其中收到授权代码的应用程序的 `redirect_uri` 参数。 |
 | scope | 否 | 范围的空格分隔列表。 `openid` 作用域表示允许使用 ID 令牌的形式使用户登录并获取有关用户的数据。 它可以用于向应用程序的后端 Web API 发送令牌，该令牌使用和客户端相同的应用程序 ID 表示。 `offline_access` 范围表示应用程序需要使用刷新令牌来长期访问资源。 |

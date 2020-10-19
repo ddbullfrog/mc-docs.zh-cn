@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 60e3ea35ab1399c2eaa8b9134604782a9f04f57f
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 5aca14d63cf276634df19667d9f3cecc9e2889f4
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297689"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937054"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>关于 Azure Active Directory B2C 自定义策略中的技术配置文件
 
@@ -32,6 +32,7 @@ ms.locfileid: "87297689"
 - [Azure Active Directory](active-directory-technical-profile.md) - 为 Azure Active Directory B2C 用户管理提供支持。
 - [Azure 多重身份验证](multi-factor-auth-technical-profile.md) - 使用 Azure 多重身份验证 (MFA) 为验证电话号码提供支持。 
 - 声明转换 - 调用输出声明转换，针对一组输出声明来操作声明值、验证声明或设置默认值。
+- [ID 令牌提示](id-token-hint.md) - 验证 `id_token_hint` JWT 令牌签名、颁发者名称和令牌受众，并从入站令牌中提取声明。
 - [JWT 令牌颁发者](jwt-issuer-technical-profile.md) - 发出返回给信赖方应用程序的 JWT 令牌。
 - OAuth1 - 与任何 OAuth 1.0 协议标识提供者联合。
 - OAuth2 - 与任何 OAuth 2.0 协议标识提供者联合。

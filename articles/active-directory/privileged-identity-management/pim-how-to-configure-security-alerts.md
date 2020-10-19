@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/27/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0fd9ad95e4121d0cc9ce5b068a763fd2e69418d
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 4f78b17933bfbdeef427a241385b7b601b2e0615
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046428"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937451"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中为 Azure AD 角色配置安全警报
 
@@ -108,8 +108,8 @@ ms.locfileid: "89046428"
 | **如何修复？** | 查看列表中的用户，删除不是绝对需要“全局管理员”角色的所有用户。 </br>改为这些用户分配特权更低的角色。 |
 | **防护** | 为用户分配他们所需的最低特权角色。 |
 | **门户中的缓解措施** | 从用户的特权角色中删除其帐户。 |
-| **触发器** | 如果满足两个不同的条件并且可以同时配置这两个条件，将触发此警报。 首先，需要达到全局管理员的某个特定阈值。 其次，总角色分配的特定百分比必须是全局管理员。 如果只满足其中一个度量，不会显示该警报。 |
-| **全局管理员的最少数目** | 此设置指定的全局管理员数量（2 到 100）你认为对你的 Azure AD 组织来说太少。 |
+| **触发器** | 如果满足两个不同的条件并且可以同时配置这两个条件，将触发此警报。 首先，需要达到全局管理员角色分配的某个特定阈值。 其次，总角色分配的特定百分比必须是全局管理员。 如果只满足其中一个度量，不会显示该警报。 |
+| **全局管理员的最少数目** | 此设置指定的全局管理员角色分配数量（2 到 100）你认为对你的 Azure AD 组织来说太少。 |
 | **全局管理员百分比** | 此设置指定属于全局管理员的管理员的最小百分比（0% 到 100%），你不希望你的 Azure AD 组织降到该值之下。 |
 
 ### <a name="roles-are-being-activated-too-frequently"></a>角色激活过于频繁
@@ -125,21 +125,21 @@ ms.locfileid: "89046428"
 | **激活续订时间范围** | 此设置以天、小时、分钟和秒为单位指定要用于跟踪可疑续订的时间段。 |
 | **激活续订次数** | 此设置指定你希望在所选时间范围内获得通知的激活次数（2 到 100）。 可通过移动滑块或在文本框中键入数字更改此设置。 |
 
-## <a name="configure-security-alert-settings"></a>配置安全警报设置
+## <a name="customize-security-alert-settings"></a>自定义安全警报设置
 
-从“警报”页转到“设置”****。
+在“警报”页上选择“设置” 。
 
 ![突出显示了“设置”的“警报”页](./media/pim-how-to-configure-security-alerts/alert-settings.png)
 
 在各个警报上自定义设置以适应你的环境和安全目标。
 
-![警报的“设置”页，用于启用和配置设置](./media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![警报的“设置”页，用于启用和配置设置](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 # <a name="previous-version"></a>[先前版本](#tab/previous)
 
 ![列出警报和严重性的“Azure AD 角色 - 警报”窗格](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## <a name="security-alerts"></a>安全警报
+## <a name="security-alert-details"></a>安全警报详细信息
 
 本部分列出 Azure AD 角色的所有安全警报，以及如何修复和防止这些警报。 严重性的含义如下：
 

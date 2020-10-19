@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
-ms.date: 08/21/2020
-ms.openlocfilehash: 74b913aebb0abe5b10117643f8e88180fa2e2f7f
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.date: 09/14/2020
+ms.openlocfilehash: 3e2c278338b251ddefdfc6c0bbb567cffa255b18
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394536"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937153"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>自动缩放 Azure HDInsight 群集
 
@@ -64,7 +64,7 @@ Azure HDInsight 的免费“自动缩放”功能可根据先前设置的条件�
 > [!Important]
 > Azure HDInsight 自动缩放功能于 2019 年 11 月 7 日正式发布，适用于 Spark 和 Hadoop 群集，并包含了该功能预览版本中未提供的改进。 如果你在 2019 年 11 月 7 日之前创建了 Spark 群集，并希望在群集上使用自动缩放功能，我们建议创建新群集，并在新群集上启用自动缩放。
 >
-> 交互式查询 (LLAP) 和 HBase 群集的自动缩放功能仍处于预览阶段。 自动缩放仅适用于 Spark、Hadoop、交互式查询和 HBase 群集。
+> Interactive Query 自动缩放 (LLAP) 于 2020 年 8 月 27 日正式发布。 HBase 群集仍处于预览状态。 自动缩放仅适用于 Spark、Hadoop、交互式查询和 HBase 群集。
 
 下表描述了与自动缩放功能兼容的群集类型和版本。
 
@@ -239,41 +239,43 @@ Azure 门户中列出的群集状态可帮助你监视自动缩放活动。
 
 ![启用工作器节点的基于计划的自动缩放指标](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="other-considerations"></a>其他注意事项
+## <a name="best-practices"></a>最佳做法
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>请考虑纵向扩展或纵向缩减操作的延迟
+### <a name="consider-the-latency-of-scale-up-and-scale-down-operations"></a>请考虑纵向扩展操作和纵向缩减操作的延迟
 
 完成一项缩放操作可能需要 10 到 20 分钟。 设置自定义计划时，请将此延迟计划在内。 例如，如果需要在早晨 9:00 将群集大小设置为 20，请将计划触发器设置为更早的某个时间（例如早晨 8:30），这样缩放操作就可以在早晨 9:00 之前完成。
 
-### <a name="preparation-for-scaling-down"></a>准备纵向缩减
+### <a name="prepare-for-scaling-down"></a>准备进行纵向缩减
 
-在群集纵向缩减过程中，自动缩放会根据目标大小解除节点的授权。 如果这些节点上有正在运行的任务，自动缩放会等待这些任务完成。 由于每个工作器节点也充当 HDFS 中的某个角色，因此会将临时数据转移到剩余节点中。 因此，应确保剩余节点上有足够的空间来托管所有临时数据。
+在群集纵向缩减过程中，自动缩放会根据目标大小解除节点的授权。 如果这些节点上有正在运行的任务，自动缩放会等待这些任务完成。 由于每个工作器节点也充当 HDFS 中的某个角色，因此会将临时数据转移到剩余节点中。 请确保剩余节点上有足够的空间来托管所有临时数据。
 
 正在运行的作业将继续运行。 在可用的工作器节点变少的情况下，挂起的作业会等待安排。
 
-### <a name="minimum-cluster-size"></a>最小的群集大小
+### <a name="be-aware-of-the-minimum-cluster-size"></a>了解最小的群集大小
 
-请勿将群集缩减到三个节点以下。 将群集缩放成少于三个节点可能导致系统停滞在安全模式下，因为没有进行充分的文件复制。  有关详细信息，请参阅[停滞在安全模式下](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)。
+请勿将群集缩减到三个节点以下。 将群集缩放成少于三个节点可能导致系统停滞在安全模式下，因为没有进行充分的文件复制。 有关详细信息，请参阅[停滞在安全模式下](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)。
+
+### <a name="increase-the-number-of-mappers-and-reducers"></a>增加映射器和减速器的数目
+
+适用于 Hadoop 群集的自动缩放功能也会监视 HDFS 使用情况。 如果 HDFS 非常繁忙，它会认为该群集仍需要当前资源。 如果查询中涉及大量数据，可增加映射器和减速器的数量，以提高并行度并加速 HDFS 操作。 这样一来，当有额外资源时，会触发适当的纵向缩减。 
+
+### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>针对峰值使用方案设置名为“最大并发查询总数”的 Hive 配置
+
+自动缩放事件不会更改 Ambari 中名为“最大并发查询总数”的 Hive 配置。 这意味着，即使 LLAP 守护程序计数根据负载和计划进行纵向扩展和纵向缩减，Hive Server 2 交互式服务在任意时间点都只能处理指定数量的并发查询。 通常建议针对峰值使用方案设置此配置，以避免手动干预。
+
+但是，如果只有少量的工作器节点，并且最大并发查询总数的值配置过高，则可能会出现 Hive Server 2 重启失败的情况。 至少需要可容纳给定数量的 Tez Ams 的最小工作器节点数（等于最大并发查询配置总数）。 
+
+## <a name="limitations"></a>限制
+
+### <a name="node-label-file-missing"></a>节点标签文件缺失
+
+HDInsight 自动缩放使用节点标签文件来确定节点是否准备好执行任务。 节点标签文件存储在具有 3 个副本的 HDFS 中。 如果群集大小大幅度地纵向缩减，并且有大量的临时数据，则全部三个副本都可能会被删除。 如果发生这种情况，群集将进入错误状态。
 
 ### <a name="llap-daemons-count"></a>LLAP 守护程序计数
 
-如果 LLAP 群集启用了自动缩放，则自动放/缩事件还会将 LLAP 守护程序的数量放/缩为活动工作器节点的数量。 但守护进程数量的这种变化不会保存在 Ambari 的 num_llap_nodes 配置中。 如果手动重启 Hive 服务，则 LLAP 守护程序的数量将根据 Ambari 中的配置进行重置。
+如果 LLAP 群集启用了自动缩放，则自动纵向扩展/缩减事件还会将 LLAP 守护程序的数量纵向扩展/缩减为活动工作器节点的数量。 守护进程数量的变化不会保存在 Ambari 的 `num_llap_nodes` 配置中。 如果手动重启 Hive 服务，则 LLAP 守护程序的数量将根据 Ambari 中的配置进行重置。
 
-我们来看一下以下方案：
-1. 创建启用了 LLAP 自动缩放且具有 3 个工作器节点的群集，并启用基于负载且最小工作器节点为 3，最大工作器节点为 10 的自动缩放。
-2. LLAP 守护程序根据 LLAP 配置对配置进行计数，因此 Ambari 为 3，因为创建的群集具有 3 个工作器节点。
-3. 然后，由于群集上的负载触发了自动扩展，群集现已扩展为 10 个节点。
-4. 定期运行的自动缩放检查会注意到 LLAP 守护程序计数为 3，但活动工作器节点的数量为 10，自动缩放过程会立即将 LLAP 守护程序计数增加为 10，但这一更改不会保存到 Ambari 配置 - num_llap_nodes。
-5. 现已禁用自动缩放。
-6. 群集现在具有 10 个工作器节点和 10 个 LLAP 守护程序。
-7. 手动重启 LLAP 服务。
-8. 重启期间，它将检查 LLAP 配置中的 num_llap_nodes 配置，并会注意到该值为 3，因此它将启动守护程序的 3 实例，但工作器节点的数量为 10。 目前两者不匹配。
-
-发生这种情况时，我们需要手动更改高级 hive-interactive-env 下的 num_llap_node 配置（用于运行 Hive LLAP 守护程序的节点数），以匹配当前的活动工作器节点数。
-
-**注意**
-
-自动缩放事件不会更改 Ambari 中的 Hive 配置“最大并发查询总数”。 这意味着，即使 LLAP 守护程序计数根据负载/计划进行缩放，Hive Server 2 交互式服务在任意时间点都只能处理指定数量的并发查询。 通常建议针对峰值使用方案设置此配置，以避免手动干预。 但请注意，如果最小数量的工作器节点无法容纳指定数量的 Tez Ams（等同于最大并发查询总数配置），则为最大并发查询总数配置设置较高的值可能会导致 Hive Server 2 交互式服务重启失败
+如果手动重启 LLAP 服务，则需要手动更改“高级 hive-interactive-env”下的 `num_llap_node` 配置（运行 Hive LLAP 守护程序所需的节点数），使其与当前的活动工作器节点数一致。
 
 ## <a name="next-steps"></a>后续步骤
 

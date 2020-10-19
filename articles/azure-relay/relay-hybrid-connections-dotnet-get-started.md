@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2a8d1fa66d7fe6624ef6f4a990f51c654c47cf05
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 6c41c420a2df6f01721dcae1640e92643e098444
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146725"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937237"
 ---
 <!--Verified successfully-->
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>开始在 .NET 中使用中继混合连接 WebSocket
@@ -59,7 +59,7 @@ ms.locfileid: "91146725"
 2. 运行客户端应用程序并输入一些文本。
 3. 确保服务器应用程序控制台显示了客户端应用程序中输入的文本。
 
-    :::image type="content" source="./media/relay-hybrid-connections-dotnet-get-started/running-applications.png" alt-text="running-applications":::
+    :::image type="content" source="./media/relay-hybrid-connections-dotnet-get-started/running-applications.png" alt-text="控制台窗口测试服务器和客户端应用程序。":::
 
 祝贺你，你已创建了一个完整的混合连接应用程序！
 

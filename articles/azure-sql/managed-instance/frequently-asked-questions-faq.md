@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sstein, carlrab
-origin.date: 03/17/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 82016a363f8eb2d9e6b73783996114cb103bf29d
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.reviewer: sstein
+origin.date: 09/21/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 110b9a8850b159de2a028d93793ed08904e3a677
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014337"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872466"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL 托管实例常见问题解答 (FAQ)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -85,7 +85,7 @@ SQL 托管实例部署是否有配额限制？
 
 是的，可以在现有订阅中预配托管实例。
 
-为什么无法名称以数字开头的子网中预配托管实例？
+**为什么无法在名称以数字开头的子网中预配托管实例？**
 
 这是针对基本组件的一个当前限制，它会按照正则表达式 ^[a-zA-Z_][^\\\/\:\*\?\"\<\>\|\`\'\^]*(?<![\.\s])$ 验证子网名称。 当前支持所有通过正则表达式的名称以及有效的子网名称。
 
@@ -347,7 +347,7 @@ SQL 托管实例负责对管理端口设置规则。 这通过名为[服务辅�
 - 使用低特权 DBA 帐户访问实例。
 - 为 sysadmin 帐户配置 JiT jumpbox 访问权限。
 - 启用 [SQL 审核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)，并将其与警报机制相集成。
-- 启用[高级数据安全 (ADS)](/sql-database/sql-database-advanced-data-security) 套件中的[威胁检测](/sql-database/sql-database-threat-detection)。
+- 从 [Azure Defender for SQL](/azure-sql/database/azure-defender-for-sql) 套件启用[威胁检测](/sql-database/sql-database-threat-detection)。
 
 ## <a name="dns"></a>DNS
 

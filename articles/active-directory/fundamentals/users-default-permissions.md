@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cec4367aad9ccf57ef0118672054e328690c034
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 224b8a09bc5892f86de6aff43d1dab0fba18ed04
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245022"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937135"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限是什么？
 在 Azure Active Directory (Azure AD) 中，所有用户都被授予一组默认权限。 用户的访问权限由用户的类型、其[角色分配](active-directory-users-assign-role-azure-portal.md)及其对单个对象的所有权构成。 本文将会介绍这些默认权限，并将成员和来宾用户的默认权限进行比较。 只能在 Azure AD 的用户设置中更改默认用户权限。
@@ -36,7 +36,7 @@ ms.locfileid: "91245022"
 组 | <ul><li>创建安全组<li>创建 Microsoft 365 组<li>读取组的所有属性<li>读取非隐藏的组成员身份<li>读取加入的组的隐藏 Microsoft 365 组成员身份<li>管理用户拥有的组的属性、所有权和成员身份<li>将来宾添加到拥有的组<li>管理动态成员身份设置<li>删除拥有的组<li>还原拥有的 Microsoft 365 组</li></ul> | <ul><li>读取所有非隐藏组的属性，包括成员身份和所有权（甚至是未加入的组）<li>读取加入的组的隐藏 Microsoft 365 组成员身份<li>按显示名称或 ObjectId（如果允许）搜索组</li></ul> | 无权限
 应用程序 | <ul><li>注册（创建）新应用程序<li>读取已注册的应用程序和企业应用程序的属性<li>管理拥有的应用程序的应用程序属性、分配和凭据<li>创建或删除用户的应用程序密码<li>删除拥有的应用程序<li>还原拥有的应用程序</li></ul> | <ul><li>读取已注册的应用程序和企业应用程序的属性</li></ul> | <ul><li>读取已注册的应用程序和企业应用程序的属性
 设备</li></ul> | <ul><li>读取设备的所有属性<li>管理拥有的设备的所有属性</li></ul> | 无权限 | 无权限
-Directory | <ul><li>读取所有公司信息<li>读取所有域<li>读取所有合作伙伴协定</li></ul> | <ul><li>读取显示名称和已验证的域</li></ul> | <ul><li>读取显示名称和已验证的域</li></ul>
+Directory | <ul><li>读取所有公司信息<li>读取所有域<li>读取所有合作伙伴协定</li></ul> | <ul><li>读取公司显示名称<li>读取所有域</li></ul> | <ul><li>读取公司显示名称<li>读取所有域</li></ul>
 角色和范围 | <ul><li>读取所有管理角色和成员身份<li>读取管理单元的所有属性和成员身份</li></ul> | 无权限 | 无权限
 订阅 | <ul><li>读取所有订阅<li>启用服务计划成员</li></ul> | 无权限 | 无权限
 策略 | <ul><li>读取策略的所有属性<li>管理拥有的策略的所有属性</li></ul> | 无权限 | 无权限

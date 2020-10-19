@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 2d12037fcdcf52f11e2ad3aa2c7b03629f7a6241
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: c498545d1e7916e6b7d804d2f438d0b7cbc06c65
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245180"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937098"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>调用 Web API 的桌面应用：应用注册
 
@@ -44,11 +44,14 @@ ms.locfileid: "91245180"
   > [!IMPORTANT]
   > 目前，默认情况下，MSAL.NET 会在 Windows 上运行的桌面应用程序中使用另一重定向 URI (`urn:ietf:wg:oauth:2.0:oob`)。 将来，我们需要更改此默认设置，因此建议你使用 `https://login.partner.microsoftonline.cn/common/oauth2/nativeclient`。
 
-- 如果你针对 macOS 构建本机 Objective-C 或 Swift 应用，请基于你的应用程序的捆绑包标识符采用以下格式注册重定向 URI：msauth.<your.app.bundle.id>://auth。请将 <your.app.bundle.id> 替换为你的应用程序的捆绑包标识符。
+- 如果针对 macOS 构建本机 Objective-C 或 Swift 应用，请基于应用程序的捆绑包标识符采用以下格式注册重定向 URI：`msauth.<your.app.bundle.id>://auth`。 将 `<your.app.bundle.id>` 替换为应用程序的捆绑包标识符。
 - 如果你的应用仅使用集成 Windows 身份验证或用户名和密码，则不需要为应用程序注册重定向 URI。 这些流前往 Microsoft 标识平台 v2.0 终结点并返回。 不会在任何特定 URI 上调用你的应用程序。
-- 为了将设备代码流、集成 Windows 身份验证以及用户名和密码与也没有重定向 URI 的机密客户端应用程序流（在守护程序应用程序中使用的客户端凭据流）区分开来，你需要表明你的应用程序是公共客户端应用程序。 若要实现此配置，请转到应用程序的“身份验证”部分。  在“高级设置”子部分中，在“默认客户端类型”段落中，针对“将应用程序视为公共客户端”问题选择“是”。    
+- 若要使用[守护程序应用程序](scenario-daemon-overview.md)中使用的客户端凭据流将[设备代码流](scenario-desktop-acquire-token.md#device-code-flow)、[集成 Windows 身份验证](scenario-desktop-acquire-token.md#integrated-windows-authentication)以及[用户名和密码](scenario-desktop-acquire-token.md#username-and-password)与机密的客户端应用程序（它们都不要求重定向 URI）区分开来，需要将应用程序配置为公共客户端应用程序。 为了实现该配置：
 
-  ![允许公共客户端](./media/scenarios/default-client-type.png)
+    1. 在 [Azure 门户](https://portal.azure.cn)中，选择“应用注册”中的应用，然后选择“身份验证” 。
+    1. 在“高级设置” > “默认客户端类型” > “将应用程序视为公共客户端”中，选择“是”   。
+
+        :::image type="content" source="media/scenarios/default-client-type.png" alt-text="在 Azure 门户中的“身份验证”窗格上启用公共客户端设置":::
 
 ## <a name="api-permissions"></a>API 权限
 

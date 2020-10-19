@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 02/07/2019
-ms.date: 07/06/2020
+ms.date: 10/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0bded8ba0c59490b99200a7660109a3730ccb941
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 699b0f43e35b8013145b901e7a2a3a6e1149f252
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226007"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936834"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure 流分析自定义 blob 输出分区
 
@@ -26,7 +26,7 @@ Azure 流分析支持包含自定义字段或属性和自定义 DateTime 路径�
 
 ### <a name="partition-key-options"></a>分区键选项
 
-用于分区输入数据的分区键或列名称可能包含带有连字符、下划线和空格的字母数字字符。 除非与别名一起使用，否则无法将嵌套字段用作分区键。 分区键必须为 NVARCHAR (MAX)。
+用于分区输入数据的分区键或列名称可能包含带有连字符、下划线和空格的字母数字字符。 除非与别名一起使用，否则无法将嵌套字段用作分区键。 分区键必须为 NVARCHAR(MAX)、BIGINT、FLOAT 或 BIT（1.2 兼容级别或更高级别）。 有关详细信息，请参阅 [Azure 流分析数据类型](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)。
 
 ### <a name="example"></a>示例
 

@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 01/17/2020
-ms.date: 08/20/2020
-ms.openlocfilehash: c3ec7b3f8289dd5f12cfac220cf0f9eadf16db88
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 10/09/2020
+ms.openlocfilehash: b6d1bf33e0f6190cc680cec70d953777a78a917f
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715755"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936842"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 
@@ -36,7 +36,7 @@ ms.locfileid: "88715755"
 
 ## <a name="stream-data-from-event-hubs"></a>从事件中心对数据进行流式传输
 
-Azure 事件中心提供高度可缩放的发布-订阅事件引入器。 事件中心每秒可收集数百万个事件，使你能够处理和分析互连设备与应用程序生成的海量数据。 事件中心和流分析一起提供进行实时分析所需的端到端解决方案。 可以通过事件中心将事件实时馈送到 Azure 中，以便流分析作业对这些事件进行实时处理。 例如，用户可以将 Web 点击操作、传感器读数或联机日志事件发送到事件中心。 然后可以创建流分析作业，将事件中心用作输入数据流，以便进行实时筛选、聚合和关联操作。
+Azure 事件中心提供高度可缩放的发布-订阅事件投资者。 事件中心每秒可收集数百万个事件，使你能够处理和分析互连设备与应用程序生成的海量数据。 事件中心和流分析一起提供进行实时分析所需的端到端解决方案。 可以通过事件中心将事件实时馈送到 Azure 中，以便流分析作业对这些事件进行实时处理。 例如，用户可以将 Web 点击操作、传感器读数或联机日志事件发送到事件中心。 然后可以创建流分析作业，将事件中心用作输入数据流，以便进行实时筛选、聚合和关联操作。
 
 `EventEnqueuedUtcTime` 是事件到达事件中心的时间戳，也是事件从事件中心发送到流分析的默认时间戳。 若要在事件有效负载中使用时间戳以流方式处理数据，必须使用 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) 关键字。
 

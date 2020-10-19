@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: fba292a58bf0c7a31aa6a4368822e98a3ba8eaec
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 1018d07ece20d7f75a3da3daaa55df37d09d5a07
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647732"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937460"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>调用 Web API 的守护程序应用 - 代码配置
 
@@ -51,16 +51,13 @@ ms.locfileid: "88647732"
 
 配置文件定义：
 
-- 颁发机构或者云实例和租户 ID。
+- 云实例和租户 ID，它们共同构成了“机构”。
 - 通过应用程序注册获得的客户端 ID。
 - 客户端机密或证书。
 
-> [!NOTE]
-> 本文其余部分中的 .Net 代码片段引用了 [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 示例中的 [config](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs)。
-
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appsettings.json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json)，来自 [.NET Core 控制台守护程序](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)示例。
+下面是关于在 [appsettings.json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) 文件中定义配置的示例。 此示例摘自 GitHub 上的 [.NET Core 控制台守护程序](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)代码示例。
 
 ```json
 {
@@ -124,9 +121,9 @@ ms.locfileid: "88647732"
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-向应用程序添加 [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 包。
+将 [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 包添加到应用程序，然后在代码中添加一个 `using` 指令以引用它。
+
 在 MSAL.NET 中，机密客户端应用程序通过 `IConfidentialClientApplication` 接口表示。
-在源代码中使用 MSAL.NET 命名空间。
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -167,6 +164,23 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
            .Build();
+```
+
+`Authority` 是云实例和租户 ID 的串联，例如 `https://login.partner.microsoftonline.cn/contoso.partner.onmschina.cn` 或 `https://login.partner.microsoftonline.cn/eb1ed152-0000-0000-0000-32401f3f9abd`。 在[配置文件](#configuration-file)部分显示的 appsettings.json 文件中，它们分别由 `Instance` 和 `Tenant` 值表示。
+
+在上一个代码片段的源代码示例中，`Authority` 是 [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) 类的属性，其定义如下：
+
+```csharp
+/// <summary>
+/// URL of the authority
+/// </summary>
+public string Authority
+{
+    get
+    {
+        return String.Format(CultureInfo.InvariantCulture, Instance, Tenant);
+    }
+}
 ```
 
 # <a name="python"></a>[Python](#tab/python)

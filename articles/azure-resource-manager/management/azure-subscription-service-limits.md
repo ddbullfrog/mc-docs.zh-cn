@@ -4,16 +4,16 @@ description: 提供常见的 Azure 订阅和服务限制、配额和约束的列
 ms.topic: conceptual
 origin.date: 09/02/2020
 author: rockboyfor
-ms.date: 09/25/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: a4b4757d898a4565fe66eed2024eadb73bb7ae9c
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 5f0ff333348677e173dd2255bef9c79475dbcefa
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246549"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937117"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 
@@ -230,10 +230,6 @@ ms.locfileid: "91246549"
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
 
-## <a name="identity-manager-limits"></a>Identity Manager 限制
-
-[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
-
 ## <a name="iot-central-limits"></a>IoT Central 限制
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
 
@@ -248,6 +244,10 @@ ms.locfileid: "91246549"
 ## <a name="key-vault-limits"></a>密钥保管库限制
 
 [!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+
+## <a name="managed-identity-limits"></a>托管标识限制
+
+[!INCLUDE [Managed-Identity-Limits](../../../includes/managed-identity-limits.md)]
 
 ## <a name="media-services-limits"></a>媒体服务限制
 
@@ -287,17 +287,15 @@ ms.locfileid: "91246549"
 [!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
 
 <a name="private-link-limits"></a>
-### <a name="private-link-limits"></a>专用链接限制
-
-[!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
 <!--Not Available on Private Link
 
 ### <a name="private-link-limits"></a><span data-ttu-id="2f8e4-200">专用链接限制</span><span class="sxs-lookup"><span data-stu-id="2f8e4-200">Private Link limits</span></span>
 
-[!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
-
 -->
+
+<!--[!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)-->
+
 
 ### <a name="traffic-manager-limits"></a>流量管理器限制
 
@@ -321,7 +319,7 @@ ms.locfileid: "91246549"
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## <a name="role-based-access-control-limits"></a>基于角色的访问控制限制
+## <a name="azure-role-based-access-control-limits"></a>Azure 基于角色的访问控制限制
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 

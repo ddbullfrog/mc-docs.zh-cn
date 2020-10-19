@@ -1,25 +1,24 @@
 ---
 title: 添加自定义 CA 证书 - Azure API 管理 | Microsoft Docs
-description: 了解如何在 Azure API 管理中添加自定义 CA 证书。
+description: 了解如何在 Azure API 管理中添加自定义 CA 证书。 还可查看说明了解如何删除证书。
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 08/20/2018
-ms.date: 03/11/2019
-ms.author: v-yiso
-ms.openlocfilehash: d06e3f47829cd5de6e3c688114b3908c031ba831
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.openlocfilehash: c74f09cf21d4c32a699f8aaa53a824a5ddd2318b
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65835735"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871424"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>如何在 Azure API 管理中添加自定义 CA 证书
 
@@ -33,34 +32,35 @@ Azure API 管理允许在受信任的根证书和中间证书存储中的计算�
 
 ## <a name="upload-a-ca-certificate"></a><a name="step1"> </a>上传 CA 证书
 
-![添加 CA 证书](media/api-management-howto-ca-certificates/00.png)
+![添加 CA 证书](./media/api-management-howto-ca-certificates/00.png)
 
 请按照以下步骤来上传新的 CA 证书。 如果尚未创建 API 管理服务实例，请参阅教程[创建 API 管理服务实例](get-started-create-service-instance.md)。
 
 1. 在 Azure 门户中导航到 Azure API 管理服务实例。
 
-2. 从菜单中选择“CA 证书”  。
+2. 从菜单中选择“CA 证书”****。
 
-3. 单击“+ 添加”  按钮。  
+3. 单击“+ 添加”按钮。  
 
-    ![添加 CA 证书](media/api-management-howto-ca-certificates/01.png)  
+    ![添加 CA 证书](./media/api-management-howto-ca-certificates/01.png)  
 
 4. 浏览证书并选定证书存储。 仅需要公钥，因此不需要密码。
 
-    ![添加 CA 证书](media/api-management-howto-ca-certificates/02.png)  
+    ![添加 CA 证书](./media/api-management-howto-ca-certificates/02.png)  
 
-5. 单击“保存”  。 此操作可能需要几分钟的时间。
+5. 单击“保存” 。 此操作可能需要几分钟的时间。
 
-    ![添加 CA 证书](media/api-management-howto-ca-certificates/03.png)  
+    ![添加 CA 证书](./media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > 可以使用 `New-AzApiManagementSystemCertificate` Powershell 命令上传 CA 证书。
 
 ## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>删除客户端证书
 
-若要删除证书，请单击上下文菜单“...”  并选择该证书旁边的“删除”  。
+若要删除证书，请单击上下文菜单“...”**** 并选择该证书旁边的“删除”****。
 
-![删除 CA 证书](media/api-management-howto-ca-certificates/04.png)  
+![删除 CA 证书](./media/api-management-howto-ca-certificates/04.png)  
 
 [Upload a CA certificate]: #step1
 [Delete a CA certificate]: #step1a
+

@@ -3,21 +3,21 @@ title: 为自承载 Azure API 管理网关配置自定义域名 | Microsoft Docs
 description: 本主题介绍为自承载 Azure API 管理网关配置自定义域名的步骤。
 services: api-management
 documentationcenter: ''
+author: Johnnytechn
 manager: gwallace
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 10/31/2019
-author: Johnnytechn
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: a6ed9ab87a8990903f90fbfabb54ba21cdebb7df
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: 374c7f4b6c8b6a8866b2eb4fa066d310a8df98a6
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440697"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871412"
 ---
 # <a name="configure-a-custom-domain-name"></a>配置自定义域名
 
@@ -50,7 +50,7 @@ ms.locfileid: "84440697"
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>使用 Azure 门户为自承载网关设置自定义域名
 
-1. 从“设置”下选择“网关”。 
+1. 选择“部署和基础结构”下的“网关” 。
 2. 选择要为其配置域名的自承载网关。
 3. 在“设置”下选择“主机名”。 
 4. 选择“+ 添加”。

@@ -4,18 +4,18 @@ description: 本文介绍如何使用 PowerShell 在 Windows Server 或 Windows 
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 12/2/2019
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 078dc18f0bf8462ba61a39b12b0427f553d7e5d9
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 3371de55630b177228082888ffdd570fb379a67f
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852089"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871160"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
 
-本文说明如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
+本文介绍如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
 
 ## <a name="install-azure-powershell"></a>安装 Azure PowerShell
 
@@ -27,13 +27,13 @@ ms.locfileid: "85852089"
 
 以下步骤引导用户创建恢复服务保管库。 恢复服务保管库不同于备份保管库。
 
-1. 首次使用 Azure 备份时，必须使用 **Register-AzResourceProvider** cmdlet 将 Azure 恢复服务提供程序注册到订阅。
+1. 首次使用 Azure 备份时，必须使用 Register-AzResourceProvider cmdlet 将 Azure 恢复服务提供程序注册到订阅。
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-2. 恢复服务保管库是一种 ARM 资源，因此需要将它放在资源组中。 可以使用现有资源组，也可以创建新组。 创建新的资源组时，请指定资源组的名称和位置。  
+2. 恢复服务保管库是一种 Azure 资源管理器资源，因此需要将它放在资源组中。 可以使用现有资源组，也可以创建新组。 创建新的资源组时，请指定资源组的名称和位置。  
 
     ```powershell
     New-AzResourceGroup -Name "test-rg" -Location "ChinaNorth"
@@ -45,10 +45,10 @@ ms.locfileid: "85852089"
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "ChinaNorth"
     ```
 
-4. 指定要使用的存储冗余类型；可以使用[本地冗余存储 (LRS)](../storage/common/storage-redundancy-lrs.md) 或[异地冗余存储 (GRS)](../storage/common/storage-redundancy-grs.md)。 以下示例显示，testVault 的 -BackupStorageRedundancy 选项设置为 GeoRedundant。
+4. 请指定要使用的存储冗余类型。 可以使用[本地冗余存储 (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) 或[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。 以下示例显示，“testVault”的“-BackupStorageRedundancy”选项设置为“GeoRedundant”。
 
    > [!TIP]
-   > 许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 因此，在变量中存储备份恢复服务保管库对象可提供方便。
+   > 许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 出于此原因，可方便地在变量中存储备份恢复服务保管库对象。
    >
    >
 
@@ -150,8 +150,8 @@ $certficate = [convert]::ToBase64String($cert.Export([System.Security.Cryptograp
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -Path $CredsPath -Certificate $certficate
 ```
 
-在 Windows Server 或 Windows 客户端计算机上，运行 [Start-OBRegistration](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obregistration?view=winserver2012-ps) cmdlet 以将计算机注册到保管库。
-此 cmdlet 和用于备份的其他 cmdlet 都来自 Mars AgentInstaller 在安装过程中添加的 MSONLINE 模块。
+在 Windows Server 或 Windows 客户端计算机上，运行 [Start-OBRegistration](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obregistration) cmdlet 以将计算机注册到保管库。
+此 cmdlet 和用于备份的其他 cmdlet 都来自 MARS AgentInstaller 在安装过程中添加的 MSONLINE 模块。
 
 代理安装程序不会更新 $Env:PSModulePath 变量。 这意味着模块自动加载失败。 若要解决此问题，可以执行以下操作：
 
@@ -212,7 +212,7 @@ Server properties updated successfully.
 
 发送到 Azure 备份的备份数据会加密，以保护数据的机密性。 加密通行短语是在还原时用于解密数据的“密码”。
 
-必须通过在 Azure 门户的“恢复服务保管库”部分的“设置” > “属性” > “安全 PIN”下选择“生成”来生成安全 PIN    。 
+必须通过在 Azure 门户的“恢复服务保管库”部分的“设置” > “属性” > “安全 PIN”下选择“生成”来生成安全 PIN    。
 
 >[!NOTE]
 > 安全 PIN 只能通过 Azure 门户生成。
@@ -247,7 +247,7 @@ Server properties updated successfully
 $NewPolicy = New-OBPolicy
 ```
 
-该策略暂时为空，需要使用其他 cmdlet 来定义要包含或排除的项、运行备份的时间，以及备份的存储位置。
+该策略暂时是空的，需要使用其他 cmdlet 来定义要包含或排除的项、运行备份的时间，以及备份的存储位置。
 
 ### <a name="configuring-the-backup-schedule"></a>配置备份计划
 
@@ -274,7 +274,7 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 
 ### <a name="configuring-a-retention-policy"></a>配置保留策略
 
-保留策略定义基于备份作业创建的恢复点的保留时间。 使用 [New-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obretentionpolicy) cmdlet 创建新的保留策略时，可以使用 Azure 备份来指定需要保留备份恢复点的天数。 以下示例将保留策略设置为 7 天。
+保留策略定义基于备份作业创建的恢复点的保留时间。 使用 [New-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obretentionpolicy) cmdlet 创建新的保留策略时，可以使用 Azure 备份来指定将保留备份恢复点的天数。 以下示例将保留策略设置为 7 天。
 
 ```powershell
 $RetentionPolicy = New-OBRetentionPolicy -RetentionDays 7
@@ -545,9 +545,9 @@ Job completed.
 The backup operation completed successfully.
 ```
 
-## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>在 MABS 代理中备份 Windows Server 系统状态
+## <a name="back-up-windows-server-system-state-in-mars-agent"></a>在 MARS 代理中备份 Windows Server 系统状态
 
-本部分介绍用于在 MABS 代理中设置系统状态的 PowerShell 命令
+本部分介绍用于在 MARS 代理中设置系统状态的 PowerShell 命令
 
 ### <a name="schedule"></a>计划
 
@@ -747,6 +747,6 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 有关适用于 Windows Server/客户端的 Azure 备份的详细信息，请参阅：
 
-* [Azure 备份简介](backup-introduction-to-azure-backup.md)
+* [Azure 备份简介](./backup-overview.md)
 * [备份 Windows Server](backup-windows-with-mars-agent.md)
 

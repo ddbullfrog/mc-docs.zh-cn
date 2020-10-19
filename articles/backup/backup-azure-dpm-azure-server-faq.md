@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.reviewer: srinathv
 ms.topic: conceptual
 origin.date: 09/20/2019
-ms.date: 05/15/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 841fc40600b1c74380aa89d13a5d1270b682c763
-ms.sourcegitcommit: 08b42258a48d96d754244064d065e4d5703f1cfb
+ms.openlocfilehash: fa8b68d0f51c90639ab6398c2fd60de7b5869f88
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83445171"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871468"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure 备份服务器和 DPM - 常见问题解答
 
@@ -40,11 +40,15 @@ ms.locfileid: "83445171"
 
 对于通过云对数据源进行保护的 DPM 服务器（使用 Update Rollup 7 之前的更新汇总），必须在安装 UR7 及最新 Azure 备份代理之后等待至少一天，然后才能开始“添加外部 DPM 服务器”  。 需要一天的时间才能将 DPM 保护组的元数据上传到 Azure。 首次上传保护组元数据时通过一个每晚执行的作业实现。
 
+### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>是否有针对防病毒软件配置排除项的建议？
+
+是，建议配置防病毒排除项。 如需了解 DPM 排除项，请参阅[在 DPM 服务器上运行防病毒软件](https://docs.microsoft.com/system-center/dpm/run-antivirus-server)。 如需了解 MABS 的排除项，请参阅[为 MABS 服务器配置防病毒软件](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server)。
+
 ## <a name="vmware-and-hyper-v-backup"></a>VMware 和 Hyper-V 备份
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>是否可以将 VMware vCenter 服务器备份到 Azure？
 
-是的。 可以使用 Azure 备份服务器将 VMware vCenter Server 和 ESXi 主机备份到 Azure。
+能。 可以使用 Azure 备份服务器将 VMware vCenter Server 和 ESXi 主机备份到 Azure。
 
 - [详细了解](backup-mabs-protection-matrix.md)支持的版本。
 - [请按照下列步骤](backup-azure-backup-server-vmware.md)备份 VMware 服务器。
@@ -64,7 +68,7 @@ ms.locfileid: "83445171"
 
 ### <a name="can-i-recover-a-sharepoint-database-to-the-original-location-if-sharepoint-is-configured-by-using-sql-alwayson"></a>如果使用 SQL AlwaysOn 配置了 SharePoint，我能否将 SharePoint 数据库恢复到原始位置？
 
-由于 SharePoint 数据库是在 SQL AlwaysOn 中配置的，因此，除非删除可用性组，否则无法修改它们。 因此，DPM 无法将数据库还原到原始位置。 可以将 SQL Server 数据库恢复到另一个 SQL Server 实例。
+由于 SharePoint 数据库是在 SQL AlwaysOn 中配置的，因此除非删除可用性组，否则无法修改它们。 因此，DPM 无法将数据库还原到原始位置。 可以将 SQL Server 数据库恢复到另一个 SQL Server 实例。
 
 ## <a name="next-steps"></a>后续步骤
 

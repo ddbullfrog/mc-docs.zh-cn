@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: b13d05370b21b4bead580d10dad9bab2f3257ab6
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 3f1e41a0ce986349c17c99b336b02f5e0088c673
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245030"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937488"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>适用于 iOS 设备的共享设备模式
 
@@ -60,9 +60,9 @@ ms.locfileid: "91245030"
 
     - **类型**：重定向
     - **扩展 ID**：com.microsoft.azureauthenticator.ssoextension
-    - **团队 ID**：SGGM6D27TK
-    - **URL**： https://login.partner.microsoftonline.cn
-    - 要配置的其他数据：
+    - **团队 ID**：（iOS 不需要此字段）
+    - **URL**： `https://login.partner.microsoftonline.cn`
+    - **要配置的其他数据**：
       - 密钥：sharedDeviceMode
       - 键入：布尔
       - 值：true

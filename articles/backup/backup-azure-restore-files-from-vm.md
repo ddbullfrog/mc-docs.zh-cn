@@ -4,15 +4,15 @@ description: 本文介绍如何从 Azure 虚拟机恢复点恢复文件和文件
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 03/01/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.custom: references_regions
 ms.author: v-johya
-ms.openlocfilehash: 9350b9d3c652ed73a6e2bf2ba0fd7bb0ef0e449e
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: b20959c736ac5288a8c9eefbdd53ac4d2929d93d
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402393"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871190"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>从 Azure 虚拟机备份恢复文件
 
@@ -306,15 +306,15 @@ mount [RAID Disk Path] [/mountpath]
 
 - `download.microsoft.com`
 - 恢复服务 URL（地区名称指恢复服务保管库所在的区域）
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn`
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn`
 - 出站端口 53 (DNS)、443、3260
 
 <!--Customized in MC-->
 
 > [!NOTE]
 >
-> - 下载的脚本文件名将具有要在 URL 中填充的地区名称。 例如：下载的脚本名称以 \'VMname\'\_\'geoname\'_\'GUID\'开头，例如 ContosoVM_wcus_12345678
-> - URL 则为“<https://pod01-rec2.bjb2.backup.azure.cn>”
+> 在[上文](#mount-the-volume-and-copy-files)步骤 5 中下载的脚本文件的名称中将包含地区名称。 使用该地区名称填写 URL。 下载的脚本名称将以如下开头：\'VMname\'\_\'geoname\'_\'GUID\'。<br><br>
+> 例如，如果脚本文件名为 ContosoVM_wcus_12345678，则地区名称为 bjb2，URL 如下所示：<br> <https://pod01-rec2.bjb2.backup.azure.cn>
 >
 <!--Correct in MC: geo-name filled by bjb2-->
 

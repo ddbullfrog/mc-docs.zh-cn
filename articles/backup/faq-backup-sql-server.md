@@ -5,14 +5,14 @@ ms.reviewer: vijayts
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 2fb4bd1daf6279538303cd763deb3f5d970f79b8
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 3f4b1741d46522cfbe55d299494a263feb59ccba
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852036"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871463"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>有关备份 Azure VM 上运行的 SQL Server 数据库的常见问题解答
 
@@ -33,7 +33,7 @@ ms.locfileid: "85852036"
 - 如果在还原期间选择覆盖数据库，则下一次日志/差异备份将会失败，并改为触发完整备份。
 - 如果由于数据库恢复模式发生更改而需要使用完整备份来重置日志链，则会在下一个计划时间自动触发完整备份。
 
-默认已为所有用户启用自动修复功能；但是，如果你要禁用它，请执行以下操作：
+默认会为所有用户启用自动修复，作为一个功能。 但是，如果选择退出该功能，请执行以下步骤：
 
 - 在 SQL Server 实例上的 *C:\Program Files\Azure Workload Backup\bin* 文件夹中，创建或编辑 **ExtensionSettingsOverrides.json** 文件。
 - 在 **ExtensionSettingsOverrides.json** 中，设置 *{"EnableAutoHealer": false}* 。
@@ -52,14 +52,14 @@ DefaultBackupTasksThreshold 的默认值为 **20**。
 
 3. 保存更改并关闭该文件。
 4. 在 SQL Server 实例上，打开“任务管理器”。 重启 **AzureWLBackupCoordinatorSvc** 服务。<br/> <br/>
- 尽管在备份应用程序消耗大量资源时此方法有所帮助，但使用 SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) 可通过更常规的方式来指定传入应用程序请求可以使用的 CPU、物理 IO 和内存量限制。
+ 尽管在备份应用程序消耗大量资源时此方法有所帮助，但使用 SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) 可通过更常规的方式来指定传入应用程序请求可以使用的 CPU、物理 IO 和内存量限制。
 
 > [!NOTE]
-> 在 UX 中，仍可随时继续计划任意数量的备份，但是，这些备份将按某个滑动窗口进行处理，例如，在上述示例中，滑动窗口为 5。
+> 在 UX 中，仍然可以继续操作并在任何给定时间计划尽可能多的备份。 但是，根据上述示例，它们将在某个滑动窗口（例如 5）中进行处理。
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>是否可以从次要副本运行完整备份？
 
-根据 SQL 限制，只能针对次要副本运行“仅限复制的完整备份”，而不允许“完整备份”。
+根据 SQL 限制，可以针对次要副本运行“仅限复制的完整备份”。 但不能运行“完整备份”。
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>是否可以保护本地的可用性组？
 
@@ -71,11 +71,11 @@ Azure 备份恢复服务保管库可以检测并保护保管库所在的同一�
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>成功的备份作业是否会创建警报？
 
-否。 成功的备份作业不会生成警报。 仅针对失败的备份作业发送警报。 [此文](backup-azure-monitoring-built-in-monitor.md)介绍了门户警报的详细行为。 但是，如果你希望同时收到已成功作业的警报，可以[使用 Azure Monitor 进行监视](backup-azure-monitoring-use-azuremonitor.md)。
+不是。 成功的备份作业不会生成警报。 仅针对失败的备份作业发送警报。 [此文](backup-azure-monitoring-built-in-monitor.md)介绍了门户警报的详细行为。 但是，如果希望在作业成功的情况下也收到警报，可以[使用 Azure Monitor 进行监视](backup-azure-monitoring-use-azuremonitor.md)。
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>“备份作业”菜单中是否会显示计划的备份作业？
 
-“备份作业”菜单只显示按需备份作业。 对于计划的作业，请[使用 Azure Monitor 进行监视](backup-azure-monitoring-use-azuremonitor.md)。
+“备份作业”菜单显示所有计划的和按需的操作，但计划的日志备份除外，因为它们可能会非常频繁地备份。 对于计划的日志作业，请[使用 Azure Monitor 进行监视](backup-azure-monitoring-use-azuremonitor.md)。
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>未来的数据库会自动添加备份吗？
 
@@ -95,7 +95,7 @@ Azure 备份恢复服务保管库可以检测并保护保管库所在的同一�
 
 ## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>如果在保护数据库后更改其名称，会出现怎样的行为？
 
-已重命名的数据库被视为新数据库。 因此，服务将此情况视为找不到数据库，同时会使备份失败。
+已重命名的数据库被视为新数据库。 因此，服务会将此情况视为找不到数据库，同时会使备份失败。
 
 可以选择现在已重命名的数据库并对其配置保护。 如果对实例启用了自动保护，则会自动检测并保护已重命名的数据库。
 

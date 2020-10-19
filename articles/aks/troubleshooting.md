@@ -5,16 +5,16 @@ services: container-service
 ms.topic: troubleshooting
 origin.date: 06/20/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 85c9afec659591da5a431d29e0f6215dc67c14ac
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: a7a4d3609d67fe1e533ffbdce1920c610b830c8b
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146473"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937447"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -88,6 +88,7 @@ AKS 具有 HA 控制平面，可以根据内核数进行垂直缩放，以确保
     - https://github.com/helm/helm/issues/4543
 - [节点之间的内部流量是否被阻止？](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)
 
+<a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>
 ## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>我收到 `TCP timeouts`，如 `dial tcp <Node_IP>:10250: i/o timeout`
 
 这些超时可能与被阻止节点之间的内部流量有关。 验证此流量是否未被阻止，例如通过群集节点子网上的[网络安全组](concepts-security.md#azure-network-security-groups)来这样做。
@@ -112,6 +113,7 @@ AKS 支持的最低 TLS 版本是 TLS 1.2。
 
 收到此错误的原因可能是，你修改了 AKS 群集内代理节点中的标记。 如果修改或删除 MC_* 资源组中资源的标记和其他属性，可能会导致意外结果。 更改 AKS 群集中 MC_ * 组下的资源会中断服务级别目标 (SLO)。
 
+<a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>有错误指出，我的群集处于故障状态，在解决此解决之前无法进行升级或缩放
 
 *此故障排除帮助摘自 [aks-cluster-failed](troubleshooting.md#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed)*
@@ -458,5 +460,17 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>为什么使用带有 kubernetes.io 前缀的节点标签时升级到 Kubernetes 1.16 失败
+
+从 Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [开始，kubelet 只能将已定义的带有 kubernetes.io 前缀的标签子集](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal)应用于节点。 未经许可，AKS 无法代表你删除活动标签，因为这可能导致受影响的工作负载发生故障。
+
+因此，要缓解这种情况，可以执行以下操作：
+
+1. 将群集控制平面升级到 1.16 或更高版本
+2. 在 1.16 或更高版本上添加一个没有受支持的 kubernetes.io 标签的新 nodepoool
+3. 删除较旧的 nodepool
+
+AKS 正在研究对 nodepool 上的活动标签进行改变的功能以改进这种缓解效果。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

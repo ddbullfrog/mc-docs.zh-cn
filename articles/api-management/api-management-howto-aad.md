@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 origin.date: 11/04/2019
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: f7f1f6304760b983d7e8169a3d1386470b8a5f70
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: c59dae2635d4fe053f6ba7b2c7e246f0fde9cd50
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440547"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871427"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 授权开发人员帐户
 
@@ -35,7 +35,7 @@ ms.locfileid: "86440547"
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>使用 Azure AD 为开发人员帐户授权
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。 
-2. 选择 ![箭头](./media/api-management-howto-aad/arrow.png)上获取。
+2. 选择 ![箭头图标。](./media/api-management-howto-aad/arrow.png)上获取。
 3. 在搜索框中键入 **api**。
 4. 选择“API 管理服务”。
 5. 选择自己的 API 管理服务实例。
@@ -96,7 +96,6 @@ ms.locfileid: "86440547"
 
 1. 选择“组”选项卡。
 2. 选择“添加 AAD 组”按钮。
-
     ![“添加 AAD 组”按钮](./media/api-management-howto-aad/api-management-with-aad008.png)
 3. 选择要添加的组。
 4. 按“选择”按钮。
@@ -143,13 +142,13 @@ ms.locfileid: "86440547"
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/

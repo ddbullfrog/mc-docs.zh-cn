@@ -9,14 +9,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 03/12/2019
-ms.date: 07/13/2020
+ms.date: 10/12/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 7ff0f8789bca825e7407a2ddda41c61bfe42d7d2
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.openlocfilehash: 0aa537d43dfb23ceb2674f1319afac62c7932e13
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227144"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872447"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>在 Azure SQL 数据库中管理弹性池
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -95,7 +95,7 @@ ms.locfileid: "86227144"
 |[ALTER DATABASE（Azure SQL 数据库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) |将数据库移入、移出弹性池或在其之间移动。|
 |[DROP DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql)|删除数据库。|
 |[sys.elastic_pool_resource_stats（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|返回服务器中所有弹性池的资源使用率统计信息。 对于每个弹性池，报告窗口每 15 秒就会提供一行（每分钟四行）。 这包括池中所有数据库的 CPU、IO、日志和存储消耗以及并发的请求/会话利用率。|
-|[sys.database_service_objectives（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 SQL 数据库或 Azure SQL 数据仓库中数据库的版本（服务层级）、服务目标（定价层）和弹性池名称（若有）。 如果登录到服务器中的 master 数据库，则将返回有关所有数据库的信息。 对于 Azure SQL 数据仓库，必须连接到 master 数据库。|
+|[sys.database_service_objectives（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|返回 SQL 数据库或 Azure Synapse Analytics（前称为 SQL 数据仓库）中数据库的版本（服务层级）、服务目标（定价层）和弹性池名称（若有）。 如果登录到服务器中的 master 数据库，则将返回有关所有数据库的信息。 对于 Azure Synapse Analytics，必须连接到 master 数据库。|
 
 ## <a name="rest-api"></a>REST API
 

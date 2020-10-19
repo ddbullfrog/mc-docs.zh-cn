@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/23/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c3578eb7045b2920148c0317ceb10061a82173e
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 76f7fd27b68ed6f220938f6ea440ff363a630257
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245530"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937456"
 ---
 # <a name="start-using-privileged-identity-management"></a>开始使用 Privileged Identity Management
 
@@ -35,6 +35,14 @@ ms.locfileid: "91245530"
 - 企业移动性 + 安全性 (EMS) E5
 
 有关详细信息，请参阅[使用 Privileged Identity Management 的许可要求](subscription-requirements.md)。
+
+> [!Note]
+> 具有 Premium P2 许可证的 Azure AD 组织中的特权角色用户转到 Azure AD 中的“角色和管理员”并选择一个角色（或甚至只是访问 Privileged Identity Management）时：
+>
+> - 我们会自动为组织启用 PIM
+> - 他们现在可以分配“常规”的角色分配，也可以分配合格的角色分配
+>
+> PIM 启用后，不会对组织造成任何其他影响，无需担心。 它为你提供了其他分配选项，例如具有开始和结束时间的“有效”和“合格”选项。 通过 PIM，你还可以使用管理单元和自定义角色来定义角色分配的范围。 如果你是全局管理员或特权角色管理员，你可能会开始收到其他一些电子邮件，例如 PIM 每周摘要。 你还可能会在与角色分配有关的审核日志中看到 MS-PIM 服务主体。 这是预期的变化，对工作流没有影响。
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>准备将 PIM 用于 Azure AD 角色
 

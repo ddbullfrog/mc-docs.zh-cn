@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 3690c4249ebfcebbad21a7c6a0caedd860c56cea
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 8efaf9e3676596b09fd41842bc2fdaaeb8c9b91d
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647507"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937089"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>调用 Web API 的 Web API：获取应用的令牌
 
@@ -27,7 +27,10 @@ ms.locfileid: "88647507"
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-下面是在 API 控制器的操作中调用的使用 Microsoft.Identity.Web 的代码示例。 它调用下游 API（名为 *todolist*）。 若要获取令牌以调用下游 API，可以通过控制器构造函数中（如果使用 Blazor，则在页面构造函数中）的依赖项注入，来注入 `ITokenAcquisition` 服务，并在控制器操作中使用该服务，从而为用户 (`GetAccessTokenForUserAsync`)，或如果是在守护程序方案下则为应用程序本身 (`GetAccessTokenForAppAsync`) 获取令牌。
+Microsoft.Identity.Web 添加了扩展方法，这些方法为调用 Microsoft Graph 或下游 Web API 提供便利服务。 若要详细了解这些方法，请参阅[调用 Web API 的 Web API：调用 API](scenario-web-api-call-api-call-api.md)。 通过这些帮助程序方法，你无需手动获取令牌。
+
+但是，如果你确实想要手动获取令牌，以下代码演示了如何使用 Microsoft.Identity.Web 在 API 控制器中执行此操作。 它调用下游 API（名为 *todolist*）。
+若要获取令牌以调用下游 API，可以通过控制器构造函数中（如果使用 Blazor，则在页面构造函数中）的依赖项注入，来注入 `ITokenAcquisition` 服务，并在控制器操作中使用该服务，从而为用户 (`GetAccessTokenForUserAsync`)，或如果是在守护程序方案下则为应用程序本身 (`GetAccessTokenForAppAsync`) 获取令牌。
 
 ```csharp
 [Authorize]
@@ -83,7 +86,7 @@ public class ApiController {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Python Web API 需要使用一些中间件来验证从客户端接收的持有者令牌。 然后，Web API 可以通过调用 [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) 方法，使用 MSAL Python 库获取下游 API 的访问令牌。 我们尚未编写在 MSAL Python 中演示此流的示例。
+Python Web API 需要借助中间件来验证从客户端接收的持有者令牌。 然后，Web API 可通过调用 [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) 方法，使用 MSAL Python 库获取下游 API 的访问令牌。 我们尚未编写在 MSAL Python 中演示此流的示例。
 
 ---
 

@@ -8,19 +8,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c95542a220fa123f2fe573ba8d82178f2d9e28dd
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 41c50777bc72d3a3625063b458d17b130dddfc07
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946585"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937100"
 ---
 # <a name="set-redirect-urls-to-b2clogincn-for-azure-active-directory-b2c"></a>将 Azure Active Directory B2C 的重定向 URL 设置为 b2clogin.cn
 
-在 Azure Active Directory B2C (Azure AD B2C) 应用程序中设置用于注册和登录的标识提供者时，需要指定一个重定向 URL。 请不再要在应用程序和 API 中引用 *login.partner.microsoftonline.cn*。 对于所有新应用程序，应使用 *b2clogin.cn*，并将现有应用程序从 *login.partner.microsoftonline.cn* 迁移到 *b2clogin.cn*。
+在 Azure Active Directory B2C (Azure AD B2C) 应用程序中设置用于注册和登录的标识提供者时，需要指定一个重定向 URL。 请不要再在应用程序和 API 中引用 login.partner.microsoftonline.cn 来对用户进行 Azure AD B2C 身份验证。 对于所有新应用程序，应使用 *b2clogin.cn*，并将现有应用程序从 *login.partner.microsoftonline.cn* 迁移到 *b2clogin.cn*。
 
 ## <a name="benefits-of-b2clogincn"></a>b2clogin.cn 的优点
 
@@ -35,7 +35,7 @@ ms.locfileid: "88946585"
 若要将应用程序迁移到 *b2clogin.cn*，可能需要做出一些修改：
 
 * 将标识提供者应用程序中的重定向 URL 更改为引用 *b2clogin.cn*。
-* 将 Azure AD B2C 应用程序更新为在其用户流和令牌终结点引用中使用 *b2clogin.cn*。
+* 将 Azure AD B2C 应用程序更新为在其用户流和令牌终结点引用中使用 *b2clogin.cn*。 这可能包括更新对诸如 Microsoft 身份验证库 (MSAL) 之类的身份验证库的使用。
 * 更新在 `user interface customization` 的 CORS 设置中定义的任何“允许的来源”。
 
 ## <a name="change-identity-provider-redirect-urls"></a>更改标识提供者重定向 URL

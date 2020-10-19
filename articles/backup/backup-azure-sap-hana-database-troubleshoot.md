@@ -4,14 +4,14 @@ description: 介绍如何排查在使用 Azure 备份对 SAP HANA 数据库进�
 author: Johnnytechn
 ms.topic: troubleshooting
 origin.date: 11/7/2019
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 42ae8d2227ba1416865a94b52af95641f7a5226e
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: 0cc4ec44e215ded75e8fe49fa320e418034d5807
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852070"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871450"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>排查 Azure 上的 SAP HANA 数据库备份问题
 
@@ -49,14 +49,14 @@ ms.locfileid: "85852070"
 | 错误消息      | <span style="font-weight:normal">指定的 SAP HANA 操作不受支持</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | 可能的原因    | 适用于 SAP HANA 的 Azure 备份不支持在 SAP HANA 本机客户端 (Studio/Cockpit/DBA Cockpit) 上执行的增量备份和操作 |
-| **建议的操作** | 有关详细信息，请参阅[此文](/backup/sap-hana-backup-support-matrix#scenario-support)。 |
+| **建议的操作** | 有关详细信息，请参阅[此文](./sap-hana-backup-support-matrix.md#scenario-support)。 |
 
 ### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
 
 | 错误消息      | <span style="font-weight:normal">此 SAP HANA 数据库不支持请求的备份类型</span>  |
 | ------------------ | ------------------------------------------------------------ |
 | 可能的原因    | Azure 备份不支持增量备份和使用快照的备份 |
-| **建议的操作** | 有关详细信息，请参阅[此文](/backup/sap-hana-backup-support-matrix#scenario-support)。 |
+| **建议的操作** | 有关详细信息，请参阅[此文](./sap-hana-backup-support-matrix.md#scenario-support)。 |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
 
@@ -70,14 +70,14 @@ ms.locfileid: "85852070"
 | 错误消息      | <span style="font-weight:normal">检测到 SDC 到 MDC 的升级</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
 | 可能的原因    | SAP HANA 实例已从 SDC 升级到 MDC。 更新后，备份将会失败。 |
-| **建议的操作** | 按照[从 SDC 升级到 MDC](/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) 中列出的步骤解决此问题 |
+| **建议的操作** | 按照[从 SDC 升级到 MDC](#sdc-to-mdc-upgrade-with-a-change-in-sid) 中列出的步骤解决此问题 |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
 | 错误消息      | <span style="font-weight:normal">检测到无效的 backint 配置</span>                       |
 | ------------------ | ------------------------------------------------------------ |
 | 可能的原因    | 为 Azure 备份指定了错误的后备参数 |
-| **建议的操作** | 检查是否设置了以下 (backint) 参数：<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>如果 HOST 中存在基于 backint 的参数，请删除这些参数。 如果在 HOST 级别不存在参数，但在数据库级别手动修改了相应参数，请根据前面所述将其还原为适当的值。 或者，从 Azure 门户运行[停止保护并保留备份数据](/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database)，然后选择“恢复备份”。 |
+| **建议的操作** | 检查是否设置了以下 (backint) 参数：<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>如果 HOST 中存在基于 backint 的参数，请删除这些参数。 如果在 HOST 级别不存在参数，但在数据库级别手动修改了相应参数，请根据前面所述将其还原为适当的值。 或者，从 Azure 门户运行[停止保护并保留备份数据](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)，然后选择“恢复备份”。 |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
 
@@ -100,7 +100,7 @@ ms.locfileid: "85852070"
 
 - 默认情况下会使用备份项名称填充还原的数据库名称。 在本例中为 h21(sdc)。
 - 选择 H11 作为目标不会自动更改已还原的数据库名称。 **应将其编辑为 h11(sdc)** 。 对于 SDC，还原的数据库名称将是小写字母形式的目标实例 ID，并且在括号中追加了“sdc”。
-- 由于 SDC 只能包含一个数据库，因此还需要单击相应的复选框，以允许使用恢复点数据替代现有的数据库数据。
+- 由于 SDC 只能包含一个数据库，因此还需要选择相应的复选框，以允许使用恢复点数据替代现有的数据库数据。
 - 在 Linux 中，此项输入区分大小写。 因此请小心保留大小写。
 
 ### <a name="multiple-container-database-mdc-restore"></a>多容器数据库 (MDC) 还原
@@ -168,7 +168,7 @@ ms.locfileid: "85852070"
 - 执行升级。 完成后，HANA 系统现在便是包含一个系统 DB 和多个租户 DB 的 MDC
 - 重新运行[预注册脚本](https://aka.ms/scriptforpermsonhana)
 - 在 Azure 门户中为同一计算机重新注册扩展（“备份” -> “查看详细信息”->“选择相关 Azure VM”->“重新注册”） 
-- 针对同一 VM 单击“重新发现 DB”。 此操作应将步骤 3 中的新 DB 显示为 SYSTEMDB 和租户 DB，而不是 SDC
+- 针对同一 VM 选择“重新发现 DB”。 此操作应将步骤 3 中的新 DB 显示为 SYSTEMDB 和租户 DB，而不是 SDC
 - 旧的 SDC 数据库将继续位于保管库中，并根据相应策略保留旧的备份数据
 - 为这些数据库配置备份
 
@@ -181,7 +181,7 @@ ms.locfileid: "85852070"
 - 执行升级。 完成后，HANA 系统现在便是包含一个系统 DB 和多个租户 DB 的 MDC
 - 重新运行具有正确详细信息（新 SID 和 MDC）的[预注册脚本](https://aka.ms/scriptforpermsonhana)。 由于 SID 发生了更改，你可能会遇到阻碍脚本成功运行的问题。 如果遇到问题，请联系 Azure 备份支持部门。
 - 在 Azure 门户中为同一计算机重新注册扩展（“备份” -> “查看详细信息”->“选择相关 Azure VM”->“重新注册”） 
-- 针对同一 VM 单击“重新发现 DB”。 此操作应将步骤 3 中的新 DB 显示为 SYSTEMDB 和租户 DB，而不是 SDC
+- 针对同一 VM 选择“重新发现 DB”。 此操作应将步骤 3 中的新 DB 显示为 SYSTEMDB 和租户 DB，而不是 SDC
 - 旧的 SDC 数据库将继续位于保管库中，并根据相应策略保留旧的备份数据
 - 为这些数据库配置备份
 
@@ -207,5 +207,5 @@ ms.locfileid: "85852070"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请查看有关如何在 Azure VM 上备份 SAP HANA 数据库的[常见问题解答](/backup/sap-hana-faq-backup-azure-vm)。
+- 请查看有关如何在 Azure VM 上备份 SAP HANA 数据库的[常见问题解答](./sap-hana-faq-backup-azure-vm.md)。
 

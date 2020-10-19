@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 063e582d571e0e765f2abf68212133cdccb29c9d
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 8e048fbf6779dc2e48d4fca914d3060bc73fee69
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297684"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937143"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>关于 Azure Active Directory B2C 自定义策略中的声明解析程序
 
@@ -113,6 +113,7 @@ Azure Active Directory B2C (Azure AD B2C) [自定义策略](custom-policy-overvi
 | 声明 | 说明 | 示例 |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | 访问令牌。 | 空值 |
+| {oauth2:refresh_token} | 刷新令牌。 | 空值 |
 
 
 ### <a name="saml"></a>SAML
@@ -179,7 +180,7 @@ Azure Active Directory B2C (Azure AD B2C) [自定义策略](custom-policy-overvi
 
 ### <a name="direct-sign-in"></a>直接登录
 
-使用声明解析程序时，可以预填充登录名或直接登录到特定的社交标识提供者，例如 LinkedIn。 有关详细信息，请参阅[使用 Azure Active Directory B2C 设置直接登录](direct-signin.md)。
+使用声明解析程序时，可以预填充登录名或直接登录到特定的社交标识提供者。 有关详细信息，请参阅[使用 Azure Active Directory B2C 设置直接登录](direct-signin.md)。
 
 ### <a name="dynamic-ui-customization"></a>动态 UI 自定义
 

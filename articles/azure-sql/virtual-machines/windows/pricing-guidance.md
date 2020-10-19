@@ -15,12 +15,12 @@ ms.date: 09/14/2020
 ms.author: v-jay
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 444270e42282406552edcebe3b2a79c8b26f2c08
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 3380888c67cb0fa078f32d81185455322480eea6
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014177"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872443"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Azure VM 上 SQL Server 的定价指南
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -74,7 +74,7 @@ ms.locfileid: "90014177"
 
 标准预付费套餐意味着 Azure VM 的每秒运行成本包括 SQL Server 许可证的费用。 有关不同 SQL Server 版本（Web、Standard 和 Enterprise）的定价，可参阅适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 或 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 的 Azure 虚拟机定价页。
 
-所有版本的 SQL Server（2012 SP3 到 2017）的费用相同。 每秒许可成本取决于 VM vCPU 的数量。
+所有版本的 SQL Server（2012 SP3 到 2019）的费用相同。 每秒许可成本取决于 VM vCPU 的数量。
 
 建议在以下情况采用“提前支付 SQL Server 许可费用”：
 

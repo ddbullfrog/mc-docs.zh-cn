@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/22/2017
-ms.date: 07/06/2020
-ms.openlocfilehash: 216bc0262143a1e8841bfeb3146bdfa85950d4a7
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/09/2020
+ms.openlocfilehash: f776f7c279f8b6eca06decb90b02eab1ab3df7da
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226161"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936830"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>扩展 Azure 流分析作业以增加吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 可以使用以下指南来扩展作业，以便处理较高负载并充分利用更多的系统资源（如更多带宽、更多 CPU 资源、更多内存）。
@@ -24,7 +24,7 @@ ms.locfileid: "86226161"
 ## <a name="case-1---your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>案例 1 - 在各个输入分区中，查询本质上是完全可并行的
 如果在各个输入分区中，查询本质上是完全可并行的，则可以按照以下步骤操作：
 1.  通过使用 PARTITION BY 关键字来创作查询使之易并行。 请参阅[此页](stream-analytics-parallelization.md)易并行作业部分中的更多详细信息。
-2.  根据查询中使用的输出类型，某些输出可能是不可并行的，或者需要进一步配置来实现易并行。 例如，PowerBI 输出不可并行。 请始终先合并输出，然后再将其发送到输出接收器。 Blob、表、ADLS、服务总线和 Azure Function 会自动并行化。 SQL 和 SQL DW 输出具有并行化选项。 事件中心需要将 PartitionKey 配置设置为与 PARTITION BY 字段（通常是 PartitionId）匹配。 对于事件中心，还要格外注意匹配所有输入和所有输出的分区数量，以避免分区之间的交叉。 
+2.  根据查询中使用的输出类型，某些输出可能是不可并行的，或者需要进一步配置来实现易并行。 请始终先合并输出，然后再将其发送到输出接收器。 Blob、表、ADLS、服务总线和 Azure Function 会自动并行化。 SQL 输出有一个用于并行化的选项。 事件中心需要将 PartitionKey 配置设置为与 PARTITION BY 字段（通常是 PartitionId）匹配。 对于事件中心，还要格外注意匹配所有输入和所有输出的分区数量，以避免分区之间的交叉。 
 3.  使用 6 SU（即单个计算节点的全部容量）来运行查询，以度量最大可实现的吞吐量，如果你使用的是 GROUP BY，则度量作业能处理的组数（基数）。 达到系统资源限制的作业，一般症状将如下所示。
     - SU 利用率指标超过 80%。 该指示内存使用率较高。 [此处](stream-analytics-streaming-unit-consumption.md)描述了导致此指标增加的因素。 
     -   输出时间戳滞后于时钟时间。 根据查询逻辑，输出时间戳可能与时钟时间之间存在一个逻辑偏差。 但是，它们应该以大致相同的速度增进。 如果输出时间戳进一步滞后，则指示系统工作时间过长。 它可能是由于下游输出接收器限制，或高 CPU 利用率所致。 我们目前没有提供 CPU 利用率指标，因此很难区分两者。
@@ -79,7 +79,7 @@ ms.locfileid: "86226161"
 
 
 ## <a name="get-help"></a>获取帮助
-如需获取进一步的帮助，可前往 [Azure 流分析的 Microsoft 问答页面](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)。
+若要获得进一步的帮助，可前往 [Azure 流分析的 Microsoft 问答问题页面](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

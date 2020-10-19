@@ -2,16 +2,18 @@
 title: 视图定义的概述
 description: 介绍为 Azure 托管应用程序创建视图定义的概念。
 ms.topic: conceptual
-author: rockboyfor
 origin.date: 06/12/2019
-ms.date: 04/30/2020
+author: rockboyfor
+ms.date: 10/12/2020
+ms.testscope: no
+ms.testdate: 04/30/2020
 ms.author: v-yeche
-ms.openlocfilehash: cc5e49f7eb4d0936eab421bb27ab955df12c62fd
-ms.sourcegitcommit: b469d275694fb86bbe37a21227e24019043b9e88
+ms.openlocfilehash: de8baea62ccd8218bef819d05c9bac33c9357c44
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596095"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937122"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>查看 Azure 托管应用程序中的定义项目
 
@@ -132,7 +134,7 @@ ms.locfileid: "82596095"
 |description|否|托管应用程序的说明。|
 |命令|否|概述页的其他工具栏按钮的数组，请参阅[命令](#commands)。|
 
-![概述](./media/view-definition/overview.png)
+:::image type="content" source="./media/view-definition/overview.png" alt-text="屏幕截图显示具有托管应用程序的“概述”，该应用有一个“测试操作”控件用于运行演示应用程序。":::
 
 ## <a name="metrics"></a>指标
 
@@ -189,7 +191,7 @@ ms.locfileid: "82596095"
 |resourceTagFilter|否|要显示其指标的资源标记数组（使用单词 `or` 分隔）。 在资源类型筛选器的顶部应用。|
 |resourceType|是|要显示其指标的资源类型。|
 
-![指标](./media/view-definition/metrics.png)
+:::image type="content" source="./media/view-definition/metrics.png" alt-text="屏幕截图显示具有托管应用程序的“概述”，该应用有一个“测试操作”控件用于运行演示应用程序。":::
 
 ## <a name="custom-resources"></a>自定义资源
 
@@ -237,7 +239,7 @@ ms.locfileid: "82596095"
 |命令|否|CustomResources 视图的其他工具栏按钮数组，请参阅[命令](#commands)。|
 |列|否|自定义资源的列数组。 如果未定义，则默认会显示 `name` 列。 该列必须具有 `"key"` 和 `"displayName"`。 对于键，请提供要在视图中显示的属性的键。 如果嵌套键，请使用句点作为分隔符，例如 `"key": "name"` 或 `"key": "properties.property1"`。 对于显示名称，请提供要在视图中显示的属性的显示名称。 还可以提供 `"optional"` 属性。 设置为 true 时，该列默认会在视图中隐藏。|
 
-![CustomResources](./media/view-definition/customresources.png)
+:::image type="content" source="./media/view-definition/customresources.png" alt-text="屏幕截图显示具有托管应用程序的“概述”，该应用有一个“测试操作”控件用于运行演示应用程序。":::
 
 ## <a name="commands"></a>命令
 
@@ -305,5 +307,4 @@ ms.locfileid: "82596095"
 <!--Not Available on [Azure Custom Providers overview](../custom-providers/overview.md)-->
 <!--Not Available on [Tutorial: Create managed application with custom provider actions and resource types](tutorial-create-managed-app-with-custom-provider.md)-->
 
-<!-- Update_Description: new article about concepts view definition -->
-<!--NEW.date: 01/20/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

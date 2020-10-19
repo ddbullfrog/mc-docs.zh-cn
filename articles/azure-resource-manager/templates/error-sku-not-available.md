@@ -3,14 +3,15 @@ title: SKU 不可用错误
 description: 介绍在使用 Azure 资源管理器部署资源时如何解决 SKU 不可用错误。
 ms.topic: troubleshooting
 origin.date: 02/18/2020
-ms.date: 03/23/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5634597465817208ca20c265a67e58e8636f0d0b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a153a3eda126739cd53cf54395e895404e8f24a5
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79543914"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937527"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>解决 SKU 不可用的错误
 
@@ -90,11 +91,11 @@ virtualMachines  chinaeast  Standard_F4                ...             None
 
 例如，开始创建虚拟机的过程。 若要查看其他可用的大小，请选择“更改大小”  。
 
-![创建 VM](./media/error-sku-not-available/create-vm.png)
+:::image type="content" source="./media/error-sku-not-available/create-vm.png" alt-text="创建 VM":::
 
 可以筛选和滚动到可用的大小。
 
-![可用的 SKU](./media/error-sku-not-available/available-sizes.png)
+:::image type="content" source="./media/error-sku-not-available/available-sizes.png" alt-text="创建 VM":::
 
 ## <a name="solution-4---rest"></a>解决方案 4 - REST
 

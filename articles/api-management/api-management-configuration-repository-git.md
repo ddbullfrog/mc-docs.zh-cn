@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 1f880b2cf21b0918e8eee1d2eb7c3c0a2285d74b
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: 3437b16ac9deeea181cec58fb7f71de3939453b4
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440546"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871239"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 
@@ -48,7 +48,7 @@ ms.locfileid: "86440546"
 
 ## <a name="access-git-configuration-in-your-service"></a>访问服务中的 Git 配置
 
-若要查看和配置 Git 配置设置，可单击“安全”菜单并导航到“配置存储库”选项卡。
+若要查看和配置 Git 配置设置，可单击“部署和基础结构”菜单，并导航到“存储库”选项卡 。
 
 ![启用 Git][api-management-enable-git]
 
@@ -63,7 +63,7 @@ ms.locfileid: "86440546"
 
 克隆存储库之前的第一个步骤是将服务配置的当前状态保存到存储库。 单击“保存到存储库”。
 
-在确认屏幕上进行任何所需的更改，并单击“确定”保存。
+在确认屏幕上进行任何所需的更改，并单击“保存”进行保存。
 
 片刻后配置已保存，并显示存储库的配置状态，包括上次配置更改和服务配置与存储库之间上次同步的日期和时间。
 
@@ -83,7 +83,7 @@ ms.locfileid: "86440546"
 
 以下示例使用 [Git for Windows](https://www.git-scm.com/downloads) 中的 Git Bash 工具，但可以使用熟悉的任何 Git 工具。
 
-使用 Azure 门户提供的命令，在所需文件夹中打开 Git 工具并运行以下命令以将 Git 存储库克隆到本地计算机。
+使用 Azure 门户提供的命令，在所需文件夹中打开 Git 工具并运行以下命令，以将 Git 存储库克隆到本地计算机。
 
 ```
 git clone https://{name}.scm.azure-api.net/
@@ -113,7 +113,7 @@ git clone https://username:url encoded password@{name}.scm.azure-api.net/
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>使用最新服务实例配置更新本地存储库
 
-如果在 Azure 门户中或使用 REST API 对 API 管理服务实例进行更改，必须先将这些更改保存到存储库，然后才能使用最新更改更新本地存储库。 要执行此操作，请单击 Azure 门户中“配置存储库”选项卡上的“将配置保存到存储库”，然后在本地存储库中发布以下命令。
+如果在 Azure 门户中或使用 REST API 对 API 管理服务实例进行更改，必须先将这些更改保存到存储库，然后才能使用最新更改更新本地存储库。 要执行此操作，请单击 Azure 门户中“存储库”选项卡上的“保存到存储库”，然后在本地存储库中发布以下命令 。
 
 ```
 git pull
@@ -199,7 +199,7 @@ git push
 }
 ```
 
-前四个设置（`RegistrationEnabled`、`UserRegistrationTerms`、`UserRegistrationTermsEnabled` 和 `UserRegistrationTermsConsentRequired`）映射到“安全”部分中的“标识”选项卡上的以下设置。
+前四个设置（`RegistrationEnabled`、`UserRegistrationTerms`、`UserRegistrationTermsEnabled` 和 `UserRegistrationTermsConsentRequired`）映射到“开发人员门户”部分“标识”选项卡上的以下设置 。
 
 | 标识设置 | 映射到 |
 | --- | --- |
@@ -209,7 +209,7 @@ git push
 | UserRegistrationTermsConsentRequired |“需要同意”复选框 |
 | RequireUserSigninEnabled |“将匿名用户重定向到登录页”复选框 |
 
-接下来的四个设置（`DelegationEnabled`、`DelegationUrl`、`DelegatedSubscriptionEnabled` 和 `DelegationValidationKey`）映射到“安全”部分中的“委派”选项卡上的以下设置。
+接下来的四个设置（`DelegationEnabled`、`DelegationUrl`、`DelegatedSubscriptionEnabled` 和 `DelegationValidationKey`）映射到“开发人员门户”部分“委派”选项卡上的以下设置 。
 
 | 委派设置 | 映射到 |
 | --- | --- |
@@ -282,8 +282,4 @@ git push
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
-
-
-
 

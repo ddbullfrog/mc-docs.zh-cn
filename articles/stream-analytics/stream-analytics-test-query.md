@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 origin.date: 08/23/2019
-ms.date: 08/20/2020
+ms.date: 10/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3354c4f5198530964dab3134c655606dd9830b9b
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.openlocfilehash: 1198c0273060714b64cfab6f1238062bf4e7890d
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715758"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936803"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>在门户中测试 Azure 流分析作业
 
@@ -97,6 +97,21 @@ Azure 流分析自动从流输入中提取事件。 可以针对默认示例运�
    ![Azure 流分析中选定的输出](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
 10. 确认结果显示在浏览器中后，可以**启动**作业。
+
+## <a name="limitations"></a>限制
+
+1.  门户测试中不支持时间策略：
+
+   * 无序：将对所有传入事件进行排序。
+   * 延迟到达：由于流分析只能使用现有数据进行测试，因此不会出现延迟到达事件。
+   
+2.  不支持 C# UDF。
+
+3.  所有测试都将在具有一个流单元的作业下运行。
+
+4.  超时大小为一分钟。 因此，任何窗口大小超过一分钟的查询都无法获取任何数据。
+
+5.  不支持机器学习。
 
 ## <a name="next-steps"></a>后续步骤
 * [使用流分析构建 IoT 解决方案](/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)：本教程将指导使用数据生成器构建端到端解决方案，该生成器将模拟收费站的流量。

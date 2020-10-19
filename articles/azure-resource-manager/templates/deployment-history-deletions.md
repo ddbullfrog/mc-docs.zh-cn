@@ -2,25 +2,27 @@
 title: 部署历史记录删除
 description: 介绍 Azure 资源管理器如何从部署历史记录中自动删除部署。 当历史记录即将超过限制（800 条）时，将删除部署。
 ms.topic: conceptual
-origin.date: 07/10/2020
+origin.date: 09/15/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: bd085a1b676e6d8e84ed5c182be5c3b583198385
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: f9d0391045b9cd4dd8fe46e0f89e70ffd3e97f92
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807732"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937544"
 ---
 <!--Verified successfully on 2020/08/17 by harris-->
 # <a name="automatic-deletions-from-deployment-history"></a>从部署历史记录自动删除
 
 每次部署模板时，有关部署的信息都会写入到部署历史记录中。 每个资源组在其部署历史记录中最多只能有 800 个部署。
 
-当你接近限制时，Azure 资源管理器会自动删除历史记录中的部署。 自动删除是对过去的行为的更改。 以前，必须从部署历史记录中手动删除部署，以避免出现错误。 **此更改于 2020 年 8 月 6 日实现。**
+当你接近限制时，Azure 资源管理器会自动删除历史记录中的部署。 自动删除是对过去的行为的更改。 以前，必须从部署历史记录中手动删除部署，以避免出现错误。 此更改于 2020 年 8 月 6 日实现。
+
+**资源组部署支持自动删除。目前，[订阅](deploy-to-subscription.md)、[管理组](deploy-to-management-group.md)和[租户](deploy-to-tenant.md)部署的历史记录中的部署不会自动删除。**
 
 > [!NOTE]
 > 从历史记录中删除部署不会影响已部署的任何资源。
@@ -82,7 +84,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Resources -FeatureName Disabl
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-对于 Azure CLI，请使用 [az feature register](https://docs.azure.cn/cli/feature?view=azure-cli-latest#az-feature-register)。
+对于 Azure CLI，请使用 [az feature register](https://docs.azure.cn/cli/feature#az_feature_register)。
 
 ```azurecli
 az feature register --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -94,7 +96,7 @@ az feature register --namespace Microsoft.Resources --name DisableDeploymentGroo
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-若要重新启用自动删除，请使用 [az feature unregister](https://docs.azure.cn/cli/feature?view=azure-cli-latest#az-feature-unregister)。
+若要重新启用自动删除，请使用 [az feature unregister](https://docs.azure.cn/cli/feature#az_feature_unregister)。
 
 ```azurecli
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming

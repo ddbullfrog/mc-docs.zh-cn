@@ -9,35 +9,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/22/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: cfe6f80795df690f2b8351b5dbae53d2a586320b
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: ce494d9a652e3677a3c0cfd318cf2979ea17bbe8
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126457"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937095"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>方案：用于调用 Web API 的移动应用程序
 
 了解如何构建用于调用 Web API 的移动应用。
 
-## <a name="prerequisites"></a>先决条件
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>入门
 
-创建第一个移动应用程序并尝试快速入门。
+如果尚未创建你的首个应用程序，请完成以下快速入门进行创建：
 
-> [!div class="nextstepaction"]
-> [快速入门：获取令牌并从 Android 应用中调用 Microsoft Graph API](./quickstart-v2-android.md)
->
-> [快速入门：获取令牌并从 iOS 应用中调用 Microsoft Graph API](./quickstart-v2-ios.md)
->
-> [快速入门：获取令牌并从 Xamarin iOS 和 Android 应用中调用 Microsoft Graph API](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+- [快速入门：获取令牌并从 Android 应用中调用 Microsoft Graph API](./quickstart-v2-android.md)
+- [快速入门：获取令牌并从 iOS 应用中调用 Microsoft Graph API](./quickstart-v2-ios.md)
+- [快速入门：获取令牌并从 Xamarin iOS 和 Android 应用中调用 Microsoft Graph API](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (GitHub)
 
 ## <a name="overview"></a>概述
 
@@ -59,6 +52,10 @@ ms.locfileid: "82126457"
 - 该用户第一次登录时，可能需要完成某些用户交互，具体取决于平台。 例如，在首次通过 Microsoft Authenticator（以及 Android 上的 Intune 公司门户）使用 SSO 时，iOS 会要求应用显示用户交互。
 - 在 iOS 和 Android 上，MSAL 可以使用外部浏览器来登录用户。 外部浏览器可能显示在应用顶端。
 - 不要在移动应用程序中使用机密。 在这些应用程序中，所有用户都可以访问机密。
+
+## <a name="recommended-reading"></a>推荐阅读内容
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

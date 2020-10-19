@@ -5,17 +5,17 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 12/11/2018
 ms.author: v-johya
-ms.date: 09/22/2020
-ms.openlocfilehash: 6e631b2962a1feb22b3b0d09ed84570f6ac29c49
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.date: 09/28/2020
+ms.openlocfilehash: 8558079763a5bf6e8c19fbb3b930466af4363bc0
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402511"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871476"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 备份服务器备份 VMware VM
 
-本文介绍如何使用 Azure 备份服务器将 VMware ESXi 主机/vCenter 服务器上运行的 VMware VM 备份到 Azure。
+本文介绍如何使用 Microsoft Azure 备份服务器 (MABS) 将 VMware ESXi 主机/vCenter 服务器上运行的 VMware VM 备份到 Azure。
 
 本文介绍如何执行以下操作：
 
@@ -24,6 +24,31 @@ ms.locfileid: "91402511"
 - 将帐户凭据添加到 Azure 备份。
 - 将 vCenter 或 ESXi 服务器添加到 Azure 备份服务器。
 - 设置一个包含要备份的 VMware VM 的保护组，指定备份设置，并计划备份。
+
+## <a name="supported-vmware-features"></a>支持的 VMware 功能
+
+MABS 提供了备份 VMware 虚拟机时的以下功能：
+
+- 无代理备份：MABS 不需要在 vCenter 或 ESXi 服务器上安装代理即可备份虚拟机。 只需提供 IP 地址或完全限定的域名 (FQDN)，以及通过 MABS 对 VMware 服务器进行身份验证所使用的登录凭据。
+- 云集成备份：MABS 保护磁盘和云的工作负载。 MABS 的备份和恢复工作流有助于管理长期保留和异地备份。
+- 检测并保护 vCenter 管理的 VM：MABS 检测并保护 VMware 服务器（vCenter 或 ESXi 服务器）上部署的 VM。 当部署规模增大时，使用 vCenter 来管理 VMware 环境。 MABS 还可以检测 vCenter 管理的 VM，支持保护大型部署。
+- 文件夹级自动保护：vCenter 允许组织 VM 文件夹中的 VM。 MABS 可检测这些文件夹，支持在文件夹级别保护 VM 和添加所有子文件夹。 保护文件夹时，MABS 不仅保护该文件夹中的 VM，还保护后续添加的 VM。 MABS 每天检测新的 VM，并自动对其进行保护。 在递归文件夹中整理 VM 时，MABS 会自动检测并保护递归文件夹中部署的新 VM。
+- MABS 保护本地磁盘、网络文件系统 (NFS) 或群集存储中存储的 VM。
+- MABS 保护为实现负载均衡而迁移的 VM：由于迁移 VM 是为了实现负载均衡，因此 MABS 会自动检测并持续进行 VM 保护。
+- MABS 可以在不恢复整个 VM 的情况下恢复 Windows VM 中的文件/文件夹，这有助于更快地恢复必需的文件。
+
+## <a name="prerequisites-and-limitations"></a>先决条件和限制
+
+开始备份 VMware 虚拟机之前，请查看以下限制和先决条件的列表。
+
+- 如果一直使用 MABS 将 vCenter Server 作为使用服务器 FQDN 的 Windows Server 进行保护，则无法将该 vCenter Server 作为使用服务器 FQDN 的 VMware 服务器进行保护。
+  - 可以使用 vCenter Server 的静态 IP 地址作为解决方法。
+  - 如果要使用 FQDN，应停止作为 Windows Server 进行保护，删除保护代理，然后添加为使用 FQDN 的 VMware Server。
+- 如果使用 vCenter 管理环境中的 ESXi 服务器，请将 vCenter（而非 ESXi）添加到 MABS 保护组。
+- 无法在第一次 MABS 备份前备份用户快照。 MABS 完成第一次备份后，你可以备份用户快照。
+- MABS 无法通过直通磁盘和物理原始设备映射 (pRDM) 保护 VMware VM。
+- MABS 无法检测或保护 VMware vApps。
+- MABS 无法使用现有快照保护 VMware VM。
 
 ## <a name="before-you-start"></a>开始之前
 
@@ -170,8 +195,8 @@ Azure 备份服务器需要一个有权访问 V-Center 服务器/ESXi 主机的�
 | Virtual machine.Guest Operations.Guest Operation Queries                   | Virtual machine.Guest Operations.Guest Operation Queries                   |
 | Virtual machine .Interaction .Device connection                            | Virtual machine .Interaction .Device connection                            |
 | Virtual machine .Interaction .Guest operating system management by VIX API | Virtual machine .Interaction .Guest operating system management by VIX API |
-| Virtual machine.Interaction.Power Off                                    | Virtual machine .Interaction .Power Off                                    |
-| Virtual machine.Inventory.Create new                                      | Virtual machine .Inventory.Create new                                      |
+| Virtual machine .Interaction .Power Off                                    | Virtual machine .Interaction .Power Off                                    |
+| Virtual machine .Inventory.Create new                                      | Virtual machine .Inventory.Create new                                      |
 | Virtual machine .Inventory.Remove                                          | Virtual machine .Inventory.Remove                                          |
 | Virtual machine .Inventory.Register                                        | Virtual machine .Inventory.Register                                        |
 | Virtual machine .Provisioning.Allow disk access                            | Virtual machine .Provisioning.Allow disk access                            |
@@ -395,7 +420,7 @@ Azure 备份服务器需要一个有权访问 V-Center 服务器/ESXi 主机的�
 
 若要备份 vSphere 6.7，请执行以下操作：
 
-- 在 DPM 服务器上启用 TLS 1.2
+- 在 MABS 服务器上启用 TLS 1.2
 
 >[!NOTE]
 >VMWare 6.7 及更高版本已启用 TLS 作为通信协议。

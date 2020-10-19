@@ -12,14 +12,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/09/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: e61b72182a2dbdd27874ee7ae5cc7fbb4185cc9a
-ms.sourcegitcommit: 81241aa44adbcac0764e2b5eb865b96ae56da6b7
+ms.openlocfilehash: b1575a6dd1784efacd40b754924aecbfcd410c67
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "83001949"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871375"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理
 
@@ -88,6 +88,11 @@ ms.locfileid: "83001949"
 
 > [!WARNING]
 > 为了防止应用程序网关 WAF 中断在开发人员门户中 OpenAPI 规范的下载，需要禁用防火墙规则 `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`。
+> 
+> 应用程序网关 WAF 规则可能会破坏门户的功能，其中包括：
+> 
+> - 适用于管理模式的 `920300`、`920330`、`931130`、`942100`、`942110`、`942180`、`942200`、`942260`、`942340`、`942370`
+> - 适用于已发布门户的 `942200`、`942260`、`942370`、`942430`、`942440`
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>创建 Resource Manager 的资源组
 
@@ -330,7 +335,7 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Bas
 
 ### <a name="step-11"></a>步骤 11
 
-配置实例数目和应用程序网关的大小。 本示例将使用 [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) 来提高 API 管理资源的安全性。
+配置实例数目和应用程序网关的大小。 本示例将使用 [WAF SKU](../web-application-firewall/ag/ag-overview.md) 来提高 API 管理资源的安全性。
 
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
@@ -368,9 +373,9 @@ VNET 中配置的 Azure API 管理为配置的所有 API 提供单个网关接�
 
 ## <a name="next-steps"></a><a name="next-steps"></a>后续步骤
 * 详细了解 Azure 应用程序网关
-  * [应用程序网关概述](../application-gateway/application-gateway-introduction.md)
-  * [应用程序网关 Web 应用程序防火墙](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
-  * [使用基于路径的路由的应用程序网关](../application-gateway/application-gateway-create-url-route-arm-ps.md)
+  * [应用程序网关概述](../application-gateway/overview.md)
+  * [应用程序网关 Web 应用程序防火墙](../web-application-firewall/ag/ag-overview.md)
+  * [使用基于路径的路由的应用程序网关](../application-gateway/tutorial-url-route-powershell.md)
 * 详细了解 API 管理和 VNET
   * [使用只能在 VNET 内使用的 API 管理](api-management-using-with-internal-vnet.md)
   * [在 VNET 中使用 API 管理](api-management-using-with-vnet.md)

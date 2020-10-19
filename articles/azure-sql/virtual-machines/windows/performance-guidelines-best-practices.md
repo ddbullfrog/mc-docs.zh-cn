@@ -9,19 +9,19 @@ tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 10/18/2019
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: 2856e7eeb955f88c9721fe1dbb4bd8e4aac37a30
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 7e78f5f0a88081ad84feffccf29ea814265d33ed
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014174"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872444"
 ---
 <!--Verified Redirect files-->
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server 的性能准则
@@ -207,9 +207,22 @@ Azure 虚拟机上有三种主要磁盘类型：
 
 如果正在使用存储空间，且选中了“将所有符合条件的存储添加到群集”，Windows 将在群集进程中分离虚拟磁盘。 这样一来，这些虚拟磁盘不会出现在磁盘管理器或资源管理器之中，除非从群集中删除存储空间，并使用 PowerShell 将其重新附加。 存储空间会将多个磁盘分组到存储池。 有关详细信息，请参阅[存储空间](https://docs.microsoft.com/windows-server/storage/storage-spaces/overview)。
 
+## <a name="multiple-instances"></a>多个实例 
+
+在将多个 SQL Server 实例部署到单个虚拟机时，请考虑以下最佳做法： 
+
+- 为每个 SQL Server 实例设置最大服务器内存，确保有剩余内存供操作系统使用。 如果更改分配给虚拟机的内存量，请确保更新 SQL Server 实例的内存限制。 
+- 为数据、日志和 TempDB 设置单独的 LUN，因为它们都具有不同的工作负载模式，并且你不希望它们相互影响。 
+- 在接近生产的巨大工作负载下彻底测试你的环境，确保它可应对你的应用程序 SLA 内的工作负载峰值。 
+
+系统过载的信号可能包括但不限于工作线程用尽、响应时间过长和/或调度程序系统内存停滞。 
+
+
+
+
 ## <a name="next-steps"></a>后续步骤
 
-有关存储和性能的详细信息，请参阅 [Azure 虚拟机上的 SQL Server 的存储配置准则](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
+有关存储和性能的详细信息，请参阅 [Azure 虚拟机上 SQL Server 的存储配置准则](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
 
 有关安全最佳做法，请参阅 [Azure 虚拟机上 SQL Server 的安全注意事项](security-considerations-best-practices.md)。
 

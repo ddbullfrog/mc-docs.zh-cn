@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
-origin.date: 08/05/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: eca1f75da98adeb492fd7e12827ffbb9dc61e4b9
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+origin.date: 09/21/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 95cda127d8c918078e68056cbd77da46f2768ec5
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228105"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872454"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>在 Azure SQL 托管实例中配置高级威胁防护
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,21 +27,18 @@ ms.locfileid: "86228105"
 
 你可以通过[电子邮件通知](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event)或 [Azure 门户](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal)接收有关检测到的威胁的通知
 
-[高级威胁防护](../database/threat-detection-overview.md)包含在[高级数据安全](../database/advanced-data-security.md)产品/服务中，这是用于高级 SQL 安全功能的统一软件包。 可通过中心 SQL ADS 门户访问和管理高级威胁防护。
+[高级威胁防护](../database/threat-detection-overview.md)包含在 [Azure Defender for SQL](../database/azure-defender-for-sql.md) 产品/服务中，这是用于高级 SQL 安全功能的统一软件包。 可通过中心 Azure Defender for SQL 门户访问和管理高级威胁防护。
 
 ##  <a name="azure-portal"></a>Azure 门户
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。 
-2. 导航到要保护的 SQL 托管实例的实例配置页面。 在“设置”页中，选择“高级数据安全” 。
-3. 在“高级数据安全”配置页中，执行以下操作：
-   - **启用**高级数据安全。
+2. 导航到要保护的 SQL 托管实例的实例配置页面。 在“安全性”下，选择“安全中心” 。
+3. 在 Azure Defender for SQL 配置页中
+   - 启用 Azure Defender for SQL。
    - 配置在检测到异常数据库活动时需要接收安全警报的**电子邮件列表**。
    - 选择保存异常的威胁审核记录的 **Azure 存储帐户**。
    - 选择要配置的**高级威胁防护类型**。 详细了解[高级威胁防护警报](../database/threat-detection-overview.md)。
-4. 单击“保存”，保存新的或更新的高级数据安全策略。
-
-   ![高级威胁防护](./media/threat-detection-configure/threat-detection.png)
-
+4. 单击“保存”，保存新的或更新后的适用于 Azure Defender for SQL 策略。
 
 ## <a name="next-steps"></a>后续步骤
 

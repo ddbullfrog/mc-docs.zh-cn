@@ -1,20 +1,20 @@
 ---
 title: Linux 性能工具
 titleSuffix: Azure Kubernetes Service
-description: 了解如何排查和解决在使用 Azure Kubernetes 服务 (AKS) 时遇到的常见问题
+description: 了解如何使用 Linux 性能工具排查和解决在使用 Azure Kubernetes 服务 (AKS) 时遇到的常见问题。
 services: container-service
-author: rockboyfor
 ms.service: container-service
 ms.topic: troubleshooting
 origin.date: 02/10/2020
-ms.date: 03/09/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1364b1bef63e4942d0c5dcec2152f40300fb78e8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b5ba0b4d8cf12be8af7ff2b4424782348bbb0fee
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850471"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937128"
 ---
 <!--Verified, only Linux bash -->
 # <a name="linux-performance-troubleshooting"></a>Linux 性能故障排除
@@ -327,5 +327,4 @@ IpExt:
 
 `netstat` 可以探究各种网络统计信息，在此处它是结合摘要输出调用的。 此处根据具体的问题提供了许多有用字段。 “TCP”部分中的一个有用字段是“失败连接尝试次数”。 它可能表示发生了 SNAT 端口耗尽问题，或者在发起出站连接时出现了其他问题。 重传段的比率（也在“TCP”部分下）较高可能表示数据包传送出现了问题。
 
-<!-- Update_Description: new article about troubleshoot linux -->
-<!--NEW.date: 03/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

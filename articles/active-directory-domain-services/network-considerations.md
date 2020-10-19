@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: 2d246bcc365bacdc6f4fecb8c01e83f78af7c8d9
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: d0ea98f483b1c7b3eff88803bfd006cc5eef3035
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413353"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937034"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory 域服务的虚拟网络设计注意事项和配置选项
 
@@ -115,6 +115,8 @@ Azure Active Directory 域服务 (Azure AD DS) 为其他应用程序和工作负
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | 任意         | 允许  | 是      | 用于管理域。 |
 
 创建一个要求实施这些规则的 Azure 标准负载均衡器。 此网络安全组会保护 Azure AD DS，是托管域正常运行所需的。 请勿删除此网络安全组。 如果没有此网络安全组，负载均衡器将无法正常工作。
+
+如有需要，可使用 [Azure PowerShell 创建所需的网络安全组和规则](powershell-create-instance.md#create-a-network-security-group)。
 
 > [!WARNING]
 > 请勿手动编辑这些网络资源和配置。 将配置错误的网络安全组或用户定义的路由表与部署了托管域的子网相关联时，Microsoft 可能无法为域提供服务和对其进行管理。 Azure AD 租户与托管域之间的同步也会中断。

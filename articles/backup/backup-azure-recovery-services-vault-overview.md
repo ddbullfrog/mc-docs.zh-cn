@@ -1,17 +1,17 @@
 ---
 title: 恢复服务保管库概述
-description: 恢复服务保管库和 Azure 备份保管库的概述和比较。
+description: 恢复服务保管库概述。
 author: Johnnytechn
 origin.date: 08/10/2018
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 551d658745c556b98e3819efa941c618471e1d2a
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: b46866d0f6ffb4f1d50e6b340601d19690c3c567
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402426"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871174"
 ---
 # <a name="recovery-services-vaults-overview"></a>恢复服务保管库概述
 
@@ -32,7 +32,7 @@ ms.locfileid: "91402426"
 
 - Azure 备份会自动处理保管库的存储。 查看如何[更改存储设置](./backup-create-rs-vault.md#set-storage-redundancy)。
 
-- 若要详细了解存储冗余，请参阅有关[异地](../storage/common/storage-redundancy.md)冗余和[本地](../storage/common/storage-redundancy.md)冗余的这些文章。
+- 若要详细了解存储冗余，请参阅有关[异地](../storage/common/storage-redundancy.md)冗余和[本地](../storage/common/storage-redundancy.md#locally-redundant-storage)冗余的这些文章。
 
 ## <a name="encryption-settings-in-the-recovery-services-vault"></a>恢复服务保管库中的加密设置
 

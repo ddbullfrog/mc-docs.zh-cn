@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
 ms.custom: references_regions
-ms.openlocfilehash: da88372cbb905b99c5e1139d541e0dfe1dc035f1
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 50348eeb2ab8ad3c965c2a5e2b016cf0aed11ae0
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721182"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937436"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>应用程序网关常见问题
 
@@ -49,7 +49,9 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>应用程序网关已在哪些区域推出？
 
-应用程序网关已在国际版 Azure 的所有区域推出。 [Azure 中国世纪互联](https://www.azure.cn/)也已推出该服务。
+应用程序网关 v1（Standard 和 WAF）已在国际版 Azure 的所有区域推出。 [Azure 中国世纪互联](https://www.azure.cn/)也已推出该服务。
+
+有关应用程序网关 v2（Standard_v2 和 WAF_v2）可用性，请参阅[应用程序网关 v2 支持的区域](/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
 
 ### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>此部署是专门于订阅，还是在所有客户之间共享？
 
@@ -119,7 +121,7 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIP
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>是否可以使用 Exchange Server 作为应用程序网关的后端？
 
-否。 应用程序网关不支持电子邮件协议，如 SMTP、IMAP 和 POP3。
+不是。 应用程序网关不支持电子邮件协议，如 SMTP、IMAP 和 POP3。
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>是否提供了从 v1 SKU 迁移到 v2 SKU 的指南？
 
@@ -131,7 +133,7 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIP
 
 ### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>应用程序网关 V2 是否支持使用 NTLM 身份验证的代理请求？
 
-否。 应用程序网关 V2 尚不支持使用 NTLM 身份验证的代理请求。
+不是。 应用程序网关 V2 尚不支持使用 NTLM 身份验证的代理请求。
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>应用程序网关关联 Cookie 是否支持 SameSite 属性？
 支持。Chromium 浏览器 v80 更新对没有 SameSite 属性的 HTTP Cookie 引入了一项强制性要求：将其视为 SameSite=Lax。 这意味着，浏览器不会将应用程序网关关联 Cookie 发送到第三方上下文中。 
@@ -156,7 +158,7 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 ### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>手动或自动纵向扩展或缩减是否会导致停机？
 
-否。 实例将分布在升级域和容错域上。
+不是。 实例将分布在升级域和容错域上。
 
 ### <a name="does-application-gateway-support-connection-draining"></a>应用程序网关是否支持连接排出？
 
@@ -178,15 +180,19 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>是否可以在应用程序网关子网中部署其他任何组件？
 
-否。 但可以在子网中部署其他应用程序网关。
+不是。 但可以在子网中部署其他应用程序网关。
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>应用程序网关子网是否支持网络安全组？
 
-请参阅[应用程序网关子网中的网络安全组](/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet)。
+请参阅[应用程序网关子网中的网络安全组](configuration-infrastructure.md#network-security-groups)。
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>应用程序网关子网是否支持用户定义的路由？
 
 请参阅[应用程序网关子网中支持的用户定义的路由](configuration-infrastructure.md#supported-user-defined-routes)。
+
+### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>应用程序网关子网中是否支持服务终结点策略？
+
+错误。 应用程序网关子网中不支持存储帐户的[服务终结点策略](/virtual-network/virtual-network-service-endpoint-policies-overview)，对其进行配置将阻止 Azure 基础结构流量。
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>应用程序网关有哪些限制？ 是否可以提高这些限制？
 
@@ -210,7 +216,7 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>自定义探测是否支持对响应数据使用通配符或正则表达式？
 
-否。 
+不是。 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>如何在应用程序网关中处理路由规则？
 
@@ -222,11 +228,11 @@ v2 SKU 可以自动确保新实例分布到各个容错域和更新域中。 如
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>能否仅允许应用程序网关访问几个源 IP 地址？
 
-是的。 请参阅[限制对特定源 IP 的访问](/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips)。
+是的。 请参阅[限制对特定源 IP 的访问](configuration-infrastructure.md#allow-access-to-a-few-source-ips)。
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>能否同时对公共和专用侦听器使用同一个端口？
 
-否。
+不是。
 
 ### <a name="does-application-gateway-support-ipv6"></a>应用程序网关是否支持 IPv6？
 

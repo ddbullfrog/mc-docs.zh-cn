@@ -8,20 +8,20 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 9df9ae521d35521899bd7953663e1a7b648c16c5
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: a9bca988d7ee646f33c01a5b493a4ef543c4d263
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244691"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937211"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体
 
-本文介绍如何创建新的 Azure Active Directory (Azure AD) 应用程序和服务主体，后者可以与基于角色的访问控制配合使用。 如果有需要访问或修改资源的应用程序、托管服务或者自动工具，则可以为应用创建标识。 此标识称为服务主体。 资源访问权限受分配给服务主体的角色限制，可用于控制哪些资源可以访问以及在哪个级别进行访问。 出于安全原因，始终建议将服务主体与自动化工具配合使用，而不是允许它们使用用户标识进行登录。 
+本文介绍如何创建新的 Azure Active Directory (Azure AD) 应用程序和服务主体，后者可以与基于角色的访问控制配合使用。 如果有需要访问或修改资源的应用程序、托管服务或者自动工具，则可以为应用创建标识。 此标识称为服务主体。 资源访问权限受分配给服务主体的角色限制，可用于控制哪些资源可以访问以及在哪个级别进行访问。 出于安全原因，始终建议将服务主体与自动化工具配合使用，而不是允许它们使用用户标识进行登录。
 
 本文介绍如何使用门户在 Azure 门户创建服务主体。 重点介绍单租户应用程序，其中应用程序只应在一个组织内运行。 通常会将单租户应用程序作为在组织中运行的业务线应用程序使用。  还可以[使用 Azure PowerShell 创建服务主体](howto-authenticate-service-principal-powershell.md)。
 
@@ -129,12 +129,13 @@ ms.locfileid: "91244691"
 
    ![复制应用程序（客户端）ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="upload-a-certificate-or-create-a-secret-for-signing-in"></a>上载证书或创建用于登录的机密
-服务主体可以使用两种类型的身份验证：基于密码的身份验证（应用程序机密）和基于证书的身份验证。  我们建议使用证书，但你也可以创建新的应用程序机密。
+## <a name="authentication-two-options"></a>身份验证：两个选项
 
-### <a name="upload-a-certificate"></a>上传证书
+服务主体可以使用两种类型的身份验证：基于密码的身份验证（应用程序机密）和基于证书的身份验证。 我们建议使用证书，但你也可以创建应用程序机密。
 
-可以使用现有证书（如果有）。  （可选）可以创建自签名证书，仅限测试目的。 打开 PowerShell 并使用以下参数运行 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate)，以在计算机上的用户证书存储中创建自签名证书： 
+### <a name="option-1-upload-a-certificate"></a>选项 1：上传证书
+
+可以使用现有证书（如果有）。  （可选）可以创建自签名证书，仅限测试目的。 打开 PowerShell 并使用以下参数运行 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate)，以在计算机上的用户证书存储中创建自签名证书：
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -163,7 +164,7 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 在门户中将证书注册到应用程序后，需要启用客户端应用程序代码才能使用该证书。
 
-### <a name="create-a-new-application-secret"></a>创建新的应用程序机密
+### <a name="option-2-create-a-new-application-secret"></a>选项 2：创建新的应用程序机密
 
 如果选择不使用证书，则可以创建新的应用程序机密。
 
@@ -178,15 +179,16 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
    ![复制机密值，因为以后不再可以检索到此值](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>在资源上配置访问策略
-请记住，可能需要对应用程序需要访问的资源配置附加权限。 例如，你还必须[更新密钥保管库的访问策略](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies)，以使应用程序能够访问密钥、机密或证书。  
+请记住，可能需要对应用程序需要访问的资源配置附加权限。 例如，你还必须[更新密钥保管库的访问策略](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies)，以使应用程序能够访问密钥、机密或证书。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，导航到密钥保管库并选择“访问策略”。  
+1. 在 [Azure 门户](https://portal.azure.cn)中，导航到密钥保管库并选择“访问策略”。
 1. 选择“添加访问策略”，然后选择要授予应用程序的密钥、机密和证书权限。  选择之前创建的服务主体。
 1. 选择“添加”以添加访问策略，然后选择“保存”以提交更改。
     ![添加访问策略](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何[使用 Azure PowerShell 创建服务主体](howto-authenticate-service-principal-powershell.md)。
-* 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)。  
+* 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)。
 * 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure Resource Manager 资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)。
+* 有关使用 Microsoft Graph 处理应用注册的信息，请参阅[应用程序](https://docs.microsoft.com/graph/api/resources/application) API 参考。
 

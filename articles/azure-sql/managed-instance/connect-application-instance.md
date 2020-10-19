@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sstein, bonova, carlrab, vanto
+ms.reviewer: sstein, bonova, vanto
 origin.date: 11/09/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: dd634a2538c2d52360f2fb7c2cd814c8cc4b07ce
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: b183d9fb13f80ca2f9b19d5e1542b17a37aec20f
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227099"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872469"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>将应用程序连接到 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "86227099"
 
 可通过两个选项连接虚拟网络：
 
-- [Azure VPN 对等互连](../../virtual-network/virtual-network-peering-overview.md)
+- [Azure VNet 对等互连](../../virtual-network/virtual-network-peering-overview.md)
 - VNet 到 VNet VPN 网关（[Azure 门户](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)、[PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)、[Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)）
 
 对等互连使用 Microsoft 主干网络，因此是首选；这样的话，从连接角度来看，对等互连虚拟网络中的虚拟机与同一虚拟网络中虚拟机之间的延迟没有明显差别。 虚拟网络对等互连限于同一区域内的网络。  

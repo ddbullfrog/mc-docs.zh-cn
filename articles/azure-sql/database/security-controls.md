@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: load-balancer
 ms.topic: conceptual
 origin.date: 09/04/2019
-ms.date: 07/13/2020
+ms.date: 10/12/2020
 ms.author: v-jay
-ms.openlocfilehash: 67be32773031c56e7b22d14cde9c963954115824
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.openlocfilehash: a334f134371ea254b8a06e8f9e39007fc177e3d7
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227791"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872480"
 ---
 # <a name="security-controls-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL 数据库和 SQL 托管实例的安全控件
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -70,7 +70,7 @@ ms.locfileid: "86227791"
 | 安全控制 | Yes/No | 注释|
 |---|---|--|
 | 预防：漏洞评估 | 是 | 请参阅 [SQL 漏洞评估服务可帮助你识别数据库漏洞](sql-vulnerability-assessment.md)。 |
-| 预防：数据发现和分类  | 是 | 请参阅 [Azure SQL 数据库和 SQL 数据仓库数据发现和分类](data-discovery-and-classification-overview.md)。 |
+| 预防：数据发现和分类  | 是 | 请参阅 [Azure SQL 数据库和 Azure Synapse Analytics 数据发现和分类](data-discovery-and-classification-overview.md)。 |
 | 检测：威胁检测 | 是 | 请参阅 [Azure SQL 数据库的高级威胁防护](threat-detection-overview.md)。 |
 
 ## <a name="next-steps"></a>后续步骤

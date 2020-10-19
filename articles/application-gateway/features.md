@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: 3cda9fd565b26e0ee881b7f3a6445587b5d40b6d
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: ff5a9b31f6157bcea2b552e097b36039d9a99dd0
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721107"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937079"
 ---
 # <a name="azure-application-gateway-features"></a>Azure 应用程序网关功能
 
@@ -145,9 +145,9 @@ HTTP 标头可让客户端和服务器连同请求或响应一起传递附加的
 
 ## <a name="sizing"></a>大小调整
 
-可以配置应用程序网关的 Standard_v2，以便进行自动缩放的或固定大小的部署。 此 SKU 不提供不同的实例大小。 有关 v2 性能和定价的详细信息，请参阅[自动缩放 V2](application-gateway-autoscaling-zone-redundant.md)。
+可以配置应用程序网关的 Standard_v2，以便进行自动缩放的或固定大小的部署。 v2 SKU 不提供不同的实例大小。 有关 v2 性能和定价的详细信息，请参阅[自动缩放 V2](application-gateway-autoscaling-zone-redundant.md)。
 
-应用程序网关标准版有三种大小：**小型**、**中型**和**大型**。 小型实例大小适用于开发和测试方案。
+应用程序网关标准版 (v1) 有三种大小：**小型**、**中型**和**大型**。 小型实例大小适用于开发和测试方案。
 
 有关应用程序网关限制的完整列表，请参阅[应用程序网关服务限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)。
 

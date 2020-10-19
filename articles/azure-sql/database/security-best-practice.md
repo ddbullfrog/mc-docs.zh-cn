@@ -8,15 +8,15 @@ ms.custom: sqldbrb=2
 author: WenJason
 ms.author: v-jay
 ms.topic: article
-origin.date: 02/20/2020
-ms.date: 09/14/2020
+origin.date: 09/21/2020
+ms.date: 10/12/2020
 ms.reviewer: ''
-ms.openlocfilehash: 14af95e09080122f2db0087f5ea31173baf32e05
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 1e35569b3e1b4c670e3eed2b59db845e35f31fce
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014321"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872364"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>用于解决 Azure SQL 数据库和 Azure SQL 托管实例常见安全要求的 playbook
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "90014321"
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>本指南不涉及的部署产品/服务
 
-- Azure SQL 数据仓库
+- Azure Synapse Analytics（以前称为 SQL 数据仓库）
 - Azure SQL VM (IaaS)
 - SQL Server
 
@@ -611,7 +611,7 @@ SQL 身份验证是指使用用户名和密码连接到 Azure SQL 数据库或 S
 
 **最佳做法**：
 
-- 为特定服务器或托管实例配置[高级数据安全 (ADS)](advanced-data-security.md#getting-started-with-ads) 。 还可以通过切换到 [Azure 安全中心标准层](../../security-center/security-center-pricing.md)，为订阅中的所有服务器和托管实例配置 ADS。
+- 为特定服务器或托管实例配置 [Azure Defender for SQL](azure-defender-for-sql.md) 。 还可以通过切换到 [Azure 安全中心标准层](../../security-center/security-center-pricing.md)，为订阅中的所有服务器和托管实例配置 Azure Defender for SQL。
 
 - 若要获得完整的调查体验，建议启用  [SQL 数据库审核](../../azure-sql/database/auditing-overview.md)。 使用审核可以跟踪数据库事件，并将这些事件写入到 Azure 存储帐户或 Azure Log Analytics 工作区中的审核日志。
 

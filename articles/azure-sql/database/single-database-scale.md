@@ -4,26 +4,26 @@ description: 本文介绍如何在 Azure SQL 数据库中缩放适用于单一�
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
-origin.date: 07/31/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 68c42fdc23ba779170a27e82f83dbe76792b0443
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.reviewer: ''
+origin.date: 09/16/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 82ed7db98ec5e8edb662979a27e7e5fa68e6b50a
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223011"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872479"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>在 Azure SQL 数据库中缩放单一数据库资源
 
 本文介绍如何在预配的计算层级中缩放适用于 Azure SQL 数据库的计算和存储资源。 另外，[无服务器计算层级](serverless-tier-overview.md)提供自动缩放计算功能，并且按秒对使用的计算计费。
 
-最初选择 vCore 或 DTU 数量后，可以使用 [Azure 门户](single-database-manage.md#the-azure-portal)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)、[Azure CLI](/cli/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)，根据实际体验动态扩展或缩减单一数据库。
+最初选择 vCore 或 DTU 数量后，可以使用 [Azure 门户](single-database-manage.md#the-azure-portal)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1)、 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)、[Azure CLI](/cli/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)，根据实际体验动态扩展或缩减单一数据库。
 
 > [!IMPORTANT]
 > 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](file-space-manage.md)。
@@ -50,7 +50,7 @@ ms.locfileid: "88223011"
 |服务层|基本单一数据库，</br>标准 (S0-S1)|基本弹性池，</br>标准 (S2-S12)， </br>常规用途单一数据库或弹性池|高级或业务关键型单一数据库或弹性池|超大规模
 |:---|:---|:---|:---|:---|
 |**基本单一数据库，</br>标准 (S0-S1)**|&bull; &nbsp;延迟时间较为恒定，与已用空间无关</br>&bull; &nbsp;通常小于 5 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|
-|**基本弹性池，</br>标准 (S2-S12)，</br>常规用途单一数据库或弹性池**|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;延迟时间较为恒定，与已用空间无关</br>&bull; &nbsp;通常小于 5 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|
+|**基本弹性池，</br>标准 (S2-S12)，</br>常规用途单一数据库或弹性池**|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;对于单一数据库，延迟时间是恒定的，与已用空间无关</br>&bull; &nbsp;对于单一数据库，通常不超过 5 分钟</br>&bull; &nbsp;对于弹性池，与数据库数量成正比|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|
 |**高级或业务关键型单一数据库或弹性池**|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|
 |**超大规模**|空值|空值|空值|&bull; &nbsp;延迟时间较为恒定，与已用空间无关</br>&bull; &nbsp;通常不到 2 分钟|
 
@@ -119,7 +119,7 @@ else {
 ### <a name="vcore-based-purchasing-model"></a>基于 vCore 的购买模型
 
 - 可以使用 1GB 作为增量，将存储预配到数据存储最大大小限制。 最小可配置数据存储为 1 GB。 有关每个服务目标中的数据存储最大大小限制，请参阅[单一数据库](resource-limits-vcore-single-databases.md)和[弹性池](resource-limits-vcore-elastic-pools.md)的资源限制文档页。
-- 可通过 [Azure 门户](https://portal.azure.cn)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)、[Azure CLI](/cli/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 为单一数据库增加或减少大小上限，以预配数据存储。 如果最大大小值是以字节为单位指定的，则该值必须是 1 GB（1073741824 字节）的倍数。
+- 可通过 [Azure 门户](https://portal.azure.cn)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1)、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)、[Azure CLI](/cli/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 为单一数据库增加或减少大小上限，以预配数据存储。 如果最大大小值是以字节为单位指定的，则该值必须是 1 GB（1073741824 字节）的倍数。
 - 可以存储在数据库的数据文件中的数据量受所配置的数据存储最大大小限制。 除了该存储之外，Azure SQL 数据库还会自动分配额外 30% 的存储用于事务日志。
 - 对于 `tempdb` 数据库，Azure SQL 数据库会自动为每个 vCore 分配 32 GB。 `tempdb` 位于所有服务层级的本地 SSD 存储中。
 - 单一数据库或弹性池的存储价格等于数据存储与事务日志存储量之和乘以服务层级的存储单价。 `tempdb` 的成本包括在该价格中。 有关存储价格的详细信息，请参阅 [Azure SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)。
@@ -130,7 +130,7 @@ else {
 ### <a name="dtu-based-purchasing-model"></a>基于 DTU 的购买模型
 
 - 单一数据库的 DTU 价格附送了一定容量的存储，无需额外费用。 超出附送的量后，可花费额外的费用预配额外的存储，但不能超过存储上限，不超过 1 TB 时，以 250 GB 为增量进行预配，超出 1 TB 时，以 256 GB 为增量进行预配。 有关包括的存储量和大小上限，请参阅[单一数据库：存储大小和计算大小](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes)。
-- 可通过 Azure 门户、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)、[Azure CLI](/cli/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 为单一数据库增加大小上限，以预配额外存储。
+- 可通过 Azure 门户、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1)、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)、[Azure CLI](/cli/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 为单一数据库增加大小上限，以预配额外存储。
 - 单一数据库的额外存储价格等于额外存储量乘以服务层级的额外存储单价。 有关额外存储价格的详细信息，请参阅 [Azure SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)。
 
 > [!IMPORTANT]

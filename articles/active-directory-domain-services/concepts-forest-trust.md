@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: 36311f7ca45ca247943f736fa14db48eb46d4958
-ms.sourcegitcommit: 1a5ed03e2a2cf6db7352f8e987694443a6921264
+ms.openlocfilehash: a7b369ff24b61bb824ccb7d6ecb0fada2e97d5b5
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90083516"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937036"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>信任关系如何作用于 Azure Active Directory 域服务中的资源林
 

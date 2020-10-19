@@ -3,14 +3,15 @@ title: 配额错误
 description: 说明在使用 Azure 资源管理器部署资源时如何解决资源配额错误。
 ms.topic: troubleshooting
 origin.date: 03/09/2018
-ms.date: 01/20/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.author: v-yeche
-ms.openlocfilehash: f1561d9ae9968c887b108e487ff7672f11738c2f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 8a183ccf557e211ad95adf7b92bb0af2f0f58508
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79543873"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937530"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解决资源配额错误
 
@@ -97,24 +98,26 @@ Virtual Machines                             0 10000 Count
 
 1. 选择 **订阅**。
 
-    ![Subscriptions](./media/error-resource-quota/subscriptions.png)
+   :::image type="content" source="./media/error-resource-quota/subscriptions.png" alt-text="显示选中了“订阅”的 Azure 门户菜单的屏幕截图。":::
 
 2. 选择需要增加配额的订阅。
 
-    ![选择订阅](./media/error-resource-quota/select-subscription.png)
+   :::image type="content" source="./media/error-resource-quota/select-subscription.png" alt-text="显示选中了“订阅”的 Azure 门户菜单的屏幕截图。":::
 
 3. 选择“使用情况 + 配额” 
 
-    ![选择使用情况和配额](./media/error-resource-quota/select-usage-quotas.png)
+   :::image type="content" source="./media/error-resource-quota/select-usage-quotas.png" alt-text="显示选中了“订阅”的 Azure 门户菜单的屏幕截图。":::
 
 4. 在右上角选择“请求增加”  。
 
-    ![请求增加](./media/error-resource-quota/request-increase.png)
+   :::image type="content" source="./media/error-resource-quota/request-increase.png" alt-text="显示选中了“订阅”的 Azure 门户菜单的屏幕截图。":::
 
     <!--MOONCAKE CUSTOMIZE-->
    
 5. 在完成“常规信息”和“问题”部分后，请填写你需要增加的配额类型的表单。  
 
-    ![填写表单](./media/error-resource-quota/forms.png)
+    :::image type="content" source="./media/error-resource-quota/forms.png" alt-text="显示选中了“订阅”的 Azure 门户菜单的屏幕截图。":::
    
+    <!--MOONCAKE CUSTOMIZE-->
+
 <!-- Update_Description: update meta properties, wording update, update link -->

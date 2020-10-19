@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab, jovanpop, sachinp, sstein
-origin.date: 08/14/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 3bfbbe0de628344a18739441062bd60eed73d565
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.reviewer: sstein, jovanpop, sachinp
+origin.date: 09/14/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: e6d879664a51f42f62a5de1aefda3371f4c01d87
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014366"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872456"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL 托管实例资源限制概述
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,12 +94,12 @@ SQL 托管实例有两个服务层级：[常规用途](../database/service-tier-
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>“常规用途”层级中的文件 IO 特征
 
-在常规用途服务层中，每个数据库文件都将获得专用 IOPS 和吞吐量，具体取决于文件大小。 较大的数据文件会获得更多的 IOPS 和吞吐量。 下表显示了数据库文件的 IO 特征：
+在常规用途服务层中，每个数据库文件都将获得专用 IOPS 和吞吐量，具体取决于文件大小。 较大的文件会获得更多的 IOPS 和吞吐量。 下表显示了数据库文件的 IO 特征：
 
-| 文件大小 | >=0 且 <=128 GiB | >128 且 <=256 GiB | >256 且 <= 512 GiB | >0.5 且 <=1 TiB    | >1 且 <=2 TiB    | >2 且 <=4 TiB | >4 且 <=8 TiB |
+| 文件大小 | >=0 且 <=128 GiB | >128 且 <= 512 GiB | >0.5 且 <=1 TiB    | >1 且 <=2 TiB    | >2 且 <=4 TiB | >4 且 <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| 每个文件的 IOPS       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500   |
-| 每个文件的吞吐量 | 100 MiB/秒 | 125 MiB/秒 | 150 MiB/秒 | 200 MiB/秒 | 250 MiB/秒 | 250 MiB/秒 | 480 MiB/秒 | 
+| 每个文件的 IOPS       | 500   | 2300              | 5000              | 7500              | 7500              | 12,500   |
+| 每个文件的吞吐量 | 100 MiB/秒 | 150 MiB/秒 | 200 MiB/秒 | 250 MiB/秒 | 250 MiB/秒 | 480 MiB/秒 | 
 
 如果注意到某个数据库文件的 IO 延迟较高，或者发现 IOPS/吞吐量即将达到限制，可以通过[增大文件大小](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337)来提高性能。
 

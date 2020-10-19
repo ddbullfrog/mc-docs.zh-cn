@@ -1,25 +1,18 @@
 ---
 title: Azure 应用程序网关的重定向概述
-description: 了解 Azure 应用程序网关中的重定向功能
+description: 了解 Azure 应用程序网关中的重定向功能，以将一个侦听器上收到的流量重定向到另一个侦听器或外部站点。
 services: application-gateway
-documentationcenter: na
 author: amsriva
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 03/19/2018
-ms.date: 04/17/2019
+ms.topic: conceptual
+ms.date: 09/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: fdaacb2bfe8638481be03eb01aacd829a719efab
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 22617612d033ecb688f0881e7f9352e8ed5778ad
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63849542"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937432"
 ---
 # <a name="application-gateway-redirect-overview"></a>应用程序网关重定向概述
 
@@ -44,7 +37,7 @@ ms.locfileid: "63849542"
    这种类型的重定向只能在特定站点区域中进行 HTTP 到 HTTPS 重定向，例如 /cart/* 表示的购物车区域。
 - **重定向到外部站点**
 
-![重定向](./media/redirect-overview/redirect.png)
+![关系图显示了用户和应用网关以及两者之间的连接，包括未锁定的 HTTP 红色箭头，不允许的 301 直接红色箭头以及已锁定的 HTTPS 绿色箭头。](./media/redirect-overview/redirect.png)
 
 进行此更改后，客户需要创建新的重定向配置对象，以指定重定向需要指向的目标侦听器或外部站点。 配置元素还支持一些选项，通过这些选项可以将 URI 路径和查询字符串追加到重定向的 URL。 也可选择重定向的类型。 创建此重定向配置后，会通过新规则将其附加到源侦听器。 使用基本规则时，重定向配置与源侦听器相关联，并且是全局重定向。 使用基于路径的规则时，将在 URL 路径映射中定义重定向配置。 因此，它仅适用于站点的特定路径区域。
 
@@ -52,4 +45,3 @@ ms.locfileid: "63849542"
 
 [在应用程序网关上配置 URL 重定向](tutorial-url-redirect-powershell.md)
 
-<!-- Update_Description: wording update -->

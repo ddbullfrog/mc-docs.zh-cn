@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d71744504a7fa6929cdc44a3bbaa9dc79b7388f1
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: be4a7973d52b507e58c5a362953eaf0c21483597
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648114"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937574"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 协作常见问题解答
 
@@ -108,6 +108,9 @@ Azure AD 具有固定的字符集、密码强度和帐户锁定要求，同样�
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Azure AD B2B 是否不接受 gmail.com 和 outlook.com 电子邮件地址，此类帐户是否使用 B2C？
 我们将去除 B2B 和企业对消费者 (B2C) 的协作在所支持的标识这方面的差异。 根据所使用的标识决定使用 B2B 还是 B2C 并不是一个合理的原因。 有关选择协作选项的信息，请参阅[在 Azure Active Directory 中比较 B2B 协作和 B2C](compare-with-b2c.md)。
+
+### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>是否可以邀请 Azure AD B2C 本地帐户加入 Azure AD 租户进行 B2B 协作？
+错误。 Azure AD B2C 本地帐户只能用于登录 Azure AD B2C 租户。 该帐户不能用于登录 Azure AD 租户。 不支持邀请 Azure AD B2C 本地帐户加入 Azure AD 租户来进行 B2B 协作。
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>哪些应用程序和服务支持 Azure B2B 来宾用户？
 所有与 Azure AD 集成的应用程序都可以支持 Azure B2B 来宾用户，但必须使用设置为租户的终结点对来宾用户进行身份验证。 

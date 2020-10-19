@@ -8,40 +8,130 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 81fdee6b432b27d06a0a1ab07592a39c05d3b86f
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 7a29a4a7a26e6f7eaf21732e67e30f3332cba382
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647677"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937085"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>调用 Web API 的 Web API：调用 API
 
-有了令牌后，就可以调用受保护的 Web API 了。 可以从 Web API 的控制器执行此操作。
+有了令牌后，就可以调用受保护的 Web API 了。 通常从 Web API 的控制器或页面调用下游 API。
 
 ## <a name="controller-code"></a>控制器代码
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-以下代码继续演示[调用 Web API 的 Web API：获取应用的令牌](scenario-web-api-call-api-acquire-token.md)中显示的示例代码。 该代码在 API 控制器的操作中调用。 它调用名为“todolist”  的下游 API。
+使用 Microsoft.Identity.Web 时，有 3 种使用方案：
 
-获取令牌后，将其用作持有者令牌以调用下游 API。
+- [选项 1：通过 Microsoft Graph SDK 调用 Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
+- [选项 2：在使用帮助程序类的情况下调用下游 Web API](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [选项 3：在不使用帮助程序类的情况下调用下游 Web API](#option-3-call-a-downstream-web-api-without-the-helper-class)
+
+#### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>选项 1：使用 SDK 调用 Microsoft Graph
+
+在此方案中，你已如[代码配置](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph)中指定的那样将 `.AddMicrosoftGraph()` 添加到 Startup.cs 中，现可直接将 `GraphServiceClient` 注入控制器或页构造函数中，以便在操作中使用。 以下示例 Razor 页面显示已登录用户的照片。
+
+```CSharp
+ [Authorize]
+ [AuthorizeForScopes(Scopes = new[] { "https://microsoftgraph.chinacloudapi.cn/user.read" })]
+ public class IndexModel : PageModel
+ {
+     private readonly GraphServiceClient _graphServiceClient;
+
+     public IndexModel(GraphServiceClient graphServiceClient)
+     {
+         _graphServiceClient = graphServiceClient;
+     }
+
+     public async Task OnGet()
+     {
+         var user = await _graphServiceClient.Me.Request().GetAsync();
+         try
+         {
+             using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+             {
+                 byte[] photoByte = ((MemoryStream)photoStream).ToArray();
+                 ViewData["photo"] = Convert.ToBase64String(photoByte);
+             }
+             ViewData["name"] = user.DisplayName;
+         }
+         catch (Exception)
+         {
+             ViewData["photo"] = null;
+         }
+     }
+ }
+```
+
+#### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>选项 2：在使用帮助程序类的情况下调用下游 Web API
+
+在此方案中，你已如[代码配置](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)中指定的那样将 `.AddDownstreamWebApi()` 添加到 Startup.cs 中，现可直接将 `IDownstreamWebApi` 服务注入控制器或页构造函数中并在操作中使用它：
+
+```CSharp
+ [Authorize]
+ [AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
+ public class TodoListController : Controller
+ {
+     private IDownstreamWebApi _downstreamWebApi;
+     private const string ServiceName = "TodoList";
+
+     public TodoListController(IDownstreamWebApi downstreamWebApi)
+     {
+         _downstreamWebApi = downstreamWebApi;
+     }
+
+     public async Task<ActionResult> Details(int id)
+     {
+         var value = await _downstreamWebApi.CallWebApiForUserAsync(
+             ServiceName,
+             options =>
+             {
+                 options.RelativePath = $"me";
+             });
+         return View(value);
+     }
+```
+
+`CallWebApiForUserAsync` 方法还具有强类型的泛型重写，使你能够直接接收对象。 例如，下面的方法收到一个 `Todo` 实例，该实例是 Web API 返回的 JSON 的强类型表示形式。
+
+```CSharp
+ // GET: TodoList/Details/5
+ public async Task<ActionResult> Details(int id)
+ {
+     var value = await _downstreamWebApi.CallWebApiForUserAsync<object, Todo>(
+         ServiceName,
+         null,
+         options =>
+         {
+             options.HttpMethod = HttpMethod.Get;
+             options.RelativePath = $"api/todolist/{id}";
+         });
+     return View(value);
+ }
+```
+
+#### <a name="option-3-call-a-downstream-web-api-without-the-helper-class"></a>选项 3：在不使用帮助程序类的情况下调用下游 Web API
+
+如果已决定使用 `ITokenAcquisition` 服务手动获取令牌，现在需要使用令牌。 在这种情况下，以下代码继续演示[调用 Web API 的 Web API：获取应用的令牌](scenario-web-api-call-api-acquire-token.md)中显示的示例代码。 该代码在 API 控制器的操作中调用。 它调用下游 API（名为 *todolist*）。
+
+ 获取令牌后，将其用作持有者令牌以调用下游 API。
 
 ```csharp
-private async Task CallTodoListService(string accessToken)
-{
+ private async Task CallTodoListService(string accessToken)
+ {
+  // After the token has been returned by Microsoft.Identity.Web, add it to the HTTP authorization header before making the call to access the todolist service.
+ _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
-// After the token has been returned by Microsoft Identity Web, add it to the HTTP authorization header before making the call to access the To Do list service.
-_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-// Call the To Do list service.
-HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
-...
-}
-```
+ // Call the todolist service.
+ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
+ // ...
+ }
+ ```
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -68,12 +158,12 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # <a name="python"></a>[Python](#tab/python)
-使用 MSAL Python 演示此流的示例尚不可用。
+我们尚未编写在 MSAL Python 中演示此流的示例。
 
 ---
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [调用 Web API 的 Web API：转移到生产环境](scenario-web-api-call-api-production.md)
+> [调用 Web API 的 Web API：移到生产环境](scenario-web-api-call-api-production.md)
 

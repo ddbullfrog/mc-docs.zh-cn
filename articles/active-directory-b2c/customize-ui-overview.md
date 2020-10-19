@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/29/2020
 ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: f31e4fc449753a84784c433b69c4cdd29eee72b0
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 62d54d86a2bfca28fa06c49d19bdd31eef617944
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946589"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937145"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>自定义 Azure Active Directory B2C 中的用户界面
 
@@ -34,7 +34,7 @@ ms.locfileid: "88946589"
 使用 [Azure 门户](tutorial-customize-ui.md)配置用户流的 UI 自定义。
 
 > [!TIP]
-> 如果只想修改用户流页的横幅徽标、背景图像和背景色，可以试用本文稍后介绍的[公司品牌(预览)](#company-branding-preview) 功能。
+> 如果只想修改用户流页的横幅徽标、背景图像和背景色，可以试用本文稍后介绍的[公司品牌](#company-branding)功能。
 
 ### <a name="custom-policies"></a>自定义策略
 
@@ -142,10 +142,10 @@ Azure AD B2C 使用称作[跨源资源共享 (CORS)](https://www.w3.org/TR/cors/
 
 | 插入的页 | HTML 说明 |
 | ------------- | ------------------- |
-| 标识提供者选项 | 包含标识提供者的按钮列表，客户可在注册或登录时选择这些按钮。 这些按钮包括社交标识提供者。 |
+| 标识提供者选项 | 包含标识提供者的按钮列表，客户可在注册或登录时选择这些按钮。 这些按钮包括社交标识提供者，如本地帐户（基于电子邮件地址或用户名）。 |
 | 本地帐户注册 | 包含一个窗体，用于基于电子邮件地址或用户名的本地帐户注册。 该窗体可以包含不同的输入控件，如文本输入框、密码输入框、单选按钮、单选下拉框和多选复选框。 |
 | 社交帐户注册 | 使用社交标识提供者的现有帐户进行注册时，可能会显示此页面。 在必须使用注册表单收集客户的其他信息时使用此页面。 |
-| 统一注册或登录 | 处理可以使用社交标识提供者的客户的注册和登录。 |
+| 统一注册或登录 | 处理客户的注册和登录，这些客户可以使用社交标识提供者（如本地帐户）。 |
 | 多重身份验证 | 用户可以在注册或登录期间（使用文字或语音）验证其电话号码。 |
 | 错误 | 向客户提供错误信息。 |
 

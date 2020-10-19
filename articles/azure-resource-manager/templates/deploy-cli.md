@@ -4,16 +4,16 @@ description: 使用 Azure 资源管理器和 Azure CLI 将资源部署到 Azure�
 ms.topic: conceptual
 origin.date: 09/08/2020
 author: rockboyfor
-ms.date: 09/21/2020
-ms.testscope: no
+ms.date: 10/12/2020
+ms.testscope: yes|no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: e98fb5bde4d4adbd966c0477ae5fb57f3c8644b7
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 7db863ee8d0bed91095b6b2a666aa6358ece0ee2
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146705"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937528"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>通过 ARM 模板和 Azure CLI 来部署资源
 
@@ -47,7 +47,7 @@ ms.locfileid: "91146705"
 
     有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
 
-* 若要部署到管理组****，请使用 [az deployment mg create](https://docs.microsoft.com/cli/azure/deployment/mg#az_deployment_mg_create)：
+* 若要部署到管理组****，请使用 [az deployment mg create](https://docs.azure.cn/cli/deployment/mg#az_deployment_mg_create)：
 
     ```azurecli
     az deployment mg create --location <location> --template-file <path-to-template>
@@ -146,7 +146,7 @@ az deployment group create \
 <!--MOONCAKE: Not Available on Cloud Shell and corresponding code -->
 <!--Not Available on [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]-->
 
-在本地 Shell 中使用以下命令
+在本地 Shell 中使用以下命令：
 
 ```azurecli
 az group create --name examplegroup --location "China East"

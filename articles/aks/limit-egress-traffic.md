@@ -4,18 +4,18 @@ description: 了解控制 Azure Kubernetes Service (AKS) 中的出口流量所�
 services: container-service
 ms.topic: article
 origin.date: 06/29/2020
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
 author: rockboyfor
-ms.openlocfilehash: 9ac994a29371d74b6022865d5ad03822d33db2fc
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: fafa560d96110b0a59561b53f8d81692460d6751
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146652"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937080"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>控制 Azure Kubernetes 服务 (AKS) 中群集节点的出口流量
 
@@ -77,7 +77,8 @@ AKS 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 <!--FOLLOW GLOABLE DOCUMENT UPDATE CAREFULLY-->
 
 <!--FOLLOW CHINA 21Vianet DOCUMENT UPDATE CAREFULLY-->
-### <a name="azure-china-21vianet-required-network-rules"></a>Azure 中国世纪互联的必需网络规则
+
+### <a name="azure-china-21vianet-required-network-rules"></a><a name="azure-china-21vianet-required-network-rules"></a>Azure 中国世纪互联的必需网络规则
 
 必需的网络规则和 IP 地址依赖项如下：
 
@@ -150,6 +151,7 @@ AKS 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 如果选择阻止/不允许这些 FQDN，则在进行[群集升级](upgrade-cluster.md)时，节点将仅接收 OS 更新。
 
 <!--Not Avaialble on [node image upgrade](node-image-upgrade.md)-->
+<!--THE ABOVE REQUIRE RULES SECTION ARE FOLLOWING GLOBAL DOCUMENT. DO NOT UPDATE-->
 
 ## <a name="gpu-enabled-aks-clusters"></a>启用 GPU 的 AKS 群集
 
@@ -194,9 +196,9 @@ AKS 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 
 | FQDN                                    | 端口      | 用途      |
 |-----------------------------------------|-----------|----------|
-| dc.services.visualstudio.com | **`HTTPS:443`**    | 此终结点适用于使用 Azure Monitor 的指标和监视遥测。 |
-| *.ods.opinsights.azure.com    | **`HTTPS:443`**    | Azure Monitor 使用此终结点来引入日志分析数据。 |
-| *.oms.opinsights.azure.com | **`HTTPS:443`** | 此终结点由 omsagent 使用，用于对日志分析服务进行身份验证。 |
+| dc.services.visualstudio.com | **`HTTPS:443`** | 此终结点适用于使用 Azure Monitor 的指标和监视遥测。 |
+| *.ods.opinsights.azure.cn   | **`HTTPS:443`** | Azure Monitor 使用此终结点来引入日志分析数据。 |
+| *.oms.opinsights.azure.cn| **`HTTPS:443`** | 此终结点由 omsagent 使用，用于对日志分析服务进行身份验证。 |
 | *.monitoring.azure.com | **`HTTPS:443`** | 此终结点用于将指标数据发送到 Azure Monitor。 |
 
 ### <a name="azure-dev-spaces"></a>Azure Dev Spaces
@@ -220,10 +222,7 @@ AKS 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 | `storage.googleapis.com` | **`HTTPS:443`** | 此地址用于请求 helm/tiller 映像 |
 
 
-### <a name="azure-policy-preview"></a>Azure Policy（预览）
-
-> [!CAUTION]
-> 下面的某些功能处于预览阶段。  随着此功能向公共预览版和未来发布阶段发展，本文中的建议可能会有所不同。
+### <a name="azure-policy"></a>Azure Policy
 
 #### <a name="required-fqdn--application-rules"></a>必需的 FQDN/应用程序规则 
 
@@ -235,8 +234,7 @@ AKS 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | 此地址用于从 GitHub 请求内置策略，以确保正确操作 Azure Policy。 （AKS 中目前为预览版） |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy 加载项，用于向应用程序见解终结点发送遥测数据。 |
 
-
-## <a name="restrict-egress-traffic-using-azure-firewall"></a>使用 Azure 防火墙限制出口流量
+## <a name="restrict-egress-traffic-using-azure-firewall"></a><a name="restrict-egress-traffic-using-azure-firewall"></a>使用 Azure 防火墙限制出口流量
 
 Azure 防火墙提供 Azure Kubernetes 服务 (`AzureKubernetesService`) FQDN 标记以简化此配置。 
 
@@ -500,7 +498,7 @@ az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/3
 
 使用 [az aks get-credentials][az-aks-get-credentials] 命令将 `kubectl` 配置为连接到新建的 Kubernetes 群集。 
 
- ```azurecli
+```azurecli
 az aks get-credentials -g $RG -n $AKSNAME
 ```
 
@@ -797,9 +795,9 @@ az group delete -g $RG
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [network-policy]: use-network-policies.md
 [azure-firewall]: ../firewall/overview.md
-[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
-[az-feature-list]: https://docs.azure.cn/cli/feature#az-feature-list
-[az-provider-register]: https://docs.azure.cn/cli/provider#az-provider-register
+[az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
+[az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
+[az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
 [aks-upgrade]: upgrade-cluster.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md

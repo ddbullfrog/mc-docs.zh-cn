@@ -4,15 +4,15 @@ description: 本文介绍如何将 Azure 应用程序网关和 Web 应用程序�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 09/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: 2ac789393c7d4d46c01f323256354357398369ab
-ms.sourcegitcommit: 87e789550ea49ff77c7f19bc68fad228009fcf44
+ms.openlocfilehash: 316786af5d629a8f5b7d8d0c6a334bdf35710217
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748136"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937198"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>将 Azure 应用程序网关和 Web 应用程序防火墙从 v1 迁移到 v2
 
@@ -36,6 +36,8 @@ ms.locfileid: "83748136"
 
 * 新的 v2 网关使用新的公共和专用 IP 地址。 无法将与现有 v1 网关关联的 IP 地址无缝移动到 v2。 但是，可将现有的（未分配的）公共或专用 IP 地址分配到新的 v2 网关。
 * 必须为 v1 网关所在的虚拟网络中的另一个子网提供 IP 地址空间。 该脚本无法在已有 v1 网关的任何现有子网中创建 v2 网关。 但是，如果现有子网已包含 v2 网关，只要该子网具有足够的 IP 地址空间，它就仍可正常运行。
+* 如果你具有与 v2 网关子网关联的网络安全组或用户定义的路由，则为了成功迁移，请确保它们符合 [NSG 要求](../application-gateway/configuration-infrastructure.md#network-security-groups)和 [UDR 要求](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes)
+* 应用程序网关子网中当前不支持[虚拟网络服务终结点策略](../virtual-network/virtual-network-service-endpoint-policies-overview.md)。
 * 若要迁移 TLS/SSL 配置，必须指定 v1 网关中使用的所有 TLS/SSL 证书。
 * 如果为 v1 网关启用了 FIPS 模式，该网关不会迁移到新的 v2 网关。 v2 不支持 FIPS 模式。
 * v2 不支持 IPv6，因此不会迁移启用了 IPv6 的 v1 网关。 如果运行该脚本，它可能不会完成。

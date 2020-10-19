@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 06/03/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 305805ea55b01c2f15544aba5353cc8065d265f4
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: a93a1b43c9689a7b11a480d028adc6401bd5b2d1
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014339"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872474"
 ---
 # <a name="hyperscale-service-tier"></a>“超大规模”服务层级
 
@@ -189,7 +189,7 @@ Server=tcp:<myserver>.database.chinacloudapi.cn;Database=<mydatabase>;Applicatio
 | 迁移到“超大规模”服务层级目前是单向操作 | 将数据库迁移到“超大规模”层级后，它不能直接迁移到非“超大规模”服务层级。 目前，将数据库从“超大规模”迁移到非“超大规模”的唯一方法是使用 bacpac 文件或其他数据移动技术（大容量复制、Azure 数据工厂、SSIS 等）进行导出/导入。不支持从 Azure 门户、PowerShell（使用 [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) 或 [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport)）、Azure CLI（使用 [az sql db export](/cli/sql/db?view=azure-cli-latest#az-sql-db-export) 和 [az sql db import](/cli/sql/db?view=azure-cli-latest#az-sql-db-import)）以及从 [REST API](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) 进行 bacpac 导出/导入。 支持使用 SSMS 和 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 版本 18.4 及更高版本对较小的超大规模数据库（最多 200 GB）进行 bacpac 导入/导出。 对于较大的数据库，bacpac 导出/导入可能需要很长时间，并且可能会因各种原因失败。|
 | 迁移包含内存中 OLTP 对象的数据库 | 超大规模支持内存中 OLTP 对象的子集，包括内存优化表类型、表变量和本机编译模块。 但是，如果要迁移的数据库中存在任何类型的内存中 OLTP 对象，则不支持从“高级”和“业务关键”服务层级迁移到“超大规模”。 若要将此类数据库迁移到“超大规模”，必须删除所有内存中 OLTP 对象及其依赖项。 迁移数据库之后，可以重新创建这些对象。 “超大规模”目前不支持持久的和非持久的内存优化表，必须将这些表重新创建为磁盘表。|
 | 异地复制  | 目前无法为超大规模 Azure SQL 数据库配置异地复制。 |
-| 数据库复制 | 目前无法使用“数据库复制”在 Azure SQL“超大规模”中创建新数据库。 |
+| 数据库复制 | 超大规模上的数据库复制现为公共预览版。 |
 | TDE/AKV 集成 | 使用 Azure Key Vault（通常称为自带密钥或 BYOK）的透明数据库加密功能目前为预览版。 |
 | 智能数据库功能 | 除了“强制计划”选项外，所有其他“自动优化”选项在“超大规模”中尚不受支持：这些选项可能看上去已启用，但不会提出任何建议或执行任何操作。 |
 | 查询性能见解 | “超大规模”数据库目前不支持 Query Performance Insights。 |

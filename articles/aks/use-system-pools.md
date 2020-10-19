@@ -5,23 +5,23 @@ services: container-service
 ms.topic: article
 origin.date: 06/18/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: aea4eb3ddfaf9da75493401642cdc5db7f5c3664
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 9dbf65e1946febf1aae07a46719b537cad530d38
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146727"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937429"
 ---
 <!--Verified successfully-->
 <!--Verified on Portal-->
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中管理系统节点池
 
-在 Azure Kubernetes 服务 (AKS) 中，采用相同配置的节点分组成节点池。 节点池包含运行应用程序的底层 VM。 系统节点池和用户节点池是 AKS 群集的两种不同的节点池模式。 系统节点池主要用于托管关键系统 Pod（例如 CoreDNS 和 tunnelfront）。 用户节点池主要用于托管应用程序 Pod。 但是，如果希望在 AKS 群集中只有一个池，可以在系统节点池上计划应用程序 Pod。 每个 AKS 群集必须至少包含一个系统节点池，该池至少包含一个节点。
+在 Azure Kubernetes 服务 (AKS) 中，采用相同配置的节点分组成节点池。 节点池包含运行应用程序的底层 VM。 系统节点池和用户节点池是 AKS 群集的两种不同的节点池模式。 系统节点池主要用于托管关键系统 Pod（例如 `CoreDNS` 和 `metrics-server`）。 用户节点池主要用于托管应用程序 Pod。 但是，如果希望在 AKS 群集中只有一个池，可以在系统节点池上计划应用程序 Pod。 每个 AKS 群集必须至少包含一个系统节点池，该池至少包含一个节点。
 
 > [!Important]
 > 如果在生产环境中为 AKS 群集运行单个系统节点池，则建议至少将三个节点用作节点池。
@@ -146,7 +146,7 @@ az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n systempoo
 }
 ```
 
-## <a name="update-existing-cluster-system-and-user-node-pools"></a>更新现有的群集系统和用户节点池
+## <a name="update-existing-cluster-system-and-user-node-pools"></a><a name="update-existing-cluster-system-and-user-node-pools"></a>更新现有的群集系统和用户节点池
 
 > [!NOTE]
 > 必须使用 2020-03-01 或更高版本的 API 版本设置系统节点池模式。 而在 2020-03-01 之前的 API 版本上创建的集群仅包含用户节点池。 若要在较旧的群集上获得系统节点池功能和权益，请在最新的 Azure CLI 版本上，用以下命令更新现有节点池的模式。
@@ -170,7 +170,7 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 > [!Note]
 > 若要在 API 版本 2020-03-02 之前的 AKS 群集上使用系统节点池，请添加新的系统节点池，并删除原始的默认节点池。
 
-以前无法删除系统节点池，它是 AKS 群集中的初始默认节点池。 现在可以灵活地从群集中删除任何节点池。 由于 AKS 群集至少需要一个系统节点池，因此 AKS 群集上必须至少包含两个系统节点池，才能删除其中的一个。
+AKS 群集上必须至少包含两个系统节点池，才能删除其中的一个。
 
 ```azurecli
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
@@ -209,11 +209,11 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-nodepool-upgrade]: https://docs.microsoft.com/cli/azure/aks/nodepool#az_aks_nodepool_upgrade
 [az-aks-nodepool-scale]: https://docs.microsoft.com/cli/azure/aks/nodepool#az_aks_nodepool_scale
 [az-aks-nodepool-delete]: https://docs.microsoft.com/cli/azure/aks/nodepool#az_aks_nodepool_delete
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-extension-update]: https://docs.azure.cn/cli/extension#az-extension-update
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-group-delete]: https://docs.azure.cn/cli/group#az-group-delete
-[az-group-deployment-create]: https://docs.azure.cn/cli/group/deployment#az-group-deployment-create
+[az-extension-add]: https://docs.microsoft.com/cli/azure/extension#az_extension_add
+[az-extension-update]: https://docs.microsoft.com/cli/azure/extension#az_extension_update
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
+[az-group-deployment-create]: https://docs.azure.cn/cli/group/deployment#az_group_deployment_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

@@ -5,21 +5,21 @@ services: container-service
 ms.topic: conceptual
 origin.date: 08/26/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 ms.testscope: yes|no
 ms.testdate: 09/14/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 7df4e791ec69e1a507efaef08bbc2b5ed0dceafa
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 7c9dc03d705238aaff799e8caf4cc23155456f7a
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021694"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937134"
 ---
 <!--Verified successfully-->
-# <a name="sustainable-software-engineering-principals-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的可持续软件工程主体
+# <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的可持续软件工程原则
 
-可持续软件工程主体是一组可帮助你定义、构建和运行可持续应用程序的能力。 总体目标是降低应用程序每个方面的碳足迹。 [Principles.Green 项目][principals-green]概述了可持续软件工程的主体。
+可持续软件工程原则是一组可帮助你定义、构建和运行可持续应用程序的能力。 总体目标是降低应用程序每个方面的碳足迹。 [Principles.Green 项目][principles-green]概述了可持续软件工程的原则。
 
 关于可持续软件工程，需要了解的一个重要理念是：它是优先事项和重点的转移。 在许多情况下，软件的设计和运行方式侧重于快速性能和低延迟。 可持续软件工程侧重于尽可能多地降低碳排放量。 在某些情况下，应用可持续软件工程主体可以提高性能或降低延迟，例如，降低总体网络行程就可以实现该目标。 考虑将可持续软件工程主体应用到应用程序之前，请查看应用程序的优先级、需求和利弊。
 
@@ -76,10 +76,8 @@ ms.locfileid: "90021694"
 * [系统池][system-pools]
 * [资源预留][resource-reservations]
 
-    <!--Not Available on * [Proximity placement groups][proiximity-placement-groups]-->
-
+<!--Not Available on * [Proximity placement groups][proiximity-placement-groups]-->
 <!--Not Available on * [Availability Zones][availability-zones]-->
-
 <!--Not Available on [availability-zones]: availability-zones.md-->
 
 [azure-monitor]: ../azure-monitor/insights/container-insights-overview.md
@@ -99,7 +97,6 @@ ms.locfileid: "90021694"
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principals-green]: https://principles.green/
+[principles-green]: https://principles.green/
 
-<!-- Update_Description: new article about concepts sustainable software engineering -->
-<!--NEW.date: 09/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

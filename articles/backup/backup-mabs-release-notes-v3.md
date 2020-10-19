@@ -4,15 +4,15 @@ description: 本文介绍 Microsoft Azure 备份服务器 (MABS) v3 的已知问
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 11/22/2018
-ms.date: 06/22/2020
+ms.date: 09/28/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ms.author: v-johya
-ms.openlocfilehash: e75e178e5ab34b8c8c68d32d67d671e8abd3aaf8
-ms.sourcegitcommit: 372899a2a21794e631eda1c6a11b4fd5c38751d2
+ms.openlocfilehash: f612d3b4e03359e2e73132ab0c3ebcc53eedaf05
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852062"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871153"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure 备份服务器发行说明
 
@@ -57,13 +57,13 @@ ms.locfileid: "85852062"
 
 **解决方法：** 执行以下步骤以使用俄罗斯语安装包升级到 MABS V3：
 
-1. [备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure)你的 SQL 数据库并卸载 MABS V2（在卸载期间选择保留受保护的数据）。
+1. [备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server#SSMSProcedure)你的 SQL 数据库并卸载 MABS V2（在卸载期间选择保留受保护的数据）。
 2. 在升级过程中升级到 SQL 2017（企业版）并卸载报告功能。
-3. [安装](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS)。
+3. [安装](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services#install-your-report-server) SQL Server Reporting Services (SSRS)。
 4. [安装](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS)。
-5. 如[使用 SQL 2017 时的 SSRS 配置](/backup/backup-azure-microsoft-azure-backup#upgrade-mabs)中所述使用参数配置报告功能。
+5. 如[使用 SQL 2017 时的 SSRS 配置](./backup-azure-microsoft-azure-backup.md#upgrade-mabs)中所述使用参数配置报告功能。
 6. [安装](backup-azure-microsoft-azure-backup.md) MABS V3。
-7. 使用 SSMS [还原](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL 并如[此处](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync)所述运行 DPM-Sync 工具。
+7. 使用 SSMS [还原](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL 并如[此处](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server#using-dpmsync)所述运行 DPM-Sync 工具。
 8. 使用以下命令更新 dbo.tbl_DLS_GlobalSetting 表中的“DataBaseVersion”属性：
 
     ```sql
@@ -84,7 +84,7 @@ ms.locfileid: "85852062"
 1. 在 Web 门户 URL 上，DPMReports 文件夹以 `DPMReports_<GUID>` 的格式存在
 
     >[!NOTE]
-    >始终只有一个使用此命名约定的文件夹。 如果 MABS 是从以前的版本升级的，可能还会有另一个较旧的文件夹，但你无法打开它。
+    >始终只有一个使用此命名约定的文件夹。 如果 MABS 是从之前的版本升级的，可能另外还有一个较旧的文件夹，但你无法打开它。
 
     ![DPMReports 文件夹](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
 

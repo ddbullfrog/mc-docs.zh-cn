@@ -3,18 +3,18 @@ title: Azure Kubernetes 服务 (AKS) 中的 API 服务器已授权 IP 范围
 description: 了解如何使用用于访问 Azure Kubernetes 服务 (AKS) 中 API 服务器的 IP 地址范围保护群集
 services: container-service
 ms.topic: article
-origin.date: 11/05/2019
+origin.date: 09/21/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: a3182d854bfd27560f589ba848329d9a543c6b4f
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: fdb0df629deb808e62c6ca3d0ad99df4b87a148f
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020971"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937303"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes 服务 (AKS) 中的已授权 IP 地址范围保护对 API 服务器的访问
 
@@ -22,20 +22,23 @@ ms.locfileid: "90020971"
 
 本文介绍如何使用 API 服务器已授权 IP 地址范围来限制哪些 IP 地址和 CIDR 可以访问控制平面。
 
-> [!IMPORTANT]
-> 在将 API 服务器授权的 IP 地址范围移出 2019 年 10 月的预览后所创建的群集上，仅标准 SKU 负载均衡器支持 API 服务器授权的 IP 地址范围。 配置了基本 SKU 负载均衡器和 API 服务器已授权 IP 地址范围的现有群集将继续按原有方式工作，但不能迁移到标准 SKU 负载均衡器 。 即使 Kubernetes 版本或控制平面升级后，这些现有群集也会继续工作。
-
-<!--Not Available on  API server authorized IP address ranges are not supported for private clusters.-->
-
 ## <a name="before-you-begin"></a>准备阶段
 
 本文介绍如何使用 Azure CLI 创建 AKS 群集。
 
 需要安装并配置 Azure CLI 2.0.76 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
+### <a name="limitations"></a>限制
+
+API 服务器授权的 IP 范围功能具有以下限制：
+- 在将 API 服务器授权的 IP 地址范围移出 2019 年 10 月的预览后所创建的群集上，仅标准 SKU 负载均衡器支持 API 服务器授权的 IP 地址范围。 配置了基本 SKU 负载均衡器和 API 服务器已授权 IP 地址范围的现有群集将继续按原有方式工作，但不能迁移到标准 SKU 负载均衡器 。 即使 Kubernetes 版本或控制平面升级后，这些现有群集也会继续工作。
+
+<!--Not Available on  API server authorized IP address ranges are not supported for private clusters.-->
+<!--Not Avaialble on [Public IP per Node node pools preview feature](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools-preview)-->
+
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>API 服务器已授权 IP 范围的概述
 
-Kubernetes API 服务器用于公开基础 Kubernetes API。 此组件为管理工具（如 `kubectl` 或 Kubernetes 仪表板）提供交互。 AKS 为单租户群集主机提供专用的 API 服务器。 默认将为 API 服务器分配一个公共 IP 地址，你应使用基于角色的访问控制 (RBAC) 来控制访问。
+Kubernetes API 服务器用于公开基础 Kubernetes API。 此组件为管理工具（如 `kubectl` 或 Kubernetes 仪表板）提供交互。 AKS 提供单租户群集控制平面和专用 API 服务器。 默认将为 API 服务器分配一个公共 IP 地址，你应使用基于角色的访问控制 (RBAC) 来控制访问。
 
 若要保护对其他可公开访问的 AKS 控制平面/API 服务器的访问，可以启用并使用已授权 IP 范围。 这些已授权 IP 范围仅允许定义的 IP 地址范围与 API 服务器通信。 从不属于这些授权 IP 范围的 IP 地址向 API 服务器发出的请求被阻止。 请继续使用 RBAC 来授权用户及其请求的操作。
 
@@ -90,7 +93,7 @@ az aks create \
 
 在上面的示例中，允许参数 *`--load-balancer-outbound-ip-prefixes`* 中提供的所有 IP 以及 *`--api-server-authorized-ip-ranges`* 参数中的 IP。
 
-或者，可以指定 `--load-balancer-outbound-ip-prefixes` 参数以允许出站负载均衡器 IP 前缀。
+相反，可以指定 `--load-balancer-outbound-ip-prefixes` 参数以允许出站负载均衡器 IP 前缀。
 
 ### <a name="allow-only-the-outbound-public-ip-of-the-standard-sku-load-balancer"></a>仅允许标准 SKU 负载均衡器的出站公共 IP
 
@@ -153,7 +156,7 @@ az aks update \
 
 [az-aks-update]: https://docs.microsoft.com/cli/azure/ext/aks-preview/aks#ext_aks_preview_az_aks_update
 [az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az-network-public-ip-list]: https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-list
+[az-network-public-ip-list]: https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli

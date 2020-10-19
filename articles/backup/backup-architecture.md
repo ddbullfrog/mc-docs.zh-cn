@@ -4,14 +4,14 @@ description: 概述 Azure 备份服务使用的体系结构、组件和流程。
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 02/19/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 1c988019856a9fc9c4264bbcf2aa813b6ee87dd2
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: b120f909b61f88d24ca81bebf27f28604bee191e
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402627"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871197"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 备份体系结构和组件
 
@@ -38,18 +38,21 @@ Azure 备份可以备份数据、计算机状态，以及本地计算机和 Azur
 
 ## <a name="where-is-data-backed-up"></a>数据备份到何处？
 
-Azure 备份将备份的数据存储在恢复服务保管库中。 保管库是 Azure 中的联机存储实体，用于保存备份副本、恢复点和备份策略等数据。
+Azure 备份将备份数据存储在保管库（恢复服务保管库和备份保管库）中。 保管库是 Azure 中的联机存储实体，用于保存备份副本、恢复点和备份策略等数据。
 
-恢复服务保管库具有以下功能：
+保管库具有以下功能：
 
 - 使用保管库可以方便地组织备份数据，并将管理开销降至最低。
-- 在每个 Azure 订阅中，最多可以创建 500 个保管库。
 - 可以监视保管库中的备份项，包括 Azure VM 和本地计算机。
 - 可以使用 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) 来管理对保管库的访问。
 - 指定如何复制保管库中的数据以实现冗余：
-  - **本地冗余存储 (LRS)** ：若要防范数据中心发生故障，可以使用 LRS。 LRS 将数据复制到存储缩放单元。 [了解详细信息](../storage/common/storage-redundancy.md)。
-  - **异地冗余存储 (GRS)** ：若要防范区域范围的服务中断，可以使用 GRS。 GRS 会将数据复制到次要区域。 [了解详细信息](../storage/common/storage-redundancy.md)。
+  - **本地冗余存储 (LRS)** ：若要防范数据中心发生故障，可以使用 LRS。 LRS 将数据复制到存储缩放单元。 [了解详细信息](../storage/common/storage-redundancy.md#locally-redundant-storage)。
+  - **异地冗余存储 (GRS)** ：若要防范区域范围的服务中断，可以使用 GRS。 GRS 会将数据复制到次要区域。 [了解详细信息](../storage/common/storage-redundancy.md#geo-redundant-storage)。
   - 恢复服务保管库默认使用 GRS。
+
+恢复服务保管库具有以下附加功能：
+
+- 在每个 Azure 订阅中，最多可以创建 500 个保管库。
 
 ## <a name="backup-agents"></a>备份代理
 

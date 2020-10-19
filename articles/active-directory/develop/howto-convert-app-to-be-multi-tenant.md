@@ -9,19 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f105d81f9db9b0b28ddcb21950f109164c012dfe
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 140088049ae24175b76a7e1e3b3fef80e82c3dbc
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647480"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937203"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>如何：使用多租户应用程序模式让任何 Azure Active Directory 用户登录
 
+如果你向许多组织提供软件即服务 (SaaS) 应用程序，则可以将应用程序配置为接受来自任何 Azure Active Directory (Azure AD) 租户的登录。 此配置称为使应用程序成为多租户应用程序。 任何 Azure AD 租户中的用户在同意配合应用程序使用其帐户之后，便可登录到应用程序。
 
 如果现有应用程序具有自己的帐户系统，或者支持来自其他云提供程序的其他类型的登录，则从任何租户添加 Azure AD 登录都非常简单。 只需要注册应用，通过 OAuth2、OpenID Connect 或 SAML 添加登录代码，并按下应用程序中的[“使用 Microsoft 登录”按钮][AAD-App-Branding]。
 
@@ -152,7 +153,7 @@ Web 应用程序和 Web API 接收并验证 Microsoft 标识平台发送的令�
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>多个租户中的多个层
 
-如果在不同的租户中注册不同的应用程序层，将发生类似的情况。 例如，考虑构建一个调用 Office 365 Exchange Online API 的本机客户端应用程序的情况。 如果要开发该本机应用程序，并让该本机应用程序在客户的租户中运行，必须存在 Exchange Online 服务主体。 在此情况下，开发人员和客户必须购买 Exchange Online，才能在其租户中创建服务主体。
+如果在不同的租户中注册不同的应用程序层，将发生类似的情况。 例如，考虑构建一个调用 Exchange Online API 的本机客户端应用程序的情况。 如果要开发该本机应用程序，并让该本机应用程序在客户的租户中运行，必须存在 Exchange Online 服务主体。 在此情况下，开发人员和客户必须购买 Exchange Online，才能在其租户中创建服务主体。
 
 如果它是由 Microsoft 以外的组织生成的 API，则 API 的开发人员需要提供一个可供其客户许可将其应用程序添加到客户租户中的方式。 对于第三方开发人员，建议的设计是使所生成的 API 能够同时用作 Web 客户端来实现注册。 为此，请按以下步骤操作：
 

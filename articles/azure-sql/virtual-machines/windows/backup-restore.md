@@ -8,18 +8,18 @@ editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/04/2018
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: v-jay
-ms.openlocfilehash: fdc12f6f8179fc6abee8cef8ab06c0693b6fded3
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7f1b3c9e4d75ff9a5b1dec31e596946b2a057f0f
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223104"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872448"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Azure VM 中 SQL Server 的备份和还原
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "88223104"
 |---|---|---|
 | [自动备份](#automated) | 2014<br/> 2016<br/> 2017 | 使用自动备份可以针对 SQL Server VM 上的所有数据库计划定期备份。 备份在 Azure 存储中最多存储 30 天。 从 SQL Server 2016 开始，自动备份 v2 提供更多选项，例如，配置手动计划，以及完整备份和日志备份的频率。 |
 | [适用于 SQL VM 的 Azure 备份](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure 备份为 Azure VM 上的 SQL Server 提供企业级备份功能。 使用此服务，可以集中管理多个服务器和数千个数据库的备份。 可在门户中将数据库还原到特定的时间点。 此服务提供可将备份保留数年之久的可自定义保留策略。 |
-| [手动备份](#manual) | 全部 | 根据所用的 SQL Server 版本，可通过不同的方法手动备份和还原 Azure VM 上的 SQL Server。 在这种情况下，你需要负责指定数据库的备份方式和存储位置，并管理这些备份。 |
+| [手动备份](#manual) | All | 根据所用的 SQL Server 版本，可通过不同的方法手动备份和还原 Azure VM 上的 SQL Server。 在这种情况下，你需要负责指定数据库的备份方式和存储位置，并管理这些备份。 |
 
 以下部分更详细地介绍了每个选项。 本文的最后一个部分以功能矩阵的形式提供了摘要。
 
@@ -128,23 +128,23 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 
 | 选项 | 自动备份 | 适用于 SQL 的 Azure 备份 | 手动备份 |
 |---|---|---|---|
-| 需要额外的 Azure 服务 |   | ![是](./media/backup-restore/yes.png) |   |
-| 在 Azure 门户中配置备份策略 | ![是](./media/backup-restore/yes.png) | ![是](./media/backup-restore/yes.png) |   |
-| 在 Azure 门户中还原数据库 |   | ![是](./media/backup-restore/yes.png) |   |
-| 在一个仪表板中管理多个服务器 |   | ![是](./media/backup-restore/yes.png) |   |
-| 时间点还原 | ![是](./media/backup-restore/yes.png) | ![是](./media/backup-restore/yes.png) | ![是](./media/backup-restore/yes.png) |
-| 15 分钟恢复点目标 (RPO) | ![是](./media/backup-restore/yes.png) | ![是](./media/backup-restore/yes.png) | ![是](./media/backup-restore/yes.png) |
-| 短期备份保留策略（天） | ![是](./media/backup-restore/yes.png) | ![是](./media/backup-restore/yes.png) |   |
-| 长期备份保留策略（月、年） |   | ![是](./media/backup-restore/yes.png) |   |
-| 对 SQL Server Always On 的内置支持 |   | ![是](./media/backup-restore/yes.png) |   |
-| 备份到 Azure 存储帐户 | ![是](./media/backup-restore/yes.png)（自动） | ![是](./media/backup-restore/yes.png)（自动） | ![是](./media/backup-restore/yes.png)（由客户管理） |
-| 存储和备份文件的管理 | | ![是](./media/backup-restore/yes.png) |  |
-| 备份到 VM 上附加的磁盘 |   |   | ![是](./media/backup-restore/yes.png) |
-| 集中式可自定义备份报告 |   | ![是](./media/backup-restore/yes.png) |   |
-| 合并的故障电子邮件警报 |   | ![是](./media/backup-restore/yes.png) |   |
-| 基于 Azure Monitor 日志的自定义监视 |   | ![是](./media/backup-restore/yes.png) |   |
-| 使用 SSMS 或 Transact-SQL 脚本监视备份作业 | ![是](./media/backup-restore/yes.png) | ![是](./media/backup-restore/yes.png) | ![是](./media/backup-restore/yes.png) |
-| 使用 SSMS 或 Transact-SQL 脚本还原数据库 | ![是](./media/backup-restore/yes.png) |   | ![是](./media/backup-restore/yes.png) |
+| 需要额外的 Azure 服务 |   | ![绿色复选标记。](./media/backup-restore/yes.png) |   |
+| 在 Azure 门户中配置备份策略 | ![绿色复选标记。](./media/backup-restore/yes.png) | ![绿色复选标记。](./media/backup-restore/yes.png) |   |
+| 在 Azure 门户中还原数据库 |   | ![绿色复选标记。](./media/backup-restore/yes.png) |   |
+| 在一个仪表板中管理多个服务器 |   | ![绿色复选标记。](./media/backup-restore/yes.png) |   |
+| 时点还原 | ![绿色复选标记。](./media/backup-restore/yes.png) | ![绿色复选标记。](./media/backup-restore/yes.png) | ![绿色复选标记。](./media/backup-restore/yes.png) |
+| 15 分钟恢复点目标 (RPO) | ![绿色复选标记。](./media/backup-restore/yes.png) | ![绿色复选标记。](./media/backup-restore/yes.png) | ![绿色复选标记。](./media/backup-restore/yes.png) |
+| 短期备份保留策略（天） | ![绿色复选标记。](./media/backup-restore/yes.png) | ![绿色复选标记。](./media/backup-restore/yes.png) |   |
+| 长期备份保留策略（月、年） |   | ![绿色复选标记。](./media/backup-restore/yes.png) |   |
+| 对 SQL Server Always On 的内置支持 |   | ![绿色复选标记。](./media/backup-restore/yes.png) |   |
+| 备份到 Azure 存储帐户 | ![绿色复选标记。](./media/backup-restore/yes.png)（自动） | ![绿色复选标记。](./media/backup-restore/yes.png)（自动） | ![绿色复选标记。](./media/backup-restore/yes.png)（由客户管理） |
+| 存储和备份文件的管理 | | ![绿色复选标记。](./media/backup-restore/yes.png) |  |
+| 备份到 VM 上附加的磁盘 |   |   | ![绿色复选标记。](./media/backup-restore/yes.png) |
+| 集中式可自定义备份报告 |   | ![绿色复选标记。](./media/backup-restore/yes.png) |   |
+| 合并的故障电子邮件警报 |   | ![绿色复选标记。](./media/backup-restore/yes.png) |   |
+| 基于 Azure Monitor 日志的自定义监视 |   | ![绿色复选标记。](./media/backup-restore/yes.png) |   |
+| 使用 SSMS 或 Transact-SQL 脚本监视备份作业 | ![绿色复选标记。](./media/backup-restore/yes.png) | ![绿色复选标记。](./media/backup-restore/yes.png) | ![绿色复选标记。](./media/backup-restore/yes.png) |
+| 使用 SSMS 或 Transact-SQL 脚本还原数据库 | ![绿色复选标记。](./media/backup-restore/yes.png) |   | ![绿色复选标记。](./media/backup-restore/yes.png) |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,29 +1,29 @@
 ---
 title: 在 Azure API 管理中使用外部缓存 | Microsoft Docs
-description: 了解如何在 Azure API 管理中配置和使用外部缓存。
+description: 了解如何在 Azure API 管理中配置和使用外部缓存。 使用外部缓存可以避免内置缓存的一些限制。
 services: api-management
 documentationcenter: ''
+author: Johnnytechn
 manager: erikre
 editor: ''
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.topic: conceptual
 origin.date: 05/15/2019
-author: Johnnytechn
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 8c56af3d17307243ffd0abcd2db5ec9b45469509
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: 1cac439c4b75517ae311e0b02e3b86d5417f01d9
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440529"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871425"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>在 Azure API 管理中使用外部 Redis 兼容缓存
 
 除了利用内置缓存外，Azure API 管理还允许将响应缓存在外部 Redis 兼容缓存中，例如 Azure Cache for Redis。
 
-使用外部缓存可以克服内置缓存的一些限制：
+使用外部缓存可以避免内置缓存的一些限制：
 
 * 避免在执行 API 管理更新期间定期清除缓存
 * 更好地控制你的缓存配置
@@ -66,7 +66,7 @@ ms.locfileid: "84440529"
 > [!NOTE]
 > “使用位置”设置指定将使用配置的缓存的 Azure 区域或自承载网关位置。 配置为“默认值”的缓存将由具有特定匹配区域或位置值的缓存进行重写。
 >
-> 例如，如果 API 管理承载在“美国东部”、“东南亚”和“西欧”，并且配置了两个缓存，一个用于**默认**，另一个用于**东南亚**，则**东南亚**中的 API 管理将使用其自己的缓存，而其他两个区域将使用**默认**缓存项。
+> 例如，如果 API 管理托管在“中国北部”、“中国东部”和“中国东部 2”区域，并且配置了两个缓存，一个用于“默认”，另一个用于“中国北部”，则“中国北部”中的 API 管理将使用其自己的缓存，而其他两个区域将使用“默认”缓存项   。
 
 ### <a name="add-an-azure-cache-for-redis-from-the-same-subscription"></a>从同一订阅中添加用于 Redis 的 Azure 缓存
 
@@ -106,6 +106,6 @@ ms.locfileid: "84440529"
 * 有关缓存策略的详细信息，请参阅 [API 管理策略参考][API Management policy reference]中的[缓存策略][Caching policies]。
 * 有关使用策略表达式按密钥缓存项目的信息，请参阅 [Azure API 管理中的自定义缓存](api-management-sample-cache-by-key.md)。
 
-[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-caching-policies.md
 

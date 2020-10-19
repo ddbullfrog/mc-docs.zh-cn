@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 04/23/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 2b6868f09f1d96e0a5f406707cca0b58f7a83ba1
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/12/2020
+ms.openlocfilehash: addd600e63b643432cf4864fcc888770222bc25d
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222855"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872440"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>使用 Azure 密钥管理库配置 Always Encrypted 
 
@@ -184,7 +184,7 @@ Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置
 
 验证设置是否全都正确，并单击“完成”以完成“始终加密”的设置。
 
-![摘要](./media/always-encrypted-azure-key-vault-configure/summary.png)
+![显示任务标记为“已通过”的“结果”页面的屏幕截图。](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>验证向导的操作
 

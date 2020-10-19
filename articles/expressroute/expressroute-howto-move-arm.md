@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 02/25/2019
 ms.date: 12/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: d050a246240bb353c91be3d46a148e87c4be4be6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d55502562203f7985d25ce62abf027464560cbba
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74389447"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937110"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 将 ExpressRoute 线路从经典部署模型转移到资源管理器部署模型
 
@@ -95,13 +95,14 @@ Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Locati
 在经典模式下，ExpressRoute 线路没有绑定到区域的概念。 但是，在资源管理器中，每个资源都需要映射到 Azure 区域。 从技术上来讲，Move-AzExpressRouteCircuit cmdlet 中指定的区域可以是任何区域。 对组织来说，建议选择一个最能代表对等位置的区域。
 
 > [!NOTE]
-> 转移完成之后，列在前一个 cmdlet 中的新名称用于处理资源。 线路实质上已重命名。
-> 
+> * 将经典 ExpressRoute 线路移到资源管理器部署模型后，它将默认具有对经典部署模型和资源管理器部署模型的访问权限。
+> * 在上一 cmdlet 中列出新名称将用于处理资源。 线路实质上已重命名。
 
-## <a name="modify-circuit-access"></a>修改线路访问
+## <a name="modify-circuit-access"></a>修改线路访问权限
 
-### <a name="to-enable-expressroute-circuit-access-for-both-deployment-models"></a>为两种部署模型启用 ExpressRoute 线路访问
-将经典 ExpressRoute 线路移动到 Resource Manager 部署模型后，可以启用对两种部署模型的访问。 运行以下 cmdlet 启用对两种部署模型的访问：
+### <a name="to-enable-expressroute-circuit-access-for-both-deployment-models"></a>为两种部署模型启用 ExpressRoute 线路访问权限
+
+可为在资源管理器部署模型中创建的 ExpressRoute 线路启用对经典部署模型的访问权限。 运行以下 cmdlet 启用对两种部署模型的访问权限：
 
 1. 获取线路详细信息。
 
@@ -109,7 +110,7 @@ Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Locati
    $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
    ```
 
-2. 将“允许经典操作”设置为“TRUE”。
+2. 将“允许经典操作”设置为 TRUE。
 
    ```powershell
    $ckt.AllowClassicOperations = $true
@@ -127,12 +128,12 @@ Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Locati
    get-azurededicatedcircuit
    ```
 
-5. 现在，可以使用经典 VNet 的经典部署模型命令以及 Resource Manager VNet 的 Resource Manager 命令来管理 ExpressRoute 线路的链接。 以下文章可帮助管理 ExpressRoute 线路的链接：
+5. 现在，可以使用适用于经典 VNet 的经典部署模型命令以及适用于 Resource Manager VNet 的 Resource Manager 命令来管理到 ExpressRoute 线路的链接。 以下文章可帮助管理 ExpressRoute 线路的链接：
 
     * [在 Resource Manager 部署模型中将虚拟网络链接到 ExpressRoute 线路](expressroute-howto-linkvnet-arm.md)
     * [在经典部署模型中将虚拟网络链接到 ExpressRoute 线路](expressroute-howto-linkvnet-classic.md)
 
-### <a name="to-disable-expressroute-circuit-access-to-the-classic-deployment-model"></a>禁用对经典部署模型的 ExpressRoute 线路访问
+### <a name="to-disable-expressroute-circuit-access-to-the-classic-deployment-model"></a>禁止 ExpressRoute 线路访问经典部署模型
 运行以下 cmdlet 可禁止访问经典部署模型。
 
 1. 获取 ExpressRoute 线路的详细信息。
@@ -141,13 +142,13 @@ Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Locati
    $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
    ```
 
-2. 将“允许经典操作”设置为“FALSE”。
+2. 将“允许经典操作”设置为 FALSE。
 
    ```powershell
    $ckt.AllowClassicOperations = $false
    ```
 
-3. 更新线路。 成功完成此操作后，你无法在经典部署模型中查看线路。
+3. 更新线路。 成功完成此操作后，将无法在经典部署模型中查看线路。
 
    ```powershell
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt

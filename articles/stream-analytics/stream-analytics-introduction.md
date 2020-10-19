@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/20/2020
-ms.openlocfilehash: 19d0e1d08ec60089763f737d090bc181eacdcfe6
-ms.sourcegitcommit: 09c7071f4d0d9256b40a6bf700b38c6a25db1b26
+ms.date: 10/09/2020
+ms.openlocfilehash: 93280fbc691ee241139156fc8946802464c305c7
+ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715745"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936832"
 ---
 # <a name="what-is-azure-stream-analytics"></a>什么是 Azure 流分析？
 
@@ -51,11 +51,10 @@ Azure 流分析经过专门的设计，具有易用、灵活、可靠的特点�
 
 Azure 流分析易于入门。 只需点击几下鼠标即可连接到多个源和接收器并创建端到端的管道。 流分析可连接到 [Azure 事件中心](/event-hubs/)和 [Azure IoT 中心](/iot-hub/)来引入流数据，并可连接到 [Azure Blob 存储](/storage/common/storage-introduction)来引入历史数据。 作业输入还可以包含 Azure Blob 存储或 [SQL 数据库](stream-analytics-use-reference-data.md#azure-sql-database)中的静态数据或缓慢更改的参考数据，可将这些数据与流数据相联接，以执行查找操作。
 
-流分析可以将作业输出路由到许多存储系统（例如 [Azure Blob 存储](/storage/common/storage-introduction)、[Azure SQL 数据库](/sql-database/)）。你可以使用 Azure HDInsight 对存储的输出运行批处理分析，也可以将输出发送到另一个服务（例如事件中心）供使用
+流分析可以将作业输出路由到许多存储系统，例如 [Azure Blob 存储](/storage/common/storage-introduction)、[Azure SQL 数据库](/sql-database/)和 [Azure CosmosDB](/cosmos-db/introduction)。 可以使用 Azure HDInsight 基于存储的输出运行批处理分析，也可以将输出发送到其他服务（例如事件中心）以供使用。
 
 有关流分析输出的完整列表，请参阅[了解 Azure 流分析的输出](stream-analytics-define-outputs.md)。
 <!-- Not Available on [Azure Data Lake Stores](/data-lake-store/)-->
-<!-- Not Available on [Azure Cosmos DB](/cosmos-db/introduction)-->
 <!-- Not Available [Power BI](/power-bi/) -->
 
 ## <a name="programmer-productivity"></a>程序员工作效率

@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6dfbd23066c36e5f5cf67a7cb5f8ead51be7086f
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: b51c70dffeab1ad9a7b6a3e5723569832a45780c
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146541"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937201"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>使用 Azure 中继向云中的 Web 应用程序公开本地 WCF 服务
 
@@ -78,7 +78,7 @@ ms.locfileid: "91146541"
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="create-an-on-premises-server"></a>创建本地服务器
+## <a name="create-an-on-premises-server"></a><a name="create-an-on-premises-server"></a>创建本地服务器
 
 首先，生成一个模拟的本地产品目录系统。  此项目是一个 Visual Studio 控制台应用程序，它使用 [Azure 服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 来包含服务总线库和配置设置。 <a name="create-the-project"></a>
 
@@ -233,7 +233,7 @@ ms.locfileid: "91146541"
 
 1. 按 Ctrl+Shift+B 或者选择“生成” > “生成解决方案”以生成应用程序，并验证到目前为止操作的准确性。
 
-## <a name="create-an-aspnet-application"></a>创建 ASP.NET 应用程序
+## <a name="a-namecreate-an-aspnet-applicationcreate-an-aspnet-application"></a><a name="create-an-aspnet-application"><a/>创建 ASP.NET 应用程序
 
 在本部分，请生成一个简单的 ASP.NET 应用程序，以便显示产品服务中检索到的数据。
 
@@ -354,7 +354,7 @@ ms.locfileid: "91146541"
 
 应用程序应在浏览器中显示为正在运行。
 
-![Web 应用程序][21]
+![屏幕截图显示了在浏览器中运行的应用程序示例，其中突出显示了 URL。][21]
 
 ## <a name="put-the-pieces-together"></a>将各个部分组合在一起
 

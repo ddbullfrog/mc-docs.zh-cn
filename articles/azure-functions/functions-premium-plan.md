@@ -3,15 +3,15 @@ title: Azure Functions 高级计划
 description: Azure Functions 高级计划的详细信息和配置选项（VNet、无冷启动、无限制执行持续时间）。
 author: jeffhollan
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
 ms.custom: references_regions
-ms.openlocfilehash: fe46cf01e3a9cc0ccc4331407d3e1e1cdb797eb3
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: d85f07f85957686d3d910ae3bb7f13b551a8e584
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246974"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937431"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 高级计划
 
@@ -131,7 +131,51 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 例如，JavaScript 函数应用受 Node.js 中的默认内存限制约束。 若要增大此固定内存限制，请添加值为 `--max-old-space-size=<max memory in MB>` 的应用设置 `languageWorkers:node:arguments`。
 
+## <a name="region-max-scale-out"></a>区域最大横向扩展
+
+下面是每个区域和 OS 配置中单个计划当前支持的最大横向扩展值。 若要请求增加，请开具支持票证。
+
 请在此处查看 Functions 的完整的区域可用性：[Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
+
+|区域| Windows | Linux |
+|--| -- | -- |
+|澳大利亚中部| 100 | 不可用 |
+|澳大利亚中部 2| 100 | 不可用 |
+|澳大利亚东部| 100 | 20 |
+|Australia Southeast | 100 | 20 |
+|Brazil South| 100 | 20 |
+|加拿大中部| 100 | 20 |
+|美国中部| 100 | 20 |
+|中国东部 2| 100 | 20 |
+|中国北部 2| 100 | 20 |
+|东亚| 100 | 20 |
+|美国东部 | 100 | 20 |
+|美国东部 2| 100 | 20 |
+|法国中部| 100 | 20 |
+|德国中西部| 100 | 不可用 |
+|Japan East| 100 | 20 |
+|日本西部| 100 | 20 |
+|韩国中部| 100 | 20 |
+|韩国南部| 不可用 | 20 |
+|美国中北部| 100 | 20 |
+|北欧| 100 | 20 |
+|挪威东部| 100 | 20 |
+|美国中南部| 100 | 20 |
+|印度南部 | 100 | 不可用 |
+|Southeast Asia| 100 | 20 |
+|瑞士北部| 100 | 不可用 |
+|瑞士西部| 100 | 不可用 |
+|英国南部| 100 | 20 |
+|英国西部| 100 | 20 |
+|USGov Arizona| 100 | 20 |
+|USGov Virginia| 100 | 20 |
+|USNat 东部| 100 | 不可用 |
+|USNat 西部| 100 | 不可用 |
+|西欧| 100 | 20 |
+|印度西部| 100 | 20 |
+|美国中西部| 100 | 20 |
+|美国西部| 100 | 20 |
+|美国西部 2| 100 | 20 |
 
 ## <a name="next-steps"></a>后续步骤
 
