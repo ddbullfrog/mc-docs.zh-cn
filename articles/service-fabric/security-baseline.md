@@ -5,17 +5,17 @@ ms.service: service-fabric
 ms.topic: conceptual
 origin.date: 07/22/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.custom: security-benchmark
-ms.openlocfilehash: a0ac88ae2c76c5c9397e739db7733d36869296b5
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: ff30aade9991c93974281a88808858700ab6114d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523634"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127733"
 ---
 <!--All Links Verified Successfully-->
 

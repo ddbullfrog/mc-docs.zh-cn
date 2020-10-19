@@ -1,23 +1,23 @@
 ---
 title: 快速入门 - 通过 Azure Cosmos DB 使用 Java 创建文档数据库
 description: 本快速入门演示一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Java 代码示例
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 05/11/2020
-ms.date: 08/17/2020
+origin.date: 09/22/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: e8687abe7730f86f5e3480072243056548a14101
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: f0ba2332dbef9cadaa9ffda9e46b9dba2feea75e
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223093"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118285"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB SQL API 数据
 
@@ -148,11 +148,10 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
         CosmosItemResponse<Family> item = container.readItem(family.getId(), new PartitionKey(family.getLastName()), Family.class);
         double requestCharge = item.getRequestCharge();
         Duration requestLatency = item.getDuration();
-        System.out.println(String.format("Item successfully read with id %s with a charge of %.2f and within duration %s",
-            item.getItem().getId(), requestCharge, requestLatency));
+        logger.info("Item successfully read with id {} with a charge of {} and within duration {}",
+            item.getItem().getId(), requestCharge, requestLatency);
     } catch (CosmosException e) {
-        e.printStackTrace();
-        System.err.println(String.format("Read Item failed with %s", e));
+        logger.error("Read Item failed with", e);
     }
 
     ```
@@ -170,11 +169,10 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
         "SELECT * FROM Family WHERE Family.lastName IN ('Andersen', 'Wakefield', 'Johnson')", queryOptions, Family.class);
 
     familiesPagedIterable.iterableByPage(10).forEach(cosmosItemPropertiesFeedResponse -> {
-        System.out.println("Got a page of query result with " +
-            cosmosItemPropertiesFeedResponse.getResults().size() + " items(s)"
-            + " and request charge of " + cosmosItemPropertiesFeedResponse.getRequestCharge());
+        logger.info("Got a page of query result with {} items(s) and request charge of {}",
+                cosmosItemPropertiesFeedResponse.getResults().size(), cosmosItemPropertiesFeedResponse.getRequestCharge());
 
-        System.out.println("Item Ids " + cosmosItemPropertiesFeedResponse
+        logger.info("Item Ids {}", cosmosItemPropertiesFeedResponse
             .getResults()
             .stream()
             .map(Family::getId)
@@ -230,46 +228,35 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 
     ```java
 
-    final CountDownLatch completionLatch = new CountDownLatch(1);
+    try {
 
-    //  Combine multiple item inserts, associated success println's, and a final aggregate stats println into one Reactive stream.
-    families.flatMap(family -> {
+        //  Combine multiple item inserts, associated success println's, and a final aggregate stats println into one Reactive stream.
+        double charge = families.flatMap(family -> {
             return container.createItem(family);
         }) //Flux of item request responses
-        .flatMap(itemResponse -> {
-            System.out.println(String.format("Created item with request charge of %.2f within" +
-                " duration %s",
-                itemResponse.getRequestCharge(), itemResponse.getDuration()));
-            System.out.println(String.format("Item ID: %s\n", itemResponse.getItem().getId()));
-            return Mono.just(itemResponse.getRequestCharge());
-        }) //Flux of request charges
-        .reduce(0.0, 
-            (charge_n,charge_nplus1) -> charge_n + charge_nplus1
-        ) //Mono of total charge - there will be only one item in this stream            
-        .subscribe(charge -> { 
-            System.out.println(String.format("Created items with total request charge of %.2f\n",
-            charge));         
-        }, 
-            err -> {
-                if (err instanceof CosmosException) {
-                    //Client-specific errors
-                    CosmosException cerr = (CosmosException)err;
-                    cerr.printStackTrace();
-                    System.err.println(String.format("Read Item failed with %s\n", cerr));
-                } else {
-                    //General errors
-                    err.printStackTrace();
-                }
+                .flatMap(itemResponse -> {
+                    logger.info("Created item with request charge of {} within" +
+                                    " duration {}",
+                            itemResponse.getRequestCharge(), itemResponse.getDuration());
+                    logger.info("Item ID: {}\n", itemResponse.getItem().getId());
+                    return Mono.just(itemResponse.getRequestCharge());
+                }) //Flux of request charges
+                .reduce(0.0,
+                        (charge_n, charge_nplus1) -> charge_n + charge_nplus1
+                ) //Mono of total charge - there will be only one item in this stream
+                .block(); //Preserve the total charge and print aggregate charge/item count stats.
 
-                completionLatch.countDown();                    
-            }, 
-            () -> {completionLatch.countDown();}
-    ); //Preserve the total charge and print aggregate charge/item count stats.
+        logger.info("Created items with total request charge of {}\n", charge);
 
-    try {
-        completionLatch.await();            
-    } catch (InterruptedException err) {
-        throw new AssertionError("Unexpected Interruption",err);
+    } catch (Exception err) {
+        if (err instanceof CosmosException) {
+            //Client-specific errors
+            CosmosException cerr = (CosmosException) err;
+            logger.error("Read Item failed with CosmosException\n", cerr);
+        } else {
+            //General errors
+            logger.error("Read Item failed with error\n", err);
+        }
     }
 
     ```
@@ -278,39 +265,28 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 
     ```java
 
-    final CountDownLatch completionLatch = new CountDownLatch(1);
-
-    familiesToCreate.flatMap(family -> {
-                        Mono<CosmosItemResponse<Family>> asyncItemResponseMono = container.readItem(family.getId(), new PartitionKey(family.getLastName()), Family.class);
-                        return asyncItemResponseMono;
-                    })
-                    .subscribe(
-                        itemResponse -> {
-                            double requestCharge = itemResponse.getRequestCharge();
-                            Duration requestLatency = itemResponse.getDuration();
-                            System.out.println(String.format("Item successfully read with id %s with a charge of %.2f and within duration %s",
-                                itemResponse.getItem().getId(), requestCharge, requestLatency));
-                        },
-                        err -> {
-                            if (err instanceof CosmosException) {
-                                //Client-specific errors
-                                CosmosException cerr = (CosmosException)err;
-                                cerr.printStackTrace();
-                                System.err.println(String.format("Read Item failed with %s\n", cerr));
-                            } else {
-                                //General errors
-                                err.printStackTrace();
-                            }
-
-                            completionLatch.countDown();
-                        },
-                        () -> {completionLatch.countDown();}
-    );
-
     try {
-        completionLatch.await();             
-    } catch (InterruptedException err) {
-        throw new AssertionError("Unexpected Interruption",err);
+
+        familiesToCreate.flatMap(family -> {
+            Mono<CosmosItemResponse<Family>> asyncItemResponseMono = container.readItem(family.getId(), new PartitionKey(family.getLastName()), Family.class);
+            return asyncItemResponseMono;
+        }).flatMap(itemResponse -> {
+            double requestCharge = itemResponse.getRequestCharge();
+            Duration requestLatency = itemResponse.getDuration();
+            logger.info("Item successfully read with id {} with a charge of {} and within duration {}",
+                    itemResponse.getItem().getId(), requestCharge, requestLatency);
+            return Flux.empty();
+        }).blockLast();
+
+    } catch (Exception err) {
+        if (err instanceof CosmosException) {
+            //Client-specific errors
+            CosmosException cerr = (CosmosException) err;
+            logger.error("Read Item failed with CosmosException\n", cerr);
+        } else {
+            //General errors
+            logger.error("Read Item failed\n", err);
+        }
     }
 
     ```
@@ -320,47 +296,41 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
     ```java
     // Set some common query options
 
+    int preferredPageSize = 10; // We'll use this later
+
     CosmosQueryRequestOptions queryOptions = new CosmosQueryRequestOptions();
-    //  Set query metrics enabled to get metrics around query executions
+
+    //  Set populate query metrics to get metrics around query executions
     queryOptions.setQueryMetricsEnabled(true);
 
     CosmosPagedFlux<Family> pagedFluxResponse = container.queryItems(
-        "SELECT * FROM Family WHERE Family.lastName IN ('Andersen', 'Wakefield', 'Johnson')", queryOptions, Family.class);
-
-    final CountDownLatch completionLatch = new CountDownLatch(1);
-
-    pagedFluxResponse.byPage(10).subscribe(
-        fluxResponse -> {
-            System.out.println("Got a page of query result with " +
-                fluxResponse.getResults().size() + " items(s)"
-                + " and request charge of " + fluxResponse.getRequestCharge());
-
-            System.out.println("Item Ids " + fluxResponse
-                .getResults()
-                .stream()
-                .map(Family::getId)
-                .collect(Collectors.toList()));
-        },
-        err -> {
-            if (err instanceof CosmosException) {
-                //Client-specific errors
-                CosmosException cerr = (CosmosException)err;
-                cerr.printStackTrace();
-                System.err.println(String.format("Read Item failed with %s\n", cerr));
-            } else {
-                //General errors
-                err.printStackTrace();
-            }
-
-            completionLatch.countDown();
-        },
-        () -> {completionLatch.countDown();}
-    );
+            "SELECT * FROM Family WHERE Family.lastName IN ('Andersen', 'Wakefield', 'Johnson')", queryOptions, Family.class);
 
     try {
-        completionLatch.await();             
-    } catch (InterruptedException err) {
-        throw new AssertionError("Unexpected Interruption",err);
+
+        pagedFluxResponse.byPage(preferredPageSize).flatMap(fluxResponse -> {
+            logger.info("Got a page of query result with " +
+                    fluxResponse.getResults().size() + " items(s)"
+                    + " and request charge of " + fluxResponse.getRequestCharge());
+
+            logger.info("Item Ids " + fluxResponse
+                    .getResults()
+                    .stream()
+                    .map(Family::getId)
+                    .collect(Collectors.toList()));
+
+            return Flux.empty();
+        }).blockLast();
+
+    } catch(Exception err) {
+        if (err instanceof CosmosException) {
+            //Client-specific errors
+            CosmosException cerr = (CosmosException) err;
+            logger.error("Read Item failed with CosmosException\n", cerr);
+        } else {
+            //General errors
+            logger.error("Read Item failed\n", err);
+        }
     }
 
     ```

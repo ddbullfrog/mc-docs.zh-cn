@@ -4,28 +4,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 05/15/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 9f6e0220b2faebfcfa9220c4b16d847a4292928c
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: 9f781d2a7d0128ca47fd93cec3f820424d679e6a
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317466"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127855"
 ---
-## <a name="prerequisites"></a>先决条件
-
-唯一先决条件是要有一个 Azure 语音订阅。 如果还没有订阅，请参阅[指南](../get-started.md#new-resource)了解如何新建订阅。
-
 ## <a name="download-and-install"></a>下载并安装
 
 #### <a name="windows-install"></a>[Windows 安装](#tab/windowsinstall)
 
 按照以下步骤在 Windows 上安装语音 CLI：
 
-1. 安装 [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471) 或 [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-2. 下载语音 CLI [zip 存档](https://aka.ms/speech/spx-zips.zip)然后提取它。
-3. 转到从下载中提取的根目录 `spx-zips`，并提取所需的子目录（`spx-net471` 用于 .NET Framework 4.7，`spx-netcore-win-x64` 用于 x64 CPU 上的 .NET Core 3.0）。
+1. 下载语音 CLI [zip 存档](https://aka.ms/speech/spx-zips.zip)然后提取它。
+2. 转到从下载中提取的根目录 `spx-zips`，并提取所需的子目录（`spx-net471` 用于 .NET Framework 4.7，`spx-netcore-win-x64` 用于 x64 CPU 上的 .NET Core 3.0）。
 
 在命令提示符中，将目录更改到此位置，然后键入 `spx` 查看语音 CLI 的帮助。
 
@@ -51,6 +46,60 @@ ms.locfileid: "89317466"
    3. `PATH=~/spx:$PATH`
 
 若要查看语音 CLI 的帮助，请键入 `spx`。
+
+#### <a name="docker-install"></a>[Docker 安装](#tab/dockerinstall)
+
+> [!NOTE]
+> 必须<a href="https://www.docker.com/get-started" target="_blank">为平台安装 Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
+
+按照以下步骤在 Docker 容器中安装语音 CLI：
+
+1. 在新的命令提示符或终端中，键入以下命令：`docker pull msftspeech/spx`
+2. 键入此命令。 你应看到语音 CLI 的帮助信息：`docker run -it --rm msftspeech/spx help`
+
+### <a name="mount-a-directory-in-the-container"></a>在容器中装载目录
+
+语音 CLI 工具会将配置设置保存为文件，并在执行任何命令时加载这些文件（帮助命令除外）。
+在 Docker 容器中使用语音 CLI 时，必须从容器装载本地目录，以便该工具可以存储或查找配置设置，并且还可以读取或写入命令所需的任何文件，例如语音音频文件。
+
+在 Windows 上，键入以下命令以创建一个语音 CLI 可以在容器内使用的本地目录：
+
+`mkdir c:\spx-data`
+
+或者在 Linux 或 Mac 上，在终端中键入以下命令以创建目录并查看其绝对路径：
+
+```bash
+mkdir ~/spx-data
+cd ~/spx-data
+pwd
+```
+
+调用语音 CLI 时，将使用绝对路径。
+
+### <a name="run-speech-cli-in-the-container"></a>在容器中运行语音 CLI
+
+本文档显示了在非 Docker 安装中使用的语音 CLI `spx` 命令。
+在 Docker 容器中调用 `spx` 命令时，必须将容器中的目录装载到文件系统中，语音 CLI 可在其中存储和查找配置值以及读取和写入文件。
+在 Windows 上，命令会以下方的方式开始：
+
+`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+
+在 Linux 或 Mac 上，命令会以下方的方式开始：
+
+`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+
+> [!NOTE]
+> 将 `/ABSOLUTE_PATH` 替换为上一节中 `pwd` 命令显示的绝对路径。
+
+若要使用安装在容器中的 `spx` 命令，请始终输入上面所示的完整命令，然后输入请求的参数。
+例如，在 Windows 上，此命令将设置密钥：
+
+`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+
+> [!NOTE]
+> 在 Docker 容器中运行语音 CLI 时，不能使用计算机的麦克风或扬声器。
+> 若要使用这些设备，请向/从语音 CLI 传递音频文件，以在 Docker 容器外部进行录制/播放。
+> 语音 CLI 工具可访问上面步骤中设置的本地目录。
 
 ***
 

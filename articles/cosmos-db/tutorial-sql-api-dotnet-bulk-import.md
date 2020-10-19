@@ -3,20 +3,20 @@ title: 使用 .NET SDK 将数据批量导入 Azure Cosmos DB SQL API 帐户
 description: 了解如何通过生成 .NET 控制台应用程序将数据导入或引入到 Azure Cosmos DB 来优化导入数据所需的预配吞吐量 (RU/s)
 ms.service: cosmos-db
 ms.topic: tutorial
-origin.date: 11/04/2019
+origin.date: 09/21/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 309c5a11f87d6d510d6ff8dc5fa05babcf2395b2
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 9afed3d8333354ea32f8c72ded2719a17d781949
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246301"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118350"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>使用 .NET SDK 将数据批量导入 Azure Cosmos DB SQL API 帐户
 
@@ -49,37 +49,37 @@ ms.locfileid: "91246301"
 
 从本地计算机打开 Windows 命令提示符或终端窗口。 你将从命令提示符或终端运行接下来的部分中的所有命令。 运行以下 dotnet 新命令，创建名为“bulk-import-demo”  的新应用。 `--langVersion` 参数在创建的项目文件中设置 LangVersion  属性。
 
-   ```bash
-   dotnet new console -langVersion:8 -n bulk-import-demo
-   ```
+```bash
+dotnet new console -langVersion:8 -n bulk-import-demo
+```
 
 将目录更改为新创建的应用文件夹。 可使用以下代码生成应用程序：
 
-   ```bash
-   cd bulk-import-demo
-   dotnet build
-   ```
+```bash
+cd bulk-import-demo
+dotnet build
+```
 
 内部版本的预期输出应如下所示：
 
-   ```bash
-   Restore completed in 100.37 ms for C:\Users\user1\Downloads\CosmosDB_Samples\bulk-import-demo\bulk-import-demo.csproj.
-     bulk -> C:\Users\user1\Downloads\CosmosDB_Samples\bulk-import-demo \bin\Debug\netcoreapp2.2\bulk-import-demo.dll
+```bash
+Restore completed in 100.37 ms for C:\Users\user1\Downloads\CosmosDB_Samples\bulk-import-demo\bulk-import-demo.csproj.
+ bulk -> C:\Users\user1\Downloads\CosmosDB_Samples\bulk-import-demo \bin\Debug\netcoreapp2.2\bulk-import-demo.dll
 
-   Build succeeded.
-       0 Warning(s)
-       0 Error(s)
+Build succeeded.
+   0 Warning(s)
+   0 Error(s)
 
-   Time Elapsed 00:00:34.17
-   ```
+Time Elapsed 00:00:34.17
+```
 
 ## <a name="step-3-add-the-azure-cosmos-db-package"></a>步骤 3：添加 Azure Cosmos DB 包
 
 当仍在应用程序目录中时，使用 DotNet 添加包命令安装适用于 .NET 的 Azure Cosmos DB 客户端库。
 
-   ```bash
-   dotnet add package Microsoft.Azure.Cosmos
-   ```
+```bash
+dotnet add package Microsoft.Azure.Cosmos
+```
 
 ## <a name="step-4-get-your-azure-cosmos-account-credentials"></a>步骤 4：获取 Azure Cosmos 帐户凭据
 
@@ -89,7 +89,7 @@ ms.locfileid: "91246301"
 1. 导航到 Azure Cosmos 帐户。
 1. 打开“键”窗格，复制帐户的 URI 和主键    。
 
-如果使用 Azure Cosmos DB 模拟器，请获取[本文中的模拟器凭据](local-emulator.md#authenticating-requests)。
+如果使用 Azure Cosmos DB 模拟器，请获取[本文中的模拟器凭据](local-emulator.md#authenticate-requests)。
 
 ## <a name="step-5-initialize-the-cosmosclient-object-with-bulk-execution-support"></a>步骤 5：初始化具有批量执行支持的 CosmosClient 对象
 
@@ -97,29 +97,29 @@ ms.locfileid: "91246301"
 
 首先，让我们覆盖默认 `Main` 方法，并定义全局变量。 这些全局变量将包含终结点和授权密钥、数据库的名称、你将创建的容器，以及将批量插入的项数。 确保根据环境替换终结点 URL 和授权密钥值。 
 
-   ```csharp
-   using System;
-   using System.Collections.Generic;
-   using System.Diagnostics;
-   using System.IO;
-   using System.Text.Json;
-   using System.Threading.Tasks;
-   using Microsoft.Azure.Cosmos;
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Microsoft.Azure.Cosmos;
 
-   public class Program
-   {
-        private const string EndpointUrl = "https://<your-account>.documents.azure.cn:443/";
-        private const string AuthorizationKey = "<your-account-key>";
-        private const string DatabaseName = "bulk-tutorial";
-        private const string ContainerName = "items";
-        private const int ItemsToInsert = 300000;
+public class Program
+{
+    private const string EndpointUrl = "https://<your-account>.documents.azure.cn:443/";
+    private const string AuthorizationKey = "<your-account-key>";
+    private const string DatabaseName = "bulk-tutorial";
+    private const string ContainerName = "items";
+    private const int ItemsToInsert = 300000;
 
-        static async Task Main(string[] args)
-        {
+    static async Task Main(string[] args)
+    {
 
-        }
-   }
-   ```
+    }
+}
+```
 
 在 `Main` 方法中，添加以下代码以初始化 CosmosClient 对象：
 
@@ -155,9 +155,9 @@ await database.DefineContainer(Program.ContainerName, "/pk")
 
 首先，使用 dotnet add package 命令将假包添加到解决方案中。
 
-   ```bash
-   dotnet add package Bogus
-   ```
+```bash
+dotnet add package Bogus
+```
 
 定义要保存的项的定义。 需要在 `Program.cs` 文件中定义 `Item` 类：
 
@@ -234,9 +234,9 @@ await Task.WhenAll(tasks);
 
 若要运行示例，只需使用 `dotnet` 命令即可：
 
-   ```bash
-   dotnet run
-   ```
+```bash
+dotnet run
+```
 
 ## <a name="get-the-complete-sample"></a>获取完整示例
 
@@ -246,10 +246,10 @@ await Task.WhenAll(tasks);
 
 可以通过更改为存储库目录并使用 `dotnet` 来运行示例：
 
-   ```bash
-   cd cosmos-dotnet-bulk-import-throughput-optimizer
-   dotnet run
-   ```
+```bash
+cd cosmos-dotnet-bulk-import-throughput-optimizer
+dotnet run
+```
 
 ## <a name="next-steps"></a>后续步骤
 

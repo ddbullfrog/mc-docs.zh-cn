@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 626708673e91fbaa0fdc14a9b5ea3e9a51544542
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: b9d71f5ad16f1b05b02137a4a8c65dfe57d47496
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441059"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118450"
 ---
 # <a name="feature-engineering-in-data-science"></a>数据科学中的特征工程
 
-在本文中，你将了解特征工程及其在机器学习增强数据中的作用。 从在 [Azure 机器学习工作室（经典）](../studio/what-is-ml-studio.md)试验中提取的说明性示例中学习。 
+在本文中，你将了解特征工程及其在机器学习增强数据中的作用。 从在 [Azure 机器学习工作室（经典）](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)试验中提取的说明性示例中学习。 
 
 * **特征工程**：基于原始数据中创建新特征来提高学习算法的预测能力的过程。 工程特征应捕获原始特征集中不易发现的附加信息。
 * **特征选择**：选择部分关键特征来降低训练问题的维度的过程。

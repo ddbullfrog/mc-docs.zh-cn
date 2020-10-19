@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 03/10/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 27e58880ee68342674a81ce4f3ca0f980a64a61c
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 4e9c27ffd6dbda753f1a863050e6da792f5b5730
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317420"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127854"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>选择语音识别模式
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 14f8b315e9f3e9a6c5f712804e5f72ae580034cf
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 1b20b5a7ff7ece5516137c42b5332954a0975e9d
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395184"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118225"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>将专用 Python 包与 Azure 机器学习一起使用
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "91395184"
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>使用少量包进行开发和测试
 
-对于单个工作区的少量专用包，请使用静态 [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) 方法。 此方法可让你快速地将专用包添加到工作区，并且非常适用于开发和测试目的。
+对于单个工作区的少量专用包，请使用静态 [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) 方法。 此方法可让你快速地将专用包添加到工作区，并且非常适用于开发和测试目的。
 
 将文件路径参数指向本地 wheel 文件，然后运行 ```add_private_pip_wheel``` 命令。 该命令返回用于跟踪工作区中包位置的 URL。 捕获存储 URL，并将其传递给 `add_pip_package()` 方法。
 
@@ -58,7 +58,7 @@ Azure 机器学习服务在内部将 URL 替换为安全的 SAS URL，使 wheel 
 
  1. 为 Azure DevOps 实例[创建个人访问令牌 (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat)。 将令牌的范围设为 Packaging > Read。 
 
- 2. 使用 [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-) 方法添加 Azure DevOps URL 和 PAT 作为工作区属性。
+ 2. 使用 [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) 方法添加 Azure DevOps URL 和 PAT 作为工作区属性。
 
      ```python
     from azureml.core import Workspace

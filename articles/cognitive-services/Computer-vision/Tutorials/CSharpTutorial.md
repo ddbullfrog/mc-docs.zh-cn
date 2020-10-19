@@ -1,27 +1,27 @@
 ---
 title: 示例：使用 C# 探索图像处理应用
 titleSuffix: Azure Cognitive Services
-description: 介绍了一款使用 Azure 认知服务中的计算机视觉 API 的基本 Windows 应用。 执行 OCR，创建缩略图，并处理图像中的视觉特征。
+description: 介绍了一款使用 Azure 认知服务中的计算机视觉 API 的基本 Windows 应用。 执行 OCR、创建缩略图，并处理图像中的视觉特征。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 origin.date: 04/17/2019
-ms.date: 05/14/2019
-ms.author: v-junlch
-ms.custom: seodec18
-ms.openlocfilehash: d250ef576f5b95bf8149cea7184904c78dfd929c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/16/2020
+ms.author: v-johya
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 6267a97f9b25ebb73177944fa34c8451c393143d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65598897"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127890"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>示例：使用 C# 探索图像处理应用
 
-探索一款基本 Windows 应用程序，该应用程序使用计算机视觉执行光学字符识别 (OCR)、创建智能裁剪缩略图，并对图像中的视觉特征（包括人脸）进行检测、分类、标记和描述。 在以下示例中，可以提交图像 URL 或本地存储的文件。 可将此开放源代码示例作为模板，使用计算机视觉 API 和 .NET Framework 中的 Windows Presentation Foundation (WPF) 构建自己的 Windows 应用程序。
+探索一款基本 Windows 应用程序，该应用程序使用计算机视觉执行光学字符识别 (OCR)、创建智能裁剪缩略图，并对图像中的视觉特征（包括人脸）进行检测、分类、标记和描述。 通过以下示例可提交图像 URL 或存储于本地的文件。 可将此开放源代码示例作为模板，使用计算机视觉 API 和 .NET Framework 中的 Windows Presentation Foundation (WPF) 构建自己的 Windows 应用程序。
 
 > [!div class="checklist"]
 > * 从 GitHub 获取示例应用
@@ -34,7 +34,10 @@ ms.locfileid: "65598897"
 在探索示例应用之前，请确保已满足以下先决条件：
 
 * 必须具有 [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 或更高版本。
-* 必须具有计算机视觉的订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
+* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesComputerVision"  title="创建计算机视觉资源"  target="_blank">创建计算机视觉资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
+    * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到计算机视觉服务。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
+    * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
 
 ## <a name="get-the-sample-app"></a>获取示例应用
 
@@ -70,34 +73,34 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
    * VisionAPI-WPF-Samples  
 
    如果没有 SampleUserControlLibrary 项目，请确认已经以递归方式克隆 `Microsoft/Cognitive-Vision-Windows` 存储库。
-1. 在 Visual Studio 中，按 Ctrl+Shift+B 或从功能区菜单中选择“构建”，然后选择“构建解决方案”以构建该解决方案   。
+1. 在 Visual Studio 中，按 Ctrl+Shift+B 或从功能区菜单中选择“构建”，然后选择“构建解决方案”以构建该解决方案 。
 
 ## <a name="run-and-interact-with-the-sample-app"></a>运行示例应用并与之交互
 
 可以运行示例应用，以便在执行各种任务（例如生成缩略图或标记图像）时查看它与你以及与计算机视觉客户端库的交互方式。 要运行示例应用并与之交互，请执行以下步骤：
 
-1. 构建完成后，按“F5”或从功能区菜单中选择“调试”，然后选择“开始调试”以运行示例应用    。
-1. 显示示例应用时，从导航窗格中选择“订阅密钥管理”以显示“订阅密钥管理”页面  。
+1. 构建完成后，按“F5”或从功能区菜单中选择“调试”，然后选择“开始调试”以运行示例应用  。
+1. 显示示例应用时，从导航窗格中选择“订阅密钥管理”以显示“订阅密钥管理”页面。
    ![订阅密钥管理页面](../Images/Vision_UI_Subscription.PNG)  
-1. 在“订阅密钥”中输入订阅密钥  。
-1. 在“终结点”中输入订阅密钥的计算机视觉资源的终结点 URL（省略 `/vision/v1.0`）  。  
-   例如，如果使用的是计算机视觉试用版中的订阅密钥，请输入以下中国北部 Azure 区域的终结点 URL：`https://chinanorth.api.cognitive.azure.cn`
-1. 如果不想在下次运行该示例应用时输入订阅密钥和终结点 URL，请选择“保存设置”以将订阅密钥和终结点 URL 保存到计算机  。 如果要删除以前保存的订阅密钥和终结点 URL，请选择“删除设置”  。
+1. 在“订阅密钥”中输入订阅密钥。
+1. 在“终结点”中输入终结点 URL。  
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+1. 如果不想在下次运行该示例应用时输入订阅密钥和终结点 URL，请选择“保存设置”以将订阅密钥和终结点 URL 保存到计算机。 如果要删除以前保存的订阅密钥和终结点 URL，请选择“删除设置”。
 
    > [!NOTE]
    > 示例应用使用独立存储和 `System.IO.IsolatedStorage` 来存储订阅密钥和终结点 URL。
 
-1. 在导航窗格中的“选择场景”处，选择示例应用当前包含的场景之一  ：  
+1. 在导航窗格中的“选择场景”处，选择示例应用当前包含的场景之一：  
 
-   | 方案 | 说明 |
+   | 场景 | 说明 |
    |----------|-------------|
-   |分析图像 | 使用[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)操作来分析本地或远程图像。 可以选择视觉特征和语言进行分析，并查看图像和结果。  |
-   |使用域模型分析图像 | 使用[列出域特定模型](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd)操作列出可供选择的域模型，并使用[识别域特定内容](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200)操作使用所选域模型分析本地或远程图像。 此外还可以选择分析的语言。 |
-   |描述图像 | 使用[描述图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fe)操作创建本地或远程图像的用户可读描述。 此外还可以选择描述的语言。 |
-   |生成标记 | 使用[标记图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1ff)操作标记本地或远程图像的视觉特征。 此外还可以选择标记的语言。 |
-   |识别文本 (OCR) | 使用 [OCR](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 操作识别图像并从图像中提取打印的文本。 可以选择要使用的语言，也可以让计算机视觉自动检测语言。 |
-   |识别文本 V2（英语） | 使用[识别文本](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)和[获取识别文本操作结果](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)操作以异步方式识别图像和提取图像中的打印文本或手写文本。 |
-   |获取缩略图 | 使用[获取缩略图](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)操作生成本地或远程图像的缩略图。 |
+   |分析图像 | 使用[分析图像](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa)操作来分析本地或远程图像。 可以选择视觉特征和语言进行分析，并查看图像和结果。  |
+   |使用域模型分析图像 | 使用[列出域特定模型](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fd)操作列出可供选择的域模型，并使用[识别域特定内容](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e200)操作使用所选域模型分析本地或远程图像。 此外还可以选择分析的语言。 |
+   |描述图像 | 使用[描述图像](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fe)操作创建本地或远程图像的用户可读描述。 此外还可以选择描述的语言。 |
+   |生成标记 | 使用[标记图像](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1ff)操作标记本地或远程图像的视觉特征。 此外还可以选择标记的语言。 |
+   |识别文本 (OCR) | 使用 [OCR](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) 操作识别图像并从图像中提取打印的文本。 可以选择要使用的语言，也可以让计算机视觉自动检测语言。 |
+   |识别文本 V2（英语） | 使用[识别文本](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200)和[获取识别文本操作结果](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/587f2cf1154055056008f201)操作以异步方式识别图像和提取图像中的打印文本或手写文本。 |
+   |获取缩略图 | 使用[获取缩略图](https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb)操作生成本地或远程图像的缩略图。 |
 
    以下屏幕截图展示了在分析样本图像后为分析图像场景提供的页面。
    ![“分析图像”页的屏幕截图](../Images/Analyze_Image_Example.PNG)
@@ -311,6 +314,6 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [人脸 API 入门](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [人脸服务入门](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
 
 <!-- Update_Description: wording update -->
