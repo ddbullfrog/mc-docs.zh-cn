@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: a2a04e9dd93fb5c63d9c72d9d225629601cfc0fd
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: 2d52775a6cde9b1e8e166b6b83f94b33c99ecc0a
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801820"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937267"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Azure 时序见解第 2 代用例
 
@@ -52,7 +52,9 @@ Azure 时序见解第 2 代直观且易于使用。 连一行代码也无需编�
 
 与 Azure 时序见解第 2 代中存储的数据进行交互主要有三种方式：
 
-* 第一种开始方式是使用 JavaScript SDK 在 Web 应用程序中快速嵌入功能强大的图表和图。 只需几行代码，即可编写功能强大的查询。 可使用这些查询填充折线图、饼图、条形图、热度地图和数据网格等。 通过使用 SDK，所有这些元素都是现成可用的。 SDK 还提取 Azure 时序见解第 2 代查询 API。 可以使用它们来创建类似 SQL 的谓词，用于查询要在仪表板上显示的数据。 对于混合表示层解决方案，Azure 时序见解第 2 代提供了参数化 URL。 
+* 第一种也是最简单的入门方法是使用 Azure 时序见解第 2 代资源管理器。 可以使用它在一个位置快速显示所有 IoT 数据。 它提供热度地图等工具，可帮助你发现数据中的异常情况。 它还提供透视视图。 使用它可以在一个仪表板中比较一个或多个 Azure 时序见解第 2 代环境中的多达四个的视图。 通过仪表板，可以查看所有位置的时序数据。 若要规划环境，请参阅 [Azure 时序见解第 2 代规划](./time-series-insights-update-plan.md)。
+
+* 第二种开始方法是使用 JavaScript SDK 在 Web 应用程序中快速嵌入功能强大的图表和图。 只需几行代码，即可编写功能强大的查询。 可使用这些查询填充折线图、饼图、条形图、热度地图和数据网格等。 通过使用 SDK，所有这些元素都是现成可用的。 SDK 还提取 Azure 时序见解第 2 代查询 API。 可以使用它们来创建类似 SQL 的谓词，用于查询要在仪表板上显示的数据。 对于混合表示层解决方案，Azure 时序见解第 2 代提供了参数化 URL。 它们提供与 Azure 时序见解第 2 代资源管理器之间的无缝连接点，适用于深入分析数据。
 
   * 请阅读 [JS 客户端库](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)和[示例客户端](https://github.com/Microsoft/tsiclient)文档，了解有关 JavaScript SDK 的详细信息。
 
@@ -62,7 +64,7 @@ Azure 时序见解第 2 代直观且易于使用。 连一行代码也无需编�
 
 使用 Azure 时序见解第 2 代可大规模监视设备的运行状况、使用情况和性能，并度量运营效率。 Azure 时序见解第 2 代有助于管理多种不可预测的 IoT 工作负载，且不影响引入或查询性能。
 
-[![概述](./media/v2-update-use-cases/overview.png)](./media/v2-update-use-cases/overview.png#lightbox)
+[![屏幕截图显示了 Azure 时序见解第 2 代中的 IoT 设备/应用程序数据、流处理、操作效率、智能/见解和高级分析。](./media/v2-update-use-cases/overview.png)](./media/v2-update-use-cases/overview.png#lightbox)
 
 如果与正确的技术或解决方案相结合，来自操作过程的数据的流式传输和连续处理可成功地转换任何业务。 这些解决方案通常是多个系统的组合。 它们可以探索和分析不断变化的数据，特别是在 IoT 领域，并且采用相同的模式。
 

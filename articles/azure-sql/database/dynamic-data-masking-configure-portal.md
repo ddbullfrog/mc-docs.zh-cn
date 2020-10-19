@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 04/28/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: e523ee99ccd96d6a26bd1a79c521f0cc16151cc7
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: a9b8b7886b313e6c33f6d1363c78b465e5ab95de
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227829"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872410"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Azure 门户的 SQL 数据库动态数据掩码入门
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,20 +33,20 @@ ms.locfileid: "86227829"
 2. 导航到要掩码的敏感数据所在数据库的设置页。
 3. 单击数据库“安全”部分下的“动态数据掩码”边栏选项卡 。
 
-   ![导航窗格](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
+   ![此屏幕截图显示了“安全性”部分，其中突出显示了“动态数据掩码”。](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
 
 4. 在“动态数据掩码”配置页中，可能会看到一些数据库列，建议引擎已将这些列标记为需要进行掩码。 要接受这些建议，可直接针对一个或多个列单击“添加掩码”，系统就会根据该列的默认类型来创建掩码。 用户可以更改掩码函数，只需单击掩码规则，并将掩码字段格式编辑成用户所选择的其他格式即可。 请确保单击“保存”以保存设置。
 
-    ![导航窗格](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
+    ![显示“动态数据掩码”配置页的屏幕截图。](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
 
 5. 若要为数据库中的任意列添加掩码，请在“动态数据掩码”配置页的顶部单击“添加掩码”以打开“添加掩码规则”配置页。
 
-    ![导航窗格](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
+    ![显示“添加掩码规则”配置页的屏幕截图。](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
 6. 选择“架构”、“表”和“列”，以定义要掩码的指定字段。
 7. 从敏感数据掩码类别列表中“选择掩码方式”。
 
-    ![导航窗格](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
+    ![此屏幕截图显示了“选择掩码方式”部分下的敏感数据掩码类别。](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
 
 8. 在数据掩码规则页中单击“添加”，以更新动态数据掩码策略中的掩码规则集。
 9. 键入不应对其进行掩码的 SQL 用户或 Azure Active Directory (Azure AD) 标识，允许其访问未掩码的敏感数据。 这些用户在键入时应该采用分号分隔用户列表的形式。 拥有管理员权限的用户始终可以访问原始的未掩码数据。

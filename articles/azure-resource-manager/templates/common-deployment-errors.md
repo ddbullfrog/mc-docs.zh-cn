@@ -5,16 +5,16 @@ tags: top-support-issue
 ms.topic: troubleshooting
 origin.date: 09/09/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6981fef79482d02fdccd4ba1197dcee7b416e46e
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 56674addbbae9dc0b1afd9afb8d687d8204066fa
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146707"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937362"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 
@@ -41,6 +41,7 @@ ms.locfileid: "91146707"
 | DeploymentNameLengthLimitExceeded | 部署名称限制为 64 个字符。  | |
 | DeploymentFailed | DeploymentFailed 错误为常规错误，未提供解决错误所需的详细信息。 请查看错误代码的错误详情，其中提供了详细信息。 | [查找错误代码](#find-error-code) |
 | DeploymentQuotaExceeded | 如果达到每个资源组的部署数限制 800，则会从历史记录中删除不再需要的部署。 | [解决部署计数超出 800 的错误](deployment-quota-exceeded.md) |
+| DeploymentSizeExceeded | 简化模板以减小大小。 | [解决模板大小错误](error-job-size-exceeded.md) |
 | DnsRecordInUse | DNS 记录名称必须唯一。 输入不同的名称。 | |
 | ImageNotFound | 检查 VM 映像设置。 |  |
 | InUseSubnetCannotBeDeleted | 如果尝试更新资源，但已通过删除并创建资源处理了请求，则可能会出现此错误。 请确保指定所有未更改的值。 | 更新资源 |
@@ -56,6 +57,7 @@ ms.locfileid: "91146707"
 | InvalidSubscriptionRegistrationState | 向资源提供程序注册订阅。 | [解决注册问题](error-register-resource-provider.md) |
 | InvalidTemplate | 检查模板语法是否存在错误。 | [解决模板无效的问题](error-invalid-template.md) |
 | InvalidTemplateCircularDependency | 删除不必要的依赖项。 | [解决循环依赖项](error-invalid-template.md#circular-dependency) |
+| JobSizeExceeded | 简化模板以减小大小。 | [解决模板大小错误](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | 检查帐户所属的租户是否与要部署到的资源组所属的租户相同。 | |
 | LinkedInvalidPropertyId | 无法正确解析资源的资源 ID。 请检查是否提供了资源 ID 的所有必需值，包括订阅 ID、资源组名称、资源类型、父资源名称（如果需要）、资源名称。 | |
 | LocationRequired | 提供资源的位置。 | [设置位置](resource-location.md) |
@@ -73,7 +75,7 @@ ms.locfileid: "91146707"
 | RequestDisallowedByPolicy | 订阅中的某个资源策略阻止你在部署期间尝试执行的操作。 请找出阻止该操作的策略。 如果可能，请更改部署，使之符合策略的限制。 | [解决策略问题](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | 提供不包含保留名称的资源名称。 | [保留的资源名称](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 等待删除操作完成。 | |
-| ResourceGroupNotFound | 检查部署的目标资源组的名称。 目标资源组必须已存在于订阅中。 请检查订阅上下文。 | [Azure CLI](https://docs.azure.cn/cli/account?#az-account-set) [PowerShell](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceGroupNotFound | 检查部署的目标资源组的名称。 目标资源组必须已存在于订阅中。 请检查订阅上下文。 | [Azure CLI](https://docs.azure.cn/cli/account?#az_account_set) [PowerShell](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | 部署引用了一个无法解析的资源。 请验证所使用的  reference 函数是否包括方案所需的参数。 | [解决引用问题](error-not-found.md) |
 | ResourceQuotaExceeded | 部署尝试创建的资源超过了订阅、资源组或区域的配额。 请尽可能修改基础结构，使之保持在配额范围内。 否则，请考虑请求更改配额。 | [解决配额问题](error-resource-quota.md) |
 | SkuNotAvailable | 选择可在所选位置中使用的 SKU（例如 VM 大小）。 | [解决 SKU 问题](error-sku-not-available.md) |

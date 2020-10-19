@@ -1,52 +1,72 @@
 ---
 title: 存储概述 - Azure 时序见解第 2 代 | Microsoft Docs
 description: 了解 Azure 时序见解第 2 代中的数据存储。
-author: esung22
+author: lyrana
 ms.author: v-junlch
-manager: diviso
+manager: deepakpalled
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 44c4c3b193eb6bf6ce64eb5654894d3b044e4dcf
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 6356a591114e625a52be5302f25cb61f2d3aa361
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413524"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937296"
 ---
 # <a name="data-storage"></a>数据存储
 
-创建 Azure 时序见解第 2 代环境时，你将创建两个 Azure 资源：
+本文介绍 Azure 时序见解第 2 代中的数据存储。 它涵盖了暖存储和冷存储、数据可用性和最佳做法。
 
-* 可为暖数据存储配置的 Azure 时序见解第 2 代环境。
-* 用于冷数据存储的 Azure 存储帐户。
+## <a name="provisioning"></a>设置
 
-只能通过[时序查询 API](./time-series-insights-update-tsq.md) 使用暖存储中的数据。 暖存储会包含在创建 Azure 时序见解第 2 代环境时选择的[保留期](./time-series-insights-update-plan.md#the-preview-environment)内的近期数据。
+创建 Azure 时序见解第 2 代环境时，可以使用以下选项：
 
-Azure 时序见解第 2 代以 [Parquet 文件格式](#parquet-file-format-and-folder-structure)将冷存储数据保存到 Azure Blob 存储中。 Azure 时序见解第 2 代以独占方式管理此冷存储数据，但允许将这些数据作为标准 Parquet 文件直接进行读取。
+* 冷数据存储：
+   * 在为环境选择的订阅和区域中创建新的 Azure 存储资源。
+   * 附加预先存在的 Azure 存储帐户。 此选项仅在从 Azure 资源管理器[模板](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)部署时可用，在 Azure 门户中不可见。
+* 暖数据存储：
+   * 暖存储是可选项，可在预配期间或之后启用或禁用。 如果你决定稍后启用暖存储并且冷存储中已有数据，请参阅下面的[此部分](concepts-storage.md#warm-store-behavior)，了解预期行为。 暖存储数据保留时间可以配置为 7 到 31 天，也可以根据需要进行调整。
+
+引入一个事件时，会在暖存储（如果启用）和冷存储中为其建立索引。
+
+[![存储概述](./media/concepts-storage/pipeline-to-storage.png)](./media/concepts-storage/pipeline-to-storage.png#lightbox)
+
 
 > [!WARNING]
 > 冷存储数据所在 Azure Blob 存储帐户的所有者对该帐户中的所有数据拥有完全访问权限。 此访问权限包括“写入”和“删除”权限。 请不要编辑或删除 Azure 时序见解第 2 代写入的数据，否则可能导致数据丢失。
 
 ## <a name="data-availability"></a>数据可用性
 
-为了实现最佳查询性能，Azure 时序见解第 2 代会将数据分区并为其编制索引。 为数据编制索引后，就可以从暖存储（如果已启用）和冷存储中查询数据。 正在引入的数据量可能会影响此可用性。
+为了实现最佳查询性能，Azure 时序见解第 2 代会将数据分区并为其编制索引。 为数据编制索引后，就可以从暖存储（如果已启用）和冷存储中查询数据。 所引入的数据量和每个分区的吞吐率会影响可用性。 请查看事件源[吞吐量限制](./concepts-streaming-ingress-throughput-limits.md)和[最佳做法](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices)，以获取最佳性能。 你还可以配置一个当环境在处理数据的过程中遇到问题时要发送的延迟[警报](/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts)。
 
 > [!IMPORTANT]
 > 最长可能需要等待 60 秒才能看到数据。 如果出现超过 60 秒的明显延迟，请通过 Azure 门户提交支持票证。
 
-## <a name="azure-storage"></a>Azure 存储
+## <a name="warm-store"></a>暖存储
+
+只能通过[时序查询 API](./time-series-insights-update-tsq.md) 和 Azure 时序见解 TSI Explorer 或 [Power BI 连接器](./how-to-connect-power-bi.md)使用暖存储中的数据。 暖存储查询免费且没有配额，但有一个 [30 个并发请求的限制](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits)。
+
+### <a name="warm-store-behavior"></a>暖存储行为 
+
+* 启用后，流式传输到你的环境的所有数据都将路由到你的暖存储，而不考虑事件时间戳。 请注意，流式引入管道专为近实时流式处理生成，[不支持](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion)引入历史事件。
+* 保留期将基于事件在暖存储中建立索引的时间（而不是事件时间戳）进行计算。 这意味着，在保留期过后，即使事件时间戳适用于将来，数据在暖存储中也不再可用。
+  - 示例：将包含 10 天天气预报的事件引入一个配置了 7 天保留期的暖存储容器中，并为该事件编制索引。 7 天后，将再也不能在暖存储中访问预测，但可以从冷存储中查询它。 
+* 请注意，如果在现有环境中启用了暖存储，而该环境已在冷存储中将最近的数据编制索引，则不会使用此数据回填暖存储。
+* 如果你刚启用了暖存储，并且在 Explorer 中查看最近的数据时遇到问题，可以暂时关闭暖存储查询：
+
+   [![禁用暖查询](./media/concepts-storage/toggle-warm.png)](./media/concepts-storage/toggle-warm.png#lightbox)
+
+## <a name="cold-store"></a>冷存储
 
 此部分介绍与 Azure 时序见解第 2 代相关的 Azure 存储详细信息。
 
 有关 Azure Blob 存储的全面介绍，请阅读[存储 Blob 简介](../storage/blobs/storage-blobs-introduction.md)。
 
-### <a name="your-storage-account"></a>你的存储帐户
-
-创建 Azure 时序见解第 2 代环境时，会创建一个 Azure 存储帐户作为长期冷存储。  
+### <a name="your-cold-storage-account"></a>冷存储帐户
 
 Azure 时序见解第 2 代在 Azure 存储帐户中为每个事件保留最多两个副本。 一个副本存储按引入时间排序的事件，始终允许按时序访问事件。 随着时间的推移，Azure 时序见解第 2 代还会创建数据的重新分区的副本，通过优化实现高性能查询。
 
@@ -58,9 +78,9 @@ Azure 时序见解第 2 代在 Azure 存储帐户中为每个事件保留最多�
 
 #### <a name="accessing-cold-store-data"></a>访问冷存储数据
 
-除了通过[时序查询 API](./time-series-insights-update-tsq.md) 访问数据外，还可能需要直接从存储在冷存储中的 Parquet 文件访问数据。 例如，可以在 Jupyter 笔记本中读取、转换和清理数据，然后使用它来训练同一 Spark 工作流中的 Azure 机器学习模型。
+除了从 Azure 时序见解资源管理器和[时序查询 API](./time-series-insights-update-tsq.md) 访问数据外，还可以直接从冷存储中存储的 Parquet 文件访问数据。 例如，可以在 Jupyter 笔记本中读取、转换和清理数据，然后使用它来训练同一 Spark 工作流中的 Azure 机器学习模型。
 
-若要直接从 Azure 存储帐户访问数据，你需要具有用于存储 Azure 时序见解第 2 代数据的帐户的读取访问权限。 然后，可以根据 Parquet 文件的创建时间读取选定的数据，该文件位于下面的 [Parquet 文件格式](#parquet-file-format-and-folder-structure)部分所述的 `PT=Time` 文件夹中。  若要详细了解如何启用对存储帐户的读取访问权限，请参阅[管理对存储帐户资源的访问权限](../storage/blobs/storage-manage-access-to-resources.md)。
+若要直接从 Azure 存储帐户访问数据，你需要具有用于存储 Azure 时序见解第 2 代数据的帐户的读取访问权限。 然后，可以根据 Parquet 文件的创建时间读取选定的数据，该文件位于下面的 [Parquet 文件格式](#parquet-file-format-and-folder-structure)部分所述的 `PT=Time` 文件夹中。  
 
 #### <a name="data-deletion"></a>数据删除
 

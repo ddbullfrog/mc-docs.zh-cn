@@ -2,19 +2,19 @@
 title: 使用 GitHub Actions 生成和测试容器并将其部署到 Azure Kubernetes 服务
 description: 了解如何使用 GitHub Actions 将容器部署到 Kubernetes
 services: container-service
-author: rockboyfor
 ms.topic: article
 origin.date: 11/04/2019
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 05/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6826ae9643a67c75624b6aa34d685b2891951d66
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: e5efa3cc5f35b94df943eeb8ef09459305e80066
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020828"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936991"
 ---
 <!--CONFIRME WITH DONG LIU SUCCESSFULLY-->
 <!--NEW FEATURES HAS BEEN RELEASED ON AZURE CHINA CLOUD-->
@@ -63,7 +63,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 1. 在 [GitHub](https://github.com/) 中浏览到存储库，选择“设置”>“机密”>“添加新机密”。 
 
-    :::image type="content" source="media/kubernetes-action/secrets.png" alt-text="机密":::
+    :::image type="content" source="media/kubernetes-action/secrets.png" alt-text="屏幕截图显示了存储库的“添加新机密”链接。":::
 
 2. 将上述 `az cli` 命令的内容作为机密变量的值粘贴。 例如，`AZURE_CREDENTIALS`。
 
@@ -74,7 +74,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 4. 在定义后，会看到如下所示的机密。
 
-    :::image type="content" source="media/kubernetes-action/kubernetes-secrets.png" alt-text="kubernetes-secrets":::
+    :::image type="content" source="media/kubernetes-action/kubernetes-secrets.png" alt-text="屏幕截图显示了存储库的“添加新机密”链接。":::
 
 ## <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>生成容器映像并将其部署到 Azure Kubernetes 服务群集
 

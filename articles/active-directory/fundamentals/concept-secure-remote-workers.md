@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed2843f672da47f7aa5758453fc1716cfc7b12cf
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ef01f2c6d6ad35ae5b7c11a253b9192d2c445654
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245284"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937008"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>使用 Azure AD 快速响应以保护标识
 
@@ -42,13 +42,12 @@ ms.locfileid: "91245284"
 
 安全的标识基础结构涉及许多方面，但此核对清单侧重于安全可靠的、能够让用户以远程方式工作的标识基础结构。 保护标识只是安全工作范畴中的一部分，还要考虑保护数据、应用程序和设备。
 
-### <a name="guidance-for-azure-ad-free-or-office-365-customers"></a>用于 Azure AD Free 或 Office 365 客户的指南。
+### <a name="guidance-for-azure-ad-free-office-365-or-microsoft-365-customers"></a>适用于 Azure AD Free、Office 365 或 Microsoft 365 客户的指南。
 
-有很多建议可供 Azure AD Free 或 Office 365 应用的客户采纳以保护其用户标识，下表旨在重点介绍有关以下许可证订阅的关键措施：
+有很多建议可供 Azure AD Free、Office 365 或 Microsoft 365 应用的客户采纳以保护其用户标识，下表旨在重点介绍针对以下许可证订阅的关键措施：
 
-- Office 365（O365 E1、E3、E5、F1、A1、A3、A5）
-- Office 365 商业版（商业协作版、商业版、商业高级版）
-- Microsoft 365（M365 商业版、A1）
+- Office 365（Office 365 E1、E3、E5、F1、A1、A3、A5）
+- Microsoft 365 （商业基本版、商业应用版、商业标准版、商业高级版、A1）
 - Azure AD Free（随 Azure、Dynamics 365、Intune 和 Power Platform 提供）
 
 | 建议的操作 | 详细信息 |

@@ -1,31 +1,31 @@
 ---
-title: 使用 API 管理中的客户端证书身份验证确保 API 安全 - Azure API 管理
-description: 了解如何使用客户端证书保护对 API 的访问
+title: 使用 API 管理中的客户端证书身份验证确保 API 安全
+titleSuffix: Azure API Management
+description: 了解如何使用客户端证书保护对 API 的访问。 你可以使用策略表达式来验证传入证书。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: erikre
 editor: ''
+origin.date: 01/13/2020
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 01/13/2020
-ms.author: v-yiso
-ms.date: 02/24/2020
-ms.openlocfilehash: 4190c02adb9a8eff41794c19514a1fa56b5179c9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.openlocfilehash: 12da0819f2fe2a2a751dce87780f33f471e267a6
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428632"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871369"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>如何使用 API 管理中的客户端证书身份验证确保 API 安全
 
 API 管理提供的功能可确保使用客户端证书安全地访问 API（即，客户端到 API 管理）。 可以使用策略表达式验证传入证书并根据所需值检查证书属性。
 
-有关使用客户端证书保护对 API 后端服务的访问（即，API 管理到后端）的信息，请参阅[如何使用客户端证书身份验证保护后端服务](./api-management-howto-mutual-certificates.md)
+若要了解如何使用客户端证书保护对 API 后端服务的访问（即，从 API 管理到后端），请参阅[如何使用客户端证书身份验证保护后端服务](./api-management-howto-mutual-certificates.md)
 
 > [!IMPORTANT]
 > 若要在开发人员层、基本层、标准层或高级层中通过 HTTP/2 接收和验证客户端证书，必须在“自定义域”边栏选项卡上启用“协商客户端证书”设置，如下所示。
@@ -75,7 +75,7 @@ API 管理提供的功能可确保使用客户端证书安全地访问 API（即
 
 ## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>针对已上传到 API 管理的证书检查指纹
 
-以下示例演示如何针对已上传到 API 管理的证书，检查客户端证书的指纹： 
+以下示例演示如何针对已上传到 API 管理的证书，检查客户端证书的指纹：
 
 ```xml
 <choose>
@@ -100,6 +100,6 @@ API 管理提供的功能可确保使用客户端证书安全地访问 API（即
 
 ## <a name="next-steps"></a>后续步骤
 
-*  [如何使用客户端证书身份验证确保后端服务安全](./api-management-howto-mutual-certificates.md)
-*  [如何上传证书](./api-management-howto-mutual-certificates.md)
+-   [如何使用客户端证书身份验证确保后端服务安全](./api-management-howto-mutual-certificates.md)
+-   [如何上传证书](./api-management-howto-mutual-certificates.md)
 

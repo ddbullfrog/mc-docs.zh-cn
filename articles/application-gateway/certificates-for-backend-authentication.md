@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: 92e4040a68cc385768d4a77acd2d74bf29e1b1a5
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 90da6b76c8fd33a0bf5d9437b0203645bd19c50a
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721180"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937402"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>创建证书以允许 Azure 应用程序网关中的后端
 
@@ -37,7 +37,7 @@ ms.locfileid: "90721180"
 
 1. 若要获取证书 .cer 文件，请打开“管理用户证书”。 找到该证书（通常位于“证书 - 当前用户”>“个人”>“证书”中），并单击右键。 单击“所有任务”，并单击“导出”。 此操作将打开“证书导出向导” 。 如果在 Current User\Personal\Certificates 下找不到证书，可能会意外地打开“Certificates - Local Computer”而不是“Certificates - Current User”）。 如果想要使用 PowerShell 在当前用户范围内打开证书管理程序，请在控制台窗口中键入“certmgr”。
 
-   ![导出](./media/certificates-for-backend-authentication/export.png)
+   ![屏幕截图显示了证书管理器，其中已选择“证书”并依次选中了上下文菜单的“所有任务”、“导出”。](./media/certificates-for-backend-authentication/export.png)
 
 2. 在向导中，单击“下一步”。
 
@@ -53,19 +53,19 @@ ms.locfileid: "90721180"
 
 5. 对于“要导出的文件”，“浏览”到要将证书导出的目标位置。 在“文件名”中，为证书文件命名。 然后单击“下一步”。
 
-   ![浏览](./media/certificates-for-backend-authentication/browse.png)
+   ![屏幕截图显示了“证书导出向导”，在其中指定要导出的文件。](./media/certificates-for-backend-authentication/browse.png)
 
 6. 单击“完成”导出证书。
 
-   ![完成](./media/certificates-for-backend-authentication/finish.png)
+   ![屏幕截图显示了完成文件导出后的证书导出向导。](./media/certificates-for-backend-authentication/finish.png)
 
 7. 证书已成功导出。
 
-   ![Success](./media/certificates-for-backend-authentication/success.png)
+   ![屏幕截图显示了包含一条成功消息的证书导出向导。](./media/certificates-for-backend-authentication/success.png)
 
    导出的证书类似于以下内容：
 
-   ![已导出](./media/certificates-for-backend-authentication/exported.png)
+   ![屏幕截图显示了证书符号。](./media/certificates-for-backend-authentication/exported.png)
 
 8. 如果使用记事本打开导出的证书，则会看到类似于此示例的一些内容。 蓝色部分包含已上传到应用程序网关的信息。 如果使用记事本打开证书，并且内容不与此类似，则这通常意味着你没有使用 Base-64 编码的 X.509(.CER) 格式将其导出。 此外，如果希望使用其他文本编辑器，请注意，某些编辑器可能会在后台引入意外的格式设置。 将此证书中的文本上传到 Azure 时，这可能会产生问题。
 

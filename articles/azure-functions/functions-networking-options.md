@@ -2,13 +2,14 @@
 title: Azure Functions 网络选项
 description: 在 Azure Functions 中可用的所有网络选项的概述。
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 6925c5be09724f51188df961cc0e8360ade25a3e
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.date: 09/28/2020
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 66603762e4e1fe98ec1c83222e5c39760c14ff7a
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246699"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937254"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -80,7 +81,7 @@ Azure Functions 中的虚拟网络集成将共享基础结构与应用服务 Web
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>具有虚拟网络触发器的高级计划
 
-运行高级计划时，可以将非 HTTP 触发器函数连接到在虚拟网络中运行的服务。 为此，必须为函数应用启用虚拟网络触发器支持。 虚拟网络触发器支持设置处于 [Azure 门户](https://portal.azure.cn)中的“配置” > “函数运行时设置”下。
+运行高级计划时，可以将非 HTTP 触发器函数连接到在虚拟网络中运行的服务。 为此，必须为函数应用启用虚拟网络触发器支持。 在 [Azure 门户](https://portal.azure.cn)的“配置” > “函数运行时设置”下可以找到“运行时规模监视”设置。
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 

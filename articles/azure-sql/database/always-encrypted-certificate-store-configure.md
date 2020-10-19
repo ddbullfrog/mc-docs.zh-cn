@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviwer: ''
 origin.date: 04/23/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 7733bac7329698ae59d582dcee4e41ca3922e2e4
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: 5eb552043798fa179f5b4000a80a34c9f54fc93e
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227398"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872439"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>使用 Windows 证书存储配置 Always Encrypted
 
@@ -128,7 +128,7 @@ Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置
 
 验证设置是否全都正确，并单击“完成”以完成“始终加密”的设置。
 
-![摘要](./media/always-encrypted-certificate-store-configure/summary.png)
+![屏幕截图显示了任务标记为“已通过”的“结果”页。](./media/always-encrypted-certificate-store-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>验证向导的操作
 

@@ -1,19 +1,19 @@
 ---
-title: 使用共享 VM 映像在 Azure 中创建规模集
+title: 使用共享 VM 映像在 Azure PowerShell 中创建规模集
 description: 了解如何使用 Azure PowerShell 在 Azure 中创建用于部署虚拟机规模集的共享 VM 映像。
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
 ms.reviewer: akjosh
-ms.openlocfilehash: 85aebf8a60089d47e0d30f35bc5c70b5c6792103
-ms.sourcegitcommit: 87e789550ea49ff77c7f19bc68fad228009fcf44
+ms.openlocfilehash: 5c319a64ae4898a645aa7fa5a1e3684354e6764d
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749532"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937278"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>通过 Azure PowerShell 创建和使用虚拟机规模集的共享映像
 
@@ -52,5 +52,5 @@ ms.locfileid: "83749532"
 - [在共享映像库中创建映像版本](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [根据映像版本创建 VM](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-有关共享映像库的详细信息，请参阅[概述](shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](troubleshooting-shared-images.md)。
+有关共享映像库的详细信息，请参阅[概述](shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](../virtual-machines/troubleshooting-shared-images.md)。
 

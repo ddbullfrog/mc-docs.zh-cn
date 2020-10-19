@@ -2,15 +2,16 @@
 title: 部署资源的多个实例
 description: 在 Azure 资源管理器模板中使用复制操作和数组多次部署资源类型。
 ms.topic: conceptual
-origin.date: 04/29/2020
-ms.date: 06/22/2020
+origin.date: 09/21/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.author: v-yeche
-ms.openlocfilehash: e854302bd18f95eb4fbd4758cde38ac8f60f2b86
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: fb5572d9d790595d61aa96f15cdc94a273027d61
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098529"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937549"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>ARM 模板中的资源迭代
 
@@ -158,6 +159,8 @@ count 不能为负数。 如果使用最新版本的 Azure CLI、PowerShell 或 
 
 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。 若要按顺序部署多个资源实例，请将 `mode` 设置为“串行”，并将 `batchSize` 设置为一次要部署的实例数量。 在串行模式下，资源管理器会在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
 
+`batchSize` 的值不能超过 copy 元素中 `count` 的值。
+
 例如，若要按顺序一次部署两个存储帐户，请使用：
 
 ```json
@@ -293,9 +296,9 @@ mode 属性也接受 **parallel**（它是默认值）。
 
 * 若要完成教程，请参阅[教程：使用 ARM 模板创建多个资源实例](template-tutorial-create-multiple-instances.md)。
 * 有关 copy 元素的其他用法，请参阅：
-  * [ARM 模板中的属性迭代](copy-properties.md)
-  * [ARM 模板中的变量迭代](copy-variables.md)
-  * [ARM 模板中的输出迭代](copy-outputs.md)
+    * [ARM 模板中的属性迭代](copy-properties.md)
+    * [ARM 模板中的变量迭代](copy-variables.md)
+    * [ARM 模板中的输出迭代](copy-outputs.md)
 * 有关将副本与嵌套的模板配合使用的信息，请参阅[使用副本](linked-templates.md#using-copy)。
 * 若要了解有关模板区段的信息，请参阅[创作 ARM 模板](template-syntax.md)。
 * 若要了解如何部署模板，请参阅[使用 ARM 模板部署应用程序](deploy-powershell.md)。

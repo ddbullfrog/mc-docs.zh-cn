@@ -1,19 +1,19 @@
 ---
 title: 使用 Azure Log Analytics 检查 WAF 日志
 titleSuffix: Azure Application Gateway
-description: 本文介绍如何使用 Azure Log Analytics 来检查应用程序网关 Web 应用程序防火墙日志
+description: 本文介绍如何使用 Azure Log Analytics 来检查应用程序网关 Web 应用程序防火墙 (WAF) 日志。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 08/03/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: 91fa88006fde40070c53f5a0d2d5c0953f35e25b
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: 080cff7a9cc61b2974961e5b029e296ce63cd1d0
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796312"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937556"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>使用 Log Analytics 来检查应用程序网关 Web 应用程序防火墙 (WAF) 日志
 
@@ -80,7 +80,7 @@ AzureDiagnostics
 
 创建查询后，可将其添加到仪表板。  选择日志分析工作区右上方的“固定到仪表板”。 上述四个查询固定到示例仪表板后，这些数据就可以一目了然：
 
-![仪表板](./media/log-analytics/dashboard.png)
+![屏幕截图显示了可在其中添加查询的 Azure 仪表板。](./media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,21 +3,22 @@ title: Azure API 管理实例的容量 | Microsoft Docs
 description: 本文介绍什么是容量指标，以及在是否扩展 Azure API 管理实例方面如何做出明智的决策。
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: Johnnytechn
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 06/18/2018
-ms.date: 11/04/2019
-ms.author: v-yiso
-ms.openlocfilehash: d792ed9ba59999036f8904ab805219fa1b56f7c5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8075c815c9cabdfca7070678edf7e13723e7816c
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72913256"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871327"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API 管理实例的容量
 
@@ -34,7 +35,7 @@ ms.locfileid: "72913256"
 
 + 一个有效的 Azure 订阅。
 
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+    如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 + 一个 APIM 实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 
@@ -48,7 +49,7 @@ ms.locfileid: "72913256"
 
 + API 管理数据平面服务（如请求处理）可以包括转发请求或运行策略。
 + API 管理管理平面服务，例如通过 Azure 门户或 ARM 应用的管理操作，或者来自[开发人员门户](api-management-howto-developer-portal.md)的负载。
-+ 选定的操作系统进程，包括在新连接上造成 SSL 握手开销的进程。
++ 选定的操作系统进程，包括在新连接上造成 TLS 握手开销的进程。
 
 总**容量**是 API 管理实例的每个单元中容量自有值的平均值。
 
@@ -78,13 +79,13 @@ ms.locfileid: "72913256"
 ![容量指标](./media/api-management-capacity/capacity-metric.png)  
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中导航到自己的 APIM 实例。
-2. 选择“指标”  。
-3. 在紫色部分，从可用指标中选择“容量”，并保留默认的“平均值”聚合。  
+2. 选择“指标”。
+3. 在紫色部分，从可用指标中选择“容量”，并保留默认的“平均值”聚合。********
 
     > [!TIP]
     > 为避免解释错误，**容量**指标始终按位置分解。
 
-4. 在绿色部分选择“位置”，以便按维度拆分指标。 
+4. 在绿色部分选择“位置”，以便按维度拆分指标。****
 5. 从该部分的顶部栏中选择所需的时间范围。
 
     可以设置指标警报，以便在发生意外的情况时收到通知。 例如，当 APIM 实例超出预期峰值容量有 20 分钟以上时收到通知。
@@ -95,7 +96,7 @@ ms.locfileid: "72913256"
 
 ## <a name="use-capacity-for-scaling-decisions"></a>使用容量做出缩放决策
 
-在是否扩展 API 管理实例以容纳更多负载方面，**容量**指标可以帮助做出决策。 请考虑：
+在是否扩展 API 管理实例以容纳更多负载方面，**容量**指标可以帮助做出决策。 请注意以下几点：
 
 + 查看长期趋势和平均值。
 + 忽略往往与负载提高无关的突发高峰（请参阅“容量指标行为”部分中的说明）。
@@ -106,4 +107,4 @@ ms.locfileid: "72913256"
 
 ## <a name="next-steps"></a>后续步骤
 
-[如何扩展或升级 Azure API 管理服务实例](upgrade-and-scale.md)
+- [如何扩展或升级 Azure API 管理服务实例](upgrade-and-scale.md)

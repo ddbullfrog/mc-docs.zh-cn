@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 47abab1dbae0a8caa9af29933e32e68db21c2da9
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 463de8591e301308a32e031c239cd3262a605e76
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226063"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871354"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 
@@ -37,7 +37,7 @@ ms.locfileid: "86226063"
 3. 委派终结点反过来会重定向到 UI 或呈现 UI，要求用户登录或注册
 4. 成功后，用户会重定向回一开始使用的 API 管理开发人员门户页
 
-一开始需先将 API 管理设置为通过委派终结点来路由请求。 在 Azure 门户的 API 管理资源中搜索“开发人员门户”，然后单击“委派”项 。 单击用于启用“委派登录和注册”的复选框。
+一开始需先将 API 管理设置为通过委派终结点来路由请求。 在 Azure 门户中，在 API 管理资源中搜索“安全性”，然后单击“委派”项 。 单击用于启用“委派登录和注册”的复选框。
 
 ![“委派”页][api-management-delegation-signin-up]
 
@@ -49,8 +49,6 @@ ms.locfileid: "86226063"
 1. 接收以下形式的请求：
    
    > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={源页的 URL}&salt={字符串}&sig={字符串}*
-   > 
-   > 
    
     登录/注册示例的查询参数：
    
@@ -84,6 +82,7 @@ ms.locfileid: "86226063"
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
+* **SignOut**
 
 若要执行帐户管理操作，必须传递以下查询参数。
 
@@ -93,6 +92,7 @@ ms.locfileid: "86226063"
 * **sig**：计算的安全哈希，用于与用户自行计算的哈希进行比较
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>委派产品订阅
+
 委派产品订阅的工作方式与委派用户登录/注册类似。 最终工作流将如下所示：
 
 1. 开发人员在 API 管理开发人员门户中选择一个产品，并单击“订阅”按钮。
@@ -114,9 +114,9 @@ ms.locfileid: "86226063"
      * “Subscribe”：请求为用户订阅具有所提供的 ID 的给定产品（参见下文）
      * “Unsubscribe”：请求为用户取消订阅某个产品
      * “Renew”：请求续订某个订阅（例如即将到期的订阅）
-   * **productId**：用户请求订阅的产品的 ID
+   * **productId**（“Subscribe”中）- 用户请求订阅的产品的 ID
    * **subscriptionId**（*Unsubscribe* 和 *Renew*）中 - 产品订阅的 ID
-   * **userId**：提出请求时所针对的用户的 ID
+   * **userId**（“Subscribe”中）- 请求所针对的用户的 ID
    * **salt**：用于计算安全哈希的特殊 salt 字符串
    * **sig**：计算的安全哈希，用于与用户自行计算的哈希进行比较
 
@@ -180,11 +180,11 @@ var signature = digest.toString('base64');
 <!-- Video not suitable for China, so removed -->
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[请求单一登录 (SSO) 令牌]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/User/GenerateSsoUrl
+[请求单一登录 (SSO) 令牌]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user/generatessourl
 [创建用户]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user/createorupdate
 [调用订阅 REST API]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps
 [下文提供了示例代码]: #delegate-example-code
 
-[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
+[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 

@@ -6,14 +6,14 @@ author: WenJason
 ms.service: dns
 ms.topic: how-to
 origin.date: 02/18/2020
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-jay
-ms.openlocfilehash: 97584a78b7a76b071d806924a1f184e314b435cb
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.openlocfilehash: 04e3ab104fb7fe73a5ae1151c7fe12dac420c0cb
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512855"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943428"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>如何保护专用 DNS 区域和记录
 
@@ -103,9 +103,9 @@ az role assignment create \
 
 记录集级别的 RBAC 权限可在 Azure 门户中使用记录集页面中的“访问控制(标识和访问管理)”按钮进行配置： 
 
-![使用 Azure 门户的记录集级别 RBAC](./media/dns-protect-private-zones-recordsets/rbac3.png)
+![屏幕截图显示了“访问控制(标识和访问管理)”按钮。](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
-![使用 Azure 门户的记录集级别 RBAC](./media/dns-protect-private-zones-recordsets/rbac4.png)
+![屏幕截图显示了已选中“添加角色分配”的“访问控制”。](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
 也可以[使用 Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)授予记录集级别 RBAC 权限：
 

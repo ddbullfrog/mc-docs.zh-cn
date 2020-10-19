@@ -4,29 +4,29 @@ titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 description: 了解 Azure SQL 数据库、SQL 托管实例和 Azure Synapse 如何对使用登录名和用户帐户进行访问的用户进行身份验证。 并了解如何通过授权数据库角色和显式权限，来授权登录名和用户，以执行操作和查询数据。
 keywords: sql 数据库安全,数据库安全管理,登录安全,数据库安全,数据库访问权限
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=3
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: sstein
 origin.date: 03/23/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 575cd684b0b954267ab862760aa9934a013dac6a
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: 60ecfdc89dc81815b3fc25c159197f69e0efc2b0
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228134"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872296"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>向数据库授予对 Azure SQL 数据库、SQL 托管实例和 Azure Synapse Analytics 的访问权限
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 本文介绍：
 
-- 用于配置 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics（前称为 Azure SQL 数据仓库）的选项，目的是使用户能够执行管理任务和访问这些数据库中存储的数据。
+- 用于配置 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）的选项，目的是使用户能够执行管理任务和访问这些数据库中存储的数据。
 - 最初新建服务器后的访问权限和授权配置。
 - 如何在 master 数据库和用户账户中添加登录名和用户帐户，然后为这些帐户授予管理权限。
 - 如何在用户数据库中添加用户帐户（与登录名关联或作为包含的用户帐户）。

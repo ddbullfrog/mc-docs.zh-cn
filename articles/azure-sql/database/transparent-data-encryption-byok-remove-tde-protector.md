@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 02/24/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: b495ef2244f5c697e7159c4bc144a45a358c8666
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: 36e63a353c17cd4d872d3dd74d36b8bd57cac1af
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227663"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872427"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 删除透明数据加密 (TDE) 保护器
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "86227663"
 本操作指南根据事件响应泄露后的预期结果介绍了两种方法：
 
 - 使 Azure SQL 数据库/Azure Synapse Analytics 中的数据库无法访问。
-- 使 Azure SQL 数据库/Azure SQL 数据仓库中的数据库无法访问。
+- 使 Azure SQL 数据库/Azure Synapse Analytics（以前称为“SQL 数据仓库”）中的数据库无法访问。
 
 ## <a name="prerequisites"></a>先决条件
 

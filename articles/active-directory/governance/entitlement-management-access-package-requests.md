@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e428902676b6e8a07e7d1988f3df87c525cfec98
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 2dbb63a456da7fd140ad147fc1fe31a9ba54989c
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947421"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937369"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中查看访问包的请求
 
@@ -29,7 +29,7 @@ ms.locfileid: "88947421"
 
 ## <a name="view-requests"></a>查看请求
 
-**必备角色：** 全局管理员、用户管理员、目录所有者或访问包管理员
+**必备角色：** 全局管理员、用户管理员、目录所有者、访问包管理员或访问包分配管理员
 
 1. 在 Azure 门户中，依次单击“Azure Active Directory”、“标识监管”。  
 

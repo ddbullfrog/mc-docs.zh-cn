@@ -1,14 +1,14 @@
 ---
 title: 保护 Azure Functions
 description: 了解如何使 Azure 中运行的函数代码更安全，使其免遭常见攻击的威胁。
-ms.date: 08/24/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9519b936fd6d0083f2cc2d6afbc5b8b0ec56af7
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: ff4d2d0bbb3895f6edf3ad91d47b3aeb2b5fdf29
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402604"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936929"
 ---
 # <a name="securing-azure-functions"></a>保护 Azure Functions
 
@@ -30,7 +30,6 @@ ms.locfileid: "91402604"
 
 Functions 还与 Azure Monitor 日志集成，使你能够将函数应用日志与系统事件合并，以便更轻松地进行分析。 你可以使用诊断设置将函数的平台日志和指标流式导出配置到你选择的目标位置，例如 Log Analytics 工作区。
 
-对于企业级威胁检测和响应自动化，请将日志和事件流式传输到 Log Analytics 工作区。 
 
 ### <a name="require-https"></a>需要 HTTPS
 
@@ -72,7 +71,7 @@ Functions 还与 Azure Monitor 日志集成，使你能够将函数应用日志�
 
 默认情况下，密钥存储在通过 `AzureWebJobsStorage` 设置提供的帐户中的 Blob 存储容器中。 可以使用特定的应用程序设置来重写此行为，将密钥存储在另一位置。
 
-|位置  |设置 | 值 | 描述  |
+|位置  |设置 | “值” | 描述  |
 |---------|---------|---------|---------|
 |不同的存储帐户     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | 根据提供的 SAS URL，将密钥存储在另一个存储帐户的 Blob 存储中。 在使用函数应用特有的机密存储密钥之前对密钥进行加密。 |
 |文件系统   | `AzureWebJobsSecretStorageType`   |  `files`       | 密钥持久保留在文件系统中，在使用函数应用特有的机密进行存储之前加密。 |
@@ -124,6 +123,8 @@ Functions 还与 Azure Monitor 日志集成，使你能够将函数应用日志�
 例如，每个函数应用都需要一个关联的存储帐户，运行时将使用该帐户。 默认情况下，与此存储帐户的连接存储在名为 `AzureWebJobsStorage` 的应用程序设置中。
 
 应用设置和连接字符串以加密方式存储在 Azure 中。 只有在应用程序启动时，它们才会被解密，然后再注入到应用程序内存中。 加密密钥会定期轮换。 如果希望管理机密的安全存储，则应该将应用设置改为对 Azure Key Vault 的引用。 
+
+在本地计算机上开发功能时，默认情况下，还可以在 local.settings.json 文件中加密设置。 若要了解详细信息，请参阅[本地设置文件](functions-run-local.md#local-settings-file)中的 `IsEncrypted` 属性。  
 
 #### <a name="key-vault-references"></a>Key Vault 引用
 
@@ -209,5 +210,5 @@ Azure Functions 工具集成可以简化将本地函数项目代码发布到 Azu
 
 ### <a name="use-a-gateway-service"></a>使用网关服务
 
-利用网关服务（例如 [Azure 应用程序网关](../application-gateway/overview.md)），可以设置 Web 应用程序防火墙 (WAF)。 WAF 规则用于监视或阻止检测到的攻击，从而为函数提供额外的保护层。 若要设置 WAF，函数应用需要在 ASE 中运行或使用专用终结点（预览版）。 
+利用网关服务（例如 [Azure 应用程序网关](../application-gateway/overview.md)），可以设置 Web 应用程序防火墙 (WAF)。 WAF 规则用于监视或阻止检测到的攻击，从而为函数提供额外的保护层。 若要设置 WAF，函数应用需要在 ASE 中运行或使用专用终结点（预览版）。   
 

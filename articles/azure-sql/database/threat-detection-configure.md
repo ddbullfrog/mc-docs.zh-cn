@@ -8,15 +8,15 @@ ms.custom: seo-dt-2019, sqldbrb=1
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: vanto, carlrab
-origin.date: 08/05/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 2bcca4c54e1c50b7d4a503dbe29ff61a27172010
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.reviewer: vanto
+origin.date: 09/21/2019
+ms.date: 10/12/2020
+ms.openlocfilehash: 21c975cf8a4314c9845ce8adad86606c00202443
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227678"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872429"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>为 Azure SQL 数据库配置高级威胁防护
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,18 +25,16 @@ Azure SQL 数据库的[高级威胁防护](threat-detection-overview.md)可检�
 
 你可以通过[电子邮件通知](threat-detection-overview.md#explore-detection-of-a-suspicious-event)或 [Azure 门户](threat-detection-overview.md#explore-alerts-in-the-azure-portal)接收有关检测到的威胁的通知
 
-[高级威胁防护](threat-detection-overview.md)包含在[高级数据安全](advanced-data-security.md)产品/服务中，这是用于高级 SQL 安全功能的统一软件包。 可通过中心 SQL 高级威胁防护门户访问和管理高级威胁防护功能。
+[高级威胁防护](threat-detection-overview.md)包含在 [Azure Defender for SQL](azure-defender-for-sql.md) 产品/服务（高级 SQL 安全功能的统一软件包）中。 可通过中心 Azure Defender for SQL 门户访问和管理高级威胁防护。
 
 ## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>在 Azure 门户中设置高级威胁防护
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 导航到要保护的服务器的配置页。 在安全设置中，选择“高级数据安全”。
-3. 在“高级数据安全”配置页：
+2. 导航到要保护的服务器的配置页。 在安全设置中，选择“安全中心”。
+3. 在“Azure Defender”配置页中：
 
-   - 在服务器上启用高级数据安全。
+   - 在服务器上启用 Azure Defender。
    - 在“高级威胁防护设置”中的“发送警报到”文本框中，提供检测到异常数据库活动时接收安全警报的电子邮件列表 。
-  
-   ![设置高级威胁防护](./media/threat-detection/set_up_threat_detection.png)
 
 ## <a name="set-up-advanced-threat-protection-using-powershell"></a>使用 PowerShell 设置高级威胁防护
 
@@ -46,7 +44,7 @@ Azure SQL 数据库的[高级威胁防护](threat-detection-overview.md)可检�
 
 - 详细了解[高级威胁防护](threat-detection-overview.md)。
 - 详细了解 [SQL 托管实例中的高级威胁防护](../managed-instance/threat-detection-configure.md)。  
-- 详细了解[高级数据安全](advanced-data-security.md)。
+- 详细了解 [Azure Defender for SQL](azure-defender-for-sql.md)。
 - 详细了解[审核](../../azure-sql/database/auditing-overview.md)
 - 详细了解 [Azure 安全中心](/security-center/security-center-intro)
 - 有关定价的详细信息，请参阅 [SQL 数据库定价页](https://azure.cn/pricing/details/sql-database/)  

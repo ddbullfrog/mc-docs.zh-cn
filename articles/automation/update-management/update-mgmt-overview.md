@@ -3,15 +3,15 @@ title: Azure 自动化更新管理概述
 description: 本文概述了为 Windows 和 Linux 计算机实现更新的更新管理功能。
 services: automation
 ms.subservice: update-management
-origin.date: 09/09/2020
-ms.date: 09/28/2020
+origin.date: 09/23/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: bd2fd008f8d6588ba66351d8fe430fa7e904ac5b
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 941e6c16641bc5d2dad0526bd5dade7f74739ae7
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246443"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943471"
 ---
 # <a name="update-management-overview"></a>更新管理概述
 
@@ -19,7 +19,7 @@ ms.locfileid: "91246443"
 
 可以通过以下方式为 VM 启用更新管理功能：
 
-* 对于一个或多个 Azure 计算机，通过 [Azure 自动化帐户](update-mgmt-enable-automation-account.md)启用。
+* 从 [Azure 自动化帐户](update-mgmt-enable-automation-account.md)为一个或多个 Azure 和非 Azure 计算机启用。
 * 对于非 Azure 计算机，手动启用。
 * 对于单个 Azure VM，通过 Azure 门户中的“虚拟机”页启用。 
 
@@ -57,7 +57,7 @@ ms.locfileid: "91246443"
 
 可以创建计划的部署，在需要更新的计算机上部署和安装软件更新。 归类为“可选”的更新不包括在 Windows 计算机的部署范围内。 只有必需的更新会包括在部署范围内。
 
-计划的部署定义哪些目标计算机接收适用的更新。 它通过以下某种方式来实现此目的：显式指定特定的计算机，或选择基于一组特定计算机的日志搜索（或基于根据指定条件动态选择 Azure VM 的 [Azure 查询]update-mgmt-view-logs.md）的[计算机组](../../azure-monitor/platform/computer-groups.md)。 这些组与[范围配置](../../azure-monitor/insights/solution-targeting.md)不同，后者用于控制接收配置以启用更新管理的目标计算机。 这会阻止它们执行和报告更新符合性，并安装已批准的所需更新。
+计划的部署定义哪些目标计算机接收适用的更新。 它通过以下某种方式来实现此目的：显式指定特定的计算机，或选择基于特定计算机集的日志搜索（或基于根据指定条件动态选择 Azure VM 的 [Azure 查询](update-mgmt-query-logs.md)）的[计算机组](../../azure-monitor/platform/computer-groups.md)。 这些组与[范围配置](../../azure-monitor/insights/solution-targeting.md)不同，后者用于控制接收配置以启用更新管理的目标计算机。 这会阻止它们执行和报告更新符合性，并安装已批准的所需更新。
 
 定义部署时，还可以指定要批准的计划，并设置可以安装更新的一个时段。 此时段称为维护时段。 假设需要重启，并选择了相应的重启选项，则会预留 20 分钟的维护时段进行重启。 如果修补时间比预期时间长且维护时段少于 20 分钟，则不会进行重启。
 
@@ -82,7 +82,7 @@ ms.locfileid: "91246443"
 |Windows Server 2008 R2（RTM 和 SP1 Standard）| 更新管理仅支持对此操作系统进行评估和修补。 Windows Server 2008 R2 不支持[混合 Runbook 辅助角色](../automation-windows-hrw-install.md)。 |
 |CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理需要具有访问更新存储库的权限。 基于分类的修补需要借助 `yum` 来返回 CentOS 的 RTM 版本中没有的安全数据。 有关 CentOS 上基于分类的修补的详细信息，请参阅 [Linux 上的更新分类](update-mgmt-view-update-assessments.md#linux)。          |
 |Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | Linux 代理需要具有访问更新存储库的权限。        |
-|SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | Linux 代理需要具有访问更新存储库的权限。        |
+|SUSE Linux Enterprise Server 12 (x64)     | Linux 代理需要具有访问更新存储库的权限。        |
 |Ubuntu 14.04 LTS、16.04 LTS 和 18.04 (x86/x64)      |Linux 代理需要具有访问更新存储库的权限。         |
 
 > [!NOTE]
@@ -134,7 +134,7 @@ Windows 代理必须配置为与 WSUS 服务器通信或需要有权访问 Micro
 
 启用更新管理后，任何直接连接到 Log Analytics 工作区的 Windows 计算机都会自动配置为混合 Runbook 辅助角色，为支持更新管理的 Runbook 提供支持。
 
-更新管理托管的每个 Windows 计算机都会作为自动化帐户的一个“系统混合辅助角色组”列在“混合辅助角色组”窗格中。 这些组使用 `Hostname FQDN_GUID` 命名约定。 不能在帐户中通过 Runbook 将这些组作为目标进行操作。 如果尝试，则尝试会失败。 这些组仅用于为更新管理提供支持。
+更新管理托管的每个 Windows 计算机都会作为自动化帐户的一个“系统混合辅助角色组”列在“混合辅助角色组”窗格中。 这些组使用 `Hostname FQDN_GUID` 命名约定。 不能在帐户中通过 Runbook 将这些组作为目标进行操作。 如果尝试，则尝试会失败。 这些组仅用于为更新管理提供支持。 若要详细了解如何查看配置为混合 Runbook 辅助角色的 Windows 计算机的列表，请参阅[查看混合 Runbook 辅助角色](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers)。
 
 如果为更新管理和混合 Runbook 辅助角色组成员身份使用同一帐户，则可以将 Windows 计算机添加到自动化帐户中的混合 Runbook 辅助角色组来为自动化 Runbook 提供支持。 此功能是在 7.2.12024.0 版本的混合 Runbook 辅助角色中添加的。
 
@@ -209,7 +209,7 @@ Windows 代理必须配置为与 WSUS 服务器通信或需要有权访问 Micro
 sudo yum -q --security check-update
 ```
 
-当前没有受支持的方法可用来在 CentOS 上提供原生分类数据。 目前，只能尽力为可能自己实现了此功能的客户提供支持。
+当前没有受支持的方法可用来在 CentOS 上提供原生分类数据。 目前，仅向可能已自行启用此功能的客户提供有限的支持。
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>将更新管理与 Configuration Manager 集成
 

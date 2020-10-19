@@ -3,17 +3,17 @@ title: 为 Azure 中继命名空间配置 IP 防火墙
 description: 本文介绍如何使用防火墙规则来允许从特定 IP 地址到 Azure 中继命名空间的连接。
 ms.topic: article
 origin.date: 06/23/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: 9a2e31dea20da2d2eb6d3a31b6b2be5f2c7132c3
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 3287d49bb0ef06f3d509371c9424975e4124b291
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947101"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937074"
 ---
 <!--Verified successfully-->
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>为 Azure 中继命名空间配置 IP 防火墙
@@ -35,12 +35,12 @@ ms.locfileid: "88947101"
 1. 在 [Azure 门户](https://portal.azure.cn)中导航到“中继命名空间”。
 2. 在左侧菜单中，选择“网络”选项。 如果在“允许的访问来源”部分中选择“所有网络”选项，则中继命名空间会接受来自任何 IP 地址的连接。 此设置等效于一个接受 0.0.0.0/0 IP 地址范围的规则。 
 
-    :::image type="content" source="./media/ip-firewall/all-networks-selected.png" alt-text="防火墙 - 选中了“所有网络”选项":::
+    :::image type="content" source="./media/ip-firewall/all-networks-selected.png" alt-text="屏幕截图显示了已选择“所有网络”选项的“网络”页。":::
 1. 若要将访问限制为特定网络和 IP 地址，请选择“所选网络”选项。 在“防火墙”部分中执行以下步骤：
     1. 选择“添加客户端 IP 地址”选项，使当前客户端 IP 可以访问命名空间。 
     2. 对于“地址范围”，请输入某个特定的 IPv4 地址或以 CIDR 表示法表示的 IPv4 地址范围。 
 
-        :::image type="content" source="./media/ip-firewall/selected-networks-trusted-access-disabled.png" alt-text="防火墙 - 选中了“所有网络”选项":::
+        :::image type="content" source="./media/ip-firewall/selected-networks-trusted-access-disabled.png" alt-text="屏幕截图显示了已选择“所有网络”选项的“网络”页。":::
 3. 在工具栏上选择“保存”，保存这些设置。 请等待几分钟，直到门户通知中显示确认消息。
 
 ### <a name="use-resource-manager-template"></a>使用 Resource Manager 模板

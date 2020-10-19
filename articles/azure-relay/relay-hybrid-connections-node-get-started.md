@@ -4,17 +4,17 @@ description: 为 Azure 中继混合连接 Websocket 编写 Node.js 控制台应�
 ms.topic: conceptual
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 644c2aa5f5056475ad66629531179fda55ee727a
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.custom: devx-track-js
+ms.openlocfilehash: f0d45326ffe4a6a1d6f7263913a1473935211568
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947125"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937236"
 ---
 <!--Verified successfully-->
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>开始在 Node.js 中使用中继混合连接 WebSocket
@@ -58,7 +58,7 @@ ms.locfileid: "88947125"
 2. 运行客户端应用程序：在 Node.js 命令提示符处键入 `node sender.js`，然后输入某些文本。
 3. 确保服务器应用程序控制台输出了客户端应用程序中输入的文本。
 
-    :::image type="content" source="./media/relay-hybrid-connections-node-get-started/running-applications.png" alt-text="running-applications":::
+    :::image type="content" source="./media/relay-hybrid-connections-node-get-started/running-applications.png" alt-text="控制台窗口同时测试服务器和客户端应用程序。":::
 
 祝贺你，现已使用 Node.js 创建端到端混合连接应用程序！
 

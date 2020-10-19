@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e89d6bdddf7bf04c1fe400fe68b14f2822db1cd6
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: c523506e4ef9fa0ecc74090a15438a7caa4f2253
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947328"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937004"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Azure AD 权利管理中的常见方案
 
@@ -119,24 +119,24 @@ ms.locfileid: "88947328"
 1. [观看视频：日常管理：事情已变化](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. 打开访问包
 1. [打开生命周期设置](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
-1. [更新过期设置](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+1. [更新过期设置](entitlement-management-access-package-lifecycle-policy.md#lifecycle) 
 
 ### <a name="access-package-manager-update-how-access-is-approved-for-a-project"></a>访问包管理者：更新审批项目访问权限的方式
 
 1. [观看视频：日常管理：事情已变化](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [打开请求和审批设置的现有策略](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
-1. [更新审批设置](entitlement-management-access-package-request-policy.md#approval)
+1. [打开请求设置的现有策略](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
+1. [更新审批设置](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
 
 ### <a name="access-package-manager-update-the-people-for-a-project"></a>访问包管理者：更新项目人员
 
 1. [观看视频：日常管理：事情已变化](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. [删除不再需要访问权限的用户](entitlement-management-access-package-assignments.md)
-1. [打开请求和审批设置的现有策略](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [打开请求设置的现有策略](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [添加需要访问权限的用户](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
 
 ### <a name="access-package-manager-directly-assign-specific-users-to-an-access-package"></a>访问包管理者：将特定用户直接分配到访问包
 
-1. [如果用户需要不同的生命周期设置，请将新策略添加到访问包](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
+1. [如果用户需要不同的生命周期设置，请将新策略添加到访问包](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [将特定用户直接分配到访问包](entitlement-management-access-package-assignments.md#directly-assign-a-user)
 
 ## <a name="assignments-and-reports"></a>分配和报表
@@ -154,7 +154,7 @@ ms.locfileid: "88947328"
 
 ## <a name="programmatic-administration"></a>通过编程方式进行管理
 
-你也可以使用 Microsoft Graph 来管理访问包、目录、策略、请求和分配。  相应角色中的用户通过具有委托的 `EntitlementManagement.ReadWrite.All` 权限的应用程序可以调用[权利管理 API](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta)。
+你也可以使用 Microsoft Graph 来管理访问包、目录、策略、请求和分配。  相应角色中的用户通过具有委托的 `EntitlementManagement.ReadWrite.All` 权限的应用程序可以调用[权利管理 API](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta )。
 
 ## <a name="next-steps"></a>后续步骤
 

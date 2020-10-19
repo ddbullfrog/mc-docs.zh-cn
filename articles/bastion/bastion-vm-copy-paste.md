@@ -2,20 +2,20 @@
 title: 复制并粘贴到虚拟机以及从中进行复制和粘贴 - Azure Bastion
 description: 本文介绍如何使用 Bastion 复制并粘贴到 Azure VM 以及从中进行复制和粘贴。
 services: bastion
-author: rockboyfor
 ms.service: bastion
 ms.topic: how-to
 origin.date: 05/04/2020
-ms.date: 07/27/2020
-ms.testscope: yes
+author: rockboyfor
+ms.date: 10/12/2020
+ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9e89efd74f35d1cfcc572e8c4c119ae0694a4992
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: ab2bea91ed76d6033441e924896d26a397aed09e
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89654972"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937353"
 ---
 <!--Verified successfully on 09/07/2020-->
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>复制并粘贴到虚拟机：Azure Bastion
@@ -28,7 +28,7 @@ ms.locfileid: "89654972"
 >目前仅支持文本复制/粘贴。
 >
 
-  ![允许剪贴板](./media/bastion-vm-manage/allow.png)
+:::image type="content" source="./media/bastion-vm-manage/allow.png" alt-text="允许剪贴板":::
 
 仅支持文本复制/粘贴。 对于直接复制和粘贴，浏览器可能会在 Bastion 会话进行初始化时提示你它需要访问剪贴板。 允许网页访问剪贴板。
 
@@ -40,13 +40,13 @@ ms.locfileid: "89654972"
 1. 将本地设备中的文本/内容复制到本地剪贴板。
 1. 在远程会话期间，通过选择两个箭头启动 Bastion 剪贴板访问工具面板。 这些箭头位于会话的左中位置。
 
-    ![工具面板](./media/bastion-vm-manage/left.png)
+    :::image type="content" source="./media/bastion-vm-manage/left.png" alt-text="允许剪贴板":::
 
-    ![剪贴板](./media/bastion-vm-manage/clipboard.png)
+    :::image type="content" source="./media/bastion-vm-manage/clipboard.png" alt-text="允许剪贴板":::
 1. 通常，已复制的文本会自动显示在 Bastion 复制粘贴面板上。 如果文本不在那里，则将文本粘贴到面板上的文本区域中。
 1. 文本位于文本区域中后，可以将其粘贴到远程会话。
 
-    ![粘贴](./media/bastion-vm-manage/local.png)
+    :::image type="content" source="./media/bastion-vm-manage/local.png" alt-text="允许剪贴板":::
 
 <a name="from"></a>
 ## <a name="copy-from-a-remote-session"></a>从远程会话复制
@@ -55,18 +55,17 @@ ms.locfileid: "89654972"
 
 1. 将远程会话中的文本/内容复制到远程剪贴板（使用 Ctrl-C）。
 
-    ![工具面板](./media/bastion-vm-manage/remote.png)
+    :::image type="content" source="./media/bastion-vm-manage/remote.png" alt-text="允许剪贴板":::
 1. 在远程会话期间，通过选择两个箭头启动 Bastion 剪贴板访问工具面板。 这些箭头位于会话的左中位置。
 
-    ![剪贴板](./media/bastion-vm-manage/clipboard2.png)
+    :::image type="content" source="./media/bastion-vm-manage/clipboard2.png" alt-text="允许剪贴板":::
 1. 通常，已复制的文本会自动显示在 Bastion 复制粘贴面板上。 如果文本不在那里，则将文本粘贴到面板上的文本区域中。
 1. 文本位于文本区域中后，可以将其粘贴到本地设备。
 
-    ![粘贴](./media/bastion-vm-manage/local2.png)
+    :::image type="content" source="./media/bastion-vm-manage/local2.png" alt-text="允许剪贴板":::
 
 ## <a name="next-steps"></a>后续步骤
 
 阅读 [Bastion 常见问题解答](bastion-faq.md)。
 
-<!-- Update_Description: new article about bastion vm copy paste -->
-<!--NEW.date: 07/27/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

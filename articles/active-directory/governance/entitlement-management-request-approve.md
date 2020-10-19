@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6a1adebe1bf06edaa72158a3e92f48d4fff961b
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 716ba7e5c9e41691f1cb88a9681d6fa8e65fa3a5
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947329"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937013"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中批准或拒绝访问请求
 
@@ -48,6 +48,22 @@ ms.locfileid: "88947329"
 1. 在左侧菜单中，单击“审批”即可看到待审批的访问请求列表。****
 
 1. 在“等待处理”选项卡上找到请求。****
+
+## <a name="view-requestors-answers-to-questions-preview"></a>查看请求者的问题答案（预览版）
+
+1. 导航到“我的访问权限”中的“审批”选项卡。
+
+1. 转到要审批的请求，然后单击“详细信息”。 如果已准备好做决定，也可以单击“批准”或“拒绝”。
+
+1. 单击“请求详细信息”。
+
+     ![“我的访问权限”门户 - 访问请求 - 单击“请求详细信息”](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+
+1. 请求者提供的信息将位于面板的底部。
+
+     ![我的访问权限门户 - 访问请求](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+
+1. 你可以随后根据请求者提供的信息批准或拒绝该请求。 请参阅“批准或拒绝请求”中的步骤以获得指导。
 
 ## <a name="approve-or-deny-request"></a>批准或拒绝请求
 

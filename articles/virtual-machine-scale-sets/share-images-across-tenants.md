@@ -1,22 +1,22 @@
 ---
-title: 在 Azure 的租户之间共享库映像
-description: 了解如何使用共享映像库跨 Azure 租户共享 VM 映像。
+title: 在租户之间共享库映像
+description: 了解如何使用通过共享映像库在 Azure 租户之间共享的映像创建规模集。
 author: cynthn
 ms.author: v-junlch
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
-ms.date: 08/06/2020
+ms.date: 09/28/2020
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: f38314383e96ce875ae6dddbc643acb5405d3400
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 436bf677d193a8422cc14e058c583068be3c1f5d
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914208"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937280"
 ---
-# <a name="share-gallery-vm-images-across-tenants-in-azure"></a>在 Azure 的租户之间共享库 VM 映像
+# <a name="share-images-across-tenants-with-shared-image-gallery"></a>使用共享映像库在租户之间共享映像
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -51,5 +51,5 @@ az vmss create \
 
 ## <a name="next-steps"></a>后续步骤
 
-如果遇到任何问题，可以[对共享映像库进行故障排除](troubleshooting-shared-images.md)。
+如果遇到任何问题，可以[对共享映像库进行故障排除](../virtual-machines/troubleshooting-shared-images.md)。
 

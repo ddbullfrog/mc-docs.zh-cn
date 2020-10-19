@@ -3,15 +3,15 @@ title: 在 Azure 自动化中部署 Linux 混合 Runbook 辅助角色
 description: 本文介绍如何安装 Azure 自动化混合 Runbook 辅助角色，以便在本地数据中心或云环境中基于 Linux 的计算机上运行 Runbook。
 services: automation
 ms.subservice: process-automation
-origin.date: 06/24/2020
-ms.date: 08/10/2020
+origin.date: 09/15/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0a7132892755958a64d608d2a0b69e374ff82c85
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: e766ab004f0f84746c9224275b252c809d0957a8
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788282"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943452"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>部署 Linux 混合 Runbook 辅助角色
 
@@ -51,7 +51,7 @@ ms.locfileid: "87788282"
 * Red Hat Enterprise Linux Server 5、6 和 7 (x86/x64)
 * Debian GNU/Linux 6、7 和 8 (x86/x64)
 * Ubuntu 12.04 LTS、14.04 LTS、16.04 LTS 和 18.04 (x86/x64)
-* SUSE Linux Enterprise Server 11 和 12 (x86/x64)
+* SUSE Linux Enterprise Server 12 (x86/x64)
 
 ### <a name="minimum-requirements"></a>最低要求
 
@@ -70,6 +70,12 @@ Linux 混合 Runbook 辅助角色的最低要求如下：
 |PAM | 可插入验证模块|
 | **可选包** | **说明** | **最低版本**|
 | PowerShell Core | 若要运行 PowerShell runbook，需要安装 PowerShell Core。 请参阅[在 Linux 上安装 PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux) 了解如何安装。 | 6.0.0 |
+
+## <a name="supported-linux-hardening"></a>支持的 Linux 强化
+
+目前尚不支持以下项：
+
+* CIS
 
 ## <a name="supported-runbook-types"></a>支持的 runbook 类型
 

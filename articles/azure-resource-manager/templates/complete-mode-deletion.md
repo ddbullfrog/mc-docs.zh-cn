@@ -2,18 +2,18 @@
 title: 完整模式删除
 description: 显示资源类型如何在 Azure 资源管理器模板中进行完全模式删除。
 ms.topic: conceptual
-origin.date: 08/25/2020
+origin.date: 09/21/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 949586c8b6fab20086e3071bbf7470fe48ccf408
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 242041ef9151452a8affda560483cf3b6db711d8
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146519"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937351"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>针对完全模式部署的 Azure 资源删除
 
@@ -119,6 +119,8 @@ ms.locfileid: "91146519"
 > | 建议 | 否 |
 > | 禁止显示 | 否 |
 
+<!--Not Available on ## Microsoft.AgFoodPlatform-->
+
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
@@ -216,6 +218,7 @@ ms.locfileid: "91146519"
 > | ------------- | ----------- |
 > | cloudManifestFiles | 否 |
 > | edgeSubscriptions | 是 |
+> | linkedSubscriptions | 是 |
 > | registrations | 是 |
 > | registrations / customerSubscriptions | 否 |
 > | registrations / products | 否 |
@@ -262,6 +265,10 @@ ms.locfileid: "91146519"
 > | Redis/privateEndpointConnections | 否 |
 > | Redis/privateLinkResources | 否 |
 > | redisEnterprise | 是 |
+> | RedisEnterprise / privateEndpointConnectionProxies | 否 |
+> | RedisEnterprise / privateEndpointConnectionProxies / validate | 否 |
+> | RedisEnterprise / privateEndpointConnections | 否 |
+> | RedisEnterprise / privateLinkResources | 否 |
 
 <!--Not Available on ## Microsoft.Capacity-->
 
@@ -378,6 +385,11 @@ ms.locfileid: "91146519"
 > | ------------- | ----------- |
 > | availabilitySets | 是 |
 > | cloudServices | 是 |
+> | cloudServices / networkInterfaces | 否 |
+> | cloudServices / publicIPAddresses | 否 |
+> | cloudServices / roleInstances | 否 |
+> | cloudServices / roleInstances / networkInterfaces | 否 |
+> | cloudServices / roles | 否 |
 > | diskAccesses | 是 |
 > | diskEncryptionSets | 是 |
 > | disks | 是 |
@@ -472,6 +484,7 @@ ms.locfileid: "91146519"
 <!--Not Available on ## Microsoft.CostManagement-->
 <!--Not Available on ## Microsoft.CustomerLockbox-->
 <!--Not Available on ## Microsoft.CustomProviders-->
+<!--Not Available on ## Microsoft.D365CustomerInsights-->
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -523,6 +536,8 @@ ms.locfileid: "91146519"
 > | servers / privateLinkResources | 否 |
 > | servers / queryTexts | 否 |
 > | servers / recoverableServers | 否 |
+> | servers / start | 否 |
+> | servers / stop | 否 |
 > | servers / topQueryStatistics | 否 |
 > | servers / virtualNetworkRules | 否 |
 > | servers / waitStatistics | 否 |
@@ -532,6 +547,7 @@ ms.locfileid: "91146519"
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
+> | flexibleServers | 是 |
 > | servers | 是 |
 > | servers / advisors | 否 |
 > | servers / keys | 否 |
@@ -540,7 +556,10 @@ ms.locfileid: "91146519"
 > | servers / privateLinkResources | 否 |
 > | servers / queryTexts | 否 |
 > | servers / recoverableServers | 否 |
+> | servers / start | 否 |
+> | servers / stop | 否 |
 > | servers / topQueryStatistics | 否 |
+> | servers / upgrade | 否 |
 > | servers / virtualNetworkRules | 否 |
 > | servers / waitStatistics | 否 |
 
@@ -708,6 +727,8 @@ ms.locfileid: "91146519"
 > | vaults | 是 |
 > | vaults / accessPolicies | 否 |
 > | vaults / eventGridFilters | 否 |
+> | vaults / keys | 否 |
+> | vaults / keys / versions | 否 |
 > | vaults / secrets | 否 |
 
 <!--Not Available on > | hsmPools | Yes |-->
@@ -754,8 +775,6 @@ ms.locfileid: "91146519"
 > | workspaces | 是 |
 > | workspaces / computes | 否 |
 > | workspaces / eventGridFilters | 否 |
-> | workspaces / inferenceEndpoints | 是 |
-> | workspaces / inferenceEndpoints / deployments | 是 |
 > | workspaces / linkedServices | 否 |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
@@ -1076,6 +1095,7 @@ ms.locfileid: "91146519"
 > | tenants | 否 |
 
 <!--Not Available on ## Microsoft.SaaS-->
+<!--Not Available on ## Microsoft.ScVmm-->
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1108,6 +1128,7 @@ ms.locfileid: "91146519"
 > | discoveredSecuritySolutions | 否 |
 > | externalSecuritySolutions | 否 |
 > | InformationProtectionPolicies | 否 |
+> | iotDefenderSettings | 否 |
 > | iotSecuritySolutions | 是 |
 > | iotSecuritySolutions / analyticsModels | 否 |
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | 否 |
@@ -1116,6 +1137,7 @@ ms.locfileid: "91146519"
 > | iotSecuritySolutions / iotAlertTypes | 否 |
 > | iotSecuritySolutions / iotRecommendations | 否 |
 > | iotSecuritySolutions / iotRecommendationTypes | 否 |
+> | iotSensors | 否 |
 > | jitNetworkAccessPolicies | 否 |
 > | jitPolicies | 否 |
 > | 策略 | 否 |
@@ -1134,6 +1156,7 @@ ms.locfileid: "91146519"
 > | securityStatusesSummaries | 否 |
 > | serverVulnerabilityAssessments | 否 |
 > | 设置 | 否 |
+> | sqlVulnerabilityAssessments | 否 |
 > | subAssessments | 否 |
 > | 任务 | 否 |
 > | topologies | 否 |
@@ -1153,6 +1176,7 @@ ms.locfileid: "91146519"
 > | namespaces / disasterrecoveryconfigs | 否 |
 > | namespaces / eventgridfilters | 否 |
 > | namespaces / networkrulesets | 否 |
+> | namespaces / privateEndpointConnections | 否 |
 > | namespaces / queues | 否 |
 > | namespaces / queues / authorizationrules | 否 |
 > | namespaces / topics | 否 |
@@ -1237,6 +1261,7 @@ ms.locfileid: "91146519"
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 完整模式删除 |
 > | ------------- | ----------- |
+> | deletedAccounts | 否 |
 > | storageAccounts | 是 |
 > | storageAccounts / blobServices | 否 |
 > | storageAccounts / fileServices | 否 |

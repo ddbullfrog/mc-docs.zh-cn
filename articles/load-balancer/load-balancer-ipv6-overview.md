@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/24/2018
-ms.date: 05/11/2020
+ms.date: 10/16/2020
 ms.author: v-jay
-ms.openlocfilehash: 349ae507a978b0f6d534c71edc7a65cbb6a9b2c0
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.openlocfilehash: 44c7ecbaca2045d6449ec441026fb1319e3e52da
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507655"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943425"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure 负载均衡器的 IPv6 概述
 
@@ -80,7 +80,7 @@ ms.locfileid: "82507655"
 * VM 上的 IPv6 终结点不会直接在 Internet 上公开， 而是位于负载均衡器的后面。 通过 IPv6 只能访问负载均衡器规则中指定的端口。
 * **当前不支持**更改 IPv6 的 IdleTimeout 参数。 该参数默认为 4 分钟。
 * **当前不支持**更改 IPv6 的 loadDistributionMethod 参数。
-* **当前不支持**保留 IPv6 IP（其中 IPAllocationMethod = static）。
+* 基本负载均衡器的 IPv6 已锁定为动态 SKU。  标准负载均衡器的 IPv6 已锁定为静态 SKU。
 * 不支持 NAT64（将 IPv6 转换为 IPv4）。
 * 当前不支持将引用 IPv6 子网的辅助 NIC 附加到后端池  。
 

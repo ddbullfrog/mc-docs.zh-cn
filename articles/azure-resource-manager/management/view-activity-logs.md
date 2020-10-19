@@ -3,14 +3,15 @@ title: 查看 Azure 活动日志以监视资源
 description: 使用活动日志查看用户操作和错误。 显示 Azure 门户、PowerShell、Azure CLI 和 REST。
 ms.topic: conceptual
 origin.date: 05/13/2019
+author: rockboyfor
+ms.date: 10/12/2020
 ms.author: v-yeche
-ms.date: 01/06/2020
-ms.openlocfilehash: ad89a43e8c50d141a3a800b576653a6d4a0a400c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 728d2b11730989bc21234c586a98c9f1ee419420
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75631202"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936980"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>查看活动日志以监视对资源的操作
 
@@ -22,7 +23,7 @@ ms.locfileid: "75631202"
 * 操作的状态
 * 其他可能有助于研究操作的属性的值
 
-活动日志包含针对资源执行的所有写入操作（PUT、POST、DELETE）。 它不包含读取操作 (GET)。 有关资源操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)。 活动日志可用于在故障排除时查找错误，或用于监视组织内用户对资源的修改。
+活动日志包含针对资源执行的所有写入操作（PUT、POST、DELETE）。 它不包含读取操作 (GET)。 有关资源操作的列表，请参阅 [Azure 资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)。 活动日志可用于在故障排除时查找错误，或用于监视组织内用户对资源的修改。
 
 活动日志可存储 90 天。 可以查询任何日期范围，只要开始日期不早于过去 90 天。
 
@@ -34,7 +35,7 @@ ms.locfileid: "75631202"
 
 1. 在 Azure 门户菜单上，选择“监视”或在任何页面中搜索并选择“监视”   。
 
-    ![选择“监视”](./media/view-activity-logs/select-monitor-from-menu.png)
+    :::image type="content" source="./media/view-activity-logs/select-monitor-from-menu.png" alt-text="选择“监视”":::
 
 1. 选择“活动日志”  。
 
@@ -46,36 +47,36 @@ ms.locfileid: "75631202"
 
 1. 若要快速运行一组预定义的筛选器，请选择“快速见解”  。
 
-    ![选择“快速见解”](./media/view-activity-logs/select-quick-insights.png)
+    :::image type="content" source="./media/view-activity-logs/select-quick-insights.png" alt-text="选择“监视”":::
 
 1. 选择一个选项。 例如，选择“失败的部署”  以查看部署中的错误。
 
-    ![选择“失败的部署”](./media/view-activity-logs/select-failed-deployments.png)
+    :::image type="content" source="./media/view-activity-logs/select-failed-deployments.png" alt-text="选择“监视”":::
 
 1. 请注意，筛选器已更改为专注于过去 24 小时内的部署错误。 只显示与筛选器匹配的操作。
 
-    ![查看筛选器](./media/view-activity-logs/view-filters.png)
+    :::image type="content" source="./media/view-activity-logs/view-filters.png" alt-text="选择“监视”":::
 
 1. 若要专注于特定操作，请更改筛选器或应用新的筛选器。 例如，下图显示了“时间跨度”的新值，且“资源类型”设置为存储帐户   。
 
-    ![设置筛选器选项](./media/view-activity-logs/set-filter.png)
+    :::image type="content" source="./media/view-activity-logs/set-filter.png" alt-text="选择“监视”":::
 
 1. 如果稍后需要重新运行该查询，请选择“固定当前筛选器”  。
 
-    ![固定筛选器](./media/view-activity-logs/pin-filters.png)
+    :::image type="content" source="./media/view-activity-logs/pin-filters.png" alt-text="选择“监视”":::
 
 1. 为筛选器命名。
 
-    ![为筛选器命名](./media/view-activity-logs/name-filters.png)
+    :::image type="content" source="./media/view-activity-logs/name-filters.png" alt-text="选择“监视”":::
 
 1. 该筛选器将显示在仪表板中。 在 Azure 门户菜单上，选择“仪表板”  。
 
-    ![在仪表板上显示筛选器](./media/view-activity-logs/activity-log-on-dashboard.png)
+    :::image type="content" source="./media/view-activity-logs/activity-log-on-dashboard.png" alt-text="选择“监视”":::
 
 1. 在门户中，可以查看对资源的更改。 返回“监视”中的默认视图，并选择涉及更改资源的操作。
 
-    ![选择操作](./media/view-activity-logs/select-operation.png)
-
+    :::image type="content" source="./media/view-activity-logs/select-operation.png" alt-text="选择“监视”":::
+    
 <!--MOONCAKE: Not Available on **Change history (Preview)**-->
 ## <a name="powershell"></a>PowerShell
 
@@ -133,7 +134,7 @@ Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq
 
 ## <a name="azure-cli"></a>Azure CLI
 
-若要检索日志条目，请运行带有偏移量（用于指示时间跨度）的 [az monitor activity-log list](https://docs.azure.cn/cli/monitor/activity-log?view=azure-cli-latest#az-monitor-activity-log-list) 命令。
+若要检索日志条目，请运行带有偏移量（用于指示时间跨度）的 [az monitor activity-log list](https://docs.azure.cn/cli/monitor/activity-log#az_monitor_activity_log_list) 命令。
 
 ```azurecli
 az monitor activity-log list --resource-group ExampleGroup --offset 7d
@@ -184,12 +185,12 @@ az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationNam
 ## <a name="next-steps"></a>后续步骤
 
 * Azure 活动日志可以与 Power BI 一起使用，以便更深入地了解在订阅中执行的操作。 请参阅 [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)（在 Power BI 和其他组件中查看和分析 Azure 活动日志）。
-* 若要了解如何设置安全策略，请参阅 [Azure 基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)。
+* 若要了解如何设置安全策略，请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)。
     
     <!--Not Available on * To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../azure-monitor/app/change-analysis.md)-->
     
 * 若要了解查看部署操作的命令，请参阅[查看部署操作](../templates/deployment-history.md)。
 * 若要了解如何防止对所有用户的资源执行删除操作，请参阅[使用 Azure 资源管理器锁定资源](lock-resources.md)。
-* 若要查看可用于每个 Azure 资源管理器提供程序的操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)
+* 若要查看可用于每个 Azure 资源管理器提供程序的操作的列表，请参阅 [Azure 资源提供程序操作](../../role-based-access-control/resource-provider-operations.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

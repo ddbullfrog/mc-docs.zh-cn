@@ -4,14 +4,14 @@ description: 本文介绍如何在 Azure 自动化中管理 Runbook。
 services: automation
 ms.subservice: process-automation
 origin.date: 06/10/2020
-ms.date: 08/10/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: db246343baaa6e37d5747ed207c7177c928a25a4
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: ff10e05b74f819ad2d4616ad180dc99131c8b6fc
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788348"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943487"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>在 Azure 自动化中管理 Runbook
 
@@ -261,7 +261,7 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 
 单击磁贴可显示“作业”页面，其中有所执行的全部作业的汇总列表。 该页面会显示每项作业的状态、Runbook 名称、开始时间和完成时间。
 
-![自动化帐户作业页](./media/manage-runbooks/automation-account-jobs-status-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="“作业”页的屏幕截图。":::
 
 可选择“筛选作业”来筛选作业的列表。 根据特定 Runbook、作业状态或从下拉列表中选择的内容进行筛选，并提供搜索的时间范围。
 
@@ -269,7 +269,7 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 
 或者，可从自动化帐户中的 Runbook 页面上选择特定的 Runbook，然后选择“作业”来查看该 Runbook 的作业摘要详情。 该操作会显示“作业”页面。 你可在这里单击作业记录，查看它的详细信息和输出内容。
 
-![自动化帐户作业页](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="“作业”页的屏幕截图。":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>使用 PowerShell 检索作业状态
 

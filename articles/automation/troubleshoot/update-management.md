@@ -2,16 +2,16 @@
 title: 排查 Azure 自动化更新管理问题
 description: 本文介绍如何排查和解决 Azure 自动化更新管理的问题。
 services: automation
-origin.date: 06/30/2020
-ms.date: 09/07/2020
+origin.date: 09/25/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 742e4d0a4b02dc4cdd068cc89bf95339054b60d9
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 87a61236901bf85cf416423bad3e683a3d320d0f
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462796"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943514"
 ---
 # <a name="troubleshoot-update-management-issues"></a>排查“更新管理”问题
 
@@ -63,9 +63,9 @@ Error details: Failed to enable the Update solution
 
 1. 在自动化帐户中，选择“更新管理”来查看计算机的状态。 请参阅[查看更新评估](../update-management/update-mgmt-view-update-assessments.md)。
 
-2. 检查被取代的更新，确保其 100% 不适用。 
+2. 检查被取代的更新，确保其 100% 不适用。
 
-3. 请将该更新标记为“已拒绝”，除非对更新有疑问。 
+3. 请将该更新标记为“已拒绝”，除非对更新有疑问。
 
 4. 选择“计算机”，然后在“合规性”列中，强制执行重新扫描，以检查合规性 。 请参阅[管理 VM 的更新](../update-management/update-mgmt-manage-updates-for-vm.md)。
 
@@ -110,9 +110,9 @@ Error details: Failed to enable the Update solution
    | summarize by Computer, Solutions
    ```
 
-4. 如果查询结果中未显示计算机，则表示该计算机最近尚未签入。 可能存在本地配置问题，因此应该[重新安装代理](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)。 
+4. 如果查询结果中未显示计算机，则表示该计算机最近尚未签入。 可能存在本地配置问题，因此应该[重新安装代理](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)。
 
-5. 如果查询结果中显示了计算机，请检查作用域配置问题。 [作用域配置](../update-management/update-mgmt-scope-configuration.md)决定为更新管理配置哪些计算机。 
+5. 如果查询结果中显示了计算机，请检查作用域配置问题。 [作用域配置](../update-management/update-mgmt-scope-configuration.md)决定为更新管理配置哪些计算机。
 
 6. 如果工作区中显示了计算机，但更新管理中未显示，则必须将作用域配置配置为面向计算机。 若要了解如何执行此操作，请参阅[在工作区中启用计算机](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace)。
 
@@ -178,7 +178,7 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 1. 在 [Azure 门户](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)中，访问 Azure 服务列表。
 
-2. 在“常规”服务组中，依次选择“所有服务”和“订阅” 。 
+2. 在“常规”服务组中，依次选择“所有服务”和“订阅” 。
 
 3. 查找部署作用域中定义的订阅。
 
@@ -249,7 +249,7 @@ Azure 门户仅显示你在给定作用域内具有写入访问权限的计算�
     | project id, location, name, tags
     ```
 
-2. 查看查询结果中是否列出了你要查找的计算机。 
+2. 查看查询结果中是否列出了你要查找的计算机。
 
 3. 如果未列出所需计算机，动态组中所选的筛选器可能存在问题。 根据需要调整组配置。
 
@@ -323,7 +323,7 @@ Update
 
 3. 运行 `Restart-Service HealthService` 重新启动运行状况服务。 此操作将重新创建密钥并生成新的 UUID。
 
-4. 如果此方法不起作用，请先在映像上运行 sysprep，然后安装 MMA。
+4. 如果这种方法不起作用，请先对映像运行 sysprep，然后安装适用于 Windows 的 Log Analytics 代理。
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>场景：在为另一个 Azure 租户中的计算机创建更新部署时收到链接订阅错误
 
@@ -341,7 +341,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 ### <a name="resolution"></a>解决方法
 
-使用以下解决方法来安排这些项。 可以将 [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) cmdlet 与 `ForUpdateConfiguration` 参数一起使用来创建计划。 然后，使用 [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet，并将另一个租户中的计算机传递给 `NonAzureComputer` 参数。 以下示例介绍如何执行此操作：
+使用以下解决方法来安排这些项。 可以将 [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule) cmdlet 与 `ForUpdateConfiguration` 参数一起使用来创建计划。 然后，使用 [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) cmdlet，并将另一个租户中的计算机传递给 `NonAzureComputer` 参数。 以下示例介绍如何执行此操作：
 
 ```azurepowershell
 $nonAzurecomputers = @("server-01", "server-02")
@@ -384,24 +384,15 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 * 计算机不再存在。
 * 计算机已关闭且无法访问。
 * 计算机存在网络连接问题，因此无法访问计算机上的混合辅助角色。
-* 某个 MMA 更新更改了源计算机的 ID。
+* 对 Log Analytics 代理的某项更新更改了源计算机 ID。
 * 如果在自动化帐户中达到了 200 个并发作业的限制，则更新运行会受到限制。 每个部署均视为一项作业，更新部署中的每台计算机均计为一个作业。 自动化帐户中当前运行的其他任何自动化作业或更新部署均计入并发作业，受其数量限制的约束。
 
 ### <a name="resolution"></a>解决方法
 
 如果适用，请为更新部署使用[动态组](../update-management/update-mgmt-groups.md)。 此外，可以执行以下步骤。
 
-1. 确认计算机仍然存在并且可以访问。 
-2. 如果计算机不存在，请编辑部署并删除该计算机。
-3. 请参阅[网络规划](../update-management/update-mgmt-overview.md#ports)部分，以获取更新管理所需的端口和地址的列表，然后确认计算机符合这些要求。
-4. 使用混合 Runbook 辅助角色代理故障排除程序验证与混合 Runbook 辅助角色的连接。 若要了解有关故障排除程序的详细信息，请参阅[排查更新代理问题](update-agent-issues.md)。
-5. 在 Log Analytics 中运行以下查询，以在环境中查找更改了源计算机 ID 的计算机。 查找 `Computer` 值相同但 `SourceComputerId` 值不同的计算机。
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. 找到受影响的计算机后，编辑面向这些计算机的更新部署，然后将其删除并重新添加，以便 `SourceComputerId` 反映正确的值。
+1. 验证计算机或服务器是否满足[要求](../update-management/update-mgmt-overview.md#client-requirements)。
+2. 使用混合 Runbook 辅助角色代理故障排除程序验证与混合 Runbook 辅助角色的连接。 若要了解有关故障排除程序的详细信息，请参阅[排查更新代理问题](update-agent-issues.md)。
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>场景：在没有部署的情况下安装更新
 
@@ -464,7 +455,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### <a name="cause"></a>原因
 
-可能是因为代理、网关或防火墙阻止了网络通信。 
+可能是因为代理、网关或防火墙阻止了网络通信。
 
 ### <a name="resolution"></a>解决方法
 

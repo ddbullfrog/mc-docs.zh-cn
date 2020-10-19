@@ -3,15 +3,15 @@ title: 在 Azure 自动化中执行 Runbook
 description: 本文概述如何在 Azure 自动化中处理 runbook。
 services: automation
 ms.subservice: process-automation
-origin.date: 04/04/2019
-ms.date: 08/10/2020
+origin.date: 09/22/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: e776c604c66f518f47fc0d220d50679c6da4dfe1
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: 2316264a34d46fac89c7f86ee1e5665c0893a9e6
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788273"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943491"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -40,7 +40,7 @@ Azure 自动化中的 runbook 可以在 Azure 沙盒上运行，也可以在[混
 你也可以使用[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)直接在托管角色的计算机上运行 runbook，以及针对环境中的资源运行 runbook。 Azure 自动化存储并管理 runbook，然后将其发送到一个或多个分配的计算机。
 
 >[!NOTE]
->若要在 Linux 混合 Runbook 辅助角色上运行，必须对脚本进行签名并相应配置辅助角色。 或者，[必须关闭签名验证](automation-linux-hrw-install.md#turn-off-signature-validation)。 
+>若要在 Linux 混合 Runbook 辅助角色上运行，必须对脚本进行签名并相应配置辅助角色。 或者，[必须关闭签名验证](automation-linux-hrw-install.md#turn-off-signature-validation)。
 
 下表列出一些 runbook 执行任务，并为每个任务列出了建议的执行环境。
 
@@ -59,9 +59,15 @@ Azure 自动化中的 runbook 可以在 Azure 沙盒上运行，也可以在[混
 |运行需要提升的脚本|混合 Runbook 辅助角色|沙盒不允许提升。 借助混合 Runbook 辅助角色，可以在运行需要提升的命令时关闭 UAC 并使用 [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7)。|
 |运行需要访问 Windows Management Instrumentation (WMI) 的脚本|混合 Runbook 辅助角色|在云中的沙盒中运行的作业无法访问 WMI 提供程序。 |
 
+## <a name="temporary-storage-in-a-sandbox"></a>沙盒中的临时存储
+
+如果需要按照 runbook 逻辑来创建临时文件，则可将 Azure 沙盒中的 Temp 文件夹（即 `$env:TEMP`）用于 Azure 中运行的 runbook。 唯一的限制是不能使用超过 1 GB 的磁盘空间（每个沙盒的配额）。 使用 PowerShell 工作流时，这种情况可能会引发问题，因为 PowerShell 工作流使用检查点，脚本可能会在不同的沙盒中重试。
+
+使用混合沙盒，可以根据混合 Runbook 辅助角色上的存储可用性使用 `C:\temp`。 但是，根据 Azure VM 建议，不应在 Windows 或 Linux 上使用[临时磁盘](../virtual-machines/managed-disks-overview.md#temporary-disk)来存储需要持久保留的数据。
+
 ## <a name="resources"></a>资源
 
-Runbook 必须包含用于处理[资源](https://docs.microsoft.com/rest/api/resources/resources)（例如，VM、网络和网络上的资源）的逻辑。 资源绑定到 Azure 订阅，且 runbook 需要适当的凭据才能访问任何资源。 有关在 runbook 中处理资源的示例，请参阅[处理资源](manage-runbooks.md#handle-resources)。 
+Runbook 必须包含用于处理[资源](https://docs.microsoft.com/rest/api/resources/resources)（例如，VM、网络和网络上的资源）的逻辑。 资源绑定到 Azure 订阅，且 runbook 需要适当的凭据才能访问任何资源。 有关在 runbook 中处理资源的示例，请参阅[处理资源](manage-runbooks.md#handle-resources)。
 
 ## <a name="security"></a>安全性
 
@@ -79,14 +85,14 @@ Azure 自动化利用 [Azure Monitor](../azure-monitor/overview.md) 来监视其
 
 ### <a name="log-analytics-agent-for-windows"></a>适用于 Windows 的 Log Analytics 代理
 
-[适用于 Windows 的 Log Analytics 代理](../azure-monitor/platform/agent-windows.md)可与 Azure Monitor 配合使用，用于管理 Windows VM 和物理计算机。 这些计算机可以在 Azure 或非 Azure 环境（例如本地数据中心）中运行。 必须将代理配置为向一个或多个 Log Analytics 工作区报告。 
+[适用于 Windows 的 Log Analytics 代理](../azure-monitor/platform/agent-windows.md)可与 Azure Monitor 配合使用，用于管理 Windows VM 和物理计算机。 这些计算机可以在 Azure 或非 Azure 环境（例如本地数据中心）中运行。 必须将代理配置为向一个或多个 Log Analytics 工作区报告。
 
 >[!NOTE]
 >适用于 Windows 的 Log Analytics 代理之前称为 Microsoft Monitoring Agent (MMA)。
 
 ### <a name="log-analytics-agent-for-linux"></a>适用于 Linux 的 Log Analytics 代理
 
-[适用于 Linux 的 Log Analytics 代理](../azure-monitor/platform/agent-linux.md)与适用于 Windows 的代理工作原理类似，但它将 Linux 计算机连接到 Azure Monitor。 代理安装有 nxautomation 用户帐户，该帐户允许执行需要根权限的命令，例如在混合 Runbook 辅助角色上执行。 nxautomation 帐户是不需要密码的系统帐户。 
+[适用于 Linux 的 Log Analytics 代理](../azure-monitor/platform/agent-linux.md)与适用于 Windows 的代理工作原理类似，但它将 Linux 计算机连接到 Azure Monitor。 代理安装有 nxautomation 用户帐户，该帐户允许执行需要根权限的命令，例如在混合 Runbook 辅助角色上执行。 nxautomation 帐户是不需要密码的系统帐户。
 
 在[安装 Linux 混合 Runbook 辅助角色](automation-linux-hrw-install.md)期间，必须存在具有相应 sudo 权限的 nxautomation 帐户。 如果尝试安装辅助角色时该帐户不存在或帐户不具有相应权限，则安装将失败。
 
@@ -100,7 +106,7 @@ Log Analytics 代理和 nxautomation 帐户的可用日志如下：
 
 ## <a name="runbook-permissions"></a>Runbook 权限
 
-Runbook 需要通过凭据向 Azure 进行身份验证的权限。 请参阅[管理 Azure 自动化运行方式帐户](manage-runas-account.md)。 
+Runbook 需要通过凭据向 Azure 进行身份验证的权限。 请参阅[管理 Azure 自动化运行方式帐户](manage-runas-account.md)。
 
 ## <a name="modules"></a>模块
 
@@ -108,7 +114,7 @@ Azure 自动化支持多个默认模块，包括一些 AzureRM 模块 (AzureRM.A
 
 ## <a name="certificates"></a>证书
 
-Azure 自动化使用[证书](shared-resources/certificates.md)向 Azure 进行身份验证，或将其添加到 Azure 或第三方资源。 证书通过安全方式存储，以供 runbook 和 DSC 配置访问。 
+Azure 自动化使用[证书](shared-resources/certificates.md)向 Azure 进行身份验证，或将其添加到 Azure 或第三方资源。 证书通过安全方式存储，以供 runbook 和 DSC 配置访问。
 
 Runbook 可以使用未经证书颁发机构 (CA) 签名的自签名证书。 请参阅[创建新证书](shared-resources/certificates.md#create-a-new-certificate)。
 
@@ -116,10 +122,10 @@ Runbook 可以使用未经证书颁发机构 (CA) 签名的自签名证书。 �
 
 Azure 自动化支持从同一自动化帐户运行作业的环境。 一个 runbook 可以同时运行多个作业。 同时运行的作业越多，就越可能将其分派到同一个沙盒中。 
 
-在同一沙盒进程中运行的作业可能相互影响。 一个示例就是运行 [Disconnect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) cmdlet。 执行此 cmdlet 会断开共享沙盒进程中每个 runbook 作业的连接。 有关使用此方案的示例，请参阅[阻止并发作业](manage-runbooks.md#prevent-concurrent-jobs)。
+在同一沙盒进程中运行的作业可能相互影响。 一个示例就是运行 [Disconnect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount) cmdlet。 执行此 cmdlet 会断开共享沙盒进程中每个 runbook 作业的连接。 有关使用此方案的示例，请参阅[阻止并发作业](manage-runbooks.md#prevent-concurrent-jobs)。
 
 >[!NOTE]
->从 Azure 中运行的 runbook 启动的 PowerShell 作业可能无法在完整 [PowerShell 语言模式](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_language_modes)下运行。 
+>从 Azure 中运行的 runbook 启动的 PowerShell 作业可能无法在完整 [PowerShell 语言模式](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_language_modes)下运行。
 
 ### <a name="job-statuses"></a>作业状态
 
@@ -132,7 +138,7 @@ Azure 自动化支持从同一自动化帐户运行作业的环境。 一个 run
 | 失败，正在等待资源 |作业失败，因为它已达到[公平份额](#fair-share)限制三次，并且每次都从同一个检查点或 Runbook 开始处启动。 |
 | 已排队 |作业正在等待自动化辅助角色上的资源变得可用，以便其能够启动。 |
 | 正在恢复 |系统正在恢复已暂停的作业。 |
-| 正在运行 |作业正在运行。 |
+| 运行 |作业正在运行。 |
 | 正在运行，正在等待资源 |作业已卸载，因为它已达到公平份额限制。 片刻之后，它将从其上一个检查点恢复。 |
 | 正在启动 |作业已分配给辅助角色，并且系统正在将它启动。 |
 | 已停止 |作业在完成之前已被用户停止。 |
@@ -142,17 +148,17 @@ Azure 自动化支持从同一自动化帐户运行作业的环境。 一个 run
 
 ## <a name="activity-logging"></a>活动日志记录
 
-在 Azure 自动化中执行 runbook 会在自动化帐户的活动日志中写入详细信息。 有关如何使用日志的详细信息，请参阅[从活动日志中检索详细信息](manage-runbooks.md#retrieve-details-from-activity-log)。 
+在 Azure 自动化中执行 runbook 会在自动化帐户的活动日志中写入详细信息。 有关如何使用日志的详细信息，请参阅[从活动日志中检索详细信息](manage-runbooks.md#retrieve-details-from-activity-log)。
 
-## <a name="exceptions"></a>例外
+## <a name="exceptions"></a>异常
 
-本部分介绍在 runbook 中处理异常或间歇性问题的一些方法。 一个示例是 WebSocket 异常。 正确的异常处理可防止暂时性网络故障导致 runbook 失败。 
+本部分介绍在 runbook 中处理异常或间歇性问题的一些方法。 一个示例是 WebSocket 异常。 正确的异常处理可防止暂时性网络故障导致 runbook 失败。
 
 ### <a name="erroractionpreference"></a>ErrorActionPreference
 
 [ErrorActionPreference](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) 变量确定 PowerShell 如何响应非终止错误。 终止错误始终会终止，并且不受 `ErrorActionPreference` 影响。
 
-当 runbook 使用 `ErrorActionPreference` 时，通常发生的非终止错误（例如 [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) cmdlet 中的 `PathNotFound`）会阻止 runbook 完成。 以下示例演示如何使用 `ErrorActionPreference`。 由于脚本停止，最后的 [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) 命令从不执行。
+当 runbook 使用 `ErrorActionPreference` 时，通常发生的非终止错误（例如 [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem) cmdlet 中的 `PathNotFound`）会阻止 runbook 完成。 以下示例演示如何使用 `ErrorActionPreference`。 由于脚本停止，最后的 [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output) 命令从不执行。
 
 ```powershell
 $ErrorActionPreference = 'Stop'
@@ -210,7 +216,7 @@ Azure 沙盒中的 runbook 作业无法访问任何设备或应用程序特征�
 
 ## <a name="webhooks"></a>Webhook
 
-外部服务（例如，Azure DevOps Services 和 GitHub）可以在 Azure 自动化中启动 runbook。 为了执行这种类型的启动，服务通过单个 HTTP 请求使用 [Webhook](automation-webhooks.md)。 借助 Webhook，无需实现完整的 Azure 自动化功能即可启动 runbook。 
+外部服务（例如，Azure DevOps Services 和 GitHub）可以在 Azure 自动化中启动 runbook。 为了执行这种类型的启动，服务通过单个 HTTP 请求使用 [Webhook](automation-webhooks.md)。 借助 Webhook，无需实现完整的 Azure 自动化功能即可启动 runbook。
 
 ## <a name="shared-resources"></a><a name="fair-share"></a>共享资源
 
@@ -218,13 +224,13 @@ Azure 沙盒中的 runbook 作业无法访问任何设备或应用程序特征�
 
 对于长时间运行的 Azure 自动化任务，建议使用混合 Runbook 辅助角色。 混合 Runbook 辅助角色不受公平份额限制，并且不会限制 runbook 的执行时间。 其他作业[限制](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)适用于 Azure 沙盒和混合 Runbook 辅助角色。 虽然混合 Runbook 辅助角色不受 3 小时公平份额限制的限制，但仍应开发在辅助角色上运行的 runbook，以便在出现意外的本地基础结构问题时支持重启。
 
-另一种选择是通过使用子 runbook 来优化 runbook。 例如，runbook 可能会在多个资源上循环访问同一函数（例如，对多个数据库执行某个数据库操作）。 可将此函数移至[子 runbook](automation-child-runbooks.md)，并让 runbook 使用 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) 对其进行调用。 子 runbook 在单独的进程中并行执行。
+另一种选择是通过使用子 runbook 来优化 runbook。 例如，runbook 可能会在多个资源上循环访问同一函数（例如，对多个数据库执行某个数据库操作）。 可将此函数移至[子 runbook](automation-child-runbooks.md)，并让 runbook 使用 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook) 对其进行调用。 子 runbook 在单独的进程中并行执行。
 
-使用子 runbook 可减少完成父 runbook 所需的时间总量。 Runbook 可以使用 [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) cmdlet 检查子 runbook 的作业状态（如果其在子 runbook 完成后仍有更多操作需要执行）。
+使用子 runbook 可减少完成父 runbook 所需的时间总量。 Runbook 可以使用 [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjob) cmdlet 检查子 runbook 的作业状态（如果其在子 runbook 完成后仍有更多操作需要执行）。
 
 ## <a name="next-steps"></a>后续步骤
 
 * 若要开始使用 PowerShell Runbook，请参阅[教程：创建 PowerShell Runbook](learn/automation-tutorial-runbook-textual-powershell.md)。
 * 若要使用 Runbook，请参阅[在 Azure 自动化中管理 Runbook](manage-runbooks.md)。
 * 有关 PowerShell 的详细信息，请参阅 [PowerShell 文档](https://docs.microsoft.com/powershell/scripting/overview)。
-* * 有关 PowerShell cmdlet 参考，请参阅 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)。
+* * 有关 PowerShell cmdlet 参考，请参阅 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation#automation)。

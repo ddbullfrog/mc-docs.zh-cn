@@ -4,18 +4,18 @@ description: 了解如何使用 IntelliJ IDEA 创建第一个 Azure 资源管理
 ms.devlang: java
 origin.date: 08/01/2019
 author: rockboyfor
-ms.date: 08/24/2020
-ms.testscope: yes
+ms.date: 10/12/2020
+ms.testscope: yes|no
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: c7e75423a4db5c54718ebac83f4708e65f6ff287
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 5a77b86f607dcb85279555bdbf949c126ef92b6d
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807920"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937553"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>使用 IntelliJ IDEA 创建和部署 ARM 模板
 
@@ -46,35 +46,35 @@ ms.locfileid: "88807920"
 
 1. 如果你已正确安装 Azure 工具包并已登录，IntelliJ IDEA 的侧栏中应会显示 Azure 资源管理器。 右键单击“资源管理”并选择“创建部署”。  
 
-    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-create-deployment-right-click.png" alt-text="资源管理器模板 - 右键单击以创建部署":::
+    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-create-deployment-right-click.png" alt-text="资源管理器模板门户关系图":::
 
 1. 配置“部署名称”、“订阅”、“资源组”和“区域”。     此处，我们要将模板部署到新资源组 `testRG`。 然后，选择 `azuredeploy.json` 作为**资源模板**的路径，并选择下载的 `azuredeploy.parameters.json` 作为**资源参数**。
 
-    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-create-deployment-select-files.png" alt-text="资源管理器模板 - 选择用于创建部署的文件":::
+    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-create-deployment-select-files.png" alt-text="资源管理器模板门户关系图":::
 
 1. 单击“确定”后，将启动部署。 在部署完成之前，可以在底部的 IntelliJ IDEA **状态栏**中查看进度。
 
-    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-create-deployment-status.png" alt-text="资源管理器模板部署状态":::
+    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-create-deployment-status.png" alt-text="资源管理器模板门户关系图":::
 
 ## <a name="browse-an-existing-deployment"></a>浏览现有部署
 
 1. 部署完成后，可以看到新资源组 `testRG` 以及新建的部署。 右键单击该部署可以看到可能的操作列表。 现在请选择“显示属性”。 
 
-    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-deployment-browse.png" alt-text="资源管理器模板 - 浏览部署":::
+    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-deployment-browse.png" alt-text="资源管理器模板门户关系图":::
 
 1. 此时会打开一个选项卡视图，其中显示了一些有用的属性，例如部署状态和模板结构。
 
-    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-deployment-show-properties.png" alt-text="资源管理器模板 - 显示部署属性":::
+    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-deployment-show-properties.png" alt-text="资源管理器模板门户关系图":::
 
 ## <a name="edit-and-update-an-existing-deployment"></a>编辑和更新现有部署
 
 1. 从右键单击菜单或前面所示的“显示属性”视图中选择“编辑部署”。  此时会打开另一个选项卡视图，其中显示了 Azure 上的部署的模板和参数文件。 若要将这些文件保存到本地，可以单击“导出模板文件”或“导出参数文件”。  
 
-    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-edit-deployment.png" alt-text="资源管理器模板 - 编辑部署":::
+    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-edit-deployment.png" alt-text="资源管理器模板门户关系图":::
 
 1. 可在此页上编辑这两个文件，并将更改部署到 Azure。 此处，我们将参数文件中 **storageAccountType** 的值从 `Standard_LRS` 更改为 `Standard_GRS`。 然后，单击底部的“更新部署”并确认更新。 
 
-    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png" alt-text="资源管理器模板 - 编辑部署":::
+    :::image type="content" source="./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png" alt-text="资源管理器模板门户关系图":::
 
 1. 完成更新部署后，可在门户中检查创建的存储帐户是否已更改为 `Standard_GRS`。
 
@@ -82,7 +82,7 @@ ms.locfileid: "88807920"
 
 1. 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。 可在 Azure 门户或 Azure CLI 中执行此操作。 在 IntelliJ IDEA 的 Azure 资源管理器中，右键单击创建的**资源组**并选择“删除”。
 
-    :::image type="content" source="./media/create-templates-use-intellij/delete-resource-group.png" alt-text="从 IntelliJ IDEA 的 Azure 资源管理器中删除资源组":::
+    :::image type="content" source="./media/create-templates-use-intellij/delete-resource-group.png" alt-text="资源管理器模板门户关系图":::
 
 > [!NOTE]
 > 请注意，删除某个部署不会删除该部署创建的资源。 如果不再需要相应的资源组或特定资源，请将其删除。

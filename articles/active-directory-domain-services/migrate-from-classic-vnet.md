@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: 2fa609de12869e28efcbd88b04dd5d7f5cd69899
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: ad7bd93165a59304807865f3cecb2f85bd40f3e8
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715297"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937045"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>将 Azure Active Directory 域服务从经典虚拟网络模型迁移到资源管理器
 
@@ -139,6 +139,14 @@ Azure AD DS 通常使用地址范围内的前两个可用 IP 地址，但不是�
 
 有关虚拟网络要求的详细信息，请参阅[虚拟网络设计注意事项和配置选项][network-considerations]。
 
+还必须创建网络安全组，以限制托管域的虚拟网络中的流量。 在迁移过程中会创建一个要求实施这些规则的 Azure 标准负载均衡器。 此网络安全组会保护 Azure AD DS，是托管域正常运行所需的。
+
+若要详细了解哪些规则是必需的，请参阅 [Azure AD DS 网络安全组和所需端口](network-considerations.md#network-security-groups-and-required-ports)。
+
+### <a name="ldaps-and-tlsssl-certificate-expiration"></a>LDAPS 和 TLS/SSL 证书过期
+
+如果为 LDAPS 配置了托管域，请确认当前的 TLS/SSL 证书的有效期是否超过 30 天。 在接下来的 30 天内过期的证书会导致迁移过程失败。 如果需要，请续订证书，并将其应用于托管域，然后开始迁移过程。
+
 ## <a name="migration-steps"></a>迁移步骤
 
 迁移到资源管理器部署模型和虚拟网络的过程可拆分为 5 个主要步骤：
@@ -166,7 +174,9 @@ Azure AD DS 通常使用地址范围内的前两个可用 IP 地址，但不是�
 
     请确保网络设置不会阻止 Azure AD DS 所需的端口。 必须在经典虚拟网络和资源管理器虚拟网络上打开端口。 这些设置包括路由表（虽然不建议使用路由表）和网络安全组。
 
-    若要查看必需的端口，请参阅[网络安全组和必需端口][network-ports]。 若要最大程度地减少网络通信问题，建议在迁移成功完成后先等待一下，然后再为资源管理器虚拟网络应用网络安全组或路由表。
+    Azure AD DS 需要使用网络安全组来保护托管域所需的端口，阻止所有其他的传入流量。 此网络安全组充当一个额外的保护层，用于锁定对托管域的访问。 若要查看必需的端口，请参阅[网络安全组和必需端口][network-ports]。
+
+    如果使用安全 LDAP，请向网络安全组添加规则，以允许 TCP 端口 636 的传入流量。 有关详细信息，请参阅[通过 Internet 锁定安全 LDAP 访问](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 
     请记下此目标资源组、目标虚拟网络和目标虚拟网络子网。 在迁移过程中将使用这些资源名称。
 
@@ -295,13 +305,6 @@ Azure AD DS 公开了审核日志，方便用户排查和查看域控制器上�
 1. 如果向 Internet 公开了某个 VM，请查看你是否使用了攻击者进行登录尝试时通常会使用的常规帐户名称，例如 administrator、user 或 guest。 请尽可能更新这些 VM，以使用具有不常用名称的帐户。
 1. 使用 VM 上的网络跟踪来查找攻击源，阻止这些 IP 地址进行登录尝试。
 1. 尽量减少锁定问题后，根据需要更新细化的密码策略，使其尽量严格。
-
-### <a name="creating-a-network-security-group"></a>创建网络安全组
-
-Azure AD DS 需要使用网络安全组来保护托管域所需的端口，阻止所有其他的传入流量。 此网络安全组充当一层额外的保护措施，用于锁定对托管域的访问，但它不会自动创建。 若要创建网络安全组并打开所需的端口，请查看以下步骤：
-
-1. 在 Azure 门户中选择你的 Azure AD DS 资源。 在概览页上，如果没有任何与 Azure AD 域服务相关联的项，则会显示一个用于创建网络安全组的按钮。
-1. 如果使用安全 LDAP，请向网络安全组添加规则，以允许 TCP 端口 636 的传入流量。 有关详细信息，请参阅[配置安全 LDAP][secure-ldap]。
 
 ## <a name="roll-back-and-restore-from-migration"></a>从迁移回退和还原
 

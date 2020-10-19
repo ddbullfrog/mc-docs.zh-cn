@@ -11,12 +11,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 02/10/2020
 ms.date: 03/09/2020
 ms.author: v-yiso
-ms.openlocfilehash: a93673f87170fc2dd1ce88be6ab9254a38472e13
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 75cd321ba74d3be1390e87a943c53a05a5530814
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78155368"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937333"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>在 Azure 机器学习中使用 IoT 中心的传感器数据进行天气预报
 
@@ -47,6 +47,10 @@ ms.locfileid: "78155368"
   - 已在订阅中创建一个 Azure IoT 中心。
   - 一个可向 Azure IoT 中心发送消息的客户端应用程序。
 - 一个 [Azure 机器学习工作室（经典版）](https://studio.azureml.net/)帐户。
+- 一个 [Azure 存储帐户](https://docs.azure.cn/storage/common/storage-account-overview?toc=/storage/blobs/toc.json#types-of-storage-accounts)。常规用途 v2 帐户是首选，但任何支持 Azure Blob 存储的 Azure 存储帐户也可以使用。
+
+> [!Note]
+> 本文使用 Azure 流分析和多个其他付费服务。 当必须在 Azure 区域之间传输数据时，Azure 流分析会产生额外的费用。 出于此原因，最好确保资源组、IoT 中心和 Azure 存储帐户以及本教程后面添加的机器学习工作室（经典）工作区和 Azure 流分析作业均位于同一 Azure 区域中。 可以在[“Azure 产品可用性(按区域)”页](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all)上查看对 Azure 机器学习工作室和其他 Azure 服务的区域支持。
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>将天气预测模型部署为 Web 服务
 
@@ -60,7 +64,7 @@ ms.locfileid: "78155368"
 
    ![打开 Azure AI 库中的天气预测模型页](media/iot-hub-weather-forecast-machine-learning/weather-prediction-model-in-azure-ai-gallery.png)
 
-1. 单击“在工作室(经典版)中打开”，以便在 Microsoft Azure 机器学习工作室（经典版）中打开该模型。 
+1. 选择“在工作室(经典版)中打开”，以便在 Microsoft Azure 机器学习工作室（经典版）中打开该模型。 在“从库中复制试验”弹出窗口中，选择一个靠近 IoT 中心的区域和相应的工作区。
 
    ![在 Azure 机器学习工作室（经典版）中打开天气预测模型](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
 
@@ -68,15 +72,15 @@ ms.locfileid: "78155368"
 
 若要使模型正常运行，温度和湿度数据必须可转换为数字数据。 在本部分，你将在天气预测模型中添加一个 R 脚本模块，用于删除所有包含无法转换为数字值的温度或湿度数据值的行。
 
-1. 在 Azure 机器学习工作室窗口的左侧，单击箭头展开“工具”面板。 在搜索框中输入“执行”。 选择“执行 R 脚本”模块。 
+1. 在 Azure 机器学习工作室窗口的左侧，选择用于展开工具面板的箭头。 在搜索框中输入“执行”。 选择“执行 R 脚本”模块。
 
    ![选择“执行 R 脚本”模块](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
-1. 将“清理缺失数据”模块旁边的“执行 R 脚本”模块以及现有的“执行 R 脚本”模块拖到图中。    删除“清理缺失数据”与“执行 R 脚本”模块之间的连接，然后如下所示连接新模块的输入和输出。  
+1. 将“清理缺失数据”模块旁边的“执行 R 脚本”模块以及现有的“执行 R 脚本”模块拖到图中。   删除“清理缺失数据”与“执行 R 脚本”模块之间的连接，然后如下所示连接新模块的输入和输出。 
 
    ![添加“执行 R 脚本”模块](media/iot-hub-weather-forecast-machine-learning/add-r-script-module.png)
 
-1. 选择新的“执行 R 脚本”模块打开其“属性”窗口。  将以下代码复制并粘贴到“R 脚本”框中。 
+1. 选择新的“执行 R 脚本”模块打开其“属性”窗口。 将以下代码复制并粘贴到“R 脚本”框中。
 
    ```r
    # Map 1-based optional input ports to variables
@@ -99,30 +103,30 @@ ms.locfileid: "78155368"
 
 在本部分，你将验证模型，根据该模型设置预测 Web 服务，然后部署该 Web 服务。
 
-1. 单击“运行”  以验证模型中的步骤。 此步骤可能需要几分钟才能完成。
+1. 选择“运行”以验证模型中的步骤。 此步骤可能需要几分钟才能完成。
 
    ![运行试验以验证步骤](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
 
-1. 单击“设置 WEB 服务”   > “预测 Web 服务”  。 预测试验图随即打开。
+1. 选择“设置 WEB 服务” > “预测 Web 服务”。 预测试验图随即打开。
 
    ![在 Azure 机器学习工作室（经典版）中部署天气预测模型](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
-1. 在预测试验图中，删除“Web 服务输入”模块与顶部“天气数据集”之间的连接。   然后将“Web 服务输入”模块拖到“评分模型”模块附近的某个位置，并连接该输入模块，如下所示：  
+1. 在预测试验图中，删除“Web 服务输入”模块与顶部“选择数据集中的列”之间的连接。  然后将“Web 服务输入”模块拖到“评分模型”模块附近的某个位置，并连接该输入模块，如下所示： 
 
-   ![在 Azure 机器学习工作室（经典版）中连接两个模块](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+   ![在 Azure 机器学习工作室（经典版）中连接两个模块](media/iot-hub-weather-forecast-machine-learning/connect-modules-azure-machine-learning-studio.png)
 
-1. 单击“运行”  以验证模型中的步骤。
+1. 选择“运行”以验证模型中的步骤。
 
-1. 单击“部署 WEB 服务”  以将模型部署为 Web 服务。
+1. 选择“部署 WEB 服务”以将模型部署为 Web 服务。
 
-1. 在模型的仪表板上，下载“Excel 2010 或更早版本的工作簿”  用于“请求/响应”  。
+1. 在模型的仪表板上，下载“Excel 2010 或更早版本的工作簿”**** 用于“请求/响应”****。
 
    > [!Note]
    > 即使在计算机上运行更高版本的 Excel，也请确保下载 **Excel 2010 或更低版本的工作簿**。
 
    ![为请求响应终结点下载 Excel](media/iot-hub-weather-forecast-machine-learning/download-workbook.png)
 
-1. 打开 Excel 工作簿，记下“WEB 服务 URL”  和“访问密钥”  。
+1. 打开 Excel 工作簿，记下“WEB 服务 URL”**** 和“访问密钥”****。
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
@@ -130,78 +134,82 @@ ms.locfileid: "78155368"
 
 ### <a name="create-a-stream-analytics-job"></a>创建流分析作业
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“创建资源”   > “物联网”   > “流分析作业”  。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“创建资源”。 在“搜索”框中键入“流分析作业”，然后从“结果”下拉列表中选择“流分析作业”。 当“流分析作业”窗格打开时，选择“创建”。
 1. 为作业输入以下信息。
 
    **作业名称**：作业的名称。 该名称必须全局唯一。
+
+   **订阅**：选择你的订阅（如果它不同于默认订阅）。
 
    **资源组**：使用 IoT 中心所用的同一资源组。
 
    **位置**：与资源组使用同一位置。
 
-   **固定仪表板**：选中此选项可以方便地从仪表板访问 IoT 中心。
+   将所有其他字段保留为默认值。
 
-   ![在 Azure 中创建流分析作业](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
+   ![在 Azure 中创建流分析作业](media/iot-hub-weather-forecast-machine-learning/create-stream-analytics-job.png)
 
-1. 单击“创建”。 
+1. 选择“创建” 。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>将输入添加到流分析作业
 
 1. 打开流分析作业。
-1. 在“作业拓扑”下  ，单击“输入”  。
-1. 在“输入”  窗格中单击“添加”  ，并输入以下信息：
+1. 在“作业拓扑”下选择“输入”。
+1. 在“输入”窗格中，选择“添加流输入”，然后从下拉列表中选择“IoT 中心”。 在“新建输入”窗格上，选择“从订阅选择 IoT 中心”，然后输入以下信息：
 
    **输入别名**：输入的唯一别名。
 
-   **源**：选择“IoT 中心”  。
+   **订阅**：选择你的订阅（如果它不同于默认订阅）。
+
+   **IoT 中心**：从订阅选择 IoT 中心。
+
+   **共享访问策略名称**：选择“service”。 （也可以使用“iothubowner”。）
 
    **使用者组**：选择你创建的使用者组。
 
-   ![向 Azure 中的流分析作业添加输入](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
+   将所有其他字段保留为默认值。
 
-1. 单击“创建”。 
+   ![向 Azure 中的流分析作业添加输入](media/iot-hub-weather-forecast-machine-learning/add-input-stream-analytics-job.png)
+
+1. 选择“保存”。 
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>将输出添加到流分析作业
 
-1. 在“作业拓扑”下  ，单击“输出”  。
-1. 在“输出”  窗格中单击“添加”  ，并输入以下信息：
+1. 在“作业拓扑”下选择“输出”。
+1. 在“输出”窗格中，选择“添加”，然后从下拉列表中选择“Blob 存储/Data Lake Storage”。 在“新建输出”窗格上，选择“从订阅选择存储”，然后输入以下信息：
 
    **输出别名**：输出的唯一别名。
 
-   **接收器**：选择“Blob 存储”  。
+   **订阅**：选择你的订阅（如果它不同于默认订阅）。
 
    **存储帐户**：Blob 存储的存储帐户。 可以创建一个存储帐户或使用现有存储帐户。
 
    **容器**：保存 Blob 的容器。 可以创建一个容器或使用现有容器。
 
-   **事件序列化格式**：选择“CSV”  。
+   **事件序列化格式**：选择“CSV”****。
 
-   ![向 Azure 中的流分析作业添加输出](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
+   ![向 Azure 中的流分析作业添加输出](media/iot-hub-weather-forecast-machine-learning/add-output-stream-analytics-job.png)
 
-1. 单击“创建”。 
+1. 选择“保存”。 
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>向流分析作业添加函数以调用你部署的 Web 服务
 
-1. 在“作业拓扑”  下，单击“函数”   > “添加”  。
-1. 输入以下信息：
+1. 在“作业拓扑”下选择“Functions”。 
+1. 在“Functions”窗格中，选择“添加”，然后从下拉列表中选择“Azure 机器学习工作室”。 （请确保选择“Azure 机器学习工作室”，而不是“Azure 机器学习服务”。）在“新建函数”窗格上，选择“手动提供 Azure 机器学习函数设置”并输入以下信息：
 
    **函数别名**：输入 `machinelearning`。
-
-   **函数类型**：选择“Azure ML”  。
-
-   **导入选项**：选择“从其他订阅导入”  。
 
    **URL**：输入从 Excel 工作簿记下的 WEB 服务 URL。
 
    **密钥**：输入从 Excel 工作簿记下的访问密钥。
 
-   ![向 Azure 中的流分析作业添加函数](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
+   ![向 Azure 中的流分析作业添加函数](media/iot-hub-weather-forecast-machine-learning/add-function-stream-analytics-job.png)
 
-1. 单击“创建”。 
+1. 选择“保存”。 
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>配置流分析作业的查询
 
-1. 在“作业拓扑”下  ，单击“查询”  。
+1. 在“作业拓扑”下选择“查询”。
 1. 将现有代码替换为以下代码：
 
    ```sql
@@ -217,13 +225,16 @@ ms.locfileid: "78155368"
 
    将 `[YourOutputAlias]` 替换为作业的输出别名。
 
-1. 单击“保存”  。
+1. 选择“保存查询”。
+
+> [!Note]
+> 如果选择“测试查询”，则会看到以下消息：“不支持使用机器学习函数进行查询测试。 请修改查询，然后重试。” 你可以放心地忽略此消息，选择“确定”关闭该消息框。 请确保在继续下一部分的操作之前保存查询。
 
 ### <a name="run-the-stream-analytics-job"></a>运行流分析作业
 
-在流分析作业中，单击“启动”   > “现在”   >   “启动”。 成功启动作业后，作业状态将从“已停止”  更改为“正在运行”  。
+在流分析作业中，选择左窗格中的“概览”。 然后选择“启动” > “立即” > “启动”。 成功启动作业后，作业状态将从“已停止”  更改为“正在运行”  。
 
-![运行流分析作业](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![运行流分析作业](media/iot-hub-weather-forecast-machine-learning/run-stream-analytics-job.png)
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>使用 Microsoft Azure 存储资源管理器查看天气预报
 
@@ -233,7 +244,7 @@ ms.locfileid: "78155368"
 1. 打开 Azure 存储资源管理器。
 1. 登录 Azure 帐户。
 1. 选择订阅。
-1. 单击 Azure 订阅 >“存储帐户”  > 存储帐户 >“ Blob 容器”  > 容器。
+1. 选择你的订阅 >“存储帐户”> 你的存储帐户 >“Blob 容器”> 你的容器。
 1. 下载一个 .csv 文件以查看结果。 最后一列记录下雨的可能性。
 
    ![使用 Azure 机器学习获取天气预报结果](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)

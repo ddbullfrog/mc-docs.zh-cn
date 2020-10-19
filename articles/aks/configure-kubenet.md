@@ -5,17 +5,17 @@ services: container-service
 ms.topic: article
 origin.date: 06/02/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 287e54ad5ac187507a8879dfd5c55dfc2a8bba0f
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 882d1817762fad2c93699343bdd136d4b79c5eb8
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146784"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937271"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中结合自己的 IP 地址范围使用 kubenet 网络
 
@@ -170,7 +170,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Co
 
 在创建群集的过程中还定义了以下 IP 地址范围：
 
-* *--service-cidr* 用于为 AKS 群集中的内部服务分配 IP 地址。 此 IP 地址范围应该是未在网络环境中的其他位置使用的地址空间。 如果你需要或者打算使用 Express Route 或站点到站点 VPN 连接来连接 Azure 虚拟网络，则此范围可包括任何本地网络范围。
+* *--service-cidr* 用于为 AKS 群集中的内部服务分配 IP 地址。 此 IP 地址范围应为未在网络环境中的其他位置使用的地址空间，包括任何本地网络范围（如果你使用 Express Route 或站点到站点 VPN 连接来连接或计划连接到 Azure 虚拟网络）。
 
 * *--dns-service-ip* 地址应该是服务 IP 地址范围的 *.10* 地址。
 
@@ -269,12 +269,12 @@ az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [aks-network-concepts]: concepts-network.md
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-network-vnet-create]: https://docs.azure.cn/cli/network/vnet#az-network-vnet-create
-[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az-ad-sp-create-for-rbac
-[az-network-vnet-show]: https://docs.azure.cn/cli/network/vnet#az-network-vnet-show
-[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet#az-network-vnet-subnet-show
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-network-vnet-create]: https://docs.azure.cn/cli/network/vnet#az_network_vnet_create
+[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac
+[az-network-vnet-show]: https://docs.azure.cn/cli/network/vnet#az_network_vnet_show
+[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet#az_network_vnet_subnet_show
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
 [az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
 [byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
 [develop-helm]: quickstart-helm.md

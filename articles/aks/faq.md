@@ -4,16 +4,16 @@ description: 查找有关 Azure Kubernetes 服务 (AKS) 的某些常见问题的
 ms.topic: conceptual
 origin.date: 08/06/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: a9d9d5a03f258ce8e1205038d56cddd6ce7fc4d1
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 837caabca859263beba9f125e2f35fb9e87c9388
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021539"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937357"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -40,7 +40,7 @@ ms.locfileid: "90021539"
 
 - 如果希望为 API 服务器保留一个公共终结点，但只允许访问一组受信任的 IP 范围，请使用 [API 服务器授权 IP 范围][api-server-authorized-ip-ranges]。
 
-    <!--Not Available on [a private cluster][private-clusters]-->
+<!--Not Available on [a private cluster][private-clusters]-->
 
 ## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>能否在单个群集中使用不同 VM 大小？
 
@@ -192,6 +192,14 @@ Windows Server 对节点池的支持具有一些限制，Kubernetes 项目中的
 ## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>我的群集在运行，但突然不能预配 LoadBalancers，不能装载 PVC，等等。 
 
 请确认服务主体是否已过期。  请参阅：[AKS 服务主体](./kubernetes-service-principal.md)和 [AKS 更新凭据](./update-credentials.md)。
+
+## <a name="can-i-scale-my-aks-cluster-to-zero"></a>能否将 AKS 群集缩放为零？
+
+<!--Not Available on [stop a running AKS cluster](start-stop-cluster.md)-->
+<!--Not Available on You can completely stop a running AKS cluster), saving on the respective compute costs.-->
+
+可以选择[将所有的或特定的 `User` 节点池缩放或自动缩放](scale-cluster.md#scale-user-node-pools-to-0)为 0，以仅维护必要的群集配置。
+不能直接将[系统节点池](use-system-pools.md)缩放为 0。
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>是否可以使用虚拟机规模集 API 手动进行缩放？
 

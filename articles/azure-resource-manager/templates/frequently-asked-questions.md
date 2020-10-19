@@ -2,18 +2,18 @@
 title: ARM 模板常见问题解答
 description: 有关 Azure 资源管理器模板的常见问题解答 (FAQ)。
 ms.topic: conceptual
-origin.date: 07/27/2020
-ms.date: 08/24/2020
+origin.date: 09/17/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 12f8ba18e711ae14f5ce9b11cb838bd33fe3d0d0
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 4f96a57be4f0df406879bb2c7dc97b6a98271671
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807839"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936973"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>有关 ARM 模板的常见问题解答
 
@@ -53,7 +53,7 @@ ms.locfileid: "88807839"
 
   若要了解有关新模板语言的信息，请[注册通知](https://aka.ms/armLangUpdates)。
 
-  若要了解有关模板规格的信息，请参阅 [Azure 资源管理器模板规格（预览版）](template-specs.md)。
+  <!--Not Available on [Azure Resource Manager template specs (Preview)](template-specs.md)-->
 
 ## <a name="creating-and-testing-templates"></a>创建和测试模板
 
@@ -93,7 +93,7 @@ ms.locfileid: "88807839"
 
 * **我听说你正在研究一种新的模板语言。在哪里可以找到有关它的详细信息？**
 
-  若要了解有关新模板语言的信息，请[注册通知](https://aka.ms/armLangUpdates)。
+  若要预览新语言，请参阅 [Bicep 项目存储库](https://github.com/Azure/bicep)。 若要随时了解新语言，请[注册获取通知](https://aka.ms/armLangUpdates)。
 
 * **是否有支持在 YAML 中创建模板的计划？**
 

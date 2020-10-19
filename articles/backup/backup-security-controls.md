@@ -2,16 +2,15 @@
 title: 安全控件
 description: 了解 Azure 备份服务中使用的安全控制。 这些控制可帮助服务预防、检测和响应安全漏洞。
 ms.topic: conceptual
-author: lingliw
-origin.date: 09/23/2019
-ms.date: 12/04/2019
-ms.author: v-lingwu
-ms.openlocfilehash: c279562e8996c3594b1015456632f722ba5d2d36
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 09/28/2020
+ms.openlocfilehash: 05b2c855509c8ec2457ded9cd7bcbad1fbba6ed8
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74838884"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871269"
 ---
 # <a name="security-controls-for-azure-backup"></a>Azure 备份的安全控制
 
@@ -22,31 +21,32 @@ ms.locfileid: "74838884"
 ## <a name="network"></a>网络
 
 | 安全控制 | Yes/No | 注释 | 文档
-|---|---|--|
+|---|---|--|--|
 | 服务终结点支持| 否 |  |  |
 | VNet 注入支持| 否 |  |  |
-| 网络隔离和防火墙支持| 是 | 对 VM 备份支持强制隧道。 对 VM 内运行的工作负荷不支持强制隧道。 |  |
-| 强制隧道支持| 否 |  |  |
+| 网络隔离和防火墙支持| 是 | |  |
+| 对 Azure VM 的强制隧道支持 | 是  |  |  |
+| 对 Azure VM 内运行的应用程序的强制隧道支持| 否  |  |  |
 
 ## <a name="monitoring--logging"></a>监视和日志记录
 
-| 安全控制 | Yes/No | 注释| | 文档
-|---|---|--|
-| Azure 监视支持（Log Analytics、App Insights 等）| 是 | 通过资源日志支持 Log Analytics。 有关详细信息，请参阅[使用 Log Analytics 监视 Azure 备份保护的工作负荷](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/)。 |  |
+| 安全控制 | Yes/No | 注释| 文档
+|---|---|--|--|
+| Azure 监视支持（例如，Log Analytics、App Insights）| 是 | 通过资源日志支持 Log Analytics。 有关详细信息，请参阅[使用 Log Analytics 监视 Azure 备份保护的工作负荷](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/)。 |  |
 | 控制和管理平面日志记录和审核| 是 | 来自 Azure 门户的所有客户触发操作都会记录到活动日志中。 |  |
 | 数据平面日志记录和审核| 否 | 无法直接访问 Azure 备份数据平面。  |  |
 
 ## <a name="identity"></a>标识
 
-| 安全控制 | Yes/No | 注释| | 文档
-|---|---|--|
+| 安全控制 | Yes/No | 注释| 文档
+|---|---|--|--|
 | 身份验证| 是 | 身份验证通过 Azure Active Directory 来进行。 |  |
-| 授权| 是 | 使用客户创建和内置的 RBAC 角色。 有关详细信息，请参阅[使用基于角色的访问控制管理 Azure 备份恢复点](/azure/backup/backup-rbac-rs-vault)。 |  |
+| 授权| 是 | 使用客户创建的角色和 Azure 内置角色。 有关详细信息，请参阅[使用基于角色的访问控制管理 Azure 备份恢复点](./backup-rbac-rs-vault.md)。 |  |
 
 ## <a name="data-protection"></a>数据保护
 
-| 安全控制 | Yes/No | 注释 | | 文档
-|---|---|--|
+| 安全控制 | Yes/No | 注释 | 文档
+|---|---|--|--|
 | 服务器端静态加密：Microsoft 管理的密钥 | 是 | 对存储帐户使用存储服务加密。 |  |
 | 服务器端静态加密：客户管理的密钥 (BYOK) | 否 |  |  |
 | 列级加密（Azure 数据服务）| 否 |  |  |
@@ -55,6 +55,11 @@ ms.locfileid: "74838884"
 
 ## <a name="configuration-management"></a>配置管理
 
-| 安全控制 | Yes/No | 注释| | 文档
-|---|---|--|
-| 配置管理支持（配置的版本控制等）| 是|  |  |
+| 安全控制 | Yes/No | 注释| 文档
+|---|---|--|--|
+| 配置管理支持（对配置进行版本控制，等等）| 是|  |  |
+
+## <a name="next-steps"></a>后续步骤
+
+- 详细了解[跨 Azure 服务的内置安全控制](../security/fundamentals/security-controls.md)。
+

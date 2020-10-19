@@ -9,15 +9,15 @@ ms.devlang: sqldbrb=2
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 origin.date: 04/06/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 844ebd11adcfe93593837f6fb8a4363a6e3e1dd0
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/12/2020
+ms.openlocfilehash: 85629bd78556b2d703a9cbbadd4ef1ac9225c577
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222887"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872420"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>配置 Azure SQL 数据库和 Azure SQL 托管实例诊断遥测的流式导出
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ ms.locfileid: "88222887"
 
 流式传输到这些目标之一的诊断遥测数据可用于度量资源利用率和查询执行统计信息，以便更轻松地监视性能。
 
-![体系结构](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
+![此图显示了托管实例中的多个 SQL 数据库和数据库，这些数据库向 Azure 诊断发送遥测数据，后者将信息转发到 Azure SQL Analytics、事件中心和存储。](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
 
 ## <a name="enable-and-configure-the-streaming-export-of-diagnostic-telemetry"></a>启用和配置诊断遥测数据的流式导出
 

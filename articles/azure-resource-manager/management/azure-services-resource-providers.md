@@ -4,16 +4,16 @@ description: 列出 Azure 资源管理器的所有资源提供程序命名空间
 ms.topic: conceptual
 origin.date: 09/04/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: c25cd3f98fbfd75b4208b7784dff12beee4205a7
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 87609c3dab5bf12263e8d350b8c94f178ca145cf
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146746"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937551"
 ---
 <!--Verify sucessfully on 2020/08/17 by harris-->
 # <a name="resource-providers-for-azure-services"></a>Azure 服务的资源提供程序
@@ -64,7 +64,7 @@ ms.locfileid: "91146746"
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft.ImportExport | [Azure 导入/导出](../../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
+| Microsoft.IoTCentral | Azure IoT Central |
 | Microsoft.KeyVault | [密钥保管库](../../key-vault/index.yml) |
 | Microsoft.Kusto | [Azure 数据资源管理器](/data-explorer/) |
 | Microsoft.Logic | [逻辑应用](../../logic-apps/index.yml) |
@@ -115,6 +115,6 @@ ms.locfileid: "91146746"
 
 ## <a name="next-steps"></a>后续步骤
 
-有关资源提供程序的详细信息（包括如何注册资源提供程序），请参阅 [Azure 资源提供程序和类型](resource-providers-and-types.md)
+有关资源提供程序的详细信息（包括如何注册资源提供程序），请参阅 [Azure 资源提供程序和类型](resource-providers-and-types.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

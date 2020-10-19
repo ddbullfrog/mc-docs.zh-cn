@@ -5,17 +5,17 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 05/19/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 503dd1dde36dee3417421e454f2dd61ff693f8b5
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 60d360c8bb980f2c4d7d8f1b5a3e5f906ce00eaf
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146474"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937557"
 ---
 # <a name="authentication-and-user-permissions"></a>身份验证和用户权限
 
@@ -30,17 +30,19 @@ Azure Analysis Services 使用 Azure Active Directory (Azure AD) 进行标识管
 
 <!--MOONCAKE: CORRECT ON [client libraries](https://docs.microsoft.com/analysis-services/client-libraries)-->
 
-所有客户端应用程序和工具都使用一个或多个 Analysis Services [客户端库](https://docs.microsoft.com/analysis-services/client-libraries)（AMO、MSOLAP、ADOMD）连接到服务器。 
+所有客户端应用程序和工具都使用一个或多个 Analysis Services [客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)（AMO、MSOLAP、ADOMD）连接到服务器。 
 
 所有 3 个客户端库均支持 Azure AD 交互流和非交互式身份验证方法。 可在利用 AMOMD 和 MSOLAP 的应用程序中使用两种非交互式方法，即 Active Directory 密码和 Active Directory 集成身份验证方法。 这两种方法绝对不会产生弹出式对话框。
 
-客户端应用程序（如 Excel 和 Power BI Desktop）和工具（如适用于 Visual Studio 的 SSMS 和 Analysis Services 项目扩展）更新到最新版时，会安装最新版本的库。 每月更新 Power BI Desktop、SSMS 和 Analysis Services 项目扩展。 Excel [随 Office 365 一起更新](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516)。 Office 365 更新频率较低，并且某些组织会使用延期频道将更新延迟 3 个月。
+客户端应用程序（如 Excel 和 Power BI Desktop）和工具（如适用于 Visual Studio 的 SSMS 和 Analysis Services 项目扩展）更新到最新版时，会安装最新版本的库。 每月更新 Power BI Desktop、SSMS 和 Analysis Services 项目扩展。 Excel [随 Microsoft 365 一起更新](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516)。 Microsoft 365 更新频率较低，并且某些组织会使用延期频道，这意味着将更新最多延迟 3 个月。
 
 根据使用的客户端应用程序或工具，身份验证类型和登录方式可能有所不同。 每个应用程序可能支持连接到云服务（如 Azure Analysis Services）的不同功能。
 
 Power BI Desktop、Visual Studio 和 SSMS 支持 Active Directory 通用身份验证，该通用身份验证是一种交互式方法，还支持 Azure 多重身份验证 (MFA)。 Azure MFA 可帮助保护对数据和应用程序的访问，同时提供简单的登录过程。 它通过多个验证选项（电话、短信、含有 PIN 码的智能卡或移动应用通知）提供强身份验证。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。 **建议使用通用身份验证**。
 
-如果使用 Windows 帐户登录到 Azure 并且通用身份验证未选中或不可用 (Excel)，则需要 [Active Directory 联合身份验证服务 (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)。 使用联合身份验证时，Azure AD 和 Office 365 用户使用本地凭据进行身份验证，并且可以访问 Azure 资源。
+如果使用 Windows 帐户登录到 Azure 并且通用身份验证未选中或不可用 (Excel)，则需要 [Active Directory 联合身份验证服务 (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)。 使用联合身份验证时，Azure AD 和 Microsoft 365 用户使用本地凭据进行身份验证，并且可以访问 Azure 资源。
+
+<!--CORRECT ON Microsoft 365-->
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 

@@ -4,14 +4,14 @@ description: 本文介绍如何创建独立的 Azure 自动化帐户和经典运
 services: automation
 ms.subservice: process-automation
 origin.date: 01/15/2019
-ms.date: 08/10/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: b348119595d649a87485c2054403c2c5b0eab676
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: df0bb5c5d7053b2783f52df7ab4e083256da3958
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790083"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943497"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 
@@ -60,7 +60,7 @@ ms.locfileid: "87790083"
    > [!NOTE]
    > 如果“添加自动化帐户”窗格中显示以下消息，则表示你的帐户不是订阅管理员角色成员和订阅的共同管理员。
    >
-   > ![添加自动化帐户警报](media/automation-create-standalone-account/create-account-without-perms.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="提示“你无权在 Azure Active Directory 中创建运行方式帐户”的屏幕截图。":::
 
 1. 在“添加自动化帐户”窗格的“名称”字段中，输入新自动化帐户的名称。 选择后，将无法更改此名称。 
 
@@ -75,7 +75,7 @@ ms.locfileid: "87790083"
    > [!NOTE]
    > 如果选择不创建运行方式帐户，则选择“否”，“添加自动化帐户”窗格中会显示一条消息。  尽管该帐户是在 Azure 门户中创建的，但它在经典部署模型订阅或 Azure 资源管理器订阅目录服务中没有对应的身份验证标识。 因此，自动化帐户无法访问订阅中的资源。 这会导致引用此帐户的任何 Runbook 无法进行身份验证，也无法针对这些部署模型中的资源执行任务。
    >
-   > ![添加自动化帐户警报](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="提示“你无权在 Azure Active Directory 中创建运行方式帐户”的屏幕截图。":::
    >
    > 未创建服务主体时不会分配参与者角色。
    >
@@ -106,4 +106,4 @@ ms.locfileid: "87790083"
 * 若要开始使用 PowerShell Runbook，请参阅[教程：创建 PowerShell Runbook](learn/automation-tutorial-runbook-textual-powershell.md)。
 * 若要开始使用 PowerShell 工作流 Runbook，请参阅[教程：创建 PowerShell 工作流 Runbook](learn/automation-tutorial-runbook-textual.md)。
 * 若要开始使用 Python 2 Runbook，请参阅[教程：创建 Python 2 Runbook](learn/automation-tutorial-runbook-textual-python2.md)。
-* 有关 PowerShell cmdlet 参考，请参阅 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)。
+* 有关 PowerShell cmdlet 参考，请参阅 [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation)。

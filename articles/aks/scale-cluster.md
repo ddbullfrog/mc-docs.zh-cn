@@ -2,17 +2,19 @@
 title: 缩放 Azure Kubernetes 服务 (AKS) 群集
 description: 了解如何在 Azure Kubernetes 服务 (AKS) 群集中缩放节点数。
 services: container-service
-author: rockboyfor
 ms.topic: article
-origin.date: 05/31/2019
-ms.date: 04/06/2020
+origin.date: 09/16/2020
+author: rockboyfor
+ms.date: 10/12/2020
+ms.testscope: no
+ms.testdate: 04/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: f1240c7d01e4dcbbd121732f613da63382247e02
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: fa57fe52be070e7503753549b70c98ba6f94790f
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021255"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937403"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>在 Azure Kubernetes 服务 (AKS) 群集中缩放节点数
 
@@ -20,13 +22,13 @@ ms.locfileid: "90021255"
 
 ## <a name="scale-the-cluster-nodes"></a>缩放群集节点
 
-首先，使用 [az aks show][az-aks-show] 命令获取节点池的名称。 以下示例获取 myResourceGroup 资源组中名为 myAKSCluster 的群集的节点池名称   ：
+首先，使用 [az aks show][az-aks-show] 命令获取节点池的名称**。 以下示例获取 myResourceGroup 资源组中名为 myAKSCluster 的群集的节点池名称****：
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
 ```
 
-以下示例输出表明名称为 nodepool1   ：
+以下示例输出表明名称为 nodepool1****：
 
 ```output
 [
@@ -42,13 +44,13 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPo
 ]
 ```
 
-使用 [az aks scale][az-aks-scale] 命令缩放群集节点。 以下示例将名为 *myAKSCluster* 的群集缩放为单个节点。 提供前一个命令中自己的 --nodepool-name，如 nodepool1   ：
+使用 [az aks scale][az-aks-scale] 命令缩放群集节点。 以下示例将名为 *myAKSCluster* 的群集缩放为单个节点。 提供前一个命令中你自己的 `--nodepool-name`，如 nodepool1：
 
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
 ```
 
-以下示例输出显示群集已成功缩放为一个节点，如 agentPoolProfiles 部分中所示  ：
+以下示例输出显示群集已成功缩放为一个节点，如 agentPoolProfiles 部分中所示**：
 
 ```json
 {
@@ -70,8 +72,22 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1
 }
 ```
 
-<!--Not Available on ## Next steps-->
-<!--Not Available on [cluster autoscaler][cluster-autoscaler](currently in preview in AKS)-->
+## <a name="scale-user-node-pools-to-0"></a>将 `User` 节点池缩放为 0
+
+与始终需要运行节点的 `System` 节点池不同，`User` 节点池允许缩放为 0。 若要详细了解系统节点池和用户节点池之间的差异，请参阅[系统节点池和用户节点池](use-system-pools.md)。
+
+若要将用户池缩放为 0，可以使用 [az aks nodepool scale][az-aks-nodepool-scale] 来替代上面的 `az aks scale` 命令，并将 0 设置为节点计数。
+
+```azurecli
+az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
+```
+
+还可以通过将[群集自动缩放程序](cluster-autoscaler.md)的 `--min-count` 参数设置为 0，将 `User` 节点池自动缩放为 0 个节点。
+
+## <a name="next-steps"></a>后续步骤
+
+在本文中，你手动缩放了 AKS 群集以增加或减少节点数量。 还可以使用[群集自动缩放程序][cluster-autoscaler]自动缩放群集。
+
 <!-- LINKS - external -->
 
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -81,6 +97,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
 [az-aks-scale]: https://docs.microsoft.com/cli/azure/aks#az_aks_scale
+[cluster-autoscaler]: cluster-autoscaler.md
+[az-aks-nodepool-scale]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_scale
 
-<!--Not Available on [cluster-autoscaler]: cluster-autoscaler.md-->
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

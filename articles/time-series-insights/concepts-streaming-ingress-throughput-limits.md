@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0bca294c50d318c2d4776c0c4458a047e1ba6be7
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: b254dff8f24dfdab06804e90e01446cf303007c5
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413520"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937059"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>流式引入吞吐量限制
 

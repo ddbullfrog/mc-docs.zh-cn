@@ -3,15 +3,15 @@ title: Azure 自动化混合 Runbook 辅助角色概述
 description: 本文概述了混合 Runbook 辅助角色，可以使用这些辅助角色在本地数据中心或云提供商的计算机上运行 Runbook。
 services: automation
 ms.subservice: process-automation
-origin.date: 07/16/2020
-ms.date: 08/10/2020
+origin.date: 09/14/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d10b3db09f2896f5c73dc6450266d143119d8477
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: 27ffb0b4a5687137ea4c4a6aa5f94554aecd3d45
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788285"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943467"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>混合 Runbook 辅助角色概述
 
@@ -62,7 +62,7 @@ Azure 自动化中的 Runbook 可能无权访问其他云或本地环境中的�
 
 ### <a name="firewall-use"></a>防火墙使用
 
-如果使用防火墙来限制对 Internet 的访问，则必须将防火墙配置为允许访问。 如果将 Log Analytics 网关用作代理，请确保为混合 Runbook 辅助角色配置 Log Analytics 网关。 请参阅[为自动化混合辅助角色配置 Log Analytics 网关](../azure-monitor/platform/gateway.md)。
+如果使用防火墙来限制对 Internet 的访问，则必须将防火墙配置为允许访问。 如果将 Log Analytics 网关用作代理，请确保为混合 Runbook 辅助角色配置 Log Analytics 网关。 请参阅[为自动化混合 Runbook 辅助角色配置 Log Analytics 网关](../azure-monitor/platform/gateway.md)。
 
 ### <a name="service-tags"></a>服务标记
 
@@ -103,6 +103,20 @@ Azure 自动化服务的服务标记仅提供用于以下场景的 IP：
 ### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>混合 Runbook 辅助角色的 Runbook 权限
 
 由于它们访问的是非 Azure 资源，因此在混合 Runbook 辅助角色上运行的 Runbook 不能使用通常用于针对 Azure 资源进行 Runbook 身份验证的身份验证机制。 Runbook 可以针对本地资源提供其自己的身份验证，也可以配置使用 [Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)的身份验证。 还可以指定运行方式帐户，为所有 Runbook 提供用户上下文。
+
+## <a name="view-hybrid-runbook-workers"></a>查看混合 Runbook 辅助角色
+
+在 Windows 服务器或 VM 上启用“更新管理”功能之后，可以在 Azure 门户中以清单形式列出系统混合 Runbook 辅助角色组的内容。 你可以在门户中查看最多 2,000 个辅助角色，方法是从所选自动化帐户的左侧窗格的“混合辅助角色组”选项中选择“系统混合辅助角色组”选项卡。
+
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="自动化帐户系统混合辅助角色组页" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
+
+如果混合辅助角色超过 2000 个，则若要获取所有这些辅助角色的列表，可运行以下 PowerShell 脚本：
+
+```powershell
+"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+$workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+```
 
 ## <a name="next-steps"></a>后续步骤
 

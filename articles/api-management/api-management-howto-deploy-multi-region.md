@@ -1,24 +1,25 @@
 ---
 title: 将 Azure API 管理服务部署到多个 Azure 区域
+titleSuffix: Azure API Management
 description: 了解如何将 Azure API 管理服务实例部署到多个 Azure 区域。
 services: api-management
 documentationcenter: ''
+author: Johnnytechn
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 origin.date: 08/12/2019
-author: Johnnytechn
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 29fe408c9ea4b08a5257463ca2eb75a93a85c66a
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: d786aa3be2557f5aafb22c775eb4df62afda3c27
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440696"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871384"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>如何将 Azure API 管理服务实例部署到多个 Azure 区域
 
@@ -63,17 +64,17 @@ Azure API 管理只有一个后端服务 URL。 即使不同的区域中存在 A
 
 4. 结合使用 `set-backend` 和 `choose` 条件策略，在文件的 `<inbound> </inbound>` 节中构建适当的路由策略。
 
-    例如，以下 XML 文件适用于美国西部和东亚区域：
+    例如，以下 XML 文件适用于“中国北部”和“中国东部”区域：
 
     ```xml
     <policies>
         <inbound>
             <base />
             <choose>
-                <when condition="@("West US".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                <when condition="@("China North".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
                     <set-backend-service base-url="http://contoso-us.com/" />
                 </when>
-                <when condition="@("East Asia".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                <when condition="@("China East".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
                     <set-backend-service base-url="http://contoso-asia.com/" />
                 </when>
                 <otherwise>

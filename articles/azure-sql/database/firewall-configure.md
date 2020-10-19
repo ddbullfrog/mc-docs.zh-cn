@@ -10,20 +10,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: sstein
 origin.date: 06/17/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 47da7ee8acc7a243fb0f142e16bbe028bc98dfec
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/12/2020
+ms.openlocfilehash: 6f4007ab06a91f9825d2a7b1402263b49a82dfe4
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223397"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872379"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL 数据库和 Azure Synapse IP 防火墙规则
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-例如，在 Azure SQL 数据库或 Azure Synapse Analytics 中创建名为 mysqlserver 的新服务器时，一个服务器级别的防火墙会阻止对该服务器的公共终结点进行任何访问（可通过 mysqlserver.database.chinacloudapi.cn 访问） 。 为简单起见，在提到 SQL 数据库和 Azure Synapse Analytics（以前称为 Azure SQL 数据仓库）时，本文统称 SQL 数据库。
+例如，在 Azure SQL 数据库或 Azure Synapse Analytics 中创建名为 mysqlserver 的新服务器时，一个服务器级别的防火墙会阻止对该服务器的公共终结点进行任何访问（可通过 mysqlserver.database.chinacloudapi.cn 访问） 。 为简单起见，在提到 SQL 数据库和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）时，本文将其统称为“SQL 数据库”。
 
 > [!IMPORTANT]
 > 本文不适用于 *Azure SQL 托管实例*。 有关网络配置的信息，请参阅[将应用程序连接到 Azure SQL 托管实例](../managed-instance/connect-application-instance.md)。

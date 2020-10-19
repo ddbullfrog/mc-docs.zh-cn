@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 origin.date: 12/19/2018
-ms.date: 09/14/2020
-ms.openlocfilehash: 08e832ad4ea7374f1dbc52a3467eb20477ee8c92
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: 96aa7876eed860080732560c8a85b3b7b162342b
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014280"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872322"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>查找并应用性能建议
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "90014280"
 
 性能建议会显示在类似于下图所示的表中：
 
-![建议](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![屏幕截图显示了包含操作和建议说明的表中的性能建议。](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 按其对性能的潜在影响将建议分为以下类别：
 
@@ -104,7 +104,7 @@ Azure SQL 数据库允许通过以下三个选项之一完全控制建议的启�
    ![索引顾问设置](./media/database-advisor-find-recommendations-portal/settings.png)
 2. 选择要自动执行的操作：
 
-   ![建议的索引](./media/database-advisor-find-recommendations-portal/server.png)
+   ![屏幕截图显示了在何处选择要自动执行的操作。](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > 请注意，**DROP_INDEX** 选项当前与使用分区切换和索引提示的应用程序不兼容。
@@ -140,7 +140,7 @@ Azure SQL 数据库允许通过以下三个选项之一完全控制建议的启�
 
 单击列表中的进程内建议即可查看详细信息：
 
-![建议的索引](./media/database-advisor-find-recommendations-portal/operations.png)
+![屏幕截图显示了进程内建议的列表。](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>正在还原建议
 

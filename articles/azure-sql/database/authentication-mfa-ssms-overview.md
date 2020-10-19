@@ -12,14 +12,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 07/27/2020
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 tags: azure-synapse
-ms.openlocfilehash: d6f358540da746c583ecb7dcbb6c5931f30560fd
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 60bb661551272ac0208cf08fa7e92acd03d4b8e8
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222847"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872404"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>使用多重 Azure Active Directory 身份验证
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,7 +30,7 @@ Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics 支持�
 
 对于本文中讨论的所有功能，请至少使用 2017 年 7 月的版本 17.2。 最新连接对话框的外观应类似于下图：
 
-  ![1mfa-universal-connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "填写“用户名”框。")  
+  ![SQL Server Management Studio 中“连接到服务器”对话框的屏幕截图，其中显示了服务器类型、服务器名称和身份验证的设置。](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
 
 ## <a name="authentication-options"></a>身份验证选项
 
@@ -58,11 +58,11 @@ Azure MFA 可满足用户简单登录过程的需求，同时可帮助保护数�
 1. 在 SSMS 中打开一个连接。 输入服务器名称，然后选择“Azure Active Directory - 通用且具有 MFA 支持”身份验证。 添加要用于登录的“用户名”。
 1. 选择“选项”框，然后转到“连接属性”选项卡。在“连接到数据库”对话框中，针对你的数据库填写对话框。 选中“AD 域名或租户 ID”框，并提供身份验证机构，如域名 (contosotest.partner.onmschina.cn) 或租户 ID 的 GUID。 
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
+   ![“连接属性”选项卡的屏幕截图，其中突出显示了“连接到数据库”和“AD 域名或租户 ID”的设置。](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 如果运行的是 SSMS 18.x 或更高版本，则来宾用户不再需要 AD 域名或租户 ID，因为 18.x 或更高版本会自动识别它。
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
+   ![SSMS 的“连接到服务器”对话框中“连接属性”选项卡的屏幕截图。在“连接到数据库”字段中选择了“MyDatabase”。](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD 企业到企业支持
 

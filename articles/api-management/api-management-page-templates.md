@@ -1,29 +1,28 @@
 ---
 title: Azure API 管理中的页模板
-description: 了解如何在 Azure API 管理中使用一组模板自定义开发人员门户页面的内容。
+description: 了解如何在 Azure API 管理中自定义开发人员门户页模板的内容。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: erikre
 editor: ''
+origin.date: 11/04/2019
 ms.assetid: e57df269-1019-4b74-b74d-53155b809d59
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 11/04/2019
-ms.author: v-yiso
-ms.date: 11/18/2019
-ms.openlocfilehash: cab73d1ac7da94db824eda507fa2780131fea19d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.openlocfilehash: 134a87dc5744757766d04ea61b93b5565385bd73
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292050"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871243"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API 管理中的页模板
-通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
+通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](api-management-template-resources.md#strings)、[字形资源](api-management-template-resources.md#glyphs)和[页面控件](api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
   
  本部分中的模板可用于自定义开发人员门户中的登录、注册和未找到页面的页面内容。  
   
@@ -35,8 +34,10 @@ ms.locfileid: "79292050"
   
 > [!NOTE]
 >  示例默认模板包含在后续文档中，但是会因持续改进而有所更改。 通过导航到所需单个模板，可在开发人员门户中查看实时的默认模板。 如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
+
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
-> [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="sign-in"></a><a name="SignIn"></a>登录  
  **登录**模板用于自定义开发人员门户中的登录页面。  
@@ -100,27 +101,27 @@ ms.locfileid: "79292050"
 ```  
   
 ### <a name="controls"></a>控制  
- 此模板使用以下[页面控件](./api-management-page-controls.md)。  
+ 此模板使用以下[页面控件](api-management-page-controls.md)。  
   
--   [basic-signin](./api-management-page-controls.md#basic-signin)  
+-   [basic-signin](api-management-page-controls.md#basic-signin)  
   
--   [providers](./api-management-page-controls.md#providers)  
+-   [providers](api-management-page-controls.md#providers)  
   
 ### <a name="data-model"></a>数据模型  
- [用户登录](./api-management-template-data-model-reference.md#UseSignIn)实体。  
+ [用户登录](api-management-template-data-model-reference.md#UseSignIn)实体。  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
     "AuxServiceUrl": "https://portal.azure.cn/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-China-East/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
@@ -131,10 +132,10 @@ ms.locfileid: "79292050"
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="sign-up"></a><a name="SignUp"></a>注册  
@@ -159,12 +160,12 @@ ms.locfileid: "79292050"
 ```  
   
 ### <a name="controls"></a>控制  
- 此模板使用以下[页面控件](./api-management-page-controls.md)。  
+ 此模板使用以下[页面控件](api-management-page-controls.md)。  
   
--   [sign-up](./api-management-page-controls.md#sign-up)  
+-   [sign-up](api-management-page-controls.md#sign-up)  
   
 ### <a name="data-model"></a>数据模型  
- [用户注册](./api-management-template-data-model-reference.md#UserSignUp)实体。  
+ [用户注册](api-management-template-data-model-reference.md#UserSignUp)实体。  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   
@@ -223,7 +224,7 @@ ms.locfileid: "79292050"
 ```  
   
 ### <a name="controls"></a>控制  
- 此模板可能不使用任何[页面控件](./api-management-page-controls.md)。  
+ 此模板可能不使用任何[页面控件](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>数据模型  
   
@@ -248,4 +249,5 @@ ms.locfileid: "79292050"
 ```
 
 ## <a name="next-steps"></a>后续步骤
-如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。
+如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](api-management-developer-portal-templates.md)。
+

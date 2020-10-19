@@ -6,15 +6,15 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
 ms.reviewer: akjosh
-ms.openlocfilehash: 89fecbaf7c733567a756cdd7b40dc3880ee341a1
-ms.sourcegitcommit: 87e789550ea49ff77c7f19bc68fad228009fcf44
+ms.openlocfilehash: 8085449ca76ca71227ce149a360d5464be013ee7
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749538"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937256"
 ---
 # <a name="create-a-scale-set-from-a-specialized-image-using-powershell"></a>使用 PowerShell 从专用化映像创建规模集 
 
@@ -26,7 +26,7 @@ ms.locfileid: "83749538"
 
 请注意，使用特定映像版本意味着：如果该特定映像版本由于已删除或已从区域中删除而无法使用，则自动化可能会失败。 建议使用映像定义 ID 来创建新的 VM（除非需要特定的映像版本）。
 
-以下示例在 chinanorth 位置的“myVMSSRG”资源组中创建名为“myScaleSet”的规模集。 将基于“myGalleryRG”资源组的“myGallery”映像库中的“myImageDefinition”映像创建该规模集。 出现提示时，请为该规模集中的 VM 实例设置自己的管理凭据。
+以下示例在 chinanorth2 位置的 myVMSSRG 资源组中创建一个名为 myScaleSet 的规模集  。 将基于“myGalleryRG”资源组的“myGallery”映像库中的“myImageDefinition”映像创建该规模集。 出现提示时，请为该规模集中的 VM 实例设置自己的管理凭据。
 
 
 
@@ -41,7 +41,7 @@ $imageDefinition = Get-AzGalleryImageDefinition `
 # Define variables for the scale set
 $resourceGroupName = "myVMSSRG"
 $scaleSetName = "myScaleSet"
-$location = "China North"
+$location = "China North 2"
 
 # Create a resource group
 New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location $location
@@ -134,12 +134,13 @@ New-AzVmss `
 创建和配置所有的规模集资源和 VM 需要几分钟时间。
 
 ## <a name="next-steps"></a>后续步骤
-可以使用模板创建共享映像库资源。 提供多个 Azure 快速入门模板： 
+
+此外可以使用模板创建共享映像库资源。 提供多个 Azure 快速入门模板： 
 
 - [创建共享映像库](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [在共享的映像库中创建映像定义](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [在共享映像库中创建映像版本](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-有关共享映像库的详细信息，请参阅[概述](shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](troubleshooting-shared-images.md)。
+有关共享映像库的详细信息，请参阅[概述](shared-image-galleries.md)。 如果遇到问题，请参阅[排查共享映像库问题](../virtual-machines/troubleshooting-shared-images.md)。
 
 

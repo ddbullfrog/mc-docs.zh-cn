@@ -2,18 +2,18 @@
 title: 资源的标记支持
 description: 显示支持标记的 Azure资源类型。 提供所有 Azure 服务的详细信息。
 ms.topic: conceptual
-origin.date: 09/08/2020
+origin.date: 09/21/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6800a01a74ab51da5562e5993de6be83c30c95d4
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 3fe725d3bcc4abb9b728f5a3eac5d611bf6dfd19
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146551"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936983"
 ---
 <!--Verify Successfully-->
 # <a name="tag-support-for-azure-resources"></a>Azure 资源的标记支持
@@ -81,6 +81,7 @@ ms.locfileid: "91146551"
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
@@ -120,6 +121,8 @@ ms.locfileid: "91146551"
 > | metadata | 否 | 否 |
 > | 建议 | 否 | 否 |
 > | 禁止显示 | 否 | 否 |
+
+<!--Not Available on ## Microsoft.AgFoodPlatform-->
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -200,8 +203,8 @@ ms.locfileid: "91146551"
 > | automationAccounts / softwareUpdateConfigurations | 否 | 否 |
 > | automationAccounts / webhooks | 否 | 否 |
 
->[!NOTE]
->Azure 自动化仅支持为每个自动化资源创建最多 15 个标记名称/值对。
+> [!NOTE]
+> Azure 自动化仅支持为每个自动化资源创建最多 15 个标记名称/值对。
 
 <!--Not Avaialble on ## Microsoft.AVS-->
 <!--Not Avaialble on ## Microsoft.Azure.Geneva-->
@@ -224,6 +227,7 @@ ms.locfileid: "91146551"
 > | ------------- | ----------- | ----------- |
 > | cloudManifestFiles | 否 | 否 |
 > | edgeSubscriptions | 是 | 是 |
+> | linkedSubscriptions | 是 | 是 |
 > | registrations | 是 | 是 |
 > | registrations / customerSubscriptions | 否 | 否 |
 > | registrations / products | 否 | 否 |
@@ -269,6 +273,10 @@ ms.locfileid: "91146551"
 > | Redis/privateEndpointConnections | 否 | 否 |
 > | Redis/privateLinkResources | 否 | 否 |
 > | redisEnterprise | 是 | 是 |
+> | RedisEnterprise / privateEndpointConnectionProxies | 否 | 否 |
+> | RedisEnterprise / privateEndpointConnectionProxies / validate | 否 | 否 |
+> | RedisEnterprise / privateEndpointConnections | 否 | 否 |
+> | RedisEnterprise / privateLinkResources | 否 | 否 |
 
 <!--Not Available on ## Microsoft.Capacity-->
 
@@ -364,6 +372,8 @@ ms.locfileid: "91146551"
 > | storageAccounts / vmImages | 否 | 否 |
 > | vmImages | 否 | 否 |
 
+<!--Not Available on ## Microsoft.Codespaces-->
+
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
@@ -383,6 +393,11 @@ ms.locfileid: "91146551"
 > | ------------- | ----------- | ----------- |
 > | availabilitySets | 是 | 是 |
 > | cloudServices | 是 | 是 |
+> | cloudServices / networkInterfaces | 否 | 否 |
+> | cloudServices / publicIPAddresses | 否 | 否 |
+> | cloudServices / roleInstances | 否 | 否 |
+> | cloudServices / roleInstances / networkInterfaces | 否 | 否 |
+> | cloudServices / roles | 否 | 否 |
 > | diskAccesses | 是 | 是 |
 > | diskEncryptionSets | 是 | 是 |
 > | disks | 是 | 是 |
@@ -410,12 +425,12 @@ ms.locfileid: "91146551"
 > | virtualMachineScaleSets | 是 | 是 |
 > | virtualMachineScaleSets / extensions | 否 | 否 |
 > | virtualMachineScaleSets / networkInterfaces | 否 | 否 |
-> | virtualMachineScaleSets / publicIPAddresses | 否 | 否 |
+> | virtualMachineScaleSets / publicIPAddresses | 是 | 否 |
 > | virtualMachineScaleSets / virtualMachines | 否 | 否 |
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | 否 | 否 |
 
 > [!NOTE]
-> 不能将标记添加到已标记为“通用化”的虚拟机。 使用 [Set-AzVm -Generalized](https://docs.microsoft.com/powershell/module/Az.Compute/Set-AzVM) 或 [az vm generalize](https://docs.azure.cn/cli/vm#az-vm-generalize) 将虚拟机标记为“通用化”。
+> 不能将标记添加到已标记为“通用化”的虚拟机。 使用 [Set-AzVm -Generalized](https://docs.microsoft.com/powershell/module/Az.Compute/Set-AzVM) 或 [az vm generalize](https://docs.azure.cn/cli/vm#az_vm_generalize) 将虚拟机标记为“通用化”。
 
 <!--Not Avaialble on ## Microsoft.ConnectedCache-->
 <!--Not Available on ## Microsoft.Consumption -->
@@ -505,7 +520,7 @@ ms.locfileid: "91146551"
 > | factories / integrationRuntimes | 否 | 否 |
 
 > [!NOTE]
-> 如果数据工厂中有 Azure-SSIS 集成运行时，其运行成本将使用数据工厂标记进行标记。  必须停止并重新开始运行 Azure-SSIS 集成运行时，才能将新的数据工厂标记应用于其运行成本。
+> 如果数据工厂中有 Azure-SSIS 集成运行时，其运行成本将使用数据工厂标记进行标记。 必须停止并重新开始运行 Azure-SSIS 集成运行时，才能将新的数据工厂标记应用于其运行成本。
 
 <!--Not Available on  ## Microsoft.DataLakeAnalytics-->
 <!--Not Available on  ## Microsoft.DataLakeStore-->
@@ -534,6 +549,8 @@ ms.locfileid: "91146551"
 > | servers / privateLinkResources | 否 | 否 |
 > | servers / queryTexts | 否 | 否 |
 > | servers / recoverableServers | 否 | 否 |
+> | servers / start | 否 | 否 |
+> | servers / stop | 否 | 否 |
 > | servers / topQueryStatistics | 否 | 否 |
 > | servers / virtualNetworkRules | 否 | 否 |
 > | servers / waitStatistics | 否 | 否 |
@@ -543,6 +560,7 @@ ms.locfileid: "91146551"
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 支持标记 | 在成本报表中标记 |
 > | ------------- | ----------- | ----------- |
+> | flexibleServers | 是 | 是 |
 > | servers | 是 | 是 |
 > | servers / advisors | 否 | 否 |
 > | servers / keys | 否 | 否 |
@@ -551,7 +569,10 @@ ms.locfileid: "91146551"
 > | servers / privateLinkResources | 否 | 否 |
 > | servers / queryTexts | 否 | 否 |
 > | servers / recoverableServers | 否 | 否 |
+> | servers / start | 否 | 否 |
+> | servers / stop | 否 | 否 |
 > | servers / topQueryStatistics | 否 | 否 |
+> | servers / upgrade | 否 | 否 |
 > | servers / virtualNetworkRules | 否 | 否 |
 > | servers / waitStatistics | 否 | 否 |
 
@@ -593,6 +614,7 @@ ms.locfileid: "91146551"
 > | usages | 否 | 否 |
 
 <!--Not Available on ## Microsoft.DeviceUpdate-->
+<!--Not Available on ## Microsoft.DevOps-->
 <!--Not Available on ## Microsoft.DevOps-->
 <!--Not Available on ## Microsoft.DevSpaces-->
 <!--Not Available on ## Microsoft.DevTestLab-->
@@ -643,6 +665,7 @@ ms.locfileid: "91146551"
 > | namespaces / eventhubs / authorizationrules | 否 | 否 |
 > | namespaces / eventhubs / consumergroups | 否 | 否 |
 > | namespaces / networkrulesets | 否 | 否 |
+> | namespaces / privateEndpointConnections | 否 | 否 |
 
 <!--Not Available on ## Microsoft.Experimentation-->
 <!--Not Available on ## Microsoft.Falcon-->
@@ -746,6 +769,8 @@ ms.locfileid: "91146551"
 > | vaults | 是 | 是 |
 > | vaults / accessPolicies | 否 | 否 |
 > | vaults / eventGridFilters | 否 | 否 |
+> | vaults / keys | 否 | 否 |
+> | vaults / keys / versions | 否 | 否 |
 > | vaults / secrets | 否 | 否 |
 
 <!--Not Available on managedHSM-->
@@ -799,8 +824,6 @@ ms.locfileid: "91146551"
 > | workspaces | 是 | 是 |
 > | workspaces / computes | 否 | 否 |
 > | workspaces / eventGridFilters | 否 | 否 |
-> | workspaces / inferenceEndpoints | 是 | 是 |
-> | workspaces / inferenceEndpoints / deployments | 是 | 是 |
 > | workspaces / linkedServices | 否 | 否 |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
@@ -1049,6 +1072,17 @@ ms.locfileid: "91146551"
 > | capacities | 是 | 是 |
 
 <!--Not Available on ## Microsoft.ProjectBabylon-->
+
+## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 支持标记 | 在成本报表中标记 |
+> | ------------- | ----------- | ----------- |
+> | providerRegistrations | 否 | 否 |
+> | providerRegistrations / defaultRollouts | 否 | 否 |
+> | providerRegistrations / resourceTypeRegistrations | 否 | 否 |
+> | rollouts | 是 | 是 |
+
 <!--Not Available on ## Microsoft.Quantum-->
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
@@ -1120,6 +1154,7 @@ ms.locfileid: "91146551"
 > | tenants | 否 | 否 |
 
 <!--Not Available on  ## Microsoft.SaaS-->
+<!--Not Available on  ## Microsoft.ScVmm-->
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1152,6 +1187,7 @@ ms.locfileid: "91146551"
 > | discoveredSecuritySolutions | 否 | 否 |
 > | externalSecuritySolutions | 否 | 否 |
 > | InformationProtectionPolicies | 否 | 否 |
+> | iotDefenderSettings | 否 | 否 |
 > | iotSecuritySolutions | 是 | 是 |
 > | iotSecuritySolutions / analyticsModels | 否 | 否 |
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | 否 | 否 |
@@ -1160,6 +1196,7 @@ ms.locfileid: "91146551"
 > | iotSecuritySolutions / iotAlertTypes | 否 | 否 |
 > | iotSecuritySolutions / iotRecommendations | 否 | 否 |
 > | iotSecuritySolutions / iotRecommendationTypes | 否 | 否 |
+> | iotSensors | 否 | 否 |
 > | jitNetworkAccessPolicies | 否 | 否 |
 > | jitPolicies | 否 | 否 |
 > | 策略 | 否 | 否 |
@@ -1178,6 +1215,7 @@ ms.locfileid: "91146551"
 > | securityStatusesSummaries | 否 | 否 |
 > | serverVulnerabilityAssessments | 否 | 否 |
 > | 设置 | 否 | 否 |
+> | sqlVulnerabilityAssessments | 否 | 否 |
 > | subAssessments | 否 | 否 |
 > | 任务 | 否 | 否 |
 > | topologies | 否 | 否 |
@@ -1185,6 +1223,7 @@ ms.locfileid: "91146551"
 
 <!--Not Available on  ## Microsoft.SecurityGraph-->
 <!--Not Available on  ## Microsoft.SecurityInsights-->
+<!--Not Available on  ## Microsoft.SerialConsole-->
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
@@ -1196,6 +1235,7 @@ ms.locfileid: "91146551"
 > | namespaces / disasterrecoveryconfigs | 否 | 否 |
 > | namespaces / eventgridfilters | 否 | 否 |
 > | namespaces / networkrulesets | 否 | 否 |
+> | namespaces / privateEndpointConnections | 否 | 否 |
 > | namespaces / queues | 否 | 否 |
 > | namespaces / queues / authorizationrules | 否 | 否 |
 > | namespaces / topics | 否 | 否 |
@@ -1285,6 +1325,7 @@ ms.locfileid: "91146551"
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 支持标记 | 在成本报表中标记 |
 > | ------------- | ----------- | ----------- |
+> | deletedAccounts | 否 | 否 |
 > | storageAccounts | 是 | 是 |
 > | storageAccounts / blobServices | 否 | 否 |
 > | storageAccounts / fileServices | 否 | 否 |

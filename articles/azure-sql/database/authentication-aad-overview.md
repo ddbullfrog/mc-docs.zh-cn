@@ -2,28 +2,28 @@
 title: Azure Active Directory 身份验证
 description: 了解如何将 Azure Active Directory 身份验证与 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics 配合使用
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 origin.date: 04/23/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: aad0674bc58d4fb1cea925472ee287ae6258aae7
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: b1ac227d9436fd2dcb404b0fdc12c860ff720fb2
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227413"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872403"
 ---
 # <a name="use-azure-active-directory-authentication"></a>使用 Azure Active Directory 身份验证
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure Active Directory (Azure AD) 身份验证是使用 Azure AD 中的标识连接到 [Azure SQL 数据库](sql-database-paas-overview.md)、[Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)和 [Azure Synapse Analytics（以前称为 Azure SQL 数据仓库）](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的一种机制。
+Azure Active Directory (Azure AD) 身份验证是使用 Azure AD 中的标识连接到 [Azure SQL 数据库](sql-database-paas-overview.md)、[Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)和 [Azure Synapse Analytics（以前称为“SQL 数据仓库”）](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的一种机制。
 
 > [!NOTE]
 > 本文适用于 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics。

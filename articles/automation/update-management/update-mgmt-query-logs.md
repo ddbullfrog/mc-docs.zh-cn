@@ -3,15 +3,15 @@ title: 查询 Azure 自动化更新管理日志
 description: 本文介绍如何在 Log Analytics 工作区中查询更新管理的日志。
 services: automation
 ms.subservice: update-management
-origin.date: 07/28/2020
-ms.date: 09/07/2020
+origin.date: 09/24/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: efe2ccabd6dd1abc96a08e95ce6cdb24e00760d2
-ms.sourcegitcommit: f837837326a4856b06d1924d17521a0a7e892850
+ms.openlocfilehash: 6ee394bfa8f8a78a33cb43d15b2cc54766fb7bfc
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89449787"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943465"
 ---
 # <a name="query-update-management-logs"></a>查询更新管理日志
 
@@ -111,7 +111,7 @@ ms.locfileid: "89449787"
 | Computer | 报告计算机的完全限定域名。 |
 | ComputerEnvironment | 环境。 值为 Azure 或 Non-Azure。 |
 | CorrelationId | 用于该更新的 Runbook 作业运行的唯一标识符。 |
-| EndTime | 结束同步过程的时间。 |
+| EndTime | 结束同步过程的时间。 当前未使用此属性。请查看 TimeGenerated。 |
 | ErrorResult | 无法安装更新时生成的 Windows 更新错误代码。 |
 | InstallationStatus | 客户端计算机上可能的更新安装状态：<br> `NotStarted` - 作业尚未触发。<br> `FailedToStart` - 无法在计算机上启动作业。<br> `Failed` - 作业已启动，但失败并发生异常。<br> `InProgress` - 作业正在进行。<br> `MaintenanceWindowExceeded` - 执行尚未完成，但已达到维护时段间隔。<br> `Succeeded` - 作业成功。<br> `InstallFailed` - 无法成功安装更新。<br> `NotIncluded`<br> `Excluded` |
 | KBID | Windows 更新的知识库文章 ID。 |
@@ -124,8 +124,8 @@ ms.locfileid: "89449787"
 | ResourceType | 资源类型。 |
 | SourceComputerId | 表示源计算机的唯一标识符。 |
 | SourceSystem | 记录的源系统。 该值为 `OperationsManager`。 |
-| StartTime | 计划要安装更新的时间。 |
-| SubscriptionId | Azure 订阅的唯一标识符。 | 
+| StartTime | 计划要安装更新的时间。 当前未使用此属性。请查看 TimeGenerated。 |
+| SubscriptionId | Azure 订阅的唯一标识符。 |
 | SucceededOnRetry | 该值指示是否首次尝试执行更新时失败，以及当前操作是否为重试。 |
 | TimeGenerated | 创建记录的日期和时间。 |
 | 标题 | 更新的标题。 |

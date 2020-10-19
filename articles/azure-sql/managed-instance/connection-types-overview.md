@@ -10,13 +10,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 10/07/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: dc7c54693a0db85780eb78348ad932da05f731a9
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f3e738932253f4a65a445a52fa35887ae83a02bc
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227092"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872414"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Azure SQL 托管实例连接类型
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +35,7 @@ Azure SQL 托管实例支持以下两种连接类型：
 
 重定向连接类型指与 SQL 引擎建立 TCP 会话后，客户端会话从负载均衡器获取虚拟群集节点的目标虚拟 IP。 后续数据包会绕过网关直接流向虚拟群集节点。 下图演示了此流量流。
 
-![redirect.png](./media/connection-types-overview/redirect.png)
+![此图显示了一个本地网络，其中的 redirect-find-db 连接到 Azure 虚拟网络中的网关，而 redirect-query 则连接到虚拟网络中的数据库主节点。](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
 > 重定向连接类型当前仅适用于专用终结点。 无论连接类型设置如何，通过公共终结点进行的连接都将通过代理。
@@ -43,7 +44,7 @@ Azure SQL 托管实例支持以下两种连接类型：
 
 代理连接类型指通过网关建立 TCP 会话，并且所有后续数据包通过网关传输。 下图演示了此流量流。
 
-![proxy.png](./media/connection-types-overview/proxy.png)
+![此图显示了一个本地网络，其中的代理连接到 Azure 虚拟网络中的网关，连接到虚拟网络中的数据库主节点旁边。](./media/connection-types-overview/proxy.png)
 
 ## <a name="changing-connection-type"></a>更改连接类型
 

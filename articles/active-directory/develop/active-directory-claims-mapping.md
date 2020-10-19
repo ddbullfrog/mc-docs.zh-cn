@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 09/30/2020
 ms.author: v-junlch
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 73522d8d47707936a53c9ddee87cd6c44a5ae7d5
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 64c38a4d1b93060a3c7975c3afb67f6fd076b5ba
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593672"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937247"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>如何：为租户中的特定应用自定义在令牌中发出的声明（预览版）
 
@@ -301,7 +301,7 @@ ID 元素标识源中用于为声明提供值的属性。 下表列出对 Source
 | 用户 | companyname| 组织名称 |
 | 用户 | streetaddress | 街道地址 |
 | 用户 | postalcode | 邮政编码 |
-| 用户 | preferredlanguange | 首选语言 |
+| 用户 | preferredlanguage | 首选语言 |
 | 用户 | onpremisesuserprincipalname | 本地 UPN |*
 | 用户 | mailNickname | 邮件别名 |
 | 用户 | extensionattribute1 | 扩展属性 1 |

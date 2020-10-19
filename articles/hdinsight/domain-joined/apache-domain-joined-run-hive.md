@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 042577dc4bb5a8e0dfc9bc8f227bded2129bb160
-ms.sourcegitcommit: e1a0ea64b617b7f96655c29cd8edd69890cbd553
+ms.openlocfilehash: 28612f99a36e7604b3a3a995c440ef3aee682ea1
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89592498"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936926"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>在具有企业安全性套餐的 HDInsight 中配置 Apache Hive 策略
 
@@ -22,7 +22,7 @@ ms.locfileid: "89592498"
 ## <a name="prerequisites"></a>先决条件
 
 * 具有企业安全性套餐的 HDInsight 群集。 请参阅[配置具有 ESP 的 HDInsight 群集](apache-domain-joined-configure.md)。
-* 装有 Office 2016、Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus 的工作站。
+* 一个装有 Microsoft 365 企业应用版、Office 2016、Office 专业增强版 2013、Excel 2013 Standalone 或 Office 专业增强版 2010 的工作站。
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>连接到 Apache Ranger 管理 UI
 **连接到 Ranger 管理 UI**

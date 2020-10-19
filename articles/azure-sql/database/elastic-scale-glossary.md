@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 12/04/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: c4a73e21a8b55ab7c63136da7d293be093d1277e
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: 35ec73ec1c47627e7947f04440d0b6a86d2f9618
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227995"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872437"
 ---
 # <a name="elastic-database-tools-glossary"></a>弹性数据库工具词汇表
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -68,7 +68,7 @@ ms.locfileid: "86227995"
 
 **分片映射管理器**：包含分片映射、分片位置和一个或多个分片集的映射的管理对象和数据存储。
 
-![映射][2]
+![此图显示了与 shardmaps_global、shards_global 和 shard_mappings_global 关联的分片映射管理器。][2]
 
 ## <a name="verbs"></a>动词
 **横向缩放**：通过将分片添加到分片映射或删除分片，向外（或向内）扩展分片集合的行为。

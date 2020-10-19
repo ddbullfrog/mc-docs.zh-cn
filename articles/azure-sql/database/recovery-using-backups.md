@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: mathoma, carlrab, danil
+ms.reviewer: mathoma, sstein, danil
 origin.date: 09/26/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 38ae80cdb4172b3f896df0e6c88425a7ec4d9906
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: ac03600eef5b7a621b2ac40a877da26674e33b37
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014201"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872417"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>使用自动数据库备份进行恢复 - Azure SQL 托管实例和 SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -92,13 +92,13 @@ ms.locfileid: "90014201"
 
 若要使用 Azure 门户将数据库恢复到某个时间点，请打开该数据库的概述页，并在工具栏上选择“还原”。 选择备份源，然后选择要从中创建新数据库的时间点备份点。
 
-  ![数据库还原选项的屏幕截图](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
+  ![SQL 数据库的数据库还原选项的屏幕截图。](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>SQL 托管实例
 
 若要使用 Azure 门户将托管实例数据库恢复到某个时间点，请打开该数据库的概述页，并在工具栏上选择“还原”。 选择要从中创建新数据库的时间点备份点。
 
-  ![数据库还原选项的屏幕截图](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+  ![SQL 托管实例的数据库还原选项的屏幕截图。](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
 > 若要以编程方式从备份还原数据库，请参阅[使用自动备份以编程方式执行恢复](recovery-using-backups.md)。
@@ -197,7 +197,7 @@ ms.locfileid: "90014201"
 不能对异地辅助数据库执行时间点还原。 只能对主数据库执行此操作。 有关使用异地还原在中断后恢复的详细信息，请参阅[在中断后恢复](../../key-vault/general/disaster-recovery-guidance.md)。
 
 > [!IMPORTANT]
-> 异地还原是 SQL 数据库和 SQL 托管实例中提供的最基本的灾难恢复解决方案。 它依赖于自动创建的异地复制备份，其恢复点目标 (RPO) 为 1 小时，估计恢复时间最长为 12 小时。 它不保证在发生区域性的服务中断后，目标区域可提供足够的容量来还原数据库，因为此时的需求可能会急剧上升。 如果应用程序使用相对较小的数据库并且不是业务关键型应用程序，则异地还原是适当的灾难恢复解决方案。 
+> 异地还原是 SQL 数据库和 SQL 托管实例中提供的最基本的灾难恢复解决方案。 它依赖于自动创建的异地复制备份，其恢复点目标 (RPO) 最长为 1 小时，估计恢复时间最长为 12 小时。 它不保证在发生区域性的服务中断后，目标区域可提供足够的容量来还原数据库，因为此时的需求可能会急剧上升。 如果应用程序使用相对较小的数据库并且不是业务关键型应用程序，则异地还原是适当的灾难恢复解决方案。 
 >
 > 对于需要大型数据库且必须确保业务连续性的业务关键型应用程序，请使用[自动故障转移组](auto-failover-group-overview.md)。 此功能提供的 RPO 和恢复时间目标要低得多，并且始终可以保证容量。 
 >

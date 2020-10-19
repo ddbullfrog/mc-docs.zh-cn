@@ -6,14 +6,13 @@ ms.author: v-junlch
 ms.service: application-gateway
 services: application-gateway
 ms.topic: conceptual
-origin.date: 11/16/2019
-ms.date: 11/21/2019
-ms.openlocfilehash: afce35b7472b909bb568a0513b76c5c90ccaa96f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.openlocfilehash: a00d31139bb2fbcb11196ab6c62b38c957c12ed9
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74327231"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937563"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>应用程序网关中的 WebSocket 支持概述
 
@@ -29,7 +28,7 @@ ms.locfileid: "74327231"
 
 若要建立 WebSocket 连接，需在客户端和服务器之间交换特定的基于 HTTP 的握手。 如果成功，则应用程序层协议会使用之前建立的 TCP 连接从 HTTP“升级”为 WebSocket。 然后就完全不使用 HTTP；两个终结点可以使用 WebSocket 协议来发送或接收数据，直至 WebSocket 连接关闭。 
 
-![websocket](./media/application-gateway-websocket/websocket.png)
+![此图将与 Web 服务器进行的客户端交互（连接两次以获得两个答复）与 WebSocket 交互（客户端连接到服务器一次即可获得多个答复）进行比较。](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>侦听器配置元素
 
@@ -126,4 +125,3 @@ ms.locfileid: "74327231"
 
 了解 WebSocket 支持后，请转到[创建应用程序网关](quick-create-powershell.md)，开始使用已启用 WebSocket 的 Web 应用程序。
 
-<!-- Update_Description: update metedata properties -->

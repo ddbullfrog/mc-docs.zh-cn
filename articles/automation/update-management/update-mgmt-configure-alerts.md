@@ -4,14 +4,14 @@ description: 本文介绍如何配置 Azure 警报以通知有关更新评估或
 services: automation
 ms.subservice: update-management
 origin.date: 07/28/2020
-ms.date: 08/10/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 534b7ef9c900798a833a6f4490b67f99293221e5
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: 346ef383aca000052cb6ecde7511d194ac9984af
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790552"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943511"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>如何创建更新管理警报
 
@@ -57,7 +57,7 @@ Azure 自动化创建两个不同的平台指标，它们与收集并转发到 A
 
 9. 对于成功的运行，请将“严重性”字段设置为“信息(严重性 2)”；对于失败的运行，请将其设置为“信息(严重性 1)”  。
 
-    ![配置信号逻辑](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
+    ![屏幕截图显示了“定义警报详细信息”部分，其中突出显示了“警报规则名称”、“说明”和“严重性”字段。](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
 
 10. 选择“是”以启用预警规则。
 

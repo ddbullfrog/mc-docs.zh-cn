@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure MQTT 客户端库向 MQTT 服务器发送消息 | Microsoft Docs
-description: 使用 DevKit 作为客户端向 MQTT 服务器发送消息
+title: 使用 Azure MQTT 客户端库向 MQTT 服务器发送消息
+description: 了解如何使用 MQTT 客户端库向 MQTT 中转站发送消息。 还将了解如何将 mXChip IoT DevKit 配置为 MQTT 客户端。
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -8,20 +8,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 origin.date: 04/02/2018
-ms.date: 09/10/2018
+ms.date: 10/19/2020
 ms.author: v-yiso
-ms.openlocfilehash: 8f65bcf1798c230e7ed8f7fa62040825551400ac
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: da57e663639bf06c89301140934a5cd678a04c88
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186632"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937324"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>向 MQTT 服务器发送消息
 
 物联网 (IoT) 系统经常要处理断断续续的、质量不佳的或低速的 Internet 连接。 MQTT 是一种机器到机器 (M2M) 连接协议，它是为了应对此类难题而开发的。 
 
-此处使用的 MQTT 客户端库是 [Eclipse Paho](http://www.eclipse.org/paho/) 项目的一部分，该项目提供了用于通过多种传输方式使用 MQTT 的 API。
+此处使用的 MQTT 客户端库是 [Eclipse Paho](https://www.eclipse.org/paho/) 项目的一部分，该项目提供了用于通过多种传输方式使用 MQTT 的 API。
 
 ## <a name="what-you-learn"></a>学习内容
 
@@ -85,8 +85,3 @@ ms.locfileid: "84186632"
 
 * [将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
-## <a name="next-steps"></a>后续步骤
-
-现在，你已学习了如何将 MXChip Iot DevKit 配置为 MQTT 客户端以及如何使用 MQTT 客户端库向 MQTT 代理发送消息，下面是建议的后续步骤：
-
-* [将 MXChip IoT DevKit 设备连接到 Azure IoT Central 应用程序](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

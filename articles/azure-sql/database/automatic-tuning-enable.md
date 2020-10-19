@@ -2,22 +2,22 @@
 title: 启用自动优化
 description: 可以使用 Azure 门户轻松地在数据库中启用自动优化。
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 origin.date: 12/03/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: a7b942e320dbcd4c8544776a2bed856e89268245
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/12/2020
+ms.openlocfilehash: c05d6af368511391de34d0217684b9c44c6e2988
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222843"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872423"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>在 Azure 门户中启用自动优化以监视查询并提高工作负载性能
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ Azure SQL 数据库是自动托管的数据服务，可持续监视查询并识�
 
 若要在 Azure SQL 数据库中的[服务器](logical-servers.md)上启用自动优化，请在 Azure 门户中导航到该服务器，然后在菜单中选择“自动优化”。
 
-![服务器](./media/automatic-tuning-enable/server.png)
+![屏幕截图显示了 Azure 门户中的“自动优化”，你可以在其中对服务器应用选项。](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > 请注意，此时 DROP_INDEX 选项与使用分区切换和索引提示的应用程序不兼容，并且不应在这些情况下打开。 高级和业务关键服务层不支持删除未使用的索引。
@@ -78,7 +78,7 @@ Azure SQL 数据库支持为每个数据库单独指定自动优化配置。 在
 
 可以为每个数据库单独配置各自的自动优化设置。 可以手动配置单个自动优化选项，或指定选项从服务器继承其设置。
 
-![数据库](./media/automatic-tuning-enable/database.png)
+![屏幕截图显示了 Azure 门户中的“自动优化”，你可以在其中对单一数据库应用选项。](./media/automatic-tuning-enable/database.png)
 
 请注意，此时 DROP_INDEX 选项与使用分区切换和索引提示的应用程序不兼容，并且不应在这些情况下启用。
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: douglas, carlrab
+ms.reviewer: ''
 origin.date: 07/11/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 3c8b8fd32117b48bcc54b1053dd4f566fd4d504b
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/12/2020
+ms.openlocfilehash: c09e4bc491e3403f4db3fc3d2e0ba922b9b6ef61
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014230"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872436"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>将 SQL Server 实例迁移到 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -127,7 +127,7 @@ SQL 托管实例支持以下数据库迁移选项（目前仅支持这些迁移�
 
 下图高度概括了该过程：
 
-![迁移流](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+![此图显示了 SQL Server 使用标记为“备份/上传到 URL”箭头指向 Azure 存储，以及标记为“从 URL 还原”的第二个箭头从 Azure 存储指向 SQL 的托管实例。](./media/migrate-to-instance-from-sql-server/migration-flow.png)
 
 下表提供了可以根据所运行的源 SQL Server 版本使用的方法的详细信息：
 
@@ -197,7 +197,7 @@ SQL 托管实例提供许多高级工具用于监视和故障排除，你应使�
 
 例如，无需在托管实例上创建备份 - 服务会自动执行备份。 不再需要考虑计划、创建和管理备份。 在 SQL 托管实例中，可使用[时点恢复 (PITR)](../database/recovery-using-backups.md#point-in-time-restore) 还原到此保留期内的任意时间点。 此外，无需考虑设置高可用性，因为系统中内置了[高可用性](../database/high-availability-sla.md)。
 
-要增强安全性，请考虑使用 [Azure Active Directory 身份验证](../database/security-overview.md)、[审核](auditing-configure.md)、[威胁检测](../database/advanced-data-security.md)、[行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)和[动态数据掩码](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)。
+要增强安全性，请考虑使用 [Azure Active Directory 身份验证](../database/security-overview.md)、[审核](auditing-configure.md)、[威胁检测](../database/azure-defender-for-sql.md)、[行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)和[动态数据掩码](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)。
 
 除了高级管理和安全功能以外，托管实例还提供一组高级工具来帮助你[监视和优化工作负载](../database/monitor-tune-overview.md)。 托管实例中的[自动优化](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction)会持续监视 SQL 计划执行统计信息的性能，并自动修复已确定的性能问题。
 

@@ -3,27 +3,27 @@ title: Azure API 管理中的产品模板 | Azure
 description: 了解如何在 Azure API 管理开发人员门户中自定义产品页面的内容。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: Johnnytechn
 manager: erikre
 editor: ''
+origin.date: 11/04/2019
 ms.assetid: 49f9254c-4c5f-4ed4-9c8d-798f44e805ee
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 11/04/2019
-ms.author: v-yiso
-ms.date: 11/18/2019
-ms.openlocfilehash: 6feb804e4bbad7160615c4b6428dda2afc3ef1e9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 09/29/2020
+ms.author: v-johya
+ms.openlocfilehash: e069a4ae3463c93bd6cf50934789c45c0fd047f1
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291787"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871234"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Azure API 管理中的产品模板
-通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
+
+通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](api-management-template-resources.md#strings)、[字形资源](api-management-template-resources.md#glyphs)和[页面控件](api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
   
  本部分中的模板可用于自定义开发人员门户中的产品页面的内容。  
   
@@ -33,8 +33,10 @@ ms.locfileid: "79291787"
   
 > [!NOTE]
 >  示例默认模板包含在后续文档中，但是会因持续改进而有所更改。 通过导航到所需单个模板，可在开发人员门户中查看实时的默认模板。 如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。  
+
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
-> [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="product-list"></a><a name="ProductList"></a> 产品列表  
  **产品列表**模板可用于自定义开发人员门户中产品列表页的正文。  
@@ -70,19 +72,19 @@ ms.locfileid: "79291787"
 ```  
   
 ### <a name="controls"></a>控制  
- `Product list` 模板可使用以下[页面控件](./api-management-page-controls.md)。  
+ `Product list` 模板可使用以下[页面控件](api-management-page-controls.md)。  
   
--   [paging-control](./api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [search-control](./api-management-page-controls.md#search-control)  
+-   [search-control](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>数据模型  
   
 |properties|类型|说明|  
 |--------------|----------|-----------------|  
-|Paging|[分页](./api-management-template-data-model-reference.md#Paging)实体。|产品集合的分页信息。|  
-|Filtering|[筛选](./api-management-template-data-model-reference.md#Filtering)实体。|产品列表页的筛选信息。|  
-|Products|[产品](./api-management-template-data-model-reference.md#Product)实体的集合。|对当前用户可见的产品。|  
+|Paging|[分页](api-management-template-data-model-reference.md#Paging)实体。|产品集合的分页信息。|  
+|Filtering|[筛选](api-management-template-data-model-reference.md#Filtering)实体。|产品列表页的筛选信息。|  
+|Products|[产品](api-management-template-data-model-reference.md#Product)实体的集合。|对当前用户可见的产品。|  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   
@@ -197,23 +199,23 @@ ms.locfileid: "79291787"
 ```  
   
 ### <a name="controls"></a>控制  
- `Product list` 模板可使用以下[页面控件](./api-management-page-controls.md)。  
+ `Product list` 模板可使用以下[页面控件](api-management-page-controls.md)。  
   
--   [subscribe-button](./api-management-page-controls.md#subscribe-button)  
+-   [subscribe-button](api-management-page-controls.md#subscribe-button)  
   
 ### <a name="data-model"></a>数据模型  
   
 |properties|类型|说明|  
 |--------------|----------|-----------------|  
-|Products|[Product](./api-management-template-data-model-reference.md#Product)|指定的产品。|  
+|Products|[Product](api-management-template-data-model-reference.md#Product)|指定的产品。|  
 |IsDeveloperSubscribed|boolean|当前用户是否订阅了此产品。|  
-|SubscriptionState|数字|订阅的状态。 可能的状态包括：<br /><br /> -   `0 - suspended` – 订阅被阻止，订阅服务器无法调用产品的任何 API。<br />-   `1 - active` – 订阅处于活动状态。<br />-   `2 - expired` – 订阅已达到其到期日期，因此已停用。<br />-   `3 - submitted` – 开发人员已提交订阅请求，但管理员尚未批准或拒绝该请求。<br />-   `4 - rejected` – 管理员已拒绝订阅请求。<br />-   `5 - cancelled` – 开发人员或管理员已取消订阅。|  
+|SubscriptionState|数字|订阅的状态。 可能的状态包括：<br /><br /> -   `0 - suspended` - 订阅被阻止，订阅服务器无法调用产品的任何 API。<br />-   `1 - active` - 订阅处于活动状态。<br />-   `2 - expired` - 订阅已达到其到期日期，因此已停用。<br />-   `3 - submitted` - 开发人员已提交订阅请求，但管理员尚未批准或拒绝该请求。<br />-   `4 - rejected` - 管理员已拒绝订阅请求。<br />-   `5 - cancelled` - 开发人员或管理员已取消订阅。|  
 |限制|array|此属性已弃用，不应使用。|  
 |DelegatedSubscriptionEnabled|boolean|是否为此订阅启用了[委派](./api-management-howto-setup-delegation.md)。|  
 |DelegatedSubscriptionUrl|字符串|委派的订阅 URL（如果启用了委派）。|  
 |IsAgreed|boolean|如果产品有条款，当前用户是否已同意这些条款。|  
-|Subscriptions|[订阅摘要](./api-management-template-data-model-reference.md#SubscriptionSummary)实体的集合。|对产品的订阅。|  
-|Apis|[API](./api-management-template-data-model-reference.md#API) 实体的集合。|此产品中的 API。|  
+|Subscriptions|[订阅摘要](api-management-template-data-model-reference.md#SubscriptionSummary)实体的集合。|对产品的订阅。|  
+|Apis|[API](api-management-template-data-model-reference.md#API) 实体的集合。|此产品中的 API。|  
 |CannotAddBecauseSubscriptionNumberLimitReached|boolean|当前用户是否符合订阅此产品的条件（考虑到订阅限制）。|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|当前用户是否符合订阅此产品的条件（考虑到是否允许多个订阅）。|  
   
@@ -247,7 +249,7 @@ ms.locfileid: "79291787"
             "id": "56f9445ffaf7560049040001",  
             "name": "Echo API",  
             "description": null,  
-            "serviceUrl": "http://echoapi.cloudapp.net/api",  
+            "serviceUrl": "http://echoapi.chinacloudapp.cn/api",  
             "path": "echo",  
             "protocols": [  
                 2  
@@ -262,4 +264,5 @@ ms.locfileid: "79291787"
 ```
 
 ## <a name="next-steps"></a>后续步骤
-如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](./api-management-developer-portal-templates.md)。
+如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](api-management-developer-portal-templates.md)。
+

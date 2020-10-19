@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma
 origin.date: 04/28/2020
-ms.date: 06/15/2020
-ms.openlocfilehash: 9f29e9338593c1d4781964d0555b4bc41c43094b
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: 7915f24946eddf7001b103887fa2bce4e35cc2ce
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227931"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872369"
 ---
 # <a name="replication-to-azure-sql-database"></a>复制到 Azure SQL 数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -79,7 +79,7 @@ ms.locfileid: "86227931"
 
 ## <a name="replication-architecture"></a>复制体系结构  
 
-![replication-to-sql-database](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![此图显示了具有 Azure SQL 数据库的复制体系结构，其中包含位于不同区域的多个订阅服务器群集，以及本地 Azure 虚拟机（其中包含连接到远程群集的发布服务器、日志读取可执行文件和分发服务器可执行文件）。](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>方案  
 

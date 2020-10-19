@@ -4,19 +4,19 @@ description: 了解如何在 Azure Functions 中使用计时器触发器。
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7897b3dad607eabbf5fc3d544b0d51c1b113f8c0
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 91c12606420856099dcadea46aec22236480a59c
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402588"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937260"
 ---
-# <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器 
+# <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器
 
-本文介绍如何在 Azure Functions 中使用计时器触发器。 计时器触发器可以按计划运行函数。 
+本文介绍如何在 Azure Functions 中使用计时器触发器。 计时器触发器可以按计划运行函数。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -80,6 +80,21 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+以下示例函数的触发和执行间隔为 5 分钟。 函数上的 `@TimerTrigger` 注释使用与 `CRON expressions`相同的字符串格式定义计划。
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 以下示例演示 *function.json* 文件中的一个计时器触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数将写入日志信息，指示调用此函数是由于错过了计划发生时间。 [计时器对象](#usage)将传递到函数中。
@@ -111,21 +126,40 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-以下示例函数的触发和执行间隔为 5 分钟。 函数上的 `@TimerTrigger` 注释使用与 `CRON expressions`相同的字符串格式定义计划。
+以下示例演示如何在 PowerShell 中配置用于计时器触发器的 function.json 和 run.ps1 文件。
 
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
+```json
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
 }
 ```
 
+```powershell
+# Input bindings are passed in via param block.
+param($Timer)
+
+# Get the current universal time in the default string format.
+$currentUTCtime = (Get-Date).ToUniversalTime()
+
+# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
+if ($Timer.IsPastDue) {
+    Write-Host "PowerShell timer is running late!"
+}
+
+# Write an information log with the current time.
+Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
+```
+
+<a name="an-instance-of-the-timer-object-is-passed-as-the-first-argument-to-the-function"></a>[计时器对象](#usage)的实例将作为第一个参数传递给函数。
 ---
 
 ## <a name="attributes-and-annotations"></a>特性和注释
@@ -154,10 +188,6 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 C# 脚本不支持特性。
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-JavaScript 不支持特性。
-
 # <a name="java"></a>[Java](#tab/java)
 
 函数上的 `@TimerTrigger` 注释使用与 `CRON expressions`相同的字符串格式定义计划。
@@ -172,6 +202,14 @@ public void keepAlive(
      context.getLogger().info("Timer is triggered: " + timerInfo);
 }
 ```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript 不支持特性。
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell 不支持特性。
 
 ---
 
@@ -191,7 +229,7 @@ public void keepAlive(
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> 在生产中不建议将 runOnStartup 设置为 `true`。 使用此设置会使代码在非常不可预测的时间执行。 在某些生产设置中，这些额外执行可能会导致消耗计划中托管的应用产生明显更高的成本。 例如，启用 **runOnStartup** 后，只要缩放函数应用，就会调用触发器。 在生产中启用 runOnStartup 之前，请确保完全了解函数的生产行为。   
+> 在生产中不建议将 runOnStartup 设置为 `true`。 使用此设置会使代码在非常不可预测的时间执行。 在某些生产设置中，这些额外执行可能会导致消耗计划中托管的应用产生明显更高的成本。 例如，启用 **runOnStartup** 后，只要缩放函数应用，就会调用触发器。 在生产中启用 runOnStartup 之前，请确保完全了解函数的生产行为。
 
 ## <a name="usage"></a>使用情况
 
@@ -212,7 +250,7 @@ public void keepAlive(
 
 如果当前函数调用晚于计划时间，则 `IsPastDue` 属性为 `true`。 例如，函数应用重新启动可能会导致调用被错过。
 
-## <a name="ncrontab-expressions"></a>NCRONTAB 表达式 
+## <a name="ncrontab-expressions"></a>NCRONTAB 表达式
 
 Azure Functions 使用 [NCronTab](https://github.com/atifaziz/NCrontab) 库来解释 NCRONTAB 表达式。 NCRONTAB 表达式类似于 CRON 表达式，不同之处在于它在开头包含额外的第六个字段，用于以秒为单位的时间精度：
 
@@ -244,6 +282,8 @@ Azure Functions 使用 [NCronTab](https://github.com/atifaziz/NCrontab) 库来�
 |`"0 30 9 * * 1-5"`|每个工作日的上午 9:30|
 |`"0 30 9 * Jan Mon"`|在一月份每星期一的上午 9:30|
 
+> [!NOTE]
+> NCRONTAB 表达式需要六字段格式。 Azure 不支持五字段 cron 表达式。
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB 时区
 
@@ -259,12 +299,12 @@ CRON 表达式中的数字指的是时间和日期，而不是时间跨度。 �
 
 以字符串表示，当 `hh` 小于 24 时，`TimeSpan` 格式为 `hh:mm:ss`。 当前两个数字是 24 或更大的数字时，格式为 `dd:hh:mm`。 下面是一些示例：
 
-|示例 |何时触发  |
-|---------|---------|
-|"01:00:00" | 每小时        |
-|"00:01:00"|每分钟         |
-|"24:00:00" | 每 24 天        |
-|"1.00:00:00" | 每天        |
+| 示例      | 何时触发 |
+|--------------|----------------|
+| "01:00:00"   | 每小时     |
+| "00:01:00"   | 每分钟   |
+| "24:00:00"   | 每 24 天  |
+| "1.00:00:00" | 每天      |
 
 ## <a name="scale-out"></a>横向扩展
 
@@ -299,4 +339,3 @@ CRON 表达式中的数字指的是时间和日期，而不是时间跨度。 �
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording update -->

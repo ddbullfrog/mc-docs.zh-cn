@@ -2,18 +2,19 @@
 title: 选择池的 VM 大小
 description: 如何选择 Azure Batch 池中计算节点的可用 VM 大小
 ms.topic: conceptual
-origin.date: 08/07/2020
-ms.date: 08/24/2020
+origin.date: 09/22/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 3187b3e09520a1d931ad0d6049e67cc34e175ab0
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: f95bdbb3620ed9ca72ce1ad3a5ff29ea688e0630
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654982"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937348"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>选择 Azure Batch 池中计算节点的 VM 大小
 
@@ -46,7 +47,7 @@ ms.locfileid: "88654982"
 | B | 无 |
 | Dv2, DSv2 | 所有大小 |
 | Dv3, Dsv3 | 所有大小 |
-| Ev3, Esv3 | 除 E64is_v3 和 E64i_v3 之外的所有大小 |
+| Ev3, Esv3 | 除 E64is_v3 之外的所有大小 |
 | F, Fs | 所有大小 |
 | Fsv2 | 所有大小 |
 | H | 所有大小 |

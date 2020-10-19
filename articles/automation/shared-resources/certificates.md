@@ -2,24 +2,20 @@
 title: 在 Azure 自动化中管理证书
 description: 本文介绍如何使用可供 runbook 和 DSC 配置访问的证书。
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: WenJason
-ms.author: v-jay
-origin.date: 04/02/2019
-ms.date: 08/10/2020
+origin.date: 09/10/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-manager: digimobile
-ms.openlocfilehash: c0c899fb9f0f154847af6e37a4442d20ddb259a0
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: 6b6903b9450337907fc5e69c76f2112efa9204b8
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788333"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943517"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>在 Azure 自动化中管理证书
 
-Azure 自动化使用适用于 Azure 资源管理器资源的 [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet 安全地存储可供 runbook 和 DSC 配置访问的证书。 通过安全的证书存储，可以创建使用证书进行身份验证的 runbook 和 DSC 配置，也可以将证书添加到 Azure 或第三方资源。
+Azure 自动化使用适用于 Azure 资源管理器资源的 [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate) cmdlet 安全地存储可供 runbook 和 DSC 配置访问的证书。 通过安全的证书存储，可以创建使用证书进行身份验证的 runbook 和 DSC 配置，也可以将证书添加到 Azure 或第三方资源。
 
 >[!NOTE]
 >Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密，并存储在自动化中。 自动化将密钥存储在系统管理的 Key Vault 服务中。 在存储安全资产之前，自动化会从 Key Vault 加载密钥，然后使用该密钥加密资产。 
@@ -30,10 +26,10 @@ Azure 自动化使用适用于 Azure 资源管理器资源的 [Get-AzAutomationC
 
 |Cmdlet |说明|
 | --- | ---|
-|[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|检索有关要在 Runbook 或 DSC 配置中使用的证书的信息。 只能使用内部 `Get-AutomationCertificate` cmdlet 来检索证书。|
-|[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|在自动化中创建新证书。|
-|[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|从自动化中删除证书。|
-|[Set-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|设置现有证书的属性，包括上传证书文件和设置 .pfx 文件的密码。|
+|[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate)|检索有关要在 Runbook 或 DSC 配置中使用的证书的信息。 只能使用内部 `Get-AutomationCertificate` cmdlet 来检索证书。|
+|[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate)|在自动化中创建新证书。|
+|[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationCertificate)|从自动化中删除证书。|
+|[Set-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationCertificate)|设置现有证书的属性，包括上传证书文件和设置 .pfx 文件的密码。|
 
 还可以使用 [Add-AzureCertificate](https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/add-azurecertificate) cmdlet 为指定的云服务上传服务证书。
 
@@ -65,7 +61,8 @@ Azure 自动化使用适用于 Azure 资源管理器资源的 [Get-AzAutomationC
 
 ### <a name="create-a-new-certificate-with-the-azure-portal"></a>使用 Azure 门户创建新证书
 
-1. 在自动化帐户中，选择“资产” > “证书” > “添加证书”。
+1. 在自动化帐户的左侧窗格中，选择“共享资源”下的“证书” 。
+1. 在“证书”页上，选择“添加证书”。 
 1. 在“名称”字段中，键入证书的名称。
 1. 若要查找 .cer 或 .pfx 文件，请选择“上传证书文件”下的“选择文件”   。 如果选择了 .pfx 文件，请指定密码，以及是否允许导出。
 1. 单击“创建”保存新的证书资产。
@@ -128,7 +125,7 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -Te
 
 ## <a name="get-a-certificate"></a>获取证书
 
-若要检索证书，请使用内部 `Get-AutomationCertificate` cmdlet。 不能使用 [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet，因为它会返回有关证书资产的信息，而不是证书本身的信息。
+若要检索证书，请使用内部 `Get-AutomationCertificate` cmdlet。 不能使用 [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate) cmdlet，因为它会返回有关证书资产的信息，而不是证书本身的信息。
 
 ### <a name="textual-runbook-example"></a>文本 runbook 示例
 
@@ -142,13 +139,13 @@ $certPwd = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```
 
-### <a name="graphical-runbook-example"></a>图形 runbook 示例
+### <a name="graphical-runbook-example"></a>图形 Runbook 示例
 
 通过在“库”窗格中右键单击证书并选择“添加到画布”，可以将内部 `Get-AutomationCertificate` cmdlet 的活动添加到图形 runbook。
 
 ![将证书添加到画布的屏幕截图](../media/certificates/automation-certificate-add-to-canvas.png)
 
-下图显示了在图形 Runbook 中使用证书的示例。 
+下图显示了在图形 Runbook 中使用证书的示例。
 
 ![图形创作示例的屏幕截图](../media/certificates/graphical-runbook-add-certificate.png)
 
@@ -166,7 +163,6 @@ print cert
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要详细了解用于访问证书的 cmdlet，请参阅[在 Azure 自动化中管理模块](modules.md)。
-* 有关 runbook 的常规信息，请参阅[在 Azure 自动化中执行 runbook](../automation-runbook-execution.md)。
-* 有关 DSC 配置的详细信息，请参阅 [Azure 自动化状态配置概述](../automation-dsc-overview.md)。 
-
+* 若要了解有关用于访问凭据的 cmdlet 的详细信息，请参阅[在 Azure 自动化中管理模块](modules.md)。
+* 有关 Runbook 的常规信息，请参阅[在 Azure 自动化中执行 Runbook](../automation-runbook-execution.md)。
+* 有关 DSC 配置的详细信息，请参阅 [Azure 自动化状态配置概述](../automation-dsc-overview.md)。

@@ -2,24 +2,21 @@
 title: 构建调用 Web API 的 Web API - Microsoft 标识平台 | Azure
 description: 了解如何构建调用下游 Web API 的 Web API（概述）
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 515a23943721b050d3a24e34bc707db7fb7597f3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7d37381783ea3eb93d6f4616fb58eeea7b19fbda
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77067632"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937028"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>方案：调用 Web API 的 Web API
 
@@ -27,7 +24,7 @@ ms.locfileid: "77067632"
 
 ## <a name="prerequisites"></a>先决条件
 
-此方案（受保护的 Web API 调用 Web API）基于“保护 Web API”方案。 若要详细了解此基础方案，请参阅[方案：受保护的 Web API](scenario-protected-web-api-overview.md)。
+此方案（受保护的 Web API 调用其他 Web API）基于[方案：受保护的 Web API](scenario-protected-web-api-overview.md)。
 
 ## <a name="overview"></a>概述
 
@@ -46,4 +43,3 @@ ms.locfileid: "77067632"
 > [!div class="nextstepaction"]
 > [应用注册](scenario-web-api-call-api-app-registration.md)
 
-<!-- Update_Description: wording update -->

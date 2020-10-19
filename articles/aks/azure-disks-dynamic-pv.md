@@ -4,25 +4,25 @@ titleSuffix: Azure Kubernetes Service
 description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用 Azure 磁盘动态创建永久性卷
 services: container-service
 ms.topic: article
-origin.date: 07/10/2020
+origin.date: 09/21/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: e2ba693622717f01cf669de82b0aa0f1806a2252
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 4bfa91a106abc137688decd2f8f13d14875b3fa0
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021552"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937000"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 磁盘
 
 永久性卷表示已经过预配可以用于 Kubernetes Pod 的存储块。 永久性卷可供一个或多个 Pod 使用，并可动态或静态预配。 本文介绍如何使用 Azure 磁盘动态创建永久性卷，以供 Azure Kubernetes 服务 (AKS) 群集中的单个 Pod 使用。
 
 > [!NOTE]
-> Azure 磁盘只能使用“访问模式”类型 ReadWriteOnce 装载，这使其只可供 AKS 中的单个 Pod 使用。 如果需要在多个 Pod 之间共享永久性卷，请使用 [Azure 文件存储][azure-files-pvc]。
+> Azure 磁盘只能使用“访问模式”类型 ReadWriteOnce 进行装载，这使其只可供 AKS 中的一个节点使用。 如果需要在多个节点之间共享永久性卷，请使用 [Azure 文件存储][azure-files-pvc]。
 
 有关 Kubernetes 卷的详细信息，请参阅 [AKS 中应用程序的存储选项][concepts-storage]。
 
@@ -294,23 +294,23 @@ Volumes:
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
-[az-disk-list]: https://docs.azure.cn/cli/disk#az-disk-list
-[az-snapshot-create]: https://docs.azure.cn/cli/snapshot#az-snapshot-create
-[az-disk-create]: https://docs.azure.cn/cli/disk#az-disk-create
-[az-disk-show]: https://docs.azure.cn/cli/disk#az-disk-show
+[az-disk-list]: https://docs.azure.cn/cli/disk#az_disk_list
+[az-snapshot-create]: https://docs.azure.cn/cli/snapshot#az_snapshot_create
+[az-disk-create]: https://docs.azure.cn/cli/disk#az_disk_create
+[az-disk-show]: https://docs.azure.cn/cli/disk#az_disk_show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
-[az-feature-list]: https://docs.azure.cn/cli/feature#az-feature-list
-[az-provider-register]: https://docs.azure.cn/cli/provider#az-provider-register
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-extension-update]: https://docs.azure.cn/cli/extension#az-extension-update
-[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
-[az-feature-list]: https://docs.azure.cn/cli/feature#az-feature-list
-[az-provider-register]: https://docs.azure.cn/cli/provider#az-provider-register
+[az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
+[az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
+[az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
+[az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
+[az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
+[az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
-origin.date: 04/08/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: bf554ab6f1be69572cde229cbfc3a7e3ef294faa
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.reviewer: ''
+origin.date: 09/21/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 563f85bd240b65de3eaa7a84ffb37358e15d4c0b
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222524"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872413"
 ---
 # <a name="what-is-azure-sql-database"></a>什么是 Azure SQL 数据库？
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -150,11 +150,8 @@ SQL 数据库提供针对需要监视的查询的详细见解。 SQL 数据库�
 
 ### <a name="advance-threat-protection"></a>高级威胁防护
 
-高级数据安全是高级 SQL 安全功能的统一包。 它包括发现敏感数据并分类、管理数据库漏洞以及检测可能对数据库造成威胁的异常活动的功能。 它提供用于启用和管理这些功能的一个位置。
+Azure Defender for SQL 是高级 SQL 安全功能的统一包。 它包括管理数据库漏洞以及检测可能对数据库造成威胁的异常活动的功能。 它提供用于启用和管理这些功能的一个位置。
 
-- [数据发现和分类](data-discovery-and-classification-overview.md)：
-
-  此功能提供内置于 Azure SQL 数据库的功能，可用于发现、分类、标记和保护数据库中的敏感数据。 它提供数据库分类状态的见解，以及跟踪对数据库内和其边界外的敏感数据的访问。
 - [漏洞评估](sql-vulnerability-assessment.md)：
 
   此服务可以发现、跟踪和帮助补救潜在的数据库漏洞。 它可直观查看安全状态，包括解决安全问题的可操作步骤，并可加强数据库的防御工事。
@@ -170,6 +167,10 @@ SQL 数据库提供针对需要监视的查询的详细见解。 SQL 数据库�
 
 SQL 数据库可提供加密功能来帮助保护数据。 对于动态数据，它使用[传输层安全性](https://support.microsoft.com/kb/3135244)。 对于静态数据，它使用[透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)。 对于使用中的数据，它使用 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)。
 
+### <a name="data-discovery-and-classification"></a>数据发现和分类
+
+[数据发现和分类](data-discovery-and-classification-overview.md)提供内置于 Azure SQL 数据库的功能，可用于对数据库中的敏感数据进行发现、分类、标记和保护。 它提供数据库分类状态的见解，以及跟踪对数据库内和其边界外的敏感数据的访问。
+
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 集成和多重身份验证
 
 通过 SQL 数据库，可使用 [Azure Active Directory 集成](authentication-aad-overview.md)集中管理数据库用户和其他 Microsoft 服务的身份。 此功能简化了权限管理，增强了安全性。 Azure Active Directory 支持[多重身份验证](authentication-mfa-ssms-overview.md)，以便在支持单一登录过程的同时提高数据和应用程序安全性。
@@ -181,10 +182,10 @@ SQL 数据库让应用程序的构建和维护更加轻松、高效。 SQL 数�
 |工具|说明|
 |:---|:---|
 |[Azure 门户](https://portal.azure.cn/)|用于管理所有 Azure 服务的基于 Web 的应用程序。|
-|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/)|在 Windows、MacOS 和 Linux 上运行的跨平台数据库工具。|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/)|一种跨平台数据库工具，在 Windows、macOS 和 Linux 上运行。|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|用于管理任何 SQL 基础结构（从 SQL Server 到 SQL 数据库，不一而足）的免费可下载客户端应用程序。|
 |[Visual Studio 中的 SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|用于开发 SQL Server 关系数据库、Azure SQL 数据库中的数据库、Integration Services 包、Analysis Services 数据模型和 Reporting Services 报表的免费可下载客户端应用程序。|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|一个可免费下载的开源代码编辑器，适用于 Windows、macOS 和 Linux。 它支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)（用于查询 Microsoft SQL Server、Azure SQL 数据库和 Azure SQL 数据仓库）。|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|一个可免费下载的开源代码编辑器，适用于 Windows、macOS 和 Linux。 它支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)，用于查询 Microsoft SQL Server、Azure SQL 数据库和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）。|
 
 SQL 数据库支持在 macOS、Linux 和 Windows 上使用 Python、Java、Node.js、PHP、 Ruby 和 .NET 生成应用程序。 SQL 数据库和 SQL Server 支持相同的[连接库](connect-query-content-reference-guide.md#libraries)。
 

@@ -1,30 +1,24 @@
 ---
-title: 初始化客户端应用程序（适用于 .NET 的 Microsoft 身份验证库）
+title: 初始化 MSAL.NET 客户端应用程序 | Azure
 titleSuffix: Microsoft identity platform
 description: 了解如何使用适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 初始化公共客户端和机密客户端应用程序。
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/12/2019
-ms.date: 11/26/2019
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c6f41b098d2717b3c3f8ab2f2eeea9c3b65e24c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: c22d4f508a4052e953cbaa64bb746bda573edbb4
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74655329"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936960"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>使用 MSAL.NET 初始化客户端应用程序
 本文介绍如何使用适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 初始化公共客户端和机密客户端应用程序。  若要详细了解客户端应用程序类型和应用程序配置选项，请阅读[概述](msal-client-applications.md)。
@@ -140,10 +134,11 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 假设你的应用程序是一个仅供你的组织使用的业务线应用程序。  那么，可编写以下代码：
 
+
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzureChina, AadAuthorityAudience.AzureAdMultipleOrgs)
+        .WithAuthority(AzureCloudInstance.AzureChina, AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
 ```
 
@@ -164,4 +159,3 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-<!-- Update_Description: wording update -->

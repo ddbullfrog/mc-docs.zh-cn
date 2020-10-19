@@ -3,15 +3,16 @@ title: 部署历史记录
 description: 介绍如何通过门户、PowerShell、Azure CLI 和 REST API 查看 Azure Resource Manager 部署操作。
 tags: top-support-issue
 ms.topic: conceptual
-origin.date: 05/26/2020
-ms.date: 06/22/2020
+origin.date: 09/23/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8a22765b8931be4fa8e454695f7c150d7901b392
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: b3e5b283fc3891b1285c9d733ee79b4c76cfa74c
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146516"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937546"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>使用 Azure 资源管理器查看部署历史记录
 
@@ -23,7 +24,7 @@ ms.locfileid: "91146516"
 
 ## <a name="get-deployments-and-correlation-id"></a>获取部署和相关 ID
 
-可通过 Azure 门户、PowerShell、Azure CLI 或 REST API 查看部署详细信息。 每个部署都有一个相关 ID，用于跟踪相关的事件。 与技术支持人员合作排查部署问题时，它非常有用。
+可通过 Azure 门户、PowerShell、Azure CLI 或 REST API 查看部署详细信息。 每个部署都有一个相关 ID，用于跟踪相关的事件。 如果你[创建 Azure 支持请求](https://support.azure.cn/support/support-azure/)，则客户支持可能会要求你提供相关 ID。 客户支持使用相关 ID 来识别失败部署的操作。
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -31,15 +32,15 @@ ms.locfileid: "91146516"
 
 1. 选择“部署”**** 下的链接。
 
-    ![选择部署历史记录](./media/deployment-history/select-deployment-history.png)
+    :::image type="content" source="./media/deployment-history/select-deployment-history.png" alt-text="选择部署历史记录":::
 
 1. 从部署历史记录中选择一个部署。
 
-    ![选择部署](./media/deployment-history/select-details.png)
+    :::image type="content" source="./media/deployment-history/select-details.png" alt-text="选择部署历史记录":::
 
-1. 会显示部署摘要，包括相关 ID。 
+1. 会显示部署摘要，包括相关 ID。
 
-    ![部署摘要](./media/deployment-history/show-correlation-id.png)
+    :::image type="content" source="./media/deployment-history/show-correlation-id.png" alt-text="选择部署历史记录":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -63,13 +64,13 @@ Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName Ex
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要列出资源组部署，请使用 [az 部署组列表](https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-deployment-group-list)。
+若要列出资源组部署，请使用 [az 部署组列表](https://docs.azure.cn/cli/group/deployment#az_deployment_group_list)。
 
 ```azurecli
 az deployment group list --resource-group ExampleGroup
 ```
 
-若要获取特定部署，请使用 [az 部署组显示](https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-deployment-group-show)。
+若要获取特定部署，请使用 [az 部署组显示](https://docs.azure.cn/cli/group/deployment#az_deployment_group_show)。
 
 ```azurecli
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -83,7 +84,7 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-若要列出某个资源组的部署，请使用以下操作。 如需在请求中使用的最新 API 版本号，请参阅[部署 - 按资源组列出](https://docs.microsoft.com/rest/api/resources/deployments/listbyresourcegroup)。 
+若要列出某个资源组的部署，请使用以下操作。 如需在请求中使用的最新 API 版本号，请参阅[部署 - 按资源组列出](https://docs.microsoft.com/rest/api/resources/deployments/listbyresourcegroup)。
 
 ```
 GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
@@ -121,11 +122,11 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 
 1. 在部署的摘要上，选择“操作详细信息”。****
 
-    ![选择操作详细信息](./media/deployment-history/get-operation-details.png)
+    :::image type="content" source="./media/deployment-history/get-operation-details.png" alt-text="选择部署历史记录":::
 
 1. 会看到部署的该步骤的详细信息。 发生错误时，详细信息会包含错误消息。
 
-    ![显示操作详细信息](./media/deployment-history/see-operation-details.png)
+    :::image type="content" source="./media/deployment-history/see-operation-details.png" alt-text="选择部署历史记录":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -149,7 +150,7 @@ Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -Deployme
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要查看部署到资源组的部署操作，请使用 [az deployment operation group list](https://docs.microsoft.com/cli/azure/deployment/group#az_deployment_operation_group_list) 命令。 必须具有 Azure CLI 2.6.0 或更高版本。
+若要查看部署到资源组的部署操作，请使用 [az deployment operation group list](https://docs.azure.cn/cli/deployment/operation/group#az_deployment_operation_group_list) 命令。 必须具有 Azure CLI 2.6.0 或更高版本。
 
 ```azurecli
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment

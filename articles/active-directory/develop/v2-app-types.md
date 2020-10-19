@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 56b6d27a48f7373329d41d8e6a7681ad4489bf87
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 516a04dde8e215fb7a36792f3085a831d562b086
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245523"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936955"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft 标识平台的应用程序类型
 
@@ -116,6 +116,9 @@ Web API 可以从各种应用接收访问令牌，其中包括 Web 服务器应�
 在此流中，应用会在用户登录时接收来自 Microsoft 标识平台终结点的授权代码。 授权代码表示应用有权代表登录用户调用后端服务。 应用可以通过在后台交换授权代码获得 OAuth 2.0 访问令牌和刷新令牌。 应用可以使用访问令牌在 HTTP 请求中向 Web API 进行身份验证，并可以在旧的访问令牌过期时，用刷新令牌获取新的访问令牌。
 
 ![显示本机应用身份验证流](./media/v2-app-types/convergence-scenarios-native.svg)
+
+> [!NOTE]
+> 如果应用程序使用默认的系统 Web 视图，请查看 [Azure AD 身份验证和授权错误代码](reference-aadsts-error-codes.md)中有关“确认我的登录”功能和错误代码 AADSTS50199 的信息。
 
 ## <a name="daemons-and-server-side-apps"></a>守护程序和服务器端应用
 

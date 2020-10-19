@@ -4,15 +4,15 @@ description: 本文介绍如何在 Azure 自动化中管理 Python 2 包。
 services: automation
 ms.subservice: process-automation
 origin.date: 02/25/2019
-ms.date: 08/10/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.custom: tracking-python
-ms.openlocfilehash: f615660e4494813c276398255e0ff5e644a09dd7
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.custom: devx-track-python
+ms.openlocfilehash: 627f28cdc069cb0b58cbda525f36c067c94135d0
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788316"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943519"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>在 Azure 自动化中管理 Python 2 包
 
@@ -22,15 +22,15 @@ ms.locfileid: "87788316"
 
 在 Azure 自动化帐户中，选择“共享资源”下的“Python 2 包” 。 单击“+ 添加 Python 2 包”。
 
-![添加 Python 包](media/python-packages/add-python-package.png)
+:::image type="content" source="media/python-packages/add-python-package.png" alt-text="“Python 2 包”页的屏幕截图显示了左侧菜单中的“Python 2 包”，并突出显示了“添加 Python 2 包”。":::
 
 在“添加 Python 2 包”页中，选择要上传的本地包。 包可以是 .whl 或 .tar.gz 文件 。 选择包后，单击“确定”以上传。
 
-![添加 Python 包](media/python-packages/upload-package.png)
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="“Python 2 包”页的屏幕截图显示了左侧菜单中的“Python 2 包”，并突出显示了“添加 Python 2 包”。":::
 
 导入包后，它将列在 Azure 自动化帐户中的“Python 2 包”页面上。 如果需要移除包，请选择包并单击“删除”。
 
-![包列表](media/python-packages/package-list.png)
+:::image type="content" source="media/python-packages/package-list.png" alt-text="“Python 2 包”页的屏幕截图显示了左侧菜单中的“Python 2 包”，并突出显示了“添加 Python 2 包”。":::
 
 ## <a name="import-packages-with-dependencies"></a>导入具有依赖项的包
 
@@ -55,7 +55,7 @@ C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 * -a \<automationAccount\>
 * -m \<modulePackage\>
 
-![包列表](media/python-packages/import-python-runbook.png)
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="“Python 2 包”页的屏幕截图显示了左侧菜单中的“Python 2 包”，并突出显示了“添加 Python 2 包”。":::
 
 runbook 允许你指定下载的包。 例如，使用 `Azure` 参数将下载所有 Azure 模块和所有依赖项（大约 105 个）。
 

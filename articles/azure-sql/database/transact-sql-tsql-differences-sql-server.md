@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 12/03/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: ed43d51ec647d334512409a2d4aee6e0e2e97a2e
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/12/2020
+ms.openlocfilehash: 062fd99c113eba62223a99ced57f6d19862a450c
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227679"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872428"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>解析迁移到 SQL 数据库的过程中的 Transact-SQL 差异
 
@@ -46,7 +46,7 @@ SQL Server 和 Azure SQL 数据库都完全支持应用程序使用的大多数 
 除了与  [Azure SQL 数据库功能比较](features-comparison.md)中所述的不支持功能相关的 Transact-SQL 语句外，也不支持以下语句和语句组。 因此，如果要迁移的数据库使用以下任一功能，请重新设计 T-SQL 以消除这些 T-SQL 功能和语句。
 
 - 系统对象的排序规则
-- 相关连接：终结点语句。 SQL 数据库不支持 Windows 身份验证，但支持类似的 Azure Active Directory 身份验证。 某些身份验证类型要求使用最新版本的 SSMS。 有关详细信息，请参阅[使用 Azure Active Directory 身份验证连接到 SQL 数据库或 Azure SQL 数据仓库](authentication-aad-overview.md)。
+- 相关连接：终结点语句。 SQL 数据库不支持 Windows 身份验证，但支持类似的 Azure Active Directory 身份验证。 某些身份验证类型要求使用最新版本的 SSMS。 有关详细信息，请参阅[使用 Azure Active Directory 身份验证连接到 SQL 数据库或 Azure Synapse Analytics（以前称为“SQL 数据仓库”）](authentication-aad-overview.md)。
 - 使用三个或四个部分名称的跨数据库查询。 （使用[弹性数据库查询](elastic-query-overview.md)支持只读跨数据库查询。）
 - 跨数据库所有权链接, `TRUSTWORTHY` 设置
 - `EXECUTE AS LOGIN` 改用“EXECUTE AS USER”。
@@ -83,7 +83,7 @@ SQL Server 和 Azure SQL 数据库都完全支持应用程序使用的大多数 
 
 ### <a name="about-the-applies-to-tags"></a>有关“适用于”标记
 
-Transact-SQL 参考包含从 SQL Server 2008 到最新版本的相关文章。 文章标题下面有一个图标栏，其中列出了四个 SQL Server 平台，并指明了适用性。 例如，SQL Server 2012 中引入了可用性组。  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) 一文指明该语句适用于 **SQL Server（从版本 2012 开始）** 。 该语句不适用于 SQL Server 2008、SQL Server 2008 R2、Azure SQL 数据库、Azure SQL 数据仓库或并行数据仓库。
+Transact-SQL 参考包含从 SQL Server 2008 到最新版本的相关文章。 文章标题下面有一个图标栏，其中列出了四个 SQL Server 平台，并指明了适用性。 例如，SQL Server 2012 中引入了可用性组。  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) 一文指明该语句适用于 **SQL Server（从版本 2012 开始）** 。 该语句不适用于 SQL Server 2008、SQL Server 2008 R2、Azure SQL 数据库、Azure Synapse Analytics（以前称为“SQL 数据仓库”）或并行数据仓库。
 
 在某些情况下，产品中可能使用了某篇文章的常规主旨，但产品之间存在细微差异。 在适当的情况下，我们会在文章的中间位置指出该差异。 在某些情况下，产品中可能使用了某篇文章的常规主旨，但产品之间存在细微差异。 在适当的情况下，我们会在文章的中间位置指出该差异。 例如，CREATE TRIGGER 文章在 SQL 数据库中可用。 但服务器级触发器的 **ALL SERVER** 选项指示不能在 SQL 数据库中使用服务器级触发器。 请改用数据库级触发器。
 

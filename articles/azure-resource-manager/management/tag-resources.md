@@ -4,17 +4,17 @@ description: 演示如何应用标记来组织 Azure 资源进行计费和管理
 ms.topic: conceptual
 origin.date: 07/27/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b1c1f1a50655540d2aadd79522d16cb37b889952
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 29bb5f6252fc32985e54e76274963ccc08be6ef6
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146560"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937272"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>使用标记对 Azure 资源和管理层次结构进行组织
 
@@ -312,7 +312,27 @@ az group list --tag Dept=IT
 
 ### <a name="handling-spaces"></a>处理空格
 
-如果标记名称或值包含空格，则必须执行几个额外的步骤。 下面的示例在标记可能包含空格时将资源组中的所有标记应用于其资源。
+如果标记名称或值包含空格，则必须执行几个额外的步骤。 
+
+Azure CLI 中的 `--tags` 参数可以接受包含字符串数组的字符串。 下面的示例将覆盖一个资源组中的标记，该资源组中的标记包含空格和连字符： 
+
+```azurecli
+TAGS=("Cost Center=Finance-1222" "Location=China North")
+az group update --name examplegroup --tags "${TAGS[@]}"
+```
+
+使用 `--tags` 参数创建或更新资源组或资源时，可以使用相同的语法。
+
+若要使用 `--set` 参数更新标记，必须以字符串的形式传递键和值。 下面的示例将单个标记追加到资源组：
+
+```azurecli
+TAG="Cost Center='Account-56'"
+az group update --name examplegroup --set tags."$TAG"
+```
+
+在此示例中，标记值使用单引号进行标记，因为该值包含连字符。
+
+你可能还需要将标记应用于多个资源。 下面的示例在标记可能包含空格时将资源组中的所有标记应用于其资源：
 
 ```azurecli
 jsontags=$(az group show --name examplegroup --query tags -o json)

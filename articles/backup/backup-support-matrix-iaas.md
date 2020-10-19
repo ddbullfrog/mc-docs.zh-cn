@@ -4,14 +4,14 @@ description: 提供有关在使用 Azure 备份服务备份 Azure VM 时的支�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/13/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: dbbc13dcb7f6e2a05194a3518b82211174dd4b11
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: a3b0ab348b3beec19bfc3b759d22cf536945e427
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402528"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871284"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 备份的支持矩阵
 
@@ -155,7 +155,7 @@ Gen2 VM | 支持 <br> Azure 备份支持备份和还原 [Gen2 VM](https://azure.
 
 **组件** | **支持**
 --- | ---
-Azure VM 数据磁盘 | 对最多包含 32 个磁盘的 Azure VM 的备份支持在所有区域提供公共预览版。<br><br> 备份包含非托管磁盘的 Azure VM 或经典 VM 时，最多支持 16 个磁盘。
+Azure VM 数据磁盘 | 支持备份最多包含 32 个磁盘的 Azure VM。<br><br> 备份包含非托管磁盘的 Azure VM 或经典 VM 时，最多支持 16 个磁盘。
 数据磁盘大小 | 对于 VM 中的所有磁盘，单个磁盘大小最大为 32 TB，组合磁盘大小最大为 256 TB。
 存储类型 | 标准 HDD、标准 SSD、高级 SSD。
 托管磁盘 | 。

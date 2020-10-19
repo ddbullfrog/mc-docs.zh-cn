@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 398a985ba72a1e3f59ead7c1aa6916b5471b2cc5
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: a51b911ac8cdf098395c6606af60319671e54a41
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647556"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937239"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>与 Microsoft 标识平台集成
 
@@ -31,7 +31,7 @@ ms.locfileid: "88647556"
 
 ### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>支持 Microsoft 标识平台作为登录应用程序的方式
 
-**减少登录阻碍并降低支持成本。** 通过使用 Microsoft 标识平台登录应用程序，用户就不需要再多记住一套名称和密码。 作为开发人员，可以减少要存储和保护的密码。 无需重置忘记的密码，单凭这一点就能节省不少的精力。 Microsoft 标识平台为世界上最热门的一些云应用程序（包括 Office 365 和 Azure）提供登录支持。 Microsoft 标识平台拥有来自数百万家组织的上亿名用户，你的用户很有可能已经登录到了该平台。 请详细了解如何[添加对 Microsoft 标识平台登录的支持](./authentication-vs-authorization.md)。
+**减少登录阻碍并降低支持成本。** 通过使用 Microsoft 标识平台登录应用程序，用户就不需要再多记住一套名称和密码。 作为开发人员，可以减少要存储和保护的密码。 无需重置忘记的密码，单凭这一点就能节省不少的精力。 Microsoft 标识平台为世界上最热门的一些云应用程序（包括 Microsoft 365 和 Azure）提供登录支持。 Microsoft 标识平台拥有来自数百万家组织的上亿名用户，你的用户很有可能已经登录到了该平台。 请详细了解如何[添加对 Microsoft 标识平台登录的支持](./authentication-vs-authorization.md)。
 
 **简化应用程序的注册过程。**  在注册应用程序的过程中，Microsoft 标识平台可以发送有关用户的基本信息，以便你可以预先填写注册表单或完全清除注册表单中的信息。 用户可以使用其 Azure AD 帐户，通过社交媒体和移动应用程序中常见的许可体验注册应用程序。 无需 IT 人员支持，任何用户都可以注册并登录到与 Microsoft 标识平台集成的应用程序。 深入了解如何[注册应用程序进行 Azure AD 帐户登录](../../app-service/configure-authentication-provider-aad.md)。
 
@@ -47,13 +47,13 @@ ms.locfileid: "88647556"
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>获取对用户配置文件、日历、电子邮件、联系人、文件等的访问权限
 
-Microsoft 标识平台是 Office 365 和其他 Microsoft 业务服务的授权服务器。  如果支持使用 Microsoft 标识平台登录到应用程序，或者支持将当前用户帐户链接到使用 OAuth 2.0 的 Azure AD 用户帐户，则可以请求获得用户配置文件、日历、电子邮件、联系人、文件和其他信息的读写访问权限。 可以顺利地将事件写入用户日历，以及在其 OneDrive 中读取或写入文件。 深入了解如何[访问 Office 365 API](https://docs.microsoft.com/previous-versions/office/office-365-api/)。
+**Microsoft 标识平台是 Microsoft 365 和其他 Microsoft 业务服务的授权服务器。**  如果支持使用 Microsoft 标识平台登录到应用程序，或者支持将当前用户帐户链接到使用 OAuth 2.0 的 Azure AD 用户帐户，则可以请求获得用户配置文件、日历、电子邮件、联系人、文件和其他信息的读写访问权限。 可以顺利地将事件写入用户日历，以及在其 OneDrive 中读取或写入文件。 详细了解如何[访问 Microsoft 365 API](https://docs.microsoft.com/previous-versions/office/office-365-api/)。
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>在 Azure 和 Office 365 市场中推广你的应用程序
+### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>在 Azure 和 Microsoft 365 市场中推广你的应用程序
 
 **向数百万个已使用 Azure AD 的组织推广应用程序。**  搜索和浏览这些市场的用户已在使用一个或多个云服务，这让他们成为合格的云服务客户。 深入了解如何在 [Azure 市场](https://azure.microsoft.com/marketplace/partner-program/)中推广应用程序。
 
-**用户注册应用程序后，该程序会在其 Azure AD 访问面板和 Office 365 应用启动器中显示。**  之后，用户能够快速轻松地返回应用程序，可提高用户参与度。  
+**用户注册应用程序后，该程序会在其 Azure AD 访问面板和 Microsoft 365 应用启动器中显示。**  之后，用户能够快速轻松地返回应用程序，可提高用户参与度。
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>保护设备与服务之间以及服务与服务之间的通信
 
@@ -85,7 +85,7 @@ Microsoft 标识平台是 Office 365 和其他 Microsoft 业务服务的授权�
 
 ### <a name="worldwide-presence-and-high-availability"></a>全球存在和高可用性
 
-**全球数据库中均已部署 Azure AD，且受到全天候的管理和监视。**  Azure AD 是 Azure 和 Office 365 的标识管理系统，已在世界各地的 28 个数据中心部署。 我们保证至少将目录数据复制到三个数据中心。 全局负载均衡器确保用户访问包含其数据的最靠近 Azure AD 副本，如果检测到问题，会自动将请求重新路由到其他数据中心。
+**全球数据库中均已部署 Azure AD，且受到全天候的管理和监视。**  Azure AD 是 Azure 和 Microsoft 365 的标识管理系统，已在世界各地的 28 个数据中心部署。 我们保证至少将目录数据复制到三个数据中心。 全局负载均衡器确保用户访问包含其数据的最靠近 Azure AD 副本，如果检测到问题，会自动将请求重新路由到其他数据中心。
 
 ## <a name="next-steps"></a>后续步骤
 

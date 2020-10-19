@@ -5,15 +5,15 @@ description: 本文提供有关如何使用专用前端 IP 地址配置应用程
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 04/26/2020
+ms.topic: how-to
+ms.date: 09/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: b16da26ad456707d439606df76e83d15aebdfc00
-ms.sourcegitcommit: e3512c5c2bbe61704d5c8cbba74efd56bfe91927
+ms.openlocfilehash: bf44eb5a6de8f86ec12cc2124181f8263e775e55
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82267657"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937555"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>使用内部负载均衡器 (ILB) 终结点配置应用程序网关
 
@@ -145,13 +145,13 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 2. 选择“后端池”  。 选择“appGatewayBackendPool”  。
 3. 在“目标类型”下选择“虚拟机”，然后在“目标”下选择与 myVM 关联的 vNIC。   
 4. 重复此过程以添加 MyVM2。
-   ![private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+   ![屏幕截图显示了“编辑后端池”窗格，其中突出显示了“目标类型”和“目标”。](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 5. 选择“保存”。 
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
 1. 单击门户中的“前端 IP 配置”页查看分配的前端 IP。 
-    ![private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+    ![屏幕截图显示了“前端 IP 配置”窗格，其中突出显示了“专用类型”。](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. 复制专用 IP 地址，并将其粘贴到同一 VNet 中的 VM 或与此 VNet 连接的本地 VM 上的浏览器地址栏中，然后尝试访问应用程序网关。
 
 ## <a name="next-steps"></a>后续步骤

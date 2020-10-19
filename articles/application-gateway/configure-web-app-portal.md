@@ -3,93 +3,64 @@ title: 使用门户管理多租户应用的流量
 titleSuffix: Azure Application Gateway
 description: 本文提供有关如何在现有或新的应用程序网关上将 Azure 应用服务 Web 应用配置为后端池成员的指导。
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 09/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: efaa12e2bf64f62aa411b10952c5f785d7b8c07d
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 4bd6b26b62e235950242ed894d6bb496c7003a66
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721109"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937071"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>使用应用程序网关配置应用服务
 
 由于应用服务是多租户服务而不是专用部署，因此会使用传入请求中的主机标头来解析发给正确应用服务终结点的请求。 通常，应用程序的 DNS 名称（也是与面向应用服务的应用程序网关关联的 DNS 名称）不同于后端应用服务的域名。 因此，应用程序网关收到的原始请求中的主机标头不同于后端服务的主机名。 正因如此，除非从应用程序网关发往后端的请求中的主机标头已更改为后端服务的主机名，否则多租户后端无法将请求解析为正确的终结点。
 
-应用程序网关提供一个名为 `Pick host name from backend address` 的开关，将请求从应用程序网关路由到后端时，该开关将使用后端的主机名来替代请求中的主机标头。 使用此功能可以支持 Azure 应用服务和 API 管理等多租户后端。 
+应用程序网关提供一个名为 `Pick host name from backend target` 的开关，将请求从应用程序网关路由到后端时，该开关将使用后端的主机名来替代请求中的主机标头。 使用此功能可以支持 Azure 应用服务和 API 管理等多租户后端。 
 
 在本文中，学习如何：
 
-- 创建后端池并将一个应用服务添加到其中
-- 在启用“选取主机名”开关的情况下创建 HTTP 设置和自定义探测
+- 编辑后端池并将应用服务添加到其中
+- 在启用“选取主机名”开关的情况下编辑 HTTP 设置
 
 ## <a name="prerequisites"></a>先决条件
 
-- 应用程序网关：如果没有应用程序网关，请参阅如何[创建应用程序网关](/application-gateway/quick-create-portal)
+- 应用程序网关：创建不带后端池目标的应用程序网关。 有关详细信息，请参阅[快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure 门户](quick-create-portal.md)
+
 - 应用服务：如果没有应用服务，请参阅[应用服务文档](/app-service/)。
 
 ## <a name="add-app-service-as-backend-pool"></a>将应用服务添加为后端池
 
-1. 在 Azure 门户中，打开应用程序网关的配置视图。
+1. 在 Azure 门户中，选择你的应用程序网关。
 
-2. 在“后端池”下，单击“添加”以创建新的后端池。 
+2. 在“后端池”下，选择后端池。
 
-3. 为后端池提供适当的名称。 
+4. 在“目标类型”下，选择“应用服务”。 
 
-4. 在“目标”下，单击下拉列表并选择“应用服务”作为选项。 
+5. 在“目标”下，选择你的应用服务。
 
-5. 紧靠在“目标”下拉列表的下面会显示另一个下拉列表，其中包含应用服务的列表。 在此下拉列表中，选择要添加为后端池成员的应用服务，然后单击“添加”。
-
-   ![应用服务后端](./media/configure-web-app-portal/backendpool.png)
+   :::image type="content" source="./media/configure-web-app-portal/backend-pool.png" alt-text="应用服务后端":::
    
    > [!NOTE]
    > 下拉列表中只填充了与应用程序网关位于同一订阅中的应用服务。 若要使用与应用程序网关不同的订阅中的应用服务，请在“目标”下拉列表中选择“应用服务”，选择“IP 地址或主机名”选项，然后输入应用服务的主机名（例如   chinacloudsites.cn）。
+1. 选择“保存”。 
 
-## <a name="create-http-settings-for-app-service"></a>创建应用服务的 HTTP 设置
+## <a name="edit-http-settings-for-app-service"></a>编辑应用服务的 HTTP 设置
 
-1. 在“HTTP 设置”下，单击“添加”以创建新的 HTTP 设置。 
+1. 在“HTTP 设置”下，选择现有 HTTP 设置。
 
-2. 输入该 HTTP 设置的名称，并根据要求启用或禁用“基于 Cookie 的相关性”。
+2. 在“使用新主机名进行替代”下，选择“是”。
+3. 在“主机名替代”下，选择“从后端目标选取主机名”。
+4. 选择“保存”。 
 
-3. 根据用例选择“HTTP”或“HTTPS”作为协议。 
-
-   > [!NOTE]
-   > 如果选择“HTTPS”，则无需上传任何身份验证证书或受信任的根证书即可允许服务后端，因为应用服务是受信任的 Azure 服务。
-
-4. 选中“用于应用服务”对应的框。 请注意，开关 `Create a probe with pick host name from backend address` 和 `Pick host name from backend address` 会自动启用。`Pick host name from backend address` 会在将请求从应用程序网关路由到后端时，使用后端的主机名来替代请求中的主机标头。  
-
-   `Create a probe with pick host name from backend address` 会自动创建运行状况探测，并将其关联到此 HTTP 设置。 无需为此 HTTP 设置创建任何其他运行状况探测。 可以检查名为 <HTTP Setting name><Unique GUID> 的新探测是否已添加运行状况探测列表并已包含开关 `Pick host name from backend http settings enabled`。
-
-   如果你已将一个或多个 HTTP 设置用于应用服务，并且这些 HTTP 设置使用的协议与正在创建的设置中使用的协议相同，则你不会获得 `Create a probe with pick host name from backend address` 开关，而是看到一个下拉列表，可在其中选择某个自定义探测。 这是因为，已存在一个包含应用服务的 HTTP 设置，因此也存在一个具有开关 `Pick host name from backend http settings enabled` 的运行状况探测。 从下拉列表中选择该自定义探测。
-
-5. 单击“确定”以创建该 HTTP 设置。
-
-   ![HTTP-setting1](./media/configure-web-app-portal/http-setting1.png)
-
-   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
-
-
-
-## <a name="create-rule-to-tie-the-listener-backend-pool-and-http-setting"></a>创建用于绑定侦听器、后端池和 HTTP 设置的规则
-
-1. 在“规则”下，单击“基本”以创建新的基本规则。 
-
-2. 提供适当的名称，并选择用于接受应用服务传入请求的侦听器。
-
-3. 在“后端池”下拉列表中，选择前面创建的后端池。
-
-4. 在“HTTP 设置”下拉列表中，选择前面创建的 HTTP 设置。
-
-5. 单击“确定”以保存此规则。
-
-   ![规则](./media/configure-web-app-portal/rule.png)
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="应用服务后端":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>重定向到应用服务的相对路径时的其他配置
 
-当应用服务向客户端发送重定向响应以重定向到其相对路径（例如，从 contoso.chinacloudsites.cn/path1 重定向到 contoso.chinacloudsites.cn/path2）时，它会在其响应的位置标头中，使用它从应用程序网关收到的请求中的相同主机名。 因此，客户端将直接向 contoso.chinacloudsites.cn/path2 发出请求，而不是通过应用程序网关 (contoso.com/path2) 发出请求。 不应该绕过应用程序网关。
+当应用服务向客户端发送重定向响应以重定向到其相对路径（例如，从 `contoso.chinacloudsites.cn/path1` 重定向到 `contoso.chinacloudsites.cn/path2`）时，它会在其响应的位置标头中使用从应用程序网关收到的请求中的相同主机名。 因此，客户端将直接向 `contoso.chinacloudsites.cn/path2` 发出请求，而不是通过应用程序网关 (`contoso.com/path2`) 发出请求。 不应该绕过应用程序网关。
 
 如果在你的用例中，应用服务有时需要将重定向响应发送到客户端，请执行[重写位置标头的附加步骤](/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration)。
 

@@ -4,15 +4,15 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 群集上部署和使
 ms.topic: conceptual
 origin.date: 03/05/2018
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b70f073144152bfb4cc4ea4bd147cf509dca40fa
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 515a54f8bdf9006a2ac131cb8af3ce3539c1382f
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146729"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937407"
 ---
 # <a name="using-openfaas-on-aks"></a>在 AKS 上使用 OpenFaaS
 
@@ -28,6 +28,10 @@ ms.locfileid: "91146729"
 * 已在系统上安装 Git 命令行工具。
 
 ## <a name="add-the-openfaas-helm-chart-repo"></a>添加 OpenFaaS helm 图表存储库
+
+<!--Not Available on [https://shell.azure.com](https://shell.azure.com)-->
+
+在本地计算机上以管理员权限打开 Azure 本地 Shell。
 
 OpenFaaS 保留有自己的 helm 图表，可以通过所有最新的更改来更新内容。
 
@@ -88,7 +92,7 @@ alertmanager-config  1     20s
 {snip}
 ```
 
-<!--MOONCAKE: CUSTOMIZE ON APPEND MISSING ```-->
+<!--MOONCAKE: CUSTOMIZE ON APPEND MISSING ``` -->
 
 
 > [!NOTE]
@@ -126,14 +130,10 @@ brew install faas-cli
 
 使用 Azure CLI 登录：
 
-<!--MOONCAKE: Update ./faas-cli to faas-cli-->
-
 ```console
 export OPENFAAS_URL=http://52.186.64.52:8080
-echo -n $PASSWORD | faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
+echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
-
-<!--MOONCAKE: Update ./faas-cli to faas-cli-->
 
 ## <a name="create-first-function"></a>创建第一个函数
 

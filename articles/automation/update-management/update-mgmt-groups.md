@@ -4,14 +4,14 @@ description: 本文介绍如何将动态组与 Azure 自动化更新管理配合
 services: automation
 ms.subservice: update-management
 origin.date: 07/28/2020
-ms.date: 08/10/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 266878688fbc8bc91759c3c372c3385928648e98
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: bb79c5dff2a907109987cdf5f9096b2cfe43e5aa
+ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790519"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943444"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>将动态组与更新管理配合使用
 
@@ -46,7 +46,7 @@ ms.locfileid: "87790519"
 
 非 Azure 计算机的动态组使用保存的搜索，也称为计算机组。 若要了解如何创建保存的搜索，请参阅[创建计算机组](../../azure-monitor/platform/computer-groups.md#creating-a-computer-group)。 创建保存的搜索后，可以从 Azure 门户“更新管理”中的保存的搜索列表中选择它。 单击“预览”，可预览保存的搜索中的计算机。
 
-![选择组](./media/update-mgmt-groups/select-groups-2.png)
+![屏幕截图显示了非 Azure（预览版）的“选择组”页和右侧的“预览”窗格。](./media/update-mgmt-groups/select-groups-2.png)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 05eff99e9f012b70d0432c6cb137d9a982737102
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 86cb31d9bca71b4badaf6a52a05c0fb9cad4b0b8
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244694"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937248"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft 标识平台访问令牌
 
@@ -264,9 +264,17 @@ https://login.partner.microsoftonline.cn/common/v2.0/.well-known/openid-configur
 | 管理员[通过 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) 撤销用户的所有刷新令牌 | 已撤销 | 已撤销 |已撤销 | 已撤销 | 已撤销 |
 | Web 上的单一注销（[v1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out)、[v2.0](v2-protocols-oidc.md#single-sign-out)） | 已撤销 | 一直有效 | 已撤销 | 一直有效 | 一直有效 |
 
+#### <a name="non-password-based"></a>不基于密码
+
+“不基于密码”登录是指用户在未键入密码的情况下登录。 “不基于密码”登录的示例包括：
+
+- 在 Windows Hello 中使用人脸
+- FIDO2 密钥
+- SMS
+- 语音
+- PIN 
+
 > [!NOTE]
-> “不基于密码”登录是指用户在未键入密码的情况下登录。 例如，在 Windows Hello 中使用人脸登录、使用 FIDO2 密钥或 PIN 登录。
->
 > Windows 10 上的主刷新令牌 (PRT) 基于凭据进行隔离。 例如，Windows Hello 和密码有各自的 PRT，彼此隔离。 当用户使用 Hello 凭据（PIN 或生物识别）登录，然后更改密码时，先前获得的基于密码的 PRT 将被撤销。 使用密码重新登录会使旧的 PRT 无效，并请求一个新的 PRT。
 >
 > 在用于提取新访问令牌和刷新令牌时，刷新令牌不会失效或撤销。  但是，你的应用应该在使用旧令牌后立即丢弃它，并将其替换为新令牌，因为新令牌中有一个新的过期时间。 

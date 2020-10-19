@@ -1,19 +1,19 @@
 ---
-title: Azure ExpressRoute 监视、指标和警报 | Microsoft Docs
-description: 此页提供有关 ExpressRoute 监视的信息
+title: Azure ExpressRoute：监视、指标和警报
+description: 了解使用 Azure Monitor（其中集中了 Azure 的所有指标、警报和诊断日志）的 Azure ExpressRoute 监视、指标和警报。
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 08/22/2019
-ms.date: 01/20/2020
+origin.date: 08/25/2020
+ms.date: 10/19/2020
 ms.author: v-yiso
-ms.openlocfilehash: 345da0126bfa3d98ee0a5cb5453efa18e4e2bda9
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: dd57217467751f400f191b36bc75f38311806b9d
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021337"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937307"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 监视、指标和警报
 
@@ -118,7 +118,7 @@ ms.locfileid: "90021337"
 
 可以查看每秒遍历网关的数据包数。
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="每秒数据包数 - 拆分":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="CPU 拆分":::
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute 网关连接（以位/秒为单位）
 
@@ -152,6 +152,19 @@ ms.locfileid: "90021337"
 
   ![另一个](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
 
+## <a name="additional-metrics-in-log-analytics"></a>Log Analytics 中的其他指标
+
+还可以通过导航到 ExpressRoute 线路资源并选择“日志”选项卡来查看 ExpressRoute 指标。对于你查询的任何指标，输出将包含以下列。
+
+|**列**|类型|**说明**|
+| --- | --- | --- |
+|TimeGrain|字符串|PT1M（每分钟推送一次指标值）|
+|Count|real|通常等于 2（每个 MSEE 每分钟推送一个指标值）|
+|最低配置|real|两个 MSEE 推送的两个指标值中的最小值|
+|最大值|real|两个 MSEE 推送的两个指标值中的最大值|
+|平均值|real|等于 (最小值 + 最大值)/2|
+|总计|real|来自两个 MSEE 的两个指标值的总和（所查询指标的需关注的主要值）|
+  
 ## <a name="next-steps"></a>后续步骤
 
 配置 ExpressRoute 连接。

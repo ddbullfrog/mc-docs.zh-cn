@@ -4,14 +4,14 @@ description: '针对以下常见问题的解答：包括恢复服务保管库在
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 07/07/2019
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 7c74d564a05695d523f87448f82ba175cf582004
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 342a1288ed80b92eb844a678b7d5af875288a5de
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402450"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871231"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 备份 - 常见问题
 
@@ -46,7 +46,7 @@ ms.locfileid: "91402450"
 
 否。 保管库中存储的备份数据无法移动到不同的保管库。
 
-### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>备份后是否可以从 GRS 更改为 LRS？
+### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>能否在备份后更改存储冗余设置？
 
 存储复制类型默认设置为异地冗余存储 (GRS)。 配置备份后，将禁用修改选项且不可更改。
 

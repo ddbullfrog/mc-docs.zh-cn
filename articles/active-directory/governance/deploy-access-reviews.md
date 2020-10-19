@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/23/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b74963fa570e110d4fff5cbf3093adbd2400cb11
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: c8d1b868269b955e3cf0eefa5c7061bfc749184e
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245029"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91936950"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>规划 Azure Active Directory 访问评审部署
 
@@ -37,7 +37,7 @@ ms.locfileid: "91245029"
 
 * 自动生成评审结果，例如删除用户对资源的访问权限
 
-  ![规划访问评审](./media/deploy-access-review/1-planning-review.png)
+  ![显示访问评审流的关系图。](./media/deploy-access-review/1-planning-review.png)
 
 访问评审是一项 [Azure AD Identity Governance](identity-governance-overview.md) 功能。 其他功能是：[权利管理](entitlement-management-overview.md)、[Privileged Identity Management](../privileged-identity-management/pim-configure.md)。 将它们配合使用，可帮助组织解决以下四个问题：
 
@@ -165,7 +165,7 @@ ms.locfileid: "91245029"
 
 * 组[成员身份](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)（同步到 Azure AD，或者在 Azure AD 或 Microsoft 365 中创建，包括 Microsoft Teams）。
 
-* [访问包](../governance/entitlement-management-overview.md)：用于将资源（组、应用和站点）分组到单个包中以管理访问权限。
+* [访问包](/active-directory/governance/entitlement-management-overview)：用于将资源（组、应用和站点）分组到单个包中以管理访问权限。
 
 * [Azure AD 角色和 Azure 资源角色](../privileged-identity-management/pim-resource-roles-assign-roles.md)：详见 Privileged Identity Management 中的定义。
 
@@ -283,7 +283,7 @@ ms.locfileid: "91245029"
 
 打开“生命周期”选项卡即可向下滚动到“访问评审”。
 
- ![编辑策略](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![此屏幕截图显示了“生命周期”选项卡中的“编辑策略”。](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>为组规划访问评审
 
@@ -428,7 +428,7 @@ ms.locfileid: "91245029"
 
 为了降低与过时角色分配相关的风险，应定期评审特权 Azure AD 角色的访问权限。
 
-![评审 Azure AD 角色](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![此屏幕截图显示了 Azure AD 角色的“审阅成员身份”列表。](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 请按以下链接中的说明进行操作：
 

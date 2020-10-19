@@ -2,18 +2,18 @@
 title: 没有 800 计数限制的资源
 description: 列出可以在一个资源组中有 800 多个实例的 Azure 资源类型。
 ms.topic: conceptual
-origin.date: 05/04/2020
+origin.date: 09/21/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: ea31d3e456cd1f57dfc693185a385867cb530d31
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: b355c5a249b89ee535c970c4cb6813922ff37499
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807875"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937263"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>没有每个资源组 800 个实例限制的资源
 
@@ -27,6 +27,8 @@ ms.locfileid: "88807875"
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
+* edgeSubscriptions
+* linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
@@ -41,6 +43,7 @@ ms.locfileid: "88807875"
 * galleries/images/versions
 * images
 * snapshots
+* virtualMachineScaleSets - 默认情况下，限制为 800 个实例。 可以通过联系支持人员来提高该限制。
 * virtualMachines
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -58,20 +61,23 @@ ms.locfileid: "88807875"
 * registries/tasks
 * registries/webhooks
 
+<!--Not Available on ## Microsoft.D365CustomerInsights-->
+
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 * servers
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
+* flexibleServers
 * servers
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
+* flexibleServers
 * serverGroups
 * servers
 * serversv2
-* singleServers
 
 <!--Not Available on ## Microsoft.DevTestLab-->
 <!--Not Available on ## Microsoft.EnterpriseKnowledgeGraph-->
@@ -101,6 +107,10 @@ ms.locfileid: "88807875"
 * integrationAccounts
 * workflows
 
+## <a name="microsoftmedia"></a>Microsoft.Media
+
+* mediaservices/liveEvents
+
 <!--Not Available on ## Microsoft.NetApp-->
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
@@ -108,7 +118,7 @@ ms.locfileid: "88807875"
 * applicationGatewayWebApplicationFirewallPolicies
 * applicationSecurityGroups
 * bastionHosts
-* ddosProtectionPlans
+<!--Not Available on * ddosProtectionPlans-->
 * dnszones
 * dnszones/A
 * dnszones/AAAA
@@ -140,7 +150,8 @@ ms.locfileid: "88807875"
 * publicIPAddresses - 默认情况下，限制为 800 个实例。 可以通过联系支持人员来提高该限制。
 * serviceEndpointPolicies
 * trafficmanagerprofiles
-* virtualNetworkTaps
+
+<!--Not Available on * virtualNetworkTaps-->
 
 <!--Not Available on ## Microsoft.PortalSdk-->
 

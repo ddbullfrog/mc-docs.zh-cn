@@ -8,15 +8,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: douglas, carlrab, sstein
-origin.date: 08/18/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: be5abddf2441e059200046d9700ed401ef03f278
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.reviewer: douglas, sstein
+origin.date: 08/31/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: b3b7dffb16ce68b8795b017b291af0b38ce8f9af
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014384"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872425"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL 托管实例上用户启动的手动故障转移
 
@@ -37,6 +37,15 @@ ms.locfileid: "90014384"
 > 在部署到生产环境之前，请确保应用程序的故障转移是可复原的，这有助于降低生产环境中出现应用程序故障的风险，且有助于向客户提供应用程序可用性。
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>在 SQL 托管实例上启动手动故障转移
+
+### <a name="rbac-permissions-required"></a>所需的 RBAC 权限
+
+启动故障转移的用户需要具有下列 RBAC 角色之一：
+
+- “订阅所有者”角色或
+- “托管实例参与者”角色或
+- 具有以下权限的自定义角色：
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### <a name="using-powershell"></a>使用 PowerShell
 

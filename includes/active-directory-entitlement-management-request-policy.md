@@ -5,15 +5,15 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 08/25/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 39dea5ac0cae3e44f7df4d4828f2b37dd4ae07f6
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: e38fbc968e7ade7a9117e30382835077cb93bb30
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947443"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937589"
 ---
 ## <a name="for-users-in-your-directory"></a>适用于目录中的用户
 
@@ -207,4 +207,34 @@ ms.locfileid: "88947443"
     ![访问包 - 策略 - 启用策略设置](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. 单击“下一步”  。
+
+## <a name="add-requestor-information-preview-to-an-access-package"></a>向访问包添加请求者信息（预览）
+
+1. 转到“请求者信息”选项卡并单击“问题”子选项卡。
+ 
+1. 在“问题”框中键入要向请求者提问的内容，也称为“显示字符串”。
+
+    ![访问包 - 策略 - 启用请求者信息设置](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. 若要添加自己的本地化选项，请单击“添加本地化”。
+    1. 进入“添加问题的本地化文本”窗格后，为用于将问题本地化的语言选择“语言代码”。
+    1. 使用配置的语言，在“本地化文本”框中键入问题。
+    1. 添加完所需的所有本地化文本后，请单击“保存”。
+
+    ![访问包 - 策略 - 配置本地化文本](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. 选择你希望请求者回答时使用的“答案格式”。 答案格式包括：短文本、多选和长文本。
+ 
+    ![访问包 - 策略 - 选择“查看和编辑多选答案格式”](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. 如果选择“多选”，请单击“查看和编辑”按钮来配置答案选项。
+    1. 选择“查看和编辑”后，“查看/编辑问题”窗格会打开。
+    1. 在“答案值”框中键入你希望在请求者回答问题时向请求者提供的响应选项。
+    1. 键入所需的任意多个响应，然后单击“保存”。
+    
+    ![访问包 - 策略 - 输入多选选项](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. 若要要求请求者在请求访问某个访问包时回答此问题，请单击“必需”下的复选框。
+
+1. 单击“下一步”
 

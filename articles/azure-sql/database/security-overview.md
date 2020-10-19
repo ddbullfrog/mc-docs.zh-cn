@@ -3,29 +3,29 @@ title: 安全性概述
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: 了解 Azure SQL 数据库和 Azure SQL 托管实例的安全性（包括其与 SQL Server 中的不同之处）。
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: vanto, carlrab, emlisa
-origin.date: 05/14/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 7fce38777b8cf43230e30cbebb5ccd67929bdc1b
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.reviewer: vanto, emlisa
+origin.date: 09/21/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 85d69ef4a54af583e95979185859bc1b877c39ff
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227783"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872367"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL 数据库和 Azure SQL 托管实例安全功能概述
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 本文概述使用 [Azure SQL 数据库](sql-database-paas-overview.md)和 [Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)保护应用程序数据层的基础知识。 所述的安全策略遵循如下图所示的分层深度防御方法，并从外向内移动：
 
-![sql-security-layer.png](./media/security-overview/sql-security-layer.png)
+![分层深度防御的关系图。 客户数据将包含在网络安全层、访问管理层以及威胁和信息保护层中。](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>网络安全性
 
@@ -78,7 +78,7 @@ IP 防火墙规则基于每个请求的起始 IP 地址授予对数据库的访�
 
 行级别安全性使客户可以基于执行查询的用户的特性（例如，组成员身份或执行上下文）来控制对数据库表进行的访问。 行级别安全性也可用于实现基于自定义标签的安全概念。 有关详细信息，请参阅[行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)。
 
-![azure-database-rls.png](./media/security-overview/azure-database-rls.png)
+![此图显示了行级别安全性屏蔽了 SQL 数据库的各个行，以防用户通过客户端应用进行访问。](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>威胁防护
 
@@ -92,7 +92,7 @@ SQL 数据库和 SQL 托管实例审核可跟踪数据库活动，通过将数�
 
 高级威胁防护通过对你的日志进行分析来检测异常行为和对数据库的潜在恶意访问或利用。 针对可疑活动（例如 SQL注入、潜在的数据渗透和暴力攻击）或访问模式中的异常情况创建警报，以捕获特权提升和违规的凭据使用。 可以从 [Azure 安全中心](/security-center/)查看警报，其中提供了可疑活动的详细信息，并给出了进一步调查建议以及缓解威胁的措施。 可以为每台服务器启用高级威胁防护，但需要额外付费。 有关详细信息，请参阅 [SQL 数据库高级威胁防护入门](threat-detection-configure.md)。
 
-![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
+![此图显示了 SQL 威胁检测正在监视外部攻击者和恶意内部人员对 Web 应用的 SQL 数据库的访问。](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>信息保护和加密
 
@@ -123,13 +123,13 @@ SQL 数据库和 SQL 托管实例通过使用[传输层安全性 (TLS)](https://
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted（使用中加密）
 
-![azure-database-ae.png](./media/security-overview/azure-database-ae.png)
+![此图显示了 Always Encrypted 功能的基础知识。 只有包含密钥的应用才能访问带锁的 SQL 数据库。](./media/security-overview/azure-database-ae.png)
 
 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 功能旨在保护特定数据库列中存储的敏感数据不被访问（如信用卡号或、国民身份证号或视需要而定的数据）。 这包括数据库管理员或其他特权用户，他们被授权访问数据库以执行管理任务，但不需要访问加密列中的特定数据。 数据始终处于加密状态，这意味着加密数据只在有权访问加密密钥的客户端应用程序需要处理数据时才解密。 加密密钥从不暴露给 SQL 数据库或 SQL 托管实例，而且可以存储在 [Windows 证书存储](always-encrypted-certificate-store-configure.md)或 [Azure Key Vault](always-encrypted-azure-key-vault-configure.md) 中。
 
 ### <a name="dynamic-data-masking"></a>动态数据屏蔽
 
-![azure-database-ddm.png](./media/security-overview/azure-database-ddm.png)
+![此图显示了动态数据掩码。 商业应用将数据发送到 SQL 数据库，该数据库会对数据进行掩码，然后再将其发送回商业应用。](./media/security-overview/azure-database-ddm.png)
 
 动态数据屏蔽通过对非特权用户屏蔽敏感数据来限制敏感数据的公开。 动态数据掩码可自动发现 Azure SQL 数据库和 SQL 托管实例中潜在的敏感数据，提供可行的建议来掩码这些字段，对应用程序层造成的影响可忽略不计。 它的工作原理是在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。 有关详细信息，请参阅 [SQL 数据库和 SQL 托管实例动态数据掩码入门](dynamic-data-masking-overview.md)。
 
@@ -137,7 +137,7 @@ SQL 数据库和 SQL 托管实例通过使用[传输层安全性 (TLS)](https://
 
 ### <a name="vulnerability-assessment"></a>漏洞评估
 
-[漏洞评估](sql-vulnerability-assessment.md)是一项易于配置的服务，可以发现、跟踪和帮助修正潜在的数据库漏洞，旨在主动提高整体数据库安全性。 漏洞评估 (VA) 是高级数据安全产品/服务（它是高级 SQL 安全功能的一个统一包）的一部分。 可通过中心 SQL 高级数据安全门户访问和管理漏洞评估。
+[漏洞评估](sql-vulnerability-assessment.md)是一项易于配置的服务，可以发现、跟踪和帮助修正潜在的数据库漏洞，旨在主动提高整体数据库安全性。 漏洞评估 (VA) 是 Azure Defender for SQL 产品/服务（高级 SQL 安全功能的统一包）的一部分。 可通过中心 Azure Defender for SQL 门户访问和管理漏洞评估。
 
 ### <a name="data-discovery-and-classification"></a>数据发现和分类
 

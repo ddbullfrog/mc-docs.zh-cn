@@ -3,6 +3,7 @@ title: 在 Azure API 管理中预配自承载网关 | Microsoft Docs
 description: 了解如何在 Azure API 管理中预配自承载网关。
 services: api-management
 documentationcenter: ''
+author: Johnnytechn
 manager: gwallace
 editor: ''
 ms.service: api-management
@@ -10,15 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 10/31/2019
-author: Johnnytechn
-ms.date: 06/04/2020
+ms.date: 09/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 2a1ef52db89f725c9c43cb6df2f1d9de5111b35a
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: da824f7a459e08c657189a56aee00d36e0a19aa7
+ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440547"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871355"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>在 Azure API 管理中预配自承载网关
 
@@ -32,7 +32,7 @@ ms.locfileid: "84440547"
 
 ## <a name="provision-a-self-hosted-gateway"></a>预配自托管网关
 
-1. 从“设置”下选择“网关”。 
+1. 选择“部署和基础结构”下的“网关” 。
 2. 单击“+ 添加”。
 3. 输入网关的“名称”和“区域”。 
 > [!TIP]

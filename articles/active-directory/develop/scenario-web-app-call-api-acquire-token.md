@@ -1,5 +1,6 @@
 ---
-title: 在调用 Web API 的 Web 应用中获取令牌 - Microsoft 标识平台 | Azure
+title: 获取调用 Web API 的 Web 应用中的令牌 | Azure
+titleSuffix: Microsoft identity platform
 description: 了解如何获取调用 Web API 的 Web 应用的令牌
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 7489da43954fa8c4dcbef8742f30b3ef3b45adf1
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 381ee575c568386b9f0f8cf270acd3be3914ebc9
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647676"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937026"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>调用 Web API 的 Web 应用：获取应用的令牌
 
@@ -27,7 +28,11 @@ ms.locfileid: "88647676"
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-控制器方法受 `[Authorize]` 属性的保护，该属性会强制经身份验证的用户使用 Web 应用。 下面是用于调用 Microsoft Graph 的代码：
+Microsoft.Identity.Web 添加了扩展方法，这些方法为调用 Microsoft Graph 或下游 Web API 提供便利服务。 若要详细了解这些方法，请参阅[调用 Web API 的 Web 应用：调用 API](scenario-web-app-call-api-call-api.md)。 使用这些帮助程序方法，你无需手动获取令牌。
+
+但是，如果你确实想要手动获取令牌，可以通过以下代码以示例方式了解如何使用 Microsoft.Identity.Web 在主控制器中执行此操作。 它使用 REST API（而不是 Microsoft Graph SDK）调用 Microsoft Graph。 若要获取令牌以调用下游 API，可以通过控制器构造函数（如果使用 Blazor，则为页面构造函数）中的依赖项注入来注入 `ITokenAcquisition` 服务，并在控制器操作中使用该服务，从而为用户 (`GetAccessTokenForUserAsync`) 或守护程序方案中的应用程序本身 (`GetAccessTokenForAppAsync`) 获取令牌。
+
+控制器方法受 `[Authorize]` 属性的保护，该属性确保只有经过身份验证的用户可使用 Web 应用。
 
 ```csharp
 [Authorize]

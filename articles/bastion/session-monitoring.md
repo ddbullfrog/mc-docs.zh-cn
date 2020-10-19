@@ -2,20 +2,20 @@
 title: Azure Bastion 会话监视和管理 | Azure
 description: 本文介绍了如何选择正在进行的会话并强制断开连接或将其删除。
 services: bastion
-author: rockboyfor
 ms.service: bastion
 ms.topic: how-to
 origin.date: 05/21/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 10/12/2020
 ms.testscope: yes|no
 ms.testdate: 07/27/2020Null
 ms.author: v-yeche
-ms.openlocfilehash: dd336946cb6d22d7bd92280750bfe7018eeb9668
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: c583bd4a97c0331a27015e1bc04e151504d012c1
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655136"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937394"
 ---
 <!--Verified successfully on 09/07/2020-->
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Azure Bastion 的会话监视和管理
@@ -27,13 +27,13 @@ ms.locfileid: "89655136"
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，导航到 Azure Bastion 资源并从 Azure Bastion 页面选择“会话”。
 
-    ![会话](./media/session-monitoring/sessions.png)
+    :::image type="content" source="./media/session-monitoring/sessions.png" alt-text="屏幕截图显示了选中“会话”的 Azure 门户菜单设置。":::
 2. 在“会话”页面上，可以在右侧看到正在进行的远程会话。
 
-    ![查看会话](./media/session-monitoring/view-session.png)
+    :::image type="content" source="./media/session-monitoring/view-session.png" alt-text="屏幕截图显示了选中“会话”的 Azure 门户菜单设置。":::
 3. 选择“刷新”以查看远程会话的更新列表。 选择“刷新”时，Azure Bastion 将获取最新的监视信息并在门户中刷新。
 
-    ![refresh](./media/session-monitoring/refresh.png)
+    :::image type="content" source="./media/session-monitoring/refresh.png" alt-text="屏幕截图显示了选中“会话”的 Azure 门户菜单设置。":::
 
 <a name="view"></a>
 ## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a>删除或强制断开正在进行的远程会话
@@ -42,20 +42,19 @@ ms.locfileid: "89655136"
 
 1. 导航到 Azure Bastion 资源并从 Azure Bastion 页面选择“会话”。
 
-    ![导航](./media/session-monitoring/navigate.png)
+    :::image type="content" source="./media/session-monitoring/navigate.png" alt-text="屏幕截图显示了选中“会话”的 Azure 门户菜单设置。":::
 2. 选择会话后，可看到远程会话列表。
 
-    ![列出会话](./media/session-monitoring/list.png)
+    :::image type="content" source="./media/session-monitoring/list.png" alt-text="屏幕截图显示了选中“会话”的 Azure 门户菜单设置。":::
 3. 选择特定的远程会话，然后选择会话行右端的省略号，再选择“删除”。
 
-    ![delete](./media/session-monitoring/delete.png)
+    :::image type="content" source="./media/session-monitoring/delete.png" alt-text="屏幕截图显示了选中“会话”的 Azure 门户菜单设置。":::
 4. 选择“删除”时，远程会话将断开连接，用户可在远程会话中看到“已断开连接”消息。
 
-    ![断开连接](./media/session-monitoring/disconnect.png)
+    :::image type="content" source="./media/session-monitoring/disconnect.png" alt-text="屏幕截图显示了选中“会话”的 Azure 门户菜单设置。":::
 
 ## <a name="next-steps"></a>后续步骤
 
 阅读 [Bastion 常见问题解答](bastion-faq.md)。
 
-<!-- Update_Description: new article about session monitoring -->
-<!--NEW.date: 07/27/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

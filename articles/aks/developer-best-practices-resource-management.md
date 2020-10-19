@@ -6,16 +6,16 @@ services: container-service
 ms.topic: conceptual
 origin.date: 11/13/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 ms.testscope: yes
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 467f6f650148915c0867adef2d02b3e9ad97e213
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 1e982b1584bd2827e341af2c342e374f4ab382ed
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021542"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937368"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>有关管理 Azure Kubernetes 服务 (AKS) 中的资源的应用程序开发人员最佳做法
 
@@ -25,7 +25,7 @@ ms.locfileid: "90021542"
 
 > [!div class="checklist"]
 > * pod 资源请求和限制是什么
-> * 使用 Dev Spaces 与 Visual Studio Code 开发和部署应用程序的方法
+> * 使用 Bridge to Kubernetes 与 Visual Studio Code 开发和部署应用程序的方法
 > * 如何使用 `kube-advisor` 工具检查部署问题
 
 <!--CORRECT on with Dev Spaces for https://docs.microsoft.com/visualstudio/XXXX-->
@@ -79,13 +79,13 @@ spec:
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>针对 AKS 群集开发和调试应用程序
 
-**最佳做法指导** - 开发团队应该使用 Dev Spaces 针对 AKS 群集进行部署和调试。 此开发模型可确保在将应用部署到生产环境之前，实现基于角色的访问控制 (RBAC)、网络或存储需求。
+**最佳做法指导** - 开发团队应该使用 Bridge to Kubernetes 针对 AKS 群集进行部署和调试。
 
-使用 Azure Dev Spaces 直接针对 AKS 群集开发、调试和测试应用程序。 在整个应用程序生命周期，团队中的开发人员共同协作进行生成和测试。 可以继续使用现有的工具，例如 Visual Studio 或 Visual Studio Code。 已为 Dev Spaces 安装扩展，该扩展提供用于在 AKS 群集中运行和调试应用程序的选项。
+使用 Bridge to Kubernetes 可直接针对 AKS 群集开发、调试和测试应用程序。 在整个应用程序生命周期，团队中的开发人员共同协作进行生成和测试。 可以继续使用现有的工具，例如 Visual Studio 或 Visual Studio Code。 已为 Bridge to Kubernetes 安装了扩展，使你可以直接在 AKS 群集中进行开发。
 
-这种使用 Dev Spaces 的集成式开发和测试过程减少了对 [minikube][minikube] 等本地测试环境的需求。 可以针对 AKS 群集进行开发和测试。 可根据前面有关使用命名空间逻辑隔离群集的部分中所述保护和隔离此群集。 当准备好将应用部署到生产环境时，可以放心地进行部署，因为针对真正 AKS 群集的所有开发工作均已完成。
+这种使用 Bridge to Kubernetes 的集成式开发和测试过程减少了对 [minikube][minikube] 之类的本地测试环境的需求。 可以针对 AKS 群集进行开发和测试。 可根据前面有关使用命名空间逻辑隔离群集的部分中所述保护和隔离此群集。
 
-Azure Dev Spaces 适用于在 Linux Pod 和节点上运行的应用程序。
+Bridge to Kubernetes 适用于在 Linux Pod 和节点上运行的应用程序。
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>使用适用于 Kubernetes 的 Visual Studio Code 扩展
 
@@ -111,7 +111,7 @@ kube-advisor 工具可以报告 PodSpecs for Windows 应用程序以及 Linux �
 
 若要实施其中的某些最佳做法，请参阅以下文章：
 
-* [使用 Dev Spaces 进行开发][dev-spaces]
+* [使用 Bridge to Kubernetes 进行开发][btk]
 * [使用 kube-advisor 检查问题][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
@@ -124,7 +124,7 @@ kube-advisor 工具可以报告 PodSpecs for Windows 应用程序以及 Linux �
 <!-- INTERNAL LINKS -->
 
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: https://docs.microsoft.com/visualstudio/containers/overview-local-process-kubernetes
+[btk]: https://docs.microsoft.com/visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

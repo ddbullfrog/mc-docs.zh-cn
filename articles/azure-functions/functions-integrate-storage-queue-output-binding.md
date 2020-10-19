@@ -3,14 +3,14 @@ title: 使用 Functions 将消息添加到 Azure 存储队列
 description: 使用 Azure Functions 创建一个无服务器函数，该函数通过 HTTP 请求调用，并在 Azure 存储队列中创建一条消息。
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
-ms.date: 06/08/2020
-ms.custom: mvc
-ms.openlocfilehash: 2df45180624643939ef040ab88f09792725ae4e3
-ms.sourcegitcommit: f1a76ee3242698123a3d77f44c860db040b48f70
+ms.date: 09/28/2020
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 30118ecebd44a36d60c8fe541bc88e6cfa13f3aa
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84563626"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937076"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 将消息添加到 Azure 存储队列
 
@@ -18,27 +18,27 @@ ms.locfileid: "84563626"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本快速入门教程，需先执行以下操作：
+完成本快速入门教程需要：
 
 - Azure 订阅。 如果没有订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-- 按[通过 Azure 门户创建第一个函数](functions-create-first-azure-function.md)中的说明操作，请勿执行“清理资源”**** 这一步。 该快速入门创建此处所用的函数应用和函数。
+- 按[通过 Azure 门户创建第一个函数](functions-create-first-azure-function.md)中的说明操作，请勿执行“清理资源”这一步。 该快速入门创建此处所用的函数应用和函数。
 
 ## <a name="add-an-output-binding"></a><a name="add-binding"></a>添加输出绑定
 
 在此部分，请使用门户 UI 将队列存储输出绑定添加到此前创建的函数。 有了此绑定，就可以在尽量减少代码编写工作的情况下在队列中创建消息。 不需为打开存储连接、创建队列、获取队列引用之类的任务编写代码。 Azure Functions 运行时和队列输出绑定为你处理这些任务。
 
-1. 在 Azure 门户中，打开在[通过 Azure 门户创建第一个函数](functions-create-first-azure-function.md)中创建的函数应用的函数应用页。 若要打开此页，请搜索并选择“函数应用”****。 然后，选择你的函数应用。
+1. 在 Azure 门户中，打开在[通过 Azure 门户创建第一个函数](functions-create-first-azure-function.md)中创建的函数应用的函数应用页。 若要打开该页面，请搜索并选择“函数应用”。 然后，选择你的函数应用。
 
-1. 选择你的函数应用，然后选择在之前的快速入门中创建的函数。
+1. 选择你的函数应用，然后选择在前面的快速入门中创建的函数。
 
-1. 选择“集成”****，然后选择“+ 添加输出”****。
+1. 选择“集成”，然后选择“+ 添加输出”。
 
-   :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding.png" alt-text="创建函数的输出绑定。" border="true":::
+   :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding.png" alt-text="为函数创建输出绑定。" border="true":::
 
-1. 选择“Azure 队列存储”**** 绑定类型，然后添加此屏幕截图下的表格中指定的设置： 
+1. 选择“Azure 队列存储”绑定类型，并添加在此屏幕截图下的表中指定的设置： 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="将队列存储输出绑定添加到 Azure 门户中的函数。" border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="为函数创建输出绑定。" border="true":::
     
     | 设置      |  建议的值   | 说明                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -46,15 +46,15 @@ ms.locfileid: "84563626"
     | **队列名称**   | outqueue  | 要连接到存储帐户中的队列的名称。 |
     | **存储帐户连接** | AzureWebJobsStorage | 可以使用 Function App 已在使用的存储帐户连接，也可以创建一个新的存储帐户连接。  |
 
-1. 选择“确定”**** 以添加绑定。
+1. 选择“确定”以添加绑定。
 
 现在，已定义输出绑定，需要更新代码以使用绑定将消息添加到队列。  
 
 ## <a name="add-code-that-uses-the-output-binding"></a>添加使用输出绑定的代码
 
-在此部分，请添加将消息写入输出队列的代码。 该消息包括在查询字符串中传递到 HTTP 触发器的值。 例如，如果查询字符串包含 `name=Azure`，则队列消息将是“传递给函数的名称：** Azure”。
+在此部分，请添加将消息写入输出队列的代码。 该消息包括在查询字符串中传递到 HTTP 触发器的值。 例如，如果查询字符串包含 `name=Azure`，则队列消息将是“传递给函数的名称：Azure”。
 
-1. 在函数中，选择“代码 + 测试”**** 以在编辑器中显示函数代码。
+1. 在函数中，选择“代码 + 测试”以在编辑器中显示函数代码。
 
 1. 根据函数语言更新函数代码：
 
@@ -87,43 +87,43 @@ ms.locfileid: "84563626"
 
     ---
 
-1. 选择“保存”**** 以保存更改。
+1. 选择“保存”以保存更改。
 
 ## <a name="test-the-function"></a>测试函数
 
-1. 保存代码更改后，选择“测试”****。
-1. 确认测试与下图匹配，然后选择“运行”****。 
+1. 保存代码更改后，选择“测试”。
+1. 确认你的测试与下图一致，然后选择“运行”。 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="在 Azure 门户中测试队列存储绑定。" border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="为函数创建输出绑定。" border="true":::
 
     请注意，**请求正文**包含 `name` 值 *Azure*。 此值显示在队列消息中，该消息是在调用函数时创建的。
     
-    如果不想选择此处的“运行”，也可调用该函数，方法是在浏览器中输入 URL，然后在查询字符串中指定 `name` 值。**** 此浏览器方法在[以前的快速入门](functions-create-first-azure-function.md#test-the-function)中演示过。
+    如果不想选择此处的“运行”，也可调用该函数，方法是在浏览器中输入 URL，然后在查询字符串中指定 `name` 值。 此浏览器方法在[以前的快速入门](functions-create-first-azure-function.md#test-the-function)中演示过。
 
 1. 检查日志以确保该函数成功。 
 
-首次使用输出绑定时，Functions 运行时会在存储帐户中创建名为 **outqueue** 的新队列。 可以使用存储帐户来验证是否已创建队列及其中的消息。
+首次使用输出绑定时，Functions 运行时会在存储帐户中创建名为 **outqueue** 的新队列。 可以使用存储帐户来验证是否已创建队列以及其中的消息。
 
 ### <a name="find-the-storage-account-connected-to-azurewebjobsstorage"></a>查找连接到 AzureWebJobsStorage 的存储帐户
 
 
-1. 转到函数应用，然后选择“配置”****。
+1. 转到函数应用，选择“配置”。
 
-1. 在“应用程序设置”**** 下，选择“AzureWebJobsStorage”****。
+1. 在“应用程序设置”下，选择“AzureWebJobsStorage”。
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="找到连接到 AzureWebJobsStorage 的存储帐户。" border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="为函数创建输出绑定。" border="true":::
 
-1. 找到并记下帐户名。
+1. 查找并记下帐户名。
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="找到连接到 AzureWebJobsStorage 的存储帐户。" border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="为函数创建输出绑定。" border="true":::
 
 ### <a name="examine-the-output-queue"></a>检查输出队列
 
 1. 在函数应用的资源组中，选择用于本快速入门的存储帐户。
 
-1. 在“队列服务”**** 下，选择“队列”****，然后选择名为“outqueue”**** 的队列。 
+1. 在“队列服务”下，选择“队列”，然后选择名为 outqueue 的队列。 
 
-   此队列包含在运行 HTTP 触发的函数时队列输出绑定创建的消息。 如果使用 Azure 的默认 `name` 值调用了此函数，则队列消息为“传递给函数的名称：** ** Azure”。
+   此队列包含在运行 HTTP 触发的函数时队列输出绑定创建的消息。 如果使用 Azure 的默认 `name` 值调用了此函数，则队列消息为“传递给函数的名称： Azure”。
 
 1. 再次运行函数，此时会看到新消息出现在队列中。  
 

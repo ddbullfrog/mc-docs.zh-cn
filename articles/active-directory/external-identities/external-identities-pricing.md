@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 10/09/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fd6bf0e77ec589561b6c58f4cde3d8fb02c6a1
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: d2dc1d675b6791f1e932ff97cd7a58c512a62748
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245765"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937024"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Azure AD External Identities 的计费模型
 
@@ -43,11 +43,11 @@ Azure Active Directory (Azure AD) External Identities 定价基于月度活跃�
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>将 Azure AD 租户关联到订阅
 
-必须将 Azure AD 租户关联到 Azure 订阅才能正确计费并访问功能。
+必须将 Azure AD 租户关联到 Azure 订阅才能正确计费并访问功能。 如果目录还没有可以链接到的订阅，则可以在此过程中添加一个订阅。
 
 1. 使用至少在订阅中分配了[参与者](/role-based-access-control/built-in-roles)角色的 Azure 帐户或订阅中的资源组登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 选择包含你的订阅的目录：在 Azure 门户工具栏中，选择“目录 + 订阅”图标，然后选择包含订阅的目录。
+2. 选择要链接的目录：在 Azure 门户工具栏中选择“目录 + 订阅”图标，然后选择目录。
 
     ![选择“目录 + 订阅”图标](./media/external-identities-pricing/portal-mau-pick-directory.png)
 
@@ -62,6 +62,9 @@ Azure Active Directory (Azure AD) External Identities 定价基于月度活跃�
     ![选择租户并关联订阅](./media/external-identities-pricing/linked-subscriptions.png)
 
 7. 在“关联订阅”窗格中，选择一个**订阅**和一个**资源组**。 然后，选择“应用”。
+
+   > [!NOTE]
+   > 如果未列出任何订阅，可以[将订阅关联到租户](../fundamentals/active-directory-how-subscriptions-associated-directory.md)。 或者，可以通过选择“如果你还没有订阅，可以在此处创建一个订阅”链接来添加新订阅。
 
     ![选择一个订阅和一个资源组](./media/external-identities-pricing/link-subscription-resource.png)
 

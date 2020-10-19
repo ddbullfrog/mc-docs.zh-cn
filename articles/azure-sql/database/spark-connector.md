@@ -2,7 +2,7 @@
 title: 将 Spark 连接器与 Microsoft Azure SQL 和 SQL Server 一起使用
 description: 了解如何将 Spark 连接器与 Azure SQL 数据库、Azure SQL 托管实例和 SQL Server 一起使用。
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -10,23 +10,26 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-origin.date: 09/25/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: ad8d42ec15fa6a1c14d968aea384cf19451595f6
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+origin.date: 09/02/2020
+ms.date: 10/12/2020
+ms.openlocfilehash: 7ed91e046f9881b8363ec7a1f6ba95dd405d53d6
+ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228050"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872432"
 ---
-# <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>使用 Spark 连接器加快实时大数据分析 
+# <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>使用 Spark 连接器加快实时大数据分析
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+
+> [!NOTE]
+> 截至 2020 年 9 月，此连接器未进行主动维护。 但是，[适用于 SQL Server 和 Azure SQL 的 Apache Spark 连接器](https://docs.microsoft.com/sql/connect/spark/connector)现在已可用，它支持 Python 和 R 绑定，更易于使用的界面可批量插入数据，此外还有许多其他改进。 强烈建议你评估并使用新连接器而不是此连接器。 有关旧连接器的信息（此页）只保留用于存档目的。
 
 通过使用 Spark 连接器，Azure SQL 数据库、Azure SQL 托管实例和 SQL Server 中的数据库可以充当 Spark 作业的输入数据源或输出数据接收器。 由此，可在大数据分析中利用实时事务数据，并保留临时查询或报告的结果。 与内置 JDBC 连接器相比，此连接器能够将数据批量插入数据库。 它的性能可以比逐行插入快 10 倍到 20 倍。 Spark 连接器支持在连接到 Azure SQL 数据库和 Azure SQL 托管实例时执行 Azure Active Directory (Azure AD) 身份验证。 它提供与内置 JDBC 连接器类似的接口。 可以轻松迁移现有的 Spark 作业以使用此新连接器。
 
 ## <a name="download-and-build-a-spark-connector"></a>下载并构建 Spark 连接器
 
-首先，请从 GitHub 上的 [azure-sqldb-spark 存储库](https://github.com/Azure/azure-sqldb-spark)下载 Spark 连接器。
+我们不主动维护以前从此页链接到的旧连接器的 GitHub 存储库， 但强烈建议你评估并使用[新连接器](https://github.com/microsoft/sql-spark-connector)。
 
 ### <a name="official-supported-versions"></a>官方支持的版本
 
@@ -49,7 +52,7 @@ Spark 连接器利用 Microsoft JDBC Driver for SQL Server 在 Spark 工作器�
 
 下图演示了此数据流。
 
-   ![体系结构](./media/spark-connector/architecture.png)
+   ![此图显示了所描述的流，其中一个主节点直接连接到数据库，并连接到三个连接到数据库的工作器节点。](./media/spark-connector/architecture.png)
 
 ### <a name="build-the-spark-connector"></a>生成 Spark 连接器
 
@@ -236,4 +239,3 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 - [示例脚本 (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
 此外，还可能需要查看 [Apache Spark SQL, DataFrames, and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html)（Apache Spark SQL、DataFrame 和数据集指南）。
-

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 10/10/2020
 ms.author: v-junlch
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bf3c36518423da7b2ccb888f414b48096b809f1
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 9c9de0064aa94aa6b4ee1fabe7a8df39b70122fd
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947332"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937009"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中请求访问某个访问包
 
@@ -80,6 +80,12 @@ ms.locfileid: "88947332"
 如果你请求访问某个访问包，而该包有多个可以应用的策略，系统可能会要求你选择一个策略。 例如，访问包管理员可能会为两组内部员工配置一个使用两个策略的访问包。 第一个策略可能允许访问 60 天，但需要批准。 第二个策略可能允许访问 2 天，但不需要批准。 如果遇到这种情况，则必须选择要使用的策略。
 
 ![“我的访问权限”门户 - 请求访问 - 多个策略](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+### <a name="fill-out-requestor-information"></a>填写请求者信息
+
+在系统授予你对访问包的访问权限之前，你可能会请求访问需要业务理由和其他请求者信息的访问包。 填写访问该访问包所需的所有请求者信息。
+
+![“我的访问权限”门户 - 请求访问 - 填写请求者信息](./media/entitlement-management-request-access/my-access-requestor-information.png)
 
 ## <a name="resubmit-a-request"></a>重新提交请求
 

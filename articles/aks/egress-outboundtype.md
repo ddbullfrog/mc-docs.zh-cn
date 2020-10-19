@@ -4,17 +4,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中自定义出口路
 services: container-service
 ms.topic: article
 origin.date: 06/29/2020
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 86f9a8a96b1c7c1d40d97f698e9b8982ff7dd9ec
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 69515f07361acbc4d867e79571cc510a234484da
+ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021541"
+ms.lasthandoff: 10/10/2020
+ms.locfileid: "91937366"
 ---
 <!--Verified on Prerequisites successfully-->
 <!--Verified to dig function-->
@@ -55,7 +55,7 @@ ms.locfileid: "90021541"
 
 下面是默认情况下在 AKS 群集中部署的网络拓扑，该拓扑使用类型为 `loadBalancer` 的 `outboundType`。
 
-:::image type="content" source="media/egress-outboundtype/outboundtype-lb.png" alt-text="outboundtype-lb":::
+:::image type="content" source="media/egress-outboundtype/outboundtype-lb.png" alt-text="此图显示了入口 IP 和出口 IP，其中的入口 IP 将流量定向到负载均衡器，负载均衡器将往返于内部群集的流量和其他流量定向到出口 IP，出口 IP 将流量定向到 Internet、MCR、Azure 所需服务和 AKS 控制平面。":::
 
 ### <a name="outbound-type-of-userdefinedrouting"></a>userDefinedRouting 的出站类型
 
@@ -88,7 +88,7 @@ Azure 负载均衡器[在设置规则之后才会产生费用](https://www.azure
 
 <!-- LINKS - internal -->
 
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet
 
 <!-- Update_Description: update meta properties, wording update, update link -->
