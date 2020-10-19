@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/app-service/policy-samples.md",
+            "redirect_url": "/app-service/policy-reference",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service/environment/app-service-environment-with-internal-load-balancer.md",
             "redirect_url": "/app-service/environment/create-ilb-ase",
             "redirect_document_id": false
