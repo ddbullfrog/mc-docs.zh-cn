@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 origin.date: 11/25/2019
 ms.date: 06/29/2020
-ms.openlocfilehash: 117e0d62d7f2a796e8731b01784aced84eb37816
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 7cf533766a313a226c8c81d6a2803c0c69462d0c
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323366"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121730"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure 数据工厂中的表达式和函数
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -65,7 +65,7 @@ ms.locfileid: "85323366"
 ### <a name="complex-expression-example"></a>复杂表达式示例
 以下示例显示了一个复杂的示例，该示例引用了活动输出的一个深层子字段。 若要引用计算结果为子字段的管道参数，请使用 [] 语法而不是点 (.) 运算符（如 subfield1 和 subfield2 一样）
 
-@activity('{activityName}').output.{subfield1}.{subfield2}[pipeline().parameters.subfield3].{subfield4}
+@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*
 
 ### <a name="a-dataset-with-a-parameter"></a>使用参数的数据集
 在以下示例中，BlobDataset 采用名为 **path** 的参数。 其值用于使用以下表达式设置 **folderPath** 属性的值：`dataset().path`。 

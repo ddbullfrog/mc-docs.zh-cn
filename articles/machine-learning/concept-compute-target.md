@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f1e9a7f6d2ba3ff0d338c2b185925ed7097e7c83
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 73c4efdbff04d2d10c6f8e3f9de224f08bfb2e77
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395477"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118533"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>什么是 Azure 机器学习中的计算目标? 
 
@@ -51,7 +51,7 @@ Azure 机器学习为不同的计算资源提供不同的支持。  你也可以
 可以通过以下方法创建 Azure 机器学习计算实例或计算群集：
 * [Azure 机器学习工作室](how-to-create-attach-compute-studio.md)
 * Azure 门户
-* Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) 和 [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) 类
+* Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) 和 [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) 类
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)（预览版）
 * 资源管理器模板。 有关示例模板，请参阅[创建 Azure 机器学习计算模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute)。
 * [Azure CLI 的机器学习扩展](reference-azure-machine-learning-cli.md#resource-management)。  
@@ -68,7 +68,7 @@ Azure 机器学习为不同的计算资源提供不同的支持。  你也可以
 
 
 > [!NOTE]
-> 当计算群集处于空闲状态时，它将自动缩放到 0 个节点，因此在不使用它时你无需付费。  但是，计算实例始终处于启用状态，并且不会自动缩放。  不使用计算实例时，应[停止计算实例](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance)，以免产生额外费用。
+> 当计算群集处于空闲状态时，它将自动缩放到 0 个节点，因此在不使用它时你无需付费。  但是，计算实例始终处于启用状态，并且不会自动缩放。  不使用计算实例时，应[停止计算实例](concept-compute-instance.md#managing-a-compute-instance)，以免产生额外费用。 
 
 ### <a name="supported-vm-series-and-sizes"></a>支持的 VM 系列和大小
 
@@ -84,7 +84,9 @@ Azure 机器学习为不同的计算资源提供不同的支持。  你也可以
 |------------|------------|
 | D | 无 |
 | Dv2 | 无 |  
-| DSv2 | 无 |  
+| Dv3 | 无|
+| DSv2 | 无 | 
+| DSv3 | 无|
 | FSv2 | 无 | 
 | HBv2 | 需要批准 |  
 | HCS | 需要批准 |  

@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure Site Recovery 从本地故障转移后连接到 Azure VM
 description: 介绍在使用 Azure Site Recovery 从本地故障转移到 Azure 后如何连接到 Azure VM
-author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/13/2019
-ms.date: 08/03/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 01/22/2020
 ms.author: v-yeche
-ms.openlocfilehash: 229d4f03516c66fb8811d9142a6ad725bbd48e63
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: b728f4142fb4077fd7ad75e0f9394f7aee2aea3c
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426336"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128125"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>从本地故障转移后连接到 Azure VM 
 
@@ -123,11 +123,11 @@ ms.locfileid: "87426336"
 
 **故障转移前的基础结构**
 
-![运行子网故障转移前](./media/site-recovery-network-design/network-design7.png)
+:::image type="content" source="./media/site-recovery-network-design/network-design7.png" alt-text="运行子网故障转移前":::
 
 **故障转移后的基础结构**
 
-![运行子网故障转移后](./media/site-recovery-network-design/network-design9.png)
+:::image type="content" source="./media/site-recovery-network-design/network-design9.png" alt-text="运行子网故障转移前":::
 
 ### <a name="set-target-network-settings"></a>指定目标网络设置
 
@@ -150,11 +150,11 @@ ms.locfileid: "87426336"
 2. 选择所需的 Azure 虚拟机。
 3. 选择“计算和网络”，然后选择“编辑”。
 
-     ![自定义故障转移网络配置](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+    :::image type="content" source="media/azure-to-azure-customize-networking/edit-networking-properties.png" alt-text="运行子网故障转移前":::
 
 4. 若要更新故障转移网络设置，请为要配置的 NIC 选择“编辑”。 接下来会打开一个页面，请在测试故障转移和故障转移位置中提供已预先创建的相应 IP 地址。
 
-    ![编辑 NIC 配置](media/azure-to-azure-customize-networking/nic-drilldown.png)
+    :::image type="content" source="media/azure-to-azure-customize-networking/nic-drilldown.png" alt-text="运行子网故障转移前":::
 
 5. 选择“确定” 。
 

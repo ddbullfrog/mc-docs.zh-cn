@@ -8,12 +8,12 @@ origin.date: 03/04/2020
 ms.date: 03/23/2020
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3105cc9288278f2487b2ec9e2231e3ee4b15df27
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 76ba59b8582fb6c2d35fe88b48aa9a14a81fce28
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79543759"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118132"
 ---
 # <a name="monitor-server-metrics"></a>监视服务器指标
 
@@ -68,7 +68,7 @@ Analysis Services 在 Azure 指标资源管理器（门户中的一个免费工�
 |RowsWrittenPerSec|处理: 每秒写入的行数|每秒计数|平均值|在处理过程中写入行的速率。|
 |qpu_metric|QPU|Count|平均值|QPU。 S1 范围为 0-100，S2 范围为 0-200，S4 范围为 0-400|
 |QueryPoolBusyThreads|查询池繁忙线程数|Count|平均值|查询线程池中的繁忙线程数。|
-|SuccessfullConnectionsPerSec|每秒成功连接数|每秒计数|平均值|连接成功完成速率。|
+|SuccessfulConnectionsPerSec|每秒成功连接数|每秒计数|平均值|连接成功完成速率。|
 |CommandPoolBusyThreads|线程: 命令池繁忙线程数|Count|平均值|命令线程池中的繁忙线程数。|
 |CommandPoolIdleThreads|线程: 命令池空闲线程数|Count|平均值|命令线程池中的空闲线程数。|
 |LongParsingBusyThreads|线程: 长分析繁忙线程数|Count|平均值|长分析线程池中的繁忙线程数。|
@@ -86,6 +86,8 @@ Analysis Services 在 Azure 指标资源管理器（门户中的一个免费工�
 |ShortParsingJobQueueLength|线程: 短分析作业队列长度|Count|平均值|短分析线程池队列中的作业数。|
 |TotalConnectionFailures|连接失败总数|Count|平均值|失败的连接尝试总数。|
 |TotalConnectionRequests|连接请求总数|Count|平均值|连接请求总数。 |
+
+<!--CORRECT ON SuccessfulConnectionsPerSec, NOT Successfull(APPEND ONE MORE l)--> 
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Monitor 概述](../azure-monitor/overview.md)      
