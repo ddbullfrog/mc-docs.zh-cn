@@ -36,7 +36,7 @@ ms.locfileid: "89413315"
 
 **1.2.0**
 
-- “用户名/电子邮件”和“密码”字段现在使用 `form` HTML 元素，以允许 Edge 和 Internet Explorer (IE) 正确保存此信息。
+- “用户名/电子邮件”和“密码”字段现在使用 `form` HTML 元素，以允许 Microsoft Edge 和 Internet Explorer (IE) 正确保存此信息。
 - 添加了可配置的用户输入验证延迟，以改善用户体验。
 - 辅助功能修复
 - 现在可以在 HTML 标记中添加 `data-preload="true"` 特性来控制 CSS 和 JavaScript 的加载顺序。
@@ -65,7 +65,7 @@ ms.locfileid: "89413315"
 
 **1.2.0**
 
-- “用户名/电子邮件”和“密码”字段现在使用 `form` HTML 元素，以允许 Edge 和 Internet Explorer (IE) 正确保存此信息。
+- “用户名/电子邮件”和“密码”字段现在使用 `form` HTML 元素，以允许 Microsoft Edge 和 Internet Explorer (IE) 正确保存此信息。
 - 辅助功能修复
 - 现在可以在 HTML 标记中添加 `data-preload="true"` 特性来控制 CSS 和 JavaScript 的加载顺序。
   - 在加载 HTML 模板的同时加载链接的 CSS 文件，这样它就不会在加载文件之间“闪烁”。
