@@ -26991,6 +26991,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-cs-get-intent.md",
+            "redirect_url": "/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/labs/conversation-learner/overview.md",
             "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
             "redirect_document_id": false
@@ -28131,6 +28136,53 @@
             "redirect_url": "/cognitive-services/computer-vision/overview",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/backup/backup-configure-vault.md",
+            "redirect_url": "/backup/backup-windows-with-mars-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-how-to-use-prebuilt-domains.md",
+            "redirect_url": "/cognitive-services/LUIS/howto-add-prebuilt-models",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-prebuilt-entities.md",
+            "redirect_url": "/cognitive-services/LUIS/howto-add-prebuilt-models",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
+            "redirect_url": "/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-go-get-intent.md",
+            "redirect_url": "/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-java-get-intent.md",
+            "redirect_url": "/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-node-get-intent.md",
+            "redirect_url": "/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-get-started-python-get-intent.md",
+            "redirect_url": "/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Translator/languages.md",
+            "redirect_url": "/cognitive-services/Translator/language-support",
+            "redirect_document_id": false
+        }
+
+
 
 
     ]
