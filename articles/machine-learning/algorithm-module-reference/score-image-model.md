@@ -1,5 +1,5 @@
 ---
-title: 为图像模型评分
+title: 使用“为图像模型评分”模块
 titleSuffix: Azure Machine Learning
 description: 了解如何通过已定型图像模型使用 Azure 机器学习中的“为图像模型评分”模块生成预测。
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: d36fd9e8b9e7222d1f48740577b98c8cfb0cf85b
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: bb7632daf6369cc39c6b818712cbe3543198b7fb
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440894"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118318"
 ---
 # <a name="score-image-model"></a>为图像模型评分
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 对输入图像数据使用此模块可以通过已定型图像模型生成预测。
 

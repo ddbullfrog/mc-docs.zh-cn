@@ -8,15 +8,15 @@ ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 03/12/2020
-ms.date: 09/02/2020
+origin.date: 09/29/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 9a9d74d5ea8bcee669afce9893d60b96cf0df994
-ms.sourcegitcommit: 4f936264ddb502ff61623892f57067e935ef6e42
+ms.openlocfilehash: 3f54c9605f00b781f908af92713e2a2219233aae
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89316342"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128022"
 ---
 # <a name="azure-networking-services-overview"></a>Azure 网络服务概述
 
@@ -44,10 +44,10 @@ Azure 中的网络服务提供可以搭配使用或单独使用的各种网络�
 <!--
 |[Azure Bastion](#bastion)|Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines do not need a public IP address|<p>[Create an Azure Bastion host](../bastion/bastion-create-host-portal.md)</p><p>[Connect using SSH to a Linux VM](../bastion/bastion-connect-vm-ssh.md)</p><p>[Connect using RDP to a Windows VM](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[Virtual network NAT Gateway](#nat)|Create a NAT gateway to provide outbound connectivity for a virtual machine.|<p>[Create a NAT Gateway](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
-|[Azure Peering Service (Preview)](#azurepeeringservice)|Collaborate with service providers for optimal and reliable routing to the Microsoft cloud over the public network.|<p>[Register Azure Peering Service](../peering-service/azure-portal.md)</p>|
+|[Azure Peering Service](#azurepeeringservice)|Collaborate with service providers for optimal and reliable routing to the Microsoft cloud over the public network.|<p>[Register Azure Peering Service](../peering-service/azure-portal.md)</p>|
+| [Azure Edge Zones](#edge-zones)| Deploy VMs, containers, and other services to Edge Zones to address low latency and high throughput requirements.| <p>[Edge Zones with Carrier](edge-zones-overview.md#carrier)<p> <p>[Private Edge Zones](edge-zones-overview.md#private-edge-zones)</p>|
+| [Azure Orbital](#orbital)| Communicate with your spacecraft or satellite constellations, downlink and uplink data, process your data in the cloud, chain services with Azure services in unique scenarios, and generate products for your customers.  | <p>[Global communication](azure-orbital-overview.md#global-communication)</p>  <p>[Partner ground stations](azure-orbital-overview.md#digital-transformation)</p>|
 -->
-
-
 ### <a name="virtual-network"></a><a name="vnet"></a>虚拟网络
 
 Azure 虚拟网络 (VNet) 是 Azure 中专用网络的基本构建块。 使用 VNet 可以：
@@ -61,20 +61,20 @@ Azure 虚拟网络 (VNet) 是 Azure 中专用网络的基本构建块。 使用 
 ### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
 使用 ExpressRoute 可通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 此连接是专用连接。 流量不经过 Internet。 使用 ExpressRoute 可与 Microsoft Azure、Office 365 和 Dynamics 365 等 Microsoft 云服务建立连接。  有关详细信息，请参阅[什么是 ExpressRoute？](../expressroute/expressroute-introduction.md)
 
-![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
+:::image type="content" source="./media/networking-overview/expressroute-connection-overview.png" alt-text="Azure ExpressRoute" border="false":::
 
 ### <a name="vpn-gateway"></a><a name="vpngateway"></a>VPN 网关
 VPN 网关可帮助你创建从本地位置到虚拟网络的加密跨界连接，或者在 VNet 之间创建加密连接。 VPN 网关连接可以使用不同的配置，例如站点到站点连接、点到站点连接，或 VNet 到 VNet 连接。
 下图演示了与同一虚拟网络建立的多个站点到站点 VPN 连接。
 
-![站点到站点 Azure VPN 网关连接](./media/networking-overview/vpngateway-multisite-connection-diagram.png)
+:::image type="content" source="./media/networking-overview/vpngateway-multisite-connection-diagram.png" alt-text="Azure ExpressRoute":::
 
 有关不同类型的 VPN 连接的详细信息，请参阅 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
 
 ### <a name="virtual-wan"></a><a name="virtualwan"></a>虚拟 WAN
 Azure Virtual WAN 是一种网络服务，提供到 Azure 并穿过该服务的经优化的自动分支连接。 Azure 区域充当可以选择将分支连接到的中心。 利用 Azure 主干网还可以连接分支并享用分支到 VNet 的连接。 Azure 虚拟 WAN 将许多 Azure 云连接服务（例如，站点到站点 VPN、ExpressRoute、点到站点用户 VPN）汇集到一个操作界面中。 通过使用虚拟网络连接建立与 Azure VNet 的连接。 有关详细信息，请参阅[什么是 Azure 虚拟 WAN？](../virtual-wan/virtual-wan-about.md)。
 
-![虚拟 WAN 示意图](./media/networking-overview/virtualwan1.png)
+:::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="azure-dns"></a><a name="dns"></a>Azure DNS
 Azure DNS 是 DNS 域的托管服务，它使用 Azure 基础结构提供名称解析。 通过在 Azure 中托管域，可以使用与其他 Azure 服务相同的凭据、API、工具和计费来管理 DNS 记录。 有关详细信息，请参阅[什么是 Azure DNS？](../dns/dns-overview.md)
@@ -83,18 +83,27 @@ Azure DNS 是 DNS 域的托管服务，它使用 Azure 基础结构提供名称�
 ### <a name="bastion"></a>Azure Bastion
 The Azure Bastion service is a new fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](../bastion/bastion-overview.md).
 
-![Azure Bastion architecture](./media/networking-overview/architecture.png)
+:::image type="content" source="./media/networking-overview/architecture.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="nat"></a>Virtual network NAT Gateway
 Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
-For more information, see [What is virtual network NAT gateway?](../virtual-network/nat-overview.md) 
+For more information, see [What is virtual network NAT gateway?](../virtual-network/nat-overview.md).
 
-![Virtual network NAT gateway](./media/networking-overview/flow-map.png)
+:::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="azurepeeringservice"></a> Azure Peering Service
 Azure Peering service enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. For more information, see [What is Azure Peering Service?](../peering-service/about.md).
--->
 
+### <a name="edge-zones"></a>Azure Edge Zones
+
+Azure Edge Zone is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other selected Azure services into Edge Zones to address the low latency and high throughput requirements of applications. For more information, see [What is Azure Edge Zones?](edge-zones-overview.md).
+
+### <a name="orbital"></a>Azure Orbital
+
+Azure Orbital is a fully managed cloud-based ground station as a service that lets you communicate with your spacecraft or satellite constellations, downlink and uplink data, process your data in the cloud, chain services with Azure services in unique scenarios, and generate products for your customers. This system is built on top of the Azure global infrastructure and low-latency global fiber network. For more information, see [What is Azure Orbital?](azure-orbital-overview.md).
+
+:::image type="content" source="./media/azure-orbital-overview/orbital-communications-use-flow.png" alt-text="Azure ExpressRoute":::
+-->
 ## <a name="application-protection-services"></a><a name="protect"></a>应用程序保护服务
 
 本部分介绍 Azure 中帮助保护网络资源的网络服务：使用 Azure 中以下网络服务的任意组合来保护应用程序 - 防火墙、网络安全组、Web 应用程序防火墙和虚拟网络终结点。
@@ -116,24 +125,23 @@ Azure Peering service enhances customer connectivity to Microsoft cloud services
 ### <a name="ddosprotection"></a>DDoS Protection 
 [Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) provides countermeasures against the most sophisticated DDoS threats. The service provides enhanced DDoS mitigation capabilities for your application and resources deployed in your virtual networks. Additionally, customers using Azure DDoS Protection have access to DDoS Rapid Response support to engage DDoS experts during an active attack.
 
-![DDoS Protection](./media/networking-overview/ddos-protection.png)
+:::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="Azure ExpressRoute":::
 -->
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Web 应用程序防火墙
+<!-- ### <a name="waf"></a>Web Application Firewall
 
-[Azure Web 应用程序防火墙](../web-application-firewall/ag/ag-overview.md) (WAF) 为 Web 应用程序提供保护，使其免受 SQL 注入、跨站点脚本等常见 Web 攻击和漏洞的影响。 Azure WAF 通过托管的规则针对 OWASP 识别出的 10 大漏洞提供现成保护。 此外，客户还可以配置自定义规则（客户管理的规则），用于根据源 IP 范围，以及标头、Cookie、表单数据字段或查询字符串参数等请求属性提供额外的保护。
+[Azure Web Application Firewall](../web-application-firewall/overview.md) (WAF) provides protection to your web applications from common web exploits and vulnerabilities such as SQL injection, and cross site scripting. Azure WAF provides out of box protection from OWASP top 10 vulnerabilities via managed rules. Additionally customers can also configure custom rules, which are customer managed rules to provide additional protection based on source IP range, and request attributes such as headers, cookies, form data fields or query string parameters.
 
-客户可以选择部署[具有应用程序网关的 Azure WAF](../application-gateway/waf-overview.md)，以便为公共和专用地址空间中的实体提供区域性保护。
+Customers can choose to deploy [Azure WAF with Application Gateway](../application-gateway/waf-overview.md) which provides regional protection to entities in public and private address space.
 
-![Web 应用程序防火墙](./media/networking-overview/waf-overview.png)
-
+:::image type="content" source="./media/networking-overview/waf-overview.png" alt-text="Azure ExpressRoute"::: -->
 
 ### <a name="azure-firewall"></a><a name="firewall"></a>Azure 防火墙
 Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚拟网络资源。 使用 Azure 防火墙可以跨订阅和虚拟网络集中创建、实施和记录应用程序与网络连接策略。 Azure 防火墙对虚拟网络资源使用静态公共 IP 地址，使外部防火墙能够识别来自你的虚拟网络的流量。 
 
 有关 Azure 防火墙的详细信息，请参阅 [Azure 防火墙文档](../firewall/overview.md)。
 
-![防火墙概述](./media/networking-overview/firewall-threat.png)
+:::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="network-security-groups"></a><a name="nsg"></a>网络安全组
 可以使用网络安全组来筛选 Azure 虚拟网络中出入 Azure 资源的网络流量。 有关详细信息，请参阅[安全性概述](../virtual-network/security-overview.md)。
@@ -141,14 +149,14 @@ Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚�
 ### <a name="service-endpoints"></a><a name="serviceendpoints"></a>服务终结点
 虚拟网络 (VNet) 服务终结点可通过直接连接将 VNet 的虚拟网络专用地址空间和标识扩展到 Azure 服务。 使用终结点可以保护关键的 Azure 服务资源，只允许在客户自己的虚拟网络中对其进行访问。 从 VNet 发往 Azure 服务的流量始终保留在 Azure 主干网络中。 有关详细信息，请参阅[虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)。
 
-![虚拟网络服务终结点](./media/networking-overview/vnet-service-endpoints-overview.png)
+:::image type="content" source="./media/networking-overview/vnet-service-endpoints-overview.png" alt-text="Azure ExpressRoute":::
 
 <!-- 
 ### <a name="privatelink"></a>Azure Private Link
 [Azure Private Link](../private-link/private-link-overview.md) enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.
 Traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers.
 
-![Private endpoint overview](./media/networking-overview/private-endpoint.png)
+:::image type="content" source="./media/networking-overview/private-endpoint.png" alt-text="Azure ExpressRoute":::
 -->
 
 ## <a name="application-delivery-services"></a><a name="deliver"></a>应用程序分发服务
@@ -164,9 +172,9 @@ Traffic between your virtual network and the service travels the Microsoft backb
 |
 
 ### <a name="content-delivery-network"></a><a name="cdn"></a>内容分发网络
-Azure 内容分发网络 (CDN) 为开发人员提供了一个全局解决方案，通过在世界各地按特定策略放置的物理节点缓存内容来快速分发高带宽内容。 有关 Azure CDN 的详细信息，请参阅 [Azure 内容分发网络](/cdn/cdn-overview)
+Azure 内容分发网络 (CDN) 为开发人员提供了一个全局解决方案，通过在世界各地按特定策略放置的物理节点缓存内容来快速分发高带宽内容。 有关 Azure CDN 的详细信息，请参阅 [Azure 内容分发网络](/cdn/cdn-overview)。
 
-![Azure CDN](./media/networking-overview/cdn-overview.png)
+:::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Azure ExpressRoute":::
 
 <!-- 
 ### <a name="frontdoor"></a>Azure Front Door service
@@ -179,7 +187,7 @@ Azure 流量管理器是一种基于 DNS 的流量负载均衡器，可以在 Az
 
 下图演示了流量管理器的基于终结点优先级的路由方法：
 
-![Azure 流量管理器的“优先级”流量路由方法](./media/networking-overview/priority.png)
+:::image type="content" source="./media/networking-overview/priority.png" alt-text="Azure ExpressRoute":::
 
 有关流量管理器的详细信息，请参阅[什么是 Azure 流量管理器？](../traffic-manager/traffic-manager-overview.md)
 
@@ -188,15 +196,14 @@ Azure 负载均衡器为所有 UDP 和 TCP 协议提供高性能、低延迟的�
 
 下图显示了利用外部和内部负载均衡器的面向 Internet 的多层应用程序：
 
-![Azure 负载均衡器示例](./media/networking-overview/load-balancer.png)
-
+:::image type="content" source="./media/networking-overview/load-balancer.png" alt-text="Azure ExpressRoute":::
 
 ### <a name="application-gateway"></a><a name="applicationgateway"></a>应用程序网关
 Azure 应用程序网关是一种 Web 流量负载均衡器，可用于管理 Web 应用程序的流量。 它是服务形式的应用程序传送控制器 (ADC)，借此为应用程序提供各种第 7 层负载均衡功能。 有关详细信息，请参阅[什么是 Azure 应用程序网关？](../application-gateway/overview.md)
 
 下图演示了应用程序网关的基于 URL 路径的路由方法。
 
-![应用程序网关示例](./media/networking-overview/figure1-720.png)
+:::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Azure ExpressRoute":::
 
 ## <a name="network-monitoring-services"></a><a name="monitor"></a>网络监视服务
 本部分介绍 Azure 中可帮助监视网络资源的网络服务 - 网络观察程序、ExpressRoute Monitor、Azure Monitor 和虚拟网络 TAP。
@@ -221,7 +228,7 @@ Azure virtual network TAP (Terminal Access Point) allows you to continuously str
 
 The following picture shows how virtual network TAP works. 
 
-![How virtual network TAP works](./media/networking-overview/virtual-network-tap-architecture.png)
+:::image type="content" source="./media/networking-overview/virtual-network-tap-architecture.png" alt-text="Azure ExpressRoute":::
 
 For more information, see [What is Virtual Network TAP](../virtual-network/virtual-network-tap-overview.md).
 -->
@@ -231,6 +238,3 @@ For more information, see [What is Virtual Network TAP](../virtual-network/virtu
 - 完成[创建首个虚拟网络](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)一文中的步骤，创建自己的首个 VNet，并将几个 VM 连接到此网络。
 - 完成[配置点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)一文中的步骤，将计算机连接到 VNet。
 - 完成[创建面向 Internet 的负载均衡器](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)一文中的步骤，对发往公共服务器的 Internet 流量进行负载均衡。
- 
- 
-   

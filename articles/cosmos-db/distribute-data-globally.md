@@ -1,22 +1,22 @@
 ---
 title: 使用 Azure Cosmos DB 在多个区域分配数据
 description: 了解如何通过多区域分布式多模型数据库服务 Azure Cosmos DB，使用多区域数据库进行多区域范围的异地复制、多主数据库故障转移和数据恢复。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a1ce1d1432fec173d8f6cfbf764588c60096f69d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: ad341018a9d84f3ebe4687f7c6a413a0175a4837
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223344"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118062"
 ---
-# <a name="multiple-region-data-distribution-with-azure-cosmos-db---overview"></a>使用 Azure Cosmos DB 多区域分配数据 - 概述
+# <a name="distribute-your-data-multiple-regionally-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 将数据分布在多个区域
 
 如今的应用程序需要具备高响应能力并始终联机。 若要实现低延迟和高可用性，需要在靠近用户的数据中心部署这些应用程序的实例。 这些应用程序通常部署在多个数据中心，称为多区域分布式应用程序。 多区域分布式应用程序需要一个多区域分布式数据库，该数据库可以透明地将数据复制到中国任何位置，以使应用程序能够对靠近其用户的数据副本进行操作。 
 
@@ -24,7 +24,7 @@ ms.locfileid: "88223344"
 
 Azure Cosmos DB 是一个多区域分布式数据库服务，旨在提供低延迟、吞吐量弹性缩放和妥善定义的语义，以实现数据一致性和高可用性。 简单而言，如果应用程序需要保证在中国任何位置都能提供快速响应、始终联机并需要无限且可弹性缩放的吞吐量和存储，则应在 Azure Cosmos DB 上生成应用程序。
 
-可将数据库配置为多区域分布，并使其可在任何 Azure 中国区域中使用。 为了降低延迟，请将数据放置在更靠近用户的位置。 选择所需的区域数目取决于应用程序的多区域覆盖范围以及用户所处的位置。 Cosmos DB 以透明方式将数据复制到与 Cosmos 帐户关联的所有区域。 它提供多区域分布式 Azure Cosmos 数据库和容器的单个系统映像，使应用程序能够在本地读取和写入。 
+可将数据库配置为多区域分布，并使其可在任何 Azure 中国区域中使用。 为了降低延迟，请将数据放置在更靠近用户的位置。 根据应用程序的多区域覆盖范围和用户所在的位置选择所需的区域数目。 Cosmos DB 以透明方式将数据复制到与 Cosmos 帐户关联的所有区域。 它提供多区域分布式 Azure Cosmos 数据库和容器的单个系统映像，使应用程序能够在本地读取和写入。 
 
 <!-- Notice: Azure China Regions -->
 

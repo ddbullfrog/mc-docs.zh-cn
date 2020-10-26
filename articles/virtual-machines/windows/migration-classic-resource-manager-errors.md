@@ -1,22 +1,22 @@
 ---
 title: 从经典部署模型迁移到 Azure Resource Manager 部署模型的过程中出现的常见错误
-description: 本文编录了将 IaaS 资源从 Azure 服务管理迁移到 Azure Resource Manager 堆栈期间的最常见错误和缓解措施。
+description: 了解将 IaaS 资源从 Azure 服务管理迁移到 Azure 资源管理器堆栈期间的最常见错误和缓解措施。
 manager: vashan
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 origin.date: 02/06/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 04e94f09e1a9bc02679e26c2185dbf22003cee15
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 1fb0d094e140f6614ca046dc027fa3e616cc53b1
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463045"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128338"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>从经典部署模型迁移到 Azure Resource Manager 部署模型的过程中出现的常见错误
 

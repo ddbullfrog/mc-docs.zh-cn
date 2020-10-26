@@ -5,17 +5,17 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 06/15/2017
 author: rockboyfor
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: d37dfc1245bc754fcb10036dbc1cf20bdc8e7922
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: f8eaa4a341c4bbeef7347cb02cb3b4445deb17c4
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310358"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128387"
 ---
 <!--Verified successfully from rename articles-->
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
@@ -147,7 +147,6 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 高级 SSD、标准 SSD 和标准 HDD 支持快照。 对于这三种磁盘类型，所有磁盘大小（包括最大为 32 TiB 的磁盘）都支持快照。
 
 <!--Not Available on Ultra SSDs do not support snapshots.-->
-
 <!--Not Available on **What are Azure disk reservations?**-->
 <!--Not Available on **What options does Azure disk reservation offer?**-->
 <!--Not Available on **How is Azure disk reservation applied?**-->
@@ -157,9 +156,9 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 标准 SSD 磁盘是否支持“单实例 VM SLA”？
 
 是的，所有磁盘类型都支持单实例 VM SLA。
+
 <!--Not Available on ### Azure shared disks-->
 <!--Not Available on ## Ultra disks-->
-
 <!--Not Available on disk reservations-->
 <!--Not Available on ### Azure shared disks-->
 <!--Not Available on ## Ultra disks-->
@@ -316,8 +315,7 @@ DS 系列的缓存和本地 SSD 合并限制是每个核心 4,000 IOPS，以及�
 
 在高级或标准磁盘的 Azure 磁盘上使用 TRIM 没有负面影响。
 
-<a name="new-disk-sizes-managed-and-unmanaged"></a>
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>新磁盘大小：托管和非托管
+## <a name="new-disk-sizes-managed-and-unmanaged"></a><a name="new-disk-sizes-managed-and-unmanaged"></a>新磁盘大小：托管和非托管
 
 哪些区域对于适用的高级 SSD 磁盘大小支持突发功能？
 
@@ -337,11 +335,11 @@ DS 系列的缓存和本地 SSD 合并限制是每个核心 4,000 IOPS，以及�
 
 **操作系统和数据磁盘支持的最大托管磁盘大小是多少？**
 
-Azure 支持的操作系统磁盘的分区类型是主启动记录 (MBR)。 MBR 格式支持的磁盘最大大小为 2 TiB。 Azure 支持的操作系统磁盘的最大大小为 2 TiB。 Azure 支持的托管数据磁盘最大大小为 32 TiB。
+Azure 支持的操作系统磁盘的分区类型是主启动记录 (MBR)。 MBR 格式支持的磁盘最大大小为 2 TiB。 Azure 支持的操作系统磁盘最大大小为 4 TiB。 Azure 支持的托管数据磁盘最大大小为 32 TiB。
 
 **操作系统和数据磁盘支持的最大非托管磁盘大小是多少？**
 
-Azure 支持的操作系统磁盘的分区类型是主启动记录 (MBR)。 MBR 格式支持的磁盘最大大小为 2 TiB。 Azure 支持的操作系统非托管磁盘的最大大小为 2 TiB。 Azure 支持的非托管数据磁盘最大大小为 4 TiB。
+Azure 支持的操作系统磁盘的分区类型是主启动记录 (MBR)。 MBR 格式支持的磁盘最大大小为 2 TiB。 Azure 支持的操作系统非托管磁盘最大大小为 4 TiB。 Azure 支持的非托管数据磁盘最大大小为 4 TiB。
 
 支持的最大页 blob 大小是多少？
 
@@ -410,5 +408,4 @@ Azure 全球、 Microsoft Azure 政府和 Azure 中国世纪互联涵盖的所�
 
 <!--CORRECT ON [Azure support site](https://support.azure.cn/support/support-azure/)-->
 
-<!-- Update_Description: new article about faq for disks -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

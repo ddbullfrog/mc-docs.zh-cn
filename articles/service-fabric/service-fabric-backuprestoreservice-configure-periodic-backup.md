@@ -1,19 +1,19 @@
 ---
 title: 了解定期备份配置
-description: 使用 Service Fabric 的定期备份和还原功能来实现应用程序数据的定期数据备份。
+description: 使用 Service Fabric 的定期备份和还原功能，来配置可靠有状态服务或 Reliable Actors 的定期备份。
 ms.topic: article
 origin.date: 02/01/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4b681cdbf75e8c549ae93dae2afbab9993c4d910
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: b4dbd59f2e4927dc532173e9d79d49cf030cd508
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655692"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127964"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>了解 Azure Service Fabric 中的定期备份配置
 
@@ -117,9 +117,9 @@ ms.locfileid: "89655692"
             }
             ```
 
-    > [!NOTE]
-    > 请确保存储可靠性满足或高于备份数据的可靠性要求。
-    >
+> [!NOTE]
+> 请确保存储可靠性满足或高于备份数据的可靠性要求。
+>
 
 * **保留策略**：指定要在配置存储中保留备份的策略。 只支持基本保留策略。
     1. **基本保留策略**：此保留策略允许通过删除不再需要的备份文件来确保最佳存储利用率。 可指定 `RetentionDuration` 来设置需要在存储中保留备份的时间跨度。 `MinimumNumberOfBackups` 是一个可选参数，可指定该参数以确保无论 `RetentionDuration` 如何始终保留指定数量的备份。 以下示例说明了要将备份保留 10 天的配置，并且不允许备份数量低于 20____。

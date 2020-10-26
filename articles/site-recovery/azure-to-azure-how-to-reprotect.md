@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 11/27/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: d17d52ae34dec794bc3fa202bb50e91699eaa7e5
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 15bfa64aabbe5ca3cfe9b4de89860381460aece3
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655579"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128350"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>重新保护已故障转移到主要区域的 Azure VM
 
@@ -34,18 +34,18 @@ ms.locfileid: "89655579"
 
 1. 在“保管库” > “复制的项”中，右键单击已故障转移的 VM，并选择“重新保护”。   重新保护方向应该显示为从次要区域到主要区域。
 
-    :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png" alt-text="重新保护":::
+    :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png" alt-text="屏幕截图显示一个虚拟机，其中包含已选择“重新保护”的上下文菜单。":::
 
 1. 查看资源组、网络、存储和可用性集。 。 如果有任何资源标记为“新”，则表示它们是在重新保护过程中创建的。
 1. 重新保护作业使用最新数据植入目标站点。 该作业完成后，将发生增量复制。 然后，可以故障转移回到主要站点。 可以使用自定义选项，选择要在重新保护期间使用的存储帐户或网络。
 
-    :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png" alt-text="自定义选项":::
+    :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png" alt-text="屏幕截图显示一个虚拟机，其中包含已选择“重新保护”的上下文菜单。":::
 
 ### <a name="customize-reprotect-settings"></a>自定义重新保护设置
 
 可在重新保护期间自定义以下目标 VM 的属性。
 
-:::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png" alt-text="自定义":::
+:::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png" alt-text="屏幕截图显示一个虚拟机，其中包含已选择“重新保护”的上下文菜单。":::
 
 |属性 |注释  |
 |---------|---------|

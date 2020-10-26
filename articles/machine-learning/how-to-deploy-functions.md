@@ -11,15 +11,15 @@ author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 681ae3369fd7ce7e7a39002f2fc6afea78619d81
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 019c8ccd8c997885614605ed40caa6a9019ac98c
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395135"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118146"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>将机器学习模型部署到 Azure Functions（预览版）
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 了解如何将 Azure 机器学习中的模型部署为 Azure Functions 中的函数应用。
 
@@ -31,7 +31,7 @@ ms.locfileid: "91395135"
 ## <a name="prerequisites"></a>必备条件
 
 * Azure 机器学习工作区。 有关详细信息，请参阅[创建工作区](how-to-manage-workspace.md)一文。
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
 * 工作区中注册的已训练的机器学习模型。 如果没有模型，请使用[图像分类教程：训练模型](tutorial-train-models-with-aml.md)来训练和注册模型。
 
     > [!IMPORTANT]
@@ -45,7 +45,7 @@ ms.locfileid: "91395135"
 
 ## <a name="prepare-for-deployment"></a>准备部署
 
-在部署之前，必须确定将模型作为 Web 服务运行所需的内容。 以下列表描述了部署所需的基本项：
+在部署之前，必须确定将模型作为 Web 服务运行所需的内容。 以下列表描述了部署所需的核心项：
 
 * 一个入口脚本  。 此脚本接受请求，使用模型为请求评分并返回结果。
 
@@ -120,7 +120,7 @@ print(blob.location)
 
 ## <a name="deploy-image-as-a-web-app"></a>将映像部署为 Web 应用
 
-1. 使用以下命令获取包含映像的 Azure 容器注册表的登录凭据。 将 `<myacr>` 替换为之前从 `package.location` 返回的值： 
+1. 使用以下命令获取包含映像的 Azure 容器注册表的登录凭据。 将 `<myacr>` 替换为之前从 `blob.location` 返回的值： 
 
     ```azurecli
     az acr credential show --name <myacr>

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/17/2020
 ms.date: 07/17/2020
 ms.author: v-tawe
-ms.openlocfilehash: 1a93fa0ef44137f5206c0b4ddd013420d720e6a6
-ms.sourcegitcommit: fe9ccd3bffde0dd2b528b98a24c6b3a8cbe370bc
+ms.openlocfilehash: 244f45b947708f38d3c939097d22f989e746480e
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86471902"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127886"
 ---
 # <a name="document-extraction-cognitive-skill"></a>文档提取认知技能
 
@@ -47,7 +47,8 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 | `normalizedImageMaxHeight` | 一个介于 50 和 10000 之间的整数 | 生成的规范化图像的最大高度（以像素为单位）。 默认为 2000。 |
 
 > [!NOTE]
-> 将规范化图像的最大宽度和高度默认设置为 2000 像素是考虑到 [OCR 技术](cognitive-search-skill-ocr.md)所能够支持的最大大小以及[图像分析技术](cognitive-search-skill-image-analysis.md)。 [OCR 技能](cognitive-search-skill-ocr.md)支持非英语语言的最大宽度和高度为 4200，支持英语语言的最大宽度和高度为 10000。  如果增加最大限制，则根据技能组定义和文档语言，对较大的图像进行处理可能会失败。 
+> 将规范化图像的最大宽度和高度默认设置为 2000 像素是考虑到[图像分析技术](cognitive-search-skill-image-analysis.md)所能够支持的最大大小。
+
 ## <a name="skill-inputs"></a>技能输入
 
 | 输入名称     | 说明 |

@@ -6,16 +6,19 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 07/09/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: a968c3aa9b91367a6166fbf1a7d2f7461fb2446c
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/19/2020
+ms.openlocfilehash: 469c981a5521351f37bd7f0420286916a305ae5d
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222947"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121623"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的 SSL/TLS 连接
 Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将数据库服务器连接到客户端应用程序。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
+
+> [!IMPORTANT] 
+> SSL 根证书设置为 2020 年 10 月 26 日 (2020/10/26) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划的证书更新](concepts-certificate-rotation.md)
 
 ## <a name="default-settings"></a>默认设置
 默认情况下，应将数据库服务配置为需要 SSL 连接才可连接到 MariaDB。  建议尽量不要禁用 SSL 选项。

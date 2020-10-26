@@ -1,22 +1,22 @@
 ---
 title: 排查使用 Azure Cosmos DB 时遇到的查询问题
 description: 了解如何识别、诊断和排查 Azure Cosmos DB SQL 查询问题。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: troubleshooting
-origin.date: 04/22/2020
-ms.date: 08/17/2020
+origin.date: 09/12/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a0a4cd8e61adcf74909d09d24487c37c4b6b2572
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 856d56bef99f3c291ddd4a2ae09955672559ccb5
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222386"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118124"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>排查使用 Azure Cosmos DB 时遇到的查询问题
 
@@ -29,22 +29,21 @@ ms.locfileid: "88222386"
 
 几乎可以肯定，降低查询的 RU 费用还将降低延迟。
 
-本文提供可使用 [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 数据集重新创建的示例。
+本文提供可使用 [nutrition 数据集](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)重新创建的示例。
 
 ## <a name="common-sdk-issues"></a>常见 SDK 问题
 
 阅读本指南之前，考虑与查询引擎无关的常见 SDK 问题将很有帮助。
 
-- 为获得最佳性能，请遵循以下[性能提示](performance-tips.md)。
-    > [!NOTE]
-    > 为获得提升的性能，建议使用 Windows 64 位主机处理。 SQL SDK 包含一个本机 ServiceInterop.dll，用于在本地分析和优化查询。 仅 Windows x64 平台支持 ServiceInterop.dll。 对于 ServiceInterop.dll 在其中不可用的 Linux 平台及其他不受支持的平台，将对网关进行额外的网络调用以获取优化的查询。
+- 按照这些 [SDK 性能提示](performance-tips.md)进行操作。
+    - [.NET SDK 故障排除指南](troubleshoot-dot-net-sdk.md)
+    - [Java SDK 故障排除指南](troubleshoot-java-sdk-v4-sql.md)
 - SDK 允许为查询设置 `MaxItemCount`，但不能指定最小项计数。
     - 代码应处理从零到 `MaxItemCount` 的任意页大小。
-    - 页中的项数将始终小于或等于指定的 `MaxItemCount`。 但 `MaxItemCount` 只是严格意义上的最大值，结果数可能少于此数目。
 - 有时，即使未来页上包含结果，查询也可能包含空页， 其原因可能包括：
     - SDK 可能正在执行多个网络调用。
     - 查询检索文档所花费的时间可能很长。
-- 所有查询都包含一个继续标记，该标记将允许查询继续进行。 请确保完全耗尽查询。 查看 SDK 示例，并在 `FeedIterator.HasMoreResults` 上使用 `while` 循环来耗尽整个查询。
+- 所有查询都包含一个继续标记，该标记将允许查询继续进行。 请确保完全耗尽查询。 详细了解如何[处理多页结果](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## <a name="get-query-metrics"></a>获取查询指标
 

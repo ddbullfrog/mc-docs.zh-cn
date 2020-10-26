@@ -13,12 +13,12 @@ ms.custom: seo-lt-2019
 ms.topic: article
 origin.date: 02/20/2019
 ms.date: 09/28/2020
-ms.openlocfilehash: d2b4f82f29c0de761b5d1436ca551423d3b23231
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: a6ffb93f43a6429bb3eb7696110e2fd760aa97ad
+ms.sourcegitcommit: 7ed7a7d65ba142661f5494013451a91f045c4a73
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246813"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91990787"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>使用 Azure 数据库迁移服务将 SSIS 包重新部署到 Azure SQL 数据库
 

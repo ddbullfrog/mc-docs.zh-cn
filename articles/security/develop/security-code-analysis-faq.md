@@ -1,10 +1,10 @@
 ---
 title: Microsoft 安全代码分析文档常见问题解答
-description: 本文包含有关 Microsoft 安全代码分析扩展的常见问题解答
-author: vharindra
+description: 请查看常见问题解答 (FAQ)，了解 Microsoft 安全代码分析扩展。
+author: Johnnytechn
 manager: sukhans
-ms.author: v-tawe
-ms.date: 06/04/2020
+ms.author: v-johya
+ms.date: 10/12/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 95ea5912530c2836e443125dbcfd4f6ef9836615
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 755cd210144c129b3e4ad849169be96400e58226
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439671"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127976"
 ---
 # <a name="frequently-asked-questions"></a>常见问题
 遇到问题？ 请查看以下常见问题解答来了解详细信息。
@@ -80,15 +80,17 @@ ms.locfileid: "84439671"
 
 CredScan 输出文件中机密的哈希键是必需的，如以下示例所示。
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
-                "_justification": "Secret used by MSDN sample, it is fake."
-            }
-          ]
-        }
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
+        "_justification": "Secret used by MSDN sample, it is fake."
+    }
+  ]
+}
+```
 
 >[!WARNING]
 > 哈希键由匹配值或文件内容的一部分生成。 任何源代码修订都可以更改哈希键并禁用抑制规则。
@@ -107,19 +109,21 @@ CredScan 输出文件中机密的哈希键是必需的，如以下示例所示�
 - \lib\angular.js
 - angular.js - 抑制具有相同名称的任何文件
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "file": "\\files\\AdditonalSearcher.xml", 
-                "_justification": "Additional CredScan searcher specific to my team"
-            },
-            {
-                "file": "\\files\\unittest.pfx", 
-                "_justification": "Legitimate UT certificate file with private key"
-            }
-          ]
-        }      
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "file": "\\files\\AdditonalSearcher.xml", 
+        "_justification": "Additional CredScan searcher specific to my team"
+    },
+    {
+        "file": "\\files\\unittest.pfx", 
+        "_justification": "Legitimate UT certificate file with private key"
+    }
+  ]
+}
+```
 
 >[!WARNING] 
 > 将来添加到此文件中的任何机密也将被自动抑制。
@@ -128,8 +132,8 @@ CredScan 输出文件中机密的哈希键是必需的，如以下示例所示�
 
 以下资源可帮助你安全地管理机密以及从应用程序中访问敏感信息：
 
- - [Azure 密钥保管库](/key-vault/)
- - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
+ - [Azure 密钥保管库](../../key-vault/index.yml)
+ - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Azure AD 托管服务标识 (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Azure 资源的托管标识](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Azure 应用服务和 Azure Functions 中的托管标识](../../app-service/overview-managed-identity.md)
@@ -197,3 +201,4 @@ CredScan 输出文件中机密的哈希键是必需的，如以下示例所示�
 <!-- not available-->
   
 - 支持：请通过 [Microsoft 安全代码分析支持](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)向我们的团队发送电子邮件
+

@@ -3,17 +3,18 @@ title: 自动转发 Azure 服务总线消息实体
 description: 本文介绍如何将 Azure 服务总线队列或订阅链接到另一个队列或主题。
 ms.topic: article
 origin.date: 06/23/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: 51cf27923eb9cd2a35bc62cf46ce0a4962b2cee8
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b94b3b1e55ece3f26812de472f225307516b3a97
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162399"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128360"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>使用自动转发链接服务总线实体
 
@@ -33,11 +34,11 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 可使用自动转发扩大单个主题。 服务总线将[给定主题的订阅数](service-bus-quotas.md)限制为 2,000。 可以通过创建二级主题来容纳其他订阅。 即使订阅数并未受到服务总线限制，添加二级主题也可以提高主题的整体吞吐量。
 
-![自动转发方案][0]
+![自动转发方案示意图，显示了通过订单主题处理的消息，该消息可分支到三个二级订单主题中的任意一个。][0]
 
 自动转发还可用于分离消息发送方与接收方。 例如，考虑一个由以下三个模块组成的 ERP 系统：订单处理、库存管理和客户关系管理。 每个模块都会生成消息，这些消息将被排入相应的主题队。 Alice 和 Bob 是两名销售代表，他们想了解与其客户相关的所有消息。 要接收这些消息，Alice 和 Bob 各自创建一个个人队列和一个针对 ERP 主题的订阅，该订阅将所有消息自动转发给该队列。
 
-![自动转发方案][1]
+![自动转发方案示意图，显示了三个处理模块通过三个相应的主题将消息发送到两个单独的队列。][1]
 
 如果 Alice 去度假，则填充她的个人队列，而不是 ERP 主题。 在此方案中，由于销售代表没有接收到任何消息，所以所有 ERP 主题都没有达到配额。
 
@@ -70,12 +71,12 @@ namespaceManager.CreateSubscription(srcSubscription));
 * [使用服务总线消息传送改进性能的最佳做法](service-bus-performance-improvements.md)
 * [分区消息实体][Partitioned messaging entities]。
 
-[QueueDescription.ForwardTo]: https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto?view=azure-dotnet#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
-[SubscriptionDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
+[QueueDescription.ForwardTo]: https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[SubscriptionDescription.ForwardTo]: https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
 [QueueDescription]: https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription
-[SubscriptionDescription]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription
+[SubscriptionDescription]: https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription
 [0]: ./media/service-bus-auto-forwarding/IC628631.gif
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif
 [Partitioned messaging entities]: service-bus-partitioning.md
 
-<!-- Update_Description: update meta properties, wording update, update link?view=azure-dotnet -->
+<!-- Update_Description: update meta properties, wording update, update link -->

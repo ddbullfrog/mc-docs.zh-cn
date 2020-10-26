@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: b60673d0da1db6eebbfcdee2d25b6121be1ec9e1
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: da078f9621cdc80590f8c4f022cfe5fecabde9b9
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020878"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117885"
 ---
 # <a name="group-data-into-bins-module"></a>“将数据分组到箱中”模块
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“将数据分组到箱中”模块来对数字进行分组或更改连续数据的分布。
+本文介绍如何使用 Azure 机器学习设计器中的“将数据分组到箱中”模块来对数字进行分组或更改连续数据的分布。
 
 “将数据分组到箱中”模块支持使用多个选项将数据分箱。 可以自定义量化边界的设置方式，以及在箱中分配值的方式。例如，可以：  
 
@@ -50,7 +50,7 @@ ms.locfileid: "90020878"
 
 ## <a name="how-to-configure-group-data-into-bins"></a>如何配置“将数据分组到箱中”
 
-1. 在设计器（预览版）中将“将数据分组到箱中”模块添加到管道。 可以在“数据转换”类别中找到此模块。
+1. 在设计器中将“将数据分组到箱中”模块添加到管道。 可以在“数据转换”类别中找到此模块。
 
 2. 连接包含要分箱的数字数据的数据集。 量化只能应用于包含数字数据的列。 
 

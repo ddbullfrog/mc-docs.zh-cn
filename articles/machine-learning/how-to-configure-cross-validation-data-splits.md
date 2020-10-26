@@ -10,12 +10,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: d67e5110f630d6e01e8cf7d785cb61b8e40460c6
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 31a0d0ffa3f0a0d55d62fdc2a255a9dad270c124
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395418"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118182"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>在自动化机器学习中配置数据拆分和交叉验证
 
@@ -36,7 +36,7 @@ AutoML 试验会自动执行模型验证。 下面的各个部分介绍了如何
 
 * Azure 机器学习工作区。 若要创建工作区，请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。
 
-* 熟悉如何使用 Azure 机器学习 SDK 设置自动化机器学习试验。 遵循[教程](tutorial-auto-train-models.md)或[操作方法](how-to-configure-auto-train.md)，了解基本的自动化机器学习试验设计模式。
+* 熟悉如何使用 Azure 机器学习 SDK 设置自动化机器学习试验。 按照[教程](tutorial-auto-train-models.md)或[操作方法](how-to-configure-auto-train.md)操作，了解基本的自动化机器学习试验设计模式。
 
 * 了解交叉验证和训练/验证数据拆分（属于 ML 概念）。 有关概要说明，请参阅：
 

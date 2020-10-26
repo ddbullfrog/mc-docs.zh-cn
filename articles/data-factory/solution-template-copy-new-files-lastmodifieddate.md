@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 3/8/2019
-ms.date: 06/15/2020
-ms.openlocfilehash: fe5c27ca89697948d4e29dbe7c15ae0879345292
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.date: 10/19/2020
+ms.openlocfilehash: edc3cb01b3ce119c265a2ef548bb46a31b9b4cc4
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723644"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121686"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>使用 Azure 数据工厂根据 LastModifiedDate 复制新的和已更改的文件
 
@@ -76,7 +76,7 @@ ms.locfileid: "84723644"
     
 7. 现在，可以添加一个翻转窗口触发器来自动执行此管道，使管道始终可以定期根据 LastModifiedDate，仅复制新文件和已更改的文件。  依次选择“添加触发器”、“新建/编辑”。  
 
-    ![查看结果](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    ![突出显示在选择“添加”触发器时显示的“新建/编辑”菜单选项的屏幕截图。](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
 8. 在“添加触发器”窗口中，选择“+ 新建”。  
 
@@ -104,7 +104,7 @@ ms.locfileid: "84723644"
 
 14. 查看结果。 你将看到，管道每隔 15 分钟自动触发，并且在每个管道运行中，只会将源存储中新的或已更改的文件复制到目标存储。
 
-    ![查看结果](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    ![显示触发管道时返回的结果的屏幕截图。](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
     
 ## <a name="next-steps"></a>后续步骤
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaa41783ae2008cb8d0dd45524c5563ec39929b0
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 1cbe588ff372303f935633afdd52dbd8a834ef7b
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245261"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041475"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步：配置筛选
 使用筛选功能可以控制本地目录中的哪些对象应该出现在 Azure Active Directory (Azure AD) 中。 默认配置采用配置的林中所有域内的所有对象。 我们一般建议使用这种配置。 使用 Exchange Online 和 Skype for Business 等 Microsoft 365 工作负载的用户将受益于完整的全局地址列表，因为这样可以发送电子邮件和呼叫每个联系人。 使用默认配置时，用户获得的体验与使用 Exchange 或 Lync 的本地实现获得的相同。
@@ -113,7 +113,7 @@ Azure AD Connect 只删除其曾经认为在范围中的对象。 如果 Azure A
    ![连接器属性](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. 单击“配置目录分区”  。
 5. 在“选择目录分区”列表中，根据需要选择和取消选择域。  确认只选择了想要同步的分区。  
-   ![分区](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![此屏幕截图显示了“属性”窗口中的目录分区。](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    如果更改了本地 Active Directory 基础结构并在林中添加或删除了域，请单击“刷新”按钮以获取更新的列表。  刷新时，系统将要求提供凭据。 请提供具有 Windows Server Active Directory 读取权限的任何凭据。 不一定要使用对话框中预先填充的用户。  
    ![需要刷新](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. 完成后，请单击“确定”关闭“属性”对话框。   如果在林中删除了域，屏幕上会弹出消息，指出已删除域且将清除配置。
@@ -216,7 +216,7 @@ Azure AD Connect 安装向导始终创建此配置。
 在入站筛选中，使用 **范围** 功能来决定哪些对象要同步或者不同步。 可以在此处根据组织的要求进行调整。 范围模块包含组和子句，决定何时在范围内包含同步规则。   一个组包含一个或多个子句。 多个子句之间使用逻辑“AND”，多个组之间使用逻辑“OR”。
 
 让我们看看以下示例：  
-![显示添加范围筛选器的示例的屏幕截图](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![此屏幕截图显示了添加范围筛选器的示例。](./media/how-to-connect-sync-configure-filtering/scope.png)  
 这应该显示为 (department = IT) OR (department = Sales AND c = US)。 
 
 以下示例和步骤以用户对象为例，但可以将此示例用于所有对象类型。
@@ -274,7 +274,7 @@ Azure AD Connect 安装向导始终创建此配置。
 1. 通过使用属于 **ADSyncAdmins** 安全组的成员的帐户，登录到正在运行 Azure AD Connect 同步的服务器。
 2. 从“开始”菜单启动“同步规则编辑器”。  
 3. 在“规则类型”下，单击“出站”。  
-4. 查找名为“同步到 AAD - 用户加入”  或“同步到 AAD - 用户加入 SOAInAD”  的规则（具体视使用的 Connect 版本而定），再单击“编辑”  。
+4. 查找名为“出站到 Azure AD - 用户加入”或“出站到 Azure AD - 用户加入 SOAInAD”的规则（具体视使用的 Connect 版本而定），然后单击“编辑”。
 5. 在弹出窗口中，回答“是”，以创建规则的副本。 
 6. 在“说明”页上，将“优先顺序”更改为某个尚未使用的值，例如 50。  
 7. 单击左侧导航栏中的“范围筛选器”，然后单击“添加子句”。   在“属性”中选择“mail”。   在“运算符”中选择“ENDSWITH”。   在“值”中键入 **\@contoso.com**，然后单击“添加子句”。   在“属性”中选择“userPrincipalName”。   在“运算符”中选择“ENDSWITH”。   在“值”  中，键入 **\@contoso.com**。
@@ -299,7 +299,7 @@ Azure AD Connect 安装向导始终创建此配置。
 
 1. 启动命令提示符并转到 `%ProgramFiles%\Azure AD Sync\bin`。
 2. 运行 `csexport "Name of Connector" %temp%\export.xml /f:x`。  
-   在同步服务中可以找到连接器名称。 它的名称类似于“contoso.com - AAD”（表示 Azure AD）。
+   在同步服务中可以找到连接器名称。 对于 Azure AD，它的名称类似于“contoso.com - Azure AD”。
 3. 运行 `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`。
 4. 现在在 %temp% 中已经有名为 export.csv 的文件，可在 Microsoft Excel 中检查。 此文件包含要导出的所有更改。
 5. 对数据或配置进行必要的更改并再次运行这些步骤（导入、同步和验证），直到要导出的更改都按预期进行。

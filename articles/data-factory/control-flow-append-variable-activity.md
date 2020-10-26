@@ -12,12 +12,12 @@ manager: digimobile
 ms.reviewer: maghan
 origin.date: 10/09/2018
 ms.date: 05/11/2020
-ms.openlocfilehash: a1ce457d2120894aabbcc667a81553035f973a73
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 4ccaff7edaf8c255f56225eccf0caddc8ceebaea
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82197795"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121694"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Azure 数据工厂中的追加变量活动
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

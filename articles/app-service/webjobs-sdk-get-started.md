@@ -3,16 +3,17 @@ title: WebJobs SDK 入门
 description: 用于事件驱动的后台处理的 WebJobs SDK 简介。 了解如何访问 Azure 服务和第三方服务中的数据。
 author: ggailey777
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 origin.date: 02/18/2019
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: cd8b2c9c9bca435c023f13a77dac0d6eb6fd5e2a
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: c500deacbb36c50137f5f53dfd5346aa9967e84d
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228244"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170712"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>用于事件驱动的后台处理的 Azure WebJobs SDK 入门
 
@@ -188,7 +189,7 @@ ms.locfileid: "88228244"
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
-在本地运行的 Azure 存储模拟器不具备 WebJobs SDK 所需的全部功能。 因此，在本部分，我们应在 Azure 中创建一个存储帐户，并将项目配置为使用该帐户。 如果已有一个存储帐户，请跳到步骤 6。
+本地运行的 Azure 存储模拟器没有 WebJobs SDK 所需的部分功能。 因此，在本部分，我们应在 Azure 中创建一个存储帐户，并将项目配置为使用该帐户。 如果已有一个存储帐户，请跳到步骤 6。
 
 1. 在 Visual Studio 中打开“服务器资源管理器”并登录 Azure。 右键单击“Azure”节点，选择“连接到 Microsoft Azure 订阅”。 
 
@@ -264,13 +265,13 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
 
 1. 输入 *queue* 作为队列名称，然后选择“确定”。
 
-   ![创建队列](./media/webjobs-sdk-get-started/create-queue.png)
+   ![显示创建队列的位置并将其命名为“队列”的屏幕截图。 ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. 右键单击新队列所在的节点，然后选择“查看队列”。
 
 1. 选择“添加消息”图标。
 
-   ![创建队列](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![突出显示“添加消息”图标的屏幕截图。](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. 在“添加消息”对话框中，输入 *Hello World!*  作为**消息正文**，然后选择“确定”。 现在，队列中会出现一条消息。
 
@@ -280,7 +281,7 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
 
    由于在 `ProcessQueueMessage` 函数中使用了 `QueueTrigger` 特性，因此 WeJobs SDK 运行时会在启动时侦听队列消息。 它会在名为 *queue* 的队列中查找新队列消息，并调用函数。
 
-   由于[队列轮询指数退让](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)，运行时最长可能需要花费 2 分钟才能找到消息并调用函数。 以[开发模式](webjobs-sdk-how-to.md#host-development-settings)运行可以缩减此等待时间。
+   由于[队列轮询指数退让](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm)，运行时最长可能需要花费 2 分钟才能找到消息并调用函数。 以[开发模式](webjobs-sdk-how-to.md#host-development-settings)运行可以缩减此等待时间。
 
    控制台输出如下所示：
 
@@ -301,7 +302,7 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
 
 ## <a name="add-application-insights-logging"></a>添加 Application Insights 日志记录
 
-在 Azure 中运行项目时，无法通过查看控制台输出来监视函数执行。 我们建议的监视解决方案是 [Application Insights](../azure-monitor/app/app-insights-overview.md)。 
+在 Azure 中运行项目时，无法通过查看控制台输出来监视函数执行。 我们建议的监视解决方案是 [Application Insights](../azure-monitor/app/app-insights-overview.md)。 有关详细信息，请参阅[监视 Azure Functions](../azure-functions/functions-monitoring.md)。
 
 <!-- For more information, see [Monitor Azure Functions](../azure-functions/functions-monitoring.md). -->
 
@@ -331,11 +332,11 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
 
    |名称  |连接字符串  |数据库类型|
    |---------|---------|------|
-   |AzureWebJobsStorage | {前面复制的存储连接字符串}|“自定义”|
+   |AzureWebJobsStorage | {前面复制的存储连接字符串}|自定义|
 
 1. 如果“应用程序设置”框中没有 Application Insights 检测密钥，请添加前面复制的检测密钥。 （根据应用服务应用的创建方式，该框中可能已包含检测密钥。）
 
-   |名称  |Value  |
+   |名称  |值  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {instrumentation key} |
 

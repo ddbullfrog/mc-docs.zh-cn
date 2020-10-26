@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 07/09/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: bbcfae3df383e33ed3461ce43b75127c2e9e6acb
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 10/19/2020
+ms.openlocfilehash: faba259956a06ce94a76c182d8882a2cde6ce869
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029694"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041783"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的 SSL/TLS 连接
 
@@ -23,6 +23,9 @@ Azure Database for MySQL 支持使用安全套接字层 (SSL) 将数据库服务
 
 > [!NOTE]
 > 更新 `require_secure_transport` 服务器参数值不会影响 MySQL 服务的行为。 使用本文中概述的 SSL 和 TLS 增强功能来保护与数据库的连接。
+
+> [!IMPORTANT] 
+> SSL 根证书设置为 2020 年 10 月 26 日 (2020/10/26) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划内证书更新](concepts-certificate-rotation.md)
 
 ## <a name="ssl-default-settings"></a>SSL 默认设置
 

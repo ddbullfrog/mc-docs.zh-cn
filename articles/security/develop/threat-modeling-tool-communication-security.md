@@ -1,10 +1,10 @@
 ---
 title: Microsoft Threat Modeling Tool 的通信安全
 titleSuffix: Azure
-description: 针对威胁建模工具中暴露的威胁采取的缓解措施
+description: 了解针对 Threat Modeling Tool 中暴露的通信安全威胁的缓解措施。 请参阅缓解措施信息并查看代码示例。
 services: security
 documentationcenter: na
-author: jegeib
+author: Johnnytechn
 manager: jegeib
 editor: jegeib
 ms.assetid: na
@@ -14,15 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 02/07/2017
-ms.openlocfilehash: fe3ddc89ace1ee41b5b5d19a4e9fd96be6d3a411
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 774a8302c0f3a030ed51448045886b29d43bfcd8
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439669"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127792"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>安全框架：通信安全 | 缓解措施 
 | 产品/服务 | 文章 |
@@ -163,7 +163,7 @@ ms.locfileid: "84439669"
 | **SDL 阶段**               | 部署 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [Azure 存储传输级加密 – 使用 HTTPS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
+| **参考**              | [Azure 存储传输级加密 - 使用 HTTPS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
 | **步骤** | 为了确保传输中 Azure 存储数据的安全性，请在调用 REST API 或访问存储中的对象时，始终使用 HTTPS 协议。 此外，可以使用共享访问签名，它除了可以委派对 Azure 存储对象的访问权限，还能指定在使用共享访问签名时只能使用 HTTPS 协议，确保任何使用 SAS 令牌发出链接的人都使用正确的协议。|
 
 ## <a name="validate-md5-hash-after-downloading-blob-if-https-cannot-be-enabled"></a><a id="md5-https"></a>如果无法启用 HTTPS，请在下载 Blob 后验证 MD5 哈希
@@ -391,3 +391,4 @@ public class ValuesController : ApiController
 | **属性**              | 空值  |
 | **参考**              | [选择通信协议](/iot-hub/iot-hub-devguide#messaging) |
 | **步骤** | 使用 SSL/TLS 保护 HTTP/AMQP 或 MQTT 协议。 |
+

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/13/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72ae4235be8a0ecbc2c09b1b3b13d3256132de0e
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: ff6a9e72406fa301b0475b5fbc1e50983bef3120
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046382"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041572"
 ---
 # <a name="conditional-access-conditions"></a>条件访问：Conditions
 
@@ -108,6 +108,9 @@ Azure AD 条件访问支持以下设备平台：
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome、Safari |
 
+> [!NOTE]
+> Edge 85+ 要求用户登录到浏览器，以正确传递设备标识。 否则，其行为类似于没有帐户扩展的 Chrome。 在混合 Azure AD 联接方案中，此登录可能不会自动发生。 
+
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>为何我在浏览器中看到证书提示
 
 在 Windows 7、iOS、Android 和 macOS 上，Azure AD 使用客户端证书来标识设备，该证书是在将设备注册到 Azure AD 时预配的。  用户首次通过浏览器登录时，系统会提示用户选择此证书。 用户必须在使用浏览器之前选择此证书。
@@ -141,27 +144,27 @@ Azure AD 条件访问支持以下设备平台：
 | 客户端应用 | 目标服务 | 平台 |
 | --- | --- | --- |
 | Dynamics CRM 应用 | Dynamics CRM | Windows 10、Windows 8.1、iOS 和 Android |
-| “邮件/日历/联系人”应用、Outlook 2016、Outlook 2013（使用新式身份验证）| Office 365 Exchange Online | Windows 10 |
+| “邮件/日历/联系人”应用、Outlook 2016、Outlook 2013（使用新式身份验证）| Exchange Online | Windows 10 |
 | 用于应用的 MFA 和位置策略。 不支持基于设备的策略。| 任何“我的应用”应用服务 | Android 和 iOS |
 | Microsoft Teams 服务 - 控制支持 Microsoft Teams 及其所有客户端应用（Windows 桌面、iOS、Android、WP 和 Web 客户端）的所有服务 | Microsoft Teams | Windows 10、Windows 8.1、Windows 7、iOS、Android 和 macOS |
-| Office 2016 应用、Office 2013（采用新式身份验证）、[OneDrive 同步客户端](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1、Windows 7 |
-| Office 2016 应用、通用 Office 应用、Office 2013（采用新式身份验证）、[OneDrive 同步客户端](https://docs.microsoft.com/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
-| Office 2016（仅限 Word、Excel、PowerPoint、OneNote）。 | Office 365 SharePoint Online | macOS |
-| Office 2019| Office 365 SharePoint Online | Windows 10、macOS |
-| Office 移动应用 | Office 365 SharePoint Online | Android、iOS |
-| Office Yammer 应用 | Office 365 Yammer | Windows 10、iOS、Android |
-| Outlook 2019 | Office 365 SharePoint Online | Windows 10、macOS |
-| Outlook 2016 (Office for macOS) | Office 365 Exchange Online | macOS |
-| Outlook 2016、Outlook 2013（采用新式身份验证）、Skype for Business（采用新式身份验证） | Office 365 Exchange Online | Windows 8.1、Windows 7 |
-| Outlook 移动应用 | Office 365 Exchange Online | Android、iOS |
+| Office 2016 应用、Office 2013（采用新式身份验证）、[OneDrive 同步客户端](https://docs.microsoft.com/onedrive/enable-conditional-access) | SharePoint | Windows 8.1、Windows 7 |
+| Office 2016 应用、通用 Office 应用、Office 2013（采用新式身份验证）、[OneDrive 同步客户端](https://docs.microsoft.com/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
+| Office 2016（仅限 Word、Excel、PowerPoint、OneNote）。 | SharePoint | macOS |
+| Office 2019| SharePoint | Windows 10、macOS |
+| Office 移动应用 | SharePoint | Android、iOS |
+| Office Yammer 应用 | Yammer | Windows 10、iOS、Android |
+| Outlook 2019 | SharePoint | Windows 10、macOS |
+| Outlook 2016 (Office for macOS) | Exchange Online | macOS |
+| Outlook 2016、Outlook 2013（采用新式身份验证）、Skype for Business（采用新式身份验证） | Exchange Online | Windows 8.1、Windows 7 |
+| Outlook 移动应用 | Exchange Online | Android、iOS |
 | Power BI 应用 | Power BI 服务 | Windows 10、Windows 8.1、Windows 7、Android 和 iOS |
-| Skype for Business | Office 365 Exchange Online| Android、iOS |
+| Skype for Business | Exchange Online| Android、iOS |
 | Visual Studio Team Services 应用 | Visual Studio Team Services | Windows 10、Windows 8.1、Windows 7、iOS 和 Android |
 
 ### <a name="exchange-activesync-clients"></a>Exchange ActiveSync 客户端
 
 - 组织在将策略分配给用户或组时，只能选择 Exchange ActiveSync 客户端。 选择“所有用户”、“所有来宾和外部用户”或“目录角色”会导致所有用户遭到阻止。  
-- 创建分配给 Exchange ActiveSync 客户端的策略时，**Office 365 Exchange Online** 是唯一可分配给该策略的云应用程序。 
+- 创建分配给 Exchange ActiveSync 客户端的策略时，Exchange Online 应为唯一分配给该策略的云应用程序。 
 - 组织可以使用“设备平台”条件将此策略的范围缩小为特定的平台。
 
 如果分配给策略的访问控制使用“需要已批准的客户端应用”，则会将用户定向到相应的位置让他们安装并使用 Outlook 移动客户端。 如果需要**多重身份验证**，受影响的用户将被阻止，因为基本身份验证不支持多重身份验证。

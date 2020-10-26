@@ -12,18 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-origin.date: 07/17/2019
-ms.date: 11/13/2019
+ms.topic: how-to
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5cc10e54643a7947021e2417ea1e8d3e94bc191
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a1d1d19cb496b432b8176774a51f20d1b8528fb0
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79290996"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041507"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步：第二次运行安装向导
 首次运行 Azure AD Connect 安装向导时，该向导将逐步引导用户配置安装。 如果再次运行安装向导，它会提供维护选项。
@@ -80,7 +79,7 @@ ms.locfileid: "79290996"
 此选项可让你启用和禁用服务器上的过渡模式。 有关暂存模式及其使用方式的详细信息可在[操作](how-to-connect-sync-staging-server.md)中找到。
 
 此选项显示过渡模式当前是已启用还是已禁用：  
-![同时显示过渡模式当前状态的选项](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+![屏幕截图，显示暂存模式已禁用。](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 若要更改状态，请选择此选项，并选中或取消选中复选框。  
 ![同时显示过渡模式当前状态的选项](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
@@ -98,4 +97,3 @@ ms.locfileid: "79290996"
 * [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
 * [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
-<!-- Update_Description: wording update -->

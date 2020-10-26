@@ -1,5 +1,5 @@
 ---
-title: 添加和删除管理单元（预览版）- Azure Active Directory | Microsoft Docs
+title: 添加和删除管理单元 - Azure Active Directory | Microsoft Docs
 description: 在 Azure Active Directory 中使用管理单元来限制角色权限的范围。
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/26/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21ca9e23e8fca0efd150d262ffadabbdb47a592
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: ec6a32d6b2a2310649e31bcaeb14d3558245a640
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947520"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041515"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>在 Azure Active Directory 中管理管理单元
 
@@ -31,7 +31,7 @@ ms.locfileid: "88947520"
 
 1. 在 Azure 门户中转到 Azure AD，然后在左窗格中选择“管理单元”。
 
-    ![Azure AD 中的“管理单元(预览版)”链接的屏幕截图](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Azure AD 中的“管理单元”链接的屏幕截图](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
 1. 选择“添加”，然后输入管理单元的名称。 （可选）添加管理单元的说明。
 

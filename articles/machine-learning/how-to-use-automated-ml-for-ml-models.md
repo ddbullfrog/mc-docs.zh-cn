@@ -11,22 +11,19 @@ author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: e7b173f16deca695ccdf64d015175c8314dd2d82
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 6e0a940c0a79a62eb4f95583ba4ff31a8ed41176
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395228"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118295"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>使用 Azure 机器学习创建、查看和部署自动化机器学习模型
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 本文介绍如何在不编写任何代码的情况下，在 Azure 机器学习工作室中创建、探索和部署自动化机器学习模型。
 
->[!IMPORTANT]
-> Azure 机器学习工作室中的自动化 ML 体验处于预览状态。 某些功能可能不受支持或者受限。
-
- 自动化机器学习是一个为你选择要用于特定数据的最佳机器学习算法的过程。 通过此过程可以快速生成机器学习模型。 [详细了解自动化机器学习](concept-automated-ml.md)。
+自动化机器学习是一个为你选择要用于特定数据的最佳机器学习算法的过程。 通过此过程可以快速生成机器学习模型。 [详细了解自动化机器学习](concept-automated-ml.md)。
  
 对于端到端示例，请试用[使用 Azure 机器学习的自动化 ML 界面创建分类模型教程](tutorial-first-experiment-automated-ml.md)。 
 
@@ -36,7 +33,7 @@ ms.locfileid: "91395228"
 
 * Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.azure.cn/pricing/1rmb-trial)。
 
-* **企业版**类型的 Azure 机器学习工作区。 请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。  若要将现有的工作区升级到企业版，请参阅[升级到企业版](how-to-manage-workspace.md#upgrade)。
+* Azure 机器学习工作区。 请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。 
 
 ## <a name="get-started"></a>入门
 
@@ -89,9 +86,10 @@ ms.locfileid: "91395228"
             
         选择“下一步”。
 
-    1. “确认详细信息”窗体上总结了先前在“基本信息”和“设置和预览”窗体中填充的信息  。 你还可以使用已启用分析的计算来为数据集创建数据配置文件。 详细了解[数据分析](#profile)。
+    1. “确认详细信息”窗体上总结了先前在“基本信息”和“设置和预览”窗体中填充的信息  。 你还可以使用已启用分析的计算来为数据集创建数据配置文件。 
 
         选择“**下一页**”。
+
 1. 新建的数据集出现后，请将其选中。 还可以查看数据集和样本统计信息的预览。 
 
 1. 在“配置运行”窗体中，输入唯一的试验名称。
@@ -114,9 +112,7 @@ ms.locfileid: "91395228"
     选择“创建”。 创建新计算可能需要花费几分钟时间。
 
     >[!NOTE]
-    > 计算名称将会指示选择/创建的计算是否已启用分析。 （有关更多详细信息，请参阅[数据分析](#profile)部分）。
-
-    选择“**下一页**”。
+    > 计算名称将会指示选择/创建的计算是否已启用分析。 选择“**下一页**”。
 
 1. 在“任务类型和设置”窗体中选择任务类型：分类、回归或预测。 有关详细信息，请参阅[支持的任务类型](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast)。
 
@@ -126,7 +122,7 @@ ms.locfileid: "91395228"
 
     1. 对于预测，可以 
     
-        1. 启用深度学习
+        1. 启用深度学习。
     
         1. 选择“时间列”：此列包含要使用的时间数据。
 
@@ -147,32 +143,6 @@ ms.locfileid: "91395228"
 
     ![Azure 机器学习工作室任务类型窗体](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
-<a name="profile"></a>
-
-## <a name="data-profiling--summary-stats"></a>数据分析和摘要统计信息
-
-可以获取整个数据集的各种摘要统计信息，以验证该数据集是否随时可在机器学习中使用。 对于非数字列，仅包括最小值、最大值和误差计数等基本统计信息。 对于数字列，还可以查看其统计时刻和估算的分位数。 具体而言，我们的数据配置文件包括：
-
->[!NOTE]
-> 对于具有不相关类型的特征，将显示空白条目。
-
-统计信息|说明
-------|------
-功能| 正在汇总的列的名称。
-配置文件| 基于推理的类型显示的内联可视化效果。 例如，字符串、布尔值和日期包含值计数，而小数（数字）则包含近似的直方图。 这样，就可以快速了解数据的分布。
-类型分布| 列中类型的内联值计数。 Null 是其自身的类型，因此，此可视化效果可用于检测反常值或缺失值。
-类型|列的推理类型。 可能的值包括：字符串、布尔值、日期和小数。
-Min| 列的最小值。 对于其类型不采用固有顺序（例如布尔值）的特征，将显示空白条目。
-Max| 列的最大值。 
-Count| 列中缺失和未缺失条目的总数。
-非缺失计数| 列中未缺失的条目数。 空字符串和误差被视为值，因此它们不会计入“未缺少计数”。
-分位数| 每个分位数中的近似值，用于提供数据分布的概观。
-平均值| 列的算术中间值或平均值。
-标准偏差| 此列数据的离散量或差异量的度量。
-Variance| 此列数据与其平均值之间的分散程度度量。 
-倾斜| 此列数据与正态分布之间的差异程度度量。
-峰度| 此列数据与正态分布相比的落后程度度量。
-
 ## <a name="customize-featurization"></a>自定义特征化
 
 在“特征化”窗体中，可以启用/禁用自动特征化，并为试验自定义自动特征化设置。 若要打开此窗体，请参阅[创建并运行试验](#create-and-run-experiment)部分中的步骤 10。 
@@ -189,13 +159,13 @@ Variance| 此列数据与其平均值之间的分散程度度量。
 
 ## <a name="run-experiment-and-view-results"></a>运行试验并查看结果
 
-选择“完成”来运行试验。 试验准备过程最长可能需要 10 分钟。 训练作业可能需要额外的 2-3 分钟，使每个管道完成运行。
+选择“完成”来运行试验。 试验准备过程可能需要长达 10 分钟的时间。 训练作业可能需要额外的 2 - 3 分钟才能完成每个管道的运行。
 
 ### <a name="view-experiment-details"></a>查看试验详细信息
 
 “运行详细信息”屏幕中会打开“详细信息”选项卡。 此屏幕显示试验运行的摘要，在顶部的运行编号旁会显示状态栏。 
 
-“模型”选项卡包含按指标评分排序的已创建模型列表。 默认情况下，列表中首先显示评分最高的模型（评分根据所选指标给出）。 在训练作业尝试了更多的模型后，这些模型将添加到列表中。 使用此功能可以快速比较到目前为止生成的模型的指标。
+“模型”选项卡包含按指标评分排序的已创建模型列表。 默认情况下，列表中首先显示评分最高的模型（评分根据所选指标给出）。 随着训练作业尝试更多模型，它们会添加到列表中。 使用此项可以快速比较目前为止生成的模型的指标。
 
 [![运行详细信息仪表板](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
 
@@ -224,7 +194,7 @@ Variance| 此列数据与其平均值之间的分散程度度量。
 
 1. 填充“部署模型”窗格。
 
-    字段| Value
+    字段| 值
     ----|----
     名称| 输入部署的唯一名称。
     说明| 输入说明，以更清楚地指出此部署的用途。

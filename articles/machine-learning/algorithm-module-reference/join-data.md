@@ -10,16 +10,16 @@ author: likebupt
 ms.author: keli19
 origin.date: 11/19/2019
 ms.date: 03/09/2020
-ms.openlocfilehash: ab3a5a7879d5559e9deb04c00a21e2f627b2d541
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: faa8db9bd6693dbe85f28e21e4a79fb0d977047d
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097483"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117882"
 ---
 # <a name="join-data"></a>联接数据
 
-本文介绍了如何通过 Azure 机器学习设计器（预览版）中的**联接数据**模块使用数据库样式的联接操作来合并两个数据集。  
+本文介绍了如何通过 Azure 机器学习设计器中的“联接数据”模块使用数据库样式的联接操作来合并两个数据集。  
 
 ## <a name="how-to-configure-join-data"></a>如何配置“联接数据”
 

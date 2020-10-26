@@ -4,16 +4,16 @@ description: 了解应用服务计划在 Azure 应用服务中的工作方式，
 keywords: 应用服务, azure 应用服务, 缩放, 可缩放, 可伸缩性, 应用服务计划, 应用服务成本
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-origin.date: 08/12/2019
-ms.date: 08/13/2020
+origin.date: 10/01/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 92f0e8497d7358468814e20f3c2edad6015c6d3c
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 52312fa231b789380c36c1c03e169ded7d4c5bc7
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228071"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170838"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure 应用服务计划概述
 
@@ -39,13 +39,13 @@ ms.locfileid: "88228071"
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> 与“标准”层相比，新的“高级 V2”层提供 [Dv2 系列 VM](../virtual-machines/dv2-dsv2-series.md)，此系列 VM 配备更快的处理器、SSD 存储以及双倍的内存核心比。   **高级 V2** 还支持通过增加实例数扩大规模，同时仍提供标准计划中的所有高级功能。 **高级 V2** 中包含现有“高级”  层中提供的所有功能。
+> 与“标准”层相比，新的“高级 V2”定价层保证 [Dv2 系列 VM](../virtual-machines/dv2-dsv2-series.md) 拥有更快的处理器、SSD 存储和四倍的内存核心比 。 高级 V2 还支持通过增加实例数扩大规模，同时仍提供“标准”层中的所有高级功能 。 **高级 V2** 中包含现有“高级”  层中提供的所有功能。
 >
 > 类似于其他专用层，以下三种 VM 大小可用于此层：
 >
-> - 小型（一个 CPU 核心，3.5 GiB 内存） 
-> - 中型（两个 CPU 核心，7 GiB 内存） 
-> - 大型（四个 CPU 核心，14 GiB 内存）  
+> - 小型（2 个 CPU 核心，8 GiB 内存） 
+> - 中型（4 个 CPU 核心，16 GiB 内存） 
+> - 大型（8 个 CPU 核心，32 GiB 内存）  
 >
 > 有关**高级 V2** 定价信息，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
 >
@@ -59,7 +59,7 @@ ms.locfileid: "88228071"
 
 于是，应用服务计划便成了应用服务应用的缩放单元。 如果将计划配置为运行五个 VM 实例，该计划中的所有应用将在所有五个实例上运行。 如果为计划配置了自动缩放，该计划中的所有应用将会根据自动缩放设置一起横向扩展。
 
-有关横向扩展应用的信息，请参阅[手动或自动缩放实例计数](../monitoring-and-diagnostics/insights-how-to-scale.md)。
+有关横向扩展应用的信息，请参阅[手动或自动缩放实例计数](../azure-monitor/platform/autoscale-get-started.md)。
 
 <a name="cost"></a>
 
@@ -67,11 +67,11 @@ ms.locfileid: "88228071"
 
 本部分介绍应用服务应用的计费方式。 有关区域特定的详细定价信息，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
 
-除“免费”层外，应用服务计划会根据所用的计算资源量产生小时费用。 
+除“免费”层外，应用服务计划会根据所用的计算资源量产生费用。
 
-- 在“共享”层中，每个应用遵循 CPU 分钟配额，因此，每个应用会根据 CPU 配额产生小时费用。  
-- 在专用计算层（“基本”、“标准”、“高级”、“高级 V2”）中，应用服务计划定义了应用可缩放到的 VM 实例数，因此，应用服务计划中的每个 VM 实例会产生小时费用。      不管这些 VM 实例上运行了多少个应用，其计费方式都是相同的。 为了避免意外的费用，请参阅[清理应用服务计划](app-service-plan-manage.md#delete)。
-- 在“隔离”层中，应用服务环境定义了运行应用的隔离辅助角色数目，每个辅助角色按小时计费。   此外，运行应用服务环境本身也会产生一笔基本的小时费用。
+- 在“共享”层中，每个应用遵循 CPU 分钟数配额，因此每个应用会根据 CPU 配额产生费用。
+- 在专用计算层（“基本”、“标准”、“高级”、“高级 V2”）中，应用服务计划定义了应用可缩放到的 VM 实例数，因此应用服务计划中的每个 VM 实例都会产生费用   。 不管这些 VM 实例上运行了多少个应用，其计费方式都是相同的。 为了避免意外的费用，请参阅[清理应用服务计划](app-service-plan-manage.md#delete)。
+- 在“隔离”层中，应用服务环境定义了运行应用的隔离辅助角色数目，每个辅助角色都会产生费用。 此外，运行应用服务环境本身也会产生一笔固定印花费。
 
 使用提供的应用服务功能（配置自定义域、TLS/SSL 证书、部署槽位、备份等）不会产生费用。 例外情况包括：
 

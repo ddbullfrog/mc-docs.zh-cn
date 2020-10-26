@@ -1,24 +1,25 @@
 ---
-title: 对模块错误进行故障排除
+title: 对设计器模块错误进行故障排除
 titleSuffix: Azure Machine Learning
-description: 使用错误代码对 Azure 机器学习设计器中的模块异常进行故障排除
+description: 对 Azure 机器学习设计器中的模块错误代码进行故障排除
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
+ms.topic: reference
+ms.custom: troubleshooting
 author: likebupt
 ms.author: zhanxia
 ms.date: 04/16/2020
-ms.openlocfilehash: 9a611586bd7449ddbddc87d32ea5a32e0d82aa1c
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 89ee926cadc4a73f44fb4780eb1f2c21d455925f
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440973"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117913"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>设计器的异常和错误代码（预览）
+# <a name="exceptions-and-error-codes-for-the-designer"></a>设计器的异常和错误代码
 
-本文介绍 Azure 机器学习设计器（预览版）中的错误消息和异常代码，以帮助你排查机器学习管道问题。
+本文介绍 Azure 机器学习设计器中的错误消息和异常代码，以帮助你对机器学习管道进行故障排除。
 
 可以按照以下步骤在设计器中找到错误消息：  
 

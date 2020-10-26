@@ -4,16 +4,16 @@ description: 本文介绍如何使用 Azure Monitor 监视服务总线实体（�
 ms.topic: article
 origin.date: 07/15/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: f1ba2047762ee2f7e2b1cfd8b9a6b004bfc267fe
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: e19975874c4c37cfe7d73be6e1061bc920d9500f
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946999"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127774"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor 中的 Azure 服务总线指标
 
@@ -74,7 +74,7 @@ Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](http
 下面两种类型的错误被归类为用户错误：
 
 1. 客户端错误（在 HTTP 中为 400 错误）。
-2. 在处理消息时发生的错误，如 [MessageLockLostException](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.messagelocklostexception?view=azure-dotnet)。
+2. 在处理消息时发生的错误，如 [MessageLockLostException](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.messagelocklostexception)。
 
 ## <a name="message-metrics"></a>消息指标
 
@@ -136,24 +136,24 @@ Azure 总线服务支持对 Azure Monitor 中的指标使用以下维度。 为�
     3. 从列表中选择“服务总线命名空间”。 
     4. 选择“完成” 。 
 
-        :::image type="content" source="./media/service-bus-metrics-azure-monitor/select-namespace.png" alt-text="选择命名空间":::
+        :::image type="content" source="./media/service-bus-metrics-azure-monitor/select-namespace.png" alt-text="“指标”页面 - 配置警报菜单":::
 1. 选择“添加条件”，并在“配置信号逻辑”页面上执行以下操作：
     1. 对于“信号类型”，选择“指标”。 
     2. 选择一个信号。 例如：**服务错误**。 
 
-        :::image type="content" source="./media/service-bus-metrics-azure-monitor/select-server-errors.png" alt-text="选择“服务器错误”":::
+        :::image type="content" source="./media/service-bus-metrics-azure-monitor/select-server-errors.png" alt-text="“指标”页面 - 配置警报菜单":::
     1. 对于“条件”，选择“大于”。
     2. 对于“时间聚合”，选择“总计”。 
     3. 对于“阈值”，输入 **5**。 
     4. 选择“完成” 。    
 
-        :::image type="content" source="./media/service-bus-metrics-azure-monitor/specify-condition.png" alt-text="指定条件":::    
+        :::image type="content" source="./media/service-bus-metrics-azure-monitor/specify-condition.png" alt-text="“指标”页面 - 配置警报菜单":::    
 1. 在“创建规则”页面上，展开“定义警报详细信息”，执行以下操作：
     1. 为警报输入**名称**。 
     2. 为警报输入**说明**。
     3. 选择警报的**严重性**。 
 
-        :::image type="content" source="./media/service-bus-metrics-azure-monitor/alert-details.png" alt-text="警报详细信息":::
+        :::image type="content" source="./media/service-bus-metrics-azure-monitor/alert-details.png" alt-text="“指标”页面 - 配置警报菜单":::
 1. 在“创建规则”页面上，展开“定义操作组”，选择“新建操作组”，然后在“添加操作组”页面上执行以下操作。 
     1. 为操作组输入名称。
     2. 为操作组输入短名称。 
@@ -167,11 +167,11 @@ Azure 总线服务支持对 Azure Monitor 中的指标使用以下维度。 为�
         2. 键入**电子邮件地址**。 
         3. 选择“确定”。
 
-            :::image type="content" source="./media/service-bus-metrics-azure-monitor/add-action-group.png" alt-text="警报详细信息":::
+            :::image type="content" source="./media/service-bus-metrics-azure-monitor/add-action-group.png" alt-text="“指标”页面 - 配置警报菜单":::
         4. 在“添加操作组”页面上，选择“确定”。 
 1. 在“创建规则”页面上，选择“创建警报规则”。 
 
-    :::image type="content" source="./media/service-bus-metrics-azure-monitor/create-alert-rule.png" alt-text="“创建警报规则”按钮":::
+    :::image type="content" source="./media/service-bus-metrics-azure-monitor/create-alert-rule.png" alt-text="“指标”页面 - 配置警报菜单":::
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -4,22 +4,28 @@ description: 本文介绍如何使用应用程序机密的 Service Fabric KeyVau
 ms.topic: article
 origin.date: 09/20/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2345ace47dbb31a179385427f723f6687135e41e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 1640536c0672c5dbcdcd71f66f601bd0b2f3b9d7
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655649"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128373"
 ---
 # <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 应用程序的 KeyVaultReference 支持（预览版）
 
 构建云应用程序时，一个常见的难题是如何安全存储应用程序所需的机密。 例如，你可能想要将容器存储库凭据存储在 keyvault 中，并在应用程序清单中引用它。 Service Fabric KeyVaultReference 使用 Service Fabric 托管标识，并为引用 keyvault 机密提供方便。 本文的余下内容将详细介绍如何使用 Service Fabric KeyVaultReference，并提供一些典型用法。
 
-## <a name="prerequisites"></a>必备条件
+> [!IMPORTANT]
+> 不建议在生产环境中使用此预览功能。
+
+> [!NOTE]
+> KeyVault 引用预览功能仅支持[经版本控制的](/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning)机密。 不支持无版本的机密。
+
+## <a name="prerequisites"></a>先决条件
 
 - 应用程序的托管标识 (MIT)
 

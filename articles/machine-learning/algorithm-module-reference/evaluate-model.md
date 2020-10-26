@@ -10,16 +10,16 @@ author: likebupt
 ms.author: keli19
 origin.date: 07/27/2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 946e2fee2b494efa9d71784cd7b85ef66cd0fc12
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 3371affbf9a17592610b178da88ea8fc0adcc2dc
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228486"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117912"
 ---
 # <a name="evaluate-model-module"></a>“评估模型”模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块可以度量已训练模型的准确度。 提供包含通过模型生成的评分的数据集后，“评估模型”模块将计算一组符合行业标准的评估指标。
   

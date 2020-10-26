@@ -4,16 +4,16 @@ description: 了解如何使用 Azure 门户和 Azure Key Vault 在 Azure 中设
 ms.topic: conceptual
 origin.date: 09/06/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 23d1c0a6ee99870111e19e32ed3965b2f7cb6a80
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: d530b7e614a8c7cc4aee591de29efc5cd557cc31
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655693"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127621"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 门户在 Azure 中创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -134,42 +134,42 @@ ms.locfileid: "89655693"
 
 在前面的过程完成前，请勿离开屏幕。
 
-![CreateKeyVault]
+![屏幕截图显示了具有“Key Vault”窗格和“创建 Key Vault”窗格的“安全性”页面，其中已选择“基本信息”。][CreateKeyVault]
 
 现在，已创建了一个 Key Vault，可以编辑 Key Vault 的访问策略了。 
 
-![CreateKeyVault2]
+![屏幕截图显示了“创建 Service Fabric 群集”窗格，其中已选择选项 3（“安全性”），且附有说明指出未启用 Key Vault。][CreateKeyVault2]
 
 单击“编辑访问策略”并为部署启用对虚拟机的访问权限。  建议同时启用模板部署。 完成选择后，不要忘记单击“保存”按钮并关闭“访问策略”窗格 。
 
-![CreateKeyVault3]
+![屏幕截图显示了“创建 Service Fabric 群集”窗格，其中“安全性”窗格和“访问策略”窗格均已打开。][CreateKeyVault3]
 
 输入证书的名称并单击“确定”。
 
-![CreateKeyVault4]
+![屏幕截图显示“创建 Service Fabric 群集”窗格，其中“安全性”照旧已选中，但没有说明未启用 Key Vault。][CreateKeyVault4]
 
 #### <a name="custom-option"></a>“自定义”选项
 如果你已执行“基本”选项中的步骤，请跳过本节内容。
 
-![SecurityCustomOption]
+![屏幕截图显示了“安全性配置”这一群集安全性设置对话框。][SecurityCustomOption]
 
 你需要源密钥保管库、证书 URL 和证书指纹信息以完成“安全性”页。 如果“安全性”页未就绪，请打开另一个浏览器窗口，然后在 Azure 门户中执行以下操作
 
 1. 导航到密钥保管库服务。
 2. 选择“属性”选项卡，并将“资源 ID”复制到另一个浏览器窗口上的“源密钥保管库” 
 
-    ![CertInfo0]
+    ![屏幕截图显示了 Key Vault 的“属性”窗口。][CertInfo0]
 
 3. 现在，选择“证书”选项卡。
 4. 单击“证书指纹”，转到“版本”页。
 5. 单击当前版本下显示的 GUID。
 
-    ![CertInfo1]
+    ![屏幕截图显示了 Key Vault 的“证书”窗口][CertInfo1]
 
 6. 你现在应位于如下所示的屏幕上。 将十六进制 SHA-1 指纹复制到另一个浏览器窗口中的“证书指纹”
 7. 将“机密标识符”复制到另一个浏览器窗口上的“证书 URL”。
 
-    ![CertInfo2]
+    ![屏幕截图显示了“证书版本”对话框，其中有一个用于复制证书标识符的选项。][CertInfo2]
 
 选中“**配置高级设置**”复选框，输入**管理客户端**和**只读客户端**的客户端证书。 在这些字段中，输入管理客户端证书的指纹和只读用户客户端证书的指纹（如果适用）。 当管理员尝试连接群集时，仅当他们的证书指纹与此处输入的指纹值匹配时，才被授予访问权限。  
 
@@ -179,7 +179,7 @@ ms.locfileid: "89655693"
 
 若要完成群集创建，请单击“创建”。 还可以选择性下载模板。
 
-![摘要]
+![屏幕截图显示了“创建 Service Fabric 群集”摘要页面，其中包含用于查看和下载证书的链接。][Summary]
 
 可以在通知栏中查看群集创建进度。 （单击屏幕右上角状态栏附近的铃铛图标）。如果在创建群集时曾经单击“固定到启动板”，则会看到“部署 Service Fabric 群集”已固定到“启动”板。   此过程将需要一些时间才能完成。 
 
@@ -238,7 +238,7 @@ ms.locfileid: "89655693"
 [CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
 [SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
 [DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
-[摘要]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
+[Summary]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

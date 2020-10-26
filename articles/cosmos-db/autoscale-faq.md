@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 中自动缩放预配吞吐量的常见问题解答
 description: 有关 Azure Cosmos DB 数据库和容器的自动缩放预置吞吐量的常见问题解答
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/10/2020
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1df0e2a85e030892ffed687997ad2a87c8a3f72f
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: cad48ea6af7b2aaace81d5102baa68a68a83ac38
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098735"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118369"
 ---
 <!--Verified successfully-->
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB 中自动缩放预配吞吐量的常见问题解答
@@ -29,7 +29,7 @@ ms.locfileid: "85098735"
 
 例如，如果你之前选择了缩放比例为 400 到 4,000 RU/s 的层，则数据库或容器现在将显示具有最大为 4,000 RU/s 的吞吐量，缩放比例为 400 到 4,000 RU/s。 在此处，你可以将最大 RU/s 更改为自定义值以适应你的工作负载。 
 
-### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>自动缩放根据流量高峰进行增减的速度有多快？
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>自动缩放功能根据流量高峰纵向扩展的速度有多快？
 使用自动缩放，系统根据传入的流量在 `0.1 * Tmax` 和 `Tmax` 范围内上下缩放吞吐量 (RU/s) `T`。 因为缩放是自动且即时的，所以可在任何时间点无延迟地使用吞吐量（最多使用预配的 `Tmax`）。 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>如何确定系统当前缩放到的吞吐量 (RU/s)？
@@ -90,6 +90,7 @@ Azure Cosmos DB 在一个共享吞吐量数据库中最多可实施 25 个容器
 自动缩放不影响数据库的一致性级别。
 有关可用一致性级别的详细信息，请参阅[一致性级别](consistency-levels.md)一文。
 
+<a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>与每个最大 RU/s 选项关联的存储限制是多少？  
 每个最大 RU/s 的存储限制（以 GB 为单位）为：数据库或容器的最大 RU/s / 100。 例如，如果最大 RU/秒为 20,000 RU/秒，则该资源可以支持 200 GB 的存储空间。 请参阅[自动缩放限制](provision-throughput-autoscale.md#autoscale-limits)一文，了解可用的最大 RU/s 和存储选项。 
 
@@ -98,6 +99,7 @@ Azure Cosmos DB 在一个共享吞吐量数据库中最多可实施 25 个容器
 
 例如，如果开始时以 50,000 RU/s 为最大值（在 5000-50,000 RU/s 之间缩放），则最多可以存储 500 GB 的数据。 如果超过 500 GB，例如存储现在为 600 GB，则新的最大 RU/s 为 60,000 RU/s（在 6000-60,000 RU/s 之间缩放）。
 
+<a name="can-i-change-the-max-rus-on-the-database-or-container"></a>
 ### <a name="can-i-change-the-max-rus-on-the-database-or-container"></a>能否更改数据库或容器的最大 RU/s？ 
 是的。 请参阅[本文](how-to-provision-autoscale-throughput.md)，了解关于如何更改最大 RU/s。 根据请求的值更改最大 RU/s 时，此异步操作可能需要一些时间才能完成（根据所选的 RU/s，可能需要长达 4-6 小时）
 

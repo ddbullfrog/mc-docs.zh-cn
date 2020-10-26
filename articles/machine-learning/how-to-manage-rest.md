@@ -10,18 +10,18 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 290f56a8dadc59ccbd7effd2ca4e026c4f1d4318
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 831c59f5fda9e2254e36c472ccd7c169579ef22f
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395243"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118585"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>使用 REST 创建、运行和删除 Azure ML 资源
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-可通过多种方式管理 Azure ML 资源。 可以使用[门户](https://portal.azure.cn/)、[命令行接口](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)或 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)。 或者，可以选择 REST API。 REST API 使用 HTTP 谓词以标准方式创建、检索、更新和删除资源。 REST API 适用于可发出 HTTP 请求的任何语言或工具。 REST 具有简单的结构，因此它往往是适合脚本编写环境和 MLOps 自动化的良好选择。 
+
+可通过多种方式管理 Azure ML 资源。 可以使用[门户](https://portal.azure.cn/)、[命令行接口](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true)或 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)。 或者，可以选择 REST API。 REST API 使用 HTTP 谓词以标准方式创建、检索、更新和删除资源。 REST API 适用于可发出 HTTP 请求的任何语言或工具。 REST 具有简单的结构，因此它往往是适合脚本编写环境和 MLOps 自动化的良好选择。 
 
 在本文中，学习如何：
 
@@ -423,5 +423,5 @@ Azure 机器学习工作区使用 Azure 容器注册表 (ACR) 执行某些操作
 ## <a name="next-steps"></a>后续步骤
 
 - 浏览完整的 [AzureML REST API 参考](https://docs.microsoft.com/rest/api/azureml/)。
-- 了解如何在工作室和设计器中[使用设计器（预览版）预测汽车价格](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score)。
-- [使用 Jupyter 笔记本探索 Azure 机器学习](https://docs.microsoft.com/azure//machine-learning/samples-notebooks)。
+- 了解如何[使用设计器预测汽车价格](/machine-learning/tutorial-designer-automobile-price-train-score)。
+- [使用 Jupyter 笔记本探索 Azure 机器学习](/machine-learning/samples-notebooks)。

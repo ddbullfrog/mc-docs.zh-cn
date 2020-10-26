@@ -5,16 +5,16 @@ manager: rochakm
 ms.topic: how-to
 origin.date: 04/06/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d94586b120e8420fb529eb20be7d7565611ce644
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 9b269faead8c7123cb8758a83cb82ad5f1ffb3d6
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655503"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127995"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>排查 Azure 到 Azure VM 网络连接性问题
 
@@ -82,11 +82,11 @@ ms.locfileid: "89655503"
 
 1. 为 NSG 创建 HTTPS 出站安全规则，如以下屏幕截图所示。 此示例使用“目标服务标记”：“Storage.ChinaEast”和“目标端口范围”：“443”。
 
-    :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="storage-tag":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="com-error":::
 
 1. 为 NSG 创建 HTTPS 出站安全规则，如以下屏幕截图所示。 此示例使用“目标服务标记”：“AzureActiveDirectory”和“目标端口范围”：“443”。
 
-    :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="com-error":::
 
 1. 与上述安全规则类似，为 NSG 上的“EventHub.chinanorth”（对应于目标位置）创建出站 HTTPS (443) 安全规则。 这样就可以访问 Site Recovery 监视功能。
 1. 在 NSG 上为“AzureSiteRecovery”创建出站 HTTPS (443) 安全规则。 这样就可以在任何区域访问 Site Recovery 服务。
@@ -152,7 +152,7 @@ ms.locfileid: "89655503"
 
 #### <a name="resolution"></a>解决方法
 
-Azure Site Recovery 需要根据区域访问 [Site Recovery IP 范围](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)。 请确保可以从 VM 访问所需的 IP 范围。
+如果使用 Azure 网络安全组 (NSG) 规则/防火墙代理来控制计算机上的出站网络连接，则需要允许多个服务标记。 [了解详细信息](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)。
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>问题 4：当网络流量通过本地代理服务器时，Azure 到 Azure 的复制失败 (151072)
 

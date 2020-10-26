@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 10/13/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90f16526d86203532e6ffb14422e0444bc7a28cd
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: fd0b9c1b4a60658857bac5819549f9c663f0c39c
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945061"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041571"
 ---
 # <a name="conditional-access-session"></a>条件访问：会话
 
@@ -57,7 +57,7 @@ ms.locfileid: "85945061"
 - Word、Excel、PowerPoint Online
 - OneNote Online
 - Office.com
-- O365 管理门户
+- Microsoft 365 管理门户
 - Exchange Online
 - SharePoint 和 OneDrive
 - Teams Web 客户端

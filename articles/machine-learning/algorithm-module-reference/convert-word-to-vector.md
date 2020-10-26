@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: f614779014d450c6719bd6c68b11f99befdd4c8a
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 9d9e07a224e33ca6c9dd6308e29d7538f30f11f9
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097784"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118459"
 ---
 # <a name="convert-word-to-vector-module"></a>“将单词转换为矢量”模块
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“将单词转换为矢量”模块执行以下任务：
+本文介绍如何使用 Azure 机器学习设计器中的“将单词转换为矢量”模块执行以下任务：
 
 - 将各种 Word2Vec 模型（Word2Vec、FastText、GloVe 预训练模型）应用到指定为输入的文本语料库。
 - 生成具有单词嵌入的词汇表。
@@ -93,7 +93,7 @@ ms.locfileid: "85097784"
 
 + **具有嵌入的词汇表**：包含生成的词汇表以及每个单词的嵌入。 一个维度占用一列。
 
-以下示例演示了“将单词转换为矢量”模块的工作原理。 它将此模块（采用默认设置）应用于 Azure 机器学习（预览版）中提供的经过预处理的维基百科 SP 500 数据集。
+以下示例演示了“将单词转换为矢量”模块的工作原理。 它将此模块（采用默认设置）应用于 Azure 机器学习中提供的经过预处理的维基百科 SP 500 数据集。
 
 ### <a name="source-dataset"></a>源数据集
 
@@ -149,4 +149,4 @@ loop|-0.391421|0.52366|0.141503|-0.105423|0.084503|-0.018424|...|-0.0521
 
 请参阅 Azure 机器学习的[可用模块集](module-reference.md)。 
 
-如需特定于设计器（预览版）模块的错误列表，请参阅[机器学习错误代码](designer-error-codes.md)。
+如需特定于设计器模块的错误列表，请参阅[机器学习错误代码](designer-error-codes.md)。

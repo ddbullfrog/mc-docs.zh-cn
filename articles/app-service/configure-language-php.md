@@ -4,15 +4,15 @@ description: 了解如何在原生 Windows 实例、预构建的 PHP 容器或 A
 ms.devlang: php
 ms.topic: article
 origin.date: 06/02/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9a8840bdc93a9977fe3888845e4aa962fd5b69dd
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 5d45f7efccdafb6b5615c0f61968d16469be0686
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228925"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170830"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>为 Azure 应用服务配置 PHP 应用
 
@@ -56,7 +56,7 @@ az webapp list-runtimes --linux | grep PHP
 
 ## <a name="set-php-version"></a>设置 PHP 版本
 
-::: zone pivot="platform-windows"
+::: zone pivot="platform-windows"  
 
 在 Azure CLI 中运行以下命令，将 PHP 版本设置为 7.4：
 
@@ -119,7 +119,7 @@ fi
 
 ## <a name="run-gruntbowergulp"></a>运行 Grunt/Bower/Gulp
 
-如果你希望应用服务在部署时运行常用的自动化工具（例如 Grunt、Bower 或 Gulp），则你需要提供[自定义部署脚本](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)。 当你在启用了生成自动化的情况下通过 Git 或 [Zip 部署](deploy-zip.md)进行部署时，应用服务会运行此脚本。
+如果你希望应用服务在部署时运行常用的自动化工具（例如 Grunt、Bower 或 Gulp），则你需要提供[自定义部署脚本](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)。 当你在启用了生成自动化的情况下通过 Git 或 [Zip 部署](deploy-zip.md)进行部署时，应用服务会运行此脚本。 
 
 若要使你的存储库能够运行这些工具，需要将它们添加到 package.json 中的依赖项。 例如：
 
@@ -128,6 +128,7 @@ fi
   "bower": "^1.7.9",
   "grunt": "^1.0.1",
   "gulp": "^3.9.1",
+  ...
 }
 ```
 
@@ -263,7 +264,7 @@ az resource update --name web --resource-group <group-name> --namespace Microsof
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    RewriteCond %{REQUEST_URI} ^/$
+    RewriteCond %{REQUEST_URI} ^(.*)
     RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
@@ -277,8 +278,8 @@ az resource update --name web --resource-group <group-name> --namespace Microsof
 在应用服务中，SSL 终止在网络负载均衡器上发生，因此，所有 HTTPS 请求将以未加密的 HTTP 请求形式访问你的应用。 如果应用逻辑需要检查用户请求是否已加密，可以检查 `X-Forwarded-Proto` 标头。
 
 ```php
-if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'https') {
-  // Do something when HTTPS is used
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+// Do something when HTTPS is used
 }
 ```
 
@@ -409,15 +410,15 @@ echo "expose_php = Off" >> ini/setting.ini
 
 若要启用其他扩展，请执行下列步骤：
 
-在应用的根目录中添加 `bin` 目录，并将 `.so` 扩展文件放入其中（例如 mongodb.so）。 确保扩展与 Azure 中的 PHP 版本兼容，并且与 VC9 和非线程安全 (nts) 兼容。
+在应用的根目录中添加 `bin` 目录，并在其中放入 `.dll` 扩展文件（例如 mongodb.dll）。 确保扩展与 Azure 中的 PHP 版本兼容，并且与 VC9 和非线程安全 (nts) 兼容。
 
 部署所做的更改。
 
 按照[自定义 PHP_INI_SYSTEM 指令](#customize-php_ini_system-directives)中的步骤操作，使用 [extension](https://www.php.net/manual/ini.core.php#ini.extension) 或 [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension) 指令将扩展添加到自定义 .ini 文件中。
 
 ```
-extension=d:\home\site\wwwroot\bin\mongodb.so
-zend_extension=d:\home\site\wwwroot\bin\xdebug.so
+extension=d:\home\site\wwwroot\bin\mongodb.dll
+zend_extension=d:\home\site\wwwroot\bin\xdebug.dll
 ```
 
 需要重启应用才能使更改生效。

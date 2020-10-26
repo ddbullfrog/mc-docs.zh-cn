@@ -1,9 +1,9 @@
 ---
 title: Azure 中客户数据的保护
-description: 本文介绍 Azure 如何保护客户数据。
+description: 了解 Azure 如何通过数据隔离、数据冗余和数据销毁来保护客户数据。
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/28/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 06/28/2018
-ms.openlocfilehash: 09bcae0185bf0c4ffdb828dcc5e09abccf54e234
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: a1e4ce4e1a229686a9bb7df1487af54461999474
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200048"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127615"
 ---
 # <a name="azure-customer-data-protection"></a>Azure 客户数据保护   
-默认情况下，拒绝 Microsoft 运营和支持人员访问客户数据。 授予对客户数据的访问权限后，需要经过领导批准，并仔细管理和记录访问活动。 访问控制要求由以下 Azure 安全策略制定：
+默认情况下，拒绝 Microsoft 运营和支持人员访问客户数据。 授权访问与支持案例相关的数据时，只能通过实时 (JIT) 模型授予该权限，其中该模型使用针对合规性和隐私策略进行审核和审查的策略。  访问控制要求由以下 Azure 安全策略制定：
 
 - 默认情况下无权访问客户数据。
 - 客户虚拟机 (VM) 上没有用户帐户或管理员帐户。
@@ -41,12 +41,9 @@ Azure 按默认或者以客户选项的形式为客户提供可靠的数据安�
 
 **静态数据保护**：客户负责确保按标准加密 Azure 中存储的数据。 Azure 提供各种加密功能，便于客户选择满足自己需求的最佳解决方案。 Azure Key Vault 可帮助客户轻松保持对密钥的控制，以便云应用程序和服务用于加密数据。 客户可以使用 Azure 磁盘加密来加密 VM。 Azure 存储服务加密可以加密客户存储帐户中的所有数据。
 
-**传输中数据保护**：客户可为自己 VM 与最终用户之间的流量启用加密。 Azure 会保护传入或传出组件的数据，以及在内部传输的数据，例如两个虚拟网络之间传输的数据。 Azure 根据 CESG/NCSC 的建议，结合 2048 位 RSA/SHA256 加密密钥使用行业标准传输层安全性 (TLS) 1.2 或更高版本的协议来加密以下各方之间的通信：
+**传输中数据保护**：Microsoft 提供了许多选项，客户可使用它们保护在 Azure 网络内部传输和跨 Internet 外部传输到最终用户的数据。  其中包括通过虚拟专用网（使用 IPsec/IKE 加密）、传输层安全性 (TLS) 1.2 或更高版本（通过 Azure 组件，例如应用程序网关或 Azure Front Door）、直接在 Azure 虚拟机上的协议（例如 Windows IPsec 或 SMB）等进行通信。 
 
-- 客户与云。
-- Azure 系统和数据中心之间的内部通信。
-
-**加密**：作为确保数据保密性和完整性的最佳做法，客户可以部署存储中数据加密和传输中数据加密。 客户可以直截了当地将其 Azure 云服务配置为使用 TLS 保护来自 Internet 的通信，甚至是 Azure 托管 VM 之间的通信。
+此外，对于在 Azure 数据中心之间传输的所有 Azure 流量，启用使用 MACsec（数据链路层的 IEEE 标准）的“默认加密”，以确保客户数据的机密性和完整性。 
 
 **数据冗余**：出现网络攻击或者数据中心遭到物理损坏时，Microsoft 可帮助确保数据受到保护。 客户可以选择：
 
@@ -74,4 +71,16 @@ Azure 可让客户从产品中导出数据和审核报告。 导出内容保存�
 ## <a name="electronic-discovery-e-discovery"></a>电子发现
 Azure 客户在使用 Azure 服务时需负责遵守电子发现要求。 如果 Azure 客户必须保留其客户数据，可在本地导出并保存数据。 此外，客户可以请求从 Azure 客户支持部门导出其数据。 除了允许客户导出其数据以外，Azure 还会在内部展开广泛的日志记录和监视。
 
+## <a name="next-steps"></a>后续步骤
+若要详细了解 Microsoft 如何保护 Azure 基础结构，请参阅：
+
+- [Azure 设施、场地和物理安全性](physical-security.md)
+- [Azure 基础结构可用性](infrastructure-availability.md)
+- [Azure 信息系统的组件和边界](infrastructure-components.md)
+- [Azure 网络体系结构](infrastructure-network.md)
+- [Azure 生产网络](production-network.md)
+- [Azure SQL 数据库安全功能](infrastructure-sql.md)
+- [Azure 生产运营和管理](infrastructure-operations.md)
+- [Azure 基础结构监视](infrastructure-monitoring.md)
+- [Azure 基础结构完整性](infrastructure-integrity.md)
 

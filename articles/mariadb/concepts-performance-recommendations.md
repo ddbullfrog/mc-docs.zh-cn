@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 6/3/2020
-ms.date: 07/06/2020
-ms.openlocfilehash: 410c75b0689c99254d442c74e36cf670506cada4
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.date: 10/19/2020
+ms.openlocfilehash: 822744acda7ba71ef741064509cde04fff59fd6b
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845817"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121597"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的性能建议
 
@@ -36,7 +36,7 @@ ms.locfileid: "85845817"
 
 “建议”窗口会显示找到的建议的列表，以及生成该建议的相关查询 ID。 有了查询 ID，就可以使用 [mysql.query_store](concepts-query-store.md#mysqlquery_store) 视图来详细了解查询。
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="性能建议新页":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="性能建议登陆页面":::
 
 不会自动应用建议。 若要应用建议，请复制查询文本并从所选的客户端中运行。 记住通过测试和监视来评估建议。
 
@@ -46,6 +46,9 @@ ms.locfileid: "85845817"
 
 “创建索引”建议建议使用新索引来加快工作负载中最常运行或最耗时的查询。 此建议类型需要启用[查询存储](concepts-query-store.md)。 查询存储收集查询信息并提供详细的查询运行时和频率统计信息，供分析用来提出建议。
 
+### <a name="query-recommendations"></a>查询建议
+
+查询建议建议对工作负载中的查询进行优化和重写。 通过识别 MariaDB 查询反模式并按句法修复它们，可以改进耗时查询的性能。 此建议类型需要启用“查询存储”。 查询存储收集查询信息并提供详细的查询运行时和频率统计信息，供分析用来提出建议。
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解如何在 Azure Database for MariaDB 中进行[监视和优化](concepts-monitoring.md)。

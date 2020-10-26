@@ -7,17 +7,18 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 03/03/2020
-ms.date: 05/11/2020
+origin.date: 09/15/2020
+ms.date: 10/19/2020
 ms.author: v-jay
-ms.openlocfilehash: a5ff946ddd64eafad4bc56312b1cfde37b7f5975
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: e24f2646ec22638754211dcd20f97da74bf5f059
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82197793"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121705"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Azure 数据工厂中的 Avro 格式
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 如果要**分析 Avro 文件或以 Avro 格式写入数据**，请遵循本文中的说明。 
@@ -81,7 +82,16 @@ ms.locfileid: "82197793"
 | 属性      | 说明                                                  | 必须 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 复制活动源的 type 属性必须设置为 **AvroSink**。 | 是      |
+| formatSettings          | 一组属性。 请参阅下面的“Avro 写入设置”表。| 否      |
 | storeSettings | 有关如何将数据写入到数据存储的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自身支持的写入设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息**。 | 否       |
+
+`formatSettings` 下支持的“Avro 写入设置”：
+
+| 属性      | 说明                                                  | 必须                                              |
+| ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
+| type          | formatSettings 的类型必须设置为 AvroWriteSettings。 | 是                                                   |
+| maxRowsPerFile | 在将数据写入到文件夹时，可选择写入多个文件，并指定每个文件的最大行数。  | 否 |
+| fileNamePrefix | 配置 `maxRowsPerFile` 时适用。<br> 在将数据写入多个文件时，指定文件名前缀，生成的模式为 `<fileNamePrefix>_00000.<fileExtension>`。 如果未指定，将自动生成文件名前缀。 如果源是基于文件的存储或[已启用分区选项的数据存储](copy-activity-performance-features.md)，则此属性不适用。  | 否 |
 
 ## <a name="data-type-support"></a>数据类型支持
 

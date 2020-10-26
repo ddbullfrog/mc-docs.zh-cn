@@ -3,20 +3,20 @@ title: 确定 Azure 机器学习场景 - Team Data Science Process
 description: 选择适当的方案，用于执行具有团队数据科学过程的高级预测分析。
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 711383ef72d5764b117fdac865b19b0819289419
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 7b0f1f3e2ce6c40f04495df0330ba43d66eb32ce
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441195"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118119"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>用于 Azure 机器学习中高级分析的方案
 本文概述了各种示例数据源和可通过[团队数据科学过程 (TDSP)](overview.md) 处理的目标场景。 TDSP 为团队提供了一个系统性方法，可协作构建智能应用程序。 此处介绍的情景说明了数据处理工作流中的可用选项，具体取决于 Azure 中的数据特征、源位置和目标存储库。
@@ -31,11 +31,11 @@ ms.locfileid: "86441195"
 > 
 > * [创建存储帐户](../../storage/common/storage-account-create.md)
 >   <br/>
-> * [创建 Azure 机器学习工作区](../studio/create-workspace.md)
+> * [创建 Azure 机器学习工作区](../classic/create-workspace.md)
 > 
 > 
 
-## <a name="scenario-1-small-to-medium-tabular-dataset-in-a-local-files"></a><a name="smalllocal"></a>场景 \#1：本地文件中的小型到中型表格数据集
+## <a name="scenario-1-small-to-medium-tabular-dataset-in-local-files"></a><a name="smalllocal"></a>场景 \#1：本地文件中的小到中型表格数据集
 ![小型到中型本地文件][1]
 
 #### <a name="additional-azure-resources-none"></a>其他 Azure 资源：无
@@ -198,7 +198,7 @@ ms.locfileid: "86441195"
    
        blobs.
    
-   b.  如果需要，可将数据转换为已清除的表格格式。
+   b.  将数据转换为已清除的表格格式（如果需要）。
    
    c.  将数据保存到本地 VM 文件（IPython Notebook 正在 VM 上运行，本地驱动器是指 VM 驱动器）。
 1. 将数据上传到步骤 2 中选择的 Hadoop 群集的默认容器。

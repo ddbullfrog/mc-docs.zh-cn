@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.reviewer: martincoetzer
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57de6184fcd678bc383a65b8a6fd83d0ef67ba8e
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 184fe0080540253dac4b70ae9e2e54d8b3c097e3
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245614"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041608"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>影响 Azure AD Connect 性能的因素
 
@@ -41,7 +41,7 @@ Azure AD Connect 将 Active Directory 同步到 Azure AD。 此服务器是将�
 
 下图显示了连接到一个林（尽管支持多个林）的预配引擎的高级体系结构。 此体系结构展示各组件之间的相互交互。
 
-![AzureADConnentInternal](./media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![关系图显示已连接目录和 Azure AD Connect 预配引擎如何交互，其中包括 SQL 数据库中的连接器空间和 Metaverse 组件。 ](./media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
 预配引擎连接到每个 Active Directory 林且连接到 Azure AD。 从每个目录读取信息的过程称为“导入”。 导出是指从预配引擎更新目录。 同步则评估规定对象在预配引擎内的流动方式的规则。 若要深入了解，可参阅 [Azure AD Connect 同步：了解体系结构](./concept-azure-ad-connect-sync-architecture.md)。
 

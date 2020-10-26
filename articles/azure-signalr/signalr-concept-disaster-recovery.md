@@ -4,15 +4,16 @@ description: 有关如何设置多个 SignalR 服务实例以实现复原能力�
 author: chenkennt
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 origin.date: 03/01/2019
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 07a41b62b859ae127f76149987060c949c0f768c
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 839c14fdcf651a8c19f285180cb968ac42bf0ba3
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063317"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170801"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Azure SignalR 服务中的复原能力和灾难恢复
 
@@ -42,7 +43,7 @@ ms.locfileid: "90063317"
 
 下图演示了这种拓扑：
 
-![拓扑](media/signalr-concept-disaster-recovery/topology.png)
+![该图显示了两个区域，每个区域都有一个应用服务器和一个 SignalR 服务，其中每个服务器在其区域中都与 SignalR 服务关联为主要，在另一区域中与该服务关联为次要。](media/signalr-concept-disaster-recovery/topology.png)
 
 ## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>使用多个 SignalR 服务实例配置应用服务器
 

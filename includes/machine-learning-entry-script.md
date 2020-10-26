@@ -6,68 +6,79 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: cd9a78df6bc6dccf8a0b24f75c799f9ec86eeeaa
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: b165f6cbec1f03b92075a11fc86833eab5b88de5
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946974"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118158"
 ---
 入口脚本接收提交到已部署 Web 服务的数据，并将此数据传递给模型。 然后，该脚本接收模型返回的响应，并将该响应返回给客户端。 该脚本特定于你的模型**。 它必须能够识别模型需要和返回的数据。
 
-该脚本包含两个用于加载和运行模型的函数：
+需要在入口脚本中完成以下两项操作：
 
-* `init()`：此函数通常将模型载入全局对象。 此函数只能在 Web 服务的 Docker 容器启动时运行一次。
+1. 加载模型（使用名为 `init()` 的函数）
+1. 对输入数据运行模型（使用名为 `run()` 的函数）
 
-* `run(input_data)`：此函数使用模型来基于输入数据预测值。 运行的输入和输出通常使用 JSON 进行序列化和反序列化。 你也可以使用原始二进制数据。 可以先转换数据，然后再将其发送给模型，或将其返回给客户端。
+下面将详细介绍这些步骤。
 
-REST API 预期请求正文是采用以下结构的 JSON 文档：
+### <a name="writing-init"></a>编写 init() 
+
+#### <a name="loading-a-registered-model"></a>加载已注册的模型
+
+已注册的模型将存储在名为 `AZUREML_MODEL_DIR` 的环境变量所指向的路径上。 有关确切目录结构的详细信息，请参阅[在入口脚本中查找模型文件](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#load-registered-models)
+
+#### <a name="loading-a-local-model"></a>加载本地模型
+
+如果你在选择不注册模型的情况下将模型作为源目录的一部分传递，则可以通过传递模型的相对于评分脚本的路径，像在本地一样读入它。 例如，如果目录结构如下：
+
+```bash
+
+- source_dir
+    - score.py
+    - models
+        - model1.onnx
+
+```
+
+可以使用以下 Python 代码加载模型：
+
+```python
+import os
+
+model = open(os.path.join('.', 'models', 'model1.onnx'))
+```
+
+#### <a name="writing-run"></a>编写 run()
+
+`run()` 在模型每次收到评分请求时执行，并预期请求的正文是一个结构如下的 JSON 文档：
 
 ```json
 {
-    "data":
-        [
-            <model-specific-data-structure>
-        ]
+    "data": <model-specific-data-structure>
 }
+
 ```
+
+`run()` 的输入是一个 Python 字符串，其中包含“data”键后面的任何内容。
 
 以下示例演示如何加载已注册的 scikit-learn 模型并使用 numpy 数据对其进行评分：
 
 ```python
-#Example: scikit-learn and Swagger
 import json
 import numpy as np
 import os
 from sklearn.externals import joblib
-from sklearn.linear_model import Ridge
-
-from inference_schema.schema_decorators import input_schema, output_schema
-from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
 
 def init():
     global model
-    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
-    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION).
-    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models).
     model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
-
-    # If your model were stored in the same directory as your score.py, you could also use the following:
-    # model_path = os.path.abspath(os.path.join(os.path.dirname(__file_), 'sklearn_mnist_model.pkl')
-
-    # Deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-
-input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
-output_sample = np.array([3726.995])
-
-
-@input_schema('data', NumpyParameterType(input_sample))
-@output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
+        data = np.array(json.loads(data))
         result = model.predict(data)
         # You can return any data type, as long as it is JSON serializable.
         return result.tolist()
@@ -76,11 +87,4 @@ def run(data):
         return error
 ```
 
-若要查看更多示例，请参阅以下脚本：
-
-* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
-* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
-* [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
-* [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
-* [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* [Binary Data](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#binary-data)
+有关更高级的示例，包括 Swagger 架构的自动生成和二进制（即映像）数据，请阅读[有关高级入口脚本创作的文章](../articles/machine-learning/how-to-deploy-advanced-entry-script.md)

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 08/24/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 41322f013196f9ced45a641eb22fc8501f0439ed
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: 4847fda0e991e45748427d13caf93dc259b6a439
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310321"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127834"
 ---
 <!--Verified successfully on Charactors only-->
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>在应用审核策略配置策略时，虚拟机无响应
@@ -31,7 +31,7 @@ ms.locfileid: "89310321"
 
 ## <a name="symptom"></a>症状
 
-使用[启动诊断](/virtual-machines/troubleshooting/boot-diagnostics)查看 VM 的屏幕截图时，将看到屏幕截图显示操作系统 (OS) 在启动过程中已挂起，并显示消息“应用审核策略配置策略”。
+使用[启动诊断](/virtual-machines/troubleshooting/boot-diagnostics)查看 VM 的屏幕截图时，将看到屏幕截图显示操作系统 (OS) 在启动过程中无响应，并显示消息“应用审核策略配置策略”。
 
   ![OS 启动时将显示以下消息：“正在应用审核策略配置策略”](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "89310321"
 1. 在修复 VM 上，打开“注册表编辑器”。
 1. 找到“HKEY_LOCAL_MACHINE”项，然后从菜单中选择“文件”>“加载配置单元” 。
 
-    :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/3.png" alt-text="注册表编辑器中用于加载配置单元的导航。":::
+    :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/3.png" alt-text="注册表编辑器中用于加载配置单元的导航。&quot;:::
 
     - 可以使用加载配置单元从脱机系统加载注册表项。 在这种情况下，系统是附加到修复 VM 的受损磁盘。
     - 系统范围内的设置存储在 HKEY_LOCAL_MACHINE 上，可以缩写为 HKLM 。
@@ -83,7 +83,7 @@ ms.locfileid: "89310321"
 
 1. 使用以下命令删除 CleanupProfiles 项：
 
-    `reg delete "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f`
+    `reg delete &quot;HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f`
 
 1. 使用以下命令卸载 BROKENSOFTWARE 配置单元：
 
@@ -102,51 +102,24 @@ ms.locfileid: "89310321"
 
         - 在该命令中，将 `<BOOT PARTITON>` 替换为附加磁盘中包含引导文件夹的分区驱动器号。
 
-            :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/4.png" alt-text="图 4 显示列出了第 1 代 VM 中的 BCD 存储的输出，它在 Windows 引导加载程序下方列出标识符编号。":::
+            :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/4.png" alt-text="注册表编辑器中用于加载配置单元的导航。&quot;:::
 
-    1. 对于第 2 代 VM，请输入以下命令，并记下列出的标识符：
+    - 可以使用加载配置单元从脱机系统加载注册表项。 在这种情况下，系统是附加到修复 VM 的受损磁盘。
+    - 系统范围内的设置存储在 HKEY_LOCAL_MACHINE 上，可以缩写为 HKLM 。
 
-        `bcdedit /store <LETTER OF THE EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /enum`
+1. 在附加的磁盘中，打开 `\windows\system32\config\SOFTWARE` 文件。
 
-        - 在该命令中，将 `<LETTER OF THE EFI SYSTEM PARTITION>` 替换为 EFI 系统分区的驱动器号。
-        - 这可能有助于启动“磁盘管理”控制台以识别标记为 EFI 系统分区的相应系统分区。
-        - 标识符可以是唯一的 GUID，也可以是默认的 bootmgr。
+    - 当系统提示你输入名称时，请输入 BROKENSOFTWARE。
+    - 若要验证是否已加载 BROKENSOFTWARE，请展开“HKEY_LOCAL_MACHINE”并查找已添加的 BROKENSOFTWARE 项  。
 
-1. 运行以下命令：
+1. 转到“BROKENSOFTWARE”，并检查加载的配置单元中是否有“CleanupProfile”项 。
 
-    **启用串行控制台**：
+    - 如果该项存在，说明已设置 CleanupProfile 策略。 它的值表示以天为单位的保留策略。
+    - 如果该项不存在，说明未设置 CleanupProfile 策略。 在这种情况下，请跳到[连同内存转储文件一起提交支持工单](#collect-the-memory-dump-file-and-submit-a-support-ticket)。
 
-    ```
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
-    ```
+1. 使用以下命令删除 CleanupProfiles 项：
 
-1. 验 OS 磁盘上的可用空间是否大于 VM 上的内存大小 (RAM)。
-
-    如果 OS 磁盘上没有足够的空间，请更改将要创建内存转储文件的位置，并将该位置引用到具有足够可用空间的 VM 上附加的任何数据磁盘。 若要更改位置，请在以下命令中将 %SystemRoot% 替换为数据磁盘的驱动器号（例如，F:）。
-
-    用于启用 OS 转储的建议配置：
-
-    **从损坏的 OS 磁盘加载注册表配置单元：**
-
-    ```
-    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
-    ```
-
-    **在 ControlSet001 上启用：**
-
-    ```
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
-    ```
-
-    **在 ControlSet002 上启用：**
-
-    ```
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
+    `reg delete &quot;HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v NMICrashDump /t REG_DWORD /d 1 /f 
     ```
 
     **卸载损坏的 OS 磁盘：**
@@ -189,5 +162,4 @@ ms.locfileid: "89310321"
 
 <!--Not Available on [non-maskable interrupt (NMI) calls in serial console](/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls)-->
 
-<!-- Update_Description: new article about vm unresponsive applying audit configuration policy -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

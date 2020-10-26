@@ -1,22 +1,22 @@
 ---
 title: 适用于 Azure Cosmos DB Sync Java SDK v2 的性能提示
 description: 了解用于提高 Azure Cosmos DB Sync Java SDK v2 性能的客户端配置选项
-author: rockboyfor
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 05/11/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 33e16e4161018500723853ee62408dec3ea2f3a0
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 42fa59aeacab3a76d94a28332c4740f9f5774d0d
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223083"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118402"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>适用于 Azure Cosmos DB Sync Java SDK v2 的性能提示
 
@@ -61,24 +61,24 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
         ```Java
         public ConnectionPolicy getConnectionPolicy() {
-        ConnectionPolicy policy = new ConnectionPolicy();
-        policy.setConnectionMode(ConnectionMode.DirectHttps);
-        policy.setMaxPoolSize(1000);
-        return policy;
+            ConnectionPolicy policy = new ConnectionPolicy();
+            policy.setConnectionMode(ConnectionMode.DirectHttps);
+            policy.setMaxPoolSize(1000);
+            return policy;
         }
 
         ConnectionPolicy connectionPolicy = new ConnectionPolicy();
         DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
         ```
 
-        :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Azure Cosmos DB 连接策略演示" border="false":::
+        :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="图中显示了 Azure Cosmos DB 连接策略。" border="false":::
 
    <a name="same-region"></a>
 2. **将客户端并置在同一 Azure 区域中以提高性能**
 
     如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos 数据库所在的相同区域中。  根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://azure.microsoft.com/regions/#services)（Azure 区域）。
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Azure Cosmos DB 连接策略演示" border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="图中显示了 Azure Cosmos DB 连接策略。" border="false":::
 
 ## <a name="sdk-usage"></a>SDK 用法
 1. **安装最新的 SDK**

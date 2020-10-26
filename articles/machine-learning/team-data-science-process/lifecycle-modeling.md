@@ -3,20 +3,20 @@ title: Team Data Science Process 生命周期建模阶段
 description: 你的数据科学项目建模阶段的目标、任务和可交付结果
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: af0e47e53fbd4d82e14621bf3df30c05de3cf4a3
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: d1a9e58d96dd9ad8f53f5fddd56cfce6b4bd986c
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441155"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118209"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命周期建模阶段
 
@@ -53,7 +53,7 @@ ms.locfileid: "86441155"
 有关使用各种 Azure 数据技术时的功能设计的相关技术指导，请参阅[数据科学过程中的功能设计](create-features.md)。 
 
 ### <a name="model-training"></a>模型定型
-根据所要回答的问题类型，会有许多可用的建模算法。 
+根据所要回答的问题类型，会有许多可用的建模算法。 有关选择算法的指南，请参阅[如何选择 Microsoft Azure 机器学习的算法](../how-to-select-algorithms.md)。 尽管本文使用的是 Azure 机器学习，但所述指南也适用于其他任何机器学习项目。 
 
 模型定型的过程包括以下步骤： 
 
@@ -74,7 +74,7 @@ ms.locfileid: "86441155"
 
    * [功能集](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md)：“数据定义”报表的“功能集”部分介绍了为建模开发的功能 。 它包括指向代码以生成功能的指针，以及说明如何生成功能的描述。
    * [模型报表](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md)：对于尝试过的每个模型，都会根据模板生成一个标准报表，用于详细介绍每次试验。
-   * **检查点决策**：评估模型的执行是否足够良好，以便将其部署到生产系统。 要提出的一些关键问题有：
+   * **检查点决策**：评估模型的性能是否足以用于生产。 要提出的一些关键问题有：
      * 在给定测试数据的情况下，模型是否能充分地回答问题？ 
      * 是否应尝试备用方法？ 是否应收集其他数据、进行更多的功能设计或使用其他算法进行试验？
 

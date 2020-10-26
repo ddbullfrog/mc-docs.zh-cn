@@ -2,20 +2,20 @@
 title: 如何将 RabbitMQ 与 Azure 服务总线集成
 description: 有关如何将 RabbitMQ 与 Azure 服务总线集成的分步指南
 services: Azure Service Bus
-author: rockboyfor
 ms.topic: how-to
 ms.service: service-bus
 origin.date: 07/02/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: 677189e1e5126a38173e9457137ddef246815c40
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 893084422666f1fbc6337a1f67b7d675e771b451
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947242"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127841"
 ---
 <!--Verify Successfully-->
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>如何将 RabbitMQ 与 Azure 服务总线集成
@@ -42,27 +42,27 @@ ms.locfileid: "88947242"
 
 然后选择“集成”并单击“Azure 服务总线”来创建消息命名空间：
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="选择 Azure 服务总线":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="创建资源":::
 
 系统会提示你输入命名空间信息。 选择要使用的 Azure 订阅。 如果你没有[资源组](../azure-resource-manager/management/manage-resource-groups-portal.md)，可新建一个。
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="创建命名空间":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="创建资源":::
 
 对于“`Namespace name`”，请使用 `rabbitmq`，但它可以是你想要的任何名称。 然后，设置“`China East`”作为位置。 选择“`Basic`”作为定价层。
 
 如果一切正常，你应该会看到以下确认屏幕：
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace-confirm.png" alt-text="创建命名空间确认":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace-confirm.png" alt-text="创建资源":::
 
 然后返回到 Azure 门户，此时会看到其中列出了新的 `rabbitmq` 命名空间。 单击该命名空间以访问资源，以便向其添加队列。
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/resource-view-with-namespace.png" alt-text="包含新命名空间的资源列表":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/resource-view-with-namespace.png" alt-text="创建资源":::
 
 ## <a name="creating-our-azure-service-bus-queue"></a>创建我们的 Azure 服务总线队列
 
 现在，你已有 Azure 服务总线命名空间，请单击左侧“`Entities`”下的“`Queues`”按钮，以便添加新队列：
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-queue.png" alt-text="创建队列":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-queue.png" alt-text="创建资源":::
 
 队列的名称将为 `from-rabbitmq`，只是为了提醒消息来自何处。 你可以将所有其他选项保留为默认值，但也可以更改它们来满足应用的需求。
 
@@ -82,21 +82,21 @@ rabbitmq-plugins enable rabbitmq_shovel_management
 
 你需要为队列创建[共享访问策略](../storage/common/storage-sas-overview.md) (SAS)，以便 RabbitMQ 将消息发布到队列中。 使用 SAS 策略，你可以指定允许哪个外部方对你的资源执行操作。 这里的构思是允许 RabbitMQ 发送消息，但不侦听或管理队列。
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="添加 SAS 策略":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="创建资源":::
 
 勾选“`Send`”框，然后单击“`Create`”以创建我们的 SAS 策略。
 
 创建策略后，单击该策略以查看**主连接字符串**。 我们将使用它来让 RabbitMQ 与 Azure 服务总线通信：
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="获取 SAS 策略":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="创建资源":::
 
 在使用该连接字符串之前，需要将其转换为 RabbitMQ 的 AMQP 连接格式。 为此，请转到[连接字符串转换器工具](https://red-mushroom-0f7446a0f.azurestaticapps.net/)并将连接字符串粘贴到窗体中，然后单击“转换”。 你将获得一个可用于 RabbitMQ 的连接字符串。 （该网站在浏览器中以本地方式运行所有内容，因此数据不会通过网络发送）。 可以在 [GitHub](https://github.com/videlalvaro/connstring_to_amqp) 上访问其源代码。
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="转换连接字符串":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="创建资源":::
 
 现在，在浏览器中打开 RabbitMQ 管理插件 `http://localhost:15672/#/dynamic-shovels` 并转到 `Admin -> Shovel Management`，你可以在其中添加新的 shovel，以便将消息从 RabbitMQ 队列发送到 Azure 服务总线队列。
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="添加 RabbitMQ Shovel":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="创建资源":::
 
 在此处调用你的 Shovel `azure` 并选择 `AMQP 0.9.1` 作为源协议。 在屏幕截图中，我们有 `amqp://`，这是将我们连接到本地 RabbitMQ 服务器的默认 URI。 请确保使它适应你的当前部署。
 
@@ -114,15 +114,15 @@ amqps://rabbitmq-shovel:StringOfRandomChars@rabbitmq.servicebus.chinacloudapi.cn
 
 在 RabbitMQ 管理界面中，我们可以转到“`Queues`”，选择 `azure` 队列，然后搜索“`Publish message`”面板。 其中会显示一个窗体，可让你直接将消息发布到队列。 对于我们的示例，我们只是将 `fist message` 添加为“`Payload`”并点击“`Publish Message`”：
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="发布第一条消息":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="创建资源":::
 
-返回到 Azure 并检查你的队列。 单击左侧面板中的“`Service Bus Explorer`”。 如果一切顺利，你会看到队列现在包含一条消息。 好极了，恭喜你！
+返回到 Azure 并检查你的队列。 单击左侧面板中的 `Service Bus Explorer`，然后单击“速览”按钮。 如果一切顺利，你会看到队列现在包含一条消息。 好极了，恭喜你！
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Azure 服务总线队列":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="创建资源":::
 
 但请确保消息是你从 RabbitMQ 发送的消息。 选择“`Peek`”选项卡，然后单击“`Peek`”按钮检索队列中的最后消息。 单击该消息以检查其内容。 你应该会看到如下图所示的内容，其中列出了你的 `first message`。
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/peek.png" alt-text="队列速览":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/peek.png" alt-text="创建资源":::
 
 ## <a name="lets-recap"></a>让我们回顾一下
 
@@ -141,5 +141,9 @@ amqps://rabbitmq-shovel:StringOfRandomChars@rabbitmq.servicebus.chinacloudapi.cn
 
 归根到底，消息传递就是启用连接，而我们刚刚使用此技术打开了一个新连接。
 
-<!-- Update_Description: new article about service bus integrate with rabbitmq -->
-<!--NEW.date: 08/10/2020-->
+## <a name="next-steps"></a>后续步骤
+
+- 详细了解 [Azure 服务总线](./service-bus-messaging-overview.md)
+- 详细了解[服务总线中的 AMQP 1.0 支持](./service-bus-amqp-overview.md)
+
+<!-- Update_Description: update meta properties, wording update, update link -->

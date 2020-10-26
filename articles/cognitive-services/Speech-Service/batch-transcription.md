@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/28/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dacab87d565092eda7d8f22cb5f353b1317dee05
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: dc402808195395221e7ec7cea52d258f66e32964
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678400"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127952"
 ---
 # <a name="how-to-use-batch-transcription"></a>如何使用批量听录
 
@@ -44,7 +44,7 @@ ms.locfileid: "90678400"
 
 ## <a name="prerequisites"></a>先决条件
 
-与语音服务的其他所有功能一样，需要按照[入门指南](get-started.md)通过 [Azure 门户](https://portal.azure.cn)创建订阅密钥。
+与语音服务的其他所有功能一样，需要按照[入门指南](overview.md#try-the-speech-service-for-free)通过 [Azure 门户](https://portal.azure.cn)创建订阅密钥。
 
 >[!NOTE]
 > 若要使用批量听录，需要具备语音服务的标准订阅 (S0)。 免费订阅密钥 (F0) 无效。 有关详细信息，请参阅[定价和限制](https://www.azure.cn/pricing/details/cognitive-services/)。
@@ -404,6 +404,13 @@ Console.WriteLine($"Created transcription {newTranscription.Self}");
 while (paginatedTranscriptions.NextLink != null);
 
 ```
+
+
+有关上述调用的完整详细信息，请参阅 [Swagger 文档](https://chinaeast2.dev.cognitive.azure.cn/docs/services/speech-to-text-api-v3-0)。 有关此处所示的完整示例，请转到 `samples/batch` 子目录中的 [GitHub](https://aka.ms/csspeech/samples)。
+
+此示例使用异步设置发布音频并接收听录状态。
+`PostTranscriptions` 方法发送音频文件详细信息，而 `GetTranscriptions` 方法接收状态。
+`PostTranscriptions` 返回句柄，`GetTranscriptions` 使用此句柄创建一个句柄来获取听录状态。
 
 此示例代码未指定自定义模型。 该服务使用基线模型来听录一个或多个文件。 若要指定模型，可将自定义模型的模型引用传递到相同的方法。
 

@@ -1,22 +1,22 @@
 ---
 title: 创建和配置用于 Azure 磁盘加密的密钥保管库
-description: 本文介绍创建和配置用于 Azure 磁盘加密的密钥保管库的步骤
+description: 本文介绍创建和配置用于 Windows VM 上的 Azure 磁盘加密的密钥保管库的步骤。
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to
 origin.date: 08/06/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 70c5395016fc9cbca7e80fd0bc7be6c1853c99b4
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 652433fc02c6dd0a2b2a2e11bfcbb84dfe236094
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463198"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127681"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>创建和配置用于 Azure 磁盘加密的密钥保管库
 
@@ -46,13 +46,13 @@ Azure Disk Encryption 使用 Azure Key Vault 来控制和管理磁盘加密密�
 
 ## <a name="install-tools-and-connect-to-azure"></a>安装工具并连接到 Azure
 
-可以使用 [Azure CLI](https://docs.azure.cn/cli/?view=azure-cli-latest)、[Azure PowerShell Az 模块](https://docs.microsoft.com/powershell/azure/)或 [Azure 门户](https://portal.azure.cn)来完成本文中的步骤。
+可以使用 [Azure CLI](https://docs.azure.cn/cli/)、[Azure PowerShell Az 模块](https://docs.microsoft.com/powershell/azure/)或 [Azure 门户](https://portal.azure.cn)来完成本文中的步骤。
 
 虽然可以通过浏览器访问门户，但 Azure CLI 和 Azure PowerShell 需要本地安装；有关详细信息，请参阅[适用于 Windows 的 Azure 磁盘加密：安装工具](disk-encryption-windows.md#install-tools-and-connect-to-azure)。
 
 ### <a name="connect-to-your-azure-account"></a>连接到 Azure 帐户
 
-使用 Azure CLI 或 Azure PowerShell 之前，必须先连接到 Azure 订阅。 为此，可以[使用 Azure CLI 登录](https://docs.azure.cn/cli/authenticate-azure-cli?view=azure-cli-latest)、[使用 Azure Powershell 登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azps-2.5.0)，或在出现提示时向 Azure 门户提供凭据。
+使用 Azure CLI 或 Azure PowerShell 之前，必须先连接到 Azure 订阅。 为此，可以[使用 Azure CLI 登录](https://docs.azure.cn/cli/authenticate-azure-cli)、[使用 Azure Powershell 登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azps-2.5.0)，或在出现提示时向 Azure 门户提供凭据。
 
 ```azurecli
 az cloud set -n AzureChinaCloud

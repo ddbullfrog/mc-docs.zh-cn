@@ -1,23 +1,23 @@
 ---
 title: 在 Azure Cosmos DB 中缩放吞吐量
 description: 本文介绍 Azure Cosmos DB 如何跨预配 Azure Cosmos 帐户的不同区域缩放吞吐量。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/02/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: d794a55766a474b56ced8e647f13ff26d3fe7fa8
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 99c4558f44020cb4f3701a93fc987cfd115c1121
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222646"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118357"
 ---
-# <a name="globally-scale-provisioned-throughput"></a>全局缩放预配的吞吐量 
+# <a name="how-does-azure-cosmos-db-multiple-regionally-scale-the-provisioned-throughput"></a>Azure Cosmos DB 如何跨区域缩放预配的吞吐量？
 
 在 Azure Cosmos DB 中，预配吞吐量以“请求单位数/秒 (RU/s 或复数形式 RUs)”表示。 RU 度量针对 Cosmos 容器执行的读取和写入操作的成本，如下图所示：
 

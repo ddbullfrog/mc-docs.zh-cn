@@ -3,14 +3,17 @@ title: 远程连接 Azure Service Fabric 群集节点
 description: 了解如何远程连接到规模集实例（Service Fabric 群集节点）。
 ms.topic: conceptual
 origin.date: 03/23/2018
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.date: 01/06/2020
-ms.openlocfilehash: 189dd8fccff93525a1a744dfff0e45011034c440
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 63e984d62616d467571fc5738c585420641adae5
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75742344"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127708"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>远程连接到虚拟机规模集实例或群集节点
 在 Azure 中运行的 Service Fabric 群集中，定义的每个群集节点类型都会[设置虚拟机单独规模](service-fabric-cluster-nodetypes.md)。  可以远程连接到特定规模集实例（群集节点）。  不同于单实例 VM，规模集实例本身没有虚拟 IP 地址。 可能很难找到可用来远程连接到特定实例的 IP 地址和端口。
@@ -23,11 +26,11 @@ ms.locfileid: "75742344"
 
     在 Azure 门户中的负载均衡器页上，选择“设置” > “入站 NAT 规则”： 
 
-    ![负载均衡器入站 NAT 规则](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    :::image type="content" source="./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png" alt-text="Azure 门户中负载均衡器页的屏幕截图。在左侧菜单的“设置”下选择了“入站 NAT 规则”。":::
 
     以下屏幕截图显示名为 FrontEnd 的节点类型的入站 NAT 规则： 
 
-    ![负载均衡器入站 NAT 规则](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    :::image type="content" source="./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png" alt-text="Azure 门户中负载均衡器页的屏幕截图。在左侧菜单的“设置”下选择了“入站 NAT 规则”。":::
 
     对于每个节点，IP 地址显示在“DESTINATION”列中，“TARGET”列提供规模集实例，“SERVICE”列提供端口号    。 对于远程连接，从端口 3389 开始按升序将端口分配到每个节点。
 
@@ -35,7 +38,7 @@ ms.locfileid: "75742344"
 
 2. 若要确认节点的入站端口到目标端口映射，可以单击其规则并查看“目标端口”值  。 以下屏幕截图显示上一步中“FrontEnd (实例 1)”节点的入站 NAT 规则  。 请注意，虽然（入站）端口号为 3390，但是目标端口映射到端口 3389，即目标上 RDP 服务的端口。  
 
-    ![目标端口映射](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/port-mapping.png)
+    :::image type="content" source="./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/port-mapping.png" alt-text="Azure 门户中负载均衡器页的屏幕截图。在左侧菜单的“设置”下选择了“入站 NAT 规则”。":::
 
     默认情况下，对于 Windows 群集，目标端口为端口 3389，它映射到目标节点上的 RDP 服务。 对于 Linux 群集，目标端口为端口 22，它映射到安全外壳 (SSH) 服务。
 
@@ -43,7 +46,7 @@ ms.locfileid: "75742344"
 
     以下屏幕截图显示在 Windows 群集中使用远程桌面连接连接到“FrontEnd (实例 1)”节点  ：
 
-    ![远程桌面连接](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png)
+    :::image type="content" source="./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png" alt-text="Azure 门户中负载均衡器页的屏幕截图。在左侧菜单的“设置”下选择了“入站 NAT 规则”。":::
 
     在 Linux 节点上，可以借助 SSH 进行连接（为简洁起见，下例重复使用相同的 IP 地址和端口）：
 
@@ -57,4 +60,4 @@ ms.locfileid: "75742344"
 * 部署后在群集 VM 上[更新 RDP 端口范围值](./scripts/service-fabric-powershell-change-rdp-port-range.md)
 * 为群集 VM [更改管理员用户名和密码](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md)
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

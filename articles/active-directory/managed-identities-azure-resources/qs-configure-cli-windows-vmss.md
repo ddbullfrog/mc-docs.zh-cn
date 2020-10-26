@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 540cf399c42ac05be0f479011582753dd0887fc1
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 3c97516a6b1024706c2e653189ba6868d41a3736
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245662"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041588"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>使用 Azure CLI 在虚拟机规模集上配置 Azure 资源托管标识
 
@@ -45,12 +45,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
     - [虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)，可创建虚拟机规模集，并从虚拟机规模集启用和删除系统和/或用户分配托管标识。
     - [托管标识参与者](../../role-based-access-control/built-in-roles.md#managed-identity-contributor)角色，可以创建用户分配的托管标识。
     - [托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色，可在虚拟机规模集中分配和删除用户分配的托管标识。
-
-- 若要运行 CLI 脚本示例，如果你喜欢使用本地 CLI 控制台，则可以[安装 Azure CLI 的最新版本](/cli/install-azure-cli)（2.0.13 或更高版本）。 
-      
-      > [!NOTE]
-      > The commands have been updated to reflect the latest release of the [Azure CLI](/cli/install-azure-cli).
-
+- 若要运行示例脚本，可安装最新版的 [Azure CLI](/cli/install-azure-cli)，然后使用 [az login](/cli/reference-index#az-login) 登录到 Azure，在本地运行这些脚本。 使用与要在其中创建资源的 Azure 订阅关联的帐户。
 
 ## <a name="system-assigned-managed-identity"></a>系统分配的托管标识
 
@@ -60,19 +55,13 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 要创建启用了系统分配托管标识的虚拟机规模集，请执行以下操作：
 
-1. 如果在本地控制台中使用 Azure CLI，首先请使用 [az login](/cli/reference-index#az-login) 登录到 Azure。 使用与要在其下部署虚拟机规模集的 Azure 订阅关联的帐户：
-
-   ```azurecli
-   az login
-   ```
-
-2. 使用 [az group create](/cli/group/#az-group-create)，创建用于容纳和部署虚拟机规模集及其相关资源的[资源组](../../azure-resource-manager/management/overview.md#terminology)。 如果已有要改用的资源组，则可以跳过此步骤：
+1. 使用 [az group create](/cli/group/#az-group-create)，创建用于容纳和部署虚拟机规模集及其相关资源的[资源组](../../azure-resource-manager/management/overview.md#terminology)。 如果已有要改用的资源组，则可以跳过此步骤：
 
    ```azurecli 
    az group create --name myResourceGroup --location chinanorth
    ```
 
-3. [创建](/cli/vmss/#az-vmss-create)虚拟机规模集。 以下示例创建名为 myVMSS 且已启用系统分配托管标识的虚拟机规模集（应 `--assign-identity` 参数的要求）。 `--admin-username` 和 `--admin-password` 参数指定用于登录虚拟机的管理用户名和密码帐户。 针对自己的环境相应地更新这些值： 
+1. [创建](/cli/vmss/#az-vmss-create)虚拟机规模集。 以下示例创建名为 myVMSS 且已启用系统分配托管标识的虚拟机规模集（应 `--assign-identity` 参数的要求）。 `--admin-username` 和 `--admin-password` 参数指定用于登录虚拟机的管理用户名和密码帐户。 针对自己的环境相应地更新这些值： 
 
    ```azurecli 
    az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
@@ -80,19 +69,11 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>在现有 Azure 虚拟机规模集上启用系统分配的托管标识
 
-如果需要在现有 Azure 虚拟机规模集上启用系统分配托管标识，请执行以下操作：
+如果需要在现有 Azure 虚拟机规模集上[启用](https://docs.microsoft.com/en-us/cli/azure/vm/identity/#az-vmss-identity-assign)系统分配托管标识，请执行以下操作：
 
-1. 如果在本地控制台中使用 Azure CLI，首先请使用 [az login](/cli/reference-index#az-login) 登录到 Azure。 使用与包含虚拟机规模集的 Azure 订阅关联的帐户。
-
-   ```azurecli
-   az login
-   ```
-
-2. 在现有 VM 上[启用](https://docs.microsoft.com/en-us/cli/azure/vm/identity/#az-vmss-identity-assign)系统分配的托管标识：
-
-   ```azurecli
-   az vmss identity assign -g myResourceGroup -n myVMSS
-   ```
+```azurecli
+az vmss identity assign -g myResourceGroup -n myVMSS
+```
 
 ### <a name="disable-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>从 Azure 虚拟机规模集中禁用系统分配托管标识
 
@@ -110,8 +91,6 @@ az vmss update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 ```azurecli
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-
-
 
 ## <a name="user-assigned-managed-identity"></a>用户分配的托管标识
 
@@ -213,7 +192,5 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned'
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure 资源的托管标识概述](overview.md)
-- 有关完整的 Azure 虚拟机规模集创建快速入门，请参阅： 
-
-  - [使用 CLI 创建虚拟机规模集](../../virtual-machines/linux/tutorial-create-vmss.md#create-a-scale-set)
+- 有关完整的 Azure 虚拟机规模集创建快速入门，请参阅[使用 CLI 创建虚拟机规模集](../../virtual-machines/linux/tutorial-create-vmss.md#create-a-scale-set)
 

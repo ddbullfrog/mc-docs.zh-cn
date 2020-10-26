@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/06/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9e245381970e1429b5638c75c0fdfe3e5c3180d
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 491183ba68f5a8c470b637399802f8acb22a5fff
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164863"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041529"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自动升级
 此功能是随内部版本 1.1.105.0（于 2016 年 2 月发布）一起推出的。  此功能已在内部版本 1.1.561 中更新，现在支持以前不支持的其他方案。
@@ -60,8 +60,8 @@ ms.locfileid: "86164863"
 
 然后，确保已在代理或防火墙中打开所需的 URL。 
 
-确认与 Azure AD 建立连接后，可以深入了解事件日志。 启动事件查看器，并查看 **应用程序** 事件日志。 为源 Azure AD Connect 升级和事件 ID 范围 300-399 添加事件日志筛选器。   
-![用于自动升级的事件日志筛选器](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+确认与 Azure AD 建立连接后，可以深入了解事件日志。 启动事件查看器，并查看 **应用程序** 事件日志。 为源“Azure AD Connect 升级”和事件 ID 范围“300-399”添加事件日志筛选器。   
+![此屏幕截图显示了“筛选当前日志”窗口，其中突出显示了“事件源”和“包括/排除事件 ID”框。](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 此时可以看到与自动升级状态关联的事件日志。  
 ![用于自动升级的事件日志筛选器](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  

@@ -1,21 +1,21 @@
 ---
 title: 在 Azure Cosmos DB 中使用数据库、容器和项
 description: 本文介绍如何在 Azure Cosmos DB 中创建和使用数据库、容器与项。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/24/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: eaf6175e4216ec1db5e9793e4fdf81d824397933
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: c8d61e20f8413929c4434924990f0ea24e9cfa67
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223346"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118050"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用数据库、容器和项
 
@@ -49,7 +49,7 @@ ms.locfileid: "88223346"
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 容器
 
-Azure Cosmos 容器是预配的吞吐量和存储的缩放单元。 容器会进行水平分区，然后在多个区域间复制。 添加到容器的项以及针对容器预配的吞吐量将基于分区键自动分配给一组逻辑分区。 若要详细了解分区和分区键，请参阅[将数据分区](partition-data.md)。 
+Azure Cosmos 容器是预配的吞吐量和存储的缩放单元。 容器会进行水平分区，然后在多个区域间复制。 添加到容器的项将自动划分为逻辑分区，这些分区基于分区键分布在物理分区中。 容器上的吞吐量均匀分布在物理分区中。 若要详细了解分区和分区键，请参阅[将数据分区](partition-data.md)。 
 
 创建 Azure Cosmos 容器时，会在以下某种模式下配置吞吐量：
 
@@ -115,7 +115,7 @@ Azure Cosmos 容器具备一组系统定义的属性。 根据所用的 API，�
 
 | Cosmos 实体 | SQL API | Cassandra API | 用于 MongoDB 的 Azure Cosmos DB API | Gremlin API | 表 API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 项 | 项 | 行 | 文档 | 节点或边缘 | 项目 |
+|Azure Cosmos 项 | 项目 | 行 | 文档 | 节点或边缘 | 项目 |
 
 ### <a name="properties-of-an-item"></a>项的属性
 

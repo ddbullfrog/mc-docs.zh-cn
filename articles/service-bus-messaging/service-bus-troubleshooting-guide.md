@@ -1,19 +1,19 @@
 ---
 title: Azure 服务总线故障排除指南 | Azure
-description: 本文提供了 Azure 服务总线消息传送异常以及发生异常时建议采取的措施的列表。
+description: 了解你在使用 Azure 服务总线时可能遇到的一些问题的故障排除技巧和建议。
 ms.topic: article
-origin.date: 07/15/2020
+origin.date: 09/16/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 76298df71ea78c7ed2b34341cfaf8a95b5a77edb
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 8686359672d4ab7a763b6a5cf5282fe2c28b58c2
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946603"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127795"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure 服务总线故障排除指南
 本文提供的故障排除技巧和建议适用于你在使用 Azure 服务总线时可能会遇到的一些问题。 

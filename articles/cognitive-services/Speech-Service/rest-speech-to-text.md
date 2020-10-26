@@ -9,21 +9,21 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 05/13/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 629cae7ed2c9ac837d9c81e686a44d6781dbda75
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.openlocfilehash: f61f0083c3e25b4174174e798328afd3b2d2b260
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317564"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127850"
 ---
 # <a name="speech-to-text-rest-api"></a>语音转文本 REST API
 
 作为[语音 SDK](speech-sdk.md) 的一种替代方法，语音服务允许使用 REST API 转换语音转文本。 每个可访问的终结点都与某个区域相关联。 应用程序需要所用终结点的订阅密钥。 REST API 非常有限，只应在[语音 SDK](speech-sdk.md) 不能使用的情况下使用。
 
-使用语音转文本 REST API 之前，请先了解：
+使用语音转文本 REST API 之前，请注意以下几点：
 
 * 使用 REST API 并直接传输音频的请求最多只能包含 60 秒的音频。
 * 语音转文本 REST API 仅返回最终结果。 不提供部分结果。

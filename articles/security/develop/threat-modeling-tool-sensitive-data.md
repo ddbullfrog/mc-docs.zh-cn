@@ -1,9 +1,9 @@
 ---
 title: 敏感数据 - Microsoft Threat Modeling Tool - Azure | Azure Docs
-description: 针对威胁建模工具中暴露的威胁采取的缓解措施
+description: 在 Threat Modeling Tool 中了解有关敏感数据缓解的信息。 请参阅缓解措施信息并查看代码示例。
 services: security
 documentationcenter: na
-author: jegeib
+author: Johnnytechn
 manager: jegeib
 editor: jegeib
 ms.assetid: na
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 02/07/2017
-ms.openlocfilehash: 9db2ee49271247ba7ced9dc29801c24e37c82dab
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: a580b1cfe766a43e2652b5ef478e9d895049d58f
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439648"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128167"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>安全框架：敏感数据 | 缓解措施 
 | 产品/服务 | 文章 |
@@ -236,7 +236,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 ```javascript
 ns.AuthHelper.Authenticate = function () {
 window.config = {
-instance: 'https://login.chinacloudapi.cn/',
+instance: 'https://login.partner.microsoftonline.cn/',
 tenant: ns.Configurations.Tenant,
 clientId: ns.Configurations.AADApplicationClientID,
 postLogoutRedirectUri: window.location.origin,
@@ -466,3 +466,4 @@ Allow screen capture
   </bindings> 
   </system.serviceModel> 
   ```
+

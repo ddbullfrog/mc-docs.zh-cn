@@ -11,16 +11,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/12/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: be5be304c991dbd3e81f568dc9a4d1d93fe0c871
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 8000fd1944ea55fe27b72d4a5264c3340715e70c
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456770"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127941"
 ---
 # <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>无法通过远程桌面连接到 VM，因为网络接口被禁用
 
@@ -29,6 +29,10 @@ ms.locfileid: "89456770"
 ## <a name="symptoms"></a>症状
 
 无法与 Azure 中的 VM 的任何其他端口建立 RDP 连接或任何其他类型的连接，因为 VM 中的网络接口被禁用。
+
+:::image type="content" source="./media/troubleshoot-rdp-nic-disabled/disconnected.png" alt-text="显示 VM 的屏幕截图，其中网络接口已断开连接。":::
+
+:::image type="content" source="./media/troubleshoot-rdp-nic-disabled/disabled.png" alt-text="显示 VM 的屏幕截图，其中网络接口已断开连接。":::
 
 ## <a name="solution"></a>解决方案
 

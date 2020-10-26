@@ -5,20 +5,20 @@ description: 了解如何使用设计器训练模型并设置批量预测管道�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 02/24/2020
-ms.custom: Ignite2019, designer
-ms.openlocfilehash: ff8f77d54bcc92ad7582e623012d6e8253cebe6d
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: dc2218e380d0520f37c9bdc9cdb289002c5be674
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227909"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118246"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>使用 Azure 机器学习设计器运行批量预测（预览版）
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>使用 Azure 机器学习设计器运行批量预测
+
 
 本文介绍如何使用设计器创建批量预测管道。 借助批量预测，可以使用可从任何 HTTP 库触发的 Web 服务按需对大型数据集持续评分。
 
@@ -29,7 +29,7 @@ ms.locfileid: "88227909"
 > * 使用管道终结点
 > * 管理终结点版本
 
-
+要了解如何使用 SDK 设置批量评分服务，请参阅随附的[操作指南](how-to-run-batch-predictions.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -71,9 +71,12 @@ ms.locfileid: "88227909"
    
     输入参数名称或接受默认值。
 
-## <a name="publish-your-batch-inferencing-pipeline"></a>发布批量推理管道
+    > [!div class="mx-imgBorder"]
+    > ![将数据集设置为管道参数](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
 
-现在，你已准备好部署推理管道。 下面的操作将部署管道，使其可供其他人使用。
+## <a name="publish-your-batch-inference-pipeline"></a>发布批量推理管道
+
+现已准备好部署推理管道。 下面的操作将部署管道，使其可供其他人使用。
 
 1. 选择“发布”按钮。
 
@@ -126,9 +129,7 @@ ms.locfileid: "88227909"
 
 在“运行概述”面板中可以找到管道终结点的 REST 终结点。 通过调用终结点，将使用其默认的已发布管道。
 
-另外，还可以在“已发布管道”页中使用已发布的管道。 选择已发布管道，并找到其 REST 终结点。 
-
-![REST 终结点详细信息](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+另外，还可以在“已发布管道”页中使用已发布的管道。 选择一个已发布的管道，然后就可以在图右侧的“已发布管道概览”面板中找到该管道的 REST 终结点。 
 
 若要进行 REST 调用，需要 OAuth 2.0 持有者类型身份验证标头。 请参阅以下[教程部分](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint)，以详细了解如何设置工作区的身份验证并进行参数化 REST 调用。
 

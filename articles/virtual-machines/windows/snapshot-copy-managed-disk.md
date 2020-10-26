@@ -1,25 +1,25 @@
 ---
-title: 在 Azure 中创建虚拟硬盘驱动器的快照
-description: 了解如何创建 Azure VM 的副本，以便将其用作备份或用于排查问题。
+title: 使用门户或 PowerShell 创建虚拟硬盘驱动器的快照
+description: 了解如何使用门户或 PowerShell 创建 Azure VM 的副本来将其用作备份或用于排查问题。
 manager: twooley
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 10/08/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 274867e040a548f2489a4953a5cd7099d462758e
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: b4b04c614158f71d18b5648c954f87154abe222c
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462918"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128362"
 ---
-# <a name="create-a-snapshot"></a>创建快照
+# <a name="create-a-snapshot-using-the-portal-or-powershell"></a>使用门户或 PowerShell 创建快照
 
 快照是虚拟硬盘 (VHD) 的完整只读副本。 可以创建 OS 或数据磁盘 VHD 的快照以用作备份，或用于解决虚拟机 (VM) 问题。
 
@@ -69,6 +69,7 @@ ms.locfileid: "89462918"
     ```
 
     <!--Not Available on [availability zones](../../availability-zones/az-overview.md)-->
+    <!--Not Available on FEATURE Standard_ZRS-->
 
 4. 拍摄快照：
 
@@ -83,4 +84,4 @@ ms.locfileid: "89462918"
 
 通过从快照创建托管磁盘，然后将新的托管磁盘附加为 OS 磁盘，来从快照创建虚拟机。 有关详细信息，请参阅[使用 PowerShell 从快照创建 VM](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md) 中的示例。
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

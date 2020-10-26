@@ -1,9 +1,9 @@
 ---
 title: 帮助进行标识管理的 Azure 安全功能 | Azure Docs
-description: " 本文概述了可帮助进行标识管理的核心 Azure 安全功能。 Microsoft 标识和访问管理解决方案可帮助 IT 部门保护对企业数据中心和云中的应用程序和资源的访问，因此支持附加的验证级别，比如多重身份验证和条件访问策略。 "
+description: 了解有助于标识管理的核心 Azure 安全功能。 了解有关单一登录和反向代理等主题的信息。
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
 editor: TomSh
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 09/19/2018
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 829e98e5fc14551e9f8d04b2811d36e0e60e0127
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: e2423b9de530ec4c664e3025c0d683199cd02223
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439580"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128141"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 标识管理安全概述
 
@@ -39,41 +39,42 @@ ms.locfileid: "84439580"
 
 本文重点介绍以下核心 Azure 标识管理功能︰
 
-<!--SSO not available -->
-<!-- Reverse proxy -->
+<!--Not available in MC: Single sign-on, Reverse proxy, Device registration -->
+
 * 多重身份验证
-* 基于角色的访问控制 (RBAC)
+* Azure 基于角色的访问控制 (Azure RBAC)
 * 安全监控、警报和基于机器学习的报告
 * 消费者标识和访问管理
-<!-- Device registration not available -->
 * Privileged identity management
 * 标识保护
 * 混合标识管理/Azure AD Connect
 * Azure AD 访问评审
 
 <!-- SSO not available -->
-
-<!--Reverse proxy not avialable-->
-
-
+<!--Not available in MC: Reverse proxy-->
 ## <a name="multi-factor-authentication"></a>多重身份验证
 
 Azure 多重身份验证是需要使用多个验证方法的身份验证方法，为用户登录和事务额外提供一层重要的安全保障。 多重身份验证可帮助保护对数据和应用程序的访问，同时可以满足用户对简单登录过程的需求。 它通过各种验证选项（例如电话、短信、移动应用通知或验证码以及第三方 OAuth 令牌）来提供强身份验证。
 
 了解详细信息：
 
-* [多重身份验证](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+* [多重身份验证](https://docs.azure.cn/zh-cn/active-directory/authentication/)
 * [什么是 Azure 多重身份验证？](/active-directory/authentication/multi-factor-authentication)
 * [Azure 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## <a name="rbac"></a>RBAC
+## <a name="azure-rbac"></a>Azure RBAC
 
-RBAC 是在 Azure 资源管理器基础上构建的授权系统，针对 Azure 中的资源提供精细的访问权限管理。 通过 RBAC，可以精确控制用户具有的访问权限级别。 例如，可以限制一位用户仅管理虚拟网络，限制另一位用户管理资源组中的所有资源。 Azure 包含多个可用的内置角色。 下面列出了四个基本的内置角色。 前三个角色适用于所有资源类型。
+Azure RBAC 是在 Azure 资源管理器基础上构建的授权系统，针对 Azure 中的资源提供精细的访问权限管理。 可以通过 Azure RBAC 精确控制用户具有的访问权限级别。 例如，可以限制一位用户仅管理虚拟网络，限制另一位用户管理资源组中的所有资源。 Azure 包含多个可用的内置角色。 下面列出了四个基本的内置角色。 前三个角色适用于所有资源类型。
+
+- [所有者](/role-based-access-control/built-in-roles#owner) - 拥有对所有资源的完全访问权限，包括将访问权限委派给其他用户的权限。 
+- [参与者](/role-based-access-control/built-in-roles#contributor) - 可以创建和管理所有类型的 Azure 资源，但无法将访问权限授予其他用户。
+- [读取者](/role-based-access-control/built-in-roles#reader) - 可以查看现有的 Azure 资源。
+- [用户访问管理员](/role-based-access-control/built-in-roles#user-access-administrator) - 可以管理用户对 Azure 资源的访问。
 
 了解详细信息：
 
-* [什么是基于角色的访问控制 (RBAC)？](/role-based-access-control/overview)
-* [Azure 资源的内置角色](/role-based-access-control/built-in-roles)
+* [什么是 Azure 基于角色的访问控制 (Azure RBAC)？](/role-based-access-control/overview)
+* [Azure 内置角色](/role-based-access-control/built-in-roles)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>安全监控、警报和基于机器学习的报告
 
@@ -99,27 +100,25 @@ Azure AD B2C 是一项高度可用的全局性标识管理服务，适用于面�
 
 过去，想要在自己的应用程序中注册客户并使其登录的应用程序开发人员会编写自己的代码。 他们使用本地数据库或系统存储用户名和密码。 Azure AD B2C 通过基于标准的安全平台和大量的可扩展策略，向组织提供一种更好的方式将用户标识管理集成到应用程序中。
 
-使用 Azure AD B2C 时，使用者可以通过创建新的凭据（电子邮件地址和密码，或者用户名和密码）来注册。
+当你使用 Azure AD B2C 时，你的用户可通过使用其现有的社交帐户或通过创建新的凭据（电子邮件地址和密码，或者用户名和密码）来注册应用程序。
 
 了解详细信息：
 
-* [什么是 Azure Active Directory B2C？](https://www.azure.cn/pricing/details/active-directory-b2c/)
+* [什么是 Azure Active Directory B2C？](https://www.azure.cn/home/features/active-directory-b2c/)
 * [Azure Active Directory B2C 预览版：在应用程序中注册用户和让用户登录](../../active-directory-b2c/overview.md)
 * [Azure Active Directory B2C 预览版：应用程序的类型](../../active-directory-b2c/application-types.md)
 
 <!-- Device registration not available-->
-
-
 ## <a name="privileged-identity-management"></a>Privileged identity management
 
-利用 Azure AD Privileged Identity Management，可以管理、控制和监视特权标识以及对 Azure AD 中和 Office 365 和 Microsoft Intune 等其他 Microsoft Online Services 中资源的访问。
+利用 Azure AD Privileged Identity Management，你可以管理、控制和监视特权标识以及对 Azure AD 和其他 Microsoft Online Services（如 Microsoft 365 和 Microsoft Intune）中的资源的访问。
 
-用户有时候需要在 Azure 或 Office 365 资源或者其他 SaaS 应用中执行特权操作。 这种需要通常意味着，组织必须授予用户永久的 Azure AD 访问特权。 此类访问会给云中托管的资源不断增大安全风险，因为组织无法充分监视这些用户正在使用管理员特权执行哪些操作。 此外，如果有访问特权的用户帐户被泄露，此安全漏洞可能会影响组织的总体云安全性。 Azure AD Privileged Identity Management 可帮助解决这一风险。
+用户有时候需要在 Azure 或 Microsoft 365 资源或者其他 SaaS 应用中执行特权操作。 这种需要通常意味着，组织必须授予用户永久的 Azure AD 访问特权。 此类访问会给云中托管的资源不断增大安全风险，因为组织无法充分监视这些用户正在使用管理员特权执行哪些操作。 此外，如果有访问特权的用户帐户被泄露，此安全漏洞可能会影响组织的总体云安全性。 Azure AD Privileged Identity Management 可帮助解决这一风险。
 
 使用 Azure AD Privileged Identity Management 可执行以下操作：
 
 * 查看哪些用户是 Azure AD 管理员。
-* 按需启用对 Office 365 和 Intune 等 Microsoft 服务的实时 (JIT) 管理访问权限。
+* 按需启用对 Microsoft 365 和 Intune 等 Microsoft 服务的实时 (JIT) 管理访问权限。
 * 获取有关管理员访问历史记录以及管理员分配更改的报告。
 * 获取有关访问特权角色的警报。
 
@@ -133,10 +132,9 @@ Azure AD B2C 是一项高度可用的全局性标识管理服务，适用于面�
 Azure AD 标识保护是一种安全服务，它提供一个综合视图，你可以在其中查看影响组织标识的风险检测和潜在漏洞。 “标识保护”使用现有的 Azure AD 异常检测功能，该功能可通过 Azure AD 异常活动报告得到。 “标识保护”还引入了新的可以实时检测异常的风险检测类型。
 
 <!-- not available -->
-
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>混合标识管理/Azure AD Connect
 
-Microsoft 的标识解决方案跨越本地和基于云的功能，创建单一用户标识对所有资源进行身份验证和授权，而不考虑其位置。 我们称此为混合标识。 Azure AD Connect 专用于满足和完成混合标识目标的 Microsoft 工具。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。 它提供以下功能：
+Microsoft 的标识解决方案跨越本地和基于云的功能，创建单一用户标识对所有资源进行身份验证和授权，而不考虑其位置。 我们称此为混合标识。 Azure AD Connect 专用于满足和完成混合标识目标的 Microsoft 工具。 这样，便可为集成到 Azure AD 的 Microsoft 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。 它提供以下功能：
 
 * 同步
 * AD FS 和联合集成
@@ -157,3 +155,4 @@ Azure Active Directory (Azure AD) 访问评审可以使组织有效地管理组�
 
 * [Azure AD 访问评审](../../active-directory/governance/access-reviews-overview.md)
 * [使用 Azure AD 访问评审管理用户访问权限](../../active-directory/governance/access-reviews-overview.md)
+

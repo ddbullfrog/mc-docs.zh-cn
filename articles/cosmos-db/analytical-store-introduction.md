@@ -3,18 +3,18 @@ title: Azure Cosmos DB 分析存储（预览版）是什么？
 description: 了解 Azure Cosmos DB 事务性（基于行）和分析（基于列）存储。 分析存储的优势、对大型工作负荷的性能响应以及自动将事务性存储中的数据同步到分析存储
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/19/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2b108c5ea7d2aead3a31dc4fff049bcb016e2653
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 91c5abecc0ae9451a778a1b09ba7f81caa4426ab
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246787"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118597"
 ---
 <!--Verified successfully-->
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Azure Cosmos DB 分析存储（预览版）是什么？
@@ -22,7 +22,7 @@ ms.locfileid: "91246787"
 > [!IMPORTANT]
 > Azure Cosmos DB 分析存储目前处于预览状态。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
 
-Azure Cosmos DB 分析存储是完全独立的列存储，可以借助它对 Azure Cosmos DB 中的操作数据进行大型分析，这对事务性工作负荷没有任何影响。  
+Azure Cosmos DB 分析存储是完全独立的列存储，可以借助它对 Azure Cosmos DB 中的操作数据进行大型分析，这对事务性工作负载没有任何影响。  
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>对操作数据进行大型分析面临的挑战
 
@@ -38,7 +38,7 @@ Azure Cosmos DB 分析存储解决了传统 ETL 管道所具有的复杂和延�
 
 借助 Azure Synapse Link，现在可以直接从 Synapse Analytics 链接到 Azure Cosmos DB 分析存储，生成无 ETL HTAP 解决方案。 借助它，你可以以接近实时的速度对操作数据运行的大型分析。
 
-## <a name="analytical-store-details"></a>分析存储详细信息
+## <a name="features-of-analytical-store"></a>分析存储的功能 
 
 在 Azure Cosmos DB 容器中启用分析存储时，将基于容器中的操作数据在内部创建新的列存储。 此列存储将与该容器的面向行的事务性存储分开保存。 对操作数据的插入、更新和删除将自动同步到分析存储。 你无需更改源或 ETL，即可同步数据。
 
@@ -64,7 +64,7 @@ Azure Cosmos DB 分析存储解决了传统 ETL 管道所具有的复杂和延�
 
 ### <a name="auto-sync"></a>自动同步
 
-自动同步是指 Azure Cosmos DB 的完全托管功能，对操作数据执行的插入、更新、删除将以接近实时的速度（在 5 分钟内）自动从事务性存储同步到分析存储。
+自动同步是指 Azure Cosmos DB 的完全托管功能，对操作数据执行的插入、更新、删除将准实时自动从事务存储同步到分析存储。 自动同步延迟通常在 2 分钟内。 如果共享吞吐量数据库拥有大量容器，则单个容器的自动同步延迟可能会更高，最长可能达 5 分钟。 我们希望详细了解此延迟如何适应你的场景。 请联系 [Azure Cosmos DB 团队](mailto:cosmosdbsynapselink@microsoft.com)提供相关反馈。
 
 自动同步功能与分析存储一起提供了以下主要优势：
 
@@ -75,35 +75,94 @@ Azure Cosmos DB 分析存储解决了传统 ETL 管道所具有的复杂和延�
 <a name="analytical-schema"></a>
 #### <a name="automatically-handle-schema-updates"></a>自动处理架构更新
 
-Azure Cosmos DB 事务性存储架构不可知，因此你能够迭代事务性应用程序，而无需处理架构或索引管理。 与此相反，Azure Cosmos DB 分析存储已架构化，以便优化分析查询性能。 借助自动同步功能，Azure Cosmos DB 可管理对事务性存储中最新更新的架构推断。  它还管理现成分析存储中的架构表示形式，其中包括处理嵌套数据类型。
+Azure Cosmos DB 事务性存储架构不可知，因此你能够迭代事务性应用程序，而无需处理架构或索引管理。 与此相反，Azure Cosmos DB 分析存储已架构化，以便优化分析查询性能。 借助自动同步功能，Azure Cosmos DB 可管理对事务存储中最新更新的架构推断。  它还管理现成分析存储中的架构表示形式，其中包括处理嵌套数据类型。
 
-有架构演化功能，将随时间推移添加新属性，分析存储会自动跨事务性存储中的所有历史架构呈现联合架构。
+随着架构不断演化，并且将随时间推移添加新属性，分析存储会自动跨事务存储中的所有历史架构呈现联合架构。
 
-若 Azure Cosmos DB 中的所有操作数据均采用完善定义的用于分析的架构，则将自动推断此架构，并在分析存储中以正确的方式表示它。 如果特定项违反了完善定义的用于分析的架构（定义如下所示），则不会将其包含在分析存储中。 如果你的方案被完善定义的用于分析的架构定义阻止，请向 [Azure Cosmos DB 团队](mailto:cosmosdbsynapselink@microsoft.com)发送电子邮件。
+##### <a name="schema-constraints"></a>架构约束
 
-完善定义的用于分析的架构定义包括以下注意事项：
+当启用分析存储以自动推断并正确表示架构时，以下约束适用于 Azure Cosmos DB 中的操作数据：
 
-* 一个属性在多个项中的类型始终相同
+* 架构的任何嵌套级别最多可以有 200 个属性，最大嵌套深度为 5 个级别。
 
-    * 例如，`{"a":123} {"a": "str"}` 没有完善定义的架构，因为 `"a"` 有时是字符串，有时是数值。 
+    * 顶层具有 201 个属性的项不满足此约束，因此不会呈现在分析存储中。
+    * 架构中具有 5 个以上嵌套级别的项也不满足此约束，因此不会呈现在分析存储中。 例如，以下项不满足要求：
 
-        在这种情况下，分析存储会将 `"a"` 的数据类型注册为容器生存期期间第一个出现的项中的 `"a"` 的数据类型。 如果项中 `"a"` 的数据类型与众不同，则不会将其包含在分析存储中。
+        `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
-        此条件不适用于 null 属性。 例如，`{"a":123} {"a":null}` 仍是完善定义的。
+* 以不区分大小写的方式进行比较时，属性名称应该是唯一的。 例如，以下项不满足此约束，因此不会呈现在分析存储中：
 
-* 数组类型必须包含单个重复的类型
+    `{"Name": "fred"} {"name": "john"}` - 以不区分大小写的方式进行比较时，“Name”和“name”是相同的。
 
-    * 例如，`{"a": ["str",12]}` 不是完善定义的架构，因为此数组包含整数和字符串类型组合
+##### <a name="schema-representation"></a>架构表示形式
 
-* 架构的任何嵌套级别最多有 200 个属性，并且最大嵌套深度为 5 个级别
+在分析存储中，架构表示形式有两种模式。 这些模式在简化列式表示形式、处理多态架构和简化查询体验之间进行了权衡：
 
-    * 如果项的最高级别有 201 个属性，则它没有完善定义的架构。
+* 定义明确的架构表示形式
+* 完全保真架构表示形式
 
-    * 如果项架构包含的嵌套级别超过 5 个，则它也没有完善定义的架构。 例如： `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+> [!NOTE]
+> 对于 SQL（核心）API 帐户，启用分析存储后，将明确定义分析存储中的默认架构表示形式。 而对于用于 MongoDB 帐户的 Azure Cosmos DB API，分析存储中的默认架构表示形式是完全保真架构表示形式。 如果你的场景需要与每个 API 的默认产品/服务不同的架构表示形式，请与 [Azure Cosmos DB 团队](mailto:cosmosdbsynapselink@microsoft.com)联系，以启用它。
 
-* 以不区分大小写的方式进行比较时属性名称是唯一的
+**定义明确的架构表示形式**
 
-    * 例如，以下项没有完善定义的架构 - 以不区分大小写的方式进行比较时 `{"Name": "fred"} {"name": "john"}` - `"Name"` 和 `"name"` 相同
+定义明确的架构表示形式可在事务存储中创建与架构无关的数据的简单表格表示形式。 定义明确的架构表示形式具有以下注意事项：
+
+* 一个属性在多个项中的类型始终相同。
+
+    * 例如，`{"a":123} {"a": "str"}` 没有完善定义的架构，因为 `"a"` 有时是字符串，有时是数值。 在这种情况下，分析存储会将 `"a"` 的数据类型注册为容器生存期期间第一个出现的项中的 `"a"` 的数据类型。 如果项中 `"a"` 的数据类型与众不同，则不会将其包含在分析存储中。
+
+        此条件不适用于 null 属性。 例如，`{"a":123} {"a":null}` 仍是定义明确的。
+
+* 数组类型必须包含单个重复的类型。
+
+    * 例如，`{"a": ["str",12]}` 不是定义明确的架构，因为此数组包含整数和字符串类型组合。
+
+> [!NOTE]
+> 如果 Azure Cosmos DB 分析存储遵循定义明确的架构表示形式，但某些项违反了上述规范，则这些项不会包含在分析存储中。
+
+**完全保真架构表示形式**
+
+完全保真架构表示形式旨在处理与架构无关的操作数据中的各种多态架构。 在此架构表示形式中，即使违反定义明确的架构约束（也就是既没有混合数据类型字段也没有混合数据类型数组），也不会从分析存储中删除任何项。
+
+这是通过根据属性中值的数据类型将操作数据的叶属性转换为具有不同列的分析存储来实现的。 叶属性名称在分析存储架构中使用数据类型作为后缀进行扩展，以便它们可以无歧义地进行查询。
+
+例如，在事务存储中获取以下示例文档：
+
+```json
+{
+name: "John Doe",
+age: 32,
+profession: "Doctor",
+address: {
+  streetNo: 15850,
+  streetName: "NE 40th St.",
+  zip: 98052
+},
+salary: 1000000
+}
+```
+
+嵌套对象 `address` 中的叶属性 `streetNo` 将在分析存储架构中表示为列 `address.object.streetNo.int32`。 数据类型作为后缀添加到列中。 这样一来，如果将其他文档添加到事务存储中，其中叶属性 `streetNo` 的值为“123”（请注意，这是一个字符串），则分析存储的架构会自动演变，而不会更改先前编写的列的类型。 一个新列作为 `address.object.streetNo.string` 添加到分析存储中，其中存储值“123”。
+
+**要映射到后缀的数据类型**
+
+下面是分析存储中所有属性数据类型及其后缀表示形式的映射：
+
+|原始数据类型  |Suffix  |示例  |
+|---------|---------|---------|
+| Double |  ".float64" |    24.99|
+| Array | ".array" |    ["a", "b"]|
+|二进制 | ".binary" |0|
+|布尔    | ".bool"   |True|
+|Int32  | ".int32"  |123|
+|Int64  | ".int64"  |255486129307|
+|Null   | ".null"   | null|
+|String|    ".string" | "ABC"|
+|时间戳 |    ".timestamp" |  Timestamp(0, 0)|
+|DateTime   |".date"    | ISODate("2020-08-21T07:43:07.375Z")|
+|ObjectId   |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
+|文档   |".object" |    {"a": "a"}|
 
 ### <a name="cost-effective-archival-of-historical-data"></a>以经济高效的方式将历史数据存档
 
@@ -162,15 +221,17 @@ Azure Cosmos DB 事务性存储架构不可知，因此你能够迭代事务性�
 * 若此值存在且设置为某个正数“n”：距在事务性存储中最后一次修改项“n”秒后，项将从分析存储中过期。 如果想要在有限的一段时间内将操作数据保留在分析存储中，而不考虑该数据在事务性存储中的保留期，可利用此设置。
 
 考虑的要点：
-* 使用分析 TTL 值启用分析存储后，可以在以后将其更新为其他有效值 
-* 尽管可在容器或项级别设置事务性 TTL，但目前只能在容器级别设置分析 TTL
-* 将容器级别的分析 TTL 设置为大于或等于事务性 TTL，即可将操作数据保留在分析存储中更长时间
-* 将分析 TTL 设置为等于事务性 TTL，分析存储即可镜像事务性存储
+
+* 使用分析 TTL 值启用分析存储后，可以在以后将其更新为其他有效值。 
+* 尽管可在容器或项级别设置事务性 TTL，但目前只能在容器级别设置分析 TTL。
+* 将容器级别的分析 TTL 设置为大于或等于事务性 TTL，即可将操作数据存档在分析存储中更长时间。
+* 将分析 TTL 设置为等于事务性 TTL，分析存储即可镜像事务存储。
 
 在容器上启用分析存储时：
-* 使用 Azure 门户，将分析 TTL 设置为默认值 -1。 可以通过导航到数据资源管理器下的容器设置，将此值更改为“n”秒。 
 
-* 使用 Azure SDK 或 Powershell 或 CLI，可以通过将分析 TTL 设置为 -1 或“n”来启用它。 
+* 在 Azure 门户中，分析 TTL 选项设置为默认值 -1。 可以通过导航到数据资源管理器下的容器设置，将此值更改为“n”秒。 
+
+* 在 Azure SDK 或 PowerShell 或 CLI 中，可以通过将分析 TTL 选项设置为 -1 或“n”来启用该选项。 
 
 若要了解详细信息，请参阅[如何对容器配置分析 TTL](configure-synapse-link.md#create-analytical-ttl)。
 

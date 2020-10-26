@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 02/22/2020
 ms.date: 04/06/2020
-ms.openlocfilehash: 98b37ccdc45ed98dda798e9f8856e54194ffdac8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 4cda654b69950af70d54cdcb4e015f178ddee540
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80343465"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117909"
 ---
 # <a name="enter-data-manually-module"></a>“手动输入数据”模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用**手动输入数据**模块，可以通过键入值来创建小型数据集。 该数据集可以有多个列。
   

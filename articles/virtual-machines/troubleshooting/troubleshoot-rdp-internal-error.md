@@ -11,16 +11,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/22/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 086823c0073499ea11a0e405fe4cfb7d5cee70e1
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 0c3c9288e9772799ece7821c63981aa1463d5ca7
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456769"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127938"
 ---
 # <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>尝试通过远程桌面连接到 Azure VM 时发生内部错误
 
@@ -38,6 +38,7 @@ ms.locfileid: "89456769"
 
 此问题可能是以下原因造成的：
 
+- 虚拟机可能已遭到攻击。
 - 无法访问本地 RSA 加密密钥。
 - 已禁用 TLS 协议。
 - 证书已损坏或过期。

@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 门户对管道中的活动进行分支和链接
-description: 了解如何通过分支和链接活动控制 Azure 数据工厂中的数据流。
+description: 了解如何使用 Azure 门户控制 Azure 数据工厂管道中的数据流。
 services: data-factory
 author: WenJason
 ms.author: v-jay
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 origin.date: 01/11/2018
-ms.date: 08/10/2020
-ms.openlocfilehash: 20fd8aa62dc0ef5edcb342a685b4e50904d1101d
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.date: 10/19/2020
+ms.openlocfilehash: 46b1b2f60eae783f591602c754a4f610ead2e4e8
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914227"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121621"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>使用 Azure 门户对 Azure 数据工厂管道中的活动进行分支和链接
 
@@ -25,7 +25,7 @@ ms.locfileid: "87914227"
 
 在本教程中，我们将创建一个数据工厂管道来展示某些控制流功能。 此管道执行从 Azure Blob 存储容器中某个容器到同一存储帐户中另一个容器的简单复制。 如果复制活动成功，该管道会在告知成功结果的电子邮件中发送成功复制操作的详细信息（例如写入的数据量）。 如果复制活动失败，该管道会在告知失败结果的电子邮件中发送复制失败的详细信息（例如错误消息）。 整个教程讲解了如何传递参数。
 
-方案的综合概述：![概述](media/tutorial-control-flow-portal/overview.png)
+方案的综合概述：![显示 Azure Blob 存储的关系图，该存储是副本的目标，如果成功，将发送包含详细信息的电子邮件，如果失败，则将发送包含错误详细信息的电子邮件。](media/tutorial-control-flow-portal/overview.png)
 
 在本教程中执行以下步骤：
 
@@ -145,7 +145,7 @@ https://prodxxx.chinaeast.logic.azure.cn:443/workflows/000000/triggers/manual/pa
 3. 选择要在其中创建数据工厂的 Azure **订阅**。
 4. 对于**资源组**，请执行以下步骤之一：
 
-      - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。
+      - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。 
       - 选择“新建”，并输入资源组的名称。   
          
         若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。  
@@ -180,7 +180,7 @@ https://prodxxx.chinaeast.logic.azure.cn:443/workflows/000000/triggers/manual/pa
     - **receiver** – 此参数由管道中的两个 Web 活动用来向其电子邮件地址已通过此参数指定的接收方发送成功或失败电子邮件。
 
    ![“新建管道”菜单](./media/tutorial-control-flow-portal/pipeline-parameters.png)
-4. 在“活动”工具箱中展开“数据流”，将“复制”活动拖放到管道设计器图面。
+4. 在“活动”工具箱中搜索“复制”，将“复制”活动拖放到管道设计器图面  。
 
    ![拖放复制活动](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. 在底部“复制”活动的“属性”窗口中切换到“源”选项卡，然后单击“+ 新建”。 此步骤创建复制活动的源数据集。
@@ -199,7 +199,7 @@ https://prodxxx.chinaeast.logic.azure.cn:443/workflows/000000/triggers/manual/pa
 
     1. 输入 **AzureStorageLinkedService** 作为**名称**。
     2. 选择自己 Azure 存储帐户作为**存储帐户名称**。
-    3. 单击“保存”  。
+    3. 单击“ **保存**”。
 
    ![新建 Azure 存储链接服务](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. 输入 `@pipeline().parameters.sourceBlobContainer` 作为文件夹，输入 `emp.txt` 作为文件名。 使用 sourceBlobContainer 管道参数设置数据集的文件夹路径。

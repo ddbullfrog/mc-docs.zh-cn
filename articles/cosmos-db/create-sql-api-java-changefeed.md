@@ -1,23 +1,23 @@
 ---
 title: 创建使用更改源的端到端 Azure Cosmos DB Java SDK v4 应用示例
 description: 本指南逐步介绍了如何创建简单的 Java SQL API 应用，此应用将文档插入到 Azure Cosmos DB 容器，同时使用更改源来维护容器的具体化视图。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 origin.date: 06/11/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 6dbba166fa40bea76f061e041e5912698d77dba8
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7db661b5e3217d2a73397c8c250fb8813259dd9e
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223094"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118280"
 ---
 <!--Verified on Prerequisites-->
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>如何创建使用 Azure Cosmos DB SQL API 和更改源处理器的 Java 应用
@@ -82,7 +82,7 @@ mvn clean package
     * **InventoryContainer-pktype** - 库存记录的具体化视图，已针对项 ```type``` 的查询进行优化
     * InventoryContainer-leases - 更改源始终需要租赁容器；租赁跟踪应用读取更改源的进度。
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="空容器":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Azure Cosmos DB 帐户":::
 
 1. 在终端中，现在应会看到一条提示
 
@@ -96,6 +96,7 @@ mvn clean package
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a>Java SDK V4 (Maven com.azure::azure-cosmos) 异步 API
 
     ```java
+
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
     changeFeedProcessorInstance.start()
         .subscribeOn(Schedulers.elastic())
@@ -112,7 +113,7 @@ mvn clean package
 
     在浏览器中返回到 Azure 门户上的数据资源管理器。 在“InventoryContainer-leases”容器下，单击“项”以查看其内容。  此时会看到，更改源处理器已填充了租约容器，即，处理器已在 InventoryContainer 的某些分区中为 ```SampleHost_1``` 工作线程分配了一个租约。
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="租约":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Azure Cosmos DB 帐户":::
 
 1. 再次在终端中按 Enter。 这会触发将 10 个文档插入 InventoryContainer 的事件。 每个文档插入事件在更改源中显示为 JSON；下面的回调代码通过将 JSON 文档镜像到具体化视图来处理这些事件：
 
@@ -120,6 +121,7 @@ mvn clean package
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a>Java SDK V4 (Maven com.azure::azure-cosmos) 异步 API
 
     ```java
+
     public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosAsyncContainer feedContainer, CosmosAsyncContainer leaseContainer) {
         ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
         cfOptions.setFeedPollDelay(Duration.ofMillis(100));
@@ -142,19 +144,20 @@ mvn clean package
     private static void updateInventoryTypeMaterializedView(JsonNode document) {
         typeContainer.upsertItem(document).subscribe();
     }
+
     ```
 
 1. 让代码运行 5-10 秒。 然后，返回到 Azure 门户上的数据资源管理器，并依次转到“InventoryContainer”>“项”。 此时会看到，项正在插入到库存容器；请记下分区键 (```id```)。
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="源容器":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Azure Cosmos DB 帐户":::
 
 1. 现在，请在数据资源管理器中导航到“InventoryContainer-pktype”>“项”。 这是具体化视图 - 此容器中的项是 InventoryContainer 的镜像，因为它们是由更改源以编程方式插入的。 记下分区键 (```type```)。 因此，此具体化视图已针对 ```type``` 查询筛选进行优化，但它在 InventoryContainer 中效率不高，因为此容器是按 ```id``` 分区的。
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="具体化视图":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Azure Cosmos DB 帐户":::
 
 1. 我们将同时从 InventoryContainer 和 InventoryContainer-pktype 删除某个文档，只需使用一个 ```upsertItem()``` 调用即可。  首先，查看 Azure 门户上的数据资源管理器。 我们将删除 ```/type == "plums"``` 的文档；下面以红框突出显示了此项
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="具体化视图":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Azure Cosmos DB 帐户":::
 
     再次按 Enter，以调用示例代码中的函数 ```deleteDocument()```。 此函数（如下所示）更新插入 ```/ttl == 5``` 的文档的新版本，这会将该文档的生存时间 (TTL) 设置为 5 秒。 
 

@@ -1,19 +1,19 @@
 ---
 title: Microsoft Threat Modeling Tool 功能概述 - Azure
-description: 了解威胁建模工具中提供的所有功能
-author: jegeib
-ms.author: v-tawe
+description: 了解 Threat Modeling Tool 中提供的所有功能，例如分析视图和报表。
+author: Johnnytechn
+ms.author: v-johya
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 10/12/2020
 origin.date: 08/17/2017
-ms.openlocfilehash: 188ee5fe4adbc61f85a293bff4ec25f944d90fdc
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 4063e406c86ffb30ab0c326e007242bf174fae19
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199916"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128038"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>威胁建模工具功能概述
 
@@ -123,7 +123,7 @@ Threat Modeling Tool 可帮助满足你的威胁建模需求。 若要获取此�
 
 选择“反馈、建议和问题”后，将转到 SDL 工具的 MSDN 论坛。 可以在其中阅读其他用户对该工具的看法，包括变通方法和新的想法。
 
-![反馈](./media/threat-modeling-tool-feature-overview/feedback.png)
+![屏幕截图显示了带有“反馈、建议和问题”文本的按钮。](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>设计视图
 
@@ -159,7 +159,7 @@ Threat Modeling Tool 可帮助满足你的威胁建模需求。 若要获取此�
 
 如果在创建威胁模型时忘记将数据流连接到元素，则会收到一个通知。 可忽略此消息，或按照说明进行操作以解决此问题。 
 
-![消息](./media/threat-modeling-tool-feature-overview/messages.png)
+![屏幕截图显示了未连接到元素的威胁模型连接器，其中包含此问题引发的消息。](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>注释
 
@@ -197,9 +197,10 @@ Threat Modeling Tool 可帮助满足你的威胁建模需求。 若要获取此�
 
 完成优先级更改并更新每个已发生威胁的状态后，就可以保存文件和/或打印报表。 转到“报表” > “创建完整报表”。 为报表命名，然后应会看到类似于下图的信息：
 
-![报表](./media/threat-modeling-tool-feature-overview/report.png)
+![屏幕截图显示了一个示例威胁建模报表，其中包括摘要、关系图和其他信息。](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>后续步骤
 
 - 将你的问题、评论和疑问发送至 tmtextsupport@microsoft.com。 **[下载](https://aka.ms/threatmodelingtool)** 威胁建模工具以开始。
 - 若要为社区提供模板，请转到我们的 [GitHub](https://github.com/Microsoft/threat-modeling-templates) 页。
+

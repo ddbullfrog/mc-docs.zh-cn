@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 03/13/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1c694b81fd752929ab7069951d2a3d37cee20922
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 71854658172a249303d213ba24337ef8934dca56
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655249"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128300"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>关于如何在 Azure VM 灾难恢复中联网
 
@@ -36,7 +36,7 @@ ms.locfileid: "89655249"
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png" alt-text="客户环境":::
 
-通常，网络使用防火墙和网络安全组 (NSG) 进行保护。 防火墙使用基于 URL 或 IP 的允许列表来控制网络连接。 NSG 提供使用 IP 地址范围控制网络连接的规则。
+通常，网络使用防火墙和网络安全组 (NSG) 进行保护。 应使用服务标记来控制网络连接。 NSG 应允许多个服务标记来控制出站连接。
 
 > [!IMPORTANT]
 > Site Recovery 不支持使用经过身份验证的代理控制网络连接，并且无法启用复制。
@@ -45,6 +45,9 @@ ms.locfileid: "89655249"
 
 如果使用基于 URL 的防火墙代理来控制出站连接，请允许以下 Site Recovery URL：
 
+>[!NOTE]
+> 不应执行基于 IP 地址的允许列表来控制出站连接。
+
 **URL** | **详细信息**
 --- | ---
 *.blob.core.chinacloudapi.cn | 必需，以便从 VM 将数据写入到源区域中的缓存存储帐户。 如果知道 VM 的所有缓存存储帐户，则可允许访问特定的存储帐户 URL（例如：cache1.blob.core.chinacloudapi.cn 和 cache2.blob.core.chinacloudapi.cn）而不允许访问 *.blob.core.chinacloudapi.cn
@@ -52,7 +55,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 *.hypervrecoverymanager.windowsazure.cn | 必需，以便从 VM 进行 Site Recovery 服务通信。
 *.servicebus.chinacloudapi.cn | 必需，以便从 VM 写入 Site Recovery 监视和诊断数据。
 *.vault.azure.cn | 允许访问，以便通过门户为支持 ADE 的虚拟机启用复制
-*.automation.ext.azure.com | 允许通过门户为复制项启用移动代理自动升级
+*.azure-automation.cn| 允许通过门户为复制项启用移动代理自动升级
 
 ## <a name="outbound-connectivity-using-service-tags"></a><a name="outbound-connectivity-using-service-tags"></a>使用服务标记的出站连接
 
@@ -105,11 +108,11 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 
     <!--MOONCAKE: CORRECT ON Storage WITHOUT .ChinaEast-->
     
-    :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="storage-tag":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="客户环境":::
 
 2. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则，如以下屏幕截图所示。
 
-    :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="客户环境":::
 
     <!--MOONCAKE: CORRECT ON EventHub WITHOUT .chinanorth-->
     
@@ -181,7 +184,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 
 - 选择 Azure 虚拟网络并单击“服务终结点”。
 
-    :::image type="content" source="./media/azure-to-azure-about-networking/storage-service-endpoint.png" alt-text="storage-endpoint":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/storage-service-endpoint.png" alt-text="客户环境":::
 
 - 单击“添加”，“添加服务终结点”选项卡随即打开
 - 选择“服务”下的“Microsoft.Storage”和“子网”字段下的所需子网，并单击“添加”。

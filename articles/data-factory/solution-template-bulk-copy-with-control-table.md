@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 12/14/2018
 ms.date: 09/21/2020
-ms.openlocfilehash: e7c3650815425c569f6acdc47e982368d25a39eb
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: a2e915a104d196e11960e9180e48522ef7666ce8
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524050"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121687"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>使用控制表从数据库进行大容量复制
 
@@ -40,7 +40,7 @@ ms.locfileid: "90524050"
 - *Control_Table_Name* 是外部控制表，用于存储源数据库的分区列表。
 - *Control_Table_Schema_PartitionID* 是外部控制表中用于存储每个分区 ID 的列名。 请确保源数据库中每个分区的分区 ID 都是唯一的。
 - *Control_Table_Schema_SourceTableName* 是外部控制表，用于存储源数据库中的每个表名。
-- *Control_Table_Schema_FilterQuery* 是外部控制表中的列名，用于存储筛选器查询，以从源数据库中的每个分区获取数据。 例如，如果按年份对数据进行分区，则存储在每一行中的查询可能类似于“select * from datasource where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999''”。
+- *Control_Table_Schema_FilterQuery* 是外部控制表中的列名，用于存储筛选器查询，以从源数据库中的每个分区获取数据。 例如，如果按年份对数据进行分区，则存储在每一行中的查询可能类似于 select * from datasource where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999''。
 - *Data_Destination_Folder_Path* 是将数据复制到目标存储中时使用的路径（当所选目标是“文件系统”时适用）。 
 - *Data_Destination_Container* 是将数据复制到目标存储时使用的根文件夹路径。 
 - *Data_Destination_Directory* 是将数据复制到目标存储中时使用的根下的目录路径。 

@@ -1,26 +1,29 @@
 ---
-title: 语音转文本 - 语音服务
+title: 语音转文本概述 - 语音服务
 titleSuffix: Azure Cognitive Services
-description: 使用语音转文本功能，可将音频流实时听录为文本。 应用程序、工具或设备可以使用、显示和处理此文本输入。 此服务可与文本转语音（语音合成）和语音翻译功能无缝协作。
+description: 使用语音转文本软件，可将音频流实时听录为文本。 应用程序、工具或设备可以使用、显示和处理此文本输入。 本文概述了语音转文本服务的优势和功能。
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 03/12/2019
-ms.date: 09/02/2020
+origin.date: 09/01/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: b1b95ab97b220613a2251dcd8f791f06ab670985
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.custom: cog-serv-seo-aug-2020
+keywords: 语音转文本, 语音转文本软件
+ms.openlocfilehash: 826345b4b9b619d273efc47d699aff69c0f8e76e
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317589"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128104"
 ---
 # <a name="what-is-speech-to-text"></a>什么是语音转文本？
 
-使用语音服务提供的语音转文本（也称为语音识别）功能，可将音频流实时听录为文本。 应用程序、工具或设备可以使用、显示和处理此文本即命令输入。 此服务由 Microsoft 对 Cortana 和 Office 产品使用的同一识别技术提供支持。 它可与<a href="./speech-translation.md" target="_blank">翻译<span class="docon docon-navigate-external x-hidden-focus"></span></a>和<a href="./text-to-speech.md" target="_blank">文本转语音<span class="docon docon-navigate-external x-hidden-focus"></span></a>服务产品无缝地协同工作。 有关可用语音转文本语言的完整列表，请参阅[支持的语言](language-support.md#speech-to-text)。
+本概述介绍语音转文本服务的优势和功能。
+使用语音转文本（也称为语音识别）功能，可将音频流实时听录为文本。 应用程序、工具或设备可以使用、显示和处理此文本即命令输入。 此服务由 Microsoft 对 Cortana 和 Office 产品使用的同一识别技术提供支持。 它可与<a href="./speech-translation.md" target="_blank">翻译<span class="docon docon-navigate-external x-hidden-focus"></span></a>和<a href="./text-to-speech.md" target="_blank">文本转语音<span class="docon docon-navigate-external x-hidden-focus"></span></a>服务产品无缝地协同工作。 有关可用语音转文本语言的完整列表，请参阅[支持的语言](language-support.md#speech-to-text)。
 
 语音转文本服务默认使用通用语言模型。 此模型已使用 Microsoft 自有的数据训练，部署在云中。 它非常适合用于对话和听写方案。 使用语音转文本在独特的环境中进行识别和听录时，可以创建并训练自定义的声学、语言和发音模型。 自定义有助于解决环境干扰或特定于行业的词汇的问题。
 
@@ -34,23 +37,11 @@ ms.locfileid: "89317589"
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="get-started-with-speech-to-text"></a>语音转文本入门
+## <a name="get-started"></a>入门
 
-语音转文本服务通过[语音 SDK](speech-sdk.md) 提供。 有几种常见方案可作为快速入门，以各种语言和平台提供：
+请参阅[快速入门](get-started-speech-to-text.md)以开始使用语音转文本。 该服务通过[语音 SDK](speech-sdk.md)、[REST API](rest-speech-to-text.md#pronunciation-assessment-parameters) 和[语音 CLI](spx-overview.md) 提供。
 
- - [快速入门：识别来自麦克风输入的语音](quickstarts/speech-to-text-from-microphone.md)
- - [快速入门：从文件中识别语音](quickstarts/speech-to-text-from-file.md)
- - [快速入门：识别存储在 Blob 存储中的语音](quickstarts/from-blob.md)
-
-如果你偏向于使用语音转文本 REST 服务，请参阅 [REST API](rest-speech-to-text.md)。
-
- - [快速入门：通过参考输入进行发音评估](rest-speech-to-text.md#pronunciation-assessment-parameters)
-
-## <a name="tutorials-and-sample-code"></a>教程和示例代码
-
-有机会使用语音服务后，请尝试学习有关如何使用语音 SDK 和 LUIS 从语音中识别意向的教程。
-
-- [教程：使用 C# 通过语音 SDK 和 LUIS 从语音中识别意向](how-to-recognize-intents-from-speech-csharp.md)
+## <a name="sample-code"></a>代码示例
 
 GitHub 上提供了语音 SDK 的示例代码。 这些示例涵盖了常见方案，例如，从文件或流中读取音频、连续和单次识别，以及使用自定义模型。
 
@@ -70,5 +61,5 @@ GitHub 上提供了语音 SDK 的示例代码。 这些示例涵盖了常见方�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [免费获取语音服务订阅密钥](get-started.md)
+- [免费获取语音服务订阅密钥](overview.md#try-the-speech-service-for-free)
 - [获取语音 SDK](speech-sdk.md)

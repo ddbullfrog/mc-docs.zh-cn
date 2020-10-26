@@ -11,16 +11,16 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: fded1c8668c670676fffcc861cdad9d903964394
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: dc8bf7d5184f376955de5a7429670337da818d3a
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395129"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118414"
 ---
-# <a name="collect-data-for-models-in-production"></a>为生产环境中的模型收集数据
+# <a name="collect-data-from-models-in-production"></a>收集生产中模型的数据
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本文演示如何从 Azure Kubernetes 服务 (AKS) 群集上部署的 Azure 机器学习模型中收集数据， 然后将收集的数据存储在 Azure Blob 存储中。
 
@@ -149,7 +149,7 @@ Blob 中输出数据的路径遵循以下语法：
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a>使用 Power BI 分析模型数据
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a> 使用 Power BI 分析模型数据
 
 1. 下载并打开 [Power BI Desktop](https://www.powerbi.com)。
 

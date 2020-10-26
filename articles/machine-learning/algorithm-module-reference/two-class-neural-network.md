@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 04/22/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: 5834f27b79edb7647a8471c033cbedf2bd73d66b
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: b9917a134640d8741667f757cbe8d05bcc65068f
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097249"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118083"
 ---
 # <a name="two-class-neural-network-module"></a>“双类神经网络”模块
 
-本文介绍了 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块，可以创建一个神经网络模型，该模型可用于预测只有两个值的目标。
 

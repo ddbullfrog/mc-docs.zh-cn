@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 04/22/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: dde25e483592200846921de42d31e7d7a044d2f0
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 730e109555f19572171bfafd21da18c75944f7e5
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097247"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118081"
 ---
 # <a name="two-class-support-vector-machine-module"></a>“双类支持向量机”模块
 
-本文介绍了 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块，可以基于支持向量机算法创建模型。 
 

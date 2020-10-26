@@ -4,13 +4,13 @@ description: 本文介绍如何为 Azure 事件网格主题启用托管服务标
 ms.topic: how-to
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/10/2020
-ms.openlocfilehash: 3da3c76b28e097e037931bd90c3918c2484a84bd
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 10/10/2020
+ms.openlocfilehash: 3e85eeb134ecb25a4fb0dfdf1b3ab9162092f9df
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88229000"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128379"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>使用托管标识进行事件传递
 本文介绍了如何为 Azure 事件网格主题或域启用[托管服务标识](../active-directory/managed-identities-azure-resources/overview.md)。 使用它将事件转发到受支持的目标，如服务总线队列和主题、事件中心和存储帐户。
@@ -65,20 +65,20 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 更新现有域的命令也是类似的 (`az eventgrid domain update`)。
 
-## <a name="supported-destinations-and-rbac-roles"></a>支持的目标和 RBAC 角色
+## <a name="supported-destinations-and-azure-roles"></a>支持的目标和 Azure 角色
 为事件网格主题或域启用标识后，Azure 会自动在 Azure Active Directory 中创建标识。 将此标识添加到适当的 Azure 角色，使主题或域可以将事件转发到受支持的目标。 例如，将标识添加到 Azure 事件中心命名空间的“Azure 事件中心数据发送方”角色，使事件网格主题可以将事件转发到该命名空间中的事件中心。 
 
 当前，Azure 事件网格支持配置有系统分配的托管标识的主题或域，允许将事件转发到以下目标。 此表还为你提供标识应位于的角色，以便主题可以转发事件。
 
-| 目标 | RBAC 角色 | 
+| 目标 | Azure 角色 | 
 | ----------- | --------- | 
-| 服务总线队列和主题 | [Azure 服务总线数据发送方](../service-bus-messaging/authenticate-application.md) |
-| Azure 事件中心 | [Azure 事件中心数据发送方](../event-hubs/authorize-access-azure-active-directory.md) | 
-| Azure Blob 存储 | [存储 Blob 数据参与者](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Azure 队列存储 |[存储队列数据消息发送方](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| 服务总线队列和主题 | [Azure 服务总线数据发送方](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
+| Azure 事件中心 | [Azure 事件中心数据发送方](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
+| Azure Blob 存储 | [存储 Blob 数据参与者](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Azure 队列存储 |[存储队列数据消息发送方](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
-## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>向目标上的 RBAC 角色添加标识
-本部分介绍如何将主题或域的标识添加到 RBAC 角色。 
+## <a name="add-an-identity-to-azure-roles-on-destinations"></a>向目标上的 Azure 角色添加标识
+本部分介绍如何将主题或域的标识添加到 Azure 角色。 
 
 ### <a name="use-the-azure-portal"></a>使用 Azure 门户
 你可以使用 Azure 门户将主题或域标识分配给相应的角色，让主题或域可以将事件转发到目标。 
@@ -96,7 +96,7 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 这些步骤与向表中提到的其他角色添加标识相似。 
 
 ### <a name="use-the-azure-cli"></a>使用 Azure CLI
-本部分中的示例展示了如何使用 Azure CLI 向 RBAC 角色添加标识。 示例命令适用于事件网格主题。 适用于事件网格域的命令也是类似的。 
+本部分中的示例展示了如何使用 Azure CLI 向 Azure 角色添加标识。 示例命令适用于事件网格主题。 适用于事件网格域的命令也是类似的。 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>获取主题的系统标识的主体 ID 
 首先，获取主题的系统托管标识的主体 ID，并将该标识分配给相应的角色。

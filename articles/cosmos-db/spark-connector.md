@@ -1,17 +1,17 @@
 ---
 title: 将 Apache Spark 连接到 Azure Cosmos DB
 description: 了解可将 Apache Spark 连接到 Azure Cosmos DB 的 Azure Cosmos DB Spark 连接器。
-author: rockboyfor
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 07/06/2020
+ms.topic: how-to
+author: rockboyfor
+ms.date: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 710d5220542333dd32a7420e37f16a50dc5e8504
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 91f02cb4a872fdb09aa5bbb515f44d3ea0ee6442
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323275"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118268"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>使用 Apache Spark 到 Azure Cosmos DB 的连接器加速大数据分析
 
@@ -38,7 +38,7 @@ ms.locfileid: "85323275"
 
 * 遵循 [Java SDK 入门](sql-api-async-java-get-started.md)中的步骤设置 Cosmos DB 帐户，并填充一些数据。
     
-    <!--Not Available on * Follow the steps at [Azure Databricks getting started](https://docs.azuredatabricks.net/getting-started/index.html) to set up an Azure Databricks workspace and cluster.-->
+    <!--Not Available on * Follow the steps at [Azure Databricks getting started](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)-->
 
 * 现在可以创建新的 Notebook，并导入 Cosmos DB 连接器库。 有关如何设置工作区的详细信息，请跳转到[使用 Cosmos DB 连接器](#bk_working_with_connector)。
 * 以下部分提供了有关如何使用连接器读取和写入数据的代码片段。
@@ -100,7 +100,7 @@ writeConfig = {
 }
 
 # Write to Cosmos DB from the flights DataFrame
-flights.write.format("com.microsoft.azure.cosmosdb.spark").options(
+flights.write.mode("overwrite").format("com.microsoft.azure.cosmosdb.spark").options(
     **writeConfig).save()
 ```
 

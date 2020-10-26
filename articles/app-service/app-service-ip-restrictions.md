@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
 origin.date: 06/06/2019
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: a59e0aa189ff4217980ef9dcc1eb1e1486956885
-ms.sourcegitcommit: 5055d580fb7ef1722e32e09a334d1d3e28295dd6
+ms.openlocfilehash: 0ed71836a9288b52dff7124ea62af54d916f8789
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503363"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170641"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure 应用服务访问限制
 
@@ -41,7 +41,7 @@ ms.locfileid: "89503363"
 
 从访问限制 UI 可以查看为应用定义的访问限制规则列表。
 
-![列出访问限制](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Azure 门户中“访问限制”屏幕的屏幕截图，显示为所选应用定义的访问限制规则列表。](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 <!-- If you have a VNet restriction on your app, the table will show if service endpoints are enabled for Microsoft.Web. -->
 
@@ -63,12 +63,12 @@ ms.locfileid: "89503363"
 
 单击任一行，可编辑现有访问限制规则。 编辑的内容会立即生效，包括在优先级排序方面的变化。
 
-![编辑访问限制规则](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Azure 门户中“编辑 IP 限制”对话框的屏幕截图，显示现有访问限制规则的字段。](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 <!--
 When you edit a rule, you cannot change the type between an IP address rule and a Virtual Network rule. 
 
-![edit an access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Screenshot of the Edit IP Restriction dialog in Azure portal showing the settings for a Virtual Network rule.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 -->
 
 若要删除某个规则，请单击规则上的“...”然后单击“删除”   。
@@ -87,7 +87,7 @@ When you edit a rule, you cannot change the type between an IP address rule and 
 
 除了能够控制对应用的访问以外，还可以限制对应用所用的 scm 站点的访问。 scm 站点是 Web 部署终结点，也是 Kudu 控制台。 对于 scm 站点，可以分配不同于应用的访问限制；也可以对应用和 scm 站点使用相同的设置。 选中相应的框来使用与应用相同的限制时，所有设置都会留空。如果取消选中该框，将应用前面针对 scm 站点指定的所有设置。 
 
-![列出访问限制](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Azure 门户中“访问限制”屏幕的屏幕截图，显示没有为 scm 站点或应用设置访问限制。](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>访问限制规则的编程操作 ##
 
@@ -136,4 +136,4 @@ management.chinacloudapi.cn/subscriptions/**subscription ID**/resourceGroups/**r
 [应用程序网关与服务终结点的集成](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
-[serviceendpoints]: https://docs.azure.cn/virtual-network/virtual-network-service-endpoints-overview
+[serviceendpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md

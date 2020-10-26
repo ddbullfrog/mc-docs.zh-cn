@@ -1,19 +1,19 @@
 ---
-title: Azure 服务总线异地灾难恢复
+title: Azure 服务总线异地灾难恢复 | Azure
 description: 如何使用地理区域进行故障转移并在 Azure 服务总线中执行灾难恢复
 ms.topic: article
 origin.date: 06/23/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-author: rockboyfor
-ms.openlocfilehash: f37b64549a8a71d81045ce5c2794c2242aafc612
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 10e53567cd8c9557b9b9129629f261c6c4da0623
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162116"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128232"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服务总线异地灾难恢复
 
@@ -154,7 +154,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 > [!NOTE]
 > 尝试将具有专用终结点的主命名空间与某个辅助命名空间配对时，验证过程仅检查辅助命名空间上是否存在专用终结点。 它不会检查在故障转移后终结点是否正常工作或是否将正常工作。 你需要负责确保在故障转移后，具有专用终结点的辅助命名空间能够按预期工作。
 >
-> 若要测试专用终结点配置是否相同，请从虚拟网络外部向辅助命名空间发送[获取队列](https://docs.microsoft.com/rest/api/servicebus/queues/get)请求，并验证是否收到来自服务的错误消息。
+> 若要测试专用终结点配置是否相同，请从虚拟网络外部向辅助命名空间发送[获取队列](https://docs.microsoft.com/rest/api/servicebus/stable/queues/get)请求，并验证是否收到来自服务的错误消息。
 
 ### <a name="existing-pairings"></a>现有配对
 如果主命名空间和辅助命名空间之间已存在配对，则在主命名空间上创建专用终结点将失败。 若要解决此问题，请首先在辅助命名空间上创建专用终结点，然后为主命名空间创建专用终结点。
@@ -170,9 +170,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 - 在 ServiceBus-Namespace1-Primary 上创建两个专用终结点，这两个专用终结点使用 VNET-1 和 VNET-2 中的子网
 - 在 ServiceBus-Namespace2-Secondary 上创建两个专用终结点，这两个专用终结点使用 VNET-1 和 VNET-2 中的相同子网 
 
-![专用终结点和虚拟网络](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
-
-<!--This picture is not available 07/17. Delete this when it's available.-->
+:::image type="content" source="./media/service-bus-geo-dr/private-endpoints-virtual-networks.png" alt-text="专用终结点和虚拟网络":::
 
 此方法的优点是，可以在独立于服务总线命名空间的应用程序层上进行故障转移。 请考虑下列情形： 
 
@@ -185,7 +183,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅此处的异地灾难恢复 [REST API 参考](https://docs.microsoft.com/rest/api/servicebus/disasterrecoveryconfigs)。
+- 请参阅此处的异地灾难恢复 [REST API 参考](https://docs.microsoft.com/rest/api/servicebus/stable/disasterrecoveryconfigs)。
 - 在 GitHub 上运行异地灾难恢复[示例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2)。
 - 请参阅异地灾难恢复[将消息发送到别名的示例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1)。
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 11/04/2019
 ms.date: 09/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98d46ed0fcc9dfe4fe098c8d398db7665101596b
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 2ca2f283d56a3e86437f9e0cc3ada482a1e7ac0f
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021605"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127894"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>如何处理和提取 AI 扩充方案中的图像中的信息
 
@@ -42,7 +42,7 @@ Azure 认知搜索有多项适用于图像和图像文件的功能。 在文档�
 
 将 **parsingMode** 参数设置为 `json`（将每个 Blob 作为单个文档进行索引编制）或 `jsonArray`（如果 Blob 包含 JSON 数组，且需要将数组的每个元素视为单独的文档）。
 
-将规范化图像的最大宽度和高度默认设置为 2000 像素是考虑到 [OCR 技术](cognitive-search-skill-ocr.md)所能够支持的最大大小以及[图像分析技术](cognitive-search-skill-image-analysis.md)。 [OCR 技能](cognitive-search-skill-ocr.md)支持非英语语言的最大宽度和高度为 4200，支持英语语言的最大宽度和高度为 10000。  如果增加最大限制，则根据技能组定义和文档语言，对较大的图像进行处理可能会失败。 
+将规范化图像的最大宽度和高度默认设置为 2000 像素是考虑到[图像分析技术](cognitive-search-skill-image-analysis.md)所能够支持的最大大小。
 
 可以指定[索引器定义](https://docs.microsoft.com/rest/api/searchservice/create-indexer)中所述的 imageAction，如下所示：
 
@@ -64,9 +64,9 @@ Azure 认知搜索有多项适用于图像和图像文件的功能。 在文档�
 
 | 图像成员       | 说明                             |
 |--------------------|-----------------------------------------|
-| data               | JPEG 格式的规范化图像的 BASE64 编码字符串。   |
+| 数据               | JPEG 格式的规范化图像的 BASE64 编码字符串。   |
 | width              | 规范化图像的宽度（以像素为单位）。 |
-| height             | 规范化图像的高度（以像素为单位）。 |
+| 高度             | 规范化图像的高度（以像素为单位）。 |
 | originalWidth      | 图像在规范化之前的原始宽度。 |
 | originalHeight      | 图像在规范化之前的原始高度。 |
 | rotationFromOriginal |  在创建规范化图像过程中进行的逆时针旋转（以度为单位）。 值的范围为 0 度到 360 度。 此步骤从图像读取由照相机或扫描仪生成的元数据。 通常为 90 度的倍数。 |
@@ -91,7 +91,7 @@ Azure 认知搜索有多项适用于图像和图像文件的功能。 在文档�
 
 ## <a name="image-related-skills"></a>图像相关技术
 
-有两项内置的认知技术以图像为输入：[OCR](cognitive-search-skill-ocr.md) 和[图像分析](cognitive-search-skill-image-analysis.md)。 
+有两项内置的认知技能以图像作为输入：[图像分析](cognitive-search-skill-image-analysis.md)。 
 
 目前，这些技术仅适用于通过文档破解步骤生成的图像。 因此，唯一支持的输入为 `"/document/normalized_images"`。
 
@@ -99,9 +99,9 @@ Azure 认知搜索有多项适用于图像和图像文件的功能。 在文档�
 
 [图像分析技术](cognitive-search-skill-image-analysis.md)根据图像内容提取丰富的视觉特征。 例如，可从图像生成标题栏、生成标记或识别名人和地标。
 
-### <a name="ocr-skill"></a>OCR 技术
+<!-- ### OCR skill
 
-[OCR 技术](cognitive-search-skill-ocr.md)可从图像文件（例如 JPG、PNG、位图）中提取文本。 它可以提取文本和布局信息。 布局信息为每个确定的字符串提供边框。
+The [OCR skill](cognitive-search-skill-ocr.md) extracts text from image files such as JPGs, PNGs, and bitmaps. It can extract text as well as layout information. The layout  information provides bounding boxes for each of the strings identified. -->
 
 ## <a name="embedded-image-scenario"></a>嵌入图像场景
 
@@ -111,7 +111,7 @@ Azure 认知搜索有多项适用于图像和图像文件的功能。 在文档�
 1. 运行 OCR 技术，使用 `"/document/normalized_images"` 作为输入
 1. 将这些图像的文本表示形式与从文件提取的原始文本合并。 可以使用[文本合并](cognitive-search-skill-textmerger.md)技术将两个文本区块合并成单个大型字符串。
 
-以下示例技术集会创建的 merged_text  字段包含文档的文本内容， 以及每个嵌入图像中的 OCR 化文本。 
+以下示例技术集会创建的 merged_text** 字段包含文档的文本内容， 以及每个嵌入图像中的 OCR 化文本。 
 
 #### <a name="request-body-syntax"></a>请求正文语法
 ```json
@@ -217,8 +217,9 @@ Azure 认知搜索有多项适用于图像和图像文件的功能。 在文档�
 
 ## <a name="see-also"></a>另请参阅
 + [创建索引器 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [图像分析技能](cognitive-search-skill-image-analysis.md)
-+ [OCR 技术](cognitive-search-skill-ocr.md)
++ [图像分析技术](cognitive-search-skill-image-analysis.md)
 + [文本合并技术](cognitive-search-skill-textmerger.md)
 + [如何定义技能集](cognitive-search-defining-skillset.md)
 + [如何映射扩充的域](cognitive-search-output-field-mapping.md)
+
+<!-- + [OCR skill](cognitive-search-skill-ocr.md) -->

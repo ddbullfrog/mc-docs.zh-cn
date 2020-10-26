@@ -1,5 +1,5 @@
 ---
-title: 转换数据
+title: 在设计器中转换数据
 titleSuffix: Azure Machine Learning
 description: 了解如何在 Azure 机器学习设计器中转换数据以创建自己的数据集。
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 14fd9e4b5bf4f022e01b5deac12feb37b69858c9
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 4ccf0a944ba228a95c9bae5280b4ef5e9e05b876
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021499"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118427"
 ---
-# <a name="transform-data-in-azure-machine-learning-designer-preview"></a>在 Azure 机器学习设计器（预览版）中转换数据
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="transform-data-in-azure-machine-learning-designer"></a>在 Azure 机器学习设计器中转换数据
+
 
 本文介绍如何在 Azure 机器学习设计器中转换和保存数据集，以便可以为机器学习准备好自己的数据。
 
@@ -112,8 +112,8 @@ ms.locfileid: "90021499"
     文件格式：csv
 
     > [!NOTE]
-    > 本文假设你有权访问注册到当前 Azure 机器学习工作区的数据存储。 有关如何设置数据存储的说明，请参阅[连接到 Azure 存储服务](how-to-access-data.md#azure-machine-learning-studio)。
-
+    > 本文假设你有权访问注册到当前 Azure 机器学习工作区的数据存储。 
+    
     如果没有数据存储，则可以立即创建一个。 例如，本文会将数据集保存到与工作区关联的默认 blob 存储帐户。 它会将数据集保存到名为 `data` 的新文件夹中的 `azureml` 容器。
 
 1.  选择连接到“拆分数据”模块的最右侧端口的“导出数据”模块。
@@ -134,7 +134,7 @@ ms.locfileid: "90021499"
 
     管道和设置应如下所示：
     
-    ![显示如何配置“导出数据”模块的屏幕截图](media/how-to-designer-transform-data/us-income-export-data.png)。
+    ![显示如何配置“导出数据”模块的屏幕截图](media/how-to-designer-transform-data/us-income-export-data.png).
 
 ### <a name="submit-the-run"></a>提交运行
 

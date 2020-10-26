@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28643af77b90f216298056f6ae4ccf0690a43aaa
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: de354d055d546aa55a04b145cb602e2fcbd58eb8
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245031"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041467"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步：了解默认配置
 本文介绍现成的配置规则。 其中将说明这些规则及其对配置有何影响。 此外还会逐步介绍如何完成 Azure AD Connect 同步的默认配置。其目的是让读者了解配置模型（名为声明性设置）在实际示例中的运行情形。 本文假设已使用安装向导安装并配置了 Azure AD Connect 同步。
@@ -160,7 +160,7 @@ SRE 是一个资源套件工具，随 Azure AD Connect 同步一起安装。必�
 #### <a name="scoping-filter"></a>范围筛选器
 “范围筛选器”部分用于配置同步规则何时适用。 由于正在查看的同步规则的名称指示只应对已启用的用户应用该规则，因此对范围进行了配置，使得 AD 属性 **userAccountControl** 不能对 2 这个位进行设置。 同步引擎在 AD 中找到用户时，如果 userAccountControl 设置为十进制值 512（已启用的普通用户），则应用此同步规则。  如果用户的 userAccountControl 设置为 514（已禁用的普通用户），则不应用该规则。 
 
-![同步规则编辑器中的“范围”选项卡](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![此屏幕截图显示了“编辑入站同步规则”窗口的“范围筛选器”部分。](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 范围筛选器具有可以嵌套的组和子句。 必须满足组内所有子句的条件，才能应用同步规则。 如果定义了多个组，则要应用该规则，必须满足至少一个组的条件。 也就是说，组之间按逻辑“或”进行计算，组内按逻辑“和”进行计算。 可以在出站同步规则“Out to AAD - Group Join”中找到此配置的示例。  有多个同步筛选器组，例如，一个用于安全组 (`securityEnabled EQUAL True`)，一个用于分发组 (`securityEnabled EQUAL False`)。
 

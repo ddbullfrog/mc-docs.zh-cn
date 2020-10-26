@@ -2,18 +2,18 @@
 title: Azure 服务总线常见问题 (FAQ) | Azure
 description: 本文提供了一些有关 Azure 服务总线的常见问题解答 (FAQ)。
 ms.topic: article
-origin.date: 07/15/2020
+origin.date: 09/16/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1ed8bafbf75d16a51c930174d32dd39ef72fbcd8
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 6fb5f6d91d4bb84bfabb7cdf802fcd31bfff1e9d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946622"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128230"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure 服务总线 - 常见问题解答 (FAQ)
 
@@ -41,7 +41,11 @@ ms.locfileid: "88946622"
 
  [高级 SKU](service-bus-premium-messaging.md) 中不再支持分区实体。 
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>我需要在防火墙上打开哪些端口？ 
+<a name="in-region-data-residency"></a>
+### <a name="where-does-azure-service-bus-store-customer-data"></a>Azure 服务总线将客户数据存储在何处？
+Azure 服务总线存储客户数据。 服务总线会自动将此数据存储在单个区域中，因此此服务会自动满足区域内数据驻留要求，包括[信任中心](https://azuredatacentermap.chinacloudsites.cn/)内指定的要求。
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>需要在防火墙上打开哪些端口？ 
 可以将以下协议与 Azure 服务总线配合使用，以便发送和接收消息：
 
 - 高级消息队列协议 (AMQP)
@@ -53,8 +57,9 @@ ms.locfileid: "88946622"
 | 协议 | 端口 | 详细信息 | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 和 5672 | 请参阅 [AMQP 协议指南](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 到 9354 | 请参阅[连接模式](https://docs.azure.cn/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| SBMP | 9350 到 9354 | 请参阅[连接模式](https://docs.azure.cn/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
 | HTTP、HTTPS | 80、443 | 
+
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>需要将哪些 IP 地址添加到允许列表？
 若要查找要添加到允许列表以进行连接的正确 IP 地址，请执行以下步骤：
@@ -64,10 +69,7 @@ ms.locfileid: "88946622"
     ```
     nslookup <YourNamespaceName>.servicebus.chinacloudapi.cn
     ```
-    
-    <!--Mooncake Customization: The new command is not supported in Azure China-->
-
-2. 记下在 `Non-authoritative answer` 中返回的 IP 地址。 此 IP 地址是静态的。 只有在你将命名空间还原到另一群集时，它才会更改。
+2. 记下 `Non-authoritative answer` 中返回的 IP 地址。 
 
 如果对命名空间使用区域冗余，则需执行一些额外的步骤： 
 
@@ -76,17 +78,17 @@ ms.locfileid: "88946622"
     ```
     nslookup <yournamespace>.servicebus.chinacloudapi.cn
     ```
-    
-    <!--Mooncake Customization: The Global command is not supported in Azure China-->
-    
 2. 记下“非权威回答”部分中的名称，该名称采用下述格式之一： 
 
     ```
-    <name>-s1.servicebus.chinacloudapi.cn
-    <name>-s2.servicebus.chinacloudapi.cn
-    <name>-s3.servicebus.chinacloudapi.cn
+    <name>-s1.chinacloudapp.cn
+    <name>-s2.chinacloudapp.cn
+    <name>-s3.chinacloudapp.cn
     ```
 3. 为每一个运行 nslookup，使用后缀 s1、s2 和 s3 获取所有三个在三个可用性区域中运行的实例的 IP 地址。 
+
+    > [!NOTE]
+    > `nslookup` 命令返回的 IP 地址不是静态 IP 地址。 但是，在删除基础部署或将其移至其他群集之前，该地址保持不变。
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>我可以在哪里找到客户端向命名空间发送/从中接收消息的 IP 地址？ 
 我们不记录客户端向命名空间发送或从中接收消息的 IP 地址。 重新生成密钥，以便所有现有的客户端将无法进行身份验证并查看基于角色的访问控制 ([RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) 设置，以确保仅允许的用户或应用程序可以访问该命名空间。 

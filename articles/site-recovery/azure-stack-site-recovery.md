@@ -4,16 +4,16 @@ description: 了解如何使用 Azure Site Recovery 服务为 Azure Stack VM 设
 ms.topic: conceptual
 origin.date: 08/05/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: ba28a710e746a179a64c83e5e9e9b78d1955e68e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 283106a4b7cea453d993a58212f0f6819646ec5d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655263"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128312"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>将 Azure Stack VM 复制到 Azure
 
@@ -40,7 +40,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 
 ## <a name="architecture"></a>体系结构
 
-:::image type="content" source="./media/azure-stack-site-recovery/architecture.png" alt-text="体系结构":::
+:::image type="content" source="./media/azure-stack-site-recovery/architecture.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
 
 **位置** | **组件** |**详细信息**
 --- | --- | ---
@@ -117,7 +117,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
     2. 在 /etc/ssh/sshd_config 文件中，找到以“PasswordAuthentication”开头的行  。 取消注释该行，并将值更改为 **yes**。
     3. 找到以“Subsystem”开头的行，并取消注释该行  。
 
-        :::image type="content" source="./media/azure-stack-site-recovery/linux-mobility.png" alt-text="Linux 移动服务":::
+        :::image type="content" source="./media/azure-stack-site-recovery/linux-mobility.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
 
     4. 重启 sshd 服务。
 
@@ -129,7 +129,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 2. 在“资源”菜单上，单击“网络接口”   。
 3. 记下专用 IP 地址。
 
-    :::image type="content" source="./media/azure-stack-site-recovery/private-ip.png" alt-text="专用 IP 地址":::
+    :::image type="content" source="./media/azure-stack-site-recovery/private-ip.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>步骤 2：创建保管库并选择复制目标
 
@@ -144,7 +144,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 4. 在“位置”中，输入 Azure 区域  。 我们将使用“中国北部”  。
 5. 若要从仪表板快速访问保管库，请选择“固定到仪表板”   >   “创建”。
 
-    :::image type="content" source="./media/azure-stack-site-recovery/new-vault-settings.png" alt-text="创建新的保管库":::
+    :::image type="content" source="./media/azure-stack-site-recovery/new-vault-settings.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
 
     新保管库显示在“仪表板”   > “所有资源”  中，以及“恢复服务保管库”  主页上。
 
@@ -156,7 +156,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 4. 在“要将计算机复制到何处?”中，选择“复制到 Azure”   。
 5. 在“计算机是否已虚拟化”中，选择“尚未虚拟化/其他”   。 然后选择“确定”。 
 
-    :::image type="content" source="./media/azure-stack-site-recovery/protection-goal.png" alt-text="保护目标":::
+    :::image type="content" source="./media/azure-stack-site-recovery/protection-goal.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
 
 ## <a name="step-3-set-up-the-source-environment"></a>步骤 3：设置源环境
 
@@ -165,13 +165,13 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 1. 单击“准备基础结构” > “源”。  
 2. 在“准备源”中，单击“+配置服务器”   。
 
-    :::image type="content" source="./media/azure-stack-site-recovery/plus-config-srv.png" alt-text="设置源":::
+    :::image type="content" source="./media/azure-stack-site-recovery/plus-config-srv.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
 
 3. 在“添加服务器”中，检查“配置服务器”是否已显示在“服务器类型”中    。
 5. 下载站点恢复统一安装程序安装文件。
 6. 下载保管库注册密钥。 运行统一安装程序时需要使用该注册密钥。 生成的密钥有效期为 5 天。
 
-    :::image type="content" source="./media/azure-stack-site-recovery/set-source2.png" alt-text="设置源":::
+    :::image type="content" source="./media/azure-stack-site-recovery/set-source2.png" alt-text="图表显示云中的两个租户的恢复服务保管库均与租户订阅关联，并且这两个订阅均位于同一 Azure Stack 基础结构上。":::
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>运行 Azure Site Recovery 统一安装程序
 

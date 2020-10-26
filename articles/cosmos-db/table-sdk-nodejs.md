@@ -1,20 +1,20 @@
 ---
 title: 用于 Node.js 的 Azure Cosmos DB 表 API
-description: 了解有关 Azure Cosmos DB 表 API 的全部信息，包括发布日期、停用日期和各版本之间进行的更改。
+description: 全面了解用于 Node.js 的 Azure Cosmos DB 表 API，包括发布日期、停用日期和各版本之间的更改。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: reference
 origin.date: 11/20/2018
-ms.date: 07/06/2020
+ms.date: 10/19/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 1ffc447c9788147c0aa1ecea28b73843657ae688
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: efbc69dc9463e780ed728391ad4c715535104e35
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323370"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118352"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>用于 Node.js 的 Azure Cosmos DB 表 API：发行说明和资源

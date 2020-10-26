@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd8524d1f6d8595f15a0bf1f12927f59a65bb7fc
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 9d2635d6f923dce9be3937f3e9ea6b0b60461a67
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245660"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041483"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>使用 PowerShell 在 Azure VM 上配置 Azure 资源的托管标识
 
@@ -36,7 +36,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 - 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#managed-identity-types)。
 - 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
-- 安装[最新版本的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)（如果尚未安装）。
+- 若要运行示例脚本，可以通过安装最新版的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 在本地运行脚本，然后使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 Azure。 
 
 ## <a name="system-assigned-managed-identity"></a>系统分配的托管标识
 
@@ -50,59 +50,43 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
     转到“创建 VM”部分时，需要对 [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet 语法稍做修改。 务必添加 `-IdentityType SystemAssigned` 参数，以预配启用了系统分配标识的 VM，例如：
 
-    ```powershell
+    ```azurepowershell
     $vmConfig = New-AzVMConfig -VMName myVM -IdentityType SystemAssigned ...
     ```
 
    - [使用 PowerShell 创建 Windows 虚拟机](../../virtual-machines/windows/quick-create-powershell.md)
    - [使用 PowerShell 创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-powershell.md)
 
-
-
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>在现有 Azure VM 上启用系统分配托管标识
 
 若要在最初未预配系统分配的托管标识的 VM 上启用该托管标识，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色分配。  无需其他 Azure AD 目录角色分配。
 
-1. 使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 Azure 门户。 使用与包含 VM 的 Azure 订阅关联的帐户。
+1. 使用 `Get-AzVM` cmdlet 检索 VM 属性。 然后，若要启用系统分配的托管标识，请在 [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdlet 中使用 `-IdentityType` 开关：
 
-   ```powershell
-   Connect-AzAccount -Environment AzureChinaCloud
-   ```
-
-2. 首先，使用 `Get-AzVM` cmdlet 检索 VM 属性。 然后，若要启用系统分配的托管标识，请在 [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdlet 中使用 `-IdentityType` 开关：
-
-   ```powershell
+   ```azurepowershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
    Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType SystemAssigned
    ```
-
-
 
 ### <a name="add-vm-system-assigned-identity-to-a-group"></a>将 VM 系统分配的标识添加到组
 
 在 VM 上启用系统分配的标识后，可以将其添加到组中。  以下过程将 VM 的系统分配的标识添加到组。
 
-1. 使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 Azure 门户。 使用与包含 VM 的 Azure 订阅关联的帐户。
+1. 检索并记下 VM 服务主体的 `ObjectID`（在返回值的 `Id` 字段中指定）：
 
-   ```powershell
-   Connect-AzAccount -Environment AzureChinaCloud
-   ```
-
-2. 检索并记下 VM 服务主体的 `ObjectID`（在返回值的 `Id` 字段中指定）：
-
-   ```powershell
+   ```azurepowershell
    Get-AzADServicePrincipal -displayname "myVM"
    ```
 
-3. 检索并记下组中的 `ObjectID`（在返回值的 `Id` 字段中指定）：
+1. 检索并记下组中的 `ObjectID`（在返回值的 `Id` 字段中指定）：
 
-   ```powershell
+   ```azurepowershell
    Get-AzADGroup -searchstring "myGroup"
    ```
 
-4. 将 VM 的服务主体添加到组：
+1. 将 VM 的服务主体添加到组：
 
-   ```powershell
+   ```azurepowershell
    Add-AzureADGroupMember -ObjectId "<objectID of group>" -RefObjectId "<object id of VM service principal>"
    ```
 
@@ -112,27 +96,19 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 如果某个虚拟机不再需要系统分配的托管标识，但仍需要用户分配的托管标识，请使用以下 cmdlet：
 
-1. 使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 Azure 门户。 使用与包含 VM 的 Azure 订阅关联的帐户。
+1. 使用 `Get-AzVM` cmdlet 检索 VM 属性并将 `-IdentityType` 参数设置为 `UserAssigned`：
 
-   ```powershell
-   Connect-AzAccount -Environment AzureChinaCloud
-   ```
-
-2. 使用 `Get-AzVM` cmdlet 检索 VM 属性并将 `-IdentityType` 参数设置为 `UserAssigned`：
-
-   ```powershell
+   ```azurepowershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
    Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
    ```
 
 如果某个虚拟机不再需要系统分配的托管标识，且没有用户分配的托管标识，请使用以下命令：
 
-```powershell
+```azurepowershell
 $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
-
-
 
 ## <a name="user-assigned-managed-identity"></a>用户分配的托管标识
 
@@ -146,7 +122,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 
     转到“创建 VM”部分时，需要对 [`New-AzVMConfig`](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet 语法稍做修改。 添加 `-IdentityType UserAssigned` 和 `-IdentityID` 参数，为 VM 预配用户分配的标识。  将 `<VM NAME>`、`<SUBSCRIPTION ID>`、`<RESROURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>` 替换为自己的值。  例如：
 
-    ```powershell
+    ```azurepowershell
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
     ```
 
@@ -154,36 +130,27 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
     - [使用 PowerShell 创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-powershell.md)
 
 
-
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>向现有 Azure VM 分配用户分配托管标识
 
 若要将用户分配的标识分配给 VM，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)和[托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色分配。 无需其他 Azure AD 目录角色分配。
 
-1. 使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 Azure 门户。 使用与包含 VM 的 Azure 订阅关联的帐户。
-
-   ```powershell
-   Connect-AzAccount -Environment AzureChinaCloud
-   ```
-
-2. 使用 [New-AzUserAssignedIdentity](https://docs.microsoft.com/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet 创建用户分配的托管标识。  记下输出中的 `Id`，因为下一步会用到它。
+1. 使用 [New-AzUserAssignedIdentity](https://docs.microsoft.com/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet 创建用户分配的托管标识。  记下输出中的 `Id`，因为下一步会用到它。
 
    > [!IMPORTANT]
    > 创建用户分配的托管标识时仅支持字母数字、下划线和连字符（0-9 或 a-z 或 A-Z，\_ 或 -）字符。 此外，名称的长度应限制为 3 到 128 个字符，这样分配给 VM/VMSS 才能正常工作。 有关详细信息，请参阅 [FAQ 和已知问题](known-issues.md)
 
-   ```powershell
+   ```azurepowershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
    ```
-3. 使用 `Get-AzVM` cmdlet 检索 VM 属性。 然后，若要向 Azure VM 分配用户分配的托管标识，请在 [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdlet 中使用 `-IdentityType` 和 `-IdentityID` 开关。  `-IdentityId` 参数的值是在上一步中记下的 `Id`。  将 `<VM NAME>`、`<SUBSCRIPTION ID>`、`<RESROURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>` 替换为自己的值。
+1. 使用 `Get-AzVM` cmdlet 检索 VM 属性。 然后，若要向 Azure VM 分配用户分配的托管标识，请在 [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdlet 中使用 `-IdentityType` 和 `-IdentityID` 开关。  `-IdentityId` 参数的值是在上一步中记下的 `Id`。  将 `<VM NAME>`、`<SUBSCRIPTION ID>`、`<RESROURCE GROUP>` 和 `<USER ASSIGNED IDENTITY NAME>` 替换为自己的值。
 
    > [!WARNING]
    > 若要保留分配给 VM 的任何以前用户分配的托管标识，请查询 VM 对象的 `Identity` 属性（例如，`$vm.Identity`）。  如果返回了任何用户分配的托管标识，请将其添加到以下命令以及要分配给 VM 的新用户分配的托管标识中。
 
-   ```powershell
+   ```azurepowershell
    $vm = Get-AzVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
    Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
-
-
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>从 Azure VM 中删除用户分配的托管标识
 
@@ -191,19 +158,19 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 
 如果 VM 具有多个用户分配的托管标识，则可以使用以下命令将这些标识删除到只剩一个。 请务必将 `<RESOURCE GROUP>` 和 `<VM NAME>` 参数值替换为自己的值。 `<USER ASSIGNED IDENTITY NAME>` 是用户分配的托管标识的名称属性，该属性应保留在 VM 上。 可以通过查询 VM 对象的 `Identity` 属性找到该信息。  例如，`$vm.Identity`：
 
-```powershell
+```azurepowershell
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm
 Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType UserAssigned -IdentityID <USER ASSIGNED IDENTITY NAME>
 ```
 如果 VM 没有系统分配的托管标识，并且希望从中删除所有用户分配的托管标识，请使用以下命令：
 
-```powershell
+```azurepowershell
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 如果 VM 同时具有系统分配的托管标识和用户分配的托管标识，则可通过切换为仅使用系统分配的托管标识，删除所有用户分配的托管标识。
 
-```powershell
+```azurepowershell
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm
 Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType "SystemAssigned"
 ```

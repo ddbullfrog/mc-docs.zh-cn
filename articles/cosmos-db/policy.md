@@ -1,18 +1,20 @@
 ---
 title: 使用 Azure Policy 实现 Azure Cosmos DB 资源的治理和控制
 description: 了解如何使用 Azure Policy 来实现 Azure Cosmos DB 资源的治理和控制。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/20/2020
-ms.date: 06/22/2020
+origin.date: 09/23/2020
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 22ce5fb616d4c392c25aaec6677b74b3116a842b
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: bcf906cf4fbb8dd1296f1ca90edc139abb57d3cd
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101985"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118399"
 ---
 <!--Verified successfully-->
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>使用 Azure Policy 实现 Azure Cosmos DB 资源的治理和控制
@@ -20,6 +22,9 @@ ms.locfileid: "85101985"
 [Azure Policy](../governance/policy/overview.md) 有助于强制实施组织治理标准、评估资源符合性并实现自动修复。 常见的用例包括安全性、成本管理和配置一致性。
 
 Azure Policy 提供内置策略定义。 可以为内置策略定义未解决的方案创建自定义策略定义。 有关更多详细信息，请参阅 [Azure Policy 文档](../governance/policy/overview.md)。
+
+> [!IMPORTANT]
+> Azure Policy 是在 Azure 服务的资源提供程序级别上强制实施的。 Cosmos DB SDK 可以对数据库、容器和吞吐量资源执行大多数管理操作，这些操作会跳过 Cosmos DB 的资源提供程序，从而会忽略使用 Azure Policy 创建的任何策略。 为了确保强制执行策略，请参阅[阻止从 Azure Cosmos DB SDK 进行更改](role-based-access-control.md#prevent-sdk-changes)
 
 ## <a name="assign-a-built-in-policy-definition"></a>分配内置策略定义
 
@@ -48,7 +53,7 @@ Azure Policy 提供内置策略定义。 可以为内置策略定义未解决的
 
 #### <a name="use-the-azure-cli"></a>使用 Azure CLI：
 ```azurecli
-# Login first with az login when you are using local Shell
+# Login first with az login if not using local Shell
 az cloud set -n AzureChinaCloud
 az login
 
@@ -58,7 +63,7 @@ az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliase
 
 #### <a name="use-azure-powershell"></a>使用 Azure PowerShell：
 ```powershell
-# Login first with Connect-AzAccount -Environment AzureChinaCloud if you are using local Shell
+# Login first with Connect-AzAccount -Environment AzureChinaCloud if not using local Shell
 Connect-AzAccount -Environment AzureChinaCloud
 
 # Use Get-AzPolicyAlias to list aliases for Microsoft.DocumentDB namespace
@@ -128,7 +133,7 @@ Connect-AzAccount -Environment AzureChinaCloud
 - 两个帐户均不遵从帐户需配置多个写入位置的策略
 - 两个帐户均不遵从将资源部署到允许的 Azure 区域的策略。
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="列出的 Azure 策略分配的合规性结果":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="搜索 Azure Cosmos DB 内置策略定义":::
 
 若要修正不合规的资源，请参阅[如何使用 Azure Policy 修正资源](../governance/policy/how-to/remediate-resources.md)。
 
@@ -138,5 +143,4 @@ Connect-AzAccount -Environment AzureChinaCloud
 - [在 Azure 门户中创建策略分配](../governance/policy/assign-policy-portal.md)
 - [查看 Azure Cosmos DB 的 Azure Policy 内置策略定义](./policy-samples.md)
 
-<!-- Update_Description: new article about policy -->
-<!--NEW.date: 06/22/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

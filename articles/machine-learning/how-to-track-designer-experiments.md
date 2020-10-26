@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f3279a5fea2653a1a5ac6b65efead41994035469
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 3bfaaadb4ac2d1561fdf715d9ced37b4bf9f8fb9
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947269"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117961"
 ---
-# <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>在 Azure 机器学习设计器（预览版）管道中启用日志记录
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>在 Azure 机器学习设计器管道中启用日志记录
+
 
 本文介绍如何将日志记录代码添加到设计器管道。 此外，还介绍了如何使用 Azure 机器学习工作室 Web 门户查看这些日志。
 
@@ -78,5 +78,6 @@ ms.locfileid: "88947269"
 
 本教程已介绍如何在设计器中使用日志。 有关后续步骤，请参阅以下相关文章：
 
-* 若要了解如何对设计器管道进行故障排除，请参阅[对 ML 管道进行调试和故障排除](how-to-debug-pipelines.md#azure-machine-learning-designer-preview)。
+
+* 若要了解如何对设计器管道进行故障排除，请参阅[对 ML 管道进行调试和故障排除](how-to-debug-pipelines.md#azure-machine-learning-designer)。
 * 若要了解如何使用 Python SDK 在 SDK 创作体验中记录指标，请参阅[在 Azure ML 训练运行中启用日志记录](how-to-track-experiments.md)。

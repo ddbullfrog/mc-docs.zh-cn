@@ -4,7 +4,7 @@ titleSuffix: Azure security
 description: 本文提供了用于保护 Azure 中的数据、应用程序和其他资产的一系列操作最佳做法。
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
 editor: tomsh
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2020
+ms.date: 10/12/2020
 ms.author: v-johya
 origin.date: 05/06/2019
-ms.openlocfilehash: b46b7b749e6c9beceefe5e89bbde1fc84bdca69f
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 771e2006eda270c70d0505522803413ae9094868
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402626"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127720"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 操作安全性最佳做法
 本文提供了用于保护 Azure 中的数据、应用程序和其他资产的一系列操作最佳做法。
@@ -92,8 +92,6 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 
 使用安全中心，可以通过一个集中化视图查看所有 Azure 资源的安全状态。 一眼就可验证适当的安全控件是否配置到位且配置正确，还可快速确认任何需要注意的资源。
 
-几乎所有的企业组织都有一个安全信息和事件管理 (SIEM) 系统，它可以整合来自不同信号收集设备的日志信息，因此可以识别新出现的威胁。 然后，数据分析系统会对日志进行分析，以便从所有日志收集和分析解决方案的不可避免的干扰内容中找出“需关注”的内容。
-
 <!-- Azure Sentinel not available-->
 
 下面是一些用于预防、检测和响应威胁的最佳做法：
@@ -148,8 +146,8 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 **详细信息**：让已分配的角色通过 [Azure 门户](../../governance/policy/how-to/get-compliance-data.md#portal)或[命令行](../../governance/policy/how-to/get-compliance-data.md#command-line)来监视符合性。
 
 **最佳做法**：Azure Policy 是组织的书面策略的技术表示形式。 将所有 Azure 策略定义映射到组织策略，以减少混乱并增强一致性。   
-**详细信息**：通过在[策略定义](../../governance/policy/concepts/definition-structure.md#display-name-and-description)说明中添加对组织策略的引用，在组织的文档中或 Azure Policy 定义本身中记录映射。
-<!--Not available in MC: ../../governance/policy/concepts/initiative-definition-structure.md-->
+**详细信息**：通过在[策略定义](../../governance/policy/concepts/definition-structure.md#display-name-and-description)或[计划定义](../../governance/policy/concepts/initiative-definition-structure.md#metadata)说明中添加对组织策略的引用，在组织的文档中或 Azure Policy 定义本身中记录映射。
+
 
 <!-- not available -->
 

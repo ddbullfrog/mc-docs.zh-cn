@@ -1,20 +1,21 @@
 ---
 title: 通过 Azure Site Recovery 管理配置服务器，以便进行灾难恢复
+description: 通过 Azure Site Recovery 管理配置服务器，以便进行灾难恢复
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/15/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9f1b5ac9b6f2e1770ad7ab460a09da673e7b7647
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 016bc5de1ff09319b5da6649f57302ab27dd9503
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655467"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127864"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>管理配置服务器以便进行 VMware VM/物理服务器灾难恢复
 
@@ -31,7 +32,7 @@ ms.locfileid: "89655467"
 可以访问配置服务器，如下所示：
 
 * 登录到部署了配置服务器的 VM，然后从桌面快捷方式启动 Azure Site Recovery 配置管理器。
-* 此外，你也可以从 `https://*ConfigurationServerName*/:44315/` 远程访问配置服务器。 使用管理员凭据登录。
+* 或者，可以从 https://*ConfigurationServerName*/:44315/ 远程访问配置服务器。 使用管理员凭据登录。
 
 ## <a name="modify-vmware-server-settings"></a>修改 VMware 服务器设置
 
@@ -59,7 +60,7 @@ ms.locfileid: "89655467"
 2. 选择要修改的帐户，单击“编辑”
 3. 输入新凭据，然后选择“确定”。
 
-    :::image type="content" source="./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png" alt-text="修改移动服务凭据":::
+    :::image type="content" source="./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png" alt-text="修改 VMware":::
 
 还可以通过 CSPSConfigtool.exe 修改凭据。
 
@@ -73,7 +74,7 @@ ms.locfileid: "89655467"
 
 1. 在[登录](#access-configuration-server)后，选择“管理虚拟机凭据”。
 2. 单击“添加虚拟机凭据”。
-    :::image type="content" source="media/vmware-azure-manage-configuration-server/add-mobility-credentials.png" alt-text="添加虚拟机凭据":::
+    :::image type="content" source="media/vmware-azure-manage-configuration-server/add-mobility-credentials.png" alt-text="修改 VMware":::
 3. 输入新凭据，单击“添加”。
 
 还可以通过 CSPSConfigtool.exe 添加凭据。
@@ -120,7 +121,7 @@ ms.locfileid: "89655467"
 2. 仅当证书已过期时才执行此过程。 登录到配置服务器，导航到 C 驱动器 > Program Data > Site Recovery > home > svsystems > bin 并以管理员身份执行“RenewCerts”执行程序工具。
 3. 将弹出一个 PowerShell 执行窗口，并触发证书续订。 此过程最长需要 15 分钟。 在完成续订之前请勿关闭该窗口。
 
-:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="修改 VMware":::
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>在同一保管库中重新注册配置服务器
 
@@ -180,16 +181,16 @@ ms.locfileid: "89655467"
 
 1. 在保管库中，转到“管理” > “Site Recovery 基础结构” > “配置服务器”。
 2. 如果有可用的更新，链接将显示在“代理版本”> 列中。
-    :::image type="content" source="./media/vmware-azure-manage-configuration-server/update2.png" alt-text="更新":::
+    :::image type="content" source="./media/vmware-azure-manage-configuration-server/update2.png" alt-text="修改 VMware":::
 3. 将更新安装程序文件下载到配置服务器上。
 
-    :::image type="content" source="./media/vmware-azure-manage-configuration-server/update1.png" alt-text="更新":::
+    :::image type="content" source="./media/vmware-azure-manage-configuration-server/update1.png" alt-text="修改 VMware":::
 
 4. 双击以运行安装程序。
 5. 安装程序检测计算机上运行的当前版本。 单击“是”开始升级。
 6. 升级完成时，验证服务器配置。
 
-    :::image type="content" source="./media/vmware-azure-manage-configuration-server/update3.png" alt-text="更新":::
+    :::image type="content" source="./media/vmware-azure-manage-configuration-server/update3.png" alt-text="修改 VMware":::
 
 7. 单击“完成”关闭安装程序。
 8. 若要升级其余的 Site Recovery 组件，请参阅我们的[升级指南](../site-recovery/service-updates-how-to.md#between-an-on-premises-vmware-or-physical-site-to-azure)。
@@ -256,7 +257,7 @@ ProxyPassword="Password"
 4. 在保管库中，打开“Site Recovery 基础结构” > “配置服务器”。 
 5. 选择要删除的配置服务器。 然后，在“详细信息”页上，选择“删除”。
 
-    :::image type="content" source="./media/vmware-azure-manage-configuration-server/delete-configuration-server.png" alt-text="删除配置服务器":::
+    :::image type="content" source="./media/vmware-azure-manage-configuration-server/delete-configuration-server.png" alt-text="修改 VMware":::
 
 ### <a name="delete-with-powershell"></a>使用 PowerShell 进行删除
 

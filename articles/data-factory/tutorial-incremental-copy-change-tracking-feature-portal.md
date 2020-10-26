@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 origin.date: 01/12/2018
 ms.date: 07/27/2020
-ms.openlocfilehash: af8ce5a9ff985d2a964356dcd06c16d4e44a973f
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: d16fa0c86e6af53ef4071e190d7db36d8b7c54bb
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524045"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121721"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>使用 Azure 门户根据更改跟踪信息，以增量方式将 Azure SQL 数据库中的数据加载到 Azure Blob 存储
 
@@ -290,7 +290,7 @@ ms.locfileid: "90524045"
 2. 此时会显示用于配置管道的新选项卡。 树状视图中也会显示管道。 在“属性”窗口中，将管道的名称更改为 **FullCopyPipeline**。
 
     ![“新建管道”菜单](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
-3. 在“活动”工具箱中展开“数据流”，将“复制”活动拖放到管道设计器图面，然后设置名称 **FullCopyActivity**。
+3. 在“活动”工具箱中搜索“复制”，将“复制”活动拖放到管道设计器图面，然后设置名称“FullCopyActivity”。  
 
     ![完整复制活动 - 名称](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
 4. 切换到“源”选项卡，为“源数据集”字段选择“SourceDataset”。
@@ -387,7 +387,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
        ```
 
       ![查找活动 - 设置](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
-7. 在“活动”工具箱中展开“数据流”，将“复制”活动拖放到管道设计器图面。 将活动的名称设置为 **IncrementalCopyActivity**。 此活动将上次跟踪版本与当前更改跟踪版本之间的数据复制到目标数据存储。
+7. 在“活动”工具箱中搜索“复制”，将“复制”活动拖放到管道设计器图面  。 将活动的名称设置为 **IncrementalCopyActivity**。 此活动将上次跟踪版本与当前更改跟踪版本之间的数据复制到目标数据存储。
 
     ![复制活动 - 名称](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. 在“属性”窗口中切换到“源”选项卡，然后执行以下步骤：

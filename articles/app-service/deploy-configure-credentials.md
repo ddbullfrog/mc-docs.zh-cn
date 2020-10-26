@@ -3,19 +3,19 @@ title: 配置部署凭据
 description: 了解 Azure 应用服务中有哪些类型的部署凭据，以及如何配置和使用这些凭据。
 ms.topic: article
 origin.date: 08/14/2019
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 488e0930a894316f806e8c3aa9dadcedc24c1710
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: c34ae1465e1ea977259f8eb776e7751962459018
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227940"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170595"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
-[Azure 应用服务](app-service-web-overview.md)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](deploy-local-git.md)和 [FTP/S 部署](deploy-ftp.md)。 这些凭据与 Azure 订阅凭据不同。
+[Azure 应用服务](./overview.md)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](deploy-local-git.md)和 [FTP/S 部署](deploy-ftp.md)。 这些凭据与 Azure 订阅凭据不同。
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
@@ -75,6 +75,36 @@ JSON 输出会将该密码显示为 `null`。 如果收到 `'Conflict'. Details:
 2. 选择“应用凭据”，然后选择“复制”链接以复制用户名或密码 。
 
 若要重置应用级别凭据，请选择相同对话框中的“重置凭据”。
+
+## <a name="disable-basic-authentication"></a>禁用基本身份验证
+
+一些组织需要满足安全要求，因此宁愿禁用通过 FTP 或 WebDeploy 进行的访问。 这样一来，组织的成员就只能通过 Azure Active Directory (Azure AD) 控制的 API 访问其应用服务。
+
+### <a name="ftp"></a>FTP
+
+若要禁用对站点的 FTP 访问，请运行以下 CLI 命令。 将占位符替换为资源组和站点名称。 
+
+```bash
+az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+若要确认 FTP 访问被阻止，可以尝试使用 FTP 客户端（如 FileZilla）进行身份验证。 若要检索发布凭据，请转到站点的概览边栏选项卡，然后单击“下载发布配置文件”。 使用该文件的 FTP 主机名、用户名和密码进行身份验证，你会收到 401 错误响应，指示你未获得授权。
+
+### <a name="webdeploy-and-scm"></a>WebDeploy 和 SCM
+
+若要禁用对 WebDeploy 端口和 SCM 站点的基本身份验证访问，请运行以下 CLI 命令。 将占位符替换为资源组和站点名称。 
+
+```bash
+az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+若要确认发布配置文件凭据在 WebDeploy 上被阻止，请尝试[使用 Visual Studio 2019 发布 Web 应用](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)。
+
+### <a name="disable-access-to-the-api"></a>禁止对 API 的访问
+
+上一部分的 API 支持 Azure 基于角色的访问控制 (Azure RBAC)，这意味着你可以[创建一个自定义角色](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)，并将权限较低的用户分配给该角色，这样这些用户就无法在任何站点上启用基本身份验证。 若要配置自定义角色，请[按照这些说明进行操作](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role)。
+
+你还可以使用 [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) 审核任何成功的身份验证请求，并使用 [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) 对订阅中的所有站点强制实施此配置。
 
 ## <a name="next-steps"></a>后续步骤
 

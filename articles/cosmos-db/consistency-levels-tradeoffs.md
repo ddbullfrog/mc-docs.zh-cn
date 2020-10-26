@@ -1,21 +1,23 @@
 ---
 title: Azure Cosmos DB 一致性、可用性和性能权衡
 description: Azure Cosmos DB 中各种一致性级别的可用性和性能利弊。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/23/2020
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: bd44e3300a8e75282135223c37a3e00cd7cd8b43
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: f6b872fd986e13896dbac8d736d30a67dbf2a0e1
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098317"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118282"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>一致性、可用性和性能权衡
+# <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>不同的 Azure Cosmos DB 一致性级别下的延迟、可用性和性能权衡
 
 依赖复制以实现高可用性和/或低延迟的分布式数据库必须做出权衡。 在读取一致性与可用性、延迟和吞吐量之间做出权衡。
 

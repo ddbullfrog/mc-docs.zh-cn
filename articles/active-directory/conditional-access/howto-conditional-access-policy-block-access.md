@@ -4,19 +4,19 @@ description: 创建自定义条件访问策略
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/24/2020
+ms.topic: how-to
+ms.date: 10/13/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33bc0683d90f69f904e9784a54af8b018474439d
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.openlocfilehash: 42504d2d67b0e18f80f236a3872908486784d81a
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127162"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041561"
 ---
 # <a name="conditional-access-block-access"></a>条件访问：阻止访问
 
@@ -38,9 +38,9 @@ ms.locfileid: "82127162"
 
 ## <a name="create-a-conditional-access-policy"></a>创建条件访问策略
 
-如果用户不在受信任的网络中，以下步骤将帮助创建条件访问策略来阻止访问除 [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) 之外的所有应用。 这些策略最初将置于“仅限报告”模式，以便管理员确定它将对现有用户产生的影响。 当管理员确认策略按预期方式应用时，他们可以打开这些策略的开关  。
+如果用户不在受信任的网络中，以下步骤将帮助创建条件访问策略来阻止访问除 [Office 365](concept-conditional-access-cloud-apps.md#office-365) 之外的所有应用。 这些策略最初将置于“仅限报告”模式，以便管理员确定它们对现有用户的影响。 当管理员确认策略按预期方式应用时，他们可以打开这些策略的开关  。
 
-如果不在受信任的位置上，则第一个策略将阻止访问除 Office 365 应用程序之外的所有应用。
+如果用户不在受信任的位置上，则第一个策略会阻止访问除 Microsoft 365 应用程序之外的所有应用。
 
 1. 以全局管理员、安全管理员或条件访问管理员的身份登录到 **Azure 门户**。
 1. 浏览到“Azure Active Directory” > “安全性” > “条件访问”    。
@@ -52,7 +52,7 @@ ms.locfileid: "82127162"
    1. 选择“完成”  。
 1. 在“云应用或操作”  下，选择以下选项：
    1. 在“包括”下，选择“所有云应用”。  
-   1. 在“排除”  下，依次选择“Office 365 (预览版)”  、“选择”  、“完成”  。
+   1. 在“排除”下，依次选择“Office 365”、“选择”、“完成”。
 1. 在“条件”  下，执行以下操作：
    1. 在“条件”   >   “位置”下，
       1. 将“配置”设置为“是”  
@@ -64,7 +64,7 @@ ms.locfileid: "82127162"
 1. 确认设置，然后将“启用策略”设置为“仅限报告”。  
 1. 选择“创建”  ，以便创建启用策略所需的项目。
 
-下面将创建第二个策略，要求 Office 365 用户使用多重身份验证或合规的设备。
+下面将创建第二个策略，该策略要求 Microsoft 365 用户使用多重身份验证或合规的设备。
 
 1. 选择“新策略”  。
 1. 为策略指定名称。 建议组织为其策略的名称创建有意义的标准。
@@ -72,7 +72,7 @@ ms.locfileid: "82127162"
    1. 在“包括”下，选择“所有用户”。  
    1. 在“排除”下  选择“用户和组”  ，然后选择组织的紧急访问帐户或不受限帐户。 
    1. 选择“完成”  。
-1. 在“云应用或操作”   >   “包括”下，依次选择“选择应用”、“Office 365 (预览版)”、“选择”、“完成”。    
+1. 在“云应用或操作” > “包括”下，依次选择“选择应用”、“Office 365”、“选择”、“完成”。   
 1. 在“访问控制”   >   “授权”下，选择“授权访问”。 
    1. 选中“需要多重身份验证”  和“要求将设备标记为合规”  ，然后选择“选择”。 
    1. 确保选中“需要所有已选控件”  。

@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 11/19/2019
 ms.date: 03/09/2020
-ms.openlocfilehash: bb0ad88d15a4e151250284c936aa36724ac24410
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 260c8e1a197ae29c5d3e8012ed9ddc39c8f6b3f7
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097279"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118036"
 ---
 # <a name="train-clustering-model"></a>训练聚类模型
 
-本文介绍 Azure 机器学习设计器（预览版）中的模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块来训练聚类分析模型。
 

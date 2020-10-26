@@ -1,24 +1,24 @@
 ---
 title: 创建 Python 模型：模块参考
 titleSuffix: Azure Machine Learning
-description: 了解如何使用 Azure 机器学习中的“创建 Python 模型”模型创建自定义建模或数据处理模块。
+description: 了解如何使用 Azure 机器学习中的“创建 Python 模型”模块创建自定义建模或数据处理模块。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
-ms.author: zhanxia
-ms.date: 11/19/2019
-ms.openlocfilehash: e1d5febd49c9dc4a8c9cbef17dc3217bf0172572
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.author: keli19
+ms.date: 06/18/2020
+ms.openlocfilehash: d9ca93f6e5c9d94664c4a8005b7f4fdbbb08c808
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440972"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118460"
 ---
 # <a name="create-python-model-module"></a>创建 Python 模型模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 了解如何使用“创建 Python 模型”模块从 Python 脚本创建未经训练的模型。 可以将模型基于包含在 Python 包中的任何学习器，该包位于 Azure 机器学习设计器环境中。 
 

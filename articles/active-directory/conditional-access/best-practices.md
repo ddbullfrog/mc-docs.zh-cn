@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/13/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 455844bf770f4bf8fb1f93d692d433529132ee49
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: ef0bcd7b544e33ad697a0f2759f3866c2ba73bd8
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593704"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041591"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中条件访问的最佳做法
 
@@ -97,13 +97,13 @@ ms.locfileid: "89593704"
 
 适用，可以在条件访问策略中使用 Exchange ActiveSync。
 
-某些云应用（如 SharePoint Online 和 Exchange Online）也支持旧式身份验证协议。 如果客户端应用可以使用旧式身份验证协议访问云应用，则 Azure AD 无法针对此访问尝试实施条件访问策略。 为了防止客户端应用绕过策略的实施，应该检查它是否能够做到只对受影响的云应用启用新式身份验证。
+一些云应用（例如 SharePoint 和 Exchange Online）也支持旧式身份验证协议。 如果客户端应用可以使用旧式身份验证协议访问云应用，则 Azure AD 无法针对此访问尝试实施条件访问策略。 为了防止客户端应用绕过策略的实施，应该检查它是否能够做到只对受影响的云应用启用新式身份验证。
 
-### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>应如何使用 Office 365 应用配置条件访问？
+### <a name="how-should-you-configure-conditional-access-with-microsoft-365-apps"></a>该如何使用 Microsoft 365 应用配置条件访问？
 
-由于 Office 365 应用是相互连接的，因此建议你在创建策略时将常用应用分配到一起。
+Microsoft 365 应用是相互连接的，因此建议你在创建策略时将常用应用分配到一起。
 
-常见的相互连接的应用程序包括 Microsoft Flow、Microsoft Planner、Microsoft Teams、Office 365 Exchange Online、Office 365 SharePoint Online 和 Office 365 Yammer。
+常见的互联应用程序包括 Microsoft Flow、Microsoft Planner、Microsoft Teams、Exchange Online、SharePoint 和 Yammer。
 
 如果访问权限是在会话或任务的开始时控制的，则这对需要用户交互（例如多重身份验证）的策略来说很重要。 如果你不这样做，用户将无法完成应用中的某些任务。 例如，如果你要求在非托管设备上访问 SharePoint 时进行多重身份验证，但不要求在访问电子邮件时这样做，则在电子邮件中工作的用户无法将 SharePoint 文件附加到邮件中。 有关详细信息，可参阅此文：[Azure Active Directory 条件访问中的服务依赖项是什么？](service-dependencies.md)。
 

@@ -1,18 +1,18 @@
 ---
-title: 在 Azure Database for PostgreSQL - 单一服务器中使用导入和导出功能迁移数据库
+title: 迁移数据库 - Azure Database for PostgreSQL（单一服务器）
 description: 介绍了如何将 PostgreSQL 数据库解压到脚本文件，以及如何将数据从该文件导入目标数据库。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
-ms.topic: conceptual
-origin.date: 09/24/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: af6035526e94daed696088d9864bcbc49e95c76e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.topic: how-to
+origin.date: 09/22/2020
+ms.date: 10/19/2020
+ms.openlocfilehash: 47f3919f5c73f2c64d0f66ccf189ec3b1a3f5ddd
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73191591"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041751"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>使用导入和导出功能迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 将 PostgreSQL 数据库解压到脚本文件，并使用 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 将数据从该文件导入目标数据库。
@@ -27,6 +27,7 @@ ms.locfileid: "73191591"
 
 ## <a name="create-a-script-file-using-pg_dump-that-contains-the-data-to-be-loaded"></a>使用 pg_dump 创建包含要加载的数据的脚本文件
 若要将本地或 VM 中现有的 PostgreSQL 数据库导出到 sql 脚本文件中，请在现有环境中运行以下命令：
+
 ```bash
 pg_dump --host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
@@ -37,8 +38,9 @@ pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sq
 
 ## <a name="import-the-data-on-target-azure-database-for-postgresql"></a>导入目标 Azure Database for PostgreSQL 上的数据
 可以使用 psql 命令行和 --dbname 参数 (-d) 将数据导入 Azure Database for PostgreSQL 服务器，并加载 sql 文件中的数据。
+
 ```bash
-psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
+psql --file=<database>.sql --host=<server name> --port=5432 --username=<user> --dbname=<target database name>
 ```
 此示例使用 psql 实用程序和前一步骤中名为 **testdb.sql** 的脚本文件，将数据导入到目标服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上的数据库 **mypgsqldb** 中。
 ```bash
@@ -47,4 +49,4 @@ psql --file=testdb.sql --host=mydemoserver.postgres.database.chinacloudapi.cn --
 
 ## <a name="next-steps"></a>后续步骤
 - 若要通过转储和还原迁移 PostgreSQL 数据库，请参阅[通过转储和还原迁移 PostgreSQL 数据库](howto-migrate-using-dump-and-restore.md)。
-- 有关将数据库迁移到 Azure Database for PostgreSQL 的详细信息，请参阅[数据库迁移指南](https://aka.ms/datamigration)。 
+- 有关将数据库迁移到 Azure Database for PostgreSQL 的详细信息，请参阅[数据库迁移指南](https://aka.ms/datamigration)。

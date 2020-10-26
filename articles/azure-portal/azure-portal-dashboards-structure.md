@@ -12,20 +12,20 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 12/20/2019
 ms.author: v-tawe
-ms.date: 04/20/2020
-ms.openlocfilehash: ecab8f3893690ab92ebadf59309160e55880c1c6
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.date: 10/19/2020
+ms.openlocfilehash: 11459ebe156c4e7719371d9c22cd26c2a29199f6
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917312"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170415"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 仪表板结构
 本文档将使用以下仪表板作为示例，介绍 Azure 仪表板的结构：
 
 ![示例仪表板](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-由于共享的 [Azure 仪表板是资源](https://docs.azure.cn/azure-resource-manager/resource-group-overview)，所以此仪表板可以表示为 JSON。  以下 JSON 表示上面构思的仪表板。
+由于共享的 [Azure 仪表板是资源](../azure-resource-manager/management/overview.md)，所以此仪表板可以表示为 JSON。  以下 JSON 表示上面构思的仪表板。
 
 ```json
 
@@ -330,7 +330,7 @@ ms.locfileid: "87917312"
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![网格单元](./media/azure-portal-dashboards-structure/grid-units.png)
+![显示网格特写的屏幕截图，其中突出显示了一个正方形网格单元。](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>元数据对象
 每个部件都具有一个元数据属性，一个对象仅有一个必需的属性，名为“类型”  。 此字符串告知门户要显示的磁贴。 示例仪表板使用这些类型的磁贴：

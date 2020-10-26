@@ -11,15 +11,15 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5218c8f65c63ff0118e0d43ff6422a312f5f35ba
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: f659e9869a274083faf74cecf3bed70b1d14eb5e
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395226"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118263"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>检测数据集中的数据偏移（预览版）
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > “检测数据集中的数据偏移”功能目前为公共预览版。
@@ -35,9 +35,6 @@ Azure 机器学习数据集监视器（预览版）具有以下功能：
 使用 [Azure 机器学习数据集](how-to-create-register-datasets.md)来创建监视器。 此数据集必须包含一个时间戳列。
 
 可以在 Python SDK 或 Azure 机器学习工作室中查看数据偏移指标。  可以通过与 Azure 机器学习工作区关联的 [Azure Application Insights](/azure-monitor/app/app-insights-overview) 资源获取其他指标和见解。
-
-> [!Important]
-> 在所有版本中都可以通过 SDK 监视数据偏移。 不过，通过 Web 上的工作室监视数据偏移的功能仅在企业版中可用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -103,7 +100,7 @@ Azure 机器学习通过计算单个指标来简化偏移检测，该指标将�
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>Python SDK
 
-[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) 类的 [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) 方法定义数据集的时间戳列。
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) 类的 [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) 方法定义数据集的时间戳列。
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -130,10 +127,9 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-有关使用数据集的 `timeseries` 特征的完整示例，请参阅[示例笔记本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb)或[数据集 SDK 文档](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)。
+有关使用数据集的 `timeseries` 特征的完整示例，请参阅[示例笔记本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb)或[数据集 SDK 文档](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)。
 
-#### <a name="azure-machine-learning-studio"></a>Azure 机器学习工作室
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
+### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure 机器学习工作室
 
 如果使用 Azure 机器学习工作室创建数据集，请确保数据的路径包含时间戳信息（其中包括包含数据的所有子文件夹），并设置分区格式。 
 
@@ -147,7 +143,7 @@ dset = dset.register(ws, 'target')
 
 如果按日期对数据分区（此处的示例就是如此），还可指定 partition_timestamp。  这样可以更高效地处理日期。
 
-:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="分区时间戳":::
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="设置时间戳":::
 
 
 ## <a name="create-dataset-monitors"></a>创建数据集监视器 
@@ -207,17 +203,15 @@ monitor = monitor.enable_schedule()
 有关设置 `timeseries` 数据集和数据偏移检测器的完整示例，请参阅我们的[示例笔记本](https://aka.ms/datadrift-notebook)。
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-monitor"></a> Azure 机器学习工作室
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
-若要在数据集监视器中设置警报，要为其创建监视器的数据集所在的工作区必须具有企业版功能。
-
-确认工作区功能后，导航到[工作室的主页](https://studio.ml.azure.cn)，然后选择左侧的“数据集”选项卡。 选择“数据集监视器”。
-
-![监视器列表](./media/how-to-monitor-datasets/monitor-list.png)
+1. 导航到[工作室的主页](https://studio.ml.azure.cn)。
+1. 选择左侧的“数据集”选项卡。 
+1. 选择“数据集监视器”。
+   ![监视器列表](./media/how-to-monitor-datasets/monitor-list.png)
 
 单击“+创建监视器”按钮，然后单击“下一步”继续完成向导。   
 
-:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="创建监视器向导":::
+:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="设置时间戳":::
 
 * **选择目标数据集**。  目标数据集是一个表格数据集，在其中指定的时间戳列将用于分析数据偏移。 目标数据集必须包含与基线数据集共有的特征，并且应该是要将新数据追加到的 `timeseries` 数据集。 可以分析目标数据集中的历史数据，也可以监视新数据。
 
@@ -244,7 +238,7 @@ monitor = monitor.enable_schedule()
 
 首先大致了解数据偏移幅度，并突出显示要进一步调查的特征。
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="偏移概述":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="设置时间戳":::
 
 
 | 指标 | 描述 | 
@@ -257,7 +251,7 @@ monitor = monitor.enable_schedule()
 
 查看数据集与目标数据集在指定时段内的差异。  越接近 100%，两个数据集的差异越大。
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="偏移幅度趋势":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="设置时间戳":::
 
 ### <a name="drift-magnitude-by-features"></a>偏移幅度（按特征）
 
@@ -267,7 +261,7 @@ monitor = monitor.enable_schedule()
 
 在 Azure 机器学习工作室中，单击图中的某个条形可查看该日期的特征级详细信息。 默认情况下，可以看到基线数据集的分布，以及同一特征的最近运行的分布。
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="偏移幅度（按特征）":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="设置时间戳":::
 
 也可以在 Python SDK 中通过对 `DataDriftDetector` 对象运行 `get_metrics()` 方法检索这些指标。
 
@@ -275,7 +269,7 @@ monitor = monitor.enable_schedule()
 
 最后，可通过向下滚动来查看每个单独特征的详细信息。  可使用图表上方的下拉列表选择特征，并另外选择要查看的指标。
 
-:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="数值特征图和比较":::
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="设置时间戳":::
 
 图表中的指标取决于特征的类型。
 
@@ -289,14 +283,14 @@ monitor = monitor.enable_schedule()
 
 * 分类特征
     
-    | 指标 | 描述 |  
+    | 指标 | 说明 |  
     | ------ | ----------- |  
-    | 欧氏距离|针对分类列进行计算。欧氏距离是基于两个矢量计算的，这两个矢量是根据两个数据集中同一分类列的经验分布生成的。0 表示经验分布没有差别。与 0 的偏差越大，该列的偏移程度越大。对此指标进行时序绘图即可观察相关趋势，并可利用这些趋势来发现偏移特征。|
+    | Euclidian 距离     |  针对分类列进行的计算。 欧氏距离基于两个矢量进行计算，这两个矢量是根据两个数据集中同一分类列的经验分布生成的。 0 表示经验分布没有差别。  与 0 的偏差越大，该列的偏移程度越大。 对此指标进行时序绘图即可观察相关趋势，并可利用这些趋势来发现偏移特征。  |
     | 唯一值 | 特征的唯一值（基数）数目。 |
 
 在此图表中，可以选择单个日期来比较目标与所显示特征的此日期之间的特征分布。 对于数值特征，这会显示两个概率分布。  如果特征为数值，则显示条形图。
 
-:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="选择一个与目标比较的日期":::
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="设置时间戳":::
 
 ## <a name="metrics-alerts-and-events"></a>指标、警报和事件
 

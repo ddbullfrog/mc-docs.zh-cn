@@ -6,21 +6,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
+ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: v-yiso
 author: Blackmist
-origin.date: 11/04/2019
-ms.date: 03/09/2020
-ms.custom: seoapril2019
-ms.openlocfilehash: 877702706cf752e2e04760d8a8e54ecc0ffb2525
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+origin.date: 09/21/2020
+ms.date: 10/26/2020
+ms.openlocfilehash: a93335d6e9d00d339fecde3b13fc367b846252e4
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020974"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118175"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>使用 Azure 资源管理器模板创建 Azure 机器学习的工作区
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 <br>
 
 本文介绍几种使用 Azure 资源管理器模板创建 Azure 机器学习工作区的方法。 使用资源管理器模板可以轻松地通过单个协调操作创建资源。 模板是一个 JSON 文档，定义部署所需的资源。 它还可以指定部署参数。 使用模板时，参数用于提供输入值。
@@ -31,7 +31,14 @@ ms.locfileid: "90020974"
 
 * 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://www.azure.cn/pricing/1rmb-trial)。
 
-* 若要在 CLI 中使用模板，需要安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) 或 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
+* 若要在 CLI 中使用模板，需要安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) 或 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
+
+* 某些方案需要你开具支持票证。 这些方案为：
+
+    * __使用客户管理的密钥 (CMK) 启用专用链接的工作区__
+    * __虚拟网络后的工作区的 Azure 容器注册表__
+
+    有关详细信息，请参阅[管理和增加配额](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)。
 
 ## <a name="workspace-resource-manager-template"></a>工作区资源管理器模板
 

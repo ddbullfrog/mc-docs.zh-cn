@@ -5,16 +5,16 @@ author: ggailey777
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 399bc582080102a35619a29b5eb35683d53ec543
-ms.sourcegitcommit: 981a75a78f8cf74ab5a76f9e6b0dc5978387be4b
+ms.openlocfilehash: bec3949408cb620e0dd55a7ec0d2bae4575c1b93
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801328"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170711"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure 应用服务中使用 WebJobs 运行后台任务
 
@@ -22,6 +22,9 @@ ms.locfileid: "83801328"
 
 ## <a name="overview"></a>概述
 WebJobs 是 [Azure 应用服务](index.yml)的一项功能，它允许你在与 Web 应用、API 应用或移动应用相同的实例中运行程序或脚本。 使用 Web 作业无需支付额外的费用。
+
+> [!IMPORTANT]
+> Linux 上的应用服务尚不支持 WebJobs。
 
 可以结合 WebJobs 使用 Azure WebJobs SDK 来简化许多编程任务。 有关详细信息，请参阅[什么是 WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。
 
@@ -71,7 +74,7 @@ when making changes in one don't forget the other two.
 
 4. 使用表中指定的“添加 Web 作业” 设置。
 
-   ![“添加 Web 作业”页](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![显示需要配置的“添加 Web 作业”设置的屏幕截图。](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | 设置      | 示例值   | 说明  |
    | ------------ | ----------------- | ------------ |
@@ -109,7 +112,7 @@ when making changes in one don't forget the other two.
 
 3. 使用表中指定的“添加 Web 作业”设置。
 
-   ![“添加 Web 作业”页](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![显示创建手动触发的 Web 作业所需设置的设置项的屏幕截图。](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | 设置      | 示例值   | 说明  |
    | ------------ | ----------------- | ------------ |

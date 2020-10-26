@@ -4,14 +4,14 @@ description: 本文提供了有关如何为 Azure 事件网格主题启用诊断
 author: Johnnytechn
 ms.topic: how-to
 origin.date: 01/30/2020
-ms.date: 08/10/2020
+ms.date: 10/10/2020
 ms.author: v-johya
-ms.openlocfilehash: d2839bf280236609c98b99d5fa40d1de7a1b43bd
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: e2e72188aeaea69274c77a707f8a24d674071289
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228044"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127755"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>为 Azure 事件网格主题或域启用诊断日志
 诊断设置允许事件网格用户在以下任一位置捕获和查看“发布和传递失败”**** 日志：存储帐户、事件中心或 Log Analytics 工作区。 本文提供了有关如何为事件网格主题启用这些设置的分步说明。
@@ -40,19 +40,19 @@ ms.locfileid: "88228044"
     
     ![“添加诊断设置”按钮](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. 为诊断设置指定一个名称。**** 
-7. 在“日志”**** 部分中选择 **DeliveryFailures** 和 **PublishFailures** 选项。 
+6. 在“日志”**** 部分中选择 **DeliveryFailures** 和 **PublishFailures** 选项。 
     ![选择具体的失败](./media/enable-diagnostic-logs-topic/log-failures.png)
-6. 为日志启用一个或多个捕获目标，然后通过选择以前创建的捕获资源对其进行配置。 
+7. 为日志启用一个或多个捕获目标，然后通过选择以前创建的捕获资源对其进行配置。 
     - 如果选择“存档到存储帐户”****，请选择“存储帐户 - 配置”****，然后选择你的 Azure 订阅中的存储帐户。 
 
-        ![存档到 Azure 存储帐户](./media/enable-diagnostic-logs-topic/archive-storage.png)
+        ![此屏幕截图显示了“诊断设置”页，其中已选中“存档到 Azure 存储帐户”并已选择存储帐户。](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - 如果选择“流式传输到事件中心”****，请选择“事件中心 - 配置”****，然后选择事件中心命名空间、事件中心和访问策略。 
-        ![流式传输到事件中心](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+        ![此屏幕截图显示了“诊断设置”页，其中已选中“流式传输到事件中心”。](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - 如果选择“发送到 Log Analytics”****，请选择 Log Analytics 工作区。
-        ![发送到 Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
+        ![此屏幕截图显示了“诊断设置”页，其中已选中“发送到 Log Analytics”。](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 8. 选择“保存” 。 然后，选择右上角的 X**** 以关闭页面。 
 9. 现在，返回“诊断设置”**** 页面，确认在“诊断设置”**** 表中看到了一个新条目。 
-    ![列表中的诊断设置](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
+    ![此屏幕截图显示了“诊断设置”页，在“诊断设置”表中突出显示了一个新条目。](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
      你还可以为主题启用所有指标的收集。 
 

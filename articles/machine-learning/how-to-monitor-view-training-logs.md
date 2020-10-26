@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 582f6b6d3ef739962a763a8f0b5d347124a0ee15
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 1f3bd23326e898bc7b99f227ec3e6dc27d21053f
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395208"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118253"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>监视和查看 ML 运行日志与指标
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本文介绍如何监视 Azure 机器学习运行并查看其日志。 在查看日志之前，必须先启用它们。 有关详细信息，请参阅[在 Azure 机器学习训练运行中启用日志记录](how-to-track-experiments.md)。
 
@@ -93,7 +93,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>完成时显示输出
 
-使用 ScriptRunConfig 时，可以使用 ```run.wait_for_completion(show_output = True)``` 在模型定型完成时进行显示。 使用 ```show_output``` 标志可查看详细输出。 有关详细信息，请参阅[如何启用日志记录](how-to-track-experiments.md#scriptrunconfig-logs)中的 ScriptRunConfig 部分。
+使用 ScriptRunConfig 时，可以使用 ```run.wait_for_completion(show_output = True)``` 在模型定型完成时进行显示。 使用 ```show_output``` 标志可查看详细输出。 有关详细信息，请参阅[如何启用日志记录](how-to-track-experiments.md#scriptrun-logs)中的 ScriptRunConfig 部分。
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>查询运行指标
@@ -130,7 +130,7 @@ RunDetails(run).show()
 
 尝试执行以下后续步骤，了解如何使用 Azure 机器学习：
 
-* 了解如何[在 Azure 机器学习设计器（预览版）中跟踪试验并启用日志](how-to-track-designer-experiments.md)。
+* 了解如何[在 Azure 机器学习设计器中跟踪试验并启用日志](how-to-track-designer-experiments.md)。
 
 * 查看教程[使用 Azure 机器学习训练图像分类模型](tutorial-train-models-with-aml.md)中的示例，了解如何注册和部署最佳模型。
 

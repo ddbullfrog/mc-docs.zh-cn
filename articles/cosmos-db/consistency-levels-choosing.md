@@ -1,23 +1,23 @@
 ---
 title: 为 Azure Cosmos DB 应用选择适当的一致性级别
 description: 在 Azure Cosmos DB 中为你的应用程序选择适当的一致性级别。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/23/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 6f0ffab96971847342ecb7ca7f89f42b9b327a8e
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: f322329a8b6a25918bcb56c56c52594efc48b586
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223005"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118284"
 ---
-# <a name="choose-the-right-consistency-level"></a>选择适当的一致性级别 
+# <a name="how-to-choose-the-right-consistency-level-for-your-azure-cosmos-db-application"></a>如何为 Azure Cosmos DB 应用程序选择适当的一致性级别？ 
 
 依赖于复制以实现高可用性、低延迟或这两者的分布式数据库在读取一致性与可用性、延迟和吞吐量之间进行基本权衡。 大多数商用分布式数据库都要求开发人员在两种极端一致性模型之间进行选择：非常一致和最终一致。   开发人员使用 Azure Cosmos DB 可在五个妥善定义的一致性模型（非常、有限过期、会话、一致前缀和最终）之间进行选择。      这些一致性模型中的每一种都具有明确的定义并直观呈现，可用于特定的真实场景。 五种一致性模型中的每一种在精确的[可用性与性能方面都进行了权衡](consistency-levels-tradeoffs.md)，并有全面的 SLA 作为保障。 可以在帐户级别配置默认一致性，并[在请求级别替代它](how-to-manage-consistency.md#override-the-default-consistency-level)。 以下简单的注意事项将有助于你在许多常见方案中做出正确的选择。
 

@@ -3,14 +3,14 @@ title: 事件中心作为 Azure 事件网格事件的事件处理程序
 description: 介绍如何将时间中心用作 Azure 事件网格事件的事件处理程序。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 08/10/2020
+ms.date: 10/10/2020
 ms.author: v-johya
-ms.openlocfilehash: 7ab0f58469d1398c22993d43f8c071fe359460ae
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 4da49e243619dbe1b2d7d1e0eb7f7c7a2792576b
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228943"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128062"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>事件中心作为 Azure 事件网格事件的事件处理程序
 事件处理程序是发送事件的位置。 处理程序将执行操作来处理事件。 几个 Azure 服务已自动配置为处理事件，Azure 事件中心是其中之一。 
@@ -26,7 +26,7 @@ ms.locfileid: "88228943"
 | [资源管理器模板：创建事件网格自定义主题，并将事件发送到事件中心](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| 用于创建自定义主题的订阅的资源管理器模板。 它将事件发送到 Azure 事件中心。 |
 
 ## <a name="message-properties"></a>消息属性
-如果使用事件中心作为事件网格事件的事件处理程序，请设置以下消息标头： 
+如果使用事件中心作为事件网格事件的事件处理程序，则会在消息标头中收到以下属性： 
 
 | 属性名称 | 说明 |
 | ------------- | ----------- | 
@@ -83,6 +83,9 @@ ms.locfileid: "88228943"
     }
 }
 ```
+
+> [!NOTE]
+> 不支持将事件传递到另一个租户中的 Azure 事件中心。 
 
 ## <a name="next-steps"></a>后续步骤
 如需支持的事件处理程序的列表，请参阅[事件处理程序](event-handlers.md)一文。 

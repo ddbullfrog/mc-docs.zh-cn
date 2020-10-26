@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 2e991da839ad8b62f5ca25bb7c48df3fc92fed57
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 08/10/2020
+ms.openlocfilehash: 733a5a0c86987deb7ce79bbaa2e3cd8c7f8d99c1
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020876"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118316"
 ---
 # <a name="score-svd-recommender"></a>为 SVD 推荐器评分
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“为 SVD 推荐器评分”模块。 使用此模块可以通过基于奇异值分解 (SVD) 算法的经过训练的建议模型创建预测。
+本文介绍如何使用 Azure 机器学习设计器中的“为 SVD 推荐器评分”模块。 使用此模块可以通过基于奇异值分解 (SVD) 算法的经过训练的建议模型创建预测。
 
 SVD 推荐器可生成两种不同类型的预测：
 
@@ -53,7 +53,7 @@ SVD 推荐器可生成两种不同类型的预测：
 
    数据集可以选择包含第三列，用于第一列和第二列中的用户-项目对的评级。 但在预测过程中将忽略第三列。
 
-4. 运行管道。
+4. 提交管道。
 
 ### <a name="results-for-rating-predictions"></a>评级预测的结果 
 

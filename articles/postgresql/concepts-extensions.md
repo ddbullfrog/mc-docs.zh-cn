@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 07/10/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 744ca4061e48da446962bdfac9fde6d674a7d1c7
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+origin.date: 09/14/2020
+ms.date: 10/19/2020
+ms.openlocfilehash: 43b4b4d610e3d5d98732d4c21c0251104e796165
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029689"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041760"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的 PostgreSQL 扩展
 PostgreSQL 支持使用扩展来扩展数据的功能。 扩展在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载之后，扩展会如同内置功能一样运行。
@@ -229,7 +229,7 @@ pg_prewarm 扩展可将关系数据加载到缓存中。 预热缓存意味着�
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB 是一个时序数据库，已作为 PostgreSQL 的扩展打包。 TimescaleDB 提供以时间为导向的分析功能、优化，并根据时序工作负荷来缩放 Postgres。
 
-[详细了解 TimescaleDB](https://docs.timescale.com/latest)，它是 [Timescale, Inc.](https://www.timescale.com/) 的注册商标。 Azure Database for PostgreSQL 提供 Timescale 的开放源代码版本。 若要了解此版本中有哪些 Timescale 功能可用，请参阅 [Timescale 产品比较](https://www.timescale.com/products/)。
+[详细了解 TimescaleDB](https://docs.timescale.com/latest)，它是 [Timescale, Inc.](https://www.timescale.com/) 的注册商标。 Azure Database for PostgreSQL 提供 TimescaleDB [Apache-2 版本](https://www.timescale.com/legal/licenses)。
 
 ### <a name="installing-timescaledb"></a>安装 TimescaleDB
 若要安装 TimescaleDB，需将其包括在服务器的共享预加载库中。 更改 Postgres 的 `shared_preload_libraries` 参数需要**重启服务器**才能生效。 可以使用 [Azure 门户](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 更改参数。

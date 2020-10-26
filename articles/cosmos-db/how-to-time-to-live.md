@@ -5,21 +5,24 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 03/27/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 39f79eb57d1bd976058cc27c1bcc1624f492e9b0
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: b2cd61af6b245ca344b9b5c1e277c785c36f64af
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246454"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118125"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置生存时间
 
 在 Azure Cosmos DB 中，可以选择在容器级别配置生存时间 (TTL)，也可以在为容器完成设置之后，在项级别重写生存时间。 可以通过 Azure 门户或特定于语言的 SDK 配置容器的 TTL。 可以通过 SDK 配置项级别 TTL 重写。
+
+> [!NOTE]
+> 此内容与 Azure Cosmos DB 事务存储 TTL 相关。 如果正在查找通过 [Azure Synapse Link](https://docs.azure.cn/cosmos-db/synapse-link) 启用 NoETL HTAP 方案的分析存储 TTL，请单击[此处](/cosmos-db/analytical-store-introduction#analytical-ttl)。
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>使用 Azure 门户在容器上启用生存时间
 
@@ -40,9 +43,9 @@ ms.locfileid: "91246454"
 
     :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="在 Azure 门户中配置生存时间":::
 
-    * 当 DefaultTimeToLive 为 null 时，生存时间为“关”
-    * 当 DefaultTimeToLive 为 -1 时，“生存时间”设置为“开”（无默认值）
-    * 当 DefaultTimeToLive 具有任何其他整数值（0 除外）时，“生存时间”设置为“开”
+* 当 DefaultTimeToLive 为 null 时，生存时间为“关”
+* 当 DefaultTimeToLive 为 -1 时，“生存时间”设置为“开”（无默认值）
+* 当 DefaultTimeToLive 具有任何其他整数值（0 除外）时，“生存时间”设置为“开”
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>使用 Azure CLI 或 PowerShell 在容器上启用生存时间
 

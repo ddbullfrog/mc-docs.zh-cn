@@ -1,22 +1,22 @@
 ---
 title: Azure Cosmos DB 中的一致性级别
 description: Azure Cosmos DB 提供五种一致性级别来帮助在最终一致性、可用性和延迟之间做出取舍。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/06/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 249a3cd54f64c71a45eb4de42a7216c0d9dac2ca
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 82e2b3619ea7263f1ada1a2377ed20acfd25f3f0
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223001"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118290"
 ---
-# <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性级别
+# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中有哪些一致性级别？
 
 依赖于复制实现高可用性和/或低延迟的分布式数据库在读取一致性与可用性、延迟和吞吐量之间进行基本权衡。 大多数商用分布式数据库都要求开发人员在两种极端一致性模型之间进行选择：非常一致和最终一致。  非常一致性模型的可线性化是数据可编程性的黄金标准。 但它导致的写入延迟代价较高（稳定状态下）且会降低可用性（遇到故障时）。 另一方面，最终一致性可提供更高的可用性和性能，但会加大应用程序的编程难度。
 
@@ -46,7 +46,7 @@ Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选�
 
     下图以乐谱形式演示了非常一致性。 将数据写入“中国北部 2”区域后，当你从其他区域读取这些数据时，将会获得最新的值：
 
-  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="视频":::
+    :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="范围形式的一致性":::
 
 - **受限停滞一致性**：保证读取操作遵循一致性前缀保证。  读取操作可以滞后于写入操作最多“K”个项版本（即“更新”）或“T”时间间隔，以先达到者为准。 换言之，如果选择有限过期，则可以通过两种方式配置“过期”：
 
@@ -64,7 +64,7 @@ Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选�
 
     预期写入延迟较低，但需要保证全局整体顺序的多区域分布式应用程序经常选择“有限过期”。 有限过期非常适合提供小组协作和共享、股票行情、发布-订阅/排队等功能的应用程序。下图以乐谱形式演示了有限过期一致性。 将数据写入“中国北部 2”区域后，“中国东部 2”和“澳大利亚东部”区域将会根据所配置的最大滞后时间或最大操作数目读取写入的值：
 
-  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="视频":::
+    :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="范围形式的一致性":::
 
 - **会话一致性**：在单个客户端会话中，将保证读取操作遵循一致前缀、单调读取、单调写入、读取写入和读取后写入保证。 这采用单个“写入器”会话，或者多个写入器共享会话令牌。
 
@@ -77,7 +77,7 @@ Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选�
 
     “会话一致性”是最广泛用于单个区域以及多区域分布式应用程序的一致性级别。 它不仅提供与最终一致性相当的写入延迟、可用性和读取吞吐量，还提供一致性保证，从而满足了编写为在用户上下文中运行的应用程序的需求。 下图以乐谱形式演示了会话一致性。 “中国北部 2 写入器”和“中国北部 2 读取器”正在使用同一个会话（会话 A），因此它们会同时读取相同的数据。 而“澳大利亚东部”区域正在使用“会话 B”，因此，它会稍后才会接收到数据，但接收顺序与写入顺序相同。
 
-  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="视频":::
+    :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="范围形式的一致性":::
 
 - 一致前缀：返回的更新包含所有更新的一些前缀，不带间隔。 一致前缀一致性级别保证读取操作永远不会看到无序写入。
 
@@ -90,14 +90,14 @@ Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选�
 - 对于多主帐户，向单个区域进行写入的客户端的一致性为“一致前缀”
 - 对于多主帐户，向多个区域进行写入的客户端的一致性为“最终”
 
-    下图以乐谱形式演示了一致前缀一致性。 在所有区域中，读取操作永远不会看到无序写入：
+下图以乐谱形式演示了一致前缀一致性。 在所有区域中，读取操作永远不会看到无序写入：
 
-  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="视频":::
+:::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="范围形式的一致性":::
 
 - **最终一致性**：不保证读取的顺序。 如果缺少任何进一步的写入，则副本最终会收敛。  
-最终一致性是最弱的一致性形式，因为客户端可能会读取比之前读取的值还要旧的值。 最终一致性非常适合不需要任何顺序保证的应用程序。 示例包括推文、点赞或无回复评论的计数。 下图以乐谱形式演示了最终一致性。
+    最终一致性是最弱的一致性形式，因为客户端可能会读取比之前读取的值还要旧的值。 最终一致性非常适合不需要任何顺序保证的应用程序。 示例包括推文、点赞或无回复评论的计数。 下图以乐谱形式演示了最终一致性。
 
-  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="视频":::
+    :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="范围形式的一致性":::
 
 ## <a name="additional-reading"></a>其他阅读材料
 

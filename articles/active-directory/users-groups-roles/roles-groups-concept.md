@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7527d5b3f43aadeb51510aa5656b12cbed382c29
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 50132716e30fe10f3523cb93108b8b9917736c6a
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245532"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041498"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>使用云组来管理 Azure Active Directory（预览版）中的角色分配
 
@@ -62,7 +62,7 @@ Azure Active Directory (Azure AD) 即将引入公共预览，可在其中向 Azu
   - 角色分配的结束时间可能显示错误。
   - 在 PIM 门户中，“我的角色”只能显示一个角色分配，而不管通过多少方法授予分配（通过一个或多个组直接进行）。
 - 仅限 Azure AD P2 授权客户。即使删除该组，它仍会在 PIM UI 中显示该角色的合格成员。 在功能上没有问题；这只是 Azure 门户中的缓存问题。  
-- Exchange 管理中心尚无法通过组识别角色成员身份，但 PowerShell cmdlet 将起作用。
+- 使用新的 Exchange 管理中心通过组成员身份进行角色分配。 旧的 Exchange 管理中心目前尚不支持此功能。 Exchange PowerShell cmdlet 将按预期方式工作。
 
 我们正在解决这些问题。
 

@@ -1,9 +1,9 @@
 ---
 title: 异常管理 - Microsoft 威胁建模工具 - Azure | Azure 文档
-description: 针对威胁建模工具中暴露的威胁采取的缓解措施
+description: 了解 Threat Modeling Tool 中的异常管理。 请参阅缓解措施信息并查看代码示例。
 services: security
 documentationcenter: na
-author: jegeib
+author: Johnnytechn
 manager: jegeib
 editor: jegeib
 ms.assetid: na
@@ -13,18 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 02/07/2017
-ms.openlocfilehash: baed786f8cc0b9db2f036e83f037ca0a49da6b54
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: bd76ca64f00d07652a762e59b92f3548d12bd386
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439568"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128145"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>安全框架：异常管理 | 缓解措施 
-| 产品/服务 | 文章 |
+| 产品/服务 | 项目 |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF - 不要在配置文件中包含 serviceDebug 节点](#servicedebug)</li><li>[WCF - 不要在配置文件中包含 serviceMetadata 节点](#servicemetadata)</li></ul> |
 | **Web API** | <ul><li>[确保在 ASP.NET Web API 中进行适当的异常处理](#exception)</li></ul> |
@@ -203,7 +203,7 @@ public HttpResponseMessage PostProduct(Product item)
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
 | **参考**              | [编辑 ASP.NET 错误页设置对话框](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **步骤** | <p>如果 ASP.NET 应用程序失败并导致 HTTP/1.x 500 内部服务器错误，或者某项功能配置（例如请求筛选）阻止显示页面，会生成错误消息。 管理员可以选择是要让应用程序向客户端显示友好的消息、向客户端显示详细的错误消息，还是只向 localhost 显示详细的错误消息。 web.config 中的 `<customErrors>` 标记有三种模式：</p><ul><li>**On：** 指定启用自定义错误。 如果未指定 defaultRedirect 特性，用户将看到常规错误。 将向远程客户端和本地主机显示自定义错误</li><li>**Off：** 指定禁用自定义错误。 将向远程客户端和本地主机显示详细的 ASP.NET 错误</li><li>**RemoteOnly：** 指定只向远程客户端显示自定义错误，向本地主机显示 ASP.NET 错误。 此为默认值。</li></ul><p>打开应用程序/站点的 `web.config`文件，确保该标记中定义了 `<customErrors mode="RemoteOnly" />` 或 `<customErrors mode="On" />`。</p>|
+| **步骤** | <p>如果 ASP.NET 应用程序失败并导致 HTTP/1.x 500 内部服务器错误，或者某项功能配置（例如请求筛选）阻止显示页面，会生成错误消息。 管理员可以选择是要让应用程序向客户端显示友好的消息、向客户端显示详细的错误消息，还是只向 localhost 显示详细的错误消息。 web.config 中的 `<customErrors>` 标记有三种模式：</p><ul><li>On：指定启用自定义错误。 如果未指定 defaultRedirect 特性，用户将看到常规错误。 将向远程客户端和本地主机显示自定义错误</li><li>Off：指定禁用自定义错误。 将向远程客户端和本地主机显示详细的 ASP.NET 错误</li><li>RemoteOnly：指定只向远程客户端显示自定义错误，向本地主机显示 ASP.NET 错误。 此为默认值。</li></ul><p>打开应用程序/站点的 `web.config`文件，确保该标记中定义了 `<customErrors mode="RemoteOnly" />` 或 `<customErrors mode="On" />`。</p>|
 
 ## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>在 IIS 中将部署方法设置为 Retail
 
@@ -224,7 +224,7 @@ public HttpResponseMessage PostProduct(Product item)
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [安全失败](https://www.owasp.org/index.php/Fail_securely) |
+| **参考**              | [安全失败](https://owasp.org/www-community/Fail_securely) |
 | **步骤** | 应用程序应安全失败。 对于根据所做的特定决策返回布尔值的任何方法，应该谨慎创建异常块。 许多逻辑错误就是因为在编写异常块时漫不经心，使安全问题日积月累造成的。|
 
 ### <a name="example"></a>示例
@@ -269,3 +269,4 @@ public HttpResponseMessage PostProduct(Product item)
         }
 ```
 如果发生某种异常，上述方法始终返回 True。 如果最终用户提供了浏览器支持的、但 `Uri()` 构造函数不支持的错误格式 URL，则会引发异常，受害者会转到有效但格式不当的 URL。 
+

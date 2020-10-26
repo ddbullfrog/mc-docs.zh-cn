@@ -4,16 +4,16 @@ description: 了解 Azure Service Fabric 的 EventStore，通过它可以随时�
 ms.topic: conceptual
 origin.date: 06/06/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 78854d013d404e6786e2d364f70884ca9cacf283
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 979f7081be22b09e48c295bd4326f77a67c5d559
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655377"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128388"
 ---
 # <a name="eventstore-overview"></a>EventStore 概述
 
@@ -29,7 +29,7 @@ EventStore 是有状态 Service Fabric 服务，它维护群集中的事件。 �
 * 确认正在正确处理对群集执行的管理操作
 * 获取 Service Fabric 如何与特定实体进行交互的“快照”
 
-:::image type="content" source="media/service-fabric-diagnostics-eventstore/eventstore.png" alt-text="EventStore":::
+:::image type="content" source="media/service-fabric-diagnostics-eventstore/eventstore.png" alt-text="屏幕截图显示“节点”窗格中多个事件（包括 NodeDown 事件）的“事件”选项卡。":::
 
 若要查看 EventStore 中可用的事件的完整列表，请参阅 [Service Fabric 事件](service-fabric-diagnostics-event-generation-operational.md)。
 

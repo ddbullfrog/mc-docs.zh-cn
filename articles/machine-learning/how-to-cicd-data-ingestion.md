@@ -1,23 +1,23 @@
 ---
 title: 数据引入管道的 DevOps
 titleSuffix: Azure Machine Learning
-description: 了解如何将 DevOps 做法应用到为模型训练准备数据的数据引入管道实现。
+description: 了解如何应用 DevOps 做法来生成数据引入管道，该管道用于准备在 Azure 机器学习中使用的数据。 引入管道使用 Azure 数据工厂。 Azure 管道用于为引入管道创建持续集成和交付过程。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
-ms.date: 01/30/2020
-ms.custom: tracking-python
-ms.openlocfilehash: fb8cc2c690955d837394302dd6e0b755fee42652
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.date: 06/23/2020
+ms.openlocfilehash: a6e99cea232633bb3b1c852b59441c0341b1b113
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440971"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118197"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>数据引入管道的 DevOps
 
@@ -70,7 +70,6 @@ ms.locfileid: "86440971"
 
 Azure 数据工厂管道的源代码是 Azure 数据工厂工作区生成的 JSON 文件的集合。 通常，数据工程师会在 Azure 数据工厂工作区中使用可视化设计器，而不是直接处理源代码文件。 
 
-若要将工作区配置为使用源代码管理存储库，请参阅[通过 Azure Repos Git 集成进行创作](../data-factory/source-control.md#author-with-azure-repos-git-integration)。   
 
 ## <a name="continuous-integration-ci"></a>持续集成 (CI)
 
@@ -291,7 +290,7 @@ Azure 数据工厂的可部署项目是一个 Azure 资源管理器模板。 它
 
 ### <a name="run-the-pipeline-and-check-the-data-ingestion-result"></a>运行管道并检查数据引入结果
 
-下一步是确保部署的解决方案可正常运行。 以下作业定义使用 [PowerShell 脚本](https://github.com/microsoft/DataOps/tree/master/adf/utils)运行 Azure 数据工厂管道，并在 Azure Databricks 群集上执行一个 Python 笔记本。 该笔记本检查是否已正确引入数据，并验证名称为 $(bin_FILE_NAME) 的结果数据文件。
+下一步是确保部署的解决方案可正常运行。 以下作业定义使用 [PowerShell 脚本](https://github.com/microsoft/DataOps/tree/master/adf/utils)运行 Azure 数据工厂管道，并在 Azure Databricks 群集上执行一个 Python 笔记本。 该笔记本检查是否已正确引入数据，并验证名称为 `$(bin_FILE_NAME)` 的结果数据文件。
 
 ```yaml
   - job: "Integration_test_job"

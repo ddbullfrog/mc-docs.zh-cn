@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b478037780fd1df156d5ef6817a7ef6a6eae638
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: fd7260e00c1f883738bc2b48c8ad8efda32e56b8
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245617"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041611"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 用户登录选项
 Azure Active Directory (Azure AD) Connect 可让用户使用同一组密码登录云和本地资源。 本文介绍每个标识模型的重要概念，以帮助你选择登录到 Azure AD 时想要使用的标识。
@@ -159,7 +159,7 @@ Azure AD 登录页列出了针对本地 Active Directory 定义的 UPN 后缀，
 
 在下一页上，系统将要求你提供 Azure AD 的凭据。
 
-![连接到 Azure AD](./media/plan-connect-user-signin/changeusersignin2.png)
+![显示在何处键入 Azure AD 凭据的屏幕截图。](./media/plan-connect-user-signin/changeusersignin2.png)
 
 在“用户登录”  页上，选择所需的用户登录选项。
 

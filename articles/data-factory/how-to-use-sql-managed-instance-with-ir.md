@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 4/15/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 88504dbc501c6eea1f7fe5af88f7a59a9f407f69
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 10/19/2020
+ms.openlocfilehash: 02dc5dab03c01907b6e553783f474040f070575d
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523897"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121714"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>在 Azure 数据工厂中结合使用 Azure SQL 托管实例和 SQL Server Integration Services (SSIS)
 
@@ -128,7 +128,7 @@ ms.locfileid: "90523897"
 
     公共终结点主机名采用 <mi_name>.public.<dns_zone>.database.chinacloudapi.cn 格式，用于连接的端口是 3342。  
 
-    ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
+    ![屏幕截图显示了集成运行时设置，其中选择了“创建 SSIS 目录”并输入了“目录数据库服务器终结点”。](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
 
 1. 选择在应用时启用 Azure AD 身份验证。
 
@@ -144,7 +144,7 @@ ms.locfileid: "90523897"
 
     若要详细了解如何将 Azure-SSIS IR 联接到虚拟网络，请参阅[将 Azure-SSIS Integration Runtime 联接到虚拟网络](join-azure-ssis-integration-runtime-virtual-network.md)。
 
-    ![join-virtual-network](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
+    ![屏幕截图显示了集成运行时设置的“高级设置”，你可以在其中选择供运行时加入的虚拟网络。](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
 
 有关如何创建 Azure-SSIS IR 的详细信息，请参阅[在 Azure 数据工厂中创建 Azure-SSIS 集成运行时](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime)。
 

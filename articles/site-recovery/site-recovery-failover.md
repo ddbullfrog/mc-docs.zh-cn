@@ -4,16 +4,17 @@ description: 如何使用 Azure Site Recovery 将 VM/物理服务器故障转移
 ms.service: site-recovery
 ms.topic: article
 origin.date: 12/10/2019
-ms.date: 08/03/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 02/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3e9522fc4e61e9f13397cd7fd4846288617750bd
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 58160c399f8c6175bb0f54ffa5da58b67b0a62ef
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426533"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128212"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>运行从本地到 Azure 的故障转移
 
@@ -47,7 +48,7 @@ ms.locfileid: "87426533"
 1. 在 Site Recovery 保管库中，选择“恢复计划” > “recoveryplan_name”   。
 2. 单击 **“故障转移”** 。
 
-    ![故障转移](./media/site-recovery-failover/Failover.png)
+    :::image type="content" source="./media/site-recovery-failover/Failover.png" alt-text="Azure Site Recovery 的屏幕截图，其中显示了 ADRP 窗格，并从“更多”菜单中选择了“故障转移”。":::
 
 3. 在“故障转移” > “故障转移方向”中，如果要复制到 Azure，则保留默认值   。
 4. 在“故障转移”中，选择要故障转移到的恢复点   。
@@ -82,7 +83,7 @@ ms.locfileid: "87426533"
 
 有多个与故障转移相关的作业。
 
-![故障转移](./media/site-recovery-failover/FailoverJob.png)
+:::image type="content" source="./media/site-recovery-failover/FailoverJob.png" alt-text="Azure Site Recovery 的屏幕截图，其中显示了 ADRP 窗格，并从“更多”菜单中选择了“故障转移”。":::
 
 - **先决条件检查**：确保满足故障转移所需的全部条件。
 - **故障转移**：处理数据，以便通过其创建 Azure VM。 如果选择了**最新的**恢复点，则会基于发送到服务的数据创建恢复点。
@@ -111,7 +112,8 @@ ms.locfileid: "87426533"
 你可能希望在故障转移过程中自动执行操作。 为此，可以在恢复计划中使用脚本或 Azure 自动化 runbook。
 
 - [了解](site-recovery-create-recovery-plans.md)如何创建和自定义恢复计划，包括添加脚本。
-- [了解](site-recovery-runbook-automation.md)如何将 Azure 自动化 Runbook 添加到恢复计划中。
+
+<!--Not Avaialble on [Learn](site-recovery-runbook-automation.md)-->
 
 ## <a name="configure-settings-after-failover"></a>故障转移后配置设置
 

@@ -1,9 +1,9 @@
 ---
 title: Azure 基础结构监视
-description: 本文讨论如何监视 Azure 生产网络。
+description: 了解 Azure 生产网络的基础结构监视方面的信息，例如漏洞扫描。
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 06/28/2018
-ms.openlocfilehash: ba1e2235db612ce5f752824134bfd009bd65db3a
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 52f9ad3cd0fdac2b7cbad51feb94752a75971901
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439575"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128074"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Azure 基础结构监视   
 
@@ -62,3 +62,4 @@ Microsoft 实施安全事件管理过程，以在发生事件时加速对事件�
 - [Azure 生产运营和管理](infrastructure-operations.md)
 - [Azure 基础结构完整性](infrastructure-integrity.md)
 - [Azure 客户数据保护](protection-customer-data.md)
+

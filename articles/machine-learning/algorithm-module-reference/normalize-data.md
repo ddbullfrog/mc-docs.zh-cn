@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: v-yiso
-origin.date: 10/22/2019
-ms.date: 03/09/2020
-ms.openlocfilehash: 43e42ddec94a8bc5514fa73486416b659f7efe6b
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+origin.date: 02/22/2020
+ms.date: 10/26/2020
+ms.openlocfilehash: e36c9d3b4168f0b31324f7ee8b2c140ff0603f58
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097475"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118340"
 ---
 # <a name="normalize-data-module"></a>“规范化数据”模型
 
-本文介绍 Azure 机器学习设计器（预览版）的模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用本模块通过规范化来转换数据集**。
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 简介
 description: 了解 Azure Cosmos DB。 此多区域分布式多模型数据库是为了实现低延迟、弹性可伸缩性和高可用性而构建的，提供对 NoSQL 数据的本机支持。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: overview
 origin.date: 10/23/2019
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 942e4fc770f7e82a0201bc2126a7c96546cf4a64
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.openlocfilehash: 9b450385a0f46e05281f0e734b734a1c166fb509
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134625"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118547"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 
@@ -21,9 +21,12 @@ ms.locfileid: "82134625"
 Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 只需单击一个按钮，即可通过 Cosmos DB 跨任意数量的中国 Azure 区域弹性且独立地缩放吞吐量和存储。 你可以弹性缩放吞吐量和存储，并通过以下常用 API 利用个位数毫秒级的快速数据访问：SQL、MongoDB、Cassandra、表或 Gremlin。 Cosmos DB 为吞吐量、延迟、可用性和一致性保证提供综合[服务级别协议](https://www.azure.cn/support/sla/cosmos-db/) (SLA)，这是其他数据库服务无法提供的。
 
 <!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
-<!-- Not Available on [Cosmos DB Bootstrap Program](https://azurecosmosdb.github.io/CosmosBootstrap/)-->
 
-![Azure Cosmos DB 是世纪互联提供的多区域分布式数据库服务，可以弹性横向扩展，可保证低延迟，有五个一致性模型，并且保证满足综合 SLA](./media/introduction/azure-cosmos-db.png)
+可以使用 [Azure Cosmos DB 免费层](optimize-dev-test.md#azure-cosmos-db-free-tier)获得一个帐户，该帐户头 400 RU/秒的吞吐量和 5 GB 的存储免费。
+
+<!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
+
+:::image type="content" source="./media/introduction/azure-cosmos-db.png" alt-text="Azure Cosmos DB 是世纪互联提供的多区域分布式数据库服务，可以弹性横向扩展，可保证低延迟，有五个一致性模型，并且保证满足综合 SLA" border="false":::
 
 ## <a name="key-benefits"></a>主要优势
 
@@ -31,11 +34,11 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 利用 Cosmos DB，可在中国全境范围内生成具有高响应能力和可用性的应用程序。 无论用户身处何处，Cosmos DB 均可以透明方式复制数据，因此用户可以与离他们最近的数据副本进行交互。
 
-Cosmos DB 允许随时在 Cosmos 帐户中添加或删除任何 Azure 区域，只需单击一个按钮即可。 Cosmos DB 将无缝地将数据复制到与 Cosmos 帐户相关联的所有区域，同时，得益于该服务的多导功能，应用程序将继续保持高可用性  。 有关详细信息，请参阅[多区域分布](distribute-data-globally.md)一文。
+凭借 Cosmos DB，还可以随时向 Cosmos 帐户添加或删除任何 Azure 区域，只需单击一个按钮即可。 Cosmos DB 将无缝地将数据复制到与 Cosmos 帐户相关联的所有区域，同时，得益于该服务的多导功能，应用程序将继续保持高可用性  。 有关详细信息，请参阅[多区域分布](distribute-data-globally.md)一文。
 
 ### <a name="always-on"></a>Always On
 
-凭借与 Azure 基础结构和[透明多主数据库复制](global-dist-under-the-hood.md)的深度集成，Cosmos DB 可为读写操作提供 99.999% 的[高可用性](high-availability.md)。 Cosmos DB 还可让你以编程方式（或通过门户）调用 Cosmos 帐户的区域性故障转移。 此功能有助于确保应用程序能够在发生区域性灾难时进行故障转移。
+凭借与 Azure 基础结构和[透明多主数据库复制](global-dist-under-the-hood.md)的深度集成，Cosmos DB 可为读写操作提供 99.999% 的[高可用性](high-availability.md)。 Cosmos DB 还提供以编程方式（或通过门户）调用 Cosmos 帐户的区域性故障转移的功能。 此功能有助于确保应用程序能够在发生区域性灾难时进行故障转移。
 
 ### <a name="elastic-scalability-of-throughput-and-storage-around-china"></a>中国全境范围内的吞吐量和存储可弹性缩放
 
@@ -53,9 +56,9 @@ Cosmos DB 采用透明水平分区和多主数据库复制设计，为中国全�
 
 对于多区域分布式应用而言，使数据库架构和索引与应用程序的架构保持同步非常棘手。 借助 Cosmos DB，则无需处理架构或索引管理。 数据库引擎完全与架构无关。  由于不需要架构和索引管理，因此迁移架构时也不必担心应用程序停用时间。 Cosmos DB [自动为所有数据编制索引](index-policy.md)，并可快速提供查询服务。
 
-### <a name="battle-tested-database-service"></a>在实战中检验的数据库服务
+### <a name="battle-tested-database-service"></a>久经考验的数据库服务
 
-Cosmos DB 是 Azure 中的一项基本服务。 近十年以来，Azure 的大量多区域规模任务关键型应用程序产品（包括 Skype、Xbox、Office 365、Azure，等等）已使用了 Cosmos DB。 如今，Cosmos DB 是 Azure 上发展最快的服务之一，许多需要弹性缩放、统包多区域分发、多主数据库复制的外部客户和任务关键型应用程序都在使用这项服务，以实现读写操作的低延迟和高可用性。
+Cosmos DB 是 Azure 中的一项基本服务。 近十年来，Azure 的大量多区域范围的关键应用程序产品（包括 Skype、Xbox、Microsoft 365、Azure 等）已使用了 Cosmos DB。 如今，Cosmos DB 是 Azure 上发展最快的服务之一，许多需要弹性缩放、统包多区域分发、多主数据库复制的外部客户和任务关键型应用程序都在使用这项服务，以实现读写操作的低延迟和高可用性。
 
 ### <a name="ubiquitous-regional-presence"></a>遍及各个区域
 
@@ -63,15 +66,15 @@ Cosmos DB 在中国各地的所有 Azure 中国区域提供。 请参阅 [Cosmos
 
 <!--Not Available on including 54+ regions in public cloud, Azure China 21Vianet-->
 
-### <a name="secure-by-default-and-enterprise-ready"></a>默认安全且企业就绪
+### <a name="secure-by-default-and-enterprise-ready"></a>默认保护和企业就绪
 
-Cosmos DB 通过了[广泛的合规标准](compliance.md)认证。 此外，Cosmos DB 中的所有数据经过静态和动态加密。 Cosmos DB 提供行级授权，并遵守严格的安全标准。
+Cosmos DB 已通过[各种符合性标准](compliance.md)认证。 此外，Cosmos DB 中的所有数据都将进行静态和动态加密。 Cosmos DB 提供行级授权，并遵循严格的安全标准。
 
-### <a name="significant-tco-savings"></a>明显的总拥有成本节省
+### <a name="significant-tco-savings"></a>大大节省了 TCO
 
 由于 Cosmos DB 是一项完全托管服务，因此不再需要管理和操作复杂的多数据中心部署和数据库软件的升级，也不再需要为支持、许可或操作付费，也不必为峰值工作负载预配数据库。 有关详细信息，请参阅[使用 Cosmos DB 优化成本](total-cost-ownership.md)。
 
-### <a name="industry-leading-comprehensive-slas"></a>行业领先的全面 SLA
+### <a name="industry-leading-comprehensive-slas"></a>业界领先的复合型 SLA
 
 Cosmos DB 是第一款，也是唯一的一款提供[行业领先的全面 SLA](https://www.azure.cn/support/sla/cosmos-db/) 的服务，该 SLA 涵盖 99.999% 的高可用性、99% 的时间内为读写操作提供低延迟，保证吞吐量和一致性。
 
@@ -86,7 +89,7 @@ Cosmos DB 提供多种 API 来处理存储在 Cosmos 数据库中的数据。 �
 * 轻松将应用程序迁移到 Cosmos DB，同时保留应用程序逻辑的重要部分。
 * 使应用程序保持可移植性，并继续保持云供应商的不可知性。
 * 为常用的 NoSQL API 获取行业领先的、有资金保障的 SLA 完全托管云服务。 
-* 根据需求弹性缩放数据库的预配吞吐量和存储，并且只需为使用的吞吐量和存储付费。 这可以大幅节省成本。
+* 根据需求弹性缩放数据库的预配吞吐量和存储，并且只需为所需的吞吐量和存储付费。 这可以大幅节省成本。
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>受益于 Azure Cosmos DB 的解决方案
 

@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 02/11/2020
 ms.date: 03/09/2020
-ms.openlocfilehash: 3b1a3e093a5030481f519a11f226f881cc489dce
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 5d5faa2e95454206d3e376b9e83f4d528c8f69a5
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097146"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118317"
 ---
 # <a name="score-model"></a>评分模型
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块可以通过经训练的分类或回归模型生成预测值。
 

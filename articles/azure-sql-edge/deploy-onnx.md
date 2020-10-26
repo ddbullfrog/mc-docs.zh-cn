@@ -9,15 +9,15 @@ ms.topic: conceptual
 author: dphansen
 ms.author: v-tawe
 origin.date: 07/14/2020
-ms.date: 09/25/2020
-ms.openlocfilehash: b06224a2081dfc8e850b8096757212756fac91db
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.date: 10/19/2020
+ms.openlocfilehash: fe558446a97b79faec7186f73dcea3993a3ba799
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248516"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170768"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model"></a>使用 ONNX 模型进行部署并做出预测
+# <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>使用 ONNX 模型和 SQL 机器学习部署和预测
 
 在本快速入门中，你将了解如何训练模型，将其转换为 ONNX 并部署到 [Azure SQL Edge](onnx-overview.md)，然后使用上传的 ONNX 模型对数据运行本机 PREDICT。
 
@@ -178,7 +178,7 @@ def convert_dataframe_schema(df, drop=None, batch_axis=False):
 
 ```python
 # Convert the scikit model to onnx format
-onnx_model = skl2onnx.convert_sklearn(model, 'Boston Data', convert_dataframe_schema(x_train))
+onnx_model = skl2onnx.convert_sklearn(model, 'Boston Data', convert_dataframe_schema(x_train), final_types=[('variable1',FloatTensorType([1,1]))])
 # Save the onnx model locally
 onnx_model_path = 'boston1.model.onnx'
 onnxmltools.utils.save_model(onnx_model, onnx_model_path)

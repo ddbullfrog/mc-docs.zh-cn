@@ -1,23 +1,23 @@
 ---
 title: Azure VM 大小 - 常规用途 | Azure
 description: 列出了 Azure 中虚拟机可用的不同常规用途大小。 列出了有关此系列中各大小的 vCPU 数、数据磁盘数和 NIC 数以及存储吞吐量和网络带宽的信息。
-author: rockboyfor
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.devlang: na
 ms.topic: conceptual
 ms.workload: infrastructure-services
 origin.date: 02/20/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 079de0052dba0bf6a6b218889585203e00fceff5
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: a4f266101c9a1da2a0959f606e43800ea34ba67b
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052441"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128099"
 ---
 <!--Verified successfully-->
 <!--Partical Content from verified-->
@@ -29,18 +29,22 @@ ms.locfileid: "89052441"
 
     <!--Not Available on A8 - A11 VMs are planned for retirement on 3/2021-->
 
+<!--Not Available on FEATURE HPC-->
+
 - [B 系列可突增](sizes-b-series-burstable.md) VM 非常适合于并非持续需要 CPU 完全性能的工作负荷，例如 Web 服务器、小型数据库以及开发和测试环境。 这些工作负荷通常具有可突增的性能要求。 B 系列使这些客户能够购买具有高性价比基线性能的 VM 大小，允许 VM 实例在 VM 使用的性能小于其基线性能时积累积分。 如果 VM 已累积了积分，则 VM 可以在应用程序需要更高的 CPU 性能时突增到 VM 的基线之上，使用最多达到 100% 的 vCPU。
 
     <!--Not Available on [Dav4 and Dasv4-series](dav4-dasv4-series.md)-->
     <!--Not Available on [DCv2-series](dcv2-series.md)-->
 
-- [Dv2 和 Dsv2 系列](dv2-dsv2-series.md) VM 是原 D 系列的后续产品，具有更强大的 CPU 和最优 CPU 到内存配置，使其适合于大多数生产工作负荷。 Dv2 系列比 D 系列快大约 35%。 Dv2 系列在第 2 代英特尔® 至强® 铂金 8272CL (Cascade Lake)、英特尔® 至强® 8171M 2.1GHz (Skylake)、英特尔® 至强® E5-2673 v4 2.3 GHz (Broadwell) 或英特尔® 至强® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行，并采用英特尔睿频加速技术 2.0。 Dv2 系列的内存和磁盘配置与 D 系列相同。
+- [Dv4 和 Dsv4 系列](dv4-dsv4-series.md) Dv4 和 Dsv4 系列以超线程配置在 Intel® Xeon® Platinum 8272CL (Cascade Lake) 处理器上运行，为大多数常规用途工作负荷提供更好的价值主张。 它具有 3.4 GHz 的持续全核心 Turbo 时钟速度。
+
+    <!--Not Available on - [Dav4 and Dasv4-series](dav4-dasv4-series.md)-->
 
 - [Dv3 和 Dsv3 系列](dv3-dsv3-series.md) VM 在采用超线程配置的第 2 代英特尔® 至强® 铂金 8272CL (Cascade Lake)、英特尔® 至强® 8171M 2.1GHz (Skylake)、英特尔® 至强® E5-2673 v4 2.3 GHz (Broadwell) 或英特尔® 至强® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行，为大多数常规用途工作负载提供更好的价值定位。 在磁盘和网络限制已基于核心进行了调整以适应超线程技术的同时，内存已扩展（从 ~3.5 GiB/vCPU 到 4 GiB/vCPU）。 Dv3 系列不再具有 D/Dv2 系列的高内存 VM 大小，那些已移至内存优化的 [Ev3 和 Esv3 系列](ev3-esv3-series.md)。
-  
-    <!--Not Available on - [Dv4 and Dsv4-series](dv4-dsv4-series.md)-->
 
-    <!--Not Available on - [Ddv4 and Ddsv4-series](ddv4-ddsv4-series.md)-->
+- [Dv2 和 Dsv2 系列](dv2-dsv2-series.md) VM 是原 D 系列的后续产品，具有更强大的 CPU 和最优 CPU 到内存配置，使其适合于大多数生产工作负荷。 Dv2 系列比 D 系列快大约 35%。 Dv2 系列在第 2 代英特尔® 至强® 铂金 8272CL (Cascade Lake)、英特尔® 至强® 8171M 2.1GHz (Skylake)、英特尔® 至强® E5-2673 v4 2.3 GHz (Broadwell) 或英特尔® 至强® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行，并采用英特尔睿频加速技术 2.0。 Dv2 系列的内存和磁盘配置与 D 系列相同。
+
+    <!--Not Available on - The [DCv2-series](dcv2-series.md)-->
 
 ## <a name="other-sizes"></a>其他大小
 

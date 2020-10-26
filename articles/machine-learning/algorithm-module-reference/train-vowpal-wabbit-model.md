@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: e2e32bd2e56d5cf0024accb0697c547f72c75bb1
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 28a9ec33ef2eac355a122167066a2a4013b156e5
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021642"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118031"
 ---
 # <a name="train-vowpal-wabbit-model"></a>训练 Vowpal Wabbit 模型
-本文介绍如何在 Azure 机器学习设计器（预览版）中使用“训练 Vowpal Wabbit 模型”模块，以通过 Vowpal Wabbit 创建一个机器学习模型。  
+本文介绍如何在 Azure 机器学习设计器中使用“训练 Vowpal Wabbit 模型”模块，以通过 Vowpal Wabbit 创建一个机器学习模型。  
 
 若将 Vowpal Wabbit 用于机器学习，请按照 Vowpal Wabbit 要求将输入格式化，并按照必需的格式准备数据。 使用此模块可指定 Vowpal Wabbit 命令行参数。 
 

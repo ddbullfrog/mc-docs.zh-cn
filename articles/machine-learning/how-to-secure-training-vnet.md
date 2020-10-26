@@ -11,18 +11,22 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 6902247615daf0da3f89a01e75024cfd87a4475f
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: e80624045cc032f68c7a09b6d776b52a27d733db
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395560"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118556"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习训练环境
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 本文介绍如何在 Azure 机器学习中使用虚拟网络保护训练环境。
 
+本文是由五部分组成的系列文章的第三部分，指导你如何保护 Azure 机器学习工作流。 
+
+请参阅本系列中的其他文章：
+
+[1.保护工作区](how-to-secure-workspace-vnet.md) > **2.保护训练环境** > [3.保护推理环境](how-to-secure-inferencing-vnet.md)  > [4.启用工作室功能](how-to-enable-studio-virtual-network.md)
 
 本文介绍如何在虚拟网络中保护以下训练计算资源：
 > [!div class="checklist"]
@@ -156,7 +160,7 @@ Batch 服务在附加到 VM 的网络接口 (NIC) 级别添加网络安全组 (N
 
     * 下载 [Azure IP 范围和服务标记](https://www.microsoft.com/download/details.aspx?id=56519)，并在文件中搜索 `BatchNodeManagement.<region>` 和 `AzureMachineLearning.<region>`（其中 `<region>` 是你的 Azure 区域）。
 
-    * 使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 下载信息。 以下示例下载 IP 地址信息，并筛选出“中国东部 2”区域的信息：
+    * 使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 下载信息。 以下示例下载 IP 地址信息，并筛选出“中国东部 2”区域的信息：
 
         ```azurecli
         az network list-service-tags -l "China East 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='chinaeast2']"
@@ -172,6 +176,9 @@ Batch 服务在附加到 VM 的网络接口 (NIC) 级别添加网络安全组 (N
     添加 UDR 时，请为每个相关的 Batch IP 地址前缀定义路由，并将“下一跃点类型”设置为“Internet”。  下图显示了 Azure 门户中此 UDR 的示例：
 
     ![地址前缀的 UDR 示例](./media/how-to-enable-virtual-network/user-defined-route.png)
+
+    > [!IMPORTANT]
+    > IP 地址可能会随时间推移而改变。
 
     除了定义的任何 UDR，还必须通过本地网络设备允许流向 Azure 存储的出站流量。 具体而言，此流量的 URL 采用以下格式：`<account>.table.core.windows.net`、`<account>.queue.core.windows.net` 和 `<account>.blob.core.windows.net`。 
 
@@ -301,8 +308,9 @@ except ComputeTargetException:
 
 ## <a name="next-steps"></a>后续步骤
 
-本文是由四部分构成的虚拟网络系列文章中的第三部分。 若要了解如何保护虚拟网络，请参阅其余文章：
+本文是由三部分构成的虚拟网络系列文章中的第三部分。 若要了解如何保护虚拟网络，请参阅其余文章：
 
-* [第 2 部分：保护工作区资源](how-to-secure-workspace-vnet.md)
-* [第 4 部分：保护推理环境](how-to-secure-inferencing-vnet.md)
-* [第 5 部分：启用工作室功能](how-to-enable-studio-virtual-network.md)
+
+* [第 1 部分：保护工作区资源](how-to-secure-workspace-vnet.md)
+* [第 2 部分：保护推理环境](how-to-secure-inferencing-vnet.md)
+* [第 3 部分：启用工作室功能](how-to-enable-studio-virtual-network.md)

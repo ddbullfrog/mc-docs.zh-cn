@@ -1,9 +1,9 @@
 ---
-title: 管理和监视安全功能 - Microsoft Azure | Azure Docs
+title: 管理和监视安全功能 - Azure | Azure Docs
 description: 本文概述了 Azure 提供的安全功能和服务，以帮助管理和监视 Azure 云服务和虚拟机。
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
 editor: TomSh
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 10/28/2019
-ms.openlocfilehash: 46fdcf779533a84ac54568812a2336eb253f8971
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: cbc440c4dabced85ca75d80bfe33fbe5d0a1543d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439565"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128006"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全管理和监视概述
 本文概述了 Azure 提供的安全功能和服务，以帮助管理和监视 Azure 云服务和虚拟机。
@@ -33,7 +33,7 @@ ms.locfileid: "84439565"
 了解详细信息：
 
 * [有关 RBAC 的 Active Directory 团队博客](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Azure 基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)
+* [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>反恶意软件
 
@@ -49,7 +49,6 @@ ms.locfileid: "84439565"
 * [在 Azure 虚拟机上部署反恶意软件解决方案](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [适用于 Azure 云服务和虚拟机的 Microsoft 反恶意软件](antimalware.md)
 * [如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务](/virtual-machines/windows/classic/install-trend)
-<!--Symantec not available-->
 * [New Antimalware Options for Protecting Azure Virtual Machines](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)（用于保护 Azure 虚拟机的新反恶意软件选项）
 
 ## <a name="multi-factor-authentication"></a>多重身份验证
@@ -60,13 +59,13 @@ Azure 多重身份验证是一种需要使用多种验证方法的身份验证�
 
 了解详细信息：
 
-* [多重身份验证](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+* [多重身份验证](/active-directory/authentication)
 * [什么是 Azure 多重身份验证？](/active-directory/authentication/multi-factor-authentication)
 * [Azure 多重身份验证的工作原理](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 
-可使用 Azure ExpressRoute 通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Azure、Office 365 和 CRM Online 等 Microsoft 云服务建立连接。 连接可以来自：
+可使用 Azure ExpressRoute 通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Azure、Microsoft 365 和 CRM Online 等 Microsoft 云服务建立连接。 连接可以来自：
 
 * 任意位置之间的 (IP VPN) 网络。
 * 点到点以太网。
@@ -139,3 +138,4 @@ Intelligent Security Graph 在 Microsoft 产品和服务中提供实时威胁防
 了解[共担责任模型](shared-responsibility.md)、由 Microsoft 处理的安全任务，以及由你处理的任务。
 
 有关安全管理的详细信息，请参阅 [Azure 中的安全管理](management.md)。
+

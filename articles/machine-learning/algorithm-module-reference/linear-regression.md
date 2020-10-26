@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: v-yiso
-origin.date: 10/22/2019
-ms.date: 03/09/2020
-ms.openlocfilehash: 439db01bc10a9d123109873230829a862fc732e9
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+origin.date: 04/22/2020
+ms.date: 10/26/2020
+ms.openlocfilehash: b76070043af5df367cf0a51d6f3a1cefadff4f3e
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097482"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117876"
 ---
 # <a name="linear-regression-module"></a>“线性回归”模块
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块可以创建可在管道中使用的线性回归模型。  线性回归尝试在一个或多个自变量与数字结果或因变量之间建立线性关系。 
 
@@ -26,7 +26,7 @@ ms.locfileid: "85097482"
 
 ## <a name="about-linear-regression"></a>关于线性回归
 
-线性回归是一种常用的统计方法，它已在机器学习中得到运用，并已通过许多用于拟合线条和度量错误的新方法得到增强。 从最基本的意义上讲，回归是指数字目标的预测。 需要使用简单模型来完成基本预测任务时，线性回归仍不失为一个极佳的选项。 此外，线性回归往往能够很好地处理缺少复杂性的高维稀疏数据集。
+线性回归是一种常用的统计方法，它已在机器学习中得到运用，并已通过许多用于拟合线条和度量错误的新方法得到增强。 简单地说，回归是指数字目标的预测。 需要使用简单模型来完成基本预测任务时，线性回归仍不失为一个极佳的选项。 此外，线性回归往往能够很好地处理缺少复杂性的高维稀疏数据集。
 
 除线性回归以外，Azure 机器学习还支持其他多种回归模型。 但是，术语“回归”可能会得到不严格的解释，其他工具中提供的某些回归类型不受支持。
 

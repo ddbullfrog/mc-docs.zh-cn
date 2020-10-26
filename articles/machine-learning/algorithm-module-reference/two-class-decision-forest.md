@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 04/22/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: 2251ff9b1c2195e096b305a1a029d5fd2ff00393
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 624b92c57835afe3c88db4f25add7daa46df99fc
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395512"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118086"
 ---
 # <a name="two-class-decision-forest-module"></a>“双类决策林”模块
 
-本文介绍了 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块，可以根据决策林算法创建机器学习模型。  
 

@@ -7,19 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
-ms.author: v-yso
+ms.author: v-yiso
 origin.date: 10/22/2019
 ms.date: 03/09/2020
-ms.openlocfilehash: e6438e5a5e9e73f9a7d3c793573fe84cdda91c00
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: bdd5a378d78b882a20c5f52aa5fff6ad787ec5a0
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097446"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118320"
 ---
 # <a name="remove-duplicate-rows-module"></a>“删除重复行”模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块从数据集中删除可能的重复数据。
 

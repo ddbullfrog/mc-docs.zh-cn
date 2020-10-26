@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/11/2020
 author: rockboyfor
-ms.date: 08/10/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9db213cc82ae45422eef085926ee15294d3e1efe
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 1e4db6684af8caac3484378ba555fba058acef58
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564534"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118108"
 ---
 <!--Verified successfully-->
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>使用 NAT 网关资源设计虚拟网络
@@ -270,13 +270,15 @@ NAT 网关是使用虚拟网络中某个子网上的属性定义的。 虚拟网
 
 ### <a name="cost-optimization"></a>成本优化
 
-[服务终结点](virtual-network-service-endpoints-overview.md)和[专用链接](../private-link/private-link-overview.md)是可考虑用于优化成本的选项。 这些服务不需要 NAT。 定向到服务终结点或专用链接的流量不会得到虚拟网络 NAT 的处理。  
+若要优化开销，[服务终结点](virtual-network-service-endpoints-overview.md)是可以考虑的选项。 这些服务不需要 NAT。 定向到服务终结点或专用链接的流量不会得到虚拟网络 NAT 的处理。  
+
+<!--Not Available on and [private link](../private-link/private-link-overview.md)-->
 
 服务终结点将 Azure 服务资源关联到虚拟网络，并控制对 Azure 服务资源的访问。 例如，在访问 Azure 存储时，可将服务终结点用于存储，以免产生 NAT 数据处理费用。 服务终结点是免费的。
 
-专用链接将 Azure PaaS 服务（或通过专用链接托管的其他服务）作为虚拟网络中的专用终结点公开。  专用链接根据持续时间和处理的数据计费。
+<!--Not Available on Private link exposes Azure PaaS service (or other services hosted with private link) as a private endpoint inside a virtual network.  Private link is billed based on duration and data processed.-->
 
-请评估上述一种或两种方法是否适合你的方案，并根据需要选用。
+<!--Not Available on Evaluate if either or both of these approaches are a good fit for your scenario and use as needed.-->
 
 ### <a name="coexistence-of-inbound-and-outbound"></a>入站和出站连接的共存
 

@@ -3,20 +3,20 @@ title: Azure VM 大小 - 前几代 | Azure
 description: 列出 Azure 中可用的前几代虚拟机大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。
 services: virtual-machines
 ms.subservice: sizes
-author: rockboyfor
 ms.topic: conceptual
 ms.workload: infrastructure-services
 origin.date: 02/20/2020
-ms.date: 08/31/2020
-ms.testscope: yes
-ms.testdate: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: c9013972f1f596847258eec859e499422f6476d7
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 0bc96a9022665845c5800500267311b18455a373
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052434"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127917"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>前几代虚拟机大小
 
@@ -66,9 +66,8 @@ ACU：210 - 250
 
 Mbps = 每秒 10^6 字节，GiB = 1024^3 字节。
 
-<sup>1</sup> Fs 系列 VM 可能的最大磁盘吞吐量（IOPS 或 Mbps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请了解如何为 [Windows](windows/premium-storage-performance.md) 或 [Linux](linux/premium-storage-performance.md) 进行面向高性能的设计。  
+<sup>1</sup> Fs 系列 VM 可能的最大磁盘吞吐量（IOPS 或 Mbps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高性能设计](premium-storage-performance.md)。
 
-<!--CORRECT ON [Windows](windows/premium-storage-performance.md)-->
 <!--Not Available on ## NVv2-series-->
 
 ## <a name="older-generations-of-virtual-machine-sizes"></a>前几代虚拟机大小
@@ -138,9 +137,8 @@ ACU：50-100
 
 ### <a name="d-series"></a>D 系列  
 
-**更新的大小建议**：[Dv3 系列](dv3-dsv3-series.md)
+**更新的大小建议**：[Dv4 系列](dv4-dsv4-series.md)和 [Ddv4 系列](ddv4-ddsv4-series.md)
 
-<!--Dv4-series pending on 2020 Q3 Change this when available-->
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
 ACU：160-250 <sup>1</sup>
@@ -162,9 +160,8 @@ ACU：160-250 <sup>1</sup>
 
 ### <a name="d-series---memory-optimized"></a>D 系列 - 内存优化  
 
-**更新的大小建议**：[Dv3 系列](dv3-dsv3-series.md)
+**更新的大小建议**：[Dv4 系列](dv4-dsv4-series.md)和 [Ddv4 系列](ddv4-ddsv4-series.md)
 
-<!--Dv4-series pending on 2020 Q3 Change this when available-->
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
 ACU：160-250 <sup>1</sup>
@@ -188,9 +185,8 @@ ACU：160-250 <sup>1</sup>
 
 ### <a name="ds-series"></a>DS 系列  
 
-**更新的大小建议**：[Dsv3 系列](dv3-dsv3-series.md)
+**更新的大小建议**：[Dsv4 系列](dv4-dsv4-series.md)和 [Ddsv4 系列](ddv4-ddsv4-series.md)
 
-<!--Dv4-series pending on 2020 Q3 Change this when available-->
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
 ACU：160-250 <sup>1</sup>
@@ -212,9 +208,8 @@ ACU：160-250 <sup>1</sup>
 
 ### <a name="ds-series---memory-optimized"></a>DS 系列 - 内存优化  
 
-**更新的大小建议**：[Dsv3 系列](dv3-dsv3-series.md)
+**更新的大小建议**：[Dsv4 系列](dv4-dsv4-series.md)和 [Ddsv4 系列](ddv4-ddsv4-series.md)
 
-<!--Dv4-series pending on 2020 Q3 Change this when available-->
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
 ACU：160-250 <sup>1,2</sup>
@@ -230,10 +225,10 @@ ACU：160-250 <sup>1,2</sup>
 | Standard_DS13 | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/256 | 8/4000 |
 | Standard_DS14 | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/512 | 8/8000 |
 
-<sup>1</sup> DS 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请了解如何为 [Windows](windows/premium-storage-performance.md) 或 [Linux](linux/premium-storage-performance.md) 进行面向高性能的设计。
+<sup>1</sup> DS 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高性能设计](premium-storage-performance.md)。
 <sup>2</sup> VM 系列可以在下述 CPU 之一上运行：2.2 GHz Intel Xeon® E5-2660 v2、2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 或 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
-<!--CORRECT ON [Windows](windows/premium-storage-performance.md)-->
+<br />
 
 <!--Not Available on ### Ls-series-->
 <!--Not Avaialble on ### GS-series -->

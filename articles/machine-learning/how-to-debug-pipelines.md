@@ -10,17 +10,16 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: cc78a5af2d03bfe3ea7cd8aea805a9b050341354
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: f228befaa8adb8ca0d37780033d505dfe7f45218
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395383"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118167"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>对机器学习管道进行调试和故障排除
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-在本文中，你将了解如何在 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 和 [Azure 机器学习设计器（预览版）](https://docs.microsoft.com/azure/machine-learning/concept-designer)中对[机器学习管道](concept-ml-pipelines.md)进行故障排除和调试。 
+在本文中，你将在 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 和 [Azure 机器学习设计器](https://docs.microsoft.com/azure/machine-learning/concept-designer)中了解如何对[机器学习管道](concept-ml-pipelines.md)进行调试和故障排除。 本文提供了有关如何执行以下操作的信息：
 
 ## <a name="troubleshooting-tips"></a>故障排除提示
 
@@ -33,7 +32,7 @@ ms.locfileid: "91395383"
 | 计算目标出现不明确的错误 | 请尝试删除并重新创建计算目标。 重新创建计算目标是很快的，并且可以解决某些暂时性问题。 |
 | 管道未重复使用步骤 | 默认已启用步骤重复使用，但是，请确保未在管道步骤中禁用它。 如果已禁用重复使用，则步骤中的 `allow_reuse` 参数将设置为 `False`。 |
 | 管道不必要地重新运行 | 为了确保步骤只在其基础数据或脚本发生更改时才重新运行，请分离每个步骤的源代码目录。 如果对多个步骤使用同一个源目录，则可能会遇到不必要的重新运行。 在管道步骤对象中使用 `source_directory` 参数以指向该步骤的隔离目录，并确保未对多个步骤使用同一个 `source_directory` 路径。 |
-
+| 在训练时期或其他循环行为中逐步减速 | 尝试将任何文件写入操作（包括日志记录）从 `as_mount()` 切换到 `as_upload()`。 “装载”模式使用远程虚拟化文件系统，在每次将文件追加到该系统时上传整个文件。 |
 
 ## <a name="debugging-techniques"></a>调试方法
 
@@ -72,7 +71,7 @@ ms.locfileid: "91395383"
 
 | 库                    | 类型   | 示例                                                          | 目标                                  | 资源                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure 机器学习 SDK | 指标 | `run.log(name, val)`                                             | Azure 机器学习门户 UI             | [如何跟踪试验](how-to-track-experiments.md)<br>[azureml.core.Run 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
+| Azure 机器学习 SDK | 指标 | `run.log(name, val)`                                             | Azure 机器学习门户 UI             | [如何跟踪试验](how-to-track-experiments.md)<br>[azureml.core.Run 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)                                                                                                                                                 |
 | Python 打印/日志记录    | 日志    | `print(val)`<br>`logging.info(message)`                          | 驱动程序日志、Azure 机器学习设计器 | [如何跟踪试验](how-to-track-experiments.md)<br><br>[Python 日志记录](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | 日志    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights - 跟踪                | [在 Application Insights 中调试管道](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)（OpenCensus Azure Monitor 导出程序）<br>[Python 日志记录指南](https://docs.python.org/3/howto/logging-cookbook.html) |
 
@@ -108,37 +107,13 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### <a name="finding-and-reading-pipeline-log-files"></a>查找和读取管道日志文件
-
-日志文件 `70_driver_log.txt` 包含： 
-
-* 脚本执行期间输出的所有语句
-* 脚本的堆栈跟踪 
-
-若要在门户中查找此日志文件和其他日志文件，请先单击工作区中的管道运行。
-
-![管道运行列表页](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-导航到管道运行详细信息页。
-
-![管道运行详细信息页](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-单击特定步骤的模块。 导航到“日志”选项卡。其他日志包含有关环境映像生成过程和步骤准备脚本的信息。
-
-![管道运行详细信息页日志选项卡](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> 可以在工作区中的“终结点”选项卡中找到“已发布的管道”的运行。 可以在“试验”或“管道”中找到“未发布的管道”的运行。 
-
-若要详细了解如何从 `ParallelRunStep` 中进行日志记录和跟踪，请参阅[对 ParallelRunStep 进行调试和故障排除](how-to-debug-parallel-run-step.md)。
-
-## <a name="logging-in-azure-machine-learning-designer-preview"></a>Azure 机器学习设计器（预览版）中的日志记录
+## <a name="azure-machine-learning-designer"></a>Azure 机器学习设计器
 
 对于在设计器中创建的管道，可以在创作页或管道运行详细信息页中找到 70_driver_log 文件。
 
 ### <a name="enable-logging-for-real-time-endpoints"></a>为实时终结点启用日志记录
 
-若要在设计器中排查和调试实时终结点问题，必须使用 SDK 启用 Application Insight 日志记录。 使用日志记录可排查和调试模型部署和使用问题。 有关详细信息，请参阅[对部署的模型进行日志记录](how-to-enable-logging.md#logging-for-deployed-models)。 
+若要在设计器中排查和调试实时终结点问题，必须使用 SDK 启用 Application Insight 日志记录。 使用日志记录可排查和调试模型部署和使用问题。 
 
 ### <a name="get-logs-from-the-authoring-page"></a>从创作页获取日志
 

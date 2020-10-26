@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 12/27/2019
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: a7384c3aebbab27c8f40b8adf0f7162ac3e0bebc
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: cfa7ae598a737a405ba30555fd720a587ea450c4
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395230"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118186"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>配置 Azure 机器学习的开发环境
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本文介绍如何将开发环境配置为使用 Azure 机器学习。 Azure 机器学习不区分平台。 开发环境的唯一要求是提供 Python 3。 另外建议提供一个隔离的环境，例如 Anaconda 或 Virtualenv。
 
@@ -55,13 +55,13 @@ Azure 机器学习工作区。 若要创建工作区，请参阅[创建 Azure �
 
 ## <a name="your-own-cloud-based-compute-instance"></a><a id="compute-instance"></a>自己的基于云的计算实例
 
-Azure 机器学习[计算实例（预览版）](concept-compute-instance.md)是一个安全的基于云的 Azure 工作站，为数据科学家提供 Jupyter Notebook 服务器、JupyterLab 和一个准备妥当的 ML 环境。
+Azure 机器学习[计算实例](concept-compute-instance.md)是一个安全的基于云的 Azure 工作站，为数据科学家提供 Jupyter Notebook 服务器、JupyterLab 和一个准备妥当的 ML 环境。
 
 无需为计算实例安装或配置任何组件。  随时可从 Azure 机器学习工作区内部创建组件。 只需提供名称并指定 Azure VM 类型即可。 请参考以下文章尝试操作计算实例：[教程：设置环境和工作区](tutorial-1st-experiment-sdk-setup.md)。
 
 若要了解计算实例的详细信息（包括如何安装包），请参阅[计算实例](concept-compute-instance.md)。
 
-若要避免产生计算费用，请[停止计算实例](tutorial-1st-experiment-sdk-train.md#clean-up-resources)。
+若要避免产生计算费用，请[停止计算实例](tutorial-1st-experiment-bring-data.md#clean-up-resources)。
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
 

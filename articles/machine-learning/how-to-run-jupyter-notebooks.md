@@ -8,17 +8,18 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 62f5bf57df7ae8825463b3aabe866cbe296fc1d1
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 88412947efc0d67a733dc4187f120b1de2463848
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395207"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118240"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace-preview"></a>如何在工作区中运行 Jupyter Notebook（预览）
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>如何在工作区中运行 Jupyter 笔记本
+
 
 了解如何直接在 Azure 机器学习工作室中的工作区中运行 Jupyter 笔记本。 用户不但可以在工作区中启动 [Jupyter](https://jupyter.org/) 或 [JupyterLab](https://jupyterlab.readthedocs.io)，还可以直接编辑和运行笔记本。
 
@@ -47,7 +48,7 @@ ms.locfileid: "91395207"
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="新建文件":::
 
 1. 为文件命名。 
-1. 对于 Jupyter Notebook 文件，请选择“Python Notebook”作为文件类型。
+1. 对于 Jupyter Notebook 文件，请选择“Notebook”作为文件类型。
 1. 选择文件目录。
 1. 选择“创建” 。
 
@@ -80,11 +81,11 @@ ms.locfileid: "91395207"
 1. 选择“计算”目标或新建一个目标，然后等待目标运行。
 1. 选择“打开终端”图标。
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="打开终端":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="新建文件":::
 
 1. 如果看不到该图标，请选择计算目标右侧的“...”，然后选择“打开终端”。
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="从“...”打开终端":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="新建文件":::
 
 
 详细了解如何[将 Git 存储库克隆到工作区文件系统](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system)。
@@ -110,15 +111,31 @@ ms.locfileid: "91395207"
 
 键入代码时，请使用“Ctrl+空格键”来触发 IntelliSense。
 
+### <a name="clean-your-notebook-preview"></a>清理笔记本（预览版）
+
+> [!IMPORTANT]
+> 收集功能目前为公共预览版。
+> 该预览版在提供时没有附带服务级别协议，建议不要将其用于生产工作负载。 某些功能可能不受支持或者受限。 
+
+在创建笔记本的过程中，通常最终会得到用于数据浏览或调试的单元格。 “收集”功能会帮助你生成一个没有这些无关单元格的纯净笔记本。
+
+1. 运行所有笔记本单元格。
+1. 选择特定的单元格，其中包含的代码是你希望新笔记本运行的。 例如，用于提交试验的代码，或者用于注册模型的代码。
+1. 选择单元格工具栏上出现的“收集”图标。
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="新建文件":::
+1. 输入新的“已收集”笔记本的名称。  
+
+新笔记本只包含代码单元格，所有单元格都需要生成与你选择用于收集的单元格相同的结果。
+
 ### <a name="save-and-checkpoint-a-notebook"></a>将笔记本保存并设置检查点
 
-Azure 机器学习在你创建 ipynb 文件时会创建一个检查点文件。
+当你创建一个 ipynb **  文件时，Azure 机器学习会创建一个检查点文件。
 
 在笔记本工具栏中，选择“菜单”，然后选择“文件”&gt;“保存并设置检查点”以手动保存笔记本，它会添加与笔记本关联的检查点文件。
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="笔记本工具栏中保存工具的屏幕截图":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="新建文件":::
 
-每个笔记本每隔 30 秒自动保存一次。自动保存仅更新初始 ipynb 文件，而不会更新检查点文件。
+每个笔记本每隔 30 秒会自动保存一次。 自动保存仅更新初始 *ipynb* 文件，而不更新检查点文件。
  
 在“笔记本”菜单中选择“检查点”以创建命名检查点，并将笔记本还原为已保存的检查点。
 
@@ -208,7 +225,7 @@ Azure 机器学习在你创建 ipynb 文件时会创建一个检查点文件。
 
 “计算”下拉列表旁的指示器显示计算的状态。  在计算的下拉列表中也会显示状态。  
 
-|Color |计算状态 |
+|颜色 |计算状态 |
 |---------|---------| 
 | 绿色 | 正在运行计算 |
 | Red |计算失败 | 
@@ -218,7 +235,7 @@ Azure 机器学习在你创建 ipynb 文件时会创建一个检查点文件。
 
 “内核”下拉列表旁的指示器显示内核的状态。
 
-|Color |内核状态 |
+|颜色 |内核状态 |
 |---------|---------|
 |  绿色 |内核已连接、空闲、繁忙|
 |  灰色 |内核未连接 |

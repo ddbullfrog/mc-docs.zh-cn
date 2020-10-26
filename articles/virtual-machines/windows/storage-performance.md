@@ -1,20 +1,22 @@
 ---
 title: 优化 Azure Lsv2 系列虚拟机上的性能 - 存储
-description: 了解如何优化 Lsv2 系列虚拟机上的解决方案的性能。
-author: rockboyfor
+description: 通过 Windows 示例了解如何为 Lsv2 系列虚拟机上的解决方案优化性能。
 ms.service: virtual-machines-windows
 ms.subservice: sizes
 ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 04/17/2019
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: yes
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 91f56184e3e1f744965a5d14985d74fe8a284e88
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: d79f4589b2f199032e156bd34755e549aa365240
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945908"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128292"
 ---
 <!--Not Available on MOONCAKE-->
 <!--LSv2 series invalid on MOONCAKE-->
@@ -78,7 +80,7 @@ Lsv2 系列 VM 使用基于 Zen 微体系结构的 AMD EYPC™ 服务器处理�
 - VM 由于硬件问题而变得不正常，必须在另一个节点上进行检修和修复。
 - 少量的计划内维护检修操作要求将 VM 重新分配到另一台主机进行检修。
 
-若要详细了解用于在本地存储中备份数据的选项，请参阅 [Azure IaaS 磁盘的备份和灾难恢复](backup-and-disaster-recovery-for-azure-iaas-disks.md)。
+若要详细了解用于在本地存储中备份数据的选项，请参阅 [Azure IaaS 磁盘的备份和灾难恢复](../backup-and-disaster-recovery-for-azure-iaas-disks.md)。
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
@@ -100,5 +102,4 @@ Lsv2 系列 VM 使用基于 Zen 微体系结构的 AMD EYPC™ 服务器处理�
 <!--Not Avaialble on ## Next steps-->
 <!--Not Avaialble on * See specifications for all [VMs optimized for storage performance](sizes-storage.md)-->
 
-<!-- Update_Description: new article about storage performance -->
-<!--NEW.date: 5/18/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9735bad98c5210dc8bcf710a293b870376d84c64
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 07c04bb0c4347183fe1bc21ebaf57708593aebfb
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245516"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041557"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 标识提供者 (IdP) 进行单一登录
 
@@ -60,12 +60,12 @@ Azure AD 在进行配置后可以用于标识提供者，后者使用 SAML 2.0 S
 在 SAML 响应消息中，签名节点包含有关消息本身的数字签名的信息。 签名块具有以下要求：
 
 1. 断言节点本身必须签名
-2. 必须使用 RSA-sha1 算法作为 DigestMethod。 不接受其他数字签名算法。
+2.  必须使用 RSA-sha1 算法作为 DigestMethod。 不接受其他数字签名算法。
    `<ds:DigestMethod Algorithm="https://www.w3.org/2000/09/xmldsig#sha1"/>`
-3. 也可对 XML 文档签名。 
-4. 转换算法必须与以下示例中的值匹配：`<ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+3.  也可对 XML 文档签名。 
+4.  转换算法必须与以下示例中的值匹配：`<ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
        <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9. SignatureMethod 算法必须与以下示例匹配：`<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+9.  SignatureMethod 算法必须与以下示例匹配：`<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>支持的绑定
 绑定是所需的传输相关通信参数。 以下要求适用于绑定：
@@ -278,12 +278,12 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
 在以管理员身份验证和管理单一登录（也称联合身份验证）之前，请查看以下文章中的信息并执行相关步骤，以便通过基于 SAML 2.0 SP-Lite 的标识提供者设置单一登录：
 
 
-1. 查看 Azure AD SAML 2.0 协议要求
-2. 配置 SAML 2.0 标识提供者
-3. 安装 Windows PowerShell 以使用 SAML 2.0 标识提供者进行单一登录
-4. 在 SAML 2.0 标识提供者与 Azure AD 之间建立信任
-5. 通过 Windows PowerShell 或 Azure AD Connect 预配 Azure Active Directory (Microsoft 365) 的已知测试用户主体。
-6. 使用 [Azure AD Connect](whatis-hybrid-identity.md) 配置目录同步。
+1.  查看 Azure AD SAML 2.0 协议要求
+2.  配置 SAML 2.0 标识提供者
+3.  安装 Windows PowerShell 以使用 SAML 2.0 标识提供者进行单一登录
+4.  在 SAML 2.0 标识提供者与 Azure AD 之间建立信任
+5.  通过 Windows PowerShell 或 Azure AD Connect 预配 Azure Active Directory (Microsoft 365) 的已知测试用户主体。
+6.  使用 [Azure AD Connect](whatis-hybrid-identity.md) 配置目录同步。
 
 通过基于 SAML 2.0 SP-Lite 的标识提供者设置单一登录以后，应验证其是否正常工作。
 
@@ -302,11 +302,11 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 
 
 1. 从 [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client) 下载连接分析器。
-2. 单击“立即安装”开始下载并安装工具。
-3. 选择“我不能通过 Office 365、Azure 或其他使用 Azure Active Directory 的服务设置联合身份验证”。
-4. 下载并运行该工具后，即可看到“连接性诊断”窗口。 该工具将逐步引导你测试联合身份验证连接。
-5. Connectivity Analyzer 将开启 SAML 2.0 IDP 用以登录，请输入进行测试的用户主体凭据：![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
-6. 在联合测试登录窗口，应为配置为与 SAML 2.0 标识提供者联合的 Azure AD 租户输入帐户名和密码。 该工具会尝试使用这些凭据登录，并会提供在登录尝试期间执行的测试的详细结果作为输出。
+2.  单击“立即安装”开始下载并安装工具。
+3.  选择“我不能通过 Office 365、Azure 或其他使用 Azure Active Directory 的服务设置联合身份验证”。
+4.  下载并运行该工具后，即可看到“连接性诊断”窗口。 该工具将逐步引导你测试联合身份验证连接。
+5.  Connectivity Analyzer 将开启 SAML 2.0 IDP 用以登录，请输入进行测试的用户主体凭据：![显示 SAML 2.0 IDP 登录窗口的屏幕截图。](./media/how-to-connect-fed-saml-idp/saml1.png)
+6.  在联合测试登录窗口，应为配置为与 SAML 2.0 标识提供者联合的 Azure AD 租户输入帐户名和密码。 该工具会尝试使用这些凭据登录，并会提供在登录尝试期间执行的测试的详细结果作为输出。
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. 此窗口显示失败的测试结果。 单击“查看详细结果”会显示所执行的每次测试的结果的相关信息。 也可将结果保存到磁盘，以便进行共享。
  
@@ -319,8 +319,8 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 
 
 1. 在已加入域的计算机上，使用用于公司凭据的相同登录名登录到云服务。
-2. 在密码框内单击。 如果设置了单一登录，则密码框会灰显，同时会显示以下消息：“你现在需在&lt;你的公司&gt;登录。”
-3. 单击&lt;你的公司&gt;链接中的登录。 如果能够登录，则已设置好单一登录。
+2.  在密码框内单击。 如果设置了单一登录，则密码框会灰显，同时会显示以下消息：“你现在需在&lt;你的公司&gt;登录。”
+3.  单击&lt;你的公司&gt;链接中的登录。 如果能够登录，则已设置好单一登录。
 
 ## <a name="next-steps"></a>后续步骤
 

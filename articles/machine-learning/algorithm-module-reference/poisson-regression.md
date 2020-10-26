@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: d2123f586fa16343533d20de3ea99cffa135b9fa
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 0df484a2d76d9c2925a66d08afd4f27f01045dc9
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021647"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118334"
 ---
 # <a name="poisson-regression"></a>泊松回归
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块可以在管道中创建泊松回归模型。 泊松回归用于预测数值（通常为计数）。 因此，仅在要预测的值满足以下条件时，才应使用此模块创建回归模型：
 
@@ -49,7 +49,7 @@ ms.locfileid: "90021647"
 
 ## <a name="how-to-configure-poisson-regression"></a>如何配置泊松回归
 
-1. 在设计器（预览版）中将“泊松回归”模块添加到管道。 可以在“机器学习算法”下的“回归”类别中找到此模块 。
+1. 在设计器中将“泊松回归”模块添加到管道。 可以在“机器学习算法”下的“回归”类别中找到此模块 。
 
 2. 添加包含正确类型的训练数据的数据集。 
 

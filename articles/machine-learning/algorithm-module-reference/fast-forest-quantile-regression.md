@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: d7c35a7b7b19761202148644dd257e027525e251
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 4f325041bea3a596a564ccf42b87eb7f8c7cda80
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021650"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117894"
 ---
 # <a name="fast-forest-quantile-regression"></a>快速林分位回归
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的模块。
 
 使用此模块可以在管道中创建快速林分位数回归模型。 如果要了解有关预测值分布的详细信息，而不是获得单个平均值预测值，则快速林分位数回归非常有用。 此方法有很多应用，包括：  
   
@@ -32,7 +32,7 @@ ms.locfileid: "90021650"
 
 ## <a name="more-about-quantile-regression"></a>有关分位数回归的详细信息
 
-有许多不同类型的回归。 从最基本的意义上来讲，回归是指将模型拟合到一个用数值矢量表示的目标。 然而，统计学家一直在研究更加高级的回归方法。
+有许多不同类型的回归。 简而言之，回归意味着将模型拟合为以数值向量表示的目标。 然而，统计学家一直在研究更加高级的回归方法。
 
 分位数的最简单定义是一个用于将一组数据分割成大小相等的组的值；因此，分位数值标记了组之间的边界。 从统计学意义上来说，分位数是按固定间隔从随机变量的累积分布函数 (CDF) 的逆函数提取的值。
 

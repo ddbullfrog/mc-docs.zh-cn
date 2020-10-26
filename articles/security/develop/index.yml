@@ -2,32 +2,24 @@
 title: 安全开发文档
 summary: 通过我们的示例应用、最佳做法和指南，了解如何在 Azure 上开发和部署安全的应用程序。
 metadata:
-  title: Microsoft Azure 上的安全开发文档
+  title: Azure 上的安全开发文档
   description: 通过使用示例应用、最佳做法和指南，了解如何在 Azure 上开发安全的应用程序。
   services: security
   ms.service: security
   ms.subservice: develop
   ms.topic: landing-page
   author: TerryLanfear
-  ms.author: v-tawe
+  ms.author: v-johya
   manager: rkarlin
-  ms.date: 06/04/2020
+  ms.date: 10/12/2020
   origin.date: 10/24/2019
-  ms.openlocfilehash: b0ad9610c785942889c5684e6c0a22ea1a210196
-  ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+  ms.openlocfilehash: 3860181d33b3103f51dc05cb66606f72c3648945
+  ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/05/2020
-  ms.locfileid: "84439660"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92128365"
 landingContent:
-- title: 开发安全示例应用
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 将 Web 应用与 Azure Active Directory 配合使用
-      url: secure-aad-app.md
-    - text: 支付卡行业
-      url: secure-pci-web-app.md
 - title: 入门
   linkLists:
   - linkListType: concept

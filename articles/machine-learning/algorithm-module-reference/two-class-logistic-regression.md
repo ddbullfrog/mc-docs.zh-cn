@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: c01204db888e6c20af6cf0871c53a24d3efc7028
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 0b1441cc5a8b85ced5e21755af8b8a21c96cbbc5
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097253"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118084"
 ---
 # <a name="two-class-logistic-regression-module"></a>双类逻辑回归模块
 
-本文介绍了 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块，可以创建可用于预测两个（且只有两个）结果的逻辑回归模型。 
 

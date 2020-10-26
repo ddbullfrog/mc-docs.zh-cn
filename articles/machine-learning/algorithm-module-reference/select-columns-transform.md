@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: f851c24e2bb37883b16a3d70c270fab519558e3b
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 9f34ca3711f4d42e18855039068858f45df605e0
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097459"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118310"
 ---
 # <a name="select-columns-transform"></a>选择列转换
 
-本文介绍了如何使用 Azure 机器学习设计器（预览版）中的“选择列转换”模块。 “选择列转换”模块的用途是确保在下游机器学习操作中使用可预测、一致的列集。
+本文介绍如何使用 Azure 机器学习设计器中的“选择列转换”模块。 “选择列转换”模块的用途是确保在下游机器学习操作中使用可预测、一致的列集。
 
 此模块对于需要特定列的任务（例如评分）很有帮助。 可用列中的更改可能会破坏管道或改变结果。
 

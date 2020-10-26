@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 03/16/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: ec2f47eaeaa8f32808fcc7d7dca8cadabb96e507
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 57aeb9d6f95195de99fdfc1ce586b1cfe37b87ff
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79546970"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170760"
 ---
 # <a name="create-an-external-app-service-environment"></a>创建外部应用服务环境
 
@@ -62,24 +62,21 @@ Azure 应用服务环境是指将 Azure App Service 部署到 Azure 虚拟网络
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“创建资源”   > “Web + 移动”   > “Web 应用”  。
 
-    ![创建 Web 应用][1]
+    ![Azure 门户的屏幕截图，其中显示在 Azure 市场中已选择“Web + 移动”，右侧打开用于创建新 Web 应用的屏幕。][1]
 
 2. 选择订阅。 在相同订阅中创建应用和 ASE。
 
 3. 选择或创建资源组。 使用资源组，可以单位形式管理相关的 Azure 资源。 为应用建立基于角色的访问控制 (RBAC) 规则时，资源组也可发挥作用。 有关详细信息，请参阅 [Azure 资源管理器概述][ARMOverview]。
 
-<!-- need to update, current no OS need to select -->
-<!-- 4. Select your OS (Windows, Linux, or Docker). -->
+4. 选择操作系统（Windows、Linux 或 Docker）。 
 
-5. 选择应用服务计划，然后选择“新建”  。 
+5. 选择应用服务计划，然后选择“新建”****。 Linux Web 应用和 Windows Web 应用不能位于同一应用服务计划中，但可以位于同一应用服务环境中。 
 
-    <!-- Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. -->
+    ![Azure 门户的屏幕截图，其中显示了“Web 应用”窗格、“应用服务计划”窗格和“新建应用服务计划”窗格。][2]
 
-    ![新建应用服务计划][2]
+6. 在“位置”下拉列表中，选择要创建 ASE 的区域****。 如果选择现有 ASE，则不会新建 ASE。 应用服务计划将在所选 ASE 中进行创建。 
 
-6. 在“位置”下拉列表中，选择要创建 ASE 的区域  。 如果选择现有 ASE，则不会新建 ASE。 应用服务计划将在所选 ASE 中进行创建。 
-
-7. 选择“定价层”，然后选择其中一个“独立”定价 SKU   。 如果选择独立 SKU 卡和非 ASE 的位置，则会在该位置新建一个 ASE  。 若要开始创建 ASE 的过程，请选择“选择”  。 独立 SKU 仅能与 ASE 结合使用  。 此外，仅可在独立 ASE 中使用任何其他定价 SKU  。 
+7. 选择“定价层”，然后选择其中一个“独立”定价 SKU********。 如果选择独立 SKU 卡和非 ASE 的位置，则会在该位置新建一个 ASE****。 若要开始创建 ASE 的过程，请选择“选择”****。 独立 SKU 仅能与 ASE 结合使用****。 此外，仅可在独立 ASE 中使用任何其他定价 SKU****。 
 
     ![定价层选择][3]
 
@@ -87,32 +84,32 @@ Azure 应用服务环境是指将 Azure App Service 部署到 Azure 虚拟网络
 
     ![新建应用服务计划名称][4]
 
-9. 指定 Azure 虚拟网络详细信息。 选择“新建”或“选择现有”   。 只有所选区域中具有 VNet 时，才可使用选择现有 VNet 选项。 如果选择“新建”，需输入 VNet 的名称  。 随即创建带有该名称的新资源管理器 VNet。 它使用所选区域中的地址空间 `192.168.250.0/23`。 如果选择“选择现有”，则需要： 
+9. 指定 Azure 虚拟网络详细信息。 选择“新建”或“选择现有”********。 只有所选区域中具有 VNet 时，才可使用选择现有 VNet 选项。 如果选择“新建”，需输入 VNet 的名称****。 随即创建带有该名称的新资源管理器 VNet。 它使用所选区域中的地址空间 `192.168.250.0/23`。 如果选择“选择现有”，则需要：****
 
     a. 选择 VNet 地址块（若有多个）。
 
     b. 输入新的子网名称。
 
-    c. 选择子网的大小。 请记住选择足够的大小，以容纳 ASE 的未来增长  。 建议使用 `/24`，其地址长度为 128 位且能够容纳最大尺寸的 ASE。 例如，建议不要使用 `/28`，因为仅有 16 位地址可用。 基础结构至少使用 7 个地址，Azure 网络使用另外 5 个地址。 在 `/28` 子网中，对于外部 ASE，你最多可以缩放 4 个应用服务计划，而对于 ILB ASE，只能缩放 3 个应用服务计划。
+    c. 选择子网的大小。 请记住选择足够的大小，以容纳 ASE 的未来增长**。 建议使用 `/24`，其地址长度为 128 位且能够容纳最大尺寸的 ASE。 例如，建议不要使用 `/28`，因为仅有 16 位地址可用。 基础结构至少使用 7 个地址，Azure 网络使用另外 5 个地址。 在 `/28` 子网中，对于外部 ASE，你最多可以缩放 4 个应用服务计划，而对于 ILB ASE，只能缩放 3 个应用服务计划。
 
     d. 选择子网 IP 范围。
 
-10. 选择“创建”以创建 ASE  。 此过程还会创建应用服务计划和应用。 ASE、应用服务计划和应用都位于同一订阅和同一资源组中。 如果 ASE 需要单独的资源组，或者你需要 ILB ASE，请按照以下步骤自动创建 ASE。
+10. 选择“创建”以创建 ASE****。 此过程还会创建应用服务计划和应用。 ASE、应用服务计划和应用都位于同一订阅和同一资源组中。 如果 ASE 需要单独的资源组，或者你需要 ILB ASE，请按照以下步骤自动创建 ASE。
 
 <!-- linux web apps & container is not available -->
 ## <a name="create-an-ase-by-itself"></a>自动创建 ASE
 
 如果创建独立的 ASE，则其中不含任何内容。 空的 ASE 存在基础结构，每月仍会产生费用。 按照这些步骤通过 ILB 创建 ASE，或在其自身的资源组中创建 ASE。 创建 ASE 后，可使用常规过程在其中创建应用。 选择新 ASE 作为位置。
 
-1. 在 Azure 市场中搜索“应用服务环境”，或者选择“创建资源” > “Web 移动” > “应用服务环境”     。 
+1. 在 Azure 市场中搜索“应用服务环境”，或者选择“创建资源” > “Web 移动” > “应用服务环境”****************。 
 
-1. 输入 ASE 的名称。 此名称用于在 ASE 中创建的应用。 如果该名称为 mynewdemoase，则子域名为 .mynewdemoase.p.chinacloudsites.cn   。 如果创建名为 mytestapp 的应用，则可在 mytestapp.mynewdemoase.p.chinacloudsites.cn 中访问它  。 不能在名称中使用空格。 如果使用大写字符，则域名为该名称的全小写形式。 如果使用 ILB，则不在子域中使用 ASE 名称，但会在 ASE 创建过程中显式声明该名称。
+1. 输入 ASE 的名称。 此名称用于在 ASE 中创建的应用。 如果该名称为 mynewdemoase，则子域名为 .mynewdemoase.p.chinacloudsites.cn****。 如果创建名为 mytestapp 的应用，则可在 mytestapp.mynewdemoase.p.chinacloudsites.cn 中访问它**。 不能在名称中使用空格。 如果使用大写字符，则域名为该名称的全小写形式。 如果使用 ILB，则不在子域中使用 ASE 名称，但会在 ASE 创建过程中显式声明该名称。
 
     ![ASE 命名][5]
 
 1. 选择订阅。 此订阅也是 ASE 中所有应用使用的订阅。 不能将 ASE 放入位于其他订阅中的 VNet。
 
-1. 选择或指定新的资源组。 用于 ASE 的资源组必须与用于 VNet 的资源组相同。 如果选择现有 VNet，则 ASE 的资源组选择会更新，以反映 VNet 的资源组。 如果使用资源管理器模板，则可使用不同于 VNet 资源组的资源组来创建 ASE  。 若要从模板创建 ASE，请参阅[从模板创建应用服务环境][MakeASEfromTemplate]。
+1. 选择或指定新的资源组。 用于 ASE 的资源组必须与用于 VNet 的资源组相同。 如果选择现有 VNet，则 ASE 的资源组选择会更新，以反映 VNet 的资源组。 如果使用资源管理器模板，则可使用不同于 VNet 资源组的资源组来创建 ASE**。 若要从模板创建 ASE，请参阅[从模板创建应用服务环境][MakeASEfromTemplate]。
 
     ![资源组选择][6]
 
@@ -120,13 +117,13 @@ Azure 应用服务环境是指将 Azure App Service 部署到 Azure 虚拟网络
 
     * 如果选择新的 VNet，则可指定名称和位置。 
     
-    * 新 VNet 的地址范围为 192.168.250.0/23，并拥有名为“默认”的子网。 子网定义为 192.168.250.0/24。 仅可选择一个资源管理器 VNet。 “VIP 类型”选择决定 ASE 能否从 Internet（外部）直接访问或是否使用 ILB  。 若要深入了解这些选项，请参阅[在应用服务环境中创建和使用内部负载均衡器][MakeILBASE]。 
+    * 新 VNet 的地址范围为 192.168.250.0/23，并拥有名为“默认”的子网。 子网定义为 192.168.250.0/24。 仅可选择一个资源管理器 VNet。 “VIP 类型”选择决定 ASE 能否从 Internet（外部）直接访问或是否使用 ILB****。 若要深入了解这些选项，请参阅[在应用服务环境中创建和使用内部负载均衡器][MakeILBASE]。 
 
-      * 如果对“VIP 类型”选择“外部”，则可选择为实现基于 IP 的 SSL 而创建系统时所用的外部 IP 地址数   。 
+      * 如果对“VIP 类型”选择“外部”，则可选择为实现基于 IP 的 SSL 而创建系统时所用的外部 IP 地址数********。 
     
-      * 如果对“VIP 类型”选择“内部”，则需指定 ASE 要使用的域   。 可将 ASE 部署到使用公用或专用地址范围的 VNet。 若要使用具有公用地址范围的 VNet，需要提前创建 VNet。 
+      * 如果对“VIP 类型”选择“内部”，则需指定 ASE 要使用的域********。 可将 ASE 部署到使用公用或专用地址范围的 VNet。 若要使用具有公用地址范围的 VNet，需要提前创建 VNet。 
     
-    * 如果选择现有 VNet，需要在 ASE 创建期间创建新的子网。 不能在门户中使用预先创建的子网。  如果使用资源管理器模板，则可创建具有现有子网的 ASE。 若要从模板创建 ASE，请参阅[从模板创建应用服务环境][MakeASEfromTemplate]。
+    * 如果选择现有 VNet，需要在 ASE 创建期间创建新的子网。 不能在门户中使用预先创建的子网。如果使用资源管理器模板，则可创建具有现有子网的 ASE。 若要从模板创建 ASE，请参阅[从模板创建应用服务环境][MakeASEfromTemplate]。
 
 <!-- ## App Service Environment v1 ->
 
@@ -151,7 +148,7 @@ Azure 应用服务环境是指将 Azure App Service 部署到 Azure 虚拟网络
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml

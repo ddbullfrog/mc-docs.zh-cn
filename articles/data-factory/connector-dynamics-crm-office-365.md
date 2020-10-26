@@ -11,14 +11,14 @@ author: WenJason
 manager: digimobile
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-origin.date: 06/10/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 497249798eccafe475dbe03647182c450390482d
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+origin.date: 09/23/2020
+ms.date: 10/19/2020
+ms.openlocfilehash: 2300d0732b8bfbf210711031448293f70d351b30
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914177"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121710"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure 数据工厂从/向 Dynamics 365 (Common Data Service) 或 Dynamics CRM 复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -82,7 +82,7 @@ Dynamics 链接服务支持以下属性。
 |:--- |:--- |:--- |
 | type | type 属性必须设置为“Dynamics”、“DynamicsCrm”或“CommonDataServiceForApps”。 | 是 |
 | deploymentType | Dynamics 实例的部署类型。 对于联机 Dynamics，此值必须为“Online”。 | 是 |
-| serviceUri | 你的 Dynamics 实例的服务 URL。 例如 https://www.crmdynamics.com 。 | 是 |
+| serviceUri | Dynamics 实例的服务 URL，与从浏览器访问的 URL 相同。 例如“https://\<organization-name>.crm[x].dynamics.com”。 | 是 |
 | authenticationType | 要连接到 Dynamics 服务器的身份验证类型。 有效值为“AADServicePrincipal”和“Office365”。 | 是 |
 | servicePrincipalId | Azure AD 应用程序的客户端 ID。 | 当身份验证为“AADServicePrincipal”时，此项为必需的 |
 | servicePrincipalCredentialType | 要用于服务主体身份验证的凭据类型。 有效值为“ServicePrincipalKey”和“ServicePrincipalCert”。 | 当身份验证为“AADServicePrincipal”时，此项为必需的 |
@@ -103,7 +103,7 @@ Dynamics 链接服务支持以下属性。
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://www.crmdynamics.com",  
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -125,7 +125,7 @@ Dynamics 链接服务支持以下属性。
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://www.crmdynamics.com", 
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -155,7 +155,7 @@ Dynamics 链接服务支持以下属性。
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://www.crmdynamics.com",
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.partner.onmschina.cn",
             "password": {

@@ -7,17 +7,17 @@ ms.devlang: java
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: e94a5ff32e0d49b7dc72089f3ec72879f8e48900
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 76a0cdb64ed971479ce0c178039e1ec76e5a6dbb
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246833"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118047"
 ---
 <!--Verified successfully-->
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>用于 Core (SQL) API 的 Azure Cosmos DB Java SDK v4：发行说明和资源
@@ -47,7 +47,7 @@ ms.locfileid: "91246833"
 >
 > 以下是快速操作的三个步骤！
 > 1. 安装[最低支持的 Java 运行时版本，JDK 8](https://docs.microsoft.com/java/azure/jdk/)，以便可以使用 SDK。
-> 2. 通过 [Azure Cosmos DB Java SDK v4 快速入门指南](/cosmos-db/create-sql-api-java)，可以访问 Maven 项目并完成基本的 Azure Cosmos DB 请求。
+> 2. 通过 [Azure Cosmos DB Java SDK v4 快速入门指南](https://docs.azure.cn/cosmos-db/create-sql-api-java)，可以访问 Maven 项目并完成基本的 Azure Cosmos DB 请求。
 > 3. 阅读 Azure Cosmos DB Java SDK v4 [性能提示](performance-tips-java-sdk-v4-sql.md)和[疑难解答](troubleshoot-java-sdk-v4-sql.md)指南，以优化应用程序的 SDK。
 >
 > 此外，[Azure Cosmos DB 研讨会和实验室](https://aka.ms/cosmosworkshop)也是了解如何使用 Azure Cosmos DB Java SDK v4 的绝佳资源！
@@ -60,7 +60,7 @@ ms.locfileid: "91246833"
 |**SDK 下载**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 |**API 文档** | [Java API 参考文档](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
 |**参与 SDK** | [GitHub 上用于 Java 的 Azure SDK 中央存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
-|**入门** | [快速入门：生成 Java 应用以管理 Azure Cosmos DB SQL API 数据](/cosmos-db/create-sql-api-java) <br /> [具有快速入门代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
+|**入门** | [快速入门：生成 Java 应用以管理 Azure Cosmos DB SQL API 数据](https://docs.azure.cn/cosmos-db/create-sql-api-java) <br /> [具有快速入门代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**基本代码示例** | [Azure Cosmos DB：SQL API 的 Java 示例](sql-api-java-sdk-samples.md) <br /> [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
 |**包含更改源的控制台应用**| [更改源 - Java SDK v4 示例](create-sql-api-java-changefeed.md) <br /> [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 
 |**Web 应用示例**| [使用 Java SDK v4 构建 Web 应用](sql-api-java-application.md) <br /> [具有示例代码的 GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app)|
@@ -72,11 +72,38 @@ ms.locfileid: "91246833"
 
 <!--Correct om the **API documentation** https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable-->
 
-## <a name="release-history"></a>版本历史记录
+## <a name="release-history"></a>发布历史记录
 
-### <a name="440-beta2-unreleased"></a>4.4.0-beta.2（未发布）
+## <a name="470-beta1-unreleased"></a>4.7.0-beta.1（未发布）
+
+
+### <a name="460-2020-09-30"></a>4.6.0 (2020-09-30)
+#### <a name="new-features"></a>新功能
+* 添加了新的 API，用于在 Cosmos 中支持 AAD 基于角色的访问控制。 这是一项预览功能，需要在帐户设置中启用它。
+* 向 `CosmosPagedFlux`/`CosmosPagedIterable` 添加了处理程序 API (beta)，以便对每个响应调用。
+
+### <a name="452-2020-09-29-note-we-strongly-recommend-our-customers-to-use-version-452-and-above"></a>4.5.2 (2020-09-29) 备注：强烈建议客户使用 4.5.2 版及更高版本
 #### <a name="key-bug-fixes"></a>关键 Bug 修复
-* 修复了启用 tcnative 时引发的 RequestTimeoutException。
+* 增强了在出现间歇性连接问题时执行查询和获取元数据缓存的可靠性。
+
+### <a name="451-2020-09-25"></a>4.5.1 (2020-09-25)
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 为 ChangeFeedProcessor 添加了预览实现，可让你更详细地查看当前状态。
+* 解决了同时运行的多分区监督器任务在 leaseAcquireInterval 小于 leaseRenewInterval 时出现的问题。
+* 改进了 Rntbd 连接诊断。
+* 已阻止将 onError Dropped 事件泄露到默认反应器挂钩的情况。
+
+### <a name="450-2020-09-16"></a>4.5.0 (2020-09-16)
+#### <a name="new-features"></a>新功能
+* 增强了 Rntbd 堆栈在出现间歇性连接问题时的可靠性。
+* 缩短了在多区域帐户的单个后端副本出现间歇性连接问题时出现的延迟，避免启动不必要的区域故障转移。
+
+### <a name="440-2020-09-12"></a>4.4.0 (2020-09-12)
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了启用 `netty-tcnative-boringssl` 依赖项时引发的 RequestTimeoutException。
+* 解决了 `GATEWAY` 模式中 `Delete` 操作的内存泄漏问题。
+* 修复了终结点 URI 无效时 `CosmosClient` 实例化中的泄漏情况。
+* 改进了 `CPU History` 诊断。
 
 ### <a name="440-beta1-2020-08-27"></a>4.4.0-beta.1 (2020-08-27)
 #### <a name="new-features"></a>新功能
@@ -149,6 +176,11 @@ ms.locfileid: "91246833"
 * 已将 `QueryRequestOptions` 重命名为 `CosmosQueryRequestOptions`。
 * 已将 `ChangeFeedProcessorBuilder` 更新为生成器模式。
 * 使用新的容器名称和子资源 API 更新了 `CosmosPermissionProperties`。
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了 ConnectionPolicy `toString()` 空指针异常。
+
+### <a name="401-beta4-2020-06-03"></a>4.0.1-beta.4 (2020-06-03)
+#### <a name="new-features"></a>新功能
 * 为 `CosmosClientBuilder` 添加了更多示例和丰富的文档。 
 * 更新了带有吞吐量属性的 `CosmosDatabase` 和 `CosmosContainer` API，以支持自动缩放/Autopilot。 
 * 已将 `CosmosClientException` 重命名为 `CosmosException`。 
@@ -167,6 +199,11 @@ ms.locfileid: "91246833"
 * 已将 `Diagnostics` 中的新换行符更新为系统的新换行符。 
 * 删除了 `readAll*` API，请改用查询选择所有 API。
 * 添加了 `ChangeFeedProcessor` 估算滞后时间 API。   
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了在按查询的值顺序分析查询结果时的问题。 
+
+### <a name="401-beta3-2020-05-15"></a>4.0.1-beta.3 (2020-05-15)
+#### <a name="new-features"></a>新功能
 * 为 SDK 添加了自动缩放/autopilot 吞吐量预配支持。  
 * 已将 `ConnectionPolicy` 替换为新的连接配置。 通过 `CosmosClientBuilder` 为直接模式和网关模式连接配置公开 `DirectConnectionConfig` 和 `GatewayConnectionConfig` API。
 * 已将 `JsonSerializable` 和 `Resource` 移到实现包。 
@@ -176,6 +213,12 @@ ms.locfileid: "91246833"
 * 已将 `preferredLocations` 和 `multipleWriteLocations` API 重命名为 `preferredRegions` 和 `multipleWriteRegions`。 
 * 已将 `reactor-core` 更新为 3.3.5.RELEASE，将 `reactor-netty` 更新为 0.9.7.RELEASE，并将 `netty` 更新为 4.1.49.Final 版本。 
 * 在 SDK 中添加了对 `analyticalStoreTimeToLive` 的支持。     
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了直接 TCP 客户端的套接字泄漏问题。
+* 修复了 `orderByQuery` 的继续标记 bug。
+
+### <a name="401-beta2-2020-04-21"></a>4.0.1-beta.2 (2020-04-21)
+#### <a name="new-features"></a>新功能
 * `CosmosClientException` 扩展了 `AzureException`。 
 * 从 `FeedOptions` 中删除了 `maxItemCount` 和 `requestContinuationToken` API，改用 `CosmosPagedFlux` 和 `CosmosPagedIterable` 中的 `byPage()` API。
 * 在 `Permission` API 的公共图面上引入了 `CosmosPermissionProperties`。
@@ -187,6 +230,12 @@ ms.locfileid: "91246833"
 * 已将 netty 更新为“4.1.45.Final”，并已将 project reactor 更新为 3.3.3 版本。
 * 已将公共 REST 协定更新为 `Final` 类。
 * 添加了对点操作高级诊断的支持。
+#### <a name="key-bug-fixes"></a>关键 Bug 修复
+* 修复了处理分区拆分但未找到分区时的 `ChangeFeedProcessor` bug。
+* 修复了跨不同线程同步租约更新时的 `ChangeFeedProcessor` bug。
+
+### <a name="401-beta1-2020-03-10"></a>4.0.1-beta.1 (2020-03-10)
+#### <a name="new-features"></a>新功能 
 * 已将包更新为 `com.azure.cosmos`
 * 为模型/REST 协定添加了 `models` 包
 * 为 `CosmosPagedFlux` 和 `CosmosPagedIterable` 类型添加了 `utils` 包。 
@@ -198,14 +247,7 @@ ms.locfileid: "91246833"
 * 通过删除双序列化/反序列化来进行查询优化。 
 * 通过删除不必要的来回复制来优化响应标头。 
 * 通过删除中间字符串实例化优化了 `ByteBuffer` 序列化/反序列化。
-
 #### <a name="key-bug-fixes"></a>关键 Bug 修复
-* 修复了 ConnectionPolicy `toString()` 空指针异常。
-* 修复了在按查询的值顺序分析查询结果时的问题。 
-* 修复了直接 TCP 客户端的套接字泄漏问题。
-* 修复了 `orderByQuery` 的继续标记 bug。
-* 修复了处理分区拆分但未找到分区时的 `ChangeFeedProcessor` bug。
-* 修复了跨不同线程同步租约更新时的 `ChangeFeedProcessor` bug。
 * 修复了在 StoreReader 中导致 `ArrayIndexOutOfBound` 异常的争用情况
 
 ## <a name="faq"></a>常见问题

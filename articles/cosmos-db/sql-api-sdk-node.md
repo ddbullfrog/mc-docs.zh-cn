@@ -7,17 +7,17 @@ ms.devlang: nodejs
 ms.topic: reference
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cdf52c65716e696f052ea565a8d0f78b26f85ba9
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.custom: devx-track-js
+ms.openlocfilehash: 3b369f6deb96d456f50556d45bcb430e9273f4df
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246819"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118010"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Node.js SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ ms.locfileid: "91246819"
 
 <a name="3.0.3"></a>
 ### <a name="303"></a>3.0.3
-* 阻止 Webpack 解析要求调用的模块
+* 阻止 webpack 解析要求调用的模块
 
 <a name="3.0.2"></a>
 ### <a name="302"></a>3.0.2
@@ -194,7 +194,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>改进了浏览器体验
-尽管可以在浏览器中使用 v2 SDK，但这并不是理想体验。 需要对多个 node.js 内置库填充代码，并使用 Webpack 或 Parcel 之类的捆绑程序。 v3 SDK 为浏览器用户提供了更好的全新体验。
+尽管可以在浏览器中使用 v2 SDK，但这并不是理想体验。 需要对多个 node.js 内置库填充代码，并使用 webpack 或 Parcel 之类的捆绑程序。 v3 SDK 为浏览器用户提供了更好的全新体验。
 
 * 将内部请求替换为 fetch (#245)
 * 不使用缓冲区 (#330)

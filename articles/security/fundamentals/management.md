@@ -1,9 +1,9 @@
 ---
 title: 增强 Azure 中的远程管理安全性 | Microsoft Docs
-description: 本文讨论在管理 Microsoft Azure 环境（包括云服务、虚拟机和自定义应用程序）时增强远程管理安全性的步骤。
+description: 本文讨论在管理 Azure 环境（包括云服务、虚拟机和自定义应用程序）时增强远程管理安全性的步骤。
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: Johnnytechn
 manager: rkarlin
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/31/2019
-ms.date: 03/02/2020
-ms.author: v-lingwu
-ms.openlocfilehash: b91754908cacf8ba5ec282823ab2b04f37fe27ce
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.date: 10/12/2020
+ms.author: v-johya
+ms.openlocfilehash: e9cc8f20607cd6401fdc17fd557eaab8140102ac
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439492"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127968"
 ---
 # <a name="security-management-in-azure"></a>Azure 中的安全管理
 Azure 订阅者可从多个设备管理他们的云环境，这些设备包括管理工作站、开发人员电脑，甚至是具有特定于任务的权限的特权最终用户设备。 在某些情况下，可通过基于 Web 的控制台（例如 [Azure 门户](https://azure.microsoft.com/features/azure-portal/)）来执行管理功能。 在其他情况下，可能存在通过虚拟专用网络 (VPN)、终端服务、客户端应用程序协议或（以编程方式）通过 Azure 服务管理 API (SMAPI) 从本地系统直接连接到 Azure。 此外，客户端终结点（例如平板电脑或智能手机）可以加入域或者受到隔离且不受管理。
 
 尽管多种访问和管理功能提供了丰富的选项，但这种变化性可能会让云部署承受巨大风险。 可能难以管理、跟踪和审核管理操作。 这种差异还可能由于用于管理云服务的客户端终结点进行的访问不受管制而带来安全威胁。 使用普通工作站或专用工作站开发和管理基础结构将会打开诸如 Web 浏览（例如水坑攻击）或电子邮件（例如社交工程和网络钓鱼）等不可预测的威胁媒介。
 
-![](./media/management/typical-management-network-topology.png)
+![图中显示了威胁发动攻击的不同方法。](./media/management/typical-management-network-topology.png)
 
 在这种类型的环境中，发生攻击的可能性将会增加，因为难以构造安全策略和机制来适当管理各种终结点对 Azure 接口（例如 SMAPI）的访问。
 
@@ -67,7 +67,7 @@ Azure 订阅者可从多个设备管理他们的云环境，这些设备包括�
 ### <a name="providing-security-for-azure-remote-management"></a>为 Azure 远程管理提供安全性
 Azure 提供了安全机制来帮助管理员管理 Azure 云服务和虚拟机。 这些机制包括：
 
-* 身份验证和[基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)。
+* 身份验证和 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)。
 * 监视、日志记录和审核。
 * 证书和加密通信。
 * Web 管理门户。
@@ -95,6 +95,7 @@ Azure 提供了安全机制来帮助管理员管理 Azure 云服务和虚拟机�
 * 执行限制。 仅允许运行一组管理所需的预定义可执行文件（称为“默认拒绝”）。 默认情况下，除非已在允许列表中明确定义，否则应该拒绝用户运行任何程序的权限。
 * 最低特权。 管理工作站的用户不应该拥有本地计算机本身的任何管理特权。 这样，他们无法更改系统配置或系统文件（无论是有意或无意）。
 
+通过在 Active Directory 域服务 (AD DS) 中使用 [组策略对象](../../active-directory-domain-services/manage-group-policy.md) (GPO)，并通过（本地）管理域将其应用到所有管理帐户，可以强制实施上述所有要素。
 
 ### <a name="managing-services-applications-and-data"></a>管理服务、应用程序和数据
 可以在 Azure 门户或 SMAPI 中通过 Windows PowerShell 命令行接口或利用这些 RESTful 接口的自建应用程序来执行 Azure 云服务配置。 使用这些机制的服务包括 Azure Active Directory (Azure AD)、Azure 存储、Azure 网站和 Azure 虚拟网络，等等。
@@ -111,7 +112,7 @@ Azure 提供了安全机制来帮助管理员管理 Azure 云服务和虚拟机�
 * 在 RD 网关上预配 [Azure 管理证书](/cloud-services/cloud-services-certs-create)，使它成为可以访问 Azure 门户的唯一主机。
 * 将 RD 网关加入管理员工作站所在的同一个[管理域](https://technet.microsoft.com/library/bb727085.aspx)。 在具有对 Azure AD 的单向信任的域中使用站点到站点 IPsec VPN 或 ExpressRoute 时，或者要联合本地 AD DS 实例与 Azure AD 之间的凭据时，就必须这样做。
 * 配置[客户端连接授权策略](https://technet.microsoft.com/library/cc753324.aspx)，以让 RD 网关验证客户端计算机名称是否有效（已加入域）并可以访问 Azure 门户。
-* 针对 [Azure VPN](/vpn-gateway/) 使用 IPsec 以进一步防止管理流量遭到窃听和令牌失窃，或考虑使用通过 [Azure ExpressRoute](/expressroute/) 隔离的 Internet 链接。
+* 针对 [Azure VPN](https://www.azure.cn/home/features/vpn-gateway/) 使用 IPsec 以进一步防止管理流量遭到窃听和令牌失窃，或考虑使用通过 [Azure ExpressRoute](https://www.azure.cn/home/features/expressroute/) 隔离的 Internet 链接。
 * 针对通过 RD 网关登录的管理员启用多重身份验证（通过 [Azure 多重身份验证](/active-directory/authentication/multi-factor-authentication)）或智能卡身份验证。
 * 在 Azure 中配置源 [IP 地址限制](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/)或[网络安全组](/virtual-network/security-overview)，将允许的管理终结点数降到最低。
 
@@ -124,7 +125,7 @@ Azure 提供了安全机制来帮助管理员管理 Azure 云服务和虚拟机�
 部署到 Azure 的某些应用程序或服务可能会针对用户和管理员访问拥有自己的身份验证机制，而其他应用程序或服务则会充分利用 Azure AD。 根据是通过 Active Directory 联合身份验证服务 (AD FS)、使用目录同步还是仅在云中维护用户帐户来联合凭据，使用 [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx)（Azure AD 高级版中已随附）可帮助管理资源之间的标识生命周期。
 
 ### <a name="connectivity"></a>连接
-有多种机制可供帮助保护客户端与 Azure 虚拟网络的连接。 其中两个机制是[点到站点 VPN](/vpn-gateway/vpn-gateway-point-to-site-create) (P2S) 和[安全套接字隧道协议](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S)，前者支持使用行业标准 IPsec (S2S)，后者用于进行加密和隧道传输。 当 Azure 连接到面向公众的 Azure 服务管理（例如 Azure 门户）时，Azure 需要超文本安全传输协议 (HTTPS)。
+有多种机制可供帮助保护客户端与 Azure 虚拟网络的连接。 在这些机制中，有两个机制（[站点到站点 VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) 和[点到站点 VPN](/vpn-gateway/vpn-gateway-point-to-site-create) (P2S)）支持使用行业标准 IPsec (S2S) 或[安全套接字隧道协议](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) 来进行加密和隧道传输。 当 Azure 连接到面向公众的 Azure 服务管理（例如 Azure 门户）时，Azure 需要超文本安全传输协议 (HTTPS)。
 
 未通过 RD 网关连接到 Azure 的独立强化工作站应使用基于 SSTP 的点到站点 VPN 来与 Azure 虚拟网络建立初始连接，并从 VPN 隧道与各个虚拟机建立 RDP 连接。
 
@@ -157,12 +158,12 @@ Azure 提供了安全机制来帮助管理员管理 Azure 云服务和虚拟机�
 
 在独立的强化工作站方案中（如下所示），Windows 防火墙（或非 Microsoft 客户端防火墙）的本地实例将配置为阻止入站连接，例如 RDP。 管理员可以登录到强化的工作站，并在与 Azure 虚拟网络建立 VPN 连接之后启动连接到 Azure 的 RDP 会话，但无法登录到企业电脑并使用 RDP 连接到强化的工作站本身。
 
-![](./media/management/stand-alone-hardened-workstation-topology.png)
+![图中显示了独立强化工作站方案。](./media/management/stand-alone-hardened-workstation-topology.png)
 
 ### <a name="corporate-pc-as-virtual-machine"></a>将企业电脑用作虚拟机
 在部署单个独立强化工作站需要高昂成本或者不方便的情况下，强化的工作站可以托管用于执行非管理任务的虚拟机。
 
-![](./media/management/hardened-workstation-enabled-with-hyper-v.png)
+![图中显示了托管用于执行非管理任务的虚拟机的强化工作站。](./media/management/hardened-workstation-enabled-with-hyper-v.png)
 
 若要避免使用单一工作站来进行管理和其他日常工作任务所可能引发的诸多安全风险，可以在强化的工作站部署 Windows Hyper-V 虚拟机。 此虚拟机可用作企业电脑。 企业电脑环境可以与主机保持隔离，以减少其受攻击面，并使得用户的日常活动（例如电子邮件）不会与机密的管理任务共存。
 
@@ -212,6 +213,7 @@ Azure 提供了安全机制来帮助管理员管理 Azure 云服务和虚拟机�
 ## <a name="next-steps"></a>后续步骤
 除了本文中所提到的特定项以外，以下资源也提供了有关 Azure 及相关 Microsoft 服务的更多常规信息：
 
-* [保护特权访问](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) – 获取有关设计和构建安全管理工作站以管理 Azure 的技术详细信息
+* [保护特权访问](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) - 获取有关设计和构建用于执行 Azure 管理工作的安全管理工作站的技术详细信息
 * [Microsoft 信任中心](https://microsoft.com/trustcenter/cloudservices/azure) - 了解可保护 Azure 结构以及在 Azure 上运行的工作负荷的 Azure 平台功能
 * [Microsoft 安全响应中心](https://www.microsoft.com/msrc) - 可在其中报告 Microsoft 安全漏洞（包括 Azure 问题）或将其通过电子邮件发送到 [secure@microsoft.com](mailto:secure@microsoft.com)
+

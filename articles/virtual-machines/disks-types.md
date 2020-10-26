@@ -3,7 +3,7 @@ title: 选择 Azure IaaS VM 的磁盘类型 - 托管磁盘
 description: 了解虚拟机的可用 Azure 磁盘类型，包括高级 SSD、标准 SSD 和标准 HDD。
 origin.date: 06/03/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: df4670365c887e306d14d0b75c9f878a73e91695
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: 3094b62d4baded89de2117a528baff53a1b93fbc
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310342"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128163"
 ---
 <!--Verified successfully-->
 <!--Not Availble on ultra disks-->
@@ -50,7 +50,7 @@ Azure 托管磁盘目前提供三种磁盘类型，每种类型都针对特定�
 
 Azure 高级 SSD 为运行输入/输出 (IO) 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 若要利用高级存储磁盘的速度和性能优势，可将现有的 VM 磁盘迁移到高级 SSD。 高级 SSD 适用于任务关键型生产应用程序。 高级 SSD 只能用于与高级存储兼容的 VM 系列。
 
-若要详细了解 Azure 中适用于 Windows 或 Linux 的各个 VM 类型和大小（包括哪些大小与高级存储兼容），请参阅 [Azure 中虚拟机的大小](sizes.md)。 若要详细了解 Azure 中适用于 Linux 的各个 VM 类型和大小（包括哪些大小与高级存储兼容），请参阅 [Azure 中虚拟机的大小](sizes.md)。 在这些文章中，需要检查每个 VM 大小的文章，以确定其是否与高级存储兼容。
+若要详细了解 Azure 中适用于 Windows 或 Linux 的各个 VM 类型和大小（包括哪些大小与高级存储兼容），请参阅 [Azure 中虚拟机的大小](sizes.md)。 在本文中，需要检查每个 VM 大小的文章，以确定其是否与高级存储兼容。
 
 ### <a name="disk-size"></a>磁盘大小
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
@@ -119,9 +119,9 @@ Azure 标准 HDD 为运行不区分延迟的工作负荷提供可靠、低成本
 
 
 <!--Not Available on ### Azure disk reservation-->
+<!--Not Available on ### Azure disk reservation-->
 ## <a name="next-steps"></a>后续步骤
 
 请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/storage/managed-disks/)以开始使用。
 
-<!-- Update_Description: new article about disks types -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

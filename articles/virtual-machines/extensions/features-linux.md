@@ -1,6 +1,6 @@
 ---
 title: 适用于 Linux 的 Azure VM 扩展和功能
-description: 了解可为 Azure 虚拟机提供哪些扩展，这些虚拟机扩展按它们提供或改进的功能进行分组。
+description: 了解可为 Linux 上的 Azure 虚拟机提供的扩展，这些扩展按它们提供或改进的功能进行分组。
 services: virtual-machines-linux
 documentationcenter: ''
 manager: gwallace
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 12f8c90017c035f3485e553da25915c861250f99
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 76c551072c06bf7ce97c203f99e4152e19b47465
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413717"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127668"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>适用于 Linux 的虚拟机扩展和功能
 
@@ -73,7 +73,7 @@ Linux 代理在多个 OS 上运行，但是，扩展框架对扩展的 OS 施加
 
 ## <a name="discover-vm-extensions"></a>发现 VM 扩展
 
-有许多不同的 VM 扩展可与 Azure VM 配合使用。 若要查看完整列表，请使用 [az vm extension image list](https://docs.azure.cn/cli/vm/extension/image?view=azure-cli-latest#az-vm-extension-image-list)。 以下示例列出“chinanorth”位置的所有可用扩展  ：
+有许多不同的 VM 扩展可与 Azure VM 配合使用。 若要查看完整列表，请使用 [az vm extension image list](https://docs.azure.cn/cli/vm/extension/image#az_vm_extension_image_list)。 以下示例列出“chinanorth”位置的所有可用扩展  ：
 
 ```azurecli
 az vm extension image list --location chinanorth --output table
@@ -87,7 +87,7 @@ Azure VM 扩展在现有 VM 上运行，需要在已部署的 VM 上进行配置
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM 扩展可以通过 [az vm extension set](https://docs.azure.cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) 命令针对现有 VM 运行。 下面的示例针对名为 myResourceGroup 的资源组中名为 myVM 的 VM 运行自定义脚本扩展   。 将示例资源组名称、VM 名称和要运行的脚本 (https:\//raw.githubusercontent.com/me/project/hello.sh) 替换为你自己的信息。 
+Azure VM 扩展可以通过 [az vm extension set](https://docs.azure.cn/cli/vm/extension#az_vm_extension_set) 命令针对现有 VM 运行。 下面的示例针对名为 myResourceGroup 的资源组中名为 myVM 的 VM 运行自定义脚本扩展   。 将示例资源组名称、VM 名称和要运行的脚本 (https://raw.githubusercontent.com/me/project/hello.sh) 替换为你自己的信息。 
 
 ```azurecli
 az vm extension set `
@@ -285,7 +285,7 @@ Goal state agent: 2.2.18
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>在 VM 上使用 autoUpgradeMinorVersion 识别是否设置了扩展
 
-如果使用“autoUpgradeMinorVersion”预配了扩展，则可以从 VM 模型查看信息。 若要检查，请使用 [az vm show](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-show) 并提供资源组和 VM 名称，如下所示：
+如果使用“autoUpgradeMinorVersion”预配了扩展，则可以从 VM 模型查看信息。 若要检查，请使用 [az vm show](https://docs.azure.cn/cli/vm#az_vm_show) 并提供资源组和 VM 名称，如下所示：
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
@@ -348,13 +348,15 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 1. 运行扩展的时间不能超过 20 分钟（CustomScript 扩展、Chef 和 DSC 除外，其运行时间不能超过 90 分钟）。 如果部署超过此时间，则会将它标记为超时。 超时的原因可能包括 VM 资源不足、在扩展尝试预配时其他 VM 配置/启动任务消耗了大量资源。
 
-2. 不符合最低先决条件。 某些扩展依赖于 VM SKU，例如 HPC 映像。 扩展可能需要满足特定的网络访问要求，例如，能够与 Azure 存储或公共服务通信。 其他原因包括访问包存储库、磁盘空间耗尽或安全限制。
+2. 不符合最低先决条件。 某些扩展依赖于 VM SKU。 扩展可能需要满足特定的网络访问要求，例如，能够与 Azure 存储或公共服务通信。 其他原因包括访问包存储库、磁盘空间耗尽或安全限制。
+
+<!--Not Available on FEATURE HPC-->
 
 3. 包管理器独占访问权限。 在某些情况下，可能会遇到长时间运行的 VM 配置与扩展安装相冲突的问题，两者都需要包管理器的独占访问权限。
 
 ### <a name="view-extension-status"></a>查看扩展状态
 
-针对 VM 运行 VM 扩展后，请使用 [az vm get-instance-view](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-get-instance-view) 返回扩展状态，如下所示：
+针对 VM 运行 VM 扩展后，请使用 [az vm get-instance-view](https://docs.azure.cn/cli/vm#az_vm_get_instance_view) 返回扩展状态，如下所示：
 
 ```azurecli
 az vm get-instance-view \
@@ -387,7 +389,7 @@ az vm get-instance-view \
 
 ### <a name="rerun-a-vm-extension"></a>重新运行 VM 扩展
 
-在某些情况下，可能需要重新运行 VM 扩展。 如果要重新运行扩展，可以先删除扩展，然后使用所选执行方法重新运行扩展。 若要删除扩展，请使用 [az vm extension delete](https://docs.azure.cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-delete)，如下所示：
+在某些情况下，可能需要重新运行 VM 扩展。 如果要重新运行扩展，可以先删除扩展，然后使用所选执行方法重新运行扩展。 若要删除扩展，请使用 [az vm extension delete](https://docs.azure.cn/cli/vm/extension#az_vm_extension_delete)，如下所示：
 
 ```azurecli
 az vm extension delete \

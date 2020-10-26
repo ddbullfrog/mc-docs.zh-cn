@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 06/17/2020
 ms.date: 07/27/2020
-ms.openlocfilehash: 15d844c1f316075f3b5cdc0ec14df268e4f5b9c5
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 3038bbf12393bae00ff0506da5ab809b1d57f423
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020865"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118574"
 ---
 # <a name="tune-model-hyperparameters"></a>优化模型超参数
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“优化模型超参数”模块。 目标是确定机器学习模型的最佳超参数。 该模块使用不同的设置组合来生成并测试多个模型。 它将比较所有模型的指标，以获取设置组合。 
+本文介绍如何使用 Azure 机器学习设计器中的“优化模型超参数”模块。 目标是确定机器学习模型的最佳超参数。 该模块使用不同的设置组合来生成并测试多个模型。 它将比较所有模型的指标，以获取设置组合。 
 
 术语“参数”和“超参数”可能会造成混淆。  模型的参数是在模块右窗格中设置的参数。 简单而言，此模块将对指定的参数设置执行参数扫描。 它将会习得一组最佳的超参数，而这些超参数对于每个特定的决策树、数据集或回归方法可能有所不同。 查找最佳配置的过程有时称为“优化”。 
 

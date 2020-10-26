@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 08/01/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.reviewer: zivr
-ms.openlocfilehash: 3fe8ebc3ba724342993964779d46ae68db246470
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 96da11c968fc4b81c983933e6f75d63e9f715954
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463174"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127935"
 ---
 <!--Verified successfully-->
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>使用 Azure PowerShell 将 VM 部署到专用主机
@@ -63,6 +63,13 @@ $hostGroup = New-AzHostGroup `
 ```
 
 <!--CORRECT ON REMOVE    -Zone 1 -->
+
+添加 `-SupportAutomaticPlacement true` 参数，将 VM 和规模集实例自动放置在主机组中的主机上。 如需了解详情，请参阅[手动放置与自动放置](../dedicated-hosts.md#manual-vs-automatic-placement)。
+
+> [!IMPORTANT]
+> 自动放置功能目前为公共预览版。
+> 若要使用预览版，请完成 [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) 上的预览版加入调查。
+> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
 
 ## <a name="create-a-host"></a>创建主机
 
@@ -178,6 +185,30 @@ Name                   : myHost
 Location               : chinaeast2
 Tags                   : {}
 ```
+
+## <a name="create-a-scale-set-preview"></a>创建规模集（预览）
+
+> [!IMPORTANT]
+> 虚拟机规模集在专用主机上目前以公共预览版的形式提供。
+> 若要使用预览版，请完成 [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) 上的预览版加入调查。
+> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
+
+部署规模集时，需要指定主机组。
+
+```powershell
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "ChinaEast2" `
+  -VMScaleSetName "myDHScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic"`
+  -HostGroupId $hostGroup.Id
+```
+
+如果要手动选择要将规模集部署到哪个主机，请添加 `--host` 和主机名称。
 
 ## <a name="add-an-existing-vm"></a>添加现有 VM 
 

@@ -9,12 +9,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a5e8e96f886e1e410bfde6dbe68eab77d75d1cf2
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 1189cb897fb1f286f06390575f77defe9c2cd4c5
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395459"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118002"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>什么是 Azure 机器学习管道？
 
@@ -95,7 +95,7 @@ Azure ML 管道与 Azure 机器学习工作区相关联，而管道步骤与该�
 
 ### <a name="a-simple-python-pipeline"></a>简单的 Python 管道
 
-此代码片段显示了创建和运行基本 `Pipeline` 所需的对象和调用：
+此代码片段显示了创建和运行 `Pipeline` 所需的对象和调用：
 
 ```python
 ws = Workspace.from_config() 
@@ -152,7 +152,7 @@ pipeline_run.wait_for_completion()
 
 ## <a name="next-steps"></a>后续步骤
 
-Azure ML 管道是一个功能强大的工具，可在早期开发阶段开始产生价值。 价值随着团队和项目的发展而增加。 本文介绍了如何通过 Azure 机器学习 Python SDK 指定管道，并在 Azure 上进行协调。 你已了解一些基本的源代码和一些可用的 `PipelineStep` 类。 你应了解何时使用 Azure ML 管道以及 Azure 如何运行这些管道。 
+Azure ML 管道是一个功能强大的工具，可在早期开发阶段开始产生价值。 价值随着团队和项目的发展而增加。 本文介绍了如何通过 Azure 机器学习 Python SDK 指定管道，并在 Azure 上进行协调。 你已了解一些简单的源代码和一些可用的 `PipelineStep` 类。 你应了解何时使用 Azure ML 管道以及 Azure 如何运行这些管道。 
 
 
 + 了解如何[创建你的第一个管道](how-to-create-your-first-pipeline.md)。

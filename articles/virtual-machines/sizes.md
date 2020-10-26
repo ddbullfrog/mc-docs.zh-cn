@@ -1,22 +1,22 @@
 ---
 title: VM 大小
 description: 列出 Azure 中虚拟机的不同可用大小。
-author: rockboyfor
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 origin.date: 07/21/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4a071f2c3d930c3a0f3db40c3b8a58c1f4a05403
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: f3f7c787265a18bae473508e756b93b99bad0125
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523622"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128097"
 ---
 <!--Verified Successfully-->
 # <a name="sizes-for-virtual-machines-in-azure"></a>Azure 中虚拟机的大小
@@ -25,22 +25,17 @@ ms.locfileid: "90523622"
 
 | 类型 | 大小 | 说明 |
 |------|-------|-------------|
-| [常规用途](sizes-general.md)   | B、Dsv3、Dv3、DSv2、Dv2、Av2 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
-| [计算优化](sizes-compute.md) | Fsv2 | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。 |
-| [内存优化](sizes-memory.md) | Esv3、Ev3、M、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。 |
-| [GPU](sizes-gpu.md) | NC、NCv2、NCv3、NCasT4_v3（预览版）、ND、NDv2（预览版）、NV、NVv3、NVv4 | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。 |
+| [常规用途](sizes-general.md)   | B、Dsv3、Dv3、DSv2、Dv2、Av2、Dv4、Dsv4、Ddv4、Ddsv4 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
+| [计算优化](sizes-compute.md) | F、Fs、Fsv2 | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。 |
+| [内存优化](sizes-memory.md) | Esv3、Ev3、Ev4、Esv4、Edv4、Edsv4、M、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。 |
 
-<!-- Not Available  Dasv4, Dav4, DC series -->
+<!-- Not Available  Dasv4, Dav4, DC, DCv2 -->
 <!-- Not Available  Easv4, Eav4, Mv2, -->
 <!-- Not Available Storage optimized        | Lsv2 -->
-<!-- Not Available GPU            | NC, NVv2, ND, NDv2 (Preview), NV, NVv3, NVv4 (Preview)   -->
+<!-- Not Available GPU            | NC, NCv2, NCv3, NCasT4_v3 (Preview), ND, NDv2 (Preview), NV, NVv3, NVv4  -->
 <!-- Not Available High performance compute | HB, HBv2, HC, H-->
-<!-- Not Available [Storage optimized]-->
-<!-- Not Available [GPU](sizes-gpu.md)-->
-<!-- Not Available [High performance compute](sizes-hpc.md)-->
 
-
-- 有关不同大小的定价信息，请参阅 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 或 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 的定价页。
+- 有关不同大小的定价信息，请参阅 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 或 [Windows](https://www.azure.cn/pricing/details/virtual-machines/#Windows) 的定价页。
 - 如需了解 Azure 区域中各种 VM 大小的可用性，请参阅 [可用产品（按区域）](https://azure.microsoft.com/regions/services/)。
 - 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-resource-manager/management/azure-subscription-service-limits.md)。
 - 有关 Azure 如何命名其 VM 的详细信息，请参阅 [Azure 虚拟机大小命名约定](./vm-naming-conventions.md)。
@@ -84,5 +79,4 @@ ms.locfileid: "90523622"
     
 - 查看[上一代](sizes-previous-gen.md)页面，了解 A Standard、Dv1（D1-4 和 D11-14 v1）以及 A8-A11 系列
 
-<!-- Update_Description: new article about sizes -->
-<!--NEW.date: 08/31/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

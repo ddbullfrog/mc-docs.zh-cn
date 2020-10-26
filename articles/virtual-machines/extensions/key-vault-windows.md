@@ -7,16 +7,16 @@ ms.service: virtual-machines-windows
 ms.topic: article
 origin.date: 12/02/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: edb392ed64a5fce966484ac0d93d93242793cb50
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 874f40fca38bf97c11f0efbde2c72d0f16ef73ab
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413705"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127940"
 ---
 <!--Verified successfully on the extension name exists-->
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Key Vault 虚拟机扩展
@@ -209,7 +209,9 @@ ms.locfileid: "89413705"
 请注意以下限制/要求：
 - Key Vault 限制：
     - 必须在部署时存在 
-    - 使用 MSI 为 VM/VMSS 标识设置密钥保管库访问策略
+    - 必须使用托管标识为 VM/VMSS 标识设置 Key Vault 访问策略。 请参阅[如何对 Key Vault 进行身份验证](/key-vault/general/authentication)。
+
+<!--Not Available on  and [Assign a Key Vault access policy](/key-vault/general/assign-access-policy-cli)-->
 
 ## <a name="troubleshoot-and-support"></a>故障排除和支持
 

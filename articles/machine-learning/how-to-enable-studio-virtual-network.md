@@ -11,15 +11,14 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: be40e20c976e566d2b60c394541364ba407952b2
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 4beeeb0d91b174dd85f738023b636cf3cd7fd11a
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395553"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118412"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中使用 Azure 机器学习工作室
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 本文介绍如何在虚拟网络中使用 Azure 机器学习工作室。 学习如何：
 
@@ -28,7 +27,11 @@ ms.locfileid: "91395553"
 > - 授予工作室访问存储在虚拟网络内部的数据的权限。
 > - 了解工作室如何影响存储安全性。
 
-本文是由五部分组成的系列文章的第五部分，指导你如何保护 Azure 机器学习工作流。 
+本文是由 4 部分组成的系列文章的第五部分，指导你如何保护 Azure 机器学习工作流。 
+
+请参阅本系列中的其他文章：
+
+[1.保护工作区 ](how-to-secure-workspace-vnet.md) > [2.保护训练环境 ](how-to-secure-training-vnet.md) > [3.保护推理环境 ](how-to-secure-inferencing-vnet.md) > [4.启用工作室功能](how-to-enable-studio-virtual-network.md)
 
 
 > [!IMPORTANT]
@@ -52,8 +55,7 @@ ms.locfileid: "91395553"
 
 ## <a name="access-data-using-the-studio"></a>使用工作室访问数据
 
-如果数据存储在虚拟网络中，则必须配置存储帐户，以使用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)授予工作室对数据的访问权限。
-
+[将 Azure 存储帐户添加到虚拟网络](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)后，必须配置存储帐户，以使用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)授予工作室对数据的访问权限。 工作室支持将存储帐户配置为使用服务终结点或专用终结点。 存储帐户默认使用服务终结点。 
 
 如果未启用托管标识，则会收到以下错误 `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` 此外，将禁用以下操作：
 

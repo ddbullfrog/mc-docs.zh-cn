@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 6489ef72a5da8785dabc70039ee040ba8e34ccea
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 43464565618a11225a317035b57860baed9a8b59
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097756"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118319"
 ---
 # <a name="resnet"></a>ResNet
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的 ResNet 模块来通过 ResNet 算法创建图像分类模型****。  
+本文介绍如何使用 Azure 机器学习设计器中的 ResNet 模块来通过 ResNet 算法创建图像分类模型。  
 
 此分类算法是一种监督式学习方法，需要一个标记的数据集。 若要详细了解如何获取带标记的图像目录，请参阅[转换为图像目录](convert-to-image-directory.md)。 可通过提供模型和带标记的图像目录作为[训练 Pytorch 模型](train-pytorch-model.md)模块的输入来训练模型。 然后，可使用训练后的模型来预测使用[为图像模型评分](score-image-model.md)的新输入示例的值。
 

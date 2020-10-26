@@ -1,9 +1,9 @@
 ---
 title: 入门 - Microsoft 威胁建模工具 - Azure
-description: 这是着重强调威胁建模工具操作的更深入的概述。
+description: 了解如何开始使用 Threat Modeling Tool。 创建关系图、识别威胁、缓解威胁，并对每次缓解进行验证。
 services: security
 documentationcenter: na
-author: jegeib
+author: Johnnytechn
 manager: jegeib
 editor: jegeib
 ms.assetid: na
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 08/17/2017
-ms.openlocfilehash: ab8a2adca2daf3c8ff364ff60b451e7bd72b0e7a
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 1a7b721b38afbacffd42f81812ebf09b602dd5d5
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439534"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128037"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>威胁建模工具入门
 
@@ -47,7 +47,7 @@ Microsoft Threat Modeling Tool 2018 在 2018 年 9 月作为 GA 发布，是免�
 | **反馈、建议和问题按钮** | 会指向有关 SDL 所有各项的 **[MSDN 论坛](https://social.msdn.microsoft.com/Forums/home?forum=sdlprocess)** ， 让你有机会了解其他用户在执行哪些操作，以及解决方法和建议等信息。 如果仍然找不到要查找的内容，请发送电子邮件至 tmtextsupport@microsoft.com，让我们的支持团队帮助你                                                                                                                            |
 | **创建模型**                          | 为你打开空白画布以绘制关系图。 请确保选择要用于你的模型的模板                                                                                                                                                                                                                                                                                                                                                                       |
 | **新模型的模板**                 | 创建模型前，必须选出想要使用的模板。 我们的主要模板是 Azure 威胁模型模板，其中包含特定于 Azure 的模具、威胁和缓解操作。 对于通用模型，请从下拉菜单中选择 SDL TM 知识库。 想要创建自己的模板或为所有用户提交新的模板？ 查看我们的 **[模板存储库](https://github.com/Microsoft/threat-modeling-templates)** GitHub 页以了解详细信息                              |
-| **打开模型**                            | <p>打开以前保存的威胁模型。 如需打开最近经常使用的文件，“最近打开的模型”功能很实用。 将鼠标悬停在选项上方时，可以看到打开模型的两种方法：</p><p><ul><li>“从本计算机打开” - 使用本地存储打开文件的经典方法</li><li>“从 OneDrive 打开”- 团队可以使用 OneDrive 中的文件夹在单个位置保存和共享所有威胁模型，这样可以提升工作效率和协作效率</li></ul></p> |
+| **打开模型**                            | <p>打开以前保存的威胁模型。 如需打开最近经常使用的文件，“最近打开的模型”功能很实用。 将鼠标悬停在选项上方时，可以看到打开模型的两种方法：</p><p><ul><li>从此计算机打开 - 使用本地存储打开文件的经典方法</li><li>从 OneDrive 打开 - 团队可以使用 OneDrive 中的文件夹在单个位置保存和共享所有威胁模型，这样可以提升工作效率和协作效率</li></ul></p> |
 | **入门指南**                   | 打开 **[Microsoft 威胁建模工具](threat-modeling-tool.md)** 主页                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### <a name="template-section"></a>模板部分
@@ -98,7 +98,7 @@ Ricardo 先从选择列表上的第一项开始。 下面是发生的具体情�
 
 首先，两个模具之间的交互得到了增强
 
-![交互](./media/threat-modeling-tool-getting-started/interaction.png)
+![屏幕截图显示了两个模具以及用较粗线条连接它们的弯箭头。](./media/threat-modeling-tool-getting-started/interaction.png)
 
 其次，有关威胁的其他信息显示在威胁属性窗口中
 
@@ -113,7 +113,7 @@ Azure 模板具有附加详细信息，不仅帮助用户了解问题所在，�
 在 Ricardo 进入信息泄露下的威胁后，他意识到访问控制计划需要一些供审核和报告生成的只读帐户。 他想知道这是否是一个新威胁，但是缓解操作是相同的，所以他相应注意到了该威胁。
 此外，他还进一步考虑了信息披露并意识到备份磁带需要让运行小组进行加密。
 
-由于现有缓解或安全保证而不适用于设计的威胁可以从“状态”下拉列表中更改为“不适用”。 有三个其他选项：未启动 - 默认选择；需要调查 - 用于跟进项目；已缓解 - 完全处理后。
+由于现有缓解措施或安全保证而不影响设计的威胁可以从“状态”下拉列表中更改为“不适用”。 有三个其他选项：未启动 - 默认选择；需要调查 - 用于跟进项目；已缓解 - 完全处理后。
 
 ## <a name="reports--sharing"></a>报表和共享
 
@@ -146,3 +146,4 @@ Ricardo 和 Cristina 查看列表并添加重要事项、缓解/理由、优先�
 ## <a name="next-steps"></a>后续步骤
 
 将你的问题、评论和疑问发送至 tmtextsupport@microsoft.com。 **[下载](https://aka.ms/threatmodelingtool)** 威胁建模工具以开始。
+

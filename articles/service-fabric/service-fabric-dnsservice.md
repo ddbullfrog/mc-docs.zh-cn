@@ -4,17 +4,17 @@ description: 使用 Service Fabric 的 DNS 服务从群集内部发现微服务�
 ms.topic: conceptual
 origin.date: 07/20/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5c0fc4ff8906a05e8513469bfa358218ab23a71c
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: dcbc4b282fead20ccb7ecadc4367c5d20b1a7670
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655174"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127911"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服务
 DNS 服务是可选的系统服务，可以在群集中启用，用于发现使用 DNS 协议的其他服务。 
@@ -23,7 +23,7 @@ DNS 服务是可选的系统服务，可以在群集中启用，用于发现使�
 
 DNS 服务将 DNS 名称映射到服务名称，命名服务将服务名称进行解析并将其发送回服务终结点。 在创建时提供服务的 DNS 名称。 下图显示了如何对无状态服务运行 DNS 服务。
 
-:::image type="content" source="./media/service-fabric-dnsservice/stateless-dns.png" alt-text="服务终结点":::
+:::image type="content" source="./media/service-fabric-dnsservice/stateless-dns.png" alt-text="图中显示了 DNS 服务如何将 DNS 名称映射到服务名称（针对无状态服务）。":::
 
 从 Service Fabric 版本 6.3 开始，Service Fabric DNS 协议经过扩展，现在包含用于寻址已分区的有状态服务的方案。 使用这些扩展可以通过有状态服务 DNS 名称和分区名称的组合来解析特定的分区 IP 地址。 支持所有三种分区方案：
 
@@ -33,7 +33,7 @@ DNS 服务将 DNS 名称映射到服务名称，命名服务将服务名称进�
 
 下图显示了如何分区的有状态服务运行 DNS 服务。
 
-:::image type="content" source="./media/service-fabric-dnsservice/stateful-dns.png" alt-text="有状态服务终结点":::
+:::image type="content" source="./media/service-fabric-dnsservice/stateful-dns.png" alt-text="图中显示了 DNS 服务如何将 DNS 名称映射到服务名称（针对无状态服务）。":::
 
 DNS 服务不支持动态端口。 若要解析动态端口上公开的服务，请使用[反向代理服务](./service-fabric-reverseproxy.md)。
 
@@ -43,62 +43,7 @@ DNS 服务不支持动态端口。 若要解析动态端口上公开的服务，
 
 使用门户创建群集时，默认情况下，在“群集配置”菜单的“包括 DNS 服务”复选框中启用 DNS 服务   ：
 
-:::image type="content" source="./media/service-fabric-dnsservice/enable-dns-service.png" alt-text="通过门户启用 DNS 服务":::
-
-如果不使用门户创建群集或者要更新现有群集，则需要在模板中启用 DNS 服务：
-
-- 若要部署新的群集，可以使用[示例模板](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)或创建自己的资源管理器模板。 
-- 若要更新现有群集，可以导航到门户的群集资源组并单击“自动化脚本”，使用反映群集和组中其他资源当前状态的模板  。 若要了解详细信息，请参阅[从资源组导出模板](../azure-resource-manager/templates/export-template-portal.md)。
-
-有了模板后，可以通过以下步骤启用 DNS 服务：
-
-1. 检查 `Microsoft.ServiceFabric/clusters` 资源的 `apiversion` 是否设置为 `2017-07-01-preview` 或更高，如果不是，请按以下示例所示进行更新：
-
-    ```json
-    {
-        "apiVersion": "2017-07-01-preview",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        ...
-    }
-    ```
-
-2. 现在，通过以下方式之一启用 DNS 服务：
-
-    - 若要启用采用默认设置的 DNS 服务，请将其添加到 `properties` 节中的 `addonFeatures` 节，如以下示例所示：
-
-        ```json
-        "properties": {
-          ...
-
-          "addonFeatures": [
-            "DnsService"
-          ],
-          ...
-        }
-        ```
-    - 若要启用采用非默认设置的服务，请将 `DnsService` 节添加到 `properties` 节中的 `fabricSettings` 节。 在这种情况下，不需要将 DnsService 添加到 `addonFeatures`。 若要详细了解可为 DNS 服务设置的属性，请参阅 [DNS 服务设置](./service-fabric-cluster-fabric-settings.md#dnsservice)。
-
-        ```json
-           "properties": {
-             ...  
-             "fabricSettings": [
-               ...
-               {
-                 "name": "DnsService",
-                 "parameters": [
-                   {
-                     "name": "IsEnabled",
-                     "value": "true"
-                   },
-                   {
-                     "name": "PartitionSuffix",
-                     "value": "--"
-                   },
-                   {
-                     "name": "PartitionPrefix",
-                     "value": "--"
+:::image type="content" source="./media/service-fabric-dnsservice/enable-dns-service.png" alt-text="图中显示了 DNS 服务如何将 DNS 名称映射到服务名称（针对无状态服务）。"
                    }
                  ]
                },
@@ -133,7 +78,7 @@ DNS 服务不支持动态端口。 若要解析动态端口上公开的服务，
 ```
 部署应用程序后，Service Fabric Explorer 中的服务实例会显示此实例的 DNS 名称，如下图所示： 
 
-:::image type="content" source="./media/service-fabric-dnsservice/service-fabric-explorer-dns.png" alt-text="服务终结点":::
+:::image type="content" source="./media/service-fabric-dnsservice/service-fabric-explorer-dns.png" alt-text="图中显示了 DNS 服务如何将 DNS 名称映射到服务名称（针对无状态服务）。":::
 
 以下示例将有状态服务的 DNS 名称设置为 `statefulsvc.app`。 该服务使用命名分区方案。 请注意分区名称均为小写。 这是在 DNS 查询中用作目标的分区的一项要求；有关详细信息，请参阅[针对有状态服务分区发出 DNS 查询](#preview-making-dns-queries-on-a-stateful-service-partition)。
 
@@ -261,4 +206,4 @@ public class ValuesController : Controller
 ## <a name="next-steps"></a>后续步骤
 通过[连接服务并与服务进行通信](service-fabric-connect-and-communicate-with-services.md)，了解有关群集内服务通信的详细信息
 
-<!--Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

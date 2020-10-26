@@ -10,16 +10,16 @@ author: likebupt
 ms.author: keli19
 origin.date: 11/19/2019
 ms.date: 03/09/2020
-ms.openlocfilehash: 7dc5813e77f676ffd76e4c8fec210647fa14447a
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: e1b0fd11c23297701346844b46284c925dc32cc0
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020877"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117878"
 ---
 # <a name="module-k-means-clustering"></a>模块：K 平均值聚类
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“K-Means 群集”模块来创建未经训练的 K-Means 群集模型  。 
+本文介绍如何使用 Azure 机器学习设计器中的 K-Means 群集模块来创建未经训练的 K-Means 群集模型。 
  
 K-means 是最简单、最常见的非监督式学习算法之一  。 可以将算法用于各种机器学习任务，如： 
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: v-yiso
 author: sdgilley
-ms.date: 07/27/2020
-ms.openlocfilehash: 7dd71544eddbb0e09de02421c06dffbabfd6fd61
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.date: 08/25/2020
+ms.openlocfilehash: ead37130e8963964e6d622e517e60505aaf0371a
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395479"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118534"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>什么是 Azure 机器学习计算实例？
 
@@ -81,7 +81,7 @@ Python 包都安装在 **Python 3.6 - AzureML** 环境中。
 
 ### <a name="installing-packages"></a>安装包
 
-可以直接在 Jupyter 笔记本或 Rstudio 中安装包：
+可以直接在 Jupyter Notebook 或 RStudio 中安装包：
 
 * RStudio 使用右下的“包”选项卡或左上的“控制台”选项卡。  
 * Python:添加安装代码并在 Jupyter 笔记本单元中执行它。
@@ -92,6 +92,30 @@ Python 包都安装在 **Python 3.6 - AzureML** 环境中。
 * Jupyter 实验室：选择“启动器”选项卡中“其他”标题下的“终端”磁贴。
 * Jupyter：在“文件”选项卡的右上方选择“新建>“终端”。
 * 通过 SSH 连接到计算机。  然后，将 Python 包安装到 **Python 3.6 - AzureML** 环境中。  将 R 包安装到 **R** 环境中。
+
+### <a name="add-new-kernels"></a>添加新内核
+
+若要向计算实例添加新 Jupyter 内核，请执行以下步骤：
+
+1. 从 Jupyter、JupyterLab 或笔记本窗格创建新终端，或者通过 SSH 登录到计算实例
+2. 使用终端窗口创建新环境。  例如，以下代码会创建 `newenv`：
+    ```shell
+    conda create --name newenv
+    ```
+3. 激活该环境。  例如，创建 `newenv` 的结果如下：
+
+    ```shell
+    conda activate newenv
+    ```
+4. 在新环境中安装 pip 和 ipykernel 包，并为该 conda 环境创建内核
+
+    ```shell
+    conda install pip
+    conda install ipykernel
+    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
+    ```
+
+可以安装任何[可用的 Jupyter 内核](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)。
 
 ## <a name="accessing-files"></a>访问文件
 
@@ -127,7 +151,7 @@ Python 包都安装在 **Python 3.6 - AzureML** 环境中。
 * 通过 SSH 连接到计算实例。 默认已禁用 SSH 访问，但可以在创建计算实例时启用。 SSH 访问是通过公钥/私钥机制实现的。 选项卡中将提供 IP 地址、用户名和端口号等 SSH 连接详细信息。
 * 获取有关特定计算实例的详细信息，例如 IP 地址和区域。
 
-使用 [RBAC](/role-based-access-control/overview) 可以控制工作区中的哪些用户可以创建、删除、启动、停止和重启计算实例。 充当工作区参与者和所有者角色的所有用户可以在整个工作区中创建、删除、启动、停止和重启计算实例。 但是，只有特定计算实例的创建者可在该计算实例上访问 Jupyter、JupyterLab 和 RStudio。 计算实例的创建者拥有专用的计算实例，具有根访问权限，且可从终端通过 Jupyter/JupyterLab/RStudio 进入。 计算实例具有创建者用户的单用户登录名，所有操作将使用该用户的标识进行试验运行的 RBAC 控制和权限划分。 SSH 访问是通过公钥/私钥机制控制的。
+使用 [RBAC](/role-based-access-control/overview) 可以控制工作区中的哪些用户可以创建、删除、启动、停止和重启计算实例。 充当工作区参与者和所有者角色的所有用户可以在整个工作区中创建、删除、启动、停止和重启计算实例。 但是，只有特定计算实例的创建者或分配的用户（如果该计算实例是以其名义创建的）可在该计算实例上访问 Jupyter、JupyterLab 和 RStudio。 计算实例专用于具有 root 用户访问权限的单个用户，并且可通过 Jupyter/JupyterLab/RStudio 进行终端访问。 计算实例将具有单用户登录名，所有操作将使用该用户的标识进行试验运行的 RBAC 控制和权限划分。 SSH 访问是通过公钥/私钥机制控制的。
 
 可以通过 RBAC 来控制这些操作：
 * *Microsoft.MachineLearningServices/workspaces/computes/read*

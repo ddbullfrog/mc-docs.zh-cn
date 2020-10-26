@@ -1,9 +1,9 @@
 ---
 title: 授权 - Microsoft Threat Modeling Tool - Azure | Azure Docs
-description: 针对威胁建模工具中暴露的威胁采取的缓解措施
+description: 在 Threat Modeling Tool 中了解有关授权缓解的信息。 请参阅潜在威胁列表和缓解说明。
 services: security
 documentationcenter: na
-author: jegeib
+author: Johnnytechn
 manager: jegeib
 editor: jegeib
 ms.assetid: na
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 02/07/2017
-ms.openlocfilehash: fa5097b511741aaceda5e90ad97723122130adfa
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: a8970b5c342967e2371b96048d848ad5049ff394
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439649"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127793"
 ---
 # <a name="security-frame-authorization--mitigations"></a>安全框架：授权 | 缓解措施 
 | 产品/服务 | 文章 |
@@ -147,7 +147,7 @@ WHERE userID=:id < - session var
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [SQL 数据库权限层次结构](https://msdn.microsoft.com/library/ms191465)、[SQL 数据库安全对象](https://msdn.microsoft.com/library/ms190401) |
+| **参考**              | [SQL 权限层次结构](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine)、[SQL 安全对象](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **步骤** | 应该使用最低特权帐户连接到数据库。 应用程序登录名应限制为在数据库中使用，并且只应执行选定的存储过程。 应用程序登录名不应该拥有对表的直接访问权限。 |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>实施行级别安全性 RLS 来防止租户访问彼此的数据
@@ -161,7 +161,7 @@ WHERE userID=:id < - session var
 | **参考**              | [SQL Server 行级别安全性 (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **步骤** | <p>行级别安全性使客户能够根据执行查询的用户的特征（例如，组成员身份或执行上下文），控制对数据库表中的行的访问。</p><p>行级别安全性 (RLS) 简化了应用程序中安全性的设计和编码。 使用 RLS 可针对数据行访问实施限制。 例如，确保工作人员只能访问与其部门相关的数据行，或者将客户限制为只能访问与其公司相关的数据。</p><p>访问限制逻辑位于数据库层中，而不是在另一个应用层中远离数据。 数据库系统会在每次尝试从任何层进行数据访问时应用访问限制。 这样就会通过减少安全系统的外围应用，使安全系统变得更加可靠和稳健。</p><p>|
 
-请注意，作为一个现成的数据库功能，RLS 仅适用于 SQL Server 2016 及更高版本以及 Azure SQL 数据库。 如果未实施这项现成的 RLS 功能，应确保使用视图和过程来限制数据访问
+请注意，RLS 作为现成可用的数据库功能，仅适用于 SQL Server 2016 及更高版本、Azure SQL 数据库和 SQL 托管实例。 如果未实施这项现成的 RLS 功能，应确保使用视图和过程来限制数据访问
 
 ## <a name="sysadmin-role-should-only-have-valid-necessary-users"></a><a id="sysadmin-users"></a>Sysadmin 角色应该只包括必要的有效用户
 
@@ -171,7 +171,7 @@ WHERE userID=:id < - session var
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
-| **参考**              | [SQL 数据库权限层次结构](https://msdn.microsoft.com/library/ms191465)、[SQL 数据库安全对象](https://msdn.microsoft.com/library/ms190401) |
+| **参考**              | [SQL 权限层次结构](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine)、[SQL 安全对象](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **步骤** | SysAdmin 固定服务器角色的成员应该受到严格限制，永远不应包含应用程序使用的帐户。  请检查该角色中的用户列表，并删除所有不必要的帐户|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>使用最低特权令牌连接到云网关
@@ -183,7 +183,7 @@ WHERE userID=:id < - session var
 | **适用的技术** | 泛型 |
 | **属性**              | 网关选项 - Azure IoT 中心 |
 | **参考**              | [Iot 中心访问控制](/iot-hub/iot-hub-devguide#Security) |
-| **步骤** | 向连接到云网关（IoT 中心）的各种组件提供最低特权。 典型示例 – 设备管理/预配组件使用 registryread/write，事件处理器 (ASA) 使用服务连接。 各个设备使用设备凭据建立连接|
+| **步骤** | 向连接到云网关（IoT 中心）的各种组件提供最低特权。 典型示例 - 设备管理/预配组件使用 registryread/write，而事件处理器 (ASA) 使用服务连接。 各个设备使用设备凭据建立连接|
 
 ## <a name="use-a-send-only-permissions-sas-key-for-generating-device-tokens"></a><a id="sendonly-sas"></a>使用仅有发送权限的 SAS 密钥生成设备令牌
 
@@ -205,7 +205,7 @@ WHERE userID=:id < - session var
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
 | **参考**              | [事件中心身份验证和安全模型概述](/event-hubs/authenticate-shared-access-signature) |
-| **步骤** | 不应该将授予事件中心直接访问权限的令牌提供给设备。 对设备使用仅授予发布者访问权限的最低特权令牌有助于识别设备，如果发现该设备是恶意设备或者是遭到入侵的设备，则将它加入方块列表。|
+| **步骤** | 不应该将授予事件中心直接访问权限的令牌提供给设备。 对设备使用仅授予发布者访问权限的最低特权令牌有助于识别设备，如果发现该设备是恶意设备或者是遭到入侵的设备，则阻止该设备。|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>使用具有所需最低权限的 SAS 密钥连接到事件中心
 
@@ -238,7 +238,7 @@ WHERE userID=:id < - session var
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
 | **参考**              | [使用角色分配管理对 Azure 订阅资源的访问权限](/role-based-access-control/role-assignments-portal)  |
-| **步骤** | Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，可以仅授予用户执行其作业所需的访问次数。|
+| **步骤** | Azure 基于角色的访问控制 (Azure RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，可以仅授予用户执行其作业所需的访问次数。|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>使用 RBAC 限制客户端对群集操作的访问权限
 
@@ -463,3 +463,4 @@ public class CustomController : ApiController
 | **属性**              | 空值  |
 | **参考**              | 空值  |
 | **步骤** | 现场网关应向调用方授权，让调用方检查自身是否拥有所需的权限来执行请求的操作。 例如，用于配置现场网关的管理用户接口/API 的权限，应该与连接到现场网关的设备的权限不同。|
+

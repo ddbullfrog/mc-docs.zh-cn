@@ -1,9 +1,9 @@
 ---
 title: 加密 - Microsoft 威胁建模工具 - Azure | Azure 文档
-description: 针对威胁建模工具中暴露的威胁采取的缓解措施
+description: 了解针对 Threat Modeling Tool 中暴露的威胁的加密缓解措施。 请参阅缓解措施信息并查看代码示例。
 services: security
 documentationcenter: na
-author: jegeib
+author: Johnnytechn
 manager: jegeib
 editor: jegeib
 ms.assetid: na
@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: jegeib
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 02/07/2017
-ms.openlocfilehash: 63cd48fba1f12ff8f5c598c0c140eb61c18b0e52
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: df0da14a14591ec6bf26235c903c387ed2202de9
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439619"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128026"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>安全框架：加密 | 缓解措施 
 
-| 产品/服务 | 文章 |
+| 产品/服务 | 项目 |
 | --------------- | ------- |
 | **Web 应用程序** | <ul><li>[只使用批准的对称块加密法和密钥长度](#cipher-length)</li><li>[为对称加密法使用批准的块加密法模式和初始化向量](#vector-ciphers)</li><li>[使用批准的非对称算法、密钥长度和填充](#padding)</li><li>[使用批准的随机数生成器](#numgen)</li><li>[不要使用对称流加密法](#stream-ciphers)</li><li>[使用批准的 MAC/HMAC/键控哈希算法](#mac-hash)</li><li>[只使用批准的加密哈希函数](#hash-functions)</li></ul> |
 | **Database** | <ul><li>[使用强加密算法来加密数据库中的数据](#strong-db)</li><li>[应该对 SSIS 包加密和数字签名](#ssis-signed)</li><li>[将数字签名添加到关键的数据库安全对象](#securables-db)</li><li>[使用 SQL Server EKM 保护加密密钥](#ekm-keys)</li><li>[如果不应向数据库引擎透露加密密钥，请使用 AlwaysEncrypted 功能](#keys-engine)</li></ul> |

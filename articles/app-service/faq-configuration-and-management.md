@@ -7,14 +7,14 @@ tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 origin.date: 10/30/2018
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: c9a4035aa5f3971451dba43958ca36bfa7523f6d
-ms.sourcegitcommit: 981a75a78f8cf74ab5a76f9e6b0dc5978387be4b
+ms.openlocfilehash: f062c4d6ae82ec6dac7e2b62d02335e52a0e4aa0
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801325"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170638"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -66,7 +66,7 @@ ms.locfileid: "83801325"
     * 值 = *所需时区*
 3. 选择“保存” 。
 
-对于在 Windows 上运行的应用服务，请参阅[默认时区](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones)一文中的“时区”列了解接受的值。 
+对于在 Windows 上运行的应用服务，请参阅[默认时区](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones)一文中的“时区”列了解接受的值。  对于在 Linux 上运行的应用服务，请将 TZ 数据库名称设置为时区值。 下面是 TZ 数据库名称的示例：America/Adak。
 
 <!-- For the App services that run on Linux, set the TZ database name as the time zone value. Here is an example of TZ database name: America/Adak. -->
 
@@ -83,7 +83,7 @@ ms.locfileid: "83801325"
 
 随即显示出站 IP 地址列表。
 
-如果你的网站在应用服务环境中承载，则若要了解如何获取出站 IP 地址，请参阅[出站网络地址](environment/network-info.md#ase-ip-addresses)。
+如果你的网站在应用服务环境中承载，则若要了解如何获取出站 IP 地址，请参阅出站网络地址。
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>如何获取 Web 应用的保留或专用入站 IP 地址？
 
@@ -150,7 +150,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>如何添加 URL 重写规则？
 
-若要添加 URL 重写规则，请使用 **wwwroot** 文件夹中的相关配置条目创建一个 web.config 文件。 有关详细信息，请参阅 [Azure 应用服务：了解 URL 重写](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)。
+若要添加 URL 重写规则，请使用 **wwwroot** 文件夹中的相关配置条目创建一个 web.config 文件。 有关详细信息，请参阅 [Azure 应用服务：了解 URL 重写](https://docs.microsoft.com/archive/blogs/madhurabharadwaj/azure-app-services-understanding-url-re-write)。
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>如何控制应用服务的入站流量？
 
@@ -208,7 +208,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 为了提供容错能力，应用服务环境要求每个辅助角色池至少需要一个额外的计算资源。 无法为额外的计算资源分配工作负荷。
 
-有关详细信息，请参阅[如何创建应用服务环境](environment/create-external-ase.md)。
+有关详细信息，请参阅[如何创建应用服务环境](environment/app-service-web-how-to-create-an-app-service-environment.md)。
 
 ## <a name="why-do-i-see-timeouts-when-i-try-to-create-an-app-service-environment"></a>在尝试创建应用服务环境时，为何遇到超时？
 
@@ -225,7 +225,7 @@ Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provi
 * 错误的网络安全组会阻碍应用服务环境的网络连接要求。
 * 强制隧道处于打开状态。
 
-有关详细信息，请参阅[部署（创建）新 Azure 应用服务环境时的常见问题](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/)。
+有关详细信息，请参阅[部署（创建）新 Azure 应用服务环境时的常见问题](https://docs.microsoft.com/archive/blogs/waws/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase)。
 
 ## <a name="why-cant-i-delete-my-app-service-plan"></a>为什么无法删除应用服务计划？
 
@@ -251,7 +251,7 @@ Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provi
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>如何为使用流量管理器的应用服务 Web 应用配置自定义域名？
 
-若要了解如何将自定义域名用于使用 Azure 流量管理器实现负载均衡的应用服务应用，请参阅[为使用流量管理器的 Azure Web 应用配置自定义域名](web-sites-traffic-manager-custom-domain-name.md)。
+若要了解如何将自定义域名用于使用 Azure 流量管理器实现负载均衡的应用服务应用，请参阅[为使用流量管理器的 Azure Web 应用配置自定义域名](configure-domain-traffic-manager.md)。
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>我的应用服务证书被标记为存在欺诈。 如何解决此问题？
 
@@ -286,7 +286,7 @@ Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Gr
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>如何确定应用服务中安装的 .NET 版本？
 
-若要查找应用服务中安装的 Microsoft.NET 版本，最快的方法是使用 Kudu 控制台。 可以从门户或使用应用服务应用的 URL，来访问 Kudu 控制台。 有关详细说明，请参阅[确定应用服务中安装的 .NET 版本](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/)。
+若要查找应用服务中安装的 Microsoft.NET 版本，最快的方法是使用 Kudu 控制台。 可以从门户或使用应用服务应用的 URL，来访问 Kudu 控制台。 有关详细说明，请参阅[确定应用服务中安装的 .NET 版本](https://docs.microsoft.com/archive/blogs/waws/how-to-determine-the-installed-net-version-in-azure-app-services)。
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>为什么自动缩放不按预期方式工作？
 
@@ -314,4 +314,4 @@ Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Gr
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>如何从本地环境迁移到应用服务？
 
-若要将站点从 Windows Web 服务器迁移到应用服务，可以使用 Azure 应用服务迁移助手。 该迁移工具会根据需要在 Azure 中创建 Web 应用和数据库，然后发布内容。 有关详细信息，请参阅 [Azure App Service 迁移助手](https://www.migratetoazure.net/)。
+若要将站点从 Windows 和 Linux Web 服务器迁移到应用服务，可以使用 Azure App Service 迁移助手。 该迁移工具会根据需要在 Azure 中创建 Web 应用和数据库，然后发布内容。 有关详细信息，请参阅 [Azure App Service 迁移助手](https://appmigration.microsoft.com/)。

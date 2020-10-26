@@ -11,16 +11,16 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: beb3677ced85dede06c9762f4cc91af358e62a1c
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 99c4151924e8844212ed0b8d394f6cccf3234dfd
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395139"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117963"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>发布和跟踪机器学习管道
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本文将演示如何与同事或客户共享机器学习管道。
 
@@ -84,6 +84,74 @@ response = requests.post(published_pipeline1.endpoint,
                          json={"ExperimentName": "My_Pipeline",
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
+对于 `ParameterAssignments` 键，POST 请求的 `json` 参数必须包含一个具有管道参数及其值的字典。 此外，`json` 参数可能包含以下键：
+
+| 键 | 说明 |
+| --- | --- | 
+| `ExperimentName` | 与此终结点关联的试验的名称 |
+| `Description` | 描述终结点的自由格式文本 | 
+| `Tags` | 可用于标记和注释请求的自由格式键值对  |
+| `DataSetDefinitionValueAssignments` | 用于在不重新训练的情况下更改数据集的字典（请参阅以下讨论） | 
+| `DataPathAssignments` | 用于在不重新训练的情况下更改数据路径的字典（请参阅以下讨论） | 
+
+### <a name="changing-datasets-and-datapaths-without-retraining"></a>在不重新训练的情况下更改数据集和数据路径
+
+你可能想要对其他数据集和数据路径进行训练和推理。 例如，你可能想要对较小的稀疏数据集进行训练，对完整数据集进行推理。 可使用请求的 `json` 参数中的 `DataSetDefinitionValueAssignments` 键切换数据集。 可使用 `DataPathAssignments` 切换数据路径。 两者的方法类似：
+
+1. 在管道定义脚本中，为数据集创建 `PipelineParameter`。 在 `PipelineParameter` 中创建 `DatasetConsumptionConfig` 或 `DataPath`：
+
+    ```python
+    tabular_dataset = Dataset.Tabular.from_delimited_files('https://dprepdata.blob.core.windows.net/demo/Titanic.csv')
+    tabular_pipeline_param = PipelineParameter(name="tabular_ds_param", default_value=tabular_dataset)
+    tabular_ds_consumption = DatasetConsumptionConfig("tabular_dataset", tabular_pipeline_param)
+    ```
+
+1. 在 ML 脚本中，使用 `Run.get_context().input_datasets` 访问动态指定的数据集：
+
+    ```python
+    from azureml.core import Run
+    
+    input_tabular_ds = Run.get_context().input_datasets['tabular_dataset']
+    dataframe = input_tabular_ds.to_pandas_dataframe()
+    # ... etc ...
+    ```
+
+    请注意，ML 脚本访问为 `DatasetConsumptionConfig` 指定的值 (`tabular_dataset`)，不访问 `PipelineParameter` 的值 (`tabular_ds_param`)。
+
+1. 在管道定义脚本中，将 `DatasetConsumptionConfig` 设置为 `PipelineScriptStep` 的参数：
+
+    ```python
+    train_step = PythonScriptStep(
+        name="train_step",
+        script_name="train_with_dataset.py",
+        arguments=["--param1", tabular_ds_consumption],
+        inputs=[tabular_ds_consumption],
+        compute_target=compute_target,
+        source_directory=source_directory)
+    
+    pipeline = Pipeline(workspace=ws, steps=[train_step])
+    ```
+
+1. 若要在推理 REST 调用中动态切换数据集，请使用 `DataSetDefinitionValueAssignments`：
+    
+    ```python
+    tabular_ds1 = Dataset.Tabular.from_delimited_files('path_to_training_dataset')
+    tabular_ds2 = Dataset.Tabular.from_delimited_files('path_to_inference_dataset')
+    ds1_id = tabular_ds1.id
+    d22_id = tabular_ds2.id
+    
+    response = requests.post(rest_endpoint, 
+                             headers=aad_token, 
+                             json={
+                                "ExperimentName": "MyRestPipeline",
+                               "DataSetDefinitionValueAssignments": {
+                                    "tabular_ds_param": {
+                                        "SavedDataSetReference": {"Id": ds1_id #or ds2_id
+                                    }}}})
+    ```
+
+有关此方法的完整示例，请参阅[展示数据集和 PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb) 和[展示数据路径和 PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) 这两个笔记本。
 
 ## <a name="create-a-versioned-pipeline-endpoint"></a>创建版本受控的管道终结点
 

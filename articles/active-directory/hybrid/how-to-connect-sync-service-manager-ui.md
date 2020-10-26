@@ -4,29 +4,29 @@ description: 了解 Azure AD Connect 的 Synchronization Service Manager。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 5847c33f-aaa2-48f9-abe6-78c4a87a3b7c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/13/2017
-ms.date: 01/03/2019
-ms.component: hybrid
+ms.topic: how-to
+ms.date: 10/12/2020
+ms.subservice: hybrid
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39cb7cb35074a30345dbe8536daf787249eba999
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c79cefeb65ffbccc0f2561d0b37b8124ec2cd3f
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63824282"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041599"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Azure AD Connect Synchronization Service Manager UI 简介
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
+![显示 Synchronization Service Manager UI 的屏幕截图。](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
 
 **Synchronization Service Manager** UI 用于配置同步引擎的更高级设置，以及查看该服务的运行情况。
 
@@ -41,4 +41,3 @@ ms.locfileid: "63824282"
 
 了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
-<!-- Update_Description: wording update -->

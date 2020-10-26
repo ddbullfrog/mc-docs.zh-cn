@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 07/28/2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 83c1c758b8c3990a0a3dd74068fb7a88cfc3c215
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 765e2bf5da7894030542d5e5cb77f4572f1b5648
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227867"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117898"
 ---
 # <a name="export-data-module"></a>导出数据模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块将管道中的结果、中间数据和工作数据保存到云存储目标中。 
 

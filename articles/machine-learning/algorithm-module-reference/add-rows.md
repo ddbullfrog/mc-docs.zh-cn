@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: zhanxia
 ms.date: 02/22/2020
-ms.openlocfilehash: 7c4e616ce56a63c04231314dc3e57409d8a65973
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: a60e38aaffeb6505d8c0d3a524c67c5098340986
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097452"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118484"
 ---
 # <a name="add-rows-module"></a>“添加行”模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块连接两个数据集。 在串联中，第二个数据集的行会添加到第一个数据集的末尾。  
   

@@ -1,23 +1,23 @@
 ---
 title: 用于 Java 的 Azure Cosmos DB 表 API
-description: 了解有关 Azure Cosmos DB 表 API 的全部信息，包括发布日期、停用日期和各版本之间进行的更改。
+description: 全面了解用于 Java 的 Azure Cosmos DB 表 API，包括发布日期、停用日期和各版本之间的更改。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: reference
 origin.date: 11/20/2018
-ms.date: 08/17/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 79cef08c09b3508aaa9d19db7a779bc640a1a911
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: cbb2a2af7623d248103f327e81ed816ec762e406
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222730"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117929"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>用于 Java 的 Azure Cosmos DB 表 API：发行说明和资源

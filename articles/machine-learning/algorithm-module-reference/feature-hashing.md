@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 09/01/2019
-ms.openlocfilehash: 401e6be0ff272c551bf156d97881e78fde514bf0
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+author: likebupt
+ms.author: v-yiso
+ms.date: 02/22/2020
+ms.openlocfilehash: 3ad4067bed229cbee14771f91780bdb98edd575e
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097486"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117893"
 ---
 # <a name="feature-hashing-module-reference"></a>“特征哈希处理”模块参考
 
-本文介绍 Azure 机器学习设计器（预览版）中包含的一个模块。
+本文介绍 Azure 机器学习设计器中包含的一个模块。
 
 使用“特征哈希处理”模块可将英语文本流转换为一组整数特征。 然后，可将此哈希处理的特征集传递给机器学习算法，以训练文本分析模型。
 

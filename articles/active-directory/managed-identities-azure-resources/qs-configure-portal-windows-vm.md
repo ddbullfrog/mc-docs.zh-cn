@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 312ca4825cfeb9f482b60247fdb65f171eeb5cf4
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 139bed315a77e5835a01fb0740be32005ebba456
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245664"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041607"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>使用 Azure 门户在 VM 上配置 Azure 资源托管标识
 
@@ -43,9 +43,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 若要在 VM 创建期间在 VM 上启用系统分配的托管标识，你的帐户需要[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色分配。  无需其他 Azure AD 目录角色分配。
 
-- 在“标识”**** 部分的“管理”**** 选项卡下，将“托管服务标识”**** 切换到“开”****。  
-
-![在创建 VM 期间启用系统分配的标识](./media/msi-qs-configure-portal-windows-vm/enable-system-assigned-identity-vm-creation.png)
+- 在“标识”部分的“管理”选项卡下，将“系统分配的托管标识”切换到“开”   。  
 
 请参阅以下快速入门以创建 VM： 
 
@@ -63,7 +61,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 3. 在“系统分配”  、“状态”  下，选择“开启”  ，然后单击“保存”  ：
 
-   ![“配置”页屏幕截图](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![显示“标识(预览)”的屏幕截图，其中“系统分配的标识”状态设置为“启用”。](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>从 VM 删除系统分配托管标识
 
@@ -99,7 +97,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 1. 使用已与包含 VM 的 Azure 订阅关联的帐户登录 [Azure 门户](https://portal.azure.cn)。
 2. 导航到所需的 VM，依次单击“标识”、“用户分配”和“添加”。**********\+**
 
-   ![向 VM 添加用户分配托管标识](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
+   ![显示“标识”页的屏幕截图，其中“用户分配的标识”处于选中状态，并且突出显示了“添加”按钮。](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
 
 3. 单击要添加到 VM 的用户分配的标识，然后单击“添加”****。
 

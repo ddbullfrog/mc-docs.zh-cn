@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: b25db436113e1d4b5a933a047fabd63094826e0a
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 96364703918c5fd2d39252903788f912ca2f33bf
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228465"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118033"
 ---
 # <a name="train-pytorch-model"></a>训练 PyTorch 模型
 
-本文介绍了如何使用 Azure 机器学习设计器（预览版）中的“训练 Pytorch 模型”模块来训练 pytorch 模型（如 DenseNet）。 训练在你定义模型并设置其参数后进行，并且需要带标签的数据。 
+本文介绍了如何使用 Azure 机器学习设计器中的“训练 Pytorch 模型”模块来训练 pytorch 模型（例如 DenseNet）。 训练在你定义模型并设置其参数后进行，并且需要带标签的数据。 
 
 ## <a name="how-to-use-train-pytorch-model"></a>如何使用“训练 PyTorch 模型” 
 

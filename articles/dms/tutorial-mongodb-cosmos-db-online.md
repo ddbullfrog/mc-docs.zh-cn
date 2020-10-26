@@ -13,12 +13,12 @@ ms.custom: seo-lt-2019
 ms.topic: article
 origin.date: 09/25/2019
 ms.date: 02/17/2020
-ms.openlocfilehash: cee07e4ebc946adea09059431e611e940ec32539
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7cc2a7d21d51760cf953bd0f9988832e99d36325
+ms.sourcegitcommit: 7ed7a7d65ba142661f5494013451a91f045c4a73
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77192440"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91990788"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>教程：使用 DMS 将 MongoDB 联机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -238,7 +238,7 @@ ms.locfileid: "77192440"
 
 ## <a name="complete-the-migration"></a>完成迁移
 
-* 源中的所有文档出现在 COSMOS DB 目标中之后，请从迁移活动的上下文菜单中选择“完成”以完成迁移。 
+* 源中的所有文档出现在 COSMOS DB 目标中之后，请从迁移活动的上下文菜单中选择“完成”以完成迁移。
 
     此操作会完成重放所有挂起的更改，并完成迁移。
 

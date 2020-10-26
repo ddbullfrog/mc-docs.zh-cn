@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 3c4fb49c067d34ea3daac05e1aaa00ed3c2f9b67
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6b2d4622dbae7dda4043d39d5646433252c9e6e4
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75598013"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117902"
 ---
 # <a name="evaluate-recommender"></a>评估推荐器
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的评估推荐器模块。 目的是衡量推荐模型的预测是否准确。 使用此模块，可以评估各种推荐结果：  
+本文介绍如何使用 Azure 机器学习设计器中的“评估推荐器”模块。 目的是衡量推荐模型的预测是否准确。 使用此模块，可以评估各种推荐结果：  
   
 -   为用户和项预测的评分    
 -   推荐给用户的项  

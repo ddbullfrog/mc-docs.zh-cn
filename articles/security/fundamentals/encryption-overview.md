@@ -1,21 +1,21 @@
 ---
 title: Azure 加密概述
-description: 了解 Azure 中的各种加密选项
+description: 了解 Azure 中的加密选项。 了解 Azure Key Vault 的静态加密、动态加密以及密钥管理。
 services: security
-author: msmbaldwin
+author: Johnnytechn
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 10/12/2020
 ms.author: v-johya
 origin.date: 09/20/2018
-ms.openlocfilehash: 24ef2d99c73c7e78ae03928975919ade85bd72e0
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 175ffe0755b2456da375ced5fdaa5515af91e13a
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228252"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127649"
 ---
 # <a name="azure-encryption-overview"></a>Azure 加密概述
 
@@ -54,7 +54,7 @@ Azure 支持各种加密模型，包括使用服务托管密钥、Key Vault 中�
 
 ### <a name="azure-disk-encryption"></a>Azure 磁盘加密
 
-可使用 [Azure 磁盘加密](/security/fundamentals/azure-disk-encryption-vms-vmss)保护 Windows 和 Linux 虚拟机，它采用 [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) 技术和 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)通过全卷加密来保护操作系统磁盘和数据磁盘。
+可使用 [Azure 磁盘加密](/security/fundamentals/azure-disk-encryption-vms-vmss)保护 Windows 和 Linux 虚拟机，它采用 [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) 技术和 Linux DM-Crypt通过全卷加密来保护操作系统磁盘和数据磁盘。
 
 [Azure Key Vault 订阅](../../key-vault/general/overview.md)中的加密密钥和机密会得到保护。 使用 Azure 备份服务，可备份和还原使用密钥加密密钥 (KEK) 配置的加密虚拟机 (VM)。
 
@@ -62,7 +62,7 @@ Azure 支持各种加密模型，包括使用服务托管密钥、Key Vault 中�
 
 Azure Blob 存储和 Azure 文件共享中的静态数据都可以在服务器端和客户端方案中进行加密。
 
-[Azure 存储服务加密 (SSE)](../../storage/common/storage-service-encryption.md) 可在数据存储前自动加密数据，并在检索数据时自动解密数据。 此过程对用户是完全透明的。 存储服务加密使用 256 位[高级加密标准 (AES) 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)，这是可用的最强分组加密中的一种。 AES 采用透明方式处理加密、解密和密钥管理。
+[Azure 存储服务加密 (SSE)](../../storage/common/storage-service-encryption.md) 可在数据存储前自动加密数据，并在检索数据时自动解密数据。 此过程对用户是完全透明的。 存储服务加密使用 256 位高级加密标准 (AES) 加密，这是可用的最强分组加密中的一种。 AES 采用透明方式处理加密、解密和密钥管理。
 
 ### <a name="client-side-encryption-of-azure-blobs"></a>Azure blob 的客户端加密
 
@@ -84,7 +84,7 @@ Azure Blob 存储和 Azure 文件共享中的静态数据都可以在服务器�
 
 #### <a name="transparent-data-encryption"></a>透明数据加密
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) 可通过数据库加密密钥 (DEK) 实时加密 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016)、[Azure SQL 数据库](../../azure-sql/database/sql-database-paas-overview.md)和 [Azure SQL 数据仓库](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)数据文件，该加密密钥存储在数据库启动记录中，可在恢复期间使用。
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) 可通过数据库加密密钥 (DEK) 实时加密 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016)、[Azure SQL 数据库](../../azure-sql/database/sql-database-paas-overview.md)和 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 数据文件，该加密密钥存储在数据库启动记录中，可在恢复期间使用。
 
 TDE 使用 AES 和三重数据加密标准 (3DES) 加密算法保护数据和日志文件。 数据库文件加密在页面级执行。 加密数据库中的页面在写入磁盘之前被加密，在读入内存后被解密。 默认情况下，新创建的 Azure SQL 数据库启用 TDE。
 
@@ -103,20 +103,19 @@ CLE 具有内置函数，可通过函数使用对称或非对称密钥、证书�
 [Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) 由 Microsoft 提供，是全球分布式多模型数据库。 存储在非易失性存储（固态硬盘）中的 Cosmos DB 中的用户数据默认加密。 无法将其打开或关闭。 静态加密是使用许多安全技术实现的，其中包括安全的密钥存储系统、加密的网络以及加密 API。 加密密钥由 Microsoft 管理，并根据 Microsoft 的内部指南进行轮换。
 
 <!-- Data Lake not available-->
-
 ## <a name="encryption-of-data-in-transit"></a>传输中的数据加密
 
 Azure 提供了许多机制，用于在迁移数据时保持数据的私密性。
 
 ### <a name="data-link-layer-encryption-in-azure"></a>Azure 中的数据链路层加密
 
-每当 Azure 客户流量在数据中心之间（在不受 Microsoft 或代表 Microsoft 的某方控制的物理边界之外）移动时，都会在底层网络硬件上点对点应用使用 [IEEE 802.1AE MAC 安全标准](https://1.ieee802.org/security/802-1ae/)（也称 MACsec）的数据链路层加密方法。  数据包会在发送之前在设备上进行加密和解密，以防止物理上的“中间人”攻击或窥探/窃听攻击。  由于此技术在网络硬件本身上集成，因此它会在网络硬件上提供线路速率加密，而不会增加可度量的链路延迟。  默认情况下，对于在区域内或区域之间传输的所有 Azure 流量，此 MACsec 加密处于打开状态，客户无需执行任何操作即可启用它。 
+每当 Azure 客户流量在数据中心之间（在不受 Microsoft 或代表 Microsoft 的某方控制的物理边界之外）移动时，都会在底层网络硬件上点对点应用使用 [IEEE 802.1AE MAC 安全标准](https://1.ieee802.org/security/802-1ae/)（也称 MACsec）的数据链路层加密方法。 数据包会在发送之前在设备上进行加密和解密，以防止物理上的“中间人”攻击或窥探/窃听攻击。 由于此技术在网络硬件本身上集成，因此它会在网络硬件上提供线路速率加密，而不会增加可度量的链路延迟。 对于在区域内或区域之间传输的所有 Azure 流量，会默认启用此 MACsec 加密，客户无需执行任何操作。 
 
 ### <a name="tls-encryption-in-azure"></a>Azure 中的 TLS 加密
 
-Microsoft 让客户能够使用[传输层安全性](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) 协议来保护在云服务和客户之间传输的数据。 Microsoft 的数据中心与连接到 Azure 服务的客户端系统协商建立 TLS 连接。 TLS 提供严格的身份验证，消息隐私性和完整性强（允许检测消息篡改、拦截和伪造），具有良好的互操作性，算法灵活，易于部署和使用。
+Microsoft 让客户能够使用传输层安全性 (TLS) 协议来保护在云服务和客户之间传输的数据。 Microsoft 的数据中心与连接到 Azure 服务的客户端系统协商建立 TLS 连接。 TLS 提供严格的身份验证，消息隐私性和完整性强（允许检测消息篡改、拦截和伪造），具有良好的互操作性，算法灵活，易于部署和使用。
 
-[完美正向保密](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) 通过唯一密钥保护客户的客户端系统与 Azure 云服务间的连接。 连接还使用基于 RSA 的 2,048 位加密密钥长度。 此组合使得别人难以拦截和访问传输中的数据。
+完美正向保密 (PFS) 通过唯一密钥保护客户的客户端系统与 Azure 云服务间的连接。 连接还使用基于 RSA 的 2,048 位加密密钥长度。 此组合使得别人难以拦截和访问传输中的数据。
 
 ### <a name="azure-storage-transactions"></a>Azure 存储事务
 
@@ -156,7 +155,7 @@ Microsoft 让客户能够使用[传输层安全性](https://en.wikipedia.org/wik
 
 可使用 [Azure VPN 网关](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)跨公共连接在虚拟网络和本地位置间发送加密流量，或在虚拟网络间发送流量。
 
-站点到站点 VPN 使用 [IPsec](https://en.wikipedia.org/wiki/IPsec) 进行传输加密。 Azure VPN网关使用一组默认提议。 可将 Azure VPN 网关配置为使用具有特定加密算法和关键优势的自定义 IPsec/IKE 策略，而不是 Azure 默认策略集。
+站点到站点 VPN 使用 IPsec 进行传输加密。 Azure VPN网关使用一组默认提议。 可将 Azure VPN 网关配置为使用具有特定加密算法和关键优势的自定义 IPsec/IKE 策略，而不是 Azure 默认策略集。
 
 ### <a name="point-to-site-vpns"></a>点到站点 VPN
 
@@ -185,7 +184,6 @@ Microsoft 让客户能够使用[传输层安全性](https://en.wikipedia.org/wik
 [使用 CLI 创建具有站点到站点 VPN 连接的虚拟网络](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
 <!-- Data Lake not available-->
-
 
 ## <a name="key-management-with-key-vault"></a>使用 Key Vault 的密钥管理
 

@@ -1,23 +1,25 @@
 ---
-title: 排查存储资源删除错误 | Azure
-description: 在删除含有附加 VHD 的存储资源时如何进行故障排除。
+title: 排查 Azure 中 Linux VM 上的存储资源删除错误 | Azure
+description: 了解在删除含有附加 VHD 的存储资源时如何排查 Linux VM 上出现的问题。
 keywords: ''
 services: virtual-machines
-author: rockboyfor
 manager: digimobile
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 origin.date: 11/01/2018
-ms.date: 11/11/2019
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: yes
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: b2563cea67b4ecad25792a16e12b0919a2625612
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e682e58a0928690507b19a1e01a4a130bf8df806
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74594646"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127722"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>排查存储资源删除错误
 
@@ -29,7 +31,7 @@ ms.locfileid: "74594646"
 > 
 > **无法删除 # 个 blob (共 # 个):<br />BlobName.vhd:目前 blob 上有租用，但请求中未指定任何租用 ID。**
 
-Azure VM 中使用的 VHD 是在 Azure 的标准或高级存储帐户中作为页 Blob 存储的 .vhd 文件。 有关 Azure 磁盘的详细信息，请参阅[托管磁盘简介](../linux/managed-disks-overview.md)。
+Azure VM 中使用的 VHD 是在 Azure 的标准或高级存储帐户中作为页 Blob 存储的 .vhd 文件。 有关 Azure 磁盘的详细信息，请参阅[托管磁盘简介](../managed-disks-overview.md)。
 
 Azure 阻止删除附加到 VM 的磁盘，以防发生损坏。 它还会阻止删除包含附加到 VM 的页 blob 的容器和存储帐户。 
 
@@ -102,4 +104,4 @@ Azure 阻止删除附加到 VM 的磁盘，以防发生损坏。 它还会阻止
 9. 选择“保存”。  此时该磁盘将与 VM 分离，并且 VHD 将不再租用。 可能需要几分钟才能释放租约。 若要验证租用是否已解除，请转到 blob 位置，再检查“blob 属性”  窗格中的“租用状态”  值是否为“已解锁”  或“可租用”  。
 
 <!-- Not Avaialble on [Storage deletion errors in Resource Manager deployment]: #storage-delete-errors-in-rm-->
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,20 +5,20 @@ description: 了解如何在 Azure 机器学习设计器（预览版）中通过
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.custom: designer
-ms.openlocfilehash: 21c6d89f2b4cadca2338be8a0237b2c1079ba918
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 3c1113f0dcd10798dc24225c98f0321f05dc5a70
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227910"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118251"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>使用 Azure 机器学习设计器（预览版）重新训练模型
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>使用 Azure 机器学习设计器重新训练模型
+
 
 本操作说明文章介绍了如何使用 Azure 机器学习设计器重新训练机器学习模型。 你将使用已发布的管道自动执行工作流，并设置参数以使用新数据训练模型。 
 
@@ -32,16 +32,16 @@ ms.locfileid: "88227910"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 使用企业 SKU 的 Azure 机器学习工作区。
-* 请完成本操作说明系列的第 1 部分“[在设计器中转换数据](how-to-designer-transform-data.md)”。
+* Azure 机器学习工作区
+* 请完成此操作说明系列的第 1 部分：[在设计器中转换数据](how-to-designer-transform-data.md)
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-本文还假定你已掌握在设计器中生成管道的基本知识。 如需了解引导式简介，请完成[教程](tutorial-designer-automobile-price-train-score.md)。 
+本文还假设你对在设计器中生成管道有一定的了解。 如需了解引导式简介，请完成[教程](tutorial-designer-automobile-price-train-score.md)。 
 
 ### <a name="sample-pipeline"></a>示例管道
 
-本文中使用的管道是改版的[示例 3：收入预测](samples-designer.md#classification)。 该管道使用[导入数据](algorithm-module-reference/import-data.md)模块，而不是用于演示如何使用自己的数据训练模型的示例数据集。
+本文中使用的管道是设计器主页中的修改版示例管道：[收入预测](samples-designer.md#classification)。 该管道使用[导入数据](algorithm-module-reference/import-data.md)模块，而不是用于演示如何使用自己的数据训练模型的示例数据集。
 
 ![屏幕截图显示了修改后的示例管道，并使用方框突出显示“导入数据”模块](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -83,7 +83,8 @@ ms.locfileid: "88227910"
 1. 在“其他输出”中可以找到模型以及运行日志。
 1. 或者，也可选择“查看输出”图标。 在这里，可以按照对话框中的说明直接导航到数据存储。 
 
-![屏幕截图显示了如何下载定型的模型](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![屏幕截图显示了如何下载定型的模型](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>发布训练管道
 
@@ -101,9 +102,9 @@ ms.locfileid: "88227910"
 
 现在你已经有了一个已发布的训练管道，接下来就可以使用它来根据新数据重新训练模型。 你可以从工作室工作区或以编程方式通过管道终结点提交运行。
 
-### <a name="submit-runs-by-using-the-designer"></a>使用设计器提交运行
+### <a name="submit-runs-by-using-the-studio-portal"></a>使用工作室门户提交运行
 
-使用以下步骤通过设计器提交参数化管道终结点：
+使用以下步骤通过工作室门户提交参数化管道终结点运行：
 
 1. 转到工作室工作区中的“终结点”页。
 1. 选择“管道终结点”选项卡。然后，选择管道终结点。

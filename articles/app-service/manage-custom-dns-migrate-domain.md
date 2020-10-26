@@ -4,16 +4,16 @@ description: 了解如何在不停机的情况下，将已分配到实时站点�
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
-origin.date: 10/21/2019
-ms.date: 05/22/2020
+origin.date: 08/25/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 20acab8b491959500b8605a16eb782a0a5403f8c
-ms.sourcegitcommit: 981a75a78f8cf74ab5a76f9e6b0dc5978387be4b
+ms.openlocfilehash: 10846387ff3a2a364ceafd8caea3ef07effcd8c3
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801173"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170655"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>将活动 DNS 名称迁移到 Azure 应用服务
 
@@ -31,7 +31,7 @@ ms.locfileid: "83801173"
 
 ## <a name="bind-the-domain-name-preemptively"></a>提前绑定域名
 
-提前绑定自定义域时，请先完成下面的两项操作，再对 DNS 记录进行更改：
+提前绑定自定义域时，请先完成下面的两项操作，再对现有 DNS 记录进行更改：
 
 - 验证域所有权
 - 为应用启用域名
@@ -40,54 +40,48 @@ ms.locfileid: "83801173"
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
+### <a name="get-domain-verification-id"></a>获取域验证 ID
+
+按照[获取域验证 ID](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) 中的步骤获取应用的域验证 ID。
+
 ### <a name="create-domain-verification-record"></a>创建域验证记录
 
-若要验证域所有权，请添加 TXT 记录。 TXT 记录从 awverify.&lt;subdomain> 映射到 &lt;appname>.chinacloudsites.cn。 
-
-你需要的 TXT 记录取决于要迁移的 DNS 记录。 有关示例，请参阅下表（`@` 通常表示根域）：
+若要验证域所有权，请添加用于域验证的 TXT 记录。 TXT 记录的主机名取决于要映射的 DNS 记录类型的类型。 请参阅下表（`@` 通常表示根域）：
 
 | DNS 记录示例 | TXT 主机 | TXT 值 |
 | - | - | - |
-| \@（根） | awverify | _&lt;appname>.chinacloudsites.cn_ |
-| www（子域） | awverify.www | _&lt;appname>.chinacloudsites.cn_ |
-| \*（通配符） | awverify.\* | _&lt;appname>.chinacloudsites.cn_ |
+| \@（根） | asuid | [应用的域验证 ID](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| www（子域） | asuid.www | [应用的域验证 ID](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| \*（通配符） | asuid | [应用的域验证 ID](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
 
 在 DNS 记录页中，记下要迁移的 DNS 名称的记录类型。 应用服务支持来自 CNAME 和 A 记录的映射。
 
 > [!NOTE]
-> 对于某些提供程序（如 CloudFlare），`awverify.*` 不是有效记录。 只能改用 `*`。
-
-> [!NOTE]
 > 通配符 `*` 记录不会使用现有 CNAME 记录验证子域。 可能需要为每个子域显式创建一条 TXT 记录。
-
 
 ### <a name="enable-the-domain-for-your-app"></a>启用应用的域
 
-在 [Azure 门户](https://portal.azure.cn)中的应用页的左侧导航窗格中，选择“自定义域”。 
+1. 在 [Azure 门户](https://portal.azure.cn)中的应用页的左侧导航窗格中，选择“自定义域”。 
 
-![自定义域菜单](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![自定义域菜单](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-在“自定义域”页中，选择“添加主机名”旁的 + 图标。
+1. 在“自定义域”页，选择“添加自定义域” 。
 
-![添加主机名](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![添加主机名](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-键入已添加 TXT 记录的完全限定的域名，如 `www.contoso.com`。 对于通配符域（如 \*.contoso.com），可以使用与通配符域匹配的任何 DNS 名称。 
+1. 键入要迁移的完全限定的域名，该域名对应于所创建的 TXT 记录，如 `contoso.com`、`www.contoso.com` 或 `*.contoso.com`。 选择“验证”。
 
-选择“验证”。
+    “添加自定义域”按钮随即激活。 
 
-“添加主机名”按钮会被激活。 
+1. 请确保“主机名记录类型”设置为你想要迁移的 DNS 记录类型。 选择“添加主机名”。
 
-请确保“主机名记录类型”设置为你想要迁移的 DNS 记录类型。
+    ![将 DNS 名称添加到应用](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-选择“添加主机名”。
+    新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。 请尝试刷新浏览器来更新数据。
 
-![将 DNS 名称添加到应用](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![已添加 CNAME 记录](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。 请尝试刷新浏览器来更新数据。
-
-![已添加 CNAME 记录](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
-
-你的自定义 DNS 名称现已在 Azure 应用中启用。 
+    你的自定义 DNS 名称现已在 Azure 应用中启用。 
 
 ## <a name="remap-the-active-dns-name"></a>重新映射活动 DNS 名称
 
@@ -101,9 +95,7 @@ ms.locfileid: "83801173"
 
 若要重新映射 A 记录，需要应用服务应用的外部 IP 地址，此地址显示在“自定义域”页中。
 
-通过选择右上角的 X 关闭“添加主机名”页。 
-
-在“自定义域”页面中，复制应用的 IP 地址。
+在“自定义域”页中，复制应用的 IP 地址。
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
@@ -123,7 +115,7 @@ ms.locfileid: "83801173"
 
 在 DNS 传播发生后，DNS 查询应立即开始解析应用服务应用。
 
-## <a name="active-domain-in-azure"></a>Azure 中的活动域
+## <a name="migrate-domain-from-another-app"></a>从另一个应用迁移域
 
 可以在订阅之间或者在同一订阅内部迁移 Azure 中的活动自定义域。 但是，这种不停机的迁移方案需要在特定的时间为源应用和目标应用分配同一个自定义域。 因此，需确保两个应用未部署到同一个部署单元（在内部称为“Web 空间”）。 一个域名只能分配到每个部署单元中的一个应用。
 

@@ -5,15 +5,15 @@ keywords: azure 应用服务, web 应用, 应用设置, 环境变量
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 origin.date: 08/13/2019
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: seodec18
-ms.openlocfilehash: 5023ea4045465f4a19371895d93b312ec2ca7c56
-ms.sourcegitcommit: 5055d580fb7ef1722e32e09a334d1d3e28295dd6
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: f282e78f7bb2d028aa9ff38000812007b4490bb0
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503362"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170817"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>在 Azure 门户中配置应用服务应用
 
@@ -39,7 +39,7 @@ ms.locfileid: "89503362"
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
-- [Java](configure-language-java.md#data-sources)
+- [Java](configure-language-java.md#configure-data-sources)
 - [Ruby](configure-language-ruby.md#access-environment-variables)
 
 <!-- - [Custom containers](configure-custom-container.md#configure-environment-variables) -->
@@ -47,7 +47,7 @@ ms.locfileid: "89503362"
 应用程序设置在存储时始终进行加密（静态加密）。
 
 > [!NOTE]
-> 也可以使用 [Key Vault 引用](app-service-key-vault-references.md)从 [Key Vault](/key-vault/) 解析应用设置。
+> 也可以使用 [Key Vault 引用](app-service-key-vault-references.md)从 [Key Vault](../key-vault/index.yml) 解析应用设置。
 
 ### <a name="show-hidden-values"></a>显示隐藏的值
 
@@ -87,6 +87,32 @@ ms.locfileid: "89503362"
 ]
 ```
 
+### <a name="automate-app-settings-with-the-azure-cli"></a>通过 Azure CLI 自动执行应用设置
+
+可使用 Azure CLI 从命令行创建和管理设置。
+
+- 使用 [az webapp config app settings set](/cli/webapp/config/appsettings#az_webapp_config_appsettings_set) 为设置分配一个值：
+
+    ```azurecli
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
+    ```
+        
+    将 `<setting-name>` 替换为设置的名称，并将 `<value>` 替换为要分配给它的值。 此方法会创建设置（如果尚不存在）。
+    
+- 使用 [az webapp config appsettings list](/cli/webapp/config/appsettings#az_webapp_config_appsettings_list) 显示所有设置及其值：
+    
+    ```azurecli
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
+    ```
+    
+- 使用 [az webapp config app settings delete](/cli/webapp/config/appsettings#az_webapp_config_appsettings_delete) 删除一个或多个设置：
+
+    ```azurecli
+    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
+    ```
+    
+    将 `<names>` 替换为用空格分隔的设置名称列表。
+
 ## <a name="configure-connection-strings"></a>配置连接字符串
 
 在 [Azure 门户]中搜索并选择“应用服务”  ，然后选择应用。 在应用的左侧菜单中，选择“配置” > “应用程序设置”。  
@@ -111,7 +137,7 @@ ms.locfileid: "89503362"
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
-- [Java](configure-language-java.md#data-sources)
+- [Java](configure-language-java.md#configure-data-sources)
 - [Ruby](configure-language-ruby.md#access-environment-variables)
 
 <!-- - [Custom containers](configure-custom-container.md#configure-environment-variables) -->
@@ -119,7 +145,7 @@ ms.locfileid: "89503362"
 连接字符串在存储时始终进行加密（静态加密）。
 
 > [!NOTE]
-> 也可以使用 [Key Vault 引用](app-service-key-vault-references.md)从 [Key Vault](/key-vault/) 解析连接字符串。
+> 也可以使用 [Key Vault 引用](app-service-key-vault-references.md)从 [Key Vault](../key-vault/index.yml) 解析连接字符串。
 
 ### <a name="show-hidden-values"></a>显示隐藏的值
 
@@ -168,7 +194,12 @@ ms.locfileid: "89503362"
 
 在此处可以配置应用的某些常用设置。 某些设置要求[纵向扩展到更高的定价层](manage-scale-up.md)。
 
-- **堆栈设置**：用于运行应用的软件堆栈，包括语言和 SDK 版本。 对于 Linux 应用和自定义的容器应用，还可以设置可选的启动命令或文件。
+- **堆栈设置**：用于运行应用的软件堆栈，包括语言和 SDK 版本。
+
+    对于 Linux 应用和自定义容器应用，可选择语言运行时版本，并设置启动命令文件或可选的启动命令。
+
+    ![Linux 容器的常规设置](./media/configure-common/open-general-linux.png)
+
 - **平台设置**：用于配置托管平台的设置，包括：
     - **位数**：32 位或 64 位。
     - **WebSocket 协议**：例如，[ASP.NET SignalR] 或 [socket.io](https://socket.io/)。
@@ -267,7 +298,7 @@ See [Configure a custom Linux container for Azure App Service](configure-custom-
 [Azure 门户]: https://portal.azure.cn/
 [在 Azure 应用服务中配置自定义域名]: ./app-service-web-tutorial-custom-domain.md
 [设置 Azure 应用服务中的过渡环境]: ./deploy-staging-slots.md
-[How to: Monitor web endpoint status]: /app-service/web-sites-monitor#webendpointstatus
+[How to: Monitor web endpoint status]: ./web-sites-monitor.md
 [在 Azure 应用服务中监视基础知识]: ./web-sites-monitor.md
 [管道模式]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [在 Azure 应用服务中缩放应用]: ./manage-scale-up.md

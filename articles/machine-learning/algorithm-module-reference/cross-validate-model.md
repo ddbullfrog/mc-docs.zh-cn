@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 02/11/2020
 ms.date: 03/09/2020
-ms.openlocfilehash: 64d15bfd322ebd8715fa90de691f635e3fcc9464
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: fcb10943753d8e8cfb98857503e8c6f4ec41b185
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097382"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118458"
 ---
 # <a name="cross-validate-model"></a>交叉验证模型
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“交叉验证模型”模块。 “交叉验证”技术通常在机器学习中用来评估数据集的可变性，以及通过该数据训练的任何模型的可靠性。  
+本文介绍如何使用 Azure 机器学习设计器中的“交叉验证模型”模块。 “交叉验证”技术通常在机器学习中用来评估数据集的可变性，以及通过该数据训练的任何模型的可靠性。  
 
 “交叉验证模型”模块将带标签的数据集用作输入，与未训练的分类或回归模型一起工作。 它将数据集分割成某个数量的子集（折），在每个折上生成一个模型，然后为每个折返回一组准确度统计信息。 通过比较所有折的准确度统计信息，可以解释数据集的质量。 然后，可以了解模型是否容易受到数据变化的影响。  
 

@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 03/23/2020
-ms.date: 06/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 252b06c2cce60ccf67fde15fa43e8ef31915e0b2
-ms.sourcegitcommit: d24e12d49708bbe78db450466eb4fccbc2eb5f99
+ms.openlocfilehash: 76f3405a3044ebf19cfa4c3443290e3f6fd26b73
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85613306"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170419"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 门户中创建和共享仪表板
 
@@ -143,7 +143,7 @@ Azure 门户提供默认仪表板作为起点。 你可以编辑默认仪表板�
 
 ## <a name="publish-and-share-a-dashboard"></a>发布和共享仪表板
 
-创建仪表板时，默认该仪表板是专用的，这意味着只有你才可以看到它。 要使仪表板可供其他人使用，可以发布和共享这些仪表板。 有关详细信息，请参阅[使用基于角色的访问控制共享 Azure 仪表板](azure-portal-dashboard-share-access.md)。
+创建仪表板时，默认该仪表板是专用的，这意味着只有你才可以看到它。 要使仪表板可供其他人使用，可以发布和共享这些仪表板。 有关详细信息，请参阅[使用 Azure 基于角色的访问控制共享 Azure 仪表板](azure-portal-dashboard-share-access.md)。
 
 ### <a name="open-a-shared-dashboard"></a>打开共享的仪表板
 
@@ -179,5 +179,5 @@ Azure 门户提供默认仪表板作为起点。 你可以编辑默认仪表板�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [通过使用基于角色的访问控制来共享 Azure 仪表板](azure-portal-dashboard-share-access.md)
+* [使用 Azure 基于角色的访问控制共享 Azure 仪表板](azure-portal-dashboard-share-access.md)
 * [以编程方式创建 Azure 仪表板](azure-portal-dashboards-create-programmatically.md)

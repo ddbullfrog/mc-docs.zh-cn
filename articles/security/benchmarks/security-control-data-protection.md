@@ -1,19 +1,19 @@
 ---
 title: Azure 安全控制 - 数据保护
 description: Azure 安全控制 - 数据保护
-author: msmbaldwin
+author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 10/12/2020
 ms.author: v-johya
 ms.custom: security-benchmark
 origin.date: 04/14/2020
-ms.openlocfilehash: a627a5eba7dbd28d2be63034c52ad94ef28e4d9d
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: c6419577d317949ac021dbfb08446326810ca548
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228371"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127711"
 ---
 # <a name="security-control-data-protection"></a>安全控制：数据保护
 
@@ -38,7 +38,6 @@ ms.locfileid: "88228371"
 使用单独的订阅和管理组对各个安全域（如环境类型和数据敏感度级别）实现隔离。 你可以限制对应用程序和企业环境所需 Azure 资源的访问级别。 可以通过 Azure 基于角色的访问控制 (Azure RBAC) 来控制对 Azure 资源的访问。 
 
 <!-- not available-->
-
 - [如何创建管理组](/governance/management-groups/create)
 
 - [如何创建和使用标记](/azure-resource-manager/resource-group-using-tags)
@@ -75,25 +74,24 @@ ms.locfileid: "88228371"
 
 如果 Azure 中的功能均不适用于你的特定服务，请使用可用的第三方发现工具来标识组织技术系统（包括现场或远程服务提供商处的技术系统）存储、处理或传输的所有敏感信息，并更新组织的敏感信息清单。
 
-使用 Azure 信息保护标识 Office 365 文档中的敏感信息。
+使用 Azure 信息保护标识 Microsoft 365 文档中的敏感信息。
 
 使用 Azure SQL 信息保护有助于对 Azure SQL 数据库中存储的信息进行分类和标记。
 
 - [如何实现 Azure SQL 数据发现](/sql-database/sql-database-data-discovery-and-classification)
 
 <!-- not available -->
-
 - [了解 Azure 中的客户数据保护](/security/fundamentals/protection-customer-data)
 
-## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6：使用基于角色的访问控制来控制对资源的访问
+## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6：使用 Azure RBAC 控制对资源的访问
 
 | Azure ID | CIS ID | 责任方 |
 |--|--|--|
 | 4.6 | 14.6 | 客户 |
 
-使用 Azure AD RBAC 控制对数据和资源的访问，否则请使用特定于服务的访问控制方法。
+使用 Azure 基于角色的访问控制 (Azure RBAC) 控制对数据和资源的访问，否则请使用特定于服务的访问控制方法。
 
-- [如何在 Azure 中配置 RBAC](/role-based-access-control/role-assignments-portal)
+- [如何配置 Azure RBAC](/role-based-access-control/role-assignments-portal)
 
 ## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7：使用基于主机的数据丢失防护来强制实施访问控制
 

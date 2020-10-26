@@ -10,16 +10,16 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c967e69b1fe63755f0c1fa089013a28dca27f5b
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 8f5d035f6db192742dc1e38d067432a2676954ad
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245044"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041503"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](how-to-connect-install-express.md)不能满足部署或拓扑的所有情况。
@@ -46,7 +46,7 @@ ms.locfileid: "91245044"
 ### <a name="user-sign-in"></a>用户登录
 在安装所需的组件后，需要选择用户单一登录方法。 下表提供了可用选项的简短说明。 有关登录方法的完整说明，请参阅[用户登录](plan-connect-user-signin.md)。
 
-![用户登录](./media/how-to-connect-install-custom/usersignin4.png)
+![此屏幕截图显示了已选择“密码哈希同步”的“用户登录”页。](./media/how-to-connect-install-custom/usersignin4.png)
 
 | 单一登录选项 | 说明 |
 | --- | --- |
@@ -73,7 +73,7 @@ ms.locfileid: "91245044"
 ### <a name="connect-your-directories"></a>连接目录
 若要连接到 Active Directory 域服务，Azure AD Connect 工具需要使用具有足够权限的帐户的林名称和凭据。
 
-![连接目录](./media/how-to-connect-install-custom/connectdir01.png)
+![显示“连接目录”页的屏幕截图。](./media/how-to-connect-install-custom/connectdir01.png)
 
 在输入林名称并单击“添加目录”后，会显示一个弹出对话框，提示选择以下选项：
 
@@ -95,7 +95,7 @@ ms.locfileid: "91245044"
 ![未验证的域](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 查看标记为“未添加”和“未验证”的每个域。  确保使用的域都已在 Azure AD 中验证。 验证域后，请单击“刷新”符号。 有关详细信息，请参阅[添加和验证域](../fundamentals/add-custom-domain.md)
 
-**UserPrincipalName** - 属性 userPrincipalName 是用户登录 Azure AD 和 Office 365 时使用的属性。 应在同步处理用户前在 Azure AD 中对使用的域（也称为 UPN 后缀）进行验证。 Microsoft 建议保留默认属性 userPrincipalName。 如果此属性不可路由且无法验证，可以选择另一个属性。 例如，可以选择 email 作为保存登录 ID 的属性。 使用除 userPrincipalName 以外的其他属性被称为“替代 ID” 。 “替代 ID”属性值必须遵循 RFC822 标准。 替代 ID 可以配合密码同步和联合使用。 不得在 Active Directory 中将该属性定义为多值，即使它只有单个值。
+**UserPrincipalName** - 属性 userPrincipalName 是用户登录 Azure AD 和 Microsoft 365 时使用的属性。 应在同步处理用户前在 Azure AD 中对使用的域（也称为 UPN 后缀）进行验证。 Microsoft 建议保留默认属性 userPrincipalName。 如果此属性不可路由且无法验证，可以选择另一个属性。 例如，可以选择 email 作为保存登录 ID 的属性。 使用除 userPrincipalName 以外的其他属性被称为“替代 ID” 。 “替代 ID”属性值必须遵循 RFC822 标准。 替代 ID 可与密码哈希同步以及联合身份验证一起使用。 不得在 Active Directory 中将该属性定义为多值，即使它只有单个值。 
 
 
 > [!WARNING]
@@ -269,7 +269,7 @@ AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory �
 ### <a name="select-the-azure-ad-domain-that-you-wish-to-federate"></a>选择要联合的 Azure AD 域
 此配置用于设置 AD FS 与 Azure AD 之间的联合关系。 它将 AD FS 配置为向 Azure AD 颁发安全令牌，并将 Azure AD 配置为信任来自此特定 AD FS 实例的令牌。 此页只允许在初始安装中配置单个域。 以后可以通过再次运行 Azure AD Connect 来配置其他域。
 
-![Azure AD 域](./media/how-to-connect-install-custom/adfs6.png)
+![显示“Azure AD 域”页的屏幕截图。](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>验证选择用于联合的 Azure AD 域
 选择要联合的域时，Azure AD Connect 将提供所需的信息来验证尚未验证的域。 有关如何使用此信息，请参阅[添加和验证域](../fundamentals/add-custom-domain.md)。
@@ -289,7 +289,7 @@ AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory �
 ### <a name="verify-the-domain"></a>验证域
 选择使用 PingFederate 进行联合身份验证之后，会要求你要验证要进行联合身份验证的域。  从下拉框中选择域。
 
-![验证域](./media/how-to-connect-install-custom/ping1.png)
+![显示“Azure AD 域”的屏幕截图，其中已选中示例域“contoso.com”。](./media/how-to-connect-install-custom/ping1.png)
 
 ### <a name="export-the-pingfederate-settings"></a>导出 PingFederate 设置
 
@@ -363,7 +363,7 @@ Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索�
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>“ADSync 数据库已经包含数据，无法重写”
 对 Azure AD Connect 进行自定义安装并在“安装所需的组件”页上选择“使用现有的 SQL Server”选项时， 可能会遇到一个错误，指出“ADSync 数据库已经包含数据，无法重写。请删除现有的数据库，然后重试。”
 
-![错误](./media/how-to-connect-install-custom/error1.png)
+![显示“安装所需的组件”页的屏幕截图。](./media/how-to-connect-install-custom/error1.png)
 
 这是因为在 SQL Server 的 SQL 实例上已经有一个现成的名为 **ADSync** 的数据库，该数据库是在上面的文本框中指定的。
 

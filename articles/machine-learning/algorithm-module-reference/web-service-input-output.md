@@ -1,6 +1,6 @@
 ---
 title: Web 服务输入/输出：模块参考
-description: 了解 Azure 机器学习设计器（预览版）中的 Web 服务模块
+description: 了解 Azure 机器学习设计器中的 Web 服务模块
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: c8cd8860e5ae141ac3228a0c1c92a5a426c6b0c9
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: c7da2d752579b7871b7fb681306aff38675cf821
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097765"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118076"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Web 服务输入和 Web 服务输出模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的 Web 服务输入和 Web 服务输出模块。
+本文介绍 Azure 机器学习设计器中的 Web 服务输入和 Web 服务输出模块。
 
 Web 服务输入模块只能连接到类型为 DataFrameDirectory 的输入端口****。 Web 服务输出模块只能从类型为 DataFrameDirectory 的输出端口进行连接****。 可以在“Web 服务”类别下的模块树中找到这两个模块****。 
 

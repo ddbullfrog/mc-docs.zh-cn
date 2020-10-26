@@ -5,17 +5,17 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 06/27/2017
 author: rockboyfor
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 0b335f0c7f1b5ca574b44f8e7449aa2d932c6e3b
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: f8ed87b8b100e31ba58a61072196ce9e89717941
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310345"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128092"
 ---
 <!--Verified successfully from rename articles-->
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure 高级存储：高性能设计
@@ -138,7 +138,9 @@ PerfMon 计数器适用于处理器、内存以及服务器的每个逻辑磁盘
 | **最大内存** |顺利运行应用程序所需的内存量 |提交的在用字节数百分比 |使用 vmstat |
 | **最大CPU** |顺利运行应用程序所需的 CPU 速度 |处理器时间百分比 |%util |
 
-详细了解 [iostat](https://linux.die.net/man/1/iostat) 和 [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx)。
+详细了解 [iostat](https://linux.die.net/man/1/iostat)。
+
+<!--Not Available on [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal)-->
 
 ## <a name="optimize-application-performance"></a>优化应用程序性能
 
@@ -171,7 +173,7 @@ PerfMon 计数器适用于处理器、内存以及服务器的每个逻辑磁盘
 IO 请求是应用程序要执行的输入/输出操作单元。 识别 IO 请求的性质（随机或有序、读取或写入、小型或大型）有助于确定应用程序的性能要求。 了解 IO 请求的性质很重要，这有助于在设计应用程序基础结构时进行正确的决策。 IO 必须均匀分布，以实现可能的最佳性能。
 
 IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的输入/输出操作请求的大小。 IO 大小对性能（尤其是应用程序能够实现的 IOPS 和带宽）有很大的影响。 下面的公式说明了 IOPS、IO 大小和带宽/吞吐量之间的关系。  
-:::image type="content" source="media/premium-storage-performance/image1.png" alt-text="显示公式 IOPS 乘以 IO 大小等于吞吐量的关系图。":::
+:::image type="content" source="media/premium-storage-performance/image1.png" alt-text="IOPS 和吞吐量的关系":::
 
 某些应用程序允许更改其 IO 大小，而某些应用程序则不允许。 例如，SQL Server 会自行确定最佳 IO 大小，不允许用户对其进行更改。 另一方面，Oracle 提供了名为 [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) 的参数，可用于配置数据库的 I/O 请求大小。
 
@@ -422,14 +424,14 @@ Azure 将高级存储平台设计为可以进行大规模并行处理。 因此�
 *最佳队列深度*  
 队列深度值过高也有其缺点。 如果队列深度值过高，则应用程序会尝试实现非常高的 IOPS。 除非应用程序的永久性磁盘具有足够高的预配 IOPS，否则会对应用程序延迟造成负面影响。 以下公式显示了 IOPS、延迟和队列深度之间的关系。  
 
-:::image type="content" source="media/premium-storage-performance/image6.png" alt-text="显示公式 IOPS 乘以延迟等于队列深度的关系图。":::
+:::image type="content" source="media/premium-storage-performance/image6.png" alt-text="IOPS 和吞吐量的关系":::
 
 不应随意地将队列深度配置为某个很高的值，而应将其配置为最佳值，该值可以确保应用程序实现足够高的 IOPS，但又不会影响延迟。 例如，如果应用程序延迟需要设置为 1 毫秒，则要实现 5,000 IOPS，所需队列深度为：QD = 5000 x 0.001 = 5。
 
 *条带化卷的队列深度*  
 条带化卷应保持足够高的队列深度，使得每个磁盘都有各自的高峰队列深度。 例如，以某个应用程序为考虑对象，该应用程序所推送的队列深度为 2，条带中有四个磁盘。 两个 IO 请求会发送到两个磁盘中，剩下两个磁盘会处于空闲状态。 因此，请将队列深度配置为让所有磁盘都能够处于繁忙状态。 下面的公式说明了如何确定条带化卷的队列深度。  
 
-:::image type="content" source="media/premium-storage-performance/image7.png" alt-text="显示公式每个磁盘的 QD 乘以每个卷的列数等于条带化卷的 QD 的关系图。":::
+:::image type="content" source="media/premium-storage-performance/image7.png" alt-text="IOPS 和吞吐量的关系":::
 
 ## <a name="throttling"></a>限制
 
@@ -452,5 +454,4 @@ SQL Server 用户请阅读有关 SQL Server 性能最佳实践的文章：
 * [Azure 虚拟机中 SQL Server 的性能最佳做法](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
 * [Azure 高级存储为 Azure VM 中的 SQL Server 提供最高性能](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)
 
-<!-- Update_Description: new article about premium storage performance -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

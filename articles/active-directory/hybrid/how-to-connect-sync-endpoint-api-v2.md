@@ -8,16 +8,16 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caecea7b2001f153e60a5d645b2404d3e6cc63a
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: f8b6c1682ef95a32cde5c0d42f1bfe52e7df4d8b
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245241"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041460"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect 同步 V2 终结点 API（公共预览版） 
 Microsoft 已部署新的 Azure AD Connect 终结点 (API)，可提高 Azure Active Directory 的同步服务操作性能。 通过利用新的 V2 终结点，导出或导入 Azure AD 时的性能会有显著提升。 这一新终结点支持以下功能：
@@ -53,8 +53,8 @@ Microsoft 已部署新的 Azure AD Connect 终结点 (API)，可提高 Azure Act
 1. 验证 V2 服务器是否仍按预期处理导入。 在此阶段，不会将大型组预配到 Azure AD 或本地 AD，但可以验证升级是否不会对现有同步过程造成其他任何意外影响。 
 2. 验证完成后，将 V2 服务器切换为活动服务器，将 V1 服务器切换为过渡服务器 。 此时，如果启用了组写回功能，则在要同步的范围内的大型组将预配到 Azure AD，并且大型 Microsoft 365 统一组将预配到 AD。
 3. 验证 V2 服务器是否可以成功执行和处理大型组。 可以选择停留在此步骤，并监视同步过程一段时间。
-      >[!NOTE]
-      > 如果需要转换回之前的配置，可以从 V2 服务器交叉迁移回 V1 服务器 。 由于 V1 终结点不支持成员数超过 5 万的组，因此随后将删除 Azure AD 或本地 AD 中由 Azure AD Connect 预配的任何大型组。 
+  >[!NOTE]
+  > 如果需要转换回之前的配置，可以从 V2 服务器交叉迁移回 V1 服务器 。 由于 V1 终结点不支持成员数超过 5 万的组，因此随后将删除 Azure AD 或本地 AD 中由 Azure AD Connect 预配的任何大型组。 
 4. 确定要使用 V2 终结点时，升级 V1 服务器以开始使用 V2 终结点。 
  
 
@@ -87,20 +87,20 @@ Microsoft 已部署新的 Azure AD Connect 终结点 (API)，可提高 Azure Act
 1. 以管理员身份打开 PowerShell 命令提示符。 
 2. 确认没有同步操作正在运行后，禁用同步计划程序： 
  
-     `Set-ADSyncScheduler -SyncCycleEnabled $false`
+ `Set-ADSyncScheduler -SyncCycleEnabled $false`
  
 3. 导入新模块： 
  
-     `Import-Module 'C:\Program Files\Azure AD Sync\Extensions\AADConnector.psm1'` 
+ `Import-Module 'C:\Program Files\Azure AD Sync\Extensions\AADConnector.psm1'` 
  
 4.  切换到 v2 终结点：
 
-     `Set-ADSyncAADConnectorExportApiVersion 2` 
-     
-     `Set-ADSyncAADConnectorImportApiVersion 2` 
-    
-     ![PowerShell](./media/how-to-connect-sync-endpoint-api-v2/endpoint1.png)
-     
+ `Set-ADSyncAADConnectorExportApiVersion 2` 
+ 
+ `Set-ADSyncAADConnectorImportApiVersion 2` 
+
+ ![PowerShell](./media/how-to-connect-sync-endpoint-api-v2/endpoint1.png)
+ 
 你现在已为服务器启用了 V2 终结点。 请花一些时间验证启用 V2 终结点后是否存在意外结果，然后再进行下一阶段，提高组大小限制。 
 >[!NOTE]
 >根据安装 Azure AD Connect 时所获得的安装路径，文件/模块路径可能会使用不同的驱动器号。 
@@ -116,27 +116,27 @@ Microsoft 已部署新的 Azure AD Connect 终结点 (API)，可提高 Azure Act
 1. 打开 Azure AD 同步规则编辑器 
 2. 在编辑器中，选择方向“出站” 
 3. 单击“出站到 AAD - 组加入”同步规则 
-4. 单击“编辑”按钮 ![编辑同步规则](./media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
+4. 单击“编辑”按钮![此屏幕截图显示了“查看和管理同步规则”，其中已选中“出站到 AAD - 组加入”。](./media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
 
 6. 单击“确定”按钮，禁用默认规则并创建可编辑的副本。
- ![编辑同步规则](./media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
+ ![此屏幕截图显示了“编辑保留规则确认”窗口，其中已选中“是”按钮。](./media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
 
-7. 在弹出窗口的“说明”页面中，将优先级设置为介于 1 到 99 之间的可用值 ![编辑同步规则](./media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
+7. 在“说明”页的弹出窗口中，将优先级设置为 1 到 99 之间的可用值 ![此屏幕截图显示了“编辑出站同步规则”窗口，其中突出显示了“优先级”。](./media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
 8. 在“转换”页面上，更新“成员”转换的“源”值，将 50000 替换为介于 50001 和 250000 之间的值  。 此替换会增加将同步到 Azure AD 的组的最大成员身份大小。 建议从 10 万开始，以了解同步大型组将对同步性能产生的影响。 
  
-     **示例** 
-     
-     `IIF((ValueCount("member")> 75000),Error("Maximum Group member count exceeded"),IgnoreThisFlow)` 
-     
-     ![编辑同步规则](./media/how-to-connect-sync-endpoint-api-v2/endpoint5.png)
-    
+ **示例** 
+ 
+ `IIF((ValueCount("member")> 75000),Error("Maximum Group member count exceeded"),IgnoreThisFlow)` 
+ 
+ ![编辑同步规则](./media/how-to-connect-sync-endpoint-api-v2/endpoint5.png)
+
 9. 点击“保存”(Save) 
 10. 打开管理员 PowerShell 提示符 
 11. 重新启用同步计划程序 
  
-     `Set-ADSyncScheduler -SyncCycleEnabled $true` 
-     
+ `Set-ADSyncScheduler -SyncCycleEnabled $true` 
+ 
 >[!NOTE]
 > 如果未启用 Azure AD Connect Health，请将 Windows 应用程序事件日志设置更改为存档日志，而不是覆盖日志。 这些日志可能有助于后续的故障排除工作。 
 
@@ -162,24 +162,24 @@ Microsoft 已部署新的 Azure AD Connect 终结点 (API)，可提高 Azure Act
 2. 打开管理员 PowerShell 提示符：
 3. 确认没有同步操作正在运行后，禁用同步计划程序
  
-     `Set-ADSyncScheduler -SyncCycleEnabled $false`
+ `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 4. 切换到 V1 终结点* 
  
-     `Import-Module 'C:\Program Files\Azure AD Sync\Extensions\AADConnector.psm1'` 
-    
-     `Set-ADSyncAADConnectorExportApiVersion 1`
-    
-     `Set-ADSyncAADConnectorImportApiVersion 1`
-     
+ `Import-Module 'C:\Program Files\Azure AD Sync\Extensions\AADConnector.psm1'` 
+
+ `Set-ADSyncAADConnectorExportApiVersion 1`
+
+ `Set-ADSyncAADConnectorImportApiVersion 1`
+ 
 5. 打开 Azure AD 同步规则编辑器 
 6. 删除“出站到 AAD - 组加入”同步规则的可编辑副本 
 7. 启用“出站到 AAD - 组加入”同步规则的默认副本 
 8. 打开管理员 PowerShell 提示符 
 9. 重新启用同步计划程序 
  
-     `Set-ADSyncScheduler -SyncCycleEnabled $true`
-     
+ `Set-ADSyncScheduler -SyncCycleEnabled $true`
+ 
 >[!NOTE]
 > 从 V2 切换回 V1 终结点时，在运行完全同步后，将删除与 5 万名以上的成员同步的组（适用于预配到 Azure AD 的 AD 组和预配到 AD 的 Microsoft 365 统一组）。 
 

@@ -4,17 +4,17 @@ description: 在 Azure Service Fabric 上创建第一个 Linux 容器应用程�
 ms.topic: conceptual
 origin.date: 01/04/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 01/13/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: 0f481736266538e9825e90cb548afc73a1493954
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: c1954b70cbede9388531753bb4ce493228921395
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655686"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127616"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]
@@ -214,7 +214,7 @@ docker push myregistry.azurecr.cn/samples/helloworldapp
 
 生成容器映像时使用的 Dockerfile 中必须存在 **HEALTHCHECK** 指令，该指令指向监视容器运行状况时执行的实际检查。
 
-![HealthCheckHealthy][1]
+![屏幕截图显示已部署的服务包 NodeServicePackage 的详细信息。][1]
 
 ![HealthCheckUnhealthyApp][2]
 

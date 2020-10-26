@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 10/22/2019
 ms.date: 03/09/2020
-ms.openlocfilehash: f54f06f8ec864c7acde86e067bd32881d6796beb
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: efcb7c92f9cac8b52dd59e8a77f653616576ac7f
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395447"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117887"
 ---
 # <a name="import-data-module"></a>“导入数据”模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块可将数据从现有的云数据服务载入机器学习管道。 
 

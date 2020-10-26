@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/11/2019
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd075d33ee69e83cf9d3f64c2873949be08f348
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d6408a2ee65fb895ad71db8aad66e77fb1aecadb
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75335653"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041596"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect - msExchUserHoldPolicies 和 cloudMsExchUserHoldPolicies
 以下参考文档介绍了 Exchange 使用的这些属性，以及编辑默认同步规则的适当方式。
@@ -30,7 +30,7 @@ Exchange Server 可以使用两种类型的[保留机制](https://docs.microsoft
 MsExchUserHoldPolcies 和 cloudMsExchUserHoldPolicies 属性允许本地 AD 与 Azure AD 根据用户使用的是本地 Exchange 还是联机 Exchange，来确定哪些用户处于保留状态。
 
 ## <a name="msexchuserholdpolicies-synchronization-flow"></a>msExchUserHoldPolicies 同步流
-默认情况下，MsExchUserHoldPolcies 将由 Azure AD Connect 直接同步到 Metaverse 中的 msExchUserHoldPolicies 属性，然后同步到 Azure AD 中的 msExchUserHoldPolices 属性
+默认情况下，MsExchUserHoldPolcies 将由 Azure AD Connect 直接同步到 Metaverse 中的 msExchUserHoldPolicies 属性，然后同步到 Azure AD 中的 msExchUserHoldPolicies 属性
 
 下表描述了该流：
 
@@ -38,7 +38,7 @@ MsExchUserHoldPolcies 和 cloudMsExchUserHoldPolicies 属性允许本地 AD 与 
 
 |Active Directory 属性|属性名称|流类型|Metaverse 属性|同步规则|
 |-----|-----|-----|-----|-----|
-|本地 Active Directory|msExchUserHoldPolicies|直接|msExchUserHoldPolices|In from AD - User Exchange|
+|本地 Active Directory|msExchUserHoldPolicies|直接|msExchUserHoldPolicies|In from AD - User Exchange|
 
 出站到 Azure AD：
 
@@ -47,7 +47,7 @@ MsExchUserHoldPolcies 和 cloudMsExchUserHoldPolicies 属性允许本地 AD 与 
 |Azure Active Directory|msExchUserHoldPolicies|直接|msExchUserHoldPolicies|Out to AAD - UserExchangeOnline|
 
 ## <a name="cloudmsexchuserholdpolicies-synchronization-flow"></a>cloudMsExchUserHoldPolicies 同步流
-默认情况下，cloudMsExchUserHoldPolicies 由 Azure AD Connect 直接同步到 Metaverse 中的 cloudMsExchUserHoldPolicies 属性。 如果 Metaverse 中的 msExchUserHoldPolices 不为 null，该属性将流出到 Active Directory。
+默认情况下，cloudMsExchUserHoldPolicies 由 Azure AD Connect 直接同步到 Metaverse 中的 cloudMsExchUserHoldPolicies 属性。 如果 Metaverse 中的 msExchUserHoldPolicies 不为 null，该属性将流出到 Active Directory。
 
 下表描述了该流：
 
@@ -73,4 +73,3 @@ msExchangeUserHoldPolicies 是单机构属性。  可以针对本地目录或云
 ## <a name="next-steps"></a>后续步骤
 了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
-<!-- Update_Description: wording update -->

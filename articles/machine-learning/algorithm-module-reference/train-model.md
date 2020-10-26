@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 02/11/2020
 ms.date: 03/09/2020
-ms.openlocfilehash: 608ddd0c19c7433dea2aa38c2ca68049367a294c
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 70bdfa6389f91555c2d845193422739c92b0d695
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097471"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118573"
 ---
 # <a name="train-model-module"></a>“定型模型”模块
 
-本文介绍了 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块，可以训练分类或回归模型。 训练在你定义模型并设置其参数后进行，并且需要带标记的数据。 你还可以使用**训练模型**来使用新数据重新训练现有模型。 
 
@@ -65,7 +65,7 @@ ms.locfileid: "85097471"
   
 5.  提交管道。 如果有大量数据，则可能需要一段时间。
 
-## <a name="results"></a><a name="bkmk_results"></a> 结果
+## <a name="results"></a>结果
 
 在对模型进行训练后：
 

@@ -1,9 +1,8 @@
 ---
-title: 将 Azure VM 的 SLES 12 升级到 SLES 15 SP1
+title: 将 Azure VM 的 SUSE Linux Enterprise Server 升级到 SUSE 15 SP1 | Azure
 description: 本文介绍如何使用 SUSE 分发迁移系统为 Azure 虚拟机将 SUSE Linux Enterprise server 升级到 SUSE 15 SP1 的常规步骤。
 services: virtual-machines-linux
 documentationcenter: ''
-author: rockboyfor
 manager: digimobile
 editor: ''
 tags: virtual-machines
@@ -13,14 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 05/21/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: yes
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 27be64717ec556acddc5f7e3ad06098962dc37c9
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: fe692c030bf997b66b61bafa9bea5f3bc61a530b
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946156"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127652"
 ---
 <!--Verified successfully-->
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>将 Azure VM 的 SLES 12 升级到 SLES 15 SP1
@@ -30,7 +32,7 @@ ms.locfileid: "85946156"
 ## <a name="supported-upgrade-paths"></a>支持的升级路径
 若要升级到 SLES 15 SP1，当前 SLES 版本必须为 SLES 12 SP4 或 12 SP5。
 
-![有关支持的升级路径的屏幕截图](./media/linux-upgrade-suse-15sp1/upgrade-path.png)
+:::image type="content" source="./media/linux-upgrade-suse-15sp1/upgrade-path.png" alt-text="有关支持的升级路径的屏幕截图":::
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -76,7 +78,7 @@ ms.locfileid: "85946156"
 
 8. 使用新内核重启系统后，将看到以下消息。
 
-    ![有关串行控制台中消息的屏幕截图](./media/linux-upgrade-suse-15sp1/output-message.png)
+    :::image type="content" source="./media/linux-upgrade-suse-15sp1/output-message.png" alt-text="有关支持的升级路径的屏幕截图":::
 9. 验证内核和操作系统版本以检查系统是否已成功升级。
 
     ```
@@ -90,9 +92,7 @@ ms.locfileid: "85946156"
 
 - 在 SLES 终端中，运行命令 `dmidecode | grep -i hyper`。 如果是 V1 代 VM，则其不会返回任何输出。 对于 V2 代 VM，将看到以下输出：
 
-    ![有关第 2 代 VM 输出的屏幕截图](./media/linux-upgrade-suse-15sp1/output-gen2.png)
-    
+    :::image type="content" source="./media/linux-upgrade-suse-15sp1/output-gen2.png" alt-text="有关支持的升级路径的屏幕截图":::
 - 在 [Azure 门户](https://portal.azure.cn)中，转到 VM 的“属性”，然后检查“VM 代系”字段 。
 
-<!-- Update_Description: new article about linux upgrade suse 15sp1 -->
-<!--NEW.date: 07/06/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

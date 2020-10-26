@@ -3,14 +3,14 @@ title: 通过门户创建 Azure 事件网格订阅
 description: 本文介绍如何使用 Azure 门户为支持的源（如 Azure Blob 存储）创建事件网格订阅。
 author: Johnnytechn
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 10/10/2020
 ms.author: v-johya
-ms.openlocfilehash: de72bad7fc760955be92e8feb621f967a2ff5e56
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: e7c90b16453956bd642b51c8d97e07fd9d354e37
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228437"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128161"
 ---
 # <a name="subscribe-to-events-through-portal"></a>通过门户订阅事件
 
@@ -26,7 +26,7 @@ ms.locfileid: "88228437"
 
 1. 搜索“事件网格订阅”  ，并从可用选项中选择它。
 
-   ![搜索](./media/subscribe-through-portal/search.png)
+   ![屏幕截图显示了 Azure 门户中的“搜索”，其中已选择“事件网格订阅”。](./media/subscribe-through-portal/search.png)
 
 1. 选择“+ 事件订阅”。 
 
@@ -43,7 +43,7 @@ ms.locfileid: "88228437"
 
 1. 提供关于事件订阅的其他详细信息，例如，用于处理事件的终结点以及订阅名称。
 
-   ![提供订阅详细信息](./media/subscribe-through-portal/provide-subscription-details.png)
+   ![此屏幕截图显示了“终结点详细信息”和“事件订阅详细信息”部分，其中已输入订阅名称值。](./media/subscribe-through-portal/provide-subscription-details.png)
 
 1. 若要启用死信和自定义重试策略，请选择“其他功能”****。
 

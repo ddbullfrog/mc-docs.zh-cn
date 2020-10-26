@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/13/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f37f6fc769232f6fc7be6ebbe55baa883bc5758
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 5a85cbab1c69f9c4f34e1c67e1e7d453a24a7689
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046316"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041511"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Azure Active Directory 条件访问中的服务依赖项是什么？ 
 
@@ -25,7 +25,7 @@ ms.locfileid: "89046316"
 直接访问站点或服务时，通常容易评估相关策略的影响。 例如，如果策略要求对配置的 SharePoint Online 进行多重身份验证 (MFA)，则每次登录 SharePoint Web 门户时，都会强制执行 MFA。 但是，评估某项策略的影响并非始终是直截了当的，因为某些云应用依赖于其他云应用。 例如，可以通过 Microsoft Teams 访问 SharePoint Online 中的资源。 因此，你在访问当前方案中的 Microsoft Teams 时，也会受 SharePoint MFA 策略的约束。 
 
 > [!TIP]
-> 使用 [Office 365（预览版）](concept-conditional-access-cloud-apps.md#office-365-preview)应用将针对所有 Office 应用，以避免 Office 堆栈中的服务依赖项出现问题。
+> 使用 [Office 365](concept-conditional-access-cloud-apps.md#office-365) 应用的操作将针对所有 Office 应用，以避免 Office 堆栈中的服务依赖项出现问题。
 
 ## <a name="policy-enforcement"></a>策略强制执行 
 
@@ -40,7 +40,7 @@ ms.locfileid: "89046316"
 
 最佳做法是，尽可能跨相关的应用和服务设置常用策略。 安全态势一致可以为你提供最佳用户体验。 例如，跨 Exchange Online、SharePoint Online、Microsoft Teams 和 Skype for Business 设置常用策略可以显著减少意外提示数（为下游服务应用不同策略时，可能会出现这些提示）。 
 
-使用 Office 堆栈中的应用程序实现此目的的一种上佳方法是使用 [Office 365（预览版）](concept-conditional-access-cloud-apps.md#office-365-preview)，而不是针对单个应用程序。
+使用 Office 堆栈中的应用程序实现此目的的一种上佳方法是使用 [Office 365 应用](concept-conditional-access-cloud-apps.md#office-365)，而不是针对单个应用程序。
 
 下表列出了客户端应用必须满足的其他服务依赖项  
 

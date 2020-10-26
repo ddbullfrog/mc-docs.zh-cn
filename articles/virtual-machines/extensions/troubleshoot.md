@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/29/2016
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7bca0832dc76800d007bcd33f9e319155d0f6b79
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: af999cf937f89673dcfdfd39313e512c51f3274c
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413648"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128067"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 扩展故障排除
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -66,6 +66,7 @@ Extensions:  {
 ```
 
 ## <a name="troubleshooting-extension-failures"></a>扩展故障排除
+
 ### <a name="rerun-the-extension-on-the-vm"></a>在 VM 上重新运行扩展
 如果使用自定义脚本扩展在 VM 上运行脚本，有时可能会遇到错误：VM 已成功创建但脚本却运行失败。 在这些情况下，从此错误中恢复的建议方法是删除该扩展并再次重新运行该模板。
 注意：未来此功能将得到增强，不再需要卸载该扩展。
@@ -77,4 +78,29 @@ Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomS
 
 删除该扩展后，可以重新执行模板在 VM 上运行脚本。
 
-<!-- Update_Description: update meta properties, wording update, update cmdlet -->
+### <a name="trigger-a-new-goalstate-to-the-vm"></a>触发 VM 的新 GoalState
+你可能会注意到某个扩展尚未执行，或者由于缺少“Windows Azure CRP 证书生成器”（该证书用于保护扩展的受保护设置的传输）而无法执行。
+可以通过从虚拟机内重启 Windows 来宾代理自动重新生成该证书：
+- 打开任务管理器
+- 转到“详细信息”选项卡
+- 找到 WindowsAzureGuestAgent.exe 进程
+- 右键单击并选择“结束任务”。 该进程将自动重启
+
+还可以通过执行“空更新”来触发 VM 的新 GoalState：
+
+Azure PowerShell：
+
+```azurepowershell
+$vm = Get-AzureRMVM -ResourceGroupName <RGName> -Name <VMName>  
+Update-AzureRmVM -ResourceGroupName <RGName> -VM $vm  
+```
+
+Azure CLI：
+
+```azurecli
+az vm update -g <rgname> -n <vmname>
+```
+
+如果“空更新”不起作用，则可以从 Azure 管理门户向 VM 添加新的空数据磁盘，然后在重新添加证书后将其删除。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
-ms.openlocfilehash: 51d26fcdc7c68bbe9f3cc7a14ac7ecd392fc03af
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 42fd2da35b0f4937abada2f780dd9dd52a131f7a
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097795"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117877"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>“隐性 Dirichlet 分配”模块
 
-本文介绍了如何使用 Azure 机器学习设计器（预览版）中的“隐性 Dirichlet 分配”模块将未通过其他方式分类的文本分组到各个类别中。 
+本文介绍了如何使用 Azure 机器学习设计器中的“隐性 Dirichlet 分配”模块将未通过其他方式分类的文本分组到各个类别中。 
 
 隐性 Dirichlet 分配 (LDA) 经常在自然语言处理中用来查找相似的文本。 另一个常见术语是“主题建模”。
 
@@ -75,7 +75,7 @@ LDA 通常不是一种分类方法。 但它使用生成法，因此你不需要
     + 特征主题矩阵中的值将表示为一个概率，即 `P(word|topic)`。
 
     > [!NOTE] 
-    > 在 Azure 机器学习设计器（预览版）中，从版本 0.19 开始，scikit-learn 库不再支持非规范化 doc_topic_distr 输出。 在此模块中，“规范化”参数只能应用于“特征主题矩阵”输出。 转换后的数据集输出始终是规范化的。
+    > 在 Azure 机器学习设计器中，从版本 0.19 开始，scikit-learn 库不再支持非规范化的 doc_topic_distr 输出。 在此模块中，“规范化”参数只能应用于“特征主题矩阵”输出。 转换后的数据集输出始终是规范化的。
 
 7. 如果希望设置以下高级参数，请选择“显示所有选项”选项，然后将其设置为“是”。
 

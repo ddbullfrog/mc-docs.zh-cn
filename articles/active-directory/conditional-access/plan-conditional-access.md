@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/13/2020
 ms.author: v-junlch
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc8f4b6750c296d8bcc8c0776c8f22fe695f22c0
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 8e0cacaea1c8f8bb3ca43afdd03675a146c887c2
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593698"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041600"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>计划条件访问部署
 
@@ -235,7 +235,7 @@ CA 策略是 if-then 语句：如果满足分配条件，则应用这些访问�
 
 * 何时应用（如果适用）
 
-![命名标准](./media/plan-conditional-access/11.png)
+![显示策略的命名标准的屏幕截图。](./media/plan-conditional-access/11.png)
 
 示例：对于从外部网络访问 Dynamics CRP 应用的营销用户要求 MFA 的策略可能是：
 
@@ -344,6 +344,7 @@ Azure Active Directory 允许你创建[命名位置](location-condition.md)。 �
 | [在非工作时间要求执行 MFA](untrusted-networks.md)| 经授权的用户不在受信任的位置/工作时登录到应用| 提示用户执行 MFA，他们可以成功登录 |
 | [要求执行 MFA（针对管理员）](../fundamentals/concept-fundamentals-security-defaults.md)| 全局管理员登录到应用| 提示管理员执行 MFA |
 
+
 ### <a name="configure-the-test-policy"></a>配置测试策略
 
 在 [Azure 门户](https://portal.azure.cn/)中，你将在“Azure Active Directory”>“安全性”>“条件访问”下配置 CA 策略。
@@ -392,7 +393,7 @@ Azure Active Directory 允许你创建[命名位置](location-condition.md)。 �
 
 使用以下管理选项来控制和管理 CA 策略：
 
-![manage-access](./media/plan-conditional-access/manage-access.png)
+![显示用于 CA 策略的“管理”选项的屏幕截图，其中包括命名位置、自定义控件、使用条款、VPN 连接性以及所选的经典策略。](./media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>命名位置

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca909aac23e307f8dd370b3c6a7e3a6417dfa010
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ebe419b44b26f8bbeb30675647355cd6556eca2d
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245702"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041466"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>教程：使用 Linux VM 上的用户分配托管标识访问 Azure 资源管理器
 
@@ -45,20 +45,13 @@ ms.locfileid: "91245702"
 
 - [创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-portal.md)
 
-- 如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+- 若要运行示例脚本，可安装最新版的 [Azure CLI](/cli/install-azure-cli)，然后使用 [az login](/cli/reference-index#az-login) 登录到 Azure，在本地运行这些脚本。
 
 ## <a name="create-a-user-assigned-managed-identity"></a>创建用户分配的托管标识
 
-1. 使用与要在其下新建用户分配托管标识的 Azure 订阅关联的帐户：
-
-    ```azurecli
-    az login
-    ```
-
-2. 使用 [az identity create](https://docs.microsoft.com/en-us/cli/azure/identity#az-identity-create) 创建用户分配托管标识。 `-g` 参数指定要创建用户分配托管标识的资源组，`-n` 参数指定其名称。 请务必将 `<RESOURCE GROUP>` 和 `<UAMI NAME>` 参数值替换为自己的值：
+使用 [az identity create](https://docs.microsoft.com/en-us/cli/azure/identity#az-identity-create) 创建用户分配托管标识。 `-g` 参数指定要创建用户分配托管标识的资源组，`-n` 参数指定其名称。 请务必将 `<RESOURCE GROUP>` 和 `<UAMI NAME>` 参数值替换为自己的值：
     
 [!INCLUDE [ua-character-limit](../../../includes/managed-identity-ua-character-limits.md)]
-
 
 ```azurecli
 az identity create -g <RESOURCE GROUP> -n <UAMI NAME>

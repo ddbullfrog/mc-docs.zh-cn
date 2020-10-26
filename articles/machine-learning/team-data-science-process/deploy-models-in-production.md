@@ -2,20 +2,20 @@
 title: 在生产中部署模型 - Team Data Science Process
 description: 如何将模型部署到生产环境使其在进行业务决策方面能够发挥积极作用。
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f7687b96f5e9571f168e3af510e26af81b1d18da
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e9cc29ed3e67f93694cca237c802b0221dcc1089
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75599149"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118385"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>将模型部署到生产中，使这些模型在制定业务决策方面能够发挥积极作用
 
@@ -34,12 +34,12 @@ ms.locfileid: "75599149"
 >
 
 >[!NOTE]
->对于使用 Azure 机器学习工作室的部署，请参阅[部署 Azure 机器学习 Web 服务](../studio/deploy-a-machine-learning-web-service.md)。
+>对于使用 Azure 机器学习工作室的部署，请参阅[部署 Azure 机器学习 Web 服务](../classic/deploy-a-machine-learning-web-service.md)。
 >
 
 ## <a name="ab-testing"></a>A/B 测试
 
-如果在生产环境中部署了多个模型，执行 [A/B 测试](https://en.wikipedia.org/wiki/A/B_testing)来比较模型的性能可能很有用。 
+如果生产中有多个模型，可以使用 [A/B 测试](https://en.wikipedia.org/wiki/A/B_testing)来比较模型的性能。 
  
 ## <a name="next-steps"></a>后续步骤
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 05/22/2019
-ms.date: 05/11/2020
-ms.openlocfilehash: 82719420d5fa1265141d7ee0ff674f7a1a4377f4
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.date: 10/19/2020
+ms.openlocfilehash: 971a7a4e26c1fb3ef6940ad27b0e60e0ec27de86
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914305"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121716"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 SAP Business Warehouse 复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -218,7 +218,7 @@ ms.locfileid: "87914305"
 
    可能提高 DTP 的并行运行 SAP 工作进程数：
 
-   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![屏幕截图显示了“并行处理的设置”，你可以在其中选择 DTP 的并行进程数。](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. 在进程链中计划 DTP。
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 041ae397dc2c800bfb62323936c24de02a104f75
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 4af7949c1f0887a792bfe656c95b441f65875505
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164862"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041473"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>将 Azure AD Connect 数据库从 SQL Server Express 移到 SQL Server 
 
@@ -41,13 +41,13 @@ ms.locfileid: "86164862"
 
 8. 附加数据库以后，请返回到 Azure AD Connect 服务器并安装 Azure AD Connect。
 9. MSI 安装完成后，将启动 Azure AD Connect 向导，进入快速模式安装。 单击“退出”图标关闭屏幕。
-   ![欢迎使用](./media/how-to-connect-install-move-db/db1.png)
+   ![此屏幕截图显示了“欢迎使用 Azure AD Connect”页，其中突出显示了左侧菜单中的“快速设置”。](./media/how-to-connect-install-move-db/db1.png)
 10. 启动新的命令提示符或 PowerShell 会话。 导航到 \<drive>\program files\Azure AD Connect 文件夹。 运行命令 .\AzureADConnect.exe /useexistingdatabase，在“使用现有数据库”安装模式下启动 Azure AD Connect 向导。
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. 出现“欢迎使用 Azure AD Connect”屏幕。 同意许可条款和隐私声明后，单击“继续”。
-    ![欢迎使用](./media/how-to-connect-install-move-db/db3.png)
+    ![显示“欢迎使用 Azure AD Connect”页的屏幕截图](./media/how-to-connect-install-move-db/db3.png)
 12. 在“安装所需组件”屏幕上，“使用现有 SQL Server”选项已启用 。 指定托管 ADSync 数据库的 SQL Server 的名称。 如果用于托管 ADSync 数据库的 SQL 引擎实例不是 SQL Server 上的默认实例，则必须指定 SQL 引擎实例名称。 此外，如果没有启用 SQL 浏览，还必须指定 SQL 引擎实例端口号。 例如：         
-    ![欢迎使用](./media/how-to-connect-install-move-db/db4.png)           
+    ![显示“安装所需的组件”页的屏幕截图。](./media/how-to-connect-install-move-db/db4.png)           
 
 13. 在“连接到 Azure AD”屏幕上，必须提供 Azure AD 目录的全局管理员凭据。 建议使用默认 partner.onmschina.cn 域中的帐户。 此帐户只用于在 Azure AD 中创建服务帐户，向导完成后不会使用。
     ![“连接”](./media/how-to-connect-install-move-db/db5.png)
@@ -57,11 +57,11 @@ ms.locfileid: "86164862"
  
 
 15. 在弹出对话框中，可以 (i) 提供企业管理员凭据，并让 Azure AD Connect 为你创建 AD DS 帐户，或 (ii) 自行创建 AD DS 帐户，并将其凭据提供给 Azure AD Connect。 选择一个选项并提供必要凭据后，单击“确定”关闭弹出对话框。
-    ![欢迎使用](./media/how-to-connect-install-move-db/db7.png)
+    ![“AD 林帐户”弹出对话框的屏幕截图，已选中“新建 AD 帐户”。](./media/how-to-connect-install-move-db/db7.png)
  
 
 16. 提供凭据后，红色十字图标将被替换为绿色钩号图标。 单击“下一步”。
-    ![欢迎使用](./media/how-to-connect-install-move-db/db8.png)
+    ![屏幕截图，显示输入帐户凭据后的“连接目录”页。](./media/how-to-connect-install-move-db/db8.png)
  
 
 17. 在“准备好配置”屏幕上，单击“安装” 。

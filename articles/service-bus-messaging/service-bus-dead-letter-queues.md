@@ -2,19 +2,19 @@
 title: 服务总线死信队列 | Azure
 description: 介绍 Azure 服务总线中的死信队列。 服务总线队列和主题订阅提供一个名为死信队列的辅助子队列。
 ms.topic: article
-author: rockboyfor
 origin.date: 06/23/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 6c55d7c3dd5604c1d7e181cbc357d1d724403533
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.custom: fasttrack-edit, devx-track-csharp
+ms.openlocfilehash: 2470bf4ca5051aeda9391c832c9bd2317f8462d9
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946623"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128359"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服务总线死信队列概述
 
@@ -28,20 +28,20 @@ Azure 服务总线队列和主题订阅提供一个名为“死信队列”(DLQ)
 
 从 API 和协议的角度看，DLQ 与任何其他队列都极其相似，不同的是，消息只能通过父实体的死信操作提交。 此外，无法查看生存时间，而且不能将 DLQ 中的消息设为死信。 死信队列完全支持扫视锁定传递和事务性操作。
 
-DLQ 不会自动执行清理操作。 消息将保留在 DLQ 中，直到显式从 DLQ 中检索它们以及对死信消息调用 [Complete()](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync?view=azure-dotnet) 为止。
+DLQ 不会自动执行清理操作。 消息将保留在 DLQ 中，直到显式从 DLQ 中检索它们以及对死信消息调用 [Complete()](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) 为止。
 
 ## <a name="dlq-message-count"></a>DLQ 消息计数
 无法在主题级别获取死信队列中的消息计数。 这是因为消息不会驻留在主题级别，除非服务总线引发内部错误。 相反，当发送方将消息发送给主题时，消息会在毫秒内转发给主题的订阅，因此消息不再驻留于主题级别。 所以，你可以在与主题的订阅相关联的 DLQ 中查看消息。 在以下示例中，Service Bus Explorer 显示订阅“test1”的 DLQ 中目前有 62 条消息。 
 
 :::image type="content" source="./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png" alt-text="DLQ 消息计数":::
 
-还可以通过使用 Azure CLI 命令：[`az servicebus topic subscription show`](https://docs.azure.cn/cli/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show) 来获取 DLQ 消息的计数。 
+还可以通过使用 Azure CLI 命令：[`az servicebus topic subscription show`](https://docs.azure.cn/cli/servicebus/topic/subscription#az_servicebus_topic_subscription_show) 来获取 DLQ 消息的计数。 
 
 ## <a name="moving-messages-to-the-dlq"></a>将消息移到 DLQ
 
 服务总线中有几个活动会导致从消息引擎本身将消息推送到 DLQ。 应用程序也可以显式将消息移到 DLQ。 
 
-如果消息是由代理移动的，在代理对消息调用其内部版本的 [DeadLetter](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync?view=azure-dotnet) 方法时，会将两个属性添加到消息：`DeadLetterReason` 和 `DeadLetterErrorDescription`。
+如果消息是由代理移动的，在代理对消息调用其内部版本的 [DeadLetter](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) 方法时，会将两个属性添加到消息：`DeadLetterReason` 和 `DeadLetterErrorDescription`。
 
 应用程序可以为 `DeadLetterReason` 属性定义自己的代码，但系统设置以下值。
 
@@ -55,19 +55,19 @@ DLQ 不会自动执行清理操作。 消息将保留在 DLQ 中，直到显式�
 
 ## <a name="exceeding-maxdeliverycount"></a>超过 MaxDeliveryCount
 
-每个队列和订阅都具有 [QueueDescription.MaxDeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount?view=azure-dotnet) 和 [SubscriptionDescription.MaxDeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount?view=azure-dotnet) 属性；默认值为 10。 只要消息在 ([ReceiveMode.PeekLock](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.receivemode?view=azure-dotnet)) 锁下传递，但已显式放弃或锁已过期，消息 [BrokeredMessage.DeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) 就会递增。 [DeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet) 超过 [MaxDeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount?view=azure-dotnet) 时，该消息将移到 DLQ，并指定 `MaxDeliveryCountExceeded` 原因代码。
+每个队列和订阅都具有 [QueueDescription.MaxDeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 和 [SubscriptionDescription.MaxDeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) 属性；默认值为 10。 只要消息在 ([ReceiveMode.PeekLock](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.receivemode)) 锁下传递，但已显式放弃或锁已过期，消息 [BrokeredMessage.DeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 就会递增。 [DeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 超过 [MaxDeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 时，该消息将移到 DLQ，并指定 `MaxDeliveryCountExceeded` 原因代码。
 
-无法禁止此行为，但可将 [MaxDeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount?view=azure-dotnet) 设置为较大的数。
+无法禁止此行为，但可将 [MaxDeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 设置为较大的数。
 
 ## <a name="exceeding-timetolive"></a>超过 TimeToLive
 
-[QueueDescription.EnableDeadLetteringOnMessageExpiration](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription?view=azure-dotnet) 或 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription?view=azure-dotnet) 属性设置为 **true**（默认值是 **false**）时，所有到期的消息将移到 DLQ，并指定 `TTLExpiredException` 原因代码。
+[QueueDescription.EnableDeadLetteringOnMessageExpiration](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription) 或 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 属性设置为 **true**（默认值是 **false**）时，所有到期的消息将移到 DLQ，并指定 `TTLExpiredException` 原因代码。
 
 只有当至少有一个活动的接收器正在从主队列或订阅中拉取时，才会清除过期的消息和将其移动到 DLQ，并且[延迟消息](./message-deferral.md)在过期后也不会被清除和移动到死信队列。 这些行为是设计的结果。
 
 ## <a name="errors-while-processing-subscription-rules"></a>处理订阅规则时的错误
 
-为订阅启用了 [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription?view=azure-dotnet) 属性时，会在 DLQ 中捕获执行订阅的 SQL 筛选器规则时出现的任何错误以及有问题的消息。
+为订阅启用了 [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 属性时，会在 DLQ 中捕获执行订阅的 SQL 筛选器规则时出现的任何错误以及有问题的消息。 请勿在部分消息类型没有订阅服务器的生产环境中使用此选项。
 
 ## <a name="application-level-dead-lettering"></a>应用程序级死信
 
@@ -81,11 +81,11 @@ DLQ 不会自动执行清理操作。 消息将保留在 DLQ 中，直到显式�
 - 目标队列或主题被禁用或删除。
 - 目标队列或主题超出最大实体大小。
 
-若要检索这些死信消息，可以使用 [FormatTransferDeadletterPath](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath?view=azure-dotnet) 实用方法创建接收器。
+若要检索这些死信消息，可以使用 [FormatTransferDeadletterPath](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) 实用方法创建接收器。
 
 ## <a name="example"></a>示例
 
-下面的代码片段将创建一个消息接收器。 在主队列的接收循环中，此代码使用 [Receive(TimeSpan.Zero)](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagereceiver?view=azure-dotnet) 检索消息，该方法请求代理立即返回随时可用的任何消息或返回空结果。 如果此代码接收到一条消息，则会立即将其放弃，从而使 `DeliveryCount` 递增。 系统将此消息移动到 DLQ 后，[ReceiveAsync](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagereceiver?view=azure-dotnet) 返回 **null**，主队列为空，且循环退出。
+下面的代码片段将创建一个消息接收器。 在主队列的接收循环中，此代码使用 [Receive(TimeSpan.Zero)](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 检索消息，该方法请求代理立即返回随时可用的任何消息或返回空结果。 如果此代码接收到一条消息，则会立即将其放弃，从而使 `DeliveryCount` 递增。 系统将此消息移动到 DLQ 后，[ReceiveAsync](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 返回 **null**，主队列为空，且循环退出。
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

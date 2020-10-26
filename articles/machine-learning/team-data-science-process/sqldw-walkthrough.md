@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7313cfa6ca65327d942aa678b36571e42986e29c
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 7741721cee2295fce70c337501b4bfe546b0c7dc
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021223"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118148"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Team Data Science Process 实务：使用 Azure Synapse Analytics
 本教程逐步介绍如何使用 Azure Synapse Analytics 为某个公开提供的数据集（[纽约市出租车行程](https://www.andresmh.com/nyctaxitrips/)数据集）生成和部署机器学习模型。 构造的二元分类模型可预测是否为某个行程支付了小费。  模型包括多类分类（是否有小费）和回归（已付小费金额的分布）。
@@ -91,16 +91,16 @@ NYC 出租车车程数据包含大约 20 GB（未压缩约为  48 GB）的压缩
   * **容器名称**（希望在 Azure Blob 存储中存储数据的容器的名称）
 
 **预配 Azure Synapse Analytics 实例。**
-按照[在 Azure 门户中创建和查询 Azure SQL 数据仓库](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)中的文档预配 Azure Synapse Analytics 实例。 请务必记下以下 Azure Synapse Analytics 凭据，稍后的步骤中会使用它们。
+按照[在 Azure 门户中创建和查询 Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) 中的文档预配 Azure Synapse Analytics 实例。 请务必记下以下 Azure Synapse Analytics 凭据，稍后的步骤中会使用它们。
 
 * **服务器名称**：\<server Name>.database.windows.net
 * **SQLDW（数据库）名称**
 * **用户名**
 * **密码**
 
-**安装 Visual Studio 和 SQL Server Data Tools。** 有关说明，请参阅[适用于 SQL 数据仓库的 Visual Studio 2019 入门](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)。
+**安装 Visual Studio 和 SQL Server Data Tools。** 有关说明，请参阅[适用于 Azure Synapse Analytics 的 Visual Studio 2019 入门](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)。
 
-**使用 Visual Studio 连接到 Azure Synapse Analytics。** 有关说明，请参阅[连接到 Azure Synapse Analytics 中的 SQL Analytics](../../synapse-analytics/sql/connect-overview.md) 中的步骤 1 和 2。
+**使用 Visual Studio 连接到 Azure Synapse Analytics。** 
 
 > [!NOTE]
 > 在 Azure Synapse Analytics 中创建的数据库上运行下面的 SQL 查询（而不是在连接主题的步骤 3 中提供的查询）来创建一个主密钥。
@@ -117,7 +117,7 @@ BEGIN CATCH
 END CATCH;
 ```
 
-**在 Azure 订阅下创建一个 Azure 机器学习工作区。** 有关说明，请参阅[创建 Azure 机器学习工作区](../studio/create-workspace.md)。
+**在 Azure 订阅下创建一个 Azure 机器学习工作区。** 有关说明，请参阅[创建 Azure 机器学习工作区](../classic/create-workspace.md)。
 
 ## <a name="load-the-data-into-azure-synapse-analytics"></a><a name="getdata"></a>将数据加载到 Azure Synapse Analytics 中
 打开 Windows PowerShell 命令控制台。 运行以下 PowerShell 命令将我们在 GitHub 上与你共享的示例 SQL 脚本文件下载到使用参数 *-DestDir* 指定的本地目录中。 可以将参数 *-DestDir* 的值更改为任何本地目录。 如果 *-DestDir* 不存在，PowerShell 脚本将创建它。
@@ -939,9 +939,9 @@ pd.read_sql(query,conn)
 2. **多类分类**：根据以前定义的类，预测小费支付范围。
 3. **回归任务**：预测为行程支付的小费金额。
 
-若要开始建模练习，请登录到 **Azure 机器学习（经典版）** 工作区。 如果尚未创建机器学习工作区，请参阅[创建 Azure 机器学习工作室（经典版）工作区](../studio/create-workspace.md)。
+若要开始建模练习，请登录到 **Azure 机器学习（经典版）** 工作区。 如果尚未创建机器学习工作区，请参阅[创建 Azure 机器学习工作室（经典版）工作区](../classic/create-workspace.md)。
 
-1. 要开始使用 Azure 机器学习，请参阅[什么是 Azure 机器学习工作室（经典版）？](../studio/what-is-ml-studio.md)
+1. 要开始使用 Azure 机器学习，请参阅[什么是 Azure 机器学习工作室（经典版）？](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. 登录 [Azure 机器学习工作室（经典版）](https://studio.azureml.net)。
 3. 机器学习工作室（经典版）主页上提供丰富的信息、视频、教程、指向模块参考链接及其他资源。 有关 Azure 机器学习的详细信息，请参阅 [Azure 机器学习文档中心](/machine-learning/)。
 
@@ -981,7 +981,7 @@ pd.read_sql(query,conn)
 >
 
 ## <a name="deploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>在 Azure 机器学习中部署模型
-模型已就绪时，即可轻松地从实验直接将其部署为 Web 服务。 有关部署 Azure ML Web 服务的详细信息，请参阅[部署 Azure 机器学习 Web 服务](../studio/deploy-a-machine-learning-web-service.md)。
+模型已就绪时，即可轻松地从实验直接将其部署为 Web 服务。 有关部署 Azure ML Web 服务的详细信息，请参阅[部署 Azure 机器学习 Web 服务](../classic/deploy-a-machine-learning-web-service.md)。
 
 要部署新 Web 服务，需要：
 

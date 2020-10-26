@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 32d0a361521291afdb0edc4cab690e42387e451d
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.custom: devx-track-python
+ms.openlocfilehash: 9f1eeb53ae51eeb511d50f2d774808910fed6eb3
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097072"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118532"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Azure 机器学习工作流的数据引入选项
 
@@ -25,7 +25,7 @@ ms.locfileid: "85097072"
 从下列项中进行选择：
 + [Azure 数据工厂](#azure-data-factory)管道专用于提取、加载和转换数据
 
-+ [Azure 机器学习 Python SDK](#azure-machine-learning-python-sdk)，为基本数据引入任务提供自定义代码解决方案。
++ [Azure 机器学习 Python SDK](#azure-machine-learning-python-sdk)，为数据引入任务提供自定义代码解决方案。
 
 + 两者的组合
 
@@ -70,7 +70,7 @@ Azure 数据工厂数据流的嵌入式数据世系功能|
 在每次执行模型训练的过程中准备数据|需要拥有创建数据引入脚本方面的开发技能
 支持对各种计算目标（包括 [Azure 机器学习计算](concept-compute-target.md#azure-machine-learning-compute-managed)）使用数据准备脚本 |不提供用于创建引入机制的用户界面
 
-在下图中，Azure 机器学习管道由两个步骤组成：数据引入和模型训练。 数据引入步骤包含可以使用 Python 库和 Python SDK 完成的任务（例如从本地/Web 源提取数据），以及基本数据转换（例如缺失值插补）。 然后，训练步骤使用准备好的数据作为训练脚本的输入来训练机器学习模型。 
+在下图中，Azure 机器学习管道由两个步骤组成：数据引入和模型训练。 数据引入步骤包含可以使用 Python 库和 Python SDK 完成的任务（例如从本地/Web 源提取数据），以及数据转换（例如缺失值插补）。 然后，训练步骤使用准备好的数据作为训练脚本的输入来训练机器学习模型。 
 
 ![Azure 管道 + SDK 数据引入](media/concept-data-ingestion/data-ingest-option-two.png)
 

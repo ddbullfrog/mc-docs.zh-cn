@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: v-yiso
-origin.date: 02/21/2020
-ms.date: 03/09/2020
+origin.date: 03/17/2020
+ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: bb61a0f6ca5c48319cb8b88f79cf94b5e0166466
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 944ae245b3c46b4c40b44c51a35ffb2eaabf5407
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395329"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118570"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps：使用 Azure 机器学习进行模型管理、部署和监视
 
@@ -159,7 +159,7 @@ Azure ML 提供使用元数据跟踪所有 ML 资产的端到端审核线索的�
 > [!TIP]
 > 系统会自动捕获有关模型和数据集的某些信息，同时你可以使用“标记”添加其他信息。 在工作区中查找已注册的模型和数据集时，可以使用标记作为筛选器。
 >
-> 可以选择将数据集与已注册的模型相关联。 若要了解如何在注册模型时引用数据集，请参阅 [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true) 类参考信息。
+> 可以选择将数据集与已注册的模型相关联。 若要了解如何在注册模型时引用数据集，请参阅 [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true) 类参考信息。
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>针对 ML 生命周期中的事件发出通知和警报以及进行自动化处理
@@ -185,7 +185,7 @@ Azure ML 将关键事件发布到 Azure 事件网格。使用事件网格可以�
 - 将新模型的输出与旧模型的输出进行比较
 - 使用预定义的条件来确定是否替换旧模型 
 
-上述步骤的一个主旨是，重新训练应该是自动化的，而不是临时性的。 [Azure 机器学习管道](concept-ml-pipelines.md)非常适合用于创建与数据准备、训练、验证和部署相关的工作流。 请阅读[使用 Azure 机器学习设计器重新训练模型（预览版）](how-to-retrain-designer.md)，了解管道和 Azure 机器学习设计器如何适应重新训练方案。 
+上述步骤的一个主旨是，重新训练应该是自动化的，而不是临时性的。 [Azure 机器学习管道](concept-ml-pipelines.md)非常适合用于创建与数据准备、训练、验证和部署相关的工作流。 请阅读[使用 Azure 机器学习设计器重新训练模型](how-to-retrain-designer.md)，了解管道和 Azure 机器学习设计器如何适应重新训练方案。 
 
 ## <a name="automate-the-ml-lifecycle"></a>自动化 ML 生命周期 
 

@@ -10,12 +10,12 @@ ms.author: v-yiso
 author: jpe316
 origin.date: 03/05/2020
 ms.date: 03/09/2020
-ms.openlocfilehash: 958c26c49c8b76bebb8451df79084b3138da3e8a
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: baacd6b08a5f32ca8ccf70fa58e76b4f1071aae4
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395317"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117972"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure 机器学习的 Git 集成
 
@@ -36,13 +36,95 @@ Azure 机器学习为工作区中的所有用户提供了一个共享文件系�
 
 你可以克隆你能够向其证明身份的任何 Git 存储库（GitHub、Azure Repos、BitBucket 等）
 
-有关如何使用 Git CLI 的指南，请阅读[此处](https://guides.github.com/introduction/git-handbook/)。
+有关克隆的详细信息，请参阅[如何使用 Git CLI](https://guides.github.com/introduction/git-handbook/) 页面上的指南。
+
+## <a name="authenticate-your-git-account-with-ssh"></a>通过 SSH 对 Git 帐户进行身份验证
+### <a name="generate-a-new-ssh-key"></a>生成新的 SSH 密钥
+1) 在 Azure 机器学习笔记本选项卡中[打开终端窗口](/machine-learning/how-to-run-jupyter-notebooks#terminal)。
+
+2) 粘贴以下文本，并将其替换为电子邮件地址。
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+这会创建一个新的 SSH 密钥，并使用提供的电子邮件作为标签。
+
+```
+> Generating public/private rsa key pair.
+```
+
+3) 当系统提示“输入用于保存密钥的文件”时，请按 Enter 键。 这会接受默认文件位置。
+
+4) 验证该默认位置为“/home/azureuser/.ssh”，然后按 Enter。 否则，请指定位置“/home/azureuser/.ssh”。
+
+> [!TIP]
+> 请确保 SSH 密钥保存在“/home/azureuser/.ssh”中。 此文件保存在计算实例上，只有计算实例的所有者才能访问
+
+```
+> Enter a file in which to save the key (/home/azureuser/.ssh/id_rsa): [Press enter]
+```
+
+5) 在提示符下，键入安全密码。 建议向 SSH 密钥添加密码，以提高安全性
+
+```
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+```
+
+### <a name="add-the-public-key-to-git-account"></a>将公钥添加到 Git 帐户
+1) 在终端窗口中，复制公钥文件的内容。 如果重命名了该密钥，请将 id_rsa.pub 替换为公钥文件名。
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+> [!TIP]
+> **在终端中复制和粘贴**
+> * Windows：使用 `Ctrl-Insert` 复制，使用 `Ctrl-Shift-v` 或 `Shift-Insert` 粘贴。
+> * Mac OS：使用 `Cmd-c` 复制，使用 `Cmd-v` 粘贴。
+> * FireFox/IE 可能不会正确支持剪贴板权限。
+
+2) 选择并复制剪贴板中的密钥输出。
+
++ [GitHub](https://docs.github.com/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
++ [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
+
++ [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs) 从**步骤 2** 开始。
+
++ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2)。 从“步骤 4”开始。
+
+### <a name="clone-the-git-repository-with-ssh"></a>通过 SSH 克隆 Git 存储库
+
+1) 从 Git 存储库中复制 SSH Git 克隆 URL。
+
+2) 将 URL 粘贴到下面的 `git clone` 命令中，以使用 SSH Git 存储库 URL。 该 URL 应类似于：
+
+```bash
+git clone git@example.com:GitUser/azureml-example.git
+Cloning into 'azureml-example'...
+```
+
+将看到如下所示的响应：
+
+```bash
+The authenticity of host 'example.com (192.30.255.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of known hosts.
+```
+
+SSH 可能会显示服务器的 SSH 指纹，并要求你对其进行验证。 应验证显示的指纹是否与 SSH 公钥页中的某个指纹相匹配。
+
+SSH 将在连接到未知主机时显示此指纹，以防止[中间人攻击](https://technet.microsoft.com/library/cc959354.aspx)。 接受主机的指纹后，SSH 将不再提示你，除非指纹发生更改。
+
+3) 当系统询问是否要继续连接时，请键入 `yes`。 Git 将克隆存储库，并设置原点远程，以便在将来的 Git 命令中使用 SSH 进行连接。
 
 ## <a name="track-code-that-comes-from-git-repositories"></a>跟踪来自 Git 存储库的代码
 
 从 Python SDK 或机器学习 CLI 提交训练运行时，训练模型所需的文件将上传到工作区。 如果可在开发环境中使用 `git` 命令，则上传过程会使用该命令检查文件是否存储在 git 存储库中。 如果是，那么 git 存储库中的信息也会作为训练运行的一部分上传。 此信息存储在训练运行的以下属性中：
 
-| properties | 用于获取值的 Git 命令 | 说明 |
+| 属性 | 用于获取值的 Git 命令 | 说明 |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | 从中克隆存储库的 URI。 |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | 从中克隆存储库的 URI。 |
@@ -72,11 +154,9 @@ Git 信息存储在训练运行的属性中。 可以使用 Azure 门户、Pytho
 ### <a name="azure-portal"></a>Azure 门户
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，选择工作区。
-1. 选择“试验”，然后选择一个试验  。
-1. 从“运行号”列中选择一个运行  。
-1. 选择“日志”，然后展开“日志”和“azureml”条目    。 选择以“###\_azure”开头的链接。
-
-    ![门户中的 ###_azure 条目](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
+1. 选择“试验”，然后选择一个试验____。
+1. 从“运行号”列中选择一个运行____。
+1. 选择“输出 + 日志”，然后展开“日志”和“azureml”条目  。 选择以“###\_azure”开头的链接。
 
 记录的信息包含类似于以下 JSON 的文本：
 
@@ -113,7 +193,7 @@ run.properties['azureml.git.commit']
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-有关详细信息，请参阅 [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest) 参考文档。
+有关详细信息，请参阅 [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true) 参考文档。
 
 ## <a name="next-steps"></a>后续步骤
 

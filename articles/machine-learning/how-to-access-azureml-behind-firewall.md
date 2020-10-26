@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0cd40370a2255b0a0c35d6c011a5c0d7a0b7ef7f
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 3ee1987a6d25dc98648b848a4f05f73473e7f465
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021030"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118203"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>将防火墙后的工作区用于 Azure 机器学习
 
@@ -41,6 +41,8 @@ ms.locfileid: "90021030"
 
 | **主机名** | **用途** |
 | ---- | ---- |
+| **login.microsoftonline.com** | 身份验证 |
+| **management.azure.com** | 用于获取工作区信息 |
 | **\*.batchai.core.windows.net** | 训练群集 |
 | **studio.ml.azure.cn** | Azure 机器学习工作室 |
 | **default.exp-tas.com** | 由 Azure 机器学习工作室使用 |
@@ -59,13 +61,16 @@ ms.locfileid: "90021030"
 | **\*.notebooks.azure.net** | Azure 机器学习工作室中的笔记本需要。 |
 | **graph.windows.net** | 笔记本所需 |
 
+> [!TIP]
+> 如果计划使用联合标识，请按照[保护 Active Directory 联合身份验证服务的最佳做法](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)一文的说明进行操作。
+
 ## <a name="python-hosts"></a>Python 主机
 
 本部分中的主机用于安装 Python 包。 开发、训练和部署过程中需要使用它们。 
 
 | **主机名** | **用途** |
 | ---- | ---- |
-| **anaconda.com** | 用于安装默认包。 |
+| **anaconda.com**</br>**\*.anaconda.com** | 用于安装默认包。 |
 | \*.anaconda.org | 用于获取存储库数据。 |
 | **pypi.org** | 用于列出默认索引的依赖项（如果有），索引不会被用户设置覆盖。 如果索引被覆盖，则还必须允许“\*.pythonhosted.org”。 |
 

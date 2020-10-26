@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 ms.date: 06/05/2020
 origin.date: 06/29/2020
-ms.openlocfilehash: 221007f9acee947ebbe993fb44fa73f6d8ec97e3
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 8ed34703faae714237b82fc987f343c436faadda
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097394"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118477"
 ---
 # <a name="apply-transformation-module"></a>“应用转换”模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块来修改基于之前计算的转换的输入数据集。  
   

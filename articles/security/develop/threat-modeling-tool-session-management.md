@@ -1,6 +1,6 @@
 ---
 title: 会话管理 - Microsoft Threat Modeling Tool - Azure | Azure Docs
-description: 针对威胁建模工具中暴露的威胁采取的缓解措施
+description: 了解针对 Threat Modeling Tool 中暴露的威胁的会话管理缓解措施。 请参阅缓解措施信息并查看代码示例。
 services: security
 documentationcenter: na
 author: jegeib
@@ -13,22 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: v-tawe
-ms.custom: has-adal-ref
+ms.date: 10/12/2020
+ms.author: v-johya
+ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
 origin.date: 02/07/2017
-ms.openlocfilehash: 54aeb124027a0f7ac5c7aeff70148f1e99565e18
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: d8f239bff8f33264b2eee56369f380461b007472
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439594"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128162"
 ---
 # <a name="security-frame-session-management"></a>安全框架：会话管理
 | 产品/服务 | 文章 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[使用 Azure AD 时借助 ADAL 方法实现适当的注销](#logout-adal)</li></ul> |
-| IoT 设备 | <ul><li>[对生成的 SaS 令牌使用有限生存期](#finite-tokens)</li></ul> |
+| **IoT 设备** | <ul><li>[对生成的 SaS 令牌使用有限生存期](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[对生成的资源令牌使用最短的令牌生存期](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[使用 ADFS 时借助 WsFederation 方法实现适当的注销](#wsfederation-logout)</li></ul> |
 | **标识服务器** | <ul><li>[使用标识服务器时实现适当的注销](#proper-logout)</li></ul> |
@@ -239,7 +239,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 | **SDL 阶段**               | 构建 |  
 | **适用的技术** | MVC5 |
 | **属性**              | EnvironmentType - OnPrem |
-| **参考**              | [Windows Identity Foundation (WIF) 配置 – 第 II 部分](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
+| **参考**              | [Windows Identity Foundation (WIF) 配置 - 第 II 部分](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
 | **步骤** | 要为 FedAuth Cookie 设置 httpOnly 特性，应将 hideFromCsript 特性值应设置为 True。 |
 
 ### <a name="example"></a>示例
@@ -521,3 +521,4 @@ config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType
 ```
 
 SuppressDefaultHostAuthentication 方法通过 IIS 或 OWIN 中间件告知 Web API 忽略在请求到达 Web API 管道前发生的任何身份验证。 如此，便可以限制 Web API 仅使用持有者令牌进行身份验证。
+

@@ -1,23 +1,23 @@
 ---
 title: 安全建议
 description: 实施安全建议，履行我们责任分担模型中所述的安全义务。 提高应用的安全性。
-author: barclayn
+author: msmbaldwin
 manager: barbkess
 ms.topic: conceptual
 origin.date: 06/17/2019
-ms.date: 01/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: security-recommendations
-ms.openlocfilehash: b1406840275aab244cad3d35d1f8c54c76a38288
-ms.sourcegitcommit: 8b77a146f74ebe2cb287821fe5fc13870f89467a
+ms.openlocfilehash: 4c4c02413624b66bdc7462cd9db969c10ba4fe5c
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844169"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170452"
 ---
 # <a name="security-recommendations-for-app-service"></a>适用于应用服务的安全建议
 
-本文包含适用于 Azure 应用服务的安全建议。 实施这些建议将有助于你履行我们的共享职责模型中描述的安全职责，并改进 Web 应用解决方案的总体安全性。
+本文包含适用于 Azure 应用服务的安全建议。 实施这些建议将有助于你履行我们的共享职责模型中描述的安全职责，并改进 Web 应用解决方案的总体安全性。 若要详细了解 Microsoft 采取哪些措施来履行服务提供商责任，请阅读 [Azure 基础结构安全性](../security/fundamentals/infrastructure.md)。
 
 ## <a name="general"></a>常规
 
@@ -39,20 +39,26 @@ ms.locfileid: "83844169"
 | 建议 | 注释 |
 |-|-|
 | 将 HTTP 重定向到 HTTPS | 默认情况下，客户端可以使用 HTTP 或 HTTPS 连接到 Web 应用。 建议将 HTTP 重定向到 HTTPS，因为 HTTPS 使用 SSL/TLS 协议来提供既加密又经过身份验证的安全连接。 |
-| 加密与 Azure 资源的通信 | 当应用连接到 Azure 资源（例如 [SQL 数据库](https://www.azure.cn/home/features/sql-database/)或 [Azure 存储](/storage/)）时，连接一直保持在 Azure 中。 由于连接经过 Azure 中的共享网络，因此应始终加密所有通信。 |
+| 加密与 Azure 资源的通信 | 当应用连接到 Azure 资源（例如 [SQL 数据库](https://www.azure.cn/home/features/sql-database/)或 [Azure 存储](../storage/index.yml)）时，连接一直保持在 Azure 中。 由于连接经过 Azure 中的共享网络，因此应始终加密所有通信。 |
 | 需要尽可能新的 TLS 版本 | 从 2018 年开始，新的 Azure 应用服务应用使用 TLS 1.2。 更新版的 TLS 包含针对旧协议版本的安全改进。 |
 | 使用 FTPS | 应用服务支持使用 FTP 和 FTPS 来部署文件。 尽可能使用 FTPS 而不是 FTP。 如果未使用这两种协议或其中一种协议，则应[将其禁用](deploy-ftp.md#enforce-ftps)。 |
-| 保护应用程序数据 | 请勿将应用程序密钥（例如数据库凭据、API 令牌或私钥）存储在代码或配置文件中。 广为接受的方法是使用所选语言的标准模式将这些机密作为环境变量进行访问。 在 Azure 应用服务中，可以通过[应用设置](web-sites-configure.md)和[连接字符串](web-sites-configure.md)定义环境变量。 应用设置和连接字符串以加密方式存储在 Azure 中。 只有在应用启动并将应用设置注入应用的进程内存中之前，才会对应用设置进行解密。 加密密钥会定期轮换。 或者，可以将 Azure 应用服务应用与 [Azure Key Vault](/key-vault/) 集成，以实现高级密钥管理。 通过[使用托管标识访问 Key Vault](../key-vault/tutorial-web-application-keyvault.md)，应用服务应用可以安全地访问所需的机密。 |
+| 保护应用程序数据 | 请勿将应用程序密钥（例如数据库凭据、API 令牌或私钥）存储在代码或配置文件中。 广为接受的方法是使用所选语言的标准模式将这些机密作为环境变量进行访问。 在 Azure 应用服务中，可以通过[应用设置](./configure-common.md)和[连接字符串](./configure-common.md)定义环境变量。 应用设置和连接字符串以加密方式存储在 Azure 中。 只有在应用启动并将应用设置注入应用的进程内存中之前，才会对应用设置进行解密。 加密密钥会定期轮换。 或者，可以将 Azure 应用服务应用与 [Azure Key Vault](../key-vault/index.yml) 集成，以实现高级密钥管理。 通过[使用托管标识访问 Key Vault](../key-vault/general/tutorial-net-create-vault-azure-web-app.md)，应用服务应用可以安全地访问所需的机密。 |
 
 ## <a name="networking"></a>网络
 
 | 建议 | 注释 |
 |-|-|
 | 使用静态 IP 限制 | 使用 Windows 上的 Azure 应用服务，可定义允许访问应用的 IP 地址的列表。 允许列表可包括单个 IP 地址或由子网掩码定义的 IP 地址范围。 有关详细信息，请参阅 [Azure 应用服务静态 IP 限制](app-service-ip-restrictions.md)。  |
-| 选择独立定价层 | 除了独立定价层，所有层都在 Azure 应用服务的共享网络基础结构上运行应用。
-| 在访问本地资源时使用安全连接 | 可以使用[混合连接](app-service-hybrid-connections.md)或[虚拟网络集成](web-sites-integrate-with-vnet.md)连接到本地资源。 |
+| 选择独立定价层 | 除了独立定价层，所有层都在 Azure 应用服务的共享网络基础结构上运行应用。 通过在专用的[应用服务环境](environment/intro.md)中运行应用，独立层可提供完整的网络隔离。 应用服务环境在你自己的 [Azure 虚拟网络](../virtual-network/index.yml)实例中运行。|
+| 在访问本地资源时使用安全连接 | 可使用[混合连接](app-service-hybrid-connections.md)、[虚拟网络集成](web-sites-integrate-with-vnet.md)或[应用服务环境](environment/intro.md)连接到本地资源。 |
 | 限制向入站网络流量公开 | 可以通过网络安全组限制网络访问并控制公开的终结点数。 |
+
+## <a name="monitoring"></a>监视
+
+| 建议 | 注释 |
+|-|-|
+|使用 Azure 安全中心标准层 | [Azure 安全中心](/security-center/)以原生方式集成 Azure 应用服务。 它可以运行评估并提供安全建议。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-请咨询应用程序提供商，看是否有其他安全要求。
+咨询你的应用程序提供商，以确定是否还要满足其他安全要求。 有关开发安全的应用程序的详细信息，请参阅[安全开发文档](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/)。

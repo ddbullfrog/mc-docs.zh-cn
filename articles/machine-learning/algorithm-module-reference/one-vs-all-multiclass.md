@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: ae764a7eca31bd63d2c2963dfa9cdab1726884fa
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 82e6b842db7a9ea21d3f28db2d2152dd5e9eba8d
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097472"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118333"
 ---
 # <a name="one-vs-all-multiclass"></a>“一对多”多类分类
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“一对多”多类分类模块。 目的是创建一个分类模型，该模型可以使用“一对多”方法对多类分类进行预测  。
+本文介绍如何使用 Azure 机器学习设计器中的“一对多”多类分类模块。 目的是创建一个分类模型，该模型可以使用“一对多”方法对多类分类进行预测  。
 
 当结果依赖于连续的或分类的预测器变量时，此模块可用于创建预测三个或更多可能结果的模型。 使用此方法还能对需要多个输出类的问题使用二元分类方法。
 

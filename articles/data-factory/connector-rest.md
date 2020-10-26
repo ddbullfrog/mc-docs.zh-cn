@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 08/06/2020
-ms.date: 09/21/2020
+ms.date: 10/19/2020
 ms.author: v-jay
-ms.openlocfilehash: adbe85d25c85142a7be3a63952093d9c56cf70d7
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 60dfb41976a62070806b1e6eaeae1b01b61f0667
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524060"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121709"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 REST 终结点复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -405,7 +405,7 @@ Facebook 图形 API 返回采用以下结构的响应，在此情况下，下一
 3. 选择“使用此模板”  。
     ![使用此模板](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. 此时会看到创建的管道，如以下示例所示：![管道](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. 此时会看到创建的管道，如以下示例所示：![屏幕截图显示通过模板创建的管道。](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. 选择“Web”活动  。 在“设置”中，指定相应的“URL”、“方法”、“标头”和“正文”，以便从要从其中复制数据的服务的登录 API 检索 OAuth 持有者令牌      。 模板中的占位符展示了 Azure Active Directory (AAD) OAuth 的示例。 请注意，REST 连接器原生支持 AAD 身份验证，这里只是 OAuth 流的一个示例。 
 

@@ -1,9 +1,9 @@
 ---
 title: Azure 基础结构完整性
-description: 本文讨论 Azure 基础结构的完整性。
+description: 了解有关 Azure 基础结构完整性以及 Microsoft 对其进行保护所采取的步骤，例如对软件组件内部版本的病毒扫描。
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 07/06/2018
-ms.openlocfilehash: 300eac1e49ff137bebda39cd25e77249ff0a42f5
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: f0426d5b9d2151b0cb78aba47eae5a8810502c1f
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439576"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127764"
 ---
 # <a name="azure-infrastructure-integrity"></a>Azure 基础结构完整性
 
@@ -68,3 +68,4 @@ Azure 确保可通过基于 Web 的标准协议来访问部署的应用程序或
 - [Azure 生产运营和管理](infrastructure-operations.md)
 - [Azure 基础结构监视](infrastructure-monitoring.md)
 - [Azure 客户数据保护](protection-customer-data.md)
+

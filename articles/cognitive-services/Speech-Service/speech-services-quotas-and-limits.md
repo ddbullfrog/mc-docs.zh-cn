@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/20/2020
-ms.date: 09/02/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8c5040554a974efda9cb4c90c8a0bc519a640c9d
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: c0677c4590b18fd07794ce3c488c0592d4aa3ff3
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021046"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128106"
 ---
 # <a name="speech-services-quotas-and-limits"></a>语音服务配额和限制
 
@@ -37,6 +37,7 @@ ms.locfileid: "90021046"
 | **批量听录的最大输入 Blob 大小** | 空值 | 2.5 GB |
 | **批量听录的最大 Blob 容器大小** | 空值 | 5 GB |
 | **批量听录的每个容器的最大 Blob 数** | 空值 | 10000 |
+| **批量听录的每个听录请求的最大文件数（当使用多个内容 URL 作为输入时）** | 空值 | 1000  |
 | **批量听录同时运行作业的最大数量** | 空值 | 2000  |
 
 <sup>1</sup> 有关免费 (F0) 定价层，请参阅[定价页](https://www.azure.cn/pricing/details/cognitive-services/)上的每月限额。<br/>
@@ -58,6 +59,7 @@ ms.locfileid: "90021046"
 |每轮已生成的最大音频长度 | 10 分钟 | 10 分钟 |
 |每轮的最大 SSML 消息大小 |64 KB |64 KB |
 | **REST API 请求限制** | 每分钟 20 个请求 | 每 5 秒 25 个请求 |
+
 
 <sup>3</sup> 有关免费 (F0) 定价层，请参阅[定价页](https://www.azure.cn/pricing/details/cognitive-services/)上的每月限额。<br/>
 <sup>4</sup> 请参阅[其他说明](#detailed-description-quota-adjustment-and-best-practices)和[最佳做法](#general-best-practices-to-mitigate-throttling-during-autoscaling)。<br/>

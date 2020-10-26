@@ -4,16 +4,16 @@ description: 了解 Azure Service Fabric 群集、应用程序和服务的监视
 ms.topic: conceptual
 origin.date: 01/17/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 25730a8b8899b3623b8d35e2b86ac9d6a50d800e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 34843417852fcfb87f5f351aa4d77e98e31fe716
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655656"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127702"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 的监视和诊断
 
@@ -41,21 +41,20 @@ Service Fabric 提供了一组现成的综合事件。 可以通过 EventStore �
 
 * EventStore - EventStore 是该平台提供的一项功能，它提供通过 REST API 且在 Service Fabric Explorer 中可用的 Service Fabric 平台事件。 可以查看群集中每个实体的动态快照视图，例如节点、服务、应用程序和基于事件时间的查询。 还可以从 [EventStore 概述](service-fabric-diagnostics-eventstore.md)了解有关 EventStore 的详细信息。    
 
-:::image type="content" source="media/service-fabric-diagnostics-overview/eventstore.png" alt-text="EventStore":::
+:::image type="content" source="media/service-fabric-diagnostics-overview/eventstore.png" alt-text="屏幕截图显示了“节点”窗格中多个事件（包括 NodeDown 事件）的“事件”选项卡。":::
 
 诊断以一系列现成的全面的事件集的形式提供。 这些 [Service Fabric 事件](service-fabric-diagnostics-events.md)说明了平台在节点、应用程序、服务、分区等不同实体上执行的操作。在上述最后一个场景中，如果节点发生故障，平台将发出 `NodeDown` 事件，可以立即通过所选的监控工具通知你。 故障转移期间，其他常见示例包括 `ApplicationUpgradeRollbackStarted` 或 `PartitionReconfigured`。 **Windows 和 Linux 群集上都有相同的事件。**
 
 事件通过 Windows 和 Linux 上的标准通道发送，并且可以由任何支持这些事件的监视工具读取。 [平台级别事件和日志生成](service-fabric-diagnostics-event-generation-infra.md)提供了更多群集监视概念。
 
-<!--Not Available on The Azure Monitor solution is Log Analytics. Feel free to read more about our Log Analytics integration which includes a custom operational dashboard for your cluster and some sample queries from which you can create alerts.-->
-<!--Not Available on  [Log Analytics integration](service-fabric-diagnostics-event-analysis-oms.md)-->
+<!--Not Available on The Azure Monitor solution is Azure Monitor logs. Feel free to read more about our [Azure Monitor logs integration](service-fabric-diagnostics-event-analysis-oms.md)-->
 
 ### <a name="health-monitoring"></a>运行状况监视
 Service Fabric 平台包含运行状况模型，针对群集中的实体状态提供可扩展的运行状况报告。 每个节点、应用程序、服务、分区、副本或实例都具有持续可更新的运行状况。 运行状况可能是“正常”、“警告”或“错误”。 将 Service Fabric 事件视为群集对各种实体所做的动词，将运行状况视为每个实体的形容词。 每次特定实体的运行状况转换时，也会发出事件。 这样，就可以在所选监视工具中为运行状况事件设置查询和警报，就像任何其他事件一样。 
 
 此外，我们甚至允许用户重写实体的运行状况。 如果应用程序正在进行升级且验证测试失败，则可以使用运行状况 API 写入 Service Fabric 运行状况，以指示应用程序未正常运行，并且 Service Fabric 将自动回滚升级！ 有关运行状况模型的详细信息，请参阅 [Service Fabric 运行状况监视简介](service-fabric-health-introduction.md)
 
-:::image type="content" source="media/service-fabric-diagnostics-overview/sfx-healthstatus.png" alt-text="SFX 运行状况仪表板":::
+:::image type="content" source="media/service-fabric-diagnostics-overview/sfx-healthstatus.png" alt-text="屏幕截图显示了“节点”窗格中多个事件（包括 NodeDown 事件）的“事件”选项卡。":::
 
 ### <a name="watchdogs"></a>监视器
 监视器通常是一个独立的服务，可以监视各个服务的运行状况和负载、ping 终结点，以及报告群集中任何组件的运行状况。 这有助于防止某些根据单个服务视图检测不到的错误。 监视器也是一个托管代码的好选择，在此无需用户交互即可执行补救措施（例如每隔特定时间就清理一次存储中的日志文件）。 可在[此处](https://github.com/Azure-Samples/service-fabric-watchdog-service)获取监视软件服务实现示例。

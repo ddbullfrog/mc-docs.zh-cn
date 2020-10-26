@@ -5,19 +5,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 06/29/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 7de0e4e18e3bb4fb0b0f9495aa6014542bdd7e53
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 830c6290eb0a2563c058d2de085aa6408098cd37
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246291"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118580"
 ---
-# <a name="high-availability-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 实现高可用性
+# <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB 如何提供高可用性？ 
 
 Azure Cosmos DB 以透明方式在与 Azure Cosmos 帐户关联的所有 Azure 区域之间复制数据。 Azure Cosmos DB 对数据采用多层冗余，如下图所示：
 
@@ -65,7 +65,7 @@ Azure Cosmos DB 以透明方式在与 Azure Cosmos 帐户关联的所有 Azure �
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>配置为使用单个写入区域的多区域帐户（读取区域服务中断）
 
 - 在读取区域服务中断期间，使用任何一致性级别或强一致性且具有三个或更多读取区域的 Azure Cosmos 帐户仍将对读取和写入保持高可用性。
-- 使用强一致性且读取区域不超过两个（包括读写区域）的 Azure Cosmos 帐户将在一个读取区域发生服务中断期间失去写入可用性，但会保持剩余区域的读取可用性。
+- 使用强一致性且读取区域（包括读取和写入区域）不超过两个的 Azure Cosmos 帐户会在一个读取区域发生服务中断时失去读写可用性。
 - 受影响的区域将自动断开连接，并标记为脱机。 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 会将读取调用重定向到首选区域列表中的下一个可用区域。
 - 如果首选区域列表中没有区域可用，则会自动让调用返回到当前的写入区域。
 - 处理读取区域服务中断不需要对应用程序代码进行更改。 当受影响的读取区域重新联机时，它会自动与当前写入区域同步，并再次可用于为读取请求提供服务。
@@ -75,6 +75,8 @@ Azure Cosmos DB 以透明方式在与 Azure Cosmos 帐户关联的所有 Azure �
 <!--Not Available on ## Availability Zone support-->
 
 ## <a name="building-highly-available-applications"></a>生成高可用性应用程序
+
+- 了解发生这些事件期间的 [Azure Cosmos SDK 预期行为](troubleshoot-sdk-availability.md)以及会影响它的具体配置。
 
 - 若要确保较高的写入和读取可用性，请将 Azure Cosmos 帐户配置为跨越至少两个区域并使用多个写入区域。 对于读取和写入，此配置都可提供由 SLA 作为保障的最高可用性、最低延迟和最佳可伸缩性。 若要了解详细信息，请参阅如何[将 Azure Cosmos 帐户配置为使用多个写入区域](tutorial-global-distribution-sql-api.md)。
 
@@ -93,5 +95,6 @@ Azure Cosmos DB 以透明方式在与 Azure Cosmos 帐户关联的所有 Azure �
 - [多区域分布 - 揭秘](global-dist-under-the-hood.md)
 - [Azure Cosmos DB 中的一致性级别](consistency-levels.md)
 - [如何将 Cosmos 帐户配置为使用多个写入区域](how-to-multi-master.md)
+- [多区域环境中的 SDK 行为](troubleshoot-sdk-availability.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

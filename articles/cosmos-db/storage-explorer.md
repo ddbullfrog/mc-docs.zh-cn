@@ -5,35 +5,39 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 08/24/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 32ce9e30315972041d22bcec2b60cd5d43f0df33
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 25561d03f7f6066e96fc70e3bf4dcf10f2514a81
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246644"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117946"
 ---
-# <a name="work-with-data-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器处理数据
+# <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
 
-通过在 Azure 存储资源管理器中使用 Azure Cosmos DB，用户可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 现在可以使用相同工具在一个位置管理不同 Azure 实体。 目前，Azure 存储资源管理器支持为 SQL、MongoDB、图形和表 API 配置的 Cosmos 帐户。
+可使用 Azure 存储资源管理器连接到 Azure Cosmos DB。 借助此功能，可通过 Windows、macOS 或 Linux 连接到托管在 Azure 和主权云上的 Azure Cosmos DB 帐户。
+
+使用相同的工具在一个位置管理不同的 Azure 实体。 可管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器，还可更新其他 Azure 实体（例如存储 Blob 和队列）。
+
+Azure 存储资源管理器支持为 SQL、MongoDB、图形和表 API 配置的 Cosmos 帐户。 有关详细信息，请转到 [Azure 存储资源管理器中的 Azure Cosmos DB](https://docs.azure.cn/cosmos-db/storage-explorer)。
 
 ## <a name="prerequisites"></a>先决条件
 
-具有采用了 SQL API 或 Azure Cosmos DB 的用于 MongoDB 的 API 的 Cosmos 帐户。 如果你没有帐户，则可以按照 [Azure Cosmos DB：使用 .NET 和 Azure 门户生成 SQL API Web 应用](create-sql-api-dotnet.md)中所述，在 Azure 门户中创建一个。
+具有 Cosmos 帐户，且该帐户带有用于 MongoDB 的 SQL API 或 Azure Cosmos DB API。 如果没有帐户，可在 Azure 门户中创建一个。 有关详细信息，请参阅 [Azure Cosmos DB：使用 .NET 和 Azure 门户生成 SQL API Web 应用](create-sql-api-dotnet.md)。
 
 ## <a name="installation"></a>安装
 
-在此处安装最新 Azure 存储资源管理器 BITS：[Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)，现在我们支持 Windows、Linux 和 MAC 版本。
+若要安装最新版本的 Azure 存储资源管理器，请参阅 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)。 我们支持 Windows、Linux 和 macOS 版本。
 
 ## <a name="connect-to-an-azure-subscription"></a>连接到 Azure 订阅
 
-1. 安装 **Azure 存储资源管理器**之后，选择左侧的**插件**图标，如下图中所示：
+1. 安装 Azure 存储资源管理器后，在左侧窗格中选择插件图标 。
 
-    :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
    
     <!--MOONCAKE: Select the Azure China value in Add an Azure Account -->
     
@@ -41,98 +45,117 @@ ms.locfileid: "91246644"
     
     <!--MOONCAKE: Select the Azure China value in Add an Azure Account -->
     
-    :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-2. 在“Azure 登录”对话框中，选择“登录”，然后输入 Azure 凭据。
+1. 在“Azure 登录”对话框中，选择“登录”，然后输入 Azure 凭据。
 
-    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-3. 从列表中选择你的订阅，然后选择“应用”。
+1. 从列表中选择订阅，然后选择“应用”。
 
-    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
     资源管理器窗格会更新，并显示所选订阅中的帐户。
 
-    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-    现已成功将 **Cosmos DB 帐户**连接到 Azure 订阅。
+    Cosmos DB 帐户已连接到 Azure 订阅。
 
-## <a name="connect-to-azure-cosmos-db-by-using-a-connection-string"></a>使用连接字符串连接到 Azure Cosmos DB
+## <a name="use-a-connection-string-to-connect-to-azure-cosmos-db"></a>使用连接字符串连接到 Azure Cosmos DB
 
-连接到 Azure Cosmos DB 的一种替代方法是使用连接字符串。 按照以下步骤可使用连接字符串进行连接。
+可使用连接字符串连接到 Azure Cosmos DB。 此方法仅支持 SQL 和表 API。 请按照以下步骤，使用连接字符串进行连接：
 
-1. 在左侧树中找到“本地和附加”，右键单击“Cosmos DB 帐户”，然后选择“连接到 Cosmos DB...”
+1. 在左侧树中找到“本地和附加”，右键单击“Cosmos DB 帐户”，然后选择“连接到 Cosmos DB”  。
 
-    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-2. 目前仅支持 SQL 和表 API。 选择“API”，粘贴**连接字符串**，输入**帐户标签**，选择“下一步”以查看摘要，然后选择“连接”以连接 Azure Cosmos DB 帐户。  有关检索主连接字符串的信息，请参阅[获取连接字符串](manage-with-powershell.md#list-keys)。
+2. 在“连接到 Cosmos DB”窗口中：
+    1. 从下拉菜单中选择 API。
+    1. 将连接字符串粘贴到“连接字符串”框中。 要了解如何检索主要连接字符串，请参阅[获取连接字符串](manage-with-powershell.md#list-keys)。
+    1. 输入帐户标签，然后选择“下一步”以查看摘要 。
+    1. 选择“连接”来连接 Azure Cosmos DB 帐户。
 
-    :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="选择要连接的插件图标":::
+        :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-## <a name="connect-to-azure-cosmos-db-by-using-local-emulator"></a>使用本地模拟器连接到 Azure Cosmos DB
+## <a name="use-a-local-emulator-to-connect-to-azure-cosmos-db"></a>使用本地模拟器连接到 Azure Cosmos DB
 
-使用以下步骤通过模拟器连接到 Azure Cosmos DB（目前仅支持 SQL 帐户）。
+按照以下步骤，通过模拟器连接到 Azure Cosmos DB。 此方法仅支持 SQL 帐户。
 
-1. 安装并启动模拟器。 有关如何安装模拟器的信息，请参阅 [Cosmos DB 模拟器](/cosmos-db/local-emulator)
+1. 安装 Cosmos DB 模拟器，然后将其打开。 要了解如何安装模拟器，请参阅 [Cosmos DB 模拟器](https://docs.azure.cn/cosmos-db/local-emulator)。
 
-2. 在左侧树中找到“本地和附加”，右键单击“Cosmos DB 帐户”，然后选择“连接到 Cosmos DB 模拟器...”
+1. 在左侧树中找到“本地和附加”，右键单击“Cosmos DB 帐户”，然后选择“连接到 Cosmos DB 模拟器”  。
 
-    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-3. 目前仅支持 SQL API。 粘贴**连接字符串**，输入**帐户标签**，选择“下一步”以查看摘要，然后选择“连接”以连接 Azure Cosmos DB 帐户。  有关检索主连接字符串的信息，请参阅[获取连接字符串](manage-with-powershell.md#list-keys)。
+1. 在“连接到 Cosmos DB”窗口中：
+    1. 将连接字符串粘贴到“连接字符串”框中。 有关检索主连接字符串的信息，请参阅[获取连接字符串](manage-with-powershell.md#list-keys)。
+    1. 输入帐户标签，然后选择“下一步”以查看摘要 。
+    1. 选择“连接”来连接 Azure Cosmos DB 帐户。
 
-    :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="选择要连接的插件图标":::
+        :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 ## <a name="azure-cosmos-db-resource-management"></a>Azure Cosmos DB 资源管理
 
-你可以通过执行以下操作来管理 Azure Cosmos DB 帐户：
-* 在 Azure 门户中打开帐户
-* 将资源添加到快速访问列表
-* 搜索和刷新资源
-* 创建和删除数据库
-* 创建和删除集合
-* 创建、编辑、删除和筛选文档
-* 管理存储过程、触发器和用户定义的函数
+执行以下操作来管理 Azure Cosmos DB 帐户：
+
+* 在 Azure 门户中打开该帐户。
+* 将资源添加到“快速访问”列表。
+* 搜索和刷新资源。
+* 创建和删除数据库。
+* 创建和删除集合。
+* 创建、编辑、删除和筛选文档。
+* 管理存储过程、触发器和用户定义的函数。
 
 ### <a name="quick-access-tasks"></a>快速访问任务
 
-通过在资源管理器窗格中右键单击订阅，可以执行许多快速操作任务：
+可右键单击“资源管理器”窗格上的订阅，执行多项快速操作任务，例如：
 
-* 右键单击 Azure Cosmos DB 帐户或数据库，可以选择“在门户中打开”，然后在 Azure 门户上通过浏览器管理资源。
+* 右键单击 Azure Cosmos DB 帐户或数据库，然后选择“在门户中打开”，通过浏览器在 Azure 门户上管理资源。
 
-    :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-* 还可以将 Azure Cosmos DB 帐户、数据库、集合添加到“快速访问”。
-* 通过“从此处搜索”可以在所选路径下进行关键字搜索。
+* 右键单击 Azure Cosmos DB 帐户、数据库或集合，然后选择“添加到快速访问”，将其添加到“快速访问”菜单。
 
-    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="选择要连接的插件图标":::
+* 选择“从此处搜索”，启用所选路径下的关键字搜索。
+
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 ### <a name="database-and-collection-management"></a>数据库和集合管理
-#### <a name="create-a-database"></a>创建数据库
-- 右键单击 Azure Cosmos DB 帐户，选择“创建数据库”，输入数据库名称，然后按 **Enter** 以完成。
 
-    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="选择要连接的插件图标":::
+#### <a name="create-a-database"></a>创建数据库
+
+1. 右键单击 Azure Cosmos DB 帐户，然后选择“创建数据库”。
+
+    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
+
+1. 输入数据库名称，然后按 Enter 完成操作。
 
 #### <a name="delete-a-database"></a>删除数据库
 
-- 右键单击数据库，选择“删除数据库”，然后在弹出窗口中选择“是”。 数据库节点会删除，并且 Azure Cosmos DB 帐户会自动刷新。
+1. 右键单击数据库，然后选择“删除数据库”。 
 
-    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="选择要连接的插件图标":::
+1. 在弹出窗口中选择“是”。 数据库节点会删除，并且 Azure Cosmos DB 帐户会自动刷新。
+
+    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 #### <a name="create-a-collection"></a>创建集合
-1. 右键单击数据库，选择“创建集合”，然后提供以下信息，如“集合 ID”、“存储容量”等。单击“确定”完成。
 
-    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="选择要连接的插件图标":::
+1. 右键单击数据库，然后选择“创建集合”。
 
-    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-2. 选择“无限制”以便能够指定分区键，然后选择“确定”以完成操作。 
+1. 在“创建集合”窗口中，输入所请求的信息，例如集合 ID 和存储容量等 。 选择“确定”，以完成操作。
 
-    如果在创建集合时使用分区键，则一旦创建完成，便无法对集合更改分区键值。
+    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="选择要连接的插件图标":::
+1. 选择“无限制”，以便可指定分区键，然后选择“确定”来完成操作 。
+
+    > [!NOTE]
+    > 如果在创建集合时使用了分区键，则创建完成后，无法更改集合上的分区键值。
+
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 #### <a name="delete-a-collection"></a>删除集合
 
@@ -140,181 +163,196 @@ ms.locfileid: "91246644"
 
     集合节点会删除，并且数据库会自动刷新。
 
-    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 ### <a name="document-management"></a>文档管理
 
 #### <a name="create-and-modify-documents"></a>创建和修改文档
 
-- 若要创建新文档，请在左窗口中打开“文档”，选择“新建文档”，在右窗格中编辑内容，然后选择“保存”。 还可以更新现有文档，然后选择“保存”。 可以通过单击“放弃”来放弃更改。
+- 在左侧窗格中打开“文档”，选择“新建文档”，在右侧窗格中编辑内容，然后选择“保存”  。
+- 还可以更新现有文档，然后选择“保存”。 若要放弃更改，请选择“放弃”。
 
-    :::image type="content" source="./media/storage-explorer/document.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/document.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 #### <a name="delete-a-document"></a>删除文档
-- 单击“删除”按钮以删除所选文档。
+
+* 选择“删除”按钮，删除所选文档。
 
 #### <a name="query-for-documents"></a>查询文档
 
-- 通过输入 [SQL 查询](how-to-sql-query.md)来编辑文档筛选器，然后选择“应用”。
+* 若要编辑文档筛选器，请输入 [SQL 查询](how-to-sql-query.md)，然后选择“应用”。
 
-    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 ### <a name="graph-management"></a>图形管理
 
-#### <a name="create-and-modify-vertex"></a>创建和修改顶点
+#### <a name="create-and-modify-a-vertex"></a>创建和修改顶点
 
-1. 若要创建新顶点，请在左窗口中打开“图形”，选择“新建顶点”，编辑内容，然后选择“确定”。  
-2. 若要修改现有顶点，请在右窗格中选择铅笔图标。
+* 若要创建新顶点，请从左侧窗格中打开“图形”，选择“新建顶点”，编辑内容，然后选择“确定”  。
+* 若要修改现有顶点，请在右侧窗格中选择笔图标。
 
-    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 #### <a name="delete-a-graph"></a>创建图形
 
-- 若要删除某个顶点，请选择顶点名称旁边的回收站图标。
+* 若要删除某个顶点，请选择顶点名称旁边的回收站图标。
 
 #### <a name="filter-for-graph"></a>筛选图形
 
-- 通过输入 [gremlin 查询](gremlin-support.md)来编辑图形筛选器，然后选择“应用筛选器”。
+* 若要编辑图形筛选器，请输入 [gremlin 查询](gremlin-support.md)，然后选择“应用筛选器”。
 
-    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 ### <a name="table-management"></a>表管理
 
-#### <a name="create-and-modify-table"></a>创建和修改表
+#### <a name="create-and-modify-a-table"></a>创建和修改表
 
-1. 若要创建新表，请在左窗口中打开“实体”，选择“添加”，在“添加实体”对话框中编辑内容，单击“添加属性”按钮以添加属性，然后选择“插入”。    
-2. 若要修改表，请选择“编辑”，修改内容，然后选择“更新”。 
+* 若要创建新表：
+    1. 在左侧窗格中，打开“实体”，然后选择“添加” 。
+    1. 在“添加实体”对话框中，编辑内容。
+    1. 选择“添加属性”按钮以添加属性。
+    1. 选择“插入”****。
 
-    :::image type="content" source="./media/storage-explorer/table.png" alt-text="选择要连接的插件图标":::
+        :::image type="content" source="./media/storage-explorer/table.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
+
+* 若要修改表，请选择“编辑”，修改内容，然后选择“更新” 。
 
 #### <a name="import-and-export-table"></a>导入和导出表
 
-1. 若要导入，请选择“导入”按钮并选择现有的表。
-2. 若要导出，请选择“导出”按钮并选择目标。
+* 若要导入，请选择“导入”按钮并选择现有的表。
+* 若要导出，请选择“导出”按钮并选择一个目标。
 
-    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 #### <a name="delete-entities"></a>删除实体
 
-- 选择实体，然后选择“删除”按钮。
+* 选择实体，然后选择“删除”按钮。
 
-   :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-#### <a name="query-table"></a>查询表
+#### <a name="query-a-table"></a>查询表
 
-- 单击“查询”按钮，输入查询条件，然后选择“执行查询”按钮。  单击“关闭查询”按钮关闭“查询”窗格。
+- 选择“查询”按钮，输入查询条件，然后选择“执行查询”按钮 。 若要关闭查询窗格，请选择“关闭查询”按钮。
 
-   :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>管理存储过程、触发器和 UDF
 
-* 若要创建存储过程，请在左侧树中，右键单击“存储过程”，选择“创建存储过程”，在左侧输入名称，在右侧窗口中键入存储过程脚本，然后选择“创建”。
-* 还可以通过双击进行更新，然后单击“更新”进行保存，从而编辑现有存储过程，或选择“放弃”以取消更改。
+* 若要创建存储过程：
+    1. 在左侧树中，右键单击“存储过程”，然后选择“创建存储过程” 。
 
-   :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="选择要连接的插件图标":::
+        :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-* 适用于**触发器**和 **UDF** 的操作与**存储过程**类似。
+    1. 在左侧输入名称，在右侧窗格中输入存储过程脚本，然后选择“创建”。
+
+* 若要编辑现有存储过程，请双击该过程，进行更新，然后选择“更新”进行保存。 也可选择“放弃”来取消更改。
+
+* 用于触发器和 UDF 的操作与存储过程类似  。
 
 ## <a name="troubleshooting"></a>故障排除
 
-[Azure 存储资源管理器中的 Azure Cosmos DB](/cosmos-db/storage-explorer) 是一个独立的应用，用于连接到 Azure Cosmos DB 帐户，而该帐户托管在 Windows、macOS 或 Linux 版本的 Azure 和主权云上。 它可以用来管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 Blob 和队列）。
-
-以下解决方案适用于存储资源管理器中 Azure Cosmos DB 的常见问题。
+下面是针对在存储资源管理器中使用 Azure Cosmos DB 时出现的常见问题的解决方案。
 
 ### <a name="sign-in-issues"></a>登录问题
 
-继续之前，请尝试重启应用程序，看问题是否能够解决。
+首先，重启应用程序，看看能否解决问题。 如果问题仍然存在，请继续进行故障排除。
 
 #### <a name="self-signed-certificate-in-certificate-chain"></a>证书链中的自签名证书
 
 出现此错误有多个原因，最常见的两个原因是：
 
-+ 你位于“透明代理”之后，这意味着某人（例如 IT 部门）在拦截 HTTPS 流量，将其解密后又使用自签名证书对其加密。
+* 你在使用透明代理。 有人（例如你的 IT 部门）会截获 HTTPS 流量，对其进行解密，然后使用自签名证书对其进行加密。
 
-+ 你正在运行的软件（如防病毒软件）正在将自签名 TLS/SSL 证书注入收到的 HTTPS 消息中。
+* 你正在运行软件，例如防病毒软件。 软件将自签名的 TLS/SSL 证书注入收到的 HTTPS 消息中。
 
-存储资源管理器在遇到其中一个这样的“自签名证书”时，将再也无法判断收到的 HTTPS 消息是否已被篡改。 但若拥有一份自签名证书的副本，则可让存储资源管理器信任它。 若无法确定谁在注入证书，则可自行尝试通过以下步骤找到它：
+当存储资源管理器找到自签名证书时，它不知道自己收到的 HTTPS 消息是否遭到篡改。 如果拥有自签名证书的副本，则可命令存储资源管理器信任它。 如果不确定谁注入了证书，可按照以下步骤操作，尝试将其找出来：
 
-1. 安装 OpenSSL
-    - [Windows](https://slproweb.com/products/Win32OpenSSL.html)（任意轻量版本均可）
-    - Mac 和 Linux：应包含在操作系统中
-2. 运行 Open SSL
-    - Windows:转到安装目录，然后转到“/bin/”，然后双击“openssl.exe” 。
-    - Mac 和 Linux：从终端执行“openssl”
-3. 执行 `s_client -showcerts -connect microsoft.com:443`
-4. 查找自签名证书。 若不确定哪个证书为自签名，则请查找使用者（“s:”）和证书颁发者（“i:”）相同的任意位置。
-5. 找到任何自签名证书后，将每个证书中从“-----BEGIN CERTIFICATE-----”（含）到“-----END CERTIFICATE-----”（含）的部分复制和粘贴到新的 .cer 文件。 
-6. 打开存储资源管理器，然后转到“编辑” > “SSL 证书” > “导入证书”。 使用文件选取器查找、选择和打开所创建的 .cer 文件。
+1. 安装 OpenSSL：
 
-若通过上述步骤无法找到任何自签名证书，可通过发送反馈以获取更多帮助。
+    - [Windows](https://slproweb.com/products/Win32OpenSSL.html)：任意轻量版本均可。
+    - macOS 和 Linux：应包含在操作系统中。
+
+1. 运行 OpenSSL：
+    * Windows:转到安装目录，转到“/bin/”，然后双击“openssl.exe” 。
+    * Mac 和 Linux：从终端执行 openssl。
+1. 执行 `s_client -showcerts -connect microsoft.com:443`。
+1. 查找自签名证书。 如果不确定哪个是自签名证书，请查找使用者（“s:”）与证书颁发者（“i:”）相同的任意位置。
+1. 如果找到任何自签名证书，请将每个证书中从“-----BEGIN CERTIFICATE-----”（含）到“-----END CERTIFICATE-----”（含）的部分复制粘贴到新的 .CER 文件。 。
+1. 打开存储资源管理器，然后转到“编辑” > “SSL 证书” > “导入证书”  。 使用文件选取器查找、选择并打开所创建的 .CER 文件。
+
+如果找不到任何自签名证书，则可发送反馈以获取更多帮助。
 
 #### <a name="unable-to-retrieve-subscriptions"></a>无法检索订阅
 
-若成功登录后无法检索订阅，请执行以下操作：
+如果登录后无法检索到订阅，请尝试以下建议：
 
-- 通过登录 [Azure 门户](https://portal.azure.cn/)验证帐户是否有权访问该订阅
-- 确保已使用正确的环境（[Azure 中国](https://portal.azure.cn/)或自定义环境/Azure Stack）登录
+* 验证你的帐户是否可访问订阅。 为此，请登录 [Azure 门户](https://portal.azure.cn/)。
+* 确保登录到正确的环境：
 
-    <!--CORRECT ON [Azure China](https://portal.azure.cn/)-->
+    * [Azure 中国](https://portal.azure.cn/)
     
-- 如果使用代理，请确保已正确配置存储资源管理器代理
-- 尝试移除并重新添加帐户
-- 尝试从主目录删除以下文件（例如：C:\Users\ContosoUser），然后重新添加帐户：
-    - .adalcache
-    - .devaccounts
-    - .extaccounts
-- 登录查询任何错误消息时，请查看开发人员工具控制台（F12）
+    * 自定义环境/Azure Stack
+* 如果使用代理，请确保已正确配置存储资源管理器代理。
+* 删除帐户，然后重新添加它。
+* 从主目录（例如：C:\Users\ContosoUser）中删除以下文件，然后重新添加帐户：
+    * .adalcache
+    * .devaccounts
+    * .extaccounts
+* 按 F12 键打开开发人员控制台。 登录时，请在控制台中查看是否出现任何错误消息。
 
-:::image type="content" source="./media/storage-explorer/console.png" alt-text="选择要连接的插件图标":::
+    :::image type="content" source="./media/storage-explorer/console.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 #### <a name="unable-to-see-the-authentication-page"></a>无法查看身份验证页
 
 如果无法看到身份验证页面：
 
-- 根据连接速度不同，加载登录页面可能需要一会儿，请至少等待一分钟再关闭身份验证对话框
-- 如果使用代理，请确保已正确配置存储资源管理器代理
-- 按 F12 键显示开发人员控制台。 从开发人员控制台查看响应，看能否找到身份验证不起作用的任何线索
+* 根据连接速度，可能需要一段时间才能加载登录页面。 请等待至少一分钟，然后再关闭身份验证对话框。
+* 如果使用代理，请确保已正确配置存储资源管理器代理。
+* 在开发人员工具控制台 (F12) 上，观察响应，查看能否找到有关身份验证为何不起作用的任何线索。
 
-#### <a name="cannot-remove-account"></a>无法删除帐户
+#### <a name="cant-remove-an-account"></a>无法删除帐户
 
-如果无法移除帐户，或重新验证链接不起作用
+如果无法删除帐户，或者重新验证链接不起作用，请执行以下操作：
 
-- 尝试从主目录删除以下文件，然后重新添加帐户：
-    - .adalcache
-    - .devaccounts
-    - .extaccounts
-- 若要删除附加了 SAS 的存储资源，请删除：
-    - %AppData%/StorageExplorer 文件夹（对于 Windows）
-    - Mac 中的 /Users/<your_name>/Library/Application SUpport/StorageExplorer
-    - ~/.config/StorageExplorer（对于 Linux）
-    - 删除这些文件之后，**需要重新输入所有凭据**
+* 从主目录中删除以下文件，然后再次添加帐户：
+    * .adalcache
+    * .devaccounts
+    * .extaccounts
 
-### <a name="httphttps-proxy-issue"></a>Http/Https 代理问题
+* 若要删除附加了 SAS 的存储资源，请删除：
+    * %AppData%/StorageExplorer 文件夹（对于 Windows）
+    * /Users/<your_name>/Library/Application SUpport/StorageExplorer（对于 macOS）
+    * ~/.config/StorageExplorer（对于 Linux）
 
-在 ASE 中配置 http/https 代理时，无法列出左侧树中的 Azure Cosmos DB 节点。 目前可以在 Azure 门户中使用 Azure Cosmos DB 数据资源管理器作为解决方法。
+    > [!NOTE]
+    > 如果删除这些文件，则必须重新输入所有凭据。
+
+### <a name="httphttps-proxy-issue"></a>HTTP/HTTPS 代理问题
+
+在 ASE 中配置 HTTP/HTTPS 代理时，无法在左侧树中列出 Azure Cosmos DB 节点。 可在 Azure 门户中使用 Azure Cosmos DB 数据资源管理器作为解决方法。
 
 ### <a name="development-node-under-local-and-attached-node-issue"></a>“本地和附加”节点下的“开发”节点问题
 
-在左侧树中选择“本地和附加”节点下的“开发”节点后没有响应。  此行为是预期的行为。 下一版本会支持 Azure Cosmos DB 本地模拟器。
+在左侧树中选择“本地和附加”节点下的“开发”节点后没有响应 。 此行为是预期的行为。
 
-:::image type="content" source="./media/storage-explorer/development.png" alt-text="选择要连接的插件图标":::
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
-### <a name="attaching-azure-cosmos-db-account-in-local-and-attached-node-error"></a>在“本地和附加”节点中附加 Azure Cosmos DB 帐户错误
+### <a name="attach-an-azure-cosmos-db-account-in-the-local-and-attached-node-error"></a>在“本地和附加”节点错误中附加 Azure Cosmos DB 帐户
 
-如果在“本地和附加”节点中附加 Azure Cosmos DB 帐户时看到以下错误，则请检查是否使用了正确的连接字符串。
+如果在“本地和附加”节点中附加 Azure Cosmos DB 帐户后看到以下错误，请确保使用正确的连接字符串。
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="选择要连接的插件图标":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>展开 Azure Cosmos DB 节点错误
 
-尝试展开左侧的树节点时可能会看到以下错误。
+尝试在左侧树中展开节点时，可能会出现以下错误。
 
-:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="选择要连接的插件图标":::
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 
 请尝试以下建议：
 
-- 检查 Azure Cosmos DB 帐户是否正在进行预配，然后在帐户成功创建以后再次进行尝试。
-- 如果帐户位于“快速访问”节点或“本地和附加”节点下，则请检查该帐户是否已删除。 如果是这样，则需手动删除节点。
+* 检查 Azure Cosmos DB 帐户是否正在预配。 成功创建帐户后，请重试。
+* 如果该帐户位于“快速访问”或“本地和附加”节点下，请检查该帐户是否已删除 。 如果是，则需要手动删除该节点。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,28 +1,30 @@
 ---
-title: 文本转语音 - 语音服务
+title: 文本转语音概述 - 语音服务
 titleSuffix: Azure Cognitive Services
-description: 语音服务中的文本转语音功能可让应用程序、工具或设备将文本转换为类似于人类的自然合成语音。 选择预设语音或创建自己的自定义语音。
+description: 语音服务中的文本转语音功能可让应用程序、工具或设备将文本转换为类似于人类的自然合成语音。 本文概述了文本转语音服务的优势和功能。
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 03/23/2020
-ms.date: 09/02/2020
+origin.date: 09/01/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 2d73749f96a74a209007c6939a7f6910f4530161
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.custom: cog-serv-seo-aug-2020
+keywords: 文本转语音
+ms.openlocfilehash: 75ed2d49bb95c46bf1d5c10cccf92a1b23c2a23d
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317481"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128383"
 ---
 # <a name="what-is-text-to-speech"></a>什么是文本转语音？
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-语音服务中的文本转语音可让应用程序、工具或设备将文本转换为类似于人类的合成语音。 从标准语音和神经语音中进行选择。 40 多种标准语音已在 10 种以上的语言和区域设置中提供，5 种神经语音已在一组精选的语言和区域设置中提供。 有关支持的语音、语言和区域设置的完整列表，请参阅[支持的语言](language-support.md#text-to-speech)。
+在本概述中，你将了解文本转语音服务的优势和功能，该服务使你的应用程序、工具或设备可以将文本转换为类似于人的合成语音。 从标准和神经语音中选择，或创建产品或品牌特有的自定义语音。 40 多种标准语音已在 45 种以上的语言和区域设置中提供，10 种神经语音已在一组精选的语言和区域设置中提供。 有关支持的语音、语言和区域设置的完整列表，请参阅[支持的语言](language-support.md#text-to-speech)。
 
 <!-- > [!NOTE] -->
 <!-- > Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service. -->
@@ -74,5 +76,5 @@ GitHub 上提供了文本转语音的示例代码。 这些示例涵盖了最流
 
 ## <a name="next-steps"></a>后续步骤
 
-- [获取免费语音服务订阅](get-started.md)
+- [获取免费语音服务订阅](overview.md#try-the-speech-service-for-free)
 - [获取语音 SDK](speech-sdk.md)

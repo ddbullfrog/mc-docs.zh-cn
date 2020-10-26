@@ -5,21 +5,22 @@ description: 了解如何使用 WhiteNoise 包将有关差分隐私的最佳做�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: slbird
+ms.topic: conceptual
+ms.custom: how-to
+ms.author: v-yiso
 author: slbird
 ms.reviewer: luquinta
-ms.date: 05/17/2020
-ms.openlocfilehash: 39737bcbef85fd60f92937d82f8ad6986b3c3d54
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.date: 07/09/2020
+ms.openlocfilehash: 31613165b1ce45fcdd1753bac1ec2f4828d0d5bf
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441143"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118415"
 ---
-# <a name="use-differential-privacy-in-azure-machine-learning"></a>在 Azure 机器学习中使用差分隐私
+# <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>在 Azure 机器学习（预览版）中使用差分隐私
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 了解如何使用 WhiteNoise Python 包将有关差分隐私的最佳做法应用于 Azure 机器学习模型。
 
@@ -154,7 +155,7 @@ Privacy usage: approximate {
 | Sum           |            | 插补 |
 | 方差/协方差 |      | 转换  |
 
-有关更多详细信息，请参阅[基本数据分析笔记本](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb)。
+有关更多详细信息，请参阅[数据分析笔记本](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb)。
 
 ## <a name="approximate-utility-of-differentially-private-releases"></a>差分隐私版本的大致效用
 

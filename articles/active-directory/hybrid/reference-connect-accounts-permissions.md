@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cc2ef930e62c1c9e34e9cb56214ec723d4c1c1b
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: c98d404cf50a8e4c8f44e768e2aad92384c6d7c3
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245315"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041609"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 
@@ -115,7 +115,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 
 以下是有关自定义安装向导页、所收集凭据及其用途的摘要。
 
-![快速安装](./media/reference-connect-accounts-permissions/customize.png)
+![显示自定义安装向导页的屏幕截图。](./media/reference-connect-accounts-permissions/customize.png)
 
 | 向导页 | 收集的凭据 | 所需的权限 | 用途 |
 | --- | --- | --- | --- |
@@ -206,7 +206,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 #### <a name="virtual-service-account"></a>虚拟服务帐户
 虚拟服务帐户是一种特殊类型的帐户，它没有密码且由 Windows 管理。
 
-![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![显示虚拟服务帐户 (VSA) 的屏幕截图。](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 VSA 旨在当同步引擎和 SQL 位于同一服务器上时使用。 如果使用远程 SQL，则建议改用组托管服务帐户。
 
@@ -239,7 +239,7 @@ VSA 旨在当同步引擎和 SQL 位于同一服务器上时使用。 如果使�
 ### <a name="azure-ad-connector-account"></a>Azure AD 连接器帐户
 将在 Azure AD 中创建帐户供同步服务使用。 可以根据显示名称来识别此帐户。
 
-![AD 帐户](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![显示 Azure AD 帐户的屏幕截图。](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 使用该帐户的服务器名称可以根据用户名的第二个部分来识别。 在上图中，服务器名称为 DC1。 如果部署了暂存服务器，每个服务器都有自身的帐户。
 
@@ -266,5 +266,5 @@ Azure AD 将同步服务帐户数目限制为 20 个。 若要在 Azure AD 中�
 |安装后 | [验证安装并分配许可证](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>后续步骤
-了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
+了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 

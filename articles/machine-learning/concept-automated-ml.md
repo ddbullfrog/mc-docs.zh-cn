@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: c6782da3301d1cb1f20c5514b771ea638fc1a37b
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: fbaf6f13a84a71bbcf5a7562170f99081bf624b7
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395483"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117863"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>什么是自动化机器学习 (AutoML)？
 
@@ -78,8 +78,6 @@ ms.locfileid: "91395483"
 
    * 如果你的编程经验有限或者没有经验，请在 [https://studio.ml.azure.cn](https://studio.ml.azure.cn/) 上尝试使用 Azure 机器学习工作室 Web 体验  
    * Python 开发人员请查看 [Azure 机器学习 Python SDK](how-to-configure-auto-train.md) 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
     
 1. **指定已标记训练数据的源和格式**：Numpy 数组或 Pandas 数据帧
 
@@ -172,25 +170,25 @@ ms.locfileid: "91395483"
 
 ### <a name="feature-availability"></a>功能可用性 
 
- 使用远程计算时，有更多的功能可用，如下表中所示。 其中一些功能仅在企业工作区中可用。
+ 使用远程计算时，有更多的功能可用，如下表中所示。 
 
-| Feature                                                    | Remote | Local | 需要 <br>企业工作区 |
-|------------------------------------------------------------|--------|-------|-------------------------------|
-| 数据流式处理（最高 100 GB 的大数据支持）          | ✓      |       | ✓                             |
-| 基于 DNN-BERT 的文本特征化和训练             | ✓      |       | ✓                             |
-| 现成的 GPU 支持（训练和推理）        | ✓      |       | ✓                             |
-| 图像分类和标记支持                  | ✓      |       | ✓                             |
-| 用于预测的 Auto-ARIMA、Prophet 和 ForecastTCN 模型 | ✓      |       | ✓                             |
-| 并行执行多个运行/迭代                       | ✓      |       | ✓                             |
-| 在 AutoML 工作室 Web 体验 UI 中创建具有可解释性的模型      | ✓      |       | ✓                             |
-| 工作室 Web 体验 UI 中的特征工程自定义                        | ✓      |       | ✓                              |
-| Azure ML 超参数优化                             | ✓      |       |                               |
-| Azure ML 管道工作流支持                         | ✓      |       |                               |
-| 继续运行                                             | ✓      |       |                               |
-| 预测                                                | ✓      | ✓     | ✓                             |
-| 在笔记本中创建和运行试验                    | ✓      | ✓     |                               |
-| 在 UI 中注册和可视化试验的信息与指标 | ✓      | ✓     |                               |
-| 数据护栏                                            | ✓      | ✓     |                               |
+| 功能                                                    | Remote | Local | 
+|------------------------------------------------------------|--------|-------|
+| 数据流式处理（最高 100 GB 的大数据支持）          | ✓      |       | 
+| 基于 DNN-BERT 的文本特征化和训练             | ✓      |       |
+| 现成的 GPU 支持（训练和推理）        | ✓      |       |
+| 图像分类和标记支持                  | ✓      |       |
+| 用于预测的 Auto-ARIMA、Prophet 和 ForecastTCN 模型 | ✓      |       | 
+| 并行执行多个运行/迭代                       | ✓      |       |
+| 在 AutoML 工作室 Web 体验 UI 中创建具有可解释性的模型      | ✓      |       |
+| 工作室 Web 体验 UI 中的特征工程自定义| ✓      |       |
+| Azure ML 超参数优化                             | ✓      |       |
+| Azure ML 管道工作流支持                         | ✓      |       |
+| 继续运行                                             | ✓      |       |
+| 预测                                                | ✓      | ✓     |
+| 在笔记本中创建和运行试验                    | ✓      | ✓     |
+| 在 UI 中注册和可视化试验的信息与指标 | ✓      | ✓     |
+| 数据护栏                                            | ✓      | ✓     |
 
 ## <a name="many-models"></a>多模型 
 
@@ -204,7 +202,7 @@ ms.locfileid: "91395483"
 
 ## <a name="automl-in-azure-machine-learning"></a>Azure 机器学习中的 AutoML
 
-Azure 机器学习提供两个用于操作自动化 ML 的体验
+Azure 机器学习提供了两种使用自动化 ML 的体验方式：
 
 * 对于编码经验丰富的客户，可以使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
@@ -218,21 +216,21 @@ Azure 机器学习提供两个用于操作自动化 ML 的体验
 
 | |Python SDK|工作室 Web 体验|
 ----|:----:|:----:
-将数据拆分为训练/验证集| ✓|✓
-支持 ML 任务：分类、回归和预测| ✓| ✓
-基于主要指标进行优化| ✓| ✓
-支持将 AML 计算作为计算目标 | ✓|✓
-配置预测范围、目标滞后和滚动窗口|✓|✓
-设置退出条件 |✓|✓ 
-设置并发迭代数| ✓|✓
-删除列| ✓|✓
-块算法|✓|✓
-交叉验证 |✓|✓
-支持在 Azure Databricks 群集上训练| ✓|
-查看工程特征名称|✓|
-特征化摘要| ✓|
-假日特征化|✓|
-日志文件详细级别| ✓|
+|**将数据拆分为训练/验证集**| ✓|✓
+|**支持 ML 任务：分类、回归和预测**| ✓| ✓
+|**基于主要指标进行优化**| ✓| ✓
+|**支持将 AML 计算作为计算目标** | ✓|✓
+|配置预测范围、目标滞后和滚动窗口|✓|✓
+|**设置退出条件** |✓|✓ 
+|**设置并发迭代数**| ✓|✓
+|删除列| ✓|✓
+|**块算法**|✓|✓
+|**交叉验证** |✓|✓
+|**支持在 Azure Databricks 群集上训练**| ✓|
+|**查看工程特征名称**|✓|
+|**特征化摘要**| ✓|
+|**假日特征化**|✓|
+|**日志文件详细级别**| ✓|
 
 ### <a name="model-settings"></a>模型设置
 
@@ -240,11 +238,11 @@ Azure 机器学习提供两个用于操作自动化 ML 的体验
 
 | |Python SDK|工作室 Web 体验|
 |----|:----:|:----:|
-|最佳模型注册、部署、可解释性| ✓|✓|
-|启用投票集成和堆栈集成模型| ✓|✓|
-|显示基于非主要指标的最佳模型|✓||
-|启用/禁用 ONNX 模型兼容性|✓||
-|测试模型 | ✓| |
+|**最佳模型注册、部署、可解释性**| ✓|✓|
+|**启用投票集成和堆栈集成模型**| ✓|✓|
+|**显示基于非主要指标的最佳模型**|✓||
+|**启用/禁用 ONNX 模型兼容性**|✓||
+|**测试模型** | ✓| |
 
 ### <a name="run-control-settings"></a>运行控制设置
 
@@ -252,10 +250,10 @@ Azure 机器学习提供两个用于操作自动化 ML 的体验
 
 | |Python SDK|工作室 Web 体验|
 |----|:----:|:----:|
-|运行摘要表| ✓|✓|
-|取消运行和子运行| ✓|✓|
-|获取护栏| ✓|✓|
-|暂停和恢复运行| ✓| |
+|**运行摘要表**| ✓|✓|
+|**取消运行和子运行**| ✓|✓|
+|**获取护栏**| ✓|✓|
+|**暂停和恢复运行**| ✓| |
 
 <a name="use-with-onnx"></a>
 

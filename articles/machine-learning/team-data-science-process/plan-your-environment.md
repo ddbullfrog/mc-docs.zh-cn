@@ -3,20 +3,20 @@ title: 确定方案并计划分析过程 - Team Data Science Process | Azure 机
 description: 通过考虑一系列关键问题，确定高级分析数据处理的方案和计划。
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4d947d311410a56ae4c859052c62399c3f4a5e93
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 16f11b0e2e5a1c2e388b522bb9aeb8dec551dc05
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441028"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118110"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>如何规定高级分析数据处理的方案和计划
 
@@ -66,7 +66,7 @@ ms.locfileid: "86441028"
 有关用于将数据引入或载入不同存储和处理环境的过程和资源，请参阅：
 
 * [将数据载入存储环境以进行分析](ingest-data.md)
-* [将训练数据从各种数据源导入 Azure 机器学习工作室（经典）](../studio/import-data.md)
+* [将训练数据从各种数据源导入 Azure 机器学习工作室（经典）](../classic/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>是否需要按定期计划移动数据或在迁移期间修改数据？
 
@@ -108,7 +108,7 @@ ms.locfileid: "86441028"
 
 以 Azure 机器学习工作室（经典）环境为例：
 
-* 关于 Azure 机器学习工作室支持的数据格式和类型的列表，请参阅[受支持的数据格式和数据类型](../studio/import-data.md#supported-data-formats-and-data-types)部分。
+* 关于 Azure 机器学习工作室支持的数据格式和类型的列表，请参阅[受支持的数据格式和数据类型](../classic/import-data.md#supported-data-formats-and-data-types)部分。
 * 有关分析过程中使用的其他 Azure 服务的限制的信息，请参阅 [Azure 订阅和服务限制、配额及约束](../../azure-resource-manager/management/azure-subscription-service-limits.md)。
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>数据质量问题：浏览和预处理
@@ -145,8 +145,8 @@ ms.locfileid: "86441028"
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>应使用什么工具进行数据分析？
 
-* [Microsoft Azure Powershell](/powershell/azure/overview) - 用于管理脚本语言中 Azure 资源的一种脚本语言
-* [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
+* [Microsoft Azure PowerShell](https://docs.microsoft.com/powershell/azure/) - 一种脚本语言，用于以脚本语言管理 Azure 资源
+* [Azure Machine Learning Studio](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)

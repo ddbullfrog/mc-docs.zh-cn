@@ -4,17 +4,17 @@ description: 了解 Azure Service Fabric 节点类型如何与虚拟机规模集
 ms.topic: conceptual
 origin.date: 03/23/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: sfrev
-ms.openlocfilehash: dbc1f1e3502d0255f64268a66892f4dfe34b073c
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 70f391d7374e445f88959037f78c5ec5b46cb956
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655259"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127707"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 节点类型与虚拟机规模集
 
@@ -36,7 +36,7 @@ ms.locfileid: "89655259"
 
 如果已在 Azure 门户部署群集，或使用了示例 Azure 资源管理器模板，将列出资源组下所有的资源。 可看到每个规模集或节点类型的负载均衡器。 负载均衡器名称使用以下格式：LB-&lt;节点类型名称&gt;。 例如，下图中显示的 LB-sfcluster4doc-0：
 
-![资源][Resources]
+![屏幕截图显示了一个资源组，其中突出显示了两个负载均衡器。][Resources]
 
 ## <a name="service-fabric-virtual-machine-extension"></a>Service Fabric 虚拟机扩展
 

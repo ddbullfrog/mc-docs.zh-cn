@@ -9,16 +9,16 @@ ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2013f343f2e7ec07ed713e241c27edeee3a05125
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 7a14fbe66a96494b5596e9faee09ea10e06a3357
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245517"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041595"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>在 Azure AD Connect 中修复已修改的默认规则
 
@@ -73,7 +73,7 @@ Azure Active Directory (Azure AD) Connect 使用默认规则进行同步。  遗
 #### <a name="add-an-inbound-sync-rule"></a>添加入站同步规则
 入站同步规则表示属性的源是连接器空间，目标是 Metaverse。 例如，若要将本地 Active Directory 中的某个新属性流送到 Azure Active Directory，请创建一个新的入站同步规则。 启动“同步规则编辑器”，选择“入站”作为方向，然后选择“添加新规则”。    
 
- ![同步规则编辑器](./media/how-to-connect-fix-default-rules/default3a.png)
+ ![显示“同步规则编辑器”的屏幕截图，其中已选择“入站”和“新增规则”。](./media/how-to-connect-fix-default-rules/default3a.png)
 
 遵循自己的命名约定为规则命名。 此处我们使用了“Custom In from AD - User”。  这表示该规则是自定义规则，并且是从 Active Directory 连接器空间到 Metaverse 的入站规则。   
 
@@ -176,7 +176,7 @@ Azure AD Sync 负责处理大部分对象。 你可以缩小对象的范围，�
 
 在“预览”窗口的左窗格中选择“生成预览”和“导入属性流”。  
 
-![预览](./media/how-to-connect-fix-default-rules/default14.png)
+![显示“预览”窗口的屏幕截图，其中已选择“导入属性流”和“生成预览”。](./media/how-to-connect-fix-default-rules/default14.png)
  
 在此处可以看到，新添加的规则已针对该对象运行，并且已将 `cloudFiltered` 属性设置为 true。
 

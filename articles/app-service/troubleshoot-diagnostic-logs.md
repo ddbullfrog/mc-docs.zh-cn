@@ -4,15 +4,15 @@ description: 了解如何启用诊断日志记录并将检测添加到应用程�
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 origin.date: 09/17/2019
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.custom: seodec18
-ms.openlocfilehash: 5c8f5a762389f37f6fb63afe3299947474cb8118
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 2895469d0212f7fe730f87e6be01326952eee7d2
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228206"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170453"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>为 Azure 应用服务中的应用启用诊断日志记录
 ## <a name="overview"></a>概述
@@ -55,7 +55,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](overview.md
 > [!NOTE]
 > 目前，只有 .NET 应用程序日志可以写入到 blob 存储。 Java、PHP、Node.js、Python 应用程序日志只能存储在应用服务文件系统上（无需修改代码即可将日志写入外部存储）。
 >
-> 此外，如果[重新生成存储帐户的访问密钥](../storage/common/storage-create-storage-account.md)，则必须重置相应的日志记录配置才能使用更新的访问密钥。 为此，请按以下步骤操作：
+> 此外，如果[重新生成存储帐户的访问密钥](../storage/common/storage-account-create.md)，则必须重置相应的日志记录配置才能使用更新的访问密钥。 为此，请按以下步骤操作：
 >
 > 1. 在“配置”选项卡上，将相应的日志记录功能设置为“关闭”。 保存设置。
 > 2. 再次启用将日志记录到存储帐户 Blob。 保存设置。
@@ -74,7 +74,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](overview.md
 
 完成后，选择“保存”。
 
-## <a name="enable-application-logging-linux"></a>启用应用程序日志记录 (Linux)
+## <a name="enable-application-logging-linuxcontainer"></a>启用应用程序日志记录（Linux/容器）
 
 若要在 [Azure 门户](https://portal.azure.cn)中为 Linux 应用启用应用程序日志记录，请导航到你的应用，然后选择“应用服务日志”。
 
@@ -93,7 +93,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](overview.md
 在“保留期(天)”中，设置日志要保留的天数。
 
 > [!NOTE]
-> 如果[重新生成存储帐户的访问密钥](../storage/common/storage-create-storage-account.md)，则必须重置相应的日志记录配置才能使用更新的密钥。 为此，请按以下步骤操作：
+> 如果[重新生成存储帐户的访问密钥](../storage/common/storage-account-create.md)，则必须重置相应的日志记录配置才能使用更新的密钥。 为此，请按以下步骤操作：
 >
 > 1. 在“配置”选项卡上，将相应的日志记录功能设置为“关闭”。 保存设置。
 > 2. 再次启用将日志记录到存储帐户 Blob。 保存设置。
@@ -165,7 +165,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 - Linux 应用：`https://<app-name>.scm.chinacloudsites.cn/api/logs/docker/zip`
 - Windows 应用：`https://<app-name>.scm.chinacloudsites.cn/api/dump`
 
-对于 Linux 应用，ZIP 文件包含 docker 主机和 docker 容器的控制台输出日志。 对于横向扩展的应用，ZIP 文件包含每个实例的一组日志。 在应用服务文件系统中，这些日志文件是“/home/LogFiles”目录的内容。
+对于 Linux/容器应用，ZIP 文件包含 docker 主机和 docker 容器的控制台输出日志。 对于横向扩展的应用，ZIP 文件包含每个实例的一组日志。 在应用服务文件系统中，这些日志文件是“/home/LogFiles”目录的内容。
 
 对于 Windows 应用，该 ZIP 文件包含应用服务文件系统中 *D:\Home\LogFiles* 目录的内容。 其结构如下：
 
@@ -188,16 +188,16 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 下表显示了支持的日志类型和说明： 
 
-| 日志类型 | Windows 支持 | Linux 支持 | 说明 |
-|-|-|-|
-| AppServiceConsoleLogs | TBA | 是 | 标准输出和标准错误 |
-| AppServiceHTTPLogs | 是 | 是 | Web 服务器日志 |
-| AppServiceEnvironmentPlatformLogs | 是 | 是 | 应用服务环境：缩放、配置更改和状态日志|
-| AppServiceAuditLogs | 是 | 是 | 通过 FTP 和 Kudu 进行的登录活动 |
-| AppServiceFileAuditLogs | 是 | TBD | 通过 FTP 和 Kudu 进行的文件更改 |
-| AppServiceAppLogs | TBA | Java SE 和 Tomcat | 应用程序日志 |
-| AppServiceIPSecAuditLogs  | 是 | 是 | 来自 IP 规则的请求 |
-| AppServicePlatformLogs  | TBA | 是 | 容器日志 |
+| 日志类型 | Windows | Windows 容器 | Linux | Linux 容器 | 说明 |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | TBA | TBA | 是 | 是 | 标准输出和标准错误 |
+| AppServiceHTTPLogs | 是 | TBA | 是 | 是 | Web 服务器日志 |
+| AppServiceEnvironmentPlatformLogs | 是 | 空值 | 是 | 是 | 应用服务环境：缩放、配置更改和状态日志|
+| AppServiceAuditLogs | 是 | TBA | 是 | 是 | 通过 FTP 和 Kudu 进行的登录活动 |
+| AppServiceFileAuditLogs | 是 | TBA | TBA | TBA | 对站点内容所做的文件更改；仅适用于高级层和更高层级 |
+| AppServiceAppLogs | ASP .NET | TBA | Java SE 和 Tomcat | Java SE 和 Tomcat | 应用程序日志 |
+| AppServiceIPSecAuditLogs  | 是 | TBA | 是 | 是 | 来自 IP 规则的请求 |
+| AppServicePlatformLogs  | TBA | TBA | 是 | 是 | 容器操作日志 |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> 后续步骤
 * [使用 Azure Monitor 查询日志](../azure-monitor/log-query/log-query-overview.md)

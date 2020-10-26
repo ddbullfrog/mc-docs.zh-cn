@@ -3,19 +3,19 @@ title: Azure Service Fabric 版本
 description: Azure Service Fabric 发行说明。 包含有关 Service Fabric 中的最新功能和改进功能的信息。
 origin.date: 06/10/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: aaf1cb091797a42062cc0bd13178b698e489f6b4
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 87094bc4bee2498134612486dc97eea9ae8f3427
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394510"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128298"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 版本
 
@@ -80,6 +80,7 @@ ms.locfileid: "91394510"
 | 2020 年 6 月 16 日 | [Azure Service Fabric 7.1 第一次刷新](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-first-refresh-release/ba-p/1466517) | [发行说明](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU1-releasenotes.md)
 | 2020 年 7 月 20 日 | [Azure Service Fabric 7.1 第二次刷新](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-second-refresh-release/ba-p/1534246) | [发行说明](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU2-releasenotes.md)
 | 2020 年 8 月 12 日 | [Azure Service Fabric 7.1 第三次刷新](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-third-refresh-release/ba-p/1587586) | [发行说明](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU3-releasenotes.md)
+| 2020 年 9 月 10 日 | [Azure Service Fabric 7.1 第四次刷新](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-fourth-refresh-release/ba-p/1653859)  | [发行说明](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU5-releasenotes.md)|
 
 ### <a name="service-fabric-70"></a>Service Fabric 7.0
 
@@ -92,7 +93,7 @@ Azure Service Fabric 7.0 现已推出！ 你可以通过 Azure 门户或 Azure �
 ### <a name="key-announcements"></a>重要公告
  - [**对应用程序机密的 KeyVaultReference 支持（预览版）** ](./service-fabric-keyvault-references.md)：已启用[托管标识](./concepts-managed-identity.md)的 Service Fabric 应用程序现在可以直接将 Key Vault 机密 URL 引用为环境变量、应用程序参数或容器存储库凭据。 Service Fabric 会使用应用程序的托管标识自动解析机密。 
 
-- **改进了无状态服务的升级安全性**：为了保证应用程序升级期间的可用性，我们引入了新的配置来定义视为可用的[无状态服务的最小实例数](https://docs.azure.cn/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet)。 以前，对于所有服务，此值都是 1，且不可更改。 凭借此全新的单服务安全检查，你可以确保服务在应用程序升级、群集升级和其他维护（依赖于 Service Fabric 的运行状况和安全检查）期间保留最少的正常运行实例数。
+- **改进了无状态服务的升级安全性**：为了保证应用程序升级期间的可用性，我们引入了新的配置来定义视为可用的[无状态服务的最小实例数](https://docs.azure.cn/dotnet/api/system.fabric.description.statelessservicedescription)。 以前，对于所有服务，此值都是 1，且不可更改。 凭借此全新的单服务安全检查，你可以确保服务在应用程序升级、群集升级和其他维护（依赖于 Service Fabric 的运行状况和安全检查）期间保留最少的正常运行实例数。
 
 - [**用户服务的资源限制**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services)：用户可以为节点上的用户服务设置资源限制，以防止诸如 Service Fabric 系统服务资源耗尽之类的情况。 
 
@@ -175,5 +176,4 @@ Azure Service Fabric 7.0 现已推出！ 你可以通过 Azure 门户或 Azure �
 <!--MOONCAKE: DO NOT UPDATE THE REFERENCE LINK-->
 
 
-<!-- Update_Description: new article about release notes -->
-<!--NEW.date: 09/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

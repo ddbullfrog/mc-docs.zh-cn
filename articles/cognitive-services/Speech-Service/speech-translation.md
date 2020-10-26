@@ -1,29 +1,30 @@
 ---
-title: 使用语音服务进行语音翻译
+title: 语音翻译概述 - 语音服务
 titleSuffix: Azure Cognitive Services
-description: 使用语音服务，可以将端到端实时多语言语音翻译添加到应用程序、工具和设备。 相同 API 可以用于语音到语音和语音到文本的转换。
+description: 使用语音翻译，可以将语音的端到端实时多语言翻译添加到应用程序、工具和设备。 相同 API 可以用于语音到语音和语音到文本的转换。 本文概述了语音翻译服务的优势和功能。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 03/11/2020
-ms.date: 09/02/2020
+origin.date: 09/01/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.custom: devx-track-csharp
-ms.openlocfilehash: cda5579c0a8b1c374f00254b02d2eeff920d7eb2
-ms.sourcegitcommit: 4db9853370c9d4c7e5d54f1e1cfadf40efcc12a6
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+keywords: 语音翻译
+ms.openlocfilehash: b683a57fa3f38da6d580d177e0cef48d0f8cd445
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89317570"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128100"
 ---
 # <a name="what-is-speech-translation"></a>什么是语音翻译？
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-使用语音服务提供的语音翻译，可以对音频流进行实时多语言语音转语音和语音转文本翻译。 使用语音 SDK，应用程序、工具和设备可以访问所提供的音频的源听录和翻译输出。 检测到语音时，会返回过渡性的听录和翻译结果，最终结果可以转换为合成语音。
+本概述介绍语音翻译服务的优势和功能，它可以对音频流进行实时多语言语音转语音和语音转文本翻译。 使用语音 SDK，应用程序、工具和设备可以访问所提供的音频的源听录和翻译输出。 检测到语音时，会返回过渡性的听录和翻译结果，最终结果可以转换为合成语音。
 
 Microsoft 翻译引擎有两种不同的支持方法：统计机器翻译 (SMT) 和神经机器翻译 (NMT)。 SMT 可以在给定上下文（数个单词）的情况下，使用高级统计分析来估计可能的最佳翻译。 使用 NMT 时，可以通过神经网络借助完整的语句上下文来翻译单词，这样可以提供更准确且听起来很自然的翻译。
 
@@ -63,5 +64,5 @@ GitHub 上提供了语音 SDK 的示例代码。 这些示例涵盖了常见方�
 ## <a name="next-steps"></a>后续步骤
 
 * 完成语音翻译[快速入门](get-started-speech-translation.md)
-* [免费获取语音服务订阅密钥](get-started.md)
+* [免费获取语音服务订阅密钥](overview.md#try-the-speech-service-for-free)
 * [获取语音 SDK](speech-sdk.md)

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: fa788629dd297c2de3a54868141a8ecead921477
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 8b82b5699715b6827e79b37018fa2b744ad2cb6d
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228466"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118462"
 ---
 # <a name="convert-to-image-directory"></a>转换为图像目录
 
-本文介绍如何使用“转换为图像目录”模块将图像数据集转换为“图像目录”数据类型，该类型采用图像相关任务（例如 Azure 机器学习设计器（预览版）中的图像分类）中的标准化数据格式。
+本文介绍如何使用“转换为图像目录”模块将图像数据集转换为“图像目录”数据类型，该类型采用图像相关任务（例如 Azure 机器学习设计器中的图像分类）中的标准化数据格式。
 
 ## <a name="how-to-use-convert-to-image-directory"></a>如何使用“转换为图像目录”模块  
 

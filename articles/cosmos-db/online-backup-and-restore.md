@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/24/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 4424b659739febdd4d1073f3939744fd8f64ddbd
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 99b62917bf1a7a2c150f0f5a15032d233b748b62
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246385"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118016"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB 中的联机备份和按需数据还原
 
@@ -25,7 +25,7 @@ Azure Cosmos DB 会定期自动备份数据。 自动备份不会影响数据库
 
 使用 Azure Cosmos DB，数据和数据备份都高度冗余，并且具有可复原性，能抵御区域性灾难。 以下步骤演示 Azure Cosmos DB 如何执行数据备份：
 
-* Azure Cosmos DB 每 4 小时自动备份数据库一次，默认情况下在任何时间点都只存储最新的 2 个备份。 如果默认间隔不能满足工作负载要求，则可以从 Azure 门户更改备份间隔和保持期。 可以在创建 Azure Cosmos 帐户期间或之后更改备份配置。 如果删除了容器或数据库，Azure Cosmos DB 会将给定容器或数据库中的现有快照保留 30 天。
+* Azure Cosmos DB 每 4 小时自动完整备份数据库一次，默认情况下在任何时间点都只存储最新的 2 个备份。 如果默认间隔不能满足工作负载要求，则可以从 Azure 门户更改备份间隔和保持期。 可以在创建 Azure Cosmos 帐户期间或之后更改备份配置。 如果删除了容器或数据库，Azure Cosmos DB 会将给定容器或数据库中的现有快照保留 30 天。
 
 * Azure Cosmos DB 将这些备份存储在 Azure Blob 存储中，而实际数据以本地形式驻留在 Azure Cosmos DB 中。
 
@@ -47,7 +47,7 @@ Azure Cosmos DB 会定期自动备份数据。 自动备份不会影响数据库
 
 ## <a name="modify-the-backup-interval-and-retention-period"></a>修改备份时间间隔和保持期
 
-Azure Cosmos DB 每 4 小时自动对数据库执行一次备份，而且在任何时候都只存储最新的 2 个备份。 此配置是默认选项，无需额外付费即可使用。 你可以在创建 Azure Cosmos 帐户期间或创建帐户之后更改默认备份时间间隔和保持期。 备份配置是在 Azure Cosmos 帐户级别设置的，需要在每个帐户上配置。 为帐户配置备份选项后，它将应用于该帐户中的所有容器。 目前，你只能从 Azure 门户更改它们的备份选项。
+Azure Cosmos DB 每 4 小时自动对数据库执行一次完整备份，而且在任何时候都只存储最新的 2 个备份。 此配置是默认选项，无需额外付费即可使用。 你可以在创建 Azure Cosmos 帐户期间或创建帐户之后更改默认备份时间间隔和保持期。 备份配置是在 Azure Cosmos 帐户级别设置的，需要在每个帐户上配置。 为帐户配置备份选项后，它将应用于该帐户中的所有容器。 目前，你只能从 Azure 门户更改它们的备份选项。
 
 如果数据被意外删除或损坏，在你创建支持请求以申请还原数据之前，请确保将帐户的备份保留期延长到至少 7 天。最好在发生此事件的 8 小时内延长保留期。 这样，Azure Cosmos DB 团队才有足够的时间来还原你的帐户。
 

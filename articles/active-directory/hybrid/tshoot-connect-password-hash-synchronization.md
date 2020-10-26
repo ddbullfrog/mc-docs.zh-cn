@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/06/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9bd8dcc6dcd39a3971d7b646cdf93af463394c3
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 2c4f08ca4e96260d4a147bd197184a1a95781e81
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164858"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041604"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步解决密码哈希同步问题
 
@@ -120,7 +120,7 @@ ms.locfileid: "86164858"
 
 如果本地 Active Directory 连接器用于同步密码哈希的 AD DS 帐户没有相应的权限，则返回以下错误：
 
-![错误的凭据](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![显示 AD DS 帐户用户名或密码不正确时返回的错误的屏幕截图。](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>错误的 AD DS 帐户用户名或密码
 
@@ -338,7 +338,7 @@ ms.locfileid: "86164858"
 
     i. 单击“Metaverse 对象属性”，显示用户特性列表。  
 
-    ![Metaverse 信息](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![显示 Metaverse 对象属性的用户属性列表的屏幕截图。](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     验证 cloudFiltered 属性不存在。 确保域属性（domainFQDN 和 domainNetBios）具有所需值。
 
@@ -451,4 +451,3 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 * [Azure AD Connect 同步：自定义同步选项](how-to-connect-sync-whatis.md)
 * [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
-<!-- Update_Description: wording update -->

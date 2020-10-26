@@ -5,19 +5,19 @@ services: automation
 ms.service: virtual-machines
 origin.date: 04/26/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 42ed3f65095d6138f11a8b2ffa2a9551fd931948
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 07019c9538e19c0282744624df3cf519a51efeba
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463164"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127953"
 ---
 <!--Verfiy succesfully-->
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>使用“运行命令”在 Windows VM 中运行 PowerShell 脚本
@@ -42,6 +42,7 @@ ms.locfileid: "89463164"
 * 无法取消正在运行的脚本。
 * 脚本最多可以运行 90 分钟。 之后，它会超时。
 * 需要从 VM 建立出站连接才能返回脚本的结果。
+* 建议不要运行将导致 VM 代理停止或更新的脚本。 这会使扩展处于转换状态，从而导致超时。
 
 > [!NOTE]
 > 若要正常工作，“运行命令”需要连接（通过端口 443）到 Azure 公共 IP 地址。 如果扩展无法访问这些终结点，则脚本可能会成功运行，但不会返回结果。 如果要阻止虚拟机上的流量，可以使用[服务标记](../../virtual-network/security-overview.md#service-tags)以通过 `AzureChinaCloud` 标记允许流量发往 Azure 公共 IP 地址。
@@ -68,7 +69,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>Azure CLI
 
-以下示例使用 [az vm run-command](https://docs.azure.cn/cli/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 命令在 Azure Windows VM 上运行 shell 脚本。
+以下示例使用 [az vm run-command](https://docs.azure.cn/cli/vm/run-command#az_vm_run_command_invoke) 命令在 Azure Windows VM 上运行 shell 脚本。
 
 ```azurecli
 # script.ps1
@@ -82,7 +83,7 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
     --scripts @script.ps1 --parameters "arg1=somefoo" "arg2=somebar"
 ```
 
-<!--Not Available on ## Azure portal on 09/04/2020-->
+<!--Not Available on ## Azure portal on 10/19/2020-->
 ## <a name="powershell"></a>PowerShell
 
 以下示例使用 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet 在 Azure VM 上运行 PowerShell 脚本。 该 cmdlet 需要 `-ScriptPath` 参数中引用的脚本位于运行该 cmdlet 的位置本地。

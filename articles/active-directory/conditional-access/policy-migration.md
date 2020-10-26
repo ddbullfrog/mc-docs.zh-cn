@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 10/13/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2af5da2853173a3115f02c7d8c2ca21202ca32c5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2d2409be52b41e04faf9f0a7fb3d25cf24253a66
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77653321"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041443"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>条件访问经典策略迁移
 
@@ -73,9 +73,9 @@ Azure Active Directory 使用条件访问作为一种工具来统合信号、做
    - 根据方案的需要组合多个条件。 
    - 选择多个授予要求作为访问控制，并使用逻辑 *OR*（要求满足选定控制条件中的一个）或逻辑 *AND*（要求满足所有选定控制条件）来合并这些要求。
 
-### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
+### <a name="exchange-online"></a>Exchange Online
 
-若要迁移 **Office 365 Exchange Online** 的经典策略，而这些策略包含用作客户端应用条件的 **Exchange Active Sync**，则可能无法将它们整合到一个新策略。 
+若要迁移 Exchange Online 的经典策略，而这些策略包含用作客户端应用条件的 Exchange Active Sync，则可能无法将它们整合到一个新策略中。 
 
 例如，如果希望支持所有客户端应用类型，则无法进行这种整合。 在将 **Exchange Active Sync** 用作客户端应用条件的新策略中，无法选择其他客户端应用。
 
@@ -89,7 +89,7 @@ Azure Active Directory 使用条件访问作为一种工具来统合信号、做
 
 ![条件访问条件](./media/policy-migration/16.png)
  
-Office 365 Exchange Online 的基于应用的经典策略（包括 **Exchange Active Sync** 作为客户端应用条件）允许**受支持**和**不受支持**的设备平台。 尽管无法在相关的新策略中配置单个设备平台，但可以将支持状态限制为[受支持的设备平台](concept-conditional-access-conditions.md#device-platforms)。 
+Exchange Online 的基于应用的经典策略（包括作为客户端应用条件的 Exchange Active Sync）允许受支持的和不受支持的设备平台。 尽管无法在相关的新策略中配置单个设备平台，但可以将支持状态限制为[受支持的设备平台](concept-conditional-access-conditions.md#device-platforms)。 
 
 ![条件访问选择 Exchange ActiveSync](./media/policy-migration/65.png)
 
@@ -119,4 +119,3 @@ Office 365 Exchange Online 的基于应用的经典策略（包括 **Exchange Ac
 - 若要了解如何配置条件访问策略，请参阅[条件访问常见策略](concept-conditional-access-policy-common.md)。
 - 如果已准备好针对环境配置条件访问策略，请参阅 [如何：规划 Azure Active Directory 中的条件访问部署](plan-conditional-access.md)一文。 
 
-<!-- Update_Description: wording update -->

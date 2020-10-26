@@ -4,13 +4,13 @@ description: 介绍如何将服务总线队列和主题用作 Azure 事件网格
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/10/2020
-ms.openlocfilehash: 7d475d68af5729aaa59eea2b9441213a8c7c81d9
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.date: 10/10/2020
+ms.openlocfilehash: 1a8605eec023b2da781e78ea853b23ad1135ea77
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228997"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128048"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>服务总线队列和主题作为 Azure 事件网格事件的事件处理程序
 事件处理程序是发送事件的位置。 处理程序将执行一些进一步的操作来处理事件。 几个 Azure 服务已自动配置为处理事件，Azure 服务总线是其中之一。 
@@ -53,7 +53,7 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="message-properties"></a>消息属性
-如果使用服务总线主题或队列作为事件网格事件的事件处理程序，请设置以下消息标头： 
+如果使用服务总线主题或队列作为事件网格事件的事件处理程序，则会在消息标头中收到以下属性： 
 
 | 属性名称 | 说明 |
 | ------------- | ----------- | 
@@ -64,9 +64,9 @@ az eventgrid event-subscription create \
 | aeg-data-version | <p>事件的数据版本。</p><p>示例：“1”。</p><p>对于“事件网格事件架构”，此属性表示数据版本；对于“云事件架构”，此属性不适用。</p> |
 
 ## <a name="message-headers"></a>消息标头
-将事件作为中转消息发送到服务总线队列或主题时，中转消息的 `messageid` 是事件 ID。
+将事件作为中转消息发送到服务总线队列或主题时，中转消息的 `messageid` 是内部系统 ID。
 
-事件 ID 会在事件重新传递期间保留，这样就可以在服务总线实体上启用“重复项检测”，避免重复传递。 建议在服务总线实体上启用重复项检测持续时间，并将其设为事件的生存时间 (TTL) 或最大重试持续时间（以较长者为准）。
+消息的内部系统 ID 会在事件重新传递期间保留，因此你可以在服务总线实体上启用“重复项检测”，避免重复传递。 建议在服务总线实体上启用重复项检测持续时间，并将其设为事件的生存时间 (TTL) 或最大重试持续时间（以较长者为准）。
 
 ## <a name="rest-examples-for-put"></a>REST 示例（适用于 PUT）
 
@@ -158,6 +158,9 @@ az eventgrid event-subscription create \
     }
 }
 ```
+
+> [!NOTE]
+> 不支持将事件传递到另一个租户中的 Azure 服务总线队列或主题。 
 
 ## <a name="next-steps"></a>后续步骤
 如需支持的事件处理程序的列表，请参阅[事件处理程序](event-handlers.md)一文。 

@@ -1,18 +1,18 @@
 ---
-title: 在 Azure Database for PostgreSQL - 单一服务器上优化查询统计信息集合
+title: 优化查询统计信息集合 - Azure Database for PostgreSQL（单一服务器）
 description: 本文介绍了如何在 Azure Database for PostgreSQL - 单一服务器上优化查询统计信息集合。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: cc58d72d2f42316bf03c44ba7653fe72a1047889
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/19/2020
+ms.openlocfilehash: 17575928691c4af45154ff2962279a3cafcb60db
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65732012"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041766"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL - 单一服务器上优化查询统计信息集合
 本文介绍如何在 Azure Database for PostgreSQL 服务器上优化查询统计信息集合。
@@ -28,7 +28,7 @@ Pg_stat_statements 是 PostgreSQL 扩展，默认情况下在 Azure Database for
 
 - 在 Azure 门户中，转到 [PostgreSQL 资源管理页面并选择服务器参数边栏选项卡](howto-configure-server-parameters-using-portal.md)。
 
-  ![PostgreSQL 服务器参数边栏选项卡](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
+  :::image type="content" source="./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png" alt-text="PostgreSQL 服务器参数边栏选项卡":::
 
 - 使用 [Azure CLI](howto-configure-server-parameters-using-cli.md) az postgres server configuration set `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`。
 

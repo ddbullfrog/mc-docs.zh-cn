@@ -1,5 +1,5 @@
 ---
-title: 在管理单元中添加、删除和列出用户（预览版）- Azure Active Directory | Microsoft Docs
+title: 在管理单元中添加、删除和列出用户 - Azure Active Directory | Microsoft Docs
 description: 在 Azure Active Directory 的管理单元中管理用户及其角色权限
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/26/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a40fff25bdbf89d3461a601494fea4dcf306b5c5
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 0b836f32018db6e4f5b1f3881ccf40b71047d248
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947528"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041534"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>在 Azure Active Directory 的管理单元中添加和管理用户
 
@@ -39,7 +39,7 @@ ms.locfileid: "88947528"
 
        ![选择“添加”，然后输入管理单元的名称](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. 可以在门户中转到 Azure AD，并在左窗格中选择“管理单元”，然后选择要将用户分配到的管理单元。 在左侧窗格中选择“所有用户”，然后选择“添加成员”。 然后，可以从右侧窗格中选择一个或多个要分配到该管理单元的用户。
+    1. 可以在门户中转到 Azure AD，并在左窗格中选择“管理单元”，然后选择要将用户分配到的管理单元。 选择“所有用户”，然后选择“添加成员” 。 然后，可以从右侧窗格中选择一个或多个要分配到该管理单元的用户。
 
         ![选择一个管理单元，然后选择“添加成员”](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
@@ -82,13 +82,15 @@ Request body
 
 ### <a name="azure-portal"></a>Azure 门户
 
-在 Azure 门户中，可以通过转到“Azure AD”>“用户”打开用户的配置文件。 单击该用户以打开该用户的配置文件。
+在 Azure 门户中可以通过以下方式打开用户的配置文件：
 
-![在 Azure Active Directory 中打开用户的配置文件](./media/roles-admin-units-add-manage-users/user-profile-admin-units.png)
+1. 打开“Azure AD” > “用户”。
 
-在左侧面板上选择“管理单元”，以查看已分配用户的管理单元的列表。
+1. 选择该用户以打开该用户的配置文件。
 
-![列出用户的管理单元](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
+1. 选择“管理单元”，以查看已分配用户的管理单元的列表。
+
+   ![列出用户的管理单元](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13113e00630f21b82054e81e7cecc3ae81e2a011
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: bc336b37c92a8b2bfad0d6f043d83a724dc79c70
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245259"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041510"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>与 Azure AD 联合的多域支持
 以下文档提供了有关与 Microsoft 365 或 Azure AD 域联合时如何使用多个顶级域和子域的指导。
@@ -38,7 +38,7 @@ ms.locfileid: "91245259"
 
 可以使用 PowerShell 命令 `Get-MsolDomainFederationSettings -DomainName <your domain>` 查看 IssuerUri。
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![此屏幕截图显示了在 PowerShell 中输入“Get-MsolDomainFederationSettings”命令后的结果。](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 当添加多个顶级域时，会出现问题。  例如，假设已设置了 Azure AD 和本地环境之间的联合。  本文档中使用的是域 bmcontoso.com。  现在，已添加了第二个顶级域 bmfabrikam.com。
 
@@ -46,7 +46,7 @@ ms.locfileid: "91245259"
 
 当尝试将 bmfabrikam.com 域转换为联合域时，发生错误。  原因在于，Azure AD 有一项限制，此限制不允许多个域的 IssuerUri 属性拥有相同的值。  
 
-![联合错误](./media/how-to-connect-install-multiple-domains/error.png)
+![屏幕截图显示了 PowerShell 中的联合错误。](./media/how-to-connect-install-multiple-domains/error.png)
 
 ### <a name="supportmultipledomain-parameter"></a>SupportMultipleDomain 参数
 若要避免此约束，需要添加一个不同的 IssuerUri，可以使用 `-SupportMultipleDomain` 参数来实现此目的。  此参数可配合以下 cmdlet 使用：
@@ -57,11 +57,11 @@ ms.locfileid: "91245259"
 
 此参数可让 Azure AD 根据域名称设置 IssuerUri。  IssuerUri 在 Azure AD 中的所有目录中将是唯一的。  使用参数可让 PowerShell 命令成功完成。
 
-![联合错误](./media/how-to-connect-install-multiple-domains/convert.png)
+![此屏幕截图显示了 PowerShell 命令成功完成。](./media/how-to-connect-install-multiple-domains/convert.png)
 
 检查 bmfabrikam.com 域的设置，可以看到以下内容：
 
-![联合错误](./media/how-to-connect-install-multiple-domains/settings.png)
+![此屏幕截图显示了“bmfabrikam.com”域的设置。](./media/how-to-connect-install-multiple-domains/settings.png)
 
 `-SupportMultipleDomain` 不会更改其他终结点，它们仍然配置为指向 adfs.bmcontoso.com 上的联合身份验证服务。
 
@@ -88,11 +88,11 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://sche
 
 如果已成功在 Azure AD 门户中添加了新域，然后尝试使用 `Convert-MsolDomaintoFederated -DomainName <your domain>` 对其进行转换，则会收到以下错误。
 
-![联合错误](./media/how-to-connect-install-multiple-domains/trust1.png)
+![屏幕截图，显示在尝试使用“Convert-MsolDomaintoFederated”命令转换新域后在 PowerShell 中出现联合错误。](./media/how-to-connect-install-multiple-domains/trust1.png)
 
 如果尝试添加 `-SupportMultipleDomain` 开关，将会收到以下错误：
 
-![联合错误](./media/how-to-connect-install-multiple-domains/trust2.png)
+![添加“-SupportMultipleDomain”开关后显示联合错误的屏幕截图。](./media/how-to-connect-install-multiple-domains/trust2.png)
 
 只是尝试针对原始域运行 `Update-MsolFederatedDomain -DomainName <your domain> -SupportMultipleDomain` 也会导致错误。
 
@@ -121,7 +121,7 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://sche
 使用以下步骤通过 Azure AD Connect 添加新的顶级域
 
 1. 从桌面或开始菜单启动 Azure AD Connect
-2. 选择“添加其他 Azure AD 域”![添加其他 Azure AD 域](./media/how-to-connect-install-multiple-domains/add1.png)
+2. 选择“添加其他 Azure AD 域”![此屏幕截图显示了已选择“添加其他 Azure AD 域”的“其他任务”页。](./media/how-to-connect-install-multiple-domains/add1.png)
 3. 输入 Azure AD 和 Active Directory 凭据
 4. 选择要配置联合的第二个域。
    ![添加其他 Azure AD 域](./media/how-to-connect-install-multiple-domains/add2.png)
@@ -130,7 +130,7 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://sche
 ### <a name="verify-the-new-top-level-domain"></a>验证新的顶级域
 使用 PowerShell 命令 `Get-MsolDomainFederationSettings -DomainName <your domain>`可以查看更新的 IssuerUri。  下面的屏幕截图显示原始域 `http://bmcontoso.com/adfs/services/trust` 上的联合设置已更新
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![此屏幕截图显示了原始域上已更新的联合设置。](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 新域上的 IssuerUri 已设置为 `https://bmfabrikam.com/adfs/services/trust`
 

@@ -11,18 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-origin.date: 07/13/2017
-ms.date: 04/09/2019
+ms.topic: how-to
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab589dafb6915e1b8276933f52f801934730db12
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a5348f2f053dba4e87c664b035f1e067e931897b
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63824262"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041454"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 同步服务影子属性
 大多数属性在 Azure AD 中的表示方式与在本地 Active Directory 中相同。 但某些属性有一些特殊处理，并且 Azure AD 中的属性值可能不同于 Azure AD Connect 同步的值。
@@ -33,7 +32,7 @@ ms.locfileid: "63824262"
 无法使用 Azure 门户或 PowerShell 查看影子属性。 但对于属性在本地和云中具有不同值的某些方案，了解此概念可帮助对这些方案进行故障排除。
 
 若要更好地了解此行为，请查看 Fabrikam 中的此示例：  
-![域](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![屏幕截图显示了几个示例的 Active Directory UPN后 缀，相应的“Azure AD 域”值分别为“未添加”、“未验证”和“已验证”。](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 这些域在其本地 Active Directory 中有多个 UPN 后缀，但只验证了其中一个。
 
 ### <a name="userprincipalname"></a>userPrincipalName
@@ -79,4 +78,3 @@ ProxyCalc 可能需要一些时间来处理用户更改，并且不会与 Azure 
 * [Azure AD Connect 同步](how-to-connect-sync-whatis.md)
 * [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)。
 
-<!-- Update_Description: wording update -->

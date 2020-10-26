@@ -7,18 +7,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
-ms.author: peterlu
+ms.author: v-yiso
 ms.date: 07/27/2020
-ms.openlocfilehash: 9437fdc8eef932a65107e7d894c0942601eeefa7
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: b6ea5671c37670d612d174aae2fe04eea271e796
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227865"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117900"
 ---
 # <a name="execute-r-script-module"></a>“执行 R 脚本”模块
 
-本文介绍如何使用“执行 R 脚本”模块在 Azure 机器学习设计器（预览版）管道中运行 R 代码。
+本文介绍如何使用“执行 R 脚本”模块在 Azure 机器学习设计器管道中运行 R 代码。
 
 使用 R，可以执行现有模块当前不支持的任务，例如： 
 - 创建自定义数据转换

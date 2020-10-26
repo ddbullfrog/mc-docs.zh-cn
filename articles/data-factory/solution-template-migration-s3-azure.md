@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 09/07/2019
-ms.date: 05/11/2020
-ms.openlocfilehash: b129720e25e133a4b1904bc8a435aff7a345dd1e
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.date: 10/19/2020
+ms.openlocfilehash: 81be99628efe2491a8977b6f5e2cfa69b5b3901a
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198001"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121685"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>将数据从 Amazon S3 迁移到 Azure Data Lake Storage Gen2
 
@@ -30,7 +30,7 @@ ms.locfileid: "82198001"
 
 ## <a name="about-the-solution-templates"></a>关于解决方案模板
 
-建议使用数据分区，尤其是在迁移 10 TB 以上的数据时。 若要将数据分区，请利用“前缀”设置按名称筛选 Amazon S3 中的文件夹和文件，然后，每个 ADF 复制作业一次可以复制一个分区。 可以并行运行多个 ADF 复制作业，以获得更好的吞吐量。
+建议使用数据分区，尤其是在迁移 10 TB 以上的数据时。 若要将数据分区，请使用“前缀”设置按名称筛选 Amazon S3 中的文件夹和文件。然后，每个 ADF 复制作业一次可复制一个分区。 可以并行运行多个 ADF 复制作业，以获得更好的吞吐量。
 
 数据迁移通常需要进行一次性的历史数据迁移，并定期将 AWS S3 中的更改同步到 Azure。 下面提供了两个模板，其中一个模板执行一次性的历史数据迁移，另一个模板将 AWS S3 中的更改同步到 Azure。
 
@@ -110,23 +110,23 @@ ms.locfileid: "82198001"
 
 3. 转到“将历史数据从 AWS S3 迁移到 Azure Data Lake Storage Gen2”模板。  输入与外部控制表的连接，并输入 AWS S3 作为数据源存储，输入 Azure Data Lake Storage Gen2 作为目标存储。 请注意，外部控制表和存储过程引用同一连接。
 
-    ![创建新连接](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![显示“将历史数据从 AWS S3 迁移到 Azure Data Lake Storage Gen2”模板的屏幕截图。](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
 4. 选择“使用此模板”  。
 
-    ![使用此模板](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
+    ![突出显示“使用此模板”按钮的屏幕截图。](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
 5. 将会看到已创建 2 个管道和 3 个数据集，如以下示例中所示：
 
-    ![查看管道](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    ![显示使用模板创建的 2 个管道和 3 个数据集的屏幕截图。](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
 6. 选择“调试”，输入**参数**，然后选择“完成”。  
 
-    ![单击“调试”****](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![显示选择“完成”之前在哪里选择“调试”和输入参数的屏幕截图。](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
 7. 看到的结果类似于以下示例：
 
-    ![查看结果](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
+    ![显示返回结果的屏幕截图。](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>用于仅将已更改的文件从 Amazon S3 复制到 Azure Data Lake Storage Gen2 的模板
@@ -193,7 +193,7 @@ ms.locfileid: "82198001"
 
 8. 还可以通过查询 *"select * from s3_partition_delta_control_table"* 来检查控制表中的结果，将看到类似于以下示例的输出：
 
-    ![查看结果](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
+    ![显示运行查询后控制表结果的屏幕截图。](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
     
 ## <a name="next-steps"></a>后续步骤
 

@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 06/25/2019
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 544898788219cd76631ac9f096ace3fe135719a0
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.openlocfilehash: 75ca1e67827638fe7943132d5fec6e91d9f3ad31
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512939"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041716"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL 服务器
 
@@ -22,7 +22,7 @@ ms.locfileid: "89512939"
 > 请考虑使用更简单的 [az postgres up](https://docs.microsoft.com/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令（当前为预览版）。 试用[快速入门](./quickstart-create-server-up-azure-cli.md)。
 
 ## <a name="prerequisites"></a>先决条件
-本文要求运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
+本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 需要使用 [az login](/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到你的帐户。 请注意 id 属性，该属性指的是 Azure 帐户的订阅 ID。 
 
@@ -68,9 +68,9 @@ sku-name|GP_Gen5_2| 定价层和计算配置的名称。 请遵循简写约定 {
 >- 默认情况下，服务器上启用 SSL。 有关 SSL 的详细信息，请参阅[配置 SSL 连接](./concepts-ssl-connection-security.md)。
 
 ## <a name="configure-a-server-level-firewall-rule"></a>配置服务器级防火墙规则 
-默认情况下，创建的服务器使用防火墙规则进行保护，无法公开访问。 可以使用 [az postgres server firewall-rule create](/cli/postgres/server/firewall-rule) 命令在服务器上配置防火墙规则，以便为本地环境提供访问权限以连接到服务器。 
+默认情况下，你创建的服务器不可公开访问，并受防火墙规则保护。 可以使用 [az postgres server firewall-rule create](/cli/postgres/server/firewall-rule) 命令在服务器上配置防火墙规则，以便为本地环境提供访问权限以连接到服务器。 
 
-以下示例创建名为 `AllowMyIP` 的防火墙规则，该规则允许从特定的 IP 地址 (192.168.0.1) 进行连接。 替代与要从其进行连接的地址相对应的 IP 地址或 IP 地址范围。  如果你不知道如何查找 IP 地址，请转到 [https://whatismyipaddress.com/](https://whatismyipaddress.com/) 以获取 IP 地址。
+以下示例创建名为 `AllowMyIP` 的防火墙规则，该规则允许从特定的 IP 地址 (192.168.0.1) 进行连接。 替代与要从其进行连接的地址相对应的 IP 地址或 IP 地址范围。 如果你不知道 IP 地址，请转到 [WhatIsMyIPAddress.com](https://whatismyipaddress.com/) 获取它。
 
 
 ```azurecli
@@ -78,16 +78,18 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 ```
 
 > [!NOTE]
->  请确保网络防火墙允许 Azure Database for PostgreSQL 服务器使用的端口 5432，以避免连接问题。 
+> 若要避免连接问题，请确保网络防火墙允许端口 5432。 Azure Database for PostgreSQL 服务器使用该端口。 
 
 ## <a name="get-the-connection-information"></a>获取连接信息
 
-若要连接到服务器，需要提供主机信息和访问凭据。
+若要连接到服务器，请提供主机信息和访问凭据。
+
 ```azurecli
 az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-结果采用 JSON 格式。 记下 administratorLogin 和 fullyQualifiedDomainName。
+结果采用 JSON 格式。 记下 administratorLogin 和 fullyQualifiedDomainName 值 。
+
 ```json
 {
   "administratorLogin": "myadmin",
@@ -117,28 +119,30 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
 }
 ```
 
-## <a name="connect-to-azure-database-for-postgresql-server-using-psql"></a>使用 psql 连接到 Azure Database for PostgreSQL 服务器
-[psql](https://www.postgresql.org/docs/current/static/app-psql.html) 为常用客户端，用于连接到 PostgreSQL 服务器。 可在本地环境中结合使用 psql 和  连接到服务器。 已使用新的 PostgreSQL 服务器创建一个空数据库“postgres”，可用于连接 psql，如下所示 
+## <a name="connect-to-the-azure-database-for-postgresql-server-by-using-psql"></a>使用 psql 连接到 Azure Database for PostgreSQL 服务器
+[psql](https://www.postgresql.org/docs/current/static/app-psql.html) 客户端是连接到 PostgreSQL 服务器的热门选择。 还可以在本地环境中使用 psql（如果可用）连接到服务器。 将使用新的 PostgreSQL 服务器自动创建空数据库 postgres。 可以使用该数据库与 psql 连接，如下面的代码所示。 
 
    ```bash
    psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
-   > [!TIP]
-   > 如果更喜欢使用 URL 路径连接到 Postgres，则 URL 会使用 `%40` 对用户名中的 @ 符号进行编码。 例如，psql 的连接字符串将是：
-   > ```
-   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.chinacloudapi.cn:5432/postgres
-   > ```
+> [!TIP]
+> 如果更喜欢使用 URL 路径连接到 Postgres，则 URL 会使用 `%40` 对用户名中的 @ 符号进行编码。 例如，psql 的连接字符串将是：
+>
+> ```
+> psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.chinacloudapi.cn:5432/postgres
+> ```
 
 
 ## <a name="clean-up-resources"></a>清理资源
-如果不需要将这些资源用于其他快速入门/教程，则可通过运行以下命令将其删除： 
+如果不需要将这些资源用于其他快速入门或教程，则可通过运行以下命令将其删除。 
 
 ```azurecli
 az group delete --name myresourcegroup
 ```
 
 若要删除新创建的服务器，可运行 [az postgres server delete](/cli/postgres/server) 命令。
+
 ```azurecli
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```

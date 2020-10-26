@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: bd6aaccc50051d7ae028669bfb2c5d8356e948bf
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 3ca101dd591921e9b74e95c659bb6235ab1ac90b
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021645"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118314"
 ---
 # <a name="score-vowpal-wabbit-model"></a>对 Vowpal Wabbit 模型评分
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“Vowpal Wabbit 评分模型”模块，借助经过训练的现有 Vowpal Wabbit 模型为一组输入数据生成分数。  
+本文介绍如何使用 Azure 机器学习设计器中的“对 Vowpal Wabbit 模型评分”模块，借助经过训练的现有 Vowpal Wabbit 模型为一组输入数据生成分数。  
 
 本模块提供 Vowpal Wabbit 框架的最新版本 - 版本 8.8.1。 使用此模块，借助以 VW 版本 8 格式保存的经过训练的模型对数据进行评分。  
 

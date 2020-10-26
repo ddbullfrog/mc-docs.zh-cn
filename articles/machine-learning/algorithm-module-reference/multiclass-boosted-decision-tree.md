@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: zhanxia
 ms.date: 02/19/2020
-ms.openlocfilehash: 2d1bcbcb762666e5dce3ad5712182358476db1f6
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 67bf6ad12ba5f5a1f2a65b9771517a194f471907
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097480"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118448"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>多类提升决策树
 
-本文介绍 Azure 机器学习设计器（预览版）中的模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块，可以根据提升决策树算法创建机器学习模型。
 

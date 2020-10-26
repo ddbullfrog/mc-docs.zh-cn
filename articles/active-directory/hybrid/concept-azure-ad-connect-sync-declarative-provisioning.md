@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/13/2017
-ms.date: 02/13/2019
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 7be1e3fd912fcfdf311431a82ed67be93a883f2e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcc6f63aea0b0fea7f90c38ce2e1300ccd9c6016
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63824703"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041549"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 同步：了解声明性预配
 本主题介绍 Azure AD Connect 中的配置模型。 该模型称为声明性预配，让用户能够轻松地更改配置。 本主题介绍的许多内容都是高级内容，在大部分客户方案中并非必要。
@@ -29,22 +29,22 @@ ms.locfileid: "63824703"
 ## <a name="overview"></a>概述
 声明性预配处理源连接目录传入的对象，并确定如何将对象和属性从源转换到目标。 对象在同步管道中进行处理，入站和出站规则的管道相同。 入站规则是从连接器空间到 metaverse，而出站规则是从 metaverse 到连接器空间。
 
-![同步管道](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
+![显示同步管道示例的示意图。](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
 
 管道有多个不同的模块。 每个模块负责对象同步中的一个概念。
 
-![同步管道](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
+![显示管道中的模块的示意图。](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
 
-- 源：源对象
-- [范围](#scope)：查找范围内的所有同步规则
-- [联接](#join)：确定连接器空间与 metaverse 之间的关系
-- 转换：计算属性应如何转换和流动
-- [优先级](#precedence)：解决冲突的属性提供问题
-- 目标：目标对象
+* 源：源对象
+* [范围](#scope)：查找范围内的所有同步规则
+* [联接](#join)：确定连接器空间与 metaverse 之间的关系
+* 转换：计算属性应如何转换和流动
+* [优先级](#precedence)：解决冲突的属性提供问题
+* 目标：目标对象
 
 ## <a name="scope"></a>范围
 范围模块会计算对象，并确定在范围内且应纳入处理的规则。 根据对象的属性值，不同同步规则的计算结果都是在范围内。 例如，没有 Exchange 邮箱的已禁用用户拥有与具有邮箱的已启用用户不同的规则。  
-![范围](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![显示对象的范围模块的示意图。](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 范围可定义为组和子句。 子句位于组内。 逻辑 AND 用于组中的所有子句之间。 例如，(department =IT AND country = Denmark)。 逻辑 OR 用于组之间。
 
@@ -78,7 +78,7 @@ ms.locfileid: "63824703"
 此图中的联接会从上到下进行处理。 同步管道首先查看是否有 employeeID 的匹配项。 如果没有，第二个规则会查看是否可以使用帐户名来将对象联接在一起。 如果也不是匹配项，则第三个（最后一个）规则会使用用户名查找更模糊的匹配项。
 
 如果已对所有联接规则进行计算，但没有完全相符的匹配项，则会使用“说明”页上的“链接类型”。   如果此选项设置为“预配”，则会在目标中创建新对象。   
-![预配或联接](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
+![屏幕截图，显示“链接类型”下拉菜单已打开。](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
 
 一个对象应该只有一个同步规则具有在范围内的联接规则。 如果有多个同步规则定义了联接，那么会出错。 优先级不用于解决联接冲突。 对象必须具有在范围内的联接规则，属性才能以相同的入站/出站方向流动。 如果需要让属性以入站和出站方式流动到同一对象，则联接必须具有入站和出站同步规则。
 
@@ -101,7 +101,7 @@ ms.locfileid: "63824703"
 ### <a name="merging-attribute-values"></a>合并属性值
 在属性流中，有一个设置可用于确定是否应从多个不同的连接器合并多值属性。 默认值为“Update”  ，表示应采用具有最高优先级的同步规则。
 
-![合并类型](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
+![此屏幕截图显示了“添加转换”部分，其中的“合并类型”下拉菜单已打开。](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
 此外，还有“Merge”  和“MergeCaseInsensitive”。  这些选项让用户能够合并来自不同源的值。 例如，它可用于合并来自多个不同林的成员或 proxyAddresses 属性。 使用此选项时，对象范围内的所有同步规则都必须使用相同的合并类型。 不能定义从一个连接器“Update”，从另一个连接器“Merge”。   如果尝试此操作，将收到错误。
 
@@ -146,24 +146,23 @@ ms.locfileid: "63824703"
 
 ### <a name="multiple-objects-from-the-same-connector-space"></a>相同连接器空间中的多个对象
 如果在联接到同一 metaverse 对象的同一连接器空间中有多个对象，则必须调整优先级。 如果多个对象都在同一同步规则的范围内，则同步引擎无法确定优先级。 应该向 metaverse 提供值的源对象不明确。 即使源中的属性具有相同的值，此配置仍会报告为不明确。  
-![多个对象联接到同一 mv 对象](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
+![此图显示了多个对象联接到同一 mv 对象，并带有一个透明的红色 X 覆盖层。 ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
 
 对于此方案，需要更改同步规则的范围，让源对象在范围内具有不同的同步规则。 这样可以定义不同的优先级。  
 ![多个对象联接到同一 mv 对象](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  
 
 ## <a name="next-steps"></a>后续步骤
-- 在 [Understanding Declarative Provisioning Expressions](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)（了解声明性预配表达式）中了解有关表达式语言的详细信息。
-- 在 [Understanding the default configuration](concept-azure-ad-connect-sync-default-configuration.md)（了解默认配置）中了解如何现成地使用声明式预配。
-- 在 [How to make a change to the default configuration](how-to-connect-sync-change-the-configuration.md)（如何对默认配置进行更改）中了解如何使用声明性预配进行实际更改。
-- 如需了解用户和联系人如何协同工作，请继续阅读[了解用户和联系人](concept-azure-ad-connect-sync-user-and-contacts.md)。
+* 在 [Understanding Declarative Provisioning Expressions](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)（了解声明性预配表达式）中了解有关表达式语言的详细信息。
+* 在 [Understanding the default configuration](concept-azure-ad-connect-sync-default-configuration.md)（了解默认配置）中了解如何现成地使用声明式预配。
+* 在 [How to make a change to the default configuration](how-to-connect-sync-change-the-configuration.md)（如何对默认配置进行更改）中了解如何使用声明性预配进行实际更改。
+* 如需了解用户和联系人如何协同工作，请继续阅读[了解用户和联系人](concept-azure-ad-connect-sync-user-and-contacts.md)。
 
 **概述主题**
 
-- [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
-- [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
+* [Azure AD Connect 同步：理解和自定义同步](how-to-connect-sync-whatis.md)
+* [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)
 
 **参考主题**
 
-- [Azure AD Connect 同步：函数参考](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect 同步：函数参考](reference-connect-sync-functions-reference.md)
 
-<!-- Update_Description: link update -->

@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: v-yiso
-origin.date: 10/22/2019
-ms.date: 03/09/2020
-ms.openlocfilehash: 05e3a276deb1bea11a33ad117307593fa79c42a7
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+origin.date: 04/22/2020
+ms.date: 10/26/2020
+ms.openlocfilehash: e426869d93b79c5eb1259d85290e0b0d5d53efce
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097380"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118455"
 ---
 # <a name="decision-forest-regression-module"></a>“决策林回归”模块
 
-本文介绍了 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块，可以基于决策树的集成创建回归模型。
 

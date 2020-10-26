@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 06/08/2018
 ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 7122c7a50792d3f41311baad5e33d033a4586feb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 328c1708baad84a8bb010adbc342f654d52b83bd
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884015"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127646"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>使用 Azure DNS 和流量管理器进行灾难恢复
 
@@ -89,7 +89,7 @@ DNS 是转移网络流量的最高效机制之一，因为 DNS 通常是全局�
 
 ### <a name="step-2-create-dns-zone-records"></a>第 2 步：创建 DNS 区域记录
 
-在此区域内，创建三条记录（例如，www\.contoso.com、prod.contoso.com 和 dr.consoto.com），如下所示。
+在此区域内，创建三条记录（例如 www\.contoso.com、prod.contoso.com 和 dr.contoso.com），如下所示。
 
 ![创建 DNS 区域记录](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 

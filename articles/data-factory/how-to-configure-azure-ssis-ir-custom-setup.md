@@ -11,14 +11,14 @@ ms.author: v-jay
 manager: digimobile
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-origin.date: 08/11/2020
-ms.date: 09/21/2020
-ms.openlocfilehash: 0d5a0fc96bb23adb5bf0a17e503bfc59bb518a20
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+origin.date: 09/15/2020
+ms.date: 10/17/2020
+ms.openlocfilehash: 3987522b9fc8f63a065482ef69d75fb3043986ae
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524053"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121703"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>自定义 Azure-SSIS Integration Runtime 的安装
 
@@ -41,7 +41,7 @@ ms.locfileid: "90524053"
 
 以下限制仅适用于标准自定义安装：
 
-- 若要在脚本中使用 *gacutil.exe* 将程序集安装到全局程序集缓存 (GAC)，需要在自定义安装过程中提供 *gacutil.exe*。 或者，可以使用稍后在“说明”部分所述的“公共预览版”容器中提供的副本。
+- 若要在脚本中使用 *gacutil.exe* 将程序集安装到全局程序集缓存 (GAC)，需要在自定义安装过程中提供 *gacutil.exe*。 或者可使用“公共预览版”容器的“示例”文件夹中提供的副本，请参阅下面的“标准自定义安装示例”部分 。
 
 - 若要在脚本中引用某个子文件夹，请注意 *msiexec.exe* 不支持使用 `.\` 表示法引用根文件夹。 请使用类似 `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` 的命令，而不要使用 `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`。
 

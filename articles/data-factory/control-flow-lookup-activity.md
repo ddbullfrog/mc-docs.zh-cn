@@ -10,14 +10,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 09/09/2018
-ms.date: 09/21/2020
-ms.openlocfilehash: 8b1a535ac65328c4b7fb40eee4a4cac3e1acb693
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+origin.date: 09/23/2020
+ms.date: 10/19/2020
+ms.openlocfilehash: cddde0b89dc80bc48483983dc61d081e4092a4b0
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523783"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121728"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure 数据工厂中的查找活动
 
@@ -32,7 +32,7 @@ ms.locfileid: "90523783"
 
 查找活动支持以下数据源。 
 
-查找活动最多可以返回 5000 行；如果结果集包含的记录超过此范围，将返回前 5000 行。 查找活动的输出最大支持 2 MB，如果大小超过此限制，则活动将失败。 目前，查找活动在超时前的最长持续时间为 1 小时。
+查找活动最多可以返回 5000 行；如果结果集包含的记录超过此范围，将返回前 5000 行。 “查找”活动的输出最多支持 4 MB 左右。如果大小超过此限制，则活动会失败。 目前，查找活动在超时前的最长持续时间为 1 小时。
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 

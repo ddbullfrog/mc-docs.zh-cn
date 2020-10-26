@@ -1,9 +1,9 @@
 ---
 title: 身份验证 - Microsoft Threat Modeling Tool - Azure | Azure 文档
-description: 针对威胁建模工具中暴露的威胁采取的缓解措施
+description: 在 Threat Modeling Tool 中了解有关身份验证缓解的信息。 请参阅缓解措施信息并查看代码示例。
 services: security
 documentationcenter: na
-author: jegeib
+author: Johnnytechn
 manager: jegeib
 editor: jegeib
 ms.assetid: na
@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: v-tawe
-ms.custom: has-adal-ref
+ms.date: 10/12/2020
+ms.author: v-johya
+ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
 origin.date: 02/07/2017
-ms.openlocfilehash: bb9c2e62ee87d6489da25804715d84f3630579cb
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 6615c66509e5b867fc925d5f114fc8eaa943fa59
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439571"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128152"
 ---
 # <a name="security-frame-authentication--mitigations"></a>安全框架：身份验证 | 缓解措施
 
-| 产品/服务 | 文章 |
+| 产品/服务 | 项目 |
 | --------------- | ------- |
 | **Web 应用程序**    | <ul><li>[考虑使用标准身份验证机制向 Web 应用程序进行身份验证](#standard-authn-web-app)</li><li>[应用程序必须安全处理失败的身份验证方案](#handle-failed-authn)</li><li>[启用升级或自适应的身份验证](#step-up-adaptive-authn)</li><li>[确保适当锁定管理界面](#admin-interface-lockdown)</li><li>[安全实施忘记密码功能](#forgot-pword-fxn)</li><li>[确保实施密码和帐户策略](#pword-account-policy)</li><li>[实施控制来防止用户名枚举](#controls-username-enum)</li></ul> |
 | **Database** | <ul><li>[尽可能使用 Windows 身份验证连接到 SQL Server](#win-authn-sql)</li><li>[尽可能使用 Azure Active Directory 身份验证连接到 SQL 数据库](#aad-authn-sql)</li><li>[使用 SQL 身份验证模式时，确保对 SQL Server 实施帐户和密码策略](#authn-account-pword)</li><li>[不要在包含的数据库中使用 SQL 身份验证](#autn-contained-db)</li></ul> |
@@ -582,3 +582,4 @@ await deviceClient.SendEventAsync(message);
 | **属性**              | 空值 |
 | **参考**              | [共享访问签名，第 1 部分：了解 SAS 模型](/storage/common/storage-sas-overview)，[共享访问签名，第 2 部分：通过 Blob 存储创建和使用 SAS](/storage/common/storage-sas-overview)，[如何使用共享访问签名和存储访问策略来委派对帐户中对象的访问权限](/storage/blobs/security-recommendations#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
 | **步骤** | <p>使用共享访问签名 (SAS) 是将对存储帐户中对象的受限访问权限授予其他客户端且不必公开帐户访问密钥的一种高度有效的方法。 SAS 是在其查询参数中包含对存储资源进行验证了身份的访问所需的所有信息的 URI。 要使用 SAS 访问存储资源，客户端只需将 SAS 传入到相应的构造函数或方法。</p><p>需要将存储帐户中资源的访问权限提供给不能使用帐户密钥进行信任的客户端时，可以使用 SAS。 存储帐户密钥包括主密钥和辅助密钥，这两种密钥都授予对帐户以及其中所有资源的管理访问权限。 公开这两种帐户密钥的任何一种都会向可能的恶意或负面使用开放帐户。 共享访问签名提供一种安全的方法，允许其他客户端根据你授予的权限读取、写入和删除存储帐户中的数据，而无需帐户密钥。</p><p>如果每次都有一组类似的逻辑参数，使用存储访问策略 (SAP) 是个不错的想法。 由于使用派生自存储访问策略的 SAS 可以立即撤销该 SAS，因此建议的最佳做法是尽可能使用存储访问策略。</p>|
+

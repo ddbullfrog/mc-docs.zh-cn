@@ -4,15 +4,15 @@ description: 了解托管标识在 Azure SignalR 服务中的工作原理，以�
 author: chenyl
 ms.service: signalr
 ms.topic: article
-origin.date: 06/8/2020
-ms.date: 08/21/2020
+origin.date: 06/08/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: 0d3c3af2037c27ae34dfd718a59c26a5719881eb
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 7e3bac3616574f761cd9ac37aed1a673be5b1ee2
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715634"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170807"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Azure SignalR 服务的托管标识
 
@@ -47,7 +47,7 @@ ms.locfileid: "88715634"
 
 5. 搜索之前创建的标识并选择它。 选择“添加”  。
 
-    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="在门户中添加用户分配的标识":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="在门户中添加系统分配的标识":::
 
 ## <a name="use-a-managed-identity-in-serverless-scenarios"></a>在无服务器方案中使用托管标识
 
@@ -63,20 +63,20 @@ Azure SignalR 服务是一种完全托管的服务，因此你不能使用托管
     - 空
     - 服务主体的应用程序（客户端）ID
     - 服务主体的应用程序 ID URI
-    - [Azure 服务的资源 ID](https://docs.azure.cn/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
+    - [Azure 服务的资源 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
-    > 如果你在服务中亲自验证访问令牌，则可选择任何一种资源格式。 只需要确保“身份验证”设置中的“资源”值与验证一致即可。 如果对数据平面使用基于角色的访问控制 (RBAC)，则必须使用服务提供商请求的资源。
+    > 如果你在服务中亲自验证访问令牌，则可选择任何一种资源格式。 只需要确保“身份验证”设置中的“资源”值与验证一致即可。 如果对数据平面使用 Azure 基于角色的访问控制 (Azure RBAC)，则必须使用服务提供商请求的资源。
 
 ### <a name="validate-access-tokens"></a>验证访问令牌
 
-`Authorization` 标头中的令牌是 [Microsoft 标识平台访问令牌](https://docs.azure.cn/active-directory/develop/access-tokens#validating-tokens)。
+`Authorization` 标头中的令牌是 [Microsoft 标识平台访问令牌](../active-directory/develop/access-tokens.md#validating-tokens)。
 
 若要验证访问令牌，你的应用还应当验证受众和签名令牌。 这些需要根据 OpenID 发现文档中的值进行验证。 有关示例，请参阅[文档的独立于租户的版本](https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration)。
 
-Azure Active Directory (Azure AD) 中间件具有用于验证访问令牌的内置功能。 你可以浏览我们的[示例](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)来查找所选语言的示例。
+Azure Active Directory (Azure AD) 中间件具有用于验证访问令牌的内置功能。 你可以浏览我们的[示例](../active-directory/develop/sample-v2-code.md)来查找所选语言的示例。
 
-我们提供了库和代码示例，用以演示如何轻松处理令牌验证。 还有多个可用于 JSON Web 令牌 (JWT) 验证的开源合作伙伴库。 几乎针对每种平台和语言都提供了至少一个选项。 有关 Azure AD 身份验证库和代码示例的详细信息，请参阅 [Microsoft 标识平台身份验证库](https://docs.azure.cn/active-directory/develop/reference-v2-libraries)。
+我们提供了库和代码示例，用以演示如何轻松处理令牌验证。 还有多个可用于 JSON Web 令牌 (JWT) 验证的开源合作伙伴库。 几乎针对每种平台和语言都提供了至少一个选项。 有关 Azure AD 身份验证库和代码示例的详细信息，请参阅 [Microsoft 标识平台身份验证库](../active-directory/develop/reference-v2-libraries.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

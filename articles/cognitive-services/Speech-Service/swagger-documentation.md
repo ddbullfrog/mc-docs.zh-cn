@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
 origin.date: 07/05/2019
-ms.date: 03/16/2020
+ms.date: 10/16/2020
 ms.author: v-tawe
-ms.openlocfilehash: 3837c4fd957d3a820fdb631afb90a60a24348990
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 38c88cf5941c8d4e02d7cf9eb3eb107379e67cf4
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80151507"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128020"
 ---
 # <a name="swagger-documentation"></a>Swagger 文档
 
@@ -31,11 +31,17 @@ ms.locfileid: "80151507"
 
 你需要将 Swagger 设置为与语音服务订阅相同的区域。 可在 Azure 门户中的语音服务资源下确认区域。 有关受支持区域的完整列表，请参阅[区域](regions.md)。
 
-1. 转到 https://editor.swagger.io
-2. 单击“文件”，然后单击“导入”  
-3. 输入 Swagger URL，包括语音服务订阅的区域 `https://<your-region>.cris.azure.cn/docs/v2.0/swagger`
-4.  单击“生成客户端”，然后选择 Python
-5. 保存客户端库
+1. 在浏览器中，转到你所在区域的 Swagger 规范：  
+       `https://<your-region>.dev.cognitive.azure.cn/docs/services/speech-to-text-api-v3-0`
+1. 在该页上，单击“API 定义”，然后单击“Swagger” 。 复制显示的页的 URL。
+1. 在新浏览器中，转到 https://editor.swagger.io
+1. 依次单击“文件”、“导入 URL”，然后粘贴该 URL，再单击“确定”  。
+1. 单击“生成客户端”，然后选择“Python” 。 客户端库会以 `.zip` 文件格式下载到你的计算机中。
+1. 提取下载的全部内容。 可使用 `tar -xf` 提取全部内容。
+1. 将提取的模块安装到 Python 环境：  
+       `pip install path/to/package/python-client`
+1. 将安装的包命名为 `swagger_client`。 检查安装是否正常：  
+       `python -c "import swagger_client"`
 
 可以使用通过 [GitHub 上的语音服务示例](https://github.com/Azure-Samples/cognitive-services-speech-sdk)生成的 Python 库。
 
@@ -48,4 +54,4 @@ ms.locfileid: "80151507"
 ## <a name="next-steps"></a>后续步骤
 
 * [GitHub 上的语音服务示例](https://github.com/Azure-Samples/cognitive-services-speech-sdk)。
-* [获取语音服务订阅密钥以进行试用](get-started.md)
+* [免费获取语音服务订阅密钥](overview.md#try-the-speech-service-for-free)

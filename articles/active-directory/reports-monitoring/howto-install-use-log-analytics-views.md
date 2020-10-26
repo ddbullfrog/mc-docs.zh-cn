@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c71969e4e218070037a4601ae3297a782cc7c351
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 811539fa1eb95748431b01edcbc637335eeb0beb
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245226"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041520"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>安装和使用用于 Azure Active Directory 的日志分析视图
 
@@ -56,7 +56,7 @@ Azure Active Directory 日志分析视图可以帮助你分析和搜索 Azure AD
 
 3. 选择其中一个视图，跳转到各个报表。 此外，还可以设置有关任何报表参数的警报。 例如，针对每次登录错误设置警报。 若要执行此操作，首先选择“登录事件”视图，选择“随着时间推移发生的登录错误”报表，然后选择“分析”，打开详细信息页面，其中包含报表中的实际查询************。 
 
-    ![详细信息](./media/howto-install-use-log-analytics-views/details.png)
+    ![屏幕截图显示了“分析详细信息”页，其中包含报表查询。](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. 选择“设置警报”，然后选择“警报条件”部分下的“每当自定义日志搜索为逻辑未定义”&lt;&gt;************。 由于我们希望在每当发生登录错误时发出警报，因此将默认警报逻辑的阈值设置为 1 并选择“完成”************。 

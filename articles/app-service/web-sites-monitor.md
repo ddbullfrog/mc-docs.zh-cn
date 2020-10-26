@@ -5,18 +5,18 @@ author: btardif
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
 origin.date: 04/23/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 6f3cb39bae512568d8f0d195fa8d390ba256d482
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 39bd6dd578219e0ef0d213a4b01971602c4ea44e
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228266"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170707"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>监视 Azure 应用服务中的应用
-[Azure 应用服务](overview.md)针对 [Azure 门户](https://portal.azure.cn)中的 Web 应用、移动和 API 应用提供内置监视功能。
+[Azure 应用服务](./overview.md)针对 [Azure 门户](https://portal.azure.cn)中的 Web 应用、移动和 API 应用提供内置监视功能。
 
 在 Azure 门户中，可以查看应用和应用服务计划的配额和指标，并设置警报和基于规则的自动缩放指标。   
 
@@ -59,7 +59,7 @@ ms.locfileid: "88228266"
 ## <a name="understand-metrics"></a>了解指标
 
 > [!NOTE]
-> “文件系统使用情况”是一个要在全球范围内推出的新指标，除非你被授予访问个人预览版的权限，否则你不会获得数据。
+> “文件系统使用情况”是一个要在全球范围内推出的新指标，除非你的应用托管在应用服务环境中，否则你不会获得数据。
 > 
 
 > [!IMPORTANT]
@@ -153,14 +153,14 @@ ms.locfileid: "88228266"
 
 单击其中任何图表会转到指标视图，可以在该视图中创建自定义图表、查询不同的指标，等等。 
 
-若要详细了解指标，请参阅[监视服务指标](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
+若要详细了解指标，请参阅[监视服务指标](../azure-monitor/platform/data-platform.md)。
 
 ## <a name="alerts-and-autoscale"></a>警报和自动缩放
-可将应用或应用服务计划的指标挂接到警报。 有关详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。
+可将应用或应用服务计划的指标挂接到警报。 有关详细信息，请参阅[接收警报通知](../azure-monitor/platform/alerts-classic-portal.md)。
 
 托管在“基本”或更高级别应用服务计划中的应用服务应用支持自动缩放。 使用自动缩放可以配置用于监视应用服务计划指标的规则。 规则可以增加或减少实例计数，并根据需要提供更多的资源。 规则还有助于避免过度预配应用，从而节省资金。
 
-有关自动缩放的详细信息，请参阅[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)以及[有关 Azure Monitor 自动缩放的最佳做法](../azure-monitor/platform/autoscale-best-practices.md)。
+有关自动缩放的详细信息，请参阅[如何缩放](../azure-monitor/platform/autoscale-get-started.md)以及[有关 Azure Monitor 自动缩放的最佳做法](../azure-monitor/platform/autoscale-best-practices.md)。
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

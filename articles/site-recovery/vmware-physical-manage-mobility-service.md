@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 03/25/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2d4ab275f3e558c34672eb5577c7a7d7cc6c4f5b
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 5b5545df072d8d90a9513b0fb3880dd108d58a03
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655402"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127690"
 ---
 # <a name="manage-the-mobility-agent"></a>管理移动代理 
 
@@ -29,15 +29,17 @@ ms.locfileid: "89655402"
 ## <a name="update-mobility-service-from-azure-portal"></a>从 Azure 门户更新移动服务
 
 1. 开始在受保护的计算机上更新移动服务之前，请确保部署中的配置服务器、横向扩展进程服务器及所有主目标服务器均已更新。
-    1. 从 [9.36 版本](https://support.microsoft.com/help/4578241/)开始，对于 SUSE Linux Enterprise Server 11 SP4，确保最新的安装程序[在配置服务器和横向扩展进程服务器上可用](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server)。
+    1. 从 9.36 版开始，对于 SUSE Linux Enterprise Server 11 SP3，请确保最新的安装程序[在配置服务器和横向扩展进程服务器上可用](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server)。
 1. 在门户中打开保管库 >“复制的项”。 
 1. 如果配置服务器是最新版本，则会看到一条通知，指出“新的 Site Recovery 复制代理更新已可用。 单击可安装。”
+
+    <!--Not Available on  RHEL 5, CentOS 5, Debian 7-->
 
     :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="“复制的项”窗口":::
 
 4. 单击该通知，并在“代理更新”中选择要在其上升级移动服务的计算机。   。
 
-    :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="“复制的项”VM 列表":::
+    :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="“复制的项”窗口":::
 
 5. 将为所选的每台计算机启动“更新移动服务”作业。 移动代理已更新到配置服务器的版本。 例如，如果配置服务器为版本 9.33，则受保护的 VM 上的移动代理也会更新为 9.33 版本。
 
@@ -57,8 +59,8 @@ Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Acco
 
 2. 根据服务器的操作系统[找到代理安装程序](vmware-physical-mobility-service-overview.md#locate-installer-files)。
 
-> [!IMPORTANT]
-> 如果要在不同的 Azure 区域之间复制 Azure IaaS VM，请不要使用此方法。 
+    > [!IMPORTANT]
+    > 如果要在不同的 Azure 区域之间复制 Azure IaaS VM，请不要使用此方法。 
     
     <!--Not Available on [our guidance](azure-to-azure-autoupdate.md)-->
 

@@ -1,6 +1,6 @@
 ---
 title: 排查文件系统错误导致的 Linux VM 启动问题 | Azure
-description: 解释 Linux VM 为何无法启动，以及如何解决此问题。
+description: 了解如何排查文件系统错误导致的 Linux VM 启动问题
 services: virtual-machines-linux
 documentationcenter: ''
 manager: dcscontentpm
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 10/09/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
-ms.testdate: 08/31/2020
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 755b21a0556a8c373de4805794c9925d076a549e
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 0a16d76568e62a1e3e7c1b85b7a0293630fd4a7c
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456866"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127939"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>排查文件系统错误导致的 Linux VM 启动问题
 
@@ -80,7 +80,8 @@ Linux 提供了多个文件系统检查程序。 Azure 中最常见的发行版�
 
 若要解决此问题，请参阅本文的[脱机修复 VM](#repair-the-vm-offline) 部分。
 
-<!--Not Available on boot the VM into emergency mode by using the [serial console](/virtual-machines/troubleshooting/serial-console-linux) and use that tool to repair the file system. If the serial console is not enabled on your VM or doesn't work, -->
+<!--Not Available on [serial console](/virtual-machines/troubleshooting/serial-console-linux)-->
+<!--Not Available on boot the VM into emergency mode by using the serial console and use that tool to repair the file system. If the serial console is not enabled on your VM or doesn't work, -->
 <!--Not Available on ## Use the serial console-->
 
 

@@ -1,18 +1,20 @@
 ---
 title: 使用 Azure Cosmos DB 中的 JSON
 description: 了解如何查询和访问嵌套的 JSON 属性并在 Azure Cosmos DB 中使用特殊字符
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/19/2020
-ms.date: 07/06/2020
+origin.date: 09/19/2020
+author: rockboyfor
+ms.date: 10/19/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a9fba79a7a5d15fd8fceae266f7f82a76e85270b
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: 4e347024180a21b18afbda2c6e3ca149a2700a8c
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323391"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117926"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的 JSON
 
@@ -26,7 +28,7 @@ ms.locfileid: "85323391"
 - JSON 属性名称区分大小写
 - JSON 属性名称可以是任何字符串值（包括空格或不是字母的字符）
 
-## <a name="nested-properties"></a>嵌套属性
+## <a name="nested-properties"></a><a name="nested-properties"></a>嵌套属性
 
 可以使用 Dot 访问器访问嵌套的 JSON。 可以在查询中使用嵌套的 JSON 属性，其方式与使用任何其他属性的方式相同。
 
@@ -140,6 +142,34 @@ WHERE EXISTS(
 )
 ```
 
+## <a name="difference-between-null-and-undefined"></a>Null 和未定义之间的区别
+
+如果一个属性没有在项中定义，那么它的值为 `undefined`。 值为 `null` 的属性必须显式定义并分配 `null` 值。
+
+例如，假设有以下示例项：
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "address": {
+      "state": "WA",
+      "county": "King",
+      "city": "Seattle"
+      },
+  "creationDate": null
+}
+```
+
+在该示例中，属性 `isRegistered` 的值为 `undefined`，因为它在项中已省略。 属性 `creationDate` 具有 `null` 值。
+
+Azure Cosmos DB 支持 `null` 和 `undefined` 属性的两个有用的类型检查系统函数：
+
+* [IS_NULL](sql-query-is-null.md) - 检查属性值是否为 `null`
+* [IS_DEFINED](sql-query-is-defined.md) - 检查是否已定义属性值
+
+你可以了解[ 支持的运算符](sql-query-operators.md)及其对 `null` 和 `undefined` 值的行为。
+
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>JSON 中的保留关键字和特殊字符
 
 可以使用带引号的属性运算符 `[]` 访问属性。 例如，由于再也无法解析标识符“Families”，因此 `SELECT c.grade` and `SELECT c["grade"]` 是等效的。 此语法很适合用于转义包含空格和特殊字符的属性，或者其名称与 SQL 关键字或保留字相同的属性。
@@ -185,7 +215,7 @@ SELECT * FROM c WHERE c["order"].orderId = "12345"
 SELECT * FROM c WHERE c["order"]["price($)"] > 50
 ```
 
-## <a name="json-expressions"></a>JSON 表达式
+## <a name="json-expressions"></a><a name="json-expressions"></a>JSON 表达式
 
 投影也支持 JSON 表达式，如以下示例所示：
 

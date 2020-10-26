@@ -1,26 +1,27 @@
 ---
 title: 将计算机视觉容器与 Kubernetes 和 Helm 配合使用
 titleSuffix: Azure Cognitive Services
-description: 将计算机视觉容器部署到 Azure 容器实例，并在 Web 浏览器中对其进行测试。
+description: 了解如何使用 Kubernetes 和 Helm 部署计算机视觉容器。
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.author: v-tawe
+ms.date: 10/16/2020
+ms.author: v-johya
 origin.date: 04/01/2020
-ms.openlocfilehash: 4d0b9a40be9340df6db9232d14f6725d615a51c4
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.openlocfilehash: 57c16e1791078b062ddb78deea88c3fefe19fab3
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655023"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128254"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>将计算机视觉容器与 Kubernetes 和 Helm 配合使用
 
-在本地管理计算机视觉容器的一种方法是使用 Kubernetes 和 Helm。 我们将使用 Kubernetes 和 Helm 定义计算机视觉容器映像，以此创建一个 Kubernetes 包。 此包将部署到本地 Kubernetes 群集。 最后，我们将了解如何测试已部署的服务。 有关在不使用 Kubernetes 业务流程的情况下运行 Docker 容器的详细信息，请参阅[安装和运行计算机视觉容器](computer-vision-how-to-install-containers.md)。
+<!--Not available in MC: computer-vision-how-to-install-containers.md-->
+在本地管理计算机视觉容器的一种方法是使用 Kubernetes 和 Helm。 我们将使用 Kubernetes 和 Helm 定义计算机视觉容器映像，以此创建一个 Kubernetes 包。 此包将部署到本地 Kubernetes 群集。 最后，我们将了解如何测试已部署的服务。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -45,7 +46,7 @@ ms.locfileid: "84655023"
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>连接到 Kubernetes 群集
 
-主机预期有一个可用的 Kubernetes 群集。 请参阅这篇有关[部署 Kubernetes 群集](../../aks/tutorial-kubernetes-deploy-cluster.md)的教程，对如何将 Kubernetes 群集部署到主机有一个概念性的了解。
+主机预期有一个可用的 Kubernetes 群集。 请参阅这篇有关[部署 Kubernetes 群集](../../aks/tutorial-kubernetes-deploy-cluster.md)的教程，对如何将 Kubernetes 群集部署到主机有一个概念性的了解。 有关部署的详细信息，请参阅 [Kubernetes 文档](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)。
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>与 Kubernetes 群集共享 Docker 凭据
 
@@ -90,16 +91,25 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>配置用于部署的 Helm 图表值
 
-首先创建名为 read** 的文件夹，然后将以下 YAML 内容粘贴到名为 Chart.yml** 的新文件中。
+首先，创建一个名为 read 的文件夹。 然后，将以下 YAML 内容粘贴到名为 `chart.yaml` 的新文件中：
 
 ```yaml
-apiVersion: v1
+apiVersion: v2
 name: read
 version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
+dependencies:
+- name: rabbitmq
+  condition: read.image.args.rabbitmq.enabled
+  version: ^6.12.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
+- name: redis
+  condition: read.image.args.redis.enabled
+  version: ^6.0.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
 ```
 
-若要配置 Helm 图表默认值，请将以下 YAML 复制并粘贴到名为 `values.yaml` 的文件中。 请将 `# {ENDPOINT_URI}` 和 `# {API_KEY}` 注释替换为自己的值。
+若要配置 Helm 图表默认值，请将以下 YAML 复制并粘贴到名为 `values.yaml` 的文件中。 请将 `# {ENDPOINT_URI}` 和 `# {API_KEY}` 注释替换为自己的值。 如果需要，请配置 resultExpirationPeriod、Redis 和 RabbitMQ。
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -108,7 +118,7 @@ read:
   enabled: true
   image:
     name: cognitive-services-read
-    registry: containerpreview.azurecr.io/
+    registry:  containerpreview.azurecr.io/
     repository: microsoft/cognitive-services-read
     tag: latest
     pullSecret: containerpreview # Or an existing secret
@@ -116,25 +126,50 @@ read:
       eula: accept
       billing: # {ENDPOINT_URI}
       apikey: # {API_KEY}
+      
+      # Result expiration period setting. Specify when the system should clean up recognition results.
+      # For example, resultExpirationPeriod=1, the system will clear the recognition result 1hr after the process.
+      # resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.
+      resultExpirationPeriod: 1
+      
+      # Redis storage, if configured, will be used by read container to store result records.
+      # A cache is required if multiple read containers are placed behind load balancer.
+      redis:
+        enabled: false # {true/false}
+        password: password
+
+      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read containers are
+      # placed behind load balancer.
+      rabbitmq:
+        enabled: false # {true/false}
+        rabbitmq:
+          username: user
+          password: password
 ```
 
 > [!IMPORTANT]
-> 如果未提供 `billing` 和 `apikey` 值，服务将在 15 分钟后过期。 同样，由于服务不可用，验证将会失败。
+> - 如果未提供 `billing` 和 `apikey` 值，服务将在 15 分钟后过期。 同样，验证也会因服务不可用而失败。
+> 
 
 在 read** 目录下创建 templates** 文件夹。 将以下 YAML 复制并粘贴到名为 `deployment.yaml` 的文件。 `deployment.yaml` 文件将充当 Helm 模板。
 
 > 模板生成清单文件，这些文件是 Kubernetes 可以理解的 YAML 格式的资源描述。 [- Helm 图表模板指南][chart-template-guide]
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: read
+  labels:
+    app: read-deployment
 spec:
+  selector:
+    matchLabels:
+      app: read-app
   template:
     metadata:
       labels:
-        app: read-app
+        app: read-app       
     spec:
       containers:
       - name: {{.Values.read.image.name}}
@@ -148,14 +183,23 @@ spec:
           value: {{.Values.read.image.args.billing}}
         - name: apikey
           value: {{.Values.read.image.args.apikey}}
+        args:        
+        - ReadEngineConfig:ResultExpirationPeriod={{ .Values.read.image.args.resultExpirationPeriod }}
+        {{- if .Values.read.image.args.rabbitmq.enabled }}
+        - Queue:RabbitMQ:HostName={{ include "rabbitmq.hostname" . }}
+        - Queue:RabbitMQ:Username={{ .Values.read.image.args.rabbitmq.rabbitmq.username }}
+        - Queue:RabbitMQ:Password={{ .Values.read.image.args.rabbitmq.rabbitmq.password }}
+        {{- end }}      
+        {{- if .Values.read.image.args.redis.enabled }}
+        - Cache:Redis:Configuration={{ include "redis.connStr" . }}
+        {{- end }}
       imagePullSecrets:
-      - name: {{.Values.read.image.pullSecret}}
-
+      - name: {{.Values.read.image.pullSecret}}      
 --- 
 apiVersion: v1
 kind: Service
 metadata:
-  name: read
+  name: read-service
 spec:
   type: LoadBalancer
   ports:
@@ -164,6 +208,21 @@ spec:
     app: read-app
 ```
 
+还是在该模板文件夹中，将以下帮助程序函数复制粘贴到 `helpers.tpl` 中。 `helpers.tpl` 定义了一些实用函数，可帮助生成 Helm 模板。
+
+```yaml
+{{- define "rabbitmq.hostname" -}}
+{{- printf "%s-rabbitmq" .Release.Name -}}
+{{- end -}}
+
+{{- define "redis.connStr" -}}
+{{- $hostMaster := printf "%s-redis-master:6379" .Release.Name }}
+{{- $hostSlave := printf "%s-redis-slave:6379" .Release.Name -}}
+{{- $passWord := printf "password=%s" .Values.read.image.args.redis.password -}}
+{{- $connTail := "ssl=False,abortConnect=False" -}}
+{{- printf "%s,%s,%s,%s" $hostMaster $hostSlave $passWord $connTail -}}
+{{- end -}}
+```
 模板指定负载均衡器服务以及要读取的容器/映像的部署。
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes 包（Helm 图表）
@@ -239,9 +298,9 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 > [认知服务容器][cog-svcs-containers]
 
 <!-- LINKS - external -->
-[free-azure-account]: https://wd.azure.cn/pricing/1rmb-trial-full
+[free-azure-account]: https://www.azure.cn/pricing/1rmb-trial
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm
@@ -253,6 +312,6 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 [chart-template-guide]: https://helm.sh/docs/chart_template_guide
 
 <!-- LINKS - internal -->
-[vision-container-host-computer]: computer-vision-how-to-install-containers.md#the-host-computer
 [installing-helm-apps-in-aks]: ../../aks/kubernetes-helm.md
-<!-- not available-->
+[cog-svcs-containers]: ../cognitive-services-container-support.md
+

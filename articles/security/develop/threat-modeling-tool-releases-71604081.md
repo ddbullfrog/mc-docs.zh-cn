@@ -1,19 +1,19 @@
 ---
 title: Microsoft Threat Modeling Tool 版本 2019/4/9
 titleSuffix: Azure
-description: 阐述 Threat Modeling Tool 的发行说明
-author: jegeib
-ms.author: jegeib
+description: 阐述 Threat Modeling Tool 7.1.60408.1 版的发行说明。
+author: Johnnytechn
+ms.author: v-johya
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 4b35882915a2416940a6ed6b16152cc804f33aa7
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.date: 10/12/2020
+ms.openlocfilehash: 6a215cc7f4ea80cf356250f511248e7fd0c34277
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439544"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127839"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Threat Modeling Tool 更新版本 7.1.60408.1 - 2019/4/9
 
@@ -58,3 +58,4 @@ Threat Modeling Tool 的客户端版本现在会在应用程序的主屏幕上�
 ## <a name="next-steps"></a>后续步骤
 
 下载最新版本的 [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool)。
+

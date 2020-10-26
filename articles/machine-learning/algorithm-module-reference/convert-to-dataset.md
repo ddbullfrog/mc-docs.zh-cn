@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 700d6523f4309da4e433c78a28b364c48a92c73b
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: bd87d76a78a36536ed8706cb856a456404ff5e74
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395364"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118465"
 ---
 # <a name="convert-to-dataset"></a>转换为数据集
 
-本文介绍了如何使用 Azure 机器学习设计器（预览版）中的“转换为数据集”模块将管道的任何数据转换为设计器的内部格式。
+本文介绍如何使用 Azure 机器学习设计器中的“转换为数据集”模块将管道的任何数据转换为设计器的内部格式。
   
 大多数情况下，不一定非要转换。 在对数据执行任何操作时，Azure 机器学习都会将数据隐式转换为其本机数据集格式。 
 

@@ -1,9 +1,9 @@
 ---
 title: Azure 生产网络
-description: 本文提供有关 Azure 生产网络的一般说明。
+description: 了解 Azure 生产网络。 请参阅用于与网络建立连接的安全访问方法和保护机制。
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
 editor: TomSh
 origin.date: 06/28/2018
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2020
-ms.author: v-tawe
-ms.openlocfilehash: cbdae7d776d64f3bf217871ac78be21210624f95
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.date: 10/12/2020
+ms.author: v-johya
+ms.openlocfilehash: b5fffd4d1a59eef0bd8ddff1025417b95f289805
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439560"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127633"
 ---
 # <a name="the-azure-production-network"></a>Azure 生产网络
 Azure 生产网络的用户包括访问其自己的 Azure 应用程序的外部客户以及管理生产网络的 Azure 内部支持人员。 本文介绍了用于与 Azure 生产网络建立连接的安全接入方法和保护机制。
@@ -91,3 +91,4 @@ Azure 在生产网络内实现基于主机的软件防火墙。 核心 Azure 环
 - [Azure 基础结构监视](infrastructure-monitoring.md)
 - [Azure 基础结构完整性](infrastructure-integrity.md)
 - [Azure 客户数据保护](protection-customer-data.md)
+

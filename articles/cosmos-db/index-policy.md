@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/19/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2548f3f700295b8f1238e08fa638892ea7c4ea1e
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 965f1a54ee80afe3da8975b0ea18d397e5ca6567
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246685"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118545"
 ---
 <!--Verified successfully-->
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引策略
@@ -86,7 +86,7 @@ Azure Cosmos DB 支持两种索引模式：
 
 包含和排除路径时，可能会遇到以下属性：
 
-- `kind` 可以是 `range` 或 `hash`。 范围索引功能提供哈希索引的所有功能，因此我们建议使用范围索引。
+- `kind` 可以是 `range` 或 `hash`。 哈希索引支持仅限于相等筛选器。 范围索引功能提供了哈希索引的所有功能，以及高效排序、范围筛选器和系统函数。 我们始终建议你使用范围索引。
 
 - `precision` 在包含的路径的索引级别定义的一个数字。 `-1` 值表示最大精度。 我们建议始终将此值设置为 `-1`。
 

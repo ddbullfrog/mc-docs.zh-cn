@@ -1,7 +1,7 @@
 ---
 title: 拆分图像目录
 titleSuffix: Azure Machine Learning
-description: 了解如何通过已定型图像模型使用 Azure 机器学习中的“为图像模型评分”模块生成预测。
+description: 了解如何使用 Azure 机器学习设计器（预览版）中的“拆分图像目录”模块将图像目录的图像划分为两个不同的集。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ac84a5ef58c18ab48015defdef48835c6221889b
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 5e4523be5fa21d07d1ed125a0b2d2ef7136dba3e
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021643"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118044"
 ---
 # <a name="split-image-directory"></a>拆分图像目录
 
-本主题介绍如何使用 Azure 机器学习设计器（预览版）中的“拆分图像目录”模块将图像目录的图像划分为两个不同的集。
+本主题介绍如何使用 Azure 机器学习设计器中的“拆分图像目录”模块将图像目录的图像划分为两个不同的集。
 
 当需要将图像数据划分为训练集和测试集时，此模块特别有用。 
 

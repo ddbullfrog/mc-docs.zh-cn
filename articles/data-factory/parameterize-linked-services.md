@@ -6,19 +6,20 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 08/21/2020
-ms.date: 09/21/2020
+origin.date: 09/21/2020
+ms.date: 10/19/2020
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 9f248b326750f1f1e919ecf91ef49cb3e70cab48
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: d05aab5307045b6d98982e746736f52c47cd2197
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523955"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121720"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>参数化 Azure 数据工厂中的链接服务
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 现在可以参数化链接服务并在运行时传递动态值。 例如，如果要连接到同一逻辑 SQL Server 上的不同数据库，则现在可以在链接服务定义中参数化数据库名称。 这样就不需为逻辑 SQL Server 上的每个数据库创建链接服务。 也可以参数化链接服务定义中的其他属性 - 例如，用户名。
@@ -30,7 +31,8 @@ ms.locfileid: "90523955"
 
 ## <a name="supported-data-stores"></a>支持的数据存储
 
-目前，数据工厂 UI 支持以下数据存储的链接服务参数化。 对于所有其他数据存储，可以通过选择“连接”选项卡上的**代码**图标并使用 JSON 编辑器来参数化链接的服务。
+可以将任何类型的链接服务参数化。
+在 UI 上创作链接服务时，数据工厂会为以下类型的连接器提供内置参数化体验。 在“链接服务创建/编辑”边栏选项卡中，可以找到新参数的选项并添加动态内容。
 
 - Amazon Redshift
 - Azure Cosmos DB (SQL API)
@@ -42,6 +44,13 @@ ms.locfileid: "90523955"
 - SQL Server
 - 泛型 HTTP
 - 泛型 REST
+
+对于其他类型，可以通过在 UI 上编辑 JSON 来参数化链接服务：
+
+- 在“链接服务创建/编辑”边栏选项卡中 -> 展开底部的“高级”-> 选中“以 JSON 格式指定动态内容”复选框 -> 指定链接服务 JSON 有效负载。 
+- 或者，在创建没有参数化的链接服务后，转到[管理中心](author-visually.md#management-hub) ->“链接服务”-> 查找特定的链接服务 -> 单击“代码”（“{}”按钮）以编辑 JSON。 
+
+请参考 [JSON 示例](#json)来添加 ` parameters` 节，以定义参数并使用 ` @{linkedService().paraName} ` 来引用参数。
 
 ## <a name="data-factory-ui"></a>数据工厂 UI
 

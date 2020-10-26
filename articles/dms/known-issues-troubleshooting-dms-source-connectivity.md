@@ -13,12 +13,12 @@ ms.custom: seo-lt-2019
 ms.topic: article
 origin.date: 02/20/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: 08238f7a32d94c19cd926fe5a7c8a2fb4dc0e0b6
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 0f4a138d491d6853f8b418965f1634d62f55a1a1
+ms.sourcegitcommit: 7ed7a7d65ba142661f5494013451a91f045c4a73
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098390"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91990786"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>排查连接到源数据库时出现的 DMS 错误
 

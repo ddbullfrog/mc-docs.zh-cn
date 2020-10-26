@@ -1,9 +1,9 @@
 ---
 title: 审核和日志记录 - Microsoft Threat Modeling Tool - Azure | Azure Docs
-description: 针对威胁建模工具中暴露的威胁采取的缓解措施
+description: 在 Threat Modeling Tool 中了解有关审核和日志记录缓解的信息。 请参阅缓解措施信息并查看代码示例。
 services: security
 documentationcenter: na
-author: jegeib
+author: Johnnytechn
 manager: jegeib
 editor: jegeib
 ms.assetid: na
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 02/07/2017
-ms.openlocfilehash: 21738fe6201608bdcb466aeef09af7f436d01eae
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: d9fa353c69f889a808bea7e1e240af645730cdcb
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439572"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127972"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>安全框架：审核和日志记录 | 缓解措施 
 
@@ -245,3 +245,4 @@ ms.locfileid: "84439572"
 | **属性**              | 空值  |
 | **参考**              | [IoT 中心操作监视简介](https://docs.azure.cn/iot-hub/iot-hub-operations-monitoring) |
 | **步骤** | <p>规划如何通过 IoT 中心操作监视收集和存储审核数据。 启用以下监视类别：</p><ul><li>设备标识操作</li><li>设备到云的通信</li><li>云到设备的通信</li><li>连接</li><li>文件上传</li></ul>|
+

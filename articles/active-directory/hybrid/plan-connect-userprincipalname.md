@@ -4,18 +4,18 @@ description: 以下文档介绍了如何填充 UserPrincipalName 属性。
 author: billmath
 ms.subservice: hybrid
 ms.author: v-junlch
-ms.date: 06/02/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d47d246085988aa7bf4130876bac02ccecaf2f
-ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+ms.openlocfilehash: 07c2c3a142d55782450dd1ce0c595f1a147eb63e
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275601"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041610"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName 填充
 
@@ -54,7 +54,7 @@ Azure AD 使用 UPN 让用户登录。  用户可以使用的 UPN 取决于域�
 
 若要在 Azure AD 中启用备用登录 ID，可以使用 Azure AD Connect，而无需执行任何附加的配置步骤。 可以直接通过向导配置备用 ID。 请参阅“同步”部分中适用于用户的 Azure AD 登录配置。在“用户主体名称”下拉列表中，选择“备用登录 ID”对应的属性。
 
-![未验证的域](./media/plan-connect-userprincipalname/altloginid.png)  
+![突出显示“用户主体名称”列表的屏幕截图，你在其中选择了“备用登录 ID”属性。](./media/plan-connect-userprincipalname/altloginid.png)  
 
 有关详细信息，请参阅[配置备用登录 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 和 [Azure AD 登录配置](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 

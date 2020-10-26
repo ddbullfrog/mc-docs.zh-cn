@@ -10,16 +10,16 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 08/24/2020
 ms.date: 03/09/2020
-ms.openlocfilehash: 537ff3c0a83b7558bffbf7d05636dfb8905abfef
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: e6f5360c162f50f5805bc44289c11b509e215239
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021523"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118475"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>“提升决策树回归”模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块可以通过提升来创建回归树的系综。 “提升”表示每个树依赖于前面的树。 该算法通过拟合每个树前面剩余的树来进行学习。 因此，决策树系综中的提升往往会提高准确度，但在某种程度上也会带来降低覆盖面的小风险。  
 

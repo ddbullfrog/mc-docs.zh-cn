@@ -1,22 +1,22 @@
 ---
 title: 使用 Azure AD 创建和配置用于 Azure 磁盘加密的密钥保管库（以前版本）
-description: 本文提供了对 IaaS VM 使用 Azure 磁盘加密所要满足的先决条件。
+description: 本文介绍如何使用 Azure AD 为 Azure 磁盘加密创建和配置密钥保管库。
 ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: how-to
 origin.date: 03/15/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: ae1c55562b66775e8119822e78535f67054115bf
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: b3bfe7726727e3d0f236baa6015c9dd1579115a5
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463002"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128343"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>使用 Azure AD 创建和配置用于 Azure 磁盘加密的密钥保管库（以前版本）
 
@@ -64,16 +64,16 @@ Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，帮助你控制和
 4. 记下返回的“保管库名称”、“资源组名称”、“资源 ID”、“保管库 URI”和“对象 ID”，以便稍后在加密磁盘时使用。      
 
 ### <a name="create-a-key-vault-with-azure-cli"></a>使用 Azure CLI 创建密钥保管库
-可以在 Azure CLI 中使用 [az keyvault](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#commands) 命令管理 Key Vault。 若要创建 Key Vault，请使用 [az keyvault create](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create)。
+可以在 Azure CLI 中使用 [az keyvault](https://docs.azure.cn/cli/keyvault#commands) 命令管理 Key Vault。 若要创建 Key Vault，请使用 [az keyvault create](https://docs.azure.cn/cli/keyvault#az_keyvault_create)。
 
-1. 根据需要，使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建新资源组。 若要列出位置，请使用 [az account list-locations](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-list) 
+1. 根据需要，使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 创建新资源组。 若要列出位置，请使用 [az account list-locations](https://docs.azure.cn/cli/account#az_account_list) 
 
     ```azurecli
     # To list locations: az account list-locations --output table
     az group create -n "MyKeyVaultResourceGroup" -l "China East"
     ```
 
-3. 使用 [az keyvault create](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create) 创建新 Key Vault。
+3. 使用 [az keyvault create](https://docs.azure.cn/cli/keyvault#az_keyvault_create) 创建新 Key Vault。
 
     ```azurecli
     az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "China East"
@@ -107,7 +107,7 @@ Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，帮助你控制和
 
 ### <a name="set-up-an-azure-ad-app-and-service-principal-with-azure-cli"></a>使用 Azure CLI 设置 Azure AD 应用和服务主体
 
-可以在 Azure CLI 中使用 [az ad sp](https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp) 命令来管理服务主体。 有关详细信息，请参阅[创建 Azure 服务主体](https://docs.azure.cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)。
+可以在 Azure CLI 中使用 [az ad sp](https://docs.azure.cn/cli/ad/sp#az-ad-sp) 命令来管理服务主体。 有关详细信息，请参阅[创建 Azure 服务主体](https://docs.azure.cn/cli/create-an-azure-service-principal-azure-cli)。
 
 1. 创建新服务主体。
 
@@ -147,7 +147,7 @@ Azure AD 应用程序需有访问保管库中密钥或机密的权限。 使用 
      ```
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a>使用 Azure CLI 为 Azure AD 应用设置密钥保管库访问策略
-使用 [az keyvault set-policy](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 设置访问策略。 有关详细信息，请参阅[使用 CLI 2.0 管理 Key Vault](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret)。
+使用 [az keyvault set-policy](https://docs.azure.cn/cli/keyvault#az_keyvault_set_policy) 设置访问策略。 有关详细信息，请参阅[使用 CLI 2.0 管理 Key Vault](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret)。
 
 使用以下命令，为通过 Azure CLI 创建的服务主体授予获取机密和包装密钥的访问权限：
 
@@ -166,7 +166,7 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 
 :::image type="content" source="../media/disk-encryption/keyvault-portal-fig3.png" alt-text="Azure Key Vault 加密操作 - 包装密钥":::
 
-:::image type="content" source="../media/disk-encryption/keyvault-portal-fig3b.png" alt-text="Azure Key Vault 机密权限 - 设置":::
+:::image type="content" source="../media/disk-encryption/keyvault-portal-fig3b.png" alt-text="Azure Key Vault 加密操作 - 包装密钥":::
 
 ## <a name="set-key-vault-advanced-access-policies"></a>设置密钥保管库高级访问策略
 Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些密钥和机密可供 VM 用来启动和解密卷。 对 Key Vault 启用磁盘加密，否则部署将会失败。  
@@ -193,7 +193,7 @@ Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些
     ```
 
 ### <a name="set-key-vault-advanced-access-policies-using-the-azure-cli"></a>使用 Azure CLI 设置密钥保管库高级访问策略
-使用 [az keyvault update](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-update) 为 Key Vault 启用磁盘加密。 
+使用 [az keyvault update](https://docs.azure.cn/cli/keyvault#az_keyvault_update) 为 Key Vault 启用磁盘加密。 
 
 - **为磁盘加密启用 Key Vault：** 需要使用 Enabled-for-disk-encryption。 
 
@@ -218,7 +218,7 @@ Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些
 3. 根据需要选择“启用对 Azure 虚拟机的访问以进行部署”和/或“启用对 Azure 资源管理器的访问以进行模板部署”。   
 4. 单击“保存”  。
 
-:::image type="content" source="../media/disk-encryption/keyvault-portal-fig4.png" alt-text="Azure Key Vault 高级访问策略":::
+:::image type="content" source="../media/disk-encryption/keyvault-portal-fig4.png" alt-text="Azure Key Vault 加密操作 - 包装密钥":::
 
 ## <a name="set-up-a-key-encryption-key-optional"></a>设置密钥加密密钥（可选）
 若要使用密钥加密密钥 (KEK) 来为加密密钥提供附加的安全层，请将 KEK 添加到 Key Vault。 使用 [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet 在 Key Vault 中创建密钥加密密钥。 指定密钥加密密钥后，Azure 磁盘加密会使用该密钥包装加密机密，然后将机密写入 Key Vault。 
@@ -241,7 +241,7 @@ Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些
 ### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a>使用 Azure PowerShell 设置密钥加密密钥 
 在使用 PowerShell 脚本之前，应熟悉 Azure 磁盘加密必备组件，以了解脚本中的步骤。 可能需要根据环境更改示例脚本。 此脚本创建所有 Azure 磁盘加密必备组件、加密现有 IaaS VM，并使用密钥加密密钥来包装磁盘加密密钥。 
 
- ```powershell
+```powershell
  # Step 1: Create a new resource group and key vault in the same location.
      # Fill in 'MyLocation', 'MyKeyVaultResourceGroup', and 'MySecureVault' with your values.
      # Use Get-AzLocation to get available locations and use the DisplayName.

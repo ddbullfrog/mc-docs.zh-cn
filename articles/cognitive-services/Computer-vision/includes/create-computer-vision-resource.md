@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/08/2020
 ms.author: v-tawe
 origin.date: 04/01/2020
-ms.openlocfilehash: 9e695bf28d0697f276fd8d55d9899a5ab64c1f3e
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.openlocfilehash: 739b79ed743e4cf210582bb5db1672f6c30c2d56
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655022"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127737"
 ---
 ## <a name="create-an-computer-vision-resource"></a>创建计算机视觉资源
 
@@ -31,4 +31,4 @@ ms.locfileid: "84655022"
     |资源组|选择可用的资源组|
 
 1. 单击“创建”**** 并等待创建资源。 创建资源后，导航到资源页。
-1. 收集配置的 `{ENDPOINT_URI}` 和 `{API_KEY}`，请参阅[收集所需参数](../computer-vision-how-to-install-containers.md#gathering-required-parameters)获取详细信息。
+1. 收集已配置的 `{ENDPOINT_URI}` 和 `{API_KEY}`。

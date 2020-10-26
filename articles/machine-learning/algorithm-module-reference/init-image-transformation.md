@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: b72276ae15978625a6bcc5fb9c85fb740c57a514
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: 14d990c2d89e125e177ea382298e96f855d04526
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441086"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92117880"
 ---
 # <a name="init-image-transformation"></a>初始化图像转换
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“初始化图像转换”模块来初始化图像转换，以指定所需的图像转换方式。
+本文介绍如何使用 Azure 机器学习设计器中的“初始化图像转换”模块来初始化图像转换，以指定所需的图像转换方式。
 
 ## <a name="how-to-configure-init-image-transformation"></a>如何配置“初始化图像转换”
 

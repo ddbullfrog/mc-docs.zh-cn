@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
 origin.date: 07/27/2020
-ms.date: 08/13/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 01ca92103de6f6f1b647e6792c9aa56a48144771
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 3a095bf17142f0872d97de35c3050a9077891d40
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228510"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170695"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>应用服务环境的网络注意事项 #
 
@@ -162,7 +162,7 @@ ASE 具有一些需要注意的 IP 地址。 它们具有以下特点：
 * 发往端口 53 上所有 IP 的 UDP 流量
 * 发往端口 123 上所有 IP 的 UDP 流量
 * 发往端口 80、443 上所有 IP 的 TCP 流量
-* 发往端口 1433 上 IP 服务标记 AzureSQL 的 TCP 流量
+* 端口 1433 上 IP 服务标记 `Sql` 的 TCP
 * 发往端口 12000 上所有 IP 的 TCP 流量
 * 在所有端口上允许发往 ASE 子网的流量
 
@@ -245,14 +245,14 @@ When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Az
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://www.azure.cn/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ss-cert.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ASEManagement]: ./management-addresses.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [forcedtunnel]: ./forced-tunnel-support.md

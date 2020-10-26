@@ -1,18 +1,18 @@
 ---
 title: Microsoft Threat Modeling Tool 版本 2020/03/22 - Azure
-description: 阐述 Threat Modeling Tool 的发行说明
-author: jegeib
-ms.author: v-tawe
+description: 阐述 Threat Modeling Tool 7.3.00316.1 版的发行说明。
+author: Johnnytechn
+ms.author: v-johya
 ms.service: security
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 10/12/2020
 origin.date: 03/22/2020
-ms.openlocfilehash: 2b0da7bc258bf34c5c3a308cf372f0e3c98be043
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 8d4fd8df01630e12219539d6965195be97ecce59
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439610"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127969"
 ---
 # <a name="threat-modeling-tool-update-release-73003161---03222020"></a>Threat Modeling Tool 更新版 7.3.00316.1 - 2020/03/22
 
@@ -55,3 +55,4 @@ Microsoft Threat Modeling Tool (TMT) 的版本 7.3.00316.1 已于 2020 年 3 月
 ## <a name="next-steps"></a>后续步骤
 
 下载最新版本的 [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool)。
+

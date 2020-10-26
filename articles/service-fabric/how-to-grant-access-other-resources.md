@@ -4,18 +4,18 @@ description: 本文介绍如何为启用了托管标识的 Service Fabric 应用
 ms.topic: article
 origin.date: 12/09/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 01/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 47a583c803049dbe452c8a3681969b61fdaaee96
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 68ec9ab0cb947a7978db584330cc4b09c8a687ca
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655545"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127916"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>为 Service Fabric 应用程序的托管标识授予对 Azure 资源的访问权限（预览）
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>为 Service Fabric 应用程序的托管标识授予对 Azure 资源的访问权限
 
 在应用程序可以使用其托管标识访问其他资源之前，必须为该标识授予对所要访问的受保护 Azure 资源的权限。 授予权限通常是 Azure 服务的“控制平面”中执行的一项管理操作，该服务拥有通过 Azure 资源管理器路由的受保护资源。这会强制实施任何适用的基于角色的访问检查。
 
@@ -41,32 +41,32 @@ ms.locfileid: "89655545"
 ## <a name="granting-access-to-azure-key-vault"></a>授予对 Azure Key Vault 的访问权限
 与访问存储类似，可以利用 Service Fabric 应用程序的托管标识来访问 Azure Key Vault。 在 Azure 门户中授予访问权限的步骤类似于上面所列的步骤，这里不再重复。 有关差异，请参考下图。
 
-:::image type="content" source="../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png" alt-text="Key Vault 访问策略":::
+:::image type="content" source="../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png" alt-text="Key Vault 访问策略&quot;:::
 
 以下示例演示如何通过模板部署授予对保管库的访问权限；请将以下代码片段添加为模板的 `resources` 元素下的另一个条目。 此示例演示如何为用户分配的标识类型和系统分配的标识类型分别授予访问权限 - 请选择适用的一个。
 
 ```json
     # under 'variables':
-    "variables": {
-        "userAssignedIdentityResourceId" : "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
+    &quot;variables&quot;: {
+        &quot;userAssignedIdentityResourceId&quot; : &quot;[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]&quot;,
     }
     # under 'resources':
     {
-        "type": "Microsoft.KeyVault/vaults/accessPolicies",
-        "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2018-02-14",
-        "properties": {
-            "accessPolicies": [
+        &quot;type&quot;: &quot;Microsoft.KeyVault/vaults/accessPolicies&quot;,
+        &quot;name&quot;: &quot;[concat(parameters('keyVaultName'), '/add')]&quot;,
+        &quot;apiVersion&quot;: &quot;2018-02-14&quot;,
+        &quot;properties&quot;: {
+            &quot;accessPolicies&quot;: [
                 {
-                    "tenantId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]",
-                    "objectId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]",
-                    "dependsOn": [
-                        "[variables('userAssignedIdentityResourceId')]"
+                    &quot;tenantId&quot;: &quot;[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]&quot;,
+                    &quot;objectId&quot;: &quot;[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]&quot;,
+                    &quot;dependsOn&quot;: [
+                        &quot;[variables('userAssignedIdentityResourceId')]&quot;
                     ],
-                    "permissions": {
-                        "keys":         ["get", "list"],
-                        "secrets":      ["get", "list"],
-                        "certificates": ["get", "list"]
+                    &quot;permissions&quot;: {
+                        &quot;keys&quot;:         [&quot;get&quot;, &quot;list&quot;],
+                        &quot;secrets&quot;:      [&quot;get&quot;, &quot;list&quot;],
+                        &quot;certificates&quot;: [&quot;get&quot;, &quot;list&quot;]
                     }
                 }
             ]
@@ -76,32 +76,32 @@ ms.locfileid: "89655545"
 对于系统分配的托管标识：
 ```json
     # under 'variables':
-    "variables": {
-        "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/clusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
+    &quot;variables&quot;: {
+        &quot;sfAppSystemAssignedIdentityResourceId&quot;: &quot;[concat(resourceId('Microsoft.ServiceFabric/clusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]&quot;
     }
     # under 'resources':
     {
-        "type": "Microsoft.KeyVault/vaults/accessPolicies",
-        "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2018-02-14",
-        "properties": {
-            "accessPolicies": [
+        &quot;type&quot;: &quot;Microsoft.KeyVault/vaults/accessPolicies&quot;,
+        &quot;name&quot;: &quot;[concat(parameters('keyVaultName'), '/add')]&quot;,
+        &quot;apiVersion&quot;: &quot;2018-02-14&quot;,
+        &quot;properties&quot;: {
+            &quot;accessPolicies&quot;: [
             {
-                    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
-                    "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
-                    "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
-                    "dependsOn": [
-                        "[variables('sfAppSystemAssignedIdentityResourceId')]"
+                    &quot;name&quot;: &quot;[concat(parameters('clusterName'), '/', parameters('applicationName'))]&quot;,
+                    &quot;tenantId&quot;: &quot;[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]&quot;,
+                    &quot;objectId&quot;: &quot;[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]&quot;,
+                    &quot;dependsOn&quot;: [
+                        &quot;[variables('sfAppSystemAssignedIdentityResourceId')]&quot;
                     ],
-                    "permissions": {
-                        "secrets": [
-                            "get",
-                            "list"
+                    &quot;permissions&quot;: {
+                        &quot;secrets&quot;: [
+                            &quot;get&quot;,
+                            &quot;list&quot;
                         ],
-                        "certificates": 
+                        &quot;certificates&quot;: 
                         [
-                            "get", 
-                            "list"
+                            &quot;get&quot;, 
+                            &quot;list"
                         ]
                     }
             },

@@ -1,21 +1,21 @@
 ---
-title: Python
+title: 在设计器中执行 Python 脚本
 titleSuffix: Azure Machine Learning
 description: 了解如何在 Azure 机器学习设计器中使用 Python 来转换数据。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-author: peterclu
-ms.author: peterlu
-ms.date: 02/28/2020
-ms.custom: designer, tracking-python
-ms.openlocfilehash: c5fe40bb323785621830f3112052606d2cdef3d9
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+author: likebupt
+ms.author: v-yiso
+ms.date: 09/09/2020
+ms.topic: conceptual
+ms.custom: how-to, designer, devx-track-python
+ms.openlocfilehash: 00754cb21371c82fd0e45ba2edc9e81e0761b214
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228287"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118423"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>在 Azure 机器学习设计器中运行 Python 代码
 

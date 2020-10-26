@@ -8,24 +8,24 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: v-yiso
-origin.date: 10/22/2019
-ms.date: 03/09/2020
-ms.openlocfilehash: aab375a1cbdf6668327c35a8d7f5d14559d29df1
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+origin.date: 04/22/2020
+ms.date: 10/26/2020
+ms.openlocfilehash: 1cd3cd29cc41a4ff4bedfb9779171c2165371daf
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097479"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118347"
 ---
 # <a name="multiclass-decision-forest-module"></a>多类决策林模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块，可以根据决策林算法创建机器学习模型。 决策林是一种系综模型，可在从标记数据中学习的同时快速生成一系列决策树。
 
 ## <a name="more-about-decision-forests"></a>有关决策林的详细信息
 
-决策林算法是一种用于分类的系综学习方法。 该算法的工作原理是生成多个决策树，然后对最受欢迎的输出类进行投票。 投票是一种聚合形式，其中分类决策林中的每棵树都输出标签的非标准化频率直方图。 聚合过程将这些直方图求和，并对结果进行规范化以获得每个标签的“概率”。 决策树的预测置信度越高，其在系综的最终决策中所占的权重越高。
+决策林算法是一种用于分类的系综学习方法。 该算法的工作原理是生成多个决策树，然后对最受欢迎的输出类进行投票。 投票是一种聚合形式，其中分类决策林中的每棵树都输出标签的非标准化频率直方图。 聚合过程将这些直方图求和，并对结果进行标准化以获得每个标签的“概率”。 决策树的预测置信度越高，其在系综的最终决策中所占的权重越高。
 
 决策树通常是非参数模型，这意味着它们支持具有不同分布的数据。 在每棵树中，为每个类运行一系列简单测试，从而增加树结构的级别，直到达到叶节点（决策）为止。
 

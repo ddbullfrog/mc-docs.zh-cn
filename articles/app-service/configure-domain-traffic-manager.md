@@ -4,24 +4,24 @@ description: 了解如何为与流量管理器集成以实现负载均衡的 Azu
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 wacn.date: 03/05/2020
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 6ed9cc46d69f5c5dd345fe602e350cec68641254
-ms.sourcegitcommit: 981a75a78f8cf74ab5a76f9e6b0dc5978387be4b
+ms.openlocfilehash: 67dc96a93bf0feb067180964b11e30460561ffc9
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801120"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170816"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>使用流量管理器集成在 Azure 应用服务中配置自定义域名
 
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 > [!NOTE]
-> 对于云服务，请查看[为 Azure 云服务配置自定义域名](../cloud-services/cloud-services-custom-domain-name.md)。
+> 对于云服务，请查看[为 Azure 云服务配置自定义域名](../cloud-services/cloud-services-custom-domain-name-portal.md)。
 
-使用 [Azure 流量管理器](/traffic-manager/)将流量负载均衡到 [Azure 应用服务](overview.md)时，可以使用 **\<traffic-manager-endpoint>.trafficmanager.net** 来访问应用服务应用。 还可以将自定义域名（例如 www\.contoso.com）与应用服务应用相关联，为用户提供更易识别的域名。
+使用 [Azure 流量管理器](../traffic-manager/index.yml)将流量负载均衡到 [Azure 应用服务](overview.md)时，可以使用 \<traffic-manager-endpoint>.trafficmanager.net 来访问应用服务应用。 还可以将自定义域名（例如 www\.contoso.com）与应用服务应用相关联，为用户提供更易识别的域名。
 
 本文介绍如何使用与[流量管理器](../traffic-manager/traffic-manager-overview.md)集成的应用服务应用配置自定义域名。
 
@@ -57,7 +57,7 @@ ms.locfileid: "83801120"
 
 ## <a name="create-traffic-manager-endpoint"></a>创建流量管理器终结点
 
-按[添加或删除终结点](../traffic-manager/traffic-manager-endpoints.md)中的步骤操作，在流量管理器配置文件中将应用服务应用添加为终结点。
+按[添加或删除终结点](../traffic-manager/traffic-manager-manage-endpoints.md)中的步骤操作，在流量管理器配置文件中将应用服务应用添加为终结点。
 
 如果应用服务应用已处于受支持的定价层，则当你添加终结点时，它会显示在可用应用服务目标列表中。 如果应用未列出，请[验证应用的定价层](#prepare-the-app)。
 

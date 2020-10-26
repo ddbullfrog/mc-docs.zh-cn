@@ -4,16 +4,16 @@ description: Service Fabric Explorer 是一个用于检验和管理 Azure Servic
 ms.topic: conceptual
 origin.date: 01/24/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 43b09851138062a688c66f35513bd55084fdca1f
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 15293ef05bc49b7b82948bb1c0897e7b7f072afa
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655606"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127730"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric Explorer 可视化群集
 
@@ -109,7 +109,7 @@ Service Fabric Explorer 提供用于对群集中的节点、应用程序和服�
 ## <a name="event-store"></a>事件存储
 EventStore 是该平台提供的一项功能，它通过 REST API 提供可在 Service Fabric Explorer 中使用的 Service Fabric 平台事件。 可以查看群集中每个实体的动态快照视图，例如节点、服务、应用程序和基于事件时间的查询。 还可以从 [EventStore 概述](service-fabric-diagnostics-eventstore.md)了解有关 EventStore 的详细信息。   
 
-![EventStore][sfx-eventstore]
+![屏幕截图显示了“节点”窗格，其中已选中“事件”。][sfx-eventstore]
 
 >[!NOTE]
 >从 Service Fabric 版本 6.4 开始。 EventStore 在默认情况下不启用，必须在资源管理器模板中启用

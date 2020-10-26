@@ -2,24 +2,24 @@
 title: 跟踪 Team Data Science Process 项目的进度
 description: 数据科学组管理员、团队主管和项目主管如何跟踪数据科学项目的进度。
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a6d9be9506e7ac86ca798c439da8414db52a9356
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b25555ec36678a9d5861880bfaad2626808953e8
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75599205"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118131"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>跟踪数据科学项目的进度
 
-数据科学组管理员、团队主管和项目主管可以跟踪其项目的进度，例如完成了什么工作、谁完成了工作，以及剩余了什么工作。 
+数据科学组管理员、团队主管和项目主管可以跟踪其项目的进度。  管理员想要了解已完成的工作、完成该工作的人员以及剩余的工作。   对预期进行管理是成功的重要因素。
 
 ## <a name="azure-devops-dashboards"></a>Azure DevOps 仪表板
 
@@ -34,7 +34,7 @@ ms.locfileid: "75599205"
 
 下面是一个简单的示例仪表板，用于跟踪敏捷数据科学项目的冲刺活动，包括目标为关联的存储库的提交的数目。 
 
-- “倒计时”磁贴显示当前冲刺 (sprint) 中剩余的天数。  
+- “倒计时”磁贴显示当前冲刺 (sprint) 中剩余的天数。**** 
 
 - 这两个**代码磁贴**显示过去七天内两个项目存储库中的提交数。 
 
@@ -50,4 +50,4 @@ ms.locfileid: "75599205"
 
 ## <a name="next-steps"></a>后续步骤
 
-[执行 Team Data Science Process 的演练](walkthroughs.md)列出了可演示特定情况下过程中的所有步骤的演练，其中包含链接和缩略图说明。 链接的方案展示了如何将云、本地工具以及服务合并到工作流或管道中，以此创建智能应用程序。 
+[执行 Team Data Science Process 的演练](walkthroughs.md)列出了演示所有过程步骤的演练。 这些链接的方案说明了如何在智能应用程序中管理云和本地资源。 

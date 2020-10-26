@@ -5,20 +5,21 @@ description: 了解如何使用 Azure 机器学习 SDK 解释模型做出预测�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: mesameki
-author: mesameki
+ms.topic: conceptual
+ms.custom: how-to
+ms.author: mithigpe
+author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 06/30/2020
-ms.openlocfilehash: 72c9ebe5ca6f57475bbd740a72b22ff438f36b87
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.date: 07/09/2020
+ms.openlocfilehash: 785b3fa1a9dc6fdaffe2d1484c9822f1b9ce92b3
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395461"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118589"
 ---
-# <a name="model-interpretability-in-azure-machine-learning"></a>Azure 机器学习中的模型可解释性
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="model-interpretability-in-azure-machine-learning-preview"></a>Azure 机器学习（预览版）中的模型可解释性
+
 
 ## <a name="overview-of-model-interpretability"></a>模型可解释性概述
 
@@ -38,20 +39,11 @@ ms.locfileid: "91395461"
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Azure 机器学习的可解释性
 
-可通过多个 SDK 包使用可解释性类：（了解如何[安装适用于 Azure 机器学习的 SDK 包](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)）
+可通过以下 SDK 包使用可解释性类：（了解如何[安装适用于 Azure 机器学习的 SDK 包](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)）
 
-* 主包 `azureml.interpret`，包含 Microsoft 支持的功能。
+* `azureml.interpret` 包含 Microsoft 支持的功能。
 
-* `azureml.contrib.interpret`，可以尝试的预览版和试验性功能。
-
-一般使用 `pip install azureml-interpret` 和 `pip install azureml-contrib-interpret`。
-
-
-> [!IMPORTANT]
-> `contrib` 命名空间中的内容不完全受支持。 试验性功能变成熟后，会逐渐转移到主命名空间。
-上获取。
-
-
+一般使用 `pip install azureml-interpret`。
 
 ## <a name="how-to-interpret-your-model"></a>如何解释模型
 

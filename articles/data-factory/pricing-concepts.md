@@ -9,14 +9,14 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 12/27/2019
-ms.date: 05/11/2020
-ms.openlocfilehash: 0b76ce607f17a1c2c7aa72728f474f8e10b109b4
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+origin.date: 09/14/2020
+ms.date: 10/19/2020
+ms.openlocfilehash: 4c710bb7fcfff123cee8844c891f144aa7bdfebe
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198033"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121719"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>通过示例了解数据工厂定价
 
@@ -39,7 +39,7 @@ ms.locfileid: "82198033"
 
 3. 一个计划触发器，用于每隔一小时执行一次管道。
 
-   ![方案 1](media/pricing-concepts/scenario1.png)
+   ![此图显示了具有计划触发器的管道。 在此管道中，复制活动可通过流向输入数据集来流向 AWS S3 链接服务，还可以通过流向输出数据集来流向 Azure 存储链接服务。](media/pricing-concepts/scenario1.png)
 
 | **操作** | **类型和单元** |
 | --- | --- |
@@ -70,7 +70,7 @@ ms.locfileid: "82198033"
 2. 一个用于数据转换的 Azure HDInsight 活动。
 3. 一个计划触发器，用于每隔一小时执行一次管道。
 
-![方案 2](media/pricing-concepts/scenario2.png)
+![此图显示了具有计划触发器的管道。 在此管道中，复制活动会流向输入数据集、输出数据集和 DataBricks 活动（在 Azure Databricks 上运行）。 输入数据集会流向 AWS S3 链接服务。 输出数据集会流向 Azure 存储链接服务。](media/pricing-concepts/scenario2.png)
 
 | **操作** | **类型和单元** |
 | --- | --- |
@@ -104,7 +104,7 @@ ms.locfileid: "82198033"
 3. 一个用于数据转换的 Azure HDInsight 活动。
 4. 一个计划触发器，用于每隔一小时执行一次管道。
 
-![方案 3](media/pricing-concepts/scenario3.png)
+![此图显示了具有计划触发器的管道。 在此管道中，复制活动会流向输入数据集、输出数据集和查找活动（流向在 Azure Databricks 上运行的 DataBricks 活动）。 输入数据集会流向 AWS S3 链接服务。 输出数据集会流向 Azure 存储链接服务。](media/pricing-concepts/scenario3.png)
 
 | **操作** | **类型和单元** |
 | --- | --- |

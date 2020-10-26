@@ -1,9 +1,9 @@
 ---
-title: 安全 PaaS 部署的最佳做法 - Microsoft Azure
+title: 安全 PaaS 部署的最佳做法 - Azure
 description: 了解在 Azure 上设计、构建和管理安全云应用程序的最佳做法，并了解 PaaS 相对于其他云服务模型的安全优势。
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: Johnnytechn
 manager: barbkess
 editor: techlake
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/29/2020
-ms.author: v-tawe
+ms.date: 10/12/2020
+ms.author: v-johya
 origin.date: 10/28/2019
-ms.openlocfilehash: eaa35710233c53498701ebde3c2ffc8e4d3a8a75
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 23ff3627e77cf06ebdf7e75c462f5dd3e6f00da4
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439504"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127618"
 ---
 # <a name="securing-paas-deployments"></a>保护 PaaS 部署
 
@@ -46,11 +46,13 @@ ms.locfileid: "84439504"
 
 ![PaaS 的安全优势](./media/paas-deployments/advantages-of-paas.png)
 
-从堆栈的底部（即物理基础结构）开始，Microsoft 可以消除常见的风险和管理责任。 由于 Microsoft 云受到 Microsoft 的持续监视，因此很难攻破。 攻击者将 Microsoft 云当作攻击目标是不会得逞的。 他们往往会改换目标，除非他们有大量的金钱和资源。  
+从堆栈的底部（即物理基础结构）开始，Microsoft 可以消除常见的风险和管理责任。 由于 Azure 云受到 Microsoft 的持续监视，因此很难攻破。 对于攻击者而言，将 Azure 云作为目标没有任何意义。 他们往往会改换目标，除非他们有大量的金钱和资源。  
 
 在堆栈的中间，PaaS 部署与本地之间没有差别。 在应用程序层和帐户与访问管理层，面临的风险是类似的。 本文的后续步骤部分将提供有关消除或尽量避免这些风险的最佳实践指导。
 
 堆栈的顶层（即数据监管和权限管理）存在一种风险，不过可以使用密钥管理来缓解。 （最佳实践中介绍了密钥管理。）尽管密钥管理是一个附加的责任，但你不再需要管理 PaaS 部署中的某些区域，因此可将资源转移到密钥管理。
+
+Azure 平台还使用各种基于网络的技术提供强大的 DDoS 保护。 但是，根据链路和数据中心的不同，所有类型的基于网络的 DDoS 保护方法都有自身的限制。 为了帮助避免大规模 DDoS 攻击造成的影响，可以利用 Azure 的核心云功能快速自动扩展，以防御 DDoS 攻击。 在建议的实践文章中，我们将更详细地介绍如何采取这种措施。
 
 ## <a name="modernizing-the-defenders-mindset"></a>革新防御者的思维方式
 PaaS 部署为整体安全方案带来了变革。 事必躬亲的局面现在可以改为与 Microsoft 分担责任。
@@ -79,7 +81,7 @@ PaaS 与传统本地部署之间的另一个重大差别在于，前者为主要
 **详细信息**：唯一比丢失密钥和凭据更遭糕的事情是让未经授权的一方获取这些密钥和凭据的访问权限。 攻击者可以利用 bot 技术来查找 GitHub 等代码存储库中存储的密钥和机密。 请不要将密钥和机密放入这些公共代码存储库。
 
 **最佳做法**：通过使用可以直接远程管理这些 VM 的管理接口来保护混合 PaaS 和 IaaS 服务上的 VM 管理接口。   
-**详细信息**：可以使用 SSH、RDP 和 [PowerShell 远程管理](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting)等远程管理协议。 通常，我们建议不要从 Internet 启用对 VM 的直接远程访问。
+**详细信息**：可以使用 SSH、[RDP](https://support.microsoft.com/kb/186607) 和 [PowerShell 远程处理](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting)等远程管理协议。 通常，我们建议不要从 Internet 启用对 VM 的直接远程访问。
 
 如果可以，请使用替代方法，例如在 Azure 虚拟网络中使用虚拟专用网络。 如果无法使用替代方法，请确保使用复杂的通行短语，并使用双重身份验证（例如 [Azure 多重身份验证](/active-directory/authentication/multi-factor-authentication)）。
 
@@ -150,7 +152,20 @@ Application Insights 提供各种可以与所收集的数据交互的工具。 A
 
 
 ## <a name="next-steps"></a>后续步骤
+本文重点介绍了 Azure PaaS 部署的安全优势以及云应用程序的最佳安全做法。 接下来，请阅读有关使用特定 Azure 服务保护 PaaS Web 和移动解决方案的建议做法。 首先，我们介绍如何保护 Azure 应用服务、Azure SQL 数据库和 Azure Synapse Analytics，以及 Azure 存储。 随着适用于其他 Azure 服务的建议做法文章的发布，我们会在以下列表中提供相应的链接：
+
+- [Azure 应用服务](paas-applications-using-app-services.md)
+- [Azure SQL 数据库和 Azure Synapse Analytics](paas-applications-using-sql.md)
+- [Azure 存储](paas-applications-using-storage.md)
+- 用于 Redis 的 Azure 缓存
+- Azure 服务总线
+- Web 应用程序防火墙
+
+有关在开发适用于云的应用程序时，应在软件开发生命周期的每个阶段中考虑的安全性问题和控件，请参见[在 Azure 上开发安全的应用程序](abstract-develop-secure-apps.md)。
+
+有关通过 Azure 设计、部署和管理云解决方案时可以使用的更多安全最佳做法，请参阅 [Azure 安全最佳做法和模式](best-practices-and-patterns.md)。
 
 以下资源提供了有关 Azure 安全性及相关 Microsoft 服务的更多常规信息：
 * [Azure 安全团队博客](https://blogs.msdn.microsoft.com/azuresecurity/) - 随时掌握 Azure 安全性的最新信息
 * [Microsoft 安全响应中心](https://technet.microsoft.com/library/dn440717.aspx) - 可在其中报告 Microsoft 安全漏洞（包括 Azure 问题）或将其通过电子邮件发送到 secure@microsoft.com
+

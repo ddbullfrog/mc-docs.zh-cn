@@ -5,21 +5,21 @@ description: 了解如何通过 Azure 机器学习将本地训练的 ML 模型�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: jordane
+ms.author: v-yiso
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/17/2020
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: fc63282e43182b0df45347e76ae6e5421e60d785
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 8a0328d9f461add833931a18efe29af80269394a
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395134"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118147"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>使用 Azure 机器学习部署现有模型
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本文介绍如何注册和部署在 Azure 机器学习外部训练的机器学习模型。 可以将其部署为 Web 服务或部署到 IoT Edge 设备。  部署后，可以在 Azure 机器学习中监视模型并检测数据偏移。 
 
@@ -28,13 +28,13 @@ ms.locfileid: "91395134"
 ## <a name="prerequisites"></a>先决条件
 
 * [一个 Azure 机器学习工作区](how-to-manage-workspace.md)
-  + Python 示例假定将 `ws` 变量设置为 Azure 机器学习工作区。 若要详细了解如何连接到工作区，请参阅[用于 Python 的 Azure 机器学习 SDK 文档](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=trueworkspace)。
+  + Python 示例假定将 `ws` 变量设置为 Azure 机器学习工作区。 若要详细了解如何连接到工作区，请参阅[用于 Python 的 Azure 机器学习 SDK 文档](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=trueworkspace)。
   
   + CLI 示例使用占位符 `myworkspace` 和 `myresourcegroup`，你应将其替换为你的工作区的名称以及包含它的资源组。
 
 * [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。  
 
-* [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 和[机器学习 CLI 扩展](reference-azure-machine-learning-cli.md)。
+* [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest&preserve-view=true) 和[机器学习 CLI 扩展](reference-azure-machine-learning-cli.md)。
 
 * 定型的模型。 必须将模型保留到开发环境中的一个或多个文件中。 <br><br>为了演示如何注册训练的模型，本文中的示例代码使用 [Paolo Ripamonti 的 Twitter 情绪分析项目](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)中的模型。
 
@@ -52,7 +52,7 @@ model = Model.register(model_path = "./models",
                        workspace = ws)
 ```
 
-有关详细信息，请参阅 [Model.register()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#&preserve-view=trueregister-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-) 参考。
+有关详细信息，请参阅 [Model.register()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-) 参考。
 
 ```azurecli
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
@@ -61,7 +61,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 > [!TIP]
 > 还可以设置为向已注册的模型添加 `tags` 和 `properties` 字典对象。 以后可以使用这些值来帮助识别特定的模型。 例如使用的框架、训练参数等。
 
-有关详细信息，请参阅 [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) 参考。
+有关详细信息，请参阅 [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-register) 参考。
 
 
 有关一般情况下模型注册的详细信息，请参阅[管理、部署和监视机器学习模型](concept-model-management-and-deployment.md)。
@@ -220,7 +220,7 @@ def predict(text, include_neutral=True):
 
 ## <a name="define-deployment"></a>定义部署
 
-[Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py&preserve-view=true) 包中包含部署所用的类。 所用的类确定模型的部署位置。 例如，要在 Azure Kubernetes Service 上部署为 Web 服务，可使用 [AksWebService.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-) 来创建部署配置。
+[Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py&preserve-view=true) 包中包含部署所用的类。 所用的类确定模型的部署位置。 例如，要在 Azure Kubernetes Service 上部署为 Web 服务，可使用 [AksWebService.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-) 来创建部署配置。
 
 以下 Python 代码用于定义本地部署的部署配置。 此配置将模型作为 Web 服务部署到你的本地计算机中。
 
@@ -233,7 +233,7 @@ from azureml.core.webservice import LocalWebservice
 deployment_config = LocalWebservice.deploy_configuration()
 ```
 
-有关详细信息，请参阅 [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-port-none-) 参考。
+有关详细信息，请参阅 [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-port-none-) 参考。
 
 CLI 从 YAML 文件加载部署配置：
 
@@ -260,7 +260,7 @@ print(service.state)
 print("scoring URI: " + service.scoring_uri)
 ```
 
-有关详细信息，请参阅 [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 参考。
+有关详细信息，请参阅 [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 参考。
 
 若要从 CLI 部署模型，请使用以下命令。 此命令使用存储在 `inferenceConfig.json` 和 `deploymentConfig.json` 文件中的推理配置和部署配置来部署已注册模型 (`sentiment:1`) 的版本 1：
 
@@ -268,13 +268,13 @@ print("scoring URI: " + service.scoring_uri)
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-有关详细信息，请参阅 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) 参考文档。
+有关详细信息，请参阅 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy) 参考文档。
 
 有关部署的详细信息，请参阅[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
 ## <a name="request-response-consumption"></a>请求-响应的使用
 
-部署完成后将显示评分 URI。 客户端可使用此 URI 将请求提交到服务。 以下示例是一个基本 Python 客户端，该客户端将数据提交到服务并显示响应：
+部署完成后将显示评分 URI。 客户端可使用此 URI 将请求提交到服务。 以下示例是一个简单的 Python 客户端，该客户端将数据提交到服务并显示响应：
 
 ```python
 import requests

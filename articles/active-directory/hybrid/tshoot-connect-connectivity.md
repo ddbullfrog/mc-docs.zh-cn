@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/27/2020
+ms.date: 10/12/2020
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 11cfd8ca97898609a8c122ebc2f1847173b71c83
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: fc50438ff8b9a9b7dd920ae7a2fbeb876519c3d8
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946897"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041436"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>排查 Azure AD 连接问题
 本文说明 Azure AD Connect 与 Azure AD 之间的连接的工作方式，以及如何排查连接问题。 这些问题很有可能出现在包含代理服务器的环境中。
@@ -33,7 +33,7 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 在本文中，我们说明了 Fabrikam 如何通过其代理连接到 Azure AD。 代理服务器名为 fabrikamproxy，并使用端口 8080。
 
 首先我们需要确保正确配置 [machine.config](how-to-connect-install-prerequisites.md#connectivity) 且在 machine.config 文件更新后重启 Azure AD Sync 服务 。
-![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
+![屏幕截图显示了 machine.config 文件的一部分。](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
 > 某些非 Microsoft 博客提到，应该对 miiserver.exe.config 进行更改。 但是，每次升级都会覆盖此文件，因此，尽管系统在初始安装期间可正常工作，但首次升级时会停止工作。 出于此原因，建议改为更新 machine.config。
@@ -60,7 +60,7 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>未正确配置安装向导
 当向导本身无法访问代理时，会出现此错误。
-![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
+![屏幕截图显示了错误：无法验证凭据。](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * 如果看到此错误，请检查是否已正确配置 [machine.config](how-to-connect-install-prerequisites.md#connectivity)。
 * 如果配置看起来正确，请按照 [验证代理连接](#verify-proxy-connectivity) 中的步骤，查看问题是否也出现在向导外部的位置。
@@ -85,7 +85,7 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 
 PowerShell 使用 machine.config 中的配置来联系代理。 winhttp/netsh 中的设置应该不会影响这些 cmdlet。
 
-如果代理配置正确，则会收到成功状态：![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+如果代理配置正确，应会收到成功状态：![正确配置代理后显示成功状态的屏幕截图。](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
 如果收到“无法连接到远程服务器”，则表示 PowerShell 正在尝试进行直接调用而未使用代理，或者 DNS 配置不正确。 请确保 machine.config 文件配置正确。
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
@@ -225,14 +225,14 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 从内部版本号 1.1.105.0（于 2016 年 2 月发行）开始已停用登录助理。 不再需要用到本部分所述的配置，这些内容仅供参考。
 
 要使单一登录助理正常工作，必须配置 winhttp。 可以使用 [netsh](how-to-connect-install-prerequisites.md#connectivity) 完成此配置。
-![netsh](./media/tshoot-connect-connectivity/netsh.png)
+![屏幕截图显示了一个运行 netsh 工具以设置代理的命令提示符窗口。](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>未正确配置登录助理
 当登录助理无法访问代理或代理不允许该请求时，此错误出现。
-![nonetsh](./media/tshoot-connect-connectivity/nonetsh.png)
+![屏幕截图显示了错误：无法验证凭据，请验证网络连接性和防火墙或代理设置。](./media/tshoot-connect-connectivity/nonetsh.png)
 
 * 如果看到此错误，请在 [netsh](how-to-connect-install-prerequisites.md#connectivity) 中查看代理配置并确认配置是否正确。
-  ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
+  ![屏幕截图显示了一个运行 netsh 工具以显示代理配置的命令提示符窗口。](./media/tshoot-connect-connectivity/netshshow.png)
 * 如果配置看起来正确，请按照 [验证代理连接](#verify-proxy-connectivity) 中的步骤，查看问题是否也出现在向导外部的位置。
 
 ## <a name="next-steps"></a>后续步骤

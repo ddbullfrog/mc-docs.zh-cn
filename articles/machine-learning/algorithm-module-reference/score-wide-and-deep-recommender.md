@@ -1,5 +1,5 @@
 ---
-title: 为图像模型评分
+title: 使用“为 Wide & Deep 推荐器评分”模块
 titleSuffix: Azure Machine Learning
 description: 了解如何使用 Azure 机器学习中的“为 Wide & Deep 推荐器评分”模块来为数据集的建议预测评分。
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
-ms.openlocfilehash: bac33b0a8e10f9fb0ac2a095a7587783032709b4
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: ac20048d26ef608b9fc9731e8172b79df93c6b78
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020872"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118313"
 ---
 # <a name="score-wide-and-deep-recommender"></a>为 Wide and Deep 推荐器评分
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“为 Wide and Deep 推荐器评分”模块，基于经训练的建议模型和 Google 的 Wide & Deep 学习来创建预测。
+本文介绍如何使用 Azure 机器学习设计器中的“为 Wide and Deep 推荐器评分”模块，基于经训练的建议模型和 Google 的 Wide & Deep 学习来创建预测。
 
 Wide and Deep 推荐器可生成两种不同类型的预测：
 

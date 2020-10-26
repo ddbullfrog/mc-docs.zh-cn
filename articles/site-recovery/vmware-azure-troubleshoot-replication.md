@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 08/02/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: d496b677f32d23b25f12ddb92329e3234593e774
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: bf13a30947e54ef4f859fdf6206e1159d6543462
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655411"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127731"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>解决 VMware VM 和物理服务器的复制问题
 
@@ -192,6 +192,24 @@ C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\Appl
         - VSS 服务
         - Azure Site Recovery VSS 提供程序
         - VDS 服务
+
+## <a name="error-id-95001---insufficient-permissions-found"></a>错误 ID 95001 - 发现权限不足
+
+尝试启用复制时，如果应用程序文件夹没有足够的权限，则会出现此错误。
+
+**如何解决**：若要解决此问题，请确保 IUSR 用户对下面提到的所有文件夹具有“所有者”角色：
+
+- C\ProgramData\Azure Site Recovery\private
+- 安装目录。 例如，如果安装目录为 F 驱动器，则提供对以下项的相应权限：
+    - F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems
+- 安装目录中的“\pushinstallsvc”文件夹。 例如，如果安装目录为 F 驱动器，则提供对以下项的相应权限：
+    - F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc
+- 安装目录中的“\etc”文件夹。 例如，如果安装目录为 F 驱动器，则提供对以下项的相应权限：
+    - F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\etc
+- *C:\Temp*
+- C:\thirdparty\php5nts
+- 以下路径下的所有项：
+    - C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\*
 
 ## <a name="next-steps"></a>后续步骤
 

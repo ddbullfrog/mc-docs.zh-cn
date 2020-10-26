@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: v-yiso
-origin.date: 10/22/2019
-ms.date: 03/09/2020
-ms.openlocfilehash: 848c1be78e2b7936340a802b9eda4eee24b6ae41
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+origin.date: 04/22/2020
+ms.date: 10/26/2020
+ms.openlocfilehash: f7456e4b12e89d82ba315a4644dd34324a9eefba
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097477"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118337"
 ---
 # <a name="multiclass-neural-network-module"></a>“多类神经网络”模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用此模块创建神经网络模型，使其可用于预测具有多个值的目标。 
 

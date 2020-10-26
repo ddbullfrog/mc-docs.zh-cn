@@ -4,15 +4,15 @@ description: 了解如何使用 PowerShell 将“应用服务”应用克隆到�
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 origin.date: 01/14/2018
-ms.date: 03/16/2020
+ms.date: 10/19/2020
 ms.custom: seodec18
 ms.author: v-tawe
-ms.openlocfilehash: 19bf9c36005792c41d3c18d027b900f9b182b14f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1cb23a20539f198837d183da20fde1b6ea10faee
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79547004"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170683"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>使用 PowerShell 克隆 Azure App Service 应用
 
@@ -109,6 +109,8 @@ $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<
 ```powershell
     $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "China East" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
+> [!NOTE]
+> 如果收到一条错误消息显示“对流量管理器主机名的 SSL 验证失败”，则建议在执行克隆操作时使用 -IgnoreCustomHostNames 属性，或者使用门户。
 
 ## <a name="current-restrictions"></a>当前限制
 下面是应用克隆的已知限制：
@@ -128,6 +130,7 @@ $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<
 ### <a name="references"></a>参考
 * [应用服务克隆](app-service-web-app-cloning.md)
 * [在 Azure 应用服务中备份应用](manage-backup.md)
-* [Azure 流量管理器预览版对 Azure Resource Manager 的支持](../traffic-manager/traffic-manager-powershell-arm.md)
-* [将 Azure PowerShell 与 Azure Resource Manager 结合使用](../azure-resource-manager/management/manage-resources-powershell.md)
+* [Azure 流量管理器预览版对 Azure 资源管理器的支持](../traffic-manager/traffic-manager-powershell-arm.md)
+* [应用服务环境简介](environment/intro.md)
+* [将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/management/manage-resources-powershell.md)
 

@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: b7311f79f83ac040f43ee4c36824aa9ce0e9fe08
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.openlocfilehash: 7caff39d871b13ab68c38fb68fdb2524c2e58d0d
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097153"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118335"
 ---
 # <a name="partition-and-sample-module"></a>“分区和采样”模块
 
-本文介绍 Azure 机器学习设计器（预览版）中的一个模块。
+本文介绍 Azure 机器学习设计器中的一个模块。
 
 使用“分区和采样”模块可对数据集进行采样或由数据集创建分区。
 

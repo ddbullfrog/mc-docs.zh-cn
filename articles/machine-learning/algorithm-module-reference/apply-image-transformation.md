@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 3fc42007f7c5b0d632a984f9a1a9eabff7ada545
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: d1aaa99117a0bda7b7831ce21014b50edcc43c2a
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441076"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118483"
 ---
 # <a name="apply-image-transformation"></a>应用图像转换 
 
-本文介绍如何使用 Azure 机器学习设计器（预览版）中的“应用图像转换”模块，根据先前指定的图像转换修改输入图像目录。  
+本文介绍如何使用 Azure 机器学习设计器中的“应用图像转换”模块，根据先前指定的图像转换修改输入图像目录。  
 
 需要连接 [初始化图像转换](init-image-transformation.md)模块来指定转换，然后可以将此类转换应用于“应用图像转换”模块的输入图像目录。
 

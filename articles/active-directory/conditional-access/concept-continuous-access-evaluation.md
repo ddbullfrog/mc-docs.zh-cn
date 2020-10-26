@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 10/13/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7263f439096e6a3b3d137fb0667cf713de196303
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 0ef4ccf318267d39a7a5a53301e50c1cc8d3b5df
+ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244715"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041569"
 ---
 # <a name="continuous-access-evaluation"></a>连续访问评估
 
@@ -47,26 +47,26 @@ ms.locfileid: "91244715"
 - 是否为用户启用了多重身份验证
 - 管理员显式撤销用户的所有刷新令牌
 
-此过程会导致用户在这些关键事件之一发生后的数分钟内失去对 O365 客户端应用中的组织 SharePoint Online 文件、电子邮件、日历或任务和 Teams 的访问权限。 
+此过程会导致用户在这些关键事件之一发生后的数分钟内失去对 Microsoft 365 客户端应用中的组织 SharePoint Online 文件、电子邮件、日历或任务和 Teams 的访问权限。 
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>条件访问策略评估（预览版）
 
 Exchange 和 SharePoint 能够同步关键的条件访问策略，因此可以在服务本身中对它们进行评估。
 
-此过程会导致用户在网络位置发生更改后立即失去对 O365 客户端应用或 SharePoint Online 中的组织文件、电子邮件、日历或任务的访问权限。
+此过程会导致用户在网络位置发生更改后立即失去对 Microsoft 365 客户端应用或 SharePoint Online 中的组织文件、电子邮件、日历或任务的访问权限。
 
 > [!NOTE]
 > 并非所有应用和资源提供程序组合都受支持。 请参阅下表。 Office 指的是 Word、Excel 和 PowerPoint
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | 支持 | 支持 | 不支持 | 不支持 | 支持 |
-| Exchange Online | 支持 | 支持 | 支持 | 支持 | 支持 |
+| **SharePoint Online** | 支持 | 支持 | 不支持 | 不支持 | 支持 |
+| **Exchange Online** | 支持 | 支持 | 支持 | 支持 | 支持 |
 
 | | Office Web 应用 | Office Win32 应用 | Office for iOS | Office for Android | Office for Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | 支持 | 支持 | 不支持 | 支持 | 支持 |
-| Exchange Online | 支持 | 支持 | 不支持 | 支持 | 支持 |
+| **SharePoint Online** | 不支持 | 支持 | 支持 | 支持 | 支持 |
+| **Exchange Online** | 不支持 | 支持 | 支持 | 支持 | 支持 |
 
 ### <a name="client-side-claim-challenge"></a>客户端声明质询
 

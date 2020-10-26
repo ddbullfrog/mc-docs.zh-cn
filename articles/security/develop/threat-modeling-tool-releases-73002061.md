@@ -1,18 +1,18 @@
 ---
 title: Microsoft Threat Modeling Tool 版本 2020/02/11 - Azure
-description: 阐述 Threat Modeling Tool 的发行说明
-author: jegeib
-ms.author: v-tawe
+description: 阐述 Threat Modeling Tool 7.3.00206.1 版的发行说明。
+author: Johnnytechn
+ms.author: v-johya
 ms.service: security
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 10/12/2020
 origin.date: 02/25/2020
-ms.openlocfilehash: 31719cd3804d3ba3f265d3ca73854b137266faba
-ms.sourcegitcommit: 79c99a9ea013b3c74706a1038a505f4eea2aaac4
+ms.openlocfilehash: 3965d719fe77772f98e3ca0497a262c5417698ec
+ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84439611"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92128030"
 ---
 # <a name="threat-modeling-tool-update-release-73002061---02112020"></a>Threat Modeling Tool 更新版 7.3.00206.1 - 2020/02/11
 
@@ -26,9 +26,11 @@ Microsoft Threat Modeling Tool (TMT) 的版本 7.3.00206.1 已于 2020 年 2 月
 
 一些客户反馈说，打开 Threat Modeling Tool 2016 或自定义模板中创建的文件时收到以下错误消息：
 
-    System.InvalidOperationException: Invalid Priority value. Accepted values are [0..4] and 'High', 'Medium', 'Low' at ThreatModeling.Model.Threat.get_Priority()
-    
-    System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'Low' Parameter name: value Actual value was 5.6. at ThreatModeling.Model.Threat.set_Priority(String value)
+```output
+System.InvalidOperationException: Invalid Priority value. Accepted values are [0..4] and 'High', 'Medium', 'Low' at ThreatModeling.Model.Threat.get_Priority()
+
+System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'Low' Parameter name: value Actual value was 5.6. at ThreatModeling.Model.Threat.set_Priority(String value)
+```
 
 此问题已在此版本中得到解决。
 
@@ -48,3 +50,4 @@ Microsoft Threat Modeling Tool (TMT) 的版本 7.3.00206.1 已于 2020 年 2 月
 ## <a name="next-steps"></a>后续步骤
 
 下载最新版本的 [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool)。
+

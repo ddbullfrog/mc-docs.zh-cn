@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 08/05/2020
 ms.date: 09/21/2020
-ms.openlocfilehash: 21b929b46887d69856f55be44023443d6b7bff4f
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 80512dd00a243a02edcfc0ba07762fce7f9a0298
+ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532892"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92121713"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>如何在 Windows 容器中运行自承载集成运行时
 
@@ -33,7 +33,7 @@ Azure 数据工厂当前提供对自承载集成运行时的官方 Windows 容�
 ## <a name="get-started"></a>入门 
 1. 安装 Docker 并启用 Windows 容器 
 2. 从 https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container 下载源代码
-3. 将最新版 SHIR 下载到“SHIR”文件夹 
+3. 将最新版的 SHIR 下载到“SHIR”文件夹 
 4. 在 shell 中打开文件夹： 
 ```console
 cd "yourFolderPath"

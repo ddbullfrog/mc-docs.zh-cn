@@ -6,18 +6,18 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 07/23/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: 6e294a715acbaa5fb7b868b2f8c115741debe555
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.date: 10/19/2020
+ms.openlocfilehash: 3de94443ac82fdfc5403cbb7b38eccddd7cea5e9
+ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395572"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92041788"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>使用 Azure Active Directory 向 MySQL 进行身份验证
 
 Azure Active Directory (Azure AD) 身份验证是一种使用 Azure AD 中定义的标识连接到 Azure Database for MySQL 的机制。
-通过 Azure AD 身份验证，可以在一个中心位置集中管理数据库用户标识和其他 Microsoft 服务，从而简化权限管理。
+使用 Azure AD 身份验证，可以在一个中心位置管理数据库用户标识和其他 Azure 服务，从而简化权限管理。
 
 使用 Azure AD 带来的优势包括：
 

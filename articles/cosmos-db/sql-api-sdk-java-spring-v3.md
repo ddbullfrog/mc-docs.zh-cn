@@ -7,20 +7,20 @@ ms.devlang: java
 ms.topic: reference
 origin.date: 08/18/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 739fc60f57dcd34ae60e1ba8f92340a1da961b29
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 0e4ec46a082f3c6610603e38c2a2c591c1c725d6
+ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91247003"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92118273"
 ---
 <!--Verified successfully-->
-# <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>用于 Core (SQL) API 的 Spring Data Azure Cosmos DB v3：发行说明和资源
+# <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>适用于 Core (SQL) API 的 Spring Data Azure Cosmos DB v3：发行说明和资源
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -40,22 +40,22 @@ ms.locfileid: "91247003"
 > * [批量执行工具 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
-通过用于 Core (SQL) 的 Spring Data Azure Cosmos DB v3，开发人员可以在 Spring 应用程序中使用 Azure Cosmos DB。 Spring Data Azure Cosmos DB 公开 Spring Data 接口，以便操作数据库和集合、使用文档和发出查询。 同一 Maven 项目中同时支持 Sync 和 Async (Reactive) API。 
+开发人员可以通过适用于 Core (SQL) 的 Spring Data Azure Cosmos DB 版本 3 在 Spring 应用程序中使用 Azure Cosmos DB。 Spring Data Azure Cosmos DB 公开 Spring Data 接口，以便操作数据库和集合、使用文档和发出查询。 同一 Maven 项目中同时支持 Sync 和 Async (Reactive) API。 
 
-Spring Data Azure Cosmos DB 依赖于 Spring Data 框架。 Azure Cosmos DB SDK 团队发布了适用于 Spring Data v2.2 和 v2.3 的 Maven 项目。
+Spring Data Azure Cosmos DB 依赖于 Spring Data 框架。 Azure Cosmos DB SDK 团队发布了适用于 Spring Data 2.2 和 2.3 的 Maven 项目。
 
-[Spring Framework](https://spring.io/projects/spring-framework) 是一种简化 Java 应用程序开发的编程和配置模型。 为引用组织的网站，Spring 使用依赖项注入来简化应用程序的“管道”。 由于生成和测试应用程序变得更加简单，因此许多开发人员喜欢 Spring。 [Spring Boot](https://spring.io/projects/spring-boot) 重视 Web 应用程序和微服务的开发，扩展了这种处理管道的理念。 [Spring Data](https://spring.io/projects/spring-data) 是一种编程模型和框架，用于从 Spring 或 Spring Boot 应用程序的上下文中访问数据存储（如 Azure Cosmos DB）。 
+[Spring Framework](https://spring.io/projects/spring-framework) 是一种简化 Java 应用程序开发的编程和配置模型。 Spring 使用依赖项注入来简化应用程序的“管道”。 由于 Spring 使得生成和测试应用程序变得更加简单，因此许多开发人员都喜欢 Spring。 [Spring Boot](https://spring.io/projects/spring-boot) 重视 Web 应用程序和微服务的开发，扩展了这种管道处理。 [Spring Data](https://spring.io/projects/spring-data) 是一种编程模型和框架，用于从 Spring 或 Spring Boot 应用程序的上下文中访问数据存储（如 Azure Cosmos DB）。 
 
 可在 [Azure Spring Cloud](https://www.azure.cn/home/features/spring-cloud/) 应用程序中使用 Spring Data Azure Cosmos DB。
 
 <!--MOONCAKE CORRECT ON THE LINK-->
 
 > [!IMPORTANT]  
-> 这些发行说明适用于 Spring Data Azure Cosmos DB v3。 可以在[此处](sql-api-sdk-java-spring-v2.md)找到 v2 发行说明。 
+> 这些发行说明适用于 Spring Data Azure Cosmos DB 的版本 3。 可以[在此处找到版本 2 的发行说明](sql-api-sdk-java-spring-v2.md)。 
 >
 > Spring Data Azure Cosmos DB 仅支持 SQL API。
 >
-> 以下指南支持其他 Azure Cosmos DB API 上的 Spring Data：
+> 请参阅以下文章，了解其他 Azure Cosmos DB API 上的 Spring Data：
 > * [将适用于 Apache Cassandra 的 Spring Data 用于 Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
 > * [将 Spring Data MongoDB 用于 Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
 > * [将 Spring Data Gremlin 用于 Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
@@ -69,31 +69,19 @@ Spring Data Azure Cosmos DB 依赖于 Spring Data 框架。 Azure Cosmos DB SDK 
 
 <img src="media/sql-api-sdk-java-spring-v3/up-arrow.png" alt="explore the tabs above" width="80"/>
 
-### <a name="navigate-the-tabs-above-for-basic-spring-data-azure-cosmos-db-samples"></a>浏览上面的选项卡，以获取基本 Spring Data Azure Cosmos DB 示例。
+#### <a name="these-tabs-contain-basic-spring-data-azure-cosmos-db-samples"></a>这些选项卡包含基本的 Spring Data Azure Cosmos DB 示例。
 
 # <a name="pomxml"></a>[pom.xml](#tab/pom)
 
 ### <a name="configure-dependencies"></a>配置依赖项
 
-系统提供了两个 Spring Data Azure Cosmos DB v3 Maven 项目。
-
-依赖于 Spring Data 框架 v2.2 的项目：
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-spring-data-2-2-cosmos</artifactId>
-    <version>latest</version>
-</dependency>
-```
-
-依赖于 Spring Data 框架 v2.3 的项目：
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-spring-data-2-3-cosmos</artifactId>
-    <version>latest</version>
-</dependency>
-```
+  ```xml
+  <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-spring-data-cosmos</artifactId>
+      <version>latest</version>
+  </dependency>
+  ```
 
 # <a name="connect"></a>[“连接”](#tab/connect)
 
@@ -101,7 +89,7 @@ Spring Data Azure Cosmos DB 依赖于 Spring Data 框架。 Azure Cosmos DB SDK 
 
 指定 Azure Cosmos DB 帐户和容器详细信息。 Spring Data Azure Cosmos DB 会自动创建客户端并连接到容器。
 
-[application.properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-2-cosmos-java-getting-started/src/main/resources/application.properties)：
+[application.properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-cosmos-java-getting-started/src/main/resources/application.properties)：
 ```
 cosmos.uri=${ACCOUNT_HOST}
 cosmos.key=${ACCOUNT_KEY}
@@ -116,49 +104,13 @@ cosmos.queryMetricsEnabled=true
 
 ### <a name="document-operations"></a>文档操作
 
-[创建](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java)：
-
-<!--MOONCAKE CUSTOMIZATION-->
-
-```java
-logger.info("Saving user : {}", testUser1);
-userRepository.save(testUser1);
-```
-
-
-[删除](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java)：
-
-```java
-userRepository.deleteAll();
-```
-
-<!--MOONCAKE CUSTOMIZATION-->
-
-# <a name="query"></a>[查询](#tab/queries)
-
-### <a name="query"></a>查询
-
-[查询](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java)：
-
-```javaa
-Flux<User> users = reactiveUserRepository.findByFirstName("testFirstName");
-users.map(u -> {
-    logger.info("user is : {}", u);
-    return u;
-}).subscribe();
-```
-
 ---
 
-## <a name="helpful-content"></a>帮助性内容
+## <a name="resources"></a>资源
 
-| Content | Spring Data 框架 v2.2 | Spring Data 框架 v2.3 |
-|---|---|
-| **SDK 下载** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-2-cosmos) | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-3-cosmos) |
-|**参与 SDK** | [GitHub 上的 Spring Data Azure Cosmos DB 存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-2-cosmos) | [GitHub 上的 Spring Data Azure Cosmos DB 存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-3-cosmos) | 
-|**教程**| [GitHub 上的 Spring Data Azure Cosmos DB 教程](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-2-cosmos-java-getting-started) | [GitHub 上的 Spring Data Azure Cosmos DB 教程](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-3-cosmos-java-getting-started) |
+* **参与编写 SDK**：[GitHub 上的 Spring Data Azure Cosmos DB 存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
 
-## <a name="release-history"></a>版本历史记录
+* **教程**：[GitHub 上的 Spring Data Azure Cosmos DB 教程](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
 ### <a name="300-beta2-unreleased"></a>3.0.0-beta.2（未发布）
 
@@ -193,16 +145,18 @@ users.map(u -> {
 * 删除了自动创建容器时的默认请求单位值 4000。
 
 ## <a name="faq"></a>常见问题解答
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>后续步骤
-若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
 
-若要详细了解 Spring Framework，请参阅[项目主页](https://spring.io/projects/spring-framework)。
+了解有关 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 的详细信息。
 
-若要详细了解 Spring Boot，请参阅[项目主页](https://spring.io/projects/spring-boot)。
+详细了解 [Spring Framework](https://spring.io/projects/spring-framework)。
 
-若要详细了解 Spring Data，请参阅[项目主页](https://spring.io/projects/spring-data)。
+详细了解 [Spring Boot](https://spring.io/projects/spring-boot)。
 
-<!-- Update_Description: new article about sql api sdk java spring v3 -->
+详细了解 [Spring Data](https://spring.io/projects/spring-data)。
+
+<!-- Update_Description: update meta properties, wording update, update link -->
 <!--NEW.date: 09/28/2020-->
