@@ -20,7 +20,7 @@
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure-resource-manager/templates/toc.json
             - name: 机器学习
               href: ../../machine-learning/how-to-create-workspace-template.md?toc=/azure-resource-manager/templates/toc.json
-        - name: 分析
+        - name: Analytics
           items:
             - name: Analysis Services
               href: ../../analysis-services/analysis-services-create-template.md?toc=/azure-resource-manager/templates/toc.json
@@ -108,7 +108,7 @@
               href: ../../azure-portal/quick-create-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: Resource Graph
               href: ../../governance/resource-graph/shared-query-template.md?toc=/azure-resource-manager/templates/toc.json
-            - name: 基于角色的访问控制 (RBAC)
+            - name: Azure 基于角色的访问控制 (Azure RBAC)
               href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure-resource-manager/templates/toc.json
             - name: 服务运行状况
               href: ../../service-health/alerts-activity-log-service-notifications-arm.md?toc=/azure-resource-manager/templates/toc.json
@@ -305,7 +305,7 @@
           href: key-vault-parameter.md
     - name: CI/CD
       items:
-        - name: 使用管道的 VS 项目
+        - name: 带管道的 ARM 模板
           href: add-template-to-azure-pipelines.md
         - name: 部署 - GitHub Actions
           href: deploy-github-actions.md
@@ -327,6 +327,8 @@
           href: deployment-quota-exceeded.md
         - name: InvalidTemplate
           href: error-invalid-template.md
+        - name: JobSizeExceeded
+          href: error-job-size-exceeded.md
         - name: Linux 部署问题
           href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux.md
         - name: NoRegisteredProviderFound
@@ -384,7 +386,7 @@
     - name: Java
       href: 'https://docs.azure.cn/java/api/com.microsoft.azure.management.resources'
     - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/resources?view=azure-python'
+      href: 'https://docs.microsoft.com/python/api/overview/azure/resources'
 - name: 资源
   items:
     - name: Azure 快速入门模板

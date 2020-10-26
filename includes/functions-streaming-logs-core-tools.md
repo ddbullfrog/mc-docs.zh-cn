@@ -1,16 +1,15 @@
 ---
 author: ggailey777
 ms.author: v-junlch
-origin.date: 07/24/2019
-ms.date: 09/05/2019
+ms.date: 10/19/2020
 ms.topic: include
 ms.service: azure-functions
-ms.openlocfilehash: e7f74fd89c1700399c19d8728ddc7edde8d85ca4
-ms.sourcegitcommit: 4f1047b6848ca5dd96266150af74633b2e9c77a3
+ms.openlocfilehash: 816022dc1ed34ef6a430033b44bf0f0b433bafdf
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "88946887"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471475"
 ---
 #### <a name="built-in-log-streaming"></a>内置日志流式处理
 
@@ -22,7 +21,7 @@ func azure functionapp logstream <FunctionAppName>
 
 #### <a name="live-metrics-stream"></a>实时指标流
 
-也可通过包括 `--browser` 选项在新的浏览器窗口中查看函数应用的[实时指标流](../articles/azure-monitor/app/live-stream.md)，如以下示例所示：
+通过包含 `--browser` 选项，可在新的浏览器窗口中查看函数应用的[实时指标流](../articles/azure-monitor/app/live-stream.md)，如下例所示：
 
 ```bash
 func azure functionapp logstream <FunctionAppName> --browser

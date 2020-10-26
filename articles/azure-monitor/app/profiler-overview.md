@@ -7,11 +7,11 @@ ms.author: v-johya
 ms.date: 05/25/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: bfc039498eb5596dd2a42008d0cb46f21f3f1866
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199947"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211579"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>使用 Application Insights 探查 Azure 中的生产应用程序
 ## <a name="enable-application-insights-profiler-for-your-application"></a>对应用程序启用 Application Insights Profiler
@@ -41,10 +41,10 @@ Profiler 适用于以下 Azure 服务中部署的 .NET 应用程序。 下面提
 
 跟踪浏览器会显示以下信息：
 
-* **显示热路径**：打开最大的叶节点，或者至少打开某个接近的节点。 大多数情况下，此节点与性能瓶颈相邻。
-* **标签**：函数或事件的名称。 树中显示了代码与发生的事件（例如 SQL 和 HTTP 事件）的混合形式。 最前面的事件表示请求总持续时间。
-* **所用时间**：从操作开始到操作结束之间的时间间隔。
-* **时间**：运行函数或事件的时间，此值相对于运行其他函数的时间。
+* **显示热路径** ：打开最大的叶节点，或者至少打开某个接近的节点。 大多数情况下，此节点与性能瓶颈相邻。
+* **标签** ：函数或事件的名称。 树中显示了代码与发生的事件（例如 SQL 和 HTTP 事件）的混合形式。 最前面的事件表示请求总持续时间。
+* **所用时间** ：从操作开始到操作结束之间的时间间隔。
+* **时间** ：运行函数或事件的时间，此值相对于运行其他函数的时间。
 
 ## <a name="how-to-read-performance-data"></a>如何读取性能数据
 
@@ -68,7 +68,7 @@ clr!JITutil\_MonContention 或 clr!JITutil\_MonEnterWorker 指示当前线程正
 
 ### <a name="loading-code-cold"></a><a id="ngencold"></a>加载代码 ([COLD])
 
-如果方法名称包含 **[COLD]** （例如 **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**），则表示 .NET Framework 运行时首次执行的代码未经过[按配置优化](https://docs.microsoft.com/cpp/build/profile-guided-optimizations)功能的优化。 对于每个方法，在进程的生存期内，它最多只应显示一次。
+如果方法名称包含 **[COLD]** （例如 **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined** ），则表示 .NET Framework 运行时首次执行的代码未经过 [按配置优化](https://docs.microsoft.com/cpp/build/profile-guided-optimizations)功能的优化。 对于每个方法，在进程的生存期内，它最多只应显示一次。
 
 如果针对某个请求加载代码花费的时间很长，则表示这是第一个执行该方法的未优化部分的请求。 请考虑在用户访问该代码部分之前使用执行该代码部分的预热进程。
 

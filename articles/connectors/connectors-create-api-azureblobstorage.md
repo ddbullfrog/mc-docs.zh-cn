@@ -10,11 +10,11 @@ ms.date: 03/30/2020
 ms.author: v-yeche
 tags: connectors
 ms.openlocfilehash: 89babe878dadb4c51ab6d9252b5abce166903f34
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243588"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211637"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用在 Azure Blob 存储中创建和管理 Blob
 

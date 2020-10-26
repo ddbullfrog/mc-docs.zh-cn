@@ -1,20 +1,20 @@
 ---
 title: 在 Azure Kubernetes 服务 (AKS) 中安装 Consul
 description: 了解如何在 Azure Kubernetes 服务 (AKS) 群集中安装和使用 Consul 来创建服务网格
-author: rockboyfor
 ms.topic: article
 origin.date: 10/09/2019
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 73e209ba25d88c5e2be339f9a07e262bfe622cf0
-ms.sourcegitcommit: fce0810af6200f13421ea89d7e2239f8d41890c0
+ms.openlocfilehash: 89ad07efdf49a4de03d6f263cfafca0de5c1307b
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842612"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470212"
 ---
 <!--CORRECT ON client-operating-system-->
 
@@ -208,7 +208,9 @@ kubectl delete namespace consul
 <!-- LINKS - internal -->
 
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[consul-scenario-mtls]: ./consul-mtls.md
+
+<!--Not Available on [consul-scenario-mtls]: ./consul-mtls.md-->
+
 [helm-install]: ./kubernetes-helm.md
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -45,7 +45,7 @@ ms.locfileid: "92128161"
 
    ![此屏幕截图显示了“终结点详细信息”和“事件订阅详细信息”部分，其中已输入订阅名称值。](./media/subscribe-through-portal/provide-subscription-details.png)
 
-1. 若要启用死信和自定义重试策略，请选择“其他功能”****。
+1. 若要启用死信和自定义重试策略，请选择“其他功能”  。
 
    ![选择其他功能](./media/subscribe-through-portal/select-additional-features.png)
 
@@ -53,11 +53,11 @@ ms.locfileid: "92128161"
 
    ![启用死信并重试](./media/subscribe-through-portal/set-deadletter-retry.png)
 
-1. 完成后，选择“创建”。****
+1. 完成后，选择“创建”。 
 
 ## <a name="create-subscription-on-resource"></a>创建关于资源的订阅
 
-某些事件源支持通过该资源的门户界面创建事件订阅。 选择事件源，并在左窗格中查找“事件”****。
+某些事件源支持通过该资源的门户界面创建事件订阅。 选择事件源，并在左窗格中查找“事件”  。
 
 ![提供订阅详细信息](./media/subscribe-through-portal/resource-events.png)
 

@@ -47,10 +47,10 @@ ms.locfileid: "92128410"
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>创建主目标服务器时的大小调整准则
 
 根据下列大小调整准则创建主目标：
-- **RAM**：6 GB 或更多
-- **OS 磁盘大小**：100 GB 或更多（用于安装 OS）
-- **保留驱动器的附加磁盘大小**：1 TB
-- **CPU 核心数**：4 个核心或更多
+- **RAM** ：6 GB 或更多
+- **OS 磁盘大小** ：100 GB 或更多（用于安装 OS）
+- **保留驱动器的附加磁盘大小** ：1 TB
+- **CPU 核心数** ：4 个核心或更多
 - 内核：4.16。*
 
 ## <a name="deploy-the-master-target-server"></a>部署主目标服务器

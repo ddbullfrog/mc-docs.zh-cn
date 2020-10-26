@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 789bcf87592040951a6c94354ad107af4842e01a
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: 3f3f3ecbc8c10d60645ecf7376aa46eccd8e9c22
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796246"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472672"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>了解 Azure 时序见解 Gen1 中的数据保留
+
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
 
 本文介绍影响 Azure 时序见解环境中的数据保留的两项主要设置。
 
@@ -32,13 +35,14 @@ ms.locfileid: "87796246"
 
 > [!NOTE]
 > 创建新环境时，保留规则默认配置为“清除旧数据”。  在创建后，可以根据需要使用 Azure 门户或者在 Azure 时序见解环境的“配置”页上切换此设置。
-> * 有关如何配置保留策略的信息，请参阅[在 Azure 时序见解中配置保留](time-series-insights-how-to-configure-retention.md)。
+>
+> - 有关如何配置保留策略的信息，请参阅[在 Azure 时序见解中配置保留](time-series-insights-how-to-configure-retention.md)。
 
 下面将更详细地介绍这两种数据保留策略。
 
 ## <a name="purge-old-data"></a>清除旧数据
 
-- **清除旧数据**是 Azure 时序见解环境的默认设置。  
+- **清除旧数据** 是 Azure 时序见解环境的默认设置。  
 - 如果用户希望在其 Azure 时序见解环境中始终显示其最近数据，则“清除旧数据”是首选项。
 - 达到环境的限制（保留时间、大小或计数，以先达到的为准）时，“清除旧数据”  设置会立即清除  数据。 默认情况下，保留时间设置为 30 天。
 - 最旧的引入数据最先清除（“先入先出”方法）。
@@ -64,8 +68,8 @@ ms.locfileid: "87796246"
 - 此行为有助于防止数据丢失，但如果暂停数据流入的持续时间超过事件源的保留期，则有可能会丢失最近的数据。
 - 但是，达到环境的最大容量后，环境将会暂停数据流入，直到以下附加操作发生：
 
-   - 你增加环境的最大容量以添加更多缩放单元，如[如何缩放 Azure 时序见解环境](time-series-insights-how-to-scale-your-environment.md)中所述。
-   - 达到了数据保留期并清除了数据，使环境低于其最大容量。
+  - 你增加环境的最大容量以添加更多缩放单元，如[如何缩放 Azure 时序见解环境](time-series-insights-how-to-scale-your-environment.md)中所述。
+  - 达到了数据保留期并清除了数据，使环境低于其最大容量。
 
 ### <a name="example-three"></a>示例三
 

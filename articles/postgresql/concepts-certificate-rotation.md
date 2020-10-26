@@ -37,7 +37,7 @@ Azure Database for PostgreSQL 将更改通过 SSL 启用的客户端应用程序
 
 若要了解 PostgreSQL sslmode，请参阅 PostgreSQL 文档中的 [SSL 模式说明](https://www.postgresql.org/docs/11/libpq-ssl.html#ssl-mode-descriptions)。
 
-若要避免应用程序的可用性因证书被意外吊销而中断，或要更新已吊销的证书，请参阅[ **“我需要做什么来维护连接”** ](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)部分。
+若要避免应用程序的可用性因证书被意外吊销而中断，或要更新已吊销的证书，请参阅 [ **“我需要做什么来维护连接”** ](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)部分。
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>我需要做什么来维护连接
 
@@ -128,7 +128,7 @@ Azure Database for PostgreSQL 使用的这些证书是由受信任的证书颁�
 若要验证是否正在使用 SSL 连接来连接到服务器，请参阅 [SSL 验证](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity)。
 
 ### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13.如果我的证书文件中已有 DigiCertGlobalRootG2，是否需要执行任何操作？
-否。 如果你的证书文件已经有 **DigiCertGlobalRootG2**，则无需执行任何操作。
+否。 如果你的证书文件已经有 **DigiCertGlobalRootG2** ，则无需执行任何操作。
 
 ### <a name="14-what-if-i-have-further-questions"></a>14.如果我有其他问题，该怎么办？
 如果你有支持计划并需要技术帮助，请[联系我们](https://support.azure.cn/zh-cn/support/contact)。

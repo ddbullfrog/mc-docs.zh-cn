@@ -7,11 +7,11 @@ origin.date: 08/18/2017
 ms.date: 02/24/2020
 ms.author: v-yeche
 ms.openlocfilehash: c0d9b89ead4c2a581701a2b12c9e64c6a819fd4e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292572"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211633"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>群集 Resource Manager 与 Service Fabric 群集管理的集成
 Service Fabric 群集资源管理器不会在 Service Fabric 中驱动升级，但会关注升级。 群集 Resource Manager 帮助进行管理的第一种方式是跟踪群集及其中服务的所需状态。 无法将群集放入所需配置时，群集 Resource Manager 会发出运行状况报告。 例如，如果容量不足，则群集资源管理器会发出运行状况警告和错误，指示该问题。 集成的另一个部分与升级的工作方式有关。 在升级期间，群集资源管理器会稍微改变其行为。  
@@ -84,11 +84,11 @@ HealthEvents          :
 接下来，我们讨论一下这些运行状况报告中的各种约束。 不能放置副本时，将看到与这些约束相关的运行状况消息。
 
 * ReplicaExclusionStatic 和 ReplicaExclusionDynamic：这些约束指示系统拒绝某解决方案是由于同一分区中的两个服务对象必须放置在同一节点上   。 不允许这样操作，因为该节点的失败会过度地影响该分区。 ReplicaExclusionStatic 和 ReplicaExclusionDynamic 遵循几乎相同的规则，有所差别也无关紧要。 如果看到的约束消除序列包含 ReplicaExclusionStatic 或 ReplicaExclusionDynamic 约束，群集资源管理器就会认为没有足够的节点。 这要求剩余的解决方案能够使用这些不允许使用的无效放置。 序列中的其他约束通常会告诉我们首先要消除节点的原因。
-* **PlacementConstraint**：如果看到此消息，表示已消除了一些节点，因为它们不符合服务的放置约束。 我们在此消息中描绘当前配置的放置约束。 如果定义了放置约束，则这种情况是正常的。 但是，如果放置约束错误地导致消除了过多的节点，则会看到这种结果。
-* **NodeCapacity**：此约束表示群集资源管理器无法将副本放在指定的节点上，因为这样放置会超出容量。
-* **Affinity**：此约束表示无法将副本放在受影响的节点上，因为这会导致违反相关性约束。 [此文](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)介绍了有关相关性的详细信息。
-* **FaultDomain** 和 **UpgradeDomain**：如果将副本放在指定的节点上会导致副本打包在特定的容错域或升级域中，此约束将消除节点。 [容错域与升级域约束及最终行为](service-fabric-cluster-resource-manager-cluster-description.md)中的主题提供了几个介绍此约束的示例
-* **PreferredLocation**：通常我们看不到这个会将节点从解决方案中删除的约束，因为该约束默认作为优化运行。 首选的位置约束还会出现在升级期间。 在升级期间，该约束用于将服务移回到开始升级时所在的位置。
+* **PlacementConstraint** ：如果看到此消息，表示已消除了一些节点，因为它们不符合服务的放置约束。 我们在此消息中描绘当前配置的放置约束。 如果定义了放置约束，则这种情况是正常的。 但是，如果放置约束错误地导致消除了过多的节点，则会看到这种结果。
+* **NodeCapacity** ：此约束表示群集资源管理器无法将副本放在指定的节点上，因为这样放置会超出容量。
+* **Affinity** ：此约束表示无法将副本放在受影响的节点上，因为这会导致违反相关性约束。 [此文](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)介绍了有关相关性的详细信息。
+* **FaultDomain** 和 **UpgradeDomain** ：如果将副本放在指定的节点上会导致副本打包在特定的容错域或升级域中，此约束将消除节点。 [容错域与升级域约束及最终行为](service-fabric-cluster-resource-manager-cluster-description.md)中的主题提供了几个介绍此约束的示例
+* **PreferredLocation** ：通常我们看不到这个会将节点从解决方案中删除的约束，因为该约束默认作为优化运行。 首选的位置约束还会出现在升级期间。 在升级期间，该约束用于将服务移回到开始升级时所在的位置。
 
 ## <a name="blocklisting-nodes"></a>将节点列入阻止列表
 群集资源管理器报告的另一个运行状况消息是节点何时列入阻止列表。 可以将列入阻止列表看作自动应用的临时约束。 如果节点在启动该服务类型的实例时遇到重复的失败，则会将这些节点列入阻止列表。 根据每个服务类型，将节点列入阻止列表。 系统会由于一种服务类型（非另一种）而将某个节点列入阻止列表。 

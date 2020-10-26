@@ -76,8 +76,8 @@ Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Acco
 
 从 UI 或命令提示符卸载。
 
-- **通过 UI**：在计算机的控制面板中，选择“程序”。  选择“Azure Site Recovery 移动服务/主目标服务器” > “卸载”。  
-- **通过命令提示符**：在计算机上以管理员身份打开命令提示符窗口。 运行以下命令： 
+- **通过 UI** ：在计算机的控制面板中，选择“程序”。  选择“Azure Site Recovery 移动服务/主目标服务器” > “卸载”。  
+- **通过命令提示符** ：在计算机上以管理员身份打开命令提示符窗口。 运行以下命令： 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```

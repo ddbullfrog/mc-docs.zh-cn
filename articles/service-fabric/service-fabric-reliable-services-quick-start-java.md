@@ -32,10 +32,10 @@ ms.locfileid: "92127822"
 ## <a name="basic-concepts"></a>基本概念
 了解几个基本概念，即可开始使用 Reliable Services：
 
-* **服务类型**：这是你的服务实现。 它由编写的可扩展 `StatelessService` 的类、其中使用的任何其他代码或依赖项以及名称和版本号定义。
-* **命名服务实例**：若要运行服务，需要创建服务类型的命名实例，就像创建类类型的对象实例一样。 事实上，服务实例是编写的服务类的对象实例化。
-* **服务宿主**：创建的命名服务实例需在宿主中运行。 服务宿主是可以运行服务实例的进程。
-* **服务注册**：通过注册可将所有对象融合在一起。 只有在服务宿主中将服务类型注册 Service Fabric 运行时，Service Fabric 才能创建该类型的可运行实例。  
+* **服务类型** ：这是你的服务实现。 它由编写的可扩展 `StatelessService` 的类、其中使用的任何其他代码或依赖项以及名称和版本号定义。
+* **命名服务实例** ：若要运行服务，需要创建服务类型的命名实例，就像创建类类型的对象实例一样。 事实上，服务实例是编写的服务类的对象实例化。
+* **服务宿主** ：创建的命名服务实例需在宿主中运行。 服务宿主是可以运行服务实例的进程。
+* **服务注册** ：通过注册可将所有对象融合在一起。 只有在服务宿主中将服务类型注册 Service Fabric 运行时，Service Fabric 才能创建该类型的可运行实例。  
 
 ## <a name="create-a-stateless-service"></a>创建无状态服务
 首先创建 Service Fabric 应用程序。 适用于 Linux 的 Service Fabric SDK 包括一个 Yeoman 生成器，它为包含无状态服务的 Service Fabric 应用程序提供基架。 首先，请运行以下 Yeoman 命令：
@@ -44,7 +44,7 @@ ms.locfileid: "92127822"
 $ yo azuresfjava
 ```
 
-按照说明创建 **可靠无状态服务**。 本教程将应用程序命名为“HelloWorldApplication”，将服务命名为“HelloWorld”。 结果包含 `HelloWorldApplication` 和 `HelloWorld` 的目录。
+按照说明创建 **可靠无状态服务** 。 本教程将应用程序命名为“HelloWorldApplication”，将服务命名为“HelloWorld”。 结果包含 `HelloWorldApplication` 和 `HelloWorld` 的目录。
 
 ```bash
 HelloWorldApplication/
@@ -89,7 +89,7 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="implement-the-service"></a>实现服务
 
-打开 **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**。 此类定义服务类型，可以运行任何代码。 服务 API 为代码提供两个入口点：
+打开 **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java** 。 此类定义服务类型，可以运行任何代码。 服务 API 为代码提供两个入口点：
 
 * 名为 `runAsync()`的开放式入口点方法，可在其中开始执行任何工作负荷，包括长时间运行的计算工作负荷。
 
@@ -201,7 +201,7 @@ Reliable Collections 可以存储任何 Java 类型（包括自定义类型）�
 * Service Fabric 通过跨节点复制状态，使状态具备高可用性；而 Reliable HashMap 会将数据存储到每个副本上的本地磁盘中。 这意味着 Reliable HashMaps 中存储的所有内容都必须可序列化。 
 * 在 Reliable HashMaps 上提交事务时，将复制对象以实现高可用性。 存储在 Reliable HashMaps 中的对象保留在服务的本地内存中。 这意味着对对象进行本地引用。
 
-    切勿转变这些对象的本地实例而不在事务中的可靠集合上执行更新操作。 这是因为对对象的本地实例的更改不会自动复制。 必须将对象重新插回字典中，或在字典上使用其中一个*更新*方法。
+    切勿转变这些对象的本地实例而不在事务中的可靠集合上执行更新操作。 这是因为对对象的本地实例的更改不会自动复制。 必须将对象重新插回字典中，或在字典上使用其中一个 *更新* 方法。
 
 可靠状态管理器自动管理 Reliable HashMaps。 无论何时何地，都可以根据名称向可靠状态管理器请求服务中的某个可靠集合。 可靠状态管理器可确保能取回引用。 建议不要将可靠集合实例的引用保存到类成员变量或属性中。 请特别小心，确保在服务生命周期中始终将引用设置为某个实例。 可靠状态管理器会代为处理此工作，且已针对重复访问对其进行优化。
 

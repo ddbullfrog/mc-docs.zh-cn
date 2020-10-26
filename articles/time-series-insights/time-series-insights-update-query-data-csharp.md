@@ -9,14 +9,14 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7ca3a8a99630194110b56dc71ce2d3e1724211f9
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 612256a8bc40e43f2d5b00ad7a630188337f06e0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413969"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472075"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>使用 C# 查询 Azure 时序见解第 2 代环境中的数据
 
@@ -71,7 +71,7 @@ ms.locfileid: "89413969"
 
 ## <a name="c-sample-code"></a>C# 示例代码
 
-请参阅 [Azure 时序见解](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample)存储库以访问 C# 示例代码。 
+请参阅 [Azure 时序见解](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample)存储库以访问 C# 示例代码。
 
 > [!NOTE]
 >

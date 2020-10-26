@@ -29,7 +29,7 @@ ms.locfileid: "92121722"
 
 Azure 数据工厂 (ADF) 中 Azure-SSIS Integration Runtime (IR) 支持运行 SSIS 包。 预配 Azure-SSIS IR 后，可以使用熟悉的工具（例如 SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS)，以及 dtinstall/dtutil/dtexec 等命令行实用工具）在 Azure 中部署和运行包。 有关详细信息，请参阅 [Azure SSIS 直接迁移概述](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)。
 
-本文重点介绍将 ETL 工作负荷从本地 SSIS 迁移到 ADF 中的 SSIS 的过程。 迁移过程包括两个阶段：**评估**和**迁移**。
+本文重点介绍将 ETL 工作负荷从本地 SSIS 迁移到 ADF 中的 SSIS 的过程。 迁移过程包括两个阶段： **评估** 和 **迁移** 。
 
 ## <a name="assessment"></a>评估
 
@@ -50,16 +50,16 @@ Azure 数据工厂 (ADF) 中 Azure-SSIS Integration Runtime (IR) 支持运行 SS
   - MSDB：SQL Server 中用于存储 SSIS 包的系统数据库。
   - 托管文件系统：SQL Server 安装路径中用于存储 SSIS 包的特定文件夹。
 
-DMA 当前支持对自 **DMA 版本 5.0** 以来存储在**文件系统**、**包存储**和 **SSIS 目录**中的包进行批量评估。
+DMA 当前支持对自 **DMA 版本 5.0** 以来存储在 **文件系统** 、 **包存储** 和 **SSIS 目录** 中的包进行批量评估。
 
 获取 [DMA](https://docs.microsoft.com/sql/dma/dma-overview)，并[使用它来执行包评估](https://docs.microsoft.com/sql/dma/dma-assess-ssis)。
 
 ## <a name="migration"></a>迁移
 
-根据源 SSIS 包的[存储类型](#four-storage-types-for-ssis-packages)以及数据库工作负荷的迁移目标，迁移 **SSIS 包**的步骤，以及迁移计划 SSIS 包执行的 **SQL 服务器代理作业**的步骤可能不同。 有两种情况：
+根据源 SSIS 包的 [存储类型](#four-storage-types-for-ssis-packages)以及数据库工作负荷的迁移目标，迁移 **SSIS 包** 的步骤，以及迁移计划 SSIS 包执行的 **SQL 服务器代理作业** 的步骤可能不同。 有两种情况：
 
 - [将 Azure SQL 托管实例用作数据库工作负荷目标](#azure-sql-managed-instance-as-database-workload-destination)
-- [**将 Azure SQL 数据库**用作数据库工作负荷目标](#azure-sql-database-as-database-workload-destination)
+- [**将 Azure SQL 数据库** 用作数据库工作负荷目标](#azure-sql-database-as-database-workload-destination)
 
 ### <a name="azure-sql-managed-instance-as-database-workload-destination"></a>将 Azure SQL 托管实例用作数据库工作负荷目标
 
@@ -70,7 +70,7 @@ DMA 当前支持对自 **DMA 版本 5.0** 以来存储在**文件系统**、**�
 |SQL Server (MSDB)|通过 SSMS/dtutil 将其导出到文件系统/文件共享/Azure 文件。 有关详细信息，请参阅[导出 SSIS 包](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service#import-and-export-packages)。|通过脚本/SSMS/ADF 门户将其转换为 ADF 管道/活动/触发器。 有关详细信息，请参阅 [SSMS 计划功能](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)。|
 |包存储|通过 SSMS/dtutil 将它们导出到包存储，或通过 dtinstall/dtutil/手动复制将它们重新部署到包存储。 有关详细信息，请参阅[使用 Azure-SSIS Integration Runtime 包存储来管理包](azure-ssis-integration-runtime-package-store.md)。|<li>[将 SSIS 作业迁移到 Azure SQL 托管实例代理](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent) <li> 通过脚本/SSMS/ADF 门户将其转换为 ADF 管道/活动/触发器。 有关详细信息，请参阅 [SSMS 计划功能](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)。|
 
-### <a name="azure-sql-database-as-database-workload-destination"></a>将 **Azure SQL 数据库**用作数据库工作负荷目标
+### <a name="azure-sql-database-as-database-workload-destination"></a>将 **Azure SQL 数据库** 用作数据库工作负荷目标
 
 | **包存储类型** |如何批量迁移 SSIS 包|如何批量迁移作业|
 |-|-|-|

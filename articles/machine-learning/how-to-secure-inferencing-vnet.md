@@ -111,11 +111,11 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 有两种方法可以将往返于 AKS 群集的流量隔离到虚拟网络：
 
-* __专用 AKS 群集__：此方法使用 Azure 专用链接在 VNet 中为 AKS 群集创建专用终结点。
-* __内部 AKS 负载均衡器__：此方法将群集的负载均衡器配置为使用 VNet 中的内部 IP 地址。
+* __专用 AKS 群集__ ：此方法使用 Azure 专用链接在 VNet 中为 AKS 群集创建专用终结点。
+* __内部 AKS 负载均衡器__ ：此方法将群集的负载均衡器配置为使用 VNet 中的内部 IP 地址。
 
 > [!WARNING]
-> 两种配置是实现同一目标（保护到 VNet 内 AKS 群集的流量）的不同方法。 **请使用其中的一种方法，但不能同时使用两种方法**。
+> 两种配置是实现同一目标（保护到 VNet 内 AKS 群集的流量）的不同方法。 **请使用其中的一种方法，但不能同时使用两种方法** 。
 
 ### <a name="private-aks-cluster"></a>专用 AKS 群集
 
@@ -135,7 +135,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 #### <a name="network-contributor-role"></a>网络参与者角色
 
 > [!IMPORTANT]
-> 如果通过提供之前创建的虚拟网络来创建或附加 AKS 群集，则必须向 AKS 群集的服务主体 (SP) 或托管标识授予对包含虚拟网络的资源组的_网络参与者_角色。 必须在尝试将内部负载均衡器更改为专用 IP 之前完成此操作。
+> 如果通过提供之前创建的虚拟网络来创建或附加 AKS 群集，则必须向 AKS 群集的服务主体 (SP) 或托管标识授予对包含虚拟网络的资源组的 _网络参与者_ 角色。 必须在尝试将内部负载均衡器更改为专用 IP 之前完成此操作。
 >
 > 若要将标识添加为网络参与者，请执行以下步骤：
 
@@ -169,7 +169,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 > [!IMPORTANT]
 > 在 Azure 机器学习工作室中创建 Azure Kubernetes 服务群集时，无法启用专用 IP。 使用 Python SDK 或 Azure CLI 扩展进行机器学习时，可以创建一个具有内部负载均衡器的 AKS 群集。
 
-以下示例演示如何使用 SDK 和 CLI __创建具有专用 IP/内部负载均衡器的新 AKS 群集__：
+以下示例演示如何使用 SDK 和 CLI __创建具有专用 IP/内部负载均衡器的新 AKS 群集__ ：
 
 # <a name="python"></a>[Python](#tab/python)
 

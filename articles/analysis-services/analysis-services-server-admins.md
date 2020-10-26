@@ -5,21 +5,21 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 07/07/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed04ba2a8c681375e923506ed1b40353858e20b5
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 5e5633eb4165dd2402e8abd56c7e2b9848e1a86d
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146644"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470104"
 ---
 # <a name="manage-server-administrators"></a>管理服务器管理员
 
-服务器管理员必须是 Azure Active Directory (Azure AD) 中服务器所在租户的有效用户、服务主体或安全组。 可以使用 **Analysis Services 管理员**来管理 Azure 门户中的服务器，在 SSMS、PowerShell 或 REST API 中使用“服务器属性”来管理服务器管理员。 
+服务器管理员必须是 Azure Active Directory (Azure AD) 中服务器所在租户的有效用户、服务主体或安全组。 可以使用 **Analysis Services 管理员** 来管理 Azure 门户中的服务器，在 SSMS、PowerShell 或 REST API 中使用“服务器属性”来管理服务器管理员。 
 
 添加“安全组”时，请使用 `obj:groupid@tenantid`。 添加到服务器管理员角色的安全组不支持服务主体。
 

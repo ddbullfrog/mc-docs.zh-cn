@@ -2,27 +2,29 @@
 title: include 文件
 description: include 文件
 services: virtual-machines
-author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/06/2019
-ms.date: 11/11/2019
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 6aff639e5982ad0846fdd83bfdbbecc80a0f2819
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6b4c95b54a7ffa4aaf930938ffed7ab3283ce50d
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73730694"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211879"
 ---
-可以通过 [Azure CLI](https://docs.azure.cn/cli/index?view=azure-cli-latest) 和 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 启用和管理 Azure 磁盘加密。 为此，必须在本地安装工具并连接到 Azure 订阅。
+可以通过 [Azure CLI](https://docs.azure.cn/cli/) 和 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 启用和管理 Azure 磁盘加密。 为此，必须在本地安装工具并连接到 Azure 订阅。
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI 2.0](https://docs.azure.cn/cli/index?view=azure-cli-latest) 是用于管理 Azure 资源的命令行工具。 CLI 旨在提高数据查询灵活性、支持非阻塞进程形式的长时间操作，以及简化脚本编写。 可以按照[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 中的步骤在本地安装它。
+[Azure CLI 2.0](https://docs.azure.cn/cli/) 是用于管理 Azure 资源的命令行工具。 CLI 旨在提高数据查询灵活性、支持非阻塞进程形式的长时间操作，以及简化脚本编写。 可以按照[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 中的步骤在本地安装它。
 
-若要[使用 Azure CLI 登录 Azure 帐户](https://docs.azure.cn/cli/authenticate-azure-cli?view=azure-cli-latest)，请使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 命令。
+若要[使用 Azure CLI 登录 Azure 帐户](https://docs.azure.cn/cli/authenticate-azure-cli)，请使用 [az login](https://docs.azure.cn/cli/reference-index#az_login) 命令。
 
 ```azurecli
 az cloud set -n AzureChinaCloud
@@ -35,17 +37,19 @@ az login
 az login --tenant <tenant>
 ```
 
-如果有多个订阅并想要指定其中的一个，请使用 [az account list](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-list) 获取订阅列表，然后使用 [az account set](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-set) 指定订阅。
+如果有多个订阅并想要指定其中的一个，请使用 [az account list](https://docs.azure.cn/cli/account#az_account_list) 获取订阅列表，然后使用 [az account set](https://docs.azure.cn/cli/account#az_account_set) 指定订阅。
 
 ```azurecli
 az account list
 az account set --subscription "<subscription name or ID>"
 ```
 
-有关详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。 
+有关详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-azure-cli)。 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell az 模块](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)提供了一组使用 [Azure 资源管理器](/azure-resource-manager/resource-group-overview)模型管理 Azure 资源的 cmdlet。 可以在浏览器中通过 [Azure 本地 Shell](/cloud-shell/overview) 使用 PowerShell，也可以按照[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)中的说明将其安装在本地计算机上。 
+[Azure PowerShell az 模块](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)提供了一组使用 [Azure 资源管理器](https://docs.azure.cn/azure-resource-manager/resource-group-overview)模型管理 Azure 资源的 cmdlet。 可以按照[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)中的说明在本地计算机上安装它。 
+
+<!--Not Available on [Azure Cloud Shell](https://docs.microsoft.com/cloud-shell/overview)-->
 
 如果已在本地安装 PowerShell，请确保使用最新版本的 Azure PowerShell SDK 来配置 Azure 磁盘加密。 下载最新版本的 [Azure PowerShell 版本](https://github.com/Azure/azure-powershell/releases)。
 
@@ -70,5 +74,4 @@ Get-command *diskencryption*
 ```
 有关详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 
-<!--Update_Description: new articles on disk encryption install cli powershell -->
-<!--New.date: 11/04/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

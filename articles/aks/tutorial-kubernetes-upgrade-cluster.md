@@ -3,16 +3,19 @@ title: Azure 上的 Kubernetes 教程 - 升级群集
 description: 此 Azure Kubernetes 服务 (AKS) 教程介绍如何将现有 AKS 群集升级到最新可用的 Kubernetes 版本。
 services: container-service
 ms.topic: tutorial
-origin.date: 02/25/2020
-ms.date: 05/25/2020
+origin.date: 09/30/2020
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fbabe864b1700d818e081109268397d580593cd0
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: bba0c01b505f698e950afc30a8195dc7033c5dc4
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021534"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470183"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中升级 Kubernetes
 
@@ -145,10 +148,9 @@ az group delete --name myResourceGroup --yes --no-wait
 > * 升级 Kubernetes 节点
 > * 验证升级是否成功
 
-请单击以下链接了解有关 AKS 的详细信息。
+有关 AKS 的详细信息，请参阅 [AKS 概述][aks-intro]。
 
-> [!div class="nextstepaction"]
-> [AKS 概述][aks-intro]
+<!--Not Avaialble on  [AKS solution guidance][aks-solution-guidance]-->
 
 <!-- LINKS - external -->
 
@@ -158,11 +160,13 @@ az group delete --name myResourceGroup --yes --no-wait
 
 [aks-intro]: ./intro-kubernetes.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[az aks show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
-[az aks get-upgrades]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_upgrades
-[az aks upgrade]: https://docs.microsoft.com/cli/azure/aks#az_aks_upgrade
+[az aks show]: https://docs.azure.cn/cli/aks#az_aks_show
+[az aks get-upgrades]: https://docs.azure.cn/cli/aks#az_aks_get_upgrades
+[az aks upgrade]: https://docs.azure.cn/cli/aks#az_aks_upgrade
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
-[az-group-delete]: https://docs.azure.cn/cli/group#az-group-delete
+[az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+
+<!--Not Available on [aks-solution-guidance]: https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

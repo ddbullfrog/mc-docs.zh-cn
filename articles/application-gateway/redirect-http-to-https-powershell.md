@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/22/2020
 ms.author: v-junlch
-ms.openlocfilehash: 27f1580edff6eea10afb1fa94fa12cc2a92e6912
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: c65dd037546fa19172625b6c2daad1257d824b2a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721177"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472627"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 
@@ -333,12 +333,5 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
-
-> [!div class="checklist"]
-> * 创建自签名证书
-> * 设置网络
-> * 使用证书创建应用程序网关
-> * 添加侦听器和重定向规则
-> * 使用默认后端池创建虚拟机规模集
+- [使用应用程序网关重写 HTTP 标头和 URL](rewrite-http-headers-url.md)
 

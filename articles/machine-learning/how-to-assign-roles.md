@@ -129,7 +129,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 下表汇总了 Azure 机器学习活动以及在最小作用域内执行它们所需的权限。 例如，如果可以使用某个工作区作用域（第 4 列）执行某个活动，自然也可以使用具有该权限的所有更高的作用域：
 
 > [!IMPORTANT]
-> 此表中以 `/` 开头的所有路径都是相对于 `Microsoft.MachineLearningServices/` 的**相对路径**：
+> 此表中以 `/` 开头的所有路径都是相对于 `Microsoft.MachineLearningServices/` 的 **相对路径** ：
 
 | 活动 | 订阅级作用域 | 资源组级作用域 | 工作区级作用域 |
 | ----- | ----- | ----- | ----- |
@@ -157,7 +157,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 有。下面的一些常见方案具有建议的自定义角色定义，你可以将其作为基础来定义自己的自定义角色：
 
-* __Data Scientist Custom__：允许数据科学家在工作区中执行所有操作，但以下操作**除外**：
+* __Data Scientist Custom__ ：允许数据科学家在工作区中执行所有操作，但以下操作 **除外** ：
 
     * 创建计算
     * 将模型部署到生产 AKS 群集
@@ -193,7 +193,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```
 
-* __Data Scientist Restricted Custom__：一个限制性更强的角色定义，允许的操作中不包含通配符。 它可以在工作区中执行所有操作，但以下操作**除外**：
+* __Data Scientist Restricted Custom__ ：一个限制性更强的角色定义，允许的操作中不包含通配符。 它可以在工作区中执行所有操作，但以下操作 **除外** ：
 
     * 创建计算
     * 将模型部署到生产 AKS 群集
@@ -254,7 +254,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```
 
-* __MLOps Custom__：允许将角色分配给服务主体，并使用该角色自动执行 MLOps 管道。 例如，若要针对已发布的管道提交运行，可使用以下代码：
+* __MLOps Custom__ ：允许将角色分配给服务主体，并使用该角色自动执行 MLOps 管道。 例如，若要针对已发布的管道提交运行，可使用以下代码：
 
     `mlops_custom_role.json` :
     ```json
@@ -295,7 +295,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     }
     ```
 
-* __Workspace Admin__：允许在工作区范围中执行所有操作，但以下操作**除外**：
+* __Workspace Admin__ ：允许在工作区范围中执行所有操作，但以下操作 **除外** ：
 
     * 创建一个新工作区
     * 分配订阅或工作区级别配额
@@ -325,7 +325,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
     ```
 
 <a name="labeler"></a>
-* __Labeler Custom__：允许你定义一个只能在作用域内标记数据的角色：
+* __Labeler Custom__ ：允许你定义一个只能在作用域内标记数据的角色：
 
     `labeler_custom_role.json` :
     ```json

@@ -34,27 +34,27 @@ ms.locfileid: "92127898"
 
 创建受影响 VM 的快照。 
 
-然后，该快照将附加到**救援** VM。 根据[此处](../linux/snapshot-copy-managed-disk.md#use-azure-portal)的说明了解如何创建**快照**。
+然后，该快照将附加到 **救援** VM。 根据 [此处](../linux/snapshot-copy-managed-disk.md#use-azure-portal)的说明了解如何创建 **快照** 。
 
 ## <a name="create-a-rescue-vm"></a>创建救援 VM
-一般情况下，我们建议使用相同或类似的操作系统版本创建救援 VM。 使用与受影响 VM 相同的**区域**和**资源组**
+一般情况下，我们建议使用相同或类似的操作系统版本创建救援 VM。 使用与受影响 VM 相同的 **区域** 和 **资源组**
 
 ## <a name="connect-to-the-rescue-vm"></a>连接到救援 VM
-使用 SSH 连接到**救援** VM。 使用以下命令提升权限并成为超级用户
+使用 SSH 连接到 **救援** VM。 使用以下命令提升权限并成为超级用户
 
 `sudo su -`
 
 ## <a name="attach-the-disk"></a>附加磁盘
-将磁盘附加到基于前面创建的快照构建的**救援** VM。
+将磁盘附加到基于前面创建的快照构建的 **救援** VM。
 
-在 Azure 门户 -> 选择**救援** VM ->“磁盘”  
+在 Azure 门户 -> 选择 **救援** VM ->“磁盘”  
 
 :::image type="content" source="./media/chroot-logical-volume-manager/create-disk-from-snap.png" alt-text="创建磁盘":::
 
 填写字段。 为新磁盘命名，并选择与快照、受影响 VM 和救援 VM 相同的资源组。
 
 “源类型”为“快照”。  
-“源快照”是前面创建的**快照**的名称。 
+“源快照”是前面创建的 **快照** 的名称。 
 
 :::image type="content" source="./media/chroot-logical-volume-manager/create-disk-from-snap-2.png" alt-text="创建磁盘":::
 
@@ -66,7 +66,7 @@ ms.locfileid: "92127898"
 
 `fdisk -l`
 
-在大多数情况下，附加的快照磁盘将显示为 **/dev/sdc**，其中显示了 **/dev/sdc1** 和 **/dev/sdc2** 这两个分区
+在大多数情况下，附加的快照磁盘将显示为 **/dev/sdc** ，其中显示了 **/dev/sdc1** 和 **/dev/sdc2** 这两个分区
 
 :::image type="content" source="./media/chroot-logical-volume-manager/fdisk-output-sdc.png" alt-text="创建磁盘":::
 
@@ -79,7 +79,7 @@ ms.locfileid: "92127898"
 :::image type="content" source="./media/chroot-logical-volume-manager/lsblk-output-mounted.png" alt-text="创建磁盘":::
 
 验证是否显示受影响 VM 中的 LVM。
-如果未显示，请使用以下命令启用 LVM，然后重新运行 **lsblk**。
+如果未显示，请使用以下命令启用 LVM，然后重新运行 **lsblk** 。
 在继续操作之前，请确保附加磁盘中的 LVM 已显示。
 
 ```
@@ -92,9 +92,9 @@ lsblk
 
 找到包含 /（根）分区的逻辑卷的装载路径。 其中包含类似于 /etc/default/grub 的配置文件
 
-本示例采用上述 **lsblk** 命令的输出。**rootvg-rootlv** 是要装载的正确**根** LV，可在下一条命令中使用它。
+本示例采用上述 **lsblk** 命令的输出。 **rootvg-rootlv** 是要装载的正确 **根** LV，可在下一条命令中使用它。
 
-下一条命令的输出将显示**根** LV 的装载路径
+下一条命令的输出将显示 **根** LV 的装载路径
 
 `pvdisplay -m | grep -i rootlv`
 
@@ -104,7 +104,7 @@ lsblk
 
 `mount /dev/rootvg/rootlv /rescue`
 
-在 /rescue/boot 中装载设置了**启动标志**的分区
+在 /rescue/boot 中装载设置了 **启动标志** 的分区
 
 `
 mount /dev/sdc1 /rescue/boot
@@ -142,7 +142,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 `
 
 > [!TIP]
-> 在 **chroot** 环境中执行命令时请注意，这些命令是针对附加的 OS 磁盘运行的，而不是针对本地**救援** VM 运行的。 
+> 在 **chroot** 环境中执行命令时请注意，这些命令是针对附加的 OS 磁盘运行的，而不是针对本地 **救援** VM 运行的。 
 
 命令可用于安装、删除和更新软件。 对 VM 进行故障排除以修复错误。
 
@@ -200,11 +200,11 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 :::image type="content" source="./media/chroot-logical-volume-manager/chroot-all-mounts.png" alt-text="创建磁盘":::
 
-查询安装的**内核**
+查询安装的 **内核**
 
 :::image type="content" source="./media/chroot-logical-volume-manager/rpm-kernel.png" alt-text="创建磁盘":::
 
-可根据需要删除或升级**内核**
+可根据需要删除或升级 **内核**
 :::image type="content" source="./media/chroot-logical-volume-manager/rpm-remove-kernel.png" alt-text="创建磁盘":::
 
 <!--Not Available on ### Example 3 - enable Serial Console-->
@@ -250,7 +250,7 @@ umount /rescue
 从救援 VM 中分离磁盘，并执行磁盘交换。
 
 在门户的“磁盘”中选择 VM，然后选择“分离”
-:::image type="content" source="./media/chroot-logical-volume-manager/detach-disk.png" alt-text="创建磁盘":::******** 
+ 
 
 保存更改:::image type="content" source="./media/chroot-logical-volume-manager/save-detach.png" alt-text="创建磁盘"::: 
 

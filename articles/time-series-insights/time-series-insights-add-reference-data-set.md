@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 28b3fb5da5a1790e222f0b0f1fd20e2b7f2515a5
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 294d5a624fc046b78b8f0038003ea4f5f249aec4
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715367"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472656"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>使用 Azure 门户为 Azure 时序见解 Gen1 环境创建引用数据集
+
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
 
 本文介绍了如何向 Azure 时序见解环境添加引用数据集。 引用数据可用于联接到源数据以增强值。
 
@@ -30,7 +33,7 @@ ms.locfileid: "88715367"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 查找现有的 Azure 时序见解环境。 在 Azure 门户左侧的菜单中，选择“所有资源”。 选择 Azure 时序见解环境。
+1. 查找现有的 Azure 时序见解环境。 在 Azure 门户左侧的菜单中，选择“所有资源”  。 选择 Azure 时序见解环境。
 
 1. 选择“概述”页面。 展开页面顶部附近的“概要”部分，找到“时序见解资源管理器 URL”并打开链接 。  
 
@@ -68,7 +71,7 @@ ms.locfileid: "88715367"
 
    [![查看参考数据](./media/add-reference-data-set/review-displayed-data-grid.png)](./media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. 查看每个列以了解所采用的数据类型，并根据需要更改数据类型。  在列标题中选择数据类型符号： **#** 表示双精度（数字数据）、**T|F** 表示布尔值，**Abc** 表示字符串。
+1. 查看每个列以了解所采用的数据类型，并根据需要更改数据类型。  在列标题中选择数据类型符号： **#** 表示双精度（数字数据）、 **T|F** 表示布尔值， **Abc** 表示字符串。
 
    [![在列标题上选择数据类型。](./media/add-reference-data-set/select-column-types.png)](./media/add-reference-data-set/select-column-types.png#lightbox)
 
@@ -83,7 +86,7 @@ ms.locfileid: "88715367"
 
     [![为数据集命名。](./media/add-reference-data-set/enter-reference-data-set-name.png)](./media/add-reference-data-set/enter-reference-data-set-name.png#lightbox)
 
-1. 通过选择数据网格上方的下拉列表，提供数据集中的**主键**列。
+1. 通过选择数据网格上方的下拉列表，提供数据集中的 **主键** 列。
 
     [![选择键列。](./media/add-reference-data-set/select-primary-key-column.png)](./media/add-reference-data-set/select-primary-key-column.png#lightbox)
 

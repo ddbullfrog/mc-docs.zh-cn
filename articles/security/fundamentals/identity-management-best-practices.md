@@ -61,27 +61,27 @@ ms.locfileid: "92128303"
 
 以下部分列出了使用 Azure AD 实现标识和访问安全性的最佳做法。
 
-**最佳做法**：围绕用户和服务标识进行安全控制和检测。
-**详细信息**：使用 Azure AD 并置控制和标识。
+**最佳做法** ：围绕用户和服务标识进行安全控制和检测。
+**详细信息** ：使用 Azure AD 并置控制和标识。
 
 ## <a name="centralize-identity-management"></a>集中化标识管理
 
 在[混合标识](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?)方案中，我们建议集成本地目录和云目录。 通过集成，IT 团队可以在一个位置集中管理帐户，而不管帐户是在哪里创建的。 集成还通过提供用于访问云和本地资源的通用标识，从而帮助用户提高工作效率。
 
-**最佳做法**：建立一个 Azure AD 实例。 一致性和一个权威源不仅会提高简明性，还会减少人为错误和配置复杂性带来的安全风险。
-**详细信息**：指定一个 Azure AD 目录作为企业帐户和组织帐户的权威源。
+**最佳做法** ：建立一个 Azure AD 实例。 一致性和一个权威源不仅会提高简明性，还会减少人为错误和配置复杂性带来的安全风险。
+**详细信息** ：指定一个 Azure AD 目录作为企业帐户和组织帐户的权威源。
 
-**最佳做法**：将本地目录与 Azure AD 进行集成。  
-**详细信息**：使用 [Azure AD Connect](/active-directory/connect/active-directory-aadconnect) 将本地目录与云目录同步。
+**最佳做法** ：将本地目录与 Azure AD 进行集成。  
+**详细信息** ：使用 [Azure AD Connect](/active-directory/connect/active-directory-aadconnect) 将本地目录与云目录同步。
 
 > [!Note]
 > 存在[影响 Azure AD Connect 性能的因素](../../active-directory/hybrid/plan-connect-performance-factors.md)。 确保 Azure AD Connect 有足够的容量来防止性能不佳的系统影响安全性和工作效率。 大型或复杂的组织（预配超过 10 万个对象的组织）应遵循[建议](../../active-directory/hybrid/whatis-hybrid-identity.md)来优化其 Azure AD Connect 实现。
 
-**最佳做法**：不要将现有 Active Directory 实例中权限高的帐户同步到 Azure AD。
-**详细信息**：请勿更改已筛选掉这些帐户的默认 [Azure AD Connect 配置](../../active-directory/hybrid/how-to-connect-sync-configure-filtering.md)。 此配置降低了攻击者从云透视到本地资源（这可能会造成重大事件）的风险。
+**最佳做法** ：不要将现有 Active Directory 实例中权限高的帐户同步到 Azure AD。
+**详细信息** ：请勿更改已筛选掉这些帐户的默认 [Azure AD Connect 配置](../../active-directory/hybrid/how-to-connect-sync-configure-filtering.md)。 此配置降低了攻击者从云透视到本地资源（这可能会造成重大事件）的风险。
 
-**最佳做法**：启用密码哈希同步。  
-**详细信息**：密码哈希同步是用于将用户密码哈希从本地 Active Directory 实例同步到基于云的 Azure AD 实例的功能。 此同步有助于防止重放先前攻击中泄露的凭据。
+**最佳做法** ：启用密码哈希同步。  
+**详细信息** ：密码哈希同步是用于将用户密码哈希从本地 Active Directory 实例同步到基于云的 Azure AD 实例的功能。 此同步有助于防止重放先前攻击中泄露的凭据。
 
 即使决定使用 Active Directory 联合身份验证服务 (AD FS) 或其他标识提供者进行联合身份验证，也可以选择性地设置密码哈希同步作为备用机制，以应对本地服务器发生故障或临时不可用的情况。 借助此同步，用户可以使用与登录本地 Active Directory 实例相同的密码来登录服务。 如果用户对其他未连接到 Azure AD 的服务使用过相同的电子邮件地址和密码，此同步还可便于标识保护将同步的密码哈希与已知被盗用的密码进行比较，从而检测被盗用的凭据。
 
@@ -107,8 +107,8 @@ ms.locfileid: "92128303"
 
 为了平衡安全性与工作效率，在做出访问控制决策之前，需要考虑如何访问资源。 使用 Azure AD 条件访问，可以满足这一需求。 使用条件访问，可以根据访问云应用的条件做出自动访问控制决策。
 
-**最佳做法**：管理和控制对公司资源的访问。  
-**详细信息**：根据 SaaS 应用和 Azure AD 连接的应用的组、位置和应用敏感度，配置通用 Azure AD [条件访问策略](../../active-directory/conditional-access/concept-conditional-access-policy-common.md)。
+**最佳做法** ：管理和控制对公司资源的访问。  
+**详细信息** ：根据 SaaS 应用和 Azure AD 连接的应用的组、位置和应用敏感度，配置通用 Azure AD [条件访问策略](../../active-directory/conditional-access/concept-conditional-access-policy-common.md)。
 
 ## <a name="plan-for-routine-security-improvements"></a>计划例程安全改进
 
@@ -116,18 +116,18 @@ ms.locfileid: "92128303"
 
 标识安全分数是 Microsoft 发布的一组建议的安全控制，旨在为你提供一个数字分数，以便客观地度量你的安全状况，并帮助计划未来的安全改进。 你还可以查看你的分数与其他行业分数的比较，以及你自己的分数在一段时间内的趋势。
 
-**最佳做法**：根据你所在行业的最佳做法来计划例程安全评审和改进。
-**详细信息**：使用标识安全分数功能对你在一段时间内的改进进行排名。
+**最佳做法** ：根据你所在行业的最佳做法来计划例程安全评审和改进。
+**详细信息** ：使用标识安全分数功能对你在一段时间内的改进进行排名。
 
 ## <a name="enable-password-management"></a>启用密码管理
 
 如果有多个租户或者你想要允许用户[重置自己的密码](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md)，则必须使用适当的安全策略来防止滥用。
 
-**最佳做法**：为用户设置自助式密码重置 (SSPR)。  
-**详细信息**：使用 Azure AD [自助式密码重置](/active-directory-b2c/active-directory-b2c-reference-sspr)功能。
+**最佳做法** ：为用户设置自助式密码重置 (SSPR)。  
+**详细信息** ：使用 Azure AD [自助式密码重置](/active-directory-b2c/active-directory-b2c-reference-sspr)功能。
 
-**最佳做法**：监视是否在使用 SSPR 及其使用情况。  
-**详细信息**：通过使用 Azure AD [密码重置注册活动报表](/active-directory/authentication/howto-sspr-reporting)监视正在注册的用户。 Azure AD 提供的报表功能可帮助使用预生成的报表来回答问题。 如果有相应的授权，还可以创建自定义查询。
+**最佳做法** ：监视是否在使用 SSPR 及其使用情况。  
+**详细信息** ：通过使用 Azure AD [密码重置注册活动报表](/active-directory/authentication/howto-sspr-reporting)监视正在注册的用户。 Azure AD 提供的报表功能可帮助使用预生成的报表来回答问题。 如果有相应的授权，还可以创建自定义查询。
 
 ## <a name="enforce-multi-factor-verification-for-users"></a>对用户强制执行多重身份验证
 
@@ -137,7 +137,7 @@ ms.locfileid: "92128303"
 
 以下是启用双重验证的选项和优势：
 
-**选项 1**：使用 Azure AD 安全默认值为所有用户和登录方法启用 MFA 优势：借助此选项，可以轻松、快速地为环境中的所有用户强制执行 MFA，同时采用严格的策略来执行以下操作：
+**选项 1** ：使用 Azure AD 安全默认值为所有用户和登录方法启用 MFA 优势：借助此选项，可以轻松、快速地为环境中的所有用户强制执行 MFA，同时采用严格的策略来执行以下操作：
 
 * 质询管理帐户和管理登录机制
 * 要求通过 Microsoft Authenticator 对所有用户进行 MFA 质询
@@ -161,23 +161,23 @@ ms.locfileid: "92128303"
 
 可以使用 [RBAC](/role-based-access-control/overview) 在一定范围内向用户、组和应用分配权限。 角色分配的范围可以是订阅、资源组或单个资源。
 
-**最佳做法**：在团队中分离职责，只向用户授予执行作业所需的访问权限。 只允许在特定范围内执行特定操作，而不要在 Azure 订阅或资源中向每个人都授予无限制权限。
-**详细信息**：使用 Azure 中的 [Azure 内置角色](/role-based-access-control/built-in-roles)向用户分配权限。
+**最佳做法** ：在团队中分离职责，只向用户授予执行作业所需的访问权限。 只允许在特定范围内执行特定操作，而不要在 Azure 订阅或资源中向每个人都授予无限制权限。
+**详细信息** ：使用 Azure 中的 [Azure 内置角色](/role-based-access-control/built-in-roles)向用户分配权限。
 
 > [!Note]
 > 特定的权限会造成不必要的复杂性和混乱，累积成一个“遗留”配置，难以在不担心破坏某些东西的情况下修复。 避免特定于资源的权限。 而是将管理组用于企业范围内的权限，并将资源组用于订阅中的权限。 避免用户特定的权限。 而是向 Azure AD 中的组分配权限。
 
-**最佳做法**：向具有 Azure 职责的安全团队授予对 Azure 资源的访问权限，以便他们可以评估和修正风险。
-**详细信息**：向安全团队授予 RBAC [安全读取者](/role-based-access-control/built-in-roles#security-reader)角色。 可以使用根管理组或段管理组，具体视职责范围而定：
+**最佳做法** ：向具有 Azure 职责的安全团队授予对 Azure 资源的访问权限，以便他们可以评估和修正风险。
+**详细信息** ：向安全团队授予 RBAC [安全读取者](/role-based-access-control/built-in-roles#security-reader)角色。 可以使用根管理组或段管理组，具体视职责范围而定：
 
 * 根管理组：用于负责所有企业资源的团队
 * 段管理组：用于范围有限的团队（通常是由于法规或其他组织边界所致）
 
-**最佳做法**：向具有直接运营职责的安全团队授予适当的权限。
-**详细信息**：审阅 RBAC 内置角色，以进行适当的角色分配。 如果内置角色不能满足组织的具体需求，则可以创建 [Azure 自定义角色](/role-based-access-control/custom-roles)。 与内置角色一样，可以在订阅、资源组和资源范围内向用户、组和服务主体分配自定义角色。
+**最佳做法** ：向具有直接运营职责的安全团队授予适当的权限。
+**详细信息** ：审阅 RBAC 内置角色，以进行适当的角色分配。 如果内置角色不能满足组织的具体需求，则可以创建 [Azure 自定义角色](/role-based-access-control/custom-roles)。 与内置角色一样，可以在订阅、资源组和资源范围内向用户、组和服务主体分配自定义角色。
 
-**最佳做法**：向需要的安全角色授予 Azure 安全中心访问权限。 使用安全中心，安全团队可以快速发现和修正风险。
-**详细信息**：将具有这些需求的安全团队添加到 RBAC [安全管理员](/role-based-access-control/built-in-roles#security-admin)角色，这样他们就可以查看安全策略、查看安全状态、编辑安全策略、查看警报和建议，并能消除警报和建议。 你可以使用根管理组或段管理组来执行此操作，具体取决于职责范围。
+**最佳做法** ：向需要的安全角色授予 Azure 安全中心访问权限。 使用安全中心，安全团队可以快速发现和修正风险。
+**详细信息** ：将具有这些需求的安全团队添加到 RBAC [安全管理员](/role-based-access-control/built-in-roles#security-admin)角色，这样他们就可以查看安全策略、查看安全状态、编辑安全策略、查看警报和建议，并能消除警报和建议。 你可以使用根管理组或段管理组来执行此操作，具体取决于职责范围。
 
 未使用 RBAC 等功能实施数据访问控制的组织可能会给其用户分配不必要的权限。 允许用户访问他们不应有权访问的类型的数据（例如，对业务有重大影响的数据）可能会导致数据泄漏。
 

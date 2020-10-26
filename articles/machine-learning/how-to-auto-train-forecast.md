@@ -154,7 +154,7 @@ ForecastTCN（预览版）| ForecastTCN 是一种神经网络模型，旨在处�
 以下代码 
 * 将 `time-series settings` 创建为字典对象。 
 * 将 `time_column_name` 设置为数据集中的 `day_datetime` 字段。 
-* 将 `time_series_id_column_names` 参数定义为 `"store"`。 这可确保为数据创建**两个单独的时序组**，一个用于商店 A，一个用于商店 B。
+* 将 `time_series_id_column_names` 参数定义为 `"store"`。 这可确保为数据创建 **两个单独的时序组** ，一个用于商店 A，一个用于商店 B。
 * 将 `forecast_horizon` 设置为 50 以针对整个测试集进行预测。 
 * 使用 `target_rolling_window_size` 将预测窗口设置为 10 个时段
 * 使用 `target_lags` 参数指定目标值滞后两个时段。 
@@ -242,7 +242,7 @@ featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": 
 ### <a name="enable-deep-learning"></a>启用深度学习
 
 > [!NOTE]
-> DNN 对自动机器学习的预测支持目前为**预览版**，不支持本地运行。
+> DNN 对自动机器学习的预测支持目前为 **预览版** ，不支持本地运行。
 
 你还可以通过深层神经网络 (DNN) 利用深度学习来改进模型的分数。 通过自动化 ML 的深度学习，可预测单变量和多变量时序数据。
 
@@ -272,7 +272,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 例如，假设你想要预测能源需求。 你可能希望添加一项滚动窗口（3 天）特征来解释供暖空间的热变化。 在此示例中，通过在 `AutoMLConfig` 构造函数中设置 `target_rolling_window_size= 3` 来创建此窗口。 
 
-下表显示了在应用窗口聚合后发生的特征工程。 根据定义的设置针对滑动窗口 3 生成表示**最小值、最大值**和**总和**的列。 每一行有计算得出的一个新特征；如果时间戳为 2017 年 9 月 8 日凌晨 4:00，则使用 2017 年 9 月 8 日凌晨 1:00 至 3:00 的**需求值**计算最大值、最小值和总和值。 3 这个窗口将移位填充其余行的数据。
+下表显示了在应用窗口聚合后发生的特征工程。 根据定义的设置针对滑动窗口 3 生成表示 **最小值、最大值** 和 **总和** 的列。 每一行有计算得出的一个新特征；如果时间戳为 2017 年 9 月 8 日凌晨 4:00，则使用 2017 年 9 月 8 日凌晨 1:00 至 3:00 的 **需求值** 计算最大值、最小值和总和值。 3 这个窗口将移位填充其余行的数据。
 
 ![替换文字](./media/how-to-auto-train-forecast/target-roll.svg)
 

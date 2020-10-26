@@ -3,22 +3,22 @@ title: 教程 - 部署链接模板
 description: 了解如何部署链接模板
 origin.date: 03/13/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1c56fe22d04211c4e63cae0031cb067c4158c0aa
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: ae35ccb53e9f24295ed92537c4e119869506ada0
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807871"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470508"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>教程：部署链接模板
 
-[前一篇教程](./deployment-tutorial-local-template.md)已介绍如何部署存储在本地计算机中的模板。 若要部署复杂的解决方案，可将一个模板分解为多个模板，并通过主模板部署这些模板。 本教程介绍如何部署包含对链接模板的引用的主模板。 部署主模板时，会触发链接模板的部署。 本教程还将介绍如何使用 SAS 令牌来存储和保护链接模板。 完成该过程需要大约 **12 分钟**。
+[前一篇教程](./deployment-tutorial-local-template.md)已介绍如何部署存储在本地计算机中的模板。 若要部署复杂的解决方案，可将一个模板分解为多个模板，并通过主模板部署这些模板。 本教程介绍如何部署包含对链接模板的引用的主模板。 部署主模板时，会触发链接模板的部署。 本教程还将介绍如何使用 SAS 令牌来存储和保护链接模板。 完成该过程需要大约 **12 分钟** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -56,7 +56,6 @@ ms.locfileid: "88807871"
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS",
-        "Standard_RAGZRS"
       ],
       "metadata": {
         "description": "Specify the storage account type."
@@ -166,7 +165,6 @@ ms.locfileid: "88807871"
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS",
-        "Standard_RAGZRS"
       ],
       "metadata": {
         "description": "Specify the storage account type."
@@ -440,10 +438,10 @@ az deployment group create \
 
 通过删除资源组来清理你部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
 2. 在“按名称筛选”字段中输入资源组名称。
 3. 选择资源组名称。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 

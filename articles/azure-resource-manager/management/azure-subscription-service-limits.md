@@ -4,16 +4,16 @@ description: 提供常见的 Azure 订阅和服务限制、配额和约束的列
 ms.topic: conceptual
 origin.date: 09/02/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5f0ff333348677e173dd2255bef9c79475dbcefa
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 579c1700db3ed856479187d06122d27156df55c4
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937117"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470383"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 

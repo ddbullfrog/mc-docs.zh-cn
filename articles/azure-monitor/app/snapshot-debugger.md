@@ -9,11 +9,11 @@ origin.date: 08/06/2019
 ms.date: 08/12/2019
 ms.author: v-lingwu
 ms.openlocfilehash: 19459279835de5dd2de86edd5fab050c02f53663
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79293028"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211513"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 应用中发生异常时的调试快照
 发生异常时，可自动从实时 Web 应用程序收集调试快照。 快照显示发生异常时源代码和变量的状态。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的 Snapshot Debugger 可以监视来自 Web 应用的异常遥测。 它可收集常出现的异常的调试快照，为诊断生产中的问题提供所需信息。 请将[快照收集器 NuGet 包](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)添加到应用程序，并按需在 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 中配置收集参数。快照显示在 Application Insights 门户中的[异常](../../azure-monitor/app/asp-net-exceptions.md)区域中。
@@ -101,7 +101,7 @@ ms.locfileid: "79293028"
 > [!TIP]
 > - 进程快照是正在运行的进程的暂停克隆。
 > - 创建快照大约需要 10 到 20 毫秒。
-> - `ThresholdForSnapshotting` 的默认值为 1。 这也是最小值。 因此，在创建快照之前，应用程序必须触发相同的异常**两次**。
+> - `ThresholdForSnapshotting` 的默认值为 1。 这也是最小值。 因此，在创建快照之前，应用程序必须触发相同的异常 **两次** 。
 > - 如果想要在 Visual Studio 中调试时生成快照，请将 `IsEnabledInDeveloperMode` 设置为 true。
 > - 快照创建速率受 `SnapshotsPerTenMinutesLimit` 设置的限制。 默认情况下，限制为每十分钟一个快照。
 > - 每天不超过 50 张的快照可以上传。

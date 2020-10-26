@@ -12,14 +12,14 @@ ms.service: cloud-services
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/14/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 152951ef56d689abe64dd84baa0b8267252d3497
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: c84b26a79bfaf0e3b444fd81f50e160e7a0d0f12
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721171"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472618"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>导致角色回收的常见问题
 本文讨论部署问题的一些常见原因，并提供故障排除技巧以帮助你解决这些问题。 角色实例无法启动，或者在“正在初始化”、“忙”和“正在停止”状态之间循环时，即指示应用程序存在问题。
@@ -63,11 +63,12 @@ DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 若要在 TLS 下运行 Web 角色，必须确保导出的管理证书包含私钥。 如果使用 Windows 证书管理器导出证书，请务必对“导出私钥”选项选择“是”    。 该证书必须以 PFX 格式导出，这是当前支持的唯一格式。
 
 ## <a name="next-steps"></a>后续步骤
+查看更多针对云服务的 [故障排除文章](../index.md?product=cloud-services&tag=top-support-issue) 。
 
 在 [Kevin Williamson 博客系列](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)中查看更多角色回收方案。
 
-[RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
-[OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
-[OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[RoleEntryPoint]: https://docs.microsoft.com/previous-versions/azure/reference/ee758619(v=azure.100)
+[OnStart]: https://docs.microsoft.com/previous-versions/azure/reference/ee772851(v=azure.100)
+[OnStop]: https://docs.microsoft.com/previous-versions/azure/reference/ee772844(v=azure.100)
+[Run]: https://docs.microsoft.com/previous-versions/azure/reference/ee772746(v=azure.100)
 

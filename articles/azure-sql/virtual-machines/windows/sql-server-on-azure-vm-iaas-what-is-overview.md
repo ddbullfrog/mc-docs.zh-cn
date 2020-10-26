@@ -1,25 +1,25 @@
 ---
 title: Azure Windows 虚拟机上的 SQL Server 概述 | Microsoft Docs
-description: 了解如何在 Azure 虚拟机上运行完整版本的 SQL Server。
+description: 了解如何在云中的 Azure 虚拟机上运行完整版本的 SQL Server，而无需管理任何本地硬件。
 services: virtual-machines-windows
 documentationcenter: ''
 author: WenJason
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 11/27/2019
-ms.date: 09/14/2020
+ms.date: 10/29/2020
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: 9d4f4765c0ee0f27e08e8aeaeb0dea7639823be7
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 7f41a319d8ed38f6061d5a5d713210818fa98714
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014358"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470488"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure 虚拟机 (Windows) 上的 SQL Server 是什么？
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,6 +43,7 @@ Azure 虚拟机上的 SQL Server 可以使用[自动修补](automated-patching.m
 Azure 虚拟机上的 SQL Server 可以利用[自动备份](automated-backup.md)，定期创建数据库到 Blob 存储的备份。 也可以手动使用此技术。 有关详细信息，请参阅[使用 Azure 存储进行 SQL Server 备份和还原](azure-storage-sql-server-backup-restore-use.md)。
 
 Azure 还为 Azure VM 中运行的 SQL Server 提供企业级备份解决方案。 作为完全托管的备份解决方案，它支持 AlwaysOn 可用性组、长期保留、时点恢复以及集中管理和监视。 有关详细信息，请参阅 [Azure VM 中 SQL Server 的 Azure 备份](/backup/backup-azure-sql-database)。
+  
 
 ## <a name="high-availability"></a>高可用性
 
@@ -77,10 +78,9 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL Server
 
 <!--Not Available on [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md)-->
 
-<a name="BYOL"></a>
-<a name="byol"></a>
-### <a name="bring-your-own-license"></a>自带许可
-你也可以自带许可 (BYOL)。 在此方案中，你只需支付 VM 费用，SQL Server 许可不需要任何额外的费用。  自带许可证长时间会节省资金，因为可以持续使用生产型工作负荷。 有关使用此选项的要求，请参阅 [SQL Server Azure VM 定价指南](pricing-guidance.md#byol)。
+
+### <a name="bring-your-own-license"></a><a id="BYOL"></a> 自带许可
+也可以自带许可 (BYOL)。 在此方案中，你只需支付 VM 费用，SQL Server 许可不需要任何额外的费用。  自带许可证长时间会节省资金，因为可以持续使用生产型工作负荷。 有关使用此选项的要求，请参阅 [SQL Server Azure VM 定价指南](pricing-guidance.md#byol)。
 
 若要自带许可证，可以转换现有的按用量付费的 SQL Server VM，也可以部署前缀为 {BYOL} 的映像。 
 
@@ -102,6 +102,7 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL Server
 
 有关使用 PowerShell 部署 SQL Server VM 的详细信息，请查看[如何使用 Azure PowerShell 预配 SQL Server 虚拟机](create-sql-vm-powershell.md)。
 
+
 ### <a name="connect-to-the-vm"></a>连接到 VM
 创建 SQL Server VM 以后，即可从 SQL Server Management Studio (SSMS) 之类的应用程序或工具连接到该 VM。 有关说明，请参阅[连接到 Azure 上的 SQL Server 虚拟机](ways-to-connect-to-sql.md)。
 
@@ -115,7 +116,7 @@ Azure 虚拟机提供的虚拟机大小取决于工作负荷需求。 SQL Server
 对于每种支持的操作系统和版本的组合，Azure 只保留一个虚拟机映像。 这意味着，随着时间的推移，映像会进行刷新，旧映像会被删除。 有关详细信息，请参阅[SQL Server VM 常见问题解答](frequently-asked-questions-faq.md#images)的“映像”部分。
 
 ## <a name="customer-experience-improvement-program-ceip"></a>客户体验改善计划 (CEIP)
-客户体验改善计划 (CEIP) 默认情况下已启用。 它定期将报告发送给 Azure，以帮助改进 SQL Server。 CEIP 不要求管理任务，除非想在预配后禁用它。 可以通过远程桌面连接到 VM，以自定义或禁用 CEIP。 然后运行 **SQL Server 错误和使用情况报告**实用工具。 请按照说明禁用报告功能。 有关数据收集的详细信息，请参阅 [SQL Server 隐私声明](https://docs.microsoft.com/sql/sql-server/sql-server-privacy)。
+客户体验改善计划 (CEIP) 默认情况下已启用。 它定期将报告发送给 Azure，以帮助改进 SQL Server。 CEIP 不要求管理任务，除非想在预配后禁用它。 可以通过远程桌面连接到 VM，以自定义或禁用 CEIP。 然后运行 **SQL Server 错误和使用情况报告** 实用工具。 请按照说明禁用报告功能。 有关数据收集的详细信息，请参阅 [SQL Server 隐私声明](https://docs.microsoft.com/sql/sql-server/sql-server-privacy)。
 
 ## <a name="related-products-and-services"></a>相关产品和服务
 ### <a name="windows-virtual-machines"></a>Windows 虚拟机

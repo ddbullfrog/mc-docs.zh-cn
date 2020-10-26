@@ -18,7 +18,7 @@ ms.locfileid: "92117995"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 机器学习发行说明
 
-本文介绍 Azure 机器学习的版本。  有关完整的 SDK 参考内容，请访问 Azure 机器学习的[**适用于 Python 的主要 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 参考页。
+本文介绍 Azure 机器学习的版本。  有关完整的 SDK 参考内容，请访问 Azure 机器学习的 [**适用于 Python 的主要 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 参考页。
 
 请参阅[已知问题列表](resource-known-issues.md)了解已知 bug 和解决方法。
 
@@ -286,7 +286,7 @@ ms.locfileid: "92117995"
   + **azureml-pipeline-steps**
     + 更新了 azureml-pipeline-steps 的文档。
     +  在 ParallelRunConfig 的 `load_yaml()` 中添加了相关支持，允许用户在配置的其余部分中或在单独的文件中定义内联环境
-  + **azureml-train-automl-client**。
+  + **azureml-train-automl-client** 。
     + 删除了在 AutoMLConfig 中指定 `enable_cache` 的功能
   + **azureml-train-automl-runtime**
     + 通过 BERT 添加了可用性有限的多节点、多 gpu 分布式特征化。
@@ -1818,7 +1818,7 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
   + **azureml-pipeline-steps**
     + DatabricksStep 中的输入和输出现在支持 DBFS 数据存储。
     + 更新了 Azure Batch 步骤的输入/输出相关文档。
-    + 在 AzureBatchStep 中，已将 *delete_batch_job_after_finish* 默认值更改为 *true*。
+    + 在 AzureBatchStep 中，已将 *delete_batch_job_after_finish* 默认值更改为 *true* 。
   + **azureml-telemetry**
     +  已将 azureml-contrib-opendatasets 移到 azureml-opendatasets。
     + 允许将打开的数据集类注册到 Azure 机器学习工作区并无缝利用 AML 数据集功能。
@@ -1850,7 +1850,7 @@ Azure 机器学习现在是事件网格的资源提供程序，你可以通过 A
 
 + **新功能**
   + **azureml-opendatasets**
-    + **azureml-contrib-opendatasets** 现已作为 **azureml-opendatasets** 提供。 旧包仍可正常运行，但我们建议使用 **azureml-opendatasets**，以获得更丰富的功能和改进。
+    + **azureml-contrib-opendatasets** 现已作为 **azureml-opendatasets** 提供。 旧包仍可正常运行，但我们建议使用 **azureml-opendatasets** ，以获得更丰富的功能和改进。
     + 使用此新包可将打开的数据集注册为 Azure 机器学习工作区中的数据集，并利用数据集提供的任何功能。
     + 它还包括一些现有的功能，例如，将打开的数据集用作 Pandas/SPARK 数据帧，以及某些数据集（如天气）的位置联接。
 

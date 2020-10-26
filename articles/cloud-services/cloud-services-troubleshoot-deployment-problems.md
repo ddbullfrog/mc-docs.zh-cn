@@ -12,14 +12,14 @@ ms.service: cloud-services
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/14/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: e0af990c026b9fb08a31778a6ad63b43ab15def2
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 086c5451d980cfe1d5e9866f01183294d50100e3
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721168"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472170"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>排查云服务部署问题
 将云服务应用程序包部署到 Azure 时，可通过 Azure 门户中的“属性”  窗格获取有关部署的信息。 可以使用此窗格中的详细信息来帮助你解决云服务的问题，还可以在提交新的支持请求时将此信息提供给 Azure 支持人员。
@@ -82,7 +82,7 @@ ms.locfileid: "90721168"
 >
 
 ## <a name="next-steps"></a>后续步骤
-查看更多针对云服务的[故障排除文章](/cloud-services/cloud-services-allocation-failures)。
+查看更多针对云服务的[故障排除文章](./cloud-services-allocation-failures.md)。
 
 若要了解如何使用 Azure PaaS 计算机诊断数据对云服务角色问题进行故障排除，请参阅 [Kevin Williamson 博客系列](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)。
 

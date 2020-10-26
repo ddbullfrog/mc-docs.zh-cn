@@ -15,12 +15,12 @@ ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: df2806daabb334b77786d51cd52489be0c5b1086
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 2465ae6ed526411963f8402191caecdc29e5f9c6
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128755"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470452"
 ---
 <!--Renamed File-->
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli-linux"></a>使用 CLI 基于相同订阅的存储帐户中的 VHD 文件创建托管磁盘 (Linux)
@@ -81,7 +81,7 @@ az disk create --resource-group $resourceGroupName --name $diskName --sku $stora
 
 [通过将托管磁盘附加为 OS 磁盘来创建虚拟机](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/azure)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 

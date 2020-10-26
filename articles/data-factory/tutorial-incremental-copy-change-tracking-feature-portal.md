@@ -45,13 +45,13 @@ ms.locfileid: "92121721"
 > [!NOTE]
 > Azure SQL 数据库和 SQL Server 都支持更改跟踪技术。 本教程使用 Azure SQL 数据库作为源数据存储。 此外，还可以使用 SQL Server 实例。
 
-1. **首次加载历史数据**（运行一次）：
+1. **首次加载历史数据** （运行一次）：
     1. 在 Azure SQL 数据库的源数据库中启用更改跟踪技术。
     2. 在数据库中获取 SYS_CHANGE_VERSION 的初始值，作为捕获更改数据的基线。
     3. 将完整数据从源数据库加载到 Azure Blob 存储中。
-2. **以增量方式按计划加载增量数据**（在首次加载数据后定期运行）：
+2. **以增量方式按计划加载增量数据** （在首次加载数据后定期运行）：
     1. 获取旧的和新的 SYS_CHANGE_VERSION 值。
-    3. 将 **sys.change_tracking_tables** 中已更改行（两个 SYS_CHANGE_VERSION 值之间）的主键与**源表**中的数据联接，以便加载增量数据，然后将增量数据移到目标位置。
+    3. 将 **sys.change_tracking_tables** 中已更改行（两个 SYS_CHANGE_VERSION 值之间）的主键与 **源表** 中的数据联接，以便加载增量数据，然后将增量数据移到目标位置。
     4. 更新 SYS_CHANGE_VERSION，以便下次进行增量加载。
 
 ## <a name="high-level-solution"></a>高级解决方案
@@ -61,9 +61,9 @@ ms.locfileid: "92121721"
 
     ![完整地加载数据](media/tutorial-incremental-copy-change-tracking-feature-portal/full-load-flow-diagram.png)
 1.  **增量加载：** 创建一个包含以下活动的管道并定期运行。
-    1. 创建**两项查找活动**，从 Azure SQL 数据库获取旧的和新的 SYS_CHANGE_VERSION，然后将其传递至复制活动。
-    2. 创建**一项复制活动**，将两个 SYS_CHANGE_VERSION 值之间的插入/更新/删除数据从 Azure SQL 数据库复制到 Azure Blob 存储。
-    3. 创建**一项存储过程活动**，更新 SYS_CHANGE_VERSION 的值，以便进行下一次的管道运行。
+    1. 创建 **两项查找活动** ，从 Azure SQL 数据库获取旧的和新的 SYS_CHANGE_VERSION，然后将其传递至复制活动。
+    2. 创建 **一项复制活动** ，将两个 SYS_CHANGE_VERSION 值之间的插入/更新/删除数据从 Azure SQL 数据库复制到 Azure Blob 存储。
+    3. 创建 **一项存储过程活动** ，更新 SYS_CHANGE_VERSION 的值，以便进行下一次的管道运行。
 
     ![增量加载流程图](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-load-flow-diagram.png)
 
@@ -71,13 +71,13 @@ ms.locfileid: "92121721"
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
 
 ## <a name="prerequisites"></a>先决条件
-* **Azure SQL 数据库**。 将数据库用作**源**数据存储。 如果没有 Azure SQL 数据库，请参阅[创建 Azure SQL 数据库](../azure-sql/database/single-database-create-quickstart.md)一文获取创建步骤。
-* **Azure 存储帐户**。 将 Blob 存储用作**接收器**数据存储。 如果没有 Azure 存储帐户，请参阅[创建存储帐户](../storage/common/storage-account-create.md)一文获取创建步骤。 创建名为 **adftutorial** 的容器。 
+* **Azure SQL 数据库** 。 将数据库用作 **源** 数据存储。 如果没有 Azure SQL 数据库，请参阅[创建 Azure SQL 数据库](../azure-sql/database/single-database-create-quickstart.md)一文获取创建步骤。
+* **Azure 存储帐户** 。 将 Blob 存储用作 **接收器** 数据存储。 如果没有 Azure 存储帐户，请参阅[创建存储帐户](../storage/common/storage-account-create.md)一文获取创建步骤。 创建名为 **adftutorial** 的容器。 
 
 ### <a name="create-a-data-source-table-in-azure-sql-database"></a>在 Azure SQL 数据库中创建数据源表
 
 1. 启动 SQL Server Management Studio，连接到 SQL 数据库。
-2. 在“服务器资源管理器”中，右键单击你的**数据库**，然后选择“新建查询”。
+2. 在“服务器资源管理器”中，右键单击你的 **数据库** ，然后选择“新建查询”。
 3. 针对数据库运行以下 SQL 命令，创建名为 `data_source_table` 的表作为数据源存储。  
 
     ```sql
@@ -100,7 +100,7 @@ ms.locfileid: "92121721"
 
     ```
 
-4. 通过运行以下 SQL 查询，在数据库和源表 (data_source_table) 上启用**更改跟踪**机制：
+4. 通过运行以下 SQL 查询，在数据库和源表 (data_source_table) 上启用 **更改跟踪** 机制：
 
     > [!NOTE]
     > - 将 &lt;your database name&gt; 替换为你的 Azure SQL 数据库的名称，其中包含 data_source_table。
@@ -161,22 +161,22 @@ ms.locfileid: "92121721"
 
    ![在“新建”窗格中选择“数据工厂”](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. 在“新建数据工厂”页中，输入 **ADFTutorialDataFactory** 作为**名称**。
+2. 在“新建数据工厂”页中，输入 **ADFTutorialDataFactory** 作为 **名称** 。
 
      ![“新建数据工厂”页](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
 
-   Azure 数据工厂的名称必须 **全局唯一**。 如果收到错误，请更改数据工厂的名称（例如改为 yournameADFTutorialDataFactory），并重新尝试创建。 有关数据工厂项目命名规则，请参阅[数据工厂 - 命名规则](naming-rules.md)一文。
+   Azure 数据工厂的名称必须 **全局唯一** 。 如果收到错误，请更改数据工厂的名称（例如改为 yournameADFTutorialDataFactory），并重新尝试创建。 有关数据工厂项目命名规则，请参阅[数据工厂 - 命名规则](naming-rules.md)一文。
 
    数据工厂名“ADFTutorialDataFactory”不可用
-3. 选择要在其中创建数据工厂的 Azure **订阅**。
-4. 对于**资源组**，请执行以下步骤之一：
+3. 选择要在其中创建数据工厂的 Azure **订阅** 。
+4. 对于 **资源组** ，请执行以下步骤之一：
 
       - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。 
       - 选择“新建”，并输入资源组的名称。   
          
         若要了解有关资源组的详细信息，请参阅 [使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。  
-4. 选择“V2 (预览)”作为**版本**。
-5. 选择数据工厂的**位置**。 下拉列表中仅显示支持的位置。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库，等等）和计算资源（HDInsight 等）可以位于其他区域中。
+4. 选择“V2 (预览)”作为 **版本** 。
+5. 选择数据工厂的 **位置** 。 下拉列表中仅显示支持的位置。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库，等等）和计算资源（HDInsight 等）可以位于其他区域中。
 6. 选择“固定到仪表板”。     
 7. 单击“创建”。      
 8. 在仪表板上，你会看状态如下的以下磁贴：“正在部署数据工厂”。
@@ -204,9 +204,9 @@ ms.locfileid: "92121721"
    ![选择“Azure Blob 存储”](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-storage.png)
 3. 在“新建链接服务”窗口中执行以下步骤：
 
-    1. 输入 **AzureStorageLinkedService** 作为**名称**。
+    1. 输入 **AzureStorageLinkedService** 作为 **名称** 。
     2. 对于“存储帐户名称”，请选择自己的 Azure 存储帐户。
-    3. 单击“ **保存**”。
+    3. 单击“ **保存** ”。
 
    ![Azure 存储帐户设置](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
 
@@ -218,7 +218,7 @@ ms.locfileid: "92121721"
 2. 在“新建链接服务”窗口中，选择“Azure SQL 数据库”，然后单击“继续”。
 3. 在“新建链接服务”窗口中执行以下步骤：
 
-    1. 对于“名称”字段，请输入 **AzureSqlDatabaseLinkedService**。
+    1. 对于“名称”字段，请输入 **AzureSqlDatabaseLinkedService** 。
     2. 对于“服务器名称”字段，请选择你的服务器。
     3. 对于“数据库名称”字段，请选择你的数据库。
     4. 对于“用户名”字段，请输入用户的名称。
@@ -240,7 +240,7 @@ ms.locfileid: "92121721"
 2. 选择“Azure SQL 数据库”，然后单击“完成”。 
 
    ![源数据集类型 - Azure SQL 数据库](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-sql-database.png)
-3. 此时会显示用于配置数据集的新选项卡。 树状视图中也会显示数据集。 在“属性”窗口中，将数据集的名称更改为 **SourceDataset**。
+3. 此时会显示用于配置数据集的新选项卡。 树状视图中也会显示数据集。 在“属性”窗口中，将数据集的名称更改为 **SourceDataset** 。
 
    ![源数据集名称](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
 4. 切换到“连接”选项卡，然后执行以下步骤：
@@ -259,13 +259,13 @@ ms.locfileid: "92121721"
 2. 选择“Azure Blob 存储”，然后单击“完成”。
 
    ![接收器数据集类型 - Azure Blob 存储](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-type.png)
-3. 此时会显示用于配置数据集的新选项卡。 树状视图中也会显示数据集。 在“属性”窗口中，将数据集的名称更改为 **SinkDataset**。
+3. 此时会显示用于配置数据集的新选项卡。 树状视图中也会显示数据集。 在“属性”窗口中，将数据集的名称更改为 **SinkDataset** 。
 
    ![接收器数据集 - 名称](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png)
 4. 在“属性”窗口中切换到“连接”选项卡，然后执行以下步骤：
 
     1. 为“链接服务”选择“AzureStorageLinkedService”。
-    2. 输入 **adftutorial/incchgtracking** 作为 **filePath** 的**文件夹**部分。
+    2. 输入 **adftutorial/incchgtracking** 作为 **filePath** 的 **文件夹** 部分。
     3. 输入 \@CONCAT('Incremental-', pipeline().RunId, '.txt') 作为 filePath 的文件部分。  
 
        ![接收器数据集 - 连接](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
@@ -275,7 +275,7 @@ ms.locfileid: "92121721"
 
 1. 在树状视图中，依次单击“+”（加号）、“数据集”。
 2. 选择“Azure SQL 数据库”，然后单击“完成”。
-3. 此时会显示用于配置数据集的新选项卡。 树状视图中也会显示数据集。 在“属性”窗口中，将数据集的名称更改为 **ChangeTrackingDataset**。
+3. 此时会显示用于配置数据集的新选项卡。 树状视图中也会显示数据集。 在“属性”窗口中，将数据集的名称更改为 **ChangeTrackingDataset** 。
 4. 切换到“连接”选项卡，然后执行以下步骤：
 
     1. 为“链接服务”选择“AzureSqlDatabaseLinkedService”。
@@ -287,7 +287,7 @@ ms.locfileid: "92121721"
 1. 依次单击左窗格中的“+”（加号）、“管道”。
 
     ![“新建管道”菜单](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
-2. 此时会显示用于配置管道的新选项卡。 树状视图中也会显示管道。 在“属性”窗口中，将管道的名称更改为 **FullCopyPipeline**。
+2. 此时会显示用于配置管道的新选项卡。 树状视图中也会显示管道。 在“属性”窗口中，将管道的名称更改为 **FullCopyPipeline** 。
 
     ![“新建管道”菜单](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
 3. 在“活动”工具箱中搜索“复制”，将“复制”活动拖放到管道设计器图面，然后设置名称“FullCopyActivity”。  
@@ -359,21 +359,21 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ```
 
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>创建用于增量复制的管道
-在此步骤中，请创建一个包含以下活动的管道并定期运行。 **查找活动**从 Azure SQL 数据库获取旧的和新的 SYS_CHANGE_VERSION，然后将其传递至复制活动。 **复制活动**将两个 SYS_CHANGE_VERSION 值之间的插入/更新/删除数据从 Azure SQL 数据库复制到 Azure Blob 存储。 **存储过程活动**更新 SYS_CHANGE_VERSION 的值，以便进行下一次的管道运行。
+在此步骤中，请创建一个包含以下活动的管道并定期运行。 **查找活动** 从 Azure SQL 数据库获取旧的和新的 SYS_CHANGE_VERSION，然后将其传递至复制活动。 **复制活动** 将两个 SYS_CHANGE_VERSION 值之间的插入/更新/删除数据从 Azure SQL 数据库复制到 Azure Blob 存储。 **存储过程活动** 更新 SYS_CHANGE_VERSION 的值，以便进行下一次的管道运行。
 
 1. 在数据工厂 UI 中，切换到“编辑”选项卡。依次单击左窗格中的“+”（加号）、“管道”。
 
     ![“新建管道”菜单](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
-2. 此时会显示用于配置管道的新选项卡。 树状视图中也会显示管道。 在“属性”窗口中，将管道的名称更改为 **IncrementalCopyPipeline**。
+2. 此时会显示用于配置管道的新选项卡。 树状视图中也会显示管道。 在“属性”窗口中，将管道的名称更改为 **IncrementalCopyPipeline** 。
 
     ![管道名称](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. 在“活动”工具箱中展开“常规”， 将**查找**活动拖放到管道设计器图面。 将活动的名称设置为 **LookupLastChangeTrackingVersionActivity**。 此活动获取在上次复制操作中使用的、存储在 **table_store_ChangeTracking_version** 表中的更改跟踪版本。
+3. 在“活动”工具箱中展开“常规”， 将 **查找** 活动拖放到管道设计器图面。 将活动的名称设置为 **LookupLastChangeTrackingVersionActivity** 。 此活动获取在上次复制操作中使用的、存储在 **table_store_ChangeTracking_version** 表中的更改跟踪版本。
 
     ![查找活动 - 名称](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. 在“属性”窗口中切换到“设置”，为“源数据集”字段选择“ChangeTrackingDataset”。
 
     ![查找活动 - 设置](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
-5. 将“查找”活动从“活动”工具箱拖放到管道设计器图面。 将活动的名称设置为 **LookupCurrentChangeTrackingVersionActivity**。 此活动获取当前的更改跟踪版本。
+5. 将“查找”活动从“活动”工具箱拖放到管道设计器图面。 将活动的名称设置为 **LookupCurrentChangeTrackingVersionActivity** 。 此活动获取当前的更改跟踪版本。
 
     ![查找活动 - 名称](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. 在“属性”窗口中切换到“设置”选项卡，然后执行以下步骤：
@@ -387,7 +387,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
        ```
 
       ![查找活动 - 设置](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
-7. 在“活动”工具箱中搜索“复制”，将“复制”活动拖放到管道设计器图面  。 将活动的名称设置为 **IncrementalCopyActivity**。 此活动将上次跟踪版本与当前更改跟踪版本之间的数据复制到目标数据存储。
+7. 在“活动”工具箱中搜索“复制”，将“复制”活动拖放到管道设计器图面  。 将活动的名称设置为 **IncrementalCopyActivity** 。 此活动将上次跟踪版本与当前更改跟踪版本之间的数据复制到目标数据存储。
 
     ![复制活动 - 名称](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. 在“属性”窗口中切换到“源”选项卡，然后执行以下步骤：
@@ -404,10 +404,10 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 9. 切换到“接收器”选项卡，为“接收器数据集”字段选择“SinkDataset”。
 
     ![复制活动 - 接收器设置](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
-10. 逐个地**将两个“查找”活动连接到“复制”活动**。 将附加到“查找”活动的**绿色**按钮拖放到“复制”活动。
+10. 逐个地 **将两个“查找”活动连接到“复制”活动** 。 将附加到“查找”活动的 **绿色** 按钮拖放到“复制”活动。
 
     ![连接“查找”和“复制”活动](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-lookup-and-copy.png)
-11. 将“存储过程”活动从“活动”工具箱拖放到管道设计器图面。 将活动的名称设置为 **StoredProceduretoUpdateChangeTrackingActivity**。 此活动更新 **table_store_ChangeTracking_version** 表中的更改跟踪版本。
+11. 将“存储过程”活动从“活动”工具箱拖放到管道设计器图面。 将活动的名称设置为 **StoredProceduretoUpdateChangeTrackingActivity** 。 此活动更新 **table_store_ChangeTracking_version** 表中的更改跟踪版本。
 
     ![存储过程活动 - 名称](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-activity-name.png)
 12. 切换到“SQL 帐户”\*选项卡，为“链接服务”选择“AzureSqlDatabaseLinkedService”。
@@ -415,7 +415,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     ![存储过程活动 - SQL 帐户](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. 切换到“存储过程”选项卡，然后执行以下步骤：
 
-    1. 至于“存储过程名称”，请选择 **Update_ChangeTracking_Version**。  
+    1. 至于“存储过程名称”，请选择 **Update_ChangeTracking_Version** 。  
     2. 选择“导入参数”。
     3. 在“存储过程参数”部分，指定以下参数值：
 
@@ -425,7 +425,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
         | TableName | 字符串 | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
         ![存储过程活动 - 参数](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
-14. **将“复制”活动连接到存储过程活动**。 将附加到“复制”活动的**绿色**按钮拖放到“存储过程”活动。
+14. **将“复制”活动连接到存储过程活动** 。 将附加到“复制”活动的 **绿色** 按钮拖放到“存储过程”活动。
 
     ![连接“复制”和“存储过程”活动](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
 15. 在工具栏中单击“验证”。 确认没有任何验证错误。 单击 **>>** 关闭“管道验证报告”窗口。

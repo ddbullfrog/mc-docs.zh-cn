@@ -1,17 +1,19 @@
 ---
 title: 限制 - LUIS
 description: 本文介绍 Azure 认知服务语言理解 (LUIS) 的已知限制。 LUIS 有几个限制区。 模型限制可控制 LUIS 中的意向、实体和功能。 基于密钥类型的配额限制。 键盘组合可控制 LUIS 网站。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 author: Johnnytechn
 origin.date: 06/04/2020
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: c07dac5262f8998adbadc1ac22c4db48ed8cddad
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 50bbe0a64aeb7989335c97f1dc960ba25d55320a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023397"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472409"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>LUIS 模型和密钥的限制
 LUIS 有几个限制区。 第一个是[模型限制](#model-limits)，它可控制 LUIS 中的意向、实体和功能。 第二个是基于密钥类型的[配额限制](#key-limits)。 限制的第三个区域是用于控制 LUIS 网站的[键盘组合](#keyboard-controls)。 第四个是 LUIS 创作网站和 LUIS [终结点](luis-glossary.md#endpoint) API 之间的[区域映射](luis-reference-regions.md)。
@@ -37,6 +39,7 @@ LUIS 有几个限制区。 第一个是[模型限制](#model-limits)，它可控
 | [模式](luis-concept-patterns.md)|每个应用程序 500 个模式。<br>模式的最大长度为 400 个字符。<br>每个模式 3 个 Pattern.any 实体<br>模式中最多 2 个嵌套可选文本|
 | [Pattern.any](./luis-concept-entity-types.md)|每个应用程序 100 个，每个模式 3 个 pattern.any 实体 |
 | [短语列表][phrase-list]|500 个短语列表。 10 个全局短语列表（由于存在作为特征的模型的限制）。 不可互换的短语列表最多有 5,000 个短语。 可互换的短语列表最多有 50,000 个短语。 每个应用程序的最大短语总数为 500,000 个短语。|
+| [预生成的实体](./luis-prebuilt-entities.md) | 无限制|
 | [正则表达式实体](./luis-concept-entity-types.md)|20 个实体<br>每个正则表达式实体模式 最多 500 个字符|
 | [角色](luis-concept-roles.md)|每个应用程序 300 个角色。 每个实体 10 个角色|
 | [话语][utterances] | 500 个字符<br><br>如果文本长度超过此字符限制，则需要在输入 LUIS 之前对话语进行分段，并且每个分段都会收到单独的意向响应。 你可以处理一些明显的中断，比如标点符号和言语中的长停顿。|

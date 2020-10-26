@@ -204,7 +204,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 | **适用的技术** | 泛型 |
 | **属性**              | 空值  |
 | **参考**              | 空值  |
-| **步骤** | <p>使用 http.sys 的任何应用程序应遵循以下指导原则：</p><ul><li>将 URL 的长度限制为不超过 16,384 个字符（ASCII 或 Unicode）。 这是基于默认 Internet Information Services (IIS) 6 设置的绝对最大 URL 长度。 在网站中，应该尽可能使用短于此长度的 URL。</li><li>使用标准的 .NET Framework 文件 I/O 类（例如 FileStream），因为这些类可以利用 .NET FX 中的规范化规则</li><li>显式构建已知文件名的允许列表</li><li>显式拒绝你不会针对其提供 UrlScan reject 的已知文件类型：exe、bat、cmd、com、htw、ida、idq、htr、idc、shtm[l]、stm、printer、ini、pol、dat 文件</li><li>捕获以下异常：<ul><li>System.ArgumentException（针对设备名称）</li><li>System.NotSupportedException（针对数据流）</li><li>System.IO.FileNotFoundException（针对无效的转义文件名）</li><li>System.IO.DirectoryNotFoundException（针对无效的转义目录）</li></ul></li><li>*不要*调用 Win32 文件 I/O API。 在 URL 无效时，应向用户正常返回 400 错误并记录实际错误。</li></ul>|
+| **步骤** | <p>使用 http.sys 的任何应用程序应遵循以下指导原则：</p><ul><li>将 URL 的长度限制为不超过 16,384 个字符（ASCII 或 Unicode）。 这是基于默认 Internet Information Services (IIS) 6 设置的绝对最大 URL 长度。 在网站中，应该尽可能使用短于此长度的 URL。</li><li>使用标准的 .NET Framework 文件 I/O 类（例如 FileStream），因为这些类可以利用 .NET FX 中的规范化规则</li><li>显式构建已知文件名的允许列表</li><li>显式拒绝你不会针对其提供 UrlScan reject 的已知文件类型：exe、bat、cmd、com、htw、ida、idq、htr、idc、shtm[l]、stm、printer、ini、pol、dat 文件</li><li>捕获以下异常：<ul><li>System.ArgumentException（针对设备名称）</li><li>System.NotSupportedException（针对数据流）</li><li>System.IO.FileNotFoundException（针对无效的转义文件名）</li><li>System.IO.DirectoryNotFoundException（针对无效的转义目录）</li></ul></li><li>*不要* 调用 Win32 文件 I/O API。 在 URL 无效时，应向用户正常返回 400 错误并记录实际错误。</li></ul>|
 
 ## <a name="ensure-appropriate-controls-are-in-place-when-accepting-files-from-users"></a><a id="controls-users"></a>确保接受用户的文件时实施适当的控制
 

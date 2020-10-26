@@ -21,7 +21,7 @@ ms.locfileid: "92170866"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮****。 登录后，该模板将在 Azure 门户中打开。
+如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮  。 登录后，该模板将在 Azure 门户中打开。
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="使用 Azure 门户中的 ARM 模板将 Azure SignalR 服务部署到 Azure 的按钮。":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 

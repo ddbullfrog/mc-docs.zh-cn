@@ -35,8 +35,8 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 ## <a name="manage-and-monitor-user-passwords"></a>管理和监视用户密码
 下表列出了与管理用户密码相关的一些最佳做法：
 
-**最佳做法**：确保你在云中具有适当级别的密码保护。   
-**详细信息**：按照 [Microsoft 密码指南](https://www.microsoft.com/research/publication/password-guidance/)中的指南进行操作，该指南的适用范围是 Microsoft 标识平台（Azure Active Directory、Active Directory 和 Microsoft 帐户）的用户。
+**最佳做法** ：确保你在云中具有适当级别的密码保护。   
+**详细信息** ：按照 [Microsoft 密码指南](https://www.microsoft.com/research/publication/password-guidance/)中的指南进行操作，该指南的适用范围是 Microsoft 标识平台（Azure Active Directory、Active Directory 和 Microsoft 帐户）的用户。
 
 <!-- not available-->
 
@@ -56,25 +56,25 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 
 下面是管理组使用方面的一些最佳做法：
 
-**最佳做法**：确保在添加新订阅时，它们会应用治理元素，例如策略和权限。   
-**详细信息**：使用根管理组分配适用于所有 Azure 资产的企业范围的安全元素。 策略和权限是元素的示例。
+**最佳做法** ：确保在添加新订阅时，它们会应用治理元素，例如策略和权限。   
+**详细信息** ：使用根管理组分配适用于所有 Azure 资产的企业范围的安全元素。 策略和权限是元素的示例。
 
-**最佳做法**：将顶级管理组与分段策略匹配，以便在每个段中实现控制和策略一致性。   
-**详细信息**：在根管理组下为每个段创建一个管理组。 请勿在根下创建任何其他管理组。
+**最佳做法** ：将顶级管理组与分段策略匹配，以便在每个段中实现控制和策略一致性。   
+**详细信息** ：在根管理组下为每个段创建一个管理组。 请勿在根下创建任何其他管理组。
 
-**最佳做法**：限制管理组深度，以避免出现影响操作和安全性的混乱。   
-**详细信息**：将层次结构限制为三个级别（包括根在内）。
+**最佳做法** ：限制管理组深度，以避免出现影响操作和安全性的混乱。   
+**详细信息** ：将层次结构限制为三个级别（包括根在内）。
 
-**最佳做法**：使用根管理组，仔细选择要应用于整个企业的项。   
-**详细信息**：确保根管理组元素明确需要在每个资源中应用，并且它们的影响很小。
+**最佳做法** ：使用根管理组，仔细选择要应用于整个企业的项。   
+**详细信息** ：确保根管理组元素明确需要在每个资源中应用，并且它们的影响很小。
 
 典型的候选项包括：
 
 - 具有明确业务影响的法规要求（例如，与数据主权相关的限制）
 - 对操作几乎没有潜在负面影响的要求，例如，其审核效果或 RBAC 权限分配已经过仔细审查的策略
 
-**最佳做法**：在根管理组上应用所有企业范围的更改（策略、RBAC 模型等）之前，请仔细规划并测试它们。   
-**详细信息**：根管理组中的更改可能会影响 Azure 上的每个资源。 尽管它们提供了一种强大的方法来确保整个企业中的一致性，但错误或不正确的使用可能会对生产操作产生负面影响。 请在测试实验室或生产试点中测试对根管理组的所有更改。
+**最佳做法** ：在根管理组上应用所有企业范围的更改（策略、RBAC 模型等）之前，请仔细规划并测试它们。   
+**详细信息** ：根管理组中的更改可能会影响 Azure 上的每个资源。 尽管它们提供了一种强大的方法来确保整个企业中的一致性，但错误或不正确的使用可能会对生产操作产生负面影响。 请在测试实验室或生产试点中测试对根管理组的所有更改。
 
 <!-- blueprints not available -->
 
@@ -98,18 +98,18 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 
 <!-- not available-->
 
-**最佳做法**：找到最严重的安全漏洞，以便确定调查优先级。   
-**详细信息**：查看你的 [Azure 安全评分](../../security-center/secure-score-security-controls.md)，了解 Azure 安全中心内置的 Azure 策略和计划所产生的建议。 这些建议有助于解决顶级风险，例如安全更新、终结点保护、加密、安全配置、WAF 缺失、VM 连接到 Internet 等方面的风险。
+**最佳做法** ：找到最严重的安全漏洞，以便确定调查优先级。   
+**详细信息** ：查看你的 [Azure 安全评分](../../security-center/secure-score-security-controls.md)，了解 Azure 安全中心内置的 Azure 策略和计划所产生的建议。 这些建议有助于解决顶级风险，例如安全更新、终结点保护、加密、安全配置、WAF 缺失、VM 连接到 Internet 等方面的风险。
 
 安全评分基于 Internet 安全中心 (CIS) 控件，允许你根据外部源对组织的 Azure 安全性进行基准测试。 外部验证可帮助验证并扩充团队的安全策略。
 
-**最佳做法**：监视计算机、网络、存储和数据服务以及应用程序的安全状况，发现潜在的安全问题并确定其优先级。  
-**详细信息**：按照安全中心的[安全建议](../../security-center/security-center-recommendations.md)操作，并从优先级最高的项开始。
+**最佳做法** ：监视计算机、网络、存储和数据服务以及应用程序的安全状况，发现潜在的安全问题并确定其优先级。  
+**详细信息** ：按照安全中心的 [安全建议](../../security-center/security-center-recommendations.md)操作，并从优先级最高的项开始。
 
 <!--cannot export -->
 
-**最佳做法**：将 Azure 日志与你的 SIEM 集成。   
-**详细信息**：[使用 Azure Monitor 收集和导出数据](/azure-monitor/overview#integrate-and-export-data)。 此做法对于启用安全事件调查至关重要，而在线日志保留期是有限的。<!-- Azure Sentinel not available -->
+**最佳做法** ：将 Azure 日志与你的 SIEM 集成。   
+**详细信息** ： [使用 Azure Monitor 收集和导出数据](/azure-monitor/overview#integrate-and-export-data)。 此做法对于启用安全事件调查至关重要，而在线日志保留期是有限的。<!-- Azure Sentinel not available -->
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>监视基于端到端方案的网络监视
 客户在 Azure 中通过合并虚拟网络、ExpressRoute、应用程序网关和负载均衡器等网络资源来构建端到端网络。 监视适用于每个网络资源。
@@ -118,14 +118,14 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 
 以下是网络监视和可用工具的最佳做法。
 
-**最佳做法**：使用数据包捕获实现远程网络监视的自动化。  
-**详细信息**：使用网络观察程序监视和诊断网络问题，无需登录 VM。 通过设置警报触发[数据包捕获](../../network-watcher/network-watcher-alert-triggered-packet-capture.md)，并获取数据包级别上的实时性能信息访问权限。 如果遇到问题，可进行详细调查，获得更精确的诊断。
+**最佳做法** ：使用数据包捕获实现远程网络监视的自动化。  
+**详细信息** ：使用网络观察程序监视和诊断网络问题，无需登录 VM。 通过设置警报触发[数据包捕获](../../network-watcher/network-watcher-alert-triggered-packet-capture.md)，并获取数据包级别上的实时性能信息访问权限。 如果遇到问题，可进行详细调查，获得更精确的诊断。
 
-**最佳做法**：使用流日志深入了解网络流量。  
-**详细信息**：使用[网络安全组流日志](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)更深入地了解网络流量模式。 流日志中的信息可帮助收集符合性数据、审核和监视网络安全配置文件。
+**最佳做法** ：使用流日志深入了解网络流量。  
+**详细信息** ：使用 [网络安全组流日志](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)更深入地了解网络流量模式。 流日志中的信息可帮助收集符合性数据、审核和监视网络安全配置文件。
 
-**最佳做法**：诊断 VPN 连接问题。  
-**详细信息**：使用网络观察程序来[诊断最常见的 VPN 网关和连接问题](../../network-watcher/network-watcher-diagnose-on-premises-connectivity.md)。 不仅可以确定问题，还可以使用详细日志进一步调查。
+**最佳做法** ：诊断 VPN 连接问题。  
+**详细信息** ：使用网络观察程序来 [诊断最常见的 VPN 网关和连接问题](../../network-watcher/network-watcher-diagnose-on-premises-connectivity.md)。 不仅可以确定问题，还可以使用详细日志进一步调查。
 
 <!-- devops not available-->
 <!-- DDoS not available -->
@@ -137,16 +137,16 @@ Azure 操作安全性是指用户可用于在 Azure 中保护其数据、应用�
 
 下面是在采用 Azure Policy 后要遵循的一些安全性最佳做法：
 
-**最佳做法**：Azure Policy 支持多种类型的效果。 可以在 [Azure Policy 定义结构](../../governance/policy/concepts/definition-structure.md#policy-rule)中了解相关信息。 **拒绝**效果和**修正**效果可能会给业务运营带来负面影响，因此请从**审核**效果开始以限制策略带来的负面影响风险。   
-**详细信息**：[以审核模式开始策略部署](../../governance/policy/concepts/definition-structure.md#policy-rule)，然后推进到**拒绝**或**修正**。 在推进到**拒绝**或**修正**之前，请测试并查看审核效果的结果。
+**最佳做法** ：Azure Policy 支持多种类型的效果。 可以在 [Azure Policy 定义结构](../../governance/policy/concepts/definition-structure.md#policy-rule)中了解相关信息。 **拒绝** 效果和 **修正** 效果可能会给业务运营带来负面影响，因此请从 **审核** 效果开始以限制策略带来的负面影响风险。   
+**详细信息** ： [以审核模式开始策略部署](../../governance/policy/concepts/definition-structure.md#policy-rule)，然后推进到 **拒绝** 或 **修正** 。 在推进到 **拒绝** 或 **修正** 之前，请测试并查看审核效果的结果。
 
 有关详细信息，请参阅[创建和管理策略以强制实施符合性](../../governance/policy/tutorials/create-and-manage.md)。
 
-**最佳做法**：确定负责监视策略违规的角色，并确保快速执行正确的修正操作。   
-**详细信息**：让已分配的角色通过 [Azure 门户](../../governance/policy/how-to/get-compliance-data.md#portal)或[命令行](../../governance/policy/how-to/get-compliance-data.md#command-line)来监视符合性。
+**最佳做法** ：确定负责监视策略违规的角色，并确保快速执行正确的修正操作。   
+**详细信息** ：让已分配的角色通过 [Azure 门户](../../governance/policy/how-to/get-compliance-data.md#portal)或 [命令行](../../governance/policy/how-to/get-compliance-data.md#command-line)来监视符合性。
 
-**最佳做法**：Azure Policy 是组织的书面策略的技术表示形式。 将所有 Azure 策略定义映射到组织策略，以减少混乱并增强一致性。   
-**详细信息**：通过在[策略定义](../../governance/policy/concepts/definition-structure.md#display-name-and-description)或[计划定义](../../governance/policy/concepts/initiative-definition-structure.md#metadata)说明中添加对组织策略的引用，在组织的文档中或 Azure Policy 定义本身中记录映射。
+**最佳做法** ：Azure Policy 是组织的书面策略的技术表示形式。 将所有 Azure 策略定义映射到组织策略，以减少混乱并增强一致性。   
+**详细信息** ：通过在[策略定义](../../governance/policy/concepts/definition-structure.md#display-name-and-description)或[计划定义](../../governance/policy/concepts/initiative-definition-structure.md#metadata)说明中添加对组织策略的引用，在组织的文档中或 Azure Policy 定义本身中记录映射。
 
 
 <!-- not available -->

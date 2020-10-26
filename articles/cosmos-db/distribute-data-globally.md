@@ -51,7 +51,7 @@ Azure Cosmos DB 是一个多区域分布式数据库服务，旨在提供低延�
 
 **在区域性中断期间保持业务连续性。** Azure Cosmos DB 支持在区域性中断期间进行[自动故障转移](how-to-manage-database-account.md#automatic-failover)。 在区域性中断期间，Azure Cosmos DB 会继续维持其延迟、可用性、一致性和吞吐量方面的 SLA。 为帮助确保整个应用程序高度可用，Cosmos DB 提供手动故障转移 API 来模拟区域性中断。 使用此 API 可以执行常规业务连续性演练。
 
-**多区域缩放读写吞吐量**。 可让每个区域变得可写，并弹性缩放中国各地的读取和写入。 保证应用程序针对 Azure Cosmos 数据库或容器配置的吞吐量可在与 Azure Cosmos 帐户关联的所有区域中实现。 预配的吞吐量有 [SLA 的资金保障](https://www.azure.cn/support/sla/cosmos-db/)。
+**多区域缩放读写吞吐量** 。 可让每个区域变得可写，并弹性缩放中国各地的读取和写入。 保证应用程序针对 Azure Cosmos 数据库或容器配置的吞吐量可在与 Azure Cosmos 帐户关联的所有区域中实现。 预配的吞吐量有 [SLA 的资金保障](https://www.azure.cn/support/sla/cosmos-db/)。
 
 **从多个明确定义的一致性模型中进行选择。** Azure Cosmos 数据库复制协议提供了五种明确定义、实用且直观的一致性模型。 每个模型在一致性与性能之间进行了权衡。 使用这些一致性模型可以轻松生成多区域分布式应用程序。
 

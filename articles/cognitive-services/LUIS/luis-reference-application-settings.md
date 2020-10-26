@@ -1,16 +1,18 @@
 ---
 title: 应用程序设置 - LUIS
 description: Azure 认知服务语言理解应用的应用程序设置存储在应用和门户中。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 origin.date: 05/04/2020
-ms.date: 06/16/2020
-ms.author: v-tawe
-ms.openlocfilehash: f23c33198a8667e56357916ba657020374379bd6
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: 73d72f22b9be43c0ebda558a5834cdd65c3fbd3f
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098617"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472402"
 ---
 # <a name="app-and-version-settings"></a>应用和版本设置
 
@@ -169,3 +171,4 @@ ms.locfileid: "85098617"
 ## <a name="next-steps"></a>后续步骤
 
 * 了解音调符号和标点的[概念](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation)。
+

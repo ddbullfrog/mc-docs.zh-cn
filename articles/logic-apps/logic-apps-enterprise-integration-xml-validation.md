@@ -10,11 +10,11 @@ origin.date: 10/21/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
 ms.openlocfilehash: 8e8d3bd352969c0dc50a39b0c49001f02a4575c8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243558"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211326"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中验证用于 B2B 企业集成的 XML
 

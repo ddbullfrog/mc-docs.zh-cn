@@ -79,7 +79,7 @@ ms.locfileid: "92170638"
 获取 Web 应用出站 IP 地址列表：
 
 1. 在 Azure 门户中的 Web 应用边栏选项卡上，转到“属性”菜单。
-2. 搜索**出站 IP 地址**。
+2. 搜索 **出站 IP 地址** 。
 
 随即显示出站 IP 地址列表。
 
@@ -282,7 +282,7 @@ Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Gr
 
 ## <a name="how-do-i-redirect-the-default-chinacloudsitescn-domain-to-my-azure-web-apps-custom-domain"></a>如何将默认 *.chinacloudsites.cn 域重定向到 Azure Web 应用的自定义域？
 
-在 Azure 中使用 Web 应用创建新网站时，将向你的站点分配一个默认 *sitename*.chinacloudsites.cn 域。 如果将自定义主机名添加到站点，并且不希望用户能够访问默认 *.chinacloudsites.cn 域，可以将默认 URL 进行重定向。 若要了解如何将源自网站默认域的所有通信流重定向到自定义域，请参阅[将默认域重定向到 Azure Web 应用中的自定义域](http://zainrizvi.io/blog/block-default-azure-websites-domain/)。
+在 Azure 中使用 Web 应用创建新网站时，将向你的站点分配一个默认 *sitename* .chinacloudsites.cn 域。 如果将自定义主机名添加到站点，并且不希望用户能够访问默认 *.chinacloudsites.cn 域，可以将默认 URL 进行重定向。 若要了解如何将源自网站默认域的所有通信流重定向到自定义域，请参阅[将默认域重定向到 Azure Web 应用中的自定义域](http://zainrizvi.io/blog/block-default-azure-websites-domain/)。
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>如何确定应用服务中安装的 .NET 版本？
 

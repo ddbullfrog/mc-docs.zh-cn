@@ -3,17 +3,17 @@ title: ARM 模板常见问题解答
 description: 有关 Azure 资源管理器模板的常见问题解答 (FAQ)。
 ms.topic: conceptual
 origin.date: 09/17/2020
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 4f96a57be4f0df406879bb2c7dc97b6a98271671
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c66178b6016af52472e672ef8d610d90b6dcdafa
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936973"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470375"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>有关 ARM 模板的常见问题解答
 

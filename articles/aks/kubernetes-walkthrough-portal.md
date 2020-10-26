@@ -4,19 +4,19 @@ titleSuffix: Azure Kubernetes Service
 description: 了解如何使用 Azure 门户快速创建 Kubernetes 群集、部署应用程序，以及监视 Azure Kubernetes 服务 (AKS) 中的性能。
 services: container-service
 ms.topic: quickstart
-origin.date: 09/11/2020
+origin.date: 10/06/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: f0ac6f1b3d1bbb3d17d0ff6fd6067c4c72b37dc7
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: d29603e69f32a4000f385ad734c3e0dd5ff5bf49
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936992"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470306"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -38,28 +38,28 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 
 <!--MOONCAKE: Custmize for MC-->
 
-1. 在 Azure 门户菜单或**主页**上，选择“创建资源”，键入“Kubernetes 服务”并在“新建”页中选择 Enter 键，然后在“市场”页中选择“Kubernetes 服务”。
+1. 在 Azure 门户菜单或 **主页** 上，选择“创建资源”，键入“Kubernetes 服务”并在“新建”页中选择 Enter 键，然后在“市场”页中选择“Kubernetes 服务”。
 
     <!--MOONCAKE: Custmize for MC-->
     
-1. 在“基本信息”页面上，配置以下选项：
-    - **项目详细信息**：选择 Azure **订阅**，然后选择或创建 Azure **资源组**，例如 *myResourceGroup*。
-    - **群集详细信息**：输入 **Kubernetes 群集名称**，例如 *myAKSCluster*。 选择 AKS 群集的**区域**、**Kubernetes 版本**和 **DNS 名称前缀**。
-    - **主节点池**：选择 AKS 节点的 VM **节点大小**。 一旦部署 AKS 群集，则不能更改 VM 大小。 
+3. 在“基本信息”页面上，配置以下选项：
+    - **项目详细信息** ：选择 Azure **订阅** ，然后选择或创建 Azure **资源组** ，例如 *myResourceGroup* 。
+    - **群集详细信息** ：输入 **Kubernetes 群集名称** ，例如 *myAKSCluster* 。 选择 AKS 群集的“区域”和“Kubernetes 版本” 。
+    - **主节点池** ：选择 AKS 节点的 VM **节点大小** 。 一旦部署 AKS 群集，则不能更改 VM 大小。
         - 选择要部署到群集中的节点数。 对于本快速入门，请将“节点计数”设置为“1”。 部署群集后，可以调整节点计数。
     
     :::image type="content" source="media/kubernetes-walkthrough-portal/create-cluster-basics.png" alt-text="浏览到 Azure Vote 示例应用程序的图像":::
 
-    在完成时选择“下一步:**缩放”** 。
+    在完成时选择“下一步:节点池”。
 
-4. 在“缩放”页上，保留默认选项。 单击屏幕底部的“下一步:身份验证”。
+4. 在“节点池”页上，保留默认选项。 单击屏幕底部的“下一步:身份验证”。
     
     > [!CAUTION]
     > 创建新的 AAD 服务主体可能需要几分钟的时间才能传播并变得可用，这样会导致 Azure 门户中出现“找不到服务主体”错误和验证失败。 如果遇到这种情况，请访问[此处](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster)进行缓解。
 
 5. 在“身份验证”页上，配置以下选项：
     - 将“服务主体”字段保留为“(新)默认服务主体”以创建新的服务主体。 或者，可以选择“配置服务主体”以使用现有的服务主体。 如果使用现有的服务主体，则需要提供 SPN 客户端 ID 和机密。
-    - 启用 Kubernetes 基于角色的访问控制 (RBAC) 选项。 这样可以对部署在 AKS 群集中的 Kubernetes 资源进行更精细的访问控制。
+    - 启用 Kubernetes 基于角色的访问控制 (RBAC) 选项。 这样可以更精细地控制对部署在 AKS 群集中的 Kubernetes 资源的访问权限。
 
     或者，可以使用托管标识而不是服务主体。 有关详细信息，请参阅[使用托管标识](use-managed-identity.md)。
 
@@ -94,7 +94,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-以下示例输出显示在上一步创建的单个节点。 请确保节点的状态为 *Ready*：
+以下示例输出显示在上一步创建的单个节点。 请确保节点的状态为 *Ready* ：
 
 ```output
 NAME                       STATUS    ROLES     AGE       VERSION
@@ -126,7 +126,10 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
-        image: redis
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
         resources:
           requests:
             cpu: 100m
@@ -217,7 +220,7 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-最初，*azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending*。
+最初， *azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending* 。
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -238,7 +241,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 创建群集后，适用于容器的 Azure Monitor 便已启用。 此监视功能为 AKS 群集以及群集上运行的 Pod 提供运行状况指标。
 
-在 Azure 门户中填充此数据可能需要几分钟。 若要查看 Azure Vote Pod 的当前状态、运行时间和资源使用情况，请浏览回到 Azure 门户中的 AKS 资源，例如 *myAKSCluster*。 然后可以访问运行状况，如下所示：
+在 Azure 门户中填充此数据可能需要几分钟。 若要查看 Azure Vote Pod 的当前状态、运行时间和资源使用情况，请浏览回到 Azure 门户中的 AKS 资源，例如 *myAKSCluster* 。 然后可以访问运行状况，如下所示：
 
 1. 在左侧的“监视”下，选择“见解”
 1. 在顶部，选择“+ 添加筛选器”
@@ -290,8 +293,8 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 <!-- LINKS - internal -->
 
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
-[az-aks-delete]: https://docs.microsoft.com/cli/azure/aks#az_aks_delete
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
+[az-aks-delete]: https://docs.azure.cn/cli/aks#az_aks_delete
 [aks-monitor]: ../azure-monitor/insights/container-insights-overview.md
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
@@ -300,7 +303,7 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 
-<!--Not Available on [azure-dev-spaces]: /dev-spaces/-->
+<!--Not Available on [azure-dev-spaces]: ../dev-spaces/index.yml-->
 
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services

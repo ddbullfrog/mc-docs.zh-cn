@@ -26,9 +26,9 @@ ms.locfileid: "92121709"
 
 此 REST 连接器、[HTTP 连接器](connector-http.md)和 [Web 表连接器](connector-web-table.md)之间的区别如下：
 
-- **REST 连接器**专门支持从 RESTful API 复制数据； 
+- **REST 连接器** 专门支持从 RESTful API 复制数据； 
 - “HTTP 连接器”是通用的，可从任何 HTTP 终结点检索数据，以执行文件下载等操作。 在此 REST 连接器可用之前，可以偶尔使用 HTTP 连接器从 RESTful API 复制数据，这是受支持的，但 HTTP 连接器与 REST 连接器相比功能较少。
-- **Web 表连接器**用于从 HTML 网页中提取表内容。
+- **Web 表连接器** 用于从 HTML 网页中提取表内容。
 
 ## <a name="supported-capabilities"></a>支持的功能
 
@@ -68,7 +68,7 @@ REST 链接服务支持以下属性：
 
 ### <a name="use-basic-authentication"></a>使用基本身份验证
 
-将 **authenticationType** 属性设置为 **Basic**。 除了前面部分所述的通用属性，还指定以下属性：
+将 **authenticationType** 属性设置为 **Basic** 。 除了前面部分所述的通用属性，还指定以下属性：
 
 | 属性 | 说明 | 必须 |
 |:--- |:--- |:--- |
@@ -101,12 +101,12 @@ REST 链接服务支持以下属性：
 
 ### <a name="use-aad-service-principal-authentication"></a>使用 AAD 服务主体身份验证
 
-将 **authenticationType** 属性设置为 **AadServicePrincipal**。 除了前面部分所述的通用属性，还指定以下属性：
+将 **authenticationType** 属性设置为 **AadServicePrincipal** 。 除了前面部分所述的通用属性，还指定以下属性：
 
 | 属性 | 说明 | 必须 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 指定 Azure Active Directory 应用程序的客户端 ID。 | 是 |
-| servicePrincipalKey | 指定 Azure Active Directory 应用程序的密钥。 将此字段标记为 **SecureString** 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是 |
+| servicePrincipalKey | 指定 Azure Active Directory 应用程序的密钥。 将此字段标记为 **SecureString** 以安全地将其存储在数据工厂中或 [引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是 |
 | tenant | 指定应用程序的租户信息（域名或租户 ID）。 将鼠标悬停在 Azure 门户右上角进行检索。 | 是 |
 | aadResourceId | 指定请求授权的 AAD 资源，例如 `https://management.core.chinacloudapi.cn`。| 是 |
 | azureCloudType | 对于服务主体身份验证，请指定 AAD 应用程序注册到的 Azure 云环境的类型。 <br/> 允许的值为 AzurePublic、AzureChina、AzureUsGovernment 和 AzureGermany   。 默认使用数据工厂的云环境。 | 否 |
@@ -139,7 +139,7 @@ REST 链接服务支持以下属性：
 
 ### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>使用托管标识进行 Azure 资源身份验证
 
-将 **authenticationType** 属性设置为 **ManagedServiceIdentity**。 除了前面部分所述的通用属性，还指定以下属性：
+将 **authenticationType** 属性设置为 **ManagedServiceIdentity** 。 除了前面部分所述的通用属性，还指定以下属性：
 
 | 属性 | 说明 | 必须 |
 |:--- |:--- |:--- |
@@ -175,7 +175,7 @@ REST 链接服务支持以下属性：
 
 | 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
-| type | 数据集的 **type** 属性必须设置为 **RestResource**。 | 是 |
+| type | 数据集的 **type** 属性必须设置为 **RestResource** 。 | 是 |
 | relativeUrl | 包含数据的资源的相对 URL。 未指定此属性时，仅使用链接服务定义中指定的 URL。 HTTP 连接器从以下组合 URL 复制数据：`[URL specified in linked service]/[relative URL specified in dataset]`。 | 否 |
 
 如果在数据集中设置了 `requestMethod`、`additionalHeaders`、`requestBody` 和 `paginationRules`，则仍按原样支持该数据集，但建议你以后在活动源中使用新模型。
@@ -207,11 +207,11 @@ REST 链接服务支持以下属性：
 
 ### <a name="rest-as-source"></a>REST 作为源
 
-复制活动**source**部分支持以下属性：
+复制活动 **source** 部分支持以下属性：
 
 | properties | 说明 | 必需 |
 |:--- |:--- |:--- |
-| type | 复制活动源的 **type** 属性必须设置为 **RestSource**。 | 是 |
+| type | 复制活动源的 **type** 属性必须设置为 **RestSource** 。 | 是 |
 | requestMethod | HTTP 方法。 允许的值为 Get（默认值）和 Post   。 | 否 |
 | additionalHeaders | 附加的 HTTP 请求标头。 | 否 |
 | requestBody | HTTP 请求的正文。 | 否 |
@@ -309,19 +309,19 @@ REST 链接服务支持以下属性：
 
 “分页规则”定义为包含一个或多个区分大小写的键值对的数据集中的字典。 该配置将用于从第二页开始生成请求。 当连接器收到 HTTP 状态代码 204（无内容），或者“paginationRules”中的任意 JSONPath 表达式返回 null 时，连接器将停止迭代。
 
-分页规则中**支持的键**：
+分页规则中 **支持的键** ：
 
 | 键 | 说明 |
 |:--- |:--- |
-| AbsoluteUrl | 指示用于发出下一个请求的 URL。 它可以是**绝对 URL 或相对 URL**。 |
-| QueryParameters.*request_query_parameter* 或 QueryParameters['request_query_parameter'] | “request_query_parameter”由用户定义，引用下一个 HTTP 请求 URL 中的一个查询参数名称。 |
-| Headers.*request_header* 或 Headers['request_header'] | “request_header”由用户定义，引用下一个 HTTP 请求中的一个标头名称。 |
+| AbsoluteUrl | 指示用于发出下一个请求的 URL。 它可以是 **绝对 URL 或相对 URL** 。 |
+| QueryParameters. *request_query_parameter* 或 QueryParameters['request_query_parameter'] | “request_query_parameter”由用户定义，引用下一个 HTTP 请求 URL 中的一个查询参数名称。 |
+| Headers. *request_header* 或 Headers['request_header'] | “request_header”由用户定义，引用下一个 HTTP 请求中的一个标头名称。 |
 
-分页规则中**支持的值**：
+分页规则中 **支持的值** ：
 
 | Value | 说明 |
 |:--- |:--- |
-| Headers.*response_header* 或 Headers['response_header'] | “response_header”由用户定义，引用当前 HTTP 响应中的一个标头名称，其值用于发出下一个请求。 |
+| Headers. *response_header* 或 Headers['response_header'] | “response_header”由用户定义，引用当前 HTTP 响应中的一个标头名称，其值用于发出下一个请求。 |
 | 以“$”（表示响应正文的根）开头的 JSONPath 表达式 | 响应正文应只包含一个 JSON 对象。 JSONPath 表达式应返回单个基元值，该值用于发出下一个请求。 |
 
 **示例：**
@@ -427,7 +427,7 @@ Facebook 图形 API 返回采用以下结构的响应，在此情况下，下一
 
    ![复制源身份验证](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
 
-7. 选择“调试”，输入**参数**，然后选择“完成”。  
+7. 选择“调试”，输入 **参数** ，然后选择“完成”。  
    ![管道运行](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
 
 8. 管道运行成功完成后，会看到类似于以下示例的结果：![管道运行结果](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 

@@ -6,16 +6,16 @@ ms.service: service-bus
 ms.custom: devx-track-dotnet
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6fcf158ee08fcfb938996c5cf6688bfa676be8c2
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 44851109bb7ef24046c3bb7517d2d602804cd11a
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146527"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470058"
 ---
 <!--Verified successfully-->
 # <a name="available-relay-apis"></a>可用的中继 API
@@ -32,7 +32,7 @@ ms.locfileid: "91146527"
 | .NET framework | WCF 中继 | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | 空值 |
 | 节点 | 混合连接 | [WebSockets：`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSockets：`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP 请求：`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
-### <a name="additional-information"></a>其他信息
+### <a name="additional-information"></a><a name="additional-information"></a>其他信息
 
 #### <a name="net"></a>.NET
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: v-johya
 ms.openlocfilehash: 03e4ec35431c3ff32a53cfc3e956ea1b4afcce22
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023707"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211636"
 ---
 # <a name="translator-v2-to-v3-migration"></a>将 Translator V2 迁移到 V3
 

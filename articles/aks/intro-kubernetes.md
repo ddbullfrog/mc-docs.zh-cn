@@ -5,17 +5,17 @@ services: container-service
 ms.topic: overview
 origin.date: 05/06/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f58bdd1841c1dbb620bb016c6d9beef86e0a4134
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 03e1400bc92159302c5969fe7cbaa4af451c8ff2
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020829"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470449"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS)
 
@@ -69,6 +69,9 @@ AKS 支持创建启用了 GPU 的节点池。 Azure 目前提供单个或多个�
 
 有关详细信息，请参阅[使用 AKS 上的 GPU][aks-gpu]。
 
+<!--Not Available on ### Confidential computing nodes (public preview)-->
+<!--Not Available on Intel SGX-->
+<!--Not Available on DCSv2 VMs-->
 ### <a name="storage-volume-support"></a>存储卷支持
 
 若要支持应用程序工作负荷，可以为持久保存的数据装载存储卷。 静态和动态卷都可以使用。 根据要共享存储的已连接 Pod 的数目，可以使用 Azure 磁盘支持的存储进行单个 Pod 的访问，也可以使用 Azure 文件支持的存储进行多个并发 Pod 的访问。
@@ -155,5 +158,7 @@ Azure Kubernetes 服务 (AKS) 符合 SOC、ISO、PCI DSS 和 HIPAA 规范。 有
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+
+<!--Not Available on  [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

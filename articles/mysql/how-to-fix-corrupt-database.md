@@ -16,7 +16,7 @@ ms.locfileid: "92041931"
 ---
 # <a name="troubleshoot-database-corruption-on-azure-database-for-mysql"></a>排查 Azure Database for MySQL 的数据库损坏问题
 
-数据库损坏可能会导致应用程序停机，及时解决该问题以避免数据丢失也是至关重要的。 发生数据库损坏时，你在服务器日志中会看到此错误：**InnoDB:磁盘上的数据库页面损坏或故障**。
+数据库损坏可能会导致应用程序停机，及时解决该问题以避免数据丢失也是至关重要的。 发生数据库损坏时，你在服务器日志中会看到此错误： **InnoDB:磁盘上的数据库页面损坏或故障** 。
 
 在此指南中，你将了解当数据库或表损坏时如何进行修复。 Azure Database for MySQL 使用 InnoDB 引擎，它能够自动检查损坏并执行修复操作。 InnoDB 通过对其读取的每个页面执行校验和来检查是否存在损坏的页面。如果发现校验和差异，它会自动停止 MySQL 服务器。
 
@@ -28,7 +28,7 @@ ms.locfileid: "92041931"
 
 ##  <a name="resolve-data-corruption-with-dump-and-restore-method"></a>用转储和还原方法解决数据损坏问题
 
-建议使用**转储和还原方法**解决损坏问题。 这涉及到访问损坏的表，使用 **mysqldump** 实用工具来创建该表的逻辑备份，这会保留表结构和其中的数据，然后将该表重新加载到数据库中。
+建议使用 **转储和还原方法** 解决损坏问题。 这涉及到访问损坏的表，使用 **mysqldump** 实用工具来创建该表的逻辑备份，这会保留表结构和其中的数据，然后将该表重新加载到数据库中。
 
 ### <a name="back-up-your-database-or-tables"></a>备份数据库或表
 
@@ -67,12 +67,12 @@ $ mysqldump --ssl-cert=</path/to/pem>  -h mydemoserver.mysql.database.chinacloud
 
 ###  <a name="restore-your-database-or-tables"></a>还原数据库或表
 
-以下步骤展示了如何还原数据库或表。 创建备份文件后，可以使用 ***mysql** 实用工具还原表或数据库。 运行如下所示的命令：
+以下步骤展示了如何还原数据库或表。 创建备份文件后，可以使用 * **mysql** 实用工具还原表或数据库。 运行如下所示的命令：
 
 ```
 mysql  --ssl-cert=</path/to/pem> -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
-下面的示例说明了如何从通过 **mysqldump**创建的备份文件还原 ```testdb```。 
+下面的示例说明了如何从通过 **mysqldump** 创建的备份文件还原 ```testdb```。 
 
 > [!Important]
 > - 对于单一服务器，请使用 ```admin-user@servername``` 格式来替换下面命令中的 ```myserveradmin```。

@@ -14,12 +14,12 @@ ms.testscope: no
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: mvc,seodec18, devx-track-azurecli
-ms.openlocfilehash: 431e27693c923a6c5f3954a98f1481339c5c1aec
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 746390a6f9b81e155a90d1247a7c718db9e84d34
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128777"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470003"
 ---
 <!--Renamed File-->
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>使用 Azure CLI 将托管磁盘导出/复制到存储帐户
@@ -81,7 +81,7 @@ az storage blob copy start --destination-blob $destinationVHDFileName --destinat
 
 [从托管磁盘创建虚拟机](virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md)
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/azure)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 

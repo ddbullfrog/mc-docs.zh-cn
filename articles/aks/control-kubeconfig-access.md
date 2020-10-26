@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 05/06/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4cc4dcdb21d00c9a6b0ce32fc9c17a55a985ad85
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: ca9a11e15ac00ec944b2eea04dc20d509022b56e
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021547"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469981"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>使用 Azure 基于角色的访问控制定义对 Azure Kubernetes 服务 (AKS) 中的 Kubernetes 配置文件的访问
 
@@ -38,10 +38,10 @@ ms.locfileid: "90021547"
 
 * **Azure Kubernetes 服务群集管理员角色**  
     * 允许访问 *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API 调用。 此 API 调用[列出群集管理员凭据][api-cluster-admin]。
-    * 下载 *clusterAdmin* 角色的 *kubeconfig*。
+    * 下载 *clusterAdmin* 角色的 *kubeconfig* 。
 * **Azure Kubernetes 服务群集用户角色**
     * 允许访问 *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API 调用。 此 API 调用[列出群集用户凭据][api-cluster-user]。
-    * 下载 *clusterUser* 角色的 *kubeconfig*。
+    * 下载 *clusterUser* 角色的 *kubeconfig* 。
 
 这些 RBAC 角色可以应用到 Azure Active Directory (AD) 用户或组。
 
@@ -152,16 +152,16 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [api-cluster-admin]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusteradmincredentials
 [api-cluster-user]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusterusercredentials
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
-[az-account-show]: https://docs.azure.cn/cli/account#az-account-show
-[az-ad-user-show]: https://docs.azure.cn/cli/ad/user#az-ad-user-show
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
-[az-role-assignment-delete]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-delete
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
+[az-account-show]: https://docs.azure.cn/cli/account#az_account_show
+[az-ad-user-show]: https://docs.azure.cn/cli/ad/user#az_ad_user_show
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
+[az-role-assignment-delete]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_delete
 [aad-integration]: ./azure-ad-integration-cli.md
-[az-ad-group-show]: https://docs.azure.cn/cli/ad/group#az-ad-group-show
+[az-ad-group-show]: https://docs.azure.cn/cli/ad/group#az_ad_group_show
 
 <!-- Update_Description: update meta properties, wording update, update link -->

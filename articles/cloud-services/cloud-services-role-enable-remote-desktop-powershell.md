@@ -7,14 +7,14 @@ documentationcenter: ''
 author: tgore03
 ms.service: cloud-services
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 0c128db528202df0dc24c679aa96ed7141fc0cae
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: ecb2f15085b2cc55064e595845ab6b7f5e2e1ecf
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223100"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471559"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 为 Azure 云服务中的角色启用远程桌面连接
 
@@ -30,7 +30,7 @@ ms.locfileid: "88223100"
 ## <a name="configure-remote-desktop-from-powershell"></a>从 PowerShell 配置远程桌面
 使用 [Set-AzureServiceRemoteDesktopExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet 可以在云服务部署的指定角色或所有角色上启用远程桌面。 该 cmdlet 允许通过接受 PSCredential 对象的 *Credential* 参数为远程桌面用户指定用户名和密码。
 
-如果以交互方式使用 PowerShell，可通过调用 [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet 轻松设置 PSCredential 对象。
+如果以交互方式使用 PowerShell，可通过调用 [Get-Credentials](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential) cmdlet 轻松设置 PSCredential 对象。
 
 ```powershell
 $remoteusercredentials = Get-Credential
@@ -38,7 +38,7 @@ $remoteusercredentials = Get-Credential
 
 此命令会显示一个对话框，用于以安全方式为远程用户输入用户名和密码。
 
-由于 PowerShell 有助于实现自动化方案，因此，还可以通过无需用户交互的方式设置 **PSCredential** 对象。 为此，需要设置一个安全密码。 首先指定一个纯文本密码，然后使用 [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx) 将其转换为安全字符串。 接下来，需要使用 [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx) 将此安全字符串转换为加密的标准字符串。 现在可以使用 [Set-Content](https://technet.microsoft.com/library/ee176959.aspx) 将此加密的标准字符串保存到文件。
+由于 PowerShell 有助于实现自动化方案，因此，还可以通过无需用户交互的方式设置 **PSCredential** 对象。 为此，需要设置一个安全密码。 首先指定一个纯文本密码，然后使用 [ConvertTo-SecureString](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/convertto-securestring) 将其转换为安全字符串。 接下来，需要使用 [ConvertFrom-SecureString](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/convertfrom-securestring) 将此安全字符串转换为加密的标准字符串。 现在可以使用 [Set-Content](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-powershell-1.0/ee176959(v=technet.10)) 将此加密的标准字符串保存到文件。
 
 也可以创建安全密码文件，这样就不需要每次都键入密码。 此外，安全密码文件也比纯文本文件安全。 使用以下 PowerShell 创建安全的密码文件：
 
@@ -47,11 +47,11 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 ```
 
 > [!IMPORTANT]
-> 设置密码时请确保满足[复杂性要求](https://technet.microsoft.com/library/cc786468.aspx)。
+> 设置密码时请确保满足[复杂性要求](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786468(v=ws.10))。
 
-要从安全密码文件创建凭据对象，必须读取该文件的内容并使用 [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx) 将其转换回安全字符串。
+要从安全密码文件创建凭据对象，必须读取该文件的内容并使用 [ConvertTo-SecureString](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/convertto-securestring) 将其转换回安全字符串。
 
-[Set-AzureServiceRemoteDesktopExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet 还接受 *Expiration* 参数，用以指定用户帐户过期的**日期时间**。 例如，可以将帐户设置为在当前日期和时间的几天后过期。
+[Set-AzureServiceRemoteDesktopExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet 还接受 *Expiration* 参数，用以指定用户帐户过期的 **日期时间** 。 例如，可以将帐户设置为在当前日期和时间的几天后过期。
 
 以下 PowerShell 示例显示如何在云服务上设置远程桌面扩展：
 
@@ -63,7 +63,7 @@ $expiry = $(Get-Date).AddDays(1)
 $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
 Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry
 ```
-还可以选择指定部署槽以及要在其上启用远程桌面的角色。 如果未指定这些参数，该 cmdlet 将对**生产**部署槽中的所有角色启用远程桌面。
+还可以选择指定部署槽以及要在其上启用远程桌面的角色。 如果未指定这些参数，该 cmdlet 将对 **生产** 部署槽中的所有角色启用远程桌面。
 
 远程桌面扩展与部署相关联。 如果为服务创建新部署，必须对该部署启用远程桌面。 要始终启用远程桌面，应考虑将 PowerShell 脚本集成到部署工作流中。
 
@@ -96,8 +96,9 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 > [!NOTE]
 > 若要完全删除扩展配置，应结合 **UninstallConfiguration** 参数调用 *remove* cmdlet。
 >
-> **UninstallConfiguration** 参数将卸载任何已应用到服务的扩展配置。 每个扩展配置与服务配置相关联。 如果在未指定 **UninstallConfiguration** 的情况下调用 *remove* cmdlet，将取消<mark>部署</mark>与扩展配置之间的关联，因此会实际删除扩展。 但是，扩展配置仍与服务保持关联。
+> **UninstallConfiguration** 参数将卸载任何已应用到服务的扩展配置。 每个扩展配置与服务配置相关联。 如果在未指定 **UninstallConfiguration** 的情况下调用 *remove* cmdlet，将取消 <mark>部署</mark>与扩展配置之间的关联，因此会实际删除扩展。 但是，扩展配置仍与服务保持关联。
 
 ## <a name="additional-resources"></a>其他资源
 
 [如何配置云服务](cloud-services-how-to-configure-portal.md)
+

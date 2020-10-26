@@ -7,18 +7,18 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: has-adal-ref, sqldbrb=3
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 08/27/2019
-ms.date: 10/12/2020
-ms.openlocfilehash: 56096ea8900e7127b3add1fb5ac955567e49ff50
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: 7921935b6ba17947c9f8bb35b5dc6a48e1d7b1fc
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872406"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470510"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>为 SQL Server Management Studio 和 Azure AD 配置多重身份验证
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,14 +30,16 @@ ms.locfileid: "91872406"
 
 ## <a name="configuration-steps"></a>配置步骤
 
-1. **配置 Azure Active Directory** - 有关详细信息，请参阅[管理 Azure AD 目录](https://msdn.microsoft.com/library/azure/hh967611.aspx)、[将本地标识与 Azure Active Directory 集成](../../active-directory/hybrid/whatis-hybrid-identity.md)、[将自己的域名添加到 Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、[Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)和[使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx)。
-2. **配置 MFA** - 有关分步说明，请参阅[什么是 Azure 多重身份验证？](../../active-directory/authentication/multi-factor-authentication.md)。 
-3. **配置 Azure AD 身份验证** - 有关分步说明，请参阅[使用 Azure Active Directory 身份验证连接到 SQL 数据库、SQL 托管实例或 Azure Synapse](authentication-aad-overview.md)。
-4. **下载 SSMS** - 在客户端计算机上，从[下载 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下载最新的 SSMS。
+1. **配置 Azure Active Directory** - 有关详细信息，请参阅 [管理 Azure AD 目录](https://msdn.microsoft.com/library/azure/hh967611.aspx)、 [将本地标识与 Azure Active Directory 集成](../../active-directory/hybrid/whatis-hybrid-identity.md)、 [将自己的域名添加到 Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、 [Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)和 [使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx)。
+2. **配置 MFA** - 有关分步说明，请参阅 [什么是 Azure 多重身份验证？](../../active-directory/authentication/multi-factor-authentication.md)。 
+3. **配置 Azure AD 身份验证** - 有关分步说明，请参阅 [使用 Azure Active Directory 身份验证连接到 SQL 数据库、SQL 托管实例或 Azure Synapse](authentication-aad-overview.md)。
+4. **下载 SSMS** - 在客户端计算机上，从 [下载 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下载最新的 SSMS。
 
 ## <a name="connecting-by-using-universal-authentication-with-ssms"></a>使用通用身份验证搭配 SSMS 进行连接
 
 以下步骤演示如何使用最新的 SSMS 进行连接。
+
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
 
 1. 若要使用通用身份验证进行连接，请在 SQL Server Management Studio (SSMS) 中的“连接到服务器”对话框中选择“Active Directory - 通用且具有 MFA 支持” 。 （如果看到“Active Directory 通用身份验证”，则使用的不是最新版本的 SSMS。）
 
@@ -80,4 +82,4 @@ ms.locfileid: "91872406"
 - 有关多重身份验证的概述，请参阅 [SQL 数据库、SQL 托管实例和 Azure Synapse 的通用身份验证（SSMS 对 MFA 的 支持）](../database/authentication-mfa-ssms-overview.md)。  
 - 授予其他人对数据库的访问权限：[SQL 数据库身份验证和授权：授予访问权限](logins-create-manage.md)  
 - 确保其他人可以通过防火墙进行连接：[通过 Azure 门户配置服务器级防火墙规则](/azure-sql/database/firewall-configure)  
-- 使用 **Active Directory - 通用且具有 MFA** 进行身份验证时，可以使用以 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开头的 ADAL 跟踪。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别”**中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。
+- 使用 **Active Directory - 通用且具有 MFA** 进行身份验证时，可以使用以 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开头的 ADAL 跟踪。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别” **中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。

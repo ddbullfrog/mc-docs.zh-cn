@@ -10,11 +10,11 @@ ms.date: 08/31/2020
 ms.reviewer: zivr
 ms.custom: mimckitt
 ms.openlocfilehash: d035fa18b8967c0883187b085638fb4062609883
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414124"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211409"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>预览版：使用 PowerShell 创建和使用邻近放置组
 

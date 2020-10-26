@@ -3,19 +3,19 @@ title: 适用于 Azure SQL 数据库和数据仓库的连接设置
 description: 本文档介绍传输层安全性 (TLS) 版本选择和代理，以及适用于 Azure SQL 数据库和 Azure Synapse Analytics 的重定向设置
 services: sql-database
 ms.service: sql-database
-titleSuffix: Azure SQL Database and SQL Data Warehouse
-ms.topic: conceptual
+titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 origin.date: 07/06/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: a915c5d4fa82d9f54b2688393ce6435c2e7df265
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/29/2020
+ms.openlocfilehash: 9c9e999cd8299692e355141950f844f93612bd13
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222815"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470236"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Azure SQL 连接设置
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "88222815"
 本文介绍的设置可用于控制与 Azure SQL 数据库和 Azure Synapse Analytics 的服务器的连接。 这些设置应用于与服务器关联的所有 SQL 数据库和 Azure Synapse 数据库。
 
 > [!IMPORTANT]
-> 本文不适用于 Azure SQL 托管实例
+> 本文不适用于 **Azure SQL 托管实例** 。
 
 可从“防火墙和虚拟网络”屏幕访问连接设置，如以下屏幕截图所示：
 
@@ -47,7 +47,7 @@ ms.locfileid: "88222815"
 # Update Public Network Access to Disabled
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled"
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Disabled"
 ```
 
 ## <a name="change-public-network-access-via-cli"></a>通过 CLI 更改公用网络访问
@@ -195,3 +195,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png
+[2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png

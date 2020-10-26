@@ -8,12 +8,12 @@ description: 了解如何使用 Azure 云服务构建和管理功能强大的应
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: db688c07a70d96f88a9d393354159d17bf121020
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f46178ff25d79864cc319abfd9d73ed8dd4142df
+ms.sourcegitcommit: fb3b0b0bc054c8ac678f57cd0fb8d70bb93ba261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75854361"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214764"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -78,7 +78,7 @@ ms.locfileid: "75854361"
         <h1 class="visually-hidden">Azure 文档</h1>
         <ul class="pivots">
             <li>
-                <a href="#get-started">入门</a>
+                <a href="#get-started">开始使用</a>
                 <ul id="get-started">
                     <li>
                         <a href="#get-started1"></a>
@@ -304,7 +304,7 @@ ms.locfileid: "75854361"
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Analytics</h3>
+                                    <h3>分析</h3>
                                     <ul>
                                         <li>
                                             <a href="/sql-data-warehouse/">
@@ -482,7 +482,13 @@ ms.locfileid: "75854361"
                                         <li>
                                             <a href="/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>Azure SQL 数据库</p>
+                                                <p>Azure SQL Database</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure-sql-edge">
+                                                <img src="media/index/sql-database-edge.svg" alt="" />
+                                                <p>Azure SQL Edge</p>
                                             </a>
                                         </li>
                                         <li>
@@ -866,7 +872,7 @@ ms.locfileid: "75854361"
                                         <li>
                                             <a href="/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Site Recovery</p>
+                                                <p>站点恢复</p>
                                             </a>
                                         </li>
                                         <li>
@@ -979,7 +985,7 @@ ms.locfileid: "75854361"
                                         <li>
                                             <a href="/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Key Vault</p>
+                                                <p>密钥保管库</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1094,6 +1100,12 @@ ms.locfileid: "75854361"
                                             <a href="/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
                                                 <p>API 应用</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure-signalr/">
+                                                <img src="media/index/signalr-service.svg" alt="" />
+                                                <p>Azure SignalR 服务</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1670,8 +1682,27 @@ ms.locfileid: "75854361"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure SQL 数据库</h3>
+                                                    <h3>Azure SQL Database</h3>
                                                     <p>托管关系 SQL 数据库即服务</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-sql-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sql-database-edge.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure SQL Edge</h3>
+                                                    <p>已经过边缘优化的小型数据引擎，带有内置 AI</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2365,7 +2396,7 @@ ms.locfileid: "75854361"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Site Recovery</h3>
+                                                    <h3>站点恢复</h3>
                                                     <p>协调私有云的保护和恢复</p>
                                                 </div>
                                             </div>
@@ -2851,7 +2882,7 @@ ms.locfileid: "75854361"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Site Recovery</h3>
+                                                    <h3>站点恢复</h3>
                                                     <p>协调私有云的保护和恢复</p>
                                                 </div>
                                             </div>
@@ -3549,6 +3580,25 @@ ms.locfileid: "75854361"
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure-signalr/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/signalr-service.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure SignalR 服务</h3>
+                                                    <p>轻松添加实时 Web 功能</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -3893,7 +3943,7 @@ Java 工具 </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python 工具</a>
+                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
@@ -3917,7 +3967,7 @@ Java 工具 </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Azure 资源管理器 </h3>
+Azure Resource Manager </h3>
                                                 <p>
                                                     <a href="/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy">Visual Studio</a>
                                                 </p>
@@ -3943,7 +3993,7 @@ Azure 资源管理器 </h3>
                                                     <a target="_blank" href="https://storageexplorer.com">存储资源管理器</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer">入门</a>
+                                                    <a href="/vs-azure-tools-storage-manage-with-storage-explorer">开始使用</a>
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://go.microsoft.com/fwlink/?LinkId=722418">适用于 Linux 的下载项</a>

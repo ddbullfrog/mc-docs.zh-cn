@@ -10,11 +10,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 3cd477bffe1b7531cb75b62506b0cea8b3e7f3ae
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79290927"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211525"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-preview-features"></a>在 Azure IoT Central 应用程序中管理设备（预览版功能）
 

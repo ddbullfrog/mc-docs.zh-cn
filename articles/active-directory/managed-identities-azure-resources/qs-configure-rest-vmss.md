@@ -307,7 +307,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
     }
    ```
 
-   如果使用的是 **API 版本 2018-06-01**，若要从具有用户分配的托管标识的虚拟机规模集中删除系统分配的托管标识，请从 `{"identity":{"type:" "}}` 值中删除 `SystemAssigned`，同时保留 `UserAssigned` 值和 `userAssignedIdentities` 字典值。 如果使用的是 **API 版本 2017-12-01** 或早期版本，请保留 `identityIds` 数组。
+   如果使用的是 **API 版本 2018-06-01** ，若要从具有用户分配的托管标识的虚拟机规模集中删除系统分配的托管标识，请从 `{"identity":{"type:" "}}` 值中删除 `SystemAssigned`，同时保留 `UserAssigned` 值和 `userAssignedIdentities` 字典值。 如果使用的是 **API 版本 2017-12-01** 或早期版本，请保留 `identityIds` 数组。
 
 ## <a name="user-assigned-managed-identity"></a>用户分配的托管标识
 

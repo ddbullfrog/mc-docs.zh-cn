@@ -10,11 +10,11 @@ ms.topic: conceptual
 origin.date: 11/04/2019
 ms.date: 03/16/2020
 ms.openlocfilehash: 45131c0343318d457496c9c1bf6eb6b0d2c3199b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78934814"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211532"
 ---
 # <a name="conditional-cognitive-skill"></a>条件性认知技能
 
@@ -88,18 +88,18 @@ Microsoft.Skills.Util.ConditionalSkill
 
 | 输入   | 说明 |
 |-------------|-------------|
-| condition   | 此输入是一个[求值字段](#evaluated-fields)，表示要求值的条件。 此条件应求值为布尔值（*true* 或 *false*）。   <br/>  示例: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
-| whenTrue    | 此输入是一个[求值字段](#evaluated-fields)，表示当条件求值为 *true* 时要返回的值。 常量字符串应括在单引号（' 和 '）中返回。 <br/>示例值： <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
-| whenFalse   | 此输入是一个[求值字段](#evaluated-fields)，表示当条件求值为 *false* 时要返回的值。 <br/>示例值： <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
+| condition   | 此输入是一个[求值字段](#evaluated-fields)，表示要求值的条件。 此条件应求值为布尔值（ *true* 或 *false* ）。   <br/>  示例: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| whenTrue    | 此输入是一个 [求值字段](#evaluated-fields)，表示当条件求值为 *true* 时要返回的值。 常量字符串应括在单引号（' 和 '）中返回。 <br/>示例值： <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
+| whenFalse   | 此输入是一个 [求值字段](#evaluated-fields)，表示当条件求值为 *false* 时要返回的值。 <br/>示例值： <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## <a name="skill-outputs"></a>技能输出
-有一个简称为“输出”的输出。 如果条件为 false，它会返回值 *whenFalse*；如果条件为 true，它会返回值 *whenTrue*。
+有一个简称为“输出”的输出。 如果条件为 false，它会返回值 *whenFalse* ；如果条件为 true，它会返回值 *whenTrue* 。
 
 ## <a name="examples"></a>示例
 
 ### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>示例技能定义 1：筛选文档，以仅返回法语文档
 
-如果文档的语言为法语，则以下输出将返回句子数组 ("/document/frenchSentences")。 如果语言不是法语，值将设置为 *null*。
+如果文档的语言为法语，则以下输出将返回句子数组 ("/document/frenchSentences")。 如果语言不是法语，值将设置为 *null* 。
 
 ```json
 {
@@ -155,7 +155,7 @@ Microsoft.Skills.Util.ConditionalSkill
 
 在此示例中，我们将收到介于 0 和 1 之间的情绪。  我们希望将此值转换为 -1 到 1。 可以使用条件技能来实现这种次要转换。
 
-在此示例中，我们未使用技能的条件性，因为该条件始终为 *true*。
+在此示例中，我们未使用技能的条件性，因为该条件始终为 *true* 。
 
 ```json
 {

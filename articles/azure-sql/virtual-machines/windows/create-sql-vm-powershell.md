@@ -8,19 +8,20 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/21/2018
-ms.date: 08/17/2020
+ms.date: 10/29/2020
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: 7c16c585a219e03da1b93ccd4466bde40e3c165e
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 58aca9fbfe3a6d74b6f0305ddd8a182aaa47c455
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222658"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470455"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>如何使用 Azure PowerShell 在 Azure 虚拟机上预配 SQL Server
 
@@ -61,7 +62,7 @@ $ResourceGroupName = "sqlvm2"
 
 定义存储帐户，以及虚拟机使用的存储类型。
 
-根据需要进行修改，然后运行以下 cmdlet 以初始化这些变量。 我们建议将[高级 SSD](../../../virtual-machines/windows/disks-types.md#premium-ssd) 用于生产工作负载。
+根据需要进行修改，然后运行以下 cmdlet 以初始化这些变量。 我们建议将[高级 SSD](../../../virtual-machines/disks-types.md#premium-ssd) 用于生产工作负载。
 
 ```powershell
 $StorageName = $ResourceGroupName + "storage"
@@ -117,29 +118,29 @@ $OSDiskName = $VMName + "OSDisk"
 
 1. 首先，使用 `Get-AzVMImageOffer` 命令列出所有 SQL Server 映像产品/服务。 此命令将列出 Azure 门户中当前提供的映像，以及只能通过 PowerShell 安装的早期映像：
 
-    ```powershell
-    Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
-    ```
+   ```powershell
+   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
+   ```
 
 1. 对于本教程，请使用以下变量指定 Windows Server 2016 上的 SQL Server 2017。
 
-    ```powershell
-    $OfferName = "SQL2017-WS2016"
-    $PublisherName = "MicrosoftSQLServer"
-    $Version = "latest"
-    ```
+   ```powershell
+   $OfferName = "SQL2017-WS2016"
+   $PublisherName = "MicrosoftSQLServer"
+   $Version = "latest"
+   ```
 
 1. 接下来，列出套餐的可用版本。
 
-    ```powershell
-    Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
-    ```
+   ```powershell
+   Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
+   ```
 
-1. 对于本教程，请使用 SQL Server 2017 Developer Edition (**SQLDEV**)。 Developer Edition 针对测试和开发自由授权，用户只需支付运行 VM 的成本。
+1. 对于本教程，请使用 SQL Server 2017 Developer Edition ( **SQLDEV** )。 Developer Edition 针对测试和开发自由授权，用户只需支付运行 VM 的成本。
 
-    ```powershell
-    $Sku = "SQLDEV"
-    ```
+   ```powershell
+   $Sku = "SQLDEV"
+   ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -220,26 +221,26 @@ $PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
 
 1. 首先，为远程桌面 (RDP) 创建网络完全组规则，以允许 RDP 连接。
 
-    ```powershell
-    $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
+   ```powershell
+   $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
-    ```
+   ```
 1. 配置一个允许 TCP 端口 1433 上的流量的网络安全组规则。 这样就可以通过 Internet 连接到 SQL Server。
 
-    ```powershell
-    $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
+   ```powershell
+   $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
       -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
-    ```
+   ```
 
 1. 创建网络安全组。
 
-    ```powershell
-    $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
+   ```powershell
+   $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
       -Location $Location -Name $NsgName `
       -SecurityRules $NsgRuleRDP,$NsgRuleSQL
-    ```
+   ```
 
 ### <a name="create-the-network-interface"></a>创建网络接口
 
@@ -371,9 +372,10 @@ SQL Server 虚拟机支持 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-
 
 <!--Not Available on [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md)-->
 
-```powershell
-New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
-```
+   ```powershell
+   New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
+   ```
+
 
 ## <a name="stop-or-remove-a-vm"></a>停止或删除 VM
 
@@ -464,8 +466,8 @@ New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Locat
 
 - 使用 RDP 连接到虚拟机
 - 在门户中为 VM 配置 SQL Server 设置，包括：
-    - [存储设置](storage-configuration.md) 
-    - [自动管理任务](sql-server-iaas-agent-extension-automate-management.md)
+   - [存储设置](storage-configuration.md) 
+   - [自动管理任务](sql-server-iaas-agent-extension-automate-management.md)
 - [配置连接](ways-to-connect-to-sql.md)
 - 将客户端和应用程序连接到新的 SQL Server 实例
 

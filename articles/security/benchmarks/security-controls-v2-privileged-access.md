@@ -38,7 +38,7 @@ ms.locfileid: "92128759"
 
 - [使用 Azure Privileged Identity Management 安全警报](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -66,7 +66,7 @@ ms.locfileid: "92128759"
 
 - [访问管理组](../../governance/management-groups/overview.md#management-group-access)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -91,7 +91,7 @@ ms.locfileid: "92128759"
 
 - [如何使用 Azure AD 标识和访问评审](../../active-directory/governance/access-reviews-overview.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -112,7 +112,7 @@ ms.locfileid: "92128759"
 
 - [在 Azure AD 中管理紧急访问帐户](../../active-directory/users-groups-roles/directory-emergency-access.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -133,7 +133,7 @@ ms.locfileid: "92128759"
 使用 Azure AD 的权利管理功能可自动执行访问请求工作流，包括访问权限分配、审查和过期。 还支持两阶段或多阶段审批。
 - [什么是 Azure AD 访问评审](../../active-directory/governance/access-reviews-overview.md) 
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -151,7 +151,7 @@ ms.locfileid: "92128759"
 
 受保护的独立工作站对于机密角色（如管理员、开发人员和关键服务操作员）的安全性至关重要。 使用高度安全的用户工作站和/或 Azure Bastion 执行管理任务。 使用 Azure Active Directory、Microsoft Defender 高级威胁防护 (ATP) 和/或 Microsoft Intune 部署安全的托管用户工作站，用于执行管理任务。 可集中管理安全工作站，强制实施安全配置，包括强身份验证、软件和硬件基线，以及受限制的逻辑和网络访问。 
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -176,7 +176,7 @@ ms.locfileid: "92128759"
 
 - [如何使用 Azure AD 标识和访问评审](../../active-directory/governance/access-reviews-overview.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -188,7 +188,7 @@ ms.locfileid: "92128759"
 
 - [标识和密钥管理](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

@@ -146,7 +146,7 @@ Result
 
 ## <a name="create-a-new-aks-cluster"></a>创建新的 AKS 群集
 
-**时间估计**：大约 10 分钟。
+**时间估计** ：大约 10 分钟。
 
 对于工作区而言，创建或附加 AKS 群集是一次性过程。 可以将此群集重复用于多个部署。 如果删除该群集或包含该群集的资源组，则在下次需要进行部署时必须创建新群集。 可将多个 AKS 群集附加到工作区。
 
@@ -203,7 +203,7 @@ az ml computetarget create aks -n myaks
 
 ## <a name="attach-an-existing-aks-cluster"></a>附加现有的 AKS 群集
 
-时间估计****：大约 5 分钟。
+时间估计  ：大约 5 分钟。
 
 如果 Azure 订阅中已有 AKS 群集并且其版本为 1.17 或更低版本，则可以使用该群集来部署映像。
 

@@ -5,18 +5,22 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
-origin.date: 6/11/2020
-ms.date: 04/27/2020
-ms.openlocfilehash: 11af902eab0806f3eb018d8698d392fa5a2b82bb
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.topic: how-to
+origin.date: 10/1/2020
+ms.date: 10/29/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 7b2f41756d73b4be2f06f62a6cbd3f53d4a81540
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440517"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470496"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-cli"></a>使用 Azure CLI 在 Azure Database for MariaDB 中配置服务器参数
 可以使用 Azure CLI、Azure 命令行实用工具来列出、显示和更新 Azure Database for MariaDB 服务器的配置参数。 在服务器级别会公开引擎配置的一个子集，并可以进行修改。
+
+>[!Note]
+> 可在服务器级别全局更新服务器参数，方式是使用 [Azure CLI](./howto-configure-server-parameters-cli.md)、[PowerShell](./howto-configure-server-parameters-using-powershell.md) 或 [Azure 门户](./howto-server-parameters.md)。
 
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本操作方法指南，需要：
@@ -44,7 +48,7 @@ az mariadb server configuration show --name slow_query_log --resource-group myre
 ## <a name="modify-a-server-configuration-parameter-value"></a>修改服务器配置参数值
 此外，你还可以修改某个服务器配置参数的值，这会更新 MariaDB 服务器引擎的基础配置值。 若要更新配置，请使用 [az mariadb server configuration set](https://docs.microsoft.com/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) 命令。 
 
-更新资源组 **myresourcegroup** 下服务器 **mydemoserver.mariadb.database.chinacloudapi.cn** 的服务器配置参数 **slow\_query\_log**。
+更新资源组 **myresourcegroup** 下服务器 **mydemoserver.mariadb.database.chinacloudapi.cn** 的服务器配置参数 **slow\_query\_log** 。
 ```azurecli
 az mariadb server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 ```
@@ -56,7 +60,7 @@ az mariadb server configuration set --name slow_query_log --resource-group myres
 
 此代码会将 slow\_query\_log 配置重置为默认值 OFF。 
 
-## <a name="setting-parameters-not-listed"></a>未列出设置参数
+## <a name="setting-parameters-not-listed"></a>设置参数未列出
 如果 Azure 门户中未列出你要更新的服务器参数，则可以选择性地使用 `init_connect` 在连接级别设置参数。 此项可为每个连接到服务器的客户端设置服务器参数。 
 
 更新资源组 myresourcegroup 下的服务器 mydemoserver.mariadb.database.chinacloudapi.cn 的 init\_connect 服务器配置参数，以设置字符集之类的值  。

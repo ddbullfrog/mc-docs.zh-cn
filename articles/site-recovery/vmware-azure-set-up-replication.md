@@ -9,11 +9,11 @@ origin.date: 04/08/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
 ms.openlocfilehash: e3b0b720b333366933005255341df0113fc80a22
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291338"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211479"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>配置和管理用于从 VMware 灾难恢复到 Azure 的复制策略
 本文介绍如何配置复制策略，以便使用 [Azure Site Recovery](site-recovery-overview.md) 将 VMware VM 复制到 Azure。

@@ -34,7 +34,7 @@ ms.locfileid: "92128736"
 
 - [如何部署和配置 Azure 防火墙](../../firewall/tutorial-firewall-deploy-portal.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -60,7 +60,7 @@ ms.locfileid: "92128736"
 
 - [虚拟网络对等](../../virtual-network/virtual-network-peering-overview.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -82,7 +82,7 @@ ms.locfileid: "92128736"
 
 - [了解虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -108,7 +108,7 @@ ms.locfileid: "92128736"
 
 - [Azure 防火墙文档](/firewall/)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -130,7 +130,7 @@ ms.locfileid: "92128736"
 
 - [Microsoft Defender ATP EDR 功能](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -156,7 +156,7 @@ ms.locfileid: "92128736"
 
 - [了解并使用应用程序安全组](/virtual-network/security-overview#application-security-groups)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -182,7 +182,7 @@ ms.locfileid: "92128736"
 
 - [阻止无关联的 DNS 项并避免子域接管](../fundamentals/subdomain-takeover.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

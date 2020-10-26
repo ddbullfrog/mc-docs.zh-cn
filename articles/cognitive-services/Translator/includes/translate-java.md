@@ -1,15 +1,16 @@
 ---
-author: erhopf
+author: Johnnytechn
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
-ms.openlocfilehash: c5d4a782b12330af61b8f0bba8a3ab93476e6080
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 286f8d7585e19a19ea858c3b6af804ec0b149b60
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241544"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499061"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -30,7 +31,7 @@ cd translator-sample
 gradle init --type basic
 ```
 
-当提示你选择一个 **DSL** 时，选择 **Kotlin**。
+当提示你选择一个 **DSL** 时，选择 **Kotlin** 。
 
 ## <a name="configure-the-build-file"></a>配置生成文件
 
@@ -192,7 +193,7 @@ gradle run
 
 ## <a name="next-steps"></a>后续步骤
 
-查看 API 参考，了解使用文本翻译 API 可以执行的所有操作。
+查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
 > [API 参考](/cognitive-services/translator/reference/v3-0-reference)

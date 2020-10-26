@@ -37,7 +37,7 @@ Site Recovery 支持多种类型的、停机时间极短或不造成停机的故
 
 这些是与此迁移方案相关的 Site Recovery 组件。
 
-* **配置服务器**是用于协调通信以及管理数据复制和恢复过程的 Azure VM。 在此 VM 上运行单个安装程序文件来安装配置服务器，以及一个称作进程服务器、用作复制网关的附加组件。 请阅读[配置服务器必备组件](../../site-recovery/vmware-azure-tutorial.md)。 配置服务器只需设置一次，在迁移到同一区域的所有过程中都可以使用它。
+* **配置服务器** 是用于协调通信以及管理数据复制和恢复过程的 Azure VM。 在此 VM 上运行单个安装程序文件来安装配置服务器，以及一个称作进程服务器、用作复制网关的附加组件。 请阅读[配置服务器必备组件](../../site-recovery/vmware-azure-tutorial.md)。 配置服务器只需设置一次，在迁移到同一区域的所有过程中都可以使用它。
 
 * 进程服务器是一种复制网关，其职能包括： 
 
@@ -204,9 +204,9 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
     * 对于通过经典部署模型创建的 VM：将 VM 添加到 Azure 门户中的可用性集。 有关详细步骤，请参阅[将现有虚拟机添加到可用性集](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/configure-availability-classic)。
     * 对于通过资源管理器部署模型创建的 VM：保存 VM 的配置，并在可用性集中删除并再重新创建 VM。 为此，请使用 [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)（设置 Azure Resource Manager VM 可用性集）中所述的脚本。 运行此脚本之前，请检查其自身的限制并规划停机时间。
 
-2. **删除旧 VM 和磁盘**。 请确保高级磁盘与源磁盘一致，并且新 VM 执行的功能与源 VM 相同。 通过 Azure 门户删除源存储帐户中的 VM 和磁盘。 如果出现了即使删除 VM 也无法删除磁盘的问题，请参阅[排查存储资源删除错误](../troubleshooting/storage-resource-deletion-errors.md)。
+2. **删除旧 VM 和磁盘** 。 请确保高级磁盘与源磁盘一致，并且新 VM 执行的功能与源 VM 相同。 通过 Azure 门户删除源存储帐户中的 VM 和磁盘。 如果出现了即使删除 VM 也无法删除磁盘的问题，请参阅[排查存储资源删除错误](../troubleshooting/storage-resource-deletion-errors.md)。
 
-3. **清理 Azure Site Recovery 基础结构**。 如果不再需要 Site Recovery，可清理其基础结构。 删除复制的项、配置服务器和恢复策略，然后删除 Azure Site Recovery 保管库。
+3. **清理 Azure Site Recovery 基础结构** 。 如果不再需要 Site Recovery，可清理其基础结构。 删除复制的项、配置服务器和恢复策略，然后删除 Azure Site Recovery 保管库。
 
 ## <a name="troubleshooting"></a>故障排除
 

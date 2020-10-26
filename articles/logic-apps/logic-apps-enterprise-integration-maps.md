@@ -10,11 +10,11 @@ origin.date: 02/06/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
 ms.openlocfilehash: 5e5daea5dc07fcdcc6b08adb9718174980a15edd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243524"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211335"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>使用带有 Enterprise Integration Pack 的 Azure 逻辑应用中的映射转换 XML
 

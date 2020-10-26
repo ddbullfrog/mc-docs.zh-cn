@@ -48,7 +48,7 @@ ms.locfileid: "92041432"
 
 1. 单击 Azure 门户左上角的“+/创建新服务”按钮。 
 2. 单击“数据库”，然后单击“Azure Cosmos DB”，新的“新建帐户”面板便会显示。  
-3. 输入 Cosmos DB 帐户的 **ID**，供以后使用。  
+3. 输入 Cosmos DB 帐户的 **ID** ，供以后使用。  
 4. **API** 应设置为“SQL”。 本教程中介绍的方法可以与其他可用的 API 类型配合使用，但本教程中的步骤是针对 SQL API 的。
 5. 确保“订阅”和“资源组”与上一步中创建 VM 时指定的名称匹配。    选择提供 Cosmos DB 的“位置”。 
 6. 单击“创建”。 
@@ -114,7 +114,7 @@ az role assignment create --assignee <MI PRINCIPALID> --role '<ROLE NAME>' --sco
 
 1. 在 Azure 门户中，导航到“虚拟机”  ，转到 Linux 虚拟机，然后在“概述”  页中单击顶部的“连接”  。 复制用于连接到 VM 的字符串。 
 2. 使用 SSH 客户端连接到 VM。  
-3. 接下来，系统会提示你输入创建“Linux VM”**** 时添加的“密码”****。 然后应可以成功登录。  
+3. 接下来，系统会提示你输入创建“Linux VM”  时添加的“密码”  。 然后应可以成功登录。  
 4. 使用 CURL 获取 Azure 资源管理器的访问令牌： 
      
     ```bash
@@ -153,7 +153,7 @@ CURL 响应提供一个密钥列表。  例如，如果获取只读密钥：
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
 
-有了 Cosmos DB 帐户的访问密钥以后，即可将其传递给 Cosmos DB SDK 并通过调用来访问该帐户。  如需快速示例，可将该访问密钥传递给 Azure CLI。  在 Azure 门户中，可以从 Cosmos DB 帐户边栏选项卡上的“概览”选项卡获取 `<COSMOS DB CONNECTION URL>`。****  将 `<ACCESS KEY>` 替换为在上面获取的值：
+有了 Cosmos DB 帐户的访问密钥以后，即可将其传递给 Cosmos DB SDK 并通过调用来访问该帐户。  如需快速示例，可将该访问密钥传递给 Azure CLI。  在 Azure 门户中，可以从 Cosmos DB 帐户边栏选项卡上的“概览”选项卡获取 `<COSMOS DB CONNECTION URL>`。   将 `<ACCESS KEY>` 替换为在上面获取的值：
 
 ```azurecli
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>

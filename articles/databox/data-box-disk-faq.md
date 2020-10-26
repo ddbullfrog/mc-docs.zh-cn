@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
 origin.date: 08/29/2019
-ms.date: 07/27/2020
+ms.date: 10/29/2020
 ms.author: v-jay
-ms.openlocfilehash: 1935dc32cf6bb016c3366fddf6875f54be0de80d
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: d007eb4d8764ab9ff92625a76e2a9f7364d2ea68
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914243"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470257"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk：常见问题解答
 
@@ -56,9 +56,6 @@ A.  若要查看目前提供 Data Box Disks 的区域，请转到[区域可用�
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>问： 使用 Data Box 磁盘可在哪些区域存储数据？
 A. 所有区域都支持 Data Box Disk。 
-
-### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>问： 我的 Data Box Disk 在运输过程中是否将跨越国家/地区边界？
-A. Data Box Disk 从其目的地所在的国家/地区发运，不会跨越任何国际边界。
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>问： 如果 Data Box 磁盘出现任何问题，我应该与谁联系？
 A. 如果 Data Box Disk 磁盘出现任何问题，请[联系 Azure 支持部门](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
@@ -128,9 +125,9 @@ A.  否。 Data Box 磁盘目前仅支持一个存储帐户（常规或经典帐
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>问： Data Box Disk 提供了用于处理数据的什么工具集？
 A. 随 Data Box Disk 提供的工具集包含三个工具：
- - **Data Box Disk 解锁工具**：可以使用此工具来解锁 Azure 寄送的已加密磁盘。 使用此工具解锁磁盘时，需要提供从 Azure 门户中的 Data Box Disk 订单中获得的密钥。 
- - **Data Box Disk 验证工具**：可以使用此工具根据 Azure 命名约定来验证大小、格式和 Blob 名称。 它还生成复制的数据的校验和，然后使用校验和来验证上传到 Azure 的数据。
- - **Data Box Disk 拆分复制工具**：如果使用多个磁盘，并且需要拆分大型数据集并将其复制到所有磁盘中，请使用此工具。 此工具当前可用于 Windows。 托管磁盘不支持此工具。 此工具还会在复制数据时进行验证，因此可以在使用此工具时跳过验证步骤。
+ - **Data Box Disk 解锁工具** ：可以使用此工具来解锁 Azure 寄送的已加密磁盘。 使用此工具解锁磁盘时，需要提供从 Azure 门户中的 Data Box Disk 订单中获得的密钥。 
+ - **Data Box Disk 验证工具** ：可以使用此工具根据 Azure 命名约定来验证大小、格式和 Blob 名称。 它还生成复制的数据的校验和，然后使用校验和来验证上传到 Azure 的数据。
+ - **Data Box Disk 拆分复制工具** ：如果使用多个磁盘，并且需要拆分大型数据集并将其复制到所有磁盘中，请使用此工具。 此工具当前可用于 Windows。 托管磁盘不支持此工具。 此工具还会在复制数据时进行验证，因此可以在使用此工具时跳过验证步骤。
 
 此工具集可用于 Windows 和 Linux。 可以从以下位置下载此工具集：
 - [下载适用于 Windows 的 Data Box Disk 工具集](https://aka.ms/databoxdisktoolswin) 

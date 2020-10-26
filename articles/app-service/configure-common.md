@@ -194,25 +194,25 @@ ms.locfileid: "92170817"
 
 在此处可以配置应用的某些常用设置。 某些设置要求[纵向扩展到更高的定价层](manage-scale-up.md)。
 
-- **堆栈设置**：用于运行应用的软件堆栈，包括语言和 SDK 版本。
+- **堆栈设置** ：用于运行应用的软件堆栈，包括语言和 SDK 版本。
 
     对于 Linux 应用和自定义容器应用，可选择语言运行时版本，并设置启动命令文件或可选的启动命令。
 
     ![Linux 容器的常规设置](./media/configure-common/open-general-linux.png)
 
-- **平台设置**：用于配置托管平台的设置，包括：
-    - **位数**：32 位或 64 位。
-    - **WebSocket 协议**：例如，[ASP.NET SignalR] 或 [socket.io](https://socket.io/)。
-    - **Always On**：即使没有流量，也保持应用的加载状态。 对于连续性 WebJobs 或使用 CRON 表达式触发的 WebJobs，它是必需的。
+- **平台设置** ：用于配置托管平台的设置，包括：
+    - **位数** ：32 位或 64 位。
+    - **WebSocket 协议** ：例如， [ASP.NET SignalR] 或 [socket.io](https://socket.io/)。
+    - **Always On** ：即使没有流量，也保持应用的加载状态。 对于连续性 WebJobs 或使用 CRON 表达式触发的 WebJobs，它是必需的。
       > [!NOTE]
       > 借助 Always On 功能，前端负载均衡器会将请求发送到应用程序根目录。 无法配置应用服务的此应用程序终结点。
-    - **托管管道版本**：IIS [管道模式]。 如果某个旧式应用需要旧版 IIS，请将此选项设置为“经典”。 
-    - **HTTP 版本**：设置为 **2.0**，以启用对 HTTPS/2 协议的支持。
+    - **托管管道版本** ：IIS [管道模式]。 如果某个旧式应用需要旧版 IIS，请将此选项设置为“经典”。 
+    - **HTTP 版本** ：设置为 **2.0** ，以启用对 HTTPS/2 协议的支持。
     > [!NOTE]
     > 大多数新型浏览器仅支持通过 TLS 的 HTTP/2 协议，而非加密流量继续使用 HTTP/1.1。 若要确保客户端浏览器使用 HTTP/2 连接到应用，请保护自定义 DNS 名称。 有关详细信息，请参阅[在 Azure 应用服务中使用 TLS/SSL 绑定保护自定义 DNS 名称](configure-ssl-bindings.md)。
-    - **ARR 相关性**：在多实例部署中，请确保在会话的整个生存期内，将客户端路由到同一实例。 对于无状态应用程序，请将此选项设置为“关闭”。 
-- **调试**：为 [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug)、[ASP.NET Core](https://docs.microsoft.com/visualstudio/debugger/remote-debugging-azure) 或 [Node.js](configure-language-nodejs.md#debug-remotely) 应用启用远程调试。 此选项在 48 小时后会自动关闭。
-- **传入的客户端证书**：要求在[相互身份验证](app-service-web-configure-tls-mutual-auth.md)中使用客户端证书。
+    - **ARR 相关性** ：在多实例部署中，请确保在会话的整个生存期内，将客户端路由到同一实例。 对于无状态应用程序，请将此选项设置为“关闭”。 
+- **调试** ：为 [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug)、 [ASP.NET Core](https://docs.microsoft.com/visualstudio/debugger/remote-debugging-azure) 或 [Node.js](configure-language-nodejs.md#debug-remotely) 应用启用远程调试。 此选项在 48 小时后会自动关闭。
+- **传入的客户端证书** ：要求在 [相互身份验证](app-service-web-configure-tls-mutual-auth.md)中使用客户端证书。
 
 ## <a name="configure-default-documents"></a>配置默认文档
 
@@ -240,9 +240,9 @@ ms.locfileid: "92170817"
 
 使用处理程序映射可以添加自定义脚本处理程序用于处理特定文件扩展名的请求。 若要添加自定义处理程序，请单击“新建处理程序”。  按如下所述配置处理程序：
 
-- **扩展名**。 要处理的扩展名，例如 *\*.php* 或 *handler.fcgi*。
-- **脚本处理程序**。 脚本处理程序的绝对路径。 与文件扩展名匹配的文件请求由脚本处理程序处理。 使用路径 `D:\home\site\wwwroot` 表示应用的根目录。
-- **参数**。 脚本处理程序的可选命令行参数
+- **扩展名** 。 要处理的扩展名，例如 *\*.php* 或 *handler.fcgi* 。
+- **脚本处理程序** 。 脚本处理程序的绝对路径。 与文件扩展名匹配的文件请求由脚本处理程序处理。 使用路径 `D:\home\site\wwwroot` 表示应用的根目录。
+- **参数** 。 脚本处理程序的可选命令行参数
 
 每个应用具有已映射到 `D:\home\site\wwwroot`（代码的默认部署位置）的默认根路径 (`/`)。 如果应用根位于其他文件夹中，或者存储库包含多个应用程序，则你可以在此处编辑或添加虚拟应用程序和目录。 单击“新建虚拟应用程序或目录”。 
 
@@ -254,16 +254,16 @@ ms.locfileid: "92170817"
 
 单击“新 Azure 存储装载”，然后按如下所示配置自定义存储：
 
-- **名称**：显示名称。
-- **配置选项**：“基本”或“高级”。
-- **存储帐户**：具有所需容器的存储帐户。
-- **存储类型**：“Azure Blob”或“Azure 文件存储”。
+- **名称** ：显示名称。
+- **配置选项** ：“基本”或“高级”。
+- **存储帐户** ：具有所需容器的存储帐户。
+- **存储类型** ：“Azure Blob”或“Azure 文件存储”。
   > [!NOTE]
   > Windows 容器应用仅支持 Azure 文件存储。
-- **存储容器**：对于基本配置，为所需的容器。
-- **共享名**：对于高级配置，为文件共享名。
-- **访问密钥**：对于高级配置，为访问密钥。
-- **装载路径**：容器中用于装载自定义存储的绝对路径。
+- **存储容器** ：对于基本配置，为所需的容器。
+- **共享名** ：对于高级配置，为文件共享名。
+- **访问密钥** ：对于高级配置，为访问密钥。
+- **装载路径** ：容器中用于装载自定义存储的绝对路径。
 
 <!-- For more information, see [Access Azure Storage as a network share from a container in App Service](configure-connect-to-azure-storage.md). -->
 

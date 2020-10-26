@@ -10,11 +10,11 @@ origin.date: 01/01/2020
 ms.date: 03/30/2020
 ms.author: v-yeche
 ms.openlocfilehash: e55214e6f8cb759b9e3cdbc8ba9cae4cf02d3090
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243445"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211531"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-azure-logic-apps"></a>在 Azure 逻辑应用中创建用于跟踪 X12 消息的架构
 

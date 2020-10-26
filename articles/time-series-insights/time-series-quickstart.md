@@ -9,15 +9,18 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 08/05/2020
-ms.openlocfilehash: 90a4e5cbdd077f99a2e57f0e0bf75f06df1b32f4
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.date: 10/20/2020
+ms.openlocfilehash: 3287203d9ae9421d245a561e9e44f5ca2aae35d8
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796309"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472603"
 ---
 # <a name="quickstart-explore-azure-time-series-insights-gen1"></a>快速入门：浏览 Azure 时序见解 Gen1
+
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
 
 此 Azure 时序见解资源管理器快速入门帮助你在免费的演示环境中完成 Azure 时序见解的入门。 本快速入门介绍如何使用 Web 浏览器将大量 IoT 数据可视化，并浏览当前正式发布的重要功能。
 

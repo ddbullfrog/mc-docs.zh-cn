@@ -1,21 +1,21 @@
 ---
 title: 教程：打开包装、连接和解锁 Azure Data Box Disk | Microsoft Docs
-description: 通过本教程了解如何设置 Azure Data Box 磁盘
+description: 通过本教程了解如何打开 Azure Data Box Disk 包装、连接到磁盘、获取密钥以及如何在 Windows 和 Linux 客户端上解锁磁盘。
 services: databox
 author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 origin.date: 09/04/2019
-ms.date: 07/27/2020
+ms.date: 10/29/2020
 ms.author: v-jay
 ms.localizationpriority: high
-ms.openlocfilehash: 5ca16dc68818f237cdd694ba3e619cec848e45ac
-ms.sourcegitcommit: c3f15613c875bb52d5a105445efd0f36b9f24c9c
+ms.openlocfilehash: c8d12d52188c291b2e857382f70ddf02fbce9a33
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86473466"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470263"
 ---
 ::: zone target="docs"
 
@@ -269,7 +269,7 @@ ms.locfileid: "86473466"
     
 8. 解锁磁盘后，可以转到装入点并查看磁盘的内容。 现在，可将数据复制到 *BlockBlob* 或 *PageBlob* 文件夹。 
 
-    ![Data Box 磁盘内容](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+    ![Data Box Disk 内容 2](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 
 如果解锁磁盘时遇到任何问题，请参阅如何[排查解锁问题](data-box-disk-troubleshoot-unlock.md)。 

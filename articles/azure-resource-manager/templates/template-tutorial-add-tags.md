@@ -3,22 +3,22 @@ title: 教程 - 将标记添加到模板中的资源
 description: 将标记添加到在 Azure 资源管理器模板中部署的资源。 可以通过标记对资源进行逻辑组织。
 origin.date: 03/27/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: efc9a7e4218733d5c02a5b16379e62d73c7f2ffe
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: ''
+ms.openlocfilehash: aa7b4e0edf9336ee979dbc658bdc6e6f55d7d577
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937161"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470075"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>教程：在 ARM 模板中添加标记
 
-本教程介绍如何将标记添加到 Azure 资源管理器 (ARM) 模板中的资源。 可以通过[标记](../management/tag-resources.md)对资源进行逻辑组织。 标记值显示在成本报告中。 完成本教程需要 **8 分钟**。
+本教程介绍如何将标记添加到 Azure 资源管理器 (ARM) 模板中的资源。 可以通过[标记](../management/tag-resources.md)对资源进行逻辑组织。 标记值显示在成本报告中。 完成本教程需要 **8 分钟** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -266,7 +266,7 @@ ms.locfileid: "91937161"
 
 可以部署模板并查看结果了。
 
-如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
+如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据 [第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -55,9 +55,9 @@ ms.locfileid: "92128848"
 
 - [Azure 安全基准 - 数据保护](security-controls-v2-data-protection.md)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [所有利益干系人](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -79,9 +79,9 @@ ms.locfileid: "92128848"
 
 - [使网络分段与企业分段策略相匹配](https://docs.microsoft.com/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [所有利益干系人](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -95,9 +95,9 @@ ms.locfileid: "92128848"
 
 - [Azure 安全基准 - 状况和漏洞管理](security-controls-v2-posture-vulnerability-management.md)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [所有利益干系人](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -115,9 +115,9 @@ ms.locfileid: "92128848"
 
 - [Azure 安全最佳做法 3 - 流程：针对云安全决策分配责任](https://aka.ms/AzSec3)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [所有利益干系人](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -153,9 +153,9 @@ ms.locfileid: "92128848"
 
 - [企业网络体系结构策略](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [所有利益干系人](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -189,9 +189,9 @@ ms.locfileid: "92128848"
 
 - [Azure 标识管理安全概述](../fundamentals/identity-management-overview.md)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [所有利益干系人](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -230,9 +230,9 @@ ms.locfileid: "92128848"
 
 - [Azure 企业规模、管理和监视](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [所有利益干系人](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -259,9 +259,9 @@ ms.locfileid: "92128848"
 
 - [Azure 采用框架 - 业务连续性和灾难恢复](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [所有利益干系人](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

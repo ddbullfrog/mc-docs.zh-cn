@@ -4,17 +4,17 @@ description: 本文介绍了关于使用 Azure Site Recovery 进行 Azure VM 灾
 manager: rochakm
 origin.date: 04/29/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 87092e7f69bd41fba0590e813a8751b75aa2d5c4
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 7c54755cda4e3803fd247af288c9bfe6cc51021f
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655038"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211858"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>常见问题：Azure 到 Azure 的灾难恢复
 
@@ -184,7 +184,8 @@ Site Recovery 每隔 5 分钟创建崩溃一致性恢复点。 你无法更改�
 生成的第一个恢复点包含完整副本。 任何后续恢复点包含增量更改。
 
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>增大恢复点保留期是否会增加存储成本？
-是的。 如果将保留期从 24 小时增大到 72 小时，则 Site Recovery 将保存额外 48 小时的恢复点。 增加的时间会产生存储费用。
+
+是，如果你将保留期从 24 小时延长到 72 小时，Site Recovery 会额外保存恢复点 48 小时。 增加的时间会产生存储费用。
 
 <!--Not Available on  For example, if a single recovery point has delta changes of 10 GB and the per-GB cost is $0.16 per month, the additional charges would be $1.6 * 48 per month.-->
 
@@ -247,7 +248,7 @@ Site Recovery 团队和 Azure 容量管理团队计划了足够的基础结构�
 
 详细了解[如何设置虚拟网络的网络映射和 IP 地址](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms)。
 
-### <a name="what-are-latest-lowest-rpo-recovery-points"></a>什么是**最新（最低 RPO）** 恢复点？
+### <a name="what-are-latest-lowest-rpo-recovery-points"></a>什么是 **最新（最低 RPO）** 恢复点？
 
 “最新(最低 RPO)”选项先处理已发送到 Site Recovery 的所有数据。 在处理数据后，服务会在故障转移到 VM 之前为每个 VM 创建一个恢复点。 此选项提供了最低恢复点目标 (RPO)。 在故障转移后创建的 VM 包含自故障转移触发起复制到 Site Recovery 的所有数据。
 
@@ -288,11 +289,10 @@ Site Recovery 中的恢复计划可以协调 VM 的故障转移恢复。 它有�
 若要检查恢复计划的 RTO，请对恢复计划执行测试故障转移，然后转到“Site Recovery 作业”。
 在下面的示例中，查看作业“SAPTestRecoveryPla”n。 此作业花费了 8 分钟 59 秒来故障转移所有虚拟机，并执行指定的操作。
 
-:::image type="content" source="./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG" alt-text="Site Recovery 作业列表":::
+:::image type="content" source="./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG" alt-text="生成的恢复点列表":::
 
-### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>是否可将自动化 Runbook 添加到恢复计划？
-
-是的，可将 Azure 自动化 Runbook 集成到恢复计划中。 详细了解[如何添加 Azure 自动化 Runbook](site-recovery-runbook-automation.md)。
+<!--Not Available on ### Can I add automation runbooks to the recovery plan?-->
+<!--Not Avaialble on [adding Azure Automation runbooks](site-recovery-runbook-automation.md)-->
 
 ## <a name="reprotection-and-failback"></a><a name="reprotection-and-failback"></a>重新保护和故障回复
 

@@ -1,16 +1,18 @@
 ---
 title: 教程：使用机器学习实体提取结构化数据 - LUIS
 description: 使用机器学习实体从言语中提取结构化数据。 若要提高提取准确性，请添加包含功能的子实体。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
 author: Johnnytechn
-ms.openlocfilehash: 202c7bebfc9ee807587c6a9ebd1eb5c2fbc01651
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: d11181d583541232e92acb546a12f2f1a6f76e5a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023708"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472297"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>教程：在语言理解 (LUIS) 中使用机器学习实体从用户言语中提取结构化数据
 
@@ -81,12 +83,12 @@ ms.locfileid: "88023708"
 
 1. 在“选择实体类型”框中，选择“添加结构”，然后选择“下一步”。 结构是添加子实体（例如大小和数量）所必需的。
 
-    ![向实体添加结构](./media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![屏幕截图显示了“选择实体类型”窗口，其中已选中“添加结构”选项。](./media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. 在“添加子实体(可选)”框中，选择 `Order` 行上的 +，将 `Size` 和 `Quantity` 添加为子实体，然后选择“创建”  。
 
     > [!div class="mx-imgBorder"]
-    > ![向实体添加结构](./media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
+    > ![屏幕截图显示了“添加子实体(可选)”窗口，其中突出显示了子实体。](./media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
 ## <a name="edit-subentities-to-improve-extraction"></a>编辑子实体以改进提取
 
@@ -123,7 +125,7 @@ ms.locfileid: "88023708"
 
 
     > [!div class="mx-imgBorder"]
-    > ![向实体添加结构](./media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+    > ![屏幕截图显示了 SizeList 窗口以及选择了“XLarge”的列表项。](./media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
 ### <a name="add-feature-of-sizelist-entity"></a>添加 SizeList 实体的特性
 
@@ -162,7 +164,7 @@ ms.locfileid: "88023708"
 在“订单”实体的实体详细信息页上，选择星号 `*`，其表示“@ SizeList”特性和“@ number”特性  。 星号显示在与特性名称相同的标签中。
 
 > [!div class="mx-imgBorder"]
-> ![向实体添加结构](./media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+> ![屏幕截图显示了带有星号的 @SizeList 功能和“需要”警告。](./media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
 <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
@@ -202,7 +204,7 @@ ms.locfileid: "88023708"
 1. 若要将预测更改为标记实体，请选择同一行中的复选标记。
 
     > [!div class="mx-imgBorder"]
-    > ![通过实体预测的新示例言语的部分屏幕截图](./media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![屏幕截图显示了一个突出显示勾选标记的示例话语。](./media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     此时，机器学习实体有效，因为它可以在新的示例言语中找到该实体。 添加示例言语时，如果未正确预测实体，请标记实体和子实体。 如果正确预测了实体，请确保确认预测。
 
@@ -251,7 +253,7 @@ ms.locfileid: "88023708"
 
     `2 small cheese pizzas for pickup`
 
-    最后一个查询字符串参数为 `query`，表示陈述**查询**。
+    最后一个查询字符串参数为 `query`，表示陈述 **查询** 。
 
     ```json
     {

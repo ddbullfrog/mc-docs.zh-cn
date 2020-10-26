@@ -8,16 +8,16 @@ ms.topic: conceptual
 origin.date: 03/17/2020
 ms.date: 07/20/2020
 ms.author: philmea
-ms.openlocfilehash: 1166e3e04403e312f2567bcc32f61fc8084fde6e
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 9d433f162dc22cdf7a35fde6961cc1f3064d52d6
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463179"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471188"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中心高可用性和灾难恢复
 
-作为实施弹性 IoT 解决方案的第一步，架构师、开发人员和企业主必须定义要构建的解决方案的运行时间目标。 可以主要根据每个方案的具体业务目标定义这些目标。 针对这种环境，[Azure 业务连续性技术指南](https://docs.microsoft.com/azure/architecture/resiliency/)一文介绍了一个常规框架来帮助你思考业务连续性和灾难恢复。 [Azure 应用程序的灾难恢复和高可用性](https://msdn.microsoft.com/library/dn251004.aspx)一文针对 Azure 应用程序的高可用性 (HA) 和灾难恢复 (DR) 实现策略提供了体系结构指导。
+作为实施弹性 IoT 解决方案的第一步，架构师、开发人员和企业主必须定义要构建的解决方案的运行时间目标。 可以主要根据每个方案的具体业务目标定义这些目标。 针对这种环境，[Azure 业务连续性技术指南](https://docs.microsoft.com/azure/architecture/resiliency/)一文介绍了一个常规框架来帮助你思考业务连续性和灾难恢复。 [Azure 应用程序的灾难恢复和高可用性](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery)一文针对 Azure 应用程序的高可用性 (HA) 和灾难恢复 (DR) 实现策略提供了体系结构指导。
 
 本文介绍 IoT 中心服务专门提供的 HA 和 DR 功能。 从广义上讲，本文讨论的领域包括：
 
@@ -116,14 +116,14 @@ RTO 较高的原因是，Microsoft 必须代表该区域中所有受影响的客
 
 概括而言，为了实现 IoT 中心的区域故障转移模型，需要执行以下步骤：
 
-* **辅助 IoT 中心和设备路由逻辑**：如果主要区域的服务中断，设备必须开始连接到次要区域。 由于大多数服务状态感知的性质，解决方案管理员通常触发区域间的故障转移过程。 若要实现新终结点与设备间的通信并掌控此过程，最好让其定期检查  服务中是否存在当前活动的终结点。 该监护服务可以是 Web 应用程序，可使用 DNS 重定向技术将它复制并使其可访问（例如，使用 [Azure 流量管理器](../traffic-manager/traffic-manager-overview.md)）。
+* **辅助 IoT 中心和设备路由逻辑** ：如果主要区域的服务中断，设备必须开始连接到次要区域。 由于大多数服务状态感知的性质，解决方案管理员通常触发区域间的故障转移过程。 若要实现新终结点与设备间的通信并掌控此过程，最好让其定期检查  服务中是否存在当前活动的终结点。 该监护服务可以是 Web 应用程序，可使用 DNS 重定向技术将它复制并使其可访问（例如，使用 [Azure 流量管理器](../traffic-manager/traffic-manager-overview.md)）。
 
    > [!NOTE]
    > IoT 中心服务不是 Azure 流量管理器中受支持的终结点类型。 我们建议在提议的监护服务中实现终结点运行状况探测 API，使之与 Azure 流量管理器集成。
 
-* **标识注册表复制**：若要进行使用，次要 IoT 中心必须包含所有可连接到解决方案的设备标识。 解决方案应该保留设备标识的异地复制备份，并在切换设备的活动终结点之前将其上传到辅助 IoT 中心。 IoT 中心的设备标识导出功能在此情景中很有用。 有关详细信息，请参阅 [IoT 中心开发人员指南 - 标识注册表](iot-hub-devguide-identity-registry.md)。
+* **标识注册表复制** ：若要进行使用，次要 IoT 中心必须包含所有可连接到解决方案的设备标识。 解决方案应该保留设备标识的异地复制备份，并在切换设备的活动终结点之前将其上传到辅助 IoT 中心。 IoT 中心的设备标识导出功能在此情景中很有用。 有关详细信息，请参阅 [IoT 中心开发人员指南 - 标识注册表](iot-hub-devguide-identity-registry.md)。
 
-* **合并逻辑**：当主要区域再次可供使用时，所有在辅助站点中创建的状态和数据都必须迁移回到主要区域。 此状态和数据主要与设备标识和应用程序元数据相关，必须与主要 IoT 中心以及主要区域中的任何其他应用程序特定存储合并。 
+* **合并逻辑** ：当主要区域再次可供使用时，所有在辅助站点中创建的状态和数据都必须迁移回到主要区域。 此状态和数据主要与设备标识和应用程序元数据相关，必须与主要 IoT 中心以及主要区域中的任何其他应用程序特定存储合并。 
 
 可使用幂等操作简化此步骤。 幂等操作可最大程度降低事件的最终一致分布以及事件的重复项/失序传送所造成的副作用。 此外，应用程序逻辑应该设计为能够容许潜在的不一致或稍微过期的状态。 之所以发生此情况是因为系统需要额外的时间来根据恢复点目标 (RPO) 修复自身。
 

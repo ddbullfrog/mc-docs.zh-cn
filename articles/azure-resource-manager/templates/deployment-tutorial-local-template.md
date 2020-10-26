@@ -3,22 +3,22 @@ title: 教程 - 部署本地 Azure 资源管理器模板
 description: 了解如何从本地计算机部署 Azure 资源管理器模板
 origin.date: 05/20/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 328dab46772a834a01ecd7932369918df470bb6e
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.custom: ''
+ms.openlocfilehash: 04b2b7b0d3946a571c58f7a6feb5a90948f5a7e1
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807702"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470509"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>教程：部署本地 Azure 资源管理器模板
 
-了解如何从本地计算机部署 Azure 资源管理器模板。 完成本教程大约需要 **8 分钟**。
+了解如何从本地计算机部署 Azure 资源管理器模板。 完成本教程大约需要 **8 分钟** 。
 
 本文是相关教学系列的第一篇教程。 在学习该系列时，你将通过创建链接模板来将模板模块化，将链接模板存储在存储帐户中，使用 SAS 令牌保护链接模板，并了解如何创建 DevOp 管道来部署模板。 该系列重点介绍模板部署。  如果希望了解模板开发，请参阅[初学者教程](./template-tutorial-create-first-template.md)。
 
@@ -31,10 +31,10 @@ ms.locfileid: "88807702"
 你需要使用 Azure PowerShell 或 Azure CLI 来部署模板。 有关安装说明，请参阅：
 
 - [安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
-- [在 Windows 上安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-windows?view=azure-cli-latest)
-- [在 Linux 上安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-linux?view=azure-cli-latest)
+- [在 Windows 上安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-windows)
+- [在 Linux 上安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-linux)
 
-安装 Azure PowerShell 或 Azure CLI 后，请务必完成首次登录。 有关帮助，请参阅[登录 - PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#sign-in) 或[登录 - Azure CLI](https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest#sign-in)。
+安装 Azure PowerShell 或 Azure CLI 后，请务必完成首次登录。 有关帮助，请参阅[登录 - PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#sign-in) 或[登录 - Azure CLI](https://docs.azure.cn/cli/get-started-with-azure-cli#sign_in)。
 
 ### <a name="editor-optional"></a>编辑器（可选）
 
@@ -72,7 +72,6 @@ ms.locfileid: "88807702"
         "Standard_GRS",
         "Standard_RAGRS",
         "Premium_LRS",
-        "Standard_RAGZRS"
       ],
       "metadata": {
         "description": "Specify the storage account type."

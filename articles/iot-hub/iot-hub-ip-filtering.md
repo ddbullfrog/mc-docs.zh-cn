@@ -8,16 +8,16 @@ ms.topic: conceptual
 origin.date: 05/25/2020
 ms.author: v-yiso
 ms.date: 07/20/2020
-ms.openlocfilehash: 6aa5b82bd4c143d5f3ce422b6dfced8d677c6519
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 89e378ab98f0ac3cd6445a2a9927e8abb837312e
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226132"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471211"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 
-安全性对于基于 Azure IoT 中心的任何 IoT 解决方案来说都是一个重要方面。 作为安全配置的一部分，有时需要显式指定设备可从其连接的 IP 地址。 使用 *IP 筛选器*功能，可以配置规则来拒绝或接受来自特定 IPv4 地址的流量。
+安全性对于基于 Azure IoT 中心的任何 IoT 解决方案来说都是一个重要方面。 作为安全配置的一部分，有时需要显式指定设备可从其连接的 IP 地址。 使用 *IP 筛选器* 功能，可以配置规则来拒绝或接受来自特定 IPv4 地址的流量。
 
 ## <a name="when-to-use"></a>何时使用
 
@@ -53,7 +53,7 @@ ms.locfileid: "86226132"
 
 ![在选择“添加 IP 筛选器规则”后](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
 
-* 提供 IP 筛选器规则的**名称**。 此项必须是不区分大小写的唯一字母数字字符串，长度不超过 128 个字符。 只接受 ASCII 7 位字母数字字符以及以下字符：`{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`。
+* 提供 IP 筛选器规则的 **名称** 。 此项必须是不区分大小写的唯一字母数字字符串，长度不超过 128 个字符。 只接受 ASCII 7 位字母数字字符以及以下字符：`{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`。
 
 * 提供单个 IPv4 地址或者以 CIDR 表示法提供一个 IP 地址块。 例如，在 CIDR 表示法中，192.168.100.0/22 表示从 192.168.100.0 到 192.168.103.255 的 1024 个 IPv4 地址。
 
@@ -169,5 +169,4 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [操作监视](iot-hub-operations-monitoring.md)
 * [IoT 中心指标](iot-hub-metrics.md)

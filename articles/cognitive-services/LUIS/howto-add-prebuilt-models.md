@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: 072fca8027d9d5f1fa2e499d0842aa1aeba69441
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 0a57be324c9f11edca7998e527ed4e495a3b9b75
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023684"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472503"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>为常用使用方案添加预生成模型
 
@@ -23,7 +23,7 @@ LUIS 提供了一组预生成模型，用以快速添加常用的对话式用户
 
 ## <a name="add-a-prebuilt-domain"></a>添加预生成域
 
-1. 登录到 [LUIS 门户](https://www.luis.ai)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
 1. 在“我的应用”页上选择应用名称以打开应用。
 
 1. 在左侧工具栏中选择“预生成域”。
@@ -35,7 +35,7 @@ LUIS 提供了一组预生成模型，用以快速添加常用的对话式用户
 
 ## <a name="add-a-prebuilt-intent"></a>添加预生成意向
 
-1. 登录到 [LUIS 门户](https://www.luis.ai)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
 1. 在“我的应用”页上选择应用名称以打开应用。
 
 1. 在“意向”页面上，从意向列表上方的工具栏中选择“添加预生成域意向” 。
@@ -45,10 +45,10 @@ LUIS 提供了一组预生成模型，用以快速添加常用的对话式用户
     > [!div class="mx-imgBorder"]
     > ![添加预生成意向](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
 
-1. 选择“完成”按钮。****
+1. 选择“完成”按钮。 
 
 ## <a name="add-a-prebuilt-entity"></a>添加预构建实体
-1. 登录到 [LUIS 门户](https://www.luis.ai)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
 1. 在“我的应用”页上选择应用名称以打开应用。
 1. 在左侧选择“实体”。
 
@@ -62,7 +62,7 @@ LUIS 提供了一组预生成模型，用以快速添加常用的对话式用户
 1. 选择“完成”  。 添加实体后，你不需要训练应用。
 
 ## <a name="add-a-prebuilt-domain-entity"></a>添加预生成域实体
-1. 登录到 [LUIS 门户](https://www.luis.ai)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
 1. 在“我的应用”页上选择应用名称以打开应用。
 1. 在左侧选择“实体”。
 

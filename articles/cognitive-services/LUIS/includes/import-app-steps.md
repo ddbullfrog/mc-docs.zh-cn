@@ -1,19 +1,19 @@
 ---
 title: 导入应用步骤
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
-ms.date: 06/16/2020
+ms.date: 10/19/2020
 origin.date: 05/07/2020
-ms.author: diberry
-ms.openlocfilehash: b8fdb35f40fa8e0b1ff3eba45aad08e96d373d7c
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.author: v-johya
+ms.openlocfilehash: f607d08c94188194ff8c57e4cab2f4b33f1861d9
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85112060"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472296"
 ---
 1. 在 [LUIS 门户](https://luis.azure.cn)上的“我的应用”页上，选择“+ 新建对话应用”，然后选择“导入为 JSON”。 查找上一步中保存的 JSON 文件。 无需更改应用的名称。 选择“完成”
 
@@ -25,3 +25,4 @@ ms.locfileid: "85112060"
 1. 选择“生成”，然后选择“意向”，以查看意向（LUIS 应用的主要构建基块） 。
 
     ![从“版本”页切换到“意向”页。](../media/tutorial-machine-learned-entity/new-version-imported-app.png)
+

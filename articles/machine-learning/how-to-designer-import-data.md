@@ -22,7 +22,7 @@ ms.locfileid: "92118422"
 在本文中，你将了解如何在设计器中导入自己的数据，以创建自定义解决方案。 可以通过两种方式将数据导入到设计器中： 
 
 * **Azure 机器学习数据集** - 在 Azure 机器学习中注册 [数据集](concept-data.md#datasets)，以启用可帮助你管理数据的高级功能。
-* **导入数据模块** - 使用[导入数据](algorithm-module-reference/import-data.md)模块直接访问联机数据源中的数据。
+* **导入数据模块** - 使用 [导入数据](algorithm-module-reference/import-data.md)模块直接访问联机数据源中的数据。
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 

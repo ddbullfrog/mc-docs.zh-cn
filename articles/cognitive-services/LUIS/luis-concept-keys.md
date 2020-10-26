@@ -13,11 +13,11 @@ origin.date: 10/25/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
 ms.openlocfilehash: 1491ba63e36fd0e550e45d47fa0a4ee7ccd48542
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292722"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211465"
 ---
 # <a name="authoring-and-runtime-keys"></a>创作和运行时密钥
 
@@ -32,7 +32,7 @@ ms.locfileid: "79292722"
 
 ### <a name="starter-key"></a>初学者密钥
 
-你首次使用 LUIS 时，系统会为你创建一个**初学者密钥**。 此资源提供：
+你首次使用 LUIS 时，系统会为你创建一个 **初学者密钥** 。 此资源提供：
 
 * 通过 LUIS 门户或 API（包括 SDK）发出的免费创作服务请求
 * 每月通过浏览器、API 或 SDK 发出的免费 1,000 个预测终结点请求
@@ -85,9 +85,9 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 ## <a name="contributions-from-other-authors"></a>其他作者的贡献
 
-**用于创作资源迁移应用**：_参与者_在用于创作资源的 Azure 门户中使用“访问控制(IAM)”  页进行管理。 了解如何使用协作者的电子邮件地址和_参与者_角色[添加用户](luis-how-to-collaborate.md)。 
+**用于创作资源迁移应用** ： _参与者_ 在用于创作资源的 Azure 门户中使用“访问控制(IAM)”  页进行管理。 了解如何使用协作者的电子邮件地址和 _参与者_ 角色 [添加用户](luis-how-to-collaborate.md)。 
 
-**对于尚未迁移的应用**：所有协作者  都在 LUIS 门户中通过“管理 -> 协作者”页面进行管理。 
+**对于尚未迁移的应用** ：所有协作者  都在 LUIS 门户中通过“管理 -> 协作者”页面进行管理。 
 
 ## <a name="move-transfer-or-change-ownership"></a>移动、转让或变更所有权
 
@@ -101,7 +101,7 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 ## <a name="access-for-private-and-public-apps"></a>专用和公共应用的访问权限
 
-对于**专用**应用，所有者和参与者可以使用运行时访问权限。 对于**公共**应用，任何具有自己的 Azure [认知服务](../cognitive-services-apis-create-account.md)或 [LUIS](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) 运行时资源和公共应用 ID 的人员均可使用运行时访问权限。 
+对于 **专用** 应用，所有者和参与者可以使用运行时访问权限。 对于 **公共** 应用，任何具有自己的 Azure [认知服务](../cognitive-services-apis-create-account.md)或 [LUIS](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) 运行时资源和公共应用 ID 的人员均可使用运行时访问权限。 
 
 目前没有公共应用的目录。
 

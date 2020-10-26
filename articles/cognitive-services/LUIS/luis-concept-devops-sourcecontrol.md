@@ -1,16 +1,17 @@
 ---
 title: 源代码管理和开发分支 - LUIS
 description: 如何维护源代码管理下的语言理解 (LUIS) 应用。 如何在使用开发分支时将更新应用到 LUIS 应用。
-author: Johnnytechn
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: ebb8dc41cf80252b99d6770a0b341d443aefe438
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 9b6995cd45b84a0d634822beafb0dd0d30bfb56f
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023682"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472494"
 ---
 # <a name="devops-practices-for-luis"></a>LUIS 的 DevOps 实践
 
@@ -48,7 +49,7 @@ DevOps 成功的关键因素之一是[源代码管理](https://docs.microsoft.co
 
 若要将 LUIS 应用另存为 `.lu` 格式，并将其置于源代码管理下方：
 
-- 任一方法：从 [LUIS 门户](https://www.luis.ai/)[将应用版本导出](/cognitive-services/luis/luis-how-to-manage-versions#other-actions)为 `.lu`，然后将其添加到源代码管理存储库
+- 任一方法：从 [LUIS 门户](https://luis.azure.cn/)[将应用版本导出](/cognitive-services/luis/luis-how-to-manage-versions#other-actions)为 `.lu`，然后将其添加到源代码管理存储库
 
 - 或：使用文本编辑器为 LUIS 应用创建 `.lu` 文件，然后将其添加到源代码管理存储库
 
@@ -74,7 +75,7 @@ LUIS 应用程序的以下类型的文件应在源代码管理下进行维护：
 
 - 用于性能测试的[批处理测试文件](/cognitive-services/luis/luis-concept-batch-test#batch-file-format)（言语和预期结果）
 
-### <a name="credentialsand-keys-are-not-checked-in"></a>未签入凭据和密钥
+### <a name="credentials-and-keys-are-not-checked-in"></a>未签入凭据和密钥
 
 请勿在签入到存储库的文件中包含订阅密钥或类似的机密值，否则未经授权的人员可能会看到这些信息。 应阻止签入的密钥和其他值包括：
 
@@ -100,7 +101,7 @@ Git 等分布式版本控制系统使团队成员可以灵活地通过与他人�
 
 - **主分支有自己的 LUIS 应用。** 该应用表示项目解决方案的当前状态，并且其当前活动版本应始终映射到主分支中的 `.lu` 源。 应检查和测试此应用中对 `.lu` 源的所有更新，以便随时部署该应用以生成环境（例如生成环境）。 `.lu` 的更新从功能分支合并到主分支时，你应在 LUIS 应用中新建版本，然后[增大版本号](#versioning)。
 
-- **每个功能分支都必须使用自己的 LUIS 应用实例**。 开发人员可以在功能分支中使用该应用，不会影响使用其他分支的开发人员。 该“开发分支”应用是工作副本，应在删除功能分支时将其删除。
+- **每个功能分支都必须使用自己的 LUIS 应用实例** 。 开发人员可以在功能分支中使用该应用，不会影响使用其他分支的开发人员。 该“开发分支”应用是工作副本，应在删除功能分支时将其删除。
 
 ![Git 功能分支](./media/luis-concept-devops-sourcecontrol/feature-branch.png)
 

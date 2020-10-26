@@ -1,21 +1,21 @@
 ---
 title: 有关将数据复制到 Azure Data Box Disk 的教程| Microsoft Docs
-description: 通过本教程了解如何将数据复制到 Azure Data Box 磁盘
+description: 通过本教程了解如何将数据从主机复制到 Azure Data Box Disk，然后生成校验和来验证数据完整性。
 services: databox
 author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 origin.date: 09/03/2019
-ms.date: 08/10/2020
+ms.date: 10/29/2020
 ms.author: v-jay
 ms.localizationpriority: high
-ms.openlocfilehash: 96c1c7c63b3a6b7922d1f3cb2ac3fc5161de8302
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: a58f11b55c5406e93f116d3bc4d8df4a3c35abaf
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917304"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469960"
 ---
 ::: zone target="docs"
 
@@ -69,7 +69,7 @@ ms.locfileid: "87917304"
 
 执行以下步骤，连接到计算机并将其上的数据复制到 Data Box 磁盘。
 
-1. 查看已解锁的驱动器的内容。 根据放置 Data Box Disk 顺序时选择的选项，驱动器中预先创建的文件夹和子文件夹的列表会有所不同。
+1. 查看已解锁的驱动器的内容。 根据放置 Data Box Disk 顺序时选择的选项，驱动器中预先创建的文件夹和子文件夹的列表会有所不同。 如果预创建的文件夹不存在，则不要创建该文件夹，因为复制用户创建的文件夹时将无法上传到 Azure。
 
     |所选的存储目标  |存储帐户类型|临时存储帐户类型 |文件夹和子文件夹  |
     |---------|---------|---------|------------------|
@@ -213,15 +213,15 @@ ms.locfileid: "87917304"
 3. 标识要复制的源数据。 例如，在本例中：
     - 标识了以下块 Blob 数据。
 
-         ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![拆分复制数据 2](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - 标识了以下页 Blob 数据。
 
-         ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![拆分复制数据 3](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. 转到该软件已提取到的文件夹。 在该文件夹中找到 `SampleConfig.json` 文件。 这是一个可以修改和保存的只读文件。
 
-   ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![拆分复制数据 4](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. 修改 `SampleConfig.json` 文件。
  
@@ -230,11 +230,11 @@ ms.locfileid: "87917304"
    - 输入对应于目标磁盘的驱动器号。 数据取自源路径，并在多个磁盘之间复制。
    - 提供日志文件的路径。 默认情况下，日志文件将发送到 `.exe` 所在的当前目录中。
 
-     ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![拆分复制数据 5](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. 若要验证文件格式，请转到 `JSONlint`。 将文件另存为 `ConfigFile.json`。 
 
-     ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![拆分复制数据 6](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. 打开命令提示符窗口。 
 
@@ -242,24 +242,24 @@ ms.locfileid: "87917304"
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![拆分复制数据 7](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. 按 Enter 继续运行脚本。
 
-    ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![拆分复制数据 8](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. 拆分并复制数据集后，会显示拆分复制工具的复制会话摘要。 下面显示了示例输出。
 
-    ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![拆分复制数据 9](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. 验证是否在目标磁盘之间拆分了数据。 
  
-    ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![拆分复制数据 10](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![拆分复制数据 11](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
     如果进一步检查 `n:` 驱动器的内容，将会看到已创建了对应于块 Blob 和页 Blob 格式数据的两个子文件夹。
     
-     ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![拆分复制数据 12](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. 如果复制会话失败，可使用以下命令予以恢复：
 
@@ -274,11 +274,11 @@ ms.locfileid: "87917304"
 
 如果未使用拆分复制工具复制数据，则需要验证数据。 若要验证数据，请执行以下步骤。
 
-1. 运行 `DataBoxDiskValidation.cmd` 以在驱动器的 *DataBoxDiskImport* 文件夹中进行校验和验证。 此功能仅适用于 Windows 环境。 Linux 用户需要验证复制到磁盘的源数据是否符合[先决条件](/databox/data-box-disk-limits)。
+1. 运行 `DataBoxDiskValidation.cmd` 以在驱动器的 *DataBoxDiskImport* 文件夹中进行校验和验证。 此功能仅适用于 Windows 环境。 Linux 用户需要验证复制到磁盘的源数据是否符合[先决条件](./data-box-disk-limits.md)。
     
     ![Data Box Disk 验证工具输出](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-2. 选择合适的选项。 **建议你始终选择选项 2 来验证文件并生成校验和**。 根据具体的数据大小，此步骤可能需要一段时间。 在脚本完成后，退出命令窗口。 如果在验证和校验和生成过程中出现任何错误，则会向你发送通知并提供指向错误日志的链接。
+2. 选择合适的选项。 **建议你始终选择选项 2 来验证文件并生成校验和** 。 根据具体的数据大小，此步骤可能需要一段时间。 在脚本完成后，退出命令窗口。 如果在验证和校验和生成过程中出现任何错误，则会向你发送通知并提供指向错误日志的链接。
 
     ![校验和输出](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
 
@@ -336,6 +336,6 @@ ms.locfileid: "87917304"
 1. 运行 `DataBoxDiskValidation.cmd` 以在驱动器的 *DataBoxDiskImport* 文件夹中进行校验和验证。
 2. 使用选项 2 验证文件并生成校验和。 根据具体的数据大小，此步骤可能需要一段时间。 如果在验证和校验和生成过程中出现任何错误，则会向你发送通知并提供指向错误日志的链接。
 
-    有关数据验证的详细信息，请参阅[验证数据](/databox/data-box-disk-deploy-copy-data#validate-data)。 如果在验证过程中遇到错误，请参阅[排查验证错误](data-box-disk-troubleshoot.md)。
+    有关数据验证的详细信息，请参阅[验证数据](#validate-data)。 如果在验证过程中遇到错误，请参阅[排查验证错误](data-box-disk-troubleshoot.md)。
 
 ::: zone-end

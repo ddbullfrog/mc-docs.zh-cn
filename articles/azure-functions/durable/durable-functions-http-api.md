@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: v-junlch
 ms.openlocfilehash: 506ada1b0caefdc3dcfccc02bad1d2305b2d0cfd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292130"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211376"
 ---
 # <a name="http-api-reference"></a>HTTP API 引用
 
@@ -107,8 +107,8 @@ Content-Length: 83
 
 HTTP 响应旨在与轮询使用者模式兼容  。 它还包括以下值得注意的响应标头：
 
-* **位置**：状态终结点的 URL。 此 URL 包含的值与 `statusQueryGetUri` 字段的值相同。
-* **Retry-After**：在执行下一个轮询操作之前应等待的秒数。 默认值为 `10`。
+* **位置** ：状态终结点的 URL。 此 URL 包含的值与 `statusQueryGetUri` 字段的值相同。
+* **Retry-After** ：在执行下一个轮询操作之前应等待的秒数。 默认值为 `10`。
 
 有关异步 HTTP 轮询模式的详细信息，请参阅 [HTTP 异步操作跟踪](durable-functions-http-features.md#async-operation-tracking)文档。
 
@@ -600,7 +600,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 * **HTTP 404 (找不到)** ：找不到指定的实例。
 * **HTTP 410 (消失)** ：指定的实例已完成或被终止。
 
-以下是一个示例请求，它会后退失败的实例并指定**修复**的原因：
+以下是一个示例请求，它会后退失败的实例并指定 **修复** 的原因：
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/rewind?reason=fixed&taskHub=DurableFunctionsHub&connection=Storage&code=XXX

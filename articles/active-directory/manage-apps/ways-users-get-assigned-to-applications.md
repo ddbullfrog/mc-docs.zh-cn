@@ -24,8 +24,8 @@ ms.locfileid: "92041497"
 用户要访问应用程序，必须先以某种方式将其分配给该应用程序。 可使用管理员、业务委托，或有时使用用户本身的身份执行分配。 下文介绍了可以将用户分配给应用程序的方式：
 
 *  管理员直接[将用户分配给](/active-directory/manage-apps/assign-user-or-group-access-portal)应用程序
-*  管理员启用[自助服务组管理](/active-directory/users-groups-roles/groups-self-service-management)以允许用户**无需业务批准**，即可加入已对其分配应用程序的组
-*  管理员启用[自助服务组管理](/active-directory/users-groups-roles/groups-self-service-management)以允许用户在经过**选定业务批准者的事先批准**的情况下，加入已对其分配应用程序的组
+*  管理员启用 [自助服务组管理](/active-directory/users-groups-roles/groups-self-service-management)以允许用户 **无需业务批准** ，即可加入已对其分配应用程序的组
+*  管理员启用 [自助服务组管理](/active-directory/users-groups-roles/groups-self-service-management)以允许用户在经过 **选定业务批准者的事先批准** 的情况下，加入已对其分配应用程序的组
 *  对于第一方应用程序（如 [Microsoft 365](https://products.office.com/)），管理员直接为用户分配许可证
 *  对于第一方应用程序（如 [Microsoft 365](https://products.office.com/)），管理员直接为此用户所在的组分配许可证
 *  [管理员同意](/active-directory/develop/active-directory-devhowto-multi-tenant-overview)所有用户均可使用某个应用程序，然后用户登录该应用程序

@@ -29,13 +29,13 @@ ms.locfileid: "92041763"
 3. 在“设置”部分下，选择“服务器参数”。   该页显示了参数的列表及其值和说明。
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/3-overview-of-parameters.png" alt-text="参数概述页":::
 
-4. 选择**下拉**按钮查看 client_min_messages 等枚举类型的参数的可能值。
+4. 选择 **下拉** 按钮查看 client_min_messages 等枚举类型的参数的可能值。
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-enum-drop-down.png" alt-text="参数概述页":::
 
 5. 选择“i”（信息）按钮或将鼠标悬停于其上，查看 cpu_index_tuple_cost 等数字参数的可能值范围。 
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-information-button.png" alt-text="参数概述页":::
 
-6. 如果需要，可使用**搜索框**缩小特定参数的搜索范围。 搜索根据参数的名称和说明执行。
+6. 如果需要，可使用 **搜索框** 缩小特定参数的搜索范围。 搜索根据参数的名称和说明执行。
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/5-search.png" alt-text="参数概述页":::
 
 7. 更改想要调整的参数值。 在此会话中所做的更改将以紫色突出显示。 更改值之后，可选择“保存”。  也可以放弃所做的更改  。

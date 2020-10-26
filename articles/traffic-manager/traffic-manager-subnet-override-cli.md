@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.service: traffic-manager
 origin.date: 09/18/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: ad561ba99fc8e4942d50eec4991f426d9f548f4a
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: f2efb110f9ec952fe2d6b1f5f17866b013005df0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395463"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472063"
 ---
 <!--Verified successfully-->
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>使用 Azure CLI 的流量管理器子网替代
@@ -45,10 +45,9 @@ ms.locfileid: "91395463"
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.28 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>使用子网替代更新流量管理器终结点。
-使用 Azure CLI 通过 [az network traffic-manager endpoint update](https://docs.azure.cn/cli/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update) 更新终结点。
+使用 Azure CLI 通过 [az network traffic-manager endpoint update](https://docs.azure.cn/cli/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update) 更新终结点。
 
 ```azurecli
-
 ### Add a range of IPs ###
 az network traffic-manager endpoint update \
     --name MyEndpoint \
@@ -64,22 +63,21 @@ az network traffic-manager endpoint update \
     --resource-group MyResourceGroup \
     --subnets 9.10.11.0:24 \
     --type AzureEndpoints
-
 ```
 
-可以在运行 [az network traffic-manager endpoint update](https://docs.azure.cn/cli/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update) 时使用 **--remove** 选项，以便删除 IP 地址范围。
+可以在运行 [az network traffic-manager endpoint update](https://docs.azure.cn/cli/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_update) 时使用 **--remove** 选项，以便删除 IP 地址范围。
 
 ```azurecli
-
 az network traffic-manager endpoint update \
     --name MyEndpoint \
     --profile-name MyTmProfile \
     --resource-group MyResourceGroup \
     --remove subnets \
     --type AzureEndpoints
-
 ```
+
 ## <a name="next-steps"></a>后续步骤
+
 详细了解流量管理器[流量路由方法](traffic-manager-routing-methods.md)。
 
 了解[子网流量路由方法](/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 44f4a05eeca448e40534376b07dc838cfe924cf7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79293372"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211516"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>优化 Azure Functions 的性能和可靠性
 
@@ -62,7 +62,7 @@ ms.locfileid: "79293372"
 
 如果已处理队列项，则允许函数不执行任何操作。
 
-利用已为 Azure Functions 平台中使用的组件提供的防御措施。 有关示例，请参阅 [Azure 存储队列触发器和绑定](functions-bindings-storage-queue-trigger.md#poison-messages)文档中的**处理有害队列消息**。 
+利用已为 Azure Functions 平台中使用的组件提供的防御措施。 有关示例，请参阅 [Azure 存储队列触发器和绑定](functions-bindings-storage-queue-trigger.md#poison-messages)文档中的 **处理有害队列消息** 。 
 
 ## <a name="scalability-best-practices"></a>可伸缩性最佳做法
 

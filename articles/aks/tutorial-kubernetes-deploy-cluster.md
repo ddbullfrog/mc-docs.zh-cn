@@ -3,19 +3,19 @@ title: Azure 上的 Kubernetes 教程 - 部署群集
 description: 此 Azure Kubernetes 服务 (AKS) 教程介绍如何创建 AKS 群集并使用 kubectl 连接到 Kubernetes 主节点。
 services: container-service
 ms.topic: tutorial
-origin.date: 02/25/2020
+origin.date: 09/30/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7cb12583d0943263d9975bd08a10891872de2594
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: f815f27b24db0caa74c25bcc2c1c35c2c0f72b57
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021232"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470188"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>教程：部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -40,9 +40,7 @@ AKS 群集可以使用 Kubernetes 基于角色的访问控制 (RBAC)。 可以�
 
 使用 [az aks create][] 创建 AKS 群集。 以下示例在名为 *myResourceGroup* 的资源组中创建名为 *myAKSCluster* 的群集。 此资源组是[上一教程][aks-tutorial-prepare-acr]中在 chinaeast2 区域中创建的。 下面的示例未指定区域，因此 AKS 群集也会在 chinaeast2 区域中创建。 请参阅 [Azure Kubernetes 服务 (AKS) 中的配额、虚拟机大小限制和区域可用性][quotas-skus-regions]，以了解有关 AKS 的资源限制和区域可用性的详细信息。
 
-为了允许 AKS 群集与其他 Azure 资源进行交互，将自动创建一个 Azure Active Directory 服务主体，因为未指定该主体。 在这里，此服务主体[被授予从上一教程中创建的 Azure 容器注册表 (ACR) 实例中拉取映像][container-registry-integration]的权限。
-
-<!--Not Available on [managed identity](use-managed-identity.md)-->
+为了允许 AKS 群集与其他 Azure 资源进行交互，将自动创建一个 Azure Active Directory 服务主体，因为未指定该主体。 在这里，此服务主体[被授予从上一教程中创建的 Azure 容器注册表 (ACR) 实例中拉取映像][container-registry-integration]的权限。 请注意，可以使用[托管标识](use-managed-identity.md)而不是服务主体，以便更轻松地进行管理。
 
 ```azurecli
 az aks create \
@@ -127,12 +125,12 @@ aks-nodepool1-12345678-0   Ready    agent   32m   v1.14.8
 [aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[az ad sp create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az-ad-sp-create-for-rbac
-[az acr show]: https://docs.azure.cn/cli/acr#az-acr-show
-[az role assignment create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
-[az aks create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az aks install-cli]: https://docs.microsoft.com/cli/azure/aks#az_aks_install_cli
-[az aks get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
+[az ad sp create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac
+[az acr show]: https://docs.azure.cn/cli/acr#az_acr_show
+[az role assignment create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
+[az aks create]: https://docs.azure.cn/cli/aks#az_aks_create
+[az aks install-cli]: https://docs.azure.cn/cli/aks#az_aks_install_cli
+[az aks get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 [container-registry-integration]: ./cluster-container-registry-integration.md
 [quotas-skus-regions]: quotas-skus-regions.md

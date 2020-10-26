@@ -37,8 +37,8 @@ ms.locfileid: "92121811"
 
 如果你有以下权限，则可执行相应的操作：
 
-* 如果有[群集创建权限](../administration-guide/access-control/cluster-acl.md#cluster-create-permission)，则可选择**自由形式**的策略，创建可以充分配置的群集。 **自由形式**的策略不限制任何群集属性或属性值。
-* 如果有群集创建权限和群集策略访问权限，则可选择**自由形式**的策略和你有权访问的策略。
+* 如果有 [群集创建权限](../administration-guide/access-control/cluster-acl.md#cluster-create-permission)，则可选择 **自由形式** 的策略，创建可以充分配置的群集。 **自由形式** 的策略不限制任何群集属性或属性值。
+* 如果有群集创建权限和群集策略访问权限，则可选择 **自由形式** 的策略和你有权访问的策略。
 * 如果只有群集策略访问权限，则可选择你有权访问的策略。
 
 ## <a name="cluster-mode"></a>群集模式

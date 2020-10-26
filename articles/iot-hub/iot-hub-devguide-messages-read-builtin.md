@@ -9,16 +9,16 @@ ms.topic: conceptual
 origin.date: 06/01/2020
 ms.author: v-yiso
 ms.date: 06/08/2020
-ms.openlocfilehash: 3a812de321489c1937200f1cc3dad54584c2990e
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 93154bdd294c193b692646e7c2172a9018c37f6f
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394768"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472267"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>从内置终结点读取设备到云的消息
 
-默认情况下，消息将路由到与[事件中心](/event-hubs/)兼容的内置面向服务的终结点 (**messages/events**) 中。 目前仅在端口 5671 上使用 [AMQP](https://www.amqp.org/) 协议公开此终结点。 IoT 中心公开以下属性，以便用户控制内置的与事件中心兼容的消息传送终结点 **messages/events**。
+默认情况下，消息将路由到与 [事件中心](/event-hubs/)兼容的内置面向服务的终结点 ( **messages/events** ) 中。 目前仅在端口 5671 上使用 [AMQP](https://www.amqp.org/) 协议公开此终结点。 IoT 中心公开以下属性，以便用户控制内置的与事件中心兼容的消息传送终结点 **messages/events** 。
 
 | 属性            | 说明 |
 | ------------------- | ----------- |
@@ -48,7 +48,7 @@ IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端�
 
     ![设备到云的设置](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-在门户中，“与事件中心兼容的终结点”字段包含完整的事件中心连接字符串，如下所示：**Endpoint=sb://abcd1234namespace.servicebus.chinacloudapi.cn/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**。 如果所用 SDK 需求其他值，则这些值将会是：
+在门户中，“与事件中心兼容的终结点”字段包含完整的事件中心连接字符串，如下所示： **Endpoint=sb://abcd1234namespace.servicebus.chinacloudapi.cn/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456** 。 如果所用 SDK 需求其他值，则这些值将会是：
 
 | 名称 | Value |
 | ---- | ----- |
@@ -71,9 +71,9 @@ IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端�
 
 * [Azure Functions](/azure-functions/)。 
 * [Azure 流分析](/stream-analytics/)。 请参阅[将数据作为流分析的输入进行流式传输](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub)。
-* [时序见解](/time-series-insights/)。 
+* [时序见解](../time-series-insights/index.yml)。 请参阅[向时序见解环境添加 IoT 中心事件源](../time-series-insights/how-to-ingest-data-iot-hub.md)。
 * [Apache Storm Spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md)。 可以在 GitHub 上查看 [Spout 源代码](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 。
-* [Apache Spark 集成](../hdinsight/spark/apache-spark-eventhub-streaming.md)。
+* [Apache Spark 集成](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

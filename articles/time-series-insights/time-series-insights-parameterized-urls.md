@@ -8,14 +8,14 @@ ms.author: v-junlch
 manager: diviso
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 08/05/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 349f5d0a76f7c17f10e408f05c36181bf8da7cc0
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: ee31fb6e0b4ad996acaa6dcfb34ef61503d8376b
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796243"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471193"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>通过参数化 URL 共享自定义视图
 
@@ -24,6 +24,7 @@ ms.locfileid: "87796243"
 Azure 时序见解资源管理器支持使用 URL 查询参数，在 URL 中直接指定体验中的视图。 例如，只使用 URL 就可以指定目标环境、搜索谓词以及所需的时间跨度。 当用户选择自定义的 URL 时，界面会提供一个链接，直接指向 Azure 时序见解门户中的相应资产。 数据访问策略适用。
 
 > [!TIP]
+>
 > * 查看免费的 [Azure 时序见解演示](https://insights.timeseries.azure.com/samples)。
 > * 阅读随附的 [Azure 时序见解资源管理器](./time-series-insights-explorer.md)文档。
 
@@ -123,7 +124,7 @@ https://insights.timeseries.azure.cn/classic/samples?environmentId=10000000-0000
 > [使用 URL](https://insights.timeseries.azure.cn/classic/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[%7B%22name%22:%22F1PressureId%22,%22splitBy%22:%22Id%22,%22measureName%22:%22Pressure%22,%22predicate%22:%22%27Factory1%27%22%7D,%7B%22name%22:%22F2TempStation%22,%22splitBy%22:%22Station%22,%22measureName%22:%22Temperature%22,%22predicate%22:%22%27Factory2%27%22%7D,%7B%22name%22:%22F3VibrationPL%22,%22splitBy%22:%22ProductionLine%22,%22measureName%22:%22Vibration%22,%22predicate%22:%22%27Factory3%27%22%7D]
 ) 上方示例查看实时资源管理器。
 
-上述 URL 描述并显示参数化的 Azure 时序见解资源管理器视图。 
+上述 URL 描述并显示参数化的 Azure 时序见解资源管理器视图。
 
 * 参数化谓词。
 

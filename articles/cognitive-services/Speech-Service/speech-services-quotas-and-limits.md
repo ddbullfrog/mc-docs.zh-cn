@@ -32,7 +32,7 @@ ms.locfileid: "92128106"
 | **联机听录并发请求限制（基础模型和自定义模型）** |  |  |
 | 默认值 | 1 | 20 |
 | 可调 | 否<sup>2</sup> | Yes<sup>2</sup> |
-| **REST API 请求限制（[API 管理](../../api-management/api-management-key-concepts.md)终结点）** | 每 10 秒 100 个请求 | 每 10 秒 100 个请求 |
+| **REST API 请求限制（ [API 管理](../../api-management/api-management-key-concepts.md)终结点）** | 每 10 秒 100 个请求 | 每 10 秒 100 个请求 |
 | **数据导入的最大数据集文件大小** | 2 GB | 2 GB |
 | **批量听录的最大输入 Blob 大小** | 空值 | 2.5 GB |
 | **批量听录的最大 Blob 容器大小** | 空值 | 5 GB |

@@ -1,22 +1,16 @@
 ---
-title: Azure Functions 运行时概述 | Microsoft Docs
+title: Azure Functions 运行时概述
 description: Azure Functions 运行时预览版概述
-services: functions
 author: apwestgarth
-manager: stefsch
-ms.assetid: ''
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 11/28/2017
-ms.date: 06/04/2019
+ms.date: 10/19/2020
 ms.author: v-junlch
-ms.openlocfilehash: 07fbccc161e13a007dab24d7697577422acb2af9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7af371d3ba25a2fe674b9e1d505f2f8554efe6cf
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "66491402"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471374"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Azure Functions 运行时概述（预览版）
 
@@ -51,9 +45,8 @@ Azure Functions 辅助角色部署在 Windows 容器中，它是执行函数代�
 
 ## <a name="next-steps"></a>后续步骤
 
-安装 [Azure Functions 运行时预览版](https://aka.ms/azafrdoc)
+安装 [Azure Functions 运行时预览版](./functions-runtime-install.md)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png
 
-<!-- Update_Description: wording update -->

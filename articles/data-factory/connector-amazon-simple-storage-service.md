@@ -45,8 +45,8 @@ ms.locfileid: "92121690"
 
 若要从 Amazon S3 复制数据，请确保已具有以下权限：
 
-- **执行复制活动**：Amazon S3 对象操作所需的 `s3:GetObject` 和 `s3:GetObjectVersion` 权限。
-- **数据工厂 GUI 创作**：Amazon S3 Bucket 操作所需的 `s3:ListAllMyBuckets` 和 `s3:ListBucket`/`s3:GetBucketLocation` 权限。 测试连接和浏览到文件路径等操作也需要权限。 如果不想授予这些权限，请跳过链接服务创建页面中的测试连接，直接在数据集设置中指定路径。
+- **执行复制活动** ：Amazon S3 对象操作所需的 `s3:GetObject` 和 `s3:GetObjectVersion` 权限。
+- **数据工厂 GUI 创作** ：Amazon S3 Bucket 操作所需的 `s3:ListAllMyBuckets` 和 `s3:ListBucket`/`s3:GetBucketLocation` 权限。 测试连接和浏览到文件路径等操作也需要权限。 如果不想授予这些权限，请跳过链接服务创建页面中的测试连接，直接在数据集设置中指定路径。
 
 如需 Amazon S3 权限的完整列表，请参阅 AWS 站点上的[在策略中指定权限](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)。
 
@@ -62,9 +62,9 @@ Amazon S3 链接服务支持以下属性：
 
 | 属性 | 说明 | 必须 |
 |:--- |:--- |:--- |
-| type | **type** 属性必须设置为 **AmazonS3**。 | 是 |
+| type | **type** 属性必须设置为 **AmazonS3** 。 | 是 |
 | accessKeyId | 机密访问键 ID。 |是 |
-| secretAccessKey | 机密访问键本身。 将此字段标记为 **SecureString** 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 |是 |
+| secretAccessKey | 机密访问键本身。 将此字段标记为 **SecureString** 以安全地将其存储在数据工厂中或 [引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 |是 |
 | serviceUrl | 如果从官方 Amazon S3 服务之外的兼容 S3 的存储提供程序复制数据，请指定自定义 S3 终结点。 例如，若要从 Google 云存储复制数据，请指定 `https://storage.googleapis.com`。 | 否 |
 | connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 可使用 Azure Integration Runtime 或自承载集成运行时（如果数据存储位于专用网络中）。 如果未指定此属性，服务会使用默认的 Azure Integration Runtime。 |否 |
 
@@ -105,7 +105,7 @@ Amazon S3 支持基于格式的数据集中 `location` 设置下的以下属性�
 
 | 属性   | 说明                                                  | 必须 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | 数据集中 `location` 下的 **type** 属性必须设置为 **AmazonS3Location**。 | 是      |
+| type       | 数据集中 `location` 下的 **type** 属性必须设置为 **AmazonS3Location** 。 | 是      |
 | bucketName | S3 存储桶的名称。                                          | 是      |
 | folderPath | 给定 Bucket 下的文件夹路径。 如果要使用通配符来筛选文件夹，请跳过此设置并在活动源设置中进行相应的指定。 | 否       |
 | fileName   | 给定 Bucket 和文件夹路径下的文件名。 如果要使用通配符来筛选文件，请跳过此设置并在活动源设置中进行相应的指定。 | 否       |
@@ -150,7 +150,7 @@ Amazon S3 支持基于格式的复制源中 `storeSettings` 设置下的以下�
 
 | 属性                 | 说明                                                  | 必须                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | `storeSettings` 下的 **type** 属性必须设置为 **AmazonS3ReadSettings**。 | 是                                                         |
+| type                     | `storeSettings` 下的 **type** 属性必须设置为 **AmazonS3ReadSettings** 。 | 是                                                         |
 | 找到要复制的文件： |  |  |
 | 选项 1：静态路径<br> | 从数据集中指定的给定存储桶或文件夹/文件路径复制。 若要复制 Bucket 或文件夹中的所有文件，请另外将 `wildcardFileName` 指定为 `*`。 |  |
 | 选项 2：S3 前缀<br>- prefix | 数据集中配置的给定 Bucket 下的 S3 密钥名称的前缀，用于筛选源 S3 文件。 名称以 `bucket_in_dataset/this_prefix` 开头的 S3 密钥会被选中。 它利用 S3 的服务端筛选器。与通配符筛选器相比，该服务端筛选器可提供更好的性能。 | 否 |
@@ -158,9 +158,9 @@ Amazon S3 支持基于格式的复制源中 `storeSettings` 设置下的以下�
 | 选项 3：通配符<br>- wildcardFileName | 给定 Bucket 和文件夹路径（或通配符文件夹路径）下包含通配符的文件名，用于筛选源文件。 <br>允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。 如果文件夹名内包含通配符或此转义字符，请使用 `^` 进行转义。  请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 是 |
 | 选项 4：文件列表<br>- fileListPath | 指明复制给定文件集。 指向包含要复制的文件列表的文本文件，其中每行一个文件（即数据集中所配置路径的相对路径）。<br/>使用此选项时，请不要在数据集中指定文件名。 请参阅[文件列表示例](#file-list-examples)中的更多示例。 |否 |
 | 其他设置： |  | |
-| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 **true**（默认值）和 **false**。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
+| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 **true** （默认值）和 **false** 。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
 | deleteFilesAfterCompletion | 指示是否会在二进制文件成功移到目标存储后将其从源存储中删除。 文件删除按文件进行。因此，当复制活动失败时，你会看到一些文件已经复制到目标并从源中删除，而另一些文件仍保留在源存储中。 <br/>此属性仅在二进制文件复制方案中有效。 默认值：false。 |否 |
-| modifiedDatetimeStart    | 文件根据“上次修改时间”属性进行筛选。 <br>如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 **NULL**，这意味着不会向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则会选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则会选中“上次修改时间”属性小于该日期/时间值的文件。<br/>如果配置 `fileListPath`，则此属性不适用。 | 否                                            |
+| modifiedDatetimeStart    | 文件根据“上次修改时间”属性进行筛选。 <br>如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 **NULL** ，这意味着不会向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则会选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则会选中“上次修改时间”属性小于该日期/时间值的文件。<br/>如果配置 `fileListPath`，则此属性不适用。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                                          |
 | enablePartitionDiscovery | 对于已分区的文件，请指定是否从文件路径分析分区，并将它们添加为附加的源列。<br/>允许的值为 false（默认）和 true 。 | 否                                            |
 | partitionRootPath | 启用分区发现时，请指定绝对根路径，以便将已分区文件夹读取为数据列。<br/><br/>如果未指定，默认情况下，<br/>- 在数据集或源的文件列表中使用文件路径时，分区根路径是在数据集中配置的路径。<br/>- 使用通配符文件夹筛选器时，分区根路径是第一个通配符前的子路径。<br/>- 在使用前缀时，分区根路径是最后一个“/”前的子路径。 <br/><br/>例如，假设你将数据集中的路径配置为“root/folder/year=2020/month=08/day=27”：<br/>- 如果将分区根路径指定为“root/folder/year=2020”，则除了文件内的列外，复制活动还会生成另外两个列 `month` 和 `day`，其值分别为“08”和“27”。<br/>- 如果未指定分区根路径，则不会生成额外的列。 | 否                                            |
@@ -253,15 +253,15 @@ Amazon S3 支持基于格式的复制源中 `storeSettings` 设置下的以下�
 
 | properties | 说明 | 必需 |
 |:--- |:--- |:--- |
-| type | 数据集的 **type** 属性必须设置为 **AmazonS3Object**。 |是 |
+| type | 数据集的 **type** 属性必须设置为 **AmazonS3Object** 。 |是 |
 | bucketName | S3 存储桶的名称。 通配符筛选器不受支持。 |对于复制或查找活动为“是”，对于 GetMetadata 活动为“否” |
 | key | 指定 Bucket 下的 S3 对象键的名称或通配符筛选器。 仅当未指定 **prefix** 属性时应用。 <br/><br/>文件夹部分和文件名部分都支持通配符筛选器。 允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。<br/>- 示例 1：`"key": "rootfolder/subfolder/*.csv"`<br/>- 示例 2：`"key": "rootfolder/subfolder/???20180427.txt"`<br/>请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 如果实际文件夹名或文件名内具有通配符或此转义字符，请使用 `^` 进行转义。 |否 |
 | 前缀 | S3 对象键的前缀。 已选中其键以该前缀开头的对象。 仅当未指定 **key** 属性时应用。 |否 |
 | 版本 | 启用 S3 版本控制时 S3 对象的版本。 如果未指定版本，则会提取最新版本。 |否 |
-| modifiedDatetimeStart | 文件根据“上次修改时间”属性进行筛选。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br/><br/> 请注意，要对大量文件进行筛选时，启用此设置会影响数据移动的整体性能。 <br/><br/> 属性可以为 **NULL**，这意味着不会向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则会选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则会选中“上次修改时间”属性小于该日期/时间值的文件。| 否 |
-| modifiedDatetimeEnd | 文件根据“上次修改时间”属性进行筛选。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br/><br/> 请注意，要对大量文件进行筛选时，启用此设置会影响数据移动的整体性能。 <br/><br/> 属性可以为 **NULL**，这意味着不会向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则会选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则会选中“上次修改时间”属性小于该日期/时间值的文件。| 否 |
+| modifiedDatetimeStart | 文件根据“上次修改时间”属性进行筛选。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br/><br/> 请注意，要对大量文件进行筛选时，启用此设置会影响数据移动的整体性能。 <br/><br/> 属性可以为 **NULL** ，这意味着不会向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则会选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则会选中“上次修改时间”属性小于该日期/时间值的文件。| 否 |
+| modifiedDatetimeEnd | 文件根据“上次修改时间”属性进行筛选。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br/><br/> 请注意，要对大量文件进行筛选时，启用此设置会影响数据移动的整体性能。 <br/><br/> 属性可以为 **NULL** ，这意味着不会向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则会选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则会选中“上次修改时间”属性小于该日期/时间值的文件。| 否 |
 | format | 若要在基于文件的存储之间按原样复制文件（二进制副本），可以在输入和输出数据集定义中跳过格式节。<br/><br/>若要分析或生成具有特定格式的文件，以下是受支持的文件格式类型：TextFormat、JsonFormat、AvroFormat、OrcFormat、ParquetFormat    。 请将 **format** 中的 **type** 属性设置为上述值之一。 有关详细信息，请参阅[文本格式](supported-file-formats-and-compression-codecs-legacy.md#text-format)、[JSON 格式](supported-file-formats-and-compression-codecs-legacy.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs-legacy.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs-legacy.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs-legacy.md#parquet-format)部分。 |否（仅适用于二进制复制方案） |
-| compression | 指定数据的压缩类型和级别。 有关详细信息，请参阅[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs-legacy.md#compression-support)。<br/>支持的类型为 **GZip**、**Deflate**、**BZip2** 和 **ZipDeflate**。<br/>支持的级别为“最佳”和“最快”。 |否 |
+| compression | 指定数据的压缩类型和级别。 有关详细信息，请参阅[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs-legacy.md#compression-support)。<br/>支持的类型为 **GZip** 、 **Deflate** 、 **BZip2** 和 **ZipDeflate** 。<br/>支持的级别为“最佳”和“最快”。 |否 |
 
 >[!TIP]
 >若要复制文件夹下的所有文件，请使用 Bucket 的名称指定“bucketName”并使用文件夹部分指定“prefix” 。
@@ -333,8 +333,8 @@ Amazon S3 支持基于格式的复制源中 `storeSettings` 设置下的以下�
 
 | 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
-| type | 复制活动源的 **type** 属性必须设置为 **FileSystemSource**。 |是 |
-| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。<br/>允许的值为 **true**（默认值）和 **false**。 | 否 |
+| type | 复制活动源的 **type** 属性必须设置为 **FileSystemSource** 。 |是 |
+| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。<br/>允许的值为 **true** （默认值）和 **false** 。 | 否 |
 | maxConcurrentConnections | 可以同时连接到数据存储的连接数。 仅在要限制与数据存储的并发连接数时指定。 | 否 |
 
 **示例：**

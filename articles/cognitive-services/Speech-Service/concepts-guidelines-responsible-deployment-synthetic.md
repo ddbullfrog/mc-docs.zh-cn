@@ -12,11 +12,11 @@ origin.date: 10/11/2019
 ms.date: 08/03/2020
 ms.author: v-tawe
 ms.openlocfilehash: 7e8cf7331246ecc0f1e9075389a87ba443a2a9db
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87516287"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211484"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>合成语音技术的负责任部署指南
 下面是 Microsoft 提供的使用合成语音技术时的一般设计准则。 Microsoft 在配音员、消费者以及有言语障碍的个人的协助下进行了研究，在研究中制定了这些准则，用以指导合成语音的负责任部署。

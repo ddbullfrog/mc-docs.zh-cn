@@ -36,7 +36,7 @@ ms.locfileid: "92041845"
 
 5. 更改需要调整的参数。 在此会话中所做的更改都突出显示为紫色。
 
-   更改参数之后，请选择“保存”。**** 也可以放弃所做的更改。 
+   更改参数之后，请选择“保存”。  也可以放弃所做的更改。 
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="“服务器日志”选项的屏幕截图":::
 
@@ -54,7 +54,7 @@ ms.locfileid: "92041845"
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="“服务器日志”选项的屏幕截图":::
 
    > [!TIP]
-   > 日志的命名约定是 **postgresql-yyyy-mm-dd_hh0000.log**。 文件名中使用的日期和时间是发布日志的时间。 每小时或达到 100 MB 大小时日志文件会轮换一次，以先达到的条件为准。
+   > 日志的命名约定是 **postgresql-yyyy-mm-dd_hh0000.log** 。 文件名中使用的日期和时间是发布日志的时间。 每小时或达到 100 MB 大小时日志文件会轮换一次，以先达到的条件为准。
 
 4. 如果需要，可使用搜索框快速缩小范围，以根据日期和时间找到特定日志。 搜索按日志名称进行。
 

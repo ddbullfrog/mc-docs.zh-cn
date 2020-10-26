@@ -2,22 +2,22 @@
 title: 使用 PowerShell 启用 Azure DS 域服务 | Microsoft Docs
 description: 了解如何使用 Azure AD PowerShell 与 Azure PowerShell 来配置和启用 Azure Active Directory 域服务。
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 56408bb3dd343c62638a4ab6879d2f559f6f701b
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 5b12828f26a4906740ead1e80841e48a245d2611
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937029"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471109"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 启用 Azure Active Directory 域服务
 
@@ -54,26 +54,33 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 现在，请创建名为“AAD DC 管理员”的 Azure AD 组。 然后，添加到此组的用户会被授予在托管域上执行管理任务的权限。
 
-使用 [Get-AzureADGroup][New-AzureADGroup] cmdlet 创建“AAD DC 管理员”组：
+首先，请使用 [Get-AzureADGroup][Get-AzureADGroup] cmdlet 创建“AAD DC 管理员”组对象 ID。 如果不存在该组，请使用 [New-AzureADGroup][New-AzureADGroup] cmdlet 通过“AAD DC 管理员”组来创建它：
 
 ```powershell
-New-AzureADGroup -DisplayName "AAD DC Administrators" `
-  -Description "Delegated group to administer Azure AD Domain Services" `
-  -SecurityEnabled $true -MailEnabled $false `
-  -MailNickName "AADDCAdministrators"
-```
-
-创建“AAD DC 管理员”组后，使用 [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet 将一个用户添加到该组。 首先使用 [Get-AzureADGroup][Get-AzureADGroup] cmdlet 获取“AAD DC 管理员”组对象 ID，然后使用 [Get-AzureADUser][Get-AzureADUser] cmdlet 获取所需用户的对象 ID。
-
-以下示例显示了 UPN 为 `admin@contoso.partner.onmschina.cn` 的帐户的用户对象 ID。 请将此用户帐户替换为要添加到“AAD DC 管理员”组的用户的 UPN：
-
-```powershell
-# First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
+# First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
   -Filter "DisplayName eq 'AAD DC Administrators'" | `
   Select-Object ObjectId
 
-# Now, retrieve the object ID of the user you'd like to add to the group.
+# If the group doesn't exist, create it
+if (!$GroupObjectId) {
+  $GroupObjectId = New-AzureADGroup -DisplayName "AAD DC Administrators" `
+    -Description "Delegated group to administer Azure AD Domain Services" `
+    -SecurityEnabled $true `
+    -MailEnabled $false `
+    -MailNickName "AADDCAdministrators"
+  }
+else {
+  Write-Output "Admin group already exists."
+}
+```
+
+通过所创建的“AAD DC 管理员”组，使用 [Get-AzureADUser][Get-AzureADUser] cmdlet 获取所需用户的对象 ID，然后使用 [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet 将该用户添加到组中。
+
+以下示例显示了 UPN 为 `admin@contoso.partner.onmschina.cn` 的帐户的用户对象 ID。 请将此用户帐户替换为要添加到“AAD DC 管理员”组的用户的 UPN：
+
+```powershell
+# Retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
   -Filter "UserPrincipalName eq 'admin@contoso.partner.onmschina.cn'" | `
   Select-Object ObjectId
@@ -90,7 +97,7 @@ Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjec
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-接下来，使用 [New-AzResourceGroup][New-AzResourceGroup] cmdlet 创建一个资源组。 在以下示例中，资源组被命名为 myResourceGroup，并且是在 chinanorth2 区域中创建的 。 使用自己的名称和所需区域：
+接下来，使用 [New-AzResourceGroup][New-AzResourceGroup] cmdlet 创建一个资源组。 在以下示例中，资源组被命名为 myResourceGroup，并且是在 chinanorth 区域中创建的 。 使用自己的名称和所需区域：
 
 ```powershell
 $ResourceGroupName = "myResourceGroup"
@@ -108,9 +115,9 @@ New-AzResourceGroup `
 
 ```powershell
 $VnetName = "myVnet"
-$SubnetName = "DomainServices"
 
 # Create the dedicated subnet for Azure AD Domain Services.
+$SubnetName = "DomainServices"
 $AaddsSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name $SubnetName `
   -AddressPrefix 10.0.0.0/24
@@ -131,7 +138,7 @@ $Vnet= New-AzVirtualNetwork `
 
 ### <a name="create-a-network-security-group"></a>创建网络安全组
 
-Azure AD DS 需要使用网络安全组来保护托管域所需的端口，阻止所有其他的传入流量。 网络安全组 (NSG) 包含一系列规则，这些规则可以允许或拒绝网络流量在 Azure 虚拟网络中流动。 在 Azure AD DS 中，网络安全组充当一个额外的保护层，以锁定对托管域的访问。 若要查看必需的端口，请参阅[网络安全组和必需端口][network-ports]。
+Azure AD DS 需要使用网络安全组来保护托管域所需的端口，阻止所有其他的传入流量。 [网络安全组 (NSG)][nsg-overview] 包含一系列规则，这些规则可以允许或拒绝网络流量在 Azure 虚拟网络中流动。 在 Azure AD DS 中，网络安全组充当一个额外的保护层，以锁定对托管域的访问。 若要查看必需的端口，请参阅[网络安全组和必需端口][network-ports]。
 
 以下 PowerShell cmdlet 使用 [New-AzNetworkSecurityRuleConfig][New-AzNetworkSecurityRuleConfig] 创建规则，然后使用 [New-AzNetworkSecurityGroup][New-AzNetworkSecurityGroup] 创建网络安全组。 然后，使用 [Set-AzVirtualNetworkSubnetConfig][Set-AzVirtualNetworkSubnetConfig] cmdlet 将网络安全组和规则与虚拟网络子网相关联。
 
@@ -179,7 +186,7 @@ $nsg = New-AzNetworkSecurityGroup -Name $NSGName `
     -SecurityRules $nsg101,$nsg201,$nsg301
 
 # Get the existing virtual network resource objects and information
-$vnet = Get-AzVirtualNetwork -Name $VnetName
+$vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $ResourceGroupName
 $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $SubnetName
 $addressPrefix = $subnet.AddressPrefix
 
@@ -207,6 +214,7 @@ $ManagedDomainName = "aaddscontoso.com"
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+  -ApiVersion "2017-06-01" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
@@ -246,16 +254,22 @@ Connect-AzAccount -Environment AzureChinaCloud
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
-# Create the delegated administration group for AAD Domain Services.
-New-AzureADGroup -DisplayName "AAD DC Administrators" `
-  -Description "Delegated group to administer Azure AD Domain Services" `
-  -SecurityEnabled $true -MailEnabled $false `
-  -MailNickName "AADDCAdministrators"
-
-# First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
+# First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
   -Filter "DisplayName eq 'AAD DC Administrators'" | `
   Select-Object ObjectId
+
+# Create the delegated administration group for Azure AD Domain Services if it doesn't already exist.
+if (!$GroupObjectId) {
+  $GroupObjectId = New-AzureADGroup -DisplayName "AAD DC Administrators" `
+    -Description "Delegated group to administer Azure AD Domain Services" `
+    -SecurityEnabled $true `
+    -MailEnabled $false `
+    -MailNickName "AADDCAdministrators"
+  }
+else {
+  Write-Output "Admin group already exists."
+}
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
@@ -274,6 +288,7 @@ New-AzResourceGroup `
   -Location $AzureLocation
 
 # Create the dedicated subnet for AAD Domain Services.
+$SubnetName = "DomainServices"
 $AaddsSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name DomainServices `
   -AddressPrefix 10.0.0.0/24
@@ -289,9 +304,64 @@ $Vnet=New-AzVirtualNetwork `
   -Name $VnetName `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $AaddsSubnet,$WorkloadSubnet
+  
+$NSGName = "aaddsNSG"
+
+# Create a rule to allow inbound TCP port 443 traffic for synchronization with Azure AD
+$nsg101 = New-AzNetworkSecurityRuleConfig `
+    -Name AllowSyncWithAzureAD `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 101 `
+    -SourceAddressPrefix AzureActiveDirectoryDomainServices `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 443
+
+# Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
+$nsg201 = New-AzNetworkSecurityRuleConfig -Name AllowRD `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 201 `
+    -SourceAddressPrefix CorpNetSaw `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389
+
+# Create a rule to allow TCP port 5986 traffic for PowerShell remote management
+$nsg301 = New-AzNetworkSecurityRuleConfig -Name AllowPSRemoting `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 301 `
+    -SourceAddressPrefix AzureActiveDirectoryDomainServices `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 5986
+
+# Create the network security group and rules
+$nsg = New-AzNetworkSecurityGroup -Name $NSGName `
+    -ResourceGroupName $ResourceGroupName `
+    -Location $AzureLocation `
+    -SecurityRules $nsg101,$nsg201,$nsg301
+
+# Get the existing virtual network resource objects and information
+$vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $ResourceGroupName
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $SubnetName
+$addressPrefix = $subnet.AddressPrefix
+
+# Associate the network security group with the virtual network subnet
+Set-AzVirtualNetworkSubnetConfig -Name $SubnetName `
+    -VirtualNetwork $vnet `
+    -AddressPrefix $addressPrefix `
+    -NetworkSecurityGroup $nsg
+$vnet | Set-AzVirtualNetwork
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+  -ApiVersion "2017-06-01" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
@@ -314,6 +384,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 [windows-join]: join-windows-vm.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-phs]: tutorial-configure-password-hash-sync.md
+[nsg-overview]: ../virtual-network/network-security-groups-overview.md
 [network-ports]: network-considerations.md#network-security-groups-and-required-ports
 
 <!-- EXTERNAL LINKS -->

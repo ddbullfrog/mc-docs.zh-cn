@@ -16,12 +16,12 @@ ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9413bdf52267272a84231ab3b0f8a612d8d2cafa
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 5de165160af1abbfb5856f9a50f22433f00139ad
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128776"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470011"
 ---
 <!--Verified successfully from renamed articles-->
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-windows"></a>使用 PowerShell 将托管磁盘的 VHD 导出/复制到不同区域中的存储帐户 (Windows)
@@ -48,7 +48,7 @@ $resourceGroupName ="yourResourceGroupName"
 $diskName = "yourDiskName"
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds e.g. 3600.
-#Know more about SAS here: https://docs.microsoft.com/Az.Storage/storage-dotnet-shared-access-signature-part-1
+#Know more about SAS here: https://docs.azure.cn/zh-cn/storage/common/storage-sas-overview # Correct the reference link.
 $sasExpiryDuration = "3600"
 
 #Provide storage account name where you want to copy the underlying VHD of the managed disk. 

@@ -45,7 +45,7 @@ Azure SQL Edge 不支持以下 Linux 上的 SQL Server 环境变量。 如果已
 
 | 环境变量 | 说明 |
 |-----|-----|
-| **MSSQL_ENABLE_HADR** | 启用可用性组。 例如，**1** 为已启用，**0** 为已禁用。 |
+| **MSSQL_ENABLE_HADR** | 启用可用性组。 例如， **1** 为已启用， **0** 为已禁用。 |
 
 > [!IMPORTANT]
 > SQL Edge 的 MSSQL_PID 环境变量仅接受 Premium 和 Developer 作为有效值。 Azure SQL Edge 不支持使用产品密钥进行初始化。
@@ -177,7 +177,7 @@ Azure SQL Edge 的早期 CTP 已配置为以 root 用户身份运行。 从早�
 
 ## <a name="persist-your-data"></a> 保留数据
 
-你的 Azure SQL Edge 配置会更改，数据库文件会保留在容器中（即使通过 `docker stop` 和 `docker start` 重启容器也是如此）。 但是，如果使用 `docker rm` 删除容器，则会删除容器中的所有内容，包括 Azure SQL Edge 和数据库。 以下部分介绍如何使用**数据卷**保留数据库文件（即使关联的容器已被删除）。
+你的 Azure SQL Edge 配置会更改，数据库文件会保留在容器中（即使通过 `docker stop` 和 `docker start` 重启容器也是如此）。 但是，如果使用 `docker rm` 删除容器，则会删除容器中的所有内容，包括 Azure SQL Edge 和数据库。 以下部分介绍如何使用 **数据卷** 保留数据库文件（即使关联的容器已被删除）。
 
 > [!IMPORTANT]
 > 对于 Azure SQL Edge，了解 Docker 中的数据持久性至关重要。 除本部分讨论的内容外，请参阅有关[如何在 Docker 容器中管理数据](https://docs.docker.com/engine/tutorials/dockervolumes/)的 Docker 文档。

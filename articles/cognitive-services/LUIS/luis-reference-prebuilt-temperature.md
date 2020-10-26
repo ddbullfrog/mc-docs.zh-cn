@@ -3,24 +3,23 @@ title: 温度预生成实体 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中的温度预构建实体信息。
 services: cognitive-services
-author: lingliw
-manager: digimobile
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 origin.date: 10/14/2019
-ms.date: 10/31/2019
-ms.author: v-lingwu
-ms.openlocfilehash: d8033e4b5a4506103e295eaa5a454ae6d5fc605e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: 0d8321f5243c90ef754d3f7707fa1370ee4fa1c6
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884924"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472368"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的温度预生成实体
-“温度”提取了各种温度类型。 此实体已定型，因此不需要将包含温度的陈述示例添加到应用程序中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持存在温度实体。 
+“温度”提取了各种温度类型。 此实体已定型，因此不需要将包含温度的陈述示例添加到应用程序中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持存在温度实体。
 
 ## <a name="types-of-temperature"></a>温度类型
 温度托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) GitHub 存储库中
@@ -92,14 +91,11 @@ ms.locfileid: "74884924"
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>后续步骤
 
 详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
 
-了解[百分比](luis-reference-prebuilt-percentage.md)、[数字](luis-reference-prebuilt-number.md)和[存在时间](luis-reference-prebuilt-age.md)实体。 
-
-
-
+了解[百分比](luis-reference-prebuilt-percentage.md)、[数字](luis-reference-prebuilt-number.md)和[存在时间](luis-reference-prebuilt-age.md)实体。
 

@@ -1,21 +1,21 @@
 ---
 title: 将维护配置移动到另一个 Azure 区域
 description: 了解如何将 VM 维护配置移动到另一个 Azure 区域
-author: rockboyfor
 ms.service: virtual-machines
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 origin.date: 03/04/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 77b6f3718f6e2d5bdd988b793ca7f2db5696d625
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 29cf4efe3f2851cec29bf7a35eca9a626610418b
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052443"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211881"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>将维护控制配置移动到另一个区域
 
@@ -41,8 +41,10 @@ ms.locfileid: "89052443"
 
 ## <a name="prepare-and-move"></a>准备并移动 
 
-1. 检索每个订阅中的所有维护配置。 运行 CLI 命令 [az maintenance configuration list](https://docs.microsoft.com/cli/azure/ext?view=azure-cli-latest#ext-maintenance-az-maintenance-configuration-list) 来执行此操作，将 $subId 替换为你的订阅 ID。
-
+1. 检索每个订阅中的所有维护配置。 运行 CLI 命令 [az maintenance configuration list](https://docs.azure.cn/cli/ext/maintenance/maintenance/configuration#ext_maintenance_az_maintenance_configuration_list) 来执行此操作，将 $subId 替换为你的订阅 ID。
+    
+    <!--CORRECT ON https://docs.azure.cn/cli/ext/maintenance/maintenance/configuration#ext_maintenance_az_maintenance_configuration_list-->
+    
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table
     ```

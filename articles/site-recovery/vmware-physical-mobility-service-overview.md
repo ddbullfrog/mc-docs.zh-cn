@@ -139,7 +139,7 @@ ms.locfileid: "92128283"
 安装程序日志 | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | 必需的安装参数。 指定是要安装移动服务 (MS) 还是主目标 (MT)。
 `/InstallLocation`| 可选参数。 指定移动服务的安装位置（任意文件夹）。
-`/Platform` | 必需。 指定要在其中安装移动服务的平台： <br/> VMware VM/物理服务器的 VMware。 <br/> Azure VM 的 Azure。<br/><br/> 如果要将 Azure VM 视为物理计算机，请指定 **VMware**。
+`/Platform` | 必需。 指定要在其中安装移动服务的平台： <br/> VMware VM/物理服务器的 VMware。 <br/> Azure VM 的 Azure。<br/><br/> 如果要将 Azure VM 视为物理计算机，请指定 **VMware** 。
 `/Silent`| 可选。 指定是否以静默模式运行安装程序。
 
 #### <a name="registration-settings"></a>注册设置
@@ -192,8 +192,8 @@ ms.locfileid: "92128283"
 
 ## <a name="azure-virtual-machine-agent"></a>Azure 虚拟机代理
 
-- **Windows VM**：从移动服务版本 9.7.0.0 开始，移动服务安装程序会安装 [Azure VM 代理](../virtual-machines/extensions/features-windows.md#azure-vm-agent)。 这可以确保当计算机故障转移到 Azure 时，Azure VM 满足使用任何 VM 扩展相关的代理安装先决条件。
-- **Linux VM**：故障转移后，必须在 Azure VM 上手动安装 [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md)。
+- **Windows VM** ：从移动服务版本 9.7.0.0 开始，移动服务安装程序会安装 [Azure VM 代理](../virtual-machines/extensions/features-windows.md#azure-vm-agent)。 这可以确保当计算机故障转移到 Azure 时，Azure VM 满足使用任何 VM 扩展相关的代理安装先决条件。
+- **Linux VM** ：故障转移后，必须在 Azure VM 上手动安装 [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md)。
 
 <a name="installer-files"></a>
 ## <a name="locate-installer-files"></a>找到安装程序文件

@@ -111,7 +111,7 @@ The [OCR skill](cognitive-search-skill-ocr.md) extracts text from image files su
 1. 运行 OCR 技术，使用 `"/document/normalized_images"` 作为输入
 1. 将这些图像的文本表示形式与从文件提取的原始文本合并。 可以使用[文本合并](cognitive-search-skill-textmerger.md)技术将两个文本区块合并成单个大型字符串。
 
-以下示例技术集会创建的 merged_text** 字段包含文档的文本内容， 以及每个嵌入图像中的 OCR 化文本。 
+以下示例技术集会创建的 merged_text  字段包含文档的文本内容， 以及每个嵌入图像中的 OCR 化文本。 
 
 #### <a name="request-body-syntax"></a>请求正文语法
 ```json

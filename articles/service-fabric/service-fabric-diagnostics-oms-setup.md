@@ -9,11 +9,11 @@ ms.testscope: yes|no
 ms.testdate: 09/14/2020null
 ms.author: v-yeche
 ms.openlocfilehash: dc84747733940f8286214bc848f56e96cda80fcf
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655771"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211434"
 ---
 <!--Verified successfully on 09/07/2020-->
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>为群集设置 Azure Monitor 日志

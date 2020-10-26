@@ -3,37 +3,47 @@ title: 已弃用的预生成实体 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中已弃用的预构建实体的信息。
 services: cognitive-services
-author: lingliw
+ms.author: v-johya
 ms.custom: seodec18
-manager: digimobile
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
+ms.date: 10/19/2020
 origin.date: 07/29/2019
-ms.date: 02/25/2020
-ms.author: v-lingwu
-ms.openlocfilehash: 1de5652639213da322e22256d10bcf79afea3eba
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 315e7acfe854572161633a9af11757f1c554e482
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78154546"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472395"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>LUIS 应用中已弃用的预生成实体
 以下预构建实体已被弃用，不能添加到新的 LUIS 应用中。
 
-* **Datetime**：使用 **datetime** 的现有 LUIS 应用应当迁移到 **datetimeV2**，虽然 datetime 实体在使用它的现存应用中可以继续工作。
-* **Geography**：使用 **geography** 的现有 LUIS 应用在 2018 年 12 月之前一直受支持。
-* **Encyclopedia**：使用 **encyclopedia** 的现有 LUIS 应用在 2018 年 12 月之前一直受支持。
+* **Datetime** ：使用 **datetime** 的现有 LUIS 应用应当迁移到 **datetimeV2** ，虽然 datetime 实体在使用它的现存应用中可以继续工作。
+* **Geography** ：使用 **geography** 的现有 LUIS 应用在 2018 年 12 月之前一直受支持。
+* **Encyclopedia** ：使用 **encyclopedia** 的现有 LUIS 应用在 2018 年 12 月之前一直受支持。
 
 ## <a name="geography-culture"></a>Geography 语言区域
 **Geography** 仅在 `en-us` 区域设置中可用。
+
+#### <a name="3-geography-subtypes"></a>3 个 Geography 子类型
+
+预生成实体   |   示例陈述   |   JSON
+------|------|------|
+`builtin.geography.city`   |  `seattle`    |`{ "type": "builtin.geography.city", "entity": "seattle" }`|
+`builtin.geography.city`   |  `paris`    |`{ "type": "builtin.geography.city", "entity": "paris" }`|
+`builtin.geography.country`|  `australia`    |`{ "type": "builtin.geography.country", "entity": "australia" }`|
+`builtin.geography.country`|  `japan`    |`{ "type": "builtin.geography.country", "entity": "japan" }`|
+`builtin.geography.pointOfInterest`   |   `amazon river` |`{ "type": "builtin.geography.pointOfInterest", "entity": "amazon river" }`|
+`builtin.geography.pointOfInterest`   |   `sahara desert`|`{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }`|
 
 ## <a name="encyclopedia-culture"></a>Encyclopedia 语言区域
 **Encyclopedia** 仅在 `en-US` 区域设置中可用。
 
 #### <a name="encyclopedia-subtypes"></a>Encyclopedia 子类型
-Encyclopedia 内置实体包括下表中的 100 多个子类型；此外，encyclopedia 实体通常映射到多个类型。 例如，查询 Ronald Reagan 产生以下项： 
+Encyclopedia 内置实体包括下表中的 100 多个子类型；此外，encyclopedia 实体通常映射到多个类型。 例如，查询 Ronald Reagan 产生以下项：
 
 ```json
 {
@@ -134,9 +144,9 @@ Encyclopedia 内置实体包括下表中的 100 多个子类型；此外，encyc
 `builtin.encyclopedia.radio.radio_program`| `builtin.encyclopedia.radio.radio_program`| `grand ole opry`|
 `builtin.encyclopedia.film.film`| `builtin.encyclopedia.film.film`| `alice in wonderland`|
 `builtin.encyclopedia.cricket.tournament`| `builtin.encyclopedia.cricket.tournament`| `cricket world cup`|
-`builtin.encyclopedia.government.government`| `builtin.encyclopedia.government.government`| `china commission`|
+`builtin.encyclopedia.government.government`| `builtin.encyclopedia.government.government`| `european commission`|
 `builtin.encyclopedia.sports.team_owner`| `builtin.encyclopedia.sports.team_owner`| `bob castellini`|
-`builtin.encyclopedia.music.genre`| `builtin.encyclopedia.music.genre`| `eastern china`|
+`builtin.encyclopedia.music.genre`| `builtin.encyclopedia.music.genre`| `eastern europe`|
 `builtin.encyclopedia.ice_hockey.division`| `builtin.encyclopedia.ice_hockey.division`| `hockeyallsvenskan`|
 `builtin.encyclopedia.architecture.style`| `builtin.encyclopedia.architecture.style`| `spanish colonial revival architecture`|
 `builtin.encyclopedia.broadcast.producer`| `builtin.encyclopedia.broadcast.producer`| `columbia tristar television`|
@@ -153,9 +163,6 @@ Encyclopedia 内置实体包括下表中的 100 多个子类型；此外，encyc
 
 ## <a name="next-steps"></a>后续步骤
 
-了解[维度](luis-reference-prebuilt-dimension.md)、[电子邮件](luis-reference-prebuilt-email.md)实体和[数字](luis-reference-prebuilt-number.md)。 
-
-
-
+了解[维度](luis-reference-prebuilt-dimension.md)、[电子邮件](luis-reference-prebuilt-email.md)实体和[数字](luis-reference-prebuilt-number.md)。
 
 

@@ -6,22 +6,22 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 09/20/2020
-  ms.date: 10/19/2020
+  ms.date: 10/26/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 105ffbf9fa3a4358ed64bb2f4d3132cbd9a0caa2
-  ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+  ms.openlocfilehash: 1ddbdb5c929c831dc50bc57bece9845e3199b313
+  ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92041910"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92470250"
 landingContent:
 - title: 关于单服务器
   linkLists:
   - linkListType: overview
     links:
     - text: 什么是单服务器？
-      url: ../concepts-servers.md
+      url: ../single-server-overview.md
 - title: 入门
   linkLists:
   - linkListType: quickstart

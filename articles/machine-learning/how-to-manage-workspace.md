@@ -20,7 +20,7 @@ ms.locfileid: "92118260"
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>在 Azure 门户中创建并管理 Azure 机器学习工作区
 
 
-本文将介绍如何在 Azure 门户中针对 [Azure 机器学习](overview-what-is-azure-ml.md)创建、查看和删除 [Azure 机器学习工作区****](concept-workspace.md)。  门户是开始使用工作区的最简单方法，但随着需求的变化或自动化要求的增加，还可以[使用 CLI](reference-azure-machine-learning-cli.md)、[使用 Python 代码](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)或[使用 VS Code 扩展](tutorial-setup-vscode-extension.md)创建和删除工作区。
+本文将介绍如何在 Azure 门户中针对 ](concept-workspace.md)。  门户是开始使用工作区的最简单方法，但随着需求的变化或自动化要求的增加，还可以[使用 CLI](reference-azure-machine-learning-cli.md)、[使用 Python 代码](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)或[使用 VS Code 扩展](tutorial-setup-vscode-extension.md)创建和删除工作区。
 
 ## <a name="create-a-workspace"></a>创建工作区
 
@@ -28,44 +28,44 @@ ms.locfileid: "92118260"
 
 1. 使用 Azure 订阅的凭据登录到 [Azure 门户](https://portal.azure.cn/)。 
 
-1. 在 Azure 门户的左上角，选择“+ 创建资源”****。
+1. 在 Azure 门户的左上角，选择“+ 创建资源”  。
 
       ![创建新资源](./media/how-to-manage-workspace/create-workspace.gif)
 
-1. 使用搜索栏查找“机器学习”****。
+1. 使用搜索栏查找“机器学习”  。
 
-1. 选择“机器学习”****。
+1. 选择“机器学习”  。
 
-1. 在“机器学习”窗格中，选择“创建”以开始**** ****。
+1. 在“机器学习”窗格中，选择“创建”以开始   。
 
 1. 提供以下信息来配置新工作区：
 
    字段|说明 
    ---|---
-   工作区名称 |输入用于标识工作区的唯一名称。 本示例使用 docs-ws****。 名称在整个资源组中必须唯一。 使用易于记忆且区别于其他人所创建工作区的名称。 工作区名称不区分大小写。
+   工作区名称 |输入用于标识工作区的唯一名称。 本示例使用 docs-ws  。 名称在整个资源组中必须唯一。 使用易于记忆且区别于其他人所创建工作区的名称。 工作区名称不区分大小写。
    订阅 |选择要使用的 Azure 订阅。
-   资源组 | 使用订阅中的现有资源组，或者输入一个名称以创建新的资源组。 资源组保存 Azure 解决方案的相关资源。 本示例使用 docs-aml****。 需要“参与者”或“所有者”角色才能使用现有资源组。  有关访问权限的详细信息，请参阅[管理对 Azure 机器学习工作区的访问权限](how-to-assign-roles.md)。
+   资源组 | 使用订阅中的现有资源组，或者输入一个名称以创建新的资源组。 资源组保存 Azure 解决方案的相关资源。 本示例使用 docs-aml  。 需要“参与者”或“所有者”角色才能使用现有资源组。  有关访问权限的详细信息，请参阅[管理对 Azure 机器学习工作区的访问权限](how-to-assign-roles.md)。
    区域 | 选择离你的用户和数据资源最近的 Azure 区域来创建工作区。
-   工作区版本 | 选择“基本”**** 或“企业”****。  此工作区版本决定了可访问的功能和定价。 详细了解 [Azure 机器学习](overview-what-is-azure-ml.md)。 
+   工作区版本 | 选择“基本”  或“企业”  。  此工作区版本决定了可访问的功能和定价。 详细了解 [Azure 机器学习](overview-what-is-azure-ml.md)。 
 
     ![配置工作区](./media/how-to-manage-workspace/select-edition.png)
 
-1. 完成工作区配置后，选择“查看 + 创建”****。 （可选）使用[网络](#networking)和[高级](#advanced)部分为工作区配置更多设置。
+1. 完成工作区配置后，选择“查看 + 创建”  。 （可选）使用[网络](#networking)和[高级](#advanced)部分为工作区配置更多设置。
 
-1. 查看设置并进行任何其他更改或更正。 如果对设置感到满意，请选择“创建”****。
+1. 查看设置并进行任何其他更改或更正。 如果对设置感到满意，请选择“创建”  。
 
    > [!Warning] 
    > 在云中创建工作区可能需要几分钟时间。
 
    完成创建后，会显示部署成功消息。 
  
- 1. 若要查看新工作区，请选择“转到资源”****。
+ 1. 若要查看新工作区，请选择“转到资源”  。
 
 ### <a name="download-a-configuration-file"></a>下载配置文件
 
 1. 如果要创建[计算实例](tutorial-1st-experiment-sdk-setup.md#azure)，请跳过此步骤。
 
-1. 如果计划使用引用此工作区的本地环境中的代码，请**** 从工作区的“概述”**** 部分中选择“下载 config.json”。  
+1. 如果计划使用引用此工作区的本地环境中的代码，请  从工作区的“概述”  部分中选择“下载 config.json”。  
 
    ![下载 config.json](./media/how-to-manage-workspace/configure.png)
    
@@ -74,9 +74,9 @@ ms.locfileid: "92118260"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. 在顶部搜索字段中，键入“机器学习”。****  
+1. 在顶部搜索字段中，键入“机器学习”。   
 
-1. 选择“机器学习”****。
+1. 选择“机器学习”  。
 
    ![搜索 Azure 机器学习工作区](./media/how-to-manage-workspace/find-workspaces.png)
 
@@ -86,7 +86,7 @@ ms.locfileid: "92118260"
 
 ## <a name="delete-a-workspace"></a>创建工作区
 
-在 [Azure 门户](https://portal.azure.cn/)中，选择要删除的工作区顶部的“删除”****。
+在  。
 
 :::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="删除工作区":::
 

@@ -9,11 +9,11 @@ origin.date: 04/30/2019
 ms.date: 11/11/2019
 ms.author: v-yiso
 ms.openlocfilehash: fabbd05f3eb08e1dc894f0c08f3b44d0e80cd9b6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79293045"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211439"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>使用 AMQP 协议来与 IoT 中心通信
 
@@ -123,9 +123,9 @@ for msg in batch:
     print('unknown message:', msg.properties.content_type)
 ```
 
-如以上代码中所示，云到设备的反馈消息的内容类型为 *application/vnd.microsoft.iothub.feedback.json*。 可以使用消息的 JSON 正文中的属性推断原始消息的传送状态：
+如以上代码中所示，云到设备的反馈消息的内容类型为 *application/vnd.microsoft.iothub.feedback.json* 。 可以使用消息的 JSON 正文中的属性推断原始消息的传送状态：
 
-* 反馈正文中的键 `statusCode` 包含以下值之一：*Success*、*Expired*、*DeliveryCountExceeded*、*Rejected* 或 *Purged*。
+* 反馈正文中的键 `statusCode` 包含以下值之一： *Success* 、 *Expired* 、 *DeliveryCountExceeded* 、 *Rejected* 或 *Purged* 。
 
 * 反馈正文中的键 `deviceId` 包含目标设备的 ID。
 

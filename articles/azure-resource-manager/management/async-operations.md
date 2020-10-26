@@ -4,17 +4,17 @@ description: 介绍如何在 Azure 中跟踪异步操作。 它显示用于获�
 ms.topic: conceptual
 origin.date: 08/21/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 9a86621f67111d50d2e8ace4d6d40e7ace23a2a4
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 0abdf5414623a06ea429a37f0dc6f17c47180499
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146775"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470320"
 ---
 # <a name="track-asynchronous-azure-operations"></a>跟踪异步 Azure 操作
 
@@ -170,7 +170,7 @@ https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourcegrou
 }
 ```
 
-### <a name="create-storage-account-202-with-location-and-retry-after"></a>创建存储帐户（Location 和 Retry-After 标头出现 202 响应）
+### <a name="create-storage-account-202-with-location-and-retry-after"></a><a name="create-storage-account-202-with-location-and-retry-after"></a>创建存储帐户（Location 和 Retry-After 标头出现 202 响应）
 
 此示例演示了如何确定[存储帐户的创建操作](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/create)的状态。 初始请求采用以下格式：
 

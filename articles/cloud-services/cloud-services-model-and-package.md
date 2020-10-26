@@ -5,14 +5,14 @@ services: cloud-services
 author: tanmaygore
 ms.service: cloud-services
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: cc572a059599933c1ebb6cd414f1ba5a546498d4
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 8bad0a56af35b8892b9ec6ce8c2d2042504e9249
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402558"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472620"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什么是云服务模型以及如何将其打包？
 云服务由以下三个组件创建：服务定义 *(.csdef)* 、服务配置 *(.cscfg)* 和服务包 *(.cspkg)* 。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 文件都基于 XML，同时介绍云服务的结构及其配置方式；统称为模型。 **ServicePackage.cspkg** 是基于 **ServiceDefinition.csdef** 和其他文件生成的 zip 文件，它包含所有必需的基于二进制的依赖项。 Azure 可从 **ServicePackage.cspkg** 和 **ServiceConfig.cscfg** 两者创建云服务。
@@ -143,7 +143,7 @@ ms.locfileid: "91402558"
 为角色配置运行实例的设置。 `<Setting>` 元素的名称必须与服务定义文件中的设置定义匹配。
 
 **证书**  
-配置服务使用的证书。 前面的代码示例演示如何定义 RemoteAccess 模块的证书。 *指纹*属性的值必须设置为要使用的证书的指纹。
+配置服务使用的证书。 前面的代码示例演示如何定义 RemoteAccess 模块的证书。 *指纹* 属性的值必须设置为要使用的证书的指纹。
 
 <p/>
 
@@ -289,10 +289,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
-[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
-[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
-[vs_create]: ../vs-azure-tools-azure-project-create.md
-
-
-
+[vs_deploy]: https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio
+[vs_reconfigure]: https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service
+[vs_create]: https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-azure-project-create
 

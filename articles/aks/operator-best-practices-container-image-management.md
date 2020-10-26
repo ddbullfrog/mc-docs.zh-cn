@@ -4,16 +4,17 @@ description: 了解有关如何在 Azure Kubernetes 服务 (AKS) 中管理和保
 services: container-service
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 03/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: a72bc23819b9575ebaa49db64c1f9041e86679b7
-ms.sourcegitcommit: fce0810af6200f13421ea89d7e2239f8d41890c0
+ms.openlocfilehash: 9b4972e2eb03c634ba255842cf08bae7b742462c
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842632"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470208"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中容器映像管理和安全性的最佳做法
 
@@ -43,7 +44,9 @@ ms.locfileid: "87842632"
 
 **最佳做法指南** - 你使用的是应用程序映像的基础映像，请在更新基础映像时通过自动化生成新映像。 这些基础映像通常包含安全修补程序，请更新所有下游应用程序容器映像。
 
-每次更新基础映像时，都应更新任何下游容器映像。 应将此生成过程集成到验证和部署管道中（例如 [Azure Pipelines][azure-pipelines] 或 Jenkins）。 这些管道确保应用程序继续在更新后的基础映像上运行。 验证应用程序容器映像后，就可以更新 AKS 部署，以便运行最新的安全映像。
+每次更新基础映像时，都应更新任何下游容器映像。 应将此生成过程集成到验证和部署管道中（例如 Azure Pipelines 或 Jenkins）。 这些管道确保应用程序继续在更新后的基础映像上运行。 验证应用程序容器映像后，就可以更新 AKS 部署，以便运行最新的安全映像。
+
+<!--Not Available on [Azure Pipelines][azure-pipelines]-->
 
 Azure 容器注册表任务也可以在更新基础映像时自动更新容器映像。 通过此功能，你可以生成少量基础映像，并通过 bug 修复和安全修复定期更新它们。
 

@@ -34,11 +34,11 @@ ms.locfileid: "92121704"
 
 | 属性         | 说明                                                  | 必须 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 数据集的 type 属性必须设置为 **Binary**。 | 是      |
-| location         | 文件的位置设置。 每个基于文件的连接器在 `location` 下都有其自己的位置类型和支持的属性。 **请在连接器文章 -> 数据集属性部分中查看详细信息**。 | 是      |
+| type             | 数据集的 type 属性必须设置为 **Binary** 。 | 是      |
+| location         | 文件的位置设置。 每个基于文件的连接器在 `location` 下都有其自己的位置类型和支持的属性。 **请在连接器文章 -> 数据集属性部分中查看详细信息** 。 | 是      |
 | compression | 用来配置文件压缩的属性组。 如果需要在活动执行期间进行压缩/解压缩，请配置此部分。 | 否 |
 | type | 用于读取/写入二进制文件的压缩编解码器。 <br>允许的值为 bzip2、gzip、deflate、ZipDeflate 或 TarGzip    。 <br>注意，使用复制活动解压缩 ZipDeflate/TarGzip 文件并将其写入基于文件的接收器数据存储时，默认情况下文件将提取到 `<path specified in dataset>/<folder named as source compressed file>/` 文件夹，对[复制活动源](#binary-as-source)使用 `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` 来控制是否以文件夹结构形式保留压缩文件名  。| 否       |
-| level | 压缩率。 在 Copy 活动接收器中使用数据集时应用。<br>允许的值为 **Optimal** 或 **Fastest**。<br>- **Fastest**：尽快完成压缩操作，不过，无法以最佳方式压缩生成的文件。<br>- **Optimal**：以最佳方式完成压缩操作，不过，需要耗费更长的时间。 有关详细信息，请参阅 [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx)（压缩级别）主题。 | 否       |
+| level | 压缩率。 在 Copy 活动接收器中使用数据集时应用。<br>允许的值为 **Optimal** 或 **Fastest** 。<br>- **Fastest** ：尽快完成压缩操作，不过，无法以最佳方式压缩生成的文件。<br>- **Optimal** ：以最佳方式完成压缩操作，不过，需要耗费更长的时间。 有关详细信息，请参阅 [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx)（压缩级别）主题。 | 否       |
 
 下面是 Azure Blob 存储上的二进制数据集的示例：
 
@@ -78,9 +78,9 @@ ms.locfileid: "92121704"
 
 | 属性      | 说明                                                  | 必须 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 复制活动源的 type 属性必须设置为 **BinarySource**。 | 是      |
+| type          | 复制活动源的 type 属性必须设置为 **BinarySource** 。 | 是      |
 | formatSettings | 一组属性。 请参阅下面的“二进制读取设置”表。 | 否       |
-| storeSettings | 有关如何从数据存储读取数据的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自己支持的读取设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息**。 | 否       |
+| storeSettings | 有关如何从数据存储读取数据的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自己支持的读取设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息** 。 | 否       |
 
 `formatSettings` 下支持的“二进制读取设置”：
 
@@ -125,8 +125,8 @@ ms.locfileid: "92121704"
 
 | 属性      | 说明                                                  | 必须 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 复制活动源的 type 属性必须设置为 **BinarySink**。 | 是      |
-| storeSettings | 有关如何将数据写入到数据存储的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自身支持的写入设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息**。 | 否       |
+| type          | 复制活动源的 type 属性必须设置为 **BinarySink** 。 | 是      |
+| storeSettings | 有关如何将数据写入到数据存储的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自身支持的写入设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息** 。 | 否       |
 
 ## <a name="next-steps"></a>后续步骤
 

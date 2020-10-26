@@ -8,11 +8,11 @@ ms.author: v-yiso
 origin.date: 08/16/2019
 ms.date: 11/11/2019
 ms.openlocfilehash: 416f3db03a6300752b5a8a00ebebe04b9f1f085d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291237"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211635"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight 中的区域服务器问题
 

@@ -3,14 +3,14 @@ title: Azure Functions SignalR 服务绑定
 description: 了解如何将 Azure Functions 与 SignalR 服务绑定配合使用。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 03/03/2020
+ms.date: 10/19/2020
 ms.author: v-junlch
-ms.openlocfilehash: b28f77376f5b3c5ed9ce04aa1de6f4420240de3b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 84c39a0633b47b3c8101c1981eb4a4bd11f5e735
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78266041"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472638"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions 的 SignalR Service 绑定
 
@@ -36,7 +36,7 @@ ms.locfileid: "78266041"
 [NuGet 包]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
 [core tools]: ./functions-run-local.md
 [扩展捆绑包]: ./functions-bindings-register.md#extension-bundles
-[更新扩展]: ./install-update-binding-extensions-manual.md
+[更新扩展]: ./functions-bindings-register.md
 [Azure 工具扩展]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 若要详细了解如何配置 SignalR 服务并将其与 Azure Functions 一起使用，请参阅[通过 Azure SignalR 服务进行的 Azure Functions 开发和配置](../azure-signalr/signalr-concept-serverless-development-config.md)。
@@ -56,5 +56,5 @@ ms.locfileid: "78266041"
 ## <a name="next-steps"></a>后续步骤
 
 - [返回服务终结点 URL 和访问令牌（输入绑定）](./functions-bindings-signalr-service-input.md)
-- [发送 SignalR 服务消息（输出绑定）](./functions-bindings-signalr-service-output.md) 
+- [发送 SignalR 服务消息（输出绑定）](./functions-bindings-signalr-service-output.md)
 

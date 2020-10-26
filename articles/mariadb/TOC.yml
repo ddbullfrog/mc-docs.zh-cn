@@ -70,6 +70,8 @@
           href: concepts-firewall-rules.md
         - name: 虚拟网络
           href: concepts-data-access-security-vnet.md
+        - name: 专用链接
+          href: concepts-data-access-security-private-link.md
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -168,6 +170,10 @@
           href: howto-auto-grow-storage-cli.md
         - name: Azure PowerShell
           href: howto-auto-grow-storage-powershell.md
+    - name: 拒绝公用网络访问
+      items:
+        - name: Azure 门户
+          href: howto-deny-public-network-access.md
     - name: 访问服务器日志
       items:
         - name: 慢查询日志
@@ -208,6 +214,12 @@
           href: howto-manage-vnet-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-cli.md
+    - name: 专用链接
+      items:
+        - name: Azure 门户
+          href: howto-configure-privatelink-portal.md
+        - name: Azure CLI
+          href: howto-configure-privatelink-cli.md
     - name: 重新启动服务器
       items:
         - name: Azure 门户

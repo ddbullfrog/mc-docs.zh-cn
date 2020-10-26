@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-junlch
 ms.openlocfilehash: 192edd904aa6bf713ef29418315f99b0e0defdc1
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041614"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211427"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>使用 Azure PowerShell 创建 Azure Active Directory 域服务资源林以及到本地域的出站林信任
 

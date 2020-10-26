@@ -3,26 +3,26 @@ title: 入门 - 翻译器
 titleSuffix: Azure Cognitive Services
 description: 本文将演示如何注册 Azure 认知服务翻译器并获取订阅密钥。
 services: cognitive-services
-author: swmachan
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 origin.date: 05/26/2020
-ms.date: 06/22/2020
-ms.author: v-tawe
-ms.openlocfilehash: eb6083450076b65105a6b46db96a7af9a72cd9fb
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 6de2a4c9eb79ef585d02993455e47ec57ed2bf68
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85242001"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472687"
 ---
 # <a name="how-to-sign-up-for-translator"></a>如何注册翻译器
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
-- 没有帐户？ 可以创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)进行试验，无需支付任何费用。
+- 没有帐户？ 可以创建[试用帐户](https://www.azure.cn/pricing/details/cognitive-services)进行试验，无需支付任何费用。
 - 已有帐户？ [登录](https://portal.azure.cn/)
 
 ## <a name="create-a-subscription-for-translator"></a>为翻译器创建订阅
@@ -54,10 +54,6 @@ Microsoft Translator 通常会在验证订阅帐户状态前允许通过前几�
 
 ## <a name="pricing-options"></a>定价选项
 
-- [翻译](https://www.azure.cn/pricing/details/cognitive-services)
+- [翻译](https://www.azure.cn/pricing/details/cognitive-services/)
 
 <!-- Custom Translator not support in Azure -->
-
-## <a name="additional-resources"></a>其他资源
-
-- [Azure 入门](https://www.azure.cn/pricing/1rmb-trial/?b=16.24)

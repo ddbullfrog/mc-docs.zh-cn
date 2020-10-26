@@ -9,16 +9,19 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.custom: seodec18
-ms.openlocfilehash: d4e8f6036ca2075a06fdd064d1604cc17b03545f
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.date: 10/20/2020
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 68eacbd4594b81293ad5ca1e47d819ae92bc8801
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715366"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471322"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>使用 C# 管理 Azure 时序见解第 1 代环境的参考数据
+
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
 
 本文演示如何将 C#、[MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) 和 Azure Active Directory 结合使用，以向 Azure 时序见解 Gen 1 [参考数据管理 API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) 发出编程性 API 请求。
 

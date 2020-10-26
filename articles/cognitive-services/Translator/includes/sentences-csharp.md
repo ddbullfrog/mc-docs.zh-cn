@@ -1,16 +1,17 @@
 ---
-author: erhopf
+author: Johnnytechn
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
-ms.date: 06/22/2020
-origin.date: 08/06/2019
-ms.author: v-tawe
-ms.openlocfilehash: 4c336798bad39407964741b62ef3d6ffd9d020a9
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 99585f62ac40f6168ca30e77511339127df910f3
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241541"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499170"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -60,7 +61,7 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>为 JSON 响应创建类
 
-接下来，我们将创建一个在反序列化由文本翻译 API 返回的 JSON 响应时使用的类。
+接下来，我们将创建一个类，在反序列化由“翻译”返回的 JSON 响应时使用。
 
 ```csharp
 /// <summary>

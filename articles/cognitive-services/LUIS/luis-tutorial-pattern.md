@@ -1,17 +1,17 @@
 ---
 title: 教程：模式 - LUIS
 description: 在本教程中，使用模式来改进意向和实体预测，同时提供更少的示例话语。 该模式以模板言语示例形式提供，该示例包括用于标识实体和可忽略文本的语法。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
-author: Johnnytechn
-origin.date: 05/07/2020
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: ebf5aebb0fc3f65096489f3a19ebead6415ceb4e
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: b24559613c8601220ffd12be184d8e557ecb42e2
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023356"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472362"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>教程：添加常见的模式模板言语格式以改进预测
 
@@ -432,7 +432,7 @@ LUIS 应用中存储了两种类型的言语：
 
 `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]` 列中的一个值匹配。
 
-此代码围绕所需的谓语时态使用 **group**，并在两者之间结合 **or** 管道使用可选的 `in` 和 `on`。
+此代码围绕所需的谓语时态使用 **group** ，并在两者之间结合 **or** 管道使用可选的 `in` 和 `on`。
 
 > [!NOTE]
 > 使用“OR”符号、`|`（管道）时，请确保管道符号在示例模板中的前后都用空格分隔。

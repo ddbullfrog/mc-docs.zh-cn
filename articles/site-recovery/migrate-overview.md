@@ -7,22 +7,22 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 08/06/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0ea6a89e9c2efb0b360f4141e4ede228af4c96e5
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 0b82c73bfeceb83f2567dd36831c5db3223e3d3b
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655665"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211883"
 ---
 # <a name="migrating-to-azure"></a>迁移到 Azure
 
 对于迁移，建议使用 Azure Migrate 服务将 VM 和服务器迁移到 Azure，而不是使用 Microsoft Azure Site Recovery 服务。
 
-<!--Not Available on [Learn more](../migrate/migrate-services-overview.md) about Azure Migrate.-->
+<!--Not Available on [Learn more](../migrate/migrate-services-overview.md)-->
 
 ## <a name="why-use-azure-migrate"></a>为何使用 Azure Migrate？
 
@@ -46,6 +46,6 @@ ms.locfileid: "89655665"
 
 <!--Not Available on ## Next steps-->
 
-<!--Not Available on > [Review common questions](../migrate/resources-faq.md) about Azure Migrate.-->
+<!--Not Available on > [Review common questions](../migrate/resources-faq.md)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

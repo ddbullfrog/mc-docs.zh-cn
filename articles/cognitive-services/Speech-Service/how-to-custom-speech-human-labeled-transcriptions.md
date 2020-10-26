@@ -12,11 +12,11 @@ origin.date: 09/06/2019
 ms.date: 03/02/2020
 ms.author: v-tawe
 ms.openlocfilehash: 00b710faefbd7f99170221a260665db702f1af34
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77541144"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211617"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>如何创建人为标记的听录
 

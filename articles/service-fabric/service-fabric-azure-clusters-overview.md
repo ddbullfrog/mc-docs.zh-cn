@@ -34,7 +34,7 @@ Azure 上的 Service Fabric 群集是一种 Azure 资源，它使用其他 Azure
 ![Service Fabric 群集][Image]
 
 ### <a name="virtual-machine"></a>虚拟机
-作为群集一部分的[虚拟机](../virtual-machines/index.yml)称为节点，但从技术上讲，群集节点是指 Service Fabric 运行时进程。 需为每个节点分配节点名称（字符串）。 节点具有各种特征，如[放置属性](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)。 每个计算机或 VM 都有一个自动启动服务 *FabricHost.exe*，此服务在引导时开始运行，并启动两个可执行文件 *Fabric.exe* 和 *FabricGateway.exe*，这两个可执行文件便构成了节点。 生产部署是每个物理或虚拟机一个节点。 在测试方案中，可以通过运行 *Fabric.exe* 和 *FabricGateway.exe* 的多个实例，在单台计算机或 VM 上托管多个节点。
+作为群集一部分的[虚拟机](../virtual-machines/index.yml)称为节点，但从技术上讲，群集节点是指 Service Fabric 运行时进程。 需为每个节点分配节点名称（字符串）。 节点具有各种特征，如[放置属性](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)。 每个计算机或 VM 都有一个自动启动服务 *FabricHost.exe* ，此服务在引导时开始运行，并启动两个可执行文件 *Fabric.exe* 和 *FabricGateway.exe* ，这两个可执行文件便构成了节点。 生产部署是每个物理或虚拟机一个节点。 在测试方案中，可以通过运行 *Fabric.exe* 和 *FabricGateway.exe* 的多个实例，在单台计算机或 VM 上托管多个节点。
 
 每个 VM 均与虚拟网络接口卡 (NIC) 相关联，并且每个 NIC 均分配有一个专用 IP 地址。  VM 通过 NIC 分配给虚拟网络和本地均衡器。
 
@@ -53,7 +53,7 @@ Azure 上的 Service Fabric 群集是一种 Azure 资源，它使用其他 Azure
 ### <a name="azure-load-balancer"></a>Azure 负载均衡器
 VM 实例在 [Azure 负载均衡器](../load-balancer/load-balancer-overview.md)后面联接，该负载均衡器与[公共 IP 地址](../virtual-network/public-ip-addresses.md)和 DNS 标签相关联。  使用 *&lt;clustername&gt;* 预配群集时，DNS 名称 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn* 便是与规模集前面的负载均衡器相关联的 DNS 标签。
 
-群集中的 VM 只有[专用 IP 地址](../virtual-network/private-ip-addresses.md)。  管理流量和服务流量通过面向公众的负载均衡器进行路由。  网络流量通过 NAT 规则（客户端连接到特定节点/实例）或负载均衡规则（流量进入 VM 轮循机制）路由到这些计算机。  负载均衡器具有关联的公共 IP，其 DNS 名称的格式为： *&lt;clustername&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn*。  公共 IP 是资源组中的另一个 Azure 资源。  如果在群集中定义多个节点类型，则会为每个节点类型/规模集创建一个负载均衡器。 或者，可以为多个节点类型设置单个负载均衡器。  主节点类型具有 DNS 标签 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn*，其他节点类型具有 DNS 标签 *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn*。
+群集中的 VM 只有[专用 IP 地址](../virtual-network/private-ip-addresses.md)。  管理流量和服务流量通过面向公众的负载均衡器进行路由。  网络流量通过 NAT 规则（客户端连接到特定节点/实例）或负载均衡规则（流量进入 VM 轮循机制）路由到这些计算机。  负载均衡器具有关联的公共 IP，其 DNS 名称的格式为： *&lt;clustername&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn* 。  公共 IP 是资源组中的另一个 Azure 资源。  如果在群集中定义多个节点类型，则会为每个节点类型/规模集创建一个负载均衡器。 或者，可以为多个节点类型设置单个负载均衡器。  主节点类型具有 DNS 标签 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn* ，其他节点类型具有 DNS 标签 *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.chinacloudapi.cn* 。
 
 ### <a name="storage-accounts"></a>存储帐户
 每个群集节点类型均受 [Azure 存储帐户](../storage/common/storage-introduction.md)和托管磁盘的支持。

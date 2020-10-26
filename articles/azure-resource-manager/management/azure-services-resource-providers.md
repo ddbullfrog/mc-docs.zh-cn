@@ -4,16 +4,16 @@ description: 列出 Azure 资源管理器的所有资源提供程序命名空间
 ms.topic: conceptual
 origin.date: 09/04/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 416e57948950cf9f83fd7f14202f67faca67948a
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 2d6dfe86acfe68c32b79267fec2970e806839b03
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118001"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470319"
 ---
 <!--Verify sucessfully on 2020/08/17 by harris-->
 # <a name="resource-providers-for-azure-services"></a>Azure 服务的资源提供程序
@@ -26,13 +26,13 @@ ms.locfileid: "92118001"
 | --------------------------- | ------------- |
 | Microsoft.AAD | [Azure Active Directory 域服务](../../active-directory-domain-services/index.yml) |
 | Microsoft.Advisor | [Azure 顾问](../../advisor/index.yml) |
-| Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
 | Microsoft.ApiManagement | [API 管理](../../api-management/index.yml) |
-| Microsoft.Authorization<sup>1</sup> | [Azure 资源管理器](../index.yml) |
+| Microsoft.Authorization<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [自动化](../../automation/index.yml) |
 | Microsoft.AutonomousSystems | [自治系统](https://www.microsoft.com/ai/autonomous-systems) |
-| Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
+| Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | core |
 | Microsoft.Batch | [批处理](../../batch/index.yml) |
 | Microsoft.Blueprint | Azure 蓝图 |
@@ -52,19 +52,19 @@ ms.locfileid: "92118001"
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
 | Microsoft.DataFactory | [数据工厂](../../data-factory/index.yml) |
 | Microsoft.DataMigration | [Azure 数据库迁移服务](../../dms/index.yml) |
-| Microsoft.DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
-| Microsoft.DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
-| Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](../../postgresql/index.yml) |
+| Microsoft.DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
+| Microsoft.DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
+| Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](../../postgresql/index.yml) |
 | Microsoft.Devices | [Azure IoT 中心](../../iot-hub/index.yml)<br />[Azure IoT 中心设备预配服务](../../iot-dps/index.yml) |
-| Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
+| Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft.EventGrid | [事件网格](../../event-grid/index.yml) |
 | Microsoft.EventHub | [事件中心](../../event-hubs/index.yml) |
-| Microsoft.Features<sup>1</sup> | [Azure 资源管理器](../index.yml) |
-| Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
+| Microsoft.Features<sup>1</sup> | [Azure Resource Manager](../index.yml) |
+| Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft.ImportExport | [Azure 导入/导出](../../storage/common/storage-import-export-service.md) |
-| microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.IoTCentral | Azure IoT Central |
+| microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.IoTCentral | Azure IoT Central |
 | Microsoft.KeyVault | [密钥保管库](../../key-vault/index.yml) |
 | Microsoft.Kusto | [Azure 数据资源管理器](/data-explorer/) |
 | Microsoft.Logic | [逻辑应用](../../logic-apps/index.yml) |
@@ -77,11 +77,11 @@ ms.locfileid: "92118001"
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering<sup>1</sup> | core |
 | Microsoft.Media | [媒体服务](../../media-services/index.yml) |
-| Microsoft.Network | [应用程序网关](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure 防火墙](../../firewall/index.yml)<br />[负载均衡器](../../load-balancer/index.yml)<br />[网络观察程序](../../network-watcher/index.yml)<br />[流量管理器](../../traffic-manager/index.yml)<br />[虚拟网络](../../virtual-network/index.yml)<br />[虚拟 WAN](../../virtual-wan/index.yml)<br />[VPN 网关](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [应用程序网关](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure 防火墙](../../firewall/index.yml)<br />[负载均衡器](../../load-balancer/index.yml)<br />[网络观察程序](../../network-watcher/index.yml)<br />[流量管理器](../../traffic-manager/index.yml)<br />[虚拟网络](../../virtual-network/index.yml)<br />[虚拟 WAN](../../virtual-wan/index.yml)<br />[VPN 网关](../../vpn-gateway/index.yml)<br /> |
 | Microsoft.NotificationHubs | [通知中心](../../notification-hubs/index.yml) |
-| Microsoft.OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
+| Microsoft.OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft.Portal<sup>1</sup> | [Azure 门户](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](https://docs.microsoft.com/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/power-bi-embedded/) |
@@ -96,7 +96,7 @@ ms.locfileid: "92118001"
 | Microsoft.ServiceBus | [服务总线](/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.Services | core |
-| Microsoft.SignalRService | [Azure SignalR 服务](/azure-signalr/) |
+| Microsoft.SignalRService | [Azure SignalR 服务](../../azure-signalr/index.yml) |
 | Microsoft.Solutions | [Azure 托管应用程序](../managed-applications/index.yml) |
 | Microsoft.Sql | [Azure SQL 数据库](../../azure-sql/database/index.yml)<br /> [Azure SQL 托管实例](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [Azure 虚拟机中的 SQL Server](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
@@ -108,7 +108,7 @@ ms.locfileid: "92118001"
 | Microsoft.TimeSeriesInsights | [Azure 时序见解](../../time-series-insights/index.yml) |
 | Microsoft.Web | [应用服务](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
 
-<!--CORRECT ON | Microsoft.Cdn | [Content Delivery Network](https://docs.azure.cn/cdn/) |-->
+<!--CORRECT ON | Microsoft.Cdn | [Content Delivery Network](https://docs.azure.cn/cdn/) |-->
 <!--Table Content All Verified Successfully on 08/24/2020-->
 
 <sup>1</sup> 默认已注册

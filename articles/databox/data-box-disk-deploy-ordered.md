@@ -7,15 +7,15 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 origin.date: 07/03/2019
-ms.date: 07/27/2020
+ms.date: 10/29/2020
 ms.author: v-jay
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: d1a0bbf5d59629e7e5e47ddb1eb89078e513b83a
-ms.sourcegitcommit: c3f15613c875bb52d5a105445efd0f36b9f24c9c
+ms.openlocfilehash: f74e63f8eaf1a6bc0c1b3b434f0c454d931ab940
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86473474"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469957"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>教程：订购 Azure Data Box Disk
 
@@ -57,13 +57,13 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
 
    ![搜索“Azure Data Box 1”](media/data-box-disk-deploy-ordered/search-data-box11.png)
 
-2. 单击**创建**。
+2. 单击“创建”。
 
 3. 检查 Data Box 服务是否在你的区域可用。 输入或选择以下信息，然后单击“应用”。
 
     ![选择 Data Box 磁盘选项](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |设置|Value|
+    |设置|“值”|
     |---|---|
     |订阅|选择已为其启用了 Data Box 服务的订阅。<br> 该订阅将链接到计费帐户。 |
     |传输类型| 导入到 Azure|
@@ -72,9 +72,9 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
   
 4. 选择“Data Box 磁盘”。 单次订购的解决方案（包括 5 个磁盘）的最大容量为 35 TB。 可以创建多个订单，以增加数据大小。
 
-     ![选择 Data Box 磁盘选项](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
+     ![选择 Data Box Disk 选项 2](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
-5. 在“订单”中指定“订单详细信息”。 输入或选择以下信息。
+5. 在“订单”中指定“订单详细信息”。  输入或选择以下信息。
 
     |设置|Value|
     |---|---|
@@ -83,7 +83,7 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
     |目标 Azure 区域| 选择存储帐户的区域。 |
     |估计数据大小(TB)| 输入估计值，以 TB 为单位。 <br>根据数据大小，Azure 会寄送适当数量的 8 TB SSD（7 TB 可用容量）。 <br>5 个磁盘的最大可用容量高达 35 TB。 |
     |磁盘密钥| 如果选中“使用自定义密钥而不是 Azure 生成的密钥”，请提供磁盘密钥。 <br> 提供一个 12 到 32 个字符的字母数字密钥，其中至少包含一个数字和一个特殊字符。 允许使用的特殊字符是 `@?_+`。 <br> 可以选择跳过此选项并使用 Azure 生成的密钥来解锁磁盘。|
-    |存储目标     | 从存储帐户和/或托管磁盘中进行选择。 <br> 根据指定的 Azure 区域，从现有存储帐户的筛选列表中选择一个存储帐户。 Data Box Disk 只能与 1 个存储帐户链接。 <br> 也可以创建新的**常规用途 v1**、**常规用途 v2** 或 **Blob 存储帐户**。 <br>支持使用虚拟网络的存储帐户。 若要允许 Data Box 服务使用受保护的存储帐户，请在存储帐户网络防火墙设置中启用受信任的服务。 有关详细信息，请了解如何[将 Azure Data Box 添加为受信任的服务](/storage/common/storage-network-security#exceptions)。|
+    |存储目标     | 从存储帐户和/或托管磁盘中进行选择。 <br> 根据指定的 Azure 区域，从现有存储帐户的筛选列表中选择一个存储帐户。 Data Box Disk 只能与 1 个存储帐户链接。 <br> 也可以创建新的 **常规用途 v1** 、 **常规用途 v2** 或 **Blob 存储帐户** 。 <br>支持使用虚拟网络的存储帐户。 若要允许 Data Box 服务使用受保护的存储帐户，请在存储帐户网络防火墙设置中启用受信任的服务。 有关详细信息，请了解如何[将 Azure Data Box 添加为受信任的服务](../storage/common/storage-network-security.md#exceptions)。|
 
     如果使用存储帐户作为存储目标，则会看到以下屏幕截图：
 
@@ -91,7 +91,7 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
 
     如果使用 Data Box Disk 从本地 VHD 创建托管磁盘，则还需提供以下信息：
 
-    |设置  |值  |
+    |设置  |Value  |
     |---------|---------|
     |资源组     | 若要从本地 VHD 创建托管磁盘，请创建新的资源组。 使用现有资源组的前提是，它是通过 Data Box 服务为托管磁盘的 Data Box Disk 订单创建的。 <br> 只支持一个资源组。|
 
@@ -99,7 +99,7 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
 
     为托管磁盘指定的存储帐户用作临时存储帐户。 Data Box 服务将 VHD 上传到临时存储帐户，然后将其转换为托管磁盘并转移到资源组。 有关详细信息，请参阅[验证 Azure 中的数据上传](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure)。
 
-6. 单击“下一步”。
+6. 单击“下一步”  。
 
     ![提供订单详细信息](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
@@ -112,7 +112,7 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
 
     我们建议使用组电子邮件，以便在组中的管理员离任后，可以持续收到通知。
 
-9. 查看与订单、联系人、通知和隐私条款相关的信息**摘要**。 选中对应于同意隐私条款的复选框。
+9. 查看与订单、联系人、通知和隐私条款相关的信息 **摘要** 。 选中对应于同意隐私条款的复选框。
 
 10. 单击“订购”。 创建订单需要几分钟时间。
 
@@ -134,13 +134,13 @@ Azure Data Box Disk 是一个混合云解决方案，可用于快速、方便、
 
 ## <a name="cancel-the-order"></a>取消订单
 
-若要取消此订单，请在 Azure 门户中转到“概览”，然后在命令栏中单击“取消”。
+若要取消此订单，请在 Azure 门户中转到“概览”，然后在命令栏中单击“取消”。 
 
 只能在订购磁盘后我们正在处理订单交货时取消订单。 一旦订单已处理，就再也不能取消订单。
 
 ![取消订单](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-若要删除已取消的订单，请转到“概况”，然后在命令栏中单击“删除”。
+若要删除已取消的订单，请转到“概况”，然后在命令栏中单击“删除”。 
 
 ## <a name="next-steps"></a>后续步骤
 

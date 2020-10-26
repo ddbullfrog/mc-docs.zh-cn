@@ -21,8 +21,8 @@ ms.locfileid: "92170695"
 
  Azure [应用服务环境][Intro]是指将 Azure 应用服务部署到 Azure 虚拟网络 (VNet) 的子网中。 应用服务环境 (ASE) 具有两种部署类型：
 
-- **外部 ASE**：在 Internet 可访问的 IP 地址上公开 ASE 托管的应用。 有关详细信息，请参阅[创建外部 ASE][MakeExternalASE]。
-- **ILB ASE**：在 VNet 中的 IP 地址上公开 ASE 托管的应用。 内部终结点是一个内部负载均衡器 (ILB)，因此该类部署被称为 ILB ASE。 有关详细信息，请参阅[创建和使用 ILB ASE][MakeILBASE]。
+- **外部 ASE** ：在 Internet 可访问的 IP 地址上公开 ASE 托管的应用。 有关详细信息，请参阅[创建外部 ASE][MakeExternalASE]。
+- **ILB ASE** ：在 VNet 中的 IP 地址上公开 ASE 托管的应用。 内部终结点是一个内部负载均衡器 (ILB)，因此该类部署被称为 ILB ASE。 有关详细信息，请参阅[创建和使用 ILB ASE][MakeILBASE]。
 
 所有 ASE、外部组件和 ILB 都有一个公共 VIP，该 VIP 用于入站管理流量，从 ASE 对 Internet 发出调用时，它还用作来源地址。 从 ASE 发出的、转到 Internet 的所有调用将通过分配给 ASE 的 VIP 离开 VNet。 此 VIP 的公共 IP 将成为从 ASE 发出的、转到 Internet 的所有调用的源 IP。 如果 ASE 中的应用调用了 VNet 中的资源或通过 VNet 发出调用，则源 IP 是 ASE 使用的子网中的某个 IP。 由于 ASE 在 VNet 中，因此也可以访问 VNet 中的资源，而不需要进行任何额外配置。 如果 VNet 连接到本地网络，则 ASE 中的应用也可访问此处的资源，不需其他配置。
 
@@ -99,7 +99,7 @@ ASE 在以下端口上与可通过 Internet 访问的地址通信：
 
 如果在 VNet 中配置了客户定义的 DNS 服务器，则租户工作负荷将使用该服务器。 ASE 使用 Azure DNS 进行管理。 如果在 VNet 中配置了客户所选的 DNS 服务器，则必须可从包含 ASE 的子网访问 DNS 服务器。
 
-若要从 Web 应用测试 DNS 解析，可以使用控制台命令 *nameresolver*。 转到应用的 scm 站点的调试窗口，或者在门户中转到应用，然后选择控制台。 在 shell 提示符下，可以结合要查找的 DNS 名称发出命令 *nameresolver*。 你取回的结果与应用进行同一查找时获取的结果相同。 如果使用 nslookup，则会改用 Azure DNS 进行查找。
+若要从 Web 应用测试 DNS 解析，可以使用控制台命令 *nameresolver* 。 转到应用的 scm 站点的调试窗口，或者在门户中转到应用，然后选择控制台。 在 shell 提示符下，可以结合要查找的 DNS 名称发出命令 *nameresolver* 。 你取回的结果与应用进行同一查找时获取的结果相同。 如果使用 nslookup，则会改用 Azure DNS 进行查找。
 
 如果更改 ASE 所在的 VNet 的 DNS 设置，则需重启 ASE。 为了避免重启 ASE，强烈建议在创建 ASE 之前配置 VNet 的 DNS 设置。  
 
@@ -107,7 +107,7 @@ ASE 在以下端口上与可通过 Internet 访问的地址通信：
 
 ## <a name="portal-dependencies"></a>门户依赖项 ##
 
-除了 ASE 功能依赖项，还有其他几项与门户体验相关。 Azure 门户中的某些功能依赖于对 _SCM 站点_的直接访问。 Azure 应用服务中的每个应用都有两个 URL。 第一个 URL 用于访问你的应用。 第二个 URL 用于访问 SCM 站点（也称为 _Kudu 控制台_）。 使用 SCM 站点的功能包括：
+除了 ASE 功能依赖项，还有其他几项与门户体验相关。 Azure 门户中的某些功能依赖于对 _SCM 站点_ 的直接访问。 Azure 应用服务中的每个应用都有两个 URL。 第一个 URL 用于访问你的应用。 第二个 URL 用于访问 SCM 站点（也称为 _Kudu 控制台_ ）。 使用 SCM 站点的功能包括：
 
 -   Web 作业
 -   函数
@@ -119,16 +119,16 @@ ASE 在以下端口上与可通过 Internet 访问的地址通信：
 
 使用 ILB ASE 时，无法从 VNet 外部访问 SCM 站点。 某些功能无法从应用门户运行，因为它们需要访问应用的 SCM 站点。 可以直接连接到 SCM 站点，而不使用门户。 
 
-如果 ILB ASE 的域名是 *contoso.appserviceenvironment.cn*，而应用名称是 *testapp*，则会通过 *testapp.contoso.appserviceenvironment.cn* 访问应用。 通过 *testapp.scm.contoso.appserviceenvironment.cn* 访问其随附的 SCM 站点。
+如果 ILB ASE 的域名是 *contoso.appserviceenvironment.cn* ，而应用名称是 *testapp* ，则会通过 *testapp.contoso.appserviceenvironment.cn* 访问应用。 通过 *testapp.scm.contoso.appserviceenvironment.cn* 访问其随附的 SCM 站点。
 
 ## <a name="ase-ip-addresses"></a>ASE IP 地址 ##
 
 ASE 具有一些需要注意的 IP 地址。 它们具有以下特点：
 
-- **公共入站 IP 地址**：用于外部 ASE 中的应用流量，以及外部 ASE 和 ILB ASE 中的管理流量。
-- **出站公共 IP**：用作 ASE 发出、离开 VNet 且不经过 VPN 的出站连接的“来源”IP。
-- **ILB IP 地址**：ILB IP 地址仅在 ILB ASE 中存在。
-- **应用分配的基于 IP 的 SSL 地址**：仅当配置了基于 IP 的 SSL 时在外部 ASE 上使用。
+- **公共入站 IP 地址** ：用于外部 ASE 中的应用流量，以及外部 ASE 和 ILB ASE 中的管理流量。
+- **出站公共 IP** ：用作 ASE 发出、离开 VNet 且不经过 VPN 的出站连接的“来源”IP。
+- **ILB IP 地址** ：ILB IP 地址仅在 ILB ASE 中存在。
+- **应用分配的基于 IP 的 SSL 地址** ：仅当配置了基于 IP 的 SSL 时在外部 ASE 上使用。
 
 所有这些 IP 地址会显示在 Azure 门户上的 ASE UI 中。 若使用 ILB ASE，将列出 ILB 的 IP。
 
@@ -181,7 +181,7 @@ ASE 具有一些需要注意的 IP 地址。 它们具有以下特点：
 
 ![入站安全规则][4]
 
-默认规则允许 VNet 中的 IP 与 ASE 子网对话。 另一条默认规则允许负载均衡器（亦称为公共 VIP）与 ASE 通信。 选择“添加”图标旁边的“默认规则”即可查看此规则。******** 如果在默认规则的前面放置一条拒绝其他任何流量的规则，则会阻止 VIP 与 ASE 之间的流量。 要阻止来自 Vnet 内部的流量，请自行添加规则以允许入站。 使用等效于 AzureLoadBalancer 的源，其目标为“任何”，端口范围为 \*。******** 由于 ASE 子网将应用 NSG 规则，因此无需指定具体的目标。
+默认规则允许 VNet 中的 IP 与 ASE 子网对话。 另一条默认规则允许负载均衡器（亦称为公共 VIP）与 ASE 通信。 选择“添加”图标旁边的“默认规则”即可查看此规则。  如果在默认规则的前面放置一条拒绝其他任何流量的规则，则会阻止 VIP 与 ASE 之间的流量。 要阻止来自 Vnet 内部的流量，请自行添加规则以允许入站。 使用等效于 AzureLoadBalancer 的源，其目标为“任何”，端口范围为 \*。  由于 ASE 子网将应用 NSG 规则，因此无需指定具体的目标。
 
 若向应用分配了 IP 地址，请确保端口保持打开。 可在“应用服务环境” > “IP 地址”中查看端口。   
 
@@ -204,7 +204,7 @@ ASE 具有一些需要注意的 IP 地址。 它们具有以下特点：
 
 3. 在路由表 UI 中选择“路由” > “添加”。 
 
-4. 将“下一跃点类型”设置为 Internet，将“地址前缀”设置为 0.0.0.0/0。**************** 选择“保存” 。
+4. 将“下一跃点类型”设置为 Internet，将“地址前缀”设置为 0.0.0.0/0。  选择“保存” 。
 
     然后将看到如下内容：
 

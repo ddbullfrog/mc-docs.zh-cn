@@ -27,7 +27,7 @@ ms.locfileid: "92121720"
 可以使用 Azure 门户中的数据工厂 UI 或编程接口来参数化链接服务。
 
 > [!TIP]
-> 我们建议不要参数化密码或机密。 而应将所有连接字符串都存储在 Azure Key Vault 中，并参数化*机密名称*。
+> 我们建议不要参数化密码或机密。 而应将所有连接字符串都存储在 Azure Key Vault 中，并参数化 *机密名称* 。
 
 ## <a name="supported-data-stores"></a>支持的数据存储
 

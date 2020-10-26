@@ -108,7 +108,7 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName
 
 此信息在资源管理器中的位置为：
 
-management.chinacloudapi.cn/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
+management.chinacloudapi.cn/subscriptions/ **subscription ID** /resourceGroups/ **resource groups** /providers/Microsoft.Web/sites/ **web app name** /config/web?api-version=2018-02-01
 
 前面的示例的 JSON 语法为：
 ```json

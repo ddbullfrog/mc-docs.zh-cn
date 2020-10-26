@@ -75,7 +75,7 @@ PS C:\> $tags += @{Location="MyLocation"}
 PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 ```
 
-第五个命令显示资源上的所有标记。 可以看到，*Location* 现在定义为值为 *MyLocation* 的标记。
+第五个命令显示资源上的所有标记。 可以看到， *Location* 现在定义为值为 *MyLocation* 的标记。
 
 ```azurepowershell
 PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags

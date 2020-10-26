@@ -5,21 +5,21 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 547944e1044b63ff3e14f67765f7d99bfa6b4e2b
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 299709f40e56cbc90b29ffb46f078e3466075831
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146754"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470149"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 
-当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。  虽然你安装的网关与其他服务（例如 Power BI、Power Apps 和逻辑应用）使用的网关相同，但在针对 Azure Analysis Services 进行安装时，有一些需要完成的额外步骤。 本安装文章专门针对 **Azure Analysis Services**。 
+当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。  虽然你安装的网关与其他服务（例如 Power BI、Power Apps 和逻辑应用）使用的网关相同，但在针对 Azure Analysis Services 进行安装时，有一些需要完成的额外步骤。 本安装文章专门针对 **Azure Analysis Services** 。 
 
 若要详细了解 Azure Analysis Services 如何使用网关，请参阅[连接到本地数据源](analysis-services-gateway.md)。 若要总体了解有关高级安装方案和网关的更多信息，请参阅[本地数据网关文档](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)。
 
@@ -102,17 +102,17 @@ ms.locfileid: "91146754"
 
 2. 在“创建连接网关”中，输入以下设置： 
 
-    * **名称**：输入网关资源的名称。 
+    * **名称** ：输入网关资源的名称。 
 
     * 订阅：选择要与网关资源关联的 Azure 订阅。 
 
         默认订阅取决于用来登录的 Azure 帐户。
 
-    * **资源组**：创建资源组，或选择现有资源组。
+    * **资源组** ：创建资源组，或选择现有资源组。
 
-    * **位置**：选择网关的注册区域。
+    * **位置** ：选择网关的注册区域。
 
-    * **安装名称**：如果尚未选择网关安装，请选择在计算机上安装并注册的网关。 
+    * **安装名称** ：如果尚未选择网关安装，请选择在计算机上安装并注册的网关。 
 
     完成后，单击“创建”  。
 
@@ -124,18 +124,18 @@ ms.locfileid: "91146754"
 
 # <a name="portal"></a>[门户](#tab/azure-portal)
 
-1. 在 Azure Analysis Services 服务器概述中，单击“本地数据网关”****。
+1. 在 Azure Analysis Services 服务器概述中，单击“本地数据网关”  。
 
     :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-connect-server.png" alt-text="Select":::
 
-2. 在“选取要连接的本地数据网关”****，选择你的网关资源，然后单击“连接所选网关”****。
+2. 在“选取要连接的本地数据网关”  ，选择你的网关资源，然后单击“连接所选网关”  。
 
     :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-connect-resource.png" alt-text="Select":::
 
     > [!NOTE]
     > 如果列表中不显示你的网关，很可能是你的服务器与你注册网关时指定的区域不在同一个区域。
 
-    在服务器和网关资源之间成功建立连接以后，状态会显示“已连接”。****
+    在服务器和网关资源之间成功建立连接以后，状态会显示“已连接”。 
 
     :::image type="content" source="media/analysis-services-gateway-install/aas-gateway-connect-success.png" alt-text="Select":::
 

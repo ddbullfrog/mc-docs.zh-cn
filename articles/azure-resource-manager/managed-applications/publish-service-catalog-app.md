@@ -5,16 +5,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 origin.date: 04/14/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 174d95aef5ab81954c135d0a73e2569aee78bffd
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 52c168ef79884dce71922958cdd3f050d96da8e4
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937393"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470053"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>快速入门：创建并发布托管应用程序定义
 
@@ -38,7 +38,7 @@ ms.locfileid: "91937393"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageAccountNamePrefix": {
@@ -201,7 +201,7 @@ az storage blob upload \
 
 下一步是选择用于为客户管理资源的用户组、用户或应用程序。 此标识对托管资源组的权限与所分配的角色相对应。 角色可以是任何 Azure 内置角色，例如所有者或参与者。 若要创建新的 Active Directory 用户组，请参阅[在 Azure Active Directory 中创建组并添加成员](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
-需要提供用户组的对象 ID 以用于管理资源。 
+需要提供用户组的对象 ID 以用于管理资源。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -293,10 +293,10 @@ az managedapp definition create \
 
 前述示例中使用的部分参数包括：
 
-* **资源组**：在其中创建托管应用程序定义的资源组的名称。
-* **锁定级别**：在托管资源组上放置的锁的类型。 它防止客户对此资源组执行不良操作。 当前，ReadOnly 是唯一受支持的锁级别。 当指定了 ReadOnly 时，客户只能读取托管资源组中存在的资源。 授予对托管资源组的访问权限的发布者标识不受该锁控制。
-* **authorizations**：描述用于授予对托管资源组权限的主体 ID 和角色定义 ID。 它是以 `<principalId>:<roleDefinitionId>` 格式指定的。 如果需要多个值，请以 `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>` 格式指定它们。 请用逗号分隔这些值。
-* **包文件 URI**：包含所需文件的 .zip 包的位置。
+* **资源组** ：在其中创建托管应用程序定义的资源组的名称。
+* **锁定级别** ：在托管资源组上放置的锁的类型。 它防止客户对此资源组执行不良操作。 当前，ReadOnly 是唯一受支持的锁级别。 当指定了 ReadOnly 时，客户只能读取托管资源组中存在的资源。 授予对托管资源组的访问权限的发布者标识不受该锁控制。
+* **authorizations** ：描述用于授予对托管资源组权限的主体 ID 和角色定义 ID。 它是以 `<principalId>:<roleDefinitionId>` 格式指定的。 如果需要多个值，请以 `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>` 格式指定它们。 请用逗号分隔这些值。
+* **包文件 URI** ：包含所需文件的 .zip 包的位置。
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>自带符合托管应用程序定义的存储
 
@@ -317,7 +317,7 @@ az managedapp definition create \
 
 1. 在 [Azure 门户](https://portal.azure.cn)中导航到存储帐户。
 1. 选择“访问控制(标识和访问管理)”以显示存储帐户的访问控制设置。 选择“角色分配”选项卡以查看角色分配列表。
-1. 在“添加角色分配”窗口中，选择“参与者”角色 。 
+1. 在“添加角色分配”窗口中，选择“参与者”角色 。
 1. 在“分配访问权限至”字段中，选择“Azure AD 用户、组或服务主体”。
 1. 在“选择”下，搜索“设备资源提供程序”角色，然后将其选中。 
 1. 保存角色分配。
@@ -327,8 +327,8 @@ az managedapp definition create \
 使用以下 ARM 模板将打包的托管应用程序部署为服务目录中的新托管应用程序定义，其定义文件在你自己的存储帐户中进行存储和维护：
 
 ```json
-    {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -379,7 +379,7 @@ az managedapp definition create \
     "resources": [
         {
             "type": "Microsoft.Solutions/applicationDefinitions",
-            "apiVersion": "2019-07-01",
+            "apiVersion": "2020-08-21-preview",
             "name": "[variables('managedApplicationDefinitionName')]",
             "location": "[parameters('location')]",
             "properties": {

@@ -24,9 +24,9 @@ ms.locfileid: "92127841"
 
 下面是一些可以利用这些功能的方案：
 
-- **边缘设置**：我们有一种边缘设置，可以在其中将消息发送到 RabbitMQ，但我们希望将这些消息转发到 [Azure 服务总线](./service-bus-messaging-overview.md)进行进一步的处理，以便使用许多 [Azure 大数据功能](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-data)。
-- **混合云**：你的公司刚收购了一家使用 RabbitMQ 来满足其消息传递需求的第三方公司。 它们在不同的云上。 当它们过渡到 Azure 时，你就已经可以通过使用 Azure 服务总线桥接 RabbitMQ 来开始共享数据。
-- **第三方集成**：第三方使用 RabbitMQ 作为中转站，并想要将其数据发送给我们，但它们在我们的组织外部。 我们可以向其提供 SAS 密钥，使其能够访问用来转发消息的一组有限的 Azure 服务总线队列。
+- **边缘设置** ：我们有一种边缘设置，可以在其中将消息发送到 RabbitMQ，但我们希望将这些消息转发到 [Azure 服务总线](./service-bus-messaging-overview.md)进行进一步的处理，以便使用许多 [Azure 大数据功能](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-data)。
+- **混合云** ：你的公司刚收购了一家使用 RabbitMQ 来满足其消息传递需求的第三方公司。 它们在不同的云上。 当它们过渡到 Azure 时，你就已经可以通过使用 Azure 服务总线桥接 RabbitMQ 来开始共享数据。
+- **第三方集成** ：第三方使用 RabbitMQ 作为中转站，并想要将其数据发送给我们，但它们在我们的组织外部。 我们可以向其提供 SAS 密钥，使其能够访问用来转发消息的一组有限的 Azure 服务总线队列。
 
 列表还在继续扩充，但是我们可以通过将 RabbitMQ 桥接到 Azure 来解决大多数此类用例的问题。
 
@@ -86,7 +86,7 @@ rabbitmq-plugins enable rabbitmq_shovel_management
 
 勾选“`Send`”框，然后单击“`Create`”以创建我们的 SAS 策略。
 
-创建策略后，单击该策略以查看**主连接字符串**。 我们将使用它来让 RabbitMQ 与 Azure 服务总线通信：
+创建策略后，单击该策略以查看 **主连接字符串** 。 我们将使用它来让 RabbitMQ 与 Azure 服务总线通信：
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="创建资源":::
 
@@ -108,7 +108,7 @@ rabbitmq-plugins enable rabbitmq_shovel_management
 amqps://rabbitmq-shovel:StringOfRandomChars@rabbitmq.servicebus.chinacloudapi.cn:5671/?sasl=plain
 ```
 
-在“`Address`”字段中，我们将输入你的 **Azure 服务总线队列**的名称。在本例中，它名为 `from-rabbitmq`。 单击“`Add Shovel`”，你的设置项就可以开始接收消息。
+在“`Address`”字段中，我们将输入你的 **Azure 服务总线队列** 的名称。在本例中，它名为 `from-rabbitmq`。 单击“`Add Shovel`”，你的设置项就可以开始接收消息。
 
 ## <a name="publishing-messages-from-rabbitmq-to-azure-service-bus"></a>将消息从 RabbitMQ 发布到 Azure 服务总线
 

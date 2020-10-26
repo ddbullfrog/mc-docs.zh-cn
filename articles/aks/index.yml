@@ -8,14 +8,16 @@ metadata:
   ms.topic: landing-page
   origin.date: 07/21/2020
   author: rockboyfor
-  ms.date: 10/12/2020
+  ms.date: 10/26/2020
+  ms.testscope: no
+  ms.testdate: 
   ms.author: v-yeche
-  ms.openlocfilehash: 90d86cc8b6166e76e192a10ce5c4a6835a3450f0
-  ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+  ms.openlocfilehash: 8d93a49f10b1a946264c66cbfe34d348e033e67b
+  ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/10/2020
-  ms.locfileid: "91936990"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92470450"
 landingContent:
 - title: 关于 Azure Kubernetes 服务 (AKS)
   linkLists:
@@ -77,3 +79,11 @@ landingContent:
       url: tutorial-kubernetes-app-update.md
     - text: 7. 升级 AKS 中的 Kubernetes
       url: tutorial-kubernetes-upgrade-cluster.md
+- title: 体系结构指南
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: 面向群集操作员和开发人员的最佳做法
+      url: best-practices.md
+    - text: 查找最佳实践
+      url: kube-advisor-tool.md

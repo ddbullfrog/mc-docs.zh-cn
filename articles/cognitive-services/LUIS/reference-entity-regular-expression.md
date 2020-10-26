@@ -1,16 +1,18 @@
 ---
 title: 正则表达式实体类型 - LUIS
 description: 正则表达式最适合用于原始话语文本。 不区分大小写，并忽略区域性变体。  完成字符级别而不是令牌级别的拼写检查更改后，会应用正则表达式匹配。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 origin.date: 04/14/2020
-ms.date: 06/16/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
-ms.openlocfilehash: f506f3412cc2dda9e153cebc5ac5872ad75106ec
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 958ef26f43e749e3816e4aa4067899815f60b6df
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098594"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472331"
 ---
 # <a name="regular-expression-entity"></a>正则表达式实体
 
@@ -105,3 +107,4 @@ ms.locfileid: "85098594"
 
 * [概念](luis-concept-entity-types.md)
 * [如何创建](luis-how-to-add-entities.md)
+

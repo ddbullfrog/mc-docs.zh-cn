@@ -3,19 +3,19 @@ title: Azure 上的 Kubernetes 教程 - 创建容器注册表
 description: 在本 Azure Kubernetes 服务 (AKS) 教程中，请创建 Azure 容器注册表实例并上传示例应用程序容器映像。
 services: container-service
 ms.topic: tutorial
-origin.date: 12/19/2018
+origin.date: 09/30/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 03/09/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7f1e7bcb91d48cfc3159f201d660d2902a0be036
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: bdf641b732a3b874399e9f84e9814d0011a80fe5
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021229"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470186"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>教程：部署并使用 Azure 容器注册表
 
@@ -71,15 +71,15 @@ $ docker images
 上述命令输出显示当前本地图像的列表：
 
 ```
-REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
-redis                        latest              a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
+REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        7 minutes ago       944MB
+mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 若要将 *azure-vote-front* 容器映像与 ACR 配合使用，需使用注册表的登录服务器地址对映像进行标记。 在将容器映像推送到映像注册表时，使用此标记进行路由。
 
-若要获取登录服务器地址，请使用 [az acr list][az-acr-list] 命令并查询是否存在 *loginServer*，如下所示：
+若要获取登录服务器地址，请使用 [az acr list][az-acr-list] 命令并查询是否存在 *loginServer* ，如下所示：
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -88,10 +88,10 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 现在，请使用容器注册表的 acrLoginServer 地址标记本地 azure-vote-front 映像。 若要指示映像版本，请将 *:v1* 添加到映像名称的末尾：
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v1
 ```
 
-若要验证是否已应用标记，请再次运行 [docker images][docker-images]。 
+若要验证是否已应用标记，请再次运行 [docker images][docker-images]。
 
 ```azurecli
 $ docker images
@@ -100,11 +100,11 @@ $ docker images
 系统会使用 ACR 实例地址和版本号对映像进行标记。
 
 ```
-REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
-azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry.azurecr.cn/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB
-redis                                                latest        a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313        8 months ago        694 MB
+REPOSITORY                                      TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front    v1                  84b41c268ad9        16 minutes ago      944MB
+mycontainerregistry.azurecr.cn/azure-vote-front v1                  84b41c268ad9        16 minutes ago      944MB
+mcr.microsoft.com/oss/bitnami/redis             6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                      python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 ## <a name="push-images-to-registry"></a>将映像推送到注册表
@@ -173,11 +173,11 @@ v1
 
 [az-acr-create]: https://docs.azure.cn/cli/acr
 [az-acr-list]: https://docs.azure.cn/cli/acr
-[az-acr-login]: https://docs.azure.cn/cli/acr#az-acr-login
-[az-acr-list]: https://docs.azure.cn/cli/acr#az-acr-list
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
+[az-acr-list]: https://docs.azure.cn/cli/acr#az_acr_list
 [az-acr-repository-list]: https://docs.azure.cn/cli/acr/repository
 [az-acr-repository-show-tags]: https://docs.azure.cn/cli/acr/repository
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 [aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

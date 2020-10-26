@@ -92,7 +92,7 @@ ms.locfileid: "92041549"
 删除 metaverse 对象后，所有与标记为“预配”的出站同步规则关联的对象都将标记为要删除。 
 
 ## <a name="transformations"></a>转换
-转换用于定义属性应该如何从源流动到目标。 流可以是以下**流类型**之一：直接、常数或表达式。 直接流会按原样流动属性值，而不进行其他转换。 常数值会设置指定的值。 表达式会使用声明性预配表达式语言来表达应该如何转换。 有关表达式语言的详细信息，请参阅[了解声明性预配表达式语言](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)主题。
+转换用于定义属性应该如何从源流动到目标。 流可以是以下 **流类型** 之一：直接、常数或表达式。 直接流会按原样流动属性值，而不进行其他转换。 常数值会设置指定的值。 表达式会使用声明性预配表达式语言来表达应该如何转换。 有关表达式语言的详细信息，请参阅[了解声明性预配表达式语言](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)主题。
 
 ![预配或联接](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -118,7 +118,7 @@ ms.locfileid: "92041549"
 
 文本 **AuthoritativeNull** 与 **NULL** 类似，但差异在于具有较低优先级的规则不可以提供值。
 
-属性流还可使用 **IgnoreThisFlow**。 就表示没有要提供的内容而言，它与 NULL 类似。 差异在于它不会删除目标中已经存在的值。 就像属性流从未出现一样。
+属性流还可使用 **IgnoreThisFlow** 。 就表示没有要提供的内容而言，它与 NULL 类似。 差异在于它不会删除目标中已经存在的值。 就像属性流从未出现一样。
 
 以下是示例：
 
@@ -140,7 +140,7 @@ ms.locfileid: "92041549"
 
 ![合并类型](./media/concept-azure-ad-connect-sync-declarative-provisioning/precedence1.png)  
 
-此排序可用于针对小部分对象定义更精确的属性流。 例如，现成规则可确保已启用帐户 (**User AccountEnabled**) 的属性优先于其他帐户的属性。
+此排序可用于针对小部分对象定义更精确的属性流。 例如，现成规则可确保已启用帐户 ( **User AccountEnabled** ) 的属性优先于其他帐户的属性。
 
 可定义连接器之间的优先级。 这样一来，具有更好的数据的连接器可以先提供值。
 

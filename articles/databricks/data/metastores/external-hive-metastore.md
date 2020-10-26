@@ -132,7 +132,7 @@ where
 若要使用 Azure Databricks UI 设置外部元存储，请执行以下操作：
 
 1. 单击边栏中的“群集”按钮。
-2. 单击“创建群集”。****
+2. 单击“创建群集”。 
 3. 输入以下 [Spark 配置选项](../../clusters/configure.md#spark-config)：
 
    ```ini

@@ -40,7 +40,7 @@ ms.locfileid: "92170478"
 流式日志功能仅适用于面向 .NET Framework 4 或更高版本的应用程序。
 
 ## <a name="app-configuration-and-management"></a><a name="sitemanagement"></a>应用配置和管理
-通过 Visual Studio，用户可以访问 [Azure 门户](https://portal.azure.cn)中提供的一部分应用管理功能和配置设置。 本节介绍使用“服务器资源管理器”可以实现的功能。 若要了解最新的 Azure 集成功能，请同时试用**云资源管理器**。 可以从“视图”菜单打开这两个窗口。
+通过 Visual Studio，用户可以访问 [Azure 门户](https://portal.azure.cn)中提供的一部分应用管理功能和配置设置。 本节介绍使用“服务器资源管理器”可以实现的功能。 若要了解最新的 Azure 集成功能，请同时试用 **云资源管理器** 。 可以从“视图”菜单打开这两个窗口。
 
 1. 如果还没有登录 Visual Studio 中的 Azure ，右键单击“Azure”，然后选择连接到“服务器资源管理器”中的“Microsoft Azure 订阅”  。
 
@@ -82,7 +82,7 @@ ms.locfileid: "92170478"
 
 :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Web 浏览器的屏幕截图，其中显示“'/' 应用程序中出现服务器错误”。":::
 
-找出错误原因的最简捷方法通常是启用详细错误消息，之前保留的屏幕快照中的第一个快照会告诉你如何做。 而实现此目的需要在部署的 Web.config 文件中进行更改。 可以编辑项目中的 *Web.config* 文件，并重新部署该项目，或创建 [Web.config 转换](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)并部署调试版本，但还有一个更快捷的方式：在“解决方案资源管理器”中，可以通过使用*远程视图*功能直接查看并编辑远程应用中的文件。
+找出错误原因的最简捷方法通常是启用详细错误消息，之前保留的屏幕快照中的第一个快照会告诉你如何做。 而实现此目的需要在部署的 Web.config 文件中进行更改。 可以编辑项目中的 *Web.config* 文件，并重新部署该项目，或创建 [Web.config 转换](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)并部署调试版本，但还有一个更快捷的方式：在“解决方案资源管理器”中，可以通过使用 *远程视图* 功能直接查看并编辑远程应用中的文件。
 
 1. 在“服务器资源管理器”中，依次展开“Azure”、“应用服务”、应用所在的资源组以及应用的节点  。
 
@@ -114,7 +114,7 @@ ms.locfileid: "92170478"
 
 1. 打开在[在 Azure 应用服务中创建 ASP.NET 应用](quickstart-dotnet-framework.md)中创建的 Web 项目。
 
-1. 打开 *Controllers\HomeController.cs*。
+1. 打开 *Controllers\HomeController.cs* 。
 
 1. 删除 `About()` 方法并在其位置插入以下代码。
 
@@ -176,7 +176,7 @@ ms.locfileid: "92170478"
 
 1. 打开在 [Azure WebJobs SDK 入门][GetStartedWJ]中创建的 Web 项目。
 
-2. 在 ContosoAdsWebJob 项目中，打开 *Functions.cs*。
+2. 在 ContosoAdsWebJob 项目中，打开 *Functions.cs* 。
 
 3. 在 `GnerateThumbnail` 方法的第一个语句中[设置一个断点](https://docs.microsoft.com/visualstudio/debugger/)。
 
@@ -474,7 +474,7 @@ Web 服务器日志将记录应用上所有的 HTTP 活动。 若要在“输出
    * Web 服务器日志位于 *LogFiles\http\RawLogs* 文件夹的 *.log* 文件中。 可以使用诸如 [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 之类的工具查看并处理这些文件。
    * 详细的错误消息日志位于 *LogFiles\DetailedErrors* 文件夹的 *.html* 文件中。
 
-     （*deployments* 文件夹内是由源代码管理发布创建的文件；其中没有任何有关 Visual Studio 发布的内容。 *Git* 文件夹内是与源代码管理发布以及日志文件流式传输服务相关的跟踪。）  
+     （ *deployments* 文件夹内是由源代码管理发布创建的文件；其中没有任何有关 Visual Studio 发布的内容。 *Git* 文件夹内是与源代码管理发布以及日志文件流式传输服务相关的跟踪。）  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
@@ -560,7 +560,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
 应用服务应用使用 IIS 7.0 及更高版本中提供的相同失败请求跟踪功能。 IIS 设置经过配置可记录指定错误，但无法访问该设置。 启用失败请求跟踪后，所有错误都会纳入捕获范围内。
 
-使用 Visual Studio 可启用失败请求跟踪，但却无法在 Visual Studio 中对其进行查看。 这些日志是 XML 文件。 这些流式传输日志服务只监视认为在纯文本模式下可读的文件： *.txt*、 *.html* 和 *.log* 文件。
+使用 Visual Studio 可启用失败请求跟踪，但却无法在 Visual Studio 中对其进行查看。 这些日志是 XML 文件。 这些流式传输日志服务只监视认为在纯文本模式下可读的文件： *.txt* 、 *.html* 和 *.log* 文件。
 
 可以通过 FTP 直接在浏览器中查看失败请求跟踪日志，或使用 FTP 工具将其下载到本地计算机后进行本地查看。 在本节中，将直接在浏览器中查看这些日志。
 
@@ -672,7 +672,7 @@ Internet 上对于 ASP.NET 跟踪没有全面且最新的介绍。 最佳做法�
 
 对于错误日志记录，若不想编写自己的跟踪代码，可以使用开源日志记录框架，如 [ELMAH](https://nuget.org/packages/elmah/)。 有关详细信息，请参阅 [Scott Hanselman 有关 ELMAH 的博客文章](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)。
 
-此外，不需要使用 ASP.NET 或 `System.Diagnostics` 跟踪来从 Azure 获取流式传输日志。 应用服务应用流式处理日志服务会对其在 *LogFiles* 文件夹中找到的所有 *.txt*、 *.html* 或 *.log* 文件进行流式处理。 因此，你可以创建自己的日志记录系统以写入应用的文件系统，文件会自动进行流式处理和下载。 所要做的就是编写在 *d:\home\logfiles* 文件夹中创建文件的应用程序代码。
+此外，不需要使用 ASP.NET 或 `System.Diagnostics` 跟踪来从 Azure 获取流式传输日志。 应用服务应用流式处理日志服务会对其在 *LogFiles* 文件夹中找到的所有 *.txt* 、 *.html* 或 *.log* 文件进行流式处理。 因此，你可以创建自己的日志记录系统以写入应用的文件系统，文件会自动进行流式处理和下载。 所要做的就是编写在 *d:\home\logfiles* 文件夹中创建文件的应用程序代码。
 
 ### <a name="analyzing-web-server-logs"></a>分析 Web 服务器日志
 有关分析 Web 服务器日志的详细信息，请参阅以下资源：

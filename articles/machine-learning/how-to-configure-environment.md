@@ -227,7 +227,7 @@ Jupyter Notebook 是 [Jupyter 项目](https://jupyter.org/)的一部分。 它�
     jupyter notebook
     ```
 
-1. 若要验证 Jupyter Notebook 是否可以使用 SDK，请创建一个**新的**笔记本，选择“Python 3”作为内核，然后在笔记本单元中运行以下命令：
+1. 若要验证 Jupyter Notebook 是否可以使用 SDK，请创建一个 **新的** 笔记本，选择“Python 3”作为内核，然后在笔记本单元中运行以下命令：
 
     ```python
     import azureml.core
@@ -258,7 +258,7 @@ Visual Studio Code 是一款非常流行的跨平台代码编辑器，它通过 
     - 若要选择包含 SDK 的 SDK Python 环境，请打开 VS Code，然后按 Ctrl+Shift+P（Linux 和 Windows）或 Command+Shift+P (Mac)。
         - 此时会打开“命令面板”。
 
-    - 输入 Python:__Select Interpreter__，然后选择相应的环境
+    - 输入 Python: __Select Interpreter__ ，然后选择相应的环境
 
 1. 若要验证是否可以使用 SDK，请创建包含以下代码的新 Python 文件 (.py)：
 
@@ -301,7 +301,7 @@ Azure Databricks 如何使用 Azure 机器学习：
 
 1. 右键单击用于存储该库的当前工作区文件夹。 选择“创建” > “库”。 
 
-1. 请仅选择**一个**选项（不支持其他 SDK 安装）
+1. 请仅选择 **一个** 选项（不支持其他 SDK 安装）
 
    |SDK 包附加项|Source|PyPi 名称|
    |----|---|---|
@@ -329,14 +329,14 @@ Azure Databricks 如何使用 Azure 机器学习：
 
 如果安装成功，则导入的库应如下所示：
 
-**不包含**自动化机器学习的 Databricks 的 SDK ![适用于 Databricks 的 Azure 机器学习 SDK](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+**不包含** 自动化机器学习的 Databricks 的 SDK ![适用于 Databricks 的 Azure 机器学习 SDK](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-**包含**自动化机器学习的 Databricks 的 SDK ![Databricks 上安装的包含自动化机器学习的 SDK](./media/how-to-configure-environment/automlonadb.png)
+**包含** 自动化机器学习的 Databricks 的 SDK ![Databricks 上安装的包含自动化机器学习的 SDK](./media/how-to-configure-environment/automlonadb.png)
 
 ### <a name="start-exploring"></a>开始探索
 
 尝试以下操作：
-+ 尽管有许多示例笔记本可用，但**只有[这些示例笔记本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks)适用于 Azure Databricks。**
++ 尽管有许多示例笔记本可用，但 **只有 [这些示例笔记本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks)适用于 Azure Databricks。**
 
 + 直接从工作区导入这些示例。 请参见下图：![选择“导入”](./media/how-to-configure-environment/azure-db-screenshot.png)
 ![导入面板](./media/how-to-configure-environment/azure-db-import.png)
@@ -345,7 +345,7 @@ Azure Databricks 如何使用 Azure 机器学习：
 
 ## <a name="create-a-workspace-configuration-file"></a><a id="workspace"></a>创建工作区配置文件
 
-工作区配置文件是一个 JSON 文件，用于告知 SDK 如何与 Azure 机器学习工作区进行通信。 该文件命名为 *config.json*，其格式如下：
+工作区配置文件是一个 JSON 文件，用于告知 SDK 如何与 Azure 机器学习工作区进行通信。 该文件命名为 *config.json* ，其格式如下：
 
 ```json
 {
@@ -363,11 +363,11 @@ Azure Databricks 如何使用 Azure 机器学习：
 
 * **使用 [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)** ：编写 *config.json* 文件。 该文件含包含工作区的配置信息。 可以下载 *config.json* 或将其复制到其他开发环境。
 
-* **下载文件**：在[Azure 门户](https://ms.portal.azure.cn)中，选择工作区的“概览”部分中的“**下载 config.json”** 。
+* **下载文件** ：在 [Azure 门户](https://ms.portal.azure.cn)中，选择工作区的“概览”部分中的“ **下载 config.json”** 。
 
      ![Azure 门户](./media/how-to-configure-environment/configure.png)
 
-* **以编程方式创建文件**：以下代码片段通过提供订阅 ID、资源组和工作区名称连接到工作区。 然后，它将工作区配置保存到文件中：
+* **以编程方式创建文件** ：以下代码片段通过提供订阅 ID、资源组和工作区名称连接到工作区。 然后，它将工作区配置保存到文件中：
 
     ```python
     from azureml.core import Workspace

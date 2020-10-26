@@ -2,46 +2,55 @@
 title: include 文件
 description: include 文件
 services: redis-cache
-author: wesmc7777
+author: curib
 ms.service: cache
 ms.topic: include
-ms.date: 08/24/2020
+ms.date: 10/22/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 9beab20689347cc7bd991f8b390c59274fe7ffdf
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: a8352b292f15dc071e0b4a35a90f990d1f1b0f10
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946895"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472038"
 ---
-1. 若要创建缓存，请登录到 [Azure 门户](https://portal.azure.cn)并选择“创建资源”  。 
-   
-   ![选择“创建资源”](./media/redis-cache-create/create-a-resource.png)
+1. 若要创建缓存，请登录到 [Azure 门户](https://portal.azure.cn)并选择“创建资源”  。
+
+    :::image type="content" source="media/redis-cache-create/create-resource.png" alt-text="选择 Azure Cache for Redis。":::
+
    
 1. 在“新建”页上选择“数据库”，然后选择“Azure Cache for Redis”。
-   
-   ![选择“Azure Cache for Redis”](./media/redis-cache-create/redis-cache-new-cache-menu.png)
+
+    :::image type="content" source="media/redis-cache-create/select-cache.png" alt-text="选择 Azure Cache for Redis。":::
    
 1. 在“新建 Redis 缓存”页上配置新缓存的设置。
    
    | 设置      | 建议的值  | 说明 |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS 名称** | 输入任何全局唯一的名称。 | 缓存名称必须是包含 1 到 63 个字符的字符串，只能包含数字、字母或连字符。 该名称必须以数字或字母开头和结尾，且不能包含连续的连字符。 缓存实例的主机名将是 *\<DNS name>.redis.cache.chinacloudapi.cn*。 | 
+   | **DNS 名称** | 输入任何全局唯一的名称。 | 缓存名称必须是包含 1 到 63 个字符的字符串，只能包含数字、字母或连字符。 该名称必须以数字或字母开头和结尾，且不能包含连续的连字符。 缓存实例的主机名将是 *\<DNS name>.redis.cache.chinacloudapi.cn* 。 | 
    | **订阅** | 单击下拉箭头并选择你的订阅。 | 要在其下创建此新的 Azure Cache for Redis 实例的订阅。 | 
    | **资源组** | 单击下拉箭头并选择一个资源组，或者选择“新建”并输入新的资源组名称。 | 要在其中创建缓存和其他资源的资源组的名称。 将所有应用资源放入一个资源组可以轻松地统一管理或删除这些资源。 | 
    | **位置** | 单击下拉箭头并选择一个位置。 | 选择与要使用该缓存的其他服务靠近的[区域](https://azure.microsoft.com/regions/)。 |
    | **定价层** | 单击下拉箭头并选择一个[定价层](https://www.azure.cn/pricing/details/redis-cache/)。 |  定价层决定可用于缓存的大小、性能和功能。 有关详细信息，请参阅[用于 Redis 的 Azure 缓存概述](../articles/azure-cache-for-redis/cache-overview.md)。 |
-   
-1. 选择“创建”  。 
-   
-   ![创建 Azure Redis 缓存](./media/redis-cache-create/redis-cache-cache-create.png) 
-   
-   > [!NOTE]
-   > 缓存预配大约需要 15 到 20 分钟。   
-   
-   可以在 Azure Cache for Redis 的“概述”页上监视进度。 如果“状态”显示为“正在运行”，则表示该缓存可供使用。
-   
-   ![创建的 Azure Redis 缓存](./media/redis-cache-create/redis-cache-cache-created.png)
 
+1. 选择“网络”选项卡，或单击页面底部的“网络”按钮 。
+
+1. 在“网络”选项卡中，选择你的连接方法。
+
+1. 选择页面底部的“下一步:高级”选项卡，或者单击页面底部的“下一步:高级”按钮。
+
+1. 在基本或标准缓存实例的“高级”选项卡中，如果想要启用非 TLS 端口，请选择启用开关。
+
+1. 在高级缓存实例的“高级”选项卡中，配置非 TLS 端口、群集和数据持久性的设置。
+
+1. 选择页面底部的“下一步:标记”选项卡，或者单击“下一步:标记”按钮。
+
+1. 或者，在“标记”选项卡中，如果希望对资源分类，请输入名称或值。 
+
+1. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”选项卡，Azure 将在此处验证配置。
+
+1. 显示绿色的“已通过验证”消息后，选择“创建”。
+
+创建缓存需要花费片刻时间。 可以在 Azure Cache for Redis 的“概述”页上监视进度。  如果“状态”显示为“正在运行”，则表示该缓存可供使用。  
 

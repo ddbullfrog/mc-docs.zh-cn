@@ -3,20 +3,19 @@ title: 使用 .NET API 运行并行工作负荷
 description: 教程 - 在 Azure Batch 中使用 Batch .NET 客户端库通过 ffmpeg 并行转码媒体文件
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.service: batch
-origin.date: 12/21/2018
+origin.date: 09/29/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 04/26/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 7fdc5fd84cdace4c68e5c6973bee331e6e7df8d5
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 220b553b093ca540d97f4e347aafb5265ed3d858
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146791"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470384"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教程：使用 .NET API 通过 Azure Batch 运行并行工作负荷
 
@@ -43,7 +42,7 @@ ms.locfileid: "91146791"
 
 * Batch 帐户和关联的 Azure 存储帐户。 若要创建这些帐户，请参阅 Batch 快速入门（使用 [Azure 门户](quick-create-portal.md)或 [Azure CLI](quick-create-cli.md)）。
 
-* [Windows 64 位版 ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip)。 将 zip 文件下载到本地计算机。 本教程只需 zip 文件。 不需将文件解压缩或安装在本地。
+* [Windows 64 位版 ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip) (.zip)。 将 zip 文件下载到本地计算机。 本教程只需 zip 文件。 不需将文件解压缩或安装在本地。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -55,7 +54,7 @@ ms.locfileid: "91146791"
 
 1. 在 Azure 门户中，单击“更多服务”   >   “Batch 帐户”，然后单击 Batch 帐户的名称。
 3. 单击“应用程序”   >   “添加”。
-4. 对于“应用程序 ID”  ，请输入 *ffmpeg* 和包版本 *3.4*。 选择此前下载的 ffmpeg zip 文件，然后单击“确定”。 ffmpeg 应用程序包添加到 Batch 帐户。
+4. 请输入“ffmpeg”作为“应用程序 ID”，并输入包版本“4.3.1”。 选择此前下载的 ffmpeg zip 文件，然后单击“确定”。 ffmpeg 应用程序包添加到 Batch 帐户。
 
 :::image type="content" source="./media/tutorial-parallel-dotnet/add-application.png" alt-text="添加应用程序包":::
 
@@ -95,7 +94,7 @@ private const string StorageEndpointSuffix = "core.chinacloudapi.cn"
 
 ```csharp
 const string appPackageId = "ffmpeg";
-const string appPackageVersion = "3.4";
+const string appPackageVersion = "4.3.1";
 ```
 
 ### <a name="build-and-run-the-sample-project"></a>生成并运行示例项目
@@ -133,9 +132,9 @@ Elapsed time: 00:09:14.3418742
 
 任务正在运行时，热度地图如下所示：
 
-:::image type="content" source="./media/tutorial-parallel-dotnet/pool.png" alt-text="池热度地图":::
+:::image type="content" source="./media/tutorial-parallel-dotnet/pool.png" alt-text="添加应用程序包":::
 
-以默认配置运行应用程序时，典型的执行时间大约为 **10 分钟**。 池创建过程需要最多时间。
+以默认配置运行应用程序时，典型的执行时间大约为 **10 分钟** 。 池创建过程需要最多时间。
 
 [!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
 
@@ -284,7 +283,7 @@ for (int i = 0; i < inputFiles.Count; i++)
     string outputMediaFile = String.Format("{0}{1}",
         System.IO.Path.GetFileNameWithoutExtension(inputMediaFile),
         ".mp3");
-    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
+    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-4.3.1-2020-09-21-full_build\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
     // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);

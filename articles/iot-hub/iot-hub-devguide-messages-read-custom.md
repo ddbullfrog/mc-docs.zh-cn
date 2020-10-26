@@ -14,12 +14,12 @@ ms.workload: na
 origin.date: 04/09/2018
 ms.author: v-yiso
 ms.date: 07/15/2019
-ms.openlocfilehash: 2e4f8fd9d9555572b05e818db5daeda84d0e5266
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 83523cfef768a7f6f65ae0321b03081505c1be75
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "67569995"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472617"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>对设备到云的消息使用消息路由和自定义终结点
 
@@ -46,13 +46,13 @@ IoT 中心具有默认的[内置终结点](iot-hub-devguide-messages-read-builti
 > * IoT 中心仅支持将数据作为 blob 写入 Azure 存储容器。
 > * 不支持将启用“会话”或“重复检测”选项的服务总线队列和主题用作自定义终结点   。
 
-有关在 IoT 中心创建自定义终结点的详细信息，请参阅 [IoT 中心终结点][lnk-devguide-endpoints]。
+有关在 IoT 中心创建自定义终结点的详细信息，请参阅 [IoT 中心终结点](iot-hub-devguide-endpoints.md)。
 
 有关从自定义终结点进行读取的详细信息，请参阅：
 
 * 从 [Azure 存储容器](../storage/blobs/storage-blobs-introduction.md)读取。
 
-* 从[事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)读取。
+* 从[事件中心](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)读取。
 
 * 从[服务总线队列](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)读取。
 
@@ -60,18 +60,8 @@ IoT 中心具有默认的[内置终结点](iot-hub-devguide-messages-read-builti
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 IoT 中心终结点的详细信息，请参阅 [IoT 中心终结点][lnk-devguide-endpoints]。
+* 有关 IoT 中心终结点的详细信息，请参阅 [IoT 中心终结点](iot-hub-devguide-endpoints.md)。
 
 * 要详细了解用于定义路由查询的查询语言，请参阅[消息路由查询语法](iot-hub-devguide-routing-query-syntax.md)。
 
 * 要了解如何使用路由查询和自定义终结点，请参阅[使用路由处理 IoT 中心设备到云的消息](tutorial-routing.md)教程。
-
-[lnk-built-in]: ./iot-hub-devguide-messages-read-builtin.md
-[lnk-device-to-cloud]: ./iot-hub-devguide-messages-d2c.md
-[lnk-devguide-query-language]: ./iot-hub-devguide-query-language.md
-[lnk-devguide-endpoints]: ./iot-hub-devguide-endpoints.md
-[lnk-d2c-tutorial]: tutorial-routing.md
-[lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-[lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md

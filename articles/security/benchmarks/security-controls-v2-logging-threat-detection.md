@@ -32,7 +32,7 @@ ms.locfileid: "92128738"
 
 - [Azure 安全中心安全警报参考指南](../../security-center/alerts-reference.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -67,7 +67,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [Azure 安全中心的威胁防护](../../security-center/threat-protection.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -97,7 +97,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [使用网络观察程序进行监视](../../network-watcher/network-watcher-monitoring-overview.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -127,7 +127,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [启用和配置反恶意软件监视](../fundamentals/antimalware.md#enable-and-configure-antimalware-monitoring-using-powershell-cmdlets)
 
-**责任**：共享
+**责任** ：共享
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -153,7 +153,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [如何使用 Azure Monitor 收集平台日志和指标](../../azure-monitor/platform/diagnostic-settings.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -179,7 +179,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [Azure 安全中心警报和建议导出](../../security-center/continuous-export.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -207,7 +207,7 @@ Azure 中资源生成的所有日志都提供了时间戳，且默认指定时�
 
 - [如何对 Azure 服务禁用入站 UDP](https://support.microsoft.com/help/4558520/how-to-disable-inbound-udp-for-azure-services)
 
-**责任**：共享
+**责任** ：共享
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

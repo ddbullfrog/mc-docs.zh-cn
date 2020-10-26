@@ -3,24 +3,23 @@ title: 存在时间预生成实体 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中的存在时间预构建实体信息。
 services: cognitive-services
-author: lingliw
-manager: digimobile
+ms.author: v-johya
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
+ms.date: 10/19/2020
 origin.date: 10/04/2019
-ms.date: 12/04/2019
-ms.author: diberry
-ms.openlocfilehash: 8f13e5b186a098ed9076feefb6f23d47120661a2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 56b6f03dfc5f88c4110d862dd049528f23821a45
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884530"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472399"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的存在时间预生成实体
-预构建存在时间实体同时采用数字和天、周、月以及年捕获存在时间值。 此实体已定型，因此不需要将包含存在时间的陈述示例添加到应用程序意向中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持存在时间实体。 
+预构建存在时间实体同时采用数字和天、周、月以及年捕获存在时间值。 此实体已定型，因此不需要将包含存在时间的陈述示例添加到应用程序意向中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持存在时间实体。
 
 ## <a name="types-of-age"></a>存在时间类型
 存在时间托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) Github 存储库中
@@ -85,14 +84,11 @@ ms.locfileid: "74884530"
       }
     }
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>后续步骤
 
 详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
 
-了解[货币](luis-reference-prebuilt-currency.md)、[datetimeV2](luis-reference-prebuilt-datetimev2.md) 和[维度](luis-reference-prebuilt-dimension.md)实体。 
-
-
-
+了解[货币](luis-reference-prebuilt-currency.md)、[datetimeV2](luis-reference-prebuilt-datetimev2.md) 和[维度](luis-reference-prebuilt-dimension.md)实体。
 

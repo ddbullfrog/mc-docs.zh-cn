@@ -9,18 +9,21 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9f4733bf84d45f11582fba2a8c7cc404d6cf87ac
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: b667658769769156745358312d551439133da657
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715171"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471302"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>使用事件中心向 Azure 时序见解 Gen1 环境发送事件
 
-本文介绍如何在 Azure 事件中心中创建和配置事件中心。 其中还介绍了如何运行示例应用程序将事件从事件中心推送到 Azure 时序见解。 如果你已经有了一个事件中心，其中的事件采用 JSON 格式，则可跳过本教程，在 Azure 时序见解中查看你的环境。
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
+
+本文介绍如何在 Azure 事件中心中创建和配置事件中心。 其中还介绍了如何运行示例应用程序将事件从事件中心推送到 Azure 时序见解。 如果你已经有了一个事件中心，其中的事件采用 JSON 格式，则可跳过本教程，在 [Azure 时序见解](./tutorials-set-up-tsi-environment.md)中查看你的环境。
 
 ## <a name="configure-an-event-hub"></a>配置事件中心
 
@@ -61,7 +64,7 @@ ms.locfileid: "88715171"
 
 1. 如果尚未创建事件源，请完成步骤以[创建事件源](how-to-ingest-data-event-hub.md)。
 
-1. 为 `timeSeriesId` 设置一个值。 若要详细了解**时序 ID**，请阅读[时序模型](./concepts-model-overview.md)。
+1. 为 `timeSeriesId` 设置一个值。 若要详细了解 **时序 ID** ，请阅读 [时序模型](./concepts-model-overview.md)。
 
 ### <a name="push-events-to-windmills-sample"></a>将事件推送到 windmills 的示例
 
@@ -94,7 +97,7 @@ ms.locfileid: "88715171"
 
 ### <a name="example-one"></a>示例一
 
-* **输入**：一个简单的 JSON 对象。
+* **输入** ：一个简单的 JSON 对象。
 
     ```JSON
     {
@@ -103,7 +106,7 @@ ms.locfileid: "88715171"
     }
     ```
 
-* **输出**：一个事件。
+* **输出** ：一个事件。
 
     |id|timestamp|
     |--------|---------------|
@@ -111,7 +114,7 @@ ms.locfileid: "88715171"
 
 ### <a name="example-two"></a>示例二
 
-* **输入**：包含两个 JSON 对象的 JSON 数组。 每个 JSON 对象都转换为事件。
+* **输入** ：包含两个 JSON 对象的 JSON 数组。 每个 JSON 对象都转换为事件。
 
     ```JSON
     [
@@ -126,7 +129,7 @@ ms.locfileid: "88715171"
     ]
     ```
 
-* **输出**：两个事件。
+* **输出** ：两个事件。
 
     |id|timestamp|
     |--------|---------------|
@@ -135,7 +138,7 @@ ms.locfileid: "88715171"
 
 ### <a name="example-three"></a>示例三
 
-* **输入**：具有嵌套 JSON 数组（其中包含两个 JSON 对象）的 JSON 对象。
+* **输入** ：具有嵌套 JSON 数组（其中包含两个 JSON 对象）的 JSON 对象。
 
     ```JSON
     {
@@ -153,7 +156,7 @@ ms.locfileid: "88715171"
     }
     ```
 
-* **输出**：两个事件。 “location”属性复制到每个事件。
+* **输出** ：两个事件。 “location”属性复制到每个事件。
 
     |location|events.id|events.timestamp|
     |--------|---------------|----------------------|
@@ -162,7 +165,7 @@ ms.locfileid: "88715171"
 
 ### <a name="example-four"></a>示例四
 
-* **输入**：具有嵌套 JSON 数组（其中包含两个 JSON 对象）的 JSON 对象。 此输入表明复杂 JSON 对象可以表示全局属性。
+* **输入** ：具有嵌套 JSON 数组（其中包含两个 JSON 对象）的 JSON 对象。 此输入表明复杂 JSON 对象可以表示全局属性。
 
     ```JSON
     {
@@ -194,7 +197,7 @@ ms.locfileid: "88715171"
     }
     ```
 
-* **输出**：两个事件。
+* **输出** ：两个事件。
 
     |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|

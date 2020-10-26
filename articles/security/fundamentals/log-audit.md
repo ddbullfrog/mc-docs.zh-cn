@@ -39,11 +39,11 @@ Azure 提供多种不同的可配置安全审核和日志记录选项，帮助�
 - 自动执行本来需要手动干预的操作
 
 Azure 日志划分为以下类型：
-* **控制/管理日志**提供有关 Azure 资源管理器 CREATE、UPDATE 和 DELETE 操作的信息。 有关详细信息，请参阅 [Azure 活动日志](../../azure-monitor/platform/platform-logs-overview.md)。
+* **控制/管理日志** 提供有关 Azure 资源管理器 CREATE、UPDATE 和 DELETE 操作的信息。 有关详细信息，请参阅 [Azure 活动日志](../../azure-monitor/platform/platform-logs-overview.md)。
 
-* **数据平面日志**提供作为 Azure 资源使用情况的一部分引发的事件的相关信息。 此类日志的示例是虚拟机 (VM) 中的 Windows 事件系统、安全性、应用程序日志以及通过 Azure Monitor 配置的[诊断日志](../../azure-monitor/platform/platform-logs-overview.md)。
+* **数据平面日志** 提供作为 Azure 资源使用情况的一部分引发的事件的相关信息。 此类日志的示例是虚拟机 (VM) 中的 Windows 事件系统、安全性、应用程序日志以及通过 Azure Monitor 配置的[诊断日志](../../azure-monitor/platform/platform-logs-overview.md)。
 
-* **已处理的事件**提供已以用户名义处理的分析事件/警报的相关信息。 此类日志的示例是 [Azure 安全中心警报](../../security-center/security-center-managing-and-responding-alerts.md)，[Azure 安全中心](../../security-center/security-center-intro.md)已处理和分析了订阅，并提供简明的安全警报。
+* **已处理的事件** 提供已以用户名义处理的分析事件/警报的相关信息。 此类日志的示例是 [Azure 安全中心警报](../../security-center/security-center-managing-and-responding-alerts.md)，[Azure 安全中心](../../security-center/security-center-intro.md)已处理和分析了订阅，并提供简明的安全警报。
 
 下表列出了 Azure 中最重要的日志类型：
 

@@ -35,9 +35,9 @@ ms.locfileid: "92118314"
 
     有关 Azure 机器学习中支持和不支持哪些 Vowpal Wabbit 参数的信息，请参阅[技术说明](#technical-notes)部分。  
 
-5.  **测试数据文件的名称**：键入包含输入数据的文件的名称。 此参数仅在测试数据集是目录时使用。
+5.  **测试数据文件的名称** ：键入包含输入数据的文件的名称。 此参数仅在测试数据集是目录时使用。
 
-6. **指定文件类型**：指示训练数据使用的格式。 Vowpal Wabbit 支持以下两种输入文件格式：  
+6. **指定文件类型** ：指示训练数据使用的格式。 Vowpal Wabbit 支持以下两种输入文件格式：  
 
    - VW 表示 Vowpal Wabbit 使用的内部格式。 有关详细信息，请参阅 [Vowpal Wabbit Wiki 页面](https://github.com/JohnLangford/vowpal_wabbit/wiki/Input-format)。 
    - SVMLight 是某些其他机器学习工具使用的格式。 

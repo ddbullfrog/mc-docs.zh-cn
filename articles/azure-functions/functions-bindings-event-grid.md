@@ -3,15 +3,15 @@ title: Azure Functions 的 Azure 事件网格绑定
 description: 了解如何处理 Azure Functions 中的事件网格事件。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 07/14/2020
+ms.date: 10/19/2020
 ms.author: v-junlch
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 07dff4d5d483f51aa6ec9a5c5166a6975312290b
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: 3832feca33b7c631f4a92967032590fb3aef24bf
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440414"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472016"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件网格绑定
 
@@ -45,7 +45,7 @@ ms.locfileid: "86440414"
 [core tools]: ./functions-run-local.md
 [扩展捆绑包]: ./functions-bindings-register.md#extension-bundles
 [NuGet 包]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
-[更新扩展]: ./install-update-binding-extensions-manual.md
+[更新扩展]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x
@@ -56,4 +56,3 @@ Functions 1.x 应用会自动引用 [Microsoft.Azure.WebJobs](https://www.nuget.
 * [在调度事件网格事件时运行函数](./functions-bindings-event-grid-trigger.md)
 * [调度事件网格事件](./functions-bindings-event-grid-trigger.md)
 
-<!-- Update_Description: wording update -->

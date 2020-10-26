@@ -12,11 +12,11 @@ ms.date: 11/11/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 97bb7be09b1bd242dcec61ae99506ba8d2de14a0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291500"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211572"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>在 Azure 逻辑应用中执行数据操作
 
@@ -536,7 +536,7 @@ Oranges,2
 
    * 若要在步骤之间添加操作，请将鼠标移到连接箭头上方，以显示加号 ( **+** )。 选择加号，然后选择“添加操作”。 
 
-1. 在搜索框中，输入 `join` 作为筛选器。 在操作列表中选择此操作：**Join**
+1. 在搜索框中，输入 `join` 作为筛选器。 在操作列表中选择此操作： **Join**
 
    ![选择“联接”操作](./media/logic-apps-perform-data-operations/select-join-action.png)
 
@@ -632,7 +632,7 @@ Oranges,2
 
 1. 在该操作中，单击希望显示结果的任意位置。 当动态内容列表打开时，可在“分析 JSON”操作下面选择已分析的 JSON 内容中的属性。 
 
-   本示例使用Office 365 Outlook“发送电子邮件”操作，并在电子邮件的正文和主题中包含 **FirstName**、**LastName** 和 **Email** 字段：
+   本示例使用Office 365 Outlook“发送电子邮件”操作，并在电子邮件的正文和主题中包含 **FirstName** 、 **LastName** 和 **Email** 字段：
 
    ![“发送电子邮件”操作中的 JSON 属性](./media/logic-apps-perform-data-operations/send-email-parse-json-action.png)
 

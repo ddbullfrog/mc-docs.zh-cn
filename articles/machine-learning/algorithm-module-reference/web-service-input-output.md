@@ -20,7 +20,7 @@ ms.locfileid: "92118076"
 
 本文介绍 Azure 机器学习设计器中的 Web 服务输入和 Web 服务输出模块。
 
-Web 服务输入模块只能连接到类型为 DataFrameDirectory 的输入端口****。 Web 服务输出模块只能从类型为 DataFrameDirectory 的输出端口进行连接****。 可以在“Web 服务”类别下的模块树中找到这两个模块****。 
+Web 服务输入模块只能连接到类型为 DataFrameDirectory 的输入端口  。 Web 服务输出模块只能从类型为 DataFrameDirectory 的输出端口进行连接  。 可以在“Web 服务”类别下的模块树中找到这两个模块  。 
 
 Web 服务输入模块指示用户数据进入管道的位置。 Web 服务输出模块指示实时推理管道中返回用户数据的位置。
 
@@ -45,7 +45,7 @@ Web 服务输入模块指示用户数据进入管道的位置。 Web 服务输�
 提交管道并成功完成运行之后，可以部署实时终结点。
    
 > [!NOTE]
->  在前面的示例中，“手动输入数据”为 Web 服务输入提供了数据架构，并且对于部署实时终结点是必需的****。 通常，应始终将模块或数据集连接到 Web 服务输入连接的端口，以提供数据架构****。
+>  在前面的示例中，“手动输入数据”为 Web 服务输入提供了数据架构，并且对于部署实时终结点是必需的  。 通常，应始终将模块或数据集连接到 Web 服务输入连接的端口，以提供数据架构  。
    
 ## <a name="next-steps"></a>后续步骤
 详细了解[部署实时终结点](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint)。

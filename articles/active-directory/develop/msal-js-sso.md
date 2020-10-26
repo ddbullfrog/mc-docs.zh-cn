@@ -20,11 +20,11 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d9c98845d406b7b4f7cc64dea2b6c64fc2d75ad
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291074"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211354"
 ---
 # <a name="single-sign-on-with-msaljs"></a>使用 MSAL.js 进行单一登录
 
@@ -109,7 +109,7 @@ userAgentApplication.loginRedirect(request);
 
 * **loginHint** 应设置为 ID 令牌中的 `preferred_username` 声明。
 
-* 仅当使用 /common 颁发机构时，才需要传递 **domain_hint**。 域提示按租户 ID (TID) 确定。  如果 ID 令牌中的 `tid` 声明为 `9188040d-6c67-4c5b-b112-36a304b66dad`，则域提示为使用者。 否则为组织。
+* 仅当使用 /common 颁发机构时，才需要传递 **domain_hint** 。 域提示按租户 ID (TID) 确定。  如果 ID 令牌中的 `tid` 声明为 `9188040d-6c67-4c5b-b112-36a304b66dad`，则域提示为使用者。 否则为组织。
 
 有关登录提示和域提示的值的详细信息，请参阅[此文](v2-oauth2-implicit-grant-flow.md)。
 

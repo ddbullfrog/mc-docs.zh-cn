@@ -12,11 +12,11 @@ origin.date: 11/04/2019
 ms.date: 08/03/2020
 ms.author: v-tawe
 ms.openlocfilehash: ed2ea6ab4174d3aa94bff4e4045d284bad5f5455
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87516282"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211485"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>准备用于创建自定义语音的数据
 

@@ -9,13 +9,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 08/17/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: df9a7ac7055439047c46547e45cdf640b0fcdfc0
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: bb3b9237f5535136e6b626984cb4e2d0f5750196
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872405"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470066"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>教程：使用 Azure AD 应用程序创建 Azure AD 用户
 
@@ -104,9 +104,9 @@ ms.locfileid: "91872405"
 # It can be executed only by a "Global Administrator" or "Privileged Roles Administrator" type of user.
 # To check if the "Directory Readers" permission was granted, execute this script again
 
-Import-Module AzureAd
-connect-azuread -TenantId "<TenantId>" -AzureEnvironmentName AzureChinaCloud     #Enter your actual TenantId
- $AssignIdentityName = "<server name>"     #Enter Azure SQL logical server name
+Import-Module AzureAD
+Connect-AzureAD -TenantId "<TenantId>" -AzureEnvironmentName AzureChinaCloud    #Enter your actual TenantId
+$AssignIdentityName = "<server name>"     #Enter Azure SQL logical server name
  
 # Get Azure AD role "Directory Users" and create if it doesn't exist
 $roleName = "Directory Readers"
@@ -121,14 +121,13 @@ if ($role -eq $null) {
 # Get service principal for managed instance
 $roleMember = Get-AzureADServicePrincipal -SearchString $AssignIdentityName
 $roleMember.Count
-if ($roleMember -eq $null)
-{
-    Write-Output "Error: No Service Principals with name '$    ($AssignIdentityName)', make sure that AssignIdentityName parameter was     entered correctly."
+if ($roleMember -eq $null) {
+    Write-Output "Error: No Service Principals with name '$($AssignIdentityName)', make sure that AssignIdentityName parameter was entered correctly."
     exit
 }
-if (-not ($roleMember.Count -eq 1))
-{
-    Write-Output "Error: More than one service principal with name pattern '$    ($AssignIdentityName)'"
+
+if (-not ($roleMember.Count -eq 1)) {
+    Write-Output "Error: More than one service principal with name pattern '$($AssignIdentityName)'"
     Write-Output "Dumping selected service principals...."
     $roleMember
     exit
@@ -136,21 +135,18 @@ if (-not ($roleMember.Count -eq 1))
  
 # Check if service principal is already member of readers role
 $allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
-$selDirReader = $allDirReaders | where{$_.ObjectId -match     $roleMember.ObjectId}
+$selDirReader = $allDirReaders | where{$_.ObjectId -match $roleMember.ObjectId}
  
-if ($selDirReader -eq $null)
-{
+if ($selDirReader -eq $null) {
     # Add principal to readers role
-    Write-Output "Adding service principal '$($msName)' to     'Directory Readers' role'..."
-    Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId     $roleMember.ObjectId
-    Write-Output "'$($AssignIdentityName)' service principal added to     'Directory Readers' role'..."
+    Write-Output "Adding service principal '$($AssignIdentityName)' to 'Directory Readers' role'..."
+    Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId $roleMember.ObjectId
+    Write-Output "'$($AssignIdentityName)' service principal added to 'Directory Readers' role'..."
  
     #Write-Output "Dumping service principal '$($AssignIdentityName)':"
     #$allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
     #$allDirReaders | where{$_.ObjectId -match $roleMember.ObjectId}
-}
-else
-{
+} else {
     Write-Output "Service principal '$($AssignIdentityName)' is already member of 'Directory Readers' role'."
 }
 ```
@@ -170,7 +166,7 @@ else
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="object-id":::
 
-2. 还需要创建用于登录的客户端密码。 请按照此处的指南[上传证书或创建用于登录的机密](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in)。
+2. 还需要创建用于登录的客户端密码。 请按照此处的指南[上传证书或创建用于登录的机密](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)。
 
 3. 记录应用程序注册中的以下信息。 应在“概述”窗格中提供该信息：
     - **应用程序 ID**

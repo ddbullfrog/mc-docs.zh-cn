@@ -35,7 +35,7 @@ Azure SQL 数据库和 SQL 托管实例将更改通过 SSL 启用的客户端应
 
 像大多数驱动程序一样，如果你的客户端驱动程序使用操作系统证书存储，并且你的操作系统会定期维护，则此更改很可能不会影响你，因为我们要切换到的根证书应当已在受信任的根证书存储中可用。 检查 Baltimore CyberDigiCert GlobalRoot G2 并验证它是否存在。
 
-如果你的客户端驱动程序利用本地文件证书存储，为避免应用程序的可用性因证书被意外吊销而中断，或要更新已吊销的证书，请参阅[**我需要做什么来维护连接**](./ssl-root-certificate-expiring.md#what-do-i-need-to-do-to-maintain-connectivity)部分。
+如果你的客户端驱动程序利用本地文件证书存储，为避免应用程序的可用性因证书被意外吊销而中断，或要更新已吊销的证书，请参阅 [**我需要做什么来维护连接**](./ssl-root-certificate-expiring.md#what-do-i-need-to-do-to-maintain-connectivity)部分。
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>我需要做什么来维护连接
 

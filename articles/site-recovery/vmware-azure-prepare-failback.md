@@ -6,11 +6,11 @@ origin.date: 12/24/2019
 ms.date: 01/13/2020
 ms.author: v-yeche
 ms.openlocfilehash: 8e6164573561af54353fb6806750d28ea67b69ab
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291348"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211615"
 ---
 # <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>为 VMware VM 的重新保护和故障回复做好准备
 

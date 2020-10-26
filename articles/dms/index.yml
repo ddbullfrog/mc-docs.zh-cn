@@ -7,16 +7,16 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 12/19/2019
-  ms.date: 08/31/2020
+  ms.date: 10/29/2020
   ms.service: dms
   ms.topic: landing-page
-  ms.custom: azure-migrate-seo
-  ms.openlocfilehash: 3b67c74cf4019185fb6f4feba5dc1e4b6e9ed1a6
-  ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+  ms.custom: seo-azure-migrate
+  ms.openlocfilehash: 16e3f91581b773d7e334c6ba8e10e403eb5844cc
+  ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89045804"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92472684"
 landingContent:
 - title: 关于 Azure 数据库迁移服务
   linkLists:
@@ -68,6 +68,8 @@ landingContent:
       url: tutorial-postgresql-azure-postgresql-online.md
     - text: 将 RDS PostgreSQL 迁移到 Azure DB for PostgreSQL
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
+    - text: 通过门户在 Azure DB for PostgreSQL 实例之间进行联机迁移
+      url: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
     - text: 迁移到 Azure DB for MySQL - 联机
       url: tutorial-mysql-azure-mysql-online.md
     - text: 将 RDS MySQL 迁移到 Azure DB for MySQL - 联机

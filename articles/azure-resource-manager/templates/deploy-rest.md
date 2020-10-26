@@ -4,16 +4,16 @@ description: 使用 Azure 资源管理器和资源管理器 REST API 将资源�
 ms.topic: conceptual
 origin.date: 07/21/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f0267a833ae879e0d3fc09fa6f264e6e593493c2
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 7f88d1bbfa5fee96eb927a9bbc7877ceb339b05a
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807741"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470444"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>使用 ARM 模板和资源管理器 REST API 部署资源
 
@@ -88,7 +88,7 @@ ms.locfileid: "88807741"
 
     在请求正文中，提供指向模板和参数文件的链接。 有关参数文件的详细信息，请参阅[创建资源管理器参数文件](parameter-files.md)。
 
-    请注意，**mode** 设置为 **Incremental**。 要运行完整部署，请将 **mode** 设置为 **Complete**。 使用完整模式时要小心，因为可能会无意中删除不在模板中的资源。
+    请注意， **mode** 设置为 **Incremental** 。 要运行完整部署，请将 **mode** 设置为 **Complete** 。 使用完整模式时要小心，因为可能会无意中删除不在模板中的资源。
 
     ```json
     {

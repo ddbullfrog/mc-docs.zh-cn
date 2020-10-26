@@ -4,6 +4,8 @@
   items:
     - name: 关于用于 Redis 的 Azure 缓存
       href: cache-overview.md
+    - name: 新增功能
+      href: cache-whats-new.md
 - name: 快速入门
   expanded: true
   items:
@@ -39,12 +41,16 @@
           href: /java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache?view=azure-java-stable
     - name: 创建排行榜
       href: cache-web-app-cache-aside-leaderboard.md
+    - name: 部署机器学习模型
+      href: cache-ml.md
     - name: 使用 Azure PowerShell 进行管理
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: 使用 Azure CLI 进行管理
       href: cli-samples.md
 - name: 概念
   items:
+    - name: 高可用性
+      href: cache-high-availability.md
     - name: 故障转移和修补
       href: cache-failover.md
     - name: 最佳做法
@@ -59,14 +65,14 @@
           href: cache-how-to-premium-clustering.md
         - name: 使用 Redis 数据持久性保留缓存
           href: cache-how-to-premium-persistence.md
+        - name: 添加更多副本
+          href: cache-how-to-multi-replicas.md
         - name: 使用虚拟网络保护缓存
           href: cache-how-to-premium-vnet.md
         - name: 设置异地复制
           href: cache-how-to-geo-replication.md
         - name: 迁移到 Azure Cache for Redis
           href: cache-migration-guide.md
-        - name: 从托管缓存服务（已弃用）迁移
-          href: cache-migrate-to-redis.md
         - name: 有关规划的常见问题
           href: cache-planning-faq.md
     - name: 生成

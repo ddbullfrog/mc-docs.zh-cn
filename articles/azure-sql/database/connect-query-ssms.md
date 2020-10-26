@@ -12,14 +12,14 @@ ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-origin.date: 05/29/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 8db150ae61b320e3565eb47474c437e08e270464
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+origin.date: 09/28/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: a31d0a42968a75431ae60ee5034e3c5fb818e731
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222817"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470465"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>快速入门：使用 SSMS 连接到并查询 Azure SQL 数据库或 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -65,6 +65,8 @@ ms.locfileid: "88222817"
 
 ## <a name="connect-to-your-database"></a>连接到数据库
 
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 在 SSMS 中连接至服务器。
 
 > [!IMPORTANT]
@@ -77,7 +79,7 @@ ms.locfileid: "88222817"
    | 设置      | 建议的值    | 说明 |
    | ------------ | ------------------ | ----------- |
    | **服务器类型** | 数据库引擎 | 所需的值。 |
-   | **服务器名称** | 完全限定的服务器名称 | 类似于 **servername.database.chinacloudapi.cn**。 |
+   | **服务器名称** | 完全限定的服务器名称 | 类似于 **servername.database.chinacloudapi.cn** 。 |
    | **身份验证** | SQL Server 身份验证 | 本教程使用 SQL 身份验证。 |
    | **登录** | 服务器管理员帐户用户 ID | 用于创建服务器的服务器管理员帐户的用户 ID。 |
    | **密码** | 服务器管理员帐户密码 | 用于创建服务器的服务器管理员帐户的密码。 |
@@ -85,11 +87,14 @@ ms.locfileid: "88222817"
 
    ![连接到服务器](./media/connect-query-ssms/connect.png)  
 
+> [!NOTE]
+> 本教程使用 SQL Server 身份验证。
+
 3. 选择“连接到服务器”对话框中的“选项” 。 在“连接到数据库”下拉菜单中，选择“mySampleDatabase” 。 完成[“先决条件”部分](#prerequisites)中的快速入门即可创建一个名为 mySampleDatabase 的 AdventureWorksLT 数据库。 如果 AdventureWorks 数据库的工作副本名称不同于 mySampleDatabase，请改为选择它。
 
    ![连接到服务器上的 DB](./media/connect-query-ssms/options-connect-to-db.png)  
 
-4. 选择“连接”。 此时会打开“对象资源管理器”窗口。
+4. 选择“连接” 。 此时会打开“对象资源管理器”窗口。
 
 5. 若要查看数据库的对象，请展开“数据库”，然后展开你的数据库节点。
 
@@ -156,7 +161,7 @@ ms.locfileid: "88222817"
 
 ### <a name="update-data"></a>更新数据
 
-运行此 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) Transact-SQL 代码以修改新产品。
+运行此 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 代码以修改新产品。
 
 1. 将上一个查询替换为此查询，以便返回前面创建的新记录：
 

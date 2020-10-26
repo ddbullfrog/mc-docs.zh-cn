@@ -3,21 +3,20 @@ title: 序号 V2 预生成实体 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中序号 V2 预生成实体的信息。
 services: cognitive-services
-author: lingliw
-manager: digimobile
+ms.author: v-johya
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
+ms.date: 10/19/2020
 origin.date: 09/27/2019
-ms.date: 10/31/2019
-ms.author: v-lingwu
-ms.openlocfilehash: e422334481d12dc540c302196391e5c1c0511b41
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c5b0ea984a486f7a48fcaacf3e807ad56bb04f73
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884929"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472379"
 ---
 # <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的序号 V2 预生成实体
 序号 V2 扩展了[序号](luis-reference-prebuilt-ordinal.md)以提供相关引用，如 `next`、`last` 和 `previous`。 这些无法使用序号预生成实体提取。
@@ -90,10 +89,11 @@ ms.locfileid: "74884929"
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>后续步骤
 
 详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
 
-了解[百分比](luis-reference-prebuilt-percentage.md)、[电话号码](luis-reference-prebuilt-phonenumber.md)和[温度](luis-reference-prebuilt-temperature.md)实体。 
+了解[百分比](luis-reference-prebuilt-percentage.md)、[电话号码](luis-reference-prebuilt-phonenumber.md)和[温度](luis-reference-prebuilt-temperature.md)实体。
+

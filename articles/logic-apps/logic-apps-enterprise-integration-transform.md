@@ -10,11 +10,11 @@ origin.date: 07/08/2016
 ms.date: 03/30/2020
 ms.author: v-yeche
 ms.openlocfilehash: 8d09c9e82c7752a0257758d99cd158178d324400
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243574"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211586"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中创建用于在格式之间转换 XML 的映射
 
@@ -29,7 +29,7 @@ ms.locfileid: "80243574"
 ## <a name="how-to-use-a-transform"></a>如何使用转换
 将转换或映射上传到集成帐户中之后，可以使用它创建逻辑应用。 逻辑应用随后会在每次触发逻辑应用（以及存在需要进行转换的输入内容）时运行转换。
 
-**下面是使用转换的步骤**：
+**下面是使用转换的步骤** ：
 
 ### <a name="prerequisites"></a>必备条件
 

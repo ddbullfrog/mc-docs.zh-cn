@@ -4,19 +4,19 @@ description: 查看有关 Azure 虚拟 WAN 网络、客户端、网关、设备�
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: troubleshooting
-origin.date: 10/17/2019
+origin.date: 09/28/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
-ms.openlocfilehash: 9ec6ccfcb44b655df5acda6a79611ba8c980720a
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 741f11bf6ddf620ce87824f2dda795f61f48434a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246420"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472536"
 ---
 # <a name="virtual-wan-faq"></a>虚拟 WAN 常见问题解答
 

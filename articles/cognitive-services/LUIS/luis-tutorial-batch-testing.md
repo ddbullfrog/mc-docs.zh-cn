@@ -1,16 +1,18 @@
 ---
 title: 教程：用于查找问题的批处理测试 - LUIS
 description: 本教程演示如何使用批处理测试来验证语言理解 (LUIS) 应用的质量。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 origin.date: 05/07/2020
-ms.date: 06/19/2020
-ms.author: v-tawe
-ms.openlocfilehash: 6c759771bb29b74475240b3526bbdf303f3495f9
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: b7445a4d4f7d50e327dd67c9c4c46ac7d8ea3416
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098351"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472358"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教程：成批测试数据集
 
@@ -26,63 +28,62 @@ ms.locfileid: "85098351"
 
 使用本教程以外的应用时，请不要使用已添加到应用的示例言语。
 
-
-
 **本教程介绍如何执行下列操作：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * 导入示例应用
-> * 创建批处理测试文件 
+> * 创建批处理测试文件
 > * 运行批处理测试
 > * 查看测试结果
-> * 修复错误 
-> * 重新测试批处理
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="import-example-app"></a>导入示例应用
 
-继续使用上一个教程中创建的名为 **HumanResources** 的应用。 
+导入提取披萨订单的应用，例如 `1 pepperoni pizza on thin crust`。
 
-使用以下步骤：
+1.  下载并保存[应用 JSON 文件](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true)。
 
-1.  下载并保存[应用 JSON 文件](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json)。
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 将 JSON 导入到新应用中，并将应用命名为 `Pizza app`。
 
-2. 将 JSON 导入到新应用中。
 
-3. 在“管理”部分的“版本”选项卡上，克隆版本并将其命名为 `batchtest`。 克隆非常适合用于演练各种 LUIS 功能，且不会影响原始版本。 由于版本名称用作 URL 路由的一部分，因此该名称不能包含任何在 URL 中无效的字符。 
+1. 选择导航栏右上角的“训练”以训练该应用。
 
-4. 将应用定型。
+## <a name="what-should-the-batch-file-utterances-include"></a>批处理文件言语应包含的内容
+
+批处理文件中的言语应包含机器学习的带有标签的顶级实体（包括开始和结束位置）。 言语不应是已包含在应用中的示例的一部分。 它们应该是你要在其中积极预测意向和实体的言语。
+
+可以按意向和/或实体划分测试，或者将所有测试（最多 1000 个言语）包含在同一文件中。
 
 ## <a name="batch-file"></a>批处理文件
 
-1. 在文本编辑器中创建 `HumanResources-jobs-batch.json` 或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json)它。 
+示例 JSON 包含一个言语（该言语包含一个带标签的实体）用于演示测试文件的外观。 你自己的测试中应该包含多个言语，这些言语标记了正确的意向和机器学习实体。
 
-2. 在 JSON 格式的批处理文件中，使用想要在测试中预测的意向添加话语。 
-```
-    [
-        {
-          "text": "Are there any janitorial jobs currently open?",
-          "intent": "GetJobInformation",
-          "entities": []
-        },
-        {
-          "text": "I would like a fullstack typescript programming with azure job",
-          "intent": "GetJobInformation",
-          "entities": []
-        },
-        {
-          "text": "Is there a database position open in Los Colinas?",
-          "intent": "GetJobInformation",
-          "entities": []
-        },
-        {
-          "text": "Please find database jobs open today in Seattle",
-          "intent": "GetJobInformation",
-          "entities": []
-        }
-      ]
+1. 在文本编辑器中创建 `pizza-with-machine-learned-entity-test.json` 或[下载](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true)它。
+
+2. 在 JSON 格式的批处理文件中，添加要在测试中预测的言语和 **意向** 。
+
+```json
+[
+    {
+        "text": "I want to pick up 1 cheese pizza",
+        "intent": "ModifyOrder",
+        "entities": [
+            {
+                "entity": "Order",
+                "startPos": 18,
+                "endPos": 31
+            },
+            {
+                "entity": "ToppingList",
+                "startPos": 20,
+                "endPos": 25
+            }
+        ]
+    }
+]
 ```
 
 ## <a name="run-the-batch"></a>运行批处理
@@ -91,18 +92,17 @@ ms.locfileid: "85098351"
 
 2. 选择右侧面板中的“批处理测试面板”。
 
-    [![LUIS 应用的屏幕截图，其中突出显示了“批处理测试面板”](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
-
 3. 选择“导入数据集”。
 
     > [!div class="mx-imgBorder"]
-    > ![LUIS 应用的屏幕截图，其中突出显示了“导入数据集”](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)
+    > ![LUIS 应用的屏幕截图，其中突出显示了“导入数据集”](./media/luis-tutorial-batch-testing/import-dataset-button.png)
 
-4. 选择 `HumanResources-jobs-batch.json` 文件的文件位置。
+4. 选择 `pizza-with-machine-learned-entity-test.json` 文件的文件位置。
 
-5. 命名数据集 `intents only`，然后选择“完成”。
+5. 命名数据集 `pizza test`，然后选择“完成”。
 
-    ![选择文件](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
+    > [!div class="mx-imgBorder"]
+    > ![选择文件](./media/luis-tutorial-batch-testing/import-dataset-modal.png)
 
 6. 选择“运行”按钮。
 
@@ -110,237 +110,66 @@ ms.locfileid: "85098351"
 
 8. 查看图和图例中的结果。
 
-    [![LUIS 应用的批处理测试结果的屏幕截图](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
+## <a name="review-batch-results-for-intents"></a>查看意向的批处理结果
 
-## <a name="review-batch-results"></a>查看批处理结果
+测试结果以图形显示如何针对活动版本预测测试言语。
 
-批处理图表将结果显示在四个象限中。 在图表右侧是一个筛选器。 筛选器包含意向和实体。 选择[图表的一个部分](luis-concept-batch-test.md#batch-test-results)或图表中的一个点时，关联的话语显示在图表下方。 
+批处理图表将结果显示在四个象限中。 在图表右侧是一个筛选器。 筛选器包含意向和实体。 选择[图表的一个部分](luis-concept-batch-test.md#batch-test-results)或图表中的一个点时，关联的话语显示在图表下方。
 
-鼠标悬停在图表上时，鼠标滚轮可以放大或缩小图表中的显示。 当图表上有许多点紧密地聚集在一起时，这是非常有用的。 
+鼠标悬停在图表上时，鼠标滚轮可以放大或缩小图表中的显示。 当图表上有许多点紧密地聚集在一起时，这是非常有用的。
 
-图表分为四个象限，其中两个部分以红色显示。 这些是要关注的部分。 
+图表分为四个象限，其中两个部分以红色显示。
 
-### <a name="getjobinformation-test-results"></a>GetJobInformation 测试结果
+1. 在筛选器列表中选择“ModifyOrder”意向。
 
-显示在筛选器中的 GetJobInformation 测试结果显示四种预测中有 2 种是成功的。 在左下象限中选择名称“漏报”，以查看图表下方的话语。 
+    > [!div class="mx-imgBorder"]
+    > ![在筛选器列表中选择 ModifyOrder 意向](./media/luis-tutorial-batch-testing/select-intent-from-filter-list.png)
 
-使用键盘 Ctrl+E 切换到标签视图以查看用户话语的确切文本。 
+    言语预测为“漏报”，这意味着，该言语已成功匹配其在批处理文件中列出的正面预测结果。
 
-话语 `Is there a database position open in Los Colinas?` 标记为“GetJobInformation”，但当前模型预测话语为“ApplyForJob”。 
+    > [!div class="mx-imgBorder"]
+    > ![言语已成功匹配其正面预测结果](./media/luis-tutorial-batch-testing/intent-predicted-true-positive.png)
 
-ApplyForJob 的示例几乎是 GetJobInformation 的三倍 。 示例话语的这种不平衡对 ApplyForJob 意向有利，从而导致不正确的预测。 
+    筛选器列表中的绿色勾选标记也指示每个意向的测试成功。 所有其他意向列出了 1/1 正面评分，因为言语是针对每个意向测试的，而任何意向的负面测试不会列在批处理测试中。
 
-请注意，这两个意向都有相同的错误计数。 一个意向中的错误预测也会影响另一个意向。 由于错误地预测了一个意向的话语，也错误地未预测另一个意向，因此二者都有错误。 
+1. 选择“Confirmation”意向。 此意向未在批处理测试中列出，因此，这是批处理测试中列出的言语的负面测试。
 
-<a name="fix-the-app"></a>
+    > [!div class="mx-imgBorder"]
+    > ![针对批处理文件中未列出的意向成功负面预测了言语](./media/luis-tutorial-batch-testing/true-negative-intent.png)
 
-## <a name="how-to-fix-the-app"></a>如何修复应用
+    根据筛选器和网格中的绿色文本所示，负面测试成功。
 
-本部分的目标是通过修复应用，正确预测 GetJobInformation 的所有话语。 
+## <a name="review-batch-test-results-for-entities"></a>查看实体的批处理测试结果
 
-一个看似快速的解决方法是将这些批处理文件话语添加到正确的意向。 但这不是你想要做的。 你想让 LUIS 正确地预测这些话语，而无需将其添加为示例。 
+ModifyOrder 实体（包含子实体的机器实体）显示是否匹配了顶级实体，并显示如何预测子实体。
 
-可能还想知道如何从 ApplyForJob 中删除话语，直到话语数量与 GetJobInformation 中相同 。 这可能会修复测试结果，但会阻碍 LUIS 下一次准确地预测该意向。 
+1. 在筛选器列表中选择“ModifyOrder”实体，然后选择网格中的圆圈。
 
-解决方法是向 GetJobInformation 添加更多话语。 请记得改变话语长度、字词选择和字词排列，同时仍以查找工作信息的意向为目标，而不是申请工作。
+1. 实体预测结果显示在图表下方。 显示的内容包括符合预期的预测对应的实线，以及不符合预期的预测对应的虚线。
 
-### <a name="add-more-utterances"></a>添加更多话语
+    > [!div class="mx-imgBorder"]
+    > ![已成功预测批处理文件中的实体父级](./media/luis-tutorial-batch-testing/labeled-entity-prediction.png)
 
-1. 选择顶部导航面板中的“测试”按钮，关闭批处理测试面板。 
+## <a name="finding-errors-with-a-batch-test"></a>使用批处理测试查找错误
 
-2. 从意向列表中选择“GetJobInformation”。 
+本教程演示了如何运行测试并解释结果。 其中不会介绍测试理念或者如何对失败的测试做出响应。
 
-3. 添加更多长度、字词选择和排列方式不同的话语，确保包含术语 `resume`、`c.v.` 和 `apply`：
-
-    |GetJobInformation 意向的示例话语|
-    |--|
-    |仓库中新的存货管理员工作是否要求通过简历申请？|
-    |目前哪里有屋顶工作？|
-    |我听说有一份医疗编码工作需要简历。|
-    |我想找份工作帮助大学生编写简历。 |
-    |这是我的简历，我正在使用计算机在社区大学找一份新的工作。|
-    |有哪些儿童和家庭护理方面的职位可供选择？|
-    |报社是否需要实习生？|
-    |我的简历 显示了我擅长分析采购、预算和亏损。 是否有此类工作？|
-    |现在是否有钻地工作？|
-    |我当了 8 年 EMS 司机。 是否有新工作？|
-    |有新的食物处理工作需要申请吗？|
-    |有多少新的庭院工作岗位？|
-    |是否有新的劳资关系和谈判 HR 职位？|
-    |我有图书馆和档案管理硕士学位。 是否有任何新职位？|
-    |今天城市中有照顾 13 岁儿童的保姆工作吗？|
-
-    不要在话语中标记“工作”实体。 本教程的本部分仅侧重于意向预测。
-
-4. 通过选择右上角导航中的“定型”来定型应用。
-
-## <a name="verify-the-new-model"></a>验证新模型
-
-为了验证批处理测试中的话语是否被正确地预测，请再次运行批处理测试。
-
-1. 选择顶部导航栏的“测试”。 如果批处理结果仍处于打开状态，请选择“返回到列表”。  
-
-1. 选择批处理名称右侧的省略号 (...) 按钮，然后选择“运行”。 请等待批处理测试完成。 请注意，“查看结果”按钮现在为绿色。 这意味着整个批处理已成功运行。
-
-1. 选择“查看结果”。 所有意向的名称左侧都应有绿色图标。 
-
-## <a name="create-batch-file-with-entities"></a>使用实体创建批处理文件 
-
-若要验证批处理测试中的实体，需要在批处理 JSON 文件中标记实体。 
-
-总字（[令牌](luis-glossary.md#token)）计数的实体的变化会影响预测质量。 请确保提供给具有标记话语的意向的定型数据包括各种长度的实体。 
-
-首次编写和测试批处理文件时，最好从知道有用的一些话语和实体以及认为可能错误预测的一些话语和实体开始。 这有助于快速专注于问题区域。 使用未预测的几个不同的“工作”名称测试 GetJobInformation 和 ApplyForJob 意向之后，开发了此批处理测试文件，用于查看“工作”实体的某些值是否存在预测问题  。 
-
-测试话语中提供的“工作”实体的值通常是一个或两个词，其中有几个示例有更多词。 如果自己的人力资源应用通常有多个词的工作名称，该应用中带有“工作”实体标记的示例话语将无法正常工作。
-
-1. 在文本编辑器（如 [VSCode](https://code.visualstudio.com/)）中创建 `HumanResources-entities-batch.json`，或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json)它。
-
-2. 在 JSON 格式的批处理文件中，添加一个对象数组，其中包含具有想要在测试中预测的意向的话语以及话语中任何实体的位置。 由于实体是基于令牌的，因此请确保启动和停止字符上的每个实体。 不要以空格开始或结束话语。 这会导致批处理文件导入过程中出现错误。  
-
-```
-    [
-      {
-        "text": "I'm a registered nurse. Here is my resume.",
-        "intent": "ApplyForJob",
-        "entities": [{
-          "entity": "Job",
-          "startPos": 6,
-          "endPos": 21
-        }]
-      },
-      {
-        "text": "I'm a database analyst. Here is my resume.",
-        "intent": "ApplyForJob",
-        "entities": [{
-          "entity": "Job",
-          "startPos": 6,
-          "endPos": 21
-        }]
-      },
-      {
-        "text": "I'm a SQL Server programmer. Here is my resume.",
-        "intent": "ApplyForJob",
-        "entities": [{
-          "entity": "Job",
-          "startPos": 6,
-          "endPos": 26
-        }]
-      },
-      {
-        "text": "I'm a registered nurse. Are there any open jobs.",
-        "intent": "GetJobInformation",
-        "entities": [{
-          "entity": "Job",
-          "startPos": 6,
-          "endPos": 21
-        }]
-      },
-      {
-        "text": "I'm a database analyst. Are there any open jobs.",
-        "intent": "GetJobInformation",
-        "entities": [{
-          "entity": "Job",
-          "startPos": 6,
-          "endPos": 21
-        }]
-      },
-      {
-        "text": "Are there any open jobs for a SQL Server programmer?",
-        "intent": "GetJobInformation",
-        "entities": [{
-          "entity": "Job",
-          "startPos": 30,
-          "endPos": 50
-        }]
-      },
-      {
-        "text": "Is there any open positions for a costume designer?",
-        "intent": "GetJobInformation",
-        "entities": [{
-          "entity": "Job",
-          "startPos": 34,
-          "endPos": 49
-        }]
-      },
-      {
-        "text": "Are there any open jobs for a SQL programmer?",
-        "intent": "GetJobInformation",
-        "entities": [{
-          "entity": "Job",
-          "startPos": 30,
-          "endPos": 42
-        }]
-      }
-      ,
-      {
-        "text": "Are there any open jobs with SQL?",
-        "intent": "GetJobInformation",
-        "entities": [{
-          "entity": "Job",
-          "startPos": 29,
-          "endPos": 31
-        }]
-      }
-    ]
-```
-
-
-## <a name="run-the-batch-with-entities"></a>使用实体运行批处理
-
-1. 选择顶部导航栏的“测试”。 
-
-2. 选择右侧面板中的“批处理测试面板”。 
-
-3. 选择“导入数据集”。
-
-4. 选择 `HumanResources-entities-batch.json` 文件的文件系统位置。
-
-5. 命名数据集 `entities`，然后选择“完成”。
-
-6. 选择“运行”按钮。 请等待测试完成。
-
-7. 选择“查看结果”。
-
-## <a name="review-entity-batch-results"></a>查看实体批处理结果
-
-图表打开，所有意向都已正确预测。 在右侧筛选器中向下滚动，查找具有错误的实体预测。 
-
-1. 在筛选器中选择“工作”实体。
-
-    ![筛选器中的错误实体预测](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
-
-    图表更改以显示实体预测。 
-
-2. 选择图表左下象限的“漏报”。 然后使用组合键 control + E 切换到令牌视图。 
-
-    [![实体预测的令牌视图](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
-    
-    查看图表下方的话语会发现，当“工作”名称包括 `SQL` 时，会出现一致性错误。 查看示例话语和“工作”短语列表，SQL 仅使用一次，并且仅作为较大工作名称的一部分，`sql/oracle database administrator`。
-
-## <a name="fix-the-app-based-on-entity-batch-results"></a>基于实体批处理结果修复应用
-
-修复应用需要 LUIS 正确地确定 SQL 作业的变体。 对于该修补程序有多个选项。 
-
-* 显式添加更多示例话语，使用 SQL 并将这些词标记为“工作”实体。 
-* 将更多 SQL 作业显式添加到短语列表
-
-这些任务会保留以供执行。
-
-在正确预测实体之前添加[模式](luis-concept-patterns.md)不会解决该问题。 这是因为在检测到模式中的所有实体之前，该模式将不会匹配。 
+* 请确保在测试中同时涵盖正面和负面言语，包括可在其中预测不同但相关意向的言语。
+* 对于失败的言语，请执行以下任务，然后再次运行测试：
+    * 查看当前示例中的意向和实体，并验证活动版本的示例言语是否正确，可用于标记意向和实体。
+    * 添加可帮助应用预测意向和实体的特征
+    * 添加更多正面示例言语
+    * 查看剩余各个意向的示例言语
 
 ## <a name="clean-up-resources"></a>清理资源
 
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](./includes/cleanup-resources-preview-portal.md)]
 
-## <a name="next-steps"></a>后续步骤
+## <a name="next-step"></a>后续步骤
 
-本教程使用了批处理测试来查找当前模型存在的问题。 修复了模型并使用批处理文件重新测试以验证更改是否正确。
+本教程使用了批处理测试来验证当前模型。
 
 > [!div class="nextstepaction"]
 > [了解模式](luis-tutorial-pattern.md)
-
-
-
 
 

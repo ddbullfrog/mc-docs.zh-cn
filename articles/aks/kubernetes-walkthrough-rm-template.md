@@ -5,17 +5,17 @@ services: container-service
 ms.topic: quickstart
 origin.date: 09/11/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: ee77aadaa6b7e5ff4ba2e7eb5845a28b861750dd
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 4b71c02b451bf8ab881043fce57d7940a09058c9
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146654"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470423"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>快速入门：使用 ARM 模板部署 Azure Kubernetes 服务 (AKS) 群集
@@ -30,7 +30,7 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="浏览到 Azure Vote 的图像":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 
 如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.61 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
@@ -77,7 +77,7 @@ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-记下 *appId* 和 *password*。 后续步骤会用到这些值。
+记下 *appId* 和 *password* 。 后续步骤会用到这些值。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -111,20 +111,20 @@ az ad sp create-for-rbac --skip-assignment
         "osDiskSizeGB": {
             "type": "int",
             "defaultValue": 0,
+            "minValue": 0,
+            "maxValue": 1023,
             "metadata": {
                 "description": "Disk size (in GB) to provision for each of the agent pool nodes. This value ranges from 0 to 1023. Specifying 0 will apply the default disk size for that agentVMSize."
-            },
-            "minValue": 0,
-            "maxValue": 1023
+            }
         },
         "agentCount": {
             "type": "int",
             "defaultValue": 3,
+            "minValue": 1,
+            "maxValue": 50,
             "metadata": {
                 "description": "The number of nodes for the cluster."
-            },
-            "minValue": 1,
-            "maxValue": 50
+            }
         },
         "agentVMSize": {
             "type": "string",
@@ -146,16 +146,16 @@ az ad sp create-for-rbac --skip-assignment
             }
         },
         "servicePrincipalClientId": {
+            "type": "securestring",
             "metadata": {
                 "description": "Client ID (used by cloudprovider)"
-            },
-            "type": "securestring"
+            }
         },
         "servicePrincipalClientSecret": {
+            "type": "securestring",
             "metadata": {
                 "description": "The Service Principal Client Secret."
-            },
-            "type": "securestring"
+            }
         },
         "osType": {
             "type": "string",
@@ -170,10 +170,10 @@ az ad sp create-for-rbac --skip-assignment
     },
     "resources": [
         {
-            "apiVersion": "2020-03-01",
             "type": "Microsoft.ContainerService/managedClusters",
-            "location": "[parameters('location')]",
+            "apiVersion": "2020-03-01",
             "name": "[parameters('clusterName')]",
+            "location": "[parameters('location')]",
             "properties": {
                 "dnsPrefix": "[parameters('dnsPrefix')]",
                 "agentPoolProfiles": [
@@ -218,24 +218,24 @@ az ad sp create-for-rbac --skip-assignment
 
 1. 选择下图登录到 Azure 并打开一个模板。
 
-    [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
+    [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="浏览到 Azure Vote 的图像":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 2. 选择或输入以下值。
 
     对于本快速入门，请保留“OS 磁盘大小(GB)”、“代理计数”、“代理 VM 大小”、“OS 类型”和“Kubernetes 版本”的默认值。     为以下模板参数提供自己的值：
 
     * 订阅：选择 Azure 订阅。
-    * 资源组：选择“新建”。 输入资源组的唯一名称（例如 *myResourceGroup*），然后选择“确定”。
-    * **位置**：选择一个位置，例如“中国东部 2”。
-    * **群集名称**：输入 AKS 群集的唯一名称，例如 *myAKSCluster*。
-    * **DNS 前缀**：输入群集的唯一 DNS 前缀，例如 *myakscluster*。
-    * **Linux 管理员用户名**：输入一个用户名用于通过 SSH 进行连接，例如 *azureuser*。
-    * **SSH RSA 公钥**：复制并粘贴 SSH 密钥对的 *public* 部分（默认为 *~/.ssh/id_rsa.pub* 的内容）。
-    * **服务主体客户端 ID**：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *appId*。
-    * **服务主体客户端机密**：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *password*。
-    * **我同意上述条款和条件**：选中此框表示同意。
+    * 资源组：选择“新建”。 输入资源组的唯一名称（例如 *myResourceGroup* ），然后选择“确定”。
+    * **位置** ：选择一个位置，例如“中国东部 2”。
+    * **群集名称** ：输入 AKS 群集的唯一名称，例如 *myAKSCluster* 。
+    * **DNS 前缀** ：输入群集的唯一 DNS 前缀，例如 *myakscluster* 。
+    * **Linux 管理员用户名** ：输入一个用户名用于通过 SSH 进行连接，例如 *azureuser* 。
+    * **SSH RSA 公钥** ：复制并粘贴 SSH 密钥对的 *public* 部分（默认为 *~/.ssh/id_rsa.pub* 的内容）。
+    * **服务主体客户端 ID** ：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *appId* 。
+    * **服务主体客户端机密** ：复制并粘贴 `az ad sp create-for-rbac` 命令输出的、服务主体的 *password* 。
+    * **我同意上述条款和条件** ：选中此框表示同意。
 
-    :::image type="content" source="./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png" alt-text="用于在门户中创建 Azure Kubernetes 服务群集的资源管理器模板":::
+    :::image type="content" source="./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png" alt-text="浏览到 Azure Vote 的图像":::
 
 3. 选择“购买”。
 
@@ -245,7 +245,9 @@ az ad sp create-for-rbac --skip-assignment
 
 ### <a name="connect-to-the-cluster"></a>连接到群集
 
-若要管理 Kubernetes 群集，请使用 Kubernetes 命令行客户端 [kubectl][kubectl]。 如果使用 Azure 本地 Shell，则 `kubectl` 已安装。 若要在本地安装 `kubectl`，请使用 [az aks install-cli][az-aks-install-cli] 命令：
+若要管理 Kubernetes 群集，请使用 Kubernetes 命令行客户端 [kubectl][kubectl]。 若要在本地安装 `kubectl`，请使用 [az aks install-cli][az-aks-install-cli] 命令：
+
+<!--Not Available on If you use Azure Cloud Shell, `kubectl` is already installed. -->
 
 ```azurecli
 az aks install-cli
@@ -276,7 +278,9 @@ aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 
 Kubernetes 清单文件定义群集的所需状态，例如，要运行哪些容器映像。 在本快速入门中，清单用于创建运行 Azure Vote 应用程序所需的所有对象。 此清单包括两个 [Kubernetes 部署][kubernetes-deployment] - 一个用于 Azure Vote Python 示例应用程序，另一个用于 Redis 实例。 此外，还会创建两个 [Kubernetes 服务][kubernetes-service] - 一个内部服务用于 Redis 实例，一个外部服务用于从 Internet 访问 Azure Vote 应用程序。
 
-创建名为 `azure-vote.yaml` 的文件，并将其复制到以下 YAML 定义中。 如果使用 Azure 本地 Shell，则可以使用 `vi` 或 `nano` 来创建此文件，就像在虚拟或物理系统中操作一样：
+创建名为 `azure-vote.yaml` 的文件，并将其复制到以下 YAML 定义中。
+
+<!--Not Available on  If you use the Azure Cloud Shell, this file can be created using `vi` or `nano` as if working on a virtual or physical system:-->
 
 ```yaml
 apiVersion: apps/v1
@@ -297,7 +301,10 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
-        image: redis
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
         resources:
           requests:
             cpu: 100m
@@ -388,7 +395,7 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-最初，*azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending*。
+最初， *azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending* 。
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -445,14 +452,14 @@ az group delete --name myResourceGroup --yes --no-wait
 <!-- LINKS - internal -->
 
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-monitor]: ../azure-monitor/insights/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: https://docs.microsoft.com/cli/azure/aks#az_aks_browse
-[az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
-[az-aks-install-cli]: https://docs.microsoft.com/cli/azure/aks#az_aks_install_cli
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-group-delete]: https://docs.azure.cn/cli/group#az-group-delete
+[az-aks-browse]: https://docs.azure.cn/cli/aks#az_aks_browse
+[az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
+[az-aks-install-cli]: https://docs.azure.cn/cli/aks#az_aks_install_cli
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.cn
@@ -460,6 +467,6 @@ az group delete --name myResourceGroup --yes --no-wait
 [kubernetes-service]: concepts-network.md#services
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [ssh-keys]: ../virtual-machines/linux/create-ssh-keys-detailed.md
-[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac
 
 <!-- Update_Description: update meta properties, wording update, update link -->

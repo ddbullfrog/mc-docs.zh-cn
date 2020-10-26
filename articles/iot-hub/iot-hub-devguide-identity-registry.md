@@ -10,12 +10,12 @@ origin.date: 08/29/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 04/06/2020
-ms.openlocfilehash: 006b2926d008aeba5b0b70e7a2c5c8b02a9ad0a4
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: dde828f8ac6bbf1a8e8e3dfc2e5f848a16d2ae40
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394770"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471237"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中心的标识注册表
 
@@ -81,7 +81,7 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 
 有关导入和导出 API 的详细信息，请参阅 [IoT 中心资源提供程序 REST API](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource)。 若要了解有关如何运行导入和导出作业的详细信息，请参阅[批量管理 IoT 中心的设备标识](iot-hub-bulk-identity-mgmt.md)。
 
-设备标识也可以使用 [REST API](https://docs.microsoft.com/en-us/rest/api/iothub/service/jobclient/createimportexportjob) 或 IoT 中心[服务 SDK](/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks) 之一通过服务 API 从 IoT 中心导出和导入。
+设备标识也可以使用 [REST API](https://docs.microsoft.com/en-us/rest/api/iothub/service/jobs/createimportexportjob) 或 IoT 中心[服务 SDK](/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks) 之一通过服务 API 从 IoT 中心导出和导入。
 
 ## <a name="device-provisioning"></a>Device Provisioning
 
@@ -91,9 +91,9 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 
 ## <a name="device-heartbeat"></a>检测信号
 
-IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和调试期间仅使用 **connectionState** 字段。 IoT 解决方案不应在运行时查询字段。 例如，不要在发送云到设备的消息或 SMS 之前查询 **connectionState** 字段以检查设备是否已连接。 我们建议订阅事件网格上的[**设备已断开连接**事件](iot-hub-event-grid.md#event-types)以获取警报并监视设备连接状态。 使用此[教程](iot-hub-how-to-order-connection-state-events.md)了解如何在 IoT 解决方案中集成 IoT 中心的设备已连接和设备已断开连接事件。
+IoT 中心标识注册表包含名为 **connectionState** 的字段。 开发和调试期间仅使用 **connectionState** 字段。 IoT 解决方案不应在运行时查询字段。 例如，不要在发送云到设备的消息或 SMS 之前查询 **connectionState** 字段以检查设备是否已连接。 我们建议订阅事件网格上的 [**设备已断开连接** 事件](iot-hub-event-grid.md#event-types)以获取警报并监视设备连接状态。 使用此[教程](iot-hub-how-to-order-connection-state-events.md)了解如何在 IoT 解决方案中集成 IoT 中心的设备已连接和设备已断开连接事件。
 
-如果 IoT 解决方案需要知道设备是否已连接，则可实现*检测信号模式*。
+如果 IoT 解决方案需要知道设备是否已连接，则可实现 *检测信号模式* 。
 在检测信号模式下，设备每隔固定时间至少发送一次设备到云的消息（例如，每小时至少一次）。 因此，即使设备没有任何要发送的数据，仍会发送空的设备到云的消息（通常具有可供识别为检测信号的属性）。 在服务端，该解决方案维护着与每个设备收到的最后一个检测信号的映射。 如果解决方案未在预计时间内从设备收到检测信号消息，则它假定设备存在问题。
 
 更复杂的实现可包含来自 [Azure Monitor][lnk-AM] 和 [Azure 资源运行状况][lnk-ARH]的信息，用于识别尝试连接或通信但失败的设备。请查阅[使用诊断进行监视][lnk-devguide-mon]指南。 实施检测信号模式时，请务必查看 [IoT 中心配额与限制][lnk-quotas]。
@@ -103,7 +103,7 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 
 ## <a name="device-and-module-lifecycle-notifications"></a>设备和模块生命周期通知
 
-创建或删除标识时，IoT 中心可通过发送生命周期通知来通知 IoT 解决方案。 为此，IoT 解决方案需要创建一个路由，并将“数据源”设置为等于 *DeviceLifecycleEvents* 或 *ModuleLifecycleEvents*。 默认情况下，不会发送生命周期通知，即无此类路由预先存在。 通知消息包括属性和正文。
+创建或删除标识时，IoT 中心可通过发送生命周期通知来通知 IoT 解决方案。 为此，IoT 解决方案需要创建一个路由，并将“数据源”设置为等于 *DeviceLifecycleEvents* 或 *ModuleLifecycleEvents* 。 默认情况下，不会发送生命周期通知，即无此类路由预先存在。 通知消息包括属性和正文。
 
 属性：消息系统属性以 `$` 符号作为前缀。
 
@@ -187,14 +187,14 @@ iothub-message-schema | moduleLifecycleNotification |
 | 属性 | 选项 | 说明 |
 | --- | --- | --- |
 | deviceId |必需，更新时只读 |ASCII 7 位字母数字字符 + 某些特殊字符（`- . + % _ # * ? ! ( ) , : = @ $ '`）的区分大小写字符串（最长为 128 个字符）。 |
-| generationId |必需，只读 |IoT 中心生成的区分大小写字符串，最长为 128 个字符。 在删除并重新创建设备时，此值用于区分具有相同 **deviceId**的设备。 |
+| generationId |必需，只读 |IoT 中心生成的区分大小写字符串，最长为 128 个字符。 在删除并重新创建设备时，此值用于区分具有相同 **deviceId** 的设备。 |
 | etag |必需，只读 |一个字符串，根据 [RFC7232](https://tools.ietf.org/html/rfc7232) 表示设备标识的弱 ETag。 |
 | auth |可选 |包含身份验证信息和安全材料的复合对象。 |
 | auth.symkey |可选 |包含主密钥和辅助密钥的复合对象，以 base64 格式存储。 |
-| 状态 |必填 |访问指示器。 可以是 **Enabled** 或 **Disabled**。 如果是 **Enabled**，则允许设备连接。 如果是 **Disabled**，则此设备无法访问任何面向设备的终结点。 |
+| 状态 |必填 |访问指示器。 可以是 **Enabled** 或 **Disabled** 。 如果是 **Enabled** ，则允许设备连接。 如果是 **Disabled** ，则此设备无法访问任何面向设备的终结点。 |
 | statusReason |可选 |128 个字符的字符串，用于存储设备标识状态的原因。 允许所有 UTF-8 字符。 |
 | statusUpdateTime |只读 |临时指示器，显示上次状态更新的日期和时间。 |
-| connectionState |只读 |指示连接状态的字段：**Connected** 或 **Disconnected**。 此字段表示设备连接状态的 IoT 中心视图。 **重要说明**：此字段仅应当用于开发/调试目的。 仅使用 MQTT 或 AMQP 的设备才更新连接状态。 此外，它基于协议级别的 ping（MQTT ping 或 AMQP ping），并且最多只有 5 分钟的延迟。 出于这些原因，可能会发生误报，例如，将设备报告为已连接，但实际上已断开连接。 |
+| connectionState |只读 |指示连接状态的字段： **Connected** 或 **Disconnected** 。 此字段表示设备连接状态的 IoT 中心视图。 **重要说明** ：此字段仅应当用于开发/调试目的。 仅使用 MQTT 或 AMQP 的设备才更新连接状态。 此外，它基于协议级别的 ping（MQTT ping 或 AMQP ping），并且最多只有 5 分钟的延迟。 出于这些原因，可能会发生误报，例如，将设备报告为已连接，但实际上已断开连接。 |
 | connectionStateUpdatedTime |只读 |临时指示器，显示上次更新连接状态的日期和时间。 |
 | lastActivityTime |只读 |临时指示器，显示设备上次连接、接收或发送消息的日期和时间。 |
 
@@ -212,14 +212,14 @@ iothub-message-schema | moduleLifecycleNotification |
 | --- | --- | --- |
 | deviceId |必需，更新时只读 |ASCII 7 位字母数字字符 + 某些特殊字符（`- . + % _ # * ? ! ( ) , : = @ $ '`）的区分大小写字符串（最长为 128 个字符）。 |
 | moduleId |必需，更新时只读 |ASCII 7 位字母数字字符 + 某些特殊字符（`- . + % _ # * ? ! ( ) , : = @ $ '`）的区分大小写字符串（最长为 128 个字符）。 |
-| generationId |必需，只读 |IoT 中心生成的区分大小写字符串，最长为 128 个字符。 在删除并重新创建设备时，此值用于区分具有相同 **deviceId**的设备。 |
+| generationId |必需，只读 |IoT 中心生成的区分大小写字符串，最长为 128 个字符。 在删除并重新创建设备时，此值用于区分具有相同 **deviceId** 的设备。 |
 | etag |必需，只读 |一个字符串，根据 [RFC7232](https://tools.ietf.org/html/rfc7232) 表示设备标识的弱 ETag。 |
 | auth |可选 |包含身份验证信息和安全材料的复合对象。 |
 | auth.symkey |可选 |包含主密钥和辅助密钥的复合对象，以 base64 格式存储。 |
-| 状态 |必填 |访问指示器。 可以是 **Enabled** 或 **Disabled**。 如果是 **Enabled**，则允许设备连接。 如果是 **Disabled**，则此设备无法访问任何面向设备的终结点。 |
+| 状态 |必填 |访问指示器。 可以是 **Enabled** 或 **Disabled** 。 如果是 **Enabled** ，则允许设备连接。 如果是 **Disabled** ，则此设备无法访问任何面向设备的终结点。 |
 | statusReason |可选 |128 个字符的字符串，用于存储设备标识状态的原因。 允许所有 UTF-8 字符。 |
 | statusUpdateTime |只读 |临时指示器，显示上次状态更新的日期和时间。 |
-| connectionState |只读 |指示连接状态的字段：**Connected** 或 **Disconnected**。 此字段表示设备连接状态的 IoT 中心视图。 **重要说明**：此字段仅应当用于开发/调试目的。 仅使用 MQTT 或 AMQP 的设备才更新连接状态。 此外，它基于协议级别的 ping（MQTT ping 或 AMQP ping），并且最多只有 5 分钟的延迟。 出于这些原因，可能会发生误报，例如，将设备报告为已连接，但实际上已断开连接。 |
+| connectionState |只读 |指示连接状态的字段： **Connected** 或 **Disconnected** 。 此字段表示设备连接状态的 IoT 中心视图。 **重要说明** ：此字段仅应当用于开发/调试目的。 仅使用 MQTT 或 AMQP 的设备才更新连接状态。 此外，它基于协议级别的 ping（MQTT ping 或 AMQP ping），并且最多只有 5 分钟的延迟。 出于这些原因，可能会发生误报，例如，将设备报告为已连接，但实际上已断开连接。 |
 | connectionStateUpdatedTime |只读 |临时指示器，显示上次更新连接状态的日期和时间。 |
 | lastActivityTime |只读 |临时指示器，显示设备上次连接、接收或发送消息的日期和时间。 |
 

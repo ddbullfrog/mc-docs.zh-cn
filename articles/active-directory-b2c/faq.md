@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 6cb3b99bb96c70c9baa126cc0ce030332a3d83f5
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 440cc808757ba4570521dcfe3eac5cc320a3819a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402338"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471177"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常见问题 (FAQ)
 
@@ -108,15 +108,14 @@ Azure AD B2C 不适用于 SharePoint 外部合作伙伴共享的情况；请改�
 1. 以订阅管理员身份登录到 [Azure 门户](https://portal.azure.cn/)。 使用在注册 Azure 时使用的同一工作或学校帐户。
 1. 在顶部菜单中选择“目录 + 订阅”筛选器，然后选择包含Azure AD B2C 租户的目录。
 1. 在左侧菜单中，选择“Azure AD B2C”。 或者，选择“所有服务”并搜索并选择“Azure AD B2C”。
-1. 删除 Azure AD B2C 租户中的所有**用户流(策略)** 。
+1. 删除 Azure AD B2C 租户中的所有 **用户流(策略)** 。
 1. 选择“应用注册”，然后选择“所有应用程序”选项卡。 
 1. 删除已注册的所有应用程序。
-1. 删除 **b2c-extensions-app**。
+1. 删除 **b2c-extensions-app** 。
 1. 在“管理”下，选择“用户” 。
 1. 依次选择每个用户（不包括你当前作为用户登录的订阅管理员用户）。 选择页面底部的“删除”，并在出现提示时选择“是”。
 1. 在左侧菜单中，选择“Azure Active Directory”。
 1. 在“管理”下，选择“用户设置” 。
-1. 如果存在，请在“LinkedIn 帐户连接”下选择“否”，然后选择“保存”。
 1. 在“管理”下，选择“属性” 
 1. 在“Azure 资源的访问管理”下，选择“是”，然后选择“保存”。
 1. 从 Azure 门户注销，然后重新登录以刷新你的访问权限。
@@ -128,7 +127,7 @@ Azure AD B2C 不适用于 SharePoint 外部合作伙伴共享的情况；请改�
 1. 以订阅管理员身份登录到 [Azure 门户](https://portal.azure.cn/)。 使用在注册 Azure 时使用的同一工作或学校帐户。
 1. 在顶部菜单中选择“目录 + 订阅”筛选器，然后选择包含Azure AD B2C 租户的目录。
 1. 在左侧菜单中，选择“Azure AD B2C”。 或者，选择“所有服务”并搜索并选择“Azure AD B2C”。
-1. 删除 Azure AD B2C 租户中的所有**用户流(策略)** 。
+1. 删除 Azure AD B2C 租户中的所有 **用户流(策略)** 。
 1. 删除你在 Azure AD B2C 租户中注册的所有“应用程序(旧版)”。
 1. 在左侧菜单中，选择“Azure Active Directory”。
 1. 在“管理”下，选择“用户” 。

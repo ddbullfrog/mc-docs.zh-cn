@@ -17,11 +17,11 @@ ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce8a7723b0025978bc9507a6a96ff8c8b4e2dd31
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77429934"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211602"
 ---
 # <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中评审对 Azure 资源角色的访问权限
 

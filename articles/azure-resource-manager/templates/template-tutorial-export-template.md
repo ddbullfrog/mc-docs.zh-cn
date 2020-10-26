@@ -3,22 +3,22 @@ title: 教程 - 从 Azure 门户导出模板
 description: 了解如何使用导出的模板完成模板开发。
 origin.date: 09/09/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3c408b83d713d81b2e050781058d0c596160cce2
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: ''
+ms.openlocfilehash: b5d1a0d7ad140884ffa389448d7faa1681391fe1
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937545"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470067"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>教程：从 Azure 门户使用导出的模板
 
-在本教程系列中，你已创建一个用于部署 Azure 存储帐户的模板。 在接下来的两篇教程中，你将添加一个应用服务计划和一个网站。   本教程介绍如何从 Azure 门户导出模板（无需从头开始创建模板），以及如何使用 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)中的示例模板。 你可以根据自己的用途自定义这些模板。 本教程重点介绍如何导出模板，以及自定义模板的结果。 完成本教程需要大约 **14 分钟**。
+在本教程系列中，你已创建一个用于部署 Azure 存储帐户的模板。 在接下来的两篇教程中，你将添加一个应用服务计划和一个网站。   本教程介绍如何从 Azure 门户导出模板（无需从头开始创建模板），以及如何使用 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)中的示例模板。 你可以根据自己的用途自定义这些模板。 本教程重点介绍如何导出模板，以及自定义模板的结果。 完成本教程需要大约 **14 分钟** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -92,12 +92,12 @@ ms.locfileid: "91937545"
 1. 选择“创建”  。
 1. 输入：
 
-    - **订阅**：选择 Azure 订阅。
-    - **资源组**：选择“新建”，然后指定名称。  提供的资源组名称应该与过去在本教程系列中使用的名称不同。
-    - **名称**：输入应用服务计划的名称。
-    - **操作系统**：选择“Linux”。 
-    - **区域**：选择一个 Azure 位置。 例如，**中国北部**。
-    - **定价层**：为了节省成本，请将 SKU 更改为“基本 B1”（在“开发/测试”下）。 
+    - **订阅** ：选择 Azure 订阅。
+    - **资源组** ：选择“新建”，然后指定名称。  提供的资源组名称应该与过去在本教程系列中使用的名称不同。
+    - **名称** ：输入应用服务计划的名称。
+    - **操作系统** ：选择“Linux”。 
+    - **区域** ：选择一个 Azure 位置。 例如， **中国北部** 。
+    - **定价层** ：为了节省成本，请将 SKU 更改为“基本 B1”（在“开发/测试”下）。 
 
     :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export.png" alt-text="资源管理器模板 - 在门户中导出模板":::
 1. 选择“查看并创建”。 
@@ -210,7 +210,7 @@ ms.locfileid: "91937545"
 
 使用 Azure CLI 或 Azure PowerShell 来部署模板。
 
-如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
+如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据 [第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

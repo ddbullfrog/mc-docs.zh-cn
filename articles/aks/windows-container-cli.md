@@ -4,16 +4,17 @@ description: 了解如何使用 Azure CLI 在 Azure Kubernetes 服务 (AKS) 的 
 services: container-service
 ms.topic: article
 origin.date: 07/16/2020
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 06/15/2020
 ms.author: v-yeche
-ms.openlocfilehash: 56f3cf8c6ef458dfebd29189c1ad39dd32676716
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: a3dbbd2f9990e44b1a05b91f8659b9e96e5c6fee
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021527"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470171"
 ---
 <!--Verified successfully-->
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>使用 Azure CLI 在 Azure Kubernetes 服务 (AKS) 群集上创建 Windows Server 容器
@@ -275,18 +276,18 @@ az group delete --name myResourceGroup --yes --no-wait
 <!-- LINKS - internal -->
 
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-monitor]: ../azure-monitor/insights/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: https://docs.microsoft.com/cli/azure/aks#az_aks_browse
-[az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
-[az-aks-install-cli]: https://docs.microsoft.com/cli/azure/aks#az_aks_install_cli
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-feature-list]: https://docs.azure.cn/cli/feature#az-feature-list
-[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-group-delete]: https://docs.azure.cn/cli/group#az-group-delete
-[az-provider-register]: https://docs.azure.cn/cli/provider#az-provider-register
+[az-aks-browse]: https://docs.azure.cn/cli/aks#az_aks_browse
+[az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
+[az-aks-install-cli]: https://docs.azure.cn/cli/aks#az_aks_install_cli
+[az-extension-add]: https://docs.microsoft.com/cli/azure/extension#az_extension_add
+[az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
+[az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
+[az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 [azure-cni-about]: concepts-network.md#azure-cni-advanced-networking
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
@@ -298,8 +299,8 @@ az group delete --name myResourceGroup --yes --no-wait
 [use-advanced-networking]: configure-azure-cni.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-extension-update]: https://docs.azure.cn/cli/extension#az-extension-update
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 [windows-server-password]: https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
 
 <!-- Update_Description: update meta properties, wording update, update link -->

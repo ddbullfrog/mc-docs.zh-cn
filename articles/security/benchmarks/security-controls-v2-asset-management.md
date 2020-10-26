@@ -36,7 +36,7 @@ ms.locfileid: "92128836"
 
 - [Azure 管理组概述](../../governance/management-groups/overview.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -60,7 +60,7 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [有关标记资产的详细信息，请参阅资源命名和标记决策指南](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -82,7 +82,7 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [如何使用 Azure Resource Graph 浏览器创建查询](../../governance/resource-graph/first-query-portal.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -102,7 +102,7 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [删除 Azure 资源组和资源](../../azure-resource-manager/management/delete-resource-group.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -122,7 +122,7 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [如何配置条件访问来阻止对 Azure 资源管理器的访问](../../role-based-access-control/conditional-access-azure-management.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -150,7 +150,7 @@ Azure 安全中心清单功能和 Azure Resource Graph 可以查询和发现订�
 
 - [如何在 Windows 环境中控制 PowerShell 脚本的执行](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解更多](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

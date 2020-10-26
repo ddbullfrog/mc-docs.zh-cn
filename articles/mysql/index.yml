@@ -6,15 +6,15 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 09/03/2019
-  ms.date: 10/19/2020
+  ms.date: 10/29/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 27554d6f17a86f5bc8cfcf3bed680db67a92c13f
-  ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+  ms.openlocfilehash: 2a3caa6fe24571b0e6fdcc5449be55f416e7a649
+  ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92041793"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92470107"
 landingContent:
 - title: 关于 Azure Database for MySQL
   linkLists:
@@ -22,6 +22,8 @@ landingContent:
     links:
     - text: 什么是用于 MySQL 的 Azure 数据库？
       url: overview.md
+    - text: 选择适当的 MySQL 选项
+      url: select-right-deployment-type.md
 - title: 单台服务器
   linkLists:
   - linkListType: overview

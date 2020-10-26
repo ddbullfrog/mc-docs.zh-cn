@@ -4,17 +4,17 @@ description: include 文件
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 4df952a66ed1d2c7c1d7d5ffdc67128ad5a03b6d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 39298b6e18384fb896e10c9fecc55cc814b5b930
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "89413617"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472581"
 ---
-指定在[计算 Application Insights 的指标](../articles/azure-functions/functions-monitoring.md#configure-the-aggregator)时要聚合多少个函数调用。 
+指定在[计算 Application Insights 的指标](../articles/azure-functions/configure-monitoring.md#configure-the-aggregator)时要聚合多少个函数调用。 
 
 ```json
 {

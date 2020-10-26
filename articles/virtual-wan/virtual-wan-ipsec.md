@@ -4,18 +4,18 @@ description: 了解 Azure 虚拟 WAN IPsec 连接策略，包括默认发起方�
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: conceptual
-origin.date: 10/07/2019
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: a46cb9c0c34bf70f9b9254b9183cdb8aad6fde6d
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: b8078126b8a84b92c098ce2867cf18cca97b1001
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246418"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472534"
 ---
 # <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>用于 IPsec 连接的虚拟 WAN 默认策略
 

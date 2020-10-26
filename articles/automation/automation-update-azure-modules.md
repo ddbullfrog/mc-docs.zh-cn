@@ -7,11 +7,11 @@ origin.date: 06/14/2019
 ms.date: 08/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: f61d06d549cbe200112fdd7a483765454ba72a0c
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790542"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211543"
 ---
 # <a name="update-azure-powershell-modules"></a>更新 Azure PowerShell 模块
 

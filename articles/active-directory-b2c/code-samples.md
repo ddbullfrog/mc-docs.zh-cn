@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: v-junlch
-ms.date: 09/21/2020
+ms.date: 10/23/2020
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 349fa5e848402f7278e82e24c795a86e9fbe6ba1
-ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
+ms.openlocfilehash: 10fe6bc435ba2a4224d1034ccc730dad5e958603
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90828776"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471079"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 代码示例
 
@@ -37,7 +37,8 @@ ms.locfileid: "90828776"
 | 示例 | 说明 |
 |--------| ----------- |
 | [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | 调用了一个 .NET Web API 的 .NET Web 应用程序的组合示例，两者都使用 Azure AD B2C 提供保护。 |
-| [dotnetcore-webapp](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | 一个 ASP.NET Core Web 应用程序，它可以使用 Azure AD B2C 完成用户登录，使用 MSAL.NET 获取访问令牌，并调用一个 API。 |
+| [dotnetcore-webapp-openidconnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) | 使用 OpenID Connect 在 Azure AD B2C 中登录用户的 ASP.NET Core Web 应用程序。 |
+| [dotnetcore-webapp-msal-api](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C) | 一个 ASP.NET Core Web 应用程序，它可以使用 Azure AD B2C 完成用户登录，使用 MSAL.NET 获取访问令牌，并调用一个 API。 |
 | [openidconnect-nodejs](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) | 一个 Node.js 应用，它提供了一种便捷的方法来使用 OpenID Connect 设置通过 Express 开发的 Web 应用程序。 |
 | [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | 一个用于 Azure AD B2C 的小 node.js Web API，它展示了如何使用 passport.js 保护 Web API 并接受 B2C 访问令牌。 |
 | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | 演示如何将 Microsoft 标识平台的 B2C 与 Python Web 应用程序集成。  |

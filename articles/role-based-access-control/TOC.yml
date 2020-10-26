@@ -24,6 +24,10 @@
       href: tutorial-role-assignments-group-powershell.md
 - name: 概念
   items:
+    - name: 角色定义
+      href: role-definitions.md
+    - name: 范围
+      href: scope-overview.md
     - name: 最佳做法
       href: best-practices.md
     - name: 用于 Azure 管理的条件访问
@@ -36,11 +40,7 @@
 - name: 操作指南
   items:
     - name: 列出角色定义
-      items:
-        - name: 概述
-          href: role-definitions.md
-        - name: 列出角色定义
-          href: role-definitions-list.md
+      href: role-definitions-list.md
     - name: 列出角色分配
       items:
         - name: 门户
@@ -53,6 +53,8 @@
           href: role-assignments-list-rest.md
     - name: 添加或删除角色分配
       items:
+        - name: 角色分配的添加步骤
+          href: role-assignments-steps.md
         - name: 门户
           href: role-assignments-portal.md
         - name: 门户 - 来宾用户
@@ -97,7 +99,7 @@
       href: elevate-access-global-admin.md
     - name: 经典管理员
       href: classic-administrators.md
-    - name: 将订阅传输到不同的目录（预览）
+    - name: 将订阅传输到不同的目录
       href: transfer-subscription.md
     - name: 疑难解答
       href: troubleshooting.md

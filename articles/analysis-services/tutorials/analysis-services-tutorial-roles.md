@@ -5,17 +5,17 @@ ms.service: azure-analysis-services
 ms.topic: tutorial
 origin.date: 08/31/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: ee2b5ffe321b007b696568d7865d329dcea7a016
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 1b8f2a780935de9c2aedbe1a32ccb820a3a1ee9f
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146753"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469967"
 ---
 <!--Notice: Verify successfully-->
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>教程：配置服务器管理员和用户角色
@@ -46,7 +46,7 @@ ms.locfileid: "91146753"
 ## <a name="get-server-name"></a>获取服务器名称
 若要从 SSMS 连接到服务器，首先需要服务器名称。 可以从门户获取服务器名称。
 
-在 **Azure 门户**中，单击“服务器”>“概述”   > “服务器名称”  ，并复制服务器名称。
+在 **Azure 门户** 中，单击“服务器”>“概述”   > “服务器名称”  ，并复制服务器名称。
 
 <!--MOONCAKE: Remove the four empty chars to avoid the wrong code format-->
 
@@ -60,18 +60,18 @@ ms.locfileid: "91146753"
 
 1. 在 SSMS >“对象资源管理器”  中，单击“连接”   > “Analysis Services”  。
 
-    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-ssms-connect.png" alt-text="“连接”":::
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-ssms-connect.png" alt-text="在 Azure 中获取服务器名称":::
 
 2. 在“连接到服务器”对话框的“服务器名称”中，粘贴从门户复制的服务器名称。   在“身份验证”  中选择“具有 MFA 支持的 Active Directory 通用版”  ，  输入用户帐户，然后按“连接”。
 
-    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png" alt-text="在 SSMS 中连接":::
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png" alt-text="在 Azure 中获取服务器名称":::
 
     > [!TIP]
     > 建议选择“具有 MFA 支持的 Active Directory 通用版”。 这种身份验证类型支持[非交互式多重身份验证](../../azure-sql/database/authentication-mfa-ssms-overview.md)。 
 
 3. 在“对象资源管理器”  中，以展开方式查看服务器对象。 右键单击即可查看服务器属性。
 
-    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png" alt-text="SSMS 中的对象资源管理器":::
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png" alt-text="在 Azure 中获取服务器名称":::
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>将用户帐户添加到服务器管理员角色
 
@@ -81,7 +81,7 @@ ms.locfileid: "91146753"
 2. 在“Analysis Server 属性”  窗口中，单击“安全性”   >   “添加”。
 3. 在“选择用户或组”窗口的 Azure AD 中输入用户或组帐户，然后单击“添加”。   
 
-    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-add-server-admin.png" alt-text="添加服务器管理员":::
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-add-server-admin.png" alt-text="在 Azure 中获取服务器名称":::
 
 4. 单击“确定”  ，关闭“Analysis Server 属性”  。
 
@@ -95,11 +95,11 @@ ms.locfileid: "91146753"
 1. 在“对象资源管理器”  中，展开“数据库”   > “adventureworks”   >   “角色”。 
 2. 右键单击“Internet 销售管理员”，  然后单击“充当的脚本角色”   > “CREATE OR REPLACE TO”   >   “新建查询编辑器窗口”。
 
-    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-add-db-admin.png" alt-text="新建查询编辑器窗口":::
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-add-db-admin.png" alt-text="在 Azure 中获取服务器名称":::
 
 3. 在“XMLAQuery”中将“memberName:”的值更改为 Azure AD 中的某个用户或组帐户。   默认情况下，已经包括登录时使用的帐户；但是，你不需添加自己的帐户，因为你已经是服务器管理员。
 
-    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-add-db-admin-script.png" alt-text="XMLA 查询中的 TMSL 脚本":::
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-add-db-admin-script.png" alt-text="在 Azure 中获取服务器名称":::
 
 4. 按 **F5** 执行脚本。
 
@@ -136,10 +136,10 @@ ms.locfileid: "91146753"
 
 ## <a name="verify-your-changes"></a>验证所做的更改
 
-1. 在“对象资源管理器”中单击服务器名，然后单击“刷新”或按 **F5**。 
+1. 在“对象资源管理器”中单击服务器名，然后单击“刷新”或按 **F5** 。 
 2. 展开“数据库” > “adventureworks” > “角色”。   验证在前述任务中添加的用户帐户和新角色更改是否显示。   
 
-    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png" alt-text="在对象资源管理器中验证":::
+    :::image type="content" source="./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png" alt-text="在 Azure 中获取服务器名称":::
 
 ## <a name="clean-up-resources"></a>清理资源
 

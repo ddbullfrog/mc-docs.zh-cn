@@ -1,16 +1,17 @@
 ---
 title: LUIS 应用 DevOps 测试
 description: 如何在 DevOps 环境中测试语言理解 (LUIS) 应用。
-author: Johnnytechn
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: d7b5c0a084c7bf94e9fba2b14c72a258259f6c24
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 36ed67cc5f41a247e75ca37fe22ba66af0890722
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023681"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472484"
 ---
 # <a name="testing-for-luis-devops"></a>LUIS DevOps 测试
 
@@ -25,7 +26,7 @@ ms.locfileid: "88023681"
 对于需要在持续集成工作流中执行的 LUIS 应用，有两种不同类型的测试：
 
 - **单元测试** - 相对简单的测试，用于验证 LUIS 应用的主要功能。 当给定的测试言语返回预期意向和预期实体时，单元测试通过。 所有单元测试都必须通过，测试运行才能成功完成。  
-这种测试类似于[交互式测试](/cognitive-services/luis/luis-concept-test)，可以在 [LUIS 门户](https://www.luis.ai/)中进行。
+这种测试类似于[交互式测试](/cognitive-services/luis/luis-concept-test)，可以在 [LUIS 门户](https://luis.azure.cn/)中进行。
 
 - **批处理测试** - 批处理测试是对当前已训练的模型进行的全面测试，用于衡量其性能。 与单元测试不同，批处理测试不是关于“通过或失败”的测试。 批处理测试的预期不是每个测试都将返回预期意向和预期实体。 相反，批处理测试可帮助你在应用中查看每个意向和实体的准确性，并帮助你将一段时间内的改进进行比较。  
 这种类型的测试与可以在 LUIS 门户中以交互方式执行的[批处理测试](/cognitive-services/luis/luis-concept-batch-test)相同。

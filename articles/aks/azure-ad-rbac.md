@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 07/21/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: d38c5819967a950085cc597dd8875b6320053ac9
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 3c201c776c7d0dd996a124e9488c3776fa4d11bd
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021555"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469987"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>在 Azure Kubernetes 服务中使用基于角色的访问控制和 Azure Active Directory 标识来控制对群集资源的访问
 
@@ -410,15 +410,15 @@ az ad group delete --group opssre
 
 <!-- LINKS - internal -->
 
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [azure-ad-aks-cli]: azure-ad-integration-cli.md
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks?az-aks-show
-[az-ad-group-create]: https://docs.azure.cn/cli/ad/group?view=azure-clreate
-[az-role-assignment-create]: https://docs.azure.cn/cliazure-cli-latest#az-role-assignment-create
-[az-ad-user-create]: https://docs.azure.cn/cli/ad/user?view=azure-create
-[az-ad-group-member-add]: https://docs.azure.cn/cli/adre-cli-latest#az-ad-group-member-add
-[az-ad-group-show]: https://docs.azure.cn/cli/ad/group?view=azure-cli-latest#az-ad-group-show
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
+[az-ad-group-create]: https://docs.azure.cn/cli/ad/group#az_ad_group_create
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
+[az-ad-user-create]: https://docs.azure.cn/cli/ad/user#az_ad_user_create
+[az-ad-group-member-add]: https://docs.azure.cn/cli/ad/group/member#az_ad_group_member_add
+[az-ad-group-show]: https://docs.azure.cn/cli/ad/group#az_ad_group_show
 [rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 

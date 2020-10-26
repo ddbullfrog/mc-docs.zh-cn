@@ -9,16 +9,16 @@ manager: digimobile
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
-ms.topic: article
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.topic: tutorial
 origin.date: 04/11/2020
-ms.date: 04/27/2020
-ms.openlocfilehash: 955f20b07d79a8108d38baf9909bf78ad89764fc
-ms.sourcegitcommit: f9c242ce5df12e1cd85471adae52530c4de4c7d7
+ms.date: 10/29/2020
+ms.openlocfilehash: b66c4e8d0fff5931cda337c930fb296f280b7cb5
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134727"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472643"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>教程：通过 Azure CLI 使用 DMS 将 PostgreSQL 联机迁移到 Azure DB for PostgreSQL
 
@@ -141,7 +141,7 @@ ms.locfileid: "82134727"
 
     运行查询结果中的 drop foreign key（第二列）。
 
-5. 数据中的触发器（插入或更新触发器）会赶在源中的已复制数据之前在目标中强制实施数据完整性。 建议在迁移期间禁用**目标**的所有表中的触发器，然后在迁移完成后重新启用这些触发器。
+5. 数据中的触发器（插入或更新触发器）会赶在源中的已复制数据之前在目标中强制实施数据完整性。 建议在迁移期间禁用 **目标** 的所有表中的触发器，然后在迁移完成后重新启用这些触发器。
 
     若要禁用目标数据库中的触发器，请使用以下命令：
 
@@ -371,8 +371,6 @@ ms.locfileid: "82134727"
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output --query 'properties.output[].migrationState | [0]' "READY_TO_COMPLETE"
     ```
 
-## <a name="understanding-migration-task-status"></a>了解迁移任务状态
-
 在输出文件中，有多个指示迁移进度的参数。 有关示例，请查看下面的输出文件：
 
   ```output
@@ -485,6 +483,7 @@ ms.locfileid: "82134727"
     ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
+3. 当数据库迁移状态显示“已完成”时[重新创建序列](https://wiki.postgresql.org/wiki/Fixing_Sequences)（如适用），并将应用程序连接到 Azure Database for PostgreSQL 的新目标实例。
 
 ## <a name="service-project-task-cleanup"></a>服务、项目、任务清理
 

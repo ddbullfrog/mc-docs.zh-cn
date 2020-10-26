@@ -51,6 +51,8 @@
       href: concepts-identity.md
     - name: 安全性
       items:
+        - name: 安全基线
+          href: security-baseline.md
         - name: 应用程序和群集的安全性
           href: concepts-security.md
         - name: Azure Policy 的安全控件
@@ -201,13 +203,15 @@
           href: update-credentials.md
         - name: 实现 Azure Active Directory 集成
           items:
-            - name: AAD 集成
+            - name: Azure AD 集成（旧版）
               href: azure-ad-integration-cli.md
         - name: 将 Kubernetes RBAC 用于 Azure AD 集成
           href: azure-ad-rbac.md
           maintainContext: true
         - name: 轮换证书
           href: certificate-rotation.md
+        - name: 创建专用群集
+          href: private-clusters.md
         - name: 为磁盘使用 BYOK
           href: azure-disk-customer-managed-keys.md
     - name: 监视和日志记录
@@ -298,7 +302,7 @@
 - name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/aks'
+      href: 'https://docs.azure.cn/cli/aks'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/aks'
     - name: PowerShell

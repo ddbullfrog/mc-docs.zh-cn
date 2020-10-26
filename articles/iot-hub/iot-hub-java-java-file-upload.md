@@ -1,20 +1,25 @@
 ---
 title: 使用 Java 将文件从设备上传到 Azure IoT 中心 | Microsoft Docs
 description: 如何使用用于 Java 的 Azure IoT 设备 SDK 从设备将文件上传到云中。 上传的文件存储在 Azure 存储 Blob 容器中。
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 06/28/2017
-ms.author: dobett
-ms.date: 03/09/2020
-ms.openlocfilehash: 3d14e1ac7b585cc3f89135e470e604cf8c955e33
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.custom:
+- amqp
+- mqtt
+- devx-track-java
+ms.date: 11/02/2020
+ms.openlocfilehash: 629b0df27223cd7839071fa53a7f51a84632980c
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394762"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471219"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>通过 IoT 中心将设备中的文件上传到云 (Java)
 
@@ -36,11 +41,11 @@ ms.locfileid: "91394762"
 
 在本教程的最后，将运行两个 Java 控制台应用：
 
-* **simulated-device**，这是 [使用 IoT 中心发送云到设备的消息] 教程中创建的应用的修改版本。 该应用使用 IoT 中心提供的 SAS URI 将文件上传到存储。
-* **read-file-upload-notification**，它可以接收来自 IoT 中心的文件上传通知。
+* **simulated-device** ，这是 [使用 IoT 中心发送云到设备的消息] 教程中创建的应用的修改版本。 该应用使用 IoT 中心提供的 SAS URI 将文件上传到存储。
+* **read-file-upload-notification** ，它可以接收来自 IoT 中心的文件上传通知。
 
 > [!NOTE]
-> IoT 中心通过 Azure IoT 设备 SDK 来支持许多设备平台和语言（包括 C、.NET 和 Javascript）。 有关如何将设备连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](http://www.azure.cn/develop/iot)。
+> IoT 中心通过 Azure IoT 设备 SDK 来支持许多设备平台和语言（包括 C、.NET 和 Javascript）。 有关如何将设备连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](http://docs.azure.cn/develop/iot)。
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -151,7 +156,7 @@ ms.locfileid: "91394762"
     ```
 
     > [!NOTE]
-    > 可以使用 [Maven 搜索](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-service-client**。
+    > 可以使用 [Maven 搜索](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-service-client** 。
 
 1. 保存并关闭 `pom.xml` 文件。
 

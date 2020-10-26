@@ -16,11 +16,11 @@ origin.date: 01/29/2018
 ms.date: 02/17/2020
 ms.author: v-yiso
 ms.openlocfilehash: 5c10a5b5cc86bf74e4e0643126696fbe6ae4f233
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291385"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211470"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>云服务监视简介
 
@@ -41,7 +41,7 @@ ms.locfileid: "79291385"
 
 ## <a name="advanced-monitoring"></a>高级监视
 
-高级监视涉及到对想要监视的角色使用 **Azure 诊断**扩展（和可选的 Application Insights SDK）。 该诊断扩展使用名为 **diagnostics.wadcfgx** 的配置文件（按角色）来配置所监视的诊断指标。 Azure 诊断扩展收集数据，并将数据存储在 Azure 存储帐户中。 在 **.wadcfgx**、[.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 和 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 文件中配置这些设置。 这意味着，高级监视会产生额外的成本。
+高级监视涉及到对想要监视的角色使用 **Azure 诊断** 扩展（和可选的 Application Insights SDK）。 该诊断扩展使用名为 **diagnostics.wadcfgx** 的配置文件（按角色）来配置所监视的诊断指标。 Azure 诊断扩展收集数据，并将数据存储在 Azure 存储帐户中。 在 **.wadcfgx** 、 [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 和 [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) 文件中配置这些设置。 这意味着，高级监视会产生额外的成本。
 
 创建每个角色时，Visual Studio 会将 Azure 诊断扩展添加到其中。 此诊断扩展可收集以下类型的信息：
 
@@ -55,15 +55,15 @@ ms.locfileid: "79291385"
 * 客户错误日志
 
 > [!IMPORTANT]
-> 尽管所有这些数据都会聚合到存储帐户中，但门户**不**提供绘制数据图表的本机方法。 强烈建议你将另一个服务（如 Application Insights）集成到应用程序中。
+> 尽管所有这些数据都会聚合到存储帐户中，但门户 **不** 提供绘制数据图表的本机方法。 强烈建议你将另一个服务（如 Application Insights）集成到应用程序中。
 
 ## <a name="setup-diagnostics-extension"></a>设置诊断扩展
 
-首先，如果你没有**经典**存储帐户，请[创建一个](../storage/common/storage-account-create.md)。 确保为创建的存储帐户指定**经典部署模型**。
+首先，如果你没有 **经典** 存储帐户，请 [创建一个](../storage/common/storage-account-create.md)。 确保为创建的存储帐户指定 **经典部署模型** 。
 
 接下来，导航到“存储帐户(经典)”资源。  选择“设置” > “访问密钥”，并复制“主连接字符串”值。 云服务需要此值。 
 
-必须更改两个配置文件才能启用高级诊断：**ServiceDefinition.csdef** 和 **ServiceConfiguration.cscfg**。
+必须更改两个配置文件才能启用高级诊断： **ServiceDefinition.csdef** 和 **ServiceConfiguration.cscfg** 。
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
@@ -78,7 +78,7 @@ ms.locfileid: "79291385"
 
 此代码定义必须添加到每个 **ServiceConfiguration.cscfg** 文件的新设置。 
 
-很可能有两个 **.cscfg** 文件，一个名为 **ServiceConfiguration.cloud.cscfg**，用于部署到 Azure；另一个名为 **ServiceConfiguration.local.cscfg**，用于在模拟环境中进行本地部署。 打开并更改每个 **.cscfg** 文件。 添加名为 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 的设置。 将值设置为经典存储帐户的**主连接字符串**。 如果想要在开发计算机上使用本地存储，请使用 `UseDevelopmentStorage=true`。
+很可能有两个 **.cscfg** 文件，一个名为 **ServiceConfiguration.cloud.cscfg** ，用于部署到 Azure；另一个名为 **ServiceConfiguration.local.cscfg** ，用于在模拟环境中进行本地部署。 打开并更改每个 **.cscfg** 文件。 添加名为 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 的设置。 将值设置为经典存储帐户的 **主连接字符串** 。 如果想要在开发计算机上使用本地存储，请使用 `UseDevelopmentStorage=true`。
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">

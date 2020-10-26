@@ -34,35 +34,35 @@ ms.locfileid: "92118544"
 
 你需要导出模拟器证书，才能成功地通过未集成 Windows 证书存储的语言和运行时环境使用模拟器终结点。 你可以使用 Windows 证书管理器导出证书。 使用以下分步说明，将“DocumentDBEmulatorCertificate”证书导出为 BASE-64 编码的 X.509 (.cer) 文件：
 
-1. 通过运行 certlm.msc 启动 Windows 证书管理器并导航到“个人”->“证书”文件夹，打开友好名称为“DocumentDbEmulatorCertificate”**** 的证书。
+1. 通过运行 certlm.msc 启动 Windows 证书管理器并导航到“个人”->“证书”文件夹，打开友好名称为“DocumentDbEmulatorCertificate”  的证书。
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png" alt-text="Azure Cosmos DB 本地模拟器导出步骤 1":::
 
-1. 单击“详细信息”****，并单击“确定”****。
+1. 单击“详细信息”  ，并单击“确定”  。
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png" alt-text="Azure Cosmos DB 本地模拟器导出步骤 1":::
 
-1. 单击“复制到文件...” ****。
+1. 单击“复制到文件...”  。
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Azure Cosmos DB 本地模拟器导出步骤 1":::
 
-1. 单击“下一步”****。
+1. 单击“下一步”  。
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Azure Cosmos DB 本地模拟器导出步骤 1":::
 
-1. 单击“否，不导出私钥”****，并单击“下一步”****。
+1. 单击“否，不导出私钥”  ，并单击“下一步”  。
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png" alt-text="Azure Cosmos DB 本地模拟器导出步骤 1":::
 
-1. 单击“Base-64 编码 X.509 (.CER)”****，并单击“下一步”****。
+1. 单击“Base-64 编码 X.509 (.CER)”  ，并单击“下一步”  。
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png" alt-text="Azure Cosmos DB 本地模拟器导出步骤 1":::
 
-1. 为证书指定名称。 在本示例中为“documentdbemulatorcert”****。单击“下一步”****。
+1. 为证书指定名称。 在本示例中为“documentdbemulatorcert”  。单击“下一步”  。
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Azure Cosmos DB 本地模拟器导出步骤 1":::
 
-1. 单击“完成” ****。
+1. 单击“完成”  。
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png" alt-text="Azure Cosmos DB 本地模拟器导出步骤 1":::
 

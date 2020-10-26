@@ -1,20 +1,20 @@
 ---
 title: Azure Kubernetes 服务的内置策略定义
 description: 列出 Azure Kubernetes 服务的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-origin.date: 09/16/2020
+origin.date: 10/07/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 09/21/2020
 ms.author: v-yeche
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 969c78a2678a9d1f52b0476c96bc610cc8034c98
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 7fe60c9f749c52c6e6d3fd5e3adc4df16d60abc7
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937406"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470513"
 ---
 <!--Verified successfully on 09/21/2020-->
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Azure Kubernetes 服务的 Azure Policy 内置定义
@@ -29,7 +29,7 @@ ms.locfileid: "91937406"
 
 <!--Not Available on ## AKS Engine-->
 
-<!--Not Available on [!INCLUDE [azure-policy-reference-rp-aks-aksengine](../../includes/policy/reference/byrp/aks-engine.md)]-->
+<!--Not Available on [!INCLUDE [azure-policy-reference-rp-aks-aksengine](../../includes/policy/reference/byrp/aks-engine.md)-->
 
 ## <a name="next-steps"></a>后续步骤
 

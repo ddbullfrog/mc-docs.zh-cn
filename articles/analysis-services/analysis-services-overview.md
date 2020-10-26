@@ -5,18 +5,18 @@ ms.service: azure-analysis-services
 ms.topic: overview
 origin.date: 09/08/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: f5a7c3f4d57a2ab66571509a5539f1c8807dc88c
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 939c0861d7e5a7b224e95b06d32bae7664e5d7c6
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146296"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470473"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -24,13 +24,13 @@ ms.locfileid: "91146296"
 
 Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在云中提供企业级的数据模型。 使用高级糅合和建模功能，可以在单个受信任的表格语义数据模型中合并多个数据源中的数据、定义指标以及保护数据。 数据模型可让用户更快速轻松地使用 Power BI 和 Excel 等工具执行即席数据分析。
 
-:::image type="content" source="./media/analysis-services-overview/aas-overview-overall.png" alt-text="数据源":::
+:::image type="content" source="./media/analysis-services-overview/aas-overview-overall.png" alt-text="Azure Analysis Services":::
 
 <!-- Not Available VIDEO on [this video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)-->
 
 ## <a name="get-up-and-running-quickly"></a>快速启动和运行
 
-在 Azure 门户中，数分钟即可[创建服务器](analysis-services-create-server.md)。 借助 Azure 资源管理器[模板](../azure-resource-manager/resource-manager-create-first-template.md)和 PowerShell，可以使用声明性模板来创建服务器。 利用单个模板可以部署服务器资源及其他 Azure 组件，例如存储帐户和 Azure Functions。 
+在 Azure 门户中，数分钟即可[创建服务器](analysis-services-create-server.md)。 借助 Azure 资源管理器[模板](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)和 PowerShell，可以使用声明性模板来创建服务器。 利用单个模板可以部署服务器资源及其他 Azure 组件，例如存储帐户和 Azure Functions。 
 
 <!-- Not Available VIDEO on [Automating deployent](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)-->
 
@@ -117,7 +117,7 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 
 ## <a name="built-on-sql-server-analysis-services"></a>基于 SQL Server Analysis Services
 
-Azure Analysis Services 兼容 SQL Server Analysis Services Enterprise Edition 中已有的多个强大功能。 Azure Analysis Services 支持 1200 和更高[兼容级别](analysis-services-compat-level.md)的表格模型。 表格模型属于关系建模构造（模型、表、列），在表格元数据对象定义中以表格模型脚本语言 (TMSL) 和表格对象模型 (TOM) 代码阐述。 支持分区、透视图、行级安全性、双向关系和转换\*。 Azure Analysis Services 不支持多维模型和 PowerPivot for SharePoint。
+Azure Analysis Services 兼容 SQL Server Analysis Services Enterprise Edition 中已有的多个强大功能。 Azure Analysis Services 支持 1200 和更高[兼容级别](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)的表格模型。 表格模型属于关系建模构造（模型、表、列），在表格元数据对象定义中以表格模型脚本语言 (TMSL) 和表格对象模型 (TOM) 代码阐述。 支持分区、透视图、行级安全性、双向关系和转换\*。 Azure Analysis Services 不支持多维模型和 PowerPivot for SharePoint。
 
 支持内存中模式和 DirectQuery 模式的表格模型。 内存中模式（默认）表格模型支持多个数据源。 由于模型数据经过高度压缩并缓存在内存中，因此，此模式可针对大量数据提供最快的查询响应。 此外，它还针对复杂数据集和查询提供最高的灵活性。 
 
@@ -184,7 +184,7 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](https://www.microsoft
 
 ## <a name="use-the-tools-you-already-know"></a>使用熟悉的工具
 
-:::image type="content" source="./media/analysis-services-overview/aas-overview-dev-tools.png" alt-text="BI 开发人员工具":::
+:::image type="content" source="./media/analysis-services-overview/aas-overview-dev-tools.png" alt-text="Azure Analysis Services":::
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -210,7 +210,7 @@ Analysis Services 有一个生机勃勃的开发人员社区，他们会创建�
 
 ## <a name="supports-the-latest-client-tools"></a>支持最新的客户端工具
 
-:::image type="content" source="./media/analysis-services-overview/aas-overview-clients.png" alt-text="数据可视化":::
+:::image type="content" source="./media/analysis-services-overview/aas-overview-clients.png" alt-text="Azure Analysis Services":::
 
 利用新式的数据浏览和可视化工具（例如 Power BI、Excel、Reporting Services 和第三方工具），用户可以通过交互性强且视觉效果丰富的方式来了解模型数据。 
 
@@ -226,7 +226,7 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 
 由于 Azure Analysis Services 中的表格模型在很大程度上与 SQL Server Analysis Services 和 Power BI Premium 数据集中的表格模型相同，因此可以参考 [Analysis Services 文档](/analysis-services/?view=azure-analysis-services-current)中分享的大量数据建模教程、概念、过程、开发人员和参考文章。 共享的 Analysis Services 文档中的文章在标题下方的“适用于”段落中说明了它们是否也适用于 Azure Analysis Services。 还可以使用“目录”上方的“版本”选择器，但只能查看适用于你所用的平台的文章。
 
-:::image type="content" source="./media/analysis-services-overview/aas-overview-applies-to.png" alt-text="分享的文档":::
+:::image type="content" source="./media/analysis-services-overview/aas-overview-applies-to.png" alt-text="Azure Analysis Services":::
 
 ### <a name="contribute"></a>欢迎供稿！
 
@@ -237,6 +237,7 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 <!--Not Suitable on [GitHub Issues](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs)-->
 <!-- Not Available on ## Blogs-->
 <!-- Not Available on ## Community-->
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]

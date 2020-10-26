@@ -11,15 +11,15 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/12/2019
-ms.date: 10/28/2019
+origin.date: 03/13/2020
+ms.date: 11/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: ec202ecd63fe15063c20d3df6105bc60e28b70e3
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: e0bfe998e872cdbf6022e7e91c9d74b2bdf59d34
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917160"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472604"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>快速入门：使用 ARM 模板在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -214,7 +214,7 @@ ms.locfileid: "87917160"
     |资源组|从下拉列表中选择现有资源组，或选择“新建”。|
     |位置|将使用用于资源组的位置自动填充此值。|
     |群集名称|输入任何全局唯一的名称。 对于此模板，请只使用小写字母和数字。|
-    |群集登录用户名|提供用户名，默认值为 **admin**。|
+    |群集登录用户名|提供用户名，默认值为 **admin** 。|
     |群集登录密码|提供密码。 密码长度不得少于 10 个字符，且至少必须包含一个数字、一个大写字母和一个小写字母、一个非字母数字字符（' " ` 字符除外）。 |
     |SSH 用户名|提供用户名，默认值为 **sshuser**|
     |SSH 密码|提供密码。|

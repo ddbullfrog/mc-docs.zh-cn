@@ -1,21 +1,21 @@
 ---
 title: 使用 Excel 连接到 Azure Analysis Services | Azure
 description: 了解如何使用 Excel 连接到 Azure Analysis Services 服务器。 连接后，用户可以创建数据透视表以浏览数据。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 03/30/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4340eb664d9e4a1ba77afabd5986d890aa336ec8
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 1ef74d57c38848c8a8337c26bd485ebb84eab73b
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226105"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470157"
 ---
 # <a name="connect-with-excel"></a>使用 Excel 进行连接
 
@@ -38,11 +38,11 @@ ms.locfileid: "86226105"
     
     <!--Not Available on Gmail -->
     
-    ![“从 Excel 中连接”登录](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
+    :::image type="content" source="./media/analysis-services-connect-excel/aas-connect-excel-logon.png" alt-text="“从 Excel 中连接”登录":::
 
 3. 在“选择数据库和表”  中，选择数据库和模型或视角，并单击“完成”  。
 
-    ![“从 Excel 中连接”选择模型](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
+    :::image type="content" source="./media/analysis-services-connect-excel/aas-connect-excel-select.png" alt-text="“从 Excel 中连接”登录":::
 
 ## <a name="see-also"></a>另请参阅
 

@@ -11,12 +11,12 @@ ms.topic: include
 origin.date: 07/13/2018
 ms.date: 09/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 37ac5fe45a192c529a6f71a11e843685ace17e74
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c05668306dbf7bbf1d808f5bcf06e42af195f4f7
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63858636"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499124"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>从 Azure 门户获取连接字符串
 使用 [Azure 门户](https://portal.azure.cn/)获取客户端程序与 Azure SQL 数据库进行交互所需的连接字符串。 
@@ -39,7 +39,7 @@ ms.locfileid: "63858636"
 
 8. 通过这种或那种格式，将连接字符串信息粘贴到客户端程序代码中。
 
-有关详细信息，请参阅[连接字符串和配置文件](http://msdn.microsoft.com/library/ms254494.aspx)。
+有关详细信息，请参阅[连接字符串和配置文件](https://msdn.microsoft.com/library/ms254494.aspx)。
 
 <!-- Image references. -->
 

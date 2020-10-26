@@ -19,7 +19,7 @@ ms.locfileid: "92121797"
 
 > [!NOTE]
 >
-> 某些启用了 GPU 的实例类型为 **Beta 版本**。当你在群集创建过程中选择驱动程序和工作器类型时，这些类型将在下拉列表中如此标记。
+> 某些启用了 GPU 的实例类型为 **Beta 版本** 。当你在群集创建过程中选择驱动程序和工作器类型时，这些类型将在下拉列表中如此标记。
 
 ## <a name="overview"></a>概述
 
@@ -33,11 +33,11 @@ Azure Databricks 支持通过图形处理单元 (GPU) 加速的群集。
 创建 GPU 群集类似于创建任何 Spark 群集（请参阅[群集](index.md)）。
 应当记住以下事项：
 
-* **Databricks Runtime 版本**必须是启用了 GPU 的版本，例如 **Runtime 6.6 ML（GPU、Scala 2.11、Spark 2.4.5）** 。
-* **工作器类型**和**驱动程序类型**必须为 GPU 实例类型。
+* **Databricks Runtime 版本** 必须是启用了 GPU 的版本，例如 **Runtime 6.6 ML（GPU、Scala 2.11、Spark 2.4.5）** 。
+* **工作器类型** 和 **驱动程序类型** 必须为 GPU 实例类型。
 * 对于没有 Spark 的单计算机工作流，可以将工作器数目设置为零。
 
-Azure Databricks 支持 NC 实例类型系列：**NC12** 和 **NC24** 以及 NCv3 实例类型系列：**NC6s_v3**、**NC12s_v3** 和 **NC24s_v3**。 有关支持的 GPU 实例类型及其可用性区域的最新列表，请参阅 [Azure Databricks 定价](https://www.azure.cn/pricing/details/databricks/#instances)。
+Azure Databricks 支持 NC 实例类型系列： **NC12** 和 **NC24** 以及 NCv3 实例类型系列： **NC6s_v3** 、 **NC12s_v3** 和 **NC24s_v3** 。 有关支持的 GPU 实例类型及其可用性区域的最新列表，请参阅 [Azure Databricks 定价](https://www.azure.cn/pricing/details/databricks/#instances)。
 你的 Azure Databricks 部署必须位于受支持的区域内，才能启动启用了 GPU 的群集。
 
 ## <a name="gpu-scheduling"></a>GPU 调度

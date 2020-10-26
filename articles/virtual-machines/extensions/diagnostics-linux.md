@@ -74,7 +74,7 @@ Linux 诊断扩展支持以下分发和版本。 分发和版本的列表仅适�
 ### <a name="prerequisites"></a>先决条件
 
 * Azure Linux 代理 2.2.0 版或更高版本。 大部分 Azure VM Linux 库映像包含 2.2.7 或更高版本。 运行 `/usr/sbin/waagent -version` 以确认 VM 上安装的版本。 如果 VM 正在运行较早版本的来宾代理，请按照[以下说明](./update-linux-agent.md)将其更新。
-* **Azure CLI**。 在计算机上[设置 Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 环境。
+* **Azure CLI** 。 在计算机上[设置 Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 环境。
 * wget 命令（如果尚无此命令，请运行 `sudo apt-get install wget`。
 * 现有 Azure 订阅以及用于存储数据的现有常规用途存储帐户。  常规用途存储帐户支持必需的表存储。  Blob 存储帐户将不起作用。
 
@@ -601,7 +601,7 @@ TransfersPerSecond | 每秒读取或写入操作数
 
 可通过设置 `"condition": "IsAggregate=True"`，获取跨所有文件系统的聚合值。 可通过设置 `"condition": 'Name="/mnt"'`，获取已装入的特定文件系统（如“/mnt”）的值。 
 
-**注意**：如果使用 Azure 门户而不是 JSON，则正确的条件字段形式为 Name='/mnt'
+**注意** ：如果使用 Azure 门户而不是 JSON，则正确的条件字段形式为 Name='/mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>磁盘类的内置指标
 

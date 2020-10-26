@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 06/27/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 93079654faf7adb97bb347ca703daf01e5240f71
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 813c80ba10d9ccb5b5adb2b5d5646e27927136cd
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655299"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211860"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 为多层 SharePoint 应用程序设置灾难恢复
 
@@ -46,7 +46,7 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 
 ## <a name="sharepoint-architecture"></a>SharePoint 体系结构
 
-可以使用分层拓扑和服务器角色在一个或多个服务器上部署 SharePoint，实现符合特定目标的场设计。 支持大量并发用户和大量内容项的典型大型高要求 SharePoint 服务器场使用服务分组作为可伸缩性策略的一部分。 此方法涉及到在专用服务器上运行服务，将这些服务组合在一起，然后将服务器扩展为一个组。 以下拓扑演示了三层 SharePoint 服务器场的服务和服务器分组。 请参阅 SharePoint 文档和产品线体系结构，了解有关不同 SharePoint 拓扑的详细指导。 可在[此文档](/SharePoint/sharepoint-server)中找到有关 SharePoint 2013 部署的更多详细信息。
+可以使用分层拓扑和服务器角色在一个或多个服务器上部署 SharePoint，实现符合特定目标的场设计。 支持大量并发用户和大量内容项的典型大型高要求 SharePoint 服务器场使用服务分组作为可伸缩性策略的一部分。 此方法涉及到在专用服务器上运行服务，将这些服务组合在一起，然后将服务器扩展为一个组。 以下拓扑演示了三层 SharePoint 服务器场的服务和服务器分组。 请参阅 SharePoint 文档和产品线体系结构，了解有关不同 SharePoint 拓扑的详细指导。 可在[此文档](https://docs.microsoft.com/SharePoint/sharepoint-server)中找到有关 SharePoint 2013 部署的更多详细信息。
 
 :::image type="content" source="./media/site-recovery-sharepoint/sharepointarch.png" alt-text="部署模式 1":::
 
@@ -73,7 +73,7 @@ Site Recovery 与应用程序无关，应与在受支持的计算机上运行的
 
 * 复制完成后，请务必转到每个层的每个虚拟机，并在“已复制的项”>“设置”>“属性”>“计算和网络”中选择相同的可用性集。 例如，如果 Web 层包含 3 个 VM，请确保将所有 3 个 VM 配置为属于 Azure 中的同一个可用性集。
 
-    :::image type="content" source="./media/site-recovery-sharepoint/select-av-set.png" alt-text="Set-Availability-Set":::
+    :::image type="content" source="./media/site-recovery-sharepoint/select-av-set.png" alt-text="部署模式 1":::
 
 * 有关保护 Active Directory 和 DNS 的指导，请参阅[保护 Active Directory 和 DNS](site-recovery-active-directory.md) 文档。
 
@@ -85,11 +85,11 @@ Site Recovery 与应用程序无关，应与在受支持的计算机上运行的
 
 * 对于应用层和 Web 层 VM，请在 Azure 门户中配置网络设置，以便在故障转移后将 VM 附加到适当的 DR 网络。
 
-    :::image type="content" source="./media/site-recovery-sharepoint/select-network.png" alt-text="选择网络":::
+    :::image type="content" source="./media/site-recovery-sharepoint/select-network.png" alt-text="部署模式 1":::
 
 * 如果使用的是静态 IP，请在“目标 IP”字段中指定希望虚拟机采用的 IP 
 
-    :::image type="content" source="./media/site-recovery-sharepoint/set-static-ip.png" alt-text="设置静态 IP":::
+    :::image type="content" source="./media/site-recovery-sharepoint/set-static-ip.png" alt-text="部署模式 1":::
 
 ### <a name="dns-and-traffic-routing"></a>DNS 和流量路由
 
@@ -121,7 +121,7 @@ Site Recovery 与应用程序无关，应与在受支持的计算机上运行的
 1. 通过添加应用层和 Web 层 VM 来创建恢复计划。
 2. 单击“自定义”将 VM 分组。 默认情况下，所有 VM 属于“组 1”。
 
-    :::image type="content" source="./media/site-recovery-sharepoint/rp-groups.png" alt-text="自定义 RP":::
+    :::image type="content" source="./media/site-recovery-sharepoint/rp-groups.png" alt-text="部署模式 1":::
 
 3. 创建另一个组（组 2），并将 Web 层 VM 移到新组。 应用层 VM 应属于“组 1”，Web 层 VM 应属于“组 2”。 这是为了确保先启动应用层 VM，再启动 Web 层 VM。
 
@@ -142,15 +142,15 @@ Site Recovery 与应用程序无关，应与在受支持的计算机上运行的
 
 1. 将操作前脚本添加到“组 1”，以故障转移 SQL 可用性组。 使用示例脚本中发布的“ASR-SQL-FailoverAG”脚本。 确保遵循脚本中的指导，并相应地在脚本中进行所需的更改。
 
-    :::image type="content" source="./media/site-recovery-sharepoint/add-ag-script-step1.png" alt-text="Add-AG-Script-Step-1":::
+    :::image type="content" source="./media/site-recovery-sharepoint/add-ag-script-step1.png" alt-text="部署模式 1":::
 
-    :::image type="content" source="./media/site-recovery-sharepoint/add-ag-script-step2.png" alt-text="Add-AG-Script-Step-2":::
+    :::image type="content" source="./media/site-recovery-sharepoint/add-ag-script-step2.png" alt-text="部署模式 1":::
 
 2. 添加操作后脚本，在 Web 层的已故障转移虚拟机（组 2）上附加负载均衡器。 使用示例脚本中发布的“ASR-AddSingleLoadBalancer”脚本。 确保遵循脚本中的指导，并相应地在脚本中进行所需的更改。
 
-    :::image type="content" source="./media/site-recovery-sharepoint/add-lb-script-step1.png" alt-text="Add-LB-Script-Step-1":::
+    :::image type="content" source="./media/site-recovery-sharepoint/add-lb-script-step1.png" alt-text="部署模式 1":::
 
-    :::image type="content" source="./media/site-recovery-sharepoint/add-lb-script-step2.png" alt-text="Add-LB-Script-Step-2":::
+    :::image type="content" source="./media/site-recovery-sharepoint/add-lb-script-step2.png" alt-text="部署模式 1":::
 
 3. 添加一个手动步骤，将 DNS 记录更新为指向 Azure 中的新场。
 
@@ -165,7 +165,7 @@ Site Recovery 与应用程序无关，应与在受支持的计算机上运行的
     * 此方法假设发生灾难性事件之前已执行搜索服务应用程序的备份，并且 DR 站点上提供了备份。
     * 计划备份（例如，每天一次）并使用复制过程在 DR 站点上放置备份，即可轻松实现此目的。 复制过程可以融入 AzCopy（Azure 复制）等脚本程序，或设置 DFSR（分布式文件服务复制）。
     * 运行 SharePoint 场后，请在管理中心导航到“备份和还原”，并选择“还原”。 还原过程会查询指定的备份位置（可能需要更新该值）。 选择要还原的搜索服务应用程序备份。
-    * 随后即会还原搜索应用程序。 请记住，还原过程预期会查找相同的拓扑（相同的服务器数目）以及分配给这些服务器的相同驱动器号。 有关详细信息，请参阅[在 SharePoint 2013 中还原搜索服务应用程序](/SharePoint/administration/restore-a-search-service-application)文档。
+    * 随后即会还原搜索应用程序。 请记住，还原过程预期会查找相同的拓扑（相同的服务器数目）以及分配给这些服务器的相同驱动器号。 有关详细信息，请参阅[在 SharePoint 2013 中还原搜索服务应用程序](https://docs.microsoft.com/SharePoint/administration/restore-a-search-service-application)文档。
 
 6. 若要在新的搜索服务应用程序中开始复制，请遵循以下步骤。
 
@@ -176,7 +176,7 @@ Site Recovery 与应用程序无关，应与在受支持的计算机上运行的
 
 7. 完成所有步骤后，请保存恢复计划，最终的恢复计划如下所示。
 
-    :::image type="content" source="./media/site-recovery-sharepoint/saved-rp.png" alt-text="保存的 RP":::
+    :::image type="content" source="./media/site-recovery-sharepoint/saved-rp.png" alt-text="部署模式 1":::
 
 ## <a name="doing-a-test-failover"></a>执行测试故障转移
 遵循[此指南](site-recovery-test-failover-to-azure.md)执行测试故障转移。

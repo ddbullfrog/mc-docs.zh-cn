@@ -5,18 +5,18 @@ description: 本文介绍如何配置虚拟中心路由
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: how-to
-origin.date: 07/07/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: d216f030dc2f12235dbb6837bbb13673c74e5481
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 8b804c1a5d54cc890060be1b0749155175a43af9
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246978"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471301"
 ---
 <!--Verified Successfully-->
 # <a name="how-to-configure-virtual-hub-routing"></a>如何配置虚拟中心路由
@@ -42,7 +42,7 @@ ms.locfileid: "91246978"
    * **路由名称**
    * **目标类型**
    * 目标前缀：可以聚合前缀。 例如：VNet 1：10.1.0.0/24 和 VNet 2：10.1.1.0/24 可以聚合为 10.1.0.0/16。 分支路由适用于所有已连接的 VPN 站点、ExpressRoute 线路和用户 VPN 连接。
-   * **下一跃点**：虚拟网络连接或 Azure 防火墙的列表。
+   * **下一跃点** ：虚拟网络连接或 Azure 防火墙的列表。
 
      如果选择虚拟网络连接，则会看到“配置静态路由”。 这是可选的配置设置。 有关详细信息，请参阅[配置静态路由](about-virtual-hub-routing.md#static)。
 
@@ -97,5 +97,4 @@ ms.locfileid: "91246978"
 有关虚拟中心路由的详细信息，请参阅[关于虚拟中心路由](about-virtual-hub-routing.md)。
 有关虚拟 WAN 的详细信息，请参阅[常见问题解答](virtual-wan-faq.md)。
 
-<!-- Update_Description: new article about how to virtual hub routing -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

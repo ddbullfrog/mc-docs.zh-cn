@@ -16,11 +16,11 @@ origin.date: 11/04/2019
 ms.author: v-yiso
 ms.date: 11/18/2019
 ms.openlocfilehash: a3e93a6a6875baba1f943a363a5d60409e2f2955
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291820"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211548"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API 管理中的问题模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -37,7 +37,7 @@ ms.locfileid: "79291820"
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="issue-list"></a><a name="IssueList"></a>问题列表  
- **问题列表**模板可用于自定义开发人员门户中问题列表页的正文。  
+ **问题列表** 模板可用于自定义开发人员门户中问题列表页的正文。  
   
  ![问题列表（开发人员门户）](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM 问题列表（开发人员门户）")  
   

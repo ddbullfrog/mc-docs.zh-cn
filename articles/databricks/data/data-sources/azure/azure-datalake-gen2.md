@@ -278,7 +278,7 @@ dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.chinac
 
 ## <a name="frequently-asked-questions-faq"></a>常见问题 (FAQ)
 
-**ABFS 是否支持共享访问签名 (SAS) 令牌身份验证**？
+**ABFS 是否支持共享访问签名 (SAS) 令牌身份验证** ？
 
 ABFS 不支持 SAS 令牌身份验证，但 Azure Data Lake Storage Gen2 服务本身确实支持 SAS 密钥。
 

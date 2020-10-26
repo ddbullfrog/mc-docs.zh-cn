@@ -7,18 +7,19 @@ author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 6cc8df86bed13264a15e2d51732945ffda5295c5
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: e585ba3dfb1eba10ad8c60d99fd5372c9a98bd6f
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223378"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471843"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>在 Azure 云服务中启用 Azure 诊断
-有关 Azure 诊断的背景信息，请参阅 [Azure 诊断概述](../azure-diagnostics.md)。
+有关 Azure 诊断的背景信息，请参阅 [Azure 诊断概述](../azure-monitor/platform/diagnostics-extension-overview.md)。
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>如何在辅助角色中启用诊断
 本演练介绍如何实现使用 .NET EventSource 类发出遥测数据的 Azure 辅助角色。 Azure Diagnostics 用于收集遥测数据，并将其存储在一个 Azure 存储帐户中。 创建辅助角色时，Visual Studio 将在适用于 .NET 2.4 和更低版本的 Azure SDK 中，自动启用 Diagnostics 1.0 作为解决方案的一部分。 以下说明介绍了创建辅助角色、从解决方案禁用 Diagnostics 1.0，以及在辅助角色中部署 Diagnostics 1.2 或 1.3 的过程。
@@ -27,7 +28,7 @@ ms.locfileid: "88223378"
 本文假定你具有 Azure 订阅，并要将 Visual Studio 与 Azure SDK 配合使用。 如果没有 Azure 订阅，可以注册 [1 元试用版][1rmb-trial]。 请确保[安装并配置 Azure PowerShell 0.8.7 或更高版本][Install and configure Azure PowerShell version 0.8.7 or later]。
 
 ### <a name="step-1-create-a-worker-role"></a>步骤 1：创建辅助角色
-1. 启动 **Visual Studio**。
+1. 启动 **Visual Studio** 。
 2. 从面向 .NET Framework 4.5 的“云”模板创建一个“Azure 云服务”项目   。  将该项目命名为“WadExample”。
 3. 选择“辅助角色”并单击“确定”  。 随后会创建该项目。
 4. 在“解决方案资源管理器”中，双击 WorkerRole1 属性文件   。
@@ -187,20 +188,18 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>配置文件架构
-诊断配置文件定义启动诊断代理时用于初始化诊断配置设置的值。 有关有效值和示例，请参阅 [最新架构参考](/azure-monitor/platform/diagnostics-extension-schema) 。
+诊断配置文件定义启动诊断代理时用于初始化诊断配置设置的值。 有关有效值和示例，请参阅 [最新架构参考](../azure-monitor/platform/diagnostics-extension-versions.md) 。
 
 ## <a name="troubleshooting"></a>故障排除
-如果遇到问题，请参阅 [Azure 诊断疑难解答](../azure-diagnostics-troubleshooting.md)，获取有关常见问题的帮助。
+如果遇到问题，请参阅 [Azure 诊断疑难解答](../azure-monitor/platform/diagnostics-extension-troubleshooting.md)，获取有关常见问题的帮助。
 
 ## <a name="next-steps"></a>后续步骤
 若要更改你收集的数据、排查问题或者了解有关诊断的一般信息，请参阅[有关 Azure 虚拟机的诊断文章列表](../azure-monitor/platform/diagnostics-extension-overview.md)。
 
-[EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource
 
-[Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
+[Collect Logging Data by Using Azure Diagnostics]: https://docs.microsoft.com/previous-versions/azure/gg433048(v=azure.100)
 [1rmb-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: https://docs.microsoft.com/powershell/azure/
-
-
-
 

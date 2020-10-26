@@ -2,19 +2,19 @@
 title: include 文件
 description: include 文件
 services: networking
-author: rockboyfor
 ms.service: networking
 ms.topic: include
 origin.date: 01/14/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: ccb5ee0fe69e7abd20502ccc7c5816d06f552e49
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: 1f24b66a0f3e6eb042a73adf464d0ebfde566b37
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945769"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470381"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>
 ### <a name="networking-limits---azure-resource-manager"></a>网络限制 - Azure 资源管理器
@@ -58,7 +58,7 @@ ms.locfileid: "85945769"
 | --- | --- | --- |
 | 公共 IP 地址<sup>1</sup> | 基本版为 10。 | 请联系支持人员。 |
 | 静态公共 IP 地址<sup>1</sup> | 基本版为 10。 | 请联系支持人员。 |
-| 标准公共 IP 地址<sup>1</sup> | 10 个 | 请联系支持人员。 |
+| 标准公共 IP 地址<sup>1</sup> | 10 | 请联系支持人员。 |
 | 公共 IP 前缀 | 受订阅中的标准公共 IP 数限制 | 请联系支持人员。 |
 | 公共 IP 前缀长度 | /28 | 请联系支持人员。 |
 
@@ -80,7 +80,7 @@ ms.locfileid: "85945769"
 | 每个负载均衡器的后端资源数 <sup>1<sup> | 150                   |
 | 高可用性端口                 | 每个内部前端 1 个       |
 | 每个负载均衡器的出站规则        | 600                           |
-| [TCP 空闲超时](/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 分钟/30 分钟          |
+| 每个 VM 的负载均衡器数                   | 2（1 个公共，1 个内部）   |
 
 <sup>1</sup>限制是最多 150 种资源，采用独立虚拟机资源、可用性集资源和虚拟机规模集放置组的任意组合。
 
@@ -93,19 +93,20 @@ ms.locfileid: "85945769"
 | 每个 NIC 的规则数（在 NIC 上的所有 IP 上） | 300                          |
 | 前端 IP 配置数              | 200                          |
 | 后端池大小                       | 单个可用性集 300 个 IP 配置 |
-| 每个负载均衡器的可用性集数     | 150                          |
+| 每个负载均衡器的可用性集数     | 1                            |
+| 每个 VM 的负载均衡器数                   | 2（1 个公共，1 个内部）  |
 
 <a name="virtual-networking-limits-classic"></a>以下限制仅适用于每个订阅通过经典部署模型托管的网络资源。 了解如何[针对订阅限制查看当前资源使用情况](../articles/networking/check-usage-against-limits.md)。
 
 | 资源 | 默认限制 | 最大限制 |
 | --- | --- | --- |
 | 虚拟网络 |100 |100 |
-| 本地网络站点 |20 个 |50 |
-| 每个虚拟网络的 DNS 服务器数 |20 个 |20 个 |
+| 本地网络站点 |20 |50 |
+| 每个虚拟网络的 DNS 服务器数 |20 |20 |
 | 每个虚拟网络的专用 IP 地址数 |4,096 |4,096 |
 | 虚拟机或角色实例的单 NIC 并发 TCP 或 UDP 流数 |如果 NIC 至少有两个，则为 500,000（至多 1,000,000）。 |如果 NIC 至少有两个，则为 500,000（至多 1,000,000）。 |
 | 网络安全组 (NSG) |200 |200 |
-| 每个 NSG 的 NSG 规则数 |1,000 |1,000 |
+| 每个 NSG 的 NSG 规则数 |200 |1,000 |
 | 用户定义路由表数 |200 |200 |
 | 每个路由表的用户定义的路由数 |400 |400 |
 | 公共 IP 地址 (动态) |500 |500 |

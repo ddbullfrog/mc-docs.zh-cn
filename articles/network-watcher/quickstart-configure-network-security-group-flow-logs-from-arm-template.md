@@ -78,7 +78,7 @@ ms.locfileid: "92118921"
 
 下面的完整模板示例是最简单的版本，通过最少的参数来设置 NSG 流日志。 有关更多示例，请转到此[链接](https://docs.azure.cn/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)。
 
-**示例**：以下模板启用了目标 NSG 上的 NSG 流日志，并将其存储在给定的存储帐户中。
+**示例** ：以下模板启用了目标 NSG 上的 NSG 流日志，并将其存储在给定的存储帐户中。
 
 ```json
 {

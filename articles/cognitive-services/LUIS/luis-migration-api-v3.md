@@ -1,16 +1,18 @@
 ---
 title: V3 API 中的预测终结点更改
 description: 查询预测终结点 V3 API 已更改。 请使用本指南了解如何迁移到终结点 API 版本 3。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/18/2020
-ms.author: v-tawe
+ms.date: 10/19/2020
+ms.author: v-johya
 origin.date: 05/15/2020
-ms.openlocfilehash: 4782948cb4bf84380c0ea814daa5d637dd018d8c
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 03ad98a792e05d869eb34e00ee018b9d61189375
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098620"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472407"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3 的预测终结点更改
 
@@ -82,17 +84,7 @@ V3 在从预览版过渡到正式版的过程中进行了以下更改：
 
 ### <a name="query-string-changes"></a>查询字符串更改
 
-V3 API 包含不同的查询字符串参数。
-
-|参数名称|类型|版本|默认|目的|
-|--|--|--|--|--|
-|`log`|boolean|V2 和 V3|false|将查询存储在日志文件中。 默认值为 false。|
-|`query`|string|仅 V3|无默认值 - 在 GET 请求中是必需的|**在 V2 中**，要预测的言语位于 `q` 参数中。 <br><br>**在 V3 中**，该功能在 `query` 参数中传递。|
-|`show-all-intents`|boolean|仅 V3|false|在 **prediction.intents** 对象中返回包含相应评分的所有意向。 意向将在父 `intents` 对象中作为对象返回。 这样，便可以通过编程方式进行访问，而无需在数组中查找意向：`prediction.intents.give`。 在 V2 中，这些意向在数组中返回。 |
-|`verbose`|boolean|V2 和 V3|false|**在 V2 中**，如果设置为 true，则返回所有预测意向。 如果需要所有预测的意向，请使用 V3 参数 `show-all-intents`。<br><br>**在 V3 中**，此参数仅提供实体预测的实体元数据详细信息。  |
-|`timezoneOffset`|string|V2|-|应用于 datetimeV2 实体的时区。|
-|`datetimeReference`|string|V3|-|应用于 datetimeV2 实体的[时区](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)。 替换 V2 中的 `timezoneOffset`。|
-
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
 
 ### <a name="v3-post-body"></a>V3 POST 正文
 
@@ -112,9 +104,9 @@ V3 API 包含不同的查询字符串参数。
 |--|--|--|--|--|
 |`dynamicLists`|array|仅 V3|非必需。|使用[动态列表](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)可以扩展已在 LUIS 应用中的已训练且已发布的现有列表实体。|
 |`externalEntities`|array|仅 V3|非必需。|[外部实体](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)可让 LUIS 应用在运行时识别和标记实体，这些实体可用作现有实体的特征。 |
-|`options.datetimeReference`|string|仅 V3|无默认值|用于确定 [datetimeV2 偏移量](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)。 datetimeReference 的格式是 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)。|
+|`options.datetimeReference`|string|仅 V3|无默认值|用于确定 [datetimeV2 偏移量](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)。 datetimeReference 的格式是 ISO 8601。|
 |`options.preferExternalEntities`|boolean|仅 V3|false|指定是使用用户的[外部实体（与现有实体具有相同名称）](schema-change-prediction-runtime.md#override-existing-model-predictions)，还是使用模型中的现有实体进行预测。 |
-|`query`|string|仅 V3|必需。|**在 V2 中**，要预测的言语位于 `q` 参数中。 <br><br>**在 V3 中**，该功能在 `query` 参数中传递。|
+|`query`|string|仅 V3|必需。|**在 V2 中** ，要预测的言语位于 `q` 参数中。 <br><br>**在 V3 中** ，该功能在 `query` 参数中传递。|
 
 ## <a name="response-changes"></a>响应更改
 
@@ -167,9 +159,9 @@ const score = intents[topIntentName];
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>在言语中标记实体的位置
 
-**在 V2 中**，使用 `startIndex` 和 `endIndex` 在言语中标记实体。
+**在 V2 中** ，使用 `startIndex` 和 `endIndex` 在言语中标记实体。
 
-**在 V3 中**，使用 `startIndex` 和 `entityLength` 标记实体。
+**在 V3 中** ，使用 `startIndex` 和 `entityLength` 标记实体。
 
 #### <a name="access-instance-for-entity-metadata"></a>访问实体元数据的 `$instance`
 
@@ -217,7 +209,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 |--|--|--|
 |`Yellow Bird Lane`|`Location`|`Destination`|
 
-在 V2 中，实体由实体名称以及用作对象属性的角色进行标识：__
+在 V2 中，实体由实体名称以及用作对象属性的角色进行标识： 
 
 ```JSON
 "entities":[
@@ -232,7 +224,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 ]
 ```
 
-在 V3 中，如果预测针对角色，则实体由实体角色引用：__
+在 V3 中，如果预测针对角色，则实体由实体角色引用： 
 
 ```JSON
 "entities":{
@@ -280,3 +272,4 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 ## <a name="next-steps"></a>后续步骤
 
 使用 V3 API 文档更新对 LUIS [终结点](https://dev.cognitive.azure.cn/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) API 的现有 REST 调用。
+

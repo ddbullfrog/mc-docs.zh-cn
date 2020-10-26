@@ -1,16 +1,18 @@
 ---
 title: 快速入门：通过 LUIS 门户部署应用
 description: 本快速入门介绍如何通过创建预测终结点资源、分配资源、训练和发布应用来部署应用。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
 author: Johnnytechn
-ms.openlocfilehash: f38e4dab5c0ebdeee3c38cc7d9b687a0c28f7bfd
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 8744e9c1cba542d4ed814bdfa7cb3203b423bdda
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023685"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472512"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中部署应用
 
@@ -31,7 +33,7 @@ LUIS 应用准备好将话语预测返回到客户端应用程序（例如聊天
 
 每次为 LUIS 创建新的创作或查询预测资源时，都需要将资源分配给 LUIS 应用。 分配后，除非创建新资源，否则无需再次执行此步骤。 可以创建新资源来扩展应用的区域或支持更多预测查询。
 
-1. 登录 [LUIS 门户](https://www.luis.ai)，从应用列表中选择“myEnglishApp”应用。
+1. 登录 [LUIS 门户](https://luis.azure.cn)，从应用列表中选择“myEnglishApp”应用。
 
 1. 在右上角菜单中选择“管理”，然后选择“Azure 资源”。
 

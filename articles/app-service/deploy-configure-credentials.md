@@ -54,7 +54,7 @@ JSON 输出会将该密码显示为 `null`。 如果收到 `'Conflict'. Details:
 
 ![演示如何在应用“概述”页上查找 Git 部署用户名。](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-如果配置了 Git 部署，则该页显示 **Git/部署用户名**；否则，显示 **FTP/部署用户名**。
+如果配置了 Git 部署，则该页显示 **Git/部署用户名** ；否则，显示 **FTP/部署用户名** 。
 
 > [!NOTE]
 > Azure 不会显示用户级部署密码。 如果忘记密码，可以按照本部分的步骤重置凭据。

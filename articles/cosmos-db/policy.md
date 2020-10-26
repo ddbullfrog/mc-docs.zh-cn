@@ -28,22 +28,22 @@ Azure Policy 提供内置策略定义。 可以为内置策略定义未解决的
 
 ## <a name="assign-a-built-in-policy-definition"></a>分配内置策略定义
 
-策略定义描述了资源符合性条件以及在满足某个条件时所产生的效果。 策略分配是根据策略定义创建的__ __。 可以对 Azure Cosmos DB 资源使用内置或自定义策略定义。 策略分配的范围为 Azure 管理组、Azure 订阅或资源组，策略分配将应用于所选范围内的资源。 或者，可以从所选范围中排除特定资源。
+策略定义描述了资源符合性条件以及在满足某个条件时所产生的效果。 策略分配是根据策略定义创建的   。 可以对 Azure Cosmos DB 资源使用内置或自定义策略定义。 策略分配的范围为 Azure 管理组、Azure 订阅或资源组，策略分配将应用于所选范围内的资源。 或者，可以从所选范围中排除特定资源。
 
 可以使用 [Azure 门户](../governance/policy/assign-policy-portal.md)、[Azure PowerShell](../governance/policy/assign-policy-powershell.md)、[Azure CLI](../governance/policy/assign-policy-azurecli.md) 或 [ARM 模板](../governance/policy/assign-policy-template.md)创建策略分配。
 
 若要根据 Azure Cosmos DB 的内置策略定义创建策略分配，请使用[使用 Azure 门户创建策略分配](../governance/policy/assign-policy-portal.md)一文中的步骤。
 
-在选择策略定义的步骤中，在“搜索”字段中输入 `Cosmos DB` 来筛选可用的内置策略定义。 选择一个可用的内置策略定义，然后选择“选择”继续创建策略分配****。
+在选择策略定义的步骤中，在“搜索”字段中输入 `Cosmos DB` 来筛选可用的内置策略定义。 选择一个可用的内置策略定义，然后选择“选择”继续创建策略分配  。
 
 > [!TIP]
-> 你还可以将“可用定义”格窗中显示的内置策略定义名称与 Azure PowerShell、Azure CLI 或 ARM 模板结合使用来创建策略分配****。
+> 你还可以将“可用定义”格窗中显示的内置策略定义名称与 Azure PowerShell、Azure CLI 或 ARM 模板结合使用来创建策略分配  。
 
 :::image type="content" source="./media/policy/available-definitions.png" alt-text="搜索 Azure Cosmos DB 内置策略定义":::
 
 ## <a name="create-a-custom-policy-definition"></a>创建自定义策略定义
 
-对于内置策略未解决的特定方案，可以创建[自定义策略定义](../governance/policy/tutorials/create-custom-policy-definition.md)。 之后，根据自定义策略定义创建策略分配__ __。
+对于内置策略未解决的特定方案，可以创建[自定义策略定义](../governance/policy/tutorials/create-custom-policy-definition.md)。 之后，根据自定义策略定义创建策略分配   。
 
 ### <a name="property-types-and-property-aliases-in-policy-rules"></a>策略规则中的属性类型和属性别名
 
@@ -115,7 +115,7 @@ Connect-AzAccount -Environment AzureChinaCloud
 
 ## <a name="policy-compliance"></a>策略符合性
 
-创建策略分配后，Azure Policy 将评估分配范围内的资源。 每个资源会接受策略符合性评估__。 策略中指定的效果会应用到不符合的资源__。
+创建策略分配后，Azure Policy 将评估分配范围内的资源。 每个资源会接受策略符合性评估  。 策略中指定的效果会应用到不符合的资源  。
 
 你可以在 [Azure 门户](../governance/policy/how-to/get-compliance-data.md#portal)或通过 [Azure CLI](../governance/policy/how-to/get-compliance-data.md#command-line) 或 [Azure Monitor 日志](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs)查看符合性结果和修正详细信息。
 

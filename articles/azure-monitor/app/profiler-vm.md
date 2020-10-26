@@ -7,11 +7,11 @@ ms.author: v-johya
 ms.date: 05/25/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 15e4a07a1abd3fd9941352b21221a87133a0cbe2
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200164"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211515"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>使用 Application Insights Profiler 探查在 Azure 虚拟机或虚拟机规模集上运行的 Web 应用
 

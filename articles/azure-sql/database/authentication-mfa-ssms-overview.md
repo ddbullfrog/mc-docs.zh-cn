@@ -11,26 +11,29 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
-origin.date: 07/27/2020
-ms.date: 10/12/2020
+origin.date: 09/28/2020
+ms.date: 10/29/2020
 tags: azure-synapse
-ms.openlocfilehash: 60bb661551272ac0208cf08fa7e92acd03d4b8e8
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: 534b80a62fe988534f3515567a8263f00e4e37de
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872404"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470506"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>使用多重 Azure Active Directory 身份验证
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics 支持使用“Azure Active Directory - 通用且具有 MFA 支持”身份验证从 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 进行连接。 本文讨论了各种身份验证选项之间的差异，以及与将 Azure Active Directory (Azure AD) 中的通用身份验证用于 Azure SQL 相关的限制。
 
-**下载最新 SSMS** - 在客户端计算机上，从[下载 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下载最新版本的 SSMS。
+**下载最新 SSMS** - 在客户端计算机上，从 [下载 SQL Server Management Studio (SSMS)](https://aka.ms/ssms) 下载最新版本的 SSMS。 
+
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 
 对于本文中讨论的所有功能，请至少使用 2017 年 7 月的版本 17.2。 最新连接对话框的外观应类似于下图：
 
-  ![SQL Server Management Studio 中“连接到服务器”对话框的屏幕截图，其中显示了服务器类型、服务器名称和身份验证的设置。](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
+  ![SQL Server Management Studio 中“连接到服务器”对话框的屏幕截图，其中显示了服务器类型、服务器名称和身份验证的设置。](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
 
 ## <a name="authentication-options"></a>身份验证选项
 
@@ -98,4 +101,4 @@ Azure MFA 可满足用户简单登录过程的需求，同时可帮助保护数�
 - [将 BACPAC 文件导入到新数据库](database-import.md)  
 - [将数据库导出到 BACPAC 文件](database-export.md)  
 - C# 接口 [IUniversalAuthProvider 接口](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
-- 使用“Azure Active Directory - 通用且具有 MFA 支持”身份验证时，从 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开始提供 ADAL 跟踪功能。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别”**中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。  
+- 使用“Azure Active Directory - 通用且具有 MFA 支持”身份验证时，从 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开始提供 ADAL 跟踪功能。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别” **中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。  

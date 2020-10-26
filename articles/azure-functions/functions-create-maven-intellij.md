@@ -3,15 +3,15 @@ title: 使用 Java 和 IntelliJ 创建 Azure 函数
 description: 了解如何使用 Java 和 IntelliJ 在 Azure 上创建和发布简单的 HTTP 触发式无服务器应用。
 author: jeffhollan
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/19/2020
 ms.author: v-junlch
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 49e0d47bd3f6c8d1e1aae6a403bd58cafe11ac00
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 9080b0f7bfb9e7fb8cb0898b1bee9428b88e1b05
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223177"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471264"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>使用 Java 和 IntelliJ 创建第一个 Azure 函数
 
@@ -29,7 +29,7 @@ ms.locfileid: "88223177"
 若要使用 Java 和 IntelliJ 开发函数，请安装以下软件：
 
 + 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-+ [Azure 支持的 Java 开发工具包 (JDK)](https://aka.ms/azure-jdks)（适用于 Java 8）
++ [Azure 支持的 Java 开发工具包 (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)（适用于 Java 8）
 + 安装了 [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 旗舰版或社区版
 + [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 + 最新的 [Function Core Tools](https://github.com/Azure/azure-functions-core-tools)

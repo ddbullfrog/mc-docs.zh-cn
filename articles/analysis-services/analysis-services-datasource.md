@@ -5,17 +5,17 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 08/21/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 03/23/2020
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 697a287ea54297cd343e0f954b21bb6d8d8a8d04
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 068981fdac49697d02954b9e7b1596ef4ac88948
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146227"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470143"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -93,7 +93,7 @@ ms.locfileid: "91146227"
 
 从 Azure Analysis Services 服务器连接到本地数据源需要使用[本地网关](analysis-services-gateway.md)。 使用网关时，需要 64 位提供程序。
 
-## <a name="understanding-providers"></a>了解提供程序
+## <a name="understanding-providers"></a><a name="understanding-providers"></a>了解提供程序
 
 在 Visual Studio 中创建表格 1400 和更高版本的模型项目时，默认情况下，在使用“获取数据”连接到数据源时，你不指定数据提供程序。 表格 1400 和更高版本的模型使用 [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) 连接器来管理数据源与 Analysis Services 之间的连接、数据查询和混搭。 这些连接有时称为结构化数据源连接，因为连接属性设置是为你设置的。 但是，你可以在 Visual Studio 中为模型项目启用旧数据源。 启用后，可以使用表导入向导连接到表格 1200 和更低版本模型中传统上受支持的某些数据源，如旧版数据源或提供程序数据源 。 当指定为提供程序数据源时，可以指定特定的数据提供程序和其他高级连接属性。 例如，可以连接到 SQL Server 数据仓库实例，甚至是连接到作为旧数据源的 Azure SQL 数据库。 然后，你可以选择 OLE DB Driver for SQL Server MSOLEDBSQL 数据提供程序。 在这种情况下，选择 OLE DB 数据提供程序可以通过 Power Query 连接器提供更好的性能。 
 
@@ -109,7 +109,7 @@ ms.locfileid: "91146227"
 
 :::image type="content" source="media/analysis-services-datasource/aas-import-legacy-datasources.png" alt-text="启用旧数据源":::
 
-与使用表格 1200 模型项目一样，请使用**表导入向导**连接到数据源。 在连接页上，单击“高级”。 在“设置高级属性”中，指定数据提供程序和其他连接设置。
+与使用表格 1200 模型项目一样，请使用 **表导入向导** 连接到数据源。 在连接页上，单击“高级”。 在“设置高级属性”中，指定数据提供程序和其他连接设置。
 
 :::image type="content" source="media/analysis-services-datasource/aas-import-legacy-advanced.png" alt-text="启用旧数据源":::
 
@@ -131,7 +131,7 @@ ms.locfileid: "91146227"
 
 OAuth 凭据不支持直接查询模式。
 
-## <a name="enable-oracle-managed-provider"></a>启用 Oracle 托管提供程序
+## <a name="enable-oracle-managed-provider"></a><a name="enable-oracle-managed-provider"></a>启用 Oracle 托管提供程序
 
 在某些情况下，对 Oracle 数据源的 DAX 查询可能会返回意外的结果。 这可能是由用于数据源连接的提供程序导致的。
 

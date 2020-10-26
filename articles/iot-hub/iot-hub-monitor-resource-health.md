@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/21/2020
 ms.date: 07/20/2020
 ms.author: v-yiso
-ms.openlocfilehash: ffef1b505305453d5ffaa0afb47b0c06093b861e
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 9e9a16e49296f253d4482ca2d3c34886611c7e1a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394756"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472571"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>监视 Azure IoT 中心的运行状况并快速诊断问题
 
@@ -33,7 +33,7 @@ IoT 中心还提供了其自己的指标，可使用这些指标了解 IoT 资�
 
 Azure Monitor 提供 Azure 资源的诊断信息，这意味着，你可以监视在 IoT 中心内部发生的操作。
 
-若要详细了解 Azure Monitor 监视的具体指标和事件，请参阅 [Azure Monitor 支持的指标](../azure-monitor/platform/metrics-supported.md)和 [Azure 诊断日志支持的服务、架构和类别](../azure-monitor/platform/diagnostic-logs-schema.md)。
+若要详细了解 Azure Monitor 监视的具体指标和事件，请参阅 [Azure Monitor 支持的指标](../azure-monitor/platform/metrics-supported.md)和 [Azure 诊断日志支持的服务、架构和类别](../azure-monitor/platform/resource-logs-schema.md)。
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -167,7 +167,7 @@ Azure Monitor 跟踪 IoT 中心内发生的不同操作。 每个类别都有一
             "level": "Error",
             "resultType": "Event status",
             "resultDescription": "MessageDescription",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
+            "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
             "location": "Resource location"
         }
     ]
@@ -319,67 +319,67 @@ Azure Monitor 跟踪 IoT 中心内发生的不同操作。 每个类别都有一
 通过诊断设置来设置事件日志记录后，可以创建应用程序以读出日志，从而可以根据日志中的信息采取措施。 以下示例代码从事件中心检索日志：
 
 ```csharp
-class Program 
-{ 
-    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
-    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
-    static EventHubClient eventHubClient; 
-//This is the Diagnostic Settings schema 
-    class AzureMonitorDiagnosticLog 
-    { 
-        string time { get; set; } 
-        string resourceId { get; set; } 
-        string operationName { get; set; } 
-        string category { get; set; } 
-        string level { get; set; } 
-        string resultType { get; set; } 
-        string resultDescription { get; set; } 
-        string durationMs { get; set; } 
-        string callerIpAddress { get; set; } 
-        string correlationId { get; set; } 
-        string identity { get; set; } 
-        string location { get; set; } 
-        Dictionary<string, string> properties { get; set; } 
-    }; 
-    static void Main(string[] args) 
-    { 
-        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
-        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds; 
-        CancellationTokenSource cts = new CancellationTokenSource(); 
-        var tasks = new List<Task>(); 
-        foreach (string partition in d2cPartitions) 
-        { 
-            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
-        } 
-        Console.ReadLine(); 
-        Console.WriteLine("Exiting..."); 
-        cts.Cancel(); 
-        Task.WaitAll(tasks.ToArray()); 
-    } 
-    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
-    { 
-        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
-        while (true) 
-        { 
-            if (ct.IsCancellationRequested) 
-            { 
-                await eventHubReceiver.CloseAsync(); 
-                break; 
-            } 
-            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
-            if (eventData != null) 
-            { 
-                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
-                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
-                var deserializer = new JavaScriptSerializer(); 
-                //deserialize json data to azure monitor object 
-                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
- 
-            } 
-        } 
-    } 
-} 
+class Program 
+{ 
+    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
+    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
+    static EventHubClient eventHubClient; 
+//This is the Diagnostic Settings schema 
+    class AzureMonitorDiagnosticLog 
+    { 
+        string time { get; set; } 
+        string resourceId { get; set; } 
+        string operationName { get; set; } 
+        string category { get; set; } 
+        string level { get; set; } 
+        string resultType { get; set; } 
+        string resultDescription { get; set; } 
+        string durationMs { get; set; } 
+        string callerIpAddress { get; set; } 
+        string correlationId { get; set; } 
+        string identity { get; set; } 
+        string location { get; set; } 
+        Dictionary<string, string> properties { get; set; } 
+    }; 
+    static void Main(string[] args) 
+    { 
+        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
+        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds; 
+        CancellationTokenSource cts = new CancellationTokenSource(); 
+        var tasks = new List<Task>(); 
+        foreach (string partition in d2cPartitions) 
+        { 
+            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
+        } 
+        Console.ReadLine(); 
+        Console.WriteLine("Exiting..."); 
+        cts.Cancel(); 
+        Task.WaitAll(tasks.ToArray()); 
+    } 
+    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
+    { 
+        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
+        while (true) 
+        { 
+            if (ct.IsCancellationRequested) 
+            { 
+                await eventHubReceiver.CloseAsync(); 
+                break; 
+            } 
+            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
+            if (eventData != null) 
+            { 
+                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
+                var deserializer = new JavaScriptSerializer(); 
+                //deserialize json data to azure monitor object 
+                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
+ 
+            } 
+        } 
+    } 
+} 
 ```
 
 ## <a name="use-azure-resource-health"></a>使用 Azure 资源运行状况

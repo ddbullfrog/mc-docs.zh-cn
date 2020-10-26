@@ -9,11 +9,11 @@ ms.testscope: yes|no
 ms.testdate: 09/14/2020null
 ms.author: v-yeche
 ms.openlocfilehash: d75fa7958f043a5b77adb005bab132b7037bc984
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655766"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211460"
 ---
 <!--Verified successfully-->
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>使用 Service Fabric 诊断常见情况
@@ -40,19 +40,19 @@ ms.locfileid: "89655766"
 
 3. 你将看到很多类型的事件（跟踪、请求、自定义事件）。 选择“异常”作为筛选器。
 
-    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/ai-filter-list.png" alt-text="AI 筛选器列表":::
+    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/ai-filter-list.png" alt-text="AI 概述":::
 
     如果正在使用 Service Fabric Application Insights SDK，那么通过单击列表中的异常，可以查看更多详细信息，包括服务上下文。
 
-    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/ai-exception.png" alt-text="AI 异常":::
+    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/ai-exception.png" alt-text="AI 概述":::
 
 ## <a name="how-do-i-view-which-http-calls-are-used-in-my-services"></a>如何查看服务中使用的 HTTP 调用？
 
 1. 在同一个 Application Insights 资源中，可以筛选“请求”而不是异常，并查看发出的所有请求
 2. 如果正在使用 Service Fabric Application Insights SDK，则可以看到彼此连接的服务的可视形式以及成功和失败请求的数量。 单击左侧的“应用程序映射”
 
-    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/app-map-blade.png" alt-text="AI 应用映射边栏选项卡":::
-    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/app-map-new.png" alt-text="AI 应用映射":::
+    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/app-map-blade.png" alt-text="AI 概述":::
+    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/app-map-new.png" alt-text="AI 概述":::
 
     有关应用程序映射的详细信息，请访问[应用程序映射文档](../azure-monitor/app/app-map.md)
 
@@ -61,7 +61,7 @@ ms.locfileid: "89655766"
 1. 节点事件由 Service Fabric 群集跟踪。 导航到名为 **ServiceFabric(NameofResourceGroup)** 的 Service Fabric 分析解决方案资源
 2. 单击标题为“摘要”的边栏选项卡底部的图表
 
-    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png" alt-text="Azure Monitor 日志解决方案":::
+    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png" alt-text="AI 概述":::
 
 3. 此处有许多图表和磁贴，上面显示了各种指标。 单击其中一个图表，它会带你进入“日志搜索”。 在这里，你可以查询任何群集事件或性能计数器。
 4. 输入以下查询。 这些事件 ID 位于[节点事件参考](service-fabric-diagnostics-event-generation-operational.md#application-events)中
@@ -73,7 +73,7 @@ ms.locfileid: "89655766"
 
 5. 单击顶部的“新建警报规则”，现在只要发生基于此查询的事件，就会通过所选通信方式收到警报。
 
-    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png" alt-text="Azure Monitor 日志新建警报":::
+    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png" alt-text="AI 概述":::
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>怎样才能收到应用程序升级回滚警报？
 
@@ -93,11 +93,11 @@ ms.locfileid: "89655766"
 
 1. 向群集添加 Log Analytics 代理后，需要添加要跟踪的特定性能计数器。导航到门户中的 Log Analytics 工作区页面（工作区选项卡位于解决方案页面的左侧菜单中）。
 
-    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/workspacetab.png" alt-text="Log Analytics 工作区选项卡":::
+    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/workspacetab.png" alt-text="AI 概述":::
 
 2. 进入工作区页面后，单击同一左侧菜单中的“高级设置”。
 
-    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png" alt-text="Log Analytics 高级设置":::
+    :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png" alt-text="AI 概述":::
 
 3. 单击“数据”>“Windows 性能计数器”（对于 Linux 计算机，则为“数据”>“Linux 性能计数器”），开始通过 Log Analytics 代理从节点收集特定计数器。 以下是要添加的计数器的格式示例
 
@@ -109,7 +109,7 @@ ms.locfileid: "89655766"
    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-     :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png" alt-text="Log Analytics 性能计数器":::
+     :::image type="content" source="media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png" alt-text="AI 概述":::
 
 4. 这将允许你查看基础结构处理工作负荷的方式，并根据资源利用率设置相关警报。 例如，如果处理器总利用率高于 90% 或低于 5%，则可能需要设置警报。 此时将使用名为“处理器时间百分比”的计数器。 可通过为以下查询创建警报规则来执行此操作：
 

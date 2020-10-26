@@ -58,9 +58,9 @@ ms.locfileid: "92118146"
 
 有关入口脚本的详细信息，请参阅[定义评分代码](/machine-learning/how-to-deploy-and-where#script)
 
-* 依赖项，如运行入口脚本或模型所需的帮助程序脚本或 Python/Conda 包****
+* 依赖项，如运行入口脚本或模型所需的帮助程序脚本或 Python/Conda 包 
 
-这些实体被封装到推理配置中____。 推理配置引用入口脚本和其他依赖项。
+这些实体被封装到推理配置中  。 推理配置引用入口脚本和其他依赖项。
 
 > [!IMPORTANT]
 > 创建用于 Azure Functions 的推理配置时，需要使用 [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) 对象。 请注意，如果要定义自定义环境，必须将版本不低于 1.0.45 的 azureml-defaults 添加为 pip 依赖项。 此包包含将模型作为 Web 服务托管时所需的功能。 下面的示例演示如何创建环境对象并将其用于推理配置：
@@ -84,7 +84,7 @@ ms.locfileid: "92118146"
 有关推理配置的详细信息，请参阅[使用 Azure 机器学习部署模型](how-to-deploy-and-where.md)。
 
 > [!IMPORTANT]
-> 部署到 Azure Functions 时，无需创建部署配置____。
+> 部署到 Azure Functions 时，无需创建部署配置  。
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>安装 SDK 预览版包以获取函数支持
 
@@ -144,7 +144,7 @@ print(blob.location)
     }
     ```
 
-    保存“用户名”和某个“密码”的值____ ____。
+    保存“用户名”和某个“密码”的值   。
 
 1. 如果你还没有资源组或应用服务计划来部署服务，以下命令将演示如何创建这两项：
 

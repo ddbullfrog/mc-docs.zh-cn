@@ -10,12 +10,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0be5d529efbb790592cf244ddd5537d82f06cf04
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: deea7339bbdf90d8da88431b2cec8fedb5c418f9
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146750"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470153"
 ---
 # <a name="connect-with-power-bi"></a>使用 Power BI 进行连接
 
@@ -45,17 +45,17 @@ ms.locfileid: "91146750"
     > [!NOTE]
     > 不支持一次性密码 (OTP) 帐户。 
 
-6. 在**导航器**中，展开服务器，选择要连接到的模型或透视，并单击“连接”****。 单击模型或透视可显示该视图的所有对象。
+6. 在  。 单击模型或透视可显示该视图的所有对象。
 
     Power BI Desktop 中会打开模型，并且在“报表”视图中显示空白报表。 “字段”列表中会显示所有非隐藏的模型对象。 连接状态显示在右下角。
 
 ## <a name="connect-in-power-bi-service"></a>在 Power BI（服务）中进行连接
 
 1. 在服务器上创建一个与模型具有实时连接的 Power BI Desktop 文件。
-2. 在 [Power BI](https://powerbi.microsoft.com) 中，单击“获取数据” > “文件”，然后找到 .pbix 文件并选择该文件********。
+2. 在  。
 
 ## <a name="see-also"></a>另请参阅
 [连接到 Azure Analysis Services](analysis-services-connect.md)   
-[客户端库](https://docs.microsoft.com/analysis-services/client-libraries)
+[客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
 <!--Update_Description: update meta properties, wording update -->

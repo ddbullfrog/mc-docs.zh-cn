@@ -1,7 +1,7 @@
 ---
 title: 快速入门：使用 cURL 和 REST 获取意向 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 此 REST API 快速入门使用可用的公共 LUIS 应用从对话文本中确定用户的意向。
+description: 此 REST API 快速入门使用 cURL 和 REST 从会话文本中确定用户的意向。
 services: cognitive-services
 author: Johnnytechn
 manager: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: 291619d1216030183e601c7ea2217245ab0f6268
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 1e869043f9eb6c9ec3fabedd875faf85588f8d6d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023704"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472461"
 ---
 # <a name="quickstart-use-curl-and-rest-to-get-intent"></a>快速入门：使用 cURL 和 REST 获取意向
 
@@ -26,7 +26,7 @@ ms.locfileid: "88023704"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 免费的 [LUIS](https://www.luis.ai) 帐户。
+* 免费的 [LUIS](https://luis.azure.cn) 帐户。
 * 文本编辑器，如 [Visual Studio Code](https://code.visualstudio.com/)。
 * 命令行程序 cURL。 在 macOS、大多数 Linux 分发版和 Windows 10 版本 1803 及更高版本上已安装该 cURL 程序。 若需要安装 cURL，可在 [cURL 下载页](https://curl.haxx.se/download.html)中下载 cURL。
 
@@ -42,10 +42,10 @@ ms.locfileid: "88023704"
 
     #### <a name="windows"></a>[Windows](#tab/windows)
     ```cURL
-    curl "https://***YOUR-PREDICTION-ENDPOINT***/luis/prediction/v3.0/apps/***YOUR-APP-ID***/slots/production/predict" ^
+    curl "https://***YOUR-PREDICTION-ENDPOINT**_/luis/prediction/v3.0/apps/_*_YOUR-APP-ID_*_/slots/production/predict" ^
           --request GET ^
           --get ^
-          --data "subscription-key=***YOUR-PREDICTION-KEY***" ^
+          --data "subscription-key=_*_YOUR-PREDICTION-KEY_*_" ^
           --data "verbose=true" ^
           --data "show-all-intents=true" ^
           --data-urlencode "query=I want two large pepperoni pizzas on thin crust please"
@@ -54,10 +54,10 @@ ms.locfileid: "88023704"
     #### <a name="macos"></a>[macOS](#tab/unix)
 
     ```cURL
-    curl "https://***YOUR-PREDICTION-ENDPOINT***/luis/prediction/v3.0/apps/***YOUR-APP-ID***/slots/production/predict" \
+    curl "https://_*_YOUR-PREDICTION-ENDPOINT_*_/luis/prediction/v3.0/apps/_*_YOUR-APP-ID_*_/slots/production/predict" \
           --request GET \
           --get \
-          --data "subscription-key=***YOUR-PREDICTION-KEY***" \
+          --data "subscription-key=_*_YOUR-PREDICTION-KEY_*_" \
           --data "verbose=true" \
           --data "show-all-intents=true" \
           --data-urlencode "query=I want two large pepperoni pizzas on thin crust please"
@@ -66,24 +66,24 @@ ms.locfileid: "88023704"
     #### <a name="linux"></a>[Linux](#tab/linux)
 
     ```cURL
-    curl "https://***YOUR-PREDICTION-ENDPOINT***/luis/prediction/v3.0/apps/***YOUR-APP-ID***/slots/production/predict" \
+    curl "https://_*_YOUR-PREDICTION-ENDPOINT_*_/luis/prediction/v3.0/apps/_*_YOUR-APP-ID_*_/slots/production/predict" \
           --request GET \
           --get \
-          --data "subscription-key=***YOUR-PREDICTION-KEY***" \
+          --data "subscription-key=_*_YOUR-PREDICTION-KEY_*_" \
           --data "verbose=true" \
           --data "show-all-intents=true" \
           --data-urlencode "query=I want two large pepperoni pizzas on thin crust please"
     ```
 
-    ***
+    _*_
 
-1. 将以 `***YOUR-` 开头的值替换为你自己的值。
+1. 将以 `_*_YOUR-` 开头的值替换为你自己的值。
 
     |信息|目的|
     |--|--|
-    |`***YOUR-PREDICTION-ENDPOINT***`| 预测 URL 终结点。 位于 LUIS 门户中，你的应用的“Azure 资源”页。<br>例如，`https://api.cognitive.azure.cn/`。|
-    |`***YOUR-APP-ID***`|你的应用程序 ID。 位于 LUIS 门户中，你的应用的“应用程序设置”页。
-    |`***YOUR-PREDICTION-KEY***`|32 字符预测密钥。 位于 LUIS 门户中，你的应用的“Azure 资源”页。
+    |`_*_YOUR-PREDICTION-ENDPOINT_*_`| 预测 URL 终结点。 位于 LUIS 门户中，你的应用的“Azure 资源”页。<br>例如，`https://api.cognitive.azure.cn/`。|
+    |`_*_YOUR-APP-ID_*_`|你的应用程序 ID。 位于 LUIS 门户中，你的应用的“应用程序设置”页。
+    |`_*_YOUR-PREDICTION-KEY_**`|32 字符预测密钥。 位于 LUIS 门户中，你的应用的“Azure 资源”页。
 
 1. 将文本复制到控制台窗口并按 Enter 执行该命令：
 

@@ -17,11 +17,11 @@ ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d25a6bfc091e10bd27ff4317de22deaa098cb9a9
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77429926"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211403"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>在 Azure AD 访问评审中完成对组和应用程序的访问评审
 

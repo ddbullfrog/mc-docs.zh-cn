@@ -1,79 +1,60 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: 文本翻译文档
+### YamlMime:Landing
+title: 翻译器文档
+summary: “翻译器”是一种基于云的机器翻译服务，可用于通过简单的 REST API 调用几乎实时地翻译文本。 该服务使用先进的神经机器翻译技术并提供统计机器翻译技术。 “自定义翻译器”是“翻译器”的扩展，用于构建神经翻译系统。 可以将自定义的翻译系统与“翻译器”或 Microsoft 语音服务配合使用来翻译文本。
 metadata:
-  title: 文本翻译 API 文档 - 快速入门、教程和 API 参考 - Azure 认知服务 | Microsoft Docs
-  description: 了解如何使用文本翻译来翻译多个语言的文本。
+  title: 翻译器文档 - 快速入门、教程和 API 参考
+  titleSuffix: Azure Cognitive Services
+  description: “翻译器”是一种基于云的机器翻译服务，可用于通过简单的 REST API 调用几乎实时地翻译文本。 该服务使用先进的神经机器翻译技术并提供统计机器翻译技术。 “自定义翻译器”是“翻译器”的扩展，用于构建神经翻译系统。 可以将自定义的翻译系统与“翻译器”或 Microsoft 语音服务配合使用来翻译文本。
   services: cognitive-services
-  author: v-pawal
-  manager: Chris.Wendt
+  author: Johnnytechn
+  manager: nitinme
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: translator-text
   ms.topic: landing-page
-origin.date: 02/21/2019
-ms.date: 05/16/2019
-ms.author: v-junlch
-abstract:
-  description: 文本翻译是一种基于云的机器翻译服务，可用于通过简单的 REST API 调用几乎实时地翻译文本。 该 API 使用先进的神经机器翻译技术并提供统计机器翻译技术。
-sections:
-  - title: 5 分钟快速入门
-    items:
-      - type: paragraph
-        text: 开始使用文本翻译 API：
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/logo_csharp.svg
-            title: 'C#'
-          - image:
-              src: media/index/logo_java.svg
-            title: Java
-          - image:
-              src: media/index/logo_nodejs.svg
-            title: Node.js
-          - image:
-              src: media/index/logo_python.svg
-            title: Python
-          - image:
-              src: media/index/logo_go.svg
-            title: Go
-        rows:
-          - title: 将一种语言的文本翻译为另一种语言
-            values:
-              - href: quickstart-csharp-translate.md
-              - href: quickstart-java-translate.md
-              - href: quickstart-nodejs-translate.md
-              - href: quickstart-python-translate.md
-              - href: quickstart-go-translate.md
-          - title: 将一个脚本中的文本转换到另一个脚本
-            values:
-              - href: quickstart-csharp-transliterate.md
-              - href: quickstart-java-transliterate.md
-              - href: quickstart-nodejs-transliterate.md
-              - href: quickstart-python-transliterate.md
-              - href: quickstart-go-transliterate.md
-          - title: 确定 text.md 的语言
-            values:
-              - href: quickstart-csharp-detect.md
-              - href: quickstart-java-detect.md
-              - href: quickstart-python-detect.md
-              - href: quickstart-go-detect.md
-          - title: 获取备用翻译和使用情况
-            values:
-              - href: quickstart-csharp-dictionary.md
-              - href: quickstart-java-dictionary.md
-              - href: quickstart-nodejs-dictionary.md
-              - href: quickstart-python-dictionary.md
-              - href: quickstart-go-dictionary.md
-  - title: 分步教程
-    items:
-      - type: paragraph
-        text: 了解如何使用文本翻译 API 开发应用程序：
-      - type: paragraph
-        text: <li><a href="tutorial-build-flask-app-translation-synthesis.md">使用 Python 创建 Flask 翻译应用</a></li>
-  - title: 参考
-    items:
-      - type: paragraph
-        text: <p><a href="reference/v3-0-reference.md">API 参考</a></p>
+  ms.date: 10/22/2020
+  ms.author: v-johya
+  ms.openlocfilehash: 17c3bc69b17b6dad8d06b2e3db6ff33ff5c02326
+  ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92472570"
+landingContent:
+- title: 转换器
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 转换器
+      url: translator-info-overview.md
+    - text: 定价
+      url: https://www.azure.cn/pricing/details/cognitive-services/
+    - text: 合规性
+      url: https://www.azure.cn/support/legal/
+    - text: 创建订阅
+      url: translator-text-how-to-signup.md
+- title: 入门
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 快速入门
+      url: quickstart-translator.md
+  - linkListType: tutorial
+    links:
+    - text: 创建 Flask 翻译应用 - REST
+      url: tutorial-build-flask-app-translation-synthesis.md
+  - linkListType: reference
+    links:
+    - text: 翻译器参考 (v3)
+      url: reference/v3-0-reference.md
+    - text: 请求限制
+      url: request-limits.md
+    - text: 语言支持
+      url: language-support.md
+- title: 资源
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: GitHub 上的示例
+      url: https://aka.ms/TranslatorGitHub
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/microsoft-translator

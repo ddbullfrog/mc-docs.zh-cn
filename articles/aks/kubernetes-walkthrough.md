@@ -5,7 +5,7 @@ services: container-service
 ms.topic: quickstart
 origin.date: 09/11/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
@@ -18,12 +18,12 @@ ms.custom:
 - seo-python-october2019
 - devx-track-azurecli
 - contperfq1
-ms.openlocfilehash: 0bcad3261cbf3df507911287fcace8379607b8bf
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: f9e365487b453c361365df9d0e537143976c2143
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146650"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470448"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务群集
 
@@ -123,7 +123,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-以下示例输出显示在上一步创建的单个节点。 请确保节点的状态为 *Ready*：
+以下示例输出显示在上一步创建的单个节点。 请确保节点的状态为 *Ready* ：
 
 ```output
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -155,7 +155,10 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
-        image: redis
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
         resources:
           requests:
             cpu: 100m
@@ -246,7 +249,7 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-最初，*azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending*。
+最初， *azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending* 。
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -304,14 +307,14 @@ az group delete --name myResourceGroup --yes --no-wait
 <!-- LINKS - internal -->
 
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-monitor]: ../azure-monitor/insights/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: https://docs.microsoft.com/cli/azure/aks#az_aks_browse
-[az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
-[az-aks-install-cli]: https://docs.microsoft.com/cli/azure/aks#az_aks_install_cli
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-group-delete]: https://docs.azure.cn/cli/group#az-group-delete
+[az-aks-browse]: https://docs.azure.cn/cli/aks#az_aks_browse
+[az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
+[az-aks-install-cli]: https://docs.azure.cn/cli/aks#az_aks_install_cli
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 [azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations

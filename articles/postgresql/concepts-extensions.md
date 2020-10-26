@@ -232,7 +232,7 @@ TimescaleDB 是一个时序数据库，已作为 PostgreSQL 的扩展打包。 T
 [详细了解 TimescaleDB](https://docs.timescale.com/latest)，它是 [Timescale, Inc.](https://www.timescale.com/) 的注册商标。 Azure Database for PostgreSQL 提供 TimescaleDB [Apache-2 版本](https://www.timescale.com/legal/licenses)。
 
 ### <a name="installing-timescaledb"></a>安装 TimescaleDB
-若要安装 TimescaleDB，需将其包括在服务器的共享预加载库中。 更改 Postgres 的 `shared_preload_libraries` 参数需要**重启服务器**才能生效。 可以使用 [Azure 门户](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 更改参数。
+若要安装 TimescaleDB，需将其包括在服务器的共享预加载库中。 更改 Postgres 的 `shared_preload_libraries` 参数需要 **重启服务器** 才能生效。 可以使用 [Azure 门户](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 更改参数。
 
 使用 [Azure 门户](https://portal.azure.cn/)：
 
@@ -246,7 +246,7 @@ TimescaleDB 是一个时序数据库，已作为 PostgreSQL 的扩展打包。 T
 
 5. 选择“保存”  ，保留所做的更改。 保存更改后会获得通知。 
 
-6. 获得通知后，请**重启**服务器以应用这些更改。 若要了解如何重启服务器，请参阅[重启 Azure Database for PostgreSQL 服务器](howto-restart-server-portal.md)。
+6. 获得通知后，请 **重启** 服务器以应用这些更改。 若要了解如何重启服务器，请参阅[重启 Azure Database for PostgreSQL 服务器](howto-restart-server-portal.md)。
 
 
 现在可以在 Postgres 数据库中启用 TimescaleDB。 连接到数据库并发出以下命令：

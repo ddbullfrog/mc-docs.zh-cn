@@ -5,16 +5,16 @@ ms.service: azure-resource-manager
 ms.topic: reference
 origin.date: 08/25/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: a2f2af408456516773575ee1715db4f84e858199
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 96ad47ac29c901d0a13e0e221517d5196c32e63b
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146407"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469963"
 ---
 <!--Verify Successfully-->
 # <a name="support-for-moving-azure-resources-across-regions"></a>跨区域移动 Azure 资源的支持
@@ -413,7 +413,7 @@ ms.locfileid: "91146407"
 > [!div class="mx-tableFixed"]
 > | 资源类型 | 区域移动 | 
 > | ------------- | ----------- |
-> | accounts | 否 | 
+> | accounts | 否。 [了解详细信息](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region)。
 > | actiongroups |  否 | 
 > | activitylogalerts | 否 | 
 > | alertrules |  否 | 
@@ -708,11 +708,11 @@ ms.locfileid: "91146407"
 > | 资源类型 | 区域移动 | 
 > | ------------- | ----------- |
 > | instancepools | 否 | 
-> | managedinstances | 是 <br/><br/> [详细了解](/azure-sql/database/move-resources-across-regions)如何在区域之间移动托管实例。 | 
+> | managedinstances | 是 <br/><br/> [详细了解](../../azure-sql/database/move-resources-across-regions.md)如何在区域之间移动托管实例。 | 
 > | managedinstances/databases | 是 | 
 > | servers | 是 | 
-> | servers/databases | 是 <br/><br/> [详细了解](/azure-sql/database/move-resources-across-regions)如何在区域之间移动数据库。  | 
-> | servers/elasticpools | 是 <br/><br/> [详细了解](/azure-sql/database/move-resources-across-regions)如何在区域之间移动弹性池。  | 
+> | servers/databases | 是 <br/><br/> [详细了解](../../azure-sql/database/move-resources-across-regions.md)如何在区域之间移动数据库。<br/><br/>   | 
+> | servers/elasticpools | 是 <br/><br/> [详细了解](../../azure-sql/database/move-resources-across-regions.md)如何在区域之间移动弹性池。<br/><br/>  | 
 > | virtualclusters | 是 | 
 
 <!--MOONCAKE: Not Available on [Learn more](../../resource-mover/tutorial-move-region-sql.md)-->

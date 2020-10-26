@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3c482bc59fc901e70415ee53059d78f2ecddd236
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: aa7103862732d3d7eb2d87bce2cf41d635383750
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796240"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471312"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>规划 Azure 时序见解 Gen1 环境
+
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
 
 本文介绍如何根据预期入口速率和数据保留要求规划 Azure 时序见解 Gen1 环境。
 
@@ -42,12 +45,12 @@ ms.locfileid: "87796240"
 
 ## <a name="data-retention"></a>数据保留
 
-可以更改 Azure 时序见解环境中的“数据保留时间”设置。  可以启用最长 400 天的保留期。 
+可以更改 Azure 时序见解环境中的“数据保留时间”设置。  可以启用最长 400 天的保留期。
 
 Azure 时序见解具有两种模式：
 
-* 一种模式针对最新数据进行了优化。 它强制执行**清除旧数据**的策略，使实例可以使用最新数据。 此模式默认已启用。 
-* 其他模式将优化数据，使其保持低于配置的保留限制。 “暂停流入”  可防止新数据在被选为“超出存储限制时的行为”  时流入。
+- 一种模式针对最新数据进行了优化。 它强制执行 **清除旧数据** 的策略，使实例可以使用最新数据。 此模式默认已启用。
+- 其他模式将优化数据，使其保持低于配置的保留限制。 “暂停流入”  可防止新数据在被选为“超出存储限制时的行为”  时流入。
 
 可在 Azure 门户的环境配置页中调整保留期并在这两种模式之间切换。
 
@@ -77,7 +80,7 @@ Azure 时序见解具有两种模式：
 
 可以在单一环境中，将 S1 或 S2 SKU 的容量增加到 10 个单位。 无法从 S1 环境迁移到 S2 环境。 无法从 S2 环境迁移到 S1 环境。
 
-对于流入容量，首先应该确定每月所需的流入总量。 接下来，确定每分钟的需求。 
+对于流入容量，首先应该确定每月所需的流入总量。 接下来，确定每分钟的需求。
 
 限制和延迟对每分钟容量的影响很大。 如果数据流入的高峰期持续时间少于 24 小时，则 Azure 时序见解可以两倍于上表中所列的速度“赶上”流入速率。
 

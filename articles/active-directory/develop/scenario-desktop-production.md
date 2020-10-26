@@ -17,11 +17,11 @@ ms.date: 02/06/2020
 ms.author: v-junlch
 ms.custom: aaddev
 ms.openlocfilehash: aa2f0104d5af3713f8e2da4a147ed79283676e8e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291045"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211490"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>用于调用 Web API 的桌面应用：移到生产环境
 

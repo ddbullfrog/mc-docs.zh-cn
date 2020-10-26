@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: asrastog
-ms.openlocfilehash: e93ef88bffd073252018e44db5178c5b2f4231c3
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: df131cdc51adfd3f184e0499e353bbf4701593a4
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226176"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472247"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-iot-hub"></a>通过 IoT 中心的客户托管密钥加密静态数据
 
@@ -26,4 +26,4 @@ IoT 中心支持使用客户托管的密钥 (CMK) 对静态数据加密，该密
 
 * [详细了解 IoT 中心](/iot-hub/about-iot-hub)
 
-* [详细了解 Azure 密钥保管库](/key-vault/key-vault-overview)
+* [详细了解 Azure 密钥保管库](../key-vault/general/overview.md)

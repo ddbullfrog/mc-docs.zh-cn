@@ -3,22 +3,22 @@ title: 教程 - 使用快速启动模板
 description: 了解如何使用 Azure 快速入门模板来完成模板开发。
 origin.date: 03/27/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1aff1da81348d375c790eb938557f987c4604134
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: ''
+ms.openlocfilehash: 34ef38c461f6479506cca51524df30524789e708
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937541"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470044"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>教程：使用 Azure 快速入门模板
 
-[Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)是一个存储库，其中包含社区贡献的模板。 可以在模板开发中使用示例模板。 在本教程中，我们需找到一个网站资源定义，然后将其添加到自己的模板中。 完成该过程需要大约 **12 分钟**。
+[Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)是一个存储库，其中包含社区贡献的模板。 可以在模板开发中使用示例模板。 在本教程中，我们需找到一个网站资源定义，然后将其添加到自己的模板中。 完成该过程需要大约 **12 分钟** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -244,7 +244,7 @@ Web 应用名称必须在 Azure 中独一无二。 为了防止出现重复名�
 
 使用 Azure CLI 或 Azure PowerShell 来部署模板。
 
-如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
+如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据 [第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

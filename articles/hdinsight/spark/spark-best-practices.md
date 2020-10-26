@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 04/28/2020
 ms.date: 06/08/2020
-ms.openlocfilehash: d60b1d070a97503a31a162ae512f68d1d5c7283b
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 661db43f0cf88aa38fd348a19de4d739d67fb41d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186794"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472640"
 ---
 # <a name="apache-spark-guidelines"></a>Apache Spark 准则
 
@@ -63,7 +63,7 @@ ms.locfileid: "84186794"
 
 | 选项 | 文档 |
 |---|---|
-| Data Lake Storage Gen2 | [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+| Azure Data Lake Storage Gen2 | [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 | Azure Blob 存储 | [将 Azure 存储与 Azure HDInsight 群集配合使用](../hdinsight-hadoop-use-blob-storage.md) |
 
 ## <a name="next-steps"></a>后续步骤

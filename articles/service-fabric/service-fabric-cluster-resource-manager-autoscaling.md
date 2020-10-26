@@ -29,9 +29,9 @@ ms.locfileid: "92127701"
 
 ## <a name="describing-auto-scaling"></a>描述自动缩放
 可以为 Service Fabric 群集中的每个服务定义自动扩展策略。 每个缩放策略由两部分组成：
-* **缩放触发器**描述了将何时执行服务的缩放。 定期检查触发器中定义的条件，确定是否应缩放服务。
+* **缩放触发器** 描述了将何时执行服务的缩放。 定期检查触发器中定义的条件，确定是否应缩放服务。
 
-* **缩放机制**描述了在触发时将如何执行缩放。 机制仅适用于满足触发条件的情况。
+* **缩放机制** 描述了在触发时将如何执行缩放。 机制仅适用于满足触发条件的情况。
 
 目前支持的所有触发器都可以实用[逻辑加载指标](service-fabric-cluster-resource-manager-metrics.md)，也可以使用物理指标（如CPU或内存使用率）。 无论采用哪种方式，Service Fabric 都将监视所报告的指标负载，并定期评估触发器以确定是否需要缩放。
 
@@ -134,7 +134,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 * 最小实例计数定义了缩放的下限。 如果服务的分区数量达到此限制，则无论负载如何，都不会缩小服务。
 
 > [!WARNING] 
-> 当 AddRemoveIncrementalNamedPartitionScalingMechanism 与有状态服务一起使用时，Service Fabric 将添加或删除分区，**而不会发出通知或警告**。 触发缩放机制时，不会执行数据的重新分区。 在进行横向扩展操作的情况下，新分区将为空；在进行横向缩减操作的情况下，分区将与其包含的所有数据一起被删除。
+> 当 AddRemoveIncrementalNamedPartitionScalingMechanism 与有状态服务一起使用时，Service Fabric 将添加或删除分区， **而不会发出通知或警告** 。 触发缩放机制时，不会执行数据的重新分区。 在进行横向扩展操作的情况下，新分区将为空；在进行横向缩减操作的情况下，分区将与其包含的所有数据一起被删除。
 
 ## <a name="setting-auto-scaling-policy-for-partition-based-scaling"></a>为基于分区的缩放设置自动缩放策略
 

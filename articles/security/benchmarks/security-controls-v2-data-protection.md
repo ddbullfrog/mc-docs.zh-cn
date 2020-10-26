@@ -32,9 +32,9 @@ ms.locfileid: "92128854"
 
 - [如何实现 Azure SQL 数据发现](/sql-database/sql-database-data-discovery-and-classification)
 
-**责任**：共享
+**责任** ：共享
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [应用程序安全性和 DevOps](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -58,9 +58,9 @@ ms.locfileid: "92128854"
 
 - [了解 Azure 中的客户数据保护](../fundamentals/protection-customer-data.md)
 
-**责任**：共享
+**责任** ：共享
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [应用程序安全性和 DevOps](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -84,9 +84,9 @@ Azure 信息保护 (AIP) 提供的监视功能针对已分类并标记的信息�
 
 - [启用 Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
 
-**责任**：共享
+**责任** ：共享
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全操作](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -112,9 +112,9 @@ Azure 信息保护 (AIP) 提供的监视功能针对已分类并标记的信息�
 
 - [传输中的 Azure 数据的双重加密](../fundamentals/double-encryption.md#data-in-transit)
 
-**责任**：共享
+**责任** ：共享
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全体系结构](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -142,9 +142,9 @@ Azure 信息保护 (AIP) 提供的监视功能针对已分类并标记的信息�
 
 - [Azure 中的静态数据双重加密](../fundamentals/double-encryption.md#data-at-rest)
 
-**责任**：共享
+**责任** ：共享
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全体系结构](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

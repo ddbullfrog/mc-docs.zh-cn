@@ -3,14 +3,14 @@ title: 适用于 Azure Functions 的 Azure Blob 存储触发器和绑定
 description: 了解如何在 Azure Functions 中使用 Azure Blob 存储触发器和绑定。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 08/11/2020
+ms.date: 10/19/2020
 ms.author: v-junlch
-ms.openlocfilehash: dc049abaabcc78d38f50d5c25a91a0fc81613dc7
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 7435ff9f643b4a0239f40c716684b8206494e515
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222716"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472014"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>适用于 Azure Functions 的 Azure Blob 存储绑定概述
 
@@ -37,7 +37,7 @@ Azure Functions 通过[触发器和绑定](./functions-triggers-bindings.md)与 
 [core tools]: ./functions-run-local.md
 [扩展捆绑包]: ./functions-bindings-register.md#extension-bundles
 [NuGet 包]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[更新扩展]: ./install-update-binding-extensions-manual.md
+[更新扩展]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x
@@ -51,4 +51,4 @@ Functions 1.x 应用会自动引用 [Microsoft.Azure.WebJobs](https://www.nuget.
 - [在 blob 存储数据更改时运行函数](./functions-bindings-storage-blob-trigger.md)
 - [函数运行时读取 blob 存储数据](./functions-bindings-storage-blob-input.md)
 - [通过函数写入 blob 存储数据](./functions-bindings-storage-blob-output.md)
-<!-- Update_Description: wording update -->
+

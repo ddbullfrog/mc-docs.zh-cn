@@ -132,7 +132,7 @@ Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，帮助你控制和
 若要将加密机密写入指定的 Key Vault，Azure 磁盘加密需要 Azure Active Directory 应用程序的客户端 ID，以及有权将机密写入 Key Vault 的客户端机密。 
 
 > [!NOTE]
-> Azure 磁盘加密要求为 Azure AD 客户端应用程序配置以下访问策略：_WrapKey_ 和 _Set_ 权限。
+> Azure 磁盘加密要求为 Azure AD 客户端应用程序配置以下访问策略： _WrapKey_ 和 _Set_ 权限。
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-powershell"></a>使用 Azure PowerShell 为 Azure AD 应用设置密钥保管库访问策略
 Azure AD 应用程序需有访问保管库中密钥或机密的权限。 使用 [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet，并将客户端 ID（注册应用程序时所生成）用作 _-ServicePrincipalName_ 参数值，以向应用程序授予权限。 若要了解详细信息，请参阅博客文章 [Azure Key Vault - Step by Step](https://docs.microsoft.com/archive/blogs/kv/azure-key-vault-step-by-step)（Azure Key Vault - 分步指南）。 

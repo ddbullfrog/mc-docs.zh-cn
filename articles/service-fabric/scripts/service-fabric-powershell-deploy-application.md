@@ -3,24 +3,24 @@ title: 将应用程序部署到 Powershell 中的群集
 description: Azure PowerShell 脚本示例 - 将应用程序部署到 Service Fabric 群集。
 services: service-fabric
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
-editor: ''
+manager: chackdan
 tags: azure-service-management
-ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 origin.date: 01/18/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a1aaf0f19640605634eccea7657de357a571be0c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 268bb4d79af0069c1a28d1520d2fa596de5e3442
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540707"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211887"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>将应用程序部署到 Service Fabric 群集
 
@@ -74,8 +74,8 @@ New-ServiceFabricApplication -ApplicationName fabric:/MyApplication -Application
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Service Fabric PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/service-fabric/?view=azureservicefabricps)。
+有关 Service Fabric PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/service-fabric/overview?view=azureservicefabricps)。
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Powershell 示例。
 
-<!--Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

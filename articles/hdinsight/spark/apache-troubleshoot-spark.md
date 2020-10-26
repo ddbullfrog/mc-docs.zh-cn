@@ -17,11 +17,11 @@ origin.date: 08/22/2019
 ms.date: 10/28/2019
 ms.author: v-yiso
 ms.openlocfilehash: bf1327f48d53ad3bf7548047cdbe7ac3e301043e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79293066"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211388"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Spark 进行故障排除
 
@@ -37,13 +37,13 @@ ms.locfileid: "79293066"
 
     ![选择“配置”选项卡](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. 在配置列表中，选择并展开 **Custom-spark2-Defaults**。
+1. 在配置列表中，选择并展开 **Custom-spark2-Defaults** 。
 
-1. 找到需要调整的值设置，例如 **spark.executor.memory**。 在本例中，值 **9728m** 太大。
+1. 找到需要调整的值设置，例如 **spark.executor.memory** 。 在本例中，值 **9728m** 太大。
 
     ![选择 custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
-1. 将值设置为建议的设置。 建议为此设置使用值 **2048m**。
+1. 将值设置为建议的设置。 建议为此设置使用值 **2048m** 。
 
 1. 保存值，并保存配置。 选择“保存”。 
 

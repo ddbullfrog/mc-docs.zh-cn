@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 12/31/2019
 ms.author: v-junlch
 ms.openlocfilehash: d2f69dd4a12e671f05cd34539f0849a2e3ce00e8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292524"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211351"
 ---
 # <a name="durable-functions-types-and-features"></a>Durable Functions 类型和功能
 
@@ -23,7 +23,7 @@ Azure Functions 中目前有四种持久函数类型：活动、业务流程协�
 业务流程协调程序函数描述操作的执行方式和操作的执行顺序。 业务流程协调程序函数描述代码（C# 或 JavaScript）中的业务流程，如 [Durable Functions 应用程序模式](durable-functions-overview.md#application-patterns)中所示。 业务流程可以包含许多不同类型的操作，包括[活动函数](#activity-functions)、[子业务流程](durable-functions-orchestrations.md#sub-orchestrations)、[等待外部事件](durable-functions-orchestrations.md#external-events)、[HTTP](durable-functions-http-features.md) 和[计时器](durable-functions-orchestrations.md#durable-timers)。 业务流程协调程序函数也可以与[实体函数](#entity-functions)交互。
 
 > [!NOTE]
-> 业务流程协调程序函数使用常规代码编写，但对于如何编写代码存在严格的要求。 具体说来，业务流程协调程序函数代码必须是*确定性的*。 如果没有遵循这些确定性要求，则可能导致业务流程协调程序函数无法正确运行。 若要详细了解这些要求以及如何应对它们，可参阅[代码约束](durable-functions-code-constraints.md)主题。
+> 业务流程协调程序函数使用常规代码编写，但对于如何编写代码存在严格的要求。 具体说来，业务流程协调程序函数代码必须是 *确定性的* 。 如果没有遵循这些确定性要求，则可能导致业务流程协调程序函数无法正确运行。 若要详细了解这些要求以及如何应对它们，可参阅[代码约束](durable-functions-code-constraints.md)主题。
 
 若要更详细地了解业务流程协调程序函数及其功能，请参阅[持久业务流程](durable-functions-orchestrations.md)一文。
 

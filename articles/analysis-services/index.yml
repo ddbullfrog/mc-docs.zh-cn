@@ -7,17 +7,19 @@ metadata:
   ms.service: azure-analysis-services
   ms.topic: landing-page
   ms.collection: 
-  author: rockboyfor
   manager: mtillman
   origin.date: 10/30/2019
-  ms.date: 09/21/2020
+  author: rockboyfor
+  ms.date: 10/26/2020
+  ms.testscope: no
+  ms.testdate: 
   ms.author: v-yeche
-  ms.openlocfilehash: cdd208636d9dbb4e938f87f07dadacdbbcb8061a
-  ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+  ms.openlocfilehash: 8a1f6a8d089fc1f13605a4b3a93ea5cf5825d543
+  ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/24/2020
-  ms.locfileid: "91146634"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92470094"
 landingContent:
 - title: 关于 Azure Analysis Services
   linkLists:
@@ -60,7 +62,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: PowerShell
-      url: /analysis-services/analysis-services-powershell
+      url: ./analysis-services-powershell.md
     - text: REST API
       url: https://docs.microsoft.com/rest/api/analysisservices/
     - text: 表格模型脚本语言 (TMSL)

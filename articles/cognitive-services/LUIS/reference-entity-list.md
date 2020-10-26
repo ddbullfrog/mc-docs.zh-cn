@@ -1,16 +1,18 @@
 ---
 title: 列出实体类型 - LUIS
 description: 列表实体表示一组固定、封闭的相关单词及其同义词。 LUIS 不会为列表实体发现更多值。 使用“建议”功能根据当前列表查看有关新词的建议。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 origin.date: 04/14/2020
-ms.date: 06/15/2020
-ms.author: v-tawe
-ms.openlocfilehash: bb3bcd9d550ac6f24893e56a544d79c7b5cdae57
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: e57a9d14f1d63d03f0770ae529dd4bd0726ed764
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098596"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472334"
 ---
 # <a name="list-entity"></a>列表实体
 
@@ -138,3 +140,4 @@ ms.locfileid: "85098596"
 
 * [概念](luis-concept-entity-types.md)
 * [如何创建](luis-how-to-add-entities.md)
+

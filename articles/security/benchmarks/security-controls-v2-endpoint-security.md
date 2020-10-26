@@ -34,7 +34,7 @@ Microsoft Defender 高级威胁防护在企业终结点安全平台中提供了 
 
 - [适用于非 Windows Server 的 Microsoft Defender ATP 服务](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -62,7 +62,7 @@ Azure 安全中心可以自动识别针对虚拟机的多种常用反恶意软�
 
 - [支持的终结点保护解决方案](/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -86,7 +86,7 @@ Azure 安全中心可以自动识别针对虚拟机的多种常用反恶意软�
 
 - [如何为 Azure 云服务和虚拟机部署 Microsoft Antimalware](../fundamentals/antimalware.md)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

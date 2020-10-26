@@ -40,9 +40,9 @@ Azure AD Connect 使用 3 个帐户，将信息从本地或 Windows Server Activ
 
 除了用于运行 Azure AD Connect 的这三个帐户外，还需要以下其他帐户以安装 Azure AD Connect。  其中包括：
 
-- **本地管理员帐户**：将安装 Azure AD Connect 并且在计算机上具有本地管理员权限的管理员。
+- **本地管理员帐户** ：将安装 Azure AD Connect 并且在计算机上具有本地管理员权限的管理员。
 
-- **AD DS 企业管理员帐户**：可以选择使用此帐户创建上面的“AD DS 连接器帐户”。
+- **AD DS 企业管理员帐户** ：可以选择使用此帐户创建上面的“AD DS 连接器帐户”。
 
 - Azure AD 全局管理员帐户：用于创建 Azure AD 连接器帐户和配置 Azure AD。
 
@@ -139,7 +139,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 
 还必须向它授予所需的权限。 安装向导不会验证权限，任何问题只能在同步期间发现。
 
-需要哪些权限取决于启用的可选功能。 如果有多个域，则必须对林中的所有域授予权限。 如果某项功能未启动，则默认的**域用户**权限已足够。
+需要哪些权限取决于启用的可选功能。 如果有多个域，则必须对林中的所有域授予权限。 如果某项功能未启动，则默认的 **域用户** 权限已足够。
 
 | Feature | 权限 |
 | --- | --- |
@@ -171,7 +171,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 如果使用自定义设置，则需负责在开始安装之前创建帐户。  请参阅“创建 AD DS 连接器帐户”。
 
 ### <a name="adsync-service-account"></a>ADSync 服务帐户
-同步服务可在不同帐户下运行。 它可在**虚拟服务帐户** (VSA)、**组托管服务帐户** (gMSA/sMSA) 或常规用户帐户下运行。 2017 年 4 月版本的 Connect 的支持选项已更改（若进行全新安装）。 如果从早期版本的 Azure AD Connect 升级，这些附加选项将不可用。
+同步服务可在不同帐户下运行。 它可在 **虚拟服务帐户** (VSA)、 **组托管服务帐户** (gMSA/sMSA) 或常规用户帐户下运行。 2017 年 4 月版本的 Connect 的支持选项已更改（若进行全新安装）。 如果从早期版本的 Azure AD Connect 升级，这些附加选项将不可用。
 
 | 帐户的类型 | 安装选项 | 说明 |
 | --- | --- | --- |
@@ -189,8 +189,8 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 
 图例：
 
-- **粗体**表示默认选项，并且在大多数情况下是建议选项。
-- *斜体*表示建议选项（当该选项不是默认选项时）。
+- **粗体** 表示默认选项，并且在大多数情况下是建议选项。
+- *斜体* 表示建议选项（当该选项不是默认选项时）。
 - 2008 - 在 Windows Server 2008 上安装时的默认选项
 - 非粗体 - 支持的选项
 - 本地帐户 - 服务器上的本地用户帐户
@@ -213,7 +213,7 @@ VSA 旨在当同步引擎和 SQL 位于同一服务器上时使用。 如果使�
 此功能需要 Windows Server 2008 R2 或更高版本。 如果在 Windows Server 2008 上安装 Azure AD Connect，则安装将回退改用[用户帐户](#user-account)。
 
 #### <a name="group-managed-service-account"></a>组托管服务帐户
-如果使用远程 SQL Server，则建议使用**组托管服务帐户**。 若要详细了解如何为组托管服务帐户准备 Active Directory ，请参阅 [Group Managed Service Accounts Overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))（组托管服务帐户概述）。
+如果使用远程 SQL Server，则建议使用 **组托管服务帐户** 。 若要详细了解如何为组托管服务帐户准备 Active Directory ，请参阅 [Group Managed Service Accounts Overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))（组托管服务帐户概述）。
 
 要使用此选项，请在[安装所需组件](how-to-connect-install-custom.md#install-required-components)页上，选择“使用现有服务帐户”，并选择“托管服务帐户”。  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
@@ -222,7 +222,7 @@ VSA 旨在当同步引擎和 SQL 位于同一服务器上时使用。 如果使�
 此功能需要 Windows Server 2012 或更高版本。 如果需要使用早期版本的操作系统和远程 SQL，则必须使用[用户帐户](#user-account)。
 
 #### <a name="user-account"></a>用户帐户
-本地服务帐户由安装向导创建（除非在自定义设置指定了要使用的帐户）。 该帐户具有 **AAD_** 前缀，可用作实际同步服务的运行帐户。 如果在域控制器上安装 Azure AD Connect，则会在该域中创建帐户。 在以下情况下，**AAD_** 服务帐户必须位于域中：
+本地服务帐户由安装向导创建（除非在自定义设置指定了要使用的帐户）。 该帐户具有 **AAD_** 前缀，可用作实际同步服务的运行帐户。 如果在域控制器上安装 Azure AD Connect，则会在该域中创建帐户。 在以下情况下， **AAD_** 服务帐户必须位于域中：
    - 使用运行 SQL Server 的远程服务器
    - 使用需要身份验证的代理
 

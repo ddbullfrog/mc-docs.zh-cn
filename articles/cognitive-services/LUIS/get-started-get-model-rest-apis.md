@@ -1,24 +1,24 @@
 ---
 title: 快速入门：使用 REST API 更改模型 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 此 REST API 快速入门使用可用的公共 LUIS 应用从对话文本中确定用户的意向。
+description: 在此 REST API 快速入门中，添加示例言语以更改模型并训练应用。
 services: cognitive-services
 author: Johnnytechn
 manager: nitinme
-ms.custom: seodec18, tracking-python, devx-track-javascript
+ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 origin.date: 02/14/2020
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: a70fade193f7f0c4e6485d22b3b2a73203d62dfb
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 11efd354fd0377399d21afd56897cd4936560e48
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023361"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472513"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>快速入门：使用 REST API 更改模型
 

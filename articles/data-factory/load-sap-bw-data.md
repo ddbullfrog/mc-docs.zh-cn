@@ -29,16 +29,16 @@ ms.locfileid: "92121716"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 数据工厂**：如果你没有数据工厂，请遵循相应的步骤[创建数据工厂](quickstart-create-data-factory-portal.md#create-a-data-factory)。
+- **Azure 数据工厂** ：如果你没有数据工厂，请遵循相应的步骤 [创建数据工厂](quickstart-create-data-factory-portal.md#create-a-data-factory)。
 
 - **目标类型为“数据库表”的 SAP BW Open Hub 目标 (OHD)** ：若要创建 OHD 或检查你的 OHD 是否已针对数据工厂集成正确进行配置，请参阅本文的 [SAP BW Open Hub 目标配置](#sap-bw-open-hub-destination-configurations)部分。
 
-- **SAP BW 用户需要以下权限**：
+- **SAP BW 用户需要以下权限** ：
 
   - 远程函数调用 (RFC) 和 SAP BW 的授权。
   - 对 **S_SDSAUTH** 授权对象拥有“执行”活动权限。
 
-- **一个[自承载集成运行时 (IR)](concepts-integration-runtime.md#self-hosted-integration-runtime) 和 SAP .NET 连接器 3.0**。 遵循以下安装步骤：
+- **一个 [自承载集成运行时 (IR)](concepts-integration-runtime.md#self-hosted-integration-runtime) 和 SAP .NET 连接器 3.0** 。 遵循以下安装步骤：
 
   1. 安装并注册自承载集成运行时 3.13 或更高版本。 （本文稍后会介绍此过程。）
 
@@ -52,9 +52,9 @@ ms.locfileid: "92121716"
 
 1. 在“开始”页上选择“复制数据”，打开“复制数据”工具。  
 
-2. 在“属性”页上指定一个**任务名称**，然后选择“下一步”。  
+2. 在“属性”页上指定一个 **任务名称** ，然后选择“下一步”。  
 
-3. 在“源数据存储”页上，单击“+创建新连接”。   从连接器库中选择“SAP BW Open Hub”，然后选择“继续”。   若要筛选连接器，可在搜索框中键入 **SAP**。
+3. 在“源数据存储”页上，单击“+创建新连接”。   从连接器库中选择“SAP BW Open Hub”，然后选择“继续”。   若要筛选连接器，可在搜索框中键入 **SAP** 。
 
 4. 在“指定 SAP BW Open Hub 连接”页上，执行以下步骤创建新连接。 
 
@@ -62,7 +62,7 @@ ms.locfileid: "92121716"
 
    1. 在“通过集成运行时进行连接”列表中，选择一个现有的自承载 IR。  如果你没有自承载 IR，请创建一个。
 
-      若要创建新的自承载 IR，请依次选择“+新建”、“自承载”。   输入**名称**，然后选择“下一步”。  选择“快速安装”以在当前计算机上安装，或遵循提供的“手动设置”步骤。  
+      若要创建新的自承载 IR，请依次选择“+新建”、“自承载”。   输入 **名称** ，然后选择“下一步”。  选择“快速安装”以在当前计算机上安装，或遵循提供的“手动设置”步骤。  
 
       如[先决条件](#prerequisites)中所述，请确保在运行自承载 IR 的同一台计算机上安装 SAP Connector for Microsoft .NET 3.0。
 
@@ -70,7 +70,7 @@ ms.locfileid: "92121716"
 
    3. 选择“测试连接”以验证设置，然后选择“完成”。  
 
-   4. 现已创建新的连接。 选择“**下一步**”。
+   4. 现已创建新的连接。 选择“ **下一步** ”。
 
 5. 在“选择 Open Hub 目标”页上，浏览 SAP BW 中可用的 Open Hub 目标。  选择要从中复制数据的 OHD，然后选择“下一步”。 
 
@@ -134,19 +134,19 @@ ms.locfileid: "92121716"
 
 现在，让我们继续配置从 SAP BW Open Hub 执行的增量复制。
 
-增量复制使用基于**请求 ID** 的“高水印”机制。 该 ID 是由 DTP 在 SAP BW Open Hub 目标中自动生成的。 下图演示了此工作流：
+增量复制使用基于 **请求 ID** 的“高水印”机制。 该 ID 是由 DTP 在 SAP BW Open Hub 目标中自动生成的。 下图演示了此工作流：
 
 ![增量复制工作流程图](media/load-sap-bw-data/incremental-copy-workflow.png)
 
 在数据工厂的“开始”页上，选择“从模板创建管道”以使用内置模板。  
 
-1. 搜索 **SAP BW**，找到并选择“从 SAP BW 增量复制到 Azure Data Lake Storage Gen2”模板。  此模板将数据复制到 Azure Data Lake Storage Gen2。 可以使用类似的工作流将数据复制到其他接收器类型。
+1. 搜索 **SAP BW** ，找到并选择“从 SAP BW 增量复制到 Azure Data Lake Storage Gen2”模板。  此模板将数据复制到 Azure Data Lake Storage Gen2。 可以使用类似的工作流将数据复制到其他接收器类型。
 
 2. 在模板的主页上，选择或创建以下三个连接，然后选择窗口右下角的“使用此模板”。 
 
-   - **Azure Blob 存储**：在本演练中，我们将使用 Azure Blob 存储来存储高水印，即最大复制请求 ID。 
-   - **SAP BW Open Hub**：这是要从中复制数据的源。 有关详细配置，请参考前面的完整复制演练。
-   - **Azure Data Lake Storage Gen2**：这是要将数据复制到的接收器。 有关详细配置，请参考前面的完整复制演练。
+   - **Azure Blob 存储** ：在本演练中，我们将使用 Azure Blob 存储来存储高水印，即最大复制请求 ID。 
+   - **SAP BW Open Hub** ：这是要从中复制数据的源。 有关详细配置，请参考前面的完整复制演练。
+   - **Azure Data Lake Storage Gen2** ：这是要将数据复制到的接收器。 有关详细配置，请参考前面的完整复制演练。
 
    ![从 SAP BW 模板执行增量复制](media/load-sap-bw-data/incremental-copy-from-sap-bw-template.png)
 
@@ -156,23 +156,23 @@ ms.locfileid: "92121716"
 
    ![从 SAP BW 配置执行增量复制](media/load-sap-bw-data/incremental-copy-from-sap-bw-pipeline-config.png)
 
-   - **SAPOpenHubDestinationName**：指定要从中复制数据的 Open Hub 表名称。
+   - **SAPOpenHubDestinationName** ：指定要从中复制数据的 Open Hub 表名称。
 
-   - **Data_Destination_Container**：指定要将数据复制到的目标 Azure Data Lake Storage Gen2 容器。 如果该容器不存在，则数据工厂的复制活动将在执行期间创建一个容器。
+   - **Data_Destination_Container** ：指定要将数据复制到的目标 Azure Data Lake Storage Gen2 容器。 如果该容器不存在，则数据工厂的复制活动将在执行期间创建一个容器。
   
-   - **Data_Destination_Directory**：指定要将数据复制到的 Azure Data Lake Storage Gen2 容器下的文件夹路径。 如果该路径不存在，则数据工厂的复制活动将在执行期间创建一个路径。
+   - **Data_Destination_Directory** ：指定要将数据复制到的 Azure Data Lake Storage Gen2 容器下的文件夹路径。 如果该路径不存在，则数据工厂的复制活动将在执行期间创建一个路径。
   
-   - **HighWatermarkBlobContainer**：指定用于存储高水印值的容器。
+   - **HighWatermarkBlobContainer** ：指定用于存储高水印值的容器。
 
-   - **HighWatermarkBlobDirectory**：指定用于存储高水印值的容器下的文件夹路径。
+   - **HighWatermarkBlobDirectory** ：指定用于存储高水印值的容器下的文件夹路径。
 
-   - **HighWatermarkBlobName**：指定用于存储高水印值的 Blob 名称，例如 `requestIdCache.txt`。 在 Blob 存储中，转到 HighWatermarkBlobContainer+HighWatermarkBlobDirectory+HighWatermarkBlobName 的相应路径，例如“container/path/requestIdCache.txt”  。 创建包含内容 0 的 Blob。
+   - **HighWatermarkBlobName** ：指定用于存储高水印值的 Blob 名称，例如 `requestIdCache.txt`。 在 Blob 存储中，转到 HighWatermarkBlobContainer+HighWatermarkBlobDirectory+HighWatermarkBlobName 的相应路径，例如“container/path/requestIdCache.txt”  。 创建包含内容 0 的 Blob。
 
       ![Blob 内容](media/load-sap-bw-data/blob.png)
 
-   - **LogicAppURL**：在此模板中，我们将使用 WebActivity 来调用 Azure 逻辑应用，以便在 Blob 存储中设置高水印值。 或者，可以使用 Azure SQL 数据库来存储该值。 使用存储过程活动来更新该值。
+   - **LogicAppURL** ：在此模板中，我们将使用 WebActivity 来调用 Azure 逻辑应用，以便在 Blob 存储中设置高水印值。 或者，可以使用 Azure SQL 数据库来存储该值。 使用存储过程活动来更新该值。
 
-      必须先创建逻辑应用，如下图所示。 然后，粘贴 **HTTP POST URL**。
+      必须先创建逻辑应用，如下图所示。 然后，粘贴 **HTTP POST URL** 。
 
       ![逻辑应用配置](media/load-sap-bw-data/logic-app-config.png)
 
@@ -207,10 +207,10 @@ ms.locfileid: "92121716"
 
 1. 创建 Open Hub 目标。 可以在 SAP Transaction RSA1 中创建 OHD，这会自动创建所需的转换和数据传输过程。 使用以下设置：
 
-   - **对象类型**：可以使用任何对象类型。 此处我们使用 **InfoCube** 作为示例。
-   - **目标类型**：选择“数据库表”。 
-   - **表键**：选择“技术键”。 
-   - **提取**：选择“保留数据并将记录插入到表中”。 
+   - **对象类型** ：可以使用任何对象类型。 此处我们使用 **InfoCube** 作为示例。
+   - **目标类型** ：选择“数据库表”。 
+   - **表键** ：选择“技术键”。 
+   - **提取** ：选择“保留数据并将记录插入到表中”。 
 
    ![“创建 SAP BW OHD 增量提取”对话框](media/load-sap-bw-data/create-sap-bw-ohd-delta.png)
 

@@ -10,13 +10,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein,vanto
 origin.date: 01/14/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 852a3e76204f787d180dcfaa6e73e451629a0ab2
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: cf1def4bc67a981ba94b918d2833d4279961dbf6
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872472"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470417"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>排查 Azure SQL 数据库和 Azure SQL 托管实例的连接问题和其他问题
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91872472"
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>暂时性故障错误消息（40197、40613 等）
 
-Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动态地重新配置服务器。  此动态行为可能会导致客户端程序失去其与数据库或实例的连接。 此类错误情况称为 *暂时性故障*。 之所以会发生数据库重新配置事件是因为，有计划内事件（例如，软件升级）或计划外事件（例如，进程故障或负载均衡）。 大多数重新配置事件的生存期通常较短，应在最多 60 秒内完成。 但是，这些事件偶尔可能需要更长时间才能完成，例如当大型事务导致长时间运行的恢复时。 下表列出了在连接到 SQL 数据库时应用程序可能会收到的各种暂时性错误
+Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动态地重新配置服务器。  此动态行为可能会导致客户端程序失去其与数据库或实例的连接。 此类错误情况称为 *暂时性故障* 。 之所以会发生数据库重新配置事件是因为，有计划内事件（例如，软件升级）或计划外事件（例如，进程故障或负载均衡）。 大多数重新配置事件的生存期通常较短，应在最多 60 秒内完成。 但是，这些事件偶尔可能需要更长时间才能完成，例如当大型事务导致长时间运行的恢复时。 下表列出了在连接到 SQL 数据库时应用程序可能会收到的各种暂时性错误
 
 ### <a name="list-of-transient-fault-error-codes"></a>暂时性故障错误代码的列表
 
@@ -45,7 +45,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 1. 检查 [Azure 服务仪表板](https://status.azure.com/zh-cn/status)在由应用程序报告错误期间是否发生任何已知的服务中断。
 2. 连接到云服务的应用程序（如 Azure SQL 数据库）应期望定期重新配置事件并实施重试逻辑来处理这些错误，而不是将它们作为应用程序错误展现给用户。
 3. 由于数据库即将达到其资源限制，因此错误看起来像是暂时性连接问题。 请参阅[资源限制](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached)。
-4. 如果连接问题继续存在，或者应用程序发生错误的持续时间超过 60 秒或在特定的一天中看到错误多次发生，请通过在 [Azure 支持](https://support.azure.cn/zh-cn/support/contact/)网站上选择“**获取支持**”提出 Azure 支持请求。
+4. 如果连接问题继续存在，或者应用程序发生错误的持续时间超过 60 秒或在特定的一天中看到错误多次发生，请通过在 [Azure 支持](https://support.azure.cn/zh-cn/support/contact/)网站上选择“ **获取支持** ”提出 Azure 支持请求。
 
 #### <a name="implementing-retry-logic"></a>实现重试逻辑
 
@@ -58,7 +58,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 
 有关在应用程序中处理暂时性错误的其他信息，请查看[排查 SQL 数据库的暂时性连接错误](troubleshoot-common-connectivity-issues.md)
 
-[连接池 (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx) 中提供了有关使用 ADO.NET 的客户端的*阻塞期*的说明。
+[连接池 (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx) 中提供了有关使用 ADO.NET 的客户端的 *阻塞期* 的说明。
 
 ## <a name="a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-your-server"></a>与服务器建立连接时，出现网络相关或特定于实例的错误
 
@@ -186,7 +186,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | 40858 | 16 |弹性池“%ls”已存在于服务器“%ls”中。 指定的弹性池已存在于指定的服务器中。 | 提供新弹性池名称。 |
 | 40859 | 16 |弹性池不支持服务层级“%ls”。 进行弹性池预配时，不支持指定服务层级。 |提供正确的版本，或者将服务层级留空以使用默认服务层级。 |
 | 40860 | 16 |弹性池“%ls”和服务目标“%ls”的组合无效。 仅当资源类型指定为“ElasticPool”时，才能一起指定弹性池和服务层级。 |指定正确的弹性池和服务层级组合。 |
-| 40861 | 16 |数据库版本“%.*ls”必须与弹性池服务层级“%.* ls”相同。 数据库版本不同于弹性池服务层级。 |请勿指定不同于弹性池服务层级的数据库版本。  请注意，数据库版本不需要指定。 |
+| 40861 | 16 |数据库版本“%. *ls”必须与弹性池服务层级“%.* ls”相同。 数据库版本不同于弹性池服务层级。 |请勿指定不同于弹性池服务层级的数据库版本。  请注意，数据库版本不需要指定。 |
 | 40862 | 16 |如果指定了弹性池服务目标，则必须指定弹性池名称。 弹性池服务目标没有唯一地标识弹性池。 |如果使用弹性池服务目标，则指定弹性池名称。 |
 | 40864 | 16 |对于服务层级“%.*ls”来说，弹性池的 DTU 数必须至少为 (%d) 个 DTU。 尝试将弹性池的 DTU 数设置为最小限制以下。 |重新尝试将弹性池的 DTU 数至少设置为最小限制。 |
 | 40865 | 16 |对于服务层级“%.*ls”来说，弹性池的 DTU 数不能超过 (%d) 个 DTU。 尝试将弹性池的 DTU 数设置为高出最大限制。 |重新尝试将弹性池的 DTU 数设置为不超过最大限制。 |

@@ -10,11 +10,11 @@ origin.date: 06/02/2017
 ms.date: 03/30/2020
 ms.author: v-yeche
 ms.openlocfilehash: 4867676a42763edb809c0739acba04a955925a46
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243515"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211585"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Azure 逻辑应用的 B2B 错误和解决方案
 

@@ -8,14 +8,14 @@ ms.author: v-junlch
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 6e9795e09866a2af1e079d15a3ccde420cfa39ab
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: ff7104b9a81f890c85df00ff34a12ad6016ef356
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937405"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472691"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>即将针对新环境进行的 JSON 平展和转义规则更改
 
@@ -47,8 +47,9 @@ Azure 时序见解 Gen2 环境将按照一组特定的命名约定动态创建�
 ### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>如果有效负载包含嵌套的 JSON 或特殊字符，并且你可以自动创作[时序模型](time-series-insights-update-tsm.md)变量表达式
 
 更新执行 [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) 的客户端代码，以匹配新的引入规则。 例如，`"value": {"tsx": "$event.series_value.Double"}` 之前的[时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)应更新为以下选项之一：
-  * `"value": {"tsx": "$event.series.value.Double"}`
-  * `"value": {"tsx": "$event['series']['value'].Double"}`
+
+* `"value": {"tsx": "$event.series.value.Double"}`
+* `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>后续步骤
 

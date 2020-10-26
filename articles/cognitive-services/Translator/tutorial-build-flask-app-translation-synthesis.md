@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 origin.date: 05/26/2020
-ms.date: 08/07/2020
+ms.date: 10/22/2020
 ms.author: v-johya
-ms.custom: tracking-python, devx-track-javascript
-ms.openlocfilehash: 33de92f0b464a64e9ffbed4157e1f0f958bac440
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.custom: devx-track-python, devx-track-js
+ms.openlocfilehash: 10f945bd81160861f634058df8b4cd800dd20bc1
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023331"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472676"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>教程：生成使用 Azure 认知服务的 Flask 应用
 
@@ -55,8 +55,8 @@ Flask 是用于创建 Web 应用程序的微框架。 也就是说，Flask 提�
 * IDE 或文本编辑器，例如 [Visual Studio Code](https://code.visualstudio.com/) 或 [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) 或 [Firefox](https://www.mozilla.org/firefox)
 * “翻译”订阅密钥（请注意，不需要选择区域。）
-* **中国北部**区域的**文本分析**订阅密钥。
-* **中国北部**区域的**语音服务**订阅密钥。
+* **中国北部** 区域的 **文本分析** 订阅密钥。
+* **中国北部** 区域的 **语音服务** 订阅密钥。
 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>创建帐户并订阅资源
 
@@ -91,7 +91,7 @@ Flask 是用于创建 Web 应用程序的微框架。 也就是说，Flask 提�
 
 让我们使用 `virtualenv` 创建 Flask 应用的虚拟环境。 使用虚拟环境可确保在干净的环境中操作。
 
-1. 在工作目录中，运行以下命令以创建虚拟环境：**macOS/Linux：**
+1. 在工作目录中，运行以下命令以创建虚拟环境： **macOS/Linux：**
    ```
    virtualenv venv --python=python3
    ```
@@ -148,12 +148,12 @@ Requests 是用于发送 HTTP 1.1 请求的常用模块。 无需手动将查询
 
 2. 若要运行 Flask 应用，可以使用 flask 命令，或者结合 Flask 使用 Python 的 -m 开关。 在执行该操作之前，需要通过导出 `FLASK_APP` 环境变量，来告诉终端要使用哪个应用：
 
-   **macOS/Linux**：
+   **macOS/Linux** ：
    ```
    export FLASK_APP=app.py
    ```
 
-   **Windows**：
+   **Windows** ：
    ```
    set FLASK_APP=app.py
    ```
@@ -660,7 +660,7 @@ flask run
 
 ## <a name="convert-text-to-speech"></a>将文本转换到语音
 
-应用可以使用[文本转语音 API](/cognitive-services/speech-service/text-to-speech) 将文本转换为类似于人类的自然合成语音。 该服务支持标准语音和神经语音。 我们的示例应用使用了少量的可用声音，有关完整语音列表，请参阅[支持的语言](/cognitive-services/speech-service/language-support#text-to-speech)。
+应用可以使用[文本转语音 API](/cognitive-services/speech-service/text-to-speech) 将文本转换为类似于人类的自然合成语音。 该服务支持标准语音、神经语音和自定义语音。 我们的示例应用使用了少量的可用声音，有关完整语音列表，请参阅[支持的语言](/cognitive-services/speech-service/language-support#text-to-speech)。
 
 在本部分，你将执行以下几项操作：
 

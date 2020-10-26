@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
 origin.date: 05/18/2020
-ms.openlocfilehash: 3da632a32fc0554d4d3dabb907255e1e880fa524
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 3d20cd324d6d51087219cd2c2e68bc859f1a9baa
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023363"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472427"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 门户中创建新的 LUIS 应用
 可通过多种方法创建 LUIS 应用。 可以在 LUIS 门户中创建 LUIS 应用，也可以通过 LUIS 创作 [API](developer-reference-resource.md) 进行创建。
@@ -27,6 +27,7 @@ ms.locfileid: "88023363"
 可以通过以下几种方式在门户中创建新应用：
 
 * 从一个空应用开始，创建意向、表述和实体。
+* 从一个空应用开始，添加[预生成的域](luis-how-to-use-prebuilt-domains.md)。
 * 从已包含意向、言语和实体的 `.lu` 或 `.json` 文件导入 LUIS 应用。
 
 ## <a name="using-the-authoring-apis"></a>使用创作 API

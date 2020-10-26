@@ -12,11 +12,11 @@ origin.date: 12/18/2019
 ms.date: 2/25/2020
 ms.author: v-lingwu
 ms.openlocfilehash: d1b3d460f2944ed6dac80d4da27ab0363cc2b20a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291784"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211407"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>文本分析 API 的语言和区域支持
 
@@ -45,7 +45,7 @@ ms.locfileid: "79291784"
 
 语言支持最初在预览版中推广，渐变到正式版 (GA) 状态，且各种语言彼此独立并且总体上独立于文本分析服务。 即使文本分析 API 转变为正式版时，有些语言也可能保持在预览版。
 
-| 语言              | 语言代码 | 情绪 | 关键短语 | 命名实体识别 | 实体链接 |       说明        |
+| 语言              | 语言代码 | 情绪 | 关键短语 | 命名实体识别 | 实体链接 |       注释        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | 阿拉伯语                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | 捷克语                 |     `cs`      |           |             |           ✔ \*           |                |                    |
@@ -61,7 +61,7 @@ ms.locfileid: "79291784"
 | 匈牙利语             |     `hu`      |           |             |           ✔ \*           |                |                    |
 | 意大利语               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | 日语              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| 韩语                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
+| 朝鲜语                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
 | 挪威语(博克马尔语)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                | `nb` 也接受                   |
 | 波兰语                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | 葡萄牙语(葡萄牙) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` 也接受 |

@@ -108,9 +108,9 @@ cosmos.queryMetricsEnabled=true
 
 ## <a name="resources"></a>资源
 
-* **参与编写 SDK**：[GitHub 上的 Spring Data Azure Cosmos DB 存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
+* **参与编写 SDK** ：[GitHub 上的 Spring Data Azure Cosmos DB 存储库](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
 
-* **教程**：[GitHub 上的 Spring Data Azure Cosmos DB 教程](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
+* **教程** ：[GitHub 上的 Spring Data Azure Cosmos DB 教程](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
 ### <a name="300-beta2-unreleased"></a>3.0.0-beta.2（未发布）
 

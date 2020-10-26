@@ -12,14 +12,14 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: da67e91c5711733b550491f1eb95f7066219c9cd
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 90fe59ff67fc7538529085f3d6a3793676bab796
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721122"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472625"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>在 Azure 计算模拟器中使用 Visual Studio 探查器来本地测试云服务的性能
 可通过各种工具和技术来测试云服务的性能。
@@ -166,8 +166,8 @@ public static string Concatenate(int number)
 ## <a name="next-steps"></a>后续步骤
 Visual Studio 探查器不支持在模拟器中检测 Azure 二进制文件，但要测试内存分配，可以在分析时选择该选项。 此外，可以选择并发分析，这有助于确定线程是否正在浪费时间竞争锁；也可以选择层交互分析，这有助于跟踪在应用程序的各个层之间（最常见的是数据层和辅助角色之间）进行交互时的性能问题。  可以查看应用程序生成的数据库查询并使用分析数据来改进对数据库的使用。 有关层级交互分析的信息，请参阅博客文章 [Walkthrough:Using the Tier Interaction Profiler in Visual Studio Team System 2010][3]（演练：在 Visual Studio Team System 2010 中使用层级交互探查器）。
 
-[1]: /azure-monitor/app/profiler
-[2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
+[1]: ../azure-monitor/app/profiler.md
+[2]: https://docs.microsoft.com/previous-versions/azure/hh411542(v=azure.100)
 [3]: https://docs.microsoft.com/archive/blogs/habibh/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png

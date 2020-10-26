@@ -10,11 +10,11 @@ origin.date: 09/09/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
 ms.openlocfilehash: c9cc60f84b1df0e735eeaa97f86061c389174cde
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291129"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211580"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>VMware 到 Azure 的灾难恢复的配置服务器要求
 

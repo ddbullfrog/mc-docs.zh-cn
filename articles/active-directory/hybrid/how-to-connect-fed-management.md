@@ -77,8 +77,8 @@ ms.locfileid: "92041502"
 ![备用 ID 属性选择](./media/how-to-connect-fed-management/attributeselection.png)
 
 为 AD FS 配置备用登录 ID 包括两个主要步骤：
-1. **配置正确的颁发声明集**：已将 Azure AD 信赖方信任中的颁发声明规则修改为使用所选的 UserPrincipalName 属性作为用户的备用 ID。
-2. **在 AD FS 配置中启用备用登录 ID**：已更新 AD FS 配置，以便 AD FS 可以使用备用 ID 查找相应林中的用户。 此配置支持 Windows Server 2012 R2（带 KB2919355）或更高版本上的 AD FS。 如果 AD FS 服务器为 2012 R2，则 Azure AD Connect 会检查是否存在所需的知识库 (KB)。 如果未检测到知识库 (KB)，则在配置完成后会显示一条警告，如下所示：
+1. **配置正确的颁发声明集** ：已将 Azure AD 信赖方信任中的颁发声明规则修改为使用所选的 UserPrincipalName 属性作为用户的备用 ID。
+2. **在 AD FS 配置中启用备用登录 ID** ：已更新 AD FS 配置，以便 AD FS 可以使用备用 ID 查找相应林中的用户。 此配置支持 Windows Server 2012 R2（带 KB2919355）或更高版本上的 AD FS。 如果 AD FS 服务器为 2012 R2，则 Azure AD Connect 会检查是否存在所需的知识库 (KB)。 如果未检测到知识库 (KB)，则在配置完成后会显示一条警告，如下所示：
 
     ![警告：2012R2 上缺少知识库 (KB)](./media/how-to-connect-fed-management/kbwarning.png)
 
@@ -225,7 +225,7 @@ c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccou
 
 在此规则中，将从 Active Directory 为用户查询 **ms-ds-consistencyguid** 和 **objectGuid** 的值。 请将应用商店名称更改为 AD FS 部署中可用的适当应用商店名称。 此外，根据对 **objectGuid** 和 **ms-ds-consistencyguid** 的定义，将声明类型更改为联合的正确声明类型。
 
-此外，通过使用 **add** 而不使用 **issue**，避免为实体添加向外发出，并且可以使用这些值作为中间值。 确定了要用作不可变 ID 的值后，就可以在稍后的规则中发出声明。
+此外，通过使用 **add** 而不使用 **issue** ，避免为实体添加向外发出，并且可以使用这些值作为中间值。 确定了要用作不可变 ID 的值后，就可以在稍后的规则中发出声明。
 
 **规则 2：检查用户是否存在 ms-ds-consistencyguid**
 
@@ -234,7 +234,7 @@ NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsisten
 => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 ```
 
-此规则定义名为 **idflag** 的临时标志，当没有为用户填充的 **ms-ds-consistencyguid** 时，该标志设置为 **useguid**。 这背后的逻辑在于 AD FS 不允许空的声明。 因此，在规则 1 中添加声明 `http://contoso.com/ws/2016/02/identity/claims/objectguid` 和 `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` 时，仅当填充了用户值时，才会获得 **msdsconsistencyguid** 声明。 如果未填充该值，在 AD FS 中它就会作为空值出现，并立即删除。 所有对象都具有 **objectGuid**，因此在执行规则 1 后声明始终存在。
+此规则定义名为 **idflag** 的临时标志，当没有为用户填充的 **ms-ds-consistencyguid** 时，该标志设置为 **useguid** 。 这背后的逻辑在于 AD FS 不允许空的声明。 因此，在规则 1 中添加声明 `http://contoso.com/ws/2016/02/identity/claims/objectguid` 和 `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` 时，仅当填充了用户值时，才会获得 **msdsconsistencyguid** 声明。 如果未填充该值，在 AD FS 中它就会作为空值出现，并立即删除。 所有对象都具有 **objectGuid** ，因此在执行规则 1 后声明始终存在。
 
 **规则 3：如果存在，将 ms-ds-consistencyguid 作为不可变 ID 发出**
 
@@ -253,7 +253,7 @@ c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
 => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
 ```
 
-在此规则中，只检查临时标志 **idflag**。 根据该标志的值决定是否发出声明。
+在此规则中，只检查临时标志 **idflag** 。 根据该标志的值决定是否发出声明。
 
 > [!NOTE]
 > 这些规则的顺序非常重要。

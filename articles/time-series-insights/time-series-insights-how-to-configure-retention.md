@@ -8,22 +8,25 @@ ms.author: v-junlch
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: dee397dabb50a5a737f60f738a4aff60958dbd6f
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: 68da4213ea6f9491b37bf23dcb89e5f4cda40cc7
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796299"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472076"
 ---
 # <a name="configuring-retention-in-azure-time-series-insights-gen1"></a>在 Azure 时序见解第 1 代中配置保留期
 
-本文介绍如何在 Azure 时序见解中配置**数据保留时间**和**超出存储限制时的行为**。
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
+
+本文介绍如何在 Azure 时序见解中配置 **数据保留时间** 和 **超出存储限制时的行为** 。
 
 ## <a name="summary"></a>总结
 
-每个 Azure 时序见解环境都有用于配置**数据保留时间**的设置。 该值的范围为 1 到 400 天。 将根据环境存储容量或保留期限 (1-400) 删除数据，以先达到的条件为准。
+每个 Azure 时序见解环境都有用于配置 **数据保留时间** 的设置。 该值的范围为 1 到 400 天。 将根据环境存储容量或保留期限 (1-400) 删除数据，以先达到的条件为准。
 
 每个 Azure 时序见解环境都有一项附加设置：“超出存储限制时的行为”。 此设置控制达到环境最大容量时的传入和清除行为。 可以从两种行为中进行选择：
 

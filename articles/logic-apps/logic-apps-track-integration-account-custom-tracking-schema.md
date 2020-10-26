@@ -10,11 +10,11 @@ origin.date: 01/01/2020
 ms.date: 03/30/2020
 ms.author: v-yeche
 ms.openlocfilehash: 9d59f14dd3d967cf549bef8f74b0c849af40a5ca
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243478"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211529"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>创建用于监视 Azure 逻辑应用中的端到端工作流的自定义跟踪架构
 
@@ -65,7 +65,7 @@ Azure 逻辑应用提供内置跟踪功能，你可以为工作流的各个部�
 | correlationId | 否 | String | 用来关联消息的相关性 ID |
 | ClientRequestId | 否 | String | 客户端可以填充此属性来关联消息 |
 | EventLevel | 是 | String | 事件的级别 |
-| EventTime | 是 | DateTime | 事件的时间，采用 UTC 格式：*YYYY-MM-DDTHH:MM:SS.00000Z* |
+| EventTime | 是 | DateTime | 事件的时间，采用 UTC 格式： *YYYY-MM-DDTHH:MM:SS.00000Z* |
 | recordType | 是 | String | 跟踪记录的类型，仅允许以下值：`custom` |
 | 记录 (record) | 是 | JToken | 仅采用 JToken 格式的自定义记录类型 |
 |||||

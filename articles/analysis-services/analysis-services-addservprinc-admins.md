@@ -5,18 +5,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 07/07/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 950b478af853ce3eeb6f3790d8ea777f2d8ae7f1
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: d5c635cd008d0fe9cd0bc0d1b74c0506997d5889
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146756"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470168"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>将服务主体添加到服务器管理员角色 
 

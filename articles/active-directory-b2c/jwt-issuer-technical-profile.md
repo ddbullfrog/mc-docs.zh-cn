@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 4e18d5aec29e236403a06eb86a9f5ffed99d3811
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 4330d7504c6e65673cac8c539dcd4126d710e2df
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297703"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471167"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 JWT 令牌颁发者的技术配置文件
 
@@ -26,14 +26,14 @@ Azure Active Directory B2C (Azure AD B2C) 在处理每个身份验证流时颁�
 
 ## <a name="protocol"></a>协议
 
-“Protocol”元素的“Name”属性必须设置为 `None`。 将 **OutputTokenFormat** 元素设置为 `JWT`。
+“Protocol”元素的“Name”属性必须设置为 `OpenIdConnect`。 将 **OutputTokenFormat** 元素设置为 `JWT`。
 
 以下示例演示了 `JwtIssuer` 的技术配置文件：
 
 ```xml
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
-  <Protocol Name="OpenIdConnect" />
+  <Protocol Name="None" />
   <OutputTokenFormat>JWT</OutputTokenFormat>
   <Metadata>
     <Item Key="client_id">{service:te}</Item>
@@ -50,7 +50,7 @@ Azure Active Directory B2C (Azure AD B2C) 在处理每个身份验证流时颁�
 
 ## <a name="input-output-and-persist-claims"></a>输入、输出和保存声明
 
-**InputClaims**、**OutputClaims** 和 **PersistClaims** 元素为空或不存在。 **InutputClaimsTransformations** 和 **OutputClaimsTransformations** 元素也不存在。
+**InputClaims** 、 **OutputClaims** 和 **PersistClaims** 元素为空或不存在。 **InutputClaimsTransformations** 和 **OutputClaimsTransformations** 元素也不存在。
 
 ## <a name="metadata"></a>Metadata
 

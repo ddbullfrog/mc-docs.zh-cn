@@ -4,19 +4,19 @@ description: 了解有关虚拟 WAN 自动化可缩放的分支到分支连接�
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: overview
-origin.date: 08/18/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: d9c680223ccca923caad8203cc38fce453880355
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 63921bf95c03e16e8042b0403d4417111fc5a64c
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246827"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472555"
 ---
 # <a name="what-is-azure-virtual-wan"></a>什么是 Azure 虚拟 WAN？
 
@@ -143,9 +143,9 @@ Azure 虚拟 WAN 提供了加密 ExpressRoute 流量的功能。 此方法通过
 
 路由表现在具有关联和传播功能。 预先存在的路由表是不具有这些功能的路由表。 如果中心路由中有预先存在的路由，并且你希望使用新功能，请考虑以下事项：
 
-* **在虚拟中心中具有预先存在的路由的标准虚拟 WAN 客户**：如果在 Azure 门户中的中心的“路由”部分有预先存在的路由，则需要先将其删除，然后尝试在 Azure 门户中的中心的“路由表”部分创建新的路由表。
+* **在虚拟中心中具有预先存在的路由的标准虚拟 WAN 客户** ：如果在 Azure 门户中的中心的“路由”部分有预先存在的路由，则需要先将其删除，然后尝试在 Azure 门户中的中心的“路由表”部分创建新的路由表。
 
-* **在虚拟中心中具有预先存在的路由的基本虚拟 WAN 客户**：如果在 Azure 门户中的中心的“路由”部分有预先存在的路由，则需要先将其删除，然后将虚拟 WAN 从基本版升级到标准版。 请参阅[将虚拟 WAN 从基本版升级到标准版](upgrade-virtual-wan.md)。
+* **在虚拟中心中具有预先存在的路由的基本虚拟 WAN 客户** ：如果在 Azure 门户中的中心的“路由”部分有预先存在的路由，则需要先将其删除，然后将虚拟 WAN 从基本版升级到标准版。 请参阅[将虚拟 WAN 从基本版升级到标准版](upgrade-virtual-wan.md)。
 
 <a name="faq"></a>
 ## <a name="faq"></a>常见问题解答
@@ -157,7 +157,7 @@ Azure 虚拟 WAN 提供了加密 ExpressRoute 流量的功能。 此方法通过
 
 订阅 RSS 源，并在 [Azure 更新](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN)页面上查看最新的虚拟 WAN 功能更新。
 
-<!--MOONCAKE CUSTOMIZATION ON http://azure.microsoft.com/update -->
+<!--MOONCAKE CUSTOMIZATION ON https://azure.microsoft.com/update-->
 
 ## <a name="next-steps"></a>后续步骤
 

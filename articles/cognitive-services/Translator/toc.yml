@@ -1,11 +1,13 @@
-- name: 文本翻译文档
+- name: 翻译器文档
   href: index.yml
-- name: 文本翻译 API
+- name: 转换器
   items:
-    - name: 概述
-      items:
-        - name: 什么是文本翻译 API？
-          href: translator-info-overview.md
+    - name: 什么是翻译器？
+      href: translator-info-overview.md
+    - name: 快速入门
+      href: quickstart-translator.md
+    - name: 语言支持
+      href: /cognitive-services/translator/language-support
     - name: 教程
       items:
         - name: 使用 Python 创建 Flask 翻译应用
@@ -14,10 +16,12 @@
       items:
         - name: API 如何对字符计数
           href: character-counts.md
-    - name: 操作方法指南
+    - name: 操作指南
       items:
-        - name: 注册文本翻译 API
+        - name: 注册到翻译器
           href: translator-text-how-to-signup.md
+        - name: 迁移到 V3 文本 API
+          href: migrate-to-v3.md
         - name: 添加不雅内容筛选
           href: profanity-filtering.md
         - name: 接收字对齐信息
@@ -30,7 +34,7 @@
           href: firewalls.md
     - name: 示例
       items:
-        - name: 'C#'
+        - name: C#
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp'
         - name: Java
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java'
@@ -46,7 +50,7 @@
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
     - name: 参考
       items:
-        - name: v3 文本翻译 API 参考
+        - name: v3 翻译器参考
           href: reference/v3-0-reference.md
           items:
             - name: Languages
@@ -63,23 +67,25 @@
               href: reference/v3-0-dictionary-lookup.md
             - name: 字典示例
               href: reference/v3-0-dictionary-examples.md
+        - name: v2 翻译器参考（已弃用）
+          items:
+            - name: 转换文本
+              href: transform-text.md
+            - name: 如何使用协作性翻译框架 (CTF) 报告
+              href: ctf-reporting.md
+        - name: 请求限制
+          href: request-limits.md
     - name: 资源
       items:
         - name: GitHub 上的代码示例
           href: 'https://aka.ms/TranslatorGitHub'
         - name: 常见问题解答
           href: 'https://www.microsoft.com/translator/faq.aspx'
-        - name: 知识库
-          href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
-        - name: 语言和区域支持
-          href: language-support.md
         - name: 定价
           href: 'https://www.azure.cn/pricing/details/cognitive-services/'
         - name: 区域可用性
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=china-non-regional,china-north,china-north-2,china-east,china-east-2'
-        - name: 请求限制
-          href: request-limits.md
-        - name: 堆栈溢出
+        - name: 合规性
+          href: 'https://www.azure.cn/support/legal/'
+        - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
-        - name: UserVoice
-          href: 'https://cognitive.uservoice.com/forums/558796-translator'

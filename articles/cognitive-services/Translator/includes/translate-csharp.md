@@ -1,15 +1,17 @@
 ---
-author: erhopf
+author: Johnnytechn
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
-ms.openlocfilehash: 92c42c7cbde80e06e7a47d23ff015ed94fa28777
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4beddcb215aff6336970a0e7d1cb0a9cee8cce99
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241545"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499072"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -293,7 +295,7 @@ Translated to th: หวัดดีชาวโลก!
 
 ## <a name="next-steps"></a>后续步骤
 
-查看 API 参考，了解使用文本翻译 API 可以执行的所有操作。
+查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
 > [API 参考](/cognitive-services/translator/reference/v3-0-reference)

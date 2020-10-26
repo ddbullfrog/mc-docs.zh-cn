@@ -77,7 +77,7 @@ print("\n*** Training dataset y\n")
 print(y_train.head())
 ```
 
-**输出**：
+**输出** ：
 
 ```text
 *** Training dataset x
@@ -142,7 +142,7 @@ print('*** Scikit-learn r2 score: {}'.format(sklearn_r2_score))
 print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
 ```
 
-**输出**：
+**输出** ：
 
 ```text
 *** Scikit-learn r2 score: 0.7406426641094094
@@ -216,7 +216,7 @@ print('MSE are equal' if sklearn_mse == onnx_mse else 'Difference in MSE scores:
 print()
 ```
 
-**输出**：
+**输出** ：
 
 ```text
 *** Onnx r2 score: 0.7406426691136831

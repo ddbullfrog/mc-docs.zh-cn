@@ -7,11 +7,11 @@ ms.author: v-johya
 ms.date: 05/25/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 798cb2e1ba98c78c7707784ddebc424e3cbe1d0c
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200178"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211576"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>使用 Application Insights 探查实时 Azure Service Fabric 应用程序
 

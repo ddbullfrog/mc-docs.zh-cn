@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 06/03/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: yes|no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: 657eae5d7b705a856d0bee82c5e1b28b16509f22
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 283102aae2f982aafbe5990d7cb69cd9fefa671f
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020832"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469980"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>访问 Azure Kubernetes 服务 (AKS) 中的 Kubernetes Web 仪表板
 
@@ -35,13 +35,13 @@ Kubernetes 包含一个可用于基本管理操作的 Web 仪表板。 使用此
 
 本文档详述的步骤假设你已创建 AKS 群集并已通过该群集建立 `kubectl` 连接。 如果需要创建 AKS 群集，请参阅[快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务群集][aks-quickstart]。
 
-还需要安装并配置 Azure CLI 2.6.0 或更高版本。 运行  `az --version`  即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需要安装并配置 Azure CLI 2.6.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="disable-the-kubernetes-dashboard"></a>禁用 Kubernetes 仪表板
 
 默认情况下，在 K8s 版本低于 1.18 的群集上启用 kube-dashboard 加载项。 可以通过运行以下命令禁用加载项。
 
-``` azure-cli
+``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
@@ -112,7 +112,7 @@ kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROU
 
 成功后，将显示类似如下的页面。
 
-:::image type="content" source="./media/kubernetes-dashboard/dashboard-overview.png" alt-text="Kubernetes Web 仪表板的概述页":::
+:::image type="content" source="./media/kubernetes-dashboard/dashboard-overview.png" alt-text="登录屏幕":::
 
 ## <a name="create-an-application"></a>创建应用程序
 
@@ -126,18 +126,18 @@ kubectl config view -o jsonpath='{.users[?(@.name == "clusterUser_<RESOURCE GROU
 1. 若要使用图形化向导，请选择“创建应用”。
 1. 为部署提供一个名称，例如 *nginx*
 1. 输入要使用的容器映像的名称，例如 *nginx:1.15.5*
-1. 若要为 Web 流量公开端口 80，请创建一个 Kubernetes 服务。 在“服务”下，选择“外部”，对于端口和目标端口，都输入 **80**。 
+1. 若要为 Web 流量公开端口 80，请创建一个 Kubernetes 服务。 在“服务”下，选择“外部”，对于端口和目标端口，都输入 **80** 。 
 1. 准备就绪后，选择“部署”来创建应用。
 
-:::image type="content" source="./media/kubernetes-dashboard/create-app.png" alt-text="在 Kubernetes Web 仪表板中部署应用":::
+:::image type="content" source="./media/kubernetes-dashboard/create-app.png" alt-text="登录屏幕":::
 
 为 Kubernetes 服务分配公共外部 IP 地址需要一到两分钟时间。 在左侧，在“发现和负载均衡”下，选择“服务”。 此时将列出应用的服务，包括“外部终结点”，如以下示例中所示：
 
-:::image type="content" source="./media/kubernetes-dashboard/view-services.png" alt-text="查看服务和终结点的列表":::
+:::image type="content" source="./media/kubernetes-dashboard/view-services.png" alt-text="登录屏幕":::
 
 选择终结点地址以在 Web 浏览器窗口中打开默认的 NGINX 页面：
 
-:::image type="content" source="./media/kubernetes-dashboard/default-nginx.png" alt-text="查看部署的应用程序的默认 NGINX 页面":::
+:::image type="content" source="./media/kubernetes-dashboard/default-nginx.png" alt-text="登录屏幕":::
 
 ## <a name="view-pod-information"></a>查看 Pod 信息
 
@@ -145,7 +145,7 @@ Kubernetes 仪表板可以提供基本的监视指标和故障排除信息，例
 
 若要查看有关应用程序 Pod 的详细信息，请在左侧菜单中选择“Pod”。 此时会显示可用 Pod 的列表。 选择你的 *nginx* Pod 来查看信息，例如资源消耗：
 
-:::image type="content" source="./media/kubernetes-dashboard/view-pod-info.png" alt-text="查看 Pod 信息":::
+:::image type="content" source="./media/kubernetes-dashboard/view-pod-info.png" alt-text="登录屏幕":::
 
 ## <a name="edit-the-application"></a>编辑应用程序
 
@@ -155,14 +155,14 @@ Kubernetes 仪表板可以提供基本的监视指标和故障排除信息，例
 
 1. 在左侧菜单中选择“部署”，然后选择你的 *nginx* 部署。
 1. 在右上角的导航栏中选择“编辑”。
-1. 找到 `spec.replica` 值，大约在第 20 行。 若要增加应用程序的副本数，请将此值从 *1* 更改为 *3*。
+1. 找到 `spec.replica` 值，大约在第 20 行。 若要增加应用程序的副本数，请将此值从 *1* 更改为 *3* 。
 1. 在完成后，选择“更新”。
 
-:::image type="content" source="./media/kubernetes-dashboard/edit-deployment.png" alt-text="编辑部署以更新副本数":::
+:::image type="content" source="./media/kubernetes-dashboard/edit-deployment.png" alt-text="登录屏幕":::
 
 在副本集内创建新 Pod 需要花费一些时间。 在左侧菜单上，选择“副本集”，然后选择你的 *nginx* 副本集。 Pod 列表现在反映了已更新的副本计数，如以下示例输出中所示：
 
-:::image type="content" source="./media/kubernetes-dashboard/view-replica-set.png" alt-text="查看副本集的信息":::
+:::image type="content" source="./media/kubernetes-dashboard/view-replica-set.png" alt-text="登录屏幕":::
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -181,9 +181,9 @@ Kubernetes 仪表板可以提供基本的监视指标和故障排除信息，例
 [aad-cluster]: ./azure-ad-integration-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [aks-service-accounts]: ./concepts-identity.md#kubernetes-service-accounts
-[az-account-get-access-token]: https://docs.azure.cn/cli/account#az-account-get-access-token
-[az-aks-browse]: https://docs.microsoft.com/cli/azure/aks#az_aks_browse
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
+[az-account-get-access-token]: https://docs.azure.cn/cli/account#az_account_get_access_token
+[az-aks-browse]: https://docs.azure.cn/cli/aks#az_aks_browse
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 
 <!--Not Available on [kubernetes-portal]: ./kubernetes-portal.md-->

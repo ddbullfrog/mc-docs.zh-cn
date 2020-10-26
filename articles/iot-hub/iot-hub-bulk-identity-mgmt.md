@@ -9,21 +9,21 @@ ms.topic: conceptual
 origin.date: 10/02/2019
 ms.author: v-yiso
 ms.date: 04/06/2020
-ms.openlocfilehash: b375800aa3fbd91111ea71f656e3536a743ca066
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 049bd789e007b551f5e4570f2d3a13dd7f54ce6d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463000"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471268"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>批量导入和导出 IoT 中心设备标识
 
 每个 IoT 中心都有一个标识注册表，可以使用该注册表在服务中创建每设备资源。 标识注册表还可用于控制对面向设备的终结点的访问。 本文介绍如何从标识注册表批量导入和导出设备标识。 若要查看 C# 的工作示例并了解在将中心克隆到其他区域时如何使用此功能，请参阅[如何克隆 IoT 中心](iot-hub-how-to-clone.md)。
 
 
-*作业*的上下文中发生导入和导出操作，可允许对 IoT 中心执行批量服务操作。
+*作业* 的上下文中发生导入和导出操作，可允许对 IoT 中心执行批量服务操作。
 
-**RegistryManager** 类包括使用**作业**框架的 **ExportDevicesAsync** 和 **ImportDevicesAsync** 方法。 这些方法可以导出、导入和同步整个 IoT 中心标识注册表。
+**RegistryManager** 类包括使用 **作业** 框架的 **ExportDevicesAsync** 和 **ImportDevicesAsync** 方法。 这些方法可以导出、导入和同步整个 IoT 中心标识注册表。
 
 本主题讨论如何使用 RegistryManager 类和作业系统执行设备到 IoT 中心的标识注册表的批量导入，以及从 IoT 中心的标识注册表到设备的批量导出。 还可以使用 Azure IoT 中心设备预配服务实现无需人工干预，零接触实时预配到一个或多个 IoT 中心。 若要了解详细信息，请参阅[预配服务文档](/iot-dps)。
 
@@ -34,7 +34,7 @@ ms.locfileid: "89463000"
 * 相较标准运行时操作，其执行时间可能很长。
 * 向用户返回大量数据。
 
-操作将以异步方式为该 IoT 中心创建**作业**，而不是对操作结果进行单一的 API 调用等待或阻塞。 然后，操作立即返回 **JobProperties** 对象。
+操作将以异步方式为该 IoT 中心创建 **作业** ，而不是对操作结果进行单一的 API 调用等待或阻塞。 然后，操作立即返回 **JobProperties** 对象。
 
 以下 C# 代码段演示如何创建导出作业：
 
@@ -46,7 +46,7 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > 若要在 C# 代码中使用 **RegistryManager** 类，请将 **Microsoft.Azure.Devices** NuGet 包添加到项目。 **RegistryManager** 类位于 **Microsoft.Azure.Devices** 命名空间。
 
-可使用 **RegistryManager** 类，查询使用返回的 **JobProperties** 元数据的**作业**的状态。 若要创建 **RegistryManager** 类的实例，请使用 **CreateFromConnectionString** 方法：
+可使用 **RegistryManager** 类，查询使用返回的 **JobProperties** 元数据的 **作业** 的状态。 若要创建 **RegistryManager** 类的实例，请使用 **CreateFromConnectionString** 方法：
 
 ```csharp
 RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
@@ -99,7 +99,7 @@ while(true)
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
 
-* 指示你是否要在导出数据中排除身份验证密钥的 *布尔值*。 如果为 **false**，则身份验证密钥包含在导出输出中。 否则，密钥导出为 **null**。
+* 指示你是否要在导出数据中排除身份验证密钥的 *布尔值* 。 如果为 **false** ，则身份验证密钥包含在导出输出中。 否则，密钥导出为 **null** 。
 
 下面的 C# 代码段演示了如何启动在导出数据中包含设备身份验证密钥的导出作业，并对完成情况进行轮询：
 
@@ -200,7 +200,7 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 ## <a name="import-devices"></a>导入设备
 
-通过 **RegistryManager** 类中的 **ImportDevicesAsync** 方法，可以在 IoT 中心标识注册表中执行批量导入和同步操作。 如同 **ExportDevicesAsync** 方法，**ImportDevicesAsync** 方法也使用**作业**框架。
+通过 **RegistryManager** 类中的 **ImportDevicesAsync** 方法，可以在 IoT 中心标识注册表中执行批量导入和同步操作。 如同 **ExportDevicesAsync** 方法， **ImportDevicesAsync** 方法也使用 **作业** 框架。
 
 请小心使用 **ImportDevicesAsync** 方法，因为除了在标识注册表中预配新设备以外，它还可以更新和删除现有设备。
 
@@ -215,7 +215,7 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
    SharedAccessBlobPermissions.Read
    ```
 
-*  一个*字符串*，其中包含用作作业*输出*的 [Azure 存储](/storage/) Blob 容器的 URI。 作业在此容器中创建块 Blob，用于存储已完成的导入 **作业**中的任何错误信息。 SAS 令牌必须包含这些权限：
+*  一个 *字符串* ，其中包含用作作业 *输出* 的 [Azure 存储](/storage/) Blob 容器的 URI。 作业在此容器中创建块 Blob，用于存储已完成的导入 **作业** 中的任何错误信息。 SAS 令牌必须包含这些权限：
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
@@ -259,7 +259,7 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 | **deleteIfMatchETag** |如果具有指定 ID 的设备已存在，则只有当 ETag 匹配时才删除该设备 。 如果设备不存在，则在日志文件中写入错误。 <br/>如果 ETag 不匹配，则将错误写入日志文件。 |
 
 > [!NOTE]
-> 如果序列化数据未显式定义设备的 **importMode** 标志，则该标志在导入操作过程中默认为 **createOrUpdate**。
+> 如果序列化数据未显式定义设备的 **importMode** 标志，则该标志在导入操作过程中默认为 **createOrUpdate** 。
 
 ## <a name="import-devices-example--bulk-device-provisioning"></a>导入设备示例 – 批量预配设备 
 
@@ -385,7 +385,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>获取容器 SAS URI
 
-下面的代码示例演示如何使用 Blob 容器的读取、写入和删除权限生成 [SAS URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md)：
+下面的代码示例演示如何使用 Blob 容器的读取、写入和删除权限生成 [SAS URI](../storage/common/storage-sas-overview.md)：
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)

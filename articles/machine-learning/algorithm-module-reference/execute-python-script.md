@@ -105,9 +105,9 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 “执行 Python 脚本”模块包含可用作起点的示例 Python 代码。 若要配置“执行 Python 脚本”模块，请在“Python 脚本”文本框中提供要运行的一组输入和 Python 代码。
 
-1. 将**执行 Python 脚本**模块添加到管道。
+1. 将 **执行 Python 脚本** 模块添加到管道。
 
-2. 从设计器中，在 **Dataset1** 上添加并连接要用于输入的任何数据集。 在 Python 脚本中将此数据集引用为 **DataFrame1**。
+2. 从设计器中，在 **Dataset1** 上添加并连接要用于输入的任何数据集。 在 Python 脚本中将此数据集引用为 **DataFrame1** 。
 
     数据集的使用是可选的。 如果要使用 Python 生成数据，或者使用 Python 代码将数据直接导入到模块中，则可以使用数据集。
 

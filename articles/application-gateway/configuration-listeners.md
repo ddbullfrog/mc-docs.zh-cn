@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: v-junlch
-ms.openlocfilehash: a6111ed9473a0c4ba84a1ce9ccbb011e357004eb
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 9cb4d29a322c9ea0432f95d89be69ea2e4f96f75
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721290"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471341"
 ---
 # <a name="application-gateway-listener-configuration"></a>应用程序网关侦听器配置
 
@@ -20,7 +20,7 @@ ms.locfileid: "90721290"
 
 侦听器是一个逻辑实体，它可以使用端口、协议、主机和 IP 地址检查传入的连接请求。 配置侦听器时，必须输入与网关上传入请求中的对应值相匹配的值。
 
-使用 Azure 门户创建应用程序网关时，还可以通过选择侦听器的协议和端口来创建默认的侦听器。 可以选择是否要在侦听器上启用 HTTP2 支持。 创建应用程序网关后，可以编辑该默认侦听器的设置 (*appGatewayHttpListener*) 或创建新的侦听器。
+使用 Azure 门户创建应用程序网关时，还可以通过选择侦听器的协议和端口来创建默认的侦听器。 可以选择是否要在侦听器上启用 HTTP2 支持。 创建应用程序网关后，可以编辑该默认侦听器的设置 ( *appGatewayHttpListener* ) 或创建新的侦听器。
 
 ## <a name="listener-type"></a>侦听器类型
 
@@ -81,7 +81,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 可以在全局级别以及侦听器级别定义自定义错误。 但是，目前不支持在 Azure 门户中创建全局级别的自定义错误页。 可以在侦听器级别为 403 Web 应用程序防火墙错误或 502 维护页配置自定义错误页。 此外，必须为给定的错误状态代码指定一个可公开访问的 Blob URL。 有关详细信息，请参阅[创建应用程序网关自定义错误页](/application-gateway/custom-error)。
 
-![应用程序网关错误代码](/application-gateway/media/custom-error/ag-error-codes.png)
+![应用程序网关错误代码](./media/custom-error/ag-error-codes.png)
 
 若要配置全局自定义错误页，请参阅 [Azure PowerShell 配置](/application-gateway/custom-error#azure-powershell-configuration)。
 

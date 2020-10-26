@@ -4,23 +4,22 @@ titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中维度预构建实体的信息。
 services: cognitive-services
 ms.custom: seodec18
-author: lingliw
-manager: digimobile
+ms.author: v-johya
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
+ms.date: 10/19/2020
 origin.date: 10/14/2019
-ms.date: 12/04/2019
-ms.author: v-lingwu
-ms.openlocfilehash: f2c6da428c80844423317132b1a5810e36abe7b5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 4adfca12c6c68f947ca52db7d0f278b6ecd2cf30
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884935"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472391"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的维度预生成实体
-预构建维度实体检测各种类型的维度，无论 LUIS 应用语言区域是怎样的。 此实体已定型，因此不需要将包含维度的陈述示例添加到应用程序意向中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持维度实体。 
+预构建维度实体检测各种类型的维度，无论 LUIS 应用语言区域是怎样的。 此实体已定型，因此不需要将包含维度的陈述示例添加到应用程序意向中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持维度实体。
 
 ## <a name="types-of-dimension"></a>维度类型
 
@@ -91,14 +90,11 @@ ms.locfileid: "74884935"
     }
 }
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>后续步骤
 
 详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
 
-了解[电子邮件](luis-reference-prebuilt-email.md)、[数字](luis-reference-prebuilt-number.md)和[序号](luis-reference-prebuilt-ordinal.md)实体。 
-
-
-
+了解[电子邮件](luis-reference-prebuilt-email.md)、[数字](luis-reference-prebuilt-number.md)和[序号](luis-reference-prebuilt-ordinal.md)实体。
 

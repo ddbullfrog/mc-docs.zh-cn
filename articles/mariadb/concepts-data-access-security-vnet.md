@@ -31,7 +31,7 @@ ms.locfileid: "92121591"
 
 **虚拟网络：** 可以让虚拟网络与 Azure 订阅相关联。
 
-**子网：** 虚拟网络包含**子网**。 你所拥有的任何 Azure 虚拟机 (VM) 都会分配到子网。 一个子网可能包含多个 VM 或其他计算节点。 虚拟网络之外的计算节点不能访问虚拟网络，除非已将安全性配置为允许这样的访问。
+**子网：** 虚拟网络包含 **子网** 。 你所拥有的任何 Azure 虚拟机 (VM) 都会分配到子网。 一个子网可能包含多个 VM 或其他计算节点。 虚拟网络之外的计算节点不能访问虚拟网络，除非已将安全性配置为允许这样的访问。
 
 **虚拟网络服务终结点：** [虚拟网络服务终结点][vm-virtual-network-service-endpoints-overview-649d]是一个子网，其属性值包括一个或多个正式的 Azure 服务类型名称。 本文介绍 **Microsoft.Sql** 的类型名称，即名为“SQL 数据库”的 Azure 服务。 此服务标记也适用于 Azure Database for MariaDB、Azure Database for MySQL 和 Azure Database for PostgreSQL 服务。 务必要注意的一点是，将 Microsoft.Sql 服务标记应用到 VNet 服务终结点时，它将为子网上的所有 Azure SQL 数据库、Azure Database for MariaDB、Azure Database for MySQL 和 Azure Database for PostgreSQL 服务器配置服务终结点通信。
 
@@ -129,7 +129,7 @@ RBAC 备用：
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>在未打开 VNET 服务终结点的情况下，将 VNET 防火墙规则添加到服务器
 
-仅设置 VNet 防火墙规则无助于将服务器保护到 VNet。 还必须**打开** VNet 服务终结点才能使安全性生效。 **打开**服务终结点时，VNet 子网会遇到停机，直到它完成从“关”到“开” 的转换。 这在大型 VNet 的上下文中尤其如此。 可以使用 **IgnoreMissingServiceEndpoint** 标志，减少或消除转换期间的停机时间。
+仅设置 VNet 防火墙规则无助于将服务器保护到 VNet。 还必须 **打开** VNet 服务终结点才能使安全性生效。 **打开** 服务终结点时，VNet 子网会遇到停机，直到它完成从“关”到“开” 的转换。 这在大型 VNet 的上下文中尤其如此。 可以使用 **IgnoreMissingServiceEndpoint** 标志，减少或消除转换期间的停机时间。
 
 可以使用 Azure CLI 或门户设置 **IgnoreMissingServiceEndpoint** 标志。
 

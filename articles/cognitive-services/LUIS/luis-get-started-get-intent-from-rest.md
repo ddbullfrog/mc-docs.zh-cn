@@ -1,18 +1,20 @@
 ---
 title: 快速入门：使用 REST API 获取意向 - LUIS
 description: 此 REST API 快速入门使用可用的公共 LUIS 应用从对话文本中确定用户的意向。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 origin.date: 02/03/2020
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 0a80a6f1e4a1d95468c786b69bf5c6a64792d057
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 4c5797738aec1d6ef2a3babece5548e03a5e5157
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023422"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472472"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>快速入门：使用 REST API 获取意向
 

@@ -33,7 +33,7 @@ ms.locfileid: "92170712"
 
 2. 选择“控制台应用(.NET Core)”。
 
-3. 将项目命名为 *WebJobsSDKSample*，然后选择“创建”。
+3. 将项目命名为 *WebJobsSDKSample* ，然后选择“创建”。
 
    ![“新建项目”对话框](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -163,7 +163,7 @@ ms.locfileid: "92170712"
 
 ## <a name="create-a-function"></a>创建函数
 
-1. 右键单击项目，选择“添加” > “新建项...”，选择“类”，将新的 C# 类文件命名为 *Functions.cs*，然后选择“添加”。   
+1. 右键单击项目，选择“添加” > “新建项...”，选择“类”，将新的 C# 类文件命名为 *Functions.cs* ，然后选择“添加”。   
 
 1. 在 Functions.cs 中，使用以下代码替换生成的模板：
     
@@ -201,7 +201,7 @@ ms.locfileid: "92170712"
 
 1. 在“创建存储帐户”对话框中，输入存储帐户的唯一名称。
 
-1. 选择在其中创建了应用服务应用的同一**区域**或者靠近的区域。
+1. 选择在其中创建了应用服务应用的同一 **区域** 或者靠近的区域。
 
 1. 选择“创建” 。
 
@@ -219,7 +219,7 @@ ms.locfileid: "92170712"
 
 WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串。 在本地运行时，它会在本地配置文件或环境变量中查找此值。
 
-1. 右键单击项目，选择“添加” > “新建项...”，选择“JavaScript JSON 配置文件”，将新文件命名为 *appsettings.json*，然后选择“添加”。    
+1. 右键单击项目，选择“添加” > “新建项...”，选择“JavaScript JSON 配置文件”，将新文件命名为 *appsettings.json* ，然后选择“添加”。    
 
 1. 在新文件中添加 `AzureWebJobsStorage` 字段，如以下示例所示：
 
@@ -273,7 +273,7 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
 
    ![突出显示“添加消息”图标的屏幕截图。](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. 在“添加消息”对话框中，输入 *Hello World!*  作为**消息正文**，然后选择“确定”。 现在，队列中会出现一条消息。
+1. 在“添加消息”对话框中，输入 *Hello World!*  作为 **消息正文** ，然后选择“确定”。 现在，队列中会出现一条消息。
 
    ![创建队列](./media/webjobs-sdk-get-started/hello-world-text.png)
 
@@ -410,7 +410,7 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
 
 在本部分，我们将再次在本地运行，以验证日志记录数据现在是否转到 Application Insights 和控制台。
 
-1. 使用 Visual Studio 中的**服务器资源管理器**创建队列消息，就像你[之前](#test-locally)所做的那样，但这次输入“Hello App Insights!” 作为消息文本。
+1. 使用 Visual Studio 中的 **服务器资源管理器** 创建队列消息，就像你 [之前](#test-locally)所做的那样，但这次输入“Hello App Insights!” 作为消息文本。
 
 1. 运行该项目。
 

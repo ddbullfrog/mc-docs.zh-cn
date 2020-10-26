@@ -1,15 +1,17 @@
 ---
-author: erhopf
+author: Johnnytechn
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
-ms.openlocfilehash: 9a025cd5b107140c6a9c36fbd8c427f5a03b7cde
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.custom: devx-track-java
+ms.author: v-johya
+ms.openlocfilehash: 406107b9033fb71164264fa062f75c6895e43699
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241537"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499082"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -30,7 +32,7 @@ cd length-sentence-sample
 gradle init --type basic
 ```
 
-当提示你选择一个 **DSL** 时，选择 **Kotlin**。
+当提示你选择一个 **DSL** 时，选择 **Kotlin** 。
 
 ## <a name="configure-the-build-file"></a>配置生成文件
 

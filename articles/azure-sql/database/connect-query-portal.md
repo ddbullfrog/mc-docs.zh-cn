@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 门户中使用查询编辑器查询 SQL 数据库
+title: 在 Azure 门户中使用查询编辑器查询 SQL 数据库（预览）
 description: 了解如何使用查询编辑器针对 Azure SQL 数据库中的数据库运行 Transact-SQL (T-SQL) 查询。
 titleSuffix: Azure SQL Database
 keywords: 连接到 sql 数据库, 查询 sql 数据库, azure 门户, 门户, 查询编辑器
@@ -11,17 +11,17 @@ ms.devlang: ''
 ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: sstein
 origin.date: 05/29/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 02b488c2dcac9e9218bf3e76cc7aad33f299ad56
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: b701d0f54958273d6efe450137c3b377f158cfa7
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872332"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470464"
 ---
-# <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>快速入门：使用 Azure 门户的查询编辑器查询 Azure SQL 数据库
+# <a name="quickstart-use-the-azure-portals-query-editor-preview-to-query-an-azure-sql-database"></a>快速入门：使用 Azure 门户的查询编辑器（预览）查询 Azure SQL 数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 查询编辑器是 Azure 门户中的一个工具，用于针对 Azure SQL 数据库中的数据库或 Azure Synapse Analytics 中的数据仓库运行 SQL 查询。 
@@ -57,7 +57,7 @@ ms.locfileid: "91872332"
 
 ### <a name="connect-using-sql-authentication"></a>使用 SQL 身份验证进行连接
 
-1. 在“登录”页上的“SQL Server 身份验证”下，输入有权访问数据库的用户的**登录名**和**密码**。  如果你不确定，请使用数据库服务器的服务器管理员的登录名和密码。
+1. 在“登录”页上的“SQL Server 身份验证”下，输入有权访问数据库的用户的 **登录名** 和 **密码** 。  如果你不确定，请使用数据库服务器的服务器管理员的登录名和密码。
 
     ![登录](./media/connect-query-portal/login-menu.png)
 
@@ -176,6 +176,8 @@ ms.locfileid: "91872332"
 使用查询编辑器时，需要注意以下要点。
 
 * 查询编辑器使用端口 443 和 1443 进行通信。 确保已在这些端口上启用出站 HTTPS 流量。 还需要将出站 IP 地址添加到服务器的允许防火墙规则中，以访问你的数据库和数据仓库。
+
+* 如果有“专用链接”连接，则可使用查询编辑器而无需将客户端 IP 地址添加到 SQL 数据库防火墙中。
 
 * 按 **F5** 刷新查询编辑器页，任何正在处理的查询都将丢失。
 

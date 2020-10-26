@@ -3,16 +3,19 @@ title: Azure 上的 Kubernetes 教程 - 部署应用程序
 description: 在本 Azure Kubernetes 服务 (AKS) 教程中，请使用存储在 Azure 容器注册表中的自定义映像将多容器应用程序部署到群集。
 services: container-service
 ms.topic: tutorial
-origin.date: 12/19/2018
-ms.date: 03/09/2020
+origin.date: 09/30/2020
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 785a489b68685ea6054f121c47381b8e949f3668
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 0d9da4793646afe4281e770c508cdb74266af5f2
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021238"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470193"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中运行应用程序
 
@@ -45,7 +48,7 @@ Kubernetes 为容器化应用程序提供一个分布式平台。 你生成自�
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-在第一个教程中克隆的 git 存储库中的示例清单文件使用登录服务器名称 *microsoft*。 确保位于所克隆的 *azure-voting-app-redis* 目录中，然后使用某个文本编辑器（例如 `vi`）打开清单文件：
+在第一个教程中克隆的 git 存储库中的示例清单文件使用登录服务器名称 *microsoft* 。 确保位于所克隆的 *azure-voting-app-redis* 目录中，然后使用某个文本编辑器（例如 `vi`）打开清单文件：
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
@@ -56,7 +59,7 @@ vi azure-vote-all-in-one-redis.yaml
 ```yaml
 containers:
 - name: azure-vote-front
-  image: dockerhub.azk8s.cn/microsoft/azure-vote-front:v1
+  image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
 ```
 
 提供自己的 ACR 登录服务器名称，使清单文件如以下示例所示：
@@ -98,7 +101,7 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-最初，*azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending*：
+最初， *azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending* ：
 
 ```
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
@@ -112,7 +115,7 @@ azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   6
 
 若要查看应用程序的实际效果，请打开 Web 浏览器，以转到服务的外部 IP 地址：
 
-![Azure 上的 Kubernetes 群集映像](media/container-service-kubernetes-tutorials/azure-vote.png)
+:::image type="content" source="media/container-service-kubernetes-tutorials/azure-vote.png" alt-text="Azure 上的 Kubernetes 群集映像":::
 
 如果应用程序未加载，可能是因为映像注册表存在授权问题。 若要查看容器的状态，请使用 `kubectl get pods` 命令。 如果无法拉取容器映像，请参阅[使用 Azure 容器注册表从 Azure Kubernetes 服务进行身份验证](cluster-container-registry-integration.md)。
 

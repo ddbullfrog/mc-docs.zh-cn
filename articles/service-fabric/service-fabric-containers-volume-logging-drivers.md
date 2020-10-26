@@ -4,16 +4,16 @@ description: Service Fabric 支持使用 Azure 文件备份容器中的卷。
 ms.topic: conceptual
 origin.date: 06/10/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5709243bcf14880a396e94ea1329bc692f81c86e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 14352df0b5a36d32915f1e63040bc56f6268f68f
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655175"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211864"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>适用于 Service Fabric 的 Azure 文件存储卷驱动程序
 
@@ -36,7 +36,7 @@ Azure 文件存储卷驱动程序是一个 [Docker 卷插件](https://docs.docke
 
 * 如果使用的是 Hyper-V 容器，则需要在 Azure 资源管理器模板（Azure 群集）或 ClusterConfig.json（独立群集）的 ClusterManifest（本地群集）或 fabricSettings 节中添加以下代码片段。
 
-在 ClusterManifest 中，需要在“Hosting”节中添加以下内容。 在此示例中，卷名为 **sfazurefile**，它在群集上侦听的端口为 **19100**。 请将它们替换为你的群集的正确值。
+在 ClusterManifest 中，需要在“Hosting”节中添加以下内容。 在此示例中，卷名为 **sfazurefile** ，它在群集上侦听的端口为 **19100** 。 请将它们替换为你的群集的正确值。
 
 ```xml 
 <Section Name="Hosting">
@@ -64,23 +64,25 @@ Azure 文件存储卷驱动程序是一个 [Docker 卷插件](https://docs.docke
 
 ### <a name="using-azure-resource-manager-via-the-provided-powershell-script-recommended"></a>通过提供的 Powershell 脚本使用 Azure 资源管理器（建议）
 
-如果群集基于 Azure，建议使用 Azure 资源管理器应用程序资源模型将应用程序部署到群集，既可方便使用，也有助于迁移到将基础结构作为代码进行维护的模型。 此方法不需跟踪 Azure 文件存储卷驱动程序的应用版本。 另外，这样还可以为每个支持的 OS 保留单独的 Azure 资源管理器模板。 脚本假设你部署的是最新版 Azure 文件存储应用程序，而且，脚本获取的是 OS 类型、群集订阅 ID 和资源组的参数。 可从 [Service Fabric 下载站点](https://sfazfilevd.blob.core.chinacloudapi.cn/sfazfilevd/DeployAzureFilesVolumeDriver.zip)下载该脚本。 请注意，这会自动将 ListenPort（Azure 文件存储卷插件从 Docker 守护程序侦听请求的端口）设置为 19100。 可以通过添加名为“listenPort”的参数来更改它。 请确保此端口不与群集或应用程序使用的任何其他端口冲突。
+如果群集基于 Azure，建议使用 Azure 资源管理器应用程序资源模型将应用程序部署到群集，既可方便使用，也有助于迁移到将基础结构作为代码进行维护的模型。 此方法不需跟踪 Azure 文件存储卷驱动程序的应用版本。 另外，这样还可以为每个支持的 OS 保留单独的 Azure 资源管理器模板。 脚本假设你部署的是最新版 Azure 文件存储应用程序，而且，脚本获取的是 OS 类型、群集订阅 ID 和资源组的参数。 可从 [Service Fabric 下载站点](https://sfazfilevd.blob.core.windows.net/sfazfilevd/DeployAzureFilesVolumeDriver.zip)下载该脚本。 请注意，这会自动将 ListenPort（Azure 文件存储卷插件从 Docker 守护程序侦听请求的端口）设置为 19100。 可以通过添加名为“listenPort”的参数来更改它。 请确保此端口不与群集或应用程序使用的任何其他端口冲突。
 
 用于 Windows 的 Azure 资源管理器部署命令：
+
 ```powershell
 .\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -windows
 ```
 
 用于 Linux 的 Azure 资源管理器部署命令：
+
 ```powershell
 .\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
 ```
 
 成功运行脚本以后，即可跳到[配置应用程序](#configure-your-applications-to-use-the-volume)部分。
 
-### <a name="manual-deployment-for-standalone-clusters"></a>针对独立群集的手动部署
+### <a name="manual-deployment-for-standalone-clusters"></a><a name="manual-deployment-for-standalone-clusters"></a>针对独立群集的手动部署
 
-可以从 [Service Fabric 下载站点](https://sfazfilevd.blob.core.chinacloudapi.cn/sfazfilevd/AzureFilesVolumePlugin.6.5.661.9590.zip)下载为容器提供卷的 Service Fabric 应用程序。 可以通过 [PowerShell](./service-fabric-deploy-remove-applications.md)、[CLI](./service-fabric-application-lifecycle-sfctl.md) 或 [FabricClient API](./service-fabric-deploy-remove-applications-fabricclient.md) 将应用程序部署到群集。
+可以从 [Service Fabric 下载站点](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.661.9590.zip)下载为容器提供卷的 Service Fabric 应用程序。 可以通过 [PowerShell](./service-fabric-deploy-remove-applications.md)、[CLI](./service-fabric-application-lifecycle-sfctl.md) 或 [FabricClient API](./service-fabric-deploy-remove-applications-fabricclient.md) 将应用程序部署到群集。
 
 1. 使用命令行，将目录更改为已下载的应用程序包的根目录。
 
@@ -140,7 +142,7 @@ New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp 
 sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.5.661.9590  --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 
-## <a name="configure-your-applications-to-use-the-volume"></a>配置应用程序以使用卷
+## <a name="configure-your-applications-to-use-the-volume"></a><a name="configure-your-applications-to-use-the-volume"></a>配置应用程序以使用卷
 以下代码片段演示如何在应用程序清单文件中指定基于 Azure 文件存储的卷。 相关特定元素为 Volume 标记  ：
 
 ```xml

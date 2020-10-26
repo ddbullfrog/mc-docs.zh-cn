@@ -7,13 +7,14 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 05/06/2019
-ms.date: 06/08/2020
-ms.openlocfilehash: d7dd6ae4115e07a31a9be688abddf4cee8b1fd73
-ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+ms.date: 10/29/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 496ffe09819ca4efb4657674c00160d44cb8ab41
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275607"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470482"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>快速入门：使用 Azure CLI 命令、az postgres up（预览版）创建 Azure Database for PostgreSQL - 单一服务器
 
@@ -63,10 +64,10 @@ server-name | 系统生成的 | 用于标识用于 PostgreSQL 的 Azure 数据�
 resource-group | 系统生成的 | 新的 Azure 资源组。
 sku-name | GP_Gen5_2 | SKU 的名称。 遵循约定“{定价层}\_{计算代系}\_{vCores}”的简写形式。 默认为带 2 个 vCore 的常规用途 Gen5 服务器。 有关各层的详细信息，请参阅[定价页](https://azure.cn/pricing/details/postgresql/)。
 backup-retention | 7 | 备份保留的期限。 单位为天。
-geo-redundant-backup | 已禁用 | 是否应为此服务器启用异地冗余备份。
+geo-redundant-backup | 已禁用 | 是否应该为此服务启用异地冗余备份。
 ssl-enforcement | 已禁用 | 是否应该为此服务器启用 TLS/SSL。
 storage-size | 5120 | 服务器的存储容量（以 MB 为单位）。
-版本 | 10 个 | PostgreSQL 主版本。
+版本 | 10 | PostgreSQL 主版本。
 admin-user | 系统生成的 | 管理员用户名。
 admin-password | 系统生成的 | 管理员用户的密码。
 
@@ -75,7 +76,7 @@ admin-password | 系统生成的 | 管理员用户的密码。
 
 服务器创建后，随附有以下设置：
 
-- 创建了一条名为“devbox”的防火墙规则。 Azure CLI 尝试检测运行 `az postgres up` 命令的计算机的 IP 地址以及该 IP 面向的允许列表。
+- 创建了一条名为“devbox”的防火墙规则。 Azure CLI 尝试检测运行 `az postgres up` 命令的计算机的 IP 地址，并允许此 IP 地址。
 - “允许访问 Azure 服务”设置为“开”。 此设置会将服务器的防火墙配置为接受来自所有 Azure 资源（包括非订阅中的资源）的连接。
 - 创建了一个名为“sampledb”的空数据库
 - 创建了一个特权为“sampledb”且名为“root”的新用户

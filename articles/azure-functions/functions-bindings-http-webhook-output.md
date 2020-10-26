@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/17/2020
 ms.author: v-junlch
 ms.openlocfilehash: bf75d6399baff17bf7accdbf0881f222da499a33
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292832"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211512"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Azure Functions HTTP 输出绑定
 

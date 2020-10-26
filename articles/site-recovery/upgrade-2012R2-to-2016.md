@@ -52,7 +52,7 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 
 - 如果在两端由 SCVMM 管理的两个站点之间复制，请确保先升级恢复端，然后再升级主要端。
   > [!WARNING]
-  > 升级 SCVMM 2012 R2 时，请在分发式密钥管理下选择**在 Active Directory 中存储加密密钥**。 请慎重选择服务帐户和分布式密钥管理的设置。 根据所做的选择，加密的数据（例如模板中的密码）在升级后可能不可用，并可能会影响使用 Azure Site Recovery 进行的复制
+  > 升级 SCVMM 2012 R2 时，请在分发式密钥管理下选择 **在 Active Directory 中存储加密密钥** 。 请慎重选择服务帐户和分布式密钥管理的设置。 根据所做的选择，加密的数据（例如模板中的密码）在升级后可能不可用，并可能会影响使用 Azure Site Recovery 进行的复制
 
 > [!IMPORTANT]
 > 请参阅[先决条件](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations)的详细 SCVMM 文档

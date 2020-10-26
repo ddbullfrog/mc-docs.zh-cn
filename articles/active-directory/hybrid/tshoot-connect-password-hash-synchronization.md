@@ -346,7 +346,7 @@ ms.locfileid: "92041604"
 
     ![Metaverse 信息](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
-    k. 选择表示 Azure AD 的行，单击“属性”，然后单击“沿袭”选项卡 。连接器空间对象应存在一个“密码同步”列设置为“True”的出站规则 。 在默认配置中，同步规则的名称为 **Out to AAD - User Join**。  
+    k. 选择表示 Azure AD 的行，单击“属性”，然后单击“沿袭”选项卡 。连接器空间对象应存在一个“密码同步”列设置为“True”的出站规则 。 在默认配置中，同步规则的名称为 **Out to AAD - User Join** 。  
 
     ![连接器空间对象属性对话框](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 

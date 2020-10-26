@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 08/06/2020
+ms.date: 10/20/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: a7702a2c4f6d05c0fc3488aaae78e9a118bf2264
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.custom: mimckitt, devx-track-azurepowershell
+ms.openlocfilehash: 82c63c63da1db8ca51a07da9764c7360ce469b00
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914389"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471097"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>教程：通过 Azure PowerShell 对虚拟机规模集创建和使用磁盘
 
@@ -75,11 +75,13 @@ Azure 提供两种类型的磁盘。
 | 每个磁盘的最大 IOPS | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 |
 每个磁盘的吞吐量 | 25 MB/秒 | 50 MB/秒 | 100 MB/秒 | 150 MB/秒 | 200 MB/秒 | 250 MB/秒 | 250 MB/秒 |
 
-尽管上表确定了每个磁盘的最大 IOPS，但还可通过条带化多个数据磁盘实现更高级别的性能。 例如，Standard_GS5 VM 最多可实现 80,000 IOPS。 若要详细了解每个 VM 的最大 IOPS，请参阅 [Windows VM 大小](../virtual-machines/windows/sizes.md)。
+尽管上表确定了每个磁盘的最大 IOPS，但还可通过条带化多个数据磁盘实现更高级别的性能。 例如，Standard_GS5 VM 最多可实现 80,000 IOPS。 若要详细了解每个 VM 的最大 IOPS，请参阅 [Windows VM 大小](../virtual-machines/sizes.md)。
 
 
 ## <a name="create-and-attach-disks"></a>创建并附加磁盘
 可以在创建规模集时创建和附加磁盘，也可以对现有的规模集创建和附加磁盘。
+
+从 API 版本 `2019-07-01` 开始，可以使用 [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) 属性设置虚拟机规模集中 OS 磁盘的大小。 预配后，可能需要对磁盘进行扩展或重新分区，以利用整个空间。 在[此处](/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os)详细了解如何扩展磁盘。
 
 ### <a name="attach-disks-at-scale-set-creation"></a>创建规模集时附加磁盘
 使用 [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) 创建虚拟机规模集。 出现提示时，请提供 VM 实例的用户名和密码。 若要将流量分配到单独的 VM 实例，则还要创建负载均衡器。 负载均衡器包含的规则可在 TCP 端口 80 上分配流量，并允许 TCP 端口 3389 上的远程桌面流量，以及 TCP 端口 5985 上的 PowerShell 远程流量。
@@ -89,7 +91,7 @@ Azure 提供两种类型的磁盘。
 ```azurepowershell
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Location "ChinaNorth" `
+  -Location "ChinaNorth2" `
   -VMScaleSetName "myScaleSet" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
@@ -163,7 +165,7 @@ Update-AzVmss `
 
 若要确认磁盘是否已正确地准备好，请通过 RDP 连接到某个 VM 实例。 
 
-首先，使用 [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/Get-AzLoadBalancer) 获取负载均衡器对象。 然后使用 [Get-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig) 查看入站 NAT 规则。 NAT 规则列出了 RDP 侦听的每个 VM 实例的 *FrontendPort*。 最后，使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/Get-AzPublicIpAddress) 获取负载均衡器的公共 IP 地址：
+首先，使用 [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/Get-AzLoadBalancer) 获取负载均衡器对象。 然后使用 [Get-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig) 查看入站 NAT 规则。 NAT 规则列出了 RDP 侦听的每个 VM 实例的 *FrontendPort* 。 最后，使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/Get-AzPublicIpAddress) 获取负载均衡器的公共 IP 地址：
 
 
 ```azurepowershell
@@ -177,7 +179,7 @@ Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Pr
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
-若要连接到 VM，请指定所需 VM 实例对应的你自己的公共 IP 地址和端口号，如前述命令所示。 出现提示时，输入创建规模集时使用的凭据。 以下示例连接到 VM 实例 *1*：
+若要连接到 VM，请指定所需 VM 实例对应的你自己的公共 IP 地址和端口号，如前述命令所示。 出现提示时，输入创建规模集时使用的凭据。 以下示例连接到 VM 实例 *1* ：
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -269,7 +271,7 @@ DataDisks[2]                            :
 
 
 ## <a name="detach-a-disk"></a>分离磁盘
-不再需要某个给定的磁盘时，可以将其从规模集中分离。 该磁盘会从规模集的所有 VM 实例中删除。 若要从规模集中分离某个磁盘，请使用 [Remove-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmssdatadisk) 并指定磁盘的 LUN。 LUN 显示在上一部分的 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 命令的输出中。 以下示例从规模集分离 LUN *3*：
+不再需要某个给定的磁盘时，可以将其从规模集中分离。 该磁盘会从规模集的所有 VM 实例中删除。 若要从规模集中分离某个磁盘，请使用 [Remove-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmssdatadisk) 并指定磁盘的 LUN。 LUN 显示在上一部分的 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 命令的输出中。 以下示例从规模集分离 LUN *3* ：
 
 ```azurepowershell
 # Get scale set object

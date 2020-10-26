@@ -35,6 +35,8 @@
           href: create-uidefinition-overview.md
         - name: 测试门户界面
           href: test-createuidefinition.md
+        - name: 创建 Azure 应用程序产品/服务
+          href: publish-marketplace-app.md
         - name: 请求实时访问
           href: request-just-in-time-access.md
         - name: 使用现有虚拟网络
@@ -110,6 +112,8 @@
               href: microsoft-common-passwordbox.md
             - name: 部分
               href: microsoft-common-section.md
+            - name: ServicePrincipalSelector
+              href: microsoft-common-serviceprincipalselector.md
             - name: 滑块
               href: microsoft-common-slider.md
             - name: TagsByResource
@@ -160,4 +164,4 @@
     - name: 资源管理器模板最佳做法
       href: 'https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md'
     - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'
+      href: 'https://stackoverflow.com/questions/tagged/azure-managedapps'

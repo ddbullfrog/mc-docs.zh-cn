@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/03/2020
 ms.date: 05/11/2020
 ms.author: v-yiso
-ms.openlocfilehash: 8ec62c720d6979af4638190a9c1aded2ae97b8c1
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: f04bf6ce7b03c55248df9d8430a705881ff9f6e5
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186909"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472636"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>IoT 中心模块标识和模块孪生 (Python) 入门
 
@@ -268,18 +268,6 @@ if __name__ == '__main__':
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-* [设备管理入门][lnk-device-management]
-* [IoT Edge 入门][lnk-iot-edge]
+* [设备管理入门](iot-hub-node-node-device-management-get-started.md)
 
-
-<!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://www.azure.cn/pricing/1rmb-trial/
-[lnk-portal]: https://portal.azure.cn/
-
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
-[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+* [IoT Edge 入门](../iot-edge/quickstart-linux.md)

@@ -1,20 +1,21 @@
 ---
-author: rockboyfor
 ms.service: virtual-machines-sql
 ms.topic: include
 origin.date: 11/25/2018
-ms.date: 02/18/2019
+author: rockboyfor
+ms.date: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: c81c6740d6c85adedfa4a31d195f853008659c58
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: bed17b05fa6977a62cc3987564dc140a410bfc15
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "65835781"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499191"
 ---
 ## <a name="start-your-powershell-session"></a>启动 PowerShell 会话
+ 
 
-运行 [**Connect-Az Account**](https://docs.microsoft.com/powershell/module/az.accounts/connect-azmaccount) cmdlet，然后便会看到可输入凭据的登录屏幕。 使用与登录 Azure 门户相同的凭据。
+运行 [**Connect-Az Account**](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet，然后便会看到可输入凭据的登录屏幕。 使用与登录 Azure 门户相同的凭据。
 
 ```powershell
 Connect-AzAccount -Environment AzureChinaCloud
@@ -26,4 +27,4 @@ Connect-AzAccount -Environment AzureChinaCloud
 Set-AzContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 ```
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

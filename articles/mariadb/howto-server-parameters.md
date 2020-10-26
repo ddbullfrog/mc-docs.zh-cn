@@ -4,19 +4,22 @@ description: 本文介绍如何使用 Azure 门户在 Azure Database for MariaDB
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
-ms.topic: conceptual
-origin.date: 6/11/2020
-ms.date: 07/06/2020
-ms.openlocfilehash: 2a6c0ae6135a3416af49fd8b2203fd186c2e54d0
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.topic: how-to
+origin.date: 10/1/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: 3f508218dc54d9c9276c4923d3605e13fa904f54
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845796"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470036"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-portal"></a>使用 Azure 门户在 Azure Database for MariaDB 中配置服务器参数
 
 Azure Database for MariaDB 支持配置某些服务器参数。 本文介绍如何使用 Azure 门户配置这些参数。 并非所有服务器参数都可调整。
+
+>[!Note]
+> 可在服务器级别全局更新服务器参数，方式是使用 [Azure CLI](./howto-configure-server-parameters-cli.md)、[PowerShell](./howto-configure-server-parameters-using-powershell.md) 或 [Azure 门户](./howto-server-parameters.md)。
 
 ## <a name="configure-server-parameters"></a>配置服务器参数
 
@@ -27,7 +30,7 @@ Azure Database for MariaDB 支持配置某些服务器参数。 本文介绍如�
 ![枚举下拉按钮](./media/howto-server-parameters/3-toggle_parameter.png)
 4. 单击“保存”，保存更改。
 ![保存或放弃更改](./media/howto-server-parameters/4-save_parameters.png)
-5. 保存参数的新值后，随时可以通过选择“全部重置为默认设置”，将所有设置还原为默认值。
+5. 保存参数的新值后，随时可以通过选择“全部重置为默认设置”，将所有设置还原为默认值。 
 ![全部重置为默认设置](./media/howto-server-parameters/5-reset_parameters.png)
 
 ## <a name="setting-parameters-not-listed"></a>设置参数未列出

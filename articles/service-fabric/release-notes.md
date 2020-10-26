@@ -46,9 +46,9 @@ ms.locfileid: "92128298"
       - 降低了到 OS 磁盘的读/写延迟
       - 可实现更快的重置/重建映像节点管理操作
       - 降低了总体成本（磁盘免费，不会产生额外的存储成本）
-- 支持[**按使用者公用名声明 Service Fabric 应用程序的服务终结点证书**](./service-fabric-service-manifest-resources.md)。
+- 支持 [**按使用者公用名声明 Service Fabric 应用程序的服务终结点证书**](./service-fabric-service-manifest-resources.md)。
 - [**支持对容器化服务进行运行状况探测**](./probes-codepackage.md)：支持针对容器化应用程序的运行情况探测机制。 运行情况探测可以用来通知容器化应用程序的运行情况，在应用程序未及时响应时会导致重启。 
-- 支持针对[容器](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview)和[来宾可执行](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-guest-executables-introduction)应用程序的[**初始化表达式代码包**](./initializer-codepackages.md)。 因此，可以按指定顺序执行代码包（例如容器），以便执行服务包初始化。
+- 支持针对 [容器](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview)和 [来宾可执行](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-guest-executables-introduction)应用程序的 [**初始化表达式代码包**](./initializer-codepackages.md)。 因此，可以按指定顺序执行代码包（例如容器），以便执行服务包初始化。
 - **FabricObserver 和 ClusterObserver** 是无状态应用程序，用于捕获与 SF 群集的不同方面相关的 Service Fabric 遥测数据。 这两个应用程序都已做好部署到 Windows 生产群集的准备，可以通过所实施的对 ApplicationInsights、EventSource 和 LogAnalytics 的支持功能来捕获丰富的遥测数据。
     - [**FabricObserver (FO) 2.0**](https://github.com/microsoft/service-fabric-observer) - 在所有节点上运行，生成运行状况事件，并在达到用户配置的资源使用率阈值时发出遥测数据。 此版本包含的几项增强功能涉及监视、数据管理、运行状况事件详细信息、结构化遥测。
      - [**ClusterObserver (CO) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) - 在一个节点上运行，捕获群集级运行状况遥测。 在此版本中，ClusterObserver 还监视节点状态，并在节点处于关闭/正在禁用/已禁用状态的时间超过用户指定的时长时发出遥测数据。
@@ -56,9 +56,9 @@ ms.locfileid: "92128298"
 ### <a name="improve-application-life-cycle-experience"></a>改进应用程序生命周期体验
 
 - **[预览版：请求清空](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)** ：在计划内服务维护（例如服务升级或节点停用）期间，你希望允许服务正常清空连接。 此功能在服务配置中添加了实例关闭延迟持续时间。 在计划内操作期间，SF 会从发现结果中删除服务的地址，并在关闭服务前等待一段时间（即该持续时间）。
-- **[自动化子聚类检测和平衡](./cluster-resource-manager-subclustering.md)** ：当具有不同放置约束的服务具有共同的[负载指标](./service-fabric-cluster-resource-manager-metrics.md)时，就会发生子聚类化。 如果不同节点集上的负载差别很大，则 Service Fabric 群集资源管理器会认为群集不均衡，即使已达到了受制于放置约束的最佳平衡。 因此，它会尝试重新均衡群集，这可能会导致不必要的服务移动（因为无法显著改进“不均衡”）。 从此版本开始，群集资源管理器现在将尝试自动检测这些种类的配置，并了解何时可以通过移动来修复不均衡的情况，以及何时应该放任不管（因为无法做出实质性的改进）。  
+- **[自动化子聚类检测和平衡](./cluster-resource-manager-subclustering.md)** ：当具有不同放置约束的服务具有共同的 [负载指标](./service-fabric-cluster-resource-manager-metrics.md)时，就会发生子聚类化。 如果不同节点集上的负载差别很大，则 Service Fabric 群集资源管理器会认为群集不均衡，即使已达到了受制于放置约束的最佳平衡。 因此，它会尝试重新均衡群集，这可能会导致不必要的服务移动（因为无法显著改进“不均衡”）。 从此版本开始，群集资源管理器现在将尝试自动检测这些种类的配置，并了解何时可以通过移动来修复不均衡的情况，以及何时应该放任不管（因为无法做出实质性的改进）。  
 - [**次要副本的不同移动成本**](./service-fabric-cluster-resource-manager-movement-cost.md)：我们引入了新的移动成本值 VeryHigh，在某些场景下提供了额外的灵活性，可定义次要副本是否应使用单独的移动成本。
-- 启用了针对容器化应用程序的[**运行情况探测**](./probes-codepackage.md)机制。 运行情况探测可以用来通知容器化应用程序的运行情况，在应用程序未及时响应时会导致重启。
+- 启用了针对容器化应用程序的 [**运行情况探测**](./probes-codepackage.md)机制。 运行情况探测可以用来通知容器化应用程序的运行情况，在应用程序未及时响应时会导致重启。
 - [**为服务运行至完成/运行一次**](./run-to-completion.md)**
 
 ### <a name="image-store-improvements"></a>映像存储改进
@@ -91,17 +91,17 @@ Azure Service Fabric 7.0 现已推出！ 你可以通过 Azure 门户或 Azure �
 这是 Service Fabric 的最新版本，包含重要功能和改进。
 
 ### <a name="key-announcements"></a>重要公告
- - [**对应用程序机密的 KeyVaultReference 支持（预览版）** ](./service-fabric-keyvault-references.md)：已启用[托管标识](./concepts-managed-identity.md)的 Service Fabric 应用程序现在可以直接将 Key Vault 机密 URL 引用为环境变量、应用程序参数或容器存储库凭据。 Service Fabric 会使用应用程序的托管标识自动解析机密。 
+ - [**对应用程序机密的 KeyVaultReference 支持（预览版）**](./service-fabric-keyvault-references.md)：已启用 [托管标识](./concepts-managed-identity.md)的 Service Fabric 应用程序现在可以直接将 Key Vault 机密 URL 引用为环境变量、应用程序参数或容器存储库凭据。 Service Fabric 会使用应用程序的托管标识自动解析机密。 
 
-- **改进了无状态服务的升级安全性**：为了保证应用程序升级期间的可用性，我们引入了新的配置来定义视为可用的[无状态服务的最小实例数](https://docs.azure.cn/dotnet/api/system.fabric.description.statelessservicedescription)。 以前，对于所有服务，此值都是 1，且不可更改。 凭借此全新的单服务安全检查，你可以确保服务在应用程序升级、群集升级和其他维护（依赖于 Service Fabric 的运行状况和安全检查）期间保留最少的正常运行实例数。
+- **改进了无状态服务的升级安全性** ：为了保证应用程序升级期间的可用性，我们引入了新的配置来定义视为可用的 [无状态服务的最小实例数](https://docs.azure.cn/dotnet/api/system.fabric.description.statelessservicedescription)。 以前，对于所有服务，此值都是 1，且不可更改。 凭借此全新的单服务安全检查，你可以确保服务在应用程序升级、群集升级和其他维护（依赖于 Service Fabric 的运行状况和安全检查）期间保留最少的正常运行实例数。
 
 - [**用户服务的资源限制**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services)：用户可以为节点上的用户服务设置资源限制，以防止诸如 Service Fabric 系统服务资源耗尽之类的情况。 
 
-- 副本类型的[**服务移动成本非常高**](./service-fabric-cluster-resource-manager-movement-cost.md)。 只有当群集中存在约束冲突且该冲突无法通过任何其他方式解决时，才会移动成本非常高的副本。 若要详细了解何时使用“非常高”的移动成本是合理的，并了解其他注意事项，请参考链接的文档。
+- 副本类型的 [**服务移动成本非常高**](./service-fabric-cluster-resource-manager-movement-cost.md)。 只有当群集中存在约束冲突且该冲突无法通过任何其他方式解决时，才会移动成本非常高的副本。 若要详细了解何时使用“非常高”的移动成本是合理的，并了解其他注意事项，请参考链接的文档。
 
-- **其他群集安全检查**：在此版本中，我们引入了一项可配置的种子节点仲裁安全检查。 这允许你自定义在群集生命周期和管理方案中必须有多少种子节点可用。 导致群集低于所配置值的操作会被阻止。 现在，默认值始终是种子节点的仲裁，例如，如果你有 7 个种子节点，则默认情况下会阻止导致群集低于 5 个种子节点的操作。 进行此更改后，你可以将最小安全值设置为 6，这样，一次只允许关闭一个种子节点。
+- **其他群集安全检查** ：在此版本中，我们引入了一项可配置的种子节点仲裁安全检查。 这允许你自定义在群集生命周期和管理方案中必须有多少种子节点可用。 导致群集低于所配置值的操作会被阻止。 现在，默认值始终是种子节点的仲裁，例如，如果你有 7 个种子节点，则默认情况下会阻止导致群集低于 5 个种子节点的操作。 进行此更改后，你可以将最小安全值设置为 6，这样，一次只允许关闭一个种子节点。
 
-- 添加了对[**在 Service Fabric Explorer 中管理备份和还原服务**](./service-fabric-backuprestoreservice-quickstart-azurecluster.md)的支持。 这允许直接从 SFX 内执行以下活动：发现备份和还原服务、创建备份策略、启用自动备份、执行即席备份、触发还原操作和浏览现有备份。
+- 添加了对 [**在 Service Fabric Explorer 中管理备份和还原服务**](./service-fabric-backuprestoreservice-quickstart-azurecluster.md)的支持。 这允许直接从 SFX 内执行以下活动：发现备份和还原服务、创建备份策略、启用自动备份、执行即席备份、触发还原操作和浏览现有备份。
 
 - 宣布 [**ReliableCollectionsMissingTypesTool**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool) 已推出：此工具可帮助验证在滚动应用程序升级期间在可靠集合中使用的类型是否前向和后向兼容。 这有助于防止因类型缺失或不兼容而导致升级失败或数据丢失和数据损坏。
 

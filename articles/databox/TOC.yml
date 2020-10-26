@@ -1,5 +1,5 @@
 - name: Azure Data Box 文档 - 脱机传输
-  href: /databox
+  href: ./index.yml
   items:
     - name: Data Box Disk
       items:

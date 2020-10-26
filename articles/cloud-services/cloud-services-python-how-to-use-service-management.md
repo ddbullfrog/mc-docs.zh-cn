@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.custom: tracking-python
-ms.openlocfilehash: 2f5db4dc586632513f7172a213c564f109ce541c
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.custom: devx-track-python
+ms.openlocfilehash: ff734b99d5c81279f668194d58d497a9128d1dae
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402598"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471616"
 ---
 # <a name="use-service-management-from-python"></a>从 Python 使用服务管理
 本指南说明如何以编程方式从 Python 执行常见服务管理任务。 [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) 中的 ServiceManagementService 类支持以编程方式访问 [Azure 门户][management-portal]中提供的众多与服务管理相关的功能  。 此功能可用于创建、更新和删除云服务、部署、数据管理服务和虚拟机。 此功能可用于构建需要以编程方式访问服务管理的应用程序。
@@ -57,7 +57,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out myce
 openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 ```
 
-有关 Azure 证书的详细信息，请参阅 [Azure 云服务证书概述](cloud-services-certs-create.md)。 
+有关 Azure 证书的详细信息，请参阅 [Azure 云服务证书概述](cloud-services-certs-create.md)。 有关 OpenSSL 参数的完整说明，请参阅 [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html) 上的文档。
 
 创建这些文件后，将 `.cer` 文件上传到 Azure。 在 [Azure 门户][management-portal]中，在“设置”选项卡上，选择“上传”   。 请注意 `.pem` 文件的保存位置。
 
@@ -184,7 +184,7 @@ sms.delete_deployment('myhostedservice', 'v1')
 ```
 
 ## <a name="create-a-storage-service"></a><a name="CreateStorageService"> </a>创建存储服务
-利用[存储服务](../storage/common/storage-create-storage-account.md)，可以访问 Azure [Blob](../storage/blobs/storage-python-how-to-use-blob-storage.md)、[表](../cosmos-db/table-storage-how-to-use-python.md)和[队列](../storage/queues/storage-python-how-to-use-queue-storage.md)。 若要创建存储服务，需要为服务命名（名称为 3 到 24 个小写字符且在 Azure 中唯一）。 还需要说明、标签（最多 100 个字符，自动编码为 base64）和位置。 下面的示例演示如何通过指定位置来创建存储服务：
+利用[存储服务](../storage/common/storage-account-create.md)，可以访问 Azure [Blob](../storage/blobs/storage-quickstart-blobs-python.md)、[表](../cosmos-db/table-storage-how-to-use-python.md)和[队列](../storage/queues/storage-python-how-to-use-queue-storage.md)。 若要创建存储服务，需要为服务命名（名称为 3 到 24 个小写字符且在 Azure 中唯一）。 还需要说明、标签（最多 100 个字符，自动编码为 base64）和位置。 下面的示例演示如何通过指定位置来创建存储服务：
 
 ```python
 from azure import *
@@ -436,12 +436,12 @@ sms.create_virtual_machine_deployment(service_name=name,
     vm_image_name = image_name)
 ```
 
-要详细了解如何在经典部署模型中捕获 Linux 虚拟机，请参阅[捕获 Linux 虚拟机](../virtual-machines/linux/classic/capture-image-classic.md)。
+要详细了解如何在经典部署模型中捕获 Linux 虚拟机，请参阅[捕获 Linux 虚拟机](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/capture-image-classic)。
 
-要详细了解如何在经典部署模型中捕获 Windows 虚拟机，请参阅[捕获 Windows 虚拟机](../virtual-machines/windows/classic/capture-image-classic.md)。
+要详细了解如何在经典部署模型中捕获 Windows 虚拟机，请参阅[捕获 Windows 虚拟机](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic)。
 
 ## <a name="next-steps"></a><a name="What's Next"> </a>后续步骤
-现在，已学习了有关服务管理的基础知识，接下来可以访问 `Complete API reference documentation for the Azure Python SDK`，并轻松执行复杂的任务来管理 Python 应用程序。
+现在，已学习了有关服务管理的基础知识，接下来可以访问 [Azure Python SDK 的完整 API 参考文档](https://azure-sdk-for-python.readthedocs.org/)，并轻松执行复杂的任务来管理 Python 应用程序。
 
 有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。
 
@@ -464,8 +464,8 @@ sms.create_virtual_machine_deployment(service_name=name,
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.cn/
-[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)
 
 
-[cloud service]:/cloud-services/
+[cloud service]: /cloud-services/
 

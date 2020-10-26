@@ -7,18 +7,18 @@ ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma
 origin.date: 04/28/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 3b9afd7338e015e1c589c9ccd5d2a6ec4b757080
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/29/2020
+ms.openlocfilehash: 3b65076c195c6fc32e8c97eff188e8b85d003387
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014369"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470353"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>教程：配置两个托管实例之间的复制
 
@@ -49,7 +49,7 @@ ms.locfileid: "90014369"
 
 要配置 SQL 托管实例来充当发布服务器和/或分发服务器，需满足以下要求：
 
-- 发布服务器托管实例与分发服务器和订阅服务器位于同一虚拟网络中，或者已在所有三个实体的虚拟网络之间配置[虚拟网络对等互连](../../virtual-network/tutorial-connect-virtual-networks-powershell.md)。 
+- 发布服务器托管实例与分发服务器和订阅服务器位于同一虚拟网络中，或者已在所有三个实体的虚拟网络之间配置了 [VPN 网关](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。 
 - 连接时，在复制参与者之间使用 SQL 身份验证。
 - 适用于复制工作目录的 Azure 存储帐户共享。
 - 需要在托管实例的 NSG 安全规则中打开端口 445（TCP 出站）才能访问 Azure 文件共享。  如果遇到错误 `failed to connect to azure storage \<storage account name> with os error 53`，则需要将出站规则添加到相应 SQL 托管实例子网的 NSG。

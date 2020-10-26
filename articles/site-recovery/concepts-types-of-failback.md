@@ -9,11 +9,11 @@ origin.date: 08/07/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
 ms.openlocfilehash: 5b33003c45942a8e1a680b8b7fd478a98f08a6fc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292873"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211583"
 ---
 # <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>灾难恢复后将 VMware VM 故障回复到 Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "79292873"
 - 故障回复到原始位置 
 - 故障回复到备用位置
 
-故障转移 VMware 虚拟机后，可以故障回复到同一个本地源虚拟机（如果仍然存在）。 在这种情况下，只会复制更改。 这种情况称为**原始位置恢复**。 如果本地虚拟机不存在，则这种情况是一种**备用位置恢复**。
+故障转移 VMware 虚拟机后，可以故障回复到同一个本地源虚拟机（如果仍然存在）。 在这种情况下，只会复制更改。 这种情况称为 **原始位置恢复** 。 如果本地虚拟机不存在，则这种情况是一种 **备用位置恢复** 。
 
 > [!NOTE]
 > 仅可故障回复到原始 vCenter 和配置服务器。 无法部署新配置服务器并通过它进行故障回复。 此外，无法向现有配置服务器添加新 vCenter 并故障回复到新 vCenter。

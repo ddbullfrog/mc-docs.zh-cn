@@ -4,16 +4,16 @@ description: 创建用于在 Azure 资源管理器模板部署过程中传入值
 ms.topic: conceptual
 origin.date: 09/01/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7eb52ec0e659d7c9ad68f2406490beecf758668b
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 84f224d860e40e8944a4859e1d788bec6e93e4f7
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146510"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470001"
 ---
 <!--Verify successfully-->
 # <a name="create-resource-manager-parameter-file"></a>创建资源管理器参数文件
@@ -224,7 +224,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 ## <a name="file-name"></a>文件名
 
-参数文件的一般命名约定是将 **.parameters** 添加到模板名称。 例如，如果模板名为 **azuredeploy.json**，则参数文件名为 **azuredeploy.parameters.json**。 此命名约定可帮助你查看模板与参数之间的连接。
+参数文件的一般命名约定是将 **.parameters** 添加到模板名称。 例如，如果模板名为 **azuredeploy.json** ，则参数文件名为 **azuredeploy.parameters.json** 。 此命名约定可帮助你查看模板与参数之间的连接。
 
 若要部署到不同的环境，请创建多个参数文件。 为参数文件命名时，请添加一种识别其用途的方式。 例如，使用 **azuredeploy.parameters-dev.json** 和 **azuredeploy.parameters-prod.json**
 

@@ -11,12 +11,12 @@ ms.custom: mvc
 origin.date: 06/21/2019
 ms.date: 04/06/2020
 ms.author: v-yiso
-ms.openlocfilehash: 40f66f2200a8cf6c8bde86cb5f6bf413fdf06df1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b192e342e45c30794e0856e0670e2b3d6836595e
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80343623"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472258"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>快速入门：控制连接到 IoT 中心的设备 (Android)
 
@@ -41,11 +41,11 @@ ms.locfileid: "80343623"
 
 ### <a name="add-azure-iot-extension"></a>添加 Azure IoT 扩展
 
-* 运行以下命令将用于 Azure CLI 的 Microsoft Azure IoT 扩展添加到 Cloud Shell 实例。 IoT 扩展会将 IoT 中心、IoT Edge 和 IoT 设备预配服务 (DPS) 特定的命令添加到 Azure CLI。
+运行以下命令将用于 Azure CLI 的 Microsoft Azure IoT 扩展添加到 Cloud Shell 实例。 IoT 扩展会将特定于 IoT 中心、IoT Edge 和 IoT 设备预配服务 (DPS) 的命令添加到 Azure CLI。
 
-   ```azurecli
+```azurecli
 az extension add --name azure-iot
-   ```
+```
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -63,18 +63,18 @@ az extension add --name azure-iot
 
 1. 在终端中运行以下命令来创建设备标识。
 
-   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyAndroidDevice**：这是所注册的设备的名称。 建议使用 **MyAndroidDevice**，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyAndroidDevice** ：这是所注册的设备的名称。 建议使用 **MyAndroidDevice** ，如图所示。 如果为设备选择不同名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli
     az iot hub device-identity create \
       --hub-name {YourIoTHubName} --device-id MyAndroidDevice
     ```
 
-2. 运行以下命令，获取刚注册设备的_设备连接字符串_：
+2. 运行以下命令，获取刚注册设备的 _设备连接字符串_ ：
 
-   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli
     az iot hub device-identity show-connection-string \
@@ -91,9 +91,9 @@ az extension add --name azure-iot
 
 ## <a name="retrieve-the-service-connection-string"></a>检索服务连接字符串
 
-还需一个服务连接字符串  ，以便后端服务应用程序能够连接到 IoT 中心以执行方法并检索消息。 以下命令检索 IoT 中心的服务连接字符串：
+还需一个服务连接字符串，以便后端服务应用程序能够连接到 IoT 中心以执行方法并检索消息。 以下命令检索 IoT 中心的服务连接字符串：
 
-**YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+**YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
 ```azurecli
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -115,13 +115,13 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
-2. 在 Android Studio 中打开示例项目的 *gradle.properties*，将 **Device_Connection_String** 占位符替换为此前记下的设备连接字符串。
+2. 在 Android Studio 中打开示例项目的 *gradle.properties* ，将 **Device_Connection_String** 占位符替换为此前记下的设备连接字符串。
 
     ```
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.cn;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. 在 Android Studio 中，单击“文件”   >   “将项目与 Gradle 文件同步”。 验证生成是否已完成。
+3. 在 Android Studio 中，单击“文件” > “将项目与 Gradle 文件同步”。 验证生成是否已完成。
 
    > [!NOTE]
    > 如果项目同步失败，可能是由于以下某个原因：
@@ -130,9 +130,9 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
    > * Android SDK 的许可协议尚未签署。 请按照 Build 输出中的说明签署许可协议并下载 SDK。
 
 
-4. 生成完成以后，请单击“运行”   >   “运行‘应用’”。 将应用配置为在物理 Android 设备或 Android 模拟器上运行。 若要详细了解如何在物理设备或模拟器上运行 Android 应用，请参阅[运行您的应用](https://developer.android.com/training/basics/firstapp/running-app)。
+4. 生成完成以后，请单击“运行” > “运行‘应用’”。 将应用配置为在物理 Android 设备或 Android 模拟器上运行。 若要详细了解如何在物理设备或模拟器上运行 Android 应用，请参阅[运行您的应用](https://developer.android.com/training/basics/firstapp/running-app)。
 
-5. 待应用加载以后，请单击“启动”按钮，开始将遥测数据发送到 IoT 中心： 
+5. 待应用加载以后，请单击“启动”按钮，开始将遥测数据发送到 IoT 中心：
 
     ![客户端设备 android 应用的示例屏幕截图](media/quickstart-control-device-android/sample-screenshot.png)
 
@@ -145,7 +145,7 @@ az iot hub show-connection-string --policy-name service --name {YourIoTHubName} 
 
 1. 通过 Azure Cloud Shell 运行以下命令以建立连接并从 IoT 中心读取消息：
 
-   **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
+   **YourIoTHubName** ：将下面的占位符替换为你为 IoT 中心选择的名称。
 
     ```azurecli
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table
@@ -169,14 +169,14 @@ IoT 中心后端服务应用程序通常在云中运行，这样可以更轻松�
 
         \azure-iot-samples-java\iot-hub\Samples\service\AndroidSample
 
-2. 在 Android Studio 中，打开示例项目的 *gradle.properties*。 将 **ConnectionString** 和 **DeviceId** 属性的值更新为此前记下的服务连接字符串和已注册的 Android 设备 ID。
+2. 在 Android Studio 中，打开示例项目的 *gradle.properties* 。 将 **ConnectionString** 和 **DeviceId** 属性的值更新为此前记下的服务连接字符串和已注册的 Android 设备 ID。
 
     ```
     ConnectionString=HostName={YourIoTHubName}.azure-devices.cn;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}
     DeviceId=MyAndroidDevice
     ```
 
-3. 在 Android Studio 中，单击“文件”   >   “将项目与 Gradle 文件同步”。 验证生成是否已完成。
+3. 在 Android Studio 中，单击“文件” > “将项目与 Gradle 文件同步”。 验证生成是否已完成。
 
    > [!NOTE]
    > 如果项目同步失败，可能是由于以下某个原因：
@@ -185,9 +185,9 @@ IoT 中心后端服务应用程序通常在云中运行，这样可以更轻松�
    > * Android SDK 的许可协议尚未签署。 请按照 Build 输出中的说明签署许可协议并下载 SDK。
 
 
-4. 生成完成以后，请单击“运行”   >   “运行‘应用’”。 将应用配置为在单独的物理 Android 设备或 Android 模拟器上运行。 若要详细了解如何在物理设备或模拟器上运行 Android 应用，请参阅[运行您的应用](https://developer.android.com/training/basics/firstapp/running-app)。
+4. 生成完成以后，请单击“运行” > “运行‘应用’”。 将应用配置为在单独的物理 Android 设备或 Android 模拟器上运行。 若要详细了解如何在物理设备或模拟器上运行 Android 应用，请参阅[运行您的应用](https://developer.android.com/training/basics/firstapp/running-app)。
 
-5. 待应用加载以后，将“设置消息传送时间间隔”值更新为  **1000**，然后单击“调用”。 
+5. 待应用加载以后，将“设置消息传送时间间隔”值更新为 **1000** ，然后单击“调用”。
 
     遥测消息传送时间间隔以毫秒为单位。 设备示例的默认遥测时间间隔设置为 5 秒钟。 此更改会更新 Android IoT 设备，使遥测数据每秒发送一次。
 

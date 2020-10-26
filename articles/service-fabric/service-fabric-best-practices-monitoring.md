@@ -9,11 +9,11 @@ ms.testscope: yes|no
 ms.testdate: 09/14/2020null
 ms.author: v-yeche
 ms.openlocfilehash: 74a5f167c966b5e7594ba03007c6e9aaa066a801
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655762"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211594"
 ---
 <!--Verified successfully-->
 # <a name="monitoring-and-diagnostic-best-practices-for-azure-service-fabric"></a>Azure Service Fabric 的监视和诊断最佳做法

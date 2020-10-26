@@ -10,11 +10,11 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.openlocfilehash: 92285286930c65a20fa9bc622f8d22756a780311
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394859"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211327"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例
 

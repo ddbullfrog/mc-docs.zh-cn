@@ -3,22 +3,22 @@ title: 教程 - 添加模板函数
 description: 将模板函数添加到 Azure 资源管理器模板以构造值。
 origin.date: 03/27/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 957d827320372fd1e3d7814fe32a5b249ff628ae
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: ''
+ms.openlocfilehash: a36919c11d701a00dd994d94f459000c3c40beff
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937166"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470387"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>教程：将模板函数添加到 ARM 模板
 
-本教程介绍如何向 Azure 资源管理器 (ARM) 模板添加[模板函数](template-functions.md)。 我们使用函数来动态构造值。 除了这些系统提供的模板函数，还可以创建[用户定义的函数](./template-user-defined-functions.md)。 完成本教程需要 **7 分钟**。
+本教程介绍如何向 Azure 资源管理器 (ARM) 模板添加[模板函数](template-functions.md)。 我们使用函数来动态构造值。 除了这些系统提供的模板函数，还可以创建[用户定义的函数](./template-user-defined-functions.md)。 完成本教程需要 **7 分钟** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -128,7 +128,7 @@ ms.locfileid: "91937166"
 
 在前面的教程中，你创建的存储帐户位于“中国东部”，但资源组创建于“中国北部”。 在本教程中，存储帐户与资源组在同一区域创建。 请使用位置的默认值，这样就不需提供该参数值。 必须为存储帐户提供新名称，因为是在另一位置创建存储帐户。 例如，使用 **store2** 而不是 **store1** 作为前缀。
 
-如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
+如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据 [第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

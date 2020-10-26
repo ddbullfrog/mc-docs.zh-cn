@@ -44,6 +44,10 @@
       items:
         - name: 流量管理器使用的国家/地区层次结构
           href: traffic-manager-geographic-regions.md
+    - name: 安全性
+      items:
+        - name: 安全基线
+          href: security-baseline.md
     - name: 嵌套式流量管理器配置文件
       href: traffic-manager-nested-profiles.md
     - name: 终结点类型

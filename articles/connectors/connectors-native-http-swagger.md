@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: 03/09/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 397e2abeacd36ab7e147cc915c491d90cd475821
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 3f58e21b084538946ab2e1b8d408058b623696e0
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564315"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470490"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用调用 REST 终结点
 
@@ -55,9 +55,9 @@ ms.locfileid: "91564315"
 
 1. 在“SWAGGER 终结点 URL”框中，输入 Swagger 文件的 URL，然后选择“下一步”。 
 
-    对于[认知服务人脸 API](https://chinaeast2.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)，此示例使用位于“中国东部 2”区域的 Swagger URL：
+    对于[认知服务人脸 API](https://chinaeast2.dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)，此示例使用位于“中国东部 2”区域的 Swagger URL：
 
-    `https://chinaeast2.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
+    `https://chinaeast2.dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
     ![此屏幕截图显示了带有“HTTP + Swagger”触发器的逻辑应用设计器，其中“Swagger 终结点 URL”属性设置为一个 URL 值。](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
@@ -95,9 +95,9 @@ ms.locfileid: "91564315"
 
 1. 在“SWAGGER 终结点 URL”框中，输入 Swagger 文件的 URL，然后选择“下一步”。 
 
-    对于[认知服务人脸 API](https://chinaeast2.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)，此示例使用位于“中国东部 2”区域的 Swagger URL：
+    对于[认知服务人脸 API](https://chinaeast2.dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)，此示例使用位于“中国东部 2”区域的 Swagger URL：
 
-    `https://chinaeast2.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
+    `https://chinaeast2.dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
     :::image type="content" source="./media/connectors-native-http-swagger/http-swagger-action-parameters.png" alt-text="选择 HTTP + Swagger 触发器":::
 
@@ -133,7 +133,7 @@ ms.locfileid: "91564315"
     | **允许的方法** | `GET`、`HEAD`、`PUT` |
     | **允许的标头** | `*` |
     | **公开的标头** | `*` |
-    | **最大期限**（以秒为单位） | `200` |
+    | **最大期限** （以秒为单位） | `200` |
     |||
 
     此示例使用 [Azure 门户](https://portal.azure.cn)，不过，你也可以使用 [Azure 存储资源管理器](https://storageexplorer.com/)之类的工具，或使用此示例 [PowerShell 脚本](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1)自动配置此设置。

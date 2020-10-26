@@ -6,11 +6,11 @@ author: Johnnytechn
 ms.author: v-johya
 ms.date: 05/25/2020
 ms.openlocfilehash: 3fd29c74a17394089e6c0bf465c1163b132d8a93
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199971"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211353"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>从 Application Insights 向 Power BI 馈送数据
 [Power BI](https://www.powerbi.com/) 是一套商业工具，可帮助分析数据及分享见解。 每个设备上都提供了丰富的仪表板。 可以结合许多源的数据，包括来自 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的数据。
@@ -19,10 +19,10 @@ ms.locfileid: "84199971"
 
 * [**导出 Analytics 查询**](#export-analytics-queries)。 这是首选方法。 编写任何所需的查询，并将其导出到 Power BI。 可将此查询连同其他所有数据一起放置在仪表板上。
 * [**连续导出和 Azure 流分析**](../../azure-monitor/app/export-stream-analytics.md)。 如果希望长时间存储数据，则此方法非常有用。 如果没有较长的数据保留要求，请使用“导出 Analytics 查询”方法。 “连续导出和流分析”需要执行更多工作来进行设置，并且存储开销更大。
-* **Power BI 适配器**。 图表集是预定义的，但可以从其他源任何添加自己的查询。
+* **Power BI 适配器** 。 图表集是预定义的，但可以从其他源任何添加自己的查询。
 
 > [!NOTE]
-> Power BI 适配器现在**已弃用**。 此解决方案的预定义图表是由静态的不可编辑查询填充的。 你无法编辑这些查询，到 Power BI 的连接可能会成功但不会填充数据，具体取决于你的数据的某些属性。 这是由硬编码的查询中设置的排除条件导致的。 虽然此解决方案仍然适用于某些客户，但是由于缺少适配器的灵活性，建议的解决方案是使用[**导出 Analytics 查询**](#export-analytics-queries)功能。
+> Power BI 适配器现在 **已弃用** 。 此解决方案的预定义图表是由静态的不可编辑查询填充的。 你无法编辑这些查询，到 Power BI 的连接可能会成功但不会填充数据，具体取决于你的数据的某些属性。 这是由硬编码的查询中设置的排除条件导致的。 虽然此解决方案仍然适用于某些客户，但是由于缺少适配器的灵活性，建议的解决方案是使用 [**导出 Analytics 查询**](#export-analytics-queries)功能。
 
 ## <a name="export-analytics-queries"></a>导出 Analytics 查询
 可以使用这种方法编写所需的任何 Analytics 查询或从使用情况漏斗图导出，然后将其导出到 Power BI 仪表板。 （可以添加到适配器创建的仪表板。）
@@ -128,7 +128,7 @@ ms.locfileid: "84199971"
 3. 选择 Application Insights 下的“立即获取”。
 
    ![从 Application Insights 数据源获取数据的屏幕截图](./media/export-power-bi/003.png)
-4. 提供 Application Insights 资源的详细信息，然后**登录**。
+4. 提供 Application Insights 资源的详细信息，然后 **登录** 。
 
     ![从 Application Insights 数据源获取数据的屏幕截图](./media/export-power-bi/005.png)
 

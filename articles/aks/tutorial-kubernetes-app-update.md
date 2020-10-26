@@ -3,19 +3,19 @@ title: Azure 上的 Kubernetes 教程 - 更新应用程序
 description: 本 Azure Kubernetes 服务 (AKS) 教程介绍如何使用新版应用程序代码将现有应用程序部署更新到 AKS。
 services: container-service
 ms.topic: tutorial
-origin.date: 12/19/2018
+origin.date: 09/30/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 108b72ca76d8486d538f05315d61adaa5047936e
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c9d565d11ea5bf8ccb612806167589b68ae3c88b
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937446"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470194"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中更新应用程序
 
@@ -81,10 +81,10 @@ docker-compose up --build -d
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-使用 [docker tag][docker-tag] 标记映像。 将 `<acrLoginServer>` 替换为 ACR 登录服务器名称或公共注册表主机名，并将映像版本更新为 *:v2*，如下所示：
+使用 [docker tag][docker-tag] 标记映像。 将 `<acrLoginServer>` 替换为 ACR 登录服务器名称或公共注册表主机名，并将映像版本更新为 *:v2* ，如下所示：
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v2
 ```
 
 现在，请使用 [docker push][docker-push] 将映像上传到注册表。 将 `<acrLoginServer>` 替换为 ACR 登录服务器名称。

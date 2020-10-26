@@ -4,17 +4,17 @@ description: 介绍如何删除资源组和资源。 它介绍删除资源组时
 ms.topic: conceptual
 origin.date: 09/03/2019
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 33d2c954ecbf15853ab7e9aa29f2baf5fea7c56e
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.custom: seodec18
+ms.openlocfilehash: 3e84dc89dd21ed38a38e94cf192ac6c319da5a1d
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807890"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470317"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure 资源管理器资源组和资源删除
 
@@ -82,9 +82,9 @@ az group delete --name ExampleResourceGroup
 
 1. 在[门户](https://portal.azure.cn)中，选择要删除的资源组。
 
-1. 选择“删除资源组”****。
+1. 选择“删除资源组”  。
 
-    :::image type="content" source="./media/delete-resource-group/delete-group.png" alt-text="删除资源组":::
+    删除资源组
 
 1. 若要确认删除，请键入资源组的名称
 
@@ -116,7 +116,7 @@ az resource delete \
 
 1. 在[门户](https://portal.azure.cn)中，选择要删除的资源。
 
-1. 选择“删除” ****。 以下屏幕截图显示了虚拟机的管理选项。
+1. 选择“删除”  。 以下屏幕截图显示了虚拟机的管理选项。
 
     :::image type="content" source="./media/delete-resource-group/delete-resource.png" alt-text="删除资源":::
 
@@ -127,6 +127,6 @@ az resource delete \
 ## <a name="next-steps"></a>后续步骤
 
 * 若要了解资源管理器概念，请参阅 [Azure 资源管理器概述](overview.md)。
-* 有关删除命令，请参阅 [PowerShell](https://docs.microsoft.com/powershell/module/az.resources/Remove-AzResourceGroup)、[Azure CLI](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) 和 [REST API](https://docs.microsoft.com/rest/api/resources/resourcegroups/delete)。
+* 有关删除命令，请参阅 [PowerShell](https://docs.microsoft.com/powershell/module/az.resources/Remove-AzResourceGroup)、[Azure CLI](https://docs.azure.cn/cli/group#az_group_delete) 和 [REST API](https://docs.microsoft.com/rest/api/resources/resourcegroups/delete)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

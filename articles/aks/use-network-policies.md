@@ -5,16 +5,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用 Kubernetes 
 services: container-service
 ms.topic: article
 origin.date: 05/06/2019
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9245302ae2970140be60b0aff945dcc444fcb422
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: e096bebf85cd8ad13349ba6d89260e8340d2ec95
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021529"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470178"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用网络策略保护 Pod 之间的流量
 
@@ -24,7 +25,7 @@ ms.locfileid: "90021529"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-需要安装并配置 Azure CLI 2.0.61 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+需要安装并配置 Azure CLI 2.0.61 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 > [!TIP]
 > 如果你在预览期使用了网络策略功能，则我们建议[创建新的群集](#create-an-aks-cluster-and-enable-network-policy)。
@@ -63,7 +64,7 @@ Azure 提供两种方式来实现网络策略。 可以在创建 AKS 群集时�
 | 支持                                  | 由 Azure 支持部门和工程团队提供支持 | 由 Azure 社区提供支持。 有关其他付费支持的详细信息，请参阅 [Project Calico 支持选项][calico-support]。 |
 | 日志记录                                  | 在 IPTables 中添加/删除的规则将记录到每个主机上的 */var/log/azure-npm.log* 下。 | 有关详细信息，请参阅 [Calico 组件日志][calico-logs] |
 
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>创建 AKS 群集并启用网络策略
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a><a name="create-an-aks-cluster-and-enable-network-policy"></a>创建 AKS 群集并启用网络策略
 
 为了了解网络策略的运行方式，让我们创建然后扩展一个定义流量流的策略：
 
@@ -332,7 +333,7 @@ exit
 
 ## <a name="allow-traffic-only-from-within-a-defined-namespace"></a>仅允许来自定义命名空间的流量
 
-在前面的示例中，你已创建拒绝所有流量的网络策略，然后更新了该策略，以允许来自具有特定标签的 Pod 的流量。 另一个常见需求是将流量限制在给定的命名空间内。 如果前面的示例适用于 *development* 命名空间中的流量，请创建一个网络策略用于阻止来自另一命名空间（例如 *production*）的流量访问 Pod。
+在前面的示例中，你已创建拒绝所有流量的网络策略，然后更新了该策略，以允许来自具有特定标签的 Pod 的流量。 另一个常见需求是将流量限制在给定的命名空间内。 如果前面的示例适用于 *development* 命名空间中的流量，请创建一个网络策略用于阻止来自另一命名空间（例如 *production* ）的流量访问 Pod。
 
 首先，创建新的命名空间，模拟生产命名空间：
 
@@ -395,7 +396,7 @@ spec:
           role: frontend
 ```
 
-在更复杂的示例中，可以定义多个入口规则，例如，分别指定 *namespaceSelector* 和 *podSelector*。
+在更复杂的示例中，可以定义多个入口规则，例如，分别指定 *namespaceSelector* 和 *podSelector* 。
 
 使用 [kubectl apply][kubectl-apply] 命令应用已更新的网络策略，并指定 YAML 清单的名称：
 
@@ -488,10 +489,10 @@ kubectl delete namespace development
 
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [use-advanced-networking]: configure-azure-cni.md
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [concepts-network]: concepts-network.md
-[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
-[az-feature-list]: https://docs.azure.cn/cli/feature#az-feature-list
-[az-provider-register]: https://docs.azure.cn/cli/provider#az-provider-register
+[az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
+[az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
+[az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -6,11 +6,11 @@ ms.topic: quickstart
 author: Johnnytechn
 ms.author: v-johya
 ms.openlocfilehash: fc58b6c8a4e5eacf668d261a76cbb285bebed518
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128774"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211491"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>快速入门：利用 Azure 门户将 Blob 存储事件路由到 Web 终结点
 

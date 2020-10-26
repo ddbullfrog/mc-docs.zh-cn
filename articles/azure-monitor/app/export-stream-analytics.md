@@ -6,11 +6,11 @@ author: Johnnytechn
 ms.author: v-johya
 ms.date: 05/25/2020
 ms.openlocfilehash: b840b3ec98c216ac12391b529feea829d170eaef
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200038"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211660"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>使用流分析处理从 Application Insights 导出的数据
 [Azure 流分析](https://www.azure.cn/home/features/stream-analytics/)是用于处理[从 Application Insights 导出](export-telemetry.md)的数据的理想工具。 流分析可以从各种源提取数据。 它可以转换和筛选数据，然后将其路由到各种接收器。
@@ -99,8 +99,8 @@ ms.locfileid: "84200038"
 
 在本示例中：
 
-* `webapplication27` 是 Application Insights 资源的名称，**采用全小写**。
-* `1234...` 是 Application Insights 资源的检测密钥，但**省略了短划线**。 
+* `webapplication27` 是 Application Insights 资源的名称， **采用全小写** 。
+* `1234...` 是 Application Insights 资源的检测密钥，但 **省略了短划线** 。 
 * `PageViews` 是要分析的数据类型。 可用的类型取决于在连续导出中设置的筛选器。 检查导出的数据以查看其他可用类型，并查看[导出数据模型](export-data-model.md)。
 * `/{date}/{time}` 是以文本形式写入的模式。
 
@@ -116,7 +116,7 @@ ms.locfileid: "84200038"
 
 ![选择新通道，并依次单击“输出”、“添加”、“Power BI”](./media/export-stream-analytics/SA010.png)
 
-提供**工作或学校帐户**，以授权流分析访问 Power BI 资源。 然后为输出、目标 Power BI 数据集和表指定名称。
+提供 **工作或学校帐户** ，以授权流分析访问 Power BI 资源。 然后为输出、目标 Power BI 数据集和表指定名称。
 
 ## <a name="set-the-query"></a>设置查询
 查询控制从输入到输出的转换。

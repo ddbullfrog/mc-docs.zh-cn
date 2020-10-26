@@ -96,7 +96,7 @@ Azure Active Directory (Azure AD) Connect 使用默认规则进行同步。  遗
 
 ![同步规则编辑器](./media/how-to-connect-fix-default-rules/default3c.png)
 
-与在入站规则中一样，可以使用自己的命名约定来为规则命名。 选择“Azure AD 租户”作为**连接的系统**，并选择要设置其属性值的联网系统对象。 设置从 0 到 99 的优先顺序。 
+与在入站规则中一样，可以使用自己的命名约定来为规则命名。 选择“Azure AD 租户”作为 **连接的系统** ，并选择要设置其属性值的联网系统对象。 设置从 0 到 99 的优先顺序。 
 
 ![创建出站同步规则](./media/how-to-connect-fix-default-rules/default3d.png)
 
@@ -137,7 +137,7 @@ Azure AD Sync 负责处理大部分对象。 你可以缩小对象的范围，�
 > 不建议增大 Azure AD Connect 配置的对象范围。 如果你这样做，Microsoft 支持团队将难以了解你的自定义操作。 如果必须增大对象的范围，请编辑现有规则，克隆它，然后禁用原始规则。 
 
 ### <a name="cloudfiltered-attribute"></a>cloudFiltered 属性
-无法在 Active Directory 中设置此属性。 需要通过添加新的入站规则来设置此属性的值。 可以使用“转换”和“表达式”在 Metaverse 中设置此属性。   在以下示例场景中，你不想要同步其部门名称以 **HRD**（不区分大小写）开头的所有用户：
+无法在 Active Directory 中设置此属性。 需要通过添加新的入站规则来设置此属性的值。 可以使用“转换”和“表达式”在 Metaverse 中设置此属性。   在以下示例场景中，你不想要同步其部门名称以 **HRD** （不区分大小写）开头的所有用户：
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
@@ -184,11 +184,11 @@ Azure AD Sync 负责处理大部分对象。 你可以缩小对象的范围，�
  
 若要将已修改的规则与默认规则进行比较，请将这两种规则单独作为文本文件导出。 这些规则将作为 PowerShell 脚本文件导出。 可以使用任何文件比较工具（例如 windiff）对其进行比较，以查看所做的更改。 
  
-可以看到，在修改的规则中，`msExchMailboxGuid` 属性已更改为 **Expression** 类型而不是 **Direct**。 此外，值已更改为 **NULL** 和 **ExecuteOnce** 选项。 可以忽略 Identified（已识别）和 Precedence（优先顺序）的差异。 
+可以看到，在修改的规则中，`msExchMailboxGuid` 属性已更改为 **Expression** 类型而不是 **Direct** 。 此外，值已更改为 **NULL** 和 **ExecuteOnce** 选项。 可以忽略 Identified（已识别）和 Precedence（优先顺序）的差异。 
 
 ![windiff 工具输出](./media/how-to-connect-fix-default-rules/default17.png)
  
-若要修复规则以将其更改回默认设置，请删除已修改的规则并启用默认规则。 请确保不会丢失你正在尝试实现的自定义。 准备就绪后，运行**完全同步**。
+若要修复规则以将其更改回默认设置，请删除已修改的规则并启用默认规则。 请确保不会丢失你正在尝试实现的自定义。 准备就绪后，运行 **完全同步** 。
 
 ## <a name="next-steps"></a>后续步骤
 - [硬件和先决条件](how-to-connect-install-prerequisites.md) 

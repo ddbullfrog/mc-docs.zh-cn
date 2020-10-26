@@ -95,7 +95,7 @@ Linux | 仅支持 64 位系统。 不支持 32 位系统。<br/><br/>每个 Linu
 Linux：CentOS | 5.2 到 5.11</b><br/> 6.1 到 6.10</b><br/> <br /> 7.0、7.1、7.2、7.3、7.4、7.5、7.6、[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery)、[7.8](https://support.microsoft.com/help/4564347/)、[7.9](https://support.microsoft.com/help/4578241/) <br /> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)、8.1、[8.2](https://support.microsoft.com/help/4570609) <br/><br/> 运行 CentOS 5.2-5.11 和 6.1-6.10 的服务器上较旧的内核基本都预装了 [Linux Integration Services (LIS) 组件](https://www.microsoft.com/download/details.aspx?id=55106)。 如果缺少内置 LIS 组件，请确保在启用复制之前安装这些[组件](https://www.microsoft.com/download/details.aspx?id=55106)，使计算机在 Azure 中启动。
 Ubuntu | Ubuntu 14.04* LTS 服务器[（查看支持的内核版本）](#ubuntu-kernel-versions)<br/>Ubuntu 16.04* LTS 服务器[（查看支持的内核版本）](#ubuntu-kernel-versions) <br /> Ubuntu 18.04* LTS 服务器[（查看支持的内核版本）](#ubuntu-kernel-versions) <br /> Ubuntu 20.04* LTS 服务器[（查看支持的内核版本）](#ubuntu-kernel-versions) <br /> （包括对所有 14.04.x、16.04.x、18.04.x、20.04.x* 版本的支持）   
 Debian | Debian 7/Debian 8（包括对所有 7. x、8. x 版本的支持）[（查看支持的内核版本）](#debian-kernel-versions)
-SUSE Linux | SUSE Linux Enterprise Server 12 SP1、SP2、SP3、SP4、[SP5](https://support.microsoft.com/help/4570609)[（查看支持的内核版本）](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15、15 SP1 [（查看支持的内核版本）](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3。 [请确保在配置服务器上下载最新的移动代理安装程序](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server)。 <br /> SUSE Linux Enterprise Server 11 SP4 <br /> **注意**：不支持将复制计算机从 SUSE Linux Enterprise Server 11 SP3 升级到 SP4。 若要升级，请禁用复制并在升级后重新启用它。 <br/>|
+SUSE Linux | SUSE Linux Enterprise Server 12 SP1、SP2、SP3、SP4、[SP5](https://support.microsoft.com/help/4570609)[（查看支持的内核版本）](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15、15 SP1 [（查看支持的内核版本）](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3。 [请确保在配置服务器上下载最新的移动代理安装程序](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server)。 <br /> SUSE Linux Enterprise Server 11 SP4 <br /> **注意** ：不支持将复制计算机从 SUSE Linux Enterprise Server 11 SP3 升级到 SP4。 若要升级，请禁用复制并在升级后重新启用它。 <br/>|
 
 <!-- Not Available on Linux Red Hat Enterprise: -->
 <!-- Not Available on Oracle Linux -->
@@ -163,7 +163,7 @@ SUSE Linux Enterprise Server 15 和 15 SP1 | [9.33](https://support.microsoft.co
 半虚拟化存储设备 | 不支持半虚拟化驱动程序导出的设备。
 多队列块 IO 设备 | 不支持。
 具有 HP CCISS 存储控制器的物理服务器 | 不支持。
-设备/装入点命名约定 | 设备名称或装入点名称应是唯一的。<br/> 请确保两个设备/装入点的名称不仅仅是只区分大小写。 例如，不支持将同一 VM 的两个设备命名为 *device1* 和 *Device1*。
+设备/装入点命名约定 | 设备名称或装入点名称应是唯一的。<br/> 请确保两个设备/装入点的名称不仅仅是只区分大小写。 例如，不支持将同一 VM 的两个设备命名为 *device1* 和 *Device1* 。
 目录 | 如果运行的移动服务版本低于 9.20（在[更新汇总 31](https://support.microsoft.com/help/4478871/) 中发布），则存在以下限制：<br/><br/> - 这些目录（如果设置为单独的分区/文件系统）必须位于源服务器上的同一 OS 磁盘：/ (root)、/boot、/usr、/usr/local、/var 和 /etc。<br /> - /boot 目录应位于磁盘分区上，而不是位于 LVM 卷上。<br/><br/> 从版本 9.20 开始，这些限制不适用。 
 启动目录 | - 启动磁盘不能采用 GPT 分区格式。 这是一种 Azure 体系结构限制。 支持将 GPT 磁盘作为数据磁盘。<br/><br/> VM 上不支持多个启动磁盘<br/><br/> - 不支持跨多个磁盘的 LVM 卷上的 /boot。<br/> - 无法复制没有启动磁盘的计算机。
 可用空间要求| /root 分区上的 2 GB <br/><br/> 安装文件夹中的 250 MB

@@ -16,11 +16,11 @@ origin.date: 09/18/2019
 ms.date: 12/02/2019
 ms.author: v-yiso
 ms.openlocfilehash: 19754dae03b998a8a04d8625eb5aa5b7affe0e56
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292519"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211486"
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute 连接模型
 在本地网络和 Microsoft 云之间创建连接时，可以采用三种不同的方式：[CloudExchange 归置](#CloudExchange)、[点到点以太网连接](#Ethernet)、[任意位置之间的 (IPVPN) 连接](#IPVPN)。 连接服务提供商可以提供一个或多个连接模型。 可以咨询连接服务提供商以选择最合适的模型。

@@ -4,15 +4,15 @@ description: 本快速入门介绍如何使用 Azure Redis 缓存创建 ASP.NET 
 author: yegu-ms
 ms.service: cache
 ms.topic: quickstart
-ms.date: 07/10/2020
+ms.date: 10/22/2020
 ms.author: v-junlch
-ms.custom: mvc
-ms.openlocfilehash: 69b98727b4e11a61a9f52458b15e38c15b91c7a0
-ms.sourcegitcommit: 65a7360bb14b0373e18ec8eaa288ed3ac7b24ef4
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: b4def91fbf27987929f829a55176b834cc439ecc
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86219717"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472039"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>快速入门：将 Azure Redis 缓存与 ASP.NET Web 应用配合使用 
 
@@ -21,7 +21,7 @@ ms.locfileid: "86219717"
 ## <a name="prerequisites"></a>先决条件
 
 - Azure 订阅 - [创建订阅](https://www.azure.cn/pricing/1rmb-trial/)
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/)，其中包含 **ASP.NET 和 Web 开发**以及 **Azure 开发**工作负载。
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/)，其中包含 **ASP.NET 和 Web 开发** 以及 **Azure 开发** 工作负载。
 
 ## <a name="create-the-visual-studio-project"></a>创建 Visual Studio 项目
 
@@ -39,7 +39,7 @@ ms.locfileid: "86219717"
 
     d. 验证是否已选择“.NET Framework 4.5.2”或更高版本。
 
-    e. 在“名称”框中，为项目提供一个名称。 在此示例中，我们使用了 **ContosoTeamStats**。
+    e. 在“名称”框中，为项目提供一个名称。 在此示例中，我们使用了 **ContosoTeamStats** 。
 
     f. 选择“确定” 。
    
@@ -59,7 +59,7 @@ ms.locfileid: "86219717"
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>编辑 *CacheSecrets.config* 文件的步骤
 
-1. 在计算机上创建名为 *CacheSecrets.config* 的文件。将其放到不会连同示例应用程序的源代码一起签入的位置。 在本快速入门中，*CacheSecrets.config* 文件的路径为 *C:\AppSecrets\CacheSecrets.config*。
+1. 在计算机上创建名为 *CacheSecrets.config* 的文件。将其放到不会连同示例应用程序的源代码一起签入的位置。 在本快速入门中， *CacheSecrets.config* 文件的路径为 *C:\AppSecrets\CacheSecrets.config* 。
 
 1. 编辑 *CacheSecrets.config* 文件。 然后添加以下内容：
 
@@ -134,52 +134,41 @@ ASP.NET 运行时合并了外部文件的内容以及 `<appSettings>` 元素中�
     public ActionResult RedisCache()
     {
         ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET.";
-
-        var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-        {
-            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-            return ConnectionMultiplexer.Connect(cacheConnection);
-        });
-
-        // Connection refers to a property that returns a ConnectionMultiplexer
-        // as shown in the previous example.
             
-        using (ConnectionMultiplexer redis = lazyConnection.Value)
+        IDatabase cache = Connection.GetDatabase();
+
+        // Perform cache operations using the cache object...
+
+        // Simple PING command
+        ViewBag.command1 = "PING";
+        ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
+
+        // Simple get and put of integral data types into the cache
+        ViewBag.command2 = "GET Message";
+        ViewBag.command2Result = cache.StringGet("Message").ToString();
+
+        ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
+        ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
+
+        // Demonstrate "SET Message" executed as expected...
+        ViewBag.command4 = "GET Message";
+        ViewBag.command4Result = cache.StringGet("Message").ToString();
+
+        // Get the client list, useful to see if connection list is growing...
+        ViewBag.command5 = "CLIENT LIST";
+        StringBuilder sb = new StringBuilder();
+
+        var endpoint = (System.Net.DnsEndPoint)Connection.GetEndPoints()[0];
+        var server = Connection.GetServer(endpoint.Host, endpoint.Port);
+        var clients = server.ClientList();
+
+        sb.AppendLine("Cache response :");
+        foreach (var client in clients)
         {
-            IDatabase cache = redis.GetDatabase();
+            sb.AppendLine(client.Raw);
+        }
 
-            // Perform cache operations using the cache object...
-
-            // Simple PING command
-            ViewBag.command1 = "PING";
-            ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
-
-            // Simple get and put of integral data types into the cache
-            ViewBag.command2 = "GET Message";
-            ViewBag.command2Result = cache.StringGet("Message").ToString();
-
-            ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
-            ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
-
-            // Demonstrate "SET Message" executed as expected...
-            ViewBag.command4 = "GET Message";
-            ViewBag.command4Result = cache.StringGet("Message").ToString();
-
-            // Get the client list, useful to see if connection list is growing...
-            ViewBag.command5 = "CLIENT LIST";
-            StringBuilder sb = new StringBuilder();
-
-            var endpoint = (System.Net.DnsEndPoint)Connection.GetEndPoints()[0];
-            var server = Connection.GetServer(endpoint.Host, endpoint.Port);
-            var clients = server.ClientList();
-
-            sb.AppendLine("Cache response :");
-            foreach (var client in clients)
-            {
-                sb.AppendLine(client.Raw);
-            }
-
-            ViewBag.command5Result = sb.ToString();
+        ViewBag.command5Result = sb.ToString();
 
         return View();
     }
@@ -200,7 +189,7 @@ ASP.NET 运行时合并了外部文件的内容以及 `<appSettings>` 元素中�
 
     ```
 
-4. 在**解决方案资源管理器**中，展开“视图” > “共享”文件夹。  然后打开 *_Layout.cshtml* 文件。
+4. 在 **解决方案资源管理器** 中，展开“视图” > “共享”文件夹。  然后打开 *_Layout.cshtml* 文件。
 
     将：
     
@@ -291,8 +280,8 @@ ASP.NET 运行时合并了外部文件的内容以及 `<appSettings>` 元素中�
     | ------- | :---------------: | ----------- |
     | **应用名称** | 使用默认值。 | 应用名称是应用部署到 Azure 时对应的主机名。 如果需要让该名称保持唯一，可在其后添加一个时间戳后缀。 |
     | **订阅** | 选择自己的 Azure 订阅。 | 将对此订阅收取任何相关的托管费用。 如果有多个 Azure 订阅，请验证是否选择了所需的订阅。|
-    | **资源组** | 使用在其中创建了此缓存的资源组（例如，*TestResourceGroup*）。 | 该资源组用于将所有资源作为一个组管理。 以后想要删除此应用时，可以直接删除该组。 |
-    | **应用服务计划** | 选择“新建”，然后创建名为 *TestingPlan* 的新应用服务计划。 <br />使用创建缓存时所用的相同**位置**。 <br />选择“免费”作为大小。 | 应用服务计划为要运行的 Web 应用定义一组计算资源。 |
+    | **资源组** | 使用在其中创建了此缓存的资源组（例如， *TestResourceGroup* ）。 | 该资源组用于将所有资源作为一个组管理。 以后想要删除此应用时，可以直接删除该组。 |
+    | **应用服务计划** | 选择“新建”，然后创建名为 *TestingPlan* 的新应用服务计划。 <br />使用创建缓存时所用的相同 **位置** 。 <br />选择“免费”作为大小。 | 应用服务计划为要运行的 Web 应用定义一组计算资源。 |
 
     ![“应用服务”对话框](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 

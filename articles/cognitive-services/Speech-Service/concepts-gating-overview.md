@@ -12,11 +12,11 @@ origin.date: 10/09/2019
 ms.date: 08/03/2020
 ms.author: v-tawe
 ms.openlocfilehash: 3d51b10fd7b118546049933ca85cdacb99156a2b
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87516288"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211487"
 ---
 # <a name="custom-neural-voice-gating-overview"></a>自定义神经语音管控概述
 

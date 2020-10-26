@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 320cc95e961ed403a733ef42433c757fe186f4da
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80343675"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211385"
 ---
 # <a name="toggle-live-chat"></a>切换实时聊天
 

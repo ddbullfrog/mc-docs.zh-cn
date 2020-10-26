@@ -40,10 +40,10 @@ ms.locfileid: "92118509"
 
 使用 ScriptRunConfig 对象提交训练实验。  此对象包含：
 
-* **source_directory**：包含训练脚本的源目录
-* **script**：要运行的训练脚本
-* **compute_target**：要在其上运行的计算目标
-* **environment**：运行脚本时要使用的环境
+* **source_directory** ：包含训练脚本的源目录
+* **script** ：要运行的训练脚本
+* **compute_target** ：要在其上运行的计算目标
+* **environment** ：运行脚本时要使用的环境
 * 一些其他的可配置选项（有关详细信息，请参阅[参考文档](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)）
 
 ## <a name="train-your-model"></a><a id="submit"></a>训练模型
@@ -150,7 +150,7 @@ run.wait_for_completion(show_output=True)
 > 有关快照的详细信息，请参阅[快照](concept-azure-machine-learning-architecture.md#snapshots)。
 
 > [!IMPORTANT]
-> **特殊文件夹**两个文件夹 *outputs* 和 *logs* 接收 Azure 机器学习的特殊处理。 在训练期间，如果将文件写入相对于根目录（分别为 `./outputs` 和 `./logs`）的名为 outputs 和 logs 的文件夹，则会将这些文件自动上传到运行历史记录，以便在完成运行后对其具有访问权限 。
+> **特殊文件夹** 两个文件夹 *outputs* 和 *logs* 接收 Azure 机器学习的特殊处理。 在训练期间，如果将文件写入相对于根目录（分别为 `./outputs` 和 `./logs`）的名为 outputs 和 logs 的文件夹，则会将这些文件自动上传到运行历史记录，以便在完成运行后对其具有访问权限 。
 >
 > 要在训练期间创建项目（如模型文件、检查点、数据文件或绘制的图像），请将其写入 `./outputs` 文件夹。
 >

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: v-junlch
 ms.date: 09/28/2020
 ms.custom: generated
-ms.openlocfilehash: fa354260adc449182dcce680879277372efd8c57
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 4dd775f3b7df615ae4d10c1a9a8501c01764f79e
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937250"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472199"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure 资源提供程序操作
 
@@ -628,8 +628,6 @@ Azure 服务：[Service Fabric](../service-fabric/index.yml)
 ## <a name="networking"></a>网络
 
 ### <a name="microsoftcdn"></a>Microsoft.Cdn
-
-Azure 服务：[内容分发网络](../cdn/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | 操作 | 说明 |

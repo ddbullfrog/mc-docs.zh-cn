@@ -10,17 +10,17 @@ ms.date: 08/13/2020
 ms.author: v-tawe
 ms.custom: include file
 ms.openlocfilehash: f98597e260d9777b79a95575d9ff3236a5770383
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "89503356"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223152"
 ---
 在 Azure CLI 中，使用 [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) 命令在资源组中创建应用服务计划。
 
 [!INCLUDE [app-service-plan](app-service-plan-linux.md)]
 
-以下示例在**免费**定价层 (`--sku F1`) 和 Linux 容器 (`--is-linux`) 中创建名为 `myAppServicePlan` 的应用服务计划。
+以下示例在 **免费** 定价层 (`--sku F1`) 和 Linux 容器 (`--is-linux`) 中创建名为 `myAppServicePlan` 的应用服务计划。
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux

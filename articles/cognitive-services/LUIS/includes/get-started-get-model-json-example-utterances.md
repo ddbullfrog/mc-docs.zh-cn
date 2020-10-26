@@ -2,44 +2,101 @@
 title: include 文件
 description: include 文件
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.date: 10/19/2020
+ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.date: 10/19/2019
-ms.author: diberry
-ms.openlocfilehash: 2c945a5f927002629fc3e5dc962ff23525109286
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.author: v-johya
+ms.openlocfilehash: abe72d2a1b7a146829c1c514ddb834e412c6dc38
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74885100"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472516"
 ---
-示例言语采用特定格式。 
+示例言语采用特定格式。
 
 `text` 字段包含示例话语的文本。 `intentName` 字段必须对应于 LUIS 应用中的现有意向名称。 `entityLabels` 字段是必填的。 如果不想标记任何实体，请提供一个空数组。
 
-如果 entityLabels 数组不为空，则 `startCharIndex` 和 `endCharIndex` 需要标记 `entityName` 字段中引用的实体。 索引从零开始，这意味着顶部示例中的 6 表示西雅图的“S”而不是大写字母 S 之前的空格。如果你在文本中的空格处开始或结束标签，则用于添加话语的 API 调用将失败。
+如果 entityLabels 数组不为空，则 `startCharIndex` 和 `endCharIndex` 需要标记 `entityName` 字段中引用的实体。 该索引从零开始。 如果标签的起始或结尾位于文本中的空白处，则添加话语的 API 调用将失败。
 
 ```JSON
 [
   {
-    "text": "go to Seattle today",
-    "intentName": "BookFlight",
+    "text": "order a pizza",
+    "intentName": "ModifyOrder",
     "entityLabels": [
       {
-        "entityName": "Location::LocationTo",
+        "entityName": "Order",
         "startCharIndex": 6,
         "endCharIndex": 12
       }
     ]
   },
   {
-    "text": "purple dogs are difficult to work with",
-    "intentName": "BookFlight",
-    "entityLabels": []
+    "text": "order a large pepperoni pizza",
+    "intentName": "ModifyOrder",
+    "entityLabels": [
+      {
+        "entityName": "Order",
+        "startCharIndex": 6,
+        "endCharIndex": 28
+      },
+      {
+        "entityName": "FullPizzaWithModifiers",
+        "startCharIndex": 6,
+        "endCharIndex": 28
+      },
+      {
+        "entityName": "PizzaType",
+        "startCharIndex": 14,
+        "endCharIndex": 28
+      },
+      {
+        "entityName": "Size",
+        "startCharIndex": 8,
+        "endCharIndex": 12
+      }
+    ]
+  },
+  {
+    "text": "I want two large pepperoni pizzas on thin crust",
+    "intentName": "ModifyOrder",
+    "entityLabels": [
+      {
+        "entityName": "Order",
+        "startCharIndex": 7,
+        "endCharIndex": 46
+      },
+      {
+        "entityName": "FullPizzaWithModifiers",
+        "startCharIndex": 7,
+        "endCharIndex": 46
+      },
+      {
+        "entityName": "PizzaType",
+        "startCharIndex": 17,
+        "endCharIndex": 32
+      },
+      {
+        "entityName": "Size",
+        "startCharIndex": 11,
+        "endCharIndex": 15
+      },
+      {
+        "entityName": "Quantity",
+        "startCharIndex": 7,
+        "endCharIndex": 9
+      },
+      {
+        "entityName": "Crust",
+        "startCharIndex": 37,
+        "endCharIndex": 46
+      }
+    ]
   }
 ]
 ```
+

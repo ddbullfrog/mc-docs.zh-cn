@@ -97,7 +97,7 @@ Service Fabric Explorer 提供用于对群集中的节点、应用程序和服�
 >
 >
 
-还可使用 Service Fabric Explorer 为给定应用程序类型和版本创建应用程序实例。 在树视图中选择应用程序类型，在右窗格中单击想要的版本旁边的“**创建应用实例**”链接。
+还可使用 Service Fabric Explorer 为给定应用程序类型和版本创建应用程序实例。 在树视图中选择应用程序类型，在右窗格中单击想要的版本旁边的“ **创建应用实例** ”链接。
 
 ![在 Service Fabric Explorer 中创建应用程序实例][sfx-create-app-instance]
 

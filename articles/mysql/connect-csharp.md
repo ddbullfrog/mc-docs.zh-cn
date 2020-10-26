@@ -7,14 +7,14 @@ ms.service: mysql
 ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
-origin.date: 5/26/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: f1d975fae629d9b8f19f50bed13fb2e01243d334
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+origin.date: 10/16/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: 3479abf00f217c50a680a75fca4315c6cd54df0a
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041747"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470427"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 .NET (C#) 连接到 Azure Database for MySQL 并查询其中的数据
 
@@ -63,7 +63,7 @@ dotnet add package MySqlConnector
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -128,7 +128,7 @@ namespace AzureMySqlExample
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -185,7 +185,7 @@ namespace AzureMySqlExample
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -237,7 +237,7 @@ namespace AzureMySqlExample
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {

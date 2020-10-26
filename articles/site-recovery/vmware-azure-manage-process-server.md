@@ -92,7 +92,7 @@ ms.locfileid: "92128057"
 保存设置后，请执行以下操作：
 
 1. 在进程服务器上，打开管理员命令提示符。
-2. 浏览到文件夹 **%PROGRAMDATA%\ASR\Agent**，并运行以下命令：
+2. 浏览到文件夹 **%PROGRAMDATA%\ASR\Agent** ，并运行以下命令：
 
     ```
     cdpcli.exe --registermt
@@ -112,7 +112,7 @@ ms.locfileid: "92128057"
     net stop obengine
     net start obengine
     ```
-2. 浏览到文件夹 **%PROGRAMDATA%\ASR\Agent**，并运行以下命令：
+2. 浏览到文件夹 **%PROGRAMDATA%\ASR\Agent** ，并运行以下命令：
     ```
     cmd
     cdpcli.exe --registermt

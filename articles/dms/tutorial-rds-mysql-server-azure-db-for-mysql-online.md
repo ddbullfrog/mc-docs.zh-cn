@@ -10,15 +10,15 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 origin.date: 06/09/2020
-ms.date: 08/31/2020
-ms.openlocfilehash: 833726facc795fd87c6a1004f72323920d4057a0
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.date: 10/29/2020
+ms.openlocfilehash: ced11c0d76bd270333dc360a96e5c466107acbff
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045749"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472639"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>教程：使用 DMS 将 RDS MySQL 联机迁移到 Azure Database for MySQL
 
@@ -73,6 +73,10 @@ ms.locfileid: "89045749"
     * binlog_checksum = NONE
 3. 保存新参数组。
 4. 将新参数组与 RDS MySQL 实例相关联。 可能需要重新启动。
+5. 参数组就绪后，连接到 MySQL 实例，并[将 binlog 保留期](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html#mysql_rds_set_configuration-usage-notes.binlog-retention-hours)设置为至少 5 天。
+```
+call mysql.rds_set_configuration('binlog retention hours', 120);
+```
 
 ## <a name="migrate-the-schema"></a>迁移架构
 
@@ -125,8 +129,8 @@ ms.locfileid: "89045749"
 4. 运行查询结果中的 drop foreign key（第二列），以删除外键。
 
 > [!NOTE]
-> Azure DMS 不支持 CASCADE 引用操作，这有助于在父表中删除或更新行时，自动删除或更新子表中的匹配行。 有关详细信息，请参阅 MySQL 文档的[外键约束](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)一文中的“引用操作”部分。
-> Azure DMS 要求在初始数据加载期间在目标数据库服务器中删除外键约束，并且不能使用引用操作。 如果你的工作负载依赖于通过此引用操作更新相关子表，我们建议你改为执行[转储并还原](/mysql/concepts-migrate-dump-restore)。 
+> Azure DMS 不支持 CASCADE 引用操作，这有助于在父表中删除或更新行时，自动删除或更新子表中的匹配行。 有关详细信息，请参见 MySQL 文档中的[外键约束](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)一文中的“引用操作”部分。
+> Azure DMS 要求在初始数据加载过程中在目标数据库服务器中删除外键约束，并且不能使用引用操作。 如果你的工作负载依赖于通过此引用操作更新相关子表，我们建议你改为执行[转储并还原](/mysql/concepts-migrate-dump-restore)。 
 
 5. 如果数据中包含触发器（insert 或 update 触发器），该触发器会在从源复制数据之前在目标中强制实施数据完整性。 建议在迁移期间禁用目标的所有表中的触发器，然后在迁移完成后再启用这些触发器。
 
@@ -149,13 +153,13 @@ ms.locfileid: "89045749"
 
     ![显示资源提供程序](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-select-resource-provider.png)
 
-3. 搜索“迁移”，然后选择“注册”。
+3. 搜索“迁移”，然后选择“注册”  。
 
     ![注册资源提供程序](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-register-resource-provider.png)
 
 ## <a name="create-an-instance-of-azure-database-migration-service"></a>创建 Azure 数据库迁移服务的实例
 
-1. 在 Azure 门户中，选择 **+ 创建资源**，搜索 Azure 数据库迁移服务，然后从下拉列表选择**Azure 数据库迁移服务**。
+1. 在 Azure 门户中，选择 **+ 创建资源** ，搜索 Azure 数据库迁移服务，然后从下拉列表选择 **Azure 数据库迁移服务** 。
 
     ![Azure 市场](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-marketplace.png)
 
@@ -205,7 +209,7 @@ ms.locfileid: "89045749"
 
 6. 选择“保存” 。
 
-7. 选择“创建并运行活动”，以便创建项目并运行迁移活动。
+7. 选择“创建并运行活动”，以便创建项目并运行迁移活动。 
 
     > [!NOTE]
     > 请在项目创建边栏选项卡中记下设置联机迁移所要满足的先决条件。
@@ -260,7 +264,7 @@ ms.locfileid: "89045749"
 
     ![开始交接](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-start-cutover.png)
 
-2. 确保停止传入源数据库的所有事务；等到“挂起的更改”计数器显示 **0**。
+2. 确保停止传入源数据库的所有事务；等到“挂起的更改”计数器显示 **0** 。
 3. 选择“确认”，然后选择“应用”。
 4. 当数据库迁移状态显示“已完成”后，请将应用程序连接到新的目标 Azure Database for MySQL 数据库。
 

@@ -15,11 +15,11 @@ origin.date: 01/10/2020
 ms.author: v-yiso
 ms.date: 02/24/2020
 ms.openlocfilehash: b00d96d3f4271ce9fe3b2fc0e65e50e0f354f3b4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291281"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211605"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>如何在 Azure API 管理中配置通知和电子邮件模板
 API 管理提供的功能为特定事件配置通知，以及配置用于和 API 管理实例的管理员及开发人员通信的电子邮件模板。 本文演示如何为可用事件配置通知，并提供配置用于这些事件的电子邮件模板的概述。
@@ -32,7 +32,7 @@ API 管理提供的功能为特定事件配置通知，以及配置用于和 API
 
 ## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>配置通知
 
-1. 选择 **API 管理**实例。
+1. 选择 **API 管理** 实例。
 2. 单击“通知”  即可查看可用的通知。
 
     ![发布者通知][api-management-publisher-notifications]

@@ -13,11 +13,11 @@ origin.date: 05/28/2019
 ms.date: 10/28/2019
 ms.author: v-yiso
 ms.openlocfilehash: d0c724bd20db33d3df904910f94dc226d53c8337
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292880"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211334"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>通过 Azure 虚拟网络连接到 Apache Kafka on HDInsight
 
@@ -292,7 +292,7 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 
 ### <a name="connect-to-the-vpn-gateway"></a>连接到 VPN 网关
 
-若要连接到 VPN 网关，请按[配置点到站点连接](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect)文档中__连接到 Azure__ 部分进行操作。
+若要连接到 VPN 网关，请按 [配置点到站点连接](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect)文档中 __连接到 Azure__ 部分进行操作。
 ## <a name="example-python-client"></a><a id="python-client"></a>示例：Python 客户端
 
 若要验证与 Kafka 的连接，请使用以下步骤来创建并运行 Python 生成者和使用者：
@@ -340,9 +340,9 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
     ```
     将 `'kafka_broker'` 条目替换为本部分中步骤 1 返回的地址：
 
-   * 如果使用__软件 VPN 客户端__，请将 `kafka_broker` 条目替换为工作节点的 IP 地址。
+   * 如果使用 __软件 VPN 客户端__ ，请将 `kafka_broker` 条目替换为工作节点的 IP 地址。
 
-   * 如果__已启用通过自定义 DNS 服务器进行名称解析__，请将 `kafka_broker` 条目替换为工作节点的 FQDN。
+   * 如果 __已启用通过自定义 DNS 服务器进行名称解析__ ，请将 `kafka_broker` 条目替换为工作节点的 FQDN。
 
      > [!NOTE]
      > 此代码将字符串 `test message` 发送给主题 `testtopic`。 Kafka on HDInsight 的默认配置是创建主题（如果它尚不存在）。
@@ -363,9 +363,9 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 
     将 `'kafka_broker'` 条目替换为本部分中步骤 1 返回的地址：
 
-    * 如果使用__软件 VPN 客户端__，请将 `kafka_broker` 条目替换为工作节点的 IP 地址。
+    * 如果使用 __软件 VPN 客户端__ ，请将 `kafka_broker` 条目替换为工作节点的 IP 地址。
 
-    * 如果__已启用通过自定义 DNS 服务器进行名称解析__，请将 `kafka_broker` 条目替换为工作节点的 FQDN。
+    * 如果 __已启用通过自定义 DNS 服务器进行名称解析__ ，请将 `kafka_broker` 条目替换为工作节点的 FQDN。
 
 ## <a name="next-steps"></a>后续步骤
 

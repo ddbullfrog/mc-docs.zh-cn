@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 76bccf0600a3ad39b1aebdce4524aa66a5b6c083
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: ee6f6bb1476987824923a4f65fdba2dbc68b8e2c
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297706"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471157"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义电话因素技术配置文件
 
@@ -99,7 +99,7 @@ OutputClaimsTransformations 元素可以包含用于修改输出声明或生成�
 
 ### <a name="ui-elements"></a>UI 元素
 
-可以[本地化](localization-string-ids.md#azure-mfa-error-messages)电话因素身份验证页的用户界面元素。
+可以[本地化](localization-string-ids.md#phone-factor-authentication-page-user-interface-elements)电话因素身份验证页的用户界面元素。
 
 ## <a name="next-steps"></a>后续步骤
 

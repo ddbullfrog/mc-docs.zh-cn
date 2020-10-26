@@ -10,11 +10,11 @@ ms.date: 11/04/2019
 ms.author: v-yiso
 ms.custom: seodec18
 ms.openlocfilehash: 6d0eadeaabd5f676646f22d76e965184bb29bcbe
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291951"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211558"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT 要求
 要使用 ExpressRoute 连接到 Microsoft 云服务，需要设置并管理 NAT。 某些连接服务提供商以托管服务形式提供 NAT 的设置和管理。 请咨询连接服务提供商，以确定他们是否提供此类服务。 如果没有，则必须遵守相关要求，如下所述。 

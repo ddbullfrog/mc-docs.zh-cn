@@ -58,7 +58,7 @@ SFTP 链接服务支持以下属性：
 | type | type 属性必须设置为 Sftp。 |是 |
 | host | SFTP 服务器的名称或 IP 地址。 |是 |
 | port | SFTP 服务器侦听的端口。<br/>允许的值为整数，默认值为 22。 |否 |
-| skipHostKeyValidation | 指定是否要跳过主机密钥验证。<br/>允许的值为 *true* 和 *true*（默认值）。  | 否 |
+| skipHostKeyValidation | 指定是否要跳过主机密钥验证。<br/>允许的值为 *true* 和 *true* （默认值）。  | 否 |
 | hostKeyFingerprint | 指定主机密钥的指纹。 | 是（如果“skipHostKeyValidation”设置为 false）。  |
 | authenticationType | 指定身份验证类型。<br/>允许的值为 Basic 和 SshPublicKey 。 有关更多属性，请参阅[使用基本身份验证](#use-basic-authentication)部分。 有关 JSON 示例，请参阅[使用 SSH 公钥身份验证](#use-ssh-public-key-authentication)部分。 |是 |
 | connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 若要了解详细信息，请参阅[先决条件](#prerequisites)部分。 如果未指定集成运行时，服务会使用默认的 Azure Integration Runtime。 |否 |
@@ -232,7 +232,7 @@ SFTP 支持基于格式的复制源中 `storeSettings` 设置下的以下属性�
 | 选项 2：通配符<br>- wildcardFileName | 指定的 folderPath/wildcardFolderPath 下带有通配符的文件名，用于筛选源文件。 <br>允许的通配符为 `*`（匹配零个或零个以上的字符）和 `?`（匹配零个或单个字符）；如果实际文件夹名称中包含通配符或此转义字符，请使用 `^` 进行转义。  如需更多示例，请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)。 | 是 |
 | 选项 3：文件列表<br>- fileListPath | 表示要复制指定文件集。 指向一个文本文件，其中包含要复制的文件列表（每行一个文件，带有数据集中所配置路径的相对路径）。<br/>使用此选项时，请不要在数据集中指定文件名。 如需更多示例，请参阅[文件列表示例](#file-list-examples)。 |否 |
 | ***其他设置*** |  | |
-| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 *true*（默认值）和 *false*。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
+| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 *true* （默认值）和 *false* 。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
 | deleteFilesAfterCompletion | 指示是否会在二进制文件成功移到目标存储后将其从源存储中删除。 文件删除按文件进行。因此，当复制活动失败时，你会看到一些文件已经复制到目标并从源中删除，而另一些文件仍保留在源存储中。 <br/>此属性仅在二进制文件复制方案中有效。 默认值：false。 |否 |
 | modifiedDatetimeStart    | 文件根据“上次修改时间”属性进行筛选。 <br>如果文件的上次修改时间在 `modifiedDatetimeStart` 到 `modifiedDatetimeEnd` 之间的范围内，则会选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 NULL，这意味着不向数据集应用任何文件特性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。<br/>如果配置 `fileListPath`，则此属性不适用。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                            |
@@ -292,7 +292,7 @@ SFTP 支持基于格式的复制接收器中 `storeSettings` 设置下的以下�
 | type                     | `storeSettings` 下的 type 属性必须设置为 SftpWriteSettings。 | 是      |
 | copyBehavior             | 定义以基于文件的数据存储中的文件为源时的复制行为。<br/><br/>允许值包括：<br/><b>- PreserveHierarchy（默认）</b>：将文件层次结构保留到目标文件夹中。 指向源文件夹的源文件相对路径与指向目标文件夹的目标文件相对路径相同。<br/><b>- FlattenHierarchy</b>：源文件夹中的所有文件都位于目标文件夹的第一级中。 目标文件具有自动生成的名称。 <br/><b>- MergeFiles</b>：将源文件夹中的所有文件合并到一个文件中。 如果指定了文件名，则合并文件的名称为指定名称。 否则，它是自动生成的文件名。 | 否       |
 | maxConcurrentConnections | 可以同时连接到存储区存储的连接数。 仅在要限制与数据存储的并发连接时指定一个值。 | 否       |
-| useTempFileRename | 指示是将其上传到临时文件并重命名，还是将其直接写入到目标文件夹或文件位置。 默认情况下，Azure 数据工厂先将数据写入到临时文件，然后在上传完成时重命名文件。 采取此顺序有助于 (1) 避免可能会导致文件损坏的冲突（如果有其他进程对同一文件进行写入操作）；(2) 在整个传输过程中确保文件的原始版本存在。 如果 SFTP 服务器不支持重命名操作，请禁用此选项，并确保不会对目标文件进行并发写入操作。 有关详细信息，请查看此表末尾的故障排除提示。 | 否。 默认值为 *true*。 |
+| useTempFileRename | 指示是将其上传到临时文件并重命名，还是将其直接写入到目标文件夹或文件位置。 默认情况下，Azure 数据工厂先将数据写入到临时文件，然后在上传完成时重命名文件。 采取此顺序有助于 (1) 避免可能会导致文件损坏的冲突（如果有其他进程对同一文件进行写入操作）；(2) 在整个传输过程中确保文件的原始版本存在。 如果 SFTP 服务器不支持重命名操作，请禁用此选项，并确保不会对目标文件进行并发写入操作。 有关详细信息，请查看此表末尾的故障排除提示。 | 否。 默认值为 *true* 。 |
 | operationTimeout | 每个对 SFTP 服务器的写入请求超时之前的等待时间。默认值为 60 分钟 (01:00:00)。|否 |
 
 >[!TIP]
@@ -337,7 +337,7 @@ SFTP 支持基于格式的复制接收器中 `storeSettings` 设置下的以下�
 
 本部分介绍对文件夹路径和文件名使用通配符筛选器后产生的行为。
 
-| folderPath | fileName | recursive | 源文件夹结构和筛选器结果（用**粗体**表示的文件已检索）|
+| folderPath | fileName | recursive | 源文件夹结构和筛选器结果（用 **粗体** 表示的文件已检索）|
 |:--- |:--- |:--- |:--- |
 | `Folder*` | （为空，使用默认值） | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*` | （为空，使用默认值） | 是 | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
@@ -379,10 +379,10 @@ SFTP 支持基于格式的复制接收器中 `storeSettings` 设置下的以下�
 | modifiedDatetimeStart | 文件根据“上次修改时间”属性进行筛选。 如果文件的上次修改时间在 `modifiedDatetimeStart` 到 `modifiedDatetimeEnd` 之间的范围内，则会选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br/><br/> 当你要对大量文件进行文件筛选时，启用此设置会影响数据移动的整体性能。 <br/><br/> 属性可以为 NULL，这意味着不向数据集应用任何文件特性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。| 否 |
 | modifiedDatetimeEnd | 文件根据“上次修改时间”属性进行筛选。 如果文件的上次修改时间在 `modifiedDatetimeStart` 到 `modifiedDatetimeEnd` 之间的范围内，则会选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br/><br/> 当你要对大量文件进行文件筛选时，启用此设置会影响数据移动的整体性能。 <br/><br/> 属性可以为 NULL，这意味着不向数据集应用任何文件特性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。| 否 |
 | format | 若要在基于文件的存储之间按原样复制文件（二进制副本），可以在输入和输出数据集定义中跳过格式节。<br/><br/>若要分析具有特定格式的文件，以下是受支持的文件格式类型：TextFormat、JsonFormat、AvroFormat、OrcFormat 和 ParquetFormat    。 请将格式中的“type”属性设置为上述值之一。 有关详细信息，请参阅[文本格式](supported-file-formats-and-compression-codecs-legacy.md#text-format)、[Json 格式](supported-file-formats-and-compression-codecs-legacy.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs-legacy.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs-legacy.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs-legacy.md#parquet-format)部分。 |否（仅适用于二进制复制方案） |
-| compression | 指定数据的压缩类型和级别。 有关详细信息，请参阅[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs-legacy.md#compression-support)。<br/>支持的类型为 *GZip*、*Deflate*、*BZip2* 和 *ZipDeflate*。<br/>支持的级别为“最佳”和“最快”。 |否 |
+| compression | 指定数据的压缩类型和级别。 有关详细信息，请参阅[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs-legacy.md#compression-support)。<br/>支持的类型为 *GZip* 、 *Deflate* 、 *BZip2* 和 *ZipDeflate* 。<br/>支持的级别为“最佳”和“最快”。 |否 |
 
 >[!TIP]
->如需复制文件夹下的所有文件，请仅指定 *folderPath*。<br>若要复制具有指定名称的单个文件，请使用文件夹部分指定 folderPath 并使用文件名指定 fileName。<br>如需复制文件夹下的一部分文件，请使用文件夹部分指定 folderPath 并使用通配符筛选器指定 fileName。
+>如需复制文件夹下的所有文件，请仅指定 *folderPath* 。<br>若要复制具有指定名称的单个文件，请使用文件夹部分指定 folderPath 并使用文件名指定 fileName。<br>如需复制文件夹下的一部分文件，请使用文件夹部分指定 folderPath 并使用通配符筛选器指定 fileName。
 
 >[!NOTE]
 >如果你将“fileFilter”属性用于文件筛选器，则系统仍按原样支持它，但我们建议你从现在起使用添加到“fileName”的新筛选器功能。 

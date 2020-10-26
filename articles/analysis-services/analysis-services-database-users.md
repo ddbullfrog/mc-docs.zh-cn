@@ -5,17 +5,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/15/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5706f1e1bb9b61b1f47ad658a46ac5f019df931b
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.custom: references_regions
+ms.openlocfilehash: 1e8aa3c64070ecf74ceaf788d6ac5ac4bdc8d149
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146224"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470147"
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 
@@ -34,7 +35,7 @@ ms.locfileid: "91146224"
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>在 Visual Studio 中添加或管理角色和用户  
 
-1. 在**表格模型资源管理器**中，右键单击“角色”。  
+1. 在 **表格模型资源管理器** 中，右键单击“角色”。  
 
 2. 在“角色管理器”中单击“新建”。   
 
@@ -80,7 +81,7 @@ ms.locfileid: "91146224"
 
 4. 单击“成员资格”，并按电子邮件地址在租户 Azure AD 中输入用户或组。
 
-    :::image type="content" source="./media/analysis-services-database-users/aas-roles-adduser-ssms.png" alt-text="添加用户":::
+    :::image type="content" source="./media/analysis-services-database-users/aas-roles-adduser-ssms.png" alt-text="表格模型资源管理器中的角色和用户":::
 
 5. 如果正在创建的角色具有“读取”权限，可以使用 DAX 公式添加行筛选器。 单击“行筛选器”，选择表，并在“DAX 筛选器”字段中键入 DAX 公式。 
 

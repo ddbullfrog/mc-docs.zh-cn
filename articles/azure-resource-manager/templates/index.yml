@@ -11,16 +11,16 @@ metadata:
   ms.collection: na
   origin.date: 07/30/2020
   author: rockboyfor
-  ms.date: 08/24/2020
+  ms.date: 10/26/2020
   ms.testscope: no
   ms.testdate: 
   ms.author: v-yeche
-  ms.openlocfilehash: 9479911d6ea51c408dac383316e3d9c3134bb2f4
-  ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+  ms.openlocfilehash: 64cacf566564153435b82ca121b1cd61c8fab6cb
+  ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/25/2020
-  ms.locfileid: "88807834"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92470365"
 landingContent:
 - title: 关于 ARM 模板
   linkLists:
@@ -111,13 +111,13 @@ landingContent:
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.resources
     - text: Azure CLI
-      url: https://docs.azure.cn/cli/resource?view=azure-cli-latest
+      url: https://docs.azure.cn/cli/resource
     - text: .NET
       url: https://docs.azure.cn/dotnet/api/microsoft.azure.management.resourcemanager
     - text: Java
-      url: https://docs.azure.cn/java/api/com.microsoft.azure.management.resources?view=azure-java-stable
+      url: https://docs.azure.cn/java/api/com.microsoft.azure.management.resources
     - text: Python
-      url: https://docs.microsoft.com/python/api/overview/azure/resources?view=azure-python
+      url: https://docs.microsoft.com/python/api/overview/azure/resources
 - title: 管理模板
   linkLists:
   - linkListType: how-to-guide

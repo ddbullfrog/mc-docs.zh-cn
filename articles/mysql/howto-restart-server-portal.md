@@ -35,11 +35,11 @@ ms.locfileid: "92041723"
 
 1. 在 Azure 门户中，选择 Azure Database for MySQL 服务器。
 
-2. 在服务器“概述”页的工具栏中，单击“重启”********。
+2. 在服务器“概述”页的工具栏中，单击“重启”  。
 
    :::image type="content" source="./media/howto-restart-server-portal/2-server.png" alt-text="Azure Database for MySQL -“概述”-“重启”按钮":::
 
-3. 单击“是”以确认重启服务器****。
+3. 单击“是”以确认重启服务器  。
 
    :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for MySQL -“概述”-“重启”按钮":::
 

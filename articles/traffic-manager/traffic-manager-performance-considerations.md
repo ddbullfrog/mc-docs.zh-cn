@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/16/2017
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2402732f43e6e54f6bb42da6aefa749589b9aaa9
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 29e5645135b89bb6e01b6036eedd02c626a11e62
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395239"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472066"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>流量管理器的性能注意事项
 
@@ -65,7 +65,7 @@ DNS 名称解析速度会加快，结果会被缓存。 初始 DNS 查找速度�
 
     由于结果会缓存，针对同一个流量管理器终结点执行第二次测试时，DNS 查找仅花费了 0.002 秒。
 
-    :::image type="content" source="./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png" alt-text="pulse2":::
+    :::image type="content" source="./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png" alt-text="pulse1":::
 
 * [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
 

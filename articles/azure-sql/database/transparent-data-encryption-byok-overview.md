@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 03/18/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: eb7e7b00f821c2631729d69592ebd3a0c3fe6884
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/29/2020
+ms.openlocfilehash: 40e3360723a7c83197af91286286282c7e262f73
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223280"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470420"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>使用客户管理的密钥进行 Azure SQL 透明数据加密
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -76,7 +76,7 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 
 - Key Vault 和 SQL 数据库/托管实例必须属于同一个 Azure Active Directory 租户。 不支持 Key Vault 与服务器进行跨租户的交互。 以后若要移动资源，必须重新配置 TDE 和 AKV。 详细了解如何[移动资源](../../azure-resource-manager/management/move-resource-group-and-subscription.md)。
 
-- 必须对 Key Vault 启用[软删除](../../key-vault/general/overview-soft-delete.md)功能，以防止意外删除密钥（或 Key Vault）时发生数据丢失。 软删除的资源将保留 90 天，除非客户在此期间恢复或清除这些资源。 “恢复”和“清除”操作在 Key Vault 访问策略中各自具有相关联的权限 。 软删除功能默认情况下处于禁用状态，可通过 [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) 或 [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete) 将其启用。 无法通过 Azure 门户启用此功能。  
+- 必须对 Key Vault 启用[软删除](../../key-vault/general/soft-delete-overview.md)功能，以防止意外删除密钥（或 Key Vault）时发生数据丢失。 软删除的资源将保留 90 天，除非客户在此期间恢复或清除这些资源。 “恢复”和“清除”操作在 Key Vault 访问策略中各自具有相关联的权限 。 软删除功能默认情况下处于禁用状态，可通过 [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) 或 [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete) 将其启用。 无法通过 Azure 门户启用此功能。  
 
 - 使用服务器或托管实例的 Azure Active Directory 标识向其授予对 Key Vault 的访问权限（get、wrapKey、unwrapKey）。 使用 Azure 门户时，会自动创建 Azure AD 标识。 使用 PowerShell 或 CLI 时，必须显式创建 Azure AD 标识，并且应验证创建是否完成。 有关使用 PowerShell 进行配置的详细分步说明，请参阅[配置支持 BYOK 的 TDE](transparent-data-encryption-byok-configure.md) 和[为 SQL 托管实例配置支持 BYOK 的 TDE](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md)。
 
@@ -112,7 +112,7 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 
 - 每次对密钥进行了任何更改（例如，密钥属性、标记、ACL）后，都创建新的备份。
 
-- 轮换密钥时保留 Key Vault 中密钥的**先前版本**，以便可以还原旧数据库备份。 更改数据库的 TDE 保护器后，数据库的旧备份**不会更新**为使用最新的 TDE 保护器。 在还原时，每个备份需要包含创建该备份时用于加密该备份的 TDE 保护器。 可以遵照[使用 PowerShell 轮换透明数据加密保护器](transparent-data-encryption-byok-key-rotation.md)中的说明执行密钥轮换。
+- 轮换密钥时保留 Key Vault 中密钥的 **先前版本** ，以便可以还原旧数据库备份。 更改数据库的 TDE 保护器后，数据库的旧备份 **不会更新** 为使用最新的 TDE 保护器。 在还原时，每个备份需要包含创建该备份时用于加密该备份的 TDE 保护器。 可以遵照[使用 PowerShell 轮换透明数据加密保护器](transparent-data-encryption-byok-key-rotation.md)中的说明执行密钥轮换。
 
 - 即使是在切换到服务管理的密钥之后，也应该保留 AKV 中以前使用的所有密钥。 这可以确保能够使用 AKV 中存储的 TDE 保护器还原数据库备份。  通过 Azure Key Vault 创建的 TDE 保护器必须一直保留到使用服务托管的密钥创建所有剩余存储的备份为止。 使用 [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) 创建这些密钥的可恢复备份副本。
 
@@ -129,7 +129,7 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 
 - 如果在 8 小时内恢复了密钥访问权限，数据库将在下一小时自动修复。
 
-- 如果超过 8 小时后还原了密钥访问权限，数据库将无法自动修复，并且要使数据库恢复正常运行，需要在门户上执行其他步骤，并且可能会花费大量时间，具体取决于数据库的大小。 数据库恢复联机后，先前配置的服务器级别设置（例如[故障转移组](auto-failover-group-overview.md)配置、时间点还原历史记录和标记）**将丢失**。 因此，建议实现一个通知系统，以便在 8 小时内识别和解决基础密钥访问问题。
+- 如果超过 8 小时后还原了密钥访问权限，数据库将无法自动修复，并且要使数据库恢复正常运行，需要在门户上执行其他步骤，并且可能会花费大量时间，具体取决于数据库的大小。 数据库恢复联机后，先前配置的服务器级别设置（例如 [故障转移组](auto-failover-group-overview.md)配置、时间点还原历史记录和标记） **将丢失** 。 因此，建议实现一个通知系统，以便在 8 小时内识别和解决基础密钥访问问题。
 
 ### <a name="accidental-tde-protector-access-revocation"></a>意外的 TDE 保护器访问权限吊销
 
@@ -157,7 +157,7 @@ Key Vault 管理员还可以[启用 Key Vault 审核事件的日志记录](../..
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>使用客户管理的 TDE 进行数据库备份和还原
 
-使用 Key Vault 中的密钥通过 TDE 加密数据库后，所有新生成的备份也会使用同一个 TDE 保护器进行加密。 更改 TDE 保护器后，数据库的旧备份**不会更新**为使用最新的 TDE 保护器。
+使用 Key Vault 中的密钥通过 TDE 加密数据库后，所有新生成的备份也会使用同一个 TDE 保护器进行加密。 更改 TDE 保护器后，数据库的旧备份 **不会更新** 为使用最新的 TDE 保护器。
 
 若要还原使用 Key Vault 中的 TDE 保护器加密的备份，请确保密钥材料可供目标服务器使用。 因此，我们建议在 Key Vault 中保留所有旧版 TDE 保护器，以便可以还原数据库备份。
 

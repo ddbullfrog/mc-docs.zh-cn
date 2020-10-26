@@ -513,7 +513,7 @@ Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name PagingFiles -Value 'D:\pagefile.sys' -Type MultiString -Force
     ```
 
-    如果某个数据磁盘已附加到 VM，则临时驱动器卷的驱动器号通常为 *D*。此驱动器号可能有所不同，具体取决于你的设置，以及可用驱动器的数目。
+    如果某个数据磁盘已附加到 VM，则临时驱动器卷的驱动器号通常为 *D* 。此驱动器号可能有所不同，具体取决于你的设置，以及可用驱动器的数目。
 
     - 我们建议禁用防病毒软件可能提供的脚本阻止程序。 这些阻止程序可能会干扰并阻止从映像部署新 VM 时执行的 Windows 预配代理脚本。
 

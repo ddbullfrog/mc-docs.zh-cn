@@ -12,11 +12,11 @@ origin.date: 02/17/2020
 ms.date: 08/03/2020
 ms.author: v-tawe
 ms.openlocfilehash: 04dde397ff056850f7fbced6057837c9de7d373f
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87516281"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211488"
 ---
 # <a name="get-started-with-custom-voice"></a>自定义语音入门
 
@@ -61,7 +61,7 @@ ms.locfileid: "87516281"
 
 ## <a name="how-to-create-a-project"></a>如何创建项目
 
-数据、模型、测试和终结点等内容在自定义语音门户中组织成**项目**。 每个项目特定于某个国家/语言，以及要创建的语音的性别。 例如，对于呼叫中心的使用美式英语 (en-US) 的聊天机器人，可以创建女性语音项目。
+数据、模型、测试和终结点等内容在自定义语音门户中组织成 **项目** 。 每个项目特定于某个国家/语言，以及要创建的语音的性别。 例如，对于呼叫中心的使用美式英语 (en-US) 的聊天机器人，可以创建女性语音项目。
 
 若要创建第一个项目，请选择“文本转语音/自定义语音”选项卡，然后单击“新建项目”。  遵照向导中的说明创建项目。 创建项目后，将看到四个选项卡：“数据”、“训练”、“测试”和“部署”。    使用[后续步骤](#next-steps)中提供的链接了解如何使用每个选项卡。
 

@@ -107,12 +107,12 @@ Batch 服务在附加到 VM 的网络接口 (NIC) 级别添加网络安全组 (N
 
 - 使用 NSG 规则来拒绝出站 Internet 连接。
 
-- 对于__计算实例__或__计算群集__，请将出站流量限制为以下各项：
-   - Azure 存储 - 使用__服务标记__ __Storage.RegionName__。 其中 `{RegionName}` 是 Azure 区域的名称。
-   - Azure 容器注册表 - 使用__服务标记__ __AzureContainerRegistry.RegionName__。 其中 `{RegionName}` 是 Azure 区域的名称。
+- 对于 __计算实例__ 或 __计算群集__ ，请将出站流量限制为以下各项：
+   - Azure 存储 - 使用 __服务标记__ __Storage.RegionName__ 。 其中 `{RegionName}` 是 Azure 区域的名称。
+   - Azure 容器注册表 - 使用 __服务标记__ __AzureContainerRegistry.RegionName__ 。 其中 `{RegionName}` 是 Azure 区域的名称。
    - Azure 机器学习，通过使用服务标记 AzureMachineLearning
    - Azure 资源管理器，通过使用服务标记 AzureResourceManager
-   - Azure Active Directory - 使用__服务标记__ __AzureActiveDirectory__
+   - Azure Active Directory - 使用 __服务标记__ __AzureActiveDirectory__
 
 下图展示了 Azure 门户中的 NSG 规则配置：
 

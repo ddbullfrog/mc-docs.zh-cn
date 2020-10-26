@@ -211,7 +211,7 @@ Azure 存储资源管理器支持为 SQL、MongoDB、图形和表 API 配置的 
     1. 在左侧窗格中，打开“实体”，然后选择“添加” 。
     1. 在“添加实体”对话框中，编辑内容。
     1. 选择“添加属性”按钮以添加属性。
-    1. 选择“插入”****。
+    1. 选择“插入”  。
 
         :::image type="content" source="./media/storage-explorer/table.png" alt-text="显示左侧窗格中的插件图标的屏幕截图。":::
 

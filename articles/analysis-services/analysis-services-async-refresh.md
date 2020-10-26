@@ -1,22 +1,21 @@
 ---
-title: Azure Analysis Services 模型的异步刷新 | Azure
+title: Azure Analysis Services 模型的异步刷新 | Azure Docs
 description: 介绍如何使用 Azure Analysis Services REST API 对模型数据的异步刷新进行编码。
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/15/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 04/30/2020
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: dc95a19b6ca0fed9410d2b85788c5a1ca37602fd
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 6072162d6c0a70641c2a6fb46f64be9afa872b95
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146755"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470166"
 ---
 <!--Verify successfully-->
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 执行异步刷新
@@ -70,7 +69,7 @@ https://chinanorth.asazure.chinacloudapi.cn/servers/myserver/models/AdventureWor
 - 用户或应用程序必须在服务器或模型中具有足够的权限才能发出请求的调用。 权限级别由模型或者服务器上的管理员组中的角色确定。
 
     > [!IMPORTANT]
-    > 目前，**服务器管理员**角色权限是必需的。
+    > 目前， **服务器管理员** 角色权限是必需的。
 
 ## <a name="post-refreshes"></a>POST /refreshes
 
@@ -224,7 +223,7 @@ CommitMode 等于 partialBatch。 针对大型数据集执行可能需要几个�
 
 <!--MOONCAKE: CUSTOMIZED-->
 
-1.  在代码示例中，查找 **string authority = …** ，将 **login.windows.net** 替换为 **login.chinacloudapi.cn**，并将 **common** 替换为你组织的租户 ID。
+1.  在代码示例中，查找 **string authority = …** ，将 **login.windows.net** 替换为 **login.chinacloudapi.cn** ，并将 **common** 替换为你组织的租户 ID。
     
     >[!NOTE]
     > 必须修改从 [GitHub 上的 RestApiSample](https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample) 下载或引用的代码示例，以适合 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的 VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。

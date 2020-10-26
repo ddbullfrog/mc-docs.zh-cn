@@ -7,15 +7,15 @@ author: tgore03
 ms.service: cloud-services
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
 ms.custom: devx-track-python
-ms.openlocfilehash: 96141f3cd3c125734dc9f454f4fd19913ef139d3
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 64184d060982e9fcd1024ac31ba6cacf1ffdc0df
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721118"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471822"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>用于 Visual Studio 的 Python 工具中的 Python Web 角色和辅助角色
 
@@ -68,9 +68,9 @@ Azure 提供了三种用于运行应用程序的计算模型：[Azure 应用服�
 > 
 > 
 
-安装脚本的主要问题在于无法安装 Python。 首先，请在 [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 文件中定义两个[启动任务](cloud-services-startup-tasks.md)。 第一个任务 (**PrepPython.ps1**) 下载并安装 Python 运行时。 第二个任务 (**PipInstaller.ps1**) 运行 pip，安装可能存在的任何依赖项。
+安装脚本的主要问题在于无法安装 Python。 首先，请在 [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 文件中定义两个[启动任务](cloud-services-startup-tasks.md)。 第一个任务 ( **PrepPython.ps1** ) 下载并安装 Python 运行时。 第二个任务 ( **PipInstaller.ps1** ) 运行 pip，安装可能存在的任何依赖项。
 
-以下脚本是针对 Python 3.5 编写的。 要使用 2.x 版 Python，请针对两个启动任务以及运行时任务将 **PYTHON2** 变量文件设置为 **on**：`<Variable name="PYTHON2" value="<mark>on</mark>" />`。
+以下脚本是针对 Python 3.5 编写的。 要使用 2.x 版 Python，请针对两个启动任务以及运行时任务将 **PYTHON2** 变量文件设置为 **on** ：`<Variable name="PYTHON2" value="<mark>on</mark>" />`。
 
 ```xml
 <Startup>
@@ -166,7 +166,7 @@ Azure 提供了三种用于运行应用程序的计算模型：[Azure 应用服�
 接下来，在角色的 **./bin** 文件夹中创建 **PrepPython.ps1** 和 **PipInstaller.ps1** 文件。
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-此脚本安装 Python。 如果 **PYTHON2** 环境变量设置为 **on**，则安装 Python 2.7，否则安装 Python 3.5。
+此脚本安装 Python。 如果 **PYTHON2** 环境变量设置为 **on** ，则安装 Python 2.7，否则安装 Python 3.5。
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
@@ -213,7 +213,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-此脚本调用 pip 并安装 **requirements.txt** 文件中的所有依赖项。 如果 **PYTHON2** 环境变量设置为 **on**，则使用 Python 2.7，否则使用 Python 3.5。
+此脚本调用 pip 并安装 **requirements.txt** 文件中的所有依赖项。 如果 **PYTHON2** 环境变量设置为 **on** ，则使用 Python 2.7，否则使用 Python 3.5。
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -242,13 +242,13 @@ if (-not $is_emulated){
 
 #### <a name="modify-launchworkerps1"></a>修改 LaunchWorker.ps1
 > [!NOTE]
-> 对于**辅助角色**项目，需要 **LauncherWorker.ps1** 文件才能执行启动文件。 在“Web 角色”  项目中，会在项目属性中定义该启动文件。
+> 对于 **辅助角色** 项目，需要 **LauncherWorker.ps1** 文件才能执行启动文件。 在“Web 角色”  项目中，会在项目属性中定义该启动文件。
 > 
 > 
 
 **bin\LaunchWorker.ps1** 最初是为了执行多种准备工作而创建的，但实际上并不起作用。 将该文件中的内容替换为以下脚本。
 
-此脚本从 Python 项目调用 **worker.py** 文件。 如果 **PYTHON2** 环境变量设置为 **on**，则使用 Python 2.7，否则使用 Python 3.5。
+此脚本从 Python 项目调用 **worker.py** 文件。 如果 **PYTHON2** 环境变量设置为 **on** ，则使用 Python 2.7，否则使用 Python 3.5。
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -315,7 +315,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 遵循向导操作。 如果需要，请启用远程桌面。 远程桌面可帮助调试某些功能。
 
-完成配置设置后，单击 **发布**。
+完成配置设置后，单击 **发布** 。
 
 某些进度会显示在输出窗口中，然后会看到“Azure 活动日志”窗口。
 
@@ -324,7 +324,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 部署需要几分钟才能完成，然后 Web 和/或辅助角色会在 Azure 上运行！
 
 ### <a name="investigate-logs"></a>查看日志
-云服务虚拟机启动并安装 Python 后，可以查看日志，找出任何失败消息。 这些日志位于 **C:\Resources\Directory\\{role}\LogFiles** 文件夹中。 从脚本尝试检测是否已安装 Python 时起，**PrepPython.err.txt** 中至少会包含一个错误，而 **PipInstaller.err.txt** 可能会指出 pip 版本已过时。
+云服务虚拟机启动并安装 Python 后，可以查看日志，找出任何失败消息。 这些日志位于 **C:\Resources\Directory\\{role}\LogFiles** 文件夹中。 从脚本尝试检测是否已安装 Python 时起， **PrepPython.err.txt** 中至少会包含一个错误，而 **PipInstaller.err.txt** 可能会指出 pip 版本已过时。
 
 ## <a name="next-steps"></a>后续步骤
 有关在 Python Tools for Visual Studio 中使用 Web 角色和辅助角色的更多详细信息，请参阅 PTVS 文档：
@@ -356,15 +356,12 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 <!--External Link references-->
 
-[Python Tools for Visual Studio]: https://visualstudio.microsoft.com/vs/features/python/?wt.mc_id=aka_ms_python
-[Python Tools for Visual Studio Documentation]: https://docs.microsoft.com/en-us/visualstudio/python/?view=vs-2019
+[Python Tools for Visual Studio]: https://aka.ms/ptvs
+[Python Tools for Visual Studio Documentation]: https://docs.microsoft.com/visualstudio/python/
 [Cloud Service Projects]: https://docs.microsoft.com/visualstudio/python/python-azure-cloud-service-project-template
 [Azure SDK Tools for VS 2013]: https://go.microsoft.com/fwlink/?LinkId=746482
 [Azure SDK Tools for VS 2015]: https://go.microsoft.com/fwlink/?LinkId=746481
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/
-
-
-
 

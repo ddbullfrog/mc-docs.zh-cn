@@ -4,15 +4,15 @@ description: 了解如何使用队列存储输出绑定将 HTTP 触发的 Java �
 author: KarlErickson
 ms.custom: devx-track-java
 ms.author: v-junlch
-ms.date: 08/10/2020
+ms.date: 10/19/2020
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: 8e4d6d4634e20327834af908278a413e524ba5a8
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: b5f5efd39385ca139b463369b0ec9a28c710dc57
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222599"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472068"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>将 Java 函数连接到 Azure 存储
 
@@ -112,7 +112,7 @@ curl -w "\n" https://fabrikam-functions-20190929094703749.chinacloudsites.cn/api
 接下来，应为函数应用启用 Application Insights 监视：
 
 > [!div class="nextstepaction"]
-> [启用 Application Insights 集成](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [启用 Application Insights 集成](configure-monitoring.md#add-to-an-existing-function-app)
 
 
 [Azure Storage Explorer]: https://storageexplorer.com/

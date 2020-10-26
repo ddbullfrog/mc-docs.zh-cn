@@ -9,11 +9,11 @@ origin.date: 09/19/2019
 ms.author: v-yiso
 ms.date: 12/02/2019
 ms.openlocfilehash: a94467597e3e710fa6bfbe6a602f2071ac73a0f6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291950"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211420"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由要求
 若要使用 ExpressRoute 连接到 Microsoft 云服务，需要设置并管理路由。 某些连接服务提供商以托管服务形式提供路由的设置和管理。 请咨询连接服务提供商，以确定他们是否提供此类服务。 如果不提供，则必须遵守以下要求：

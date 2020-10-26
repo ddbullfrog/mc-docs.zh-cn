@@ -2,25 +2,24 @@
 title: 从 Powershell 中的群集删除应用程序
 description: Azure PowerShell 脚本示例 - 从 Service Fabric 群集中删除应用程序。
 services: service-fabric
-documentationcenter: ''
-author: rockboyfor
-manager: digimobile
-editor: ''
+manager: chackdan
 tags: azure-service-management
-ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 origin.date: 01/18/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 11c37e359aaa51a9bec3c2adc6e69a71cb1ff090
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f28450be7e97ef7685dacc28f107fa49b0c88225
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540509"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211855"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>使用 Powershell 从 Service Fabric 群集中删除应用程序
 
@@ -62,8 +61,8 @@ Unregister-ServiceFabricApplicationType -ApplicationTypeName MyApplicationType -
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Service Fabric PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/service-fabric/?view=azureservicefabricps)。
+有关 Service Fabric PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/service-fabric/overview?view=azureservicefabricps)。
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Powershell 示例。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

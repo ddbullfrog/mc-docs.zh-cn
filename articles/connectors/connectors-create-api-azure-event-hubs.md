@@ -10,11 +10,11 @@ ms.date: 03/09/2020
 ms.author: v-yeche
 tags: connectors
 ms.openlocfilehash: 82f21b48c29d03bcb595da6b8fc9ad5f5bc367e4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79293376"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211642"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>使用 Azure 事件中心和 Azure 逻辑应用监视、接收和发送事件
 
@@ -66,7 +66,7 @@ ms.locfileid: "79293376"
 
 1. 在 Azure 门户或 Visual Studio 中创建一个空白的逻辑应用，以便打开逻辑应用设计器。 此示例使用 Azure 门户。
 
-1. 在搜索框中，输入“事件中心”作为筛选器。 从触发器列表中选择此触发器：**当事件在事件中心可用时 - 事件中心**
+1. 在搜索框中，输入“事件中心”作为筛选器。 从触发器列表中选择此触发器： **当事件在事件中心可用时 - 事件中心**
 
    ![选择触发器](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
@@ -122,7 +122,7 @@ ms.locfileid: "79293376"
     选择出现的加号 ( **+** )，然后选择“添加操作”。 
 
 1. 在搜索框中，输入“事件中心”作为筛选器。
-在操作列表中选择此操作：**发送事件 - 事件中心**
+在操作列表中选择此操作： **发送事件 - 事件中心**
 
     ![选择“发送事件”操作](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 

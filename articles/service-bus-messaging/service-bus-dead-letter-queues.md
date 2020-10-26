@@ -61,7 +61,7 @@ DLQ 不会自动执行清理操作。 消息将保留在 DLQ 中，直到显式�
 
 ## <a name="exceeding-timetolive"></a>超过 TimeToLive
 
-[QueueDescription.EnableDeadLetteringOnMessageExpiration](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription) 或 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 属性设置为 **true**（默认值是 **false**）时，所有到期的消息将移到 DLQ，并指定 `TTLExpiredException` 原因代码。
+[QueueDescription.EnableDeadLetteringOnMessageExpiration](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription) 或 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 属性设置为 **true** （默认值是 **false** ）时，所有到期的消息将移到 DLQ，并指定 `TTLExpiredException` 原因代码。
 
 只有当至少有一个活动的接收器正在从主队列或订阅中拉取时，才会清除过期的消息和将其移动到 DLQ，并且[延迟消息](./message-deferral.md)在过期后也不会被清除和移动到死信队列。 这些行为是设计的结果。
 
@@ -85,7 +85,7 @@ DLQ 不会自动执行清理操作。 消息将保留在 DLQ 中，直到显式�
 
 ## <a name="example"></a>示例
 
-下面的代码片段将创建一个消息接收器。 在主队列的接收循环中，此代码使用 [Receive(TimeSpan.Zero)](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 检索消息，该方法请求代理立即返回随时可用的任何消息或返回空结果。 如果此代码接收到一条消息，则会立即将其放弃，从而使 `DeliveryCount` 递增。 系统将此消息移动到 DLQ 后，[ReceiveAsync](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 返回 **null**，主队列为空，且循环退出。
+下面的代码片段将创建一个消息接收器。 在主队列的接收循环中，此代码使用 [Receive(TimeSpan.Zero)](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 检索消息，该方法请求代理立即返回随时可用的任何消息或返回空结果。 如果此代码接收到一条消息，则会立即将其放弃，从而使 `DeliveryCount` 递增。 系统将此消息移动到 DLQ 后， [ReceiveAsync](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 返回 **null** ，主队列为空，且循环退出。
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

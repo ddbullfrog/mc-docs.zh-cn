@@ -10,11 +10,11 @@ origin.date: 06/22/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
 ms.openlocfilehash: 800e512d62087becfe4cbb3f82bb36959975cb8d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243446"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211329"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>向 Azure 逻辑应用的集成帐户添加贸易合作伙伴
 

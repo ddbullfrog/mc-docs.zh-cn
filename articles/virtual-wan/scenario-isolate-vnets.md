@@ -5,19 +5,19 @@ description: 用于路由的方案 - 隔离 VNet
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: conceptual
-origin.date: 08/03/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1fdaf8f7288b228dee6bba05343bb5404f6e9d79
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 5f96b1c5a01e3f17edfefc50a2d552e49f3aa74b
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246981"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472593"
 ---
 <!--Verified successfully for only charactors-->
 # <a name="scenario-isolating-vnets"></a>方案：隔离 VNet
@@ -41,9 +41,9 @@ VNet 将会与此 RT_VNET 路由表关联。 由于它们需要连接到分支�
 
 * 虚拟网络：
   * 关联的路由表：RT_VNET
-  * 传播到路由表：**Default**
+  * 传播到路由表： **Default**
 * 分支：
-  * 关联的路由表：**Default**
+  * 关联的路由表： **Default**
   * 传播到路由表：RT_VNET 和 Default 
 
 请注意，由于只有分支传播到 RT_VNET 路由表，因此只有这些才是 VNet 将要获取的前缀，而其他 VNet 的分支则不是。
@@ -57,7 +57,7 @@ VNet 将会与此 RT_VNET 路由表关联。 由于它们需要连接到分支�
 1. 在每个中心创建自定义路由表。 在此示例中，路由表为 RT_VNet。 若要创建路由表，请参阅[如何配置虚拟中心路由](how-to-virtual-hub-routing.md)。 若要详细了解路由表，请参阅[关于虚拟中心路由](about-virtual-hub-routing.md)。
 2. 创建 RT_VNet 路由表时，请配置以下设置：
 
-   * **Association**：选择要隔离的 VNet。
+   * **Association** ：选择要隔离的 VNet。
    * 传播：为分支选择选项，意味着分支 (VPN/ER/P2S) 连接会将路由传播到此路由表。
 
 :::image type="content" source="./media/routing-scenarios/isolated/isolated-vnets.png" alt-text="隔离的 VNet":::
@@ -67,5 +67,4 @@ VNet 将会与此 RT_VNET 路由表关联。 由于它们需要连接到分支�
 * 有关虚拟 WAN 的详细信息，请参阅[常见问题解答](virtual-wan-faq.md)。
 * 有关虚拟中心路由的详细信息，请参阅[关于虚拟中心路由](about-virtual-hub-routing.md)。
 
-<!-- Update_Description: new article about scenario isolate vnets -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

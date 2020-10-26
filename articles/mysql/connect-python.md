@@ -11,13 +11,13 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 05/26/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 932a25fa099819a5476fbb00d213fecec1298020
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 10/29/2020
+ms.openlocfilehash: 2dd3023ce1e5d5f958164276c7e4f1206aa3510e
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041854"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470428"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Python 连接到 Azure Database for MySQL 并查询其中的数据
 
@@ -63,9 +63,9 @@ ms.locfileid: "92041854"
 
 从 Azure 门户获取连接到 Azure Database for MySQL 所需的连接信息。 需要服务器名称、数据库名称和登录凭据。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 登录 [Azure 门户](https://portal.azure.cn/)。
    
-1. 在门户搜索栏中，搜索并选择创建的 Azure Database for MySQL 服务器，如 **mydemoserver**。
+1. 在门户搜索栏中，搜索并选择创建的 Azure Database for MySQL 服务器，如 **mydemoserver** 。
    
    :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Azure Database for MySQL 服务器名称":::
    
@@ -79,11 +79,11 @@ ms.locfileid: "92041854"
 
 1. 在文本编辑器中创建新的文件。
 1. 将代码示例添加到文件。 在代码中，将 `<mydemoserver>`、`<myadmin>`、`<mypassword>` 和 `<mydatabase>` 占位符替换为 MySQL 服务器和数据库的值。
-1. 将文件保存在项目文件夹中，扩展名为 *.py*，例如 *C:\pythonmysql\createtable.py* 或 */home/username/pythonmysql/createtable.py*。
+1. 将文件保存在项目文件夹中，扩展名为 *.py* ，例如 *C:\pythonmysql\createtable.py* 或 */home/username/pythonmysql/createtable.py* 。
 1. 若要运行代码，请打开命令提示符或 `bash` shell，将目录更改为项目文件夹，例如 `cd pythonmysql`。 键入 `python` 命令，后跟文件名，例如 `python createtable.py`，然后按 Enter。 
    
    > [!NOTE]
-   > 在 Windows 上，如果找不到 *python.exe*，则可能需要将 Python 路径添加到 PATH 环境变量中，或提供 *python.exe* 的完整路径，例如 `C:\python27\python.exe createtable.py`。
+   > 在 Windows 上，如果找不到 *python.exe* ，则可能需要将 Python 路径添加到 PATH 环境变量中，或提供 *python.exe* 的完整路径，例如 `C:\python27\python.exe createtable.py`。
 
 ## <a name="create-a-table-and-insert-data"></a>创建表并插入数据
 

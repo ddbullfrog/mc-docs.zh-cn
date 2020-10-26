@@ -117,8 +117,8 @@ Azure Data Lake Storage Gen2 连接器支持以下身份验证类型。 请参�
 
 2. 向服务主体授予适当权限。 查看[文件和目录上的访问控制列表](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)中的一些示例，来了解 Data Lake Storage Gen2 中的权限的工作原理。
 
-    - **作为源**：在存储资源管理器中，至少授予对所有上游文件夹和文件系统的“执行”权限，并授予对文件的“读取”权限以进行复制 。 或者，在访问控制 (IAM) 中，授予至少“存储 Blob 数据读取者”角色。
-    - **作为接收器**：在存储资源管理器中，至少授予对所有上游文件夹和文件系统的“执行”权限，并授予对接收器文件夹的“写入”权限 。 或者，在访问控制 (IAM) 中，授予至少“存储 Blob 数据参与者”角色。
+    - **作为源** ：在存储资源管理器中，至少授予对所有上游文件夹和文件系统的“执行”权限，并授予对文件的“读取”权限以进行复制 。 或者，在访问控制 (IAM) 中，授予至少“存储 Blob 数据读取者”角色。
+    - **作为接收器** ：在存储资源管理器中，至少授予对所有上游文件夹和文件系统的“执行”权限，并授予对接收器文件夹的“写入”权限 。 或者，在访问控制 (IAM) 中，授予至少“存储 Blob 数据参与者”角色。
 
 >[!NOTE]
 >如果使用数据工厂 UI 进行创作，并且服务主体未在 IAM 中设置为“存储 Blob 数据读取者/参与者”角色，则在执行测试连接或在文件夹中浏览/导航时，请选择“测试到文件路径的连接”或“从指定路径浏览”，然后指定具有“读取 + 执行”权限的路径以继续。
@@ -198,12 +198,12 @@ Azure Data Lake Storage Gen2 连接器支持以下身份验证类型。 请参�
 
 若要使用 Azure 资源托管标识身份验证，请按照以下步骤操作。
 
-1. 通过复制与工厂一起生成的**托管标识对象 ID** 的值，[检索数据工厂托管标识信息](data-factory-service-identity.md#retrieve-managed-identity)。
+1. 通过复制与工厂一起生成的 **托管标识对象 ID** 的值， [检索数据工厂托管标识信息](data-factory-service-identity.md#retrieve-managed-identity)。
 
 2. 向托管标识授予适当权限。 查看[文件和目录上的访问控制列表](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)中的一些示例，来了解 Data Lake Storage Gen2 中的权限的工作原理。
 
-    - **作为源**：在存储资源管理器中，至少授予对所有上游文件夹和文件系统的“执行”权限，并授予对文件的“读取”权限以进行复制 。 或者，在访问控制 (IAM) 中，授予至少“存储 Blob 数据读取者”角色。
-    - **作为接收器**：在存储资源管理器中，至少授予对所有上游文件夹和文件系统的“执行”权限，并授予对接收器文件夹的“写入”权限 。 或者，在访问控制 (IAM) 中，授予至少“存储 Blob 数据参与者”角色。
+    - **作为源** ：在存储资源管理器中，至少授予对所有上游文件夹和文件系统的“执行”权限，并授予对文件的“读取”权限以进行复制 。 或者，在访问控制 (IAM) 中，授予至少“存储 Blob 数据读取者”角色。
+    - **作为接收器** ：在存储资源管理器中，至少授予对所有上游文件夹和文件系统的“执行”权限，并授予对接收器文件夹的“写入”权限 。 或者，在访问控制 (IAM) 中，授予至少“存储 Blob 数据参与者”角色。
 
 >[!NOTE]
 >如果使用数据工厂 UI 进行创作，并且托管标识未在 IAM 中设置为“存储 Blob 数据读取者/参与者”角色，则在执行测试连接或在文件夹中浏览/导航时，请选择“测试到文件路径的连接”或“从指定路径浏览”，然后指定具有“读取 + 执行”权限的路径以继续。
@@ -247,7 +247,7 @@ Azure Data Lake Storage Gen2 连接器支持以下身份验证类型。 请参�
 
 | properties   | 说明                                                  | 必需 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | 数据集中 `location` 下的 type 属性必须设置为 **AzureBlobFSLocation**。 | 是      |
+| type       | 数据集中 `location` 下的 type 属性必须设置为 **AzureBlobFSLocation** 。 | 是      |
 | fileSystem | Data Lake Storage Gen2 文件系统名称。                              | 否       |
 | folderPath | 给定文件系统下的文件夹路径。 如果要使用通配符筛选文件夹，请跳过此设置并在活动源设置中指定。 | 否       |
 | fileName   | 给定 fileSystem + folderPath 下的文件名。 如果要使用通配符筛选文件，请跳过此设置并在活动源设置中指定。 | 否       |
@@ -297,14 +297,14 @@ Azure Data Lake Storage Gen2 连接器支持以下身份验证类型。 请参�
 
 | properties                 | 说明                                                  | 必需                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | `storeSettings` 下的 type 属性必须设置为 **AzureBlobFSReadSettings**。 | 是                                           |
+| type                     | `storeSettings` 下的 type 属性必须设置为 **AzureBlobFSReadSettings** 。 | 是                                           |
 | 找到要复制的文件： |  |  |
 | 选项 1：静态路径<br> | 从数据集中指定的给定文件系统或文件夹/文件路径复制。 若要复制文件系统/文件夹中的所有文件，请另外将 `wildcardFileName` 指定为 `*`。 |  |
 | 选项 2：通配符<br>- wildcardFolderPath | 数据集中配置的给定文件系统下带有通配符的文件夹路径，用于筛选源文件夹。 <br>允许的通配符为：`*`（匹配零个或更多个字符）和 `?`（匹配零个或单个字符）；如果实际文件夹名称中包含通配符或此转义字符，请使用 `^` 进行转义。 <br>请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 否                                            |
 | 选项 2：通配符<br>- wildcardFileName | 给定文件系统 + folderPath/wildcardFolderPath 下带有通配符的文件名，用于筛选源文件。 <br>允许的通配符为：`*`（匹配零个或更多个字符）和 `?`（匹配零个或单个字符）；如果实际文件夹名称中包含通配符或此转义字符，请使用 `^` 进行转义。  请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 是 |
 | 选项 3：文件列表<br>- fileListPath | 指明复制给定文件集。 指向包含要复制的文件列表的文本文件，每行一个文件（即数据集中所配置路径的相对路径）。<br/>使用此选项时，请不要在数据集中指定文件名。 请参阅[文件列表示例](#file-list-examples)中的更多示例。 |否 |
 | 其他设置： |  | |
-| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 **true**（默认值）和 **false**。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
+| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 **true** （默认值）和 **false** 。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
 | deleteFilesAfterCompletion | 指示是否会在二进制文件成功移到目标存储后将其从源存储中删除。 文件删除按文件进行。因此，当复制活动失败时，你会看到一些文件已经复制到目标并从源中删除，而另一些文件仍保留在源存储中。 <br/>此属性仅在二进制文件复制方案中有效。 默认值：false。 |否 |
 | modifiedDatetimeStart    | 基于属性“上次修改时间”的文件筛选器。 <br>如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 NULL，这意味着不向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。<br/>如果配置 `fileListPath`，则此属性不适用。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                            |
@@ -361,7 +361,7 @@ Azure Data Lake Storage Gen2 连接器支持以下身份验证类型。 请参�
 
 | properties                 | 说明                                                  | 必需 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | `storeSettings` 下的 type 属性必须设置为 **AzureBlobFSWriteSettings**。 | 是      |
+| type                     | `storeSettings` 下的 type 属性必须设置为 **AzureBlobFSWriteSettings** 。 | 是      |
 | copyBehavior             | 定义以基于文件的数据存储中的文件为源时的复制行为。<br/><br/>允许值包括：<br/><b>- PreserveHierarchy（默认）</b>：将文件层次结构保留到目标文件夹中。 指向源文件夹的源文件相对路径与指向目标文件夹的目标文件相对路径相同。<br/><b>- FlattenHierarchy</b>：源文件夹中的所有文件都位于目标文件夹的第一级中。 目标文件具有自动生成的名称。 <br/><b>- MergeFiles</b>：将源文件夹中的所有文件合并到一个文件中。 如果指定了文件名，则合并文件的名称为指定名称。 否则，它是自动生成的文件名。 | 否       |
 | blockSizeInMB | 指定用于将数据写入 ADLS Gen2 的块大小（以 MB 为单位）。 详细了解[块 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs)。 <br/>允许的值介于 4 MB 到 100 MB 之间。 <br/>默认情况下，ADF 会根据源存储类型和数据自动确定块大小。 以非二进制格式复制到 ADLS Gen2 时，默认块大小为 100 MB，这样最多能容纳 4.95 TB 数据。 当数据不大时，它可能并非最优，特别是当你在网络状况不佳的情况下使用自承载集成运行时的时候，这会导致操作超时或性能问题。 可以显式指定块大小，同时确保 blockSizeInMB*50000 足以存储数据，否则复制活动运行将失败。 | 否 |
 | maxConcurrentConnections | 可以同时连接到数据存储的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否       |
@@ -405,7 +405,7 @@ Azure Data Lake Storage Gen2 连接器支持以下身份验证类型。 请参�
 
 本部分介绍使用通配符筛选器生成文件夹路径和文件名的行为。
 
-| folderPath | fileName | recursive | 源文件夹结构和筛选器结果（用**粗体**表示的文件已检索）|
+| folderPath | fileName | recursive | 源文件夹结构和筛选器结果（用 **粗体** 表示的文件已检索）|
 |:--- |:--- |:--- |:--- |
 | `Folder*` | （为空，使用默认值） | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*` | （为空，使用默认值） | 是 | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
@@ -463,14 +463,14 @@ Azure Data Lake Storage Gen2 连接器支持以下身份验证类型。 请参�
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为 AzureBlobFSFile。 |是 |
 | folderPath | Data Lake Storage Gen2 中的文件夹的路径。 如果未指定，它指向根目录。 <br/><br/>支持通配符筛选器。 允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。 如果实际文件夹名内具有通配符或此转义符，请使用 `^` 进行转义。 <br/><br/>示例：filesystem/folder/。 请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 |否 |
-| fileName | 指定“folderPath”下的文件的“名称或通配符筛选器”。 如果没有为此属性指定任何值，则数据集会指向文件夹中的所有文件。 <br/><br/>对于筛选器，允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。<br/>- 示例 1：`"fileName": "*.csv"`<br/>- 示例 2：`"fileName": "???20180427.txt"`<br/>如果实际文件名内具有通配符或此转义符，请使用 `^` 进行转义。<br/><br/>如果没有为输出数据集指定 fileName，并且没有在活动接收器中指定 preserveHierarchy，则复制活动会自动生成采用以下模式的文件名称：“*Data.[activity run ID GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]* ”，例如“Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz”。 如果使用表名称而不是查询从表格源进行复制，则名称模式为“[table name].[format].[compression if configured]”，例如“MyTable.csv”。 |否 |
+| fileName | 指定“folderPath”下的文件的“名称或通配符筛选器”。 如果没有为此属性指定任何值，则数据集会指向文件夹中的所有文件。 <br/><br/>对于筛选器，允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。<br/>- 示例 1：`"fileName": "*.csv"`<br/>- 示例 2：`"fileName": "???20180427.txt"`<br/>如果实际文件名内具有通配符或此转义符，请使用 `^` 进行转义。<br/><br/>如果没有为输出数据集指定 fileName，并且没有在活动接收器中指定 preserveHierarchy，则复制活动会自动生成采用以下模式的文件名称：“ *Data.[activity run ID GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]* ”，例如“Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz”。 如果使用表名称而不是查询从表格源进行复制，则名称模式为“[table name].[format].[compression if configured]”，例如“MyTable.csv”。 |否 |
 | modifiedDatetimeStart | 基于属性“上次修改时间”的文件筛选器。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br/><br/> 当你要从大量文件中进行文件筛选时，启用此设置将影响数据移动的整体性能。 <br/><br/> 属性可以为 NULL，这意味着不向数据集应用任何文件特性筛选器。 如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。 如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。| 否 |
 | modifiedDatetimeEnd | 基于属性“上次修改时间”的文件筛选器。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br/><br/> 当你要从大量文件中进行文件筛选时，启用此设置将影响数据移动的整体性能。 <br/><br/> 属性可以为 NULL，这意味着不向数据集应用任何文件特性筛选器。 如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。 如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。| 否 |
 | format | 若要在基于文件的存储之间按原样复制文件（二进制副本），可以在输入和输出数据集定义中跳过格式节。<br/><br/>若要分析或生成具有特定格式的文件，以下是受支持的文件格式类型：TextFormat、JsonFormat、AvroFormat、OrcFormat 和 ParquetFormat    。 请将 **format** 中的 **type** 属性设置为上述值之一。 有关详细信息，请参阅[文本格式](supported-file-formats-and-compression-codecs-legacy.md#text-format)、[JSON 格式](supported-file-formats-and-compression-codecs-legacy.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs-legacy.md#avro-format)、[ORC 格式](supported-file-formats-and-compression-codecs-legacy.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs-legacy.md#parquet-format)部分。 |否（仅适用于二进制复制方案） |
-| compression | 指定数据的压缩类型和级别。 有关详细信息，请参阅[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs-legacy.md#compression-support)。<br/>支持的类型为 **GZip**、**Deflate**、**BZip2** 和 **ZipDeflate**。<br/>支持的级别为“最佳”和“最快”。 |否 |
+| compression | 指定数据的压缩类型和级别。 有关详细信息，请参阅[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs-legacy.md#compression-support)。<br/>支持的类型为 **GZip** 、 **Deflate** 、 **BZip2** 和 **ZipDeflate** 。<br/>支持的级别为“最佳”和“最快”。 |否 |
 
 >[!TIP]
->如需复制文件夹下的所有文件，请仅指定 **folderPath**。<br>如需复制具有给定名称的单个文件，请使用文件夹部分指定 **folderPath** 并使用文件名指定 **fileName**。<br>如需复制文件夹下的文件子集，请使用文件夹部分指定 **folderPath** 并使用通配符筛选器指定 **fileName**。 
+>如需复制文件夹下的所有文件，请仅指定 **folderPath** 。<br>如需复制具有给定名称的单个文件，请使用文件夹部分指定 **folderPath** 并使用文件名指定 **fileName** 。<br>如需复制文件夹下的文件子集，请使用文件夹部分指定 **folderPath** 并使用通配符筛选器指定 **fileName** 。 
 
 **示例：**
 
@@ -507,7 +507,7 @@ Azure Data Lake Storage Gen2 连接器支持以下身份验证类型。 请参�
 | properties | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动源的 type 属性必须设置为 AzureBlobFSSource。 |是 |
-| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。<br/>允许的值为 **true**（默认值）和 **false**。 | 否 |
+| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。<br/>允许的值为 **true** （默认值）和 **false** 。 | 否 |
 | maxConcurrentConnections | 可以同时连接到数据存储的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否 |
 
 **示例：**

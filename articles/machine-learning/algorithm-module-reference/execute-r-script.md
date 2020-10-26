@@ -147,11 +147,11 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1. 连接该脚本需要的任何输入。 输入是可选的，可以包含数据和其他 R 代码。
 
-    * **Dataset1**：引用第一个输入作为 `dataframe1`。 输入数据集必须是 CSV、TSV 或 ARFF 格式的文件。 或者可以连接 Azure 机器学习数据集。
+    * **Dataset1** ：引用第一个输入作为 `dataframe1`。 输入数据集必须是 CSV、TSV 或 ARFF 格式的文件。 或者可以连接 Azure 机器学习数据集。
 
-    * **Dataset2**：引用第二个输入作为 `dataframe2`。 此数据集也必须是 CSV、TSV、ARFF 格式的文件，或者是 Azure 机器学习数据集。
+    * **Dataset2** ：引用第二个输入作为 `dataframe2`。 此数据集也必须是 CSV、TSV、ARFF 格式的文件，或者是 Azure 机器学习数据集。
 
-    * **脚本包**：第三个输入接受 .zip 文件。 压缩文件可以包含多个文件和多种文件类型。
+    * **脚本包** ：第三个输入接受 .zip 文件。 压缩文件可以包含多个文件和多种文件类型。
 
 1. 在“R 脚本”文本框中，键入或粘贴有效的 R 脚本。
 

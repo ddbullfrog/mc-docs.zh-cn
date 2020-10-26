@@ -37,7 +37,7 @@ ms.locfileid: "92041744"
 
    :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="选择警报规则":::
 
-3. 选择“新建警报规则”（+ 图标）。****
+3. 选择“新建警报规则”（+ 图标）。 
 
 4. 随即打开“创建规则”页面，如下所示  。 填写所需信息：
 

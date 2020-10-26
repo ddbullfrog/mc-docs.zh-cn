@@ -15,11 +15,11 @@ origin.date: 03/26/2018
 ms.date: 10/14/2019
 ms.author: v-yeche
 ms.openlocfilehash: 80f6080787a785c8093c36ff7fe04535d9220ce8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292816"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211411"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 扩展
 

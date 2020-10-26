@@ -3,22 +3,22 @@ title: 教程 - 将输出添加到模板
 description: 将输出添加到 Azure 资源管理器模板以简化语法。
 origin.date: 03/27/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5f72b882abda03455eaaf8ca9d36474fb3a7d351
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: ''
+ms.openlocfilehash: 1797780e03367d19f3ba68e3cffca961f932e593
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937170"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470391"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>教程：将输出添加到 ARM 模板
 
-本教程介绍如何从 Azure 资源管理器 (ARM) 模板返回值。 需要已部署资源提供的值时，请使用输出。 完成本教程需要 **7 分钟**。
+本教程介绍如何从 Azure 资源管理器 (ARM) 模板返回值。 需要已部署资源提供的值时，请使用输出。 完成本教程需要 **7 分钟** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -138,7 +138,7 @@ ms.locfileid: "91937170"
 
 关于添加的输出值，有一些重要的值得注意的项。
 
-返回的值的类型设置为 **object**，这意味着它会返回 JSON 对象。
+返回的值的类型设置为 **object** ，这意味着它会返回 JSON 对象。
 
 它使用 [reference](template-functions-resource.md#reference) 函数获取存储帐户的运行时状态。 若要获取资源的运行时状态，请传入资源的名称或 ID。 在此示例中，使用的变量与创建存储帐户名称时使用的变量相同。
 
@@ -148,7 +148,7 @@ ms.locfileid: "91937170"
 
 现在可以部署模板并查看返回的值了。
 
-如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
+如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据 [第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

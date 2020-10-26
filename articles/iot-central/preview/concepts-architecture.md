@@ -10,11 +10,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5d85384595aff15ee3a0e0c1b5acbcbe716af5c4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79290926"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211549"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central 体系结构（预览版功能）
 
@@ -136,10 +136,10 @@ Azure IoT Central 将时序存储用于从设备发送的度量数据。 设备�
 
 在 IoT Central 预览版应用程序设备模板中：
 
-- **设备功能模型**指定设备的功能，例如它发送的遥测数据、用于定义设备状态的属性，以及设备响应的命令。 设备功能已组织到一个或多个界面中。 
-- **云属性**指定 IoT Central 为设备存储的属性。 这些属性只存储在 IoT Central 中，而不会发送到设备。
-- **视图**指定生成器创建的、让操作员监视和管理设备的仪表板和窗体。
-- **自定义项**让生成器替代设备功能模型中的某些定义，使之与 IoT Central 应用程序更相关。
+- **设备功能模型** 指定设备的功能，例如它发送的遥测数据、用于定义设备状态的属性，以及设备响应的命令。 设备功能已组织到一个或多个界面中。 
+- **云属性** 指定 IoT Central 为设备存储的属性。 这些属性只存储在 IoT Central 中，而不会发送到设备。
+- **视图** 指定生成器创建的、让操作员监视和管理设备的仪表板和窗体。
+- **自定义项** 让生成器替代设备功能模型中的某些定义，使之与 IoT Central 应用程序更相关。
 
 一个应用程序可以有一个或多个基于每个设备模板的模拟设备和真实设备。
 

@@ -11,11 +11,11 @@ ms.date: 09/30/2019
 ms.author: v-yeche
 ms.custom: MVC
 ms.openlocfilehash: a5c20aa373599b7a5fce13cba7d54023ddd67b64
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291130"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211544"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>运行 Azure 灾难恢复演练
 
@@ -69,13 +69,13 @@ ms.locfileid: "79291130"
 
 按如下所述运行测试故障转移：
 
-1. 在“受保护的项”   > “复制的项”  中，单击 VM >“+测试故障转移”  。
+1. 在“受保护的项” > “复制的项”中，单击 VM >“+测试故障转移”。
 
     <!--MOONCAKE: **Protected Items** to replace **Setting**-->
 
 2. 为本教程选择最近处理的恢复点。  这会将 VM 故障转移到最近的可用时间点上。 将显示时间戳。 使用此选项时，无需费时处理数据，因此 RTO（恢复时间目标）会较低。
 3. 在“测试故障转移”  中，选择 Azure VM 在故障转移之后要连接到的目标 Azure 网络。
-4. 单击“确定”  开始故障转移。 可以通过单击 VM 打开其属性来跟踪进度。 或者，**可以在保管库名称** > **设置** > **作业** >
+4. 单击“确定”  开始故障转移。 可以通过单击 VM 打开其属性来跟踪进度。 或者， **可以在保管库名称** > **设置** > **作业** >
    **Site Recovery 作业** 中，单击“测试故障转移” 作业。
 5. 故障转移完成后，副本 Azure VM 会显示在 Azure 门户 >“虚拟机”中。  请确保虚拟机的大小适当、已连接到正确的网络，并且正在运行。
 6. 现在应该能够连接到 Azure 中复制的 VM。

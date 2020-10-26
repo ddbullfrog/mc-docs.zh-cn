@@ -1,16 +1,18 @@
 ---
 title: 教程：预测意向 - LUIS
 description: 创建一个自定义应用，以便根据本教程中的言语（文本）预测用户的意向。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/16/2020
+ms.date: 10/19/2020
 origin.date: 05/05/2020
-ms.author: v-tawe
-ms.openlocfilehash: f240ec4673030ca7f238bab7642a235e33c85216
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.author: v-johya
+ms.openlocfilehash: 776060ccb9efe5e69a21d37fb9fc72e44cc47512
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098542"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472303"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>教程：生成 LUIS 应用以确定用户意向
 
@@ -32,7 +34,7 @@ ms.locfileid: "85098542"
 
 `I'd like to order a veggie pizza with a salad on the side.`
 
-这些意图可以归类为**意向**。
+这些意图可以归类为 **意向** 。
 
 |Intent|目的|
 |--|--|
@@ -67,7 +69,7 @@ ms.locfileid: "85098542"
     |`Order a pizza for me`|
 
     > [!div class="mx-imgBorder"]
-    > ![在 LUIS 门户的意向页上添加示例言语的屏幕截图](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    > ![在 LUIS 门户的意向页上添加示例言语的屏幕截图](./media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
     可通过提供示例话语来训练 LUIS，让其了解应该根据哪些类型的话语预测出此意向。 以下是几个正面示例。 其他所有意向中的言语均被视为该意向的负面示例。
 
@@ -115,9 +117,8 @@ ms.locfileid: "85098542"
 
     `get a medium vegetarian pizza for delivery`
 
-    这与示例示例言语并不完全相同，因此，要查看 LUIS 是否可以了解通过此意向预测的内容。
-
-    最后一个查询字符串参数为 `query`，表示陈述查询 (**q**uery)。 此话语不同于任何示例话语。 它非常适合用于测试，测试结果应返回 `OrderPizza` 意向（评分最高的意向）。
+  
+    查询字符串参数为 `query`，言语 query 会在 URI 中传递。 此话语不同于任何示例话语。 这应该是一项很好的测试，可检查 LUIS 是否会学习 `OrderPizza` 意向并将它预测为得分最高的意向。
 
     ```JSON
     {

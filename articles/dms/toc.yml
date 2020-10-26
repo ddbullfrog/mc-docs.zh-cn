@@ -57,6 +57,10 @@
           href: tutorial-postgresql-azure-postgresql-online-portal.md
         - name: 到 Azure DB for PostgreSQL (Az CLI)
           href: tutorial-postgresql-azure-postgresql-online.md
+    - name: 迁移 Azure DB for PostgreSQL - 单一服务器
+      items:
+        - name: 到 Azure DB for PostgreSQL（门户）
+          href: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
     - name: 迁移 RDS PostgreSQL
       items:
         - name: 到 Azure DB for PostgreSQL
@@ -83,7 +87,7 @@
           href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: 将 SSIS 包重新部署到
       items:
-        - name: Azure SQL 数据库
+        - name: Azure SQL Database
           href: how-to-migrate-ssis-packages.md
         - name: Azure SQL 托管实例
           href: how-to-migrate-ssis-packages-managed-instance.md
@@ -109,7 +113,7 @@
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit'
     - name: 故障排除和已知问题
       items:
-        - name: 故障排除
+        - name: 疑难解答
           items:
             - name: 常见错误
               href: known-issues-troubleshooting-dms.md

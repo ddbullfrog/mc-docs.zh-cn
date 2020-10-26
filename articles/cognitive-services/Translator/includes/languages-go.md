@@ -1,16 +1,16 @@
 ---
-author: erhopf
+author: Johnnytechn
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
-ms.date: 06/22/2020
-origin.date: 08/06/2019
-ms.author: v-tawe
-ms.openlocfilehash: 9a6659bf85eb4a0ed13566ba83811077feb165dc
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.openlocfilehash: d6efc17d196864c038b0bffcfda0f8561adb41b4
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241516"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499176"
 ---
 <!-- word updating-->
 [!INCLUDE [Prerequisites](prerequisites-go.md)]

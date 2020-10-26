@@ -5,19 +5,19 @@ description: 路由方案 - 在 VNet 之间直接路由流量，但对 VNet 到 
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: conceptual
-origin.date: 08/04/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d9a7e4cac5ccd432454cad749e8a8a4726502ac8
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 4bf5973d1fe815d6af20a71f7f60283e59fe0bf0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246765"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472592"
 ---
 # <a name="scenario-azure-firewall---custom"></a>方案：Azure 防火墙 - 自定义
 
@@ -38,11 +38,11 @@ ms.locfileid: "91246765"
 在上一个表中，“X”表示两个连接之间的直接连接，流量不穿过虚拟 WAN 中的 Azure 防火墙，而“AzFW”表示该流将通过 Azure 防火墙。 由于矩阵中有两个不同的连接模式，我们将需要两个路由表，这两个表将配置如下：
 
 * 虚拟网络：
-  * 关联的路由表：**RT_VNet**
-  * 传播到路由表：**RT_VNet**
+  * 关联的路由表： **RT_VNet**
+  * 传播到路由表： **RT_VNet**
 * 分支：
-  * 关联的路由表：**默认**
-  * 传播到路由表：**默认**
+  * 关联的路由表： **默认**
+  * 传播到路由表： **默认**
 
 > [!NOTE]
 > 你可以在每个区域中使用单个安全虚拟中心创建一个单独的虚拟 WAN 实例，然后可以通过站点到站点 VPN 将每个虚拟 WAN 互相连接。
@@ -55,7 +55,7 @@ ms.locfileid: "91246765"
 
 VPN、ExpressRoute 和用户 VPN 连接统称为“分支”，并与同一（默认）路由表关联。 所有 VPN、ExpressRoute 和用户 VPN 连接将路由传播到同一组路由表。 若要配置此方案，请考虑以下步骤：
 
-1. 创建自定义路由表 **RT_VNet**。
+1. 创建自定义路由表 **RT_VNet** 。
 1. 创建用于激活 VNet 到 Internet 和 VNet 到分支的路由：0.0.0.0/0 且下一跃点指向 Azure 防火墙。 在“传播”部分中，确保选择了 VNet，这将确保创建更具体的路由，从而允许 VNet 到 VNet 的直接流量流。
 
     * 在“关联”中：选择 VNet，这表示 VNet 将根据此路由表的路由到达目标。

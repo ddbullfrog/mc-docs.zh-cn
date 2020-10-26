@@ -1,6 +1,6 @@
 ---
 title: 在 Azure SQL 托管实例和 SQL Server 之间配置事务复制
-description: 本教程在 Azure VM 上配置发布服务器托管实例、分发服务器托管实例和 SQL Server 订阅服务器之间的复制，以及必要的网络组件，如专有 DNS 区域和 VPN 对等互连。
+description: 本教程在 Azure VM 上配置发布服务器托管实例、分发服务器托管实例和 SQL Server 订阅服务器之间的复制，以及必要的网络组件，如专有 DNS 区域和 VNet 对等互连。
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
@@ -8,15 +8,15 @@ ms.custom: sqldbrb=1
 ms.topic: tutorial
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: sstein
 origin.date: 11/21/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 976c51167a9a58dd502a834f998722b265d73533
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/29/2020
+ms.openlocfilehash: 5433410e8aac2db184682b84bddae8db06f5f9a0
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014368"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470358"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>教程：在 Azure SQL 托管实例和 SQL Server 之间配置事务复制
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,7 +52,7 @@ ms.locfileid: "90014368"
 - 最新版本的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.7.0)。
 - 端口 445 和 1433 允许 Azure 防火墙和 Windows 防火墙上的 SQL 流量。
 
-## <a name="1---create-the-resource-group"></a>1 - 创建资源组
+## <a name="create-the-resource-group"></a>创建资源组
 
 使用以下 PowerShell 代码片段创建新的资源组：
 
@@ -65,7 +65,7 @@ $Location = "China East 2"
 New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ```
 
-## <a name="2---create-two-managed-instances"></a>2 - 创建两个托管实例
+## <a name="create-two-managed-instances"></a>创建两个托管实例
 
 使用“[Azure 门户](https://portal.azure.cn)”在此新资源组中创建两个托管实例。 
 
@@ -77,9 +77,9 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 有关创建托管实例的详细信息，请参阅[在门户中创建托管实例](instance-create-quickstart.md)。
 
   > [!NOTE]
-  > 为简单起见，因为这是最常见的配置，所以本教程建议将分发服务器托管实例放置在发布服务器所在的虚拟网络中。 但是，可以在单独的虚拟网络中创建分发服务器。 为此，你将需要在发布服务器和分发服务器的虚拟网络之间配置 VPN 对等互连，然后在分发服务器和订阅服务器的虚拟网络之间配置 VPN 对等互连。
+  > 为简单起见，因为这是最常见的配置，所以本教程建议将分发服务器托管实例放置在发布服务器所在的虚拟网络中。 但是，可以在单独的虚拟网络中创建分发服务器。 为此，需要在发布服务器和分发服务器的虚拟网络之间配置 VNet 对等互连，然后在分发服务器和订阅服务器的虚拟网络之间配置 VNet 对等互连。
 
-## <a name="3---create-a-sql-server-vm"></a>3 - 创建 SQL Server VM
+## <a name="create-a-sql-server-vm"></a>创建 SQL Server VM
 
 使用 [Azure 门户](https://portal.azure.cn)创建 SQL Server 虚拟机。 SQL Server 虚拟机应具有以下特征：
 
@@ -90,9 +90,9 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 
 有关将 SQL Server VM 部署到 Azure 的详细信息，请参阅 [快速入门：创建 SQL Server VM](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)。
 
-## <a name="4---configure-vpn-peering"></a>4 - 配置 VPN 对等互连
+## <a name="configure-vnet-peering"></a>配置 VNet 对等互连
 
-配置 VPN 对等互连，以便在两个托管实例的虚拟网络和 SQL Server 的虚拟网络之间启用通信。 为此，请使用以下 PowerShell 代码片段：
+配置 VNet 对等互连，以便在两个托管实例的虚拟网络和 SQL Server 的虚拟网络之间启用通信。 为此，请使用以下 PowerShell 代码片段：
 
 ```powershell
 # Set variables
@@ -111,13 +111,13 @@ $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName $resourceGroup `
   -Name $subvNet  
 
-# Configure VPN peering from publisher to subscriber
+# Configure VNet peering from publisher to subscriber
 Add-AzVirtualNetworkPeering `
   -Name $pubsubName `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 
-# Configure VPN peering from subscriber to publisher
+# Configure VNet peering from subscriber to publisher
 Add-AzVirtualNetworkPeering `
   -Name $subpubName `
   -VirtualNetwork $virtualNetwork2 `
@@ -137,11 +137,11 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-建立 VPN 对等互连后，请测试连接，方法是：启动 SQL Server 上的 SQL Server Management Studio (SSMS) 并连接到这两个托管实例。 有关使用 SSMS 连接到托管实例的详细信息，请参阅[使用 SSMS 连接到 SQL 托管实例](point-to-site-p2s-configure.md#connect-with-ssms)。
+建立 VNet 对等互连后，请通过以下方式测试连接：在 SQL Server 上启动 SQL Server Management Studio (SSMS)，并连接到这两个托管实例。 有关使用 SSMS 连接到托管实例的详细信息，请参阅[使用 SSMS 连接到 SQL 托管实例](point-to-site-p2s-configure.md#connect-with-ssms)。
 
 ![测试与托管实例的连接](./media/replication-two-instances-and-sql-server-configure-tutorial/test-connectivity-to-mi.png)
 
-## <a name="5---create-a-private-dns-zone"></a>5 - 创建专用 DNS 区域
+## <a name="create-a-private-dns-zone"></a>创建专用 DNS 区域
 
 专用 DNS 区域允许在托管实例和 SQL Server 之间进行 DNS 路由。
 
@@ -181,7 +181,7 @@ Get-AzVirtualNetworkPeering `
 1. 选择“确定”以链接虚拟网络。
 1. 重复这些步骤，为订阅服务器虚拟网络添加一个链接，并对其命名，例如 `Sub-link`。
 
-## <a name="6---create-an-azure-storage-account"></a>6 - 创建 Azure 存储帐户
+## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
 为工作目录[创建 Azure 存储帐户](/storage/common/storage-create-storage-account#create-a-storage-account)，并在存储帐户中创建[文件共享](../../storage/files/storage-how-to-create-file-share.md)。
 
@@ -195,7 +195,7 @@ Get-AzVirtualNetworkPeering `
 
 有关详细信息，请参阅[管理存储帐户访问密钥](../../storage/common/storage-account-keys-manage.md)。
 
-## <a name="7---create-a-database"></a>7 - 创建数据库
+## <a name="create-a-database"></a>创建数据库
 
 在发布服务器托管实例上创建新数据库。 为此，请执行下列步骤：
 
@@ -211,7 +211,7 @@ GO
 -- Drop database if it exists
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
-    DROP DATABASE ReplTutorial
+    DROP DATABASE ReplTutorial
 END
 GO
 
@@ -243,7 +243,7 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="8---configure-distribution"></a>8 - 配置分发
+## <a name="configure-distribution"></a>配置分发
 
 建立连接并具有示例数据库后，可以在 `sql-mi-distributor` 托管实例上配置分发。 为此，请执行下列步骤：
 
@@ -278,7 +278,7 @@ GO
    EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.chinacloudapi.cn', @password = '<distributor_admin_password>' 
    ```
 
-## <a name="9---create-the-publication"></a>9 - 创建发布
+## <a name="create-the-publication"></a>创建发布
 
 配置分发后，现在可以创建发布。 为此，请执行下列步骤：
 
@@ -286,12 +286,12 @@ GO
 1. 连接到 `sql-mi-publisher` 托管实例。
 1. 在“对象资源管理器”中，展开“复制”节点，然后右键单击“本地发布”文件夹  。 单击“新建发布...”。
 1. 选择“下一步”，离开“欢迎”页。
-1. 在“发布数据库”页上，选择之前创建的 `ReplTutorial` 数据库。 选择“**下一步**”。
-1. 在“发布类型”页上，选择“事务发布” 。 选择“**下一页**”。
-1. 在“项目”页上，选中“表”旁边的框 。 选择“**下一页**”。
+1. 在“发布数据库”页上，选择之前创建的 `ReplTutorial` 数据库。 选择“ **下一步** ”。
+1. 在“发布类型”页上，选择“事务发布” 。 选择“ **下一页** ”。
+1. 在“项目”页上，选中“表”旁边的框 。 选择“ **下一页** ”。
 1. 在“筛选器表行”页上，选择“下一步”而不添加任何筛选器 。
-1. 在“快照代理”页上，选中“立即创建快照并使快照保持可用状态，以初始化订阅”旁边的框 。 选择“**下一页**”。
-1. 在“代理安全性”页上，选择“安全设置…” 。提供要用于快照代理的 SQL Server 登录凭据，并连接到发布服务器。 选择“确定”以关闭“快照代理安全性”页 。 选择“**下一页**”。
+1. 在“快照代理”页上，选中“立即创建快照并使快照保持可用状态，以初始化订阅”旁边的框 。 选择“ **下一页** ”。
+1. 在“代理安全性”页上，选择“安全设置…” 。提供要用于快照代理的 SQL Server 登录凭据，并连接到发布服务器。 选择“确定”以关闭“快照代理安全性”页 。 选择“ **下一页** ”。
 
    ![配置快照代理安全性](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
@@ -299,7 +299,7 @@ GO
 1. 在“完成向导”页上，将发布命名为 `ReplTest` 并选择“下一步”以创建发布 。
 1. 创建发布后，请刷新“对象资源管理器”中的“复制”节点，并展开“本地发布”查看新发布  。
 
-## <a name="10---create-the-subscription"></a>10 - 创建订阅
+## <a name="create-the-subscription"></a>创建订阅
 
 创建发布后，可以创建订阅。 为此，请执行下列步骤：
 
@@ -332,7 +332,7 @@ exec sp_addpushsubscription_agent
 GO
 ```
 
-## <a name="11---test-replication"></a>11 - 测试复制
+## <a name="test-replication"></a>测试复制
 
 配置复制后，可对其进行测试，方法是：在发布服务器上插入新项并监视更改传播到订阅服务器。
 
@@ -394,7 +394,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 - 确认在创建订阅服务器时使用了 DNS 名称。
 - 验证虚拟网络是否已正确链接到专用 DNS 区域。
 - 验证是否已正确配置 A 记录。
-- 验证是否正确配置了 VPN 对等互连。
+- 验证是否正确配置了 VNet 对等互连。
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>没有可以订阅的发布
 

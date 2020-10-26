@@ -29,9 +29,9 @@ Service Fabric 应用程序和服务使用清单文件进行定义和版本控�
 服务终止后，Service Fabric 会清理终结点访问控制条目，并删除证书绑定。 但是，任何应用于证书私钥的权限都不会被清除。
 
 > [!WARNING] 
-> 根据设计，静态端口不应与 ClusterManifest 中指定的应用程序端口范围重叠。 如果指定静态端口，请将其分配到应用程序端口范围外，否则会导致端口冲突。 对于版本 6.5CU2，当我们检测到此类冲突时，我们将发出**运行状况警告**，但让部署继续与已发布的 6.5 行为同步。 但是，我们可能会在下一个主要版本中阻止应用程序部署。
+> 根据设计，静态端口不应与 ClusterManifest 中指定的应用程序端口范围重叠。 如果指定静态端口，请将其分配到应用程序端口范围外，否则会导致端口冲突。 对于版本 6.5CU2，当我们检测到此类冲突时，我们将发出 **运行状况警告** ，但让部署继续与已发布的 6.5 行为同步。 但是，我们可能会在下一个主要版本中阻止应用程序部署。
 >
-> 在版本 7.0 中，当我们检测到应用程序端口范围使用率超过 HostingConfig::ApplicationPortExhaustThresholdPercentage（默认 80%）时，我们将发出**运行状况警告**。
+> 在版本 7.0 中，当我们检测到应用程序端口范围使用率超过 HostingConfig::ApplicationPortExhaustThresholdPercentage（默认 80%）时，我们将发出 **运行状况警告** 。
 >
 
 ```xml
@@ -106,7 +106,7 @@ Service Fabric 应用程序和服务使用清单文件进行定义和版本控�
 ```
 
 ## <a name="example-specifying-an-https-endpoint-for-your-service"></a>示例：指定用于服务的 HTTPS 终结点
-HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进行加密。 若要在 Service Fabric 服务上启用 HTTPS，请在服务清单的“*资源 -> 终结点 -> 终结点*”部分中指定该协议，如前面针对终结点 *ServiceEndpoint3* 的操作所示。
+HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进行加密。 若要在 Service Fabric 服务上启用 HTTPS，请在服务清单的“ *资源 -> 终结点 -> 终结点* ”部分中指定该协议，如前面针对终结点 *ServiceEndpoint3* 的操作所示。
 
 > [!NOTE]
 > 在应用程序升级期间不能更改服务的协议。 如果在升级期间进行了更改，那会是一项重大的更改。
@@ -160,7 +160,7 @@ HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进�
 </ApplicationManifest>
 ```
 
-对于 Linux 群集，**MY** 存储默认为文件夹 **/var/lib/sfcerts**。
+对于 Linux 群集， **MY** 存储默认为文件夹 **/var/lib/sfcerts** 。
 
 若要通过示例方式了解一个使用 HTTPS 终结点的完整应用程序，请参阅[使用 Kestrel 将 HTTPS 终结点添加到 ASP.NET Core Web API 前端服务](/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest)。
 

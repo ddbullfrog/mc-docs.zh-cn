@@ -22,7 +22,7 @@ ms.locfileid: "92170843"
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮****。 Azure 门户中会打开模板。
+如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮  。 Azure 门户中会打开模板。
 
 使用下面的按钮在 Linux 上部署：
 

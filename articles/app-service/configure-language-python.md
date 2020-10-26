@@ -24,9 +24,9 @@ ms.locfileid: "92170828"
 
 可使用 [Azure 门户](https://portal.azure.cn) 或 Azure CLI 进行配置：
 
-- **Azure 门户**：按照[在 Azure 门户配置应用服务应用](configure-common.md)中所述，使用应用的“设置” > 配置”页 。
+- **Azure 门户** ：按照[在 Azure 门户配置应用服务应用](configure-common.md)中所述，使用应用的“设置” > 配置”页 。
 
-- **Azure CLI**： 
+- **Azure CLI** ： 
 
     - 通过安装最新版的 [Azure CLI](/cli/install-azure-cli) 在本地运行命令，然后使用 [az login](/cli/reference-index#az-login) 登录到 Azure。
     
@@ -35,9 +35,9 @@ ms.locfileid: "92170828"
 
 ## <a name="configure-python-version"></a>配置 Python 版本
 
-- **Azure 门户**：按照针对 Linux 容器的[配置常规设置](configure-common.md#configure-general-settings)中所述，使用“配置”页上的“常规设置”选项卡 。
+- **Azure 门户** ：按照针对 Linux 容器的[配置常规设置](configure-common.md#configure-general-settings)中所述，使用“配置”页上的“常规设置”选项卡 。
 
-- **Azure CLI**：
+- **Azure CLI** ：
 
     -  使用 [az webapp config show](/cli/webapp/config#az_webapp_config_show) 显示当前 Python 版本：
     
@@ -179,9 +179,9 @@ gunicorn --bind=0.0.0.0 --timeout 600 app:app
 
 指定启动命令或命令文件：
 
-- **Azure 门户**：选择应用的“配置”页，然后选择“常规设置” 。 在“启动命令”字段中，输入启动命令的全文或启动命令文件的名称。 然后，选择“保存”，应用所做的更改。 请参阅针对 Linux 容器的[配置常规设置](configure-common.md#configure-general-settings)。
+- **Azure 门户** ：选择应用的“配置”页，然后选择“常规设置” 。 在“启动命令”字段中，输入启动命令的全文或启动命令文件的名称。 然后，选择“保存”，应用所做的更改。 请参阅针对 Linux 容器的[配置常规设置](configure-common.md#configure-general-settings)。
 
-- **Azure CLI**：将 [az webapp config set](/cli/webapp/config#az_webapp_config_set) 命令与 `--startup-file` 参数一起使用，以设置启动命令或文件：
+- **Azure CLI** ：将 [az webapp config set](/cli/webapp/config#az_webapp_config_set) 命令与 `--startup-file` 参数一起使用，以设置启动命令或文件：
 
 ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"

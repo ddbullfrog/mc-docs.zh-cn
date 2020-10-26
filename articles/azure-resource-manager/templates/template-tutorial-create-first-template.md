@@ -1,24 +1,24 @@
 ---
 title: 教程 - 创建和部署模板
 description: 创建第一个 Azure 资源管理器模板。 本教程将介绍模板文件语法，以及如何部署存储帐户。
-origin.date: 06/10/2020
+origin.date: 09/28/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6ac6d08b6f95cf99065cc492e0dcc14427cadc19
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: ''
+ms.openlocfilehash: 724dd656df29b01aba88346ca19aba4a3f03a27c
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937164"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470079"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>教程：创建和部署第一个 ARM 模板
 
-本教程介绍 Azure 资源管理器 (ARM) 模板。 其中将会说明如何创建初学者模板并将其部署到 Azure。 本教程还将介绍模板的结构，以及使用模板时所需的工具。 完成本教程大约需要 **12 分钟**，但实际时间根据需要安装的工具数量而异。
+本教程介绍 Azure 资源管理器模板（ARM 模板）。 其中将会说明如何创建初学者模板并将其部署到 Azure。 本教程还将介绍模板的结构，以及使用模板时所需的工具。 完成本教程大约需要 **12 分钟** ，但实际时间根据需要安装的工具数量而异。
 
 本文是相关教学系列的第一篇教程。 在学习该教学系列的过程中，你将逐步修改入门模板，直到了解了 ARM 模板的所有核心部分。 这些元素是更复杂的模板的构建基块。 我们希望在本教学系列结束时，你能够自信地创建自己的模板，并准备好使用这些模板自动完成部署。
 
@@ -28,7 +28,7 @@ ms.locfileid: "91937164"
 
 ## <a name="get-tools"></a>获取工具
 
-首先，请确保已获取创建和部署模板所需的工具。
+首先，请确保已获取创建和部署模板所需的工具。 在本地计算机上安装这些工具。
 
 ### <a name="editor"></a>编辑器
 
@@ -55,7 +55,7 @@ ms.locfileid: "91937164"
 1. 打开装有资源管理器工具扩展的 Visual Studio Code。
 1. 在“文件”菜单中，选择“新建文件”以创建新的文件。 
 1. 在“文件”菜单中选择“另存为”。 
-1. 将该文件命名为 **azuredeploy**，然后选择“JSON”文件扩展名。 完整的文件名为 **azuredeploy.json**。
+1. 将该文件命名为 **azuredeploy** ，然后选择“JSON”文件扩展名。 完整的文件名为 **azuredeploy.json** 。
 1. 将该文件保存到工作站。 选择容易记住的路径，因为稍后在部署模板时需要提供该路径。
 1. 将以下 JSON 内容复制并粘贴到该文件中：
 
@@ -75,9 +75,9 @@ ms.locfileid: "91937164"
 
     JSON 文件包含以下元素：
 
-    - **$schema**：指定 JSON 架构文件的位置。 架构文件描述模板中可用的属性。 例如，架构定义 **resources** 作为模板的有效属性之一。 不要担心架构的日期为 2019-04-01。 此架构版本是最新的，其中包含所有最新功能。 之所以未更改架构日期，是因为自从推出以来，它尚未发生重大更改。
-    - **contentVersion**：指定模板的版本（例如 1.0.0.0）。 可为此元素提供任意值。 使用此值记录模板中的重要更改。 使用模板部署资源时，此值可用于确保使用正确的模板。
-    - **resources**：包含要部署或更新的资源。 此元素目前是空的，但稍后要添加资源。
+    - **$schema** ：指定 JSON 架构文件的位置。 架构文件描述模板中可用的属性。 例如，架构定义 **resources** 作为模板的有效属性之一。 不要担心架构的日期为 2019-04-01。 此架构版本是最新的，其中包含所有最新功能。 之所以未更改架构日期，是因为自从推出以来，它尚未发生重大更改。
+    - **contentVersion** ：指定模板的版本（例如 1.0.0.0）。 可为此元素提供任意值。 使用此值记录模板中的重要更改。 使用模板部署资源时，此值可用于确保使用正确的模板。
+    - **resources** ：包含要部署或更新的资源。 此元素目前是空的，但稍后要添加资源。
 
 1. 保存文件。
 
@@ -191,7 +191,7 @@ az deployment group create \
 
 1. 在左侧菜单中选择“资源组”。 
 
-1. 选择在上一过程中部署的资源组。 默认名称为 **myResourceGroup**。 你应会看到，该资源组中未部署任何资源。
+1. 选择在上一过程中部署的资源组。 默认名称为 **myResourceGroup** 。 你应会看到，该资源组中未部署任何资源。
 
 1. 请注意，在概述的右上角显示了部署状态。 选择“1 成功”。
 

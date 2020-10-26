@@ -12,11 +12,11 @@ origin.date: 12/03/2019
 ms.date: 08/03/2020
 ms.author: v-tawe
 ms.openlocfilehash: 21a83b438a9cc987410d452b3ece42934175ae96
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87516289"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211620"
 ---
 # <a name="disclosure-design-guidelines"></a>披露设计准则
 了解如何通过透明化语音体验的合成性质来构建和维护客户给予的信任。

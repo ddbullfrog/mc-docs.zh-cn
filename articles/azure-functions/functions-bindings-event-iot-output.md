@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 03/02/2020
 ms.author: v-junlch
 ms.openlocfilehash: f94f3bf4ff7bc9f45440153b76f9e66f8d0a299f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291307"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211445"
 ---
 # <a name="azure-iot-hub-output-binding-for-azure-functions"></a>适用于 Azure Functions 的 Azure IoT 中心输出绑定
 

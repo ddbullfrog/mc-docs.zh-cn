@@ -112,7 +112,7 @@ Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.chinaeast.cloudapp.ch
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>启用可靠有状态服务和 Reliable Actors 的定期备份
 让我们通过一些步骤来启用可靠有状态服务和 Reliable Actors 的定期备份。 这些步骤假定
-- 通过备份和还原服务安装群集__。
+- 通过备份和还原服务安装群集  。
 - 在群集上部署了可靠有状态服务。 在本快速入门指南中，应用程序 URI 为 `fabric:/SampleApp`，属于此应用程序的可靠有状态服务的 URI 为 `fabric:/SampleApp/MyStatefulService`。 使用单个分区部署此服务，分区 ID 为 `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7`。  
 
 ### <a name="create-backup-policy"></a>创建备份策略

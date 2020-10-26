@@ -3,14 +3,17 @@ title: 移动 Azure 经典部署资源
 description: 使用 Azure 资源管理器将经典部署资源移到新的资源组或订阅。
 ms.topic: conceptual
 origin.date: 07/09/2019
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.date: 01/06/2020
-ms.openlocfilehash: 004f4ca767831ec7acf1537f2050c690ef13d6e0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c1ebab73c6b938972fe313af9bf846094f7b4063
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75631144"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470248"
 ---
 # <a name="move-guidance-for-classic-deployment-model-resources"></a>针对经典部署模型资源的移动指南
 

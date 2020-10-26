@@ -1,20 +1,20 @@
 ---
 title: 使用 Azure Kubernetes 服务 (AKS) 运行 Apache Spark 作业
 description: 使用 Azure Kubernetes 服务 (AKS) 创建并运行 Apache Spark 作业来进行大规模数据处理。
-author: rockboyfor
 ms.topic: conceptual
 origin.date: 10/18/2019
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9258840c8b98a70c4f4c01050f25079f806a63ee
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 645408224a6d0b37b08b83fe1b27bc1baa20b3f9
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021253"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470200"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>在 AKS 中运行 Apache Spark 作业
 
@@ -344,7 +344,7 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: https://docs.azure.cn/java/java-supported-jdk-runtime
+[java-install]: https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support
 [maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html

@@ -101,9 +101,9 @@ az sig image-definition create \
 
 使用 [az image gallery create-image-version](https://docs.microsoft.com/cli/azure/sig/image-version#az_sig_image_version_create) 创建映像版本。 
 
-允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式：*MajorVersion*.*MinorVersion*.*Patch*。
+允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式： *MajorVersion* . *MinorVersion* . *Patch* 。
 
-在此示例中，映像的版本为 *1.0.0*，我们打算使用区域冗余存储在“中国东部”区域创建 1 个副本，在“中国东部 2”区域创建 1 个副本。 选择复制的目标区域时，请记住，还需包含托管磁盘或快照的源区域作为复制的目标。
+在此示例中，映像的版本为 *1.0.0* ，我们打算使用区域冗余存储在“中国东部”区域创建 1 个副本，在“中国东部 2”区域创建 1 个副本。 选择复制的目标区域时，请记住，还需包含托管磁盘或快照的源区域作为复制的目标。
 
 在 `--os-snapshot` 参数中传入快照或托管磁盘的 ID。
 

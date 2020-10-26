@@ -9,11 +9,11 @@ origin.date: 08/19/2018
 ms.date: 03/30/2020
 ms.author: v-yeche
 ms.openlocfilehash: 9c3d958b2f2d0eb6b2909f48a1d6ed8f18488648
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243530"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211501"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>在 Azure 逻辑应用中的贸易合作伙伴之间以批或组的形式交换 EDI 消息
 
@@ -59,7 +59,7 @@ ms.locfileid: "80243530"
 
 2. [将逻辑应用链接到集成帐户](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)。
 
-3. 在逻辑应用设计器中，添加**批**触发器，这会启动逻辑应用工作流。 在搜索框中，输入“批”作为筛选器。 选择此触发器：“批处理消息” 
+3. 在逻辑应用设计器中，添加 **批** 触发器，这会启动逻辑应用工作流。 在搜索框中，输入“批”作为筛选器。 选择此触发器：“批处理消息” 
 
    ![添加批触发器](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
@@ -176,7 +176,7 @@ ms.locfileid: "80243530"
 
     | properties | 说明 | 
     |----------|-------------| 
-    | **批名称** | 接收方逻辑应用定义的批名称，在本示例中为“TestBatch” <p>**重要说明**：批名称在运行时将接受验证，必须与接收方逻辑应用指定的名称相匹配。 更改批名称会导致批发送方失败。 | 
+    | **批名称** | 接收方逻辑应用定义的批名称，在本示例中为“TestBatch” <p>**重要说明** ：批名称在运行时将接受验证，必须与接收方逻辑应用指定的名称相匹配。 更改批名称会导致批发送方失败。 | 
     | **消息内容** | 要发送的消息内容，在本示例中为“正文”标记  | 
     ||| 
 

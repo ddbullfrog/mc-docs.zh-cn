@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 08/28/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: def6f7cdf111570807c64fe3a4c2e711bd10afe0
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 14d106469501f8ccb4318704bedb3161a82d4530
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456846"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211853"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Linux VM 启动到 Grub 救援
 
@@ -38,8 +38,10 @@ ms.locfileid: "89456846"
 * 如果出现“未知的文件系统”错误，则请注意，此错误可能是由于启动分区中的文件系统损坏，或者是由于内核配置不正确。 
 
     * 对于文件系统问题，请按 [Linux Recovery:Cannot SSH to Linux VM due to file system errors (fsck, inodes)](https://docs.microsoft.com/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes)（Linux 恢复：由于文件系统错误（fsck、inode）而无法通过 SSH 连接到 Linux VM）一文中的步骤操作。
-    * 对于内核问题，请按照[如何从与内核相关的启动问题中恢复 Azure Linux 虚拟机](https://support.microsoft.com/help/4091524/how-recover-azure-linux-vm-from-kernel-related-boot-related-issues)或 [Linux 恢复：Fixing non-boot issues related to Kernel problems using chroot](http://linuxonazure.chinacloudsites.cn/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/)（Linux 恢复：使用 chroot 修复与内核问题相关的非启动问题）一文中的步骤操作。
-
+    * 对于内核问题，请按照[如何从与内核相关的启动问题中恢复 Azure Linux 虚拟机](https://support.microsoft.com/help/4091524/how-recover-azure-linux-vm-from-kernel-related-boot-related-issues)或 [Linux 恢复：Fixing non-boot issues related to Kernel problems using chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/)（Linux 恢复：使用 chroot 修复与内核问题相关的非启动问题）一文中的步骤操作。
+    
+    <!--CORRECT ON http://linuxonazure.azurewebsites.net/-->
+    
 ### <a name="error---file-not-found"></a>错误 - 找不到文件
 
 * 如果出现“错误 15:  找不到文件或初始 RAM 磁盘”或“找不到 initrd/initramfs 文件”错误，请执行以下步骤。 
@@ -50,7 +52,7 @@ ms.locfileid: "89456846"
 
         2. 接下来，运行以下命令以重新生成其配置：`grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-    * 如果缺失的文件为 `/boot/grub/menu.lst`，则该错误是针对旧版 OS（**RHEL 6.x**、**Centos 6.x** 和 **Ubuntu 14.04**）的，因此命令可能会有所不同。 需启动旧服务器并进行测试，确保提供了正确的命令。
+    * 如果缺失的文件为 `/boot/grub/menu.lst`，则该错误是针对旧版 OS（ **RHEL 6.x** 、 **Centos 6.x** 和 **Ubuntu 14.04** ）的，因此命令可能会有所不同。 需启动旧服务器并进行测试，确保提供了正确的命令。
 
 ### <a name="error---no-such-partition"></a>错误 - 无此类分区
 
@@ -66,7 +68,7 @@ ms.locfileid: "89456846"
 
         2. 接下来，运行以下命令以重新生成其配置：`grub2-mkconfig -o /boot/grub2/grub.cfg`。
 
-    * 如果缺失的文件为 `/boot/grub/menu.lst`，则该错误是针对旧版 OS（**RHEL 6.x**、**Centos 6.x** 和 **Ubuntu 14.04**）的，因此命令可能会有所不同。 请启动旧服务器并对其进行测试，确保提供了正确的命令。
+    * 如果缺失的文件为 `/boot/grub/menu.lst`，则该错误是针对旧版 OS（ **RHEL 6.x** 、 **Centos 6.x** 和 **Ubuntu 14.04** ）的，因此命令可能会有所不同。 请启动旧服务器并对其进行测试，确保提供了正确的命令。
 
 ## <a name="next-steps"></a>后续步骤
 

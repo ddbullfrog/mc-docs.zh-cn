@@ -13,11 +13,11 @@ ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 48d2924fec5d0ed6aea6d5d8a749241d87a465a4
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245748"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211389"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect： 配置 AD DS 连接器帐户权限 
 
@@ -293,7 +293,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 |类型 |名称 |访问 |应用于|
 |-----|-----|-----|-----| 
-|允许 |SYSTEM |完全控制 |此对象 
+|Allow |SYSTEM |完全控制 |此对象 
 |Allow |企业管理员 |完全控制 |此对象 
 |Allow |域管理员 |完全控制 |此对象 
 |Allow |管理员 |完全控制 |此对象 

@@ -25,12 +25,12 @@ ms.locfileid: "92041578"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>用于许可的产品名称和服务计划标识符
 
-在 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)或 Microsoft 365 管理中心中管理许可证时，将看到类似于“Office 365 E3”的产品名称。 使用 PowerShell v1.0 cmdlet 时，会发现同一个产品是使用特定但不太友好的名称：*ENTERPRISEPACK* 标识的。 使用 PowerShell v2.0 cmdlet 或 Microsoft Graph 时，会发现同一个产品是使用 GUID 值：*6fd2c87f-b296-42f0-b197-1e91e994b900* 标识的。 下表列出了最常用的 Microsoft 联机服务产品，并提供了它们的不同 ID 值。 这些表仅供参考，并且仅保证在本文最后更新之时是准确的。 Microsoft 不打算定期针对新添加的服务更新它们。
+在 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)或 Microsoft 365 管理中心中管理许可证时，将看到类似于“Office 365 E3”的产品名称。 使用 PowerShell v1.0 cmdlet 时，会发现同一个产品是使用特定但不太友好的名称： *ENTERPRISEPACK* 标识的。 使用 PowerShell v2.0 cmdlet 或 Microsoft Graph 时，会发现同一个产品是使用 GUID 值： *6fd2c87f-b296-42f0-b197-1e91e994b900* 标识的。 下表列出了最常用的 Microsoft 联机服务产品，并提供了它们的不同 ID 值。 这些表仅供参考，并且仅保证在本文最后更新之时是准确的。 Microsoft 不打算定期针对新添加的服务更新它们。
 
-- **产品名称**：在管理门户中使用
-- **字符串 ID**：由 PowerShell v1.0 cmdlet 在对许可证执行操作时使用
-- **GUID**：Microsoft Graph API 使用的 GUID
-- **包含的服务计划**：产品中与字符串 ID 和 GUID 对应的服务计划列表
+- **产品名称** ：在管理门户中使用
+- **字符串 ID** ：由 PowerShell v1.0 cmdlet 在对许可证执行操作时使用
+- **GUID** ：Microsoft Graph API 使用的 GUID
+- **包含的服务计划** ：产品中与字符串 ID 和 GUID 对应的服务计划列表
 - **包含的服务计划（易记名称）** ：产品中与字符串 ID 和 GUID 对应的服务计划（易记名称）列表
 
 >[!NOTE]
@@ -154,12 +154,12 @@ ms.locfileid: "92041578"
 
 本部分列出互斥的最常见服务计划（已按服务类型分组）。 可以使用此信息来规划许可证部署和避免分配错误。 这些表仅供参考，并且仅保证在本文最后更新之时是准确的。 Microsoft 不打算定期针对新添加的服务更新它们。
 
-### <a name="service-azure-active-directory"></a>服务：*Azure Active Directory*
+### <a name="service-azure-active-directory"></a>服务： *Azure Active Directory*
 
 >[!NOTE]
 >现在，可将 Azure Active Directory 相关的所有服务计划一起分配给同一个用户。 这就简化了某些许可证管理方案，例如，将用户从 Azure AD Basic 迁移到 Azure AD Premium P1。
 
-### <a name="service-dynamics-crm"></a>服务：*Dynamics CRM*
+### <a name="service-dynamics-crm"></a>服务： *Dynamics CRM*
 
 无法一起分配以下服务计划：
 
@@ -190,7 +190,7 @@ ms.locfileid: "92041578"
 | EXCHANGE_S_STANDARD   | 9aaf7827-d63c-4b61-89c3-182f06f82e5c |
 | EXCHANGE_S_STANDARD_MIDMARKET | fc52cc4b-ed7d-472d-bbe7-b081c23ecc56 |
 
-### <a name="service-microsoft-365"></a>服务：*Microsoft 365*
+### <a name="service-microsoft-365"></a>服务： *Microsoft 365*
 
 无法一起分配以下服务计划：
 
@@ -199,7 +199,7 @@ ms.locfileid: "92041578"
 | RMS_S_ENTERPRISE  | bea4c11e-220a-4e6d-8eb8-8ea15d019f90 |
 | RMS_S_ENTERPRISE_GOV  | 6a76346d-5d6e-4051-9fe3-ed3f312b5597 |
 
-### <a name="service-intune"></a>服务：*Intune*
+### <a name="service-intune"></a>服务： *Intune*
 
 无法一起分配以下服务计划：
 
@@ -209,7 +209,7 @@ ms.locfileid: "92041578"
 | INTUNE_A_VL   | 3e170737-c728-4eae-bbb9-3f3360f7184c |
 | INTUNE_B  | 2dc63b8a-df3d-448f-b683-8655877c9360 |
 
-### <a name="service-sharepoint-online"></a>服务：*SharePoint Online*
+### <a name="service-sharepoint-online"></a>服务： *SharePoint Online*
 
 无法一起分配以下服务计划：
 
@@ -226,7 +226,7 @@ ms.locfileid: "92041578"
 | SHAREPOINTSTANDARD_EDU    | 0a4983bb-d3e5-4a09-95d8-b2d0127b3df5 |
 | SHAREPOINTSTANDARD_YAMMERSHADOW | 4c9efd0c-8de7-4c71-8295-9f5fdb0dd048 |
 
-### <a name="service-skype-for-business"></a>服务：*Skype for Business*
+### <a name="service-skype-for-business"></a>服务： *Skype for Business*
 
 无法一起分配以下服务计划：
 

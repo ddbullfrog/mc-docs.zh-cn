@@ -40,12 +40,12 @@ ms.locfileid: "92170448"
 
 安装带有 ASP.NET 和 Web 开发工作负荷的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>。
 
-如果已安装 Visual Studio，请单击“工具” > **Get Tools and Features**“获取工具和功能”，以便在 Visual Studio 中添加工作负荷。
+如果已安装 Visual Studio，请单击“工具” > **Get Tools and Features** “获取工具和功能”，以便在 Visual Studio 中添加工作负荷。
 
 ## <a name="download-the-sample"></a>下载示例
 
 * [下载示例项目](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip)。
-* 提取（解压缩）*dotnet-sqldb-tutorial-master.zip* 文件。
+* 提取（解压缩） *dotnet-sqldb-tutorial-master.zip* 文件。
 
 此示例项目包含一个使用 [Entity Framework Code First](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) 的基本 [ASP.NET MVC](https://www.asp.net/mvc) 创建-读取-更新-删除 (CRUD) 应用。
 
@@ -94,7 +94,7 @@ ms.locfileid: "92170448"
 
    ![在“资源组”旁边单击“新建”。](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
 
-2. 将资源组命名为 **myResourceGroup**。
+2. 将资源组命名为 **myResourceGroup** 。
 
 ### <a name="create-an-app-service-plan"></a>创建应用服务计划
 
@@ -211,7 +211,7 @@ Visual Studio 成功为 SQL 数据库实例创建防火墙设置后，连接将�
 
 ### <a name="update-your-data-model"></a>更新数据模型
 
-在代码编辑器中打开 _Models\Todo.cs_。 将以下属性添加到 `ToDo` 类：
+在代码编辑器中打开 _Models\Todo.cs_ 。 将以下属性添加到 `ToDo` 类：
 
 ```csharp
 public bool Done { get; set; }
@@ -249,7 +249,7 @@ Update-Database
 
 为了使用 `Done` 属性，请对代码做一些更改。 简单起见，本教程中将仅更改 `Index` 和 `Create` 视图，以便在操作过程中查看属性。
 
-打开 _Controllers\TodosController.cs_。
+打开 _Controllers\TodosController.cs_ 。
 
 在第 52 行找到 `Create()` 方法，并将 `Done` 添加到 `Bind` 特性中的属性列表。 完成后，`Create()` 方法签名应如下面的代码所示：
 
@@ -257,7 +257,7 @@ Update-Database
 public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo todo)
 ```
 
-打开 _Views\Todos\Create.cshtml_。
+打开 _Views\Todos\Create.cshtml_ 。
 
 在 Razor 代码中，应依次看见使用 `model.Description` 的 `<div class="form-group">` 元素和使用 `model.CreatedDate` 的 `<div class="form-group">` 元素。 紧跟在这两个元素之后，添加另一个使用 `model.Done` 的 `<div class="form-group">` 元素：
 
@@ -273,7 +273,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 </div>
 ```
 
-打开 _Views\Todos\Index.cshtml_。
+打开 _Views\Todos\Index.cshtml_ 。
 
 搜索空的 `<th></th>` 元素。 在此元素的正上方，添加下列 Razor 代码：
 
@@ -283,7 +283,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 </th>
 ```
 
-查找包含 `Html.ActionLink()` 帮助器方法的 `<td>` 元素。 在此 `<td>`_上面_，使用以下 Razor 代码添加另一个 `<td>` 元素：
+查找包含 `Html.ActionLink()` 帮助器方法的 `<td>` 元素。 在此 `<td>`_上面_ ，使用以下 Razor 代码添加另一个 `<td>` 元素：
 
 ```csharp
 <td>
@@ -331,7 +331,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 可直接通过 Azure 应用将跟踪消息流式传输到 Visual Studio。
 
-打开 _Controllers\TodosController.cs_。
+打开 _Controllers\TodosController.cs_ 。
 
 每个操作都以 `Trace.WriteLine()` 方法开头。 添加此代码的目的是演示如何将跟踪消息添加至 Azure 应用。
 

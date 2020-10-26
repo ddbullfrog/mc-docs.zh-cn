@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-junlch
 ms.openlocfilehash: 13ac46f62e43064dd2047568af8017da436a078b
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041613"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211426"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Azure Active Directory 的资源林概念和功能
 

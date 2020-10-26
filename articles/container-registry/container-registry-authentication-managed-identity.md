@@ -6,12 +6,12 @@ origin.date: 01/16/2019
 author: rockboyfor
 ms.date: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7289b5c879380dd024cb00814c9c10e5617f53a5
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 62c5fd08c4d02acaf8e4e7d0a5ba1303b605e10b
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564428"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470291"
 ---
 <!--Verify successfully-->
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>使用 Azure 托管标识向 Azure 容器注册表验证身份 
@@ -35,9 +35,9 @@ Azure 资源的托管标识可在 Azure Active Directory (Azure AD) 中为 Azure
 
 托管标识有两种类型：
 
-* *用户分配的标识*，可以将其分配给多个资源，并根据需要持久保存。 用户分配的标识现提供预览版。
+* *用户分配的标识* ，可以将其分配给多个资源，并根据需要持久保存。 用户分配的标识现提供预览版。
 
-* *系统托管标识*，对于特定资源（如单个虚拟机）是唯一的，并且在该资源的生存期内持久保存。
+* *系统托管标识* ，对于特定资源（如单个虚拟机）是唯一的，并且在该资源的生存期内持久保存。
 
 为 Azure 资源设置托管标识后，便可以根据需要授予该标识对另一资源的访问权限，这一点与所有安全主体一样。 例如，为托管标识分配角色，该角色对 Azure 中的专用注册表具有拉取、推送和拉取或其他权限。 （有关完整的注册表角色列表，请参阅 [Azure 容器注册表角色和权限](container-registry-roles.md)。）可以授予标识对一个或多个资源的访问权限。
 
@@ -53,7 +53,7 @@ Azure 资源的托管标识可在 Azure Active Directory (Azure AD) 中为 Azure
 
 如果还没有 Azure 容器注册表，请创建一个注册表并向其推送示例容器映像。 有关步骤，请参阅[快速入门：使用 Azure CLI 创建专用容器注册表](container-registry-get-started-azure-cli.md)。
 
-本文假设你在注册表中存储了 `aci-helloworld:v1` 容器映像。 以下示例使用注册表名称 *myContainerRegistry*。 请在后续步骤中替换为你自己的注册表和映像名称。
+本文假设你在注册表中存储了 `aci-helloworld:v1` 容器映像。 以下示例使用注册表名称 *myContainerRegistry* 。 请在后续步骤中替换为你自己的注册表和映像名称。
 
 ## <a name="create-a-docker-enabled-vm"></a>创建一个启用了 Docker 的 VM
 
@@ -264,7 +264,10 @@ docker pull mycontainerregistry.azurecr.cn/aci-helloworld:v1
 [az-acr-show]: https://docs.azure.cn/cli/acr#az-acr-show
 [az-vm-create]: https://docs.azure.cn/cli/vm#az-vm-create
 [az-vm-show]: https://docs.azure.cn/cli/vm#az-vm-show
-[az-vm-identity-assign]: https://docs.azure.cn/cli/vm/identity#az-vm-identity-assign
+[az-vm-identity-assign]: https://docs.microsoft.com/cli/azure/vm/identity#az_vm_identity_assign
+
+<!--CORRECT ON https://docs.microsoft.com/cli/azure/vm/identity#az_vm_identity_assign-->
+
 [az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
 [az-acr-login]: https://docs.azure.cn/cli/acr#az-acr-login
 [az-identity-show]: https://docs.microsoft.com/cli/azure/identity#az_identity_show

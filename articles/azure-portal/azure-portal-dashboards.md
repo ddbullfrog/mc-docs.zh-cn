@@ -107,7 +107,7 @@ Azure 门户提供默认仪表板作为起点。 你可以编辑默认仪表板�
 
 仪表板上的数据自动显示过去 24 小时的活动。 若要仅显示此磁贴的不同时间跨度，请执行以下步骤：
 
-1. 从上下文菜单中选择“自定义磁贴数据”，或者从磁贴左上角选择**筛选器图标**筛选器。![](./media/azure-portal-dashboards/dashboard-filter.png)
+1. 从上下文菜单中选择“自定义磁贴数据”，或者从磁贴左上角选择 **筛选器图标** 筛选器。![](./media/azure-portal-dashboards/dashboard-filter.png)
 
     ![磁贴上下文菜单的屏幕截图](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 

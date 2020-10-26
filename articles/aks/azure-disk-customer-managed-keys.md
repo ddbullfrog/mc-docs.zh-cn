@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 09/01/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3ccbcd0c97a18848e0b5c409c2abebf92a1d95ab
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 31ba6a87cb2e62b96563888cb83c3ec1dbb70479
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146487"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469988"
 ---
 <!--Verified successfully-->
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>对 Azure Kubernetes Service (AKS) 中的 Azure 磁盘使用自带密钥 (BYOK)
@@ -26,14 +26,17 @@ Azure 存储对静态存储帐户中的所有数据进行加密。 默认情况�
 * 只有在创建 AKS 群集时才能启用使用客户管理的密钥对 OS 和数据磁盘进行加密。
 
 ## <a name="prerequisites"></a>先决条件
-* 使用密钥保管库加密托管磁盘时，必须为 *Azure 密钥保管库*启用软删除和清除保护。
+* 使用密钥保管库加密托管磁盘时，必须为 *Azure 密钥保管库* 启用软删除和清除保护。
 * 需要 Azure CLI 版本 2.11.1 或更高版本。
 
 ## <a name="create-an-azure-key-vault-instance"></a>创建 Azure Key Vault 实例
 
-使用 Azure Key Vault 实例来存储密钥。  可以通过 Azure 门户[使用 Azure Key Vault 配置客户管理的密钥][byok-azure-portal]
+使用 Azure Key Vault 实例来存储密钥。
 
-创建一个新的*资源组*，然后创建一个新的*密钥保管库*实例，并启用软删除和清除保护。  确保对每个命令使用同一区域和资源组名称。
+<!--Not Available on  You can optionally use the Azure portal to Configure customer-managed keys with Azure Key Vault-->
+<!--Not Available on  [Configure customer-managed keys with Azure Key Vault][byok-azure-portal]-->
+
+创建一个新的 *资源组* ，然后创建一个新的 *密钥保管库* 实例，并启用软删除和清除保护。  确保对每个命令使用同一区域和资源组名称。
 
 ```azurecli
 # Optionally retrieve Azure region short names for use on upcoming commands
@@ -50,7 +53,7 @@ az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --
 
 ## <a name="create-an-instance-of-a-diskencryptionset"></a>创建 DiskEncryptionSet 的实例
 
-将 *myKeyVaultName* 替换为你的密钥保管库的名称。  若要完成以下步骤，还需一个存储在 Azure Key Vault 中的“密钥”。  可以将现有密钥存储在通过前面的步骤创建的 Key Vault 中，也可以[生成新密钥][key-vault-generate]并将下面的 *myKeyName* 替换为你的密钥的名称。
+将 *myKeyVaultName* 替换为你的密钥保管库的名称。  若要完成以下步骤，还需一个存储在 Azure Key Vault 中的“密钥”。  可以将现有密钥存储在通过前面的步骤创建的 Key Vault 中，也可以 [生成新密钥][key-vault-generate]并将下面的 *myKeyName* 替换为你的密钥的名称。
 
 ```azurecli
 # Retrieve the Key Vault Id and store it in a variable
@@ -77,7 +80,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 
 ## <a name="create-a-new-aks-cluster-and-encrypt-the-os-disk"></a>创建一个新的 AKS 群集，并对 OS 磁盘加密
 
-创建一个**新的资源组**和 AKS 群集，然后使用密钥对 OS 磁盘进行加密。 只有高于 1.17 的 Kubernetes 版本才支持客户托管密钥。 
+创建一个 **新的资源组** 和 AKS 群集，然后使用密钥对 OS 磁盘进行加密。 只有高于 1.17 的 Kubernetes 版本才支持客户托管密钥。 
 
 > [!IMPORTANT]
 > 确保为 AKS 群集创建新的资源组
@@ -157,10 +160,12 @@ kubectl apply -f byok-azure-disk.yaml
 
 <!-- LINKS - internal -->
 
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-extension-update]: https://docs.azure.cn/cli/extension#az-extension-update
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
-[byok-azure-portal]: ../storage/common/storage-encryption-keys-portal.md
+
+<!--Not Available on [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md-->
+
 [customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
 [customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md

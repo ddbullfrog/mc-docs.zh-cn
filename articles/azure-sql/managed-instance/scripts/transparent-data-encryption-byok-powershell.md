@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: vanto, carlrab
-origin.date: 11/05/2019
-ms.date: 08/17/2020
-ms.openlocfilehash: e883031e7449e2403c6f9d05a861c5e73cea9bfc
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.reviewer: vanto, sstein
+origin.date: 08/25/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: fd85d0cdbca784fdab7976712b2ccc879bb2c1b7
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223270"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470459"
 ---
 # <a name="transparent-data-encryption-in-sql-managed-instance-using-your-own-key-from-azure-key-vault"></a>使用 Azure Key Vault 中自己的密钥在 SQL 托管实例中实现透明数据加密
 
@@ -39,7 +39,7 @@ ms.locfileid: "88223270"
 
 此外，还需要运行 `Connect-AzAccount` 以创建与 Azure 的连接。
 
-## <a name="sample-scripts"></a>示例脚本
+## <a name="sample-scripts"></a>示例脚本 
 
 ```powershell
 # You will need an existing Managed Instance as a prerequisite for completing this script.
@@ -51,8 +51,8 @@ Connect-AzAccount -Environment AzureChinaCloud
 # If there are multiple subscriptions, choose the one where AKV is created: 
 Set-AzContext -SubscriptionId "subscription ID"
 
-# Install the preview version of Az.Sql PowerShell package 1.1.1-preview if you are running this PowerShell locally (uncomment below):
-# Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease -Force
+# Install the Az.Sql PowerShell package if you are running this PowerShell locally (uncomment below):
+# Install-Module -Name Az.Sql
 
 # 1. Create Resource and setup Azure Key Vault (skip if already done)
 
@@ -63,7 +63,7 @@ New-AzResourceGroup -Name $resourcegroup -Location $location
 
 # Create new Azure Key Vault with a globally unique VaultName and soft-delete option turned on:
 $vaultname = "MyKeyVault" # specify a globally unique VaultName
-New-AzKeyVault -VaultName $vaultname -ResourceGroupName $resourcegroup -Location $location -EnableSoftDelete
+New-AzKeyVault -VaultName $vaultname -ResourceGroupName $resourcegroup -Location $location
 
 # Authorize Managed Instance to use the AKV (wrap/unwrap key and get public part of key, if public part exists): 
 $objectid = (Set-AzSqlInstance -ResourceGroupName $resourcegroup -Name "MyManagedInstance" -AssignIdentity).Identity.PrincipalId
@@ -72,11 +72,17 @@ Set-AzKeyVaultAccessPolicy -BypassObjectIdValidation -VaultName $vaultname -Obje
 # Allow access from trusted Azure services: 
 Update-AzKeyVaultNetworkRuleSet -VaultName $vaultname -Bypass AzureServices
 
+# Allow access from your client IP address(es) to be able to complete remaining steps: 
+Update-AzKeyVaultNetworkRuleSet -VaultName $vaultname -IpAddressRange "xxx.xxx.xxx.xxx/xx"
+
 # Turn the network rules ON by setting the default action to Deny: 
 Update-AzKeyVaultNetworkRuleSet -VaultName $vaultname -DefaultAction Deny
 
 
 # 2. Provide TDE Protector key (skip if already done)
+
+# First, give yourself necessary permissions on the AKV, (specify your account instead of contoso.com):
+Set-AzKeyVaultAccessPolicy -VaultName $vaultname -UserPrincipalName "myaccount@contoso.com" -PermissionsToKeys create,import,get,list
 
 # The recommended way is to import an existing key from a .pfx file. Replace "<PFX private key password>" with the actual password below:
 $keypath = "c:\some_path\mytdekey.pfx" # Supply your .pfx path and name

@@ -2,20 +2,19 @@
 title: include 文件
 description: include 文件
 services: cognitive-services
-author: v-tawe
 manager: nitinme
-ms.custom: include file
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 06/18/2020
+ms.date: 10/19/2020
 ms.topic: include
-ms.author: v-tawe
-ms.openlocfilehash: cd0c8fb5277647a9f9dd6e6c31925f346e74e6d0
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.author: v-johya
+ms.openlocfilehash: 4c92feeb1333e0fa95d99948cd398c325b3848ad
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098356"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472361"
 ---
 通过 pattern.any 实体，可找到自由格式数据，其中实体的用语方式比较晦涩，难以从话语的其余部分来确定实体的结尾。
 
@@ -46,3 +45,4 @@ ms.locfileid: "85098356"
 |{FormName} 是以法语发布的吗[？]|
 
 查看模式。任何[参考](../reference-entity-pattern-any.md)信息
+

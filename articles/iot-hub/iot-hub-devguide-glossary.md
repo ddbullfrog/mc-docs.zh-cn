@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/15/2019
 ms.author: v-yiso
 ms.date: 05/11/2020
-ms.openlocfilehash: 142288e1e91ba58360ea428d1a7190ffcf635937
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: a9ffe3ed4f3babe15be87601da94ea732a7a9eb1
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394772"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472245"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -24,13 +24,15 @@ ms.locfileid: "91394772"
 
 ## <a name="automatic-device-management"></a>自动设备管理
 
-Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的任务自动化，包括在大型设备阵列的整个生命周期内对其进行管理。 使用自动设备管理，可以根据设备的属性将一组设备指定为目标、定义所需的配置，并在设备进入管理范畴时让 IoT 中心更新这些设备。  包括[自动设备配置](iot-hub-auto-device-config.md)和 [IoT Edge 自动部署](../iot-edge/how-to-deploy-at-scale.md)。
+Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的任务自动化，包括在大型设备阵列的整个生命周期内对其进行管理。 使用自动设备管理，可以根据设备的属性将一组设备指定为目标、定义所需的配置，并在设备进入管理范畴时让 IoT 中心更新这些设备。  包括[自动设备配置](./iot-hub-automatic-device-management.md)和 [IoT Edge 自动部署](../iot-edge/how-to-deploy-at-scale.md)。
 
 ## <a name="automatic-device-configuration"></a>自动设备配置
-解决方案后端可以使用[自动设备配置](iot-hub-auto-device-config.md)将所需属性分配到一组[设备孪生](#device-twin)，并使用系统指标和自定义指标来报告状态。 
+
+解决方案后端可以使用[自动设备配置](./iot-hub-automatic-device-management.md)将所需属性分配到一组[设备孪生](#device-twin)，并使用系统指标和自定义指标来报告状态。 
 
 ## <a name="azure-classic-cli"></a>Azure 经典 CLI
-[Azure 经典 CLI](../cli-install-nodejs.md) 是一个跨平台、开放源代码、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。 此版本的 CLI 仅应用于经典部署。
+
+[Azure 经典 CLI](/cli/install-classic-cli) 是一个跨平台、开放源代码、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。 此版本的 CLI 仅应用于经典部署。
 
 ## <a name="azure-cli"></a>Azure CLI
 [Azure CLI](/cli/install-az-cli2) 是一个跨平台、开源、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。
@@ -50,10 +52,11 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 [Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)是一个跨平台的开放源代码 Visual Studio Code 扩展，可帮助你在 VS Code 中管理 Azure IoT 中心和设备。 使用 Azure IoT 工具，IoT 开发人员可以轻松在 VS Code 中开发 IoT 项目。
 
 ## <a name="azure-portal"></a>Azure 门户
-[Microsoft Azure 门户](https://portal.azure.cn) 是一个中心位置，可在其中预配和管理 Azure 资源。 该门户使用 _边栏选项卡_组织其内容。
+[Microsoft Azure 门户](https://portal.azure.cn) 是一个中心位置，可在其中预配和管理 Azure 资源。 该门户使用 _边栏选项卡_ 组织其内容。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md) 是一个 cmdlet 集合，可用于通过 Windows PowerShell 管理 Azure。 可以使用 cmdlet 来创建、测试、部署和管理通过 Azure 平台传送的解决方案和服务。
+
+[Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/) 是一个 cmdlet 集合，可用于通过 Windows PowerShell 管理 Azure。 可以使用 cmdlet 来创建、测试、部署和管理通过 Azure 平台传送的解决方案和服务。
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -78,7 +81,8 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 指从 IoT 中心发送到已连接设备的消息。 这些消息通常是命令，用于指示设备采取某项操作。 有关详细信息，请参阅[使用 IoT 中心发送和接收消息](./iot-hub-devguide-messaging.md)。
 
 ## <a name="configuration"></a>配置
-在使用[自动设备配置](iot-hub-auto-device-config.md)的情况下，可以通过 IoT 中心的配置为一组设备孪生定义所需的配置，并提供一组指标来报告状态和进度。
+
+在使用[自动设备配置](./iot-hub-automatic-device-management.md)的情况下，可以通过 IoT 中心的配置为一组设备孪生定义所需的配置，并提供一组指标来报告状态和进度。
 
 ## <a name="connection-string"></a>连接字符串
 使用应用程序代码中的连接字符串来封装连接到终结点所需的信息。 连接字符串通常包含终结点的地址和安全信息，但连接字符串的格式因服务而异。 与 IoT 中心服务关联的连接字符串有两种：
@@ -145,7 +149,8 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 IoT 中心公开了多个[终结点](./iot-hub-devguide-endpoints.md)，以便使应用能够连接到 IoT 中心。 有面向设备的终结点，通过此终结点设备可以执行一些操作，例如发送[设备到云](#device-to-cloud)的消息和接收[云到设备](#cloud-to-device)的消息。 有面向服务的管理终结点，通过此终结点[后端应用](#back-end-app)可执行一些操作，如[设备标识](#device-identity)管理和设备孪生管理。 有面向服务的 [内置终结点](#built-in-endpoints) ，用于读取设备到云消息。 可创建[自定义终结点](#custom-endpoints)，接收由[路由规则](#routing-rules)调度的设备到云消息。
 
 ## <a name="event-hubs-service"></a>事件中心服务
-[事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)是高度可缩放的数据引入服务，每秒可以引入数以百万计的事件。 该服务使用户能够处理和分析连接设备和应用程序产生的大量数据。 有关该服务与 IoT 中心服务的比较的信息，请参阅 [Azure IoT 中心与 Azure 事件中心的比较](./iot-hub-compare-event-hubs.md)。
+
+[事件中心](../event-hubs/event-hubs-about.md)是高度可缩放的数据引入服务，每秒可以引入数以百万计的事件。 该服务使用户能够处理和分析连接设备和应用程序产生的大量数据。 有关该服务与 IoT 中心服务的比较的信息，请参阅 [Azure IoT 中心与 Azure 事件中心的比较](iot-hub-compare-event-hubs.md)。
 
 ## <a name="event-hub-compatible-endpoint"></a>与事件中心兼容的终结点
 如果要读取发送到 IoT 中心的 [设备到云](#device-to-cloud) 的消息，可以先连接到中心的终结点，然后使用与事件中心兼容的任何方法读取这些消息。 事件中心兼容的方法包括使用[事件中心 SDK](../event-hubs/event-hubs-programming-guide.md) 和 [Azure 流分析](../stream-analytics/stream-analytics-introduction.md)。
@@ -240,7 +245,7 @@ SASL PLAIN 是一种协议，AMQP 协议使用它来传输安全令牌。
 可以从解决方案后端使用[服务 REST API](https://docs.microsoft.com/rest/api/iothub/service/configuration) 来管理设备。 使用 API，不仅可以检索和更新[设备孪生](#device-twin)属性，还能调用[直接方法](#direct-method)并安排[作业](#job)。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [服务 SDK](#azure-iot-service-sdks) 。
 
 ## <a name="shared-access-signature"></a>共享访问签名
-共享访问签名 (SAS) 是基于 SHA–256 安全哈希或 URI 的身份验证机制。 SAS 身份验证有两个组件：_共享访问策略_和_共享访问签名_（通常称为令牌）。 设备使用 SAS 在 IoT 中心进行身份验证。 [后端应用](#back-end-app) 也使用 SAS 在 IoT 中心的面向服务的终结点上进行身份验证。 通常，在 [连接字符串](#connection-string) 中包含 SAS 令牌，应用使用此令牌建立与 IoT 中心的连接。
+共享访问签名 (SAS) 是基于 SHA–256 安全哈希或 URI 的身份验证机制。 SAS 身份验证有两个组件： _共享访问策略_ 和 _共享访问签名_ （通常称为令牌）。 设备使用 SAS 在 IoT 中心进行身份验证。 [后端应用](#back-end-app) 也使用 SAS 在 IoT 中心的面向服务的终结点上进行身份验证。 通常，在 [连接字符串](#connection-string) 中包含 SAS 令牌，应用使用此令牌建立与 IoT 中心的连接。
 
 ## <a name="shared-access-policy"></a>共享访问策略
 共享访问策略定义向具有有效的 [主要密钥或次要密钥](#primary-and-secondary-keys) （与该策略相关联）的任何人授予的权限。 用户可以在 [门户](#azure-portal)中管理中心的共享访问策略和密钥。
@@ -249,7 +254,7 @@ SASL PLAIN 是一种协议，AMQP 协议使用它来传输安全令牌。
 为方便起见，许多 IoT 中心教程使用模拟设备，以便在本地计算机上运行示例。 相反， [物理设备](#physical-device) 是真实的设备，如连接到 IoT 中心的 Raspberry Pi。
 
 ## <a name="solution"></a>解决方案
-_解决方案_ 可以是包含一个或多个项目的 Visual Studio 解决方案。 _解决方案_也可能是包括诸如设备、[设备应用](#device-app)、IoT 中心、其他 Azure 服务和[后端应用](#back-end-app)等元素的 IoT 解决方案。
+_解决方案_ 可以是包含一个或多个项目的 Visual Studio 解决方案。 _解决方案_ 也可能是包括诸如设备、 [设备应用](#device-app)、IoT 中心、其他 Azure 服务和 [后端应用](#back-end-app)等元素的 IoT 解决方案。
 
 ## <a name="subscription"></a>订阅
 Azure 订阅是发生计费的地方。 用户创建的每个 Azure 资源或使用的 Azure 服务均与单个订阅关联。 许多配额也在订阅级别应用。

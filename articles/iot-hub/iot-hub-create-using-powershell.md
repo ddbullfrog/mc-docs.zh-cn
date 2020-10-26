@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 08/29/2018
 ms.author: v-yiso
 ms.date: 03/18/2019
-ms.openlocfilehash: de3dd4d47663a88722cc2e7691e3686ea7c1a5e9
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 6d7f9a4e78c83ccac400c8f1975fb31f2b92adf0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186698"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472674"
 ---
 # <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>使用 New-AzIotHub cmdlet 创建 IoT 中心
 
@@ -45,7 +45,7 @@ Login-AzAccount -Environment AzureChinaCloud
 
 若要为 IoT 中心创建资源组，请使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) 命令。 此示例在“中国东部”区域中创建名为 **MyIoTRG1** 的资源组：
 
-```powershell
+```azurepowershell
 New-AzResourceGroup -Name MyIoTRG1 -Location "China East"
 ```
 
@@ -68,7 +68,7 @@ IoT 中心的名称必须是全局唯一的。
 可以使用 [Get-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/Get-azIotHub) 命令列出订阅中的所有 IoT 中心：
 
 
-```powershell
+```azurepowershell
 Get-AzIotHub
 ```
 
@@ -85,7 +85,7 @@ Remove-AzIotHub `
 或者，可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) 命令删除资源组及其包含的所有资源：
 
 
-```powershell
+```azurepowershell
 Remove-AzResourceGroup -Name MyIoTRG1
 ```
 

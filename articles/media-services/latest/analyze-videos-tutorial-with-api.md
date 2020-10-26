@@ -15,11 +15,11 @@ ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: seodec18
 ms.openlocfilehash: 8e43eb0dd32e0858ae8baa4b9652e5de2105b5d1
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245741"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211387"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>教程：使用媒体服务 v3 来分析视频
 
@@ -69,8 +69,8 @@ ms.locfileid: "91245741"
 
 该示例执行以下操作：
 
-1. 创建**转换**和用于分析视频的**作业**。
-2. 创建输入**资产**，并将视频上传到其中。 该资产用作作业的输入。
+1. 创建 **转换** 和用于分析视频的 **作业** 。
+2. 创建输入 **资产** ，并将视频上传到其中。 该资产用作作业的输入。
 3. 创建用于存储作业输出的输出资产。
 4. 提交作业。
 5. 检查作业的状态。
@@ -81,7 +81,7 @@ ms.locfileid: "91245741"
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>开始结合使用媒体服务 API 与 .NET SDK
 
-若要开始将媒体服务 API 与 .NET 结合使用，需要创建 AzureMediaServicesClient 对象。 若要创建对象，需要提供客户端所需凭据以使用 Azure AD 连接到 Azure。 在本文开头克隆的代码中，**GetCredentialsAsync** 函数根据本地配置文件中提供的凭据创建 ServiceClientCredentials 对象。 
+若要开始将媒体服务 API 与 .NET 结合使用，需要创建 AzureMediaServicesClient 对象。 若要创建对象，需要提供客户端所需凭据以使用 Azure AD 连接到 Azure。 在本文开头克隆的代码中， **GetCredentialsAsync** 函数根据本地配置文件中提供的凭据创建 ServiceClientCredentials 对象。 
 
 ```csharp
 private static async Task<IAzureMediaServicesClient> CreateMediaServicesClientAsync(ConfigWrapper config)
@@ -155,7 +155,7 @@ private static async Task<Asset> CreateInputAssetAsync(
 
 ### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>创建一个输出资产以存储作业的结果
 
-输出[资产](/rest/api/media/assets)会存储作业结果。 项目定义 DownloadResults 函数，该函数将结果从此输出资产中下载到**输出**文件夹中，便于用户查看获取的内容。
+输出[资产](/rest/api/media/assets)会存储作业结果。 项目定义 DownloadResults 函数，该函数将结果从此输出资产中下载到 **输出** 文件夹中，便于用户查看获取的内容。
 
 ```csharp
 private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName)
@@ -183,13 +183,13 @@ private static async Task<Asset> CreateOutputAssetAsync(IAzureMediaServicesClien
 
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>创建转换和分析视频的作业
 
-对媒体服务中的内容进行编码或处理时，一种常见的模式是将编码设置设为脚本。 然后，需提交**作业**，将该脚本应用于视频。 为每个新视频提交新 Job 后，可将该脚本应用到库中的所有视频。 媒体服务中的脚本称为“转换”。 有关详细信息，请参阅[转换和作业](./transforms-jobs-concept.md)。 本教程中所述的示例定义了分析指定视频的脚本。
+对媒体服务中的内容进行编码或处理时，一种常见的模式是将编码设置设为脚本。 然后，需提交 **作业** ，将该脚本应用于视频。 为每个新视频提交新 Job 后，可将该脚本应用到库中的所有视频。 媒体服务中的脚本称为“转换”。 有关详细信息，请参阅[转换和作业](./transforms-jobs-concept.md)。 本教程中所述的示例定义了分析指定视频的脚本。
 
 #### <a name="transform"></a>转换
 
-创建新[转换](https://docs.microsoft.com/rest/api/media/transforms)实例时，需要指定希望生成的输出内容。 TransformOutput 是必需参数。 每个 TransformOutput 包含一个预设   。 预设介绍视频和/或音频处理操作的各个步骤，这些操作可生成所需 TransformOutput 。 在此示例中，使用了 **VideoAnalyzerPreset** 预设，并且将语言 (“en-US”) 传递给了其构造函数 (`new VideoAnalyzerPreset("en-US")`)。 凭借此预设，可以从视频提取多个音频和视频见解。 如需从视频提取多个音频见解，可以使用**AudioAnalyzerPreset** 预设。
+创建新[转换](https://docs.microsoft.com/rest/api/media/transforms)实例时，需要指定希望生成的输出内容。 TransformOutput 是必需参数。 每个 TransformOutput 包含一个预设   。 预设介绍视频和/或音频处理操作的各个步骤，这些操作可生成所需 TransformOutput 。 在此示例中，使用了 **VideoAnalyzerPreset** 预设，并且将语言 (“en-US”) 传递给了其构造函数 (`new VideoAnalyzerPreset("en-US")`)。 凭借此预设，可以从视频提取多个音频和视频见解。 如需从视频提取多个音频见解，可以使用 **AudioAnalyzerPreset** 预设。
 
-创建 Transform 时，首先检查是否其中一个已存在使用 Get 方法，如下面的代码中所示 。 在媒体服务 v3 中，如果实体不存在（对名称进行不区分大小写检查），实体上的 **Get** 方法将返回 **null**。
+创建 Transform 时，首先检查是否其中一个已存在使用 Get 方法，如下面的代码中所示 。 在媒体服务 v3 中，如果实体不存在（对名称进行不区分大小写检查），实体上的 **Get** 方法将返回 **null** 。
 
 ```csharp
 private static async Task<Transform> GetOrCreateTransformAsync(IAzureMediaServicesClient client,
@@ -266,7 +266,7 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 
 事件网格旨在实现高可用性、一致性能和动态缩放。 使用事件网格，应用可以侦听和响应来自几乎所有 Azure 服务和自定义源的事件。 处理基于 HTTP 的反应事件非常简单，这有助于通过对事件的智能筛选和路由生成高效的解决方案。 有关详细信息，请参阅[将事件路由到自定义 Web 终结点](job-state-events-cli-how-to.md)。
 
-**作业**通常会经历以下状态：**已计划**、**已排队**、**正在处理**、**已完成**（最终状态）。 如果作业出错，则显示“错误”状态。 如果作业正处于取消过程中，则显示“正在取消”，完成时则显示“已取消” 。
+**作业** 通常会经历以下状态： **已计划** 、 **已排队** 、 **正在处理** 、 **已完成** （最终状态）。 如果作业出错，则显示“错误”状态。 如果作业正处于取消过程中，则显示“正在取消”，完成时则显示“已取消” 。
 
 ```csharp
 private static async Task<Job> WaitForJobToFinishAsync(IAzureMediaServicesClient client,

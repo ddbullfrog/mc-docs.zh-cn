@@ -1,15 +1,17 @@
 ---
 title: 在运行时扩展应用 - LUIS
 description: ''
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 10/19/2020
 origin.date: 04/14/2020
-ms.openlocfilehash: 9a08d96a0250c77cec2b1f731c144ad0079fdf5e
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: c59a9ca24bc742ae6491104d5db9511b26287cc6
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85102045"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472318"
 ---
 # <a name="extend-app-at-prediction-runtime"></a>在预测运行时扩展应用
 
@@ -148,7 +150,7 @@ ms.locfileid: "85102045"
 
 #### <a name="resolution"></a>解决方法
 
-可选的 `resolution` 属性将在预测响应中返回，可让你传入与外部实体关联的元数据，然后在响应中接收该元数据。__
+可选的 `resolution` 属性将在预测响应中返回，可让你传入与外部实体关联的元数据，然后在响应中接收该元数据。 
 
 主要目的是扩展预生成实体，但并不局限于该实体类型。
 
@@ -207,3 +209,4 @@ ms.locfileid: "85102045"
 
 * [预测分数](luis-concept-prediction-score.md)
 * [创作 API V3 更改](luis-migration-api-v3.md)
+

@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 06/24/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 06/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6ca1d9a7e5bb6ab6f4aa24c8ac3818434395b964
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: fd659f8f45a1b9214a020c3a2b9e2807c0768b5c
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020824"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469973"
 ---
 # <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>使用 Helm 在 Azure Kubernetes 服务 (AKS) 中安装现有应用程序
 
@@ -168,7 +168,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
 ...
 ```
 
-使用 `kubectl get services` 命令获取服务的 *EXTERNAL-IP*。
+使用 `kubectl get services` 命令获取服务的 *EXTERNAL-IP* 。
 
 ```console
 kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller

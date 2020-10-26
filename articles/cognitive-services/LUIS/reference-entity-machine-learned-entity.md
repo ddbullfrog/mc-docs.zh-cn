@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 08/07/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: 3b45c7c457d03d91c3ae8b828dedd9d9e66ef690
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: f0a4097badf641ab87d8264a7d7c2bf21cfd2c69
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023675"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472332"
 ---
 # <a name="machine-learning-entity"></a>机器学习实体
 
@@ -348,7 +348,7 @@ ms.locfileid: "88023675"
 
 ## <a name="next-steps"></a>后续步骤
 
-了解有关机器学习实体的详细信息，包括[教程](tutorial-machine-learned-entity.md)、[概念](luis-concept-entity-types.md#design-entities-for-decomposition)和[操作指南](luis-how-to-add-entities.md)。
+了解有关机器学习实体的详细信息，包括[教程](tutorial-machine-learned-entity.md)、[概念](luis-concept-entity-types.md#design-entities-for-decomposition)和[操作指南](luis-how-to-add-entities.md#create-a-machine-learned-entity)。
 
 了解[列表](reference-entity-list.md)实体和[正则表达式](reference-entity-regular-expression.md)实体。
 

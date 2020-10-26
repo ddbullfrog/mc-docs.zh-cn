@@ -7,11 +7,11 @@ ms.author: v-johya
 ms.date: 05/25/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 8a94933eb73f706f26d46d92efe8e98bbe4b0fa4
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200175"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211570"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>编写代码来使用 Application Insights 跟踪请求
 

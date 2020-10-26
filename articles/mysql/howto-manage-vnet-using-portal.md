@@ -28,18 +28,18 @@ ms.locfileid: "92041799"
 
 ## <a name="create-a-vnet-rule-and-enable-service-endpoints-in-the-azure-portal"></a>在 Azure 门户中创建 VNet 规则和启用服务终结点
 
-1. 在 MySQL 服务器页面上的“设置”标题下，单击“连接安全性”****，以打开 Azure Database for MySQL 的“连接安全性”窗格。 
+1. 在 MySQL 服务器页面上的“设置”标题下，单击“连接安全性”  ，以打开 Azure Database for MySQL 的“连接安全性”窗格。 
 
-2. 确保将“允许访问 Azure 服务”控件设置为“关闭”。****
+2. 确保将“允许访问 Azure 服务”控件设置为“关闭”。 
 
 > [!Important]
 > 如果将此控件设置为“启用”，则 Azure MySQL 数据库服务器接受来自任何子网的通信。 从安全角度来看，将此控件设置为“启用”可能会导致过度访问。 Azure 虚拟网络服务终结点功能与 Azure Database for MySQL 的虚拟网络规则功能一起使用可以降低安全风险。
 
-3. 接下来，单击“+ 添加现有虚拟网络”****。 若无现有 VNet，可以单击“+ 新建虚拟网络”**** 来创建一个。 请参阅[快速入门：使用 Azure 门户创建虚拟网络](../virtual-network/quick-create-portal.md)
+3. 接下来，单击“+ 添加现有虚拟网络”  。 若无现有 VNet，可以单击“+ 新建虚拟网络”  来创建一个。 请参阅[快速入门：使用 Azure 门户创建虚拟网络](../virtual-network/quick-create-portal.md)
 
    :::image type="content" source="./media/howto-manage-vnet-using-portal/1-connection-security.png" alt-text="Azure 门户 - 单击“连接安全性”":::
 
-4. 输入 VNet 规则名称，选择订阅、虚拟网络和子网名称，再单击“启用”****。 这会使用 Microsoft.SQL**** 服务标记自动对子网启用 VNet 服务终结点。
+4. 输入 VNet 规则名称，选择订阅、虚拟网络和子网名称，再单击“启用”  。 这会使用 Microsoft.SQL  服务标记自动对子网启用 VNet 服务终结点。
 
    :::image type="content" source="./media/howto-manage-vnet-using-portal/2-configure-vnet.png" alt-text="Azure 门户 - 单击“连接安全性”":::
 
@@ -57,7 +57,7 @@ ms.locfileid: "92041799"
    > 强烈建议在配置服务终结点前，先阅读本文介绍的服务终结点配置和注意事项。 **虚拟网络服务终结点：** [虚拟网络服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)是一个子网，其属性值包括一个或多个正式的 Azure 服务类型名称。 VNet 服务终结点使用服务类型名称 Microsoft.Sql，可引用名为“SQL 数据库”的 Azure 服务。 此服务标记也适用于 Azure SQL 数据库、Azure Database for PostgreSQL 和 MySQL 服务。 请务必要注意，对 VNet 服务终结点应用 Microsoft.Sql 服务标记时，它会为所有 Azure 数据库服务配置服务终结点流量，其中包括 Azure SQL 数据库、Azure Database for PostgreSQL 和子网上的 Azure Database for MySQL 服务器。 
    > 
 
-5. 启用后，单击“确定”**** 即可看到 VNet 服务终结点与 VNet 规则一起启用。
+5. 启用后，单击“确定”  即可看到 VNet 服务终结点与 VNet 规则一起启用。
 
    :::image type="content" source="./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png" alt-text="Azure 门户 - 单击“连接安全性”":::
 

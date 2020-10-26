@@ -5,17 +5,17 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 07/07/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: fbc4b6d9a9c794d8f75be37c4744c5c03876c35f
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: ec90e33d3ce62be188c3f9e5659a2bcec2b41a88
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146638"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470492"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 
@@ -36,8 +36,8 @@ Analysis Services 还支持由托管标识使用服务主体执行的操作。 �
 
 服务主体凭据和证书可以安全地存储在 Azure 自动化中进行 Runbook 操作。 若要了解更多信息，请参阅以下文章：
 
-[Azure 自动化中的凭据资产](../automation/automation-credentials.md)   
-[Azure 自动化中的证书资产](../automation/automation-certificates.md)
+[Azure 自动化中的凭据资产](../automation/shared-resources/credentials.md)   
+[Azure 自动化中的证书资产](../automation/shared-resources/certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>将服务主体添加到服务器管理员角色
 

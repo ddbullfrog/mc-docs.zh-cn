@@ -152,9 +152,9 @@ CanDelegate: False
 
 1. 通过 [https://portal.azure.cn](https://portal.azure.cn) 登录到 Azure 门户
 
-2. 在门户中，导航到“虚拟机”**** 并转到 Windows 虚拟机，然后在“概述”**** 中单击“连接”****。
+2. 在门户中，导航到“虚拟机”  并转到 Windows 虚拟机，然后在“概述”  中单击“连接”  。
 
-3. 输入创建 Windows VM 时使用的“用户名”**** 和“密码”****。
+3. 输入创建 Windows VM 时使用的“用户名”  和“密码”  。
 
 4. 现在，已经创建了与虚拟机的远程桌面连接，请在远程会话中打开 PowerShell。
 

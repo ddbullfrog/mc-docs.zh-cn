@@ -126,6 +126,8 @@
           items:
             - name: 使用虚拟网络 (VNET)
               href: concepts-data-access-and-security-vnet.md
+            - name: 通过专用链接启用私密访问
+              href: concepts-data-access-security-private-link.md
         - name: 安全性
           items:
             - name: 安全概述
@@ -304,17 +306,23 @@
             - name: 创建只读副本 - Azure PowerShell
               href: howto-read-replicas-powershell.md
               displayName: 'data-in replication, replica, failover'
-            - name: 疑难解答
-              items:
-                - name: 排查连接错误
-                  href: howto-troubleshoot-common-connection-issues.md
-                  displayName: 'debug, connection issues, connectivity, cannot connect'
-                - name: 查询性能故障排除
-                  href: howto-troubleshoot-query-performance.md
-                  displayName: 'debug, performance issues, query performance'
-                - name: 如何使用 sys 架构中的视图
-                  href: howto-troubleshoot-sys-schema.md
-                  displayName: 'sys schema, views'
+        - name: 疑难解答
+          items:
+            - name: 排查连接错误
+              href: howto-troubleshoot-common-connection-issues.md
+              displayName: 'debug, connection issues, connectivity, cannot connect'
+            - name: 解决常见问题
+              href: howto-troubleshoot-common-errors.md
+              displayName: 'SUPER privilege, DBA role, Access is denied'
+            - name: 查询性能故障排除
+              href: howto-troubleshoot-query-performance.md
+              displayName: 'debug, performance issues, query performance'
+            - name: 如何使用 sys 架构中的视图
+              href: howto-troubleshoot-sys-schema.md
+              displayName: 'sys schema, views'
+            - name: 排查复制延迟问题
+              href: howto-troubleshoot-replication-latency.md
+              displayName: 'replication, latency, monitor'
         - name: 安全访问
           items:
             - name: 虚拟网络
@@ -325,6 +333,19 @@
                 - name: Azure CLI
                   href: howto-manage-vnet-using-cli.md
                   displayName: 'vnet, virtual network, service endpoint'
+        - name: 专用链接
+          items:
+            - name: Azure 门户
+              href: howto-configure-privatelink-portal.md
+              displayName: 'private link, private endpoint'
+            - name: Azure CLI
+              href: howto-configure-privatelink-cli.md
+              displayName: 'private link, private endpoint'
+        - name: 拒绝公用网络访问
+          items:
+            - name: Azure 门户
+              href: howto-deny-public-network-access.md
+              displayName: 'security, public access'
         - name: 重新启动服务器
           items:
             - name: Azure 门户

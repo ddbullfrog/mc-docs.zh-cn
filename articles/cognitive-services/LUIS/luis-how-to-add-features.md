@@ -10,14 +10,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 origin.date: 11/14/2019
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: c04751ba1f2fa7b5050621f89096e4264ef1f99c
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 7ff64297942dcfe806110849fc6b2fea51701616
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023385"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472444"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>使用特征增强字词列表的信号
 
@@ -33,12 +33,12 @@ ms.locfileid: "88023385"
 
 1. 在“特征”页上，选择“+ 创建” 。
 
-1. 在“新建短语列表特征”对话框中，输入名称（例如 `Cities`）。 在“值”框中，输入示例城市（例如 `Seattle`）。 可以一次键入一个值或者用逗号分隔的一组值，然后按 Enter****。
+1. 在“新建短语列表特征”对话框中，输入名称（例如 `Cities`）。 在“值”框中，输入示例城市（例如 `Seattle`）。 可以一次键入一个值或者用逗号分隔的一组值，然后按 Enter  。
 
     > [!div class="mx-imgBorder"]
     > ![屏幕截图显示添加特征（短语列表）城市的操作](./media/luis-add-features/add-phrase-list-cities.png)
 
-    为 LUIS 输入足够的值后，会显示建议。 对于建议的值，可以单击“+ 全部添加”，也可选择单个术语****。
+    为 LUIS 输入足够的值后，会显示建议。 对于建议的值，可以单击“+ 全部添加”，也可选择单个术语  。
 
 1. 如果短语可以交换使用，则让“这些值可以交换”保持选中状态。
 
@@ -66,7 +66,7 @@ ms.locfileid: "88023385"
 
 若要将实体作为特征添加到意向，请从“意向”页面中选择意向，然后选择上下文工具栏上方的“+添加特征”。 该列表将包括所有可用作特征的短语列表和实体。
 
-若要将实体作为特征添加到另一个实体，可以使用 [Entity Palette](label-entity-example-utterance.md) 在“意向”详细信息页面上添加特征，也可以在“实体”详细信息页面上[添加特征](luis-how-to-add-entities.md)。
+若要将实体作为特征添加到另一个实体，可以使用 [Entity Palette](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) 在“意向”详细信息页面上添加特征，也可以在“实体”详细信息页面上[添加特征](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity)。
 
 ## <a name="next-steps"></a>后续步骤
 

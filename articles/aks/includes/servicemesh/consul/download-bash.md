@@ -2,14 +2,14 @@
 author: rockboyfor
 ms.topic: include
 origin.date: 10/09/2019
-ms.date: 03/09/2020
+ms.date: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: ae5ec0b0f1fd97a40e88e7505880bb8b2d9cbe8c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1c20a3c08115e92c58c18c8f424a42d8b95b4b9e
+ms.sourcegitcommit: fce0810af6200f13421ea89d7e2239f8d41890c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79290706"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "92470211"
 ---
 在 Linux 或[适用于 Linux 的 Windows 子系统][install-wsl]或 MacOS 上的基于 bash 的 shell 中，使用 `curl` 下载 Consul Helm 图表版本，如下所示：
 
@@ -25,5 +25,4 @@ mv consul-helm-$CONSUL_HELM_VERSION consul-helm
 
 [install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
 
-<!--Update_Description: new articles on consul download bash -->
-<!--New.date: 11/04/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

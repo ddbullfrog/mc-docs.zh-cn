@@ -3,28 +3,27 @@ title: API HTTP 响应代码 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 了解从 LUIS 创作和终结点 API 返回的 HTTP 响应代码
 services: cognitive-services
-author: lingliw
-manager: digimobile
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.author: v-johya
+ms.topic: reference
+ms.date: 10/19/2020
 origin.date: 03/04/2019
-ms.date: 09/04/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 3e9f7f5c8eced9b38e1925aab082ffdbe6b08265
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 782a825b238a7c1b9e7bb9b34544ea1df4f4dde4
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74982151"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472351"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>常见的 API 响应代码及其含义
 
-[创作](https://aka.ms/luis-authoring-apis)和[终结点](https://aka.ms/luis-endpoint-apis) API 返回 HTTP 响应代码。 响应消息包含特定于某个请求的信息，而 HTTP 响应状态代码是通用的。 
+[创作](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)和[终结点](https://dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) API 返回 HTTP 响应代码。 响应消息包含特定于某个请求的信息，而 HTTP 响应状态代码是通用的。
 
 ## <a name="common-status-codes"></a>常见状态代码
-下表列出了[创作](https://aka.ms/luis-authoring-apis)和[终结点](https://aka.ms/luis-endpoint-apis) API 最常见的一些 HTTP 响应状态代码：
+下表列出了[创作](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)和[终结点](https://dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) API 最常见的一些 HTTP 响应状态代码：
 
 |代码|API|说明|
 |:--|--|--|
@@ -43,8 +42,5 @@ ms.locfileid: "74982151"
 
 ## <a name="next-steps"></a>后续步骤
 
-* REST API [创作](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)和[终结点](https://{region}.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)文档
-
-
-
+* REST API [创作](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)和[终结点](https://dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)文档
 

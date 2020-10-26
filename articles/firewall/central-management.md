@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.testscope: no
 ms.testdate: 09/21/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7b421f6fb41347aa38a61b01c4310e0dba41e126
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 9201b0269ed9313cae78e897230d445abb1bd6b7
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246998"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470237"
 ---
 <!--Verified Successfully-->
 <!--**Firewall Manager** service is now available on Mooncake-->
@@ -47,9 +47,8 @@ Azure 防火墙管理器是一种网络安全管理服务，可为基于云的�
 - [Barracuda Cloud Security Guardian](https://www.barracuda.com/products/cloudsecurityguardian/for_azure)
 - [Tufin Orca](https://www.tufin.com/products/tufin-orca)
 
-## <a name="next-steps"></a>后续步骤
-
-有关 Azure 防火墙管理器的详细信息，请参阅[什么是 Azure 防火墙管理器？](../firewall-manager/overview.md)
+<!--Not Available on ## Next steps-->
+<!--Not Available on [What is Azure Firewall Manager?](../firewall-manager/overview.md)-->
 
 <!-- Update_Description: new article about central management -->
 <!--NEW.date: 09/21/2020-->

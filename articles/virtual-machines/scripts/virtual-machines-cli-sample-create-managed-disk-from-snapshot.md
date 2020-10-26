@@ -18,12 +18,12 @@ ms.testscope: no
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e9d183da4e813091d0e560c2fadf4afcb0be3404
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 98e84ae549e54b1a159473dfad2855c2b7c7dcc5
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128790"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469974"
 ---
 <!--Renamed File-->
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli-linux"></a>使用 CLI 基于快照创建托管磁盘 (Linux)
@@ -71,7 +71,7 @@ az disk create --resource-group $resourceGroupName --name $diskName --sku $stora
 
 此脚本使用以下命令基于快照创建托管磁盘。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az snapshot show](https://docs.azure.cn/cli/snapshot#az-snapshot-show) | 使用快照的名称和资源组属性获取该快照的所有属性。 使用 ID 属性创建托管磁盘。  |
 | [az disk create](https://docs.azure.cn/cli/disk#az-disk-create) | 使用托管快照的快照 ID 创建托管磁盘 |
@@ -80,7 +80,7 @@ az disk create --resource-group $resourceGroupName --name $diskName --sku $stora
 
 [通过将托管磁盘附加为 OS 磁盘来创建虚拟机](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/azure)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 

@@ -32,7 +32,7 @@ ms.locfileid: "92127864"
 可以访问配置服务器，如下所示：
 
 * 登录到部署了配置服务器的 VM，然后从桌面快捷方式启动 Azure Site Recovery 配置管理器。
-* 或者，可以从 https://*ConfigurationServerName*/:44315/ 远程访问配置服务器。 使用管理员凭据登录。
+* 或者，可以从 https:// *ConfigurationServerName* /:44315/ 远程访问配置服务器。 使用管理员凭据登录。
 
 ## <a name="modify-vmware-server-settings"></a>修改 VMware 服务器设置
 

@@ -14,24 +14,25 @@ ms.workload: na
 origin.date: 04/16/2018
 ms.date: 01/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 87fca1e7348e03a0574557bf5010b07026f25e19
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 87d19b2bb4a027812fcb3e51eaca61e8c4e24514
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63860484"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471213"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>使用 Azure IoT SDK 针对移动设备进行开发
 
-物联网 (Internet of Things) 中的物 (Things) 指的是具有不同功能的各种设备：传感器、微控制器、智能设备、工业网关甚至移动设备。  移动设备可以是 IoT 设备，它发送设备到云遥测数据并且由云管理。  它还可以是运行后端服务应用程序的设备，它管理其他 IoT 设备。  在这两种情况下，都可以使用 [Azure IoT 中心 SDK][lnk-sdk-overview] 来开发适用于移动设备的应用程序。  
+物联网 (Internet of Things) 中的物 (Things) 指的是具有不同功能的各种设备：传感器、微控制器、智能设备、工业网关甚至移动设备。  移动设备可以是 IoT 设备，它发送设备到云遥测数据并且由云管理。  它还可以是运行后端服务应用程序的设备，它管理其他 IoT 设备。  在这两种情况下，都可以使用 [Azure IoT 中心 SDK](./iot-hub-devguide-sdks.md) 来开发适用于移动设备的应用程序。  
 
 ## <a name="develop-for-native-ios-platform"></a>针对原生 iOS 平台进行开发
 
 Azure IoT 中心 SDK 通过 Azure IoT 中心 C SDK 提供了原生 iOS 平台支持。  可以将其视为可以在 Swift 或 Objective C XCode 项目中包含的 iOS SDK。  可通过两种方式在 iOS 上使用 C SDK：
-- 直接在 XCode 项目中使用 CocoaPod 库。  
-- 下载 C SDK 的源代码并按照适用于 MacOS 的 [生成说明][lnk-c-devbox] 针对 iOS 平台进行生成。  
 
-Azure IoT 中心 C SDK 是以 C99 编写的，针对各种平台提供了最大的可移植性。  移植过程涉及为平台特定组件编写一个精简采用层，对于 [iOS][lnk-ios-pal]，可以在此处找到该采用层。  可以在 iOS 平台上利用 C SDK 中的功能，包括 Azure IoT 中心基元支持的功能和 SDK 特定功能，例如网络可靠性的重试策略。  iOS SDK 的接口也类似于 Azure IoT 中心 C SDK 的接口。  
+* 直接在 XCode 项目中使用 CocoaPod 库。  
+* 下载 C SDK 的源代码并按照适用于 MacOS 的[生成说明](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)针对 iOS 平台进行生成。  
+
+Azure IoT 中心 C SDK 是以 C99 编写的，针对各种平台提供了最大的可移植性。  移植过程涉及为平台特定组件编写一个精简采用层，对于 [iOS](https://github.com/Azure/azure-c-shared-utility/tree/master/pal/ios-osx)，可以在此处找到该采用层。  可以在 iOS 平台上利用 C SDK 中的功能，包括 Azure IoT 中心基元支持的功能和 SDK 特定功能，例如网络可靠性的重试策略。  iOS SDK 的接口也类似于 Azure IoT 中心 C SDK 的接口。  
 
 这些文档演练了如何在 iOS 设备上开发设备应用程序或服务应用程序：
 

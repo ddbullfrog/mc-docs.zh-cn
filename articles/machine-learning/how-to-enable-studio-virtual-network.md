@@ -51,7 +51,7 @@ ms.locfileid: "92118412"
 
 如果要从虚拟网络内的资源（例如，计算实例或虚拟机）访问工作室，则必须允许从虚拟网络到工作室的出站流量。 
 
-例如，如果使用网络安全组 (NSG) 来限制出站流量，请将一条规则添加到__服务标记__目标 __AzureFrontDoor.Frontend__。
+例如，如果使用网络安全组 (NSG) 来限制出站流量，请将一条规则添加到 __服务标记__ 目标 __AzureFrontDoor.Frontend__ 。
 
 ## <a name="access-data-using-the-studio"></a>使用工作室访问数据
 

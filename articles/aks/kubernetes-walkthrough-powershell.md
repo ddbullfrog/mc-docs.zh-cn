@@ -5,17 +5,17 @@ services: container-service
 ms.topic: quickstart
 origin.date: 09/11/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 37ba5f35807aac124d867ace6c8836e2863c6209
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: f10c96503f42fe6e22ad7a02e701d4d81c8388d3
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146651"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470421"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>快速入门：使用 PowerShell 部署 Azure Kubernetes 服务群集
@@ -101,7 +101,7 @@ Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
 .\kubectl get nodes
 ```
 
-以下示例输出显示在上一步创建的单个节点。 请确保节点的状态为 **Ready**：
+以下示例输出显示在上一步创建的单个节点。 请确保节点的状态为 **Ready** ：
 
 ```plaintext
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -133,7 +133,10 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
-        image: redis
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
         resources:
           requests:
             cpu: 100m
@@ -225,7 +228,7 @@ service/azure-vote-front created
 .\kubectl get service azure-vote-front --watch
 ```
 
-最初，**azure-vote-front** 服务的 **EXTERNAL-IP** 显示为 **pending**。
+最初， **azure-vote-front** 服务的 **EXTERNAL-IP** 显示为 **pending** 。
 
 ```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -275,7 +278,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
-<!--Not Available on [azure-dev-spaces]: /dev-spaces/-->
+<!--Not Available on [azure-dev-spaces]: ../dev-spaces/index.yml-->
 
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

@@ -116,13 +116,13 @@ ms.locfileid: "92127995"
 
 1. 为 Storage 创建 HTTPS 出站安全规则：
 
-    - **目标服务标记**：_存储_
-    - **目标端口范围**：_443_
+    - **目标服务标记** ： _存储_
+    - **目标端口范围** ： _443_
 
 1. 为 AzureActiveDirectory 创建 HTTPS 出站安全规则。
 
-    - **目标服务标记**：_AzureActiveDirectory_
-    - **目标端口范围**：_443_
+    - **目标服务标记** ： _AzureActiveDirectory_
+    - **目标端口范围** ： _443_
 
 1. 与上述安全规则类似，为 NSG 上的“EventHub.ChinaEast”（对应于源位置）创建出站 HTTPS (443) 安全规则。 这样就可以访问 Site Recovery 监视功能。
 1. 在 NSG 上为“AzureSiteRecovery”创建出站 HTTPS (443) 安全规则。 这样就可以在任何区域访问 Site Recovery 服务。
@@ -165,8 +165,8 @@ ms.locfileid: "92127995"
 1. 移动服务代理通过 Windows 上的 IE 和 Linux 上的 `/etc/environment` 检测代理设置。
 1. 如果只想对 Azure Site Recovery 移动服务设置代理，可在位于以下路径的 ProxyInfo.conf 中提供代理详细信息：
 
-    - **Linux**：`/usr/local/InMage/config/`
-    - **Windows**：`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+    - **Linux** ：`/usr/local/InMage/config/`
+    - **Windows** ：`C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. ProxyInfo.conf 应包含采用以下 INI 格式的代理设置：
 

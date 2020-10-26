@@ -5,17 +5,17 @@ ms.service: azure-analysis-services
 ms.topic: tutorial
 origin.date: 08/31/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: 55b03d75359c0fe2898d8dab1f04615cfd1b258b
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 46bab8d01721f14f0ad12d87bf42da6319e51a62
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146637"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469975"
 ---
 <!--Notice: Verify sucessfully-->
 # <a name="tutorial-connect-with-power-bi-desktop"></a>教程：使用 Power BI Desktop 进行连接
@@ -41,7 +41,7 @@ ms.locfileid: "91146637"
 ## <a name="get-server-name"></a>获取服务器名称
 若要从 Power BI Desktop 连接到服务器，首先需要服务器名称。 可以从门户获取服务器名称。
 
-在 **Azure 门户**中，单击“服务器”>“概述”   > “服务器名称”  ，并复制服务器名称。
+在 **Azure 门户** 中，单击“服务器”>“概述”   > “服务器名称”  ，并复制服务器名称。
 
 <!--MOONCAKE: Remove the four empty chars to avoid the wrong code format-->
 
@@ -53,11 +53,11 @@ ms.locfileid: "91146637"
 
 1. 在 Power BI Desktop 中，单击“获取数据”   > “Azure”   > “Azure Analysis Services 数据库”  。
 
-    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-connect-aasserver.png" alt-text="在“获取数据”中连接":::
+    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-connect-aasserver.png" alt-text="在 Azure 中获取服务器名称":::
 
-2. 在“服务器”  中，粘贴服务器名称，然后在“数据库”  中输入 **adventureworks**，然后单击“确定”。 
+2. 在“服务器”  中，粘贴服务器名称，然后在“数据库”  中输入 **adventureworks** ，然后单击“确定”。 
 
-    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png" alt-text="指定服务器名称和模型数据库":::
+    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png" alt-text="在 Azure 中获取服务器名称":::
 
 3. 在系统提示时输入凭据。 你输入的帐户必须至少具有 adventureworks 示例模型数据库的读取权限。
 
@@ -65,11 +65,11 @@ ms.locfileid: "91146637"
 
 4. 在“可视化效果”  中，选择“簇状条形图”  ，单击“格式”  （滚漆筒图标），然后启用“数据标签”。  
 
-    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png" alt-text="可视化效果":::
+    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png" alt-text="在 Azure 中获取服务器名称":::
 
-5. 在“字段” > **Internet Sales** 表中，选择 **Internet Sales Total** 和 **Margin** 度量值。 在 **Product Category** 表中，选择 **Product Category Name**。
+5. 在“字段” > **Internet Sales** 表中，选择 **Internet Sales Total** 和 **Margin** 度量值。 在 **Product Category** 表中，选择 **Product Category Name** 。
 
-    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-complete-report.png" alt-text="完成报表":::
+    :::image type="content" source="./media/analysis-services-tutorial-pbid/aas-pbid-complete-report.png" alt-text="在 Azure 中获取服务器名称":::
 
     花费几分钟时间来探究 adventureworks 示例模型：创建不同的可视化效果并对数据和指标进行切片。 当对报表感到满意后，务必进行保存。
 

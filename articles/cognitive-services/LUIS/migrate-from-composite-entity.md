@@ -1,15 +1,17 @@
 ---
 title: 升级复合实体 - LUIS
 description: 在 LUIS 门户中，通过升级过程将复合实体升级为机器学习实体。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: 678f937d2f9bc18acb0815cf6c054a2c45b952d2
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: a75567e7f903bb737b99d4ec47e9e4e78797c34a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023676"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472342"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>将复合实体升级为机器学习实体
 

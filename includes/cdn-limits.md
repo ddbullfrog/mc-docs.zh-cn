@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: c563713c88b05598ae32c4f31e5160d5d1b4adf3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "68332770"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223142"
 ---
 资源 | 软性限制
 ---------|-----------

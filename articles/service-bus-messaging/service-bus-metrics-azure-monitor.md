@@ -108,9 +108,9 @@ Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](http
 > [!NOTE] 
 > 以下指标仅适用于高级层。 
 > 
-> 用于监视高级层命名空间中是否存在中断的重要指标包括：**每个命名空间的 CPU 使用率**和**每个命名空间的内存大小**。 使用 Azure Monitor 为这些指标[设置警报](../azure-monitor/platform/alerts-metric.md)。
+> 用于监视高级层命名空间中是否存在中断的重要指标包括： **每个命名空间的 CPU 使用率** 和 **每个命名空间的内存大小** 。 使用 Azure Monitor 为这些指标[设置警报](../azure-monitor/platform/alerts-metric.md)。
 > 
-> 你可以监视的另一个指标是：**限制的请求数**。 不过，只要命名空间保持在其内存、CPU 和中转连接限制内，就不会出现问题。 有关详细信息，请参阅 [Azure 服务总线高级层中的限制](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
+> 你可以监视的另一个指标是： **限制的请求数** 。 不过，只要命名空间保持在其内存、CPU 和中转连接限制内，就不会出现问题。 有关详细信息，请参阅 [Azure 服务总线高级层中的限制](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 
 | 标准名称 | 说明 |
 | ------------------- | ----------------- |
@@ -139,19 +139,19 @@ Azure 总线服务支持对 Azure Monitor 中的指标使用以下维度。 为�
         :::image type="content" source="./media/service-bus-metrics-azure-monitor/select-namespace.png" alt-text="“指标”页面 - 配置警报菜单":::
 1. 选择“添加条件”，并在“配置信号逻辑”页面上执行以下操作：
     1. 对于“信号类型”，选择“指标”。 
-    2. 选择一个信号。 例如：**服务错误**。 
+    2. 选择一个信号。 例如： **服务错误** 。 
 
         :::image type="content" source="./media/service-bus-metrics-azure-monitor/select-server-errors.png" alt-text="“指标”页面 - 配置警报菜单":::
     1. 对于“条件”，选择“大于”。
     2. 对于“时间聚合”，选择“总计”。 
-    3. 对于“阈值”，输入 **5**。 
+    3. 对于“阈值”，输入 **5** 。 
     4. 选择“完成” 。    
 
         :::image type="content" source="./media/service-bus-metrics-azure-monitor/specify-condition.png" alt-text="“指标”页面 - 配置警报菜单":::    
 1. 在“创建规则”页面上，展开“定义警报详细信息”，执行以下操作：
-    1. 为警报输入**名称**。 
-    2. 为警报输入**说明**。
-    3. 选择警报的**严重性**。 
+    1. 为警报输入 **名称** 。 
+    2. 为警报输入 **说明** 。
+    3. 选择警报的 **严重性** 。 
 
         :::image type="content" source="./media/service-bus-metrics-azure-monitor/alert-details.png" alt-text="“指标”页面 - 配置警报菜单":::
 1. 在“创建规则”页面上，展开“定义操作组”，选择“新建操作组”，然后在“添加操作组”页面上执行以下操作。 
@@ -164,7 +164,7 @@ Azure 总线服务支持对 Azure Monitor 中的指标使用以下维度。 为�
     7. 选择“编辑详细信息”。 
     8. 在“电子邮件/短信/推送/语音”页面上，执行以下操作：
         1. 选择“电子邮件”。 
-        2. 键入**电子邮件地址**。 
+        2. 键入 **电子邮件地址** 。 
         3. 选择“确定”。
 
             :::image type="content" source="./media/service-bus-metrics-azure-monitor/add-action-group.png" alt-text="“指标”页面 - 配置警报菜单":::

@@ -1,15 +1,17 @@
 ---
-author: erhopf
+author: Johnnytechn
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
-ms.openlocfilehash: a028226ee5d45154e2001d468c22640ef8c34a71
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.custom: devx-track-js
+ms.openlocfilehash: 67ea36b11812996526fa3b493c2fb9520028b60d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241542"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499055"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 

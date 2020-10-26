@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure Site Recovery 缩放 VMware/物理灾难恢复
 description: 了解如何使用 Azure Site Recovery 将大量本地 VMware VM 或物理服务器设置为灾难恢复到 Azure。
-manager: digimobile
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/14/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2e658c748297d042ad98fe87fa4514298f60e6ff
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 7c32433d356629842fdbcd4a4e9256f0a03d5258
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655468"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211888"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>为 VMware VM/物理服务器设置大规模灾难恢复
 
@@ -31,12 +31,12 @@ ms.locfileid: "89655468"
 
 适用于大规模灾难恢复的一些常规最佳做法。 本文档的后续几个部分将更详细地讨论这些最佳做法。
 
-- **确定目标要求**：在设置灾难恢复之前，估算出 Azure 中的容量和资源需求。
-- **规划 Site Recovery 组件**：确定需要提供哪些 Site Recovery 组件（配置服务器、进程服务器）才能符合估算的容量。
-- **设置一个或多个横向扩展进程服务器**：不要使用配置服务器上默认运行的进程服务器。 
-- **运行最新的更新**：Site Recovery 团队定期发布 Site Recovery 组件的新版本，你应确保运行最新版本。 为帮助做到这一点，请在[新增功能](site-recovery-whats-new.md)中跟踪更新，在发布后[启用并安装更新](service-updates-how-to.md)。
-- **主动监视**：正常运行灾难恢复后，应主动监视复制的计算机以及基础结构资源的状态和运行状况。
-- **灾难恢复演练**：应定期运行灾难恢复演练。 这些演练不会影响生产环境，但有助于确保在必要时可按预期故障转移到 Azure。
+- **确定目标要求** ：在设置灾难恢复之前，估算出 Azure 中的容量和资源需求。
+- **规划 Site Recovery 组件** ：确定需要提供哪些 Site Recovery 组件（配置服务器、进程服务器）才能符合估算的容量。
+- **设置一个或多个横向扩展进程服务器** ：不要使用配置服务器上默认运行的进程服务器。 
+- **运行最新的更新** ：Site Recovery 团队定期发布 Site Recovery 组件的新版本，你应确保运行最新版本。 为帮助做到这一点，请在[新增功能](site-recovery-whats-new.md)中跟踪更新，在发布后[启用并安装更新](service-updates-how-to.md)。
+- **主动监视** ：正常运行灾难恢复后，应主动监视复制的计算机以及基础结构资源的状态和运行状况。
+- **灾难恢复演练** ：应定期运行灾难恢复演练。 这些演练不会影响生产环境，但有助于确保在必要时可按预期故障转移到 Azure。
 
 ## <a name="gather-capacity-planning-information"></a>收集容量规划信息
 
@@ -69,12 +69,12 @@ ms.locfileid: "89655468"
 
 使用收集的估算值和建议，可以规划目标资源和容量。 如果已运行适用于 VMware VM 的部署规划器，可以借助许多的[报告建议](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)。
 
-- **兼容的 VM 数**：使用此数字来识别已准备好灾难恢复到 Azure 的 VM 数目。 有关网络带宽和 Azure 核心数的建议基于此数字。
-- **所需的网络带宽**：注意兼容 VM 的增量复制所需的带宽。 
+- **兼容的 VM 数** ：使用此数字来识别已准备好灾难恢复到 Azure 的 VM 数目。 有关网络带宽和 Azure 核心数的建议基于此数字。
+- **所需的网络带宽** ：注意兼容 VM 的增量复制所需的带宽。 
     - 运行规划器时，应指定所需的 RPO（以分钟为单位）。 建议中会显示符合该 RPO 时间的 100% 和 90% 所需的带宽。 
     - 网络带宽建议考虑到了规划器中建议的所有配置服务器和进程服务器所需的带宽。
-- **所需的 Azure 核心数**：注意目标 Azure 区域中所需的核心数，该数字基于兼容的 VM 数。 如果没有足够的核心，在故障转移时，Site Recovery 将无法创建所需的 Azure VM。
-- **建议的 VM 批大小**：建议的批大小基于在默认 72 小时内完成该批的初始复制，同时满足 100% 的 RPO 的能力。 可以修改小时值。
+- **所需的 Azure 核心数** ：注意目标 Azure 区域中所需的核心数，该数字基于兼容的 VM 数。 如果没有足够的核心，在故障转移时，Site Recovery 将无法创建所需的 Azure VM。
+- **建议的 VM 批大小** ：建议的批大小基于在默认 72 小时内完成该批的初始复制，同时满足 100% 的 RPO 的能力。 可以修改小时值。
 
 使用这些建议可以规划 Azure 资源、网络带宽和 VM 批处理。
 
@@ -207,7 +207,10 @@ ms.locfileid: "89655468"
 1. 为工作负荷故障转移创建恢复计划。
     - 每个恢复计划最多可以触发 100 台计算机的故障转移。
     - [详细了解](recovery-plan-overview.md)恢复计划。
-2. 将 Azure 自动化 Runbook 脚本添加到恢复计划，以将 Azure 上的任何手动任务自动化。 典型的任务包括配置负载均衡器、更新 DNS，等等。 [了解详细信息](site-recovery-runbook-automation.md)
+2. 将 Azure 自动化 Runbook 脚本添加到恢复计划，以将 Azure 上的任何手动任务自动化。 典型的任务包括配置负载均衡器、更新 DNS，等等。
+    
+    <!--Not Available on  [Learn more](site-recovery-runbook-automation.md)-->
+    
 2. 在故障转移之前，请准备好 Windows 计算机，使之符合 Azure 环境的条件。 符合条件的计算机的[故障转移限制](#plan-azure-subscriptions-and-quotas)更高。 [详细了解](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) Runbook。
 4. 结合恢复计划使用 [Start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) PowerShell cmdlet 触发故障转移。
 

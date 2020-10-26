@@ -20,7 +20,7 @@ ms.locfileid: "92128350"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>重新保护已故障转移到主要区域的 Azure VM
 
-使用 [Azure Site Recovery](site-recovery-overview.md) 将 Azure VM 从一个区域[故障转移](site-recovery-failover.md)到另一个区域后，VM 将在次要区域中启动，且**不受保护**。 若要将 VM 故障回复到主要区域，请执行以下任务：
+使用 [Azure Site Recovery](site-recovery-overview.md) 将 Azure VM 从一个区域 [故障转移](site-recovery-failover.md)到另一个区域后，VM 将在次要区域中启动，且 **不受保护** 。 若要将 VM 故障回复到主要区域，请执行以下任务：
 
 1. 在次要区域中重新保护 VM，以便这些 VM 开始复制到主要区域。
 1. 重新保护完成并且 VM 开始复制后，可将其从次要区域故障转移到主要区域。

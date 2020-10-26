@@ -1,15 +1,16 @@
 ---
-author: erhopf
+author: Johnnytechn
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
-ms.openlocfilehash: 7c05bf03c5f8e5301823ab6f3ae69258a8b194d4
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.openlocfilehash: db44d6c44f23efc9090a8d3b76e1ce5c29e1b6b3
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241519"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499095"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 

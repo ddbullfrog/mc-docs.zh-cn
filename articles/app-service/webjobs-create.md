@@ -32,7 +32,7 @@ WebJobs 是 [Azure 应用服务](index.yml)的一项功能，它允许你在与 
 
 ## <a name="webjob-types"></a>Web 作业类型
 
-下表描述了*连续*和*触发* Web 作业之间的差别。
+下表描述了 *连续* 和 *触发* Web 作业之间的差别。
 
 
 |连续  |触发  |

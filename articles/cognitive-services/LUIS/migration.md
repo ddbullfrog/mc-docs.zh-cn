@@ -1,15 +1,17 @@
 ---
 title: 迁移概述 - LUIS
 description: 了解迁移路径中的内容
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: ea30a04e3d06f6e3e0cfe20191021a7cbf89df33
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 480801d0158c6d8f14323bce709668ccac06f1b5
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023677"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472339"
 ---
 # <a name="migration-in-luis"></a>在 LUIS 中迁移
 

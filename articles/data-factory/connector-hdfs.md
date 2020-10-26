@@ -58,10 +58,10 @@ HDFS 链接服务支持以下属性：
 
 | 属性 | 说明 | 必须 |
 |:--- |:--- |:--- |
-| type | *type* 属性必须设置为 *Hdfs*。 | 是 |
+| type | *type* 属性必须设置为 *Hdfs* 。 | 是 |
 | url |HDFS 的 URL |是 |
 | authenticationType | 允许的值为 Anonymous 或 Windows 。 <br><br> 若要设置本地环境，请参阅[对 HDFS 连接器使用 Kerberos 身份验证](#use-kerberos-authentication-for-the-hdfs-connector)部分。 |是 |
-| userName |Windows 身份验证的用户名。 对于 Kerberos 身份验证，请指定 **\<username>@\<domain>.com**。 |是（对于 Windows 身份验证） |
+| userName |Windows 身份验证的用户名。 对于 Kerberos 身份验证，请指定 **\<username>@\<domain>.com** 。 |是（对于 Windows 身份验证） |
 | password |Windows 身份验证的密码。 将此字段标记为 SecureString 以安全地将其存储在数据工厂中，或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 |是（对于 Windows 身份验证） |
 | connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 若要了解详细信息，请参阅[先决条件](#prerequisites)部分。 如果未指定集成运行时，服务会使用默认的 Azure Integration Runtime。 |否 |
 
@@ -161,14 +161,14 @@ HDFS 支持基于格式的复制源中 `storeSettings` 设置下的以下属性�
 
 | 属性                 | 说明                                                  | 必须                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | `storeSettings` 下的 *type* 属性必须设置为 **HdfsReadSettings**。 | 是                                           |
+| type                     | `storeSettings` 下的 *type* 属性必须设置为 **HdfsReadSettings** 。 | 是                                           |
 | 找到要复制的文件 |  |  |
 | 选项 1：静态路径<br> | 从数据集中指定的文件夹或文件路径复制。 若要复制文件夹中的所有文件，请另外将 `wildcardFileName` 指定为 `*`。 |  |
 | 选项 2：通配符<br>- wildcardFolderPath | 带有通配符的文件夹路径，用于筛选源文件夹。 <br>允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。 如果实际文件夹名内具有通配符或此转义字符，请使用 `^` 进行转义。 <br>如需更多示例，请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)。 | 否                                            |
 | 选项 2：通配符<br>- wildcardFileName | 指定的 folderPath/wildcardFolderPath 下带有通配符的文件名，用于筛选源文件。 <br>允许的通配符为 `*`（匹配零个或零个以上的字符）和 `?`（匹配零个或单个字符）；如果实际文件夹名称中包含通配符或此转义字符，请使用 `^` 进行转义。  如需更多示例，请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)。 | 是 |
 | 选项 3：文件列表<br>- fileListPath | 表示要复制指定文件集。 指向一个文本文件，其中包含要复制的文件列表（每行一个文件，带有数据集中所配置路径的相对路径）。<br/>使用此选项时，请不要在数据集中指定文件名。 如需更多示例，请参阅[文件列表示例](#file-list-examples)。 |否 |
 | ***其他设置*** |  | |
-| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 `recursive` 设置为 *true* 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 *true*（默认值）和 *false*。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
+| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 `recursive` 设置为 *true* 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 *true* （默认值）和 *false* 。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
 | deleteFilesAfterCompletion | 指示是否会在二进制文件成功移到目标存储后将其从源存储中删除。 文件删除按文件进行。因此，当复制活动失败时，你会看到一些文件已经复制到目标并从源中删除，而另一些文件仍保留在源存储中。 <br/>此属性仅在二进制文件复制方案中有效。 默认值：false。 |否 |
 | modifiedDatetimeStart    | 文件根据“上次修改时间”属性进行筛选。 <br>如果文件的上次修改时间在 `modifiedDatetimeStart` 到 `modifiedDatetimeEnd` 之间的范围内，则会选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 NULL，这意味着不向数据集应用任何文件特性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。<br/>如果配置 `fileListPath`，则此属性不适用。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。  
@@ -229,7 +229,7 @@ HDFS 支持基于格式的复制源中 `storeSettings` 设置下的以下属性�
 
 本部分介绍了对文件夹路径和文件名使用通配符筛选器时产生的行为。
 
-| folderPath | fileName             | recursive | 源文件夹结构和筛选器结果（用**粗体**表示的文件已检索） |
+| folderPath | fileName             | recursive | 源文件夹结构和筛选器结果（用 **粗体** 表示的文件已检索） |
 | :--------- | :------------------- | :-------- | :----------------------------------------------------------- |
 | `Folder*`  | （为空，使用默认值） | false     | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*`  | （为空，使用默认值） | 是      | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
@@ -453,7 +453,7 @@ HDFS 支持基于格式的复制源中 `storeSettings` 设置下的以下属性�
 | compression | 指定数据的压缩类型和级别。 有关详细信息，请参阅[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs-legacy.md#compression-support)。<br/>支持的类型包括：Gzip、Deflate、Bzip2 和 ZipDeflate。<br/>支持的级别为：“最佳”和“最快” 。 |否 |
 
 >[!TIP]
->如需复制文件夹下的所有文件，请仅指定 **folderPath**。<br>若要复制具有指定名称的单个文件，请使用文件夹部分指定 folderPath 并使用文件名指定 fileName。<br>如需复制文件夹下的文件子集，请指定文件夹部分的 **folderPath** 和通配符筛选器部分的 **fileName**。
+>如需复制文件夹下的所有文件，请仅指定 **folderPath** 。<br>若要复制具有指定名称的单个文件，请使用文件夹部分指定 folderPath 并使用文件名指定 fileName。<br>如需复制文件夹下的文件子集，请指定文件夹部分的 **folderPath** 和通配符筛选器部分的 **fileName** 。
 
 **示例：**
 
@@ -490,7 +490,7 @@ HDFS 支持基于格式的复制源中 `storeSettings` 设置下的以下属性�
 | 属性 | 说明 | 必须 |
 |:--- |:--- |:--- |
 | type | 复制活动源的 type 属性必须设置为 HdfsSource。 |是 |
-| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。<br/>允许的值为 *true*（默认值）和 *false*。 | 否 |
+| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。<br/>允许的值为 *true* （默认值）和 *false* 。 | 否 |
 | distcpSettings | 使用 HDFS DistCp 时的属性组。 | 否 |
 | resourceManagerEndpoint | YARN 资源管理器终结点 | 是（如果使用 DistCp） |
 | tempScriptPath | 用于存储临时 DistCp 命令脚本的文件夹路径。 脚本文件由数据工厂生成，将在复制作业完成后删除。 | 是（如果使用 DistCp） |

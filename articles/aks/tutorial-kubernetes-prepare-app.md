@@ -2,19 +2,20 @@
 title: Azure 上的 Kubernetes 教程 - 准备应用程序
 description: 本 Azure Kubernetes 服务 (AKS) 教程介绍如何通过 Docker Compose 准备和生成一个多容器应用，以便能够随后将其部署到 AKS。
 services: container-service
-author: rockboyfor
-ms.service: container-service
 ms.topic: tutorial
-origin.date: 12/19/2018
-ms.date: 08/26/2019
+origin.date: 09/30/2020
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 72460bc21a1939b0bd51cf3838c2ea7843f6208d
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b679a9be8910653a39bb59161c7a23c9d4a01ce1
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "69993562"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470187"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>教程：准备用于 Azure Kubernetes 服务 (AKS) 的应用程序
 
@@ -27,7 +28,7 @@ ms.locfileid: "69993562"
 
 完成后，以下应用程序会在本地开发环境中运行：
 
-![Azure 上的 Kubernetes 群集映像](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
+:::image type="content" source="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png" alt-text="Azure 上的 Kubernetes 群集映像":::
 
 在其他教程中，此容器映像会上传到 Azure 容器注册表，然后部署到 AKS 群集中。
 
@@ -67,15 +68,15 @@ cd azure-voting-app-redis
 docker-compose up -d
 ```
 
-完成后，使用 [docker images][docker-images] 命令查看创建的映像。 已下载或创建三个映像。 *azure-vote-front* 映像包含前端应用程序，并以 `nginx-flask` 映像为依据。 `redis` 映像用于启动 Redis 实例。
+完成后，使用 [docker images][docker-images] 命令查看创建的映像。 已下载或创建三个映像。 azure-vote-front 映像包含前端应用程序，并将 nginx-flask 映像用作基础映像。 redis 映像用于启动 Redis 实例。
 
 ```
 $ docker images
 
-REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
-azure-vote-front             latest     9cc914e25834        40 seconds ago      694MB
-redis                        latest     a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
+REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        9 seconds ago       944MB
+mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 运行 [docker ps][docker-ps] 命令，查看正在运行的容器：
@@ -83,16 +84,16 @@ tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        
 ```
 $ docker ps
 
-CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES
-82411933e8f9        azure-vote-front  "/usr/bin/supervisord"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:8080->80/tcp   azure-vote-front
-b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
+CONTAINER ID        IMAGE                                             COMMAND                  CREATED             STATUS              PORTS                           NAMES
+d10e5244f237        mcr.microsoft.com/azuredocs/azure-vote-front:v1   "/entrypoint.sh /sta…"   3 minutes ago       Up 3 minutes        443/tcp, 0.0.0.0:8080->80/tcp   azure-vote-front
+21574cb38c1f        mcr.microsoft.com/oss/bitnami/redis:6.0.8         "/opt/bitnami/script…"   3 minutes ago       Up 3 minutes        0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
 ## <a name="test-application-locally"></a>在本地测试应用程序
 
 若要查看正在运行的应用程序，请在本地 Web 浏览器中输入 `http://localhost:8080`。 示例应用程序会加载，如以下示例所示：
 
-![Azure 上的 Kubernetes 群集映像](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
+:::image type="content" source="./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png" alt-text="Azure 上的 Kubernetes 群集映像":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -136,4 +137,4 @@ docker-compose down
 
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,15 +1,16 @@
 ---
-author: erhopf
+author: Johnnytechn
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
-ms.openlocfilehash: ebd77f6c50963e84439935d5f685fcef8e201e2e
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 18a3ac15c49abf5f1f4491aa11c6ea41eb6c5eb3
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241546"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499151"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -47,7 +48,7 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-文本翻译全局终结点设置为 `endpoint`。 `path` 设置 `translate` 路由并确定我们需使用 API 的版本 3。
+“翻译”全局终结点设置为 `endpoint`。 `path` 设置 `translate` 路由并确定我们需使用 API 的版本 3。
 
 `params` 用于设置输出语言。 在此示例中，我们将从英文翻译为意大利文和德文：`it` 和 `de`。
 
@@ -141,7 +142,8 @@ python translate-text.py
 
 ## <a name="next-steps"></a>后续步骤
 
-查看 API 参考，了解使用文本翻译 API 可以执行的所有操作。
+查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
 > [API 参考](/cognitive-services/translator/reference/v3-0-reference)
+

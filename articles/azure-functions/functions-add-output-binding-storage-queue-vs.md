@@ -1,15 +1,15 @@
 ---
 title: 使用 Visual Studio 将函数连接到 Azure 存储
 description: 了解如何使用 Visual Studio 添加输出绑定，以将 C# 类库函数连接到 Azure 存储队列。
-ms.date: 07/02/2020
+ms.date: 10/19/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: c943bf777cb6b25aeb19993a6889bcd0beea060c
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: dfdc07107348b8ec46910c912c76c2604479e07a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945284"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472070"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>使用 Visual Studio 将函数连接到 Azure 存储
 
@@ -103,7 +103,11 @@ ms.locfileid: "85945284"
 
 现已更新 HTTP 触发的函数，使其将数据写入存储队列。 若要详细了解如何开发 Functions，请参阅[使用 Visual Studio 开发 Azure Functions](functions-develop-vs.md)。
 
+接下来，应为函数应用启用 Application Insights 监视：
+
+> [!div class="nextstepaction"]
+> [启用 Application Insights 集成](configure-monitoring.md#add-to-an-existing-function-app)
+
 [Azure Storage Explorer]: https://storageexplorer.com/
 [前一篇快速入门文章]: functions-create-your-first-function-visual-studio.md
 
-<!-- Update_Description: wording update -->

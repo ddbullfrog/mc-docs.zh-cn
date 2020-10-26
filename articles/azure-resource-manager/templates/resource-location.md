@@ -4,17 +4,17 @@ description: 介绍如何在 Azure 资源管理器模板中设置资源位置。
 ms.topic: conceptual
 origin.date: 09/04/2019
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: e4a2dda6eb1b7125bd6ed9c4fa2df32a13b957a9
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.custom: ''
+ms.openlocfilehash: bf521ba5cfeea9a02d3a10d91e56ea303d6dec93
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807743"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469997"
 ---
 <!--Verify successfully-->
 # <a name="set-resource-location-in-arm-template"></a>在 ARM 模板中设置资源位置

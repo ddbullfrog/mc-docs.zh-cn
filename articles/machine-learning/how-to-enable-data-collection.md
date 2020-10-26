@@ -38,7 +38,7 @@ ms.locfileid: "92118414"
 
 可以收集以下数据：
 
-* 从部署在 AKS 群集中的 Web 服务收集模型输入数据。 不收集语音、音频、图像和视频数据。**
+* 从部署在 AKS 群集中的 Web 服务收集模型输入数据。 不收集语音、音频、图像和视频数据。 
   
 * 使用生产输入数据进行模型预测。
 
@@ -91,7 +91,7 @@ Blob 中输出数据的路径遵循以下语法：
     prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId* 是可选参数。 如果模型不需要此参数，则无需使用它。 使用 *CorrelationId* 确实可以帮助你轻松映射到其他数据，例如 *LoanNumber* 或 *CustomerId*。
+    *CorrelationId* 是可选参数。 如果模型不需要此参数，则无需使用它。 使用 *CorrelationId* 确实可以帮助你轻松映射到其他数据，例如 *LoanNumber* 或 *CustomerId* 。
     
     稍后将使用 *Identifier* 参数在 Blob 中生成文件夹结构。 可以使用此参数将原始数据与已处理的数据区分开来。
 
@@ -104,7 +104,7 @@ Blob 中输出数据的路径遵循以下语法：
     prediction_dc.collect(result) #this call is saving our input data into Azure Blob
     ```
 
-1. 在 AKS 中部署服务时，数据收集不会自动设置为 **true**。** 如以下示例所示更新配置文件：
+1. 在 AKS 中部署服务时，数据收集不会自动设置为  如以下示例所示更新配置文件：
 
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True)
@@ -138,7 +138,7 @@ Blob 中输出数据的路径遵循以下语法：
 
 1. 打开你的工作区。
 
-1. 选择“存储”****。
+1. 选择“存储”  。
 
     [![选择“存储”选项](./media/how-to-enable-data-collection/StorageLocation.png)](././media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
@@ -153,33 +153,33 @@ Blob 中输出数据的路径遵循以下语法：
 
 1. 下载并打开 [Power BI Desktop](https://www.powerbi.com)。
 
-1. 选择“获取数据”，然后选择“[Azure Blob 存储](https://docs.microsoft.com/power-bi/desktop-data-sources)”。**** ****
+1. 选择“获取数据”，然后选择“  
 
     [![Power BI Blob 设置](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
-1. 添加存储帐户名称并输入存储密钥。 可以通过在 Blob 中选择“设置” > “访问密钥”找到此信息。**** ****
+1. 添加存储帐户名称并输入存储密钥。 可以通过在 Blob 中选择“设置” > “访问密钥”找到此信息。  
 
-1. 选择“模型数据”容器，然后选择“编辑”。**** ****
+1. 选择“模型数据”容器，然后选择“编辑”。  
 
     [![Power BI Navigator](./media/how-to-enable-data-collection/pbiNavigator.png)](././media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
-1. 在查询编辑器中，单击“名称”列的下面，并添加存储帐户。****
+1. 在查询编辑器中，单击“名称”列的下面，并添加存储帐户。 
 
 1. 在筛选器中输入模型路径。 如果只想查看特定年份或月份的文件，则只需展开筛选器路径即可。 例如，如果只想查看三月份的数据，请使用以下筛选路径：
 
    /modeldata/\<subscriptionid>/\<resourcegroupname>/\<workspacename>/\<webservicename>/\<modelname>/\<modelversion>/\<designation>/\<year>/3
 
-1. 基于“名称”值筛选相关的数据。**** 如果存储了预测和输入，则需要针对每个预测和输入创建一个查询。
+1. 基于“名称”值筛选相关的数据。  如果存储了预测和输入，则需要针对每个预测和输入创建一个查询。
 
-1. 选择“内容”列标题旁边的向下双箭头，将文件合并在一起。****
+1. 选择“内容”列标题旁边的向下双箭头，将文件合并在一起。 
 
     [![Power BI 内容](./media/how-to-enable-data-collection/pbiContent.png)](././media/how-to-enable-data-collection/pbiContent.png#lightbox)
 
-1. 选择“确定” ****。 数据将预先加载。
+1. 选择“确定”  。 数据将预先加载。
 
     [![Power BI 合并文件](./media/how-to-enable-data-collection/pbiCombine.png)](././media/how-to-enable-data-collection/pbiCombine.png#lightbox)
 
-1. 选择“关闭并应用”。****
+1. 选择“关闭并应用”。 
 
 1. 如果添加了输入和预测，则表会自动按 **RequestId** 值排序。
 

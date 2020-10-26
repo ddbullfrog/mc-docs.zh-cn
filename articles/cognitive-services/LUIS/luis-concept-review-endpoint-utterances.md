@@ -1,22 +1,24 @@
 ---
 title: 评审用户话语 - LUIS
 description: 评审终结点话语通过主动学习获取正确的意向和实体。 LUIS 选择它不确定的终结点话语。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 origin.date: 04/01/2020
-ms.date: 06/18/2020
-ms.author: v-tawe
-ms.openlocfilehash: e6d778db8798d8f3d8d96e61f7e48216a515d111
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: 0f1f5bd072b0aa183056f339b71e0e8639db22f1
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098727"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472474"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>通过评审终结点话语启用主动学习的相关概念
 主动学习是提高预测准确性的三个策略之一，也是最易于实现的策略。 评审终结点话语通过主动学习获取正确的意向和实体。 LUIS 选择它不确定的终结点话语。
 
 ## <a name="what-is-active-learning"></a>什么是主动学习
-主动学习是一个两步过程。 首先，LUIS 选择其在应用终结点收到的需要验证的陈述。 第二步由应用所有者或协作者执行：验证要审查的所选话话，包括正确意向及该意向中的所有实体。 评审陈述后，再次训练并发布应用。
+主动学习是一个两步过程。 首先，LUIS 选择其在应用终结点收到的需要验证的陈述。 第二步由应用所有者或协作者执行：验证要[评审](luis-how-to-review-endpoint-utterances.md)的所选陈述包含正确意向及该意向中的所有实体。 评审陈述后，再次训练并发布应用。
 
 ## <a name="which-utterances-are-on-the-review-list"></a>评审列表上有哪些陈述
 首要触发意向分数较低或者两个最高的意向分数过于接近时，LUIS 会将陈述添加到评审列表。
@@ -33,10 +35,13 @@ ms.locfileid: "85098727"
 不需要每天评审建议的陈述，但应将此纳入 LUIS 的常规维护。
 
 ## <a name="delete-review-items-programmatically"></a>以编程方式删除评审项
-使用 **[删除未标记话语](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API。 在删除之前，请通过 **[导出日志文件](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** 备份这些话语。
+使用 **[删除未标记话语](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API。 在删除之前，请通过 **[导出日志文件](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** 备份这些话语。
 
 ## <a name="enable-active-learning"></a>启用主动学习
 
 若要启用主动学习，必须记录用户查询。 这是通过 `log=true` querystring 参数和值调用[终结点查询](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint)实现的。
 
-<!--not support in azure -->
+## <a name="next-steps"></a>后续步骤
+
+* 了解如何[评审](luis-how-to-review-endpoint-utterances.md)终结点陈述
+

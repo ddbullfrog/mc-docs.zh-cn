@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 02/25/2020
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: 499e429ca87ec86d64fb8259ec77a6c1e1cbdd9a
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: bd487466ac942d89b4d72113ba218dbf8ecb7870
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723765"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472605"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Kafka
 
@@ -41,7 +41,9 @@ Kafka on HDInsight 的具体特征如下：
 
     有关详细信息，请参阅[使用 Apache Kafka on HDInsight 实现高可用性](apache-kafka-high-availability.md)。
 
-* 创建群集后，HDInsight 允许更改辅助角色节点（托管 Kafka 代理）的数目。 可以通过 Azure 门户、Azure PowerShell 和其他 Azure 管理界面执行缩放。 对于 Kafka，在执行缩放操作后，应重新均衡分区副本。 重新均衡分区可让 Kafka 利用新的工作节点数。
+* 创建群集后，HDInsight 允许更改辅助角色节点（托管 Kafka 代理）的数目。 可以通过 Azure 门户、Azure PowerShell 和其他 Azure 管理界面执行向上缩放。 对于 Kafka，在执行缩放操作后，应重新均衡分区副本。 重新均衡分区可让 Kafka 利用新的工作节点数。
+
+   HDInsight Kafka 不支持向下缩放或减少群集中的中转站数。 如果尝试减少节点数，则会返回 `InvalidKafkaScaleDownRequestErrorCode` 错误。
 
     有关详细信息，请参阅[使用 Apache Kafka on HDInsight 实现高可用性](apache-kafka-high-availability.md)。
 
@@ -57,7 +59,7 @@ Kafka on HDInsight 的具体特征如下：
 
 Apache ZooKeeper 管理 Kafka 群集的状态。 Zookeeper 专用于并发、可复原和低延迟事务。 
 
-Kafka 将记录（数据）存储在主题中。 记录由**生成者**生成，由**使用者**使用。 生成者将记录发送到 Kafka 代理。 HDInsight 群集中的每个辅助角色节点都是一个 Kafka 中转站。 
+Kafka 将记录（数据）存储在主题中。 记录由 **生成者** 生成，由 **使用者** 使用。 生成者将记录发送到 Kafka 代理。 HDInsight 群集中的每个辅助角色节点都是一个 Kafka 中转站。 
 
 主题跨代理对记录进行分区。 在使用记录时，每个分区最多可使用一个使用者来实现数据并行处理。
 

@@ -9,11 +9,11 @@ origin.date: 06/25/2019
 md.date: 03/23/2020
 ms.author: v-tawe
 ms.openlocfilehash: cd9583b1ef529d3dd6aca213f0c5a70816ec0ec2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79292001"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211668"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 iOS 客户端库
 
@@ -41,13 +41,13 @@ iOS SDK 支持适用于 iOS 8.0 版及更高版本的 Objective-C 项目、Swift
 
 若要在项目中访问 Azure 移动应用后端，请创建 `MSClient`。 将 `AppUrl` 替换为应用 URL。 可以将 `gatewayURLString` 和 `applicationKey` 留空。 如果设置了用于身份验证的网关，请使用网关 URL 填充 `gatewayURLString` 。
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 let client = MSClient(applicationURLString: "AppUrl")
@@ -57,13 +57,13 @@ let client = MSClient(applicationURLString: "AppUrl")
 
 若要访问或更新数据，请创建到后端表的引用。 将 `TodoItem` 替换为表名称
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 let table = client.tableWithName("TodoItem")
@@ -73,7 +73,7 @@ let table = client.tableWithName("TodoItem")
 
 若要创建数据库查询，请查询 `MSTable` 对象。 以下查询将获取 `TodoItem` 中的所有项，并记录每个项的文本。
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
@@ -87,7 +87,7 @@ let table = client.tableWithName("TodoItem")
 }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 table.readWithCompletion { (result, error) in
@@ -107,7 +107,7 @@ table.readWithCompletion { (result, error) in
 
 若要使用谓词进行筛选，请使用 `NSPredicate` 和 `readWithPredicate`。 以下筛选器返回的数据只用于查找未完成的待办事项。
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 // Create a predicate that finds items where complete is false
@@ -124,7 +124,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 // Create a predicate that finds items where complete is false
@@ -145,14 +145,14 @@ table.readWithPredicate(predicate) { (result, error) in
 
 若要执行复杂查询（包括排序和分页），请使用谓词直接创建 `MSQuery` 对象：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 MSQuery *query = [table query];
 MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 let query = table.query()
@@ -174,7 +174,7 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 
 让我们先看一个示例，来了解如何对结果排序。 如果要对字段“text”进行升序排序，并对“complete”进行降序排序，请调用 `MSQuery` ，如下所示：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 [query orderByAscending:@"text"];
@@ -190,7 +190,7 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 query.orderByAscending("text")
@@ -210,13 +210,13 @@ query.readWithCompletion { (result, error) in
 
 若要限制在查询中返回的字段，请在 **selectFields** 属性中指定字段的名称。 此示例只返回 text 和 completed 字段：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 query.selectFields = @[@"text", @"complete"];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 query.selectFields = ["text", "complete"]
@@ -224,7 +224,7 @@ query.selectFields = ["text", "complete"]
 
 若要在服务器请求中包含其他查询字符串参数（例如，某个自定义服务器端脚本要使用这些参数），请按如下所示填充 `query.parameters`：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 query.parameters = @{
@@ -233,7 +233,7 @@ query.parameters = @{
 };
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
@@ -253,7 +253,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 如果要增加客户端页面大小，还应增加服务器上的页面大小。 请参阅[“如何：调整表分页大小”](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)以获取执行此操作的步骤。
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
   MSPullSettings *pullSettings = [[MSPullSettings alloc] initWithPageSize:3];
@@ -265,7 +265,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
                            }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 let pullSettings = MSPullSettings(pageSize: 3)
@@ -284,7 +284,7 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 
 `result` 包含插入的新项。 根据服务器逻辑，与传递给服务器的项相比，它可能包含其他或已修改的数据。
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
@@ -297,7 +297,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
@@ -314,7 +314,7 @@ table.insert(newItem) { (result, error) in
 
 若要更新现有的行，请修改项并调用 `update`：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
@@ -328,7 +328,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
@@ -345,7 +345,7 @@ if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
 
 或者，提供行 ID 和更新的字段：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 [table update:@{@"id":@"custom-id", @"text":"my EDITED item"} completion:^(NSDictionary *result, NSError *error) {
@@ -357,7 +357,7 @@ if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
 }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
@@ -375,7 +375,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 若要删除某个项，请对该项调用 `delete` ：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 [table delete:item completion:^(id itemId, NSError *error) {
@@ -387,7 +387,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
@@ -401,7 +401,7 @@ table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
 
 或者，提供行 ID 来进行删除：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 [table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
@@ -413,7 +413,7 @@ table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
 }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
@@ -433,7 +433,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 若要调用自定义 API，请调用 `MSClient.invokeAPI`。 请求和响应内容被视为 JSON。 若要使用其他媒体类型，[请使用 `invokeAPI` 的其他重载][5]。  若要发出 `GET` 请求而不是 `POST` 请求，请将参数 `HTTPMethod` 设置为 `"GET"`，将参数 `body` 设置为 `nil`（因为 GET 请求没有消息正文）。如果自定义 API 支持其他 HTTP 谓词，请相应地更改 `HTTPMethod`。
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 [self.client invokeAPI:@"sendEmail"
@@ -450,7 +450,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
             }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 client.invokeAPI("sendEmail",
@@ -472,7 +472,7 @@ client.invokeAPI("sendEmail",
 
 若要注册模板，请在客户端应用中连同 **client.push registerDeviceToken** 方法一起传递模板即可。
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
@@ -482,7 +482,7 @@ client.invokeAPI("sendEmail",
 }];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
@@ -494,13 +494,13 @@ client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { 
 
 模板类型是 NSDictionary，可以包含采用以下格式的多个模板：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
@@ -514,13 +514,13 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 文件 [`<WindowsAzureMobileServices/MSError.h>`][6] 定义常量 `MSErrorResponseKey`、`MSErrorRequestKey` 和 `MSErrorServerItemKey`。 若要获取与错误相关的更多数据，请执行以下操作：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 let serverItem = error.userInfo[MSErrorServerItemKey]
@@ -528,13 +528,13 @@ let serverItem = error.userInfo[MSErrorServerItemKey]
 
 此外，该文件还定义每个错误代码的常量：
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 if (error.code == MSErrorPreconditionFailed) {
@@ -563,7 +563,7 @@ if (error.code == MSErrorPreconditionFailed) {
    * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
    * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 *https://contoso.chinacloudsites.cn/.auth/login/done* 。
 
-**Objective-C**：
+**Objective-C** ：
 
 ```objc
 #import <ADALiOS/ADAuthenticationContext.h>
@@ -599,7 +599,7 @@ if (error.code == MSErrorPreconditionFailed) {
 }
 ```
 
-**Swift**：
+**Swift** ：
 
 ```swift
 // add the following imports to your bridging header:

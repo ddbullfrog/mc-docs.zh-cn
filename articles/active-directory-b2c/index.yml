@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: msmimart
   ms.author: v-junlch
-  ms.date: 09/29/2020
-  ms.openlocfilehash: 0fd152d1538e15689592e88c88d309718885edd4
-  ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+  ms.date: 10/23/2020
+  ms.openlocfilehash: 687f693c83c448c4778b1e5d11db4c54fe5cc896
+  ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/10/2020
-  ms.locfileid: "91937136"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92471169"
 landingContent:
 - title: Azure AD B2C
   linkLists:
@@ -97,8 +97,8 @@ landingContent:
     links:
     - text: 监视
       url: azure-monitor.md
-    - text: 针对管理员的基于角色的访问
-      url: overview.md
+    - text: 适用于管理员的基于角色的访问控制
+      url: /active-directory/users-groups-roles/directory-assign-admin-roles
     - text: 用户管理
       url: manage-user-accounts-graph-api.md
     - text: 疑难解答

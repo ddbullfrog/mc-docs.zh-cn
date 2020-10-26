@@ -80,7 +80,7 @@ Mbps = 每秒 10^6 字节，GiB = 1024^3 字节。
 
 ### <a name="basic-a"></a>基本 A  
 
-**更新的大小建议**：[Av2 系列](av2-series.md)
+**更新的大小建议** ： [Av2 系列](av2-series.md)
 
 高级存储：不支持
 
@@ -110,7 +110,7 @@ Mbps = 每秒 10^6 字节，GiB = 1024^3 字节。
 
 ### <a name="a-series"></a>A 系列  
 
-**更新的大小建议**：[Av2 系列](av2-series.md)
+**更新的大小建议** ： [Av2 系列](av2-series.md)
 
 ACU：50-100
 
@@ -137,7 +137,7 @@ ACU：50-100
 
 ### <a name="d-series"></a>D 系列  
 
-**更新的大小建议**：[Dv4 系列](dv4-dsv4-series.md)和 [Ddv4 系列](ddv4-ddsv4-series.md)
+**更新的大小建议** ：[Dv4 系列](dv4-dsv4-series.md)和 [Ddv4 系列](ddv4-ddsv4-series.md)
 
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
@@ -160,7 +160,7 @@ ACU：160-250 <sup>1</sup>
 
 ### <a name="d-series---memory-optimized"></a>D 系列 - 内存优化  
 
-**更新的大小建议**：[Dv4 系列](dv4-dsv4-series.md)和 [Ddv4 系列](ddv4-ddsv4-series.md)
+**更新的大小建议** ：[Dv4 系列](dv4-dsv4-series.md)和 [Ddv4 系列](ddv4-ddsv4-series.md)
 
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
@@ -185,7 +185,7 @@ ACU：160-250 <sup>1</sup>
 
 ### <a name="ds-series"></a>DS 系列  
 
-**更新的大小建议**：[Dsv4 系列](dv4-dsv4-series.md)和 [Ddsv4 系列](ddv4-ddsv4-series.md)
+**更新的大小建议** ：[Dsv4 系列](dv4-dsv4-series.md)和 [Ddsv4 系列](ddv4-ddsv4-series.md)
 
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
@@ -208,7 +208,7 @@ ACU：160-250 <sup>1</sup>
 
 ### <a name="ds-series---memory-optimized"></a>DS 系列 - 内存优化  
 
-**更新的大小建议**：[Dsv4 系列](dv4-dsv4-series.md)和 [Ddsv4 系列](ddv4-ddsv4-series.md)
+**更新的大小建议** ：[Dsv4 系列](dv4-dsv4-series.md)和 [Ddsv4 系列](ddv4-ddsv4-series.md)
 
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 

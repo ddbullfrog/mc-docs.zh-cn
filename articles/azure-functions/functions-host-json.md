@@ -2,13 +2,13 @@
 title: Azure Functions 2.x 的 host.json 参考
 description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
 ms.topic: conceptual
-ms.date: 09/28/2020
-ms.openlocfilehash: c5bc7468ef63942faf757505814c017d358543ba
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.date: 10/19/2020
+ms.openlocfilehash: 13323c994cd95850bc34a90fb305c0b948d77d03
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937121"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472698"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 及更高版本的 host.json 参考 
 
@@ -138,7 +138,7 @@ host.json 中与绑定相关的配置将同样地应用于函数应用中的每�
 
 此设置是[日志记录](#logging)的子项。
 
-Application Insights 的控制选项，包括[采样选项](./functions-monitoring.md#configure-sampling)。
+Application Insights 的控制选项，包括[采样选项](./configure-monitoring.md#configure-sampling)。
 
 若要了解完整的 JSON 结构，请参阅前面的[示例 host.json 文件](#sample-hostjson-file)。
 
@@ -310,7 +310,7 @@ Application Insights 的控制选项，包括[采样选项](./functions-monitori
 |属性  |默认 | 说明 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定义启用哪种级别的文件日志记录。  选项包括 `never`、`always` 和 `debugOnly`。 |
-|logLevel|不适用|一个对象，它定义了用于筛选应用中的函数的日志类别。 2\.x 及更高版本遵循 ASP.NET Core 布局进行日志类别筛选。 此设置允许你筛选特定函数的日志记录。 有关详细信息，请参阅 ASP.NET Core 文档中的[日志筛选](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
+|logLevel|不适用|一个对象，它定义了用于筛选应用中的函数的日志类别。 2\.x 及更高版本遵循 ASP.NET Core 布局进行日志类别筛选。 此设置允许你筛选特定函数的日志记录。 有关详细信息，请参阅 ASP.NET Core 文档中的[日志筛选](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering)。 |
 |控制台|不适用| [控制台](#console)日志记录设置。 |
 |applicationInsights|不适用| [applicationInsights](#applicationinsights) 设置。 |
 

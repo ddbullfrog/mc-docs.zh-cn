@@ -117,7 +117,7 @@ Azure SignalR 服务是一项 Azure 服务，可帮助开发者轻松生成具�
     }
     ```
 
-    此代码不会向 `AddAzureSignalR()` 传递参数，而是使用默认配置密钥作为 SignalR 服务资源连接字符串。 默认配置密钥为 *Azure:SignalR:ConnectionString*。
+    此代码不会向 `AddAzureSignalR()` 传递参数，而是使用默认配置密钥作为 SignalR 服务资源连接字符串。 默认配置密钥为 *Azure:SignalR:ConnectionString* 。
 
 5. 在 Startup.cs 中，更新 `Configure` 方法并将其替换为以下代码。
 

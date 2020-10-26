@@ -3,24 +3,23 @@ title: 数字预生成实体 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中的数字预构建实体信息。
 services: cognitive-services
-author: lingliw
-manager: digimobile
+ms.author: v-johya
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
+ms.date: 10/19/2020
 origin.date: 09/27/2019
-ms.date: 10/31/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 225e4f0d1d74ea1a96d469bd1373b005b01428d2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a5160279b0ffc3d5edefda3b52b4d17dc7c9e0c3
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884930"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472382"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的数字预生成实体
-有许多方式使用数字值来量化、表达和描述信息片段。 本文仅包括了其中一些可能的示例。 LUIS 解释用户陈述中的变体并返回一致的数字值。 此实体已定型，因此不需要将包含数字的陈述示例添加到应用程序意向中。 
+有许多方式使用数字值来量化、表达和描述信息片段。 本文仅包括了其中一些可能的示例。 LUIS 解释用户陈述中的变体并返回一致的数字值。 此实体已定型，因此不需要将包含数字的陈述示例添加到应用程序意向中。
 
 ## <a name="types-of-number"></a>数字类型
 数字托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) GitHub 存储库中
@@ -29,7 +28,7 @@ ms.locfileid: "74884930"
 
 | 话语        | 实体   | 解决方法 |
 | ------------- |:----------------:| --------------:|
-| ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      | 
+| ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      |
 | ```1,000 people```        | ```"1,000"```    |   ```"1000"```      |
 | ```1/2 cup```         | ```"1 / 2"```    |    ```"0.5"```      |
 |  ```one half the amount```     | ```"one half"```     |    ```"0.5"```      |
@@ -102,14 +101,11 @@ LUIS 在它返回的 JSON 响应的 `resolution` 字段中包括 **`builtin.numb
   }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>后续步骤
 
 详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
 
-了解[货币](luis-reference-prebuilt-currency.md)、[序号](luis-reference-prebuilt-ordinal.md)和[百分比](luis-reference-prebuilt-percentage.md)。 
-
-
-
+了解[货币](luis-reference-prebuilt-currency.md)、[序号](luis-reference-prebuilt-ordinal.md)和[百分比](luis-reference-prebuilt-percentage.md)。
 

@@ -148,17 +148,17 @@ CredScan 输出文件中机密的哈希键是必需的，如以下示例所示�
 
 内容搜索器定义如下：
 
-- **名称**：要在凭据扫描程序输出文件中使用的描述性搜索器名称。 建议为搜索器名称使用驼峰式大小写命名约定。
-- **RuleId**：搜索器的稳定不透明 ID：
+- **名称** ：要在凭据扫描程序输出文件中使用的描述性搜索器名称。 建议为搜索器名称使用驼峰式大小写命名约定。
+- **RuleId** ：搜索器的稳定不透明 ID：
     - 将为凭据扫描程序默认搜索器分配一个 **RuleId** 值，例如 CSCAN0010、CSCAN0020 或 CSCAN0030。 最后一个数字保留用于可能会通过正则表达式 (regex) 对搜索器组进行的合并或划分。
     - 自定义的搜索器的 **RuleId** 值应当具有其自己的命名空间。 例如，CSCAN-\<Namespace\>0010、CSCAN-\<Namespace\>0020 和 CSCAN-\<Namespace\>0030。
     - 完全限定的搜索器名称是 **RuleId** 值和搜索器名称的组合。 例如，CSCAN0010.KeyStoreFiles 和 CSCAN0020.Base64EncodedCertificate。
-- **ResourceMatchPattern**：用于针对搜索器进行检查的文件扩展名的正则表达式。
-- **ContentSearchPatterns**：一个字符串数组，其中包含要匹配的正则表达式语句。 如果未定义搜索模式，则返回与 **ResourceMatchPattern** 值匹配的所有文件。
-- **ContentSearchFilters**：一个包含 regex 语句的字符串数组，用于筛选特定于搜索器的误报。
-- **MatchDetails**：要为搜索器的每个匹配项添加的描述性消息和/或缓解说明。
-- **建议**：针对匹配项的建议字段内容，使用 PREfast 报告格式。
-- **严重性**：一个整数，反映问题的严重性级别。 最高严重性级别的值为 1。
+- **ResourceMatchPattern** ：用于针对搜索器进行检查的文件扩展名的正则表达式。
+- **ContentSearchPatterns** ：一个字符串数组，其中包含要匹配的正则表达式语句。 如果未定义搜索模式，则返回与 **ResourceMatchPattern** 值匹配的所有文件。
+- **ContentSearchFilters** ：一个包含 regex 语句的字符串数组，用于筛选特定于搜索器的误报。
+- **MatchDetails** ：要为搜索器的每个匹配项添加的描述性消息和/或缓解说明。
+- **建议** ：针对匹配项的建议字段内容，使用 PREfast 报告格式。
+- **严重性** ：一个整数，反映问题的严重性级别。 最高严重性级别的值为 1。
 
   ![显示了凭据扫描程序设置的 XML](./media/security-tools/6-credscan-customsearchers.png)
 
@@ -174,13 +174,13 @@ CredScan 输出文件中机密的哈希键是必需的，如以下示例所示�
 
 因为 Roslyn 分析器任务作为编译过程的一部分运行，因此生成计算机上的源树需要处于可生成状态。
 
-介于主生成与 Roslyn 分析器步骤之间的一个步骤可能会将源树置于会阻止生成的状态。 这一额外步骤可能是 **dotnet.exe 发布**。 在即将执行 Roslyn 分析器步骤之前，请尝试重复将执行 NuGet 还原的步骤。 此重复的步骤可以将源树重新置于可生成状态。
+介于主生成与 Roslyn 分析器步骤之间的一个步骤可能会将源树置于会阻止生成的状态。 这一额外步骤可能是 **dotnet.exe 发布** 。 在即将执行 Roslyn 分析器步骤之前，请尝试重复将执行 NuGet 还原的步骤。 此重复的步骤可以将源树重新置于可生成状态。
 
 ##### <a name="cscexe-cant-create-an-analyzer-instance"></a>csc.exe 无法创建分析器实例
 
 完整错误消息：
 
-“'csc.exe' 已退出并显示了错误代码 1 -- 无法通过 C:\\*BBBB*.dll 创建分析器 *AAAA* 的实例:无法加载文件或程序集 'Microsoft.CodeAnalysis, Version=*X.X.X.X*, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 或它的某一个依赖项。 系统找不到指定的文件。”
+“'csc.exe' 已退出并显示了错误代码 1 -- 无法通过 C:\\*BBBB* .dll 创建分析器 *AAAA* 的实例:无法加载文件或程序集 'Microsoft.CodeAnalysis, Version= *X.X.X.X* , Culture=neutral, PublicKeyToken=31bf3856ad364e35' 或它的某一个依赖项。 系统找不到指定的文件。”
 
 请确保你的编译器支持 Roslyn 分析器。 运行 **csc.exe /version** 命令应当报告版本值 2.6 或更高值。
 
@@ -190,7 +190,7 @@ CredScan 输出文件中机密的哈希键是必需的，如以下示例所示�
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>C# 编译器版本不够新
 
-若要获取最新版本的 C# 编译器，请转到 [Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers)。 若要获取已安装的版本，请在命令提示符下运行 **csc.exe /version**。 确保引用 2.6 版或更高版本的 Microsoft.Net.Compilers NuGet 包。
+若要获取最新版本的 C# 编译器，请转到 [Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers)。 若要获取已安装的版本，请在命令提示符下运行 **csc.exe /version** 。 确保引用 2.6 版或更高版本的 Microsoft.Net.Compilers NuGet 包。
 
 <!-- Devops not available-->
 

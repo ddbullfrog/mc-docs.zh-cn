@@ -118,7 +118,7 @@ az role assignment create --assignee <UAMI PRINCIPALID> --role 'Reader' --scope 
 若要完成这些步骤，需要使用 SSH 客户端。 如果使用的是 Windows，可以在[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/about)中使用 SSH 客户端。 
 
 1. 登录 Azure [门户](https://portal.azure.cn)。
-2. 在门户中，导航到“虚拟机”并转到 Linux 虚拟机，然后在“概述”中，单击“连接”************。 复制用于连接到 VM 的字符串。
+2. 在门户中，导航到“虚拟机”并转到 Linux 虚拟机，然后在“概述”中，单击“连接”  。 复制用于连接到 VM 的字符串。
 3. 使用所选的 SSH 客户端连接到 VM。 如果使用的是 Windows，可以在[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/about)中使用 SSH 客户端。 如果需要有关配置 SSH 客户端密钥的帮助，请参阅[如何在 Azure 上将 SSH 密钥与 Windows 配合使用](/virtual-machines/linux/ssh-from-windows)或[如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对](/virtual-machines/linux/mac-create-ssh-keys)。
 4. 在终端窗口中，使用 CURL 向 Azure 实例元数据服务 (IMDS) 标识终结点发出请求，以获取访问 Azure 资源管理器所需的访问令牌。  
 

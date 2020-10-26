@@ -9,11 +9,11 @@ ms.testscope: yes|no
 ms.testdate: 09/14/2020null
 ms.author: v-yeche
 ms.openlocfilehash: 21ab4bd7fafa185a57a91c34bdd39f936681881c
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655770"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211436"
 ---
 <!--Verified successfully on portal images-->
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Syslog 中的 Service Fabric Linux 群集事件
@@ -79,7 +79,7 @@ SyslogConsumer 使用 `Local0` 设施写入所有平台事件。 更改 config �
 ```
 
 下面是需要说明的更改
-1. 在 Common 部分中，有一个名为 `LinuxStructuredTracesEnabled` 的新参数。 这就要求在将 Linux 事件发送到 Syslog 时，将它们组织起来并串行化。****
+1. 在 Common 部分中，有一个名为 `LinuxStructuredTracesEnabled` 的新参数。 这就要求在将 Linux 事件发送到 Syslog 时，将它们组织起来并串行化。 
 2. 在 Diagnostics 部分中，添加了一个新的 ConsumerInstance：SyslogConsumer。 这就告诉平台还有另一个事件使用者。 
 3. 新部分 SyslogConsumer 需要将 `IsEnabled` 设为 `true`。 它已配置为自动使用 Local0 设施。 你可以添加另一个参数来替代该设置。
 
@@ -101,17 +101,17 @@ SyslogConsumer 使用 `Local0` 设施写入所有平台事件。 更改 config �
 3. 单击 `Syslog`
 4. 将 Local0 配置为要跟踪的设施。如果在 fabricSettings 中进行了更改，可以再添加一个设施
 
-    :::image type="content" source="media/service-fabric-diagnostics-oms-syslog/syslog-configure.png" alt-text="配置 Syslog":::
+    :::image type="content" source="media/service-fabric-diagnostics-oms-syslog/syslog-configure.png" alt-text="工作区设置":::
 5. 单击工作区资源菜单中的`Logs`可前往查询浏览器启动查询
 
-    :::image type="content" source="media/service-fabric-diagnostics-oms-syslog/workspace-logs.png" alt-text="工作区日志":::
+    :::image type="content" source="media/service-fabric-diagnostics-oms-syslog/workspace-logs.png" alt-text="工作区设置":::
 6. 可以对 `Syslog` 表进行查询，查找作为 ProcessName 的 `ServiceFabric`。 下面的示例查询说明如何分析事件中的 JSON 并显示其内容
 
     ```kusto
         Syslog | where ProcessName == "ServiceFabric" | extend $payload = parse_json(SyslogMessage) | project $payload
     ```
 
-    :::image type="content" source="media/service-fabric-diagnostics-oms-syslog/syslog-query.png" alt-text="Syslog 查询":::
+    :::image type="content" source="media/service-fabric-diagnostics-oms-syslog/syslog-query.png" alt-text="工作区设置":::
 
 上面的示例为 NodeDown 事件。 可在[此处](service-fabric-diagnostics-event-generation-operational.md)查看事件的完整列表。
 

@@ -1,16 +1,16 @@
 ---
-author: erhopf
+author: Johnnytechn
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
-ms.date: 06/22/2020
-origin.date: 08/06/2019
-ms.author: v-tawe
-ms.openlocfilehash: 92a2bcc591ccd7b4c24356d17110e903a16dcf91
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.openlocfilehash: a63faa2444146ffc689228b91eba70facb5c0adb
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241521"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499237"
 ---
 <!-- word updating-->
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
@@ -110,7 +110,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>生成请求
 
-将请求正文编码为 JSON 后，可以生成 POST 请求并调用文本翻译 API。
+将请求正文编码为 JSON 后，可以生成 POST 请求并调用“翻译”。
 
 ```go
 // Build the HTTP POST request
@@ -122,7 +122,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -148,7 +148,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>将其放在一起
 
-就是这样，你已构建了一个简单的程序。该程序可以调用文本翻译 API 并返回 JSON 响应。 现在，可以运行该程序了：
+就是这样，你已构建了一个简单的程序。该程序可以调用“翻译”并返回 JSON 响应。 现在，可以运行该程序了：
 
 ```console
 go run detect-language.go
@@ -191,7 +191,7 @@ go run detect-language.go
 
 ## <a name="next-steps"></a>后续步骤
 
-查看 API 参考，了解使用文本翻译 API 可以执行的所有操作。
+查看 API 参考，了解使用“翻译”可以执行的所有操作。
 
 > [!div class="nextstepaction"]
 > [API 参考](/cognitive-services/translator/reference/v3-0-reference)

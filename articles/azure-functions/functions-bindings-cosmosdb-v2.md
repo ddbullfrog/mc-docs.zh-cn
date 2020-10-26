@@ -3,14 +3,14 @@ title: 适用于 Functions 2.x 及更高版本的 Azure Cosmos DB 绑定
 description: 了解如何在 Azure Functions 中使用 Azure Cosmos DB 触发器和绑定。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 07/14/2020
+ms.date: 10/19/2020
 ms.author: v-junlch
-ms.openlocfilehash: b8d4185aa3362bfafa84bfda9f5438bf69f7be0d
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: abaab091c1c1c46007a1fd73f3497a494bedddb2
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440413"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472019"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>适用于 Azure Functions 2.x 及更高版本的 Azure Cosmos DB 触发器和绑定概述
 
@@ -50,7 +50,7 @@ ms.locfileid: "86440413"
 [NuGet 包]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB
 [core tools]: ./functions-run-local.md
 [扩展捆绑包]: ./functions-bindings-register.md#extension-bundles
-[更新扩展]: ./install-update-binding-extensions-manual.md
+[更新扩展]: ./functions-bindings-register.md
 [Azure 工具扩展]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x

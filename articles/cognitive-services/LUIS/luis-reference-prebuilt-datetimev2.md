@@ -3,30 +3,29 @@ title: DatetimeV2 预生成实体 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含语言理解 (LUIS) 中的 datetimeV2 预生成实体信息。
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 origin.date: 04/13/2020
-ms.date: 06/19/2020
-ms.author: v-tawe
-ms.openlocfilehash: 9d6f428a5bde371d9331baba65a203daa339f068
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: 00befb9ad7499308a085d98ff637dbc4aac2f6c9
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098519"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472397"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 DatetimeV2 预生成实体
 
-**datetimeV2** 预生成实体提取日期和时间值。 将以标准化格式解析这些值，使客户端程序能够使用它们。 当某条陈述包含不完整的日期或时间时，LUIS 会在终结点响应中包含过去的值和未来的值。 由于此实体已经过训练，因此不需要将包含 datetimeV2 的陈述示例添加到应用程序意向中。 
+**datetimeV2** 预生成实体提取日期和时间值。 将以标准化格式解析这些值，使客户端程序能够使用它们。 当某条陈述包含不完整的日期或时间时，LUIS 会在终结点响应中包含过去的值和未来的值。 由于此实体已经过训练，因此不需要将包含 datetimeV2 的陈述示例添加到应用程序意向中。
 
 ## <a name="types-of-datetimev2"></a>datetimeV2 的类型
 通过 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub 存储库管理 DatetimeV2。
 
-## <a name="example-json"></a>示例 JSON 
+## <a name="example-json"></a>示例 JSON
 
 下面显示了以下话语及其部分 JSON 响应。
 
@@ -123,7 +122,7 @@ ms.locfileid: "85098519"
 |resolution|包含一个 `values` 数组，其中包含 1 个、2 个或 4 个[解析值](#values-of-resolution)。|
 |end|时间或日期范围的结束值，格式与 `value` 相同。 仅当 `type` 为 `daterange`、`timerange` 或 `datetimerange` 时才使用|
 
-* * * 
+* * *
 
 ## <a name="subtypes-of-datetimev2"></a>datetimeV2 的子类型
 
@@ -142,11 +141,11 @@ ms.locfileid: "85098519"
   * 日期或日期范围在年份方面存在歧义
   * 日期或日期范围在 A.M. 或 P.M. 方面存在歧义 例如，4 月 3 日 3:00。
 
-`values` 数组的每个元素可以包含以下字段： 
+`values` 数组的每个元素可以包含以下字段：
 
 |属性名称|属性说明|
 |--|--|
-|timex|遵循 [ISO 8601 标准](https://en.wikipedia.org/wiki/ISO_8601)的、以 TIMEX 格式表示的时间、日期或日期范围，以及使用 TimeML 语言的注释的 TIMEX3 属性。|
+|timex|遵循 ISO 8601 标准的、以 TIMEX 格式表示的时间、日期或日期范围，以及使用 TimeML 语言的注释的 TIMEX3 属性。|
 |mod|术语，用于说明如何使用 `before`、`after` 等值。|
 |type|子类型，可以是下述项目之一：`datetime`、`date`、`time`、`daterange`、`timerange`、`datetimerange`、`duration`、`set`。|
 |value|**可选。** 采用 yyyy-MM-dd（日期）、HH:mm:ss（时间）、yyyy-MM-dd HH:mm:ss（日期/时间）格式的日期/时间对象。 如果 `type` 为 `duration`，则值是秒数（持续时间） <br/> 仅当 `type` 为 `datetime`、`date`、`time` 或 `duration 时才使用。|
@@ -686,8 +685,5 @@ DatetimeV2 JSON 响应在 API V3 中已更改。 以下示例演示 LUIS 如何�
 详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
 
 了解[维度](luis-reference-prebuilt-dimension.md)、[电子邮件](luis-reference-prebuilt-email.md)实体和[数字](luis-reference-prebuilt-number.md)。
-
-
-
 
 

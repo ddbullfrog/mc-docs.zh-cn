@@ -22,7 +22,7 @@ ms.locfileid: "92118169"
 
 
 
-本文介绍如何通过使用 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 来创建并运行[机器学习管道](concept-ml-pipelines.md)。 使用 **ML 管道**来创建将各种不同 ML 阶段拼结在一起的工作流。 然后发布该管道，以便以后访问或与他人共享。 跟踪 ML 管道，以了解模型在实际应用场合的表现并检测数据偏移。 ML 管道非常适合用于批量评分方案，它们可以使用各种计算，重复使用步骤而不是重新运行步骤，以及与其他人共享 ML 工作流。
+本文介绍如何通过使用 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 来创建并运行[机器学习管道](concept-ml-pipelines.md)。 使用 **ML 管道** 来创建将各种不同 ML 阶段拼结在一起的工作流。 然后发布该管道，以便以后访问或与他人共享。 跟踪 ML 管道，以了解模型在实际应用场合的表现并检测数据偏移。 ML 管道非常适合用于批量评分方案，它们可以使用各种计算，重复使用步骤而不是重新运行步骤，以及与其他人共享 ML 工作流。
 
 尽管可以使用一种称作 [Azure 管道](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml&preserve-view=true)的不同类型的管道来实现 ML 任务的 CI/CD 自动化，但这种类型的管道并不会存储在工作区中。 [比较这些不同的管道](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)。
 
@@ -295,7 +295,7 @@ ws = Run.get_context().experiment.workspace
 ## <a name="caching--reuse"></a>缓存和重复使用  
 
 若要优化和自定义管道的行为，可以围绕缓存和重复使用采取某些措施。 例如，可以选择：
-+ 在[步骤定义](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true)期间通过设置 `allow_reuse=False` 来**禁用默认的重复使用步骤运行输出的行为**。 在协作环境中使用管道时，“重复使用”非常关键，因为消除不必要的运行可以提高敏捷性。 但是，可以选择禁用重复使用。
++ 在 [步骤定义](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true)期间通过设置 `allow_reuse=False` 来 **禁用默认的重复使用步骤运行输出的行为** 。 在协作环境中使用管道时，“重复使用”非常关键，因为消除不必要的运行可以提高敏捷性。 但是，可以选择禁用重复使用。
 + 使用 `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)` **强制对运行中的所有步骤重新生成输出**
 
 默认情况下，已启用步骤的 `allow_reuse`，步骤定义中指定的 `source_directory` 将进行哈希处理。 因此，如果给定步骤的脚本保持不变（`script_name`、输入和参数），并且 ` source_directory` 中未发生任何其他更改，则会重复使用前一个步骤运行的输出，不会将作业提交到计算，并且前一运行的结果立即可供下一步骤使用。

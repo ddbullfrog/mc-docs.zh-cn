@@ -7,18 +7,18 @@ ms.service: sql-managed-instance
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sashan, carlrab
+ms.reviewer: sashan, sstein
 origin.date: 08/27/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 527f61503eacc408f995a81df466839862abeb69
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/29/2020
+ms.openlocfilehash: c25d10c33910dd71e91d849e26b866856640fb31
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014342"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470278"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>教程：将 SQL 托管实例添加到故障转移组
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -57,11 +57,13 @@ ms.locfileid: "90014342"
 
 此步骤将使用 Azure 门户或 PowerShell 为故障转移组创建资源组和主托管实例。 
 
+出于性能方面的考虑，将两个托管实例部署到[配对区域](../../best-practices-availability-paired-regions.md)。 与非配对区域相比，位于异地配对区域中的托管实例具有好得多的性能。 
+
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
 
 使用 Azure 门户创建资源组和主托管实例。 
-1. 选择“创建”启动 **SQL 托管实例**创建页。 
+1. 选择“创建”启动 **SQL 托管实例** 创建页。 
 1. 在“创建 Azure SQL 托管实例”页面的“基本信息”选项卡上： 
     1. 在“项目详细信息”下，从下拉列表中选择你的订阅，然后选择“创建新资源组”。   键入资源组的名称，例如 `myResourceGroup`。 
     1. 在“SQL 托管实例详细信息”下，提供托管实例的名称以及要将该实例部署到的区域。 将“计算 + 存储”保留为默认值。 
@@ -379,7 +381,7 @@ ms.locfileid: "90014342"
 
 本教程部分使用以下 PowerShell cmdlet：
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建 Azure 资源组。  |
 | [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) | 创建虚拟网络。  |
@@ -421,7 +423,7 @@ ms.locfileid: "90014342"
 
    下表显示了辅助虚拟网络所需的值：
 
-    | **字段** | 值 |
+    | **字段** | Value |
     | --- | --- |
     | **名称** |  辅助托管实例要使用的虚拟网络的名称，例如 `vnet-sql-mi-secondary`。 |
     | **地址空间** | 虚拟网络的地址空间，例如 `10.128.0.0/16`。 | 
@@ -456,7 +458,7 @@ ms.locfileid: "90014342"
 
    下表显示了辅助托管实例所需的值：
  
-    | **字段** | 值 |
+    | **字段** | Value |
     | --- | --- |
     | **订阅** |  主托管实例所在的订阅。 |
     | **资源组**| 主托管实例所在的资源组。 |
@@ -705,7 +707,7 @@ ms.locfileid: "90014342"
 
 本教程部分使用以下 PowerShell cmdlet：
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建 Azure 资源组。  |
 | [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) | 创建虚拟网络。  |
@@ -731,6 +733,8 @@ ms.locfileid: "90014342"
 
 本文提供了创建两个 VPN 网关并将它们连接起来的步骤，但如果你已配置 ExpressRoute，则可以改为创建故障转移组。 
 
+> [!NOTE]
+> 网关的 SKU 会影响吞吐量性能。 本教程使用最基本的 SKU (`HwGw1`) 来部署网关。 部署更高的 SKU（示例：`VpnGw3`）可实现更高的吞吐量。 有关所有可用选项，请参阅[网关 SKU](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -750,7 +754,7 @@ ms.locfileid: "90014342"
 
    下表显示了主托管实例的网关所需的值：
  
-    | **字段** | 值 |
+    | **字段** | Value |
     | --- | --- |
     | **订阅** |  主托管实例所在的订阅。 |
     | **名称** | 虚拟网络网关的名称，例如 `primary-mi-gateway`。 | 
@@ -831,7 +835,7 @@ ms.locfileid: "90014342"
 
    下表显示了辅助托管实例的网关所需的值：
 
-   | **字段** | 值 |
+   | **字段** | Value |
    | --- | --- |
    | **订阅** |  辅助托管实例所在的订阅。 |
    | **名称** | 虚拟网络网关的名称，例如 `secondary-mi-gateway`。 | 
@@ -872,7 +876,7 @@ ms.locfileid: "90014342"
                      -VirtualNetwork $secondaryVirtualNetwork
    $drLocation = $secondaryVirtualNetwork.Location
    
-   Write-host "Creating primary gateway..."
+   Write-host "Creating secondary gateway..."
    Write-host "This will take some time."
    $secondaryGWPublicIP = New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $resourceGroupName `
             -Location $drLocation -AllocationMethod Dynamic
@@ -923,7 +927,7 @@ ms.locfileid: "90014342"
     1. 选中“建立双向连接”旁边的复选框。 
     1. 保留默认的主连接名称，或将其重命名为所选的值。 
     1. 提供连接的“共享密钥(PSK)”，例如 `mi1m2psk`。 
-    1. 选择“确定”保存设置****。 
+    1. 选择“确定”保存设置  。 
 
     ![创建网关连接](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
@@ -1023,7 +1027,7 @@ ms.locfileid: "90014342"
 
    ![故障转移后托管实例的角色已交换](./media/failover-group-add-instance-tutorial/mi-switched-after-failover.png)
 
-1. 转到新的_辅助_托管实例，再次选择“故障转移”，将主实例故障回复为主角色。 
+1. 转到新的 _辅助_ 托管实例，再次选择“故障转移”，将主实例故障回复为主角色。 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -1774,7 +1778,7 @@ Write-host "Failover group name is" $failoverGroupName
 
 此脚本使用以下命令。 表中的每条命令链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建 Azure 资源组。  |
 | [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) | 创建虚拟网络。  |

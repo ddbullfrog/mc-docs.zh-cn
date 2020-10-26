@@ -4,15 +4,15 @@ description: 了解如何在 Azure Functions 中发送 Azure 服务总线触发�
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.author: v-junlch
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bc52d4cf7ca5e6ff24cad871500a1dcca1acf178
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: a7f494214d73a47e917899e1bd4ebdbb179730b7
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937123"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471198"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服务总线绑定
 
@@ -41,7 +41,7 @@ Azure Functions 通过[触发器和绑定](./functions-triggers-bindings.md)与 
 [NuGet 包]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [core tools]: ./functions-run-local.md
 [扩展捆绑包]: ./functions-bindings-register.md#extension-bundles
-[更新扩展]: ./install-update-binding-extensions-manual.md
+[更新扩展]: ./functions-bindings-register.md
 [Azure 工具扩展]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x

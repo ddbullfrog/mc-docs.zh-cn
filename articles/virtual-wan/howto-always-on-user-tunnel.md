@@ -5,18 +5,18 @@ description: 本文介绍如何为虚拟 WAN 配置 Always On VPN 用户隧道
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: how-to
-origin.date: 09/10/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 58f9fe3e66eeadad2d09ceceba274ff27cf88611
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: e8687b4983a6752a384f59bbcb06b33d482b24fd
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246482"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472602"
 ---
 <!--Verified successfully on VPN-->
 # <a name="configure-an-always-on-vpn-user-tunnel-for-virtual-wan"></a>为虚拟 WAN 配置 Always On VPN 用户隧道

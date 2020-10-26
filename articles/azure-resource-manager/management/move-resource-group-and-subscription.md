@@ -4,17 +4,17 @@ description: 使用 Azure Resource Manager 将资源移到新的资源组或订�
 ms.topic: conceptual
 origin.date: 09/15/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 05c0dd7916504e08b33c0e99f2d4012b284dca75
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: a9fe6c7c3f075ab7b6620f21d1503730f48a5f91
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937195"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470249"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>将资源移到新的资源组或订阅
 
@@ -51,7 +51,7 @@ ms.locfileid: "91937195"
   
     <!--MOONCAKE: CUSTOMIZED ON **Support type** category-->
         
-1. 源订阅和目标订阅必须处于活动状态。 如果在启用已禁用的帐户时遇到问题，请[创建 Azure 支持请求](https://support.azure.cn/support/support-azure/)。 在**支持类型**中选择“订阅管理”  作为问题类型。
+1. 源订阅和目标订阅必须处于活动状态。 如果在启用已禁用的帐户时遇到问题，请[创建 Azure 支持请求](https://support.azure.cn/support/support-azure/)。 在 **支持类型** 中选择“订阅管理”  作为问题类型。
 
     <!--MOONCAKE: CUSTOMIZED ON **Support type** category-->
     
@@ -79,7 +79,7 @@ ms.locfileid: "91937195"
         
     * [如何将 Azure 订阅关联或添加到 Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会看到此错误，但该订阅从未配合该资源类型使用。
+1. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅** 。 将资源移到新的订阅时，可能会看到此错误，但该订阅从未配合该资源类型使用。
 
     对于 PowerShell，请使用以下命令来获取注册状态：
 
