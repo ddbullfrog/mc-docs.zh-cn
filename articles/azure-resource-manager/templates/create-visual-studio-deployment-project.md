@@ -76,14 +76,14 @@ ms.locfileid: "91937244"
 
 1. 请注意，不仅会添加资源，而且还添加存储帐户类型的参数，以及存储帐户名称的变量。
 
-   :::image type="content" source="./media/create-visual-studio-deployment-project/show-new-items.png" alt-text="屏幕截图显示了“创建新项目”窗口，其中突出显示了“Azure 资源组”和“下一步”按钮。"
+   :::image type="content" source="./media/create-visual-studio-deployment-project/show-new-items.png" alt-text="屏幕截图显示了“创建新项目”窗口，其中突出显示了“Azure 资源组”和“下一步”按钮。":::
      ]
     }
     ```
 
 1. Visual Studio 还提供 intellisense，帮助你了解在编辑模板时可用的属性。 例如，若要编辑应用服务计划的属性，请导航到 **HostingPlan** 资源，并为 **properties** 添加值。 请注意，Intellisense 显示可用的值，并提供该值的说明。
 
-    :::image type="content" source="./media/create-visual-studio-deployment-project/show-intellisense.png" alt-text="屏幕截图显示了“创建新项目”窗口，其中突出显示了“Azure 资源组”和“下一步”按钮。"
+    :::image type="content" source="./media/create-visual-studio-deployment-project/show-intellisense.png" alt-text="屏幕截图显示了“创建新项目”窗口，其中突出显示了“Azure 资源组”和“下一步”按钮。":::
        }
      }
     }
@@ -179,7 +179,7 @@ Connect-AzAccount -Environment AzureChinaCloud
 
 1. 这次选择“用于 Web 应用的 Web 部署”  。
 
-    :::image type="content" source="./media/create-visual-studio-deployment-project/add-web-deploy.png" alt-text="屏幕截图显示了“创建新项目”窗口，其中突出显示了“Azure 资源组”和“下一步”按钮。"
+    :::image type="content" source="./media/create-visual-studio-deployment-project/add-web-deploy.png" alt-text="屏幕截图显示了“创建新项目”窗口，其中突出显示了“Azure 资源组”和“下一步”按钮。":::
        }
      }
     }
