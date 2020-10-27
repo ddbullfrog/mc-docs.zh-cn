@@ -62,58 +62,58 @@ ms.locfileid: "89655102"
 
 ## <a name="network-security-rules"></a>网络安全规则
 
-此处的基本规则是 Azure 托管的 Service Fabric 群集的安全锁定的最低要求。 若未能打开以下端口或将 IP/URL 列入白名单，群集的正常操作将被阻止并且可能不受支持。 设置此规则后，严格要求使用[自动 OS 映像升级](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)，否则需要打开其他端口。
+此处的基本规则是 Azure 托管的 Service Fabric 群集的安全锁定的最低要求。 若未能打开以下端口或将 IP/URL 列入允许列表，群集的正常操作将被阻止并且可能不受支持。 设置此规则后，严格要求使用[自动 OS 映像升级](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)，否则需要打开其他端口。
 
 ### <a name="inbound"></a>入站 
-|优先级   |名称               |端口        |协议  |源             |目标       |操作   
+|优先级   |名称               |端口        |协议  |Source             |目标       |操作   
 |--- |---                |--- |---       |--- |---               |---
-|3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |允许
-|3910       |客户端             |19000       |TCP       |Internet           |VirtualNetwork    |允许
-|3920       |群集            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |允许
-|3930       |临时          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |允许
-|3940       |应用程序        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |允许
-|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |允许
+|3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |ALLOW
+|3910       |客户端             |19000       |TCP       |Internet           |VirtualNetwork    |ALLOW
+|3920       |群集            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |ALLOW
+|3930       |临时          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |ALLOW
+|3940       |应用程序        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |ALLOW
+|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |ALLOW
 |3960       |RDP                |3389-3488   |TCP       |Internet           |VirtualNetwork    |拒绝
 |3970       |SSH                |22          |TCP       |Internet           |VirtualNetwork    |拒绝
-|3980       |自定义终结点    |80          |TCP       |Internet           |VirtualNetwork    |允许
-|4100       |阻止入站      |443         |任意       |任意                |任意               |Allow
+|3980       |自定义终结点    |80          |TCP       |Internet           |VirtualNetwork    |ALLOW
+|4100       |阻止入站      |443         |任意       |任意                |任意               |ALLOW
 
 有关入站安全规则的更多信息：
 
-* **Azure**。 Service Fabric Explorer 使用此端口浏览和管理群集，Service Fabric 资源提供程序也使用此端口查询有关群集的信息，以便在 Azure 管理门户中显示。 如果无法从 Service Fabric 资源提供程序访问此端口，你将在 Azure 门户中看到“找不到节点”或“UpgradeServiceNotReachable”等消息，并且节点和应用程序列表将显示为空。 这意味着，如果想通过 Azure 管理门户查看群集，负载均衡器必须公开一个公共 IP 地址，而且 NSG 必须允许传入 19080 流量。  
+* **Azure** 。 Service Fabric Explorer 使用此端口浏览和管理群集，Service Fabric 资源提供程序也使用此端口查询有关群集的信息，以便在 Azure 管理门户中显示。 如果无法从 Service Fabric 资源提供程序访问此端口，你将在 Azure 门户中看到“找不到节点”或“UpgradeServiceNotReachable”等消息，并且节点和应用程序列表将显示为空。 这意味着，如果想通过 Azure 管理门户查看群集，负载均衡器必须公开一个公共 IP 地址，而且 NSG 必须允许传入 19080 流量。  
 
 * 客户端。 API 的客户端连接终结点，例如 REST/PowerShell/CLI。 
 
-* **群集**。 用于节点间通信；绝不应被阻止。
+* **群集** 。 用于节点间通信；绝不应被阻止。
 
 * 临时。 Service Fabric 使用其中的一部分端口作为应用程序端口，剩余的端口供 OS 使用。 它还会将此范围映射到 OS 中的现有范围，因此，无论出于何种目的，你都可以使用此处示例中指定的范围。 确保起始端口与结束端口至少相差 255。 如果此差过小，可能会遇到冲突，因为此范围与 OS 共享。 若要查看配置的动态端口范围，请运行 netsh int ipv4 show dynamic port tcp。 Linux 群集不需要这些端口。
 
-* **应用程序**。 应用程序端口范围的大小应足以满足应用程序的终结点要求。 此范围在计算机上的动态端口范围中应是独占的，即按配置中设置的 ephemeralPorts 范围。 每当需要新端口时，Service Fabric 将使用这些端口，并负责为节点上的这些端口打开防火墙。
+* **应用程序** 。 应用程序端口范围的大小应足以满足应用程序的终结点要求。 此范围在计算机上的动态端口范围中应是独占的，即按配置中设置的 ephemeralPorts 范围。 每当需要新端口时，Service Fabric 将使用这些端口，并负责为节点上的这些端口打开防火墙。
 
 * SMB。 ImageStore 服务在两个场景中使用 SMB 协议。 节点需要此端口才能从 ImageStore 下载包，以及在副本之间复制这些包。 
 
 * RDP。 可选（如果对于 jumpbox 场景，Internet 或 VirtualNetwork 需要 RDP）。 
 
-* **SSH**。 可选（如果对于 jumpbox 场景，Internet 或 VirtualNetwork 需要 SSH）。
+* **SSH** 。 可选（如果对于 jumpbox 场景，Internet 或 VirtualNetwork 需要 SSH）。
 
 * 自定义终结点。 应用程序启用可访问 Internet 的终结点的示例。
 
 ### <a name="outbound"></a>出站
 
-|优先级   |名称               |端口        |协议  |源             |目标       |操作   
+|优先级   |名称               |端口        |协议  |Source             |目标       |操作   
 |--- |---                |--- |---       |--- |---               |---
-|3900       |网络            |任意         |TCP       |VirtualNetwork     |VirtualNetwork    |允许
-|3910       |资源提供程序  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
-|3920       |升级            |443         |TCP       |VirtualNetwork     |Internet          |允许
+|3900       |网络            |任意         |TCP       |VirtualNetwork     |VirtualNetwork    |ALLOW
+|3910       |资源提供程序  |443         |TCP       |VirtualNetwork     |ServiceFabric     |ALLOW
+|3920       |升级            |443         |TCP       |VirtualNetwork     |Internet          |ALLOW
 |3950       |阻止出站     |任意         |任意       |任意                |任意               |拒绝
 
 有关出站安全规则的更多信息：
 
-* **网络**。 子网和其他虚拟网络的通信通道。
+* 网络。 子网和其他虚拟网络的通信通道。
 
 * 资源提供程序。 通过 UpgradeService 进行连接，用于通过 Service Fabric 资源提供程序执行所有 ARM 部署。
 
-* **升级**。 访问地址 download.microsoft.com 以获取位的升级服务，这对于设置、重建映像和运行时升级是必需的。 该服务使用动态 IP 地址运行。 在“仅内部”负载均衡器的场景中，必须使用允许端口 443 出站流量的规则，将附加的外部负载均衡器添加到模板。 或者，可以在成功设置后阻止此端口，但在这种情况下，必须将升级包分发到节点，或者该端口必须在短时间内处于打开状态，然后需要手动升级。
+* 升级。 访问地址 download.microsoft.com 以获取位的升级服务，这对于设置、重建映像和运行时升级是必需的。 该服务使用动态 IP 地址运行。 在“仅内部”负载均衡器的场景中，必须使用允许端口 443 出站流量的规则，将附加的外部负载均衡器添加到模板。 或者，可以在成功设置后阻止此端口，但在这种情况下，必须将升级包分发到节点，或者该端口必须在短时间内处于打开状态，然后需要手动升级。
 
 将 Azure 防火墙与 [NSG 流日志](../network-watcher/network-watcher-nsg-flow-logging-overview.md)和[流量分析](../network-watcher/traffic-analytics.md)配合使用，以跟踪与安全锁定有关的问题。 ARM 模板[具有 NSG 的 Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 是一个良好的着手示例。 
 
