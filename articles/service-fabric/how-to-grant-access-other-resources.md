@@ -41,7 +41,7 @@ ms.locfileid: "92127916"
 ## <a name="granting-access-to-azure-key-vault"></a>授予对 Azure Key Vault 的访问权限
 与访问存储类似，可以利用 Service Fabric 应用程序的托管标识来访问 Azure Key Vault。 在 Azure 门户中授予访问权限的步骤类似于上面所列的步骤，这里不再重复。 有关差异，请参考下图。
 
-:::image type="content" source="../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png" alt-text="Key Vault 访问策略&quot;:::
+:::image type="content" source="../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png" alt-text="Key Vault 访问策略":::
 
 以下示例演示如何通过模板部署授予对保管库的访问权限；请将以下代码片段添加为模板的 `resources` 元素下的另一个条目。 此示例演示如何为用户分配的标识类型和系统分配的标识类型分别授予访问权限 - 请选择适用的一个。
 
