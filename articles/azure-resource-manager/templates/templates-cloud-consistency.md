@@ -228,7 +228,7 @@ Azure 资源管理器在运行时评估主要模板并检索和评估每个嵌�
 
 模板部署和配置资源。 资源类型由资源提供程序提供。 例如，计算资源提供程序 (Microsoft.Compute) 提供多个资源类型，例如 virtualMachines 和 availabilitySets。 每个资源提供程序均可向常见协定定义的 Azure 资源管理器提供一个 API，从而可以跨所有资源提供程序实现一致、统一的创作体验。 但全球 Azure 中可用的资源提供程序在主权云或 Azure Stack 区域中可能不可用。
 
-:::image type="content" source="./media/templates-cloud-consistency/resource-providers.png" alt-text="Azure 环境" --out table
+:::image type="content" source="./media/templates-cloud-consistency/resource-providers.png" alt-text="Azure 环境"::: --out table
 ```
 
 此外还可以使用以下 PowerShell cmdlet 查看可用的资源提供程序：
