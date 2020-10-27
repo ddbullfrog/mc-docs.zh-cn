@@ -397,7 +397,7 @@ ms.locfileid: "92117927"
 
 5. 左键单击 `Hero` 一词，Visual Studio 会在代码块左侧显示一个灯泡图标。 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="安装 hero 组件" 导入 Hero”。 （此消息因设置而异）
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="安装 hero 组件"::: 导入 Hero”。 （此消息因设置而异）
 
     此时会在第 2 行出现新的代码行。 如果第 2 行引用 /app/hero，请对其进行修改，使之引用本地文件夹中的 hero 文件 (./hero)。 第 2 行应如下所示：
 
