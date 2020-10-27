@@ -37,7 +37,7 @@ ms.locfileid: "92128804"
     :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="资源组页面":::        
 3. 在左侧菜单中的“设置”下选择“导出模板”，然后在工具栏上选择“下载”  。 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="资源组页面"
+    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="资源组页面":::
         }
         ```
 
