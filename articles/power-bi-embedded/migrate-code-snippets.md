@@ -16,21 +16,21 @@ origin.date: 09/28/2017
 ms.date: 07/18/2018
 ms.author: v-junlch
 ms.openlocfilehash: fb274091ac2c4f05ecc02a653796a561c7d9862a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291620"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211350"
 ---
 # <a name="code-snippets-for-migrating-content-from-power-bi-workspace-collections"></a>从 Power BI 工作区集合中迁移内容的代码片段
 
 本文提供一些内容迁移所需的基本操作代码片段。 有关特定报表类型的相关流，请参阅[如何将 Power BI Embedded 工作区集合内容迁移到 Power BI](migrate-from-power-bi-workspace-collections.md#content-migration)。
 
-可使用“迁移工具”将内容从 Power BI 工作区集合复制到 Power BI Embedded  。 尤其是具有大量内容时。 有关详细信息，请参阅 [Power BI Embedded 迁移工具](migrate-tool.md)。
+可使用“迁移工具”将内容从 Power BI 工作区集合复制到 Power BI Embedded  。 尤其是有大量内容时。 有关详细信息，请参阅 [Power BI Embedded 迁移工具](migrate-tool.md)。
 
-以下代码是使用 C# 和[Power BI.NET SDK](https://www.nuget.org/profiles/powerbi) 的示例。
+下面的代码是使用 C# 和 [Power BI .NET SDK](https://www.nuget.org/profiles/powerbi) 的示例。
 
-请确保使用下面的命名空间来执行以下代码片段。
+请确保使用以下命名空间来执行下面的代码片段。
 
 ```
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -134,7 +134,7 @@ using System.Threading.Tasks;
 
 ## <a name="set-directquery-credentials-in-power-bi-embedded"></a>在 Power BI Embedded 中设置 DirectQuery 凭据
 
-为简单起见，我们将在此代码段中使用未加密的凭据，同时也支持发送加密的凭据。
+为简单起见，我们将在此片段中使用未加密的凭据，同时也支持发送加密凭据。
 
 ```
     public class ConnectionString
@@ -171,7 +171,7 @@ using System.Threading.Tasks;
 
 ## <a name="push-dataset-and-report"></a>推送数据集和报表
 
-需要重新为已创建的数据集生成报表。
+将需要为创建的数据集重新生成报表。
 
 在此代码段中，我们假设可推送的数据集已处于 Power BI 内的应用工作区中。 有关推送 API 的信息，请参阅[将数据推送到 Power BI 数据集](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/)。
 
@@ -238,5 +238,5 @@ using System.Threading.Tasks;
 
 有关迁移过程的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](migrate-from-power-bi-workspace-collections.md)。
 
-更多疑问？ [尝试在 Power BI 社区中提问](http://community.powerbi.com/)
+更多问题？ [尝试咨询 Power BI 社区](http://community.powerbi.com/)
 

@@ -277,7 +277,7 @@ mvn clean package
     
     <!--Not Available on * **Twitter Source with Apache Spark and Azure Cosmos DB Change Feed**: -->
 
-* **使用 Apache Spark 查询 Cosmos DB 图形**：[ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
+* **使用 Apache Spark 查询 Cosmos DB 图形** ： [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
     
     <!--Not Available on * **Connecting Azure Databricks to Azure Cosmos DB** using `azure-cosmosdb-spark`-->
     

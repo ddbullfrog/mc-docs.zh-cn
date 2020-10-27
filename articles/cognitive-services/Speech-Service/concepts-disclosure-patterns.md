@@ -12,11 +12,11 @@ origin.date: 12/03/2019
 ms.date: 08/03/2020
 ms.author: v-tawe
 ms.openlocfilehash: fd88f1187169caf61a0589be294d1760d7937959
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87516290"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211665"
 ---
 # <a name="disclosure-design-patterns"></a>披露设计模式
 你已经确定了合成语音体验的正确[披露级别](concepts-disclosure-guidelines.md#disclosure-assessment)，现在正是探索潜在设计模式的好时机。
@@ -95,7 +95,7 @@ ms.locfileid: "87516290"
 
 
 ![新闻媒体方案中的显式署名](media/responsible-ai/disclosure-patterns/explicit-byline.png) <br/>
-*显式署名是指说明语音来源*。
+*显式署名是指说明语音来源* 。
 
 建议
 

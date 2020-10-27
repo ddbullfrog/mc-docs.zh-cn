@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 07/17/2020
 author: rockboyfor
-ms.date: 10/20/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 544a33dab6ac9a30ad50ce20af0c3f8106a82a33
-ms.sourcegitcommit: 5eb78078e370c9173a41f22ad8ea4bb45bc20312
+ms.openlocfilehash: 2cb6bbf2c0e7155893ac9f4e2ed79aae5c07edf0
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088214"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470511"
 ---
 <!--Verified successfully from PG team confirmation-->
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>创建专用 Azure Kubernetes 服务群集
@@ -122,7 +122,10 @@ API 服务器终结点没有公共 IP 地址。 若要管理 API 服务器，需
     <!--Not Available on * [Availability Zones][availability-zones]-->
     <!--Not Available on * [Azure Private Link service limitations][private-link-service]-->
     
-* 不支持具有专用群集的 Azure DevOps Microsoft 托管的代理。 请考虑使用[自托管代理][devops-agents]。 
+* 不支持具有专用群集的 Azure DevOps Microsoft 托管的代理。
+    
+    <!--Not Available on  Consider to use [Self-hosted Agents][devops-agents]-->
+    
 * 对于需要使 Azure 容器注册表能够与专用 AKS 配合使用的客户，容器注册表虚拟网络必须与代理群集虚拟网络对等互连。
 * 当前不支持 Azure Dev Spaces
 * 不支持将现有 AKS 群集转换为专用群集
@@ -142,8 +145,8 @@ API 服务器终结点没有公共 IP 地址。 若要管理 API 服务器，需
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
 
+<!--Not Available on [devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents-->
 <!--Not Available on [availability-zones]: availability-zones.md-->
 
 <!-- Update_Description: new article about private clusters -->

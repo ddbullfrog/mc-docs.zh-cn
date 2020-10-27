@@ -1,24 +1,24 @@
 ---
-title: SQL Server VM 的存储配置 | Azure
+title: SQL Server VM 的存储配置 | Microsoft Docs
 description: 本主题介绍 Azure 在预配期间如何配置 SQL Server VM 的存储（Azure 资源管理器部署模型）。 此外，还说明了如何为现有的 SQL Server VM 配置存储。
 services: virtual-machines-windows
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/26/2019
-ms.date: 07/06/2020
-ms.author: v-yeche
-ms.openlocfilehash: 6af6bc80899b48e1408108953b62d18309b8c80c
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.date: 10/29/2020
+ms.author: v-jay
+ms.openlocfilehash: 59ebe2955d3b4b20cef0cc942ce42dd7e1264711
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946297"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470040"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的存储配置
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "85946297"
 
 * 已使用 [SQL Server 库映像](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo)预配。
 * 使用 [Resource Manager 部署模型](../../../azure-resource-manager/management/deployment-models.md)。
-* 使用[高级 SSD](../../../virtual-machines/windows/disks-types.md)。
+* 使用[高级 SSD](../../../virtual-machines/disks-types.md)。
 
 ## <a name="new-vms"></a>新的 VM
 
@@ -47,7 +47,7 @@ ms.locfileid: "85946297"
 
 ![预配期间的 SQL Server VM 存储配置](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-在**存储优化**下选择要为其部署 SQL Server 的工作负荷类型。 使用“常规”优化选项，默认情况下，你将拥有一个最大 IOPS 为 5000 的数据磁盘，并且你将使用此同一驱动器放置数据、事务日志和 TempDB 存储。 你还可以根据业务选择“事务处理”(OLTP) 或“数据仓库”。
+在 **存储优化** 下选择要为其部署 SQL Server 的工作负荷类型。 使用“常规”优化选项，默认情况下，你将拥有一个最大 IOPS 为 5000 的数据磁盘，并且你将使用此同一驱动器放置数据、事务日志和 TempDB 存储。 你还可以根据业务选择“事务处理”(OLTP) 或“数据仓库”。
 
 <!--MOONCAKE: CUSTOMIZATION Remove the descriptions about three kind of VM performance-->
 
@@ -132,7 +132,7 @@ Azure 根据规范创建新驱动器。 在此方案中，Azure 将执行以下�
 本部分提供有关在 Azure 门户中预配或配置 SQL Server VM 期间，Azure 自动执行的存储配置更改的参考信息。
 
 * Azure 通过从 VM 中选择的存储配置存储池。 本主题的下一部分提供了有关存储池配置的详细信息。
-* 自动存储配置始终使用[高级 SSD](../../../virtual-machines/windows/disks-types.md) P30 数据磁盘。 因此，所选 TB 数目与附加到 VM 的数据磁盘数目之间存在 1:1 映射。
+* 自动存储配置始终使用[高级 SSD](../../../virtual-machines/disks-types.md) P30 数据磁盘。 因此，所选 TB 数目与附加到 VM 的数据磁盘数目之间存在 1:1 映射。
 
 有关价格信息，请参阅“磁盘存储”选项卡上的[存储定价](https://www.azure.cn/pricing/details/storage/)页。
 
@@ -149,7 +149,9 @@ Azure 使用以下设置在 SQL Server VM 上创建存储池。
 | 恢复 | 简单恢复（不可复原） |
 | 列数 |数据磁盘数最多 8 个<sup>1</sup> |
 
+
 <sup>1</sup> 创建存储池后，无法更改存储池中的列数。
+
 
 ## <a name="workload-optimization-settings"></a>工作负荷优化设置
 

@@ -1,26 +1,28 @@
 ---
 title: 新增功能 - 语言理解 (LUIS)
 description: 本文会经常更新有关 Azure 认知服务语言理解 API 的新闻。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: overview
 origin.date: 05/19/2020
-ms.date: 06/15/2020
-ms.author: v-tawe
-ms.openlocfilehash: 88e8e283979c439eb0195bc8f1a83d9c7793a224
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: e2c9eb9d34ffd5b35e6b864a9b66210c184e613c
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098516"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472280"
 ---
 # <a name="whats-new-in-language-understanding"></a>语言理解中的新增功能
 
-了解该服务中的新增功能。 这些项包括发布说明、视频、博客文章和其他类型的信息。 将此页添加为书签，以便及时了解该服务。
+了解服务中的新增功能。 这些项包括发布说明、视频、博客文章和其他类型的信息。 请将本页加入书签，以随时了解该服务的最新信息。
 
 ## <a name="release-notes"></a>发行说明
 
 ### <a name="june-2020"></a>2020 年 6 月
 
-* 预览版 3.0 创作 SDK -
+* [预览版 3.0 创作](luis-migration-authoring-entities.md) SDK -
     * 版本 3.2.0-preview.3 - [.NET - NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
     * 版本 4.0.0-preview.3 - [JS - NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
 
@@ -30,8 +32,13 @@ ms.locfileid: "85098516"
     * [语言理解容器](luis-container-howto.md)
     * 预览门户已升级为[当前门户](https://luis.azure.cn)，[以前的](https://previous.luis.ai)门户仍然可用
     * 新的机器学习实体创建和标记体验
+    * [升级流程](migrate-from-composite-entity.md)，从复合实体和简单实体升级为机器学习实体
     * [设置](how-to-application-settings-portal.md)对规范化单词变体的支持
+* 预览创作 API 更改
+    * 适用于嵌套机器学习实体的应用架构 7.x
+    * [迁移到所需功能](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
 * 为开发人员提供的新资源
+    * [持续集成工具](developer-reference-resource.md#continuous-integration-tools)
     * 研讨会 - [使用 LUIS 了解自然语言理解 (NLU) 的最佳实践](developer-reference-resource.md#workshops)
 
 
@@ -54,14 +61,6 @@ ms.locfileid: "85098516"
 * 从深层次体系结构格式文本中提取信息，使聊天应用程序的功能更强大。
 
     ![机器学习实体图像](./media/whats-new/deep-entity-extraction-example.png)
-
-### <a name="september-3-2019"></a>2019 年 9 月 3 日
-
-* Azure 创作资源。
-    * 每项 Azure 资源 500 个应用
-    * 每个应用 100 个版本
-* 预构建实体的土耳其语支持
-* datetimeV2 的意大利语支持
 
 ### <a name="july-23-2019"></a>2019 年 7 月 23 日
 
@@ -91,4 +90,4 @@ ms.locfileid: "85098516"
 
 ## <a name="service-updates"></a>服务更新
 
-[有关认知服务的 Azure 更新公告](https://www.azure.cn/what-is-new/)
+[认知服务的 Azure 更新公告](https://www.azure.cn/what-is-new/)

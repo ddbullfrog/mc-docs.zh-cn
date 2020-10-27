@@ -5,19 +5,23 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.devlang: azurepowershell
-ms.topic: conceptual
-origin.date: 5/26/2020
-ms.date: 07/06/2020
-ms.openlocfilehash: 4d372cd7b6747fdea0d6239a26e4420cc5df479c
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.topic: how-to
+origin.date: 10/1/2020
+ms.date: 10/29/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 062dafc95275cc9f0e0a16baafb44d61abc92b59
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845965"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470498"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>使用 PowerShell 在 Azure Database for MariaDB 中配置服务器参数
 
 可以使用 PowerShell 列出、显示和更新 Azure Database for MariaDB 服务器的配置参数。 在服务器级别会公开引擎配置的一个子集，并可以进行修改。
+
+>[!Note]
+> 可在服务器级别全局更新服务器参数，方式是使用 [Azure CLI](./howto-configure-server-parameters-cli.md)、[PowerShell](./howto-configure-server-parameters-using-powershell.md) 或 [Azure 门户](./howto-server-parameters.md)。
 
 ## <a name="prerequisites"></a>先决条件
 

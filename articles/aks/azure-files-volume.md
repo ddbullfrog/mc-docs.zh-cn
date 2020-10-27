@@ -5,16 +5,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用 Azure 文�
 services: container-service
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: a013a1d40c4bffcfd5ea676cdc43f6325dccdaa2
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 0e19ce4ba8e586c5b847c12d7cbc1e8341009f1f
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021550"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470422"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中通过 Azure 文件共享手动创建并使用卷
 
@@ -26,7 +27,7 @@ ms.locfileid: "90021550"
 
 本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="create-an-azure-file-share"></a>创建 Azure 文件共享
 
@@ -65,7 +66,7 @@ echo Storage account key: $STORAGE_KEY
 
 Kubernetes 需要使用凭据访问上一步骤中创建的文件共享。 这些凭据存储在 [Kubernetes 机密][kubernetes-secret]中，创建 Kubernetes Pod 时将引用它。
 
-使用 `kubectl create secret` 命令创建机密。 以下示例创建一个名为 *azure-secret* 的机密并填充上一步骤中的 *azurestorageaccountname* 和 *azurestorageaccountkey*。 若要使用现有 Azure 存储帐户，请提供帐户名称和密钥。
+使用 `kubectl create secret` 命令创建机密。 以下示例创建一个名为 *azure-secret* 的机密并填充上一步骤中的 *azurestorageaccountname* 和 *azurestorageaccountkey* 。 若要使用现有 Azure 存储帐户，请提供帐户名称和密钥。
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
@@ -73,7 +74,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>将文件共享装载为卷
 
-若要将 Azure 文件共享装载到 Pod 中，请在容器规范中配置卷。使用以下内容创建名为 `azure-files-pod.yaml` 的新文件。 如果更改了文件共享名称或机密名称，请更新 *shareName* 和 *secretName*。 如果需要，请更新 `mountPath`，这是文件共享在 Pod 中的装载路径。 对于 Windows Server 容器，请使用 Windows 路径约定指定 mountPath，例如“D:”。
+若要将 Azure 文件共享装载到 Pod 中，请在容器规范中配置卷。使用以下内容创建名为 `azure-files-pod.yaml` 的新文件。 如果更改了文件共享名称或机密名称，请更新 *shareName* 和 *secretName* 。 如果需要，请更新 `mountPath`，这是文件共享在 Pod 中的装载路径。 对于 Windows Server 容器，请使用 Windows 路径约定指定 mountPath，例如“D:”。
 
 ```yaml
 apiVersion: v1
@@ -137,7 +138,7 @@ Volumes:
 
 ## <a name="mount-options"></a>装载选项
 
-对于 Kubernetes 版本 1.9.1 及更高版本，fileMode 和 dirMode 的默认值为 0755。 如果使用 Kubernetes 版本为 1.8.5 或更高版本的群集并静态创建永久性卷对象，则需要在 PersistentVolume 对象上指定装载选项。 以下示例设置 *0777*：
+对于 Kubernetes 版本 1.9.1 及更高版本，fileMode 和 dirMode 的默认值为 0755。 如果使用 Kubernetes 版本为 1.8.5 或更高版本的群集并静态创建永久性卷对象，则需要在 PersistentVolume 对象上指定装载选项。 以下示例设置 *0777* ：
 
 ```yaml
 apiVersion: v1
@@ -163,7 +164,7 @@ spec:
   - nobrl
 ```
 
-如果使用版本为 1.8.0 - 1.8.4 的群集，则可在指定安全性上下文时，将 *runAsUser* 值设置为 *0*。 有关 Pod 安全性上下文的详细信息，请参阅[配置安全性上下文][kubernetes-security-context]。
+如果使用版本为 1.8.0 - 1.8.4 的群集，则可在指定安全性上下文时，将 *runAsUser* 值设置为 *0* 。 有关 Pod 安全性上下文的详细信息，请参阅[配置安全性上下文][kubernetes-security-context]。
 
 若要更新装载选项，请创建包含 PersistentVolume 的 azurefile-mount-options-pv.yaml 文件。 例如：
 
@@ -243,7 +244,8 @@ azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 
 <!-- LINKS - external -->
 
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+<!--Not Available on [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create-->
+
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
@@ -252,10 +254,10 @@ azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 
 <!-- LINKS - internal -->
 
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-storage-create]: https://docs.azure.cn/cli/storage/account#az-storage-account-create
-[az-storage-key-list]: https://docs.azure.cn/cli/storage/account/keys#az-storage-account-keys-list
-[az-storage-share-create]: https://docs.azure.cn/cli/storage/share#az-storage-share-create
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-storage-create]: https://docs.azure.cn/cli/storage/account#az_storage_account_create
+[az-storage-key-list]: https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list
+[az-storage-share-create]: https://docs.azure.cn/cli/storage/share#az_storage_share_create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli

@@ -145,7 +145,7 @@ ms.locfileid: "92118575"
 ```
 
 > [!NOTE]
-> 通常情况下，建议使用**选择退出**索引策略来让 Azure Cosmos DB 主动为可能会添加到模型的任何新属性编制索引。
+> 通常情况下，建议使用 **选择退出** 索引策略来让 Azure Cosmos DB 主动为可能会添加到模型的任何新属性编制索引。
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>仅在特定属性路径上使用空间索引
 

@@ -35,8 +35,8 @@ Azure AD Connect 同步会使用计划程序同步本地目录中发生的更改
 
 计划程序负责执行两项任务：
 
-* **同步周期**。 用于导入、同步和导出更改的过程。
-* **维护任务**。 续订用于密码重置和设备注册服务 (DRS) 的密钥和证书。 清除操作日志中的旧条目。
+* **同步周期** 。 用于导入、同步和导出更改的过程。
+* **维护任务** 。 续订用于密码重置和设备注册服务 (DRS) 的密钥和证书。 清除操作日志中的旧条目。
 
 计划程序本身始终运行，但可以将它配置为仅运行其中一个任务或一个任务都不运行。 例如，如果需要运行自己的同步周期过程，则可以在计划程序中禁用此任务，但仍运行维护任务。
 
@@ -55,16 +55,16 @@ Azure AD Connect 同步会使用计划程序同步本地目录中发生的更改
 
 如果在运行此 cmdlet 时看到“此同步命令或 cmdlet 不可用”，则 PowerShell 模块未加载  。 如果在 PowerShell 限制级别高于默认设置的域控制器或服务器上运行 Azure AD Connect，则可能会发生这种问题。 如果看到此错误，则运行 `Import-Module ADSync` 可使该 cmdlet 可用。
 
-* **AllowedSyncCycleInterval**。 Azure AD 允许的同步周期间的最短时间间隔。 不能比这一设置更频繁地同步，但仍会支持。
-* **CurrentlyEffectiveSyncCycleInterval**。 当前生效的计划。 如果它不比 AllowedSyncInterval 更频繁，它具有与 CustomizedSyncInterval 相同的值（如果已设置）。 如果使用早于 1.1.281 的版本，且更改了 CustomizedSyncCycleInterval，该更改会在下一个同步周期后生效。 从版本 1.1.281 开始，更改会立即生效。
-* **CustomizedSyncCycleInterval**。 如果希望计划程序以默认 30 分钟以外的任何其他频率运行，则可配置此设置。 在上图中，计划程序已改设为每隔一小时运行一次。 如果此项设置为低于 AllowedSyncInterval 的值，则使用后者。
-* **NextSyncCyclePolicyType**。 Delta 或 Initial。 定义下次运行是只应处理增量更改，还是应执行完全导入和同步。后者还会重新处理任何新的或更改的规则。
-* **NextSyncCycleStartTimeInUTC**。 计划程序启动下一个同步周期的时间。
-* **PurgeRunHistoryInterval**。 操作日志应保留的时间。 可以在 Synchronization Service Manager 中查看这些日志。 默认设置是保留这些日志 7 天。
-* **SyncCycleEnabled**。 指示计划程序是否正在运行导入、同步和导出过程作为其操作的一部分。
-* **MaintenanceEnabled**。 显示是否启用了维护过程。 它会更新证书/密钥，并清除操作日志。
-* **StagingModeEnabled**。 显示是否启用了[暂存模式](how-to-connect-sync-staging-server.md)。 如果启用此设置，它会取消运行导出，但仍运行导入和同步。
-* **SchedulerSuspended**。 在升级过程中由 Connect 设置，以暂时阻止计划程序运行。
+* **AllowedSyncCycleInterval** 。 Azure AD 允许的同步周期间的最短时间间隔。 不能比这一设置更频繁地同步，但仍会支持。
+* **CurrentlyEffectiveSyncCycleInterval** 。 当前生效的计划。 如果它不比 AllowedSyncInterval 更频繁，它具有与 CustomizedSyncInterval 相同的值（如果已设置）。 如果使用早于 1.1.281 的版本，且更改了 CustomizedSyncCycleInterval，该更改会在下一个同步周期后生效。 从版本 1.1.281 开始，更改会立即生效。
+* **CustomizedSyncCycleInterval** 。 如果希望计划程序以默认 30 分钟以外的任何其他频率运行，则可配置此设置。 在上图中，计划程序已改设为每隔一小时运行一次。 如果此项设置为低于 AllowedSyncInterval 的值，则使用后者。
+* **NextSyncCyclePolicyType** 。 Delta 或 Initial。 定义下次运行是只应处理增量更改，还是应执行完全导入和同步。后者还会重新处理任何新的或更改的规则。
+* **NextSyncCycleStartTimeInUTC** 。 计划程序启动下一个同步周期的时间。
+* **PurgeRunHistoryInterval** 。 操作日志应保留的时间。 可以在 Synchronization Service Manager 中查看这些日志。 默认设置是保留这些日志 7 天。
+* **SyncCycleEnabled** 。 指示计划程序是否正在运行导入、同步和导出过程作为其操作的一部分。
+* **MaintenanceEnabled** 。 显示是否启用了维护过程。 它会更新证书/密钥，并清除操作日志。
+* **StagingModeEnabled** 。 显示是否启用了[暂存模式](how-to-connect-sync-staging-server.md)。 如果启用此设置，它会取消运行导出，但仍运行导入和同步。
+* **SchedulerSuspended** 。 在升级过程中由 Connect 设置，以暂时阻止计划程序运行。
 
 可以使用 `Set-ADSyncScheduler`更改上述一些设置。 可以修改以下参数：
 

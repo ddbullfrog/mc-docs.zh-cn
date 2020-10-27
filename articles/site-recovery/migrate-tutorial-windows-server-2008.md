@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 44a7e9bc93fb6790f35fb0831c464709d7ef0561
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 4a5e6a8a17970e936331d445902769289d5cd78d
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655002"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211884"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>将运行 Windows Server 2008 的服务器迁移到 Azure
 
@@ -63,7 +63,7 @@ ms.locfileid: "89655002"
 
 本教程的其余部分介绍如何迁移运行 Windows Server 2008 或 2008 R2 的本地 VMware 虚拟机和物理服务器。
 
-<!--Not Available on [Click here](https://aka.ms/migrateVMs-signup)-->
+<!--Not Available on [Click here](https://docs.azure.cn/migrate/tutorial-migrate-vmware)-->
 
 ### <a name="limitations-and-known-issues"></a>限制和已知问题
 
@@ -97,13 +97,13 @@ ms.locfileid: "89655002"
 
 ### <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
-1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务**。
+1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务** 。
 2. 单击“创建资源” > “监视 + 管理” > “备份和站点恢复(OMS)”。  
 
     <!--MOONCAKE is Correct on **Monitoring + Management**-->
 
-3. 在“名称”中，指定友好名称 **W2K8-migration**。 如果有多个订阅，请选择合适的一个。
-4. 创建资源组 **w2k8migrate**。
+3. 在“名称”中，指定友好名称 **W2K8-migration** 。 如果有多个订阅，请选择合适的一个。
+4. 创建资源组 **w2k8migrate** 。
 5. 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中的“地域可用性”。
 6. 若要从仪表板快速访问保管库，请单击“固定到仪表板”，然后单击“创建”。 
 
@@ -137,15 +137,15 @@ ms.locfileid: "89655002"
 > [!WARNING]
 > 确保在复制策略的“应用一致性快照频率”设置中指定“关”。 在复制运行 Windows Server 2008 的服务器时，仅支持崩溃一致性恢复点。 为“应用一致性快照频率”指定任何其他值时，由于缺少应用一致性恢复点，会导致服务器的复制运行状况出现严重问题，因此会生成假警报。
 
-   :::image type="content" source="media/migrate-tutorial-windows-server-2008/create-policy.png" alt-text="显示复制策略创建选项的屏幕截图。":::
+   :::image type="content" source="media/migrate-tutorial-windows-server-2008/create-policy.png" alt-text="显示新保管库创建选项的屏幕截图。":::
 
 ### <a name="enable-replication"></a>启用复制
 
 为要迁移的 Windows Server 2008 SP2/Windows Server 2008 R2 SP1 服务器[启用复制](physical-azure-disaster-recovery.md#enable-replication)。
 
-   :::image type="content" source="media/migrate-tutorial-windows-server-2008/Add-physical-server.png" alt-text="显示用于添加物理计算机的选项的屏幕截图。":::
+   :::image type="content" source="media/migrate-tutorial-windows-server-2008/Add-physical-server.png" alt-text="显示新保管库创建选项的屏幕截图。":::
 
-   :::image type="content" source="media/migrate-tutorial-windows-server-2008/Enable-replication.png" alt-text="显示用于启用复制的选项的屏幕截图。":::
+   :::image type="content" source="media/migrate-tutorial-windows-server-2008/Enable-replication.png" alt-text="显示新保管库创建选项的屏幕截图。":::
 
 ### <a name="run-a-test-migration"></a>运行测试迁移
 
@@ -153,7 +153,7 @@ ms.locfileid: "89655002"
 
 运行 [测试故障转移](tutorial-dr-drill-azure.md) ，确保一切如预期正常运行。
 
-   :::image type="content" source="media/migrate-tutorial-windows-server-2008/testfailover.png" alt-text="显示测试故障转移命令的屏幕截图。":::
+   :::image type="content" source="media/migrate-tutorial-windows-server-2008/testfailover.png" alt-text="显示新保管库创建选项的屏幕截图。":::
 
 ### <a name="migrate-to-azure"></a>迁移到 Azure
 
@@ -171,10 +171,10 @@ ms.locfileid: "89655002"
     - 完成迁移过程，停止服务器复制，并停止服务器的 Site Recovery 计费。
     - 此步骤清除复制数据。 它不删除迁移的 VM。
 
-    :::image type="content" source="media/migrate-tutorial-windows-server-2008/complete-migration.png" alt-text="显示完整迁移命令的屏幕截图。":::
+    :::image type="content" source="media/migrate-tutorial-windows-server-2008/complete-migration.png" alt-text="显示新保管库创建选项的屏幕截图。":::
 
 > [!WARNING]
-> **不会取消正在进行的故障转移**：在故障转移开始前，服务器复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但服务器将不继续复制。
+> **不会取消正在进行的故障转移** ：在故障转移开始前，服务器复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但服务器将不继续复制。
 
-<!--Not Available on [Review common questions](../migrate/resources-faq.md) about Azure Migrate.-->
+<!--Not Available on [Review common questions](../migrate/resources-faq.md)-->
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -4,14 +4,14 @@ description: 介绍在使用 Azure 资源管理器部署资源时如何解决 SK
 ms.topic: troubleshooting
 origin.date: 02/18/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: a153a3eda126739cd53cf54395e895404e8f24a5
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 09aa10eb90e13f60d63c7546fd39de96e4a29a1c
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937527"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470085"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>解决 SKU 不可用的错误
 
@@ -48,6 +48,8 @@ Get-AzComputeResourceSku | where {$_.Locations -icontains "chinaeast"}
 ```
 
 结果包括位置的 SKU 列表以及针对该 SKU 的任何限制。 请注意，SKU 可能被列为 `NotAvailableForSubscription`。
+
+<!--Not Available on zone {2, 1, 3} -->
 
 ```output
 ResourceType          Name           Locations   Zone      Restriction                      Capability           Value

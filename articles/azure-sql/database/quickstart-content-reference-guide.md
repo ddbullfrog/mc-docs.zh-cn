@@ -4,20 +4,20 @@ description: 查找所有快速入门的内容参考，这有助于快速学习 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: ''
+ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlr
+ms.reviewer: ''
 origin.date: 07/29/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 59be508e6d2ba4df1664562912d687805ddf4d63
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/29/2020
+ms.openlocfilehash: 0584e239428f0ba726730ce3d0a98e5ec6c4f143
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227936"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470272"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>开始使用 Azure SQL 数据库中的单一数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "86227936"
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>在尽量缩短停机时间的情况下迁移到单一数据库
 
-参考这些快速入门中的文章可以使用 `.bacpac` 文件快速创建数据库或将其导入 Azure。 但是，`.bacpac` 和 `.dacpac` 文件旨在跨不同版本的 SQL Server 和 Azure SQL 数据库中的部署选项快速移动数据库。 但是，此方法不适合用于在尽量缩短停机时间的前提下迁移生产数据库，因为需要停止添加新数据，等待将源数据库导出到 `.bacpac` 文件，然后等待将其导入 Azure SQL 数据库。 所有这些操作会导致应用程序出现一段停机时间，尤其是数据库较大时。 若要转移生产数据库，需要采用更好的方式进行迁移，以确保尽量缩短迁移所导致的停机时间。 为此，请使用[数据迁移服务 (DMS)](/dms/tutorial-sql-server-to-azure-sql?toc=/sql-database/toc.json)，它可以在尽量缩短停机时间的情况下迁移数据库。 为实现这种迁移，DMS 会以增量方式将源数据库中发生的更改推送到所要还原的单一数据库。 这样，便可以在尽量缩短停机时间的前提下，快速将应用程序从源数据库切换到目标数据库。
+参考这些快速入门中的文章可以使用 `.bacpac` 文件快速创建数据库或将其导入 Azure。 但是，使用 `.bacpac` 和 `.dacpac` 文件可以快速在 Azure SQL 中以及不同 SQL Server 版本之间转移数据库，或者在 DevOps 管道中实现持续集成。 但是，此方法不适合用于在尽量缩短停机时间的前提下迁移生产数据库，因为需要停止添加新数据，等待将源数据库导出到 `.bacpac` 文件，然后等待将其导入 Azure SQL 数据库。 所有这些操作会导致应用程序出现一段停机时间，尤其是数据库较大时。 若要转移生产数据库，需要采用更好的方式进行迁移，以确保尽量缩短迁移所导致的停机时间。 为此，请使用[数据迁移服务 (DMS)](/dms/tutorial-sql-server-to-azure-sql?toc=/sql-database/toc.json)，它可以在尽量缩短停机时间的情况下迁移数据库。 为实现这种迁移，DMS 会以增量方式将源数据库中发生的更改推送到所要还原的单一数据库。 这样，便可以在尽量缩短停机时间的前提下，快速将应用程序从源数据库切换到目标数据库。
 
 ## <a name="next-steps"></a>后续步骤
 

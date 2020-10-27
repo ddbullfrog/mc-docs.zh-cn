@@ -36,7 +36,7 @@ ms.locfileid: "92128704"
 
 - [如何启用跨区域还原](/backup/backup-azure-arm-restore-vms#cross-region-restore)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -66,7 +66,7 @@ ms.locfileid: "92128704"
 
 - [可帮助保护混合备份免受攻击的安全功能](/backup/backup-azure-security-feature#prevent-attacks)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -88,7 +88,7 @@ ms.locfileid: "92128704"
 
 - [如何在 Azure 中还原 Key Vault 密钥](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -106,7 +106,7 @@ ms.locfileid: "92128704"
 
 - [如何在 Key Vault 中启用软删除和清除保护](/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

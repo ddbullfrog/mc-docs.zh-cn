@@ -25,11 +25,11 @@ ms.locfileid: "92121693"
 
 ## <a name="azure-function-linked-service"></a>Azure 函数链接服务
 
-Azure 函数的返回类型必须是有效的 `JObject`。 （请记住：[JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) 不是 `JObject`。）除了 `JObject` 之外的任何返回类型都将失败，并且会引发用户错误*响应内容不是有效的 JObject*。
+Azure 函数的返回类型必须是有效的 `JObject`。 （请记住： [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) 不是 `JObject`。）除了 `JObject` 之外的任何返回类型都将失败，并且会引发用户错误 *响应内容不是有效的 JObject* 。
 
 | **属性** | **说明** | **必需** |
 | --- | --- | --- |
-| type   | type 属性必须设置为：**AzureFunction** | 是 |
+| type   | type 属性必须设置为： **AzureFunction** | 是 |
 | 函数应用 URL | Azure 函数应用的 URL。 格式为 `https://<accountname>.chinacloudsites.cn`。 在 Azure 门户中查看函数应用时，此 URL 是 URL 部分下的值  | 是 |
 | 函数密钥 | Azure 函数的访问密钥。 单击相应函数的“管理”部分，并复制“函数密钥”或“主机密钥”。 在此处了解详细信息：[Azure Functions HTTP 触发器和绑定](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | 是 |
 |   |   |   |
@@ -51,9 +51,9 @@ Azure 函数的返回类型必须是有效的 `JObject`。 （请记住：[JArra
 
 ## <a name="routing-and-queries"></a>路由和查询
 
-Azure 函数活动支持**路由**。 例如，如果你的 Azure Function 具有终结点 `https://functionAPP.chinacloudsites.cn/api/<functionName>/<value>?code=<secret>`，则要在 Azure 函数活动中使用的 `functionName` 是 `<functionName>/<value>`。 你可以将此函数参数化以在运行时提供所需的 `functionName`。
+Azure 函数活动支持 **路由** 。 例如，如果你的 Azure Function 具有终结点 `https://functionAPP.chinacloudsites.cn/api/<functionName>/<value>?code=<secret>`，则要在 Azure 函数活动中使用的 `functionName` 是 `<functionName>/<value>`。 你可以将此函数参数化以在运行时提供所需的 `functionName`。
 
-Azure 函数活动还支持**查询**。 必须将查询包括为 `functionName` 的一部分。 例如，当函数名称为 `HttpTriggerCSharp` 并且要包括的查询为 `name=hello` 时，无法将 Azure 函数活动中的 `functionName` 构造为 `HttpTriggerCSharp?name=hello`。 可以将此函数参数化，以便在运行时确定值。
+Azure 函数活动还支持 **查询** 。 必须将查询包括为 `functionName` 的一部分。 例如，当函数名称为 `HttpTriggerCSharp` 并且要包括的查询为 `name=hello` 时，无法将 Azure 函数活动中的 `functionName` 构造为 `HttpTriggerCSharp?name=hello`。 可以将此函数参数化，以便在运行时确定值。
 
 ## <a name="timeout-and-long-running-functions"></a>超时和长时间运行的函数
 

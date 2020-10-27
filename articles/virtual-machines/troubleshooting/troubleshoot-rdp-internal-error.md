@@ -132,7 +132,7 @@ ms.locfileid: "92127938"
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
     ```
 
-3. 如果该密钥不存在或者其值为 **0**，请运行以下脚本来启用该协议：
+3. 如果该密钥不存在或者其值为 **0** ，请运行以下脚本来启用该协议：
 
     ```console
     REM Enable TLS 1.0, TLS 1.1 and TLS 1.2

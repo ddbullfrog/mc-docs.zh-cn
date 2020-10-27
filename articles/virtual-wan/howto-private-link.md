@@ -5,19 +5,19 @@ description: 在虚拟 WAN 中配置专用链接的步骤
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: how-to
-origin.date: 08/18/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-new
-ms.openlocfilehash: 0c164e39849060df7bc43cc7e2be10104ebdfe29
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: d7c93df6dbeb219bcb40c19ce61e4b7756dbdcc2
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246987"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472642"
 ---
 <!--Verified Successfully-->
 # <a name="use-private-link-in-virtual-wan"></a>在虚拟 WAN 中使用专用链接
@@ -128,5 +128,4 @@ $ sqlcmd -S wantest.database.chinacloudapi.cn -U $username -P $password -Q "$que
 
 有关虚拟 WAN 的详细信息，请参阅[常见问题解答](virtual-wan-faq.md)。
 
-<!-- Update_Description: new article about howto private link -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

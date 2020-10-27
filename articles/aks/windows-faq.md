@@ -4,18 +4,18 @@ titleSuffix: Azure Kubernetes Service
 description: 查看在 Azure Kubernetes 服务 (AKS) 中运行 Windows Server 节点池和应用程序工作负载时的常见问题。
 services: container-service
 ms.topic: article
-origin.date: 07/29/2020
+origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0ba6785a695693bc2993bb9f5beba3410ab125b9
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: d5270d54bbb843682e63bf4bf5eb3b302546dd34
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021684"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470169"
 ---
 <!--Verified successfully-->
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>AKS 中 Windows Server 节点池的常见问题
@@ -38,7 +38,7 @@ Kubernetes 历来以 Linux 为中心。 上游 [Kubernetes.io][kubernetes] 网�
     - Windows Server 使用更大的二进制安全标识符 (SID)，该标识符存储在 Windows Security Access Manager (SAM) 数据库中。 此数据库不在主机与容器之间或容器之间共享。
 - **文件权限** - Windows Server 使用基于 SID 的访问控制列表，而不是权限和 UID + GID 的位掩码
 - **文件路径** - Windows Server 上的约定是使用 \，而不是 /。
-    - 在装载卷的 Pod 规范中，为 Windows Server 容器正确指定路径。 例如，不要在 Linux 容器中指定装入点 /mnt/volume，而是将要装载的驱动器号和位置（例如 */K/Volume*）指定为 K: 驱动器。
+    - 在装载卷的 Pod 规范中，为 Windows Server 容器正确指定路径。 例如，不要在 Linux 容器中指定装入点 /mnt/volume，而是将要装载的驱动器号和位置（例如 */K/Volume* ）指定为 K: 驱动器。
 
 ## <a name="what-kind-of-disks-are-supported-for-windows"></a>Windows 支持哪种磁盘？
 
@@ -119,6 +119,9 @@ AKS 当前不提供组托管服务帐户 (gMSA) 支持。
 
 具有 Windows 节点的群集可以有大约 500 个服务，超过它就会导致端口耗尽。
 
+<!--Not Available on till 10/21/2020 ## Can I use Azure Hybrid Benefit with Windows nodes?-->
+<!--az: error: unrecognized arguments: --enable-ahub-->
+
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>是否可以将 Kubernetes Web 仪表板用于 Windows 容器？
 
 是的，你可以使用 [Kubernetes Web 仪表板][kubernetes-dashboard]来访问有关 Windows 容器的信息，但目前不能直接从 Kubernetes Web 仪表板将 kubectl exec 运行到正在运行的 Windows 容器中。 若要详细了解如何连接到正在运行的 Windows 容器，请参阅[使用 RDP 连接到 Azure Kubernetes 服务 (AKS) 群集 Windows Server 节点以进行维护或故障排除][windows-rdp]。
@@ -160,6 +163,7 @@ AKS 当前不提供组托管服务帐户 (gMSA) 支持。
 [windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
+[hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
+[resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 
-<!-- Update_Description: new article about windows faq -->
-<!--NEW.date: 09/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

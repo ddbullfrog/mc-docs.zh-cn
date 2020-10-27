@@ -3,15 +3,15 @@ title: 适用于 Azure Functions 的 Azure 队列存储触发器和绑定概述
 description: 了解如何在 Azure Functions 中使用 Azure 队列存储触发器和输出绑定。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 03/03/2020
+ms.date: 10/19/2020
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 790212f49c781a2704728a6828dcff2372931828
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 0f2d117143a0b5f99f5463dee370eb82e53b96bc
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79293263"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472648"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>适用于 Azure Functions 的 Azure 队列存储触发器和绑定概述
 
@@ -37,7 +37,7 @@ Azure Functions 可以在创建新的 Azure 队列存储消息时运行，并可
 [core tools]: ./functions-run-local.md
 [扩展捆绑包]: ./functions-bindings-register.md#extension-bundles
 [NuGet 包]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[更新扩展]: ./install-update-binding-extensions-manual.md
+[更新扩展]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x

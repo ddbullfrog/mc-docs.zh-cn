@@ -1,21 +1,21 @@
 ---
 title: 创建和部署模板规格
 description: 了解如何通过 ARM 模板创建模板规格。 然后，将模板规格部署到订阅中的资源组。
-origin.date: 09/25/2020
+origin.date: 10/02/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: d3ac61656c94335672f3b9a016eed2141400061f
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 2abf3a064625f0c97119d65933bb45be50a7d2ac
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937422"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469999"
 ---
-<!--Not Avaialble on Mooncake-->
+<!--NOT AVAIALBLE on Mooncake-->
 <!--REASON: IS PRIVATE PREVIEW TILL 09/22/2020-->
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>快速入门：创建和部署模板规格（预览）
 
@@ -32,7 +32,7 @@ ms.locfileid: "91937422"
 
 ## <a name="create-template-spec"></a>创建模板规格
 
-模板规格是名为 Microsoft.Resources/templateSpecs 的新资源类型。 若要创建模板规格，可以使用 Azure PowerShell、Azure CLI 或 ARM 模板。 在所有选项中，你都需要打包在模板规格中的 ARM 模板。
+模板规格是名为 Microsoft.Resources/templateSpecs 的资源类型。 若要创建模板规格，可以使用 Azure PowerShell、Azure CLI 或 ARM 模板。 在所有选项中，你都需要打包在模板规格中的 ARM 模板。
 
 使用 PowerShell 和 CLI 时，ARM 模板作为参数传递给命令。 对于 ARM 模板，要打包在模板规格中的 ARM 模板嵌入在模板规格定义中。
 
@@ -75,7 +75,7 @@ ms.locfileid: "91937422"
      "resources": [
        {
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2019-04-01",
+         "apiVersion": "2019-06-01",
          "name": "[variables('storageAccountName')]",
          "location": "[parameters('location')]",
          "sku": {
@@ -151,7 +151,7 @@ ms.locfileid: "91937422"
       "resources": [
         {
           "type": "Microsoft.Storage/storageAccounts",
-          "apiVersion": "2019-04-01",
+          "apiVersion": "2019-06-01",
           "name": "[variables('storageAccountName')]",
           "location": "[parameters('location')]",
           "sku": {

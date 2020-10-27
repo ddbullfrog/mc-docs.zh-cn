@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/08/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: ef46358e73509f5edc92bf7013918fc9298b4709
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: e4fb1ccd2909861ceae88578fabab71ae7fe34a2
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655487"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211872"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>设置故障转移后的公共 IP 地址
 
@@ -39,7 +39,8 @@ ms.locfileid: "89655487"
 
 设置如下：
 - 创建[恢复计划](../site-recovery/site-recovery-create-recovery-plans.md#create-a-recovery-plan)并根据需要将工作负载分组到计划中。
-- 通过使用 [Azure 自动化 runbook](../site-recovery/site-recovery-runbook-automation.md#customize-the-recovery-plan)脚本向故障转移 VM 添加附加公共 IP 地址的步骤来自定义计划。
+
+<!--Not Available on [Azure Automation runbooks](../site-recovery/site-recovery-runbook-automation.md#customize-the-recovery-plan)-->
 
 ## <a name="public-endpoint-switching-with-dns-level-routing"></a>使用 DNS 级别路由的公共终结点切换
 
@@ -51,7 +52,7 @@ Azure 流量管理器在终结点之间启用 DNS 级别路由，可帮助在灾
 
 设置如下：
 - 创建[流量管理器配置文件](../traffic-manager/quickstart-create-traffic-manager-profile.md)。
-- 利用“优先级”  路由方法创建两个终结点 - 针对源的“主要”  终结点，针对 Azure 的“故障转移”  终结点。 为**主要**终结点分配优先级 1，为**故障转移**终结点分配优先级 2。
+- 利用“优先级”  路由方法创建两个终结点 - 针对源的“主要”  终结点，针对 Azure 的“故障转移”  终结点。 为 **主要** 终结点分配优先级 1，为 **故障转移** 终结点分配优先级 2。
 - “主要”  终结点可以是 [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) 或[外部](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)终结点，具体取决于源环境在 Azure 内部还是外部。
 - “故障转移”  终结点被创建为“Azure”  终结点。 使用静态公共 IP 地址  ，因为这将是灾难事件中流量管理器的面向外部的终结点。
 

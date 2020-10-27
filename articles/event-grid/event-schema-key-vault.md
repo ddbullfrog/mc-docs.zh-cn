@@ -6,11 +6,11 @@ author: Johnnytechn
 ms.date: 10/10/2020
 ms.author: v-johya
 ms.openlocfilehash: f256252c6f0ded67c64c417c6d2e002c6b83b4ba
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128851"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211394"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>充当事件网格源的 Azure Key Vault
 

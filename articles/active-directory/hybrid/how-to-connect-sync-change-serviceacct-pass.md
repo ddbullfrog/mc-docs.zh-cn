@@ -29,7 +29,7 @@ ms.locfileid: "92041484"
 
 Azure AD Connect 是同步服务的一部分，它使用加密密钥来存储 AD DS 连接器帐户和 ADSync 服务帐户的密码。  这些帐户在存储到数据库之前会进行加密。 
 
-所使用的加密密钥通过 [Windows 数据保护 (DPAPI)](https://docs.microsoft.com/previous-versions/ms995355(v=msdn.10)) 进行保护。 DPAPI 使用 **ADSync 服务帐户**来保护加密密钥。 
+所使用的加密密钥通过 [Windows 数据保护 (DPAPI)](https://docs.microsoft.com/previous-versions/ms995355(v=msdn.10)) 进行保护。 DPAPI 使用 **ADSync 服务帐户** 来保护加密密钥。 
 
 如果需要更改服务帐户密码，可以使用[放弃 ADSync 服务帐户加密密钥](#abandoning-the-adsync-service-account-encryption-key)中的过程来完成该操作。  不管出于何种原因需要放弃加密密钥，都应该可以使用这些过程。
 
@@ -40,13 +40,13 @@ Azure AD Connect 是同步服务的一部分，它使用加密密钥来存储 AD
 
 
 - 如果尝试在 Windows 服务控制管理器中启动同步服务，会收到“Windows 无法在本地计算机上启动 Azure AD 同步服务”错误。  **错误 1069：服务因登录失败而无法启动。** “
-- 在 Windows 事件查看器中，系统事件日志包含**事件 ID 为 7038** 且内容为“ADSync 服务无法通过当前配置的密码登录，因为出现以下错误:**用户名或密码不正确。”**
+- 在 Windows 事件查看器中，系统事件日志包含 **事件 ID 为 7038** 且内容为“ADSync 服务无法通过当前配置的密码登录，因为出现以下错误: **用户名或密码不正确。”**
 
 其次，在特定条件下，如果密码已更新，则同步服务无法再通过 DPAPI 检索加密密钥。 没有加密密钥，同步服务就不能解密在本地 AD 和 Azure AD 之间进行同步所需的密码。
 此时会出现错误，例如：
 
 - 如果尝试在 Windows 服务控制管理器中启动同步服务，但却无法检索加密密钥，则该服务会失败，并且会出现错误“<strong>Windows 无法在本地计算机上启动 Azure AD Sync”错误。有关详细信息，请查看系统事件日志。如果该服务是非 Microsoft 服务，请联系服务供应商，并请参阅特定于服务的错误代码 -21451857952</strong>。”
-- 在 Windows 事件查看器中，应用程序事件日志包含**事件 ID 为 6028** 且内容为“服务器加密密钥无法访问”的错误消息。 
+- 在 Windows 事件查看器中，应用程序事件日志包含 **事件 ID 为 6028** 且内容为“服务器加密密钥无法访问”的错误消息。 
 
 若要确保不收到这些错误，请在更改密码时，按照[放弃 ADSync 服务帐户加密密钥](#abandoning-the-adsync-service-account-encryption-key)中的过程进行操作。
  
@@ -75,7 +75,7 @@ Azure AD Connect 是同步服务的一部分，它使用加密密钥来存储 AD
 
 
 1. 转到“Windows 服务控制管理器”（“启动”→“服务”）。
-2. 选择“Azure AD 同步”，并单击“停止”。****
+2. 选择“Azure AD 同步”，并单击“停止”。 
 
 #### <a name="abandon-the-existing-encryption-key"></a>放弃现有的加密密钥
 放弃现有的加密密钥，以便创建新的加密密钥：
@@ -95,12 +95,12 @@ Azure AD Connect 是同步服务的一部分，它使用加密密钥来存储 AD
 
 1. 启动 Synchronization Service Manager（“开始”→ 同步服务）。
 </br>![Sync Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
-2. 转到“连接器”**** 选项卡。
-3. 选择与本地 AD 对应的“AD 连接器”。**** 如果有多个 AD 连接器，请针对每个连接器重复以下步骤。
-4. 在“操作”下面，选择“属性”。********
-5. 在弹出对话框中，选择“连接到 Active Directory 林”****：
-6. 在“密码”**** 文本框中输入 AD DS 帐户的密码。 如果不知道该密码，则必须将其设置为某个已知值，然后再执行此步骤。
-7. 单击“确定”**** 保存新密码并关闭弹出对话框。
+2. 转到“连接器”  选项卡。
+3. 选择与本地 AD 对应的“AD 连接器”。  如果有多个 AD 连接器，请针对每个连接器重复以下步骤。
+4. 在“操作”下面，选择“属性”。 
+5. 在弹出对话框中，选择“连接到 Active Directory 林”  ：
+6. 在“密码”  文本框中输入 AD DS 帐户的密码。 如果不知道该密码，则必须将其设置为某个已知值，然后再执行此步骤。
+7. 单击“确定”  保存新密码并关闭弹出对话框。
 ![此屏幕截图显示了“属性”窗口中的“连接到 Active Directory 林”页。](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
 #### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>重新初始化 ADSync 服务帐户的密码
@@ -117,7 +117,7 @@ Azure AD Connect 是同步服务的一部分，它使用加密密钥来存储 AD
 
 
 1. 转到“Windows 服务控制管理器”（“启动”→“服务”）。
-2. 选择“Azure AD 同步”，并单击“重新启动”。****
+2. 选择“Azure AD 同步”，并单击“重新启动”。 
 
 ## <a name="next-steps"></a>后续步骤
 **概述主题**

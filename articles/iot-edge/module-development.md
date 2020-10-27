@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: cedb6686e68f8a7dbafa9320c3456c9cae56f389
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79293164"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211584"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>开发你自己的 IoT Edge 模块
 
@@ -48,7 +48,7 @@ IoT 中心在以下意义上将模块实例视为与设备类似：
 
 IoT Edge 中心基于[部署清单](module-composition.md)中介绍的声明性路由将消息传播到模块。 开发 IoT Edge 模块时，可以通过设置消息处理程序来接收这些消息。
 
-若要简化路由的创建，IoT Edge 要添加模块*输入*和*输出*终结点的概念。 无需指定任意输入，模块即可接收所有路由给它的设备到云消息，并且无需指定任意输出，模块即可发送设备到云消息。 然而使用显式输入和输出使得路由规则更容易理解。
+若要简化路由的创建，IoT Edge 要添加模块 *输入* 和 *输出* 终结点的概念。 无需指定任意输入，模块即可接收所有路由给它的设备到云消息，并且无需指定任意输出，模块即可发送设备到云消息。 然而使用显式输入和输出使得路由规则更容易理解。
 
 最后，Edge 中心处理的设备到云消息标有以下系统属性：
 

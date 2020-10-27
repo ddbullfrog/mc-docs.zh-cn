@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: cc306b17f75fe2c876c859c6b8a2bb744192bf82
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 53bd318f08adfd3c9a8dab0d67c0ce17bb371a7d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226321"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472668"
 ---
 # <a name="troubleshooting-message-routing"></a>消息路由故障排除
 
@@ -52,7 +52,7 @@ ms.locfileid: "86226321"
 在创建一个路由后，数据将停止流向内置终结点，除非创建了到该终结点的路由。 若要确保在添加新路由后消息继续流向内置终结点，应配置一个指向事件终结点的路由。 
 
 #### <a name="was-the-fallback-route-disabled"></a>回退路由是否处于禁用状态？
-回退路由将所有不满足任何现有路由上的查询条件的消息发送到与[事件中心](https://docs.microsoft.com/azure/event-hubs/)兼容的[内置事件中心](iot-hub-devguide-messages-read-builtin.md)（消息/事件）。 如果已启用消息路由，则可以启用此回退路由功能。 如果没有到内置终结点的路由并且已启用回退路由，则仅与路由上的任何查询条件不匹配的消息将被发送到内置终结点。 此外，如果已删除现有路由，必须启用回退路由才能接收内置终结点处的所有数据。
+回退路由将所有不满足任何现有路由上的查询条件的消息发送到与[事件中心](/event-hubs/)兼容的[内置事件中心](iot-hub-devguide-messages-read-builtin.md)（消息/事件）。 如果已启用消息路由，则可以启用此回退路由功能。 如果没有到内置终结点的路由并且已启用回退路由，则仅与路由上的任何查询条件不匹配的消息将被发送到内置终结点。 此外，如果已删除现有路由，必须启用回退路由才能接收内置终结点处的所有数据。
 
 可以在 Azure 门户->“消息路由”边栏选项卡中启用/禁用回退路由。 还可以将 Azure 资源管理器用于 [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) 来为回退路由使用自定义终结点。
 

@@ -4,23 +4,22 @@ description: 使用 Azure Site Recovery 将 Azure VM 从一个 Azure 区域移�
 services: site-recovery
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 01/28/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: e67d26b7c8009c1edf278683fd61378473d721a7
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 18a2c7fc1f298f1bd2f2e98e23563f117c2ba427
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127994"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211873"
 ---
 # <a name="move-vms-to-another-azure-region"></a>将 VM 移动到另一个 Azure 区域
 
-在许多场景中，你希望将现有 Azure IaaS 虚拟机 (VM) 从一个区域移动到另一个区域。 
+在某些场景中，你希望将现有 Azure IaaS 虚拟机 (VM) 从一个区域移动到另一个区域。
 
 <!--Not Available on  For example, you want to improve reliability and availability of your existing VMs, to improve manageability, or to move for governance reasons. For more information, see the [Azure VM move overview](azure-to-azure-move-overview.md)-->
 
@@ -36,20 +35,21 @@ ms.locfileid: "92127994"
 > * 测试配置和执行移动
 > * 删除源区域中的资源
 
-<!--Not Available on To move Azure VMs to another region, we now recommend using [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md)-->
+<!--Not Available on [!IMPORTANT]-->
+<!--Not Available on [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md)-->
 > [!NOTE]
 > 本教程演示如何将 Azure VM 按原样从一个区域移到另一个区域。
 
-<!--Not Available on [here](move-azure-VMs-AVset-Azone.md)-->
+<!--Not Available on [Move Azure VMs into Availability Zones tutorial](move-azure-vms-avset-azone.md)-->
 
 <a name="verify-prerequisites"></a>
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a><a name="prerequisites"></a>先决条件
 
 - 请确保 Azure VM 位于要从中移动的 Azure 区域中。
 - 验证所选的[源区域 - 目标区域组合是否受支持](./azure-to-azure-support-matrix.md#region-support)，并在目标区域方面做出明智的决策。
 - 请确保了解[方案体系结构和组件](azure-to-azure-architecture.md)。
 - 查看[支持限制和要求](azure-to-azure-support-matrix.md)。
-- 验证帐户权限。 如果你创建了试用版 Azure 帐户，那么你就是订阅的管理员。 如果你不是订阅管理员，请要求管理员分配你所需的权限。 若要为 VM 启用复制，并使用 Azure Site Recovery 按原样复制数据，必须：
+- 验证帐户权限。 如果你创建了免费 Azure 帐户，那么你就是订阅的管理员。 如果你不是订阅管理员，请要求管理员分配你所需的权限。 若要为 VM 启用复制，并使用 Azure Site Recovery 按原样复制数据，必须：
 
     - 在 Azure 资源中创建 VM 的权限。 “虚拟机参与者”内置角色具有这些权限，这包括：
     - 在所选资源组中创建 VM 的权限
@@ -82,8 +82,10 @@ ms.locfileid: "92127994"
     - [网络安全组](../virtual-network/manage-network-security-group.md)
     - [负载均衡器](../load-balancer/index.yml)
     - [公共 IP](../virtual-network/virtual-network-public-ip-address.md)
-    
-    <!--Not Available on  [networking documentation](../index.yml?pivot=products&panel=network)-->
+    - 对于其他任何网络组件，请参阅[网络文档](https://docs.azure.cn/zh-cn/?pivot=products&panel=network)。
+
+    <!--CORRECT ON https://docs.azure.cn/zh-cn/?pivot=products&panel=network-->
+
 
 ## <a name="prepare"></a>准备
 以下步骤演示如何使用 Azure Site Recovery 作为解决方案来准备要移动的虚拟机。 
@@ -93,11 +95,11 @@ ms.locfileid: "92127994"
 1. 登录到 [Azure 门户](https://portal.azure.cn)
 1. 在搜索中，键入“恢复服务”，然后单击“恢复服务保管库”
 1. 在“恢复服务保管库”菜单中，单击“+添加”。
-1. 在“名称”  中，指定友好名称 **ContosoVMVault**。 如果有多个订阅，请选择合适的一个。
+1. 在“名称”  中，指定友好名称 **ContosoVMVault** 。 如果有多个订阅，请选择合适的一个。
 1. 创建资源组 ContosoRG  。
 1. 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中的“地域可用性”。
-1. 在“恢复服务保管库”中，选择“概述” > “ContosoVMVault” > “复制项” > “+复制”    。
-1. 在“源”中，选择“Azure”。
+1. 在“恢复服务保管库”中，选择“ContosoVMVault” > “复制的项” > “+ 复制”   。
+1. 在下拉列表中，选择“Azure 虚拟机”。
 1. 在“源位置”中，选择当前运行 VM 的 Azure 源区域。
 1. 选择“资源管理器”部署模型。 然后选择“源订阅”和“源资源组”。
 1. 选择“确定”以保存设置。
@@ -130,7 +132,7 @@ Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 
 如果已检查移动的 VM 并且需要更改为故障转移点，或者想要返回到以前的点，请在“复制的项”  中，右键选择“VM”>“更改恢复点”  。 此步骤提供了指定其他恢复点并故障转移到该恢复点的选项。 
 
-## <a name="commit"></a>提交 
+## <a name="commit"></a>Commit 
 
 检查了移动的 VM 并准备好提交更改后，请在“复制的项”  中，右键选择“VM”>“提交”  。 此步骤会完成移到目标区域的过程。 请等待提交作业完成。
 

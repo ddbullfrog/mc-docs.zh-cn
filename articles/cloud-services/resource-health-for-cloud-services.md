@@ -5,19 +5,19 @@ services: cloud-services
 author: tanmaygore
 ms.service: cloud-services
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 9bfde558abff92b792c3ef585a49b78a6850c1a0
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: cac28c7a80c9a80d0bedf34beaa217bbec829248
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721310"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472525"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>对 Azure 云服务（经典）的资源运行状况检查 (RHC) 支持
 本文介绍了对 [Azure 云服务（经典）](https://www.azure.cn/home/features/cloud-services)的资源运行状况检查 (RHC) 支持
 
-云服务的 [Azure 资源运行状况](/service-health/resource-health-overview)可帮助你诊断影响云服务部署、角色和角色实例的服务问题，并获取相关支持。 它在部署、角色和角色实例级别报告云服务当前和过去的运行状况。
+云服务的 [Azure 资源运行状况](../service-health/resource-health-overview.md)可帮助你诊断影响云服务部署、角色和角色实例的服务问题，并获取相关支持。 它在部署、角色和角色实例级别报告云服务当前和过去的运行状况。
 
 Azure 状态报告影响大量 Azure 客户的问题。 资源运行状况提供资源运行状况的个性化仪表板。 资源运行状况显示由于 Azure 服务问题导致资源不可用的所有时间。 这些数据可方便你了解是否违反 SLA。
 
@@ -30,7 +30,7 @@ Azure 状态报告影响大量 Azure 客户的问题。 资源运行状况提供
 资源运行状况检查仅适用于生产槽部署。 尚不支持过渡槽部署。 
 
 ## <a name="does-resource-health-check-also-check-the-health-of-the-application"></a>资源运行状况检查是否还检查应用程序的运行状况？
-否。运行状况检查仅针对角色实例进行，不监视应用程序运行状况。 例如 即使 3 个角色实例中有 1 个不正常，应用程序也仍然可用。 RHC 不使用[负载均衡器探测](/load-balancer/load-balancer-custom-probe-overview)或来宾代理探测。 因此，客户应继续使用负载均衡器探测来监视其应用程序的运行状况。 
+否。运行状况检查仅针对角色实例进行，不监视应用程序运行状况。 例如 即使 3 个角色实例中有 1 个不正常，应用程序也仍然可用。 RHC 不使用[负载均衡器探测](../load-balancer/load-balancer-custom-probe-overview.md)或来宾代理探测。 因此，客户应继续使用负载均衡器探测来监视其应用程序的运行状况。 
 
 ## <a name="what-are-the-annotations-for-cloud-services"></a>什么是针对云服务的注释？
 注释是部署或角色的运行状况。 根据运行状况、状况更改原因等，存在不同的注释。 

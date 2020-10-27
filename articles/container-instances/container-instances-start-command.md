@@ -6,11 +6,11 @@ origin.date: 04/15/2019
 ms.date: 01/15/2020
 ms.author: v-yeche
 ms.openlocfilehash: e8808f1631437c04a7ad8bc1890e95c5a248beb5
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291434"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211381"
 ---
 <!--Verified successfully-->
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>在容器实例中设置命令行来替代默认的命令行操作
@@ -21,7 +21,7 @@ ms.locfileid: "79291434"
 
 ## <a name="command-line-guidelines"></a>命令行准则
 
-* 默认情况下，命令行在容器中指定*不通过 shell 启动的单个进程*。 例如，命令行可能运行某个 Python 脚本或可执行文件。 该进程可以指定其他参数或自变量。
+* 默认情况下，命令行在容器中指定 *不通过 shell 启动的单个进程* 。 例如，命令行可能运行某个 Python 脚本或可执行文件。 该进程可以指定其他参数或自变量。
 
 * 若要执行多个命令，请通过设置容器操作系统中支持的 shell 环境来开始命令行。 示例:
 
@@ -57,8 +57,8 @@ ms.locfileid: "79291434"
 
 |    |  Azure CLI   | 门户 | 模板 | 
 | ---- | ---- | --- | --- |
-| 单个命令 | `--command-line "python myscript.py arg1 arg2"` | **命令替代**：`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| 多个命令 | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**命令替代**：`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| 单个命令 | `--command-line "python myscript.py arg1 arg2"` | **命令替代** ：`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| 多个命令 | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**命令替代** ：`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Azure CLI 示例
 

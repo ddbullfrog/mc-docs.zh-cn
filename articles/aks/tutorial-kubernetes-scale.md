@@ -3,18 +3,19 @@ title: Kubernetes on Azure 教程 - 缩放应用程序
 description: 此 Azure Kubernetes 服务 (AKS) 教程介绍如何缩放 Kubernetes 中的节点和 Pod，以及如何实施水平 Pod 自动缩放。
 services: container-service
 ms.topic: tutorial
-origin.date: 01/14/2019
-ms.date: 07/13/2020
+origin.date: 09/30/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9459fc58d7562f7afab64a63a9b94593c47cb045
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 0469c5a1743d2640c7a7e1645843aa3b944268c1
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021535"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470184"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中缩放应用程序
 
@@ -49,7 +50,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-若要手动更改 *azure-vote-front* 部署中的 Pod 数，请使用 [kubectl scale][kubectl-scale] 命令。 以下示例将前端 Pod 数增加到 *5*：
+若要手动更改 *azure-vote-front* 部署中的 Pod 数，请使用 [kubectl scale][kubectl-scale] 命令。 以下示例将前端 Pod 数增加到 *5* ：
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -78,7 +79,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> 如果 AKS 群集小于 *1.10*，则不会自动安装指标服务器。 指标服务器安装清单在指标服务器发行版中以 `components.yaml` 资产的形式提供，这意味着你可以通过 URL 安装这些清单。 若要详细了解这些 YAML 定义，请参阅自述文件的[部署][metrics-server-github]部分。
+> 如果 AKS 群集小于 *1.10* ，则不会自动安装指标服务器。 指标服务器安装清单在指标服务器发行版中以 `components.yaml` 资产的形式提供，这意味着你可以通过 URL 安装这些清单。 若要详细了解这些 YAML 定义，请参阅自述文件的[部署][metrics-server-github]部分。
 > 
 > 示例安装：
 > ```console
@@ -95,7 +96,7 @@ resources:
      cpu: 500m
 ```
 
-下面的示例使用 [kubectl autoscale][kubectl-autoscale] 命令自动缩放 *azure-vote-front* 部署中的 Pod 数。 如果所有 Pod 的平均 CPU 利用率超过其请求使用率的 50%，则自动缩放程序会将 Pod 增加到最多 *10* 个实例。 为部署定义的最小实例数为 *3*：
+下面的示例使用 [kubectl autoscale][kubectl-autoscale] 命令自动缩放 *azure-vote-front* 部署中的 Pod 数。 如果所有 Pod 的平均 CPU 利用率超过其请求使用率的 50%，则自动缩放程序会将 Pod 增加到最多 *10* 个实例。 为部署定义的最小实例数为 *3* ：
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -205,8 +206,8 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
-[az-aks-scale]: https://docs.microsoft.com/cli/azure/aks#az_aks_scale
+[az-aks-scale]: https://docs.azure.cn/cli/aks#az_aks_scale
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
 
 <!-- Update_Description: update meta properties, wording update, update link -->

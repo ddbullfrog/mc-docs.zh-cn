@@ -51,7 +51,7 @@ ms.locfileid: "92118204"
    ws = Workspace.from_config()
    ```
 
-    创建工作区时，会将 Azure Blob 容器和 Azure 文件共享作为数据存储自动注册到工作区。 它们分别命名为 `workspaceblobstore` 和 `workspacefilestore`。 `workspaceblobstore` 用于存储工作区项目和机器学习试验日志。 它也已设为**默认数据存储**，无法从工作区中删除。 `workspacefilestore` 用于存储通过[计算实例](/machine-learning/concept-compute-instance#accessing-files)授权的笔记本和 R 脚本。
+    创建工作区时，会将 Azure Blob 容器和 Azure 文件共享作为数据存储自动注册到工作区。 它们分别命名为 `workspaceblobstore` 和 `workspacefilestore`。 `workspaceblobstore` 用于存储工作区项目和机器学习试验日志。 它也已设为 **默认数据存储** ，无法从工作区中删除。 `workspacefilestore` 用于存储通过[计算实例](/machine-learning/concept-compute-instance#accessing-files)授权的笔记本和 R 脚本。
     
     > [!NOTE]
     > Azure 机器学习设计器（预览版）会在你打开设计器主页中的示例时自动创建一个名为 **azureml_globaldatasets** 的数据存储。 此数据存储仅包含示例数据集。 请不要将此数据存储用于任何机密数据访问。

@@ -21,7 +21,7 @@ ms.locfileid: "92121705"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-如果要**分析 Avro 文件或以 Avro 格式写入数据**，请遵循本文中的说明。 
+如果要 **分析 Avro 文件或以 Avro 格式写入数据** ，请遵循本文中的说明。 
 
 以下连接器支持 Avro 格式：[Amazon S3](connector-amazon-simple-storage-service.md)、[Azure Blob](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、[Azure 文件存储](connector-azure-file-storage.md)、[文件系统](connector-file-system.md)、[FTP](connector-ftp.md)、[Google 云存储](connector-google-cloud-storage.md)、[HDFS](connector-hdfs.md)、[HTTP](connector-http.md) 和 [SFTP](connector-sftp.md)。
 
@@ -31,8 +31,8 @@ ms.locfileid: "92121705"
 
 | 属性         | 说明                                                  | 必须 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 数据集的 type 属性必须设置为 **Avro**。 | 是      |
-| location         | 文件的位置设置。 每个基于文件的连接器在 `location` 下都有其自己的位置类型和支持的属性。 **请在连接器文章 -> 数据集属性部分中查看详细信息**。 | 是      |
+| type             | 数据集的 type 属性必须设置为 **Avro** 。 | 是      |
+| location         | 文件的位置设置。 每个基于文件的连接器在 `location` 下都有其自己的位置类型和支持的属性。 **请在连接器文章 -> 数据集属性部分中查看详细信息** 。 | 是      |
 | avroCompressionCodec | 写入到 Avro 文件时要使用的压缩编解码器。 当从 Avro 文件进行读取时，数据工厂会基于文件元数据自动确定压缩编解码器。<br>支持的类型为“none”  （默认值）、“deflate”  、“snappy”  。 请注意，当前复制活动在读取/写入 Avro 文件时不支持 Snappy。 | 否       |
 
 > [!NOTE]
@@ -72,8 +72,8 @@ ms.locfileid: "92121705"
 
 | 属性      | 说明                                                  | 必须 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 复制活动源的 type 属性必须设置为 **AvroSource**。 | 是      |
-| storeSettings | 有关如何从数据存储读取数据的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自己支持的读取设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息**。 | 否       |
+| type          | 复制活动源的 type 属性必须设置为 **AvroSource** 。 | 是      |
+| storeSettings | 有关如何从数据存储读取数据的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自己支持的读取设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息** 。 | 否       |
 
 ### <a name="avro-as-sink"></a>Avro 作为接收器
 
@@ -81,9 +81,9 @@ ms.locfileid: "92121705"
 
 | 属性      | 说明                                                  | 必须 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 复制活动源的 type 属性必须设置为 **AvroSink**。 | 是      |
+| type          | 复制活动源的 type 属性必须设置为 **AvroSink** 。 | 是      |
 | formatSettings          | 一组属性。 请参阅下面的“Avro 写入设置”表。| 否      |
-| storeSettings | 有关如何将数据写入到数据存储的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自身支持的写入设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息**。 | 否       |
+| storeSettings | 有关如何将数据写入到数据存储的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自身支持的写入设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息** 。 | 否       |
 
 `formatSettings` 下支持的“Avro 写入设置”：
 

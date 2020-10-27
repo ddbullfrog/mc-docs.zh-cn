@@ -116,7 +116,7 @@ ms.locfileid: "92128144"
 ```
 
 > [!NOTE]
-> managedIdentity 属性**不能**与 storageAccountName 或 storageAccountKey 属性结合使用
+> managedIdentity 属性 **不能** 与 storageAccountName 或 storageAccountKey 属性结合使用
 
 > [!NOTE]
 > 在某个时间点，一个 VM 上只能安装一个扩展版本，在同一资源管理器模板中为同一 VM 指定两次自定义脚本将会失败。
@@ -144,7 +144,7 @@ ms.locfileid: "92128144"
 
 #### <a name="property-value-details"></a>属性值详细信息
 
-* `commandToExecute`：（**必需**，字符串）要执行的入口点脚本。 如果命令包含机密（例如密码）或者 fileUris 敏感，请改用此字段。
+* `commandToExecute`：（ **必需** ，字符串）要执行的入口点脚本。 如果命令包含机密（例如密码）或者 fileUris 敏感，请改用此字段。
 * `fileUris`：（可选，字符串数组）要下载的文件的 URL。
 * `timestamp`（可选，32 位整数）仅当需要更改此字段的值来触发脚本的重新运行时，才使用此字段。  任何整数值都是可以接受的，前提是必须不同于以前的值。
 * `storageAccountName`：（可选，字符串）存储帐户的名称。 如果指定存储凭据，所有 `fileUris` 都必须是 Azure Blob 的 URL。
@@ -201,7 +201,7 @@ CustomScript（版本 1.10 及更高版本）支持用于通过“fileUris”设
 > ```
 
 > [!NOTE]
-> managedIdentity 属性**不能**与 storageAccountName 或 storageAccountKey 属性结合使用
+> managedIdentity 属性 **不能** 与 storageAccountName 或 storageAccountKey 属性结合使用
 
 ## <a name="template-deployment"></a>模板部署
 

@@ -1,28 +1,28 @@
 ---
 title: 为 Azure Cosmos DB 创建 Core (SQL) API 数据库和容器（具有自动缩放功能）
 description: 为 Azure Cosmos DB 创建 Core (SQL) API 数据库和容器（具有自动缩放功能）
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 07/29/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: ccf343e2b5347f3537dfea216b78e5546aa684b0
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 8254015c626a51858ace4fdd9c0b65fafc31bcc1
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523793"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211874"
 ---
 <!--Verified successfully-->
 # <a name="create-an-azure-cosmos-core-sql-api-account-database-and-container-with-autoscale-using-azure-cli"></a>使用 Azure CLI 创建 Azure Cosmos Core (SQL) API 帐户、数据库和容器（具有自动缩放功能）
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-选择在本地安装并使用 CLI 时，本主题要求运行 Azure CLI 2.0.73 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+选择在本地安装并使用 CLI 时，本主题要求运行 Azure CLI 2.0.73 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -83,20 +83,19 @@ az group delete --name $resourceGroupName
 
 | Command | 说明 |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az cosmosdb create](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) | 创建 Azure Cosmos DB 帐户。 |
-| [az cosmosdb sql database create](https://docs.microsfot.com/cli/azure/cosmosdb/sql/database?view=azure-cli-latest#az-cosmosdb-sql-database-create) | 创建 Azure Cosmos SQL (Core) 数据库。 |
-| [az cosmosdb sql container create](https://docs.microsfot.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az-cosmosdb-sql-container-create) | 创建 Azure Cosmos SQL (Core) 容器。 |
-| [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az cosmosdb create](https://docs.azure.cn/cli/cosmosdb#az_cosmosdb_create) | 创建 Azure Cosmos DB 帐户。 |
+| [az cosmosdb sql database create](https://docs.azure.cn/cli/cosmosdb/sql/database#az_cosmosdb_sql_database_create) | 创建 Azure Cosmos SQL (Core) 数据库。 |
+| [az cosmosdb sql container create](https://docs.azure.cn/cli/cosmosdb/sql/container#az_cosmosdb_sql_container_create) | 创建 Azure Cosmos SQL (Core) 容器。 |
+| [az group delete](https://docs.azure.cn/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
 
 <!--CORRECT ON [az cosmosdb sql database create]-->
 <!--CORRECT ON [az cosmosdb sql container create]-->
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure Cosmos DB CLI 的详细信息，请参阅 [Azure Cosmos DB CLI 文档](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest)。
+有关 Azure Cosmos DB CLI 的详细信息，请参阅 [Azure Cosmos DB CLI 文档](https://docs.azure.cn/cli/cosmosdb)。
 
 可以在 [Azure Cosmos DB CLI GitHub 存储库](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)中找到所有 Azure Cosmos DB CLI 脚本示例。
 
-<!-- Update_Description: new article about autoscale -->
-<!--NEW.date: 08/10/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

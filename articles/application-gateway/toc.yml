@@ -80,6 +80,10 @@
           href: redirect-overview.md
         - name: 重写 HTTP 标头和 URL
           href: rewrite-http-headers-url.md
+        - name: 安全性
+          items:
+            - name: 安全基线
+              href: security-baseline.md
     - name: SSL
       items:
         - name: SSL 终止和端到端 SSL
@@ -102,7 +106,7 @@
       href: application-gateway-web-app-overview.md
     - name: WebSocket 支持
       href: application-gateway-websocket.md
-    - name: 常见问题
+    - name: 常见问题解答
       href: application-gateway-faq.md
 - name: 操作指南
   items:
@@ -276,7 +280,7 @@
       href: /develop/python/
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/applicationgateway'
-    - name: Azure 资源管理器
+    - name: Azure Resource Manager
       displayName: ARM
       href: ../azure-resource-manager/management/overview.md
     - name: 资源管理器模板

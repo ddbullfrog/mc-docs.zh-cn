@@ -5,19 +5,19 @@ description: 路由方案 - 设置路由以访问共享服务 VNet，其中包�
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: conceptual
-origin.date: 08/07/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d27da6109afb28e5f5d4ecab5d8a3c97a5f318c0
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: f50ae3915feff1478a263036f7f08ec66b0fd229
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246937"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472591"
 ---
 <!--Verified successfully for only charactors-->
 # <a name="scenario-route-to-shared-services-vnets"></a>方案：路由到共享服务 VNet
@@ -46,12 +46,12 @@ VNet 将与 RT_SHARED 路由表关联。 由于它们需要连接到分支和共
 
 * 隔离的虚拟网络：
     * 关联的路由表：RT_SHARED
-    * 传播到路由表：**默认**
+    * 传播到路由表： **默认**
 * 共享服务虚拟网络：
-    * 关联的路由表：**默认**
+    * 关联的路由表： **默认**
     * 传播到路由表：RT_SHARED 和 Default
 * 分支：
-    * 关联的路由表：**默认**
+    * 关联的路由表： **默认**
     * 传播到路由表：RT_SHARED 和 Default
 
 > [!NOTE]
@@ -67,7 +67,7 @@ VNet 将与 RT_SHARED 路由表关联。 由于它们需要连接到分支和共
 2. 创建一个自定义路由表。 在本例中，我们将路由表称为 RT_SHARED。 有关创建路由表的步骤，请参阅[如何配置虚拟中心路由](how-to-virtual-hub-routing.md)。 使用以下值作为准则：
 
     * **关联**
-        * 对于除共享服务 VNet ***外的 VNet***，请选择要隔离的 VNet。 这意味着，所有这些 VNet（共享服务 VNet 除外）都能够基于 RT_SHARED 路由表的路由来访问目标。
+        * 对于除共享服务 VNet ***外的 VNet*** ，请选择要隔离的 VNet。 这意味着，所有这些 VNet（共享服务 VNet 除外）都能够基于 RT_SHARED 路由表的路由来访问目标。
 
     * **传播**
         * 对于分支，除了可能已经选择的任何其他路由表之外，还需要将路由传播到此路由表。 此步骤可让 RT_SHARED 路由表了解所有分支连接（VPN/ER/用户 VPN）中的路由。
@@ -82,5 +82,4 @@ VNet 将与 RT_SHARED 路由表关联。 由于它们需要连接到分支和共
 * 有关虚拟 WAN 的详细信息，请参阅[常见问题解答](virtual-wan-faq.md)。
 * 有关虚拟中心路由的详细信息，请参阅[关于虚拟中心路由](about-virtual-hub-routing.md)。
 
-<!-- Update_Description: new article about scenario shared services vnet -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

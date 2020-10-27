@@ -35,10 +35,10 @@ ms.locfileid: "92118585"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 你对其拥有管理权限的 **Azure 订阅**。 如果没有此类订阅，请尝试注册[免费或付费的个人订阅](https://www.azure.cn/pricing/1rmb-trial)
+- 你对其拥有管理权限的 **Azure 订阅** 。 如果没有此类订阅，请尝试注册[免费或付费的个人订阅](https://www.azure.cn/pricing/1rmb-trial)
 - 一个 [Azure 机器学习工作区](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
 - 管理 REST 请求使用服务主体身份验证。 遵循[为 Azure 机器学习资源和工作流设置身份验证](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication)中的步骤在工作区中创建服务主体
-- **curl** 实用工具。 在[适用于 Linux 的 Windows 子系统](https://aka.ms/wslinstall/)或任何 UNIX 分发版中均已提供了 **curl** 程序。 在 PowerShell 中，**curl** 是 **Invoke-WebRequest** 的别名，并且 `curl -d "key=val" -X POST uri` 变成了 `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`。 
+- **curl** 实用工具。 在 [适用于 Linux 的 Windows 子系统](https://aka.ms/wslinstall/)或任何 UNIX 分发版中均已提供了 **curl** 程序。 在 PowerShell 中， **curl** 是 **Invoke-WebRequest** 的别名，并且 `curl -d "key=val" -X POST uri` 变成了 `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`。 
 
 ## <a name="retrieve-a-service-principal-authentication-token"></a>检索服务主体身份验证令牌
 
@@ -279,7 +279,7 @@ curl -X PUT \
 print("Hello, REST!")
 ```
 
-将下一个代码片段保存为 **definition.json**。 确认“Script”值与刚刚压缩的 Python 文件的名称相匹配。 确认“Target”值与可用计算资源的名称相匹配。 
+将下一个代码片段保存为 **definition.json** 。 确认“Script”值与刚刚压缩的 Python 文件的名称相匹配。 确认“Target”值与可用计算资源的名称相匹配。 
 
 ```json
 {

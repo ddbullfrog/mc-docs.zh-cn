@@ -2,43 +2,45 @@
 title: include 文件
 description: include 文件
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
 ms.topic: include
-origin.date: 11/04/2019
-ms.date: 03/30/2020
+origin.date: 10/08/2020
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: 10/26/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: abaf38938e9a50c0d29ea97079a84987f91c4b3a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: eaaa431a516c17f27000d2e677032e3fe88fcfbd
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80291297"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472550"
 ---
 1. 选择“连接 VPN 站点”来打开“连接站点”页   。
 
-    ![connect](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "连接")
+    ![屏幕截图显示“虚拟中心”的“连接站点”窗格，已准备好预共享密钥和相关设置。](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "连接")
 
     完成以下字段：
 
     * 输入预共享密钥。 如果未输入密钥，Azure 会自动生成一个。
-    * 选择“协议”和“IPsec 设置”。 请参阅 [默认/自定义 IPSec 详细信息] (https://docs.azure.cn/virtual-wan/virtual-wan-ipsec)
+    * 选择“协议”和“IPsec 设置”。 有关详细信息，请参阅[默认/自定义 IPsec](../articles/virtual-wan/virtual-wan-ipsec.md)。
     * 选择适合“传播默认路由”的选项  。 “启用”选项允许虚拟中心将获知的默认路由传播到此连接  。 只有当虚拟 WAN 中心由于在中心部署防火墙而获知默认路由或另一个连接的站点已启用强制隧道时，此标志才会将默认路由传播到连接。 默认路由不源自虚拟 WAN 中心。
 
 2. 选择“连接”  。
 3. 几分钟后，该站点将显示连接和连接状态。
 
-    ![status](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "状态")
+    ![屏幕截图显示“VPN 站点到站点”连接和连接状态。](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
     **连接状态：** 这是将 VPN 站点连接到 Azure 中心 VPN 网关的连接的 Azure 资源状态。 控制平面操作成功后，Azure VPN 网关和本地 VPN 设备将继续建立连接。
 
     **连接状态：** 这是中心和 VPN 站点中 Azure VPN 网关之间的实际连接（数据路径）状态。 可以显示以下任一状态：
 
-    * **未知**：如果后端系统正在转换到另一状态，则通常会显示此状态。
-    * **连接**：Azure VPN 网关正在尝试连接实际的本地 VPN 站点。
-    * **已连接**：Azure VPN 网关和本地 VPN 站点之间已建立连接。
-    * **断开连接**：如果（在本地或 Azure 中）出于任何原因连接断开，则会显示此状态。
+    * **未知** ：如果后端系统正在转换到另一状态，则通常会显示此状态。
+    * **连接** ：Azure VPN 网关正在尝试连接实际的本地 VPN 站点。
+    * **已连接** ：Azure VPN 网关和本地 VPN 站点之间已建立连接。
+    * **断开连接** ：如果（在本地或 Azure 中）出于任何原因连接断开，则会显示此状态。
 4. 在中心 VPN 站点内，还可以根据情况执行以下操作： 
 
    * 编辑或删除 VPN 连接。

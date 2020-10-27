@@ -1,21 +1,21 @@
 ---
 title: 使用 Visual Studio 将模型部署到 Azure Analysis Services | Azure
 description: 了解如何使用 Visual Studio 将表格模型部署到 Azure Analysis Services 服务器。
-author: rockboyfor
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 05/19/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 647088b23d2fc182727bf400bd155eca2a09e403
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: e823a2f4213f698d142390b94ce0e0568766b567
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226093"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470146"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>从 Visual Studio 部署模型
 
@@ -25,9 +25,9 @@ ms.locfileid: "86226093"
 
 要开始，需要：
 
-* Azure 中的 **Analysis Services 服务器**。 若要了解详细信息，请参阅[创建 Azure Analysis Services 服务器](analysis-services-create-server.md)。
-* Visual Studio 中的**表格模型项目**或兼容级别为 1200 或更高的现有表格模型。 从未创建过？ 尝试 [Adventure Works Internet 销售表格建模教程](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)。
-* **本地网关** - 如果组织的网络中有一个或多个本地数据源，则需要安装[本地数据网关](analysis-services-gateway.md)。 网关对于云中的服务器是必需的，可帮助服务器连接到本地数据源，以在模型中处理和刷新数据。
+* Azure 中的 **Analysis Services 服务器** 。 若要了解详细信息，请参阅[创建 Azure Analysis Services 服务器](analysis-services-create-server.md)。
+* Visual Studio 中的 **表格模型项目** 或兼容级别为 1200 或更高的现有表格模型。 从未创建过？ 尝试 [Adventure Works Internet 销售表格建模教程](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)。
+* **本地网关** - 如果组织的网络中有一个或多个本地数据源，则需要安装 [本地数据网关](analysis-services-gateway.md)。 网关对于云中的服务器是必需的，可帮助服务器连接到本地数据源，以在模型中处理和刷新数据。
 
 > [!TIP]
 > 在部署之前，请确保可以在表中处理数据。 在 Visual Studio 中，单击“模型” > “处理” > “全部处理”。 如果处理失败，将无法成功部署。
@@ -36,23 +36,23 @@ ms.locfileid: "86226093"
 
 ## <a name="get-the-server-name"></a>获取服务器名称
 
-在 **Azure 门户**中，单击“服务器”>“概述” > “服务器名称”，并复制服务器名称。
+在 **Azure 门户** 中，单击“服务器”>“概述” > “服务器名称”，并复制服务器名称。
 
-![在 Azure 中获取服务器名称](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+:::image type="content" source="./media/analysis-services-deploy/aas-deploy-get-server-name.png" alt-text="在 Azure 中获取服务器名称":::
 
 ## <a name="to-deploy-from-visual-studio"></a>从 Visual Studio 部署
 
 1. 在 Visual Studio >“解决方案资源管理器”中，右键单击项目，并选择“属性”。 在“部署” > “服务器”中，粘贴服务器名称。    
 
-    ![将服务器名称粘贴到部署服务器属性](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
+    :::image type="content" source="./media/analysis-services-deploy/aas-deploy-deployment-server-property.png" alt-text="在 Azure 中获取服务器名称":::
 
 2. 在“解决方案资源管理器”中，右键单击“属性”，并单击“部署”。 系统可能会提示登录到 Azure。
 
-    ![部署到服务器](./media/analysis-services-deploy/aas-deploy-deploy.png)
+    :::image type="content" source="./media/analysis-services-deploy/aas-deploy-deploy.png" alt-text="在 Azure 中获取服务器名称":::
 
     部署状态会在“输出”窗口和“部署”中显示。
 
-    ![部署状态](./media/analysis-services-deploy/aas-deploy-status.png)
+    :::image type="content" source="./media/analysis-services-deploy/aas-deploy-status.png" alt-text="在 Azure 中获取服务器名称":::
 
 就是这么简单！
 

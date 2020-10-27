@@ -3,14 +3,14 @@ title: Azure Functions HTTP 触发器和绑定
 description: 了解如何在 Azure Functions 中使用 HTTP 触发器和绑定。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 10/19/2020
 ms.author: v-junlch
-ms.openlocfilehash: 67d8d8c6bafc995d53ca3e32a47778672ae9a194
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: c97005cd9f7dd0755e376477b20903fe26f055b7
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402606"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472012"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Azure Functions HTTP 触发器和绑定概述
 
@@ -38,7 +38,7 @@ Azure Functions 可以通过 HTTP 请求调用，以构建无服务器 API 并�
 [core tools]: ./functions-run-local.md
 [扩展捆绑包]: ./functions-bindings-register.md#extension-bundles
 [NuGet 包]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http
-[更新扩展]: ./install-update-binding-extensions-manual.md
+[更新扩展]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x
@@ -50,4 +50,3 @@ Functions 1.x 应用会自动引用 [Microsoft.Azure.WebJobs](https://www.nuget.
 - [通过 HTTP 请求运行函数](./functions-bindings-http-webhook-trigger.md)
 - [从函数返回 HTTP 响应](./functions-bindings-http-webhook-output.md)
 
-<!-- Update_Description: wording update -->

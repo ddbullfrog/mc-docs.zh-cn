@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 334a2cd4ddc6bbc80405eaecc78c72b24f41e0a2
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: d38896129dc8af440c7ac25ae391cd94b5bd1ec4
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796300"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471306"
 ---
 # <a name="how-to-scale-your-azure-time-series-insights-gen1-environment"></a>如何缩放 Azure 时序见解第 1 代环境
+
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
 
 本文介绍如何使用 [Azure 门户](https://portal.azure.cn)更改 Azure 时序见解环境的容量。 容量是应用于入口速率、存储容量以及与所选 SKU 关联的成本的乘数。
 
@@ -38,7 +41,7 @@ ms.locfileid: "87796300"
 
    [![配置 Azure 时序见解容量](./media/scale-your-environment/scale-your-environment-configure.png)](./media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
-1. 调整“容量”  滑块来选择满足入口速率和存储容量需求的容量。 请注意，**入口速率**、**存储容量**和**估计成本**会动态更新，以显示更改产生的影响。
+1. 调整“容量”  滑块来选择满足入口速率和存储容量需求的容量。 请注意， **入口速率** 、 **存储容量** 和 **估计成本** 会动态更新，以显示更改产生的影响。
 
    [![使用容量滑块配置环境](./media/scale-your-environment/scale-your-environment-slider.png)](./media/scale-your-environment/scale-your-environment-slider.png#lightbox)
 

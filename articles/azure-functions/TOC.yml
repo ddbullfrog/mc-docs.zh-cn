@@ -50,7 +50,7 @@
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=csharp'
         - name: Java
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=java'
-        - name: JavaScript
+        - name: Javascript
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=javascript'
         - name: PowerShell
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=azurepowershell'
@@ -98,7 +98,7 @@
           href: functions-reference-csharp.md
         - name: F#
           href: functions-reference-fsharp.md
-        - name: JavaScript
+        - name: Javascript
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
@@ -113,6 +113,9 @@
         - name: 安全概述
           href: security-concepts.md
           displayName: 'secure, ssl'
+    - name: 监视
+      href: functions-monitoring.md
+      displayName: 'App Insights, Application Insights, logs, logging'
     - name: 消耗计划成本
       href: functions-consumption-costs.md
     - name: 性能注意事项
@@ -172,6 +175,8 @@
               href: functions-create-scheduled-function.md
         - name: 添加绑定
           items:
+            - name: 如何添加绑定
+              href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - 门户
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: 存储 - 门户
@@ -224,9 +229,15 @@
           href: functions-geo-disaster-recovery.md
     - name: 监视
       items:
-        - name: 监视函数
-          href: functions-monitoring.md
+        - name: 配置监视
+          href: configure-monitoring.md
           displayName: 'App Insights, Application Insights, logs, logging'
+        - name: 分析遥测数据
+          href: analyze-telemetry-data.md
+          displayName: 'App Insights, Application Insights, Kusto'
+        - name: 流式处理日志
+          href: streaming-logs.md
+          displayName: monitoring
     - name: 安全
       items:
         - name: 添加 SSL 证书
@@ -416,7 +427,16 @@
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: 表存储
-          href: functions-bindings-storage-table.md
+          items:
+            - name: 概述
+              href: functions-bindings-storage-table.md
+              displayName: Table storage
+            - name: 输入
+              href: functions-bindings-storage-table-input.md
+              displayName: Table storage
+            - name: 输出
+              href: functions-bindings-storage-table-output.md
+              displayName: Table storage
         - name: Timer
           href: functions-bindings-timer.md
         - name: 预热

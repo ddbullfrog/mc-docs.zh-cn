@@ -79,7 +79,7 @@ ms.locfileid: "91990787"
 
     ![“部署向导选择源”页](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-source-page.png)
  
-8. 选择“**下一步**”。
+8. 选择“ **下一步** ”。
 9. 在“选择目标”页上，指定项目目标。
 
     a. 在“服务器名称”文本框中，输入完全限定的 Azure SQL Database 服务器名称 (<server_name>.database.chinacloudapi.cn)。
@@ -97,7 +97,7 @@ ms.locfileid: "91990787"
 
     ![“部署向导验证”页](media/how-to-migrate-ssis-packages/dms-deployment-wizard-validate-page.png)
 
-11. 选择“**下一步**”。
+11. 选择“ **下一步** ”。
 
 12. 在“查看”页上，查看部署设置。
 

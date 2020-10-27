@@ -10,13 +10,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 07/29/2019
-ms.date: 10/12/2020
-ms.openlocfilehash: ad4c3b782c44b64fcef46584312302f3171cbfc9
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: 67306de876316184a4e34572e2ee147066e76086
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872305"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472182"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>教程：在 Azure SQL 数据库 C&#x23; 和 ADO.NET 中设计关系数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -92,7 +92,7 @@ SQL 数据库在服务器级别创建 IP 防火墙。 此防火墙阻止外部�
 > [!IMPORTANT]
 > 通过端口 1433 进行的 SQL 数据库通信。 如果尝试从企业网络内部连接到此服务，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到数据库，除非管理员打开端口 1433。
 
-1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击“yourDatabase” 。 此时会打开数据库的概览页，显示完全限定的**服务器名称**（例如 yourserver.database.chinacloudapi.cn），并且会提供进行进一步配置所需的选项。
+1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击“yourDatabase” 。 此时会打开数据库的概览页，显示完全限定的 **服务器名称** （例如 yourserver.database.chinacloudapi.cn），并且会提供进行进一步配置所需的选项。
 
 2. 复制此完全限定的服务器名称，将其用于从 SQL Server Management Studio 连接到服务器和数据库。
 

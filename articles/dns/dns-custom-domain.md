@@ -9,11 +9,11 @@ origin.date: 07/13/2019
 ms.date: 02/17/2020
 ms.author: v-jay
 ms.openlocfilehash: 2fa305cc38845c4f56044180150162da414f26b4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291511"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211447"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 为 Azure 服务提供自定义域设置
 

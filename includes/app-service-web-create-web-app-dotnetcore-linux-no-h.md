@@ -10,11 +10,11 @@ ms.date: 08/13/2020
 ms.author: v-tawe
 ms.custom: include file
 ms.openlocfilehash: d3a07bdf52d65a10d80006c40ee573cc001a05b7
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "92170579"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223156"
 ---
 在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../articles/app-service/overview.md#app-service-on-linux)。 
 

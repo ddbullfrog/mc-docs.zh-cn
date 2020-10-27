@@ -27,7 +27,7 @@ ms.locfileid: "92041454"
 大多数属性在 Azure AD 中的表示方式与在本地 Active Directory 中相同。 但某些属性有一些特殊处理，并且 Azure AD 中的属性值可能不同于 Azure AD Connect 同步的值。
 
 ## <a name="introducing-shadow-attributes"></a>引入了影子属性
-某些属性在 Azure AD 中有两种表示形式。 将存储本地值和计算值。 这些额外的属性称为影子属性。 表示此行为的两个最常用属性是 **userPrincipalName** 和 **proxyAddress**。 当这些属性中有表示非已验证域的值时，属性值将发生更改。 但 Connect 中的同步引擎可读取影子属性的值，因此从其角度来看，该属性已由 Azure AD 确认。
+某些属性在 Azure AD 中有两种表示形式。 将存储本地值和计算值。 这些额外的属性称为影子属性。 表示此行为的两个最常用属性是 **userPrincipalName** 和 **proxyAddress** 。 当这些属性中有表示非已验证域的值时，属性值将发生更改。 但 Connect 中的同步引擎可读取影子属性的值，因此从其角度来看，该属性已由 Azure AD 确认。
 
 无法使用 Azure 门户或 PowerShell 查看影子属性。 但对于属性在本地和云中具有不同值的某些方案，了解此概念可帮助对这些方案进行故障排除。
 
@@ -58,9 +58,9 @@ userPrincipalName 属性是在使用 PowerShell 时显示的值。
 | 本地 proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-在本例中，**smtp:abbie.spencer\@fabrikam.com** 已删除，因为该域尚未验证。 但是，Exchange 还添加了 **SIP:abbie.spencer\@fabrikamonline.com**。 Fabrikam 未使用本地 Lync/Skype，但 Azure AD 和 Exchange Online 准备使用它。
+在本例中， **smtp:abbie.spencer\@fabrikam.com** 已删除，因为该域尚未验证。 但是，Exchange 还添加了 **SIP:abbie.spencer\@fabrikamonline.com** 。 Fabrikam 未使用本地 Lync/Skype，但 Azure AD 和 Exchange Online 准备使用它。
 
-proxyAddresses 的此逻辑称为 **ProxyCalc**。 在以下情况下，每次更改用户时，将调用 ProxyCalc：
+proxyAddresses 的此逻辑称为 **ProxyCalc** 。 在以下情况下，每次更改用户时，将调用 ProxyCalc：
 
 - 为用户分配了包含 Exchange Online 的服务计划，即使未授权该用户使用 Exchange，也是如此。 例如，如果为用户分配了 Office E3 SKU，但仅为其分配了 SharePoint Online。 即使邮箱仍在本地，也是如此。
 - 属性 msExchRecipientTypeDetails 具有值。

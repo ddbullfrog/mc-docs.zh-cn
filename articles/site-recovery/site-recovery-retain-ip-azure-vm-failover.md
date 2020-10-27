@@ -8,11 +8,11 @@ author: rockboyfor
 ms.topic: conceptual
 ms.author: v-yeche
 ms.openlocfilehash: a97f322ff39f5a7731c54a63bff83fe93929a46b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291573"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211489"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>在故障转移期间保留 IP 地址
 
@@ -42,18 +42,18 @@ ms.locfileid: "79291573"
 - 为了缩短恢复时间目标 (RTO)，公司对 SQL Server Always On、域控制器等使用副本节点。这些副本节点位于目标区域中的另一个 VNet 中，因此可在源区域和目标区域之间建立 VPN 站点到站点连接。 如果源和目标中使用相同的 IP 地址，则无法建立连接。  
 - 故障转移前，网络体系结构如下所示：
     - 主要区域是“Azure 中国东部”
-        - 中国东部包含的 VNet（**源 VNet**）的地址空间为 10.1.0.0/16。
+        - 中国东部包含的 VNet（ **源 VNet** ）的地址空间为 10.1.0.0/16。
         - 中国东部的工作负荷拆分在 VNet 中的三个子网中：
-            - **子网 1**：10.1.1.0/24
-            - **子网 2**：10.1.2.0/24
-            - **子网 3**：10.1.3.0/24
+            - **子网 1** ：10.1.1.0/24
+            - **子网 2** ：10.1.2.0/24
+            - **子网 3** ：10.1.3.0/24
             
             <!--Up for Primary region China East-->
             <!--Downdown for Secondary region China North-->
             
     - 次要（目标）区域是“Azure 中国北部”
-        - 中国北部具有与**源 VNet** 相同的恢复 VNet（**恢复 VNet**）。
-        - 中国北部具有地址空间为 10.2.0.0/16 的额外 VNet (**Azure VNet**)。
+        - 中国北部具有与 **源 VNet** 相同的恢复 VNet（ **恢复 VNet** ）。
+        - 中国北部具有地址空间为 10.2.0.0/16 的额外 VNet ( **Azure VNet** )。
         - Azure VNet 包含地址空间为 10.2.4.0/24 的子网（子网 4）   。
         - SQL Server Always On、域控制器等的副本节点位于子网 4 中  。
     - 源 VNet 和 Azure VNet 通过 VPN 站点到站点连接建立连接   。
@@ -98,10 +98,10 @@ ms.locfileid: "79291573"
     <!--Downdown for Secondary region China North-->
     
 - 次要（目标）区域是“Azure 中国北部”
-    - 中国北部具有与**源 VNet 1** 和**源 VNet 2** 相同的恢复 VNet（**恢复 VNet 1** 和**恢复 VNet 2**）。
-    - **恢复 VNet 1** 和**恢复 VNet 2** 各自具有 2 个与**源 VNet 1** 和**源 VNet 2** 中的子网匹配的子网
-    - 中国北部具有地址空间为 10.3.0.0/16 的额外 VNet (**Azure VNet**)。
-    - **Azure VNet** 包含地址空间为 10.3.4.0/24 的子网（**子网 4**）。
+    - 中国北部具有与 **源 VNet 1** 和 **源 VNet 2** 相同的恢复 VNet（ **恢复 VNet 1** 和 **恢复 VNet 2** ）。
+    - **恢复 VNet 1** 和 **恢复 VNet 2** 各自具有 2 个与 **源 VNet 1** 和 **源 VNet 2** 中的子网匹配的子网
+    - 中国北部具有地址空间为 10.3.0.0/16 的额外 VNet ( **Azure VNet** )。
+    - **Azure VNet** 包含地址空间为 10.3.4.0/24 的子网（ **子网 4** ）。
     - SQL Server Always On、域控制器等的副本节点位于子网 4 中  。
 - 存在大量站点到站点 VPN 连接： 
     - 源 VNet 1 和 Azure VNet  
@@ -109,8 +109,8 @@ ms.locfileid: "79291573"
     - 源 VNet 1 和源 VNet 2 通过站点到站点 VPN 进行连接  
 - 恢复 VNet 1 和恢复 VNet 2 不会连接到其他任何 VNet   。
 - 公司 A 对恢复 VNet 1 和恢复 VNet 2 配置 VPN 网关以减少 RTO    。  
-- **恢复 VNet1** 和**恢复 VNet2** 未与其他任何虚拟网络相连接。
-- 为了降低恢复时间目标 (RTO)，在故障转移之前，可在**恢复 VNet1** 和**恢复 VNet2** 上配置 VPN 网关。
+- **恢复 VNet1** 和 **恢复 VNet2** 未与其他任何虚拟网络相连接。
+- 为了降低恢复时间目标 (RTO)，在故障转移之前，可在 **恢复 VNet1** 和 **恢复 VNet2** 上配置 VPN 网关。
 
     ![应用故障转移前 Azure 中的资源](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
 
@@ -136,16 +136,16 @@ ms.locfileid: "79291573"
 下面是故障转移之前网络体系结构的外观。
 
 - 应用程序 VM 托管在 Azure 中国东部。
-- 中国东部包含的 VNet（**源 VNet**）的地址空间为 10.1.0.0/16。
-    - 中国东部的工作负荷拆分在**源 VNet** 的三个子网之间：
-        - **子网 1**：10.1.1.0/24
-        - **子网 2**：10.1.2.0/24
-        - **子网 3**：10.1.3.0/24（使用地址空间为 10.1.0.0/16 的 Azure 虚拟网络）。 此虚拟网络名为“源 VNet” 
+- 中国东部包含的 VNet（ **源 VNet** ）的地址空间为 10.1.0.0/16。
+    - 中国东部的工作负荷拆分在 **源 VNet** 的三个子网之间：
+        - **子网 1** ：10.1.1.0/24
+        - **子网 2** ：10.1.2.0/24
+        - **子网 3** ：10.1.3.0/24（使用地址空间为 10.1.0.0/16 的 Azure 虚拟网络）。 此虚拟网络名为“源 VNet” 
             
             <!--Up for China East and down for China North-->
             
 - 次要（目标）区域是“Azure 中国北部”：
-    - 中国北部具有与**源 VNet** 相同的恢复 VNet（**恢复 VNet**）。
+    - 中国北部具有与 **源 VNet** 相同的恢复 VNet（ **恢复 VNet** ）。
 - 中国东部的 VM 通过 Azure ExpressRoute 或站点到站点 VPN 连接到本地数据中心。
     
     <!--Up for China East and down for China North-->
@@ -161,7 +161,7 @@ ms.locfileid: "79291573"
 
 如果源区域发生故障，公司 B 可将其所有资源故障转移到目标区域。
 
-- 如果目标 IP 地址在故障转移前已就位，公司 B 可安排故障转移以及故障转移后自动在**恢复 VNet** 和 **Azure VNet** 之间建立连接。
+- 如果目标 IP 地址在故障转移前已就位，公司 B 可安排故障转移以及故障转移后自动在 **恢复 VNet** 和 **Azure VNet** 之间建立连接。
 - 根据应用的要求，可以在故障转移之前、期间（作为中间步骤）或之后，在目标区域中的两个 VNet（恢复 VNet 和 Azure VNet）之间建立连接   。 该公司可以使用[恢复计划](site-recovery-create-recovery-plans.md)来指定何时建立连接。
     
     <!--Down front for China East and backend for China North-->

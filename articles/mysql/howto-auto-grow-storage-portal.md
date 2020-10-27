@@ -29,9 +29,9 @@ ms.locfileid: "92041864"
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择现有 Azure Database for MySQL 服务器。
 
-2. 在 MySQL 服务器页上，单击“设置”**** 标题下的“定价层”****，以打开“定价层”页。
+2. 在 MySQL 服务器页上，单击“设置”  标题下的“定价层”  ，以打开“定价层”页。
 
-3. 在“自动增长”部分中，选择“是”**** 以启用存储自动增长。
+3. 在“自动增长”部分中，选择“是”  以启用存储自动增长。
 
     :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Azure Database for MySQL - Settings_Pricing_tier - 自动增长":::
 

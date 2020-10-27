@@ -10,11 +10,11 @@ ms.date: 08/03/2020
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: 87563a73dbf765a0a4db00525fd9bd424621b334
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790530"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211449"
 ---
 # <a name="manage-modules-in-azure-automation"></a>管理 Azure 自动化中的模块
 

@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik
 origin.date: 12/19/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: 96cf0658d8e46c8c16ca541d84b04c8964c01d19
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/29/2020
+ms.openlocfilehash: e8720ce39cc7149319722229cc3326fa0aa5f9fa
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228037"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472690"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Azure SQL 数据库中的扩展事件 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,7 +72,7 @@ Azure SQL 数据库中扩展事件的功能集是 SQL Server 和 Azure SQL 托�
 
 ## <a name="new-catalog-views"></a>新的目录视图
 
-扩展事件功能受多个[目录视图](https://msdn.microsoft.com/library/ms174365.aspx)的支持。 目录视图显示有关当前数据库中用户创建的事件会话的*元数据或定义*的信息。 视图不会返回有关活动事件会话的实例的信息。
+扩展事件功能受多个[目录视图](https://msdn.microsoft.com/library/ms174365.aspx)的支持。 目录视图显示有关当前数据库中用户创建的事件会话的 *元数据或定义* 的信息。 视图不会返回有关活动事件会话的实例的信息。
 
 | 目录<br/>视图的名称 | 说明 |
 |:--- |:--- |
@@ -98,7 +98,7 @@ Azure SQL 数据库具有支持扩展事件的[动态管理视图 (DMV)](https:/
 
 在 Microsoft SQL Server 中，类似目录视图的名称不包含 *\_database* 部分，例如：
 
-- **sys.dm_xe_sessions** 而不是名称<br/>**sys.dm_xe_database_sessions**。
+- **sys.dm_xe_sessions** 而不是名称<br/>**sys.dm_xe_database_sessions** 。
 
 ### <a name="dmvs-common-to-both"></a>两者通用的 DMV
 
@@ -156,7 +156,7 @@ SELECT
 
 ## <a name="permission-model"></a>权限模型
 
-必须拥有数据库的**控制**权限才能发出 **CREATE EVENT SESSION** 语句。 数据库所有者 (dbo) 拥有**控制**权限。
+必须拥有数据库的 **控制** 权限才能发出 **CREATE EVENT SESSION** 语句。 数据库所有者 (dbo) 拥有 **控制** 权限。
 
 ### <a name="storage-container-authorizations"></a>存储容器授权
 
@@ -177,9 +177,9 @@ SELECT
 
 ### <a name="network-latency"></a>网络延迟
 
-**事件文件**目标在将数据保存到 Azure 存储 Blob 时可能会遇到网络延迟或故障。 Azure SQL 数据库中的其他事件可能会延迟，因为它们要等待网络通信完成。 这种延迟可能会导致工作负荷变慢。
+**事件文件** 目标在将数据保存到 Azure 存储 Blob 时可能会遇到网络延迟或故障。 Azure SQL 数据库中的其他事件可能会延迟，因为它们要等待网络通信完成。 这种延迟可能会导致工作负荷变慢。
 
-- 若要缓解这种性能风险，请避免在事件会话定义中将 **EVENT_RETENTION_MODE** 选项设为 **NO_EVENT_LOSS**。
+- 若要缓解这种性能风险，请避免在事件会话定义中将 **EVENT_RETENTION_MODE** 选项设为 **NO_EVENT_LOSS** 。
 
 ## <a name="related-links"></a>相关链接
 

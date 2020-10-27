@@ -10,11 +10,11 @@ origin.date: 01/17/2019
 ms.date: 03/30/2020
 ms.author: v-yeche
 ms.openlocfilehash: 4bee8e57c73dd77b85add31373638da2ada4d126
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80243447"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211331"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure 逻辑应用和 Enterprise Integration Pack 管理集成帐户中的项目元数据
 
@@ -56,7 +56,7 @@ ms.locfileid: "80243447"
 
 1. 在逻辑应用设计器中，若要在工作流中的触发器或最后一个操作下添加用于获取元数据的步骤，请选择“新建步骤” > “添加操作”。   
 
-1. 在搜索框中，输入“集成帐户”。 在搜索框下，选择“所有”  。 在操作列表中选择此操作：**集成帐户项目查找 - 集成帐户**
+1. 在搜索框中，输入“集成帐户”。 在搜索框下，选择“所有”  。 在操作列表中选择此操作： **集成帐户项目查找 - 集成帐户**
 
    ![选择“集成帐户项目查找”](media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png)
 

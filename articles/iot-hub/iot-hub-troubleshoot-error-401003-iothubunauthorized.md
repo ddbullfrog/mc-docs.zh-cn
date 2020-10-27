@@ -10,11 +10,11 @@ origin.date: 01/30/2020
 ms.date: 02/17/2020
 ms.author: v-yiso
 ms.openlocfilehash: b27579341c547d2f1f6d93d776dd61346a04c7de
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79290922"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211410"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 

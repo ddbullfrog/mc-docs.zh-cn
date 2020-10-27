@@ -42,11 +42,11 @@ ms.locfileid: "92121686"
 
 ## <a name="how-to-use-this-solution-template"></a>如何使用此解决方案模板
 
-1. 转到模板“仅根据 LastModifiedDate 复制新文件”。  创建与源存储的**新**连接。 源存储是要从中复制文件的存储。
+1. 转到模板“仅根据 LastModifiedDate 复制新文件”。  创建与源存储的 **新** 连接。 源存储是要从中复制文件的存储。
 
     ![与源建立新的连接](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate1.png)
     
-2. 与目标存储建立**新的**连接。 目标存储是要将文件复制到的存储。 
+2. 与目标存储建立 **新的** 连接。 目标存储是要将文件复制到的存储。 
 
     ![与目标建立新的连接](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "92121686"
    - **LastModified_From** =  2019-02-01T00:00:00Z
    - **LastModified_To** = 2019-03-01T00:00:00Z
     
-    此示例表明，最后一次在 **2019-02-01T00:00:00Z** 到 **2019年-03-01T00:00:00Z** 时间跨度内修改的文件将从源路径 **sourcefolder/subfolder** 复制到目标路径 **destinationfolder/subfolder**。  可将这些参数替换为你自己的参数。
+    此示例表明，最后一次在 **2019-02-01T00:00:00Z** 到 **2019年-03-01T00:00:00Z** 时间跨度内修改的文件将从源路径 **sourcefolder/subfolder** 复制到目标路径 **destinationfolder/subfolder** 。  可将这些参数替换为你自己的参数。
 
     ![运行管道](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
@@ -85,12 +85,12 @@ ms.locfileid: "92121686"
     ![创建触发器](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 10. 按如下所示设置“触发器运行参数”的值，然后选择“完成”。  
-    - **FolderPath_Source** = **sourcefolder**。  可替换为源数据存储中的文件夹。
-    - **Directory_Source** = **subfolder**。  可替换为源数据存储中的子文件夹。
-    - **FolderPath_Destination** = **destinationfolder**。  可替换为目标数据存储中的文件夹。
-    - **Directory_Destination** = **subfolder**。  可替换为目标数据存储中的子文件夹。
-    - **LastModified_From** =   **\@trigger().outputs.windowStartTime**。  这是触发器中的一个系统变量，确定上次触发管道的时间。
-    - **LastModified_To** =  **\@trigger().outputs.windowEndTime**。  这是触发器中的一个系统变量，确定本次触发管道的时间。
+    - **FolderPath_Source** = **sourcefolder** 。  可替换为源数据存储中的文件夹。
+    - **Directory_Source** = **subfolder** 。  可替换为源数据存储中的子文件夹。
+    - **FolderPath_Destination** = **destinationfolder** 。  可替换为目标数据存储中的文件夹。
+    - **Directory_Destination** = **subfolder** 。  可替换为目标数据存储中的子文件夹。
+    - **LastModified_From** =   **\@trigger().outputs.windowStartTime** 。  这是触发器中的一个系统变量，确定上次触发管道的时间。
+    - **LastModified_To** =  **\@trigger().outputs.windowEndTime** 。  这是触发器中的一个系统变量，确定本次触发管道的时间。
     
     ![输入参数](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

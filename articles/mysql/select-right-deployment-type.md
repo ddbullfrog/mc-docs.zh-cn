@@ -23,13 +23,13 @@ ms.locfileid: "92041821"
 
 做出决策时，请考虑以下选项：
 
-- **Azure Database for MySQL**。 此选项是基于稳定 MySQL 社区版的完全托管式 MySQL 数据库引擎。 此关系数据库即服务 (DBaaS) 托管在 Azure 云平台中，属于 PaaS 行业类别。
+- **Azure Database for MySQL** 。 此选项是基于稳定 MySQL 社区版的完全托管式 MySQL 数据库引擎。 此关系数据库即服务 (DBaaS) 托管在 Azure 云平台中，属于 PaaS 行业类别。
 
   借助 Azure 上的 MySQL 的托管实例，你可以使用内置功能（即自动修补、高可用性、自动备份、弹性缩放、企业级安全性、合规性和治理、监视和警报）。否则，当 MySQL 服务器在本地或 Azure VM 中时，这些内置功能需要进行大量配置。 将 MySQL 用作服务时，需要预先支付纵向或横向扩展选项的费用才能在不中断服务的情况下获得更高的控制度。 
   
     - [Azure Database for MySQL 单一服务器](single-server-overview.md)是一项完全托管的数据库服务，对数据库自定义的要求最低。 单一服务器平台旨在以最少的用户配置和控制来处理大多数数据库管理功能，例如修补、备份、高可用性、安全性。 此体系结构经过优化，可在单个可用性区域提供 99.99% 的可用性。 单一服务器最适合用于云原生应用程序，这些应用程序旨在处理自动修补，而无需对修补计划和自定义 MySQL 配置设置进行精细控制。 
 
-- **Azure VM 上的 MySQL**。 此选项属于 IaaS 行业类别。 使用此服务可以在 Azure 云平台上的托管虚拟机中运行 MySQL 服务器。 所有最新版本的 MySQL 都可以安装在该虚拟机中。
+- **Azure VM 上的 MySQL** 。 此选项属于 IaaS 行业类别。 使用此服务可以在 Azure 云平台上的托管虚拟机中运行 MySQL 服务器。 所有最新版本的 MySQL 都可以安装在该虚拟机中。
 
 ## <a name="comparing-the-mysql-deployment-options-in-azure"></a>比较 Azure 中的 MySQL 部署选项
 

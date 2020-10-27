@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/02/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c694ee4b757226a03d8c2809257c7a5811b44eaf
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 24d50dae78f6d9ca57bad90992e402b2fdc44fbe
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564333"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211882"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虚拟网络中资源的名称解析
 
@@ -91,7 +91,7 @@ Azure 提供的名称解析包括以下功能：
 * 对 \[vmname\].internal.chinacloudapp.cn 格式的 FQDN 执行正向查找会解析为分配给虚拟机的 IP 地址。
 * 如果虚拟网络已作为注册虚拟网络链接到 [Azure DNS 专用区域](../dns/private-dns-overview.md)，则反向 DNS 查询会返回两条记录。 一条记录的格式将为 \[vmname\].[privatednszonename]，另一条记录的格式将为 \[vmname\].internal.chinacloudapp.cn
 * 反向 DNS 查找的范围限定为给定的虚拟网络，即使该虚拟网络已对等互连到其他虚拟网络。 对位于对等互连虚拟网络中的虚拟机的 IP 地址执行反向 DNS 查询（PTR 查询）会返回 NXDOMAIN。
-* 如果要在虚拟网络中关闭反向 DNS 功能，可以通过使用 [Azure DNS 专用区域](../dns/private-dns-overview.md)并将此区域链接到你的虚拟网络来执行此操作。 例如，如果虚拟网络的 IP 地址空间是 10.20.0.0/16，可以创建空的专用 DNS 区域 20.10.in-addr.arpa，并将其链接到该虚拟网络。 在将区域链接到虚拟网络时，应禁用链接上的自动注册。 此区域将替代虚拟网络的默认反向查找区域，因为此区域为空，反向 DNS 查询将获得 NXDOMAIN。 请参阅我们的[快速入门指南](/dns/private-dns-getstarted-portal)，详细了解如何创建专用 DNS 区域并将其链接到虚拟网络。
+* 如果要在虚拟网络中关闭反向 DNS 功能，可以通过使用 [Azure DNS 专用区域](../dns/private-dns-overview.md)并将此区域链接到你的虚拟网络来执行此操作。 例如，如果虚拟网络的 IP 地址空间是 10.20.0.0/16，可以创建空的专用 DNS 区域 20.10.in-addr.arpa，并将其链接到该虚拟网络。 在将区域链接到虚拟网络时，应禁用链接上的自动注册。 此区域将替代虚拟网络的默认反向查找区域，因为此区域为空，反向 DNS 查询将获得 NXDOMAIN。 请参阅我们的[快速入门指南](https://docs.azure.cn/dns/private-dns-getstarted-portal)，详细了解如何创建专用 DNS 区域并将其链接到虚拟网络。
 
 > [!NOTE]
 > 若要跨虚拟网络执行反向 DNS 查找，可以创建一个反向查找区域 (in-addr.arpa) [Azure DNS 专用区域](../dns/private-dns-overview.md)，并将其链接到多个虚拟网络。 但是，必须手动管理虚拟机的反向 DNS 记录。
@@ -115,7 +115,7 @@ Azure 提供的名称解析包括以下功能：
     * 使用 `sudo zypper install dnsmasq` 安装 dnsmasq 包。
     * 使用 `systemctl enable dnsmasq.service` 启用 dnsmasq 服务。 
     * 使用 `systemctl start dnsmasq.service` 启动 dnsmasq 服务。 
-    * 编辑 **/etc/sysconfig/network/config** 并将 *NETCONFIG_DNS_FORWARDER=""* 更改为 *dnsmasq*。
+    * 编辑 **/etc/sysconfig/network/config** 并将 *NETCONFIG_DNS_FORWARDER=""* 更改为 *dnsmasq* 。
     * 使用 `netconfig update` 更新 resolv.con，将缓存设置为本地 DNS 解析程序。
 * **CentOS（使用 NetworkManager）** ：
     * 使用 `sudo yum install dnsmasq` 安装 dnsmasq 包。
@@ -142,13 +142,13 @@ options timeout:1 attempts:5
 
 resolv.conf 文件通常是自动生成的，不应进行编辑。 添加 *options* 行的具体步骤因发行版而异：
 
-* **Ubuntu**（使用 resolvconf）：
+* **Ubuntu** （使用 resolvconf）：
     1. 将 options 行添加到 /etc/resolveconf/resolv.conf.d/tail。
     2. 运行 `resolvconf -u` 以进行更新。
-* **SUSE**（使用 netconf）：
+* **SUSE** （使用 netconf）：
     1. 将“timeout:1 attempts:5”添加到“/etc/sysconfig/network/config”中的 NETCONFIG_DNS_RESOLVER_OPTIONS="" 参数 。
     2. 运行 `netconfig update` 以进行更新。
-* **CentOS**（使用 NetworkManager）：
+* **CentOS** （使用 NetworkManager）：
     1. 将“echo "options timeout:1 attempts:5"”添加到“/etc/NetworkManager/dispatcher.d/11-dhclient”。
     2. 使用 `service network restart` 进行更新。
 
@@ -174,11 +174,11 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 
 :::image type="content" source="./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png" alt-text="虚拟网络之间的 DNS 示意图":::
 
-使用 Azure 提供的名称解析时，Azure 动态主机配置协议 (DHCP) 会为每个 VM 提供内部 DNS 后缀 ( **.internal.chinacloudapp.cn**)。 此后缀可实现主机名解析，因为主机名记录位于 **internal.chinacloudapp.cn** 区域中。 使用自己的名称解析解决方案时，不会向 VM 提供此后缀，因为该后缀会干扰其他 DNS 体系结构（例如已加入域的方案）。 相反，Azure 会提供没有实际功能的占位符 (reddog.microsoft.com)。
+使用 Azure 提供的名称解析时，Azure 动态主机配置协议 (DHCP) 会为每个 VM 提供内部 DNS 后缀 ( **.internal.chinacloudapp.cn** )。 此后缀可实现主机名解析，因为主机名记录位于 **internal.chinacloudapp.cn** 区域中。 使用自己的名称解析解决方案时，不会向 VM 提供此后缀，因为该后缀会干扰其他 DNS 体系结构（例如已加入域的方案）。 相反，Azure 会提供没有实际功能的占位符 (reddog.microsoft.com)。
 
 如果需要，可以使用 PowerShell 或 API 确定内部 DNS 后缀：
 
-* 对于 Azure 资源管理器部署模型中的虚拟网络，可以通过[网络接口 REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces)、[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface) PowerShell cmdlet 和 [az network nic show](https://docs.azure.cn/cli/network/nic#az-network-nic-show) Azure CLI 命令获取该后缀。
+* 对于 Azure 资源管理器部署模型中的虚拟网络，可以通过[网络接口 REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces)、[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface) PowerShell cmdlet 和 [az network nic show](https://docs.azure.cn/cli/network/nic#az_network_nic_show) Azure CLI 命令获取该后缀。
 * 在经典部署模型中，可以通过 [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) 调用或 [Get-AzureVM -Debug](https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/get-azurevm) cmdlet 获取该后缀。
 
 如果不想将查询转发到 Azure，应提供自己的 DNS 解析。 DNS 解决方案需要：
@@ -218,6 +218,8 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 > 如果为虚拟网络选择自定义 DNS 服务器，则必须至少指定一个 DNS 服务器 IP 地址；否则，虚拟网络将忽略配置，而改用由 Azure 提供的 DNS。
 
 使用经典部署模型时，可以在 Azure 门户或[网络配置文件](https://msdn.microsoft.com/library/azure/jj157100)中指定虚拟网络的 DNS 服务器。 对于云服务器，可以通过[服务配置文件](https://msdn.microsoft.com/library/azure/ee758710)或者在 PowerShell 中使用 [New-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/new-azurevm) 指定 DNS 服务器。
+
+<!--Correct on https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/new-azurevm-->
 
 > [!NOTE]
 > 如果更改已部署的虚拟网络或虚拟机的 DNS 设置，要使新的 DNS 设置生效，必须对虚拟网络中所有受影响的 VM 执行 DHCP 租约续订。 对于运行 Windows OS 的 VM，可以直接在 VM 中键入 `ipconfig /renew` 来完成此操作。 步骤因 OS 而异。 请参阅 OS 类型的相关文档。

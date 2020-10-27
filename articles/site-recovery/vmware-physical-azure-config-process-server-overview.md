@@ -9,11 +9,11 @@ origin.date: 08/22/2019
 ms.date: 09/30/2019
 ms.author: v-yeche
 ms.openlocfilehash: 869a338db4f1fa6aa936b56332f3174d97c10124
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291693"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211518"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>关于 Site Recovery 组件（配置服务器、进程服务器、主目标服务器）
 

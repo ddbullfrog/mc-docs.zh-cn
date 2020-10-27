@@ -3,22 +3,22 @@ title: 教程 - 将变量添加到模板
 description: 将变量添加到 Azure 资源管理器模板以简化语法。
 origin.date: 03/27/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: f8e3399e5c7c39dbea80d8d612bc4915d4ad0747
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: ''
+ms.openlocfilehash: 99516facbe603723be56e57232b5394b3357a1c7
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937160"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470073"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>教程：将变量添加到 ARM 模板
 
-本教程介绍如何将变量添加到 Azure 资源管理器 (ARM) 模版。 变量可以简化模板。有了变量，你只需编写一次表达式，然后即可在模板中重复使用该表达式。 完成本教程需要 **7 分钟**。
+本教程介绍如何将变量添加到 Azure 资源管理器 (ARM) 模版。 变量可以简化模板。有了变量，你只需编写一次表达式，然后即可在模板中重复使用该表达式。 完成本教程需要 **7 分钟** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -143,7 +143,7 @@ ms.locfileid: "91937160"
 
 让我们部署该模板。 部署此模板比部署上述模板容易，因为你只提供存储名称的前缀。
 
-如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
+如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据 [第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -3,36 +3,35 @@ title: Pattern.any 实体类型 - LUIS
 titleSuffix: Azure Cognitive Services
 description: Patterns.any 是一种长度可变的占位符，仅在模式的模板话语中使用，用于标记实体的起始和结束位置。
 services: cognitive-services
-author: lingliw
-manager: digimobile
+ms.author: v-johya
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
+ms.date: 10/19/2020
 origin.date: 09/29/2019
-ms.date: 10/31/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 00f374b9394bcc6a6a4beedfe4f5e23bb77fc124
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: caf17e09f59046c2866df3e42350af2dd474dd1d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75857315"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472330"
 ---
-# <a name="patternany-entity"></a>Pattern.any 实体 
+# <a name="patternany-entity"></a>Pattern.any 实体
 
 Patterns.any 是一种长度可变的占位符，仅在模式的模板话语中使用，用于标记实体的起始和结束位置。  
 
-需要在“模式”模板示例而不是意向用户示例中标记 Pattern.any 实体。
+需要在[模式](luis-how-to-model-intent-pattern.md)模板示例而不是意向用户示例中标记 Pattern.any 实体。
 
 **在以下情况下，非常适合使用此实体：**
 
-* 实体的末尾可能与话语的其余文本相混淆。 
+* 实体的末尾可能与话语的其余文本相混淆。
 
 ## <a name="usage"></a>使用情况
 
-假设某个客户端应用程序需要基于标题搜索书籍，则 pattern.any 会提取完整的标题。 一个使用 pattern.any 进行这种书籍搜索的模板话语是 `Was {BookTitle} written by an American this year[?]`。 
+假设某个客户端应用程序需要基于标题搜索书籍，则 pattern.any 会提取完整的标题。 一个使用 pattern.any 进行这种书籍搜索的模板话语是 `Was {BookTitle} written by an American this year[?]`。
 
-在下表中，每行包含话语的两个版本。 最上面的话语是 LUIS 最初看到的话语。 不清楚书名在哪里开始和在哪里结束。 最下面的话语使用 Pattern.any 实体来标记实体的开头和结尾。 
+在下表中，每行包含话语的两个版本。 最上面的话语是 LUIS 最初看到的话语。 不清楚书名在哪里开始和在哪里结束。 最下面的话语使用 Pattern.any 实体来标记实体的开头和结尾。
 
 |以粗体显示带实体的话语|
 |--|
@@ -105,4 +104,9 @@ Patterns.any 是一种长度可变的占位符，仅在模式的模板话语中�
 }
 ```
 
-* * * 
+* * *
+
+## <a name="next-steps"></a>后续步骤
+
+在本 [教程](luis-tutorial-pattern.md)中，对于格式良好且数据结尾可能容易与话语的剩余单词混淆的话语，我们使用 **Pattern.any** 实体从这些话语中提取数据。
+

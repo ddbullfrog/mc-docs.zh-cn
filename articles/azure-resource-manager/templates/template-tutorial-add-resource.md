@@ -3,22 +3,22 @@ title: 教程 - 将资源添加到模板
 description: 介绍创建第一个 Azure 资源管理器模板的步骤。 了解模板文件语法，以及如何部署存储帐户。
 origin.date: 03/27/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 220a434d5f116b8e90bd88820a94941e1bacdb23
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.custom: ''
+ms.openlocfilehash: 90a28c26768b9dbfa8ec83412524f6140298c4da
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937162"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470380"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>教程：将资源添加到 ARM 模板
 
-在[前一篇教程](template-tutorial-create-first-template.md)中，你已了解如何创建一个空白模板，然后部署该模板。 现在，可以部署实际的资源。 在本教程中，你将添加一个存储帐户。 完成本教程大约需要 **9 分钟**。
+在[前一篇教程](template-tutorial-create-first-template.md)中，你已了解如何创建一个空白模板，然后部署该模板。 现在，可以部署实际的资源。 在本教程中，你将添加一个存储帐户。 完成本教程大约需要 **9 分钟** 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -33,7 +33,7 @@ ms.locfileid: "91937162"
 将 **{provide-unique-name}** （包括大括号）替换为唯一的存储帐户名称。
 
 > [!IMPORTANT]
-> 存储帐户名称在 Azure 中必须是唯一的。 该名称只能包含小写字母或数字。 其长度不能超过 24 个字符。 可以尝试使用某种命名模式，例如，使用 **store1** 作为前缀，然后添加你的姓名首字母缩写和当天的日期。 例如，使用的名称类似于 **store1abc09092019**。
+> 存储帐户名称在 Azure 中必须是唯一的。 该名称只能包含小写字母或数字。 其长度不能超过 24 个字符。 可以尝试使用某种命名模式，例如，使用 **store1** 作为前缀，然后添加你的姓名首字母缩写和当天的日期。 例如，使用的名称类似于 **store1abc09092019** 。
 
 ```json
 {
@@ -65,9 +65,9 @@ ms.locfileid: "91937162"
 
 部署的每个资源至少具有以下三个属性：
 
-- **类型**：资源的类型。 此值是资源提供程序的命名空间和资源类型（例如 Microsoft.Storage/storageAccounts）的组合。
-- **apiVersion**：用于创建资源的 REST API 版本。 每个资源提供程序都发布了其自身的 API 版本，因此此值与特定的类型相关。
-- **名称**：资源的名称。
+- **类型** ：资源的类型。 此值是资源提供程序的命名空间和资源类型（例如 Microsoft.Storage/storageAccounts）的组合。
+- **apiVersion** ：用于创建资源的 REST API 版本。 每个资源提供程序都发布了其自身的 API 版本，因此此值与特定的类型相关。
+- **名称** ：资源的名称。
 
 大多数资源还有一个 **location** 属性，该属性用于设置资源部署到的区域。
 
@@ -83,7 +83,7 @@ ms.locfileid: "91937162"
 
 可以部署模板来创建存储帐户。 为部署指定不同的名称，以便可以在历史记录中轻松找到它。
 
-如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
+如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据 [第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

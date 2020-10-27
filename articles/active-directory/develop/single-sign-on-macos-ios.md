@@ -18,11 +18,11 @@ ms.author: v-junlch
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 33610444f22632c21e6bac67dca21ecb33b405c7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291032"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211383"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>如何：在 macOS 和 iOS 上配置 SSO
 
@@ -69,7 +69,7 @@ MSAL 支持通过 iOS 密钥链访问组进行 SSO 共享。
 
 为使 Microsoft 标识平台知道哪些应用程序可以共享令牌，这些应用程序需要共享相同的客户端 ID 或应用程序 ID。 这是在门户中注册第一个应用程序时提供的唯一标识符。
 
-Microsoft 标识平台根据应用的**重定向 URI** 来辨别使用相同应用程序 ID 的应用。 每个应用程序可以在登记门户中注册多个重定向 URI。 套件中的每个应用都具有不同的重定向 URI。 例如：
+Microsoft 标识平台根据应用的 **重定向 URI** 来辨别使用相同应用程序 ID 的应用。 每个应用程序可以在登记门户中注册多个重定向 URI。 套件中的每个应用都具有不同的重定向 URI。 例如：
 
 App1 重定向 URI： `msauth.com.contoso.mytestapp1://auth`  
 App2 重定向 URI： `msauth.com.contoso.mytestapp2://auth`  
@@ -100,7 +100,7 @@ App3 重定向 URI： `msauth.com.contoso.mytestapp3://auth`
 
 #### <a name="add-a-new-keychain-group"></a>添加新密钥链组
 
-向项目**功能**添加新密钥链组。 密钥链组应为：
+向项目 **功能** 添加新密钥链组。 密钥链组应为：
 * iOS 上的 `com.microsoft.adalcache` 
 * macOS 上的 `com.microsoft.identity.universalstorage`。
 
@@ -187,7 +187,7 @@ MSAL 通过 Microsoft Authenticator 提供中介身份验证支持。 Microsoft 
     }
     ```
     
-**如果使用的是 Xcode 11**，应改为将 MSAL 回调放入 `SceneDelegate` 文件。
+**如果使用的是 Xcode 11** ，应改为将 MSAL 回调放入 `SceneDelegate` 文件。
 如果支持兼容旧版 iOS 的 UISceneDelegate 和 UIApplicationDelegate，则需将 MSAL 回叫置于这两个文件中。
 
 Objective-C：

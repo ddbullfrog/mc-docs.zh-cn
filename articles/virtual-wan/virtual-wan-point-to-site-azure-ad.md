@@ -4,18 +4,18 @@ description: 介绍如何为用户 VPN 配置 Azure Active Directory 身份验�
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: how-to
-origin.date: 03/17/2020
+origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 66ff2aa4a6dd4c45f8615d4f07557a25472fb650
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 3f14dceb0f0ce8c7757bf0e76ae1258fa949f594
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246428"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472554"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>为用户 VPN 配置 Azure Active Directory 身份验证
 
@@ -25,15 +25,14 @@ ms.locfileid: "91246428"
 
 在本文中，学习如何：
 
-> [!div class="checklist"]
-> * 创建虚拟 WAN
-> * 创建虚拟中心
-> * 创建用户 VPN 配置
-> * 下载虚拟 WAN 用户 VPN 配置文件
-> * 将用户 VPN 配置应用于虚拟中心
-> * 将 VNet 连接到虚拟中心
-> * 下载并应用用户 VPN 客户端配置
-> * 查看虚拟 WAN
+* 创建虚拟 WAN
+* 创建虚拟中心
+* 创建用户 VPN 配置
+* 下载虚拟 WAN 用户 VPN 配置文件
+* 将用户 VPN 配置应用于虚拟中心
+* 将 VNet 连接到虚拟中心
+* 下载并应用用户 VPN 客户端配置
+* 查看虚拟 WAN
 
 :::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="虚拟 WAN 示意图":::
 
@@ -66,7 +65,7 @@ ms.locfileid: "91246428"
     * **名称** - 键入要用于称呼 WAN 的名称。
     * **类型：** 标准。 如果创建基本 WAN，则只能创建基本中心。 基本中心仅支持 VPN 站点到站点连接。
 4. 填写完字段后，单击“审阅 + 创建”。
-5. 验证通过后，选择“创建”以创建虚拟 WAN****。
+5. 验证通过后，选择“创建”以创建虚拟 WAN  。
 
 <a name="site"></a>
 ## <a name="create-an-empty-virtual-hub"></a>创建空虚拟中心
@@ -91,11 +90,11 @@ ms.locfileid: "91246428"
 
 用户 VPN 配置定义连接远程客户端的参数。
 
-1. 在虚拟 WAN 下，选择“用户 VPN 配置”****。
+1. 在虚拟 WAN 下，选择“用户 VPN 配置”  。
 
     ![新建配置](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. 单击“+创建用户 VPN 配置”****。
+2. 单击“+创建用户 VPN 配置”  。
 
     ![新建配置](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 

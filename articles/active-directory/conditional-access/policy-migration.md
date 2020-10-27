@@ -39,7 +39,7 @@ Azure Active Directory 使用条件访问作为一种工具来统合信号、做
 - Intune 经典门户
 - Intune 应用保护门户
 
-在“条件访问”页上，可以通过单击“管理”部分中的“[**经典策略**](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies)”来访问经典策略。   
+在“条件访问”页上，可以通过单击“管理”部分中的“ [**经典策略**](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies)”来访问经典策略。   
 
 ![Azure AD 中的条件访问，显示经典策略视图](./media/policy-migration/71.png)
 
@@ -68,10 +68,10 @@ Azure Active Directory 使用条件访问作为一种工具来统合信号、做
 在策略整合的上下文中，必须注意以下几个方面：
 
 - 尽管经典策略与特定的云应用相关联，但你可以根据需要在新策略中选择任意数量的云应用。
-- 云应用的经典策略和新策略控制要求满足所有控制条件 (*AND*)。 
+- 云应用的经典策略和新策略控制要求满足所有控制条件 ( *AND* )。 
 - 在新策略中，可以：
    - 根据方案的需要组合多个条件。 
-   - 选择多个授予要求作为访问控制，并使用逻辑 *OR*（要求满足选定控制条件中的一个）或逻辑 *AND*（要求满足所有选定控制条件）来合并这些要求。
+   - 选择多个授予要求作为访问控制，并使用逻辑 *OR* （要求满足选定控制条件中的一个）或逻辑 *AND* （要求满足所有选定控制条件）来合并这些要求。
 
 ### <a name="exchange-online"></a>Exchange Online
 

@@ -117,26 +117,26 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:32 |connect://*bba800-anchor*.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:32 |connect:// *bba800-anchor* .partner.microsoftonline.cn:443 |
 | 1/11/2016 8:32 |connect://login.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:33 |connect://*bwsc02-relay*.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:33 |connect:// *bwsc02-relay* .partner.microsoftonline.cn:443 |
 
 **配置**
 
 | 时间 | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:43 |connect://*bba800-anchor*.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:43 |connect:// *bba800-anchor* .partner.microsoftonline.cn:443 |
 | 1/11/2016 8:43 |connect://login.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:44 |connect://*bba900-anchor*.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:44 |connect:// *bba900-anchor* .partner.microsoftonline.cn:443 |
 | 1/11/2016 8:44 |connect://login.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:44 |connect://*bba800-anchor*.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:44 |connect:// *bba800-anchor* .partner.microsoftonline.cn:443 |
 | 1/11/2016 8:44 |connect://login.partner.microsoftonline.cn:443 |
 | 1/11/2016 8:46 |connect://provisioningapi.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:46 |connect://*bwsc02-relay*.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:46 |connect:// *bwsc02-relay* .partner.microsoftonline.cn:443 |
 
 **初始同步**
 
@@ -144,8 +144,8 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.chinacloudapi.cn:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:49 |connect://*bba900-anchor*.partner.microsoftonline.cn:443 |
-| 1/11/2016 8:49 |connect://*bba800-anchor*.partner.microsoftonline.cn:443 |
+| 1/11/2016 8:49 |connect:// *bba900-anchor* .partner.microsoftonline.cn:443 |
+| 1/11/2016 8:49 |connect:// *bba800-anchor* .partner.microsoftonline.cn:443 |
 
 ## <a name="authentication-errors"></a>身份验证错误
 本部分介绍了 ADAL（Azure AD Connect 使用的身份验证库）和 PowerShell 可能返回的错误。 其中说明的错误可帮助了解后续步骤。

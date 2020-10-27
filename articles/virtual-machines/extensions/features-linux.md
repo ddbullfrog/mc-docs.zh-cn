@@ -233,9 +233,9 @@ VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过�
 
 #### <a name="agent-updates"></a>代理更新
 
-Linux VM 代理将预配代理代码和扩展处理代码包含在一个包中，不能分开 。 如果要使用 cloud-init 在 Azure 上预配，可以禁用预配代理**。 若要执行此操作，请参阅[使用 cloud-init](../linux/using-cloud-init.md)。
+Linux VM 代理将预配代理代码和扩展处理代码包含在一个包中，不能分开 。 如果要使用 cloud-init 在 Azure 上预配，可以禁用预配代理  。 若要执行此操作，请参阅[使用 cloud-init](../linux/using-cloud-init.md)。
 
-代理的受支持版本可以使用自动更新。 唯一可以更新的代码是扩展处理代码，不是预配代码**。 预配代理代码是一次性运行的代码**。
+代理的受支持版本可以使用自动更新。 唯一可以更新的代码是扩展处理代码，不是预配代码  。 预配代理代码是一次性运行的代码  。
 
 扩展处理代码负责与 Azure 结构通信，并处理各种 VM 扩展操作，例如安装、报告状态、更新单个扩展，以及删除扩展  。 更新包含扩展处理代码的安全修复程序、bug 修复程序和增强功能  。
 
@@ -257,7 +257,7 @@ Python: 3.5.2
 Goal state agent: 2.2.18
 ```
 
-在前面的示例输出中，父级或“部署包的版本”是 WALinuxAgent-2.2.17**
+在前面的示例输出中，父级或“部署包的版本”是 WALinuxAgent-2.2.17 
 
 “目标状态代理”是自动更新版本。
 
@@ -303,9 +303,9 @@ az vm show --resource-group myResourceGroup --name myVM
 
 #### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>识别何时执行了 autoUpgradeMinorVersion
 
-若要查看何时对扩展执行了更新，请查看 VM 上的代理日志，路径为 /var/log/waagent.log**。
+若要查看何时对扩展执行了更新，请查看 VM 上的代理日志，路径为 /var/log/waagent.log  。
 
-在下面的示例中，VM 安装 Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9025**。 修补程序适用于 Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027**：
+在下面的示例中，VM 安装 Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9025  。 修补程序适用于 Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027  ：
 
 ```bash
 INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Expected handler state: enabled
@@ -328,7 +328,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 ## <a name="agent-permissions"></a>代理权限
 
-若要执行任务，代理需要作为根运行**。
+若要执行任务，代理需要作为根运行  。
 
 ## <a name="troubleshoot-vm-extensions"></a>排查 VM 扩展的问题
 
@@ -336,9 +336,9 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 以下故障排除步骤适用于所有 VM 扩展。
 
-1. 若要查看 Linux 代理日志，请在 /var/log/waagent.log 中查看预配扩展时的活动**
+1. 若要查看 Linux 代理日志，请在 /var/log/waagent.log 中查看预配扩展时的活动 
 
-2. 在 /var/log/azure/\<extensionName> 中查看实际扩展日志，以便获取详细信息**
+2. 在 /var/log/azure/\<extensionName> 中查看实际扩展日志，以便获取详细信息 
 
 3. 查看特定扩展文档中有关错误代码和已知问题等的故障排除部分。
 

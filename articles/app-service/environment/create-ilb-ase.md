@@ -4,16 +4,16 @@ description: 了解如何使用 Azure 资源管理器模板创建带内部负载
 author: ccompy
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-origin.date: 08/05/2019
-ms.date: 08/13/2020
+origin.date: 09/16/2020
+ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b589b1c946514ed4ea06c2a82c1e78df3fed4554
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: e3be7b3b7989fcbd8554c2442f580b11a4947965
+ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227929"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170751"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>创建和使用内部负载均衡器应用服务环境 
 
@@ -101,21 +101,21 @@ ILB ASE 上同时支持函数和 Web 作业，但对于与其配合使用的门�
 
 ## <a name="dns-configuration"></a>DNS 配置 
 
-使用外部 VIP 时，DNS 由 Azure 管理。 在 ASE 中创建的任何应用都会自动添加到 Azure DNS，这是一个公用 DNS。 在 ILB ASE 中，必须管理自己的 DNS。 对 ILB ASE 使用的域后缀取决于 ASE 的名称。 域后缀为 *&lt;ASE 名称&gt;.appserviceenvironment.cn*。 ILB 的 IP 地址显示在门户中的“IP 地址”。 
+使用外部 ASE 时，在 ASE 中创建的应用需要向 Azure DNS 进行注册。 外部 ASE 中没有其他步骤可供应用公开使用。 使用 ILB ASE 时，必须管理自己的 DNS。 可以在自己的 DNS 服务器或 Azure DNS 专用区域中执行此操作。
 
-若要配置 DNS：
+在自己的 DNS 服务器中通过 ILB ASE 配置 DNS：
 
-- 为 *&lt;ASE 名称&gt;.appserviceenvironment.cn* 创建一个区域
-- 在该区域中创建一条指向* ILB IP 地址的 A 记录
-- 在该区域中创建一条指向 @ ILB IP 地址的 A 记录
-- 在 *&lt;ASE 名称&gt;.appserviceenvironment.cn* 中创建名为 scm 的区域
-- 在 scm 区域中创建一条指向 * ILB IP 地址的 A 记录
+1. 为 <ASE name>.appserviceenvironment.cn 创建一个区域
+2. 在该区域中创建一条指向* ILB IP 地址的 A 记录
+3. 在该区域中创建一条指向 @ ILB IP 地址的 A 记录
+4. 在 <ASE name>.appserviceenvironment.cn named scm 中创建一个名为 scm 的区域
+5. 在 scm 区域中创建一条指向 * ILB IP 地址的 A 记录
 
 ## <a name="publish-with-an-ilb-ase"></a>使用 ILB ASE 发布
 
 创建的每个应用都有两个终结点。 ILB ASE 中包含 *&lt;应用名称&gt;.&lt;ILB ASE 域&gt;* 和 *&lt;应用名称&gt;.scm.&lt;ILB ASE 域&gt;* 。 
 
-SCM 站点名称能将用户带到 Kudu 控制台，在 Azure 门户中称为**高级门户**。 Kudu 控制台允许查看环境变量、浏览磁盘、使用控制台等等。
+SCM 站点名称能将用户带到 Kudu 控制台，在 Azure 门户中称为 **高级门户** 。 Kudu 控制台允许查看环境变量、浏览磁盘、使用控制台等等。
 
 <!-- For more information, see [Kudu console for Azure App Service][Kudu]. -->
 
@@ -144,4 +144,4 @@ ILB ASE 中应用的发布终结点使用创建该 ILB ASE 所用的域。 此�
 
 <!-- [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/ -->
 <!--Links-->
-[Intro]: ./intro.md [MakeExternalASE]: ./create-external-ase.md [MakeASEfromTemplate]: ./create-from-template.md [MakeILBASE]: ./create-ilb-ase.md [ASENetwork]: ./network-info.md [UsingASE]: ./using-an-ase.md [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md [NSGs]: ../../virtual-network/security-overview.md [webapps]: ../overview.md [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md [Functions]: ../../azure-functions/index.yml [Pricing]: https://www.azure.cn/pricing/details/app-service/ [ARMOverview]: ../../azure-resource-manager/management/overview.md [ConfigureSSL]: ../configure-ssl-certificate.md [ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md [customdomain]: ../app-service-web-tutorial-custom-domain.md [linuxapp]: ../overview.md#app-service-on-linux
+[Intro]\: ./intro.md [MakeExternalASE]\: ./create-external-ase.md [MakeASEfromTemplate]\: ./create-from-template.md [MakeILBASE]\: ./create-ilb-ase.md [ASENetwork]\: ./network-info.md [UsingASE]\: ./using-an-ase.md [UDRs]\: ../../virtual-network/virtual-networks-udr-overview.md [NSGs]\: ../../virtual-network/network-security-groups-overview.md [webapps]\: ../overview.md [mobileapps]\: ../../app-service-mobile/app-service-mobile-value-prop.md [Functions]\: ../../azure-functions/index.yml [Pricing]\: https://www.azure.cn/pricing/details/app-service/ [ARMOverview]\: ../../azure-resource-manager/management/overview.md [ConfigureSSL]\: ../configure-ssl-certificate.md [ASEWAF]\: app-service-app-service-environment-web-application-firewall.md [AppGW]\: ../../application-gateway/application-gateway-web-application-firewall-overview.md [customdomain]\: ../app-service-web-tutorial-custom-domain.md [linuxapp]\: ../overview.md#app-service-on-linux

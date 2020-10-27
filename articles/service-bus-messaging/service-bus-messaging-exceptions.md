@@ -50,7 +50,7 @@ ms.locfileid: "92127768"
 | [MessagingEntityDisabledException](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.messagingentitydisabledexception) |对已禁用的实体请求运行时操作。 |激活实体。 |如果在此期间该实体已激活，则重试可能会有帮助。 |
 | [NoMatchingSubscriptionException](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.nomatchingsubscriptionexception) |如果向已启用预筛选的主题发送消息并且所有筛选器都不匹配，则服务总线返回此异常。 |确保至少有一个筛选器匹配。 |重试不起作用。 |
 | [MessageSizeExceededException](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |消息有效负载超出 256 KB 限制。 256-KB 限制是指总消息大小，可能包括系统属性和任何 .NET 开销。 |减少消息负载的大小，并重试操作。 |重试不起作用。 |
-| [TransactionException](https://docs.microsoft.com/dotnet/api/system.transactions.transactionexception?view=netcore-3.1&preserve-view=true) |环境事务 (*Transaction.Current*) 无效。 该事务可能已完成或已中止。 内部异常可能提供了更多信息。 | |重试不起作用。 |
+| [TransactionException](https://docs.microsoft.com/dotnet/api/system.transactions.transactionexception?view=netcore-3.1&preserve-view=true) |环境事务 ( *Transaction.Current* ) 无效。 该事务可能已完成或已中止。 内部异常可能提供了更多信息。 | |重试不起作用。 |
 | [TransactionInDoubtException](https://docs.microsoft.com/dotnet/api/system.transactions.transactionindoubtexception?view=netcore-3.1&preserve-view=true) |已对未决事务尝试进行操作，或尝试提交该事务并且事务进入不确定状态。 |应用程序必须处理此异常（作为特例），因为此事务可能已提交。 |- |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
@@ -85,7 +85,7 @@ ConnectionsQuotaExceeded for namespace xxx.
 1. [死信队列](service-bus-dead-letter-queues.md) 读取器无法完成消息，当锁定过期后，消息将返回至队列/主题。 如果读取器发生异常，以致无法调用 [BrokeredMessage.Complete](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.complete)，就会出现这种情况。 消息读取 10 次后，默认移至死信队列。 此行为由 [QueueDescription.MaxDeliveryCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 属性控制，默认值为 10。 消息堆积在死信队列中会占用空间。
 
     若要解决此问题，请读取并完成死信队列中的消息，就像处理任何其他队列一样。 可以使用 [FormatDeadLetterPath](https://docs.azure.cn/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) 方法帮助格式化死信队列路径。
-2. **接收方已停止**。 接收方已停止从队列或订阅接收消息。 识别这种情况的方法是查看 [QueueDescription.MessageCountDetails](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) 属性，它会显示消息的完整细目。 如果 [ActiveMessageCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) 属性很高或不断增加，则表示消息写入的速度超过读取的速度。
+2. **接收方已停止** 。 接收方已停止从队列或订阅接收消息。 识别这种情况的方法是查看 [QueueDescription.MessageCountDetails](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) 属性，它会显示消息的完整细目。 如果 [ActiveMessageCount](https://docs.azure.cn/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) 属性很高或不断增加，则表示消息写入的速度超过读取的速度。
 
 ## <a name="timeoutexception"></a>TimeoutException
 [TimeoutException](https://docs.microsoft.com/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) 指示用户启动的操作所用的时间超过操作超时值。 

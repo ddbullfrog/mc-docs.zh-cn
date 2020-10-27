@@ -30,9 +30,9 @@ ms.locfileid: "92128763"
 
 - [事件响应参考指南](https://docs.microsoft.com/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全操作](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -50,9 +50,9 @@ ms.locfileid: "92128763"
 
 - [如何设置 Azure 安全中心安全联系人](../../security-center/security-center-provide-security-contact-details.md)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全操作](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -74,9 +74,9 @@ Azure 安全中心可跨许多 Azure 资产提供高质量的警报。
 
 - [如何配置导出](../../security-center/continuous-export.md)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全操作](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -108,9 +108,9 @@ Azure 安全中心可跨许多 Azure 资产提供高质量的警报。
 
 - [Linux 计算机的磁盘快照](../../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全操作](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -134,7 +134,7 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 - [使用标记整理 Azure 资源](/azure-resource-manager/resource-group-using-tags)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -156,7 +156,7 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 - [在 Azure 安全中心设置自动威胁响应](../../security-center/tutorial-security-incident.md#triage-security-alerts)
 
-**责任**：客户
+**责任** ：客户
 
 客户安全利益干系人（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

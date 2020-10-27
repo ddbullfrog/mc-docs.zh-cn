@@ -2,14 +2,14 @@
 title: 使用 Azure Cosmos DB 和 Azure Functions 存储非结构化数据
 description: 使用 Azure Functions 和 Cosmos DB 存储非结构化数据
 ms.topic: quickstart
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: a554f22a7e6df655e2a0b8194d3b200b7d642573
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: f141e1f1e183ec503260f25eb9335b37ce8409aa
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937505"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472589"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>使用 Azure Functions 和 Azure Cosmos DB 存储非结构化数据
 
@@ -132,7 +132,7 @@ module.exports = async function (context, req) {
 
 ## <a name="test-the-function-and-database"></a>测试函数和数据库
 
-1. 选择“测试”。 在“查询”下选择“+ 添加参数”，然后将以下参数添加到查询字符串： 
+1. 选择“测试/运行”。 在“查询”下选择“+ 添加参数”，然后将以下参数添加到查询字符串： 
 
     + `name`
     + `task`

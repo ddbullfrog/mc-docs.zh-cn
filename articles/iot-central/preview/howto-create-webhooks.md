@@ -10,11 +10,11 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 5a848b5df571dc437bbb6fdf131b8adb9d438495
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79290928"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211536"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central-preview-features"></a>在 Azure IoT Central 中基于规则创建 Webhook 操作（预览功能）
 
@@ -28,7 +28,7 @@ ms.locfileid: "79290928"
 
 1. 打开 [RequestBin](https://requestbin.net/)。
 
-1. 创建一个新的 RequestBin 并复制 **Bin URL**。
+1. 创建一个新的 RequestBin 并复制 **Bin URL** 。
 
 1. 创建[遥测规则](tutorial-create-telemetry-rules.md)。 保存规则并添加新操作。
 

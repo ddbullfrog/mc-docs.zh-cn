@@ -1,21 +1,21 @@
 ---
 title: 标识未附加的 Azure 磁盘 - Azure门户
 description: 如何使用 Azure 门户查找未附加的 Azure 托管和非托管（VHD/页 blob）磁盘。
-author: rockboyfor
 ms.service: virtual-machines
 ms.topic: how-to
 origin.date: 06/01/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: f045b0354f28a310e594eb26ce6193903507f680
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: c16e54e5ca81e4464cb2eb3a8865d5e4957a840a
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052419"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211886"
 ---
 <!--Verified Successfully-->
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>查找并删除未附加的 Azure 托管和非托管磁盘 - Azure 门户
@@ -31,12 +31,14 @@ ms.locfileid: "89052419"
 
     “磁盘”边栏选项卡上会显示所有磁盘的列表。 “所有者”列中含有“-”的任何磁盘都是未附加的磁盘 。
 
-    [:::image type="content" source="media/disks-find-unattached-portal/managed-disk-unattached-owner.png" alt-text="托管磁盘边栏选项卡的屏幕截图，如果磁盘的“所有者”列中包含“-”，表明它是一个未附加的磁盘。":::](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
-
+    [:::image type="content" source="media/disks-find-unattached-portal/managed-disk-unattached-owner.png" alt-text="托管磁盘边栏选项卡的屏幕截图，如果磁盘的“所有者”列中包含“-”，表明它是一个未附加的磁盘。":::](media/disks-find-unattached-portal/managed-disk-owner-unattached.png)
+    
+    <!--CUSTOMIZE: REMOVE #lightbox-->
+    
 1. 选择要删除的未附加磁盘，随即会打开磁盘的边栏选项卡。
 1. 在磁盘的边栏选项卡上，确认磁盘状态为未附加，然后选择“删除”。
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-managed-disk-unattached.png" alt-text="单个托管磁盘边栏选项卡的屏幕截图。如果磁盘未附加，此边栏选项卡中的磁盘状态会显示为“未附加”。如果不再需要保留该磁盘的数据，可以删除该磁盘":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-managed-disk-unattached.png" alt-text="托管磁盘边栏选项卡的屏幕截图，如果磁盘的“所有者”列中包含“-”，表明它是一个未附加的磁盘。":::
 
 ## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>非托管磁盘：查找并删除未附加的磁盘
 
@@ -49,17 +51,17 @@ ms.locfileid: "89052419"
 
     之后会显示所有非托管磁盘的列表。 其“附加到”列中包含“-”的任何磁盘都是未附加的磁盘 。
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="非托管磁盘边栏选项卡的屏幕截图。在此边栏选项卡中，“附加到”列中包含“-”的磁盘是未附加的磁盘。":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="托管磁盘边栏选项卡的屏幕截图，如果磁盘的“所有者”列中包含“-”，表明它是一个未附加的磁盘。":::
 
 1. 选择要删除的未附加磁盘，随即会显示磁盘的边栏选项卡。
 
 1. 在磁盘的边栏选项卡上，可以确认它是未附加的，因为“附加到”仍显示为“-” 。
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="单个非托管磁盘边栏选项卡的屏幕截图。如果它是未附加的，它的“附加到”的值为“-”。如果不再需要此磁盘数据，可以将其删除。":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="托管磁盘边栏选项卡的屏幕截图，如果磁盘的“所有者”列中包含“-”，表明它是一个未附加的磁盘。":::
 
 1. 选择“删除”。
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="单个非托管磁盘边栏选项卡的屏幕截图，其中突出显示了“删除”。":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="托管磁盘边栏选项卡的屏幕截图，如果磁盘的“所有者”列中包含“-”，表明它是一个未附加的磁盘。":::
 
 ## <a name="next-steps"></a>后续步骤
 

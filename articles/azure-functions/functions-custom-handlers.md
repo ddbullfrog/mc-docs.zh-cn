@@ -3,14 +3,14 @@ title: Azure Functions 自定义处理程序（预览版）
 description: 了解如何在任何语言或运行时版本中使用 Azure Functions。
 author: anthonychu
 ms.author: v-junlch
-ms.date: 09/25/2020
+ms.date: 10/19/2020
 ms.topic: article
-ms.openlocfilehash: b9fd938ef331ec7170db5b66471426b9bdf26047
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: bd039a41ccfeda9d5ba5ce6ea8074944957acae9
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246593"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471081"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Azure Functions 自定义处理程序（预览版）
 
@@ -566,7 +566,7 @@ Functions 主机输出额外的日志消息，包括与自定义处理程序进�
 
 日志在本地被输出到控制台。
 
-在 Azure 中，[查询 Application Insights 跟踪](functions-monitoring.md#query-telemetry-data)以查看日志消息。 如果应用生成大量日志，则只有一个日志消息子集会被发送到 Application Insights。 [禁用采样](functions-monitoring.md#configure-sampling)以确保记录所有消息。
+在 Azure 中，[查询 Application Insights 跟踪](analyze-telemetry-data.md#query-telemetry-data)以查看日志消息。 如果应用生成大量日志，则只有一个日志消息子集会被发送到 Application Insights。 [禁用采样](configure-monitoring.md#configure-sampling)以确保记录所有消息。
 
 ### <a name="test-custom-handler-in-isolation"></a>以隔离方式测试自定义处理程序
 

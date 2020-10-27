@@ -1,15 +1,17 @@
 ---
 title: 快速入门：在 LUIS 门户中创建新应用
 description: 本快速入门将创建应用的基本组成部分以及意向和实体，并在 LUIS 门户中使用示例言语进行测试。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/07/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: 387ed4629094e0b7f43bd70bcfe9f6bb30a54023
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 69975b535887d5819d58382799e235f4bad335e1
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023686"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472521"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中创建新应用
 
@@ -29,7 +31,7 @@ ms.locfileid: "88023686"
    |设置名称| 值 | 目的|
    |--|--|--|
    |名称|`myEnglishApp`|唯一的 LUIS 应用名称<br>必填|
-   |环境|**英语**|用户的言语语言：**en-us**<br>必填|
+   |环境|**英语**|用户的言语语言： **en-us**<br>必填|
    |说明（可选）|`App made with LUIS Portal`|应用的说明<br>可选|
    |预测资源（可选） |-  |请不要选择。 LUIS 免费提供一个初学者密钥用于创作和发出 1,000 个预测终结点请求。 |
 
@@ -42,7 +44,7 @@ ms.locfileid: "88023686"
  1. 找工作和申请工作
  1. 查找工作申请表
 
-此应用的两个不同_意向_对应于以下意向：
+此应用的两个不同 _意向_ 对应于以下意向：
 
 |Intent|用户提供的文本示例<br>称为“言语”|
 |--|--|
@@ -158,7 +160,7 @@ ms.locfileid: "88023686"
    > [!div class="mx-imgBorder"]
    > ![在测试窗格中测试新言语的屏幕截图](./media/get-started-portal-build-app/test-new-utterance.png)
 
-   排名靠前的预测意向为 **FindForm**（正确），其置信度超过 90% (0.977)。 已提取“FormNumber”实体，其值为 hrf-234098。
+   排名靠前的预测意向为 **FindForm** （正确），其置信度超过 90% (0.977)。 已提取“FormNumber”实体，其值为 hrf-234098。
 
 ## <a name="clean-up-resources"></a>清理资源
 

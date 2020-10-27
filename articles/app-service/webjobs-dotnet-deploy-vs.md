@@ -39,7 +39,7 @@ ms.locfileid: "92170715"
 
 ## <a name="webjobs-as-net-framework-console-apps"></a>用作 .NET Framework 控制台应用的 WebJob  
 
-如果使用 Visual Studio 来部署启用了 WebJobs 的 .NET Framework 控制台应用项目，它会将运行时文件复制到 Web 应用中的相应文件夹（对于连续运行的 WebJobs，该文件夹为 *App_Data/jobs/continuous*，对于按计划运行或按需运行的 WebJobs，该文件夹为 *App_Data/jobs/triggered*）。
+如果使用 Visual Studio 来部署启用了 WebJobs 的 .NET Framework 控制台应用项目，它会将运行时文件复制到 Web 应用中的相应文件夹（对于连续运行的 WebJobs，该文件夹为 *App_Data/jobs/continuous* ，对于按计划运行或按需运行的 WebJobs，该文件夹为 *App_Data/jobs/triggered* ）。
 
 Visual Studio 会向启用了 WebJobs 的项目中添加以下项：
 

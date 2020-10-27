@@ -5,19 +5,19 @@ description: 用于路由的方案 - 任意位置到任意位置
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: conceptual
-origin.date: 08/03/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1edf24e8e2027f71302ca3b91bba3b341d44109c
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: d1fe64f98bd6e55c5bbdfec7e80778f1ec51fc3c
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246970"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472595"
 ---
 <!--Verified Successfully-->
 # <a name="scenario-any-to-any"></a>方案：任意位置到任意位置
@@ -38,11 +38,11 @@ ms.locfileid: "91246970"
 由于来自 VNet 和分支（VPN、ExpressRoute 和用户 VPN）的所有连接都具有相同的连接要求，因此需要单个路由表。 这样，所有的连接都将会关联，并将传播到同一个路由表，即 Default 路由表：
 
 * 虚拟网络：
-  * 关联的路由表：**Default**
-  * 传播到路由表：**Default**
+  * 关联的路由表： **Default**
+  * 传播到路由表： **Default**
 * 分支：
-  * 关联的路由表：**Default**
-  * 传播到路由表：**Default**
+  * 关联的路由表： **Default**
+  * 传播到路由表： **Default**
 
 有关虚拟中心路由的详细信息，请参阅[关于虚拟中心路由](about-virtual-hub-routing.md)。
 
@@ -69,5 +69,4 @@ ms.locfileid: "91246970"
 * 有关虚拟 WAN 的详细信息，请参阅[常见问题解答](virtual-wan-faq.md)。
 * 有关虚拟中心路由的详细信息，请参阅[关于虚拟中心路由](about-virtual-hub-routing.md)。
 
-<!-- Update_Description: new article about scenario any to any -->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

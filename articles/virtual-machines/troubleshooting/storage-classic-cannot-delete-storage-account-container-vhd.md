@@ -35,7 +35,7 @@ ms.locfileid: "92128189"
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 1. 删除经典虚拟机。
-2. 如果已选中“磁盘”复选框，则与页 Blob *.vhd 关联的**磁盘租约**（如上图所示）将会中断。 实际的页 Blob *.vhd 文件仍在存储帐户中存在。
+2. 如果已选中“磁盘”复选框，则与页 Blob *.vhd 关联的 **磁盘租约** （如上图所示）将会中断。 实际的页 Blob *.vhd 文件仍在存储帐户中存在。
 ![屏幕截图显示用于确认删除虚拟机的对话框。](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
 
 3. 中断磁盘租约后，可以删除页 Blob 本身。 删除存储帐户或容器中的所有“磁盘”资源后，可以删除该存储帐户或容器。
@@ -99,7 +99,7 @@ ms.locfileid: "92128189"
 #### <a name="azure-powershell"></a>Azure PowerShell 
 如果用户选择使用 PowerShell 进行删除，则会导致以下错误。 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob :远程服务器返回了错误：(412) Blob 中当前包含租约，但请求中未指定任何租约 ID。HTTP 状态代码：412 - HTTP 错误消息：Blob 中当前包含租约，但请求中未指定任何租约 ID。</span>
 

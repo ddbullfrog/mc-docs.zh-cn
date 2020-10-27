@@ -338,7 +338,7 @@ keyStore.load(
 
 1. 在 [AppDynamics.com](https://www.appdynamics.com/community/register/) 上创建一个 AppDynamics 帐户
 2. 从 AppDynamics 网站下载 Java 代理，文件名将类似于 AppServerAgent-x.x.x.xxxxx.zip
-3. 使用 [Kudu 控制台](https://github.com/projectkudu/kudu/wiki/Kudu-console)创建新目录 */home/site/wwwroot/apm*。
+3. 使用 [Kudu 控制台](https://github.com/projectkudu/kudu/wiki/Kudu-console)创建新目录 */home/site/wwwroot/apm* 。
 4. 将 Java 代理文件上传到 /home/site/wwwroot/apm 下的一个目录中。 代理的文件应位于 /home/site/wwwroot/apm/appdynamics 中。
 5. 在 Azure 门户中，浏览到你在应用服务中的应用程序并创建一个新的应用程序设置。
 
@@ -426,7 +426,7 @@ keyStore.load(
     </Context>
     ```
 
-3. 更新应用程序的 *web.xml*，以便在应用程序中使用该数据源。
+3. 更新应用程序的 *web.xml* ，以便在应用程序中使用该数据源。
 
     ```xml
     <resource-env-ref>

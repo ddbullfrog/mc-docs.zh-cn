@@ -475,10 +475,8 @@
               href: database/database-copy.md
             - name: 复制到 SQL 数据库
               href: database/replication-to-sql-database.md
-            - name: SQL 数据同步
-              items:
-                - name: 复制架构更改
-                  href: database/sql-data-sync-update-sync-schema.md
+            - name: 复制架构更改（数据同步）
+              href: database/sql-data-sync-update-sync-schema.md
         - name: 数据库分片
           items:
             - name: 升级客户端库
@@ -543,7 +541,7 @@
           href: database/az-cli-script-samples-content-guide.md?tabs=single-database
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=single-database
-        - name: Azure 资源管理器
+        - name: Azure Resource Manager
           href: database/arm-templates-content-guide.md?tabs=single-database
         - name: 代码示例
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
@@ -620,6 +618,10 @@
           items:
             - name: 概述
               href: managed-instance/management-operations-overview.md
+            - name: 监视操作
+              href: managed-instance/management-operations-monitor.md
+            - name: 取消操作
+              href: managed-instance/management-operations-cancel.md
             - name: API 参考
               href: managed-instance/api-references-create-manage-instance.md
         - name: 功能
@@ -636,6 +638,8 @@
               href: managed-instance/public-endpoint-overview.md
             - name: 审核
               href: managed-instance/auditing-configure.md
+            - name: 服务器信任组
+              href: managed-instance/server-trust-group-overview.md
     - name: 如何
       items:
         - name: 概述
@@ -680,7 +684,7 @@
           href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=managed-instance
-        - name: Azure 资源管理器
+        - name: Azure Resource Manager
           href: database/arm-templates-content-guide.md?tabs=managed-instance
         - name: 代码示例
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
@@ -710,9 +714,9 @@
                   href: virtual-machines/windows/backup-restore.md
                 - name: 用于还原的 Azure 存储
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
-                - name: Always On 可用性组
+                - name: 可用性组 (AG)
                   href: virtual-machines/windows/availability-group-overview.md
-            - name: 最佳实践
+            - name: 最佳做法
               items:
                 - name: 性能
                   href: virtual-machines/windows/performance-guidelines-best-practices.md
@@ -758,7 +762,7 @@
                       href: virtual-machines/windows/automated-backup.md
                     - name: 自动备份 (SQL 2014)
                       href: virtual-machines/windows/automated-backup-sql-2014.md
-                - name: Always On 可用性组
+                - name: 可用性组 (AG)
                   items:
                     - name: 手动配置
                       items:

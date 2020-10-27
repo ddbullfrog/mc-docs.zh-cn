@@ -39,9 +39,9 @@ Azure Active Directory (Azure AD) 是 Azure 的默认标识和访问管理服务
 
 - [定义 Azure AD 租户](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [标识和密钥管理](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
@@ -71,9 +71,9 @@ Azure Active Directory (Azure AD) 是 Azure 的默认标识和访问管理服务
 
 使用 Azure Key Vault 进行安全主体注册：authentication#authorize-a-security-principal-to-access-key-vault
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [标识和密钥管理](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -89,9 +89,9 @@ Azure AD 提供对 Azure 资源、云应用程序和本地应用程序的标识�
 
 使用 Azure AD 单一登录 (SSO) 管理你的组织在本地和云中的数据和资源，并对其进行安全的访问。 将你的所有用户、应用程序和设备连接到 Azure AD，以便实现无缝的安全访问，并实现更好的可见性和控制。 
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全体系结构](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -120,9 +120,9 @@ Azure AD 支持通过多重身份验证 (MFA) 和强无密码方法进行强身�
 
 - [Azure AD 默认密码策略](../../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全体系结构](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -161,9 +161,9 @@ Azure 高级威胁防护 (ATP) 是一种安全解决方案，可使用本地 Act
 
 - [Azure 高级威胁防护](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [应用程序安全性和 DevSecOps](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -181,9 +181,9 @@ Azure 高级威胁防护 (ATP) 是一种安全解决方案，可使用本地 Act
 
 - [常见条件访问策略](../../active-directory/conditional-access/concept-conditional-access-policy-common.md)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [标识和密钥管理](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -207,9 +207,9 @@ Azure 高级威胁防护 (ATP) 是一种安全解决方案，可使用本地 Act
 
 - [GitHub 机密扫描](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [应用程序安全性和 DevSecOps](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -229,9 +229,9 @@ Azure 高级威胁防护 (ATP) 是一种安全解决方案，可使用本地 Act
 
 - [Microsoft Cloud App 安全最佳做法](https://docs.microsoft.com/cloud-app-security/best-practices)
 
-**责任**：客户
+**责任** ：客户
 
-**客户安全利益干系人**（[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
+**客户安全利益干系人** （[了解详细信息](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
 - [安全体系结构](https://docs.microsoft.com/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

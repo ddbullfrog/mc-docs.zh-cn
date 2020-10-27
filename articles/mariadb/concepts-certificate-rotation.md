@@ -37,7 +37,7 @@ Azure Database for MariaDB 将更改通过 SSL 启用的客户端应用程序/�
 如果你使用的客户端将连接字符串提取出来，请查看客户端的文档，以了解它是否验证证书。
 若要了解 Azure Database for MariaDB sslmode，请查看 [SSL 模式说明](concepts-ssl-connection-security.md#default-settings)。
 
-若要避免应用程序的可用性因证书被意外吊销而中断，或要更新已吊销的证书，请参阅[ **“我需要做什么来维护连接”** ](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)部分。
+若要避免应用程序的可用性因证书被意外吊销而中断，或要更新已吊销的证书，请参阅 [ **“我需要做什么来维护连接”** ](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)部分。
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>我需要做什么来维护连接
 
@@ -144,7 +144,7 @@ Azure Database for MariaDB 使用的这些证书是由受信任的证书颁发�
 若要验证是否正在使用 SSL 连接来连接到服务器，请参阅 [SSL 验证](howto-configure-ssl.md#verify-the-ssl-connection)。
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14.如果我的证书文件中已有 DigiCertGlobalRootG2，是否需要执行任何操作？
-否。 如果你的证书文件已经有 **DigiCertGlobalRootG2**，则无需执行任何操作。
+否。 如果你的证书文件已经有 **DigiCertGlobalRootG2** ，则无需执行任何操作。
 
 ### <a name="15-what-if-i-have-further-questions"></a>15.如果我有其他问题，该怎么办？
 如果你有支持计划并需要技术帮助，请[联系我们](https://support.azure.cn/zh-cn/support/contact/)。

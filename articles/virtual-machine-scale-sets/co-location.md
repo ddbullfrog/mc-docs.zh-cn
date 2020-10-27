@@ -10,11 +10,11 @@ ms.date: 08/31/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: b061ed3d9808373e7530ef6d7f58cc8ca42ced7e
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414085"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211596"
 ---
 # <a name="co-location"></a>归置
 

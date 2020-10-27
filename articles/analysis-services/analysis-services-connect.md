@@ -5,18 +5,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 09/04/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 5e94510e630e9f09215e49f67cfbe28ec4cb4fd1
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 59ddda8d6fb95d4609e22e6a03feea46cd3173fb
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937199"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470152"
 ---
 # <a name="connecting-to-servers"></a>连接到服务器
 
@@ -40,11 +40,11 @@ ms.locfileid: "91937199"
 ```
 <protocol>://<region>/<servername>
 ```
- 其中，协议是字符串 **asazure**，区域是在其中创建服务器的 URI（例如 chinanorth.asazure.chinacloudapi.cn），服务器名称是该区域中的唯一服务器名称。
+ 其中，协议是字符串 **asazure** ，区域是在其中创建服务器的 URI（例如 chinanorth.asazure.chinacloudapi.cn），服务器名称是该区域中的唯一服务器名称。
 
 ### <a name="get-the-server-name"></a>获取服务器名称
 
-在 **Azure 门户**中，单击“服务器”>“概述” > “服务器名称”，并复制整个服务器名称。 如果组织中的其他用户也要连接此服务器，则可以将此服务器名称与他们共享。 指定服务器名称时，必须使用完整路径。
+在 **Azure 门户** 中，单击“服务器”>“概述” > “服务器名称”，并复制整个服务器名称。 如果组织中的其他用户也要连接此服务器，则可以将此服务器名称与他们共享。 指定服务器名称时，必须使用完整路径。
 
 :::image type="content" source="./media/analysis-services-deploy/aas-deploy-get-server-name.png" alt-text="在 Azure 中获取服务器名称":::
 

@@ -13,18 +13,18 @@ origin.date: 06/28/2019
 ms.date: 04/06/2020
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 0ffe989b56c0d8b9f1b5805cf464e7fd7d4ad4fa
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2a6a8db1896036aee62f4eeb2311bed6269f6ae0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80343609"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472669"
 ---
-# <a name="tutorial-implement-a-device-firmware-update-process"></a>教程：实施设备固件更新过程
+# <a name="tutorial-implement-a-device-firmware-update-process"></a>教程：实现设备固件更新过程
 
 可能需要更新连接到 IoT 中心的设备上的固件。 例如，可能需要向固件添加新功能，或者需要应用安全修补程序。 在许多 IoT 方案中，以物理方式访问设备并以手动方式对设备应用固件更新是不现实的。 本教程介绍如何通过连接到中心的后端应用程序以远程方式启动并监视固件更新过程。
 
-为了创建并监视固件更新过程，本教程中的后端应用程序在  IoT 中心创建了一个配置。 IoT 中心[自动设备管理](iot-hub-auto-device-config.md)使用此配置在所有冷却器设备上更新一组设备孪生所需属性。  所需属性指定所需固件更新的详细信息。 冷却器设备在运行固件更新过程时，会使用设备孪生报告属性将其状态报告给后端应用程序。  后端应用程序可以使用此配置监视从设备发送的报告属性，并跟踪固件更新过程至完成：
+为了创建并监视固件更新过程，本教程中的后端应用程序在 IoT 中心创建了一个配置。 IoT 中心[自动设备管理](./iot-hub-automatic-device-management.md)使用此配置在所有冷却器设备上更新一组设备孪生所需属性。 所需属性指定所需固件更新的详细信息。 冷却器设备在运行固件更新过程时，会使用设备孪生报告属性将其状态报告给后端应用程序。 后端应用程序可以使用此配置监视从设备发送的报告属性，并跟踪固件更新过程至完成：
 
 ![固件更新过程](media/tutorial-firmware-update/Process.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "80343609"
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 本快速入门中运行的两个示例应用程序是使用 Node.js 编写的。 开发计算机上需要有 Node.js v10.x.x 或更高版本。
 
@@ -101,7 +101,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>启动固件更新
 
-在后端应用程序中创建[自动设备管理配置](iot-hub-automatic-device-management.md#create-a-configuration)即可在其 **devicetype** 标记为冷却器的所有设备上开始固件更新过程。 本部分介绍以下操作：
+在后端应用程序中创建 [自动设备管理配置](iot-hub-automatic-device-management.md#create-a-configuration)即可在其 **devicetype** 标记为冷却器的所有设备上开始固件更新过程。 本部分介绍以下操作：
 
 * 在后端应用程序中创建配置。
 * 监视作业，直至其完成。
@@ -399,7 +399,7 @@ node ServiceClient.js "{your service connection string}"
 
 ![后端应用程序](./media/tutorial-firmware-update/BackEnd2.png)
 
-由于自动设备配置在创建时运行，然后每五分钟运行一次，因此你可能看不到发送到后端应用程序的每个状态更新。 也可在门户中查看这些指标，具体说来就是在 IoT 中心的“自动设备管理 -> IoT 设备配置”部分： 
+由于自动设备配置在创建时运行，然后每五分钟运行一次，因此你可能看不到发送到后端应用程序的每个状态更新。 也可在门户中查看这些指标，具体说来就是在 IoT 中心的“自动设备管理 -> IoT 设备配置”部分：
 
 ![在门户中查看配置](./media/tutorial-firmware-update/portalview.png)
 
@@ -407,7 +407,7 @@ node ServiceClient.js "{your service connection string}"
 
 如果你打算完成下一篇教程，请保留资源组和 IoT 中心，以便到时重复使用。
 
-如果不再需要 IoT 中心，请在门户中删除该中心与资源组。 为此，请选择包含 IoT 中心的 **tutorial-iot-hub-rg** 资源组，然后单击“删除”  。
+如果不再需要 IoT 中心，请在门户中删除该中心与资源组。 为此，请选择包含 IoT 中心的 **tutorial-iot-hub-rg** 资源组，然后单击“删除”。
 
 或者使用 CLI：
 

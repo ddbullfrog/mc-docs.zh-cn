@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/22/2018
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2649a15a0427383d02d028fdc4d2c85dd85d2300
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: d1d4e9dd43046346b248ff5789c27789b70cd741
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395241"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472685"
 ---
 <!-- Region Map  West US China North, West Europe China North 2, and East Asia China East-->
 # <a name="nested-traffic-manager-profiles"></a>嵌套式流量管理器配置文件
@@ -113,7 +113,7 @@ ms.locfileid: "91395241"
 
 ## <a name="faqs"></a>常见问题
 
-* [如何配置嵌套式配置文件？](/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+* [如何配置嵌套式配置文件？](/traffic-manager/traffic-manager-faqs#traffic-manager-nested-profiles)
 
 * [流量管理器支持多少层嵌套？](/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
 

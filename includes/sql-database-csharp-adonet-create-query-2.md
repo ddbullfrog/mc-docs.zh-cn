@@ -3,14 +3,14 @@ author: WenJason
 ms.service: sql-database
 ms.topic: include
 origin.date: 12/10/2018
-ms.date: 01/14/2019
+ms.date: 10/29/2020
 ms.author: v-jay
-ms.openlocfilehash: 2798b994a390ab3c49bda0a8c888ff9fc766aad7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6a1906ec869b0025958229af673ecd785feb0641
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63858863"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472183"
 ---
 ## <a name="c-program-example"></a>C# 程序示例
 
@@ -25,9 +25,9 @@ ms.locfileid: "63858863"
 
 ### <a name="entity-relationship-diagram-erd"></a>实体关系图 (ERD)
 
-`CREATE TABLE` 语句涉及 **REFERENCES** 关键字，该关键字用于在两个表之间创建外键 (FK) 关系。  如果使用 *tempdb*，请通过一对前导短划线注释掉 `--REFERENCES` 关键字。
+`CREATE TABLE` 语句涉及 **REFERENCES** 关键字，该关键字用于在两个表之间创建外键 (FK) 关系。 如果使用 *tempdb* ，请通过一对前导短划线注释掉 `--REFERENCES` 关键字。
 
-ERD 显示两个表之间的关系。 **tabEmployee.DepartmentCode** 子列中的值限制为来自 **tabDepartment.DepartmentCode** 父列。  
+ERD 显示两个表之间的关系。 **tabEmployee.DepartmentCode** 子列中的值限制为来自 **tabDepartment.DepartmentCode** 父列。 
 
 ![ERD，显示外键](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
@@ -38,7 +38,7 @@ ERD 显示两个表之间的关系。 **tabEmployee.DepartmentCode** 子列中�
 
 该 C# 程序在逻辑上是一个 .cs 文件，在物理上划分成多个代码块，使每个块更易于理解。 若要编译和运行该程序，请执行以下步骤：
 
-1. 在 Visual Studio 中创建 C# 项目。 项目类型应该是“控制台”，可在“模板” > “Visual C#” > “Windows 桌面” > “控制台应用(.NET Framework)”下找到。     
+1. 在 Visual Studio 中创建 C# 项目。 项目类型应该是“控制台”，可在“模板” > “Visual C#” > “Windows 桌面” > “控制台应用(.NET Framework)”下找到。   
 
 1. 在 *Program.cs* 文件中，通过以下步骤替换起始代码行：
 
@@ -46,14 +46,14 @@ ERD 显示两个表之间的关系。 **tabEmployee.DepartmentCode** 子列中�
 
     1. 更改 `Main` 方法中的以下值：
 
-        -  cb.DataSource
+        - cb.DataSource
         - *cb.UserID*
-        -  cb.Password
+        - cb.Password
         - *cb.InitialCatalog*
 
-1. 验证是否已引用程序集 *System.Data.dll*。 若要进行验证，请在“解决方案资源管理器”窗格中展开“引用”节点。  
+1. 验证是否已引用程序集 *System.Data.dll* 。 若要进行验证，请在“解决方案资源管理器”窗格中展开“引用”节点。 
 
-1. 若要在 Visual Studio 中生成并运行该程序，请选择“启动”按钮。  报告输出将显示在程序窗口中，不过，GUID 值根据测试运行的不同而异。
+1. 若要在 Visual Studio 中生成并运行该程序，请选择“启动”按钮。 报告输出将显示在程序窗口中，不过，GUID 值根据测试运行的不同而异。
 
     ```Output
     =================================
@@ -81,7 +81,7 @@ ERD 显示两个表之间的关系。 **tabEmployee.DepartmentCode** 子列中�
     View the report output here, then press any key to end the program...
     ```
 
-<a name="cs_1_connect"/>
+<a name="cs_1_connect"></a>
 
 ### <a name="connect-to-sql-database-using-adonet"></a>使用 ADO.NET 连接到 SQL 数据库
 
@@ -131,7 +131,7 @@ namespace csharp_db_test
         }
 ```
 
-<a name="cs_2_return"/>
+<a name="cs_2_return"></a>
 
 ### <a name="methods-that-return-t-sql-statements"></a>返回 T-SQL 语句的方法
 
@@ -239,7 +239,7 @@ static string Build_6_Tsql_SelectEmployees()
 }
 ```
 
-<a name="cs_3_submit"/>
+<a name="cs_3_submit"></a>
 
 ### <a name="submit-t-sql-to-the-database"></a>将 T-SQL 提交到数据库
 

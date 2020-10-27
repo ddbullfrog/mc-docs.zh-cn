@@ -1,23 +1,18 @@
 ---
 title: 教程：审核终结点话语 - LUIS
-titleSuffix: Azure Cognitive Services
-description: 本教程介绍如何通过验证或更正 LUIS 不确定的、通过 LUIS HTTP 终结点收到的言语来改进应用预测。 某些陈述可能需要针对意向进行验证，而另一些陈述可能需要针对实体进行验证。
+description: 在本教程中，通过验证或更正通过 LUIS HTTP 终结点收到的 LUIS 不确定的话语来改进应用预测。 某些陈述可能需要针对意向进行验证，而另一些陈述可能需要针对实体进行验证。
 services: cognitive-services
-author: lingliw
-manager: digimobile
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 12/17/2019
-ms.date: 1/2/2019
-ms.author: v-lingwu
-ms.openlocfilehash: f54c5bd5804be91a0f5e59fdf1cad0892067bb38
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: c4236d2a7ae391c5bff5a39507bfc9b7031c8133
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75857405"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472350"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>教程：通过查看终结点话语来修复不确定的预测
 本教程介绍如何通过验证或更正 LUIS 不确定的、通过 LUIS HTTPS 终结点收到的言语来改进应用预测。 在日常的计划性 LUIS 维护过程中，应该评审终结点言语。
@@ -41,21 +36,22 @@ ms.locfileid: "75857405"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>导入示例应用
+## <a name="download-json-file-for-app"></a>下载适用于应用的 JSON 文件
 
-使用以下步骤导入应用。
+下载并保存[应用 JSON 文件](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true)。
 
-1.  下载并保存[应用 JSON 文件](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true)。
-
-1. 在 [LUIS 预览版门户](https://luis.azure.cn)上，将该 .json 文件导入到新应用中。
-
-1. 在“管理”  部分的“版本”  选项卡上，克隆版本并将其命名为 `review`。
-
-    > [!TIP]
-    > 在修改应用之前，最佳做法是克隆到新版本。 完成针对某个版本的操作后，将该版本导出为 .json 或 .lu 文件，然后将文件签入源代码管理系统中。
+## <a name="import-json-file-for-app"></a>导出适用于应用的 JSON 文件
 
 
-1. 若要训练应用，请选择“训练”  。
+1. 在 [LUIS 门户](https://luis.azure.cn)上的“我的应用”页上，选择“+ 新建对话应用”，然后选择“导入为 JSON”。 查找上一步中保存的 JSON 文件。 无需更改应用的名称。 选择“完成”
+
+1. 选择“生成”，然后选择“意向”，以查看意向（LUIS 应用的主要构建基块） 。
+
+    :::image type="content" source="media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png" alt-text="从“版本”页切换到“意向”页。":::
+
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>训练应用以将实体更改应用于应用
+
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>发布应用以从 HTTP 终结点访问它
 
@@ -67,7 +63,7 @@ ms.locfileid: "75857405"
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. 使用终结点添加以下言语。
+1. 转到地址栏中 URL 的末尾，将 _YOUR_QUERY_HERE_ 替换为下表中的言语。 对于每个言语，请提交言语并获取结果。 然后，将结尾的言语替换为下一个言语。
 
     |终结点言语|已调整意向|
     |--|--|
@@ -85,23 +81,19 @@ ms.locfileid: "75857405"
 
 ## <a name="review-endpoint-utterances"></a>查看终结点话语
 
-评审终结点言语，使意向经过适当的调整。 尽管在所有版本中只需评审单个言语池，但适当调整意向的过程只会将示例言语添加到当前的活动模型。 
+评审终结点言语，使意向经过适当的调整。 尽管在所有版本中只需评审单个言语池，但适当调整意向的过程只会将示例言语添加到当前的活动模型。
 
-1. 在门户的“生成”部分，从左侧导航栏中选择“评审终结点言语”。   列表会筛选出 **ApplyForJob** 意向。
+1. 在门户的“生成”部分，从左侧导航栏中选择“评审终结点言语”。  列表会筛选出 **ApplyForJob** 意向。
 
-    > [!div class="mx-imgBorder"]
-    > ![左侧导航栏中“评审终结点言语”按钮的屏幕截图](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="从“版本”页切换到“意向”页。":::
 
-    此话语 (`I'm looking for a job with Natural Language Processing`) 的意向不正确。
+    `I'm looking for a job with Natural Language Processing` 这一言语不在正确的意向 GetJobInformation 中。 由于两个意向中作业名称和谓词的相似性，因此它被错误预测为 ApplyForJob。
 
-1.  若要调整此言语，请在言语行上，选择正确的“已调整意向”：`GetJobInformation`。  选择勾选标记将更改的言语添加到应用。
-
-    > [!div class="mx-imgBorder"]
-    > ![左侧导航栏中“评审终结点言语”按钮的屏幕截图](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
+1.  若要调整此言语，请选择正确的“已调整意向”：`GetJobInformation`。 选择勾选标记将更改的言语添加到应用。
 
     评审此意向中的剩余言语，并根据需要更正已调整的意向。 使用本教程中的初始言语表来查看已调整的意向。
 
-    “评审终结点言语”列表应不再包含已更正的言语。  如果显示了其他言语，请继续在列表中更正已调整的意向，直到列表为空。
+    “评审终结点言语”列表应不再包含已更正的言语。 如果显示了其他言语，请继续在列表中更正已调整的意向，直到列表为空。
 
     对实体标签进行的任何更正是在调整意向后，通过“意向详细信息”页完成的。
 
@@ -111,9 +103,9 @@ ms.locfileid: "75857405"
 
 若要验证适当调整的示例言语是否已改进应用的预测，请尝试使用一个与已更正的言语接近的言语。
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. 将光标定位到地址中 URL 的末尾，并输入 `Are there any natural language processing jobs in my department right now?`。 最后一个查询字符串参数为 `q`，表示陈述**查询**。
+1. 转到地址栏中 URL 的末尾，将 _YOUR_QUERY_HERE_ 替换为 `Are there any natural language processing jobs in my department right now?`。
 
    ```json
     {
@@ -122,37 +114,37 @@ ms.locfileid: "75857405"
             "topIntent": "GetJobInformation",
             "intents": {
                 "GetJobInformation": {
-                    "score": 0.903607249
-                },
-                "EmployeeFeedback": {
-                    "score": 0.0312187821
+                    "score": 0.901367366
                 },
                 "ApplyForJob": {
-                    "score": 0.0230276529
+                    "score": 0.0307973567
+                },
+                "EmployeeFeedback": {
+                    "score": 0.0296942145
                 },
                 "MoveEmployee": {
-                    "score": 0.008322801
-                },
-                "Utilities.Stop": {
-                    "score": 0.004480808
+                    "score": 0.00739785144
                 },
                 "FindForm": {
-                    "score": 0.00425248267
+                    "score": 0.00449316856
+                },
+                "Utilities.Stop": {
+                    "score": 0.00417657848
                 },
                 "Utilities.StartOver": {
-                    "score": 0.004224336
+                    "score": 0.00407167152
                 },
                 "Utilities.Help": {
-                    "score": 0.00373591436
+                    "score": 0.003662492
                 },
                 "None": {
-                    "score": 0.0034621188
+                    "score": 0.00335733569
                 },
                 "Utilities.Cancel": {
-                    "score": 0.00230977475
+                    "score": 0.002225436
                 },
                 "Utilities.Confirm": {
-                    "score": 0.00112078607
+                    "score": 0.00107437756
                 }
             },
             "entities": {
@@ -168,7 +160,7 @@ ms.locfileid: "75857405"
                                 "timex": "PRESENT_REF",
                                 "resolution": [
                                     {
-                                        "value": "2019-12-05 23:23:53"
+                                        "value": "2020-07-02 21:45:50"
                                     }
                                 ]
                             }
@@ -219,7 +211,7 @@ ms.locfileid: "75857405"
     }
    ```
 
-   适当调整不确定的言语后，将会预测正确的意向并返回**较高的评分**。
+   适当调整不确定的言语后，将会预测正确的意向并返回 **较高的评分** 。
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>是否可以通过添加更多的表述来代替审核？
 你可能会想，为何不添加更多的示例表述呢？ 审核终结点表述的目的是什么？ 在实际的 LUIS 应用中，终结点表述来自各个用户，其遣词造句方式与你并不相同。 如果同样的词汇和句式多次使用，则原始预测的百分比会更高。
@@ -237,7 +229,4 @@ ms.locfileid: "75857405"
 
 > [!div class="nextstepaction"]
 > [了解如何使用模式](luis-tutorial-pattern.md)
-
-
-
 

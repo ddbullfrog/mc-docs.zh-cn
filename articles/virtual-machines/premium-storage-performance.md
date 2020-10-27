@@ -330,9 +330,9 @@ Azure 高级存储提供了多种大小，因此你可以选择最适合需求�
 
 <!--Not Available on FEATURE ultra disks-->
 
-* 对于 **reiserFS**，请使用 `barrier=none` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier=flush`。）
-* 对于 **ext3/ext4**，请使用 `barrier=0` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier=1`。）
-* 对于 **XFS**，请使用 `nobarrier` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier`。）
+* 对于 **reiserFS** ，请使用 `barrier=none` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier=flush`。）
+* 对于 **ext3/ext4** ，请使用 `barrier=0` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier=1`。）
+* 对于 **XFS** ，请使用 `nobarrier` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier`。）
 * 对于缓存设置为 **ReadWrite** 的高级存储磁盘，请启用屏障来实现写入持久性。
 * 若要在重新启动 VM 后保留卷标，必须在 /etc/fstab 中更新对磁盘的全局唯一标识符 (UUID) 引用。 有关详细信息，请参阅[将托管磁盘添加到 Linux VM](./linux/add-disk.md)。
 

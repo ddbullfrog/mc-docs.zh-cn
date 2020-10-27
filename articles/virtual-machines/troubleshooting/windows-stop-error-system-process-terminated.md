@@ -33,7 +33,7 @@ ms.locfileid: "92128749"
 
 使用[启动诊断](/virtual-machines/troubleshooting/boot-diagnostics)查看 VM 的屏幕截图时，屏幕截图将显示 OS 在启动过程中遇到错误的消息，并显示以下消息：
 
-你的电脑遇到问题，需要重启 **。我们将收集一些错误信息，然后你就可以重启。（已完成 ##%）如果想了解更多信息，可以稍后联机搜索以下错误：0xC000021a**。
+你的电脑遇到问题，需要重启 **。我们将收集一些错误信息，然后你就可以重启。（已完成 ##%）如果想了解更多信息，可以稍后联机搜索以下错误：0xC000021a** 。
 
     ![Figure 1 displays error code #0xC000021A  with the message "Your PC ran into a problem and needs to restart. We're just collecting some error info, and then you can restart.".](./media/windows-stop-error-system-process-terminated/1-pc-problem-restart.png)
 
