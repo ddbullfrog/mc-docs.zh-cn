@@ -71,7 +71,7 @@ ms.locfileid: "92170510"
 
 1. 在 VS Code 的“AZURE 应用服务”资源管理器中，选择蓝色的向上箭头图标，将应用部署到 Azure。 （也可以从“命令面板”调用相同的命令 (**Ctrl**+**Shift**+**P**)，方法是键入“部署到 Web 应用”，并选择“Azure 应用服务: 部署到 Web 应用”）。
 
-    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。&quot;:::
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。":::
         
 1. 选择 *nodejs-docs-hello-world* 文件夹。
 
@@ -143,7 +143,7 @@ export HTTP_PROXY=http://username:password@proxy:8080
 
 1. 出现提示时，请选择启用日志记录并重启应用程序。 重启应用后，VS Code 输出窗口将会打开，其中包含与日志流建立的连接。 
 
-    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。&quot;:::
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。":::
         
 1. 选择 *nodejs-docs-hello-world* 文件夹。
 
@@ -291,7 +291,7 @@ code .
 
 在“AZURE 应用服务”资源管理器中，选择蓝色的向上箭头图标，将应用部署到 Azure。 
 
-:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。&quot;:::
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。":::
         
 1. 选择 *nodejs-docs-hello-world* 文件夹。
 
@@ -334,7 +334,7 @@ code .
 
 1. 当系统提示你更新配置以在目标服务器上运行 `npm install` 时，选择“是”。  随后将部署应用。
 
-    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。&quot;:::
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。":::
         
 1. 选择 *nodejs-docs-hello-world* 文件夹。
 
@@ -364,7 +364,7 @@ code .
 
 1. 部署开始后，系统会提示更新工作区，使以后的部署自动针对相同的应用服务 Web 应用。 选择“是”，以确保将更改部署到正确的应用。 
 
-    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。&quot;:::
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。":::
         
 1. 选择 *nodejs-docs-hello-world* 文件夹。
 
@@ -420,7 +420,7 @@ code .
 
 ![查看流日志](./media/quickstart-nodejs/view-logs.png)
 
-:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。&quot;:::
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="VS Code 中的 Azure 应用服务的屏幕截图，显示已选中蓝色箭头图标。":::
         
 1. 选择 *nodejs-docs-hello-world* 文件夹。
 
