@@ -28180,7 +28180,13 @@
             "source_path": "articles/cognitive-services/Translator/languages.md",
             "redirect_url": "/cognitive-services/Translator/language-support",
             "redirect_document_id": false
-        }
+        },
+    {
+      "source_path": "articles/load-balancer/load-balancer-security-controls.md",
+      "redirect_url": "/load-balancer/security-baseline",
+      "redirect_document_id": false
+    }
+
 
 
 
