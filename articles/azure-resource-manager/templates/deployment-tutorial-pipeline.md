@@ -252,7 +252,7 @@ azuredeploy.json 已添加到本地存储库。 下一步，将模板上传到�
 1. 在 Visual Studio Code 或任何文本编辑器中，打开本地存储库中的 **linkedStorageAccount.json**。
 1. 将“storageAccountType”的“defaultValue”更新为“Standard_GRS”  。 请参阅下面的屏幕截图：
 
-    :::image type="content" source="./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-update-yml.png" alt-text="Azure 资源管理器 Azure DevOps Azure Pipelines 创建 GitHub 存储库"
+    :::image type="content" source="./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-update-yml.png" alt-text="Azure 资源管理器 Azure DevOps Azure Pipelines 创建 GitHub 存储库":::
     git push origin master
     ```
 
