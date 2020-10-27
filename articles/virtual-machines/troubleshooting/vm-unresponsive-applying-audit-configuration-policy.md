@@ -66,7 +66,7 @@ ms.locfileid: "92127834"
 1. 在修复 VM 上，打开“注册表编辑器”。
 1. 找到“HKEY_LOCAL_MACHINE”项，然后从菜单中选择“文件”>“加载配置单元” 。
 
-    :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/3.png" alt-text="注册表编辑器中用于加载配置单元的导航。&quot;:::
+    :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/3.png" alt-text="注册表编辑器中用于加载配置单元的导航。":::
 
     - 可以使用加载配置单元从脱机系统加载注册表项。 在这种情况下，系统是附加到修复 VM 的受损磁盘。
     - 系统范围内的设置存储在 HKEY_LOCAL_MACHINE 上，可以缩写为 HKLM 。
@@ -102,7 +102,7 @@ ms.locfileid: "92127834"
 
         - 在该命令中，将 `<BOOT PARTITON>` 替换为附加磁盘中包含引导文件夹的分区驱动器号。
 
-            :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/4.png" alt-text="注册表编辑器中用于加载配置单元的导航。&quot;:::
+            :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/4.png" alt-text="注册表编辑器中用于加载配置单元的导航。":::
 
     - 可以使用加载配置单元从脱机系统加载注册表项。 在这种情况下，系统是附加到修复 VM 的受损磁盘。
     - 系统范围内的设置存储在 HKEY_LOCAL_MACHINE 上，可以缩写为 HKLM 。
