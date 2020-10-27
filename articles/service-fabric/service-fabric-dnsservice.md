@@ -43,7 +43,7 @@ DNS 服务不支持动态端口。 若要解析动态端口上公开的服务，
 
 使用门户创建群集时，默认情况下，在“群集配置”菜单的“包括 DNS 服务”复选框中启用 DNS 服务   ：
 
-:::image type="content" source="./media/service-fabric-dnsservice/enable-dns-service.png" alt-text="图中显示了 DNS 服务如何将 DNS 名称映射到服务名称（针对无状态服务）。"
+:::image type="content" source="./media/service-fabric-dnsservice/enable-dns-service.png" alt-text="图中显示了 DNS 服务如何将 DNS 名称映射到服务名称（针对无状态服务）。":::
                    }
                  ]
                },
