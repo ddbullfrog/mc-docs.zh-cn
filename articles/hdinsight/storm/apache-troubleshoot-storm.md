@@ -15,11 +15,11 @@ origin.date: 11/08/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
 ms.openlocfilehash: 24ac0f78de9389e323e1de4c6d75c7fa1eeb60c2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291567"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211382"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Storm 进行故障排除
 
@@ -37,7 +37,7 @@ ms.locfileid: "79291567"
 ### <a name="direct-link"></a>直接链接
 可通过以下 URL 访问 Storm UI：
 
-https://\<群集 DNS 名称\>/stormui
+https://\<cluster DNS name\>/stormui
 
 
 
