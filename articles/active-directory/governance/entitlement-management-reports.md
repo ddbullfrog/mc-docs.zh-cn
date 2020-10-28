@@ -17,11 +17,11 @@ ms.author: v-junlch
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9afd1d1d0edd3971af4513425b806e5d4d0c338c
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947337"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211626"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中查看报表和日志
 
