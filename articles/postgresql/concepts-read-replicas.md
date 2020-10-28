@@ -5,31 +5,31 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/10/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 72774d23cfd8bf077c8c16331d4eb5b534f9f341
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+origin.date: 10/15/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: e6517c5bb7ecfa092440e21f310523fad222b79c
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512918"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470024"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的只读副本
 
-使用只读副本功能可将数据从 Azure Database for PostgreSQL 服务器复制到只读服务器。 可将主服务器中的数据复制到最多 5 个副本。 副本是使用 PostgreSQL 引擎的本机复制技术以异步方式更新的。
+使用只读副本功能可将数据从 Azure Database for PostgreSQL 服务器复制到只读服务器。 可将主服务器中的数据最多复制到 5 个副本。 副本是使用 PostgreSQL 引擎的本机复制技术以异步方式更新的。
 
 副本是新的服务器，可以像管理普通的 Azure Database for PostgreSQL 服务器一样对其进行管理。 每个只读副本按照预配计算资源的 vCore 数量以及每月 GB 存储量计费。
 
 了解如何[创建和管理副本](howto-read-replicas-portal.md)。
 
 ## <a name="when-to-use-a-read-replica"></a>何时使用只读副本
-只读副本功能可帮助改善读取密集型工作负荷的性能与规模。 读取工作负载可以与副本服务器隔离，而写入工作负载可以定向到主服务器。
+只读副本功能可帮助改善读取密集型工作负荷的性能与规模。 “读取”工作负载可以隔离到副本，而“写入”工作负载可以定向到主服务器。
 
 常见方案是让 BI 和分析工作负载将只读副本用作报告的数据源。
 
-由于副本是只读的，它们不能直接缓解主服务器上的写入容量负担。 此功能并非面向写入密集型工作负荷。
+由于副本是只读的，因此它们不能直接减少主服务器上的写入容量负担。 此功能并非面向写入密集型工作负荷。
 
-只读副本功能使用 PostgreSQL 本机异步复制。 该功能不适用于同步复制方案。 主服务器与副本之间存在明显的延迟。 副本上的数据最终将与主服务器上的数据保持一致。 对于能够适应这种延迟的工作负荷，可以使用此功能。
+只读副本功能使用 PostgreSQL 本机异步复制。 该功能不适用于同步复制方案。 主服务器与副本之间将存在明显的延迟。 副本上的数据最终将与主服务器上的数据保持一致。 对于能够适应这种延迟的工作负荷，可以使用此功能。
 
 ## <a name="cross-region-replication"></a>跨区域复制
 可以在与主服务器不同的区域中创建只读副本。 跨区域复制对于灾难恢复规划或使数据更接近用户等方案非常有用。
@@ -37,7 +37,7 @@ ms.locfileid: "89512918"
 >[!NOTE]
 > 基本层服务器仅支持相同区域复制。
 
-可以在任何 [Azure Database for PostgreSQL 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mysql)中设置主服务器。 主服务器可以在其配对区域中有一个副本。
+你可以在任何 [Azure Database for PostgreSQL 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mysql)中拥有主服务器。 主服务器可以在其配对区域中有一个副本。
 
 ### <a name="paired-regions"></a>配对区域
 如果你使用跨区域副本进行灾难恢复规划，建议你在配对区域而不是其他某个区域中创建副本。 配对区域可避免同时更新，并优先考虑物理隔离和数据驻留。  
@@ -54,9 +54,9 @@ ms.locfileid: "89512918"
 ## <a name="connect-to-a-replica"></a>连接到副本
 创建副本时，该副本不会继承主服务器的防火墙规则或 VNet 服务终结点。 必须单独为副本设置这些规则。
 
-副本从主服务器继承其管理员帐户。 主服务器上的所有用户帐户将复制到只读副本。 只能使用主服务器上可用的用户帐户连接到只读副本。
+副本从主服务器继承管理员帐户。 主服务器上的所有用户帐户将复制到只读副本。 只能使用主服务器上可用的用户帐户连接到只读副本。
 
-可以使用主机名和有效的用户帐户连接到副本，就像在常规的 Azure Database for PostgreSQL 服务器上连接一样。 对于名称为 **my replica**、管理员用户名为 **myadmin** 的服务器，可以使用 psql 连接到副本：
+可以使用主机名和有效的用户帐户连接到副本，就像在常规的 Azure Database for PostgreSQL 服务器上连接一样。 对于名称为 **my replica** 、管理员用户名为 **myadmin** 的服务器，可以使用 psql 连接到副本：
 
 ```
 psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d postgres
@@ -65,9 +65,9 @@ psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d pos
 在提示符下，输入用户帐户的密码。
 
 ## <a name="monitor-replication"></a>监视复制
-Azure Database for PostgreSQL 提供了两个用于监视复制的指标。 这两个指标是**副本的最大滞后时间**和**副本滞后时间**。 若要了解如何查看这些指标，请参阅[只读副本操作指南文章](howto-read-replicas-portal.md)的“监视副本”部分。
+Azure Database for PostgreSQL 提供了两个用于监视复制的指标。 这两个指标是 **副本的最大滞后时间** 和 **副本滞后时间** 。 若要了解如何查看这些指标，请参阅[只读副本操作指南文章](howto-read-replicas-portal.md)的“监视副本”部分。
 
-“副本的最大滞后时间”指标显示主服务器与滞后时间最长的副本之间的滞后时间（以字节为单位）。 此指标仅适用于主服务器。
+“副本的最大滞后时间”指标显示主服务器与滞后时间最长的副本之间的滞后时间（以字节为单位）。 此指标仅在主服务器上可用，且仅当至少有一个只读副本已连接到主服务器时才可用。
 
 “副本滞后时间”指标显示的是自上次重放事务以来所经历的时间。 如果主服务器上未发生任何事务，则该指标会反映此滞后时间。 此指标仅适用于副本服务器。 “副本滞后时间”是从 `pg_stat_wal_receiver` 视图计算得出的：
 
@@ -103,28 +103,31 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > 独立服务器不能再次成为副本。
 > 在只读副本上停止复制之前，请确保副本包含所需的全部数据。
 
-停止复制后，副本会丢失指向其以前的主服务器和其他副本的所有链接。
+停止复制后，副本会失去指向其以前的主服务器和其他副本的所有链接。
 
 了解如何[停止复制到副本](howto-read-replicas-portal.md)。
 
 ## <a name="failover"></a>故障转移
 在主服务器与副本服务器之间无法自动进行故障转移。 
 
-由于复制是异步的，因此在主体和副本之间存在延迟。 延迟程度受许多因素影响，例如，在主服务器上运行的工作负荷有多大，以及数据中心之间的延迟有多严重。 大多数情况下，副本验证在几秒钟到几分钟之间。 可以使用“副本延迟”指标来跟踪实际的副本延迟，该指标适用于每个副本。 该指标显示的是自上次重播事务以来所经历的时间。 建议观察一段时间的副本延迟，以便确定平均延迟。 可以针对副本延迟设置警报，这样，当它超出预期范围时，你就可以采取行动。
+由于复制是异步的，因此在主服务器和副本之间存在滞后。 滞后时间量受许多因素影响，例如，在主服务器上运行的工作负载有多大，以及数据中心之间的延迟有多严重。 在通常情况下，副本滞后时间范围在几秒钟到几分钟之间。 然而，如果主服务器运行的工作负载非常大并且副本的跟进速度不够快，则滞后时间可能会更长。 可以使用“副本延迟”指标来跟踪实际的副本延迟，该指标适用于每个副本。 该指标显示的是自上次重播事务以来所经历的时间。 建议观察一段时间的副本延迟，以便确定平均延迟。 可以针对副本延迟设置警报，这样，当它超出预期范围时，你就可以采取行动。
 
 > [!Tip]
-> 如果故障转移到副本，则取消副本与主体之间的链接时遇到的延迟会指示丢失了多少数据。
+> 如果故障转移到副本，则取消副本与主服务器之间的链接时的滞后时间会指示丢失了多少数据。
 
 一旦决定要故障转移到某个副本， 
 
 1. 请停止将数据复制到副本<br/>
-   此步骤是使副本服务器能够接受写入所必需的。 在此过程中，副本服务器会重启并取消与主体的链接。 启动停止复制的操作后，后端进程通常需要大约 2 分钟才能完成。 请参阅本文的[停止复制](#stop-replication)部分，了解此操作的潜在影响。
+   此步骤是使副本服务器能够接受写入所必需的。 在此过程中，副本服务器会重启，并且副本服务器与主服务器之间的链接会取消。 启动停止复制的操作后，后端进程通常需要大约 2 分钟才能完成。 请参阅本文的[停止复制](#stop-replication)部分，了解此操作的潜在影响。
     
 2. 将应用程序指向（以前的）副本<br/>
-   每个服务器都有唯一的连接字符串。 更新应用程序，使之指向（以前的）副本而不是主体。
+   每个服务器都有唯一的连接字符串。 更新应用程序，使之指向（以前的）副本而不是主服务器。
     
 如果应用程序成功处理了读取和写入操作，则表明故障转移已完成。 应用程序经历的停机时间取决于何时检测到问题并完成上面的步骤 1 和 2。
 
+### <a name="disaster-recovery"></a>灾难恢复
+
+当出现重大灾难事件（例如区域性故障）时，可以通过提升只读副本来执行灾难恢复操作。 在 UI 门户中，可以导航到只读副本服务器。 然后单击“复制”选项卡，并且可以停止副本以将其提升为独立服务器。 或者，你可以使用 [Azure CLI](/cli/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) 来停止和提升副本服务器。
 
 ## <a name="considerations"></a>注意事项
 
@@ -145,9 +148,9 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 只读副本创建为新的 Azure Database for PostgreSQL 服务器。 无法将现有的服务器设为副本。 无法创建另一个只读副本的副本。
 
 ### <a name="replica-configuration"></a>副本配置
-使用与主服务器相同的计算和存储设置创建副本。 创建副本后，可以更改多个设置，包括存储和备份保留期。
+副本是通过使用与主服务器相同的计算和存储设置创建的。 创建副本后，可以更改多个设置，包括存储和备份保留期。
 
-创建副本时或之后，防火墙规则、虚拟网络规则和参数设置不会从主服务器继承到副本服务器。
+创建副本时或之后，防火墙规则、虚拟网络规则和参数设置不会从主服务器继承到副本。
 
 ### <a name="scaling"></a>扩展
 缩放 vCore 或者在“常规用途”和“内存优化”之间缩放：
@@ -170,7 +173,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 ### <a name="stopped-replicas"></a>停止的副本
 如果停止主服务器与只读副本之间的复制，副本会重启以应用更改。 已停止的副本将成为可接受读取和写入的独立服务器。 独立服务器不能再次成为副本。
 
-### <a name="deleted-master-and-standalone-servers"></a>删除的主服务器和独立服务器
+### <a name="deleted-primary-and-standalone-servers"></a>删除的主服务器和独立服务器
 删除主服务器后，其所有只读副本将成为独立服务器。 副本将会重启以反映此项更改。
 
 ## <a name="next-steps"></a>后续步骤

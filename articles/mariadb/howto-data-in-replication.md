@@ -4,26 +4,26 @@ description: 本文介绍如何在 Azure Database for MariaDB 中设置数据传
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
-ms.topic: conceptual
-origin.date: 6/11/2020
-ms.date: 07/06/2020
-ms.openlocfilehash: 1dbdfa7727ae2247410c620d7cd2bb14c7c81e57
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.topic: how-to
+origin.date: 9/29/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: 0cc7988a3aa6365178cebdd80a71f0a11ca13650
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845769"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470487"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>在 Azure Database for MariaDB 中配置数据传入复制
 
-本文介绍如何通过配置主服务器和副本服务器在 Azure Database for MariaDB 中设置[数据传入复制](concepts-data-in-replication.md)。 本文假设读者在 MariaDB 服务器和数据库方面有一定的经验。
+本文介绍如何通过配置源服务器和副本服务器在 Azure Database for MariaDB 中设置[数据传入复制](concepts-data-in-replication.md)。 本文假设读者在 MariaDB 服务器和数据库方面有一定的经验。
 
-若要在 Azure Database for MariaDB 服务中创建副本，[数据传入复制](concepts-data-in-replication.md)需同步本地 MariaDB 主服务器、虚拟机 (VM) 或云数据库服务中的数据。 数据传入复制功能依靠的是基于二进制日志 (binlog) 文件位置、从本机到 MariaDB 的复制。 要详细了解 binlog 复制，请参阅 [binlog 复制概述](https://mariadb.com/kb/en/library/replication-overview/)。
+为了在 Azure Database for MariaDB 服务中创建副本，[数据传入复制](concepts-data-in-replication.md)会同步本地 MariaDB 源服务器、虚拟机 (VM) 或云数据库服务中的数据。 数据传入复制功能依靠的是基于二进制日志 (binlog) 文件位置、从本机到 MariaDB 的复制。 要详细了解 binlog 复制，请参阅 [binlog 复制概述](https://mariadb.com/kb/en/library/replication-overview/)。
 
 在执行本文中的步骤之前，请查看数据传入复制的[限制和要求](concepts-data-in-replication.md#limitations-and-considerations)。
 
 > [!NOTE]
-> 如果主服务器的版本为 10.2 或以上，我们建议使用[全局事务 ID](https://mariadb.com/kb/en/library/gtid/) 设置数据传入复制。
+> 如果源服务器的版本为 10.2 或更高版本，我们建议使用[全局事务 ID](https://mariadb.com/kb/en/library/gtid/) 设置数据传入复制。
 
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>创建用作副本的 MariaDB 服务器
@@ -37,21 +37,52 @@ ms.locfileid: "85845769"
 
 2. 创建相同的用户帐户和相应的特权。
     
-    用户帐户不会从主服务器复制到副本服务器。 若要为用户提供副本服务器的访问权限，必须在新建的 Azure Database for MariaDB 服务器上创建所有帐户和对应的特权。
+    用户帐户不会从源服务器复制到副本服务器。 若要为用户提供副本服务器的访问权限，必须在新建的 Azure Database for MariaDB 服务器上创建所有帐户和对应的特权。
 
-3. 将主服务器的 IP 地址添加到副本的防火墙规则。 
+3. 将源服务器的 IP 地址添加到副本的防火墙规则。 
 
    使用 [Azure 门户](howto-manage-firewall-portal.md)或 [Azure CLI](howto-manage-firewall-cli.md) 更新防火墙规则。
 
-## <a name="configure-the-master-server"></a>配置主服务器
+## <a name="configure-the-source-server"></a>配置源服务器
 
-以下步骤准备并配置本地、VM 或云数据库服务中托管的 MariaDB 服务器，以实现数据传入复制。 该 MariaDB 服务器是数据传入复制中的主服务器。
+以下步骤准备并配置本地、VM 或云数据库服务中托管的 MariaDB 服务器，以实现数据传入复制。 该 MariaDB 服务器是数据传入复制中的源服务器。
 
 1. 请先查看[主服务器要求](concepts-data-in-replication.md#requirements)，然后再继续。 
 
-   例如，请确保主服务器允许端口 3306 上的入站和出站流量，并且主服务器具有公共 IP 地址，DNS 可公开访问或者具有完全限定的域名 (FQDN)。 
+2. 请确保源服务器允许端口 3306 上的入站和出站流量，并且源服务器具有公共 IP 地址，DNS 可公开访问，或者 DNS 具有完全限定的域名 (FQDN)。 
    
-   尝试从另一台计算机上托管的工具（如 MySQL 命令行）进行连接，以测试与主服务器的连接。
+   尝试从另一台计算机上托管的工具（如 MySQL 命令行）进行连接，以测试与源服务器的连接。
+
+   如果你的组织有严格的安全策略，并且不允许源服务器上的所有 IP 地址实现从 Azure 到源服务器的通信，那么你可能可以使用以下命令来确定 Azure Database for MariaDB 服务器的 IP 地址。
+    
+   1. 使用 MySQL 命令行之类的工具登录 Azure Database for MariaDB。
+   2. 执行下面的查询。
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      下面是一些示例输出：
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.chinaeast2-a.worker.database.chinacloudapi.cn |
+       +-----------------------------------------------------------+
+      ```
+   3. 退出 MySQL 命令行。
+   4. 在 ping 实用工具中执行以下命令以获取 IP 地址。
+      ```bash
+      ping <output of step 2b>
+      ``` 
+      例如： 。 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.chinaeast2-a.worker.database.chinacloudapi.cn
+      Pinging tr1830.chinaeast2-a.worker.database.chinacloudapi.cn (**11.11.111.111**) 56(84) bytes of data.
+      ```
+
+   5. 配置源服务器的防火墙规则，以便在端口 3306 上包括上一步的输出 IP 地址。
+
+   > [!NOTE]
+   > 此 IP 地址可能因维护/部署操作而发生更改。 这种连接方法仅适用于无法承受在 3306 端口上允许所有 IP 地址的客户。
 
 2. 启用二进制日志记录。
     
@@ -65,9 +96,9 @@ ms.locfileid: "85845769"
 
    如果 `log_bin` 返回了值 `OFF`，请编辑 **my.cnf** 文件，使 `log_bin=ON` 启用二进制日志记录。 重启服务器，使更改生效。
 
-3. 配置主服务器设置。
+3. 配置源服务器设置。
 
-    数据传入复制要求参数 `lower_case_table_names` 在主服务器与副本服务器之间保持一致。 在 Azure Database for MariaDB 中，`lower_case_table_names` 参数默认设置为 `1`。
+    “数据传入复制”要求参数 `lower_case_table_names` 在源服务器与副本服务器之间保持一致。 在 Azure Database for MariaDB 中，`lower_case_table_names` 参数默认设置为 `1`。
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -75,11 +106,11 @@ ms.locfileid: "85845769"
 
 4. 创建新的复制角色并设置权限。
 
-   在主服务器上创建一个配置有复制特权的用户帐户。 可以使用 SQL 命令或 MySQL Workbench 创建帐户。 如果你打算使用 SSL 进行复制，则必须在创建用户帐户时指定此设置。
+   在源服务器上创建一个配置有复制特权的用户帐户。 可以使用 SQL 命令或 MySQL Workbench 创建帐户。 如果你打算使用 SSL 进行复制，则必须在创建用户帐户时指定此设置。
    
-   若要了解如何在主服务器上添加用户帐户，请参阅 [MariaDB 文档](https://mariadb.com/kb/en/library/create-user/)。
+   若要了解如何在源服务器上添加用户帐户，请参阅 [MariaDB 文档](https://mariadb.com/kb/en/library/create-user/)。
 
-   如果使用以下命令，则新的复制角色可从任何计算机访问主服务器，而不仅仅可从托管主服务器本身的计算机进行访问。 若要进行这种访问，可在用于创建用户的命令中指定 **syncuser\@'%'** 。
+   如果使用以下命令，则新的复制角色可从任何计算机访问源服务器，而不仅仅可从托管源服务器本身的计算机进行访问。 若要进行这种访问，可在用于创建用户的命令中指定 **syncuser\@'%'** 。
    
    若要详细了解如何[指定帐户名称](https://mariadb.com/kb/en/library/create-user/#account-names)，请参阅 MariaDB 文档。
 
@@ -118,9 +149,9 @@ ms.locfileid: "85845769"
    ![复制从属实例](./media/howto-data-in-replication/replicationslave.png)
 
 
-5. 将主服务器设置为只读模式。
+5. 将源服务器设置为只读模式。
 
-   在开始转储数据库之前，必须将服务器置于只读模式。 在只读模式下，主服务器无法处理任何写入事务。 为帮助避免对业务造成影响，请将只读时段安排在非高峰期。
+   在开始转储数据库之前，必须将服务器置于只读模式。 在只读模式下，源服务器无法处理任何写入事务。 为帮助避免对业务造成影响，请将只读时段安排在非高峰期。
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
@@ -149,17 +180,17 @@ ms.locfileid: "85845769"
     ```
  
 
-## <a name="dump-and-restore-the-master-server"></a>转储并还原主服务器
+## <a name="dump-and-restore-the-source-server"></a>转储并还原源服务器
 
-1. 从主服务器转储所有数据库。
+1. 从源服务器转储所有数据库。
 
-   使用 mysqldump 从主服务器转储所有数据库。 不需要转储 MySQL 库和测试库。
+   使用 mysqldump 从源服务器转储所有数据库。 不需要转储 MySQL 库和测试库。
 
     有关详细信息，请参阅[转储和还原](howto-migrate-dump-restore.md)。
 
-2. 将主服务器设置为读/写模式。
+2. 将源服务器设置为读/写模式。
 
-   转储数据库后，将 MariaDB 主服务器改回读/写模式。
+   转储数据库后，将 MariaDB 源服务器改回读/写模式。
 
    ```sql
    SET GLOBAL read_only = OFF;
@@ -172,13 +203,13 @@ ms.locfileid: "85845769"
 
    如果转储文件较大，请将它上传到副本服务器所在区域的 Azure 中的 VM。 将转储文件从 VM 还原到 Azure Database for MariaDB 服务器。
 
-## <a name="link-the-master-and-replica-servers-to-start-data-in-replication"></a>链接主服务器和副本服务器以启动数据传入复制
+## <a name="link-the-source-and-replica-servers-to-start-data-in-replication"></a>链接源服务器和副本服务器以启动“数据传入复制”
 
-1. 设置主服务器。
+1. 设置源服务器。
 
    所有数据传入复制功能都是通过存储过程完成的。 可以在[数据传入复制存储过程](reference-data-in-stored-procedures.md)中找到所有过程。 存储过程可以在 MySQL shell 或 MySQL Workbench 中运行。
 
-   若要链接两个服务器并启动复制，请在 Azure DB for MariaDB 服务中登录到目标副本服务器。 接下来，在 Azure DB for MariaDB 服务器上使用 `mysql.az_replication_change_master` 或 `mysql.az_replication_change_master_with_gtid` 存储过程，将外部实例设置为主服务器。
+   若要链接两个服务器并启动复制，请在 Azure DB for MariaDB 服务中登录到目标副本服务器。 接下来，在 Azure DB for MariaDB 服务器上使用 `mysql.az_replication_change_master` 或 `mysql.az_replication_change_master_with_gtid` 存储过程，将外部实例设置为源服务器。
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
@@ -190,9 +221,9 @@ ms.locfileid: "85845769"
    CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
-   - master_host：主服务器的主机名
-   - master_user：主服务器的用户名
-   - master_password：主服务器的密码
+   - master_host：源服务器的主机名
+   - master_user：源服务器的用户名
+   - master_password：源服务器的密码
    - master_log_file：正在运行的 `show master status` 中的二进制日志文件名
    - master_log_pos：正在运行的 `show master status` 中的二进制日志位置
    - master_gtid_pos：正在运行的 `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);` 中的 GTID 位置
@@ -213,14 +244,14 @@ ms.locfileid: "85845769"
        -----END CERTIFICATE-----'
        ```
 
-       在域 companya.com 中托管的主服务器与 Azure Database for MariaDB 中托管的副本服务器之间设置了使用 SSL 进行复制。 将在副本上运行此存储过程。
+       在域 companya.com 中托管的源服务器与 Azure Database for MariaDB 中托管的副本服务器之间设置了使用 SSL 进行复制的功能。 将在副本上运行此存储过程。
     
        ```sql
        CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
        ```
    - 在不使用 SSL 的情况下进行复制
 
-       在域 companya.com 中托管的主服务器与 Azure Database for MariaDB 中托管的副本服务器之间设置了不使用 SSL 进行复制。 将在副本上运行此存储过程。
+       在域 companya.com 中托管的源服务器与 Azure Database for MariaDB 中托管的副本服务器之间设置了在不使用 SSL 的情况下进行复制的功能。 将在副本上运行此存储过程。
 
        ```sql
        CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, '');
@@ -254,7 +285,7 @@ ms.locfileid: "85845769"
 
 ### <a name="stop-replication"></a>停止复制
 
-若要停止主服务器与副本服务器之间的复制，请使用以下存储过程：
+若要停止源服务器与副本服务器之间的复制，请使用以下存储过程：
 
 ```sql
 CALL mysql.az_replication_stop;
@@ -262,7 +293,7 @@ CALL mysql.az_replication_stop;
 
 ### <a name="remove-the-replication-relationship"></a>删除复制关系
 
-若要删除主服务器与副本服务器之间的关系，请使用以下存储过程：
+若要删除源服务器与副本服务器之间的关系，请使用以下存储过程：
 
 ```sql
 CALL mysql.az_replication_remove_master;
