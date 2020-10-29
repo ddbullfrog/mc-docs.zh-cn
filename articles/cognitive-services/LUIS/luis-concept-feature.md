@@ -1,16 +1,18 @@
 ---
 title: 结合使用 LUIS 和机器学习特征
 description: 将特征添加到语言模型，提供有关如何识别需要标记或分类的输入的提示。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: 97f83af037ca4f79c3a24f1455345c187039a0d4
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 741ccae07c80aba1a43f3d8450ce54070b538d1a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023673"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472489"
 ---
 # <a name="machine-learning-features"></a>机器学习特征
 
@@ -22,12 +24,10 @@ ms.locfileid: "88023673"
 
 ## <a name="types-of-features"></a>特征类型
 
-LUIS 支持同时使用短语列表和模型作为特征：
+特征是架构设计的必要组成部分。 LUIS 支持同时使用短语列表和模型作为特征：
 
-* 短语列表特征 
+* 短语列表特征
 * 以模型（意向或实体）作为特征
-
-应将特征视为架构设计的必要组成部分。
 
 ## <a name="find-features-in-your-example-utterances"></a>查找示例言语中的特征
 
@@ -45,32 +45,6 @@ LUIS 支持同时使用短语列表和模型作为特征：
 * 匹配精确的单词或短语：考虑将正则表达式实体或列表实体作为特征添加到实体或意向。
 * 匹配熟知的概念，例如日期、时间或人名：使用预生成的实体作为实体或意向的特征。
 * 随时间推移不断通过新示例学习：使用部分概念示例的短语列表作为实体或意向的特征。
-
-## <a name="combine-features"></a>组合特征
-
-可使用多个特征来描述特征或概念。 常见的配对是使用短语列表特征和通常用作特征的实体类型：
-
- * 预生成的实体
- * 正则表达式实体
- * 列表实体
-
-### <a name="ticket-booking-entity-example"></a>机票预订实体示例
-
-作为第一个示例，请思考这样一个应用：该应用通过“航班预订”意向和“机票预订”实体来预订航班。
-
-机票预订实体是航班目的地的机器学习实体。 为帮助提取位置，请使用两个特征来提供帮助：
-
-* 相关词的短语列表，如飞机、航班、预订或机票   
-* 预生成的 geographyV2 实体作为实体的特征
-
-### <a name="pizza-entity-example"></a>比萨实体示例
-
-作为另一个示例，请思考这样一个应用：该应用通过“创建比萨订单”意向和比萨实体来预定比萨。
-
-比萨实体是比萨详细信息的机器学习实体。 为帮助提取详细信息，请使用两个特征来提供帮助：
-
-* 相关词的短语列表，如奶酪、脆皮、意大利辣香肠或菠萝   
-* 预生成的编号实体作为实体的特征
 
 ## <a name="create-a-phrase-list-for-a-concept"></a>为概念创建短语列表
 
@@ -178,12 +152,12 @@ LUIS 支持同时使用短语列表和模型作为特征：
 
 邮寄地址（机器学习实体）
 
- * 街道编号（子实体） 
- * 街道地址（子实体） 
- * 街道名称（子实体） 
- * 城市（子实体） 
- * 州或省/自治区/直辖市（子实体） 
- * 国家/地区（子实体） 
+ * 街道编号（子实体）
+ * 街道地址（子实体）
+ * 街道名称（子实体）
+ * 城市（子实体）
+ * 州或省/自治区/直辖市（子实体）
+ * 国家/地区（子实体）
  * 邮政编码（子实体）
 
 ### <a name="required-feature-using-prebuilt-entities"></a>使用预生成实体的所需特征
@@ -219,6 +193,59 @@ LUIS 支持同时使用短语列表和模型作为特征：
 全局特征最常见的用途是向应用添加其他词汇。 例如，如果你的客户使用的是主要语言，但希望能够在同一言语中使用其他语言，则你可添加一项特征来包含辅助语言的单词。
 
 由于用户希望跨任何意向或实体使用辅助语言，因此请将辅助语言中的单词添加到短语列表。 将短语列表配置为全局特征。
+
+## <a name="combine-features-for-added-benefit"></a>组合特征以增加效益
+
+可使用多个特征来描述特征或概念。 常见的配对是使用：
+
+* 短语列表特征：可以使用多个短语列表作为同一模型的特征。
+* 作为特征的模型：[预生成实体](luis-reference-prebuilt-entities.md)、[正则表达式实体](reference-entity-regular-expression.md)、[列表实体](reference-entity-list.md)。 
+
+### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>示例：旅游应用的订票实体特征  
+
+作为基本示例，请考虑这样一个应用：该应用通过一个“航班预订”意向和一个订票实体来预订航班 。 订票实体将捕获信息以在预订系统中预订机票。 
+
+用于订票的机器学习实体提供两个子实体来捕获源和目标。 需要将这些特征添加到每个子实体，而不是顶级实体。
+
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="订票实体架构":::
+
+该订票实体是一个机器学习实体，其子实体包括“源”和“目标”。 这些子实体都表示地理位置。 为了帮助提取位置并在“源”和“目标”之间进行区分，每个子实体都应具有特征。
+
+|类型|“源”子实体 |“目标”子实体|
+|--|--|--|
+|作为特征的模型|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) 预生成实体|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) 预生成实体|
+|短语列表|“源”字词：`start at`、`begin from`、`leave`|“目标”字词：`to`、`arrive`、`land at`、`go`、`going`、`stay`、`heading`|
+|短语列表|机场代码 - 对源和目标而言均相同的列表|机场代码 - 对源和目标而言均相同的列表|
+|短语列表|机场名称 - 对源和目标而言均相同的列表|机场代码 - 对源和目标而言均相同的列表|
+
+如果预计用户使用机场代码和机场名称，则 LUIS 应包含使用这两种类型的短语的短语列表。 机场代码可能在输入到聊天机器人的文本中更常见，而机场名称可能在语音对话（如启用语音的聊天机器人）中更常见。
+
+只会为模型（而不会为短语列表）返回特征的匹配详细信息，因为在预测 JSON 中仅返回模型。
+
+#### <a name="ticket-booking-labeling-in-the-intent"></a>意向中的订票标记
+
+创建机器学习实体后，需要将示例言语添加到意向，并标记父实体和所有子实体。
+
+对于订票示例，使用 `TicketBooking` 实体及其任何子实体在文本中标记意向中的示例言语。
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="订票实体架构":::
+
+### <a name="example-pizza-ordering-app"></a>示例：比萨饼订购应用
+
+对于第二个示例，请考虑一个适用于比萨饼餐馆的应用，该餐馆接收比萨饼订单，包括顾客所订购的比萨饼类型的详细信息。 如果可能，应提取比萨饼的全部详细信息，以便完成订单处理。
+
+本示例中的机器学习实体更复杂，其中包含嵌套的子实体、短语列表、预生成实体和自定义实体。
+
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="订票实体架构":::
+
+此示例使用子实体级别的特征，并使用子实体的子级级别的特征。 哪一级别获取哪种类型的短语列表或作为特征的模型，是实体设计的重要部分。
+
+尽管子实体可以将许多短语列表作为特征以便帮助检测实体，但每个子实体都只有一个作为特征的模型。 在此[比萨饼应用](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)中，这些模型主要是列表。
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="订票实体架构":::
+
+上面显示了已正确标记的示例言语，采用这种显示方式是为了说明实体如何嵌套。 
+
 
 ## <a name="best-practices"></a>最佳实践
 
