@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "data-explorer/management/best-practices.md",
+            "redirect_url": "/data-explorer/kusto/management/management-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "data-explorer/azure-notebooks.md",
+            "redirect_url": "https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kqlmagic?context=/azure/data-explorer/context/context",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service/policy-samples.md",
             "redirect_url": "/app-service/policy-reference",
             "redirect_document_id": false
@@ -26767,12 +26777,12 @@
         },
         {
             "source_path": "articles/sql-database/elastic-jobs-overview.md",
-            "redirect_url": "/azure/azure-sql/database/elastic-jobs-overview",
+            "redirect_url": "/azure-sql/database/elastic-jobs-overview",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/elastic-jobs-powershell.md",
-            "redirect_url": "/azure/azure-sql/database/elastic-jobs-powershell-create",
+            "redirect_url": "/azure-sql/database/elastic-jobs-powershell-create",
             "redirect_document_id": false
         },
         {
@@ -28177,15 +28187,40 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Face/Quickstarts/csharp-sdk.md",
+            "redirect_url": "/cognitive-services/Face/Quickstarts/client-libraries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Face/Quickstarts/go-sdk.md",
+            "redirect_url": "/cognitive-services/Face/Quickstarts/client-libraries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Face/Quickstarts/python-sdk.md",
+            "redirect_url": "/cognitive-services/Face/Quickstarts/client-libraries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/luis/luis-supported-languages.md",
+            "redirect_url": "/cognitive-services/LUIS/luis-language-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/content-moderator/text-moderation-api-languages.md",
+            "redirect_url": "/cognitive-services/content-moderator/language-support",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Translator/languages.md",
             "redirect_url": "/cognitive-services/Translator/language-support",
             "redirect_document_id": false
         },
-    {
-      "source_path": "articles/load-balancer/load-balancer-security-controls.md",
-      "redirect_url": "/load-balancer/security-baseline",
-      "redirect_document_id": false
-    },
+		{
+				"source_path": "articles/load-balancer/load-balancer-security-controls.md",
+				"redirect_url": "/load-balancer/security-baseline",
+				"redirect_document_id": false
+		},
         {
             "source_path": "articles/batch/cli-samples.md",
             "redirect_url": "/batch/scripts/batch-cli-sample-create-account",
@@ -28281,12 +28316,31 @@
             "redirect_url": "/virtual-network/network-security-groups-overview",
             "redirect_document_id": false
         },
-    {
-      "source_path": "articles/automation/policy-samples.md",
-      "redirect_url": "/azure/automation/policy-reference",
-      "redirect_document_id": false
-    }
-
+		{
+            "source_path": "articles/automation/policy-samples.md",
+            "redirect_url": "/automation/policy-reference",
+            "redirect_document_id": false
+		},
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md",
+            "redirect_url": "/azure-monitor/platform/resource-logs#send-to-log-analytics-workspace",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path": "articles/machine-learning/how-to-create-attach-compute-sdk.md",
+            "redirect_url": "/machine-learning/how-to-attach-compute-targets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/concept-editions.md",
+            "redirect_url": "/machine-learning/concept-workspace#wheres-enterprise",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/how-to-train-ml-models.md",
+            "redirect_url": "/machine-learning/how-to-set-up-training-targets",
+            "redirect_document_id": false
+        }
 
 
 
