@@ -37,7 +37,7 @@
       href: whats-new.md
     - name: 组件
       href: components.md
-    - name: 概念
+    - name: 负载均衡算法
       href: concepts.md
     - name: SKU
       href: skus.md
@@ -55,17 +55,24 @@
       href: load-balancer-ha-ports-overview.md
     - name: 多个前端
       href: load-balancer-multivip-overview.md
-    - name: 出站连接
+    - name: 出站代理
       href: load-balancer-outbound-connections.md
+    - name: TCP 重置和 TCP 空闲超时
+    - name: 出站规则
+      href: outbound-rules.md
     - name: 在空闲超时的情况下重置 TCP
       href: load-balancer-tcp-reset.md
-    - name: 内置安全控件
-      href: load-balancer-security-controls.md
+    - name: 浮动 IP 配置
+      href: load-balancer-floating-ip.md
+    - name: 安全性
+      items:
+        - name: 安全基线
+          href: security-baseline.md
     - name: 后端池管理
       href: backend-pool-management.md
     - name: 标准负载均衡器和虚拟机规模集
       href: load-balancer-standard-virtual-machine-scale-sets.md
-- name: 如何
+- name: 操作说明
   items:
     - name: 门户设置
       href: manage.md
@@ -91,7 +98,7 @@
           href: /virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli
         - name: Azure PowerShell
           href: /virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell
-        - name: Azure 资源管理器模板
+        - name: Azure Resource Manager 模板
           href: /virtual-network/ipv6-configure-standard-load-balancer-template-json
           displayName: ARM
     - name: 配置负载均衡器的 TCP 空闲超时

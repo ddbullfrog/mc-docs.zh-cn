@@ -10,14 +10,15 @@ ms.date: 08/24/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: b2337cc5b2ed8e51c9a1580a75e53e21c7717744
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: c8c39651ee016d76658fee15766315612604ef33
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715662"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105720"
 ---
-<!--Verify Successfully, Docker is available standalone application-->
+<!--Not Avaialble on Mooncake till on 10/30/2020-->
+<!--No deploymentScripts in Microsoft.Resource provider-->
 # <a name="configure-development-environment-for-deployment-scripts-in-templates-preview"></a>为模板中的部署脚本配置开发环境（预览版）
 
 了解如何通过部署脚本映像创建用于开发和测试部署脚本的开发环境。 你可以创建 [Azure 容器实例](../../container-instances/container-instances-overview.md)或使用 [Docker](https://docs.docker.com/get-docker/)。 本文介绍了这两种方法。
@@ -158,9 +159,11 @@ $DeploymentScriptOutputs['text'] = $output
   ]
 }
 ```
-装载路径的默认值是 **deploymentScript**。  这是容器实例中将它装载到文件共享的路径。
+装载路径的默认值是 **deploymentScript** 。  这是容器实例中将它装载到文件共享的路径。
 
-模板中指定的默认容器映像为 **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3**。  有关受支持的 Azure PowerShell 版本和 Azure CLI 版本的列表，请参阅 [Azure PowerShell 或 Azure CLI](./deployment-script-template.md#prerequisites)。
+模板中指定的默认容器映像为 **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3** 。
+
+<!--Not Available on For a list of supported Azure PowerShell versions and Azure CLI versions, see [Azure PowerShell or Azure CLI](./deployment-script-template.md#prerequisites)-->
 
 模板将容器实例暂停 1800 秒。 在容器实例进入终端状态并且会话结束之前，你有 30 分钟的时间。
 
@@ -200,7 +203,7 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
 1. 打开容器组。 默认资源组名称是追加了 **cg** 的项目名称。 你应该会看到容器实例处于“正在运行”状态。
 1. 从左侧菜单中选择“容器”。 你应该会看到一个容器实例。  容器实例名称是追加了 **container** 的项目名称。
 
-    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png" alt-text="部署脚本连接容器实例":::
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png" alt-text="部署脚本连接容器实例&quot;:::
 
 1. 依次选择“连接”、“连接” 。 如果无法连接到容器实例，请重启容器组，然后重试。
 1. 在控制台窗格中运行以下命令：
@@ -208,12 +211,20 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
     ```
     cd deploymentScript
     ls
-    pwsh ./hello.ps1 "John Dole"
+    pwsh ./hello.ps1 &quot;John Dole"
     ```
 
-    输出为 **Hello John Dole**。
+    输出为 **Hello John Dole** 。
 
-    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png" alt-text="部署脚本容器实例测试":::
+    :::image type="content" source="./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png" alt-text="部署脚本连接容器实例&quot;:::
+
+1. 依次选择“连接”、“连接” 。 如果无法连接到容器实例，请重启容器组，然后重试。
+1. 在控制台窗格中运行以下命令：
+
+    ```
+    cd deploymentScript
+    ls
+    pwsh ./hello.ps1 &quot;John Dole":::
 
 ## <a name="use-docker"></a>使用 Docker
 
@@ -242,7 +253,7 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    将“&lt;主机驱动器号>”和“&lt;主机目录名>”替换为共享驱动器上的现有文件夹**** ****。  它将文件夹映射到容器中的/data 文件夹****。 例如，要映射 D:\docker：
+    将“&lt;主机驱动器号>”和“&lt;主机目录名>”替换为共享驱动器上的现有文件夹   。  它将文件夹映射到容器中的/data 文件夹  。 例如，要映射 D:\docker：
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -258,7 +269,15 @@ Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fi
 
 1. 以下屏幕截图显示了如何运行 PowerShell 脚本，假设你在共享驱动器中具有 helloworld.ps1 文件。
 
-    :::image type="content" source="./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png" alt-text="资源管理器模板部署脚本 docker cmd":::
+    :::image type="content" source="./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png" alt-text="部署脚本连接容器实例&quot;:::
+
+1. 依次选择“连接”、“连接” 。 如果无法连接到容器实例，请重启容器组，然后重试。
+1. 在控制台窗格中运行以下命令：
+
+    ```
+    cd deploymentScript
+    ls
+    pwsh ./hello.ps1 &quot;John Dole":::
 
 成功测试脚本后，可以将其用作模板中的部署脚本。
 

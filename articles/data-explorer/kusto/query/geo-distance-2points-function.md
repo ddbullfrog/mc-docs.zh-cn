@@ -8,30 +8,30 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/11/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: dd645894897fbd8e031aeec27f2f8abd6101ebc3
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: f0ada4a5022af5946d3cc4f92d75f38bf0372954
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841767"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104122"
 ---
 # <a name="geo_distance_2points"></a>geo_distance_2points()
 
 计算两个地理空间坐标在地球上的最短距离。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `geo_distance_2points(`*p1_longitude*`, `*p1_latitude*`, `*p2_longitude*`, `*p2_latitude*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * p1_longitude：第一个地理空间坐标，经度值（度）。 有效值为 [-180, +180] 范围内的实数。
 * p1_latitude：第一个地理空间坐标，纬度值（度）。 有效值为 [-90, +90] 范围内的实数。
 * p2_longitude：第二个地理空间坐标，经度值（度）。 有效值为 [-180, +180] 范围内的实数。
 * p2_latitude：第二个地理空间坐标，纬度值（度）。 有效值为 [-90, +90] 范围内的实数。
 
-**返回**
+## <a name="returns"></a>返回
 
 地球上两个地理位置之间的最短距离（以米为单位）。 如果坐标无效，则查询将生成 null 结果。
 
@@ -39,7 +39,7 @@ ms.locfileid: "87841767"
 > * 对按照 [WGS-84](https://earth-info.nga.mil/GandG/update/index.php?action=home) 坐标参考系统表示的地理空间坐标进行解释。
 > * 用来测量地球上距离的大地测量基准是一个球体。
 
-**示例**
+## <a name="examples"></a>示例
 
 下面的示例查找西雅图与洛杉矶之间的最短距离。
 
@@ -56,7 +56,7 @@ print distance_in_meters = geo_distance_2points(-122.407628, 47.578557, -118.275
 
 下面是从西雅图到伦敦的最短路径的近似值。 该线路由沿线串分布的距其 500 米范围内的坐标组成。
 
-:::image type="content" source="images/geo-distance-2points-function/line_seattle_london.png" alt-text="西雅图到伦敦的线串":::
+:::image type="content" source="images/geo-distance-2points-function/line_seattle_london.png" alt-text="西雅图与洛杉矶之间的距离":::
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

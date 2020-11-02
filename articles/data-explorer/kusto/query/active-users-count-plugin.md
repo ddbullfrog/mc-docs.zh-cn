@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 active_users_coun
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: f9e0ecd025f23c603fd774670f9debdfa575da28
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 595444076f5626ea01d16f04312c956a48097caa
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515801"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105110"
 ---
 # <a name="active_users_count-plugin"></a>active_users_count 插件
 
@@ -28,20 +28,20 @@ T | evaluate active_users_count(id, datetime_column, startofday(ago(30d)), start
 
 ## <a name="syntax"></a>语法
 
-*T* `| evaluate` `active_users_count(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *LookbackWindow*`,` *Period*`,` *ActivePeriodsCount*`,` *Bin* `,` [*dim1*`,` *dim2*`,` ...]`)`
+*T* `| evaluate` `active_users_count(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *LookbackWindow*`,` *Period*`,` *ActivePeriodsCount*`,` *Bin* `,` [ *dim1*`,` *dim2*`,` ...]`)`
 
 ## <a name="arguments"></a>参数
 
-* *T*：输入表格表达式。
-* *IdColumn*：列的名称，其 ID 值表示用户活跃度。 
-* *TimelineColumn*：表示时间线的列的名称。
-* *Start*：（可选）带有分析开始时间段值的标量。
-* *End*：（可选）带有分析结束时间段值的标量。
-* *LookbackWindow*：滑动时间窗口，限定检查用户出现情况的时间段。 回看期开始于（[当前出现] - [回看窗口]），结束于（[当前出现]）。 
-* *Period*：要计为单次出现的标量常数时间跨度（如果用户在此时间跨度的至少非重复的 ActivePeriodsCount 个时间段中出现，该用户将会被计为活跃）。
-* *ActivePeriodsCount*：非重复的活跃时间段的最小数目，用于确定用户是否处于活跃状态。 活跃用户是指那些至少在（等于或大于）最低数量的活跃时间段中出现的用户。
-* *Bin*：分析步骤时间段的标量常数值。 可以是数字/日期/时间/时间戳值，也可以是 `week`/`month`/`year` 字符串。 所有时间段都将会是相应的 [startofweek](startofweekfunction.md)/[startofmonth](startofmonthfunction.md)/[startofyear](startofyearfunction.md) 函数。
-* *dim1*, *dim2*, ...：（可选）维度列的列表，用于切分活跃度指标计算。
+* *T* ：输入表格表达式。
+* *IdColumn* ：列的名称，其 ID 值表示用户活跃度。 
+* *TimelineColumn* ：表示时间线的列的名称。
+* *Start* ：（可选）带有分析开始时间段值的标量。
+* *End* ：（可选）带有分析结束时间段值的标量。
+* *LookbackWindow* ：滑动时间窗口，限定检查用户出现情况的时间段。 回看期开始于（[当前出现] - [回看窗口]），结束于（[当前出现]）。 
+* *Period* ：要计为单次出现的标量常数时间跨度（如果用户在此时间跨度的至少非重复的 ActivePeriodsCount 个时间段中出现，该用户将会被计为活跃）。
+* *ActivePeriodsCount* ：非重复的活跃时间段的最小数目，用于确定用户是否处于活跃状态。 活跃用户是指那些至少在（等于或大于）最低数量的活跃时间段中出现的用户。
+* *Bin* ：分析步骤时间段的标量常数值。 可以是数字/日期/时间/时间戳值，也可以是 `week`/`month`/`year` 字符串。 所有时间段都将会是相应的 [startofweek](startofweekfunction.md)/[startofmonth](startofmonthfunction.md)/[startofyear](startofyearfunction.md) 函数。
+* *dim1* , *dim2* , ...：（可选）维度列的列表，用于切分活跃度指标计算。
 
 ## <a name="returns"></a>返回
 

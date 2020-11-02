@@ -2,9 +2,7 @@
 title: 使用 Azure Policy 限制 VM 扩展安装 (Linux)
 description: 使用 Azure Policy 限制 VM 扩展部署。
 services: virtual-machines-linux
-documentationcenter: ''
 manager: gwallace
-editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -16,12 +14,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: cynthn
-ms.openlocfilehash: d92661ad681f9a6547df5042a6289605f7a04b69
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 12d17e2002ee5fdd4877c38b1fbeb859a7a9a663
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413718"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105571"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>使用 Azure Policy 限制 Linux VM 上的扩展安装
 

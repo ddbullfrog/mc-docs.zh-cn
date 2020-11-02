@@ -9,15 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 origin.date: 01/22/2018
-ms.date: 06/29/2020
-ms.openlocfilehash: 6f96229da9355042767dc37624efd0cef1e330be
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.date: 11/02/2020
+ms.openlocfilehash: 19863bb3d87e84c5add3e2e8a54129dfa6094a3f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318972"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105267"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>教程：将数据从 SQL Server 数据库复制到 Azure Blob 存储
 
@@ -46,7 +46,7 @@ ms.locfileid: "85318972"
 ### <a name="azure-roles"></a>Azure 角色
 若要创建数据工厂实例，用于登录到 Azure 的用户帐户必须分配有“参与者”或“所有者”角色，或者必须是 Azure 订阅的管理员。
 
-若要查看你在订阅中拥有的权限，请转到 Azure 门户，选择右上角的用户名，然后选择“权限”。 如果可以访问多个订阅，请选择相应的订阅。 有关如何将用户添加到角色的示例说明，请参阅[使用 RBAC 和 Azure 门户管理访问权限](../role-based-access-control/role-assignments-portal.md)一文。
+若要查看你在订阅中拥有的权限，请转到 Azure 门户，选择右上角的用户名，然后选择“权限”。 如果可以访问多个订阅，请选择相应的订阅。 有关将用户添加到角色的示例说明，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)一文。
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014、2016 和 2017
 在本教程中，需将 SQL Server 数据库用作源数据存储。 在本教程中创建的数据工厂中的管道将数据从这个 SQL Server 数据库（源）复制到 Azure Blob 存储（接收器）。 然后，你可以在 SQL Server 数据库中创建名为 **emp** 的表，并向表中插入几个示例条目。
@@ -353,7 +353,7 @@ ms.locfileid: "85318972"
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobStorageLinkedService
     ```
 
-    如果收到“找不到文件”错误，请运行 `dir` 命令，确认该文件是否存在。 如果文件名的扩展为 *.txt*（例如 AzureStorageLinkedService.json.txt），请将其删除，然后再次运行 PowerShell 命令。
+    如果收到“找不到文件”错误，请运行 `dir` 命令，确认该文件是否存在。 如果文件名的扩展为 *.txt* （例如 AzureStorageLinkedService.json.txt），请将其删除，然后再次运行 PowerShell 命令。
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>创建并加密 SQL Server 链接服务（源）
 在此步骤中，请将 SQL Server 实例链接到数据工厂。
@@ -416,10 +416,10 @@ ms.locfileid: "85318972"
     > - 根据连接到 SQL Server 实例时所使用的身份验证选择节。
     > - 将 \<integration runtime name> 替换为集成运行时的名称。
     > - 保存文件之前，请将 \<servername>、\<databasename>、\<username> 和 \<password> 替换为 SQL Server 实例的值   。
-    > - 如需在用户帐户或服务器名称中使用反斜杠 (\\)，请在其前面加上转义字符 (\\)。 例如，使用 *mydomain\\\\myuser*。
+    > - 如需在用户帐户或服务器名称中使用反斜杠 (\\)，请在其前面加上转义字符 (\\)。 例如，使用 *mydomain\\\\myuser* 。
 
 1. 若要加密敏感数据（用户名、密码等），请运行 `New-AzDataFactoryV2LinkedServiceEncryptedCredential` cmdlet。  
-    这种加密可确保使用数据保护应用程序编程接口 (DPAPI) 加密凭据。 加密的凭据存储在自承载 Integration Runtime 节点本地（本地计算机）。 可将输出的有效负载重定向到包含已加密凭据的另一个 JSON 文件（在本例中为 *encryptedLinkedService.json*）。
+    这种加密可确保使用数据保护应用程序编程接口 (DPAPI) 加密凭据。 加密的凭据存储在自承载 Integration Runtime 节点本地（本地计算机）。 可将输出的有效负载重定向到包含已加密凭据的另一个 JSON 文件（在本例中为 *encryptedLinkedService.json* ）。
 
    ```powershell
    New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
@@ -436,7 +436,7 @@ ms.locfileid: "85318972"
 在此步骤中，请创建输入和输出数据集。 这些数据集代表复制操作的输入和输出数据，该复制操作可将数据从 SQL Server 数据库复制到 Azure Blob 存储。
 
 ### <a name="create-a-dataset-for-the-source-sql-server-database"></a>为源 SQL Server 数据库创建数据集
-在此步骤中，请定义一个数据集，代表 SQL Server 数据库实例中的数据。 数据集为 SqlServerTable 类型。 它引用在上一步创建的 SQL Server 链接服务。 链接服务包含的连接信息可供数据工厂服务用来在运行时连接到 SQL Server 实例。 此数据集指定数据库中包含相应数据的 SQL 表。 在本教程中，**emp** 表包含源数据。
+在此步骤中，请定义一个数据集，代表 SQL Server 数据库实例中的数据。 数据集为 SqlServerTable 类型。 它引用在上一步创建的 SQL Server 链接服务。 链接服务包含的连接信息可供数据工厂服务用来在运行时连接到 SQL Server 实例。 此数据集指定数据库中包含相应数据的 SQL 表。 在本教程中， **emp** 表包含源数据。
 
 1. 在 *C:\ADFv2Tutorial* 文件夹中，创建包含以下代码的名为 *SqlServerDataset.json* 的 JSON 文件：  
     ```json
@@ -481,7 +481,7 @@ ms.locfileid: "85318972"
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>为 Azure Blob 存储（接收器）创建数据集
 在此步骤中，请定义一个数据集，表示要复制到 Azure Blob 存储的数据。 数据集为 AzureBlob 类型。 它引用此前在本教程中创建的 Azure 存储链接服务。
 
-链接服务包含的连接信息可供数据工厂用来在运行时连接到 Azure 存储帐户。 此数据集在 Azure 存储中指定从 SQL Server 数据库向其复制数据的文件夹。 在本教程中，该文件夹为 *adftutorial/fromonprem*，其中 `adftutorial` 是 Blob 容器，`fromonprem` 是文件夹。
+链接服务包含的连接信息可供数据工厂用来在运行时连接到 Azure 存储帐户。 此数据集在 Azure 存储中指定从 SQL Server 数据库向其复制数据的文件夹。 在本教程中，该文件夹为 *adftutorial/fromonprem* ，其中 `adftutorial` 是 Blob 容器，`fromonprem` 是文件夹。
 
 1. 在 *C:\ADFv2Tutorial* 文件夹中，创建包含以下代码的名为 *AzureBlobDataset.json* 的 JSON 文件：
 
@@ -532,7 +532,7 @@ ms.locfileid: "85318972"
     ```
 
 ## <a name="create-a-pipeline"></a>创建管道
-本教程创建包含复制活动的管道。 该复制活动使用 SqlServerDataset 作为输入数据集，AzureBlobDataset 作为输出数据集。 源类型设置为 *SqlSource*，接收器类型设置为 *BlobSink*。
+本教程创建包含复制活动的管道。 该复制活动使用 SqlServerDataset 作为输入数据集，AzureBlobDataset 作为输出数据集。 源类型设置为 *SqlSource* ，接收器类型设置为 *BlobSink* 。
 
 1. 在 *C:\ADFv2Tutorial* 文件夹中，创建包含以下代码的名为 *SqlServerToBlobPipeline.json* 的 JSON 文件：
 

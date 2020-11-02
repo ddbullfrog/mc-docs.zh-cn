@@ -4,16 +4,16 @@ description: 注册表性能常见问题的症状、原因和解决方法
 ms.topic: article
 origin.date: 08/11/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8c99be34c7f0a4a8d11f5cf5bcfcbac9b663b37c
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 8759ded0239c7f18736ad874d485ec67e2ca3c12
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021670"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105598"
 ---
 <!--Verified Successfully-->
 # <a name="troubleshoot-registry-performance"></a>注册表性能故障排除
@@ -124,5 +124,4 @@ nslookup myregistry.azurecr.cn
 * [Microsoft 问答](https://docs.microsoft.com/answers/products/)
 * [开具支持票证](https://support.azure.cn/support/support-azure/)
 
-<!-- Update_Description: new article about container registry troubleshoot performance -->
-<!--NEW.date: 09/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

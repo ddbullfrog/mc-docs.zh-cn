@@ -13,12 +13,12 @@ ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b0b6c6b0ea9e209fd2531a927b4a85bfd2e754e
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 2c48ef6cc8dbaa0d4bbc53e7a14ec09d5dfd694b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463042"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105464"
 ---
 <!--Verified Successfully-->
 # <a name="list-update-and-delete-image-resources"></a>列出、更新和删除映像资源 

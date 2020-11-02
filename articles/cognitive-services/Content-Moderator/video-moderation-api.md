@@ -1,35 +1,36 @@
 ---
-title: 在 C# 中分析令人反感的视频内容
-titlesuffix: Azure Cognitive Services
+title: 在 C# 中分析令人反感的视频内容 - 内容审查器
+titleSuffix: Azure Cognitive Services
 description: 如何使用适用于 .NET 的内容审查器 SDK 分析视频内容中是否存在各种令人反感的材料
 services: cognitive-services
-author: sanjeev3
-manager: cgronlun
+author: Johnnytechn
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
-ms.topic: conceptual
+ms.subservice: content-moderator
+ms.topic: how-to
 origin.date: 10/31/2018
-ms.date: 01/22/2019
-ms.author: v-junlch
-ms.openlocfilehash: 7ca81a719788d88498637070d12d96ccb95bfb8f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bc813a650bdb8c4b7dc193f78111460ac7712b3c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63852146"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105200"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>在 C# 中分析令人反感的视频内容
 
 本文中的信息和代码示例可帮助你快速开始使用[适用于 .NET 的内容审查器 SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 来扫描视频中的成人或猥亵内容。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services/)。 
 
 ## <a name="prerequisites"></a>必备条件
 - 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)
 
 ## <a name="set-up-azure-resources"></a>设置 Azure 资源
 
-内容审查器的视频审查功能可以在 Azure 媒体服务 (AMS) 中免费提供公共预览版的**媒体处理器**。 Azure 媒体服务是用于存储和流式传输视频内容的专业 Azure 服务。 
+内容审查器的视频审查功能可以在 Azure 媒体服务 (AMS) 中免费提供公共预览版的 **媒体处理器** 。 Azure 媒体服务是用于存储和流式传输视频内容的专业 Azure 服务。 
 
 ### <a name="create-an-azure-media-services-account"></a>创建 Azure 媒体服务帐户
 
@@ -55,7 +56,7 @@ Azure 媒体服务资源管理器是 AMS 的用户友好前端。 使用它可�
 
 ## <a name="create-the-visual-studio-project"></a>创建 Visual Studio 项目
 
-1. 在 Visual Studio 中创建新的**控制台应用 (.NET Framework)** 项目并将其命名为 **VideoModeration**。 
+1. 在 Visual Studio 中创建新的 **控制台应用 (.NET Framework)** 项目并将其命名为 **VideoModeration** 。 
 1. 如果解决方案中有其他项目，请将此项目选为单一启动项目。
 1. 获取所需的 NuGet 包。 右键单击解决方案资源管理器中的项目，选择“管理 NuGet 包”，然后找到并安装以下包： 
     - windowsazure.mediaservices
@@ -104,7 +105,7 @@ private const string AZURE_AD_TENANT_NAME = "microsoft.partner.onmschina.cn";
 private const string CLIENT_ID = "YOUR CLIENT ID";
 private const string CLIENT_SECRET = "YOUR CLIENT SECRET";
 
-// REST API endpoint, for example "https://accountname.restv2.chinanorth.media.chinacloudapi.cn/api/".      
+// REST API endpoint, for example "https://accountname.restv2.chinanorth.media.chinacloudapi.cn/API".      
 private const string REST_API_ENDPOINT = "YOUR API ENDPOINT";
 
 // Content Moderator Media Processor Nam
@@ -428,6 +429,12 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
+了解如何从你的审查输出生成[视频评论](video-reviews-quickstart-dotnet.md)。
+
+将[脚本审查](video-transcript-moderation-review-tutorial-dotnet.md)添加到你的视频评论中。
+
+了解有关如何生成[完整视频和脚本审查解决方案](video-transcript-moderation-review-tutorial-dotnet.md)的详细教程。
 
 为适用于 .NET 的此内容审查器快速入门以及其他内容审查器快速入门[下载 Visual Studio 解决方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)。
 

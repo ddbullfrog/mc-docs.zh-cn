@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8621360898d0679bd4f9b77ddaeb960241a8a6e5
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: c8ffd8521be36e91830963fdc3cc17426c3d1d2c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472673"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103748"
 ---
 <!--Verified successfully on VPN OpenVPN client-->
 # <a name="configure-an-openvpn-client-for-azure-virtual-wan"></a>为 Azure 虚拟 WAN 配置 OpenVPN 客户端

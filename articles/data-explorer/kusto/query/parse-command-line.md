@@ -8,32 +8,32 @@ ms.reviewer: slneimer
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/28/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 4ee69391d4fcede20644531bdad8d0b662537845
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 8d80b28b356433144be09b2c6193647cb3e409fe
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841720"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103839"
 ---
 # <a name="parse_command_line"></a>parse_command_line()
 
 分析 Unicode 命令行字符串并返回命令行参数的动态数组。
 
-**语法**
+## <a name="syntax"></a>语法
 
-`parse_command_line(`*command_line*,*parser_type*`)`
+`parse_command_line(`*command_line* , *parser_type*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * command_line：要分析的命令行。
-* parser_type：当前支持的唯一值为 `"Windows"`，它以与 [CommandLineToArgvW](https://docs.microsoft.com/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) 相同的方式分析命令行。
+* parser_type：当前支持的唯一值为 `"Windows"`，它以与 [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) 相同的方式分析命令行。
 
-**返回**
+## <a name="returns"></a>返回
 
 命令行参数的动态数组。
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

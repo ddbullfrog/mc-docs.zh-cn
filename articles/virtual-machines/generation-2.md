@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 08/28/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: ff4576577f5fcbe04f7edc94b7ff43dd0d05ec3a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 8d5d69cde813e3d60d7677b38081a8bdedfb33c3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127598"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104567"
 ---
 <!--Verify sucessfully-->
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure 对第 2 代 VM 的支持
@@ -106,7 +106,7 @@ Azure 目前不支持本地 Hyper-V 对第 2 代 VM 所支持的某些特性。
 |---------|--------------|--------------|
 | 启动             | PCAT         | UEFI |
 | 磁盘控制器 | IDE          | SCSI |
-| VM 大小         | 所有 VM 大小 | [查看可用大小](/virtual-machines/windows/generation-2#generation-2-vm-sizes) |
+| VM 大小         | 所有 VM 大小 | [查看可用大小](#generation-2-vm-sizes) |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>第 1 代与第 2 代的功能
 

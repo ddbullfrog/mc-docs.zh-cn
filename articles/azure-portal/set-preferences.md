@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: ed7503c2e893c001b2cec66d3dbff192c8ee8de1
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: be3da0e24465614d0577af547e5fa72988ac9a10
+ms.sourcegitcommit: d3cc6752552aa2babad24da4959ddb7147a86717
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170673"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924958"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>管理 Azure 门户设置和首选项
 
@@ -45,7 +45,7 @@ ms.locfileid: "92170673"
 
 - 无法自定义主页。  主页将显示热门 Azure 服务的快捷方式，并列出你最近使用的资源。 我们还会提供 Microsoft Learn 和 Azure 路线图等资源的有用链接。
 
-- 可以自定义仪表板，以创建专为你设计的工作区。 例如，可以生成一个以项目、任务或角色为中心的仪表板。 如果选择“仪表板”，则默认视图将切换到最近使用的仪表板。**** 有关详细信息，请参阅[在 Azure 门户中创建和共享仪表板](azure-portal-dashboards.md)。
+- 可以自定义仪表板，以创建专为你设计的工作区。 例如，可以生成一个以项目、任务或角色为中心的仪表板。 如果选择“仪表板”，则默认视图将切换到最近使用的仪表板。  有关详细信息，请参阅[在 Azure 门户中创建和共享仪表板](azure-portal-dashboards.md)。
 
 ## <a name="choose-a-portal-menu-mode"></a>选择门户菜单模式
 
@@ -73,7 +73,7 @@ ms.locfileid: "92170673"
 
 ![显示 Azure 门户设置的屏幕截图，其中突出显示了弹出式通知](./media/set-preferences/popup-notifications.png)
 
-若要阅读在当前会话中收到的所有通知，请从全局页头中选择“通知”。****
+若要阅读在当前会话中收到的所有通知，请从全局页头中选择“通知”。 
 
 ![显示 Azure 门户全局页头的屏幕截图，其中显示突出了“通知”](./media/set-preferences/read-notifications.png)
 
@@ -81,41 +81,18 @@ ms.locfileid: "92170673"
 
 ## <a name="change-the-inactivity-timeout-setting"></a>更改非活动状态超时设置
 
-如果你忘记了保护工作站，非活动状态超时设置有助于保护资源免受未经授权的访问。 空闲一段时间后，将自动注销你的 Azure 门户会话。 作为个人，你可以更改自己的超时设置。 如果你是管理员，可在目录级别为目录中所有用户完成这项设置。
+如果你忘记了保护工作站，非活动状态超时设置有助于保护资源免受未经授权的访问。 空闲一段时间后，将自动注销你的 Azure 门户会话。
 
 ### <a name="change-your-individual-timeout-setting-user"></a>更改个人的超时设置（用户）
 
-选择“不活动时将我注销”下面的下拉列表。**** 选择在空闲多长时间后注销你的 Azure 门户会话。
+选择“不活动时将我注销”下面的下拉列表。  选择在空闲多长时间后注销你的 Azure 门户会话。
 
 ![显示门户设置的屏幕截图，其中突出显示了非活动超时设置](./media/set-preferences/inactive-signout-user.png)
 
 更改将自动保存。 空闲持续时间达到设置的值后，将注销你的 Azure 门户会话。
 
-如果你的管理员已经启用了非活动状态超时策略，你仍然可以设置自己的超时设置，只是它必须小于目录级别设置。 选中“替代目录非活动状态超时策略”，然后设置时间间隔。
-
-![显示门户设置的屏幕截图，其中突出显示了“替代目录非活动超时策略”设置](./media/set-preferences/inactive-signout-override.png)
-
-### <a name="change-the-directory-timeout-setting-admin"></a>更改目录超时设置（管理员）
-
-具有[全局管理员角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)的管理员可以在会话注销之前强制执行最长空闲时间。非活动超时设置在目录级别应用。 设置对新会话生效。 它不会立即应用于任何已登录的用户。 有关目录的详细信息，请参阅 [Active Directory 域服务概述](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)。
-
-如果你是全局管理员，并且需要为 Azure 门户的所有用户强制执行空闲超时设置，请执行以下步骤：
-
-1. 选择链接文本“配置目录级别超时”****。
-
-    ![显示门户设置的屏幕截图，其中突出显示了链接文本](./media/set-preferences/settings-admin.png)
-
-1. 在“配置目录级非活动超时”**** 页上，选择“为 Azure 门户启用目录级别的空闲超时”**** 以启用设置。
-
-1. 接下来，输入**小时数**和**分钟数**，以便设置在会话自动注销之前用户可处于空闲状态的最长时间。
-
-1. 选择“应用”。
-
-    ![屏幕截图，显示用于设置目录级别非活动超时的页面](./media/set-preferences/configure.png)
-
-若要确认是否正确设置了非活动超时策略，请从全局页眉中选择“通知”。**** 验证是否列出了成功通知。
-
-![屏幕截图，显示用于目录级别非活动超时的成功通知消息](./media/set-preferences/confirmation.png)
+<!-- not support in mc -->
+<!-- ### Change the directory timeout setting (admin) -->
 
 ## <a name="restore-default-settings"></a>还原默认设置
 
@@ -137,7 +114,7 @@ ms.locfileid: "92170673"
 
 ![显示如何导出设置的屏幕截图](./media/set-preferences/useful-links-export-settings.png)
 
-导出设置时会创建一个 .json 文件，其中包含你的用户设置（如颜色主题、收藏夹和专用仪表板）。 由于用户设置的动态性质和数据损坏风险，因此不能从 .json** 文件导入设置。
+导出设置时会创建一个 .json 文件，其中包含你的用户设置（如颜色主题、收藏夹和专用仪表板）。 由于用户设置的动态性质和数据损坏风险，因此不能从 .json  文件导入设置。
 
 ## <a name="delete-user-settings-and-dashboards"></a>删除用户设置和仪表板
 
@@ -158,9 +135,9 @@ ms.locfileid: "92170673"
 ## <a name="change-language-and-regional-settings"></a>更改语言和区域设置
 
 有两项设置控制 Azure 门户中文本的显示方式： 
-- “语言”设置控制文本在 Azure 门户中的显示语言。**** 
+- “语言”设置控制文本在 Azure 门户中的显示语言。  
 
-- “区域格式”控制日期、时间、数字和货币的显示方式。****
+- “区域格式”控制日期、时间、数字和货币的显示方式。 
 
 若要更改 Azure 门户中使用的语言，请使用下拉列表从可用语言列表中进行选择。
 
@@ -168,7 +145,7 @@ ms.locfileid: "92170673"
 
 例如，如果选择“英语”作为语言，然后选择“美国”作为区域格式，将以美元显示货币。 如果选择“英语”作为语言，然后选择“欧洲”作为区域格式，则以欧元显示货币。
 
-选择“应用”以更新语言和区域格式设置。****
+选择“应用”以更新语言和区域格式设置。 
 
    ![显示语言和区域格式设置的屏幕截图](./media/set-preferences/language.png)
 

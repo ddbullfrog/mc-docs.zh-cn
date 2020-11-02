@@ -3,19 +3,19 @@ title: 创建认知服务文本分析资源
 titleSuffix: Azure Cognitive Services
 description: 了解如何创建认知服务文本分析资源。
 services: cognitive-services
-author: IEvangelist
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
-origin.date: 11/21/2019
-ms.date: 02/25/2020
-ms.author: v-lingwu
-ms.openlocfilehash: 354f2669e8b38e6c4fec65a21db0cf1c3dfb9cbd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/26/2020
+ms.author: v-johya
+ms.openlocfilehash: 15df67bb0db1bd195249fc47ec6f2487994bb41b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78155324"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103920"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>创建认知服务文本分析资源
 
@@ -29,7 +29,7 @@ ms.locfileid: "78155324"
     |名称|输入名称（2-64 个字符）。|
     |订阅|选择适当的订阅。|
     |位置|选择附近的位置。|
-    |定价层| 输入 **S**（即标准定价层）。|
+    |定价层| 输入 **S** （即标准定价层）。|
     |资源组|选择可用的资源组。|
 
 1. 选择“创建”  并等待创建资源。 浏览器会自动重定向到新创建的资源页。

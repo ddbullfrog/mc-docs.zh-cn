@@ -5,19 +5,19 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: conceptual
 ms.workload: infrastructure
-origin.date: 05/06/2019
+origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: cynthn
-ms.openlocfilehash: 07649e0d8546b297f642f3b40ffc88886e341088
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 5e521e40872c003adc491c1d1b54e8d3485db4fc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127653"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103603"
 ---
 # <a name="shared-image-gallery-overview"></a>共享映像库概述
 

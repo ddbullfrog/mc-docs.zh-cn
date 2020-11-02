@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 05/07/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: b1ff8c7c1e84454814f290f5b982fbc8d908d5f0
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 96ba99b31eee3ca80d1416dd62b84c45b4e8cce6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472549"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103680"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>全局传输网络体系结构和虚拟 WAN
 
@@ -141,9 +141,9 @@ VNet 到 VNet 传输使 VNet 能够相互连接，以互连跨多个 VNet 实施
 
 Azure 虚拟 WAN 中心将互连整个混合网络中的所有网络终结点，可能会看到所有传输网络流量。 可以在 VWAN 中心内部署 Azure 防火墙以启用基于云的安全、访问和策略控制，将虚拟 WAN 中心转换为安全虚拟中心。 虚拟 WAN 中心内的 Azure 防火墙协调可由 Azure 防火墙管理器执行。
 
-[Azure 防火墙管理器](https://docs.microsoft.com/azure/firewall-manager/)提供管理和缩放全局传输网络安全性的功能。 Azure 防火墙管理器提供通过第三方工具和 Azure 防火墙集中管理路由、全局策略和高级 Internet 安全服务的功能。
+Azure 防火墙管理器提供管理和缩放全局传输网络安全性的功能。 Azure 防火墙管理器提供通过第三方工具和 Azure 防火墙集中管理路由、全局策略和高级 Internet 安全服务的功能。
 
-<!--CORRECT ON https://docs.microsoft.com/azure/firewall-manager -->
+<!--PENDING ON [Azure Firewall Manager](https://docs.azure.cn/firewall-manager/)-->
 
 :::image type="content" source="./media/virtual-wan-global-transit-network-architecture/figure5.png" alt-text="中心和辐射":::
 
@@ -193,6 +193,6 @@ VNet 到 Internet 使 VNet 能够通过虚拟 WAN 中心内的 Azure 防火墙�
 * [使用虚拟 WAN 的站点到站点连接](virtual-wan-site-to-site-portal.md)
 * [使用虚拟 WAN 的 ExpressRoute 连接](virtual-wan-expressroute-portal.md)
 
-    <!--Not Available on * [Azure Firewall Manager to Deploy Azure FW in VWAN](https://docs.azure.cn/firewall-manager/)-->
+<!--Not Available on * [Azure Firewall Manager to Deploy Azure FW in VWAN](https://docs.azure.cn/firewall-manager/)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

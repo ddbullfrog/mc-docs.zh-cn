@@ -7,13 +7,13 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 origin.date: 05/29/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: f3303f2788c107c435fe1b7a93a9186e258710a5
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 25d7429af46476a886c0ec335be3963a75d91a9f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146392"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104755"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>教程：在 Azure 数据资源管理器中引入和查询监视数据 
 
@@ -130,7 +130,7 @@ Azure 诊断指标和日志以及活动日志是由 Azure 服务发出的，用�
         "RootActivityId": "00000000-0000-0000-0000-000000000000",
         "OriginatesFromUpdatePolicy": false,
         "ShouldRetry": false,
-        "IngestionSourcePath": "https://c0skstrldkereneus01.blob.core.windows.net/aam-20190826-temp-e5c334ee145d4b43a3a2d3a96fbac1df/3216_test_3_columns_invalid_8f57f0d161ed4a8c903c6d1073005732_59951f9ca5d143b6bdefe52fa381a8ca.zip"
+        "IngestionSourcePath": "https://c0skstrldkereneus01.blob.core.chinacloudapi.cn/aam-20190826-temp-e5c334ee145d4b43a3a2d3a96fbac1df/3216_test_3_columns_invalid_8f57f0d161ed4a8c903c6d1073005732_59951f9ca5d143b6bdefe52fa381a8ca.zip"
     }
 }
 ```
@@ -207,7 +207,7 @@ Azure 活动日志是订阅级日志，提供对订阅中的资源执行的操�
 
 ### <a name="create-the-target-tables"></a>创建目标表
 
-Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事件扩展到一个或多个记录。 将原始数据引入到活动日志的中间表 *ActivityLogsRawRecords* 以及诊断指标和日志的中间表 *DiagnosticRawRecords*。 此时，数据已经过处理和扩展。 接着，使用更新策略将扩展的数据引入到活动日志的 *ActivityLogs* 表、诊断指标的 *DiagnosticMetrics* 表以及诊断日志的 *DiagnosticLogs* 表。 这意味着需要创建两个单独的表来引入活动日志，并创建三个单独的表来引入诊断指标和日志。
+Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事件扩展到一个或多个记录。 将原始数据引入到活动日志的中间表 *ActivityLogsRawRecords* 以及诊断指标和日志的中间表 *DiagnosticRawRecords* 。 此时，数据已经过处理和扩展。 接着，使用更新策略将扩展的数据引入到活动日志的 *ActivityLogs* 表、诊断指标的 *DiagnosticMetrics* 表以及诊断日志的 *DiagnosticLogs* 表。 这意味着需要创建两个单独的表来引入活动日志，并创建三个单独的表来引入诊断指标和日志。
 
 使用 Azure 数据资源管理器 Web UI 在 Azure 数据资源管理器数据库中创建目标表。
 
@@ -457,25 +457,30 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 ### <a name="connect-activity-logs-to-your-event-hub"></a>将活动日志连接到事件中心
 
 1. 在 Azure 门户的左侧菜单中，选择“活动日志”  。
-1. 此时会打开“活动日志”窗口  。 选择“导出到事件中心”  。
+1. 此时会打开“活动日志”窗口  。 选择“诊断设置”。
 
     ![活动日志窗口](media/ingest-data-no-code/activity-log.png)
 
-1. 此时会打开“导出活动日志”窗口  ：
- 
-    ![导出活动日志窗口](media/ingest-data-no-code/export-activity-log.png)
+1. 此时会打开“诊断设置”窗口。  选择“+ 添加诊断设置”。 
 
-1. 在“导出活动日志”窗口中，执行以下步骤  ：
-      1. 选择订阅。
-      1. 在“区域”列表中，选择“全选”   。
-      1. 选择“导出到事件中心”复选框  。
-      1. 选择“选择服务总线命名空间”，打开“选择事件中心”窗格   。
-      1. 在“选择事件中心”窗格中，选择订阅  。
-      1. 在“选择事件中心命名空间”列表中，选择 AzureMonitoringData   。
-      1. 在“选择事件中心策略名称”列表中，选择默认的事件中心策略名称  。
-      1. 选择“确定”  。
-      1. 在窗口的左上角，选择“保存”  。
-   随即会创建名为 *insights-operational-logs* 的事件中心。
+    :::image type="content" source="media/ingest-data-no-code/add-diagnosting-setting.png" alt-text="在 Azure 数据资源管理器门户的“诊断设置”窗口中添加诊断设置":::
+
+1. 此时将打开一个新的“诊断设置”窗口。 
+
+    :::image type="content" source="media/ingest-data-no-code/export-activity-log.PNG" alt-text="在 Azure 数据资源管理器门户的“诊断设置”窗口中添加诊断设置":::
+
+    执行以下步骤：
+    1. 在“诊断设置名称”字段中输入名称。  
+    1. 在复选框的右侧，选择你希望从订阅中收集的平台日志。
+    1. 选择“流式传输到事件中心”复选框  。
+    1. 选择订阅。
+    1. 在“事件中心命名空间”列表中，选择 AzureMonitoringData。
+    1. 还可选择“事件中心名称”。
+    1. 在“事件中心策略名称”列表中，选择默认的事件中心策略名称。
+    1. 在窗口的左上角，选择“保存”  。 这将创建一个名为 insights-operational-logs 的事件中心（除非你已在上面选择事件中心名称）。
+      
+    
+
 ---
 
 ### <a name="see-data-flowing-to-your-event-hubs"></a>查看流入事件中心的数据
@@ -494,10 +499,10 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
 ### <a name="create-the-data-connection-for-diagnostic-metrics-and-logs-and-activity-logs"></a>为诊断指标和日志以及活动日志创建数据连接
 
-1. 在名为 kustodocs 的 Azure 数据资源管理器群集中，选择左侧菜单中的“数据库”   。
-1. 在“数据库”窗口中，选择 TestDatabase 数据库   。
-1. 在左侧菜单中，选择“数据引入”  。
-1. 在“数据引入”窗口中，单击“+ 添加数据连接”   。
+1. 在名为 kustodocs 的 Azure 数据资源管理器群集中，选择左侧菜单中的“数据库”  。
+1. 在“数据库”窗口中，选择 TestDatabase 数据库  。
+1. 在左侧菜单中，选择“数据引入”。
+1. 在“数据引入”窗口中，单击“+ 添加数据连接” 。
 1. 在“数据连接”窗口中输入以下信息： 
 
     ![事件中心数据连接](media/ingest-data-no-code/event-hub-data-connection.png)
@@ -518,7 +523,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
     目标表：
 
-    有两个路由选项：静态和动态。   本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。 
+    有两个路由选项：静态和动态。  本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。 
 
      **设置** | **建议的值** | **字段说明**
     |---|---|---|
@@ -527,7 +532,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     | **列映射** | *DiagnosticRawRecordsMapping* | 在 *TestDatabase* 数据库中创建的映射，它将传入的 JSON 数据映射到 *DiagnosticRawRecords* 表的列名和数据类型。|
     | | |
 
-1. 选择“创建”  。  
+1. 选择“创建” 。  
 
 # <a name="activity-logs"></a>[活动日志](#tab/activity-logs)
 
@@ -545,16 +550,16 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
     目标表：
 
-    有两个路由选项：静态和动态。   本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。 
+    有两个路由选项：静态和动态。  本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。 
 
      **设置** | **建议的值** | **字段说明**
     |---|---|---|
     | **表** | *ActivityLogsRawRecords* | 在 TestDatabase 数据库中创建的表  。 |
     | **数据格式** | *JSON* | 表中使用的格式。 |
-    | **列映射** | *ActivityLogsRawRecordsMapping* | 在 TestDatabase 数据库中创建的映射，它将传入的 JSON 数据映射到 ActivityLogsRawRecords 表的列名和数据类型   。|
+    | **列映射** | *ActivityLogsRawRecordsMapping* | 在 TestDatabase 数据库中创建的映射，它将传入的 JSON 数据映射到 ActivityLogsRawRecords 表的列名和数据类型  。|
     | | |
 
-1. 选择“创建”  。  
+1. 选择“创建” 。  
 ---
 
 ## <a name="query-the-new-tables"></a>查询新表
@@ -594,7 +599,7 @@ DiagnosticLogs
 
 | count_ | any_Database | any_Table | any_IngestionSourcePath |
 | --- | --- | --- | --- |
-| 00:06.156 | TestDatabase | DiagnosticRawRecords | `https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip` |
+| 00:06.156 | TestDatabase | DiagnosticRawRecords | `https://rtmkstrldkereneus00.blob.core.chinacloudapi.cn/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip` |
 
 # <a name="activity-logs"></a>[活动日志](#tab/activity-logs)
 ### <a name="query-the-activity-logs-table"></a>查询活动日志表

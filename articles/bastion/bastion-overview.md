@@ -4,25 +4,25 @@ description: 了解 Azure Bastion，它提供与虚拟机之间的安全无缝�
 services: bastion
 ms.service: bastion
 ms.topic: overview
-origin.date: 09/01/2020
+origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 1a95d270473093bdfdefe87fd75279c6a58c76da
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: e2139226a3dc6afe03e145e368fce7a689e1da77
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146798"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104817"
 ---
 <!--RELEASE BEFORE CONFIRMATION-->
 # <a name="what-is-azure-bastion"></a>什么是 Azure Bastion？
 
-Azure Bastion 服务是的一种新型的完全托管平台 PaaS 服务，可在虚拟网络中进行预配。 可通过 TLS 直接在 Azure 门户中实现与虚拟机之间的安全无缝的 RDP/SSH 连接。 在你通过 Azure Bastion 连接时，你的虚拟机无需公共 IP 地址。
+Azure Bastion 是你部署的一项服务，借此可使用浏览器和 Azure 门户连接到虚拟机。 Azure Bastion 服务是的一种完全平台管理的 PaaS 服务，可在虚拟网络中进行预配。 可通过 TLS 直接从 Azure 门户实现与虚拟机之间的安全无缝的 RDP/SSH 连接。 通过 Azure Bastion 连接时，你的虚拟机无需公共 IP、代理或特殊的客户端软件。
 
-Bastion 为预配它的虚拟网络中的所有 VM 提供安全的 RDP 和 SSH 连接。 使用 Azure Bastion 可防止虚拟机向外部公开 RDP/SSH 端口，同时仍然使用 RDP/SSH 提供安全访问。 使用 Azure Bastion，可直接从 Azure 门户连接到虚拟机。 无需额外的客户端、代理或软件。
+Bastion 为预配它的虚拟网络中的所有 VM 提供安全的 RDP 和 SSH 连接。 使用 Azure Bastion 可防止虚拟机向外部公开 RDP/SSH 端口，同时仍然使用 RDP/SSH 提供安全访问。
 
 ## <a name="architecture"></a>体系结构
 
@@ -51,7 +51,8 @@ RDP 和 SSH 是连接 Azure 中运行的工作负载的基本方法。 不要通
 * 端口扫描防护  ：因为无需将虚拟机公开到公共 Internet，因此可防止 VM 受到虚拟网络外部的恶意用户的端口扫描。
 * **防止零日漏洞。仅在一个位置强化：** Azure Bastion 是完全托管平台 PaaS 服务。 由于它位于虚拟网络外围，因此你无需担心如何强化虚拟网络中的每个虚拟机。 Azure 平台通过使 Azure Bastion 保持强化且始终保持最新来防范零天攻击。
 
-## <a name="whats-new"></a><a name="new"></a>新增功能
+<a name="new"></a>
+## <a name="whats-new"></a>新增功能
 
 订阅 RSS 源，并在 [Azure 更新](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion)页面上查看最新的 Azure Bastion 功能更新。
 
@@ -61,7 +62,7 @@ RDP 和 SSH 是连接 Azure 中运行的工作负载的基本方法。 不要通
 
 ## <a name="next-steps"></a>后续步骤
 
-* [创建 Azure Bastion 主机资源](bastion-create-host-portal.md)。
+* [教程：创建 Azure Bastion 主机并连接到 Windows VM](tutorial-create-host-portal.md)。
 * 了解 Azure 的一些其他关键[网络功能](../networking/networking-overview.md)。
 
-<!-- Update_Description: wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

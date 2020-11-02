@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 binary_not()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: ac5af92934167ae66617674d521330941dd6c232
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 8cd9d0bbdad1ba5790e9a6d758edccf48c8da7cc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515740"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104032"
 ---
 # <a name="binary_not"></a>binary_not()
 

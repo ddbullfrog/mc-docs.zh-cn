@@ -4,14 +4,14 @@ description: 本文概述了混合 Runbook 辅助角色，可以使用这些辅�
 services: automation
 ms.subservice: process-automation
 origin.date: 09/14/2020
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 27ffb0b4a5687137ea4c4a6aa5f94554aecd3d45
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 93aedcb4b5e29b2943f12c1ada42b1daedcedc83
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943467"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749798"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>混合 Runbook 辅助角色概述
 
@@ -66,7 +66,7 @@ Azure 自动化中的 Runbook 可能无权访问其他云或本地环境中的�
 
 ### <a name="service-tags"></a>服务标记
 
-Azure 自动化从服务标记 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md) 开始支持 Azure 虚拟网络服务标记。 可以在[网络安全组](../virtual-network/security-overview.md#security-rules)或 [Azure 防火墙](../firewall/service-tags.md)中使用服务标记来定义网络访问控制。 创建安全规则时，可以使用服务标记代替特定 IP 地址。 在规则的相应源或目标字段中指定服务标记名称（例如 GuestAndHybridManagement），可以允许或拒绝自动化服务的流量。 此服务标记不支持通过将 IP 范围限制到特定区域来实现更精细的控制。
+Azure 自动化从服务标记 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md) 开始支持 Azure 虚拟网络服务标记。 可以在[网络安全组](../virtual-network/network-security-groups-overview.md#security-rules)或 [Azure 防火墙](../firewall/service-tags.md)中使用服务标记来定义网络访问控制。 创建安全规则时，可以使用服务标记代替特定 IP 地址。 在规则的相应源或目标字段中指定服务标记名称（例如 GuestAndHybridManagement），可以允许或拒绝自动化服务的流量。 此服务标记不支持通过将 IP 范围限制到特定区域来实现更精细的控制。
 
 Azure 自动化服务的服务标记仅提供用于以下场景的 IP：
 

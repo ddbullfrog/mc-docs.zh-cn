@@ -2,9 +2,7 @@
 title: VM 启动时停滞，并在 Azure 中显示“正在准备 Windows。 请不要关闭计算机”| Azure
 description: 介绍了解决以下问题的步骤：VM 启动时停滞并显示“正在准备 Windows。 请不要关闭计算机。”
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -16,12 +14,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 198b32a5eda723380d8e423ca2cfcbdac456ab08
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: bb4b6032d01efeaee106de84b421ad8970e48f2f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456740"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104711"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 启动时停滞，并在 Azure 中显示“正在准备 Windows。 请不要关闭计算机”
 
@@ -29,11 +27,11 @@ ms.locfileid: "89456740"
 
 ## <a name="symptoms"></a>症状
 
-Windows VM 无法启动。 使用**启动诊断**来获取 VM 的屏幕截图时，可能会看到 VM 显示消息“准备就绪”或“准备 Windows 就绪”。
+Windows VM 无法启动。 使用 **启动诊断** 来获取 VM 的屏幕截图时，可能会看到 VM 显示消息“准备就绪”或“准备 Windows 就绪”。
 
 :::image type="content" source="./media/troubleshoot-vm-configure-update-boot/message1.png" alt-text="Windows Server 2012 R2 的消息示例":::
 
-:::image type="content" source="./media/troubleshoot-vm-configure-update-boot/message2.png" alt-text="消息示例":::
+:::image type="content" source="./media/troubleshoot-vm-configure-update-boot/message2.png" alt-text="Windows Server 2012 R2 的消息示例":::
 
 ## <a name="cause"></a>原因
 
@@ -105,7 +103,7 @@ Windows VM 无法启动。 使用**启动诊断**来获取 VM 的屏幕截图时
 3. [分离 OS 磁盘，然后将 OS 磁盘重新附加到受影响的 VM](./troubleshoot-recovery-disks-portal-windows.md)。
 4. 启动 VM 并访问串行控制台。
 5. 选择“发送不可屏蔽中断(NMI)”  以触发内存转储。
-    :::image type="content" source="./media/troubleshoot-vm-configure-update-boot/run-nmi.png" alt-text="有关发送不可屏蔽中断的位置的插图":::
+    :::image type="content" source="./media/troubleshoot-vm-configure-update-boot/run-nmi.png" alt-text="Windows Server 2012 R2 的消息示例":::
 6. 再次将 OS 磁盘附加到恢复 VM，收集转储文件。
 
 ## <a name="contact-azure-support"></a>联系 Azure 支持部门

@@ -2,18 +2,17 @@
 title: Azure Application Insights 使用队列 | Azure Docs
 description: 分析具有某种共性的不同集、用户、会话、事件或操作
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 10/29/2020
 origin.date: 04/10/2018
-ms.date: 6/4/2019
 ms.reviewer: mbullwin
-ms.author: v-lingwu
-ms.openlocfilehash: 7c4de57987f37a3063bd3da6b67200f5d76f0493
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: d8604616ba80dca63b090a088a0a2968e4632be5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850354"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105721"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 队列
 
@@ -41,11 +40,11 @@ ms.locfileid: "78850354"
 3. 选择“参与用户 -- 按使用天数”。 
 
     此队列有三个参数：
-    * **Activities**：选择要将哪些事件和页面视图计入“用法”。
-    * **Period**：月份的定义。
-    * **UsedAtLeastCustom**：用户需要在某个周期内使用某个对象多少次，才能将该用户算作参与用户。
+    * **Activities** ：选择要将哪些事件和页面视图计入“用法”。
+    * **Period** ：月份的定义。
+    * **UsedAtLeastCustom** ：用户需要在某个周期内使用某个对象多少次，才能将该用户算作参与用户。
 
-4. 请将 **UsedAtLeastCustom** 更改为 **5 天以上**，并将 **Period** 保留为默认 28 天。
+4. 请将 **UsedAtLeastCustom** 更改为 **5 天以上** ，并将 **Period** 保留为默认 28 天。
 
     ![参与用户](./media/usage-cohorts/003.png)
 
@@ -102,7 +101,7 @@ ms.locfileid: "78850354"
     有三个部分：
    * 一个 Markdown 文本部分，可在其中为其他团队成员更详细地描述该队列。
 
-   * 一个参数部分，可在其中创建自己的参数，例如 **Activities**，以及前面两个示例中的其他下拉框。
+   * 一个参数部分，可在其中创建自己的参数，例如 **Activities** ，以及前面两个示例中的其他下拉框。
 
    * 一个查询部分，可在其中使用分析查询定义队列。
 
@@ -133,10 +132,8 @@ _我已定义某些国家/地区的用户的队列。当我在“用户”工具
 
 ## <a name="learn-more"></a>了解详细信息
 
-* [Analytics 查询语言](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Analytics 查询语言](../log-query/get-started-portal.md?toc=%252fazure-monitor%252ftoc.json)
 * [用户、会话、事件](usage-segmentation.md)
 * [用户流](usage-flows.md)
 * [使用情况概述](usage-overview.md)
-
-
 

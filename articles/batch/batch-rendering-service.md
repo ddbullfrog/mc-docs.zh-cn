@@ -1,19 +1,19 @@
 ---
 title: 渲染概述
 description: 介绍如何使用 Azure 进行渲染，并提供 Azure Batch 渲染功能的概述
-author: rockboyfor
 origin.date: 08/02/2018
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 10/19/2018
 ms.author: v-yeche
 ms.topic: how-to
-ms.openlocfilehash: aa9b45103ab9b9ea6bde95bdbb0f7d7e7adcafe2
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 07ff5f17d7414cb6392c1a4786b0d8f0ecc58558
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470334"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104744"
 ---
 # <a name="rendering-using-azure"></a>使用 Azure 进行渲染
 
@@ -86,7 +86,7 @@ Azure Batch 可用于许多工作负荷，但以下功能专门用于简化和�
     <!--CORRECT ON https://docs.azure.cn/java/api/overview/batch-->
 
 * 命令行工具：
-    * 可以使用 [Azure 命令行](https://docs.azure.cn/cli/?view=azure-cli-latest)或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 来编写 Batch 脚本。
+    * 可以使用 [Azure 命令行](https://docs.azure.cn/cli/)或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) 来编写 Batch 脚本。
     * 具体而言，Batch CLI 模板支持可以简化创建池和提交作业的操作。
 * UI：
     * [Batch Explorer](https://github.com/Azure/BatchExplorer) 是一个跨平台客户端工具，可在其中管理和监视 Batch 帐户。此外，与 Azure 门户 UI 相比，它提供的功能更丰富。  我们为每个支持的应用程序提供了一组定制的池和作业模板，用于轻松创建池和提交作业。

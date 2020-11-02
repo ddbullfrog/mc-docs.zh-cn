@@ -7,13 +7,13 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/08/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 94e39664807df08eb6d01cf71dbe7e18238db348
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: f1fa4cfcbe82b2d989eaf46172d251d9c83e59e6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146870"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105115"
 ---
 # <a name="series_rolling_fl"></a>series_rolling_fl()
 
@@ -21,7 +21,8 @@ ms.locfileid: "91146870"
 函数 `series_rolling_fl()` 对序列应用滚动聚合。 它采用包含多个序列（动态数值数组）的表，并对每个序列应用滚动聚合函数。
 
 > [!NOTE]
-> `series_rolling_fl()` 是 [UDF（用户定义的函数）](../query/functions/user-defined-functions.md)。  此函数包含内联 Python，需要在群集上[启用 python() 插件](../query/pythonplugin.md#enable-the-plugin)。 有关详细信息，请参阅[用法](#usage)。
+> * `series_rolling_fl()` 是 [UDF（用户定义的函数）](../query/functions/user-defined-functions.md)。
+> * 此函数包含内联 Python，需要在群集上[启用 python() 插件](../query/pythonplugin.md#enable-the-plugin)。 有关详细信息，请参阅[用法](#usage)。
 
 ## <a name="syntax"></a>语法
 

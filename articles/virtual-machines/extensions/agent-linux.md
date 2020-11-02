@@ -6,17 +6,17 @@ ms.workload: infrastructure-services
 ms.topic: article
 origin.date: 10/17/2016
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc300daff14ca116ad88bf6ae7cb599db07e859a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: dbddcb52d334ab366b405f76bac45c0df2ec2ea2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127805"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103802"
 ---
 <!--Verify Successfully-->
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
@@ -98,7 +98,7 @@ Linux 代理的正常运行依赖一些系统程序包：
 * 网络工具：ip-route
 * 装载 UDF 文件系统的内核支持。
 
-确保 VM 可以访问 IP 地址 168.63.129.16。 有关详细信息，请参阅[什么是 IP 地址 168.63.129.16](/virtual-network/what-is-ip-address-168-63-129-16)。
+确保 VM 可以访问 IP 地址 168.63.129.16。 有关详细信息，请参阅[什么是 IP 地址 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)。
 
 ## <a name="installation"></a>安装
 使用分发包存储库中的 RPM 或 DEB 包进行安装是安装和升级 Azure Linux 代理的首选方法。 所有[认可的分发版提供商](../linux/endorsed-distros.md)会将 Azure Linux 代理包集成到其映像和存储库。
@@ -264,7 +264,7 @@ Default: ext4
 Type: String  
 Default: /mnt/resource 
 ```
-这会指定资源磁盘的安装路径。 资源磁盘是临时** 磁盘，可能在取消预配 VM 时被清空。
+这会指定资源磁盘的安装路径。 资源磁盘是临时  磁盘，可能在取消预配 VM 时被清空。
 
 **ResourceDisk.MountOptions**  
 ```txt

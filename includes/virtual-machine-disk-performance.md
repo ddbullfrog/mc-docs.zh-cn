@@ -4,19 +4,19 @@ description: include 文件
 services: virtual-machines
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 07/07/2020
+origin.date: 09/25/2020
 author: rockboyfor
-ms.date: 10/19/2020
-ms.testscope: yes|no
-ms.testdate: 10/19/2020null
+ms.date: 11/02/2020
+ms.testscope: no
+ms.testdate: 11/02/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 6b9afc743459f29a0b7d1eb6f2536f1a2a0bc62f
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 7c856800620fd2272022dd5f6c4ee9287f6bb5cd
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128859"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104874"
 ---
 本文介绍了磁盘性能，以及在将 Azure 虚拟机和 Azure 磁盘组合使用时磁盘性能的工作原理。 此外还介绍了如何诊断磁盘 IO 的瓶颈，以及可以进行哪些更改以优化性能。
 
@@ -49,5 +49,4 @@ Azure 虚拟机具有 IOPS 和吞吐量性能限制，这些限制由虚拟机�
 
 在虚拟机上运行的应用程序发出要求 15,000 个 IOPS 的请求。 遗憾的是，Standard_D8s_v3 虚拟机仅预配为处理 12,800 个 IOPS。 因此，应用程序需遵循虚拟机限制，必须对分配给它的 12,800 个 IOPS 进行分配。 这些要求 12,800 个 IOPS 的请求随后会被分解为对不同磁盘的三个不同请求。 向操作系统磁盘请求 4,267 个 IOPS，向每个数据磁盘请求 4,266 个 IOPS。 由于附加的所有磁盘都是 P30 磁盘（可以处理 5,000 个 IOPS），因此它们会以请求的数量进行响应。
 
-<!-- Update_Description: new article about virtual machine disk performance -->
-<!--NEW.date: 10/19/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

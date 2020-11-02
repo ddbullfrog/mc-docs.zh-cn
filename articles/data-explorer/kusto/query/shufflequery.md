@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的随机执行查询
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: a16d0417405b53b74ae9b5809817b17e036671fc
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: 0b9a4ec03a2e9564f833063c5dad49dc16ffcc94
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515678"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104262"
 ---
 # <a name="shuffle-query"></a>随机执行查询
 

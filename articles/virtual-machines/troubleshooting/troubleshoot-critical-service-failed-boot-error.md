@@ -2,9 +2,7 @@
 title: 启动 Azure VM 时关键服务失败 | Azure
 description: 了解如何解决在启动时出现的“0x0000005A-关键服务失败”错误 | Azure
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: b5ea41366c12215d1f8575b313a8c4d74577ba42
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: b8b317545fe2ba2c9ec60677d673411039f6e5ab
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456808"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104712"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>启动 Azure VM 时 Windows 在蓝色屏幕上显示“关键服务失败”
 本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能会遇到的“关键服务失败”错误， 并提供用于解决问题的故障排除步骤。 
@@ -121,8 +119,8 @@ Windows VM 不启动。 在[启动诊断](./boot-diagnostics.md)中检查启动�
 若要自己分析转储日志，请执行以下步骤：
 
 1. 将 OS 磁盘附加到恢复 VM。
-2. 在附加的 OS 磁盘上，浏览到 **\windows\system32\config**。将所有文件复制为一个备份，以备回退之需。
-3. 启动**注册表编辑器** (regedit.exe)。
+2. 在附加的 OS 磁盘上，浏览到 **\windows\system32\config** 。将所有文件复制为一个备份，以备回退之需。
+3. 启动 **注册表编辑器** (regedit.exe)。
 4. 选择“HKEY_LOCAL_MACHINE”  项。 在菜单上，选择“文件” > “加载配置单元”。  
 5. 浏览到已附加 OS 磁盘上的 **\windows\system32\config\SYSTEM** 文件夹。 输入“BROKENSYSTEM”  作为配置单元名称。 新的注册表配置单元将显示在“HKEY_LOCAL_MACHINE”  项之下。
 6. 浏览到 **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** 并进行以下更改：

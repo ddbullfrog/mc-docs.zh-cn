@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/02/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 24d50dae78f6d9ca57bad90992e402b2fdc44fbe
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: d011f507f5bdad1261de0c34a8ccc32556be2606
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211882"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628228"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虚拟网络中资源的名称解析
 
@@ -218,8 +218,6 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 > 如果为虚拟网络选择自定义 DNS 服务器，则必须至少指定一个 DNS 服务器 IP 地址；否则，虚拟网络将忽略配置，而改用由 Azure 提供的 DNS。
 
 使用经典部署模型时，可以在 Azure 门户或[网络配置文件](https://msdn.microsoft.com/library/azure/jj157100)中指定虚拟网络的 DNS 服务器。 对于云服务器，可以通过[服务配置文件](https://msdn.microsoft.com/library/azure/ee758710)或者在 PowerShell 中使用 [New-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/new-azurevm) 指定 DNS 服务器。
-
-<!--Correct on https://docs.microsoft.com/powershell/module/servicemanagement/azure.service/new-azurevm-->
 
 > [!NOTE]
 > 如果更改已部署的虚拟网络或虚拟机的 DNS 设置，要使新的 DNS 设置生效，必须对虚拟网络中所有受影响的 VM 执行 DHCP 租约续订。 对于运行 Windows OS 的 VM，可以直接在 VM 中键入 `ipconfig /renew` 来完成此操作。 步骤因 OS 而异。 请参阅 OS 类型的相关文档。

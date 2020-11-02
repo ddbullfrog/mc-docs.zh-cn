@@ -3,9 +3,7 @@ title: Azure VM 的详细 SSH 故障排除 | Azure
 description: 对 Azure 虚拟机连接问题进行较详细 SSH 故障排除的步骤
 keywords: ssh 连接被拒绝,ssh 错误,azure ssh,SSH 连接失败
 services: virtual-machines-linux
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
@@ -14,16 +12,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 origin.date: 10/31/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 097b0a4bfc74afcca366258a6dd10ba8048463f6
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 24004e30e5bf7d24c11541e8e6f9bcb4c7faac96
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456881"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105332"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>对连接到 Azure 中 Linux VM 时出现的问题进行详细的 SSH 故障排除的步骤
 有许多可能的原因会导致 SSH 客户端无法访问 VM 上的 SSH 服务。 如果已经执行了较[常规的 SSH 故障排除步骤](troubleshoot-ssh-connection.md)，则需要进一步排查连接问题。 本文指导用户完成详细的故障排除步骤，以确定 SSH 连接失败的位置以及解决方法。
@@ -42,7 +40,7 @@ ms.locfileid: "89456881"
 
 2. 选择“设置”检查终结点、IP 地址、网络安全组和其他设置。 
 
-    VM 必须有为 SSH 流量定义的终结点，可以在“终结点”或“[网络安全组](../../virtual-network/security-overview.md)”查看 SSH 流量。   将 VM 中使用资源管理器创建的终结点存储在网络安全组中。 验证是否已对网络安全组应用这些规则，以及子网中是否引用了这些规则。
+    VM 必须有为 SSH 流量定义的终结点，可以在“终结点”或“[网络安全组](../../virtual-network/network-security-groups-overview.md)”查看 SSH 流量。   将 VM 中使用资源管理器创建的终结点存储在网络安全组中。 验证是否已对网络安全组应用这些规则，以及子网中是否引用了这些规则。
 
 若要验证网络连接性，请检查配置的终结点，并了解是否可通过其他协议（如 HTTP 或其他服务）连接到 VM。
 
@@ -60,7 +58,7 @@ ms.locfileid: "89456881"
 ## <a name="source-1-ssh-client-computer"></a>来源 1：SSH 客户端计算机
 要将你的计算机从失败原因中排除，请验证你的计算机是否能够与其他基于 Linux 的本地计算机建立 SSH 连接。
 
-:::image type="content" source="./media/detailed-troubleshoot-ssh-connection/ssh-tshoot2.png" alt-text="突出显示 SSH 客户端计算机组件的图表":::
+:::image type="content" source="./media/detailed-troubleshoot-ssh-connection/ssh-tshoot2.png" alt-text="显示 SSH 服务组件的图表":::
 
 如果连接失败，请检查计算机上是否存在以下问题：
 
@@ -81,7 +79,7 @@ ms.locfileid: "89456881"
 ## <a name="source-2-organization-edge-device"></a>来源 2：组织边缘设备
 若要将组织边缘设备从失败原因中排除，请验证直接连接到 Internet 的计算机是否可以与 Azure VM 建立 SSH 连接。 如果是通过站点到站点 VPN 或 Azure ExpressRoute 连接来访问 VM，请跳转到[来源 4：网络安全组](#nsg)。
 
-:::image type="content" source="./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png" alt-text="突出显示组织边缘设备的图表":::
+:::image type="content" source="./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png" alt-text="显示 SSH 服务组件的图表":::
 
 如果没有直接连接到 Internet 的计算机，请在其自己的资源组或云服务中创建新的 Azure VM，然后使用这个新的 VM。 有关详细信息，请参阅[在 Azure 中创建运行 Linux 的虚拟机](../linux/quick-create-cli.md)。 测试完成后，请删除资源组或 VM 以及云服务。
 
@@ -102,7 +100,7 @@ ms.locfileid: "89456881"
 
 若要将云服务终结点和 ACL 从失败原因中排除，请验证同一虚拟网络中的其他 Azure VM 是否可以使用 SSH 进行连接。
 
-:::image type="content" source="./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png" alt-text="突出显示云服务终结点和 ACL 的图表":::
+:::image type="content" source="./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png" alt-text="显示 SSH 服务组件的图表":::
 
 如果同一虚拟网络中没有其他 VM，可以轻松创建一个 VM。 有关详细信息，请参阅[使用 CLI 在 Azure 上创建 Linux VM](../linux/quick-create-cli.md)。 测试完成后，删除额外的 VM。
 
@@ -117,21 +115,21 @@ ms.locfileid: "89456881"
 
 ## <a name="source-4-network-security-groups"></a>来源 4：网络安全组
 通过使用网络安全组，可以对允许的入站和出站流量进行更精细的控制。 可以创建跨 Azure 虚拟网络中的子网和云服务的规则。 检查网络安全组规则，确保允许传入和传出 Internet 的 SSH 流量。
-有关详细信息，请参阅[关于网络安全组](../../virtual-network/security-overview.md)。
+有关详细信息，请参阅[关于网络安全组](../../virtual-network/network-security-groups-overview.md)。
 
 还可使用 IP Verify 验证 NSG 配置。 有关详细信息，请参阅 [Azure network monitoring overview](../../network-watcher/network-watcher-monitoring-overview.md)（Azure 网络监视概述）。 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>来源 5：基于 Linux 的 Azure 虚拟机
 最后一个可能出现问题的来源是 Azure 虚拟机本身。
 
-:::image type="content" source="./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png" alt-text="突出显示基于 Linux 的 Azure 虚拟机的图表":::
+:::image type="content" source="./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png" alt-text="显示 SSH 服务组件的图表":::
 
 如果尚未这样做，请按照[为基于 Linux 的虚拟机重置密码](./reset-password.md)中的说明进行操作。
 
 尝试从计算机重新建立连接。 如果仍然失败，则可能存在以下问题：
 
 * SSH 服务未在目标虚拟机上运行。
-* 未在 TCP 端口 22 上侦听 SSH 服务。 如果要测试，可在本地计算机上安装一个 telnet 客户端，并运行“telnet *cloudServiceName*.chinacloudapp.cn 22”。 此步骤确定虚拟机是否允许与 SSH 终结点进行入站和出站通信。
+* 未在 TCP 端口 22 上侦听 SSH 服务。 如果要测试，可在本地计算机上安装一个 telnet 客户端，并运行“telnet *cloudServiceName* .chinacloudapp.cn 22”。 此步骤确定虚拟机是否允许与 SSH 终结点进行入站和出站通信。
     
     <!-- cloudapp.net to chinacloudapp.cn is Correct  -->
     

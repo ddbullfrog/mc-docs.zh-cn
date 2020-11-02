@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 diffpatterns 插�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: bc44e055bbad341afb629c3f30a4cb612505c664
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 6f588655a469345c953d3042772e41a43685023f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516004"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104949"
 ---
 # <a name="diff-patterns-plugin"></a>diffpatterns 插件
 
@@ -29,21 +29,21 @@ T | evaluate diffpatterns(splitColumn)
 
 ## <a name="syntax"></a>语法
 
-`T | evaluate diffpatterns(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
+`T | evaluate diffpatterns(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
 
 ## <a name="arguments"></a>参数 
 
 ### <a name="required-arguments"></a>必需参数
 
-* SplitColumn - column_name**
+* SplitColumn - column_name 
 
     指示算法如何将查询分割成数据集。 算法根据指定的 SplitValueA 和 SplitValueB 参数的值（见下文），将查询分为“A”和“B”两个数据集，并分析二者间的差异。 因此，拆分列必须至少有两个不同的值。
 
-* SplitValueA - string**
+* SplitValueA - string 
 
     指定的 SplitColumn 中一个值的字符串表示形式。 SplitColumn 中具有此值的所有行都会被视为数据集“A”。
 
-* SplitValueB - string**
+* SplitValueB - string 
 
     指定的 SplitColumn 中一个值的字符串表示形式。 SplitColumn 中具有此值的所有行都会被视为数据集“B”。
 

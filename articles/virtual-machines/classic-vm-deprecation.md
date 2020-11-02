@@ -7,20 +7,20 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 origin.date: 02/10/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 10f199ade4b07a520c887c6204667af73b7ca184
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: c22263bcd0926a604523c7b9e7421885862763c2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128326"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105127"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>请于 2023 年 3 月 1 日之前将 IaaS 资源迁移到 Azure 资源管理器 
 
-2014 年，我们在 [Azure 资源管理器](https://www.azure.cn/home/features/resource-manager/)上推出了基础结构即服务 (IaaS)。 从那时起，我们一直在强化功能。 由于 Azure 资源管理器现具有完整的 IaaS 功能和其他改进，因此我们在 2020 年 2 月 28 日弃用了通过 [Azure Service Manager](/virtual-machines/windows/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) 管理 IaaS 虚拟机 (VM) 的功能。 此功能将于 2023 年 3 月 1 日完全停用。 
+2014 年，我们在 [Azure 资源管理器](https://www.azure.cn/home/features/resource-manager/)上推出了基础结构即服务 (IaaS)。 从那时起，我们一直在强化功能。 由于 Azure 资源管理器现具有完整的 IaaS 功能和其他改进，因此我们在 2020 年 2 月 28 日弃用了通过 [Azure Service Manager](./migration-classic-resource-manager-faq.md#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) 管理 IaaS 虚拟机 (VM) 的功能。 此功能将于 2023 年 3 月 1 日完全停用。 
 
 <!--NOTIFICATION [Azure Resource Manager](https://www.azure.cn/home/features/resource-manager/) REDIRECT TO (https://azure.microsoft.com/features/resource-manager/)-->
 
@@ -49,15 +49,15 @@ ms.locfileid: "92128326"
 1. 列出所有受影响的 VM： 
 
    - 在订阅中，只有 [Azure 门户的 VM 窗格](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines)上类型为“虚拟机（经典）”的 VM 才受到影响。 
-   - 还可使用[门户](https://portal.azure.cn/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22)或 [PowerShell](/governance/resource-graph/concepts/work-with-data) 查询 Azure Resource Graph，进而查看已选订阅的所有带标记的 VM（经典）及相关信息的列表。 
+   - 还可使用[门户](https://portal.azure.cn/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22)或 [PowerShell](../governance/resource-graph/concepts/work-with-data.md) 查询 Azure Resource Graph，进而查看已选订阅的所有带标记的 VM（经典）及相关信息的列表。 
    - 在 2020 年 2 月 8 日和 9 月 2 日，我们向订阅所有者发送了电子邮件，其中附有包含这些 VM（经典）的所有订阅的列表。 请使用它们来生成此列表。 
 
 1. [详细了解](./windows/migration-classic-resource-manager-overview.md)如何将 [Linux](./linux/migration-classic-resource-manager-plan.md) 和 [Windows](./windows/migration-classic-resource-manager-plan.md) VM（经典）迁移到 Azure 资源管理器。 若要了解详细信息，请参阅[有关从经典部署模型迁移到 Azure 资源管理器部署模型的常见问题](./migration-classic-resource-manager-faq.md)。
 
-1. 建议使用[平台支持迁移工具](/virtual-machines/windows/migration-classic-resource-manager-overview)开始规划，按照验证、准备和提交这三个简单步骤迁移现有 VM。 此工具旨在迁移 VM 的同时确保不停机或停机时间最少。 
+1. 建议使用[平台支持迁移工具](./windows/migration-classic-resource-manager-overview.md)开始规划，按照验证、准备和提交这三个简单步骤迁移现有 VM。 此工具旨在迁移 VM 的同时确保不停机或停机时间最少。 
 
    1. 第一步是验证，这不影响现有部署，并提供列表可查看所有不受支持的迁移方案。 
-   1. 请浏览[暂时解决方法列表](/virtual-machines/windows/migration-classic-resource-manager-overview#unsupported-features-and-configurations)来修复部署，使其做好迁移准备。 
+   1. 请浏览[暂时解决方法列表](./windows/migration-classic-resource-manager-overview.md#unsupported-features-and-configurations)来修复部署，使其做好迁移准备。 
    1. 理想情况下，解决所有验证错误后，在准备和提交步骤中不会遇到任何问题。 提交成功后，部署将实时迁移到 Azure 资源管理器，然后可通过 Azure 资源管理器公开的新的 API 进行管理。 
 
    如果迁移工具不适合迁移，可探索[其他计算服务/产品](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree)来进行迁移。 有许多 Azure 计算服务/产品，而且它们各不相同，因此我们无法为其提供平台支持的迁移路径。  

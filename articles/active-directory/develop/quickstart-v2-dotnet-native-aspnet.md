@@ -1,5 +1,6 @@
 ---
-title: 调用受 Microsoft 标识平台保护的 ASP.NET Web API
+title: 快速入门：调用受 Microsoft 标识平台保护的 ASP.NET Web API | Azure
+titleSuffix: Microsoft identity platform
 description: 本快速入门介绍如何从 Windows 桌面 (WPF) 应用程序调用受 Microsoft 标识平台保护的 ASP.NET Web API。
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 943f4d7880d86c28a89cc5c1e83bf0b8b816df4d
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: f92c1f6acac37f4ef01380839e8319dec96dadba
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937471"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749952"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>快速入门：调用受 Microsoft 标识平台保护的 ASP.NET Web API
 
@@ -26,31 +27,28 @@ ms.locfileid: "91937471"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要运行本文中的示例代码，需要：
-
-* Visual Studio 2017 或 2019。  免费下载 [Visual Studio](https://www.visualstudio.com/downloads/)。
-* [Microsoft 365 开发人员计划](https://docs.microsoft.com/office/developer-program/office-365-developer-program)。
+* 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Visual Studio 2017 或 2019。 免费下载 [Visual Studio](https://www.visualstudio.com/downloads/)。
 
 ## <a name="clone-or-download-the-sample"></a>克隆或下载示例
 
-可以通过以下两种方式之一获取该示例：  
+可以通过以下两种方式之一获取该示例：
 
 * 在 shell 或命令行中进行克隆：
    ```console
    git clone https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
-   ```  
+   ```
 * [以 ZIP 文件下载](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip)。
 
 ## <a name="register-your-web-api"></a>注册 Web API
 
-本部分中将在“应用注册”门户中注册 Web API。
+本部分中将在 Azure 门户的“应用注册”中注册 Web API。
 
 ### <a name="choose-your-azure-ad-tenant"></a>选择 Azure AD 租户
 
 若要手动注册应用，请选择要在其中创建应用的 Azure Active Directory (Azure AD) 租户。
 
 1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
-
 1. 如果帐户位于多个 Azure AD 租户中，请在右上角选择你的个人资料，然后选择“切换目录”。
 1. 将门户会话更改为所需的 Azure AD 租户。
 
@@ -60,21 +58,22 @@ ms.locfileid: "91937471"
 1. 选择“新注册”。
 1. “注册应用程序”页出现后，请输入应用程序的注册信息：
 
-   a. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。 例如，输入 AppModelv2-NativeClient-DotNet-TodoListService。  
-   b. 在“支持的帐户类型”下，选择“任何组织目录中的帐户” 。  
-   c. 选择“注册”以创建应用程序。
+    1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。 例如，输入 AppModelv2-NativeClient-DotNet-TodoListService。
+    1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户” 。
+    1. 选择“注册”以创建应用程序。
 
 1. 在应用的“概述”页上，找到“应用程序(客户端) ID”值，然后记下该值以供后续使用 。 你将需要使用该值为此项目配置 Visual Studio 配置文件（即 TodoListService\Web.config 文件中的 `ClientId`）。
-1. 在“公开 API”部分，选择“添加范围”，通过选择“保存并继续”来接受建议的应用程序 ID URI (api://{clientId})，然后输入以下信息  ：
- 
-   a. 对于“范围名称”，请输入“access_as_user” 。  
-   b. 对于“谁能同意?”，请确保选择了“管理员和用户”选项 。  
-   c. 在“管理员同意显示名称”框中，输入“以用户身份访问 TodoListService” 。  
-   d. 在“管理员同意说明”框中，输入“以用户身份访问 TodoListService Web API” 。  
-   e. 在“用户同意显示名称”框中，输入“以用户身份访问 TodoListService” 。  
-   f. 在“用户同意说明”框中，输入“以用户身份访问 TodoListService Web API” 。  
-   g. 对于“状态”，保留“启用” 。  
-   h. 选择“添加范围”。
+
+1. 在“公开 API”部分，选择“添加范围”，通过选择“保存并继续”来接受建议的应用程序 ID URI (`api://{clientId}`)，然后输入以下信息  ：
+
+    1. 对于“范围名称”，请输入“access_as_user” 。
+    1. 对于“谁能同意?”，请确保选择了“管理员和用户”选项 。
+    1. 在“管理员同意显示名称”框中，输入“以用户身份访问 TodoListService” 。
+    1. 在“管理员同意说明”框中，输入“以用户身份访问 TodoListService Web API” 。
+    1. 在“用户同意显示名称”框中，输入“以用户身份访问 TodoListService” 。
+    1. 在“用户同意说明”框中，输入“以用户身份访问 TodoListService Web API” 。
+    1. 对于“状态”，保留“启用” 。
+    1. 选择“添加范围”。
 
 ### <a name="configure-the-service-project"></a>配置服务项目
 
@@ -107,10 +106,10 @@ ms.locfileid: "91937471"
 1. 选择“新注册”。
 1. “注册应用程序”页出现后，请输入应用程序的注册信息：
 
-   a. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 NativeClient-DotNet-TodoListClient 。  
-   b. 在“支持的帐户类型”下，选择“任何组织目录中的帐户” 。  
-   c. 选择“注册”以创建应用程序。
-   
+    1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 NativeClient-DotNet-TodoListClient 。
+    1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户” 。
+    1. 选择“注册”以创建应用程序。
+
    > [!NOTE]
    > 在 TodoListClient 项目的 app.config 文件中，将 `ida:Tenant` 的默认值设置为 `common`。 可能的值为：
    > - `common`：可以使用工作或学校帐户登录（因为你在步骤 3b 中选择了“任何组织目录中的帐户”）。
@@ -119,17 +118,18 @@ ms.locfileid: "91937471"
    
 1. 在应用的“概述”页面，选择“身份验证”，然后执行以下操作 ：
 
-   a. 在“平台配置”下，选择“添加平台”按钮 。  
-   b. 对于“移动和桌面应用程序”，选择“移动和桌面应用程序” 。  
-   c. 对于“重定向 URI”，请选择“https://login.partner.microsoftonline.cn/common/oauth2/nativeclient”复选框 。  
-   d. 选择“配置” 。   
+    1. 在“平台配置”下，选择“添加平台”按钮 。
+    1. 对于“移动和桌面应用程序”，选择“移动和桌面应用程序” 。
+    1. 对于“重定向 URI”，请选择“https://login.partner.microsoftonline.cn/common/oauth2/nativeclient”复选框 。
+    1. 选择“配置” 。
+
 1. 选择“API 权限”，然后执行以下操作：
 
-   a. 选择“添加权限”按钮。  
-   b. 选择“我的 API”选项卡。  
-   c. 在 API 列表中，选择 AppModelv2-NativeClient-DotNet-TodoListService API 或选择为 Web API 输入的名称。  
-   d. 如果“access_as_user”权限复选框未处于选中状态，请将其选中。 如有必要，请使用搜索框。  
-   e. 选择“添加权限”按钮。
+    1. 选择“添加权限”按钮。
+    1. 选择“我的 API”选项卡。
+    1. 在 API 列表中，选择 AppModelv2-NativeClient-DotNet-TodoListService API 或选择为 Web API 输入的名称。
+    1. 如果“access_as_user”权限复选框未处于选中状态，请将其选中。 如有必要，请使用搜索框。
+    1. 选择“添加权限”按钮。
 
 ### <a name="configure-your-project"></a>配置项目
 

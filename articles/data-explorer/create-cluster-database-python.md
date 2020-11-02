@@ -7,13 +7,13 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: fc3e59caaafa85c0a84eda0919d8244403e43077
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 2df42752c9b5752b9f3f4f2637fcf7c303598b2c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146566"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105168"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 创建 Azure 数据资源管理器群集和数据库
 
@@ -23,6 +23,7 @@ ms.locfileid: "91146566"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
+> * [Go](create-cluster-database-go.md)
 > * [ARM 模板](create-cluster-database-resource-manager.md)
 
 本文将使用 Python 创建 Azure 数据资源管理器群集和数据库。 Azure 数据资源管理器是一项快速、完全托管的数据分析服务，用于实时分析从应用程序、网站和 IoT 设备等资源流式传输的海量数据。 若要使用 Azure 数据资源管理器，请先创建一个群集，并在该群集中创建一个或多个数据库。 然后将数据引入或加载到数据库，以便针对其运行查询。
@@ -76,11 +77,12 @@ pip install azure-mgmt-kusto
     cluster_name = 'mykustocluster'
     cluster = Cluster(location=location, sku=AzureSku(name=sku_name, capacity=capacity, tier=tier))
     
-    kustoManagementClient = KustoManagementClient(credentials, subscription_id)
-    
-    cluster_operations = kustoManagementClient.clusters
+    kusto_management_client = KustoManagementClient(credentials, subscription_id)
+
+    cluster_operations = kusto_management_client.clusters
     
     poller = cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    poller.wait()
     ```
 
    |**设置** | **建议的值** | **字段说明**|
@@ -92,12 +94,12 @@ pip install azure-mgmt-kusto
    | resource_group_name | *testrg* | 将在其中创建群集的资源组名称。 |
 
     > [!NOTE]
-    > **创建群集**是一个长时间运行的操作。 **create_or_update** 方法返回 LROPoller 的实例，请参阅 [LROPoller 类](https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python)获取详细信息。
+    > **创建群集** 是一个长时间运行的操作。 **create_or_update** 方法返回 LROPoller 的实例，请参阅 [LROPoller 类](https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python)获取详细信息。
 
 1. 运行以下命令，检查群集是否已成功创建：
 
     ```Python
-    cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
+    cluster_operations.get(resource_group_name = resource_group_name, cluster_name= cluster_name, custom_headers=None, raw=False)
     ```
 
 如果结果包含带 `Succeeded` 值的 `provisioningState`，则表示已成功创建群集。
@@ -107,20 +109,40 @@ pip install azure-mgmt-kusto
 1. 请使用以下命令创建数据库：
 
     ```Python
-    from azure.mgmt.kusto.models import Database
+    from azure.mgmt.kusto import KustoManagementClient
+    from azure.common.credentials import ServicePrincipalCredentials
+    from azure.mgmt.kusto.models import ReadWriteDatabase
     from datetime import timedelta
+
+    #Directory (tenant) ID
+    tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Application ID
+    client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Client Secret
+    client_secret = "xxxxxxxxxxxxxx"
+    subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
     
-    softDeletePeriod = timedelta(days=3650)
-    hotCachePeriod = timedelta(days=3650)
-    databaseName="mykustodatabase"
+    location = 'Central US'
+    resource_group_name = 'testrg'
+    cluster_name = 'mykustocluster'
+    soft_delete_period = timedelta(days=3650)
+    hot_cache_period = timedelta(days=3650)
+    database_name = "mykustodatabase"
+
+    kusto_management_client = KustoManagementClient(credentials, subscription_id)
     
-    database_operations = kusto_management_client.databases 
-    _database = ReadWriteDatabase(location=location,
-                        soft_delete_period=softDeletePeriod,
-                        hot_cache_period=hotCachePeriod)
+    database_operations = kusto_management_client.databases
+    database = ReadWriteDatabase(location=location,
+                        soft_delete_period=soft_delete_period,
+                        hot_cache_period=hot_cache_period)
     
-    #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
-    poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
+    poller = database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = cluster_name, database_name = database_name, parameters = database)
+    poller.wait()
     ```
 
     > [!NOTE]
@@ -128,8 +150,8 @@ pip install azure-mgmt-kusto
 
    |**设置** | **建议的值** | **字段说明**|
    |---|---|---|
-   | cluster_name | mykustocluster** | 将在其中创建数据库的群集的名称。|
-   | database_name | mykustodatabase** | 数据库名称。|
+   | cluster_name | mykustocluster  | 将在其中创建数据库的群集的名称。|
+   | database_name | mykustodatabase  | 数据库名称。|
    | resource_group_name | *testrg* | 将在其中创建群集的资源组名称。 |
    | soft_delete_period | *3650 天，0:00:00* | 供查询使用的数据的保留时间。 |
    | hot_cache_period | *3650 天，0:00:00* | 数据将在缓存中保留的时间。 |
@@ -137,7 +159,7 @@ pip install azure-mgmt-kusto
 1. 若要查看已创建的数据库，请运行以下命令：
 
     ```Python
-    database_operations.get(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName)
+    database_operations.get(resource_group_name = resource_group_name, cluster_name = cluster_name, database_name = database_name)
     ```
 
 现在，你有了一个群集和一个数据库。
@@ -148,7 +170,7 @@ pip install azure-mgmt-kusto
 * 若要清理资源，请删除群集。 删除群集时，也会删除其中的所有数据库。 使用以下命令删除群集：
 
     ```Python
-    cluster_operations.delete(resource_group_name = resource_group_name, cluster_name = clusterName)
+    cluster_operations.delete(resource_group_name = resource_group_name, cluster_name = cluster_name)
     ```
 
 ## <a name="next-steps"></a>后续步骤

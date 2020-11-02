@@ -6,24 +6,23 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 02/03/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 086008f55c0c5086aaa1e412d5e94f8429ec8c96
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: 5915080d6e24932cdf6a1e93f3879efb1c821d82
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211878"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104299"
 ---
 # <a name="ncv3-series"></a>NCv3 系列
 
 NCv3 系列 VM 采用 NVIDIA Tesla V100 GPU。 客户可将这些更新的 GPU 用于传统的 HPC 工作负荷，例如油藏模拟、DNA 测序、蛋白质分析、Monte Carlo 模拟和其他工作负荷。 NC24rs v3 配置提供了针对紧密耦合的并行计算工作负荷优化的低延迟、高吞吐量网络接口。 除了 GPU 之外，NCv3 系列 VM 还采用 Intel Xeon E5-2690 v4 (Broadwell) CPU。
 
 <!--Not Available on These GPUs can provide 1.5x the computational performance of the NCv2-series-->
-
-高级存储：支持
+<!--Not Available on HPC-->
 
 [高级存储](premium-storage-performance.md)：支持<br />
 [高级存储缓存](premium-storage-performance.md)：支持<br />

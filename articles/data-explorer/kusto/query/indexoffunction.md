@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 indexof()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 5da963e710dd7fadb0ae94a363f089b215814a94
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 4389078e8a6a4f833d1a8451198d29dccbf5839d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841734"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104782"
 ---
 # <a name="indexof"></a>indexof()
 
@@ -24,19 +24,19 @@ ms.locfileid: "87841734"
 
 有关详细信息，请参阅 [`indexof_regex()`](indexofregexfunction.md)。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `indexof(`*source*`,`*lookup*`[,`*start_index*`[,`*length*`[,`*occurrence*`]]])`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *source*：输入字符串。  
+* *source* ：输入字符串。  
 * lookup：要查找的字符串。
 * start_index：搜索开始位置。 可选。
-* *length*:要检查的字符位置数。 值为 -1 表示长度没有限制。 可选。
+* *length* :要检查的字符位置数。 值为 -1 表示长度没有限制。 可选。
 * occurrence：出现的次数。 默认值 1。 可选。
 
-**返回**
+## <a name="returns"></a>返回
 
 查找的从零开始的索引位置。
 
@@ -44,7 +44,7 @@ ms.locfileid: "87841734"
 
 如果是不相关（小于 0）的 start_index、occurrence 或（小于 -1）length 参数，则返回 null。
 
-**示例**
+## <a name="examples"></a>示例
 ```kusto
 print
  idx1 = indexof("abcdefg","cde")    // lookup found in input string

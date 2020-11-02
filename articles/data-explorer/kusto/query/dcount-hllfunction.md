@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 dcount_hll()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/15/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: d080b5dd2de835476c834ec6ba7c990272a5ddf1
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: ab9a9874110aa111172db5ef275d37070e687302
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841540"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104268"
 ---
 # <a name="dcount_hll"></a>dcount_hll()
 
@@ -22,19 +22,19 @@ ms.locfileid: "87841540"
 
 阅读[基础算法 (HyperLogLog  ) 和估算准确度](dcount-aggfunction.md#estimation-accuracy)。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `dcount_hll(`*Expr*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Expr：已由 [hll](hll-aggfunction.md) 或 [hll-merge](hll-merge-aggfunction.md) 生成的表达式
 
-**返回**
+## <a name="returns"></a>返回
 
 Expr 中每个值的非重复计数
 
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

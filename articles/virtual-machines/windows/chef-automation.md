@@ -2,11 +2,9 @@
 title: 使用 Chef 自动执行 Azure 虚拟机部署 | Azure
 description: 了解如何使用 Chef 在 Azure 中自动部署和配置虚拟机
 services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management,azure-resource-manager
-editor: ''
 ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -15,12 +13,12 @@ ms.topic: article
 origin.date: 07/09/2019
 ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9fb1801089ac1ea3a9790ea127fda9d01169dd15
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b0acadfce7841e15a6d6fdc66eedda37741064f0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "72272801"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104849"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自动部署 Azure 虚拟机
 

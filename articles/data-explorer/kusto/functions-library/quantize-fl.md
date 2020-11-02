@@ -7,13 +7,13 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/08/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: adc9dee1c25ed069e8bfb12d0f3c82f1136bed32
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 1da43a6f89c48578c1cf90d9cf1498e5434e3cbc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146884"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105111"
 ---
 # <a name="quantize_fl"></a>quantize_fl()
 
@@ -21,7 +21,8 @@ ms.locfileid: "91146884"
 函数 `quantize_fl()` 对指标列进行分箱。 它基于 K-Means 算法将指标列量化到类别标签。
 
 > [!NOTE]
-> `quantize_fl()` 是 [UDF（用户定义的函数）](../query/functions/user-defined-functions.md)。 此函数包含内联 Python，需要在群集上[启用 python() 插件](../query/pythonplugin.md#enable-the-plugin)。 有关详细信息，请参阅[用法](#usage)。
+> * `quantize_fl()` 是 [UDF（用户定义的函数）](../query/functions/user-defined-functions.md)。
+> * 此函数包含内联 Python，需要在群集上[启用 python() 插件](../query/pythonplugin.md#enable-the-plugin)。 有关详细信息，请参阅[用法](#usage)。
 
 ## <a name="syntax"></a>语法
 
@@ -32,7 +33,7 @@ ms.locfileid: "91146884"
 * num_bins：所需的箱数。
 * in_cols：动态数组，其中包含要量化的列的名称。
 * out_cols：动态数组，其中包含分箱值各自的输出列的名称。
-* labels：包含标签名称的动态数组。 此参数是可选的。 如果未提供 *Labels*，将使用箱范围。
+* labels：包含标签名称的动态数组。 此参数是可选的。 如果未提供 *Labels* ，将使用箱范围。
 
 ## <a name="usage"></a>使用情况
 

@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/14/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-ms.openlocfilehash: d63317115ced02078507e3b8c51687916ba4ce13
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 642764524c90c95ef3fb46a3ca68539bd8655f04
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648107"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750003"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft 标识平台的发展
 
-Microsoft 标识平台由 Azure Active Directory (Azure AD) 开发人员平台演变而来。 借助该平台，开发人员可以生成登录用户的应用程序，以及获取令牌调用 API，例如 Microsoft Graph 或开发人员已生成的 API。 它包含身份验证服务、开源库、应用程序注册和配置（通过开发人员门户和应用程序 API）、完整的开发人员文档、快速入门示例、代码示例、教程、操作指南和其他开放人员内容。 Microsoft 标识平台支持行业标准协议，例如 OAuth 2.0 和 OpenID Connect。
+[Microsoft 标识平台](../develop/index.yml)由 Azure Active Directory (Azure AD) 开发人员平台演变而来。 借助该平台，开发人员可以生成登录用户的应用程序，以及获取令牌调用 API，例如 Microsoft Graph 或开发人员已生成的 API。 它包含身份验证服务、开源库、应用程序注册和配置（通过开发人员门户和应用程序 API）、完整的开发人员文档、快速入门示例、代码示例、教程、操作指南和其他开放人员内容。 Microsoft 标识平台支持行业标准协议，例如 OAuth 2.0 和 OpenID Connect。
 
 许多开发人员以前使用 Azure AD v1.0 平台通过 Azure AD 身份验证库 (ADAL) 向 Azure AD v1.0 终结点请求令牌来对工作和学校帐户（由 Azure AD 预配）进行身份验证、使用 Azure 门户进行应用程序注册和配置，以及使用 Microsoft Graph API 以编程方式进行应用程序配置。
 
@@ -47,7 +47,7 @@ Azure 门户[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/Acti
 
 要与 Azure AD B2C 集成（对社交或本地身份进行身份验证时），需要在 Azure AD B2C 租户中注册应用程序。 这种体验也是 Azure 门户的一部分。
 
-使用[应用程序 API](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0) 以编程方式配置与 Microsoft 标识平台集成的应用程序，以对 Microsoft 标识进行身份验证。
+使用[应用程序 API](https://docs.microsoft.com/graph/api/resources/application) 以编程方式配置与 Microsoft 标识平台集成的应用程序，以对 Microsoft 标识进行身份验证。
 
 ### <a name="msal-libraries"></a>MSAL 库
 
@@ -55,16 +55,11 @@ Azure 门户[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/Acti
 
 还可使用 MSAL 库将应用程序与 Azure AD B2C 集成。
 
-用于构建 Web 应用和 Web API 的服务器端库已正式发布：[ASP.NET](https://docs.microsoft.com/aspnet/overview) 和 [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2)
-
 ### <a name="microsoft-identity-platform-endpoint"></a>Microsoft 标识平台终结点
 
-Microsoft 标识平台 (v2.0) 终结点现已经过 OIDC 认证。 它适用于 Microsoft 身份验证库 (MSAL) 或任何其他符合标准的库。 它按照行业标准实现了简明易懂的范围。
+Microsoft 标识平台 (v2.0) 终结点已经过 OIDC 认证。 它适用于 Microsoft 身份验证库 (MSAL) 或任何其他符合标准的库。 它按照行业标准实现了简明易懂的范围。
 
 ## <a name="next-steps"></a>后续步骤
 
-深入了解 v1.0 和 v2.0。
-
-* [Microsoft 标识平台 (v2.0)](../develop/v2-overview.md) 概述
-* [适用于开发人员的 Azure Active Directory (v1.0)](v1-overview.md) 概述
+有关详细信息，请参阅 [Microsoft 标识平台文档](../develop/index.yml)。
 

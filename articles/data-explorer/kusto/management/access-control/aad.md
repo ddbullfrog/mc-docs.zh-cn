@@ -9,13 +9,13 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 09/13/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: 38c9f7d2022075009034fa2777edd80250ede24e
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: ed67f91120ffe4e4bf003289b0ba754d98eb25a8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226190"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105530"
 ---
 # <a name="azure-active-directory-aad-authentication"></a>Azure Active Directory (AAD) 身份验证
 
@@ -80,5 +80,4 @@ ADAL 返回给 Kusto 客户端库的令牌以 Kusto AAD 服务器应用程序作
 
 以下文章介绍了如何以编程方式通过 AAD 向 Kusto 进行身份验证：
 
-* [如何预配 AAD 应用程序](./how-to-provision-aad-app.md)
 * [如何执行 AAD 身份验证](./how-to-authenticate-with-aad.md)

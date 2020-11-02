@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的查询最佳做法
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/03/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: bb6250b52e7bc3daa2ed3dd9937e8c05c3fbe28d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 9cc2dc213f0827739cd39738d684ef57ea1eb02e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516006"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104037"
 ---
 # <a name="query-best-practices"></a>查询最佳做法
 
@@ -28,7 +28,7 @@ ms.locfileid: "88516006"
 | | 使用 `in` | 不要使用 `in~`|
 |  | 使用 `contains_cs`         | 不要使用 `contains`        | 如果可以使用 `has`/`has_cs` 而不使用 `contains`/`contains_cs`，则更好。 |
 | **搜索文本**    |    查找特定列     |    不要使用 `*`    |   `*` 对所有列执行全文搜索。    |
-| **从数百万行的[动态对象](./scalar-data-types/dynamic.md)中提取字段**    |  如果大多数查询从数百万行的动态对象中提取字段，则会在引入时具体化列。      |         | 这样，只需为列提取付费一次。    |
+| **从数百万行的 [动态对象](./scalar-data-types/dynamic.md)中提取字段**    |  如果大多数查询从数百万行的动态对象中提取字段，则会在引入时具体化列。      |         | 这样，只需为列提取付费一次。    |
 | **具有多次使用的值的 `let` 语句** | 使用 [materialize() 函数](./materializefunction.md) |  |   有关如何使用 `materialize()` 的详细信息，请参阅 [materialize()](materializefunction.md)。|
 | **对超过 10 亿条记录应用转换**| 调整查询以减少馈送到转换中的数据量。| 如果可以避免，请勿转换大量数据。 | |
 | **新查询** | 在末尾使用 `limit [small number]` 或 `count`。 | |     对未知数据集运行未绑定的查询，可能会产生要返回到客户端的 GB 级结果，从而导致响应缓慢和群集忙碌。|

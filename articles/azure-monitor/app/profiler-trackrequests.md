@@ -4,14 +4,15 @@ description: 编写代码来使用 Application Insights 跟踪请求以便可以
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/25/2020
+ms.custom: devx-track-csharp
+ms.date: 10/29/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8a94933eb73f706f26d46d92efe8e98bbe4b0fa4
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 6e42ba87eeb60520592e1e9f8d286d5152c40e5f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211570"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103625"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>编写代码来使用 Application Insights 跟踪请求
 

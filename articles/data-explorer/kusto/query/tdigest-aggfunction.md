@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 tdigest()（聚合�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 12/10/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 6267b0ff21c943139be0d372826be4037fb2b268
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 220c430f2f18230852dd152e7370da3b9d795454
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841640"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103990"
 ---
 # <a name="tdigest-aggregation-function"></a>tdigest()（聚合函数）
 
@@ -25,17 +25,17 @@ ms.locfileid: "87841640"
 
 有关详细信息，请参阅[基础算法 (T-Digest) 和预估误差](percentiles-aggfunction.md#estimation-error-in-percentiles)。
 
-**语法**
+## <a name="syntax"></a>语法
 
-`summarize` `tdigest`(*`Expr`* [`,` *`WeightExpr`*])
+`summarize` `tdigest`( *`Expr`* [`,` *`WeightExpr`* ])
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Expr：用于聚合计算的表达式。
 * WeightExpr：表达式，用作进行聚合计算的值的权重。
 
     
-**返回**
+## <a name="returns"></a>返回
 
 组中 `*Expr*` 的加权百分位数的中间结果。
  
@@ -46,7 +46,7 @@ ms.locfileid: "87841640"
 
 * 使用函数 [percentile_tdigest()](percentile-tdigestfunction.md) 计算 `tdigest` 结果的百分位数/percentilew。
 
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

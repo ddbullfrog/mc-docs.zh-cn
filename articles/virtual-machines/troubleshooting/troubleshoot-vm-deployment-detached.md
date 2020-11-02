@@ -2,10 +2,8 @@
 title: 对由于磁盘分离导致的虚拟机部署错误进行故障排除 | Azure
 description: 对由于磁盘分离导致的虚拟机部署错误进行故障排除
 services: virtual-machines-windows
-documentationCenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -13,12 +11,12 @@ ms.workload: infrastructure
 origin.date: 10/31/2019
 ms.date: 05/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 276c5333b4f96ba0f12b3c2a008a072c845de134
-ms.sourcegitcommit: 81241aa44adbcac0764e2b5eb865b96ae56da6b7
+ms.openlocfilehash: c4a1332abb66fa0da24584cb9e4812749e4d5ac3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "83002057"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104706"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>对由于磁盘分离导致的虚拟机部署错误进行故障排除

@@ -6,12 +6,12 @@ author: abhirockzz
 ms.author: v-tawe
 origin.date: 08/11/2020
 ms.date: 09/14/2020
-ms.openlocfilehash: 5293e7290134d6cffbcdb4bda247f1deab21c6d9
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: bd811c715aa25208b7eb3c60141d335bc2e31af8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063343"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103599"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>将 Azure 事件中心（预览版）上的 Apache Kafka Connect 支持与 Debezium 集成进行变更数据捕获
 
@@ -110,7 +110,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 > [!NOTE]
 > Kafka Connect 使用 Kafka AdminClient API 自动创建具有建议配置（包括压缩）的主题。 在 Azure 门户中快速查看命名空间就可以发现，Connect 辅助角色的内部主题已自动创建。
 >
-> Kafka Connect 内部主题**必须使用压缩**。  如果未正确配置内部连接主题，事件中心团队不负责修复不正确的配置。
+> Kafka Connect 内部主题 **必须使用压缩** 。  如果未正确配置内部连接主题，事件中心团队不负责修复不正确的配置。
 
 ### <a name="configure-and-start-the-debezium-postgresql-source-connector"></a>配置并启动 Debezium PostgreSQL 源连接器
 
@@ -121,7 +121,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
     "name": "todo-connector",
     "config": {
         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
-        "database.hostname": "<replace with Azure PostgreSQL instance name>.postgres.database.azure.com",
+        "database.hostname": "<replace with Azure PostgreSQL instance name>.postgres.database.chinacloudapi.cn",
         "database.port": "5432",
         "database.user": "<replace with database user name>",
         "database.password": "<replace with database password>",
@@ -154,11 +154,11 @@ curl -s http://localhost:8083/connectors/todo-connector/status
 首先连接到 Azure PostgreSQL 数据库（以下示例使用 [psql](https://www.postgresql.org/docs/12/app-psql.html)）
 
 ```bash
-psql -h <POSTGRES_INSTANCE_NAME>.postgres.database.azure.com -p 5432 -U <POSTGRES_USER_NAME> -W -d <POSTGRES_DB_NAME> --set=sslmode=require
+psql -h <POSTGRES_INSTANCE_NAME>.postgres.database.chinacloudapi.cn -p 5432 -U <POSTGRES_USER_NAME> -W -d <POSTGRES_DB_NAME> --set=sslmode=require
 
 e.g. 
 
-psql -h my-postgres.postgres.database.azure.com -p 5432 -U testuser@my-postgres -W -d postgres --set=sslmode=require
+psql -h my-postgres.postgres.database.chinacloudapi.cn -p 5432 -U testuser@my-postgres -W -d postgres --set=sslmode=require
 ```
 
 **创建一个表并插入记录**

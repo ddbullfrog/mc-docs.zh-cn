@@ -2,32 +2,31 @@
 title: 在 Azure Service Fabric、云服务和虚拟机中为 .NET 应用启用 Snapshot Debugger | Microsoft Docs
 description: 在 Azure Service Fabric、云服务和虚拟机中为 .NET 应用启用快照调试器
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 10/29/2020
 ms.reviewer: mbullwin
 origin.date: 03/07/2019
-ms.date: 6/4/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 4d62b1f96be8c9156a42be8297683556919b9276
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 204999664ea4991d06aabaf21479a6b0b9d105a6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850371"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104231"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>在 Azure Service Fabric、云服务和虚拟机中为 .NET 应用启用快照调试器
 
-如果 ASP.NET 或 ASP.NET Core 应用程序 在 Azure 应用服务中运行，强烈建议[通过 Application Insights 门户页启用 Snapshot Debugger](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)。 但是，如果应用程序需要自定义的 Snapshot Debugger 配置或 .NET core 预览版，则***除了***[通过 Application Insights 门户页启用](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)的说明外，还应遵循此说明。
+如果 ASP.NET 或 ASP.NET Core 应用程序 在 Azure 应用服务中运行，强烈建议[通过 Application Insights 门户页启用 Snapshot Debugger](snapshot-debugger-appservice.md?toc=/azure-monitor/toc.json)。 但是，如果应用程序需要自定义的 Snapshot Debugger 配置或 .NET core 预览版，则 ***除了***[通过 Application Insights 门户页启用](snapshot-debugger-appservice.md?toc=/azure-monitor/toc.json)的说明外，还应遵循此说明。
 
 如果应用程序在 Azure Service Fabric、云服务、虚拟机或本地计算机中运行，则应使用以下说明。 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>为 ASP.NET 应用程序配置快照集合
 
-1. 如果尚未启用，请[在 Web 应用中启用 Application Insights](../../azure-monitor/app/asp-net.md)。
+1. 如果尚未启用，请[在 Web 应用中启用 Application Insights](./asp-net.md)。
 
 2. 将 [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 包添加到应用。
 
-3. 如果需要，可自定义添加到 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 的快照调试器配置。默认快照调试器配置大多为空，并且所有设置都是可选的。 以下示例显示与默认配置等效的配置：
+3. 如果需要，可自定义添加到 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) 的快照调试器配置。默认快照调试器配置大多为空，并且所有设置都是可选的。 以下示例显示与默认配置等效的配置：
 
     ```xml
     <TelemetryProcessors>
@@ -61,12 +60,12 @@ ms.locfileid: "78850371"
     </TelemetryProcessors>
     ```
 
-4. 仅当向 Application Insights 报告了异常时，才收集快照。 在某些情况下（例如，.NET 平台为较早版本时），可能需要[配置异常收集](../../azure-monitor/app/asp-net-exceptions.md#exceptions)，才能在门户的查看附带快照的异常。
+4. 仅当向 Application Insights 报告了异常时，才收集快照。 在某些情况下（例如，.NET 平台为较早版本时），可能需要[配置异常收集](./asp-net-exceptions.md#exceptions)，才能在门户的查看附带快照的异常。
 
 
 ## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>使用 ASP.NET Core 2.0 或更高版本为应用程序配置快照收集
 
-1. 如果尚未启用，请[在 ASP.NET Core Web 应用中启用 Application Insights](../../azure-monitor/app/asp-net-core.md)。
+1. 如果尚未启用，请[在 ASP.NET Core Web 应用中启用 Application Insights](./asp-net-core.md)。
 
     > [!NOTE]
     > 请确保应用程序引用 2.1.1 版或更新版本的 Microsoft.ApplicationInsights.AspNetCore 包。
@@ -153,7 +152,7 @@ ms.locfileid: "78850371"
 
 ## <a name="configure-snapshot-collection-for-other-net-applications"></a>为其他 .NET 应用程序配置快照集合
 
-1. 如果尚未在 Application Insights 上检测到你的应用程序，请先[启用 Application Insights 并设置检测密钥](../../azure-monitor/app/windows-desktop.md)。
+1. 如果尚未在 Application Insights 上检测到你的应用程序，请先[启用 Application Insights 并设置检测密钥](./windows-desktop.md)。
 
 2. 将 [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 包添加到应用。
 
@@ -180,5 +179,7 @@ ms.locfileid: "78850371"
 ## <a name="next-steps"></a>后续步骤
 
 - 为应用程序生成可触发异常的流量。 然后等待 10 到 15 分钟，这样快照就会发送到 Application Insights 实例。
-- 请参见 Azure 门户中的[快照](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal)。
-- 排查 Snapshot Debugger 问题时如需帮助，请参阅 [ Snapshot Debugger 故障排除](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json)。
+- 请参见 Azure 门户中的[快照](snapshot-debugger.md?toc=/azure-monitor/toc.json#view-snapshots-in-the-portal)。
+- 排查 Snapshot Debugger 问题时如需帮助，请参阅 [ Snapshot Debugger 故障排除](snapshot-debugger-troubleshoot.md?toc=/azure-monitor/toc.json)。
+
+

@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 sample-distinct 运�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 7c90acbf2b840490c3879a020179d63840d82e0c
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: ebd472c4a6d3b5d2ea46dc4558b5bf1fd0b95192
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841263"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105510"
 ---
 # <a name="sample-distinct-operator"></a>sample-distinct 运算符
 
@@ -26,11 +26,11 @@ ms.locfileid: "87841263"
 T | sample-distinct 5 of DeviceId
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `| sample-distinct` *NumberOfValues* `of` *ColumnName*
 
-**参数**
+## <a name="arguments"></a>参数
 * NumberOfValues：要返回的 T 的非重复值的数目。 可以指定任何数值表达式。
 
 **提示**
@@ -41,7 +41,7 @@ T | sample-distinct 5 of DeviceId
 
  如果要对数据行（而不是特定列的值）进行抽样，请参阅 [sample 运算符](sampleoperator.md)
 
-**示例**  
+## <a name="examples"></a>示例  
 
 从总体获取 10 个非重复值
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 origin.date: 01/11/2018
-ms.date: 10/19/2020
-ms.openlocfilehash: 46b1b2f60eae783f591602c754a4f610ead2e4e8
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.date: 11/02/2020
+ms.openlocfilehash: 31b14bf16749fddb265d83e265e009bfb4e67a7b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121621"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105323"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>使用 Azure 门户对 Azure 数据工厂管道中的活动进行分支和链接
 
@@ -185,7 +185,7 @@ https://prodxxx.chinaeast.logic.azure.cn:443/workflows/000000/triggers/manual/pa
    ![拖放复制活动](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. 在底部“复制”活动的“属性”窗口中切换到“源”选项卡，然后单击“+ 新建”。 此步骤创建复制活动的源数据集。
 
-   ![源数据集](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![屏幕截图，显示如何创建复制活动的源数据集。](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. 在“新建数据集”窗口中，选择“Azure Blob 存储”，然后单击“完成”。  
 
    ![选择“Azure Blob 存储”](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -274,7 +274,7 @@ https://prodxxx.chinaeast.logic.azure.cn:443/workflows/000000/triggers/manual/pa
         ![第二个 Web 活动的设置](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. 在管道设计器中选择“复制”活动，单击 **+->** 按钮，然后选择“错误”。  
 
-    ![第二个 Web 活动的设置](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![屏幕截图，显示如何在管道设计器的复制活动中选择“错误”。](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. 将“复制”活动旁边的 **红色** 按钮拖放到第二个“Web”活动 **SendFailureEmailActivity** 。 可以四处移动活动，使管道如下图所示：
 
     ![包含所有活动的完整管道](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -305,7 +305,7 @@ https://prodxxx.chinaeast.logic.azure.cn:443/workflows/000000/triggers/manual/pa
     ![成功的管道运行](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. 若要 **查看** 与此管道运行关联的活动运行，请单击“操作”列中的第一个链接。 单击顶部的“管道”可以切换回到上一视图。 使用“刷新”按钮刷新列表。
 
-    ![活动运行](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![屏幕截图，显示如何查看活动运行的列表。](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>触发失败的管道运行
 1. 在左侧切换到“编辑”选项卡。

@@ -7,13 +7,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 05/19/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 06072c63f58b21fba2f390d5567053a5e148b381
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: 35c56439d0c44bcf4aa5aa27286b23a826cfdc46
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515975"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105306"
 ---
 # <a name="using-kustoexplorer"></a>使用 Kusto.Explorer
 
@@ -33,7 +33,7 @@ Kusto.Explorer 是一个桌面应用程序，可让你在易于使用的用户�
 
 1. 在网格中选择一个单元格，然后选择“查看详细信息”，在结果窗格中显示相关条目。
 
-    :::image type="content" source="images/kusto-explorer-using/search-plus-plus-results.png" alt-text="Kusto Explorer Search++ 结果":::
+    :::image type="content" source="images/kusto-explorer-using/search-plus-plus-results.png" alt-text="Search++ Kusto Explorer":::
 
 ## <a name="query-mode"></a>查询模式
 
@@ -72,7 +72,7 @@ StormEvents
 | limit 10
 ```
 
-:::image type="content" source="images/kusto-explorer-using/basic-query.png" alt-text="Kusto Explorer 基本查询":::
+:::image type="content" source="images/kusto-explorer-using/basic-query.png" alt-text="Search++ Kusto Explorer":::
 
 详细了解 [Kusto 查询语言](https://docs.azure.cn/kusto/query/)。
 
@@ -94,24 +94,24 @@ StormEvents
 
 脚本编辑器突出显示查询参数：
 
-:::image type="content" source="images/kusto-explorer-using/parametrized-query-1.png" alt-text="参数化查询 1":::
+:::image type="content" source="images/kusto-explorer-using/parametrized-query-1.png" alt-text="Search++ Kusto Explorer":::
 
 可以轻松定义和编辑现有查询参数：
 
 
-:::image type="content" source="images/kusto-explorer-using/parametrized-query-2.png" alt-text="编辑参数化查询 2":::
+:::image type="content" source="images/kusto-explorer-using/parametrized-query-2.png" alt-text="Search++ Kusto Explorer":::
 
 
-:::image type="content" source="images/kusto-explorer-using/parametrized-query-3.png" alt-text="编辑参数化查询 3":::
+:::image type="content" source="images/kusto-explorer-using/parametrized-query-3.png" alt-text="Search++ Kusto Explorer":::
 
 脚本编辑器还包含已定义的查询参数的 IntelliSense：
 
-:::image type="content" source="images/kusto-explorer-using/parametrized-query-4.png" alt-text="参数化查询 IntelliSense":::
+:::image type="content" source="images/kusto-explorer-using/parametrized-query-4.png" alt-text="Search++ Kusto Explorer":::
 
 你可以具有多组参数（在“参数集”组合框中列出）。
 选择“新增”或“删除现有”以操作参数集列表 。
 
-:::image type="content" source="images/kusto-explorer-using/parametrized-query-5.png" alt-text="参数集列表":::
+:::image type="content" source="images/kusto-explorer-using/parametrized-query-5.png" alt-text="Search++ Kusto Explorer":::
 
 ## <a name="share-queries-and-results"></a>共享查询和结果
 
@@ -124,7 +124,7 @@ Kusto.Explorer 提供了一种便捷方式，可以通过电子邮件共享查�
 1. 在 Kusto.Explorer 中[运行查询](#basic-queries)。
 1. 在“主页”选项卡的“共享”部分，选择“导出到剪贴板”（或按 Ctrl+Shift+C）。
 
-    :::image type="content" source="images/kusto-explorer-using/menu-export.png" alt-text="导出到剪贴板":::
+    :::image type="content" source="images/kusto-explorer-using/menu-export.png" alt-text="Search++ Kusto Explorer":::
 
     Kusto.Explorer 将以下内容粘贴到剪贴板：
      * 你的查询
@@ -134,7 +134,7 @@ Kusto.Explorer 提供了一种便捷方式，可以通过电子邮件共享查�
 
 1. 将剪贴板中的内容粘贴到新的电子邮件中。
 
-    :::image type="content" source="images/kusto-explorer-using/share-results-2.png" alt-text="通过电子邮件共享结果":::
+    :::image type="content" source="images/kusto-explorer-using/share-results-2.png" alt-text="Search++ Kusto Explorer":::
 
 ### <a name="deep-linking-queries"></a>深层链接查询
 
@@ -202,7 +202,7 @@ https://help.kusto.chinacloudapi.cn/Samples?web=0&query=H4sIAAAAAAAEAAsuyS%2fKdS
 
 Kusto.Explorer 支持以下语法中的几个命令行参数（顺序很重要）：
 
-[*LocalScriptFile*] [*QueryString*]
+[ *LocalScriptFile* ] [ *QueryString* ]
 
 * LocalScriptFile 是本地计算机上脚本文件的名称，该文件必须具有扩展名 `.kql`。 如果此文件存在，则 Kusto.Explorer 会在启动时自动加载此文件。
 * QueryString 是使用 HTTP 查询字符串格式的字符串。 该方法提供了其他属性，如下表所述。
@@ -234,19 +234,19 @@ Kusto.Explorer.exe c:\temp\script.kql uri=https://help.kusto.chinacloudapi.cn/Sa
 
 在[连接面板](kusto-explorer.md#connections-tab)中右键单击目标实体，然后选择“管理群集授权主体”。 （也可以从“管理”菜单中选择此选项。）
 
-:::image type="content" source="images/kusto-explorer-using/right-click-manage-authorized-principals.png" alt-text="管理授权主体":::
+:::image type="content" source="images/kusto-explorer-using/right-click-manage-authorized-principals.png" alt-text="Search++ Kusto Explorer":::
 
-:::image type="content" source="images/kusto-explorer-using/manage-authorized-principals-window.png" alt-text="管理授权主体窗口":::
+:::image type="content" source="images/kusto-explorer-using/manage-authorized-principals-window.png" alt-text="Search++ Kusto Explorer":::
 
 * 要添加新的授权主体，请选择“添加主体”，提供主体详细信息，然后确认操作。
     
-    :::image type="content" source="images/kusto-explorer-using/add-authorized-principals-window.png" alt-text="添加授权主体":::
+    :::image type="content" source="images/kusto-explorer-using/add-authorized-principals-window.png" alt-text="Search++ Kusto Explorer":::
 
-    :::image type="content" source="images/kusto-explorer-using/confirm-add-authorized-principals.png" alt-text="确认添加授权主体":::
+    :::image type="content" source="images/kusto-explorer-using/confirm-add-authorized-principals.png" alt-text="Search++ Kusto Explorer":::
 
 * 要删除现有授权主体，请选择“删除主体”并确认操作。
 
-    :::image type="content" source="images/kusto-explorer-using/confirm-drop-authorized-principals.png" alt-text="确认删除授权主体":::
+    :::image type="content" source="images/kusto-explorer-using/confirm-drop-authorized-principals.png" alt-text="Search++ Kusto Explorer":::
 
 
 ## <a name="next-steps"></a>后续步骤

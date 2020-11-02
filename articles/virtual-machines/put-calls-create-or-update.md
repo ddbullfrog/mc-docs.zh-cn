@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.service: virtual-machines
 origin.date: 08/04/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: avverma
-ms.openlocfilehash: c0f27a317cad506b22af11e92a212cafd10e68b3
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: a14c531c3c50117bcf13e771a0527b3e564fa923
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128779"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105129"
 ---
 <!--Verified Successfully-->
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>对计算资源进行创建或更新的 PUT 调用
@@ -72,5 +72,4 @@ ms.locfileid: "92128779"
 ## <a name="next-steps"></a>后续步骤
 了解有关为[虚拟机](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate)和[虚拟机规模集](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)创建或更新调用的更多信息
 
-<!-- Update_Description: new article about put calls create or update -->
-<!--NEW.date: 10/19/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

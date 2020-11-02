@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的跨数据库和跨群
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 07/31/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 0db8c14bdf223762b3ad77b62355c1afd592c2c0
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 962f7bd69a7ce9c00544222d8530c184aa6696c5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917058"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104215"
 ---
 # <a name="cross-database-and-cross-cluster-queries"></a>跨数据库和跨群集查询
 

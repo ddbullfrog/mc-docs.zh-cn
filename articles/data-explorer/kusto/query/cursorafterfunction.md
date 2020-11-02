@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的 cursor_after()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 08/18/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: af0f73b8131ab46ff192d527e9f160490e33f98a
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: 0a795e8a2012ed5518e0765a83efbafb09a94954
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515718"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104444"
 ---
 # <a name="cursor_after"></a>cursor_after()
 

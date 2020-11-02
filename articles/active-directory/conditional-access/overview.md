@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 7105d58e26bd2597eaa8bf1538a9349b7e57e196
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.custom: contperfq4, azuread-video-2020
+ms.openlocfilehash: 7a523dbe71dd392bb88cd58e55b39a413000e07c
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046399"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749815"
 ---
 # <a name="what-is-conditional-access"></a>什么是条件访问？
 
@@ -80,13 +80,6 @@ Azure Active Directory 使用条件访问作为一种工具来统合信号、做
 - 阻止或允许来自特定位置的访问
 - 阻止有风险的登录行为
 - 要求在组织管理的设备上使用特定的应用程序
-
-## <a name="customer-case-studies"></a>客户案例研究
-
-了解其他组织如何使用 Azure AD 条件访问来定义和实施自动化的访问控制决策。 以下特选案例演示了如何解决这些客户需求。
-
-* [Wipro 使用 Azure 云安全工具提高移动工作效率，以提高客户参与度。](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) Azure AD 中的条件访问策略可让公司与受信任的外部实体（它们可以使用自己的凭据）共享文档、资源和应用程序，同时保留对自身企业数据的控制权。
-* [跨国物流和运输公司 Aramex Delivery Limited 使用标识和访问管理解决方案设立了与云联网的办事处](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en)。 确保 Aramex 远程工作者的安全访问特别困难。 该公司目前正在应用条件访问，使这些远程工作者能够从网络外部访问其 SaaS 应用程序。 条件访问规则将确定是否强制实施多重身份验证，只向适当的人员提供适当的访问权限。
 
 ## <a name="license-requirements"></a>许可要求
 

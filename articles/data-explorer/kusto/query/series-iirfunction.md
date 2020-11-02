@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 series_iir()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/20/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: f9bde3e835777d727a58ad2c6d0ffa4f4258794f
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: f796fcef891072408d9c8a2fff6cce6534fcc7a5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841239"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105384"
 ---
 # <a name="series_iir"></a>series_iir()
 
@@ -27,11 +27,11 @@ ms.locfileid: "87841239"
 
 此函数的输入列包含由滤波器的 a 系数和 b 系数组成的动态数组和两个静/动态数组，并且此函数会对该列应用滤波器。 它会输出新的动态数组列，其中包括滤波后的输出。  
 
-**语法**
+## <a name="syntax"></a>语法
 
 `series_iir(`*x*`,` *b* `,` *a*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * x：动态数组单元格（数值数组），通常是 [make-series](make-seriesoperator.md) 或 [make_list](makelist-aggfunction.md) 运算符生成的输出。
 * b：一个常量表达式，其中包含滤波器的分子系数（存储为由数值组成的动态数组）。

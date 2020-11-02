@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 column_ifexists()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 99b30387c004612a6dd2ced8d8407199d3f1996e
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 303717f0c7b752d8761e997ad814354ae4456419
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516061"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104125"
 ---
 # <a name="column_ifexists"></a>column_ifexists()
 
@@ -22,12 +22,12 @@ ms.locfileid: "88516061"
 
 ## <a name="syntax"></a>语法
 
-`column_ifexists(`*columnName*`, `*defaultValue*)
+`column_ifexists(`*columnName*`, `*defaultValue* )
 
 ## <a name="arguments"></a>参数
 
-* *columnName*：列的名称
-* *defaultValue*：在使用函数的上下文中不存在列时要使用的值。
+* *columnName* ：列的名称
+* *defaultValue* ：在使用函数的上下文中不存在列时要使用的值。
                   此值可以是任何标量表达式（例如，对另一列的引用）。
 
 ## <a name="returns"></a>返回

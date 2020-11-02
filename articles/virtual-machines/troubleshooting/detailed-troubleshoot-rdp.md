@@ -2,9 +2,7 @@
 title: 在 Azure 中对远程桌面进行详细故障排除 | Azure
 description: 查看针对无法连接到 Azure 中的 Windows 虚拟机时出现的远程桌面错误提供的详细故障排除步骤
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: 无法连接到远程桌面, 远程桌面故障排除, 远程桌面无法连接, 远程桌面错误, 远程桌面故障排除, 远程桌面问题
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
@@ -14,16 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 10/31/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2e7790cdb720450c2a6f8c3602a9baa47a081c37
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 24f0a803941788ad4c7f21bb31405ce8b98167f3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456882"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105333"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure 中 Windows VM 远程桌面连接问题的详细故障排除步骤
 本文提供详细的故障排除步骤，用于为基于 Windows 的 Azure 虚拟机诊断和修复复杂的远程桌面错误。
@@ -45,7 +43,7 @@ RDP 连接涉及以下组件：
 
 在继续之前，在脑海中回想一下自上次远程桌面成功连接到 VM 后更改的内容可能会有帮助。 例如：
 
-* VM 或包含 VM 的云服务的公共 IP 地址（也称为虚拟 IP 地址 (VIP)）已更改。 RDP 失败的原因可能是 DNS 客户端缓存仍然有针对该 DNS 名称注册的*旧 IP 地址*。 请刷新 DNS 客户端缓存，并重新尝试连接 VM。 或者尝试直接使用新 VIP 进行连接。
+* VM 或包含 VM 的云服务的公共 IP 地址（也称为虚拟 IP 地址 (VIP)）已更改。 RDP 失败的原因可能是 DNS 客户端缓存仍然有针对该 DNS 名称注册的 *旧 IP 地址* 。 请刷新 DNS 客户端缓存，并重新尝试连接 VM。 或者尝试直接使用新 VIP 进行连接。
     
     <!--Not Available on [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)-->
     
@@ -138,7 +136,7 @@ RDP 连接涉及以下组件：
 * Windows 防火墙或其他本地防火墙使用阻止远程桌面通信的出站规则。
 * Azure 虚拟机上运行的入侵检测或网络监视软件正在阻止远程桌面连接。
 
-对于使用经典部署模型创建的 VM，可以使用与 Azure 虚拟机的远程 Azure PowerShell 会话。 首先，需要安装虚拟机托管云服务的证书。 转到[为 Azure 虚拟机配置安全远程 PowerShell 访问](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)，将 **InstallWinRMCertAzureVM.ps1** 脚本文件下载到本地计算机。
+对于使用经典部署模型创建的 VM，可以使用与 Azure 虚拟机的远程 Azure PowerShell 会话。 首先，需要安装虚拟机托管云服务的证书。 转到 [为 Azure 虚拟机配置安全远程 PowerShell 访问](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)，将 **InstallWinRMCertAzureVM.ps1** 脚本文件下载到本地计算机。
 
 接下来，安装 Azure PowerShell（如果尚未安装）。 请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/)。
 
@@ -155,7 +153,7 @@ $vmName="<Name of the target virtual machine>"
 
 可以从 **Get-AzureSubscription** 命令显示的 *SubscriptionName* 属性获取正确的订阅名称。 可以从 **Get-AzureVM** 命令显示的 *ServiceName* 列中获取虚拟机的云服务名称。
 
-检查是否有新证书。 打开当前用户的“证书”管理单元，并在“受信任的根证书颁发机构\证书”文件夹中查找。**** 应会看到在“颁发给”列中具有你的云服务的 DNS 名称的证书（示例：cloudservice4testing.chinacloudapp.cn）。
+检查是否有新证书。 打开当前用户的“证书”管理单元，并在“受信任的根证书颁发机构\证书”文件夹中查找。  应会看到在“颁发给”列中具有你的云服务的 DNS 名称的证书（示例：cloudservice4testing.chinacloudapp.cn）。
 
 接下来，使用以下命令启动远程 Azure PowerShell 会话。
 

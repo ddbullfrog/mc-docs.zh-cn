@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c966c54c58e31eea5ccffd9a8b4df7f0d225d37
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 69ea3bb930267bb9a98787d4a74c0736d089c8b6
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041435"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749885"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Azure Active Directory 中的管理单元
 
@@ -48,7 +48,7 @@ ms.locfileid: "92041435"
 
 - [创建、删除、填充角色并将其添加到管理单元](roles-admin-units-manage.md)：完成操作指南过程
 - 处理管理单元：如何使用 PowerShell 处理管理单元
-- [管理单元 Graph 支持](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true)：有关适用于管理单元的 Microsoft Graph 的详细文档。
+- [管理单元 Graph 支持](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true)：有关适用于管理单元的 Microsoft Graph 的详细文档。
 
 ### <a name="planning-your-administrative-units"></a>规划管理单元
 
@@ -94,6 +94,7 @@ ms.locfileid: "92041435"
 ----------- | ----------------------- | --------------- | -----------------
 组属性和成员的管理单元范围管理     |  支持   |    支持    |  不支持
 组许可的管理单元范围管理   |    支持  |    支持   |   不支持
+
 
 管理单元仅对管理权限应用范围。 它们不会阻止成员或管理员使用其[默认用户权限](../fundamentals/users-default-permissions.md)浏览管理单元外部的其他用户、组或资源。 在 Microsoft 365 管理中心，范围管理员的管理单元以外的用户将被筛除，但你可以在 Azure AD 门户、PowerShell 和其他 Microsoft 服务中浏览其他用户。
 

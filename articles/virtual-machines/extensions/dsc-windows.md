@@ -2,10 +2,8 @@
 title: PowerShell DSC 扩展 | Azure
 description: 使用 DSC 扩展在 Azure VM 中上传和应用 PowerShell DSC 配置
 services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -14,12 +12,12 @@ ms.workload: ''
 origin.date: 03/26/2018
 ms.date: 10/14/2019
 ms.author: v-yeche
-ms.openlocfilehash: 80f6080787a785c8093c36ff7fe04535d9220ce8
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: bf346e544534ae944e5fe0c6042d68c05c7c8cdf
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211411"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105573"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 扩展
 

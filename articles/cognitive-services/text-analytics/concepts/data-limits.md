@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 06/23/2020
+ms.date: 10/26/2020
 origin.date: 04/27/2020
-ms.author: v-tawe
+ms.author: v-johya
 ms.reviewer: chtufts
-ms.openlocfilehash: f0f1ed2ff0258faf6f824e21d0f377b80fdb2fb0
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.openlocfilehash: ba0dcd0bf9294d5db1da7bc3f4877ef7af47e42f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323633"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105644"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>文本分析 API 的数据和速率限制
 <a name="data-limits"></a>
@@ -32,17 +32,14 @@ ms.locfileid: "85323633"
 
 | 限制 | 值 |
 |------------------------|---------------|
-| 单个文档的最大大小 | 5,120 个字符，通过 [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 进行度量。 |
-| 整个请求的最大大小 | 1 MB |
+| 单个文档的最大大小 | 5,120 个字符，通过 [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 进行度量。 也适用于运行状况文本分析容器。 |
+| 整个请求的最大大小 | 1MB。 也适用于运行状况文本分析容器。 |
 
 可以在单个请求中发送的最大文档数将取决于所使用的 API 版本和功能。
 
 #### <a name="version-3"></a>[第 3 版](#tab/version-3)
 
-> [!NOTE]
-> 如果 v3 API 请求超出了这些限制，但在 v2 限制之内，则会在 API 响应中返回警告。 从 2020 年 7 月 15 日开始，将改为返回 400 错误代码。 
-
-v3 API 中已更改以下限制。 超过以下限制会在 API 响应中生成警告。
+v3 API 中已更改以下限制。 超过以下限制将生成 HTTP 400 错误代码。
 
 
 | Feature | 每个请求的最大文档数 | 
@@ -52,7 +49,7 @@ v3 API 中已更改以下限制。 超过以下限制会在 API 响应中生成�
 | 关键短语提取 | 10 |
 | 命名实体识别 | 5 |
 | 实体链接 | 5 |
-
+| 运行状况文本分析容器 | 1000 |
 #### <a name="version-2"></a>[第 2 版](#tab/version-2)
 
 | Feature | 每个请求的最大文档数 | 
@@ -67,7 +64,7 @@ v3 API 中已更改以下限制。 超过以下限制会在 API 响应中生成�
 
 ## <a name="rate-limits"></a>速率限制
 
-速率限制将因[定价层](https://www.azure.cn/pricing/details/cognitive-services/)而异。 两个 API 版本的这些限制是相同的。
+速率限制将因[定价层](https://www.azure.cn/pricing/details/cognitive-services/)而异。 两个 API 版本的这些限制是相同的。 这些速率限制不适用于没有设置速率限制的运行状况文本分析容器。
 
 | 层          | 每秒请求数 | 每分钟请求数 |
 |---------------|---------------------|---------------------|

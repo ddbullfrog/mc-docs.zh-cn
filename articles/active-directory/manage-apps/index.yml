@@ -1,33 +1,47 @@
 ### YamlMime:Landing
 title: 应用程序管理文档
-summary: 通过 Azure Active Directory 可以对云和本地应用程序进行安全无缝的访问。 此外，还无需管理密码。 最终用户一次登录即可访问 Microsoft 365 和数以千计的其他应用程序。 使用我们的快速入门、教程和指南了解如何管理和部署应用程序。
+summary: Azure Active Directory 是一种标识和访问管理 (IAM) 系统。 它提供了一个用于存储数字标识相关信息的单一位置。 你可以将软件应用程序配置为使用 Azure AD 来作为存储用户信息的位置。
 metadata:
   title: 应用程序管理文档
-  description: 通过 Azure Active Directory 可以对云和本地应用程序进行安全无缝的访问。 此外，还无需管理密码。 最终用户一次登录即可访问 Microsoft 365 和数以千计的其他应用程序。 使用我们的快速入门、教程和指南了解如何管理和部署应用程序。
+  description: Azure AD 是一个标识和访问管理 (IAM) 系统。 它提供了一个用于存储数字标识相关信息的单一位置。 你可以将软件应用程序配置为使用 Azure AD 来作为存储用户信息的位置。
   ms.service: active-directory
   ms.subservice: app-mgmt
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 08/27/2020
+  ms.date: 10/26/2020
   author: kenwith
   ms.author: v-junlch
   manager: celested
-  ms.openlocfilehash: 774c4e143739abf5dfc325a47ee46b3922aa6c09
-  ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+  ms.openlocfilehash: dd67726f63684bd9fa4ccb127897b90257dc1014
+  ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89046463"
+  ms.lasthandoff: 10/27/2020
+  ms.locfileid: "92749782"
 landingContent:
-- title: 关于应用程序管理
+- title: 入门
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 快速入门系列
+    - text: 查看你的应用
       url: view-applications-portal.md
-- title: 管理云应用
+- title: 添加和配置应用
   linkLists:
-  - linkListType: how-to-guide
+  - linkListType: learn
     links:
-    - text: 向应用分配用户或组
-      url: assign-user-or-group-access-portal.md
+    - text: 配置应用
+      url: add-application-portal-configure.md
+- title: 应用许可
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 配置用户同意
+      url: configure-user-consent.md
+- title: 开发新应用
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 开发人员指南
+      url: developer-guidance-for-integrating-applications.md
+    - text: 了解平台
+      url: ../develop/v2-overview.md

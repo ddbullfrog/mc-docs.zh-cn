@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/24/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: ac2db6edaf219e3fb8f48a0ac30598cda2723c90
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 50b06023f45a12ce68b75a465dca542ed9def37f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146350"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104054"
 ---
 # <a name="create-and-alter-external-sql-tables"></a>创建和更改外部 SQL 表
 
@@ -26,7 +26,7 @@ ms.locfileid: "91146350"
 `kind` `=` `sql`  
 `table` `=` *SqlTableName*  
 `(`*SqlServerConnectionString*`)`  
-[`with` `(`[`docstring` `=` *Documentation*] [`,` `folder` `=` *FolderName*], *property_name* `=` *value*`,`...`)`]
+[`with` `(`[`docstring` `=` *Documentation* ] [`,` `folder` `=` *FolderName* ], *property_name* `=` *value*`,`...`)`]
 
 ## <a name="parameters"></a>parameters
 
@@ -45,7 +45,7 @@ ms.locfileid: "91146350"
 |---------------------|-----------------|---------------------------------------------------------------------------------------------------|
 | `folder`            | `string`        | 表的文件夹。                  |
 | `docString`         | `string`        | 一个用来记录表的字符串。      |
-| `firetriggers`      | `true`/`false`  | 如果为 `true`，则指示目标系统激发 SQL 表上定义的 INSERT 触发器。 默认为 `false`。 （有关详细信息，请参阅 [BULK INSERT](https://msdn.microsoft.com/library/ms188365.aspx) 和 [System.Data.SqlClient.SqlBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy(v=vs.110).aspx)） |
+| `firetriggers`      | `true`/`false`  | 如果为 `true`，则指示目标系统激发 SQL 表上定义的 INSERT 触发器。 默认为 `false`。 （有关详细信息，请参阅 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) 和 [System.Data.SqlClient.SqlBulkCopy](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlbulkcopy)） |
 | `createifnotexists` | `true`/ `false` | 如果为 `true`，则会在目标 SQL 表不存在的情况下创建该表；在这种情况下，必须提供 `primarykey` 属性来指示作为主键的结果列。 默认为 `false`。  |
 | `primarykey`        | `string`        | 如果 `createifnotexists` 为 `true`，则生成的列名称将用作 SQL 表的主键（如果是此命令创建的）。                  |
 
@@ -99,5 +99,5 @@ Kusto 将对 SQL 数据库执行 `SELECT x, s FROM MySqlTable` 查询，然后�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [外部表常规控制命令](externaltables.md)
+* [外部表常规控制命令](./external-table-commands.md)
 * [在 Azure 存储或 Azure Data Lake 中创建和更改外部表](external-tables-azurestorage-azuredatalake.md)

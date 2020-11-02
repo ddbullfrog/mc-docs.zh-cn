@@ -7,13 +7,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/17/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: c433dcbec0e310dc4d4107a63c5771e19e2ce116
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 4c050204418388e886cb299253b7178d3fd433d9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146468"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103912"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>使用 Azure 数据资源管理器查询 Azure Data Lake 中的数据
 
@@ -126,7 +126,7 @@ dataformat=multijson
 定义将数据字段映射到外部表定义字段的 JSON 映射：
 
 ```kusto
-.create external table ApiCalls json mapping 'MyMapping' '[{"Column":"Timestamp","Properties":{"Path":"$.time"}},{"Column":"TenantId","Properties":{"Path":"$.data.tenant"}},{"Column":"MethodName","Properties":{"Path":"$.data.method"}}]'
+.create external table ApiCalls json mapping 'MyMapping' '[{"Column":"Timestamp","Properties":{"Path":"$.timestamp"}},{"Column":"TenantId","Properties":{"Path":"$.data.tenant"}},{"Column":"MethodName","Properties":{"Path":"$.data.method"}}]'
 ```
 
 查询外部表时，将会调用映射，并会将相关数据映射到外部表列：
@@ -210,7 +210,7 @@ dataformat=csv
 
 可以通过查看 Web UI 的左窗格查找已创建的 **TaxiRides** 表：
 
-:::image type="content" source="media/data-lake-query-data/taxirides-external-table.png" alt-text="出租车搭乘记录外部表":::
+:::image type="content" source="media/data-lake-query-data/taxirides-external-table.png" alt-text="Web UI 中的外部表":::
 
 ### <a name="query-taxirides-external-table-data"></a>查询 TaxiRides 外部表数据 
 
@@ -228,7 +228,7 @@ external_table("TaxiRides")
 
 此查询显示一周中最忙碌的一天。 由于数据未分区，因此查询可能需要好几分钟的时间才能返回结果。
 
-:::image type="content" source="media/data-lake-query-data/taxirides-no-partition.png" alt-text="呈现未分区的查询":::
+:::image type="content" source="media/data-lake-query-data/taxirides-no-partition.png" alt-text="Web UI 中的外部表":::
 
 #### <a name="query-taxirides-external-table-with-partitioning"></a>在分区的情况下查询 TaxiRides 外部表 
 
@@ -243,7 +243,7 @@ external_table("TaxiRides")
 
 此查询使用分区，这样可以优化查询时间和性能。 此查询基于分区的列 (pickup_datetime) 进行筛选，在数秒钟内返回结果。
 
-:::image type="content" source="media/data-lake-query-data/taxirides-with-partition.png" alt-text="呈现分区的查询":::
+:::image type="content" source="media/data-lake-query-data/taxirides-with-partition.png" alt-text="Web UI 中的外部表":::
   
 你可以编写针对外部表 TaxiRides 运行的其他查询，了解有关数据的更多信息。 
 
@@ -268,7 +268,7 @@ external_table("TaxiRides")
  
 ### <a name="compression"></a>压缩
  
-使用压缩可以减少从远程存储提取的数据量。 对于 Parquet 格式，请使用内部 Parquet 压缩机制来单独压缩列组，这样就可以单独读取列组。 若要验证压缩机制的使用情况，请检查文件的命名方式是否如下所示： *&lt;filename&gt;.gz.parquet* 或 *&lt;filename&gt;.snappy.parquet*，而不是 *&lt;filename&gt;.parquet.gz*。 
+使用压缩可以减少从远程存储提取的数据量。 对于 Parquet 格式，请使用内部 Parquet 压缩机制来单独压缩列组，这样就可以单独读取列组。 若要验证压缩机制的使用情况，请检查文件的命名方式是否如下所示： *&lt;filename&gt;.gz.parquet* 或 *&lt;filename&gt;.snappy.parquet* ，而不是 *&lt;filename&gt;.parquet.gz* 。 
  
 ### <a name="partitioning"></a>分区
  

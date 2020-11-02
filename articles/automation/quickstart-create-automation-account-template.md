@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
 origin.date: 07/23/2020
-ms.date: 08/10/2020
+ms.date: 11/02/2020
 ms.author: v-jay
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 4ca7c3b3e612450d27d1435e4b170ab61bfe9a10
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: b8377ef0ad4b742bf71263bd2a7eb12ea01d710d
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790547"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750210"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>快速入门：使用 ARM 模板创建自动化帐户
 
@@ -259,7 +259,7 @@ Azure 自动化提供基于云的自动化和配置服务，用于支持 Azure �
 |:---|:---|:---|
 | [工作区](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) | workspaces | 2020-03-01-preview |
 | [自动化帐户](https://docs.microsoft.com/azure/templates/microsoft.automation/automationaccounts) | automation | 2020-01-13-preview |
-| [工作区关联的服务](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | 工作区 | 2020-03-01-preview |
+| [工作区关联的服务](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | workspaces | 2020-03-01-preview |
 
 ### <a name="before-you-use-the-template"></a>使用模版之前
 
@@ -283,7 +283,7 @@ JSON 模板为其他参数指定默认值，这些参数将会用作环境中的
 
 如果你不熟悉 Azure 自动化和 Azure Monitor，请务必了解以下配置详细信息。 当你尝试创建、配置和使用链接到新自动化帐户的 Log Analytics 工作区时，这些信息有助于避免出错。
 
-* 查看[其他详细信息](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace)以充分了解工作区配置选项，如访问控制模式、定价层、保留期和产能预留级别。
+* 查看[其他详细信息](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace)以充分了解工作区配置选项，如访问控制模式、定价层、保留期和产能预留级别。
 
 * 查看[工作区映射](how-to/region-mappings.md)，以内联方式或在参数文件中指定支持的区域。 只有某些区域支持链接订阅中的 Log Analytics 工作区和自动化帐户。
 

@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 iff()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: f504f3baece190a1a68795dab463f02b6b5f89e3
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 02bcfbd3aa5a1d5bdcba65119df918185cd58b92
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841737"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104483"
 ---
 # <a name="iff"></a>iff()
 
@@ -22,21 +22,21 @@ ms.locfileid: "87841737"
 
 第二个和第三个参数必须属于同一类型。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `iff(`*predicate*`,` *ifTrue*`,` *ifFalse*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * predicate：一个计算结果为 `boolean` 值的表达式。
 * ifTrue：如果 predicate 计算结果为 `true`，得以计算的表达式以及从函数返回的表达式值。
 * ifFalse：如果 predicate 计算结果为 `false`，得以计算的表达式以及从函数返回的表达式值。
 
-**返回**
+## <a name="returns"></a>返回
 
 如果 *predicate* 计算结果为 `true`，此函数返回 *ifTrue* 的值，否则返回 *ifFalse* 的值。
 
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 T 

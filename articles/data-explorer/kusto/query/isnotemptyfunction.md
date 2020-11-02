@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 isnotempty()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: abb448628795772f008dbf3fc03cad9d9f70ff54
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 49d1c9a7030b339972101b05cc7e3bfacd0935ad
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146760"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105387"
 ---
 # <a name="isnotempty"></a>isnotempty()
 
@@ -26,9 +26,9 @@ isnotempty("") == false
 
 ## <a name="syntax"></a>语法
 
-`isnotempty(`[*value*]`)`
+`isnotempty(`[ *value* ]`)`
 
-`notempty(`[*value*]`)` - `isnotempty` 的别名
+`notempty(`[ *value* ]`)` - `isnotempty` 的别名
 
 ## <a name="example"></a>示例
 

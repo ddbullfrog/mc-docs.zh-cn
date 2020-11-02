@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的 datatable 运算符�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: b3df60d1ebb72e0ee636af77a5c6152b32ff5780
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.openlocfilehash: 3ac2c82cdb7f4ab68001f2c6afb011f14952e000
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841775"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103551"
 ---
 # <a name="datatable-operator"></a>datatable 运算符
 
@@ -25,11 +25,11 @@ ms.locfileid: "87841775"
 > [!NOTE]
 > 此运算符没有管道输入。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `datatable` `(` *ColumnName* `:` *ColumnType* [`,` ...] `)` `[` *ScalarValue* [`,` *ScalarValue* ...] `]`
 
-**参数**
+## <a name="arguments"></a>参数
 
 ::: zone pivot="azuredataexplorer"
 
@@ -46,11 +46,11 @@ ms.locfileid: "87841775"
 
 ::: zone-end
 
-**返回**
+## <a name="returns"></a>返回
 
 此运算符返回给定架构和数据的数据表。
 
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 datatable (Date:datetime, Event:string)

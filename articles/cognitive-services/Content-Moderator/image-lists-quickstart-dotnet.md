@@ -1,22 +1,23 @@
 ---
 title: 在 C# 中针对自定义列表检查图像 - 内容审查器
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 如何通过适用于 C# 的内容审查器 SDK 使用自定义图像列表进行图像审查。
 services: cognitive-services
-author: sanjeev3
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 origin.date: 07/03/2019
-ms.date: 07/10/2019
-ms.author: v-junlch
-ms.openlocfilehash: f1e9d16cdb286d853c83f8be27b146bb506a6e69
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
+ms.openlocfilehash: df7cdede31b06ee3a782aabe5df36a925ca26d1c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "67844942"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103594"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>在 C# 中通过自定义图像列表进行审查
 
@@ -35,7 +36,7 @@ ms.locfileid: "67844942"
 
 本指南的控制台应用程序模拟了一些可使用图像列表 API 执行的任务。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services/)。 
 
 ## <a name="sign-up-for-content-moderator-services"></a>注册内容审查器服务
 
@@ -63,8 +64,7 @@ ms.locfileid: "67844942"
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -74,10 +74,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Create the Content Moderator client
 
-添加以下代码来为订阅创建内容审查器客户端。
-
-> [!IMPORTANT]
-> 使用区域标识符和订阅密钥的值更新  AzureRegion 和 CMSubscriptionKey  字段。
+添加以下代码来为订阅创建内容审查器客户端。 使用终结点 URL 和订阅密钥的值更新 `AzureEndpoint` 和 `CMSubscriptionKey` 字段。 可在 Azure 门户中资源的“快速启动”  选项卡中找到它们。
 
 ```csharp
 /// <summary>
@@ -89,16 +86,9 @@ using System.Threading;
 public static class Clients
 {
     /// <summary>
-    /// The region/location for your Content Moderator account, 
-    /// for example, chinaeast2.
+    /// The base URL for Content Moderator calls.
     /// </summary>
-    private static readonly string AzureRegion = "YOUR API REGION";
-
-    /// <summary>
-    /// The base URL fragment for Content Moderator calls.
-    /// </summary>
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.azure.cn";
+    private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
     /// <summary>
     /// Your Content Moderator subscription key.
@@ -117,7 +107,7 @@ public static class Clients
         // Create and initialize an instance of the Content Moderator API wrapper.
         ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        client.Endpoint = AzureBaseURL;
+        client.Endpoint = AzureEndpoint;
         return client;
     }
 }
@@ -1094,4 +1084,3 @@ Response:
 
 为适用于 .NET 的此内容审查器快速入门和其他内容审查器快速入门获取[内容审查器 .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 和 [Visual Studio 解决方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，并开始集成。
 
-<!-- Update_Description: wording update -->

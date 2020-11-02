@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 between 运算符。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: 71a14f9f1c6a52cefa5b12d9331da0af5204ddff
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 925cebe415b888d9f2c888e12c6e5b774a08c38f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516033"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103737"
 ---
 # <a name="between-operator"></a>between 运算符
 

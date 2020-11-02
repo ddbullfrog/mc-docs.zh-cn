@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的 Restrict 语句。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
+ms.date: 09/30/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 8d833b02c03c91ea9dc4a13e242ffbda93e56204
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: 7b072a058d9a9a896d3fb2e166d67c5068869514
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516003"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105018"
 ---
 # <a name="restrict-statement"></a>Restrict 语句
 
@@ -31,7 +31,7 @@ Restrict 语句主要适用于中间层应用程序，这些应用程序接受�
 
 ## <a name="syntax"></a>语法
 
-`restrict` `access` `to` `(` [*EntitySpecifier* [`,` ...]] `)`
+`restrict` `access` `to` `(` [ *EntitySpecifier* [`,` ...]] `)`
 
 其中 EntitySpecifier 是以下值之一：
 * 由 let 语句定义为表格视图的标识符。

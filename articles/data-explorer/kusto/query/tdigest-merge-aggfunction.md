@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 tdigest_merge()（�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 12/09/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 038430bd6b911e3f60744147e99f4c9e917e9459
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: e8d9b23b17f13aee91e2cd34fd2ac2c448526e25
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841423"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103987"
 ---
 # <a name="tdigest_merge-aggregation-function"></a>tdigest_merge()（聚合函数）
 
@@ -24,17 +24,17 @@ ms.locfileid: "87841423"
 
 在[此处](percentiles-aggfunction.md#estimation-error-in-percentiles)详细了解基础算法 (T-Digest) 和预估误差。
 
-**语法**
+## <a name="syntax"></a>语法
 
 summarize `tdigest_merge(`*Expr*`)`。
 
 summarize `tdigest_merge(`*Expr*`)` - 别名。
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Expr：用于聚合计算的表达式。 
 
-**返回**
+## <a name="returns"></a>返回
 
 组中 Expr 的合并 tdigest 值。
  

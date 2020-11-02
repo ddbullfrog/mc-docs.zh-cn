@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 49889f30545cf0faaf9aeff3fdfe26798b6e522d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: d2e041a216e5fefb870433a44c4bcf12b85cc7a7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472641"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103767"
 ---
 <!--Verified by-pass-->
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>将 VPN 网关（虚拟网络网关）连接到虚拟 WAN

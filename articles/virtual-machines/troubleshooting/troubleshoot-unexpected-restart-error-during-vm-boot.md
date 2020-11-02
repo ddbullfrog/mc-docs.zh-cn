@@ -2,9 +2,7 @@
 title: OS 启动 - 计算机意外重启或遇到意外错误
 description: 本文提供的步骤可用于解决 VM 在安装 Windows 时遇到意外重启或错误的问题。
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 1d249a4e-71ba-475d-8461-31ff13e57811
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: b15046f71012910c9bb00a633974f12cca32015e
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 32c7d4023cee9857947eac240d1cf3c288994049
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456750"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104157"
 ---
 # <a name="os-start-up---computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>OS 启动 - 计算机意外重启或遇到意外错误
 

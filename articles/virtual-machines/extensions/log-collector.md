@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: ''
 ms.assetid: aa033a65-8eb8-4cae-9f91-0f80cbb55ae4
 ms.service: virtual-machines-windows
 ms.devlang: powershell
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 08/23/2016
 ms.date: 04/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8896595bcbf750acfc86ba445d3ff9c857fc9476
-ms.sourcegitcommit: b469d275694fb86bbe37a21227e24019043b9e88
+ms.openlocfilehash: 871431d6732fd375ff9995d38db4fda67771d95f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596386"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105558"
 ---
 # <a name="azurelogcollector-extension"></a>AzureLogCollector 扩展
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]

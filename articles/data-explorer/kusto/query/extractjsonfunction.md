@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 extractjson()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 6ca6e98e6420943cc8e8b086d6d651a4999c1dd7
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 7d9128880b0be976534f4eff3e1be117bbb83a10
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146554"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105158"
 ---
 # <a name="extractjson"></a>extractjson()
 
@@ -60,7 +60,7 @@ T
 |`.` 或 `[ ]` | 子|
 |`[ ]`|数组下标|
 
-（目前未实现通配符、递归、联合或切片。）**
+（目前未实现通配符、递归、联合或切片。） 
 
 
 **性能提示**

@@ -4,15 +4,15 @@ description: 了解如何使用漏斗图来发现客户与你的应用程序的�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
+ms.date: 10/29/2020
 origin.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: e5fe75c513279dd585acd2c5257448fa03d8ce59
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 602dfd96e2e915e49d775b1600cb5beeab285083
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244571"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105242"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>使用 Application Insights 漏斗图了解客户如何使用你的应用程序
 
@@ -38,7 +38,7 @@ ms.locfileid: "87244571"
 ### <a name="funnels-features"></a>漏斗图功能
 上面的屏幕截图包括五个突出显示的区域。 这些是漏斗图的功能。 以下列表更详细说明了屏幕截图中的每个相应区域：
 1. 如果对应用进行采样，将看到采样横幅。 选择标题栏打开上下文窗格，其中说明了如何关闭采样。 
-2. 可以将漏斗图导出到 [Power BI](../../azure-monitor/app/export-power-bi.md )。
+2. 可以将漏斗图导出到 [Power BI](./export-power-bi.md)。
 3. 选择一个步骤以在右侧查看更多详细信息。 
 4. 历史转换图显示过去 90 天内的兑换率。 
 5. 通过访问用户工具更好地了解用户。 可在每个步骤中使用筛选器。 
@@ -47,8 +47,8 @@ ms.locfileid: "87244571"
   * [使用情况概述](usage-overview.md)
   * [用户、会话和事件](usage-segmentation.md)
   * [保留](usage-retention.md)
-  * [工作簿](../../azure-monitor/platform/workbooks-overview.md)
+  * [工作簿](../platform/workbooks-overview.md)
   * [添加用户上下文](usage-send-user-context.md)
-  * [导出到 Power BI](../../azure-monitor/app/export-power-bi.md )
+  * [导出到 Power BI](./export-power-bi.md)
 
 

@@ -2,9 +2,7 @@
 title: Windows VM 扩展故障排除
 description: 了解如何进行 Azure Windows VM 扩展故障排除
 services: virtual-machines-windows
-documentationcenter: ''
 manager: gwallace
-editor: ''
 tags: top-support-issue,azure-resource-manager
 ms.assetid: 878ab9b6-c3e6-40be-82d4-d77fecd5030f
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: af999cf937f89673dcfdfd39313e512c51f3274c
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: b7585def6f29e9b088ec9fb41884e3a331e39ee2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128067"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104859"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 扩展故障排除
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]

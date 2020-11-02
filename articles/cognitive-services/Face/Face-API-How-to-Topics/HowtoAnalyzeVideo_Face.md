@@ -1,22 +1,23 @@
 ---
-title: 示例：实时视频分析 - 人脸 API
+title: 示例：实时视频分析 - 人脸
 titleSuffix: Azure Cognitive Services
-description: 使用人脸 API 对从实时视频流中获取的帧执行近实时分析。
+description: 使用人脸服务对从实时视频流中获取的帧执行近实时分析。
 services: cognitive-services
-author: SteveMSFT
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
 origin.date: 03/01/2018
-ms.date: 07/10/2019
-ms.author: v-junlch
-ms.openlocfilehash: 0605c71f710fdd38ee29e3b647a1d1cea1c1fc0e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f95ea90febb42027f248d1e3810bfc64577b4152
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "67844606"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104311"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>示例：如何实时分析视频
 
@@ -37,7 +38,7 @@ ms.locfileid: "67844606"
 
 近实时分析系统的最简单设计是无限循环，在每次迭代中捕捉一个帧，对它进行分析，然后使用结果：
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -55,7 +56,7 @@ while (true)
 
 简单的单线程循环适用于轻量级客户端算法，但不适用于云 API 调用中涉及的延迟。 该问题的解决方案是允许长时间运行的 API 调用与帧捕捉并行执行。 在 C# 中，我们可以使用基于任务的并行来实现这一点，例如：
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -70,22 +71,22 @@ while (true)
 }
 ```
 
-此代码将在单独的任务中启动每个分析，当我们继续捕捉新帧时，这些任务可以在后台运行。 使用此方法时，我们可以避免在等待 API 调用返回时阻塞主线程，但是失去了简单版本提供的一些保证。 多个 API 调用可能并行执行，但结果可能以错误的顺序返回。 这也可能导致多个线程同时进入 ConsumeResult() 函数，如果该函数非线程安全，这可能会很危险。 最后，这个简单的代码不会跟踪所创建的任务，因此异常将以无提示方式消失。 因此，最终步骤是添加“使用者”线程，它将跟踪分析任务，引发异常，终止长时间运行的任务，并确保以正确的顺序使用结果。
+此代码将在单独的任务中启动每个分析，当我们继续捕捉新帧时，这些任务可以在后台运行。 使用此方法时，我们可以避免在等待 API 调用返回时阻塞主线程，但是失去了简单版本提供的一些保证。 多个 API 调用可能并行执行，但结果可能以错误的顺序返回。 这也可能导致多个线程同时进入 ConsumeResult() 函数，如果该函数非线程安全，这可能会很危险。 最后，这个简单的代码不会跟踪所创建的任务，因此异常将以无提示方式消失。 因此，最终步骤是添加“使用者”线程，它将跟踪分析任务，引发异常，终止长时间运行的任务，并确保以正确的顺序使用结果。
 
 ### <a name="a-producer-consumer-design"></a>生产者-使用者设计
 
 在最终的“生产者-使用者”系统中，我们有一个生产者线程，看起来与我们之前的无限循环类似。 但是，生产者只需将任务放入队列即可跟踪它们，而不必在分析结果可用时立即使用它们。
 
-```CSharp
+```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
+     
 // Producer thread. 
 while (true)
 {
     // Grab a frame. 
     Frame f = GrabFrame();
- 
+ 
     // Decide whether to analyze the frame. 
     if (ShouldAnalyze(f))
     {
@@ -113,16 +114,16 @@ while (true)
 
 我们还有一个使用者线程，它会将任务从队列中取出，等待它们完成，并显示结果或引发已引发的异常。 通过使用队列，我们​​可以保证按正确的顺序一次使用一个结果，而不限制系统的最大帧速率。
 
-```CSharp
+```csharp
 // Consumer thread. 
 while (true)
 {
     // Get the oldest task. 
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
+ 
     // Await until the task is completed. 
     var output = await analysisTask;
-     
+     
     // Consume the exception or result. 
     if (output.Exception != null)
     {
@@ -143,30 +144,44 @@ while (true)
 
 该库包含 FrameGrabber 类，该类可实现上面所述的生产者-使用者系统，以处理来自网络摄像头的视频帧。 用户可以指定 API 调用的确切形式，该类将使用事件来让调用代码知道何时获取新帧或者新的分析结果何时可用。
 
-为了说明一些可能性，下面例举了使用该库的两个示例应用。 第一个是简单的控制台应用，下面再现了它的简化版本。 它从默认网络摄像头捕捉帧，并将它们提交到人脸 API 进行人脸检测。
+为了说明一些可能性，下面例举了使用该库的两个示例应用。 第一个是简单的控制台应用，下面再现了它的简化版本。 它从默认网络摄像头抓取帧，并将它们提交到人脸服务进行人脸检测。
 
-```CSharp
+```csharp
 using System;
+/* See:
+ * https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis
+ * Compile and add reference to VideoFrameAnalyzer.dll.
+ * Install NuGet package OpenCVSharp.
+ */
 using VideoFrameAnalyzer;
-using Microsoft.ProjectOxford.Face;
-using Microsoft.ProjectOxford.Face.Contract;
-     
+// Install NuGet package Microsoft.Azure.CognitiveServices.Vision.Face.
+using Microsoft.Azure.CognitiveServices.Vision.Face;
+using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
 namespace VideoFrameConsoleApplication
 {
     class Program
     {
+        static string SUBSCRIPTION_KEY = Environment.GetEnvironmentVariable("FACE_SUBSCRIPTION_KEY");
+        static string ENDPOINT = Environment.GetEnvironmentVariable("FACE_ENDPOINT");
+
         static void Main(string[] args)
         {
+            IFaceClient client = new FaceClient(new ApiKeyServiceClientCredentials(SUBSCRIPTION_KEY)) { Endpoint = ENDPOINT };
+
+            // Define this in Main so it is closed over the client.
+            async Task<DetectedFace[]> Detect(VideoFrame frame)
+            {
+                return (DetectedFace[])await client.Face.DetectWithStreamAsync(frame.Image.ToMemoryStream(".jpg"), detectionModel:DetectionModel.Detection02);
+            }
+
             // Create grabber, with analysis type Face[]. 
-            FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
-            
-            // Create Face API Client. Insert your Face API key here.
-            private readonly IFaceClient faceClient = new FaceClient(
-            new ApiKeyServiceClientCredentials("<subscription key>"),
-            new System.Net.Http.DelegatingHandler[] { });
+            FrameGrabber<DetectedFace[]> grabber = new FrameGrabber<DetectedFace[]>();
 
             // Set up our Face API call.
-            grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));
+            grabber.AnalysisFunction = Detect;
 
             // Set up a listener for when we receive a new result from an API call. 
             grabber.NewResultAvailable += (s, e) =>
@@ -174,7 +189,7 @@ namespace VideoFrameConsoleApplication
                 if (e.Analysis != null)
                     Console.WriteLine("New result received for frame acquired at {0}. {1} faces detected", e.Frame.Metadata.Timestamp, e.Analysis.Length);
             };
-            
+
             // Tell grabber to call the Face API every 3 seconds.
             grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
 
@@ -184,7 +199,7 @@ namespace VideoFrameConsoleApplication
             // Wait for keypress to stop
             Console.WriteLine("Press any key to stop...");
             Console.ReadKey();
-            
+
             // Stop, blocking until done.
             grabber.StopProcessingAsync().Wait();
         }
@@ -202,30 +217,24 @@ namespace VideoFrameConsoleApplication
 
 若要开始使用此示例，请按照下列步骤操作：
 
-1. 从[订阅](https://www.azure.cn/pricing/1rmb-trial/)获取视觉 API 的 API 密钥。 对于视频帧分析，适用的 API 包括：
-    - [计算机视觉 API](/cognitive-services/computer-vision/home)
-    - [情感 API](/cognitive-services/emotion/home)
-    - [人脸 API](/cognitive-services/face/overview)
-
-2. 克隆 [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub 存储库
-
-3. 在 Visual Studio 2015 中打开示例，然后生成并运行示例应用程序：
-    - 对于 BasicConsoleSample，人脸 API 密钥直接在  [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) 中进行硬编码。
+1. 创建 [Azure 帐户](https://www.azure.cn/pricing/details/cognitive-services/)。 如果已有帐户，请跳至下一步。
+2. 在 Azure 门户中为计算机视觉和人脸创建资源，以获取密钥和终结点。 请确保在设置过程中选择免费层 (F0)。
+   - [计算机视觉](https://portal.azure.cn/#create/Microsoft.CognitiveServicesComputerVision)
+   - [人脸](https://portal.azure.cn/#create/Microsoft.CognitiveServicesFace) 部署资源后，单击“转到资源”，以收集每项资源的密钥和终结点。 
+3. 克隆 [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub 存储库。
+4. 在 Visual Studio 中打开示例，然后生成并运行示例应用程序：
+    - 对于 BasicConsoleSample，人脸密钥直接在 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) 中进行硬编码。
     - 对于 LiveCameraSample，应将密钥输入应用的“设置”窗格。 它们将作为用户数据保留在各会话中。
         
 
-当准备好进行集成时，请从你自己的项目中引用 VideoFrameAnalyzer 库。  
+当准备好进行集成时，请从你自己的项目中引用 VideoFrameAnalyzer 库。 
 
 ## <a name="summary"></a>总结
 
-本指南介绍了如何使用人脸 API、计算机视觉 API 和情感 API 对实时视频流运行近实时分析，以及如何使用我们的示例代码开始操作。  
+本指南介绍了如何使用人脸 API、计算机视觉 API 和情感 API 对实时视频流运行近实时分析，以及如何使用我们的示例代码开始操作。
 
-请随时在 [GitHub 存储库](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)中提供反馈和建议，或者在我们的  [UserVoice 站点](https://cognitive.uservoice.com/)上提供更广泛的 API 反馈。
+请随时在 [GitHub 存储库](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)中提供反馈和建议，或者在我们的 [UserVoice 站点](https://cognitive.uservoice.com/)上提供更广泛的 API 反馈。
 
-
-
-## <a name="related-topics"></a><a name="related"></a> 相关主题
-- [如何识别图像中的人脸](HowtoIdentifyFacesinImage.md)
+## <a name="related-topics"></a>相关主题
 - [如何检测图像中的人脸](HowtoDetectFacesinImage.md)
 
-<!-- Update_Description: code update -->

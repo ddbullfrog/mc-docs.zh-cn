@@ -8,13 +8,13 @@ ms.reviewer: amitof
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/16/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 9beb84018d5844bc638f7c51d98872f67716f3f3
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 132c8e5057b3f92b5a993639302077bbffebba99
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516068"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104307"
 ---
 # <a name="show-database-cache-query_results"></a>.show database cache query_results
 
@@ -22,7 +22,7 @@ ms.locfileid: "88516068"
 
 **语法**
 
-`.show database query results cache`
+`.show database cache query_results`
 
 **输出**
  

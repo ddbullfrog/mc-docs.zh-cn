@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的 database()（范围�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 3b55409da68ec1b04d01f6c5f5154891b142c98b
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: 99965c46318dc9f53de3bf36e52bd246f6c4a0bb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515987"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104440"
 ---
 # <a name="database-scope-function"></a>database()（范围函数）
 
@@ -39,7 +39,7 @@ cluster('help').database('Sample').StormEvents
 
 ## <a name="arguments"></a>参数
 
-* *stringConstant*：被引用数据库的名称。 标识的数据库可以是 `DatabaseName` 或 `PrettyName`。 在执行查询之前，参数必须是常量，即不能来自子查询求值。
+* *stringConstant* ：被引用数据库的名称。 标识的数据库可以是 `DatabaseName` 或 `PrettyName`。 在执行查询之前，参数必须是常量，即不能来自子查询求值。
 
 ## <a name="examples"></a>示例
 

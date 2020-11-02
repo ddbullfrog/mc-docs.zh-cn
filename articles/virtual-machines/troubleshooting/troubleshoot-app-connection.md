@@ -2,9 +2,7 @@
 title: 排查 Azure 中 VM 应用程序访问问题 | Azure
 description: 使用以下详细故障排除步骤可以查明连接到 Azure 中虚拟机上运行的应用程序时遇到的问题。
 services: virtual-machines
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: 无法启动应用程序, 程序打不开, 侦听端口受阻, 无法启动程序, 侦听端口受阻
 ms.assetid: b9ff7cd0-0c5d-4c3c-a6be-3ac47abf31ba
@@ -14,16 +12,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 origin.date: 10/31/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: fb450bbe46866b3a53f7a1d9865f9082d0d3918f
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: e21655c8e1ed168e9f2483f99c1a414e0a95c317
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456824"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104730"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>排查 Azure 中虚拟机上的应用程序连接问题
 
@@ -127,13 +125,13 @@ ms.locfileid: "89456824"
 
     * 确保 VM 的入站 NAT 规则配置允许传入流量，尤其是协议（TCP 或 UDP）及公用和专用端口号。
     * 确保网络安全组允许入站请求和出站响应流量。
-    * 有关详细信息，请参阅[什么是网络安全组？](../../virtual-network/security-overview.md)
+    * 有关详细信息，请参阅[什么是网络安全组？](../../virtual-network/network-security-groups-overview.md)
 
 如果虚拟机或终结点是负载均衡集的成员，则：
 
 * 验证探测协议（TCP 或 UDP）和端口号是否正确。
 * 如果探测协议和端口与负载均衡集协议和端口不同，则：
-    * 验证应用程序是否在探测协议（TCP 或 UDP）和端口号（在目标 VM 上使用 **netstat –a**）上侦听。
+    * 验证应用程序是否在探测协议（TCP 或 UDP）和端口号（在目标 VM 上使用 **netstat –a** ）上侦听。
     * 确保目标 VM 上的主机防火墙允许入站探测请求和出站探测响应流量。
 
 如果可以访问应用程序，请确保 Internet 边缘设备允许：

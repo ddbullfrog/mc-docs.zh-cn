@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4cf9faab19a6e5706a36a4b7e5e02937aee80d8b
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: a75a5754811173af1180fd98948ba4d19b4b0539
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472666"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103961"
 ---
 <!--Verified successfully-->
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>使用 Azure 虚拟 WAN 和安全中心与中国互连
@@ -121,9 +121,9 @@ ExpressRoute Global Reach 在某些区域不可用。 例如，如果需要与�
 
 整体体系结构可能略有不同，具体取决于你选择如何与香港建立连接。 本部分介绍采用不同 VPN 或 SDWAN 和/或 ExpressRoute 组合的三种可用体系结构。
 
-所有这些选项都利用由 Azure 虚拟 WAN 保护的中心在香港建立直接的 Microsoft 365 连接。 这些体系结构还支持 [Microsoft 365 多地域](https://docs.microsoft.com/azure/microsoft-365/microsoft-365-multi-geo)的合规要求，并使该流量靠近下一个 Office 365 Front Door 位置。 因此，它也会改善中国境外的 Microsoft 365 使用情况。
+所有这些选项都利用由 Azure 虚拟 WAN 保护的中心在香港建立直接的 Microsoft 365 连接。 这些体系结构还支持 [Microsoft 365 多地域](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-multi-geo)的合规要求，并使该流量靠近下一个 Office 365 Front Door 位置。 因此，它也会改善中国境外的 Microsoft 365 使用情况。
 
-<!--CORRECT ON docs.microsoft.com/azure/microsoft-365/microsoft-365-multi-geo-->
+<!--CORRECT ON https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-multi-geo-->
 
 <!--Not Available on [21Vianet Azure Peering Services (MAPS)](https://docs.microsoft.com/azure/peering-service/about)-->
 

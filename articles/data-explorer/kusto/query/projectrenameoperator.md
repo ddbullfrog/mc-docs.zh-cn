@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 project-rename 运�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: ee7b23ebdf9f12c7ef46e6769338f9a398c27fe2
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 14fde3f2e6ba4dbd5fa283f3e51d71af90d16f89
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841631"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104192"
 ---
 # <a name="project-rename-operator"></a>project-rename 运算符
 
@@ -24,22 +24,21 @@ ms.locfileid: "87841631"
 T | project-rename new_column_name = column_name
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `| project-rename` *NewColumnName* = *ExistingColumnName* [`,` ...]
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：输入表。
+* *T* ：输入表。
 * NewColumnName：列的新名称。 
 * ExistingColumnName：列的现有名称。 
 
-**返回**
+## <a name="returns"></a>返回
 
 一个表，其列的顺序与现有表中的顺序相同，但列已重命名。
 
-
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

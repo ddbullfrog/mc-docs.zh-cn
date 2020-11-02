@@ -2,9 +2,7 @@
 title: 如何为 Azure Windows VM 重置网络接口 | Azure
 description: 介绍如何为 Azure Windows VM 重置网络接口
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: f04987831a625404814258d0b0abf810505a455e
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: b0deb8d073d7a1689aef7390a0f1a1301d868c26
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456860"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105411"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何为 Azure Windows VM 重置网络接口 
 
@@ -87,7 +85,7 @@ ms.locfileid: "89456860"
 4. 选择“IP 地址”  。
 5. 如果“专用 IP 分配”  不是“静态”  ，则将其更改为“静态”  。
 6. 将“IP 地址”  更改为子网中可用的其他 IP 地址。
-7. 选择**保存**。
+7. 选择 **保存** 。
 8. 虚拟机将重新启动以将新的 NIC 初始化到系统。
 9. 尝试通过 RDP 连接到计算机。  如果成功，可以选择将专用 IP 地址重新还原为原始 IP 地址。  
 
@@ -125,7 +123,7 @@ ms.locfileid: "89456860"
 4. 找到名为“Microsoft Hyper-V 网络适配器”的适配器。
 5. 此时可能会看到灰显的不可用适配器。右键单击该适配器，然后选择“卸载”。
 
-    :::image type="content" source="media/reset-network-interface/nicpage.png" alt-text="NIC 图像":::
+    :::image type="content" source="media/reset-network-interface/nicpage.png" alt-text="网络接口位置":::
 
     > [!NOTE]
     > 仅卸载名称为“Microsoft Hyper-V 网络适配器”的不可用适配器。 如果卸载任何其他隐藏的适配器，可能会导致其他问题。

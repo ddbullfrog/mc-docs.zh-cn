@@ -4,23 +4,23 @@ description: 本文介绍 Azure 数据资源管理器中的 getyear()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 88a74b7f8b2a1aaccc7a7b29623c25695b3bc614
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 5af6964c19bb8b2a291a60a19047a4301c04fbda
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841742"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103884"
 ---
 # <a name="getyear"></a>getyear()
 
 返回 `datetime` 参数的年份部分。
 
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 T

@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 ago()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 324244a826015bf6b74b486bce36bc3d220b1cac
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: eb82a9653f578fadbf709fb05d49d81c3c7a2973
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515790"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105059"
 ---
 # <a name="ago"></a>ago()
 

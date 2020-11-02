@@ -2,9 +2,7 @@
 title: 使用 Azure 自定义路由通过强制隧道启用 KMS 激活 | Azure
 description: 介绍如何在 Azure 中使用强制隧道时，使用 Azure 自定义路由启用 KMS 激活。
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -16,12 +14,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2d3f9317c08acf38ea59f4b199269405650169a6
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: b41deb3bc04a01c4ceba0f0f60a3668236eb8ae5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456871"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105330"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>在强制隧道方案中，Windows 激活失败
 
@@ -133,5 +131,5 @@ Azure 中国云的 KMS 服务器的 IP 地址为 42.159.7.249。 其 DNS 名称�
 - [KMS 客户端安装密钥](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys)
 - [查看并选择激活方法](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11))
 
-<!--Correct on  https://docs.microsoft.com/previous-versions/windows -->
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!--Correct on  https://docs.microsoft.com/previous-versions/windows-->
+<!-- Update_Description: update meta properties, wording update, update link-->

@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 345f22139a4ca9bfea90640b2731bf0dbfab5b68
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: dbb392534af16ef3593d2cb5aeab34d3a3af31e6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463170"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105401"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 TLS/SSL 证书保护 Windows 虚拟机上的 Web 服务器
 
@@ -88,7 +88,7 @@ Add-AzKeyVaultCertificate `
 $cred = Get-Credential
 ```
 
-现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果支持的网络资源不存在，则会创建这些资源。 此 cmdlet 还打开端口 *443*，目的是允许安全的 Web 流量。
+现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果支持的网络资源不存在，则会创建这些资源。 此 cmdlet 还打开端口 *443* ，目的是允许安全的 Web 流量。
 
 ```powershell
 # Create a VM
@@ -163,7 +163,7 @@ Get-AzPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress
 
 随即显示受保护的 IIS 网站，如下例所示：
 
-:::image type="content" source="./media/tutorial-secure-web-server/secured-iis.png" alt-text="查看运行中的安全 IIS 站点":::
+:::image type="content" source="./media/tutorial-secure-web-server/secured-iis.png" alt-text="接受 Web 浏览器安全警告":::
 
 ## <a name="next-steps"></a>后续步骤
 本教程已介绍如何使用 Azure Key Vault 中存储的 TLS/SSL 证书保护 IIS Web 服务器。 你已了解如何执行以下操作：

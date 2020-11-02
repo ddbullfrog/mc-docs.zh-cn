@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 06/05/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 11b449299bbc35e8afc26fa89c96ab07854dba84
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: ec46e11f74aeb6dc0333487ca38a667542af11f6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92473106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103746"
 ---
 <!--Verified Successfully-->
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure 虚拟 WAN 日志和指标
@@ -136,4 +136,4 @@ Azure 点到站点 VPN 网关提供以下诊断：
 * 若要详细了解 Azure Monitor 中的指标，请参阅 [Azure Monitor 中的指标](../azure-monitor/platform/data-platform-metrics.md)。
 
 <!-- Update_Description: new article about logs metrics -->
-<!--NEW.date: 10/26/2020-->
+<!--NEW.date: 11/02/2020-->

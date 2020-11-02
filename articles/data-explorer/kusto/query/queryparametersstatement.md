@@ -4,19 +4,19 @@ description: 本文介绍了 Azure 数据资源管理器中的查询参数声明
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: c042eccbe174e8266edc2132789b0192d9882f4e
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.openlocfilehash: cdaf44b2b540cb03305fd7b97ff1125d0f5d03e8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841517"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104020"
 ---
 # <a name="query-parameters-declaration-statement"></a>查询参数声明语句
 
@@ -35,9 +35,9 @@ ms.locfileid: "87841517"
 
 若要引用查询参数、查询文本或它使用的函数，必须首先声明它使用哪个查询参数。 对于每个参数，声明都提供名称和标量类型。 此外，参数还可以具有默认值。 如果请求未提供参数的具体值，则会使用默认值。 然后，Kusto 根据该类型的常规分析规则来分析查询参数的值。
 
-**语法**
+## <a name="syntax"></a>语法
 
-`declare` `query_parameters` `(` *Name1* `:` *Type1* [`=` *DefaultValue1*] [`,`...] `);`
+`declare` `query_parameters` `(` *Name1* `:` *Type1* [`=` *DefaultValue1* ] [`,`...] `);`
 
 * Name1：查询中使用的查询参数的名称。
 * Type1：对应的类型，例如 `string` 或 `datetime`。
@@ -47,7 +47,7 @@ ms.locfileid: "87841517"
 > [!NOTE]
 > 与[用户定义的函数](functions/user-defined-functions.md)一样，`dynamic` 类型的查询参数不能具有默认值。
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 declare query_parameters(UserName:string, Password:string);
@@ -84,7 +84,7 @@ T | where Likelihood > percentage
 
 ### <a name="kustoexplorer"></a>Kusto.Explorer
 
-若要设置向服务发出请求时发送的查询参数，请使用**查询参数**“扳手”图标 (`ALT` + `P`)。
+若要设置向服务发出请求时发送的查询参数，请使用 **查询参数** “扳手”图标 (`ALT` + `P`)。
 
 ::: zone-end
 

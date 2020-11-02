@@ -1,58 +1,63 @@
 ---
 title: 快速入门：使用 REST API 和 Go 检测图像中的人脸
 titleSuffix: Azure Cognitive Services
-description: 在该快速入门中，使用人脸 API 和 Go 检测图像中的人脸。
+description: 在本快速入门中，你将使用人脸服务和 Go 检测图像中的人脸。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 07/10/2019
-ms.author: v-junlch
-ms.openlocfilehash: f63670a210e29d0e4393ad47bc33ca7eec03a489
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.openlocfilehash: f57b0f753478c02c5ca009dfc4b750c19a0414ed
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71119544"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105445"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>快速入门：使用 REST API 和 Go 检测图像中的人脸
 
-在本快速入门中，将使用 Azure 人脸 REST API 和 Go 来检测图像中的人脸。
+本快速入门将通过 Go 使用 Azure 人脸 REST API 来检测图像中的人脸。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-- 人脸 API 订阅密钥。 需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
-
-- 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/download)。
+* Azure 订阅 - [免费创建订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesFace"  title="创建人脸资源"  target="_blank">创建人脸资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
+    * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到人脸 API。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
+    * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
+- 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>编写脚本
 
-创建一个新文件 (_faceDetection.go_)，并添加以下代码。 这将根据给定的图像 URL 调用人脸 API。
+创建一个新文件 ( _faceDetection.go_ )，并添加以下代码。 这将根据给定的图像 URL 调用人脸 API。
 
 ```go
 package main
 
 import (
+    "crypto/tls"
     "encoding/json"
     "fmt"
     "io/ioutil"
     "net/http"
+    "os"
     "strings"
     "time"
 )
 
 func main() {
-    const subscriptionKey = "<Subscription Key>"
+    // Add FACE_SUBSCRIPTION_KEY and FACE_ENDPOINT to your environment variables.
+    subscriptionKey := os.Getenv("FACE_SUBSCRIPTION_KEY")
+    endpoint := os.Getenv("FACE_ENDPOINT")
 
-    const uriBase = "https://api.cognitive.azure.cn/face/v1.0/detect"
-    const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
+    const imageUrl =
+      "https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg"
 
-    const params = "?returnFaceAttributes=age,gender,headPose,smile,facialHair," +
-        "glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise"
-    const uri = uriBase + params
+    const params = "?detectionModel=detection_02"
+    uri := endpoint + "/face/v1.0/detect" + params
     const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
 
     reader := strings.NewReader(imageUrlEnc)
@@ -105,10 +110,9 @@ func main() {
 }
 ```
 
-> [!NOTE]
-> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/detect` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/detect`。
+需使用订阅密钥更新 `subscriptionKey` 值，并更改 `uriBase` 字符串，使之包含正确的终结点字符串。
 
-需使用订阅密钥更新 `subscriptionKey` 值，并且可能需要更改 `uriBase` 字符串，使之包含正确的区域标识符（如需所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 你可能还希望更改 `imageUrl` 字段以指向自己的输入图像。 你还可能想要更改 `returnFaceAttributes` 字段，该字段指定要检索的人脸属性。
 
@@ -127,6 +131,30 @@ detect-face
 ```
 
 应该会看到输出到控制台的已检测到人脸数据的 JSON 字符串。 下面是成功的 JSON 响应的示例。
+
+```json
+[
+  {
+    "faceId": "ae8952c1-7b5e-4a5a-a330-a6aa351262c9",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>提取人脸属性
+ 
+若要提取人脸属性，请使用检测模型 1 并添加 `returnFaceAttributes` 查询参数。
+
+```go
+const params = "?detectionModel=detection_01&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise"
+```
+
+响应现在包含人脸属性。 例如：
 
 ```json
 [
@@ -309,9 +337,8 @@ detect-face
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你编写了一个 Ruby 脚本，该脚本调用 Azure 人脸 API，以便检测图像中的人脸并返回其属性。 接下来，请浏览人脸 API 参考文档，以便进行详细的了解。
+在本快速入门中，你编写了一个 Go 控制台应用程序，该应用程序调用 Azure 人脸服务检测图像中的人脸并返回其属性。 接下来，请浏览人脸 API 参考文档，以便进行详细的了解。
 
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: code update -->

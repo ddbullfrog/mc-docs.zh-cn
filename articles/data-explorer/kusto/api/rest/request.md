@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 01/27/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: a78b8c092c2c300df2bcbe5272d39fd2782480cc
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: dc4cb14f7db664530138fceae3422626049ec069
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226287"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103896"
 ---
 # <a name="querymanagement-http-request"></a>查询/管理 HTTP 请求
 

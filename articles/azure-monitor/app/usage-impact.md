@@ -4,19 +4,19 @@ description: 分析不同的属性对应用部件的转换率造成的潜在影�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
+ms.date: 10/29/2020
 ms.reviewer: mbullwin
 origin.date: 01/08/2019
-ms.openlocfilehash: 86a80f298ccc280692d0c72745b63279b778cc2e
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 1b86384c2febac407214d264a0e65830729e9c25
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244431"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105462"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights 中的 Impact 分析功能
 
-Impact 可以分析加载时间和其他属性对应用的各个部件的转换率造成的影响。 更准确地说，Impact 可以发现**页面视图**的**任何维度**、**自定义事件**或**请求**对不同**页面视图**或**自定义事件**造成的影响。 
+Impact 可以分析加载时间和其他属性对应用的各个部件的转换率造成的影响。 更准确地说，Impact 可以发现 **页面视图** 的 **任何维度** 、 **自定义事件** 或 **请求** 对不同 **页面视图** 或 **自定义事件** 造成的影响。 
 
 ![Impact 工具](./media/usage-impact/0001-impact.png)
 
@@ -29,7 +29,7 @@ Impact 可以分析加载时间和其他属性对应用的各个部件的转换�
 ![浏览器转换屏幕截图](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Application Insights 资源必须包含页面视图或自定义事件才能使用 Impact 工具。 [了解如何使用 Application Insights JavaScript SDK 将应用设置为自动收集页面访问次数](../../azure-monitor/app/javascript.md)。 另请注意，由于分析的是相关性，因此样本大小非常重要。
+> Application Insights 资源必须包含页面视图或自定义事件才能使用 Impact 工具。 [了解如何使用 Application Insights JavaScript SDK 将应用设置为自动收集页面访问次数](./javascript.md)。 另请注意，由于分析的是相关性，因此样本大小非常重要。
 >
 >
 
@@ -62,30 +62,31 @@ Impact 支持标准和自定义的属性与度量值。 可以任意使用这两
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Impact 工具如何计算这些转换率？
 
-在底层，Impact 工具依赖于[皮尔逊相关系数](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)。 结果是在 -1 与 1 之间计算的，-1 表示负线性相关，1 表示正线性相关。
+在底层，Impact 工具依赖于皮尔逊相关系数。 结果是在 -1 与 1 之间计算的，-1 表示负线性相关，1 表示正线性相关。
 
 简单而言，Impact Analysis 工作原理的分解如下：
 
-让 _A_ = 在第一个下拉列表中选择的主要页面视图/自定义事件/请求。 （**针对页面视图**）。
+让 _A_ = 在第一个下拉列表中选择的主要页面视图/自定义事件/请求。 （ **针对页面视图** ）。
 
-让 _B_ = 选择的次要页面视图/自定义事件（**影响以下对象的使用**）。
+让 _B_ = 选择的次要页面视图/自定义事件（ **影响以下对象的使用** ）。
 
-Impact 会查找选定时间范围内所有用户会话的样本。 对于每个会话，它会查找出现的每个 _A_。
+Impact 会查找选定时间范围内所有用户会话的样本。 对于每个会话，它会查找出现的每个 _A_ 。
 
 然后，根据以下两个条件之一，将会话分解成两种不同的子会话：
 
 - 转换后的子会话包括以 _B_ 事件结尾的会话，并包含 _B_ 前面发生的所有 _A_ 事件。
 - 如果所有 _A_ 事件是在未发生终结性 _B_ 的情况下发生的，则发生未转换的子会话。
 
-Impact 最终计算方式根据是按指标还是按维护分析而异。 使用指标时，将求子会话中所有 _A_ 的平均值。 使用维度时，每个 _A_ 的值为 _B_ 的赋值贡献 _1/N_，其中 _N_ 是子会话中 _A_ 的数目。
+Impact 最终计算方式根据是按指标还是按维护分析而异。 使用指标时，将求子会话中所有 _A_ 的平均值。 使用维度时，每个 _A_ 的值为 _B_ 的赋值贡献 _1/N_ ，其中 _N_ 是子会话中 _A_ 的数目。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要启用使用体验，请首先发送[自定义事件](/azure-monitor/app/api-custom-events-metrics#trackevent)或[页面视图](/azure-monitor/app/api-custom-events-metrics#page-views)。
+- 若要启用使用体验，请首先发送[自定义事件](./api-custom-events-metrics.md#trackevent)或[页面视图](./api-custom-events-metrics.md#page-views)。
 - 如果已经发送自定义事件或页面视图，请浏览使用情况工具，了解用户如何使用服务。
     - [漏斗图](usage-funnels.md)
     - [保留](usage-retention.md)
     - [用户流](usage-flows.md)
-    - [工作簿](../../azure-monitor/platform/workbooks-overview.md)
+    - [工作簿](../platform/workbooks-overview.md)
     - [添加用户上下文](usage-send-user-context.md)
+
 

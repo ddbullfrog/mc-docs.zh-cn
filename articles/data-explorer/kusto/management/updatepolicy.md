@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 7ad5aaa233f24457164b30f7181c319f2774d562
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: bc81d3ad764eaae9e846d7cc70add9f9cbc90cfe
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516063"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105113"
 ---
 # <a name="update-policy-overview"></a>更新策略概述
 
@@ -80,8 +80,8 @@ ms.locfileid: "88516063"
 * [.ingest (inline)](../management/data-ingestion/ingest-inline.md)
 * [.set | .append | .set-or-append | .set-or-replace](../management/data-ingestion/ingest-from-query.md)
   * 将更新策略作为 `.set-or-replace` 命令的一部分进行调用时，默认行为是派生表中的数据也会被替换，就像在源表中一样。
-* [.move extents](../management/extents-commands.md#move-extents)
-* [.replace extents](../management/extents-commands.md#replace-extents)
+* [.move extents](./move-extents.md)
+* [.replace extents](./replace-extents.md)
   * `PropagateIngestionProperties` 命令仅在引入操作中生效。 当更新策略作为 `.move extents` 或 `.replace extents` 命令的一部分触发时，此选项无效。
 
 ## <a name="regular-ingestion-using-update-policy"></a>使用更新策略进行常规引入

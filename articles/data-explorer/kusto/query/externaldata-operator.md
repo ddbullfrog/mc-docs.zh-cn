@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的外部数据运算符
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/24/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 24d563d208269ed732d3bec8b829534510bcaa7c
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: acfe58b5f269e35e7667b63cccb4a38475f17c85
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146255"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105157"
 ---
 # <a name="externaldata-operator"></a>externaldata 运算符
 
@@ -28,12 +28,12 @@ ms.locfileid: "91146255"
 
 ## <a name="arguments"></a>参数
 
-* *ColumnName*, *ColumnType*：这些参数定义表的架构。
+* *ColumnName* , *ColumnType* ：这些参数定义表的架构。
   该语法与定义 [.create table](../management/create-table-command.md) 中的表时所使用的语法相同。
 
 * StorageConnectionString：[存储连接字符串](../api/connection-strings/storage.md)，用于描述包含要返回的数据的存储项目。
 
-* *PropertyName*, *PropertyValue*, ...：其他属性（如[引入属性](../../ingestion-properties.md)下面所列），描述如何解释从存储中检索到的数据。
+* *PropertyName* , *PropertyValue* , ...：其他属性（如 [引入属性](../../ingestion-properties.md)下面所列），描述如何解释从存储中检索到的数据。
 
 当前支持的属性包括：
 

@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 new_activity_metrics
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/30/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: d9ee5d908f91e67c45aa111dc80144ab2d263cdc
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 58960536d6a3cc8eec6c9c5a66230a190adc439d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841672"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103858"
 ---
 # <a name="new_activity_metrics-plugin"></a>new_activity_metrics 插件
 
@@ -23,23 +23,23 @@ ms.locfileid: "87841672"
 T | evaluate new_activity_metrics(id, datetime_column, startofday(ago(30d)), startofday(now()), 1d, dim1, dim2, dim3)
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
-*T* `| evaluate` `new_activity_metrics(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *Window* [`,` *Cohort*] [`,` *dim1*`,` *dim2*`,` ...] [`,` *Lookback*] `)`
+*T* `| evaluate` `new_activity_metrics(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *Window* [`,` *Cohort* ] [`,` *dim1*`,` *dim2*`,` ...] [`,` *Lookback* ] `)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：输入表格表达式。
-* *IdColumn*：列的名称，其 ID 值表示用户活动。 
+* *T* ：输入表格表达式。
+* *IdColumn* ：列的名称，其 ID 值表示用户活动。 
 * TimelineColumn：表示时间线的列的名称。
-* *开始*：带有分析开始时段值的标量。
+* *开始* ：带有分析开始时段值的标量。
 * End：带有分析结束时段值的标量。
 * Window：带有分析窗口时段值的标量。 既可以是数字/日期/时间/时间戳值，也可以是 `week`/`month`/`year` 中的一个字符串（在这种情况下，这些时段分别为 [startofweek](startofweekfunction.md)/[startofmonth](startofmonthfunction.md)/[startofyear](startofyearfunction.md)）。 
-* *Cohort*：（可选）指示特定队列的标量常数。 如未提供，则计算并返回与分析时间窗口相对应的所有队列。
+* *Cohort* ：（可选）指示特定队列的标量常数。 如未提供，则计算并返回与分析时间窗口相对应的所有队列。
 * dim1, dim2, ... ：（可选）维度列的列表，用于切分活动指标计算。
 * Lookback：（可选）一个表格表达式，其中包含一组属于回溯时段的 ID
 
-**返回**
+## <a name="returns"></a>返回
 
 返回一个表，该表包含每个“from”和“to”时间线时段组合和每个现有维度组合的非重复计数值、非重复的新值计数、保留率和变动率。
 

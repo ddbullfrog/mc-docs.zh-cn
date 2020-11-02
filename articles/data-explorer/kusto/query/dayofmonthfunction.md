@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 dayofmonth()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 1084778f0f8e70fca4dcea46160cfc27683ff618
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 9dae274a71c7b4404232003e339464681b6cf491
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841597"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104627"
 ---
 # <a name="dayofmonth"></a>dayofmonth()
 
@@ -24,14 +24,14 @@ ms.locfileid: "87841597"
 dayofmonth(datetime(2015-12-14)) == 14
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 `dayofmonth(`*a_date*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * `a_date`：`datetime`。
 
-**返回**
+## <a name="returns"></a>返回
 
 给定月份的 `day number`。

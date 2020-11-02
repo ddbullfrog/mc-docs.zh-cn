@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 series_periods_de
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 1f913ddc62b1bbe9fd059d87a5bd0bd652405e54
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 474fa6a8fadf842176090e52121e6fc43154f7a7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841226"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105369"
 ---
 # <a name="series_periods_detect"></a>series_periods_detect()
 
@@ -30,11 +30,11 @@ ms.locfileid: "87841226"
 * periods：一个动态数组，其中包含已找到的期间（以箱大小为单位，按其分数排序）。
 * scores：一个动态数组，其中包含 0 到 1 之间的值。 每个数组都会度量 periods 数组中的一个期间在其相应位置上的重要性。
  
-**语法**
+## <a name="syntax"></a>语法
 
 `series_periods_detect(`*x*`,` *min_period*`,` *max_period*`,` *num_periods*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * x：动态数组标量表达式（数值数组），通常是 [make-series](make-seriesoperator.md) 或 [make_list](makelist-aggfunction.md) 运算符生成的输出。
 * min_period：一个 `real` 数字，指定要搜索的最小周期。
@@ -44,11 +44,11 @@ ms.locfileid: "87841226"
 > [!IMPORTANT]
 > * 该算法可检测至少包含 4 个点且最多包含序列长度一半的期间。 
 >
-> * 请将 min_period 设置为略低于预计在时序中找到的期间数，而将 max_period 设置为略高于该期间数。 例如，如果你有每小时聚合的信号，并且你要查找每日和每周期间（分别是 24 小时和 168 小时），则可以设置 *min_period*=0.8\*24，*max_period*=1.2\*168，围绕这些期间留出 20% 的富余。
+> * 请将 min_period 设置为略低于预计在时序中找到的期间数，而将 max_period 设置为略高于该期间数。 例如，如果你有每小时聚合的信号，并且你要查找每日和每周期间（分别是 24 小时和 168 小时），则可以设置 *min_period* =0.8\*24， *max_period* =1.2\*168，围绕这些期间留出 20% 的富余。
 >
 > * 输入时序必须有规律。 也就是说，聚合在常量箱中（使用 [make-series](make-seriesoperator.md) 创建的时序始终满足此条件）。 否则，输出就没有意义。
 
-**示例**
+## <a name="example"></a>示例
 
 下面的查询嵌入了应用程序某个月流量的快照，一天聚合两次。 箱大小为 12 小时。
 

@@ -6,17 +6,17 @@ ms.subservice: security
 ms.topic: conceptual
 origin.date: 10/05/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 3424ef702da6486244cb15411ae4a8cb2bf8d97e
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 6834c289245536b1cfb5f6e9857382382e9c6c8d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462996"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104329"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>适用于 Windows VM 的 Azure 磁盘加密 
 
@@ -76,7 +76,6 @@ Azure 磁盘加密对 Windows VM 使用 BitLocker 外部密钥保护程序。 �
 
 如果域级组策略阻止了 BitLocker 使用的 AES-CBC 算法，Azure 磁盘加密将会失败。
 
-
 ## <a name="encryption-key-storage-requirements"></a><a name="encryption-key-storage-requirements"></a>加密密钥存储要求  
 
 Azure 磁盘加密需要 Azure Key Vault 来控制和管理磁盘加密密钥和机密。 密钥保管库和 VM 必须位于同一 Azure 区域和订阅中。
@@ -89,7 +88,7 @@ Azure 磁盘加密需要 Azure Key Vault 来控制和管理磁盘加密密钥和
 | 术语 | 定义 |
 | --- | --- |
 | Azure Key Vault | Key Vault 是基于联邦信息处理标准 (FIPS) 验证的硬件安全模块。 这些标准有助于保护加密密钥和敏感机密。 有关详细信息，请参阅 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) 文档和[创建和配置用于 Azure 磁盘加密的密钥保管库](disk-encryption-key-vault.md)。 |
-| Azure CLI | [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 经过了优化，可从命令行管理 Azure 资源。|
+| Azure CLI | [Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 经过了优化，可从命令行管理 Azure 资源。|
 | BitLocker |[BitLocker](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831713(v=ws.11)) 是一种行业认可的 Windows 卷加密技术，用于在 Windows VM 上启用磁盘加密。 |
 | 密钥加密密钥 (KEK) | 可用于保护或包装机密的非对称密钥 (RSA 2048)。  有关详细信息，请参阅 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) 文档和[创建和配置用于 Azure 磁盘加密的密钥保管库](disk-encryption-key-vault.md)。 |
 | PowerShell cmdlet | 有关详细信息，请参阅 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/)。 |

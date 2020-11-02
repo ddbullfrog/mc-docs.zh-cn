@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 autocluster 插�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: a360eaf05118b96651dcbd320eb2afa363db4f15
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: afa20de1e2cea1c53ccbf926754b794dc0a700e6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515771"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104402"
 ---
 # <a name="autocluster-plugin"></a>autocluster 插件
 
@@ -50,7 +50,7 @@ T | evaluate autocluster()
 > [!NOTE] 
 > 所有参数均为可选。
 
-`T | evaluate autocluster(`[*SizeWeight*, *WeightColumn*, *NumSeeds*, *CustomWildcard*, *CustomWildcard*, ...]`)`
+`T | evaluate autocluster(`[ *SizeWeight* , *WeightColumn* , *NumSeeds* , *CustomWildcard* , *CustomWildcard* , ...]`)`
 
 所有参数都为可选参数，但必须按上述方式进行排序。 若要指示应当使用默认值，请输入字符串波形值“~”（请参阅表中的“示例”列）。
 

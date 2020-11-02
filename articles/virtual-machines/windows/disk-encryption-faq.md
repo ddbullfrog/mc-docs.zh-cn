@@ -6,17 +6,17 @@ ms.subservice: security
 ms.topic: conceptual
 origin.date: 11/01/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 65e93f2036b610a1ab41154bb5b3f6fc078fe037
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 8f59ccc523c491d60edd4d64c0183ff807f37962
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463095"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104293"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>适用于 Windows 虚拟机的 Azure 磁盘加密常见问题解答
 
@@ -143,5 +143,7 @@ Azure 备份提供一个机制，可以用来备份和还原同一订阅与区�
 - [Azure 磁盘加密概述](disk-encryption-overview.md)
 - [在 Azure 安全中心应用磁盘加密](../../security-center/security-center-virtual-machine-protection.md)
 - [Azure 静态数据加密](../../security/fundamentals/encryption-atrest.md)
+
+<!--Not Available on - [Apply disk encryption in Azure Security Center](../../security-center/asset-inventory.md)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

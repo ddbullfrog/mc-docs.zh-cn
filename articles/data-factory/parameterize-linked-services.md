@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 09/21/2020
-ms.date: 10/19/2020
+origin.date: 10/16/2020
+ms.date: 11/02/2020
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: d05aab5307045b6d98982e746736f52c47cd2197
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: 15d23b89bb29277e2c4aff33b330437e8562f88b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121720"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104594"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>参数化 Azure 数据工厂中的链接服务
 
@@ -35,6 +35,7 @@ ms.locfileid: "92121720"
 在 UI 上创作链接服务时，数据工厂会为以下类型的连接器提供内置参数化体验。 在“链接服务创建/编辑”边栏选项卡中，可以找到新参数的选项并添加动态内容。
 
 - Amazon Redshift
+- Amazon S3
 - Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
 - Azure SQL 数据库

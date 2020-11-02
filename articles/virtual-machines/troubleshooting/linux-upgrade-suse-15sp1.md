@@ -2,9 +2,7 @@
 title: 将 Azure VM 的 SUSE Linux Enterprise Server 升级到 SUSE 15 SP1 | Azure
 description: 本文介绍如何使用 SUSE 分发迁移系统为 Azure 虚拟机将 SUSE Linux Enterprise server 升级到 SUSE 15 SP1 的常规步骤。
 services: virtual-machines-linux
-documentationcenter: ''
 manager: digimobile
-editor: ''
 tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
@@ -17,12 +15,12 @@ ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: fe692c030bf997b66b61bafa9bea5f3bc61a530b
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 607e76e32fb706ecd82fde5b481a362f20376e78
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127652"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104569"
 ---
 <!--Verified successfully-->
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>将 Azure VM 的 SLES 12 升级到 SLES 15 SP1

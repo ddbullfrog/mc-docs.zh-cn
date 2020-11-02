@@ -1,7 +1,6 @@
 ---
 title: 将 Azure VM 添加到现有可用性集的可支持性 | Azure
 description: 本文提供了一个可支持性矩阵，说明可以在同一可用性集中混合哪些 VM 系列
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 ms.service: virtual-machines
@@ -9,12 +8,12 @@ ms.topic: troubleshooting
 origin.date: 06/15/2018
 ms.date: 04/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9b08e093f8481195c1e70202690fc683051304da
-ms.sourcegitcommit: b469d275694fb86bbe37a21227e24019043b9e88
+ms.openlocfilehash: 5ce4c5ea980e7607a68cf6301cf6b8e274a618f0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596354"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105241"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>将 Azure VM 添加到现有可用性集的可支持性
 

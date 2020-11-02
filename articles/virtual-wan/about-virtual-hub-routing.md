@@ -7,17 +7,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbab5954f0312a3341664685fca35a3337c94a4c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 70ddb984679a88b706d08c4f0c5a873ce2e3e8e2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471911"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103962"
 ---
 # <a name="about-virtual-hub-routing"></a>关于虚拟中心路由
 

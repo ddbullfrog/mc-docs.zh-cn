@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7803ffaf02cd9a6140485b1dcd23295082bcc935
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 44a8ce96de62bee5cf2d54a244e47e222186506f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471266"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103750"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>在虚拟 WAN 中心配置 Azure 防火墙
 

@@ -2,17 +2,17 @@
 title: 排查用户分析工具问题 - Azure Application Insights
 description: 故障排除指南 - 通过 Application Insights 分析站点和应用使用情况。
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 10/29/2020
 origin.date: 07/11/2018
-ms.date: 8/4/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ff40482a3283893a854db9735dfea6796d925f64
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1d8d5dbc8a6bf72e5ceefd87b0f6dc9e458768a1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850346"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103592"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Application Insights 中用户行为分析工具的故障排除
 如果对 [Application Insights 中的用户行为分析工具](usage-overview.md)有疑问：[用户、会话、活动](usage-segmentation.md)，[漏斗图](usage-funnels.md)，[用户流](usage-flows.md)，[保留期](usage-retention.md)或队列？ 请参考下面的解答。
@@ -20,13 +20,13 @@ ms.locfileid: "78850346"
 ## <a name="counting-users"></a>对用户进行计数
 **用户行为分析工具显示我的应用具有一个用户/会话，但我的应用实际具有多个用户/会话。应如何校正这些错误的计数？**
 
-Application Insights 中的所有遥测事件都具有[匿名用户 ID](../../azure-monitor/app/data-model-context.md) 和[会话 ID](../../azure-monitor/app/data-model-context.md)，作为这些事件的两个标准属性。 默认情况下，所有使用情况分析工具都基于这些 ID 对用户和会话进行计数。 如果未使用应用中每个用户和会话的唯一 ID 填充这些标准属性，则使用情况分析工具中会显示错误的用户和会话计数。
+Application Insights 中的所有遥测事件都具有[匿名用户 ID](./data-model-context.md) 和[会话 ID](./data-model-context.md)，作为这些事件的两个标准属性。 默认情况下，所有使用情况分析工具都基于这些 ID 对用户和会话进行计数。 如果未使用应用中每个用户和会话的唯一 ID 填充这些标准属性，则使用情况分析工具中会显示错误的用户和会话计数。
 
-如果正在监视 Web 应用，则最简单的解决方案是向应用添加 [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md)，并确保已在想要监视的每一页上加载脚本代码片段。 JavaScript SDK 自动生成匿名用户和会话 ID，然后在从应用发送这些 ID 后使用这些 ID 填充遥测事件。
+如果正在监视 Web 应用，则最简单的解决方案是向应用添加 [Application Insights JavaScript SDK](./javascript.md)，并确保已在想要监视的每一页上加载脚本代码片段。 JavaScript SDK 自动生成匿名用户和会话 ID，然后在从应用发送这些 ID 后使用这些 ID 填充遥测事件。
 
 如果正在监视 Web 服务（无用户界面），根据服务的唯一用户和会话概念，[创建遥测初始值设定项用于填充匿名用户 ID 和会话 ID 属性](usage-send-user-context.md)。
 
-如果应用正在发送[已经过身份验证的用户 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)，则可以在“用户”工具中基于经过身份验证的用户 ID 进行计数。 在“显示”下拉菜单中，选择“已经过身份验证的用户”。
+如果应用正在发送[已经过身份验证的用户 ID](./api-custom-events-metrics.md#authenticated-users)，则可以在“用户”工具中基于经过身份验证的用户 ID 进行计数。 在“显示”下拉菜单中，选择“已经过身份验证的用户”。
 
 用户行为分析工具当前不支持基于匿名用户 ID、已经过身份验证的用户 ID 或会话 ID 之外的属性对用户或会话进行计数。
 
@@ -51,8 +51,5 @@ Application Insights 中的所有遥测事件都具有[匿名用户 ID](../../az
 
 ## <a name="get-help"></a>获取帮助
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-
-
-
 
 

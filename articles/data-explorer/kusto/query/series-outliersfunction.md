@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 series_outliers()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/20/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 0ab7d6696ad7e3905843e2580fbeac624bd2fce4
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: cce00cf1ad96022d3c802cb91efe1f18854af700
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515649"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105373"
 ---
 # <a name="series_outliers"></a>series_outliers()
 
@@ -29,7 +29,7 @@ ms.locfileid: "88515649"
 ## <a name="arguments"></a>参数
 
 * x：动态数组单元格，是数值数组
-* *kind*：离群值检测算法。 目前支持 `"tukey"`（传统“Tukey”）和 `"ctukey"`（自定义“Tukey”）。 默认为 `"ctukey"`
+* *kind* ：离群值检测算法。 目前支持 `"tukey"`（传统“Tukey”）和 `"ctukey"`（自定义“Tukey”）。 默认为 `"ctukey"`
 * ignore_val：一个数值，表示序列中缺少的值。 默认值为“double(null)”。 NULL 和忽略值的分数将设置为 `0`
 * min_percentile：用于计算归一化四分位差。 默认值为 10，受支持的自定义值在 `[2.0, 98.0]` 范围内（仅限 `ctukey`）
 * max_percentile：同样，默认值为 90，受支持的自定义值在 `[2.0, 98.0]` 范围内（仅限 ctukey）

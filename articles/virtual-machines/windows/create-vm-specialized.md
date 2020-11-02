@@ -6,16 +6,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 10/10/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6d1eeee3543c11eb15942dcc19ad77e2bf43c63e
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: dd9f309ea34f22ee1de56aa94e162bfdfb49f296
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462895"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104684"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 从专用磁盘创建 Windows VM
 
@@ -30,7 +30,7 @@ ms.locfileid: "89462895"
 
 还可以使用 Azure 门户[从专用 VHD 创建新 VM](create-vm-specialized-portal.md)。
 
-本文介绍如何使用托管磁盘。 如果有需要使用存储帐户的旧版部署，请参阅[从存储帐户中的专用 VHD 创建 VM](sa-create-vm-specialized.md)。
+本文介绍如何使用托管磁盘。 如果有需要使用存储帐户的旧版部署，请参阅[从存储帐户中的专用 VHD 创建 VM](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized)。
 
 我们建议你将单个 VHD 或快照的并发部署数限制为 20 个 VM。 
 
@@ -56,7 +56,7 @@ $osDisk = Get-AzDisk `
 ### <a name="prepare-the-vm"></a>准备 VM
 使用原始 VHD 创建新的 VM。 
 
-* [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
+* [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要** 使用 Sysprep 通用化 VM。
 * 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
 * 确保 VM 配置为从 DHCP 获取 IP 地址和 DNS 设置。 这可以确保服务器在启动时获得虚拟网络中的 IP 地址。 
 
@@ -161,7 +161,7 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
        -AddressPrefix 10.0.0.0/24
     ```
 
-2. 创建虚拟网络。 本示例将虚拟网络名称设置为 *myVnetName*，将位置设置为“中国北部”，将虚拟网络的地址前缀设置为 *10.0.0.0/16*。 
+2. 创建虚拟网络。 本示例将虚拟网络名称设置为 *myVnetName* ，将位置设置为“中国北部”，将虚拟网络的地址前缀设置为 *10.0.0.0/16* 。 
 
     ```powershell
     $vnetName = "myVnetName"
@@ -175,7 +175,7 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
 若要使用远程桌面协议 (RDP) 登录到 VM，需要创建一个允许在端口 3389 上进行 RDP 访问的安全规则。 在本示例中，由于新 VM 的 VHD 是从现有专用 VM 创建的，因此，可将源虚拟机中的帐户用于 RDP。
 
-本示例将网络安全组 (NSG) 名称设置为 *myNsg*，将 RDP 规则名称设置为 *myRdpRule*。
+本示例将网络安全组 (NSG) 名称设置为 *myNsg* ，将 RDP 规则名称设置为 *myRdpRule* 。
 
 ```powershell
 $nsgName = "myNsg"
@@ -196,7 +196,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ### <a name="create-a-public-ip-address-and-nic"></a>创建公共 IP 地址和 NIC
 若要与虚拟网络中的虚拟机通信，需要一个 [公共 IP 地址](../../virtual-network/public-ip-addresses.md)和网络接口。
 
-1. 创建公共 IP。 在此示例中，公共 IP 地址名称设置为 *myIP*。
+1. 创建公共 IP。 在此示例中，公共 IP 地址名称设置为 *myIP* 。
 
     ```powershell
     $ipName = "myIP"
@@ -206,7 +206,7 @@ $nsg = New-AzNetworkSecurityGroup `
        -AllocationMethod Dynamic
     ```       
 
-2. 创建 NIC。 在此示例中，NIC 名称设置为 *myNicName*。
+2. 创建 NIC。 在此示例中，NIC 名称设置为 *myNicName* 。
 
     ```powershell
     $nicName = "myNicName"

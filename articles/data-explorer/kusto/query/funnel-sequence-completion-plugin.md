@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 funnel_sequence_comp
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/16/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 89e9bbcbcb971166c87b9c408ddca564ac5ae313
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: fd7bb891a43d6af9fe2e798c291947d24e080ec9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841273"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104301"
 ---
 # <a name="funnel_sequence_completion-plugin"></a>funnel_sequence_completion 插件
 
@@ -24,23 +24,23 @@ ms.locfileid: "87841273"
 T | evaluate funnel_sequence_completion(id, datetime_column, startofday(ago(30d)), startofday(now()), 1d, state_column, dynamic(['S1', 'S2', 'S3']), dynamic([10m, 30min, 1h]))
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `| evaluate` `funnel_sequence_completion(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *Step*`,` *StateColumn*`,` *Sequence*`,` *MaxSequenceStepWindows*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：输入表格表达式。
-* *IdColum*：列引用，必须出现在源表达式中。
-* *TimelineColumn*：表示时间线的列引用，必须出现在源表达式中。
-* *Start*：分析开始时间段的标量常数值。
-* *End*：分析结束时间段的标量常数值。
-* *Step*：分析步骤时间段（箱）的标量常数值。
-* *StateColumn*：表示状态的列引用，必须出现在源表达式中。
-* *Sequence*：常数动态数组，包含序列值（在 `StateColumn` 中查找值）。
-* *MaxSequenceStepWindows*：标量常数动态数组，包含序列中第一个和最后一个顺序步骤之间所允许的时间跨度最大值。 该数组中每个窗口（时间段）都会生成漏斗分析结果。
+* *T* ：输入表格表达式。
+* *IdColum* ：列引用，必须出现在源表达式中。
+* *TimelineColumn* ：表示时间线的列引用，必须出现在源表达式中。
+* *Start* ：分析开始时间段的标量常数值。
+* *End* ：分析结束时间段的标量常数值。
+* *Step* ：分析步骤时间段（箱）的标量常数值。
+* *StateColumn* ：表示状态的列引用，必须出现在源表达式中。
+* *Sequence* ：常数动态数组，包含序列值（在 `StateColumn` 中查找值）。
+* *MaxSequenceStepWindows* ：标量常数动态数组，包含序列中第一个和最后一个顺序步骤之间所允许的时间跨度最大值。 该数组中每个窗口（时间段）都会生成漏斗分析结果。
 
-**返回**
+## <a name="returns"></a>返回
 
 返回一个表，用于为所分析的序列构造漏斗图：
 
@@ -49,7 +49,7 @@ T | evaluate funnel_sequence_completion(id, datetime_column, startofday(ago(30d)
 * `Period`：可用于完成漏斗序列中步骤（从该序列中第一步度量）的最大时间段（窗口）。 MaxSequenceStepWindows 中的每个值都会生成与某个单独时间段相关的漏斗分析。 
 * `dcount`：从第一个序列状态转换到 `StateColumn` 值的时间窗口中 `IdColumn` 的非重复计数。
 
-**示例**
+## <a name="examples"></a>示例
 
 ### <a name="exploring-storm-events"></a>暴风雨活动探究 
 

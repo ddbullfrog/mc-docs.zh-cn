@@ -11,12 +11,12 @@ ms.date: 09/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7282565d2c9440d84380f1f445fdf110a0f3b91e
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: e8814be84c7ca3348cb1cc47af1cebde79e9a568
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462849"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104708"
 ---
 <!--Verified successfully-->
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>在 Azure 中使用 Windows 客户端实现开发/测试方案
@@ -28,7 +28,7 @@ ms.locfileid: "89462849"
 
 > [!NOTE]
 > 有关 Azure 库中的 Windows 10 专业版和 Windows 10 专业版 N 映像，请参阅[如何使用多租户托管权限在 Azure 上部署 Windows 10](windows-desktop-multitenant-hosting-deployment.md)
->:::image type="content" source="./media/client-images/windows-client-pro-images.png" alt-text="Azure 门户中的专业版映像详细信息"::: 
+>:::image type="content" source="./media/client-images/windows-client-pro-images.png" alt-text="Azure 门户中的映像详细信息"::: 
 >
 
 ## <a name="subscription-eligibility"></a>订阅条件
@@ -58,13 +58,13 @@ ms.locfileid: "89462849"
 
 - 在“订阅”窗口中：
 
-    :::image type="content" source="./media/client-images/offer-id-azure-portal.png" alt-text="Azure 门户中的产品 ID 详细信息"::: 
+    :::image type="content" source="./media/client-images/offer-id-azure-portal.png" alt-text="Azure 门户中的映像详细信息"::: 
 
     <!--Not Available on - Or, click **Billing** and then click your subscription ID. The offer ID appears in the *Billing* window.-->
 
 也可以从 Azure 帐户门户的[“订阅”选项卡](https://account.windowsazure.cn/Subscriptions)查看套餐 ID：
 
-:::image type="content" source="./media/client-images/offer-id-azure-account-portal.png" alt-text="Azure 帐户门户中的产品 ID 详细信息"::: 
+:::image type="content" source="./media/client-images/offer-id-azure-account-portal.png" alt-text="Azure 门户中的映像详细信息"::: 
 
 ## <a name="next-steps"></a>后续步骤
 现在，可以使用 [PowerShell](quick-create-powershell.md)、[Resource Manager 模板](ps-template.md)或 [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) 部署 VM。

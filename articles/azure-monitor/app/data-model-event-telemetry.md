@@ -2,23 +2,22 @@
 title: Azure Application Insights 遥测数据模型 - 事件遥测 | Azure Docs
 description: 适用于事件遥测的 Application Insights 数据模型
 ms.topic: conceptual
-author: lingliw
+ms.date: 10/29/2020
 origin.date: 04/25/2017
-ms.date: 6/4/2019
 ms.reviewer: sergkanz
-ms.author: v-lingwu
-ms.openlocfilehash: b2880e7ad60453f27ed8c1742495a432b673126f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.author: v-johya
+ms.openlocfilehash: de2f8366f6d086628d19ed99231eab0ea58c7130
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850438"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104318"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>事件遥测：Application Insights 数据模型
 
-可以在 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中创建事件遥测项，表示应用程序中发生的事件。 通常它是用户交互，如按钮单击或订单结账。 它还可以是应用程序生命周期事件，如初始化或配置更新。 
+可以在 [Application Insights](./app-insights-overview.md) 中创建事件遥测项，表示应用程序中发生的事件。 通常它是用户交互，如按钮单击或订单结账。 它还可以是应用程序生命周期事件，如初始化或配置更新。 
 
-事件在语义上不一定与请求关联。 但是，如果使用得当，事件遥测比请求或跟踪更重要。 事件表示业务遥测，应是积极程度较低的单独[采样](../../azure-monitor/app/api-filtering-sampling.md)的主体。
+事件在语义上不一定与请求关联。 但是，如果使用得当，事件遥测比请求或跟踪更重要。 事件表示业务遥测，应是积极程度较低的单独[采样](./api-filtering-sampling.md)的主体。
 
 ## <a name="name"></a>名称
 
@@ -37,9 +36,7 @@ ms.locfileid: "78850438"
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 Application Insights 的类型和数据模型，请参阅[数据模型](data-model.md)。
-- [编写自定义事件遥测](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
-- 查看 Application Insights 支持的[平台](../../azure-monitor/app/platforms.md)。
-
-
+- [编写自定义事件遥测](./api-custom-events-metrics.md#trackevent)
+- 查看 Application Insights 支持的[平台](./platforms.md)。
 
 

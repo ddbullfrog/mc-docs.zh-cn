@@ -2,10 +2,8 @@
 title: 使用 Azure 中的嵌套虚拟化排查故障 Azure VM
 description: 如何使用 Azure 中的嵌套虚拟化排查问题 Azure VM
 services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -14,12 +12,12 @@ ms.topic: article
 origin.date: 11/19/2019
 ms.date: 02/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: a08def73b339d45c12fde5694ade61ecdc1bbe07
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 407266aa58d3d8c20997bf509e0e98e07e732104
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428840"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104709"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>使用 Azure 中的嵌套虚拟化排查故障 Azure VM
 

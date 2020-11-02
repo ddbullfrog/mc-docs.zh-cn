@@ -3,19 +3,20 @@ title: 验证关键短语提取容器实例
 titleSuffix: Azure Cognitive Services
 description: 了解如何验证关键短语提取容器实例。
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
-ms.date: 06/24/2020
+ms.date: 10/26/2020
 origin.date: 04/01/2020
-ms.author: v-tawe
-ms.openlocfilehash: 32405d0125fef87c1f860c408cbc16028bbcdda8
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.author: v-johya
+ms.openlocfilehash: adbf23b8083ef3f6a8223f01757a73a1cb94c58b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323250"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103923"
 ---
 ### <a name="verify-the-key-phrase-extraction-container-instance"></a>验证关键短语提取容器实例
 
@@ -102,3 +103,4 @@ ms.locfileid: "85323250"
     ```
 
 我们现在可以将响应有效负载的 JSON 数据的文档 `id` 关联到原始请求有效负载文档 `id`。 生成的文档有一个 `keyPhrases` 数组，其中包含已从相应输入文档中提取的关键短语的列表。 此外，每个生成的文档都有各种统计信息（例如 `characterCount` 和 `transactionCount`）。
+

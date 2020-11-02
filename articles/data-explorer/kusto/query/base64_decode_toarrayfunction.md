@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 base64_decode_toarra
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/22/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 98015d7e42e91a502801cb14c0073ba39c78c9d5
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 083137387641affa1ce37275cbe0d526b52b6564
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515764"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104053"
 ---
 # <a name="base64_decode_toarray"></a>base64_decode_toarray()
 
@@ -26,7 +26,7 @@ ms.locfileid: "88515764"
 
 ## <a name="arguments"></a>参数
 
-* *String*：要从 base64 解码为 UTF8 字符串的输入字符串。
+* *String* ：要从 base64 解码为 UTF8 字符串的输入字符串。
 
 ## <a name="returns"></a>返回
 

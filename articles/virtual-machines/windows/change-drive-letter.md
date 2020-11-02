@@ -12,17 +12,17 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: e43017aaea5771f76d7a6cb28d2f978e4a5e6332
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: e7aa31345c4dfaeb76c803549942188b539515fa
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463184"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104838"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>使用 D: 盘作为 Windows VM 上的数据驱动器
 如果应用程序需要使用 D 盘存储数据，请按照以下说明使用其他驱动器号作为临时磁盘。 切勿使用临时磁盘来存储需要保存的数据。
 
-如果调整虚拟机大小或**停止（解除分配）** 虚拟机，这可能会触发将虚拟机放置于新虚拟机监控程序的操作。 计划中或计划外的维护事件也可能触发此放置操作。 在这种情况下，临时磁盘将重新分配给第一个可用的驱动器号。 如果应用程序明确需要 D: 盘，则需要遵循以下步骤暂时移动 pagefile.sys，并连接新的数据磁盘并为其分配驱动器号 D，再将 pagefile.sys 移回到临时驱动器。 完成后，如果 VM 移到不同的虚拟机监控程序，Azure 不会收回 D:。
+如果调整虚拟机大小或 **停止（解除分配）** 虚拟机，这可能会触发将虚拟机放置于新虚拟机监控程序的操作。 计划中或计划外的维护事件也可能触发此放置操作。 在这种情况下，临时磁盘将重新分配给第一个可用的驱动器号。 如果应用程序明确需要 D: 盘，则需要遵循以下步骤暂时移动 pagefile.sys，并连接新的数据磁盘并为其分配驱动器号 D，再将 pagefile.sys 移回到临时驱动器。 完成后，如果 VM 移到不同的虚拟机监控程序，Azure 不会收回 D:。
 
 有关 Azure 如何使用临时磁盘的详细信息，请参阅 [了解 Azure 虚拟机上的临时驱动器](https://docs.microsoft.com/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)
 
@@ -43,11 +43,11 @@ ms.locfileid: "89463184"
 
 ## <a name="change-the-drive-letters"></a>更改驱动器号
 1. VM 重新启动后，重新登录到 VM。
-2. 单击“开始”菜单，键入 **diskmgmt.msc**，并按 Enter。 此时会启动“磁盘管理”。
-3. 右键单击 **D**（临时存储驱动器），并选择“更改驱动器号和路径”。
-4. 在“驱动器号”下，选择一个新驱动器，如 **T**，并单击“确定”。 
+2. 单击“开始”菜单，键入 **diskmgmt.msc** ，并按 Enter。 此时会启动“磁盘管理”。
+3. 右键单击 **D** （临时存储驱动器），并选择“更改驱动器号和路径”。
+4. 在“驱动器号”下，选择一个新驱动器，如 **T** ，并单击“确定”。 
 5. 右键单击数据磁盘，并选择“更改驱动器号和路径”。
-6. 在“驱动器号”下，选择驱动器 **D**，并单击“确定”。 
+6. 在“驱动器号”下，选择驱动器 **D** ，并单击“确定”。 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>将 pagefile.sys 移回临时存储驱动器
 1. 右键单击“开始”菜单，并选择“系统”。
@@ -55,8 +55,8 @@ ms.locfileid: "89463184"
 3. 在“性能”部分中，选择“设置” 。
 4. 选择“高级”选项卡。
 5. 在“虚拟内存”部分中，选择“更改” 。
-6. 选择 OS 驱动器 **C**，并依次单击“无分页文件”、“设置” 。
-7. 选择临时存储驱动器 **T**，并依次单击“系统管理的大小”、“设置”。
+6. 选择 OS 驱动器 **C** ，并依次单击“无分页文件”、“设置” 。
+7. 选择临时存储驱动器 **T** ，并依次单击“系统管理的大小”、“设置”。
 8. 单击“应用” 。 你会收到警告，指出计算机需要重新启动才能使更改生效。
 9. 重启虚拟机。
 

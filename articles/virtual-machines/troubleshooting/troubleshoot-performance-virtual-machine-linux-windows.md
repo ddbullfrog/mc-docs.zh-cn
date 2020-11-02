@@ -2,9 +2,7 @@
 title: 排查 Linux 或 Windows 上的 Azure 虚拟机性能问题
 description: 本文介绍如何通过监视和观察瓶颈来排查一般的虚拟机 (VM) 性能问题，并针对可能发生的问题提供可行的修正救措施。
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -16,12 +14,12 @@ ms.date: 09/07/2020
 ms.testscope: no
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7293a3e0f10516ff8d18a3da6dc1e3c57d8d3ab1
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 8ac9cee1a06709b1f3d1631f65c24c6a582c34fc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456796"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104593"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>排查 Linux 或 Windows 上的 Azure 虚拟机性能问题
 
@@ -48,11 +46,11 @@ ms.locfileid: "89456796"
 2. 单击“诊断设置”
 3. 选择存储帐户，然后单击“启用来宾级监视”。
 
-    :::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png" alt-text="依次单击“设置”、“诊断”":::
+    :::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png" alt-text="未启用监视":::
 
 可以从“诊断设置”下的“代理”选项卡中检查用于诊断设置的存储帐户。 
 
-:::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png" alt-text="检查存储帐户":::
+:::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png" alt-text="未启用监视":::
 
 ### <a name="enable-storage-account-diagnostics-through-azure-portal"></a>通过 Azure 门户启用存储帐户诊断
 
@@ -60,18 +58,18 @@ ms.locfileid: "89456796"
 
 1. 选择 VM 来识别该 VM 使用的存储帐户（或帐户）。 依次单击“设置”、“磁盘”： 
 
-    :::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png" alt-text="依次单击“设置”、“磁盘”":::
+    :::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png" alt-text="未启用监视":::
 
 2. 在门户中，转到 VM 的存储帐户（或帐户）并完成以下步骤：
 
     1. 单击通过上述步骤找到的存储帐户的概述。
     2. 此时会显示默认指标。 
 
-        :::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png" alt-text="默认指标":::
+        :::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png" alt-text="未启用监视":::
 
 3. 单击任一指标，此时会显示另一个边栏选项卡，其中包含用于配置和添加指标的更多选项。
 
-    :::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png" alt-text="添加度量值":::
+    :::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png" alt-text="未启用监视":::
 
 配置以下选项：
 
@@ -90,7 +88,7 @@ ms.locfileid: "89456796"
 
 选择要调查的 Azure VM，然后选择“监视”。
 
-:::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png" alt-text="选择“监视”":::
+:::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png" alt-text="未启用监视":::
 
 ### <a name="timelines-of-observation"></a>观察时间线
 
@@ -98,7 +96,7 @@ ms.locfileid: "89456796"
 
 ### <a name="check-for-cpu-bottleneck"></a>检查 CPU 瓶颈
 
-:::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png" alt-text="检查 CPU 是否出现了瓶颈":::
+:::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png" alt-text="未启用监视":::
 
 1. 编辑图形。
 2. 设置时间范围。
@@ -177,7 +175,7 @@ ms.locfileid: "89456796"
 
 若要处理以下各项，请在门户中转到 VM 的存储帐户：
 
-:::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png" alt-text="在监视中查看存储帐户诊断数据":::
+:::image type="content" source="media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png" alt-text="未启用监视":::
 
 1. 编辑监视图形。
 2. 设置时间范围。

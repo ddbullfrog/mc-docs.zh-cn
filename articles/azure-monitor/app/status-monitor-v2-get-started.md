@@ -4,14 +4,15 @@ description: Application Insights 代理的快速入门指南。 无需重新部
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 08/22/2019
-ms.date: 05/28/2020
 ms.author: v-johya
-ms.openlocfilehash: b730d685fcd11d68ac272f99aa04632654188a21
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.date: 10/29/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 531b4ac0c41272474e9360a06bf8100cf7769789
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440723"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103595"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>本地服务器的 Azure Monitor Application Insights 代理入门
 
@@ -72,19 +73,20 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  查看遥测：
 
-- [浏览指标](../../azure-monitor/platform/metrics-charts.md)，以便监视性能和使用情况。
-- [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)以诊断问题。
-- [使用分析](../../azure-monitor/log-query/log-query-overview.md)，以便进行更高级的查询。
-- [创建仪表板](../../azure-monitor/app/overview-dashboard.md)。
+- [浏览指标](../platform/metrics-charts.md)，以便监视性能和使用情况。
+- [搜索事件和日志](./diagnostic-search.md)以诊断问题。
+- [使用分析](../log-query/log-query-overview.md)，以便进行更高级的查询。
+- [创建仪表板](./overview-dashboard.md)。
 
  添加更多遥测：
 
 - [创建 Web 测试](monitor-web-app-availability.md)，以确保站点保持活动状态。
-- [添加 Web 客户端遥测](../../azure-monitor/app/javascript.md)，以查看网页代码中的异常并启用跟踪调用。
-- [将 Application Insights SDK 添加到代码](../../azure-monitor/app/asp-net.md)，以便插入跟踪和日志调用。
+- [添加 Web 客户端遥测](./javascript.md)，以查看网页代码中的异常并启用跟踪调用。
+- [将 Application Insights SDK 添加到代码](./asp-net.md)，以便插入跟踪和日志调用。
 
 使用 Application Insights 代理执行更多操作：
 
 - 有关此处找到的命令的说明，请查看[详细说明](status-monitor-v2-detailed-instructions.md)。
 - 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。
+
 

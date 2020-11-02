@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 toguid()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 301261c3b7743b8bc035eabaffb4fe9d52d335d6
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: 4d5c00a91d5f7ff9a977ceac9d74aa5cf60d9fcc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516108"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104191"
 ---
 # <a name="toguid"></a>toguid()
 

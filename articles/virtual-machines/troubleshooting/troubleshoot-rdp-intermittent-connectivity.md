@@ -2,9 +2,7 @@
 title: Azure VM 中远程桌面频繁断开连接 | Azure
 description: 了解如何解决 Azure VM 中远程桌面频繁断开连接的问题。
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: ce0a73d527b8a23dccc78d8ad4917686502fb828
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 6117b5929841f1e509d231447bb4980c53688c55
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456768"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104342"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Azure VM 中远程桌面频繁断开连接
 

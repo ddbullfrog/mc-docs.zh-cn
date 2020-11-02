@@ -2,9 +2,7 @@
 title: 使用 Azure 虚拟机修复命令修复 Linux VM | Azure
 description: 本文详细介绍如何使用 Azure 虚拟机修复命令将磁盘连接到另一个 Linux VM 来修复所有错误，然后重新生成原始 VM。
 services: virtual-machines-linux
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
@@ -17,12 +15,12 @@ ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 00851d9a15d18457469375146bb57af41eb9e7f8
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: 2888dc25b8543af08ad9440bb5bb61a5b5381d7f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211877"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105410"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>使用 Azure 虚拟机修复命令修复 Linux VM
 

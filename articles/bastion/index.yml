@@ -7,18 +7,18 @@ metadata:
   services: bastion
   ms.service: bastion
   ms.topic: landing-page
-  author: rockboyfor
   origin.date: 08/29/2019
-  ms.date: 07/27/2020
+  author: rockboyfor
+  ms.date: 11/02/2020
   ms.testscope: no
   ms.testdate: 
   ms.author: v-yeche
-  ms.openlocfilehash: 997bf6f738cd98669b2343f9259a8e518369a05b
-  ms.sourcegitcommit: 4d9846bb03ac24bd98b0c9a781bb8912ff6d2f61
+  ms.openlocfilehash: 67c5ad36b2ffb841dbd0a0f6c8390e073e37250c
+  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/22/2020
-  ms.locfileid: "86926972"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93105235"
 landingContent:
 - title: 关于 Azure Bastion
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 创建 Bastion 主机
-      url: bastion-create-host-portal.md
+      url: ./tutorial-create-host-portal.md
     - text: 连接到虚拟机 (Linux)
       url: bastion-connect-vm-ssh.md
     - text: 连接到虚拟机 (Windows)

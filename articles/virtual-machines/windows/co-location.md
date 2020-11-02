@@ -6,21 +6,23 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 origin.date: 10/30/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4751271be39925c031e277556e0b32d0acf95cd8
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 645603f28c514583702744e18b34d745aea0115f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463178"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104703"
 ---
 <!--Verified successfully-->
 # <a name="co-locate-resource-for-improved-latency"></a>并置资源以改善延迟
 
-在 Azure 中部署应用程序时，跨区域或可用性区域分布实例会造成网络延迟，这可能会影响应用程序的总体性能。 
+在 Azure 中部署应用程序时，跨区域分布实例会造成网络延迟，这可能会影响应用程序的总体性能。 
+
+<!--Not Available on or availability zones-->
 
 ## <a name="proximity-placement-groups"></a>邻近放置组 
 

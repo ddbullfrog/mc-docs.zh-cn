@@ -6,16 +6,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 origin.date: 01/03/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 55458999e69b4ea86e45a8e4af1aaa5a07584d81
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 0bab48b18bf28419ae6112671fc58ef706cd0452
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463158"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105756"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 
@@ -159,7 +159,7 @@ ms.locfileid: "89463158"
 
 - REST API - [列出所有资源提供程序](https://docs.microsoft.com/rest/api/resources/providers)
 - PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- Azure CLI - [az provider show](https://docs.azure.cn/cli/provider?view=azure-cli-latest#az-provider-show)
+- Azure CLI - [az provider show](https://docs.azure.cn/cli/provider#az-provider-show)
 
 ## <a name="parameters-and-variables"></a>参数和变量
 
@@ -286,7 +286,7 @@ ms.locfileid: "89463158"
 
 ## <a name="disks-and-images"></a>磁盘和映像
 
-在 Azure 中，vhd 文件可以表示[磁盘或映像](managed-disks-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 如果 vhd 文件中的操作系统专用于特定 VM，则该文件称为磁盘。 如果 vhd 文件中的操作系统经过通用化，用于创建多个 VM，则该文件称为映像。   
+在 Azure 中，vhd 文件可以表示[磁盘或映像](../managed-disks-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 如果 vhd 文件中的操作系统专用于特定 VM，则该文件称为磁盘。 如果 vhd 文件中的操作系统经过通用化，用于创建多个 VM，则该文件称为映像。   
 
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>从平台映像创建新虚拟机和新磁盘
 
@@ -312,7 +312,7 @@ ms.locfileid: "89463158"
 },
 ```
 
-操作系统磁盘的配置设置是使用 osDisk 元素分配的。 此示例定义了一个新的托管磁盘，其缓存模式设置为 **ReadWrite**，并且该磁盘是从[平台映像](cli-ps-findimage.md)创建的：
+操作系统磁盘的配置设置是使用 osDisk 元素分配的。 此示例定义了一个新的托管磁盘，其缓存模式设置为 **ReadWrite** ，并且该磁盘是从 [平台映像](cli-ps-findimage.md)创建的：
 
 ```json
 "osDisk": { 
@@ -450,7 +450,7 @@ start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添
 
 如果很想知道部署中的资源状态，则可在 Azure 门户中查看资源组：
 
-:::image type="content" source="./media/template-description/virtual-machines-deployment-info.png" alt-text="获取部署信息":::
+:::image type="content" source="./media/template-description/virtual-machines-deployment-info.png" alt-text="获取扩展状态":::
 
 完全可以使用同一个模板来创建资源或更新现有资源。 使用命令部署模板时，可以指定想要使用的[模式](../../azure-resource-manager/templates/deploy-powershell.md)。 模式可设置为“完整”(Complete) 或“增量”(Incremental)。  默认设置为执行增量更新。 请谨慎使用“完整”模式，因为这可能会意外删除资源。 在模式设置为“完整”时，资源管理器会删除资源组中不包含在模板内的所有资源。
 

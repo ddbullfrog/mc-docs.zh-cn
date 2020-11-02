@@ -1,39 +1,41 @@
 ---
-title: 快速入门：尝试在 Web 上使用内容审查器 - 内容审查器
+title: 快速入门：尝试在 Web 上使用内容审查器
 titleSuffix: Azure Cognitive Services
-description: 本快速入门将使用联机内容审查器评审工具来测试内容审查器的基本功能，且无需编写任何代码。
+description: 使用联机内容审查器评审工具来测试内容审查器的基本功能，且无需编写任何代码。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 06/10/2020
-origin.date: 03/13/2020
-ms.author: v-tawe
-ms.openlocfilehash: e9b90eaf1ca28161dcd2648f87ecd58202d8fba0
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.author: v-johya
+ms.custom: cog-serv-seo-aug-2020
+keywords: 内容审查器，内容审核
+ms.openlocfilehash: 16e0d9066c708b3ca2281e0572bd3d5a0f5e9506
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84654939"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105121"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>快速入门：尝试在 Web 上使用内容审查器
 
-本快速入门将使用联机内容审查器评审工具来测试内容审查器的基本功能，且无需编写任何代码。 若要更快速地将此服务集成到应用中，请参阅[后续步骤](#next-steps)部分中的其他快速入门。
+本快速入门将使用联机内容审查器评审工具来测试内容审查器的基本功能，且无需编写任何代码。 若要更快速地将此服务集成到内容审核应用中，请参阅[后续步骤](#next-steps)部分中的其他快速入门。
 
 ## <a name="prerequisites"></a>先决条件
 
 - Web 浏览器
 
 ## <a name="set-up-the-review-tool"></a>设置评审工具
+
 内容审查器评审工具是一个基于 Web 的工具，可让评审人员协助认知服务做出决策。 在本指南中，你将执行一个简短的过程来设置评审工具，以便可以了解内容审查器服务的工作原理。 转到[内容审查器评审工具](https://contentmoderator.cognitive.microsoft.com/)站点并注册。
 
 ![内容审查器主页](images/homepage.PNG)
 
 ## <a name="create-a-review-team"></a>创建评审团队
 
-接下来创建评审团队。 在工作方案中，这是将要手动评审服务审查决策的人员组。 若要创建团队，需要选择一个区域，并提供团队名称和团队 ID  。 若要邀请同事加入团队，可在此处输入他们的电子邮件地址。
+接下来创建评审团队。 在工作场景中，这是要手动评审服务审查决策的一组人员。 若要创建团队，需要选择一个区域，并提供团队名称和团队 ID  。 若要邀请同事加入团队，可在此处输入他们的电子邮件地址。
 
 > [!NOTE]
 > 团队名称是评审团队的易记名称。 此名称将显示在 Azure 门户中。 团队 ID 用于程序化标识评审团队。
@@ -83,6 +85,7 @@ ms.locfileid: "84654939"
 ## <a name="next-steps"></a>后续步骤
 
 了解如何在应用中单独使用审查 API。
-- 实施图像审查。 使用 [API 控制台](try-image-api.md)或按照 [.NET SDK 快速入门](dotnet-sdk-quickstart.md)使用标记、置信度分数和其他提取的信息扫描图像并检测潜在的成人和不雅内容。
-- 实施文本审查。 使用 [API 控制台](try-text-api.md)或使用 [.NET SDK 快速入门](dotnet-sdk-quickstart.md)扫描文本内容以查找潜在的不雅内容、机器辅助的不需要的文本分类（预览）和个人数据。
+- 实施图像审查。 使用 [API 控制台](try-image-api.md)或按照[客户端库快速入门](client-libraries.md)使用标记、置信度分数和其他提取的信息扫描图像并检测潜在的成人和不雅内容。
+- 实施文本审查。 使用 [API 控制台](try-text-api.md)或[客户端库快速入门](client-libraries.md)扫描文本内容以查找潜在的亵渎内容、机器辅助的不需要的文本分类（预览）和个人数据。
 - 实施视频审查。 请按照[适用于 C# 的视频审核操作指南](video-moderation-api.md)扫描视频并检测潜在的成人和猥亵内容。 
+

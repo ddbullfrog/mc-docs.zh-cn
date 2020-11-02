@@ -1,7 +1,7 @@
 ---
 title: 快速入门：使用 Python 调用文本分析 API
 titleSuffix: Azure Cognitive Services
-description: 本快速入门介绍如何获取信息和代码示例，以帮助你快速开始使用 Azure 认知服务中的文本分析 API。
+description: 本快速入门介绍如何使用 Python 获取信息和代码示例，以帮助你快速开始使用 Azure 认知服务中的文本分析 API。
 services: cognitive-services
 author: Johnnytechn
 manager: nitinme
@@ -9,17 +9,17 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 origin.date: 06/28/2019
-ms.date: 08/03/2020
+ms.date: 10/26/2020
 ms.author: v-johya
-ms.custom: tracking-python
-ms.openlocfilehash: eab044482095b3e80a91177d9832ac61167579fd
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.custom: devx-track-python
+ms.openlocfilehash: 94682f6cc017cbeca36d03f501f0a62b275c5be8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023329"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105611"
 ---
-# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 Python REST API 调用文本分析认知服务 
+# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>使用 Python REST API 调用文本分析认知服务 
 <a name="HOLTop"></a>
 
 根据本快速入门中的说明，开始使用文本分析 REST API 和 Python 来分析语言。 本文展示了如何[检测语言](#Detect)、[分析情绪](#SentimentAnalysis)、[提取关键短语](#KeyPhraseExtraction)以及[识别链接的实体](#Entities)。

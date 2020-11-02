@@ -8,16 +8,16 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: landing-page
-  author: iainfoulds
+  author: MicrosoftGuyJFlo
   ms.author: v-junlch
-  ms.date: 03/10/2020
+  ms.date: 10/26/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 75374b7b9784774e4ab50c4ed5391c3c37ab3848
-  ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+  ms.openlocfilehash: e4b6f59fb2ef575aeca2542d17beb72afc56729b
+  ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "79133804"
+  ms.lasthandoff: 10/27/2020
+  ms.locfileid: "92750005"
 landingContent:
 - title: 关于身份验证
   linkLists:

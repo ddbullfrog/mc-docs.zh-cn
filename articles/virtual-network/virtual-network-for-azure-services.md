@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/06/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9662990ab235a614466c047ac5edf2449be01a6b
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 729f5224f43605646a3fbeff6e23b2367f912560
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564633"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628229"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>将专用 Azure 服务部署到虚拟网络
 
@@ -57,11 +57,10 @@ ms.locfileid: "91564633"
 <sup>1</sup>“专用”表示只能在此子网中部署服务专用资源，并且不能将其与客户 VM/VMSS 组合使用 <br/> 
 <sup>2</sup> 建议的最佳做法是将这些服务置于专用子网中，但这并非服务的强制要求。
 
-<!-- Not Available on [Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fvirtual-network%2ftoc.json)-->
-<!-- Not Available on | Identity | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json)-->
+<!-- Not Available on [Azure Databricks](../azure-databricks/what-is-azure-databricks.md)-->
+<!-- Not Available on | Identity | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md)-->
 <!-- Mooncake Correct on [Azure Container Instance (ACI)](../container-instances/container-instances-vnet.md)-->
-<!-- Not Available on [Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
-<!-- Not Available on | Hosted | [Azure Dedicated HSM](../dedicated-hsm/index.yml?toc=%2fvirtual-network%2ftoc.json)-->
-<!-- Not Available on [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fvirtual-network%2ftoc.json)-->
+<!-- Not Available on [Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)-->
+<!-- Not Available on | Hosted | [Azure Dedicated HSM](../dedicated-hsm/index.yml)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

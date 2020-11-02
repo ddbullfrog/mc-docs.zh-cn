@@ -2,9 +2,7 @@
 title: 使用 Azure Policy 限制 VM 扩展安装 (Windows)
 description: 使用 Azure Policy 限制扩展部署。
 services: virtual-machines-linux
-documentationcenter: ''
 manager: gwallace
-editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -16,12 +14,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: cynthn
-ms.openlocfilehash: 8260fe4fc7494a0f330ccbdb2ad4346f008e8d9d
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: ff6f2026f24775ee596251f90f65b87746dac6e6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413720"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105575"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure Policy 限制 Windows VM 上的扩展安装
 
@@ -74,7 +72,7 @@ nano $home/clouddrive/rules.json
 }
 ```
 
-完成后，按 **Ctrl + O**，然后按 **Enter** 保存该文件。 按 **Ctrl + X** 关闭文件并退出。
+完成后，按 **Ctrl + O** ，然后按 **Enter** 保存该文件。 按 **Ctrl + X** 关闭文件并退出。
 
 ## <a name="create-a-parameters-file"></a>创建参数文件
 
@@ -106,7 +104,7 @@ nano $home/clouddrive/parameters.json
 }
 ```
 
-完成后，按 **Ctrl + O**，然后按 **Enter** 保存该文件。 按 **Ctrl + X** 关闭文件并退出。
+完成后，按 **Ctrl + O** ，然后按 **Enter** 保存该文件。 按 **Ctrl + X** 关闭文件并退出。
 
 ## <a name="create-the-policy"></a>创建策略
 

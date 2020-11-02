@@ -1,28 +1,28 @@
 ---
 title: 快速入门：使用 Node.js 调用文本分析 REST API
 titleSuffix: Azure Cognitive Services
-description: 本快速入门介绍如何获取信息和代码示例，以帮助你快速开始使用 Azure 认知服务中的文本分析 API。
+description: 本快速入门介绍如何使用 Node.js 获取信息和代码示例，以帮助你快速开始使用 Azure 认知服务中的文本分析 API。
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 origin.date: 04/16/2019
-ms.date: 08/03/2020
+ms.date: 10/26/2020
 ms.author: v-johya
-ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: 6ce81dd5db730f509355c671b30126a635005893
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.custom: seo-javascript-september2019, devx-track-js
+ms.openlocfilehash: 73423585b33be7d0c40de514dfa88b18a9534657
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023426"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105615"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 Node.js 调用文本分析认知服务  
 <a name="HOLTop"></a>
 
-本文展示了如何将 [文本分析 API](https://www.azure.cn/home/features/cognitive-services/text-analytics/) 与 Node.JS 配合使用来[检测语言](#Detect)、[分析情绪](#SentimentAnalysis)、[提取关键短语](#KeyPhraseExtraction)以及[识别链接的实体](#Entities)。
+本文展示了如何将[文本分析 API](https://www.azure.cn/home/features/cognitive-services/text-analytics/) 与 Node.JS 配合使用来[检测语言](#Detect)、[分析情绪](#SentimentAnalysis)、[提取关键短语](#KeyPhraseExtraction)以及[识别链接的实体](#Entities)。
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 

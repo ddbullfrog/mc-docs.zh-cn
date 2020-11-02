@@ -8,13 +8,13 @@ ms.reviewer: vladikb
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/11/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: ca6121f16ad752a64fd17607b98f17430b0321df
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: a25250f4feb7e36decde202e73c793fc63615c91
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146787"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104549"
 ---
 # <a name="azure-data-explorer-api-overview"></a>Azure 数据资源管理器 API 概述
 
@@ -24,7 +24,7 @@ Azure 数据资源管理器服务支持以下通信终结点：
    此终结点支持用于查询的 [Kusto 查询语言](../query/index.md)以及[控制命令](../management/index.md)。
 1. 一个 [MS-TDS](#ms-tds) 终结点，用于实现部分 Microsoft 表格格式数据流 (TDS) 协议，供 Microsoft SQL Server 产品使用。
    此终结点对知道如何与 SQL Server 终结点通信来进行查询的工具很有用。
-1. 一个 [Azure 资源管理器 (ARM)](https://docs.azure.cn/role-based-access-control/resource-provider-operations#microsoftkusto) 终结点，它是 Azure 服务的标准方式。 该终结点用于管理 Azure 数据资源管理器群集等资源。
+1. 一个 [Azure 资源管理器 (ARM)](/role-based-access-control/resource-provider-operations#microsoftkusto) 终结点，它是 Azure 服务的标准方式。 该终结点用于管理 Azure 数据资源管理器群集等资源。
 
 ## <a name="rest-api"></a>REST API
 

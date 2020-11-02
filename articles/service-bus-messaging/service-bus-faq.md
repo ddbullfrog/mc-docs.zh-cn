@@ -4,16 +4,16 @@ description: 本文提供了一些有关 Azure 服务总线的常见问题解答
 ms.topic: article
 origin.date: 09/16/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6fb5f6d91d4bb84bfabb7cdf802fcd31bfff1e9d
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 2e486d87bb3477ccad308b3f3414d6a9c00c36f6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128230"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105133"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure 服务总线 - 常见问题解答 (FAQ)
 
@@ -43,7 +43,7 @@ ms.locfileid: "92128230"
 
 <a name="in-region-data-residency"></a>
 ### <a name="where-does-azure-service-bus-store-customer-data"></a>Azure 服务总线将客户数据存储在何处？
-Azure 服务总线存储客户数据。 服务总线会自动将此数据存储在单个区域中，因此此服务会自动满足区域内数据驻留要求，包括[信任中心](https://azuredatacentermap.chinacloudsites.cn/)内指定的要求。
+Azure 服务总线存储客户数据。 服务总线会自动将此数据存储在单个区域中，因此此服务会自动满足区域内数据驻留要求，包括[信任中心](https://azuredatacentermap.azurewebsites.net/)内指定的要求。
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>需要在防火墙上打开哪些端口？ 
 可以将以下协议与 Azure 服务总线配合使用，以便发送和接收消息：

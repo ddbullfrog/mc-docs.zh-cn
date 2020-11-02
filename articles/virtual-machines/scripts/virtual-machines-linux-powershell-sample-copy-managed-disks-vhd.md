@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: storage
 manager: kavithag
 tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
@@ -16,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: d925dcdd6c76c82bf760506e2f69838eec0993f7
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: a0f953e75e4463b9bf802ef8d5e0bccc549e3793
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414045"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105116"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-linux"></a>使用 PowerShell 将托管磁盘的 VHD 导出/复制到不同区域中的存储帐户 (Linux)
 

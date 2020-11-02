@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 10/14/2019
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: db61919a7ab1d1eb257db9184d2b9dadb1b1d2f0
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 41803e73e291be2bad4a96e46e4db5f18d9fda4d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472553"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104761"
 ---
 # <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>使用门户为虚拟 WAN 配置自定义 IPsec 策略
 

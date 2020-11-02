@@ -2,9 +2,7 @@
 title: 在 Azure 中创建虚拟机时不支持 VHD | Azure
 description: 本文有助于在 Azure 中运行虚拟机时更正 VHD 错误。
 services: virtual-machines
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines
 ms.assetid: 5488aba9-c3da-435d-b4a5-63470f455b07
 ms.topic: troubleshooting
@@ -16,12 +14,12 @@ ms.date: 09/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: e83550dba80305d3f42fb2400ed22895d0d7d226
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: fc03726301f0436dae36b360f56b1d2ec9546979
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456755"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104791"
 ---
 # <a name="vhd-is-not-supported-when-you-create-a-virtual-machine-in-azure"></a>在 Azure 中创建虚拟机时不支持 VHD
 

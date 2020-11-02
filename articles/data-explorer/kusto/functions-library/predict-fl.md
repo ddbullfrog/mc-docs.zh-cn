@@ -7,20 +7,21 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/08/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 962af6f0752f6a30533a54ec2d0a99f9a78087c5
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: f5d4c9d80420770da563425005efa9b7e8596df7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146885"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105532"
 ---
 # <a name="predict_fl"></a>predict_fl()
 
 函数 `predict_fl()` 使用经过训练的现有机器学习模型进行预测。 此模型使用 [Scikit-learn](https://scikit-learn.org/stable/) 构建，已序列化为字符串，并已保存在标准 Azure 数据资源管理器表中。
 
 > [!NOTE]
-> `predict_fl()` 是 [UDF（用户定义的函数）](../query/functions/user-defined-functions.md)。 此函数包含内联 Python，需要在群集上[启用 python() 插件](../query/pythonplugin.md#enable-the-plugin)。 有关详细信息，请参阅[用法](#usage)。
+> * `predict_fl()` 是 [UDF（用户定义的函数）](../query/functions/user-defined-functions.md)。
+> * 此函数包含内联 Python，需要在群集上[启用 python() 插件](../query/pythonplugin.md#enable-the-plugin)。 有关详细信息，请参阅[用法](#usage)。
 
 ## <a name="syntax"></a>语法
 

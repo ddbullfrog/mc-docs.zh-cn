@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 avgif()（聚合函�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: b8d9961405637ba642889703c804d069761f9853
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 2980da50003a31bfade49382f0de904c4bc96f9d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515766"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104216"
 ---
 # <a name="avgif-aggregation-function"></a>avgif()（聚合函数）
 
@@ -29,7 +29,7 @@ summarize `avgif(`*Expr*`, `*Predicate*`)`
 ## <a name="arguments"></a>参数
 
 * Expr：用于聚合计算的表达式。 具有 `null` 值的记录将被忽略，并且不包括在计算中。
-* *谓词*：谓词如果为 true，则 Expr 计算值将添加到平均值。
+* *谓词* ：谓词如果为 true，则 Expr 计算值将添加到平均值。
 
 ## <a name="returns"></a>返回
 

@@ -39,6 +39,20 @@
       items:
         - name: Azure AD 体系结构
           href: active-directory-architecture.md
+        - name: 身份验证和预配协议
+          items:
+            - name: 概述
+              href: auth-sync-overview.md
+            - name: LDAP 身份验证
+              href: auth-ldap.md
+            - name: OAuth 2.0 身份验证
+              href: auth-oauth2.md
+            - name: Open ID Connect 身份验证
+              href: auth-oidc.md
+            - name: 目录同步
+              href: sync-directory.md
+            - name: LDAP 同步
+              href: sync-ldap.md
     - name: 部署指南
       items:
         - name: 部署 30 天、90 天及之后的时间

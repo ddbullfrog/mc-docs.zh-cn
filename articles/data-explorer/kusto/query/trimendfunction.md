@@ -4,36 +4,36 @@ description: 本文介绍 Azure 数据资源管理器中的 trim_end()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 10d9815de5321e224c439cfa7869619e1d557feb
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: b8b5fb2108783294d7785b30293c44af1a15d435
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841484"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105083"
 ---
 # <a name="trim_end"></a>trim_end()
 
 删除指定正则表达式的尾随匹配项。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `trim_end(`*regex*`,` *text*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * regex：要从 text 的结尾修剪的字符串或[正则表达式](re2.md)。  
-* *text*：一个字符串。
+* *text* ：一个字符串。
 
-**返回**
+## <a name="returns"></a>返回
 
 修剪 text 结尾的 regex 匹配项后的 text。
 
-**示例**
+## <a name="example"></a>示例
 
 以下语句从 string_to_trim 的结尾修剪 substring：
 

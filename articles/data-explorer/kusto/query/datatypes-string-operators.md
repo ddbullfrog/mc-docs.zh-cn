@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的字符串运算符
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
-origin.date: 02/13/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 4b3902efd391c335fd5c8e389bfe01d1394478da
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+origin.date: 10/19/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: 9755fd6d44bb80c1bee20b67e1f9d59254f05fc9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146733"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104426"
 ---
 # <a name="string-operators"></a>字符串运算符
 
@@ -22,7 +22,7 @@ Kusto 提供了用于搜索字符串数据类型的各种查询运算符。 以�
 
 ## <a name="understanding-string-terms"></a>了解字符串词语
 
-Kusto 将为所有列（包括 `string` 类型的列）编制索引。 将根据实际数据为这些列构建多个索引。 这些索引不会直接公开，而是在查询中使用，此类查询的 `string` 运算符在其名称中包含 `has`（如 `has`、`!has`、`hasprefix`、`!hasprefix`）。 这些运算符的语义由列的编码方式决定。 这些运算符对*词语*进行匹配，而不是执行“纯”子字符串匹配。
+Kusto 将为所有列（包括 `string` 类型的列）编制索引。 将根据实际数据为这些列构建多个索引。 这些索引不会直接公开，而是在查询中使用，此类查询的 `string` 运算符在其名称中包含 `has`（如 `has`、`!has`、`hasprefix`、`!hasprefix`）。 这些运算符的语义由列的编码方式决定。 这些运算符对 *词语* 进行匹配，而不是执行“纯”子字符串匹配。
 
 ### <a name="what-is-a-term"></a>什么是词语？ 
 
@@ -70,8 +70,8 @@ Kusto 会构建一个词语索引，其中包含具有四个或更多个字符�
 `!startswith_cs`|RHS 不是 LHS 的初始子序列                          |是           |`"Fabrikam" !startswith_cs "fab"`
 `endswith`      |RHS 是 LHS 的闭合子序列                               |否            |`"Fabrikam" endswith "Kam"`
 `!endswith`     |RHS 不是 LHS 的闭合子序列                           |否            |`"Fabrikam" !endswith "brik"`
-`endswith_cs`   |RHS 是 LHS 的闭合子序列                               |是           |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`  |RHS 不是 LHS 的闭合子序列                           |是           |`"Fabrikam" !endswith "brik"`
+`endswith_cs`   |RHS 是 LHS 的闭合子序列                               |是           |`"Fabrikam" endswith_cs "kam"`
+`!endswith_cs`  |RHS 不是 LHS 的闭合子序列                           |是           |`"Fabrikam" !endswith_cs "brik"`
 `matches regex` |LHS 包含 RHS 的匹配项                                      |是           |`"Fabrikam" matches regex "b.*k"`
 `in`            |等于某个元素                                     |是           |`"abc" in ("123", "345", "abc")`
 `!in`           |不等于任何元素                                 |是           |`"bca" !in ("123", "345", "abc")`

@@ -9,12 +9,12 @@ origin.date: 06/14/2019
 ms.date: 10/28/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 9c7baee5a527ca21b9cf4a613aef6348013b7a3a
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 38530a0bd97bc13d5114febcff0d20a093d1ac95
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394573"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104255"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>快速入门：在 Azure HDInsight 中创建和监视 Apache Storm 拓扑
 
@@ -24,7 +24,7 @@ Apache Storm 是一个可扩展的、具有容错能力的分布式实时计算�
 
 ## <a name="prerequisites"></a>先决条件
 
-* HDInsight 上的 Apache Storm 群集。 请参阅[使用 Azure 门户创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)，并选择 **Storm** 作为**群集类型**。
+* HDInsight 上的 Apache Storm 群集。 请参阅 [使用 Azure 门户创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)，并选择 **Storm** 作为 **群集类型** 。
 
 * SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -83,22 +83,22 @@ Storm 提供一个 Web 界面用于处理正在运行的拓扑，并包含在 HD
 
 4. 在查看 spout 或 bolt 的详细信息时，从“执行器”  部分中的“端口”  列中选择一个条目可以查看组件特定实例的详细信息。
 
-```output
-2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
-2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
-2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
-2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
-2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
-2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
-2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
-2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
-```
+    ```output
+    2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
+    2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
+    2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
+    2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
+    2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
+    2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
+    2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
+    2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
+    ```
 
-    In this example, the word **seven** has occurred 1493957 times. This count is how many times the word has been encountered since this topology was started.
+    在此示例中， **seven** 一词出现了 1493957 次。 此计数就是自从启动此拓扑以来该单词出现的次数。
 
 ## <a name="stop-the-topology"></a>停止拓扑
 
-返回到单词计数拓扑的“拓扑摘要”页，并从“拓扑操作”部分中选择“终止”按钮。************ 出现提示时，输入停止拓扑之前要等待的秒数，即 10。 在超时期限之后访问仪表板的“Storm UI”**** 部分，不再显示该拓扑。
+返回到单词计数拓扑的“拓扑摘要”页，并从“拓扑操作”部分中选择“终止”按钮。  出现提示时，输入停止拓扑之前要等待的秒数，即 10。 在超时期限之后访问仪表板的“Storm UI”  部分，不再显示该拓扑。
 
 ## <a name="clean-up-resources"></a>清理资源
 

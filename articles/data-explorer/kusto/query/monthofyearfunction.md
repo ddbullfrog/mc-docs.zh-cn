@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 monthofyear()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 76737aae7c5baf1c236a828540fadce59b44b140
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: ebca32388a3ae227053831006086dceae017bad6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841618"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103862"
 ---
 # <a name="monthofyear"></a>monthofyear()
 
@@ -26,14 +26,14 @@ ms.locfileid: "87841618"
 monthofyear(datetime("2015-12-14"))
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 `monthofyear(`*a_date*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * `a_date`：`datetime`。
 
-**返回**
+## <a name="returns"></a>返回
 
 给定年份的 `month number`。

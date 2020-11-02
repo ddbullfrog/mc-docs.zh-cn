@@ -4,35 +4,35 @@ description: 本文介绍 Azure 数据资源管理器中的 series_less()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/01/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: d82fb2a226c96992b343cc3793298271916c407a
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 950ab0ccfc20b29773c558d53f4378844ea26829
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841237"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105379"
 ---
 # <a name="series_less"></a>series_less()
 
 计算两个数值序列输入的元素对应小于 (`<`) 逻辑运算。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `series_less (`Series1`,` Series2`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Series1、Series2：输入要进行元素对应比较的数值阵列。 所有参数都必须是动态数组。 
 
-**返回**
+## <a name="returns"></a>返回
 
 布尔值的动态数组包括两个输入之间计算的元素对应小于逻辑运算。 任何非数值元素或非现有元素（不同大小的数组）会生成 `null` 元素值。
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto
@@ -44,7 +44,7 @@ print s1 = dynamic([1,2,4]), s2 = dynamic([4,2,1])
 |---|---|---|
 |[1,2,4]|[4,2,1]|[true,false,false]|
 
-**另请参阅**
+## <a name="see-also"></a>请参阅
 
 对于整个序列统计信息的比较，请参阅：
 * [series_stats()](series-statsfunction.md)

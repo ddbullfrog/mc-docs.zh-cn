@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4d33708e20dd41c1fd0490cccbbab33ad3d028a2
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 5a14e3fc92de35202ddafe639e7047d6518efc01
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463176"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104994"
 ---
 <!--Verified successfully-->
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>教程：监视更改和更新 Azure 中的 Windows 虚拟机
@@ -107,7 +107,7 @@ New-AzVm `
 
 启用“更新管理”后，“更新管理”窗口随即显示。 评估更新完成后，可在“缺失更新”选项卡上查看缺失更新的列表。
 
-:::image type="content" source="./media/tutorial-monitoring/manageupdates-view-status-win.png" alt-text="查看更新状态":::
+:::image type="content" source="./media/tutorial-monitoring/manageupdates-view-status-win.png" alt-text="启用更新管理解决方案":::
 
 ### <a name="schedule-an-update-deployment"></a>计划更新部署
 
@@ -140,13 +140,13 @@ New-AzVm `
 
 选择已完成的更新部署，查看该部署的仪表板。
 
-:::image type="content" source="./media/tutorial-monitoring/manageupdates-view-results.png" alt-text="特定部署的更新部署状态仪表板":::
+:::image type="content" source="./media/tutorial-monitoring/manageupdates-view-results.png" alt-text="启用更新管理解决方案":::
 
 “更新结果”磁贴显示了 VM 上更新和部署结果的总数的概要。 右侧的表显示了每个更新的细目以及安装结果。 每个结果都具有下列值之一：
 
-* **未尝试**：未安装更新。 基于定义的维护时段持续时间，没有足够的可用时间。
-* **成功**：更新成功。
-* **失败**：更新失败。
+* **未尝试** ：未安装更新。 基于定义的维护时段持续时间，没有足够的可用时间。
+* **成功** ：更新成功。
+* **失败** ：更新失败。
 
 若要查看部署创建的所有日志条目，请选择“所有日志”。
 

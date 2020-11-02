@@ -4,23 +4,23 @@ description: 本文介绍 Azure 数据资源管理器中的 next()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 2bc26ff0254913bcf44ccb12b581b6183a07db32
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: c363666f53d0f6f2010ffc7ec1a307c9df6114db
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841526"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103855"
 ---
 # <a name="next"></a>next()
 
 返回在[序列化行集](./windowsfunctions.md#serialized-row-set)中位于当前行之后的某个偏移量处的行中列的值。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `next(column)`
 
@@ -28,7 +28,7 @@ ms.locfileid: "87841526"
 
 `next(column, offset, default_value)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * `column`：要从中获取值的列。
 
@@ -37,7 +37,7 @@ ms.locfileid: "87841526"
 * `default_value`：在没有要从中获取值的后续行时使用的默认值。 如果未指定默认值，则使用 null。
 
 
-**示例**
+## <a name="examples"></a>示例
 ```kusto
 Table | serialize | extend nextA = next(A,1)
 | extend diff = A - nextA

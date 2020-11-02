@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/15/2019
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 078f65d596f5017c551c8b9c81e37ad299c59465
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 0cca7041e23b897ece0b6a1971243807ea5f03a6
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564585"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628250"
 ---
 # <a name="virtual-network-peering"></a>虚拟网络对等互连
 

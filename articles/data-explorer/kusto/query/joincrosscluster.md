@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的跨群集联接。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: f8666c551c29ceae2a3ad2213a6daaaa7d2bf757
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.openlocfilehash: 481d821c5edc42eb17b496585856e63d2a304b21
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841656"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105596"
 ---
 # <a name="cross-cluster-join"></a>跨群集联接
 

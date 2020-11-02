@@ -4,13 +4,13 @@ description: Application Insights 代理 API 参考。 无需重新部署网站�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/25/2020
-ms.openlocfilehash: e062ac989470c8712055062001cae0b988ce6017
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.date: 10/29/2020
+ms.openlocfilehash: 005e235bd972d5e3397cfb1973ad74321e4dd171
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199874"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104229"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights 代理 API 参考
 
@@ -326,7 +326,7 @@ AppAlreadyInstrumented : true
 ```
 
 在此示例中，
-- **计算机标识符**是一个匿名 ID，用于唯一标识服务器。 如果你创建支持请求，我们需要该 ID 来查找你的服务器的日志。
+- **计算机标识符** 是一个匿名 ID，用于唯一标识服务器。 如果你创建支持请求，我们需要该 ID 来查找你的服务器的日志。
 - “默认网站”在 IIS 中处于“已停止”状态
 - **DemoWebApp111** 已在 IIS 中启动，但尚未收到任何请求。 此报告显示没有正在运行的进程（ProcessId：找不到）。
 - **DemoWebApp222** 正在运行且正受监视（已检测：是）。 根据用户配置，此站点的检测密钥 xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 匹配。
@@ -637,23 +637,17 @@ Timeout Reached. Stopping...
 ## <a name="next-steps"></a>后续步骤
 
   查看遥测：
- - [浏览指标](../../azure-monitor/platform/metrics-charts.md)，以便监视性能和使用情况。
-- [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)以诊断问题。
-- 使用[分析](../../azure-monitor/log-query/log-query-overview.md)，以便进行更高级的查询。
-- [创建仪表板](../../azure-monitor/app/overview-dashboard.md)。
- <!--correct in MC: azure-monitor/log-query/log-query-overview.md -->
+ - [浏览指标](../platform/metrics-charts.md)，以便监视性能和使用情况。
+- [搜索事件和日志](./diagnostic-search.md)以诊断问题。
+- 使用[分析](../log-query/log-query-overview.md)，以便进行更高级的查询。
+- [创建仪表板](./overview-dashboard.md)。
  
  添加更多遥测：
  - [创建 Web 测试](monitor-web-app-availability.md)，以确保站点保持活动状态。
-- [添加 Web 客户端遥测](../../azure-monitor/app/javascript.md)，以查看网页代码中的异常并启用跟踪调用。
-- [将 Application Insights SDK 添加到代码](../../azure-monitor/app/asp-net.md)，以便插入跟踪和日志调用。
+- [添加 Web 客户端遥测](./javascript.md)，以查看网页代码中的异常并启用跟踪调用。
+- [将 Application Insights SDK 添加到代码](./asp-net.md)，以便插入跟踪和日志调用。
  
  使用 Application Insights 代理执行更多操作：
  - 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。
-
-
-
-
-
 
 

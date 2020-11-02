@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的开窗函数。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/20/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 95b2b2ec37d7da5c4dc2e4adbecb0491fbd2c21c
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: b2dbefa8fe3ab9d7a1e12fed8778175f7a33dff0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841323"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104369"
 ---
 # <a name="window-functions-overview"></a>开窗函数概述
 

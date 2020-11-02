@@ -2,18 +2,17 @@
 title: Azure Application Insights 事务诊断 | Azure Docs
 description: Application Insights 端到端事务诊断
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
+author: Johnnytechn
+ms.date: 10/29/2020
 origin.date: 01/19/2018
-ms.date: 6/4/2019
+ms.author: v-johya
 ms.reviewer: sdash
-ms.author: v-lingwu
-ms.openlocfilehash: c184fa779c07536bc4dab40f5de9dfe25a39e0e8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a3550dd6a3fddb4a144cab36548123abe46fa8f1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850355"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104640"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>统一的跨组件事务诊断
 
@@ -33,7 +32,7 @@ ms.locfileid: "78850355"
 ## <a name="transaction-diagnostics-experience"></a>事务诊断体验
 此视图有四个关键部分：结果列表、跨组件事务图、与此操作相关的所有遥测的时序列表，以及左侧的详细信息窗格（显示任何选定遥测项的详细信息）。
 
-![关键部分](media/transaction-diagnostics/4partsCrossComponent.png)
+![关键部分](./media/transaction-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>跨组件事务图
 
@@ -52,22 +51,29 @@ ms.locfileid: "78850355"
 
 本部分以与此事务相关的所有遥测的时间序列显示平面列表视图。 它还显示自定义事件以及未在事务图中显示的跟踪。 可以将此列表筛选为特定组件/调用生成的遥测。 可以在此列表中选择任意遥测项，并[在右侧查看相应的详细信息](#details-of-the-selected-telemetry)。
 
-![所有遥测的时间序列](media/transaction-diagnostics/allTelemetryDrawerOpened.png)
+![所有遥测的时间序列](./media/transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>所选遥测数据的详细信息
 
 此可折叠窗格显示事务图或列表中任何所选项的详细信息。 “显示全部”列出了收集的所有标准属性。 所有自定义属性都单独列在标准集之下。 单击堆栈跟踪窗口下方的“...”以获取复制跟踪的选项。 “打开探查器跟踪”或“打开调试快照”在相应的详细信息窗格中查看代码级诊断信息。
 
-![异常详细信息](media/transaction-diagnostics/exceptiondetail.png)
+![异常详细信息](./media/transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>搜索结果
 
 此可折叠窗格会显示符合筛选条件的其他结果。 单击任何结果可更新上面列出的 3 个部分的相应详细信息。 我们试图找到最可能从所有组件中获得详细信息的样本，即使在任何一个组件中采样都是有效的。 这些显示为“建议的”样本。
 
-![搜索结果](media/transaction-diagnostics/searchResults.png)
+![搜索结果](./media/transaction-diagnostics/searchResults.png)
 
+## <a name="profiler-and-snapshot-debugger"></a>探查器和快照调试器
 
+[Application Insights 探查器](./profiler.md)或[快照调试器](snapshot-debugger.md)有助于对性能和失败问题进行代码级诊断。 通过此体验，仅需一次单击即可查看任意组件的探查器跟踪或快照。
 
+如果无法让 Profiler 正常工作，请联系 **serviceprofilerhelp\@microsoft.com**
+
+如果无法让快照调试器正常工作，请联系 **snapshothelp\@microsoft.com**
+
+![探查器集成](./media/transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>常见问题
 
@@ -81,7 +87,7 @@ ms.locfileid: "78850355"
 
 如果确实具有权限，且使用了最新的 Application Insights SDK 来检测组件，请通过右上方的反馈通道告知我们。
 
-依赖项具有重复的行。  这是正常情况吗？
+依赖项具有重复的行。这是正常情况吗？
 
 当前，出站依赖项调用与入站请求分开显示。 通常情况下，这两种调用大致相同，但持续时间值因网络往返而不同。 可通过前导图标和样式不同的持续时间条来区分它们。 这份数据演示文稿是否包含令人困惑的内容？ 欢迎提供反馈！
 
@@ -91,8 +97,6 @@ ms.locfileid: "78850355"
 
 为什么新体验中缺少大部分相关项查询？ 
 
-这是设计使然。 所有组件的全部相关项都已显示在左侧（顶部和底部）。 新体验中有两个左侧未包含的相关项：此事件发生前后五分钟内的所有遥测，以及用户时间线。
-
-
+这是设计的结果。 所有组件的全部相关项都已显示在左侧（顶部和底部）。 新体验中有两个左侧未包含的相关项：此事件发生前后五分钟内的所有遥测，以及用户时间线。
 
 

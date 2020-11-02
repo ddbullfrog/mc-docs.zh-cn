@@ -2,9 +2,7 @@
 title: 启动 Azure VM 时检查文件系统 | Azure
 description: 了解如何解决 VM 在启动时显示“正在检查文件系统”的问题 | Azure
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 895c2286dce5487c17317ed1e94ceb6be23cf149
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 839bed3b1cf6ce8b05002d558cf51fcf7615914f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456809"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104721"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows 在启动 Azure VM 时显示“正在检查文件系统”
 

@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 origin.date: 02/06/2020
 author: rockboyfor
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+ms.date: 11/02/2020
+ms.testscope: no
+ms.testdate: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6f0151bc5e060835384e615c2197f9a0996f8c31
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: 52c2c05ef50013db355be7aa5ea88a0b5fd645e3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310369"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104304"
 ---
 <!--Verified successfully on rename articles-->
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>有关平台支持的从经典部署模型到 Azure Resource Manager 的迁移的技术深入探讨
@@ -33,7 +33,7 @@ ms.locfileid: "89310369"
 首先，必须了解在基础结构即服务 (IaaS) 资源上进行的数据平面操作和管理平面操作的差异。
 
 * “管理/控制平面”描述进入管理/控制平面或 API 来修改资源的调用。 例如，创建 VM、重启 VM 以及将虚拟网络更新成新子网等操作均可管理正在运行的资源。 它们并不直接影响到 VM 的连接。
-* *数据平面*（应用程序）描述应用程序本身的运行时，并涉及与不通过 Azure API 的实例进行交互。 例如，访问网站或从运行中的 SQL Server 实例或 MongoDB 服务器拉取数据属于数据平面或应用程序交互。 其他示例包括：从存储帐户复制 Blob，以及访问公共 IP 地址，以便使用远程桌面协议 (RDP) 或安全外壳 (SSH) 连接到虚拟机。 这些操作可让应用程序继续跨计算、网络和存储运行。
+* *数据平面* （应用程序）描述应用程序本身的运行时，并涉及与不通过 Azure API 的实例进行交互。 例如，访问网站或从运行中的 SQL Server 实例或 MongoDB 服务器拉取数据属于数据平面或应用程序交互。 其他示例包括：从存储帐户复制 Blob，以及访问公共 IP 地址，以便使用远程桌面协议 (RDP) 或安全外壳 (SSH) 连接到虚拟机。 这些操作可让应用程序继续跨计算、网络和存储运行。
 
 经典部署模型和资源管理器堆栈之间的数据平面是相同的。 区别在于，在迁移过程中，Azure 会将资源的表示方式从经典部署模型转换为资源管理器堆栈中的相应模型。 因此，需在资源管理器堆栈中使用新的工具、API 和 SDK 来管理资源。
 
@@ -55,7 +55,7 @@ ms.locfileid: "89310369"
 
 迁移工作流如下所示：
 
-:::image type="content" source="windows/media/migration-classic-resource-manager/migration-workflow.png" alt-text="显示迁移工作流的图":::
+:::image type="content" source="windows/media/migration-classic-resource-manager/migration-workflow.png" alt-text="显示管理/控制平面和数据平面之间差异的图":::
 
 > [!NOTE]
 > 以下部分描述的操作全都是幂等的。 如果遇到功能不受支持或配置错误以外的问题，请重试准备、中止或提交操作。 Azure 会再次尝试此操作。
@@ -100,13 +100,13 @@ ms.locfileid: "89310369"
 
 下面的两个屏幕截图显示了准备操作成功后的结果。 第一个屏幕截图显示包含原始云服务的资源组。 第二个屏幕截图显示包含 Azure 资源管理器等效资源的新“-Migrated”资源组。
 
-:::image type="content" source="windows/media/migration-classic-resource-manager/portal-classic.png" alt-text="显示原始云服务的屏幕截图":::
+:::image type="content" source="windows/media/migration-classic-resource-manager/portal-classic.png" alt-text="显示管理/控制平面和数据平面之间差异的图":::
 
-:::image type="content" source="windows/media/migration-classic-resource-manager/portal-arm.png" alt-text="显示准备操作中的 Azure 资源管理器资源的屏幕截图":::
+:::image type="content" source="windows/media/migration-classic-resource-manager/portal-arm.png" alt-text="显示管理/控制平面和数据平面之间差异的图":::
 
 下面是在完成准备阶段以后，在幕后查看资源的情形。 请注意，数据平面中的资源是相同的。 它同时在管理平面（经典部署模型）和控制平面（资源管理器）中呈现。
 
-:::image type="content" source="windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png" alt-text="准备阶段图":::
+:::image type="content" source="windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png" alt-text="显示管理/控制平面和数据平面之间差异的图":::
 
 > [!NOTE]
 > 不属于经典部署模型中的虚拟网络的 VM 在此迁移阶段停止和解除分配。
@@ -126,7 +126,7 @@ ms.locfileid: "89310369"
 ### <a name="abort"></a>中止
 这是可选步骤，用于还原对经典部署模型所做的更改，并停止迁移。 对于资源，此操作会删除资源管理器元数据（在准备步骤中创建）。 
 
-:::image type="content" source="windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png" alt-text="中止步骤图":::
+:::image type="content" source="windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png" alt-text="显示管理/控制平面和数据平面之间差异的图":::
 
 > [!NOTE]
 > 触发提交操作后，就无法执行此操作。     
@@ -140,13 +140,13 @@ ms.locfileid: "89310369"
 >
 >
 
-:::image type="content" source="windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png" alt-text="提交步骤图":::
+:::image type="content" source="windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png" alt-text="显示管理/控制平面和数据平面之间差异的图":::
 
 ## <a name="migration-flowchart"></a>迁移流程图
 
 下面是一个流程图，说明了如何进行迁移：
 
-:::image type="content" source="windows/media/migration-classic-resource-manager/migration-flow.png" alt-text="Screenshot that shows the migration steps":::
+:::image type="content" source="windows/media/migration-classic-resource-manager/migration-flow.png" alt-text="显示管理/控制平面和数据平面之间差异的图":::
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>从经典部署模型资源转换为资源管理器资源
 可以在下表中找到资源的经典部署模型与资源管理器表示形式。 目前不支持其他功能和资源。
@@ -205,5 +205,4 @@ ms.locfileid: "89310369"
 * [查看最常见的迁移错误](./windows/migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!-- Update_Description: new article about migration classic resource manager deep dive -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

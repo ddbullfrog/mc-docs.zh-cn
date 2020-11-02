@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 make_datetime()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 5c7d3df23abbd65e5a74a2fd8ddaa1b311ef3c97
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: e64dd30f1a6c357e4b991b5372c2a3ab0fd08327
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841373"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105592"
 ---
 # <a name="make_datetime"></a>make_datetime()
 
@@ -24,15 +24,15 @@ ms.locfileid: "87841373"
 make_datetime(2017,10,01,12,10) == datetime(2017-10-01 12:10)
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
-`make_datetime(`*year*,*month*,*day*`)`
+`make_datetime(`*year* , *month* , *day*`)`
 
-`make_datetime(`*year*,*month*,*day*,*hour*,*minute*`)`
+`make_datetime(`*year* , *month* , *day* , *hour* , *minute*`)`
 
-`make_datetime(`*year*,*month*,*day*,*hour*,*minute*,*second*`)`
+`make_datetime(`*year* , *month* , *day* , *hour* , *minute* , *second*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * year：年（从 0 到 9999 的整数值）
 * month：月（从 1 到 12 的整数值）
@@ -41,11 +41,11 @@ make_datetime(2017,10,01,12,10) == datetime(2017-10-01 12:10)
 * minute：分钟（从 0 到 59 的整数值）
 * second：秒（从 0 到 59.9999999 的实数值）
 
-**返回**
+## <a name="returns"></a>返回
 
 若创建成功，结果将是一个[日期/时间](./scalar-data-types/datetime.md)值，否则，结果将为 null。
  
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 print year_month_day = make_datetime(2017,10,01)

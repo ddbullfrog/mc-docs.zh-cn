@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 tolong()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 4cfe9f6fd8fd6534c25b9bc938e4256816a0387f
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: dfe05b9b4a30bdc1412d1920f7995f6185ceece6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516107"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104186"
 ---
 # <a name="tolong"></a>tolong()
 

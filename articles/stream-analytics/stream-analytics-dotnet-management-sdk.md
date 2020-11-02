@@ -9,12 +9,12 @@ ms.topic: how-to
 origin.date: 12/06/2018
 ms.date: 10/09/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9181fcdd04032a8d6aee29acb92e000cc31515d7
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.openlocfilehash: 60a9fe8d32aa54b14d3dcbcf3d1917b7abbaeea5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936808"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103965"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK：使用用于 .NET 的 Azure 流分析 API 设置和运行分析作业
 了解如何通过管理 .NET SDK 设置和运行使用 .NET 版流分析 API 的分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
@@ -169,7 +169,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
    ```
 
 ## <a name="create-a-stream-analytics-input-source"></a>创建流分析输入源
-下面的代码使用 blob 输入源类型和 CSV 序列化创建流分析输入源。 若要创建事件中心输入源，请使用 **EventHubStreamInputDataSource** 而非 **BlobStreamInputDataSource**。 同样，可以自定义输入源的序列化类型。
+下面的代码使用 blob 输入源类型和 CSV 序列化创建流分析输入源。 若要创建事件中心输入源，请使用 **EventHubStreamInputDataSource** 而非 **BlobStreamInputDataSource** 。 同样，可以自定义输入源的序列化类型。
 
    ```csharp
    // Create an input
@@ -298,24 +298,4 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 * [Azure 流分析管理 .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx)。
 * [Azure 流分析查询语言参考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-<!--Image references-->
-<!-- Not Avaialble on [5]: ./media/markdown-template-for-new-articles/octocats.png -->
-<!-- Not Avaialble on [6]: ./media/markdown-template-for-new-articles/pretty49.png -->
-<!-- Not Avaialble on [7]: ./media/markdown-template-for-new-articles/channel-9.png -->
-
-<!--Link references-->
-[azure.blob.storage]: /storage/
-[azure.blob.storage.use]: storage/blobs/storage-quickstart-blobs-dotnet
-
-[azure.event.hubs]: https://www.azure.cn/home/features/event-hubs/
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
-
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.forum]: https://go.microsoft.com/fwlink/?LinkId=512151
-
-[stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-<!-- Not Avaialble on [stream.analytics.developer.guide]: stream-analytics-developer-guide.md -->
-[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299 [stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
 

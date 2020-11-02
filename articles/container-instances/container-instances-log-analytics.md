@@ -4,14 +4,14 @@ description: 了解如何从 Azure 容器实例中的容器组将资源日志和
 ms.topic: article
 origin.date: 07/13/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 276c7108ba665ba2e77e2226e957a0e5a28adada
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 3bce4d314fb0e19ee52380dd0e295fa4cb5d1419
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564306"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104991"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>使用 Azure Monitor 日志进行容器组和实例日志记录
 
@@ -68,7 +68,7 @@ az container create \
 
 ### <a name="deploy-with-yaml"></a>使用 YAML 进行部署
 
-如果喜欢使用 YAML 部署容器组，请使用此方法。 下面的 YAML 定义包含单个容器的容器组。 将 YAML 复制到一个新文件中，然后将 `LOG_ANALYTICS_WORKSPACE_ID` 和 `LOG_ANALYTICS_WORKSPACE_KEY` 替换为在前面的步骤中获得的值。 将该文件保存为 **deploy-aci.yaml**。
+如果喜欢使用 YAML 部署容器组，请使用此方法。 下面的 YAML 定义包含单个容器的容器组。 将 YAML 复制到一个新文件中，然后将 `LOG_ANALYTICS_WORKSPACE_ID` 和 `LOG_ANALYTICS_WORKSPACE_KEY` 替换为在前面的步骤中获得的值。 将该文件保存为 **deploy-aci.yaml** 。
 
 ```yaml
 apiVersion: 2019-12-01
@@ -175,7 +175,7 @@ ContainerInstanceLog_CL
 <!-- LINKS - External -->
 
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/
-[query_lang]: https://aka.ms/LogAnalyticsLanguage
+[query_lang]: /data-explorer/
 
 <!-- LINKS - Internal -->
 

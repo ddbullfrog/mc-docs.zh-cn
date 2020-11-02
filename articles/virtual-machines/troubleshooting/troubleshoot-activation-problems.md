@@ -2,9 +2,7 @@
 title: 排查 Azure 中的 Windows 虚拟机激活问题 | Azure
 description: 介绍用于修复 Azure 中的 Windows 虚拟机激活问题的疑难解答步骤
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -12,16 +10,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 11/15/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8bf4e5224b9a62d39bf07d362cb3fa379027344f
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 5be0edc9295864f32948fbc5ef892deb951fe46e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456821"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104840"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -42,7 +40,7 @@ Azure 使用不同的终结点进行 KMS（密钥管理服务）激活，具体�
 
 ## <a name="symptom"></a>症状
 
-尝试激活 Azure Windows VM 时，会收到类似于以下示例的错误消息：
+尝试激活 Azure Windows VM 时，将看到类似于以下示例的错误消息：
 
 **错误：0xC004F074 软件授权服务报告无法激活计算机。无法联系任何密钥管理服务(KMS)。有关其他信息，请参阅应用程序事件日志。**
 
@@ -63,13 +61,15 @@ Azure 使用不同的终结点进行 KMS（密钥管理服务）激活，具体�
 
 对于通过自定义映像创建的 VM，必须为 VM 配置相应的 KMS 客户端安装密钥。
 
-1. 在提升的命令提示符处，运行 **slmgr.vbs /dlv**。 检查输出中的 Description 值，并确定它是通过零售（RETAIL 渠道）还是批量 (VOLUME_KMSCLIENT) 许可证介质创建的：
+1. 在提升的命令提示符处，运行 **slmgr.vbs /dlv** 。 检查输出中的 Description 值，并确定是通过零售 (RETAIL channel) 还是通过卷 (VOLUME_KMSCLIENT) 许可证介质创建的：
 
     ```
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
 2. 如果 **slmgr.vbs /dlv** 显示 RETAIL channel，运行以下命令，以设置适用于所用 Windows Server 版本的 [KMS 客户端安装密钥](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)?f=255&MSPPError=-2147217396)，并强制重试激活操作： 
+
+    <!--MOONCAKE CORRECT ON: http://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)?f=255&MSPPError=-2147217396-->
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>

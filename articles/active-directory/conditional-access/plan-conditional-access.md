@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0cacaea1c8f8bb3ca43afdd03675a146c887c2
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 1fc299b2752cbf5c91e91d8ad65fec3dc6113b83
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041600"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749817"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>计划条件访问部署
 
@@ -264,11 +264,7 @@ Azure Active Directory 允许你创建[命名位置](location-condition.md)。 �
 
 ### <a name="plan-your-policy-deployment"></a>规划策略部署
 
-当新策略为你的环境准备就绪时，请确保在发布策略之前检查每个策略，以避免产生不良结果。 请参阅以下文档，了解有关如何应用策略以及如何避免问题的重要信息
-
-* [应了解的内容](best-practices.md)
-
-* [应避免的操作](best-practices.md)
+当新策略为你的环境准备就绪时，请确保在发布策略之前检查每个策略，以避免产生不良结果。
 
 ## <a name="common-policies"></a>常用策略
 
@@ -407,10 +403,6 @@ Azure Active Directory 允许你创建[命名位置](location-condition.md)。 �
 ### <a name="terms-of-use"></a>使用条款
 
 在访问环境中的某些云应用之前，你可能希望通过使用条款 (ToU) 来获取用户的同意。 请按照以下[快速入门创建使用条款](require-tou.md)。
-
-### <a name="classic-policies"></a>经典策略
-
-在 [Azure 门户](https://portal.azure.cn/)中，你可以在“Azure Active Directory”>“安全性”>“条件访问”下找到 CA 策略。 你的组织还可能具有不是使用此页创建的旧 CA 策略。 这些策略称为“经典策略”。 我们建议你[考虑将这些经典策略迁移到 Azure 门户中](best-practices.md)。
 
 ## <a name="troubleshoot-conditional-access"></a>排查条件访问问题
 

@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1beab7c48e0dd7d9d0225ef36c19eb0edabcc0ae
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 4ac09d8df5d42a7f94f3a598dbd0275dc72e11f1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463116"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105732"
 ---
 <!--Verified Successfully-->
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建 Windows VM 映像
@@ -112,7 +112,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 使用 [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) 从 VM 创建映像版本。 
 
-允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式：*MajorVersion*.*MinorVersion*.*Patch*。
+允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式： *MajorVersion* . *MinorVersion* . *Patch* 。
 
 <!--MOONCAKE: EAST US map to China East, South Central US to China North-->
 

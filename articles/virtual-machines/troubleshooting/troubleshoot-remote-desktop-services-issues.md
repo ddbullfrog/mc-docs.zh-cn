@@ -2,9 +2,7 @@
 title: 远程桌面服务在 Azure VM 上不启动 | Azure
 description: 了解如何排查使用远程桌面服务连接到虚拟机时出现的问题 | Azure
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 610e02fdb1493c952028fe2dea6970f32a5c3829
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 6a91ee28b6dcf568eb6f30863953c630cee42adf
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456774"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105469"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>远程桌面服务在 Azure VM 上不启动
 
@@ -36,16 +34,16 @@ ms.locfileid: "89456774"
 
 - 在使用事件查看器远程查看 VM 中的事件日志时， 你发现远程桌面服务 (TermService) 未启动或无法启动。 下面是日志示例：
 
-    **日志名称**：    系统 <br />
-    **源**：      服务控制管理器 <br />
-    **日期**：        2017 年 12 月 16 日上午 11:19:36<br />
-    **事件 ID**：    7022<br />
-    **任务类别**：无<br />
-    **级别**：       错误<br />
-    **关键字**：    经典<br />
-    **用户**：        空值<br />
-    **计算机**: vm.contoso.com<br />
-    **说明**：远程桌面服务在启动时挂起。 
+    **日志名称** ：    系统 <br />
+    **源** ：      服务控制管理器 <br />
+    **日期** ：        2017 年 12 月 16 日上午 11:19:36<br />
+    **事件 ID** ：    7022<br />
+    **任务类别** ：无<br />
+    **级别** ：       错误<br />
+    **关键字** ：    经典<br />
+    **用户** ：        空值<br />
+    **计算机** : vm.contoso.com<br />
+    **说明** ：远程桌面服务在启动时挂起。 
 
     <!--Not Available on Serial Access Console-->
     <!--Not Available on wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more -->
@@ -71,7 +69,7 @@ ms.locfileid: "89456774"
 
 1. [将 OS 磁盘附加到恢复 VM](./troubleshoot-recovery-disks-portal-windows.md)。
 2. 开始与恢复 VM 建立远程桌面连接。 确保附加的磁盘在磁盘管理控制台中标记为“联机”。  请注意分配给附加的 OS 磁盘的驱动器号。
-3. 打开权限提升的命令提示符实例（“以管理员身份运行”）。  然后运行以下脚本。 假设分配给附加的 OS 磁盘的驱动器号为 **F**。请将它替换为 VM 中的相应值。 
+3. 打开权限提升的命令提示符实例（“以管理员身份运行”）。  然后运行以下脚本。 假设分配给附加的 OS 磁盘的驱动器号为 **F** 。请将它替换为 VM 中的相应值。 
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

@@ -2,10 +2,8 @@
 title: 将凭据传递给 Azure DSC 扩展处理程序
 description: 了解如何使用 PowerShell 所需状态配置 (DSC) 安全地将凭据传递给 Azure 虚拟机。
 services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
@@ -16,12 +14,12 @@ ms.workload: na
 origin.date: 05/02/2018
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 277d0250d9057858a952fa2a2b1f0404ae6811e0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1bf816099675bc0e5cfde1e491c0a2a47ab2ac53
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73831459"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105579"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>将凭据传递给 Azure DSC 扩展处理程序
 

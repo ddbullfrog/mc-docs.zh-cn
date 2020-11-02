@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1b166f39820143e2482555a5d68769deec31c55c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: f9e38c944816ec5932461e18205159a14a030909
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471909"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103966"
 ---
 <!--Verified successfully on VPN client -->
 # <a name="working-with-user-vpn-client-profiles"></a>使用用户 VPN 客户端配置文件

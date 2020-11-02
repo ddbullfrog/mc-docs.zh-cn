@@ -9,14 +9,15 @@ metadata:
   ms.subservice: keys
   ms.topic: landing-page
   author: msmbaldwin
-  ms.author: mbaldwin
-  ms.date: 04/07/2020
-  ms.openlocfilehash: df55646b9b4fc73fe924d5dc947546d01a3639ab
-  ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+  ms.author: v-tawe
+  origin.date: 04/07/2020
+  ms.date: 10/30/2020
+  ms.openlocfilehash: d1d6d23e1de42df8f4acb09434e86d75c39e7b03
+  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/16/2020
-  ms.locfileid: "90678498"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93104649"
 landingContent:
 - title: 密钥
   linkLists:

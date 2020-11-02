@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 current_principal_de
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 11/08/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 1f91f1eba9a99ec6028b807f494cdb45987b88bb
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 22f6216750500109e0c830ac0079b5c64d6f7b76
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515727"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104209"
 ---
 # <a name="current_principal_details"></a>current_principal_details()
 

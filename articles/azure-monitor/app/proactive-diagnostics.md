@@ -4,24 +4,24 @@ description: Application Insights 执行应用遥测的自动深入分析，并�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 02/07/2019
-ms.date: 07/17/2020
+ms.date: 10/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 4d01c76f8e11f434a33bf8430086038cb818f96c
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: d3bc3efb9d95ba260b6f5e0dd93167e495ff8528
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244623"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104676"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights 中的智能检测
- 当 Web 应用程序中存在潜在性能问题和故障异常时，智能检测会自动向你发出警告。 它会对应用发送至 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 的遥测数据执行主动分析。 如果失败率中存在骤升或者客户端或服务器性能中存在异常模式，将收到警报。 此功能不需要任何配置。 它会在应用程序发送足够的遥测时运行。
+ 当 Web 应用程序中存在潜在性能问题和故障异常时，智能检测会自动向你发出警告。 它会对应用发送至 [Application Insights](./app-insights-overview.md) 的遥测数据执行主动分析。 如果失败率中存在骤升或者客户端或服务器性能中存在异常模式，将收到警报。 此功能不需要任何配置。 它会在应用程序发送足够的遥测时运行。
 
 可以从接收的电子邮件和“智能检测”边栏选项卡中访问智能检测发出的检测信息。
 
 ## <a name="review-your-smart-detections"></a>查看智能检测
 可通过以下两种方式发现检测：
 
-* **收到来自 Application Insights 的电子邮件**。 下面是一个典型示例：
+* **收到来自 Application Insights 的电子邮件** 。 下面是一个典型示例：
   
     ![电子邮件警报](./media/proactive-diagnostics/03.png)
   
@@ -35,9 +35,9 @@ ms.locfileid: "87244623"
 ## <a name="what-problems-are-detected"></a>检测到哪些问题？
 智能检测可检测并通知各种问题，例如：
 
-* [智能检测 - 失败异常](../../azure-monitor/app/proactive-failure-diagnostics.md)。 我们使用机器学习，通过与负载和其他因素相关为应用设置预期的失败请求速率。 如果失败率超出预期的包络线，我们将发送警报。
-* [智能检测 - 性能异常](../../azure-monitor/app/proactive-performance-diagnostics.md)。 如果操作的响应时间或依赖关系的持续时间比历史基线慢，或者如果我们在响应时间或页面加载时间中识别到异常模式，会收到通知。   
-* 一般降级和问题，如[跟踪降级](/azure-monitor/app/proactive-trace-severity)、[内存泄漏](/azure-monitor/app/proactive-potential-memory-leak)、[异常量增加](/azure-monitor/app/proactive-exception-volume)和[安全反模式](/azure-monitor/app/proactive-application-security-detection-pack)。
+* [智能检测 - 失败异常](./proactive-failure-diagnostics.md)。 我们使用机器学习，通过与负载和其他因素相关为应用设置预期的失败请求速率。 如果失败率超出预期的包络线，我们将发送警报。
+* [智能检测 - 性能异常](./proactive-performance-diagnostics.md)。 如果操作的响应时间或依赖关系的持续时间比历史基线慢，或者如果我们在响应时间或页面加载时间中识别到异常模式，会收到通知。   
+* 一般降级和问题，如[跟踪降级](./proactive-trace-severity.md)、[内存泄漏](./proactive-potential-memory-leak.md)、[异常量增加](./proactive-exception-volume.md)和[安全反模式](./proactive-application-security-detection-pack.md)。
 
 （每个通知中的帮助链接可转到相关文章。）
 
@@ -47,19 +47,19 @@ ms.locfileid: "87244623"
 
 可以通过打开智能检测“设置”边栏选项卡并选择规则（这将打开“编辑规则”边栏选项卡）来为特定的智能检测规则配置电子邮件通知。
 
-另外，还可以使用 Azure 资源管理器模板来更改配置。 有关更多详细信息，请参阅[使用 Azure 资源管理器模板管理 Application Insights 智能检测规则](/azure-monitor/app/proactive-arm-config)。
+另外，还可以使用 Azure 资源管理器模板来更改配置。 有关更多详细信息，请参阅[使用 Azure 资源管理器模板管理 Application Insights 智能检测规则](./proactive-arm-config.md)。
 
 
 ## <a name="next-steps"></a>后续步骤
 这些诊断工具可帮助检查应用中的遥测数据：
 
-* [指标资源管理器](../../azure-monitor/platform/metrics-charts.md)
-* [搜索资源管理器](../../azure-monitor/app/diagnostic-search.md)
-* [分析 - 功能强大的查询语言](../../azure-monitor/log-query/get-started-portal.md)
+* [指标资源管理器](../platform/metrics-charts.md)
+* [搜索资源管理器](./diagnostic-search.md)
+* [分析 - 功能强大的查询语言](../log-query/get-started-portal.md)
 
 智能检测是完全自动执行的。 但是或许你想要设置更多的警报？
 
-* [手动配置的指标警报](../../azure-monitor/platform/alerts-log.md)
-* [可用性 Web 测试](../../azure-monitor/app/monitor-web-app-availability.md) 
+* [手动配置的指标警报](../platform/alerts-log.md)
+* [可用性 Web 测试](./monitor-web-app-availability.md) 
 
 

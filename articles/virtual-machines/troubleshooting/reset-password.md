@@ -2,9 +2,7 @@
 title: 如何在 Azure VM 上重置本地 Linux 密码 | Azure
 description: 在 Azure VM 上重置本地 Linux 密码的步骤简介
 services: virtual-machines-linux
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -16,12 +14,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: dee623db57daf9cad4a3c7a9595ca33ec61a5358
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 91d05976e994ea1414f85422266ad118a767cbde
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456859"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105405"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>如何在 Azure VM 上重置本地 Linux 密码
 

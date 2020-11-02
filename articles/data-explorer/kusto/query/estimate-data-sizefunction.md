@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 estimate_data_size()
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 93a0af59d4d8171ddfe3426432da6337acd419c9
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 0d5256dc612df4dd901cba1c3f113a03ce160500
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105521"
 ---
 # <a name="estimate_data_size"></a>estimate_data_size()
 
@@ -25,21 +25,21 @@ estimate_data_size(*)
 estimate_data_size(Col1, Col2, Col3)
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 `estimate_data_size(*)`
 
 `estimate_data_size(`*col1*`, `*col2*`, `...`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * col1、col2：选择用于数据大小估算的源表格表达式中的列引用。 若要包括所有列，请使用 `*`（星号）语法。
 
-**返回**
+## <a name="returns"></a>返回
 
 * 记录的估计数据大小（以字节为单位）。 根据数据类型和值的长度进行估算。
 
-**示例**
+## <a name="examples"></a>示例
 
 使用 `estimated_data_size()` 计算总数据大小：
 

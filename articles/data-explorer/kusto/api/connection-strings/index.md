@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/30/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: dfdd1ea07658160019f63c875a14dc418e82740d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 8c99f43ee224f20fb6e6457e00d17945b7e7474e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515673"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105066"
 ---
 # <a name="connection-strings"></a>连接字符串
 

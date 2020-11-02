@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 notbetween 运算符
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: 4c12f8be969bd8259a70f87745936d11bd82a992
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: c8729e756afecb338d350b407c4615a005b0bb6b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841525"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103854"
 ---
 # <a name="not-between-operator-between"></a>not-between 运算符 (!between)
 
@@ -27,7 +27,7 @@ Table1 | where Time !between (datetime(2017-01-01) .. datetime(2017-01-01))
 
 `!between` 可以对任何数值、日期时间或时间跨度表达式执行运算。
  
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `|` `where` *expr* `!between` `(`*leftRange*` .. `*rightRange*`)`   
  
@@ -35,18 +35,18 @@ Table1 | where Time !between (datetime(2017-01-01) .. datetime(2017-01-01))
 
 *T* `|` `where` *expr* `!between` `(`*leftRangeDateTime*` .. `*rightRangeTimespan*`)`   
 
-**参数**
+## <a name="arguments"></a>参数
 
 * *T* - 待匹配记录的表格输入。
 * *expr* - 要筛选的表达式。
 * *leftRange* - 左侧范围（含）的表达式。
 * *rightRange* - 右侧范围（含）的表达式。
 
-**返回**
+## <a name="returns"></a>返回
 
 T 中的行，其（expr  <  leftRange 或 expr  >  rightRange）的谓词的计算结果为 `true`    。
 
-**示例**  
+## <a name="examples"></a>示例  
 
 **使用“!between”运算符筛选数值**  
 

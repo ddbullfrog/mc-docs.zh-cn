@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/08/2019
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 07aba5a54cd264074091652c54a7106af041765b
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: 1832c51690404edb84acefe7d89c052bc8b3f43d
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211870"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628259"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
@@ -41,8 +41,8 @@ ms.locfileid: "92211870"
 - **[Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)** (Microsoft.KeyVault)：在所有 Azure 区域已推出正式版。
 - **[Azure 服务总线](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)** (Microsoft.ServiceBus)：在所有 Azure 区域已推出正式版。
 
-    <!--Not Available on - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)-->
-    <!--Not Available on - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fvirtual-network%2ftoc.json)-->
+    <!--Not Available on - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)-->
+    <!--Not Available on - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md)-->
 
 - [Azure 应用服务](https://docs.azure.cn/app-service/app-service-ip-restrictions) ( *Microsoft.Web* )：通常可在应用服务可用的所有 Azure 区域中使用。
 
@@ -84,7 +84,7 @@ ms.locfileid: "92211870"
 
 默认情况下，无法从本地网络访问在虚拟网络中保护的 Azure 服务资源。 要允许来自本地的流量，还必须允许来自本地或 ExpressRoute 的公共（通常为 NAT）IP 地址。 可通过 Azure 服务资源的 IP 防火墙配置添加这些 IP 地址。
 
-ExpressRoute：如果在本地使用 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json) 进行公共对等互连或 Azure 对等互连，则需标识所用的 NAT IP 地址。 进行公共对等互连时，每条 ExpressRoute 线路默认情况下会使用两个 NAT IP 地址。当流量进入 Azure 网络主干时，会向 Azure 服务流量应用这些地址。 进行 Azure 对等互连时，NAT IP 地址由客户或服务提供商提供。 若要允许访问服务资源，必须在资源 IP 防火墙设置中允许这些公共 IP 地址。 若要查找公共对等互连 ExpressRoute 线路 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://support.azure.cn/support/support-azure/)。 若要详细了解 ExpressRoute 公共对等互连和 Azure 对等互连的 NAT，请参阅 [ExpressRoute NAT 要求](../expressroute/expressroute-nat.md?toc=%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)。
+ExpressRoute：如果在本地使用 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json) 进行公共对等互连或 Azure 对等互连，则需标识所用的 NAT IP 地址。 进行公共对等互连时，每条 ExpressRoute 线路默认情况下会使用两个 NAT IP 地址。当流量进入 Azure 网络主干时，会向 Azure 服务流量应用这些地址。 进行 Azure 对等互连时，NAT IP 地址由客户或服务提供商提供。  若要允许访问服务资源，必须在资源 IP 防火墙设置中允许这些公共 IP 地址。 若要查找公共对等互连 ExpressRoute 线路 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://support.azure.cn/support/support-azure/)。 若要详细了解 ExpressRoute 公共对等互连和 Azure 对等互连的 NAT，请参阅 [ExpressRoute NAT 要求](../expressroute/expressroute-nat.md?toc=%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)。
 
 ![在虚拟网络中保护 Azure 服务](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 

@@ -2,9 +2,7 @@
 title: 导出包含 VM 扩展的 Azure 资源组
 description: 导出包含虚拟机扩展的 Resource Manager 模板。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: gwallace
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 736988507d74664e131ea17ef9848a33b6c840af
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: ec7d3526e0b50c281e569856dd9447314d7a1862
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413726"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105576"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>导出包含 VM 扩展的资源组
 

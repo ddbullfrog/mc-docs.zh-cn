@@ -5,14 +5,14 @@ ms.topic: quickstart
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 07/15/2019
-ms.date: 08/18/2020
+ms.date: 10/29/2020
 ms.custom: mvc
-ms.openlocfilehash: cda158f30c9ffafe90961a6ef0058a0fe20107c3
-ms.sourcegitcommit: 06113a16e9d68fa9c47676d5454ac9a26f4518b8
+ms.openlocfilehash: 8a4024428761bd7fd8a161fa7bc2963123cea4db
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513437"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105547"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>快速入门：开始使用 Azure Monitor Application Insights 监视你的网站
 
@@ -22,7 +22,7 @@ ms.locfileid: "88513437"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+* 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 * 可以将 Application Insights JavaScript SDK 添加到其中的网站。
 
 ## <a name="enable-application-insights"></a>启用 Application Insights
@@ -33,7 +33,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 1. 选择“创建资源” > “管理工具” > “Application Insights”。
 
    > [!NOTE]
-   >如果这是你第一次创建 Application Insights 资源，请参阅[创建 Application Insights 资源](/azure-monitor/app/create-new-resource)。
+   >如果这是你第一次创建 Application Insights 资源，请参阅[创建 Application Insights 资源](./create-new-resource.md)。
 1. 显示配置框后，请使用下表填写输入字段：
 
     | 设置        | Value           | 说明  |
@@ -69,17 +69,22 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
 1. 将以下脚本添加到 ``hello_world.html`` 文件中的结束标记 ``</head>`` 之前：
 
-   ```javascript
-   <script type="text/javascript">
-      var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
-      {
-         instrumentationKey:"INSTRUMENTATION_KEY",
-         endpointUrl: "TelemetryChannel_Endpoint_Address"
-      }
-      );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-   </script>
-   ```
-
+    ```javascript
+    <script type="text/javascript">
+    !function(T,l,y){var S=T.location,u="script",k="instrumentationKey",D="ingestionendpoint",C="disableExceptionTracking",E="ai.device.",I="toLowerCase",b="crossOrigin",w="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"4",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[I](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,p,l,u;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][I]()]=i[1])}if(!e[D]){var r=e.endpointsuffix,o=r?e.location:null;e[D]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[k]||d[k]||"",p=s[D],l=p?p+"/v2/track":config.endpointUrl,(u=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=l,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),u.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,l)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:w,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(w,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(u,l))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(u);n.src=h;var e=y[b];return!e&&""!==e||"undefined"==n[b]||(n[b]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(u)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[C]&&!0!==s[C]){method="onerror",t(["_"+method]);var c=T[method];T[method]=function(e,t,n,a,i){var r=c&&c(e,t,n,a,i);return!0!==r&&m["_"+method]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);(T[t]=n).queue&&0===n.queue.length&&n.trackPageView({})}(window,document,{
+    src: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js", // The SDK URL Source
+    //name: "appInsights", // Global SDK Instance name defaults to "appInsights" when not supplied
+    //ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
+    //useXhr: 1, // Use XHR instead of fetch to report failures (if available),
+    //crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag 
+    cfg: { // Application Insights Configuration
+        instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE",
+    endpointUrl: "TelemetryChannel_Endpoint_Address"
+        /* ...Other Configuration Options... */
+    }});
+    </script>
+    ```
+    
 1. 编辑 ``hello_world.html``，添加检测密钥。
 
 1. 在本地浏览器会话中打开 ``hello_world.html``。 此操作创建单个页面视图。 可以刷新浏览器，生成多个测试性的页面视图。
@@ -113,19 +118,19 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
    ![一段时间内用户请求的分析图](./media/website-monitoring/analytics-query.png)
 
-1. 返回到“概览”页。 在“调查”标题下选择“浏览器”，然后选择“性能”  。  此时会显示与网站性能相关的指标。 有一个用于分析网站中故障和异常的相应视图。 可以选择“示例”来访问[端到端事务详细信息](../../azure-monitor/app/transaction-diagnostics.md)。
+1. 返回到“概览”页。 在“调查”标题下选择“浏览器”，然后选择“性能”  。  此时会显示与网站性能相关的指标。 有一个用于分析网站中故障和异常的相应视图。 可以选择“示例”来访问[端到端事务详细信息](./transaction-diagnostics.md)。
 
    ![“服务器指标”图](./media/website-monitoring/browser-performance.png)
 
-1. 在 Application Insights 主菜单的“使用情况”标题下选择“[用户](../../azure-monitor/app/usage-segmentation.md)”，开始探索[用户行为分析工具](../../azure-monitor/app/usage-overview.md) 。 由于我们是在单台计算机中进行测试，因此只会看到一个用户的数据。 对于实时网站，用户的分布可能如下所示：
+1. 在 Application Insights 主菜单的“使用情况”标题下选择“[用户](./usage-segmentation.md)”，开始探索[用户行为分析工具](./usage-overview.md) 。 由于我们是在单台计算机中进行测试，因此只会看到一个用户的数据。 对于实时网站，用户的分布可能如下所示：
 
      ![用户图](./media/website-monitoring/usage-users.png)
 
-1. 对于包含多个页面的复杂网站，可以使用[用户流](../../azure-monitor/app/usage-flows.md)工具跟踪访客在浏览网站各个部分时采用的路径。
+1. 对于包含多个页面的复杂网站，可以使用[用户流](./usage-flows.md)工具跟踪访客在浏览网站各个部分时采用的路径。
 
    ![用户流可视化](./media/website-monitoring/user-flows.png)
 
-若要了解更多用于监视网站的高级配置，请参阅 [JavaScript SDK API 参考](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)。
+若要了解更多用于监视网站的高级配置，请参阅 [JavaScript SDK API 参考](./javascript.md)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -135,10 +140,11 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 > 如果使用了现有资源组，则以下说明不适用。 只需删除单个 Application Insights 资源即可。 请记住，在删除某个资源组时，属于该组的所有底层资源也会一并删除。
 
 1. 在 Azure 门户的左侧菜单中选择“资源组”，然后选择“myResourceGroup”或临时资源组的名称。
-1. 在资源组页上选择“删除”，在文本框中输入 **myResourceGroup**，然后选择“删除”。
+1. 在资源组页上选择“删除”，在文本框中输入 **myResourceGroup** ，然后选择“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [查找和诊断性能问题](/azure-monitor/log-query/log-query-overview)
+> [查找和诊断性能问题](../log-query/log-query-overview.md)
+
 

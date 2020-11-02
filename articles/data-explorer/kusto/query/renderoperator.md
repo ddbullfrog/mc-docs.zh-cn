@@ -4,19 +4,19 @@ description: 本文介绍了 Azure 数据资源管理器中的 render 运算符�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/29/2020
-ms.date: 08/06/2020
+ms.date: 09/30/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: fe75cef4168bedd6140a8f20ab8e319ae8c492e0
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.openlocfilehash: cd5eb77db1251f3446e840ffe0251827ee902720
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841433"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105024"
 ---
 # <a name="render-operator"></a>render 运算符
 
@@ -31,7 +31,7 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 > * Render 运算符不修改数据。 它在结果的扩展属性中注入注释（“可视化效果”）。 注释包含由查询中的运算符提供的信息。
 > * 可视化效果信息的解释由用户代理来完成。 不同的代理（例如 Kusto.Explorer、Kusto.WebExplorer）可能支持不同的可视化效果。
 
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `|` `render` *Visualization* [`with` `(` *PropertyName* `=` *PropertyValue* [`,` ...] `)`]
 
@@ -127,8 +127,8 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 |               |`unstacked`        |与 `default` 相同。                 |
 |               |`stacked`          |将“柱形”一个接一个地堆叠。|
 |               |`stacked100`       |对“柱形”进行堆叠，并将每个柱形拉伸到与其他柱形相同的高度。|
+|`scatterchart` |`map`              |预期的柱形为 [经度，纬度] 或 GeoJSON 点。 系列列是可选的。|
 |`piechart`     |`map`              |预期的柱形为 [经度，纬度] 或 GeoJSON 点、颜色轴和数值。 在 Kusto 资源管理器桌面中受支持。|
-|`scatterchart` |`map`              |预期的柱形为 [经度，纬度] 或 GeoJSON 点。 系列列是可选的。 在 Kusto 资源管理器桌面中受支持。|
 
 ::: zone pivot="azuredataexplorer"
 
@@ -156,7 +156,7 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 > * 对数据进行排序以定义 x 轴的顺序。
 > * 用户代理可以自由地“推测”查询未指定的属性的值。 需要特别注意的是，在结果架构中提高“不感兴趣的”列可能会导致推测错误。 如果出现这种情况，请尝试通过 project-away 运算符排除此类列。 
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

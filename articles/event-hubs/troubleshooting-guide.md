@@ -5,12 +5,12 @@ ms.topic: article
 origin.date: 06/23/2020
 ms.date: 08/21/2020
 ms.author: v-tawe
-ms.openlocfilehash: 12f6392c0efbe7ac8db1a98e63ab001c7d59e598
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 9496634e71476da8e313f68a9b358b8cc9d2ece1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715145"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103531"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>排查连接问题 - Azure 事件中心
 客户端应用程序无法连接到事件中心的原因有很多。 你遇到的连接问题可能是永久性的，也可能是暂时性的。 如果问题一直发生（永久性的），则可能需要检查连接字符串、组织的防火墙设置、IP 防火墙设置、网络安全设置（服务终结点、专用终结点等），等等。 对于暂时性问题，升级到最新版本的 SDK、运行命令来检查丢弃的数据包以及获取网络跟踪可能有助于解决问题。 
@@ -89,7 +89,7 @@ When you create a virtual network service endpoint for an event hub namespace, t
 ### Check the IP Firewall settings for your namespace
 Check that the public IP address of the machine on which the application is running isn't blocked by the IP firewall.  
 
-By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
+By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in CIDR (Classless Inter-Domain Routing) notation.
 
 The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
@@ -124,13 +124,13 @@ For more information, see [Configure private endpoints](private-link-service.md)
 
 浏览至 `https://<yournamespacename>.servicebus.chinacloudapi.cn/` 或使用 [wget](https://www.gnu.org/software/wget/)。 这可帮助检查是否存在 IP 筛选或虚拟网络或证书链问题（使用 Java SDK 时最常见）。
 
-**成功消息**的示例：
+**成功消息** 的示例：
 
 ```xml
 <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
 ```
 
-**失败错误消息**的示例：
+**失败错误消息** 的示例：
 
 ```json
 <Error>

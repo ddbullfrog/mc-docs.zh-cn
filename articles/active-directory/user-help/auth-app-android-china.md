@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 05/25/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
-ms.openlocfilehash: fa0b62152d350aa323a27d5df2457ba9ebc37c81
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: b183062d7314c73f30690ac50f230bcc7a649317
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186950"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750006"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>中国公有云中的适用于 Android 的 Microsoft Authenticator
 
@@ -38,7 +38,7 @@ ms.locfileid: "84186950"
 
 - 不能将 Authenticator 应用注册为一种使用推送通知的多重身份验证 (MFA) 方法。
 
-- 无法设置[手机登录](../authentication/howto-authentication-sms-signin.md)。 它要求用户将该应用设置为一种使用推送通知的 MFA 方法，而这目前无法做到。
+-  无法设置手机登录。 它要求用户将该应用设置为一种使用推送通知的 MFA 方法，而这目前无法做到。
 
 如果用户以前使用该应用成功设置了手机登录或多重身份验证，则可在该应用中手动检查通知请求并将其用于身份验证。
 

@@ -2,7 +2,6 @@
 title: 在 Azure 中远程连接到 Windows 10 或 Windows Server 2016 数据中心时，对 netvsc.sys 问题进行故障排除 | Azure
 description: 了解在 Azure 中连接到 Windows 10 或 Windows Server 2016 数据中心时如何对与 netsvc.sys 相关的 RDP 问题进行故障排除。
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: fc6ccb2c0f6294b1f2de8e209146c4cd8898b87e
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 5a0d6df6229057d2d547d591b3c99cd5392aa6c8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456773"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104348"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-datacenter-in-azure-because-of-netvscsys"></a>由于 netvsc.sys，无法在 Azure 中远程连接到 Windows 10 或 Windows Server 2016 数据中心
 
@@ -74,8 +73,8 @@ ms.locfileid: "89456773"
 
 12. 下载相应的更新：
 
-    - **10.0.14393.594**：[KB4073562](https://support.microsoft.com/help/4073562)  或更高版本的更新
-    - **10.0.15063.0**：[KB4016240](https://support.microsoft.com/help/4016240) 或更高版本的更新
+    - **10.0.14393.594** ： [KB4073562](https://support.microsoft.com/help/4073562)  或更高版本的更新
+    - **10.0.15063.0** ： [KB4016240](https://support.microsoft.com/help/4016240) 或更高版本的更新
 
 13. 将系统磁盘作为数据磁盘附加到可以下载更新的安全 VM 上。
 

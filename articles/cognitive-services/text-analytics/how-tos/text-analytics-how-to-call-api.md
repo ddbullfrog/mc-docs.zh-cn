@@ -3,30 +3,32 @@ title: 调用文本分析 API
 titleSuffix: Azure Cognitive Services
 description: 本文说明如何调用 Azure 认知服务文本分析 REST API 和 Postman。
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 origin.date: 07/30/2019
-ms.date: 02/25/2020
-ms.author: v-lingwu
-ms.openlocfilehash: 40dd9d8ad1ed0e9957ef8e7d4c7bb63ef2243671
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.date: 10/26/2020
+ms.author: v-johya
+ms.openlocfilehash: 1e52bdaef6c52bb1573de88eabf9022997981ddc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211349"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105624"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>如何调用文本分析 REST API
 
-对文本分析 API  的调用为 HTTP POST/GET 调用，可以用任何语言表示。 在本文中，我们将使用 REST 和 Postman 来演示这些关键概念。
+对文本分析 API  的调用为 HTTP POST/GET 调用，可以用任何语言表示。 在本文中，我们将使用 REST 和 [Postman](https://www.postman.com/downloads/) 来演示这些关键概念。
 
 每个请求必须包括访问密钥和 HTTP 终结点。 终结点指定你在注册期间选择的区域、服务 URL 和在请求上使用的资源：`sentiment`、`keyphrases`、`languages` 和 `entities`。 
 
 回想一下，文本分析是无状态的，因此，没有任何要管理的数据资产。 收到文本后将对其进行上传和分析，其结果会立即返回到调用应用程序。
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -44,9 +46,33 @@ ms.locfileid: "92211349"
 |---------|--------------|-----------|-------|
 |`id` |数据类型为字符串，但实际上文档 ID 往往是整数。 | 必选 | 系统使用你提供的 ID 来构建输出。 为请求中的每个 ID 生成语言代码、关键短语和情绪分数。|
 |`text` | 非结构化原始文本，最多 5,120 个字符。 | 必选 | 对于语言检测，可以使用任何语言来表示文本。 对于情绪分析、关键短语提取和实体标识，此文本必须使用[支持的语言](../text-analytics-supported-languages.md)。 |
-|`language` | [支持语言](../text-analytics-supported-languages.md)的 2 字符 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 代码 | 不定 | 需要情绪分析、关键短语提取、实体链接；语言检测为可选。 排除语言检测不会有任何错误，但没有它会削弱分析。 语言代码应对应你提供的 `text`。 |
+|`language` | [支持语言](../text-analytics-supported-languages.md)的 2 字符 ISO 639-1 代码 | 不定 | 需要情绪分析、关键短语提取、实体链接；语言检测为可选。 排除语言检测不会有任何错误，但没有它会削弱分析。 语言代码应对应你提供的 `text`。 |
 
 有关限制的详细信息，请参阅[文本分析概述 > 数据限制](../overview.md#data-limits)。 
+
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Sample text to be sent to the text analytics api."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    },
+    {
+      "language": "en",
+      "id": "3",
+      "text": "Pike place market is my favorite Seattle attraction."
+    }
+  ]
+}
+```
+
 
 ## <a name="set-up-a-request-in-postman"></a>在 Postman 中设置请求
 
@@ -60,10 +86,10 @@ ms.locfileid: "92211349"
 
    资源终结点如下所示（你的区域可能有所不同）：
 
-   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/sentiment`
-   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/keyPhrases`
-   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/languages`
-   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/entities`
+   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v3.0/sentiment`
+   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v3.0/keyPhrases`
+   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v3.0/languages`
+   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v3.0/entities/recognition/general`
 
 2. 设置三个请求标头：
 

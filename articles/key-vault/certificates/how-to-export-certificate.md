@@ -8,14 +8,15 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
-ms.date: 08/11/2020
-ms.author: sebansal
-ms.openlocfilehash: cc993c17d1be44e846be7b8f751a2d3c9d2aee27
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+origin.date: 08/11/2020
+ms.date: 10/30/2020
+ms.author: v-tawe
+ms.openlocfilehash: 153eaf1f4e8bff5e04ed2e32d25b14cd29ef8b7b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678517"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104767"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>从 Azure Key Vault 中导出证书
 
@@ -33,8 +34,8 @@ ms.locfileid: "90678517"
 
 创建 Key Vault 证书后，可以使用私钥从可寻址机密中检索该证书。 以 PFX 或 PEM 格式检索证书。
 
-- **可导出**：用于创建证书的策略指示密钥可导出。
-- **不可导出**：用于创建证书的策略指示密钥不可导出。 在这种情况下，当以机密的形式进行检索时，私钥不是值的一部分。
+- **可导出** ：用于创建证书的策略指示密钥可导出。
+- **不可导出** ：用于创建证书的策略指示密钥不可导出。 在这种情况下，当以机密的形式进行检索时，私钥不是值的一部分。
 
 支持的 KeyType：RSA、RSA-HSM、EC、EC-HSM 等（参见[此处](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)）“可导出”状态仅与 RSA 和 EC 一起使用。 HSM 密钥不可导出。
 

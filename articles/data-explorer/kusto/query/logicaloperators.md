@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的逻辑（二元）运
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 11/14/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: 1134582704cd82d675b570f3ef2f0896cf38358e
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: dab0433336f57440544dfbf25d84184f50ae9587
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841305"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105512"
 ---
 # <a name="logical-binary-operators"></a>逻辑（二进制）运算符
 

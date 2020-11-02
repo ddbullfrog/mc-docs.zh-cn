@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
-ms.openlocfilehash: ec883cd7d97b703c2f9fa9a06e458cbf8105b3cb
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: fc8c2e7025f9e7332267bbfaa8a8cbbb5a0ad110
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041594"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749787"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>快速入门：在 Azure Active Directory (Azure AD) 租户中配置应用程序的属性
 
@@ -40,10 +40,7 @@ ms.locfileid: "92041594"
 
 1. 在 Azure AD 门户中，选择“企业应用程序”。 然后找到并选择要配置的应用程序。
 2. 在“管理”部分中，选择“属性”以打开“属性”窗格进行编辑  。
-
-    ![“属性”屏幕的屏幕截图，其中显示可编辑的应用属性。](./media/add-application-portal/edit-properties.png)
-
-3. 请花点时间了解可用于配置的选项：
+3. 请花点时间了解可用选项。 可用选项将取决于应用与 Azure AD 集成的方式。 另请注意，默认情况下，通过“Azure Active Directory”>“应用注册”添加的应用是基于 OIDC 的应用。 而通过“Azure Active Directory”>“企业应用程序”添加的应用可能会使用多种单一登录标准中的任何一种。 所有应用都将具有用于配置何时显示和使用应用的字段。 这些字段是：
     - “是否启用以供用户登录?”决定分配到应用程序的用户能否登录。
     - “是否需要进行用户分配?”决定了未分配到应用程序的用户能否登录。
     - “是否对用户可见?”决定分配到应用的用户能否在[我的应用](https://account.activedirectory.windowsazure.cn/r#/applications)和 Microsoft 365 应用启动器中看到该应用。 （请参阅 Microsoft 365 网站左上角的华夫饼菜单。）
@@ -81,6 +78,18 @@ ms.locfileid: "92041594"
    > [!NOTE]
    > 此“属性”窗格中显示的缩略图不会立即更新。 可以关闭并重新打开“属性”窗格以查看更新的图标。
 
+
+## <a name="add-notes"></a>添加注释
+
+可使用“注释”字段来添加与 Azure AD 中的应用程序管理相关的任何信息。 注释是免费文本字段，最大大小为 1024 个字符。
+
+1. 在 Azure AD 门户中，选择“企业应用程序”。 然后找到并选择要配置的应用程序。
+2. 在“管理”部分中，选择“属性”以打开“属性”窗格进行编辑  。
+3. 更新“注释”字段，然后选择“保存”。
+
+    ![显示如何更改注释的“属性”屏幕的屏幕截图](./media/add-application-portal/notes-application.png)
+
+    
 ## <a name="clean-up-resources"></a>清理资源
 
 如果你不打算继续学习快速入门系列，请考虑删除应用以清理测试租户。 本系列中的最后一个快速入门介绍如何删除应用，请参阅[删除应用](delete-application-portal.md)。

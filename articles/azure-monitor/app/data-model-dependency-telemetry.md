@@ -2,21 +2,20 @@
 title: Azure Monitor Application Insights 依赖关系数据模型
 description: 适用于依赖项遥测的 Application Insights 数据模型
 ms.topic: conceptual
-author: lingliw
+ms.date: 10/29/2020
 origin.date: 04/17/2017
-ms.date: 6/4/2019
 ms.reviewer: sergkanz
-ms.author: v-lingwu
-ms.openlocfilehash: f452095dc4a7249b33474ecd37def37b885f63dd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.author: v-johya
+ms.openlocfilehash: 360e1f5ab55cc7e489f94c6e84f6b50ce307ae60
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850439"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104319"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>依赖项遥测：Application Insights 数据模型
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的依赖项遥测表示受监视组件与远程组件（如 SQL 或 HTTP 终结点）的交互。
+[Application Insights](./app-insights-overview.md) 中的依赖项遥测表示受监视组件与远程组件（如 SQL 或 HTTP 终结点）的交互。
 
 ## <a name="name"></a>名称
 
@@ -24,7 +23,7 @@ ms.locfileid: "78850439"
 
 ## <a name="id"></a>ID
 
-依赖项调用实例的标识符。 用于与此依赖项调用所对应的请求遥测项关联。 有关详细信息，请参阅[关联](../../azure-monitor/app/correlation.md)页。
+依赖项调用实例的标识符。 用于与此依赖项调用所对应的请求遥测项关联。 有关详细信息，请参阅[关联](./correlation.md)页。
 
 ## <a name="data"></a>data
 
@@ -36,7 +35,7 @@ ms.locfileid: "78850439"
 
 ## <a name="target"></a>目标
 
-依赖项调用的目标站点。 示例包括服务器名称、主机地址。 有关详细信息，请参阅[关联](../../azure-monitor/app/correlation.md)页。
+依赖项调用的目标站点。 示例包括服务器名称、主机地址。 有关详细信息，请参阅[关联](./correlation.md)页。
 
 ## <a name="duration"></a>Duration
 
@@ -61,12 +60,10 @@ ms.locfileid: "78850439"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 为 [.NET](../../azure-monitor/app/asp-net-dependencies.md) 设置依赖项跟踪。
-- 为 [Java](../../azure-monitor/app/java-agent.md) 设置依赖项跟踪。
-- [编写自定义依赖项遥测](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
+- 为 [.NET](./asp-net-dependencies.md) 设置依赖项跟踪。
+- 为 [Java](./java-agent.md) 设置依赖项跟踪。
+- [编写自定义依赖项遥测](./api-custom-events-metrics.md#trackdependency)
 - 有关 Application Insights 的类型和数据模型，请参阅[数据模型](data-model.md)。
-- 查看 Application Insights 支持的[平台](../../azure-monitor/app/platforms.md)。
-
-
+- 查看 Application Insights 支持的[平台](./platforms.md)。
 
 

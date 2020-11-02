@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 Datetime / timespan 
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 11/27/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 0ecf9e1e85efe965dbffa75e2cf49c067d2b34d0
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 4a2cffa1236c0cef491565d0526afd0559c9d128
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841290"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104275"
 ---
 # <a name="datetime--timespan-arithmetic"></a>Datetime / timespan 算术
 

@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 basket 插件。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/26/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 44f479535d6e328d995f62ae85494b3935d1d932
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: bbdb01c63c728514878e298ba26332337d4a9797
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515988"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104040"
 ---
 # <a name="basket-plugin"></a>basket 插件
 
@@ -37,7 +37,7 @@ Basket 返回出现在行的比率阈值以上的所有频繁模式。 默认阈
 
 **参数（全部可选）**
 
-`T | evaluate basket(`[*Threshold*, *WeightColumn*, *MaxDimensions*, *CustomWildcard*, *CustomWildcard*, ...]`)`
+`T | evaluate basket(`[ *Threshold* , *WeightColumn* , *MaxDimensions* , *CustomWildcard* , *CustomWildcard* , ...]`)`
 
 所有参数都为可选参数，但必须按上述方式进行排序。 若要指示应使用默认值，请使用字符串波形值 -“~”。 请参阅以下示例。
 

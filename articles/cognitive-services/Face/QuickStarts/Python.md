@@ -3,33 +3,37 @@ title: 快速入门：使用 Azure REST API 和 Python 检测图像中的人脸
 titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，请使用 Azure 人脸 REST API 和 Python 检测图像中的人脸。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 07/10/2019
-ms.author: v-junlch
-ms.openlocfilehash: 35d8b94ca7489d754e31761abac8b8991d73fb4f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.custom: devx-track-python
+ms.openlocfilehash: cf7b3cce5fba2a529efdb85d3d3590a5f3c4d998
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71119545"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104071"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>快速入门：使用人脸 REST API 和 Python 检测图像中的人脸
 
-在本快速入门中，请使用 Azure 人脸 REST API 和 Python 检测图像中的人脸。 此脚本会在图像上围绕人脸绘制相应的框，并添加性别和年龄信息。
+本快速入门将通过 Python 使用 Azure 人脸 REST API 来检测图像中的人脸。 此脚本会在图像上围绕人脸绘制相应的框，并添加性别和年龄信息。
 
 ![一位男士和一位女士，在图像中，每一位的面部都绘制了矩形并显示了年龄和性别](../images/labelled-faces-python.png)
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services/)。 
 
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-- 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
+* Azure 订阅 - [免费创建订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesFace"  title="创建人脸资源"  target="_blank">创建人脸资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
+    * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到人脸 API。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
+    * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
 
 ## <a name="run-the-jupyter-notebook"></a>运行 Jupyter Notebook
 
@@ -44,29 +48,27 @@ ms.locfileid: "71119545"
 1. 将以下代码复制到文本编辑器中。
 1. 必要时在代码中进行如下更改：
     1. 将 `subscription_key` 的值替换为你的订阅密钥。
-    1. 如有必要，请将 `face_api_url` 的值替换为获取的订阅密钥所在的 Azure 区域中的人脸 API 资源的终结点 URL。
+    1. 编辑 `face_api_url` 的值，以包含人脸 API 资源的终结点 URL。
     1. （可选）将 `image_url` 的值替换为要分析的其他图像的 URL。
-1. 将代码保存为以 `.py` 为扩展名的文件。 例如，`detect-face.py` 。
+1. 将代码保存为以 `.py` 为扩展名的文件。 例如，`detect-face.py`。
 1. 打开命令提示符窗口。
-1. 在提示符处，使用 `python` 命令运行示例。 例如，`python detect-face.py` 。
+1. 在提示符处，使用 `python` 命令运行示例。 例如，`python detect-face.py`。
 
 ```python
-import requests
-import json
+import json, os, requests
 
-subscription_key = None
+subscription_key = os.environ['FACE_SUBSCRIPTION_KEY']
 assert subscription_key
 
-face_api_url = 'https://api.cognitive.azure.cn/face/v1.0/detect'
+face_api_url = os.environ['FACE_ENDPOINT'] + '/face/v1.0/detect'
 
-image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
+image_url = 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/faces.jpg'
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 
 params = {
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'detectionModel': 'detection_02',
+    'returnFaceId': 'true'
 }
 
 response = requests.post(face_api_url, params=params,
@@ -74,11 +76,37 @@ response = requests.post(face_api_url, params=params,
 print(json.dumps(response.json()))
 ```
 
-> [!NOTE]
-> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/detect` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/detect`。
 ## <a name="examine-the-response"></a>检查响应
 
 成功的响应以 JSON 格式返回。
+
+```json
+[
+  {
+    "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>提取人脸属性
+ 
+若要提取人脸属性，请使用检测模型 1 并添加 `returnFaceAttributes` 查询参数。
+
+```python
+params = {
+    'detectionModel': 'detection_01',
+    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'returnFaceId': 'true'
+}
+```
+
+响应现在包含人脸属性。 例如：
 
 ```json
 [
@@ -266,4 +294,3 @@ print(json.dumps(response.json()))
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: code update -->

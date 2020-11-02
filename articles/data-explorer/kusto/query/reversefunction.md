@@ -4,36 +4,36 @@ description: 本文介绍 Azure 数据资源管理器中的 reverse()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 730ca320b43152a2f1cee2165bbdd823ebea1e76
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 0069a9de66aca540c369b6cf462aaa92d3062a4c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841496"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105015"
 ---
 # <a name="reverse"></a>reverse()
 
 此函数会反转输入字符串的顺序。
 如果输入值不是 `string` 类型，则函数会强制将值转换为 `string` 类型。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `reverse(`*source*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * source：输入值。  
 
-**返回**
+## <a name="returns"></a>返回
 
 字符串值的逆序排序形式。
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 print str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

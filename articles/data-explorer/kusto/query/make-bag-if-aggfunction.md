@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 make_bag_if()（聚�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 91aee26284726d541d28fef8492602eb20dfc062
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 422fd456ea65d5977fd709d75a551f1e15ef22a9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841374"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105593"
 ---
 # <a name="make_bag_if-aggregation-function"></a>make_bag_if()（聚合函数）
 
@@ -23,17 +23,17 @@ ms.locfileid: "87841374"
 > [!NOTE]
 > 只能在 [summarize](summarizeoperator.md) 内的聚合上下文中使用。
 
-**语法**
+## <a name="syntax"></a>语法
 
-`summarize` `make_bag_if(`*Expr*, *Predicate* [`,` *MaxSize*]`)`
+`summarize` `make_bag_if(`*Expr* , *Predicate* [`,` *MaxSize* ]`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Expr：将用于聚合计算的 `dynamic` 类型的表达式。
-* *谓词*：必须计算为 `true` 的谓词，用于将“Expr”添加到结果中。
+* *谓词* ：必须计算为 `true` 的谓词，用于将“Expr”添加到结果中。
 * MaxSize：对返回元素最大数目的可选整数限制（默认值是 1048576）。 MaxSize 值不能超过 1048576。
 
-**返回**
+## <a name="returns"></a>返回
 
 返回组中“Expr”的所有值（属性包（字典））的 `dynamic` (JSON) 属性包（字典），其 Predicate 的计算结果为 `true`。
 将跳过非字典值。
@@ -42,7 +42,7 @@ ms.locfileid: "87841374"
 > [!NOTE]
 > [`make_bag`](./make-bag-aggfunction.md) 函数类似于不带谓词表达式的 make_bag_if()。
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 let T = datatable(prop:string, value:string, predicate:bool)

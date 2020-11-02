@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 origin.date: 07/22/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 7a3c26bd2f10eaa909b961b3bf230eca50038b9f
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: 3605676cea150de59574d25828f3d1dc71bc19cf
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515871"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105180"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>快速入门：创建 Azure 数据资源管理器群集和数据库
 
@@ -23,6 +23,7 @@ ms.locfileid: "88515871"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
+> * [Go](create-cluster-database-go.md)
 > * [ARM 模板](create-cluster-database-resource-manager.md)
 
 
@@ -52,7 +53,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
     **设置** | **建议的值** | **字段说明**
     |---|---|---|
-    | 订阅 | 你的订阅 | 选择要用于群集的 Azure 订阅。|
+    | 订阅 | 订阅 | 选择要用于群集的 Azure 订阅。|
     | 资源组 | 你的资源组 | 使用现有资源组或创建新资源组。 |
     | 群集名称 | 唯一的群集名称 | 选择用于标识群集的唯一名称。 域名 *[region].kusto.chinacloudapi.cn* 将追加到所提供的群集名称。 名称只能包含小写字母和数字。 它必须包含 4 到 22 个字符。
     | 区域 | “中国东部 2”或“中国北部 2”  | 对于本快速入门，请选择“中国东部 2”或“中国北部 2”（如果使用可用性区域） 。 对于生产系统，请选择最能满足你需求的区域。
@@ -62,7 +63,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 1. 选择“查看 + 创建”以查看群集的详细信息，选择“创建”以预配群集 。 预配通常需要大约 10 分钟。
 
-1. 部署完成后，选择“转到资源”。
+1. 部署完成后，选择“转到资源”。 
 
     ![转到资源](media/create-cluster-database-portal/notification-resource.png)
 

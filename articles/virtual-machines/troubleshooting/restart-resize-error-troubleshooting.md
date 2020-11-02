@@ -2,9 +2,7 @@
 title: Azure 中的 VM 重新启动或大小调整问题 | Azure
 description: 排查在 Azure 中重启现有虚拟机或重设其大小时遇到的资源管理器部署问题
 services: virtual-machines
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 0756b52d-4f5a-4503-ae45-c00a6a2edcdf
 ms.service: virtual-machines
@@ -16,12 +14,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef887f4237cfb28454625c69d34cfccb2f57a60a
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 8f8fb924df5793b8abc44dead23741da771fbd45
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456857"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104984"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>排查在 Azure 中重新启动现有 Windows VM 或调整其大小时遇到的部署问题
 尝试启动已停止的 Azure 虚拟机 (VM)，或调整现有 Azure VM 的大小时，经常遇到的错误是分配失败。 当群集或区域没有可用的资源或无法支持所请求的 VM 大小时，将发生此错误。

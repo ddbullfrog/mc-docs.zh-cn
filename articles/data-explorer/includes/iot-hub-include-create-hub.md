@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: include
 origin.date: 02/14/2020
-ms.date: 08/18/2020
+ms.date: 10/29/2020
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: ff555189ec56180ddbe4ea913b9b1c132a9ac2fd
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: 850356be34163e7a7947282828ce51b2d132d9c3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "91146721"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104080"
 ---
 此部分介绍如何使用 [Azure 门户](https://portal.azure.cn)创建 IoT 中心。
 
@@ -28,11 +28,11 @@ ms.locfileid: "91146721"
 
    - 订阅：选择要用于中心的订阅。
 
-   - **资源组**：选择一个资源组或新建一个资源组。 若要新建资源组，请选择“新建”并填写要使用的名称。 若要使用现有的资源组，请选择它。 有关详细信息，请参阅[管理 Azure 资源管理器资源组](/azure-resource-manager/management/manage-resource-groups-portal)。
+   - **资源组** ：选择一个资源组或新建一个资源组。 若要新建资源组，请选择“新建”并填写要使用的名称。 若要使用现有的资源组，请选择它。 有关详细信息，请参阅[管理 Azure 资源管理器资源组](/azure-resource-manager/management/manage-resource-groups-portal)。
 
-   - **区域**：选择中心所在的区域。 选择最靠近你的位置。 某些功能（如 [IoT 中心设备流](/iot-hub/iot-hub-device-streams-overview)）仅适用于特定区域。 对于这些受限功能，你必须选择受支持的区域之一。
+   - **区域** ：选择中心所在的区域。 选择最靠近你的位置。 某些功能（如 [IoT 中心设备流](/iot-hub/iot-hub-device-streams-overview)）仅适用于特定区域。 对于这些受限功能，你必须选择受支持的区域之一。
 
-   - **IoT 中心名称**：输入中心的名称。 该名称必须全局唯一。 如果输入的名称可用，会显示一个绿色复选标记。
+   - **IoT 中心名称** ：输入中心的名称。 该名称必须全局唯一。 如果输入的名称可用，会显示一个绿色复选标记。
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
@@ -44,16 +44,16 @@ ms.locfileid: "91146721"
 
    可在此处接受默认设置。 如果需要，可以修改以下任何字段： 
 
-    - **定价和缩放层**：选择的层。 可以根据你需要的功能数以及每天通过解决方案发送的消息数从多个层级中进行选择。 免费层适用于测试和评估。 允许 500 台设备连接到中心，每天最多可传输 8,000 条消息。 每个 Azure 订阅可以在免费层中创建一个 IoT 中心。 
+    - **定价和缩放层** ：选择的层。 可以根据你需要的功能数以及每天通过解决方案发送的消息数从多个层级中进行选择。 免费层适用于测试和评估。 允许 500 台设备连接到中心，每天最多可传输 8,000 条消息。 每个 Azure 订阅可以在免费层中创建一个 IoT 中心。 
 
       如果正在完成 IoT 中心设备流的快速入门，请选择免费层。
 
-    - **IoT 中心单元**：每日每单位允许的消息数取决于中心的定价层。 例如，如果希望中心支持 700,000 条消息引入，请选择两个 S1 层单位。
+    - **IoT 中心单元** ：每日每单位允许的消息数取决于中心的定价层。 例如，如果希望中心支持 700,000 条消息引入，请选择两个 S1 层单位。
     有关其他层选项的详细信息，请参阅[选择合适的 IoT 中心层](/iot-hub/iot-hub-scaling)。
 
-    - **Azure 安全中心**：启用此功能可为 IoT 和设备添加额外的一层威胁防护。 此选项不可用于免费层的中心。
+    - **Azure 安全中心** ：启用此功能可为 IoT 和设备添加额外的一层威胁防护。 此选项不可用于免费层的中心。
 
-    - **高级设置** > **设备到云的分区**：此属性将设备到云消息与这些消息的同步读取器数目相关联。 大多数中心只需要 4 个分区。
+    - **高级设置** > **设备到云的分区** ：此属性将设备到云消息与这些消息的同步读取器数目相关联。 大多数中心只需要 4 个分区。
 
 1.  在完成时选择“下一步:标记”继续到下一屏幕。
 

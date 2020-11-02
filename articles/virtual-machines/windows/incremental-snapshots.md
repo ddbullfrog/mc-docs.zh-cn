@@ -10,12 +10,12 @@ origin.date: 01/23/2017
 ms.date: 08/10/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 94e0f91ea42118a34fd84e7fc929aadbefd7b104
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: a49c456232ad8bb59c14fb011d6b159c733205cb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917132"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105764"
 ---
 <!--Verified successfully by PG team-->
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>通过递增快照备份 Azure 非托管 VM 磁盘

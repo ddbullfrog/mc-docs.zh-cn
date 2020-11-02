@@ -8,15 +8,15 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/01/2020
-ms.date: 08/18/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: a469b646d93dc9915642e280a0a54b69a9f8cddb
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 3a5fb7c58f64278e996e49d5e97dce49cabf2577
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678411"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104031"
 ---
 # <a name="python-plugin"></a>Python 插件
 
@@ -27,20 +27,20 @@ Python 插件使用 Python 脚本运行用户定义函数 (UDF)。 Python 脚本
 
 ## <a name="syntax"></a>语法
 
-*T* `|` `evaluate` [`hint.distribution` `=` (`single` | `per_node`)] `python(`*output_schema*`,` *script* [`,` *script_parameters*][`,` *external_artifacts*]`)`
+*T* `|` `evaluate` [`hint.distribution` `=` (`single` | `per_node`)] `python(`*output_schema*`,` *script* [`,` *script_parameters* ][`,` *external_artifacts* ]`)`
 
 ## <a name="arguments"></a>参数
 
-* *output_schema*：`type` 文本，定义由 Python 代码返回的表格数据的输出模式。
-    * 格式为：`typeof(`*ColumnName*`:` *ColumnType*[, ...]`)`.例如， `typeof(col1:string, col2:long)`。
+* *output_schema* ：`type` 文本，定义由 Python 代码返回的表格数据的输出模式。
+    * 格式为：`typeof(`*ColumnName*`:` *ColumnType* [, ...]`)`.例如， `typeof(col1:string, col2:long)`。
     * 若要扩展输入架构，请使用以下语法：`typeof(*, col1:string, col2:long)`
-* *script*：`string` 文本，是要执行的有效 Python 脚本。
-* *script_parameters*：可选的 `dynamic` 文本。 它是一个名称/值对的属性包，作为保留的 `kargs` 字典传递给 Python 脚本。 有关详细信息，请参阅[保留 Python 变量](#reserved-python-variables)。
-* *hint.distribution*：一个可选的提示，用于在多个群集节点上分布插件的执行。
+* *script* ：`string` 文本，是要执行的有效 Python 脚本。
+* *script_parameters* ：可选的 `dynamic` 文本。 它是一个名称/值对的属性包，作为保留的 `kargs` 字典传递给 Python 脚本。 有关详细信息，请参阅[保留 Python 变量](#reserved-python-variables)。
+* *hint.distribution* ：一个可选的提示，用于在多个群集节点上分布插件的执行。
   * 默认值为 `single`。
   * `single`：脚本的单个实例将对查询数据整体运行。
   * `per_node`：如果在分发 Python 块之前执行查询，则脚本的一个实例将在每个节点上对其包含的数据运行。
-* *external_artifacts*：可选的 `dynamic` 文本，是名称和 URL 对的属性包，用于可从云存储访问的项目。 它们可供脚本在运行时使用。
+* *external_artifacts* ：可选的 `dynamic` 文本，是名称和 URL 对的属性包，用于可从云存储访问的项目。 它们可供脚本在运行时使用。
   * 此属性包中引用的 URL 必须是：
     * 包含在群集的[标注策略](../management/calloutpolicy.md)中。
     * 在公开的位置，或提供必要的凭据，如[存储连接字符串](../api/connection-strings/storage.md)中所述。

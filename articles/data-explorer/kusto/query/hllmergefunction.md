@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 hll_merge()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/15/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: b4c13b6ddf0c84866513b8e7222f3ab6b7c3cb84
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 18b9d4d573173e57aa7865f2d74002bb84b97b4e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841739"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103873"
 ---
 # <a name="hll_merge"></a>hll_merge()
 
@@ -22,19 +22,19 @@ ms.locfileid: "87841739"
 
 阅读[基础算法 (HyperLogLog  ) 和估算准确度](dcount-aggfunction.md#estimation-accuracy)。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `hll_merge(` *Expr1*`,` *Expr2*`, ...)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * 包含要合并的 `hll` 值的列。
 
-**返回**
+## <a name="returns"></a>返回
 
 将列 `*Exrp1*`、`*Expr2*`、... `*ExprN*` 合并为一个 `hll` 值后的结果。
 
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/KustoMonitoringPersistentDatabase -->
 ```kusto

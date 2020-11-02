@@ -5,17 +5,17 @@ ms.service: batch
 ms.topic: how-to
 origin.date: 04/27/2017
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 8991df7747db38238eacfd97640eec9a78c061c4
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: c910a1ee1a143cda7b3490561a72115d1cd76cfb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146186"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104958"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 管理解决方案进行身份验证
 
@@ -37,28 +37,28 @@ ms.locfileid: "91146186"
 
 完成注册过程后，将列出应用程序的应用程序 ID 和对象（服务主体）ID。
 
-:::image type="content" source="./media/batch-aad-auth-management/app-registration-client-id.png" alt-text="完成的注册过程":::
+:::image type="content" source="./media/batch-aad-auth-management/app-registration-client-id.png" alt-text="添加应用程序":::
 
 ## <a name="grant-the-azure-resource-manager-api-access-to-your-application"></a>向 Azure 资源管理器 API 授予应用程序访问权限
 
-接下来，需要将应用程序的访问权限委派给 Azure 资源管理器 API。 Resource Manager API 的 Azure AD 标识符为 **Windows Azure Service Management API**。
+接下来，需要将应用程序的访问权限委派给 Azure 资源管理器 API。 Resource Manager API 的 Azure AD 标识符为 **Windows Azure Service Management API** 。
 
 在 Azure 门户中执行以下步骤：
 
 1. 在 Azure 门户的左侧导航窗格中，选择“所有服务”，单击“应用注册”，并单击“添加”。  
 2. 在应用注册列表中搜索应用程序名称：
 
-    :::image type="content" source="./media/batch-aad-auth-management/search-app-registration.png" alt-text="搜索应用程序名称":::
+    :::image type="content" source="./media/batch-aad-auth-management/search-app-registration.png" alt-text="添加应用程序":::
 
 3. 此时会显示“设置”边栏选项卡。 在“API 访问”部分中，选择“所需的权限”。 
 4. 单击“添加”添加新的所需权限。
-5. 在步骤 1 中输入 **Windows Azure Service Management API**，从结果列表中选择该 API，并单击“选择”按钮。
+5. 在步骤 1 中输入 **Windows Azure Service Management API** ，从结果列表中选择该 API，并单击“选择”按钮。
 6. 在步骤 2 中，选中“以组织用户的身份访问 Azure 经典部署模型”旁边的复选框，并单击“选择”按钮。 
 7. 单击“完成”按钮。
 
 现在，“所需的权限”边栏选项卡会显示向 ADAL 和 Resource Manager API 授予的应用程序权限。 首先在 Azure AD 中注册应用程序时，默认向 ADAL 授予权限。
 
-:::image type="content" source="./media/batch-aad-auth-management/required-permissions-management-plane.png" alt-text="向 Azure 资源管理器 API 委派权限":::
+:::image type="content" source="./media/batch-aad-auth-management/required-permissions-management-plane.png" alt-text="添加应用程序":::
 
 ## <a name="azure-ad-endpoints"></a>Azure AD 终结点
 

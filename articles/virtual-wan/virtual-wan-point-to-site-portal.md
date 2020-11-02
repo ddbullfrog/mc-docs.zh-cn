@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: tutorial
 author: rockboyfor
 origin.date: 10/06/2020
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: be370a236f7e1cf9a06abd792fb40c9c769ea18c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: a3d5d8e11a468d17c4a8e5c1b583c22a4b49391c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472541"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105733"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>教程：使用 Azure 虚拟 WAN 创建用户 VPN 连接
 

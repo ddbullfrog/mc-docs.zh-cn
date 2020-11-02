@@ -4,36 +4,36 @@ description: 本文介绍 Azure 数据资源管理器中的 trim_start()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 5f91cd2b5406b8d467aaae9e7ec09163bee50697
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 3f6b2874495f9cf87aa1adf55ba97117cc7933fd
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841478"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105082"
 ---
 # <a name="trim_start"></a>trim_start()
 
 删除指定正则表达式的前导匹配项。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `trim_start(`*regex*`,` *text*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * regex：要从 text 的开头修剪的字符串或[正则表达式](re2.md)。  
-* *text*：一个字符串。
+* *text* ：一个字符串。
 
-**返回**
+## <a name="returns"></a>返回
 
 修剪 text 开头的 regex 匹配项后的 text。
 
-**示例**
+## <a name="example"></a>示例
 
 以下语句从 string_to_trim 的开头修剪 substring：
 

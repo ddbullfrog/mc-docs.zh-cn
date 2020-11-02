@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 narrow 插件。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 18890fb0c9d5ddfab40904cc31b4d8fd5ef15260
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: e2b3cb051dfd286cb3b62e4c801e27da0f755f21
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841195"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103859"
 ---
 # <a name="narrow-plugin"></a>narrow 插件
 
@@ -26,11 +26,11 @@ T | evaluate narrow()
 
 `narrow` 插件主要用于显示目的，它可以让你在不需要水平滚动的情况下轻松显示宽表。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `T | evaluate narrow()`
 
-**示例**
+## <a name="examples"></a>示例
 
 以下示例演示了如何使用简单的方法来读取 Kusto 的 `.show diagnostics` 控制命令的输出。
 

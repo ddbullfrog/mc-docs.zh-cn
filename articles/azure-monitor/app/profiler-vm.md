@@ -4,29 +4,28 @@ description: 使用 Application Insights Profiler 探查 Azure VM 上的 Web 应
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/25/2020
+ms.date: 10/29/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 15e4a07a1abd3fd9941352b21221a87133a0cbe2
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 14ebf66c241e7dfc6c1b8dc26eaefc7ef2aa911e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211515"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103630"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>使用 Application Insights Profiler 探查在 Azure 虚拟机或虚拟机规模集上运行的 Web 应用
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Application Insights Profiler 也可以部署在以下服务上：
-* [Azure 应用服务](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure 应用服务](./profiler.md?toc=%2fazure-monitor%2ftoc.json)
 * [Azure 云服务](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric](profiler-vm.md?toc=/azure-monitor/toc.json)
 
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>在虚拟机或虚拟机规模集上部署 Profiler
 本文介绍如何在 Azure 虚拟机 (VM) 或 Azure 虚拟机规模集上运行 Application Insights Profiler。 Profiler 与适用于 VM 的 Azure 诊断扩展一同安装。 请将该扩展配置为运行 Profiler，并将 Application Insights SDK 内置到应用程序中。
 
-<!-- Correct in MC: https://docs.azure.cn/azure-monitor/app/asp-net -->
-1. 将 Application Insights SDK 添加到 [ASP.NET 应用程序](https://docs.azure.cn/azure-monitor/app/asp-net)。
+1. 将 Application Insights SDK 添加到 [ASP.NET 应用程序](./asp-net.md)。
 
    若要查看请求的探查结果，必须将请求遥测数据发送到 Application Insights。
 
@@ -119,4 +118,5 @@ Azure Application Insights Profiler 也可以部署在以下服务上：
 [resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png
 [resourceexplorersinksconfig]: ./media/profiler-vm/resource-explorer-sinks-config.png
 [wadextension]: ./media/profiler-vm/wad-extension.png
+
 

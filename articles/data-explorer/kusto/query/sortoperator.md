@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 sort 运算符。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 467ffe58f699c0934448c9e0c75b943e72c66b2f
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: cdbc0556d642166287e9c873fb3cbc802e252710
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841566"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104253"
 ---
 # <a name="sort-operator"></a>sort 运算符 
 
@@ -28,18 +28,18 @@ T | sort by strlen(country) asc, price desc
 
 `order`
 
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `| sort by` *expression* [`asc` | `desc`] [`nulls first` | `nulls last`] [`,` ...]
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：要排序的表输入。
+* *T* ：要排序的表输入。
 * expression：要作为排序依据的标量表达式。 值的类型必须是数字、日期、时间或字符串。
 * `asc` 按升序（即由低到高）排列。 默认值是 `desc`，降序，由高到低。
 * `nulls first`（`asc` 顺序的默认值）将把 null 值放在开头，`nulls last`（`desc` 顺序的默认值）将把 null 值放在末尾。
 
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 Traces

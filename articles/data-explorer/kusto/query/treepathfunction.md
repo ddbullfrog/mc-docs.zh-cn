@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 treepath()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: 53ecf01dc4e1334d2b654c244dc1663e978a02a4
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 0747adc677db64e3000a3165a844ea7c48aa20bd
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841173"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105084"
 ---
 # <a name="treepath"></a>treepath()
 
@@ -22,11 +22,11 @@ ms.locfileid: "87841173"
 
 `treepath(`*动态对象*`)`
 
-**返回**
+## <a name="returns"></a>返回
 
 路径表达式的数组。
 
-**示例**
+## <a name="examples"></a>示例
 
 |表达式|计算结果|
 |---|---|

@@ -5,19 +5,19 @@ description: 在本快速入门中，你将使用认知服务中的人脸 API �
 services: cognitive-services
 author: Johnnytechn
 manager: nitinme
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 08/04/2020
+ms.date: 10/27/2020
 ms.author: v-johya
-ms.openlocfilehash: 312e97056ca5ee851992e98c7be4156d077791bf
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 9b661beead780629cf29247da392c13c0d7046fb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023335"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104073"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>快速入门：使用 REST API 和 JavaScript 检测图像中的人脸
 
@@ -33,7 +33,7 @@ ms.locfileid: "88023335"
 
 ## <a name="initialize-the-html-file"></a>初始化 HTML 文件
 
-创建一个新的 HTML 文件 (*detectFaces.html*)，并添加以下代码。
+创建一个新的 HTML 文件 ( *detectFaces.html* )，并添加以下代码。
 
 ```html
 <!DOCTYPE html>
@@ -49,45 +49,22 @@ ms.locfileid: "88023335"
 然后在该文档的 `body` 元素中添加以下代码。 此代码将设置一个基本用户界面，其中包含 URL 字段、“分析人脸”按钮、响应窗格和图像显示窗格。
 
 ```html
-<h1>Detect Faces:</h1>
-Enter the URL to an image that includes a face or faces, then click
-the <strong>Analyze face</strong> button.<br><br>
-Image to analyze: <input type="text" name="inputImage" id="inputImage"
-    value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
-<button onclick="processImage()">Analyze face</button><br><br>
-<div id="wrapper" style="width:1020px; display:table;">
-    <div id="jsonOutput" style="width:600px; display:table-cell;">
-        Response:<br><br>
-        <textarea id="responseTextArea" class="UIInput"
-            style="width:580px; height:400px;"></textarea>
-    </div>
-    <div id="imageDiv" style="width:420px; display:table-cell;">
-        Source image:<br><br>
-        <img id="sourceImage" width="400" />
-    </div>
-</div>
-```
-
-## <a name="write-the-javascript-script"></a>编写 JavaScript 脚本
-
-在该文档中 `h1` 元素的正上方添加以下代码。 此代码会设置调用人脸 API 的 JavaScript 代码。
-
-```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Detect Faces Sample</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<!-- <script_include> -->
 <script type="text/javascript">
     function processImage() {
-        // Replace <Subscription Key> with your valid subscription key.
-        var subscriptionKey = "<Subscription Key>";
-    
+        var subscriptionKey = "TODO_INSERT_YOUR_FACE_SUBSCRIPTION_KEY_HERE";
         var uriBase =
-            "https://<My Endpoint String>.cn/face/v1.0/detect";
+            "TODO_INSERT_YOUR_FACE_ENDPOINT_HERE/face/v1.0/detect";
     
         // Request parameters.
         var params = {
-            "returnFaceId": "true",
-            "returnFaceLandmarks": "false",
-            "returnFaceAttributes":
-                "age,gender,headPose,smile,facialHair,glasses,emotion," +
-                "hair,makeup,occlusion,accessories,blur,exposure,noise"
+            "detectionModel": "detection_02",
+            "returnFaceId": "true"
         };
     
         // Display the image.
@@ -127,6 +104,116 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
         });
     };
 </script>
+<!-- </script_include> -->
+    </head>
+    <body>
+<!-- <html_include> -->
+<h1>Detect Faces:</h1>
+Enter the URL to an image that includes a face or faces, then click
+the <strong>Analyze face</strong> button.<br><br>
+Image to analyze: <input type="text" name="inputImage" id="inputImage"
+    value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
+<button onclick="processImage()">Analyze face</button><br><br>
+<div id="wrapper" style="width:1020px; display:table;">
+    <div id="jsonOutput" style="width:600px; display:table-cell;">
+        Response:<br><br>
+        <textarea id="responseTextArea" class="UIInput"
+            style="width:580px; height:400px;"></textarea>
+    </div>
+    <div id="imageDiv" style="width:420px; display:table-cell;">
+        Source image:<br><br>
+        <img id="sourceImage" width="400" />
+    </div>
+</div>
+<!-- </html_include> -->
+    </body>
+</html>
+```
+
+## <a name="write-the-javascript-script"></a>编写 JavaScript 脚本
+
+在该文档中 `h1` 元素的正上方添加以下代码。 此代码会设置调用人脸 API 的 JavaScript 代码。
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Detect Faces Sample</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<!-- <script_include> -->
+<script type="text/javascript">
+    function processImage() {
+        var subscriptionKey = "TODO_INSERT_YOUR_FACE_SUBSCRIPTION_KEY_HERE";
+        var uriBase =
+            "TODO_INSERT_YOUR_FACE_ENDPOINT_HERE/face/v1.0/detect";
+    
+        // Request parameters.
+        var params = {
+            "detectionModel": "detection_02",
+            "returnFaceId": "true"
+        };
+    
+        // Display the image.
+        var sourceImageUrl = document.getElementById("inputImage").value;
+        document.querySelector("#sourceImage").src = sourceImageUrl;
+    
+        // Perform the REST API call.
+        $.ajax({
+            url: uriBase + "?" + $.param(params),
+    
+            // Request headers.
+            beforeSend: function(xhrObj){
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            },
+    
+            type: "POST",
+    
+            // Request body.
+            data: '{"url": ' + '"' + sourceImageUrl + '"}',
+        })
+    
+        .done(function(data) {
+            // Show formatted JSON on webpage.
+            $("#responseTextArea").val(JSON.stringify(data, null, 2));
+        })
+    
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // Display error message.
+            var errorString = (errorThrown === "") ?
+                "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ?
+                "" : (jQuery.parseJSON(jqXHR.responseText).message) ?
+                    jQuery.parseJSON(jqXHR.responseText).message :
+                        jQuery.parseJSON(jqXHR.responseText).error.message;
+            alert(errorString);
+        });
+    };
+</script>
+<!-- </script_include> -->
+    </head>
+    <body>
+<!-- <html_include> -->
+<h1>Detect Faces:</h1>
+Enter the URL to an image that includes a face or faces, then click
+the <strong>Analyze face</strong> button.<br><br>
+Image to analyze: <input type="text" name="inputImage" id="inputImage"
+    value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
+<button onclick="processImage()">Analyze face</button><br><br>
+<div id="wrapper" style="width:1020px; display:table;">
+    <div id="jsonOutput" style="width:600px; display:table-cell;">
+        Response:<br><br>
+        <textarea id="responseTextArea" class="UIInput"
+            style="width:580px; height:400px;"></textarea>
+    </div>
+    <div id="imageDiv" style="width:420px; display:table-cell;">
+        Source image:<br><br>
+        <img id="sourceImage" width="400" />
+    </div>
+</div>
+<!-- </html_include> -->
+    </body>
+</html>
 ```
 
 需使用订阅密钥的值更新 `subscriptionKey` 字段，并且可能需要更改 `uriBase` 字符串，使之包含正确的终结点字符串。 `returnFaceAttributes` 字段指定要检索的人脸属性；你可能希望根据自己的预期用途更改此字符串。
@@ -135,11 +222,40 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="run-the-script"></a>运行脚本
 
-在浏览器中打开 *detectFaces.html*。 单击“分析人脸”按钮时，应用应显示给定 URL 中的图像并打印出人脸数据的 JSON 字符串。
+在浏览器中打开 *detectFaces.html* 。 单击“分析人脸”按钮时，应用应显示给定 URL 中的图像并打印出人脸数据的 JSON 字符串。
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
 以下文本是成功的 JSON 响应的示例。
+
+```json
+[
+  {
+    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+    "faceRectangle": {
+      "top": 131,
+      "left": 177,
+      "width": 162,
+      "height": 162
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>提取人脸属性
+ 
+若要提取人脸属性，请使用检测模型 1 并添加 `returnFaceAttributes` 查询参数。
+
+```javascript
+// Request parameters.
+var params = {
+    "detectionModel": "detection_01",
+    "returnFaceAttributes": "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise",
+    "returnFaceId": "true"
+};
+```
+
+响应现在包含人脸属性。 例如：
 
 ```json
 [

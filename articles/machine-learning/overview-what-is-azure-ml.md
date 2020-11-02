@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 origin.date: 11/04/2019
 ms.date: 03/16/2020
-ms.openlocfilehash: 70124b6a9f5067875d3e3afb4ce2ffad5b5b41e9
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: bf534f8563b27f4e7e64579cbc775cd943e1348d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118387"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104550"
 ---
 # <a name="what-is-azure-machine-learning"></a>什么是 Azure 机器学习？
 
@@ -63,7 +63,7 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 
 开始使用 Azure 机器学习 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> 或 <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a> 在本地计算机上训练。 然后，横向扩展到云。 
 
-借助许多可用的[计算目标](how-to-create-attach-compute-sdk.md)（例如 Azure 机器学习计算）以及[高级超参数优化服务](how-to-tune-hyperparameters.md)，可以利用云的强大功能更快地生成更好的模型。
+借助许多可用的[计算目标](how-to-create-attach-compute-studio.md)（例如 Azure 机器学习计算）以及[高级超参数优化服务](how-to-tune-hyperparameters.md)，可以利用云的强大功能更快地生成更好的模型。
 
 也可使用 SDK [自动完成模型训练和优化](tutorial-auto-train-models.md)。
 
@@ -111,15 +111,15 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 
 Azure 机器学习可与 Azure 平台上的其他服务配合使用，还能与诸如 Git 和 MLFlow 之类的开源工具集成。
 
-+ 如 __Azure Kubernetes 服务__、__Azure 容器实例__、__Azure Databricks__、__Azure Data Lake Analytics__和 __Azure HDInsight__ 这样的计算目标。 有关计算目标的详细信息，请参阅[什么是计算目标？](concept-compute-target.md)。
-+ __Azure 事件网格__。 有关详细信息，请参阅[使用 Azure 机器学习事件](concept-event-grid-integration.md)。
-+ __Azure Monitor__。 有关详细信息，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
-+ 如 __Azure 存储帐户__、__Azure Data Lake Storage__、__Azure SQL 数据库__、__Azure Database for PostgreSQL__ 和 __Azure 开放数据集__ 这样的数据存储。 有关详细信息，请参阅[访问 Azure 存储服务中的数据](how-to-access-data.md)和[使用 Azure 开放数据集创建数据集](how-to-create-register-datasets.md)。
-+ __Azure 虚拟网络__。 
-+ __Azure Pipelines__。 有关详细信息，请参阅[定型和部署机器学习模型](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning)。
-+ __Git 存储库日志__。 有关详细信息，请参阅 [Git 集成](concept-train-model-git-integration.md)。
-+ __MLFlow__。 有关详细信息，请参阅[使用 MLflow 跟踪指标并部署模型](how-to-use-mlflow.md) 
-+ __Kubeflow__。 有关详细信息，请参阅[构建端到端工作流管道](https://www.kubeflow.org/docs/azure/)。
++ 如 __Azure Kubernetes 服务__ 、 __Azure 容器实例__ 、 __Azure Databricks__ 、 __Azure Data Lake Analytics__ 和 __Azure HDInsight__ 这样的计算目标。 有关计算目标的详细信息，请参阅[什么是计算目标？](concept-compute-target.md)。
++ __Azure 事件网格__ 。 有关详细信息，请参阅[使用 Azure 机器学习事件](concept-event-grid-integration.md)。
++ __Azure Monitor__ 。 有关详细信息，请参阅[监视 Azure 机器学习](monitor-azure-machine-learning.md)。
++ 如 __Azure 存储帐户__ 、 __Azure Data Lake Storage__ 、 __Azure SQL 数据库__ 、 __Azure Database for PostgreSQL__ 和 __Azure 开放数据集__ 这样的数据存储。 有关详细信息，请参阅[访问 Azure 存储服务中的数据](how-to-access-data.md)和[使用 Azure 开放数据集创建数据集](how-to-create-register-datasets.md)。
++ __Azure 虚拟网络__ 。 
++ __Azure Pipelines__ 。 有关详细信息，请参阅[定型和部署机器学习模型](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning)。
++ __Git 存储库日志__ 。 有关详细信息，请参阅 [Git 集成](concept-train-model-git-integration.md)。
++ __MLFlow__ 。 有关详细信息，请参阅[使用 MLflow 跟踪指标并部署模型](how-to-use-mlflow.md) 
++ __Kubeflow__ 。 有关详细信息，请参阅[构建端到端工作流管道](https://www.kubeflow.org/docs/azure/)。
 
 ### <a name="secure-communications"></a>安全通信
 

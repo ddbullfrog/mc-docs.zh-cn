@@ -1,20 +1,21 @@
 ---
 title: 选择池的 VM 大小
 description: 如何选择 Azure Batch 池中计算节点的可用 VM 大小
+ms.service: batch
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: f95bdbb3620ed9ca72ce1ad3a5ff29ea688e0630
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: cd477282c8be86c8f2b9d5f3f2a4e72dc81de5b7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937348"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104745"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>选择 Azure Batch 池中计算节点的 VM 大小
 
@@ -29,10 +30,10 @@ ms.locfileid: "91937348"
 
 ### <a name="pools-in-virtual-machine-configuration"></a>虚拟机配置中的池
 
-虚拟机配置中的 Batch 池支持几乎所有的 VM 大小（[Linux](../virtual-machines/linux/sizes.md)、[Windows](../virtual-machines/windows/sizes.md)）。 请参阅下表以了解有关支持的大小和限制的详细信息。
+虚拟机配置中的 Batch 池支持几乎所有的 VM 大小（[Linux](../virtual-machines/sizes.md)、[Windows](../virtual-machines/sizes.md)）。 请参阅下表以了解有关支持的大小和限制的详细信息。
 
-<!--Not Available on   DC, Dav4, Dasv4, Ddv4-->
-<!--Not Available on   Eav4, Easv4, Edv4, Edsv4-->
+<!--Not Available on   DC, Dav4, Dasv4-->
+<!--Not Available on   Eav4, Easv4 -->
 <!--Not Available on   G, Gs-->
 <!--Not Available on   HB, HBv2, HC-->
 <!--Not Available on   Ls, Lsv2-->
@@ -47,7 +48,9 @@ ms.locfileid: "91937348"
 | B | 无 |
 | Dv2, DSv2 | 所有大小 |
 | Dv3, Dsv3 | 所有大小 |
+| Ddv4、Ddsv4 |  所有大小 |
 | Ev3, Esv3 | 除 E64is_v3 之外的所有大小 |
+| Edv4, Edsv4 |  所有大小 |
 | F, Fs | 所有大小 |
 | Fsv2 | 所有大小 |
 | H | 所有大小 |
@@ -56,9 +59,12 @@ ms.locfileid: "91937348"
 
 <sup>1</sup> 可以在虚拟机配置的 Batch 池中分配这些 VM 大小，但你必须创建一个新的 Batch 帐户并请求特定的[配额增加](batch-quota-limit.md#increase-a-quota)。 Batch 帐户完全支持每个 VM 系列的 vCPU 配额后，将取消此限制。
 
+<!--Not Avaialble on ### Using Generation 2 VM Images-->
+<!--Not Avaialble on [Mv2](../virtual-machines/mv2-series.md)-->
+
 ### <a name="pools-in-cloud-service-configuration"></a>云服务配置中的池
 
-云服务配置中的 Batch 池支持所有[云服务的 VM 大小](../cloud-services/cloud-services-sizes-specs.md)，但以下项**除外**：
+云服务配置中的 Batch 池支持所有 [云服务的 VM 大小](../cloud-services/cloud-services-sizes-specs.md)，但以下项 **除外** ：
 
 | VM 系列  | 不支持的大小 |
 |------------|-------------------|
@@ -77,7 +83,7 @@ ms.locfileid: "91937348"
 
 * **区域可用性** - 某个 VM 系列或大小在创建 Batch 帐户的区域中可能无法使用。 若要检查大小是否可用，请参阅[可用产品（按区域）](https://azure.microsoft.com/regions/services/)。
 
-* **配额** - Batch 帐户中的[核心配额](batch-quota-limit.md#resource-quotas)会限制可添加到 Batch 池的给定大小的节点数。 若要请求增加配额，请参阅[此文](batch-quota-limit.md#increase-a-quota)。 
+* **配额** - Batch 帐户中的 [核心配额](batch-quota-limit.md#resource-quotas)会限制可添加到 Batch 池的给定大小的节点数。 若要请求增加配额，请参阅[此文](batch-quota-limit.md#increase-a-quota)。 
 
 * **池配置** - 通常，与云服务配置相比，在虚拟机配置中创建池时有更多 VM 大小选项。
 

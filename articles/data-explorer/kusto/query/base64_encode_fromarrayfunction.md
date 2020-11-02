@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 base64_encode_fromar
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/11/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 8a4a0c54ed6cd4b9a14b4d5285c18236e0eb14a8
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: f4411b525a18dc15b56a74add8d888e0a8646309
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515951"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104047"
 ---
 # <a name="base64_encode_fromarray"></a>base64_encode_fromarray()
 
@@ -26,7 +26,7 @@ ms.locfileid: "88515951"
 
 ## <a name="arguments"></a>参数
 
-* *BytesArray*：输入要编码为 base64 字符串的字节数组。
+* *BytesArray* ：输入要编码为 base64 字符串的字节数组。
 
 ## <a name="returns"></a>返回
 

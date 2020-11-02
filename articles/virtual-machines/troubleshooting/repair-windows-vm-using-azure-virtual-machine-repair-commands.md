@@ -2,9 +2,7 @@
 title: 使用 Azure 虚拟机修复命令修复 Windows VM | Azure
 description: 本文详细介绍如何使用 Azure VM 修复命令将磁盘连接到另一个 Windows VM 来修复所有错误，然后重新生成原始 VM。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
@@ -13,16 +11,16 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 09/10/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 66d58433fbb8a52240e06be33682fb0898b467ad
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 1c4b910a2bcc4000cc3ed306cdb452420fdf0a4c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127897"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104983"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>使用 Azure 虚拟机修复命令修复 Windows VM
 
@@ -45,7 +43,7 @@ ms.locfileid: "92127897"
 1. 启动 Azure 本地 Shell
 2. 运行 az extension add/update。
 3. 运行 az vm repair create。
-4. 运行 az vm repair run。
+4. 运行 az vm repair run 或执行缓解步骤。
 5. 运行 az vm repair restore。
 
 有关其他文档和说明，请参阅 [az vm repair](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair)。
@@ -84,11 +82,13 @@ ms.locfileid: "92127897"
     az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
     ```
 
-4. 运行 `az vm repair run`。 此命令将通过修复 VM 在附加的磁盘上运行指定的修复脚本。 如果你使用的故障排除指南指定了 run-id，请在此处使用它，否则可以使用 `az vm repair list-scripts` 来查看可用的修复脚本。 此处使用的资源组和 VM 名称适用于第 3 步中使用的非功能性 VM。
+4. 运行 `az vm repair run`。 此命令将通过修复 VM 在附加的磁盘上运行指定的修复脚本。 如果你使用的故障排除指南指定了 run-id，请在此处使用它，否则可以使用 `az vm repair list-scripts` 来查看可用的修复脚本。 此处使用的资源组和 VM 名称适用于第 3 步中使用的非功能性 VM。 有关修复脚本的其他信息可在[修复脚本库](https://github.com/Azure/repair-script-library)中找到。
 
     ```azurecli
     az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
     ```
+
+    （可选）可以使用修复 VM 来执行任何所需的手动缓解步骤，然后继续执行步骤 5。
 
 5. 运行 `az vm repair restore`。 此命令会将已修复的 OS 磁盘与 VM 的原始 OS 磁盘交换。 此处使用的资源组和 VM 名称适用于第 3 步中使用的非功能性 VM。
 

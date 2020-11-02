@@ -4,35 +4,35 @@ description: 本文介绍 Azure 数据资源管理器中的 row_cumsum()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 3d0510e7a7c6baa4964437c166a0542238075cb3
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 53024049340885043d78463108f8a1cb69c32de8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841345"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104888"
 ---
 # <a name="row_cumsum"></a>row_cumsum()
 
 计算[序列化行集](./windowsfunctions.md#serialized-row-set)中列的累计和。
 
-**语法**
+## <a name="syntax"></a>语法
 
-`row_cumsum` `(` *Term* [`,` *Restart*] `)`
+`row_cumsum` `(` *Term* [`,` *Restart* ] `)`
 
 * “Term”是一个表达式，表示要求和的值。
   表达式必须是以下类型之一的标量：`decimal`、`int`、`long` 或 `real`。 Null Term 值不影响总和。
 * Restart 是 `bool` 类型的可选参数，表示应何时重启累计运算（重新设置为 0）。 它可用于指示数据的分区；请参阅下面的第二个示例。
 
-**返回**
+## <a name="returns"></a>返回
 
 此函数返回其参数的累计和。
 
-**示例**
+## <a name="examples"></a>示例
 
 下面的示例演示如何计算前几个偶数整数的累计和。
 

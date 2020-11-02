@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 getmonth()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/22/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 2b7900a4cab6a642930f13e91efb325f20164a2c
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: fd36743fd5ee9eda77b6e7ffee74b1ee3e1606c1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841751"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103895"
 ---
 # <a name="getmonth"></a>getmonth()
 
@@ -22,7 +22,7 @@ ms.locfileid: "87841751"
 
 另一个别名：monthoyear()
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

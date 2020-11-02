@@ -1,24 +1,20 @@
-- name: 人脸 API 文档
+- name: 人脸文档
   href: index.yml
 - name: 概述
   expanded: true
   items:
-    - name: 什么是人脸 API？
+    - name: 什么是人脸服务？
       href: Overview.md
 - name: 快速入门
   items:
-    - name: 使用客户端 SDK
-      items:
-        - name: 在图像中检测人脸
-          items:
-            - name: 'C#'
-              href: QuickStarts/csharp-detect-sdk.md
-            - name: Python
-              href: Tutorials/FaceAPIinPythonTutorial.md
+    - name: 使用客户端库
+      href: Quickstarts/client-libraries.md
     - name: 使用 REST API
       items:
         - name: 在图像中检测人脸
           items:
+            - name: C#
+              href: QuickStarts/CSharp.md
             - name: cURL
               href: QuickStarts/curl.md
             - name: Go
@@ -39,23 +35,19 @@
   items:
     - name: 使用客户端 SDK
       items:
-        - name: 'C#'
+        - name: C#
           href: Tutorials/FaceAPIinCSharpTutorial.md
-        - name: Android
-          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: 概念
   items:
     - name: 人脸检测
       href: concepts/face-detection.md
     - name: 人脸识别
       href: concepts/face-recognition.md
-- name: 操作方法指南
+- name: 操作指南
   items:
     - name: 检测人脸
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: 标识人脸
-      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-    - name: 添加人脸
+    - name: 向组中添加人脸
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: 使用 HeadPose 属性
       href: Face-API-How-to-Topics/how-to-use-headpose.md
@@ -69,16 +61,26 @@
       href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
     - name: 迁移人脸数据
       href: Face-API-How-to-Topics/how-to-migrate-face-data.md
+    - name: 使用容器
+      items:
+        - name: 安装和运行容器
+          href: face-how-to-install-containers.md
+        - name: 配置容器
+          href: face-resource-container-config.md
+        - name: 使用容器实例
+          href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
 - name: 参考
   items:
     - name: 人脸 API
       href: APIReference.md
     - name: SDK
       items:
-        - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.faceapi?view=azure-java-stable'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face'
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
         - name: iOS
@@ -87,15 +89,19 @@
   items:
     - name: 示例
       items:
-        - name: 人脸 API 示例
-          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
+        - name: 人脸示例
+          href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face'
     - name: 定价和限制
       href: 'https://www.azure.cn/pricing/details/cognitive-services/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/430315-face-api'
-    - name: 堆栈溢出
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: 区域可用性
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 合规性
+      href: 'https://www.azure.cn/support/sla/cognitive-services/index.html'
+    - name: 加密
+      href: face-encryption-of-data-at-rest.md
     - name: 发行说明
       href: ReleaseNotes.md

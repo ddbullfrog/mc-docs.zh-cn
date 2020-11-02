@@ -74,15 +74,13 @@
       href: app-based-conditional-access.md
     - name: 要求对来自不受信任网络的访问尝试执行 MFA
       href: untrusted-networks.md
-    - name: 最佳做法
-      href: best-practices.md
     - name: 疑难解答
       items:
         - name: 排查登录问题
           href: troubleshoot-conditional-access.md
         - name: 使用 What If 工具排查问题
           href: troubleshoot-conditional-access-what-if.md
-        - name: 常见问题解答
+        - name: 常见问题
           href: faqs.md
     - name: 迁移经典策略
       href: policy-migration-mfa.md

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.author: v-yeche
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: d74006d0482232008a24c632351e4369a484fc46
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 547714f6227419bc7d23cdeff9274efd863c9b62
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524037"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104844"
 ---
 <!--Verified successfully-->
 <!--Partial content from verified article-->

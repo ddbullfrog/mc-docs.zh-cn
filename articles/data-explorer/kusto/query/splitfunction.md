@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 split()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 05b72d8b79e5cd3808d6065a64cbeb73397c17f7
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: cf0a6c6b4dea9bafc24183115e621e1ac4c7bc57
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841215"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103834"
 ---
 # <a name="split"></a>split()
 
@@ -26,21 +26,21 @@ ms.locfileid: "87841215"
 split("aaa_bbb_ccc", "_") == ["aaa","bbb","ccc"]
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
-`split(`*source*`,` *delimiter* [`,` *requestedIndex*]`)`
+`split(`*source*`,` *delimiter* [`,` *requestedIndex* ]`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *source*：将根据给定分隔符拆分的源字符串。
-* *delimiter*：用于拆分源字符串的分隔符。
-* *requestedIndex*：可选的从零开始的索引 `int`。 （如果支持）返回的字符串数组将包含请求的子字符串（如果存在）。 
+* *source* ：将根据给定分隔符拆分的源字符串。
+* *delimiter* ：用于拆分源字符串的分隔符。
+* *requestedIndex* ：可选的从零开始的索引 `int`。 （如果支持）返回的字符串数组将包含请求的子字符串（如果存在）。 
 
-**返回**
+## <a name="returns"></a>返回
 
 包含给定源字符串的子字符串的字符串数组，其中的源字符串使用给定分隔符进行分隔。
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 print

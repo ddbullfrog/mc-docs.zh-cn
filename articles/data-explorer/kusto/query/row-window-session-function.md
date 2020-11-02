@@ -4,25 +4,25 @@ description: 本文介绍了 Azure 数据资源管理器中的 row_window_sessio
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: d009ace3f493f7de82e1a9506bfac71e8f609945
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 75a26b101104daeaac9ef0c5fd47ef60bd27afdb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841346"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105210"
 ---
 # <a name="row_window_session"></a>row_window_session()
 
 `row_window_session()` 计算[序列化行集](./windowsfunctions.md#serialized-row-set)中列的会话开始值。
 
-**语法**
+## <a name="syntax"></a>语法
 
-`row_window_session` `(` *`Expr`* `,` *`MaxDistanceFromFirst`* `,` *`MaxDistanceBetweenNeighbors`* [`,` *`Restart`*] `)`
+`row_window_session` `(` *`Expr`* `,` *`MaxDistanceFromFirst`* `,` *`MaxDistanceBetweenNeighbors`* [`,` *`Restart`* ] `)`
 
 * *`Expr`* 是一个表达式，其值在会话中分组在一起。
   Null 值生成 Null 值，下一个值将启动新的会话。
@@ -36,7 +36,7 @@ ms.locfileid: "87841346"
 
 * Restart 是 `boolean` 类型的可选标量表达式。 如果已指定，则计算结果为 `true` 的每个值将立即重启会话。
 
-**返回**
+## <a name="returns"></a>返回
 
 该函数在每个会话的开头返回值。
 
@@ -58,7 +58,7 @@ ms.locfileid: "87841346"
 
 * 如果 *`Expr`* 的值等于或超过 *`Expr`* 的上一个值加上 *`MaxDistanceBetweenNeighbors`* 。
 
-**示例**
+## <a name="examples"></a>示例
 
 下面的示例演示如何为包含两列的表计算会话开始值：一个用于标识序列的 `ID` 列，以及一个提供每个记录发生时间的 `Timestamp` 列。 在此示例中，一个会话不能超过 1 小时，并且只要记录之间的间隔短于 5 分钟，该会话就会继续。
 

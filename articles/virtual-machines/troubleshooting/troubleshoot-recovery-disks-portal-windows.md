@@ -2,9 +2,7 @@
 title: 在 Azure 门户中使用 Windows 故障排除 VM | Azure
 description: 了解如何通过使用 Azure 门户将 OS 磁盘连接到恢复 VM，对 Azure 中的 Windows 虚拟机问题进行故障排除
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 358949de8b0a41ffea0a1b307943f5af1aa8d9be
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: d70044ca49b4302df2072ed7fa34dd26001ed05c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456858"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103564"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>通过使用 Azure 门户将 OS 磁盘附加到恢复 VM，对 Windows VM 进行故障排除
 如果 Windows 虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文详细介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 Windows VM 来修复所有错误，然后重新创建原始 VM。 
@@ -94,7 +92,7 @@ ms.locfileid: "89456858"
 
 1. 在门户中选择资源组，并选择故障排除 VM。 依次选择“磁盘”  、“编辑”  ，然后单击“添加数据磁盘”  ：
 
-    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png" alt-text="在门户中附加现有磁盘":::
+    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png" alt-text="有关 OS 磁盘名称的插图":::
 
 2. 在“数据磁盘”  列表中，选择所标识的 VM 的 OS 磁盘。 如果看不到 OS 磁盘，请确保故障排除 VM 和 OS 磁盘位于同一区域（位置）。 
 
@@ -106,11 +104,11 @@ ms.locfileid: "89456858"
 
 2. 在故障排除 VM 中打开“服务器管理器”，然后选择“文件和存储服务”。   
 
-    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png" alt-text="在“服务器管理器”中选择“文件和存储服务”":::
+    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png" alt-text="有关 OS 磁盘名称的插图":::
 
 3. 系统会自动检测并附加数据磁盘。 若要查看已连接磁盘的列表，请选择“磁盘”  。 可选择要查看卷信息（包括驱动器号）的数据磁盘。 以下示例显示了使用 **F:** 的附加数据磁盘：
 
-    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png" alt-text="“服务器管理器”中的附加磁盘和卷信息":::
+    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png" alt-text="有关 OS 磁盘名称的插图":::
 
 ## <a name="fix-issues-on-original-virtual-hard-disk"></a>修复原始虚拟硬盘上的问题
 装载现有虚拟硬盘后，可以根据需要执行任何维护和故障排除步骤。 解决问题后，请继续执行以下步骤。
@@ -120,17 +118,17 @@ ms.locfileid: "89456858"
 
 1. 在到 VM 的 RDP 会话中，打开“服务器管理器”  ，并选择“文件和存储服务”  ：
 
-    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png" alt-text="在“服务器管理器”中选择“文件和存储服务”":::
+    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png" alt-text="有关 OS 磁盘名称的插图":::
 
 2. 选择“磁盘”  ，并选择数据磁盘。 右键单击数据磁盘，并选择“脱机”  ：
 
-    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png" alt-text="在“服务器管理器”中将数据磁盘设置为脱机":::
+    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png" alt-text="有关 OS 磁盘名称的插图":::
 
 3. 现在从 VM 中分离虚拟硬盘。 在 Azure 门户中选择 VM，并单击“磁盘”  。 
 
 4. 选择“编辑”  ，选择附加的 OS 磁盘，然后单击“分离”  ：
 
-    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png" alt-text="分离现有虚拟硬盘":::
+    :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png" alt-text="有关 OS 磁盘名称的插图":::
 
     等到 VM 成功分离数据磁盘，并继续操作。
 
@@ -140,7 +138,7 @@ Azure 门户现在支持更改 VM 的 OS 磁盘。 为此，请按照下列步�
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。 在边栏中选择“虚拟机”，然后选择有问题的 VM。 
 1. 在左窗格中选择“磁盘”，然后选择“交换 OS 磁盘”。  
-        :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png" alt-text="有关在 Azure 门户中交换 OS 磁盘的插图":::
+        :::image type="content" source="./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png" alt-text="有关 OS 磁盘名称的插图":::
 
 1. 选择已修复的新磁盘，然后键入 VM 的名称以确认更改。 如果在列表中看不到该磁盘，请在从故障排除 VM 中分离磁盘后等待 10 到 15 分钟。 另外，请确保该磁盘与 VM 位于同一位置。
 1. 选择“确定”。

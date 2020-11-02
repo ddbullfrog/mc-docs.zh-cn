@@ -7,17 +7,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5f96b1c5a01e3f17edfefc50a2d552e49f3aa74b
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 20ef88aa7db9e74090a16bb145c6e73324e656b1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472593"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104489"
 ---
 <!--Verified successfully for only charactors-->
 # <a name="scenario-isolating-vnets"></a>方案：隔离 VNet

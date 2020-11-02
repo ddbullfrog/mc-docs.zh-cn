@@ -11,16 +11,15 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: zivr
-ms.openlocfilehash: 3e8a576f92f6ca1ebf900420f19c175b5df968c2
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 556b806aaca03a2398ffdc42dfe7a22be9a43752
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463177"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104680"
 ---
 <!--Verified successfully-->
 <!--Verified the Portal UI and confirmed with Peter Gu-->
-<!--CAN NOT VERIFIED DUE TO LIMITED CPU VCORE-->
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>使用门户将 VM 部署到专用主机
 
 本文介绍了如何创建 Azure [专用主机](dedicated-hosts.md)来托管虚拟机 (VM)。 
@@ -37,7 +36,7 @@ ms.locfileid: "89463177"
     <!--Not Available on **Availability options** select **Availability zone**-->
     
 1. 对于大小，选择“更改大小”。 在可用大小列表中，选择 Esv3 系列其中一个，例如“标准 E2s v3”。 可能需要清除筛选器才能查看所有可用大小。
-1. 在“管理员帐户”下，提供用户名（例如 *azureuser*）和密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
+1. 在“管理员帐户”下，提供用户名（例如 *azureuser* ）和密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 1. 在“入站端口规则”下，选择“允许所选端口”，然后从下拉列表中选择“RDP (3389)”。  
 1. 在页面顶部，选择“高级”选项卡，然后在“主机”部分，对于“主机组”，选择 myHostGroup，对于“主机”，选择 myHost 。 
     :::image type="content" source="./media/dedicated-hosts-portal/advanced.png" alt-text="选择主机组和主机":::

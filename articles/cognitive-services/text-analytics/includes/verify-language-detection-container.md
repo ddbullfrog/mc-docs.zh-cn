@@ -3,19 +3,20 @@ title: 验证语言检测容器实例
 titleSuffix: Azure Cognitive Services
 description: 了解如何验证语言检测容器实例。
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
-ms.date: 06/24/2020
+ms.date: 10/26/2020
 origin.date: 04/01/2020
-ms.author: v-tawe
-ms.openlocfilehash: 2e21e4d1f7481161e1665e84e0b514e16119c5f7
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.author: v-johya
+ms.openlocfilehash: e1adfd459579428bc6d42648ce56c3c76aad45a8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323251"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103919"
 ---
 ### <a name="verify-the-language-detection-container-instance"></a>验证语言检测容器实例
 
@@ -129,3 +130,4 @@ ms.locfileid: "85323251"
     ```
 
 现在，我们可以通过相应的 `id` 将响应有效负载的 JSON 数据的文档关联到原始请求有效负载文档。 每个文档都独立处理，其中包含各种统计信息（例如 `characterCount` 和 `transactionCount`）。 此外，每个生成的文档都有一个 `detectedLanguages` 数组，其中包含每个检测到的语言的 `name`、`iso6391Name` 和 `score`。 检测到多种语言时，`score` 用于确定最可能的语言。
+

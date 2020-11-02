@@ -234,7 +234,7 @@
         - name: vCPU 配额
           href: quotas.md
     - name: 专用主机
-      href: dedicated-hosts.md
+      href: ../dedicated-hosts.md
     - name: 维护和更新
       href: ../maintenance-and-updates.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 磁盘存储
@@ -243,7 +243,7 @@
           href: ../managed-disks-overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 选择适用于 IaaS VM 的磁盘类型
           href: ../disks-types.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-        - name: Encryption
+        - name: 加密
           href: disk-encryption.md
         - name: 虚拟机和磁盘性能
           href: disk-performance-windows.md
@@ -291,7 +291,7 @@
             - name: PowerShell
               href: dedicated-hosts-powershell.md
             - name: 门户
-              href: dedicated-hosts-portal.md
+              href: ../dedicated-hosts-portal.md
         - name: 使用 C#
           href: ../../azure-resource-manager/templates/deploy-rest.md
         - name: 使用专用磁盘
@@ -309,7 +309,7 @@
           href: ps-template.md
         - name: 连接到 VM
           href: connect-logon.md
-        - name: 连接到 Linux VM
+        - name: SSH 到 Linux VM
           displayName: ssh keygen ssk-key putty
           items:
             - name: 在 Windows 上
@@ -334,7 +334,7 @@
           href: migration-classic-resource-manager-errors.md
         - name: 用于迁移的社区工具
           href: migration-classic-resource-manager-community-tools.md
-        - name: 常见问题解答
+        - name: 常见问题
           href: ../migration-classic-resource-manager-faq.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
     - name: 使用映像
       displayName: 'SIG, AMI, image'
@@ -419,6 +419,8 @@
           href: client-images.md
         - name: 下载现有磁盘
           href: download-vhd.md
+        - name: 来自映像版本的托管磁盘
+          href: ../managed-disk-from-image-version.md
     - name: 保护 VM
       items:
         - name: 建议
@@ -457,7 +459,7 @@
               href: disk-encryption-troubleshooting.md
             - name: 磁盘加密常见问题解答
               href: disk-encryption-faq.md
-            - name: 磁盘加密 - 以前的版本 (Azure AD)
+            - name: 磁盘加密 - 历史版本
               items:
                 - name: 概述
                   href: disk-encryption-overview-aad.md
@@ -565,7 +567,7 @@
           items:
             - name: 代理概述
               href: ../../azure-monitor/platform/agents-overview.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-            - name: 常见问题解答
+            - name: 常见问题
               href: ../../azure-monitor/faq.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json#agents
             - name: Azure 诊断扩展
               items:
@@ -614,7 +616,7 @@
                       href: ../../azure-monitor/platform/data-sources-custom-logs.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
                     - name: 自定义字段
                       href: ../../azure-monitor/platform/custom-fields.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-            - name: 疑难解答
+            - name: 故障排除
               items:
                 - name: Log Analytics VM 扩展
                   href: ../../azure-monitor/platform/vmext-troubleshoot.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
@@ -631,7 +633,7 @@
         - name: 虚拟机规模集
           href: ../../virtual-machine-scale-sets/overview.md?bc=/virtual-machines/windows/breadcrumb/toc.json&toc=/virtual-machines/windows/toc.json
         - name: 高可用性
-          href: manage-availability.md
+          href: ../manage-availability.md
         - name: 创建邻近放置组
           displayName: ppg aligned colocation co-location
           items:
@@ -751,7 +753,7 @@
           href: ../extensions/extensions-rmpolicy-howto-ps.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: 导出扩展
           href: ../extensions/export-templates.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
-        - name: 疑难解答
+        - name: 故障排除
           href: ../extensions/troubleshoot.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
         - name: Azure 磁盘加密
           href: ../extensions/azure-disk-enc-windows.md?toc=/virtual-machines/windows/toc.json&bc=/virtual-machines/windows/breadcrumb/toc.json
@@ -804,7 +806,7 @@
               href: aws-to-azure.md
             - name: 使用 Azure Site Recovery
               href: ../../site-recovery/migrate-overview.md?bc=/virtual-machines/windows/breadcrumb/toc.json&toc=/virtual-machines/windows/toc.json
-- name: 疑难解答
+- name: 故障排除
   href: ../troubleshooting/index.yml
 - name: 参考
   items:
@@ -839,5 +841,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: 视频
       href: 'https://www.azure.cn/video-center/'
-    - name: 常见问题解答
+    - name: 常见问题
       href: faq.md

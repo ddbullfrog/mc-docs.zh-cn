@@ -2,9 +2,7 @@
 title: Azure 虚拟机关闭时停滞在“正在重启”、“正在关闭”或“正在停止服务”状态 | Azure
 description: 本文帮助你排查 Azure Windows 虚拟机中的服务错误。
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: ad7a6022ad3896eb06099d069b55f87d9f7dd7df
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: bb7aae1e712b6938115bea8973cbc8b24b42777f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456872"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104646"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Azure Windows VM 关闭时停滞在“正在重启”、“正在关闭”或“正在停止服务”状态
 
@@ -116,7 +114,7 @@ Windows 使用关闭进程来执行系统维护操作，并处理更新、角色
 
 7. 选择“发送不可屏蔽中断(NMI)”以触发内存转储。
 
-    :::image type="content" source="./media/boot-error-troubleshooting-windows/send-nonmaskable-interrupt.png" alt-text="发送不可屏蔽的中断":::
+    :::image type="content" source="./media/boot-error-troubleshooting-windows/send-nonmaskable-interrupt.png" alt-text="“正在重启”、“正在关闭”或“正在停止服务”屏幕":::
 
 8. 再次将 OS 磁盘附加到恢复 VM，收集转储文件。
 

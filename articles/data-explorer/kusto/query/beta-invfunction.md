@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 beta_inv()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 0a03e7d242fea3e39c3ad5e844bb73f49a866085
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 5f58dda81cdfc5f291dc07549b99fd73b57b9a26
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516036"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103740"
 ---
 # <a name="beta_inv"></a>beta_inv()
 
@@ -24,7 +24,7 @@ ms.locfileid: "88516036"
 beta_inv(0.1, 10.0, 50.0)
 ```
 
-若 *probability* = `beta_cdf(`*x*,...`)`，则 `beta_inv(`*probability*,...`)` = *x*。 
+若 *probability* = `beta_cdf(`*x* ,...`)`，则 `beta_inv(`*probability* ,...`)` = *x* 。 
 
 在项目计划中，给定预期完成时间和可变性，可以使用 beta 分布对可能的完成时间进行建模。
 
@@ -34,9 +34,9 @@ beta_inv(0.1, 10.0, 50.0)
 
 ## <a name="arguments"></a>参数
 
-* *probability*：与 beta 分布相关的概率。
-* *alpha*：分布的一个参数。
-* *beta*：分布的一个参数。
+* *probability* ：与 beta 分布相关的概率。
+* *alpha* ：分布的一个参数。
+* *beta* ：分布的一个参数。
 
 ## <a name="returns"></a>返回
 

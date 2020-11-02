@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 avg()（聚合函数
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/26/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: ebde8f4ee0b4bb6d70867551c26cf048d0944bf7
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 382c70940d4baf09c6eaeb843bda7a3d18f93c1e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515763"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104217"
 ---
 # <a name="avg-aggregation-function"></a>avg()（聚合函数）
 

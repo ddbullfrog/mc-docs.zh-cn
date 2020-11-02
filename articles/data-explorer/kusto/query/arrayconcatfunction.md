@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 array_concat()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: 50bdd85909cc5c08fb0799b915f8aa047a063f28
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 91751365673ca81bc5eb15f6cd3dd8142974dc72
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516112"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104305"
 ---
 # <a name="array_concat"></a>array_concat()
 

@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 take 运算符。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: f342ad42efec561f39c7902f5f3d6c30bc854693
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: afee77c09e92d3cea8756ac42f1beefd20167725
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515805"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103995"
 ---
 # <a name="take-operator"></a>take 运算符
 

@@ -5,17 +5,17 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 07/19/2017
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: e54b3223f89e6151a551e7ea26bfe78a75fc0295
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: d7299ad2dbaeeeb24481a5190103fe7f263d8885
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524043"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105131"
 ---
 <!--Verified Successfully from rename articles-->
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 磁盘的备份和灾难恢复
@@ -54,7 +54,7 @@ Azure 平台旨在从这些故障中复原。 重大灾难可能会导致大量�
 
 计算主机或存储平台上的本地硬件故障有时可能会导致 VM 暂时不可用，有关 VM 可用性的 [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 对此做了介绍。 Azure 还提供了有关使用 Azure 高级 SSD 的单 VM 实例的行业领先 SLA。
 
-为了保护应用程序工作负荷不受磁盘或 VM 暂时不可用带来的故障时间影响，客户可以使用[可用性集](windows/manage-availability.md)。 可用性集中的两个或多个虚拟机为应用程序提供冗余。 然后，Azure 在电源、网络和服务器组件不同的单独容错域中创建这些 VM 和磁盘。
+为了保护应用程序工作负荷不受磁盘或 VM 暂时不可用带来的故障时间影响，客户可以使用[可用性集](./manage-availability.md)。 可用性集中的两个或多个虚拟机为应用程序提供冗余。 然后，Azure 在电源、网络和服务器组件不同的单独容错域中创建这些 VM 和磁盘。
 
 由于这些单独的容错域，本地硬件故障通常不会同时影响可用性集中的多个 VM。 单独的容错域为应用程序提供了高可用性。 如果需要高可用性，最好使用可用性集。 下一部分介绍灾难恢复方面。
 
@@ -85,7 +85,7 @@ DR 注意事项可能包括以下方面：
 - 数据必须受保护且可恢复。
 - 服务器必须可用。
 
-灾难恢复计划可能需要将不同区域中的数据库副本作为备份进行维护。 解决方案包括主动-主动或主动-被动副本站点、定期脱机备份数据，具体视服务器可用性和数据恢复要求而定。 SQL Server 和 Oracle 等关系型数据库提供各种复制选项。 对于 SQL Server，可以使用 [SQL Server AlwaysOn 可用性组](https://msdn.microsoft.com/library/hh510230.aspx)实现高可用性。
+灾难恢复计划可能需要将不同区域中的数据库副本作为备份进行维护。 解决方案包括主动-主动或主动-被动副本站点、定期脱机备份数据，具体视服务器可用性和数据恢复要求而定。 SQL Server 和 Oracle 等关系型数据库提供各种复制选项。 对于 SQL Server，可以使用 [SQL Server AlwaysOn 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)实现高可用性。
 
 为了实现冗余，MongoDB 等 NoSQL 数据库也支持[副本](https://docs.mongodb.com/manual/replication/)。 可以使用实现高可用性的副本。
 
@@ -143,7 +143,7 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 
 在原定时间启动备份作业时，Azure 备份会触发在 VM 中安装的备份扩展，以生成时间点快照。 创建快照时，会借助卷影服务来获取虚拟机中磁盘的一致性快照，不必关闭该虚拟机。 生成所有磁盘的一致性快照前，VM 中的备份扩展会刷新所有写入。 生成快照后，数据由 Azure 备份传输到备份保管库中。 为了使备份过程更加高效，服务只标识并传输在上次备份后已更改的数据块。
 
-若要还原，可以通过 Azure 备份查看可用备份，再启动还原。 可以通过 [Azure 门户](https://portal.azure.cn/)、[PowerShell](../backup/backup-azure-vms-automation.md) 或 [Azure CLI](https://docs.azure.cn/cli/?view=azure-cli-latest) 创建和还原 Azure 备份。
+若要还原，可以通过 Azure 备份查看可用备份，再启动还原。 可以通过 [Azure 门户](https://portal.azure.cn/)、[PowerShell](../backup/backup-azure-vms-automation.md) 或 [Azure CLI](https://docs.azure.cn/cli/) 创建和还原 Azure 备份。
 
 ### <a name="steps-to-enable-a-backup"></a>备份启用步骤
 
@@ -209,7 +209,7 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 
 1. 创建每个虚拟硬盘 Blob 的快照，这只需要几秒钟的时间。
 
-    若要创建快照，可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.storage)、[Azure 存储 REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx)、[Azure CLI](https://docs.azure.cn/cli/?view=azure-cli-latest) 或 Azure 存储客户端库之一（如[用于 .NET 的存储客户端库](https://msdn.microsoft.com/library/azure/hh488361.aspx)）。
+    若要创建快照，可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.storage)、[Azure 存储 REST API](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)、[Azure CLI](https://docs.azure.cn/cli/) 或 Azure 存储客户端库之一（如[用于 .NET 的存储客户端库](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)）。
 
 1. 启动 VM，这将终止故障时间。 整个过程通常会在几分钟内完成。
 
@@ -232,7 +232,7 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 
 ### <a name="recovery-from-snapshots"></a>通过快照恢复
 
-若要检索快照，请进行复制，以新建 blob。 若要从主帐户复制快照，可将快照复制到快照的基 Blob。 此过程会将磁盘还原到快照。 此过程称为“提升快照”。 若要从辅助帐户复制快照备份（使用读取访问权限异地冗余存储帐户时），必须将快照复制到主帐户。 可以[使用 PowerShell](https://docs.microsoft.com/powershell/module/az.storage) 或 AzCopy 实用工具复制快照。 有关详细信息，请参阅[使用 AzCopy 命令行实用工具传输数据](/storage/common/storage-use-azcopy)。
+若要检索快照，请进行复制，以新建 blob。 若要从主帐户复制快照，可将快照复制到快照的基 Blob。 此过程会将磁盘还原到快照。 此过程称为“提升快照”。 若要从辅助帐户复制快照备份（使用读取访问权限异地冗余存储帐户时），必须将快照复制到主帐户。 可以[使用 PowerShell](https://docs.microsoft.com/powershell/module/az.storage) 或 AzCopy 实用工具复制快照。 有关详细信息，请参阅[使用 AzCopy 命令行实用工具传输数据](../storage/common/storage-use-azcopy-v10.md)。
 
 对于包含多个磁盘的 VM，必须复制属于同一协调还原点的所有快照。 将快照复制到可写 VHD Blob 后，可以通过 Blob 使用 VM 模板重新创建 VM。
 
@@ -274,4 +274,4 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
 
-<!--Update_Description: update link, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

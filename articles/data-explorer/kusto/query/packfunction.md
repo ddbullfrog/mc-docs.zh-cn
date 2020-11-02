@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 pack()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 71d740efa718816537f194ac4c856db5ed0bcfd5
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 49682e3891c889dc87e1cb8a90e062804951eaa2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841721"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103843"
 ---
 # <a name="pack"></a>pack()
 
@@ -22,16 +22,16 @@ ms.locfileid: "87841721"
 
 `pack_dictionary()` 函数的别名。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `pack(`*key1*`,` *value1*`,` *key2*`,` *value2*`,... )`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * 键和值的交替列表（列表的总长度必须为偶数）
 * 所有键都必须为非空常量字符串
 
-**示例**
+## <a name="examples"></a>示例
 
 以下示例返回 `{"Level":"Information","ProcessID":1234,"Data":{"url":"www.bing.com"}}`：
 

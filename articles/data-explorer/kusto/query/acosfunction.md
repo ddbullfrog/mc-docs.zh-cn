@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 acos()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: de992ac2a6f6987a407a7f52cadbf88df73f9636
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: dc92ae664911fdf515642045e4745d456d826d0e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515802"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105107"
 ---
 # <a name="acos"></a>acos()
 

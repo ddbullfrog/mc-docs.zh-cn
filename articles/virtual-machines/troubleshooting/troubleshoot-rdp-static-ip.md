@@ -2,9 +2,7 @@
 title: 由于静态 IP 而无法通过远程桌面连接到 Azure 虚拟机 | Azure
 description: 了解如何对由 Azure 中的静态 IP 导致的 RDP 问题进行故障排除 | Azure
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 371967329bf683d358bb3d6e7d99735107d140ca
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 647af6cb7f29fb72b782101617f2a9f42045acd5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456875"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105243"
 ---
 # <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>由于静态 IP 而无法通过远程桌面连接到 Azure 虚拟机
 

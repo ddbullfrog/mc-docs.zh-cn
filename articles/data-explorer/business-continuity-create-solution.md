@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 08/05/2020
 ms.date: 08/18/2020
-ms.openlocfilehash: 017be731b398bcf3e043725a95e644565c5cffc3
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 518f5535d9eebf40b92ff39f5f7176221eb8e55f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678422"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105198"
 ---
 # <a name="create-business-continuity-and-disaster-recovery-solutions-with-azure-data-explorer"></a>使用 Azure 数据资源管理器创建业务连续性和灾难恢复解决方案
 
@@ -48,7 +48,7 @@ Azure 数据资源管理器不支持针对整个 Azure 区域的中断进行自�
 
 1. 在每个副本上管理[身份验证和授权](kusto/management/security-roles.md)。
 
-    :::image type="content" source="media/business-continuity-create-solution/regional-duplicate-management.png" alt-text="复制管理活动":::    
+    :::image type="content" source="media/business-continuity-create-solution/regional-duplicate-management.png" alt-text="创建独立的群集":::    
 
 ### <a name="configure-data-ingestion"></a>配置数据引入
 
@@ -73,11 +73,11 @@ Azure 数据资源管理器不支持针对整个 Azure 区域的中断进行自�
 > [!NOTE] 
 > 通过事件中心/IoT 中心/存储进行引入是可靠的。 如果某个群集在一段时间内不可用，则它稍后会追赶进度并插入任何挂起的消息或 blob。 此过程依赖于[检查点设置](/event-hubs/event-hubs-features#checkpointing)。
 
-:::image type="content" source="media/business-continuity-create-solution/event-hub-management-scheme.png" alt-text="通过事件中心进行引入":::
+:::image type="content" source="media/business-continuity-create-solution/event-hub-management-scheme.png" alt-text="创建独立的群集":::
 
 如下图所示，数据源会生成发往已进行故障转移配置的事件中心的事件，而每个 Azure 数据资源管理器副本都会使用这些事件。 数据可视化效果组件（例如 Power BI、Grafana 或 SDK 支持的 WebApps）可以查询其中一个副本。
 
-:::image type="content" source="media/business-continuity-create-solution/data-sources-visualization.png" alt-text="从数据源到数据可视化效果":::
+:::image type="content" source="media/business-continuity-create-solution/data-sources-visualization.png" alt-text="创建独立的群集":::
 
 ## <a name="optimize-costs"></a>优化成本
 
@@ -95,7 +95,7 @@ Azure 数据资源管理器不支持针对整个 Azure 区域的中断进行自�
 
 在下图中，只有一个群集从事件中心引入数据。 区域 A 中的主要群集执行[连续数据导出](kusto/management/data-export/continuous-data-export.md)来将所有数据导出到某个存储帐户。 次要副本有权使用[外部表](kusto/query/schema-entities/externaltables.md)访问数据。
 
-:::image type="content" source="media/business-continuity-create-solution/active-hot-standby-scheme.png" alt-text="主动/热备用服务器的体系结构":::
+:::image type="content" source="media/business-continuity-create-solution/active-hot-standby-scheme.png" alt-text="创建独立的群集":::
 
 ### <a name="start-and-stop-the-replicas"></a>启动和停止副本 
 
@@ -117,7 +117,7 @@ az kusto cluster stop --name=<clusterName> --resource-group=<rgName> --subscript
 
 本部分介绍了如何创建 [Azure 应用服务](https://azure.microsoft.com/services/app-service/)，该服务支持与单个主要的和多个辅助的 Azure 数据资源管理器群集进行连接。 下图展示了 Azure 应用服务设置。
 
-:::image type="content" source="media/business-continuity-create-solution/app-service-setup.png" alt-text="创建 Azure App Service":::
+:::image type="content" source="media/business-continuity-create-solution/app-service-setup.png" alt-text="创建独立的群集":::
 
 > [!TIP]
 > 在同一服务中的副本之间建立多个连接可以提高可用性。 此设置不仅仅在发生区域性中断的情况下有用。  
@@ -130,11 +130,7 @@ az kusto cluster stop --name=<clusterName> --resource-group=<rgName> --subscript
 
 我们使用多个 Azure 数据资源管理器副本运行了测试。 在模拟主要和辅助群集的服务中断后，可以看到应用服务 BCDR 客户端的行为符合预期。
 
-:::image type="content" source="media/business-continuity-create-solution/simulation-verify-service.png" alt-text="验证应用服务 BCDR 客户端":::
-
-<!-- The Azure Data Explorer clusters are distributed across West Europe (2xD14v2 primary), South East Asia, and East US (2xD11v2). 
-
-:::image type="content" source="media/business-continuity-create-solution/performance-test-query-time.png" alt-text="Cross planet query response time"::: -->
+:::image type="content" source="media/business-continuity-create-solution/simulation-verify-service.png" alt-text="创建独立的群集":::
 
 > [!NOTE]
 > 响应时间较慢是由不同的 SKU 和全球查询导致的。

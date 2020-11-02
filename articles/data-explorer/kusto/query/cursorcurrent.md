@@ -4,19 +4,19 @@ description: 本文介绍了 Azure 数据资源管理器中的 cursor_current()�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 12/10/2019
-ms.date: 08/18/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 55c55285e2522a079509e2e407e84a92925ceece
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: bc8b83d5e882034238dd48de5edc32cfe47f35d9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515705"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104442"
 ---
 # <a name="cursor_current-current_cursor"></a>cursor_current()、current_cursor()
 

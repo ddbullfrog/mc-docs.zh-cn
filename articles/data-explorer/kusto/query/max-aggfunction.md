@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 max()（聚合函数
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: 9f6c9f248f2a3e07fc478f24c2bf43fbc2563454
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 04fae0b94ee6cf16f294f61d07c70c33a5b60349
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841271"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104950"
 ---
 # <a name="max-aggregation-function"></a>max()（聚合函数）
 
@@ -22,15 +22,15 @@ ms.locfileid: "87841271"
 
 * 只能在 [summarize](summarizeoperator.md) 内的聚合上下文中使用
 
-**语法**
+## <a name="syntax"></a>语法
 
 `summarize` `max(`*Expr*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Expr：用于聚合计算的表达式。 
 
-**返回**
+## <a name="returns"></a>返回
 
 组内 Expr 的最大值。
  

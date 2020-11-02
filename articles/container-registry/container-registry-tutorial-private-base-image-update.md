@@ -4,15 +4,15 @@ description: 在本教程中，你将配置一个 Azure 容器注册表任务，
 ms.topic: tutorial
 origin.date: 01/22/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 6181ef2ab283cf0d2dda2181ce70b3d8ab930b17
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: e1b1cd609b2207906d5ca0656ae659959208609d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564266"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103745"
 ---
 <!--Verify sucessfully-->
 <!--Part content of released articles-->
@@ -303,17 +303,17 @@ docker stop updatedapp
 <!-- LINKS - Internal -->
 
 [azure-cli]: https://docs.azure.cn/cli/install-azure-cli
-[az-acr-build]: https://docs.azure.cn/cli/acr#az-acr-build
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az-acr-task-create
-[az-acr-task-update]: https://docs.azure.cn/cli/acr/task#az-acr-task-update
-[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az-acr-task-run
-[az-acr-task-show]: https://docs.azure.cn/cli/acr/task#az-acr-task-show
-[az-acr-task-credential-add]: https://docs.microsoft.com/cli/azure/acr/task/credential#az_acr_task_credential_add
-[az-acr-login]: https://docs.azure.cn/cli/acr#az-acr-login
-[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task#az-acr-task-list-runs
-[az-acr-task]: https://docs.azure.cn/cli/acr#az-acr-task
-[az-acr-show]: https://docs.azure.cn/cli/acr#az-acr-show
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
+[az-acr-build]: https://docs.azure.cn/cli/acr#az_acr_build
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az_acr_task_create
+[az-acr-task-update]: https://docs.azure.cn/cli/acr/task#az_acr_task_update
+[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az_acr_task_run
+[az-acr-task-show]: https://docs.azure.cn/cli/acr/task#az_acr_task_show
+[az-acr-task-credential-add]: https://docs.azure.cn/cli/acr/task/credential#az_acr_task_credential_add
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
+[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task#az_acr_task_list_runs
+[az-acr-task]: https://docs.azure.cn/cli/acr#az_acr_task
+[az-acr-show]: https://docs.azure.cn/cli/acr#az_acr_show
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
 
 <!-- IMAGES -->
 

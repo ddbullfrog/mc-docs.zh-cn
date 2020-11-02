@@ -9,13 +9,13 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 01/02/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: 5df4766dd3cd074e855ef7b8522c372930927f4a
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: a47f4ca5cc64c9d3517babf62b6286f72b91e2bf
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146348"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103897"
 ---
 # <a name="ms-tds-with-azure-active-directory"></a>将 MS-TDS 与 Azure Active Directory 配合使用
 
@@ -83,7 +83,7 @@ public class Sample {
 
 ## <a name="azure-ad-application-authentication"></a>Azure AD 应用程序身份验证
 
-为 Kusto 预配的 Azure AD 应用程序可使用支持 Azure AD 的 SQL 客户端库连接到 Kusto。 有关 Azure AD 应用程序的详细信息，请参阅[创建 Azure AD 应用程序](../../management/access-control/how-to-provision-aad-app.md)。
+为 Kusto 预配的 Azure AD 应用程序可使用支持 Azure AD 的 SQL 客户端库连接到 Kusto。
 
 ### <a name="net-sql-client-application"></a>.NET SQL 客户端（应用程序）
 

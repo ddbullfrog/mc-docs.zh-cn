@@ -6,16 +6,16 @@ ms.service: bastion
 ms.topic: how-to
 origin.date: 02/24/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: c99d787e60ec168747b7e0da00b015eb78b922c4
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c12dd123ffe1e9abf4af71f25d26139198d90aa8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936923"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104827"
 ---
 <!--Verified successfully on 09/07/2020-->
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>使用 Azure Bastion 通过 SSH 连接到 Linux 虚拟机
@@ -29,9 +29,9 @@ ms.locfileid: "91936923"
 
 SSH 私钥必须采用以 `"-----BEGIN RSA PRIVATE KEY-----"` 开头并以 `"-----END RSA PRIVATE KEY-----"` 结尾的格式。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="prerequisites"></a>先决条件
 
-请确保已为 VM 所在的虚拟网络设置 Azure Bastion 主机。 有关详细信息，请参阅[创建 Azure Bastion 主机](bastion-create-host-portal.md)。 在虚拟网络中预配和部署 Bastion 服务后，便可以使用它连接到此虚拟网络中的任何 VM。 
+请确保已为 VM 所在的虚拟网络设置 Azure Bastion 主机。 有关详细信息，请参阅[创建 Azure Bastion 主机](./tutorial-create-host-portal.md)。 在虚拟网络中预配和部署 Bastion 服务后，便可以使用它连接到此虚拟网络中的任何 VM。 
 
 使用 Bastion 进行连接时，它假设你使用 RDP 连接到 Windows VM，使用 SSH 连接到 Linux VM。 若要了解如何连接到 Windows VM，请参阅[连接到 VM - Windows](bastion-connect-vm-rdp.md)。
 
@@ -55,7 +55,7 @@ SSH 私钥必须采用以 `"-----BEGIN RSA PRIVATE KEY-----"` 开头并以 `"---
 1. 打开 [Azure 门户](https://portal.azure.cn)。 导航到要连接到的虚拟机，然后单击“连接”并从下拉列表中选择“Bastion”。
 
     :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="屏幕截图显示了 Azure 门户中虚拟机的概览，其中已选择“连接”。":::
-1. 单击“Bastion”后，会出现一个侧栏，上面有 3 个选项卡（“RDP”、“SSH”和“Bastion”）。 如果已为虚拟网络预配了 Bastion，则默认情况下“Bastion”选项卡处于活动状态。 如果未为虚拟网络预配 Bastion，请参阅[配置 Bastion](bastion-create-host-portal.md)。
+1. 单击“Bastion”后，会出现一个侧栏，上面有 3 个选项卡（“RDP”、“SSH”和“Bastion”）。 如果已为虚拟网络预配了 Bastion，则默认情况下“Bastion”选项卡处于活动状态。 如果未为虚拟网络预配 Bastion，请参阅[配置 Bastion](./tutorial-create-host-portal.md)。
 
     :::image type="content" source="./media/bastion-connect-vm-ssh/bastion.png" alt-text="屏幕截图显示了 Azure 门户中虚拟机的概览，其中已选择“连接”。":::
 1. 输入用于通过 SSH 连接到虚拟机的用户名和密码。
@@ -67,7 +67,7 @@ SSH 私钥必须采用以 `"-----BEGIN RSA PRIVATE KEY-----"` 开头并以 `"---
 1. 打开 [Azure 门户](https://portal.azure.cn)。 导航到要连接到的虚拟机，然后单击“连接”并从下拉列表中选择“Bastion”。
 
     :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="屏幕截图显示了 Azure 门户中虚拟机的概览，其中已选择“连接”。":::
-1. 单击“Bastion”后，会出现一个侧栏，上面有 3 个选项卡（“RDP”、“SSH”和“Bastion”）。 如果已为虚拟网络预配了 Bastion，则默认情况下“Bastion”选项卡处于活动状态。 如果未为虚拟网络预配 Bastion，请参阅[配置 Bastion](bastion-create-host-portal.md)。
+1. 单击“Bastion”后，会出现一个侧栏，上面有 3 个选项卡（“RDP”、“SSH”和“Bastion”）。 如果已为虚拟网络预配了 Bastion，则默认情况下“Bastion”选项卡处于活动状态。 如果未为虚拟网络预配 Bastion，请参阅[配置 Bastion](./tutorial-create-host-portal.md)。
 
     :::image type="content" source="./media/bastion-connect-vm-ssh/bastion.png" alt-text="屏幕截图显示了 Azure 门户中虚拟机的概览，其中已选择“连接”。":::
 1. 输入用户名，并选择“SSH 私钥”。
@@ -80,7 +80,7 @@ SSH 私钥必须采用以 `"-----BEGIN RSA PRIVATE KEY-----"` 开头并以 `"---
 1. 打开 [Azure 门户](https://portal.azure.cn)。 导航到要连接到的虚拟机，然后单击“连接”并从下拉列表中选择“Bastion”。
 
     :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="屏幕截图显示了 Azure 门户中虚拟机的概览，其中已选择“连接”。":::
-1. 单击“Bastion”后，会出现一个侧栏，上面有 3 个选项卡（“RDP”、“SSH”和“Bastion”）。 如果已为虚拟网络预配了 Bastion，则默认情况下“Bastion”选项卡处于活动状态。 如果未为虚拟网络预配 Bastion，请参阅[配置 Bastion](bastion-create-host-portal.md)。
+1. 单击“Bastion”后，会出现一个侧栏，上面有 3 个选项卡（“RDP”、“SSH”和“Bastion”）。 如果已为虚拟网络预配了 Bastion，则默认情况下“Bastion”选项卡处于活动状态。 如果未为虚拟网络预配 Bastion，请参阅[配置 Bastion](./tutorial-create-host-portal.md)。
 
     :::image type="content" source="./media/bastion-connect-vm-ssh/bastion.png" alt-text="屏幕截图显示了 Azure 门户中虚拟机的概览，其中已选择“连接”。":::
 1. 输入用户名，并选择“本地文件中的 SSH 私钥”。

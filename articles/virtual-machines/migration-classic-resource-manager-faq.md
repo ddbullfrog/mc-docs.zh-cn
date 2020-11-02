@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 origin.date: 02/06/2020
 author: rockboyfor
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+ms.date: 11/02/2020
+ms.testscope: no
+ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 99ed7c6d4da01189288018980dc23984414aad30
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: d877937021d1b42068240c4716c6f3849b8062ec
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310312"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105245"
 ---
 <!--Verified successfully on rename articles-->
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>有关从经典部署模型迁移到 Azure Resource Manager 部署模型的常见问题
@@ -30,7 +30,7 @@ IaaS VM（经典）中的“经典”一词是指由 Azure Service Manager (ASM)
 
 ## <a name="what-is-azure-resource-manager"></a>什么是 Azure 资源管理器？
 
-[Azure 资源管理器](/azure-resource-manager/management/overview) 是 Azure 的最新控制平面，负责创建、管理、删除 VM 和执行其他控制平面操作。 
+[Azure 资源管理器](../azure-resource-manager/management/overview.md) 是 Azure 的最新控制平面，负责创建、管理、删除 VM 和执行其他控制平面操作。 
 
 ## <a name="what-is-the-time-required-for-migration"></a>迁移需要多长时间？
 
@@ -46,7 +46,7 @@ IaaS VM（经典）中的“经典”一词是指由 Azure Service Manager (ASM)
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>为什么会收到“NewClassicVMCreationNotAllowedForSubscription”这样的错误信息？
 
-停用过程开始后，IaaS VM（经典版）不再适用于新客户。 我们已将你识别为新客户，因此你无权执行该操作。 我们强烈推荐使用[使用 ARM 的 Azure 虚拟机](/virtual-machines/windows/quick-create-powershell)。 如果无法通过 ARM 使用 Azure VM，请联系支持人员，以将订阅加入允许列表。
+停用过程开始后，IaaS VM（经典版）不再适用于新客户。 我们已将你识别为新客户，因此你无权执行该操作。 我们强烈推荐使用[使用 ARM 的 Azure 虚拟机](./windows/quick-create-powershell.md)。 如果无法通过 ARM 使用 Azure VM，请联系支持人员，以将订阅加入允许列表。
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>此迁移计划是否影响 Azure 虚拟机上运行的任何现有服务或应用程序？ 
 
@@ -145,5 +145,4 @@ IaaS VM（经典）中的“经典”一词是指由 Azure Service Manager (ASM)
 * [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的社区工具](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看最常见的迁移错误](./windows/migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!-- Update_Description: new article about migration classic resource manager faq -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

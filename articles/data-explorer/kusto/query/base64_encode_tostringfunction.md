@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 base64_encode_tostri
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/22/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 2ecf3218be452b0d81fce758db67404e11f8b699
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 3e38b7b2cf4a1c043b2873609bd3451c92bc196a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515636"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104042"
 ---
 # <a name="base64_encode_tostring"></a>base64_encode_tostring()
 

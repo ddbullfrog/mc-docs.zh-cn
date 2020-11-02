@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Search
 description: 演示了如何在 Azure 认知搜索中在映射到 AI 扩充索引编制管道的自定义技能中使用自定义实体搜索服务。
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
+ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/04/2019
 ms.date: 09/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e0e9a2ebab18e08e8c4a3152841e3dbb85f1177c
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: b0a5820251ddda5abb9871b72e37cd8bc4a08683
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021137"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104998"
 ---
 # <a name="example-create-a-custom-skill-using-the-custom-entity-search-api"></a>示例：使用自定义实体搜索 API 创建自定义技能
 

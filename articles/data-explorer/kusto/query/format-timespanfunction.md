@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 format_timespan()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 40073bd8c9ed3429bdd1c3c9da4e7eea2a2f0a0b
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: ced1697cd135ca5c8777ad7ca24bd228cebc9783
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841659"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104388"
 ---
 # <a name="format_timespan"></a>format_timespan()
 
@@ -24,16 +24,16 @@ ms.locfileid: "87841659"
 format_timespan(time(14.02:03:04.12345), 'h:m:s.fffffff') == "2:3:4.1234500"
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 `format_timespan(`*timespan* `,` *format*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * `timespan`：`timespan` 类型的值。
 * `format`：格式说明符字符串，由一个或多个[格式元素](#supported-formats)组成。
 
-**返回**
+## <a name="returns"></a>返回
 
 包含格式结果的字符串。
 
@@ -81,7 +81,7 @@ format_timespan(time(14.02:03:04.12345), 'h:m:s.fffffff') == "2:3:4.1234500"
 |`'['`||
 |`']'`||
 
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

@@ -4,38 +4,38 @@ description: 本文介绍 Azure 数据资源管理器中的 fork 运算符。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 6737acdaaa9ffa5c1d8899f03dc31a5047e6b197
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 52b11e1706bcd17f9217f05c74b18abf6b4d18a5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841449"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104393"
 ---
 # <a name="fork-operator"></a>fork 运算符
 
 并行运行多个 consumer 运算符。
 
-**语法**
+## <a name="syntax"></a>语法
 
-*T* `|` `fork` [*name*`=`]`(`*subquery*`)` [*name*`=`]`(`*subquery*`)` ...
+*T* `|` `fork` [ *name*`=`]`(`*subquery*`)` [ *name*`=`]`(`*subquery*`)` ...
 
-**参数**
+## <a name="arguments"></a>参数
 
 * subquery 是查询运算符的下游管道
 * name 是子查询结果表的临时名称
 
-**返回**
+## <a name="returns"></a>返回
 
 多个结果表，每个子查询一个。
 
 **支持的运算符**
 
-[`as`](asoperator.md), [`count`](countoperator.md), [`extend`](extendoperator.md), [`parse`](parseoperator.md), [`where`](whereoperator.md), [`take`](takeoperator.md), [`project`](projectoperator.md), [`project-away`](projectawayoperator.md), [`summarize`](summarizeoperator.md), [`top`](topoperator.md), [`top-nested`](topnestedoperator.md), [`sort`](sortoperator.md), [`mv-expand`](mvexpandoperator.md), [`reduce`](reduceoperator.md)
+[`as`](asoperator.md), [`count`](countoperator.md), [`extend`](extendoperator.md), [`parse`](parseoperator.md), [`where`](whereoperator.md), [`take`](takeoperator.md), [`project`](projectoperator.md), [`project-away`](projectawayoperator.md), [`project-keep`](project-keep-operator.md), [`project-rename`](projectrenameoperator.md), [`project-reorder`](projectreorderoperator.md), [`summarize`](summarizeoperator.md), [`top`](topoperator.md), [`top-nested`](topnestedoperator.md), [`sort`](sortoperator.md), [`mv-expand`](mvexpandoperator.md), [`reduce`](reduceoperator.md)
 
 **备注**
 
@@ -48,7 +48,7 @@ ms.locfileid: "87841449"
 
 * 优先使用[批处理](batches.md)与表格表达式语句的 [`materialize`](materializefunction.md)，而不是 `fork` 运算符。
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 KustoLogs

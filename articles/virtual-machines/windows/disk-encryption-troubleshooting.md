@@ -6,17 +6,17 @@ ms.subservice: security
 ms.topic: troubleshooting
 origin.date: 08/06/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 11d41653f9d75af54be120bbb94f36c37ca098e2
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 7b87dd2f0201493a0010a4d0454e471ef3e8a8bf
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127676"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104146"
 ---
 <!--Mooncake: Unique H1 title TO MEET REPO REQUIRMENT-->
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁盘加密故障排除指南
@@ -92,7 +92,8 @@ VM 必须能够访问这样的 [Azure 实例元数据服务](../windows/instance
 
 本文档已详细描述有关 Azure 磁盘加密的一些常见问题和解决这些问题的方法。 有关此服务及其功能的详细信息，请参阅以下文章：
 
-- [在 Azure 安全中心应用磁盘加密](../../security-center/security-center-virtual-machine-protection.md)
+<!--Not Available on - [Apply disk encryption in Azure Security Center](../../security-center/asset-inventory.md)-->
+
 - [Azure 静态数据加密](../../security/fundamentals/encryption-atrest.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: davberg
-ms.openlocfilehash: ae23c3d51b17644519cb6f249b2a723c7502c5f7
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 96512fa32839140cedae252f87363eebbc7a217c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462914"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104694"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM 的计算基准测试分数
 以下 SPECInt 基准测试分数显示运行 Windows Server 的特定 Azure VM 的计算性能。 此外，还提供了 [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 的计算基准测试分数。
@@ -66,9 +66,9 @@ ms.locfileid: "89462914"
 | Standard_B4ms | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 43 | 28.3 | 0.7 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 3 | 42.0 | 0.0 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 25 | 41.4 | 0.9 | 
-| Standard_B12ms | 12 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 或 v4 | 19 | 58.9 | 2.3 |
-| Standard_B16ms | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 或 v4 | 18 | 75.4 | 2.1 |
-| Standard_B20ms | 20 个 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 或 v4| 2 | 90.6 | 1.3 |
+| Standard_B12ms | 12 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 或 v4 | 19 | 58.9 | 2.3 |
+| Standard_B16ms | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 或 v4 | 18 | 75.4 | 2.1 |
+| Standard_B20ms | 20 个 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 或 v4| 2 | 90.6 | 1.3 |
 
 >[!NOTE]
 > B 系列 VM 适用于具有可突发性能要求的工作负载。 当使用量小于其基线时，VM 实例会累积额度。 在累积了额度的情况下，VM 可以突发到基线之上，全力满足短暂的 CPU 突发需求。 突发时间取决于可用额度，这些额度是 VM 大小和时间的函数。  
@@ -91,7 +91,7 @@ ms.locfileid: "89462914"
 | Standard_D16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 38 | 298.2 | 4.4 | 
 | Standard_D32s_v3 | 32 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 24 | 545.8 | 10.5 | 
 | Standard_D32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 535.6 | 12.6 | 
-| Standard_D48s_v3 | 48 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 或 v4 | 1 | 838.0 | 0.0 |
+| Standard_D48s_v3 | 48 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 或 v4 | 1 | 838.0 | 0.0 |
 | Standard_D64s_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 35 | 1070.6 | 2.4 | 
 
 <!--Not Available on 06/29/2020  Standard_D32-8s_v3 -->
@@ -115,7 +115,7 @@ ms.locfileid: "89462914"
 | Standard_D16_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 300.7 | 8.8 | 
 | Standard_D32_v3 | 32 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 24 | 549.3 | 11.1 | 
 | Standard_D32_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 7 | 538.6 | 9.4 | 
-| Standard_D48_v3 | 48 |  |  Intel(R) Xeon(R) CPU E5-2673 v3 或 v4 | 3 | 839.7 | 14.4 |
+| Standard_D48_v3 | 48 |  |  Intel(R) Xeon(R) CPU E5-2673 v3 或 v4 | 3 | 839.7 | 14.4 |
 | Standard_D64_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1070.6 | 12.4 | 
 
 ## <a name="dsv2---storage-optimized"></a>DSv2 - 存储优化

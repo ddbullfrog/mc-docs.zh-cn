@@ -2,20 +2,20 @@
 title: 使用 Azure Powershell 创建 Bastion 主机
 description: 本文介绍如何创建 Azure Bastion 主机
 services: bastion
-author: rockboyfor
 ms.service: bastion
 ms.topic: how-to
-origin.date: 02/03/2020
-ms.date: 07/27/2020
+origin.date: 10/14/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: e83a876448ce537e1b02ed5b2705abdef58ca288
-ms.sourcegitcommit: 4d9846bb03ac24bd98b0c9a781bb8912ff6d2f61
+ms.openlocfilehash: e3ec80199bdc90fa3f2b93afee74766cab8c98b7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86926981"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104826"
 ---
 <!--Verified successfully-->
 <!--RELEASE DIRECTLY-->
@@ -23,13 +23,13 @@ ms.locfileid: "86926981"
 
 本文介绍如何使用 PowerShell 创建 Azure Bastion 主机。 在虚拟网络中预配 Azure Bastion 服务后，即可在该虚拟网络中的所有 VM 上获得无缝的 RDP/SSH 体验。 Azure Bastion 部署是按虚拟网络进行的，而不是按订阅/帐户或虚拟机进行的。
 
-或者，可使用 [Azure 门户](bastion-create-host-portal.md)创建 Azure Bastion 主机。
+或者，可使用 [Azure 门户](./tutorial-create-host-portal.md)创建 Azure Bastion 主机。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="prerequisites"></a>先决条件
 
-确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://www.azure.cn/offers/ms-mc-arz-msdn/index.html)或注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 <a name="createhost"></a>
 ## <a name="create-a-bastion-host"></a>创建 Bastion 主机
@@ -41,13 +41,13 @@ ms.locfileid: "86926981"
     ```powershell
     $subnetName = "AzureBastionSubnet"
     $subnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-    $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myBastionRG" -Location "chinanorth2" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+    $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myBastionRG" -Location "chinaeast2" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
     ```
 
 2. 为 Azure Bastion 创建一个公共 IP 地址。 此公共 IP 是将在其上访问 RDP/SSH（通过端口 443）的 Bastion 资源的公共 IP 地址。 公共 IP 地址必须与要创建的 Bastion 资源位于同一区域。
 
     ```powershell
-    $publicip = New-AzPublicIpAddress -ResourceGroupName "myBastionRG" -name "myPublicIP" -location "chinanorth2" -AllocationMethod Static -Sku Standard
+    $publicip = New-AzPublicIpAddress -ResourceGroupName "myBastionRG" -name "myPublicIP" -location "chinaeast2" -AllocationMethod Static -Sku Standard
     ```
 
 3. 在虚拟网络的 AzureBastionSubnet 中创建新的 Azure Bastion 资源。 创建和部署 Bastion 资源大约需要 5 分钟。
@@ -59,8 +59,6 @@ ms.locfileid: "86926981"
 ## <a name="next-steps"></a>后续步骤
 
 * 有关其他信息，请参阅 [Bastion 常见问题解答](bastion-faq.md)。
-
 * 若要在 Azure Bastion 子网中使用网络安全组，请参阅[使用 NSG](bastion-nsg.md)。
 
-<!-- Update_Description: new article about bastion create host powershell -->
-<!--NEW.date: 07/27/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

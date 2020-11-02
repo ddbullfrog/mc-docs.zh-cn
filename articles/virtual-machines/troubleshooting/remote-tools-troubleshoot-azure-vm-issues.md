@@ -2,9 +2,7 @@
 title: 使用远程工具排查 Azure VM 问题 | Azure
 description: 了解 PsExec、PowerShell 脚本和其他可用来在不使用 RDP 的情况下排查远程 Azure VM 问题的远程工具。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: troubleshooting
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6cc39009f7ed2a4e32f14b964b930b019a626b3c
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: c2f00ef127b088ef96b1a3edbc91a07904fc98bc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456841"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105416"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用远程工具排查 Azure VM 问题
 
@@ -142,7 +140,7 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 3. 在“输入要选择的对象名称”框中输入目标 VM 的主机名或动态 IP（首选），以找到该 VM。   
 
-    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png" alt-text="“输入要选择的对象名称”框"::: 
+    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png" alt-text="注册表编辑器"::: 
 
 4. 输入目标 VM 的凭据。
 
@@ -163,11 +161,11 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 3. 选择“连接到另一台计算机”。 
 
-    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png" alt-text="远程服务":::
+    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png" alt-text="注册表编辑器":::
 
 4. 输入目标 VM 的动态 IP。
 
-    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png" alt-text="输入动态 IP":::
+    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png" alt-text="注册表编辑器":::
 
 5. 对服务进行任何必要的更改。
 

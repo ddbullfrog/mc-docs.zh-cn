@@ -4,14 +4,14 @@ description: 本文介绍如何使用 Webhook 通过 HTTP 调用在 Azure 自动
 services: automation
 ms.subservice: process-automation
 origin.date: 06/24/2020
-ms.date: 08/10/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: acf2e7e57776bdee373ed7e2331d0143bf72a0c2
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: 232ad8b52b165d5e3cb11f03dda1bbb29ff7eac9
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790061"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750204"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>从 Webhook 启动 Runbook
 
@@ -66,8 +66,8 @@ Webhook 可以定义 Runbook 参数的值，当 Runbook 启动时会用到这些
 
 在下一个 Runbook 示例中，让我们为 `WebhookData` 定义以下属性：
 
-* **WebhookName**：MyWebhook
-* **RequestBody**: `*[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*`
+* **WebhookName** ：MyWebhook
+* **RequestBody** : `*[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*`
 
 现在我们在 UI 中为 `WebhookData` 参数传递以下 JSON 对象。 下面的示例带有回车符和换行符，与从 Webhook 中传递的格式相匹配。
 
@@ -90,7 +90,7 @@ Webhook 的安全性取决于其 URL 的私密性，可以通过 URL 中包含�
 
 * 让 Runbook 在收到 Webhook 请求时对外部条件执行某种验证。 例如，当有新的内容提交到 GitHub 存储库时，可通过 GitHub 调用 Runbook。 Runbook 在继续之前，可能会连接到 GitHub 来验证是否有新的提交内容。
 
-* Azure 自动化支持 Azure 虚拟网络服务标记，尤其是 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)。 可以在[网络安全组](../virtual-network/security-overview.md#security-rules)或 [Azure 防火墙](../firewall/service-tags.md)中使用服务标记来定义网络访问控制并触发 Webhook。 创建安全规则时，可以使用服务标记代替特定 IP 地址。 在规则的相应源或目标字段中指定服务标记名称（例如 GuestAndHybridManagement），可以允许或拒绝自动化服务的流量。 此服务标记不支持通过将 IP 范围限制到特定区域来实现更精细的控制。
+* Azure 自动化支持 Azure 虚拟网络服务标记，尤其是 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)。 可以在[网络安全组](../virtual-network/network-security-groups-overview.md#security-rules)或 [Azure 防火墙](../firewall/service-tags.md)中使用服务标记来定义网络访问控制并触发 Webhook。 创建安全规则时，可以使用服务标记代替特定 IP 地址。 在规则的相应源或目标字段中指定服务标记名称（例如 GuestAndHybridManagement），可以允许或拒绝自动化服务的流量。 此服务标记不支持通过将 IP 范围限制到特定区域来实现更精细的控制。
 
 ## <a name="create-a-webhook"></a>创建 Webhook
 
@@ -143,7 +143,7 @@ http://<Webhook Server>/token?=<Token Value>
 可以扩展尚未达到过期时间的 Webhook。 扩展 Webhook：
 
 1. 请导航到包含 Webhook 的 Runbook。 
-2. 选择“资源”****下的“Webhook”****。 
+2. 选择“资源” ****下的“Webhook”**** 。 
 3. 单击要扩展的 Webhook。 
 4. 在 Webhook 页中，选择新的到期日期和时间，然后单击“保存”。
 

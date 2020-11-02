@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 iif()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 2da172aa3d7cf0a3076c9ae095a9db87b3909ebc
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 78a45f5b7bc818ea135ab70f19996671b309a0a5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841735"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103865"
 ---
 # <a name="iif"></a>iif()
 
@@ -22,21 +22,21 @@ ms.locfileid: "87841735"
 
 第二个和第三个参数必须属于同一类型。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `iif(`*predicate*`,` *ifTrue*`,` *ifFalse*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *predicate*：一个计算结果为 `boolean` 值的表达式。
+* *predicate* ：一个计算结果为 `boolean` 值的表达式。
 * ifTrue：如果 predicate 计算结果为 `true`，得以计算的表达式以及其从函数返回的表达式值。
 * ifFalse：进行了计算的表达式以及它的从函数返回的表达式值（如果 predicate 计算结果为 `false`）。
 
-**返回**
+## <a name="returns"></a>返回
 
 如果 *predicate* 计算结果为 `true`，此函数返回 *ifTrue* 的值，否则返回 *ifFalse* 的值。
 
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 T 

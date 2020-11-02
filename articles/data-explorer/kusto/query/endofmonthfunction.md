@@ -4,36 +4,36 @@ description: 本文介绍 Azure 数据资源管理器中的 endofmonth()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 903147339b4281b5068dbdddd8ad1ff5ec30cdcd
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: a8d28e6e1c6d9237594826cf5a452b256af476ba
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841276"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104658"
 ---
 # <a name="endofmonth"></a>endofmonth()
 
 返回包含日期的一月的终点，根据偏移量移动（如提供）。
 
-**语法**
+## <a name="syntax"></a>语法
 
-`endofmonth(`*date* [`,`*offset*]`)`
+`endofmonth(`*date* [`,`*offset* ]`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * `date`：输入日期。
 * `offset`：输入日期中的可选偏移月数（整数，默认值为 0）。
 
-**返回**
+## <a name="returns"></a>返回
 
 一个日期/时间，表示给定 date 值的那一月的结束（如果指定了偏移量，则还包含该信息）。
 
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
   range offset from -1 to 1 step 1

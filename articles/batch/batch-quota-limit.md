@@ -1,20 +1,21 @@
 ---
 title: 服务配额和限制
 description: 了解默认的 Azure Batch 配额、限制和约束，以及如何请求提高配额
+ms.service: batch
 ms.topic: conceptual
 origin.date: 06/03/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 7462454bc8b7824ce9d0ac316dcb05815c73d168
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: ad4a1377eb81848cd3822cf38d0e90eab9dccbc1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654977"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104752"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -95,7 +96,7 @@ Batch 服务设置的其他限制。 与[资源配额](#resource-quotas)不同�
 
     1. “配额类型” > “Batch”
 
-       选择“**下一步**”。
+       选择“ **下一步** ”。
 
 1. 在“详细信息”中：
 
@@ -106,18 +107,18 @@ Batch 服务设置的其他限制。 与[资源配额](#resource-quotas)不同�
         配额类型包括：
 
         * 每个 Batch 帐户  
-        特定于单个 Batch 帐户的值，包括专用核心数以及作业和池的数目。
+            特定于单个 Batch 帐户的值，包括专用核心数以及作业和池的数目。
         
-        <!--Not Available on FEATURE low-priority-->
+            <!--Not Available on FEATURE low-priority-->
         
         * 每个区域  
-        应用于区域中所有 Batch 帐户的值，包括每个订阅的每个区域的 Batch 帐户数。
+            应用于区域中所有 Batch 帐户的值，包括每个订阅的每个区域的 Batch 帐户数。
 
-        <!--Not Available on FEATURE Low-priority-->
+            <!--Not Available on FEATURE Low-priority-->
 
     1. 根据[业务影响情况](https://support.azure.cn/support/plans/response)选择“严重性”。
 
-        选择“**下一步**”。
+        选择“ **下一步** ”。
 
 1. 在“联系人信息”中：
    
@@ -133,7 +134,7 @@ Batch 服务设置的其他限制。 与[资源配额](#resource-quotas)不同�
 
 部署在 Azure 虚拟网络中的虚拟机配置中的 Batch 池可自动分配其他 Azure 网络资源。 在虚拟网络中，每 50 个池节点需要以下资源：
 
-- 一个[网络安全组](../virtual-network/security-overview.md#network-security-groups)
+- 一个[网络安全组](../virtual-network/network-security-groups-overview.md#network-security-groups)
 - 一个[公共 IP 地址](../virtual-network/public-ip-addresses.md)
 - 一个[负载均衡器](../load-balancer/load-balancer-overview.md)
 

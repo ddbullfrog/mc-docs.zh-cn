@@ -2,9 +2,7 @@
 title: 排查通过 RDP 连接到 Azure 中的 Windows VM 时发生的常规错误 | Azure
 description: 了解如何排查通过 RDP 连接到 Azure 中的 Windows VM 时发生的常规错误 | Azure
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0931e68cb64df680b7528dbc742f52a77fd83b8d
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 39d9c56a854a4e920f182ae5de480c86bc91a322
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456772"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104344"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>排查 Azure VM 的常规 RDP 错误
 

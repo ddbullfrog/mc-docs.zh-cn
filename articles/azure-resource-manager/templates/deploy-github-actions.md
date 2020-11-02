@@ -4,17 +4,17 @@ description: 介绍如何使用 GitHub Actions 部署资源管理器模板。
 ms.topic: conceptual
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: f0a8ab199d68a033762578f020e267ce336c6c6b
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: cf8a39013f90d5d4104bcccd8fc0a638f81b242b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470445"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104751"
 ---
 <!--Verified successfully on 2020/07/13 by harris-->
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>使用 GitHub Actions 部署 Azure 资源管理器模板
@@ -42,7 +42,9 @@ ms.locfileid: "92470445"
 
 ## <a name="generate-deployment-credentials"></a>生成部署凭据
 
-可以在 [Azure CLI](https://docs.azure.cn/cli/) 中使用 [az ad sp create-for-rbac](https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac&preserve-view=true) 命令创建[服务主体](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。 通过 Azure 门户中的 [Azure 本地 Shell](https://shell.azure.com (此网站在 Azure 中国云上不可用) /) 或通过选择“试用”按钮来运行此命令。
+可以在 [Azure CLI](https://docs.azure.cn/cli/) 中使用 [az ad sp create-for-rbac](https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac&preserve-view=true) 命令创建[服务主体](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)。 
+
+<!--Not Avaialble on [Azure Cloud Shell](https://shell.azure.com/)-->
 
 请将 `myApp` 占位符替换为应用程序的名称。 
 

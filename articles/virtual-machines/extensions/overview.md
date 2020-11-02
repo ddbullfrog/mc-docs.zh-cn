@@ -11,12 +11,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: f0e1f0c7c9e921b76e32992b18f25434bcc3167c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: f2d6aa484ecf3e3cd49a2e67e78a1605caa108ba
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413656"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104878"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 虚拟机扩展和功能
 扩展是小型应用程序，用于在 Azure VM 上提供部署后配置和自动化。 Azure 平台可承载许多扩展，涵盖 VM 配置、监视、安全性和实用工具应用程序。 发布服务器采用某个应用程序，将其包装到扩展中，对安装进行简化。 你只需提供必需的参数。 
@@ -37,7 +37,7 @@ ms.locfileid: "89413656"
 
 ## <a name="troubleshoot-extensions"></a>排查扩展问题
 
-可以在扩展概述的**故障排除和支持**部分中找到每个扩展的故障排除信息。 下面列出了可用的故障排除信息：
+可以在扩展概述的 **故障排除和支持** 部分中找到每个扩展的故障排除信息。 下面列出了可用的故障排除信息：
 
 | 命名空间 | 故障排除 |
 |-----------|-----------------|

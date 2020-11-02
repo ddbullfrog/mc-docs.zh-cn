@@ -4,16 +4,16 @@ description: 了解 Azure 负载均衡器的新增功能，例如最新的发行
 services: load-balancer
 author: WenJason
 ms.service: load-balancer
-ms.topic: overview
+ms.topic: conceptual
 origin.date: 07/07/2020
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: e0be97ef6453675bf46ff8b0a1ea508f3bd2bb71
-ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+ms.openlocfilehash: d5237e28b04e34bcf5d7ee708052dec8245d9a4a
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89045852"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628188"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Azure 负载均衡器中的新增功能有哪些？
 
@@ -28,6 +28,7 @@ Azure 负载均衡器会定期更新。 随时了解最新公告。 本文提供
 
 | 类型 |名称 |说明  |添加日期  |
 | ------ |---------|---------|---------|
+| Feature | 支持跨资源组移动 | 标准负载均衡器和标准公共 IP 支持资源组移动。 | 2020 年 10 月 |
 | Feature | 支持基于 IP 的后端池管理（预览版） | Azure 负载均衡器支持通过 IPv4 或 IPv6 地址从后端池中添加和删除资源。 这样就可以轻松管理与负载均衡器关联的容器、虚拟机和虚拟机规模集。 它还允许在创建关联资源之前将 IP 地址作为后端池的一部分保留。 在[此处](backend-pool-management.md)了解详细信息|2020 年 7 月 |
 | Feature| 使用 Azure Monitor 的 Azure 负载均衡器见解 | 作为 Azure 网络监视器一部分，客户现在拥有所有负载平衡器配置的拓扑图，以及在 Azure 门户中预配置了指标的标准负载平衡器的运行状况仪表板。 | 2020 年 6 月 |
 | 验证 | 添加了 HA 端口验证 | 添加了验证，以确保仅当启用了浮动 IP 时才可配置 HA 端口规则和非 HA 端口规则。 之前此配置会执行，但不会按预期方式工作。 未对功能进行任何更改。 可在[此处](load-balancer-ha-ports-overview.md#limitations)了解详细信息| 2020 年 6 月 |

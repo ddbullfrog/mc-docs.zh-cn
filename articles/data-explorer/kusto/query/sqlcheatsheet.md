@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的 SQL 到 Kusto 查询
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 01/22/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: e3a20c0205ccc4e56eff9725f09e41c9b26bbed9
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 5262befc01c804422b04b70516acc315a85a2acc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841565"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104386"
 ---
-# <a name="sql-to-kusto-query-translation"></a>SQL 到 Kusto 查询转换
+# <a name="sql-to-kusto-cheat-sheet"></a>SQL 到 Kusto 备份单
 
 Kusto 支持 SQL 语言的一个子集。 有关不支持的功能的完整列表，请参阅 [SQL 已知问题](../api/tds/sqlknownissues.md)的列表。
 

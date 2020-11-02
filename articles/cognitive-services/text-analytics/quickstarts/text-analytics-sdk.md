@@ -1,27 +1,28 @@
 ---
-title: 快速入门：文本分析客户端库 v3 | Microsoft Docs
+title: 快速入门：使用文本分析客户端库进行文本挖掘
 titleSuffix: Azure Cognitive Services
-description: 参考本快速入门，将应用程序连接到 Azure 认知服务的文本分析 API。
+description: 使用本快速入门，通过 Azure 认知服务的文本分析 API 执行情绪分析等操作。
 services: cognitive-services
 author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/03/2020
+ms.date: 10/26/2020
 ms.author: v-johya
-ms.custom: tracking-python, devx-track-javascript
+keywords: 文本挖掘, 情绪分析, 文本分析
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: b1d95521992c6f41e75942658ebba9b8f35753bd
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: c4a3dd8add9d7e8249fdaf42b4f1b3e693cf3edb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023414"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103577"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>快速入门：使用文本分析客户端库
 
-从文本分析客户端库开始操作。 请按照以下步骤安装程序包并试用基本任务的示例代码。
+参考本文开始使用文本分析客户端库。 按照以下步骤安装包，试用用于挖掘文本的示例代码。
 
 使用文本分析客户端库执行：
 
@@ -29,6 +30,7 @@ ms.locfileid: "88023414"
 * 语言检测
 * 实体识别
 * 关键短语提取
+* 观点挖掘
 
 ::: zone pivot="programming-language-csharp"
 
@@ -36,6 +38,8 @@ ms.locfileid: "88023414"
 > * 文本分析 API 的最新稳定版本为 `3.0`。
 >    * 确保只按所用版本的说明操作。
 > * 为了简单起见，本文中的代码使用了同步方法和不受保护的凭据存储。 对于生产方案，我们建议使用批处理的异步方法来提高性能和可伸缩性。 请参阅下面的参考文档。
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
@@ -91,7 +95,7 @@ ms.locfileid: "88023414"
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。
 
-* [门户](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>后续步骤

@@ -7,13 +7,13 @@ ms.author: v-junlch
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 09/29/2020
-ms.openlocfilehash: 49847fd5dbc73d077213119d213777c50206d975
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.date: 10/26/2020
+ms.openlocfilehash: 8e2ff6d737d7ece04cf4d3371dd26dbdddc8b74d
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937625"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749933"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>教程：创建使用 Microsoft 标识平台进行身份验证的 Blazor Server 应用
 
@@ -40,15 +40,15 @@ Blazor 服务器在 ASP.NET Core 应用中添加了对在服务器上托管 Razo
 
 在“身份验证” > “隐式授权”中，选中“访问令牌”和“ID 令牌”的复选框，然后选择“保存”按钮。
 
-最后，因为应用调用了一个受保护的 API（在本例中为 Microsoft Graph），因此在请求访问令牌来调用该 API 时，它需要一个客户端机密来验证其身份。 
+最后，因为应用调用了一个受保护的 API（在本例中为 Microsoft Graph），因此在请求访问令牌来调用该 API 时，它需要一个客户端机密来验证其身份。
 
 1. 在同一应用注册中，在“管理”下选择“证书和机密”。
-2. 创建一个永不过期的**新客户端机密**。
-3. 记下该机密的**值**，你在下一步中将使用它。 离开此窗格后，将无法再访问它。 但是，你可以根据需要重新创建它。
+2. 创建一个永不过期的 **新客户端机密** 。
+3. 记下该机密的 **值** ，你在下一步中将使用它。 离开此窗格后，将无法再访问它。 但是，你可以根据需要重新创建它。
 
 ## <a name="create-the-app-using-the-net-cli"></a>使用 .NET CLI 创建应用
 
-运行以下命令来下载适用于 Microsoft.Identity.Web 的模板，在本教程中将使用这些模板。 
+运行以下命令来下载适用于 Microsoft.Identity.Web 的模板，在本教程中将使用这些模板。
 
 ```dotnetcli
 dotnet new --install Microsoft.Identity.Web.ProjectTemplates::0.4.0-preview
@@ -74,19 +74,19 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 
 ## <a name="test-the-app"></a>测试应用
 
-现在可以生成并运行应用了。 运行此模板应用时，必须使用 --framework 指定要运行的框架。 本教程使用 .NET Core 3.1 SDK。 
+现在可以生成并运行应用了。 运行此模板应用时，必须使用 --framework 指定要运行的框架。 本教程使用 .NET Core 3.1 SDK。
 
 ```dotnetcli
 dotnet run --framework netcoreapp3.1
 ```
 
-在浏览器中导航到 `https://localhost:5001`，使用 Azure AD 用户帐户登录，以查看运行的应用。 
+在浏览器中导航到 `https://localhost:5001`，使用 Azure AD 用户帐户登录，以查看运行的应用。
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>通过 Microsoft Graph 检索数据
 
 [Microsoft Graph](https://docs.microsoft.com/graph/overview) 提供了一系列 API，可用于访问用户的 Microsoft 365 数据。 通过使用 Microsoft 标识平台作为你的应用的标识提供者，你可以更轻松地访问此信息，因为 Microsoft Graph 直接支持 Microsoft 标识平台颁发的令牌。 在本部分中，你将添加代码，以便在应用程序的“提取数据”页上显示已登录用户的电子邮件。
 
-在开始之前，请注销你的应用，因为你将对所需权限进行更改，并且你的当前令牌将不起作用。 如果你尚未这样做，请再次运行应用，并在更新以下代码之前选择“注销”。 
+在开始之前，请注销你的应用，因为你将对所需权限进行更改，并且你的当前令牌将不起作用。 如果你尚未这样做，请再次运行应用，并在更新以下代码之前选择“注销”。
 
 现在，你将更新应用的注册和代码，以便拉取用户的电子邮件并在应用中显示这些消息。 若要实现此目的，请先在 Azure AD 中扩展应用注册权限，以启用对电子邮件数据的访问权限。 然后，向 Blazor 应用添加代码来检索此数据并将其显示在其中一个页面上。
 
@@ -201,6 +201,8 @@ else
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Microsoft 标识平台最佳做法和建议](./identity-platform-integration-checklist.md)
-- [Microsoft 标识 Web 基础知识](https://github.com/AzureAD/microsoft-identity-web/wiki/Microsoft-Identity-Web-basics)
+通过我们的由多部分构成的方案系列了解如何调用和构建用于登录用户的 web 应用：
+
+> [!div class="nextstepaction"]
+> [场景：可将用户登录的 Web 应用](scenario-web-app-sign-user-overview.md)
 

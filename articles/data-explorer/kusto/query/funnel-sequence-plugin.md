@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 funnel_sequence �
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 4e065e59e4d509014a786ee0526d75ce2d6ebf63
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: a7b5a6c70a8260c0738de1b62511b46dff8a94dc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841770"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104123"
 ---
 # <a name="funnel_sequence-plugin"></a>funnel_sequence 插件
 
@@ -24,11 +24,11 @@ ms.locfileid: "87841770"
 T | evaluate funnel_sequence(id, datetime_column, startofday(ago(30d)), startofday(now()), 10m, 1d, state_column, dynamic(['S1', 'S2', 'S3']))
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
-*T* `| evaluate` `funnel_sequence(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *MaxSequenceStepWindow*, *Step*, *StateColumn*, *Sequence*`)`
+*T* `| evaluate` `funnel_sequence(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *MaxSequenceStepWindow* , *Step* , *StateColumn* , *Sequence*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * T：输入表格表达式。
 * IdColum：列引用，必须出现在源表达式中。
@@ -40,7 +40,7 @@ T | evaluate funnel_sequence(id, datetime_column, startofday(ago(30d)), startofd
 * StateColumn：表示状态的列引用，必须出现在源表达式中。
 * Sequence：包含序列值（在 `StateColumn` 中查找到的值）的常数动态数组。
 
-**返回**
+## <a name="returns"></a>返回
 
 返回三个输出表，用于构造已分析序列的桑基图：
 
@@ -58,7 +58,7 @@ T | evaluate funnel_sequence(id, datetime_column, startofday(ago(30d)), startofd
     示例：与行的序列对应的 ID 的数组（来自 `IdColumn`）（最多返回 128 个 ID）。 
 
 
-**示例**
+## <a name="examples"></a>示例
 
 ### <a name="exploring-storm-events"></a>探索 StormEvents 
 

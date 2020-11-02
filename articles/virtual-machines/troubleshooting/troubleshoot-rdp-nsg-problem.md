@@ -2,8 +2,6 @@
 title: 因为没有在 NSG 中启用 RDP 端口而无法连接到 Azure VM | Azure
 description: 了解如何在 Azure 门户中解决 RDP 因为 NSG 配置而失败的问题 | Azure
 services: virtual-machines-windows
-documentationCenter: ''
-author: rockboyfor
 manager: digimobile
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -11,14 +9,17 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/20/2018
-ms.date: 04/27/2020
+author: rockboyfor
+ms.date: 11/02/2020
+ms.testscope: no
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 848d353f50d197a3bcf2a005a639e9bf5de0cffe
-ms.sourcegitcommit: b469d275694fb86bbe37a21227e24019043b9e88
+ms.openlocfilehash: e89f37ae22c71a654bd16835dbba3091ff2d4e4a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596359"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105476"
 ---
 <!--Verify successfully-->
 # <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>因为没有在 NSG 中启用 RDP 端口而无法远程连接到 VM
@@ -39,17 +40,17 @@ ms.locfileid: "82596359"
 3. 在“设置”中，选择“网络”。   
 4. 在“入站端口规则”  中，检查是否正确设置了 RDP 的端口。 下面是一个配置示例： 
 
-    **优先级**：300 <br />
-    **名称**：Port_3389 <br />
+    **优先级** ：300 <br />
+    **名称** ：Port_3389 <br />
     **端口(目标)** ：3389 <br />
-    **协议**：TCP <br />
-    **源**：任意 <br />
-    **目标**：任意 <br />
-    **操作**：允许 <br />
+    **协议** ：TCP <br />
+    **源** ：任意 <br />
+    **目标** ：任意 <br />
+    **操作** ：允许 <br />
 
 如果你指定了源 IP 地址，则此设置仅允许来自特定 IP 地址或 IP 地址范围的流量连接到 VM。 请确保你用来启动 RDP 会话的计算机在该范围内。
 
-有关 NSG 的详细信息，请参阅[网络安全组](../../virtual-network/security-overview.md)。
+有关 NSG 的详细信息，请参阅[网络安全组](../../virtual-network/network-security-groups-overview.md)。
 
 > [!NOTE]
 > RDP 端口 3389 公开给 Internet。 因此，我们建议你仅将此端口用于测试。 对于生产环境，建议使用 VPN 或专用连接。
@@ -58,4 +59,4 @@ ms.locfileid: "82596359"
 
 如果已在 NSG 中启用了 RDP 端口，请参阅[解决 Azure VM 中的 RDP 一般错误](./troubleshoot-rdp-general-error.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

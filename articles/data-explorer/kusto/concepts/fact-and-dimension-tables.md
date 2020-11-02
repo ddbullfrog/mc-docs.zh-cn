@@ -8,19 +8,19 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/23/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: a2ae139ca840de6f0d3ae1369b08392f1d633eb8
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: 5303c12f7549ded516bdb36d3c694d1ebe0ef40c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226183"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103559"
 ---
 # <a name="fact-and-dimension-tables"></a>事实数据表和维度表
 
 为 Azure 数据资源管理器数据库设计架构时，可将表宽泛地视为属于以下两种类别之一。
 * 事实数据表
-* 维度表#Dimension_table)
+* 维度表
 
 ## <a name="fact-tables"></a>事实数据表
 事实数据表是指其记录为不可变“事实数据”的表，例如服务日志和度量信息。 记录将以流式传输方式或大区块形式逐步追加到表中。 这些记录会一直保存在那里，直到它们因为成本考量或失去价值而被删除为止。 否则，记录永远不会更新。
@@ -37,7 +37,7 @@ ms.locfileid: "86226183"
 * 保存引用数据，例如从实体标识符到其属性在内的各种查找表
 * 将类似快照的数据保存在这样的表中：表的全部内容会在单个事务中发生变化
 
-维度表不会定期引入新数据， 而是使用 [.set-or-replace](../management/data-ingestion/ingest-from-query.md)、[.move extents](../management/extents-commands.md#move-extents) 或 [.rename tables](../management/rename-table-command.md) 之类的操作一次更新整个数据内容。
+维度表不会定期引入新数据， 而是使用 [.set-or-replace](../management/data-ingestion/ingest-from-query.md)、[.move extents](../management/move-extents.md) 或 [.rename tables](../management/rename-table-command.md) 之类的操作一次更新整个数据内容。
 
 有时，维度表可能派生自事实数据表。 此过程可通过以下方式完成：对事实数据表执行[更新策略](../management/updatepolicy.md)，并通过对该表进行查询来获取每个实体的最后一条记录。
 

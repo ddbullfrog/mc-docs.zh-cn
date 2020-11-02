@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 summarize 运算�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/20/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 4f4167b2433c14c6e52f57ed0c04219f1c448fa7
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 61ed6eea143427ee205fde17856adb50d3af8447
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146779"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104004"
 ---
 # <a name="summarize-operator"></a>summarize 运算符
 
@@ -35,12 +35,12 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 ## <a name="syntax"></a>语法
 
-*T* `| summarize` [[*Column* `=`] *Aggregation* [`,` ...]] [`by` [*Column* `=`] *GroupExpression* [`,` ...]]
+*T* `| summarize` [[ *Column* `=`] *Aggregation* [`,` ...]] [`by` [ *Column* `=`] *GroupExpression* [`,` ...]]
 
 ## <a name="arguments"></a>参数
 
-* *Column*：结果列的可选名称。 默认为派生自表达式的名称。
-* *聚合：* 对[聚合函数](summarizeoperator.md#list-of-aggregation-functions)（例如 `count()` 或 `avg()`）的调用，以列名作为参数。 请参阅[聚合函数的列表](summarizeoperator.md#list-of-aggregation-functions)。
+* *Column* ：结果列的可选名称。 默认为派生自表达式的名称。
+* *聚合：* 对 [聚合函数](summarizeoperator.md#list-of-aggregation-functions)（例如 `count()` 或 `avg()`）的调用，以列名作为参数。 请参阅[聚合函数的列表](summarizeoperator.md#list-of-aggregation-functions)。
 * GroupExpression：一个可以引用输入数据的标量表达式。
   所有组表达式有多少个不同的值，输出就会包含多少个记录。
 

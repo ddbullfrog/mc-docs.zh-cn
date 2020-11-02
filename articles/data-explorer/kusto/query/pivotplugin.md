@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 pivot 插件。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 9e48e8e64e9834aa2d3c2447f9c0bbcea6f5ee6d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 53e13724a336c0240f98b87800b32ece3730be2d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515985"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103833"
 ---
 # <a name="pivot-plugin"></a>pivot 插件
 
@@ -39,7 +39,7 @@ T | evaluate pivot(PivotColumn)
 
 ## <a name="returns"></a>返回
 
-Pivot 返回包含指定列（*column1*、*column2*……）及透视列的所有唯一值的旋转表。 已透视列的每个单元格都将包含聚合函数计算。
+Pivot 返回包含指定列（ *column1* 、 *column2* ……）及透视列的所有唯一值的旋转表。 已透视列的每个单元格都将包含聚合函数计算。
 
 ## <a name="examples"></a>示例
 

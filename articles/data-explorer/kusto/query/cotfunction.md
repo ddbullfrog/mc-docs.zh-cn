@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 cot()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: 1a8ab5df71db0e9727429a85530b4ffa399f0eb4
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 00c7712ef8553c2cd4adf39344e14de1e6a6f8e2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515748"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104662"
 ---
 # <a name="cot"></a>cot()
 

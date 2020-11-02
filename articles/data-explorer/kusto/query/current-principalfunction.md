@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的 current_principal()�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 12/10/2019
-ms.date: 08/18/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 1f708200404e90ea6de7b1f0e8f5fc701badf2df
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: eb81cf2352b4528b148905faa93db74a8d7936d8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515726"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104446"
 ---
 # <a name="current_principal"></a>current_principal()
 

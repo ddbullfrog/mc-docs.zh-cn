@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的 cursor_before_or_at(
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 08/18/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 83348585543c7c7453eae6ef7845537f41ab2ff4
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: f4f0f7ba14be8fc9d6750cf6bc7f20711857b891
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515704"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104443"
 ---
 # <a name="cursor_before_or_at"></a>cursor_before_or_at()
 

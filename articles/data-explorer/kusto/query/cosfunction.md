@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 cos()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: 081737986bca08d0636e15f3f4fc16ad920ee333
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: ff8bac43d13f8ae1595ed8257bd0ebd1b7eae077
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516051"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104454"
 ---
 # <a name="cos"></a>cos()
 

@@ -4,17 +4,17 @@ description: 使用异地复制的 Azure 容器注册表中的容器映像将基
 ms.topic: tutorial
 origin.date: 08/20/2018
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 09/14/2020
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 49f9fe4d219b93b7522396d79e7555672834f0b3
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 60846fc288f7108cb370d963587e25cdfe61efc2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564147"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104408"
 ---
 <!--Verified Successfully on 30/09/2020-->
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>教程：通过异地复制的 Azure 容器注册表部署 Web 应用
@@ -44,7 +44,7 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 <!--MOONCAKE CUSTOMIZATION ON: West US to China North, East US to China East -->
 <!--MOONCAKE CUSTOMIZATION ON: westus to chinanorth, eastus to chinaeast-->
 
-此步骤在“中国北部”区域创建一个用于容器的 Web 应用实例。**
+此步骤在“中国北部”区域创建一个用于容器的 Web 应用实例。 
 
 登录到 [Azure 门户](https://portal.azure.cn)，并导航到在前一篇教程中创建的注册表。
 
@@ -60,14 +60,14 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 |---|---|
 | **站点名称** | Web 应用的全局唯一名称。 本示例使用格式 `<acrName>-chinanorth` 来方便标识注册表，以及要从中部署 Web 应用的区域。 |
 | **资源组** | **使用现有项** > `myResourceGroup` |
-| **应用服务计划/位置** | 在“中国北部”区域创建名为 `plan-chinanorth` 的新计划。**** |
+| **应用服务计划/位置** | 在“中国北部”区域创建名为 `plan-chinanorth` 的新计划。  |
 | **图像** | `acr-helloworld:v1` |
 | **操作系统** | Linux |
 
 > [!NOTE]
 > 创建新的应用服务计划以部署容器化应用时，会自动选择默认计划以托管应用程序。 默认计划取决于操作系统设置。
 
-选择“创建”，将 Web 应用预配到“中国北部”区域。******
+选择“创建”，将 Web 应用预配到“中国北部”区域。 
 
 ![屏幕截图显示用于容器的 Web 应用，其中突出显示了“创建”按钮。][deploy-app-portal-02]
 
@@ -75,7 +75,7 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 
 部署完成后，可在浏览器中导航到应用程序的 URL 来查看正在运行的应用程序。
 
-在门户中选择“应用服务”，再选择在上一步骤中预配的 Web 应用。  在本示例中，该 Web 应用名为 *uniqueregistryname-chinanorth*。
+在门户中选择“应用服务”，再选择在上一步骤中预配的 Web 应用。  在本示例中，该 Web 应用名为 *uniqueregistryname-chinanorth* 。
 
 在“应用服务”概述的右上方选择该 Web 应用的超链接 URL，在浏览器中查看正在运行的应用程序  。
 
@@ -87,17 +87,17 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>部署第二个用于容器的 Web 应用实例
 
-使用上一部分中所述的过程，将第二个 Web 应用部署到“中国东部”区域。** 在“容器的 Web 应用”下，指定以下值  ：
+使用上一部分中所述的过程，将第二个 Web 应用部署到“中国东部”区域。  在“容器的 Web 应用”下，指定以下值  ：
 
 | 设置 | 值 |
 |---|---|
 | **站点名称** | Web 应用的全局唯一名称。 本示例使用格式 `<acrName>-chinaeast` 来方便标识注册表，以及要从中部署 Web 应用的区域。 |
 | **资源组** | **使用现有项** > `myResourceGroup` |
-| **应用服务计划/位置** | 在“中国东部”区域创建名为 `plan-chinaeast` 的新计划。**** |
+| **应用服务计划/位置** | 在“中国东部”区域创建名为 `plan-chinaeast` 的新计划。  |
 | **图像** | `acr-helloworld:v1` |
 | **操作系统** | Linux |
 
-选择“创建”，将 Web 应用预配到“中国东部”区域。******
+选择“创建”，将 Web 应用预配到“中国东部”区域。 
 
 ![屏幕截图显示用于容器的 Web 应用创建窗口，其中突出显示了“创建”按钮。][deploy-app-portal-06]
 
@@ -105,7 +105,7 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 
 如前所述，可在浏览器中导航到应用程序的 URL 来查看正在运行的应用程序。
 
-在门户中选择“应用服务”，再选择在上一步骤中预配的 Web 应用。  在本示例中，该 Web 应用名为 *uniqueregistryname-chinaeast*。
+在门户中选择“应用服务”，再选择在上一步骤中预配的 Web 应用。  在本示例中，该 Web 应用名为 *uniqueregistryname-chinaeast* 。
 
 在“应用服务概述”的右上角选择该 Web 应用的超链接 URL，在浏览器中查看正在运行的应用程序。 
 
@@ -138,3 +138,5 @@ Azure 容器注册表支持直接将容器化应用程序部署到[用于容器�
 [deploy-app-portal-07]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-07.png
 [deployed-app-westus]: ./media/container-registry-tutorial-deploy-app/deployed-app-westus.png
 [deployed-app-eastus]: ./media/container-registry-tutorial-deploy-app/deployed-app-eastus.png
+
+<!-- Update_Description: update meta properties, wording update, update link -->

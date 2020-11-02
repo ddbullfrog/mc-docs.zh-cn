@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/28/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: deb02f2863b6a390cc7c84ac3557aa4ad5888b87
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 5997248b7332523ccad92036864173a0275e01f0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472767"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103760"
 ---
 <!--Verified Successfully-->
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>将跨租户 VNet 连接到某个虚拟 WAN 中心
@@ -117,4 +117,4 @@ ms.locfileid: "92472767"
 * 虚拟 WAN [常见问题解答](virtual-wan-faq.md)
 
 <!-- Update_Description: new article about cross tenant vnet -->
-<!--NEW.date: 10/26/2020-->
+<!--NEW.date: 11/02/2020-->

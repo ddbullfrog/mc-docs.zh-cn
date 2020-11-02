@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 10/26/2020
 ms.author: v-johya
-ms.openlocfilehash: 9522e29b3be241e9a9afd7f728f03671d0ebf3ae
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: d3b6ccea2e17647ab3740e1a4118e63560126c83
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023337"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103924"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>将文本分析容器部署到 Azure 容器实例
 
@@ -23,7 +23,7 @@ ms.locfileid: "88023337"
 
 ## <a name="prerequisites"></a>必备条件
 
-* 使用 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 使用 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services)。
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -49,6 +49,7 @@ ms.locfileid: "88023337"
 
 ## <a name="next-steps"></a>后续步骤 
 
+* 使用更多[认知服务容器](../../cognitive-services-container-support.md)
 * 使用[文本分析连接服务](../vs-text-connected-service.md)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md

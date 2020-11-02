@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 964b953760523d193d833cb10a16d9bb4bf2656d
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 10/29/2020
+ms.openlocfilehash: 410a22cb005183448c5c1bbcd1e889398dc4617b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470495"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105227"
 ---
 # <a name="ingestionbatching-policy"></a>IngestionBatching 策略
 
@@ -39,7 +39,7 @@ ms.locfileid: "86470495"
 可以在数据库或表上设置 `IngestionBatching` 策略。 默认情况下，如果未定义策略，Kusto 会为批处理使用以下默认值：最大延迟时间为“5 分钟”，总共“1000”个项，总大小为“1G”  。
 
 > [!WARNING]
-> 建议想设置此策略的客户先联系 Kusto ops 团队。 将此策略设置为非常小的值会增加群集的 COGS 并降低性能。 此外，在限制内，由于并行管理多个引入进程而产生开销，减小该值实际上可能导致增加有效的端到端引入延迟。
+> 将此策略设置为非常小的值会增加群集的 COGS 并降低性能。 此外，在限制内，由于并行管理多个引入进程而产生开销，减小该值实际上可能导致增加有效的端到端引入延迟。
 
 ## <a name="additional-resources"></a>其他资源
 

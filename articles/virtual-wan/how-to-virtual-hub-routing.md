@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8b804c1a5d54cc890060be1b0749155175a43af9
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 625318311f92edd001026c0f065a5f8e629b44fc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471301"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103756"
 ---
 <!--Verified Successfully-->
 # <a name="how-to-configure-virtual-hub-routing"></a>如何配置虚拟中心路由

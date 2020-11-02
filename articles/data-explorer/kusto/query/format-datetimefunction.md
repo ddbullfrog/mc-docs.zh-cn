@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 format_datetime()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 5e32aaa5a2893fcb542cc16228015190b261636d
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 11634d85adf9bce9abdac57670be9645ea66db85
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841658"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104389"
 ---
 # <a name="format_datetime"></a>format_datetime()
 
@@ -24,16 +24,16 @@ ms.locfileid: "87841658"
 format_datetime(datetime(2015-12-14 02:03:04.12345), 'y-M-d h:m:s.fffffff') == "15-12-14 2:3:4.1234500"
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 `format_datetime(`*datetime* `,` *format*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * `datetime`：`datetime` 类型的值。
 * `format`：格式说明符字符串，由一个或多个[格式元素](#supported-formats)组成。
 
-**返回**
+## <a name="returns"></a>返回
 
 包含格式结果的字符串。
 
@@ -88,7 +88,7 @@ format_datetime(datetime(2015-12-14 02:03:04.12345), 'y-M-d h:m:s.fffffff') == "
 |`'['`||
 |`']'`||
 
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

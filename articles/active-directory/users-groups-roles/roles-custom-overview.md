@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 中的自定义管理员角色 | Microsoft Docs
-description: 预览用于委托标识管理的自定义 Azure AD 角色。 在 Azure 门户、PowerShell 或图形 API 中管理 Azure 角色。
+description: 了解 Azure Active Directory (Azure AD) 中具有基于角色的访问控制和资源范围的 Azure AD 自定义角色。
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 09/08/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28136dfaca040d57aa770f905ad75e848ada30cf
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: b47013061dea1e9f9abae3d8257c78759708bb3b
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593776"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749852"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Azure Active Directory 中的自定义管理员角色（预览版）
 
-本文介绍如何了解 Azure Active Directory (Azure AD) 中具有基于角色的访问控制和资源范围的 Azure AD 自定义角色。 自定义 Azure AD 角色揭示[内置角色](directory-assign-admin-roles.md)的基础权限，以便可以创建和组织自己的自定义角色。 只要有需要，就可以使用此方法以高于内置角色的精细度授予访问权限。 Azure AD 自定义角色的这第一个版本包含创建角色以分配用于管理应用注册的权限的功能。 随着时间的推移，我们将为企业应用程序、用户和设备等组织资源添加更多的权限。  
+本文介绍如何了解 Azure Active Directory (Azure AD) 中具有基于角色的访问控制和资源范围的 Azure AD 自定义角色。 自定义 Azure AD 角色揭示[内置角色](directory-assign-admin-roles.md)的基础权限，以便可以创建和组织自己的自定义角色。 只要有需要，就可以使用此方法以高于内置角色的精细度授予访问权限。 Azure AD 自定义角色的第一版包含用于管理应用注册和企业应用的权限。 随着时间的推移，将添加对其他组织资源的附加权限。  
 
 此外，Azure AD 自定义角色支持按资源分配，此外还支持更传统的组织范围分配。 此方法可让你授予管理某些资源（例如一个应用注册）的访问权限，而无需授予对所有资源（所有应用注册）的访问权限。
 
@@ -34,7 +34,7 @@ Azure AD 基于角色的访问控制是 Azure AD 的一项公共预览版功能�
 
 创建角色定义后，可以通过创建角色分配将其分配给某个用户。 角色分配在指定的范围向用户授予角色定义中的权限。 此双步过程可让你创建单个角色定义，并在不同的范围多次分配它。 范围定义了角色成员有权访问的 Azure AD 资源集。 最常见的范围是组织范围。 可以在组织范围分配自定义角色，这意味着，该角色成员对组织中的所有资源拥有角色权限。 还可以在对象范围分配自定义角色。 对象范围的示例是单个应用程序。 同一个角色可以分配给组织中所有应用程序的某个用户，然后分配给另一个用户，但范围仅限 Contoso Expense Reports 应用。  
 
-Azure AD 内置和自定义角色的运作思路类似于 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)。 [这两个基于角色的访问控制系统的区别](../../role-based-access-control/rbac-and-directory-admin-roles.md)在于，Azure RBAC 使用 Azure 资源管理控制对 Azure 资源（例如虚拟机或存储）的访问，Azure AD 自定义角色使用图形 API 控制对 Azure AD 资源的访问。 这两个系统都利用角色定义和角色分配的概念。
+Azure AD 内置和自定义角色的运作思路类似于 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md)。 [这两个基于角色的访问控制系统的区别](../../role-based-access-control/rbac-and-directory-admin-roles.md)在于，Azure RBAC 使用 Azure 资源管理控制对 Azure 资源（例如虚拟机或存储）的访问，Azure AD 自定义角色使用图形 API 控制对 Azure AD 资源的访问。 这两个系统都利用角色定义和角色分配的概念。 Azure AD RBAC 权限不能包含在 Azure RBAC 角色中，反之亦然。
 
 ### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Azure AD 如何确定用户是否有权访问资源
 
@@ -58,7 +58,7 @@ Azure AD 内置和自定义角色的运作思路类似于 [Azure 基于角色的
 
 - 用户（在 Azure Active Directory 中具有配置文件的个人）
 - 角色定义
-- 资源作用域
+- 资源范围
 
 可以使用 Azure 门户、Azure AD PowerShell 或图形 API 创建[角色分配](roles-create-custom.md)。 还可以[查看自定义角色的分配](roles-view-assignments.md#view-the-assignments-of-a-role)。
 

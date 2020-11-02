@@ -6,18 +6,18 @@ documentationcenter: na
 author: WenJason
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/04/2020
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: e38b910736a10ae91c14abe5dd99a742f3788091
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 1f2be543e53874b3048f880272ada07d23b402b6
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943521"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628244"
 ---
 # <a name="azure-load-balancer-components"></a>Azure 负载均衡器组件
 
@@ -126,6 +126,13 @@ HA 端口负载均衡规则可帮助实现关键方案，如虚拟网络内部�
 详细了解[出站连接和规则](load-balancer-outbound-connections.md)。
 
 基本负载均衡器不支持出站规则。
+
+## <a name="limitations"></a>限制
+
+- 负载均衡器针对特定的 TCP 或 UDP 协议提供了负载均衡和端口转发。 负载均衡规则和入站 NAT 规则支持 TCP 和 UDP，但不支持其他 IP 协议（包括 ICMP）。
+- 从后端 VM 到内部负载均衡器前端的出站流将会失败。
+- 负载均衡器规则不能跨越两个虚拟网络。  前端及其后端实例必须位于同一个虚拟网络中。  
+- 负载均衡规则不支持转发 IP 片段。 负载均衡规则不支持 UDP 和 TCP 数据包的 IP 片段。 HA 端口负载均衡规则可用于转发现有 IP 片段。 有关详细信息，请参阅[高可用性端口概述](load-balancer-ha-ports-overview.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

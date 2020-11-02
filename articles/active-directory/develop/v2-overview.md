@@ -1,5 +1,6 @@
 ---
 title: Microsoft 标识平台概述 - Azure
+titleSuffix: Microsoft identity platform
 description: 了解 Microsoft 标识平台的组件以及它们如何帮助你在应用程序中构建标识和访问管理 (IAM) 支持。
 services: active-directory
 author: rwike77
@@ -8,18 +9,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/20/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 9acb9c3b6c5ebcf445957c7711e27e91773c5e80
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 53b795ae9466834b51d82f73bac9330f0c8793fe
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647659"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749894"
 ---
-# <a name="microsoft-identity-platform-overview"></a>Microsoft 标识平台概述
+# <a name="what-is-the-microsoft-identity-platform"></a>什么是 Microsoft 标识平台？
 
 Microsoft 标识平台有助于你构建这样的应用程序，你的用户和客户登录它们来使用其 Microsoft 标识或社交帐户，并提供对你的 API 或 Microsoft API（例如 Microsoft Graph）的授权访问。
 
@@ -28,10 +29,10 @@ Microsoft 标识平台由多个组件组成：
 - 符合 OAuth 2.0 和 OpenID Connect 标准的身份验证服务，使开发人员能够对多个标识类型进行身份验证并，包括：
   - 通过 Azure AD 预配的工作或学校帐户
   - 社交或本地帐户（通过 Azure AD B2C）
-- **开放源代码库**：Microsoft 身份验证库 (MSAL)，并支持其他符合标准的库
-- **应用程序管理门户**：Azure 门户中注册和配置体验，以及其他 Azure 管理功能。
-- **应用程序配置 API 和 PowerShell**：允许通过 Microsoft Graph API 和 PowerShell 以编程方式配置应用程序，以便自动执行 DevOps 任务。
-- **开发人员内容**：技术文档，包括快速入门、教程、操作指南和代码示例。
+- **开放源代码库** ：Microsoft 身份验证库 (MSAL)，并支持其他符合标准的库
+- **应用程序管理门户** ：Azure 门户中注册和配置体验，以及其他 Azure 管理功能。
+- **应用程序配置 API 和 PowerShell** ：允许通过 Microsoft Graph API 和 PowerShell 以编程方式配置应用程序，以便自动执行 DevOps 任务。
+- **开发人员内容** ：技术文档，包括快速入门、教程、操作指南和代码示例。
 
 对于开发人员而言，Microsoft 标识平台可集成到标识和安全领域的新式创新中，例如无密码身份验证、升级身份验证和条件访问。 你不需要自己实现这样的功能：集成了 Microsoft 标识平台的应用程序原本就可以利用这样的创新。
 
@@ -72,8 +73,7 @@ Microsoft 标识平台由多个组件组成：
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) - 邀请外部用户加入你的 Azure AD 租户，作为可向其分配权限（用于授权）的“来宾”用户，同时他们可以使用其现有凭据进行身份验证。
 
-> [!TIP]
-> 是否正在寻找 Azure Active Directory 开发人员平台 (v1.0) 文档？ 请参阅[适用于开发人员的 Azure Active Directory (v1.0) 概述](../azuread-dev/v1-overview.md)。
+[面向开发人员的 Azure Active Directory (v1.0)](../azuread-dev/v1-overview.md) - 此处向开发人员显示使用较旧的 v1.0 终结点的现有应用。 对于新项目，请勿使用 v1.0。
 
 ## <a name="next-steps"></a>后续步骤
 

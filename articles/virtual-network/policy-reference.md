@@ -1,8 +1,8 @@
 ---
 title: Azure 虚拟网络的内置策略定义
 description: 列出 Azure 虚拟网络的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-origin.date: 09/16/2020
-ms.date: 10/05/2020
+origin.date: 10/07/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 10/05/2020
 ms.topic: reference
@@ -10,15 +10,14 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 048673922e633afe18f046124be10f3c07e79643
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 502d1a32c416293738111e4336d3ea153f2fd118
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564358"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628238"
 ---
 <!--Verified Successfully-->
-<!--Notice: three include files in ../../includes/policy/reference/bycat-->
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Azure 虚拟网络的 Azure Policy 内置定义
 
 此页是 Azure 虚拟网络的 [Azure Policy](../governance/policy/overview.md) 内置策略定义的索引。 有关其他服务的其他 Azure Policy 内置定义，请参阅 [Azure Policy 内置定义](../governance/policy/samples/built-in-policies.md)。
@@ -43,5 +42,4 @@ ms.locfileid: "91564358"
 - 查看 [Azure Policy 定义结构](../governance/policy/concepts/definition-structure.md)。
 - 查看[了解策略效果](../governance/policy/concepts/effects.md)。
 
-<!-- Update_Description: new article about policy reference -->
-<!--NEW.date: 10/05/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

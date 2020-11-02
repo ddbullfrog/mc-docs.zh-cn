@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/23/2020
-ms.date: 09/28/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: ad3e72dd58b9731e19d7cbd2f11b945990813bd2
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 945fda916e2c3c64e016500259d7d90038f7dd80
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943518"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628199"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -32,7 +32,7 @@ ms.locfileid: "91943518"
 
 - 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-本快速入门需要 Azure CLI 2.0.28 或更高版本。 要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+本快速入门需要 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -1043,4 +1043,6 @@ runcmd:
 * 配置了负载均衡器流量规则和运行状况探测。
 * 测试了负载均衡器。
 
-若要了解有关 Azure 负载均衡器的更多信息，请进一步阅读[什么是 Azure 负载均衡器？](load-balancer-overview.md)和[负载均衡器常见问题](load-balancer-faqs.md)。
+若要详细了解 Azure 负载均衡器，请继续学习
+> [!div class="nextstepaction"]
+> [什么是 Azure 负载均衡器？](load-balancer-overview.md)

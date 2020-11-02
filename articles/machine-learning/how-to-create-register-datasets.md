@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: nibaccam
 origin.date: 07/31/2020
 ms.date: 08/27/2020
-ms.openlocfilehash: ca55b04141268125eb0d8006cda04cd6183a6519
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 45501617b26a430346f8e819715d228988361076
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118172"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103688"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>创建 Azure 机器学习数据集
 
@@ -46,7 +46,7 @@ ms.locfileid: "92118172"
 
 * [已安装适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)，其中包含 azureml-datasets 包。
 
-    * 创建一个 [Azure 机器学习计算实例](concept-compute-instance.md#managing-a-compute-instance)，它是一个完全配置且托管的开发环境，其中包括集成的笔记本和已安装的 SDK。
+    * 创建一个 [Azure 机器学习计算实例](how-to-create-manage-compute-instance.md)，它是一个完全配置且托管的开发环境，其中包括集成的笔记本和已安装的 SDK。
 
     **或者**
 
@@ -202,7 +202,7 @@ datastore = workspace.get_default_datastore()
 # upload the local file from src_dir to the target_path in datastore
 datastore.upload(src_dir='data', target_path='data')
 # create a dataset referencing the cloud location
-dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
+dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepared.csv'))])
 ```
 
 > [!TIP]

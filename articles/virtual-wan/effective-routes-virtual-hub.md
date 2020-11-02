@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: d19b0ee6032e364641566413681a0956024d6409
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: fe2dcb7f6cb05d4dbc0afb20ca4e8f7b702e5daf
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471314"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103755"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>查看虚拟中心有效路由
 

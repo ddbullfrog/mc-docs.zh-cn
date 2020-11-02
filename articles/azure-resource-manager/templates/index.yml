@@ -11,16 +11,16 @@ metadata:
   ms.collection: na
   origin.date: 07/30/2020
   author: rockboyfor
-  ms.date: 10/26/2020
+  ms.date: 11/02/2020
   ms.testscope: no
   ms.testdate: 
   ms.author: v-yeche
-  ms.openlocfilehash: 64cacf566564153435b82ca121b1cd61c8fab6cb
-  ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+  ms.openlocfilehash: d27672955a341115d80335a73cdd596d433b350d
+  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92470365"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93105240"
 landingContent:
 - title: 关于 ARM 模板
   linkLists:
@@ -34,8 +34,6 @@ landingContent:
       url: template-best-practices.md
     - text: 常见问题
       url: frequently-asked-questions.md
-    - text: 模板规格
-      url: template-specs.md
     - text: 部署模式
       url: deployment-modes.md
     - text: 链接的模板

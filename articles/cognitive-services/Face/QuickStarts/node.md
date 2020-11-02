@@ -9,21 +9,21 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 02/06/2019
-ms.date: 08/04/2020
+ms.date: 10/27/2020
 ms.author: v-johya
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 45bab1d932715e9b48aefc4a60f93ba588b7b15f
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.custom: devx-track-js
+ms.openlocfilehash: fcac746644571c4edd0dfdebc092e3e913e8271a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023333"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105441"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>快速入门：使用人脸 REST API 和 Node.js 检测图像中的人脸
 
 本快速入门将通过 Node.js 使用 Azure 人脸 REST API 检测图像中的人脸。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services/)。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -35,7 +35,7 @@ ms.locfileid: "88023333"
 
 ## <a name="set-up-the-node-environment"></a>设置 Node 环境
 
-转到你要创建项目的文件夹并创建一个新文件 (*facedetection.js*)。 然后将 `axios` 模块安装到此项目中。 这样，你的脚本就可以发出 HTTP 请求。
+转到你要创建项目的文件夹并创建一个新文件 ( *facedetection.js* )。 然后将 `axios` 模块安装到此项目中。 这样，你的脚本就可以发出 HTTP 请求。
 
 ```shell
 npm install axios --save
@@ -48,6 +48,7 @@ npm install axios --save
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```javascript
+// <environment>
 'use strict';
 
 const axios = require('axios').default;
@@ -58,20 +59,16 @@ let endpoint = process.env['FACE_ENDPOINT'] + '/face/v1.0/detect'
 
 // Optionally, replace with your own image URL (for example a .jpg or .png URL).
 let imageUrl = 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/faces.jpg'
-```
+// </environment>
 
-然后，添加以下代码以调用人脸 API 并从输入图像中获取人脸属性数据。 `returnFaceAttributes` 字段指定要检索的人脸属性。 可能需要更改此字符串，具体取决于预期用途。
-
-
-```javascript
+// <main>
 // Send a POST request
 axios({
     method: 'post',
     url: endpoint,
     params : {
-        returnFaceId: true,
-        returnFaceLandmarks: false,
-        returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
+        detectionModel: 'detection_02',
+        returnFaceId: true
     },
     data: {
         url: imageUrl,
@@ -81,29 +78,51 @@ axios({
     console.log('Status text: ' + response.status)
     console.log('Status text: ' + response.statusText)
     console.log()
-    //console.log(response.data)
-    response.data.forEach((face) => {
-      console.log('Face ID: ' + face.faceId)
-      console.log('Face rectangle: ' + face.faceRectangle.top + ', ' + face.faceRectangle.left + ', ' + face.faceRectangle.width + ', ' + face.faceRectangle.height)
-      console.log('Smile: ' + face.faceAttributes.smile)
-      console.log('Head pose: ' + JSON.stringify(face.faceAttributes.headPose))
-      console.log('Gender: ' + face.faceAttributes.gender)
-      console.log('Age: ' + face.faceAttributes.age)
-      console.log('Facial hair: ' + JSON.stringify(face.faceAttributes.facialHair))
-      console.log('Glasses: ' + face.faceAttributes.glasses)
-      console.log('Smile: ' + face.faceAttributes.smile)
-      console.log('Emotion: ' + JSON.stringify(face.faceAttributes.emotion))
-      console.log('Blur: ' + JSON.stringify(face.faceAttributes.blur))
-      console.log('Exposure: ' + JSON.stringify(face.faceAttributes.exposure))
-      console.log('Noise: ' + JSON.stringify(face.faceAttributes.noise))
-      console.log('Makeup: ' + JSON.stringify(face.faceAttributes.makeup))
-      console.log('Accessories: ' + JSON.stringify(face.faceAttributes.accessories))
-      console.log('Hair: ' + JSON.stringify(face.faceAttributes.hair))
-      console.log()
-    });
+    console.log(response.data)
 }).catch(function (error) {
     console.log(error)
 });
+// </main>
+```
+
+然后，添加以下代码以调用人脸 API 并从输入图像中获取人脸属性数据。 `returnFaceAttributes` 字段指定要检索的人脸属性。 可能需要更改此字符串，具体取决于预期用途。
+
+```javascript
+// <environment>
+'use strict';
+
+const axios = require('axios').default;
+
+// Add a valid subscription key and endpoint to your environment variables.
+let subscriptionKey = process.env['FACE_SUBSCRIPTION_KEY']
+let endpoint = process.env['FACE_ENDPOINT'] + '/face/v1.0/detect'
+
+// Optionally, replace with your own image URL (for example a .jpg or .png URL).
+let imageUrl = 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/faces.jpg'
+// </environment>
+
+// <main>
+// Send a POST request
+axios({
+    method: 'post',
+    url: endpoint,
+    params : {
+        detectionModel: 'detection_02',
+        returnFaceId: true
+    },
+    data: {
+        url: imageUrl,
+    },
+    headers: { 'Ocp-Apim-Subscription-Key': subscriptionKey }
+}).then(function (response) {
+    console.log('Status text: ' + response.status)
+    console.log('Status text: ' + response.statusText)
+    console.log()
+    console.log(response.data)
+}).catch(function (error) {
+    console.log(error)
+});
+// </main>
 ```
 
 ## <a name="save-and-run-the-script"></a>保存并运行脚本
@@ -114,7 +133,35 @@ axios({
 node facedetection.js
 ```
 
-下面是来自 `response.data` 的完整的 JSON 数据。 例如：
+成功的响应会以易于读取的 JSON 格式显示人脸数据。 例如：
+
+```json
+[
+   {
+      "faceId": "f7eda569-4603-44b4-8add-cd73c6dec644",
+      "faceRectangle": {
+         "top": 131,
+         "left": 177,
+         "width": 162,
+         "height": 162
+      }
+   }
+]
+```
+
+## <a name="extract-face-attributes"></a>提取人脸属性
+ 
+若要提取人脸属性，请使用检测模型 1 并添加 `returnFaceAttributes` 查询参数。 按如下方式编辑参数：
+
+```javascript
+    params : {
+        detectionModel: 'detection_01',
+        returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+        returnFaceId: true
+    },
+```
+
+响应现在包含人脸属性。 例如：
 
 ```json
 [

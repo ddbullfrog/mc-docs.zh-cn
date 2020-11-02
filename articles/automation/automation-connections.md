@@ -4,15 +4,15 @@ description: 本文介绍如何管理与外部服务或应用程序之间的 Azu
 services: automation
 ms.subservice: shared-capabilities
 origin.date: 01/13/2020
-ms.date: 08/10/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: d9e9c61342740c5d5a6301b63b0c382a143e8b6c
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: e57c5cf59b00979e2eff1048c8eff8039cc87795
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790084"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750207"
 ---
 # <a name="manage-connections-in-azure-automation"></a>在 Azure 自动化中管理连接
 
@@ -55,7 +55,7 @@ Azure 自动化提供了以下内置连接类型：
 
 |内部 Cmdlet|说明|
 |---|---|
-|`Get-AutomationConnection` | 检索连接中不同字段的值，并将其作为[哈希表](https://go.microsoft.com/fwlink/?LinkID=324844)返回。 然后，可以将此哈希表与 runbook 或 DSC 配置中的相应命令一起使用。|
+|`Get-AutomationConnection` | 检索连接中不同字段的值，并将其作为[哈希表](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_hash_tables)返回。 然后，可以将此哈希表与 runbook 或 DSC 配置中的相应命令一起使用。|
 
 >[!NOTE]
 >避免将变量与 `Get-AutomationConnection` 的 `Name` 参数一起使用。 如果这样使用变量，可能会导致在设计时尝试发现 runbook 或 DSC 配置与连接资产之间的依赖关系变得复杂。

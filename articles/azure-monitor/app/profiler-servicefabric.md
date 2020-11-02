@@ -2,16 +2,17 @@
 title: 使用 Application Insights 探查实时 Azure Service Fabric 应用
 description: 为 Service Fabric 应用程序启用 Profiler
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/25/2020
+ms.date: 10/29/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 798cb2e1ba98c78c7707784ddebc424e3cbe1d0c
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 5c2ccd2d6415f26db81e85c4c23e3a48059373de
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211576"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103631"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>使用 Application Insights 探查实时 Azure Service Fabric 应用程序
 
@@ -28,7 +29,7 @@ Azure 诊断中包括了 Application Insights Profiler。 可以使用 Azure 资
 
 1. Profiler 支持 .NET Framework 和 .Net Core。 如果使用的是 .NET Framework，请确保使用 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 或更高版本。 只需确认部署的 OS 是 `Windows Server 2012 R2` 或更高版本。 Profiler 支持 .NET Core 2.1 及更高版本的应用程序。
 
-1. 在部署模板文件中搜索 [Azure 诊断](/monitoring-and-diagnostics/azure-diagnostics)。
+1. 在部署模板文件中搜索 [Azure 诊断](../platform/diagnostics-extension-overview.md)。
 
 1. 添加以下 `SinksConfig` 部分作为 `WadCfg` 的子元素。 使用自己的 Application Insights 检测密钥替换 `ApplicationInsightsProfiler` 属性值：  
 
@@ -43,7 +44,7 @@ Azure 诊断中包括了 Application Insights Profiler。 可以使用 Azure 资
       }
       ```
 
-      若要了解如何将诊断扩展添加到部署模板，请参阅[将监视和诊断与 Windows VM 和 Azure 资源管理器模板配合使用](/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+      若要了解如何将诊断扩展添加到部署模板，请参阅[将监视和诊断与 Windows VM 和 Azure 资源管理器模板配合使用](../../virtual-machines/extensions/diagnostics-template.md?toc=/virtual-machines/windows/toc.json)。
 
 1. 使用 Azure 资源管理器模板部署 Service Fabric 群集。  
   如果你的设置正确，则在安装 Azure 诊断扩展时将安装并启用 Application Insights Profiler。 

@@ -2,17 +2,16 @@
 title: 使用 Azure 诊断与 Azure Application Insights 的集成针对 Azure 云服务中的问题发出警报 | Azure Docs
 description: 使用 Azure Application Insights 监视 Azure 云服务中的问题，例如启动故障、崩溃和角色回收循环
 ms.topic: conceptual
-author: lingliw
+ms.date: 10/29/2020
 origin.date: 06/07/2018
-ms.date: 6/4/2019
 ms.reviewer: harelbr
-ms.author: v-lingwu
-ms.openlocfilehash: b4411fea25a7233fac00f50950a8d9a46d1ffcda
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.author: v-johya
+ms.openlocfilehash: ed99185b532c8fd7e76302662700ae2cb31499f8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850388"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104681"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>使用 Azure 诊断与 Azure Application Insights 的集成针对 Azure 云服务中的问题发出警报
 
@@ -98,12 +97,12 @@ EventLogs
 
 ![配置信号逻辑查询的屏幕截图](./media/proactive-cloud-services/003.png)
 
-在“定义警报详细信息”  部分下，为警报规则提供**名称**和**说明**，并设置其**严重性**。
+在“定义警报详细信息”  部分下，为警报规则提供 **名称** 和 **说明** ，并设置其 **严重性** 。
 另外，请确保将“创建后启用规则”  按钮设置为“是”  。
 
 ![警报详细信息屏幕截图](./media/proactive-cloud-services/004.png)
 
-在“定义操作组”  部分下，可以选择一个现有**操作组**，也可以新建一个。
+在“定义操作组”  部分下，可以选择一个现有 **操作组** ，也可以新建一个。
 可以选择让操作组包含各种类型的多个操作。
 
 ![操作组屏幕截图](./media/proactive-cloud-services/005.png)
@@ -114,11 +113,8 @@ EventLogs
 
 了解有关自动检测的详细信息：
 
-[故障异常](../../azure-monitor/app/proactive-failure-diagnostics.md)
-[内存泄露](../../azure-monitor/app/proactive-potential-memory-leak.md)
-[性能异常](../../azure-monitor/app/proactive-performance-diagnostics.md)
-
-
-
+[故障异常](./proactive-failure-diagnostics.md)
+[内存泄露](./proactive-potential-memory-leak.md)
+[性能异常](./proactive-performance-diagnostics.md)
 
 

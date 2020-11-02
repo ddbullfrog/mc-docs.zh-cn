@@ -7,13 +7,13 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 10/07/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: 5dc090370606539b4d00b54e2be22539218fe1b1
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 0bae5aec1c60439b006186a7e3601ae2026f2429
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146542"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105161"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>使用 Python 为 Azure 数据资源管理器创建 IoT 中心数据连接（预览版）
 
@@ -31,7 +31,7 @@ ms.locfileid: "91146542"
 * 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * [Python 3.4+](https://www.python.org/downloads/)。
 * [一个群集和数据库](create-cluster-database-python.md)。
-* [表和列映射](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)。
+* [表和列映射](./net-sdk-ingest-data.md#create-a-table-on-your-test-cluster)。
 * [数据库和表策略](database-table-policies-python.md)（可选）。
 * [配置了共享访问策略的 IoT 中心](ingest-data-iot-hub.md#create-an-iot-hub)。
 
@@ -90,8 +90,8 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | 可以访问租户中资源的应用程序的客户端 ID。|
 | client_secret | *xxxxxxxxxxxxxx* | 可以访问租户中资源的应用程序的客户端密码。 |
 | resource_group_name | *testrg* | 包含群集的资源组的名称。|
-| cluster_name | mykustocluster** | 群集的名称。|
-| database_name | mykustodatabase** | 群集中目标数据库的名称。|
+| cluster_name | mykustocluster  | 群集的名称。|
+| database_name | mykustodatabase  | 群集中目标数据库的名称。|
 | data_connection_name | *myeventhubconnect* | 所需的数据连接名称。|
 | table_name | *StormEvents* | 目标数据库中目标表的名称。|
 | mapping_rule_name | *StormEvents_CSV_Mapping* | 与目标表相关的列映射的名称。|

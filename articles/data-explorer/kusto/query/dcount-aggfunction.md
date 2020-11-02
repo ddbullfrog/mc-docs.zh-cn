@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 dcount()（聚合函
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: deb295021296377137c2d718b5e478a984bb2853
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 7ad9ed53ebcc10a70e2df043bcdb07161ecf967e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516100"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104281"
 ---
 # <a name="dcount-aggregation-function"></a>dcount()（聚合函数）
 
@@ -25,12 +25,12 @@ ms.locfileid: "88516100"
 
 ## <a name="syntax"></a>语法
 
-... `|` `summarize` `dcount` `(`*`Expr`*[, *`Accuracy`*]`)` ...
+... `|` `summarize` `dcount` `(`*`Expr`* [, *`Accuracy`* ]`)` ...
 
 ## <a name="arguments"></a>参数
 
 * Expr：要对其非重复值进行计数的标量表达式。
-* *准确度*：一个可选的 `int` 文本，用于定义请求的估计准确度。 有关支持的值，请参阅下文。 如果未指定，则使用默认值 `1`。
+* *准确度* ：一个可选的 `int` 文本，用于定义请求的估计准确度。 有关支持的值，请参阅下文。 如果未指定，则使用默认值 `1`。
 
 ## <a name="returns"></a>返回
 
@@ -81,4 +81,4 @@ T | summarize dcount(B) by G | count
 
 下图显示所有受支持的准确度设置的相对估计误差的概率分布函数，以百分比为单位：
 
-:::image type="content" border="false" source="images/dcount-aggfunction/hll-error-distribution.png" alt-text="HLL 错误分布":::
+:::image type="content" border="false" source="images/dcount-aggfunction/hll-error-distribution.png" alt-text="D 计数":::

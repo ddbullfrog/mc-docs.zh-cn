@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 getschema 运算符�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 56bd8d1491b5a757b4d648b73a59cca9f6621986
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 366588a045c512cf06527ea434f052cf9351d5dd
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841750"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103889"
 ---
 # <a name="getschema-operator"></a>getschema 运算符 
 
@@ -24,11 +24,11 @@ ms.locfileid: "87841750"
 T | summarize MyCount=count() by Country | getschema 
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 T `| ` `getschema`
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

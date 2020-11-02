@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.workload: infrastructure
 origin.date: 12/05/2018
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 972a0634971927b75eecf838c6b1ee3eb2316f67
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 5ab44012f4912ddb841d0bd9671322c2a3bfc8dc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046536"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104997"
 ---
 <!--Security Center now is available on Azure China -->
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>教程：使用 Azure 安全中心监视 Windows 虚拟机
@@ -34,20 +34,20 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 
 安全中心可帮助识别潜在的虚拟机 (VM) 配置问题和目标安全威胁。 这可能包括缺少网络安全组的 VM、未加密的磁盘以及暴力远程桌面协议 (RDP) 攻击。 安全中心仪表板上易于阅读的图中显示了此信息。
 
-若要访问安全中心仪表板，请在 Azure 门户中的菜单上选择**安全中心**。 在仪表板上，可以查看 Azure 环境的安全状况、查找当前建议的计数以及查看威胁警报的当前状态。 可以展开每个高级别图表来查看更多详细信息。
+若要访问安全中心仪表板，请在 Azure 门户中的菜单上选择 **安全中心** 。 在仪表板上，可以查看 Azure 环境的安全状况、查找当前建议的计数以及查看威胁警报的当前状态。 可以展开每个高级别图表来查看更多详细信息。
 
 :::image type="content" source="./media/tutorial-azure-security/asc-dash.png" alt-text="安全中心仪表板":::
 
 安全中心不仅提供数据发现功能，而且还针对它检测到到问题提供建议。 例如，如果所部署的 VM 没有附加的网络安全组，则安全中心会显示一个建议，其中提供了可以采取的修正步骤。 无需退出安全中心的上下文即可自动完成修正。  
 
-:::image type="content" source="./media/tutorial-azure-security/recommendations.png" alt-text="建议":::
+:::image type="content" source="./media/tutorial-azure-security/recommendations.png" alt-text="安全中心仪表板":::
 
 ## <a name="set-up-data-collection"></a>设置数据收集
 
 若要深入了解 VM 安全配置，首先需要设置安全中心数据收集。 这涉及启用数据收集，从而自动在订阅中的所有 VM 上安装 Azure Monitoring Agent。
 
 1. 在安全中心仪表板上单击“安全策略”，并选择你的订阅。  
-2. 对于**数据收集**，请在“自动预配”  中选择“启用”  。
+2. 对于 **数据收集** ，请在“自动预配”  中选择“启用”  。
 3. 对于“默认工作区配置”  ，请将其保留为“使用安全中心创建的工作区(默认)”  。
 4. 在“安全事件”  下，保留默认选项“通用”  。
 4. 单击页顶部的“保存”。  
@@ -65,11 +65,13 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 3. 在“安全策略 - 安全策略”  边栏选项卡中，打开或关闭要应用到订阅的策略项。
 4. 完成设置选择后，选择边栏选项卡顶部的“保存”。  
 
-:::image type="content" source="./media/tutorial-azure-security/unique-policy.png" alt-text="唯一策略":::
+:::image type="content" source="./media/tutorial-azure-security/unique-policy.png" alt-text="安全中心仪表板":::
 
 ## <a name="view-vm-configuration-health"></a>查看 VM 配置运行状况
 
-打开数据收集并设置安全策略后，安全中心将开始提供警报和建议。 部署 VM 时，将安装数据收集代理。 然后，安全中心内将填充新 VM 的数据。 有关 VM 配置运行状况的详细信息，请参阅[在安全中心保护 VM](../../security-center/security-center-virtual-machine-protection.md)。 
+打开数据收集并设置安全策略后，安全中心将开始提供警报和建议。 部署 VM 时，将安装数据收集代理。 然后，安全中心内将填充新 VM 的数据。 
+
+<!--Not Available on For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/security-center-virtual-machine-protection.md)-->
 
 收集数据时，每个 VM 和相关 Azure 资源的资源运行状况会聚合。 这些信息会显示在易于阅读的图表中。 
 
@@ -78,7 +80,7 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 1. 在安全中心仪表板上的“防护”下面，选择“计算”。   
 2. 在“计算”边栏选项卡上选择“VM 和计算机”。   此视图提供所有 VM 的配置状态摘要。
 
-:::image type="content" source="./media/tutorial-azure-security/compute-health.png" alt-text="计算运行状况":::
+:::image type="content" source="./media/tutorial-azure-security/compute-health.png" alt-text="安全中心仪表板":::
 
 若要查看针对某个 VM 的所有建议，请选择该 VM。 本教程的下一部分更详细地介绍了建议和修正措施。
 
@@ -95,7 +97,7 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 
 在许多情况下，安全中心会提供可行的步骤来遵照建议解决问题，并且无需退出安全中心。 在以下示例中，安全中心检测到一个具有不受限入站规则的网络安全组。 在建议页上，可以选择“编辑入站规则”按钮。  此时会显示用于修改规则的 UI。 
 
-:::image type="content" source="./media/tutorial-azure-security/remediation.png" alt-text="建议":::
+:::image type="content" source="./media/tutorial-azure-security/remediation.png" alt-text="安全中心仪表板":::
 
 建议修正后将标记为已解决。 
 
@@ -103,7 +105,9 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 
 除了资源配置建议外，安全中心还显示威胁检测警报。 安全警报功能聚合从每个 VM、Azure 网络日志和连接的合作伙伴解决方案中收集的数据，以便检测针对 Azure 资源的安全威胁。 有关安全中心威胁检测功能的深入信息，请参阅[安全中心如何检测威胁？](../../security-center/security-center-alerts-overview.md#detect-threats)。
 
-安全警报功能要求将安全中心定价层从“免费”提升到“标准”。   迁移到这个更高的定价层后，可以使用**试用版**。 
+安全警报功能要求将安全中心定价层从“免费”提升到“标准”。   迁移到这个更高的定价层后，可以 **免费试用** 。 
+
+<!--CORRECT ON: free trial-->
 
 更改定价层：  
 
@@ -113,14 +117,14 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 
 更改定价层后，安全警报图表会在检测到安全威胁时开始填充。
 
-:::image type="content" source="./media/tutorial-azure-security/security-alerts.png" alt-text="安全警报":::
+:::image type="content" source="./media/tutorial-azure-security/security-alerts.png" alt-text="安全中心仪表板":::
 
 选择一个警报可查看信息。 例如，可以看到威胁说明、检测时间、所有威胁企图和建议的修正措施。 在下面的示例中，检测到一个 RDP 暴力攻击以及 294 次失败的 RDP 尝试。 提供了建议的解决方案。
 
-:::image type="content" source="./media/tutorial-azure-security/rdp-attack.png" alt-text="RDP 攻击":::
+:::image type="content" source="./media/tutorial-azure-security/rdp-attack.png" alt-text="安全中心仪表板":::
 
 ## <a name="next-steps"></a>后续步骤
-在本教程中，用户设置了安全中心，并查看了安全中心内的 VM。 你已了解如何执行以下操作：
+在本教程中，用户设置了安全中心，并查看了安全中心内的 VM。 你已了解如何：
 
 > [!div class="checklist"]
 > * 设置数据收集
@@ -133,5 +137,4 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 > [!div class="nextstepaction"]
 > [SQL&#92;IIS&#92;.NET 堆栈](tutorial-iis-sql.md)
 
-<!-- Update_Description: new article about tutorial azure security -->
-<!--NEW.date: 08/31/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

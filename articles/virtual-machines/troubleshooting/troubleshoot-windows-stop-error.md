@@ -2,9 +2,7 @@
 title: Windows 停止错误 - 状态无内存
 description: 本文提供了一些步骤，用于解决 Windows 无法启动并显示“状态无内存”的问题。
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: d29c7e49-4578-43c8-b829-831da4e48932
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 298f147feeb07fba509addcd8652bcf22a271233
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 61c3db3ab4d38f73992b669cfc9289fc66222873
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456854"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104710"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Windows 停止错误 - 状态无内存
 
@@ -153,7 +151,7 @@ ms.locfileid: "89456854"
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>启用串行控制台和内存转储收集
 
-**建议**：在重新生成 VM 之前，通过运行以下脚本来启用串行控制台和内存转储收集：
+**建议** ：在重新生成 VM 之前，通过运行以下脚本来启用串行控制台和内存转储收集：
 
 若要启用内存转储收集和串行控制台，请运行以下脚本：
 
@@ -168,54 +166,7 @@ ms.locfileid: "89456854"
 
     - 在该命令中，将 `<BOOT PARTITON>` 替换为附加磁盘中包含引导文件夹的分区驱动器号。
 
-        :::image type="content" source="./media/troubleshoot-windows-stop-error/5.png" alt-text="该输出列出了第 1 代 VM 中的 BCD 存储，标识符编号在 Windows 引导加载程序下方列出。":::
-
-    1. 对于第 2 代 VM，请输入以下命令，并记下列出的标识符：
-
-        ```
-        bcdedit /store <LETTER OF THE EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /enum
-        ```
-
-   - 在该命令中，将 `<LETTER OF THE EFI SYSTEM PARTITION>` 替换为 EFI 系统分区的驱动器号。
-   - 这可能有助于启动“磁盘管理”控制台以识别标记为 EFI 系统分区的相应系统分区。
-   - 标识符可以是唯一的 GUID，也可以是默认的 bootmgr。
-
-1. 运行以下命令以启用串行控制台：
-
-    ```
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
-    ```
-
-    - 在该命令中，将 `<VOLUME LETTER WHERE THE BCD FOLDER IS>` 替换为 BCD 文件夹的驱动器号。
-    - 在该命令中，将 `<BOOT LOADER IDENTIFIER>` 替换为在上一步骤中找到的标识符。
-
-1. 验 OS 磁盘上的可用空间是否大于 VM 上的内存大小 (RAM)。
-
-    如果 OS 磁盘上没有足够的空间，请更改将要创建内存转储文件的位置，并将该位置引用到具有足够可用空间的 VM 上附加的任何数据磁盘。 若要更改位置，请在以下命令中将 %SystemRoot% 替换为数据磁盘的驱动器号（例如，驱动器 F:）。
-
-    用于启用 OS 转储的建议配置：
-
-    **从损坏的 OS 磁盘加载注册表配置单元：**
-
-    ```
-    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
-    ```
-
-    **在 ControlSet001 上启用：**
-
-    ```
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
-    ```
-
-    **在 ControlSet002 上启用：**
-
-    ```
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
-    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
+        :::image type="content" source="./media/troubleshoot-windows-stop-error/5.png" alt-text="注册表编辑器中的“加载配置单元”菜单。" /v NMICrashDump /t REG_DWORD /d 1 /f 
     ```
 
     **卸载损坏的 OS 磁盘：**

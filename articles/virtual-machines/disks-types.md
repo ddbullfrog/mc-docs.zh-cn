@@ -1,9 +1,9 @@
 ---
 title: 选择 Azure IaaS VM 的磁盘类型 - 托管磁盘
 description: 了解虚拟机的可用 Azure 磁盘类型，包括高级 SSD、标准 SSD 和标准 HDD。
-origin.date: 06/03/2020
+origin.date: 09/30/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 3094b62d4baded89de2117a528baff53a1b93fbc
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 21dd18d0f8a540796edb032db685cf783201ec38
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128163"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103927"
 ---
 <!--Verified successfully-->
 <!--Not Availble on ultra disks-->

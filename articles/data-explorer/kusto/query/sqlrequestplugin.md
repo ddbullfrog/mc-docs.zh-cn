@@ -4,19 +4,19 @@ description: 本文介绍了 Azure 数据资源管理器中的 sql_request 插�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/24/2020
-ms.date: 08/18/2020
+ms.date: 09/30/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: d4021da2570747a6a44efd3f2be6475f3898e33c
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: 213fb99b7c26a88e5ca8662a72ab2541c8e140e4
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515909"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103570"
 ---
 # <a name="sql_request-plugin"></a>sql_request 插件
 
@@ -26,7 +26,7 @@ ms.locfileid: "88515909"
 
 ## <a name="syntax"></a>语法
 
-  `evaluate` `sql_request` `(` *ConnectionString* `,` *SqlQuery* [`,` *SqlParameters* [`,` *Options*]] `)`
+  `evaluate` `sql_request` `(` *ConnectionString* `,` *SqlQuery* [`,` *SqlParameters* [`,` *Options* ]] `)`
 
 ## <a name="arguments"></a>参数
 
@@ -36,7 +36,7 @@ ms.locfileid: "88515909"
 
 * SqlParameters：`dynamic` 类型的常数值，用于保存作为参数随查询传递的键值对。 可选。
   
-* *选项*：`dynamic` 类型的常数值，它将更高级的设置保存为键值对。 目前只能设置 `token`，以便传递调用方提供的 Azure AD 访问令牌，该令牌将转发到 SQL 终结点，用于身份验证。 可选。
+* *选项* ：`dynamic` 类型的常数值，它将更高级的设置保存为键值对。 目前只能设置 `token`，以便传递调用方提供的 Azure AD 访问令牌，该令牌将转发到 SQL 终结点，用于身份验证。 可选。
 
 ## <a name="examples"></a>示例
 
@@ -122,7 +122,7 @@ sql_request 插件支持对 SQL Server 终结点使用以下三种身份验证�
 必须将 SQL 网络终结点指定为连接字符串的一部分。
 正确的语法为：
 
-`Server` `=` `tcp:` *FQDN* [`,` *Port*]
+`Server` `=` `tcp:` *FQDN* [`,` *Port* ]
 
 其中：
 

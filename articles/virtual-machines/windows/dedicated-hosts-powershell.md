@@ -6,22 +6,22 @@ ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 08/01/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.reviewer: zivr
-ms.openlocfilehash: 96da11c968fc4b81c983933e6f75d63e9f715954
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 309d0b4ace03aa5e4cf4d70172b42ba7fa014356
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127935"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104677"
 ---
 <!--Verified successfully-->
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>使用 Azure PowerShell 将 VM 部署到专用主机
 
-本文介绍了如何创建 Azure [专用主机](dedicated-hosts.md)来托管虚拟机 (VM)。 
+本文介绍了如何创建 Azure [专用主机](../dedicated-hosts.md)来托管虚拟机 (VM)。 
 
 确保已安装 Azure PowerShell 2.8.0 或更高版本，并已使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 Azure 帐户。 
 
@@ -42,7 +42,6 @@ ms.locfileid: "92127935"
 <!--CORRECT ON in this case-->
 
 在这种情况下，你需要为主机组提供容错域计数。 如果你不希望跨组中的容错域，请使用容错域计数 1。 
-
 
 <!--Not Available on  availability zones and fault domains.-->
 
@@ -288,6 +287,6 @@ Remove-AzResourceGroup -Name $rgName
 
 - [此处](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)有一个示例模板，该模板使用区域和容错域来最大限度地提高在某个地区的复原能力。
 
-- 也可以使用 [Azure 门户](dedicated-hosts-portal.md)专用主机。
+<!--Not Available on - You can also deploy dedicated hosts using the [Azure portal](../dedicated-hosts-portal.md)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

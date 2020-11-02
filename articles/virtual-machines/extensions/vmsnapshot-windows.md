@@ -2,22 +2,21 @@
 title: Azure 备份的 VM 快照 Windows 扩展
 description: 使用 VM 快照扩展从 Azure 备份获取虚拟机的应用程序一致性备份
 services: backup, virtual-machines-windows
-documentationcenter: ''
-author: rockboyfor
 manager: digimobile
 ms.service: virtual-machines-windows
 ms.topic: article
-origin.date: 12/17/2018
-ms.date: 07/27/2020
+origin.date: 10/15/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a40b9a41ca8cd6b8cd787d2ae60898d711d00ae6
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 3dbafc437df90be83bc9e6c19e7364d78aa3e9b7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244678"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104856"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Azure 备份的 VM 快照 Windows 扩展
 

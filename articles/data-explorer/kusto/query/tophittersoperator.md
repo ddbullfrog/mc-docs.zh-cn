@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 top-hitters 运算�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 6289333116e66fc80684f3a67e4d24590286de25
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: 35a1f4edfe8e495ada46f7d2fcec8ec1253c5263
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104178"
 ---
 # <a name="top-hitters-operator"></a>top-hitters 运算符
 

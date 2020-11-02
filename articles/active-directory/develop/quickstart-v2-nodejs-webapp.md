@@ -1,6 +1,7 @@
 ---
-title: 向 Node.js Web 应用添加 OIDC 登录功能 - Microsoft 标识平台 | Azure
-description: 了解如何使用 OpenID Connect 在 Node.js Web 应用程序中实现身份验证。
+title: 快速入门：向 Node.js Web 应用添加用户登录功能 | Azure
+titleSuffix: Microsoft identity platform
+description: 本快速入门介绍如何使用 OpenID Connect 在 Node.js Web 应用程序中实现身份验证。
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-javascript
-ms.openlocfilehash: 762f63e21a3df9aa5c17a27cb0fce2e06c53f32c
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
+ms.openlocfilehash: b0a743ef42a14a86e04dd7d89a927a49307fb24f
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647606"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749945"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>快速入门：向 Node.js Web 应用添加使用 OpenID Connect 登录功能
 
@@ -24,11 +25,8 @@ ms.locfileid: "88647606"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要运行此示例，需要：
-
-* 从 http://nodejs.org/ 安装 Node.js
-
-* [Microsoft 365 开发人员计划](https://docs.microsoft.com/office/developer-program/office-365-developer-program)
+- 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- [Node.js](https://nodejs.org/en/download/)。
 
 ## <a name="register-your-application"></a>注册应用程序
 1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn/)。

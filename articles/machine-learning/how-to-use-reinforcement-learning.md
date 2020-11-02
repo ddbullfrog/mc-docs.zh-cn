@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 120dcd4c810087bca9dc825a80007de2fe295d99
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 847788f913914dcefb70c83d94045bfd942f3a47
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118224"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104647"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure 机器学习的强化学习（预览版）
 
@@ -57,17 +57,17 @@ ms.locfileid: "92118224"
 
 ## <a name="how-to-train-a-pong-playing-agent"></a>如何训练 Pong 游戏代理
 
-强化学习 (RL) 是通过工作来学习知识的一种机器学习方法。 其他机器学习技术是通过被动地接收输入数据并在其中查找模式来学习知识，而 RL 则是使用**训练代理**主动做出决策，并从结果中学习知识。
+强化学习 (RL) 是通过工作来学习知识的一种机器学习方法。 其他机器学习技术是通过被动地接收输入数据并在其中查找模式来学习知识，而 RL 则是使用 **训练代理** 主动做出决策，并从结果中学习知识。
 
-你的训练代理将会学习如何在**模拟环境**中玩 Pong 游戏。 训练代理会在每个游戏帧处，决定是要将球拍上移、下移还是保留原位。 它会查看游戏状态（屏幕的 RGB 图像）来做出决策。
+你的训练代理将会学习如何在 **模拟环境** 中玩 Pong 游戏。 训练代理会在每个游戏帧处，决定是要将球拍上移、下移还是保留原位。 它会查看游戏状态（屏幕的 RGB 图像）来做出决策。
 
-RL 使用**奖励**来告知代理其决策是否成功。 在此环境中，当代理获得一分时，将会获得正奖励，被扣掉一分时则会获得负奖励。 经过多次迭代后，训练代理会根据其当前状态学习选择动作，并进行优化以提高将来的预期总奖励。
+RL 使用 **奖励** 来告知代理其决策是否成功。 在此环境中，当代理获得一分时，将会获得正奖励，被扣掉一分时则会获得负奖励。 经过多次迭代后，训练代理会根据其当前状态学习选择动作，并进行优化以提高将来的预期总奖励。
 
-在 RL 中，我们通常使用**深度神经网络** (DNN) 模型执行这种优化。 最初，学习代理的表现较差，但每款游戏都会生成更多的样本，以此进一步改善模型。
+在 RL 中，我们通常使用 **深度神经网络** (DNN) 模型执行这种优化。 最初，学习代理的表现较差，但每款游戏都会生成更多的样本，以此进一步改善模型。
 
 当代理在一个训练时期达到平均奖励评分 18 时，训练即告结束。 这意味着，代理在比赛中，凭借最低 18 分的平均比分（总分 21 分）击败了其对手。
 
-迭代模拟和重新训练 DNN 的过程会消耗大量计算资源，且需要大量数据。 提高 RL 作业性能的一种方法是**将工作并行化**，使多个训练代理能够同时做出动作并学习知识。 但是，管理分布式 RL 环境可能是一项复杂的任务。
+迭代模拟和重新训练 DNN 的过程会消耗大量计算资源，且需要大量数据。 提高 RL 作业性能的一种方法是 **将工作并行化** ，使多个训练代理能够同时做出动作并学习知识。 但是，管理分布式 RL 环境可能是一项复杂的任务。
 
 Azure 机器学习提供了一个框架，用于处理这种复杂性，以便能够横向扩展 RL 工作负荷。
 
@@ -215,7 +215,7 @@ else:
 
 本部分介绍如何使用 [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) 将训练作业提交到 Azure 机器学习。
 
-Azure 机器学习使用估算器类来封装运行配置信息。 这样，你便可以轻松指定如何配置脚本执行。 有关 Azure 机器学习估算器模式的详细信息，请参阅[如何使用估算器训练模型](how-to-train-ml-models.md)。
+Azure 机器学习使用估算器类来封装运行配置信息。 这样，你便可以轻松指定如何配置脚本执行。 
 
 ### <a name="define-a-worker-configuration"></a>定义工作器节点配置
 

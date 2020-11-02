@@ -3,16 +3,17 @@ title: 防火墙访问规则
 description: 通过允许访问（“加入允许列表”）REST API 和数据终结点域名或特定于服务的 IP 地址范围，来配置规则以访问防火墙后的 Azure 容器注册表。
 ms.topic: article
 origin.date: 05/18/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5b53bdabe30473a8eae81593ede00335ac4fbf11
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: d6f9e7d002b062877172336b62c772d1d4098d29
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863155"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104422"
 ---
 <!--Verified successfully-->
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>配置规则以访问防火墙后的 Azure 容器注册表
@@ -27,7 +28,7 @@ ms.locfileid: "86863155"
 
 * 注册表 REST API 终结点 - 身份验证和注册表管理操作通过注册表的公共 REST API 终结点进行处理。 此终结点是注册表的登录服务器名称。 示例： `myregistry.azurecr.cn`
 
-* **存储（数据）终结点** - Azure 代表每个注册表在 Azure 存储帐户中[分配 blob 存储](container-registry-storage.md)，以管理容器映像和其他项目的数据。 当客户端访问 Azure 容器注册表中的映像层时，它会使用注册表提供的存储帐户终结点发出请求。
+* **存储（数据）终结点** - Azure 代表每个注册表在 Azure 存储帐户中 [分配 blob 存储](container-registry-storage.md)，以管理容器映像和其他项目的数据。 当客户端访问 Azure 容器注册表中的映像层时，它会使用注册表提供的存储帐户终结点发出请求。
 
 如果你的注册表是[异地复制](container-registry-geo-replication.md)的，则客户端可能需要与特定区域或多个已复制区域中的数据终结点交互。
 
@@ -52,6 +53,7 @@ ms.locfileid: "86863155"
 ### <a name="rest-ip-addresses-for-all-regions"></a>所有区域的 REST IP 地址
 
 <!--CORRECT ON AZURE CHINA IP ADDRESS AND TAG-->
+<!--NOTICE: WE SHOULD TRACKK THE FOLLOWING ENDPOINT IP ADDRESS TIME TO TIME-->
 
 ```json
 {
@@ -129,7 +131,7 @@ ms.locfileid: "86863155"
 
 ## <a name="allow-access-by-service-tag"></a>允许通过服务标记访问
 
-在 Azure 虚拟网络中，使用网络安全规则筛选从虚拟机等资源到容器注册表的流量。 若要简化 Azure 网络规则的创建，请使用 AzureContainerRegistry [服务标记](../virtual-network/security-overview.md#service-tags)。 服务标记代表一组用于全局或每个 Azure 区域访问 Azure 服务的 IP 地址前缀。 当地址更改时，将自动更新标记。 
+在 Azure 虚拟网络中，使用网络安全规则筛选从虚拟机等资源到容器注册表的流量。 若要简化 Azure 网络规则的创建，请使用 AzureContainerRegistry [服务标记](../virtual-network/network-security-groups-overview.md#service-tags)。 服务标记代表一组用于全局或每个 Azure 区域访问 Azure 服务的 IP 地址前缀。 当地址更改时，将自动更新标记。 
 
 例如，创建包含目标 AzureContainerRegistry 的出站网络安全组规则，以允许流量流向 Azure 容器注册表。 若要只允许在特定区域中访问服务标记，请按以下格式指定区域：AzureContainerRegistry.[区域名称]。
 
@@ -159,7 +161,7 @@ ms.locfileid: "86863155"
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要使用 Azure CLI 启用数据终结点，请使用 Azure CLI 版本 2.4.0 或更高版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+若要使用 Azure CLI 启用数据终结点，请使用 Azure CLI 版本 2.4.0 或更高版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 以下 [az acr update][az-acr-update] 命令在注册表 myregistry 上启用专用数据终结点。 
 
@@ -205,7 +207,7 @@ az acr show-endpoints --name myregistry
 
 * 了解 [Azure 网络安全最佳做法](../security/fundamentals/network-best-practices.md)
 
-* 详细了解 Azure 虚拟网络中的[安全组](/virtual-network/security-overview)
+* 详细了解 Azure 虚拟网络中的[安全组](../virtual-network/network-security-groups-overview.md)
 
 * 详细了解如何为容器注册表设置[专用链接](container-registry-private-link.md)
 
@@ -217,7 +219,7 @@ az acr show-endpoints --name myregistry
 
 <!-- LINKS - Internal -->
 
-[az-acr-update]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-update
-[az-acr-show-endpoints]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-show-endpoints
+[az-acr-update]: https://docs.azure.cn/cli/acr#az_acr_update
+[az-acr-show-endpoints]: https://docs.azure.cn/cli/acr#az_acr_show_endpoints
 
 <!-- Update_Description: update meta properties, wording update, update link -->

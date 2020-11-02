@@ -37,7 +37,7 @@
 - name: 示例
   items:
     - name: 代码示例
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=container%2Binstance'
     - name: 资源管理器模板
       href: container-instances-samples-rm.md
 - name: 概念
@@ -90,8 +90,10 @@
           href: container-instances-gpu.md
         - name: 在挎斗中启用 SSL 终结点
           href: container-instances-container-group-ssl.md
-        - name: 公开静态 IP 地址
+        - name: 使用应用程序网关公开静态 IP
           href: container-instances-application-gateway.md
+        - name: 将 Azure 防火墙用于入口和出口
+          href: container-instances-egress-ip-address.md
     - name: 装载数据卷
       items:
         - name: Azure 文件共享
@@ -120,14 +122,14 @@
           href: container-instances-get-logs.md
         - name: 使用 Azure Monitor 日志进行日志记录
           href: container-instances-log-analytics.md
-    - name: 疑难解答
+    - name: 故障排除
       items:
         - name: 排查常见问题
           href: container-instances-troubleshooting.md
 - name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest'
+      href: 'https://docs.microsoft.com/cli/azure/container'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/container-instances'
     - name: PowerShell
@@ -152,7 +154,9 @@
       href: 'https://www.azure.cn/pricing/details/container-instances/'
     - name: 提供产品反馈
       href: 'https://support.azure.cn/support/contact/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: 视频
       href: 'https://www.azure.cn/video-center/'
-    - name: 常见问题解答
+    - name: 常见问题
       href: container-instances-faq.md

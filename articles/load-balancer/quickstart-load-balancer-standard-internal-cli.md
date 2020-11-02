@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/20/2020
-ms.date: 09/28/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: 4e9a0f3a1309be3260e005f8c02f9476a7b45c48
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: b1c188897204d8b418abafc986e29834545c03be
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943495"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628198"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -809,4 +809,6 @@ runcmd:
 * 配置了负载均衡器流量规则和运行状况探测。
 * 测试了负载均衡器。
 
-若要了解有关 Azure 负载均衡器的更多信息，请进一步阅读[什么是 Azure 负载均衡器？](load-balancer-overview.md)和[负载均衡器常见问题](load-balancer-faqs.md)。
+若要详细了解 Azure 负载均衡器，请继续学习 
+> [!div class="nextstepaction"]
+> [什么是 Azure 负载均衡器？](load-balancer-overview.md)

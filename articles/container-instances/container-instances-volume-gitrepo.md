@@ -3,14 +3,15 @@ title: 将 gitRepo 卷装载到容器组
 description: 了解如何在容器实例中装载 gitRepo 卷以克隆 Git 存储库
 ms.topic: article
 origin.date: 06/15/2018
-ms.date: 04/06/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: b1791994228bb287eff19c2c9b4dce1adbacb323
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: b5277de464bd354a4f9cff1c766f7c275936626c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80517025"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104988"
 ---
 <!--Verified successfully-->
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>在 Azure 容器实例中装载 gitRepo 卷
@@ -34,7 +35,7 @@ ms.locfileid: "80517025"
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>装载 gitRepo 卷：Azure CLI
 
-若要在使用 [Azure CLI](https://docs.azure.cn/cli/index?view=azure-cli-latest) 部署容器实例时装载 gitRepo 卷，请在 [az container create][az-container-create] 命令中提供 `--gitrepo-url` 和 `--gitrepo-mount-path` 参数。 还可以指定要将卷克隆到其中的目录 (`--gitrepo-dir`) 和要克隆的修订版的提交哈希 (`--gitrepo-revision`)。
+若要在使用 [Azure CLI](https://docs.azure.cn/cli) 部署容器实例时装载 gitRepo 卷，请在 [az container create][az-container-create] 命令中提供 `--gitrepo-url` 和 `--gitrepo-mount-path` 参数。 还可以指定要将卷克隆到其中的目录 (`--gitrepo-dir`) 和要克隆的修订版的提交哈希 (`--gitrepo-revision`)。
 
 此示例命令将 Microsoft [aci-helloworld][aci-helloworld] 示例应用程序克隆到容器实例中的 `/mnt/aci-helloworld`：
 
@@ -200,7 +201,7 @@ GitHub：[创建命令行的个人访问令牌][pat-github]
 
 <!-- LINKS - Internal -->
 
-[az-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-exec]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-exec
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
+[az-container-exec]: https://docs.microsoft.com/cli/azure/container#az_container_exec
 
 <!-- Update_Description: update meta properties, wording update, update link -->

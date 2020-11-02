@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 any()（聚合函数
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: f26d33aac892f5c5e5e8723ff4a52d00357ac14c
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 7cbe31bd0fa7ed170a8efa1d29ebdfffa19dc27c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515785"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105058"
 ---
 # <a name="any-aggregation-function"></a>Any()（聚合函数）
 
@@ -22,12 +22,12 @@ ms.locfileid: "88515785"
 
 ## <a name="syntax"></a>语法
 
-`summarize` `any` `(` (*Expr* [`,` *Expr2* ...]) | `*` `)`
+`summarize` `any` `(` ( *Expr* [`,` *Expr2* ...]) | `*` `)`
 
 ## <a name="arguments"></a>参数
 
 * Expr：从要返回的输入中选择的每条记录的表达式。
-* *Expr2*： *ExprN*：其他表达式。
+* *Expr2* ： *ExprN* ：其他表达式。
 
 ## <a name="returns"></a>返回
 
@@ -59,7 +59,7 @@ Continents | summarize any(Continent)
 Continents | summarize any(*)
 ```
 
-:::image type="content" source="images/aggfunction/any2.png" alt-text="Any 2":::
+:::image type="content" source="images/aggfunction/any2.png" alt-text="Any 1":::
 
 显示每个随机洲的所有详细信息：
 
@@ -67,4 +67,4 @@ Continents | summarize any(*)
 Continents | summarize any(*) by Continent
 ```
 
-:::image type="content" source="images/aggfunction/any3.png" alt-text="Any 3":::
+:::image type="content" source="images/aggfunction/any3.png" alt-text="Any 1":::

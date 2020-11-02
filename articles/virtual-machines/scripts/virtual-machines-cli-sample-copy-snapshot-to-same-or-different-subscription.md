@@ -9,17 +9,17 @@ ms.topic: sample
 ms.workload: infrastructure
 origin.date: 05/19/2017
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6ddc923d81bf9781033195888ca150d647aaef07
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 7a58ad2ec3a267f3e987732d9212da3e4aa06f73
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413843"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105117"
 ---
 <!--Verified successfully from renamed articles-->
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>使用 CLI 将托管磁盘的快照复制到相同或不同的订阅
@@ -28,11 +28,14 @@ ms.locfileid: "89413843"
 
 1. 将高级存储 (Premium_LRS) 中的快照迁移到标准存储 (Standard_LRS) 以降低成本。
 
-<!--Not Available on or Standard_ZRS(THIS FEATURE IS NOT AVAILABLE ON AZURE CHINA CLOUD)-->
+<!--Not Available on or Standard_ZRS-->
 
-<!--Not Available on to zone redundant storage (Standard_ZRS(THIS FEATURE IS NOT AVAILABLE ON AZURE CHINA CLOUD))-->
+<!--Not Available on to zone redundant storage (Standard_ZRS)-->
 
 1. 将快照移到同一区域中的不同订阅，以延长保留时间。
+
+> [!NOTE]
+> 两个订阅必须位于同一租户下
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -77,24 +80,24 @@ az snapshot create --resource-group $targetResourceGroupName --name $snapshotNam
 
 ```
 
-<!--Not Available on Line 69 Please use Standard_ZRS(THIS FEATURE IS NOT AVAILABLE ON AZURE CHINA CLOUD) in regions where zone redundant storage (ZRS) is available, otherwise use Standard_LRS-->
+<!--Not Available on Line 69 Please use Standard_ZRS in regions where zone redundant storage (ZRS) is available, otherwise use Standard_LRS-->
 <!--Not Available on Line 69 + 1 #Please check out the availability of ZRS here: https://docs.azure.cn/storage/common/storage-redundancy-zrs#support-coverage-and-regional-availability-->
+
 ## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令，通过源快照的 ID 在目标订阅中创建快照。 表中的每条命令均链接到特定于命令的文档。
 
 | 命令 | 说明 |
 |---|---|
-| [az snapshot show](https://docs.azure.cn/cli/snapshot?view=azure-cli-latest#az-snapshot-show) | 使用快照的名称和资源组属性获取该快照的所有属性。 使用 ID 属性将快照复制到其他订阅。  |
-| [az snapshot create](https://docs.azure.cn/cli/snapshot?view=azure-cli-latest#az-snapshot-create) | 通过使用父快照的 ID 和名称在不同订阅中创建快照来复制快照。  |
+| [az snapshot show](https://docs.azure.cn/cli/snapshot#az-snapshot-show) | 使用快照的名称和资源组属性获取该快照的所有属性。 使用 ID 属性将快照复制到其他订阅。  |
+| [az snapshot create](https://docs.azure.cn/cli/snapshot#az-snapshot-create) | 通过使用父快照的 ID 和名称在不同订阅中创建快照来复制快照。  |
 
 ## <a name="next-steps"></a>后续步骤
 
 [从快照创建虚拟机](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/index?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 
-<!-- Update_Description: new article about virtual machines cli sample copy snapshot to same or different subscription -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -4,31 +4,31 @@ description: 本文介绍 Azure 数据资源管理器中的 zip()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 81ef323a381b5182dc0bacabef45117cab4a1bc8
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 0ccac041365cb982ea5e293b8b24e4bb9c1dfa69
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841542"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104367"
 ---
 # <a name="zip"></a>zip()
 
 `zip` 函数接受任意数量的 `dynamic` 数组，并返回一个数组，其元素都是一个数组，后者包含同一索引的输入数组的元素。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `zip(`*array1*`,` *array2*`, ... )`
 
-**参数**
+## <a name="arguments"></a>参数
 
 2 到 16 个动态数组。
 
-**示例**
+## <a name="examples"></a>示例
 
 以下示例返回 `[[1,2],[3,4],[5,6]]`：
 

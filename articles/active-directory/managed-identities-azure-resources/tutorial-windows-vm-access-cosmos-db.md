@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 796b530dcd0d0565cd37d33e82562a0970f99072
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ca4d4c063ddcbe34701e25026786bb7f43b7daf3
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245418"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749805"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>教程：使用 Windows VM 系统分配的托管标识访问 Azure Cosmos DB
 
@@ -56,7 +56,7 @@ ms.locfileid: "91245418"
 
 1. 单击 Azure 门户左上角的“+/创建新服务”按钮。 
 2. 单击“数据库”，然后单击“Azure Cosmos DB”，新的“新建帐户”面板便会显示。  
-3. 输入 Cosmos DB 帐户的 **ID**，供以后使用。  
+3. 输入 Cosmos DB 帐户的 **ID** ，供以后使用。  
 4. **API** 应设置为“SQL”。 本教程中介绍的方法可以与其他可用的 API 类型配合使用，但本教程中的步骤是针对 SQL API 的。
 5. 确保“订阅”和“资源组”与上一步中创建 VM 时指定的名称匹配。    选择提供 Cosmos DB 的“位置”。 
 6. 单击“创建”。 
@@ -80,6 +80,10 @@ ms.locfileid: "91245418"
 $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
+
+>[!NOTE]
+> 请记住，如果无法执行操作，则可能没有相应的权限。 若要对密钥进行写入访问，需要使用 RBAC 角色（如 DocumentDB 帐户参与者）或创建自定义角色。 有关详细信息，请查看 [Azure Cosmos DB 中基于角色的访问控制](../../cosmos-db/role-based-access-control.md)
+
 ## <a name="access-data"></a>访问数据
 
 本部分介绍如何使用 Windows VM 系统分配的托管标识的访问令牌调用 Azure 资源管理器。 在本教程的剩余部分中，我们从先前创建的 VM 入手。 
@@ -90,9 +94,9 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 
 ### <a name="get-an-access-token"></a>获取访问令牌
 
-1. 在 Azure 门户中，导航到“虚拟机”  ，转到 Windows 虚拟机，然后在“概述”  页中单击顶部的“连接”  。 
-2. 输入创建 Windows VM 时添加的用户名  和密码  。 
-3. 现在，已经创建了与虚拟机的远程桌面连接  ，请在远程会话中打开 PowerShell。
+1. 在 Azure 门户中，导航到“虚拟机”，转到 Windows 虚拟机，然后在“概述”页中单击顶部的“连接”。 
+2. 输入创建 Windows VM 时添加的用户名和密码。 
+3. 现在，已经创建了与虚拟机的远程桌面连接，请在远程会话中打开 PowerShell。
 4. 使用 Powershell 的 Invoke-WebRequest，向 Azure 资源终结点的本地托管标识发出请求以获取 Azure 资源管理器的访问令牌。
 
    ```powershell

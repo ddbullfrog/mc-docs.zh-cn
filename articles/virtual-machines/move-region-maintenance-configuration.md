@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 29cf4efe3f2851cec29bf7a35eca9a626610418b
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: 3a08ea6cabb4b702864bf584b6ad6157b830fa74
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211881"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104993"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>将维护控制配置移动到另一个区域
 

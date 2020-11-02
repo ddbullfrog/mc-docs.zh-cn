@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 52e94d93d82c88323a8cded222f834a80e431d29
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 18c405577645b810fdfecff056245ddbf289d1e6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472728"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103963"
 ---
 <!--Verified Successfully-->
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>虚拟 WAN 的 Azure Monitor 见解（预览版）
@@ -98,4 +98,4 @@ ms.locfileid: "92472728"
 * 有关所有虚拟 WAN 指标的完整说明，请参阅[虚拟 WAN 日志和指标](logs-metrics.md)。
 
 <!-- Update_Description: new article about azure monitor insights -->
-<!--NEW.date: 10/26/2020-->
+<!--NEW.date: 11/02/2020-->

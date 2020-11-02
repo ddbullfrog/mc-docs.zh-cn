@@ -8,23 +8,23 @@ metadata:
   ms.service: virtual-machines-windows
   ms.topic: landing-page
   author: rockboyfor
-  ms.date: 09/07/2020
+  ms.date: 11/02/2020
   ms.testscope: yes
   ms.testdate: 08/31/2020
   ms.author: v-yeche
-  ms.openlocfilehash: 3c160a8a34b6e2e129f6d6fcca6d9511f3f35ceb
-  ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+  ms.openlocfilehash: 8bb942a6af13ed071102ae60d3f6a7cf19974d63
+  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/04/2020
-  ms.locfileid: "89463206"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93105757"
 landingContent:
 - title: 最新功能
   linkLists:
   - linkListType: whats-new
     links:
     - text: 专用主机
-      url: dedicated-hosts.md
+      url: ../dedicated-hosts.md
     - text: 邻近放置组
       url: proximity-placement-groups.md
 - title: 入门

@@ -8,18 +8,18 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/08/2020
 ms.date: 09/24/2020
-ms.openlocfilehash: fb6543bebeb037b62a4107372b4661fb71d26754
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: b0b84f06b428c12fe347c3db48a5a55cc5eed90c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146876"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105533"
 ---
 # <a name="series_moving_avg_fl"></a>series_moving_avg_fl()
 
 对序列应用移动平均滤波器。
 
-函数 `series_moving_avg_fl()` 接受一个包含动态数值数组的表达式作为输入，并应用[简单移动平均](https://en.wikipedia.org/wiki/Moving_average#Simple_moving_average)滤波器。
+函数 `series_moving_avg_fl()` 接受一个包含动态数值数组的表达式作为输入，并应用简单移动平均滤波器。
 
 > [!NOTE]
 > 此函数是 [UDF（用户定义的函数）](../query/functions/user-defined-functions.md)。 有关详细信息，请参阅[用法](#usage)。

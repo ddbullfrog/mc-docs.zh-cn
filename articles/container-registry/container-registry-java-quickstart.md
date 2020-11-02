@@ -1,17 +1,18 @@
 ---
 title: 快速入门 - 使用 Maven 和 Jib 生成 Java 容器映像并将其推送到 Azure 容器注册表
 description: 使用 Maven Jib 插件生成容器化 Java 应用并将其推送到 Azure 容器注册表。
-author: rockboyfor
+ms.custom: devx-track-java, devx-track-azurecli
 ms.topic: quickstart
 origin.date: 02/26/2020
-ms.date: 06/08/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0acb17916aaed54e0021fa087d09cd22ee53cc5e
-ms.sourcegitcommit: 8dae792aefbe44e8388f961b813e3da6564423ec
+ms.openlocfilehash: 5d9b5190facdc37c2a61194275f5c580b7f7295f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84654895"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104405"
 ---
 <!--No exception in Prerequistes on Azure China Cloud-->
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>快速入门：生成 Java 容器映像并将其推送到 Azure 容器注册表
@@ -20,9 +21,9 @@ ms.locfileid: "84654895"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅；如果没有 Azure 订阅，可激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/index.html)或注册 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-* [Azure 命令行接口 (CLI)](https://docs.azure.cn/cli/overview?view=azure-cli-latest)。
-* 一个受支持的 Java 开发工具包 (JDK)。 有关在 Azure 上进行开发时可供使用的 JDK 的详细信息，请参阅 <https://docs.azure.cn/java/java-supported-jdk-runtime?view=azure-java-stable>。
+* Azure 订阅；如果没有 Azure 订阅，可激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或注册 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* [Azure 命令行接口 (CLI)](https://docs.azure.cn/cli/overview)。
+* 一个受支持的 Java 开发工具包 (JDK)。 有关在 Azure 上进行开发时可供使用的 JDK 的详细信息，请参阅 <https://docs.azure.cn/java/java-supported-jdk-runtime>。
 * Apache 的 [Maven](http://maven.apache.org) 生成工具（版本 3 或以上）。
 * [Git](https://git-scm.com) 客户端。
 * [Docker](https://www.docker.com) 客户端。
@@ -56,7 +57,7 @@ ms.locfileid: "84654895"
     curl http://localhost:8080
     ```
 
-应当会看到显示了以下消息：**Hello Docker World**
+应当会看到显示了以下消息： **Hello Docker World**
 
 ## <a name="create-an-azure-container-registry-using-the-azure-cli"></a>使用 Azure CLI 创建 Azure 容器注册表
 
@@ -176,14 +177,14 @@ docker pull <your registry name>.azurecr.cn/gs-spring-boot-docker
 
 有关详细信息，请参阅以下资源：
 
-* [面向 Java 开发人员的 Azure](https://docs.azure.cn/java/?view=azure-java-stable)
+* [面向 Java 开发人员的 Azure](https://docs.azure.cn/java)
     
     <!--Not Available on * [Working with Azure DevOps and Java](/azure/devops/java)-->
     
 * [Docker 上的 Spring Boot 入门](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
-* [将 Spring Boot 应用程序部署到 Azure 应用服务](https://docs.microsoft.com/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
+* [将 Spring Boot 应用程序部署到 Azure 应用服务](https://docs.microsoft.com/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux#configure-maven-to-build-image-to-your-azure-container-registry)
                                                                 
-    <!--Not Available on * [Using a custom Docker image for Azure Web App on Linux](/app-service-web/app-service-linux-using-custom-docker-image)-->
+    <!--Not Available on * [Using a custom Docker image for Azure Web App on Linux](../app-service/tutorial-custom-container.md)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

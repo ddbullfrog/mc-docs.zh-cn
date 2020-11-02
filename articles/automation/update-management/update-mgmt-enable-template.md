@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 origin.date: 09/18/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: ecda739b00ed1e13a95af23c3245db0c28ab1144
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.date: 11/02/2020
+ms.openlocfilehash: 58400ab53f376c0dae20f0382f08c0c84e335513
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943506"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750205"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>使用 Azure 资源管理器模板启用“更新管理”
 
@@ -67,7 +67,7 @@ JSON 模板为其他参数指定默认值，这些参数将会用作环境中的
 
 如果你不熟悉 Azure 自动化和 Azure Monitor，请务必了解以下配置详细信息。 当你尝试创建、配置和使用链接到新自动化帐户的 Log Analytics 工作区时，这些信息有助于避免出错。
 
-* 查看[其他详细信息](../../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace)以充分了解工作区配置选项，如访问控制模式、定价层、保留期和产能预留级别。
+* 查看[其他详细信息](../../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace)以充分了解工作区配置选项，如访问控制模式、定价层、保留期和产能预留级别。
 
 * 查看[工作区映射](../how-to/region-mappings.md)，以内联方式或在参数文件中指定支持的区域。 只有某些区域支持链接订阅中的 Log Analytics 工作区和自动化帐户。
 

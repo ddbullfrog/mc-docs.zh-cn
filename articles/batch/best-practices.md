@@ -1,20 +1,20 @@
 ---
-title: 最佳做法
+title: 最佳实践
 description: 了解开发 Azure Batch 解决方案的最佳做法和有用技巧。
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.topic: conceptual
 ms.service: batch
-ms.openlocfilehash: 69c968dfc8a07f2c7c7d965d613c8bbd1b2f5eba
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 7facaa24138e871169deb55119977923742cada1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146563"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104100"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 最佳做法
 
@@ -26,7 +26,7 @@ ms.locfileid: "91146563"
 
 ### <a name="pool-configuration-and-naming"></a>池配置和命名
 
-- **池分配模式** 创建 Batch 帐户时，可以在两种池分配模式之间进行选择：**Batch 服务**或**用户订阅**。 在大部分情况下，应使用默认的 Batch 服务模式，使用此模式时，池在幕后在 Batch 托管的订阅中分配。 在备用的“用户订阅”模式下，会在创建池后直接在订阅中创建 Batch VM 和其他资源。 用户订阅帐户主要用于实现重要但却不太多见的方案。 有关用户订阅模式的详细信息，请参阅[用户订阅模式的其他配置](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)。
+- **池分配模式** 创建 Batch 帐户时，可以在两种池分配模式之间进行选择： **Batch 服务** 或 **用户订阅** 。 在大部分情况下，应使用默认的 Batch 服务模式，使用此模式时，池在幕后在 Batch 托管的订阅中分配。 在备用的“用户订阅”模式下，会在创建池后直接在订阅中创建 Batch VM 和其他资源。 用户订阅帐户主要用于实现重要但却不太多见的方案。 有关用户订阅模式的详细信息，请参阅[用户订阅模式的其他配置](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)。
 
 - **确定用于池映射的作业时考虑作业和任务运行时间。**
     如果作业主要包括短时间运行的任务，且预期的任务总计数较小，因此作业的总预期运行时间不长，那么，请不要为每个作业分配新池。 节点的分配时间会缩减作业运行时间。
@@ -69,9 +69,7 @@ Azure 中的 Batch 池可能会遇到停机事件。 在规划和开发 Batch �
 
 ### <a name="third-party-images"></a>第三方映像
 
-可以使用发布到 Azure 市场的第三方映像创建池。 对于用户订阅模式 Batch 帐户，在使用某些第三方映像创建池时，你可能会看到错误“由于市场购买资格检查造成分配失败”。 若要解决此错误，请接受映像发布者设置的术语。 可以通过 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms) 来实现此目的。
-
-<!--MOONCAKE: CORRECT ON https://docs.microsoft.com/cli/azure/vm/image/terms-->
+可以使用发布到 Azure 市场的第三方映像创建池。 对于用户订阅模式 Batch 帐户，在使用某些第三方映像创建池时，你可能会看到错误“由于市场购买资格检查造成分配失败”。 若要解决此错误，请接受映像发布者设置的术语。 可以通过 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) 或 [Azure CLI](https://docs.azure.cn/cli/vm/image/terms) 来实现此目的。
 
 ### <a name="azure-region-dependency"></a>Azure 区域依赖项
 
@@ -117,7 +115,7 @@ Batch 中集成了用于通过 [OutputFiles](batch-task-output-files.md) 上传�
 
 ### <a name="set-max-tasks-per-node-appropriately"></a>适当地设置每个节点的最大任务数
 
-Batch 在节点上支持超额订阅的任务（运行的任务数超过节点所具有的核心数）。 需要由你确保任务量“适合”池中的节点。 例如，如果你尝试计划 8 个任务，其中每个任务消耗 25% 的 CPU 使用率（在设置了 `maxTasksPerNode = 8` 的池中），则体验可能会下降。
+Batch 在节点上支持超额订阅的任务（运行的任务数超过节点所具有的核心数）。 需要由你确保任务量“适合”池中的节点。 例如，如果你尝试计划 8 个任务，其中每个任务消耗 25% 的 CPU 使用率（在设置了 `taskSlotsPerNode = 8` 的池中），则体验可能会下降。
 
 ### <a name="design-for-retries-and-re-execution"></a>设计重试和重新执行
 
@@ -226,7 +224,7 @@ Azure Batch 在 VM 上创建和管理一组用户和组，这些不应受到更�
 
 ### <a name="file-cleanup"></a>文件清理
 
-当任务的保留期到期后，Batch 会主动尝试清理运行任务的工作目录。 [你应负责清理](#manage-task-lifetime)在此目录之外写入的所有文件，以避免占用磁盘空间。 
+当任务的保留期到期后，Batch 会主动尝试清理运行任务的工作目录。 [你应负责清理](#manage-task-lifetime)在此目录之外写入的所有文件，以避免占用磁盘空间。
 
 如果在 Windows 上从 startTask 工作目录运行服务，则会阻止对工作目录的自动清理，因为文件夹仍在使用中。 这将导致性能下降。 若要解决此问题，请将该服务的目录更改为不受 Batch 管理的单独目录。
 

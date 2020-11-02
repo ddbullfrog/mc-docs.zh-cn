@@ -7,17 +7,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d1fe64f98bd6e55c5bbdfec7e80778f1ec51fc3c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 05721c42a74b2d8efa06492a63b8c8063d1b5bd8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472595"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105672"
 ---
 <!--Verified Successfully-->
 # <a name="scenario-any-to-any"></a>方案：任意位置到任意位置

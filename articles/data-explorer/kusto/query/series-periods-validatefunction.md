@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 series_periods_valid
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 2d0659b56d3a746534527691c2d850e6cf5fc08f
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 2032f7649b1f81731db66455e39552bcd4ca0d69
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841337"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105370"
 ---
 # <a name="series_periods_validate"></a>series_periods_validate()
 
@@ -25,14 +25,14 @@ ms.locfileid: "87841337"
 该函数采用一个列作为输入，该列中包含动态时序数组（通常是 [make-series](make-seriesoperator.md) 运算符的结果输出）以及定义待验证时间段长度的一个或多个 `real` 数字。
 
 该函数输出两个列：
-* *periods*：一个动态数组，包含要验证的时间段（在输入中提供）。
-* *scores*：一个动态数组，包含一个界于 0 到 1 之间的分数。 该分数显示时间段在 periods 数组中其各自位置上的重要性。
+* *periods* ：一个动态数组，包含要验证的时间段（在输入中提供）。
+* *scores* ：一个动态数组，包含一个界于 0 到 1 之间的分数。 该分数显示时间段在 periods 数组中其各自位置上的重要性。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `series_periods_validate(`*x*`,` *period1* [ `,` *period2* `,` . . . ] `)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * x：动态数组标量表达式，它是一个数值数组，通常是 [make-series](make-seriesoperator.md) 或 [make_list](makelist-aggfunction.md) 运算符生成的结果输出。
 * period1、period2 等：指定要验证的时间段的 `real` 数字，以箱大小为单位 。 例如，如果将序列按 1 小时的箱分箱，则一个每周时间段为 168 个箱。
@@ -44,7 +44,7 @@ ms.locfileid: "87841337"
 > 
 > * 该函数最多可接受 16 个要验证的时间段。
 
-**示例**
+## <a name="example"></a>示例
 
 下面的查询嵌入某应用程序流量一个月的快照，每天聚合两次（箱大小为 12 小时）。
 

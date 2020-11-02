@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/23/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 811fce796e327ae5cb36934af2306540dcb51aff
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.date: 10/29/2020
+ms.openlocfilehash: 1e8a1e85c8bce05203530f6a01527599c2372873
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917272"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105534"
 ---
 # <a name="storage-connection-strings"></a>存储连接字符串
 
@@ -32,9 +32,9 @@ Kusto 使用 URI 格式描述这些存储资源以及访问这些资源所需的
 
 |提供程序                   |Scheme    |URI 模板                          |
 |---------------------------|----------|--------------------------------------|
-|Azure 存储 Blob         |`https://`|`https://`*Account*`.blob.core.chinacloudapi.cn/`*Container*[`/`*BlobName*][`?`*SasKey* \| `;`*AccountKey*]|
-|Azure Data Lake Store Gen 2|`abfss://`|`abfss://`*Filesystem*`@`*Account*`.dfs.core.chinacloudapi.cn/`*PathToDirectoryOrFile*[`;`*CallerCredentials*]|
-|Azure Data Lake Store Gen 1|`adl://`  |`adl://`*Account*.azuredatalakestore.net/*PathToDirectoryOrFile*[`;`*CallerCredentials*]|
+|Azure 存储 Blob         |`https://`|`https://`*Account*`.blob.core.chinacloudapi.cn/`*Container* [`/`*BlobName* ][`?`*SasKey* \| `;`*AccountKey* ]|
+|Azure Data Lake Store Gen 2|`abfss://`|`abfss://`*Filesystem*`@`*Account*`.dfs.core.chinacloudapi.cn/`*PathToDirectoryOrFile* [`;`*CallerCredentials* ]|
+|Azure Data Lake Store Gen 1|`adl://`  |`adl://`*Account* .azuredatalakestore.net/ *PathToDirectoryOrFile* [`;`*CallerCredentials* ]|
 
 ## <a name="azure-storage-blob"></a>Azure 存储 Blob
 

@@ -10,12 +10,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: ed8e8efbf21c1bf1eb18ba547183d837f1e76203
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 182eb324da41cc71b4c83f9d1cb1bd17e39145b9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462901"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104691"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>从托管映像创建 VM
 

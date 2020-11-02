@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: 什么是认知服务？
-      href: Welcome.md
+      href: what-are-cognitive-services.md
     - name: 认知服务的自定义子域
       href: cognitive-services-custom-subdomains.md
     - name: 语言支持
@@ -15,6 +15,8 @@
       href: cognitive-services-apis-create-account.md
     - name: 使用 Azure CLI 创建新资源
       href: cognitive-services-apis-create-account-cli.md
+    - name: 使用客户端库创建新资源
+      href: cognitive-services-apis-create-account-client-library.md
     - name: 诊断日志记录
       href: diagnostic-logging.md
 - name: 安全性
@@ -23,17 +25,42 @@
       href: cognitive-services-security.md
     - name: 对认知服务的请求进行身份验证
       href: authentication.md
+    - name: 安全基线
+      href: security-baseline.md
+- name: 容器支持
+  items:
+    - name: 容器支持
+      href: cognitive-services-container-support.md
+    - name: 容器映像标记
+      href: ./containers/container-image-tags.md
+    - name: 容器常见问题解答
+      href: ./containers/container-faq.md
+    - name: 其他容器服务
+      items:
+        - name: Azure 容器实例
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure 容器注册表
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes 服务 (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
+- name: 参考
+  items:
+    - name: Azure Policy 内置策略定义
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 资源
   items:
+    - name: 支持和帮助选项
+      href: cognitive-services-support-options.md
+    - name: Azure 路线图
+      href: 'https://updates.azure.cn/?product=cognitive-services'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/cognitive-services/'
     - name: 定价计算器
       href: 'https://www.azure.cn/pricing/calculator/'
-    - name: 合规性
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 支持和帮助选项
-      href: cognitive-services-support-options.md
     - name: 服务级别协议 (SLA)
       href: 'https://www.azure.cn/support/sla/cognitive-services/'
+    - name: 博客
+      href: 'https://azure.microsoft.com/blog/topics/cognitive-services/'
     - name: 服务更新
-      href: 'https://www.azure.cn/what-is-new'
+      href: 'https://updates.azure.cn/?product=cognitive-services'

@@ -1,6 +1,7 @@
 ---
-title: Microsoft 标识平台 Java Web 应用快速入门 | Azure
-description: 了解如何使用 OpenID Connect 在 Java Web 应用中实现 Microsoft 登录
+title: 快速入门：向 Java Web 应用添加 Microsoft 登录功能 | Azure
+titleSuffix: Microsoft identity platform
+description: 在本快速入门中，了解如何使用 OpenID Connect 在 Java Web 应用程序中实现 Microsoft 登录。
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: d19f9bd1463726b43718b7eb0a20be2daa719d0f
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 87ef8ffff44e4d27b4f96ac4f6b143f9a5a30037
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937475"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749956"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>快速入门：向 Java Web 应用添加 Microsoft 登录功能
 
@@ -83,7 +84,7 @@ ms.locfileid: "91937475"
 > [下载代码示例](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 下载项目并将 zip 文件解压缩到更靠近根文件夹的本地文件夹（例如，**C:\Azure-Samples**）
+> 下载项目并将 zip 文件解压缩到更靠近根文件夹的本地文件夹（例如， **C:\Azure-Samples** ）
 >
 > 若要将 https 与 localhost 一起使用，请填写 server.ssl.key 属性。 若要生成自签名证书，请使用 keytool 实用工具（包含在 JRE 中）。
 >
@@ -122,7 +123,7 @@ ms.locfileid: "91937475"
 > 其中：
 >
 > - `Enter_the_Application_Id_here` - 是已注册应用程序的应用程序 ID。
-> - `Enter_the_Client_Secret_Here` - 是你在“证书和机密”中为注册的应用程序创建的**客户端密码**。
+> - `Enter_the_Client_Secret_Here` - 是你在“证书和机密”中为注册的应用程序创建的 **客户端密码** 。
 > - `Enter_the_Tenant_Info_Here` - 是注册的应用程序的目录（租户）ID 值。
 > 1. 若要将 https 与 localhost 一起使用，请填写 server.ssl.key 属性。 若要生成自签名证书，请使用 keytool 实用工具（包含在 JRE 中）。
 >
@@ -154,8 +155,8 @@ ms.locfileid: "91937475"
 1. 在前面的页面上，选择“登录”按钮以重定向到 Azure Active Directory 并提示用户输入其凭据。
 
 1. 用户通过身份验证后，会重定向到 https://localhost:8443/msal4jsample/secure/aad。 他们现在已登录，页面将显示有关已登录帐户的信息。 示例 UI 包含以下按钮：
-    - *注销*：从应用程序中注销当前用户，并将其重定向到主页。
-    - *显示用户信息*：获取 Microsoft Graph 的令牌，并使用包含该令牌的请求调用 Microsoft Graph，这将返回有关已登录用户的基本信息。
+    - *注销* ：从应用程序中注销当前用户，并将其重定向到主页。
+    - *显示用户信息* ：获取 Microsoft Graph 的令牌，并使用包含该令牌的请求调用 Microsoft Graph，这将返回有关已登录用户的基本信息。
 
 ##### <a name="running-from-tomcat"></a>从 Tomcat 运行
 
@@ -257,5 +258,5 @@ import com.microsoft.aad.msal4j.*;
 若要深入了解如何生成在 Microsoft 标识平台上将用户登录的 Web 应用，请继续学习我们的多部分方案系列：
 
 > [!div class="nextstepaction"]
-[场景：可将用户登录的 Web 应用](scenario-web-app-sign-user-overview.md?tabs=java)
+> [场景：可将用户登录的 Web 应用](scenario-web-app-sign-user-overview.md?tabs=java)
 

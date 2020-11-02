@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 indexof_regex()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 43a2a1e2467ad981a8d844aba5d8e4f5c0840448
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 7c4defe020d4020471ab39acaace7b435e603a43
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841393"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104385"
 ---
 # <a name="indexof_regex"></a>indexof_regex()
 
@@ -22,11 +22,11 @@ ms.locfileid: "87841393"
 
 请参阅 [`indexof()`](indexoffunction.md)。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `indexof_regex(`*source*`,`*lookup*`[,`*start_index*`[,`*length*`[,`*occurrence*`]]])`
 
-**参数**
+## <a name="arguments"></a>自变量
 
 |参数     | 描述                                     |必需还是可选|
 |--------------|-------------------------------------------------|--------------------|
@@ -37,7 +37,7 @@ ms.locfileid: "87841393"
 |occurrence    | 查找模式第 N 次出现时的索引。 
                  默认值为 1（第一次出现时的索引） |可选            |
 
-**返回**
+## <a name="returns"></a>返回
 
 查找的从零开始的索引位置。
 
@@ -48,7 +48,7 @@ ms.locfileid: "87841393"
      * 长度参数小于 -1。
 
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 print

@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 binary_and()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 63e44d62dcc194afb1c23f08f3b7e9b8c68d559a
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: eaa9cd60bc234a57f5c6125da096f091992fe021
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515741"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104952"
 ---
 # <a name="binary_and"></a>binary_and()
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 01/17/2020
 ms.date: 10/09/2020
-ms.openlocfilehash: b6d1bf33e0f6190cc680cec70d953777a78a917f
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.openlocfilehash: 3a497796369da4d2fe0a299a07e89b8298b1e160
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936842"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104514"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 
@@ -55,7 +55,7 @@ Azure 事件中心提供高度可缩放的发布-订阅事件投资者。 事件
 | **事件中心命名空间** | 事件中心命名空间是包含一组消息传递实体的容器。 创建新的事件中心后，另请创建命名空间。 |
 | **事件中心名称** | 要用作输入的事件中心的名称。 |
 | **事件中心策略名称** | 提供对事件中心的访问权限的共享访问策略。 每个共享访问策略具有名称、所设权限以及访问密钥。 此选项会自动进行填充，除非已选择手动提供事件中心设置的选项。|
-| **事件中心使用者组**（推荐） | 强烈建议对每个流分析作业使用不同的使用者组。 此字符串标识的使用者组用于从事件中心引入数据。 如果未指定任何使用者组，流分析作业将使用 $Default 使用者组。  |
+| **事件中心使用者组** （推荐） | 强烈建议对每个流分析作业使用不同的使用者组。 此字符串标识的使用者组用于从事件中心引入数据。 如果未指定任何使用者组，流分析作业将使用 $Default 使用者组。  |
 | **分区键** | 如果输入按属性分区，则可以添加此属性的名称。 分区键是可选的，如果查询包含有关此属性的 PARTITION BY 或 GROUP BY 子句，则分区键用于提高查询性能。 |
 | **事件序列化格式** | 传入数据流的序列化格式（JSON、CSV、Avro 或其他（Protobuf、XML、专有...））。  请确保该 JSON 格式符合规范，对于十进制数字不包括前导 0。 |
 | **编码** | 目前只支持 UTF-8 这种编码格式。 |
@@ -157,9 +157,9 @@ CSV 格式的输入需要标头行来定义数据集的字段，并且所有标�
 | **存储帐户** | 存储 Blob 文件所在的存储帐户的名称。 |
 | **存储帐户密钥** | 与存储帐户关联的密钥。 此选项会自动进行填充，除非已选择手动提供 Blob 存储设置的选项。 |
 | **容器** | 用于 Blob 输入的容器。 容器对存储在 Azure Blob 服务中的 blob 进行逻辑分组。 将 Blob 上传到 Azure Blob 存储服务时，必须为该 Blob 指定一个容器。 可以选择“使用现有”，以便使用现有的容器；也可以选择“新建”，以便创建新的容器。 |
-| **路径模式**（可选） | 用于定位指定容器中的 blob 的文件路径。 如果要从容器的根目录中读取 blob，请不要设置路径模式。 在路径中，可以指定以下 3 个变量的一个或多个实例：`{date}`、`{time}` 或 `{partition}`<br/><br/>示例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>示例 2：`cluster1/logs/{date}`<br/><br/>`*` 字符不是路径前缀允许使用的值。 仅允许使用有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字符</a>。 不包括容器名称或文件名。 |
-| **日期格式**（可选） | 如果在路径中使用日期变量，则为组织文件的日期格式。 示例： `YYYY/MM/DD` <br/><br/> 当 blob 输入在其路径中具有 `{date}` 或 `{time}` 时，将按升序时间顺序查看文件夹。|
-| **时间格式**（可选） |  如果在路径中使用时间变量，则为组织文件的时间格式。 目前唯一支持的值是 `HH`，表示小时。 |
+| **路径模式** （可选） | 用于定位指定容器中的 blob 的文件路径。 如果要从容器的根目录中读取 blob，请不要设置路径模式。 在路径中，可以指定以下 3 个变量的一个或多个实例：`{date}`、`{time}` 或 `{partition}`<br/><br/>示例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>示例 2：`cluster1/logs/{date}`<br/><br/>`*` 字符不是路径前缀允许使用的值。 仅允许使用有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字符</a>。 不包括容器名称或文件名。 |
+| **日期格式** （可选） | 如果在路径中使用日期变量，则为组织文件的日期格式。 示例： `YYYY/MM/DD` <br/><br/> 当 blob 输入在其路径中具有 `{date}` 或 `{time}` 时，将按升序时间顺序查看文件夹。|
+| **时间格式** （可选） |  如果在路径中使用时间变量，则为组织文件的时间格式。 目前唯一支持的值是 `HH`，表示小时。 |
 | **分区键** | 如果输入按属性分区，则可以添加此属性的名称。 分区键是可选的，如果查询包含有关此属性的 PARTITION BY 或 GROUP BY 子句，则分区键用于提高查询性能。 |
 | **事件序列化格式** | 传入数据流的序列化格式（JSON、CSV、Avro 或其他（Protobuf、XML、专有...））。  请确保该 JSON 格式符合规范，对于十进制数字不包括前导 0。 |
 | **编码** | 对于 CSV 和 JSON，目前只支持 UTF-8 这种编码格式。 |
@@ -187,10 +187,4 @@ FROM Input
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]
 > [快速入门：使用 Azure 门户创建流分析作业](stream-analytics-quick-create-portal.md)
-
-<!--Link references-->
-<!-- Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md -->
-[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md [stream.analytics.introduction]: stream-analytics-introduction.md [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md [stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299 [stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
-<!--Update_Description: update meta properties -->
 

@@ -7,13 +7,13 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 origin.data: 06/03/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: ac4de50547da1c6632103a35aa03f0b9498221cb
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 0f3410a99557cc2a8633c220a7f6d3896c23a3a9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146765"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105187"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>使用 C# 创建 Azure 数据资源管理器群集和数据库
 
@@ -23,13 +23,14 @@ ms.locfileid: "91146765"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
+> * [Go](create-cluster-database-go.md)
 > * [Azure Resource Manager 模板](create-cluster-database-resource-manager.md)
 
 Azure 数据资源管理器是一项快速、完全托管的数据分析服务，用于实时分析从应用程序、网站和 IoT 设备等资源流式传输的海量数据。 若要使用 Azure 数据资源管理器，请先创建群集，再在该群集中创建一个或多个数据库。 然后将数据引入（加载）到数据库，以便对其运行查询。 在本文中，将使用 C# 创建群集和数据库。
 
 ## <a name="prerequisites"></a>必备条件
 
-* 如果尚未安装 Visual Studio 2019，可以下载并使用**免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
+* 如果尚未安装 Visual Studio 2019，可以下载并使用 **免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
 * 如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](includes/data-explorer-data-connection-install-nuget-csharp.md)]
@@ -77,7 +78,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
    | resourceGroupName | *testrg* | 将在其中创建群集的资源组名称。 |
 
     > [!NOTE]
-    > **创建群集**是一个长时间运行的操作，因此强烈建议使用 CreateOrUpdateAsync，而不是 CreateOrUpdate。 
+    > **创建群集** 是一个长时间运行的操作，因此强烈建议使用 CreateOrUpdateAsync，而不是 CreateOrUpdate。 
 
 1. 运行以下命令，检查群集是否已成功创建：
 
@@ -105,8 +106,8 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
    |**设置** | **建议的值** | **字段说明**|
    |---|---|---|
-   | clusterName | mykustocluster** | 将在其中创建数据库的群集的名称。|
-   | databaseName | mykustodatabase** | 数据库名称。|
+   | clusterName | mykustocluster  | 将在其中创建数据库的群集的名称。|
+   | databaseName | mykustodatabase  | 数据库名称。|
    | resourceGroupName | *testrg* | 将在其中创建群集的资源组名称。 |
    | softDeletePeriod | *3650:00:00:00* | 供查询使用的数据的保留时间。 |
    | hotCachePeriod | *3650:00:00:00* | 数据将在缓存中保留的时间。 |
@@ -130,4 +131,4 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Azure 数据资源管理器 .NET Standard SDK（预览版）引入数据](net-standard-ingest-data.md)
+* [使用 Azure 数据资源管理器 .NET Standard SDK（预览版）引入数据](./net-sdk-ingest-data.md)

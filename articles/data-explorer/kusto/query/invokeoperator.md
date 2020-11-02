@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 invoke 运算符。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 16c2ed61ee488be7c2fa585099de5b6471c95a64
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 3da1b095aaa86383643538bf77bed148b5067815
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516048"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104735"
 ---
 # <a name="invoke-operator"></a>invoke 运算符
 
@@ -29,11 +29,11 @@ T | invoke foo(param1, param2)
  
 ## <a name="syntax"></a>语法
 
-`T | invoke` *function*`(`[*param1*`,` *param2*]`)`
+`T | invoke` *function*`(`[ *param1*`,` *param2* ]`)`
 
 ## <a name="arguments"></a>参数
 
-* *T*：表格源。
+* *T* ：表格源。
 * function：要计算的 lambda 表达式名称或函数名。
 * param1、param2 ...：其他 lambda 参数。
 

@@ -2,9 +2,7 @@
 title: 因 VM 启动到安全模式而无法远程连接 Azure 虚拟机 | Azure
 description: 了解如何排查因 VM 启动到安全模式而无法通过 RDP 连接到该 VM 的问题 | Azure
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: eaa95493d88999decf7296d2610632d72bce4b57
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: c281b20149258700e8ec162bdab7713e5c6b7b3e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456877"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103648"
 ---
 # <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>因 VM 启动到安全模式而无法通过 RDP 连接到该 VM
 
@@ -99,7 +97,7 @@ RDP 服务在安全模式下不可用。 VM 启动到安全模式时，只会加
 
     如果 VM 配置为启动到安全模式，则可在“Windows 启动加载程序”部分下看到一个名为 **safeboot** 的额外标志  。 如果未看到“安全启动”  标志，则本文不适用于你的方案。
 
-    :::image type="content" source="./media/troubleshoot-rdp-safe-mode/boot-id.png" alt-text="有关启动标识符的图像":::
+    :::image type="content" source="./media/troubleshoot-rdp-safe-mode/boot-id.png" alt-text="安全模式下网络接口的图像":::
 
 3. 删除“安全启动”标志，使 VM 启动到正常模式  ：
 

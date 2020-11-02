@@ -3,18 +3,18 @@ title: Microsoft 标识平台文档
 summary: Microsoft 标识平台是一项身份验证服务，也是开源库和应用程序管理工具。 在我们的快速入门、教程和代码示例中了解如何创建基于标准的新式身份验证解决方案。 构建这样的应用程序，你的用户和客户登录它们来使用其 Microsoft 身份或社交帐户，或者它们授权访问你的 API 或 Microsoft API（例如 Microsoft Graph）。
 metadata:
   ms.topic: landing-page
-  ms.date: 10/09/2020
+  ms.date: 10/26/2020
   author: mmacy
   ms.author: v-junlch
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: bc458615f462c762bfb964da8a5af6e6cb09498f
-  ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+  ms.openlocfilehash: 79a2cb2f00388d48081a09b0703f6df1fb359fac
+  ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/10/2020
-  ms.locfileid: "91937177"
+  ms.lasthandoff: 10/27/2020
+  ms.locfileid: "92749976"
 landingContent:
 - title: 关于 Microsoft 标识平台
   linkLists:
@@ -106,21 +106,9 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Docs 中的新增内容
+      url: whats-new-docs.md
+    - text: Microsoft 标识 Web 库概述
+      url: microsoft-identity-web.md
     - text: 教程：Blazor Server
       url: tutorial-blazor-server.md
-    - text: 快速入门：保护 ASP.NET Core Web API
-      url: quickstart-v2-aspnet-core-web-api.md
-    - text: MSAL Python API 参考
-      url: https://docs.microsoft.com/python/api/msal/
-    - text: 快速入门：注册应用（重写）
-      url: quickstart-register-app.md
-    - text: 快速入门：公开 Web API（重写）
-      url: quickstart-configure-app-expose-web-apis.md
-    - text: 快速入门：访问 Web API（重写）
-      url: quickstart-configure-app-access-web-apis.md
-    - text: 将 Xamarin Android 代理应用迁移到 MSAL.NET
-      url: msal-net-migration-android-broker.md
-    - text: 处理错误和异常 - Android
-      url: msal-android-handling-exceptions.md
-    - text: 声明中的目录架构扩展属性
-      url: active-directory-schema-extensions.md

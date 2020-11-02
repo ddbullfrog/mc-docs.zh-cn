@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 beta_pdf()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: e84fb81903f4c5bb2feac77c02b1d55329b45f2a
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 387b8cee2a6f77ceb47c5adf2949467cb62f67b9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516035"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103738"
 ---
 # <a name="beta_pdf"></a>beta_pdf()
 

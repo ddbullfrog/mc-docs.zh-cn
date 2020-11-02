@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/14/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 0fd70b000141d51ee29ae109506e689667e33545
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 3438b120ba3cb3d39aa68fda7fd415f41adc9716
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515800"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105100"
 ---
 # <a name="abs"></a>abs()
 

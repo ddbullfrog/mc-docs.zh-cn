@@ -3,14 +3,15 @@ title: 在 Azure Batch 池中配置节点终结点
 description: 如何在 Azure Batch 池中的计算节点上配置或禁用对 SSH 或 RDP 端口的访问。
 ms.topic: how-to
 origin.date: 02/13/2018
-ms.date: 06/29/2020
-ms.author: v-tawe
-ms.openlocfilehash: c72c0a4a7e00ae97e3eb91204d579d546a05aa0a
-ms.sourcegitcommit: d24e12d49708bbe78db450466eb4fccbc2eb5f99
+author: rockboyfor
+ms.date: 11/02/2020
+ms.author: v-yeche
+ms.openlocfilehash: 4922fa114db73ac41cda7e7bd239c5316b301a85
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611872"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105648"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>配置或禁用对 Azure Batch 池中计算节点的远程访问
 
@@ -21,12 +22,11 @@ ms.locfileid: "85611872"
 ## <a name="about-the-pool-endpoint-configuration"></a>关于池终结点配置
 终结点配置由一个或多个前端端口的[网络地址转换 (NAT) 池](https://docs.microsoft.com/rest/api/batchservice/pool/add#inboundnatpool)构成。 （请不要将 NAT 池与计算节点的 Batch 池相混淆。）将每个 NAT 池设置为覆盖此池的计算节点上的默认连接设置。 
 
-每个 NAT 池配置包括一个或多个[网络安全组 (NSG) 规则](https://docs.microsoft.com/rest/api/batchservice/pool/add#networksecuritygrouprule)。 每个 NSG 规则允许或拒绝特定的网络流量流向终结点。 可以选择允许或拒绝所有流量、由[服务标记](../virtual-network/security-overview.md#service-tags)（例如“Internet”）标识的流量，或者来自特定 IP 地址或子网的流量。
+每个 NAT 池配置包括一个或多个[网络安全组 (NSG) 规则](https://docs.microsoft.com/rest/api/batchservice/pool/add#networksecuritygrouprule)。 每个 NSG 规则允许或拒绝特定的网络流量流向终结点。 可以选择允许或拒绝所有流量、由[服务标记](../virtual-network/network-security-groups-overview.md#service-tags)（例如“Internet”）标识的流量，或者来自特定 IP 地址或子网的流量。
 
 ### <a name="considerations"></a>注意事项
-- 池终结点配置是池的[网络配置](https://docs.microsoft.com/rest/api/batchservice/pool/add#NetworkConfiguration)的一部分。 网络配置可以选择性地包含用于将池加入 [Azure 虚拟网络](batch-virtual-network.md)的设置。 如果在虚拟网络中设置池，可以创建使用虚拟网络中的地址设置的 NSG 规则。
-- 配置 NAT 池时，可以配置多个 NSG 规则。 将按优先顺序检查规则。 一旦应用某个规则，不再检查其他规则的匹配情况。
-
+* 池终结点配置是池的[网络配置](https://docs.microsoft.com/rest/api/batchservice/pool/add#networkconfiguration)的一部分。 网络配置可以选择性地包含用于将池加入 [Azure 虚拟网络](batch-virtual-network.md)的设置。 如果在虚拟网络中设置池，可以创建使用虚拟网络中的地址设置的 NSG 规则。
+* 配置 NAT 池时，可以配置多个 NSG 规则。 将按优先顺序检查规则。 一旦应用某个规则，不再检查其他规则的匹配情况。
 
 ## <a name="example-deny-all-rdp-traffic"></a>示例：拒绝所有 RDP 流量
 
@@ -123,4 +123,6 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 ## <a name="next-steps"></a>后续步骤
 
 - 了解 [Batch 服务工作流和主要资源](batch-service-workflow-features.md)，例如池、节点、作业和任务。
-- 有关 Azure 中 NSG 规则的详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/security-overview.md)。
+- 有关 Azure 中 NSG 规则的详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/network-security-groups-overview.md)。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

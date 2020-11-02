@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 pack_all()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 5bcb7b6cd67739a01fe2c3d423867e2da62aec81
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: b34273ac8b01e722c9e4a76464e5278d0539b6af
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516098"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103847"
 ---
 # <a name="pack_all"></a>pack_all()
 

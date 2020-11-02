@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b8e30821c9f99c2f310675a0b7655c2a4d031c02
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 20f03dae0f1e3da7b70916f7c64ac91640af23e2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463160"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105742"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>教程 - 使用自定义脚本扩展将应用程序部署到 Azure 中的 Windows 虚拟机
 
@@ -50,7 +50,7 @@ Connect-AzAccount -Environment AzureChinaCloud
 $cred = Get-Credential
 ```
 
-现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果资源组 *myResourceGroupAutomate* 和支持的网络资源不存在，则会创建它们。 此 cmdlet 还打开端口 *80*，目的是允许 Web 流量。
+现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果资源组 *myResourceGroupAutomate* 和支持的网络资源不存在，则会创建它们。 此 cmdlet 还打开端口 *80* ，目的是允许 Web 流量。
 
 ```powershell
 New-AzVm `
@@ -96,7 +96,7 @@ Get-AzPublicIPAddress `
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你在 VM 上自动执行了 IIS 安装。 你已了解如何执行以下操作：
+在本教程中，你在 VM 上自动执行了 IIS 安装。 你已了解如何：
 
 > [!div class="checklist"]
 > * 使用自定义脚本扩展安装 IIS

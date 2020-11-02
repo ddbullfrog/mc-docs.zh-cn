@@ -2,9 +2,7 @@
 title: 操作系统启动疑难解答 - Windows 更新安装容量
 description: 解决 Windows 更新 (KB) 在 Azure VM 中收到错误且无响应的问题的步骤。
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 6359e486-7b02-4c1e-995c-ef6d505f85f4
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 39eeff597438a3f9582b0ea5a7fa60a044dddfa8
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 48dd9f32c0b7d3b69de86a1aa0cc571218ee4f29
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456843"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105463"
 ---
 <!--Verified successfully-->
 
@@ -80,12 +78,12 @@ ms.locfileid: "89456843"
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>启用串行控制台和内存转储集合
 
-**建议**：在重新生成 VM 之前，通过运行以下脚本来启用串行控制台和内存转储收集：
+**建议** ：在重新生成 VM 之前，通过运行以下脚本来启用串行控制台和内存转储收集：
 
 1. 以管理员身份打开权限提升的命令提示符会话。
 1. 运行以下命令：
 
-    **启用串行控制台**：
+    **启用串行控制台** ：
 
     ```
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
@@ -104,7 +102,7 @@ ms.locfileid: "89456843"
     REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM 
     ```
 
-    **在 ControlSet001 上启用**：
+    **在 ControlSet001 上启用** ：
 
     ```
     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -112,7 +110,7 @@ ms.locfileid: "89456843"
     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
 
-    **在 ControlSet002 上启用**：
+    **在 ControlSet002 上启用** ：
 
     ```
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -120,7 +118,7 @@ ms.locfileid: "89456843"
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
 
-    **卸载损坏的 OS 磁盘**：
+    **卸载损坏的 OS 磁盘** ：
 
     ```
     REG UNLOAD HKLM\BROKENSYSTEM

@@ -2,10 +2,8 @@
 title: 对 Azure Linux 虚拟机启动错误进行故障排除 | Azure
 description: 本文提供的链接指向关于对 Azure Linux 虚拟机启动错误进行故障排除的文章。
 services: virtual-machines-linux
-documentationCenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 ms.service: virtual-machines-linux
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
@@ -13,12 +11,12 @@ ms.workload: infrastructure
 origin.date: 11/20/2019
 ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 63e95e408254741144f2e511f6b10d1b24bcec3e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 50543d35e5740e03cae98a71536811e1073664bb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75348471"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105073"
 ---
 # <a name="troubleshoot-azure-linux-virtual-machines-boot-errors"></a>对 Azure Linux 虚拟机启动错误进行故障排除
 

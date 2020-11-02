@@ -4,33 +4,33 @@ description: 本文介绍 Azure 数据资源管理器中的 range()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 2ed20fe80153c0a4e336a0bce4566da8712fa364
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: d7e3e6f93a77d035a4648110dbd53135c68fd706
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841512"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104013"
 ---
 # <a name="range"></a>range()
 
 生成包含一系列等间距值的动态数组。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `range(`start`,` stop[`,` step]`)`   
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *start*：生成数组中第一个元素的值。 
+* *start* ：生成数组中第一个元素的值。 
 * stop：生成数组中最后一个元素的值，或大于生成数组中的最后一个元素且在 start 中 step 的整数倍以内的最小值。
 * step：数组中两个连续元素之间的差异。 step 的默认值为 `1`（数字）和 `1h`（`timespan` 或 `datetime`）
 
-**示例**
+## <a name="examples"></a>示例
 
 以下示例返回 `[1, 4, 7]`：
 

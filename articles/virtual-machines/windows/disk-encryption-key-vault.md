@@ -6,17 +6,17 @@ ms.subservice: security
 ms.topic: how-to
 origin.date: 08/06/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 652433fc02c6dd0a2b2a2e11bfcbb84dfe236094
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: db59dcdb87adaf38ba3da5ee99d31fb4646ed518
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127681"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104339"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>创建和配置用于 Azure 磁盘加密的密钥保管库
 

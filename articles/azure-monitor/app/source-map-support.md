@@ -4,13 +4,14 @@ description: 了解如何使用 Application Insights 将源映射上传到自己
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/25/2020
-ms.openlocfilehash: 313d314f8bed2e7215b0bc244fe10a3d6804cb1a
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.date: 10/29/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: f287dbc13773818a5ec12b6caf1738277a7781ea
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199873"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104234"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>JavaScript 应用程序的源映射支持
 
@@ -71,9 +72,9 @@ Application Insights 支持将源映射上传到你自己的存储帐户 Blob �
 <!-- Not available in MC now: Azure Pipelines -->
 
 <!-- Remote URLs -->
-[create storage account]: /storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal
-[create blob container]: /storage/blobs/storage-quickstart-blobs-portal
-[storage blob data reader]: /role-based-access-control/built-in-roles#storage-blob-data-reader
+[create storage account]: ../../storage/common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal
+[create blob container]: ../../storage/blobs/storage-quickstart-blobs-portal.md
+[storage blob data reader]: ../../role-based-access-control/built-in-roles.md#storage-blob-data-reader
 [ApplicationInsights-JS]: https://github.com/microsoft/applicationinsights-js
 [ApplicationInsights-Node.js]: https://github.com/microsoft/applicationinsights-node.js
 [azure file copy]: https://aka.ms/azurefilecopyreadme

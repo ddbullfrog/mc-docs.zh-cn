@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 countof()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 2873e7a9e722f9947b5bc83a16d8dcd50f6e1821
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 90eeb800a7af9b699a1fe79417239a3ee71bcfce
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146493"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105050"
 ---
 # <a name="countof"></a>countof()
 
@@ -27,13 +27,13 @@ countof("The cat sat on the mat", @"\b.at\b", "regex") == 3
 
 ## <a name="syntax"></a>语法
 
-`countof(`*text*`,` *search* [`,` *kind*]`)`
+`countof(`*text*`,` *search* [`,` *kind* ]`)`
 
 ## <a name="arguments"></a>参数
 
-* *text*：一个字符串。
-* *search*：用于在 text 内部匹配的纯字符串或[正则表达式](./re2.md)。
-* *kind*：`"normal"|"regex"` 默认值为 `normal`。 
+* *text* ：一个字符串。
+* *search* ：用于在 text 内部匹配的纯字符串或 [正则表达式](./re2.md)。
+* *kind* ：`"normal"|"regex"` 默认值为 `normal`。 
 
 ## <a name="returns"></a>返回
 

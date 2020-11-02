@@ -2,7 +2,7 @@
 title: 快速入门 - 使用 Java 将 X.509 设备注册到 Azure 设备预配服务
 description: 本快速入门使用组注册和单独注册。 在本快速入门中，需使用 Java 将 X.509 设备注册到 Azure IoT 中心设备预配服务 (DPS)。
 author: wesmc7777
-ms.author: wesmc
+ms.author: v-tawe
 origin.date: 11/08/2019
 ms.date: 09/30/2020
 ms.topic: quickstart
@@ -10,12 +10,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 7b8bb8fa5607314dc68f3f8814acd2351954ed6b
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 5db6856c5a82d3a13594a1577040ef44b82f4d51
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564378"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105581"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>快速入门：使用 Java 将 X.509 设备注册到设备预配服务
 
@@ -63,7 +63,7 @@ ms.locfileid: "91564378"
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    2. 添加此组设备的根证书。 如需示例根证书，请使用 _X.509 证书生成器_工具，如下所示：
+    2. 添加此组设备的根证书。 如需示例根证书，请使用 _X.509 证书生成器_ 工具，如下所示：
         1. 在命令窗口中，导航到文件夹 **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_** 。
         2. 通过运行以下命令来生成工具：
 
@@ -81,7 +81,7 @@ ms.locfileid: "91564378"
         5. 出现提示时，可以选择性地为证书输入“公用名称”  。
         6. 此工具在本地生成“客户端证书”、“客户端证书私钥”和“根证书”。   
         7. 复制“根证书”，  包括 **_-----BEGIN CERTIFICATE-----_** 行和 **_-----END CERTIFICATE-----_** 行。 
-        8. 将“根证书”的值指定给  参数 **PUBLIC_KEY_CERTIFICATE_STRING**，如下所示：
+        8. 将“根证书”的值指定给  参数 **PUBLIC_KEY_CERTIFICATE_STRING** ，如下所示：
 
             ```Java
             private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -108,7 +108,7 @@ ms.locfileid: "91564378"
                 ```Java
                 private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.cn";
                 ```
-            2. 为 *DEVICE_ID* 参数指定一个友好名称，并保留 *PROVISIONING_STATUS* 的默认值 *ENABLED*。 
+            2. 为 *DEVICE_ID* 参数指定一个友好名称，并保留 *PROVISIONING_STATUS* 的默认值 *ENABLED* 。 
 
         - 或者，如果选择不配置预配服务，请确保注释掉或删除 _ServiceEnrollmentGroupSample.java_ 文件中的以下语句：
 
@@ -147,7 +147,7 @@ Azure IoT 设备预配服务支持两类注册：
     mvn install -DskipTests
     ```
 
-   此命令将 Maven 包 [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) 下载到计算机。 此包包括示例代码需要生成的适用于 Java 服务 SDK 的二进制文件。 如果在上一部分运行了 _X.509 证书生成器_工具，则此包已下载到计算机上。 
+   此命令将 Maven 包 [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) 下载到计算机。 此包包括示例代码需要生成的适用于 Java 服务 SDK 的二进制文件。 如果在上一部分运行了 _X.509 证书生成器_ 工具，则此包已下载到计算机上。 
 
 3. 运行示例，方法是在命令窗口使用以下命令：
 
@@ -166,14 +166,14 @@ Azure IoT 设备预配服务支持两类注册：
 
 若要注册单个 X.509 设备，请修改[使用 Java 服务 SDK 将 TPM 设备注册到 IoT 中心设备预配服务](quick-enroll-device-tpm-java.md#javasample)一文中使用的单个注册  示例代码，如下所示：
 
-1.  将 X.509 客户端证书的“公用名称”复制到剪贴板。 如果希望使用[上一示例代码部分](#javasample)所示的  X.509 证书生成器工具，请输入证书的“公用名称”，或者使用默认的  **microsoftriotcore**。 将该“公用名称”用作  *REGISTRATION_ID* 变量的值。 
+1.  将 X.509 客户端证书的“公用名称”复制到剪贴板。 如果希望使用 [上一示例代码部分](#javasample)所示的  X.509 证书生成器工具，请输入证书的“公用名称”，或者使用默认的  **microsoftriotcore** 。 将该“公用名称”用作  *REGISTRATION_ID* 变量的值。 
 
     ```Java
     // Use common name of your X.509 client certificate
     private static final String REGISTRATION_ID = "[RegistrationId]";
     ```
 
-2. 将变量 *TPM_ENDORSEMENT_KEY* 重命名为 *PUBLIC_KEY_CERTIFICATE_STRING*。 复制你的客户端证书或者   “X.509 证书生成器”工具的输出中的“客户端证书”，作为 *PUBLIC_KEY_CERTIFICATE_STRING* 变量的值。 
+2. 将变量 *TPM_ENDORSEMENT_KEY* 重命名为 *PUBLIC_KEY_CERTIFICATE_STRING* 。 复制你的客户端证书或者   “X.509 证书生成器”工具的输出中的“客户端证书”，作为 *PUBLIC_KEY_CERTIFICATE_STRING* 变量的值。 
 
     ```Java
     // Rename the variable *TPM_ENDORSEMENT_KEY* as *PUBLIC_KEY_CERTIFICATE_STRING*

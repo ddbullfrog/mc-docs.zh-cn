@@ -8,18 +8,18 @@ metadata:
   services: virtual-machines
   ms.service: virtual-machines
   ms.topic: hub-page
-  author: rockboyfor
   origin.date: 02/14/2020
-  ms.date: 08/31/2020
+  author: rockboyfor
+  ms.date: 11/02/2020
   ms.testscope: yes
   ms.testdate: 08/31/2020
   ms.author: v-yeche
-  ms.openlocfilehash: 117f8c551b80204d937773e897ad4f34e2bfe30c
-  ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+  ms.openlocfilehash: 75717a94ee46a70e0131bd6fe7e635f373cf8109
+  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89052377"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93105417"
 highlightedContent:
   items:
   - title: 使用 Azure CLI 创建 Linux 虚拟机
@@ -33,7 +33,7 @@ highlightedContent:
     url: ../virtual-machine-scale-sets/quick-create-portal.md
   - title: 专用主机 - 用于承载一个或多个虚拟机的物理服务器。
     itemType: concept
-    url: ./linux/dedicated-hosts.md
+    url: ./dedicated-hosts.md
   - title: 邻近放置组 - 使 VM 尽可能相近，以便降低延迟。
     itemType: how-to-guide
     url: ./linux/proximity-placement-groups.md
@@ -52,7 +52,7 @@ conceptualContent:
       text: 排查 Linux 虚拟机问题
     footerLink:
       url: ./linux/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: Windows 虚拟机
     links:
     - url: ./windows/quick-create-powershell.md
@@ -69,7 +69,7 @@ conceptualContent:
       text: 排查 Windows 虚拟机问题
     footerLink:
       url: ./windows/index.yml
-      text: 查看更多
+      text: 查看详细信息
   - title: 虚拟机规模集
     links:
     - url: ../virtual-machine-scale-sets/quick-create-powershell.md
@@ -87,7 +87,7 @@ tools:
   items:
   - title: Azure CLI
     imageSrc: https://docs.azure.cn/virtual-machines/linux/media/index/cli.svg
-    url: https://docs.azure.cn/cli/vm?view=azure-cli-latest
+    url: https://docs.azure.cn/cli/vm
   - title: Azure PowerShell
     imageSrc: https://docs.azure.cn/virtual-machines/linux/media/index/logo_powershell.svg
     url: https://docs.microsoft.com/powershell/module/az.compute#virtual_machines

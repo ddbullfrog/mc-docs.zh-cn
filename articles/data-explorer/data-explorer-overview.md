@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 origin.date: 09/24/2018
-ms.date: 08/13/2020
-ms.openlocfilehash: 9b08edff96e7798ccd60de18c0dca469ee8a2b44
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: 8e97c47f54443e52a96bfc15002f0bdc5fbf93c2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515856"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105396"
 ---
 # <a name="what-is-azure-data-explorer"></a>什么是 Azure 数据资源管理器？
 
@@ -45,11 +45,11 @@ Azure 数据资源管理器支持多个引入方法，包括连接到常见服�
 
 Azure 数据资源管理器中的工作通常遵循以下模式：
 
-1. **创建数据库**：创建群集，然后在该群集中创建一个或多个数据库   。 [快速入门：创建 Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)
+1. **创建数据库** ：创建群集，然后在该群集中创建一个或多个数据库   。 [快速入门：创建 Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)
 
-1. **引入数据**：将数据加载到数据库表，以便你可以对其运行查询。 [快速入门：将数据从事件中心引入到 Azure 数据资源管理器](ingest-data-event-hub.md)
+1. **引入数据** ：将数据加载到数据库表，以便你可以对其运行查询。 [快速入门：将数据从事件中心引入到 Azure 数据资源管理器](ingest-data-event-hub.md)
 
-1. **查询数据库**：使用 Web 应用程序来运行、查看以及共享查询和结果。 它可在 Azure 门户中使用，也可作为独立的应用程序使用。 可以通过编程方式（使用 SDK）发送查询，或向 REST API 终结点发送查询。 [快速入门：在 Azure 数据资源管理器中查询数据](web-query-data.md)
+1. **查询数据库** ：使用 Web 应用程序来运行、查看以及共享查询和结果。 它可在 Azure 门户中使用，也可作为独立的应用程序使用。 可以通过编程方式（使用 SDK）发送查询，或向 REST API 终结点发送查询。 [快速入门：在 Azure 数据资源管理器中查询数据](web-query-data.md)
 
 ## <a name="query-experience"></a>查询体验
 
@@ -59,7 +59,7 @@ Azure 数据资源管理器同样可以处理大量的结构化、半结构化�
 
 依托 Azure 数据资源管理器强大的查询语言，构建了一系列其他服务，包括 [Azure Monitor 日志](/azure-monitor/overview)、[Application Insights](/azure-monitor/overview)、[时序见解](/time-series-insights/)以及 [Windows Defender 高级威胁防护](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/)，从而进一步扩展了其功能。
 
-## <a name="feedback"></a>反馈
+## <a name="how-to-provide-feedback"></a>如何提供反馈
 
 我们很乐意收到你关于 Azure 数据资源管理器及其查询语言的反馈：
 

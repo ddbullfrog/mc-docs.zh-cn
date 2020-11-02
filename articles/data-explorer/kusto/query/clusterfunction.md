@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的 cluster()（范围�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: f71458f152779d6feb98e4d93f38c6428a2afa03
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: 17a597e529d7c83b02007cf1a935a6efe43843d2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515818"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104400"
 ---
 # <a name="cluster-scope-function"></a>cluster()（范围函数）
 
@@ -34,7 +34,7 @@ cluster('help').database('Sample').SomeTable
 
 ## <a name="arguments"></a>参数
 
-* *stringConstant*：被引用群集的名称。 群集名称可以是完全限定的 DNS 名称，也可以是以 `.kusto.chinacloudapi.cn` 为后缀的字符串。 在执行查询之前，参数必须是常量，即不能来自子查询求值。
+* *stringConstant* ：被引用群集的名称。 群集名称可以是完全限定的 DNS 名称，也可以是以 `.kusto.chinacloudapi.cn` 为后缀的字符串。 在执行查询之前，参数必须是常量，即不能来自子查询求值。
 
 **说明**
 

@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的查询语句。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 12/10/2019
-ms.date: 08/06/2020
+ms.date: 09/30/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: a74fb3da8a3daef8b7f3d7bbf0ffc18a5470213d
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.openlocfilehash: 30beb46e9e6af71cd25a646dd8e7ac73bc6b5386
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841714"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105108"
 ---
 # <a name="query-statement-types"></a>查询语句类型
 

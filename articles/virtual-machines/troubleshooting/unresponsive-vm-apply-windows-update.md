@@ -2,10 +2,8 @@
 title: 应用 Windows 更新时 Azure VM 无响应并出现 C01A001D 错误
 description: 本文提供的步骤可以解决 Windows 更新产生错误并且 Azure VM 无响应的问题。
 services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-resource-manager
 ms.assetid: a97393c3-351d-4324-867d-9329e31b3528
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 08/31/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2c40dc35e82d90c1a03b1ff4d440acc3c066900d
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 013a656264e90cdcddd250fbfe8fcc3b9a115131
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456745"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103773"
 ---
 <!--Verified successfully-->
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>应用 Windows 更新时 VM 无响应并出现“C01A001D”错误

@@ -3,20 +3,21 @@ title: 使用 .NET 创建视频评审 - 内容审查器
 titleSuffix: Azure Cognitive Services
 description: 本文提供了信息和代码示例，可帮助你快速开始结合使用内容审查器 SDK 和 C# 来创建视频审查。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.author: v-tawe
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
 origin.date: 10/24/2019
-ms.openlocfilehash: 0d1c9695171da572fbc6988820dfddf95b823352
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 735fd970203f56a1a5f20bc3438101ef352dc22f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917172"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105402"
 ---
 # <a name="create-video-reviews-using-net"></a>使用 .NET 创建视频审查
 
@@ -62,9 +63,9 @@ ms.locfileid: "87917172"
 
 ## <a name="create-your-visual-studio-project"></a>创建 Visual Studio 项目
 
-1. 向解决方案添加新的“控制台应用(.NET Framework)”**** 项目。
+1. 向解决方案添加新的“控制台应用(.NET Framework)”  项目。
 
-1. 为项目“VideoReviews”**** 命名。
+1. 为项目“VideoReviews”  命名。
 
 1. 将此项目选为解决方案的单一启动项目。
 
@@ -93,7 +94,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>添加私有属性
 
-将以下专用属性添加到 VideoReviews**** 命名空间中的 Program**** 类。 使用终结点 URL 和订阅密钥的值更新 `AzureEndpoint` 和 `CMSubscriptionKey` 字段。 可在 Azure 门户中资源的“快速启动”**** 选项卡中找到它们。
+将以下专用属性添加到 VideoReviews  命名空间中的 Program  类。 使用终结点 URL 和订阅密钥的值更新 `AzureEndpoint` 和 `CMSubscriptionKey` 字段。 可在 Azure 门户中资源的“快速启动”  选项卡中找到它们。
 
 
 ```csharp
@@ -132,7 +133,7 @@ namespace VideoReviews
 
 ### <a name="create-content-moderator-client-object"></a>创建内容审查器客户端对象
 
-将以下方法定义添加到 VideoReviews**** 命名空间中的 Program**** 类。
+将以下方法定义添加到 VideoReviews  命名空间中的 Program  类。
 
 ```csharp
 /// <summary>
@@ -158,12 +159,12 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews** 具有以下必需参数：
 1. 一个字符串，包含应为“application/json”的 MIME 类型。 
 1. 内容审查器团队名称。
-1. 一个 **IList\<CreateVideoReviewsBodyItem>** 对象。 每个 CreateVideoReviewsBodyItem **** 对象表示一次视频审查。 本快速入门一次创建一条评论。
+1. 一个 **IList\<CreateVideoReviewsBodyItem>** 对象。 每个 CreateVideoReviewsBodyItem  对象表示一次视频审查。 本快速入门一次创建一条评论。
 
 **CreateVideoReviewsBodyItem** 具有多个属性。 至少应设置以下属性：
-- Content****。 要评论的视频的 URL。
-- ContentId****。 要分配给视频评论的 ID。
-- Status****。 将该值设置为“未发布”。 如果未进行设置，则默认为“挂起”，这意味着视频评论已发布并且正在等待人工评论。 视频评论发布后，就无法再向其中添加视频帧、脚本或脚本审查结果。
+- Content  。 要评论的视频的 URL。
+- ContentId  。 要分配给视频评论的 ID。
+- Status  。 将该值设置为“未发布”。 如果未进行设置，则默认为“挂起”，这意味着视频评论已发布并且正在等待人工评论。 视频评论发布后，就无法再向其中添加视频帧、脚本或脚本审查结果。
 
 > [!NOTE]
 > **CreateVideoReviews** 返回 IList\<string>。 这些字符串中的每一个都包含视频评论 ID。 这些 ID 是 GUID，与 **ContentId** 属性的值不同。 
@@ -173,7 +174,7 @@ public static ContentModeratorClient NewClient()
 ```csharp
 /// <summary>
 /// Create a video review. For more information, see the API reference:
-/// https://dev.cognitive.azure.cn/docs/services580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 
+/// https://dev.cognitive.azure.cn/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 
 /// </summary>
 /// <param name="client">The Content Moderator client.</param>
 /// <param name="id">The ID to assign to the video review.</param>
@@ -210,27 +211,27 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 
 ## <a name="add-video-frames-to-the-video-review"></a>将视频帧添加到视频审查
 
-使用“ContentModeratorClient.Reviews.AddVideoFrameUrl”****（如果在线托管视频帧）或“ContentModeratorClient.Reviews.AddVideoFrameStream”****（如果在本地托管视频帧）将视频帧添加到视频审查。 本快速入门教程假定的是在线托管视频帧，因此使用“AddVideoFrameUrl”****。 有关详细信息，请参阅 [API 参考](https://dev.cognitive.azure.cn/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd)。
+使用“ContentModeratorClient.Reviews.AddVideoFrameUrl”  （如果在线托管视频帧）或“ContentModeratorClient.Reviews.AddVideoFrameStream”  （如果在本地托管视频帧）将视频帧添加到视频审查。 本快速入门教程假定的是在线托管视频帧，因此使用“AddVideoFrameUrl”  。 有关详细信息，请参阅 [API 参考](https://dev.cognitive.azure.cn/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd)。
 
-“AddVideoFrameUrl”**** 具有以下必需参数：
+“AddVideoFrameUrl”  具有以下必需参数：
 1. 一个字符串，包含应为“application/json”的 MIME 类型。
 1. 内容审查器团队名称。
 1. **CreateVideoReviews** 返回的视频评论 ID。
-1. 一个 **IList\<VideoFrameBodyItem>** 对象。 每个“VideoFrameBodyItem”**** 对象表示一个视频帧。
+1. 一个 **IList\<VideoFrameBodyItem>** 对象。 每个“VideoFrameBodyItem”  对象表示一个视频帧。
 
-“VideoFrameBodyItem”**** 具有以下属性：
-- **Timestamp**。 一个包含视频帧在视频中所用时间（以秒为单位）的字符串。
-- FrameImage****。 视频帧的 URL。
-- Metadata****。 一个 IList\<VideoFrameBodyItemMetadataItem>。 “VideoFrameBodyItemMetadataItem”**** 只是一个键/值对。 有效键包括：
-- reviewRecommended****。 如果推荐视频帧的人工审查，则为 True。
-- adultScore****。 评估视频帧中成人内容严重性的值，范围从 0 到 1。
-- a****。 如果视频包含成人内容，则为 True。
-- racyScore****。 评估视频帧中不雅内容严重性的值，范围从 0 到 1。
-- r****。 如果视频帧包含不雅内容，则为 True。
-- ReviewerResultTags****。 一个 IList\<VideoFrameBodyItemReviewerResultTagsItem>。 “VideoFrameBodyItemReviewerResultTagsItem”**** 只是一个键/值对。 应用程序可以使用这些标记来组织视频帧。
+“VideoFrameBodyItem”  具有以下属性：
+- **Timestamp** 。 一个包含视频帧在视频中所用时间（以秒为单位）的字符串。
+- FrameImage  。 视频帧的 URL。
+- Metadata  。 一个 IList\<VideoFrameBodyItemMetadataItem>。 “VideoFrameBodyItemMetadataItem”  只是一个键/值对。 有效键包括：
+- reviewRecommended  。 如果推荐视频帧的人工审查，则为 True。
+- adultScore  。 评估视频帧中成人内容严重性的值，范围从 0 到 1。
+- a  。 如果视频包含成人内容，则为 True。
+- racyScore  。 评估视频帧中不雅内容严重性的值，范围从 0 到 1。
+- r  。 如果视频帧包含不雅内容，则为 True。
+- ReviewerResultTags  。 一个 IList\<VideoFrameBodyItemReviewerResultTagsItem>。 “VideoFrameBodyItemReviewerResultTagsItem”  只是一个键/值对。 应用程序可以使用这些标记来组织视频帧。
 
 > [!NOTE]
-> 本快速入门教程为“adultScore”**** 和“racyScore”**** 属性生成随机值。 在生产应用程序中，将从[视频审查服务](video-moderation-api.md)中获取这些值，部署为 Azure 媒体服务。
+> 本快速入门教程为“adultScore”  和“racyScore”  属性生成随机值。 在生产应用程序中，将从[视频审查服务](video-moderation-api.md)中获取这些值，部署为 Azure 媒体服务。
 
 添加下列方法定义到命名空间 VideoReviews、类程序。
 
@@ -294,7 +295,7 @@ static void AddFrame(ContentModeratorClient client, string review_id, string url
 
 ## <a name="get-video-frames-for-video-review"></a>为视频审查获取视频帧
 
-可使用“ContentModeratorClient.Reviews.GetVideoFrames”**** 为视频审查获取视频帧。 “GetVideoFrames”**** 具有以下必需参数：
+可使用“ContentModeratorClient.Reviews.GetVideoFrames”  为视频审查获取视频帧。 “GetVideoFrames”  具有以下必需参数：
 1. 内容审查器团队名称。
 1. **CreateVideoReviews** 返回的视频评论 ID。
 1. 待获取的首个视频帧的从零开始的索引。
@@ -322,7 +323,7 @@ static void GetFrames(ContentModeratorClient client, string review_id)
 
 ## <a name="get-video-review-information"></a>获取视频审查信息
 
-使用“ContentModeratorClient.Reviews.GetReview”**** 获取视频审查信息。 “GetReview”**** 具有以下必需参数：
+使用“ContentModeratorClient.Reviews.GetReview”  获取视频审查信息。 “GetReview”  具有以下必需参数：
 1. 内容审查器团队名称。
 1. **CreateVideoReviews** 返回的视频评论 ID。
 
@@ -371,7 +372,7 @@ private static void PublishReview(ContentModeratorClient client, string review_i
 
 ## <a name="putting-it-all-together"></a>汇总
 
-将“Main”**** 方法定义添加到命令空间 VideoReviews、类程序。 最后，关闭程序类和 VideoReviews 命名空间。
+将“Main”  方法定义添加到命令空间 VideoReviews、类程序。 最后，关闭程序类和 VideoReviews 命名空间。
 
 ```csharp
 static void Main(string[] args)
@@ -542,7 +543,7 @@ Press any key to close the application.
 
 ## <a name="check-out-your-video-review"></a>查看视频审查
 
-最后，你会在“审查”****>“视频”**** 屏幕上的内容审查器中看到视频审查。
+最后，你会在“审查” >“视频”  屏幕上的内容审查器中看到视频审查。
 
 ![用于人工审查器的视频审查](images/ams-video-review.PNG)
 

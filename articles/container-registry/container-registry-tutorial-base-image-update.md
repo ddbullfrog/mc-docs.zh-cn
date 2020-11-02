@@ -4,15 +4,15 @@ description: 本教程介绍在更新同一注册表中的基础映像时，如�
 ms.topic: tutorial
 origin.date: 01/22/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.author: v-yeche
 ms.custom: seodec18, mvc, devx-track-js
-ms.openlocfilehash: ac0f4c105276317bb0686b4c32e3663749a3d066
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 81f4c99d3ea6fe84d9d0462cba96c04a55d3711b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564424"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103670"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>教程：在 Azure 容器注册表中更新基础映像时自动化容器映像生成 
@@ -260,11 +260,11 @@ docker stop updatedapp
 <!-- LINKS - Internal -->
 
 [azure-cli]: https://docs.azure.cn/cli/install-azure-cli
-[az-acr-build]: https://docs.azure.cn/cli/acr#az-acr-build
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az-acr-task-create
-[az-acr-task-update]: https://docs.azure.cn/cli/acr/task#az-acr-task-update
-[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az-acr-task-run
-[az-acr-login]: https://docs.azure.cn/cli/acr#az-acr-login
+[az-acr-build]: https://docs.azure.cn/cli/acr#az_acr_build
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az_acr_task_create
+[az-acr-task-update]: https://docs.azure.cn/cli/acr/task#az_acr_task_update
+[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az_acr_task_run
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
 [az-acr-task-list-runs]: https://docs.azure.cn/cli/acr
 [az-acr-task]: https://docs.azure.cn/cli/acr
 

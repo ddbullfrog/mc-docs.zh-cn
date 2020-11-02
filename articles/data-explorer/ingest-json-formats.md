@@ -7,17 +7,17 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 05/19/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: f8ca23c29643c7acdd9240c6afc82278d574e434
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 0626f5e870d125ea87e33a0d0b4681dbe49ef60b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146177"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103615"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>将 JSON 格式的示例数据引入 Azure 数据资源管理器
 
-本文介绍如何将 JSON 格式的数据引入 Azure 数据资源管理器数据库。 首先你将引入简单的原始映射 JSON 示例，再引入多行 JSON，然后处理包含数组和字典的更复杂 JSON 架构。  这些示例详细演示了使用 Kusto 查询语言 (KQL)、C# 或 Python 引入 JSON 格式数据的过程。 Kusto 查询语言 `ingest` 控制命令是直接对引擎终结点执行的。 在生产方案中，引入是使用客户端库或数据连接对数据管理服务执行的。 有关使用这些客户端库引入数据的演练，请阅读[使用 Azure 数据资源管理器 Python 库引入数据](python-ingest-data.md)和[使用 Azure 数据资源管理器 .NET Standard SDK 引入数据](net-standard-ingest-data.md)。
+本文介绍如何将 JSON 格式的数据引入 Azure 数据资源管理器数据库。 首先你将引入简单的原始映射 JSON 示例，再引入多行 JSON，然后处理包含数组和字典的更复杂 JSON 架构。  这些示例详细演示了使用 Kusto 查询语言 (KQL)、C# 或 Python 引入 JSON 格式数据的过程。 Kusto 查询语言 `ingest` 控制命令是直接对引擎终结点执行的。 在生产方案中，引入是使用客户端库或数据连接对数据管理服务执行的。 有关使用这些客户端库引入数据的演练，请阅读[使用 Azure 数据资源管理器 Python 库引入数据](python-ingest-data.md)和[使用 Azure 数据资源管理器 .NET Standard SDK 引入数据](./net-sdk-ingest-data.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -31,7 +31,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
 
 ### <a name="ingest-and-map-json-formatted-data"></a>引入和映射 JSON 格式的数据
 
-引入 JSON*格式*的数据需要使用[引入属性](ingestion-properties.md)指定格式。 引入 JSON 数据需要执行[映射](kusto/management/mappings.md)，以将 JSON 源条目映射到其目标列。 引入数据时，将 `IngestionMapping` 属性与其 `ingestionMappingReference`（用于预定义的映射）引入属性或其 `IngestionMappings` 属性结合使用。 本文将使用 `ingestionMappingReference` 引入属性，该属性是在用于引入的表中预定义的。 以下示例首先将 JSON 记录作为原始数据引入到包含单个列的表中。 接下来，使用映射将每个属性引入到其映射列中。 
+引入 JSON *格式* 的数据需要使用 [引入属性](ingestion-properties.md)指定格式。 引入 JSON 数据需要执行[映射](kusto/management/mappings.md)，以将 JSON 源条目映射到其目标列。 引入数据时，将 `IngestionMapping` 属性与其 `ingestionMappingReference`（用于预定义的映射）引入属性或其 `IngestionMappings` 属性结合使用。 本文将使用 `ingestionMappingReference` 引入属性，该属性是在用于引入的表中预定义的。 以下示例首先将 JSON 记录作为原始数据引入到包含单个列的表中。 接下来，使用映射将每个属性引入到其映射列中。 
 
 ### <a name="simple-json-example"></a>简单 JSON 示例
 

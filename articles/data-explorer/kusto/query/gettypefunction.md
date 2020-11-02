@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 gettype()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: ccf7d8cf585795e82a5313e25d941d8cca615b1c
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 7f8ac1458fe53e72ce55a12ce996e571a5354c07
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841748"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103888"
 ---
 # <a name="gettype"></a>gettype()
 
@@ -22,15 +22,15 @@ ms.locfileid: "87841748"
 
 对于其名义（静态）类型为 `dynamic` 的表达式，运行时类型可能不同于名义类型；在这种情况下，`gettype()` 可用于揭示实际值的类型（内存中值的编码方式）。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `gettype(`Expr`)`
 
-**返回**
+## <a name="returns"></a>返回
 
 字符串，表示其单个参数的运行时类型。
 
-**示例**
+## <a name="examples"></a>示例
 
 |表达式                          |返回      |
 |------------------------------------|-------------|

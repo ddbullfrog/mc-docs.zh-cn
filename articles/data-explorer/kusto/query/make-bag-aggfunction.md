@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 make_bag() 聚合函
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 15f623251d0c6f5748abd4abbee496ce1d089052
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 13066d3e1a31f02bd79fc72db1a74756912f9d4e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841292"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105594"
 ---
 # <a name="make_bag-aggregation-function"></a>make_bag()（聚合函数）
 
@@ -22,11 +22,11 @@ ms.locfileid: "87841292"
 
 * 只能在 [summarize](summarizeoperator.md) 内的聚合上下文中使用
 
-**语法**
+## <a name="syntax"></a>语法
 
-`summarize` `make_bag(`*`Expr`* [`,` *MaxSize*]`)`
+`summarize` `make_bag(`*`Expr`* [`,` *MaxSize* ]`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Expr：用于聚合计算的 `dynamic` 类型的表达式。
 * MaxSize 是对返回元素最大数目的可选整数限制。 默认值为 1048576。 MaxSize 值不能超过 1048576。
@@ -35,17 +35,17 @@ ms.locfileid: "87841292"
 
 函数 `make_dictionary()` 的旧版和已过时变体的默认限制为 MaxSize = 128。
 
-**返回**
+## <a name="returns"></a>返回
 
 返回组（属性包）中 `Expr` 的所有值的 `dynamic` (JSON) 属性包（字典）。
 将跳过非字典值。
 如果一个键出现在多个行中，则会从此键的可能值中选择一个任意值。
 
-**另请参阅**
+## <a name="see-also"></a>请参阅
 
 使用 [bag_unpack()](bag-unpackplugin.md) 插件将动态 JSON 对象扩展到使用属性包键的列中。 
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 let T = datatable(prop:string, value:string)

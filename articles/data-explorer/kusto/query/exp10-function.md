@@ -4,31 +4,31 @@ description: 本文介绍 Azure 数据资源管理器中的 exp10()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/25/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 5d6c873af20347572f68afdc79e710fe31a0e5fd
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 9d6652ac6754883bfa4b4eff50b1d8147c3433f2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841458"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105519"
 ---
 # <a name="exp10"></a>exp10()
 
 x 的以 10 为底的指数函数，表示 10 的 x 次幂：10^x。  
 
-**语法**
+## <a name="syntax"></a>语法
 
 `exp10(`*x*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * x：实数，指数的值。
 
-**返回**
+## <a name="returns"></a>返回
 
 * x 的指数值。
 * 有关自然对数（以 10 为底），请参阅 [log10()](log10-function.md)。

@@ -4,14 +4,14 @@ description: 有关如何开始使用 Application Insights 代理的详细说明
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 04/23/2019
-ms.date: 05/28/2020
 ms.author: v-johya
-ms.openlocfilehash: a7f034e94c47d4d0e19173cfca0b1cfdc7bf7635
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.date: 10/29/2020
+ms.openlocfilehash: 32e2fc6997c7b8c071f1c9be7e56eda2ef6270ed
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199343"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104423"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 代理（以前称为状态监视器 v2）：详细说明
 
@@ -30,19 +30,17 @@ ms.locfileid: "84199343"
 PowerShell 需要拥有管理员级别的权限才能对计算机进行更改。
 ### <a name="execution-policy"></a>执行策略
 - 说明:默认禁用 PowerShell 脚本的运行。 我们建议仅允许在当前范围运行 RemoteSigned 脚本。
-- 参考：[关于执行策略](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)和 [Set-ExecutionPolicy](
-https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
-)。
+- 参考：[关于执行策略](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)和 [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)。
 - 命令：`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`。
 - 可选参数：
     - `-Force`。 跳过确认提示。
 
 **示例错误**
 
-```
+```output
 Install-Module : The 'Install-Module' command was found in the module 'PowerShellGet', but the module could not be
 loaded. For more information, run 'Import-Module PowerShellGet'.
-    
+
 Import-Module : File C:\Program Files\WindowsPowerShell\Modules\PackageManagement\1.3.1\PackageManagement.psm1 cannot
 be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at
 https:/go.microsoft.com/fwlink/?LinkID=135170.
@@ -54,8 +52,7 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 运行 `$PSVersionTable` 命令，审核 PowerShell 的实例。
 该命令生成以下输出：
 
-
-```
+```output
 Name                           Value
 ----                           -----
 PSVersion                      5.1.17763.316
@@ -89,15 +86,17 @@ SerializationVersion           1.1.0.1
         - `-Force`。 跳过确认提示。
     
     如果未设置 NuGet，则会看到此提示：
-        
-        NuGet provider is required to continue
-        PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. The NuGet
-         provider must be available in 'C:\Program Files\PackageManagement\ProviderAssemblies' or
-        'C:\Users\t\AppData\Local\PackageManagement\ProviderAssemblies'. You can also install the NuGet provider by running
-        'Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force'. Do you want PowerShellGet to install and import
-         the NuGet provider now?
-        [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-    
+
+    ```output
+    NuGet provider is required to continue
+    PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. 
+    The NuGet provider must be available in 'C:\Program Files\PackageManagement\ProviderAssemblies' or
+    'C:\Users\t\AppData\Local\PackageManagement\ProviderAssemblies'. You can also install the NuGet provider by running
+    'Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force'. Do you want PowerShellGet to install and import
+    the NuGet provider now?
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+    ```    
+
 3. 将 PowerShell 库配置为受信任的存储库。
     - 说明:默认情况下，PowerShell 库是不受信任的存储库。
     - 参考：[Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6)。
@@ -107,11 +106,14 @@ SerializationVersion           1.1.0.1
 
     如果 PowerShell 库不受信任，则会看到此提示：
 
-        Untrusted repository
-        You are installing the modules from an untrusted repository. If you trust this repository, change its
-        InstallationPolicy value by running the Set-PSRepository cmdlet. Are you sure you want to install the modules from
-        'PSGallery'?
-        [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
+    ```output
+    Untrusted repository
+    You are installing the modules from an untrusted repository. 
+    If you trust this repository, change its InstallationPolicy value 
+    by running the Set-PSRepository cmdlet. Are you sure you want to 
+    install the modules from 'PSGallery'?
+    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
+    ```
 
     可以运行 `Get-PSRepository` 命令，确认此更改并审核所有 PowerShell 存储库。
 
@@ -124,14 +126,16 @@ SerializationVersion           1.1.0.1
         - `-Force`。 忽略“已安装”警告并安装最新版本。
 
     如果使用的不是最新 PowerShellGet 版本，则会看到此错误：
-    
-        Install-Module : A parameter cannot be found that matches parameter name 'AllowPrerelease'.
-        At line:1 char:20
-        Install-Module abc -AllowPrerelease
-                           ~~~~~~~~~~~~~~~~
-            CategoryInfo          : InvalidArgument: (:) [Install-Module], ParameterBindingException
-            FullyQualifiedErrorId : NamedParameterNotFound,Install-Module
-    
+
+    ```output
+    Install-Module : A parameter cannot be found that matches parameter name 'AllowPrerelease'.
+    At line:1 char:20
+    Install-Module abc -AllowPrerelease
+                   ~~~~~~~~~~~~~~~~
+    CategoryInfo          : InvalidArgument: (:) [Install-Module], ParameterBindingException
+    FullyQualifiedErrorId : NamedParameterNotFound,Install-Module
+    ```
+
 5. 重启 PowerShell。 无法在当前会话中加载新版本。 新 PowerShell 会话会加载最新版 PowerShellGet。
 
 ## <a name="download-and-install-the-module-via-powershell-gallery"></a>通过 PowerShell 库下载并安装模块
@@ -161,7 +165,7 @@ SerializationVersion           1.1.0.1
 
 ### <a name="option-1-install-into-a-powershell-modules-directory"></a>选项 1：安装到 PowerShell 模块目录中
 将手动下载的 PowerShell 模块安装到 PowerShell 目录中，使之可被 PowerShell 会话发现。
-有关详细信息，请参阅[安装 PowerShell 模块](/powershell/scripting/developer/module/installing-a-powershell-module)。
+有关详细信息，请参阅[安装 PowerShell 模块](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module)。
 
 
 #### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>使用 Expand-Archive (v1.0.1.0) 将 nupkg 作为 zip 文件解压缩
@@ -170,7 +174,7 @@ SerializationVersion           1.1.0.1
 - 参考：[Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6)。
 - 命令：
 
-    ```
+    ```console
     $pathToNupkg = "C:\az.applicationmonitor.0.3.0-alpha.nupkg"
     $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
     $pathToNupkg | rename-item -newname $pathToZip
@@ -184,7 +188,7 @@ SerializationVersion           1.1.0.1
 - 参考：[Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) 和 [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0)。
 - 命令：
 
-    ```
+    ```console
     $pathToNupkg = "C:\az.applicationmonitor.0.2.1-alpha.nupkg"
     $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\az.applicationmonitor"
     Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule
@@ -192,7 +196,7 @@ SerializationVersion           1.1.0.1
 
 ### <a name="option-2-unzip-and-import-nupkg-manually"></a>选项 2：手动解压缩并导入 nupkg
 将手动下载的 PowerShell 模块安装到 PowerShell 目录中，使之可被 PowerShell 会话发现。
-有关详细信息，请参阅[安装 PowerShell 模块](/powershell/scripting/developer/module/installing-a-powershell-module)。
+有关详细信息，请参阅[安装 PowerShell 模块](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module)。
 
 若要将模块安装到任何其他目录中，请使用 [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6) 手动导入模块。
 
@@ -213,14 +217,14 @@ SerializationVersion           1.1.0.1
 用于从 PowerShell 库下载并安装 Az.ApplicationMonitor 的 PowerShell 命令支持 `-Proxy` 参数。
 编写安装脚本时，请查看上述说明。
 
-Application Insights SDK 需要将应用的遥测数据发送给 Microsoft。 建议在 web.config 文件中配置应用的代理设置。 有关详细信息，请参阅 [Application Insights 常见问题解答：代理透传](/azure-monitor/app/troubleshoot-faq#proxy-passthrough)。
+Application Insights SDK 需要将应用的遥测数据发送给 Microsoft。 建议在 web.config 文件中配置应用的代理设置。 有关详细信息，请参阅 [Application Insights 常见问题解答：代理透传](../faq.md#proxy-passthrough)。
 
 
 ## <a name="enable-monitoring"></a>启用监视
 
 使用 `Enable-ApplicationInsightsMonitoring` 命令以启用监视。
 
-有关如何使用此 cmdlet 的详细说明，请参阅 [API 参考](/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring)。
+有关如何使用此 cmdlet 的详细说明，请参阅 [API 参考](./status-monitor-v2-api-reference.md#enable-applicationinsightsmonitoring)。
 
 
 
@@ -228,19 +232,19 @@ Application Insights SDK 需要将应用的遥测数据发送给 Microsoft。 �
 
  查看遥测：
 
-- [浏览指标](../../azure-monitor/platform/metrics-charts.md)，以便监视性能和使用情况。
-- [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)以诊断问题。
-- [使用分析](../../azure-monitor/log-query/log-query-overview.md)，以便进行更高级的查询。
-- [创建仪表板](../../azure-monitor/app/overview-dashboard.md)。
-<!-- Correct on link: azure-monitor/log-query/log-query-overview.md -->
+- [浏览指标](../platform/metrics-charts.md)，以便监视性能和使用情况。
+- [搜索事件和日志](./diagnostic-search.md)以诊断问题。
+- [使用分析](../log-query/log-query-overview.md)，以便进行更高级的查询。
+- [创建仪表板](./overview-dashboard.md)。
 
  添加更多遥测：
 
 - [创建 Web 测试](monitor-web-app-availability.md)，以确保站点保持活动状态。
-- [添加 Web 客户端遥测](../../azure-monitor/app/javascript.md)，以查看网页代码中的异常并启用跟踪调用。
-- [将 Application Insights SDK 添加到代码](../../azure-monitor/app/asp-net.md)，以便插入跟踪和日志调用。
+- [添加 Web 客户端遥测](./javascript.md)，以查看网页代码中的异常并启用跟踪调用。
+- [将 Application Insights SDK 添加到代码](./asp-net.md)，以便插入跟踪和日志调用。
 
 使用 Application Insights 代理执行更多操作：
 
 - 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。
+
 

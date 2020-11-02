@@ -8,12 +8,12 @@ description: 了解如何使用 Azure 云服务构建和管理功能强大的应
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: f46178ff25d79864cc319abfd9d73ed8dd4142df
-ms.sourcegitcommit: fb3b0b0bc054c8ac678f57cd0fb8d70bb93ba261
+ms.openlocfilehash: 6958a44204216425678a86fa88a49a91cb96a494
+ms.sourcegitcommit: 0c05bea089932ba8677b771cf4407a1fe3545fff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214764"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061799"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -879,6 +879,12 @@ ms.locfileid: "92214764"
                                             <a href="/dms/dms-overview">
                                                 <img src="media/index/database-migration.svg" alt="" />
                                                 <p>Azure 数据库迁移服务</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/databox/">
+                                                <img src="media/index/data-box.svg" alt="" />
+                                                <p>Data Box</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2903,6 +2909,25 @@ ms.locfileid: "92214764"
                                                 <div class="cardText">
                                                     <h3>Azure 数据库迁移服务</h3>
                                                     <p>降低云迁移的复杂性</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/databox/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-box.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Box</h3>
+                                                    <p>用于将数据传输到 Azure 的设备和解决方案</p>
                                                 </div>
                                             </div>
                                         </div>

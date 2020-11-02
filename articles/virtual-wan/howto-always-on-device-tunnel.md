@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 05/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: dc0d455d0c4bee3b1f59b15e949b09a56f27e2a1
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: abbf604021e0ffb386b5a44059b2bf9a3d6840a2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471075"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103751"
 ---
 <!--Verified successfully on VPN -->
 # <a name="configure-an-always-on-vpn-device-tunnel-for-virtual-wan"></a>为虚拟 WAN 配置 Always On VPN 设备隧道

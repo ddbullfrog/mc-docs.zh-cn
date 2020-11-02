@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 ceiling()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: acf134ab169b61bccf4a16085955575c6dba5744
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: e3cdeeb09a1e9afec4a2e3743e366783d721dc6c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515747"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105220"
 ---
 # <a name="ceiling"></a>ceiling()
 

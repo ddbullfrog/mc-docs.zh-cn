@@ -1,37 +1,40 @@
 ---
 title: 快速入门：使用 REST API 和 PHP 检测图像中的人脸
 titleSuffix: Azure Cognitive Services
-description: 在本快速入门中，你将使用人脸 API 和 PHP 检测图像中的人脸。
+description: 在本快速入门中，你将使用人脸 REST API 和 PHP 检测图像中的人脸。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 07/03/2019
-ms.date: 07/10/2019
-ms.author: v-junlch
-ms.openlocfilehash: 70a86571fde9c72399a4d372d104f273e37788b2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.openlocfilehash: f7a86c6a3df05c5ddc73f05ab886f2f45034cf7d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71119556"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104072"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入门：使用 REST API 和 PHP 检测图像中的人脸
 
-在本快速入门中，将使用 Azure 人脸 REST API 和 PHP 来检测图像中的人脸。
+本快速入门中将通过 PHP 使用 Azure 人脸 REST API 来检测图像中的人脸。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-- 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
-- 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/download)。
-- PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) 包。
-- 支持 PHP 的 Web 浏览器。 如果尚未进行设置，可以在计算机上安装并设置 [XAMPP](https://www.apachefriends.org/)。
+* Azure 订阅 - [免费创建订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* 拥有 Azure 订阅后，在 Azure 门户中<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesFace"  title="创建人脸资源"  target="_blank">创建人脸资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，获取密钥和终结点。 部署后，单击“转到资源”。
+    * 需要从创建的资源获取密钥和终结点，以便将应用程序连接到人脸 API。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
+    * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
+* 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/download)。
+* PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) 包。
+* 支持 PHP 的 Web 浏览器。 如果尚未进行设置，可以在计算机上安装并设置 [XAMPP](https://www.apachefriends.org/)。
 
 ## <a name="initialize-the-html-file"></a>初始化 HTML 文件
 
-创建一个新的 HTML 文件 (*detectFaces.html*)，并添加以下代码。
+创建一个新的 HTML 文件 ( *detectFaces.html* )，并添加以下代码。
 
 ```html
 <html>
@@ -44,17 +47,15 @@ ms.locfileid: "71119556"
 
 ## <a name="write-the-php-script"></a>编写 PHP 脚本
 
-在该文档的 `body` 元素中添加以下代码。 此代码将设置一个基本用户界面，其中包含 URL 字段、“分析人脸”  按钮、响应窗格和图像显示窗格。
+在该文档的 `body` 元素中添加以下代码。 此代码将设置一个基本用户界面，其中包含 URL 字段、“分析人脸”按钮、响应窗格和图像显示窗格。
 
 ```php
 <?php
-// Replace <Subscription Key> with a valid subscription key.
-$ocpApimSubscriptionKey = '<Subscription Key>';
-
-$uriBase = 'https://api.cognitive.azure.cn/face/v1.0/';
+$ocpApimSubscriptionKey = getenv('FACE_SUBSCRIPTION_KEY');
+$uriBase = getenv('FACE_ENDPOINT') . '/face/v1.0/';
 
 $imageUrl =
-    'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+    'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/faces.jpg';
 
 // This sample uses the PHP5 HTTP_Request2 package
 // (https://pear.php.net/package/HTTP_Request2).
@@ -72,10 +73,8 @@ $request->setHeader($headers);
 
 $parameters = array(
     // Request parameters
-    'returnFaceId' => 'true',
-    'returnFaceLandmarks' => 'false',
-    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,' .
-        'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise');
+    'detectionModel' => 'detection_02',
+    'returnFaceId' => 'true');
 $url->setQueryVariables($parameters);
 
 $request->setMethod(HTTP_Request2::METHOD_POST);
@@ -99,14 +98,41 @@ catch (HttpException $ex)
 ?>
 ```
 
-> [!NOTE]
-> 如果创建的人脸 API 的 `Location` 为 `China East 2`，则需要将 URL `https://api.cognitive.azure.cn/face/v1.0/` 替换为 `https://chinaeast2.api.cognitive.azure.cn/face/v1.0/`。
+需使用订阅密钥的值更新 `subscriptionKey` 字段，并且可能需要更改 `uriBase` 字符串，使之包含正确的终结点字符串。 `returnFaceAttributes` 字段指定要检索的人脸属性；你可能希望根据自己的预期用途更改此字符串。
 
-需使用订阅密钥的值更新 `subscriptionKey` 字段，并且可能需要更改 `uriBase` 字符串，使之包含正确的区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 `returnFaceAttributes` 字段指定要检索的人脸属性；你可能希望根据自己的预期用途更改此字符串。
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="run-the-script"></a>运行脚本
 
 在支持 PHP 的 Web 浏览器中打开该文件。 你应该获得人脸数据的 JSON 字符串，如下所示。
+
+```json
+[
+    {
+        "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+        "faceRectangle": {
+            "top": 621,
+            "left": 616,
+            "width": 195,
+            "height": 195
+        }
+    }
+]
+```
+
+## <a name="extract-face-attributes"></a>提取人脸属性
+ 
+若要提取人脸属性，请使用检测模型 1 并添加 `returnFaceAttributes` 查询参数。
+
+```php
+$parameters = array(
+    // Request parameters
+    'detectionModel' => 'detection_01',
+    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+   'returnFaceId' => 'true');
+```
+
+响应现在包含人脸属性。 例如：
 
 ```json
 [
@@ -289,9 +315,8 @@ catch (HttpException $ex)
 
 ## <a name="next-steps"></a>后续步骤
 
-探索用于检测图像中人脸的人脸 API，使用矩形划分人脸，并返回年龄和性别等属性。
+探索用于检测图像中人脸的人脸 API，使用矩形定人脸界线，并返回年龄和性别等属性。
 
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: wording update -->

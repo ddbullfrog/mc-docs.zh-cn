@@ -2,9 +2,7 @@
 title: 连接到 Azure VM 时，远程桌面许可证服务器不可用 | Azure
 description: 了解如何排查在可用远程桌面许可证服务器不可用的情况下 RDP 失败的问题 | Azure
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: e3c51dd858a092c38849f7c9b3a2fae71a429c74
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 4098594a2d92e32b37ec273a5bad892d85138aac
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456782"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104338"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>连接到 Azure VM 时，远程桌面许可证服务器不可用
 

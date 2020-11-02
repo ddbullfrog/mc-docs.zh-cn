@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 origin.date: 03/11/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: e807cf80b3c7c6421abeca81bbbfbd256a15149c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: c12f8c41c7255155f0eef35c4476104c1c55f074
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118207"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105144"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>教程：生成用于批量评分的 Azure 机器学习管道
 
@@ -101,7 +101,7 @@ output_dir = PipelineData(name="scores",
                           output_path_on_compute="batchscoring/results")
 ```
 
-接下来，将数据集注册到工作区。
+如果以后要重用数据集，请将其注册到工作区。 此步骤是可选的。
 
 ```python
 

@@ -4,27 +4,27 @@ description: 本文介绍 Azure 数据资源管理器中的 datetime_add()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 3361bd7ca3856c79d63ce7191cf5dbe7d46d9e92
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 224f922661762c0a56843e8a442700208880708b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841773"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104425"
 ---
 # <a name="datetime_add"></a>datetime_add()
 
 计算新的 [datetime](./scalar-data-types/datetime.md)，方法是将指定 datapart 与指定数量相乘，然后加上指定 [datetime](./scalar-data-types/datetime.md)。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `datetime_add(`period`,`amount`,`datetime`)`  
 
-**参数**
+## <a name="arguments"></a>参数
 
 * `period`：[字符串](./scalar-data-types/string.md)。 
 * `amount`：[整数](./scalar-data-types/int.md)。
@@ -43,11 +43,11 @@ ms.locfileid: "87841773"
 - Microsecond
 - Nanosecond
 
-**返回**
+## <a name="returns"></a>返回
 
 添加特定时间/日期间隔之后的日期。
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 print  year = datetime_add('year',1,make_datetime(2017,1,1)),
@@ -64,3 +64,9 @@ second = datetime_add('second',1,make_datetime(2017,1,1))
 |year|quarter|月份|week|day|hour|minute|第 2 个|
 |---|---|---|---|---|---|---|---|
 |2018-01-01 00:00:00.0000000|2017-04-01 00:00:00.0000000|2017-02-01 00:00:00.0000000|2017-01-08 00:00:00.0000000|2017-01-02 00:00:00.0000000|2017-01-01 01:00:00.0000000|2017-01-01 00:01:00.0000000|2017-01-01 00:00:01.0000000|
+
+
+
+
+
+

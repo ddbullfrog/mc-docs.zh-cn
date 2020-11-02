@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 10/07/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: fd371115f33a01001884f42f276ac1e7548871ea
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 769be929e1088d650f1da66f8b89c4f9eba37675
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472124"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104795"
 ---
 <!--Characters Content only-->
 <!--Verified By-pass-->

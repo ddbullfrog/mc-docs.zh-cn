@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 origin.date: 06/09/2020
-ms.date: 06/29/2020
-ms.openlocfilehash: 2adb6e18d6c88a3506e2c88b771bf7a0a5e6d34e
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.date: 11/02/2020
+ms.openlocfilehash: 5beb7396d0f0ad31d773c182843006477973ded1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322024"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105277"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>使用“复制数据”工具将数据从 SQL Server 数据库复制到 Azure Blob 存储
 
@@ -42,7 +42,7 @@ ms.locfileid: "85322024"
 ### <a name="azure-roles"></a>Azure 角色
 若要创建数据工厂实例，用于登录到 Azure 的用户帐户必须分配有“参与者”或“所有者”角色，或者必须是 Azure 订阅的管理员。
 
-若要查看自己在订阅中的权限，请转到 Azure 门户。 在右上角选择自己的用户名，然后选择“权限”。 如果可以访问多个订阅，请选择相应的订阅。 有关如何将用户添加到角色的示例说明，请参阅[使用 RBAC 和 Azure 门户管理访问权限](../role-based-access-control/role-assignments-portal.md)。
+若要查看自己在订阅中的权限，请转到 Azure 门户。 在右上角选择自己的用户名，然后选择“权限”。 如果可以访问多个订阅，请选择相应的订阅。 有关如何将用户添加到角色的示例说明，请参阅[使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)。
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014、2016 和 2017
 在本教程中，需将 SQL Server 数据库用作源数据存储。 在本教程中创建的数据工厂中的管道将数据从这个 SQL Server 数据库（源）复制到 Blob 存储（接收器）。 然后，你可以在 SQL Server 数据库中创建名为 **emp** 的表，并向表中插入几个示例条目。
@@ -116,17 +116,17 @@ ms.locfileid: "85322024"
    数据工厂的名称必须全局唯一。 如果看到名称字段的以下错误消息，请更改数据工厂的名称（例如，改为 yournameADFTutorialDataFactory）。 有关数据工厂项目的命名规则，请参阅[数据工厂命名规则](naming-rules.md)。
 
    ![新建数据工厂名称](./media/doc-common-process/name-not-available-error.png)
-1. 选择要在其中创建数据工厂的 Azure **订阅**。
+1. 选择要在其中创建数据工厂的 Azure **订阅** 。
 1. 对于“资源组”，请执行以下步骤之一：
 
-   - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。
+   - 选择“使用现有资源组”，并从下拉列表选择现有的资源组。 
 
    - 选择“新建”，并输入资源组的名称。 
         
      若要了解资源组，请参阅[使用资源组管理 Azure 资源](../azure-resource-manager/management/overview.md)。
 1. 在“版本”下选择“V2”。 
 1. 在“位置”下选择数据工厂的位置。 下拉列表中仅显示支持的位置。 数据工厂使用的数据存储（例如，Azure 存储和 SQL 数据库）和计算资源（例如，Azure HDInsight）可以位于其他位置/区域。
-1. 选择“创建” 。
+1. 选择“创建”。
 
 1. 创建完以后，会看到图中所示的“数据工厂”页：
 
@@ -139,7 +139,7 @@ ms.locfileid: "85322024"
 
    ![“入门”页](./media/doc-common-process/get-started-page.png)
 
-1. 在“复制数据”工具的“属性”页的“任务名称”下，输入 **CopyFromOnPremSqlToAzureBlobPipeline**。  然后，选择“下一步”。 “复制数据”工具将使用在此字段中指定的名称创建一个管道。
+1. 在“复制数据”工具的“属性”页的“任务名称”下，输入 **CopyFromOnPremSqlToAzureBlobPipeline** 。  然后，选择“下一步”。 “复制数据”工具将使用在此字段中指定的名称创建一个管道。
   ![任务名称](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
 
 1. 在“源数据存储”页面上，单击“创建新连接”。
@@ -152,7 +152,7 @@ ms.locfileid: "85322024"
 
    ![创建集成运行时](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-1. 在“集成运行时安装”对话框中的“名称”下输入 **TutorialIntegrationRuntime**。  然后选择“创建”。
+1. 在“集成运行时安装”对话框中的“名称”下输入 **TutorialIntegrationRuntime** 。  然后选择“创建”。
 
 1. 在“集成运行时安装”对话框中，选择“单击此处对此计算机启动快速安装”。  此操作在计算机上安装集成运行时，并将其注册到数据工厂。 或者，可以使用手动安装选项来下载安装文件、运行该文件，并使用密钥来注册集成运行时。
 
@@ -160,9 +160,9 @@ ms.locfileid: "85322024"
 
     ![快速安装状态](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
 
-1. 在“新建链接服务(SQL Server)”对话框中，确认为“集成运行时”字段选择了 **TutorialIntegrationRuntime**。 然后执行以下步骤：
+1. 在“新建链接服务(SQL Server)”对话框中，确认为“集成运行时”字段选择了 **TutorialIntegrationRuntime** 。 然后执行以下步骤：
 
-    a. 在“名称”下输入 **SqlServerLinkedService**。
+    a. 在“名称”下输入 **SqlServerLinkedService** 。
 
     b. 在“服务器名称”下，输入 SQL Server 实例的名称。
 
@@ -172,7 +172,7 @@ ms.locfileid: "85322024"
 
     e. 在“用户名”下输入有权访问 SQL Server 的用户名。
 
-    f. 输入该用户的**密码**。
+    f. 输入该用户的 **密码** 。
 
     g. 测试连接并选择“完成”。
 
@@ -191,7 +191,7 @@ ms.locfileid: "85322024"
 
 1. 在“新建链接服务(Azure Blob 存储)”对话框中，执行以下步骤：
 
-   a. 在“名称”下输入 **AzureStorageLinkedService**。
+   a. 在“名称”下输入 **AzureStorageLinkedService** 。
 
    b. 在“通过集成运行时连接”下，选择 **TutorialIntegrationRuntime**
 
@@ -201,7 +201,7 @@ ms.locfileid: "85322024"
 
 1. 在“目标数据存储”对话框中，确保选择了“Azure Blob 存储”。 然后，选择“下一步”。
 
-1. 在“选择输出文件或文件夹”对话框中，在“文件夹路径”下，输入 **adftutorial/fromonprem**。  在执行先决条件中的步骤时，你已创建了 **adftutorial** 容器。 如果输出文件夹（在本例中为 **fromonprem**）不存在，则数据工厂会自动创建它。 也可以使用“浏览”按钮来浏览 Blob 存储及其容器/文件夹。 如果没有在“文件名”下指定任何值，则默认情况下将使用源中的名称（在本例中为 **dbo.emp**）。
+1. 在“选择输出文件或文件夹”对话框中，在“文件夹路径”下，输入 **adftutorial/fromonprem** 。  在执行先决条件中的步骤时，你已创建了 **adftutorial** 容器。 如果输出文件夹（在本例中为 **fromonprem** ）不存在，则数据工厂会自动创建它。 也可以使用“浏览”按钮来浏览 Blob 存储及其容器/文件夹。 如果没有在“文件名”下指定任何值，则默认情况下将使用源中的名称（在本例中为 **dbo.emp** ）。
 
    ![选择输出文件或文件夹](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 

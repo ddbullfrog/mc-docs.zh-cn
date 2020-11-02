@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 pack_dictionary()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 01/10/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 40b181551c0ff5b7fd55570699a3fb0dbe1fad09
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: f4cf6b89a0dec1473af8ccd776b9775d83a976c3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841722"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103844"
 ---
 # <a name="pack_dictionary"></a>pack_dictionary()
 

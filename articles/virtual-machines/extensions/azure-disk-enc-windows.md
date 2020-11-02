@@ -2,10 +2,8 @@
 title: 适用于 Windows 的 Azure 磁盘加密
 description: 使用虚拟机扩展将 Azure 磁盘加密部署到 Windows 虚拟机。
 services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -14,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 03/19/2020
 ms.date: 06/08/2020
 ms.author: v-yeche
-ms.openlocfilehash: a1b32e84e03087528672d940f36c580e3fe6105d
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: f4693ba549a1c9c0d87cd26bf29397ca541cba23
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440518"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103796"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>适用于 Windows 的 Azure 磁盘加密 (Microsoft.Azure.Security.AzureDiskEncryption)
 

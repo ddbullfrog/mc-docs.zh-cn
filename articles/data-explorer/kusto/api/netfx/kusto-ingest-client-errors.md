@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/30/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 2e826deed806bb35a32c9dc874a7760c36b32cb4
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 289b21997a3210b6ad8f2a3a0528fd949430f7c3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515905"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105324"
 ---
 # <a name="kustoingest-errors-and-exceptions"></a>Kusto.Ingest 错误和异常
 在客户端上处理引入时发生的任何错误都通过 C# 异常来指示。

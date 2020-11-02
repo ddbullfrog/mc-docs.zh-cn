@@ -9,18 +9,18 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 02/19/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: b7d4fd310119331868ab78db3fcaf1211c1cb760
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: b22b31dc040ada13a58bac3c1552e721e5f849b0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146558"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103571"
 ---
 # <a name="ingestion-without-kustoingest-library"></a>在不使用 Kusto.Ingest 库的情况下进行引入
 
 Kusto.Ingest 库是用于将数据引入到 Azure 数据资源管理器的首选方式。 不过，你还可以在不依赖于 Kusto.Ingest 包的情况下实现几乎相同的功能。
-本文介绍如何使用目标为 Azure 数据资源管理器的针对生产级管道的*排队引入*来这样做。
+本文介绍如何使用目标为 Azure 数据资源管理器的针对生产级管道的 *排队引入* 来这样做。
 
 > [!NOTE]
 > 下面的代码是用 C# 编写的，并使用 Azure 存储 SDK、ADAL 身份验证库和 NewtonSoft.JSON 包来简化示例代码。 如果需要，可以将相应的代码替换为适当的 [Azure 存储 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) 调用、[非 .NET ADAL 包](https://docs.azure.cn/active-directory/develop/active-directory-authentication-libraries)和任何可用的 JSON 处理包。

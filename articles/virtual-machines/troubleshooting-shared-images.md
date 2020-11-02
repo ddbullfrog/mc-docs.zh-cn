@@ -7,17 +7,17 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 origin.date: 06/15/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 07/06/2020
 ms.author: v-yeche
 ms.reviewer: cynthn
-ms.openlocfilehash: 95177b808b5806aecbc17e9c01a34450b60be2c8
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 2713905f9dd066ef729a7a956de27990b044fced
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128098"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104104"
 ---
 <!--Content from includes file: includes/virtual-machines-common-shared-image-troubleshooting.md-->
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>排查 Azure 中共享映像库的问题
@@ -56,7 +56,7 @@ ms.locfileid: "92128098"
 
 映像版本名称无效。
 
-允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式：*MajorVersion.MinorVersion.Patch*。 请更改映像版本名称，然后重试。
+允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式： *MajorVersion.MinorVersion.Patch* 。 请更改映像版本名称，然后重试。
 
 找不到要从其创建映像版本的源托管映像。 
 
@@ -80,7 +80,7 @@ ms.locfileid: "92128098"
 
 尝试创建 VM 或虚拟机规模集的用户没有映像版本的读取访问权限。
 
-请联系订阅所有者，要求他们通过 [Azure 基于角色的访问控制 (Azure RBAC)](/role-based-access-control/rbac-and-directory-admin-roles) 授予对映像版本或父资源（例如共享映像库或映像定义）的读取访问权限。 
+请联系订阅所有者，要求他们通过 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md) 授予对映像版本或父资源（例如共享映像库或映像定义）的读取访问权限。 
 
 找不到映像版本。
 
@@ -92,7 +92,7 @@ ms.locfileid: "92128098"
 
 ## <a name="unable-to-share-resources"></a>无法共享资源
 
-可以通过 [Azure 基于角色的访问控制 (Azure RBAC)](/role-based-access-control/rbac-and-directory-admin-roles) 启用对共享映像库、映像定义、映像版本资源的跨订阅共享。 
+可以通过 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md) 启用对共享映像库、映像定义、映像版本资源的跨订阅共享。 
 
 ## <a name="replication-is-slow"></a>复制速度慢
 
@@ -100,7 +100,7 @@ ms.locfileid: "92128098"
 
 ## <a name="azure-limits-and-quotas"></a>Azure 限制和配额 
 
-[Azure 限制和配额](/azure-resource-manager/management/azure-subscription-service-limits)适用于所有共享映像库、映像定义和映像版本资源。 请确保未超出订阅限制。 
+[Azure 限制和配额](../azure-resource-manager/management/azure-subscription-service-limits.md)适用于所有共享映像库、映像定义和映像版本资源。 请确保未超出订阅限制。 
 
 ## <a name="next-steps"></a>后续步骤
 

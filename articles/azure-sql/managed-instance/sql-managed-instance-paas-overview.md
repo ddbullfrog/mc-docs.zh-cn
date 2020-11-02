@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: sstein, vanto
 origin.date: 08/14/2020
 ms.date: 10/12/2020
-ms.openlocfilehash: 35246c48b17e6c349aa365cdbb4a899a4cb3a704
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: 9d7c3e7c3f5b675b863e61f1817ff5fbf849315f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872455"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104592"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>什么是 Azure SQL 托管实例？
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -74,8 +74,8 @@ SQL 托管实例[基于 vCore 的购买模型](../database/service-tiers-vcore.m
 
 在 vCore 模型中，可在以下两代硬件中进行选择。
 
-- Gen4 逻辑 CPU 基于 Intel� E5-2673 v3 (Haswell) 2.4-GHz 处理器，采用附加 SSD 和物理核心（每个核心 7 GB RAM），计算大小为 8 到 24 个 vCore。
-- Gen5 逻辑 CPU 基于 Intel� E5-2673 v4 (Broadwell) 2.3-GHz、Intel� SP-8160 (Skylake) 和 Intel� 8272CL (Cascade Lake) 2.5 GHz 处理器，采用快速 NVMe SSD 和超线程逻辑核心，计算大小为 4 到 80 个核心。
+- Gen4 逻辑 CPU 基于 Intel® E5-2673 v3 (Haswell) 2.4 GHz 处理器，采用附加 SSD 和物理核心（每个核心 7 GB RAM），计算大小为 8 到 24 个 vCore。
+- Gen5 逻辑 CPU 基于 Intel® E5-2673 v4 (Broadwell) 2.3 GHz、Intel® SP-8160 (Skylake) 和 Intel® 8272CL (Cascade Lake) 2.5 GHz 处理器，采用快速 NVMe SSD 和超线程逻辑核心，计算大小为 4 到 80 个核心。
 
 若要详细了解两代硬件之间的区别，请参阅 [SQL 托管实例资源限制](resource-limits.md#hardware-generation-characteristics)。
 
@@ -83,8 +83,8 @@ SQL 托管实例[基于 vCore 的购买模型](../database/service-tiers-vcore.m
 
 SQL 托管实例可在两个服务层级中提供：
 
-- **常规用途**：适用于具有典型性能和 I/O 延迟要求的应用程序。
-- **业务关键**：适用于具有低 I/O 延迟要求，对工作负载中基础维护操作影响最低的应用程序。
+- **常规用途** ：适用于具有典型性能和 I/O 延迟要求的应用程序。
+- **业务关键** ：适用于具有低 I/O 延迟要求，对工作负载中基础维护操作影响最低的应用程序。
 
 这两个服务层级保证 99.99% 的可用性，可让你独立选择存储大小和计算容量。 有关 Azure SQL 托管实例高可用性体系结构的详细信息，请参阅[高可用性和 Azure SQL 托管实例](../database/high-availability-sla.md)。
 
@@ -156,7 +156,7 @@ Azure SQL 托管实例提供一组可用于保护数据的高级安全功能。
 
 SQL 托管实例支持传统的 SQL Server 数据库引擎登录名以及与 Azure AD 集成的登录名。 Azure AD 服务器主体（登录名）（公共预览版）是在本地环境中使用的本地数据库登录名的 Azure 云版本。 使用 Azure AD 服务器主体（登录名）可将 Azure AD 租户中的用户和组指定为真正的实例范围的主体，能够执行任何实体级操作，包括在同一托管实例内执行跨数据库查询。
 
-引入了用来创建 Azure AD 服务器主体（登录名）（公共预览版）的一个新语法：**FROM EXTERNAL PROVIDER**。 有关该语法的详细信息，请参阅 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>，并查看[为 SQL 托管实例预配 Azure Active Directory 管理员](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)一文。
+引入了用来创建 Azure AD 服务器主体（登录名）（公共预览版）的一个新语法： **FROM EXTERNAL PROVIDER** 。 有关该语法的详细信息，请参阅 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>，并查看[为 SQL 托管实例预配 Azure Active Directory 管理员](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)一文。
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 集成和多重身份验证
 
@@ -166,10 +166,10 @@ SQL 托管实例支持传统的 SQL Server 数据库引擎登录名以及与 Azu
 
 SQL 托管实例身份验证是指用户连接到数据库时如何证明其身份。 SQL 托管实例支持两种类型的身份验证：  
 
-- **SQL 身份验证**：
+- **SQL 身份验证** ：
 
   此身份验证方法使用用户名和密码。
-- **Azure Active Directory 身份验证**：
+- **Azure Active Directory 身份验证** ：
 
   此身份验证方法使用由 Azure Active Directory 托管的标识，并且受托管域和集成域支持。 请[尽可能](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode)使用 Active Directory 身份验证（集成安全性）。
 
@@ -230,7 +230,7 @@ SQL 托管实例可以减少系统管理员花费在管理任务上的时间，�
 
 |属性|值|注释|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|此值与 SQL 数据库中的值相同。 此值**并不**表示 SQL 引擎版本 12 (SQL Server 2014)。 SQL 托管实例始终运行最新稳定的 SQL 引擎版本，此版本与最新可用的 SQL Server RTM 版本相同或更高。  |
+|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|此值与 SQL 数据库中的值相同。 此值 **并不** 表示 SQL 引擎版本 12 (SQL Server 2014)。 SQL 托管实例始终运行最新稳定的 SQL 引擎版本，此版本与最新可用的 SQL Server RTM 版本相同或更高。  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|此值与 SQL 数据库中的值相同。|
 |`SERVERPROPERTY('EngineEdition')`|8|此值唯一标识托管实例。|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|采用以下格式的完整实例 DNS 名称：`<instanceName>`.`<dnsPrefix>`.database.chinacloudapi.cn，其中，`<instanceName>` 是客户提供的名称，`<dnsPrefix>` 是自动生成的名称部分，保证 DNS 名称的全局唯一性（例如“wcus17662feb9ce98”）|示例：my-managed-instance.wcus17662feb9ce98.database.chinacloudapi.cn|

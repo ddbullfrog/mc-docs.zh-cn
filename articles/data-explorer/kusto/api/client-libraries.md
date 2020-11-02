@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/30/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: 2bcdd983fe7c8d94f38591e162661297c530cffc
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: f10f724b6a86de694bc7685f234fad826dc11d8a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226315"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103940"
 ---
 # <a name="client-libraries"></a>客户端库
 

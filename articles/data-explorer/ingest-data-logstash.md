@@ -7,13 +7,13 @@ ms.reviewer: takamara
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: b3119ba3fec0d8a32bca4e046d9c7386bbcab7d7
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: ebbac7f18a3ded598b940903b0889dc97a1daa12
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146497"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104056"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>将数据从 Logstash 引入 Azure 数据资源管理器
 
@@ -90,7 +90,7 @@ Logstash 可以生成用于测试端到端管道的示例事件。
 
 ## <a name="configure-logstash-to-send-data-to-azure-data-explorer"></a>配置 Logstash 以将数据发送到 Azure 数据资源管理器
 
-将以下设置粘贴到在上一步骤中使用的同一配置文件中。 请将所有占位符替换为相关的设置值。 有关详细信息，请参阅[创建 AAD 应用程序](kusto/management/access-control/how-to-provision-aad-app.md)。 
+将以下设置粘贴到在上一步骤中使用的同一配置文件中。 请将所有占位符替换为相关的设置值。
 
 ```ruby
 output {
@@ -111,7 +111,7 @@ output {
 | --- | --- |
 | **路径** | Logstash 插件会将事件写入临时文件，然后将其发送到 Azure 数据资源管理器。 此参数包含要将文件写入到的路径，以及一个用于轮转文件的时间表达式，该表达式可触发上传到 Azure 数据资源管理器服务的操作。|
 | **ingest_url** | 用于进行引入相关通信的 Kusto 终结点。|
-| **app_id**、**app_key** 和 **app_tenant**| 连接到 Azure 数据资源管理器所需的凭据。 请务必使用具有引入特权的应用程序。 |
+| **app_id** 、 **app_key** 和 **app_tenant**| 连接到 Azure 数据资源管理器所需的凭据。 请务必使用具有引入特权的应用程序。 |
 | **database**| 要将事件放入到的数据库的名称。 |
 | **table** | 要将事件放入到的目标表的名称。 |
 | **mapping** | mapping（映射）用于将传入事件的 json 字符串映射为正确的行格式（定义哪些属性要进入哪个列）。 |

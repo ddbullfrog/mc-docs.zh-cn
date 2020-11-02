@@ -1,7 +1,7 @@
 ---
 title: 快速入门：使用 PHP 调用文本分析 API
 titleSuffix: Azure Cognitive Services
-description: 本快速入门介绍如何获取信息和代码示例，以帮助你快速开始使用 Azure 认知服务中的文本分析 API。
+description: 本快速入门介绍如何使用 PHP 获取信息和代码示例，以帮助你快速开始使用 Azure 认知服务中的文本分析 API。
 services: cognitive-services
 author: Johnnytechn
 manager: nitinme
@@ -9,19 +9,19 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 origin.date: 04/15/2019
-ms.date: 08/03/2020
+ms.date: 10/26/2020
 ms.author: v-johya
-ms.openlocfilehash: 2bbd0972448e5f4d9510ecf844a47bb3a9474d48
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 524cbadc5f295bfa2ff9cec648e4e90a719680b7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023420"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105612"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 PHP 调用文本分析认知服务
 <a name="HOLTop"></a>
 
-本文展示了如何将 [文本分析 API](https://www.azure.cn/zh-cn/home/features/cognitive-services/text-analytics/) 与 PHP 配合使用来[检测语言](#Detect)、[分析情绪](#SentimentAnalysis)、[提取关键短语](#KeyPhraseExtraction)以及[识别链接的实体](#Entities)。
+本文介绍如何通过 PHP 使用[文本分析 API](https://www.azure.cn/zh-cn/home/features/cognitive-services/text-analytics/) 来[检测语言](#Detect)、[分析情绪](#SentimentAnalysis)、[提取关键短语](#KeyPhraseExtraction)和[识别链接实体](#Entities)。
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 

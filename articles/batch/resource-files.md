@@ -1,20 +1,20 @@
 ---
 title: 创建和使用资源文件
 description: 了解如何从各种输入源创建 Batch 资源文件。 本文介绍有关如何创建这些文件并将其置于 VM 上的一些常用方法。
+ms.service: batch
 origin.date: 03/18/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 04/27/2020
 ms.author: v-yeche
 ms.topic: how-to
-ms.service: batch
-ms.openlocfilehash: fa9132e0126d75ebcf5df4f5b7cc068de9d06ddb
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 245525e95505b36a6e638e6e98872705db1b2f48
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937524"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104790"
 ---
 # <a name="creating-and-using-resource-files"></a>创建和使用资源文件
 

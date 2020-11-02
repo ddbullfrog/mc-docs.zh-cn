@@ -6,17 +6,17 @@ ms.topic: tutorial
 ms.workload: infrastructure
 origin.date: 06/06/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: e8a8ddcda34d1631a7219feea8e395e7803c93d5
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: a8e31e647fc9a8736e660e19a77b5f44573fef51
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463172"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103562"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理 Windows VM
 
@@ -87,13 +87,13 @@ Get-AzPublicIpAddress `
    -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
-在本地计算机上使用以下命令创建与 VM 的远程桌面会话。 将 IP 地址替换为你的 VM 的 *publicIPAddress*。 出现提示时，输入创建 VM 时使用的凭据。
+在本地计算机上使用以下命令创建与 VM 的远程桌面会话。 将 IP 地址替换为你的 VM 的 *publicIPAddress* 。 出现提示时，输入创建 VM 时使用的凭据。
 
 ```powershell
 mstsc /v:<publicIpAddress>
 ```
 
-在“Windows 安全性”窗口中，依次选择“更多选择”、“使用其他帐户”。 键入针对 VM 创建的用户名和密码，然后单击“确定”。
+在“Windows 安全性”  窗口中，依次选择“更多选择”  、“使用其他帐户”  。 键入针对 VM 创建的用户名和密码，然后单击“确定”。
 
 ## <a name="understand-marketplace-images"></a>了解市场映像
 
@@ -187,9 +187,9 @@ VM 大小决定 VM 可用计算资源（如 CPU、GPU 和内存）的数量。 �
 | [GPU](../sizes-gpu.md)          |  NCv3        | 专门针对大量图形绘制和视频编辑的 VM。       |
 
 <!-- Not Available on DC Series -->
-<!-- Not Available on [Storage optimized](sizes-storage.md)      | Lsv2, Ls   -->
-<!-- Not Available on [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, ND            -->
-<!-- Not Available on [High performance](sizes-hpc.md) | H   -->
+<!-- Not Available on Lsv2, Ls   -->
+<!-- Not Available on [GPU](sizes-gpu.md)-->
+<!-- Not Available on [High performance](sizes-hpc.md)-->
 
 
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
@@ -246,7 +246,7 @@ Azure VM 可能会处于多种电源状态之一。
 | 电源状态 | 说明
 |----|----|
 | 正在启动 | 正在启动虚拟机。 |
-| 运行 | 虚拟机正在运行。 |
+| 正在运行 | 虚拟机正在运行。 |
 | 正在停止 | 正在停止虚拟机。 |
 | 已停止 | VM 已停止。 虚拟机处于停止状态时仍会产生计算费用。  |
 | 正在解除分配 | VM 正解除分配。 |

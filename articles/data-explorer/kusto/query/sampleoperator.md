@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 sample 运算符。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/18/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 6c5a3481b9c12a002e4c5ae338ab24a8d3fc7b8d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: 2ac3fb1263e16b648a6b2dfdfe95856daf0b6933
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515706"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103720"
 ---
 # <a name="sample-operator"></a>sample 运算符
 

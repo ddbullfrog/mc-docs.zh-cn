@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/28/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: c6808b13e0afc3b14d05a4318085c30339078ca6
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 2f0b95bc605b7c35874d02edba745a015a6b6e26
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571583"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628182"
 ---
 <!--Verified Successfully-->
 <!--Remove the part of Availability Zones-->
@@ -39,7 +39,7 @@ ms.locfileid: "91571583"
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-使用 [az group create](https://docs.azure.cn/cli/group#az-group-create) 在 chinaeast2 位置创建名为“myResourceGroup”的资源组 。
+使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 在 chinaeast2 位置创建名为“myResourceGroup”的资源组 。
 
 ```azurecli
   az group create \
@@ -78,5 +78,4 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 - 详细了解 Azure 中的[公共 IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。
 - 详细了解所有[公共 IP 地址设置](virtual-network-public-ip-address.md#create-a-public-ip-address)。
 
-<!-- Update_Description: new article about create public ip cli -->
-<!--NEW.date: 10/05/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

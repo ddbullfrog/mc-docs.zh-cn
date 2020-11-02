@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 activity_counts_metr
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: ebe9ca66e2515b9c1acd795391fb8541b52f6502
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 9448011c4596bc2eb52b48684a442b2636a5a146
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515798"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105102"
 ---
 # <a name="activity_counts_metrics-plugin"></a>activity_counts_metrics 插件
 
@@ -26,14 +26,14 @@ T | evaluate activity_counts_metrics(id, datetime_column, startofday(ago(30d)), 
 
 ## <a name="syntax"></a>语法
 
-*T* `| evaluate` `activity_counts_metrics(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *Window* [`,` *Cohort*] [`,` *dim1*`,` *dim2*`,` ...] [`,` *Lookback*] `)`
+*T* `| evaluate` `activity_counts_metrics(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *Window* [`,` *Cohort* ] [`,` *dim1*`,` *dim2*`,` ...] [`,` *Lookback* ] `)`
 
 ## <a name="arguments"></a>参数
 
 * T：输入表格表达式。
 * IdColumn：列的名称，其 ID 值表示用户活动。 
 * TimelineColumn：表示时间线的列的名称。
-* *开始*：带有分析开始时段值的标量。
+* *开始* ：带有分析开始时段值的标量。
 * End：带有分析结束时段值的标量。
 * Window：带有分析窗口时段值的标量。 既可以是数字/日期时间/时间戳值，也可以是 `week`/`month`/`year` 中的一个字符串（在这种情况下，所有时段都将是 [startofweek](startofweekfunction.md)/[startofmonth](startofmonthfunction.md) 或 [startofyear](startofyearfunction.md)）。 
 * dim1, dim2, ... ：（可选）维度列的列表，用于切分活动指标计算。

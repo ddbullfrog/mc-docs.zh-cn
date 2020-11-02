@@ -6,27 +6,28 @@ services: cognitive-services
 author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
-ms.date: 08/03/2020
+ms.date: 10/26/2020
 ms.author: v-johya
-ms.openlocfilehash: aa6aec2f94382b4e4a12dff57a70b41dfdc917fe
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: ded9c187d9baa7432293f9cdad545cf05b6db387
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "92211340"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105643"
 ---
 若要运行语言检测容器，请执行以下 `docker run` 命令。 将下面的占位符替换为你自己的值：
 
 | 占位符 | Value | 格式或示例 |
 |-------------|-------|---|
 | **{API_KEY}** | 文本分析资源的密钥。 可以在 Azure 门户中资源的“密钥和终结点”页上找到此项。 |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | 用于访问文本分析 API 的终结点。 可以在 Azure 门户中资源的“密钥和终结点”页上找到此项。 | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| **{ENDPOINT_URI}** | 用于访问文本分析 API 的终结点。 可以在 Azure 门户中资源的“密钥和终结点”页上找到此项。 | `https://<your-custom-subdomain>.cognitiveservices.azure.cn` |
 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/language \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/language \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

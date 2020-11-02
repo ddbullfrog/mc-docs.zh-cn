@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 series_stats_dynamic
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/10/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 44d33cd9ea2a450c964677a54045107f3f0d5e85
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 99c361c58df7a2b7f4006e0c5795625ad0bb952c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841569"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105365"
 ---
 # <a name="series_stats_dynamic"></a>series_stats_dynamic()
 
@@ -29,16 +29,16 @@ ms.locfileid: "87841569"
 * `variance`：输入数组的样本方差
 * `stdev`：输入数组的样本标准偏差
 
-**语法**
+## <a name="syntax"></a>语法
 
 `series_stats_dynamic(`x `[,`ignore_nonfinite`])` 
 
-**参数**
+## <a name="arguments"></a>参数
 
 * x：动态数组单元格（数值数组）。 
 * ignore_nonfinite：布尔值（可选，默认值：`false`）标志，该标志指定是否在计算统计信息的同时忽略非有限值（null、NaN、inf 等）。 如果设置为 `false`，则返回的结果为 `null`（如果数组中存在非有限值）。
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

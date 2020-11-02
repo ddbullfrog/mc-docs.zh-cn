@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/12/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 138d8a751bf1edc1d7adec926abb45200078a56d
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 139b2942f845d8bc4df02ec514ceb34fdeede9a2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841613"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105035"
 ---
 # <a name="parse-where-operator"></a>parse-where 运算符
 
@@ -26,29 +26,29 @@ ms.locfileid: "87841613"
 T | parse-where Text with "ActivityName=" name ", ActivityType=" type
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
-*T* `| parse-where` [`kind=regex` [`flags=regex_flags`] |`simple`] *Expression* `with` `*` (*StringConstant* *ColumnName* [`:` *ColumnType*]) `*`...
+*T* `| parse-where` [`kind=regex` [`flags=regex_flags`] |`simple`] *Expression* `with` `*` ( *StringConstant* *ColumnName* [`:` *ColumnType* ]) `*`...
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：输入表。
+* *T* ：输入表。
 
-* *kind*： 
+* *kind* ： 
 
-    * *simple*（默认值）：StringConstant 是一个正则字符串值，匹配为严格匹配。 所有字符串分隔符都应出现在分析的字符串中，并且所有扩展列都必须与所需类型匹配。
+    * *simple* （默认值）：StringConstant 是一个正则字符串值，匹配为严格匹配。 所有字符串分隔符都应出现在分析的字符串中，并且所有扩展列都必须与所需类型匹配。
         
-    * *regex*：StringConstant 可能是正则表达式，匹配为严格匹配。 所有字符串分隔符都应出现在分析的字符串中，并且所有扩展列都必须与所需类型匹配。 对于此模式，字符串分隔符可以是正则表达式。
+    * *regex* ：StringConstant 可能是正则表达式，匹配为严格匹配。 所有字符串分隔符都应出现在分析的字符串中，并且所有扩展列都必须与所需类型匹配。 对于此模式，字符串分隔符可以是正则表达式。
     
-    * *flags*：正则表达式模式中要使用的标志：`U` (Ungreedy)、`m`（多行模式）、`s`（匹配新行 `\n`）、`i`（不区分大小写），可在 [RE2 标志](re2.md)中找到更多标志。
+    * *flags* ：正则表达式模式中要使用的标志：`U` (Ungreedy)、`m`（多行模式）、`s`（匹配新行 `\n`）、`i`（不区分大小写），可在 [RE2 标志](re2.md)中找到更多标志。
         
-* *表达式*：计算结果为字符串的表达式。
+* *表达式* ：计算结果为字符串的表达式。
 
-* *columnName*：列名称，分配给从字符串表达式中提取的值。 
+* *columnName* ：列名称，分配给从字符串表达式中提取的值。 
   
 * *ColumnType：* 应为可选的标量类型，指示要将值转换为的类型。 默认值为字符串类型。
 
-**返回**
+## <a name="returns"></a>返回
 
 输入表，根据提供给运算符的列的列表进行扩展。
 

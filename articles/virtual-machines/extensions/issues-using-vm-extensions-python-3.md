@@ -2,10 +2,8 @@
 title: 在启用 Python 3 的 Linux Azure 虚拟机系统中使用 VM 扩展时遇到的问题
 description: 了解如何在启用 Python 3 的 Linux 系统中使用 VM 扩展
 services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: top-support-issue,azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -15,12 +13,12 @@ origin.date: 04/22/2020
 ms.date: 07/06/2020
 ms.author: v-yeche
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
-ms.openlocfilehash: 5c31669622de0898f3b18fbbd9eb55c599582185
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: 52c6c4af93f4731d0264a1b9a7ccdb678aa0f8a5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945550"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105562"
 ---
 <!--Verified successfully-->
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>在启用 Python 3 的 Linux Azure 虚拟机系统中使用 VM 扩展时遇到的问题

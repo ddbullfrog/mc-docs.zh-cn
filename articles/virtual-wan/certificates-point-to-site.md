@@ -6,16 +6,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 01ba2497ae6091043b247dd66e769df092fb9c38
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 3420e36b52dc1672feab8d9342d332bf2b0ac9d7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471721"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103786"
 ---
 <!--Verified successfully-->
 # <a name="generate-and-export-certificates-for-user-vpn-connections"></a>生成和导出用于用户 VPN 连接的证书

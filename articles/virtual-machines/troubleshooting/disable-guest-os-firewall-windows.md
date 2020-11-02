@@ -2,9 +2,7 @@
 title: 在 Azure VM 中禁用来宾 OS 防火墙 | Azure
 description: 了解用于对以下情况进行故障排除时的解决方法，即来宾操作系统防火墙正在筛选发往 VM 的部分或全部流量。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: troubleshooting
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 074492273d60d4cce922b237313aec22443e7969
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 313eb3fed646e1b729bfc284d203f3806128f96c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456880"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105327"
 ---
 <!-- Verify part successfully-->
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>在 Azure VM 中禁用来宾 OS 防火墙
@@ -51,7 +49,7 @@ ms.locfileid: "89456880"
 >   ```
 > * 如果通过 Active Directory 策略设置防火墙，则可以运行以下脚本进行临时访问。 
 >   ```
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
@@ -96,7 +94,7 @@ ms.locfileid: "89456880"
 
 6. 选择“连接到另一台计算机”。
 
-7. 输入问题 VM 的**专用 IP 地址 (DIP)** 。
+7. 输入问题 VM 的 **专用 IP 地址 (DIP)** 。
 
 8. 重启本地防火墙策略。
 
@@ -112,9 +110,9 @@ ms.locfileid: "89456880"
 
 3. 确保磁盘在磁盘管理控制台中标记为“联机”。 请留意分配给附加系统磁盘的驱动器号。
 
-4. 在进行任何更改之前，请创建 \windows\system32\config 文件夹的副本，以防需要回滚更改。
+4. 在进行任何更改之前，请创建 \windows\system32\config 文件夹的副本，以防需要回退更改。
 
-5. 在故障排除 VM 上，启动注册表编辑器 (regedit.exe)。 
+5. 在故障排除 VM 上，启动注册表编辑器 (regedit.exe)。 
 
 6. 对于此故障排除过程，我们将配置单元装载为 BROKENSYSTEM 和 BROKENSOFTWARE。
 

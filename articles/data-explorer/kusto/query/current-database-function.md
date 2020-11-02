@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 current_database()�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: f02e5a8a00078ee57d9afa12c77dc4c3dd984baa
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: fe0da55e4d15db0b66345aad93751e9d2fbc2226
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515721"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104212"
 ---
 # <a name="current_database"></a>current_database()
 

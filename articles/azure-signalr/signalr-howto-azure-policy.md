@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 origin.date: 06/17/2020
 ms.date: 09/14/2020
-ms.author: jixin
-ms.openlocfilehash: 3f81e8120645f04d63966511be59ce0cdf3adb15
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.author: v-tawe
+ms.openlocfilehash: a7212abc08a751b3cfcf2bfd557b4a9e3e92a767
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063367"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104424"
 ---
 # <a name="audit-compliance-of-azure-signalr-service-resources-using-azure-policy"></a>使用 Azure Policy 审核 Azure SignalR 服务资源的合规性
 

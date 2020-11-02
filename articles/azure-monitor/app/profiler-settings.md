@@ -4,14 +4,14 @@ description: 查看 Profiler 状态并启动分析会话
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/25/2020
+ms.date: 10/29/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5ec1cbeb692f95624c70de72091b4d38dae53b5b
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 50fb83debeccd3b19fa7f1ee4bb6fbb05a1a7e96
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211578"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103636"
 ---
 # <a name="configure-application-insights-profiler"></a>配置 Application Insights Profiler
 
@@ -32,7 +32,7 @@ ms.locfileid: "92211578"
 
 “配置 Application Insights Profiler”页包含以下功能：
 
-| | |
+| 功能 | 说明 |
 |-|-|
 立即探查 | 启动与此 Application Insights 实例链接的所有应用的分析会话。
 触发器 | 用于配置使 Profiler 运行的触发器。 
@@ -41,14 +41,14 @@ ms.locfileid: "92211578"
 ## <a name="profile-now"></a>立即探查
 使用此选项可以按需启动探查会话。 单击此链接时，向此 Application Insights 实例发送数据的所有 Profiler 代理将开始捕获探查数据。 5 到 10 分钟后，探查会话将显示在下面的列表中。
 
-用户若要手动触发 Profiler 会话，他们至少需要对其 Application Insights 组件角色具有“写入”访问权限。 在大多数情况下，可以自动获得此访问权限，不需要额外的工作。 如果遇到问题，则要添加的订阅范围角色将是“Application Insights 组件参与者”角色。 [详细了解如何使用 Azure 监视进行角色访问控制](/azure-monitor/app/resources-roles-access-control)。
+用户若要手动触发 Profiler 会话，他们至少需要对其 Application Insights 组件角色具有“写入”访问权限。 在大多数情况下，可以自动获得此访问权限，不需要额外的工作。 如果遇到问题，则要添加的订阅范围角色将是“Application Insights 组件参与者”角色。 [详细了解如何使用 Azure 监视进行角色访问控制](./resources-roles-access-control.md)。
 
 ## <a name="trigger-settings"></a>触发器设置
 ![触发器设置浮出控件][trigger-settings-flyout]
 
 单击菜单栏上的“触发器”按钮会打开“触发器设置”框。 可将触发器设置为在 CPU 或内存使用百分比达到设置的级别时启动探查。
 
-| | |
+| 设置 | 说明 |
 |-|-|
 开/关按钮 | 开：Profiler 可由此触发器启动；关：探查器不会由此触发器启动。
 内存阈值 | 内存使用率达到此百分比时，将启动 Profiler。
@@ -58,7 +58,7 @@ ms.locfileid: "92211578"
 ## <a name="recent-profiling-sessions"></a>最近的探查会话
 此页面部分显示有关最近建立的探查会话的信息。 探查会话代表 Profiler 代理探查托管应用程序的某台计算机的时间段。 单击其中一个行可从会话打开探查数据。 对于每个会话，此部分会显示：
 
-| | |
+| 设置 | 说明 |
 |-|-|
 触发者 | 会话的启动方式：由触发器启动、由“立即探查”操作启动，或由默认采样启动。 
 应用程序名称 | 已探查的应用程序的名称。

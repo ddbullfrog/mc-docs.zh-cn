@@ -1,29 +1,25 @@
 ---
 title: 无本地临时磁盘的 Azure VM 规格的常见问题解答
 description: 本文提供有关没有本地临时磁盘的 Azure VM 规格的常见问题解答 (FAQ)。
-author: rockboyfor
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.reviewer: mimckitt
 origin.date: 06/15/2020
-ms.date: 10/19/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4e82f39d948f814d25d830655a3c8cf3448f870b
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 257fcf70fdf838f43e6f2e7acbb4ec7ee4660794
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127909"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104357"
 ---
-<!--Dv4, Ddv4, Ev4, Edv4 now available-->
 <!--Verified Successfully-->
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>无本地临时磁盘的 Azure VM 规格 
 本文提供有关没有本地临时磁盘（即无本地临时磁盘）的 Azure VM 大小的常见问题解答 (FAQ)。 有关这些 VM 规格的详细信息，请参阅 [Dv4 和 Dsv4 系列规范（常规用途工作负载）](dv4-dsv4-series.md)或 [Ev4 和 Esv4 系列规范（内存优化工作负载）](ev4-esv4-series.md)。
-
-> [!IMPORTANT]
-> Dv4、Dsv4、Ev4 和 Esv4 的 VM 规格现以公共预览版提供。 若要注册公共预览版，请填写此 [窗体](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)。 
 
 ## <a name="what-does-no-local-temp-disk-mean"></a>无本地临时磁盘是什么意思？ 
 通常，我们的 VM 规格（例如 Standard_D2s_v3、Standard_E48_v3）包含一个小型本地磁盘（例如 D:驱动器）。 现在，使用这些新的 VM 规格，该小型本地磁盘将不再存在；但你仍然可以附加标准 HDD、高级 SSD 或超级 SSD。

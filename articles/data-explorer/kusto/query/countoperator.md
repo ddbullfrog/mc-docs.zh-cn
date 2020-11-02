@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 count 运算符。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/16/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 8c9a724f688ae8098a1119d4034afb2f17796483
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 4b142c851487373613337e1ce0429146cb456ee8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515717"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104448"
 ---
 # <a name="count-operator"></a>count 运算符
 
@@ -26,7 +26,7 @@ ms.locfileid: "88515717"
 
 ## <a name="arguments"></a>参数
 
-*T*：待计算记录数的表格数据。
+*T* ：待计算记录数的表格数据。
 
 ## <a name="returns"></a>返回
 

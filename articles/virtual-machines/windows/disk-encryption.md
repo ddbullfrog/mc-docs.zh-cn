@@ -3,7 +3,7 @@ title: Azure 托管磁盘的服务器端加密 - PowerShell
 description: Azure 存储在将数据保存到存储群集之前会对其进行静态加密，以此保护数据。 可以依赖于 Azure 托管的密钥来加密托管磁盘，也可以使用客户管理的密钥通过自己的密钥来管理加密。
 origin.date: 09/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.author: v-yeche
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ad15a0742e8158e1b5ebfb5bf11f1ff411a32e96
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: c6f2c21c1027571e5eb2e5fb27c0401e214635b2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127677"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104971"
 ---
 <!--Verified successfully-->
 <!--PG notified the Customer-managed keys GA on global-->

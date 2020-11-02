@@ -1,17 +1,18 @@
 ---
-author: DCtheGeek
+author: rockboyfor
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/29/2020
+ms.date: 08/24/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 91afbcfa27ef32339e09709559780a8403284f21
-ms.sourcegitcommit: d24e12d49708bbe78db450466eb4fccbc2eb5f99
+ms.openlocfilehash: bc52395058ae05df4ce3dfd1acf6686dd4b52c5e
+ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85706584"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "92629775"
 ---
+<!--Verified successfully-->
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[将 Batch 帐户的诊断设置部署到事件中心](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb51110f-0865-4a6e-b274-e2e07a5b2cd7) |在创建或更新缺少 Batch 帐户的诊断设置的任何 Batch 帐户时，将此诊断设置流式部署到区域事件中心。 |DeployIfNotExists、Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Batch_DeployDiagnosticLog_Deploy_EventHub.json) |

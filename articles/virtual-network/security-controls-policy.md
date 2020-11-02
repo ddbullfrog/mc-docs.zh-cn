@@ -1,8 +1,8 @@
 ---
 title: Azure 虚拟网络的 Azure Policy 法规遵从性控制措施
 description: 列出可用于 Azure 虚拟网络的 Azure Policy 法规遵从性控制措施。 这些内置的策略定义提供了管理 Azure 资源符合性的常用方法。
-origin.date: 09/16/2020
-ms.date: 10/05/2020
+origin.date: 10/07/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 10/05/2020
 ms.topic: sample
@@ -10,15 +10,14 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: df2330385f34166e745eed101cb879da0dd76f29
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 7309380a925cd592d9c6ec935a74d7d54b218db0
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571592"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628200"
 ---
 <!--Verified Successfully-->
-<!--Notice: two include files in ../../includes/policy/standards/-->
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-network"></a>Azure 虚拟网络的 Azure Policy 法规遵从性控制措施
 
 <!--Not Avaialble on [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)-->
@@ -35,5 +34,4 @@ Azure Policy 中的法规符合性为与不同符合性标准相关的“符合�
 
 - 在 [Azure Policy GitHub 存储库](https://github.com/Azure/azure-policy)中查看这些内置项。
 
-<!-- Update_Description: new article about security controls policy -->
-<!--NEW.date: 10/05/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

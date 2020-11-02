@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 series_fill_linear()
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: 72e6eb6b720ea5c02f46c28062c5da2a216b8fc7
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: 42ee58b26f419cb50faf7ca266faf2f23f66c9c7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515648"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105394"
 ---
 # <a name="series_fill_linear"></a>series_fill_linear()
 
@@ -35,7 +35,7 @@ ms.locfileid: "88515648"
 * fill_edges：布尔值，指示是否应将数组开头和结尾处的 missing_value_placeholder 替换为最接近值。 默认值为 True。 如果设置为 false，则会保留数组开头和结尾处的 missing_value_placeholder。
 * constant_value：仅与数组相关的可选参数完全由 null 值组成。 此参数指定用于填充序列的常数值。 默认值为 0。 将此参数设置为 `double`(null) 实际上会将 null 值保留在原处。
 
-## <a name="notes"></a>备注
+## <a name="notes"></a>说明
 
 * 若要在 [make-series](make-seriesoperator.md) 之后应用任何内插函数，请指定“null”作为默认值： 
 

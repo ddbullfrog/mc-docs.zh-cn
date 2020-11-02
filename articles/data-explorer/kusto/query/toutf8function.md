@@ -4,36 +4,36 @@ description: 本文介绍 Azure 数据资源管理器中的 to_utf8()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 421d22fb05f8f91c13ad4fb578a023900f15abf3
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: faea27949f315d2b818b77bbecdb20f6f61f3f43
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841414"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105091"
 ---
 # <a name="to_utf8"></a>to_utf8()
 
 返回输入字符串的 unicode 字符的动态数组（make_string 的反运算）。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `to_utf8(`*source*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *source*：要转换的源字符串。
+* *source* ：要转换的源字符串。
 
-**返回**
+## <a name="returns"></a>返回
 
 返回由 unicode 字符组成的动态数组，这些字符组成提供给此函数的字符串。
 请参阅 [`make_string()`](makestringfunction.md)。
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 print arr = to_utf8("⒦⒰⒮⒯⒪")

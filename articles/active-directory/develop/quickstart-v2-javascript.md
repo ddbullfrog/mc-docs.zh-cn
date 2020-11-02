@@ -1,7 +1,7 @@
 ---
-title: 在 JavaScript 单页应用中登录用户 | Azure
+title: 快速入门：在 JavaScript 单页应用中登录用户 | Azure
 titleSuffix: Microsoft identity platform
-description: 了解 JavaScript 应用如何使用 Microsoft 标识平台调用需要访问令牌的 API。
+description: 本快速入门介绍 JavaScript 应用如何调用 API，该 API 需要 Microsoft 标识平台颁发的访问令牌。
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -9,26 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 8dfd7ace6c65896617496521ea55968a24b0af26
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.openlocfilehash: 41df798f27512d299180ad28bc9240c15b488a15
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245192"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749954"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>快速入门：在 JavaScript SPA 中登录用户并获得访问令牌
 
-在本快速入门中，你将使用代码示例了解 JavaScript 单页应用程序 (SPA) 如何登录工作帐户和学校帐户的用户。 JavaScript SPA 还可以获取用于调用 Microsoft Graph API 或任何 Web API 的访问令牌。 （有关说明，请参阅[示例工作原理](#how-the-sample-works)。）
+在本快速入门中，你将使用代码示例了解 JavaScript 单页应用程序 (SPA) 如何登录工作帐户和学校帐户的用户。 JavaScript SPA 还可以获取用于调用 Microsoft Graph API 或任何 Web API 的访问令牌。 有关说明，请参阅[示例工作原理](#how-the-sample-works)。
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建 Azure 订阅](https://www.azure.cn/pricing/1rmb-trial)
+* 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.azure.cn/pricing/1rmb-trial)。
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download)（用于编辑项目文件）
-
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>注册并下载快速入门应用程序
@@ -41,7 +40,7 @@ ms.locfileid: "91245192"
 > 1. 转到新的 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs)窗格。
 > 1. 输入应用程序的名称。
 > 1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。 
-> 1. 选择“注册”。
+> 1. 选择“注册”  。
 > 1. 遵照说明下载内容，系统会自动配置新应用程序。
 >
 > ### <a name="option-2-manual-register-and-manually-configure-your-application-and-code-sample"></a>选项 2（手动）：注册并手动配置应用程序和代码示例
@@ -55,7 +54,7 @@ ms.locfileid: "91245192"
 > 1. 选择“新注册”。
 > 1. “注册应用程序”页显示后，请输入应用程序的名称。
 > 1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。 
-> 1. 选择“注册”。 在应用的“概述”页上，记下“应用程序(客户端) ID”值，供稍后使用 。
+> 1. 选择“注册”  。 在应用的“概述”页上，记下“应用程序(客户端) ID”值，供稍后使用 。
 > 1. 本快速入门要求启用[隐式授权流](v2-oauth2-implicit-grant-flow.md)。 在已注册的应用程序的左窗格中，选择“身份验证”。
 > 1. 在“平台配置”下，选择“添加平台”。 左侧将打开一个面板。 在此面板中选择“Web 应用程序”区域。
 > 1. 在左侧将“重定向 URI”值设置为 `http://localhost:3000/`。 然后选择“访问令牌”和“ID 令牌”。
@@ -111,10 +110,10 @@ ms.locfileid: "91245192"
 >
 > 其中：
 > - \<Enter_the_Application_Id_Here> 是所注册应用程序的应用程序（客户端）ID。
-> - \<Enter_the_Cloud_Instance_Id_Here> 是 Azure 云的实例。 对于**国家**云（例如“中国”云），请参阅[国家云](./authentication-national-cloud.md)。
+> - \<Enter_the_Cloud_Instance_Id_Here> 是 Azure 云的实例。 对于 **国家** 云（例如“中国”云），请参阅 [国家云](./authentication-national-cloud.md)。
 > - \<Enter_the_Tenant_info_here> 设置为以下选项之一：
->    - 如果应用程序支持“此组织目录中的帐户”，请将此值替换为“租户 ID”或“租户名称”（例如，*contoso.microsoft.com*）。
->    - 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为 **organizations**。
+>    - 如果应用程序支持“此组织目录中的帐户”，请将此值替换为“租户 ID”或“租户名称”（例如， *contoso.microsoft.com* ）。
+>    - 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为 **organizations** 。
 >    - 如果应用程序支持“任何组织目录中的帐户”，请将此值替换为“common”
 >
 > > [!TIP]
@@ -300,10 +299,5 @@ myMSALObj.acquireTokenPopup(requestObj)
 有关为本快速入门生成应用程序的更详细分步指导，请参阅：
 
 > [!div class="nextstepaction"]
-> [有关登录和调用 MS Graph 的教程](./tutorial-v2-javascript-spa.md)
-
-若要浏览 MSAL 存储库中的文档、常见问题解答、问题等，请参阅：
-
-> [!div class="nextstepaction"]
-> [MSAL.js GitHub 存储库](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [教程：从 JavaScript 单页应用程序 (SPA) 将用户登录并调用 Microsoft Graph API](tutorial-v2-javascript-spa.md)
 

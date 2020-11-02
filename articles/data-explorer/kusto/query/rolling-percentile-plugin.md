@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 rolling_percentile �
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: be22f57c8446c17fd47279e70a37496b053a9cf8
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 04bdf9a6079bf5b61d87f8384d64337b2a381a00
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841495"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105013"
 ---
 # <a name="rolling_percentile-plugin"></a>rolling_percentile() 插件
 
@@ -24,21 +24,21 @@ ms.locfileid: "87841495"
 T | evaluate rolling_percentile(ValueColumn, Percentile, IndexColumn, BinSize, BinsPerWindow)
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `| evaluate` `rolling_percentile(`*ValueColumn*`,` *Percentile*`,` *IndexColumn*`,` *BinSize*`,` *BinsPerWindow*  [`,` *dim1*`,` *dim2*`,` ...] `)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：输入表格表达式。
-* *ValueColumn*：列的名称，其中包含要计算百分位数的值。 
-* *Percentile*：带有要计算的百分位数的标量。
-* *IndexColumn*：要对其运行滚动窗口的列名称。
+* *T* ：输入表格表达式。
+* *ValueColumn* ：列的名称，其中包含要计算百分位数的值。 
+* *Percentile* ：带有要计算的百分位数的标量。
+* *IndexColumn* ：要对其运行滚动窗口的列名称。
 * BinSize：标量，带有要在 IndexColumn 上应用的箱大小。
-* *BinsPerWindow*：标量，具有每个窗口中包含的箱数。
-* *dim1*, *dim2*, ... ：（可选）要作为切片依据的维度列的列表。
+* *BinsPerWindow* ：标量，具有每个窗口中包含的箱数。
+* *dim1* , *dim2* , ... ：（可选）要作为切片依据的维度列的列表。
 
-**返回**
+## <a name="returns"></a>返回
 
 返回一个表，其中为每个箱设有一行（如果指定，则为维度的组合），该表含有截至箱处的窗口中的滚动百分位值。 每个时间窗口的非重复计数值、新值的非重复计数、聚合非重复计数。
 
@@ -49,7 +49,7 @@ T | evaluate rolling_percentile(ValueColumn, Percentile, IndexColumn, BinSize, B
 |---|---|---|---|---|
 
 
-**示例**
+## <a name="examples"></a>示例
 
 ### <a name="rolling-3-day-median-value-per-day"></a>每天滚动 3 天的中值 
 

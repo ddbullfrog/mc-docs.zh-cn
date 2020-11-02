@@ -29,6 +29,8 @@
       href: visualize-power-bi.md
 - name: 概念
   items:
+    - name: EngineV3
+      href: engine-v3.md
     - name: 数据引入
       items:
         - name: 数据引入概述
@@ -48,6 +50,8 @@
       items:
         - name: 安全概述
           href: security.md
+        - name: 安全基线
+          href: security-baseline.md
     - name: 业务连续性
       items:
         - name: 概述
@@ -68,8 +72,12 @@
           href: create-cluster-database-csharp.md
         - name: Python
           href: create-cluster-database-python.md
+        - name: Go
+          href: create-cluster-database-go.md
         - name: Azure 资源管理器模板
           href: create-cluster-database-resource-manager.md
+    - name: 创建表
+      href: one-click-table.md
     - name: 引入数据
       items:
         - name: 流式引入
@@ -82,27 +90,37 @@
           href: lightingest.md
         - name: 事件中心
           items:
-            - name: 创建到事件中心的连接
+            - name: 事件中心数据连接
+              displayName: ingest
               href: ingest-data-event-hub-overview.md
             - name: Azure 门户
+              displayName: 'Event Hub, ingest, data connection'
               href: ingest-data-event-hub.md
             - name: C#
+              displayName: 'Event Hub, ingest, data connection'
               href: data-connection-event-hub-csharp.md
             - name: Python
+              displayName: 'Event Hub, ingest'
               href: data-connection-event-hub-python.md
-            - name: Azure 资源管理器模板
+            - name: Azure Resource Manager 模板
+              displayName: 'Event Hub, ingest, data connection'
               href: data-connection-event-hub-resource-manager.md
         - name: IoT 中心
           items:
-            - name: 创建到 IoT 中心的连接
+            - name: IoT 中心数据连接
+              displayName: ingest
               href: ingest-data-iot-hub-overview.md
             - name: Azure 门户
+              displayName: 'IoT Hub, ingest, data connection'
               href: ingest-data-iot-hub.md
             - name: C#
+              displayName: 'IoT Hub, ingest, data connection'
               href: data-connection-iot-hub-csharp.md
             - name: Python
+              displayName: 'IoT Hub, ingest, data connection'
               href: data-connection-iot-hub-python.md
             - name: Azure 资源管理器模板
+              displayName: 'IoT Hub, ingest, data connection'
               href: data-connection-iot-hub-resource-manager.md
         - name: Azure 数据工厂
           items:
@@ -124,6 +142,8 @@
               href: node-ingest-data.md
             - name: Go SDK
               href: go-ingest-data.md
+            - name: Java SDK
+              href: java-ingest-data.md
         - name: Kafka
           href: ingest-data-kafka.md
         - name: Logstash
@@ -154,7 +174,7 @@
       items:
         - name: Power BI
           items:
-            - name: 最佳做法
+            - name: Power BI 最佳实践
               href: power-bi-best-practices.md
             - name: 连接器
               href: power-bi-connector.md
@@ -176,12 +196,10 @@
           href: sisense.md
         - name: Redash
           href: redash.md
+        - name: Kibana（K2Bridge 连接器）
+          href: k2bridge.md
     - name: 安全
-      items:
-        - name: 加密
-          items:
-            - name: 群集磁盘加密 - 门户
-              href: cluster-disk-encryption.md
+      items: null
     - name: 管理
       items:
         - name: 群集
@@ -200,7 +218,7 @@
                   href: cluster-principal-csharp.md
                 - name: Python
                   href: cluster-principal-python.md
-                - name: Azure 资源管理器模板
+                - name: Azure Resource Manager 模板
                   href: cluster-principal-resource-manager.md
             - name: 管理群集语言扩展
               displayName: 'Python, R'
@@ -215,7 +233,7 @@
                   href: database-principal-csharp.md
                 - name: Python
                   href: database-principal-python.md
-                - name: Azure 资源管理器模板
+                - name: Azure Resource Manager 模板
                   href: database-principal-resource-manager.md
             - name: 策略
               items:
@@ -233,7 +251,7 @@
               href: dealing-with-duplicates.md
     - name: 监视
       items:
-        - name: 使用诊断日志监视引入
+        - name: 使用诊断日志监视引入、命令和查询
           href: using-diagnostic-logs.md
         - name: 利用指标监视 Azure 数据资源管理器
           displayName: 'health, performance'
@@ -242,21 +260,7 @@
       items:
         - name: 后继数据库
           href: follower.md
-    - name: 与其他工具集成
-      items:
-        - name: Power Automate
-          items: null
-        - name: Apache Spark 连接器
-          href: spark-connector.md
-        - name: Cosmos DB
-          href: 'https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration'
-        - name: 在 Jupyter Notebook 和 Kqlmagic 中分析数据
-          href: kqlmagic.md
-        - name: 分析 Azure Notebooks 中的数据
-          href: azure-notebooks.md
-        - name: 同步 Kusto
-          href: ./kusto/tools/synckusto.md
-    - name: 疑难解答
+    - name: 故障排除
       items:
         - name: 创建群集
           href: troubleshoot-create-cluster.md
@@ -274,7 +278,7 @@
           href: ./kusto/query/tutorial.md
         - name: 示例
           href: ./kusto/query/samples.md
-        - name: 最佳做法
+        - name: 查询最佳做法
           href: ./kusto/query/best-practices.md
         - name: 跨数据库和跨群集查询
           href: ./kusto/query/cross-cluster-or-database-queries.md
@@ -376,6 +380,8 @@
                   href: ./kusto/query/bag-unpackplugin.md
                 - name: basket 插件
                   href: ./kusto/query/basketplugin.md
+                - name: cosmosdb_sql_request 插件
+                  href: ./kusto/query/cosmosdb-plugin.md
                 - name: dcount_intersect 插件
                   href: ./kusto/query/dcount-intersect-plugin.md
                 - name: diffpatterns 插件
@@ -444,6 +450,8 @@
               href: ./kusto/query/projectoperator.md
             - name: project-away 运算符
               href: ./kusto/query/projectawayoperator.md
+            - name: project-keep 运算符
+              href: ./kusto/query/project-keep-operator.md
             - name: project-rename 运算符
               href: ./kusto/query/projectrenameoperator.md
             - name: project-reorder 运算符
@@ -502,6 +510,8 @@
               href: ./kusto/query/externaltablefunction.md
             - name: materialize()
               href: ./kusto/query/materializefunction.md
+            - name: materialized_view()
+              href: ./kusto/query/materialized-view-function.md
             - name: table()
               href: ./kusto/query/tablefunction.md
             - name: toscalar()
@@ -554,6 +564,10 @@
               href: ./kusto/query/array_shift_rightfunction.md
             - name: array_slice()
               href: ./kusto/query/arrayslicefunction.md
+            - name: array_sort_asc()
+              href: ./kusto/query/arraysortascfunction.md
+            - name: array_sort_desc()
+              href: ./kusto/query/arraysortdescfunction.md
             - name: array_split()
               href: ./kusto/query/arraysplitfunction.md
             - name: asin()
@@ -568,6 +582,8 @@
               href: ./kusto/query/bagkeysfunction.md
             - name: bag_merge()
               href: ./kusto/query/bag-merge-function.md
+            - name: bag_remove_keys()
+              href: ./kusto/query/bag-remove-keys-function.md
             - name: base64_decode_toarray()
               href: ./kusto/query/base64_decode_toarrayfunction.md
             - name: base64_decode_tostring()
@@ -932,6 +948,10 @@
               href: ./kusto/query/welch-testfunction.md
             - name: zip()
               href: ./kusto/query/zipfunction.md
+            - name: zlib_compress_to_base64_string()
+              href: ./kusto/query/zlib-base64-compress.md
+            - name: zlib_decompress_from_base64_string()
+              href: ./kusto/query/zlib-base64-decompress.md
         - name: 聚合函数
           items:
             - name: any()
@@ -1062,6 +1082,8 @@
               href: ./kusto/query/series-fit-linefunction.md
             - name: series_fit_line_dynamic()
               href: ./kusto/query/series-fit-line-dynamicfunction.md
+            - name: series_fit_poly()
+              href: ./kusto/query/series-fit-poly-function.md
             - name: series_greater()
               href: ./kusto/query/series-greaterfunction.md
             - name: series_greater_equals()
@@ -1184,8 +1206,8 @@
           href: ./kusto/management/index.md
         - name: 架构
           items:
-            - name: 针对架构设计的最佳做法
-              href: ./kusto/management/best-practices.md
+            - name: 针对架构设计的管理最佳做法
+              href: ./kusto/management/management-best-practices.md
             - name: 数据库管理
               href: ./kusto/management/databases.md
               items:
@@ -1241,6 +1263,8 @@
                   href: ./kusto/management/show-table-details-command.md
                 - name: .show table schema
                   href: ./kusto/management/show-table-schema-command.md
+                - name: .clear table data
+                  href: ./kusto/management/clear-table-data-command.md
             - name: 外部表
               items:
                 - name: 外部表常规控制命令
@@ -1249,6 +1273,20 @@
                   href: ./kusto/management/external-tables-azurestorage-azuredatalake.md
                 - name: 创建和更改外部 SQL 表
                   href: ./kusto/management/external-sql-tables.md
+            - name: 具体化视图
+              items:
+                - name: 具体化视图概述
+                  href: ./kusto/management/materialized-views/materialized-view-overview.md
+                - name: .create materialized-view
+                  href: ./kusto/management/materialized-views/materialized-view-create.md
+                - name: .alter materialized-view
+                  href: ./kusto/management/materialized-views/materialized-view-alter.md
+                - name: .show materialized-view commands
+                  href: ./kusto/management/materialized-views/materialized-view-show-commands.md
+                - name: .drop materialized-view
+                  href: ./kusto/management/materialized-views/materialized-view-drop.md
+                - name: .disable | .enable materialized-view
+                  href: ./kusto/management/materialized-views/materialized-view-enable-disable.md
             - name: 列
               items:
                 - name: 列管理
@@ -1321,6 +1359,12 @@
                   href: ./kusto/management/partitioningpolicy.md
                 - name: 分区策略命令
                   href: ./kusto/management/partitioning-policy.md
+            - name: 查询限制
+              items:
+                - name: 查询限制策略
+                  href: ./kusto/management/query-throttling-policy.md
+                - name: 查询限制策略命令
+                  href: ./kusto/management/query-throttling-policy-commands.md
             - name: 保留
               items:
                 - name: 保留策略
@@ -1441,11 +1485,13 @@
           items:
             - name: 标识
               href: ./kusto/management/access-control/principals-and-identity-providers.md
-            - name: AAD
+            - name: Azure Active Directory
+              displayName: 'AAD, Azure AD'
               href: ./kusto/management/access-control/aad.md
             - name: 主体角色
               href: ./kusto/management/access-control/role-based-authorization.md
-            - name: AAD 身份验证方法
+            - name: Azure Active Directory 身份验证操作说明
+              displayName: 'AAD, Azure AD'
               href: ./kusto/management/access-control/how-to-authenticate-with-aad.md
         - name: 高级数据管理
           items:
@@ -1538,7 +1584,8 @@
               href: ./kusto/api/tds/clients.md
             - name: 链接服务器
               href: ./kusto/api/tds/linkedserver.md
-            - name: AAD
+            - name: Azure Active Directory
+              displayName: 'AAD, Azure AD'
               href: ./kusto/api/tds/aad.md
             - name: 已知问题
               href: ./kusto/api/tds/sqlknownissues.md
@@ -1566,7 +1613,7 @@
                   href: ./kusto/api/netfx/kusto-ingest-client-errors.md
                 - name: 操作状态
                   href: ./kusto/api/netfx/kusto-ingest-client-status.md
-                - name: 最佳做法
+                - name: Kusto.Ingest 最佳做法
                   href: ./kusto/api/netfx/kusto-ingest-best-practices.md
                 - name: 代码示例
                   href: ./kusto/api/netfx/kusto-ingest-client-examples.md
@@ -1606,12 +1653,16 @@
       items:
         - name: 函数列表
           href: kusto/functions-library/functions-library.md
+        - name: kmeans_fl()
+          href: kusto/functions-library/kmeans-fl.md
         - name: predict_fl()
           href: kusto/functions-library/predict-fl.md
         - name: predict_onnx_fl()
           href: kusto/functions-library/predict-onnx-fl.md
         - name: quantize_fl()
           href: kusto/functions-library/quantize-fl.md
+        - name: series_dot_product_fl()
+          href: kusto/functions-library/series-dot-product-fl.md
         - name: series_fit_poly_fl()
           href: kusto/functions-library/series-fit-poly-fl.md
         - name: series_moving_avg_fl()

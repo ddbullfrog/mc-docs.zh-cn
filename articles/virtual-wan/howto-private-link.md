@@ -7,22 +7,25 @@ ms.service: virtual-wan
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-new
-ms.openlocfilehash: d7c93df6dbeb219bcb40c19ce61e4b7756dbdcc2
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 00dbe2d9c4ea2bad0f613721c76a01b1a1ef43d6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472642"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103747"
 ---
 <!--Verified Successfully-->
 # <a name="use-private-link-in-virtual-wan"></a>在虚拟 WAN 中使用专用链接
 
-[Azure 专用链接](../private-link/private-link-overview.md)技术可用于通过公开[专用终结点](../private-link/private-endpoint-overview.md)，使用专用 IP 地址连接来连接 Azure 平台即服务产品。 使用 Azure 虚拟 WAN，可以在一个连接到任何虚拟中心的虚拟网络中部署专用终结点。 这提供了与连接到同一虚拟网络的任何其他虚拟 WAN 或分支的连接。
+Azure 专用链接技术可用于通过公开专用终结点，使用专用 IP 地址连接来连接 Azure 平台即服务产品。 使用 Azure 虚拟 WAN，可以在一个连接到任何虚拟中心的虚拟网络中部署专用终结点。 这提供了与连接到同一虚拟网络的任何其他虚拟 WAN 或分支的连接。
+
+<!--Not Available on [Azure Private Link](../private-link/private-link-overview.md)-->
+<!--Not Available on [Private Endpoints](../private-link/private-endpoint-overview.md)-->
 
 ## <a name="before-you-begin"></a>开始之前
 
@@ -37,7 +40,9 @@ ms.locfileid: "92472642"
 <a name="endpoint"></a>
 ## <a name="create-a-private-link-endpoint"></a>创建专用链接终结点
 
-可以为许多不同服务创建专用链接终结点。 在此示例中，我们将使用 Azure SQL 数据库。 有关如何为 Azure SQL 数据库创建专用终结点的详细信息，请参阅[快速入门：使用 Azure 门户创建专用终结点](../private-link/create-private-endpoint-portal.md)。 下图显示了 Azure SQL 数据库的网络配置：
+可以为许多不同服务创建专用链接终结点。 在此示例中，我们将使用 Azure SQL 数据库。 下图显示了 Azure SQL 数据库的网络配置：
+
+<!--Not Available on You can find more information about how to create a private endpoint for an Azure SQL Database in [Quickstart: Create a Private Endpoint using the Azure portal](../private-link/create-private-endpoint-portal.md)-->
 
 :::image type="content" source="./media/howto-private-link/create-private-link.png" alt-text="创建专用链接" lightbox="./media/howto-private-link/create-private-link.png":::
 

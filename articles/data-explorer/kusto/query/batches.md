@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的批处理。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 07/31/2020
-ms.openlocfilehash: 3bbb8dcf9c1666d3980d0222935d9f93426dee18
-ms.sourcegitcommit: 4e1bc2e9b2a12dbcc05c52db5dbd1ae290aeb18d
+ms.date: 10/29/2020
+ms.openlocfilehash: d1dddb70d622f63ea50ff39dd51f352cb205b303
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87509217"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104038"
 ---
 # <a name="batches"></a>批处理
 

@@ -13,14 +13,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 1/14/2020
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: b39ce1def274915a83987151b69fbf782f5edcd7
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 8711caf981321cc39eaea1f359c4d3e674c03974
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943499"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628210"
 ---
 # <a name="what-is-azure-load-balancer"></a>什么是 Azure 负载均衡器？
 
@@ -36,7 +36,7 @@ Azure 负载均衡器在开放式系统互连 (OSI) 模型的第四层上运行�
   <img src="./media/load-balancer-overview/load-balancer.svg" alt="Figure depicts both public and internal load balancers directing traffic to port 80 on multiple servers on a Web tier and port 443 on multiple servers on a business tier." width="512" title="Azure 负载均衡器">
 </p>
 
-图：*使用公共和内部负载均衡器对多层应用程序进行均衡*
+图： *使用公共和内部负载均衡器对多层应用程序进行均衡*
 
 有关各个负载均衡器组件的详细信息，请参阅 [Azure 负载均衡器组件](./components.md)。
 
@@ -75,10 +75,8 @@ Azure 负载均衡器在开放式系统互连 (OSI) 模型的第四层上运行�
 请参阅[负载均衡器的 SLA](https://www.azure.cn/support/sla/load-balancer/)。 基本负载均衡器没有 SLA。
 
 ## <a name="next-steps"></a>后续步骤
-请参阅[升级基本负载均衡器](upgrade-basic-standard.md)，将基本负载均衡器升级为标准负载均衡器。
 
-请参阅[创建公共标准负载均衡器](quickstart-load-balancer-standard-public-portal.md)，开始使用负载均衡器。
+请参阅[创建公共标准负载均衡器](quickstart-load-balancer-standard-public-portal.md)以开始使用负载均衡器。
 
 有关 Azure 负载均衡器限制和组件的详细信息，请参阅 [Azure 负载均衡器组件](./components.md)和 [Azure 负载均衡器概念](./concepts.md)
 
-有关 Azure 负载均衡选项的比较，请参阅 [Azure 中的负载均衡选项概述](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)。

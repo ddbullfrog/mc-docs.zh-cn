@@ -6,17 +6,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 07/23/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 041ef72e185aeb7325c6d03efdde592e42e657ea
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: 6a0ba7b568cf83643e2e10b5005792d63b446281
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211857"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103818"
 ---
 <!--Verified successfully-->
 <!--Transfer from an include file-->

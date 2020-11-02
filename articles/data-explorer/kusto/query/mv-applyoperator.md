@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 mv-apply 运算符�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 9730e407a9b133685cc8bb9d039e0cf3681afe1e
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 196c073208c1cd61335aea97a7fc29f1821dc7c1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146781"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103860"
 ---
 # <a name="mv-apply-operator"></a>mv-apply 运算符
 
@@ -80,7 +80,7 @@ SubQuery 具有与任何查询语句相同的语法。
 
 * ItemIndex：如果使用，则指示 `long` 类型的列的名称，该列在数组扩展阶段追加到输入，并指示扩展值的从 0 开始的数组索引。
 
-* *名称*：如果使用，则为用于分配每个数组扩展表达式的数组扩展值的名称。
+* *名称* ：如果使用，则为用于分配每个数组扩展表达式的数组扩展值的名称。
   如果未指定，则使用列名（如果可用）。
   如果 ArrayExpression 不是简单的列名，则生成随机名称。
 
@@ -140,7 +140,6 @@ _data
 |1    |[1,3,5,7]|12       |
 |0    |[2,4,6,8]|14       |
 
-
 ## <a name="using-with_itemindex-for-working-with-a-subset-of-the-array"></a>使用 `with_itemindex` 来处理数组的子集
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
@@ -164,36 +163,6 @@ _data
 |3|8|
 |4|10|
 
-## <a name="using-the-mv-apply-operator-to-sort-the-output-of-make_list-aggregate-by-some-key"></a>使用 `mv-apply` 运算符按某个键对 `make_list` 聚合的输出进行排序
-
-<!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
-```kusto
-datatable(command:string, command_time:datetime, user_id:string)
-[
-    'chmod',        datetime(2019-07-15),   "user1",
-    'ls',           datetime(2019-07-02),   "user1",
-    'dir',          datetime(2019-07-22),   "user1",
-    'mkdir',        datetime(2019-07-14),   "user1",
-    'rm',           datetime(2019-07-27),   "user1",
-    'pwd',          datetime(2019-07-25),   "user1",
-    'rm',           datetime(2019-07-23),   "user2",
-    'pwd',          datetime(2019-07-25),   "user2",
-]
-| summarize commands_details = make_list(pack('command', command, 'command_time', command_time)) by user_id
-| mv-apply command_details = commands_details on
-(
-    order by todatetime(command_details['command_time']) asc
-    | summarize make_list(tostring(command_details['command']))
-)
-| project-away commands_details
-```
-
-|`user_id`|`list_command_details_command`|
-|---|---|
-|user1|[<br>  "ls",<br>  "mkdir",<br>  "chmod",<br>  "dir",<br>  "pwd",<br>  "rm"<br>]|
-|user2|[<br>  "rm",<br>  "pwd"<br>]|
-
-
-**另请参阅**
+## <a name="see-also"></a>请参阅
 
 * [mv-expand](./mvexpandoperator.md) 运算符。

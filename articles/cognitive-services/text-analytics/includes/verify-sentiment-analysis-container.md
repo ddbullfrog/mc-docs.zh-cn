@@ -3,19 +3,20 @@ title: 验证情绪分析容器实例
 titleSuffix: Azure Cognitive Services
 description: 了解如何验证情绪分析容器实例。
 services: cognitive-services
-author: lingliw
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 origin.date: 09/12/2019
-ms.date: 02/25/2020
-ms.author: v-lingwu
-ms.openlocfilehash: 1eadad45c95ba5ae344f9a186d8b7b37f0310bda
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/26/2020
+ms.author: v-johya
+ms.openlocfilehash: 682779f490c5f3090db346a152b56792a0acae5f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78155325"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103921"
 ---
 ### <a name="verify-the-sentiment-analysis-container-instance"></a>验证情绪分析容器实例
 

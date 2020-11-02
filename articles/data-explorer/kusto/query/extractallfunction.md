@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 extract_all()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 2c9c429c303d9a1b7397c81db265c5814806c610
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 07223483af513002247514ee1434d55f0d7bac9e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841453"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105156"
 ---
 # <a name="extract_all"></a>extract_all()
 
@@ -25,11 +25,11 @@ ms.locfileid: "87841453"
 print extract_all(@"(\d+)", "a set of numbers: 123, 567 and 789") // results with the dynamic array ["123", "567", "789"]
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
-`extract_all(`*regex*`,` [*captureGroups*`,`] *text*`)`
+`extract_all(`*regex*`,` [ *captureGroups*`,`] *text*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 |参数        |描述                                  |必需或可选  |
 |----------------|---------------------------------------------|----------------------|
@@ -37,7 +37,7 @@ print extract_all(@"(\d+)", "a set of numbers: 123, 567 and 789") // results wit
 |captureGroups   |一个动态数组常量，指示要提取的捕获组。 有效值为 1 到正则表达式中的捕获组数量。 还允许命名的捕获组（请参阅[示例](#examples)）|可选         |
 |text            |要搜索的 `string`                         |必须              |
 
-**返回**
+## <a name="returns"></a>返回
 
 * 如果 regex 在 text 中找到匹配项，则：返回一个动态数组，其中包括针对所指示的捕获组 captureGroups 或 regex 中的所有捕获组的所有匹配项。
 * 如果 captureGroups 的数目为 1，则：返回的数组有一维的匹配值。

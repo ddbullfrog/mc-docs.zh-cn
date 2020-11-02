@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 164b9d11dedf49744b798a8c636606deb85a5ef8
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: d34cf97dd577381ea05df917a09faae8c9df6f30
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472594"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104990"
 ---
 <!--Verified Successfully-->
 # <a name="scenario-custom-isolation-for-vnets"></a>方案：VNet 的自定义隔离

@@ -11,13 +11,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 05/07/2020
-  ms.date: 08/31/2020
-  ms.openlocfilehash: a26688ab878a939f22682bd0379ee77325305d48
-  ms.sourcegitcommit: f8ed85740f873c15c239ab6ba753e4b76e030ba7
+  ms.date: 11/02/2020
+  ms.openlocfilehash: 317f076eb1d6b73d21bc1f46187b0ac37463f34f
+  ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89045795"
+  ms.lasthandoff: 10/27/2020
+  ms.locfileid: "92628185"
 landingContent:
 - title: 关于负载均衡器
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
     links:
     - text: 什么是负载均衡器？
       url: load-balancer-overview.md
-    - text: 负载均衡器的概念
+    - text: 负载均衡器算法
       url: concepts.md
     - text: 负载均衡器组件
       url: components.md
@@ -37,8 +37,10 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 创建负载均衡器以对 VM 进行负载均衡
+    - text: 创建公共负载均衡器以对 VM 进行负载均衡
       url: quickstart-load-balancer-standard-public-portal.md
+    - text: 创建内部负载均衡器以对 VM 进行负载均衡
+      url: quickstart-load-balancer-standard-internal-portal.md
   - linkListType: tutorial
     links:
     - text: 对传入 VM 的 Internet 流量进行负载均衡

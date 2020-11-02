@@ -10,12 +10,12 @@ ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 07/27/2020
 ms.date: 09/25/2020
-ms.openlocfilehash: 11b720036f61255d50d5894dfdea5fe7d4ca502d
-ms.sourcegitcommit: d89eba76d6f14be0b96c8cdf99decc208003e496
+ms.openlocfilehash: ecb88efd158de940cdb235dab991cb84338d59a6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91248495"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104292"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM (Transact-SQL)
 
@@ -192,7 +192,7 @@ SECRET = '<password>';
 CREATE EXTERNAL DATA SOURCE MyTargetSQLTabl 
 WITH 
 (     
-  LOCATION = '<my_server_name>.database.windows.net', 
+  LOCATION = '<my_server_name>.database.chinacloudapi.cn', 
   CREDENTIAL = SQLCredName 
 ); 
  

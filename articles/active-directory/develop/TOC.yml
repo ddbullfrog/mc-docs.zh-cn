@@ -4,6 +4,8 @@
   items:
     - name: 什么是 Microsoft 标识平台？
       href: v2-overview.md
+    - name: Docs 中的新增内容
+      href: whats-new-docs.md
 - name: 快速入门
   expanded: true
   items:
@@ -380,6 +382,9 @@
             - name: 将应用从 ADAL 迁移到 MSAL
               href: msal-migration.md
               displayName: migration
+    - name: Microsoft 标识 Web 库
+      href: microsoft-identity-web.md
+      displayName: 'auth, library, .NET Core'
     - name: 身份验证协议
       displayName: Auth protocol
       items:
@@ -480,6 +485,8 @@
           href: active-directory-optional-claims.md
         - name: 在声明中使用目录架构扩展属性
           href: active-directory-schema-extensions.md
+        - name: 配置令牌生存期
+          href: configure-token-lifetimes.md
         - name: 在 Chrome 浏览器中处理 SameSite Cookie 更改
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: 在 Safari 中处理 ITP
@@ -487,8 +494,6 @@
     - name: 应用程序配置
       displayName: App configuration
       items:
-        - name: Azure 门户应用注册培训指南
-          href: app-registrations-training-guide-for-app-registrations-legacy-users.md
         - name: 将单租户应用转换为多租户应用
           href: howto-convert-app-to-be-multi-tenant.md
         - name: 创建服务主体

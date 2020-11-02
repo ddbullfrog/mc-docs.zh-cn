@@ -7,13 +7,13 @@ ms.reviewer: avneraa
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 03/12/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: c69d158ad04f876e66a50c8f9ce1c18a65c4b4f3
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 8d43d567bea1d6357a7504b3e0c1e63d2231f432
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146259"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104060"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>从 Azure 数据资源管理器中删除数据
 
@@ -53,5 +53,4 @@ Azure 数据资源管理器会根据[保留策略](kusto/management/retentionpol
 
 ## <a name="delete-individual-rows-using-purge"></a>使用清除删除各个数据行
 
-可以使用[数据清除](kusto/concepts/data-purge.md)来删除各个行。 删除不是即时的，并且需要大量的系统资源。 因此，建议仅将其用于合规性方案。  
-
+可以使用[数据清除](kusto/concepts/data-purge.md)来删除各个行。 删除不是即时的，并且需要大量的系统资源。 因此，建议仅将其用于合规性方案。

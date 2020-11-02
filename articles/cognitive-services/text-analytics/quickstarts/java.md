@@ -1,27 +1,27 @@
 ---
-title: 快速入门：使用 Java 调用文本分析 REST API
+title: 使用 Java 调用文本分析 REST API
 titleSuffix: Azure Cognitive Services
-description: 本快速入门介绍如何获取信息和代码示例，以帮助你快速开始使用 Azure 认知服务中的文本分析 API。
+description: 本快速入门介绍如何使用 Java 获取信息和代码示例，以帮助你快速开始使用 Azure 认知服务中的文本分析 API。
 services: cognitive-services
 author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/03/2020
+ms.date: 10/26/2020
 ms.author: v-johya
 ms.custom: seo-java-july2019, seo-java-august2019, devx-track-java
-ms.openlocfilehash: df34a9cf6e69bbe3456c68d66227e4846dd8b223
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 4ba723f3aa7e734aa4faba940b703b6a4e24ab95
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023421"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105233"
 ---
-# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>快速入门：使用 Java 调用 Azure 文本分析认知服务
+# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>使用 Java 调用 Azure 文本分析认知服务
 <a name="HOLTop"></a>
 
-本文展示了如何将 [文本分析 API](https://www.azure.cn/zh-cn/home/features/cognitive-services/text-analytics/) 与 Java 配合使用来[检测语言](#Detect)、[分析情绪](#SentimentAnalysis)、[提取关键短语](#KeyPhraseExtraction)以及[识别链接的实体](#Entities)。
+本文展示了如何将[文本分析 API](https://www.azure.cn/zh-cn/home/features/cognitive-services/text-analytics/) 与 Java 配合使用来[检测语言](#Detect)、[分析情绪](#SentimentAnalysis)、[提取关键短语](#KeyPhraseExtraction)以及[识别链接的实体](#Entities)。
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "88023421"
 
 ## <a name="detect-language"></a>检测语言
 
-语言检测 API 使用 [检测语言方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)检测文本文档的语言。
+语言检测 API 使用[检测语言方法](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)检测文本文档的语言。
 
 1. 在最喜爱的 IDE（或桌面上的新文件夹）中新建一个 Java 项目。 创建名为的 `DetectLanguage.java` 的类。
 1. 向类中添加以下提供的代码。

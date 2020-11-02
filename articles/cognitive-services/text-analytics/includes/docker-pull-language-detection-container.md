@@ -7,14 +7,14 @@ author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/07/2020
+ms.date: 10/26/2020
 ms.author: v-johya
-ms.openlocfilehash: 09ad89367063af8e0eff971e91587a15117a01ee
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: e5a99fb5171a4331cc414eab3e242e11ff4b70b4
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "92211345"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105637"
 ---
 #### <a name="docker-pull-for-the-language-detection-container"></a>适用于语言检测容器的 docker pull
 
@@ -23,6 +23,6 @@ ms.locfileid: "92211345"
 有关文本分析容器的可用标记的完整说明，请参阅 Docker Hub 上的[语言检测](https://go.microsoft.com/fwlink/?linkid=2018759)容器。
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/language:latest
 ```
 

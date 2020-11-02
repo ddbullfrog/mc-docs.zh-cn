@@ -2,9 +2,7 @@
 title: 排查使用 RDP 连接到 Azure 中国 VM 时的身份验证错误 | Azure
 description: 了解如何排查使用远程桌面协议 (RDP) 连接到 Azure 虚拟机 (VM) 时出现的身份验证错误。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: troubleshooting
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 93218eb8801e0b0979e53dc430ebd297a8fd0900
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 1edde6472aec045388e6c3630cc91b1d5f3965e6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456819"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104726"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-china-vm"></a>排查使用 RDP 连接到 Azure 中国 VM 时的身份验证错误
 
@@ -34,11 +32,11 @@ ms.locfileid: "89456819"
 
 ### <a name="error-message-1"></a>错误消息 1
 
-**身份验证出错。无法联系本地安全机构**。
+**身份验证出错。无法联系本地安全机构** 。
 
 ### <a name="error-message-2"></a>错误消息 2
 
-**你尝试连接的远程计算机需要网络级别身份验证 (NLA)，但无法联系 Windows 域控制器来执行 NLA。如果你是远程计算机的管理员，则可使用“系统属性”对话框的“远程”选项卡上的选项禁用 NLA**。
+**你尝试连接的远程计算机需要网络级别身份验证 (NLA)，但无法联系 Windows 域控制器来执行 NLA。如果你是远程计算机的管理员，则可使用“系统属性”对话框的“远程”选项卡上的选项禁用 NLA** 。
 
 ### <a name="error-message-3-generic-connection-error"></a>错误消息 3（泛型连接错误）
 

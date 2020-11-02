@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure 门户对 Azure 虚拟机进行维护控制概述
 description: 了解如何使用维护控制来控制何时向 Azure VM 应用维护。
-author: rockboyfor
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 origin.date: 04/22/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d206422e697809d25d305963c7cfb993d84ae247
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 6b87d664e05ce8ebf684543aa0d073177fcfaa0b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052359"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104565"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>使用维护控制管理平台更新 
 
@@ -31,7 +31,7 @@ ms.locfileid: "89052359"
 
 ## <a name="limitations"></a>限制
 
-- VM 必须位于[专用主机](./linux/dedicated-hosts.md)上，或者必须使用[独立 VM 大小](isolation.md)进行创建。
+- VM 必须位于[专用主机](./dedicated-hosts.md)上，或者必须使用[独立 VM 大小](isolation.md)进行创建。
 - 35 天后，更新将自动应用。
 - 用户必须具有“资源参与者”  访问权限。
 

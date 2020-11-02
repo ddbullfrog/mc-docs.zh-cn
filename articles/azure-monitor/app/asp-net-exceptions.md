@@ -4,26 +4,26 @@ description: 从 ASP.NET 应用中捕获异常以及请求遥测。
 ms.topic: conceptual
 origin.date: 07/11/2019
 author: Johnnytechn
-ms.date: 05/28/2020
+ms.date: 10/29/2020
 ms.author: v-johya
-ms.openlocfilehash: ea1a4207371905780027e2746837b9e77b21240e
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: 97613fefd0a5605d0b1099fb21f93aabf3d9c648
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199627"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105671"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>使用 Application Insights 诊断 Web 应用中的异常
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) 可报告实时 Web 应用中的异常。 可以将失败的请求与异常关联到客户端和服务器上的其他事件，从而快速诊断原因。
+[Application Insights](./app-insights-overview.md) 可报告实时 Web 应用中的异常。 可以将失败的请求与异常关联到客户端和服务器上的其他事件，从而快速诊断原因。
 
 ## <a name="set-up-exception-reporting"></a>设置异常报告
 * 若要报告服务器应用中的异常，请执行以下操作：
-  * Azure Web 应用：添加 [Application Insights 扩展](../../azure-monitor/app/azure-web-apps.md)
-  * Azure VM 和 Azure 虚拟机规模集的托管 IIS 应用：添加[应用程序监视扩展](../../azure-monitor/app/azure-vm-vmss-apps.md)
-  * 在应用代码中安装 [Application Insights SDK](../../azure-monitor/app/asp-net.md)，或者
-  * IIS Web 服务器：运行 [Application Insights 代理](../../azure-monitor/app/monitor-performance-live-website-now.md)；或者
-  * Java Web 应用：启用 [Java 代理](/azure-monitor/app/java-in-process-agent)
-* 在网页中安装 [JavaScript 代码片段](../../azure-monitor/app/javascript.md)可以捕获浏览器异常。
+  * Azure Web 应用：添加 [Application Insights 扩展](./azure-web-apps.md)
+  * Azure VM 和 Azure 虚拟机规模集的托管 IIS 应用：添加[应用程序监视扩展](./azure-vm-vmss-apps.md)
+  * 在应用代码中安装 [Application Insights SDK](./asp-net.md)，或者
+  * IIS Web 服务器：运行 [Application Insights 代理](./monitor-performance-live-website-now.md)；或者
+  * Java Web 应用：启用 [Java 代理](./java-in-process-agent.md)
+* 在网页中安装 [JavaScript 代码片段](./javascript.md)可以捕获浏览器异常。
 * 在某些应用程序框架中或者使用某些设置时，需要执行一些额外的步骤来捕获异常：
   * [Web 窗体](#web-forms)
   * [MVC](#mvc)
@@ -31,7 +31,7 @@ ms.locfileid: "84199627"
   * [Web API 2*](#web-api-2x)
   * [WCF](#wcf)
 
-  本文从代码示例的角度着重介绍 .NET Framework 应用。 用于 .NET Framework 的某些方法在 .NET Core SDK 中已过时。 如果具有 .NET Core 应用，请参阅 [.NET Core SDK 文档](/azure-monitor/app/asp-net-core)。
+  本文从代码示例的角度着重介绍 .NET Framework 应用。 用于 .NET Framework 的某些方法在 .NET Core SDK 中已过时。 如果具有 .NET Core 应用，请参阅 [.NET Core SDK 文档](./asp-net-core.md)。
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>使用 Visual Studio 诊断异常
 在 Visual Studio 中打开应用解决方案，帮助进行调试。
@@ -44,7 +44,7 @@ ms.locfileid: "84199627"
 
 请注意，可以筛选报告，以便仅显示异常。
 
-*没有显示异常？请参阅[捕获异常](#exceptions)。*
+*没有显示异常？请参阅 [捕获异常](#exceptions)。*
 
 单击异常报告，显示器堆栈跟踪。
 单击堆栈跟踪中的行引用，打开相关代码文件。
@@ -65,7 +65,7 @@ Application Insights 附带了精选的 APM 体验，帮助你诊断所监视应
 
 **或者，** 可以切换到顶部的“异常”选项卡，从异常的总体视图开始，而不是查看特定失败操作的异常： 这里可以看到为所监视的应用收集的所有异常。
 
-*没有显示异常？请参阅[捕获异常](#exceptions)。*
+*没有显示异常？请参阅 [捕获异常](#exceptions)。*
 
 
 ## <a name="custom-tracing-and-log-data"></a>自定义跟踪和日志数据
@@ -73,34 +73,34 @@ Application Insights 附带了精选的 APM 体验，帮助你诊断所监视应
 
 有几种选项：
 
-* [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) 通常用于监视使用模式，但它发送的数据还显示在诊断搜索的“自定义事件”下。 事件可以进行命名，并带有[筛选诊断搜索](../../azure-monitor/app/diagnostic-search.md)所依据的字符串属性和数值指标。
-* [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 允许发送较长的数据，例如 POST 信息。
+* [TrackEvent()](./api-custom-events-metrics.md#trackevent) 通常用于监视使用模式，但它发送的数据还显示在诊断搜索的“自定义事件”下。 事件可以进行命名，并带有[筛选诊断搜索](./diagnostic-search.md)所依据的字符串属性和数值指标。
+* [TrackTrace()](./api-custom-events-metrics.md#tracktrace) 允许发送较长的数据，例如 POST 信息。
 * [TrackException()](#exceptions) 可发送堆栈跟踪。 [有关异常的详细信息](#exceptions)。
 * 如果已使用 Log4Net 或 NLog 等日志记录框架，可以[捕获这些日志](asp-net-trace-logs.md)并在诊断搜索中查看它们以及请求和异常数据。
 
-若要查看这些事件，请在左侧菜单中打开 [搜索](../../azure-monitor/app/diagnostic-search.md)、选择“事件类型”下拉菜单，然后选择“自定义事件”、“跟踪”或“异常”。
+若要查看这些事件，请在左侧菜单中打开 [搜索](./diagnostic-search.md)、选择“事件类型”下拉菜单，然后选择“自定义事件”、“跟踪”或“异常”。
 
 ![深入了解](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
-> 如果应用生成大量遥测，自适应采样模块将通过仅发送具有代表性的事件部分自动减少发送到门户的量。 将以组为单位选择或取消选择属于同一操作的事件，以便可以在相关事件之间浏览。 [了解采样](../../azure-monitor/app/sampling.md)。
+> 如果应用生成大量遥测，自适应采样模块将通过仅发送具有代表性的事件部分自动减少发送到门户的量。 将以组为单位选择或取消选择属于同一操作的事件，以便可以在相关事件之间浏览。 [了解采样](./sampling.md)。
 >
 >
 
 ### <a name="how-to-see-request-post-data"></a>如何查看请求 POST 数据
 请求详细信息不包含在 POST 调用中发送到应用的数据。 若要报告此数据：
 
-* 在应用程序中[安装 SDK](../../azure-monitor/app/asp-net.md)。
-* 在应用程序中插入代码以调用 [Microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)。 在消息参数中发送 POST 数据。 允许的大小有限制，因此，应该尝试仅发送必要数据。
+* 在应用程序中[安装 SDK](./asp-net.md)。
+* 在应用程序中插入代码以调用 [Microsoft.ApplicationInsights.TrackTrace()](./api-custom-events-metrics.md#tracktrace)。 在消息参数中发送 POST 数据。 允许的大小有限制，因此，应该尝试仅发送必要数据。
 * 调查失败的请求时，查找关联的跟踪。
 
 ## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a>捕获异常和相关的诊断数据
-首先，不会在门户中看到在应用中导致失败的所有异常。 将显示所有浏览器异常（如果在网页中使用 [JavaScript SDK](../../azure-monitor/app/javascript.md)）， 但大多数服务器异常由 IIS 导致，必须编写几行代码才能看到它们。
+首先，不会在门户中看到在应用中导致失败的所有异常。 将显示所有浏览器异常（如果在网页中使用 [JavaScript SDK](./javascript.md)）， 但大多数服务器异常由 IIS 导致，必须编写几行代码才能看到它们。
 
 方法：
 
-* 通过在异常处理程序中插入代码来**显式记录异常**，从而报告这些异常。
-* 通过配置 ASP.NET 框架**自动捕获异常**。 框架类型不同，必要的附加内容也不同。
+* 通过在异常处理程序中插入代码来 **显式记录异常** ，从而报告这些异常。
+* 通过配置 ASP.NET 框架 **自动捕获异常** 。 框架类型不同，必要的附加内容也不同。
 
 ## <a name="reporting-exceptions-explicitly"></a>显式报告异常
 最简单的方法是在异常处理程序中插入对 TrackException() 的调用。
@@ -155,7 +155,7 @@ Application Insights 附带了精选的 APM 体验，帮助你诊断所监视应
     End Try
 ```
 
-属性和测量参数是可选的，但对于[筛选和添加](../../azure-monitor/app/diagnostic-search.md)额外信息很有用。 例如，如果有一个可运行多个游戏的应用，可查找与特定游戏相关的所有异常报表。 可向每个字典添加任意数量的项目。
+属性和测量参数是可选的，但对于[筛选和添加](./diagnostic-search.md)额外信息很有用。 例如，如果有一个可运行多个游戏的应用，可查找与特定游戏相关的所有异常报表。 可向每个字典添加任意数量的项目。
 
 ## <a name="browser-exceptions"></a>浏览器异常
 报告大多数浏览器异常。
@@ -211,13 +211,13 @@ public class GoodController : ApiController
 * 在应用程序启动过程中引发的异常。
 * 在后台任务中引发的异常。
 
-仍需要手动跟踪应用程序*处理*的所有异常。
+仍需要手动跟踪应用程序 *处理* 的所有异常。
 源自控制器的未经处理异常通常会导致 500“内部服务器错误”响应。 如果此类响应是由于处理异常而手动构造的（或根本没有异常），则可在 `ResultCode` 为 500 的相应请求遥测中跟踪它，但是 Application Insights SDK 无法跟踪相应异常。
 
 ### <a name="prior-versions-support"></a>以前版本支持
 如果使用 Application Insights Web SDK 2.5（及更低版本）的 MVC 4（及更低版本），请参照以下示例跟踪异常。
 
-如果 [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) 配置为 `Off`，[HTTP 模块](https://msdn.microsoft.com/library/ms178468.aspx)将可以收集异常。 但是，如果它是 `RemoteOnly`（默认值）或 `On`，异常将清除，并且 Application Insights 无法自动收集它。 可通过重写 [System.Web.Mvc.HandleErrorAttribute 类](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)并应用重写类来修复该问题，如下面针对不同的 MVC 版本所示（[GitHub 源](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)）：
+如果 [CustomErrors](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100)) 配置为 `Off`，[HTTP 模块](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85))将可以收集异常。 但是，如果它是 `RemoteOnly`（默认值）或 `On`，异常将清除，并且 Application Insights 无法自动收集它。 可通过重写 [System.Web.Mvc.HandleErrorAttribute 类](https://docs.microsoft.com/dotnet/api/system.web.mvc.handleerrorattribute?view=aspnet-mvc-5.2)并应用重写类来修复该问题，如下面针对不同的 MVC 版本所示（[GitHub 源](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)）：
 
 ```csharp
     using System;
@@ -303,7 +303,7 @@ public class GoodController : ApiController
 * 在应用程序启动过程中引发的异常。
 * 在后台任务中引发的异常。
 
-仍需要手动跟踪应用程序*处理*的所有异常。
+仍需要手动跟踪应用程序 *处理* 的所有异常。
 源自控制器的未经处理异常通常会导致 500“内部服务器错误”响应。 如果此类响应是由于处理异常而手动构造的（或根本没有异常），则可在 `ResultCode` 为 500 的相应请求遥测中跟踪它，但是 Application Insights SDK 无法跟踪相应异常。
 
 ### <a name="prior-versions-support"></a>以前版本支持
@@ -485,7 +485,7 @@ Add the attribute to the service implementations:
 [示例](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>异常性能计数器
-如果在服务器上[安装了 Application Insights 代理](../../azure-monitor/app/monitor-performance-live-website-now.md)，可以获取 .NET 测量的异常率图表。 这包括经处理和未经处理的 .NET 异常。
+如果在服务器上[安装了 Application Insights 代理](./monitor-performance-live-website-now.md)，可以获取 .NET 测量的异常率图表。 这包括经处理和未经处理的 .NET 异常。
 
 打开“指标资源管理器”选项卡，添加新图表，然后选择在“性能计数器”下列出的“异常率”。
 
@@ -494,7 +494,8 @@ Add the attribute to the service implementations:
 这与 Application Insights 门户通过对 TrackException 报告计数计算得出的“异常”计数不同。 采样间隔不同，SDK 不会为所有经处理和未经处理的异常发送 TrackException 报告。
 
 ## <a name="next-steps"></a>后续步骤
-* [监视 REST、SQL 以及其他对依赖项的调用](../../azure-monitor/app/asp-net-dependencies.md)
-* [监视器页面加载时间、浏览器异常和 AJAX 调用](../../azure-monitor/app/javascript.md)
-* [监视性能计数器](../../azure-monitor/app/performance-counters.md)
+* [监视 REST、SQL 以及其他对依赖项的调用](./asp-net-dependencies.md)
+* [监视器页面加载时间、浏览器异常和 AJAX 调用](./javascript.md)
+* [监视性能计数器](./performance-counters.md)
+
 

@@ -7,21 +7,21 @@ author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/07/2020
+ms.date: 10/26/2020
 ms.author: v-johya
-ms.openlocfilehash: a3fae63c02c0cad2cab210f8b7e6208f5edd28be
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: c32eaea656230398fd9d60af3d4e666700cc847a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "92211343"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105636"
 ---
 #### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>适用于情绪分析 v3 容器的 Docker pull
 
 情绪分析容器 v3 容器以多种语言提供。 若要下载英文版容器，请使用以下命令。 
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en
 ```
 
 若要下载其他语言版的容器，请将 `en` 替换为以下语言代码之一。 

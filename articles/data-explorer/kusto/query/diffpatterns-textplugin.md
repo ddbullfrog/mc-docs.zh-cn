@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 diffpatterns_text
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 2994f6f0b1e1d4c1344c921ea9d4788375613015
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 9af0d9e271fb6d94f722320badd73dfb13203b0c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516005"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104306"
 ---
 # <a name="diffpatterns_text-plugin"></a>diffpatterns_text 插件
 

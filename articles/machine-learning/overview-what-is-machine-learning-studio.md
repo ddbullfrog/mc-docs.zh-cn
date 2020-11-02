@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 3ec99de6bb22737f44b10a34b1bc8dfb05c75473
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 7d08c11f159efcee8ae224be8573df4fa9d0f4e6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118123"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104536"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什么是 Azure 机器学习工作室？
 
@@ -88,7 +88,7 @@ Azure 机器学习工作室是 Azure 机器学习中的 Web 门户，其中包�
 | 训练计算目标 | 专用计算目标，仅限 CPU 支持 | 各种可自定义的[训练计算目标](concept-compute-target.md#train)。 包括 GPU 和 CPU 支持 | 
 | 部署计算目标 | 专用 Web 服务格式，不可自定义 | 各种可自定义的[部署计算目标](concept-compute-target.md#deploy)。 包括 GPU 和 CPU 支持 |
 | ML 管道 | 不支持 | 生成灵活的模块化[管道](concept-ml-pipelines.md)，用于自动完成工作流 |
-| MLOps | 基本模型管理和部署 | 实体版本控制（模型、数据、工作流）、工作流自动化、与 CICD 工具集成，[等等](concept-model-management-and-deployment.md) |
+| MLOps | 基本模型管理和部署；仅 CPU 部署 | 实体版本控制（模型、数据、工作流）、工作流自动化、与 CICD 工具集成、CPU 和 GPU 部署，[等等](concept-model-management-and-deployment.md) |
 | 模型格式 | 专用格式，仅限工作室（经典） | 多个受支持的格式，具体取决于训练作业类型 |
 | 自动化模型训练和超参数优化 |  不支持 | [受支持](concept-automated-ml.md)。 代码优先和无代码选项。 | 
 | 数据偏移检测 | 不支持 | [支持](how-to-monitor-datasets.md) |

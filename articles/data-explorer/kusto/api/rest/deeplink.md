@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/30/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: f9fc28abf385d903150c64b3a79d05a19af2edd0
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: af4de8194a7cb6ac9198b7d27babad5c8becd3eb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226239"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103904"
 ---
 # <a name="ui-deep-links"></a>UI 深层链接
 
@@ -52,7 +52,7 @@ UI 深层链接 REST API：
 
 此 REST API 会执行重定向操作，该操作使用专门设计的启动参数（这些参数可打开与特定 Kusto 引擎群集的连接并对该群集执行查询）来安装和运行 Kusto.Explorer 桌面客户端工具。
 
-* 路径：`/` [*DatabaseName*`]
+* 路径：`/` [ *DatabaseName* `]
 * 谓词：`GET`
 * 查询字符串：`web=0`
 
@@ -63,7 +63,7 @@ UI 深层链接 REST API：
 
 此 REST API 执行到 Kusto.WebExplorer（一个 Web 应用程序）的重定向。
 
-* 路径：`/` [*DatabaseName*`]
+* 路径：`/` [ *DatabaseName* `]
 * 谓词：`GET`
 * 查询字符串：`web=1`
 
@@ -84,4 +84,3 @@ UI 深层链接 REST API：
 >
 > 例如，如果 `querysrc` 指向 Azure Blob 存储中的 blob，则必须将存储帐户配置为支持 CORS，并使 blob 本身成为公共的（这样就可以在没有安全声明的情况下下载它），或将相应的 Azure 存储 SAS 添加到 URI。 可通过 [Azure 门户](https://portal.azure.cn/)或 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)执行 CORS 配置。
 > 请参阅 [Azure 存储中的 CORS 支持](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)。
-

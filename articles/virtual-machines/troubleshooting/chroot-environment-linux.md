@@ -2,10 +2,8 @@
 title: Linux 救援 VM 中的 Chroot 环境
 description: 本文介绍如何排查 Linux 中救援虚拟机 (VM) 上的 chroot 环境问题。
 mservices: virtual-machines-linux
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: ''
 ms.service: virtual-machines-linux
 ms.topic: troubleshooting
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 origin.date: 05/05/2020
 ms.date: 07/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4452b829c501062958bfbce3d702e9b10725a9fd
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: 0cebe88e4c2b7f3593c1c0736da5e00e544d21f5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946029"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104160"
 ---
 <!--Verified the Character Content-->
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Linux 救援 VM 中的 Chroot 环境

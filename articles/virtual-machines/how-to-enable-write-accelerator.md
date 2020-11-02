@@ -7,19 +7,18 @@ ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 02/20/2019
 author: rockboyfor
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+ms.date: 11/02/2020
+ms.testscope: yes
+ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 7c1236d5fb79858f98977abdbae09085080950e4
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: 7b9e576695097febfe882c1e11ae8c73ad8740dc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310315"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103775"
 ---
-<!--Verified successfully from renamed articles-->
 # <a name="enable-write-accelerator"></a>启用写入加速器
 
 写入加速器是 M 系列虚拟机 (VM) 的磁盘功能，且只能与 Azure 托管磁盘一起在高级存储上使用。 顾名思义，该功能的目的是改善对 Azure 高级存储的写入操作的 I/O 延迟。 写入加速器非常适合需要更新日志文件，并以高性能方式将现代数据库保存到磁盘的情况。
@@ -37,7 +36,7 @@ ms.locfileid: "89310315"
 >
 > 若要针对不属于基于多个磁盘构建的，且使用 Windows 磁盘或卷管理器、Windows 存储空间、Windows 横向扩展文件服务器 (SOFS)、Linux LVM 或 MDADM 的现有 Azure 磁盘启用写入加速器，需要关闭访问该 Azure 磁盘的工作负荷。 必须关闭使用 Azure 磁盘的数据库应用程序。
 >
-> 若要针对基于多个 Azure 高级存储磁盘构建的现有卷，或者使用 Windows 磁盘或卷管理器、Windows 存储空间、Windows 横向扩展文件服务器 (SOFS)、Linux LVM 或 MDADM 的条带化卷启用或禁用写入加速器，必须通过单独的步骤，对构成该卷的所有磁盘启用或禁用写入加速器。 **在此类配置中启用或禁用写入加速器之前，请关闭 Azure VM**。
+> 若要针对基于多个 Azure 高级存储磁盘构建的现有卷，或者使用 Windows 磁盘或卷管理器、Windows 存储空间、Windows 横向扩展文件服务器 (SOFS)、Linux LVM 或 MDADM 的条带化卷启用或禁用写入加速器，必须通过单独的步骤，对构成该卷的所有磁盘启用或禁用写入加速器。 **在此类配置中启用或禁用写入加速器之前，请关闭 Azure VM** 。
 
 对于 SAP 相关的 VM 配置，应该不需要为 OS 磁盘启用写入加速器。
 
@@ -59,8 +58,8 @@ ms.locfileid: "89310315"
 | M16ms、M16s | 2 | 2500 |
 | M8ms、M8s | 1 | 1250 |
 
-<!--Not Available on till 05/14/2020 | M208ms_v2, M208s_v2| 8 | 10000 |-->
-<!--Not Available on M416ms_v2, M416s_v2-->
+<!--Not Available on M208ms_v2, M208s_v2| 8  | 10000 | till 10/26/2020 -->
+<!--Not Available on M416ms_v2, M416s_v2| 16 | 20000 | -->
 
 IOPS 限制是针对每个 VM 而不是每个磁盘  。 对于每个 VM，所有写入加速器磁盘具有相同的 IOPS 限制。
 
@@ -173,13 +172,13 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 ## <a name="enabling-write-accelerator-using-the-azure-cli"></a>使用 Azure CLI 启用写入加速器
 
-可以使用 [Azure CLI](https://docs.azure.cn/cli/?view=azure-cli-latest) 来启用写入加速器。
+可以使用 [Azure CLI](https://docs.azure.cn/cli/) 来启用写入加速器。
 
-若要在现有磁盘上启用写入加速器，请使用 [az vm update](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-update)；若要将 diskName、VMName 和 ResourceGroup 替换为自己的值，可使用以下示例：`az vm update -g group1 -n vm1 -write-accelerator 1=true`
+若要在现有磁盘上启用写入加速器，请使用 [az vm update](https://docs.azure.cn/cli/vm#az_vm_update)；若要将 diskName、VMName 和 ResourceGroup 替换为自己的值，可使用以下示例：`az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
-若要附加启用了写入加速器的磁盘，请使用 [az vm disk attach](https://docs.azure.cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach)；若要替换为自己的值，可使用以下示例：`az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
+若要附加启用了写入加速器的磁盘，请使用 [az vm disk attach](https://docs.azure.cn/cli/vm/disk#az_vm_disk_attach)；若要替换为自己的值，可使用以下示例：`az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-若要禁用写入加速器，请使用 [az vm update](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-update) 将属性设置为 false：`az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+若要禁用写入加速器，请使用 [az vm update](https://docs.azure.cn/cli/vm#az_vm_update) 将属性设置为 false：`az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ## <a name="enabling-write-accelerator-using-rest-apis"></a>使用 Rest API 启用写入加速器
 
@@ -386,5 +385,4 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 进行这项更改后，写入加速器应会支持该驱动器。
 
-<!-- Update_Description: new article about how to enable write accelerator -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

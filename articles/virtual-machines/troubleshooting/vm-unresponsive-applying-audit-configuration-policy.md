@@ -2,9 +2,7 @@
 title: 在应用审核策略配置策略时，虚拟机无响应
 description: 本文提供了相关步骤，用于解决在应用审核策略配置策略时，虚拟机无响应，从而阻止 Azure VM 启动的问题。
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 3f6383b5-81fa-49ea-9434-2fe475e4cbef
 ms.service: virtual-machines-windows
@@ -13,16 +11,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 08/24/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4847fda0e991e45748427d13caf93dc259b6a439
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: aa5429f56214e06102ea3a7bf57d45a3fa380ad6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127834"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103774"
 ---
 <!--Verified successfully on Charactors only-->
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>在应用审核策略配置策略时，虚拟机无响应
@@ -31,7 +29,7 @@ ms.locfileid: "92127834"
 
 ## <a name="symptom"></a>症状
 
-使用[启动诊断](/virtual-machines/troubleshooting/boot-diagnostics)查看 VM 的屏幕截图时，将看到屏幕截图显示操作系统 (OS) 在启动过程中无响应，并显示消息“应用审核策略配置策略”。
+使用[启动诊断](./boot-diagnostics.md)查看 VM 的屏幕截图时，将看到屏幕截图显示操作系统 (OS) 在启动过程中无响应，并显示消息“应用审核策略配置策略”。
 
   ![OS 启动时将显示以下消息：“正在应用审核策略配置策略”](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 
@@ -58,7 +56,7 @@ ms.locfileid: "92127834"
 
 ### <a name="create-and-access-a-repair-vm"></a>创建和访问修复 VM
 
-1. 使用 [VM 修复命令](/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)的步骤 1-3 来准备一个修复 VM。
+1. 使用 [VM 修复命令](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)的步骤 1-3 来准备一个修复 VM。
 1. 使用远程桌面连接来连接到修复 VM。
 
 ### <a name="disable-the-policy"></a>禁用策略
@@ -66,7 +64,7 @@ ms.locfileid: "92127834"
 1. 在修复 VM 上，打开“注册表编辑器”。
 1. 找到“HKEY_LOCAL_MACHINE”项，然后从菜单中选择“文件”>“加载配置单元” 。
 
-    :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/3.png" alt-text="注册表编辑器中用于加载配置单元的导航。":::
+    :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/3.png" alt-text="注册表编辑器中用于加载配置单元的导航。&quot;:::
 
     - 可以使用加载配置单元从脱机系统加载注册表项。 在这种情况下，系统是附加到修复 VM 的受损磁盘。
     - 系统范围内的设置存储在 HKEY_LOCAL_MACHINE 上，可以缩写为 HKLM 。
@@ -102,7 +100,7 @@ ms.locfileid: "92127834"
 
         - 在该命令中，将 `<BOOT PARTITON>` 替换为附加磁盘中包含引导文件夹的分区驱动器号。
 
-            :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/4.png" alt-text="注册表编辑器中用于加载配置单元的导航。":::
+            :::image type="content" source="./media/vm-unresponsive-applying-audit-configuration-policy/4.png" alt-text="注册表编辑器中用于加载配置单元的导航。&quot;:::
 
     - 可以使用加载配置单元从脱机系统加载注册表项。 在这种情况下，系统是附加到修复 VM 的受损磁盘。
     - 系统范围内的设置存储在 HKEY_LOCAL_MACHINE 上，可以缩写为 HKLM 。
@@ -130,7 +128,7 @@ ms.locfileid: "92127834"
 
 ### <a name="rebuild-the-virtual-machine"></a>重新生成虚拟机
 
-1. 使用 [VM 修复命令的步骤 5](/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) 重新生成 VM。
+1. 使用 [VM 修复命令的步骤 5](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) 重新生成 VM。
 
 1. 测试 VM 是否正常启动以查看问题是否已解决。
 
@@ -152,7 +150,7 @@ ms.locfileid: "92127834"
 
 #### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>将 OS 磁盘附加到新的修复 VM
 
-1. 使用 [VM 修复命令的步骤 1-3](/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) 来准备一个新的修复 VM。
+1. 使用 [VM 修复命令的步骤 1-3](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) 来准备一个新的修复 VM。
 1. 使用远程桌面连接来连接到修复 VM。
 
 #### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>找到转储文件并提交支持票证

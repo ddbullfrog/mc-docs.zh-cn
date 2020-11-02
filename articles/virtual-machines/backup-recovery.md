@@ -1,20 +1,20 @@
 ---
 title: Linux VM 备份选项概述
 description: 概述 Linux Azure 虚拟机的备份选项。
-author: rockboyfor
 ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 08/03/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a334d69974aa80749ae101494bebeaa559d8879d
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: e6d997d674c044107d5f1b4b6979bfe5f6cf4db5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052424"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105130"
 ---
 <!--Verified Successfully-->
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的备份和还原选项
@@ -35,9 +35,7 @@ ms.locfileid: "89052424"
 
 可以通过按需测试故障转移进行灾难恢复演练，而不影响生产工作负荷或正在进行的复制。 创建恢复计划，为多个 VM 上运行的整个应用程序安排故障转移和故障回复。 恢复计划功能将与 Azure 自动化 Runbook 集成。
 
-可以通过[复制虚拟机](https://docs.azure.cn/site-recovery/azure-to-azure-quickstart)来启动。 
-
-<!--https://aka.ms/a2a-getting-started Redirect to ../site-recovery/azure-to-azure-quickstart.md-->
+可以通过[复制虚拟机](../site-recovery/azure-to-azure-quickstart.md)来启动。 
 
 ## <a name="managed-snapshots"></a>托管快照 
 
@@ -51,5 +49,4 @@ ms.locfileid: "89052424"
 ## <a name="next-steps"></a>后续步骤
 可以按照适用于 [Linux](./linux/tutorial-backup-vms.md) 或 [Windows](./windows/tutorial-backup-vms.md) 的“备份 Windows 虚拟机教程”试用 Azure 备份。
 
-<!-- Update_Description: new article about backup recovery -->
-<!--NEW.date: 08/31/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

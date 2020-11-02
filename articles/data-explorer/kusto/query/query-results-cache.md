@@ -8,13 +8,13 @@ ms.reviewer: amitof
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/16/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: a62d9774ef8e0a93efc9d9f791af8204ba947cd1
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 2d02717f63eff91a214d1f3019242b9fbff90152
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841518"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104022"
 ---
 # <a name="query-results-cache"></a>查询结果缓存
 
@@ -56,7 +56,6 @@ GithubEvent
     * [current_principal](current-principalfunction.md)
     * [current_principal_details](current-principal-detailsfunction.md)
     * [current_principal_is_member_of](current-principal-ismemberoffunction.md)
-* 查询是一个[跨群集查询](cross-cluster-or-database-queries.md)。
 * 查询访问[外部表](schema-entities/externaltables.md)或[外部数据](externaldata-operator.md)。
 * 查询使用 [evaluate 插件](evaluateoperator.md)运算符。
 

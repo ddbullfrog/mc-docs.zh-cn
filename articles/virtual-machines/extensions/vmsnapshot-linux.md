@@ -2,7 +2,6 @@
 title: Azure 备份的 VM 快照 Linux 扩展
 description: 使用 VM 快照 Linux 扩展从 Azure 备份获取虚拟机的应用程序一致性备份。
 services: backup, virtual-machines-linux
-documentationcenter: ''
 manager: digimobile
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +12,12 @@ ms.date: 10/19/2020
 ms.testscope: no
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0a712e561b6bd74d96354ec05a7cb28b63ba2ed4
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 4b4e285c3c1b4d5ca36a4d1b3cefff86ec4e2077
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128023"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104857"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure 备份的 VM 快照 Linux 扩展
 

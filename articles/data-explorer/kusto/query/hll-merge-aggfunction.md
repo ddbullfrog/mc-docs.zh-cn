@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 hll_merge()（聚合
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/15/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 1f1a8c43db0853604303f82da31643eca8cdd5e5
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: e36549fbeb6fa2e7faaea80e2d87b85504314d31
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841398"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103887"
 ---
 # <a name="hll_merge-aggregation-function"></a>hll_merge()（聚合函数）
 
@@ -24,15 +24,15 @@ ms.locfileid: "87841398"
 
 有关详细信息，请参阅[基础算法 (HyperLogLog  ) 和估算准确度](dcount-aggfunction.md#estimation-accuracy)。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `summarize` `hll_merge(`*Expr*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * `*Expr*`：将要用于聚合计算的表达式。
 
-**返回**
+## <a name="returns"></a>返回
 
 此函数返回组中 `*Expr*` 的合并 `hll` 值。
  

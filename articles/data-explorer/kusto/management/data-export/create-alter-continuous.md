@@ -8,13 +8,13 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/03/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: df2067e4d878143b2342f9e939d365ae141456a1
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 8c34939c5237fad7ae05fc684dcafa8b543946c0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556498"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104457"
 ---
 # <a name="create-or-alter-continuous-export"></a>创建或更改连续导出
 
@@ -23,7 +23,7 @@ ms.locfileid: "88556498"
 ## <a name="syntax"></a>语法
 
 `.create-or-alter` `continuous-export` *ContinuousExportName* <br>
-[ `over` `(`*T1*, *T2* `)`] <br>
+[ `over` `(`*T1* , *T2* `)`] <br>
 `to` `table` *ExternalTableName* <br> [ `with` `(`*PropertyName* `=` *PropertyValue*`,`...`)`]<br>
 \<| *Query*
 
@@ -32,7 +32,7 @@ ms.locfileid: "88556498"
 | properties             | 类型     | 说明   |
 |----------------------|----------|---------------------------------------|
 | ContinuousExportName | String   | 连续导出的名称。 该名称在数据库中必须独一无二，用于定期运行连续导出。      |
-| ExternalTableName    | String   | 要导出到的[外部表](../externaltables.md)的名称。  |
+| ExternalTableName    | String   | 要导出到的[外部表](../external-table-commands.md)的名称。  |
 | 查询                | String   | 要导出的查询。  |
 | over (T1, T2)        | String   | 查询中可选的以逗号分隔的事实数据表列表。 如果不指定此项，将假定查询中引用的所有表都是事实数据表。 如果指定此项，则不在此列表中的表将被视为维度表，并且将没有作用域（所有记录都将参与所有导出）。 有关详细信息，请参阅[连续数据导出概述](continuous-data-export.md)。 |
 | intervalBetweenRuns  | Timespan | 连续导出执行之间的时间跨度。 必须大于 1 分钟。   |

@@ -10,12 +10,12 @@ origin.date: 05/04/2020
 ms.date: 07/06/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
-ms.openlocfilehash: a8abb9a02aab7288ece1583718d6db0d1d34cb83
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: fdb0111d810645fcf0ef3215b7c6c5d97e17361e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945759"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104164"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>使用 Azure PowerShell 创建共享映像库 
 

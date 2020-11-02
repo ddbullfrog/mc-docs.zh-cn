@@ -11,12 +11,12 @@ ms.devlang: java
 origin.date: 06/26/2020
 ms.date: 10/12/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 756c36fce8d388dac8db3731d7a2aaf361225de9
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: ad4848f7291b982523a2d6968e09d219f352c446
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872335"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104548"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>在 Azure SQL 数据库中使用 Java 和 JDBC
 
@@ -28,7 +28,7 @@ JDBC 是标准的 Java API，用于连接到传统的关系数据库。
 
 - 一个 Azure 帐户。 如果没有帐户，请[获取 1 元试用账户](https://wd.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 - [Azure CLI](/cli/install-azure-cli)。
-- 受支持的 [Java 开发工具包](https://aka.ms/azure-jdks)，版本 8（已在 Azure Cloud Shell 中包括）。
+- 一个受支持的 [Java 开发工具包](https://aka.ms/azure-jdks)，版本 8。
 - [Apache Maven](https://maven.apache.org/) 生成工具。
 
 ## <a name="prepare-the-working-environment"></a>准备工作环境
