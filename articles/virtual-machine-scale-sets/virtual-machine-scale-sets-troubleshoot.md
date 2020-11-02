@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: troubleshooting
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 08/06/2020
+ms.date: 10/20/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 726f4d18b1a9dee4a7c840a05ce176e00e1455b2
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: e8bd6de016f6db7bbc5433a74d0b1994a33705ec
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914281"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472074"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>疑难解答使用虚拟机规模集的自动缩放问题
 **问题** - 已使用虚拟机规模集在 Azure 资源管理器中创建自动缩放基础结构（例如，通过部署与 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 类似的模板来这样做）。已定义了缩放规则，其效果良好，但无论在 VM 中施加多少负载，它都不会自动缩放。
@@ -23,7 +23,7 @@ ms.locfileid: "87914281"
 应考虑的一些事项包括：
 
 * 每个 VM 有多少个 vCPU，是否加载了所有 vCPU？
-  上面的 Azure 快速入门模板示例具有 do_work.php 脚本，它可以加载单个 vCPU。 如果正在使用比单 vCPU VM 大小（如 Standard_A1 或 D1）更大的 VM，则需要多次运行此加载过程。 通过查看 [Azure 中 Windows 虚拟机的大小](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)检查 VM 中有多少个 vCPU
+  上面的 Azure 快速入门模板示例具有 do_work.php 脚本，它可以加载单个 vCPU。 如果正在使用比单 vCPU VM 大小（如 Standard_A1 或 D1）更大的 VM，则需要多次运行此加载过程。 通过查看 [Azure 中 Windows 虚拟机的大小](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)检查 VM 中有多少个 vCPU
 * 虚拟机规模集中有多少个 VM，正在处理每个 VM 吗？
   
     仅当规模集中所有 VM 的平均 CPU 在自动缩放规则中定义的内部时间之内超出阈值时，才会发生横向扩展事件。

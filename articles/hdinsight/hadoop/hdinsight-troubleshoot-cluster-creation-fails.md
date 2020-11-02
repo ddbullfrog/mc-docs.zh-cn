@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 origin.date: 04/14/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: 4777d8f80d910d21ee37bd6003e999eae87fd863
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 57b6008182a1336fcb158423effacb59ff91d336
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723768"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472614"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>排查 Azure HDInsight 中的群集创建失败问题
 
@@ -30,7 +30,7 @@ ms.locfileid: "84723768"
 
 ## <a name="permissions-issues"></a>权限问题
 
-如果使用的是 Azure Data Lake Storage Gen2 并收到错误 `AmbariClusterCreationFailedErrorCode`（“:::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support.":::”），请打开 Azure 门户，转到你的存储帐户，并在访问控制 (IAM) 下确保“存储 Blob 数据参与者”或“存储 Blob 数据所有者”角色已经为该订阅的“用户分配的托管标识”分配了访问权限  。 有关详细说明，请参阅[在 Data Lake Storage Gen2 帐户上设置托管标识的权限](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account)。
+如果使用的是 Azure Data Lake Storage Gen2 并收到错误 `AmbariClusterCreationFailedErrorCode`（“:::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support.":::”），请打开 Azure 门户，转到你的存储帐户，并在访问控制 (IAM) 下确保“存储 Blob 数据参与者”或“存储 Blob 数据所有者”角色已经为该订阅的“用户分配的托管标识”分配了访问权限  。 有关详细说明，请参阅[在 Data Lake Storage Gen2 上设置托管标识的权限](../hdinsight-hadoop-use-data-lake-storage-gen2-portal.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2)。
 
 
 如果使用 Azure 存储，请确保创建群集期间存储帐户名称有效。
@@ -68,7 +68,7 @@ ms.locfileid: "84723768"
 
 ## <a name="unsupported-component-versions"></a>不支持的组件版本
 
-确保在解决方案中使用[受支持版本的 Azure HDInsight](../hdinsight-component-versioning.md) 和任何 [Apache Hadoop 组件](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)。  
+确保在解决方案中使用[受支持版本的 Azure HDInsight](../hdinsight-component-versioning.md) 和任何 [Apache Hadoop 组件](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)。  
 
 ## <a name="storage-account-name-restrictions"></a>存储帐户名称限制
 

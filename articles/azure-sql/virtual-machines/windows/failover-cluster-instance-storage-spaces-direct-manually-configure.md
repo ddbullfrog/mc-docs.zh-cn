@@ -16,12 +16,12 @@ origin.date: 06/11/2018
 ms.date: 07/06/2020
 ms.testscope: No
 ms.author: v-yeche
-ms.openlocfilehash: 0ffca9971227f81256437087256899e838271c89
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: 510056260bbbe61dff05afa02480b92aea5d2b61
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946169"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470458"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -118,15 +118,15 @@ ms.locfileid: "85946169"
     1. 选择“可用性集”。
     1. 选择“创建” 。
     1. 在“创建可用性集”下，提供以下值：
-        - **名称**：可用性集的名称。
-        - **订阅**：Azure 订阅。
-        - **资源组**：如果想要使用现有的组，请单击“选择现有项”并从列表中选择该组。 否则，请选择“新建”并输入组的名称。
-        - **位置**：设置要在其中创建虚拟机的位置。
-        - **容错域**：使用默认值 (**2**)。
+        - **名称** ：可用性集的名称。
+        - **订阅** ：Azure 订阅。
+        - **资源组** ：如果想要使用现有的组，请单击“选择现有项”并从列表中选择该组。 否则，请选择“新建”并输入组的名称。
+        - **位置** ：设置要在其中创建虚拟机的位置。
+        - **容错域** ：使用默认值 ( **2** )。
         
             <!--CORRRECT 2 ON FAULT DOMAINS on Mooncake-->
             
-        - **更新域**：使用默认值 (**5**)。
+        - **更新域** ：使用默认值 ( **5** )。
     1. 选择“创建”以创建可用性集。
 
 1. 在可用性集中创建虚拟机。
@@ -150,7 +150,7 @@ ms.locfileid: "85946169"
 
     根据 SQL Server 许可证的付费方式选择正确的映像：
 
-    - **按使用量付费许可方式**。 这些映像的每秒费用包括 SQL Server 许可费：
+    - **按使用量付费许可方式** 。 这些映像的每秒费用包括 SQL Server 许可费：
         - **Windows Server 2016 Datacenter 上的 SQL Server 2016 Enterprise**
         - **Windows Server 2016 Datacenter 上的 SQL Server 2016 Standard**
         - **Windows Server 2016 Datacenter 上的 SQL Server 2016 Developer**
@@ -252,14 +252,14 @@ ms.locfileid: "85946169"
 
 1. 在“服务器管理器”下，依次选择“工具”、“故障转移群集管理器”。  
 1. 在“故障转移群集管理器”下，依次选择“操作”、“验证配置”。  
-1. 选择“**下一步**”。
+1. 选择“ **下一步** ”。
 1. 在“选择服务器或群集”下，输入两个虚拟机的名称。
-1. 在“测试选项”下，选择“仅运行选择的测试”。  选择“**下一步**”。
+1. 在“测试选项”下，选择“仅运行选择的测试”。  选择“ **下一步** ”。
 1. 在“测试选择”下，选择除“存储”以外的所有测试，如下所示： 
 
     ![选择群集验证测试](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. 选择“**下一步**”。
+1. 选择“ **下一步** ”。
 1. 在“确认”下，选择“下一步”。 
 
 “验证配置向导”将运行验证测试。
@@ -272,7 +272,7 @@ Test-Cluster -Node ("<node1>","<node2>") -Include "Storage Spaces Direct", "Inve
 
 验证群集后，创建故障转移群集。
 
-### <a name="create-the-failover-cluster"></a>创建故障转移群集
+### <a name="create-failover-cluster"></a>创建故障转移群集
 
 若要创建故障转移群集，需要：
 
@@ -389,15 +389,15 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") -StaticAddr
 
 1. 为负载均衡器配置以下属性：
 
-    - **订阅**：Azure 订阅。
-    - **资源组**：包含你的虚拟机的资源组。
-    - **名称**：标识负载均衡器的名称。
-    - **区域**：包含你的虚拟机的 Azure 位置。
-    - **类型**：公共或专用。 可从虚拟网络内部访问专用负载均衡器。 大多数 Azure 应用程序可以使用专用负载均衡器。 如果应用程序需要通过 Internet 直接访问 SQL Server，请使用公共负载均衡器。
-    - **SKU**：标准。
-    - **虚拟网络**：虚拟机所在的网络。
-    - **IP 地址分配**：静态。 
-    - **专用 IP 地址**：分配给 SQL Server FCI 群集网络资源的 IP 地址。
+    - **订阅** ：Azure 订阅。
+    - **资源组** ：包含你的虚拟机的资源组。
+    - **名称** ：标识负载均衡器的名称。
+    - **区域** ：包含你的虚拟机的 Azure 位置。
+    - **类型** ：公共或专用。 可从虚拟网络内部访问专用负载均衡器。 大多数 Azure 应用程序可以使用专用负载均衡器。 如果应用程序需要通过 Internet 直接访问 SQL Server，请使用公共负载均衡器。
+    - **SKU** ：标准。
+    - **虚拟网络** ：虚拟机所在的网络。
+    - **IP 地址分配** ：静态。 
+    - **专用 IP 地址** ：分配给 SQL Server FCI 群集网络资源的 IP 地址。
 
     以下屏幕截图显示了“创建负载均衡器”UI：
 
@@ -423,11 +423,11 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") -StaticAddr
 
 1. 在“添加运行状况探测”边栏选项卡上，<a name="probe"></a>设置运行状况探测参数。
 
-    - **名称**：运行状况探测的名称
-    - **协议**：TCP
-    - **端口**：设置为你在[此步骤](#ports)中在防火墙中为运行状况探测创建的端口 <br/>在本文中，示例使用了 TCP 端口 `59999`。
-    - **时间间隔**：5 秒。
-    - **不正常阈值**：2 次连续失败
+    - **名称** ：运行状况探测的名称
+    - **协议** ：TCP
+    - **端口** ：设置为你在 [此步骤](#ports)中在防火墙中为运行状况探测创建的端口 <br/>在本文中，示例使用了 TCP 端口 `59999`。
+    - **时间间隔** ：5 秒。
+    - **不正常阈值** ：2 次连续失败
 
 1. 选择“确定” 。
 
@@ -439,13 +439,13 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") -StaticAddr
 
 1. 设置负载均衡规则参数：
 
-    - **名称**：负载均衡规则的名称。
-    - **前端 IP 地址**：SQL Server FCI 群集网络资源的 IP 地址。
-    - **端口**：SQL Server FCI TCP 端口。 默认实例端口为 1433。
-    - **后端端口**：使用与启用“浮动 IP (直接服务器返回)”时为“端口”所用的相同值。 
-    - **后端池**：前面配置的后端池名称。
-    - **运行状况探测**：前面配置的运行状况探测。
-    - **会话持久性**：无。
+    - **名称** ：负载均衡规则的名称。
+    - **前端 IP 地址** ：SQL Server FCI 群集网络资源的 IP 地址。
+    - **端口** ：SQL Server FCI TCP 端口。 默认实例端口为 1433。
+    - **后端端口** ：使用与启用“浮动 IP (直接服务器返回)”时为“端口”所用的相同值。 
+    - **后端池** ：前面配置的后端池名称。
+    - **运行状况探测** ：前面配置的运行状况探测。
+    - **会话持久性** ：无。
     - **空闲超时(分钟)** ：4.
     - **浮动 IP (直接服务器返回)** ：已启用。
 

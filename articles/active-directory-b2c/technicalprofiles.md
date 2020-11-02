@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 450919e6ad6b24d36e8fa0ac4490ac8179d1d65e
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 47b94147cacc8bba5d9af5e3c8cc7aa6a2d9a4ee
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297688"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471140"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -77,15 +77,15 @@ ms.locfileid: "87297688"
 
 | Attribute | 必选 | 说明 |
 |---------|---------|---------|
-| ID | 是 | 技术配置文件的唯一标识符。 可以使用此标识符从策略文件中的其他元素引用技术配置文件。 例如，**OrchestrationSteps** 和 **ValidationTechnicalProfile**。 |
+| ID | 是 | 技术配置文件的唯一标识符。 可以使用此标识符从策略文件中的其他元素引用技术配置文件。 例如， **OrchestrationSteps** 和 **ValidationTechnicalProfile** 。 |
 
 **TechnicalProfile** 包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
 | 域 | 0:1 | 技术配置文件的域名。  |
-| DisplayName | 1:1 | 可向用户显示的技术配置文件名称。 |
-| 说明 | 0:1 | 可向用户显示的技术配置文件说明。 |
+| DisplayName | 1:1 | 技术配置文件的显示名称。 |
+| 说明 | 0:1 | 技术配置文件的说明。 |
 | 协议 | 0:1 | 用来与另一方通信的协议。 |
 | 元数据 | 0:1 | 在事务处理过程中，协议用来与终结点通信的键/值对集合。 |
 | InputTokenFormat | 0:1 | 输入令牌的格式。 可能的值：`JSON`、`JWT`、`SAML11` 或 `SAML2`。 `JWT` 值表示符合 IETF 规范的 JSON Web 令牌。 `SAML11` 值表示符合 OASIS 规范的 SAML 1.1 安全令牌。  `SAML2` 值表示符合 OASIS 规范的 SAML 2.0 安全令牌。 |
@@ -94,7 +94,7 @@ ms.locfileid: "87297688"
 | InputClaimsTransformations | 0:1 | 事先定义的、对在将任何声明发送到声明提供程序或信赖方之前应执行的声明转换的引用列表。 |
 | InputClaims | 0:1 | 事先定义的、对在技术配置文件中用作输入的声明类型的引用列表。 |
 | PersistedClaims | 0:1 | 事先定义的、对技术配置文件相关的声明提供程序所保存的声明类型的引用列表。 |
-| DisplayClaims | 0:1 | 声明提供程序提供的与[自断言技术配置文件](self-asserted-technical-profile.md)相关的声明类型的以前定义引用的列表。 DisplayClaims 功能目前处于**预览**状态。 |
+| DisplayClaims | 0:1 | 声明提供程序提供的与[自断言技术配置文件](self-asserted-technical-profile.md)相关的声明类型的以前定义引用的列表。 DisplayClaims 功能目前处于 **预览** 状态。 |
 | OutputClaims | 0:1 | 事先定义的、对在技术配置文件中用作输出的声明类型的引用列表。 |
 | OutputClaimsTransformations | 0:1 | 事先定义的、对在从声明提供程序收到声明之后应执行的声明转换的引用列表。 |
 | ValidationTechnicalProfiles | 0:n | 对技术配置文件用来进行验证的其他技术配置文件的引用列表。 有关详细信息，请参阅[验证技术配置文件](validation-technical-profile.md)|
@@ -189,7 +189,7 @@ DisplayClaims  元素包含以下元素：
 | ------- | ----------- | ----------- |
 | DisplayClaim | 1:n | 预期的输入声明类型。 |
 
-DislayClaims 功能目前处于**预览**状态。
+DislayClaims 功能目前处于 **预览** 状态。
 
 ### <a name="displayclaim"></a>DisplayClaim
 
@@ -300,13 +300,13 @@ OutputClaim  元素包含以下属性：
 
 用户旅程中的 **ClaimsProviderSelections** 定义声明提供程序选项的列表及其顺序。 使用 **EnabledForUserJourneys** 元素可以筛选用户可用的声明提供程序。 **EnabledForUserJourneys** 元素包含以下值之一：
 
-- **Always**：执行技术配置文件。
-- **Never**：跳过技术配置文件。
-- **OnClaimsExistence**：仅当技术配置文件中指定的特定声明存在时才执行技术配置文件。
-- **OnItemExistenceInStringCollectionClaim**：仅当字符串集合声明中存在某个项时才执行技术配置文件。
-- **OnItemAbsenceInStringCollectionClaim**：仅当字符串集合声明中不存在某个项时才执行技术配置文件。
+- **Always** ：执行技术配置文件。
+- **Never** ：跳过技术配置文件。
+- **OnClaimsExistence** ：仅当技术配置文件中指定的特定声明存在时才执行技术配置文件。
+- **OnItemExistenceInStringCollectionClaim** ：仅当字符串集合声明中存在某个项时才执行技术配置文件。
+- **OnItemAbsenceInStringCollectionClaim** ：仅当字符串集合声明中不存在某个项时才执行技术配置文件。
 
-使用 **OnClaimsExistence**、**OnItemExistenceInStringCollectionClaim** 或 **OnItemAbsenceInStringCollectionClaim** 时需要提供以下元数据：**ClaimTypeOnWhichToEnable** 指定要评估的声明类型，**ClaimValueOnWhichToEnable** 指定要比较的值。
+使用 **OnClaimsExistence** 、 **OnItemExistenceInStringCollectionClaim** 或 **OnItemAbsenceInStringCollectionClaim** 时需要提供以下元数据： **ClaimTypeOnWhichToEnable** 指定要评估的声明类型， **ClaimValueOnWhichToEnable** 指定要比较的值。
 
 
 <!-- Update_Description: wording update -->

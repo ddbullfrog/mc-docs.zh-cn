@@ -13,14 +13,14 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: adb33ef21208be606e31dbe596af9aeff21cfeda
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: feba8fb28dc709a224c0a92b8512e53e82b61cda
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223386"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472573"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务配置和管理问题：常见问题 (FAQ)
 
@@ -77,7 +77,7 @@ ms.locfileid: "88223386"
 
 ### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>云服务 TLS/SSL 证书的证书链为何不完整？
     
-我们建议客户安装完整的证书链（叶证书、中间证书和根证书），而不要只安装叶证书。 如果只是安装叶证书，则要依赖 Windows 通过遍历 CTL 来构建证书链。 当 Windows 尝试验证证书时，如果 Azure 或 Windows 更新中发生间歇性网络问题或 DNS 问题，可能会将该证书视为无效。 如果安装完整的证书链，则可避免此问题。 博客 [How to install a chained SSL certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/)（如何安装链接的 SSL 证书）中介绍了操作方法。
+我们建议客户安装完整的证书链（叶证书、中间证书和根证书），而不要只安装叶证书。 如果只是安装叶证书，则要依赖 Windows 通过遍历 CTL 来构建证书链。 当 Windows 尝试验证证书时，如果 Azure 或 Windows 更新中发生间歇性网络问题或 DNS 问题，可能会将该证书视为无效。 如果安装完整的证书链，则可避免此问题。 博客 [How to install a chained SSL certificate](https://docs.microsoft.com/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate)（如何安装链接的 SSL 证书）中介绍了操作方法。
 
 ### <a name="what-is-the-purpose-of-the-azure-tools-encryption-certificate-for-extensions"></a>“用于扩展的 Azure 工具加密证书”有何用途？
 
@@ -100,7 +100,7 @@ CSR 只是一个文本文件。 无需从最终使用此证书的计算机中创
 ```powershell
 Add-AzureAccount -Environment AzureChinaCloud
 Select-AzureSubscription -Current -SubscriptionName <your subscription name>
-Get-AzurePublishSettingsFile
+Get-AzurePublishSettingsFile -Environment AzureChinaCloud
 ```
 
 **AzurePublishSettingsFile** 将在 Azure 门户上的“订阅” > “管理证书”中创建新的管理证书。 新证书的名称类似于“[订阅名称]-[当前日期]-credentials”。
@@ -114,8 +114,8 @@ Get-AzurePublishSettingsFile
 此证书用于加密 Azure Web 角色的计算机密钥。 若要了解详细信息，请查看[此公告](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)。
 
 有关详细信息，请参阅以下文章：
-- [如何配置和运行云服务的启动任务](/cloud-services/cloud-services-startup-tasks)
-- [常见的云服务启动任务](/cloud-services/cloud-services-startup-tasks-common)
+- [如何配置和运行云服务的启动任务](./cloud-services-startup-tasks.md)
+- [常见的云服务启动任务](./cloud-services-startup-tasks-common.md)
 
 ## <a name="monitoring-and-logging"></a>监视和日志记录
 
@@ -139,16 +139,16 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 * 提高本地资源的配额限制。
 
 有关详细信息，请参阅以下文档：
-* [在 Azure 存储中存储和查看诊断数据](/storage/common/storage-introduction)
-* [IIS 日志停止写入到云服务中](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [在 Azure 存储中存储和查看诊断数据](../storage/common/storage-introduction.md)
+* [IIS 日志停止写入到云服务中](https://docs.microsoft.com/archive/blogs/cie/iis-logs-stops-writing-in-cloud-service)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>如何为云服务启用 WAD 日志记录？
 可以通过以下选项启用 Azure 诊断 (WAD) 日志记录：
 1. [从 Visual Studio 启用](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [通过 .NET 代码启用](/cloud-services/cloud-services-dotnet-diagnostics)
-3. [通过 Powershell 启用](/cloud-services/cloud-services-diagnostics-powershell)
+2. [通过 .NET 代码启用](./cloud-services-dotnet-diagnostics.md)
+3. [通过 Powershell 启用](./cloud-services-diagnostics-powershell.md)
 
-若要获取云服务的当前 WAD 设置，可以使用 [Get-AzureServiceDiagnosticsExtensions](/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd，也可以通过门户从“云服务 - > 扩展”边栏选项卡查看它。
+若要获取云服务的当前 WAD 设置，可以使用 [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) ps cmd，也可以通过门户从“云服务 - > 扩展”边栏选项卡查看它。
 
 
 ## <a name="network-configuration"></a>网络配置
@@ -217,7 +217,7 @@ Windows 10 和 Windows Server 2016 随附了对客户端和服务器端上的 HT
 ## <a name="permissions"></a>权限
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>如何为云服务实现基于角色的访问？
-云服务不支持基于角色的访问控制 (RBAC) 模型，因为它不是基于 Azure 资源管理器的服务。
+云服务不支持 Azure 基于角色的访问控制 (Azure RBAC) 模型，因为它不是基于 Azure 资源管理器的服务。
 
 请参阅[了解 Azure 中的不同角色](../role-based-access-control/rbac-and-directory-admin-roles.md)。
 
@@ -231,7 +231,7 @@ Microsoft 遵循严格的流程，未经所有者或其被委派者书面许可�
 如果在已加入 Azure Active Directory 的计算机上使用 RDP 文件，则可能会发生此错误。 若要解决此问题，请执行以下步骤：
 
 1. 右键单击下载的 RDP 文件，然后选择“编辑”。
-2. 在用户名的前面添加“&#92;”前缀。 例如，使用 **.\username** 而不要使用 **username**。
+2. 在用户名的前面添加“&#92;”前缀。 例如，使用 **.\username** 而不要使用 **username** 。
 
 ## <a name="scaling"></a>扩展
 
@@ -247,6 +247,8 @@ Azure 订阅对可以使用的内核数存在限制。 如果已使用所有可�
 有关如何在云服务上通过 Application Insights 利用自定义指标来配置自动缩放的更多详细信息，请参阅[在 Azure 中根据自定义指标自动缩放入门](../azure-monitor/platform/autoscale-custom-metric.md)
 
 有关如何针对云服务将 Azure 诊断与 Application Insights 集成的详细信息，请参阅[将云服务、虚拟机或 Service Fabric 诊断数据发送到 Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+
+有关如何为云服务启用 Application Insights 的详细信息，请参阅[适用于 Azure 云服务的 Application Insights](../azure-monitor/app/cloudservices.md)
 
 有关如何为云服务启用 Azure 诊断日志记录的详细信息，请参阅[为 Azure 云服务和虚拟机设置诊断](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
@@ -311,7 +313,7 @@ Azure 不会将任何数据写入 %approot% 驱动器。 从 .cspkg 创建 VHD �
 New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
 ```
 
-如[此文](https://technet.microsoft.com/library/ee790567.aspx)所述，$sslFlags 可为以下值之一：
+如[此文](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10))所述，$sslFlags 可为以下值之一：
 
 |值|含义|
 ------|------
@@ -322,7 +324,7 @@ New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddr
  
 **方法 2：使用代码**
 
-也可以根据此[博客文章](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/)中所述，通过角色启动中的代码配置 SNI 绑定：
+也可以根据此[博客文章](https://docs.microsoft.com/archive/blogs/jianwu/expose-ssl-service-to-multi-domains-from-the-same-cloud-service)中所述，通过角色启动中的代码配置 SNI 绑定：
 
 ```csharp
 //<code snip> 
@@ -354,8 +356,7 @@ Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Whe
 
 下面是可以在不丢失服务 IP 地址的情况下节省费用的办法：
 
-1. 在删除部署之前[保留 IP 地址](../virtual-network/virtual-networks-reserved-public-ip.md)。  这样，就只需支付此 IP 地址的费用。 有关 IP 地址计费的详细信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses/)。
+1. 在删除部署之前[保留 IP 地址](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)。  这样，就只需支付此 IP 地址的费用。 有关 IP 地址计费的详细信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses/)。
 2. 删除部署。 不要删除 xxx.chinacloudapp.cn，以备将来使用。
 3. 如果想要使用订阅中的相同保留 IP 来重新部署云服务，请参阅[云服务和虚拟机的保留 IP 地址](https://azure.microsoft.com/blog/reserved-ip-addresses/)。
 
-<!-- Update_Description: wording update -->

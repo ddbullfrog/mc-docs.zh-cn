@@ -2,13 +2,13 @@
 title: 排查错误：Azure Functions 运行时不可访问
 description: 了解如何排查存储帐户无效的问题。
 ms.topic: article
-ms.date: 08/12/2020
-ms.openlocfilehash: 7ce05a434e32e2998114557f0a2e8b1c96c127e8
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/19/2020
+ms.openlocfilehash: 315fce912288dbb834798f56e344aad82196f57f
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223162"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472047"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>排查错误：“Azure Functions 运行时不可访问”
 
@@ -36,7 +36,7 @@ ms.locfileid: "88223162"
 
 * 必需：
     * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
-* 对于消耗计划函数是必需的：
+* 需要它才能使用和高级计划功能：
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
     * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 

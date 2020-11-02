@@ -7,18 +7,18 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviwer: ''
 origin.date: 04/23/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 5eb552043798fa179f5b4000a80a34c9f54fc93e
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/26/2020
+ms.openlocfilehash: 47f404ad20761bc290799839189fa9ce335c56b3
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872439"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470468"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>使用 Windows 证书存储配置 Always Encrypted
 
@@ -52,7 +52,7 @@ Always Encrypted 是一项数据加密技术，用于保护服务器上的敏感
 
 首先必须通过设置 Azure Active Directory (AAD) 应用程序并复制对应用程序进行身份验证所需的“应用程序 ID”和“密钥”，使客户端应用程序可以访问 SQL 数据库或 SQL 托管实例 。
 
-若要获取应用程序 ID 和*密钥*，请按照[创建可访问资源的 Azure Active Directory 应用程序和服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)中的步骤进行操作。
+若要获取应用程序 ID 和 *密钥* ，请按照 [创建可访问资源的 Azure Active Directory 应用程序和服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)中的步骤进行操作。
 
 
 
@@ -98,9 +98,9 @@ SSMS 提供了一个向导，通过设置 CMK、CEK 和已加密列即可轻松�
 1. 展开“数据库” > “Clinic” > “表”。
 2. 右键单击“患者”表，并选择“加密列”以打开始终加密向导：
 
-    ![加密列](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
+    ![屏幕截图显示了“患者”表中的“加密列…”菜单选项。](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
-Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置** (CMK)、**验证**和**摘要**。
+Always Encrypted 向导包括以下几部分： **列选择** 、 **主密钥配置** (CMK)、 **验证** 和 **摘要** 。
 
 ### <a name="column-selection"></a>列选择
 
@@ -114,7 +114,7 @@ Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置
 
 ### <a name="master-key-configuration"></a>主密钥配置
 
-**主密钥配置**页是设置 CMK 和选择密钥存储提供程序（在其中存储 CMK）的地方。 目前，可以将 CMK 存储在 Windows 证书存储或 Azure 密钥保管库中。 本教程演示如何将密钥存储在 Windows 证书存储中。
+**主密钥配置** 页是设置 CMK 和选择密钥存储提供程序（在其中存储 CMK）的地方。 目前，可以将 CMK 存储在 Windows 证书存储或 Azure 密钥保管库中。 本教程演示如何将密钥存储在 Windows 证书存储中。
 
 验证是否选中了“Windows 证书存储”，并单击“下一步”。
 
@@ -148,9 +148,9 @@ Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置
 > 通过始终加密列将明文数据传递到服务器时，应用程序必须使用 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 对象。 在不使用 SqlParameter 对象的情况下传递文本值会导致异常。
 
 1. 打开 Visual Studio 并创建新的 C# 控制台应用程序。 确保将项目设置为 **.NET Framework 4.6** 或更高版本。
-2. 将项目命名为 **AlwaysEncryptedConsoleApp**，并单击“确定”。
+2. 将项目命名为 **AlwaysEncryptedConsoleApp** ，并单击“确定”。
 
-![新建控制台应用程序](./media/always-encrypted-certificate-store-configure/console-app.png)
+![屏幕截图显示了新命名的 AlwaysEncryptedConsoleApp 项目。](./media/always-encrypted-certificate-store-configure/console-app.png)
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>修改连接字符串以启用始终加密
 
@@ -158,7 +158,7 @@ Always Encrypted 向导包括以下几部分：**列选择**、**主密钥配置
 
 要启用“始终加密”，你需要将“列加密设置”关键字添加到连接字符串中，并将其设置为“启用”。
 
-可以在连接字符串中直接进行该设置，也可以使用 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx) 进行设置。 下一节中的示例应用程序演示如何使用 **SqlConnectionStringBuilder**。
+可以在连接字符串中直接进行该设置，也可以使用 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx) 进行设置。 下一节中的示例应用程序演示如何使用 **SqlConnectionStringBuilder** 。
 
 > [!NOTE]
 > 在特定于始终加密的客户端应用程序中，这是需要完成的唯一更改。 如果某个现有应用程序将其连接字符串存储在外部（即存储在配置文件中），则可在不更改任何代码的情况下启用始终加密。
@@ -511,15 +511,15 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 可以看到，加密的列不包含任何明文数据。
 
-   ![新建控制台应用程序](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
+   ![屏幕截图显示了加密列中的加密数据。](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
 
 要使用 SSMS 来访问明文数据，可将 **Column Encryption Setting=enabled** 参数添加到连接中。
 
 1. 在 SSMS 中，右键单击“对象资源管理器”中的服务器，并单击“断开连接”。
 2. 单击“连接” > “数据库引擎”打开“连接到服务器”窗口，并单击“选项”。
-3. 单击“其他连接参数”，并键入 **Column Encryption Setting=enabled**。
+3. 单击“其他连接参数”，并键入 **Column Encryption Setting=enabled** 。
 
-    ![新建控制台应用程序](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
+    ![屏幕截图显示了在框中键入“列加密设置 = 启用”的“其他连接参数”选项卡。](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. 针对 **Clinic** 数据库运行以下查询。
 
     ```tsql

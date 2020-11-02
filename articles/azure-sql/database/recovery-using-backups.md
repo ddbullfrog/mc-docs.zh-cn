@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, sstein, danil
 origin.date: 09/26/2019
-ms.date: 10/12/2020
-ms.openlocfilehash: ac03600eef5b7a621b2ac40a877da26674e33b37
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: 4af1a678343ae66a690dc98e30fe03f10a33b903
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872417"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470374"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>使用自动数据库备份进行恢复 - Azure SQL 托管实例和 SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -250,7 +250,7 @@ ms.locfileid: "91872417"
 
 #### <a name="sql-database"></a>SQL 数据库
 
-若要使用 Azure CLI 还原单一数据库或共用数据库，请参阅 [az sql db restore](/cli/sql/db#az-sql-db-restore)。
+若要使用 Azure CLI 还原数据库，请参阅 [az sql db restore](/cli/sql/db#az-sql-db-restore)。
 
 #### <a name="sql-managed-instance"></a>SQL 托管实例
 

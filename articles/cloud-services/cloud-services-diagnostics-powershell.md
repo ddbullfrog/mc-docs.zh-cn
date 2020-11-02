@@ -1,20 +1,20 @@
 ---
 title: 使用 PowerShell 在 Azure 云服务中启用诊断 | Microsoft Docs
-description: 了解如何使用 PowerShell 为云服务启用诊断
+description: 了解如何使用 PowerShell 在配置了 Azure 诊断扩展的 Azure 云服务中启用收集诊断数据。
 services: cloud-services
 documentationcenter: .net
 author: tgore03
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: a413d92cdf030a480d5098e871b55fcdb27d3edc
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 82ad4489b30c43cb8a8a7c98f8d598fd9a3f3263
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223379"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472176"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 在 Azure 云服务中启用诊断
 可以使用 Azure 诊断扩展从云服务收集应用程序日志、性能计数器等诊断数据。 本文介绍如何使用 PowerShell 为云服务启用 Azure 诊断扩展。  有关本文所需的先决条件，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/)。
@@ -131,9 +131,6 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## <a name="next-steps"></a>后续步骤
 * 有关使用 Azure 诊断和其他方法排查问题的详细说明，请参阅[在 Azure 云服务和虚拟机中启用诊断](cloud-services-dotnet-diagnostics.md)。
-* [诊断配置架构](/azure-monitor/platform/diagnostics-extension-schema-1dot3)说明了诊断扩展的各种 XML 配置选项。
-* 若要了解如何为虚拟机启用诊断扩展，请参阅[使用 Azure 资源管理器模板创建具有监视和诊断功能的 Windows 虚拟机](../virtual-machines/windows/extensions-diagnostics-template.md)
-
-
-
+* [诊断配置架构](../azure-monitor/platform/diagnostics-extension-schema-windows.md)说明了诊断扩展的各种 XML 配置选项。
+* 若要了解如何为虚拟机启用诊断扩展，请参阅[使用 Azure 资源管理器模板创建具有监视和诊断功能的 Windows 虚拟机](../virtual-machines/extensions/diagnostics-template.md)
 

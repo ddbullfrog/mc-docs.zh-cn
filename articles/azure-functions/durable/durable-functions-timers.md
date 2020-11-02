@@ -2,14 +2,14 @@
 title: Durable Functions 中的计时器 - Azure
 description: 了解如何实现 Azure Functions 的 Durable Functions 扩展中的持久计时器。
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 32d8eb1d4d84e343582dd481241b6d2ac0fb7ba3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 8b826e67bddf4abff552d2afcf726b3d9d6b69e0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77428055"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472677"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Durable Functions 中的计时器 (Azure Functions)
 
@@ -22,7 +22,7 @@ ms.locfileid: "77428055"
 创建在下午 4:30 过期的计时器时，基础 Durable Task Framework 会将一条仅在下午 4:30 才变得可见的消息排入队列。 当在 Azure Functions 消耗计划中运行时，新近可见的计时器消息将确保在合适的 VM 上激活函数应用。
 
 > [!NOTE]
-> * 持久计时器目前的限制为 7 天。 如果需要更长的延迟，可以在 `while` 循环中使用计时器 API 对其进行模拟。
+> * 从 Durable Extension 的[版本 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) 开始，Durable 计时器不再受限制。 在该扩展的较早版本中，Durable 计时器限制为 7 天。 如果使用的是较早版本，且需要延迟时间超过 7 天，请在 `while` 循环中使用计时器 API 来模拟此延迟。
 > * 计算持久计时器的触发时间时，请始终在 .NET 中使用 `CurrentUtcDateTime` 而非 `DateTime.UtcNow`，在 JavaScript 中使用 `currentUtcDateTime` 而非 `Date.now` 或 `Date.UTC`。 有关详细信息，请参阅[业务流程协调程序函数代码约束](durable-functions-code-constraints.md)一文。
 
 ## <a name="usage-for-delay"></a>延迟的用法
@@ -144,4 +144,3 @@ module.exports = df.orchestrator(function*(context) {
 > [!div class="nextstepaction"]
 > [了解如何引发和处理外部事件](durable-functions-external-events.md)
 
-<!-- Update_Description: wording update -->

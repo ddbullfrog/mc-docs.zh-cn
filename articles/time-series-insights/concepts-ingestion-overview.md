@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 777c31e076cf2f2838d7552355e2f384cb5e15a5
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: c3b0a133a0c0064485a619f0c8c0c5b96d659df6
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801826"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472138"
 ---
 # <a name="azure-time-series-insights-gen2-data-ingestion-overview"></a>Azure 时序见解 Gen2 数据引入概述
 
@@ -37,5 +37,5 @@ Azure 时序见解第 2 代环境包含一个用于收集、处理和存储流�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 继续详细了解 Azure 时序见解第 2 代环境的[事件源](./concepts-streaming-ingestion-event-sources.md)。 
+* 继续详细了解 Azure 时序见解第 2 代环境的[事件源](./concepts-streaming-ingestion-event-sources.md)。
 

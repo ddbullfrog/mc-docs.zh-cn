@@ -1,16 +1,18 @@
 ---
 title: 在 LUIS 门户中测试应用
 description: 使用语言理解 (LUIS) 持续优化应用程序并改进其语言理解能力。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 10/19/2020
 origin.date: 06/02/2020
-ms.author: v-tawe
-ms.openlocfilehash: 4d99cc34e0ac010aecdc24965896d77b5fdddd06
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.author: v-johya
+ms.openlocfilehash: 706b4e0f150391cef33e2834ca7e718e9c98e510
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101991"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472420"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 门户中测试 LUIS 应用
 
@@ -65,9 +67,27 @@ ms.locfileid: "85101991"
 
 从检查面板中，可以通过选择“添加到示例言语”将测试言语添加到意图。
 
+## <a name="disable-required-features"></a>禁用所需的功能
 
-<!-- machine-learned entity is not available-->
+此切换按钮可帮助你确定经过训练的应用是否根据所需功能正确预测你的实体。 默认设置是在预测过程中按需应用该功能。 选择此切换按钮可查看不需要该子实体功能时的预测结果。
 
+### <a name="when-to-disable-required-features"></a>何时禁用所需的功能
+
+经过训练的应用可能会基于以下某种情况对机器学习实体做出错误预测：
+* 示例言语的标记错误。
+* 所需的功能与文本不匹配。
+
+例如，一个机器学习实体具有一个子实体，该子实体是某个人的姓名。
+
+:::image type="content" source="media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="具有所需功能的 LUIS 门户机器学习实体架构的屏幕截图":::
+
+此机器学习实体的示例言语为：`Assign Bob Jones to work on the new security feature`。
+
+提取应是 `security feature` 作为票证说明，`Bob Jones` 作为工程师，它们是 `Assign ticket` 实体的两个子实体。
+
+为了帮助子实体成功预测，请将预生成实体 [PersonName](luis-reference-prebuilt-person.md) 作为功能添加到 `engineer` 子实体。 如果你将该功能设为必需，这意味着只有在为文本预测 PersonName 预生成实体时，才会提取子实体。 这意味着文本中未使用 PersonName 子实体预测的任何姓名都不会作为标记的子实体 `engineer` 返回。
+
+使用交互式测试窗格，并看到具有所需功能的子实体未进行预测时，请切换此设置，查看是否可以在不需要该功能的情况下预测子实体。 由于对示例言语进行了正确标记，可能能够在没有所需功能的情况下正确预测子实体。
 
 ## <a name="view-sentiment-results"></a>查看情绪结果
 
@@ -97,7 +117,7 @@ ms.locfileid: "85101991"
 如果有多个 LUIS 终结点，请使用测试的“已发布”窗格上的“其他设置”链接来更改用于测试的终结点。 如果不确定要使用哪个终结点，请选择默认的“Starter_Key”。
 
 > [!div class="mx-imgBorder"]
-> ![突出显示了“其他设置”链接的测试面板](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
+> ![突出显示了“其他设置”链接的测试面板](./media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
 
 ## <a name="batch-testing"></a>批处理测试
@@ -107,4 +127,6 @@ ms.locfileid: "85101991"
 
 如果测试表明 LUIS 应用未正确识别意向和实体，则可以通过标记更多陈述或添加功能来提高 LUIS 应用的准确性。
 
+* [使用 LUIS 标记建议的陈述](luis-how-to-review-endpoint-utterances.md)
 * [使用相关功能来改进 LUIS 应用的性能](luis-how-to-add-features.md)
+

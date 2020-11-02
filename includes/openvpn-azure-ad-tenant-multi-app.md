@@ -2,19 +2,21 @@
 title: include 文件
 description: include 文件
 services: vpn-gateway
-author: rockboyfor
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 02/18/2020
-ms.date: 05/18/2020
+origin.date: 10/15/2020
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: 10/26/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 0d37ade6cf1129e52bd3f0480f7ab16d1f1e36fb
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 65fd66cad78cab44f418aae9327d4d502b1fed16
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88246524"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472610"
 ---
 <a name="tenant"></a>
 ## <a name="1-create-the-azure-ad-tenant"></a>1.创建 Azure AD 租户
@@ -26,7 +28,7 @@ ms.locfileid: "88246524"
 
     示例：
 
-    ![新 Azure AD 租户](./media/openvpn-azure-ad-tenant-multi-app/new-tenant.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/new-tenant.png" alt-text="新 Azure AD 租户":::
 
 <a name="users"></a>
 ## <a name="2-create-tenant-users"></a>2.创建租户用户
@@ -43,7 +45,7 @@ ms.locfileid: "88246524"
 
 1. 找到要用于身份验证的目录的目录 ID。 此 ID 在“Active Directory”页的“属性”部分中列出。
 
-    ![Directory ID](./media/openvpn-azure-ad-tenant-multi-app/directory-id.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/directory-id.png" alt-text="新 Azure AD 租户":::
 
 2. 复制“目录 ID”。
 
@@ -51,6 +53,7 @@ ms.locfileid: "88246524"
 
 4. 接下来，做出管理员许可。 在浏览器的地址栏中复制并粘贴与部署位置相关的 URL：
 
+    <!--MOONCAKE: CUSTOMIZE-->
     <!--UPDATE CAREFULLY-->
     
     公共
@@ -65,31 +68,38 @@ ms.locfileid: "88246524"
     https://login-us.microsoftonline.com/common/oauth2/authorize?client_id=51bb15d4-3a4f-4ebf-9dca-40096fe32426&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
     ````
 
-    德国 Microsoft 云
+    Azure 德国云
 
     ```
-    https://login-us.microsoftonline.de/common/oauth2/authorize?client_id=538ee9e6-310a-468d-afef-ea97365856a9&response_type=code&redirect_uri=https://portal.microsoftazure.de&nonce=1234&prompt=admin_consent
+    https://login.microsoftonline.de/common/oauth2/authorize?client_id=538ee9e6-310a-468d-afef-ea97365856a9&response_type=code&redirect_uri=https://portal.microsoftazure.de&nonce=1234&prompt=admin_consent
     ````
-
+    
+    <!--CORRECT ON https://login.microsoftonline.de/-->
+    
     Azure 中国世纪互联
 
     ```
     https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
     
+    <!--MOONCAKE: CUSTOMIZE-->
     <!--UPDATE CAREFULLY-->
-    
+
+> [!NOTE]
+> 如果你使用的全局管理员帐户不是 Azure AD 租户的本机帐户来提供许可，请在 URL 中将“common”替换为 Azure AD Directory ID。 在某些其他情况下，你可能还需要将“common”替换为你的 Directory ID。
+>
+
 5. 如果出现提示，请选择“全局管理员”帐户。
 
-    ![Directory ID](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/pick.png" alt-text="新 Azure AD 租户":::
 
 6. 出现提示时选择“接受”。
 
-    ![Accept](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+    ![屏幕截图显示了“为你的组织请求接受的权限”消息和关于请求信息的窗口。](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
 7. 在 Azure AD 下的“企业应用程序”中，你将看到“Azure VPN”已列出 。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/azure-vpn.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/azure-vpn.png" alt-text="新 Azure AD 租户":::
 
 <a name="register-apps"></a>
 ## <a name="4-register-additional-applications"></a>4.注册其他应用程序
@@ -98,11 +108,11 @@ ms.locfileid: "88246524"
 
 1. 在 Azure Active Directory 下单击“应用注册”，然后单击“+ 新建注册” 。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app1.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/app1.png" alt-text="新 Azure AD 租户":::
 
 2. 在“注册应用程序”页上，输入名称 。 选择所需的支持的帐户类型，然后单击“注册” 
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app2.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/app2.png" alt-text="新 Azure AD 租户":::
 
 3. 注册新应用后，请单击应用边栏选项卡下的“公开 API”。
 
@@ -110,11 +120,11 @@ ms.locfileid: "88246524"
 
 5. 保留默认的“应用程序 ID URI”。 单击“保存并继续”。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app3.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/app3.png" alt-text="新 Azure AD 租户":::
 
 6. 填写必填字段，确保“状态”为“已启用”。 单击“添加范围”。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app4.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/app4.png" alt-text="新 Azure AD 租户":::
 
 7. 单击“公开 API”，然后单击“+ 添加客户端应用程序” 。  对于“客户端 ID”，根据云输入以下值：
 
@@ -125,11 +135,11 @@ ms.locfileid: "88246524"
 
 8. 单击“添加应用程序”。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app5.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/app5.png" alt-text="新 Azure AD 租户":::
 
 9. 复制“概述”页中的应用程序客户端 ID 。 你将需要使用此信息来配置 VPN 网关。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app6.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/app6.png" alt-text="新 Azure AD 租户":::
 
 10. 重复此[注册其他应用程序](#register-apps)部分中的步骤，创建安全要求所需的多个应用程序。 每个应用程序都将关联到一个 VPN 网关，并且可以有不同的用户集。 只能将一个应用程序关联到一个网关。
 
@@ -138,14 +148,16 @@ ms.locfileid: "88246524"
 
 将用户分配到应用程序。
 
-1. 在“Azure AD > 企业应用程序”下，选择新注册的应用程序，然后单击“属性” 。 确保“需要进行用户分配?”设置为“是”。  单击“ **保存**”。
+1. 在“Azure AD > 企业应用程序”下，选择新注册的应用程序，然后单击“属性” 。 确保“需要进行用户分配?”设置为“是”。  单击“保存”  。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/user2.png" alt-text="新 Azure AD 租户":::
 
 2. 在应用页上，单击“用户和组”，然后单击“+添加用户” 。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user3.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/user3.png" alt-text="新 Azure AD 租户":::
 
 3. 在“添加分配”下，单击“用户和组” 。 选择希望能够访问此 VPN 应用程序的用户。 单击“选择”。
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user4.png)
+    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/user4.png" alt-text="新 Azure AD 租户":::
+
+<!-- Update_Description: update meta properties, wording update, update link -->

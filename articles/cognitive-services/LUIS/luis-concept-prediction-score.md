@@ -1,29 +1,24 @@
 ---
 title: 预测评分 - LUIS
-titleSuffix: Azure Cognitive Services
 description: 预测分数表示 LUIS API 服务基于用户话语对于预测结果的置信度。
-services: cognitive-services
-author: lingliw
-manager: digimobile
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 origin.date: 10/10/2019
-ms.date: 12/04/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 46fd37811aeee6af5c49b076196bce29ede731a1
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: 26b4b82d45c3d0681800d36a000d8518b63c798a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884492"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472475"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>预测评分指示意向和实体的预测准确性
 
 预测分数表示 LUIS 对用户话语预测结果的置信度。
 
-预测分数在零 (0) 到一 (1) 之间。 例如，一个置信度很高的 LUIS 分数可以是 0.99。 置信度低的分数可以是 0.01。 
+预测分数在零 (0) 到一 (1) 之间。 例如，一个置信度很高的 LUIS 分数可以是 0.99。 置信度低的分数可以是 0.01。
 
 |分数值|置信度|
 |--|--|
@@ -34,11 +29,11 @@ ms.locfileid: "74884492"
 
 ## <a name="top-scoring-intent"></a>得分最高的意向
 
-每个话语预测都会返回一个评分最高的意向。 此预测是对预测分数的数值比较。 
+每个话语预测都会返回一个评分最高的意向。 此预测是对预测分数的数值比较。
 
 ## <a name="proximity-of-scores-to-each-other"></a>分数彼此接近
 
-最高 2 个分数的差距可能很小。 LUIS 不会指明这种分差，只会返回最高分数。  
+最高 2 个分数的差距可能很小。 LUIS 不会指明这种分差，只会返回最高分数。
 
 ## <a name="return-prediction-score-for-all-intents"></a>返回所有意向的预测分数
 
@@ -55,17 +50,17 @@ ms.locfileid: "74884492"
 
 如果多个意向的预测分数相近，LUIS 可基于话语的上下文在这些意向之间进行切换。 若要解决这种情况，可以继续为每个意向添加具有更广泛上下文差异的话语，或者让客户端应用程序（例如聊天机器人）通过编程选择如何处理前两个意向。
 
-分数太接近的两个意向可能会由于**非确定性训练**而反转。 最高分可能会变为第二高分，第二高分可能会变为最高分。 为了防止此情况，请向该话语的前两个意向添加示例话语，并在示例话语中包含单词选择和用于区分两个意向的上下文。 这两个意图应该具有相同数量的示例话语。 防止由于训练而造成反转的一个间隔经验法则是，让分数有 15% 的差值。
+分数太接近的两个意向可能会由于 **非确定性训练** 而反转。 最高分可能会变为第二高分，第二高分可能会变为最高分。 为了防止此情况，请向该话语的前两个意向添加示例话语，并在示例话语中包含单词选择和用于区分两个意向的上下文。 这两个意图应该具有相同数量的示例话语。 防止由于训练而造成反转的一个间隔经验法则是，让分数有 15% 的差值。
 
-可以通过[使用所有数据进行训练](luis-how-to-train.md#train-with-all-data)来关闭**非确定性训练**。
+可以通过 [使用所有数据进行训练](luis-how-to-train.md#train-with-all-data)来关闭 **非确定性训练** 。
 
 ## <a name="differences-with-predictions-between-different-training-sessions"></a>不同训练会话之间的预测差异
 
-如果在不同的应用中训练相同的模型，但分数不同，这种差异是因为存在**非确定性训练**（一种随机性因素）。 其次，如果话语的多个意向重叠，则意味着相同话语中评分最高的意向可能会因训练而发生变化。
+如果在不同的应用中训练相同的模型，但分数不同，这种差异是因为存在 **非确定性训练** （一种随机性因素）。 其次，如果话语的多个意向重叠，则意味着相同话语中评分最高的意向可能会因训练而发生变化。
 
 如果聊天机器人需要一个特定的 LUIS 分数来指示意向的置信度，则应使用前两个意向之间的分差。 这种情况可更灵活地应对训练过程中的变化。
 
-可以通过[使用所有数据进行训练](luis-how-to-train.md#train-with-all-data)来关闭**非确定性训练**。
+可以通过 [使用所有数据进行训练](luis-how-to-train.md#train-with-all-data)来关闭 **非确定性训练** 。
 
 ## <a name="e-exponent-notation"></a>E（指数）表示法
 
@@ -75,10 +70,13 @@ ms.locfileid: "74884492"
 |--|--|
 |9.910309E-07|.0000009910309|
 
-## <a name="punctuation"></a>标点
+<a name="punctuation"></a>
 
-[详细了解](luis-concept-utterance.md#punctuation-marks)如何使用或忽略标点符号。 
+## <a name="application-settings"></a>应用程序设置
 
+使用[应用程序设置](luis-reference-application-settings.md)来控制音调符号和标点符号影响预测分数的方式。
 
+## <a name="next-steps"></a>后续步骤
 
+请参阅[添加实体](luis-how-to-add-entities.md)，详细了解如何将实体添加到 LUIS 应用。
 

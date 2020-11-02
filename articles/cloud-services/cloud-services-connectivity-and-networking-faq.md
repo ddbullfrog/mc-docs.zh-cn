@@ -13,14 +13,14 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: c2a0a420394d3fe0441ff943b835c0037572babb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 8759e4a57d36591ee82f052fd45a185c629047c1
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77494422"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472623"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务连接性和网络问题：常见问题解答 (FAQ)
 
@@ -29,10 +29,10 @@ ms.locfileid: "77494422"
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="i-cant-reserve-an-ip-in-a-multi-vip-cloud-service"></a>无法在多 VIP 云服务中保留 IP
-首先，请确保已打开想要为其保留 IP 的虚拟机实例。 其次，请确保为过渡和生产部署使用保留的 IP。 *请勿*在部署升级过程中更改设置。
+首先，请确保已打开想要为其保留 IP 的虚拟机实例。 其次，请确保为过渡和生产部署使用保留的 IP。 *请勿* 在部署升级过程中更改设置。
 
 ## <a name="how-do-i-use-remote-desktop-when-i-have-an-nsg"></a>设置了 NSG 时，如何使用远程桌面？
-将规则添加到 NSG，允许端口 **3389** 和 **20000** 上的流量。 远程桌面使用端口 **3389**。 云服务实例经过负载均衡，因此无法直接控制要连接到哪个实例。 *RemoteForwarder* 和 *RemoteAccess* 代理管理远程桌面协议 (RDP) 流量，允许客户端发送 RDP cookie 和指定要连接到的单个实例。 *RemoteForwarder* 和 *RemoteAccess* 代理要求打开端口 **20000**（如果你具有 NSG，此端口可能已被阻止）。
+将规则添加到 NSG，允许端口 **3389** 和 **20000** 上的流量。 远程桌面使用端口 **3389** 。 云服务实例经过负载均衡，因此无法直接控制要连接到哪个实例。 *RemoteForwarder* 和 *RemoteAccess* 代理管理远程桌面协议 (RDP) 流量，允许客户端发送 RDP cookie 和指定要连接到的单个实例。 *RemoteForwarder* 和 *RemoteAccess* 代理要求打开端口 **20000** （如果你具有 NSG，此端口可能已被阻止）。
 
 ## <a name="can-i-ping-a-cloud-service"></a>是否可以 ping 云服务？
 
@@ -40,7 +40,7 @@ ms.locfileid: "77494422"
 
 若要测试连接性，我们建议执行端口 ping 操作。 当 Ping.exe 使用 ICMP 时，其他工具（如 PSPing、Nmap 和 telnet）允许你测试到特定 TCP 端口的连接性。
 
-有关详细信息，请参阅[使用端口 ping 而不是 ICMP 来测试 Azure VM 连接性](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/)。
+有关详细信息，请参阅[使用端口 ping 而不是 ICMP 来测试 Azure VM 连接性](https://docs.microsoft.com/archive/blogs/mast/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity)。
 
 ## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>如何防止接收来自未知 IP 地址的数千次点击，这些 IP 地址是否会对云服务造成某种形式的恶意攻击？
 Azure 实现多层网络安全性，以保护其平台服务免受分布式拒绝服务 (DDoS) 攻击。 Azure DDoS 防御系统是 Azure 持续监视过程的一部分，通过渗透测试不断改进。 该 DDoS 防御系统的设计不仅可以抵御外部的攻击，还可以承受其他 Azure 租户的攻击。 有关详细信息，请参阅 [Azure 网络安全](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf)。
@@ -99,7 +99,7 @@ Azure 实现多层网络安全性，以保护其平台服务免受分布式拒�
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>如何确保云服务面向公众的 IP 地址永不改变？
 
-为了将云服务的 IP 地址列入允许列表，建议将一个保留 IP 与服务进行关联，否则，如果删除了部署，则会从订阅解除分配由 Azure 提供的虚拟 IP（也称 VIP）。 否则，如果删除了部署，则会从订阅解除分配由 Azure 提供的虚拟 IP。 为使 VIP 交换操作成功，需要为生产槽和暂存槽设置单独的保留 IP。 如果缺少这些 IP，交换操作会失败。 请根据以下文章来保留 IP 地址并将其与云服务进行关联：
+若要确保云服务面向公众的 IP 地址（也称 VIP）永不改变，以便它通常可由少数特定的客户端批准，我们建议你设置一个与之关联的保留 IP。 否则，如果删除了部署，则会从订阅解除分配由 Azure 提供的虚拟 IP。 为使 VIP 交换操作成功，需要为生产槽和暂存槽设置单独的保留 IP。 如果缺少这些 IP，交换操作会失败。 请根据以下文章来保留 IP 地址并将其与云服务进行关联：
 
 - [保留现有云服务的 IP 地址](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [使用服务配置文件将保留 IP 关联到云服务](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
@@ -130,4 +130,3 @@ foreach ($service in $services)
 }
 ```
 
-<!-- Update_Description: wording update -->

@@ -4,18 +4,18 @@ description: 如何查看 Azure 虚拟 WAN 中的虚拟中心的有效路由
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: how-to
-origin.date: 06/29/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: d759cbeda12a7a779efcb19787fd0e96718ca9dd
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: d19b0ee6032e364641566413681a0956024d6409
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246768"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471314"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>查看虚拟中心有效路由
 
@@ -34,8 +34,8 @@ ms.locfileid: "91246768"
 
 * 前缀：当前实体已知的地址前缀（从虚拟中心路由器了解）
 * 下一跃点类型：可以是虚拟网络连接、VPN_S2S_Gateway、ExpressRouteGateway、远程中心或 Azure 防火墙。
-* **下一跃点**：这是指向下一跃点的资源 ID 的链接，或只是显示“在链路上”以表示当前中心。
-* **源**：路由源的资源 ID。
+* **下一跃点** ：这是指向下一跃点的资源 ID 的链接，或只是显示“在链路上”以表示当前中心。
+* **源** ：路由源的资源 ID。
 * AS 路径：BGP 属性 AS（自治系统）路径会列出需要遍历的所有 AS 编号，以访问播发路径所附加到的前缀的位置。
 
 <a name="example"></a>
@@ -56,6 +56,8 @@ ms.locfileid: "91246768"
 * 当你编辑虚拟网络连接、VPN 连接或 ExpressRoute 连接时，Azure 虚拟 WAN 门户中会显示“传播默认路由”字段。 此字段指示 enableInternetSecurity 标志，该标志在默认情况下对于 ExpressRoute 和 VPN 连接始终为“false”，对于虚拟网络连接为“true”。
 
 * 查看 VM NIC 上的有效路由时，如果将下一跃点视为“虚拟网络网关”，则在 VM 处于连接到虚拟 WAN 中心的分支中时，这会表示虚拟中心路由器。
+
+* 仅当虚拟中心至少连接到一种连接类型 (VPN/ER/VNET) 时，才会填充“虚拟中心路由表的有效路由”视图。
 
 ## <a name="next-steps"></a>后续步骤
 

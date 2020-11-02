@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 04/29/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: 738b6fbb351e414fe007dd69e18bec5ab51a95f2
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: b02da933f2f975c00d35344b82954e6039413916
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394706"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472654"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
@@ -28,13 +28,13 @@ Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中�
 本文档中的许多步骤使用以下实用程序，这些程序可能需要在系统上安装。
 
 * [cURL](https://curl.haxx.se/) - 用于与基于 Web 的服务进行通信。
-* 命令行 JSON 处理程序 **jq**。  请参阅 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
+* 命令行 JSON 处理程序 **jq** 。  请参阅 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
 * [Azure CLI](/cli/install-azure-cli) - 用于远程管理 Azure 服务。
-* **SSH 客户端**。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
+* **SSH 客户端** 。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="users"></a>用户
 
-除非[加入域](./domain-joined/hdinsight-security-overview.md)，HDInsight 应被视为**单用户**系统。 单一 SSH 用户帐户是使用具有管理员级别权限的群集创建的。 可创建其他 SSH 帐户，但它们也具有对群集的管理员权限。
+除非 [加入域](./domain-joined/hdinsight-security-overview.md)，HDInsight 应被视为 **单用户** 系统。 单一 SSH 用户帐户是使用具有管理员级别权限的群集创建的。 可创建其他 SSH 帐户，但它们也具有对群集的管理员权限。
 
 加入域的 HDInsight 支持多个用户、更具体的权限以及角色设置。 有关详细信息，请参阅[管理已加入域的 HDInsight 群集](./domain-joined/apache-domain-joined-manage.md)。
 
@@ -60,7 +60,7 @@ Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中�
 
 ## <a name="remote-access-to-services"></a>对服务的远程访问
 
-* **Ambari (web)**  - https://CLUSTERNAME.azurehdinsight.cn
+* **Ambari (web)**  - `https://CLUSTERNAME.azurehdinsight.cn`
 
     使用群集管理员用户和密码进行身份验证，并登录到 Ambari。
 
@@ -71,14 +71,14 @@ Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中�
     >
     > 要使用 Ambari web UI 的全部功能，请使用 SSH 隧道通过代理将 Web 流量传送到群集头节点。 请参阅[使用 SSH 隧道访问 Apache Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.cn/ambari
+* **Ambari (REST)**  - `https://CLUSTERNAME.azurehdinsight.cn/ambari`
 
     > [!NOTE]
     > 通过使用群集管理员用户和密码进行身份验证。
     >
     > 身份验证是纯文本身份验证 - 始终使用 HTTPS 来帮助确保连接是安全的。
 
-* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.cn/templeton
+* **WebHCat (Templeton)**  - `https://CLUSTERNAME.azurehdinsight.cn/templeton`
 
     > [!NOTE]
     > 通过使用群集管理员用户和密码进行身份验证。
@@ -96,8 +96,8 @@ Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中�
 
 Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包含以下子目录：
 
-* **2.6.5.3009-43**：目录名称是 HDInsight 使用的 Hadoop 平台版本。 群集上的数字可能与这里列出的有所不同。
-* **current**：此目录包含 2.6.5.3009-43 目录下的子目录的链接。 由于该目录存在，因此无需记住版本号。
+* **2.6.5.3009-43** ：目录名称是 HDInsight 使用的 Hadoop 平台版本。 群集上的数字可能与这里列出的有所不同。
+* **current** ：此目录包含 2.6.5.3009-43 目录下的子目录的链接。 由于该目录存在，因此无需记住版本号。
 
 可以在 Hadoop 分布式文件系统上的 `/example` 和 `/HdiSamples` 处找到示例数据和 JAR 文件。
 
@@ -105,15 +105,15 @@ Hadoop 相关文件可在群集节点上的 `/usr/hdp`中找到。 此目录包�
 
 在大多数 Hadoop 分发版中，数据存储在 HDFS 中。 HDFS 受群集中计算机上的本地存储的支持。 为基于云的解决方案使用本地存储可能费用高昂，因为计算资源以小时或分钟为单位来计费。
 
-使用 HDInsight 时，数据文件使用 Azure Blob 存储以及可选的 Azure Data Lake Storage 以自适应且可复原的方式存储在云中。 这些服务提供以下优势：
+使用 HDInsight 时，数据文件使用 Azure Blob 存储以及可选的 Azure Data Lake Storage Gen2 以自适应且可复原的方式存储在云中。 这些服务提供以下优势：
 
 * 成本低廉的长期存储。
 * 可从外部服务访问，例如网站、文件上传/下载实用程序、各种语言 SDK 和 Web 浏览器。
 * 大型文件容量和大型自适应存储。
 
-有关详细信息，请参阅[了解 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)。
+有关详细信息，请参阅 [Azure Blob 存储](../storage/common/storage-introduction.md)、[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)。
 
-使用 Azure 存储或 Data Lake Storage 时，不需要从 HDInsight 进行任何特殊操作即可访问数据。 例如，以下命令将列出 `/example/data` 文件夹中的文件，而无论它是存储在 Azure 存储还是 Data Lake Storage 上：
+使用 Azure Blob 存储或 Data Lake Storage Gen2 时，不需要从 HDInsight 进行任何特殊操作即可访问数据。 例如，以下命令将列出 `/example/data` 文件夹中的文件，而无论它是存储在 Azure 存储还是 Data Lake Storage 上：
 
 ```console
 hdfs dfs -ls /example/data
@@ -143,8 +143,9 @@ hdfs dfs -ls /example/data
 > [!IMPORTANT]  
 > 使用 Data Lake Storage 作为 HDInsight 的默认存储时，必须在存储中指定一个用作 HDInsight 存储根目录的路径。 默认路径为 `/clusters/<cluster-name>/`。
 >
+> 使用 `/` 或 `adl:///` 访问数据时，只能访问存储在群集根目录（例如 `/clusters/<cluster-name>/`）中的数据。 若要在商店中的任意位置访问数据，请使用 `adl://<storage-name>.azuredatalakestore.net/` 格式。
 
-### <a name="what-storage-is-the-cluster-using"></a>群集使用的是哪种存储
+### <a name="what-storage-is-the-cluster-using"></a>群集正在使用哪种存储
 
 可以使用 Ambari 来检索群集的默认存储配置。 可以使用以下命令通过 curl 检索 HDFS 配置信息，并使用 [jq](https://stedolan.github.io/jq/)对其进行筛选：
 
@@ -171,7 +172,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERN
 
 从 HDInsight 群集外部访问数据的方法有多种。 以下是一些可用于处理数据的实用工具和 SDK 的链接：
 
-如果使用的是 __Azure 存储__，请参阅以下链接了解可用于访问数据的方式：
+如果使用的是 Azure Blob 存储，请参阅以下链接了解可用于访问数据的方式：
 
 * [Azure CLI](/cli/install-az-cli2)：适用于 Azure 的命令行接口命令。 在安装后，使用 `az storage` 命令获取有关使用存储的帮助，或者使用 `az storage blob` 获取特定于 Blob 的命令。
 * [blobxfer.py](https://github.com/Azure/blobxfer)：用于处理 Azure 存储中的 blob 的 python 脚本。

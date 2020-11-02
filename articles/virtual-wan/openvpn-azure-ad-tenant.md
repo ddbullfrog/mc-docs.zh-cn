@@ -5,18 +5,18 @@ titleSuffix: Azure Virtual WAN
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: how-to
-origin.date: 03/19/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2654a08e4350b8188d0f39b28bb6e60639e496c4
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 49d245080852a73e8caaa53a93cb57db108f33ec
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246660"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472600"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>为用户 VPN OpenVPN 协议连接准备 Azure Active Directory 租户
 
@@ -34,9 +34,9 @@ ms.locfileid: "91246660"
 * 组织名称
 * 初始域名
 
-    示例：
+示例：
 
-    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="新 Azure AD 租户":::
+:::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="新 Azure AD 租户":::
 
 <a name="users"></a>
 ## <a name="2-create-azure-ad-tenant-users"></a>2.创建 Azure AD 租户用户
@@ -52,7 +52,8 @@ ms.locfileid: "91246660"
 
 2. 接下来，向组织授予管理员许可，使 Azure VPN 应用程序能够登录和读取用户配置文件。 在浏览器的地址栏中复制并粘贴与部署位置相关的 URL：
 
-    <!--CORRECT ON THE SIGN IN URL-->
+    <!--MOONCAKE: CUSTOMIZE-->
+    <!--UPDATE CAREFULLY-->
     
     公共
 
@@ -66,27 +67,30 @@ ms.locfileid: "91246660"
     https://login-us.microsoftonline.com/common/oauth2/authorize?client_id=51bb15d4-3a4f-4ebf-9dca-40096fe32426&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
     ````
 
-    德国 Microsoft 云
+    Azure 德国云
 
     ```
-    https://login-us.microsoftonline.de/common/oauth2/authorize?client_id=538ee9e6-310a-468d-afef-ea97365856a9&response_type=code&redirect_uri=https://portal.microsoftazure.de&nonce=1234&prompt=admin_consent
+    https://login.microsoftonline.de/common/oauth2/authorize?client_id=538ee9e6-310a-468d-afef-ea97365856a9&response_type=code&redirect_uri=https://portal.microsoftazure.de&nonce=1234&prompt=admin_consent
     ````
     
-    <!--CORRECT ON THE SIGN IN URL-->
+    <!--CORRECT ON https://login.microsoftonline.de/-->
     
     Azure 中国世纪互联
 
     ```
     https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
-
+    
+    <!--MOONCAKE: CUSTOMIZE-->
+    <!--UPDATE CAREFULLY-->
+    
 3. 出现提示时，请选择“全局管理员”帐户。
 
     :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="新 Azure AD 租户":::
 
 4. 出现提示时选择“接受”。
 
-    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![屏幕截图显示“为你的组织请求接受的权限”的消息和其他信息的对话框。](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 5. 在 Azure AD 下的“企业应用程序”中，你现会发现已列出 Azure VPN 。
 

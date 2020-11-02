@@ -3,20 +3,20 @@ title: 翻译器 BreakSentence 方法
 titleSuffix: Azure Cognitive Services
 description: 翻译器 BreakSentence 方法可标识一段文本中句子边界的位置。
 services: cognitive-services
-author: swmachan
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 01/21/2020
-ms.date: 06/23/2020
-ms.author: v-tawe
-ms.openlocfilehash: 1a47bfa6b6b4a4e96d360b44bdc1d811097fc3f4
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.openlocfilehash: ea3b803065821ca0519c02c5b475c9ae46eacc65
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241507"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472005"
 ---
 # <a name="translator-30-breaksentence"></a>翻译器 3.0：BreakSentence
 
@@ -62,7 +62,7 @@ https://api.translator.azure.cn/breaksentence?api-version=3.0
 以下限制适用：
 
 * 数组最多可具有 100 个元素。
-* 数组元素的文本值不能超过 10,000 个字符（包括空格）。
+* 数组元素的文本值不能超过 50,000 个字符（包括空格）。
 * 请求中包含的整个文本不能超过 50,000 个字符（包括空格）。
 * 如果指定了 `language` 查询参数，则所有数组元素必须采用同一语言。 否则，将分别向每个数组元素应用语言自动检测。
 
@@ -149,6 +149,7 @@ https://api.translator.azure.cn/breaksentence?api-version=3.0
 下面的示例展示了如何获取单个句子的句子边界。 服务会自动检测句子的语言。
 
 ```curl
-curl -X POST "https://api.translator.azure.cn/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
+curl -X POST "https://api.translator.azure.cn/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
+
 

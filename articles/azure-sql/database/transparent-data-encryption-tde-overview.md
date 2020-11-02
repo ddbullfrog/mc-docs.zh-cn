@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
-origin.date: 06/15/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: c52a27e0c683915179877a98e5c2ae8224146e7e
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+origin.date: 10/12/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: 29fe99e27707d9ede3268bdf478227b330ccea41
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014361"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470418"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics 的透明数据加密
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -33,7 +33,7 @@ TDE 对页面级数据执行实时 I/O 加密和解密。 将每个页面读入�
 > 默认情况下，将使用服务托管的透明数据加密对 SQL 数据库中所有新建的数据库进行加密。 默认情况下，2017 年 5 月之前创建的现有 SQL 数据库以及通过还原、异地复制和数据库副本创建的 SQL 数据库均不加密。 默认情况下，2019 年 2 月之前创建的现有 SQL 托管实例数据库不加密。 通过源提供的还原继承加密状态创建的 SQL 托管实例数据库。
 
 > [!NOTE]
-> 不能使用 TDE 来加密 SQL 数据库中的 master 数据库。  **master** 数据库包含对用户数据库执行 TDE 操作时所需的对象。
+> 不能使用 TDE 来加密 Azure SQL 数据库中的 master 数据库。  **master** 数据库包含对用户数据库执行 TDE 操作时所需的对象。
 
 ## <a name="service-managed-transparent-data-encryption"></a>服务托管的透明数据加密
 
@@ -152,6 +152,7 @@ Azure 还可按需无缝移动和管理密钥，以实现异地复制和还原�
 |[列出透明数据加密配置结果](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|获取数据库的加密结果。|
 
 ## <a name="see-also"></a>另请参阅
+
 - 有关 TDE 的一般介绍，请参阅[透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)。
 - 若要详细了解 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse 的支持 BYOK 的 TDE，请参阅[支持“创建自己的密钥”的透明数据加密](transparent-data-encryption-byok-overview.md)。
 - 若要开始使用支持“创建自己的密钥”的 TDE，请参阅操作指南[使用 Key Vault 中的自有密钥启用透明数据加密](transparent-data-encryption-byok-configure.md)。

@@ -5,17 +5,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用标准 SKU �
 services: container-service
 ms.topic: article
 origin.date: 06/14/2020
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: yes|no
 ms.testdate: 07/09/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 29222017e4b9c8f226fc1c24fb5e403ac787685a
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: a7557382edcaee8452165ff39802f0e8fb1e5f89
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146673"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470413"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用公共标准负载均衡器
 
@@ -98,13 +98,13 @@ default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:320
 
 与所有负载均衡器规则一样，出站规则遵循负载均衡和入站 NAT 规则的类似语法：
 
-***前端 IP + 参数 + 后端池***
+***前端 IP + 参数 + 后端池**
 
 出站规则为后端池识别的、要转换为前端的所有虚拟机配置出站 NAT。 参数针对出站 NAT 算法提供更精细的控制。
 
 尽管出站规则只能配合单个公共 IP 地址使用，但出站规则减轻了缩放出站 NAT 的负担。 规划大规模部署场景时可以使用多个 IP 地址，并可以使用出站规则来缓解容易出现 SNAT 耗尽的模式。 前端提供的每个附加 IP 地址可提供 64,000 个临时端口，供负载均衡器用作 SNAT 端口。 
 
-结合默认创建的受管理出站公共 IP 使用标准 SKU 负载均衡器时，可以使用 `load-balancer-managed-ip-count` 参数来调整受管理出站公共 IP 的数量。
+使用具有默认创建的托管出站公共 IP 的标准 SKU 负载均衡器时，可以使用 `load-balancer-managed-ip-count` 参数缩放托管出站公共 IP 的数量。
 
 若要更新现有群集，请运行以下命令。 还可以在创建群集时设置此参数，以获得多个托管出站公共 IP。
 
@@ -115,7 +115,7 @@ az aks update \
     --load-balancer-managed-outbound-ip-count 2
 ```
 
-以上示例将 *myResourceGroup* 中 *myAKSCluster* 群集的托管出站公共 IP 数量设置为 *2*。 
+以上示例将 *myResourceGroup* 中 *myAKSCluster* 群集的托管出站公共 IP 数量设置为 *2* 。 
 
 还可以在创建群集时，通过追加 `--load-balancer-managed-outbound-ip-count` 参数并将其设置为所需的值，使用 `load-balancer-managed-ip-count` 参数来设置托管出站公共 IP 的初始数量 。 托管出站公共 IP 的默认数量为 1。
 
@@ -267,9 +267,9 @@ az aks update \
 - 为 *allocatedOutboundPorts* 指定的值还必须是 8 的倍数。
 - 你必须有足够的出站 IP 容量，具体取决于节点 VM 和所需的已分配出站端口的数量。 若要验证是否有足够的出站 IP 容量，请使用以下公式： 
 
-    *outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*。
+    *outboundIPs* \* 64,000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts* 。
 
-    例如，如果你有 3 个 *nodeVM* 和 50,000 个 *desiredAllocatedOutboundPort*，则至少需要有 3 个 *outboundIP*。 建议你在所需容量的基础上增加额外的出站 IP 容量。 此外，在计算出站 IP 容量时，必须考虑群集自动缩放程序和节点池升级的可能性。 对于群集自动缩放程序，请查看当前节点计数和最大节点计数，并使用较高的值。 对于升级，请考虑为允许升级的节点池添加一个额外的节点 VM。
+    例如，如果你有 3 个 *nodeVM* 和 50,000 个 *desiredAllocatedOutboundPort* ，则至少需要有 3 个 *outboundIP* 。 建议你在所需容量的基础上增加额外的出站 IP 容量。 此外，在计算出站 IP 容量时，必须考虑群集自动缩放程序和节点池升级的可能性。 对于群集自动缩放程序，请查看当前节点计数和最大节点计数，并使用较高的值。 对于升级，请考虑为允许升级的节点池添加一个额外的节点 VM。
     
 - 将 *IdleTimeoutInMinutes* 设置为默认值 30 分钟之外的值时，请考虑你的工作负荷多长时间将需要出站连接。 还要考虑在 AKS 外部使用的“标准”SKU 负载平衡器的默认超时值是 4 分钟。 如果 *idletimeoutminutes* 值较准确地反映你的具体 AKS 工作负载，则有助于降低由于绑定不再使用的连接而导致的 SNAT 耗尽。
 
@@ -325,7 +325,7 @@ spec:
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` 或 `false`                     | 指定负载均衡器是否应为“内部”。 如果未设置，则默认为“公共”。
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | 子网的名称                    | 指定内部负载均衡器应绑定到的子网。 如果未设置，则默认为云配置文件中配置的子网。
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | 公共 IP 上的 DNS 标签的名称   | 指定公共服务的 DNS 标签的名称。 如果设置为空字符串，则不会使用公共 IP 中的 DNS 条目。
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` 或 `false`                     | 指定应使用可能与其他服务共享的 Azure 安全规则公开服务，交易规则的特定性，以增加可公开的服务数量。 此注释依赖于网络安全组的 Azure [扩充式安全规则](../virtual-network/security-overview.md#augmented-security-rules)功能。 
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` 或 `false`                     | 指定应使用可能与其他服务共享的 Azure 安全规则公开服务，交易规则的特定性，以增加可公开的服务数量。 此注释依赖于网络安全组的 Azure [扩充式安全规则](../virtual-network/network-security-groups-overview.md#augmented-security-rules)功能。 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | 资源组的名称            | 指定与群集基础结构（节点资源组）不在同一资源组中的负载均衡器公共 IP 的资源组。
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | 允许的服务标记列表          | 指定以逗号隔开的允许[服务标记][service-tags]的列表。
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP 空闲超时（以分钟为单位）          | 指定 TCP 连接空闲超时在负载均衡器上发生的时间（以分钟为单位）。 默认值和最小值为 4。 最大值为 30。 必须为整数。
@@ -400,19 +400,19 @@ spec:
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
-[az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
-[az-aks-install-cli]: https://docs.microsoft.com/cli/azure/aks#az_aks_install_cli
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-feature-list]: https://docs.azure.cn/cli/feature#az-feature-list
-[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
-[az-group-create]: https://docs.azure.cn/cli/group#az-group-create
-[az-provider-register]: https://docs.azure.cn/cli/provider#az-provider-register
-[az-network-lb-outbound-rule-list]: https://docs.azure.cn/cli/network/lb/outbound-rule#az-network-lb-outbound-rule-list
-[az-network-public-ip-show]: https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-show
-[az-network-public-ip-prefix-show]: https://docs.azure.cn/cli/network/public-ip/prefix#az-network-public-ip-prefix-show
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
+[az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
+[az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
+[az-aks-install-cli]: https://docs.azure.cn/cli/aks#az_aks_install_cli
+[az-extension-add]: https://docs.microsoft.com/cli/azure/extension#az_extension_add
+[az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
+[az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
+[az-network-lb-outbound-rule-list]: https://docs.azure.cn/cli/network/lb/outbound-rule#az_network_lb_outbound_rule_list
+[az-network-public-ip-show]: https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_show
+[az-network-public-ip-prefix-show]: https://docs.azure.cn/cli/network/public-ip/prefix#az_network_public_ip_prefix_show
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/skus.md
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-connections.md#outboundrules

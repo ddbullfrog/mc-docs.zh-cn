@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 07/18/2019
 ms.date: 06/08/2020
 ms.author: v-yiso
-ms.openlocfilehash: c47d85fba0533cbef688344b48f0324879c37c56
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 9c45b447da910bc75e12ff4fc3b3574c4700c3c6
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186825"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472644"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>通过连接 IoT 中心和邮箱的 Azure 逻辑应用进行 IoT 远程监视并发送通知
 
@@ -71,17 +71,17 @@ ms.locfileid: "84186825"
 
 ### <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“创建资源” > “企业集成” > “服务总线”。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“+ 创建资源” > “集成” > “服务总线”  。
 
 1. 在“创建命名空间”窗格中提供以下信息：
 
-   **名称**：服务总线命名空间的名称。 该命名空间必须在整个 Azure 中唯一。
+   **名称** ：服务总线命名空间的名称。 该命名空间必须在整个 Azure 中唯一。
 
-   **定价层**：从下拉列表中选择“基本”。 基本层对本教程而言就已足够。
+   **定价层** ：从下拉列表中选择“基本”。 基本层对本教程而言就已足够。
 
-   **资源组**：使用 IoT 中心所用的同一资源组。
+   **资源组** ：使用 IoT 中心所用的同一资源组。
 
-   **位置**：使用 IoT 中心所用的同一位置。
+   **位置** ：使用 IoT 中心所用的同一位置。
 
    ![在 Azure 门户中创建服务总线命名空间](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
@@ -117,11 +117,11 @@ ms.locfileid: "84186825"
 
 1. 在“添加服务总线终结点”窗格中输入以下信息：
 
-   **终结点名称**：终结点的名称。
+   **终结点名称** ：终结点的名称。
 
-   **服务总线命名空间**：选择你创建的命名空间。
+   **服务总线命名空间** ：选择你创建的命名空间。
 
-   **服务总线队列**：选择你创建的队列。
+   **服务总线队列** ：选择你创建的队列。
 
    ![在 Azure 门户中，将终结点添加到 IoT 中心](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
@@ -133,13 +133,13 @@ ms.locfileid: "84186825"
 
 1. 在“添加路由”窗格中输入以下信息：
 
-   **名称**：路由规则的名称。
+   **名称** ：路由规则的名称。
 
-   **终结点**：选择你创建的终结点。
+   **终结点** ：选择你创建的终结点。
 
-   **数据源**：选择“设备遥测消息”。
+   **数据源** ：选择“设备遥测消息”。
 
-   **路由查询**：输入 `temperatureAlert = "true"`。
+   **路由查询** ：输入 `temperatureAlert = "true"`。
 
    ![在 Azure 门户中添加路由规则](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
@@ -155,11 +155,11 @@ ms.locfileid: "84186825"
 
 1. 输入以下信息：
 
-   **名称**：逻辑应用的名称。
+   **名称** ：逻辑应用的名称。
 
-   **资源组**：使用 IoT 中心所用的同一资源组。
+   **资源组** ：使用 IoT 中心所用的同一资源组。
 
-   **位置**：使用 IoT 中心所用的同一位置。
+   **位置** ：使用 IoT 中心所用的同一位置。
 
    ![在 Azure 门户中创建逻辑应用](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 

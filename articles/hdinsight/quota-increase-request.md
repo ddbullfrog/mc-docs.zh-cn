@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 1779612685ddfdbd0b6dfc7de2962a8198173ccc
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: 871f66f10954faabd758d147c0c26be62032e7f5
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516830"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472099"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>请求增加 Azure HDInsight 的配额
 
@@ -44,11 +44,11 @@ CPU 内核配额有助于确保资源使用在特定 Azure 区域的所有客户
 
    - “问题类型”：“服务和订阅限制(配额)”
    - “订阅”：想要修改的订阅
-   - “配额类型”：**HDInsight**
+   - “配额类型”： **HDInsight**
 
      ![创建支持请求来增加 HDInsight 核心配额](./media/quota-increase-request/hdinsight-quota-support-request.png)
 
-1. 在完成时选择“下一步:**解决方案 >>”。**
+1. 在完成时选择“下一步: **解决方案 >>”。**
 1. 在“详细信息”页面，输入问题的说明，然后选择问题的严重性、首选联系方式和其他必填字段。 请使用下面列出的模板，确保你提供必需的信息。 增加配额请求由 Azure 容量团队进行评估，而非 HDInsight 产品团队。 提供的信息越完整，请求得到批准的可能性就越大。
 
     ```
@@ -61,11 +61,11 @@ CPU 内核配额有助于确保资源使用在特定 Azure 区域的所有客户
 
     ![问题详细信息](./media/quota-increase-request/problem-details.png)
 
-1. 在完成时选择“下一步:**查看 + 创建 >>”。**
+1. 在完成时选择“下一步: **查看 + 创建 >>”。**
 1. 在“查看 + 创建”选项卡上，选择“创建”。 
 
 > [!NOTE]  
-> 如果需要增加专用区域中的 HDInsight 核心配额，请[提交允许列表请求](https://aka.ms/canaryintwhitelist)。
+> 如果需要增加专用区域中的 HDInsight 核心配额，请[提交已批准列表请求](https://aka.ms/canaryintwhitelist)。
 
 可以[联系支持部门来请求提高配额](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)。
 

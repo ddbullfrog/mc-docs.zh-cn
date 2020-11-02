@@ -2,21 +2,21 @@
 title: 解决 Azure AD 域服务中目录不匹配的错误 | Microsoft Docs
 description: 了解“目录不匹配”错误的含义以及如何在 Azure AD 域服务中解决此错误
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 2b586360251b9ca48b2488b79a3281fdbaff946c
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: 053c1e217a0ce74ff98b25c83695d2c2244d6289
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028615"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471113"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>解决现有 Azure Active Directory 域服务托管域的目录不匹配错误
 
@@ -28,11 +28,11 @@ ms.locfileid: "88028615"
 
 当 Azure AD DS 托管域和虚拟网络属于两个不同的 Azure AD 租户时，会发生目录不匹配错误。 例如，你可能有一个名为 aaddscontoso.com 的托管域，该域在 Contoso 的 Azure AD 租户中运行。 但是，托管域的 Azure 虚拟网络是 Fabrikam Azure AD 租户的一部分。
 
-Azure 使用基于角色的访问控制 (RBAC) 来限制对资源的访问。 在 Azure AD 租户中启用 Azure AD DS 时，凭据哈希将同步到托管域。 此操作要求你是 Azure AD 目录的租户管理员，并且必须控制对凭据的访问。
+Azure 基于角色的访问控制 (Azure RBAC) 用于限制对资源的访问权限。 在 Azure AD 租户中启用 Azure AD DS 时，凭据哈希将同步到托管域。 此操作要求你是 Azure AD 目录的租户管理员，并且必须控制对凭据的访问。
 
 要将资源部署到 Azure 虚拟网络并控制流量，必须对你将托管域部署到的虚拟网络具有管理权限。
 
-若要使 RBAC 一致地工作并安全访问 Azure AD DS 使用的所有资源，托管域和虚拟网络必须属于同一 Azure AD 租户。
+若要使 Azure RBAC 一致地工作并安全访问 Azure AD DS 使用的所有资源，托管域和虚拟网络必须属于同一 Azure AD 租户。
 
 以下规则适用于部署：
 

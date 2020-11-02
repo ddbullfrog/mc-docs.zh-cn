@@ -4,14 +4,14 @@ description: 了解如何执行管理任务，如重启 Azure Redis 缓存和为
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 10/22/2020
 ms.author: v-junlch
-ms.openlocfilehash: 37b0f2e34cfe5041bec78086815b1cde0eee8a42
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 20500ad7880e235cff8be808a41ed9777b3e544f
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946675"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471087"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>如何管理 Azure Redis 缓存
 本主题介绍如何为 Azure Redis 缓存实例执行管理任务，如[重启](#reboot)和[计划更新](#schedule-updates)。
@@ -21,11 +21,11 @@ ms.locfileid: "88946675"
 ## <a name="reboot"></a>重新启动
 可通过“重新启动”边栏选项卡重新启动缓存的一个或多个节点。 如果有缓存节点发生故障，此重新启动功能可用于测试应用程序的复原能力。
 
-![重新启动](./media/cache-administration/redis-cache-administration-reboot.png)
+![突出显示“重启”菜单选项的屏幕截图。](./media/cache-administration/redis-cache-administration-reboot.png)
 
 选择要重新启动的节点，并单击“重新启动” 。
 
-![重新启动](./media/cache-administration/redis-cache-reboot.png)
+![显示可以重启的节点的屏幕截图。](./media/cache-administration/redis-cache-reboot.png)
 
 如果高级缓存启用了群集功能，则可选择要重新启动的缓存分片。
 

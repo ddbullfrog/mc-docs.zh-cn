@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: 8f4e30ac6a023e0494e84bebbd299a3ded51bc9f
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 18d5a969e9ce3423ba70f593b2628943150ab11d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023695"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472423"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>如何通过评审终结点言语来改进 LUIS 应用
 
@@ -28,13 +28,13 @@ ms.locfileid: "88023695"
 
 使用 LUIS 门户构造正确的终结点查询。
 
-1. 登录到 [LUIS 门户](https://www.luis.ai)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
 1. 在“我的应用”页上选择应用名称以打开应用。
 1. 转到“管理”部分，然后选择“Azure 资源”。
 1. 对于分配的预测资源，选择“更改查询参数”。
 
     > [!div class="mx-imgBorder"]
-    > ![使用 LUIS 门户保存日志，这是主动学习所必需的。](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![屏幕截图显示“更改查询参数”链接。](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. 切换“保存日志”，然后选择“完成”进行保存。
 
@@ -45,7 +45,7 @@ ms.locfileid: "88023695"
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>纠正意向预测以匹配言语
 
-每个陈述的“统一意向”列中都显示一个建议意向****。
+每个陈述的“统一意向”列中都显示一个建议意向  。
 
 > [!div class="mx-imgBorder"]
 > [![查看 LUIS 无法确定的终结点言语](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
@@ -67,5 +67,5 @@ ms.locfileid: "88023695"
 
 ## <a name="next-steps"></a>后续步骤
 
-若要测试标记建议陈述后的性能提升情况，可通过选择顶部面板中的“测试”访问测试控制台****。 有关如何使用测试控制台测试应用的说明，请参阅[训练和测试应用](luis-interactive-test.md)。
+若要测试标记建议陈述后的性能提升情况，可通过选择顶部面板中的“测试”访问测试控制台  。 有关如何使用测试控制台测试应用的说明，请参阅[训练和测试应用](luis-interactive-test.md)。
 

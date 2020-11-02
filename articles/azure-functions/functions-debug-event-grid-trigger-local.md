@@ -2,15 +2,15 @@
 title: Azure 函数事件网格本地调试
 description: 了解如何在本地调试事件网格事件触发的 Azure 函数
 author: craigshoemaker
-ms.topic: reference
-ms.date: 07/15/2020
+ms.topic: conceptual
+ms.date: 10/19/2020
 ms.author: v-junlch
-ms.openlocfilehash: bded9bd7b3be2db25c549d95c8b37a0f3d163af0
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: ef8b0ce0331b72426b62b3f65aeff217abd190b0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440388"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471089"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure 函数事件网格触发器本地调试
 
@@ -39,20 +39,20 @@ ms.locfileid: "86440388"
 ![设置断点](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
 
 
-接下来，**按 F5** 启动调试会话。
+接下来， **按 F5** 启动调试会话。
 
 ## <a name="allow-azure-to-call-your-local-function"></a>使 Azure 能够调用本地函数
 
 若要在计算机上调试的函数处中断，必须通过某种方式使 Azure 能够在云中与本地函数通信。
 
-[ngrok](https://ngrok.com/) 实用工具可让 Azure 调用计算机上运行的函数。 使用以下命令启动 *ngrok*：
+[ngrok](https://ngrok.com/) 实用工具可让 Azure 调用计算机上运行的函数。 使用以下命令启动 *ngrok* ：
 
 ```bash
 ngrok http -host-header=localhost 7071
 ```
 设置该实用工具后，命令窗口应如以下屏幕截图所示：
 
-![启动 ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
+![屏幕截图显示了启动“ngrok”实用程序后的命令提示符。](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
 复制运行 *ngrok* 时生成的 **HTTPS** URL。 配置事件网格事件终结点时将使用此值。
 

@@ -1,19 +1,19 @@
 ---
 title: 云服务和管理证书 | Microsoft Docs
-description: 了解如何在 Azure 中创建和使用证书
+description: 了解如何创建和部署证书以用于云服务以及在 Azure 中对管理 API 进行身份验证。
 services: cloud-services
 documentationcenter: .net
 author: tgore03
 ms.service: cloud-services
 ms.topic: article
-ms.date: 05/25/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 3162437f6f694c6afeaf2bba21cd57a1ab5eff60
-ms.sourcegitcommit: 7429daf26cff014b040f69cdae75bdeaea4f4e93
+ms.openlocfilehash: 0fa448a8e4dcf48d6fd9ce4c0eaafb03d1ca760a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83991592"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472574"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 云服务证书概述
 证书在 Azure 中用于云服务（[服务证书](#what-are-service-certificates)）以及用于通过管理 API 进行身份验证（[管理证书](#what-are-management-certificates)）。 本主题同时提供了有关这两种证书类型的一般概述，并说明了如何[创建](#create)并将其部署到 Azure。
@@ -58,7 +58,7 @@ Azure 使用的证书可以包含一个公钥。 证书具有指纹，它提供�
     > 你无法获取 chinacloudapp.cn 域（或与 Azure 相关的任何域）的 TLS/SSL 证书；证书的使用者名称必须与用于访问应用程序的自定义域名匹配。 例如，contoso.net 而不是 contoso.chinacloudapp.cn 。
 
 * 至少采用 2048 位加密。
-* **仅服务证书**：客户端证书必须驻留在“个人”证书存储中。
+* **仅服务证书** ：客户端证书必须驻留在“个人”证书存储中。
 
 在 Windows 上有两种简单方法可以创建证书，分别是使用 `makecert.exe` 实用程序或 IIS。
 
@@ -76,7 +76,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 > 如果要将证书用于 IP 地址而不是域，请在 -DnsName 参数中使用 IP 地址。
 
 
-如果要将此[证书用于管理门户](../azure-api-management-certs.md)，请将其导出到 .cer 文件：
+如果要将此[证书用于管理门户](https://docs.microsoft.com/previous-versions/azure/azure-api-management-certs)，请将其导出到 .cer 文件：
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -86,14 +86,10 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 Internet 上有许多关于如何使用 IIS 实现此操作的信息。 [此页面](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) 就是示例之一，其阐述非常清楚。 
 
 ### <a name="linux"></a>Linux
-[本文](../virtual-machines/linux/mac-create-ssh-keys.md)介绍如何通过 SSH 创建证书。
+[本文](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)介绍如何通过 SSH 创建证书。
 
 ## <a name="next-steps"></a>后续步骤
 [将服务证书上传到 Azure 门户](cloud-services-configure-ssl-certificate-portal.md)。
 
-将[管理 API 证书](../azure-api-management-certs.md)上传到 Azure 门户。
-
-
-
-
+将[管理 API 证书](https://docs.microsoft.com/previous-versions/azure/azure-api-management-certs)上传到 Azure 门户。
 

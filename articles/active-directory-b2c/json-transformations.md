@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c8c222fcfbdffcc6e80461b37d84d7b7973646c8
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: bd0f424ffe1a68da478b3655b2e9a49c2b9f8c67
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297701"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471168"
 ---
 # <a name="json-claims-transformations"></a>JSON 声明转换
 
@@ -33,6 +33,8 @@ ms.locfileid: "87297701"
 | InputClaim | 点表示法后面的任何字符串 | string | JSON 的 JsonPath，声明值将插入到其中。 |
 | InputParameter | 点表示法后面的任何字符串 | string | JSON 的 JsonPath，常量字符串值将插入到其中。 |
 | OutputClaim | outputClaim | string | 生成的 JSON 字符串。 |
+
+### <a name="example-1"></a>示例 1
 
 以下示例基于“email”和“otp”的声明值以及常量字符串生成 JSON 字符串。
 
@@ -53,19 +55,17 @@ ms.locfileid: "87297701"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>示例
-
 以下声明转换输出一个 JSON 字符串声明，该声明将作为发送到 SendGrid （第三方电子邮件提供程序）的请求正文。 JSON 对象的结构由 InputClaims 的 InputParameters 和 TransformationClaimTypes 的点表示法中的 ID 定义。 点表示法中的数字表示数组。 值来自 InputClaims 的值和 InputParameters 的“Value”属性。
 
 - 输入声明：
-  - **email**,  转换声明类型  **personalizations.0.to.0.email**: "someone@example.com"
-  - **otp**, 转换声明类型 **personalizations.0.dynamic_template_data.otp** "346349"
+  - **email** ,  转换声明类型  **personalizations.0.to.0.email** : "someone@example.com"
+  - **otp** , 转换声明类型 **personalizations.0.dynamic_template_data.otp** "346349"
 - 输入参数：
-  - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
-  - **from.email**: "service@contoso.com"
+  - **template_id** : "d-4c56ffb40fa648b1aa6822283df94f60"
+  - **from.email** : "service@contoso.com"
   - **personalizations.0.subject** "Contoso 帐户电子邮件验证码"
 - 输出声明：
-  - **requestBody**:JSON 值
+  - **requestBody** :JSON 值
 
 ```json
 {
@@ -87,6 +87,56 @@ ms.locfileid: "87297701"
   "from": {
     "email": "service@contoso.com"
   }
+}
+```
+
+### <a name="example-2"></a>示例 2
+
+以下示例基于声明值以及常量字符串生成 JSON 字符串。
+
+```xml
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="customerEntity.email" />
+    <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="customerEntity.userObjectId" />
+    <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="customerEntity.firstName" />
+    <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="customerEntity.lastName" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="customerEntity.role.name" DataType="string" Value="Administrator"/>
+    <InputParameter Id="customerEntity.role.id" DataType="long" Value="1"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+以下声明转换输出一个 JSON 字符串声明，该声明将作为发送到 REST API 的请求的正文。 JSON 对象的结构由 InputClaims 的 InputParameters 和 TransformationClaimTypes 的点表示法中的 ID 定义。 值来自 InputClaims 的值和 InputParameters 的“Value”属性。
+
+- 输入声明：
+  - **email** ,  transformation claim type  **customerEntity.email** : "john.s@contoso.com"
+  - **objectId** , transformation claim type **customerEntity.userObjectId** "01234567-89ab-cdef-0123-456789abcdef"
+  - **objectId** , transformation claim type **customerEntity.firstName** "John"
+  - **objectId** , transformation claim type **customerEntity.lastName** "Smith"
+- 输入参数：
+  - **customerEntity.role.name** :“Administrator”
+  - **customerEntity.role.id** 1
+- 输出声明：
+  - **requestBody** :JSON 值
+
+```json
+{
+   "customerEntity":{
+      "email":"john.s@contoso.com",
+      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "firstName":"John",
+      "lastName":"Smith",
+      "role":{
+         "name":"Administrator",
+         "id": 1
+      }
+   }
 }
 ```
 
@@ -253,7 +303,7 @@ ms.locfileid: "87297701"
   - inputJson: {"givenName":"Emilty", "lastName":"Smith"}
 - 输出声明：
   - key: givenName
-  - **value**：Emilty
+  - **value** ：Emilty
 
 
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray

@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure AD 身份验证为 VPN 用户启用 MFA
-description: 为 VPN 用户启用多重身份验证
+description: 了解如何使用 Azure AD 身份验证为 VPN 用户启用 Azure 多重身份验证 (MFA)。
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: how-to
-origin.date: 01/16/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: a9e530bd3b73063cd7b3cba4852df92911e58c2a
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: fd45e2e65aeb1f7da1e00a0a17efa49cf98c0ba8
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246716"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472629"
 ---
 <!--Verified successfully-->
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users-by-using-azure-ad-authentication"></a>使用 Azure AD 身份验证为 VPN 用户启用 Azure 多重身份验证 (MFA)

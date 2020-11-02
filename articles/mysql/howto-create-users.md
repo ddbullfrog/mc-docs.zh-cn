@@ -5,45 +5,49 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
-origin.date: 4/2/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 1aac4fba2499aacbd377552e8e796c917e4c385c
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+origin.date: 10/1/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: 9269cf52713f22be281ee48f4af157b52c6071c4
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041787"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470310"
 ---
-# <a name="create-databases-and-users-in-azure-database-for-mysql-server"></a>在 Azure Database for MySQL 服务器中创建数据库和用户
+# <a name="create-databases-and-users-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中创建数据库和用户
 
 > [!NOTE]
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 本文介绍如何在 Azure Database for MySQL 服务器中创建用户。
 
-首次创建 Azure Database for MySQL 时，需要提供服务器管理员登录用户名和密码。 有关详细信息，可以参考[快速入门](quickstart-create-mysql-server-database-using-azure-portal.md)。 你可以从 Azure 门户中找到你的服务器管理员登录用户名。
+首次创建 Azure Database for MySQL 服务器时，需要提供服务器管理员用户名和密码。 有关详细信息，请参阅此[快速入门](quickstart-create-mysql-server-database-using-azure-portal.md)。 你可以在 Azure 门户中确定你的服务器管理员用户名。
 
-服务器管理员用户可获得服务器的某些权限，如下所示： 
+服务器管理员用户具有以下权限： 
 
-   SELECT、INSERT、UPDATE、DELETE、CREATE、DROP、RELOAD、PROCESS、REFERENCES、INDEX、ALTER、SHOW DATABASES、CREATE TEMPORARY TABLES、LOCK TABLES、EXECUTE、REPLICATION SLAVE、REPLICATION CLIENT、CREATE VIEW、SHOW VIEW、CREATE ROUTINE、ALTER ROUTINE、CREATE USER、EVENT、TRIGGER
+   选择、插入、更新、删除、创建、放置、重载、处理、引用、索引、更改、显示数据库、创建临时表、锁定表、执行、复制从属、复制客户端、创建视图、显示视图、创建例程、更改例程、创建用户、事件、触发器
 
 
-创建 Azure Database for MySQL 服务器后，你可以使用第一个服务器管理员用户帐户来创建其他用户，并授予这些用户管理员访问权限。 此外，服务器管理员帐户还可以用于创建只能访问各个数据库架构的权限较低的用户。
+创建 Azure Database for MySQL 服务器后，你可以使用第一个服务器管理员帐户来创建其他用户，并授予这些用户管理员访问权限。 你还可以使用服务器管理员帐户来创建只能访问各个数据库架构的权限较低的用户。
 
 > [!NOTE]
-> 不支持 SUPER 权限和 DBA 角色。 请在“限制”一文中查看[权限](concepts-limits.md#privilege-support)，以了解服务中不支持的权限。
+> 不支持 SUPER 权限和 DBA 角色。 请在“限制”一文中查看[权限](concepts-limits.md#privileges--data-manipulation-support)，以了解服务中不支持的权限。
+>
+> 服务器不支持 `validate_password` 和 `caching_sha2_password` 等密码插件。
 
-## <a name="how-to-create-database-with-non-admin-user-in-azure-database-for-mysql"></a>如何在 Azure Database for MySQL 中使用非管理员用户创建数据库
+
+## <a name="to-create-a-database-with-a-non-admin-user-in-azure-database-for-mysql"></a>若要在 Azure Database for MySQL 中使用非管理员用户创建数据库
 
 1. 获取连接信息和管理员用户名。
-   若要连接到数据库服务器，需提供完整的服务器名称和管理员登录凭据。 你可以在 Azure 门户的服务器“概述”页或“属性”页中轻松找到服务器名称和登录信息。  
+   若要连接到数据库服务器，需提供完整的服务器名称和管理员登录凭据。 可以在 Azure 门户的服务器“概览”页或“属性”页中轻松地找到服务器名称和登录信息 。
 
-2. 使用管理员帐户和密码连接到你的数据库服务器。 使用你的首选客户端工具，如 MySQL Workbench、mysql.exe、HeidiSQL 或其他工具。
-   如果你不确定如何连接，请参阅[如何使用 MySQL Workbench 连接和查询单一服务器的数据](./connect-workbench.md)
+2. 使用管理员帐户和密码连接到你的数据库服务器。 使用你的首选客户端工具，如 MySQL Workbench、mysql.exe 或 HeidiSQL。
+   
+   如果你不确定如何连接，请参阅[连接和查询单一服务器的数据](./connect-workbench.md)。
 
-3. 编辑并运行下面的 SQL 代码。 将占位符值 `db_user` 替换为预期的新用户名，并将占位符值 `testdb` 替换为你自己的数据库名称。
+3. 编辑并运行下面的 SQL 代码。 将占位符 `db_user` 替换为所需的新用户名。 将占位符 `testdb` 替换为数据库名称。
 
-   出于举例的目的，此 sql 代码语法将创建一个名为 testdb 的新数据库。 然后，它在 MySQL 服务中创建新用户，并将所有权限授予该用户的新数据库架构 (testdb.\*)。
+   此 SQL 代码创建名为 testdb 的新数据库。 然后，它在 MySQL 服务中创建新用户，并将所有权限授予该用户的新数据库架构 (testdb.\*)。
 
    ```sql
    CREATE DATABASE testdb;
@@ -55,7 +59,7 @@ ms.locfileid: "92041787"
    FLUSH PRIVILEGES;
    ```
 
-4. 验证数据库中的授予。
+4. 验证数据库中的授予：
 
    ```sql
    USE testdb;
@@ -63,21 +67,22 @@ ms.locfileid: "92041787"
    SHOW GRANTS FOR 'db_user'@'%';
    ```
 
-5. 使用新用户名和密码登录到服务器，指定选定的数据库。 此示例显示了 mysql 命令行。 使用此命令，会提示你输入用户名的密码。 替换你自己的服务器名称、数据库名称和用户名。
+5. 登录到服务器，指定选定的数据库并使用新用户名和密码。 此示例显示了 mysql 命令行。 使用此命令时，系统会提示你输入用户的密码。 使用你自己的服务器名称、数据库名称和用户名。
 
    ```azurecli
    mysql --host mydemoserver.mysql.database.chinacloudapi.cn --database testdb --user db_user@mydemoserver -p
    ```
 
-## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>如何在 Azure Database for MySQL 中创建其他管理员用户
+## <a name="to-create-additional-admin-users-in-azure-database-for-mysql"></a>若要在 Azure Database for MySQL 中创建其他管理员用户
 
 1. 获取连接信息和管理员用户名。
-   若要连接到数据库服务器，需提供完整的服务器名称和管理员登录凭据。 你可以在 Azure 门户的服务器“概述”页或“属性”页中轻松找到服务器名称和登录信息。  
+   若要连接到数据库服务器，需提供完整的服务器名称和管理员登录凭据。 可以在 Azure 门户的服务器“概览”页或“属性”页中轻松地找到服务器名称和登录信息 。
 
-2. 使用管理员帐户和密码连接到你的数据库服务器。 使用你的首选客户端工具，如 MySQL Workbench、mysql.exe、HeidiSQL 或其他工具。
-   如果你不确定如何连接，请参阅[使用 MySQL Workbench 连接和查询数据](./connect-workbench.md)
+2. 使用管理员帐户和密码连接到你的数据库服务器。 使用你的首选客户端工具，如 MySQL Workbench、mysql.exe 或 HeidiSQL。
+   
+   如果你不确定如何连接，请参阅[使用 MySQL Workbench 连接和查询数据](./connect-workbench.md)。
 
-3. 编辑并运行下面的 SQL 代码。 将占位符值 `new_master_user` 替换为你的新用户名。 此语法会将所有数据库架构 ( *.* ) 上列出的权限授予该用户名（本示例中的 new_master_user）。
+3. 编辑并运行下面的 SQL 代码。 将占位符 `new_master_user` 替换为新用户名。 此语法会将所有数据库架构 ( *.* ) 上列出的权限授予该用户名（本示例中的 `new_master_user`）。
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';
@@ -87,13 +92,17 @@ ms.locfileid: "92041787"
    FLUSH PRIVILEGES;
    ```
 
-4. 验证授予
+4. 验证授予：
 
    ```sql
    USE sys;
 
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
+
+## <a name="azure_superuser"></a>azure_superuser
+
+所有 Azure Database for MySQL 服务器都是使用名为“azure_superuser”的用户创建的。 这是 Azure 创建的系统帐户，用于管理服务器以执行监视、备份和其他定期维护。 待命工程师还可以使用此帐户在发生证书身份验证事件期间访问服务器，并且必须使用实时 (JIT) 进程请求访问。
 
 ## <a name="next-steps"></a>后续步骤
 

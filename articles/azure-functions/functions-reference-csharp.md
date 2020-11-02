@@ -3,20 +3,21 @@ title: Azure Functions C# 脚本开发人员参考
 description: '了解如何使用 C # 脚本开发 Azure Functions。'
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.custom: devx-track-csharp
+ms.date: 10/19/2020
 ms.author: v-junlch
-ms.openlocfilehash: 86df1a1b38dc1b7acbe53e465859d37b909ffa5a
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: f8ba809b70620187be7d47efcc9e8b0171cac1cb
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402674"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472046"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 脚本 (.csx) 开发人员参考
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-本文介绍了如何使用 C# 脚本 ( *.csx*) 开发 Azure Functions。
+本文介绍了如何使用 C# 脚本 ( *.csx* ) 开发 Azure Functions。
 
 Azure Functions 支持 C# 和 C# 脚本编程语言。 如需[在 Visual Studio 类库项目中使用 C#](functions-develop-vs.md) 方面的指南，请参阅 [C# 开发人员参考](functions-dotnet-class-library.md)。
 
@@ -118,7 +119,7 @@ POCO 类必须为每个属性定义 getter 和 setter。
 
 可以在 *run.csx* 文件中使用其他 *run.csx* 文件中定义的类和方法。 为此，需使用 run.csx 文件中的 `#load` 指令。 在下面的实例中，在 myLogger.csx 中共享了名为 `MyLogger` 的日志记录例程，并使用 `#load` 指令将其加载到 run.csx：
 
-示例 *run.csx*：
+示例 *run.csx* ：
 
 ```csharp
 #load "mylogger.csx"
@@ -132,7 +133,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-示例 *mylogger.csx*：
+示例 *mylogger.csx* ：
 
 ```csharp
 public static void MyLogger(ILogger log, string logtext)
@@ -248,7 +249,17 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> 有关可以用来代替 `TraceWriter` 的较新的日志记录框架，请参阅**监视 Azure Functions** 一文中的[以 C# 函数写入日志](functions-monitoring.md#write-logs-in-c-functions)。
+> 有关可以代替 `TraceWriter` 使用的更新日志框架的信息，请参阅 .NET 类库开发人员指南中的 [ILogger](functions-dotnet-class-library.md#ilogger) 文档。
+
+### <a name="custom-metrics-logging"></a>自定义指标日志记录
+
+可以使用 `ILogger` 上的 `LogMetric` 扩展方法来在 Application Insights 中创建自定义指标。 下面是示例方法调用：
+
+```csharp
+logger.LogMetric("TestMetric", 1234);
+```
+
+此代码是一种替代方法，使用适用于 .NET 的 Application Insights API 调用 `TrackMetric`。
 
 ## <a name="async"></a>异步
 
@@ -448,7 +459,7 @@ public static string GetEnvironmentVariable(string name)
 
 如下所示定义命令性绑定：
 
-- 对于所需的命令性绑定，**不要**包含 function.json 中的条目。
+- 对于所需的命令性绑定， **不要** 包含 function.json 中的条目。
 - 传递输入参数 [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 或 [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)。
 - 使用下面的 C# 模式执行数据绑定。
 
@@ -506,7 +517,7 @@ public static async Task Run(string input, Binder binder)
 下表列出了每种绑定类型的 .NET 属性及其定义所在的包。
 
 > [!div class="mx-codeBreakAll"]
-> | 绑定 | Attribute | 添加引用 |
+> | 绑定 | 属性 | 添加引用 |
 > |------|------|------|
 > | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
 > | 事件中心 | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/b798412ad74ba97cf2d85487ae8479f277bdd85c/test/Microsoft.Azure.WebJobs.ServiceBus.UnitTests/ServiceBusAccountTests.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |

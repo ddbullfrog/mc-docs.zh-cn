@@ -3,28 +3,26 @@ title: 导出和删除数据 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 你对于查看、导出和删除其数据具有完全控制权。 删除客户数据以确保隐私和合规性。
 services: cognitive-services
-author: lingliw
-manager: digimobile
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-origin.date: 04/02/2019
-ms.date: 07/24/2019
-ms.author: v-lingwu
-ms.openlocfilehash: e7a598604147f6f8ae9aad41832a8760b2532514
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.topic: reference
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: 99ef1bd7037633af999152a11b48a116ffa0bdd8
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228349"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472343"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>在认知服务中的语言理解 (LUIS) 中导出和删除客户数据
 
-删除客户数据以确保隐私和合规性。 
+删除客户数据以确保隐私和合规性。
 
 ## <a name="summary-of-customer-data-request-features"></a>客户数据请求功能摘要
-语言理解智能服务 (LUIS) 保存客户内容来使服务运转，但 LUIS 用户拥有完全控制权限来查看、导出以及删除其数据。 这可以通过 LUIS Web [门户](luis-reference-regions.md)或 [LUIS 创作（也称为“编程”）API](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 来完成。
+语言理解智能服务 (LUIS) 保存客户内容来使服务运转，但 LUIS 用户拥有完全控制权限来查看、导出以及删除其数据。 这可以通过 LUIS Web [门户](luis-reference-regions.md)或 [LUIS 创作（也称为“编程”）API](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 来完成。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -40,8 +38,8 @@ LUIS 用户具有完全控制权限，可通过 LUIS Web 门户或 LUIS 创作�
 
 | | **用户帐户** | **应用程序** | **示例话语** | **最终用户查询** |
 | --- | --- | --- | --- | --- |
-| **门户** | [链接](luis-concept-data-storage.md#delete-an-account) | 链接| [链接](luis-concept-data-storage.md#utterances-in-an-intent) | 主动学习话语<br>[记录的话语](luis-concept-data-storage.md#disable-logging-utterances) |
-| **API** | [链接](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [链接](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [链接](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [链接](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
+| **门户** | [链接](luis-concept-data-storage.md#delete-an-account) | [链接](luis-how-to-start-new-app.md#delete-app)。 | [链接](luis-concept-data-storage.md#utterances-in-an-intent) | [主动学习话语](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[记录的话语](luis-concept-data-storage.md#disable-logging-utterances) |
+| **API** | [链接](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [链接](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [链接](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [链接](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
 ## <a name="exporting-customer-data"></a>导出客户数据
@@ -49,30 +47,25 @@ LUIS 用户具有完全控制权限可在门户上查看数据，但是，若要
 
 | | **用户帐户** | **应用程序** | **陈述** | **最终用户查询** |
 | --- | --- | --- | --- | --- |
-| **API** | [链接](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [链接](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [链接](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [链接](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
+| **API** | [链接](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [链接](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [链接](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [链接](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
+<!--Customized in MC-->
 ## <a name="location-of-active-learning"></a>主动学习的位置
 
-为了启用主动学习，在已发布的 LUIS 终结点收到的用户记录的话语将存储在以下 Azure 地理区域中：
+为了启用[主动学习](luis-how-to-review-endpoint-utterances.md#enable-active-learning)，在已发布的 LUIS 终结点收到的用户记录的话语将存储在 Azure 中国地理区域中：
 
-* [中国](#china)
+除了主动学习数据（详见下文）外，LUIS 遵循[区域服务的数据存储做法](https://azuredatacentermap.azurewebsites.net/)。
 
 除了主动学习数据（详见下文）外，LUIS 遵循[区域服务的数据存储做法](http://azuredatacentermap.chinacloudsites.cn/)。 
 
 
-### <a name="china"></a>中国
+[luis.azure.cn](https://luis.azure.cn) 门户和中国创作（也称为编程 API）托管在 Azure 的中国地理区域中。 https://luis.azure.cn 门户和中国创作（也称为编程 API）支持将终结点部署到 Azure 中国地理区域。
 
-[luis.azure.cn](https://luis.azure.cn) 门户和中国创作（也称为编程 API）托管在 Azure 的中国地理区域中。 https://luis.azure.cn 门户和中国创作（也称为编程 API）支持将终结点部署到以下 Azure 地理区域：
+部署到这些 Azure 地理区域时，终结点从应用的最终用户收到的话语将存储在 Azure 的中国地理区域中，以便进行主动学习。 可以禁用主动学习，请参阅[禁用主动学习](luis-how-to-review-endpoint-utterances.md#disable-active-learning)。 若要管理存储的话语，请参阅[删除话语](luis-how-to-review-endpoint-utterances.md#delete-utterance)。
 
-* 中国
-
-部署到这些 Azure 地理区域时，终结点从应用的最终用户收到的话语将存储在 Azure 的中国地理区域中，以便进行主动学习。
-
+<!--Customized in MC-->
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [LUIS 区域参考](./luis-reference-regions.md)
-
-
-
 

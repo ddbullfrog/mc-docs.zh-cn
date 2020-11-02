@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6356a591114e625a52be5302f25cb61f2d3aa361
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: ebc51019dfdbb655f3ed22372ebb2368e9b0e33d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937296"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472126"
 ---
 # <a name="data-storage"></a>数据存储
 
@@ -26,15 +26,14 @@ ms.locfileid: "91937296"
 创建 Azure 时序见解第 2 代环境时，可以使用以下选项：
 
 * 冷数据存储：
-   * 在为环境选择的订阅和区域中创建新的 Azure 存储资源。
-   * 附加预先存在的 Azure 存储帐户。 此选项仅在从 Azure 资源管理器[模板](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)部署时可用，在 Azure 门户中不可见。
+  * 在为环境选择的订阅和区域中创建新的 Azure 存储资源。
+  * 附加预先存在的 Azure 存储帐户。 此选项仅在从 Azure 资源管理器[模板](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)部署时可用，在 Azure 门户中不可见。
 * 暖数据存储：
-   * 暖存储是可选项，可在预配期间或之后启用或禁用。 如果你决定稍后启用暖存储并且冷存储中已有数据，请参阅下面的[此部分](concepts-storage.md#warm-store-behavior)，了解预期行为。 暖存储数据保留时间可以配置为 7 到 31 天，也可以根据需要进行调整。
+  * 暖存储是可选项，可在预配期间或之后启用或禁用。 如果你决定稍后启用暖存储并且冷存储中已有数据，请参阅下面的[此部分](concepts-storage.md#warm-store-behavior)，了解预期行为。 暖存储数据保留时间可以配置为 7 到 31 天，也可以根据需要进行调整。
 
 引入一个事件时，会在暖存储（如果启用）和冷存储中为其建立索引。
 
 [![存储概述](./media/concepts-storage/pipeline-to-storage.png)](./media/concepts-storage/pipeline-to-storage.png#lightbox)
-
 
 > [!WARNING]
 > 冷存储数据所在 Azure Blob 存储帐户的所有者对该帐户中的所有数据拥有完全访问权限。 此访问权限包括“写入”和“删除”权限。 请不要编辑或删除 Azure 时序见解第 2 代写入的数据，否则可能导致数据丢失。
@@ -50,11 +49,11 @@ ms.locfileid: "91937296"
 
 只能通过[时序查询 API](./time-series-insights-update-tsq.md) 和 Azure 时序见解 TSI Explorer 或 [Power BI 连接器](./how-to-connect-power-bi.md)使用暖存储中的数据。 暖存储查询免费且没有配额，但有一个 [30 个并发请求的限制](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits)。
 
-### <a name="warm-store-behavior"></a>暖存储行为 
+### <a name="warm-store-behavior"></a>暖存储行为
 
 * 启用后，流式传输到你的环境的所有数据都将路由到你的暖存储，而不考虑事件时间戳。 请注意，流式引入管道专为近实时流式处理生成，[不支持](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion)引入历史事件。
 * 保留期将基于事件在暖存储中建立索引的时间（而不是事件时间戳）进行计算。 这意味着，在保留期过后，即使事件时间戳适用于将来，数据在暖存储中也不再可用。
-  - 示例：将包含 10 天天气预报的事件引入一个配置了 7 天保留期的暖存储容器中，并为该事件编制索引。 7 天后，将再也不能在暖存储中访问预测，但可以从冷存储中查询它。 
+  * 示例：将包含 10 天天气预报的事件引入一个配置了 7 天保持期的暖存储容器中，并为该事件编制索引。 7 天后，将再也不能在暖存储中访问预测，但可以从冷存储中查询它。
 * 请注意，如果在现有环境中启用了暖存储，而该环境已在冷存储中将最近的数据编制索引，则不会使用此数据回填暖存储。
 * 如果你刚启用了暖存储，并且在 Explorer 中查看最近的数据时遇到问题，可以暂时关闭暖存储查询：
 
@@ -117,7 +116,7 @@ Azure 时序见解第 2 代按如下方式存储数据的副本：
 Azure 时序见解第 2 代事件映射到 Parquet 文件内容，如下所示：
 
 * 每个事件映射到单个行。
-* 每一行包含带有事件时间戳的**时间戳**列。 “时间戳”属性永远不会为 null。 如果未在事件源中指定时间戳属性，该属性默认为**事件排队时间**。 存储的时间戳始终为 UTC 时间。
+* 每一行包含带有事件时间戳的 **时间戳** 列。 “时间戳”属性永远不会为 null。 如果未在事件源中指定时间戳属性，该属性默认为 **事件排队时间** 。 存储的时间戳始终为 UTC 时间。
 * 每一行包含创建 Azure 时序见解第 2 代环境时定义的时序 ID (TSID) 列。 TSID 属性名称包含 `_string` 后缀。
 * 作为遥测数据发送的所有其他属性映射到以 `_bool`（布尔值）、`_datetime`（时间戳）、`_long` (long)、`_double` (double)、`_string`（字符串）或 `dynamic` (dynamic) 结尾的列名称，具体取决于属性类型。  有关详细信息，请阅读[支持的数据类型](./concepts-supported-data-types.md)。
 * 此映射架构适用于文件格式的第一个版本（以 **V=1** 表示，存储在使用相同名称的基文件夹中）。 随着此功能的演变，此映射架构可能会更改，引用名称的数字会递增。

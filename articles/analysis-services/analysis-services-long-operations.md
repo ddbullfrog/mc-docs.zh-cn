@@ -5,16 +5,16 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/14/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b3d8522f31c0b6fd0f5ae1e828cc6364c5fd8163
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 4742b5021f8fe8ed4b9628bd1095779eeb8c5187
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146748"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470132"
 ---
 # <a name="best-practices-for-long-running-operations"></a>长时间运行的操作的最佳做法
 
@@ -27,7 +27,7 @@ ms.locfileid: "91146748"
 - 操作系统修补 
 - 安全更新
 - Azure Analysis Services 服务更新
-- Service Fabric 更新 Service Fabric 是由许多 Azure 云服务（包括 Azure Analysis Services）使用的平台组件。
+- Service Fabric 更新 Service Fabric 是由许多 Microsoft 云服务（包括 Azure Analysis Services）使用的平台组件。
 
 除了服务中发生的更新外，由于需要进行负载均衡，服务还会在各个节点之间自然移动。 云服务需要进行节点移动。 Azure Analysis Services 会尝试最大程度地降低节点移动影响，但无法完全消除它们。 
 

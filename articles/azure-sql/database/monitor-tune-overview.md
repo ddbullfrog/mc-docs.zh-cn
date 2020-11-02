@@ -2,22 +2,22 @@
 title: 监视和性能优化
 description: 概述 Azure SQL 数据库和 Azure SQL 托管实例中的监视和性能优化功能与方法。
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: jrasnick, carlrab
-origin.date: 03/10/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 574d4979c5e2613db5c164904d99b07adc71a3b3
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.reviewer: jrasnick, sstein
+origin.date: 09/30/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: 1f9cb2c907bc9cbd2e0a0afa27e44c9c8284f6be
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227353"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470276"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL 数据库与 Azure SQL 托管实例中的监视和性能优化
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,11 +28,14 @@ Azure SQL 数据库提供多个数据库顾问来提供智能性能优化建议�
 
 Azure SQL 数据库和 Azure SQL 托管实例提供基于人工智能的其他监视和优化功能，以帮助排查数据库和解决方案的性能问题并实现其最高性能。 可以选择将[智能见解](intelligent-insights-overview.md)以及其他数据库资源日志与指标配置为[流式导出](metrics-diagnostic-telemetry-logging-streaming-export-configure.md)到多个目标之一，使其可供使用和分析。 Azure SQL Analytics 是一种高级云监视解决方案，用于在单个视图中跨多个订阅大规模监视所有数据库的性能。 有关可导出的日志和指标列表，请参阅[可导出的诊断遥测数据](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
 
-最后，SQL Server 具有自己的监视和诊断功能，SQL 数据库和 SQL 托管实例可以利用这些功能，例如[查询存储](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)和[动态管理视图 (DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)。 有关用于监视各种性能问题的脚本，请参阅[使用 DMV 进行监视](monitoring-with-dmvs.md)。
+SQL Server 具有自己的监视和诊断功能，SQL 数据库和 SQL 托管实例可以利用这些功能，例如[查询存储](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)和[动态管理视图 (DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)。 有关用于监视各种性能问题的脚本，请参阅[使用 DMV 进行监视](monitoring-with-dmvs.md)。
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Azure 门户中的监视和优化功能
 
-在 Azure 门户中，Azure SQL 数据库和 Azure SQL 托管实例提供对资源指标的监视。 此外，Azure SQL 数据库提供数据库顾问，而 Query Performance Insight 提供查询优化建和查询性能分析。 最后，在 Azure 门户中，可为[逻辑 SQL 服务器](logical-servers.md)及其单一数据库和共用数据库启用自动优化。
+在 Azure 门户中，Azure SQL 数据库和 Azure SQL 托管实例提供对资源指标的监视。 Azure SQL 数据库提供数据库顾问，而 Query Performance Insight 提供查询优化建和查询性能分析。 在 Azure 门户中，可为[逻辑 SQL 服务器](logical-servers.md)及其单一数据库和共用数据库启用自动优化。
+
+> [!NOTE]
+> 使用率极低的数据库在门户中显示的使用情况可能低于实际使用情况。 由于在将双精度值转换为最接近的整数时发出遥测的方式，某些小于 0.5 的使用量将舍入为 0，这会导致发出的遥测的精度降低。 有关详细信息，请参阅[数据库和弹性池低指标舍入为零](#low-database-and-elastic-pool-metrics-rounding-to-zero)。
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Azure SQL 数据库和 Azure SQL 托管实例资源监视
 
@@ -47,6 +50,33 @@ Azure SQL 数据库包含针对单一数据库和共用数据库提供性能优�
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Azure SQL 数据库中的 Query Performance Insight
 
 [Query Performance Insight](query-performance-insight-use.md) 在 Azure 门户中显示针对单一数据库和共用数据库运行的、资源消耗量最高且运行时间最长的查询的性能。
+
+### <a name="low-database-and-elastic-pool-metrics-rounding-to-zero"></a>数据库和弹性池低指标舍入为零
+
+从 2020 年 9 月开始，使用率极低的数据库在门户中显示的使用情况可能低于实际使用情况。 由于在将双精度值转换为最接近的整数时发出遥测的方式，某些小于 0.5 的使用量将舍入为 0，这会导致发出的遥测的精度降低。
+
+例如：假设一个 1 分钟时段，其中包含以下 4 个数据点：0.1、0.1、0.1、0.1，这些低值向下舍入为 0、0、0、0，并显示平均值为 0。 如果其中有数据点大于 0.5，例如：0.1、0.1、0.9、0.1，它们舍入为 0、0、1、0，并显示平均值为 0.25。
+
+受影响的数据库指标：
+- cpu_percent
+- log_write_percent
+- workers_percent
+- sessions_percent
+- physical_data_read_percent
+- dtu_consumption_percent2
+- xtp_storage_percent
+
+受影响的弹性池指标：
+- cpu_percent
+- physical_data_read_percent
+- log_write_percent
+- memory_usage_percent
+- data_storage_percent
+- peak_worker_percent
+- peak_session_percent
+- xtp_storage_percent
+- allocated_data_storage_percent
+
 
 ## <a name="generate-intelligent-assessments-of-performance-issues"></a>生成性能问题的智能评估
 

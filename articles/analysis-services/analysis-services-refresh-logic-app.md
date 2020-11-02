@@ -5,17 +5,17 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 10/30/2019
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: references_regions
-ms.openlocfilehash: 48b325a2a083c2f352b54958604f1c0368383039
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 0e655672be6b1238a97307c8c4471b3f1e9176b6
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146303"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470475"
 ---
 # <a name="refresh-with-logic-apps"></a>使用逻辑应用进行刷新
 
@@ -30,7 +30,7 @@ ms.locfileid: "91146303"
 ## <a name="design-the-logic-app"></a>设计逻辑应用
 
 > [!IMPORTANT]
-> 以下示例假设已禁用 Azure Analysis Services 防火墙。 如果启用了防火墙，则必须将请求发起程序的公共 IP 地址加入 Azure Analysis Services 防火墙的允许列表。 若要详细了解每个区域的 Azure 逻辑应用 IP 范围，请参阅 [Azure 逻辑应用的限制和配置信息](../logic-apps/logic-apps-limits-and-config.md#configuration)。
+> 以下示例假设已禁用 Azure Analysis Services 防火墙。 如果启用了防火墙，则必须将请求发起者的公共 IP 地址添加到 Azure Analysis Services 防火墙中的已批准列表。 若要详细了解每个区域的 Azure 逻辑应用 IP 范围，请参阅 [Azure 逻辑应用的限制和配置信息](../logic-apps/logic-apps-limits-and-config.md#configuration)。
 
 ### <a name="prerequisites"></a>必备条件
 
@@ -54,11 +54,11 @@ ms.locfileid: "91146303"
 
     保存逻辑应用后，此步骤将会填充 HTTP POST URL。
 
-2. 添加新步骤并搜索 **HTTP**。  
+2. 添加新步骤并搜索 **HTTP** 。  
 
-    :::image type="content" source="./media/analysis-services-async-refresh-logic-app/9.png" alt-text="添加已收到 HTTP 请求时的活动":::
+    ![“选择操作”部分的屏幕截图，其中选择了“HTTP”磁贴。](./media/analysis-services-async-refresh-logic-app/9.png)
 
-    :::image type="content" source="./media/analysis-services-async-refresh-logic-app/10.png" alt-text="添加已收到 HTTP 请求时的活动":::
+    ![“HTTP”窗口的屏幕截图，其中选择了“HTTP - HTTP”磁贴。](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. 选择“HTTP”以添加此操作。 
 
@@ -70,7 +70,7 @@ ms.locfileid: "91146303"
 |---------|---------|
 |**方法** |POST         |
 |**URI** | https://服务器区域  /servers/aas 服务器名称  /models/数据库名称  /refreshes <br /> <br /> 例如：https:\//chinanorth.asazure.chinacloudapi.cn/servers/myserver/models/AdventureWorks/refreshes|
-|**标头** |   Content-Type、application/json <br /> <br />  ![标头](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**标头** |   Content-Type、application/json <br /> <br />  :::image type="content" source="./media/analysis-services-async-refresh-logic-app/6.png" alt-text="添加已收到 HTTP 请求时的活动":::    |
 |**正文** |   若要详细了解如何构建请求正文，请参阅[使用 REST API - POST /refreshes 执行异步刷新](analysis-services-async-refresh.md#post-refreshes)。 |
 |**身份验证** |Active Directory OAuth         |
 |**租户** |填写你的 Azure Active Directory 租户 ID         |
@@ -89,7 +89,7 @@ ms.locfileid: "91146303"
 
 ## <a name="consume-the-logic-app-with-azure-data-factory"></a>通过 Azure 数据工厂使用逻辑应用
 
-保存逻辑应用后，请查看**收到 HTTP 请求时**活动，然后复制现在生成的 **HTTP POST URL**。  Azure 数据工厂可以使用此 URL 发出异步调用来触发逻辑应用。
+保存逻辑应用后，请查看 **收到 HTTP 请求时** 活动，然后复制现在生成的 **HTTP POST URL** 。  Azure 数据工厂可以使用此 URL 发出异步调用来触发逻辑应用。
 
 下面是执行此操作的示例 Azure 数据工厂 Web 活动。
 
@@ -101,15 +101,15 @@ ms.locfileid: "91146303"
 
 沿用上面的示例，请删除第一个活动，并将其替换为“计划”活动。 
 
-:::image type="content" source="./media/analysis-services-async-refresh-logic-app/12.png" alt-text="添加已收到 HTTP 请求时的活动":::
+![显示“逻辑应用”页面的屏幕截图，其中选择了“计划”磁贴。](./media/analysis-services-async-refresh-logic-app/12.png)
 
-:::image type="content" source="./media/analysis-services-async-refresh-logic-app/13.png" alt-text="添加已收到 HTTP 请求时的活动":::
+![显示“触发器”页面的屏幕截图。](./media/analysis-services-async-refresh-logic-app/13.png)
 
 本示例将使用“重复周期”。 
 
 添加活动后，配置“间隔”和“频率”，然后添加新参数并选择“在这些时间”。 
 
-:::image type="content" source="./media/analysis-services-async-refresh-logic-app/16.png" alt-text="添加已收到 HTTP 请求时的活动":::
+![显示“重复周期”部分的屏幕截图，其中选择了“在这些时间”参数。](./media/analysis-services-async-refresh-logic-app/16.png)
 
 选择所需的小时数。
 

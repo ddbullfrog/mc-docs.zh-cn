@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2020
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: f915d0b7bfbcf0e23e3bfc35815925599c565ab8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 45e43d9d8af16f428dbcfebe2da031e882c24cda
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78266102"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471160"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>可用于 Azure AD B2C 的 Microsoft Graph 操作
 
@@ -33,6 +33,15 @@ ms.locfileid: "78266102"
 - [删除用户](https://docs.microsoft.com/graph/api/user-delete)
 
 有关使用 Microsoft Graph API 管理 Azure AD B2C 用户帐户的详细信息，请参阅[使用 Microsoft Graph 管理 Azure AD B2C 用户帐户](manage-user-accounts-graph-api.md)。
+
+## <a name="user-phone-number-management"></a>用户电话号码管理
+
+- [添加](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
+- [Get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
+- [更新](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
+- [删除](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+
+有关使用 Microsoft Graph API 管理用户登录电话号码的详细信息，请参阅 [B2C 身份验证方法](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy)。
 
 ## <a name="identity-providers-user-flow"></a>标识提供者（用户流）
 
@@ -65,9 +74,9 @@ ms.locfileid: "78266102"
 
 ## <a name="policy-keys"></a>策略密钥
 
-Identity Experience Framework 存储着自定义策略中引用的机密，以在组件之间建立信任关系。 这些机密可以是对称或非对称密钥/值。 在 Azure 门户中，这些实体显示为**策略密钥**。
+Identity Experience Framework 存储着自定义策略中引用的机密，以在组件之间建立信任关系。 这些机密可以是对称或非对称密钥/值。 在 Azure 门户中，这些实体显示为 **策略密钥** 。
 
-Microsoft Graph API 中策略密钥的顶层资源是[信任的框架密钥集](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset)。 每个**密钥集**都包含至少一个**密钥**。 若要创建密钥，请先创建一个空的密钥集，然后在密钥集中生成一个密钥。 你可以创建手动机密、上传证书或 PKCS12 密钥。 密钥可以是生成的机密、你定义的字符串或你上传的证书。 如果密钥集具有多个密钥，则只有其中一个密钥处于活动状态。
+Microsoft Graph API 中策略密钥的顶层资源是[信任的框架密钥集](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset)。 每个 **密钥集** 都包含至少一个 **密钥** 。 若要创建密钥，请先创建一个空的密钥集，然后在密钥集中生成一个密钥。 你可以创建手动机密、上传证书或 PKCS12 密钥。 密钥可以是生成的机密、你定义的字符串或你上传的证书。 如果密钥集具有多个密钥，则只有其中一个密钥处于活动状态。
 
 ### <a name="trust-framework-policy-keyset"></a>信任框架策略密钥集
 

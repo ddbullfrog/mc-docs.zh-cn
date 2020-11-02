@@ -1,7 +1,7 @@
 ---
 title: 已知问题：从 PostgreSQL 联机迁移到 Azure Database for PostgreSQL
 titleSuffix: Azure Database Migration Service
-description: 了解在使用 Azure 数据库迁移服务从 PostgreSQL 联机迁移到 Azure Database for PostgreSQ 时的已知问题和迁移限制。
+description: 了解在使用 Azure 数据库迁移服务从 PostgreSQL 联机迁移到 Azure Database for PostgreSQL 时存在的已知问题和迁移限制。
 services: database-migration
 author: WenJason
 ms.author: v-jay
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.custom:
 - seo-lt-2019
 - seo-dt-2019
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 02/20/2020
 ms.date: 03/09/2020
-ms.openlocfilehash: ee5d306a365cc3cd2b67b3312dd04722def6e6ff
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 680af7b211cd54a8e58c43a6d0a1cbea27e70d16
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78238513"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472569"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>从 PostgreSQL 联机迁移到 Azure DB for PostgreSQL 时的已知问题/迁移限制
 
@@ -82,37 +82,39 @@ ms.locfileid: "78238513"
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
      ```
 
+## <a name="size-limitations"></a>大小限制
+- 可以使用单个 DMS 服务将最多 2 TB 的数据从 PostgreSQL 迁移到 Azure DB for PostgreSQL。
 ## <a name="datatype-limitations"></a>数据类型限制
 
-  **限制**：如果表中没有主键，则所做的更改可能不会同步到目标数据库。
+  **限制** ：如果表中没有主键，则所做的更改可能不会同步到目标数据库。
 
-  **解决方法**：暂时为表设置一个主键，以便迁移能够继续。 数据迁移完成后，可以删除该主键。
+  **解决方法** ：暂时为表设置一个主键，以便迁移能够继续。 数据迁移完成后，可以删除该主键。
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>从 AWS RDS PostgreSQL 联机迁移时的限制
 
 尝试从 AWS RDS PostgreSQL 联机迁移到 Azure Database for PostgreSQL 时，你可能会遇到以下错误。
 
-- **错误**：数据库“{database}”的表“{table}”中的列“{column}”的默认值在源服务器和目标服务器上有所不同。 在源服务器上，值为“{value on source}”，而在目标服务器上，值则为“{value on target}”。
+- **错误** ：数据库“{database}”的表“{table}”中的列“{column}”的默认值在源服务器和目标服务器上有所不同。 在源服务器上，值为“{value on source}”，而在目标服务器上，值则为“{value on target}”。
 
-  **限制**：如果列架构上的默认值在源数据库与目标数据库之间有所不同，则会出现此错误。
-  **解决方法**：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+  **限制** ：如果列架构上的默认值在源数据库与目标数据库之间有所不同，则会出现此错误。
+  **解决方法** ：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
 
-- **错误**：目标数据库“{database}”包含“{number of tables}”个表，而源数据库“{database}”包含“{number of tables}”个表。 源数据库和目标数据库中表的数目应当匹配。
+- **错误** ：目标数据库“{database}”包含“{number of tables}”个表，而源数据库“{database}”包含“{number of tables}”个表。 源数据库和目标数据库中表的数目应当匹配。
 
-  **限制**：当源数据库与目标数据库的表数不同时，将出现此错误。
+  **限制** ：当源数据库与目标数据库的表数不同时，将出现此错误。
 
-  **解决方法**：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+  **解决方法** ：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
 
 - **错误：** 源数据库 {database} 为空
 
-  **限制**：当源数据库为空时，会出现此错误。 这最有可能是因为你选择了错误的数据库作为源数据库。
+  **限制** ：当源数据库为空时，会出现此错误。 这最有可能是因为你选择了错误的数据库作为源数据库。
 
-  **解决方法**：反复检查选择迁移的源数据库，然后重试。
+  **解决方法** ：反复检查选择迁移的源数据库，然后重试。
 
 - **错误：** 目标数据库 {database} 为空。 请迁移架构。
 
-  **限制**：当目标数据库上没有架构时，会出现此错误。 确保目标上的架构与源上的架构匹配。
-  **解决方法**：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
+  **限制** ：当目标数据库上没有架构时，会出现此错误。 确保目标上的架构与源上的架构匹配。
+  **解决方法** ：确保目标上的架构与源上的架构匹配。 有关迁移架构的详细信息，请参阅 [Azure PostgreSQL 联机迁移文档](/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)。
 
 ## <a name="other-limitations"></a>其他限制
 

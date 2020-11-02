@@ -1,6 +1,6 @@
 ---
 title: 排除云服务分配故障 | Microsoft Docs
-description: 对在 Azure 中部署云服务时的分配失败进行故障排除
+description: 对部署 Azure 云服务时的分配失败进行故障排除。 了解分配的工作原理以及分配失败的原因。
 services: azure-service-management, cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -12,18 +12,18 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
-ms.date: 07/20/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: f8a9a1f9300962385dab5bda1051b5cfbe96985b
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.openlocfilehash: db8490552c9800baa9258ca020d5c30d43dc769b
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160371"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472577"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>对在 Azure 中部署云服务时的分配失败进行故障排除
 ## <a name="summary"></a>总结
-将实例部署到云服务或者添加新的 Web 角色或辅助角色实例时，Microsoft Azure 会分配计算资源。 在执行这些操作时，甚至在达到 Azure 订阅限制之前，有时可能会收到错误。 本文说明一些常见分配故障的原因，并建议可能的补救方法。 规划服务的部署时，本信息可能也有用。
+将实例部署到云服务或者添加新的 Web 角色或辅助角色实例时，Azure 会分配计算资源。 在执行这些操作时，甚至在达到 Azure 订阅限制之前，有时可能会收到错误。 本文说明一些常见分配故障的原因，并建议可能的补救方法。 规划服务的部署时，本信息可能也有用。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -70,5 +70,5 @@ Azure 数据中心的服务器分区成群集。 会在多个群集中尝试新�
      ```
    * 按照上面的第 2 种方法进行操作，确保在服务的 CSCFG 中指定新的 ReservedIP。
 4. 删除新部署的地缘组 - 不再建议使用地缘组。 按照上面第 1 种方法的步骤部署新的云服务。 确保云服务不在地缘组中。
-5. 转换为区域虚拟网络 - 请参阅[如何从地缘组迁移到区域虚拟网络 (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
+5. 转换为区域虚拟网络 - 请参阅[如何从地缘组迁移到区域虚拟网络 (VNet)](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-migrate-to-regional-vnet)。
 

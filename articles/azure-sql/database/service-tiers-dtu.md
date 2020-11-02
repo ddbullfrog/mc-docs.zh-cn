@@ -4,20 +4,20 @@ description: 了解 Azure SQL 数据库基于 DTU 的购买模型中用于提供
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
-origin.date: 11/26/2019
-ms.date: 08/17/2020
-ms.openlocfilehash: cbc7ee5ac3321a4e9119cde5f9f590250b46dec9
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+origin.date: 10/15/2020
+ms.date: 10/29/2020
+ms.reviewer: ''
+ms.openlocfilehash: 0328648962847d82e232dffa5751ba72d47d92bb
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223292"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470007"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>基于 DTU 的购买模型中的服务层
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,15 +41,17 @@ ms.locfileid: "88223292"
 |**运行时间 SLA**|99.99%|99.99%|99.99%|
 |**最大备份保留期**|7 天|35 天|35 天|
 |**CPU**|低|低、中、高|中、高|
-|**IO 吞吐量（近似）** |每个 DTU 1-5 IOPS| 每个 DTU 1-5 IOPS | 每个 DTU 25 IOPS|
+|**IOPS（近似）** \* |每个 DTU 1-4 IOPS| 每个 DTU 1-4 IOPS | 每个 DTU 25 IOPS|
 |**IO 延迟（近似）**|5 毫秒（读取），10 毫秒（写入）|5 毫秒（读取），10 毫秒（写入）|2 毫秒（读取/写入）|
 |**列存储索引** |空值|S3 及更高版本|支持|
 |**内存中 OLTP**|空值|空值|支持|
 
+\* 针对数据文件的所有读取和写入 IOPS，包括后台 IO（检查点和惰性编写器）
+
 > [!IMPORTANT]
-> 基本、标准 S0、S1 和 S2 服务层级提供的 vCore (CPU) 不到一个。  对于 CPU 密集型工作负荷，建议使用 S3 或更高的服务层级。 
+> 基本、S0、S1 和 S2 服务目标提供的 vCore (CPU) 不到一个。  对于 CPU 密集型工作负载，建议使用 S3 或更高的服务目标。 
 >
->有关数据存储的基本、标准 S0 和 S1 服务层级放置在标准页 Blob 上。 标准页 Blob 使用基于硬盘驱动器 (HDD) 的存储介质，最适合用于对性能变化不太敏感的开发、测试和其他不频繁访问的工作负荷。
+> 在基本、S0 和 S1 服务目标中，数据库文件存储在 Azure 标准存储中，该存储使用基于硬盘驱动器 (HDD) 的存储介质。 这些服务目标最适合用于对性能变化不太敏感的开发、测试和其他不频繁访问的工作负载。
 >
 
 ## <a name="single-database-dtu-and-storage-limits"></a>单一数据库 DTU 和存储限制
@@ -124,14 +126,14 @@ ms.locfileid: "88223292"
 | 事务类型 | 组合百分比 |
 | --- | --- |
 | Read Lite |35 |
-| Read Medium |20 个 |
+| Read Medium |20 |
 | Read Heavy |5 |
-| Update Lite |20 个 |
+| Update Lite |20 |
 | Update Heavy |3 |
 | Insert Lite |3 |
 | Insert Heavy |2 |
 | Delete |2 |
-| CPU Heavy |10 个 |
+| CPU Heavy |10 |
 
 ### <a name="users-and-pacing"></a>用户和步调
 

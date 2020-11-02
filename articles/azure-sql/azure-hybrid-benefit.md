@@ -3,21 +3,21 @@ title: Azure 混合权益
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: 使用现有 SQL Server 许可证，享受 Azure SQL 数据库和 SQL 托管实例折扣。
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=4
-ms.subservice: service
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 origin.date: 11/13/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: fcbeaed3381d7e0bb380de286a6500e01e76e2d2
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/29/2020
+ms.openlocfilehash: 7b55f341ce3b715b837d0cffdd3859769171cfad
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227513"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470467"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure 混合权益 - Azure SQL 数据库和 SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "86227513"
 > [!NOTE]
 > 更改为 Azure 混合权益不需要停机。
 
-![定价](./media/azure-hybrid-benefit/pricing.png)
+![vcore 定价结构](./media/azure-hybrid-benefit/pricing.png)
 
 ## <a name="choose-a-license-model"></a>选择许可证模型
 

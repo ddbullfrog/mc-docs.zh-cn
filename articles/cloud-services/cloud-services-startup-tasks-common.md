@@ -6,14 +6,14 @@ documentationcenter: ''
 author: tgore03
 ms.service: cloud-services
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: d2b1cbbe206bf5d5e11e88c063a6fb4d12e983ce
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.openlocfilehash: af02a2b27a7267e2d95fd1991f6f2a3e15cff6a5
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160365"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472619"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>常见的云服务启动任务
 本文提供了一些可能需要在云服务中执行的常见启动任务示例。 角色启动之前，可以使用启动任务执行操作。 可能需要执行的操作包括安装组件、注册 COM 组件、设置注册表项或启动长时间运行的进程。 
@@ -52,13 +52,13 @@ ms.locfileid: "87160365"
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>使用 AppCmd.exe 配置 IIS 启动
-[AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) 命令行工具在 Azure 上启动时可用于管理 IIS 设置。 AppCmd.exe 对要在 Azure 上的启动任务中使用的配置设置提供方便的命令行访问。 使用 *AppCmd.exe*，可以为应用程序和站点添加、修改或删除网站设置。
+[AppCmd.exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) 命令行工具在 Azure 上启动时可用于管理 IIS 设置。 AppCmd.exe 对要在 Azure 上的启动任务中使用的配置设置提供方便的命令行访问。 使用 *AppCmd.exe* ，可以为应用程序和站点添加、修改或删除网站设置。
 
 但是，在使用 *AppCmd.exe* 作为启动任务时有几点需要注意：
 
 * 启动任务在重新启动之间可以运行多次。 例如，当角色回收时。
 * 如果多次执行 *AppCmd.exe* 操作，则可能会生成错误。 例如，尝试将某个节添加到 *Web.config* 中两次会生成错误。
-* 如果启动任务返回非零退出代码或 **errorlevel**，则为失败。 例如，当 *AppCmd.exe* 生成了错误时。
+* 如果启动任务返回非零退出代码或 **errorlevel** ，则为失败。 例如，当 *AppCmd.exe* 生成了错误时。
 
 比较明智的做法是在调用 AppCmd.exe 之后检查 errorlevel，如果使用 .cmd 文件包装对 AppCmd.exe 的调用，则很容易做到这一点  。 如果检测到已知的 **errorlevel** 响应，可以将其忽略，或将其返回。
 
@@ -83,7 +83,7 @@ AppCmd.exe 返回的 errorlevel 在 winerror.h 文件中列出，并且还可以
 Startup.cmd 批处理文件使用 AppCmd.exe 将 JSON 的压缩部分和压缩条目添加到 Web.config 文件  。 使用 VERIFY.EXE 命令行程序将预期的 **errorlevel** 183 设为零。 意外的 errorlevel 将记录到 StartupErrorLog.txt 中。
 
 ```cmd
-REM   *** Add a compression section to the Web.config file. ***
+REM   **_ Add a compression section to the Web.config file. _*_
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -98,7 +98,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Add compression for json. ***
+REM   _*_ Add compression for json. _*_
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -106,10 +106,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Exit batch file. ***
+REM   _*_ Exit batch file. _*_
 EXIT /b 0
 
-REM   *** Log error and exit ***
+REM   _*_ Log error and exit _*_
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -125,7 +125,7 @@ EXIT %ERRORLEVEL%
 
 Azure 将为角色中启动的进程创建防火墙规则。 例如，启动服务或程序时，Azure 会自动创建必要的防火墙规则以允许该服务与 Internet 进行通信。 但是，如果创建的服务由角色外部的进程（例如，COM+ 服务或 Windows 计划任务）启动，则将需要手动创建防火墙规则以允许访问该服务。 可以通过使用启动任务来创建这些防火墙规则。
 
-创建防火墙规则的启动任务的 [executionContext][任务] 必须为 **elevated**，则为失败。 将以下启动任务添加到 [ServiceDefinition.csdef] 文件。
+创建防火墙规则的启动任务的 [executionContext][任务] 必须为 _*elevated**，则为失败。 将以下启动任务添加到 [ServiceDefinition.csdef] 文件。
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -383,7 +383,7 @@ Visual Studio 未提供用于单步调试批处理文件的调试器，因此最
 
 你可能会发现在每个启动任务的末尾都使用 `>> "%TEMP%\StartupLog.txt" 2>&1` 很是恼人。 可以通过创建一个包装器来处理日志记录以强制执行任务日志记录。 此包装器调用要运行的实际批处理文件。 来自目标批处理文件的任何输出都会重定向到 *Startuplog.txt* 文件。
 
-以下示例展示了如何重定向来自某个启动批处理文件的所有输出。 在此示例中，ServerDefinition.csdef 文件创建一个调用 *logwrap.cmd* 的启动任务。 logwrap.cmd 调用 Startup2.cmd，并将所有输出都重定向到 %TEMP% **\\StartupLog.txt**。
+以下示例展示了如何重定向来自某个启动批处理文件的所有输出。 在此示例中，ServerDefinition.csdef 文件创建一个调用 *logwrap.cmd* 的启动任务。 logwrap.cmd 调用 Startup2.cmd，并将所有输出都重定向到 %TEMP% **\\StartupLog.txt** 。
 
 ServiceDefinition.cmd：
 
@@ -499,15 +499,15 @@ background 启动任务和 foreground 启动任务之间的区别在于 foregrou
 [创建和部署](cloud-services-how-to-create-deploy-portal.md)云服务包。
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[任务]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[环境]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[变量]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-[RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Endpoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
-[LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
-[LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[任务]: https://docs.microsoft.com/previous-versions/azure/reference/gg557552(v=azure.100)#Task
+[Startup]: https://docs.microsoft.com/previous-versions/azure/reference/gg557552(v=azure.100)#Startup
+[Runtime]: https://docs.microsoft.com/previous-versions/azure/reference/gg557552(v=azure.100)#Runtime
+[环境]: https://docs.microsoft.com/previous-versions/azure/reference/gg557552(v=azure.100)#Environment
+[变量]: https://docs.microsoft.com/previous-versions/azure/reference/gg557552(v=azure.100)#Variable
+[RoleInstanceValue]: https://docs.microsoft.com/previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
+[RoleEnvironment]: https://docs.microsoft.com/previous-versions/azure/reference/ee773173(v=azure.100)
+[Endpoints]: https://docs.microsoft.com/previous-versions/azure/reference/gg557552(v=azure.100)#Endpoints
+[LocalStorage]: https://docs.microsoft.com/previous-versions/azure/reference/gg557552(v=azure.100)#LocalStorage
+[LocalResources]: https://docs.microsoft.com/previous-versions/azure/reference/gg557552(v=azure.100)#LocalResources
+[RoleInstanceValue]: https://docs.microsoft.com/previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
 

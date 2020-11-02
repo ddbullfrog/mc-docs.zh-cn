@@ -2,37 +2,31 @@
 title: 增加终结点配额 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 语言理解 (LUIS) 提供增加终结点请求配额的功能，可超出单个密钥的配额。 可通过以下方法实现此功能：为 LUIS 创建多个密钥，并在“资源和密钥”部分中的“发布”页面上将其添加到 LUIS 应用程序   。
-author: lingliw
-manager: digimobile
-ms.custom: seodec18
+manager: nitinme
+ms.custom: seodec18, devx-track-js, devx-track-azurepowershell
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-origin.date: 08/20/2019
-ms.date: 09/25/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 33153dea6c5adad3d0473c01c169b192bf464c7c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.topic: how-to
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: a9a03500b3f5f47018fe6dc1541c1da4ba55d36a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71329957"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472364"
 ---
-# <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理器管理密钥之间的终结点配额
-语言理解 (LUIS) 提供增加终结点请求配额的功能，可超出单个密钥的配额。 可通过以下方法实现此功能：为 LUIS 创建多个密钥，并在“资源和密钥”部分中的“发布”页面上将其添加到 LUIS 应用程序   。 
+# <a name="use-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Azure 流量管理器管理密钥之间的终结点配额
+语言理解 (LUIS) 提供增加终结点请求配额的功能，可超出单个密钥的配额。 可通过以下方法实现此功能：为 LUIS 创建多个密钥，并在“资源和密钥”部分中的“发布”页面上将其添加到 LUIS 应用程序   。
 
-客户端应用程序必须管理密钥之间的流量。 LUIS 不执行此操作。 
+客户端应用程序必须管理密钥之间的流量。 LUIS 不执行此操作。
 
-本文介绍如何使用 Azure [流量管理器][traffic-manager-marketing]管理密钥之间的流量。 必须具有已训练和已发布的 LUIS 应用。 如果还没有，请按照预生成的域[快速入门](luis-get-started-create-app.md)操作。 
+本文介绍如何使用 Azure [流量管理器][traffic-manager-marketing]管理密钥之间的流量。 必须具有已训练和已发布的 LUIS 应用。 如果还没有，请按照预生成的域[快速入门](luis-get-started-create-app.md)操作。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="connect-to-powershell-in-the-azure-portal"></a>在 Azure 门户中连接到 PowerShell
-在 [Azure][azure-portal] 门户中，打开 PowerShell 窗口。 PowerShell 窗口的图标是顶部导航栏中的“>_”  。 从门户中使用 PowerShell，即表示已获得最新 PowerShell 版本并且通过了身份验证。 门户中的 PowerShell 需要 [Azure 存储](/storage/)帐户。 
-
-![打开 Powershell 窗口的 Azure 门户的屏幕截图](./media/traffic-manager/azure-portal-powershell.png)
-
+<!--Not available in MC: ## Connect to PowerShell in the Azure portal-->
 以下各节使用[流量管理器 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.trafficmanager/#traffic_manager)。
 
 ## <a name="create-azure-resource-group-with-powershell"></a>使用 PowerShell 创建 Azure 资源组
@@ -45,26 +39,26 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
 ```
 
 ## <a name="create-luis-keys-to-increase-total-endpoint-quota"></a>创建 LUIS 密钥以增加总终结点配额
-1. 在 Azure 门户中，创建两个语言理解密钥，一个位于 `China East`，一个位于 `China North`。 使用上一节中创建的名为 `luis-traffic-manager` 现有资源组。 
+1. 在 Azure 门户中，创建两个语言理解密钥，一个位于 `China East`，一个位于 `China North` 。 使用上一节中创建的名为 `luis-traffic-manager` 现有资源组。 
 
     ![luis-traffic-manager 资源组中带有两个 LUIS 密钥的 Azure 门户的屏幕截图](./media/traffic-manager/luis-keys.png)
 
-2. 在 [LUIS][LUIS] 网站的“Azure 资源”页上的“管理”部分中，为应用分配密钥，然后通过选择右上方菜单中的“发布”按钮重新发布应用。 
+2. 在  页上的“管理”  部分中，为应用分配密钥，然后通过选择右上方菜单中的“发布”  按钮重新发布应用。
 
     “终结点”列中的示例 URL 使用具有终结点密钥的 GET 请求作为查询参数  。 复制这两个新密钥的终结点 URL。 本文后面的流量管理器配置中会用到它们。
 
 ## <a name="manage-luis-endpoint-requests-across-keys-with-traffic-manager"></a>使用流量管理器管理密钥之间的 LUIS 终结点请求
-流量管理器为终结点创建新的 DNS 访问点。 它并不充当网关或代理，而是严格处于 DNS 级别。 此示例不会更改任何 DNS 记录。 它使用 DNS 库与流量管理器进行通信，以获取该特定请求的正确终结点。 针对 LUIS 的每个请求首先需要流量管理器请求来确定使用哪个 LUIS 终结点  。 
+流量管理器为终结点创建新的 DNS 访问点。 它并不充当网关或代理，而是严格处于 DNS 级别。 此示例不会更改任何 DNS 记录。 它使用 DNS 库与流量管理器进行通信，以获取该特定请求的正确终结点。 针对 LUIS 的每个请求首先需要流量管理器请求来确定使用哪个 LUIS 终结点  。
 
 ### <a name="polling-uses-luis-endpoint"></a>轮询会使用 LUIS 终结点
 流量管理器定期轮询终结点，以确保终结点仍然可用。 轮询的流量管理器 URL 需要能够通过 GET 请求访问，并返回 200。 “发布”页上的终结点 URL 可执行此操作  。 由于每个终结点密钥具有不同的路由和查询字符串参数，因此每个终结点密钥需要不同的轮询路径。 流量管理器每次轮询时都会使用一次配额请求。 LUIS 终结点的查询字符串参数“q”是发送给 LUIS 的陈述  。 此参数不用于发送陈述，而是用于将流量管理器轮询添加到 LUIS 终结点日志，以用作调试技术并同时对流量管理器进行配置。
 
-由于每个 LUIS 终结点需要自己的路径，因此也需要其自己的流量管理器配置文件。 若要跨配置文件进行管理，请创建[嵌套流量管理器](https://docs.azure.cn/zh-cn/traffic-manager/traffic-manager-nested-profiles)体系结构。 一个父配置文件指向子配置文件，并管理它们之间的流量。
+由于每个 LUIS 终结点需要自己的路径，因此也需要其自己的流量管理器配置文件。 若要跨配置文件进行管理，请创建  。 一个父配置文件指向子配置文件，并管理它们之间的流量。
 
 配置流量管理器后，请记得更改路径以使用 logging = false 查询字符串参数，使日志不会被轮询填满。
 
 ## <a name="configure-traffic-manager-with-nested-profiles"></a>使用嵌套配置文件配置流量管理器
-以下各节创建了两个子配置文件，一个用于东部 LUIS 密钥，一个用于西部 LUIS 密钥。 然后创建了一个父配置文件，并将两个子配置文件添加到该父配置文件。 
+以下各节创建了两个子配置文件，一个用于东部 LUIS 密钥，一个用于西部 LUIS 密钥。 然后创建了一个父配置文件，并将两个子配置文件添加到该父配置文件。
 
 ### <a name="create-the-china-east-traffic-manager-profile-with-powershell"></a>使用 PowerShell 创建中国东部流量管理器配置文件
 若要创建中国东部流量管理器配置文件，其步骤如下：创建配置文件、添加终结点，然后设置终结点。 流量管理器配置文件可具有多个终结点，但每个终结点的验证路径相同。 由于东部和西部订阅的 LUIS 终结点 URL 因区域和终结点密钥而异，因此每个 LUIS 终结点必须是配置文件中的单个终结点。 
@@ -76,19 +70,19 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
     ```powerShell
     $eastprofile = New-AzTrafficManagerProfile -Name luis-profile-chinaeast -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-chinaeast -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
-    
+
     此表介绍了 cmdlet 中的每个变量：
-    
+
     |配置参数|变量名或值|目的|
     |--|--|--|
     |-Name|luis-profile-chinaeast|Azure 门户中的流量管理器名称|
     |-ResourceGroupName|luis-traffic-manager|在上一节中创建|
     |-TrafficRoutingMethod|性能|有关详细信息，请参阅[流量管理器路由方法][routing-methods]。 如果使用性能，则对流量管理器的 URL 请求必须来自用户的区域。 如果通过聊天机器人或其他应用程序，则聊天机器人应负责模拟对流量管理器的调用中的区域。 |
-    |-RelativeDnsName|luis-dns-chinaeast|这是服务 luis-dns-chinaeast.trafficmanager.net 的子域|
+    |-RelativeDnsName|luis-dns-chinaeast|这是服务 luis-dns-chinaeast.trafficmanager.cn 的子域|
     |-Ttl|30|轮询间隔，30 秒|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS 的端口和协议为 HTTPS/443|
     |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|将 `<appIdLuis>` 和 `<subscriptionKeyLuis>` 替换为自己的值。|
-    
+
     成功请求没有响应。
 
 2. 使用 **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)** cmdlet 添加中国东部终结点
@@ -105,7 +99,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
     |-Type|ExternalEndpoints|有关详细信息，请参阅[流量管理器终结点][traffic-manager-endpoints] |
     |-Target|chinaeast.api.cognitive.azure.cn|这是 LUIS 终结点的域。|
     |-EndpointLocation|"chinaeast"|终结点的区域|
-    |-EndpointStatus|已启用|创建时启用终结点|
+    |-EndpointStatus|Enabled|创建时启用终结点|
 
     成功响应如下所示：
 
@@ -144,19 +138,19 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
     ```powerShell
     $westprofile = New-AzTrafficManagerProfile -Name luis-profile-chinaeast -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-chinaeast -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
-    
+
     此表介绍了 cmdlet 中的每个变量：
-    
+
     |配置参数|变量名或值|目的|
     |--|--|--|
     |-Name|luis-profile-chineast|Azure 门户中的流量管理器名称|
     |-ResourceGroupName|luis-traffic-manager|在上一节中创建|
     |-TrafficRoutingMethod|性能|有关详细信息，请参阅[流量管理器路由方法][routing-methods]。 如果使用性能，则对流量管理器的 URL 请求必须来自用户的区域。 如果通过聊天机器人或其他应用程序，则聊天机器人应负责模拟对流量管理器的调用中的区域。 |
-    |-RelativeDnsName|luis-dns-chineast|这是服务 luis-dns-chinaeast.trafficmanager.net 的子域|
+    |-RelativeDnsName|luis-dns-chineast|这是服务 luis-dns-chinaeast.trafficmanager.cn 的子域|
     |-Ttl|30|轮询间隔，30 秒|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS 的端口和协议为 HTTPS/443|
     |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|将 `<appId>` 和 `<subscriptionKey>` 替换为自己的值。 请记住此终结点密钥与东部终结点密钥不同|
-    
+
     成功请求没有响应。
 
 2. 使用 **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** cmdlet 添加中国东部终结点
@@ -174,7 +168,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
     |-Type|ExternalEndpoints|有关详细信息，请参阅[流量管理器终结点][traffic-manager-endpoints] |
     |-Target|chinaeast2.api.cognitive.azure.cn|这是 LUIS 终结点的域。|
     |-EndpointLocation|"chinaeast"|终结点的区域|
-    |-EndpointStatus|已启用|创建时启用终结点|
+    |-EndpointStatus|Enabled|创建时启用终结点|
 
     成功响应如下所示：
 
@@ -219,7 +213,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
     |-Name|luis-profile-parent|Azure 门户中的流量管理器名称|
     |-ResourceGroupName|luis-traffic-manager|在上一节中创建|
     |-TrafficRoutingMethod|性能|有关详细信息，请参阅[流量管理器路由方法][routing-methods]。 如果使用性能，则对流量管理器的 URL 请求必须来自用户的区域。 如果通过聊天机器人或其他应用程序，则聊天机器人应负责模拟对流量管理器的调用中的区域。 |
-    |-RelativeDnsName|luis-dns-parent|这是服务 luis-dns-parent.trafficmanager.net 的子域|
+    |-RelativeDnsName|luis-dns-parent|这是服务 luis-dns-parent.trafficmanager.cn 的子域|
     |-Ttl|30|轮询间隔，30 秒|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS 的端口和协议为 HTTPS/443|
     |-MonitorPath|`/`|此路径并不重要，因为已改用子终结点路径。|
@@ -240,8 +234,8 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
     |-TrafficManagerProfile|$parentprofile|要向其分配此终结点的配置文件|
     |-Type|NestedEndpoints|有关详细信息，请参阅 [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)。 |
     |-TargetResourceId|$eastprofile.Id|子配置文件的 ID|
-    |-EndpointStatus|已启用|添加到父级后的终结点状态|
-    |-EndpointLocation|"chinaeast"|资源的 [Azure 区域名称](https://www.azure.cn/zh-cn/home/features/products-by-region)|
+    |-EndpointStatus|Enabled|添加到父级后的终结点状态|
+    |-EndpointLocation|"chinaeast"|资源的 [Azure 区域名称](https://www.azure.cn/home/features/products-by-region)|
     |-MinChildEndpoints|1|子终结点的最小数量|
 
     成功响应如下所示，并包括新的 `child-endpoint-chinaeast` 终结点：    
@@ -277,8 +271,8 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
     |-TrafficManagerProfile|$parentprofile|要向其分配此终结点的配置文件|
     |-Type|NestedEndpoints|有关详细信息，请参阅 [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)。 |
     |-TargetResourceId|$westprofile.Id|子配置文件的 ID|
-    |-EndpointStatus|已启用|添加到父级后的终结点状态|
-    |-EndpointLocation|"chinaeast"|资源的 [Azure 区域名称](https://www.azure.cn/zh-cn/home/features/products-by-region)|
+    |-EndpointStatus|Enabled|添加到父级后的终结点状态|
+    |-EndpointLocation|"chinaeast"|资源的 [Azure 区域名称](https://www.azure.cn/home/features/products-by-region)|
     |-MinChildEndpoints|1|子终结点的最小数量|
 
     成功响应如下所示，并同时包括之前的 `child-endpoint-chinaeast` 终结点和新的 `child-endpoint-chinawest` 终结点：
@@ -297,10 +291,10 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
     MonitorIntervalInSeconds         : 30
     MonitorTimeoutInSeconds          : 10
     MonitorToleratedNumberOfFailures : 3
-    Endpoints                        : {child-endpoint-chinaeast, child-endpoint-chinawest}
+    Endpoints                        : {child-endpoint-chinaeast, child-endpoint-chinanorth}
     ```
 
-4. 使用 **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet 设置终结点 
+4. 使用 **[Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet 设置终结点
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
@@ -309,16 +303,16 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
     成功响应与步骤 3 的响应相同。
 
 ### <a name="powershell-variables"></a>PowerShell 变量
-在前面各节中，创建了三个 PowerShell 变量：`$eastprofile`、`$westprofile`、`$parentprofile`。 流量管理器配置要结束时会使用这些变量。 如果选择不创建变量或忘记创建变量，或者 PowerShell 窗口超时，则可以使用 PowerShell cmdlet **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** 再次获取配置文件，并将其分配给变量。 
+在前面各节中，创建了三个 PowerShell 变量：`$eastprofile`、`$westprofile`、`$parentprofile`。 流量管理器配置要结束时会使用这些变量。 如果选择不创建变量或忘记创建变量，或者 PowerShell 窗口超时，则可以使用 PowerShell cmdlet **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** 再次获取配置文件，并将其分配给变量。
 
-将尖括号 `<>` 中的项目替换为所需三个配置文件中每个文件的正确值。 
+将尖括号 `<>` 中的项目替换为所需三个配置文件中每个文件的正确值。
 
 ```powerShell
 $<variable-name> = Get-AzTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
 ## <a name="verify-traffic-manager-works"></a>验证流量管理器的工作
-若要验证流量管理器配置文件是否正常工作，配置文件的状态需要为 `Online`。此状态基于终结点的轮询路径。 
+若要验证流量管理器配置文件是否正常工作，配置文件的状态需要为 `Online`。此状态基于终结点的轮询路径。
 
 ### <a name="view-new-profiles-in-the-azure-portal"></a>在 Azure 门户中查看新配置文件
 可通过查看 `luis-traffic-manager` 资源组中的资源来验证是否已创建所有三个配置文件。
@@ -326,7 +320,7 @@ $<variable-name> = Get-AzTrafficManagerProfile -Name <profile-name> -ResourceGro
 ![Azure 资源组 luis-traffic-manager 的屏幕截图](./media/traffic-manager/traffic-manager-profiles.png)
 
 ### <a name="verify-the-profile-status-is-online"></a>验证配置文件处于联机状态
-流量管理器轮询每个终结点的路径，确保其处于联机状态。 如果处于联机状态，则子配置文件的状态为 `Online`。 每个配置文件的“概述”页上会显示此信息  。 
+流量管理器轮询每个终结点的路径，确保其处于联机状态。 如果处于联机状态，则子配置文件的状态为 `Online`。 每个配置文件的“概述”页上会显示此信息  。
 
 ![显示联机监控状态的 Azure 流量管理器配置文件概述的屏幕截图](./media/traffic-manager/profile-status-online.png)
 
@@ -339,14 +333,14 @@ traffic-manager-east    6/7/2018 19:20  {"query":"traffic-manager-east","intents
 ```
 
 ### <a name="validate-dns-response-from-traffic-manager-works"></a>验证流量管理器 DNS 响应的工作
-若要验证 DNS 响应是否返回 LUIS 终结点，请使用 DNS 客户端库请求流量管理父配置文件 DNS。 父配置文件的 DNS 名称为 `luis-dns-parent.trafficmanager.net`。
+若要验证 DNS 响应是否返回 LUIS 终结点，请使用 DNS 客户端库请求流量管理父配置文件 DNS。 父配置文件的 DNS 名称为 `luis-dns-parent.trafficmanager.cn`。
 
 以下 Node.js 代码请求父配置文件，并返回 LUIS 终结点：
 
 ```javascript
 const dns = require('dns');
 
-dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
+dns.resolveAny('luis-dns-parent.trafficmanager.cn', (err, ret) => {
   console.log('ret', ret);
 });
 ```
@@ -363,23 +357,20 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 ```
 
 ## <a name="use-the-traffic-manager-parent-profile"></a>使用流量管理器父配置文件
-若要管理终结点之间的流量，需要插入对流量管理器 DNS 的调用来查找 LUIS 终结点。 此调用针对每个 LUIS 终结点请求进行，并需要模拟 LUIS 客户端应用程序用户的地理位置。 在 LUIS 客户端应用程序和 LUIS 请求之间添加 DNS 响应代码，以进行终结点预测。 
+若要管理终结点之间的流量，需要插入对流量管理器 DNS 的调用来查找 LUIS 终结点。 此调用针对每个 LUIS 终结点请求进行，并需要模拟 LUIS 客户端应用程序用户的地理位置。 在 LUIS 客户端应用程序和 LUIS 请求之间添加 DNS 响应代码，以进行终结点预测。
 
 ## <a name="resolving-a-degraded-state"></a>解决降级状态
 
 为流量管理器启用诊断日志，了解终结点状态降级的原因。
 
-## <a name="clean-up"></a>清除
-删除两个 LUIS 终结点密钥、三个流量管理器配置文件以及包含这五个资源的资源组。 此操作在 Azure 门户中完成。 从资源列表中删除五个资源。 然后删除资源组。 
+## <a name="clean-up"></a>清理
+删除两个 LUIS 终结点密钥、三个流量管理器配置文件以及包含这五个资源的资源组。 此操作在 Azure 门户中完成。 从资源列表中删除五个资源。 然后删除资源组。
 
-[traffic-manager-marketing]: https://docs.azure.cn/zh-cn/traffic-manager/
-[traffic-manager-docs]: https://docs.azure.cn/zh-cn/traffic-manager/
-[LUIS]: https://docs.azure.cn/cognitive-services/LUIS/luis-reference-regions#luis-website
+[traffic-manager-marketing]: https://www.azure.cn/home/features/traffic-manager/
+[traffic-manager-docs]: https://docs.azure.cn/traffic-manager/
+[LUIS]: /cognitive-services/luis/luis-reference-regions#luis-website
 [azure-portal]: https://portal.azure.cn/
-[azure-storage]: /storage/
+[azure-storage]: https://www.azure.cn/home/features/storage/
 [routing-methods]: /traffic-manager/traffic-manager-routing-methods
 [traffic-manager-endpoints]: /traffic-manager/traffic-manager-endpoint-types
-
-
-
 

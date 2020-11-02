@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 796edf00eaaddc3543d087d02662a81b9730bd0b
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 25d39244d62dd03fb4ee9c838ae00cbe272db266
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721162"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472184"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure 时序见解 Gen1 资源管理器
+
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
 
 本文介绍 Azure 时序见解 Gen1 [资源管理器 Web 应用](https://insights.timeseries.azure.cn/)的功能和选项。 Azure 时序见解资源管理器演示了该服务提供的，可在你自己的环境中访问的强大数据可视化功能。
 
@@ -52,22 +55,22 @@ Azure 时序见解是一种完全托管的分析、存储和可视化服务，�
 
 1. 接下来，会显示一个图表，该图表显示的是所选时间范围内所有事件的计数。 在此有许多控件：
 
-    - **搜索词编辑器面板**：术语空间是查询环境的位置。 它位于屏幕的左侧：
-      - **度量值**：此下拉列表显示所有数值列（**双精度**）。
-      - **拆分依据**：此下拉列表显示类别列（**字符串**）。
+    - **搜索词编辑器面板** ：术语空间是查询环境的位置。 它位于屏幕的左侧：
+      - **度量值** ：此下拉列表显示所有数值列（ **双精度** ）。
+      - **拆分依据** ：此下拉列表显示类别列（ **字符串** ）。
       - 可以启用梯级内插、显示最小值和最大值，以及在“度量值”旁边的控制面板中调整 Y 轴  。 还可以调整显示的是数据的计数、平均值还是总和。
       - 最多可以添加要在同一个 X 轴上查看的五个搜索词。 选择“添加”  添加新的搜索词，或者使用“克隆此搜索词”  按钮添加现有搜索词的副本。
 
         [![搜索词选择、筛选和查询面板](./media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png)](./media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png#lightbox)
 
-      - **谓词**：使用谓词可以使用下表中列出的操作数集快速筛选事件。 如果通过选择或单击执行搜索，谓词将基于该搜索自动更新。 支持的操作数类型包括：
+      - **谓词** ：使用谓词可以使用下表中列出的操作数集快速筛选事件。 如果通过选择或单击执行搜索，谓词将基于该搜索自动更新。 支持的操作数类型包括：
 
          |操作  |支持的类型  |注释  |
          |---------|---------|---------|
-         |**<** , **>** , **<=** , **>=**    |  **双精度**、**DateTime**、**TimeSpan**       |         |
-         |**=** 、 **!=** 、 **<>**     | **字符串**、**布尔**、**双精度**、**DateTime**、**TimeSpan**、**NULL**        |         |
-         |**IN**     | **字符串**、**布尔**、**双精度**、**DateTime**、**TimeSpan**、**NULL**        |  所有操作数应为同一类型或者是 **NULL** 常数。        |
-         |**HAS**     | **字符串**        |  右侧只允许使用常量字符串文本。 不允许空字符串和 **NULL**。       |
+         |**<** , **>** , **<=** , **>=**    |  **双精度** 、 **DateTime** 、 **TimeSpan**       |         |
+         |**=** 、 **!=** 、 **<>**     | **字符串** 、 **布尔** 、 **双精度** 、 **DateTime** 、 **TimeSpan** 、 **NULL**        |         |
+         |**IN**     | **字符串** 、 **布尔** 、 **双精度** 、 **DateTime** 、 **TimeSpan** 、 **NULL**        |  所有操作数应为同一类型或者是 **NULL** 常数。        |
+         |**HAS**     | **字符串**        |  右侧只允许使用常量字符串文本。 不允许空字符串和 **NULL** 。       |
 
       - **示例查询**
 
@@ -89,7 +92,7 @@ Azure 时序见解是一种完全托管的分析、存储和可视化服务，�
 
 1. 查看图表可以直观浏览数据；使用“图表”工具  ：
 
-    - **选择**或**单击**特定的时间跨度或单个数据系列。
+    - **选择** 或 **单击** 特定的时间跨度或单个数据系列。
     - 在选择的时间跨度内可以缩放或浏览事件。
     - 在数据系列内，可以按另一列拆分系列、将系列作为新术语添加、只显示已选系列、排除已选系列、固定该系列或从已选系列中浏览事件。
     - 在图表左侧的筛选器区域中，可以查看显示的所有数据系列并按值或名称重新排序。 还可以查看所有数据系列或者任意已固定或取消固定的系列。 可以选择一个数据系列并按另一列拆分该系列、将系列作为新搜索词添加、只显示已选系列、排除已选系列、固定该系列或从已选系列中浏览事件。
@@ -97,9 +100,9 @@ Azure 时序见解是一种完全托管的分析、存储和可视化服务，�
 
     [![图表工具右上角选项设置](./media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](./media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
 
-1. 使用**热度地图**可以快速发现给定查询中的唯一或异常数据系列。 仅有一个搜索术语能可视化为热度地图。
+1. 使用 **热度地图** 可以快速发现给定查询中的唯一或异常数据系列。 仅有一个搜索术语能可视化为热度地图。
 
-    [![时序见解资源管理器热度地图图表](./media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](./media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [时序见解资源管理器热度地图图表](./media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](./media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. 通过选择或右键单击浏览事件时，会显示“事件”面板  。 在这里，可以查看所有原始事件并可将事件导出为 JSON 或 CSV 文件。 Azure 时序见解存储所有原始数据。
 
@@ -107,8 +110,8 @@ Azure 时序见解是一种完全托管的分析、存储和可视化服务，�
 
 1. 浏览事件以公开模式和列统计信息之后，选择“统计信息”  选项卡。
 
-    - **模式**：此功能主动显示所选数据区域中最具统计意义的模式。 无需查看数千个事件来了解最需要花费时间和精力的模式。 你可以使用 Azure 时序见解直接跳转到这些具有重大统计意义的模式继续进行分析。 此功能也有助于对历史数据进行事后调查。
-    - **列统计信息**：列统计信息提供图表和表格，细分选定时间范围内所选数据系列的每列中的数据。
+    - **模式** ：此功能主动显示所选数据区域中最具统计意义的模式。 无需查看数千个事件来了解最需要花费时间和精力的模式。 你可以使用 Azure 时序见解直接跳转到这些具有重大统计意义的模式继续进行分析。 此功能也有助于对历史数据进行事后调查。
+    - **列统计信息** ：列统计信息提供图表和表格，细分选定时间范围内所选数据系列的每列中的数据。
 
       [![“统计信息”列图表和选项](./media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](./media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 

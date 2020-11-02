@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
-origin.date: 6/24/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 1c5da4865454e791a55b0aa4b9f19c6b43317c98
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+origin.date: 9/29/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: 1df7ad3de766726dd31a7c2c21cb97d58c2fe85c
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041863"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470430"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>在 Azure 门户中配置和访问 Azure Database for MySQL 的审核日志
 
@@ -44,10 +44,10 @@ ms.locfileid: "92041863"
 1. 将 **audit_log_enabled** 参数更新为 ON。
     :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-enabled.png" alt-text="服务器参数":::
 
-1. 通过更新 **audit_log_events** 参数，选择要记录的[事件类型](concepts-audit-logs.md#configure-audit-logging)。
+1. 通过更新 **audit_log_events** 参数，选择要记录的 [事件类型](concepts-audit-logs.md#configure-audit-logging)。
     :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-events.png" alt-text="服务器参数":::
 
-1. 通过更新 **audit_log_exclude_users** 参数添加不进行日志记录的 MySQL 用户。 通过提供 MySQL 用户名来指定用户。
+1. 通过更新 audit_log_exclude_users 和 audit_log_include_users 参数，添加任何要包括在日志中或从日志中排除的 MySQL 用户 。 通过提供 MySQL 用户名来指定用户。
     :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="服务器参数":::
 
 1. 更改参数之后，可以单击“保存”。 也可以放弃所做的更改。

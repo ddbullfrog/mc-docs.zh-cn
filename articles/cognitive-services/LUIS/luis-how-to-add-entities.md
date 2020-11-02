@@ -2,21 +2,20 @@
 title: 添加实体 - LUIS
 description: 创建实体，以便从语言理解 (LUIS) 应用的用户话语中提取关键数据。 客户端应用程序使用提取的实体数据来满足客户请求。
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/17/2020
-ms.author: v-tawe
+ms.date: 10/19/2020
+ms.author: v-johya
 origin.date: 05/17/2020
-ms.openlocfilehash: 4748e570f33a9a125d0a321e5825e3ef78a2c5c1
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 038a398e69d22aa86b7e45b94ed95f24980ffbf5
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85102015"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472455"
 ---
 # <a name="add-entities-to-extract-data"></a>添加实体以提取数据
 
@@ -28,16 +27,18 @@ ms.locfileid: "85102015"
 
 可以通过示例话语创建计算机学习实体，也可以通过“实体”页创建计算机学习实体。
 
-通常，最佳做法是在门户中创建机器学习实体之前，先花费一定时间来规划实体。 然后，通过示例话语文本创建机器学习实体，并在子实体和特征中包含尽可能多的当时已知的详细信息。 <!-- not available-->
+通常，最佳做法是在门户中创建机器学习实体之前，先花费一定时间来规划实体。 然后，通过示例话语文本创建机器学习实体，并在子实体和特征中包含尽可能多的当时已知的详细信息。 [可分解实体教程](tutorial-machine-learned-entity.md)演示了如何使用此方法。
 
 在规划实体的过程中，可能会需要文本匹配实体（例如预生成的实体、正则表达式实体或列表实体）。 可以从“实体”页面创建它们，然后在示例话语中标记它们。
+
+标记时，你可以标记单个实体，然后生成为父级机器学习实体。 或者，你可以从父级机器学习实体开始，然后分解为子实体。
 
 > [!TIP]
 >标记可能指示实体的所有字词，即使在客户端应用程序中提取后未使用这些单词。
 
 ## <a name="when-to-create-an-entity"></a>何时创建实体
 
-规划实体后，应创建实体和子实体。 这一切应在进行标记之前完成。
+规划实体后，应创建你的机器学习实体和子实体。 这可能需要添加预生成实体或文本匹配实体，来为你的机器学习实体提供功能。 这一切应在进行标记之前完成。
 
 一旦开始标记示例话语，就可以创建机器学习实体或扩展列表实体。
 
@@ -45,8 +46,12 @@ ms.locfileid: "85102015"
 
 |实体类型|LUIS 门户中可在哪里创建实体|
 |--|--|
-<!-- machine-learning entity not available-->
-|列表实体|实体或意向详细信息| |正则表达式实体|实体| |Pattern.any 实体|实体| |预生成实体|实体| |预生成域实体|实体|
+|机器学习实体|实体或意图详细信息|
+|列表实体|实体或意图详细信息|
+|正则表达式实体|实体|
+|Pattern.any 实体|实体|
+|预生成实体|实体|
+|预生成域实体|实体|
 
 可以从“实体”页创建所有实体，也可以在“意向详细信息”页上的示例话语中，在标记实体的过程中创建多个实体 。 只能在“意向详细信息”页上的示例话语中标记实体。
 
@@ -62,7 +67,34 @@ ms.locfileid: "85102015"
 1. 选择“+ 创建”，然后选择实体类型。
 1. 继续配置实体，并在完成后选择“创建”。
 
-<!-- machine learned entity not avialable in azure-->
+## <a name="create-a-machine-learned-entity"></a>创建机器学习实体
+
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 在“我的应用”页上选择应用名称以打开应用。
+1. 在“生成”部分的左侧面板中选择“实体”，然后选择“+ 创建”  。
+1. 在“创建实体类型”对话框中，输入实体名称，然后选择“机器学习”，然后选择 。 若要添加子实体，请选择“添加结构”。 选择“创建” 。
+
+    > [!div class="mx-imgBorder"]
+    > ![创建机器学习实体的屏幕截图。](./media/add-entities/machine-learned-entity-with-structure.png)
+
+1. 在“添加子实体”中，通过选择父实体行上的“+”添加子实体 。
+
+    > [!div class="mx-imgBorder"]
+    > ![添加实体的屏幕截图。](./media/add-entities/machine-learned-entity-with-subentities.png)
+
+1. 选择“创建”，完成创建过程。
+
+## <a name="add-a-feature-to-a-machine-learned-entity"></a>向机器学习实体添加功能
+
+1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
+1. 在“我的应用”页上选择应用名称以打开应用。
+1. 从“生成”部分，在左侧面板中选择“实体”，然后选择机器学习实体 。
+1. 通过选择实体或子实体行上的“+ 添加功能”来添加功能。
+1. 从现有实体和短语列表中选择。
+1. 如果只在找到功能时才提取实体，请为该功能选择星号 `*`。
+
+    > [!div class="mx-imgBorder"]
+    > ![向实体添加功能的屏幕截图。](./media/add-entities/machine-learned-entity-schema-with-features.png)
 
 ## <a name="create-a-regular-expression-entity"></a>创建正则表达式实体
 
@@ -73,7 +105,7 @@ ms.locfileid: "85102015"
 1. 在“创建实体类型”对话框中，输入实体的名称，然后选择“RegEx”，在“Regex”字段中输入正则表达式，然后选择“创建”   。
 
     > [!div class="mx-imgBorder"]
-    > ![创建正则表达式实体的屏幕截图。](media/add-entities/add-regular-expression-entity.png)
+    > ![创建正则表达式实体的屏幕截图。](./media/add-entities/add-regular-expression-entity.png)
 
 
 <a name="add-list-entities"></a>
@@ -99,7 +131,7 @@ ms.locfileid: "85102015"
 1. 在“创建列表实体”对话框的“添加新子列表…”中，输入列表项名称（例如 `Green`），然后添加同义词 。
 
     > [!div class="mx-imgBorder"]
-    > ![在实体详细信息页中创建颜色列表作为列表实体。](media/how-to-add-entities/create-list-entity-of-colors.png)
+    > ![在实体详细信息页中创建颜色列表作为列表实体。](./media/how-to-add-entities/create-list-entity-of-colors.png)
 
 1. 添加完列表项和同义词后，选择“创建”。
 
@@ -132,7 +164,7 @@ ms.locfileid: "85102015"
 1. 在“类型角色…”文本框中，输入角色 `Origin` 的名称并按 Enter。 添加 `Destination` 的第二个角色名称然后按 Enter。
 
     > [!div class="mx-imgBorder"]
-    > ![将 Origin 角色添加到 Location 实体的屏幕截图](media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png)
+    > ![将 Origin 角色添加到 Location 实体的屏幕截图](./media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png)
 
     该角色将添加到预生成的实体中，但不会添加到使用该实体的任何言语中。
 
@@ -144,7 +176,17 @@ ms.locfileid: "85102015"
 1. 登录到 [LUIS 门户](https://luis.azure.cn)，选择“订阅”和“创作资源”以查看分配给该创作资源的应用。
 1. 在“我的应用”页上选择应用名称以打开应用。
 1. 转到“意向详细信息”页，其中包含使用该角色的示例言语。
-<!-- not available -->
+1. 若要使用角色进行标记，请在示例语句中选择实体标签（文本下的实线），然后从下拉列表中选择“在实体窗格中查看”。
+
+    > [!div class="mx-imgBorder"]
+    > ![屏幕截图显示了已选中“在实体窗格中查看”菜单项。](./media/add-entities/view-in-entity-pane.png)
+
+    实体面板将在右侧打开。
+
+1. 选择实体，然后转到面板底部并选择角色。
+
+    > [!div class="mx-imgBorder"]
+    > ![屏幕截图显示了选择角色的位置。](./media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
 <a name="add-a-patternany-entity"></a>
@@ -162,6 +204,8 @@ LUIS 不允许更改实体类型，因为它不知道构造该实体要添加或
 
 ## <a name="next-steps"></a>后续步骤
 
+> [!div class="nextstepaction"]
+> [使用预构建的模型](howto-add-prebuilt-models.md)
 
 了解有关以下方面的详细信息：
 * 如何[训练](luis-how-to-train.md)
@@ -172,6 +216,7 @@ LUIS 不允许更改实体类型，因为它不知道构造该实体要添加或
     * [语法](reference-pattern-syntax.md)
 * [预生成实体 GitHub 存储库](https://github.com/Microsoft/Recognizers-Text)
 * [数据提取概念](luis-concept-data-extraction.md)
+
 
 
 

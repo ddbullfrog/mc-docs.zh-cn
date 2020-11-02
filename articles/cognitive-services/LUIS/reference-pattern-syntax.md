@@ -1,29 +1,25 @@
 ---
 title: 模式语法参考 - LUIS
-titleSuffix: Azure Cognitive Services
 description: 创建实体，以便从语言理解 (LUIS) 应用的用户话语中提取关键数据。 提取的数据由客户端应用程序使用。
-services: cognitive-services
-author: diberry
-manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 origin.date: 12/09/2019
-ms.date: 1/2/2020
-ms.author: diberry
-ms.openlocfilehash: a4eaa8d71c488a768d1166389dcd21b3255fea67
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: e0997034ce9558b5ee05d4dff130bc5d164920a4
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79291775"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472321"
 ---
 # <a name="pattern-syntax"></a>模式语法
 
-模式语法是一个话语模板。 该模板应包含要匹配的字词和实体，还要包含希望忽略的字词和标点。 它不是一个正则表达式  。
+模式语法是一个话语模板。 该模板应包含要匹配的字词和实体，还要包含希望忽略的字词和[标点](luis-reference-application-settings.md#punctuation-normalization)。 它不是一个正则表达式  。
 
 > [!CAUTION]
-> 模式仅包括机器学习实体父项，而不包括子组件。
+> 模式仅包括机器学习实体父项，而不包括子实体。
 
 模式中的实体用花括号 `{}` 括起。 模式可包含实体和带角色的实体。 [Pattern.any](luis-concept-entity-types.md#patternany-entity) 是仅在模式中使用的实体。
 
@@ -39,7 +35,7 @@ ms.locfileid: "79291775"
 
 ## <a name="nesting-syntax-in-patterns"></a>模式中的嵌套语法
 
-带有方括号的**可选**语法可以嵌套两个级别。 例如：`[[this]is] a new form`。 此示例允许以下话语：
+带有方括号的 **可选** 语法可以嵌套两个级别。 例如：`[[this]is] a new form`。 此示例允许以下话语：
 
 |嵌套的可选话语示例|说明|
 |--|--|
@@ -47,7 +43,7 @@ ms.locfileid: "79291775"
 |是一个新窗体|匹配模式中的外层可选字词和非可选字词|
 |一个新窗体|仅匹配必需的字词|
 
-带括号的**分组**语法可以嵌套两层。 例如：`(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`。 此功能允许匹配任意三个实体。
+带括号的 **分组** 语法可以嵌套两层。 例如：`(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`。 此功能允许匹配任意三个实体。
 
 如果 Entity1 是具有起点（西雅图）和终点（开罗）等角色的位置，并且 Entity 2 是列表实体中的一座已知大楼名称 (RedWest-C)，则以下话语将映射到此模式：
 
@@ -59,7 +55,7 @@ ms.locfileid: "79291775"
 
 ## <a name="nesting-limits-for-groups-with-optional-syntax"></a>带有可选语法的组的嵌套限制
 
-**分组**与**可选**语法组合的嵌套级别限制为 3。
+**分组** 与 **可选** 语法组合的嵌套级别限制为 3。
 
 |允许|示例|
 |--|--|
@@ -68,7 +64,7 @@ ms.locfileid: "79291775"
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>带有 or-ing 语法的组的嵌套限制
 
-**分组**与 **or-ing** 语法组合的竖线限制为 2。
+**分组** 与 **or-ing** 语法组合的竖线限制为 2。
 
 |允许|示例|
 |--|--|
@@ -108,7 +104,7 @@ Pattern.any 实体可用于向模式添加不同长度的实体。 只要按照�
 
 ## <a name="explicit-lists"></a>显式列表
 
-在以下情况下请通过创作 API 创建一个[显式列表](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)来允许例外：
+在以下情况下请通过创作 API 创建一个[显式列表](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)来允许例外：
 
 * 你的模式包含 [Pattern.any](luis-concept-entity-types.md#patternany-entity)
 * 并且该模式语法可能会基于话语提取不正确的实体。
@@ -126,7 +122,7 @@ Pattern.any 实体可用于向模式添加不同长度的实体。 只要按照�
 
 在上表中，主题应当是 `the man from La Mancha`（书名），但因为主题包含可选字词 `from`，因此书名没有正确预测。
 
-要避免模式出现此异常，需使用[显式列表的创作 API](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) 添加 `the man from la mancha` 作为 {subject} 实体的显式列表匹配。
+要避免模式出现此异常，需使用[显式列表的创作 API](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) 添加 `the man from la mancha` 作为 {subject} 实体的显式列表匹配。
 
 ## <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>用于在模板话语中标记可选文本的语法
 使用正则表达式方括号语法 `[]` 标出话语中的可选文本。 最多能对两个括号使用方括号嵌套可选文本。
@@ -142,4 +138,9 @@ Pattern.any 实体可用于向模式添加不同长度的实体。 只要按照�
 
 详细了解模式：
 
+* [如何添加模式](luis-how-to-model-intent-pattern.md)
+* [如何添加 pattern.any 实体](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [模式概念](luis-concept-patterns.md)
+
+了解如何在 .json 响应中返回[情绪](luis-reference-prebuilt-sentiment.md)。
+

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/13/2018
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: 118d42bdbc27b26ca84fab06f24c2f4df170af0a
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 463eb6fba91ff0f0653bc2767fc7fc3594e0f26a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394765"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472556"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT 中心消息路由查询语法
 
@@ -58,6 +58,8 @@ IoT 中心为所有设备到云的消息传送定义了[格式](iot-hub-devguide
 | contentEncoding | 字符串 | 用户指定消息的编码类型。 如果 contentType 设置为应用程序/JSON，则允许的值为 UTF-8、UTF-16 和 UTF-32。 |
 | iothub-connection-device-id | 字符串 | 此值由 IoT 中心设置，标识设备的 ID。 若要查询，请使用 `$connectionDeviceId`。 |
 | iothub-enqueuedtime | 字符串 | 此值由 IoT 中心设置，表示 UTC 中消息排入队列的实际时间。 若要查询，请使用 `enqueuedTime`。 |
+| dt-dataschema | string |  此值是由 IoT 中心对设备到云的消息设置的。 它包含在设备连接中设置的设备型号 ID。 若要查询，请使用 `$dt-dataschema`。 |
+| dt-subject | string | 正在发送设备到云的消息的组件名称。 若要查询，请使用 `$dt-subject`。 |
 
 如 [IoT 中心消息](iot-hub-devguide-messages-construct.md)中所述，一条消息中还有其他系统属性。 除了上一表中的上述属性外，还可以查询 connectionDeviceId、connectionModuleId。
 

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: how-to
 origin.date: 07/10/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: ef68191e87e4541b0f39f3e1c4a4325c67fcfed2
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 10/29/2020
+ms.openlocfilehash: daaa3f227f6d735a40a3b61e3e0e89fe3e3367c5
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041762"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470002"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>通过 Azure 门户创建和管理 Azure Database for PostgreSQL（单一服务器）中的只读副本
 
@@ -20,7 +20,7 @@ ms.locfileid: "92041762"
 
 
 ## <a name="prerequisites"></a>先决条件
-用作主服务器的 [Azure Database for PostgreSQL 服务器](quickstart-create-server-database-portal.md)。
+将用作主服务器的 [Azure Database for PostgreSQL 服务器](quickstart-create-server-database-portal.md)。
 
 ## <a name="azure-replication-support"></a>Azure 复制支持
 
@@ -34,7 +34,7 @@ ms.locfileid: "92041762"
 
 更改此参数后，需要重新启动服务器。 在内部，此参数设置 Postgres 参数 `wal_level`、`max_replication_slots` 和 `max_wal_senders`。
 
-## <a name="prepare-the-master-server"></a>准备主服务器
+## <a name="prepare-the-primary-server"></a>准备主服务器
 
 1. 在 Azure 门户中，选择用作主服务器的现有 Azure Database for PostgreSQL 服务器。
 
@@ -58,7 +58,7 @@ ms.locfileid: "92041762"
 ## <a name="create-a-read-replica"></a>创建只读副本
 若要创建只读副本，请遵循以下步骤：
 
-1. 选择用作主服务器的现有 Azure Database for PostgreSQL 服务器。 
+1. 选择将用作主服务器的现有 Azure Database for PostgreSQL 服务器。 
 
 2. 在服务器边栏中的“设置”下，选择“复制”。 
 
@@ -95,7 +95,7 @@ ms.locfileid: "92041762"
 > [!IMPORTANT]
 > 停止复制到主服务器和只读副本后，无法撤消该操作。 只读副本将成为支持读取和写入的独立服务器。 独立服务器不能再次成为副本。
 
-若要在 Azure 门户中停止主服务器与只读副本之间的复制，请遵循以下步骤：
+若要在 Azure 门户中停止主服务器与只读副本之间的复制，请执行以下步骤：
 
 1. 在 Azure 门户中，选择 Azure Database for PostgreSQL 主服务器。
 
@@ -114,8 +114,8 @@ ms.locfileid: "92041762"
    :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="Azure Database for PostgreSQL - 复制 - 设置副本并保存":::
  
 
-## <a name="delete-a-master-server"></a>删除主服务器
-若要删除主服务器，请遵循删除独立 Azure Database for PostgreSQL 服务器的相同步骤。 
+## <a name="delete-a-primary-server"></a>删除主服务器
+若要删除主服务器，请执行删除 Azure Database for PostgreSQL 独立服务器的相同步骤。 
 
 > [!IMPORTANT]
 > 删除主服务器后，将停止复制到所有只读副本。 只读副本将成为支持读取和写入的独立服务器。

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 07/01/2020
-ms.date: 07/20/2020
-ms.openlocfilehash: ff9a584a4a318afdb987b257b94267e4367001b4
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 10/29/2020
+ms.openlocfilehash: ff055b41058d7cc1b32da9b5acd05d44a591e4cc
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440372"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470025"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查询存储监视性能
 
@@ -30,11 +30,11 @@ Azure Database for PostgreSQL 中的查询存储功能提供了一种一段时�
 1. 登录到 Azure 门户，选择 Azure Database for PostgreSQL 服务器。
 2. 在菜单的“设置”部分中选择“服务器参数” 。
 3. 搜索 `pg_qs.query_capture_mode` 参数。
-4. 将值设置为 `TOP` 并**保存**。
+4. 将值设置为 `TOP` 并 **保存** 。
 
 若要在查询存储中启用等待统计信息，请执行以下操作： 
 1. 搜索 `pgms_wait_sampling.query_capture_mode` 参数。
-1. 将值设置为 `ALL` 并**保存**。
+1. 将值设置为 `ALL` 并 **保存** 。
 
 
 或者，可使用 Azure CLI 设置这些参数。
@@ -185,7 +185,7 @@ Azure Database for PostgreSQL 集成了 [Azure Monitor 诊断设置](../azure-mo
 > 此诊断功能仅适用于“常规用途”和“内存优化”定价层。
 
 ### <a name="configure-diagnostic-settings"></a>配置诊断设置
-可以使用 Azure 门户、CLI、REST API 和 PowerShell 为 Postgres 服务器启用诊断设置。 要配置的日志类别是 **QueryStoreRuntimeStatistics** 和 **QueryStoreWaitStatistics**。 
+可以使用 Azure 门户、CLI、REST API 和 PowerShell 为 Postgres 服务器启用诊断设置。 要配置的日志类别是 **QueryStoreRuntimeStatistics** 和 **QueryStoreWaitStatistics** 。 
 
 若要使用 Azure 门户启用资源日志：
 

@@ -1,20 +1,21 @@
 ---
 title: 使用 Socket.io 构建 Node.js 应用程序 - Azure
-description: 了解如何在 Azure 上托管的 node.js 应用程序中使用 socket.io。
+description: 使用本教程了解如何在 Azure 上托管一个基于 socket.IO 的聊天应用程序。 Socket.IO 为 node.js 服务器和客户端提供实时通信。
 services: cloud-services
 documentationcenter: nodejs
 author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 66dcbde7b4552fcd9b6a54097a17d940a4586bce
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.custom: devx-track-js
+ms.openlocfilehash: 2fd36ff44514094f7a646f8aaf33a3bfe4336cba
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160363"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472576"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 云服务中使用 Socket.IO 生成 Node.js 聊天应用程序
 
@@ -91,14 +92,14 @@ Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程
 3. 为了确保应用程序侦听正确端口，请在记事本或偏好的编辑器中打开 server.js，然后通过将 3000 替换为 process.env.port，更改以下行，如下所示   ：
 
     ```js
-    //app.listen(3000, function () {            //Original
+    //app.listen(3000, function () {            //Original
     app.listen(process.env.port, function () {  //Updated
       var addr = app.address();
       console.log('   app listening on http://' + addr.address + ':' + addr.port);
     });
     ```
 
-保存对 **server.js**所做更改后，使用以下步骤安装所需的模块，并在 Azure 模拟器中测试应用程序：
+保存对 **server.js** 所做更改后，使用以下步骤安装所需的模块，并在 Azure 模拟器中测试应用程序：
 
 1. 使用 Azure PowerShell，将目录切换到 C:\\node\\chatapp\\WorkerRole1 目录，然后使用以下命令安装此应用程序所需的模块   ：
 
@@ -141,7 +142,7 @@ Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程
 5. 要将应用程序部署到 Azure，请使用 **Publish-AzureServiceProject** cmdlet。 例如：
 
     ```powershell
-    PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "China East" -Launch
+    PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "China North" -Launch
     ```
 
    > [!IMPORTANT]
@@ -170,7 +171,7 @@ Socket.IO 在 node.js 服务器和客户端之间提供实时通信。 本教程
 
 有关详细信息，另请参阅 [Node.js 开发人员中心](https://docs.microsoft.com/azure/developer/javascript/)。
 
-[chatwebsite]: /cloud-services/cloud-services-nodejs-develop-deploy-app
+[chatwebsite]: ./cloud-services-nodejs-develop-deploy-app.md
 
 [Azure SLA]: https://www.azure.cn/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node

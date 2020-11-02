@@ -1,21 +1,21 @@
 ---
 title: VPN 网关 - 用于 OpenVPN 协议 P2S 连接的 VPN 客户端 - Azure AD 身份验证
-description: 可以使用 P2S VPN 通过 Azure AD 身份验证连接到 VNet
+description: 了解如何使用 P2S VPN 通过 Azure AD 身份验证连接到 VNet。
 services: vpn-gateway
 ms.service: virtual-wan
 ms.topic: how-to
-origin.date: 08/04/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: ca9916875d2ab97290539d06c02e640cfe982700
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 2e4cc95f21cfa0ca9fc71342d0f91d5f71a3ab69
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246736"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472634"
 ---
 <!--Verified successfully-->
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>配置用于 P2S OpenVPN 协议连接的 VPN 客户端：Azure AD 身份验证
@@ -52,7 +52,7 @@ ms.locfileid: "91246736"
 ### <a name="to-create-a-radius-client-profile"></a>创建 RADIUS 客户端配置文件
 
   ![radius](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
-  
+
 > [!NOTE]
 > 可以在 P2S VPN 客户端配置文件中导出服务器机密。  可在[此处](about-vpn-profile-download.md)找到有关如何导出客户端配置文件的说明。
 >

@@ -6,18 +6,18 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-origin.date: 05/25/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 205ab908a3594b014b78a9b43ee0e474b392b46a
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+origin.date: 10/12/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: f3a78108d64f5be33321ed4e6631d757e03ed94a
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86228102"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470346"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Azure SQL 托管实例中的时区
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -96,7 +96,7 @@ ms.locfileid: "86228102"
 
 ## <a name="limitations"></a>限制
 
-- 无法更改现有托管实例的时区。
+- 无法更改现有托管实例的时区。 一种方法是，使用适当的时区创建新的托管实例，然后执行手动备份和还原，我们建议执行[跨实例时间点还原](/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database)。
 - 从 SQL Server 代理作业启动的外部进程不会观察实例的时区。
 
 ## <a name="list-of-supported-time-zones"></a>支持的时区的列表

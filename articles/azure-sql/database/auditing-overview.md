@@ -9,14 +9,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 04/28/2020
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 62d74aef6f7e464d146c9a7c9ea119b6ae480523
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: 30c3859f56ea00e2c58d6acb2e7fa1e9357b5915
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872478"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470402"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL 数据库和 Azure Synapse Analytics 的审核
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -46,7 +46,7 @@ ms.locfileid: "91872478"
 ### <a name="auditing-limitations"></a>审核限制
 
 - 目前不支持高级存储 。
-- **Azure Data Lake Storage Gen2 存储帐户**的**分层命名空间**目前**不受支持**。
+- **Azure Data Lake Storage Gen2 存储帐户** 的 **分层命名空间** 目前 **不受支持** 。
 - 不支持在已暂停的 Azure Synapse 上启用审核。 若要启用审核，请恢复运行 Azure Synapse。
 
 #### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>定义服务器级和数据库级审核策略
@@ -77,7 +77,7 @@ ms.locfileid: "91872478"
   
 可以按照[使用 Azure PowerShell 管理 SQL 数据库审核](#manage-auditing)部分中所述，使用 PowerShell 配置不同类型的操作和操作组的审核。
 
-Azure SQL 数据库和 Azure Synapse 审核在审核记录中存储字符字段的 4000 个字符的数据。 当可审核操作返回的**语句**或 **data_sensitivity_information** 值包含超过 4000 个的字符时，超出前 4000 个字符的任何数据将**被截去不进行审核**。
+Azure SQL 数据库和 Azure Synapse 审核在审核记录中存储字符字段的 4000 个字符的数据。 当可审核操作返回的 **语句** 或 **data_sensitivity_information** 值包含超过 4000 个的字符时，超出前 4000 个字符的任何数据将 **被截去不进行审核** 。
 以下部分介绍如何使用 Azure 门户配置审核。
 
   > [!NOTE]
@@ -95,9 +95,20 @@ Azure SQL 数据库和 Azure Synapse 审核在审核记录中存储字符字段�
   
    ![存储选项](./media/auditing-overview/auditing-select-destination.png)
 
+### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Microsoft 支持操作审核（预览）
+
+通过 Azure SQL Server 的 Microsoft 支持操作审核（预览），你可以在 Azure 支持工程师需要在支持请求期间访问你的服务器时审核他们的操作。 将此功能与审核结合使用，可以提高工作人员的透明度，并可以进行异常情况检测、趋势可视化和数据丢失防护。
+
+若要启用 Microsoft 支持操作审核（预览），请导航到“Azure SQL 服务器”窗格中“安全”标题下的“审核”，并将“Microsoft 支持操作审核(预览)”切换到“启用”   。
+
+  > [!IMPORTANT]
+  > Microsoft 支持操作审核（预览）不支持存储帐户目标。 若要启用此功能，必须配置 Log Analytics 工作区或事件中心目标。
+
+![Microsoft 支持操作的屏幕截图](./media/auditing-overview/support-operations.png)
+
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>对存储目标的审核
 
-若要配置将审核日志写入存储帐户的操作，请选择“存储”，打开“存储详细信息”。  依次选择要用于保存日志的 Azure 存储帐户以及保持期。  。 早于保留期的日志会被删除。
+若要配置将审核日志写入存储帐户的操作，请选择“存储”，打开“存储详细信息”。  依次选择要用于保存日志的 Azure 存储帐户以及保持期。 。 早于保留期的日志会被删除。
 
 - 保持期的默认值为 0（无限制保留）。 在配置用于审核的存储帐户时，可以通过在“存储设置”中移动“保留期（天数）”滑块来更改此值。
   - 如果将保留期从 0（无限期保留）更改为任何其他值，请注意：保留期仅应用于在保留期值更改后写入的日志（在保留期设置为“无限期”期间写入的日志会保留，即使在启用保留期后也是如此）。
@@ -107,11 +118,12 @@ Azure SQL 数据库和 Azure Synapse 审核在审核记录中存储字符字段�
 #### <a name="remarks"></a>备注
 
 - 审核日志将写入到 Azure 订阅的 Azure Blob 存储中的追加 Blob
+- 审核日志的格式为 .xel，可以使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 打开。
 - 若要为服务器或数据库级审核事件配置不可变的日志存储，请遵循 [Azure 存储提供的说明](/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)。 确保在配置不可变的 blob 存储时，选择了“允许额外追加”。
 - 可以将审核日志写入到 VNet 或防火墙后面的 Azure 存储帐户。 有关具体说明，请参阅[将审核写入 VNet 和防火墙后面的存储帐户](audit-write-storage-account-behind-vnet-firewall.md)。
 - 配置审核设置后，可打开新威胁检测功能，并配置电子邮件用于接收安全警报。 使用威胁检测时，会接收针对异常数据库活动（可能表示潜在的安全威胁）发出的前瞻性警报。 有关详细信息，请参阅[威胁检测入门](threat-detection-overview.md)。
 - 有关日志格式、存储文件夹的层次结构和命名约定的详细信息，请参阅 [Blob 审核日志格式参考](/azure-sql/database/audit-log-format)。
-- 使用 AAD 身份验证时，失败的登录记录将不会出现在 SQL 审核日志中。 若要查看失败的登录审核记录，需要访问 [Azure Active Directory 门户](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)，该门户记录这些事件的详细信息。
+- 使用 Azure AD 身份验证时，失败的登录记录将不会出现在 SQL 审核日志中。 若要查看失败的登录审核记录，需要访问 [Azure Active Directory 门户](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)，该门户记录这些事件的详细信息。
 - 对[只读副本](read-scale-out.md)的审核会自动启用。 有关存储文件夹的层次结构、命名约定和日志格式的详细信息，请参阅 [SQL 数据库审核日志格式](audit-log-format.md)。
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>对 Log Analytics 目标的审核
@@ -243,7 +255,7 @@ Azure SQL 数据库和 Azure Synapse 审核在审核记录中存储字符字段�
 
 ### <a name="using-rest-api"></a>使用 REST API
 
-**REST API**：
+**REST API** ：
 
 - [创建或更新数据库审核策略](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
 - [创建或更新服务器审核策略](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
