@@ -11,15 +11,15 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 12/18/2018
-ms.date: 07/13/2020
-ms.openlocfilehash: fbf68f509fa3d12be1178611886c567c8d6c9981
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/29/2020
+ms.openlocfilehash: 4b73d2eb3d705add73ae4efba4fdf805cb3ba540
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227804"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470234"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>创建、配置和管理弹性作业
+# <a name="create-configure-and-manage-elastic-jobs-preview"></a>创建、配置和管理弹性作业（预览版）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 在本文中，你将了解如何创建、配置和管理弹性作业。
@@ -52,10 +52,10 @@ ms.locfileid: "86227804"
 设置运行作业所需的适当凭据可能不太容易，因此请注意以下要点：
 
 - 必须在作业数据库中创建数据库范围的凭据。
-- **所有目标数据库必须有一个具有[足够权限](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)的登录名，否则作业无法成功完成**（下图中的 `jobuser`）。
+- **所有目标数据库必须有一个具有 [足够权限](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)的登录名，否则作业无法成功完成** （下图中的 `jobuser`）。
 - 凭据可以跨作业反复使用，而凭据密码经过加密后，无法供只能通过只读方式访问作业对象的用户访问。
 
-下图旨在帮助用户了解和设置适当的作业凭据。 **记住在作业需运行的每个数据库（所有目标用户数据库）中创建该用户**。
+下图旨在帮助用户了解和设置适当的作业凭据。 **记住在作业需运行的每个数据库（所有目标用户数据库）中创建该用户** 。
 
 ![弹性作业凭据](./media/elastic-jobs-overview/job-credentials.png)
 

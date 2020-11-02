@@ -16,16 +16,16 @@ ms.workload: big-data
 origin.date: 04/28/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: 8c01e1607ed9f6a628d007a2f8cf739e8d2aa834
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 778b110f7c0cebce76289cd33ca4faaa93b5d01a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394686"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472607"
 ---
-# <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据
+# <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure Blob 存储共享访问签名来限制访问 HDInsight 中的数据
 
-HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权限。 可以使用 Blob 容器中的共享访问签名来限制对数据的访问。 共享访问签名 (SAS) 是可用于限制数据访问权限的一项 Azure 存储帐户功能。 例如，它可以提供对数据的只读访问。
+HDInsight 对与群集关联的 Azure Blob 存储帐户中的数据拥有完全访问权限。 可以使用 Blob 容器中的共享访问签名来限制对数据的访问。 共享访问签名 (SAS) 是可用于限制数据访问权限的一项 Azure Blob 存储帐户功能。 例如，它可以提供对数据的只读访问。
 
 > [!IMPORTANT]  
 > 对于使用 Apache Ranger 的解决方案，请考虑使用已加入域的 HDInsight。 有关详细信息，请参阅[配置已加入域的 HDInsight](./domain-joined/apache-domain-joined-configure.md) 文档。
@@ -34,8 +34,6 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 > HDInsight 必须对群集的默认存储拥有完全访问权限。
 
 ## <a name="prerequisites"></a>先决条件
-
-* Azure 订阅。
 
 * SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -49,7 +47,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
 * 如果使用 C#，Visual Studio 的版本必须是 2013 或更高。
 
-* 存储帐户的 URI 方案。 对于 Azure 存储，此方案为 `wasb://`；对于 Azure Data Lake Storage Gen2，此方案为 `abfs://`。 如果为 Azure 存储启用安全传输，则 URI 将为 `wasbs://`。
+* 存储帐户的 URI 方案。 对于 Azure Blob 存储，此方案为 `wasb://`；对于 Azure Data Lake Storage Gen2，此方案为 `abfs://`。 如果为 Azure Blob 存储启用了安全传输，则 URI 将为 `wasbs://`。
 
 * 共享访问签名要添加到的现有 HDInsight 群集。 如果没有，则可以使用 Azure PowerShell 创建群集，并在创建群集期间添加共享访问签名。
 
@@ -213,7 +211,7 @@ Set-AzStorageblobcontent `
 
 如果收到错误消息 `ImportError: No module named azure.storage`，可能需要执行 `pip install --upgrade azure-storage`。
 
-### <a name="using-c"></a>使用 C#
+### <a name="using-c"></a>使用 C\#
 
 1. 在 Visual Studio 中打开解决方案。
 
@@ -369,8 +367,8 @@ Remove-AzResourceGroup `
 
 1. 展开“自定义 core-site”部分，并滚动到底部，然后选择“添加属性...”。将以下值用于“键”和“值”： 
 
-   * **键**：`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn`
-   * **值**：前面执行的某个方法返回的 SAS。
+   * **键** ：`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn`
+   * **值** ：前面执行的某个方法返回的 SAS。
 
      将 `CONTAINERNAME` 替换为用于 C# 或 SAS 应用程序的容器名称。 将 `STORAGEACCOUNTNAME` 替换为所用的存储帐户名称。
 
@@ -423,7 +421,7 @@ Remove-AzResourceGroup `
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/sample.log testfile.txt
     ```
 
-    此命令会将该文件下载到名为 **testfile.txt**的本地文件中。
+    此命令会将该文件下载到名为 **testfile.txt** 的本地文件中。
 
 5. 使用以下命令将本地文件上传到 SAS 存储上名为 **testupload.txt** 的新文件中：
 

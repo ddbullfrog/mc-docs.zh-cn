@@ -2,18 +2,18 @@
 title: “超出作业大小”错误
 description: 说明如何在作业大小或模板过大时排查错误。
 ms.topic: troubleshooting
-origin.date: 09/25/2020
+origin.date: 10/07/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 670e821752db34c3ebf272349ac09ac72b3e7130
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: ee184b28a75d1d41491bacebb4c79f2e7bd3b7fa
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937825"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470505"
 ---
 <!--Verified successfully on charactors only-->
 # <a name="resolve-errors-for-job-size-exceeded"></a>解决“超出作业大小”错误
@@ -44,9 +44,12 @@ ms.locfileid: "91937825"
 
 可以将其他资源设置为依赖于链接模板，并[从链接模板的输出获取值](linked-templates.md#get-values-from-linked-template)。
 
-## <a name="solution-2---use-serial-copy"></a>解决方案 2 - 使用串行复制
+## <a name="solution-2---reduce-name-size"></a>解决方案 2 - 缩小名称
+
+请尝试缩短用于[参数](template-parameters.md)、[变量](template-variables.md)和[输出](template-outputs.md)的名称的长度。 当通过复制循环重复这些值时，一个大的名称会被相乘很多次。
+
+## <a name="solution-3---use-serial-copy"></a>解决方案 3 - 使用串行复制
 
 第二种选择是将复制循环[从并行处理更改为串行处理](copy-resources.md#serial-or-parallel)。 仅当你怀疑错误是由于通过复制部署了大量资源时，才进行此选择。 此更改可能会显著增加部署时间，因为不会并行部署资源。
 
-<!-- Update_Description: new article about error job size exceeded -->
-<!--NEW.date: 10/05/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

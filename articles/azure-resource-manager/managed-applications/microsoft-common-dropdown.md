@@ -4,16 +4,16 @@ description: 介绍了 Azure 门户的 Microsoft.Common.DropDown UI 元素。 �
 ms.topic: conceptual
 origin.date: 07/14/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4283aa14ec8f56a2222d13a4754459b75874377a
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: be9cf67f03de0a2fb1d46f39609b2fb0e24cbade
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807888"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470064"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI 元素
 
@@ -29,21 +29,19 @@ DropDown 元素提供不同的选项，用于确定其在门户中的视觉效�
 
 当包含说明时，控件将显示为：
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="带有说明的 Microsoft.Common.DropDown 单项选择":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Microsoft.Common.DropDown 单项选择":::
 
 启用多选时，控件将添加“全选”选项和用于选择多个项目的复选框：
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft.Common.DropDown 多选":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft.Common.DropDown 单项选择":::
 
 启用多选时可以包含说明。
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="带有说明的 Microsoft.Common.DropDown 多项选择":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft.Common.DropDown 单项选择":::
 
 启用筛选后，控件包含用于添加筛选值的文本框。
 
-<!--CORRECT ON AVOID ON Suggestion-image-alt-text-duplicated-->
-
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="带有说明的 Microsoft.Common.DropDown 多项选择 2":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft.Common.DropDown 单项选择":::
 
 ## <a name="schema"></a>架构
 
@@ -92,7 +90,7 @@ DropDown 元素提供不同的选项，用于确定其在门户中的视觉效�
 - 默认情况下，启用多选时，`selectAll` 为 `true`。
 - 通过 `filter` 属性，用户能够在众多选项中进行搜索。
 - `constraints.allowedValues` 的标签是项的显示文本，并且当选中时，其值是元素的输出值。
-- 如果已指定，则默认值必须是 `constraints.allowedValues` 中存在的一个标签。 如果未指定，则将选择 `constraints.allowedValues` 中的第一个项。 默认值为 **null**。
+- 如果已指定，则默认值必须是 `constraints.allowedValues` 中存在的一个标签。 如果未指定，则将选择 `constraints.allowedValues` 中的第一个项。 默认值为 **null** 。
 - `constraints.allowedValues` 必须至少有一项。
 - 若要模拟一个不需要的值，请向 `constraints.allowedValues` 添加一个具有标签且值为 `""`（空字符串）的项。
 - `defaultDescription` 属性用于不带说明的项。

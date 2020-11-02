@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 origin.date: 06/29/2020
-ms.date: 07/20/2020
-ms.openlocfilehash: bf84b604683748d7b1429fee1f3e3e87c8d6c20b
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 10/29/2020
+ms.openlocfilehash: e7838c234141cb1f82ec40323b72df297dd9a88f
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440603"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470105"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>使用 Azure 门户将 Azure Database for PostgreSQL（单一服务器）移到另一个区域
 

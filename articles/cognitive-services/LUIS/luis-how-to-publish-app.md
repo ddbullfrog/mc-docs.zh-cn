@@ -3,21 +3,20 @@ title: 发布应用 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 当完成生成和测试活动 LUIS 应用时，可通过将其发布到终结点使其可用于客户端应用程序。
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/19/2020
 origin.date: 05/17/2020
-ms.author: v-tawe
-ms.openlocfilehash: cc210f06d001ad22c4254b9fe9ddcad67cdf8bda
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.author: v-johya
+ms.openlocfilehash: d4b79f5108fc032584fba8d37df9ed68cf65b10b
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85102004"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472430"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>将活动的已训练应用发布到过渡或生产终结点
 
@@ -50,7 +49,7 @@ ms.locfileid: "85102004"
 例如，对于在 [https://luis.azure.cn](https://luis.azure.cn) 上创建的应用，如果你在 chinaeast2 中创建 LUIS 资源并将其作为资源添加到此应用，则此应用将发布到该区域中。 有关 LUIS 区域的详细信息，请参阅[区域](luis-reference-regions.md)。
 
 > [!TIP]
-> <!--not 3 regions-->你必须在要向其发布内容的区域中创作。 如果需要将内容发布到所有区域，需要在所有 3 个创作区域中管理创作过程和生成的已定型模型。
+> <!--not 3 regions-->你必须在要向其发布内容的区域中创作。 如果需要将内容发布到所有区域，则需在所有创作区域中管理创作过程和生成的已定型模型。
 
 
 ## <a name="configuring-publish-settings"></a>配置发布设置
@@ -93,4 +92,5 @@ ms.locfileid: "85102004"
 
 * 请参阅[管理密钥](./luis-how-to-azure-subscription.md)以了解如何将密钥添加到针对 LUIS 的 Azure 订阅密钥、如何设置必应拼写检查密钥以及如何将所有意向包含在结果中。
 * 有关如何在测试控制台中测试已发布应用的说明，请参阅[训练和测试应用](luis-interactive-test.md)。
+
 

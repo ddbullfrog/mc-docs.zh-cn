@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 08/26/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: d242e19c62bac1fe41bc1085f6b8ff5ac08922df
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 10/29/2020
+ms.openlocfilehash: bd6b8a2a0c248131da5821bf0d06b655e8f404fa
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041821"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470251"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>在 Azure 中选择适当的 MySQL Server 选项
 
@@ -27,7 +27,7 @@ ms.locfileid: "92041821"
 
   借助 Azure 上的 MySQL 的托管实例，你可以使用内置功能（即自动修补、高可用性、自动备份、弹性缩放、企业级安全性、合规性和治理、监视和警报）。否则，当 MySQL 服务器在本地或 Azure VM 中时，这些内置功能需要进行大量配置。 将 MySQL 用作服务时，需要预先支付纵向或横向扩展选项的费用才能在不中断服务的情况下获得更高的控制度。 
   
-    - [Azure Database for MySQL 单一服务器](single-server-overview.md)是一项完全托管的数据库服务，对数据库自定义的要求最低。 单一服务器平台旨在以最少的用户配置和控制来处理大多数数据库管理功能，例如修补、备份、高可用性、安全性。 此体系结构经过优化，可在单个可用性区域提供 99.99% 的可用性。 单一服务器最适合用于云原生应用程序，这些应用程序旨在处理自动修补，而无需对修补计划和自定义 MySQL 配置设置进行精细控制。 
+    - [Azure Database for MySQL 单一服务器](single-server-overview.md)是一项完全托管的数据库服务，对数据库自定义的要求最低。 单一服务器平台旨在以最少的用户配置和控制来处理大多数数据库管理功能，例如修补、备份、高可用性、安全性。 此体系结构经过优化，可在单个区域提供 99.99% 的可用性。 单一服务器最适合用于云原生应用程序，这些应用程序旨在处理自动修补，而无需对修补计划和自定义 MySQL 配置设置进行精细控制。 
 
 - **Azure VM 上的 MySQL** 。 此选项属于 IaaS 行业类别。 使用此服务可以在 Azure 云平台上的托管虚拟机中运行 MySQL 服务器。 所有最新版本的 MySQL 都可以安装在该虚拟机中。
 
@@ -47,7 +47,7 @@ ms.locfileid: "92041821"
 | 服务级别协议 (SLA) | 99.99% 可用性 SLA | 99.99% 使用可用性区域|
 | 操作系统修补| 自动  | 由最终用户管理 |
 | MySQL 修补     | 自动  | 由最终用户管理 |
-| 高可用性 | 单个可用性区域内的内置 HA| 使用群集、复制等进行自定义托管|
+| 高可用性 | 单个区域内的内置 HA| 使用群集、复制等进行自定义托管|
 | 混合场景 | 支持，并可使用[数据传入复制](/mysql/concepts-data-in-replication)| 由最终用户管理 |
 | 只读副本 | 支持| 由最终用户管理 |
 | Backup | 自动执行，保留 7-35 天 | 由最终用户管理 |

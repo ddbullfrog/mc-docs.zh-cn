@@ -8,16 +8,15 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: 61c015eec5198456ee8a02ddb45f121c070fb8e7
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 10/20/2020
+ms.openlocfilehash: cea2029c970d77eabc70c757625ba870c115f041
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413252"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472130"
 ---
-# <a name="ingestion-rules"></a>引入规则
-### <a name="json-flattening-escaping-and-array-handling"></a>JSON 平展、转义和数组处理
+# <a name="json-flattening-escaping-and-array-handling"></a>JSON 平展、转义和数组处理
 
 Azure 时序见解第 2 代环境将按照一组特定的命名约定动态创建暖存储和冷存储的列。 引入事件时，会将一组规则应用于 JSON 有效负载和属性名称。 这包括对某些特殊字符进行转义以及平展嵌套的 JSON 对象。 你必须了解这些规则，以便理解 JSON 的形状如何影响事件的存储和查询方式。 有关规则的完整列表，请参阅下表。 示例 A 和 B 还演示了如何在数组中高效地对多个时序进行批处理。
 
@@ -35,22 +34,23 @@ Azure 时序见解第 2 代环境将按照一组特定的命名约定动态创�
 | 基元类型的数组存储为 Dynamic 类型 |  ```"values": [154, 149, 147]``` | 动态类型只能通过 [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API 进行检索 | `values_dynamic` |
 | 包含对象的数组有两种行为，具体取决于对象内容：如果数组中的对象内有 TS ID 或时间戳属性，则数组会展开，以便初始 JSON 有效负载产生多个事件。 这使你能够将多个事件成批转换为一个 JSON 结构。 与数组对等的所有顶级属性都会随每个展开的对象一起保存。 如果数组中没有 TS ID 和时间戳，则它会整体另存为 Dynamic 类型。 | 请参阅下面的示例 [A](concepts-json-flattening-escaping-rules.md#example-a)、[B](concepts-json-flattening-escaping-rules.md#example-b) 和 [C](concepts-json-flattening-escaping-rules.md#example-c)
 | 包含混合元素的数组不会平展。 |  ```"values": ["foo", {"bar" : 149}, 147]``` | 动态类型只能通过 [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) API 进行检索 | `values_dynamic` |
-| 512 个字符是 JSON 属性名称的长度上限。 如果名称超过 512 个字符，则会将其截断为 512 个字符，并追加“_<'hashCode'>”。 **注意**，这也适用于从平展的对象连接的属性名称（表示嵌套的对象路径）。 |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
+| 512 个字符是 JSON 属性名称的长度上限。 如果名称超过 512 个字符，则会将其截断为 512 个字符，并追加“_<'hashCode'>”。 **注意** ，这也适用于从平展的对象连接的属性名称（表示嵌套的对象路径）。 |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>了解数组的双重行为
 
-对象的数组将存储为一个整体或拆分为多个事件，具体取决于数据建模方式。 这允许你使用数组来成批处理事件，避免在根对象级别定义重复的遥测属性。 批处理可能很有利，因为它会导致发送较少的事件中心或 IoT 中心消息。 
+对象的数组将存储为一个整体或拆分为多个事件，具体取决于数据建模方式。 这允许你使用数组来成批处理事件，避免在根对象级别定义重复的遥测属性。 批处理可能很有利，因为它会导致发送较少的事件中心或 IoT 中心消息。
 
 但在某些情况下，包含对象的数组仅在其他值的上下文中有意义。 创建多个事件会导致数据无意义。 若要确保对象的数组按原样存储为动态类型，请遵循下面的数据建模指导，并参阅[示例 C](concepts-json-flattening-escaping-rules.md#example-c)
 
-### <a name="how-do-i-know-if-my-array-of-objects-will-produce-multiple-events"></a>如何知道我的对象数组是否会产生多个事件？
+### <a name="how-to-know-if-my-array-of-objects-will-produce-multiple-events"></a>如何知道我的对象数组是否会产生多个事件
 
 如果你的一个或多个时序 ID 属性嵌套在数组中的对象内，或者事件源时间戳属性是嵌套的，则引入引擎会将其拆分，以创建多个事件。 你为 TS ID 和/或时间戳提供的属性名称应遵循上述平展规则，因此会指示你的 JSON 的形状。 请参阅下面的示例，并查看有关如何[选择时序 ID 属性](time-series-insights-update-how-to-id.md)的指南。
 
-### <a name="example-a"></a>示例 A：
-对象根处的时序 ID 和嵌套的时间戳<br/>
-**环境时序 ID：** `"id"`<br/>
-**事件源时间戳：** `"values.time"`<br/>
+### <a name="example-a"></a>示例 A
+
+对象根处的时序 ID 和嵌套的时间戳\
+**环境时序 ID：** `"id"`\
+**事件源时间戳：** `"values.time"`\
 **JSON 有效负载：**
 
 ```JSON
@@ -84,21 +84,21 @@ Azure 时序见解第 2 代环境将按照一组特定的命名约定动态创�
 ]
 ```
 
-**Parquet 文件中的结果：**
-<br/>
+**Parquet 文件中的结果：** \
 上述配置和有效负载将产生三个列和四个事件
 
-| timestamp  | id_string | values.value_double 
-| ---- | ---- | ---- | 
-| `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` | 
-| `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` | 
-| `2020-05-01T00:59:59.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``0.337288`` | 
-| `2020-05-01T01:00:29.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``4.76562`` | 
+| timestamp  | id_string | values.value_double
+| ---- | ---- | ---- |
+| `2020-05-01T00:59:59.000Z` | `caaae533-1d6c-4f58-9b75-da102bcc2c8c`| ``25.6073`` |
+| `2020-05-01T01:00:29.000Z` |`caaae533-1d6c-4f58-9b75-da102bcc2c8c` | ``43.9077`` |
+| `2020-05-01T00:59:59.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``0.337288`` |
+| `2020-05-01T01:00:29.000Z` | `1ac87b74-0865-4a07-b512-56602a3a576f` | ``4.76562`` |
 
-### <a name="example-b"></a>示例 B：
-嵌套了一个属性的复合时序 ID<br/> 
-**环境时序 ID：** `"plantId"` 和 `"telemetry.tagId"`<br/>
-**事件源时间戳：** `"timestamp"`<br/>
+### <a name="example-b"></a>示例 B
+
+嵌套了一个属性的复合时序 ID\
+**环境时序 ID：** `"plantId"` 和 `"telemetry.tagId"`\
+**事件源时间戳：** `"timestamp"`\
 **JSON 有效负载：**
 
 ```JSON
@@ -142,23 +142,23 @@ Azure 时序见解第 2 代环境将按照一组特定的命名约定动态创�
 ]
 ```
 
-**Parquet 文件中的结果：**
-<br/>
+**Parquet 文件中的结果：** \
 上述配置和有效负载将产生四个列和六个事件
 
-| timestamp  | plantId_string | telemetry.tagId_string | telemetry.value_double 
+| timestamp  | plantId_string | telemetry.tagId_string | telemetry.value_double
 | ---- | ---- | ---- | ---- |
 | `2020-01-22T16:38:09Z` | `9336971`| ``100231-A-A6`` |  -31.149018 |
 | `2020-01-22T16:38:09Z` |`9336971` | ``100231-A-A1`` | 20.560796 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A9`` | 177 |
 | `2020-01-22T16:38:09Z` | `9336971` | ``100231-A-A8`` | 420 |
-| `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A7`` | -30.9918 |  
-| `2020-01-22T16:42:14Z` | `9336972` | ``100231-A-A4`` | 19.960796 | 
+| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A7`` | -30.9918 |  
+| `2020-01-22T16:42:14Z` | `9336971` | ``100231-A-A4`` | 19.960796 |
 
-### <a name="example-c"></a>示例 C：
-对象根处的时序 ID 和时间戳<br/> 
-**环境时序 ID：** `"id"`<br/>
-**事件源时间戳：** `"timestamp"`<br/>
+### <a name="example-c"></a>示例 C
+
+对象根处的时序 ID 和时间戳\
+**环境时序 ID：** `"id"`\
+**事件源时间戳：** `"timestamp"`\
 **JSON 有效负载：**
 
 ```JSON
@@ -175,12 +175,11 @@ Azure 时序见解第 2 代环境将按照一组特定的命名约定动态创�
 }
 ```
 
-**Parquet 文件中的结果：**
-<br/>
+**Parquet 文件中的结果：** \
 上述配置和有效负载将产生三个列和一个事件
 
 | timestamp  | id_string | datapoints_dynamic  
-| ---- | ---- | ---- | 
+| ---- | ---- | ---- |
 | `2020-11-01T10:00:00.000Z` | `800500054755`| ``[{"value": 120},{"value":124}]`` |
 
 ## <a name="next-steps"></a>后续步骤

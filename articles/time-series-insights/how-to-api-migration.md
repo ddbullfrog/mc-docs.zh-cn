@@ -8,20 +8,23 @@ ms.author: v-junlch
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/20/2020
 ms.custom: shresha
-ms.openlocfilehash: 6ed431c8935b0dc2800dcb3dcaec9d2a0bd4cfcf
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: 90501efeba8c8b896aa64aab9e9590befb22fdb8
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721192"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472233"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>迁移到新的 Azure 时序见解第 2 代 API 版本
 
 ## <a name="overview"></a>概述
 
-如果你创建了 Azure 时序见解第 2 代公共预览版环境（在 2020 年 7 月 16 日之前），请按照本文中所述的步骤将你的 TSI 环境更新为使用新的已正式发布的 API 版本。
+如果你创建了 Azure 时序见解第 2 代公共预览版环境（在 2020 年 7 月 16 日之前），请按照本文中所述的步骤将你的 TSI 环境更新为使用新的已正式发布的 API 版本。 此更改不会影响任何使用第 1 代版本的 Azure 时序见解的用户。
+
+> [!IMPORTANT]
+> 本文中所述的更新只会升级 TSI 环境所用的 API 版本。 此更改与为第 2 代环境引入的新的 [JSON 平展和转义规则](/time-series-insights/concepts-json-flattening-escaping-rules)无关。
 
 新的 API 版本是 `2020-07-31`，它使用了更新的[时序表达式语法](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)。
 
@@ -70,7 +73,7 @@ ms.locfileid: "90721192"
 
 如果已使用 Power BI 连接器生成查询，则它们会使用预览版 API 和旧的时序表达式语法调用 Azure 时序见解。 在预览版 API 被弃用之前，这些查询可继续成功检索数据。
 
-若要更新查询以使用新的 API 版本和新的时序表达式语法，需要从资源管理器重新生成查询。 
+若要更新查询以使用新的 API 版本和新的时序表达式语法，需要从资源管理器重新生成查询。 详细了解如何[使用 Power BI 连接器创建查询](./how-to-connect-power-bi.md)。
 
 > [!NOTE]
 > 必须使用 2020 年 7 月版的 Power BI Desktop。 如果未使用此版本，则可能会看到[“无效的查询有效负载版本”错误](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect)。

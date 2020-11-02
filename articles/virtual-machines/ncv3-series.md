@@ -2,20 +2,20 @@
 title: NCv3 系列 - Azure 虚拟机
 description: NCv3 系列 VM 的规范。
 ms.subservice: sizes
-author: rockboyfor
 ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 02/03/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d41e278882950265492ef8a002b09d21605cce6a
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 086008f55c0c5086aaa1e412d5e94f8429ec8c96
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052444"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211878"
 ---
 # <a name="ncv3-series"></a>NCv3 系列
 
@@ -25,18 +25,15 @@ NCv3 系列 VM 采用 NVIDIA Tesla V100 GPU。 客户可将这些更新的 GPU �
 
 高级存储：支持
 
-高级存储缓存：支持
-
-实时迁移：不支持
-
-内存保留更新：不支持
+[高级存储](premium-storage-performance.md)：支持<br />
+[高级存储缓存](premium-storage-performance.md)：支持<br />
+[实时迁移](maintenance-and-updates.md)：不支持<br />
+[内存保留更新](maintenance-and-updates.md)：不支持<br />
+[VM 代系支持](generation-2.md)：第 1 代和第 2 代<br />
 
 > [!IMPORTANT]
-> 对于此 VM 系列，订阅中的 vCPU（核心）配额最初在每个区域中设置为 0。 在[可用区域](https://azure.microsoft.com/regions/services/)中为此系列[请求 vCPU 配额增加](https://support.azure.cn/support/support-azure/)。
+> 对于此 VM 系列，订阅中的 vCPU（核心）配额最初在每个区域中设置为 0。 在[可用区域](https://azure.microsoft.com/regions/services/)中为此系列[请求 vCPU 配额增加](https://support.azure.cn/support/support-azure/)。 这些 SKU 不可用于试用版或 Visual Studio 订阅服务器 Azure 订阅。 你的订阅级别可能不支持选择或部署这些 SKU。 
 >
-
-<!--CORRECT URL ON [available region](https://azure.microsoft.com/regions/services/)-->
-<!--Notice: URL redirect ../articles/azure-supportability/resource-manager-core-quotas-request.md to https://support.azure.cn/support/support-azure -->
 
 | 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | GPU | GPU 内存：GiB | 最大数据磁盘数 | 最大非缓存磁盘吞吐量：IOPS/MBps | 最大 NIC 数 |
 |---|---|---|---|---|---|---|---|---|
@@ -55,7 +52,9 @@ NCv3 系列 VM 采用 NVIDIA Tesla V100 GPU。 客户可将这些更新的 GPU �
 
 若要利用 Azure N 系列 VM 的 GPU 功能，必须安装 NVIDIA GPU 驱动程序。
 
-<!--Not Available on The [NVIDIA GPU Driver Extension](./extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](./extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](./extensions/overview.md).-->
+<!--Not Available on The NVIDIA GPU Driver Extension installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the NVIDIA GPU Driver Extension documentation for supported operating systems and deployment steps.-->
+<!--Not Available on [NVIDIA GPU Driver Extension](./extensions/hpccompute-gpu-windows.md)-->
+<!--Not Capatile on [Azure virtual machine extensions and features](./extensions/overview.md)-->
 
 选择手动安装 NVIDIA GPU 驱动程序时，请参阅[适用于 Windows 的 N 系列 GPU 驱动程序安装](./windows/n-series-driver-setup.md)或[适用于 Linux 的 N 系列 GPU 驱动程序安装](./linux/n-series-driver-setup.md)，了解受支持的操作系统、驱动程序以及安装和验证步骤。
 

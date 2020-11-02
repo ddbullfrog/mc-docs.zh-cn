@@ -1,22 +1,22 @@
 ---
 title: 如何创建和部署云服务 | Microsoft Docs
-description: 了解如何使用 Azure 门户创建和部署云服务。
+description: 了解如何使用“快速创建”方法创建云服务，并使用“上传”在 Azure 中上传和部署云服务包。
 services: cloud-services
 documentationcenter: ''
 author: tgore03
 ms.service: cloud-services
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: bb182a18f4d79129cc3e3d377c54e609bd8b95e3
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: d990548993c716bb5cc9e44da3da813fad206bdc
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402565"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471751"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
-Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和*自定义创建*。
+Azure 门户提供了两种创建和部署云服务的方法： *快速创建* 和 *自定义创建* 。
 
 本文介绍如何使用“快速创建”方法创建新的云服务，并使用“上传”  在 Azure 中上传和部署云服务包。 使用此方法时，Azure 门户会在进行操作时提供方便的链接供你完成所有要求。 如果创建云服务时还准备部署该云服务，则可以使用“自定义创建”同时执行这两项操作。
 
@@ -56,7 +56,7 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 单击“创建资源”>“计算”  ，向下滚动到“云服务”并单击它  。
 
-    ![发布云服务](./media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![屏幕截图，在“创建资源”>“计算”下突出显示了“云服务”选项。](./media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. 在新的“云服务”  窗格中，输入“DNS 名称”  的值。
 4. 创建一个新“资源组”  或选择一个现有的资源组。
 5. 选择“位置”  。
@@ -74,24 +74,21 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 2. 单击“附加证书”  ，然后在“添加证书”  窗格上单击“确定”  。
 3. 在“云服务”  窗格上单击“创建”  。 当部署达到“就绪”  状态时，可以继续执行后续步骤。
 
-    ![发布云服务](./media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![重点演示了上传证书过程的屏幕截图。](./media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>确认部署已成功完成
 1. 单击云服务实例。
 
-    状态应显示该服务 **正在运行**。
+    状态应显示该服务 **正在运行** 。
 2. 在“概要”  下，单击“站点 URL”  在 Web 浏览器中打开云服务。
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: /cloud-services/cloud-services-choose-me
+[TFSTutorialForCloudService]: ./cloud-services-choose-me.md
 
 ## <a name="next-steps"></a>后续步骤
 * [云服务的常规配置](cloud-services-how-to-configure-portal.md)。
 * 配置 [自定义域名](cloud-services-custom-domain-name-portal.md)。
 * [管理云服务](cloud-services-how-to-manage-portal.md)。
 * 配置 [TLS/SSL 证书](cloud-services-configure-ssl-certificate-portal.md)。
-
-
-
 

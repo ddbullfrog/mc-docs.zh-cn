@@ -4,22 +4,22 @@ description: 了解如何创建具有链接模板的模板规格。
 ms.topic: conceptual
 origin.date: 08/31/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 41ef08befa22ef5aedca645978aa4a53395b4c12
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 07929ee24a1d5ffb60812c1b1e0afd2948ae5ea7
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937174"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470390"
 ---
 <!--Not Available on MOONCAKE-->
 <!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>教程：创建具有链接模板的模板规格（预览）
 
-了解如何创建具有[链接模板](linked-templates.md#linked-template)的[模板规格](template-specs.md)。 使用模板规格与组织中的其他用户共享 ARM 模板。 本文介绍如何使用部署资源的新 `relativePath` 属性创建模板规格以打包主模板及其链接模板。
+了解如何创建具有[链接模板](linked-templates.md#linked-template)的[模板规格](template-specs.md)。 使用模板规格与组织中的其他用户共享 ARM 模板。 本文介绍如何使用部署资源的 `relativePath` 属性创建模板规格以打包主模板及其关联的模板。
 
 <!--Not Available on [deployment resource](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments)-->
 

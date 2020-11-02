@@ -3,20 +3,20 @@ title: Translator V3.0 参考
 titleSuffix: Azure Cognitive Services
 description: Translator V3.0 参考文档。 Translator 的版本 3 提供了基于 JSON 的新型 Web API。
 services: cognitive-services
-author: swmachan
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 4/17/2020
-ms.date: 06/22/2020
-ms.author: v-tawe
-ms.openlocfilehash: cb453e53bd94e3b86850b172f5c8629de204a12f
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 911a398e43ef4e370bd78bc938e908a3c61ed029
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241525"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471990"
 ---
 # <a name="translator-v30"></a>Translator 3.0 版
 
@@ -32,20 +32,10 @@ Translator 的版本 3 提供了基于 JSON 的新型 Web API。 它通过将现
 
 ## <a name="base-urls"></a>基 URL
 
-Microsoft Translator 位于多个数据中心位置之外。 目前它们位于 10 个 [Azure 地理区域](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=china-non-regional,china-north,china-north-2,china-east,china-east-2)：
+Microsoft Translator 位于多个数据中心位置之外。 目前它们位于 2 个 Azure 地理区域：
 
-* **中国：** 中国北部和中国东部 2 
-
-在大多数情况下，对 Microsoft Translator 的请求由距离请求来源最近的数据中心处理。 如果数据中心出现故障，请求可能会路由到 Azure 地理区域之外。
-
-若要强制由特定 Azure 地理区域处理请求，请将 API 请求中的全球终结点更改为所需的区域终结点：
-
-|说明|Azure 地理区域|基 URL|
-|:--|:--|:--|
-|Azure|中国北部| chinanorth.api.cognitive.azure.cn|
-|Azure|中国东部 2| chinaeast2.api.cognitive.azure.cn|
-|Azure|中国| api.translator.azure.cn|
-
+* **中国：** 中国北部和中国东部 2
+<!--Not available in MC: Global Translator resource -->
 ## <a name="authentication"></a>身份验证
 
 订阅 Azure 认知服务中的 Translator 或[认知服务多服务](https://www.azure.cn/pricing/details/cognitive-services/)，并使用订阅密钥（在 Azure 门户中提供）进行身份验证。 
@@ -61,24 +51,7 @@ Microsoft Translator 位于多个数据中心位置之外。 目前它们位于 
 ###  <a name="secret-key"></a>密钥
 第一个选项是使用 `Ocp-Apim-Subscription-Key` 标头进行身份验证。 将 `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` 标头添加到请求。
 
-#### <a name="authenticating-with-a-global-resource"></a>使用全球资源进行身份验证
-
-当使用[全球翻译器资源](https://portal.azure.cn/#create/Microsoft.CognitiveServicesTextTranslation)时，需要包含一个标头来调用 Translator。
-
-|标头|说明|
-|:-----|:----|
-|Ocp-Apim-Subscription-Key| 该值是用于 Translator 订阅的 Azure 密钥。|
-
-下面是使用全球翻译器资源调用 Translator 的示例请求
-
-```curl
-// Pass secret key using headers
-curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&to=es" \
-     -H "Ocp-Apim-Subscription-Key:<your-key>" \
-     -H "Content-Type: application/json" \
-     -d "[{'Text':'Hello, what is your name?'}]"
-```
-
+<!--Not available in MC: Global Translator resource -->
 #### <a name="authenticating-with-a-regional-resource"></a>使用区域资源进行身份验证
 
 当使用[区域翻译器资源](https://portal.azure.cn/#create/Microsoft.CognitiveServicesTextTranslation)时。
@@ -88,6 +61,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&to=es" \
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| 该值是用于 Translator 订阅的 Azure 密钥。|
 |Ocp-Apim-Subscription-Region| 该值是翻译器资源的区域。 |
+
 下面是使用区域翻译器资源调用 Translator 的示例请求
 
 ```curl
@@ -116,21 +90,22 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&to=es" \
 
 如果使用参数 `Subscription-Key` 传递查询字符串中的密钥，则必须使用查询参数 `Subscription-Region` 指定区域。
 
+<!--Correct in MC: https://api.cognitive.azure.cn/sts/v1.0/issueToken-->
 ### <a name="authenticating-with-an-access-token"></a>使用访问令牌进行身份验证
 或者，可以交换访问令牌的密钥。 此令牌作为 `Authorization` 标头包含在每个请求中。 若要获取授权令牌，请向以下 URL 发出 `POST` 请求：
 
 | 环境     | 身份验证服务 URL                                |
 |-----------------|-----------------------------------------------------------|
-| Azure 中国     | `https://<your region>.api.cognitive.azure.cn/sts/v1.0/issueToken` |
+| Azure 中国     | `https://api.cognitive.azure.cn/sts/v1.0/issueToken` |
 
 以下是根据给定密钥获取令牌的示例请求：
 
 ```curl
 // Pass secret key using header
-curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://<your region>.api.cognitive.azure.cn/sts/v1.0/issueToken'
+curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.azure.cn/sts/v1.0/issueToken'
 
 // Pass secret key using query string parameter
-curl --data "" 'https://<your region>.api.cognitive.azure.cn/sts/v1.0/issueToken?Subscription-Key=<your-key>'
+curl --data "" 'https://api.cognitive.azure.cn/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
 
 成功的请求会在响应正文中将编码的访问令牌作为纯文本返回。 有效的令牌在授权中作为持有者令牌传递给 Translator 服务。
@@ -139,8 +114,31 @@ curl --data "" 'https://<your region>.api.cognitive.azure.cn/sts/v1.0/issueToken
 Authorization: Bearer <Base64-access_token>
 ```
 
-身份验证令牌的有效期为 10 分钟。 在对 Translator 进行多次调用时，应重复使用该令牌。 但是，如果程序向 Translator 发出请求时持续的时间段很长，则该程序必须定期（例如每隔 8 分钟）请求新的访问令牌。
+身份验证令牌的有效期为 10 分钟。 在对 Translator 进行多次调用时，应重复使用该令牌。 但是，如果程序向 Translator 发出请求时持续的时间段很长，则该程序必须定期请求新的访问令牌（例如，每隔 8 分钟请求一次）。
 
+## <a name="virtual-network-support"></a>虚拟网络支持
+
+Translator 服务现在随虚拟网络 (VNET) 功能在 Azure 公有云的所有区域中提供。 若要启用虚拟网络，请参阅[配置 Azure 认知服务虚拟网络](/cognitive-services/cognitive-services-virtual-networks?tabs=portal)。 
+
+启用此功能后，必须使用自定义终结点来调用 Translator。 你不能使用全球翻译器终结点（“api.translator.azure.cn”），也不能使用访问令牌进行身份验证。
+
+你可以在创建[翻译器资源](https://portal.azure.cn/#create/Microsoft.CognitiveServicesTextTranslation)后找到自定义终结点，并允许从所选网络和专用终结点进行访问。
+
+|头文件|说明|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| 该值是用于 Translator 订阅的 Azure 密钥。|
+|Ocp-Apim-Subscription-Region| 该值是翻译器资源的区域。 如果资源为 `global`，则此值是可选项|
+
+下面是使用自定义终结点调用 Translator 的示例请求
+
+```curl
+// Pass secret key and region using headers
+curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.cn/translator/text/v3.0/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Ocp-Apim-Subscription-Region:<your-region>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
 
 ## <a name="errors"></a>错误
 

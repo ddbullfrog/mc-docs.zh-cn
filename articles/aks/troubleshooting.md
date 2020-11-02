@@ -5,16 +5,16 @@ services: container-service
 ms.topic: troubleshooting
 origin.date: 06/20/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a7a4d3609d67fe1e533ffbdce1920c610b830c8b
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 80bde26472f493b5647aaeaeb4de609e3d1e70eb
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937447"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470195"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -121,8 +121,8 @@ AKS 支持的最低 TLS 版本是 TLS 1.2。
 如果群集出于多种原因进入故障状态，则会发生此错误。 请遵循以下步骤解决群集故障状态，然后重试先前失败的操作：
 
 1. 除非群集摆脱 `failed` 状态，否则 `upgrade` 和 `scale` 操作不会成功。 常见的根本问题和解决方法包括：
-    * 使用**不足的计算 (CRP) 配额**进行缩放。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高计算配额](https://support.azure.cn/support/support-azure/)，然后尝试扩展到超出初始配额限制。
-    * 使用高级网络和**不足的子网（网络）资源**缩放群集。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高资源配额](../azure-resource-manager/templates/error-resource-quota.md#solution)，然后尝试扩展到超出初始配额限制。
+    * 使用 **不足的计算 (CRP) 配额** 进行缩放。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高计算配额](https://support.azure.cn/support/support-azure/)，然后尝试扩展到超出初始配额限制。
+    * 使用高级网络和 **不足的子网（网络）资源** 缩放群集。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高资源配额](../azure-resource-manager/templates/error-resource-quota.md#solution)，然后尝试扩展到超出初始配额限制。
 2. 解决升级失败的根本原因后，群集应会进入成功状态。 确认成功状态后，请重试原始操作。
 
 <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>
@@ -196,11 +196,33 @@ Azure 平台和 AKS 都实施了命名限制。 如果资源名称或参数违�
 
 这通常是由于服务主体凭据过期导致的。 [更新 AKS 群集的凭据。](update-credentials.md)
 
+## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>使用 API 服务器授权的 IP 范围时，无法从“自动化/开发计算机/工具”访问我的群集 API。 如何修复此问题？
+
+这需要 `--api-server-authorized-ip-ranges` 包括所使用的自动化/开发/工具系统的 IP 或 IP 范围。 请参阅[使用经授权的 IP 地址范围保护对 API 服务器的访问](api-server-authorized-ip-ranges.md)中的“如何查找我的 IP”部分。
+
+<!--Not Available on ## I'm unable to view resources in Kubernetes resource viewer in Azure portal for my cluster configured with API server authorized IP ranges. How do I fix this problem?-->
+<!--Not Available on [Kubernetes resource viewer](kubernetes-portal.md)-->
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>在限制出口流量后收到错误消息
 
 限制来自 AKS 群集的出口流量时，需要遵循针对 AKS 的[必需和可选的建议](limit-egress-traffic.md)出站端口/网络规则和 FQDN/应用程序规则。 如果你的设置与以上任意规则冲突，某些 `kubectl` 命令将无法正常运行。 在创建 AKS 群集时，也可能会遇到错误。
 
 确认你的设置不与必需或可选的建议出站端口/网络规则和 FQDN/应用程序规则相冲突。
+
+## <a name="im-receiving-429---too-many-requests-errors"></a>我收到“429 - 请求过多”错误 
+
+当 Azure 上的 Kubernetes 群集（AKS 或非 AKS）频繁执行纵向扩展/缩减操作或使用群集自动缩放程序 (CA) 时，这些操作可能导致大量 HTTP 调用，这些 HTTP 调用会超过所分配的订阅配额，从而导致失败。 错误将如下所示
+
+```
+Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
+```
+
+这些限制错误在[此处](../azure-resource-manager/management/request-limits-and-throttling.md)和[此处](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)进行了详细说明
+
+来自 AKS 工程团队的建议是确保运行的版本至少是 1.18.x（其中包含许多改进）。 有关这些改进的更多详细信息，可参阅[此文](https://github.com/Azure/AKS/issues/1413)和[此文](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)。
+
+鉴于这些限制错误是在订阅级别测量的，在以下情况下它们仍可能发生：
+- 有发出 GET 请求的第三方应用程序（例如， 监视应用程序等）。建议降低这些调用的频率。
+- VMSS 中有大量 AKS 群集/节点池。 通常的建议是确保给定订阅中的群集少于 20-30 个。
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure 存储和 AKS 疑难解答
 
@@ -344,7 +366,7 @@ initContainers:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 和更高版本 | 0777 |
 
-可以对存储类对象指定装载选项。 以下示例设置 *0777*：
+可以对存储类对象指定装载选项。 以下示例设置 *0777* ：
 
 ```yaml
 kind: StorageClass
@@ -383,7 +405,7 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 此错误是由使用 cifs/SMB 协议的 Azure 文件存储插件造成的。 使用 cifs/SMB 协议时，在装载后无法更改文件和目录权限。
 
-若要解决此问题，请结合 Azure 磁盘插件使用 *subPath*。 
+若要解决此问题，请结合 Azure 磁盘插件使用 *subPath* 。 
 
 > [!NOTE] 
 > 对于 ext3/4 磁盘类型，格式化磁盘后会出现一个 lost+found 目录。

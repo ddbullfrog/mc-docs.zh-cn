@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 origin.date: 03/17/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 46d2b78115b5f36c047b42291bb54acf1a351c56
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 10/29/2020
+ms.openlocfilehash: 7e365d93cd136a573e598fcdf4d451820963fc3d
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227542"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470361"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL 托管实例的连接体系结构
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -90,24 +90,24 @@ Azure 使用一个管理终结点来管理 SQL 托管实例。 此终结点位�
 
 使用服务辅助的子网配置时，用户可完全控制数据 (TDS) 流量，而 SQL 托管实例将负责确保管理流量不间断流动，以满足 SLA 的规定。
 
-服务辅助子网配置以虚拟网络[子网委派](../../virtual-network/subnet-delegation-overview.md)功能为基础，可提供自动网络配置管理和启用服务终结点。 服务终结点可用于对保存备份和审核日志的存储帐户配置虚拟网络防火墙规则。
+服务辅助子网配置以虚拟网络[子网委派](../../virtual-network/subnet-delegation-overview.md)功能为基础，可提供自动网络配置管理。 
 
 ### <a name="network-requirements"></a>网络要求
 
 在虚拟网络中的专用子网内部署 SQL 托管实例。 该子网必须具有以下特征：
 
 - **专用子网：** SQL 托管实例的子网不能包含其他任何关联的云服务，且不能是网关子网。 该子网不能包含除该 SQL 托管实例以外的其他任何资源，你之后也无法在该子网中添加其他类型的资源。
-- **子网委派**：需要将 SQL 托管实例的子网委托给 `Microsoft.Sql/managedInstances` 资源提供程序。
+- **子网委派** ：需要将 SQL 托管实例的子网委托给 `Microsoft.Sql/managedInstances` 资源提供程序。
 - **网络安全组 (NSG)** ：NSG 需与 SQL 托管实例的子网相关联。 当 SQL 托管实例配置为使用重定向连接时，可使用某个 NSG 通过筛选端口 1433 和端口 11000-11999 上的流量，来控制对 SQL 托管实例数据终结点的访问。 该服务会自动预配并保留当前的[规则](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration)，使管理流量能够不间断地流动。
 - **用户定义的路由 (UDR) 表：** UDR 表需与 SQL 托管实例的子网相关联。 可将条目添加到路由表，以通过虚拟网络网关或虚拟网络设备 (NVA) 路由发往本地专用 IP 范围的流量。 服务会自动预配并保留当前的[条目](#user-defined-routes-with-service-aided-subnet-configuration)，使管理流量能够不间断地流动。
 - **足够的 IP 地址：** SQL 托管实例子网必须至少有 16 个 IP 地址。 建议的最少数目为 32 个 IP 地址。 有关详细信息，请参阅[确定 SQL 托管实例的子网大小](vnet-subnet-determine-size.md)。 根据 [SQL 托管实例的网络要求](#network-requirements)配置托管实例后，可将其部署在[现有网络](vnet-existing-add-subnet.md)中。 否则，请创建[新的网络和子网](virtual-network-subnet-create-arm-template.md)。
 
 > [!IMPORTANT]
-> 创建托管实例时，将在子网上应用网络意图策略，以防止对网络设置进行不符合标准的更改。 从子网中删除最后一个实例后，也将删除网络意图策略。
+> 创建托管实例时，将会针对子网应用网络意向策略，以防止对网络设置进行不合规的更改。 从子网中删除最后一个实例后，网络意向策略也会一并删除。
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>采用服务辅助子网配置的必需入站安全规则
 
-| 名称       |端口                        |协议|Source           |目标|操作|
+| 名称       |端口                        |协议|源           |目标|操作|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |管理  |9000、9003、1438、1440、1452|TCP     |SqlManagement    |MI SUBNET  |允许 |
 |            |9000、9003                  |TCP     |CorpnetSaw       |MI SUBNET  |允许 |
@@ -117,7 +117,7 @@ Azure 使用一个管理终结点来管理 SQL 托管实例。 此终结点位�
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>采用服务辅助子网配置的必需出站安全规则
 
-| 名称       |端口          |协议|Source           |目标|操作|
+| 名称       |端口          |协议|源           |目标|操作|
 |------------|--------------|--------|-----------------|-----------|------|
 |管理  |443、12000    |TCP     |MI SUBNET        |AzureCloud |允许 |
 |mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允许 |
@@ -303,21 +303,21 @@ Azure 使用一个管理终结点来管理 SQL 托管实例。 此终结点位�
 
 ### <a name="networking-constraints"></a>网络约束
 
-**出站连接上会强制实施 TLS 1.2**：2020 年 1 月，Microsoft 对所有 Azure 服务中的服务内流量强制实施了 TLS 1.2。 对于 Azure SQL 托管实例，这导致在用于复制的出站连接上和到 SQL Server 的链接服务器连接上强制实施了 TLS 1.2。 如果对 SQL 托管实例使用低于 2016 版的 SQL Server，请确保已应用[特定于 TLS 1.2 的更新](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)。
+**出站连接上会强制实施 TLS 1.2** ：2020 年 1 月，Microsoft 对所有 Azure 服务中的服务内流量强制实施了 TLS 1.2。 对于 Azure SQL 托管实例，这导致在用于复制的出站连接上和到 SQL Server 的链接服务器连接上强制实施了 TLS 1.2。 如果对 SQL 托管实例使用低于 2016 版的 SQL Server，请确保已应用[特定于 TLS 1.2 的更新](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)。
 
 SQL 托管实例当前不支持以下虚拟网络功能：
 
-- **Microsoft 对等互连**：如果在与 SQL 托管实例所在的虚拟网络直接或暂时对等互连的 ExpressRoute 线路上启用 [Microsoft 对等互连](../../expressroute/expressroute-faqs.md#microsoft-peering)，会影响虚拟网络内的 SQL 托管实例组件与它依赖的服务之间的流量，从而导致可用性问题。 向已启用 Microsoft 对等互连的虚拟网络部署 SQL 托管实例预计会失败。
-- **全局虚拟网络对等互连**：由于[所记录的负载均衡器约束](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)，跨 Azure 区域的[虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)连接对 SQL 托管实例不起作用。
-- **AzurePlatformDNS**：使用 AzurePlatformDNS [服务标记](../../virtual-network/service-tags-overview.md)阻止平台 DNS 解析会导致 SQL 托管实例不可用。 尽管 SQL 托管实例支持将客户定义的 DNS 用于引擎内的 DNS 解析，但平台操作依赖于平台 DNS。
+- **Microsoft 对等互连** ：如果在与 SQL 托管实例所在的虚拟网络直接或暂时对等互连的 ExpressRoute 线路上启用 [Microsoft 对等互连](../../expressroute/expressroute-faqs.md#microsoft-peering)，会影响虚拟网络内的 SQL 托管实例组件与它依赖的服务之间的流量，从而导致可用性问题。 向已启用 Microsoft 对等互连的虚拟网络部署 SQL 托管实例预计会失败。
+- **全局虚拟网络对等互连** ：由于 [所记录的负载均衡器约束](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)，跨 Azure 区域的 [虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)连接对 SQL 托管实例不起作用。
+- **AzurePlatformDNS** ：使用 AzurePlatformDNS [服务标记](../../virtual-network/service-tags-overview.md)阻止平台 DNS 解析会导致 SQL 托管实例不可用。 尽管 SQL 托管实例支持将客户定义的 DNS 用于引擎内的 DNS 解析，但平台操作依赖于平台 DNS。
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[已弃用] 不采用服务辅助子网配置时的网络要求
 
 在虚拟网络中的专用子网内部署 SQL 托管实例。 该子网必须具有以下特征：
 
 - **专用子网：** SQL 托管实例的子网不能包含其他任何关联的云服务，且不能是网关子网。 该子网不能包含除该 SQL 托管实例以外的其他任何资源，你之后也无法在该子网中添加其他类型的资源。
-- **网络安全组 (NSG)** ：与虚拟网络关联的 NSG 必须在其他任何规则的前面定义[入站安全规则](#mandatory-inbound-security-rules)和[出站安全规则](#mandatory-outbound-security-rules)。 当 SQL 托管实例配置为使用重定向连接时，可使用某个 NSG 通过筛选端口 1433 和端口 11000-11999 上的流量，来控制对 SQL 托管实例数据终结点的访问。
-- **用户定义的路由 (UDR) 表：** 与虚拟网络关联的 UDR 表必须包含特定的[条目](#user-defined-routes)。
+- **网络安全组 (NSG)** ：与虚拟网络关联的 NSG 必须在其他任何规则的前面定义 [入站安全规则](#mandatory-inbound-security-rules)和 [出站安全规则](#mandatory-outbound-security-rules)。 当 SQL 托管实例配置为使用重定向连接时，可使用某个 NSG 通过筛选端口 1433 和端口 11000-11999 上的流量，来控制对 SQL 托管实例数据终结点的访问。
+- **用户定义的路由 (UDR) 表：** 与虚拟网络关联的 UDR 表必须包含特定的 [条目](#user-defined-routes)。
 - **没有服务终结点：** 不得将任何服务终结点与 SQL 托管实例的子网相关联。 创建虚拟网络时，请务必禁用“服务终结点”选项。
 - **足够的 IP 地址：** SQL 托管实例子网必须至少有 16 个 IP 地址。 建议的最少数目为 32 个 IP 地址。 有关详细信息，请参阅[确定 SQL 托管实例的子网大小](vnet-subnet-determine-size.md)。 根据 [SQL 托管实例的网络要求](#network-requirements)配置托管实例后，可将其部署在[现有网络](vnet-existing-add-subnet.md)中。 否则，请创建[新的网络和子网](virtual-network-subnet-create-arm-template.md)。
 
@@ -326,7 +326,7 @@ SQL 托管实例当前不支持以下虚拟网络功能：
 
 ### <a name="mandatory-inbound-security-rules"></a>强制性入站安全规则
 
-| 名称       |端口                        |协议|Source           |目标|操作|
+| 名称       |端口                        |协议|源           |目标|操作|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |管理  |9000、9003、1438、1440、1452|TCP     |任意              |MI SUBNET  |允许 |
 |mi_subnet   |任意                         |任意     |MI SUBNET        |MI SUBNET  |允许 |
@@ -334,7 +334,7 @@ SQL 托管实例当前不支持以下虚拟网络功能：
 
 ### <a name="mandatory-outbound-security-rules"></a>强制性出站安全规则
 
-| 名称       |端口          |协议|Source           |目标|操作|
+| 名称       |端口          |协议|源           |目标|操作|
 |------------|--------------|--------|-----------------|-----------|------|
 |管理  |443、12000    |TCP     |MI SUBNET        |AzureCloud |允许 |
 |mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允许 |

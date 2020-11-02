@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 origin.date: 09/21/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 72ca242621da12bc9a80aec8bbc340e0a51659f4
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 10/29/2020
+ms.openlocfilehash: 7e7a55b49c81187da088905ca2b2eb28ee5594e6
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041917"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470477"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 单一服务器
 
@@ -21,7 +21,7 @@ ms.locfileid: "92041917"
 
 ## <a name="overview"></a>概述
 
-单一服务器是一项完全托管的数据库服务，对数据库自定义的要求最低。 单一服务器平台旨在以最少的用户配置和控制来处理大多数数据库管理功能，例如修补、备份、高可用性、安全性。 此体系结构经过优化，可在单个可用性区域提供 99.99% 的可用性。 它支持 PostgreSQL 9.5、9.6、10 和 11 的社区版本。 目前，该服务已在各种 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)中正式发布。
+单一服务器是一项完全托管的数据库服务，对数据库自定义的要求最低。 单一服务器平台旨在以最少的用户配置和控制来处理大多数数据库管理功能，例如修补、备份、高可用性、安全性。 此体系结构经过优化，可在单个区域提供 99.99% 的可用性。 它支持 PostgreSQL 9.5、9.6、10 和 11 的社区版本。 目前，该服务已在各种 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)中正式发布。
 
 单一服务器最适合用于云原生应用程序，这些应用程序旨在处理自动修补，而无需对修补计划和自定义 PostgreSQL 配置设置进行精细控制。
 

@@ -4,18 +4,18 @@ description: 了解控制 Azure Kubernetes Service (AKS) 中的出口流量所�
 services: container-service
 ms.topic: article
 origin.date: 06/29/2020
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
 author: rockboyfor
-ms.openlocfilehash: fafa560d96110b0a59561b53f8d81692460d6751
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: f3d263166664de5a42bdc045b968a31bfb93006a
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937080"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470300"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>控制 Azure Kubernetes 服务 (AKS) 中群集节点的出口流量
 
@@ -32,13 +32,13 @@ AKS 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 默认情况下，AKS 群集具有不受限制的出站（出口）Internet 访问权限。 此级别的网络访问权限允许运行的节点和服务根据需要访问外部资源。 如果希望限制出口流量，则必须限制可访问的端口和地址数量，才能维护正常的群集维护任务。 保护出站地址的最简单解决方案在于使用可基于域名控制出站流量的防火墙设备。 例如，Azure 防火墙可以根据目标的 FQDN 限制出站 HTTP 和 HTTPS 流量。 还可配置首选的防火墙和安全规则，以允许所需的端口和地址。
 
 > [!IMPORTANT]
-> 本文档仅介绍如何锁定离开 AKS 子网的流量。 默认情况下，AKS 没有入口需求。  不支持使用网络安全组 (NSG) 和防火墙阻止内部子网流量。 若要控制和阻止群集内的流量，请使用[网络策略][network-policy]。
+> 本文档仅介绍如何锁定离开 AKS 子网的流量。 默认情况下，AKS 没有入口需求。  不支持使用网络安全组 (NSG) 和防火墙阻止内部子网流量。 若要控制和阻止群集内的流量，请使用[网络策略*_][network-policy]。
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>AKS 群集所需的出站网络规则和 FQDN
 
 以下网络和 FQDN/应用程序规则为 AKS 群集所必需，若要配置 Azure 防火墙以外的解决方案，可以使用它们。
 
-* IP 地址依赖项适用于非 HTTP/S 流量（TCP 和 UDP 流量）
+_ IP 地址依赖项适用于非 HTTP/S 流量（TCP 和 UDP 流量）
 * 可将 FQDN HTTP/HTTPS 终结点放在防火墙设备中。
 * 通配符 HTTP/HTTPS 终结点是可以根据许多限定符随 AKS 群集一起变化的依赖项。
 * AKS 使用准入控制器将 FQDN 作为环境变量注入 kube-system 和 gatekeeper-system下的所有部署，确保节点和 API 服务器之间的所有系统通信使用 API 服务器 FQDN 而不是 API 服务器 IP。 
@@ -53,11 +53,11 @@ AKS 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 
 | 目标终结点                                                             | 协议 | 端口    | 用途  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:1194` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:1194` <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 用于节点与控制平面之间的隧道安全通信。 |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:9000` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:9000` <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 用于节点与控制平面之间的隧道安全通信。 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:1194` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:1194` <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 用于节点与控制平面之间的隧道安全通信。 这不是[专用群集](private-clusters.md)所必需的|
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - `AzureCloud.<Region>:9000` <br/> *Or* <br/> [区域 CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - `RegionCIDRs:9000` <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 用于节点与控制平面之间的隧道安全通信。 这不是[专用群集](private-clusters.md)所必需的 |
 | `*:123` 或 `ntp.ubuntu.com:123`（如果使用 Azure 防火墙网络规则）   | UDP      | 123     | 在 Linux 节点上进行网络时间协议 (NTP) 时间同步时需要。                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 如果使用的是自定义 DNS 服务器，必须确保群集节点可以访问这些服务器。 |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | 运行访问 API 服务器的 Pod/部署时需要，这些 Pod/部署将使用 API IP。  |
+| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | 运行访问 API 服务器的 Pod/部署时需要，这些 Pod/部署将使用 API IP。 这不是[专用群集](private-clusters.md)所必需的  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Azure 全球的必需 FQDN/应用程序规则 
 
@@ -146,11 +146,10 @@ AKS 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 
 | 目标 FQDN                                                               | 端口          | 用途      |
 |--------------------------------------------------------------------------------|---------------|----------|
-| **`security.ubuntu.com`、`azure.archive.ubuntu.com`、`changelogs.ubuntu.com`** | **`HTTP:80`** | 此地址允许 Linux 群集节点下载必需的安全修补程序和更新。 |
+| **`security.ubuntu.com`, `azure.archive.ubuntu.com`, `changelogs.ubuntu.com`** | **`HTTP:80`** | 此地址允许 Linux 群集节点下载必需的安全修补程序和更新。 |
 
-如果选择阻止/不允许这些 FQDN，则在进行[群集升级](upgrade-cluster.md)时，节点将仅接收 OS 更新。
+如果选择阻止/不允许这些 FQDN，则仅当进行[节点映像升级](node-image-upgrade.md)或[群集升级](upgrade-cluster.md)时，节点才会接收 OS 更新。
 
-<!--Not Avaialble on [node image upgrade](node-image-upgrade.md)-->
 <!--THE ABOVE REQUIRE RULES SECTION ARE FOLLOWING GLOBAL DOCUMENT. DO NOT UPDATE-->
 
 ## <a name="gpu-enabled-aks-clusters"></a>启用 GPU 的 AKS 群集
@@ -461,11 +460,9 @@ SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKS
 > 有关出站类型 UDR（包括限制）的详细信息，请参阅[流出量出站类型 UDR](egress-outboundtype.md#limitations)。
 
 > [!TIP]
+> 可向群集部署添加更多功能，例如 [**专用群集**](private-clusters.md)。 
 >
 > 可以添加 [API 服务器已授权 IP 范围](api-server-authorized-ip-ranges.md) AKS 功能，以便限制 API 服务器仅访问防火墙的公共终结点。 已授权 IP 范围功能在图中表示为可选。 启用已授权 IP 范围功能来限制 API 服务器访问权限时，开发人员工具必须使用防火墙虚拟网络中的 Jumpbox，或者必须将所有开发人员终结点添加到已授权 IP 范围。
-
-<!--Not Available on Additional features can be added to the cluster deployment such as **Private Cluster**-->
-<!--Not Available on [**Private Cluster**](private-clusters.md)-->
 
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \

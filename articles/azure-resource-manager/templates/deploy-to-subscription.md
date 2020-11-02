@@ -2,18 +2,18 @@
 title: 将资源部署到订阅
 description: 介绍了如何在 Azure 资源管理器模板中创建资源组。 它还展示了如何在 Azure 订阅范围内部署资源。
 ms.topic: conceptual
-origin.date: 09/24/2020
+origin.date: 10/05/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 27f1916eb5a54286206087e5ac13e11a153308a2
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 482ba484d78c520be1512d705e1f0d69ba34e852
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937543"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470084"
 ---
 <!--Verify Successfully-->
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>在订阅级别创建资源组和资源
@@ -38,14 +38,14 @@ ms.locfileid: "91937543"
 * blueprintAssignments
 * versions
 
-对于 Azure 策略：
+对于 Azure 策略，请使用：
 
 * policyAssignments
 * policyDefinitions
 * policySetDefinitions
 * remediations
 
-对于基于角色的访问控制，请使用：
+对于 Azure 基于角色的访问控制 (Azure RBAC)，请使用：
 
 * roleAssignments
 * roleDefinitions
@@ -60,7 +60,9 @@ ms.locfileid: "91937543"
 
 若要管理订阅，请使用：
 
+* 顾问配置
 * 预算
+* 更改分析配置文件
 * supportPlanTypes
 * 标记
 
@@ -72,7 +74,7 @@ ms.locfileid: "91937543"
 
 <!--Mooncake Customization on ## Supported resources-->
 
-### <a name="schema"></a>架构
+## <a name="schema"></a>架构
 
 用于订阅级别部署的架构不同于资源组部署的架构。
 
@@ -147,7 +149,7 @@ az deployment sub create \
   --parameters rgName=demoResourceGroup rgLocation=chinaeast
 ```
 
-对于 PowerShell 部署命令，请使用 [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment) 或 **New-AzSubscriptionDeployment**。 以下示例会部署一个模板来创建资源组：
+对于 PowerShell 部署命令，请使用 [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment) 或 **New-AzSubscriptionDeployment** 。 以下示例会部署一个模板来创建资源组：
 
 ```powershell
 New-AzSubscriptionDeployment `
@@ -164,7 +166,7 @@ New-AzSubscriptionDeployment `
 
 对于订阅级别部署，必须为部署提供位置。 部署位置独立于部署的资源的位置。 部署位置指定何处存储部署数据。
 
-可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy**。
+可以为部署提供一个名称，也可以使用默认部署名称。 默认名称是模板文件的名称。 例如，部署一个名为 **azuredeploy.json** 的模板将创建默认部署名称 **azuredeploy** 。
 
 每个部署名称的位置不可变。 当某个位置中已有某个部署时，无法在另一位置创建同名的部署。 如果出现错误代码 `InvalidDeploymentLocation`，请使用其他名称或使用与该名称的以前部署相同的位置。
 
@@ -633,7 +635,7 @@ New-AzSubscriptionDeployment `
             },
             {
               "type": "Microsoft.Authorization/roleAssignments",
-              "apiVersion": "2020-03-01-preview",
+              "apiVersion": "2020-04-01-preview",
               "name": "[guid(parameters('roleAssignmentName'))]",
               "properties": {
                 "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",

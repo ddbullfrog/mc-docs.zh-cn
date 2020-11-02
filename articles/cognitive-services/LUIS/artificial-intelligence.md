@@ -1,22 +1,25 @@
 ---
-title: 人工智能
-description: LUIS 根据定义的架构，使用人工智能提供对数据的语言理解。
+title: 人工智能 (AI)
+description: LUIS 根据定义的架构，使用人工智能 (AI) 提供对数据的语言理解。
 ms.topic: conceptual
+ms.service: cognitive-services
+ms.subservice: language-understanding
 author: Johnnytechn
-ms.date: 08/07/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: 8c619bd7a1fd0ea61eb4ecb9cce0c06fda342dd0
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 31357b57e0a2fce610b55268a0a3ba28860a1379
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023693"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472520"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>语言理解 (LUIS) 中的人工智能
 
-LUIS 根据定义的架构，使用人工智能提供对数据的自然语言理解 (NLU)。
+LUIS 根据定义的架构，使用人工智能 (AI) 提供对数据的自然语言理解 (NLU)。
 
-## <a name="natural-language-processing"></a>自然语言处理
+## <a name="natural-language-processing-nlp"></a>自然语言处理 (NLP)
 
 自然语言理解 (NLU) 是自然语言处理 (NLP) 的特定子主题。
 
@@ -33,14 +36,14 @@ LUIS 根据定义的架构，使用人工智能提供对数据的自然语言理
 ## <a name="natural-language-processing-in-luis"></a>LUIS 中的自然语言处理
 
 可以通过以下方式在 LUIS 应用中使用自然语言处理：
-* [自然语言理解](#natural-language-understanding) (LUIS)
+* [自然语言理解](#natural-language-processing-nlp) (LUIS)
 * LUIS 中可配置的 NLP 特性：
     * [词汇切分](luis-language-support.md#tokenization)
     * 通过音调符号、标点和单词形式 [API 设置](luis-reference-application-settings.md)配置词态
 * 其他[认知服务](../Welcome.md)提供的查询言语的预处理或后期处理，例如：
     * [翻译](../translator/translator-info-overview.md)
 
-## <a name="natural-language-understanding"></a>自然语言理解
+## <a name="natural-language-understanding-nlu"></a>自然语言理解 (NLU)
 
 NLU 功能可用于将口语语句转换为可让你自然地理解用户意思的表示形式。 自然语言理解仍是一个极具挑战性的问题，被定义为一个 AI 难题。
 

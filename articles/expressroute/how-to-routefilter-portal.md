@@ -10,11 +10,11 @@ ms.date: 10/01/2019
 ms.author: v-yiso
 ms.custom: seodec18
 ms.openlocfilehash: ce96a4e7fb222c02987cd8c51b1fdcad861b06a4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71330463"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211413"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>配置用于 Microsoft 对等互连的路由筛选器：Azure 门户
 > [!div class="op_single_selector"]
@@ -81,12 +81,12 @@ ms.locfileid: "71330463"
 
 列出要在路由筛选器中使用的 BGP 团体值列表。 
 
-## <a name="step-2-create-a-route-filter-and-a-filter-rule"></a><a name="filter"></a>步骤 2：创建路由筛选器和筛选器规则
+## <a name="step-2-create-a-route-filter-and-a-filter-rule"></a><a name="filter"></a>步骤 2：创建路由筛选器和筛选规则
 
 1 个路由筛选器只能有 1 个规则，并且规则类型必须是“允许”。 此规则可以有与之关联的 BGP 团体值列表。
 
 ### <a name="1-create-a-route-filter"></a>1.创建路由筛选器
-可以通过选择创建新资源的选项来创建路由筛选器。 单击“创建资源” > “网络” > “RouteFilter”，如下图所示    ：
+可以通过选择创建新资源的选项来创建路由筛选器。 单击“创建资源” > “网络” > “RouteFilter”，如下图所示  ：
 
 ![创建路由筛选器](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 

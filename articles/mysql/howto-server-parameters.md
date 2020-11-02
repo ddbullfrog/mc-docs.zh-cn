@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
-origin.date: 6/11/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 446bacc546e197000063e9e09b1428ad0fa8ae38
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+origin.date: 10/1/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: c36e9074d2f953208203776028843d0881e96875
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041801"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470494"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>使用 Azure 门户在 Azure Database for MySQL 中配置服务器参数
 
@@ -21,16 +21,19 @@ ms.locfileid: "92041801"
 
 用于 MySQL 的 Azure 数据库支持配置某些服务器参数。 本文介绍如何使用 Azure 门户配置这些参数。 并非所有服务器参数都可调整。
 
+>[!Note]
+> 可在服务器级别全局更新服务器参数，方式是使用 [Azure CLI](./howto-configure-server-parameters-using-cli.md)、[PowerShell](./howto-configure-server-parameters-using-powershell.md) 或 [Azure 门户](./howto-server-parameters.md)。
+
 ## <a name="configure-server-parameters"></a>配置服务器参数
 
-1. 登录到 Azure 门户，然后定位到适用于 MySQL 服务器的 Azure 数据库。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，然后找到 Azure Database for MySQL 服务器。
 2. 在“设置”部分下，单击“服务器参数”，打开 Azure Database for MySQL 服务器的“服务器参数”页。
 :::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Azure 门户中的服务器参数页":::
 3. 定位需要调整的任何设置。 查看“说明”列，了解用途和允许的值。
 :::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Azure 门户中的服务器参数页":::
 4. 单击“保存”，保存更改。
 :::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Azure 门户中的服务器参数页":::
-5. 保存参数的新值后，随时可以通过选择“全部重置为默认设置”，将所有设置还原为默认值。
+5. 保存参数的新值后，随时可以通过选择“全部重置为默认设置”，将所有设置还原为默认值。 
 :::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Azure 门户中的服务器参数页":::
 
 ## <a name="setting-parameters-not-listed"></a>设置参数未列出

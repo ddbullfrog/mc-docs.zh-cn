@@ -1,17 +1,18 @@
 ---
 title: 术语表 - LUIS
 description: 术语表解释使用 LUIS API 服务时可能遇到的术语。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
-author: Johnnytechn
-origin.date: 10/25/2019
-ms.date: 08/04/2020
 ms.author: v-johya
-ms.openlocfilehash: 8a07afdcbbddad0d4924e9f9c9b9c4a4b796acba
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.date: 10/19/2020
+origin.date: 10/25/2019
+ms.openlocfilehash: 2387ada5dc9445389bc3dba0d116a25a40029543
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023390"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472446"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>对包含常见词汇和概念的术语表进行语言理解
 语言理解 (LUIS) 术语表解释使用 LUIS 服务时可能遇到的术语。
@@ -97,11 +98,11 @@ LUIS [创作资源](luis-how-to-azure-subscription.md#azure-resources-for-luis)�
 
 ## <a name="collaborator"></a>协作者
 
-从概念上讲，协作者与[参与者](#contributor)等同。 当所有者将协作者的电子邮件地址添加到不受基于角色的访问控制 (RBAC) 的应用中时，该协作者被授予访问权限。 如果你仍在使用协作者，则应迁移 LUIS 帐户，并使用 LUIS 创作资源以通过 RBAC 管理参与者。
+从概念上讲，协作者与[参与者](#contributor)等同。 当所有者将协作者的电子邮件地址添加到不受 Azure 基于角色的访问控制 (Azure RBAC) 控制的应用中时，该协作者会被授予访问权限。 如果你仍在使用协作者，则应迁移 LUIS 帐户，并使用 LUIS 创作资源通过 Azure RBAC 管理参与者。
 
 ## <a name="contributor"></a>参与者
 
-参与者不是应用程序的[所有者](#owner)，但具有相同权限，可以添加、编辑和删除意向、实体和言语。 参与者为 LUIS 应用提供基于角色的访问 (RBAC)。
+参与者不是应用程序的[所有者](#owner)，但具有相同权限，可以添加、编辑和删除意向、实体和言语。 参与者为 LUIS 应用提供 Azure 基于角色的访问控制 (Azure RBAC)。
 
 另请参阅：
 * [操作说明](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) - 添加参与者

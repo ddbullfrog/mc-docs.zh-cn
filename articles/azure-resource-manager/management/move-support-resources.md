@@ -4,16 +4,16 @@ description: 列出可移到新资源组或订阅的 Azure 资源类型。
 ms.topic: conceptual
 origin.date: 09/23/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4c226fdf4c4c84e54f8d11f4d130cab166038ed5
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 87b041da9b2d8d6d68f9de429b88b13f9450ff7d
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937191"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92469962"
 ---
 <!--Verify Successfully-->
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
@@ -800,7 +800,7 @@ ms.locfileid: "91937191"
 > | firewallpolicies | 是 | 是 |
 > | ipallocations | 是 | 是 |
 > | ipgroups | 是 | 是 |
-> | loadbalancers | 是 - 基本 SKU<br />否 - 标准 SKU | 是 - 基本 SKU<br />否 - 标准 SKU |
+> | loadbalancers | 是 - 基本 SKU<br /> 是 - 标准 SKU | 是 - 基本 SKU<br />否 - 标准 SKU |
 > | localnetworkgateways | 是 | 是 |
 > | natgateways | 否 | 否 |
 > | networkexperimentprofiles | 否 | 否 |
@@ -819,7 +819,7 @@ ms.locfileid: "91937191"
 > | privateendpointredirectmaps | 否 | 否 |
 > | privateendpoints | 是 | 是 |
 > | privatelinkservices | 否 | 否 |
-> | publicipaddresses | 是 - 基本 SKU<br />否 - 标准 SKU | 是 - 基本 SKU<br />否 - 标准 SKU |
+> | publicipaddresses | 是 - 基本 SKU<br />是 - 标准 SKU | 是 - 基本 SKU<br />否 - 标准 SKU |
 > | publicipprefixes | 是 | 是 |
 > | routefilters | 否 | 否 |
 > | routetables | 是 | 是 |
@@ -1136,7 +1136,9 @@ ms.locfileid: "91937191"
 <!-- Not Available on ## microsoft.support-->
 <!-- Not Available on ## Microsoft.Synapse->
 
+
 <a name="microsofttimeseriesinsights"></a>
+
 ## Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]

@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, sashan
 origin.date: 08/12/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: f848d3627e396b9d0dca22dd722d44030a72897a
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: 3cdae61a752b2a1b5f337da14589118fa40bbed0
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872374"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470292"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL 数据库和 SQL 托管实例的高可用性
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,7 +95,7 @@ SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据�
 
 ## <a name="conclusion"></a>结论
 
-Azure SQL 数据库和 Azure SQL 托管实例提供与 Azure 平台深度集成的内置高可用性解决方案。 它依赖于使用 Service Fabric 来执行故障检测和恢复，依赖于使用 Azure Blob 存储来实现数据保护，并依赖于使用可用性区域来提高容错能力（如文档前文所述，尚不适用于 Azure SQL 托管实例）。 此外，SQL 数据库和 SQL 托管实例利用 SQL Server 实例的 Always On 可用性组技术来执行复制和故障转移。 将这些技术相结合，应用程序可完全实现混合存储模型的优势并支持最严格的 SLA。
+Azure SQL 数据库和 Azure SQL 托管实例提供与 Azure 平台深度集成的内置高可用性解决方案。 它依赖 Service Fabric 来执行故障检测和恢复，依赖 Azure Blob 存储来进行数据保护。 此外，SQL 数据库和 SQL 托管实例利用 SQL Server 实例的 Always On 可用性组技术来执行复制和故障转移。 将这些技术相结合，应用程序可完全实现混合存储模型的优势并支持最严格的 SLA。
 
 ## <a name="next-steps"></a>后续步骤
 

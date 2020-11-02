@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 origin.date: 06/26/2020
-ms.date: 07/20/2020
-ms.openlocfilehash: 839e3ff64ca3da24e85c8629821ea6da2811bb96
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 10/29/2020
+ms.openlocfilehash: bd1756142a441bc630704109951f45a75a5f8e89
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440622"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470119"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>使用 Azure 门户将 Azure Database for MySQL 服务器移到另一个区域
 
@@ -42,11 +42,11 @@ ms.locfileid: "86440622"
 1. 从菜单中的“设置”下，选择“复制”。
 1. 选择“添加副本”。
 1. 输入副本服务器的名称。
-1. 选择副本服务器的位置。 默认位置与主服务器的位置相同。 验证是否已选择要在其中部署副本的目标位置。
+1. 选择副本服务器的位置。 默认位置与源服务器的位置相同。 验证是否已选择要在其中部署副本的目标位置。
 1. 选择“确定”以确认创建该副本。 在创建副本的过程中，数据将从源服务器复制到副本。 创建时间可能会持续几分钟或更长时间，这与源服务器的大小成正比。
 
 >[!NOTE]
-> 创建副本时，该副本不会继承主服务器的 VNet 服务终结点。 必须单独为副本设置这些规则。
+> 创建副本时，该副本不会继承源服务器的 VNet 服务终结点。 必须单独为副本设置这些规则。
 
 ## <a name="move"></a>移动
 

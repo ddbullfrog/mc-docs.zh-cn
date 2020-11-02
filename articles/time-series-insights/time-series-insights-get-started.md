@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 678838bfbf06d32ebc9d17aace176588cc95dca8
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 79f6aed9765f2443bfcd62ea9475b02824e7d584
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593793"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472079"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>在 Azure 门户中创建新的 Azure 时序见解 Gen1 环境
+
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
 
 本文介绍如何使用 Azure 门户创建新的 Azure 时序见解环境。
 
@@ -70,4 +73,6 @@ ms.locfileid: "89593793"
 * [将事件中心事件源添加](how-to-ingest-data-event-hub.md)到 Azure 时序见解环境。
 
 * [发送事件](time-series-insights-send-events.md)到事件源。
+
+* 在 [Azure 时序见解资源管理器](https://insights.timeseries.azure.cn)中查看环境。
 

@@ -2,13 +2,13 @@
 title: Azure Functions 的应用设置参考
 description: 有关 Azure Functions 应用设置或环境变量的参考文档。
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: 44f5a764c79dde2312d8bfd16f4daa947ac90523
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 10/19/2020
+ms.openlocfilehash: 9f60936ee2b46fc8322a7f93cc0246c5bd3eab8f
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413805"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472059"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
@@ -23,7 +23,7 @@ ms.locfileid: "89413805"
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Application Insights 的检测密钥。 仅使用 `APPINSIGHTS_INSTRUMENTATIONKEY` 或 `APPLICATIONINSIGHTS_CONNECTION_STRING` 中的一个。 有关详细信息，请参阅[监视 Azure Functions](functions-monitoring.md)。 
+Application Insights 的检测密钥。 仅使用 `APPINSIGHTS_INSTRUMENTATIONKEY` 或 `APPLICATIONINSIGHTS_CONNECTION_STRING` 中的一个。 当 Application Insights 在主权云中运行时，请使用 `APPLICATIONINSIGHTS_CONNECTION_STRING`。 有关详细信息，请参阅[如何配置对 Azure Functions 的监视](configure-monitoring.md)。 
 
 |键|示例值|
 |---|------------|
@@ -31,7 +31,12 @@ Application Insights 的检测密钥。 仅使用 `APPINSIGHTS_INSTRUMENTATIONKE
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-Application Insights 的连接字符串。 当函数应用需要使用连接字符串进行支持的已添加自定义项时，请使用 `APPLICATIONINSIGHTS_CONNECTION_STRING`，而不要使用 `APPINSIGHTS_INSTRUMENTATIONKEY`。 有关详细信息，请参阅[连接字符串](../azure-monitor/app/sdk-connection-string.md)。 
+Application Insights 的连接字符串。 在以下情况下使用 `APPLICATIONINSIGHTS_CONNECTION_STRING` 而不是 `APPINSIGHTS_INSTRUMENTATIONKEY`：
+
++ 当函数应用需要通过连接字符串提供支持的已添加自定义项时。 
++ 当 Application Insights 实例在需要自定义终结点的主权云中运行时。
+
+有关详细信息，请参阅[连接字符串](../azure-monitor/app/sdk-connection-string.md)。 
 
 |键|示例值|
 |---|------------|
@@ -41,7 +46,7 @@ Application Insights 的连接字符串。 当函数应用需要使用连接字�
 
 默认情况下，[Functions 代理](functions-proxies.md)使用快捷方式从代理直接将 API 调用发送到同一函数应用中的函数。 使用此快捷方式取代创建新的 HTTP 请求。 此设置让你能够禁用该快捷方式行为。
 
-|键|值|说明|
+|键|“值”|说明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|是|具有指向本地函数应用中函数的后端 URL 的调用不会直接发送到函数， 相反，请求会定向回函数应用的 HTTP 前端。|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|具有指向本地函数应用中函数的后端 URL 的调用会直接转发到函数。 这是默认值。 |
@@ -50,7 +55,7 @@ Application Insights 的连接字符串。 当函数应用需要使用连接字�
 
 此设置控制字符 `%2F` 在路由参数插入后端 URL 时是否在路由参数中解码为斜杠。 
 
-|键|值|说明|
+|键|“值”|说明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|是|包含编码斜杠的路由参数已解码。 |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|所有路由参数均原样传递，这是默认行为。 |
@@ -194,7 +199,7 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 _此设置当前处于预览状态。_  
 
-此设置控制 Azure Functions 缩放控制器中的日志记录。 有关详细信息，请参阅[缩放控制器日志](functions-monitoring.md#scale-controller-logs-preview)。
+此设置控制 Azure Functions 缩放控制器中的日志记录。 有关详细信息，请参阅[缩放控制器日志](functions-monitoring.md#scale-controller-logs)。
 
 |键|示例值|
 |-|-|
@@ -206,7 +211,7 @@ _此设置当前处于预览状态。_
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-仅用于消耗计划。 存储函数应用代码和配置的存储帐户的连接字符串。 请参阅[创建函数应用](functions-infrastructure-as-code.md#create-a-function-app)。
+仅用于消耗计划和高级计划。 存储函数应用代码和配置的存储帐户的连接字符串。 请参阅[创建函数应用](functions-infrastructure-as-code.md#create-a-function-app)。
 
 |键|示例值|
 |---|------------|
@@ -214,7 +219,7 @@ _此设置当前处于预览状态。_
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-仅用于消耗计划。 函数应用代码和配置的文件路径。 与 WEBSITE_CONTENTAZUREFILECONNECTIONSTRING 结合使用。 默认值是以函数应用名称开头的唯一字符串。 请参阅[创建函数应用](functions-infrastructure-as-code.md#create-a-function-app)。
+仅用于消耗计划和高级计划。 函数应用代码和配置的文件路径。 与 WEBSITE_CONTENTAZUREFILECONNECTIONSTRING 结合使用。 默认值是以函数应用名称开头的唯一字符串。 请参阅[创建函数应用](functions-infrastructure-as-code.md#create-a-function-app)。
 
 |键|示例值|
 |---|------------|
@@ -233,7 +238,7 @@ _此设置当前处于预览状态。_
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-_仅限 Windows_。  
+_仅限 Windows_ 。  
 设置在 Windows 上运行函数应用时要使用的 Node.js 版本。 应使用波形符 (~) 让运行时使用目标主版本的最新可用版本。 例如，当设置为 `~10` 时，将使用最新版本 Node.js 10。 当目标主版本带有波形符时，无需手动更新次版本。 
 
 |键|示例值|

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT 中心模块标识和模块孪生（门户和 .NET）入门 | Microsoft Docs
+title: Azure IoT 中心模块标识和模块孪生（门户和 .NET）
 description: 了解如何使用门户和 .NET 创建模块标识和更新模块孪生。
 author: dominicbetts
 manager: timlt
@@ -13,12 +13,12 @@ origin.date: 08/20/2019
 ms.date: 09/30/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7988f31c397a4800e9e38e098c996c965ddca13b
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 6336361d67c5845fb49cfb6a35cbcf7d2e30ab0d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186929"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472637"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>使用门户和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -35,7 +35,7 @@ ms.locfileid: "84186929"
 * 如何使用 .NET 设备 SDK 更新设备的模块孪生。
 
 > [!NOTE]
-> 有关 Azure IoT SDK 的信息（可以使用这些 SDK 生成可在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK][lnk-hub-sdks]。
+> 若要了解可用于生成在设备和解决方案后端运行的应用程序的 Azure IoT SDK，请参阅 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 >
 
 ## <a name="prerequisites"></a>先决条件
@@ -87,7 +87,7 @@ ms.locfileid: "84186929"
 
 1. 在 Visual Studio 中，打开“工具” > “NuGet 包管理器” > “管理解决方案的 NuGet 包”。  
 
-1. 选择“浏览”，然后选择“包括预发行版” 。 搜索 *Microsoft.Azure.Devices.Client*。 选择最新版本并安装。
+1. 选择“浏览”，然后选择“包括预发行版” 。 搜索 *Microsoft.Azure.Devices.Client* 。 选择最新版本并安装。
 
     ![安装 Azure IoT 中心 .NET 服务 SDK 预览版](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
@@ -99,7 +99,7 @@ ms.locfileid: "84186929"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. 导航到 IoT 中心并选择“IoT 设备”。 打开 **myFirstDevice**，可以看到 **myFirstModule** 已成功创建。
+1. 导航到 IoT 中心并选择“IoT 设备”。 打开 **myFirstDevice** ，可以看到 **myFirstModule** 已成功创建。
 
 1. 在“模块标识”下选择“myFirstModule”。  在“模块标识详细信息”中复制“连接字符串(主密钥)”。 
 
@@ -141,7 +141,7 @@ private static async Task OnDesiredPropertyChanged(TwinCollection desiredPropert
     }
 ```
 
-4. 最后，将 **Main**方法替换为以下代码：
+4. 最后，将 **Main** 方法替换为以下代码：
 
 ```csharp
 static void Main(string[] args)
@@ -189,6 +189,6 @@ private static void ConnectionStatusChangeHandler(ConnectionStatus status, Conne
 
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
-* [通过 .NET 备份和 .NET 设备开始使用 IoT 中心模块标识和模块孪生][lnk-csharp-csharp-getstarted]
+* [使用 .NET 备份和 .NET 设备创建 IoT 中心模块标识和模块孪生入门](iot-hub-csharp-csharp-module-twin-getstarted.md)
 
 * [IoT Edge 入门](../iot-edge/quickstart-linux.md)

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/21/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: a52c078b0264286e8c954062e51d47f40beb1d96
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.openlocfilehash: b0fd899fe0cf56a52caf45856e7aa08f86d8ee8c
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160384"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472213"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>使用 Azure 门户列出 Azure 角色分配
 
@@ -67,7 +67,7 @@ ms.locfileid: "87160384"
 
    ![“访问控制”-“角色分配”选项卡](./media/role-assignments-list-portal/access-control-role-assignments.png)
 
-   在“角色分配”选项卡上，可以看到谁有权访问此范围。 请注意，有些角色的权限范围已划归到**此资源**，还有一些角色是从另一范围 **(继承的)** 。 访问权限可以专门分配给此资源，也可以从父作用域的分配继承。
+   在“角色分配”选项卡上，可以看到谁有权访问此范围。 请注意，有些角色的权限范围已划归到 **此资源** ，还有一些角色是从另一范围 **(继承的)** 。 访问权限可以专门分配给此资源，也可以从父作用域的分配继承。
 
 ## <a name="list-role-assignments-for-a-user-at-a-scope"></a>列出某个范围内某个角色的角色分配
 
@@ -137,14 +137,9 @@ ms.locfileid: "87160384"
 
 ![访问控制 - 添加角色分配警告](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## <a name="download-role-assignments-preview"></a>下载角色分配（预览版）
+## <a name="download-role-assignments"></a>下载角色分配
 
 可以使用 CSV 或 JSON 格式下载某一范围内的角色分配。 如果你在迁移订阅时需要检查电子表格中的列表或进行清点，这会很有帮助。
-
-> [!IMPORTANT]
-> 下载目前以公共预览版提供的角色分配。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
-> 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
 
 下载角色分配时，应记住以下条件：
 
@@ -160,7 +155,7 @@ ms.locfileid: "87160384"
 
 1. 单击“访问控制(IAM)”。
 
-1. 单击“下载角色分配(预览版)”以打开“下载角色分配”窗格。
+1. 单击“下载角色分配”以打开“下载角色分配”窗格。
 
     ![访问控制 - 下载角色分配](./media/role-assignments-list-portal/download-role-assignments.png)
 

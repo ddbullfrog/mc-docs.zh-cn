@@ -2,22 +2,19 @@
 title: 使用 Azure 门户创建资源运行状况警报
 description: 使用 Azure 门户创建在 Azure 资源不可用时发出通知的警报。
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: b04602d8bc1db49414260956517864abe63d9c3c
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.date: 10/20/2020
+ms.openlocfilehash: dea3b350c28d2e12573fb28415a6629ea97e5fb0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246940"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472037"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>使用 Azure 门户配置资源运行状况警报
 
 本文演示如何使用 Azure 门户设置活动日志警报，用于通知资源运行状况。
 
 通过 Azure 资源运行状况可得知 Azure 资源的当前及历史运行状况。 Azure 资源运行状况警报会在这些资源的运行状况发生变化时几乎实时地发出通知。 通过以编程方式创建资源运行状况警报，用户可以批量创建警报并对其进行自定义。
-
-> [!NOTE]
-> 资源运行状况警报目前为预览版。
 
 资源运行状况通知存储在 [Azure 活动日志](../azure-monitor/platform/platform-logs-overview.md)中。鉴于活动日志中存储的信息量可能很大，Azure 门户提供了一个单独的用户界面，让你可以更轻松地查看和设置有关资源运行状况通知的警报。
 当 Azure 资源将资源运行状况通知发送到 Azure 订阅时，你可以收到警报。 可以基于以下内容配置警报：
@@ -56,10 +53,10 @@ ms.locfileid: "91246940"
     2. 要针对其发出警报的资源状态。 事件的资源状态：可用、不可用、未知、已降级
     3. 要针对其发出警报的原因类型。 事件发生原因：平台启动、用户启动![警报条件选择 运行状况选择](./media/resource-health-alert-monitor-guide/alert-condition.png)
 6. 在“定义警报详细信息”下提供以下详细信息：
-    1. **警报规则名称**：新警报规则的名称。
-    2. **说明**：新警报规则的说明。
-    3. **将警报保存到资源组**：选择要在其中保存此新规则的资源组。
-7. 在“操作组”下，从下拉菜单中指定要分配到此新警报规则的操作组。 或者，[创建新的操作组](../azure-monitor/platform/action-groups.md)并将其分配到新规则。 若要创建新组，请选择“选择操作组”->“+ 创建操作组”。
+    1. **警报规则名称** ：新警报规则的名称。
+    2. **说明** ：新警报规则的说明。
+    3. **将警报保存到资源组** ：选择要在其中保存此新规则的资源组。
+7. 在“操作组”下，从下拉菜单中指定要分配到此新警报规则的操作组。 或者，[创建新的操作组](../azure-monitor/platform/action-groups.md)并将其分配到新规则。 若要创建新组，请选择“+ 新建组”。
 8. 若要在创建规则后启用规则，请选择“创建后启用规则”选项对应的“是”。 
 9. 选择“创建警报规则”。
 

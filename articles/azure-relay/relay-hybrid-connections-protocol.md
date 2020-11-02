@@ -5,16 +5,16 @@ ms.service: service-bus
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2a6bf1ae90f82d1f724828fea8cd30ddb7f8eb5a
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 3310ab5f163adfb3f91581629014021d8606b934
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146523"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470057"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 中继混合连接协议
 
@@ -50,18 +50,18 @@ Azure 中继是 Azure 服务总线平台最重要的功能支柱之一。 中继
 
 对于混合连接，如果有两个或更多活动的侦听器，则将传入连接以随机顺序均衡分布在这些侦听器上；尽最大努力实现平均分配。
 
-#### <a name="accept-message"></a>接受消息
+#### <a name="accept-message"></a><a name="accept-message"></a>接受消息
 
 发送方打开服务上的新连接时，服务会选择并通知混合连接上活动的侦听器之一。 此通知作为 JSON 消息通过打开的控制通道发送到侦听器。 该消息包含侦听器为了接受连接而必须连接到的 Web 套接字终结点的 URL。
 
 该 URL 可以且必须直接由侦听器使用，无需任何额外作业。
 编码信息仅在短时间内有效，基本上为发送方愿意等待的端到端创建连接的时间。 假设最长时间为 30 秒。 该 URL 只能用于一次成功的连接尝试。 使用集合 URL 建立 Web 套接字连接后，该 Web 套接字上的所有后续活动都将与发送方来回中继。 无需服务进行任何干预或转译即会发生此操作。
 
-### <a name="request-message"></a>请求消息
+### <a name="request-message"></a><a name="request-message"></a>请求消息
 
 除了 Web 套接字连接以外，侦听器还可以从发送方接收 HTTP 请求帧（如果已对混合连接显式启用此功能）。
 
-附加到混合连接的、支持 HTTP 的侦听器必须处理 `request` 手势。 不处理 `request`，因而导致连接时重复出现超时错误的侦听器将来可能会被服务列入阻止列表。
+附加到混合连接的、支持 HTTP 的侦听器必须处理 `request` 手势。 因不处理 `request` 而导致连接时重复出现超时错误的侦听器将来可能会被服务阻止。
 
 HTTP 帧标头元数据将转换为 JSON，以方便由侦听器框架处理；执行这种转换的另一个原因是，相比 JSON 分析器，HTTP 标头分析库极其少见。 仅与发送方与中继 HTTP 网关之间的关系相关的 HTTP 元数据（包括授权信息）不会转发。 HTTP 请求正文以透明方式作为二进制 Web 套接字帧传输。
 
@@ -96,7 +96,7 @@ HTTP 帧标头元数据将转换为 JSON，以方便由侦听器框架处理；�
 
 “连接”操作会打开服务上的 WebSocket，提供混合连接的名称和（可选，但默认为必需）授予查询字符串中“发送”权限的安全令牌。 然后，服务会按照之前所述的方式与侦听器进行交互，并且侦听器会创建一个与此 WebSocket 联接的集合连接。 WebSocket 被接受后，该 WebSocket 上的所有后续交互都会使用已连接的侦听器。
 
-#### <a name="request-operation"></a>请求操作
+#### <a name="request-operation"></a><a name="request-operation"></a>请求操作
 
 对于启用了该功能的混合连接，发送方可以向侦听器发送限制程度极低的 HTTP 请求。
 
@@ -143,7 +143,7 @@ HTTP 请求/响应模型为发送方提供受限程度极低的 HTTP 协议外�
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | 是      | 对于侦听器角色，该参数必须是 **sb-hc-action=listen**
 | `{path}`         | 是      | 要注册该侦听器的预配置混合连接的 URL 编码命名空间路径。 此表达式追加至固定的 `$hc/` 路径部分。
-| `sb-hc-token`    | 是\*    | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“**侦听**”权限。
+| `sb-hc-token`    | 是\*    | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“ **侦听** ”权限。
 | `sb-hc-id`       | 否       | 该客户端提供的可选 ID 可实现端到端诊断跟踪。
 
 如果由于混合连接路径未注册、令牌无效或丢失或其他一些错误，导致 WebSocket 连接失败，则会使用常规的 HTTP 1.1 状态反馈模型提供错误反馈。 状态说明包含可传达给 Azure 支持人员的错误跟踪 ID：
@@ -298,7 +298,7 @@ FEFEFEFEFEFEFEFEFEFEF...
 
 * **address** - URI 字符串。 这是用于此请求的会合地址。 如果传入的请求大于 64 kB，则此消息的余下部分将会留空，并且客户端必须启动等同于如下所述 `accept` 操作的会合握手。 然后，服务将在建立的 Web 套接字放置完整的 `request`。 如果响应预期可能超过 64 kB，则侦听器也必须启动会合握手，然后通过建立的 Web 套接字传输响应。
 * **id** - 字符串。 此请求的唯一标识符。
-* **requestHeaders** - 此对象包含由发送方提供给终结点的所有 HTTP 标头（[上面](#request-operation)所述的授权信息除外），以及与网关连接严格相关的标头。 具体而言，在 [RFC7230](https://tools.ietf.org/html/rfc7230) 中定义或保留的所有标头（`Via` 除外）都会被剥离，而不会转发：
+* **requestHeaders** - 此对象包含由发送方提供给终结点的所有 HTTP 标头（ [上面](#request-operation)所述的授权信息除外），以及与网关连接严格相关的标头。 具体而言，在 [RFC7230](https://tools.ietf.org/html/rfc7230) 中定义或保留的所有标头（`Via` 除外）都会被剥离，而不会转发：
 
   * `Connection`（RFC7230 第 6.1 部分）
   * `Content-Length`（RFC7230 第 3.3.2 部分）
@@ -332,7 +332,7 @@ FEFEFEFEFEFEFEFEFEFEF...
 
 ##### <a name="responding-to-requests"></a>响应请求
 
-接收方必须做出响应。 在保持连接期间一直不响应请求可能导致侦听器被列入阻止列表。
+接收方必须做出响应。 在保持连接期间一直不响应请求可能导致侦听器被阻止。
 
 响应可按任意顺序发送，但必须在 60 秒内响应每个请求，否则会将传送报告为失败。 在服务收到 `response` 帧之前，会进行 60 秒倒计时。 包含多个二进制帧的处理中响应不能空闲 60 秒以上，否则会将其终止。
 
@@ -432,7 +432,7 @@ _namespace-address_ 是托管混合连接的 Azure 中继命名空间的完全�
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | 是       | 对于发送方角色，该参数必须是 `sb-hc-action=connect`。
 | `{path}`       | 是       | （请参阅下文）
-| `sb-hc-token`  | 是\*     | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“**发送**”权限。
+| `sb-hc-token`  | 是\*     | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“ **发送** ”权限。
 | `sb-hc-id`     | 否        | 启用端到端诊断跟踪的可选 ID，在接受握手期间会将其提供至侦听器。
 
  `{path}` 是要注册此侦听器的预配置混合连接的 URL 编码命名空间路径。 `path` 表达式可以使用后缀和查询字符串表达式进行扩展，以供进一步通信。 如果混合连接注册在路径 `hyco` 下，则 `path` 表达式可以是 `hyco/suffix?param=value&...`，后跟此处定义的查询字符串参数。 完整的表达式可能如下所示：
@@ -478,7 +478,7 @@ _namespace-address_ 是托管混合连接的 Azure 中继命名空间的完全�
 
 | Param          | 必需？ | 说明
 | -------------- | --------- | ---------------- |
-| `sb-hc-token`  | 是\*     | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“**发送**”权限。
+| `sb-hc-token`  | 是\*     | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“ **发送** ”权限。
 
 也可以在 `ServiceBusAuthorization` 或 `Authorization` HTTP 标头中携带该令牌。 如果混合连接配置为允许匿名请求，则可以省略该令牌。
 

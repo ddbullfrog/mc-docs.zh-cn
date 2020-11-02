@@ -2,24 +2,24 @@
 title: 资源命名限制
 description: 说明 Azure 资源的命名规则和限制。
 ms.topic: conceptual
-origin.date: 09/23/2020
+origin.date: 10/01/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b69b6d254265f17a94b4beb41875ddd6c54d89d2
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 351c5a52bdb42e5f5b2db54faf5c38ec10fbb1bb
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937270"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470043"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 资源的命名规则和限制
 
 本文汇总了 Azure 资源的命名规则和限制。
 
-<!--Not Available on  [Ready: Recommended naming and tagging conventions](/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)-->
+<!--Not Available on  [Ready: Recommended naming and tagging conventions](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)-->
 
 本文按资源提供程序命名空间列出了资源。 有关资源提供程序如何匹配 Azure 服务的列表，请参阅[适用于 Azure 服务的资源提供程序](azure-services-resource-providers.md)。
 
@@ -27,9 +27,9 @@ ms.locfileid: "91937270"
 
 在下表中，术语“字母数字”是指：
 
-* **a** 至 **z**（小写字母）
-* **A** 至 **Z**（大写字母）
-* **0** 至 **9**（数字）
+* **a** 至 **z** （小写字母）
+* **A** 至 **Z** （大写字母）
+* **0** 至 **9** （数字）
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -157,7 +157,7 @@ ms.locfileid: "91937270"
 > | galleries/images/versions | 图像 | 32-bit integer | 数字和句点。 |
 > | images | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
 > | snapshots | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
-> | virtualMachines | 资源组 | 1-15 (Windows)<br />1-64 (Linux)<br /><br />参阅下面的说明。 | 不能使用空格或以下字符：<br /> `\/"'[]:|<>+=;,?*@&`<br /><br />不能以下划线开头。 不能以句点或连字符结尾。 |
+> | virtualMachines | 资源组 | 1-15 (Windows)<br />1-64 (Linux)<br /><br />参阅下面的说明。 | 不能使用空格或以下字符：<br /> `\/"'[]:|<>+=;,?*@&_`<br /><br />Windows VM 不能包含句点或以连字符结尾。<br /><br />Linux VM 不能以句点或连字符结尾。 |
 > | virtualMachineScaleSets | 资源组 | 1-15 (Windows)<br />1-64 (Linux)<br /><br />参阅下面的说明。 | 不能使用空格或以下字符：<br /> `\/"'[]:|<>+=;,?*@&`<br /><br />不能以下划线开头。 不能以句点或连字符结尾。 |
 
 > [!NOTE]
@@ -314,7 +314,7 @@ ms.locfileid: "91937270"
 > [!div class="mx-tableFixed"]
 > | 实体 | 作用域 | Length | 有效的字符 |
 > | --- | --- | --- | --- |
-> | actionGroups | 资源组 | 1-260 | 不得使用：<br />`/` <br /><br />不得以空格或句点结尾。  |
+> | actionGroups | 资源组 | 1-260 | 不得使用：<br />`/&%\?` <br /><br />不得以空格或句点结尾。  |
 > | components | 资源组 | 1-260 | 不得使用：<br />`%&\?/` <br /><br />不得以空格或句点结尾。  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
@@ -399,7 +399,7 @@ ms.locfileid: "91937270"
 > | azureFirewalls | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
 > | bastionHosts | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
 > | connections | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
-> | dnsZones | 资源组 | 1-63 个字符<br /><br />2 到 34 个标签<br /><br />每个标签是以句点分隔的一组字符。 例如，**contoso.com** 有 2 个标签。 | 每个标签可以包含字母数字、下划线和连字符。<br /><br />每个标签以句点分隔。 |
+> | dnsZones | 资源组 | 1-63 个字符<br /><br />2 到 34 个标签<br /><br />每个标签是以句点分隔的一组字符。 例如， **contoso.com** 有 2 个标签。 | 每个标签可以包含字母数字、下划线和连字符。<br /><br />每个标签以句点分隔。 |
 > | expressRouteCircuits | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
 > | firewallPolicies | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
 > | firewallPolicies / ruleGroups | 防火墙策略 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
@@ -411,7 +411,7 @@ ms.locfileid: "91937270"
 > | networkSecurityGroups | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
 > | networkSecurityGroups / securityRules | 网络安全组 | 1-80 |  字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
 > | networkWatchers | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
-> | privateDnsZones | 资源组 | 1-63 个字符<br /><br />2 到 34 个标签<br /><br />每个标签是以句点分隔的一组字符。 例如，**contoso.com** 有 2 个标签。 | 每个标签可以包含字母数字、下划线和连字符。<br /><br />每个标签以句点分隔。 |
+> | privateDnsZones | 资源组 | 1-63 个字符<br /><br />2 到 34 个标签<br /><br />每个标签是以句点分隔的一组字符。 例如， **contoso.com** 有 2 个标签。 | 每个标签可以包含字母数字、下划线和连字符。<br /><br />每个标签以句点分隔。 |
 > | privateDnsZones / virtualNetworkLinks | 专用 DNS 区域 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
 > | publicIPAddresses | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
 > | publicIPPrefixes | 资源组 | 1-80 | 字母数字、下划线、句点和连字符。<br /><br />以字母数字开头。 以字母数字或下划线结尾。 |
@@ -514,7 +514,7 @@ ms.locfileid: "91937270"
 > | namespaces | 全局 | 6-50 | 字母数字和连字符。<br /><br />以字母开头。 以字母或数字结尾。<br /><br />有关详细信息，请参阅[创建命名空间](https://docs.microsoft.com/rest/api/servicebus/create-namespace)。 |
 > | namespaces / AuthorizationRules | 命名空间 | 1-50 | 字母数字、句点、连字符和下划线。<br /><br />以字母数字开头和结尾。 |
 > | namespaces / disasterRecoveryConfigs | 全局 | 6-50 | 字母数字和连字符。<br /><br />以字母开头。 以字母数字结尾。 |
-> | namespaces / migrationConfigurations | 命名空间 |  | 应始终为 **$default**。 |
+> | namespaces / migrationConfigurations | 命名空间 |  | 应始终为 **$default** 。 |
 > | namespaces / queues | 命名空间 | 1-260 | 字母数字、句点、连字符、下划线和斜杠。<br /><br />以字母数字开头和结尾。 |
 > | namespaces / queues / authorizationRules | queue | 1-50 | 字母数字、句点、连字符和下划线。<br /><br />以字母数字开头和结尾。 |
 > | namespaces / topics | 命名空间 | 1-260 | 字母数字、句点、连字符、下划线和斜杠。<br /><br />以字母数字开头和结尾。 |

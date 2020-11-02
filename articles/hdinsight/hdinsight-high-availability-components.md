@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 11/11/2019
 ms.date: 12/23/2019
-ms.openlocfilehash: 73b266f7f4d7c494218b2c67951fa8338a04ea82
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 7810f3ca3d59f81c2cd79ad3d27b55ca6298050d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394794"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472655"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Azure HDInsight 支持的高可用性服务
 
@@ -44,7 +44,7 @@ HDInsight 提供自定义的基础结构，以确保四个主要服务具有高�
 
 ![高可用性基础结构](./media/hdinsight-high-availability-components/high-availability-architecture.png)
 
-此外，还有开源 Apache 可靠性组件支持的其他一些高可用性服务。 HDInsight 群集中还包含以下组件：
+此外，还有开源 Apache 可靠性组件支持的其他高可用性服务。 HDInsight 群集中还包含以下组件：
 
 - Hadoop 文件系统 (HDFS) NameNode
 - YARN ResourceManager
@@ -64,13 +64,13 @@ Microsoft 为下表中所述的 HDInsight 群集中的四个 Apache 服务提供
 | Apache Livy | 活动头节点 | Spark | 用于通过 REST 接口轻松与 Spark 群集交互 |
 
 >[!Note]
-> HDInsight 企业安全性套餐 (ESP) 群集目前仅提供 Ambari 服务器高可用性。
+> HDInsight 企业安全性套餐 (ESP) 群集目前仅提供 Ambari 服务器高可用性。 应用程序时间线服务器、作业历史记录服务器和 Livy 都仅在 headnode0 上运行，当 Ambari 故障转移时不会故障转移到 headnode1。 应用程序时间线数据库也位于 headnode0 上，不位于 Ambari SQL 服务器上。
 
 ### <a name="architecture"></a>体系结构
 
 每个 HDInsight 群集有两个头节点，这些节点分别处于活动状态和待机模式。 HDInsight HA 服务仅在头节点上运行。 这些服务应始终在活动头节点上运行，在待机头节点上应将其停止并置于维护模式。
 
-为了保持 HA 服务的正常状态并提供快速故障转移，HDInsight 利用 Apache ZooKeeper（分布式应用程序的协调服务）来执行活动头节点的选举。 HDInsight 还会预配几个后台 Java 进程，用于协调 HDInsight HA 服务的故障转移过程。 这些服务包括：主故障转移控制器、从属故障转移控制器、*master-ha-service* 和 *slave-ha-service*。
+为了保持 HA 服务的正常状态并提供快速故障转移，HDInsight 利用 Apache ZooKeeper（分布式应用程序的协调服务）来执行活动头节点的选举。 HDInsight 还会预配几个后台 Java 进程，用于协调 HDInsight HA 服务的故障转移过程。 这些服务包括：主故障转移控制器、从属故障转移控制器、 *master-ha-service* 和 *slave-ha-service* 。
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 
@@ -78,7 +78,7 @@ Apache ZooKeeper 是分布式应用程序的高性能协调服务。 在生产�
 
 ### <a name="slave-failover-controller"></a>从属故障转移控制器
 
-从属故障转移控制器在 HDInsight 群集中的每个节点上运行。 此控制器负责在每个节点上启动 Ambari 代理和 *slave-ha-service*。 它定期在第一个 ZooKeeper 仲裁中查询有关活动头节点的信息。 当活动和待机头节点发生变化时，从属故障转移控制器将执行以下操作：
+从属故障转移控制器在 HDInsight 群集中的每个节点上运行。 此控制器负责在每个节点上启动 Ambari 代理和 *slave-ha-service* 。 它定期在第一个 ZooKeeper 仲裁中查询有关活动头节点的信息。 当活动和待机头节点发生变化时，从属故障转移控制器将执行以下操作：
 
 1. 更新主机配置文件。
 1. 重启 Ambari 代理。
@@ -92,8 +92,8 @@ Apache ZooKeeper 是分布式应用程序的高性能协调服务。 在生产�
 例如，如果头节点 0 上的主故障转移控制器赢得选举，则会发生以下更改：
 
 1. 头节点 0 变为活动头节点。
-1. 主故障转移控制器在头节点 0 上启动 Ambari 服务器和 *master-ha-service*。
-1. 另一个主故障转移控制器在头节点 1 上停止 Ambari 服务器和 *master-ha-service*。
+1. 主故障转移控制器在头节点 0 上启动 Ambari 服务器和 *master-ha-service* 。
+1. 另一个主故障转移控制器在头节点 1 上停止 Ambari 服务器和 *master-ha-service* 。
 
 master-ha-service 仅在活动头节点上运行，它会停止待机头节点上的 HDInsight HA 服务（Ambari 服务器除外），并在活动头节点上启动这些服务。
 

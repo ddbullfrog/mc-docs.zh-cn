@@ -6,17 +6,20 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 09/02/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: d0bb2bf7b61159c0f92725e751b547c78c902c4c
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 10/29/2020
+ms.openlocfilehash: 4036c77662e073f5d04ac51a6778fa7dfe79e7be
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041897"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470484"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>了解 Azure Database for PostgreSQL 单一服务器的根 CA 更改中的更改
 
-Azure Database for PostgreSQL 将更改通过 SSL 启用的客户端应用程序/驱动程序的根证书，该证书用于[连接到数据库服务器](concepts-connectivity-architecture.md)。 根据标准维护和安全最佳做法的要求，当前可用的根证书已设置为在 2020 年 10 月 26 日 (2020/10/26) 过期。 本文更详细地介绍了即将推出的更改、会受影响的资源，以及确保应用程序始终与数据库服务器连接所需执行的步骤。
+Azure Database for PostgreSQL 将更改通过 SSL 启用的客户端应用程序/驱动程序的根证书，该证书用于[连接到数据库服务器](concepts-connectivity-architecture.md)。 根据标准维护和安全最佳做法的要求，当前可用的根证书已设置为在 2021 年 2 月 15 日 (2021/02/15) 到期。 本文更详细地介绍了即将推出的更改、会受影响的资源，以及确保应用程序始终与数据库服务器连接所需执行的步骤。
+
+>[!NOTE]
+> 根据客户的反馈，我们已将根证书的弃用时间从 2020 年 10 月 26 日延长至 2021 年 2 月 15 日。 如果用户受到影响，我们希望此次延长能为他们提供足够的提前期来实施客户端更改。
 
 ## <a name="what-update-is-going-to-happen"></a>打算进行什么样的更新？
 
@@ -24,7 +27,7 @@ Azure Database for PostgreSQL 将更改通过 SSL 启用的客户端应用程序
 
 根据行业的合规性要求，CA 供应商已开始吊销不符合标准的 CA 的 CA 证书，要求服务器使用由符合标准的 CA 颁发的证书，并由这些符合标准的 CA 颁发的 CA 证书进行签名。 由于 Azure Database for PostgreSQL 当前使用其中一个不符合标准的证书，客户端应用程序使用这些证书来验证其 SSL 连接，因此，我们需要确保采取适当的措施（如下所述），以最大程度地减少对 PostgreSQL 服务器的潜在影响。
 
-新证书将从 2020 年 10 月 26 日 (2020/10/26) 开始使用。 如果你在从 PostgreSQL 客户端连接时使用 CA 验证或服务器证书的完整验证（sslmode=verify-ca 或 sslmode=verify-full），则需要在 2020 年 10 月 26 日 (2020/10/26) 之前更新应用程序配置。
+新证书将从 2021 年 2 月 15 日 (2021/02/15) 开始使用。 如果你在从 PostgreSQL 客户端连接时使用 CA 验证或服务器证书的完整验证（sslmode=verify-ca 或 sslmode=verify-full），则需要在 2021 年 2 月 15 日 (2021/02/15) 之前更新应用程序配置。
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>如何知道我的数据库是否会受影响？
 
@@ -37,7 +40,7 @@ Azure Database for PostgreSQL 将更改通过 SSL 启用的客户端应用程序
 
 若要了解 PostgreSQL sslmode，请参阅 PostgreSQL 文档中的 [SSL 模式说明](https://www.postgresql.org/docs/11/libpq-ssl.html#ssl-mode-descriptions)。
 
-若要避免应用程序的可用性因证书被意外吊销而中断，或要更新已吊销的证书，请参阅 [ **“我需要做什么来维护连接”** ](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)部分。
+若要避免应用程序的可用性因证书被意外吊销而中断，或要更新已吊销的证书，请参阅 [ **“我需要做什么来维护连接”**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)部分。
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>我需要做什么来维护连接
 
@@ -85,6 +88,9 @@ Azure Database for PostgreSQL 将更改通过 SSL 启用的客户端应用程序
 * 证书/已吊销的证书无效
 * 连接超时
 
+> [!NOTE]
+> 在证书更改完成之前，请勿删除或更改证书。 更改完成后，我们会发送讯息，之后用户便可以安全地删除 Baltimore 证书。 
+
 ## <a name="frequently-asked-questions"></a>常见问题
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1.如果我不使用 SSL/TLS，是否仍需要更新根 CA？
@@ -93,8 +99,8 @@ Azure Database for PostgreSQL 将更改通过 SSL 启用的客户端应用程序
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2.如果我使用 SSL/TLS，是否需要重启数据库服务器来更新根 CA？
 不需要，你无需重启数据库服务器即可开始使用新证书。 这是客户端更改，传入的客户端连接需要使用新证书来确保它们可以连接到数据库服务器。
 
-### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3.如果在 2020 年 10 月 26 日 (2020/10/26) 之前未更新根证书，会发生什么情况？
-如果在 2020 年 10 月 26 日之前未更新根证书，则通过 SSL/TLS 进行连接并对根证书进行验证的应用程序将无法与 PostgreSQL 数据库服务器通信，应用程序会遇到 PostgreSQL 数据库服务器的连接问题。
+### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3.如果在 2021 年 2 月 15 日 (2021/02/15) 之前未更新根证书，会发生什么情况？
+如果在 2021 年 2 月 15 日 (2021/02/15) 之前未更新根证书，则通过 SSL/TLS 进行连接并对根证书进行验证的应用程序将无法与 PostgreSQL 数据库服务器通信，应用程序会遇到 PostgreSQL 数据库服务器的连接问题。
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-postgresql"></a>4.如果将应用服务与 Azure Database for PostgreSQL 一起使用，会产生什么影响？
 对于连接到 Azure Database for PostgreSQL 的 Azure 应用服务，可以采用两种可能的方案，具体取决于你在应用程序中使用 SSL 的方式。
@@ -112,16 +118,16 @@ Azure Database for PostgreSQL 将更改通过 SSL 启用的客户端应用程序
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7.是否需要为此更改计划数据库服务器维护停机时间？
 否。 由于此处的更改仅发生在要连接到数据库服务器的客户端，因此数据库服务器不需要维护停机时间来进行此更改。
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8.如果在 2020 年 10 月 26 日 (2020/10/26) 之前无法安排停机时间来进行此更改，该怎么办？
+### <a name="8-what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8.如果在 2021 年 2 月 15 日 (2021/02/15) 之前无法安排停机时间来进行此更改，该怎么办？
 由于用于连接到服务器的客户端需要如[此处](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)的修复部分所述更新证书信息，因此在这种情况下，服务器不需要停机。
 
-### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9.如果我在 2020 年 10 月 26 日之后创建新的服务器，我是否会受影响？
-对于在 2020 年 10 月 26 日 (2020/10/26) 之后创建的服务器，可以使用应用程序的新颁发的证书通过 SSL 进行连接。
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9.如果我在 2021 年 2 月 15 日 (2021/02/15) 之后创建新的服务器，我是否会受影响？
+对于在 2021 年 2 月 15 日 (2021/02/15) 之后创建的服务器，可以使用应用程序的新颁发的证书通过 SSL 进行连接。
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10.Microsoft 更新其证书的频率是多少？或者说过期策略是怎样的？
 Azure Database for PostgreSQL 使用的这些证书是由受信任的证书颁发机构 (CA) 提供的。 因此，Azure Database for PostgreSQL 对这些证书的支持与 CA 对这些证书的支持相关联。 但是，这些预定义证书中可能存在无法预料的 bug，这些 bug 需要尽早进行修复，正如此示例一样。
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11.如果我使用的是只读副本，是否只需在主服务器或只读副本上执行此更新？
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-the-primary-server-or-the-read-replicas"></a>11.如果我使用的是只读副本，是否只需在主服务器或只读副本上执行此更新？
 由于此更新是客户端更改，因此，如果客户端过去从副本服务器读取数据，则还需要对这些客户端应用更改。 
 
 ### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12.是否有服务器端查询可用来验证是否正在使用 SSL？

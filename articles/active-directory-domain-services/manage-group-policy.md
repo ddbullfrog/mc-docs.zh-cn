@@ -1,21 +1,21 @@
 ---
 title: 在 Azure AD 域服务中创建和管理组策略 | Microsoft Docs
 description: 了解如何在 Azure Active Directory 域服务托管域中编辑内置的组策略对象 (GPO) 并创建自己的自定义策略。
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: c2d0cdd9fc59e75a5e9d225b752557c6539a8f0a
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: fa144e4c7844a698867f3dd113d8d582beb013ce
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028545"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471139"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>管理 Azure Active Directory 域服务托管域中的组策略
 
@@ -55,7 +55,7 @@ Azure Active Directory 域服务 (Azure AD DS) 中的用户和计算机对象的
 1. 在“服务器管理器”窗口的“仪表板”窗格中，选择“添加角色和功能”。
 1. 在“添加角色和功能向导”的“准备工作”页上，选择“下一步”。
 1. 对于“安装类型”，请保留选中“基于角色或基于功能的安装”选项，然后选择“下一步”。
-1. 在“服务器选择”页上，从服务器池中选择当前的 VM（例如 *myvm.aaddscontoso.com*），然后选择“下一步”。
+1. 在“服务器选择”页上，从服务器池中选择当前的 VM（例如 *myvm.aaddscontoso.com* ），然后选择“下一步”。
 1. 在“服务器角色”页上，单击“下一步”。
 1. 在“功能”页上，选择“组策略管理”功能。 
 
@@ -90,7 +90,7 @@ Azure Active Directory 域服务 (Azure AD DS) 中的用户和计算机对象的
 
 1. 将打开组策略管理编辑器工具，以自定义 GPO，如帐户策略：
 
-    ![自定义 GPO 以根据需要配置设置](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![组策略管理编辑器的屏幕截图。](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     完成后，选择“文件”>“保存”以保存策略。 默认情况下，计算机每 90 分钟刷新一次组策略，并应用更改。
 

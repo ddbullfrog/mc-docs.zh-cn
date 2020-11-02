@@ -6,14 +6,14 @@ documentationcenter: ''
 author: tgore03
 ms.service: cloud-services
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: d43007fc03a314a39d4417a942ec1010150a836f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 8e59770b7fcf177911e74a0ec4848a3dab959788
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223376"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472626"
 ---
 # <a name="how-to-configure-cloud-services"></a>如何配置云服务
 

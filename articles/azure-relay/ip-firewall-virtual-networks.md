@@ -4,16 +4,16 @@ description: 本文介绍如何使用防火墙规则来允许从特定 IP 地址
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3287d49bb0ef06f3d509371c9424975e4124b291
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 69608d196f9840131f9809b091d7f7e86a8019b5
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937074"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470061"
 ---
 <!--Verified successfully-->
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>为 Azure 中继命名空间配置 IP 防火墙
@@ -81,7 +81,7 @@ ms.locfileid: "91937074"
       }
     },
     "variables": {
-      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]",
+      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]"
     },
     "resources": [
       {
@@ -98,7 +98,7 @@ ms.locfileid: "91937074"
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.Relay/namespaces/networkruleset",
+        "type": "Microsoft.Relay/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.Relay/namespaces/', parameters('relayNamespaceName'))]"
         ],
@@ -114,6 +114,7 @@ ms.locfileid: "91937074"
                 "action":"Allow"
             }
           ],
+          "virtualNetworkRules": [],
           "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }

@@ -8,12 +8,12 @@ ms.subservice: service
 ms.topic: conceptual
 origin.date: 09/13/2020
 ms.date: 10/19/2020
-ms.openlocfilehash: ff1a6fe947c426fab695018f54aba0c3f5c5d5ab
-ms.sourcegitcommit: 7ed7a7d65ba142661f5494013451a91f045c4a73
+ms.openlocfilehash: fdede1cb764d8b07a631d74683be0d6342193152
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91990842"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470414"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>了解 Azure SQL 数据库和 SQL 托管实例的根 CA 更改
 

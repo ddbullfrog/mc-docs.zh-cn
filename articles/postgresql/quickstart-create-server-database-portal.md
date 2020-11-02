@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 origin.date: 06/27/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 3cfc83ac5db0333cd376517bd3ae868aad213c1b
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 10/29/2020
+ms.openlocfilehash: 0dbbea4761e4b3ed4d85cf109ee0098f9091da6f
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041840"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470305"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Azure Database for PostgreSQL 服务器
 
@@ -53,11 +53,11 @@ ms.locfileid: "92041840"
    资源组|myresourcegroup| 新的资源组名称，或订阅中的现有资源组。
    服务器名称 |*mydemoserver*|用于标识用于 PostgreSQL 的 Azure 数据库服务器的唯一名称。 域名 *postgres.database.chinacloudapi.cn* 将追加到所提供的服务器名称后面。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
    数据源 | **无** | 选择“无”，从头开始创建新的服务器。 （如果是从现有 Azure Database for PostgreSQL 服务器的异地备份创建服务器，则会选择“备份”。）
-   管理员用户名 |*myadmin*| 连接到服务器时使用的自己的登录帐户。 管理员登录名不能是 **azure_superuser**、**azure_pg_admin**、**admin**、**administrator**、**root**、**guest** 或 **public**， 不能以 **pg_** 开头。
+   管理员用户名 |*myadmin*| 连接到服务器时使用的自己的登录帐户。 管理员登录名不能是 **azure_superuser** 、 **azure_pg_admin** 、 **admin** 、 **administrator** 、 **root** 、 **guest** 或 **public** ， 不能以 **pg_** 开头。
    密码 |你的密码| 服务器管理员帐户的新密码。 密码必须包含以下三个类别的 8 到 128 个字符：英文大写字母、英文小写字母、数字（0 到 9）和非字母数字字符（例如 !、$、#、%）。
    位置|离用户最近的区域| 最靠近用户的位置。
    版本|最新主版本| 除非另有特定的要求，否则为最新 PostgreSQL 主版本。
-   计算 + 存储 | **常规用途**、**第 5 代**、**2 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“配置服务器”。 接下来，选择适当的定价层。 有关详细信息，请参阅[定价详细信息](https://azure.cn/pricing/details/postgresql/server/)。 若要在异地冗余存储中启用服务器备份，请从**备份冗余选项**中选择“异地冗余”。 选择“确定”。
+   计算 + 存储 | **常规用途** 、 **第 5 代** 、 **2 vCore** 、 **5 GB** 、 **7 天** 、 **异地冗余** | 新服务器的计算、存储和备份配置。 选择“配置服务器”。 接下来，选择适当的定价层。 有关详细信息，请参阅[定价详细信息](https://azure.cn/pricing/details/postgresql/server/)。 若要在异地冗余存储中启用服务器备份，请从 **备份冗余选项** 中选择“异地冗余”。 选择“确定”。
 
    > [!NOTE]
    > 如果轻量级计算和 I/O 足以满足工作负荷要求，请考虑使用“基本”定价层。 请注意，在“基本”定价层中创建的服务器以后不能扩展到“常规用途”或“内存优化”定价层。 
@@ -90,6 +90,18 @@ ms.locfileid: "92041840"
    ```azurecli
    psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
+4. 在同一个 Shell 终端中，创建一个名为“guest”的数据库。
+
+   ```bash
+   postgres=> CREATE DATABASE guest;
+   ```
+
+5. 切换为与新创建的“guest”数据库的连接。
+
+   ```bash
+   \c guest
+   ```
+6. 键入 `\q`，再按 Enter 键关闭 psql。 
 
 ## <a name="clean-up-resources"></a>清理资源
 现在已成功在资源组中创建了 Azure Database for PostgreSQL 服务器。 如果将来不再需要这些资源，可以通过删除资源组或 PostgreSQL 服务器来删除它们。 

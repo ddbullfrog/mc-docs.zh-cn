@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: ''
 origin.date: 07/29/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: f4ef0ed5cd1e07c2f3e4f0cd575a60ddde3975b6
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/29/2020
+ms.openlocfilehash: b03fda62f92c38c691ee166937a763bc1258935c
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014380"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470232"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>复制 Azure SQL 数据库中数据库的事务一致性副本
 
@@ -118,12 +118,15 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 > [!NOTE]
 > [Azure 门户](https://portal.azure.cn)、PowerShell 和 Azure CLI 不支持将数据库复制到其他订阅。
 
+> [!TIP]
+> 使用 T-SQL 的数据库复制操作支持从不同 Azure 租户中的订阅复制数据库。 仅当使用 SQL 身份验证登录名来登录目标服务器时才支持此项。
+
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>监视复制操作的进度
 
-可以通过查询 [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql)、[sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database) 和 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 视图来监视复制过程。 在复制过程中，新数据库的 sys.databases 视图的 **state_desc** 列将设置为 **COPYING**。
+可以通过查询 [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql)、[sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database) 和 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 视图来监视复制过程。 在复制过程中，新数据库的 sys.databases 视图的 **state_desc** 列将设置为 **COPYING** 。
 
-* 如果复制失败，新数据库的 sys.databases 视图的 **state_desc** 列将设置为 **SUSPECT**。 对新数据库执行 DROP 语句并稍后重试。
-* 如果复制成功，新数据库的 sys.databases 视图的 **state_desc** 列将设置为 **ONLINE**。 复制已完成并且新数据库是一个常规数据库，可独立于源数据库进行更改。
+* 如果复制失败，新数据库的 sys.databases 视图的 **state_desc** 列将设置为 **SUSPECT** 。 对新数据库执行 DROP 语句并稍后重试。
+* 如果复制成功，新数据库的 sys.databases 视图的 **state_desc** 列将设置为 **ONLINE** 。 复制已完成并且新数据库是一个常规数据库，可独立于源数据库进行更改。
 
 > [!NOTE]
 > 如果决定在复制过程中取消复制，请对新数据库执行 [DROP DATABASE](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) 语句。

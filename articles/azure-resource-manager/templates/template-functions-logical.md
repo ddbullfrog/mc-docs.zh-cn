@@ -2,15 +2,16 @@
 title: 模板函数 - 逻辑
 description: 介绍 Azure 资源管理器模板中用于确定逻辑值的函数。
 ms.topic: conceptual
-origin.date: 04/27/2020
-ms.date: 06/22/2020
+origin.date: 10/12/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: 32f9e9e138851879b33d1550cec18d1737498cea
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 05e184e2445c1613a909af6eb9727d1d0f89884b
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098608"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470410"
 ---
 # <a name="logical-functions-for-arm-templates"></a>ARM 模板的逻辑函数
 
@@ -18,9 +19,11 @@ ms.locfileid: "85098608"
 
 * [and](#and)
 * [bool](#bool)
+* [false](#false)
 * [if](#if)
 * [not](#not)
 * [or](#or)
+* true
 
 ## <a name="and"></a>and
 
@@ -38,7 +41,7 @@ ms.locfileid: "85098608"
 
 ### <a name="return-value"></a>返回值
 
-如果所有值均为 true，则返回 True；否则返回 False**** ****。
+如果所有值均为 true，则返回 True；否则返回 False   。
 
 ### <a name="examples"></a>示例
 
@@ -87,7 +90,12 @@ ms.locfileid: "85098608"
 | arg1 |是 |字符串或整数 |要转换为布尔值的值。 |
 
 ### <a name="return-value"></a>返回值
+
 转换后的值的布尔值。
+
+### <a name="remarks"></a>备注
+
+还可以使用 [true()](#true) 和 [false()](#false) 来获取布尔值。
 
 ### <a name="examples"></a>示例
 
@@ -95,7 +103,7 @@ ms.locfileid: "85098608"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -128,6 +136,44 @@ ms.locfileid: "85098608"
 | trueInt | Bool | True |
 | falseInt | Bool | False |
 
+## <a name="false"></a>false
+
+`false()`
+
+返回 false。
+
+### <a name="parameters"></a>参数
+
+false 函数不接受任何参数。
+
+### <a name="return-value"></a>返回值
+
+一个布尔值，该值始终为 false。
+
+### <a name="example"></a>示例
+
+下面的示例返回一个 false 输出值。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "falseOutput": {
+            "value": "[false()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+前述示例的输出为：
+
+| 名称 | 类型 | Value |
+| ---- | ---- | ----- |
+| falseOutput | Bool | False |
+
 ## <a name="if"></a>if
 
 `if(condition, trueValue, falseValue)`
@@ -144,7 +190,7 @@ ms.locfileid: "85098608"
 
 ### <a name="return-value"></a>返回值
 
-如果第一个参数为 True，则返回第二个参数；否则返回第三个参数****。
+如果第一个参数为 True，则返回第二个参数；否则返回第三个参数  。
 
 ### <a name="remarks"></a>备注
 
@@ -247,7 +293,7 @@ ms.locfileid: "85098608"
 
 ### <a name="return-value"></a>返回值
 
-参数为 False 时返回 True**** ****。 参数为 True 时返回 False**** ****。
+参数为 False 时返回 True   。 参数为 True 时返回 False   。
 
 ### <a name="examples"></a>示例
 
@@ -283,7 +329,7 @@ ms.locfileid: "85098608"
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)结合使用 **not** 和 [equals](template-functions-comparison.md#equals)。
+以下 [示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)结合使用 **not** 和 [equals](template-functions-comparison.md#equals)。
 
 ```json
 {
@@ -322,7 +368,7 @@ ms.locfileid: "85098608"
 
 ### <a name="return-value"></a>返回值
 
-如果任何值为 true，则返回 True；否则返回 False**** ****。
+如果任何值为 true，则返回 True；否则返回 False   。
 
 ### <a name="examples"></a>示例
 
@@ -358,11 +404,46 @@ ms.locfileid: "85098608"
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
+## <a name="true"></a>是
+
+`true()`
+
+返回 true。
+
+### <a name="parameters"></a>参数
+
+true 函数不接受任何参数。
+
+### <a name="return-value"></a>返回值
+
+一个布尔值，该值始终为 true。
+
+### <a name="example"></a>示例
+
+下面的示例返回一个 true 输出值。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueOutput": {
+            "value": "[true()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+前述示例的输出为：
+
+| 名称 | 类型 | Value |
+| ---- | ---- | ----- |
+| trueOutput | Bool | True |
+
 ## <a name="next-steps"></a>后续步骤
 
-* 有关 Azure 资源管理器模板中各部分的说明，请参阅[创作 Azure 资源管理器模板](template-syntax.md)。
-* 若要合并多个模板，请参阅[将链接的模板与 Azure 资源管理器配合使用](linked-templates.md)。
-* 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure 资源管理器中创建多个资源实例](copy-resources.md)。
-* 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](deploy-powershell.md)。
+* 有关 Azure 资源管理器模板中各部分的说明，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

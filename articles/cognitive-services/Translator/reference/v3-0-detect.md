@@ -3,20 +3,20 @@ title: 翻译器 Detect 方法
 titleSuffix: Azure Cognitive Services
 description: 使用 Azure 认知服务翻译器 Detect 方法识别一段文本的语言。
 services: cognitive-services
-author: swmachan
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 02/01/2019
-ms.date: 06/23/2020
-ms.author: v-tawe
-ms.openlocfilehash: 5b51e45971a2e1f991116bc66109a3896b45824a
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 8910f67dbf952e22fcb8efdc6cc876a9c5afa137
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241509"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471987"
 ---
 # <a name="translator-30-detect"></a>翻译器 3.0：Detect
 
@@ -68,7 +68,7 @@ https://api.translator.azure.cn/detect?api-version=3.0
 
 ## <a name="request-body"></a>请求正文
 
-请求的正文是一个 JSON 数组。 每个数组元素都是一个包含字符串属性名称为 `Text` 的 JSON 对象。 语言检测应用于 `Text` 属性的值。 示例响应正文如下所示：
+请求的正文是一个 JSON 数组。 每个数组元素都是一个包含字符串属性名称为 `Text` 的 JSON 对象。 语言检测应用于 `Text` 属性的值。 语言自动检测对于较长的输入文本更有效。 示例响应正文如下所示：
 
 ```json
 [
@@ -79,7 +79,6 @@ https://api.translator.azure.cn/detect?api-version=3.0
 以下限制适用：
 
 * 数组最多可具有 100 个元素。
-* 数组元素的文本值不能超过 10,000 个字符（包括空格）。
 * 请求中包含的整个文本不能超过 50,000 个字符（包括空格）。
 
 ## <a name="response-body"></a>响应正文
@@ -181,6 +180,3 @@ https://api.translator.azure.cn/detect?api-version=3.0
 curl -X POST "https://api.translator.azure.cn/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
 ```
 
----
-
-<!-- Update_Description: wording update -->

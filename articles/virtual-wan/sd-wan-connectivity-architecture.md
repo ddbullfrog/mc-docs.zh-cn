@@ -1,20 +1,22 @@
 ---
-title: SD-WAN 连接体系结构
+title: 虚拟 WAN 和 SD-WAN 连接体系结构
 titleSuffix: Azure Virtual WAN
 description: 了解如何将专用 SD-WAN 与 Azure 虚拟 WAN 互连
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
-ms.topic: article
-origin.date: 05/12/2020
-ms.date: 06/08/2020
+ms.topic: conceptual
+origin.date: 10/07/2020
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: f9639ecfd48d75ea5e5fdff721318822f183f3e8
-ms.sourcegitcommit: 6c1e5be9f310adf5b6740ad3284b7582fca9de86
+ms.openlocfilehash: fd371115f33a01001884f42f276ac1e7548871ea
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84683650"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472124"
 ---
 <!--Characters Content only-->
 <!--Verified By-pass-->
@@ -28,6 +30,7 @@ Azure 虚拟 WAN 是一个网络服务，其中整合了许多云连接与安全
 
 
 * 直接互连模型
+* 使用 NVA-in-VWAN-hub 的直接互连模型
 * 间接互连模型
 * 使用企业偏好的托管服务提供商 MSP 的托管混合 WAN 模型
 
@@ -38,7 +41,7 @@ Azure 虚拟 WAN 是一个网络服务，其中整合了许多云连接与安全
 <a name="direct"></a>
 ## <a name="direct-interconnect-model"></a>直接互连模型
 
-![直接互连模型](./media/sd-wan-connectivity-architecture/direct.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct.png" alt-text="直接互连模型":::
 
 在此体系结构模型中，SD-WAN 分支客户场地设备 (CPE) 通过 IPsec 连接来与虚拟 WAN 中心直接连接。 分支 CPE 还可以通过专用 SD-WAN 连接到其他分支，或利用虚拟 WAN 建立分支到分支的连接。 需要访问其在 Azure 中的工作负荷的分支可以通过在虚拟 WAN 中心内终止的 IPsec 隧道，直接且安全地访问 Azure。
 
@@ -48,12 +51,24 @@ SD-WAN CPE 仍然是实现和强制实施流量优化和路径选择的地方。
 
 在此模型中，基于实时流量特征的某些供应商专用流量优化可能不受支持，因为与虚拟 WAN 的连接是通过 IPsec 建立的，并且 IPsec VPN 在虚拟 WAN VPN 网关上终止。 例如，分支 CPE 上的动态路径选择是可行的，由于分支设备与另一个 SD-WAN 节点交换各种网络数据包信息，因此可以在分支上动态识别要用于各种优先级流量的最佳链接。 在需要进行最后一英里优化的区域（分支到最靠近的 Azure POP），此功能可能非常有用。
 
-使用虚拟 WAN，用户可以获得 Azure 路径选择，即，通过从分支 CPE 到虚拟 WAN VPN 网关的多个 ISP 链接进行基于策略的路径选择。 虚拟 WAN 允许设置多个来自同一 SD-WAN 分支 CPE 的链接（路径）；每个链接代表从 SD-WAN CPE 的某个唯一公共 IP 到 Azure 虚拟 WAN VPN 网关的两个不同实例的双隧道连接。 SD-WAN 供应商可以根据其在 CPE 链接上的策略引擎设置的流量策略，实施连接 Azure 的最佳路径。
+使用虚拟 WAN，用户可以获得 Azure 路径选择，即，通过从分支 CPE 到虚拟 WAN VPN 网关的多个 ISP 链接进行基于策略的路径选择。 虚拟 WAN 允许设置多个来自同一 SD-WAN 分支 CPE 的链接（路径）；每个链接代表从 SD-WAN CPE 的某个唯一公共 IP 到 Azure 虚拟 WAN VPN 网关的两个不同实例的双隧道连接。 SD-WAN 供应商可以根据其在 CPE 链接上的策略引擎设置的流量策略，实施连接 Azure 的最佳路径。 在 Azure 端，所有传入连接会被同等对待。
+
+<a name="direct"></a>
+## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a>使用 NVA-in-VWAN-hub 的直接互连模型
+
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="直接互连模型":::
+
+此体系结构模型支持[将第三方网络虚拟设备 (NVA) 直接部署到虚拟中心](https://docs.azure.cn/virtual-wan/about-nva-hub)。 这使得希望将分支 CPE 连接到虚拟中心内同一品牌 NVA 的客户可以在连接到 Azure 工作负荷时利用专有的端到端 SD-WAN 功能。 
+
+数个虚拟 WAN 合作伙伴一直致力于提供在部署过程中自动配置 NVA 的体验。 将 NVA 预配到虚拟中心后，NVA 可能需要的任何附加配置都必须通过 NVA 合作伙伴门户或管理应用程序来完成。 无法直接访问 NVA。 可直接部署到 Azure 虚拟 WAN 中心的 NVA 是专为在虚拟中心使用而设计的。 若要了解在 VWAN 中心支持 NVA 的合作伙伴及其部署指南，请参阅[虚拟 WAN 合作伙伴](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings)一文。
+
+SD-WAN CPE 仍然是实现和强制实施流量优化和路径选择的地方。
+在此模型中，由于可以通过中心的 SD-WAN NVA 连接到虚拟 WAN，因此支持基于实时流量特性的供应商专有流量优化。
 
 <a name="indirect"></a>
 ## <a name="indirect-interconnect-model"></a>间接互连模型
 
-![间接互连模型](./media/sd-wan-connectivity-architecture/indirect.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="直接互连模型":::
 
 在此体系结构模型中，SD-WAN 分支 CPE 间接连接到虚拟 WAN 中心。 如图所示，企业 VNet 中部署了一个 SD-WAN 虚拟 CPE。 此虚拟 CPE 使用 IPsec 连接到虚拟 WAN 中心。 该虚拟 CPE 充当用于接入 Azure 的 SD-WAN 网关。 需要访问其在 Azure 中的工作负荷的分支可以通过 v-CPE 网关进行访问。
 
@@ -62,7 +77,7 @@ SD-WAN CPE 仍然是实现和强制实施流量优化和路径选择的地方。
 <a name="hybrid"></a>
 ## <a name="managed-hybrid-wan-model"></a>托管混合 WAN 模型
 
-![托管混合 WAN 模型](./media/sd-wan-connectivity-architecture/hybrid.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="直接互连模型":::
 
 在此体系结构模型中，企业可以利用托管服务提供商 (MSP) 合作伙伴提供的托管 SD-WAN 服务。 此模型类似于上面所述的直接模型或间接模型。 但是，在此模型中，SD-WAN 设计、业务流程和操作由 SD-WAN 提供商提供。
 
@@ -74,5 +89,4 @@ SD-WAN CPE 仍然是实现和强制实施流量优化和路径选择的地方。
 * [包括常见问题解答](virtual-wan-faq.md)
 * [解决远程连接性问题](work-remotely-support.md)
 
-<!-- Update_Description: new article about sd wan connectivity architecture -->
-<!--NEW.date: 06/08/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

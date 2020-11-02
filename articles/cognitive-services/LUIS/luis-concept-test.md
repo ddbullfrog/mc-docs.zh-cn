@@ -2,28 +2,27 @@
 title: 测试 LUIS 应用
 titleSuffix: Azure Cognitive Services
 description: 进行测试过程中，会向 LUIS 提供示例话语并获取 LUIS 识别出的意向和实体响应。
-author: lingliw
-manager: digimobile
+manager: nitinme
 services: cognitive-services
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 origin.date: 10/10/2019
-ms.date: 12/05/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 62c1ae019f0a056d692a7c14d9844bb03b793992
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: cd2c17f81d7f5a54d8a4f63df5be4152ce8d270c
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884485"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472473"
 ---
 # <a name="testing-example-utterances-in-luis"></a>在 LUIS 中测试示例话语
 
 进行测试过程中，会向 LUIS 提供示例话语并获取 LUIS 识别出的意向和实体响应。 
 
-可以交互方式测试 LUIS，一次提供一条话语，或提供一批话语。 测试时，可以将当前活动模型的预测响应与已发布模型的预测响应进行比较。 
+可以通过交互方式测试 LUIS，一次提供一条言语，或提供一组言语。 测试时，可以将当前活动模型的预测响应与已发布模型的预测响应进行比较。 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -47,9 +46,9 @@ ms.locfileid: "74884485"
 如果对终结点进行测试，并且不希望记录话语，请记得使用 `logging=false` 查询字符串配置。
 
 ## <a name="where-to-find-utterances"></a>在哪里可以找到话语
-LUIS 将记录的所有话语存储在查询日志中，可从 LUIS 门户上的**应用**列表页，以及 LUIS [创作 API](https://go.microsoft.com/fwlink/?linkid=2092087) 下载。 
+LUIS 将记录的所有话语存储在查询日志中，可从 LUIS 门户上的 **应用** 列表页，以及 LUIS [创作 API](https://dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 下载。 
 
-[LUIS](luis-reference-regions.md) 网站的“审查终结点话语”页列出了 LUIS 不确定的所有话语。 
+ 。 
 
 ## <a name="remember-to-train"></a>请记住进行训练
 请记住在更改模型后[训练](luis-how-to-train.md) LUIS。 在训练应用前在测试中看不到对 LUIS 应用的更改。 
@@ -57,4 +56,7 @@ LUIS 将记录的所有话语存储在查询日志中，可从 LUIS 门户上的
 ## <a name="best-practices"></a>最佳实践
 了解[最佳实践](luis-concept-best-practices.md)。
 
+## <a name="next-steps"></a>后续步骤
+
+* 详细了解[测试](luis-interactive-test.md)话语。
 

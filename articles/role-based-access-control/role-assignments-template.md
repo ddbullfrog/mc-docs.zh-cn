@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/21/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: c80d71fd14a4c8fae944da32bafd84ac0040aaa6
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.openlocfilehash: 55c29c711b008e2327151d537b10bb583400579d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160338"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472190"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板添加 Azure 角色分配
 
@@ -52,6 +52,18 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
+### <a name="managed-identities"></a>托管标识
+
+若要获取托管标识的 ID，可以使用 [Get-AzAdServiceprincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal) 或 [az ad sp](/cli/ad/sp) 命令。
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
+```
+
 ### <a name="application"></a>应用程序
 
 若要获取服务主体（应用程序使用的标识）的 ID，可以使用 [Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal) 或 [az ad sp list](/cli/ad/sp#az-ad-sp-list) 命令。 对于服务主体，使用对象 ID，而不是应用程序 ID。
@@ -77,7 +89,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 若要使用模板，必须执行以下操作：
 
 - 创建新的 JSON 文件并复制模板
-- 将 `<your-principal-id>` 替换为要为其分配角色的用户、组或应用程序
+- 将 `<your-principal-id>` 替换为要为其分配角色的用户、组、托管标识或应用程序的 ID
 
 ```json
 {
@@ -120,7 +132,7 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 若要使用模板，必须指定以下输入：
 
-- 要为其分配角色的用户、组或应用程序 ID
+- 要为其分配角色的用户、组、托管标识或应用程序的 ID
 - 将用于角色分配的唯一 ID，或者可以使用默认 ID
 
 ```json
@@ -214,7 +226,7 @@ az deployment create --location chinanorth --template-file rbac-test.json --para
 
 若要使用模板，必须指定以下输入：
 
-- 要为其分配角色的用户、组或应用程序 ID
+- 要为其分配角色的用户、组、托管标识或应用程序的 ID
 
 ```json
 {
@@ -365,7 +377,7 @@ az group deployment create --resource-group ExampleGroup2 --template-file rbac-t
 
 - [Azure 门户](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+- [Azure CLI](role-assignments-cli.md#remove-role-assignment)
 - [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>后续步骤

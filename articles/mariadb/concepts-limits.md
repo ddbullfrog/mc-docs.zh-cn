@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 6/25/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: add0bacfa41965b660cd4f53a0943d1e708f208e
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+origin.date: 10/2/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: 6b4e7e2eb6f822fb67d87cb6e49b12d6738cdf75
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512947"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470502"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的限制
 以下各部分介绍了数据库服务中的容量、存储引擎支持、特权支持、数据操作语句支持和功能限制。
@@ -26,6 +26,8 @@ Azure Database for MariaDB 支持优化服务器参数的值。 某些参数（�
 
 初始部署后，Azure for MariaDB 服务器包含用于时区信息的系统表，但这些表没有填充。 可以通过从 MySQL 命令行或 MySQL Workbench 等工具调用 `mysql.az_load_timezone` 存储过程来填充时区表。 若要了解如何调用存储过程并设置全局时区或会话级时区，请参阅 [Azure 门户](howto-server-parameters.md#working-with-the-time-zone-parameter)或 [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) 一文。
 
+该服务不支持密码插件，例如“validate_password”和“caching_sha2_password”。
+
 ## <a name="storage-engine-support"></a>存储引擎支持
 
 ### <a name="supported"></a>支持
@@ -37,21 +39,25 @@ Azure Database for MariaDB 支持优化服务器参数的值。 某些参数（�
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
+## <a name="privileges--data-manipulation-support"></a>权限和数据操作支持
+
+许多服务器参数和设置可能会无意中导致服务器性能下降或使 MariaDB 服务器的 ACID 属性无效。 为了在产品级别维护服务完整性和 SLA，此服务不公开多个角色。 
+
+MariaDB 服务不允许直接访问基础文件系统。 不支持某些数据操作命令。 
+
 ## <a name="privilege-support"></a>特权支持
 
 ### <a name="unsupported"></a>不支持
-- DBA 角色：许多服务器参数和设置可能会无意中导致服务器性能下降或使 DBMS 的 ACID 属性无效。 因此，为了维护产品级别的服务完整性和 SLA，此服务不公开 DBA 角色。 默认用户帐户（在创建新的数据库实例时构造）允许该用户执行托管数据库实例中的大部分 DDL 和 DML 语句。
+
+不支持以下项：
+- DBA 角色：受限制。 另外，使用管理员用户（在新建服务器的过程中创建）可执行大部分 DDL 和 DML 语句。 
 - SUPER 特权：[SUPER 特权](https://mariadb.com/kb/en/library/grant/#global-privileges)同样也受到限制。
 - DEFINER：需要创建并限制超级权限。 如果使用备份导入数据，请在执行 mysqldump 时手动删除或使用 `--skip-definer` 命令删除 `CREATE DEFINER` 命令。
-- 系统数据库：在 Azure Database for MariaDB 中，[mysql 系统数据库](https://mariadb.com/kb/en/the-mysql-database-tables/)为只读状态，因为它用于支持各种 PaaS 服务功能。 请注意，不能更改 `mysql` 系统数据库中的任何内容。
-
-## <a name="data-manipulation-statement-support"></a>数据操作语句支持
+- 系统数据库：[mysql 系统数据库](https://mariadb.com/kb/en/the-mysql-database-tables/)为只读数据库，用于支持各种 PaaS 功能。 不能对 `mysql` 系统数据库进行更改。
+- `SELECT ... INTO OUTFILE`：在该服务中不受支持。
 
 ### <a name="supported"></a>支持
 - 支持 `LOAD DATA INFILE`，但必须指定 `[LOCAL]` 参数，并将其定向到 UNC 路径（通过 SMB 装载的 Azure 存储空间）。
-
-### <a name="unsupported"></a>不支持
-- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>功能限制
 

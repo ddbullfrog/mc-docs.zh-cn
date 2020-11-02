@@ -5,16 +5,16 @@ manager: rochakm
 ms.topic: how-to
 origin.date: 01/29/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 605c10b53cbeafad4a51f3bdbb6df8f116a9d384
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 6822b5360c58677773be5a21a71e68dcf54055ea
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655584"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211851"
 ---
 <!--Verfiy successfully-->
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>将运行存储空间直通的 Azure VM 复制到另一区域
@@ -43,7 +43,10 @@ ms.locfileid: "89655584"
 **灾难恢复注意事项**
 
 1. 为群集设置[云见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp)时，请让见证一直位于灾难恢复区域中。
-2. 若要将虚拟机故障转移到与源区域不同的 DR 区域上的子网，那么需要在执行故障转移后更改群集 IP 地址。  必须使用 Site Recovery [恢复计划脚本](./site-recovery-runbook-automation.md)，才能更改群集 IP。<br />
+
+    <!--Not Avaialble on ITEM 2ND ROW [recovery plan script.](./site-recovery-runbook-automation.md)-->
+
+2. 若要将虚拟机故障转移到与源区域不同的 DR 区域上的子网，那么需要在执行故障转移后更改群集 IP 地址。  必须使用 Site Recovery 恢复计划脚本，才能更改群集 IP。<br />
 [示例脚本](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1)使用自定义脚本扩展在 VM 中执行命令 
 
 ### <a name="enabling-site-recovery-for-s2d-cluster"></a>为 S2D 群集启用 Site Recovery：
@@ -53,12 +56,12 @@ ms.locfileid: "89655584"
 1. 选择复制策略，同时禁用应用程序一致性*（仅支持故障一致性）
 1. 启用复制
 
-    :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png" alt-text="storagespacesdirect 保护":::
+    :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png" alt-text="storagespacesdirect":::
 
 2. 转到已复制的项，可以看到两个虚拟机的状态。
 3. 两个虚拟机均受到保护，并显示为属于多 VM 一致性组。
 
-    :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG" alt-text="storagespacesdirect 保护":::
+    :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG" alt-text="storagespacesdirect":::
 
 ## <a name="creating-a-recovery-plan"></a>创建恢复计划
 恢复计划支持在故障转移期间将多层应用程序中的各个层排序。 排序有助于保持应用程序一致性。 为多层 Web 应用程序创建恢复计划时，请完成[使用 Site Recovery 创建恢复计划](site-recovery-create-recovery-plans.md)中所述的步骤。
@@ -74,7 +77,7 @@ ms.locfileid: "89655584"
 ### <a name="failover-of-the-virtual-machines"></a>虚拟机故障转移 
 VM 的两个节点都需要使用 [Site Recovery 恢复计划](./site-recovery-create-recovery-plans.md)进行故障转移 
 
-:::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG" alt-text="storagespacesdirect 保护":::
+:::image type="content" source="./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG" alt-text="storagespacesdirect":::
 
 ## <a name="run-a-test-failover"></a>运行测试故障转移
 1. 在 Azure 门户中，选择恢复服务保管库。

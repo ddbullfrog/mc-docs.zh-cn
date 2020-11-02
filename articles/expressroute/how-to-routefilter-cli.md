@@ -9,11 +9,11 @@ origin.date: 12/07/2018
 ms.date: 10/01/2019
 ms.author: v-yiso
 ms.openlocfilehash: a24a4bf9a4ec49a8c4782ac04d6070f5f5769693
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71330459"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211408"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>配置用于 Microsoft 对等互连的路由筛选器：Azure CLI
 
@@ -69,7 +69,7 @@ ms.locfileid: "71330459"
 
 * 必须有活动的 Microsoft 对等互连。 按照[创建和修改对等互连配置](howto-routing-cli.md)中的说明操作
 
-### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>登录到 Azure 帐户，并选择订阅
+### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>登录到 Azure 帐户，然后选择订阅
 
 要开始配置，请登录到 Azure 帐户。 若选择“试用”，则会自动登录且可以跳过登录步骤。 使用下面的示例来帮助你连接：
 
@@ -102,7 +102,7 @@ az network route-filter rule list-service-communities
 
 列出要在路由筛选器中使用的 BGP 团体值列表。 
 
-## <a name="step-2-create-a-route-filter-and-a-filter-rule"></a><a name="filter"></a>步骤 2：创建路由筛选器和筛选器规则
+## <a name="step-2-create-a-route-filter-and-a-filter-rule"></a><a name="filter"></a>步骤 2：创建路由筛选器和筛选规则
 
 1 个路由筛选器只能有 1 个规则，并且规则类型必须是“允许”。 此规则可以有与之关联的 BGP 团体值列表。
 

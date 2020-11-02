@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 09/18/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7fda91133b13391c99d12f2a9a9e8ed79d56edb1
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 2283c1d6792be69e46eccc65f8930486b7ffd29e
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937132"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470196"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes 服务的支持策略
 
@@ -111,7 +111,7 @@ Azure 每周为你的映像节点提供补丁和新映像，但默认情况下�
 > [!NOTE]
 > AKS 代理节点在 Azure 门户中显示为常规 Azure IaaS 资源。 但是这些虚拟机被部署到自定义的 Azure 资源组（通常前缀为 MC_\*）中。 不能更改基础 OS 映像，或使用 IaaS API 或资源对这些节点进行任何直接的自定义。 非通过 AKS API 执行的任何自定义更改都无法在升级、缩放、更新或重启后保留。 除非 Azure 支持指示你进行更改，否则请避免更改代理节点。
 
-AKS 代表你管理代理节点的生命周期和操作 - **不支持**修改与该代理节点关联的 IaaS 资源。 不支持的操作的一个示例是通过虚拟机规模集门户或 API 手动更改配置来自定义节点池虚拟机规模集。
+AKS 代表你管理代理节点的生命周期和操作 - **不支持** 修改与该代理节点关联的 IaaS 资源。 不支持的操作的一个示例是通过虚拟机规模集门户或 API 手动更改配置来自定义节点池虚拟机规模集。
 
 对于工作负载特定的配置或包，AKS 建议使用 [Kubernetes `daemon sets`](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)。
 
@@ -135,7 +135,7 @@ AKS 代表你管理代理节点的生命周期和操作 - **不支持**修改与
 
 ## <a name="stopped-or-de-allocated-clusters"></a>停止或取消分配的群集
 
-如上所述，通过 IaaS API/CLI/门户手动取消分配所有群集节点将导致群集不受支持。
+如前所述，通过 IaaS API/CLI/门户以手动方式将所有群集节点取消分配会导致群集不受支持。
 
 <!--Not Available on The only supported way to stop/de-allocate all node is to [stop the aks cluster, which will preserve the cluster state for up to 12 months.-->
 <!--Not Available on Clusters that are stopped for more than 12 months will no longer preserve state.-->

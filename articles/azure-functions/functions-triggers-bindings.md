@@ -1,22 +1,16 @@
 ---
 title: Azure Functions 中的触发器和绑定
 description: 了解如何使用触发器和绑定将 Azure 函数连接到联机事件和基于云的服务。
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 10/19/2020
 ms.author: v-junlch
-ms.openlocfilehash: e187afed3d9e75a407866a47fb404a5360f5d775
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 90236ff8b1f72a7aff9e4500f7940c13943e189d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79293158"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472681"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 触发器和绑定概念
 
@@ -79,11 +73,21 @@ ms.locfileid: "79293158"
 
 使用[类库中的特性](functions-dotnet-class-library.md)来配置触发器和绑定时，方向在特性构造函数中提供或推断自参数类型。
 
+## <a name="add-bindings-to-a-function"></a>向函数添加绑定
+
+可以使用输入或输出绑定将函数连接到其他服务。 通过向函数添加绑定的具体定义来添加绑定。 若要了解如何操作，请参阅[向 Azure Functions 中的现有函数添加绑定](add-bindings-existing-function.md)。  
+
 ## <a name="supported-bindings"></a>支持的绑定
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 有关哪些绑定处于预览状态或已批准在生产环境中使用的信息，请参阅[支持的语言](supported-languages.md)。
+
+## <a name="bindings-code-examples"></a>绑定代码示例
+
+使用下表查找特定绑定类型的示例，这些示例演示如何在函数中使用绑定。 首先，选择与你的项目相对应的语言选项卡。 
+
+[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## <a name="resources"></a>资源
 - [绑定表达式和模式](./functions-bindings-expressions-patterns.md)
@@ -98,4 +102,3 @@ ms.locfileid: "79293158"
 > [!div class="nextstepaction"]
 > [注册 Azure Functions 绑定扩展](./functions-bindings-register.md)
 
-<!-- Update_Description: wording update -->

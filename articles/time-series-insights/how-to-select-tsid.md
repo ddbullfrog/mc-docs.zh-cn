@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 284c78a3511fbad1a172f8355c8432de110a81ce
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: 1a2a8ccb151458b26df5fbb9d6a0c2554068ad27
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801830"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472081"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>选择时序 ID 的最佳做法
 
@@ -23,7 +23,7 @@ ms.locfileid: "87801830"
 
 ## <a name="choose-a-time-series-id"></a>选择时间序列 ID
 
-选择适当的时序 ID 至关重要。 选择时序 ID 与为数据库选择分区键相同。 它在创建时序见解第 2 代环境时是必需的。 
+选择适当的时序 ID 至关重要。 选择时序 ID 与为数据库选择分区键相同。 它在创建时序见解第 2 代环境时是必需的。
 
 > [!IMPORTANT]
 > 时序 ID 如下：
@@ -36,11 +36,11 @@ ms.locfileid: "87801830"
 
 要遵守的主要最佳做法包括：
 
-* 选择具有许多（例如，几百甚至几千个）非重复值的分区键。 在许多情况下，该键可能是 JSON 中的设备 ID、传感器 ID 或标记 ID。
+_ 选取具有许多（例如，几百甚至几千个）非重复值的分区键。 在许多情况下，该键可能是 JSON 中的设备 ID、传感器 ID 或标记 ID。
 * 在[时序模型](./concepts-model-overview.md)的叶节点级别，时序 ID 应是唯一的。
 * 时序 ID 属性名称字符串的字符数限制为 128 个。 时序 ID 属性值的字符数限制为 1024 个。
 * 如果时序 ID 的某个唯一属性值缺失，该值将被视为 null 值，并遵循相同的唯一性约束规则。
-* 如果时序 ID 嵌套在复杂的 JSON 对象中，请确保在提供属性名称时遵循入口[平展规则](./concepts-json-flattening-escaping-rules.md)。 查看示例 [B](concepts-json-flattening-escaping-rules.md#example-b)。 
+* 如果时序 ID 嵌套在复杂的 JSON 对象中，请确保在提供属性名称时遵循入口[平展规则](./concepts-json-flattening-escaping-rules.md)。 查看示例 [B](concepts-json-flattening-escaping-rules.md#example-b)。
 * 此外，最多可以选择三个键属性作为时序 ID。 这些属性的组合将是表示时序 ID 的组合键。  
   > [!NOTE]
   > 三个键属性必须是字符串。
@@ -53,15 +53,15 @@ ms.locfileid: "87801830"
 ### <a name="example-1-time-series-id-with-a-unique-key"></a>示例 1：具有唯一键的时序 ID
 
 * 你有两个传统的资产群。 每个群有一个唯一键。
-* 其中一个群以属性 **deviceId** 进行唯一标识。 另一个群的唯一属性为 **objectId**。 这两个群都不包含对方的唯一属性。 在此示例中，可选择两个键 **deviceId** 和 **objectId** 作为唯一键。
+* 其中一个群以属性 **deviceId** 进行唯一标识。 另一个群的唯一属性为 **objectId** 。 这两个群都不包含对方的唯一属性。 在此示例中，可选择两个键 **deviceId** 和 **objectId** 作为唯一键。
 * 我们接受 null 值，且如果事件有效负载中缺少某个属性，则计为 null 值。 向两个事件源发送数据时，这种方法同样合适，其中每个事件源中的数据具有唯一的时序 ID。
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>示例 2：具有组合键的时序 ID
 
 * 同一组资产中需要多个唯一的属性。
-* 你是一家智能建筑制造商，希望在每个房间部署传感器。 对于每个房间，通常对 **sensorId** 使用相同的值。 例如，**sensor1**、**sensor2** 和 **sensor3**。
-* 建筑物在属性 **flrRm** 中包含不同场地的重叠楼层号和房间号。 这些数字使用类似于 **1a**、**2b** 和 **3a** 的值。
-* **location** 属性包含类似于 **Redmond**、**Barcelona** 和 **Tokyo** 的值。 若要实现唯一性，可将以下三个属性指定为时序 ID 键：**sensorId**、**flrRm** 和 **location**。
+* 你是一家智能建筑制造商，希望在每个房间部署传感器。 对于每个房间，通常对 **sensorId** 使用相同的值。 例如， **sensor1** 、 **sensor2** 和 **sensor3** 。
+* 建筑物在属性 **flrRm** 中包含不同场地的重叠楼层号和房间号。 这些数字使用类似于 **1a** 、 **2b** 和 **3a** 的值。
+* **location** 属性包含类似于 **Redmond** 、 **Barcelona** 和 **Tokyo** 的值。 若要实现唯一性，可将以下三个属性指定为时序 ID 键： **sensorId** 、 **flrRm** 和 **location** 。
 
 示例原始事件：
 
@@ -75,7 +75,7 @@ ms.locfileid: "87801830"
 ```
 
 然后，可在 Azure 门户中输入组合键，如下所示：
- 
+
 [![配置环境的时序 ID。](./media/v2-how-to-tsid/configure-environment-key.png)](./media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
   > [!NOTE]

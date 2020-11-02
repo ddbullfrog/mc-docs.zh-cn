@@ -1,21 +1,23 @@
 ---
 title: 实体类型 - LUIS
-description: 实体可以在预测运行时从用户言语中提取数据。 一个可选的辅助用途是通过用作特征的实体促进意向或其他实体的预测。__
+description: '实体可以在预测运行时从用户言语中提取数据。 一个可选的辅助用途是通过用作特征的实体促进意向或其他实体的预测。 '
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 06/10/2020
-ms.date: 08/04/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: 11551a3ea84bee88bdd5b96f55fa7d618c6405ca
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: bc8feaffb2f285adaaefcb5639860c7849bbf628
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023425"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472485"
 ---
 # <a name="extract-data-with-entities"></a>通过实体提取数据
 
-实体可以在预测运行时从用户言语中提取数据。 一个可选的辅助用途是通过用作特征的实体促进意向或其他实体的预测。__
+实体可以在预测运行时从用户言语中提取数据。 一个可选的辅助用途是通过用作特征的实体促进意向或其他实体的预测。 
 
 有多种类型的实体：
 
@@ -27,7 +29,7 @@ ms.locfileid: "88023425"
 
 ## <a name="entities-represent-data"></a>实体表示数据
 
-实体是要从言语中提取的数据，例如姓名、日期、产品名称或任何有意义的单词组。 话语可包括多个实体，也可不包含任何实体。 客户端应用程序可能需要数据来执行其任务。__
+实体是要从言语中提取的数据，例如姓名、日期、产品名称或任何有意义的单词组。 话语可包括多个实体，也可不包含任何实体。 客户端应用程序可能需要数据来执行其任务。 
 
 对于模型中的每个意向，需要在所有训练言语中一致性地标记实体。
 
@@ -48,7 +50,7 @@ ms.locfileid: "88023425"
 
 ## <a name="entity-represents-data-extraction"></a>实体表示数据提取
 
-实体表示言语中的数据概念。__ 意向对整个言语分类。__
+实体表示言语中的数据概念。  意向对整个言语分类。 
 
 请考虑以下四个言语：
 
@@ -61,7 +63,7 @@ ms.locfileid: "88023425"
 
 ## <a name="label-entities-in-all-intents"></a>标记所有意向中的实体
 
-实体提取数据而不考虑预测的意向。 请确保标记所有意向中的所有示例言语。__ `None` 意向缺少实体标记会导致混淆，即使其他意向有多得多的训练言语，也是如此。
+实体提取数据而不考虑预测的意向。 请确保标记所有意向中的所有示例言语。  `None` 意向缺少实体标记会导致混淆，即使其他意向有多得多的训练言语，也是如此。
 
 ## <a name="design-entities-for-decomposition"></a>设计分解实体
 
@@ -79,7 +81,7 @@ ms.locfileid: "88023425"
 
 * 标记应在意向之间应保持一致。 这甚至包括你在 **None** 意向中提供的包含此实体的言语。 否则，模型将无法有效地确定序列。
 * 如果有包含子实体的机器学习实体，请确保实体和子实体的不同顺序和变体显示在标记的言语中。 标记的示例言语应包括所有有效的形式，并包括显示的、缺失的以及在言语中重新排序的实体。
-* 应避免将实体过度拟合到极固定的集。 当模型未充分通用化时，会发生过度拟合****，这是机器学习模型中的常见问题。 这意味着应用并非很适合处理新数据。 因此，你应该使标记的示例言语多样化，从而使应用能够在你提供的有限示例之外通用化。 你应该让不同的子实体有足够的差异性，使模型更多地考虑相关概念，而不是只考虑显示的示例。
+* 应避免将实体过度拟合到极固定的集。 当模型未充分通用化时，会发生过度拟合  ，这是机器学习模型中的常见问题。 这意味着应用并非很适合处理新数据。 因此，你应该使标记的示例言语多样化，从而使应用能够在你提供的有限示例之外通用化。 你应该让不同的子实体有足够的差异性，使模型更多地考虑相关概念，而不是只考虑显示的示例。
 
 ## <a name="effective-prebuilt-entities"></a>有效的预生成实体
 
@@ -103,10 +105,10 @@ ms.locfileid: "88023425"
 |实体类型|目的|
 |--|--|
 |[**机器学习**](tutorial-machine-learned-entity.md)|从标记的示例中提取嵌套的、复杂的数据。 |
-|[**列表**](reference-entity-list.md)|使用**精确文本匹配**提取的项列表及其同义词。|
+|[**列表**](reference-entity-list.md)|使用 **精确文本匹配** 提取的项列表及其同义词。|
 |[**Pattern.any**](#patternany-entity)|由于属于自由格式而难以确定末尾部分的实体。 仅在[模式](luis-concept-patterns.md)中可用。|
 |[**预生成**](luis-reference-prebuilt-entities.md)|已经过训练，可以提取特定类型的数据，例如 URL 或电子邮件。 其中一些预生成实体是在开源[识别器 - 文本](https://github.com/Microsoft/Recognizers-Text)项目中定义的。 如果你的特定区域性或实体当前不受支持，请通过为项目做贡献来获得支持。|
-|[**正则表达式**](reference-entity-regular-expression.md)|使用正则表达式进行**精确文本匹配**。|
+|[**正则表达式**](reference-entity-regular-expression.md)|使用正则表达式进行 **精确文本匹配** 。|
 
 
 ## <a name="extraction-versus-resolution"></a>提取与解析
@@ -141,11 +143,18 @@ Pattern.any 仅在[模式](luis-concept-patterns.md)中可用。
 <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>
 ## <a name="exceeding-app-limits-for-entities"></a>超过应用的实体限制
 
-如果需要提高[限制](luis-limits.md#model-limits)，请联系支持人员。 为此，请收集有关系统的详细信息，转到 [LUIS](luis-reference-regions.md#luis-website) 网站，然后选择“支持”****。 如果所持 Azure 订阅包含支持服务，请与 [Azure 技术支持](https://www.azure.cn/support/contact/)联系。
+如果需要提高[限制](luis-limits.md#model-limits)，请联系支持人员。 为此，请收集有关系统的详细信息，转到  。 如果所持 Azure 订阅包含支持服务，请与 [Azure 技术支持](https://www.azure.cn/support/contact/)联系。
 
-## <a name="entity-prediction-status"></a>实体预测状态
+## <a name="entity-prediction-status-and-errors"></a>实体预测状态和错误
 
-当实体的实体预测不同于你为示例言语选择的实体时，LUIS 门户会显示此状态。 这种不同的评分是根据当前已训练的模型给出的。 可以根据此信息使用下面的一个或多个方法解决训练错误：
+当实体的实体预测不同于你为示例言语选择的实体时，LUIS 门户会显示此状态。 这种不同的评分是根据当前已训练的模型给出的。 
+
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="当实体的实体预测不同于你为示例言语选择的实体时，LUIS 门户会显示此状态。":::
+
+错误的文本将在示例言语中突出显示，示例言语行的右侧有一个显示为红色三角形的错误指示符。 
+
+可以根据此信息使用下面的一个或多个方法来解决实体错误：
+* 突出显示的文本进行了错误的标记。 若要进行修复，请完成查看、更正和重新训练的操作。 
 * 为实体创建一个有助于确定实体概念的[特征](luis-concept-feature.md)
 * 添加更多[示例言语](luis-concept-utterance.md)并使用实体进行标记
 * 对于在预测终结点上收到的任何言语，[查看有效的学习建议](luis-concept-review-endpoint-utterances.md)，以便确定实体的概念。

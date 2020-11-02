@@ -1,22 +1,22 @@
 ---
-title: Azure 虚拟 WAN - 创建站点到站点连接
+title: 教程 - 使用 Azure 虚拟 WAN 创建站点到站点连接
 description: 本教程介绍如何使用 Azure 虚拟 WAN 来与 Azure 建立站点到站点 VPN 连接。
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: tutorial
-origin.date: 07/09/2020
+origin.date: 10/08/2020
 author: rockboyfor
-ms.date: 09/25/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 07ff8693365f13674a6846127ef04de36ebc0439
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: e2bc3ac96cd6b756bd3677dba3fc2e188364a82f
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246673"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472552"
 ---
 <!--MOONCAKE: NY VS Beijing, London VS Shanghai, LS VS Tianjing-->
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>教程：使用 Azure 虚拟 WAN 创建站点到站点连接
@@ -41,7 +41,7 @@ ms.locfileid: "91246673"
 
 :::image type="content" source="./media/virtual-wan-about/virtualwan.png" alt-text="虚拟 WAN 示意图":::
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="prerequisites"></a>先决条件
 
 在开始配置之前，请验证你是否符合以下条件：
 
@@ -101,12 +101,12 @@ ms.locfileid: "91246673"
 * **vpnSiteConfiguration** - 此部分表示当站点连接到虚拟 WAN 时设置的设备详细信息。 它包含分支设备的名称和公共 IP 地址。
 * **vpnSiteConnections** - 此部分提供以下设置的信息：
 
-    * 虚拟中心 VNet 的**地址空间**<br />示例：
+    * 虚拟中心 VNet 的 **地址空间**<br />示例：
 
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * 已连接到中心的 VNet 的**地址空间**<br />示例：
+    * 已连接到中心的 VNet 的 **地址空间**<br />示例：
 
         ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -242,7 +242,7 @@ ms.locfileid: "91246673"
 
 你可以随时选择“查看/配置”来查看和配置 VPN 网关设置。
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="查看配置" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="虚拟 WAN 示意图" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 在“编辑 VPN 网关”页上，可以看到以下设置：
 
@@ -251,11 +251,23 @@ ms.locfileid: "91246673"
 * VPN 网关默认 BGP IP 地址（由 Azure 分配）
 * 自定义 BGP IP 地址的配置选项：此字段保留给 APIPA（自动专用 IP 地址）。 Azure 支持 169.254.21.* 至 169.254.22.* 范围内的 BGP IP。 Azure 接受这些范围内的 BGP 连接，但会使用默认的 BGP IP 拨号连接。
 
-    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="查看配置" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="虚拟 WAN 示意图" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+
+<a name="cleanup"></a>
+## <a name="clean-up-resources"></a>清理资源
+
+如果不再需要这些资源，可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 删除资源组及其包含的所有资源。 将“myResourceGroup”替换为资源组的名称，并运行以下 PowerShell 命令：
+
+```powershell
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解虚拟 WAN，请参阅[虚拟 WAN 概述](virtual-wan-about.md)页。
+接下来，若要详细了解虚拟 WAN，请参阅：
+
+> [!div class="nextstepaction"]
+> * [虚拟 WAN 常见问题解答](virtual-wan-faq.md)
 
 <!--MOONCAKE: NY VS Beijing, London VS Shanghai, LS VS Tianjin-->
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 11/21/2019
 ms.date: 04/06/2020
-ms.openlocfilehash: 8c64382d0ef8c01e89eb4f762db651886091e245
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 1c050ad7d6652e864a71d4c7c8b6a9d3bf84eb34
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226156"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471236"
 ---
 # <a name="iot-hub-ip-addresses"></a>IoT 中心 IP 地址
 
@@ -26,9 +26,9 @@ IoT 中心公共终结点的 IP 地址前缀在 _AzureIoTHub_ [服务标记](../
 
 | 目标 | 适用的方案 | 方法 |
 |------|-----------|----------|
-| 确保设备和服务只与 IoT 中心终结点通信 | [设备到云](./iot-hub-devguide-messaging.md)和[云到设备](./iot-hub-devguide-messages-c2d.md)的消息传送、[直接方法](./iot-hub-devguide-direct-methods.md)、[设备和模块孪生](./iot-hub-devguide-device-twins.md)以及[设备流](./iot-hub-device-streams-overview.md) | 使用 _AzureIoTHub_ 和 _EventHub_ 服务标记发现 IoT 中心和事件中心 IP 地址前缀，并相应地在设备和服务的防火墙设置中为这些 IP 地址前缀配置“允许”规则；丢弃发往你不希望设备或服务与其通信的其他目标 IP 地址的流量。 |
-| 确保 IoT 中心设备终结点仅接收来自你的设备和网络资产的连接 | [设备到云](./iot-hub-devguide-messaging.md)和[云到设备](./iot-hub-devguide-messages-c2d.md)的消息传送、[直接方法](./iot-hub-devguide-direct-methods.md)、[设备和模块孪生](./iot-hub-devguide-device-twins.md)以及[设备流](./iot-hub-device-streams-overview.md) | 使用 IoT 中心 [IP 筛选功能](iot-hub-ip-filtering.md)允许来自你的设备和网络资产 IP 地址的连接（参阅[限制](#limitations-and-workarounds)部分）。 | 
-| 确保只能从你的网络资产访问路由的自定义终结点资源（存储帐户、服务总线和事件中心） | [消息路由](./iot-hub-devguide-messages-d2c.md) | 遵循有关限制连接的资源指导（例如，通过[防火墙规则](../storage/common/storage-network-security.md)、[专用链接](../private-link/private-endpoint-overview.md)或[服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)进行限制）；使用 _AzureIoTHub_ 服务标记发现 IoT 中心 IP 地址前缀，并在资源的防火墙配置中为这些 IP 前缀添加“允许”规则（参阅[限制](#limitations-and-workarounds)部分）。 |
+| 确保设备和服务只与 IoT 中心终结点通信 | [设备到云](./iot-hub-devguide-messaging.md)和[云到设备](./iot-hub-devguide-messages-c2d.md)的消息传送、[直接方法](./iot-hub-devguide-direct-methods.md)、[设备和模块孪生](./iot-hub-devguide-device-twins.md)  | 使用 _AzureIoTHub_ 和 _EventHub_ 服务标记发现 IoT 中心和事件中心 IP 地址前缀，并相应地在设备和服务的防火墙设置中为这些 IP 地址前缀配置“允许”规则；丢弃发往你不希望设备或服务与其通信的其他目标 IP 地址的流量。 |
+| 确保 IoT 中心设备终结点仅接收来自你的设备和网络资产的连接 | [设备到云](./iot-hub-devguide-messaging.md)和[云到设备](./iot-hub-devguide-messages-c2d.md)的消息传送、[直接方法](./iot-hub-devguide-direct-methods.md)、[设备和模块孪生](./iot-hub-devguide-device-twins.md) | 使用 IoT 中心 [IP 筛选功能](iot-hub-ip-filtering.md)允许来自你的设备和网络资产 IP 地址的连接（参阅[限制](#limitations-and-workarounds)部分）。 | 
+| 确保只能从你的网络资产访问路由的自定义终结点资源（存储帐户、服务总线和事件中心） | [消息路由](./iot-hub-devguide-messages-d2c.md) | 遵循有关限制连接的资源指导（例如，通过 [防火墙规则](../storage/common/storage-network-security.md)、 [专用链接](../private-link/private-endpoint-overview.md)或 [服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)进行限制）；使用 _AzureIoTHub_ 服务标记发现 IoT 中心 IP 地址前缀，并在资源的防火墙配置中为这些 IP 前缀添加“允许”规则（参阅 [限制](#limitations-and-workarounds)部分）。 |
 
 ## <a name="best-practices"></a>最佳实践
 

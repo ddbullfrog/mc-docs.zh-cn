@@ -11,12 +11,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 06/03/2019
 ms.date: 09/16/2019
-ms.openlocfilehash: 56e4b24642baba8a27127886ce46d8886d10427b
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: e43fb7f1c9e9490d3abb561070af9da780869e52
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516552"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472606"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Apache Hadoop 作业的数据
 
@@ -73,10 +73,8 @@ hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 
 若要查看可用于文件的其他 Hadoop 命令的列表，请参阅 [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
-> [!WARNING]
-> 在 Apache HBase 群集上，写入数据为 256 KB 时会使用默认块大小。 虽然在使用 HBase Api 或 REST API 时可良好运行，但使用 `hadoop` 或 `hdfs dfs` 命令编写大于 ~12 GB 的数据会导致错误。 有关详细信息，请参阅本文的[在 Blob 上编写时的存储异常](#storageexception)部分。
->
->
+> [!WARNING]  
+> 在 Apache HBase 群集上，写入数据为 256 KB 时会使用默认块大小。 虽然在使用 HBase Api 或 REST API 时可良好运行，但使用 `hadoop` 或 `hdfs dfs` 命令编写大于 ~12 GB 的数据会导致错误。 有关详细信息，请参阅[在 blob 上写入时的存储异常](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob)。
 
 ### <a name="graphical-clients"></a>图形客户端
 
@@ -93,7 +91,8 @@ hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 
 
 ## <a name="mount-azure-storage-as-local-drive"></a>将 Azure 存储装载为本地驱动器
-请参阅[将 Azure 存储装载为本地驱动器](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)。
+
+请参阅[将 Azure 存储装载为本地驱动器](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive)。
 
 ## <a name="upload-using-services"></a>使用服务上传
 

@@ -3,24 +3,23 @@ title: Keyphrase 预生成实体 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中的 keyPhrase 预构建实体信息。
 services: cognitive-services
-author: lingliw
-manager: digimobile
+ms.author: v-johya
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
+ms.date: 10/19/2020
 origin.date: 09/27/2019
-ms.date: 10/31/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 23d7032e75207350c9b81eeb80097d1dc03e37c2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 743c988cf2d4d68ef2fa62094a01601025f4b37f
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74884934"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472385"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 keyPhrase 预构建实体
-keyPhrase 实体从话语中提取各种关键短语。 不需要将包含 keyPhrase 的示例话语添加到应用程序。 keyPhrase 实体作为[文本分析](../text-analytics/overview.md)功能的一部分，在[许多区域性](luis-language-support.md#languages-supported)中都受支持。 
+keyPhrase 实体从话语中提取各种关键短语。 不需要将包含 keyPhrase 的示例话语添加到应用程序。 keyPhrase 实体作为[文本分析](../text-analytics/overview.md)功能的一部分，在[许多区域性](luis-language-support.md#languages-supported)中都受支持。
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>预构建 keyPhrase 实体的解析
 
@@ -97,14 +96,11 @@ keyPhrase 实体从话语中提取各种关键短语。 不需要将包含 keyPh
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>后续步骤
 
 详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
 
 了解[百分比](luis-reference-prebuilt-percentage.md)、[数字](luis-reference-prebuilt-number.md)和[存在时间](luis-reference-prebuilt-age.md)实体。
-
-
-
 

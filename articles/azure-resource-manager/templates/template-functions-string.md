@@ -3,16 +3,17 @@ title: 模板函数 - 字符串
 description: 介绍了可在 Azure Resource Manager 模板中用来处理字符串的函数。
 ms.topic: conceptual
 origin.date: 04/08/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 30666d5178a4e4744a3f3133544ca6f319d047e3
-ms.sourcegitcommit: 2bd0be625b21c1422c65f20658fe9f9277f4fd7c
+ms.openlocfilehash: fbb0468ec98942e30d26f737c8547e954b4ad267
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86441010"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470405"
 ---
 # <a name="string-functions-for-arm-templates"></a>ARM 模板的字符串函数
 
@@ -31,6 +32,7 @@ ms.locfileid: "86441010"
 * [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [json](#json)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -57,7 +59,7 @@ ms.locfileid: "86441010"
 
 返回输入字符串的 base64 表示形式。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -122,7 +124,7 @@ ms.locfileid: "86441010"
 
 将 base64 表示形式转换为 JSON 对象。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -187,7 +189,7 @@ ms.locfileid: "86441010"
 
 将 base64 表示形式转换为字符串。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -252,7 +254,7 @@ ms.locfileid: "86441010"
 
 合并多个字符串值并返回串联的字符串，或合并多个数组并返回串联的数组。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -342,7 +344,7 @@ ms.locfileid: "86441010"
 
 检查数组是否包含某个值、某个对象是否包含某个键，或者某个字符串是否包含某个子字符串。 字符串比较区分大小写。 但在测试某个对象是否包含某个键时，该比较不区分大小写。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -351,7 +353,7 @@ ms.locfileid: "86441010"
 
 ### <a name="return-value"></a>返回值
 
-如果找到该项，则为 **True**；否则为 **False**。
+如果找到该项，则为 **True** ；否则为 **False** 。
 
 ### <a name="examples"></a>示例
 
@@ -423,7 +425,7 @@ ms.locfileid: "86441010"
 
 将一个值转换为数据 URI。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -478,7 +480,7 @@ ms.locfileid: "86441010"
 
 将采用数据 URI 格式的值转换为字符串。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -533,7 +535,7 @@ ms.locfileid: "86441010"
 
 确定数组、对象或字符串是否为空。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -541,7 +543,7 @@ ms.locfileid: "86441010"
 
 ### <a name="return-value"></a>返回值
 
-如果该值为空，则返回 **True**；否则返回 **False**。
+如果该值为空，则返回 **True** ；否则返回 **False** 。
 
 ### <a name="examples"></a>示例
 
@@ -598,7 +600,7 @@ ms.locfileid: "86441010"
 
 确定某个字符串是否以某个值结尾。 比较不区分大小写。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -607,7 +609,7 @@ ms.locfileid: "86441010"
 
 ### <a name="return-value"></a>返回值
 
-如果字符串的最后一个或多个字符与该值匹配，则为 **True**；否则为 **False**。
+如果字符串的最后一个或多个字符与该值匹配，则为 **True** ；否则为 **False** 。
 
 ### <a name="examples"></a>示例
 
@@ -664,7 +666,7 @@ ms.locfileid: "86441010"
 
 返回字符串的第一个字符，或数组的第一个元素。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -716,7 +718,7 @@ ms.locfileid: "86441010"
 
 基于输入值创建带格式的字符串。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -726,7 +728,7 @@ ms.locfileid: "86441010"
 
 ### <a name="remarks"></a>备注
 
-使用此函数来为模板中的字符串设置格式。 此函数使用的格式设置选项与 .NET 中的 [System.String.Format](https://docs.microsoft.com//dotnet/api/system.string.format) 方法相同。
+使用此函数来为模板中的字符串设置格式。 此函数使用的格式设置选项与 .NET 中的 [System.String.Format](https://docs.microsoft.com/dotnet/api/system.string.format) 方法相同。
 
 ### <a name="examples"></a>示例
 
@@ -773,7 +775,7 @@ ms.locfileid: "86441010"
 
 基于以参数形式提供的值创建一个采用全局唯一标识符格式的值。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -844,7 +846,7 @@ ms.locfileid: "86441010"
 
 返回字符串中某个值的第一个位置。 比较不区分大小写。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -899,13 +901,19 @@ ms.locfileid: "86441010"
 | lastString | int | 0 |
 | notFound | int | -1 |
 
+## <a name="json"></a>json
+
+`json(arg1)`
+
+将有效的 JSON 字符串转换为 JSON 数据类型。 有关详细信息，请参阅 [json 函数](template-functions-object.md#json)。
+
 ## <a name="last"></a>last
 
 `last (arg1)`
 
 返回字符串的最后一个字符，或数组的最后一个元素。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -957,7 +965,7 @@ ms.locfileid: "86441010"
 
 返回字符串中某个值的最后一个位置。 比较不区分大小写。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1018,7 +1026,7 @@ ms.locfileid: "86441010"
 
 返回字符串中的字符数、数组中的元素数或对象中的根级属性数。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1244,7 +1252,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 返回其中某个字符串的所有实例均替换为另一个字符串的新字符串。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1297,7 +1305,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 返回一个字符串，其中包含指定字符数后面的所有字符；或者返回一个数组，其中包含指定元素数后面的所有元素。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1365,7 +1373,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 返回包含输入字符串的子字符串的字符串数组，其中的子字符串使用指定的分隔符进行分隔。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1424,7 +1432,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 确定某个字符串是否以某个值开头。 比较不区分大小写。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1433,7 +1441,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 ### <a name="return-value"></a>返回值
 
-如果字符串的最前面一个或多个字符与该值匹配，则为 **True**；否则为 **False**。
+如果字符串的最前面一个或多个字符与该值匹配，则为 **True** ；否则为 **False** 。
 
 ### <a name="examples"></a>示例
 
@@ -1490,7 +1498,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 将指定的值转换为字符串。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1561,7 +1569,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 返回从指定的字符位置开始且包含指定数量的字符的子字符串。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1622,7 +1630,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 返回一个字符串，其中包含从字符串开头位置算起的指定数目的字符；或返回一个数组，其中包含从数组开头位置算起的指定数目的元素。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1690,7 +1698,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 将指定的字符串转换为小写。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1741,7 +1749,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 将指定的字符串转换为大写。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1792,7 +1800,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 从指定的字符串中删除所有前导和尾随空白字符。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1838,7 +1846,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 根据作为参数提供的值创建确定性哈希字符串。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1916,7 +1924,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 通过组合 baseUri 和 relativeUri 字符串来创建绝对 URI。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -1927,7 +1935,7 @@ newGuid 函数会使用 .NET Framework 中的 [Guid 结构](https://docs.microso
 
 * 如果 **baseUri** 不以尾随斜杠结尾，则会出现以下两种情况之一。
 
-    * 如果 **baseUri** 根本没有斜杠（除了前面的“/”之外），则结果就是 **baseUri** 后跟 **relativeUri**。
+    * 如果 **baseUri** 根本没有斜杠（除了前面的“/”之外），则结果就是 **baseUri** 后跟 **relativeUri** 。
 
     * 如果 baseUri 包含一些斜杠，但不是以斜杠结尾，则从最后一个斜杠开始的所有内容都将从 baseUri 中删除，结果是 baseUri 后跟 relativeUri。
 
@@ -1996,7 +2004,7 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 
 将 URI 编码。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -2051,7 +2059,7 @@ URI 编码值的字符串。
 
 返回 URI 编码值的字符串。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |

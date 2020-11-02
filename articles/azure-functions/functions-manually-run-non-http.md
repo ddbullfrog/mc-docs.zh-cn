@@ -3,14 +3,14 @@ title: 手动运行非 HTTP 触发的 Azure Functions
 description: 通过 HTTP 请求运行非 HTTP 触发的 Azure Functions
 author: craigshoemaker
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/19/2020
 ms.author: v-junlch
-ms.openlocfilehash: 59d6dfa312a2978df0bf76120415bb295957e946
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: bfc6705e8f4d7e2e878bddfb5f05b8fc26ecf155
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413685"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472580"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>手动运行非 HTTP 触发的函数
 
@@ -43,11 +43,11 @@ ms.locfileid: "89413685"
 
 1. 在“编辑密钥”部分中，将密钥值复制到剪贴板，然后选择“确定”。
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="将主密钥复制到剪贴板。" border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="找到要复制的主密钥。" border="true":::
 
 1. 复制主密钥之后，选择“代码 + 测试”，然后选择“日志”。 手动从 Postman 运行已记录函数时，会在此处看到该函数中的消息。
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="查看日志以了解主密钥测试结果。" border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="找到要复制的主密钥。" border="true":::
 
 > [!CAUTION]  
 > 由于函数应用中提升的权限由主密钥授予，因此不应与第三方共享此密钥或在应用程序中分发此密钥。 此密钥应仅发送到 HTTPS 终结点。
@@ -56,28 +56,28 @@ ms.locfileid: "89413685"
 
 打开 Postman 并执行以下步骤：
 
-1. **在 URL 文本框中输入请求位置**。
-1. 确保 HTTP 方法设置为 **POST**。
+1. **在 URL 文本框中输入请求位置** 。
+1. 确保 HTTP 方法设置为 **POST** 。
 1. 选择“标头”选项卡。
 1. 键入“x-functions-key”作为第一个密钥，并粘贴主密钥（在剪贴板中）作为值。
 1. 键入“Content-Type”作为第二个密钥，然后键入“application/json”作为值。
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Postman 标头设置。" border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="找到要复制的主密钥。" border="true":::
 
 1. 选择“正文”选项卡。
 1. 键入“{ "input": "test" }”作为请求的正文。
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman 正文设置。" border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="找到要复制的主密钥。" border="true":::
 
 1. 选择“发送”。
         
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="通过 Postman 发送请求。" border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="找到要复制的主密钥。" border="true":::
 
     Postman 然后会报告状态“202 已接受”。
 
 1. 接下来，返回到 Azure 门户中的函数。 查看日志，你会看到手动调用函数后显示的消息。
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="查看日志以了解主密钥测试结果。" border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="找到要复制的主密钥。" border="true":::
 
 ## <a name="next-steps"></a>后续步骤
 

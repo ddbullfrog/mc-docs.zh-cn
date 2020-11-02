@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 02/25/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: ce1674dd268ff1634bd1af73fb0d5b1fb6369f4a
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 10/29/2020
+ms.openlocfilehash: 7f9ef091f5e338982ee64b916f3553ff63c472b6
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029676"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470479"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL - 单一服务器中进行备份和还原
 
@@ -20,19 +20,28 @@ Azure Database for PostgreSQL 可自动创建服务器备份并将其存储在�
 
 ## <a name="backups"></a>备份
 
-Azure Database for PostgreSQL 对数据文件和事务日志进行备份。 我们会进行完整备份或差异备份。 可以通过这些备份将服务器还原到所配置的备份保留期中的任意时间点。 默认的备份保留期为七天。 可以选择将其配置为长达 35 天。 所有备份都使用 AES 256 位加密进行加密。
+Azure Database for PostgreSQL 对数据文件和事务日志进行备份。 根据支持的最大存储大小，我们会进行完整备份和差异备份（最大 4 TB 的存储服务器）或快照备份（最大 16 TB 的存储服务器）。 可以通过这些备份将服务器还原到所配置的备份保留期中的任意时间点。 默认的备份保留期为七天。 可以选择将其配置为长达 35 天。 所有备份都使用 AES 256 位加密进行加密。
 
 无法导出这些备份文件。 这些备份只能用于 Azure Database for PostgreSQL 中的还原操作。 可以使用 [pg_dump](howto-migrate-using-dump-and-restore.md) 复制数据库。
 
 ### <a name="backup-frequency"></a>备份频率
 
-通常情况下，完整备份每周进行一次，差异备份每天进行两次，事务日志备份每五分钟进行一次。 创建服务器后，立即计划完整备份的第一个快照。 在大型还原服务器上，初始完整备份可能需要更长时间。 新服务器可以还原到的最早时间点是完成初始完整备份的时间。
+#### <a name="servers-with-up-to-4-tb-storage"></a>存储容量最大 4 TB 的服务器
+
+对于支持最多 4 TB 存储容量的服务器，每周进行一次完整备份。 差异备份一天进行两次。 事务日志备份每五分钟进行一次。
+
+
+#### <a name="servers-with-up-to-16-tb-storage"></a>存储容量最大 16 TB 的服务器
+
+在 [Azure 区域](/postgresql/concepts-pricing-tiers#storage)的子集中，所有新预配的服务器最多可以支持 16 TB 的存储容量。 这些大型存储服务器上的备份是基于快照的。 第一次完整快照备份在创建服务器后立即进行计划。 第一次完整快照备份将作为服务器的基准备份保留。 后续快照备份仅为差异备份。 差异快照备份不按固定计划进行。 在一天之内，将执行三次差异快照备份。 事务日志备份每五分钟进行一次。 
 
 ### <a name="backup-retention"></a>备份保留
 
 根据服务器上的备份保持期设置来保留备份。 可以选择 7 到 35 天的保留期。 默认保持期为 7 天。 可以在服务器创建期间或以后通过使用 [Azure 门户](/postgresql/howto-restore-server-portal#set-backup-configuration)或 [Azure CLI](/postgresql/howto-restore-server-cli#set-backup-configuration) 更新备份配置来设置保留期。 
 
-备份保留期控制可以往回检索多长时间的时间点还原，因为它基于可用备份。 从恢复的角度来看，备份保留期也可以视为恢复时段。 在备份保留期间内执行时间点还原所需的所有备份都保留在备份存储中。 例如，如果备份保留期设置为 7 天，则认为恢复时段是最近 7 天。 在这种情况下，将保留在过去 7 天内还原服务器所需的所有备份。 备份保留期为 7 天：服务器将保留最多 2 个完整数据库备份、所有差异备份和自最早的完整数据库备份以来执行的事务日志备份。
+备份保留期控制可以往回检索多长时间的时间点还原，因为它基于可用备份。 从恢复的角度来看，备份保留期也可以视为恢复时段。 在备份保留期间内执行时间点还原所需的所有备份都保留在备份存储中。 例如，如果备份保留期设置为 7 天，则认为恢复时段是最近 7 天。 在这种情况下，将保留在过去 7 天内还原服务器所需的所有备份。 备份保留期为 7 天：
+- 存储容量最大达 4 TB 的服务器将保留最多 2 个完整数据库备份、所有差异备份和自最早的完整数据库备份以来执行的事务日志备份。
+- 存储容量最大达 16 TB 的服务器将保留完整数据库快照、所有差异快照和过去 8 天的事务日志备份。
 
 ### <a name="backup-redundancy-options"></a>备份冗余选项
 
@@ -55,13 +64,13 @@ Azure Database for PostgreSQL 最高可以提供 100% 的已预配服务器存�
 
 可以使用两种类型的还原：
 
-- **时间点还原**：可以与任一备份冗余选项配合使用，所创建的新服务器与原始服务器位于同一区域。
-- **异地还原**：只能在已将服务器配置为进行异地冗余存储的情况下使用，用于将服务器还原到另一区域。
+- **时间点还原** ：可以与任一备份冗余选项配合使用，所创建的新服务器与原始服务器位于同一区域。
+- **异地还原** ：只能在已将服务器配置为进行异地冗余存储的情况下使用，用于将服务器还原到另一区域。
 
 估计的恢复时间取决于若干因素，包括数据库大小、事务日志大小、网络带宽，以及在同一区域同时进行恢复的数据库总数。 恢复时间通常少于 12 小时。
 
 > [!IMPORTANT]
-> 已删除的服务器**无法**还原。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 为了防止服务器资源在部署后遭意外删除或意外更改，管理员可以利用[管理锁](/azure-resource-manager/resource-group-lock-resources)。
+> 已删除的服务器 **无法** 还原。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 为了防止服务器资源在部署后遭意外删除或意外更改，管理员可以利用[管理锁](/azure-resource-manager/resource-group-lock-resources)。
 
 ### <a name="point-in-time-restore"></a>时间点还原
 
@@ -73,7 +82,7 @@ Azure Database for PostgreSQL 最高可以提供 100% 的已预配服务器存�
 
 ### <a name="geo-restore"></a>异地还原
 
-如果已将服务器配置为进行异地冗余备份，则可将服务器还原到另一 Azure 区域，只要服务在该区域可用即可。 查看 [Azure Database for PostgeSQL 定价层](concepts-pricing-tiers.md)，以获取受支持区域的列表。
+如果已将服务器配置为进行异地冗余备份，则可将服务器还原到另一 Azure 区域，只要服务在该区域可用即可。 支持存储容量最大达 4 TB 的服务器可以还原到异地配对区域，也可以还原到支持存储容量最大达 16 TB 的任何区域。 对于支持存储容量最大达 16 TB 的服务器，也可以在支持 16 TB 服务器的任何区域中还原异地备份。 查看 [Azure Database for PostgeSQL 定价层](concepts-pricing-tiers.md)，以获取受支持区域的列表。
 
 当服务器因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 如果区域中出现的大规模事件导致数据库应用程序不可用，可以根据异地冗余备份将服务器还原到任何其他区域中的服务器。 提取备份后，会延迟一段时间才会将其复制到其他区域中。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。
 

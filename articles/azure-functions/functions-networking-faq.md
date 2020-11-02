@@ -2,14 +2,14 @@
 title: 有关 Azure Functions 中的网络的常见问题解答
 description: 有关 Azure Functions 的网络的一些最常见问题解答和方案。
 ms.topic: troubleshooting
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.reviewer: glenga
-ms.openlocfilehash: 1f0342315395a4840c908556226f7e367b9c3ce9
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: ab3147614096c1525d52534657e911b7798d40a2
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223312"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472050"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>有关 Azure Functions 中的网络的常见问题解答
 
@@ -27,11 +27,11 @@ ms.locfileid: "88223312"
     * 在 IP 限制下，你还能够配置[服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)，这会将您的函数限制为仅接受来自特定虚拟网络的入站流量。
 * 删除所有 HTTP 触发器。 对于某些应用程序，只需要避免使用 HTTP 触发器并使用任何其他事件源来触发您的函数就足够了。
 
-请记住，Azure 门户编辑器需要直接访问你的正在运行的函数。 通过 Azure 门户所做的任何代码更改都将要求你使用的设备浏览门户来将其 IP 列入允许列表。 但是，在实施了网络限制的情况下，你仍然可以使用“平台功能”选项卡下的任何内容。
+请记住，Azure 门户编辑器需要直接访问你的正在运行的函数。 通过 Azure 门户所做的任何代码更改都会要求你所使用的设备浏览门户，以便将其 IP 添加到允许列表。 但是，在实施了网络限制的情况下，你仍然可以使用“平台功能”选项卡下的任何内容。
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>如何将我的函数应用限制到某个虚拟网络？
 
-可以使用[服务终结点](./functions-networking-options.md#private-site-access)将函数应用的**入站**流量限制倒某个虚拟网络。 此配置仍然允许函数应用对 Internet 进行出站调用。
+可以使用 [服务终结点](./functions-networking-options.md#private-site-access)将函数应用的 **入站** 流量限制倒某个虚拟网络。 此配置仍然允许函数应用对 Internet 进行出站调用。
 
 若要完全限制某个函数以便所有流量流过虚拟网络，唯一方式是使用内部负载平衡应用服务环境。 此选项将站点部署在虚拟网络中的专用基础结构上，并通过虚拟网络发送所有触发器和流量。 
 
@@ -49,7 +49,7 @@ ms.locfileid: "88223312"
 
 可以使用[服务终结点](./functions-networking-options.md#private-site-access)允许从虚拟网络调用 HTTP 触发器。 
 
-还可以通过将函数应用部署到应用服务计划或应用服务环境，从虚拟网络中的所有其他资源触发函数。 有关详细信息，请参阅[非 HTTP 虚拟网络触发器](./functions-networking-options.md#virtual-network-triggers-non-http)
+还可以通过将函数应用部署到高级计划、应用服务计划或应用服务环境，从虚拟网络中的所有其他资源触发函数。 有关详细信息，请参阅[非 HTTP 虚拟网络触发器](./functions-networking-options.md#virtual-network-triggers-non-http)
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>如何在虚拟网络中部署函数应用？
 
@@ -66,4 +66,3 @@ ms.locfileid: "88223312"
 * [详细了解 Azure 中的虚拟网络](../virtual-network/virtual-networks-overview.md)
 * [在应用服务环境中允许更多的网络功能和控制](../app-service/environment/intro.md)
 
-<!-- Update_Description: wording update -->

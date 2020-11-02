@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 08/13/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: e3dc7a9ca811d2673e22999ea915ecc29749a3f3
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 10/29/2020
+ms.openlocfilehash: 640af1bfd666bc45142abf1a5ad578aa168a43b7
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512894"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470436"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行监视
 
@@ -40,13 +40,13 @@ ms.locfileid: "89512894"
 |storage_limit|存储限制|字节|此服务器的最大存储。|
 |active_connections|活动连接数|计数|服务器的活动连接数。|
 |connections_failed|失败的连接数|计数|服务器的失败连接数。|
-|seconds_behind_master|复制延迟（秒）|计数|副本服务器滞后于主服务器的秒数。 （不适用于基本层服务器）|
+|seconds_behind_master|复制延迟（秒）|计数|副本服务器滞后于源服务器的秒数。 （不适用于基本层服务器）|
 |network_bytes_egress|网络传出|字节|跨活动连接的网络传出。|
 |network_bytes_ingress|网络传入|字节|跨活动连接的网络传入。|
 |backup_storage_used|使用的备份存储|字节|已使用的备份存储量。 此指标表示根据为服务器设置的备份保留期保留的所有完整数据库备份、差异备份和日志备份所消耗的存储的总和。 备份的频率由服务管理，并在[概念文章](concepts-backup.md)中进行了说明。 对于异地冗余存储，备份存储使用率是本地冗余存储的两倍。|
 
 ## <a name="server-logs"></a>服务器日志
-可以在服务器上启用慢查询和审核日志。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要详细了解日志记录，请访问 [审核日志](concepts-audit-logs.md)和[慢查询日志](concepts-server-logs.md)文章。
+可以在服务器上启用慢查询和审核日志。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要详细了解日志记录，请访问[审核日志](concepts-audit-logs.md)和[慢查询日志](concepts-server-logs.md)这两篇文章。
 
 ## <a name="query-store"></a>查询存储
 [查询存储](concepts-query-store.md)是一项跟踪一段时间内查询性能（包括查询运行时统计信息和等待事件）的功能。 此功能将查询运行时性能信息保留在 **mysql** 架构中。 你可以通过各种配置旋钮控制数据的收集和存储。
@@ -61,8 +61,7 @@ ms.locfileid: "89512894"
 
 “计划内维护通知”允许你接收有关 Azure Database for MySQL 即将进行的计划内维护的警报。 这些通知与[服务运行状况](../service-health/overview.md)计划内维护集成，允许你在同一位置查看你的订阅的所有计划内维护。 它还有助于将通知扩展到不同资源组的适当受众，因为你可能有不同的联系人负责不同的资源。 你将在事件发生前的 72 小时收到有关即将进行的维护的通知。
 
-> [!Note]
-> 我们将尽一切努力为所有事件提供**计划内维护通知** 72 小时通知。 但是，对于关键或安全修补程序，通知可能会在事件快要发生时更晚一点发送，或者会被忽略。
+在计划内维护期间，服务器可能会重启，可能会发生[暂时性错误](concepts-connectivity.md#transient-errors)。 系统在 60 秒以内可自动解决其中的大部分事件。
 
 ### <a name="to-receive-planned-maintenance-notification"></a>接收计划内维护通知
 
@@ -77,8 +76,8 @@ ms.locfileid: "89512894"
 
 有关如何创建服务运行状况警报的详细步骤，请参阅 [创建有关服务通知的活动日志警报](../service-health/alerts-activity-log-service-notifications-portal.md)。
 
-> [!IMPORTANT]
-> 计划内维护通知目前为预览版
+> [!Note]
+> 我们将尽一切努力为所有事件提供 **计划内维护通知** 72 小时通知。 但是，对于关键或安全修补程序，通知可能会在事件快要发生时更晚一点发送，或者会被忽略。
 
 ## <a name="next-steps"></a>后续步骤
 - 有关如何基于指标创建警报的指南，请参阅[如何设置警报](howto-alert-on-metric.md)。

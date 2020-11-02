@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 08/07/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: f77dad968b1b15d48ccef7ede86a8af06af21eec
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 10/29/2020
+ms.openlocfilehash: aec99ffa9299bd3ea505dc6113609fd9c4d88000
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041735"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470483"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>有关使用 Azure Database for PostgreSQL - 单一服务器确保业务连续性的概述
 
@@ -20,25 +20,28 @@ ms.locfileid: "92041735"
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>可用来提供业务连续性的功能
 
-Azure Database for PostgreSQL 提供了业务连续性功能，这包括自动备份和允许用户启动异地还原的功能。 每种功能在估计恢复时间 (ERT) 和可能丢失的数据方面都有不同的特性。 估计的恢复时间 (ERT) 是指从发出还原/故障转移请求开始，到数据库恢复完全正常运行所需的估计持续时间。 了解这些选项后，便可从中进行选择，可以针对不同方案将其搭配使用。 制定业务连续性计划时，需了解应用程序在破坏性事件发生后完全恢复前的最大可接受时间，即恢复时间目标 (RTO)。 此外，还需要了解从破坏性事件恢复时，应用程序可忍受丢失的最近数据更新（时间间隔）最大数量，即恢复点目标 (RPO)。
+制定业务连续性计划时，需了解应用程序在破坏性事件发生后完全恢复前的最大可接受时间，即恢复时间目标 (RTO)。 此外，还需要了解从破坏性事件恢复时，应用程序可忍受丢失的最近数据更新（时间间隔）最大数量，即恢复点目标 (RPO)。
 
-下表比较了各种可用功能的 ERT 和 RPO：
+Azure Database for PostgreSQL 提供了业务连续性功能，这些功能包括能够启动异地还原的异地冗余备份，以及将只读副本部署到不同区域中的功能。 每种功能在恢复时间和可能丢失数据方面都有不同的特性。 启用[异地还原](concepts-backup.md)功能时，可以使用从另一个区域复制的备份数据创建新的服务器。 还原和恢复所需的总时间取决于数据库的大小和要恢复的日志数量。 建立服务器的总时间从几分钟到几小时不等。 使用[只读副本](concepts-read-replicas.md)，来自主数据库的事务日志会以异步方式流式传输到副本。 主数据库和副本之间的延迟取决于站点之间的延迟以及要传输的数据量。 在主站点发生故障时，升级副本可缩短 RTO 并减少数据丢失。 
+
+下表比较了典型方案中的 RTO 和 RPO：
 
 | **功能** | **基本** | **常规用途** | **内存优化** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 从备份执行时间点还原 | 保留期内的任何还原点 | 保留期内的任何还原点 | 保留期内的任何还原点 |
-| 从异地复制的备份执行异地还原 | 不支持 | ERT < 12 小时<br/>RPO < 1 小时 | ERT < 12 小时<br/>RPO < 1 小时 |
+| 从异地复制的备份执行异地还原 | 不支持 | RTO - 可变 <br/>RPO < 1 小时 | RTO - 可变 <br/>RPO < 1 小时 |
+| 只读副本 | RTO - 几分钟 <br/>RPO < 5 分钟* | RTO - 几分钟 <br/>RPO < 5 分钟*| RTO - 几分钟 <br/>RPO < 5 分钟*|
 
-还可以考虑使用[只读副本](concepts-read-replicas.md)。
+\* 在某些情况下，RPO 可能会更高，具体取决于各种因素（包括主数据库工作负荷和区域之间的延迟）。 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>在发生用户或应用程序错误之后恢复服务器
 
 可以使用服务的备份在发生各种破坏性事件后对服务器进行恢复。 用户可能会不小心删除某些数据、无意中删除重要的表，甚至删除整个数据库。 应用程序可能因为自身缺陷，意外以错误数据覆盖正确数据，等等。
 
-可以执行**时间点还原**来创建服务器在已知良好的时间点的副本。 此时间点必须在为服务器配置的备份保留期内。 在将数据还原到新服务器后，可以将原始服务器替换为新还原的服务器，或者将所需的数据从还原的服务器复制到原始服务器。
+可以执行 **时间点还原** 来创建服务器在已知良好的时间点的副本。 此时间点必须在为服务器配置的备份保留期内。 在将数据还原到新服务器后，可以将原始服务器替换为新还原的服务器，或者将所需的数据从还原的服务器复制到原始服务器。
 
 > [!IMPORTANT]
-> 已删除的服务器**无法**还原。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 使用 [Azure 资源锁](../azure-resource-manager/management/lock-resources.md)帮助防止意外删除服务器。
+> 已删除的服务器 **无法** 还原。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 使用 [Azure 资源锁](../azure-resource-manager/management/lock-resources.md)帮助防止意外删除服务器。
 
 ## <a name="recover-from-an-azure-data-center-outage"></a>从 Azure 数据中心服务中断进行恢复
 

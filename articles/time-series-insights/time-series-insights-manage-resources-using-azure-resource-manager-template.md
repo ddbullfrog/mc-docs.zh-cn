@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5f7fd13542f2e04c22da492790dc8cca21b0d476
-ms.sourcegitcommit: 36e7f37481969f92138bfe70192b1f4a2414caf7
+ms.openlocfilehash: de53f8e37d90ad63c3967d1ff30b75410485b4bd
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796326"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471348"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建 Azure 时序见解 Gen 1 资源
+
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
 
 本文介绍如何使用 [Azure 资源管理器模板](/azure-resource-manager/)、PowerShell 和 Azure 时序见解资源提供程序创建和部署 Azure 时序见解资源。
 
@@ -43,13 +46,13 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
 
 ## <a name="specify-deployment-template-and-parameters"></a>指定部署模板和参数
 
-以下过程描述如何使用 PowerShell 部署一个 Azure 资源管理器模板，该模板创建一个 Azure 时序见解环境、一个配置为使用事件中心的事件的子事件源，以及授予环境数据访问权限的访问策略。 如果未指定现有的事件中心，则会连同部署创建一个事件中心。
+以下过程描述如何使用 PowerShell 部署一个 Azure 资源管理器模板，该模板创建一个 Azure 时序见解环境、一个配置为使用事件中心事件的子事件源，以及授予环境数据访问权限的访问策略。 如果未指定现有的事件中心，则会连同部署创建一个事件中心。
 
 1. 按照 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)中的说明安装 Azure PowerShell。
 
 1. 从 GitHub 克隆或复制 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) 模板。
 
-   * 创建参数文件
+   - 创建参数文件
 
      若要创建参数文件，请复制 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) 文件。
 
@@ -79,7 +82,7 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
 
     <div id="required-parameters"></div>
 
-   * 必需的参数
+   - 必需的参数
 
      | 参数 | 说明 |
      | --- | --- |
@@ -91,7 +94,7 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
 
     <div id="optional-parameters"></div>
 
-   * 可选参数
+   - 可选参数
 
      | 参数 | 说明 |
      | --- | --- |
@@ -106,7 +109,7 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
      | accessPolicyReaderObjectIds | Azure AD 中应该对环境拥有“读取者”访问权限的用户或应用程序的对象 ID 列表。 可以通过调用 Get-AzADUser 或 Get-AzADServicePrincipal cmdlet 获取服务主体 objectId。 目前不支持创建 Azure AD 组的访问策略。 |
      | accessPolicyContributorObjectIds | Azure AD 中应该对环境拥有“参与者”访问权限的用户或应用程序的对象 ID 列表。 可以通过调用 Get-AzADUser 或 Get-AzADServicePrincipal cmdlet 获取服务主体 objectId。 目前不支持创建 Azure AD 组的访问策略。 |
 
-   * 例如，以下参数文件将用于创建环境，以及可从现有事件中心读取事件的事件源。 此外，它会创建两个访问策略，用于授予对环境的“参与者”访问权限。
+   - 例如，以下参数文件将用于创建环境，以及可从现有事件中心读取事件的事件源。 此外，它会创建两个访问策略，用于授予对环境的“参与者”访问权限。
 
      ```JSON
      {
@@ -136,33 +139,33 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
                      "AGUID001-0000-0000-0000-000000000000",
                      "AGUID002-0000-0000-0000-000000000000"
                  ]
-             }    
+             }
          }
      }
      ```
 
-    * 有关详细信息，请阅读[参数](../azure-resource-manager/templates/parameter-files.md)一文。
+   - 有关详细信息，请阅读[参数](../azure-resource-manager/templates/parameter-files.md)一文。
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>使用 PowerShell 在本地部署快速入门模板
 
 > [!IMPORTANT]
-> 下面显示的命令行操作描述 [Az PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)。
+> 下面显示的命令行操作描述 [Az PowerShell 模块](https://docs.microsoft.com/powershell/azure/)。
 
 1. 在 PowerShell 中，登录到 Azure 帐户。
 
-    * 在 PowerShell 提示符下，运行以下命令：
+    - 在 PowerShell 提示符下，运行以下命令：
 
       ```powershell
       Connect-AzAccount -Environment AzureChinaCloud
       ```
 
-    * 系统会提示登录到 Azure 帐户。 登录后，运行以下命令以查看可用订阅：
+    - 系统会提示登录到 Azure 帐户。 登录后，运行以下命令以查看可用订阅：
 
       ```powershell
       Get-AzSubscription
       ```
 
-    * 此命令返回可用 Azure 订阅的列表。 通过运行以下命令为当前会话选择订阅。 将 `<YourSubscriptionId>` 替换为要使用的 Azure 订阅的 GUID：
+    - 此命令返回可用 Azure 订阅的列表。 通过运行以下命令为当前会话选择订阅。 将 `<YourSubscriptionId>` 替换为要使用的 Azure 订阅的 GUID：
 
       ```powershell
       Set-AzContext -SubscriptionID <YourSubscriptionId>
@@ -170,13 +173,13 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
 
 1. 创建新资源组（如果不存在）。
 
-   * 如果目前没有资源组，请使用 New-AzResourceGroup 命令创建新的资源组。 提供资源组的名称，以及要使用的位置。 例如：
+   - 如果目前没有资源组，请使用 New-AzResourceGroup 命令创建新的资源组。 提供资源组的名称，以及要使用的位置。 例如：
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "China East 2"
      ```
 
-   * 如果成功，则会显示新的资源组的摘要。
+   - 如果成功，则会显示新的资源组的摘要。
 
      ```powershell
      ResourceGroupName : MyDemoRG
@@ -188,7 +191,7 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
 
 1. 测试部署。
 
-   * 通过运行 `Test-AzResourceGroupDeployment` cmdlet 验证部署。 测试部署时，请提供与执行部署时所提供的完全相同的参数。
+   - 通过运行 `Test-AzResourceGroupDeployment` cmdlet 验证部署。 测试部署时，请提供与执行部署时所提供的完全相同的参数。
 
      ```powershell
      Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -196,27 +199,27 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
 
 1. 创建部署
 
-    * 若要创建新部署，请运行 `New-AzResourceGroupDeployment` cmdlet，并在出现提示时提供必需的参数。 参数包括部署的名称、资源组的名称，以及模板文件的路径或 URL。 如果未指定 **Mode** 参数，将使用 **Incremental** 的默认值。 有关详细信息，请阅读[增量部署和完整部署](../azure-resource-manager/templates/deployment-modes.md)。
+    - 若要创建新部署，请运行 `New-AzResourceGroupDeployment` cmdlet，并在出现提示时提供必需的参数。 参数包括部署的名称、资源组的名称，以及模板文件的路径或 URL。 如果未指定 **Mode** 参数，将使用 **Incremental** 的默认值。 有关详细信息，请阅读[增量部署和完整部署](../azure-resource-manager/templates/deployment-modes.md)。
 
-    * 以下命令提示在 PowerShell 窗口中输入五个必需的参数：
+    - 以下命令提示在 PowerShell 窗口中输入五个必需的参数：
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
-    * 若要改为指定参数文件，请使用以下命令：
+    - 若要改为指定参数文件，请使用以下命令：
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
       ```
 
-    * 运行部署 cmdlet 时，还可以使用内联参数。 该命令如下所示：
+    - 运行部署 cmdlet 时，还可以使用内联参数。 该命令如下所示：
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * 要运行[完整](../azure-resource-manager/templates/deployment-modes.md)部署，请将 **Mode** 参数设置为 **Complete**：
+    - 要运行 [完整](../azure-resource-manager/templates/deployment-modes.md)部署，请将 **Mode** 参数设置为 **Complete** ：
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -224,7 +227,7 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
 
 1. 验证部署
 
-    * 如果资源已成功部署，会在 PowerShell 窗口中显示部署的摘要：
+    - 如果资源已成功部署，会在 PowerShell 窗口中显示部署的摘要：
 
       ```powershell
        DeploymentName          : MyDemoDeployment
@@ -265,7 +268,7 @@ GitHub 上已发布 [201-timeseriesinsights-environment-with-eventhub](https://g
 
 1. 通过 Azure 门户部署快速入门模板
 
-   * GitHub 上的快速入门模板主页还包含“部署到 Azure”按钮。 单击此按钮可在 Azure 门户中打开“自定义部署”页。 从此页中，可以输入或选择[必需的参数](#required-parameters)或[可选参数](#optional-parameters)表中每个参数的值。 填写设置后，单击“购买”按钮会启动模板部署。
+   - GitHub 上的快速入门模板主页还包含“部署到 Azure”按钮。 单击此按钮可在 Azure 门户中打开“自定义部署”页。 从此页中，可以输入或选择[必需的参数](#required-parameters)或[可选参数](#optional-parameters)表中每个参数的值。 填写设置后，单击“购买”按钮会启动模板部署。
     </br>
     </br>
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">

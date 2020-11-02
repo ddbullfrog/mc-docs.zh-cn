@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 08/11/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 14969caa15c423f0b1fadae340c85ed0071e0362
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.date: 10/29/2020
+ms.openlocfilehash: bd64c367944e0ff802746846f1fae00c7c375577
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943424"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470441"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>使用 Azure Database for MySQL 构建应用程序的最佳做法 
 
@@ -21,7 +21,7 @@ ms.locfileid: "91943424"
 ## <a name="configuration-of-application-and-database-resources"></a>应用程序和数据库资源的配置
 
 ### <a name="keep-the-application-and-database-in-the-same-region"></a>使应用程序和数据库位于同一区域中
-在 Azure 中部署应用程序时，请确保所有依赖项都位于同一区域中。 跨区域或可用性区域分布实例会造成网络延迟，这可能会影响应用程序的总体性能。 
+在 Azure 中部署应用程序时，请确保所有依赖项都位于同一区域中。 跨区域分布实例会造成网络延迟，这可能会影响应用程序的总体性能。 
 
 ### <a name="keep-your-mysql-server-secure"></a>确保 MySQL 服务器的安全
 将 MySQL 服务器配置为[安全的](/mysql/concepts-security)不能公开访问的服务器。 使用以下选项之一来保护服务器： 
@@ -69,9 +69,9 @@ ms.locfileid: "91943424"
 良好的做法是在第一次重试前等待 5 秒。 然后，每次重试都逐步延长等待时间，最多 60 秒。 限制最大重试次数。达到该次数时，应用程序会认为操作失败，随后你就可以进一步进行调查。 有关详细信息，请参阅[如何排查连接错误](/mysql/howto-troubleshoot-common-connection-issues)。 
 
 ### <a name="enable-read-replication-to-mitigate-failovers"></a>启用读取复制以缓解故障转移问题
-对于故障转移场景，可以使用[数据传入复制](/mysql/howto-data-in-replication)。 使用只读副本时，在主服务器与副本服务器之间无法自动进行故障转移。 
+对于故障转移场景，可以使用[数据传入复制](/mysql/howto-data-in-replication)。 使用只读副本时，在源服务器与副本服务器之间无法自动进行故障转移。 
 
-由于复制是异步的，因此你会注意到在主服务器与副本之间存在延迟。 网络延迟可能受许多因素影响，例如，在主服务器上运行的工作负荷的大小，以及数据中心之间的延迟。 大多数情况下，副本延迟在几秒钟到几分钟之间。
+由于复制是异步的，因此你会注意到在源服务器与副本之间存在延迟。 网络延迟可能受许多因素影响，例如，在源服务器上运行的工作负荷的大小，以及数据中心之间的延迟。 大多数情况下，副本延迟在几秒钟到几分钟之间。
 
 ## <a name="database-deployment"></a>数据库部署 
 

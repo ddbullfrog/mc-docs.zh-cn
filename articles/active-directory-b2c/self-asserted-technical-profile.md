@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: cecb589f1be18a3b39faecdb91a5873f97a37be1
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: fcdc2160dac76aaa2b4c682d86df96c62d4a5db0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297715"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471149"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定义采用 Azure Active Directory B2C 中自定义策略的自断言技术配置文件
 
@@ -136,7 +136,7 @@ ms.locfileid: "87297715"
 - 声明由输出声明转换输出  。
 - 在输出声明中设置默认值无需从用户处收集数据或从验证技术配置文件返回数据  。 `LocalAccountSignUpWithLogonEmail` 自断言技术配置文件将“executed-SelfAsserted-Input”  声明设置为 `true`。
 - **验证技术配置文件返回输出声明** - 你的技术配置文件可以调用返回某些声明的验证技术配置文件。 你需要发出声明并将其返回到用户旅程中的下一个业务流程步骤。 例如，当使用本地帐户登录时，名为 `SelfAsserted-LocalAccountSignin-Email` 的自断言技术配置文件会调用名为 `login-NonInteractive` 的验证技术配置文件。 此技术配置文件将验证用户凭据，并返回用户配置文件。 例如“userPrincipalName”、“displayName”、“givenName”和“surName”。
-- **显示控件返回输出声明** - 技术配置文件可能引用[显示控件](display-controls.md)。 显示控件返回某些声明，如已验证的电子邮件地址。 你需要发出声明并将其返回到用户旅程中的下一个业务流程步骤。 此显示控件功能目前以预览版提供  。
+- **显示控件返回输出声明** - 技术配置文件可能引用 [显示控件](display-controls.md)。 显示控件返回某些声明，如已验证的电子邮件地址。 你需要发出声明并将其返回到用户旅程中的下一个业务流程步骤。 此显示控件功能目前以预览版提供  。
 
 以下示例演示如何使用同时包含显示声明和输出声明的自断言技术配置文件。
 
@@ -202,14 +202,15 @@ ms.locfileid: "87297715"
 | setting.showSignupLink <sup>2</sup>| 否 | 显示“注册”按钮。 可能的值为 `true`（默认）或 `false` |
 | setting.forgotPasswordLinkLocation <sup>2</sup>| 否| 显示“忘记密码”链接。 可能的值：`AfterInput`（默认值）链接显示在页面底部，或者 `None`（删除“忘记密码”链接）。|
 | setting.enableRememberMe <sup>2</sup>| 否| 显示“使我保持登录状态”复选框。 可能的值：`true` 或 `false`（默认值）。 |
-| IncludeClaimResolvingInClaimsHandling  | 否 | 对于输入和输出声明，指定[声明解析](claim-resolver-overview.md)是否包含在技术配置文件中。 可能的值：`true` 或 `false` （默认值）。 若要使用技术配置文件中的声明解析程序，请将此项设为 `true`。 |
+| setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 否| 通过等待用户停止键入后再验证该值来改善用户体验。 默认值为 2000 毫秒。 |
+| IncludeClaimResolvingInClaimsHandling  | 否 | 对于输入和输出声明，指定[声明解析](claim-resolver-overview.md)是否包含在技术配置文件中。 可能的值：`true` 或 `false`（默认值）。 若要使用技术配置文件中的声明解析程序，请将此项设为 `true`。 |
 
 说明：
 1. 可用于内容定义 [DataUri](contentdefinitions.md#datauri) 类型 `unifiedssp` 或 `unifiedssd`。
 1. 可用于内容定义 [DataUri](contentdefinitions.md#datauri) 类型 `unifiedssp` 或 `unifiedssd`。 [页面布局版本](page-layout.md) 1.1.0 及更高版本。
+1. 可用于[页面布局版本](page-layout.md) 1.2.0 及更高版本。
 
 ## <a name="cryptographic-keys"></a>加密密钥
 
-不使用“CryptographicKeys”  元素。
+不使用“CryptographicKeys”元素。
 
-<!-- Update_Description: wording update -->

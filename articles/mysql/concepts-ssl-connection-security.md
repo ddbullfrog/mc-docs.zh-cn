@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 07/09/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: faba259956a06ce94a76c182d8882a2cde6ce869
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 10/29/2020
+ms.openlocfilehash: ccf38225ce32ad0c22985568b0480b68ad66933e
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041783"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470429"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的 SSL/TLS 连接
 
@@ -24,8 +24,11 @@ Azure Database for MySQL 支持使用安全套接字层 (SSL) 将数据库服务
 > [!NOTE]
 > 更新 `require_secure_transport` 服务器参数值不会影响 MySQL 服务的行为。 使用本文中概述的 SSL 和 TLS 增强功能来保护与数据库的连接。
 
+>[!NOTE]
+> 根据客户的反馈，我们已将根证书的弃用时间延长至 2021 年 2 月 15 日 (2021/02/15)。
+
 > [!IMPORTANT] 
-> SSL 根证书设置为 2020 年 10 月 26 日 (2020/10/26) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划内证书更新](concepts-certificate-rotation.md)
+> SSL 根证书设置为 2021 年 2 月 15 日 (2021/02/15) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划内证书更新](concepts-certificate-rotation.md)
 
 ## <a name="ssl-default-settings"></a>SSL 默认设置
 
@@ -63,6 +66,17 @@ Azure Database for MySQL 提供了为客户端连接强制使用 TLS 版本的�
 > 一旦强制实施最低 TLS 版本要求后，以后将无法禁用最低版本强制实施。
 
 若要了解如何为 Azure Database for MySQL 设置 TLS 设置，请参阅 [如何配置 TLS 设置](howto-tls-configurations.md)。
+
+## <a name="cipher-support-by-azure-database-for-mysql-single-server"></a>Azure Database for MySQL 单一服务器提供的密码支持
+
+根据 SSL/TLS 通信的要求，密码套件会被验证，只有受支持的密码套件才能与数据库服务器通信。 密码套件验证在[网关层](concepts-connectivity-architecture.md#connectivity-architecture)中控制，而不是在节点本身上显式控制。 如果密码套件与下面列出的某个套件不匹配，系统会拒绝传入的客户端连接。
+
+### <a name="cipher-suite-supported"></a>支持的密码套件
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>后续步骤
 

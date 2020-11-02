@@ -10,16 +10,16 @@ ms.topic: conceptual
 origin.date: 04/29/2020
 ms.date: 10/19/2020
 ms.author: v-yiso
-ms.openlocfilehash: ddfea8a7be00487034c790217e504ea4f73b04eb
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c127be8bda1cdd9eb43b2a925c7d9dcbea46e515
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937148"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472152"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>使用脚本操作在 Azure HDInsight 上安全管理 Python 环境
 
-HDInsight 在 Spark 群集中有两个内置 Python 安装，即 Anaconda Python 2.7 和 Python 3.5。 客户可能需要自定义 Python 环境。 例如，安装外部 Python 包或其他 Python 版本。 本文介绍的最佳做法涉及如何安全地管理 HDInsight 上 Apache Spark 群集的 Python 环境。
+HDInsight 在 Spark 群集中有两个内置 Python 安装，即 Anaconda Python 2.7 和 Python 3.5。 客户可能需要自定义 Python 环境，例如安装外部 Python 包。 本文介绍的最佳做法涉及如何安全地管理 HDInsight 上 Apache Spark 群集的 Python 环境。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -27,7 +27,7 @@ HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDIns
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>支持 HDInsight 群集上使用的开源软件
 
-Microsoft Azure HDInsight 服务使用围绕 Apache Hadoop 构建的开源技术环境。 Microsoft Azure 为开源技术提供常规级别的支持。
+Microsoft Azure HDInsight 服务使用围绕 Apache Hadoop 构建的开源技术环境。 Microsoft Azure 为开源技术提供常规级别的支持。 HDInsight 服务为内置组件提供附加的支持级别。
 
 HDInsight 服务中有两种类型的开放源代码组件：
 
@@ -47,9 +47,9 @@ HDInsight Spark 群集是通过 Anaconda 安装创建的。 群集中有两个 P
 
 |设置 |Python 2.7|Python 3.5|
 |----|----|----|
-|路径|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
+|`Path`|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Spark 版本|默认设置为 2.7|空值|
-|Livy 版本|默认设置为 2.7|不适用|
+|Livy 版本|默认设置为 2.7|空值|
 |Jupyter|PySpark 内核|PySpark3 内核|
 
 ## <a name="safely-install-external-python-packages"></a>安全安装外部 Python 包
@@ -83,8 +83,8 @@ HDInsight 群集依赖于内置 Python 环境（Python 2.7 和 Python 3.5）。 
 
     - 或者使用 PyPi 存储库，请相应地更改 `seaborn` 和 `py35new`：
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
-        ```        
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install seaborn
+        ```
 
     如果要安装特定版本的库，请使用以下命令：
 
@@ -100,7 +100,7 @@ HDInsight 群集依赖于内置 Python 环境（Python 2.7 和 Python 3.5）。 
     - 或者使用 PyPi 存储库，请相应地更改 `numpy==1.16.1` 和 `py35new`：
 
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install numpy==1.16.1
         ```
 
     如果不知道虚拟环境名称，则可以通过 SSH 连接到群集的头节点并运行 `/usr/bin/anaconda/bin/conda info -e` 以显示所有虚拟环境。

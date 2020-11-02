@@ -5,16 +5,16 @@ services: container-service
 ms.topic: conceptual
 origin.date: 07/01/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9042b71beec5b65f78c82ad6e641a5722a88018f
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 8395aa13c5abb94354c025bffee52ef0bcd98bad
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021612"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470101"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中应用程序和群集的安全性相关概念
 <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>
@@ -40,9 +40,7 @@ ms.locfileid: "90021612"
 
 <!--MOONCAKE: Update from Microsoft to Azure-->
 
-默认情况下，Kubernetes API 服务器使用公共 IP 地址和完全限定域名 (FQDN)。 可以使用[经授权的 IP 范围][authorized-ip-ranges]将访问范围限制为 API 服务器终结点。 
-
-<!--Not Available on [private cluster][private-clusters]-->
+默认情况下，Kubernetes API 服务器使用公共 IP 地址和完全限定域名 (FQDN)。 可以使用[经授权的 IP 范围][authorized-ip-ranges]将访问范围限制为 API 服务器终结点。 还可以创建完整的[专用群集][private-clusters]，以限制 API 服务器对虚拟网络的访问。
 
 可使用 Kubernetes 基于角色的访问控制 (RBAC) 和 Azure Active Directory 控制对 API 服务器的访问。 有关详细信息，请参阅 [Azure AD 与 AKS 集成][aks-aad]。
 
@@ -97,7 +95,7 @@ Azure 平台会在夜间自动将 OS 安全修补程序应用于 Linux 节点。
 
 ## <a name="kubernetes-secrets"></a>Kubernetes 机密
 
-Kubernetes *机密*用于将敏感数据注入到 pod，例如访问凭据或密钥。 首先使用 Kubernetes API 创建机密。 在定义 pod 或部署时，可以请求特定机密。 机密仅提供给所计划的 pod 需要该机密的节点，且机密存储在 *tmpfs* 中，不写入磁盘。 当节点上最后一个需要该机密的 pod 被删除后，将从该节点的 tmpfs 中删除该机密。 机密存储在给定的命名空间中，只有同一命名空间中的 pod 能访问该机密。
+Kubernetes *机密* 用于将敏感数据注入到 pod，例如访问凭据或密钥。 首先使用 Kubernetes API 创建机密。 在定义 pod 或部署时，可以请求特定机密。 机密仅提供给所计划的 pod 需要该机密的节点，且机密存储在 *tmpfs* 中，不写入磁盘。 当节点上最后一个需要该机密的 pod 被删除后，将从该节点的 tmpfs 中删除该机密。 机密存储在给定的命名空间中，只有同一命名空间中的 pod 能访问该机密。
 
 使用机密会减少 pod 或服务 YAML 清单中定义的敏感信息。 可以请求存储在 Kubernetes API 服务器中的机密，作为 YAML 清单的一部分。 此方法仅为 pod 提供特定的机密访问权限。 请注意：原始机密清单文件包含 base64 格式的机密数据（如需更多详细信息，请参阅[官方文档][secret-risks]）。 因此，此文件应被视为敏感信息，不应提交给源代码管理。
 
@@ -128,6 +126,9 @@ Kubernetes 机密存储在分布式密钥-值存储 etcd 中。 Etcd 存储由 A
 
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
+
+<!--CUSTOMIZE: managed-aad NOT AVAILABLE ON CHINA-->
+
 [aks-aad]: ./azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
@@ -140,9 +141,7 @@ Kubernetes 机密存储在分布式密钥-值存储 etcd 中。 Etcd 存储由 A
 [developer-best-practices-pod-security]: developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [authorized-ip-ranges]: api-server-authorized-ip-ranges.md
-
-<!--Not Available on [private-clusters]: private-clusters.md-->
-
+[private-clusters]: private-clusters.md
 [network-policy]: use-network-policies.md
 
 <!-- Update_Description: update meta properties, wording update, update link -->

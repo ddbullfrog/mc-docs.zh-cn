@@ -3,18 +3,18 @@ title: Azure Functions 的缩放和托管
 description: 了解如何在 Azure Functions 消耗计划和高级计划之间进行选择。
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/19/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f24b5cba5181bc43c05e24d9a668335c8836b983
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 60b4cd82187773f00d76ee900029c334fd187190
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936928"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471375"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
-在 Azure 中创建函数应用时，必须为应用选择托管计划。 有三个基本托管计划可用于 Azure Functions：[消耗计划](#consumption-plan)、[高级计划](#premium-plan)和[专用（应用服务）计划](#app-service-plan)。
+在 Azure 中创建函数应用时，必须为应用选择托管计划。 有三个基本托管计划可用于 Azure Functions：[消耗计划](#consumption-plan)、[高级计划](#premium-plan)和[专用（应用服务）计划](#app-service-plan)。 Windows 虚拟机上的所有托管计划均已正式发布 (GA)。
 
 选择的托管计划决定了以下行为：
 
@@ -138,7 +138,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 Azure Functions 使用名为“缩放控制器”的组件来监视事件率以及确定是要横向扩展还是横向缩减。 缩放控制器针对每种触发器类型使用试探法。 例如，使用 Azure 队列存储触发器时，它会根据队列长度和最旧队列消息的期限进行缩放。
 
-Azure Functions 的缩放单位为函数应用。 横向扩展函数应用时，将分配额外的资源来运行 Azure Functions 主机的多个实例。 相反，计算需求下降时，扩展控制器将删除函数主机实例。 当函数应用中没有运行函数时，实例数最终会*缩减*为零。
+Azure Functions 的缩放单位为函数应用。 横向扩展函数应用时，将分配额外的资源来运行 Azure Functions 主机的多个实例。 相反，计算需求下降时，扩展控制器将删除函数主机实例。 当函数应用中没有运行函数时，实例数最终会 *缩减* 为零。
 
 ![用于监视事件和创建实例的扩展控制器](./media/functions-scale/central-listener.png)
 
@@ -153,7 +153,7 @@ Azure Functions 的缩放单位为函数应用。 横向扩展函数应用时，
 * 单个函数应用最多只能横向扩展到 200 个实例。 不过，单个实例每次可以处理多个消息或请求，因此，对并发执行数没有规定的限制。  可根据需要[指定一个较低的最大值](#limit-scale-out)来限制缩放。
 * 对于 HTTP 触发器，将最多每隔 1 秒分配一次新实例。
 * 对于非 HTTP 触发器，将最多每隔 30 秒分配一次新实例。 在[高级计划](#premium-plan)中运行时，缩放速度会更快。
-* 对于服务总线触发器，请使用资源的_管理_权限，以实现最有效的缩放。 使用_侦听_权限时，由于队列长度不能用于通知缩放决策，缩放不够准确。 若要详细了解如何在服务总线访问策略中设置权限，请参阅[共享访问授权策略](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies)。
+* 对于服务总线触发器，请使用资源的 _管理_ 权限，以实现最有效的缩放。 使用 _侦听_ 权限时，由于队列长度不能用于通知缩放决策，缩放不够准确。 若要详细了解如何在服务总线访问策略中设置权限，请参阅[共享访问授权策略](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies)。
 * 有关事件中心触发器，请参阅参考文章中的[缩放指南](functions-bindings-event-hubs-trigger.md#scaling)。 
 
 ### <a name="limit-scale-out"></a>限制横向扩展
@@ -175,7 +175,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 不同计划的计费在 [Azure Functions 定价页](https://www.azure.cn/pricing/details/azure-functions/)中有详细介绍。 使用量在 Function App 级别聚合，只会统计函数代码的执行时间。 以下是计费单位：
 
 * 以千兆字节/秒 (GB-s) 计量的资源消耗量。 根据内存大小和函数应用中所有函数的执行时间组合计算得出。 
-* **执行**。 每次为响应事件触发而执行函数时记为一次。
+* **执行** 。 每次为响应事件触发而执行函数时记为一次。
 
 在[帐单常见问题解答](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ)中可以找到有关如何了解消费帐单的有用查询和信息。
 

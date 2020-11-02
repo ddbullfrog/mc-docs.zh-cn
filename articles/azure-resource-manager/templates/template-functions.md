@@ -2,16 +2,16 @@
 title: 模板函数
 description: 介绍在 Azure Resource Manager 模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。
 ms.topic: conceptual
-origin.date: 09/01/2020
+origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1ee1c495e9dfae64f1ac0e92376d00f74ff3dda5
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: bbf13c80f295b9eb57d6c9241afd53ed416c2722
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146741"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470401"
 ---
 # <a name="arm-template-functions"></a>ARM 模板函数
 
@@ -107,9 +107,11 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 
 * [and](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
+* [false](template-functions-logical.md#false)
 * [if](template-functions-logical.md#if)
 * [not](template-functions-logical.md#not)
 * [or](template-functions-logical.md#or)
+* true
 
 <a name="add" aria-hidden="true"></a>
 <a name="copyindex" aria-hidden="true"></a>
@@ -144,10 +146,12 @@ Resource Manager 提供以下用于处理整数的函数：
 Resource Manager 提供以下用于处理对象的函数。
 
 * [contains](template-functions-object.md#contains)
+* [createObject](template-functions-object.md#createobject)
 * [empty](template-functions-object.md#empty)
 * [intersection](template-functions-object.md#intersection)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
+* [null](template-functions-object.md#null)
 * [union](template-functions-object.md#union)
 
 <a name="extensionResourceId" aria-hidden="true"></a>

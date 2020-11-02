@@ -2,26 +2,26 @@
 title: 模板规格概述
 description: 介绍如何创建模板规格并与组织中的其他用户共享。
 ms.topic: conceptual
-origin.date: 08/31/2020
-ms.date: 10/12/2020
+origin.date: 10/02/2020
+ms.date: 10/29/2020
 ms.testscope: yes|no
 ms.testdate: 08/24/2020null
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: e751d8d38482ec78f730dd37ee265d7b66fa4e63
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 40fcd4c7183b3f8df65f09f26b4777cfee8633e1
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937169"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470389"
 ---
 <!--Not Available on MOONCAKE-->
 <!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure 资源管理器模板规格（预览版）
 
-模板规格是一种新资源类型，用于在 Azure 中存储 Azure 资源管理器模板（ARM 模板），以便之后进行部署。 通过该资源类型，你可以与组织中的其他用户共享 ARM 模板。 与其他任何 Azure 资源一样，也可使用 Azure 基于角色的访问控制 (Azure RBAC) 来共享模板规格。
+模板规格是一种资源类型，用于在 Azure 中存储 Azure 资源管理器模板（ARM 模板），以便之后进行部署。 通过该资源类型，你可以与组织中的其他用户共享 ARM 模板。 与其他任何 Azure 资源一样，也可使用 Azure 基于角色的访问控制 (Azure RBAC) 来共享模板规格。
 
-Microsoft.Resources/templateSpecs 是模板规格的新资源类型。 它包含一个主模板和任意数量的链接模板。 Azure 将模板规格安全存储在资源组中。 模板规格支持[版本控制](#versioning)。
+Microsoft.Resources/templateSpecs 是模板规格的资源类型。 它包含一个主模板和任意数量的链接模板。 Azure 将模板规格安全存储在资源组中。 模板规格支持[版本控制](#versioning)。
 
 若要部署模板规格，请使用标准 Azure 工具（如 PowerShell）、Azure CLI、Azure 门户、REST 和其他受支持的 SDK 和客户端。 请使用针对模板使用的相同命令。
 
@@ -32,7 +32,7 @@ Microsoft.Resources/templateSpecs 是模板规格的新资源类型。 它包含
 
 如果 GitHub 存储库或存储帐户中当前有模板，在尝试共享和使用这些模板时会遇到一些困难。 如果用户要部署这些模板，要么模板必须是本地模板，要么它的 URL 必须是可公开访问的。 为应对此限制，你可能要与需要部署模板的用户共享该模板的副本，或者开放对存储库或存储帐户的访问权限。 如果用户拥有模板的本地副本，这些副本最终可能会与原始模板有所不同。 当将存储库或存储帐户设置为可公开访问时，可能会导致非预期用户能够访问模板。
 
-使用模板规格的好处是，可以创建规范化的模板并与组织中的团队共享。 模板规格是安全的，因为 Azure 资源管理器可使用它进行部署，而没有 RBAC 权限的用户则无法访问。 用户只需具有模板规格的读取访问权限即可部署模板，因此可以在不允许其他人进行修改的情况下共享该模板。
+使用模板规格的好处是，可以创建规范化的模板并与组织中的团队共享。 模板规格是安全的，因为 Azure 资源管理器可使用它进行部署，而没有 Azure RBAC 权限的用户则无法访问。 用户只需具有模板规格的读取访问权限即可部署模板，因此可以在不允许其他人进行修改的情况下共享该模板。
 
 模板规格中包含的模板应由组织中的管理员按照组织的要求和指南进行验证。
 
@@ -77,7 +77,7 @@ Microsoft.Resources/templateSpecs 是模板规格的新资源类型。 它包含
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location chinanorth2 -TemplateJsonFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location chinanorth2 -TemplateFile ./mainTemplate.json
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -169,7 +169,7 @@ az deployment group create \
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `

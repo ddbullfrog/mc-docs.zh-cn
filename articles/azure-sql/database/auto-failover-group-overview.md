@@ -5,20 +5,20 @@ description: 自动故障转移组可用于管理服务器中一组数据库或�
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2, devx-track-azurecli
+ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, sstein
 origin.date: 08/28/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 6d6cebfa79cb431d065b13912d47f50db5aa4c1f
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: e28d08e9ca25148240b44da33a1b4e81e0f8fd3a
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872424"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470369"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自动故障转移组可以实现多个数据库的透明、协调式故障转移
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -77,9 +77,9 @@ ms.locfileid: "91872424"
   
 - **初始种子设定**
 
-  将数据库、弹性池或托管实例添加到故障转移组时，在数据复制开始之前，会有一个初始种子设定阶段。 初始种子设定阶段的操作耗时最长且开销最大。 初始种子设定完成后，数据将会同步，此后只会复制后续的数据更改。 完成初始种子设定所需的时间取决于数据大小、复制数据库的数量，以及故障转移组中的实体之间的链接速度。 正常情况下，对于 SQL 数据库，典型的种子设定速度为 50-500 GB 每小时；对于 SQL 托管实例，速度为 18-35 GB 每小时。 种子设定将对所有数据库并行执行。 可以根据所述种子设定速度以及数据库数量和数据的总大小，来估算在数据复制开始之前初始种子设定阶段花费的时间。
+  将数据库、弹性池或托管实例添加到故障转移组时，在数据复制开始之前，会有一个初始种子设定阶段。 初始种子设定阶段的操作耗时最长且开销最大。 初始种子设定完成后，数据将会同步，此后只会复制后续的数据更改。 完成初始种子设定所需的时间取决于数据大小、复制数据库的数量，以及故障转移组中的实体之间的链接速度。 正常情况下，对于 SQL 数据库，可能的种子设定速度最高为每小时 500 GB；对于 SQL 托管实例，该速度最高为每小时 360 GB。 种子设定将对所有数据库并行执行。
 
-  对于 SQL 托管实例，在估算初始种子设定阶段的时间时，还需要考虑到两个实例之间的 Express Route 链接速度。 如果两个实例之间的链接速度比所需速度要慢，则种子设定所需的时间可能会受到较大影响。 可以根据所述种子设定速度、数据库数量、数据总大小和链接速度，来估算在数据复制开始之前初始种子设定阶段花费的时间。 例如，对于单个 100 GB 数据库，如果链路每小时能够推送 35 GB 数据，则初始种子设定阶段需要花费 2.8 - 5.5 小时。 如果链路每小时只能传输 10 GB，则为 100 GB 数据库设定种子需要大约 10 小时。 如果有多个数据库要复制，则种子设定将会并行执行，在链接速度较慢的情况下，初始种子设定阶段可能需要相当长的时间，尤其是为所有数据库中的数据并行设定种子超过可用的链接带宽时。 如果两个实例之间的网络带宽受限制，而你要将多个托管实例添加到故障转移组，请考虑按顺序逐个地将多个托管实例添加到故障转移组。
+  对于 SQL 托管实例，在估算初始种子设定阶段的时间时，需考虑两个实例之间的 Express Route 链接的速度。 如果两个实例之间的链接速度比所需速度要慢，则种子设定所需的时间可能会受到较大影响。 可以根据所述种子设定速度、数据库数量、数据总大小和链接速度，来估算在数据复制开始之前初始种子设定阶段花费的时间。 例如，对于单个 100 GB 的数据库，如果链路每小时能够推送 84 GB 数据，并且没有其他数据库正在进行种子设定，则初始种子设定阶段需要花费大约 1.2 小时。 如果链路每小时只能传输 10 GB，则为 100 GB 数据库设定种子需要大约 10 小时。 如果有多个数据库要复制，则种子设定将会并行执行，在链接速度较慢的情况下，初始种子设定阶段可能需要相当长的时间，尤其是为所有数据库中的数据并行设定种子超过可用的链接带宽时。 如果两个实例之间的网络带宽受限制，而你要将多个托管实例添加到故障转移组，请考虑按顺序逐个地将多个托管实例添加到故障转移组。 如果两个托管实例之间的网关 SKU 的大小合适，并且公司网络带宽允许，则有可能实现高达 360 GB/小时的速度。  
 
 - **DNS 区域**
 
@@ -234,6 +234,10 @@ ms.locfileid: "91872424"
 
 有关在主要实例所在的 DNS 区域中创建辅助 SQL 托管实例的详细信息，请参阅[创建辅助托管实例](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance)。
 
+### <a name="using-geo-paired-regions"></a>使用异地配对区域
+
+出于性能方面的考虑，将两个托管实例部署到[配对区域](../../best-practices-availability-paired-regions.md)。 与非配对区域相比，位于异地配对区域中的托管实例具有好得多的性能。 
+
 ### <a name="enabling-replication-traffic-between-two-instances"></a>在两个实例之间启用复制流量
 
 由于每个实例隔离在其自身的 VNet 中，因此，必须允许这些 VNet 之间的双向流量。 请参阅 [Azure VPN 网关](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
@@ -329,7 +333,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 4. 检测到服务中断时启动手动故障转移。 此选项针对需要在前端和数据层之间保持一致延迟的应用程序进行了优化，并支持在前端和/或数据层受到服务中断的影响时进行恢复。
 
 > [!NOTE]
-> 如果使用**只读侦听器**对只读工作负荷进行负载均衡，请确保在次要区域中的 VM 或其他资源上执行此工作负荷，以便它可以连接到辅助数据库。
+> 如果使用 **只读侦听器** 对只读工作负荷进行负载均衡，请确保在次要区域中的 VM 或其他资源上执行此工作负荷，以便它可以连接到辅助数据库。
 
 ### <a name="use-failover-groups-and-firewall-rules"></a>使用故障转移组和防火墙规则
 
@@ -356,7 +360,11 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 - SQL 托管实例的两个实例需位于不同的 Azure 区域中。
 - SQL 托管实例的这两个实例需位于相同的服务层级，并且具有相同的存储大小。
 - SQL 托管实例的辅助实例必须是空的（不包含任何用户数据库）。
-- 需要通过 [VPN 网关](../../vpn-gateway/vpn-gateway-about-vpngateways.md)或 [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 来连接 SQL 托管实例的实例使用的虚拟网络。 当两个虚拟网络通过本地网络连接时，请确保没有任何防火墙规则阻止端口 5022 和 11000-11999。 不支持全局 VNet 对等互连。
+- 需要通过 [VPN 网关](../../vpn-gateway/vpn-gateway-about-vpngateways.md)或 [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 来连接 SQL 托管实例的实例使用的虚拟网络。 当两个虚拟网络通过本地网络连接时，请确保没有任何防火墙规则阻止端口 5022 和 11000-11999。 支持全局 VNet 对等互连，但有如下说明所述的限制。
+
+   > [!IMPORTANT]
+   > [2020 年 9 月 22 日，我们宣布为新建的虚拟群集建立全局虚拟网络对等互连](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)。 这意味着，自公告日期之后在空子网中创建的 SQL 托管实例以及在这些子网中随后创建的所有托管实例，都支持全局虚拟网络对等互连。 对于所有其他 SQL 托管实例，由于[全局虚拟网络对等互连的约束](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，对等互连支持仅限于同一区域中的网络。 有关更多详细信息，另请参阅 [Azure 虚拟网络常见问题解答](/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)一文的相关部分。 
+
 - 两个 SQL 托管实例 VNet 的 IP 地址不能重叠。
 - 需要设置网络安全组 (NSG)，使端口 5022 和端口范围 11000~12000 保持打开，以便能够从其他托管实例的子网建立入站和出站连接。 目的是允许实例之间的复制流量。
 

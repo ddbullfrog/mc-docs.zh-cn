@@ -3,28 +3,30 @@ title: 复合实体类型 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 复合实体由其他实体构成，例如预生成实体、简单实体、正则表达式实体和列表实体。 各种单独的实体构成整个实体。
 services: cognitive-services
-author: lingliw
-manager: digimobile
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 origin.date: 09/29/2019
-ms.date: 10/31/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 2adcc632d6de6b0cf4e17372e814e61ccd72ee22
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/19/2020
+ms.author: v-johya
+ms.openlocfilehash: 326a4256544479a43633e4fa9f5f0fd1d09a96b0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "73416342"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472340"
 ---
-# <a name="composite-entity"></a>复合实体 
+# <a name="composite-entity"></a>复合实体
 
-复合实体由其他实体构成，例如预生成实体、简单实体、正则表达式实体和列表实体。 各种单独的实体构成整个实体。 
+复合实体由其他实体构成，例如预生成实体、简单实体、正则表达式实体和列表实体。 各种单独的实体构成整个实体。
+
+> [!CAUTION]
+> 此实体已弃用。 请迁移到[机器学习实体](reference-entity-machine-learned-entity.md)。
 
 **如果数据具有以下特征，则非常适合使用此实体：**
 
-* 彼此相关。 
+* 彼此相关。
 * 在使用陈述的情况下彼此相关。
 * 使用各种实体类型。
 * 需要由客户端应用程序作为一个信息单元进行分组和处理。
@@ -38,7 +40,7 @@ ms.locfileid: "73416342"
 
 `book 2 tickets to cairo`
 
-注意数字 `2` 和 ToLocation `cairo` 之间有单词，这些单词不属于任何实体。 [LUIS](luis-reference-regions.md) 网站中的已标记话语中使用的绿色下划线指示复合实体。
+注意数字 `2` 和 ToLocation `cairo` 之间有单词，这些单词不属于任何实体。 [LUIS](luis-reference-regions.md) 网站中的已标记陈述中使用的绿色下划线指示复合实体。
 
 ![复合实体](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -88,7 +90,7 @@ ms.locfileid: "73416342"
       ]
     }
   ]
-```    
+```
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 预测终结点响应](#tab/V3)
 
@@ -170,14 +172,18 @@ ms.locfileid: "73416342"
 }
 ```
 
-* * * 
+* * *
 
 
-|数据对象|实体名称|值|
+|数据对象|实体名称|Value|
 |--|--|--|
 |预构建实体 - 数量|"builtin.number"|"2"|
 |预生成实体 - GeographyV2|"Location::ToLocation"|"cairo"|
 
 ## <a name="next-steps"></a>后续步骤
 
-在本[教程](luis-tutorial-composite-entity.md)中，添加**复合实体**来将提取的各种类型的数据捆绑到单个包含实体中。 通过捆绑数据，客户端应用程序可以轻松提取各种数据类型的相关数据。
+详细了解实体：
+
+* [概念](luis-concept-entity-types.md)
+* [如何创建](luis-how-to-add-entities.md)
+

@@ -7,18 +7,18 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 origin.date: 01/14/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 2c43454fb0ea396501b45b519873e71247c86eb8
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/29/2020
+ms.openlocfilehash: 630390fad207107fd489146d3ce32ee6664cfd82
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223279"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470419"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>排查 SQL 数据库和 SQL 托管实例中的临时连接错误
 
@@ -32,7 +32,7 @@ ms.locfileid: "88223279"
 
 暂时性错误（也称为暂时性故障）的根本原因很快就能自行解决。 当 Azure 系统快速地将硬件资源转移到负载均衡更好的各种工作负荷时，偶尔会发生暂时性错误。 大多数这些重新配置事件在 60 秒内就能完成。 在进行这种重新配置的过程中，可能会在 SQL 数据库中连接到你的数据库时遇到问题。 连接到你的数据库的应用程序应当构建为能预见这些暂时性错误。 为了处理这些错误，可应用程序代码中实现重试逻辑，而不是以应用程序错误的形式呈现给用户。
 
-如果客户端程序使用 ADO.NET，系统会引发 **SqlException**，使程序知道已发生暂时性错误。
+如果客户端程序使用 ADO.NET，系统会引发 **SqlException** ，使程序知道已发生暂时性错误。
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -127,17 +127,17 @@ ms.locfileid: "88223279"
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>连接重试的 .NET SqlConnection 参数
 
-如果你的客户端程序使用 .NET Framework 类 System.Data.SqlClient.SqlConnection 连接到你在 SQL 数据库中的数据库，请使用 .NET 4.6.1 或更高版本（或 .NET Core），以便利用其连接重试功能。 有关此功能的详细信息，请参阅[此网页](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection)。
+如果你的客户端程序使用 .NET Framework 类 System.Data.SqlClient.SqlConnection 连接到你在 SQL 数据库中的数据库，请使用 .NET 4.6.1 或更高版本（或 .NET Core），以便利用其连接重试功能。 有关此功能的详细信息，请参阅 [SqlConnection.ConnectionString 属性](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true)。
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-为 **SqlConnection** 对象生成[连接字符串](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)时，请在以下参数之间协调值：
+为 **SqlConnection** 对象生成 [连接字符串](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)时，请在以下参数之间协调值：
 
-- **ConnectRetryCount**：&nbsp;&nbsp;默认值为 1。 范围为 0 到 255。
-- **ConnectRetryInterval**：&nbsp;&nbsp;默认值为 10 秒。 范围为 1 到 60。
-- **Connection Timeout**：&nbsp;&nbsp;默认值为 15 秒。 范围为 0 到 2147483647。
+- **ConnectRetryCount** ：&nbsp;&nbsp;默认值为 1。 范围为 0 到 255。
+- **ConnectRetryInterval** ：&nbsp;&nbsp;默认值为 10 秒。 范围为 1 到 60。
+- **Connection Timeout** ：&nbsp;&nbsp;默认值为 15 秒。 范围为 0 到 2147483647。
 
 具体而言，所选的值应使以下等式成立：连接超时值 = ConnectRetryCount * ConnectionRetryInterval
 
@@ -152,7 +152,7 @@ ms.locfileid: "88223279"
 - SqlConnection.Open 方法调用
 - SqlConnection.Execute 方法调用
 
-有个很微妙的地方。 如果正在执行查询时发生暂时性错误，**SqlConnection** 对象不会重试连接操作。 肯定不会重试查询。 但是， **SqlConnection** 在发送要执行的查询前会非常快速地检查连接。 如果快速检查检测到连接问题， **SqlConnection** 会重试连接操作。 如果重试成功，则会发送查询以执行。
+有个很微妙的地方。 如果正在执行查询时发生暂时性错误， **SqlConnection** 对象不会重试连接操作。 肯定不会重试查询。 但是， **SqlConnection** 在发送要执行的查询前会非常快速地检查连接。 如果快速检查检测到连接问题， **SqlConnection** 会重试连接操作。 如果重试成功，则会发送查询以执行。
 
 ### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>ConnectRetryCount 是否应结合应用程序重试逻辑？
 
@@ -349,7 +349,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 类的框架，可帮助你实施云服
 - **ReliableSqlConnection** 类
   - **ExecuteCommand** 方法
 
-在命名空间 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**中：
+在命名空间 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport** 中：
 
 - **AlwaysTransientErrorDetectionStrategy** 类
 - **NeverTransientErrorDetectionStrategy** 类
@@ -376,7 +376,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 类的框架，可帮助你实施云服
 
 ### <a name="entlib60-istransient-method-source-code"></a>EntLib60 IsTransient 方法的源代码
 
-接下来，**SqlDatabaseTransientErrorDetectionStrategy** 类包含 **IsTransient** 方法的 C# 源代码。 该源代码阐明了哪些错误被视为暂时性错误并值得重试（截止 2013 年 4 月）。
+接下来， **SqlDatabaseTransientErrorDetectionStrategy** 类包含 **IsTransient** 方法的 C# 源代码。 该源代码阐明了哪些错误被视为暂时性错误并值得重试（截止 2013 年 4 月）。
 
 ```csharp
 public bool IsTransient(Exception ex)
@@ -448,7 +448,7 @@ public bool IsTransient(Exception ex)
 
 - [用于 SQL 数据库和 SQL Server 的连接库](connect-query-content-reference-guide.md#libraries)
 - [连接池 (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
-- [*重试*是 Apache 2.0 授权的通用重试库，它以 Python](https://pypi.python.org/pypi/retrying) 编写，可以简化向几乎任何程序添加重试行为的任务。
+- [*重试* 是 Apache 2.0 授权的通用重试库，它以 Python](https://pypi.python.org/pypi/retrying) 编写，可以简化向几乎任何程序添加重试行为的任务。
 
 <!-- Link references. -->
 

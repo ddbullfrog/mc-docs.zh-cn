@@ -1,16 +1,18 @@
 ---
 title: 迁移到 V3 机器学习实体
 description: V3 创作提供了一种新的实体类型，即机器学习实体，还可以向机器学习实体和应用程序的其他实体或功能添加关系。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 10/19/2020
 origin.date: 05/08/2020
-ms.author: v-tawe
-ms.openlocfilehash: a8c1168beb9aac64465595013558f1edf0ef0f88
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.author: v-johya
+ms.openlocfilehash: 12c02576a6b6257d61a3c99811c5ff7943bcec6a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85102070"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472401"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>迁移到 V3 创作实体
 
@@ -35,7 +37,7 @@ V2 创作提供分层实体和复合实体以及角色和功能来完成相同�
 
 * 在示例言语中直观地了解 LUIS 如何预测这些关系
 * 通过[交互式测试窗格](luis-interactive-test.md)或在终结点处测试这些关系
-<!--machine-learned-entity not available-->
+* 通过结构良好的、已命名的嵌套 [.json 对象](reference-entity-machine-learned-entity.md)在客户端应用程序中使用这些关系
 
 ## <a name="planning"></a>规划
 
@@ -190,3 +192,4 @@ LUIS 预览版门户将此功能称为“约束”。 当前的 LUIS 门户将�
 ## <a name="next-steps"></a>后续步骤
 
 * [开发人员资源](developer-reference-resource.md)
+

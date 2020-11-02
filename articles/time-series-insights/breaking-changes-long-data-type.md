@@ -8,14 +8,14 @@ ms.author: v-junlch
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/20/2020
 ms.custom: dpalled
-ms.openlocfilehash: 7484dbe84584bc19975b20a12cd5b053e91d6fc3
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.openlocfilehash: afc9bce97542dccc4a3801eeaeca927aa893a137
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721158"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472146"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Azure 时序见解第 2 代中添加了对 long 数据类型的支持
 
@@ -25,11 +25,11 @@ ms.locfileid: "90721158"
 
 如果你受以下任何情况影响，请进行建议的更改：
 
-- **情况 1**：你当前使用时序模型变量并且在遥测数据中仅发送整型数据类型。
-- **情况 2**：你当前使用时序模型变量并且在遥测数据中同时发送整型和非整型数据类型。
+- **情况 1** ：你当前使用时序模型变量并且在遥测数据中仅发送整型数据类型。
+- **情况 2** ：你当前使用时序模型变量并且在遥测数据中同时发送整型和非整型数据类型。
 - 情况 3：你使用分类变量将整数值映射到类别。
-- **情况 4**：你使用 JavaScript SDK 构建自定义前端应用程序。
-- **情况 5**：你在暖存储中已快要达到 1,000 属性名称限制，并且你同时发送整型和非整型数据。 可以在 [Azure 门户](https://portal.azure.cn/)中将属性计数作为指标查看。
+- **情况 4** ：你使用 JavaScript SDK 构建自定义前端应用程序。
+- **情况 5** ：你在暖存储中已快要达到 1,000 属性名称限制，并且你同时发送整型和非整型数据。 可以在 [Azure 门户](https://portal.azure.cn/)中将属性计数作为指标查看。
 
 如果你符合上述任何情况，请对模型进行更改。 请使用建议的更改更新你的变量定义中的时序表达式 (TSX)。 同时更新：
 
@@ -49,7 +49,7 @@ ms.locfileid: "90721158"
 如果你使用 IoT 中心，请参阅[从内置终结点读取设备到云消息](/iot-hub/iot-hub-devguide-messages-read-builtin)以了解如何访问内置终结点。
 
 > [!NOTE]
-> 如果未进行建议的更改，则可能会发生中断。 例如，通过查询 API 或时序见解资源管理器访问的受影响的时序见解变量将返回 **null**（即，不在资源管理器中显示数据）。
+> 如果未进行建议的更改，则可能会发生中断。 例如，通过查询 API 或时序见解资源管理器访问的受影响的时序见解变量将返回 **null** （即，不在资源管理器中显示数据）。
 
 ## <a name="recommended-changes"></a>建议的更改
 
@@ -64,7 +64,7 @@ ms.locfileid: "90721158"
 - **propertyValue_double**
 - **propertyValue_long**
 
-整数数据写入到 **propertyValue_long**。 **propertyValue_double** 中以前引入的（和将来引入的）数字数据不会进行复制。
+整数数据写入到 **propertyValue_long** 。 **propertyValue_double** 中以前引入的（和将来引入的）数字数据不会进行复制。
 
 如果你要跨这两个列查询 **propertyValue** 属性的数据，则需要在 TSX 中使用 **coalesce()** 标量函数。 此函数接受相同 **DataType** 的参数，并返回参数列表中的第一个非 null 值。 有关详细信息，请参阅 [Azure 时序见解第 2 代数据访问概念](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions)。
 
@@ -72,13 +72,13 @@ ms.locfileid: "90721158"
 
 *以前的变量定义：*
 
-[![以前的变量定义](./media/time-series-insights-long-data-type/var-def-previous.png)](./media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
+[![屏幕截图显示了 PropertyValue 变量（数值）的“添加新变量”对话框。](./media/time-series-insights-long-data-type/var-def-previous.png)](./media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
 
 *新的变量定义：*
 
-[![新的变量定义](./media/time-series-insights-long-data-type/var-def.png)](./media/time-series-insights-long-data-type/var-def.png#lightbox)
+[![屏幕截图显示了具有自定义值的 PropertyValue 变量（数值）的“添加新变量”对话框。](./media/time-series-insights-long-data-type/var-def.png)](./media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-还可以使用 **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** 作为自定义[时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)。
+还可以使用 **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** 作为自定义 [时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)。
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>使用 TSX 查询 API 的内联变量定义 - 数字
 
@@ -126,7 +126,7 @@ ms.locfileid: "90721158"
 }
 ```
 
-还可以使用 **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** 作为自定义[时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)。
+还可以使用 **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** 作为自定义 [时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)。
 
 > [!NOTE]
 > 建议在可能使用这些变量的所有位置更新它们。 这些位置包括时序模型、已保存的查询和 Power BI 连接器查询。
@@ -139,15 +139,15 @@ ms.locfileid: "90721158"
 
 *以前的变量定义：*
 
-[![以前的变量定义](./media/time-series-insights-long-data-type/var-def-cat-previous.png)](./media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
+[![屏幕截图显示了 PropertyValue 变量（类别）的“添加新变量”对话框。](./media/time-series-insights-long-data-type/var-def-cat-previous.png)](./media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
 
 *新的变量定义：*
 
-[![新的变量定义](./media/time-series-insights-long-data-type/var-def-cat.png)](./media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
+[![屏幕截图显示了具有自定义值的 PropertyValue 变量（类别）的“添加新变量”对话框。](./media/time-series-insights-long-data-type/var-def-cat.png)](./media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-还可以使用 **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** 作为自定义[时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)。
+还可以使用 **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** 作为自定义 [时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)。
 
-分类变量仍要求值为整数类型。 在自定义[时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)中，**coalesce()** 中的所有参数的 **DataType** 都必须是 **Long** 类型。
+分类变量仍要求值为整数类型。 在自定义 [时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)中， **coalesce()** 中的所有参数的 **DataType** 都必须是 **Long** 类型。
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>使用 TSX 查询 API 的内联变量定义 - 类别
 
@@ -227,7 +227,7 @@ ms.locfileid: "90721158"
 }
 ```
 
-分类变量仍要求值为整数类型。 在自定义[时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)中，**coalesce()** 中的所有参数的 **DataType** 都必须是 **Long** 类型。
+分类变量仍要求值为整数类型。 在自定义 [时序表达式](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)中， **coalesce()** 中的所有参数的 **DataType** 都必须是 **Long** 类型。
 
 > [!NOTE]
 > 建议在可能使用这些变量的所有位置更新它们。 这些位置包括时序模型、已保存的查询和 Power BI 连接器查询。

@@ -2,13 +2,14 @@
 title: 使用 Visual Studio 开发 Azure Functions
 description: 了解如何使用 Visual Studio Code 的 Azure Functions 扩展开发和测试 Azure Functions。
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 35154233b61b0481e35977d67e56fbc6ff81802d
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.custom: devx-track-csharp
+ms.date: 10/19/2020
+ms.openlocfilehash: fec2f38c716da356aa0ccf6554bc7a28de1b364a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223408"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471227"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>使用 Visual Studio 开发 Azure Functions
 
@@ -61,9 +62,9 @@ Azure Functions 扩展提供以下优势：
 
     ![创建函数](./media/functions-develop-vs-code/create-function.png)
 
-1. 选择函数应用项目所在的文件夹，然后**选择函数项目的语言**。
+1. 选择函数应用项目所在的文件夹，然后 **选择函数项目的语言** 。
 
-1. 如果尚未安装 Core Tools，系统会要求你**选择要安装的 Core Tools 版本**。 选择版本 2.x 或更高版本。 
+1. 如果尚未安装 Core Tools，系统会要求你 **选择要安装的 Core Tools 版本** 。 选择版本 2.x 或更高版本。 
 
 1. 选择“HTTP 触发器”函数模板，或者可以选择“暂时跳过”以创建不带函数的项目。  以后始终可以[将函数添加到项目](#add-a-function-to-your-project)。
 
@@ -81,9 +82,9 @@ Azure Functions 扩展提供以下优势：
 
 项目模板将以所选语言创建一个项目，并安装所需的依赖项。 对于任何语言，新项目包含以下文件：
 
-* **host.json**：用于配置 Functions 主机。 在本地和 Azure 中运行函数时，将应用这些设置。 有关详细信息，请参阅 [host.json 参考](functions-host-json.md)。
+* **host.json** ：用于配置 Functions 主机。 在本地和 Azure 中运行函数时，将应用这些设置。 有关详细信息，请参阅 [host.json 参考](functions-host-json.md)。
 
-* **local.settings.json**：维护本地运行函数时使用的设置。 仅当在本地运行函数时，才使用这些设置。 有关详细信息，请参阅[本地设置文件](#local-settings-file)。
+* **local.settings.json** ：维护本地运行函数时使用的设置。 仅当在本地运行函数时，才使用这些设置。 有关详细信息，请参阅[本地设置文件](#local-settings-file)。
 
     >[!IMPORTANT]
     >由于 local.settings.json 文件可能包含机密，因此需要将其从项目源代码管理中排除。
@@ -230,9 +231,9 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
     ![函数应用设置](./media/functions-develop-vs-code/function-app-publish-project.png)
 
-1. 如果你未登录，系统会提示“登录到 Azure”。 也可以**创建一个 Azure 帐户**。 从浏览器登录后，返回到 Visual Studio Code。
+1. 如果你未登录，系统会提示“登录到 Azure”。 也可以 **创建一个 Azure 帐户** 。 从浏览器登录后，返回到 Visual Studio Code。
 
-1. 如果你有多个订阅，请为函数应用**选择一个订阅**，然后选择“+ 在 Azure 中创建新的函数应用...”**_“高级”_**。 使用此“高级”选项可以更好地控制在 Azure 中创建的资源。 
+1. 如果你有多个订阅，请为函数应用 **选择一个订阅** ，然后选择“+ 在 Azure 中创建新的函数应用...” **_“高级”_** 。 使用此“高级”选项可以更好地控制在 Azure 中创建的资源。 
 
 1. 按提示操作并提供以下信息：
 
@@ -260,7 +261,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 为了能够调用 HTTP 触发的函数，需要获取函数在部署到函数应用时的 URL。 此 URL 包含全部所需的[函数密钥](functions-bindings-http-webhook-trigger.md#authorization-keys)。 可以使用扩展获取已部署的函数的这些 URL。
 
-1. 按 F1 打开命令面板，然后搜索并运行命令“Azure Functions:**Copy Function URL**。
+1. 按 F1 打开命令面板，然后搜索并运行命令“Azure Functions: **Copy Function URL** 。
 
 1. 按提示选择 Azure 中的函数应用，然后选择要调用的特定 HTTP 触发器。
 
@@ -281,7 +282,7 @@ Azure Functions 扩展可让你在本地开发计算机上运行函数项目。 
     | 语言 | 要求 |
     | -------- | --------- |
     | **C#** | [C# 扩展](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI 工具](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
-    | **Java** | [适用于 Java 的调试器扩展](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 或更高版本](https://maven.apache.org/) |
+    | **Java** | [适用于 Java 的调试器扩展](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)<br/>[Maven 3 或更高版本](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
 
     <sup>*</sup>活动 LTS 和维护 LTS 版本（建议使用 8.11.1 和 10.14.1）。
@@ -367,15 +368,13 @@ HTTP 触发器的请求 URL 显示在终端输出中。 在本地运行项目时
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 > [!NOTE]
-> 流日志仅支持单个 Functions 宿主实例。 将函数扩展为多个实例时，不会在日志流中显示来自其他实例的数据。 Application Insights 中的[实时指标流](../azure-monitor/app/live-stream.md)支持多个实例。 同时，在近实时情况下，流分析基于[采样数据](functions-monitoring.md#configure-sampling)。
+> 流日志仅支持单个 Functions 宿主实例。 将函数扩展为多个实例时，不会在日志流中显示来自其他实例的数据。 Application Insights 中的[实时指标流](../azure-monitor/app/live-stream.md)支持多个实例。 同时，在近实时情况下，流分析基于[采样数据](configure-monitoring.md#configure-sampling)。
 
 ### <a name="application-insights"></a>Application Insights
 
-我们建议通过将函数应用与 Application Insights 集成来监视函数的执行。 在 Azure 门户中创建函数应用时，默认情况下会完成此集成。 在 Visual Studio 发布期间创建函数应用时，需要自己集成 Application Insights。
+我们建议通过将函数应用与 Application Insights 集成来监视函数的执行。 在 Azure 门户中创建函数应用时，默认情况下会完成此集成。 在 Visual Studio 发布期间创建函数应用时，需要自己集成 Application Insights。 若要了解如何操作，请参阅[启用 Application Insights 集成](configure-monitoring.md#enable-application-insights-integration)。
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-若要了解详细信息，请参阅[监视 Azure Functions](functions-monitoring.md)。
+若要详细了解如何使用 Application Insights 进行监视，请参阅[监视 Azure Functions](functions-monitoring.md)。
 
 ## <a name="c-script-projects"></a>C\# 脚本项目
 
@@ -435,4 +434,3 @@ Azure Functions 扩展在区域提供一个有用的图形界面，用于与 Azu
 [适用于 Visual Studio Code 的 Azure Functions 扩展]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
 [Azure Functions Core Tools]: functions-run-local.md
 
-<!-- Update_Description: wording update -->

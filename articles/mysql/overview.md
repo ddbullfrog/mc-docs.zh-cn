@@ -7,13 +7,13 @@ ms.author: v-jay
 ms.custom: mvc
 ms.topic: overview
 origin.date: 3/18/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 86d7ad706c591615d4f51f156f4b04417ea98ef2
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 10/29/2020
+ms.openlocfilehash: 08879d17ffeaa5dbd570e63edf202a1e26c2a558
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041860"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470486"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>什么是用于 MySQL 的 Azure 数据库？
 
@@ -37,7 +37,7 @@ Azure Database for MySQL 是 Azure 云中基于 [MySQL 社区版](https://www.my
 
 ### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 
-Azure Database for MySQL 单一服务器是一项完全托管的数据库服务，对数据库自定义的要求最低。 单一服务器平台旨在以最少的用户配置和控制来处理大多数数据库管理功能，例如修补、备份、高可用性、安全性。 此体系结构已进行优化，提供内置的高可用性，在单个可用性区域的可用性为 99.99%。 它支持 MySQL 社区版 5.6、5.7 和 8.0。 目前，该服务已在各种 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)中正式发布。
+Azure Database for MySQL 单一服务器是一项完全托管的数据库服务，对数据库自定义的要求最低。 单一服务器平台旨在以最少的用户配置和控制来处理大多数数据库管理功能，例如修补、备份、高可用性、安全性。 此体系结构已进行优化，提供内置的高可用性，在单个区域的可用性为 99.99%。 它支持 MySQL 社区版 5.6、5.7 和 8.0。 目前，该服务已在各种 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)中正式发布。
 
 “单一服务器”部署选项提供三个定价层：“基本”、“常规用途”和“内存优化”。 每个层提供不同的资源功能以支持数据库工作负荷。 可以在一个月内花费很少的费用基于小型数据库构建第一个应用，然后根据解决方案的需求调整规模。 动态可伸缩性使得数据库能够以透明方式对不断变化的资源需求做出响应。 只需在需要资源时为所需的资源付费。 有关详细信息，请参阅[定价层](concepts-pricing-tiers.md)。
 
@@ -45,3 +45,15 @@ Azure Database for MySQL 单一服务器是一项完全托管的数据库服务�
 
 有关单一服务器部署模式的详细概述，请参阅[单一服务器概述](single-server-overview.md)。
 
+## <a name="contacts"></a>联系人
+有关使用 Azure Database for MySQL 的任何问题或建议，请根据需要考虑以下联系点：
+
+- 若要联系 Azure 支持，请[从 Azure 门户提交票证](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+- 若要修复帐户问题，请提交[支持请求](https://support.azure.cn/zh-cn/support/support-azure/)。
+
+## <a name="next-steps"></a>后续步骤
+
+详细了解 Azure Database for MySQL，并根据需要选择合适的选项。
+
+- [单一服务器](single-server/index.yml)
+- [为工作负载选择正确的 MySQL 部署选项](select-right-deployment-type.md)

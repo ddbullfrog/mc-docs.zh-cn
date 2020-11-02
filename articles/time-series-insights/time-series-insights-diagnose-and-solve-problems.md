@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 10/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: f3c2cd12f1566f50770758dc804154adc7364d1e
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 87f1969ad0eb975d2adec145e1e72e177fefc882
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593839"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471320"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>诊断和解决 Azure 时序见解 Gen1 环境中的问题
+
+> [!CAUTION]
+> 这是一篇 Gen1 文章。
 
 本文描述你可能会在 Azure 时序见解环境中遇到的问题。 本文将提供问题的潜在原因和解决方法。
 
@@ -60,8 +63,8 @@ Azure 时序见解仅支持 JSON 数据。 有关 JSON 示例，请参阅[支持
 
 如果事件源中有旧事件，可通过以下两种方式之一来解决限制：
 
-- 更改事件源的保留限制，以帮助删除不想要显示在 Azure 时序见解中的旧事件。
-- 预配一个更大的环境大小（以单位数计），以提高旧事件的吞吐量。 在上面的示例中，如果在某一天将同一 S1 环境增大到 5 个单位，则环境在一天内就能赶上进度。 如果每天以稳定状态生成 100 万或更少的事件，在 Azure 时序见解赶上进度后，你可将事件容量减少为 1 个单位。
+* 更改事件源的保留限制，以帮助删除不想要显示在 Azure 时序见解中的旧事件。
+* 预配一个更大的环境大小（以单位数计），以提高旧事件的吞吐量。 在上面的示例中，如果在某一天将同一 S1 环境增大到 5 个单位，则环境在一天内就能赶上进度。 如果每天以稳定状态生成 100 万或更少的事件，在 Azure 时序见解赶上进度后，你可将事件容量减少为 1 个单位。
 
 强制的限制基于环境的 SKU 类型和容量。 环境中的所有事件源都共享此容量。 如果 IoT 中心或事件中心的事件源推送的数据超过了实施的限制，则会遇到限制和滞后现象。
 
@@ -112,7 +115,7 @@ Azure 时序见解仅支持 JSON 数据。 有关 JSON 示例，请参阅[支持
 
 ## <a name="problem-the-event-sources-timestamp-property-name-setting-doesnt-work"></a>问题：事件源的时间戳属性名称设置不起作用
 
-确保来自事件源的时间戳属性值（JSON 字符串）的格式为 _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_。 下面是一个示例：**2008-04-12T12:53Z**。
+确保来自事件源的时间戳属性值（JSON 字符串）的格式为 _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_ 。 下面是一个示例： **2008-04-12T12:53Z** 。
 
 请注意，时间戳属性名称区分大小写。
 
@@ -122,13 +125,13 @@ Azure 时序见解仅支持 JSON 数据。 有关 JSON 示例，请参阅[支持
 
 不会显示以下值：
 
-- *(abc)* ：指示 Azure 时序见解正在读取字符串形式的数据值。
-- 日历图标：指示 Azure 时序见解正在读取日期时间值形式的数据值。
-- *#* ：指示 Azure 时序见解正在读取整数形式的数据值。
+* *(abc)* ：指示 Azure 时序见解正在读取字符串形式的数据值。
+* 日历图标：指示 Azure 时序见解正在读取日期时间值形式的数据值。
+* *#* ：指示 Azure 时序见解正在读取整数形式的数据值。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[如何减少 Azure 时序见解中的延迟](time-series-insights-environment-mitigate-latency.md)。
+* 了解[如何减少 Azure 时序见解中的延迟](time-series-insights-environment-mitigate-latency.md)。
 
-- 了解[如何缩放 Azure 时序见解环境](time-series-insights-how-to-scale-your-environment.md)。
+* 了解[如何缩放 Azure 时序见解环境](time-series-insights-how-to-scale-your-environment.md)。
 

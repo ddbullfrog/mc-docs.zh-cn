@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 origin.date: 04/15/2020
 ms.date: 09/14/2020
-ms.openlocfilehash: ce9eb29b0b5e2bf8f28ef14652962cfc59d7797f
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 49c5842d5976d68363ef4f5d505f222bb9d04659
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937534"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471918"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Azure HDInsight 中的托管标识
 
@@ -45,7 +45,7 @@ ms.locfileid: "91937534"
 
 Azure HDInsight 中的多种方案都会使用托管标识。 有关详细的设置和配置说明，请参阅相关文档：
 
-* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
+* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2-portal.md#create-a-user-assigned-managed-identity)
 * [企业安全性套餐](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [客户管理的密钥磁盘加密](disk-encryption.md)
 

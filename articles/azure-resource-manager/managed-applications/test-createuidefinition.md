@@ -1,17 +1,19 @@
 ---
 title: 测试 UI 定义文件
 description: 介绍如何测试通过门户创建 Azure 托管应用程序的用户体验。
-author: rockboyfor
 ms.topic: conceptual
 origin.date: 08/06/2019
-ms.date: 03/23/2020
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: ad1103d2beccb5699627d63c866123fd2905882e
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: ea77f1785e70d582e87a1e021958b9999b17bf13
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79543878"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470060"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>测试 Azure 托管应用程序的门户接口
 
@@ -27,25 +29,25 @@ ms.locfileid: "79543878"
 
 1. 打开[创建 UI 定义沙箱](https://portal.azure.cn/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade)。
 
-    ![显示沙盒](./media/test-createuidefinition/show-sandbox.png)
+    :::image type="content" source="./media/test-createuidefinition/show-sandbox.png" alt-text="显示沙盒":::
 
 1. 将空定义替换为 createUiDefinition.json 文件的内容。 选择“预览”  。
 
-    ![选择“预览”](./media/test-createuidefinition/select-preview.png)
+    :::image type="content" source="./media/test-createuidefinition/select-preview.png" alt-text="显示沙盒":::
 
 1. 此时会显示已创建的窗体。 可以单步执行用户体验，并填写值。
 
-    ![显示窗体](./media/test-createuidefinition/show-ui-form.png)
+    :::image type="content" source="./media/test-createuidefinition/show-ui-form.png" alt-text="显示沙盒":::
 
 ### <a name="troubleshooting"></a>故障排除
 
 如果在选择“预览”  后窗体未显示，则可能存在语法错误。 在右侧滚动条上查找红色指示器，然后导航到它。
 
-![显示语法错误](./media/test-createuidefinition/show-syntax-error.png)
+:::image type="content" source="./media/test-createuidefinition/show-syntax-error.png" alt-text="显示沙盒":::
 
 如果窗体未显示，但看到一个带泪滴的云图标，则表明窗体出现错误，例如缺少属性。 在浏览器中打开“Web 开发人员工具”。 “控制台”显示有关界面的重要消息。 
 
-![显示错误](./media/test-createuidefinition/show-error.png)
+:::image type="content" source="./media/test-createuidefinition/show-error.png" alt-text="显示沙盒":::
 
 ## <a name="use-test-script"></a>使用测试脚本
 
@@ -93,7 +95,7 @@ ms.locfileid: "79543878"
 
 提供字段值。 完成后，会看到这些值已传递到模板（可以在浏览器的开发人员工具控制台中找到）。
 
-![显示值](./media/test-createuidefinition/show-json.png)
+:::image type="content" source="./media/test-createuidefinition/show-json.png" alt-text="显示沙盒":::
 
 你可以使用这些值作为参数文件来测试部署模板。
 
@@ -105,7 +107,9 @@ ms.locfileid: "79543878"
 
 ## <a name="next-steps"></a>后续步骤
 
+<!--Not Available on [Create marketplace application](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)-->
+<!--CUSTOMIZE: KEEP THE ORIGINAL LINK-->
+
 验证门户界面之后，请了解如何[在市场中提供 Azure 托管应用程序](publish-marketplace-app.md)。
 
-<!-- Update_Description: new article about test createuidefinition -->
-<!--NEW.date: 01/20/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

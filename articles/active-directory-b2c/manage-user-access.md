@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 06/28/2020
+ms.topic: how-to
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 9f1a9b8fd43b1221b398e2bb29761afc4780e48b
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: fc294e7c73a30afd5014363b3897d80508c90eca
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516502"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471163"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理用户访问
 
@@ -34,11 +34,11 @@ ms.locfileid: "85516502"
 
 如果已将某个用户识别为未成年人，则你可以将 Azure AD B2C 中的用户流设置为以下三个选项之一：
 
-- **将已签名的 JWT id_token 发回到应用程序**：在目录中注册用户，并将令牌返回到应用程序。 然后，应用程序将通过应用企业规则继续运行。 例如，应用程序可能继续采取家长同意过程。 若要使用此方法，请选择从应用程序接收 **ageGroup** 和 **consentProvidedForMinor** 声明。
+- **将已签名的 JWT id_token 发回到应用程序** ：在目录中注册用户，并将令牌返回到应用程序。 然后，应用程序将通过应用企业规则继续运行。 例如，应用程序可能继续采取家长同意过程。 若要使用此方法，请选择从应用程序接收 **ageGroup** 和 **consentProvidedForMinor** 声明。
 
-- **将未签名的 JSON 令牌发送到应用程序**：Azure AD B2C 将告知应用程序，用户是未成年人，并提供该用户的家长同意状态。 然后，应用程序将通过应用企业规则继续运行。 JSON 令牌不会在应用程序中成功完成身份验证。 应用程序必须根据 JSON 令牌中包含的声明处理未经身份验证的用户，这些声明可能包括 **name**、**email**、**ageGroup** 和 **consentProvidedForMinor**。
+- **将未签名的 JSON 令牌发送到应用程序** ：Azure AD B2C 将告知应用程序，用户是未成年人，并提供该用户的家长同意状态。 然后，应用程序将通过应用企业规则继续运行。 JSON 令牌不会在应用程序中成功完成身份验证。 应用程序必须根据 JSON 令牌中包含的声明处理未经身份验证的用户，这些声明可能包括 **name** 、 **email** 、 **ageGroup** 和 **consentProvidedForMinor** 。
 
-- **阻止用户**：如果用户是未成年人，并且未获得家长同意，则 Azure AD B2C 可通知用户其已被阻止。 不会颁发令牌，访问将被阻止，并且不会在注册旅程期间创建用户帐户。 若要实现此通知，可以提供适当的 HTML/CSS 内容页来告知用户，并显示相应的选项。 应用程序不需要对新的注册采取进一步的措施。
+- **阻止用户** ：如果用户是未成年人，并且未获得家长同意，则 Azure AD B2C 可通知用户其已被阻止。 不会颁发令牌，访问将被阻止，并且不会在注册旅程期间创建用户帐户。 若要实现此通知，可以提供适当的 HTML/CSS 内容页来告知用户，并显示相应的选项。 应用程序不需要对新的注册采取进一步的措施。
 
 ## <a name="get-parental-consent"></a>获得家长同意
 
@@ -54,9 +54,9 @@ ms.locfileid: "85516502"
 
 4. 应用程序提供一个选项让未成年人撤消同意。
 
-5. 未成年人或成年人撤消同意时，可以使用 Microsoft Graph API 将 consentProvidedForMinor 更改为 denied。  或者，应用程序可以选择删除已撤消其同意的未成年人。 可以选择性地自定义用户流，让经过身份验证的未成年人（或使用未成年人帐户的家长）撤消同意。 Azure AD B2C 将 **consentProvidedForMinor** 记录为 **denied**。
+5. 未成年人或成年人撤消同意时，可以使用 Microsoft Graph API 将 consentProvidedForMinor 更改为 denied。  或者，应用程序可以选择删除已撤消其同意的未成年人。 可以选择性地自定义用户流，让经过身份验证的未成年人（或使用未成年人帐户的家长）撤消同意。 Azure AD B2C 将 **consentProvidedForMinor** 记录为 **denied** 。
 
-有关 **legalAgeGroupClassification**、**consentProvidedForMinor** 和 **ageGroup** 的详细信息，请参阅[用户资源类型](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)。 有关自定义属性的详细信息，请参阅[使用自定义属性来收集有关用户的信息](user-flow-custom-attributes.md)。 使用 Microsoft Graph API 处理扩展属性时，必须使用属性的长版本，例如 extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth:2011-01-01T00:00:00Z。
+有关 **legalAgeGroupClassification** 、 **consentProvidedForMinor** 和 **ageGroup** 的详细信息，请参阅 [用户资源类型](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)。 有关自定义属性的详细信息，请参阅[使用自定义属性来收集有关用户的信息](user-flow-custom-attributes.md)。 使用 Microsoft Graph API 处理扩展属性时，必须使用属性的长版本，例如 extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth:2011-01-01T00:00:00Z。
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>收集出生日期和国家/地区数据
 
@@ -70,18 +70,18 @@ ms.locfileid: "85516502"
 
 2. 如果国家/地区元素中存在 MinorConsent 节点：
 
-    a. 计算用户必须在哪个日期出生，才能将其视为成年人。 例如，如果当前日期为 2015 年 3 月 14 日，**MinorConsent** 为 18，则出生日期必须晚于 2000 年 3 月 14。
+    a. 计算用户必须在哪个日期出生，才能将其视为成年人。 例如，如果当前日期为 2015 年 3 月 14 日， **MinorConsent** 为 18，则出生日期必须晚于 2000 年 3 月 14。
 
     b. 将最小出生日期与实际出生日期相比较。 如果用户出生日期晚于最小出生日期，则计算会返回“Minor”作为年龄组计算结果。
 
 3. 如果国家/地区元素中存在“MinorNoConsentRequired”节点，请使用“MinorNoConsentRequired”中的值重复步骤 2a 和 2b。  如果用户出生日期晚于最小出生日期，则 2b 输出将返回“MinorNoConsentRequired”。
 
-4. 如果任何计算都未返回 true，则计算会返回 **Adult**。
+4. 如果任何计算都未返回 true，则计算会返回 **Adult** 。
 
 如果应用程序已通过其他方法可靠地收集了 DOB 或国家/地区数据，则可以通过图形 API 使用此信息更新用户记录。 例如：
 
-- 如果已知某个用户是成年人，则使用 **Adult** 值更新目录属性 **ageGroup**。
-- 如果已知某个用户是未成年人，则使用 **Minor** 值更新目录属性 **ageGroup**，并相应地设置 **consentProvidedForMinor**。
+- 如果已知某个用户是成年人，则使用 **Adult** 值更新目录属性 **ageGroup** 。
+- 如果已知某个用户是未成年人，则使用 **Minor** 值更新目录属性 **ageGroup** ，并相应地设置 **consentProvidedForMinor** 。
 
 有关收集 DOB 数据的详细信息，请参阅[在 Azure AD B2C 中使用年龄门控](basic-age-gating.md)。
 
@@ -97,7 +97,7 @@ ms.locfileid: "85516502"
 
 2. 创建标有“接受使用条款”的必选复选框，并记录注册时的结果。 可以使用内置和自定义的用户流实现此目的。
 
-3. Azure AD B2C 会存储使用条款协议和用户的接受状态。 可以使用图形 API，通过读取用于记录响应的扩展属性（例如读取 **termsOfUseTestUpdateDateTime**）来查询任何用户的状态。 可以使用内置和自定义的用户流实现此目的。
+3. Azure AD B2C 会存储使用条款协议和用户的接受状态。 可以使用图形 API，通过读取用于记录响应的扩展属性（例如读取 **termsOfUseTestUpdateDateTime** ）来查询任何用户的状态。 可以使用内置和自定义的用户流实现此目的。
 
 4. 将接受日期与使用条款最新版本的发布日期进行比较，要求接受更新的使用条款。 只能使用自定义用户流来比较日期。 使用扩展属性 **extension_termsOfUseConsentDateTime** 并比较 **termsOfUseTextUpdateDateTime** 声明的值。 如果接受日期更早，则通过显示自我断言的屏幕来强制接受新条款。 否则使用策略逻辑阻止访问。
 
@@ -114,7 +114,7 @@ ms.locfileid: "85516502"
 
 ![显示建议的接受用户流的流程图图表](./media/manage-user-access/user-flow.png)
 
-下面是声明中基于 DateTime 的使用条款许可状态示例：
+下面是声明中基于日期的使用条款同意情况示例。 如果 `extension_termsOfUseConsentDateTime` 声明早于 `2025-01-15T00:00:00`，请通过检查 `termsOfUseConsentRequired` 布尔声明并显示一个自断言屏幕来强制重新接受声明。 
 
 ```xml
 <ClaimsTransformations>
@@ -128,7 +128,7 @@ ms.locfileid: "85516502"
       <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" />
     </InputClaims>
     <InputParameters>
-      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2098-01-30T23:03:45" />
+      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2025-01-15T00:00:00" />
     </InputParameters>
     <OutputClaims>
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" />
@@ -137,7 +137,7 @@ ms.locfileid: "85516502"
 </ClaimsTransformations>
 ```
 
-下面是声明中基于 Version 的使用条款许可状态示例：
+下面是声明中基于版本的使用条款同意情况示例。 如果 `extension_termsOfUseConsentVersion` 声明不等于 `V1`，请通过检查 `termsOfUseConsentRequired` 布尔声明并显示一个自断言屏幕来强制重新接受声明。
 
 ```xml
 <ClaimsTransformations>

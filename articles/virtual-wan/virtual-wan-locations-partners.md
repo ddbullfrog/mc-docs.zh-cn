@@ -2,21 +2,21 @@
 title: Azure 虚拟 WAN 合作伙伴和位置 | Azure
 description: 本文包含 Azure 虚拟 WAN 的合作伙伴和中心位置的列表。
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
 ms.topic: conceptual
-origin.date: 02/12/2020
-ms.date: 09/25/2020
+origin.date: 09/22/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: c116a307ca00516f1f0923e7f075b595ffe41a36
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: dd63c984331d0171ae5cc96a99f44413142d7f6c
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246710"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472532"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>虚拟 WAN 合作伙伴和虚拟中心位置
 
@@ -29,7 +29,7 @@ Azure Virtual WAN 是一种网络服务，它通过 Azure 提供经优化、自�
 <!--CORRECT ON an Azure managed-->
 
 <a name="automation"></a>
-## <a name="automation-from-connectivity-partners"></a>连接合作伙伴提供的自动化
+## <a name="branch-ipsec-connectivity-automation-from-partners"></a>从合作伙伴自动进行分支 IPSec 连接
 
 连接到 Azure 虚拟 WAN 的设备具有内置的自动化连接功能。 这通常在设备管理 UI（或同等位置）中设置，该 UI 设置 VPN 分支设备到 Azure 虚拟中心 VPN 终结点（VPN 网关）之间的连接和配置管理。
 
@@ -43,11 +43,31 @@ Azure Virtual WAN 是一种网络服务，它通过 Azure 提供经优化、自�
 某些连接合作伙伴可以扩展自动化，包括创建 Azure 虚拟中心 VNet 和 VPN 网关。 若要了解有关自动化的详细信息，请参阅[适用于虚拟 WAN 合作伙伴的自动化指南](virtual-wan-configure-automation-providers.md)。
 
 <a name="partners"></a>
-## <a name="connectivity-through-partners"></a>通过合作伙伴建立连接
+## <a name="branch-ipsec-connectivity-partners"></a>分支 IPSec 连接合作伙伴
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-在不久的将来，我们的路线图中将列出以下合作伙伴：128 Technologies、Arista、Aruba HPE、Cisco Systems (Viptela)、F5 Networks、Open Systems、Oracle SD-WAN 和 SharpLink。
+以下合作伙伴将被列入我们的路线图，该路线图基于公司之间签署的条款清单，该条款清单指示了在合作伙伴设备和 Azure 虚拟 WAN VPN 网关之间实现自动 IPsec 连接的工作范围：128 Technologies、Arista、F5 Networks、Oracle SD-WAN (Talari) 和 SharpLink。
+
+## <a name="partners-with-integrated-virtual-hub-offerings"></a>具有集成虚拟中心产品/服务的合作伙伴
+除了提供自动分支机构 IPSec 连接外，某些合作伙伴还提供网络虚拟设备 (NVA)，这些设备可直接集成到 Azure 虚拟 WAN 中心。  这让客户可以选择终止其与虚拟中心内兼容的第三方设备的分支连接。  
+
+在虚拟 WAN 中心提供 NVA 的合作伙伴必须：
+
+* 已通过其分支设备实现了自动 IPSec 连接，并已将其 NVA 产品/服务加入了 Azure 虚拟 WAN 中心。
+* 在 Azure 市场中提供现有网络虚拟设备产品/服务。
+
+如果你是合作伙伴，对虚拟中心产品/服务中的托管 NVA 有疑问，请通过发送电子邮件至 vwannvaonboarding@microsoft.com 与我们联系
+
+## <a name="integrated-virtual-hub-nva-partners"></a>集成虚拟中心 NVA 合作伙伴
+这些合作伙伴提供了“托管应用程序”产品/服务，这些产品/服务现在可以部署到虚拟 WAN 中心。
+
+|合作伙伴|配置/操作方法/部署指南|
+|---|---|
+|[Barracuda Networks](https://market.azure.cn/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN 部署指南](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
+|[Cisco 云服务路由器 (CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| 在将 Cisco 云服务 (CSR) WAN 公开预览版发布到 VWAN 中心期间，Cisco 要求最终客户向 vwan_public_preview@external.cisco.com 发送电子邮件并请求“vManage 部署指南”，通过这种方式注册为 Cisco EFT（早期现场试用）客户。 |
+
+以下合作伙伴计划在不久的将来将 NVA 引入虚拟中心产品/服务：Citrix、Versa Networks 和 VeloCloud。
 
 <a name="locations"></a>
 ## <a name="locations"></a>位置

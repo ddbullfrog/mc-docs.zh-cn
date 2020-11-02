@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 8/13/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: ec9ca9aaa92b03bf3080d34c75cd74e4d94feb6b
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 10/29/2020
+ms.openlocfilehash: c9670f83c492442fc4a452defc6564612f9e27b4
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512906"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470501"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 定价层
 
@@ -23,7 +23,7 @@ ms.locfileid: "89512906"
 | 计算的代 | 第 5 代 |第 5 代 | 第 5 代 |
 | vCore 数 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | 每个 vCore 的内存 | 2 GB | 5 GB | 10 GB |
-| 存储大小 | 5 GB 到 1 TB | 5GB 到 4TB | 5GB 到 4TB |
+| 存储大小 | 5 GB 到 1 TB | 5 GB 到 16 TB | 5 GB 到 16 TB |
 | 数据库备份保留期 | 7 到 35 天 | 7 到 35 天 | 7 到 35 天 |
 
 可以从下表着手来选择定价层。
@@ -47,9 +47,15 @@ ms.locfileid: "89512906"
 | 存储属性   | 基本 | 常规用途 | 内存优化 |
 |:---|:----------|:--------------------|:---------------------|
 | 存储类型 | 基本存储 | 常规用途存储 | 常规用途存储 |
-| 存储大小 | 5 GB 到 1 TB | 5GB 到 4TB | 5GB 到 4TB |
+| 存储大小 | 5 GB 到 1 TB | 5 GB 到 16 TB | 5 GB 到 16 TB |
 | 存储增量大小 | 1 GB | 1 GB | 1 GB |
-| IOPS | 变量 |3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS |
+| IOPS | 变量 |3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20,000 IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20,000 IOPS |
+
+> [!NOTE]
+> 中国东部 2 和中国北部 2 支持最多 16 TB 和 20,000 IOPS 的存储。
+>
+> “中国东部”和“中国北部”区域支持最多 4TB 的存储和 6000 IOPS。
+>
 
 在创建服务器的过程中和之后，可以添加更多的存储容量，这样系统就可以根据工作负荷的存储使用情况自动增加存储。
 

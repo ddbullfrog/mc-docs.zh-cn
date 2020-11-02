@@ -7,13 +7,13 @@ ms.author: v-jay
 ms.custom: mvc
 ms.topic: overview
 origin.date: 8/20/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 1f35b14f283ad6f75d17fd84ec1619f5b1544647
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 10/29/2020
+ms.openlocfilehash: 1188d719a8f81713e75c70e99aa5b62572fad574
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041911"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470252"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database for MySQL 单一服务器
 
@@ -21,7 +21,7 @@ ms.locfileid: "92041911"
 
 ## <a name="overview"></a>概述
 
-单一服务器是一项完全托管的数据库服务，对数据库自定义的要求最低。 单一服务器平台旨在以最少的用户配置和控制来处理大多数数据库管理功能，例如修补、备份、高可用性、安全性。 此体系结构经过优化，可在单个可用性区域提供 99.99% 的可用性。 它支持 MySQL 社区版 5.6、5.7 和 8.0。 目前，该服务已在各种 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)中正式发布。 
+单一服务器是一项完全托管的数据库服务，对数据库自定义的要求最低。 单一服务器平台旨在以最少的用户配置和控制来处理大多数数据库管理功能，例如修补、备份、高可用性、安全性。 此体系结构经过优化，可在单个区域提供 99.99% 的可用性。 它支持 MySQL 社区版 5.6、5.7 和 8.0。 目前，该服务已在各种 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)中正式发布。 
 
 单一服务器最适合用于云原生应用程序，这些应用程序旨在处理自动修补，而无需对修补计划和自定义 MySQL 配置设置进行精细控制。 
 
@@ -52,7 +52,7 @@ Azure 行业领先的 99.99% 可用性服务级别协议 (SLA) 有助于保持�
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>几秒钟内调整性能和规模
 
-单一服务器服务在三个 SKU 层中提供：“基本”、“常规用途”和“内存优化”。 基本层最适合用于低成本开发和低并发工作负载。 常规用途和内存优化更适用于需要高并发性、缩放性和可预测性能的生产工作负载。 可以在一个月内花费很少的费用基于小型数据库构建第一个应用，然后根据解决方案的需求调整缩放。 存储缩放是联机的，支持存储自动增长。 动态可伸缩性使得数据库能够以透明方式对不断变化的资源需求做出响应。 只需为所使用的资源付费。 有关详细信息，请参阅 [定价层](concepts-service-tiers.md)。
+单一服务器服务在三个 SKU 层中提供：“基本”、“常规用途”和“内存优化”。 基本层最适合用于低成本开发和低并发工作负载。 常规用途和内存优化更适用于需要高并发性、缩放性和可预测性能的生产工作负载。 可以在一个月内花费很少的费用基于小型数据库构建第一个应用，然后根据解决方案的需求调整缩放。 存储缩放是联机的，支持存储自动增长。 动态可伸缩性使得数据库能够以透明方式对不断变化的资源需求做出响应。 只需为所使用的资源付费。 有关详细信息，请参阅[定价层](concepts-service-tiers.md)。
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>企业级安全性、合规性和治理
 

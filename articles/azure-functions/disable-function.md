@@ -2,20 +2,20 @@
 title: 如何在 Azure Functions 中禁用函数
 description: 了解如何在 Azure Functions 中禁用与启用函数。
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 10/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 4b1e85a89f3bc52515f9b4928c939d550b33f3f4
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: bc2ac3f94537b4a59cf57f82f1ea637f61e1f5b9
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947165"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472097"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>如何在 Azure Functions 中禁用函数
 
 本文介绍如何在 Azure Functions 中禁用函数。 禁用某个函数意味着运行时将忽略针对该函数定义的自动触发器。 这使你可以在不停止整个函数应用的情况下阻止特定函数运行。
 
-若要禁用函数，建议使用 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 格式的应用设置。 可以通过多种方式创建和修改此应用程序设置，包括使用 [Azure CLI](/cli/)，以及使用 [Azure 门户](https://portal.azure.cn)中函数的“管理”选项卡。 
+若要禁用函数，建议的方式是将格式为 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 的应用设置设为 `true`。 可以通过多种方式创建和修改此应用程序设置，包括使用 [Azure CLI](/cli/)，以及使用 [Azure 门户](https://portal.azure.cn)中函数的“管理”选项卡。 
 
 > [!NOTE]  
 > 如果使用本文所述的方法禁用 HTTP 触发的函数，则在本地计算机上运行时，仍然可以访问该终结点。  
@@ -40,7 +40,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>使用门户
 
-还可以使用函数的“概览”页上的“启用”和“禁用”按钮。 这两个按钮通过创建和删除 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 应用设置来工作。
+还可以使用函数的“概览”页上的“启用”和“禁用”按钮。 这两个按钮通过更改 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 应用设置的值来工作。 此特定于函数的设置是在第一次禁用它时创建的。
 
 ![函数状态开关](./media/disable-function/function-state-switch.png)
 

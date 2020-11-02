@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: a870e18893702c4e2920fd1d03e4eaad2fd11103
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 0690756f46d578f5631a2a0fe6c4b834848ecc63
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937692"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471172"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 ID 令牌提示技术配置文件
 
@@ -93,7 +93,7 @@ OutputClaims 元素包含要从 JWT 令牌中提取的声明列表。 可能需�
 | --------- | -------- | ----------- |
 | METADATA| 是 | 指向令牌颁发者配置文档的 URL，也称为 OpenID 已知配置终结点。   |
 | 颁发者 | 否 | 标识安全令牌服务（令牌颁发者）。 此值可用于覆盖元数据中配置的值，并且必须与 JWT 令牌声明中的 `iss` 声明相同。 |  
-| IdTokenAudience | 否 | 标识令牌的目标接收方。 此值可用于覆盖元数据中配置的值，并且必须与 JWT 令牌声明中的 `aud` 声明相同。 |  
+| IdTokenAudience | 否 | 标识令牌的目标接收方。 必须与 JWT 令牌声明中的 `aud` 声明相同。 |  
 
 ## <a name="cryptographic-keys"></a>加密密钥
 
@@ -132,11 +132,11 @@ $newClientSecret
 1. 在 Azure 门户中，搜索并选择“Azure AD B2C”。
 1. 在概述页面上的“策略”下，选择“Identity Experience Framework” 。
 1. 选择“策略密钥” 
-1. 选择“手动”****。
-1. 使用 `IdTokenHintKey` 作为“名称”****。  
+1. 选择“手动”  。
+1. 使用 `IdTokenHintKey` 作为“名称”  。  
    可能会自动添加前缀 `B2C_1A_`。
 1. 在“机密”框中，输入之前生成的登录密钥。
-1. 使用“加密”**** 作为“密钥用法”****。
+1. 使用“加密”  作为“密钥用法”  。
 1. 选择“创建” 。
 1. 确认已创建密钥 `B2C_1A_IdTokenHintKey`。
 
@@ -219,7 +219,7 @@ New-SelfSignedCertificate `
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.chinacloudsites.cn/.well-known/openid-configuration</Item>
-        <!-- <Item Key="IdTokenAudience">your_optional_audience_override</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

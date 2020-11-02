@@ -1,18 +1,18 @@
 ---
-title: 在 Azure 门户中为 Azure Database for MariaDB 配置指标警报
+title: 配置指标警报 - Azure 门户 - Azure Database for MariaDB
 description: 本文介绍了如何通过 Azure 门户配置和访问针对 Azure Database for MariaDB 的指标警报。
 author: WenJason
 ms.author: v-jay
 ms.service: mariadb
-ms.topic: conceptual
-origin.date: 01/07/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: e683f1e26c9f1c7c0871a0c5a17c264e72e7a786
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.topic: how-to
+origin.date: 3/18/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: ed5167c3257592d1ec7f4bc2bf12aa7439f697b1
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "68308897"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470221"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>使用 Azure 门户设置针对 Azure Database for MariaDB 指标的警报
 
@@ -53,7 +53,7 @@ ms.locfileid: "68308897"
    
    完成后选择“完成”  。
 
-   ![选择指标](./media/howto-alert-metric/7-set-threshold-time.png)
+   ![选择指标 2](./media/howto-alert-metric/7-set-threshold-time.png)
 
 8. 在“操作组”部分中，选择“新建”创建新组以接收有关警报的通知   。
 
@@ -71,7 +71,7 @@ ms.locfileid: "68308897"
 
 11. 指定预警规则名称、说明和严重性。
 
-    ![操作组](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![操作组 2](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. 选择“创建警报规则”可以创建警报  。
 

@@ -14,12 +14,12 @@ ms.custom: ''
 origin.date: 08/31/2020
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: 047a5339844f3332d31252841560b3ab66f622ee
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 9ed64ba8821cc575eee97e3fad11026bcb6361d4
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245104"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470457"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>媒体服务和视频点播 (VOD) 的高可用性
 
@@ -47,7 +47,7 @@ Azure 体系结构文档中有一个名为 Geodes 的高可用性设计模式。
 |![图像](media/media-services-high-availability-encoding/key-vault.svg)| Key Vault | **描述：**<br>Azure Key Vault 可以用来安全地存储令牌、密码、证书、API 密钥和其他机密，并对其访问进行严格控制。 它还可以用作密钥管理解决方案。 可以通过 Azure Key Vault 轻松创建和控制用于加密数据的加密密钥。 它可以轻松预配、管理和部署公用和专用传输层安全性/安全套接字层 (TLS/SSL) 证书，这些证书可以与 Azure 以及内部的已连接资源配合使用。<br><br>**VOD 使用：**<br>Key Vault 可用于为应用程序的服务主体设置访问策略。  它可用于将连接字符串存储到存储帐户。 我们使用 Key Vault 将连接字符串存储到存储帐户和 Cosmos DB。 你还可以使用 Key Vault 来存储整体群集配置。 对于每个媒体服务实例，你可以存储订阅 ID、资源组名称和帐户名称。 有关更多详细信息，请参阅它在示例中的使用方式。 [详细了解 Key Vault](../../key-vault/general/overview.md)。 |
 |![图像](media/media-services-high-availability-encoding/function-app.svg)| Azure Functions | **描述：**<br>使用 Azure Functions 运行小段代码（称为“函数”）且不需要担心应用程序基础结构。 [详细了解 Azure Functions](../../azure-functions/functions-overview.md)。<br><br>**VOD 使用：**<br>Azure Functions 可用于存储/承载 VOD 应用程序的模块。  VOD 应用程序的模块可能包括：<br><br>**作业计划模块**<br>作业计划模块可用于将新作业提交到媒体服务群集（不同区域中的两个或更多实例）。 它将跟踪每个媒体服务实例的运行状况状态，并将新作业提交到下一个正常的实例。<br><br>**作业状态模块**<br>作业状态模块将侦听来自 Azure 事件网格服务的作业输出状态事件。 它会将事件存储到事件存储中，以最大程度地减少模块的其余部分调用媒体服务 API 的次数。<br><br>**实例运行状况模块**<br>此模块将跟踪提交的作业并确定每个媒体服务实例的运行状况状态。 它将跟踪已完成的作业、失败的作业和从未完成的作业。<br><br>**预配模块**<br>此模块将预配已处理的资产。 它会将资产数据复制到所有媒体服务实例，并设置 Azure Front Door 服务，以确保即使某些媒体服务实例不可用，也可以对资产进行流式处理。 它还会设置流式处理定位符。<br><br>**作业验证模块**<br>此模块将跟踪每个已提交的作业，重新提交失败的作业，并在作业成功完成后执行作业数据清理。  |
 |![图像](media/media-services-high-availability-encoding/application-service.svg)| 应用服务（和计划）  | **描述：**<br>Azure 应用服务是一项基于 HTTP 的服务，用于托管 Web 应用程序、REST API 和移动后端  。 它支持 .NET、.NET Core、Java、Ruby、Node.js、PHP 或 Python。 在基于 Windows 和 Linux 的环境中，应用程序都可以运行和缩放。<br><br>**VOD 使用：**<br>每个模块都由一个应用服务承载。 [详细了解应用服务](../../app-service/overview.md)。 |
-|![图像](media/media-services-high-availability-encoding/event-grid-subscription.svg)| Azure 事件网格 | **描述：**<br>为基于事件的体系结构而创建，事件网格包含来自 Azure 服务的对事件的内置支持，如存储 blob 和资源组。 它还支持自定义主题事件。 可以使用筛选器将特定事件路由到不同的终结点，多播到多个终结点，并确保事件可靠传送。 它天生跨每个区域中的多个容错域以及跨可用性区域分布，因而最大限度地提高了可用性。<br><br>**VOD 使用：**<br>可以使用事件网格跟踪所有应用程序事件，并存储它们以持久保存作业状态。 [详细了解 Azure 事件网格](../../event-grid/overview.md)。 |
+|![图像](media/media-services-high-availability-encoding/event-grid-subscription.svg)| Azure 事件网格 | **描述：**<br>为基于事件的体系结构而创建，事件网格包含来自 Azure 服务的对事件的内置支持，如存储 blob 和资源组。 它还支持自定义主题事件。 可以使用筛选器将特定事件路由到不同的终结点，多播到多个终结点，并确保事件可靠传送。 它天生跨每个区域中的多个容错域进行分布，因而最大限度地提高了可用性。<br><br>**VOD 使用：**<br>可以使用事件网格跟踪所有应用程序事件，并存储它们以持久保存作业状态。 [详细了解 Azure 事件网格](../../event-grid/overview.md)。 |
 |![图像](media/media-services-high-availability-encoding/application-insights.svg)| Application Insights | **描述：** <br>Application Insights 是 Azure Monitor 的一项功能，是面向开发人员和 DevOps 专业人员的一项可扩展的应用程序性能管理 (APM) 服务。 它用来监视实时应用程序。 它检测性能异常，包括了分析工具来诊断问题并了解用户在应用中执行了哪些操作。 Application Insights 有助于持续提高性能与可用性。<br><br>**VOD 使用：**<br>所有日志都可以发送到 Application Insights。 可以通过搜索已成功创建非作业消息来查看是什么实例处理了各个作业。 它可能包含所有已提交的作业元数据，包括唯一标识符和实例名称信息。 [详细了解 Application Insights](../../azure-monitor/app/app-insights-overview.md)。 |
 ## <a name="architecture"></a>体系结构
 

@@ -5,15 +5,16 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
-origin.date: 6/11/2020
-ms.date: 06/29/2020
-ms.openlocfilehash: 6d7e76428cda7a3b1eba7f44ce535c5f3dac2370
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.topic: how-to
+origin.date: 10/1/2020
+ms.date: 10/29/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6aa88c6951ebfe64e7037b78ff9e69e03e552842
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516721"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470481"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-cli"></a>使用 Azure CLI 在 Azure Database for MySQL 中配置服务器参数
 
@@ -21,6 +22,9 @@ ms.locfileid: "85516721"
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 可以使用 Azure CLI、Azure 命令行实用工具来列出、显示和更新 Azure Database for MySQL 服务器的配置参数。 在服务器级别会公开引擎配置的一个子集，并可以进行修改。 
+
+>[!Note]
+> 可在服务器级别全局更新服务器参数，只需使用 [Azure CLI](./howto-configure-server-parameters-using-cli.md)、[PowerShell](./howto-configure-server-parameters-using-powershell.md) 或 [Azure 门户](./howto-server-parameters.md)即可
 
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本操作方法指南，需要：
@@ -46,7 +50,7 @@ az mysql server configuration show --name slow_query_log --resource-group myreso
 ## <a name="modify-a-server-configuration-parameter-value"></a>修改服务器配置参数值
 此外，你还可以修改某个服务器配置参数的值，这会更新 MySQL 服务器引擎的基础配置值。 若要更新配置，请使用 [az mysql server configuration set](/cli/mysql/server/configuration#az-mysql-server-configuration-set) 命令。 
 
-更新资源组“myresourcegroup”下服务器 **mydemoserver.mysql.database.chinacloudapi.cn** 的服务器配置参数 **slow\_query\_log**。
+更新资源组“myresourcegroup”下服务器 **mydemoserver.mysql.database.chinacloudapi.cn** 的服务器配置参数 **slow\_query\_log** 。
 ```cli
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 ```
@@ -57,7 +61,7 @@ az mysql server configuration set --name slow_query_log --resource-group myresou
 此代码会将 slow\_query\_log 配置重置为默认值 OFF。 
 
 ## <a name="setting-parameters-not-listed"></a>设置参数未列出
-如果 Azure 门户中未列出你要更新的服务器参数，则可以选择使用 `init_connect` 在连接级别设置参数。 此项可为每个连接到服务器的客户端设置服务器参数。 
+如果 Azure 门户中未列出你要更新的服务器参数，则可以选择性地使用 `init_connect` 在连接级别设置参数。 此项可为每个连接到服务器的客户端设置服务器参数。 
 
 更新资源组 myresourcegroup 下的服务器 mydemoserver.mysql.database.chinacloudapi.cn 的 init\_connect 服务器配置参数，以设置字符集之类的值  。
 ```azurecli
@@ -98,7 +102,7 @@ az mysql server configuration set --name time_zone --resource-group myresourcegr
 
 ### <a name="setting-the-session-level-time-zone"></a>设置会话级时区
 
-可以通过从 MySQL 命令行或 MySQL Workbench 等工具运行 `SET time_zone` 命令来设置会话级时区。 以下示例将时区设置为“Asia/Shanghai”时区。  
+可以通过从 MySQL 命令行或 MySQL Workbench 等工具运行 `SET time_zone` 命令来设置会话级时区。 以下示例将时区设置为“亚洲/上海”时区。  
 
 ```sql
 SET time_zone = 'Asia/Shanghai';

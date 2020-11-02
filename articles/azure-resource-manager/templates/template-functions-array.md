@@ -2,15 +2,16 @@
 title: 模板函数 - 数组
 description: 介绍可在 Azure 资源管理器模板中用来处理数组的函数。
 ms.topic: conceptual
-origin.date: 04/27/2020
-ms.date: 06/22/2020
+origin.date: 10/12/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: 783a510febefd041d55601077a7a29498f710b5b
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: ab320c405bff7c2437b3cadbef8c59d3be96f343
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098640"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470076"
 ---
 # <a name="array-functions-for-arm-templates"></a>ARM 模板的数组函数
 
@@ -100,12 +101,12 @@ ms.locfileid: "85098640"
 | intOutput | Array | [1] |
 | stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
-<a name="concat"></a>
-## <a name="concat"></a>concat
+
+## <a name="concat"></a><a name="concat"></a>concat
 
 `concat(arg1, arg2, arg3, ...)`
 
-合并多个数组并返回串联的数组，或合并多个字符串值并返回串联的字符串。 
+合并多个数组并返回串联的数组，或合并多个字符串值并返回串联的字符串。
 
 ### <a name="parameters"></a>parameters
 
@@ -206,7 +207,7 @@ ms.locfileid: "85098640"
 
 ### <a name="return-value"></a>返回值
 
-如果找到该项，则为 **True**；否则为 **False**。
+如果找到该项，则为 **True** ；否则为 **False** 。
 
 ### <a name="example"></a>示例
 
@@ -282,12 +283,11 @@ ms.locfileid: "85098640"
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |字符串、整数、数组或对象 |数组中的第一个值。 |
-| 其他参数 |否 |字符串、整数、数组或对象 |数组中的其他值。 |
+| args |否 |字符串、整数、数组或对象 |数组中的值。 |
 
 ### <a name="return-value"></a>返回值
 
-一个数组。
+一个数组。 如果未提供任何参数，它会返回空数组。
 
 ### <a name="example"></a>示例
 
@@ -325,6 +325,10 @@ ms.locfileid: "85098640"
         "arrayArray": {
             "type": "array",
             "value": "[createArray(parameters('arrayToTest'))]"
+        },
+        "emptyArray": {
+            "type": "array",
+            "value": "[createArray()]"
         }
     }
 }
@@ -338,6 +342,7 @@ ms.locfileid: "85098640"
 | intArray | Array | [1, 2, 3] |
 | objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Array | [["one", "two", "three"]] |
+| emptyArray | Array | [] |
 
 ## <a name="empty"></a>empty
 
@@ -353,7 +358,7 @@ ms.locfileid: "85098640"
 
 ### <a name="return-value"></a>返回值
 
-如果该值为空，则返回 **True**；否则返回 **False**。
+如果该值为空，则返回 **True** ；否则返回 **False** 。
 
 ### <a name="example"></a>示例
 
@@ -588,7 +593,7 @@ ms.locfileid: "85098640"
 
 ### <a name="return-value"></a>返回值
 
-一个整数。 
+一个整数。
 
 ### <a name="example"></a>示例
 
@@ -661,9 +666,7 @@ ms.locfileid: "85098640"
 
 有关在数组中使用此函数的详细信息，请参阅 [Create multiple instances of resources in Azure Resource Manager](copy-resources.md)（在 Azure Resource Manager 中创建多个资源实例）。
 
-<a name="max"></a>
-
-## <a name="max"></a>max
+## <a name="max"></a><a name="max"></a>max
 
 `max(arg1)`
 
@@ -1020,9 +1023,6 @@ ms.locfileid: "85098640"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关 Azure 资源管理器模板中各部分的说明，请参阅[创作 Azure 资源管理器模板](template-syntax.md)。
-* 若要合并多个模板，请参阅[将链接的模板与 Azure 资源管理器配合使用](linked-templates.md)。
-* 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure 资源管理器中创建多个资源实例](copy-resources.md)。
-* 若要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](deploy-powershell.md)。
+* 有关 Azure 资源管理器模板中各部分的说明，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

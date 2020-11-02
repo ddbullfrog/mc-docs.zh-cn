@@ -5,23 +5,23 @@ description: 了解 Azure 路径选择和虚拟 WAN
 services: virtual-wan
 ms.service: virtual-wan
 ms.topic: conceptual
-origin.date: 05/28/2020
+origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: c800591280505d9fb38367892e9be538d9eb11e7
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 6b260a41c7475af21b3c52758ef764e1dea630b0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246968"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472599"
 ---
 <!--Verified Successfully-->
 # <a name="azure-path-selection-across-multiple-isp-links"></a>跨多个 ISP 链接进行 Azure 路径选择
 
-Azure 虚拟 WAN 为用户提供了在 VPN 站点中包含链接信息的功能，使 VPN/SD-WAN 设备解决方案能够对特定于分支的策略进行编程，引导流量跨不同链接流入 Azure。 这称为 **Azure 路径选择**。
+Azure 虚拟 WAN 为用户提供了在 VPN 站点中包含链接信息的功能，使 VPN/SD-WAN 设备解决方案能够对特定于分支的策略进行编程，引导流量跨不同链接流入 Azure。 这称为 **Azure 路径选择** 。
 
 ## <a name="architecture"></a>体系结构
 
@@ -51,5 +51,4 @@ VPN 站点表示包含公共 IP、设备型号和名称等信息的本地 SD-WAN
 
 请参阅 [Azure 常见问题解答](virtual-wan-faq.md)。
 
-<!-- Update_Description: new article about path selection multiple links-->
-<!--NEW.date: 09/28/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

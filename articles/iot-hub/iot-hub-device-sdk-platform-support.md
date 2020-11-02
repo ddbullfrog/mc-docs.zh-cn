@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 10/08/2019
 ms.date: 02/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: 19aa64cdcc4a7265df75e98913ee0a21706e5c69
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 9388395ce4b6d93aa31958439d09202728b52aa6
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394759"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471194"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 设备 SDK 平台支持
 
@@ -117,11 +117,10 @@ Microsoft 与许多合作伙伴合作，通过 Azure IoT 测试和认证的设�
 
 * 若要浏览 Azure IoT 认证的设备，请参阅 [Microsoft Azure IoT 认证设备目录](https://catalog.azureiotsolutions.com/)。
 
-* 若要详细了解 Microsoft 信任的合作伙伴，或如何成为 Microsoft 信任的合作伙伴，请参阅 [Microsoft Azure 认证物联网受信任合作伙伴](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/)。
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>在不使用 SDK 的情况下连接到 IoT 中心
 
-如果你无法使用某个 IoT 中心设备 SDK，可以在能够发送和接收 HTTPS 请求与响应的任何应用程序中使用 [IoT 中心 REST API](https://docs.microsoft.com/en-us/rest/api/iothub/) 直接连接到 IoT 中心。
+如果无法使用其中一个 IoT 中心设备 SDK，可以使用受支持的通信协议直接连接到 IoT 中心。 若要了解详细信息，请参阅[在不使用 Azure IoT SDK 的情况下进行开发](iot-hub-devguide-no-sdk.md)。
 
 ## <a name="support-and-other-resources"></a>支持和其他资源
 
@@ -139,7 +138,7 @@ Microsoft 与许多合作伙伴合作，通过 Azure IoT 测试和认证的设�
 
 * [Azure IoT 中心 Python SDK 问题](https://github.com/Azure/azure-iot-sdk-python/issues)
 
-**Microsoft 客户支持团队** – 拥有[支持计划](https://azure.microsoft.com/support/plans/)的用户可以通过直接从 [Azure 门户](https://ms.portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)创建新的支持请求来与 Microsoft 客户支持团队进行沟通。
+**Microsoft 客户支持团队** – 拥有 [支持计划](https://azure.microsoft.com/support/plans/)的用户可以通过直接从 [Azure 门户](https://ms.portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)创建新的支持请求来与 Microsoft 客户支持团队进行沟通。
 
 **功能请求** – 我们会通过产品的 [User Voice 页](https://feedback.azure.com/forums/321918-azure-iot)跟踪 Azure IoT 功能请求。
 

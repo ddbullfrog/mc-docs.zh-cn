@@ -3,20 +3,20 @@ title: 翻译器 Translate 方法
 titleSuffix: Azure Cognitive Services
 description: 了解用于翻译文本的 Azure 认知服务翻译器 Translate 方法的参数、标头和正文消息。
 services: cognitive-services
-author: swmachan
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 04/17/2020
-ms.date: 06/22/2020
-ms.author: v-tawe
-ms.openlocfilehash: 6da0370b784a049736c321d85afa9de797a1bde2
-ms.sourcegitcommit: 43db4001be01262959400663abf8219e27e5cb8b
+ms.date: 10/22/2020
+ms.author: v-johya
+ms.openlocfilehash: 1df08ed3ca6fbc665594bec3e7f0f8d99030c25c
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85241593"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471986"
 ---
 # <a name="translator-30-translate"></a>翻译器 3.0：Translate
 
@@ -64,7 +64,7 @@ https://api.translator.azure.cn/translate?api-version=3.0
   </tr>
   <tr>
     <td>category</td>
-    <td>可选参数。<br/>一个字符串，指定翻译的类别（领域）。 默认值为 <code>general</code>。</td>
+    <td>可选参数。<br/>一个字符串，指定翻译的类别（领域）。 此参数用于从一个使用自定义翻译工具构建的自定义系统获取翻译。 将自定义翻译器项目详细信息中的类别 ID 添加到此参数，以便使用已部署的自定义系统。 默认值为 <code>general</code>。</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -137,7 +137,7 @@ https://api.translator.azure.cn/translate?api-version=3.0
 以下限制适用：
 
 * 数组最多可具有 100 个元素。
-* 包括空格在内，请求中包含的整个文本不能超过 5,000 个字符。
+* 包括空格在内，请求中包含的整个文本不能超过 10,000 个字符。
 
 ## <a name="response-body"></a>响应正文
 
@@ -165,7 +165,7 @@ https://api.translator.azure.cn/translate?api-version=3.0
 
     如果不进行音译，则不包括 `transliteration` 对象。
 
-    * `alignment`：一个对象，包含的名为 `proj` 的单个字符串属性可以将输入文本映射到翻译文本。 只有在请求参数 `includeAlignment` 为 `true` 时，才提供比对信息。 将以 `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]` 格式的字符串值返回比对内容。  冒号分隔开始和结束索引，连字符分隔语言，空格分隔单词。 一个单词可能与另一种语言中的 0 个、1 个或多个单词比对，而比对的词可能是不连续的。 当没有可用的比对信息时，Alignment 元素会为空。 请参阅[获取比对信息](#obtain-alignment-information)，了解示例和限制。
+    * `alignment`：一个对象，包含的名为 `proj` 的单个字符串属性可以将输入文本映射到翻译文本。 只有在请求参数 `includeAlignment` 为 `true` 时，才提供比对信息。 将以 `[[SourceTextStartIndex]:[SourceTextEndIndex]-[TgtTextStartIndex]:[TgtTextEndIndex]]` 格式的字符串值返回比对内容。  冒号分隔开始和结束索引，连字符分隔语言，空格分隔单词。 一个单词可能与另一种语言中的 0 个、1 个或多个单词比对，而比对的词可能是不连续的。 当没有可用的比对信息时，Alignment 元素会为空。 请参阅[获取比对信息](#obtain-alignment-information)，了解示例和限制。
 
     * `sentLen`：一个对象，返回输入和输出文本中的句子边界。
 
@@ -242,9 +242,10 @@ https://api.translator.azure.cn/translate?api-version=3.0
 ### <a name="translate-a-single-input"></a>翻译单个输入
 
 以下示例演示了如何将单个句子从英文翻译为简体中文。
+<!--Correct in MC: -H "Ocp-Apim-Subscription-Region: your-region"-->
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 响应正文为：
@@ -266,7 +267,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 以下示例演示了如何将单个句子从英文翻译为简体中文。 请求未指定输入语言， 而是使用自动检测源语言的功能。
 
 ```curl
-curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 响应正文为：
@@ -281,7 +282,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&to=zh-Ha
     }
 ]
 ```
-响应类似于前一示例中的响应。 由于请求了语言自动检测，因此响应还包括针对输入文本检测到的语言的信息。 
+响应类似于前一示例中的响应。 由于请求了语言自动检测，因此响应还包括针对输入文本检测到的语言的信息。 语言自动检测对较长的输入文本更有效。
 
 ### <a name="translate-with-transliteration"></a>通过音译进行翻译
 
@@ -318,6 +319,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&to=zh-Ha
 curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
+响应包含所有文本片段的翻译，其顺序与请求中的完全相同。
 响应正文为：
 
 ```
@@ -457,7 +459,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 
 对齐将作为以下格式的字符串值返回给源的每个词。 每个词的信息由一个空格分隔，其中包括非空格分隔的语言（脚本），比如中文：
 
-[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+[[SourceTextStartIndex]:[SourceTextEndIndex]-[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
 对齐字符串示例：“0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21”。
 
@@ -465,7 +467,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 
 若要接收比对信息，请在查询字符串中指定 `includeAlignment=true`。
 
-```
+```curl
 curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation.'}]"
 ```
 
@@ -504,7 +506,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 若要接收源文本和翻译文本中句子长度的相关信息，请在查询字符串中指定 `includeSentenceLength=true`。
 
 ```curl
-curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
 ```
 
 响应为：
@@ -533,7 +535,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 <mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 
-例如，考虑英语句子“The word wordomatic is a dictionary entry.”。 若要在翻译中保留单词 _wordomatic_，请发送请求：
+例如，考虑英语句子“The word wordomatic is a dictionary entry.”。 若要在翻译中保留单词 _wordomatic_ ，请发送请求：
 
 ```
 curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"

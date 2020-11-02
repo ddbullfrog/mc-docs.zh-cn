@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: ''
 origin.date: 08/20/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: 4b71ce2c37e1cab8537f81dfb5467aca1f473357
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 10/29/2020
+ms.openlocfilehash: cb05cebbaff57216d353e6d1b6900ec082e4168e
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014362"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470038"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>什么是 Azure SQL 数据同步？
 
@@ -124,7 +124,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 > - 即使同步未报告任何问题，中心和成员之间的数据也会丢失。
 > - 由于主键更改，跟踪表的源行不存在，同步可能会失败。
 
-- 必须启用快照隔离。 有关详细信息，请参阅 [SQL Server 中的快照隔离](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
+- 必须同时为同步成员和中心启用快照隔离。 有关详细信息，请参阅 [SQL Server 中的快照隔离](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
 
 ### <a name="general-limitations"></a>一般限制
 
@@ -134,8 +134,9 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 - 使用以下数据类型作为主键时请小心谨慎，因为支持的精度仅到秒：time、datetime、datetime2、datetimeoffset。
 - 对象（数据库、表和列）的名称不能包含可打印字符句点 (.)、左方括号 ([) 或右方括号 (])。
 - 不支持 Azure Active Directory 身份验证。
-- 不支持具有相同名称但架构不同（例如，dbo.customers 和 sales.customers）的表。
+- 如果存在名称相同但架构不同的表（例如，dbo.customers 和 sales.customers），则只能将其中一个表添加到同步中。
 - 不支持具有用户定义数据类型的列
+- 不支持在不同订阅之间移动服务器。 
 
 #### <a name="unsupported-data-types"></a>不支持的数据类型
 

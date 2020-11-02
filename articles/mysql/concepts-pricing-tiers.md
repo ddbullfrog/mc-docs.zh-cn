@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 02/25/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 1e8c12bebb78c7d68b708a0e0130a3b8cf8f8a20
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 10/26/2020
+ms.openlocfilehash: a9fa1ac4b13a990859f45e4e5036780e2d649e95
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029642"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470439"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 定价层
 
@@ -26,7 +26,7 @@ ms.locfileid: "88029642"
 | 计算的代 | 第 4 代、第 5 代 | 第 4 代、第 5 代 | 第 5 代 |
 | vCore 数 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | 每个 vCore 的内存 | 2 GB | 5 GB | 10 GB |
-| 存储大小 | 5 GB 到 1 TB | 5GB 到 4TB | 5GB 到 4TB |
+| 存储大小 | 5 GB 到 1 TB | 5 GB 到 16 TB | 5 GB 到 16 TB |
 | 数据库备份保留期 | 7 到 35 天 | 7 到 35 天 | 7 到 35 天 |
 
 可以从下表着手来选择定价层。
@@ -50,9 +50,15 @@ ms.locfileid: "88029642"
 | 存储属性   | 基本 | 常规用途 | 内存优化 |
 |:---|:----------|:--------------------|:---------------------|
 | 存储类型 | 基本存储 | 常规用途存储 | 常规用途存储 |
-| 存储大小 | 5 GB 到 1 TB | 5GB 到 4TB | 5GB 到 4TB |
+| 存储大小 | 5 GB 到 1 TB | 5 GB 到 16 TB | 5 GB 到 16 TB |
 | 存储增量大小 | 1 GB | 1 GB | 1 GB |
-| IOPS | 变量 |3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS |
+| IOPS | 变量 |3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20,000 IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 20,000 IOPS |
+
+> [!NOTE]
+> 中国东部 2 和中国北部 2 支持最多 16 TB 的存储和 20,000 IOPS。
+>
+> “中国东部”和“中国北部”区域支持最多 4TB 的存储和 6000 IOPS。
+>
 
 在创建服务器的过程中和之后，可以添加更多的存储容量，这样系统就可以根据工作负荷的存储使用情况自动增加存储。 
 
@@ -83,7 +89,7 @@ ms.locfileid: "88029642"
 
 ## <a name="backup-storage"></a>备份存储 
 
-Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作为备份存储，不收取任何额外费用。 使用的任何备份存储量超过此数量将按每月 GB 量收费。 例如，如果为服务器配置了 250 GB 的存储空间，则可以为服务器备份提供 250 GB 的额外存储空间，而不收取任何费用。 超过 250GB 的备份存储按[定价模型](https://azure.cn/pricing/details/mysql/)收费。 若要了解影响备份存储使用率的因素、监视和控制备份存储成本，可以参考[备份文档](concepts-backup.md)。
+Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作为备份存储，不收取任何额外费用。 使用的任何备份存储量超过此数量将按每月 GB 量收费。 例如，如果为服务器配置了 250 GB 的存储空间，则可以为服务器备份提供 250 GB 的额外存储空间，而不收取任何费用。 超过 250GB 的备份存储量按[定价模型](https://azure.cn/pricing/details/mysql/)收费。 若要了解影响备份存储使用率的因素、监视和控制备份存储成本，可以参考[备份文档](concepts-backup.md)。
 
 ## <a name="scale-resources"></a>缩放资源
 
@@ -95,7 +101,7 @@ Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作�
 
 ## <a name="pricing"></a>定价
 
-有关最新定价信息，请参阅服务的[定价页](https://www.azure.cn/pricing/details/mysql/)。 若要查看所需配置的具体成本，可以单击 [Azure 门户](https://portal.azure.cn/#create/Microsoft.MySQLServer)的“定价层”选项卡，系统就会根据选定的选项显示每月成本。 如果没有 Azure 订阅，可使用 Azure 定价计算器获取估计的价格。 在 [Azure 定价计算器](https://azure.cn/pricing/calculator/)网站上，选择“添加项”****，展开“数据库”**** 类别，选择“Azure Database for MySQL”**** 自定义选项。
+有关最新定价信息，请参阅服务的[定价页](https://www.azure.cn/pricing/details/mysql/)。 若要查看所需配置的具体成本，可以单击 [Azure 门户](https://portal.azure.cn/#create/Microsoft.MySQLServer)的“定价层”选项卡，系统就会根据选定的选项显示每月成本。 如果没有 Azure 订阅，可使用 Azure 定价计算器获取估计的价格。 在  ，展开“数据库”  类别，选择“Azure Database for MySQL”  自定义选项。
 
 ## <a name="next-steps"></a>后续步骤
 

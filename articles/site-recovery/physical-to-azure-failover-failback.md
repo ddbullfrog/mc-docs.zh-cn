@@ -2,21 +2,21 @@
 title: 通过 Site Recovery 为物理服务器设置故障转移和故障回复
 description: 了解如何使用 Azure Site Recovery 将物理服务器故障转移到 Azure 以及故障回复到本地站点以进行灾难恢复
 services: site-recovery
-manager: digimobile
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
 origin.date: 12/17/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7887d43c173be122d458eb32d18cda214cda07e9
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: d1b16b40117b91008639fcf79e4235363d6c498a
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655300"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211871"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>对复制到 Azure 的物理服务器进行故障转移和故障回复
 
@@ -28,6 +28,8 @@ ms.locfileid: "89655300"
 - 如果要对多台计算机进行故障转移，请[了解](recovery-plan-overview.md)如何在恢复计划中聚集计算机。
 - 在执行完全故障转移之前，请运行[灾难恢复演练](site-recovery-test-failover-to-azure.md)，确保一切按预期运行。
 - 按照[这些说明](site-recovery-failover.md#prepare-to-connect-after-failover)，准备在故障转移后连接到 Azure VM。
+
+<!--CORRECT ON Azure VMs-->
 
 ## <a name="run-a-failover"></a>运行故障转移
 
@@ -49,10 +51,10 @@ ms.locfileid: "89655300"
     <!--MOONCAKE: **Protected Items** to replace **Setting**-->
 
 2. 在“故障转移”中，选择要故障转移到的“恢复点”   。 可以使用以下选项之一：
-    - **最新**：此选项会首先处理发送到 Site Recovery 的所有数据。 它提供最低的 RPO（恢复点对象），因为故障转移后创建的 Azure VM 具有触发故障转移时复制到 Site Recovery 的所有数据。
-    - **最新处理**：此选项将计算机故障转移到由 Site Recovery 处理的最新恢复点。 此选项提供低 RTO（恢复时间目标），因为无需费时处理未经处理的数据。
-    - **最新应用一致**：此选项会将计算机故障转移到由 Site Recovery 处理的最新应用一致性恢复点。
-    - **自定义**：指定一个恢复点。
+    - **最新** ：此选项会首先处理发送到 Site Recovery 的所有数据。 它提供最低的 RPO（恢复点对象），因为故障转移后创建的 Azure VM 具有触发故障转移时复制到 Site Recovery 的所有数据。
+    - **最新处理** ：此选项将计算机故障转移到由 Site Recovery 处理的最新恢复点。 此选项提供低 RTO（恢复时间目标），因为无需费时处理未经处理的数据。
+    - **最新应用一致** ：此选项会将计算机故障转移到由 Site Recovery 处理的最新应用一致性恢复点。
+    - **自定义** ：指定一个恢复点。
 
 3. 如果希望 Site Recovery 在触发故障转移之前尝试关闭源计算机，请选择“在开始故障转移前关闭计算机”  。 即使关机失败，故障转移也仍会继续。 可以在“作业”  页上跟踪故障转移进度。
 4. 如果已准备好连接到 Azure VM，请进行连接，以在故障转移后对其进行验证。
@@ -67,7 +69,8 @@ ms.locfileid: "89655300"
 你可能希望在故障转移过程中自动执行操作。 为此，可以在恢复计划中使用脚本或 Azure 自动化 runbook。
 
 - [了解](site-recovery-create-recovery-plans.md)如何创建和自定义恢复计划，包括添加脚本。
-- [了解](site-recovery-runbook-automation.md)如何将 Azure 自动化 runbook 添加到恢复计划中。
+
+<!--Not Available on  [Learn](site-recovery-runbook-automation.md)-->
 
 ## <a name="configure-settings-after-failover"></a>故障转移后配置设置
 
@@ -105,11 +108,15 @@ ms.locfileid: "89655300"
 
 2. 在“重新保护”中，确保选择“Azure 到本地”   。
 3. 指定本地主目标服务器和进程服务器。
-4. 在“数据存储”中，选择要将本地磁盘恢复到的主目标数据存储****。
-        - 如果本地 VM 已被删除或不存在，并且你需要创建新磁盘，请使用此选项。
-        - 如果磁盘已存在，请忽略此设置，但仍需指定一个值。
+4. 在“数据存储”中，选择要将本地磁盘恢复到的主目标数据存储  。
+
+    <!--CUSTOMIZE: CORRECT FOR FOLLOWING FORMAT-->
+    
+    - 如果本地 VM 已被删除或不存在，而你需要创建新磁盘，请使用此选项。
+    - 如果磁盘已存在，此设置会被忽略，但你仍需指定一个值。
+
 5. 选择主目标保留驱动器。 将自动选择故障回复策略。
-6. 单击“确定”开始重新保护。**** 一个作业会开始将 Azure VM 复制到本地站点。 可以在“**作业**”选项卡上跟踪进度。
+6. 单击“确定”开始重新保护。  一个作业会开始将 Azure VM 复制到本地站点。 可以在“ **作业** ”选项卡上跟踪进度。
 
 > [!NOTE]
 > 如果要将 Azure VM 恢复到现有本地 VM，请使用读/写访问权限将本地虚拟机的数据存储装载在主目标服务器的 ESXi 主机上。
@@ -118,13 +125,13 @@ ms.locfileid: "89655300"
 
 运行故障转移，如下所示：
 
-1. 在“复制的项”页中右键单击该计算机，然后单击“非计划的故障转移”********。
-2. 在“确认故障转移”中，验证故障转移方向为从 Azure 转移****。
+1. 在“复制的项”页中右键单击该计算机，然后单击“非计划的故障转移”  。
+2. 在“确认故障转移”中，验证故障转移方向为从 Azure 转移  。
 3. 选择要用于此故障转移的恢复点。
-    - 建议使用“最新”恢复点****。 应用一致性点会在最新的时间点之后，并会导致丢失部分数据。
-    - “最新”是崩溃一致性恢复点****。
+    - 建议使用“最新”恢复点  。 应用一致性点会在最新的时间点之后，并会导致丢失部分数据。
+    - “最新”是崩溃一致性恢复点  。
     - 故障转移运行时，Site Recovery 会关闭 Azure VM，并启动本地 VM。 这会导致出现停机时间，因此请选择适当的时间。
-4. 右键单击该计算机，然后单击“提交”****。 由此触发的作业会删除 Azure VM。
+4. 右键单击该计算机，然后单击“提交”  。 由此触发的作业会删除 Azure VM。
 5. 验证 Azure VM 已按预期情况关闭。
 
 ## <a name="reprotect-on-premises-machines-to-azure"></a>将本地计算机重新保护到 Azure
@@ -137,7 +144,7 @@ ms.locfileid: "89655300"
    
     <!--MOONCAKE: Protected Items to replace Setting-->
     
-2. 选择用于将复制数据发送到 Azure 的进程服务器，然后单击“确定”****。
+2. 选择用于将复制数据发送到 Azure 的进程服务器，然后单击“确定”  。
 
 ## <a name="next-steps"></a>后续步骤
 

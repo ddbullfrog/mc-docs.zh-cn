@@ -2,13 +2,13 @@
 title: Azure Functions 1.x 的 host.json 参考
 description: 使用 v1 运行时的 Azure Functions host.json 文件的参考文档。
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.openlocfilehash: 6c9e1a1f23628ce1b0bd1b2750a3e244f6916223
-ms.sourcegitcommit: f1a76ee3242698123a3d77f44c860db040b48f70
+ms.date: 10/19/2020
+ms.openlocfilehash: d0e16365cadba828990e1d0fa7d9e1b9843bf6c2
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84563768"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472582"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x 的 host.json 参考
 
@@ -32,6 +32,16 @@ ms.locfileid: "84563768"
 
 ```json
 {
+    "aggregator": {
+        "batchSize": 1000,
+        "flushTimeout": "00:00:30"
+    },
+    "applicationInsights": {
+        "sampling": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    },
     "documentDB": {
         "connectionMode": "Gateway",
         "protocol": "Https",
@@ -60,6 +70,16 @@ ms.locfileid: "84563768"
         "dynamicThrottlesEnabled": false
     },
     "id": "9f4ea53c5136457d883d685e57164f08",
+    "logger": {
+        "categoryFilter": {
+            "defaultLevel": "Information",
+            "categoryLevels": {
+                "Host": "Error",
+                "Function": "Error",
+                "Host.Aggregator": "Information"
+            }
+        }
+    },
     "queues": {
       "maxPollingInterval": 2000,
       "visibilityTimeout" : "00:00:30",
@@ -92,6 +112,14 @@ ms.locfileid: "84563768"
 
 本文的以下各部分解释了每个顶级属性。 除非另有说明，否则其中的所有属性都是可选的。
 
+## <a name="aggregator"></a>aggregator
+
+[!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
+
+## <a name="applicationinsights"></a>applicationInsights
+
+[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+
 ## <a name="documentdb"></a>DocumentDB
 
 [Azure Cosmos DB 触发器和绑定](functions-bindings-cosmosdb.md)的配置设置。
@@ -108,7 +136,7 @@ ms.locfileid: "84563768"
 }
 ```
 
-|properties  |默认 | 说明 |
+|属性  |默认 | 说明 |
 |---------|---------|---------|
 |GatewayMode|网关|连接到 Azure Cosmos DB 服务时该函数使用的连接模式。 选项为 `Direct` 和 `Gateway`|
 |协议|Https|连接到 Azure Cosmos DB 服务时该函数使用的连接协议。  参阅[此处，了解两种模式的说明](../cosmos-db/performance-tips.md#networking)|
@@ -124,7 +152,7 @@ ms.locfileid: "84563768"
 
 ## <a name="functions"></a>functions
 
-作业宿主运行的函数的列表。 空数组表示运行所有函数。 仅供在[本地运行](functions-run-local.md)时使用。 在 Azure 中的函数应用中，你应当改为按照[如何在 Azure Functions 中禁用函数](disable-function.md)中的步骤来禁用特定函数，而不是使用此设置。
+作业主机运行的函数列表。 空数组表示运行所有函数。 仅供在[本地运行](functions-run-local.md)时使用。 在 Azure 的函数应用中，应改为按照[如何在 Azure Functions 中禁用函数](disable-function.md)中的步骤禁用特定函数，而不是使用此设置。
 
 ```json
 {
@@ -134,7 +162,7 @@ ms.locfileid: "84563768"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值为 _null_，表示没有超时。
+指示所有函数的超时持续时间。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。 在应用服务计划中，没有总体限制，默认值为 _null_ ，表示没有超时。
 
 ```json
 {
@@ -158,9 +186,9 @@ ms.locfileid: "84563768"
 }
 ```
 
-|properties  |默认 | 说明 |
+|属性  |默认 | 说明 |
 |---------|---------|---------| 
-|已启用|true|指定是否启用此功能。 | 
+|enabled|是|指定是否已启用该功能。 | 
 |healthCheckInterval|10 秒|定期后台运行状况检查之间的时间间隔。 | 
 |healthCheckWindow|2 分钟|与 `healthCheckThreshold` 设置结合使用的滑动时间窗口。| 
 |healthCheckThreshold|6|在启动主机回收之前，运行状况检查可以失败的最大次数。| 
@@ -181,7 +209,7 @@ ms.locfileid: "84563768"
 }
 ```
 
-|properties  |默认 | 说明 |
+|属性  |默认 | 说明 |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|启用时，将为此设置将导致请求处理管道，以定期检查系统性能计数器类似连接/线程/进程/内存/CPU 等，并通过内置的高阈值 (80%)，如果有任何这些计数器请求拒绝与 429“太忙”响应，直至恢复到正常水平的计数器。|
 |maxConcurrentRequests|无限制 (`-1`)|将并行执行的 HTTP 函数的最大数目。 这样，可以控制并发性，从而帮助管理资源利用率。 例如，你可能有一个使用大量系统资源（内存/CPU/套接字）的 HTTP 函数，它在并发度太高时会导致问题。 或者，某个函数向第三方服务发出出站请求，则可能需要限制这些调用的速率。 在这种情况下，应用限制可能有帮助。|
@@ -200,6 +228,30 @@ ms.locfileid: "84563768"
 }
 ```
 
+## <a name="logger"></a>logger
+
+控制由 [ILogger](functions-dotnet-class-library.md#ilogger) 对象或 [context.log](functions-reference-node.md#contextlog-method) 写入的日志的筛选。
+
+```json
+{
+    "logger": {
+        "categoryFilter": {
+            "defaultLevel": "Information",
+            "categoryLevels": {
+                "Host": "Error",
+                "Function": "Error",
+                "Host.Aggregator": "Information"
+            }
+        }
+    }
+}
+```
+
+|属性  |默认 | 说明 |
+|---------|---------|---------| 
+|categoryFilter|n/a|指定按类别进行筛选| 
+|defaultLevel|信息|对于 `categoryLevels` 数组中未指定的任何类别，会将此级别和更高级别的日志发送到 Application Insights。| 
+|categoryLevels|n/a|一个类别数组，指定每个类别的、要发送到 Application Insights 的最低日志级别。 此处指定的类别控制以相同值开头的所有类别，较长的值优先。 在前面的示例 *host.json* 文件中，将在 `Information` 级别记录以“Host.Aggregator”开头的所有类别的日志。 在 `Error` 级别记录以“Host”开头的其他所有类别（例如“Host.Executor”）的日志。| 
 
 ## <a name="queues"></a>queues
 
@@ -217,7 +269,7 @@ ms.locfileid: "84563768"
 }
 ```
 
-|properties  |默认 | 说明 |
+|属性  |默认 | 说明 |
 |---------|---------|---------| 
 |maxPollingInterval|60000|队列轮询的最大间隔时间，以毫秒为单位。| 
 |visibilityTimeout|0|消息处理失败时的重试间隔时间。| 
@@ -236,9 +288,9 @@ ms.locfileid: "84563768"
     }
 ```
 
-|properties  |默认 | 说明 |
+|属性  |默认 | 说明 |
 |---------|---------|---------| 
-|从|不适用|所有函数的发件人电子邮件地址。| 
+|from|n/a|所有函数的发件人电子邮件地址。| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -254,7 +306,7 @@ ms.locfileid: "84563768"
 }
 ```
 
-|properties  |默认 | 说明 |
+|属性  |默认 | 说明 |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|消息泵应该对回调发起的最大并发调用数。 默认情况下，Functions 运行时同时处理多条消息。 若要指示运行时一次只处理单个队列或主题消息，请将 `maxConcurrentCalls` 设置为 1。 | 
 |prefetchCount|不适用|基础 MessageReceiver 将要使用的默认 PrefetchCount。| 
@@ -276,7 +328,7 @@ ms.locfileid: "84563768"
 }
 ```
 
-|properties  |默认 | 说明 |
+|属性  |默认 | 说明 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|占用函数级锁的时间段。 锁自动续订。| 
 |listenerLockPeriod|00:01:00|占用侦听器锁的时间段。| 
@@ -288,7 +340,7 @@ ms.locfileid: "84563768"
 
 *版本 1.x*
 
-使用 `TraceWriter` 对象创建的日志的配置设置。 请参阅 [C# 日志记录](functions-reference-csharp.md#logging)和 [Node.js 日志记录](functions-reference-node.md#writing-trace-output-to-the-console)。
+使用 `TraceWriter` 对象创建的日志的配置设置。 若要了解详细信息，请参阅 [C# 日志记录]。
 
 ```json
 {
@@ -299,7 +351,7 @@ ms.locfileid: "84563768"
 }
 ```
 
-|properties  |默认 | 说明 |
+|属性  |默认 | 说明 |
 |---------|---------|---------| 
 |consoleLevel|info|控制台日志记录的跟踪级别。 选项包括：`off`、`error`、`warning`、`info` 和 `verbose`。|
 |fileLoggingMode|debugOnly|文件日志记录的跟踪级别。 选项包括 `never`、`always` 和 `debugOnly`。| 

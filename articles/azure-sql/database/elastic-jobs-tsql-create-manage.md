@@ -11,13 +11,13 @@ ms.author: v-jay
 author: WenJason
 ms.reviewer: sstein
 origin.date: 02/07/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 98a2a930d9b2d9190116f62b2567d5aaf8d72ef7
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: 9ee7428a179c9b6f51cc1b9d6e377cf8d7901e20
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872446"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470228"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>使用 Transact-SQL (T-SQL) 创建和管理弹性数据库作业（预览版）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -1024,13 +1024,13 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 要向其添加成员的目标组的名称。 target_group_name 为 nvarchar(128)，没有默认值。
 
 [ **\@membership_type =** ] 'membership_type'  
-指定是包括目标组成员还是将其排除。 target_group_name 为 nvarchar(128)，默认值为 'Include'。 target_group_name 的有效值为 'Include' 或 'Exclude'。
+指定是包括目标组成员还是将其排除。 target_group_name 为 nvarchar(128)，默认值为“Include”。 membership_type 的有效值为“Include”或“Exclude”。
 
 [ **\@target_type =** ] 'target_type'  
 目标数据库或数据库集合的类型，其中包括一个服务器中的所有数据库、一个弹性池中的所有数据库、一个分片映射中的所有数据库，或者一个单独的数据库。 target_type 为 nvarchar(128)，没有默认值。 target_type 的有效值为 'SqlServer'、'SqlElasticPool'、'SqlDatabase' 或 'SqlShardMap'。 
 
 [ **\@refresh_credential_name =** ] 'refresh_credential_name'  
-服务器的名称。 refresh_credential_name 为 nvarchar(128)，没有默认值。
+数据库范围的凭据的名称。 refresh_credential_name 为 nvarchar(128)，没有默认值。
 
 [ **\@server_name =** ] 'server_name'  
 应添加到指定目标组的服务器的名称。 当 target_type 为 'SqlServer' 时，应指定 server_name。 server_name 为 nvarchar(128)，没有默认值。
@@ -1042,7 +1042,7 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 应添加到指定目标组的弹性池的名称。 当 target_type 为 'SqlElasticPool' 时，应指定 elastic_pool_name。 elastic_pool_name 为 nvarchar(128)，没有默认值。
 
 [ **\@shard_map_name =** ] 'shard_map_name'  
-应添加到指定目标组的分片映射池的名称。 当 target_type 为 'SqlSqlShardMap' 时，应指定 elastic_pool_name。 shard_map_name 为 nvarchar(128)，没有默认值。
+应添加到指定目标组的分片映射池的名称。 当 target_type 为“SqlShardMap”时，应指定 elastic_pool_name。 shard_map_name 为 nvarchar(128)，没有默认值。
 
 [ **\@target_id =** ] target_group_id OUTPUT  
 分配给目标组成员的目标标识号，前提是其已创建并添加到目标组。 target_id 是类型为 uniqueidentifier 的输出变量，默认值为 NULL。
@@ -1229,18 +1229,18 @@ GO
 |**job_version** | int | 作业的版本（每次修改作业时都自动对其进行更新）。
 |**step_id** |int | 步骤的唯一（是针对该作业的）标识符。 NULL 指示这是父作业执行操作。
 |**is_active** | bit | 指示信息是处于活动状态还是非活动状态。 1 指示作业处于活动状态，0 指示作业处于非活动状态。
-|**lifecycle**|nvarchar(50)|指示作业状态的值：'Created'、'In Progress'、'Failed'、'Succeeded'、'Skipped'、'SucceededWithSkipped'|
+|**lifecycle** | nvarchar(50) | 指示作业状态的值：'Created'、'In Progress'、'Failed'、'Succeeded'、'Skipped'、'SucceededWithSkipped'|
 |**create_time**| datetime2(7) | 作业的创建日期和时间。
 |**start_time** | datetime2(7) | 作业开始执行的日期和时间。 如果作业尚未执行，则为 NULL。
 |**end_time** | datetime2(7) | 作业执行完毕的日期和时间。 如果作业尚未执行或尚未执行完毕，则为 NULL。
 |**current_attempts** | int | 步骤重试的次数。 父作业执行次数将为 0，子作业执行次数将为 1 或更大值，具体取决于执行策略。
 |**current_attempt_start_time** | datetime2(7) | 作业开始执行的日期和时间。 NULL 指示这是父作业执行操作。
 |**last_message** | nvarchar(max) | 作业或步骤历史记录消息。
-|**target_type**|nvarchar(128)|目标数据库或数据库集合的类型，其中包括一个服务器中的所有数据库、一个弹性池中的所有数据库，或者单个数据库。 target_type 的有效值为 'SqlServer'、'SqlElasticPool' 或 'SqlDatabase'。 NULL 指示这是父作业执行操作。
+|**target_type** | nvarchar(128) | 目标数据库或数据库集合的类型，其中包括一个服务器中的所有数据库、一个弹性池中的所有数据库，或者单个数据库。 target_type 的有效值为 'SqlServer'、'SqlElasticPool' 或 'SqlDatabase'。 NULL 指示这是父作业执行操作。
 |**target_id** | uniqueidentifier | 目标组成员的唯一 ID。  NULL 指示这是父作业执行操作。
 |**target_group_name** | nvarchar(128) | 目标组的名称。 NULL 指示这是父作业执行操作。
 |**target_server_name** | nvarchar(256)  | 包含在目标组中的服务器的名称。 仅当 target_type 为 'SqlServer' 时指定。 NULL 指示这是父作业执行操作。
-|**target_database_name**|nvarchar(128)|包含在目标组中的数据库的名称。 仅当 target_type 为 'SqlDatabase' 时指定。 NULL 指示这是父作业执行操作。
+|**target_database_name** | nvarchar(128) | 包含在目标组中的数据库的名称。 仅当 target_type 为 'SqlDatabase' 时指定。 NULL 指示这是父作业执行操作。
 
 ### <a name="jobs-view"></a>作业视图
 

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 07/10/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: ea55148b1542489406030072ceda757766d708b8
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 10/29/2020
+ms.openlocfilehash: 930fb3b85a1ea0a084ce8618f2bc95784b1a7531
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029645"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470476"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>监视和优化 Azure Database for PostgreSQL（单一服务器）
 监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for PostgreSQL 提供各种监视选项，帮助用户深入了解服务器的行为。
@@ -39,7 +39,7 @@ Azure Database for PostgreSQL 提供了各种指标来帮助用户深入了解�
 |network_bytes_egress|网络传出|字节|跨活动连接的网络传出。|
 |network_bytes_ingress|网络传入|字节|跨活动连接的网络传入。|
 |backup_storage_used|使用的备份存储|字节|已使用的备份存储量。 此指标表示根据为服务器设置的备份保留期保留的所有完整数据库备份、差异备份和日志备份所消耗的存储的总和。 备份的频率由服务管理，并在[概念文章](concepts-backup.md)中进行了说明。 对于异地冗余存储，备份存储使用率是本地冗余存储的两倍。|
-|pg_replica_log_delay_in_bytes|副本的最大滞后时间|字节|主服务器与滞后时间最长的副本之间的滞后时间（以字节为单位）。 此指标仅适用于主服务器。|
+|pg_replica_log_delay_in_bytes|副本的最大滞后时间|字节|主服务器与滞后时间最长的副本之间的延迟（以字节为单位）。 此指标仅适用于主服务器。|
 |pg_replica_log_delay_in_seconds|副本滞后时间|秒|自上次重放事务以来所经历的时间。 此指标仅适用于副本服务器。|
 
 ## <a name="server-logs"></a>服务器日志
@@ -59,7 +59,7 @@ Azure Database for PostgreSQL 提供了各种指标来帮助用户深入了解�
 “计划内维护通知”允许你接收有关 Azure Database for PostgreSQL - 单一服务器即将进行的计划内维护的警报。 这些通知与[服务运行状况](../service-health/overview.md)计划内维护集成，允许你在同一位置查看你的订阅的所有计划内维护。 它还有助于将通知扩展到不同资源组的适当受众，因为你可能有不同的联系人负责不同的资源。 你将在事件发生前的 72 小时收到有关即将进行的维护的通知。
 
 > [!Note]
-> 我们将尽一切努力为所有事件提供**计划内维护通知** 72 小时通知。 但是，对于关键或安全修补程序，通知可能会在事件快要发生时更晚一点发送，或者会被忽略。
+> 我们将尽一切努力为所有事件提供 **计划内维护通知** 72 小时通知。 但是，对于关键或安全修补程序，通知可能会在事件快要发生时更晚一点发送，或者会被忽略。
 
 ### <a name="to-receive-planned-maintenance-notification"></a>接收计划内维护通知
 
@@ -71,6 +71,8 @@ Azure Database for PostgreSQL 提供了各种指标来帮助用户深入了解�
 6. 在“操作组”中，定义接收警报的方式（获取电子邮件、触发逻辑应用等）。  
 7. 确保“创建后启用规则”设置为“是”。
 8. 选择“创建警报规则”以完成警报
+
+有关如何创建服务运行状况警报的详细步骤，请参阅 [创建有关服务通知的活动日志警报](../service-health/alerts-activity-log-service-notifications-portal.md)。
 
 > [!IMPORTANT]
 > 计划内维护通知目前为预览版

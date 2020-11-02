@@ -1,5 +1,5 @@
 ---
-title: 为基于 Linux 的 HDInsight 群集配置 OS 修补计划 - Azure | Azure
+title: 为 Azure HDInsight 群集配置 OS 修补计划
 description: 了解如何为基于 Linux 的 HDInsight 群集配置 OS 修补计划。
 services: hdinsight
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.workload: big-data
 origin.date: 01/21/2020
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: c76fd80d6a871abc52def552990c2d1b5ac258f1
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 6766b5976572241ad69695bf3541682020fb11a5
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394790"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471914"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>为基于 Linux 的 HDInsight 群集配置 OS 修补计划 
 
 > [!IMPORTANT]
-> Ubuntu 映像可在发布后的三 个月内用于创建新的 Azure HDInsight 群集。 自 2019 年 1 月起，系统不会自动修补正在运行的群集。 客户必须使用脚本操作或其他机制来修补正在运行的群集。 新创建的群集将始终包含最新的可用更新，其中包括最新的安全修补程序。
+> Ubuntu 映像可在发布后的三 个月内用于创建新的 Azure HDInsight 群集。 系统不会自动修补正在运行的群集。 客户必须使用脚本操作或其他机制来修补正在运行的群集。 可以在创建群集后立即运行这些脚本操作并应用安全更新，这是最佳做法。
 
 HDInsight 为你提供支持，允许你在群集上执行常见任务，例如安装 OS 修补程序、安全更新，以及重启节点。 这些任务使用下述两个脚本来完成，这两个脚本可以作为[脚本操作](hdinsight-hadoop-customize-cluster-linux.md)运行，并且可以配置参数：
 

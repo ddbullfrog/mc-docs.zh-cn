@@ -3,18 +3,17 @@ title: 使用 Azure Kubernetes 服务 (AKS) 中的群集自动缩放程序
 description: 了解如何使用群集自动缩放程序自动缩放群集以满足 Azure Kubernetes 服务 (AKS) 群集中的应用程序需求。
 services: container-service
 ms.topic: article
-origin.date: 07/18/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 10/26/2020
 ms.testscope: no
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: 53692985148a11de749a12eda9417a458d6ef2e5
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: ec7e3b5f5ad59f50cd0cf6d397cfae12254c4c18
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020858"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470110"
 ---
 <!--Verified successfully-->
 <!--PG team have confirm the issue have been fixed-->
@@ -54,12 +53,12 @@ ms.locfileid: "90020858"
 
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>创建 AKS 群集并启用群集自动缩放程序
 
-如果需要创建 AKS 群集，请使用 [az aks create][az-aks-create] 命令。 若要在群集的节点池中启用和配置群集自动缩放程序，请使用 *--enable-cluster-autoscaler* 参数，并指定节点 *--min-count* 和 *--max-count*。
+如果需要创建 AKS 群集，请使用 [az aks create][az-aks-create] 命令。 若要在群集的节点池中启用和配置群集自动缩放程序，请使用 *--enable-cluster-autoscaler* 参数，并指定节点 *--min-count* 和 *--max-count* 。
 
 > [!IMPORTANT]
 > 群集自动缩放程序是 Kubernetes 组件。 虽然 AKS 群集对节点使用虚拟机规模集，但请勿在 Azure 门户中或使用 Azure CLI 手动启用或编辑规模集自动缩放设置。 让 Kubernetes 群集自动缩放程序管理所需的规模设置。 有关详细信息，请参阅[我可以修改节点资源组中的 AKS 资源吗？][aks-faq-node-resource-group]
 
-以下示例使用虚拟机规模集支持的单个节点池创建 AKS 群集。 它还在群集的节点池中启用群集自动缩放程序，并将节点的最小数目设置为 *1*，最大数目设置为 *3*：
+以下示例使用虚拟机规模集支持的单个节点池创建 AKS 群集。 它还在群集的节点池中启用群集自动缩放程序，并将节点的最小数目设置为 *1* ，最大数目设置为 *3* ：
 
 ```azurecli
 # First create a resource group
@@ -104,7 +103,7 @@ az aks update \
 > [!IMPORTANT]
 > 如果 AKS 群集包含多个节点池，请跳到[使用多个代理池进行自动缩放](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)部分。 包含多个代理池的群集要求使用 `az aks nodepool` 命令集而不是 `az aks` 来更改节点池特定的属性。
 
-在创建 AKS 群集或更新现有节点池的上一步骤中，群集自动缩放程序最小节点计数设置为 *1*，且最大节点计数设置为 *3*。 随着应用程序需求发生变化，可能需要调整群集自动缩放程序节点计数。
+在创建 AKS 群集或更新现有节点池的上一步骤中，群集自动缩放程序最小节点计数设置为 *1* ，且最大节点计数设置为 *3* 。 随着应用程序需求发生变化，可能需要调整群集自动缩放程序节点计数。
 
 若要更改节点计数，请使用 [az aks update][az-aks-update] 命令。
 
@@ -142,18 +141,8 @@ az aks update \
 
 > [!IMPORTANT]
 > 群集自动缩放程序配置文件影响所有使用群集自动缩放程序的节点池。 无法为每个节点池设置自动缩放程序配置文件。
-
-### <a name="install-aks-preview-cli-extension"></a>安装 aks-preview CLI 扩展
-
-若要设置群集自动缩放程序设置配置文件，需要安装 *aks-preview* CLI 扩展 0.4.30 或更高版本。 使用 [az extension add][az-extension-add] 命令安装 *aks-preview* Azure CLI 扩展，然后使用 [az extension update][az-extension-update] 命令检查是否有任何可用的更新：
-
-```azurecli
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+>
+> 群集自动缩放程序配置文件需要 2.11.1 或更高版本的 Azure CLI。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>在现有 AKS 群集上设置群集自动缩放程序配置文件
 
@@ -224,7 +213,7 @@ az aks update \
 
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>重新启用已禁用的群集自动缩放程序
 
-若要对现有的群集重新启用群集自动缩放程序，可以使用 [az aks update][az-aks-update-preview] 命令并指定 *--enable-cluster-autoscaler*、 *--min-count* 和 *--max-count* 参数。
+若要对现有的群集重新启用群集自动缩放程序，可以使用 [az aks update][az-aks-update-preview] 命令并指定 *--enable-cluster-autoscaler* 、 *--min-count* 和 *--max-count* 参数。
 
 ## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>检索群集自动缩放程序日志和状态
 
@@ -245,7 +234,7 @@ AKS 将代你管理群集自动缩放程序，并在托管控制平面中运行�
 
 只要有可检索的日志，就会看到类似于以下示例的日志。
 
-:::image type="content" source="media/autoscaler/autoscaler-logs.png" alt-text="Log Analytics 日志":::
+:::image type="content" source="media/autoscaler/autoscaler-logs.png" alt-text="群集自动缩放程序和水平 Pod 自动缩放程序通常协同工作以支持所需的应用程序需求":::
 
 群集自动缩放程序还会将运行状况写出到名为 `cluster-autoscaler-status` 的 configmap。 若要检索这些日志，请执行以下 `kubectl` 命令。 将报告配置了群集自动缩放程序的每个节点池的运行状况。
 
@@ -259,7 +248,7 @@ kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
 
 群集自动缩放程序可与启用的[多个节点池][aks-multiple-node-pools]结合使用。 参阅该文档了解如何启用多个节点池，以及如何将其他节点池添加到现有群集。 将这两个功能结合使用时，可对群集中的每个节点池启用群集自动缩放程序，并可将唯一的自动缩放规则传递到每个节点池。
 
-以下命令假设已按照本文档前面提供的[初始说明](#create-an-aks-cluster-and-enable-the-cluster-autoscaler)操作，并且你要将现有节点池的最大计数从 *3* 更新为 *5*。 使用 [az aks nodepool update][az-aks-nodepool-update] 命令更新现有节点池的设置。
+以下命令假设已按照本文档前面提供的 [初始说明](#create-an-aks-cluster-and-enable-the-cluster-autoscaler)操作，并且你要将现有节点池的最大计数从 *3* 更新为 *5* 。 使用 [az aks nodepool update][az-aks-nodepool-update] 命令更新现有节点池的设置。
 
 ```azurecli
 az aks nodepool update \
@@ -281,7 +270,7 @@ az aks nodepool update \
   --disable-cluster-autoscaler
 ```
 
-若要对现有的群集重新启用群集自动缩放程序，可以使用 [az aks nodepool update][az-aks-nodepool-update] 命令并指定 *--enable-cluster-autoscaler*、 *--min-count* 和 *--max-count* 参数。
+若要对现有的群集重新启用群集自动缩放程序，可以使用 [az aks nodepool update][az-aks-nodepool-update] 命令并指定 *--enable-cluster-autoscaler* 、 *--min-count* 和 *--max-count* 参数。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -298,15 +287,15 @@ az aks nodepool update \
 [aks-view-master-logs]: ./view-master-logs.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
-[az-aks-show]: https://docs.microsoft.com/cli/azure/aks#az_aks_show
-[az-extension-add]: https://docs.azure.cn/cli/extension#az-extension-add
-[az-extension-update]: https://docs.azure.cn/cli/extension#az-extension-update
-[az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az-aks-update]: https://docs.microsoft.com/cli/azure/aks#az_aks_update
-[az-aks-scale]: https://docs.microsoft.com/cli/azure/aks#az_aks_scale
-[az-feature-register]: https://docs.azure.cn/cli/feature#az-feature-register
-[az-feature-list]: https://docs.azure.cn/cli/feature#az-feature-list
-[az-provider-register]: https://docs.azure.cn/cli/provider#az-provider-register
+[az-aks-show]: https://docs.azure.cn/cli/aks#az_aks_show
+[az-extension-add]: https://docs.microsoft.com/cli/azure/extension#az_extension_add
+[az-extension-update]: https://docs.microsoft.com/cli/azure/extension#az_extension_update
+[az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
+[az-aks-update]: https://docs.azure.cn/cli/aks#az_aks_update
+[az-aks-scale]: https://docs.azure.cn/cli/aks#az_aks_scale
+[az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
+[az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
+[az-provider-register]: https://docs.azure.cn/cli/provider#az_provider_register
 
 <!-- LINKS - external -->
 

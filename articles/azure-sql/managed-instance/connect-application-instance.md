@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, bonova, vanto
 origin.date: 11/09/2018
-ms.date: 10/12/2020
-ms.openlocfilehash: b183d9fb13f80ca2f9b19d5e1542b17a37aec20f
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: 8f35a85e445fa578aac14ee5c17a1118af02b6cb
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872469"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470362"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>将应用程序连接到 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,10 +46,10 @@ ms.locfileid: "91872469"
 - [Azure VNet 对等互连](../../virtual-network/virtual-network-peering-overview.md)
 - VNet 到 VNet VPN 网关（[Azure 门户](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)、[PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)、[Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)）
 
-对等互连使用 Microsoft 主干网络，因此是首选；这样的话，从连接角度来看，对等互连虚拟网络中的虚拟机与同一虚拟网络中虚拟机之间的延迟没有明显差别。 虚拟网络对等互连限于同一区域内的网络。  
+对等互连使用 Azure 主干网络，因此是首选；这样的话，从连接角度来看，对等互连虚拟网络中的虚拟机与同一虚拟网络中的虚拟机之间的延迟没有明显差别。 支持同一区域中的网络之间的虚拟网络对等互连。 此外还支持全局虚拟网络对等互连，但有如下说明所述的限制。  
 
 > [!IMPORTANT]
-> 由于存在[全局虚拟网络对等互连约束](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)SQL 托管实例虚拟网络对等互连方案仅限同一区域中的网络。 有关更多详细信息，另请参阅 [Azure 虚拟网络常见问题解答](/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)一文的相关部分。 
+> [2020 年 9 月 22 日，我们宣布为新建的虚拟群集建立全局虚拟网络对等互连](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)。 这意味着，自公告日期之后在空子网中创建的 SQL 托管实例以及在这些子网中随后创建的所有托管实例，都支持全局虚拟网络对等连接。 对于所有其他 SQL 托管实例，由于[全局虚拟网络对等互连的约束](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，对等互连支持仅限于同一区域中的网络。 有关更多详细信息，另请参阅 [Azure 虚拟网络常见问题解答](/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)一文的相关部分。 
 
 ## <a name="connect-from-on-premises"></a>从本地连接 
 

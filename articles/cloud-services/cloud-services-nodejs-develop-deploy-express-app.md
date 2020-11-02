@@ -1,21 +1,22 @@
 ---
 title: 构建 Node.js Express 应用并将其部署到 Azure 云服务
 titleSuffix: Azure Cloud Services
-description: 在 Node.js 中构建 Express.js 应用程序并将其部署到 Azure 云服务
+description: 使用本教程通过 Express 模块新建一个应用程序，该模块提供了用于创建 Node.js Web 应用程序的 MVC 框架。
 services: cloud-services
 documentationcenter: nodejs
 author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/20/2020
 ms.author: v-junlch
-ms.openlocfilehash: 4ddc9710323013f75c4f63a26cfacc453bd3b541
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.custom: devx-track-js
+ms.openlocfilehash: c0eea70e0a368e23c31d242d84de673ab1039f48
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402568"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472575"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>使用 Express 在 Azure 云服务中构建并部署 Node.js Web 应用程序
 
@@ -44,8 +45,8 @@ Node.js 包含核心运行时中最小的一个功能集。
 
    > [!NOTE]
    > 默认情况下， **Add-azurenodewebrole** 使用旧版 Node.js。 上述 **Set-azureserviceprojectrole** 语句将指示 Azure 使用 v0.10.21 版本的节点。  请注意，这些参数区分大小写。  通过检查 WebRole1\package.json 中的“engines”属性可以验证是否已选择正确的 Node.js 版本   。
-   >
-   >
+>
+>
 
 ## <a name="install-express"></a>安装 Express
 1. 通过发出以下命令安装 Express 生成器：
@@ -112,13 +113,12 @@ Node.js 包含核心运行时中最小的一个功能集。
 
    ![index.jade 文件的内容。](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
 
-   Jade 是 Express 应用程序使用的默认视图引擎。 
-
+   Jade 是 Express 应用程序使用的默认视图引擎。 有关 Jade 视图引擎的详细信息，请参阅 [http://jade-lang.com][http://jade-lang.com]。
 2. 通过追加 **in Azure** 来修改最后一行文本。
 
    ![index.jade 文件，最后一行的内容为：p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
 3. 保存文件并退出记事本。
-4. 刷新浏览器，会看到所做的更改。
+4. 刷新浏览器即可看到所做的更改。
 
    ![浏览器窗口，其中的页面包含 Welcome to Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
 
@@ -128,7 +128,7 @@ Node.js 包含核心运行时中最小的一个功能集。
 在 Azure PowerShell 窗口中，可使用 **Publish-AzureServiceProject** cmdlet 将应用程序部署到云服务
 
 ```powershell
-PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpressapp -Location "China East" -Launch
+PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpressapp -Location "China North" -Launch
 ```
 
 在部署操作完成后，浏览器将打开并显示该网页。
@@ -138,6 +138,7 @@ PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpre
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [Node.js 开发人员中心](https://docs.microsoft.com/azure/developer/javascript/)。
 
-[Node.js Web Application]: /cloud-services/cloud-services-nodejs-develop-deploy-app
-
+[Node.js Web Application]: /cloud-services/cloud-services-nodejs-develop-deploy-app/
+[Express]: https://expressjs.com/
+[http://jade-lang.com]: http://jade-lang.com
 
