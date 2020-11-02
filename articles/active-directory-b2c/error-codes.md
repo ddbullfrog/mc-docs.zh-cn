@@ -3,20 +3,20 @@ title: 错误代码参考
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C 服务可能返回的错误代码列表。
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: troubleshooting
-ms.date: 01/16/2020
+ms.topic: reference
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 49b481ed2d783fa0d283f225fcad6984a51251b4
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: ea361e92d20d24aff4fda5706ae32da2fdcae9b8
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "76116947"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471176"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>错误代码：Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory B2C 服务可能返回以下错误。
 | 错误代码 | Message |
 | ---------- | ------- |
 | `AADB2C90002` | 找不到返回 404 的 CORS 资源“{0}”。 |
-| `AADB2C90006` | 请求中提供的重定向 URI“{1}”未针对客户端 ID“{0}”注册。 |
+| `AADB2C90006` | 请求中提供的重定向 URI“{0}”未针对客户端 ID“{1}”注册。 |
 | `AADB2C90007` | 与客户端 ID“{0}”关联的应用程序没有已注册的重定向 URI。 |
 | `AADB2C90008` | 请求不包含客户端 ID 参数。 |
 | `AADB2C90010` | 请求不包含客户端范围参数。 |
@@ -44,7 +44,7 @@ Azure Active Directory B2C 服务可能返回以下错误。
 | `AADB2C90027` | 为“{0}”指定的基本凭据无效。 请检查凭据是否正确，并且资源已授予访问权限。 |
 | `AADB2C90028` | 为“{0}”指定的客户端证书无效。 请检查证书是否正确、包含私钥，并且资源已授予访问权限。 |
 | `AADB2C90031` | 策略“{0}”未指定默认用户历程。 确保策略或其父级将默认用户历程指定为信赖方部分的一部分。 |
-| `AADB2C90035` | 服务暂时不可用。 请几分钟后重试。 |
+| `AADB2C90035` | 服务暂时不可用。 请在几分钟后重试。 |
 | `AADB2C90036` | 请求不包含用于在注销后重定向用户的 URI。 在 post_logout_redirect_uri 参数字段中指定 URI。 |
 | `AADB2C90037` | 处理该请求时出错。 请与你尝试访问的站点的管理员联系。 |
 | `AADB2C90039` | 请求包含一个客户端断言，但租户“{1}”中所提供的策略“{0}”在 RelyingPartyPolicy 中缺少 client_secret。 |
@@ -73,13 +73,14 @@ Azure Active Directory B2C 服务可能返回以下错误。
 | `AADB2C90085` | 服务遇到内部错误。 请重新进行身份验证，然后重试。 |
 | `AADB2C90086` | 提供的 grant_type [{0}] 不受支持。 |
 | `AADB2C90087` | 提供的授予尚未对此版本的协议终结点颁发。 |
-| `AADB2C90088` | 尚未为此终结点颁发提供的授予。 实际值: {0}，预期值: {1} |
+| `AADB2C90088` | 尚未为此终结点颁发提供的授予。 实际值：{0}，预期值：{1} |
+| `AADB2C90091` | 用户取消。 |
 | `AADB2C90092` | 对租户“{1}”禁用了提供的 ID 为“{0}”的应用程序。 请启用该应用程序，然后重试。 |
 | `AADB2C90107` | ID 为“{0}”的应用程序无法获取 ID 令牌，可能是请求中未提供 openid 范围，也可能是未授权该应用程序进行此操作。 |
 | `AADB2C90108` | 业务流程步骤“{0}”未按预期指定 CpimIssuerTechnicalProfileReferenceId。 |
 | `AADB2C90110` | 范围参数在请求包括 "id_token" 的 response_type 时必须包括 "openid"。 |
 | `AADB2C90111` | 帐户已锁定。 请联系支持人员解除锁定，然后重试。 |
-| `AADB2C90114` | 帐户暂时锁定以防止未经授权的使用。 请稍后重试。 |
+| `AADB2C90114` | 帐户暂时锁定以防止未经授权的使用。 请稍后再试。 |
 | `AADB2C90115` | 请求 'code' response_type 时，范围参数必须包含访问令牌的资源或客户端 ID，以及 ID 令牌的 'openid'。 此外，必须包含刷新令牌的 'offline_access'。 |
 | `AADB2C90117` | 请求中提供的范围“{0}”不受支持。 |
 | `AADB2C90118` | 用户忘记了密码。 |
@@ -134,7 +135,7 @@ Azure Active Directory B2C 服务可能返回以下错误。
 | `AADB2C90255` | 技术配置文件“{0}”中指定的声明交换未按预期完成。 建议尝试从开头开始启动会话。 |
 | `AADB2C90261` | 步骤“{1}”中指定的声明交换“{0}”返回了无法分析的 HTTP 错误响应。 |
 | `AADB2C90272` | 未在请求中指定 id_token_hint 参数。 请提供令牌，然后重试。 |
-| `AADB2C90273` | 收到无效响应:“{0}” |
+| `AADB2C90273` | 收到无效响应：“{0}” |
 | `AADB2C90274` | 提供程序元数据没有指定单一注销服务或者终结点绑定不是 "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" 或 "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" 之一。 |
 | `AADB2C90276` | 该请求与控件设置“{0}”不一致: 策略“{3}”租户“{4}”的 technicalProfile“{2}”中的“{1}”。 |
 | `AADB2C90277` | 策略“{2}”用户历程“{1}”的业务流程步骤“{0}”不包含内容定义引用。 |
@@ -142,10 +143,10 @@ Azure Active Directory B2C 服务可能返回以下错误。
 | `AADB2C90284` | 标识符为“{0}”的应用程序尚未获授权，无法用于本地帐户。 |
 | `AADB2C90285` | 找不到标识为“{0}”的应用程序。 |
 | `AADB2C90288` | 在 TechnicalProfile“{1}”中引用了 ID“{0}”并用于租户“{2}”的刷新令牌兑换的 UserJourney 不存在于策略“{3}”或其任何基本策略中。 |
-| `AADB2C90289` | 连接到标识提供者时遇到错误。 请稍后重试。 |
+| `AADB2C90289` | 连接到标识提供者时遇到错误。 请稍后再试。 |
 | `AADB2C90296` | 应用程序配置错误。 请与你尝试访问的站点的管理员联系。 |
 | `AADB2C99005` | 请求包含无效的范围参数，此范围参数包含非法字符“{0}”。 |
-| `AADB2C99006` | Azure AD B2C 找不到应用 ID 为“{0}”的扩展应用。 有关详细信息，请访问 https://go.microsoft.com/fwlink/?linkid=851224 。 |
+| `AADB2C99006` | Azure AD B2C 找不到应用 ID 为“{0}”的扩展应用。 有关详细信息，请访问 https://go.microsoft.com/fwlink/?linkid=851224。 |
 | `AADB2C99011` | 尚未在策略“{2}”的 TechnicalProfile“{1}”中指定元数据值“{0}”。 |
 | `AADB2C99013` | 提供的 grant_type [{0}] 和 token_type [{1}] 组合不受支持。 |
 | `AADB2C99015` | 租户“{2}”中策略“{1}”的配置文件“{0}”缺少资源所有者密码凭据流所需的所有 InputClaim。 |

@@ -1,16 +1,18 @@
 ---
 title: 应用架构定义
 description: LUIS 应用使用 `.json` 或 `.lu` 表示，并且包括所有意向、实体、示例言语、功能和设置。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 author: Johnnytechn
-ms.date: 08/07/2020
+ms.date: 10/19/2020
 ms.author: v-johya
-ms.openlocfilehash: 95544ccd7f47104943baf29c0df648bf8a8910bd
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: ae639a45e2776ccd070ad35facbb7e19d01e45f4
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023694"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472522"
 ---
 # <a name="app-schema-definition"></a>应用架构定义
 
@@ -57,12 +59,30 @@ LUIS 应用使用 `.json` 或 `.lu` 表示，并且包括所有意向、实体�
   "tokenizerVersion": "1.0.0",
   "patternAnyEntities": [],
   "regex_entities": [],
-  "phraselists": [],
+  "phraselists": [
+  ],
   "regex_features": [],
   "patterns": [],
   "settings": []
 }
 ```
+
+| element                  | 注释                              |
+|--------------------------|--------------------------------------|
+| "hierarchicals": [],     | 已弃用，请使用[机器学习实体](luis-concept-entity-types.md)。   |
+| "composites": [],        | 已弃用，请使用[机器学习实体](luis-concept-entity-types.md)。 [复合实体](reference-entity-composite.md)引用。 |
+| "closedLists": [],       | [列出实体](reference-entity-list.md)引用，主要用作实体的特征。    |
+| "versionId":"0.1",      | LUIS 应用的版本。|
+| "name": "example-app",   | LUIS 应用的名称。 |
+| "desc": "",              | LUIS 应用的可选说明。  |
+| "culture": "en-us",      | 应用的[语言](luis-language-support.md)，它会影响基础功能，如预生成实体、机器学习和 tokenizer。  |
+| "tokenizerVersion":"1.0.0", | [分词器](luis-language-support.md#tokenization)  |
+| "patternAnyEntities": [],   | [Pattern.any 实体](reference-entity-pattern-any.md)    |
+| "regex_entities": [],    |  [正则表达式实体](reference-entity-regular-expression.md)   |
+| "phraselists": [],       |  [短语列表（特征）](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
+| "regex_features": [],    |  已弃用，请使用[机器学习实体](luis-concept-entity-types.md)。 |
+| "patterns": [],          |  [模式](luis-concept-patterns.md)通过[模式语法](reference-pattern-syntax.md)提高预测准确性   |
+| "settings": []           | [应用设置](luis-reference-application-settings.md)|
 
 ## <a name="version-6x"></a>版本 6.x
 

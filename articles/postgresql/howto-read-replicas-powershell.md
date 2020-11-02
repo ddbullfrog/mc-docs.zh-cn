@@ -4,15 +4,16 @@ description: 了解如何使用 PowerShell 在 Azure Database for PostgreSQL 中
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/08/2020
-ms.date: 06/09/2020
-ms.openlocfilehash: f6d06f51116f4256109c363d7f9ff57afc9ac11e
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.date: 10/29/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 38db5968ea608bf9dba4607807802787ff24c2f1
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845933"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470303"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>如何使用 PowerShell 在 Azure Database for PostgreSQL 中创建和管理只读副本
 
@@ -48,9 +49,9 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `New-AzPostgreSqlServerReplica` 命令需要以下参数：
 
-| 设置 | 示例值 | 说明  |
+| 设置 | 示例值 | 说明  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  在其中创建副本服务器的资源组。  |
+| ResourceGroupName |  myresourcegroup |  在其中创建副本服务器的资源组。  |
 | 名称 | mydemoreplicaserver | 所创建的新副本服务器的名称。 |
 
 若要创建跨区域只读副本，请使用 Location 参数。 以下示例在“中国北部 2”区域中创建一个副本。
@@ -65,11 +66,11 @@ Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 默认情况下，除非指定了 Sku 参数，否则将使用与主服务器相同的服务器配置来创建只读副本。
 
 > [!NOTE]
-> 建议副本服务器的配置应保持在与主服务器相同或更大的值，以确保副本能够跟上主服务器。
+> 建议副本服务器的配置应保持在与主服务器相同或更大的值，以确保副本能够与主服务器保持同步。
 
-### <a name="list-replicas-for-a-master-server"></a>列出主服务器的副本
+### <a name="list-replicas-for-a-primary-server"></a>列出主服务器的副本
 
-若要查看给定的主服务器的所有副本，请运行以下命令：
+若要查看给定主服务器的所有副本，请运行以下命令：
 
 ```azurepowershell
 Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -77,9 +78,9 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 `Get-AzMariaDReplica` 命令需要以下参数：
 
-| 设置 | 示例值 | 说明  |
+| 设置 | 示例值 | 说明  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  要在其中创建副本服务器的资源组。  |
+| ResourceGroupName |  myresourcegroup |  要在其中创建副本服务器的资源组。  |
 | ServerName | mydemoserver | 主服务器的名称或 ID。 |
 
 ### <a name="delete-a-replica-server"></a>删除副本服务器
@@ -90,10 +91,10 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 Remove-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>删除主服务器
+### <a name="delete-a-primary-server"></a>删除主服务器
 
 > [!IMPORTANT]
-> 删除主服务器会停止复制到所有副本服务器，并删除主服务器本身。 副本服务器成为现在支持读取和写入的独立服务器。
+> 删除主服务器会停止复制到所有副本服务器，并会删除主服务器本身。 副本服务器成为现在支持读取和写入的独立服务器。
 
 若要删除主服务器，可以运行 `Remove-AzPostgreSqlServer` cmdlet。
 

@@ -1,23 +1,25 @@
 ---
-title: 配置 Azure 虚拟 WAN 的自定义 IPsec 策略：门户 | Azure
+title: 为 Azure 虚拟 WAN 配置自定义 IPsec 策略 - 门户 | Azure
 description: 了解如何使用门户为 Azure 虚拟 WAN 配置自定义 IPsec 策略。
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 10/14/2019
-ms.date: 03/09/2020
+author: rockboyfor
+ms.date: 10/26/2020
+ms.testscope: yes
+ms.testdate: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: b5a43843fc8dd7c3cf7b4f3a4459b26396b0002a
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: db61919a7ab1d1eb257db9184d2b9dadb1b1d2f0
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79084448"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92472553"
 ---
 # <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>使用门户为虚拟 WAN 配置自定义 IPsec 策略
 
-可以在 Azure 门户中为虚拟 WAN 配置自定义 IPsec 策略。 如果希望两端（本地和 Azure VPN 网关）对“IKE 阶段 1”和“IKE 阶段 2”使用相同的设置，则可使用自定义策略。
+可以在 Azure 门户中为虚拟 WAN VPN 连接配置自定义 IPsec 策略。 如果希望两端（本地和 Azure VPN 网关）对“IKE 阶段 1”和“IKE 阶段 2”使用相同的设置，则可使用自定义策略。
 
 ## <a name="working-with-custom-policies"></a>使用自定义策略
 
@@ -25,20 +27,19 @@ ms.locfileid: "79084448"
 
 ## <a name="configure-a-policy"></a>配置策略
 
-1. **找到虚拟中心**。 从浏览器导航到 [Azure 门户](https://portal.azure.cn/?feature.canmodifystamps=true&Microsoft_Azure_Network=flight16&feature.vwaner=true&feature.vwanp2s=true)并使用 Azure 帐户登录。 找到站点的虚拟中心。
-2. **选择 VPN 站点**。 在中心页上，选择要为其设置自定义策略的 VPN 站点。
+1. **找到虚拟中心** 。 从浏览器导航到 [Azure 门户](https://portal.azure.cn/?feature.canmodifystamps=true&Microsoft_Azure_Network=flight16&feature.vwaner=true&feature.vwanp2s=true)并使用 Azure 帐户登录。 导航到虚拟 WAN 资源并找到 VPN 站点所连接到的虚拟中心。
+2. **选择 VPN 站点** 。 在“中心概述”页中，单击“VPN (站点到站点)”，然后选择要为其设置自定义 IPsec 策略的 VPN 站点。
 
-    ![select](./media/virtual-wan-custom-ipsec-portal/locate.png)
-3. **编辑 VPN 连接**。 从上下文菜单“...”中，选择“编辑 VPN 连接”    。
+    :::image type="content" source="./media/virtual-wan-custom-ipsec-portal/locate.png" alt-text="select":::
+3. **编辑 VPN 连接** 。 从上下文菜单“...”中，选择“编辑 VPN 连接”    。
 
-    ![编辑](./media/virtual-wan-custom-ipsec-portal/contextmenu.png)
-4. **配置设置**。 在“编辑 VPN 连接”  页上，配置设置。 选择“保存”以保存设置  。
+    :::image type="content" source="./media/virtual-wan-custom-ipsec-portal/contextmenu.png" alt-text="select":::
+4. **配置设置** 。 在“编辑 VPN 连接”页上，将 IPsec 设置从默认设置更改为自定义设置，然后自定义 IPsec 策略。 选择“保存”以保存设置  。
 
-    ![配置并保存](./media/virtual-wan-custom-ipsec-portal/edit.png)
+    :::image type="content" source="./media/virtual-wan-custom-ipsec-portal/edit.png" alt-text="select":::
 
 ## <a name="next-steps"></a>后续步骤
 
 若要详细了解虚拟 WAN，请参阅[虚拟 WAN 概述](virtual-wan-about.md)页。
 
-<!-- Update_Description: new article about virtual wan custom ipsec portal -->
-<!--NEW.date: 03/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

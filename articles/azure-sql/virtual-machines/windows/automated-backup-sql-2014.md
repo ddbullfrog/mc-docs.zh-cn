@@ -7,19 +7,19 @@ author: WenJason
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/03/2018
-ms.date: 09/14/2020
+ms.date: 10/29/2020
 ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: 0e7a111b012e07f339fc83dca68b1335b1256eaf
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: a7d13e49bd3034a6afe376e5f7deb3166de9a7c0
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014272"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470330"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 虚拟机（资源管理器）的自动备份
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,27 +35,23 @@ ms.locfileid: "90014272"
 ## <a name="prerequisites"></a>先决条件
 若要使用自动备份，请考虑以下先决条件：
 
-**操作系统**：
 
-- Windows Server 2012
-- Windows Server 2012 R2
-- Windows Server 2016
+**操作系统** ：
 
-**SQL Server 版本**：
+- Windows Server 2012 及更高版本 
+
+**SQL Server 版本** ：
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
 
-> [!IMPORTANT]
-> 自动备份适用于 SQL Server 2014。 如果使用的是 SQL Server 2016/2017，可使用自动备份 v2 来备份数据库。 有关详细信息，请参阅 [SQL Server 2016 Azure 虚拟机的自动备份 v2](automated-backup.md)。
-
-**数据库配置**：
-
-- 目标数据库必须使用完整恢复模式。 如需深入了解完整恢复模式对备份产生的影响，请参阅[完整恢复模式下的备份](https://technet.microsoft.com/library/ms190217.aspx)。
-- 目标数据库必须位于默认 SQL Server 实例上。 SQL Server IaaS 代理扩展不支持命名实例。
-
 > [!NOTE]
-> 自动备份依赖 SQL Server IaaS 代理扩展。 当前的 SQL 虚拟机库映像默认添加此扩展。 有关详细信息，请参阅 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。
+> 有关 SQL 2016 及更高版本，请参阅 [SQL Server 2016 的自动备份](automated-backup.md)。
+
+**数据库配置** ：
+
+- 目标用户数据库必须使用完整恢复模式。 系统数据库不需要使用完整恢复模型。 但是，如果需要为模型或 MSDB 创建日志备份，则必须使用完整恢复模型。 如需深入了解完整恢复模式对备份产生的影响，请参阅[完整恢复模式下的备份](https://technet.microsoft.com/library/ms190217.aspx)。 
+-  自动备份依赖于完整 [SQL Server IaaS 代理扩展](sql-server-iaas-agent-extension-automate-management.md)。 因此，只有默认实例或单个命名实例的目标数据库支持自动备份。 如果没有默认实例，并且存在多个命名实例，则 SQL IaaS 扩展将失败，自动备份将无法工作。 
 
 ## <a name="settings"></a>设置
 
@@ -64,7 +60,7 @@ ms.locfileid: "90014272"
 | 设置 | 范围（默认值） | 说明 |
 | --- | --- | --- |
 | **自动备份** | 启用/禁用（已禁用） | 为运行 SQL Server 2014 Standard 或 Enterprise 的 Azure VM 启用或禁用自动备份。 |
-| **保留期** | 1-30 天（30 天） | 保留备份的天数。 |
+| **保持期** | 1-30 天（30 天） | 保留备份的天数。 |
 | **存储帐户** | Azure 存储帐户 | 用于在 Blob 存储中存储自动备份文件的 Azure 存储帐户。 会在此位置创建容器，用于存储所有备份文件。 备份文件命名约定包括日期、时间和计算机名称。 |
 | **加密** | 启用/禁用（已禁用） | 启用或禁用加密。 启用加密时，用于还原备份的证书会使用相同的命名约定存放在同一 `automaticbackup` 容器中的指定存储帐户内。 如果密码发生更改，则使用该密码生成新证书，但旧证书在备份之前仍会还原。 |
 | **密码** | 密码文本 | 加密密钥的密码。 仅当启用了加密时才需要此设置。 若要还原加密的备份，必须具有创建该备份时使用的正确密码和相关证书。 |
@@ -121,7 +117,7 @@ $resourcegroupname = "resourcegroupname"
 
 如果已安装 SQL Server IaaS 代理扩展，应会看到其列为“SqlIaaSAgent”或“SQLIaaSExtension”。 此外，该扩展的“ProvisioningState”应显示“成功”。
 
-如果未安装或未能预配该扩展，可使用以下命令进行安装。 除了 VM 名称和资源组以外，还必须指定 VM 所在的区域 ( **$region**)。 指定 SQL Server VM 的许可类型，通过 [Azure 混合权益](https://www.azure.cn/pricing/hybrid-benefit/)在标准预付费套餐或自带许可之间进行选择。 
+如果未安装或未能预配该扩展，可使用以下命令进行安装。 除了 VM 名称和资源组以外，还必须指定 VM 所在的区域 ( **$region** )。 指定 SQL Server VM 的许可类型，通过 [Azure 混合权益](https://www.azure.cn/pricing/hybrid-benefit/)在标准预付费套餐或自带许可之间进行选择。 
 
 <!--Not Available on [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md)-->
 
@@ -161,7 +157,7 @@ FullBackupWindowHours       :
 LogBackupFrequency          : 
 ```
 
-如果输出显示 **Enable** 设置为 **False**，则必须启用自动备份。 幸运的是，可通过相同的方式启用和配置自动备份。 有关信息，请参阅下一部分。
+如果输出显示 **Enable** 设置为 **False** ，则必须启用自动备份。 幸运的是，可通过相同的方式启用和配置自动备份。 有关信息，请参阅下一部分。
 
 > [!NOTE] 
 > 如果在进行更改后立即检查设置，看到的可能是旧配置值。 请等待几分钟再检查设置，确保更改已应用。

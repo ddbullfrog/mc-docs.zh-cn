@@ -1,7 +1,7 @@
 ---
 title: 网络访问控件
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: 概述如何管理和控制 Azure SQL 数据库和 Azure Synapse Analytics（以前称为 Azure SQL 数据仓库）的网络访问。
+description: 概述如何管理和控制对 Azure SQL 数据库和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）的网络访问。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 03/09/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 2877d9ecb61b8c2db3bf77b1b1f666cfa1a81796
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 10/29/2020
+ms.openlocfilehash: 1feb2abb46e78e62bc982319e4f8504dfbed4702
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222884"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470273"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL 数据库和 Azure Synapse Analytics 网络访问控制
 
@@ -32,13 +32,14 @@ ms.locfileid: "88222884"
 还可以通过以下方式允许从[虚拟网络](../../virtual-network/virtual-networks-overview.md)对数据库进行专用访问：
 
 - 虚拟网络防火墙规则：使用此功能可以允许来自 Azure 边界内特定虚拟网络的流量
+- 专用链接：使用此功能可为特定虚拟网络内的[逻辑 SQL 服务器](logical-servers.md)创建专用终结点
 
 > [!IMPORTANT]
 > 本文不适用于“SQL 托管实例”。 有关网络配置的详细信息，请参阅[连接到 Azure SQL 托管实例](../managed-instance/connect-application-instance.md)。
 
 ## <a name="allow-azure-services"></a>允许 Azure 服务
 
-[从 Azure 门户](single-database-create-quickstart.md)创建新的逻辑 SQL Server 期间，此设置将保持未选中状态。
+默认情况下，在从 [Azure 门户](single-database-create-quickstart.md)创建新的逻辑 SQL 服务器期间，此设置将设置为“关”。 允许使用公共服务终结点建立连接时，将显示此设置。
 
 创建逻辑 SQL Server 后，也可以按如下所示通过防火墙窗格更改此设置。
   
@@ -112,9 +113,9 @@ start          end
 
 **虚拟网络：** 可以让虚拟网络与 Azure 订阅相关联
 
-**子网：** 虚拟网络包含**子网**。 你所拥有的任何 Azure 虚拟机 (VM) 都会分配到子网。 一个子网可能包含多个 VM 或其他计算节点。 虚拟网络之外的计算节点不能访问虚拟网络，除非已将安全性配置为允许这样的访问。
+**子网：** 虚拟网络包含 **子网** 。 你所拥有的任何 Azure 虚拟机 (VM) 都会分配到子网。 一个子网可能包含多个 VM 或其他计算节点。 虚拟网络之外的计算节点不能访问虚拟网络，除非已将安全性配置为允许这样的访问。
 
-**虚拟网络服务终结点**：[虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)是一个子网，其属性值包括一个或多个正式的 Azure 服务类型名称。 本文介绍 Microsoft.Sql 的类型名称，即名为“SQL 数据库”的 Azure 服务。
+**虚拟网络服务终结点** ： [虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)是一个子网，其属性值包括一个或多个正式的 Azure 服务类型名称。 本文介绍 Microsoft.Sql 的类型名称，即名为“SQL 数据库”的 Azure 服务。
 
 **虚拟网络规则：** 服务器的虚拟网络规则是服务器的访问控制列表 (ACL) 中列出的子网。 该子网必须包含“Microsoft.Sql”类型名称才会列在 SQL 数据库中数据库的 ACL 中。 虚拟网络规则要求服务器接受来自子网上每个节点的通信。
 
@@ -129,6 +130,10 @@ start          end
 > [!NOTE]
 > 目前，子网上不允许有 SQL 数据库。 如果服务器是虚拟网络子网上的一个节点，则虚拟网络中的所有节点都可以与 SQL 数据库通信。 在这种情况下，VM 可以与 SQL 数据库通信，不需任何虚拟网络规则或 IP 规则。
 
+## <a name="private-link"></a>专用链接
+
+使用专用链接可以通过专用终结点连接到服务器。 专用终结点是特定[虚拟网络](../../virtual-network/virtual-networks-overview.md)和子网中的专用 IP 地址。
+
 ## <a name="next-steps"></a>后续步骤
 
 - 有关创建服务器级 IP 防火墙规则的快速入门，请参阅[在 SQL 数据库中创建数据库](single-database-create-quickstart.md)。
@@ -137,7 +142,7 @@ start          end
 
 - 有关从开源应用程序或第三方应用程序连接到 SQL 数据库中的数据库的帮助，请参阅 [SQL 数据库的客户端快速入门代码示例](/azure-sql/database/connect-query-content-reference-guide#libraries)。
 
-- 有关可能需要打开的其他端口的信息，请参阅 **SQL 数据库：外部与内部**部分（在[用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](adonet-v12-develop-direct-route-ports.md)中）
+- 有关可能需要打开的其他端口的信息，请参阅 **SQL 数据库：外部与内部** 部分（在 [用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](adonet-v12-develop-direct-route-ports.md)中）
 
 - 有关 Azure SQL 数据库的连接概述，请参阅 [Azure SQL 连接体系结构](connectivity-architecture.md)
 

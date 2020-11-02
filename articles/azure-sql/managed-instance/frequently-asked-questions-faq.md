@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 09/21/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 110b9a8850b159de2a028d93793ed08904e3a677
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 10/29/2020
+ms.openlocfilehash: a1a2cc0d39b9bf4d540c1ffab634162fc973fe56
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872466"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470261"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL 托管实例常见问题解答 (FAQ)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,7 +79,7 @@ SQL 托管实例部署是否有配额限制？
 
 如何预配 SQL 托管实例？
 
-可以通过 [Azure 门户](instance-create-quickstart.md)、[PowerShell](scripts/create-configure-managed-instance-powershell.md)[Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) 和 [ARM 模板](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates)来预配实例。
+可以通过 [Azure 门户](instance-create-quickstart.md)、[PowerShell](scripts/create-configure-managed-instance-powershell.md)、[Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) 和 [ARM 模板](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates)来预配实例。
 
 是否可以在现有订阅中预配托管实例？
 
@@ -327,13 +327,16 @@ SQL 托管实例负责对管理端口设置规则。 这通过名为[服务辅�
 
 是否可以为 SQL 数据终结点指定自定义端口？
 
-不可以，此选项不可用。 
+不可以，此选项不可用。  对于专用数据终结点，托管实例使用默认端口号 1433；对于公共数据终结点，托管实例使用默认端口号 3342。
 
 连接放置在不同区域中的托管实例的建议方法是什么？
 
-快速路由线路对等互连是执行该操作的首选方式。 这不应与跨区域虚拟网络对等互连混合使用，后者不受支持，因为存在与[约束](/virtual-network/virtual-network-peering-overview)相关的内部负载均衡器。
+快速路由线路对等互连是执行该操作的首选方式。 支持全局虚拟网络对等互连，但有以下说明所述的限制。  
 
-如果无法实现快速路由线路对等互连，则唯一的另一种选项是创建站点到站点 VPN 连接（[Azure 门户](/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)、[PowerShell](/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)、[Azure CLI](/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)）。
+> [!IMPORTANT]
+> [2020 年 9 月 22 日，我们宣布了为新建的虚拟群集建立全局虚拟网络对等互连](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)。 这意味着，自公告日期之后在空子网中创建的 SQL 托管实例以及在这些子网中随后创建的所有托管实例，都支持全局虚拟网络对等互连。 对于所有其他 SQL 托管实例，由于[全局虚拟网络对等互连的约束](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，对等互连支持仅限于同一区域中的网络。 有关更多详细信息，另请参阅 [Azure 虚拟网络常见问题解答](/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)一文的相关部分。 
+
+如果无法实现 Express Route 线路对等互连和全局虚拟网络对等互连，那么唯一的选择就是创建站点到站点 VPN 连接（[Azure 门户](/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)、[PowerShell](/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)、[Azure CLI](/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)）。
 
 ## <a name="mitigate-data-exfiltration-risks"></a>缓解数据透露风险  
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 09/10/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: fe5c8bedd4f2823c76382f3086cc6b3688dd73c3
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 00851d9a15d18457469375146bb57af41eb9e7f8
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456835"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211877"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>使用 Azure 虚拟机修复命令修复 Linux VM
 
@@ -45,10 +45,12 @@ ms.locfileid: "89456835"
 1. 启动 Azure 本地 Shell
 2. 运行 az extension add/update
 3. 运行 az vm repair create
-4. 执行缓解步骤
+4. 运行 az vm repair run 或执行缓解步骤。
 5. 运行 az vm repair restore
 
-有关其他文档和说明，请参阅 [az vm repair](https://docs.microsoft.com/cli/azure/ext?view=azure-cli-latest#az-vm-repair)。
+有关其他文档和说明，请参阅 [az vm repair](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair#az_vm_repair)。
+
+<!--CORRECT ON https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair?view=azure-cli-latest#az-vm-repair-->
 
 ## <a name="repair-process-example"></a>修复过程示例
 
@@ -58,9 +60,9 @@ ms.locfileid: "89456835"
     <!--Not Available on select **Try it** from the upper-right corner of a code block.-->
     <!--Not Available on Select **Copy** to copy the blocks of code, then paste the code into the local Shell, and select **Enter** to run it.-->
 
-    如果希望在本地安装并使用 CLI，则本快速入门需要 Azure CLI 2.0.30 版或更高版本。 运行 ``az --version`` 即可查找版本。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+    如果希望在本地安装并使用 CLI，则本快速入门需要 Azure CLI 2.0.30 版或更高版本。 运行 ``az --version`` 即可查找版本。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
-    如果需要使用与当前登录 Azure 门户不同的帐户进行登录，可使用 ``az login`` [az login reference](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login)。  若要在与你的帐户关联的订阅之间切换，可使用 ``az account set --subscription`` [az account set reference](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-set)。
+    如果需要使用与当前登录 Azure 门户所用帐户不同的帐户登录本地 Shell，可使用 ``az login`` [az login reference](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az_login&preserve-view=true)。  若要在与你的帐户关联的订阅之间切换，可使用 ``az account set --subscription`` [az account set reference](https://docs.azure.cn/cli/account#az_account_set&preserve-view=true)。
 
     <--Mooncake 自定义句子逻辑-->
 
@@ -82,7 +84,13 @@ ms.locfileid: "89456835"
     az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
     ```
 
-4. 在创建的修复 VM 上执行任何所需的缓解步骤，然后继续执行步骤 5。
+4. 运行 `az vm repair run`。 此命令将通过修复 VM 在附加的磁盘上运行指定的修复脚本。 如果你使用的故障排除指南指定了 run-id，请在此处使用它，否则可以使用 az vm repair list-scripts 来查看可用的修复脚本。 此处使用的资源组和 VM 名称适用于第 3 步中使用的非功能性 VM。 有关修复脚本的其他信息可在[修复脚本库](https://github.com/Azure/repair-script-library)中找到。
+
+    ```azurecli
+    az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id lin-hello-world --verbose
+    ```
+
+    （可选）可以使用修复 VM 来执行任何所需的手动缓解步骤，然后继续执行步骤 5。
 
 5. 运行 `az vm repair restore`。 此命令会将已修复的 OS 磁盘与 VM 的原始 OS 磁盘交换。 此处使用的资源组和 VM 名称适用于第 3 步中使用的非功能性 VM。
 

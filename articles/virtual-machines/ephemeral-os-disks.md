@@ -1,22 +1,22 @@
 ---
 title: 临时 OS 磁盘
 description: 详细了解用于 Azure VM 的临时 OS 磁盘。
-author: rockboyfor
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 07/23/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 9bd07b3007f40d315f49f938ba963df2497c1ff3
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 041ef72e185aeb7325c6d03efdde592e42e657ea
+ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052404"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92211857"
 ---
 <!--Verified successfully-->
 <!--Transfer from an include file-->
@@ -56,8 +56,10 @@ ms.locfileid: "89052404"
 
 临时磁盘还要求 VM 大小支持高级存储。 大小通常（但并非总是）在名称中包含 `s`，例如 DSv2 和 EsV3。 有关详细信息，请参阅 [Azure VM 大小](sizes.md)，其中详述了哪些大小支持高级存储。
 
-<!--Not Available on ## Preview - Ephemeral OS Disks can now be stored on temp disks-->
-<!--REASON: Not Available on Dav3, Dav4, Eav4 and Eav3 series-->
+## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>预览版 - 临时 OS 磁盘现在可以存储在临时磁盘上
+除了可以存储在 VM 缓存上之外，临时 OS 磁盘现在还可以存储在 VM 临时/资源磁盘上。 因此，现在可以在没有缓存或缓存不足但有临时/资源磁盘的 VM（例如 Dav4 和 Eav4）中使用临时 OS 磁盘。 如果 VM 有足够的缓存和临时空间，那么现在还可以通过使用名为 [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement) 的新属性来指定要存储临时 OS 磁盘的位置。 利用此特性，我们在预配 Windows VM 时将页面文件配置为位于OS 磁盘上。 此功能目前处于预览状态。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 首先，[请求访问权限](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u)。
+
+<!--REASON: Not Available on Dav3, and Eav3 series-->
 
 ## <a name="powershell"></a>PowerShell
 
@@ -75,7 +77,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>CLI
 
-若要将临时磁盘用于 CLI VM 部署，请将 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 中的 `--ephemeral-os-disk` 参数设置为 `true`，将 `--os-disk-caching` 参数设置为 `ReadOnly`。
+若要将临时磁盘用于 CLI VM 部署，请将 [az vm create](https://docs.azure.cn/cli/vm#az_vm_create) 中的 `--ephemeral-os-disk` 参数设置为 `true`，将 `--os-disk-caching` 参数设置为 `ReadOnly`。
 
 ```azurecli
 az vm create \
@@ -88,7 +90,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-对于规模集，请对 [az-vmss-create](https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-create) 使用相同的 `--ephemeral-os-disk true` 参数，并将 `--os-disk-caching` 参数设置为 `ReadOnly`。
+对于规模集，请对 [az-vmss-create](https://docs.azure.cn/cli/vmss#az_vmss_create) 使用相同的 `--ephemeral-os-disk true` 参数，并将 `--os-disk-caching` 参数设置为 `ReadOnly`。
 
 <!--Verify successfully on Portal-->
 
@@ -102,7 +104,7 @@ az vm create \
 
 也可通过门户创建使用临时 OS 磁盘的规模集。 只需确保所选 VM 大小具有足够大的缓存大小，然后在“使用临时 OS 磁盘”中选择“是”即可。  
 
-:::image type="content" source="./media/virtual-machines-common-ephemeral/scale-set.png" alt-text="显示单选按钮的屏幕截图，该按钮选中后即可使用规模集的临时 OS 磁盘":::
+:::image type="content" source="./media/virtual-machines-common-ephemeral/scale-set.png" alt-text="显示单选按钮的屏幕截图，该按钮选中后即可使用临时 OS 磁盘":::
 
 ## <a name="scale-set-template-deployment"></a>规模集模板部署  
 创建一个使用临时 OS 磁盘的规模集时，其过程很简单，就是将 `diffDiskSettings` 属性添加到模板中的 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` 资源类型。 另外，对于临时 OS 磁盘，必须将缓存策略设置为 `ReadOnly`。 
@@ -188,8 +190,7 @@ az vm create \
 可以通过 REST API 重置使用临时 OS 磁盘的虚拟机实例的映像，详见下面的说明，只需通过 Azure 门户转到 VM 的“概览”窗格即可。 对于规模集，已经可以通过 Powershell、CLI 和门户来重置映像。
 
 ```
-POST https://management.chinacloudapi.cn/subscriptions/{sub-
-id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?a pi-version=2018-06-01" 
+POST https://management.chinacloudapi.cn/subscriptions/{sub-id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?api-version=2018-06-01" 
 ```
 
 ## <a name="frequently-asked-questions"></a>常见问题
@@ -257,6 +258,6 @@ foreach($vmSize in $vmSizes)
 - OS 磁盘交换 
 
 ## <a name="next-steps"></a>后续步骤
-可以使用 [Azure CLI](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建具有临时 OS 磁盘的 VM。
+可以使用 [Azure CLI](https://docs.azure.cn/cli/vm#az_vm_create) 创建具有临时 OS 磁盘的 VM。
 
 <!-- Update_Description: update meta properties, wording update, update link -->
