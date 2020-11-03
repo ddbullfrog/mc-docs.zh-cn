@@ -1,21 +1,21 @@
 ---
 title: 配置会话行为 - Azure Active Directory B2C | Microsoft Docs
-description: 在 Azure Active Directory B2C 中配置会话行为。
+description: 了解如何在 Azure Active Directory B2C 中配置会话行为。
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 5485195845f1cc749ece5491cbab4253cead7a07
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: e9fa330e33b017a53f741e527a0662cd8a2a738d
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946554"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471147"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中配置会话行为
 
@@ -30,7 +30,7 @@ ms.locfileid: "88946554"
     - 最小值（含）= 15 分钟。
     - 最大值（含）= 1440 分钟。
 - **Web 应用会话超时** - [会话过期类型](session-overview.md#session-expiry-type)：“滚动”或“绝对” 。 
-- **单一登录配置** - Azure AD B2C 租户中跨多个应用和用户流的单一登录 (SSO) 行为的[会话范围](session-overview.md#session-scope)。
+- **单一登录配置** - Azure AD B2C 租户中跨多个应用和用户流的单一登录 (SSO) 行为的 [会话范围](session-overview.md#session-scope)。
 
 
 ## <a name="configure-the-properties"></a>配置属性
@@ -38,14 +38,32 @@ ms.locfileid: "88946554"
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含 Azure AD B2C 租户的目录。
 3. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C” 。
-4. 选择“用户流”****。
+4. 选择“用户流”。
 5. 打开之前创建的用户流。
 6. 选择“属性”。
-7. 根据需要配置 **Web 应用会话生存期（分钟）** 、**Web 应用会话超时**、**单一登录配置**和**在注销请求中需要 ID 令牌**。
+7. 根据需要配置 **Web 应用会话生存期（分钟）** 、 **Web 应用会话超时** 、 **单一登录配置** 和 **在注销请求中需要 ID 令牌** 。
 
     ![Azure 门户中的会话行为属性设置](./media/session-behavior/session-behavior.png)
 
 8. 单击“保存” 。
+
+## <a name="configure-sign-out-behavior"></a>配置注销行为
+
+### <a name="secure-your-logout-redirect"></a>保护注销重定向
+
+注销后，用户将重定向到 `post_logout_redirect_uri` 参数中指定的 URI，而不管为应用程序指定的回复 URL 为何。 但是，如果传递了有效的 `id_token_hint` 并启用了“注销请求中需要 ID 令牌”，则在执行重定向之前，Azure AD B2C 将验证 `post_logout_redirect_uri` 的值是否与应用程序的某个已配置重定向 URI 相匹配。 如果没有为应用程序配置匹配的回复 URL，则会显示一条错误消息，而用户不会重定向。 注销请求中需要 ID 令牌：
+
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含 Azure AD B2C 租户的目录。
+1. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C” 。
+1. 选择“用户流”。
+1. 打开之前创建的用户流。
+1. 选择“属性”。
+1. 启用“注销请求中需要 ID 令牌”。
+1. 返回到“Azure AD B2C”。
+1. 选择“应用注册”，然后选择自己的应用程序。
+1. 选择“身份验证”。
+1. 在“注销 URL”文本框中，键入注销后重定向 URI，然后选择“保存” 。
 
 ## <a name="next-steps"></a>后续步骤
 

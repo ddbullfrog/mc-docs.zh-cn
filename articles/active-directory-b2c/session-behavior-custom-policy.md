@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 10/23/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 2ef379a699d1c67a67381dbd5a2531a5f18a119c
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 1baf4052a9060ecd0a6057b5d761322c4cce1d8a
+ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297714"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471146"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自定义策略配置会话行为
 
@@ -26,11 +26,11 @@ ms.locfileid: "87297714"
 可使用以下属性来管理 Web 应用程序会话：
 
 - **Web 应用会话生存期（分钟）** - 身份验证成功后，存储在用户浏览器上的 Azure AD B2C 会话 Cookie 的生存期。
-    - 默认值 = 86400 秒（1440 分钟）。
-    - 最小值（含）= 900 秒（15 分钟）。
-    - 最大值（含）= 86400 秒（1440 分钟）。
+  - 默认值 = 86400 秒（1440 分钟）。
+  - 最小值（含）= 900 秒（15 分钟）。
+  - 最大值（含）= 86400 秒（1440 分钟）。
 - **Web 应用会话超时** - [会话到期类型](session-overview.md#session-expiry-type)：“滚动”或“绝对” 。 
-- **单一登录配置** - Azure AD B2C 租户中跨多个应用和用户流的单一登录 (SSO) 行为的[会话范围](session-overview.md#session-scope)。 
+- **单一登录配置** - Azure AD B2C 租户中跨多个应用和用户流的单一登录 (SSO) 行为的 [会话范围](session-overview.md#session-scope)。 
 
 ## <a name="configure-the-properties"></a>配置属性
 
@@ -44,18 +44,42 @@ ms.locfileid: "87297714"
 </UserJourneyBehaviors>
 ```
 
-## <a name="single-sign-out"></a>单一登录
+## <a name="configure-sign-out-behavior"></a>配置注销行为
 
-### <a name="configure-the-applications"></a>配置应用程序
+### <a name="secure-your-logout-redirect"></a>保护注销重定向
+
+注销后，用户将重定向到 `post_logout_redirect_uri` 参数中指定的 URI，而不管为应用程序指定的回复 URL 为何。 但是，如果传递了有效的 `id_token_hint` 并启用了“要求在注销请求中提供 ID 令牌”，则在执行重定向之前，Azure AD B2C 将验证 `post_logout_redirect_uri` 的值是否与应用程序的某个已配置重定向 URI 相匹配。 如果没有为应用程序配置匹配的回复 URL，则会显示一条错误消息，而用户不会重定向。 
+
+若要启用要求在注销请求中提供 ID 令牌，请在 [RelyingParty](relyingparty.md) 元素中添加 **UserJourneyBehaviors** 元素。 然后，将 SingleSignOn 元素的 EnforceIdTokenHintOnLogout 设置为 `true` 。 UserJourneyBehaviors 元素应当如以下示例所示：
+
+```xml
+<UserJourneyBehaviors>
+  <SingleSignOn Scope="Tenant" EnforceIdTokenHintOnLogout="true"/>
+</UserJourneyBehaviors>
+```
+
+配置应用程序注销 URL：
+
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含 Azure AD B2C 租户的目录。
+1. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C” 。
+1. 选择“应用注册”，然后选择自己的应用程序。
+1. 选择“身份验证”。
+1. 在“注销 URL”文本框中，键入注销后重定向 URI，然后选择“保存” 。
+
+### <a name="single-sign-out"></a>单一登录
+
+#### <a name="configure-the-applications"></a>配置应用程序
 
 将用户重定向到 Azure AD B2C 注销终结点（适用于 OAuth2 和 SAML 协议）时，Azure AD B2C 将从浏览器中清除该用户的会话。  若要允许[单一注销](session-overview.md#single-sign-out)，请在 Azure 门户中设置应用程序的 `LogoutUrl`：
 
 1. 导航到 [Azure 门户](https://portal.azure.cn)。
 1. 通过单击页面右上角的帐户选择 Azure AD B2C 目录。
 1. 在左侧菜单中，依次选择“Azure AD B2C”、“应用注册”、你的应用程序。
-1. 选择“设置”，接着选择“属性”，然后找到“注销 URL”文本框。 
+1. 选择“身份验证”。
+1. 在“注销 URL”文本框中，键入注销后重定向 URI，然后选择“保存” 。
 
-### <a name="configure-the-token-issuer"></a>配置令牌颁发者 
+#### <a name="configure-the-token-issuer"></a>配置令牌颁发者 
 
 若要支持单一注销，JWT 和 SAML 的令牌颁发者技术配置文件必须指定以下内容：
 

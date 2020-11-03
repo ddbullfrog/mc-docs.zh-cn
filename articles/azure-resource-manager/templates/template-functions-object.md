@@ -2,25 +2,28 @@
 title: 模板函数 - 对象
 description: 介绍可在 Azure 资源管理器模板中用来处理对象的函数。
 ms.topic: conceptual
-origin.date: 04/27/2020
-ms.date: 06/22/2020
+origin.date: 10/12/2020
+author: rockboyfor
+ms.date: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2870f9ead4e6dd11804e21c777f51bb761a7d439
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 4d9b5675063fe348465437c66e28912fe3ef3c93
+ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85102057"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470408"
 ---
 # <a name="object-functions-for-arm-templates"></a>ARM 模板的对象函数
 
 资源管理器提供了多个函数，用于处理 Azure 资源管理器 (ARM) 模板中的对象。
 
 * [contains](#contains)
+* [createObject](#createobject)
 * [empty](#empty)
 * [intersection](#intersection)
 * [json](#json)
 * [length](#length)
+* [null](#null)
 * [union](#union)
 
 ## <a name="contains"></a>contains
@@ -29,7 +32,7 @@ ms.locfileid: "85102057"
 
 检查数组是否包含某个值、某个对象是否包含某个键，或者某个字符串是否包含某个子字符串。 字符串比较区分大小写。 但在测试某个对象是否包含某个键时，该比较不区分大小写。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -38,7 +41,7 @@ ms.locfileid: "85102057"
 
 ### <a name="return-value"></a>返回值
 
-如果找到该项，则为 **True**；否则为 **False**。
+如果找到该项，则为 **True** ；否则为 **False** 。
 
 ### <a name="example"></a>示例
 
@@ -104,13 +107,65 @@ ms.locfileid: "85102057"
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
+## <a name="createobject"></a>createObject
+
+`createObject(key1, value1, key2, value2, ...)`
+
+从键和值创建对象。
+
+### <a name="parameters"></a>参数
+
+| 参数 | 必须 | 类型 | 说明 |
+|:--- |:--- |:--- |:--- |
+| key1 |否 |string |键的名称。 |
+| value1 |否 |int、布尔值、字符串、对象或数组 |键的值。 |
+| 其他键 |否 |string |键的其他名称。 |
+| 其他值 |否 |int、布尔值、字符串、对象或数组 |键的其他值。 |
+
+该函数只接受偶数个参数。 每个键必须具有匹配的值。
+
+### <a name="return-value"></a>返回值
+
+具有每个键和值对的对象。
+
+### <a name="example"></a>示例
+
+下面的示例从不同类型的值创建对象。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "newObject": {
+            "type": "object",
+            "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
+        }
+    }
+}
+```
+
+上述示例中使用默认值的输出是一个名为 `newObject` 的对象，其值如下：
+
+```json
+{
+  "intProp": 1,
+  "stringProp": "abc",
+  "boolProp": true,
+  "arrayProp": ["a", "b", "c"],
+  "objectProp": {"key1": "value1"}
+}
+```
+
 ## <a name="empty"></a>empty
 
 `empty(itemToTest)`
 
 确定数组、对象或字符串是否为空。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
@@ -118,7 +173,7 @@ ms.locfileid: "85102057"
 
 ### <a name="return-value"></a>返回值
 
-如果该值为空，则返回 **True**；否则返回 **False**。
+如果该值为空，则返回 **True** ；否则返回 **False** 。
 
 ### <a name="example"></a>示例
 
@@ -239,40 +294,58 @@ ms.locfileid: "85102057"
 
 `json(arg1)`
 
-返回一个 JSON 对象。
+将有效的 JSON 字符串转换为 JSON 数据类型。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |string |要转换为 JSON 的值。 |
+| arg1 |是 |string |要转换为 JSON 的值。 字符串必须是格式正确的 JSON 字符串。 |
 
 ### <a name="return-value"></a>返回值
 
-指定字符串中的 JSON 对象，或指定 null 时的空对象****。
+指定字符串中的 JSON 数据类型，或指定 null 时的空值。
 
 ### <a name="remarks"></a>备注
 
 如需将某个参数值或变量包含在 JSON 对象中，可使用 [concat](template-functions-string.md#concat) 函数创建要传递到此函数的字符串。
 
+还可以使用 [null()](#null) 获取空值。
+
 ### <a name="example"></a>示例
 
-以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json)演示如何使用 json 函数。 请注意，可以传入表示对象的字符串，也可以在不需要任何值时使用“null”****。
+以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json)演示如何使用 json 函数。 请注意，可以为空对象传入 null。
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "jsonObject1": {
+        "jsonEmptyObject": {
             "type": "string",
             "defaultValue": "null"
         },
-        "jsonObject2": {
+        "jsonObject": {
             "type": "string",
             "defaultValue": "{\"a\": \"b\"}"
         },
-        "testValue": {
+        "jsonString": {
+            "type": "string",
+            "defaultValue": "\"test\""
+        },
+        "jsonBoolean": {
+            "type": "string",
+            "defaultValue": "true"
+        },
+        "jsonInt": {
+            "type": "string",
+            "defaultValue": "3"
+        },
+        "jsonArray": {
+            "type": "string",
+            "defaultValue": "[[1,2,3 ]"
+        },
+        "concatValue": {
             "type": "string",
             "defaultValue": "demo value"
         }
@@ -280,17 +353,33 @@ ms.locfileid: "85102057"
     "resources": [
     ],
     "outputs": {
-        "jsonOutput1": {
+        "emptyObjectOutput": {
             "type": "bool",
-            "value": "[empty(json(parameters('jsonObject1')))]"
+            "value": "[empty(json(parameters('jsonEmptyObject')))]"
         },
-        "jsonOutput2": {
+        "objectOutput": {
             "type": "object",
-            "value": "[json(parameters('jsonObject2'))]"
+            "value": "[json(parameters('jsonObject'))]"
         },
-        "paramOutput": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[json(parameters('jsonString'))]"
+        },
+        "booleanOutput": {
+            "type": "bool",
+            "value": "[json(parameters('jsonBoolean'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[json(parameters('jsonInt'))]"
+        },
+        "arrayOutput": {
+            "type": "array",
+            "value": "[json(parameters('jsonArray'))]"
+        },
+        "concatObjectOutput": {
             "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
+            "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
         }
     }
 }
@@ -300,9 +389,13 @@ ms.locfileid: "85102057"
 
 | 名称 | 类型 | Value |
 | ---- | ---- | ----- |
-| jsonOutput1 | 布尔 | True |
-| jsonOutput2 | Object | {"a": "b"} |
-| paramOutput | Object | {"a": "demo value"}
+| emptyObjectOutput | 布尔 | True |
+| objectOutput | Object | {"a": "b"} |
+| stringOutput | String | 测试 |
+| booleanOutput | 布尔 | True |
+| intOutput | Integer | 3 |
+| arrayOutput | Array | [ 1, 2, 3 ] |
+| concatObjectOutput | 对象 | { "a": "demo value" } |
 
 ## <a name="length"></a>length
 
@@ -380,6 +473,44 @@ ms.locfileid: "85102057"
 | stringLength | int | 13 |
 | objectLength | int | 4 |
 
+## <a name="null"></a>null
+
+`null()`
+
+返回 Null。
+
+### <a name="parameters"></a>参数
+
+Null 函数不接受任何参数。
+
+### <a name="return-value"></a>返回值
+
+一个始终为 null 的值。
+
+### <a name="example"></a>示例
+
+下面的示例使用 null 函数。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(null())]"
+        },
+    }
+}
+```
+
+前述示例的输出为：
+
+| 名称 | 类型 | Value |
+| ---- | ---- | ----- |
+| emptyOutput | Bool | True |
+
 ## <a name="union"></a>union
 
 `union(arg1, arg2, arg3, ...)`
@@ -450,5 +581,4 @@ ms.locfileid: "85102057"
 
 * 有关 Azure 资源管理器模板中各部分的说明，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
 
-<!-- Update_Description: new article about template functions object -->
-<!--NEW.date: 06/22/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->
