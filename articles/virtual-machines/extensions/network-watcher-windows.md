@@ -2,9 +2,7 @@
 title: 适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展
 description: 使用虚拟机扩展在 Windows 虚拟机上部署网络观察程序代理。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: vashan
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 585879a4f199ca5bf71493c110c8b053b2a6ee84
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 603395bbff6cf2e24b58e01621e03d60c7e54f76
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413659"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106250"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>适用于 Windows 的网络观察程序代理虚拟机扩展
 

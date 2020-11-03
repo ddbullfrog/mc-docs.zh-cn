@@ -8,17 +8,17 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/30/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 9f2e59aa368aa70af2f8572fb93ad616f518ddcf
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: bf2f7ccb1bcad90439e9958ef6a769ce3e2d7349
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515895"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106273"
 ---
 # <a name="export-data-to-an-external-table"></a>将数据导出到外部表
 
-可以通过定义[外部表](../externaltables.md)并将数据导出到其中来导出数据。
+可以通过定义[外部表](../external-table-commands.md)并将数据导出到其中来导出数据。
 表属性在[创建外部表](../external-tables-azurestorage-azuredatalake.md#create-or-alter-external-table)时指定。 不需要在 export 命令中嵌入表的属性。 export 命令按名称引用外部表。 导出数据需要[数据库管理员权限](../access-control/role-based-authorization.md)。
 
 ## <a name="syntax"></a>语法
@@ -34,7 +34,7 @@ ms.locfileid: "88515895"
 |`Path`|String|输出路径。
 |NumRecords|String| 导出到路径的记录数。
 
-## <a name="notes"></a>备注
+## <a name="notes"></a>说明
 
 * 导出查询输出架构必须与外部表的架构（包括分区定义的所有列）匹配。 例如，如果表按 DateTime 分区，则查询输出架构必须具有与 TimestampColumnName 匹配的 Timestamp 列。 此列名在外部表分区定义中定义。
 

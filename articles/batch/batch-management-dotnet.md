@@ -5,17 +5,17 @@ ms.topic: how-to
 ms.service: batch
 origin.date: 04/24/2017
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/02/2020
 ms.testscope: yes|no
 ms.testdate: 09/07/2018
 ms.author: v-yeche
 ms.custom: seodec18, has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 9e80d7089f63b01c3b5fb8163648ae6b45f5d509
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 5583bc2bc45fd8daa3dd929c1749ee6405a71ca7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146379"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106097"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 
@@ -27,10 +27,10 @@ ms.locfileid: "91146379"
 
 可以使用 [Batch Management .NET][api_mgmt_net] 库来自动执行 Batch 帐户的创建、删除、密钥管理和配额发现操作，从而降低 Azure Batch 应用程序的维护开销。
 
-* 在任何区域中**创建和删除 Batch 帐户**。 例如，如果是一家独立软件供应商 (ISV)，现在要为每个分配了不同计费 Batch 帐户的客户提供服务，则可以将帐户创建和删除功能添加到客户门户中。
-* 以编程方式为任何 Batch 帐户**检索和重新生成帐户密钥**。 这可以帮助遵守强制帐户密钥定期滚动更新或到期的安全策略。 当各种不同的 Azure 区域中有多个 Batch 帐户时，将此滚动更新过程自动化会提高解决方案的效率。
-* **检查帐户配额**并采取试错猜测，确定哪些 Batch 帐户存在哪些限制。 在启动作业、创建池或添加计算节点之前检查帐户配额可以主动调整创建计算资源的位置或时机。 可在帐户中分配其他资源之前，确定哪些帐户需要增加配额。
-* **结合其他 Azure 服务的功能**获得全功能管理体验，方法是在同一应用程序中使用 Batch Management .NET、[Azure Active Directory][aad_about] 和 [Azure 资源管理器][resman_overview]。 使用这些功能及其 API 可以提供顺畅的身份验证体验、创建和删除资源组以及上述功能，以获取端到端管理解决方案。
+* 在任何区域中 **创建和删除 Batch 帐户** 。 例如，如果是一家独立软件供应商 (ISV)，现在要为每个分配了不同计费 Batch 帐户的客户提供服务，则可以将帐户创建和删除功能添加到客户门户中。
+* 以编程方式为任何 Batch 帐户 **检索和重新生成帐户密钥** 。 这可以帮助遵守强制帐户密钥定期滚动更新或到期的安全策略。 当各种不同的 Azure 区域中有多个 Batch 帐户时，将此滚动更新过程自动化会提高解决方案的效率。
+* **检查帐户配额** 并采取试错猜测，确定哪些 Batch 帐户存在哪些限制。 在启动作业、创建池或添加计算节点之前检查帐户配额可以主动调整创建计算资源的位置或时机。 可在帐户中分配其他资源之前，确定哪些帐户需要增加配额。
+* **结合其他 Azure 服务的功能** 获得全功能管理体验，方法是在同一应用程序中使用 Batch Management .NET、 [Azure Active Directory][aad_about] 和 [Azure 资源管理器][resman_overview]。 使用这些功能及其 API 可以提供顺畅的身份验证体验、创建和删除资源组以及上述功能，以获取端到端管理解决方案。
 
 > [!NOTE]
 > 尽管本文着重介绍以编程方式管理 Batch 帐户、密钥和配额，但你也可以使用 [Azure 门户][azure_portal]执行其中的许多活动。 有关详细信息，请参阅[使用 Azure 门户创建 Azure Batch 帐户](batch-account-create-portal.md)以及 [Azure Batch 服务的配额和限制](batch-quota-limit.md)。
@@ -58,7 +58,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> 使用 Batch Management .NET 库及其 BatchManagementClient 类的应用程序需有**服务管理员**或**共同管理员**访问权限才能使用拥有要管理的 Batch 帐户的订阅。 有关详细信息，请参阅 Azure Active Directory 部分和 [AccountManagement][acct_mgmt_sample] 代码示例。
+> 使用 Batch Management .NET 库及其 BatchManagementClient 类的应用程序需有 **服务管理员** 或 **共同管理员** 访问权限才能使用拥有要管理的 Batch 帐户的订阅。 有关详细信息，请参阅 Azure Active Directory 部分和 [AccountManagement][acct_mgmt_sample] 代码示例。
 > 
 > 
 

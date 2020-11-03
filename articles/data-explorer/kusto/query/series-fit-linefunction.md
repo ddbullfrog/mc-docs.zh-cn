@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 series_fit_line()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: 5ce8d42dfa27752606dc923550de2f2e8e930e1a
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: a3ea3a4171e2ce9b299d301765dd0db1ecef56ab
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841245"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105910"
 ---
 # <a name="series_fit_line"></a>series_fit_line()
 
@@ -28,18 +28,18 @@ ms.locfileid: "87841245"
 * `interception`：近似直线的截距（即 y=ax+b 中的“b”）。
 * `line_fit`：数值数组，其中包含拟合度最好的直线的一系列值。 序列长度等于输入数组的长度。 该值用于绘制图表。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `series_fit_line(`*x*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * x：数值的动态数组。
 
 > [!TIP]
 > 使用此函数最便捷的方法是将其应用于 [make-series](make-seriesoperator.md) 运算符的结果。
 
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

@@ -4,36 +4,36 @@ description: 本文介绍 Azure 数据资源管理器中的 parse_url()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 0c53b038a6ac8ec278adc87cc32ecc5bab077c5f
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 4fa43bd26b01d7fc46e1d82ffdf97560127af4d8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841615"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106144"
 ---
 # <a name="parse_url"></a>parse_url()
 
 分析绝对 URL `string`，并返回包含 URL 部分的 `dynamic` 对象。
 
 
-**语法**
+## <a name="syntax"></a>语法
 
 `parse_url(`url`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * url：一个字符串，表示 URL 或 URL 的查询部分。
 
-**返回**
+## <a name="returns"></a>返回
 
 一个[动态](./scalar-data-types/dynamic.md)类型对象，其中包含以下 URL 组件：Scheme、Host、Port、Path、Username、Password、Query Parameters、Fragment。
 
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 T | extend Result = parse_url("scheme://username:password@host:1234/this/is/a/path?k1=v1&k2=v2#fragment")

@@ -11,12 +11,12 @@ ms.testscope: no
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c3ee085637cfe1e027ed2b7c5b1346d3164ee3f2
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 9f3c2a8c794e738a3e5c22df618bef8ce8f3914c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462874"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106287"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Windows 虚拟机
 

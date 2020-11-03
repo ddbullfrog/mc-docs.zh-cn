@@ -12,6 +12,10 @@
 - name: 快速入门
   expanded: true
   items:
+    - name: 客户端库
+      items:
+        - name: 使用客户端库分析文本
+          href: quickstarts/text-analytics-sdk.md
     - name: REST API
       items:
         - name: 使用 Java
@@ -26,27 +30,29 @@
           href: quickstarts/go.md
         - name: 使用 Ruby
           href: quickstarts/ruby.md
-    - name: SDK
-      items:
-        - name: Go
-          href: quickstarts/go-sdk.md
-        - name: Ruby
-          href: quickstarts/ruby-sdk.md
 - name: 教程
   items:
     - name: 集成 Power BI 以分析客户反馈
       href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Power Apps 中的文本分析
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
     - name: 使用 Flask 翻译文本、分析情绪以及合成语音
       maintainContext: true
       href: /cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
+    - name: 使用 Power Automate 在 Excel 中提取信息
+      href: tutorials/extract-excel-information.md
 - name: 概念
   items:
+    - name: 命名实体类型
+      href: named-entity-types.md
     - name: 语言支持
       href: language-support.md
     - name: 文本偏移量
       href: concepts/text-offsets.md
     - name: 数据限制
       href: concepts/data-limits.md
+    - name: 模型版本控制
+      href: concepts/model-versioning.md
 - name: 操作指南
   items:
     - name: 调用文本分析 API
@@ -59,14 +65,16 @@
       href: How-tos/text-analytics-how-to-keyword-extraction.md
     - name: 命名实体识别
       href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: 运行状况文本分析
+      href: How-tos/text-analytics-for-health.md
     - name: 使用容器
       items:
         - name: 安装和运行容器
           href: how-tos/text-analytics-how-to-install-containers.md
         - name: 配置容器
           href: text-analytics-resource-container-config.md
-        - name: 使用文本分析连接服务
-          href: vs-text-connected-service.md
+        - name: 使用容器实例
+          href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: 使用 Kubernetes 服务 (AKS)
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
 - name: 参考
@@ -77,20 +85,20 @@
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
     - name: 文本分析 API
       items:
-        - name: v3.0-preview
-          href: 'https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-0-Preview-1/operations/Languages'
+        - name: v3.0
+          href: 'https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-0'
         - name: v2
           href: 'https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1'
     - name: SDK
       items:
-        - name: v3.0-preview
+        - name: v3.0
           items:
             - name: .NET
               href: 'https://aka.ms/azsdk-net-textanalytics-ref-docs'
             - name: Python
               href: 'https://aka.ms/azsdk-python-textanalytics-ref-docs'
             - name: Java
-              href: 'https://aka.ms/azsdk-java-textanalytics-ref-docs'
+              href: 'https://docs.microsoft.com/java/api/overview/ai-textanalytics-readme?view=azure-java-stable'
             - name: Node.js
               href: 'https://aka.ms/azsdk-js-textanalytics-ref-docs'
         - name: v2
@@ -107,15 +115,15 @@
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics'
 - name: 资源
   items:
-    - name: 常见问题
+    - name: 外部和社区内容
+      href: text-analytics-resource-external-community.md
+    - name: 常见问题解答
       href: text-analytics-resource-faq.md
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/cognitive-services/'
     - name: 区域可用性
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=china-non-regional,china-north,china-north-2,china-east,china-east-2'
+    - name: 合规性
+      href: 'https://www.azure.cn/support/legal/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
-    - name: 试试看！
-      href: 'https://www.azure.cn/home/features/cognitive-services/text-analytics/'
-    - name: 发送反馈
-      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

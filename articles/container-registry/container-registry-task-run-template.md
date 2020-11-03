@@ -3,14 +3,15 @@ title: 通过模板实现快速任务运行
 description: 将 ACR 任务运行排入队列，以使用 Azure 资源管理器模板生成映像
 ms.topic: article
 origin.date: 04/22/2020
-ms.date: 08/03/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9fb579c6aeda17a1c7772dd33e10550766d991d4
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: e272348884ca16ccc72b1b7ac21d3bcf6fad6ac5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564611"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106095"
 ---
 <!--Verified successfully-->
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>使用资源管理器模板运行 ACR 任务
@@ -249,17 +250,16 @@ basetask
 
 <!-- LINKS - Internal -->
 
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-build]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-build
-[az-acr-show]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-show
-[az-acr-task-run]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-run
-[az-acr-task-logs]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-logs
-[az-acr-repository-show-tags]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show-tags
-[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-list-runs
-[az-deployment-group-create]: https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create
-[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
-[az-identity-show]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-show
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-build]: https://docs.azure.cn/cli/acr#az_acr_build
+[az-acr-show]: https://docs.azure.cn/cli/acr#az_acr_show
+[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az_acr_task_run
+[az-acr-task-logs]: https://docs.azure.cn/cli/acr/task#az_acr_task_logs
+[az-acr-repository-show-tags]: https://docs.azure.cn/cli/acr/repository#az_acr_repository_show_tags
+[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task#az_acr_task_list_runs
+[az-deployment-group-create]: https://docs.azure.cn/cli/deployment/group#az_deployment_group_create
+[az-identity-create]: https://docs.microsoft.com/cli/azure/identity#az_identity_create
+[az-identity-show]: https://docs.microsoft.com/cli/azure/identity#az_identity_show
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
 
-<!-- Update_Description: new article about container registry task run template -->
-<!--NEW.date: 06/01/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

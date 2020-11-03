@@ -2,9 +2,7 @@
 title: 了解 Azure VM 的系统重启 | Azure
 description: 列出可能会导致 VM 重启的事件
 services: virtual-machines
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: troubleshooting
@@ -12,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/31/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 366134668f037e21bac6fe6f4486164912c4617a
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 5afe5a42db0749b5a0306c9a91fd797542b9a9f3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456833"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105868"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系统重启
 
@@ -78,6 +76,8 @@ Azure 在中国范围内定期执行更新，以提高 VM 所基于主机基础�
 ### <a name="azure-security-center-and-windows-update"></a>Azure 安全中心和 Windows 更新
 
 Azure 安全中心每天对 Windows 和 Linux VM 进行监控，以找出缺少的操作系统更新。 安全中心从 Windows Update 或 Windows Server Update Services (WSUS) 检索可用的安全更新和关键更新的列表，具体取决于 Windows VM 上配置的服务。 安全中心还可检查 Linux 系统的最新更新。 如果 VM 缺少系统更新，安全中心会建议你应用系统更新。 通过 Azure 门户中的安全中心控制这些系统更新的应用情况。 应用某些更新后，可能需要重启 VM。 有关详细信息，请参阅[在 Azure 安全中心应用系统更新](../../security-center/security-center-virtual-machine-protection.md)。
+
+<!--Not Available on [Apply system updates in Azure Security Center](../../security-center/asset-inventory.md)-->
 
 与本地服务器一样，Azure 不会向 Windows VM 推送 Windows 更新提供的更新，因为这些虚拟机应由用户进行管理。 但是，我们依然建议启用 Windows 自动更新设置。 自动安装 Windows 更新提供的更新也会导致应用更新后发生重启。 有关详细信息，请参阅 [Windows 更新常见问题解答](https://support.microsoft.com/help/12373/windows-update-faq)。
 

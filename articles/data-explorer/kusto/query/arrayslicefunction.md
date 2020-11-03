@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 array_slice()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 12/03/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: 7fe68cc7d81159a4d1c25e72aa13f19cae9b0b09
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 6971b043f1978902544c5b080285188754206a8d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515784"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106168"
 ---
 # <a name="array_slice"></a>array_slice()
 

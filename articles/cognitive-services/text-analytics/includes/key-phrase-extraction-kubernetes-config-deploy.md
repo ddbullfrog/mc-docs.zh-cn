@@ -3,19 +3,20 @@ title: 关键短语提取 - Kubernetes 配置和部署步骤
 titleSuffix: Azure Cognitive Services
 description: 关键短语提取 - Kubernetes 配置和部署步骤
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
-ms.date: 06/24/2020
+ms.date: 10/26/2020
 origin.date: 04/01/2020
-ms.author: v-tawe
-ms.openlocfilehash: 81264778276ca9dafbada7774019bc80149df482
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.author: v-johya
+ms.openlocfilehash: bfd1efbe6ed91bd7b91eeadb1ef6b7a905ce109f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323246"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106213"
 ---
 ### <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>将关键短语提取容器部署到 AKS 群集
 
@@ -135,3 +136,4 @@ ms.locfileid: "85323246"
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
     keyphrase    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
     ```
+

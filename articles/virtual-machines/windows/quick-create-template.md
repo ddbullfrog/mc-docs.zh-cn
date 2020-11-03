@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: subject-armqs
-ms.openlocfilehash: 2a70dfc718b225346f3d25351adb1c350ba3d7d3
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 93e476598420bc4e4401cecacfa50b17e17aadb3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463181"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106284"
 ---
 <!--Verified Successfully-->
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Windows 虚拟机
@@ -270,13 +270,13 @@ ms.locfileid: "89463181"
 
 <!--Not Available on global template link-->
 
-- **Microsoft.Network/virtualNetworks/subnets**：创建子网。
-- **Microsoft.Storage/storageAccounts**：创建存储帐户。
-- **Microsoft.Network/publicIPAddresses**：创建公共 IP 地址。
-- **Microsoft.Network/networkSecurityGroups**：创建网络安全组。
-- **Microsoft.Network/virtualNetworks**：创建虚拟网络。
-- **Microsoft.Network/networkInterfaces**：创建 NIC。
-- **Microsoft.Compute/virtualMachines**：创建虚拟机。
+- **Microsoft.Network/virtualNetworks/subnets** ：创建子网。
+- **Microsoft.Storage/storageAccounts** ：创建存储帐户。
+- **Microsoft.Network/publicIPAddresses** ：创建公共 IP 地址。
+- **Microsoft.Network/networkSecurityGroups** ：创建网络安全组。
+- **Microsoft.Network/virtualNetworks** ：创建虚拟网络。
+- **Microsoft.Network/networkInterfaces** ：创建 NIC。
+- **Microsoft.Compute/virtualMachines** ：创建虚拟机。
 
 
 ## <a name="deploy-the-template"></a>部署模板
@@ -289,7 +289,7 @@ ms.locfileid: "89463181"
 
     - 订阅：选择一个 Azure 订阅。
     - 资源组：从下拉列表中选择现有资源组，或选择“新建”并输入资源组的唯一名称，然后单击“确定” 。
-    - 位置：选择一个位置。  例如，**中国北部**。
+    - 位置：选择一个位置。  例如， **中国北部** 。
     - 管理员用户名：提供用户名，如 azureuser。
     - 管理员密码：提供用于管理员帐户的密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
     - DNS 标签前缀：输入要用作 DNS 标签一部分的唯一标识符。

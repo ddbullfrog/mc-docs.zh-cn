@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 in 和 notin 运算�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/18/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: d20f2991eafcf3ad8f2da771aeee37ce60164354
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 37ca4827470bf7f63e0bf55155301398588dd94e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515878"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106010"
 ---
 # <a name="in-and-in-operators"></a>in 和 !in 运算符
 

@@ -4,22 +4,22 @@ description: 了解 Azure 容器实例中的容器组 - 共享生命周期和资
 ms.topic: article
 origin.date: 11/01/2019
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9066683de3dec589a672cff4c9a1a02a7e6c9932
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 912e2337d053ef956e6c482bebf1455125ea53e2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564310"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106279"
 ---
 <!--Verified successfully-->
 # <a name="container-groups-in-azure-container-instances"></a>Azure 容器实例中的容器组
 
-Azure 容器实例中的顶层资源是容器组。** 本文介绍容器组的定义和它们支持的方案类型。
+Azure 容器实例中的顶层资源是容器组。  本文介绍容器组的定义和它们支持的方案类型。
 
 ## <a name="what-is-a-container-group"></a>什么是容器组？
 
@@ -67,9 +67,9 @@ Azure 容器实例通过添加组中实例的[资源请求][resource-requests]�
 
 ### <a name="minimum-and-maximum-allocation"></a>最小和最大分配
 
-* 将**最少** 1 个 CPU 和 1 GB 内存分配到容器组。 可为组中的单个容器实例预配少于 1 个 CPU 和 1 GB 内存。 
+* 将 **最少** 1 个 CPU 和 1 GB 内存分配到容器组。 可为组中的单个容器实例预配少于 1 个 CPU 和 1 GB 内存。 
 
-* 有关容器组中的**最大**资源量，请参阅部署区域中 Azure 容器实例的[资源可用性][region-availability]。
+* 有关容器组中的 **最大** 资源量，请参阅部署区域中 Azure 容器实例的 [资源可用性][region-availability]。
 
 ## <a name="networking"></a>网络
 

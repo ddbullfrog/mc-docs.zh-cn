@@ -1,17 +1,17 @@
 ---
 title: 在专用主机上部署
 description: 使用专用主机为 Azure 容器实例工作负载实现真正的主机级隔离
+ms.service: container-instances
 ms.topic: article
-origin.date: 01/17/2020
-ms.date: 06/08/2020
+ms.date: 11/02/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: e2556175d0be3252a8ce5e70e71e2984b0e37219
-ms.sourcegitcommit: c4fc01b7451951ef7a9616fca494e1baf29db714
+ms.openlocfilehash: 08b59a99c952ed8ce7dda9b1fd8db239e9c2a3c1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84564335"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106277"
 ---
 <!--Verified successfully on DEDICATED HOSTS-->
 <!-- API deployment with 2019-12-01 ON MOONCAKE-->
@@ -31,7 +31,7 @@ ms.locfileid: "84564335"
 > 只能在当前推出的最新 API 版本 (2019-12-01) 中使用专用 SKU。请在部署模板中指定此 API 版本。
 >
 
-从 API 版本 2019-12-01 开始，部署模板的容器组属性部分下有一个 `sku` 属性，它是 ACI 部署所必需的。 目前，可以将此属性用作 ACI 的 Azure 资源管理器部署模板的一部分。 若要详细了解如何使用模板来部署 ACI 资源，请参阅[教程：使用资源管理器模板部署多容器组](/container-instances/container-instances-multi-container-group)。 
+从 API 版本 2019-12-01 开始，部署模板的容器组属性部分下有一个 `sku` 属性，它是 ACI 部署所必需的。 目前，可以将此属性用作 ACI 的 Azure 资源管理器部署模板的一部分。 若要详细了解如何使用模板来部署 ACI 资源，请参阅[教程：使用资源管理器模板部署多容器组](./container-instances-multi-container-group.md)。 
 
 `sku` 属性可以具有下列值之一：
 * `Standard` - 标准 ACI 部署选择，仍可保证虚拟机监控程序级别的安全性 
@@ -140,21 +140,21 @@ ms.locfileid: "84564335"
 az group create --name myResourceGroup --location chinaeast2
 ```
 
-使用 [az group deployment create][az-group-deployment-create] 命令部署模板。
+使用 [az deployment group create][az-deployment-group-create] 命令部署模板。
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 将在几秒钟内收到来自 Azure 的初始响应。 在专用主机上部署成功。
 
 <!-- LINKS - Internal -->
 
-[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
-[az-group-deployment-create]: https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-deployment-group-create]: https://docs.azure.cn/cli/deployment/group#az_deployment_group_create
 
 <!-- LINKS - External -->
 
-[azure-support]: https://support.azure.cn/support/support-azure/
+[azure-support]: https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- Update_Description: update meta properties, wording update, update link -->

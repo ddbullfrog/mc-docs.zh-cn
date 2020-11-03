@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: ff0ba2d7603e4d4c48936ec5c6905c6dc31e3548
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 4f0f3f9e7dcbc29fa874b041147e9582f4e20ae1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118834"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106265"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习工作区
 
@@ -27,7 +27,7 @@ ms.locfileid: "92118834"
 
 请参阅本系列中的其他文章：
 
-**1.保护工作区**  > [2.保护训练环境 ](how-to-secure-training-vnet.md) > [3.保护推理环境 ](how-to-secure-inferencing-vnet.md) > [4.启用工作室功能](how-to-enable-studio-virtual-network.md)
+**1.保护工作区**  > [2.保护训练环境](how-to-secure-training-vnet.md) > [3.保护推理环境](how-to-secure-inferencing-vnet.md) > [4.启用工作室功能](how-to-enable-studio-virtual-network.md)
 
 本文介绍如何在虚拟网络中保护以下工作区资源：
 > [!div class="checklist"]
@@ -269,6 +269,6 @@ Azure 机器学习使用关联的 Key Vault 实例存储以下凭据：
 本文是由三部分构成的虚拟网络系列文章中的第 3 部分。 若要了解如何保护虚拟网络，请参阅其余文章：
 
 
-* [第 1 部分：保护工作区资源](how-to-secure-workspace-vnet.md)
+* [第 1 部分：保护训练环境](how-to-secure-training-vnet.md)
 * [第 2 部分：保护推理环境](how-to-secure-inferencing-vnet.md)
 * [第 3 部分：启用工作室功能](how-to-enable-studio-virtual-network.md)

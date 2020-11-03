@@ -1,25 +1,26 @@
 ---
-title: 快速入门 - 生成和运行容器映像
-description: 使用 Azure 容器注册表快速运行任务，以便在云中按需生成和运行 Docker 容器映像。
+title: 快速入门 - 在 Azure 中按需生成容器映像
+description: 使用 Azure 容器注册表命令可以在 Azure 云中按需快速生成、推送和运行 Docker 容器映像。
 ms.topic: quickstart
-origin.date: 01/31/2020
-ms.date: 07/27/2020
+origin.date: 09/25/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 04/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 89ccc544b2a92b57b2834304deed8663806bcdb6
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: 1b7a10c524165133751a9d0b038a68d768791266
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863103"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106096"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>快速入门：使用 Azure 容器注册表任务生成和运行容器映像
 
-本快速入门介绍如何使用 Azure 容器注册表任务命令在 Azure 本地快速生成、推送和运行 Docker 容器映像，并借此演示如何将“内部循环”开发周期工作卸载到云中。 [ACR 任务][container-registry-tasks-overview]是 Azure 容器注册表中的一套功能，可在整个容器生命周期内帮助管理和修改容器映像。 
+在本快速入门中，你将使用 [Azure 容器注册表任务][container-registry-tasks-overview]命令在 Azure 中以本机方式快速生成、推送和运行 Docker 容器映像，而无需本地安装 Docker。 ACR 任务是 Azure 容器注册表中的一套功能，可在整个容器生命周期内帮助管理和修改容器映像。 此示例说明如何使用本地 Dockerfile 通过按需生成将“内部循环”容器映像开发周期转移到云中。 
 
-完成本快速入门后，请探索 ACR 任务的更高级功能。 ACR 任务可以基于代码提交或基础映像更新自动生成映像，或者同时测试多个容器，此外还支持其他一些方案。 
+完成本快速入门后，请使用[教程](container-registry-tutorial-quick-task.md)探索 ACR 任务的更多高级功能。 ACR 任务可以基于代码提交或基础映像更新自动生成映像，或者同时测试多个容器，此外还支持其他一些方案。 
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户][azure-account]。
 
@@ -41,7 +42,7 @@ az group create --name myResourceGroup --location chinanorth
 
 ## <a name="create-a-container-registry"></a>创建容器注册表
 
-使用 [az acr create][az-acr-create] 命令创建容器注册表。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 以下示例使用 *myContainerRegistry008*。 将其更新为唯一值。
+使用 [az acr create][az-acr-create] 命令创建容器注册表。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 以下示例使用 *myContainerRegistry008* 。 将其更新为唯一值。
 
 ```azurecli
 az acr create --resource-group myResourceGroup \
@@ -52,7 +53,7 @@ az acr create --resource-group myResourceGroup \
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>从 Dockerfile 生成和推送映像
 
-现在，请使用 Azure 容器注册表来生成和推送映像。 首先创建一个工作目录，然后创建一个名为 Dockerfile 的 Dockerfile，其中只有一行内容：`FROM hello-world`。 这是一个从 Docker Hub 中的 `hello-world` 映像生成 Linux 容器映像的简单示例。 你可以创建自己的标准 Dockerfile 并为其他平台生成映像。 如果使用 bash shell，请使用以下命令创建 Dockerfile：
+现在，请使用 Azure 容器注册表来生成和推送映像。 首先创建一个本地工作目录，然后创建一个名为“Dockerfile”的 Dockerfile，其中只有一行内容：`FROM hello-world`。 这是一个从 Docker Hub 中的 `hello-world` 映像生成 Linux 容器映像的简单示例。 你可以创建自己的标准 Dockerfile 并为其他平台生成映像。 如果使用 bash shell，请使用以下命令创建 Dockerfile：
 
 ```bash
 echo FROM hello-world > Dockerfile
@@ -205,16 +206,16 @@ az group delete --name myResourceGroup
 
 <!-- LINKS - internal -->
 
-[az-acr-create]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-create
-[az-acr-build]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-build
-[az-acr-run]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-run
-[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
-[az-group-delete]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+[az-acr-create]: https://docs.azure.cn/cli/acr#az_acr_create
+[az-acr-build]: https://docs.azure.cn/cli/acr#az_acr_build
+[az-acr-run]: https://docs.azure.cn/cli/acr#az_acr_run
+[az-group-create]: https://docs.azure.cn/cli/group#az_group_create
+[az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [container-registry-tasks-overview]: container-registry-tasks-overview.md
 [container-registry-tasks-multi-step]: container-registry-tasks-multi-step.md
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
-[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -7,17 +7,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4bf5973d1fe815d6af20a71f7f60283e59fe0bf0
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 7f6fc59c6fcf6ffc71ad47c655d5cb95d4446f43
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472592"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106154"
 ---
 # <a name="scenario-azure-firewall---custom"></a>方案：Azure 防火墙 - 自定义
 

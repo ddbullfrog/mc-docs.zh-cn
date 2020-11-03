@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 min()（聚合函数
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 07/24/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 892ce8929a5233eb3859e12286dd8a6d8a238c5d
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: ffcc8a11553b9a510c6f997bd0ff424d0f26e0ba
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841435"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105991"
 ---
 # <a name="min-aggregation-function"></a>min()（聚合函数）
 
@@ -22,15 +22,15 @@ ms.locfileid: "87841435"
 
 * 只能在 [summarize](summarizeoperator.md) 内的聚合上下文中使用
 
-**语法**
+## <a name="syntax"></a>语法
 
 `summarize` `min(`*Expr*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Expr：用于聚合计算的表达式。 
 
-**返回**
+## <a name="returns"></a>返回
 
 组内 Expr 的最小值。
  

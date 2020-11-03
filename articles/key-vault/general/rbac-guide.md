@@ -7,14 +7,15 @@ manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 8/30/2020
-ms.author: mbaldwin
-ms.openlocfilehash: c88f94b9cc6d19f4d09a959a20755bbdfa016465
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+origin.date: 8/30/2020
+ms.date: 10/30/2020
+ms.author: v-tawe
+ms.openlocfilehash: e047be651d2bea605fae2cbe38215d4e4e9cbd8a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678564"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106142"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>使用 Azure 基于角色的访问控制提供对 Key Vault 密钥、证书和机密的访问权限（预览）
 

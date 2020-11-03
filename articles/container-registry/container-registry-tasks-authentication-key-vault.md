@@ -3,16 +3,17 @@ title: 通过 ACR 任务进行外部身份验证
 description: 配置 Azure 容器注册表任务（ACR 任务）以使用 Azure 资源的托管标识读取 Azure 密钥保管库中存储的 Docker Hub 凭据。
 ms.topic: article
 origin.date: 07/06/2020
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 05/18/2020
 ms.author: v-yeche
-ms.openlocfilehash: 472f87477bf640b22368a2f6a891162cfaa7c622
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 0abc3fdf66dd4d6c199382893eacb8a692c090bc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917060"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106018"
 ---
 <!--Verify successfully-->
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>ACR 任务中使用 Azure 托管标识的外部身份验证 
@@ -33,11 +34,11 @@ ms.locfileid: "87917060"
 
 ## <a name="prerequisites"></a>先决条件
 
-需要一个 Azure 容器注册表，将在其中运行任务。 在本文中，此注册表名为 *myregistry*。 在后续步骤中，请将其替换为自己的注册表名称。
+需要一个 Azure 容器注册表，将在其中运行任务。 在本文中，此注册表名为 *myregistry* 。 在后续步骤中，请将其替换为自己的注册表名称。
 
 如果你没有 Azure 容器注册表，请参阅[快速入门：使用 Azure CLI 创建专用容器注册表](container-registry-get-started-azure-cli.md)。 暂时不需要将映像推送到注册表。
 
-在 Docker Hub 中需有一个专用存储库，并且有一个有权写入存储库的 Docker Hub 帐户。 在此示例中，此存储库名为 *hubuser/hubrepo*。 
+在 Docker Hub 中需有一个专用存储库，并且有一个有权写入存储库的 Docker Hub 帐户。 在此示例中，此存储库名为 *hubuser/hubrepo* 。 
 
 ## <a name="create-a-key-vault-and-store-secrets"></a>创建 Key Vault 并存储机密
 
@@ -166,7 +167,7 @@ az keyvault set-policy --name mykeyvault \
 
 ## <a name="manually-run-the-task"></a>手动运行任务
 
-若要验证启用了托管标识的任务是否成功运行，请使用 [az acr task run][az-acr-task-run] 命令手动触发该任务。 `--set` 参数用于将专用存储库名称传递给该任务。 在此示例中，占位符存储库名称为 *hubuser/hubrepo*。
+若要验证启用了托管标识的任务是否成功运行，请使用 [az acr task run][az-acr-task-run] 命令手动触发该任务。 `--set` 参数用于将专用存储库名称传递给该任务。 在此示例中，占位符存储库名称为 *hubuser/hubrepo* 。
 
 ```azurecli
 az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo
@@ -228,24 +229,24 @@ Run ID: cf24 was successful after 15s
 
 <!-- LINKS - Internal -->
 
-[az-login]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login
-[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
-[az-acr-show]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-show
-[az-acr-build]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-build
-[az-acr-repository-show-tags]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show-tags
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
-[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
-[az-identity-show]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-show
-[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-task-create]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-create
-[az-acr-task-show]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-show
-[az-acr-task-run]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-run
-[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-list-runs
-[az-acr-task-credential-add]: https://docs.microsoft.com/cli/azure/acr/task/credential?view=azure-cli-latest#az-acr-task-credential-add
-[az-group-create]: https://docs.azure.cn/cli/group??view=azure-cli-latest#az-group-create
-[az-keyvault-create]: https://docs.azure.cn/cli/keyvault??view=azure-cli-latest#az-keyvault-create
-[az-keyvault-secret-set]: https://docs.azure.cn/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set
-[az-keyvault-set-policy]: https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy
+[az-login]: https://docs.azure.cn/cli/reference-index#az_login
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
+[az-acr-show]: https://docs.azure.cn/cli/acr#az_acr_show
+[az-acr-build]: https://docs.azure.cn/cli/acr#az_acr_build
+[az-acr-repository-show-tags]: https://docs.azure.cn/cli/acr/repository#az_acr_repository_show_tags
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
+[az-identity-create]: https://docs.microsoft.com/cli/azure/identity#az_identity_create
+[az-identity-show]: https://docs.microsoft.com/cli/azure/identity#az_identity_show
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli
+[az-acr-task-create]: https://docs.azure.cn/cli/acr/task#az_acr_task_create
+[az-acr-task-show]: https://docs.azure.cn/cli/acr/task#az_acr_task_show
+[az-acr-task-run]: https://docs.azure.cn/cli/acr/task#az_acr_task_run
+[az-acr-task-list-runs]: https://docs.azure.cn/cli/acr/task#az_acr_task_list_runs
+[az-acr-task-credential-add]: https://docs.microsoft.com/cli/azure/acr/task/credential#az_acr_task_credential_add
+[az-group-create]: https://docs.azure.cn/cli/group?#az_group_create
+[az-keyvault-create]: https://docs.azure.cn/cli/keyvault?#az_keyvault_create
+[az-keyvault-secret-set]: https://docs.azure.cn/cli/keyvault/secret#az_keyvault_secret_set
+[az-keyvault-set-policy]: https://docs.azure.cn/cli/keyvault#az_keyvault_set_policy
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 sequence_detect 插�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 965a76e589633d500b83bc1701a67e0d745c96a6
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 31c4749c5332979af81957b3dde09a4b3c4adadf
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841174"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106191"
 ---
 # <a name="sequence_detect-plugin"></a>sequence_detect 插件
 
@@ -24,28 +24,28 @@ ms.locfileid: "87841174"
 T | evaluate sequence_detect(datetime_column, 10m, 1h, e1 = (Col1 == 'Val'), e2 = (Col2 == 'Val2'), Dim1, Dim2)
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `| evaluate` `sequence_detect` `(`*TimelineColumn*`,` *MaxSequenceStepWindow*`,` *MaxSequenceSpan*`,` *Expr1*`,` *Expr2*`,` ..., *Dim1*`,` *Dim2*`,` ...`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：输入表格表达式。
+* *T* ：输入表格表达式。
 * TimelineColumn：表示时间线的列引用必须出现在源表达式中
 * MaxSequenceStepWindow：序列中 2 个顺序步骤之间允许的最大时间跨度的标量常数值
 * MaxSequenceSpan：序列的最大跨度的标量常数值，用于完成所有步骤
 * Expr1, Expr2, ...：定义顺序步骤的布尔谓词表达式
 * Dim1, Dim2, ...：用于关联序列的维度表达式
 
-**返回**
+## <a name="returns"></a>返回
 
 返回一个表，其中的每一行都表示出现的单个序列：
 
 * Dim1, Dim2, ...：已用于关联序列的维度列。
-* *Expr1*_*TimelineColumn*, *Expr2*_*TimelineColumn*, ...：包含时间值的列，表示每个顺序步骤的时间线。
+* *Expr1*_*TimelineColumn* , *Expr2*_*TimelineColumn* , ...：包含时间值的列，表示每个顺序步骤的时间线。
 * 持续时间：序列的整个时间范围
 
-**示例**
+## <a name="examples"></a>示例
 
 ### <a name="exploring-storm-events"></a>探索 StormEvents 
 

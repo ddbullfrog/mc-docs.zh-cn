@@ -7,22 +7,22 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 origin.date: 09/02/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 62c921f9029bb3f86650c45cce7b8a1f0ac5e55d
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 35a6836221270b4468191ee6902772d289a75f89
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127853"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105841"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>准备好要上传到 Azure 的 Windows VHD 或 VHDX
 
 在将 Windows 虚拟机 (VM) 从本地上传到 Azure 之前，必须准备好虚拟硬盘（VHD 或 VHDX）。 Azure 支持采用 VHD 文件格式且具有固定大小磁盘的第 1 代和第 2 代 VM。 第 1 代 VM 上的 OS VHD 允许的最大大小为 2 TB。
 
-可以将 VHDX 文件转换为 VHD，将动态扩展磁盘转换为固定大小的磁盘，但无法更改 VM 的代次。 有关详细信息，请参阅[应在 Hyper-V 中创建第 1 代还是第 2 代 VM？](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V)和 [Azure 对第 2 代 VM 的支持](generation-2.md)。
+可以将 VHDX 文件转换为 VHD，将动态扩展磁盘转换为固定大小的磁盘，但无法更改 VM 的代次。 有关详细信息，请参阅[应在 Hyper-V 中创建第 1 代还是第 2 代 VM？](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V)和 [Azure 对第 2 代 VM 的支持](../generation-2.md)。
 
 有关 Azure VM 的支持策略的信息，请参阅 [Microsoft 服务器软件支持 Azure VM](https://support.microsoft.com/help/2721672/)。
 
@@ -74,7 +74,7 @@ Windows Resource Protection did not find any integrity violations.
     netsh.exe winhttp reset proxy
     ```
 
-    如果 VM 需要使用特定代理，请为 Azure IP 地址 ([168.63.129.16](/virtual-network/what-is-ip-address-168-63-129-16)) 添加代理例外，使 VM 能够连接到 Azure：
+    如果 VM 需要使用特定代理，请为 Azure IP 地址 ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)) 添加代理例外，使 VM 能够连接到 Azure：
 
     ```
     $proxyAddress='<your proxy server>'
@@ -407,7 +407,7 @@ Sysprep 会删除所有个人数据并重置多个组件，从而为你提供“
 若要只从一个磁盘创建一个 VM，则不需使用 Sysprep。 可以从专用化映像创建 VM。 有关如何从专用化磁盘创建 VM 的信息，请参阅：
 
 - [从专用磁盘创建 VM](create-vm-specialized.md)
-- [Create a VM from a specialized VHD disk](/virtual-machines/windows/create-vm-specialized-portal)（从专用 VHD 磁盘创建 VM）
+- [Create a VM from a specialized VHD disk](./create-vm-specialized-portal.md)（从专用 VHD 磁盘创建 VM）
 
 若要创建通用化映像，则需运行 Sysprep。 有关详细信息，请参阅[如何使用 Sysprep：简介](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10))。
 
@@ -422,6 +422,7 @@ Sysprep 会删除所有个人数据并重置多个组件，从而为你提供“
 
 1. 登录到 Windows VM。
 1. 以管理员身份运行 PowerShell 会话。
+1. 删除 panther 目录 (C:\Windows\Panther)。
 1. 将目录切换到 `%windir%\system32\sysprep`。 然后运行 `sysprep.exe`。
 1. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框  。
 
@@ -430,7 +431,7 @@ Sysprep 会删除所有个人数据并重置多个组件，从而为你提供“
 1. 选择“确定” 。
 1. 当 Sysprep 完成后，关闭 VM。 请勿使用“重启”来关闭 VM。
 
-现在，VHD 已准备就绪，可以上传了。 有关如何从通用化磁盘创建 VM 的详细信息，请参阅[上传通用化 VHD 并使用它在 Azure 中创建新的 VM](sa-upload-generalized.md)。
+现在，VHD 已准备就绪，可以上传了。 有关如何从通用化磁盘创建 VM 的详细信息，请参阅[上传通用化 VHD 并使用它在 Azure 中创建新的 VM](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/sa-upload-generalized)。
 
 >[!NOTE]
 > 不支持自定义的 *unattend.xml* 文件。 尽管我们确实支持 additionalUnattendContent 属性，但针对向 Azure 预配代理使用的 unattention.xml 文件添加 [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 选项，它只提供有限的支持。 例如，可以使用 [additionalUnattendContent](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent) 添加 FirstLogonCommands 和 LogonCommands。 有关详细信息，请参阅 [additionalUnattendContent FirstLogonCommands 示例](https://github.com/Azure/azure-quickstart-templates/issues/1407)。
@@ -498,9 +499,9 @@ Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
 
 在此示例中，请将路径的值替换为要调整大小的虚拟硬盘的路径。 将 SizeBytes 的值替换为磁盘的新大小（以字节为单位）。
 
-### <a name="convert-from-vmware-vmdk-disk-format"></a>从 VMware VMDK 磁盘格式转换
-
-如果你有 Windows VM 映像采用 [VMDK 文件格式](https://en.wikipedia.org (THIS WEB SITE IS NOT AVAILABLE ON AZURE CHINA CLOUD) /wiki/VMDK)，可使用 [Azure Migrate](/migrate/server-migrate-overview) 转换 VMDK 并将其上传到 Azure。
+<!--Not Available on ### Convert from VMware VMDK disk format-->
+<!--Not Available on [VMDK file format](https://en.wikipedia.org/wiki/VMDK)-->
+<!--Not Available on [Azure Migrate](../../migrate/server-migrate-overview.md)-->
 
 ## <a name="complete-the-recommended-configurations"></a>完成建议的配置
 

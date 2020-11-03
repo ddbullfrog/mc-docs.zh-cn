@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 origin.date: 04/24/2020
 ms.date: 07/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 82a03234eb62fecded31652fdfdbc5b7b02efe29
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: 3ba1273891cf044e46eaaffc649ea0b1509da6b2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945986"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105840"
 ---
 <!--Verified successfully-->
 # <a name="create-a-proximity-placement-group-using-the-portal"></a>使用门户创建邻近放置组

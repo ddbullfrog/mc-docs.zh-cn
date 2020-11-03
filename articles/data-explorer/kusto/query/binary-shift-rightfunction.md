@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 binary_shift_right()
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 9c590421c06761351cee168f9e0e3aa1d8996ab2
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 32f721de290748a3caa465c08eb922f96a96fe67
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515638"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106050"
 ---
 # <a name="binary_shift_right"></a>binary_shift_right()
 

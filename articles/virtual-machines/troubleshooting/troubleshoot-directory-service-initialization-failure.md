@@ -2,9 +2,7 @@
 title: 对“Windows 停止错误”进行排除故障 - 目录服务初始化失败
 description: 解决 Azure 中的 Active Directory 域控制器虚拟机 (VM) 陷入循环并声明其需要重启的问题。
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 3396f8fe-7573-4a15-a95d-a1e104c6b76d
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: c0670824a6340d8c3ba353a6c8b4867af710390f
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 287c61429ab219ae763311a592ab0414fffce3b6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456792"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106327"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-windows-stop-error---directory-service-initialization-failure"></a>对“Windows 停止错误”进行排除故障 - 目录服务初始化失败
@@ -57,7 +55,7 @@ ms.locfileid: "89456792"
 1. 磁盘上的可用空间。
 1. 检查确认是否已附加包含 AD 数据库的驱动器。
 1. 目录服务还原模式。
-1. **建议**：在重建 VM 之前，启用串行控制台和内存转储收集。
+1. **建议** ：在重建 VM 之前，启用串行控制台和内存转储收集。
 1. 重新生成 VM。
 1. 重新配置 SAN 策略。
 
@@ -140,7 +138,7 @@ ms.locfileid: "89456792"
 
 1. 再次查询启动选项以确保正确设置了更改。
 
-    :::image type="content" source="./media/troubleshoot-directory-service-initialization-failure/3.png" alt-text="屏幕截图显示启用 safeboot DsRepair 标志后提升的 CMD 实例。":::
+    :::image type="content" source="./media/troubleshoot-directory-service-initialization-failure/3.png" alt-text="屏幕截图显示了在输入“bcdedit /store <Drive Letter>:\boot\bcd /enum”命令后提升的 CMD 实例，该命令显示带有标识符的 Windows 启动管理器。":::
 
 ### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>建议：在重新生成 VM 之前，启用串行控制台和内存转储收集
 
@@ -161,11 +159,11 @@ ms.locfileid: "89456792"
 
     #### <a name="the-following-configuration-is-suggested-to-enable-os-dump"></a>建议使用以下配置启用 OS 转储：
 
-    **加载损坏的 OS 磁盘**：
+    **加载损坏的 OS 磁盘** ：
 
     `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
-    **在 ControlSet001 上启用**：
+    **在 ControlSet001 上启用** ：
 
     ```
     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
@@ -173,7 +171,7 @@ ms.locfileid: "89456792"
     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
 
-    **在 ControlSet002 上启用**：
+    **在 ControlSet002 上启用** ：
 
     ```
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
@@ -181,7 +179,7 @@ ms.locfileid: "89456792"
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
     ```
 
-    **卸载损坏的 OS 磁盘**：
+    **卸载损坏的 OS 磁盘** ：
 
     `REG UNLOAD HKLM\BROKENSYSTEM`
 

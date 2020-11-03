@@ -10,12 +10,12 @@ ms.author: v-yeche
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: fb78e30c7ef3dfeb104c40563f3bfbfb45e90b7c
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 1fd680e1fe52179d2356ba9d56918049066fd001
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462988"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106297"
 ---
 <!--Verify Successfully -->
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中启用嵌套虚拟化
@@ -127,7 +127,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 1. 打开 Hyper-V 管理器并创建新的虚拟机。 配置虚拟机以使用你创建的新内部网络。
 
-    :::image type="content" source="./media/virtual-machines-nested-virtualization/configure-networking.png" alt-text="NetworkConfig":::
+    :::image type="content" source="./media/virtual-machines-nested-virtualization/configure-networking.png" alt-text="NetAdapter":::
 
 2. 在来宾虚拟机上安装操作系统。
 
@@ -184,7 +184,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 ## <a name="test-connectivity-in-guest-virtual-machine"></a>在来宾虚拟机中测试连接
 
 在来宾虚拟机中，打开浏览器并导航到网页。
-    :::image type="content" source="./media/virtual-machines-nested-virtualization/guest-virtual-machine.png" alt-text="GuestVM":::
+:::image type="content" source="./media/virtual-machines-nested-virtualization/guest-virtual-machine.png" alt-text="NetAdapter":::
 
 有关如何在来宾 VM 和 Azure VM 之间启用透明连接的说明，请参阅[此文档](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)。
 

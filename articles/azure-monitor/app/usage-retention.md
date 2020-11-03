@@ -4,19 +4,19 @@ description: 有多少用户回归到应用？
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
+ms.date: 10/29/2020
 origin.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1131058286381169f95616bdabbd6926bc4dcaae
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 53b865e2b715caa9b960021d8e26931a00da936a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244423"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106020"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>使用 Azure Application Insights 为 Web 应用程序进行用户留存情况分析
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的“留存情况”功能可以帮助分析有多少用户回归到应用，以及他们以何频率执行特定的任务或达成目标。 例如，如果运行游戏网站，则可以会在输掉游戏后回归到网站的用户数与在获胜后回归的用户数进行比较。 此信息有助于改进用户体验和业务策略。
+[Azure Application Insights](./app-insights-overview.md) 中的“留存情况”功能可以帮助分析有多少用户回归到应用，以及他们以何频率执行特定的任务或达成目标。 例如，如果运行游戏网站，则可以会在输掉游戏后回归到网站的用户数与在获胜后回归的用户数进行比较。 此信息有助于改进用户体验和业务策略。
 
 ## <a name="get-started"></a>入门
 
@@ -55,17 +55,16 @@ ms.locfileid: "87244423"
    telemetry.TrackEvent("won game");
 ```
 
-[详细了解如何编写自定义事件](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)。
+[详细了解如何编写自定义事件](./api-custom-events-metrics.md#trackevent)。
 
 
 ## <a name="next-steps"></a>后续步骤
-- 若要启用使用体验，请首先发送[自定义事件](/azure-monitor/app/api-custom-events-metrics#trackevent)或[页面视图](/azure-monitor/app/api-custom-events-metrics#page-views)。
+- 若要启用使用体验，请首先发送[自定义事件](./api-custom-events-metrics.md#trackevent)或[页面视图](./api-custom-events-metrics.md#page-views)。
 - 如果已经发送自定义事件或页面视图，请浏览使用情况工具，了解用户如何使用服务。
     - [用户、会话、事件](usage-segmentation.md)
     - [漏斗图](usage-funnels.md)
     - [用户流](usage-flows.md)
-    - [工作簿](../../azure-monitor/platform/workbooks-overview.md)
+    - [工作簿](../platform/workbooks-overview.md)
     - [添加用户上下文](usage-send-user-context.md)
-<!--Correct in MC: /azure-monitor/app/api-custom-events-metrics#trackevent; /azure-monitor/app/api-custom-events-metrics#page-views-->
 
 

@@ -2,18 +2,19 @@
 title: 使用模板端到端运行作业
 description: 只需使用 CLI 命令便可创建池、上传输入数据、创建作业和关联的任务，以及下载生成的输出数据。
 ms.topic: how-to
-origin.date: 12/07/2018
-ms.date: 08/24/2020
+origin.date: 10/08/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 04/27/2020
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: eddc9f0be3aa75717e409e7de7c2fd625f60bc1a
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: fb4cf80bae2aa184e52cbc1dcae03893367f2820
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654954"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106104"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>使用 Azure Batch CLI 模板和文件传输
 
@@ -46,7 +47,7 @@ Batch 模板基于 [Azure CLI](batch-cli-get-started.md#json-files-for-resource-
 
 ## <a name="installation"></a>安装
 
-若要安装 Azure Batch CLI 扩展，请首先[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+若要安装 Azure Batch CLI 扩展，请首先[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli)。
 
 <!--Not Available on [Azure Cloud Shell](../cloud-shell/overview.md)-->
 
@@ -125,7 +126,7 @@ Azure Batch 模板在功能和语法上非常类似于 Azure 资源管理器模�
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "maxTasksPerNode": 1,
+            "taskSlotsPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
@@ -137,7 +138,7 @@ Azure Batch 模板在功能和语法上非常类似于 Azure 资源管理器模�
 }
 ```
 
-如果模板文件名为 _pool-ffmpeg.json_，请如下所示调用该模板：
+如果模板文件名为 _pool-ffmpeg.json_ ，请如下所示调用该模板：
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
@@ -213,7 +214,7 @@ az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.js
             },
             "taskFactory": {
                 "type": "taskPerFile",
-                "source": { 
+                "source": {
                     "fileGroup": "ffmpeg-input"
                 },
                 "repeatTask": {
@@ -246,7 +247,7 @@ az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.js
 }
 ```
 
-如果模板文件名为 _job-ffmpeg.json_，请如下所示调用该模板：
+如果模板文件名为 _job-ffmpeg.json_ ，请如下所示调用该模板：
 
 ```azurecli
 az batch job create --template job-ffmpeg.json
@@ -275,7 +276,7 @@ CLI 同样会提示你提供参数的值。 也可以提供 JSON 文件中的参
 Batch CLI 扩展提供了相关的命令，用以将客户端的文件上传到指定文件组，以及将指定文件组的文件下载到客户端。
 
 ```azurecli
-az batch file upload --local-path c:\source_videos\*.mp4 
+az batch file upload --local-path c:\source_videos\*.mp4
     --file-group ffmpeg-input
 
 az batch file download --file-group ffmpeg-output --local-path

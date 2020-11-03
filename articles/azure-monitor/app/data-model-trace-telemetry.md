@@ -2,21 +2,20 @@
 title: Azure Application Insights 数据模型 - 跟踪遥测
 description: 适用于跟踪遥测的 Application Insights 数据模型
 ms.topic: conceptual
-author: lingliw
+ms.date: 10/29/2020
 origin.date: 04/25/2017
-ms.date: 6/4/2019
 ms.reviewer: sergkanz
-ms.author: v-lingwu
-ms.openlocfilehash: 0e8c4e2725a252493b2d0b2a1676e27249b13aea
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.author: v-johya
+ms.openlocfilehash: 94638ef8fdd8d9ff4e95c87cfc9c0477d9d9b744
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850434"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106109"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>跟踪遥测：Application Insights 数据模型
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的跟踪遥测表示搜索文本的 `printf` 样式跟踪语句。 `Log4Net`、`NLog` 和其他基于文本的日志文件条目将转换成此类型的实例。 跟踪没有作为可扩展性的度量。
+[Application Insights](./app-insights-overview.md) 中的跟踪遥测表示搜索文本的 `printf` 样式跟踪语句。 `Log4Net`、`NLog` 和其他基于文本的日志文件条目将转换成此类型的实例。 跟踪没有作为可扩展性的度量。
 
 ## <a name="message"></a>消息
 
@@ -34,12 +33,10 @@ ms.locfileid: "78850434"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在 Application Insights 中浏览 .NET 跟踪日志](../../azure-monitor/app/asp-net-trace-logs.md)。
-- [在 Application Insights 中浏览 Java 跟踪日志](../../azure-monitor/app/java-trace-logs.md)。
+- [在 Application Insights 中浏览 .NET 跟踪日志](./asp-net-trace-logs.md)。
+- [在 Application Insights 中浏览 Java 跟踪日志](./java-trace-logs.md)。
 - 有关 Application Insights 的类型和数据模型，请参阅[数据模型](data-model.md)。
-- [编写自定义跟踪遥测](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
-- 查看 Application Insights 支持的[平台](../../azure-monitor/app/platforms.md)。
-
-
+- [编写自定义跟踪遥测](./api-custom-events-metrics.md#tracktrace)
+- 查看 Application Insights 支持的[平台](./platforms.md)。
 
 

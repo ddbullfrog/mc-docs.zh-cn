@@ -8,12 +8,12 @@ ms.testdate: ''
 ms.topic: quickstart
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 47fec64aa42f10552ccbd1cd0ef70a5dd7aa59aa
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: ead1a22ace1a2d7b7f08d8a02829e827d61f7fe3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128372"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106335"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>使用 Azure CLI 创建一个服务总线主题和该主题的订阅
 在本快速入门中，你将使用 Azure CLI 创建服务总线主题，然后创建该主题的订阅。 
@@ -114,6 +114,10 @@ ms.locfileid: "92128372"
 > [发布和订阅消息](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [trial account]: https://www.azure.cn/pricing/1rmb-trial/
-[完全限定的域名]： https://wikipedia.org （此网站在 AZURE 中国云上不可用）/wiki/Fully_qualified_domain_name [安装 Azure CLI]: https://docs.azure.cn/cli/install-azure-cli [az group create]: https://docs.azure.cn/cli/group#az_group_createe
+
+<!--Not Available on [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name-->
+
+[Install the Azure CLI]: https://docs.azure.cn/cli/install-azure-cli
+[az group create]: https://docs.azure.cn/cli/group#az_group_create
 
 <!-- Update_Description: update meta properties, wording update, update link -->

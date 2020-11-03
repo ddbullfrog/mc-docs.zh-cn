@@ -2,9 +2,7 @@
 title: 排查 Azure VM 分配故障 | Azure
 description: 在 Azure 中创建、重启 VM 或重设其大小时排查分配失败
 services: virtual-machines
-documentationcenter: ''
 manager: felixwu
-editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
@@ -15,20 +13,20 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1b7aae8dcb9a8aa8c755fa72d74ce0231c21ed20
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 4a39c5425683016ff0faeccc91ba4cb5ec41f2f5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127610"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106243"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>在 Azure 中创建、重启 VM 或重设其大小时排查分配失败
 
 创建虚拟机 (VM)、重启已停止（已解除分配）的 VM 或重设 VM 大小时，Azure 会为订阅分配计算资源。 我们会不断投入其他基础结构和功能，确保始终提供可用于支持客户需求的所有 VM 类型。 但是，偶尔可能因特定区域中前所未有的 Azure 服务需求增长而遇到资源分配失败的情况。 当尝试在区域中创建或启动 VM，同时 VM 显示以下错误代码和消息时，会出现此问题：
 
-**错误代码**：AllocationFailed 或 ZonalAllocationFailed
+**错误代码** ：AllocationFailed 或 ZonalAllocationFailed
 
-**错误消息**：“分配失败。 对于此区域中请求的 VM 大小，我们的容量不够。 在 https://aka.ms/allocation-guidance 阅读有关提高分配成功可能性的详细信息”
+**错误消息** ：“分配失败。 对于此区域中请求的 VM 大小，我们的容量不够。 在 https://aka.ms/allocation-guidance 阅读有关提高分配成功可能性的详细信息”
 
 本文说明一些常见分配故障的原因，并建议可能的补救方法。
 

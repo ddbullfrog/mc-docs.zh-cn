@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 row_number()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 72a7858ae5664bc00e4169915ce9011877233333
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: ebc347c7427268e845f49c4fdc46afb4bd9be84a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841344"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105804"
 ---
 # <a name="row_number"></a>row_number()
 
@@ -23,18 +23,18 @@ ms.locfileid: "87841344"
 可以选择让行索引从不同于 `1` 的值开始。
 此外，可以根据提供的谓词重置行索引。
 
-**语法**
+## <a name="syntax"></a>语法
 
-`row_number` `(` [*StartingIndex* [`,` *Restart*]] `)`
+`row_number` `(` [ *StartingIndex* [`,` *Restart* ]] `)`
 
 * StartingIndex 是 `long` 类型的常量表达式，表示要从其开始（或重新开始）的行索引的值。 默认值为 `1`。
 * Restart 是 `bool` 类型的可选参数，表示何时将编号重新设置为 StartingIndex 值。 如果未提供，则使用默认值 `false`。
 
-**返回**
+## <a name="returns"></a>返回
 
 函数将当前行的行索引作为 `long` 类型的值返回。
 
-**示例**
+## <a name="examples"></a>示例
 
 以下示例返回一个包含两列的表，第一列 (`a`) 包含从 `10` 到 `1` 的数字，第二列 (`rn`) 包含从 `1` 到 `10` 的数字：
 

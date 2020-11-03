@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 14407c462f2f060e1771a6fe85347b685d9aa6c0
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 23afc14af2230f43bc1e504388d34677f8cab855
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462929"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105854"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>使用 PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型
 
@@ -77,7 +77,7 @@ ms.locfileid: "89462929"
     Get-AzSubscription | Sort Name | Select Name
 ```
 
-设置当前会话的 Azure 订阅。 此示例将默认订阅名称设置为 **My Azure Subscription**。 将示例订阅名称替换成自己的名称。
+设置当前会话的 Azure 订阅。 此示例将默认订阅名称设置为 **My Azure Subscription** 。 将示例订阅名称替换成自己的名称。
 
 ```powershell
     Select-AzSubscription -SubscriptionName "My Azure Subscription"
@@ -122,7 +122,7 @@ ms.locfileid: "89462929"
     Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 ```
 
-设置当前会话的 Azure 订阅。 此示例将默认订阅设置为 **My Azure Subscription**。 将示例订阅名称替换成自己的名称。
+设置当前会话的 Azure 订阅。 此示例将默认订阅设置为 **My Azure Subscription** 。 将示例订阅名称替换成自己的名称。
 
 ```powershell
     Select-AzureSubscription -SubscriptionName "My Azure Subscription"
@@ -143,7 +143,7 @@ ms.locfileid: "89462929"
     Get-AzureService | ft Servicename
 ```
 
-获取云服务的部署名称。 在此示例中，服务名称是 **My Service**。 使用自己的服务名称替换示例名称。
+获取云服务的部署名称。 在此示例中，服务名称是 **My Service** 。 使用自己的服务名称替换示例名称。
 
 ```powershell
     $serviceName = "My Service"
@@ -171,7 +171,7 @@ ms.locfileid: "89462929"
     ```
 * **选项 2：迁移到资源管理器部署模型中的现有虚拟网络。**
 
-    此示例将资源组名称设置为 **myResourceGroup**、将虚拟网络名称设置为 **myVirtualNetwork** 并将子网名称设置为 **mySubNet**。 将该示例中的名称替换成自己的资源名称。
+    此示例将资源组名称设置为 **myResourceGroup** 、将虚拟网络名称设置为 **myVirtualNetwork** 并将子网名称设置为 **mySubNet** 。 将该示例中的名称替换成自己的资源名称。
 
     ```powershell
     $existingVnetRGName = "myResourceGroup"
@@ -197,7 +197,7 @@ ms.locfileid: "89462929"
 
 使用前述任一选项成功完成准备操作以后，即可查询 VM 的迁移状态。 确保 VM 处于 `Prepared` 状态。
 
-此示例将 VM 名称设置为 **myVM**。 使用自己的 VM 名称替换示例名称。
+此示例将 VM 名称设置为 **myVM** 。 使用自己的 VM 名称替换示例名称。
 
 ```powershell
     $vmName = "myVM"
@@ -227,7 +227,7 @@ ms.locfileid: "89462929"
 > [!NOTE]
 > 虚拟网络名称可能和新门户中显示的名称不同。 新的 Azure 门户显示名称为 `[vnet-name]`，但实际的虚拟网络名称的类型是 `Group [resource-group-name] [vnet-name]`。 在开始迁移之前，请使用命令 `Get-AzureVnetSite | Select -Property Name` 查找实际的虚拟网络名称，或者在旧版 Azure 门户中查看它。 
 
-此示例将虚拟网络名称设置为 **myVnet**。 使用自己的虚拟网络名称替换示例名称。
+此示例将虚拟网络名称设置为 **myVnet** 。 使用自己的虚拟网络名称替换示例名称。
 
 ```powershell
     $vnetName = "myVnet"
@@ -310,7 +310,7 @@ ms.locfileid: "89462929"
         ```
 * 验证存储帐户并开始迁移。
 
-    使用以下命令验证要迁移的每个存储帐户。 在此示例中，存储帐户名称为 **myStorageAccount**。 使用自己的存储帐户名称替换示例名称。
+    使用以下命令验证要迁移的每个存储帐户。 在此示例中，存储帐户名称为 **myStorageAccount** 。 使用自己的存储帐户名称替换示例名称。
 
     ```powershell
         $storageAccountName = "myStorageAccount"

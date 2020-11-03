@@ -2,9 +2,7 @@
 title: 排查文件系统错误导致的 Linux VM 启动问题 | Azure
 description: 了解如何排查文件系统错误导致的 Linux VM 启动问题
 services: virtual-machines-linux
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: ''
 ms.service: virtual-machines-linux
 ms.topic: troubleshooting
@@ -17,12 +15,12 @@ ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0a16d76568e62a1e3e7c1b85b7a0293630fd4a7c
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 16fe390047fb8cd98b668c3b2cd794108895527d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127939"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105938"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>排查文件系统错误导致的 Linux VM 启动问题
 

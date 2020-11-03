@@ -2,9 +2,7 @@
 title: 排查 Azure 中的 Windows 虚拟机部署问题 | Azure
 description: 排查在 Azure 资源管理器部署模型中部署 Windows 虚拟机时遇到的问题。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: e43670bd2fceeb2c9a8270cf2d7884563872fd63
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 2eeaf792285373cc397f3903b2945c30a15b2459
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456804"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106331"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Windows 虚拟机部署问题
 

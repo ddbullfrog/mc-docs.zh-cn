@@ -8,23 +8,23 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/03/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 9723b9ddcc74d7092b5f0636f6990f814ab165d2
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 7780174d442fbd28b92f75910ecd9426936e4de0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841757"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106346"
 ---
 # <a name="geo_point_in_circle"></a>geo_point_in_circle()
 
 计算地理空间坐标是否在地球上的某个圆圈范围内。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `geo_point_in_circle(`p_longitude`, `p_latitude`, `pc_longitude`, `pc_latitude`, `c_radius`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * p_longitude：地理空间坐标经度值（度）。 有效值为 [-180, +180] 范围内的实数。
 * p_latitude：地理空间坐标纬度值（度）。 有效值为 [-90, +90] 范围内的实数。
@@ -32,7 +32,7 @@ ms.locfileid: "87841757"
 * pc_latitude：圆心地理空间坐标纬度值（度）。 有效值为 [-90, +90] 范围内的实数。
 * c_radius：以米为单位的圆半径。 有效值必须为正。
 
-**返回**
+## <a name="returns"></a>返回
 
 指示地理空间坐标是否在某个圆圈范围内。 如果坐标或圆圈无效，则查询将生成 null 结果。
 
@@ -41,7 +41,7 @@ ms.locfileid: "87841757"
 >* 用来测量地球上距离的大地测量基准是一个球体。
 >* 圆圈是地球上的球冠。 球冠的半径沿球的曲面进行测量。
 
-**示例**
+## <a name="examples"></a>示例
 
 以下查询会查找由以下圆圈定义的区域中的所有位置：半径为 18 km，中心处于 [-122.317404, 47.609119] 坐标。
 
@@ -69,7 +69,7 @@ datatable(longitude:real, latitude:real, place:string)
 
 奥兰多的暴风雨事件。 事件在奥兰多坐标内按 100 km 进行筛选，并且按事件类型和哈希进行聚合。
 
-:::image type="content" source="images/geo-point-in-circle-function/orlando-storm-events.png" alt-text="奥兰多的暴风雨事件":::
+:::image type="content" source="images/geo-point-in-circle-function/orlando-storm-events.png" alt-text="西雅图附近的位置":::
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto
@@ -83,7 +83,7 @@ StormEvents
 
 以下示例显示在特定位置 10 米内的纽约出租车载客。 相关载客按哈希进行聚合。
 
-:::image type="content" source="images/geo-point-in-circle-function/circle-junction.png" alt-text="附近的纽约出租车载客":::
+:::image type="content" source="images/geo-point-in-circle-function/circle-junction.png" alt-text="西雅图附近的位置":::
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

@@ -8,14 +8,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.date: 07/20/2020
-ms.author: sebansal
-ms.openlocfilehash: f823875aaa6bcd40f85c386c6918dc272e064ad7
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+origin.date: 07/20/2020
+ms.date: 10/30/2020
+ms.author: v-tawe
+ms.openlocfilehash: 0f16500d6e3905371e16e599b4711020b4ecb4b0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678561"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106333"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>导入 Azure Key Vault 证书常见问题解答
 

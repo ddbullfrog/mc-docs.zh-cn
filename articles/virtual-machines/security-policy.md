@@ -6,19 +6,18 @@ ms.subservice: security
 ms.workload: infrastructure-services
 origin.date: 11/27/2018
 author: rockboyfor
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+ms.date: 11/02/2020
+ms.testscope: no
+ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 852b65c6f44446967c3d84d12076f6e7d7a7a6e4
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: e9a332002f1e577b91e41ba23637b0dc94917350
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310314"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106248"
 ---
-<!--Verified successfully on rename articles-->
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>在 Azure 中保护和使用虚拟机上的策略
 
 为了所运行的应用程序，请务必确保虚拟机 (VM) 安全。 保护 VM 可以添加一个或多个 Azure 服务和功能，这些服务和功能涵盖保护对 VM 的访问和保护数据存储。 按照本文提供的信息操作，可确保 VM 和应用程序安全。
@@ -29,7 +28,9 @@ ms.locfileid: "89310314"
 
 ## <a name="azure-security-center"></a>Azure 安全中心
 
-[Azure 安全中心](../security-center/security-center-intro.md)可帮助防范、检测和应对针对 VM 的威胁。 安全中心提供 Azure 订阅之间的集成安全监视和策略管理，帮助检测可能被忽略的威胁，且适用于广泛的安全解决方案生态系统。
+Azure 安全中心可以帮助防范、检测和应对针对 VM 的威胁。 安全中心提供 Azure 订阅之间的集成安全监视和策略管理，帮助检测可能被忽略的威胁，且适用于广泛的安全解决方案生态系统。
+
+<!--Not Available on [Azure Security Center](../security-center/security-center-introduction.md)-->
 
 安全中心的实时访问可以跨 VM 部署应用，用以锁定发往 Azure VM 的入站流量，降低遭受攻击的可能性，同时还可根据需要轻松连接到 VM。 当启用实时访问且用户请求访问 VM 时，安全中心将检查用户对该 VM 的权限。 如果用户具有正确权限，则会批准请求并且安全中心会自动将网络安全组 (NSG) 配置为：在限定时间内允许发往选定端口的入站流量。 在该时间到期后，安全中心会将 NSG 还原为以前的状态。 
 
@@ -80,10 +81,9 @@ Azure Active Directory (Azure AD) 中的 Azure 资源托管标识功能可以解
 
 ## <a name="role-based-access-control"></a>基于角色的访问控制
 
-使用 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md)，可以在团队中对职责进行分配，仅将执行作业所需的最低访问权限授予 VM 上的用户。 可以仅允许某些操作，而不是向 VM 上的每个人授予不受限制的权限。 可以使用 [Azure CLI](https://docs.azure.cn/cli/role?view=azure-cli-latest) 或 [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) 为 [Azure 门户](../role-based-access-control/role-assignments-portal.md)中的 VM 配置访问控制。
+使用 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md)，可以在团队中对职责进行分配，仅将执行作业所需的最低访问权限授予 VM 上的用户。 可以仅允许某些操作，而不是向 VM 上的每个人授予不受限制的权限。 可以使用 [Azure CLI](https://docs.azure.cn/cli/role) 或 [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) 为 [Azure 门户](../role-based-access-control/role-assignments-portal.md)中的 VM 配置访问控制。
 
 ## <a name="next-steps"></a>后续步骤
 - 完成相关步骤，使用适用于 [Linux](../security/fundamentals/overview.md) 或 [Windows](https://ocs.microsoft.com/windows/tutorial-azure-security) 的 Azure 安全中心监视虚拟机的安全性。
 
-<!-- Update_Description: new article about security policy -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

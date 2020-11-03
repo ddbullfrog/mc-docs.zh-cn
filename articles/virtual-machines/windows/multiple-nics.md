@@ -6,23 +6,23 @@ ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 09/26/2017
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 99eb67efecbfe55f5f9d9bd706bec9c4b672a444
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: ef3b04f9cf5e7d252a8404bb2f2dd80bd7e82774
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462995"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106295"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>创建并管理具有多个 NIC 的 Windows 虚拟机
 Azure 中的虚拟机 (VM) 可附有多个虚拟网络接口卡 (NIC)。 一种常见方案是为前端和后端连接设置不同的子网。 可以将 VM 上的多个 NIC 关联到多个子网，但这些子网必须全都位于同一个虚拟网络 (vNet) 中。 本文详述了如何创建附有多个 NIC 的 VM。 还可以了解如何从现有 VM 中添加或删除 NIC。 不同的 [VM 大小](../sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
 
 ## <a name="prerequisites"></a>先决条件
 
-在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
+在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup* 、 *myVnet* 和 *myVM* 。
 
 ## <a name="create-a-vm-with-multiple-nics"></a>创建具有多个 NIC 的 VM
 首先创建一个资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
@@ -70,7 +70,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-通常还会创建用于筛选流向 VM 的网络流量的[网络安全组](../../virtual-network/security-overview.md)和用于在多个 VM 间分配流量的[负载均衡器](../../load-balancer/load-balancer-overview.md)。
+通常还会创建用于筛选流向 VM 的网络流量的[网络安全组](../../virtual-network/network-security-groups-overview.md)和用于在多个 VM 间分配流量的[负载均衡器](../../load-balancer/load-balancer-overview.md)。
 
 ### <a name="create-the-virtual-machine"></a>创建虚拟机
 立即开始构建 VM 配置。 每种 VM 大小限制了可添加到 VM 的 NIC 数目。 有关详细信息，请参阅 [Windows VM 大小](../sizes.md)。
@@ -81,7 +81,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     $cred = Get-Credential
     ```
 
-2. 通过 [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) 定义你的 VM。 以下示例定义名为 *myVM* 的 VM，并使用支持两个以上 NIC 的 VM 大小(*Standard_DS3_v2*)：
+2. 通过 [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) 定义你的 VM。 以下示例定义名为 *myVM* 的 VM，并使用支持两个以上 NIC 的 VM 大小( *Standard_DS3_v2* )：
 
     ```powershell
     $vmConfig = New-AzVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"

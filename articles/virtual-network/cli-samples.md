@@ -1,6 +1,26 @@
 ---
-title:适用于虚拟网络的 Azure CLI 示例：了解可用于在 Azure CLI 中完成任务的各种示例脚本，包括为多层应用程序创建虚拟网络。
-services: virtual-network documentationcenter: virtual-network manager: mtillman editor: '' tags: ms.assetid： ms.service: virtual-network ms.devlang: na ms.topic: sample ms.tgt_pltfrm: ms.workload: infrastructure origin.date:07/15/2019 author: rockboyfor ms.date:10/05/2020 ms.testscope: no ms.testdate: null ms.author: v-yeche ms.custom: devx-track-azurecli
+title: 适用于虚拟网络的 Azure CLI 示例
+description: 了解可用于在 Azure CLI 中完成任务的各种示例脚本，包括为多层应用程序创建虚拟网络。
+services: virtual-network
+documentationcenter: virtual-network
+manager: mtillman
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: sample
+ms.workload: infrastructure
+origin.date: 07/15/2019
+author: rockboyfor
+ms.date: 11/02/2020
+ms.testscope: no
+ms.testdate: ''
+ms.author: v-yeche
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: dad2e17a090cc554190c4da34583d4a6f607d13d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106055"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>适用于虚拟网络的 Azure CLI 示例
 

@@ -4,16 +4,16 @@ description: 从托管映像创建 Batch 自定义映像池，以使用软件和
 ms.topic: conceptual
 origin.date: 07/01/2020
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 11/02/2020
 ms.testscope: yes|no
 ms.testdate: 06/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: ee188b33e5b85afc5852c944bb967bd1a050a1d1
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: 1ed25295e4d14be9786e7e2b725c1a1cef505cd9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654948"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106103"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>使用托管映像创建自定义映像池
 
@@ -26,9 +26,9 @@ ms.locfileid: "88654948"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **托管映像资源**。 若要使用自定义映像创建虚拟机池，需在 Batch 帐户所在的同一 Azure 订阅和区域中使用或创建托管映像资源。 应该基于 VM 的 OS 磁盘快照及其附加的数据磁盘（可选）创建该映像。
+- **托管映像资源** 。 若要使用自定义映像创建虚拟机池，需在 Batch 帐户所在的同一 Azure 订阅和区域中使用或创建托管映像资源。 应该基于 VM 的 OS 磁盘快照及其附加的数据磁盘（可选）创建该映像。
   - 对创建的每个池使用唯一的自定义映像。
-  - 若要使用 Batch API 创建包含映像的池，请指定映像的**资源 ID**，其格式为 `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`。
+  - 若要使用 Batch API 创建包含映像的池，请指定映像的 **资源 ID** ，其格式为 `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`。
   - 托管映像资源应该在池的生存期内存在，以便能够纵向扩展，并可在删除池后将其删除。
 
 - Azure Active Directory (Azure AD) 身份验证。 Batch 客户端 API 必须使用 Azure AD 身份验证。 有关 Azure AD 的 Azure Batch 支持，请参阅[使用 Active Directory 对 Batch 服务解决方案进行身份验证](batch-aad-auth.md)。
@@ -62,7 +62,7 @@ ms.locfileid: "88654948"
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>基于一个或多个快照创建映像
 
-若要基于快照创建托管映像，请使用 Azure 命令行工具，例如 [az image create](https://docs.azure.cn/cli/image?view=azure-cli-latest#az-image-create) 命令。 可以通过指定 OS 磁盘快照并选择性地指定一个或多个数据磁盘快照来创建映像。
+若要基于快照创建托管映像，请使用 Azure 命令行工具，例如 [az image create](https://docs.azure.cn/cli/image#az_image_create) 命令。 可以通过指定 OS 磁盘快照并选择性地指定一个或多个数据磁盘快照来创建映像。
 
 ## <a name="create-a-pool-from-a-managed-image"></a>从托管映像创建池
 

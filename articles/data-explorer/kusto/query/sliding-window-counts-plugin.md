@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 sliding_window_count
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 48c845bb7f5a68bafe6bbcf94c5a54494bfe7c2e
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 057ed19b2be6ceac1b641c146b9d20c6fe448cde
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841217"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106114"
 ---
 # <a name="sliding_window_counts-plugin"></a>sliding_window_counts 插件
 
@@ -26,22 +26,22 @@ ms.locfileid: "87841217"
 T | evaluate sliding_window_counts(id, datetime_column, startofday(ago(30d)), startofday(now()), 7d, 1d, dim1, dim2, dim3)
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
-*T* `| evaluate` `sliding_window_counts(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *LookbackWindow*`,` *Bin* `,` [*dim1*`,` *dim2*`,` ...]`)`
+*T* `| evaluate` `sliding_window_counts(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *LookbackWindow*`,` *Bin* `,` [ *dim1*`,` *dim2*`,` ...]`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：输入表格表达式。
-* *IdColumn*：列的名称，其 ID 值表示用户活动。 
+* *T* ：输入表格表达式。
+* *IdColumn* ：列的名称，其 ID 值表示用户活动。 
 * TimelineColumn：表示时间线的列的名称。
-* *开始*：带有分析开始时段值的标量。
+* *开始* ：带有分析开始时段值的标量。
 * End：带有分析结束时段值的标量。
-* *LookbackWindow*：回溯期间的标量常数值（例如，对于过去 7 天的 `dcount` 用户：LookbackWindow = 7d）
-* *Bin*：分析步骤时间段的标量常数值。 此值可以是数字/日期时间/时间戳值。 如果该值是格式为 `week`/`month`/`year` 的字符串，则所有期间都将为 [startofweek](startofweekfunction.md)/[startofmonth](startofmonthfunction.md)/[startofyear](startofyearfunction.md)。 
+* *LookbackWindow* ：回溯期间的标量常数值（例如，对于过去 7 天的 `dcount` 用户：LookbackWindow = 7d）
+* *Bin* ：分析步骤时间段的标量常数值。 此值可以是数字/日期时间/时间戳值。 如果该值是格式为 `week`/`month`/`year` 的字符串，则所有期间都将为 [startofweek](startofweekfunction.md)/[startofmonth](startofmonthfunction.md)/[startofyear](startofyearfunction.md)。 
 * dim1, dim2, ... ：（可选）维度列的列表，用于切分活动指标计算。
 
-**返回**
+## <a name="returns"></a>返回
 
 返回一个表，该表包含回溯期间每个时间线时段（根据 bin）和每个现有维度组合的 ID 的计数和非重复计数值。
 
@@ -52,7 +52,7 @@ T | evaluate sliding_window_counts(id, datetime_column, startofday(ago(30d)), st
 |类型：自 TimelineColumn 起|..|..|..|long|long|
 
 
-**示例**
+## <a name="examples"></a>示例
 
 计算过去一周内每天分析时段的用户计数和 `dcounts`。 
 

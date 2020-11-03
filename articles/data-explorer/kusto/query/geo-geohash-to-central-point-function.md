@@ -8,34 +8,35 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 01/27/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 08a085c5ade8fb8a2bd8586d8f37f4104c30327b
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 3c72d4b6c92c8adf7da1f8bc005579aa2b93f7c3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841759"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106148"
 ---
 # <a name="geo_geohash_to_central_point"></a>geo_geohash_to_central_point()
 
-计算表示 Geohash 矩形区中心的地理空间坐标。 
+计算表示 Geohash 矩形区中心的地理空间坐标。
 
-**语法**
+
+## <a name="syntax"></a>语法
 
 `geo_geohash_to_central_point(`geohash`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 geohash：由 [geo_point_to_geohash()](geo-point-to-geohash-function.md) 计算得出的 Geohash 字符串值。 Geohash 字符串的长度可以是 1 到 18 个字符。
 
-**返回**
+## <a name="returns"></a>返回
 
 地理空间坐标值采用 [GeoJSON 格式](https://tools.ietf.org/html/rfc7946)，属于[动态](./scalar-data-types/dynamic.md)数据类型。 如果 geohash 无效，则查询会生成 null 结果。
 
 > [!NOTE]
 > GeoJSON 格式先指定经度，再指定纬度。
 
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

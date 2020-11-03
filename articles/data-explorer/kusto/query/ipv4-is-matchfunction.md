@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 ipv4_is_match()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/24/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 13012dca196f4fd99e33fbd12de4e9e33028fcf0
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 2c9707fbd6b819ee9d609a79e973cc2acf91728b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516046"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106009"
 ---
 # <a name="ipv4_is_match"></a>ipv4_is_match()
 

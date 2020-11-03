@@ -8,17 +8,17 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/03/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 4d078f74a623ca9ddb931f2010329f946cbfea41
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 0bac2dc64e3e34c4ca023c0113c2d0e3a1b37f92
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515898"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106274"
 ---
 # <a name="continuous-data-export-overview"></a>连续数据导出概述
 
-本文介绍了如何使用定期运行的查询，将 Kusto 中的数据连续导出到[外部表](../externaltables.md)。 结果会存储在外部表中，该表定义了导出的数据的目标（例如 Azure Blob 存储）和架构。 此过程确保所有记录都导出“恰好一次”，但有一些[例外](#exactly-once-export)。 
+本文介绍了如何使用定期运行的查询，将 Kusto 中的数据连续导出到[外部表](../external-table-commands.md)。 结果会存储在外部表中，该表定义了导出的数据的目标（例如 Azure Blob 存储）和架构。 此过程确保所有记录都导出“恰好一次”，但有一些[例外](#exactly-once-export)。 
 
 若要启用连续数据导出，请[创建一个外部表](../external-tables-azurestorage-azuredatalake.md#create-or-alter-external-table)，然后[创建连续导出定义](create-alter-continuous.md)并将其指向该外部表。 
 
@@ -27,19 +27,19 @@ ms.locfileid: "88515898"
 
 ## <a name="continuous-export-guidelines"></a>连续导出准则
 
-* **输出架构**：
+* **输出架构** ：
   * 导出查询的输出架构必须与要导出到的外部表的架构匹配。 
-* **频率**：
+* **频率** ：
   * 连续导出将根据在 `intervalBetweenRuns` 属性中为其配置的时间段运行。 此间隔的建议值至少为几分钟，具体取决于你愿意接受的延迟时间。 如果引入速率较高，则时间间隔最小可为一分钟。
-* **分布**：
+* **分布** ：
   * 连续导出中的默认分布是 `per_node`，其中的所有节点都同时导出。 
   * 可以在连续导出的 create 命令的属性中重写此设置。 使用 `per_shard` 分布可提高并发性。
     > [!NOTE]
     > 此分布会增加存储帐户的负载，并有可能达到限制上限。 
   * 使用 `single`（或 `distributed`=`false`）来完全禁用分发。 此设置可能会显著降低连续导出过程的速度，并影响每个连续导出迭代中创建的文件数。 
-* **文件数目**：
+* **文件数目** ：
   * 每个连续导出迭代中导出的文件数取决于外部表的分区情况。 有关详细信息，请参阅[导出到外部表命令](export-data-to-an-external-table.md#number-of-files)。 每个连续导出迭代始终会写入到新文件中，永远不会附加到现有文件中。 因此，导出的文件的数目也取决于连续导出的运行频率。 频率参数为 `intervalBetweenRuns`。
-* **位置**：
+* **位置** ：
   * 为了获得最佳性能，Azure 数据资源管理器群集和存储帐户应位于同一 Azure 区域中。
   * 如果导出的数据量很大，建议为外部表配置多个存储帐户，以免出现存储限制。 请参阅[将数据导出到存储](export-data-to-storage.md#known-issues)。
 

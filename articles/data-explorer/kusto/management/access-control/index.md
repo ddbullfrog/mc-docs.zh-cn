@@ -9,13 +9,13 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 11/25/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: 1d4cd5134927a323580b2ab9c4732da41bb50b74
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: 415bd8da56d9aefa64899b5867a8fff1c4cf1e37
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226267"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106314"
 ---
 # <a name="kusto-access-control-overview"></a>Kusto 访问控制概述
 
@@ -62,7 +62,7 @@ Azure AD 是在 Microsoft 中向 Azure 数据资源管理器进行身份验证�
 ### <a name="microsoft-accounts-msas"></a>Microsoft 帐户 (MSA)
 
 Microsoft 帐户 (MSA) 这个术语是指所有由 Microsoft 托管的非组织用户帐户，例如 `hotmail.com`、`live.com`、`outlook.com`。
-Kusto 支持对 MSA 进行用户身份验证（这里没有“安全组”这一概念），其中 MSA 按通用主体名称 (UPN) 进行标识。
+Kusto 支持对 MSA 进行用户身份验证（这里没有“安全组”这一概念），其中 MSA 按用户主体名称 (UPN) 进行标识。
 
 在 Azure 数据资源管理器资源上配置 MSA 主体时，该资源管理器不会尝试解析所提供的 UPN。
 

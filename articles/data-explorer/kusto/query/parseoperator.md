@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 parse 运算符�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 3a28dc24099572354e6cb31927b2786f2a6e7e71
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: bd13dfddbf7cfb3763107e116db914e68cc98748
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841348"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106146"
 ---
 # <a name="parse-operator"></a>parse 运算符
 
@@ -25,13 +25,13 @@ ms.locfileid: "87841348"
 T | parse Text with "ActivityName=" name ", ActivityType=" type
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
-*T* `| parse` [`kind=regex` [`flags=regex_flags`] |`simple`|`relaxed`] *Expression* `with` `*` (*StringConstant* *ColumnName* [`:` *ColumnType*]) `*`...
+*T* `| parse` [`kind=regex` [`flags=regex_flags`] |`simple`|`relaxed`] *Expression* `with` `*` ( *StringConstant* *ColumnName* [`:` *ColumnType* ]) `*`...
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：输入表。
+* *T* ：输入表。
 * 种类：
 
     * simple（默认值）：StringConstant 是一个正则字符串值，匹配是严格的。 所有字符串分隔符都应出现在分析的字符串中，并且所有扩展列都必须与所需类型匹配。
@@ -42,13 +42,13 @@ T | parse Text with "ActivityName=" name ", ActivityType=" type
         
     * relaxed：StringConstant 是一个正则字符串值，匹配是宽松的。 所有字符串分隔符都应出现在分析的字符串中，但是扩展列可以部分匹配所需的类型。 与所需类型不匹配的扩展列将获得 null 值。
 
-* *表达式*：计算结果为字符串的表达式。
+* *表达式* ：计算结果为字符串的表达式。
 
 * ColumnName：要为其赋值的列的名称（从字符串表达式中提取）。 
   
 * ColumnType：可选。 一个标量值，指示要将值转换为何种类型。 默认值是 `string` 类型。
 
-**返回**
+## <a name="returns"></a>返回
 
 输入表，根据提供给运算符的列的列表进行扩展。
 
@@ -82,7 +82,7 @@ T | parse Text with "ActivityName=" name ", ActivityType=" type
         
     * `long` 转换为 `\-\d+`。
 
-**示例**
+## <a name="examples"></a>示例
 
 `parse` 运算符提供了一种简单的方法，可通过对同一 `string` 表达式使用多个 `extract` 应用程序来 `extend` 表。 当表中有一个 `string` 列，其中包含多个要分解为单独列的值时，此结果非常有用。 例如，由开发人员 trace ("`printf`"/"`Console.WriteLine`") 语句生成的列。
 

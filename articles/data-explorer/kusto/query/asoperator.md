@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 as 运算符。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 87ac780ae4ff2e83c12189380ff304e1917e5ce2
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 05724427849c1085dff1f9bf973022f0dddcf9f0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515780"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106310"
 ---
 # <a name="as-operator"></a>as 运算符
 
@@ -26,8 +26,8 @@ ms.locfileid: "88515780"
 
 ## <a name="arguments"></a>参数
 
-* *T*：表格表达式。
-* *名称*：表格表达式的临时名称。
+* *T* ：表格表达式。
+* *名称* ：表格表达式的临时名称。
 * `hint.materialized`：如果设置为 `true`，则表格表达式的值将被具体化，就像它已由 [materialize()](./materializefunction.md) 函数调用包装了一样。
 
 > [!NOTE]

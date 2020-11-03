@@ -13,12 +13,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 31dfdd9407cba842cf7424c7c5bfc081923d518f
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 7d844d79a964dc38155e097f721ef0ab14a28c6a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170720"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106057"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>教程：在 Azure 应用服务中部署使用 PostgreSQL 的 Django Web 应用
 
@@ -209,7 +209,7 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location chinaeast2 -
 az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- 将 *\<postgres-server-name>* 替换为之前通过 `az postgres up` 命令使用的名称。 Azuresite/production.py 中的代码会自动追加 `.postgres.database.azure.com` 来创建完整的 Postgres 服务器 URL。
+- 将 *\<postgres-server-name>* 替换为之前通过 `az postgres up` 命令使用的名称。 Azuresite/production.py 中的代码会自动追加 `.postgres.database.chinacloudapi.cn` 来创建完整的 Postgres 服务器 URL。
 - 将 \<username> 和 \<password> 替换为你先前在 `az postgres up` 命令中使用的管理员凭据，或 `az postgres up` 为你生成的评估。 Azuresite/production.py 中的代码会从 `DBUSER` 和 `DBHOST` 自动构造完整的 Postgres 用户名。
 - 从 .azure/config 文件中的缓存值提取资源组和应用名称。
 

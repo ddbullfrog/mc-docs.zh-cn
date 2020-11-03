@@ -4,14 +4,15 @@ description: 如何使用连接字符串。
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
+ms.date: 10/29/2020
+ms.custom: devx-track-js, devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1b051db525765aeaea15d391334a1bc9f197ee3e
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: f8003c9f1cf2cccf0a37458a5ade84a0bcdaddf5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244461"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106107"
 ---
 # <a name="connection-strings"></a>连接字符串
 
@@ -31,7 +32,7 @@ ms.locfileid: "87244461"
 
 - 防火墙例外或代理重定向 
 
-    如果需要监视 Intranet Web 服务器，我们的早期解决方案会要求客户将各个服务终结点添加到你的配置中。 有关详细信息，请参阅[此文](/azure-monitor/faq.md)。 
+    如果需要监视 Intranet Web 服务器，我们的早期解决方案会要求客户将各个服务终结点添加到你的配置中。 有关详细信息，请参阅[此文](../faq.md#can-i-monitor-an-intranet-web-server)。 
     连接字符串只需进行单个设置，简化了此工作，因此是一种更好的选择。 简单的前缀后缀修正，允许自动填充所有终结点并将其重定向到正确的服务。 
 
 - 主权云或混合云环境
@@ -90,7 +91,7 @@ ms.locfileid: "87244461"
 - [遥测引入](./app-insights-overview.md)：`dc`
 - [实时指标](./live-stream.md)：`live`
 - [探查器](./profiler-overview.md)：`profiler`
-- 快照：`snapshot`
+- [快照](./snapshot-debugger.md)：`snapshot`
 
 
 
@@ -274,15 +275,16 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 在运行时开始使用：
 
-* [Azure VM 和 Azure 虚拟机规模集的托管 IIS 应用](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [IIS 服务器](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Web 应用](../../azure-monitor/app/azure-web-apps.md)
+* [Azure VM 和 Azure 虚拟机规模集的托管 IIS 应用](./azure-vm-vmss-apps.md)
+* [IIS 服务器](./monitor-performance-live-website-now.md)
+* [Azure Web 应用](./azure-web-apps.md)
 
 在开发时开始使用：
 
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python](../../azure-monitor/app/opencensus-python.md)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Java](./java-get-started.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
+
 

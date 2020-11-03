@@ -6,14 +6,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 49215af18d9596db4dd4a45032724322ee9806ee
-ms.sourcegitcommit: 89ca2993f5978cd6dd67195db7c4bdd51a677371
+origin.date: 04/16/2019
+ms.date: 10/30/2020
+ms.author: v-tawe
+ms.openlocfilehash: 757c1a3bc89f4309233120269b1a583eb832b705
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82588944"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106140"
 ---
 # <a name="security-controls-for-azure-key-vault"></a>Azure 密钥保管库的安全控制
 
@@ -32,7 +33,7 @@ ms.locfileid: "82588944"
 
 ## <a name="monitoring--logging"></a>监视和日志记录
 
-| 安全控制 | Yes/No | 注释|
+| 安全控制 | Yes/No | 说明|
 |---|---|--|
 | Azure 监视支持（Log Analytics、App Insights 等）| 是 | 使用 Log Analytics。 |
 | 控制/管理平面日志记录和审核| 是 | 使用 Log Analytics。 |
@@ -40,7 +41,7 @@ ms.locfileid: "82588944"
 
 ## <a name="identity"></a>标识
 
-| 安全控制 | Yes/No | 注释|
+| 安全控制 | Yes/No | 说明|
 |---|---|--|
 | 身份验证| 是 | 身份验证通过 Azure Active Directory 来进行。 |
 | 授权| 是 | 使用密钥保管库访问策略。 |
@@ -49,7 +50,7 @@ ms.locfileid: "82588944"
 
 <!--| Server-side encryption at rest: customer-managed keys (BYOK) | Yes | The customer controls all keys in their Key Vault. When hardware security module (HSM) backed keys are specified, a FIPS Level 2 HSM protects the key, certificate, or secret. | -->
 
-| 安全控制 | Yes/No | 注释 |
+| 安全控制 | Yes/No | 说明 |
 |---|---|--|
 | 服务器端静态加密：Microsoft 管理的密钥 | 是 | 加密所有对象。 |
 | 列级加密（Azure 数据服务）| 空值 |  |

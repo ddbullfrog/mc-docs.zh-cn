@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7c5687598c885bc517e6692bd9718e6f4c59a5d6
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 7e2c2c9925fac836dadf81503d268a315f8b9021
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462847"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106290"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Windows 虚拟机
 
@@ -39,7 +39,7 @@ ms.locfileid: "89462847"
 
 1. 在“搜索结果”页中选择 Windows Server 2019 Datacenter 项，然后选择“创建” 。 
 
-1. 在“基本信息”标签页中的“项目详细信息”下，确保选择了正确的订阅，然后选择“新建资源组”。 对于名称，请键入 *myResourceGroup*。 
+1. 在“基本信息”标签页中的“项目详细信息”下，确保选择了正确的订阅，然后选择“新建资源组”。 对于名称，请键入 *myResourceGroup* 。 
 
     [!INCLUDE [virtual-machines-common-allow-english-character](../../../includes/virtual-machines-common-allow-english-character-chenye.md)]
 
@@ -51,19 +51,19 @@ ms.locfileid: "89462847"
     <!--MOONCAKE CUSTOMIZATION TILL ON 08/31/2020-->
     <!--NOTICE: THERE ARE NO `Windows Server 2019 Datacenter` OPTION WHEN FOLLOWING GLOBAL ROUTINE-->
     
-    :::image type="content" source="./media/quick-create-portal/instance-details.png" alt-text="“实例详细信息”部分的屏幕截图，可在其中提供虚拟机的名称并选择其区域、映像和大小":::
+    :::image type="content" source="./media/quick-create-portal/instance-details.png" alt-text="“项目详细信息”部分的屏幕截图，显示为虚拟机选择 Azure 订阅和资源组的位置":::
 
-1. 在“管理员帐户”下，提供用户名（例如 *azureuser*）和密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
+1. 在“管理员帐户”下，提供用户名（例如 *azureuser* ）和密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 
-    :::image type="content" source="./media/quick-create-portal/administrator-account.png" alt-text="“管理员帐户”部分的屏幕截图，可在其中提供管理员用户名和密码":::
+    :::image type="content" source="./media/quick-create-portal/administrator-account.png" alt-text="“项目详细信息”部分的屏幕截图，显示为虚拟机选择 Azure 订阅和资源组的位置":::
 
 1. 在“入站端口规则”下，选择“允许所选端口”，然后从下拉列表中选择“RDP (3389)”和“HTTP (80)”   。
 
-    :::image type="content" source="./media/quick-create-portal/inbound-port-rules.png" alt-text="“入站端口规则”部分的屏幕截图，可在其中选择允许建立入站连接的端口":::
+    :::image type="content" source="./media/quick-create-portal/inbound-port-rules.png" alt-text="“项目详细信息”部分的屏幕截图，显示为虚拟机选择 Azure 订阅和资源组的位置":::
 
 1. 保留其余默认值，然后选择页面底部的“查看 + 创建”按钮。
 
-    :::image type="content" source="./media/quick-create-portal/review-create.png" alt-text="显示页面底部的“审阅并创建”按钮的屏幕截图":::
+    :::image type="content" source="./media/quick-create-portal/review-create.png" alt-text="“项目详细信息”部分的屏幕截图，显示为虚拟机选择 Azure 订阅和资源组的位置":::
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
@@ -71,13 +71,13 @@ ms.locfileid: "89462847"
 
 1. 选择虚拟机概述页上的“连接”按钮。 
 
-    :::image type="content" source="./media/quick-create-portal/portal-quick-start-9.png" alt-text="显示“连接”按钮位置的虚拟机概述页屏幕截图":::
+    :::image type="content" source="./media/quick-create-portal/portal-quick-start-9.png" alt-text="“项目详细信息”部分的屏幕截图，显示为虚拟机选择 Azure 订阅和资源组的位置":::
 
 2. 在“连接到虚拟机”页面中，保留默认选项，以使用 IP 地址通过端口 3389 进行连接，然后单击“下载 RDP 文件” 。
 
 2. 打开下载的 RDP 文件，然后在出现提示时单击“连接”。 
 
-3. 在“Windows 安全性”窗口中，依次选择“更多选择”、“使用其他帐户”。 以 **localhost**\\*username* 的形式键入用户名，输入为虚拟机创建的密码，然后单击“确定”。
+3. 在“Windows 安全性”  窗口中，依次选择“更多选择”  、“使用其他帐户”  。 以 **localhost**\\*username* 的形式键入用户名，输入为虚拟机创建的密码，然后单击“确定”。
 
 4. 你可能会在登录过程中收到证书警告。 单击“是”或“继续”以创建连接。 
 
@@ -95,13 +95,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 在门户中选择 VM，在 VM 的概述中，使用 IP 地址右侧的“单击以复制”按钮复制该地址，并将其粘贴到浏览器选项卡中。此时会打开默认的 IIS 欢迎页，如下所示：
 
-:::image type="content" source="./media/quick-create-powershell/default-iis-website.png" alt-text="浏览器中的 IIS 默认站点的屏幕截图":::
+:::image type="content" source="./media/quick-create-powershell/default-iis-website.png" alt-text="“项目详细信息”部分的屏幕截图，显示为虚拟机选择 Azure 订阅和资源组的位置":::
 
 ## <a name="clean-up-resources"></a>清理资源
 
 当不再需要时，可以删除资源组、虚拟机和所有相关资源。 
 
-选择虚拟机的资源组，然后选择“删除”。 确认资源组名称，以完成资源删除。
+选择虚拟机的资源组，然后选择“删除”  。 确认资源组名称，以完成资源删除。
 
 ## <a name="next-steps"></a>后续步骤
 

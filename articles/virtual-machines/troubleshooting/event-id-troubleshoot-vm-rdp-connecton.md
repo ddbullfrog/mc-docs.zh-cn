@@ -2,9 +2,7 @@
 title: 按事件 ID 排查 Azure VM RDP 连接问题 | Azure
 description: 使用事件 ID 排查阻止远程桌面协议 (RDP) 连接到 Azure 虚拟机 (VM) 的各种问题。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: troubleshooting
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7e4017d97850bf4046c79c1d58726934c7385a89
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: d8b549c884781e793012597c60060e6e140314be
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456861"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105957"
 ---
 <!--Verify part successfully-->
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>按事件 ID 排查 Azure VM RDP 连接问题 

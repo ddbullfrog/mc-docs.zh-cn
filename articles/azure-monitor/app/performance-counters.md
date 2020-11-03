@@ -4,18 +4,19 @@ description: 监视 Application Insights 中的系统和自定义的 .NET 性能
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 12/13/2018
-ms.date: 07/17/2020
+ms.date: 10/29/2020
+ms.custom: devx-track-csharp
 ms.author: v-johya
-ms.openlocfilehash: e217161cb028b4e790fbc4ba02bf535cf083f069
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 81d54bb2c690404d82cbef9ecf6ac2cdd950c4ad
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244564"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106321"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights 中的系统性能计数器
 
-Windows 提供了各种[性能计数器](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters)，例如 CPU 占用、内存、磁盘和网络使用情况。 你还可以定义自己的性能计数器。 只要应用程序在你具有管理权限的本地主机或虚拟机上的 IIS 下运行，就支持性能计数器集合。 虽然作为 Azure Web 应用运行的应用程序无法直接访问性能计数器，但 Application Insights 仍会收集一部分可用的计数器。
+Windows 提供了各种[性能计数器](https://docs.microsoft.com/windows/desktop/perfctrs/about-performance-counters)，例如 CPU 占用、内存、磁盘和网络使用情况。 你还可以定义自己的性能计数器。 只要应用程序在你具有管理权限的本地主机或虚拟机上的 IIS 下运行，就支持性能计数器集合。 虽然作为 Azure Web 应用运行的应用程序无法直接访问性能计数器，但 Application Insights 仍会收集一部分可用的计数器。
 
 ## <a name="view-counters"></a>查看计数器
 
@@ -43,7 +44,7 @@ Windows 提供了各种[性能计数器](https://docs.microsoft.com/windows/desk
 
     `Get-Counter -ListSet *`
 
-    （请参阅 [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx)。）
+    （请参阅 [`Get-Counter`](https://docs.microsoft.com/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1)。）
 2. 打开 ApplicationInsights.config。
 
    * 如果在开发期间已将 Application Insights 添加到了应用，请在项目中编辑 ApplicationInsights.config，然后将它重新部署到服务器。
@@ -112,8 +113,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>分析中的性能计数器
-可以在[分析](../../azure-monitor/log-query/log-query-overview.md)中搜索并显示性能计数器报告。
-<!-- Correct on link: azure-monitor/log-query/log-query-overview.md -->
+可以在[分析](../log-query/log-query-overview.md)中搜索并显示性能计数器报告。
 
 **PerformanceCounters** 架构公开每个性能计数器的 `category`、`counter` 名称和 `instance` 名称。  在每个应用程序的遥测中，将仅看到该应用程序的计数器。 例如，若要查看哪些计数器可用： 
 
@@ -125,7 +125,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 
 ![Application Insights 分析中的内存时间图表](./media/performance-counters/analytics-available-memory.png)
 
-与其他遥测一样，**performanceCounters** 同样也具有列 `cloud_RoleInstance`，指示正在其上运行应用的主机服务器实例的标识。 例如，若要应用在不同计算机上的性能： 
+与其他遥测一样， **performanceCounters** 同样也具有列 `cloud_RoleInstance`，指示正在其上运行应用的主机服务器实例的标识。 例如，若要应用在不同计算机上的性能： 
 
 ![Application Insights 分析中按角色实例分段的性能](./media/performance-counters/analytics-metrics-role-instance.png)
 
@@ -133,9 +133,9 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 
 *异常率和异常指标之间的区别是什么？*
 
-* *异常率*是系统性能计数器。 CLR 会对所有引发的已处理和未经处理异常进行计数，并将总采样间隔除以间隔长度。 Application Insights SDK 会收集此结果，并将其发送到门户。
+* *异常率* 是系统性能计数器。 CLR 会对所有引发的已处理和未经处理异常进行计数，并将总采样间隔除以间隔长度。 Application Insights SDK 会收集此结果，并将其发送到门户。
 
-* *异常*是在图表的采样间隔内门户所接收的 TrackException 报告的计数。 它仅包括已将 TrackException 调用写入代码的已处理异常，并不包括所有[未经处理的异常](../../azure-monitor/app/asp-net-exceptions.md)。 
+* *异常* 是在图表的采样间隔内门户所接收的 TrackException 报告的计数。 它仅包括已将 TrackException 调用写入代码的已处理异常，并不包括所有[未经处理的异常](./asp-net-exceptions.md)。 
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>在 Azure Web 应用运行的应用程序的性能计数器
 
@@ -148,14 +148,14 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 * 如果应用程序在 Azure Web 应用 (Windows) 中运行，[SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.4.1 及更高版本将收集性能计数器。
 * 如果应用程序在 Windows 中运行且面向的是 `NETSTANDARD2.0` 或更高版本，则 SDK 版本 2.7.1 及更高版本将收集性能计数器。
 * 对于面向 .NET Framework 的应用程序，所有版本的 SDK 都支持性能计数器。
-* SDK 2.8.0 及更高版本在 Linux 中支持 cpu/memory 计数器， 但不在 Linux 中支持其他计数器。 在 Linux（及其他非 Windows 环境）中，建议使用 [EventCounters](eventcounters.md) 来获取系统计数器
+* SDK 2.8.0 及更高版本在 Linux 中支持 cpu/memory 计数器， 但不在 Linux 中支持其他计数器。 在 Linux（和其他非 Windows 环境）中，获取系统计数器的建议方法是使用 [EventCounter](eventcounters.md)
 
 ## <a name="alerts"></a>警报
-与其他指标一样，可以[设置警报](../../azure-monitor/platform/alerts-log.md)以便在性能计数器超出指定的限制时收到警报。 打开“警报”窗格，并单击“添加警报”。
+与其他指标一样，可以[设置警报](../platform/alerts-log.md)以便在性能计数器超出指定的限制时收到警报。 打开“警报”窗格，并单击“添加警报”。
 
-<a name="next"></a>
-## <a name="next-steps"></a>后续步骤
-* [依赖关系跟踪](../../azure-monitor/app/asp-net-dependencies.md)
-* [异常跟踪](../../azure-monitor/app/asp-net-exceptions.md)
+## <a name="next-steps"></a><a name="next"></a>后续步骤
+
+* [依赖关系跟踪](./asp-net-dependencies.md)
+* [异常跟踪](./asp-net-exceptions.md)
 
 

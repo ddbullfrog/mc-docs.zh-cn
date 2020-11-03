@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 array_index_of()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 01/22/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 4b5cfdf9594edba4bb1ddd0784b5d1308e04a024
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 59e3bc70dd51ff2015a700c575a40440df66f611
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516110"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106170"
 ---
 # <a name="array_index_of"></a>array_index_of()
 
@@ -22,12 +22,12 @@ ms.locfileid: "88516110"
 
 ## <a name="syntax"></a>语法
 
-`array_index_of(`*array*,*value*`)`
+`array_index_of(`*array* , *value*`)`
 
 ## <a name="arguments"></a>参数
 
-* *array*：输入要搜索的数组。
-* *value*：要搜索的值。 此值的类型应为长型、整数型、双精度型、日期/时间型、时间范围型、十进制型、字符串型或 guid。
+* *array* ：输入要搜索的数组。
+* *value* ：要搜索的值。 此值的类型应为长型、整数型、双精度型、日期/时间型、时间范围型、十进制型、字符串型或 guid。
 
 ## <a name="returns"></a>返回
 
@@ -46,6 +46,6 @@ print arr=dynamic(["this", "is", "an", "example"])
 |---|
 |3|
 
-**另请参阅**
+## <a name="see-also"></a>另请参阅
 
 如果仅希望检查数组中是否存在某个值，但对其位置不感兴趣，可以使用 [set_has_element(`arr`, `value`)](sethaselementfunction.md)。 此函数将提高查询的可读性。 这两个函数具有相同的性能。

@@ -8,12 +8,12 @@ origin.date: 06/08/2020
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 056ea2c282ce9091e69da1bf90150dbc117a3399
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 2f5731157de6798e9c61a929ed73a0010401d1fa
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170648"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106116"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure 应用服务混合连接
 
@@ -228,6 +228,5 @@ Commands:
 <!--Links-->
 [HCService]: https://docs.azure.cn/service-bus-relay/relay-hybrid-connections-protocol/
 [portal]: https://portal.azure.cn/
-[oldhc]: https://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
 [sbpricing]: https://www.azure.cn/pricing/details/service-bus/
 [armclient]: https://github.com/projectkudu/ARMClient/

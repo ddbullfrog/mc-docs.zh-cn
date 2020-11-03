@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的位（二进制）运
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 07/31/2020
-ms.openlocfilehash: 1f4ac90cc886b54151d5562a422c568a841da712
-ms.sourcegitcommit: 4e1bc2e9b2a12dbcc05c52db5dbd1ae290aeb18d
+ms.date: 10/29/2020
+ms.openlocfilehash: 6d92f12f5c0cd51da58f70af50fe6ef551fe22e5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87509223"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106046"
 ---
 # <a name="bitwise-binary-operators"></a>位（二进制）运算符
 

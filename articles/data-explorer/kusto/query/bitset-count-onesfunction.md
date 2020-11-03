@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 bitset_count_ones()�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/22/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 08a976c609829f01a4468b4af051e1abcfbd2325
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 788bfd31f6011659a93090c514e5119102e9b05c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515739"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106045"
 ---
 # <a name="bitset_count_ones"></a>bitset_count_ones()
 
@@ -26,11 +26,11 @@ bitset_count_ones(42)
 
 ## <a name="syntax"></a>语法
 
-`bitset_count_ones(`*num1*``)`
+`bitset_count_ones(`*num1* ``)`
 
 ## <a name="arguments"></a>参数
 
-* *num1*：长整型或整数。
+* *num1* ：长整型或整数。
 
 ## <a name="returns"></a>返回
 

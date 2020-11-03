@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 array_split()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/28/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: 94161cae969ddcd833854f429de9de941a45eee1
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 636a0e2ff725242b8e834e71192cb5582522e3d6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515782"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106167"
 ---
 # <a name="array_split"></a>array_split()
 

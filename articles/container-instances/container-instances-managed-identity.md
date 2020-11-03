@@ -2,15 +2,16 @@
 title: 在容器组中启用托管标识
 description: 了解如何在 Azure 容器实例中启用可使用其他 Azure 服务进行身份验证的托管标识
 ms.topic: article
-origin.date: 04/15/2020
-ms.date: 06/08/2020
+origin.date: 07/02/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 720abc14ffd1bf35e02fa90becc805e597bd6b6f
-ms.sourcegitcommit: c4fc01b7451951ef7a9616fca494e1baf29db714
+ms.openlocfilehash: d4d651b9869a08a025538b022411aee21db2a6ae
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84564358"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106319"
 ---
 <!--Verified succssfully based on 06/08/2020-->
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>如何将托管标识与 Azure 容器实例结合使用
@@ -27,10 +28,7 @@ ms.locfileid: "84564358"
 调整示例，以启用并使用 Azure 容器实例中的标识来访问其他 Azure 服务。 这些示例是交互式的。 但实际上，容器映像将运行代码来访问 Azure 服务。
 
 > [!IMPORTANT]
-> 此功能目前以预览版提供。 需同意[补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)才可使用预览版。 在正式版 (GA) 推出之前，此功能的某些方面可能会有所更改。 目前，仅 Linux 容器支持 Azure 容器实例上的托管标识。
->  
-
-<!--Not Available on  and not yet with Windows containers-->
+> 此功能目前处于预览状态。 需同意[补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)才可使用预览版。 在正式版 (GA) 推出之前，此功能的某些方面可能会有所更改。 目前，仅 Linux 容器支持 Azure 容器实例的托管标识，而 Windows 容器尚不支持。
 
 ## <a name="why-use-a-managed-identity"></a>为什么使用托管标识？
 
@@ -53,19 +51,19 @@ Azure 容器实例支持以下两种类型的 Azure 托管标识：用户分配�
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.49 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.49 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="create-an-azure-key-vault"></a>创建 Azure Key Vault
 
 本文中示例使用 Azure 容器实例中的托管标识来访问 Azure Key Vault 机密。 
 
-首先，使用以下 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令在 chinaeast2 位置中创建一个名为“myResourceGroup”的资源组：
+首先，使用以下 [az group create](https://docs.azure.cn/cli/group#az_group_create) 命令在 chinaeast2 位置中创建一个名为“myResourceGroup”的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast2
 ```
 
-使用 [az keyvault create](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create) 命令创建 Key Vault。 请务必指定唯一的 Key Vault 名称。 
+使用 [az keyvault create](https://docs.azure.cn/cli/keyvault#az_keyvault_create) 命令创建 Key Vault。 请务必指定唯一的 Key Vault 名称。 
 
 ```azurecli
 az keyvault create \
@@ -74,7 +72,7 @@ az keyvault create \
   --location chinaeast2
 ```
 
-使用 [az keyvault secret set](https://docs.azure.cn/cli/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) 命令在 Key Vault 中存储实例机密：
+使用 [az keyvault secret set](https://docs.azure.cn/cli/keyvault/secret#az_keyvault_secret_set) 命令在 Key Vault 中存储实例机密：
 
 ```azurecli
 az keyvault secret set \
@@ -89,7 +87,7 @@ az keyvault secret set \
 
 ### <a name="create-an-identity"></a>创建标识
 
-首先使用 [az identity create](https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create) 命令在订阅中创建标识。 可以使用用于创建 Key Vault 的相同资源组，也可以使用不同的资源组。
+首先使用 [az identity create](https://docs.microsoft.com/cli/azure/identity#az_identity_create) 命令在订阅中创建标识。 可以使用用于创建 Key Vault 的相同资源组，也可以使用不同的资源组。
 
 ```azurecli
 az identity create \
@@ -97,7 +95,7 @@ az identity create \
   --name myACIId
 ```
 
-若要在以下步骤中使用标识，请使用 [az identity show](https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-show) 命令在变量中存储标识的服务主体 ID 和资源 ID。
+若要在以下步骤中使用标识，请使用 [az identity show](https://docs.microsoft.com/cli/azure/identity#az_identity_show) 命令在变量中存储标识的服务主体 ID 和资源 ID。
 
 ```azurecli
 # Get service principal ID of the user-assigned identity
@@ -115,7 +113,7 @@ resourceID=$(az identity show \
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>授予用户分配的标识对 Key Vault 的访问权限
 
-运行以下 [az keyvault set-policy](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令来设置对 Key Vault 的访问策略。 以下示例允许用户分配的标识从 Key Vault 中获取机密：
+运行以下 [az keyvault set-policy](https://docs.azure.cn/cli/keyvault#az_keyvault_set_policy) 命令来设置对 Key Vault 的访问策略。 以下示例允许用户分配的标识从 Key Vault 中获取机密：
 
 ```azurecli
  az keyvault set-policy \
@@ -127,7 +125,7 @@ resourceID=$(az identity show \
 
 ### <a name="enable-user-assigned-identity-on-a-container-group"></a>在容器组中启用用户分配的标识
 
-运行以下 [az container create](https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create) 命令基于 Azure 的 `azure-cli` 映像创建容器实例。 此示例提供了单一容器组，可用于以交互方式运行 Azure CLI 以访问其他 Azure 服务。 在本部分中，只使用基本操作系统。 有关在容器中使用 Azure CLI 的示例，请参阅[在容器组中启用系统分配的标识](#enable-system-assigned-identity-on-a-container-group)。 
+运行以下 [az container create](https://docs.microsoft.com/cli/azure/container#az_container_create) 命令基于 Azure 的 `azure-cli` 映像创建容器实例。 此示例提供了单一容器组，可用于以交互方式运行 Azure CLI 以访问其他 Azure 服务。 在本部分中，只使用基本操作系统。 有关在容器中使用 Azure CLI 的示例，请参阅[在容器组中启用系统分配的标识](#enable-system-assigned-identity-on-a-container-group)。 
 
 `--assign-identity` 参数将用户分配的托管标识传递到组。 长时间运行命令将使容器保持运行状态。 此示例使用用于创建 Key Vault 的相同资源组，但可以指定不同的资源组。
 
@@ -140,7 +138,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-在几秒钟内，你应当会从 Azure CLI 收到响应，它指出部署已完成。 使用 [az container show](https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show) 命令检查它的状态。
+在几秒钟内，你应当会从 Azure CLI 收到响应，它指出部署已完成。 使用 [az container show](https://docs.microsoft.com/cli/azure/container#az_container_show) 命令检查它的状态。
 
 ```azurecli
 az container show \
@@ -213,7 +211,7 @@ curl https://mykeyvault.vault.azure.cn/secrets/SampleSecret/?api-version=2016-10
 <a name="enable-system-assigned-identity-on-a-container-group"></a>
 ### <a name="enable-system-assigned-identity-on-a-container-group"></a>在容器组中启用系统分配的标识
 
-运行以下 [az container create](https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create) 命令基于 Azure 的 `azure-cli` 映像创建容器实例。 此示例提供了单一容器组，可用于以交互方式运行 Azure CLI 以访问其他 Azure 服务。 
+运行以下 [az container create](https://docs.microsoft.com/cli/azure/container#az_container_create) 命令基于 Azure 的 `azure-cli` 映像创建容器实例。 此示例提供了单一容器组，可用于以交互方式运行 Azure CLI 以访问其他 Azure 服务。 
 
 没有任何附加值的 `--assign-identity` 参数在组上启用系统分配的托管标识。 标识的范围限定为容器组的资源组。 长时间运行命令将使容器保持运行状态。 此示例使用用于创建密钥保管库的相同资源组，该资源组在此标识的范围内。
 
@@ -230,7 +228,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-在几秒钟内，你应当会从 Azure CLI 收到响应，它指出部署已完成。 使用 [az container show](https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show) 命令检查它的状态。
+在几秒钟内，你应当会从 Azure CLI 收到响应，它指出部署已完成。 使用 [az container show](https://docs.microsoft.com/cli/azure/container#az_container_show) 命令检查它的状态。
 
 ```azurecli
 az container show \
@@ -262,7 +260,7 @@ spID=$(az container show \
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>授予容器组对 Key Vault 的访问权限
 
-运行以下 [az keyvault set-policy](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令来设置对 Key Vault 的访问策略。 以下示例允许系统托管标识从 Key Vault 中获取机密：
+运行以下 [az keyvault set-policy](https://docs.azure.cn/cli/keyvault#az_keyvault_set_policy) 命令来设置对 Key Vault 的访问策略。 以下示例允许系统托管标识从 Key Vault 中获取机密：
 
 ```azurecli
  az keyvault set-policy \
@@ -402,7 +400,7 @@ identity:
 > * 授予标识对 Azure Key Vault 的访问权限
 > * 使用托管标识从正在运行的容器访问 Key Vault
 
-* 详细了解 [Azure 资源的托管标识](/active-directory/managed-identities-azure-resources/)。
+* 详细了解 [Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/index.yml)。
 
 <!--Not Available on  [Azure Go SDK example](https://medium.com/@samkreter/c98911206328)-->
 

@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 parse_path()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: 51775a777473b7ce9dacc8b13ce7f667c3785f83
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: c60a1880b4b3360ab6bd84aff667e2ffe24f213c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841347"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106145"
 ---
 # <a name="parse_path"></a>parse_path()
 
@@ -33,19 +33,19 @@ ms.locfileid: "87841347"
 * 长路径。 例如，“\\?\C:...”
 * 备用数据流。 例如，“file1.exe:file2.exe”
 
-**语法**
+## <a name="syntax"></a>语法
 
 `parse_path(`*path*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *path*：一个表示文件路径的字符串。
+* *path* ：一个表示文件路径的字符串。
 
-**返回**
+## <a name="returns"></a>返回
 
 包含上面列出的路径组件的 `dynamic` 类型的对象。
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

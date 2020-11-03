@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 assert()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/26/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 31fb5a6b95930cf92f2e36677354c8db9ddb718b
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: a87338c730cd0e5303845b58b01f2e318bedd74e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515781"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106309"
 ---
 # <a name="assert"></a>assert()
 
@@ -26,8 +26,8 @@ ms.locfileid: "88515781"
 
 ## <a name="arguments"></a>参数
 
-* *condition*：要计算的条件表达式。 如果条件为 `false`，则使用指定的消息报告错误。 如果条件为 `true`，它将返回 `true` 作为计算结果。 在查询分析阶段，条件的计算结果必须为常量。
-* *message*：断言计算结果为 `false` 时使用的消息。 message 必须是字符串字文本。
+* *condition* ：要计算的条件表达式。 如果条件为 `false`，则使用指定的消息报告错误。 如果条件为 `true`，它将返回 `true` 作为计算结果。 在查询分析阶段，条件的计算结果必须为常量。
+* *message* ：断言计算结果为 `false` 时使用的消息。 message 必须是字符串字文本。
 
 > [!NOTE]
 > 在查询分析阶段，`condition` 的计算结果必须为常量。 换句话说，可以从引用常量的其他表达式进行构造它，而不能将其绑定到行上下文。

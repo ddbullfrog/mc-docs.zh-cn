@@ -2,22 +2,22 @@
 title: 使用 Azure Application Insights 的安全检测包
 description: 使用 Azure Application Insights 和智能检测监视应用程序，以发现潜在的安全问题。
 ms.topic: conceptual
-author: lingliw
+author: Johnnytechn
 origin.date: 12/12/2017
-ms.date: 08/22/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 0d09e2665723296b235edf5c1d2a24af89aefcf0
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/29/2020
+ms.author: v-johya
+ms.openlocfilehash: 566b92cf777d5bb56d20a9d759dfd7044720f4af
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850390"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106355"
 ---
 # <a name="application-security-detection-pack-preview"></a>应用程序安全检测包（预览版）
 
 Application Insights 会自动分析应用程序生成的遥测数据并检测潜在的安全问题。 此功能使得你能够识别潜在的安全问题，并通过修复应用程序或采取必要的安全措施来处理这些问题。
 
-除了[配置应用来发送遥测数据](/azure-monitor/app/usage-overview)之外，此功能不要求进行特殊设置。
+除了[配置应用来发送遥测数据](./usage-overview.md)之外，此功能不要求进行特殊设置。
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>何时会收到此类型的智能检测通知？
 检测到的安全问题分三种类型：
@@ -42,7 +42,4 @@ Application Insights 会自动分析应用程序生成的遥测数据并检测�
 1. **会审。** 该通知提供表现出可疑行为的不同用户的数量。 这可以帮助你对问题分配优先级。
 2. **划分范围。** 可疑请求是从哪些国家/地区发起的？ 哪个用户最为可疑？ 可以从通知中获取此信息。
 3. **诊断。** 该检测提供可疑用户的列表以及每个用户的国家/地区列表，以帮助你进一步诊断问题。
-
-
-
 

@@ -4,35 +4,35 @@ description: 本文介绍 Azure 数据资源管理器中的 series_subtract()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: f4839a99a9d1620d6cd4d621b8d0a3a1f53402e0
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: fbdedf2a5b94b77dd3676bee3959241cd918712b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841170"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105988"
 ---
 # <a name="series_subtract"></a>series_subtract()
 
 计算两个数值序列输入的元素对应减法。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `series_subtract(`*series1*`,` *series2*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * series1、series2：输入数值数组，从第一个数组按元素减去第二个数组得到一个动态数组结果。 所有参数都必须是动态数组。 
 
-**返回**
+## <a name="returns"></a>返回
 
 在两个输入之间进行按元素减法运算计算出的动态数组。 任何非数值元素或非现有元素（不同大小的数组）都会生成 `null` 元素值。
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

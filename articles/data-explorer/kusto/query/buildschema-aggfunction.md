@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 buildschema()（聚�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 09/24/2020
-ms.openlocfilehash: b0cf8350939f508b86b69bc2ec949c2d295a4f33
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: d9e9f8dd241bc0042e37f4827b514dec4925d91f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146762"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106043"
 ---
 # <a name="buildschema-aggregation-function"></a>Buildschema()（聚合函数）
 
@@ -28,7 +28,7 @@ summarize `buildschema(`*DynamicExpr*`)`
 
 ## <a name="arguments"></a>参数
 
-* *DynamicExpr*：用于聚合计算的表达式。 参数列类型必须为 `dynamic`。 
+* *DynamicExpr* ：用于聚合计算的表达式。 参数列类型必须为 `dynamic`。 
 
 ## <a name="returns"></a>返回
 
@@ -45,12 +45,9 @@ summarize `buildschema(`*DynamicExpr*`)`
 
 假定输入列具有三个动态值。
 
-||
-|---|
-|`{"x":1, "y":3.5}`|
-|`{"x":"somevalue", "z":[1, 2, 3]}`|
-|`{"y":{"w":"zzz"}, "t":["aa", "bb"], "z":["foo"]}`|
-||
+* `{"x":1, "y":3.5}`
+* `{"x":"somevalue", "z":[1, 2, 3]}`
+* `{"y":{"w":"zzz"}, "t":["aa", "bb"], "z":["foo"]}`
 
 生成的架构可能为：
 

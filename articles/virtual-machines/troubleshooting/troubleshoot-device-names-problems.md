@@ -2,10 +2,7 @@
 title: 排查 Azure 中的 Linux VM 设备名称更改问题 | Azure
 description: 说明 Linux VM 设备名更改的原因以及解决此问题的方法。
 services: virtual-machines-linux
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: virtual-machines-linux
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -17,12 +14,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0ff678907e16cd10c0cb0ae7041f41dccc38ae4b
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 78418066a486c1162376a913be6e1ba51ec0449c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456791"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106325"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>排查 Linux VM 设备名更改问题
 

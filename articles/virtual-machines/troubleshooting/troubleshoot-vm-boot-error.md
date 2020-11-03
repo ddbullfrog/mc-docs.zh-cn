@@ -2,9 +2,7 @@
 title: Linux VM 启动到 Grub 救援
 description: 虚拟机因进入救援控制台而无法启动
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +14,12 @@ ms.date: 10/26/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 14d106469501f8ccb4318704bedb3161a82d4530
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: 0de7f54520c9c08f86b9865052430766d4984ca1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211853"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106021"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Linux VM 启动到 Grub 救援
 

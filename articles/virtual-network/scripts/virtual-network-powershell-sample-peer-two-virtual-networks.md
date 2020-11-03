@@ -1,8 +1,27 @@
 ---
-title:将两个虚拟网络对等互连 - Azure PowerShell 脚本示例 description:在同一区域中创建并连接两个虚拟网络。 使用两个对等虚拟网络的 Azure 脚本通过 Azure 网络来连接网络。
-services: virtual-network documentationcenter: virtual-network manager: mtillman ms.service: virtual-network ms.devlang: powershell ms.topic: sample ms.tgt_pltfrm: ms.workload： infrastructure origin.date:03/20/2018 author: rockboyfor ms.date:10/05/2020 ms.testscope: yes ms.testdate:08/10/2020 ms.author: v-yeche ms.custom: devx-track-azurepowershell
+title: 对等互连两个虚拟网络 - Azure PowerShell 脚本示例
+description: 在同一区域中创建并连接两个虚拟网络。 使用两个对等虚拟网络的 Azure 脚本通过 Azure 网络来连接网络。
+services: virtual-network
+documentationcenter: virtual-network
+manager: mtillman
+ms.service: virtual-network
+ms.devlang: powershell
+ms.topic: sample
+ms.workload: infrastructure
+origin.date: 03/20/2018
+author: rockboyfor
+ms.date: 11/02/2020
+ms.testscope: yes
+ms.testdate: 08/10/2020
+ms.author: v-yeche
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 47f5d267e98b136d634b172450c48fbe56e26fd7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106056"
 ---
-
 # <a name="peer-two-virtual-networks-script-sample"></a>将两个虚拟网络脚本示例对等互连
 
 此脚本示例通过 Azure 网络在同一区域创建并连接两个虚拟网络。 运行脚本后，会在两个虚拟网络之间创建对等互连。

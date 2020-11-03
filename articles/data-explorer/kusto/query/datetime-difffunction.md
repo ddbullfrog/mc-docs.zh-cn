@@ -4,27 +4,27 @@ description: 本文介绍 Azure 数据资源管理器中的 datetime_diff()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 932dc2dfae09db2224dd080ca9b03720d43086bc
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: f2e6867b95ea27b3bb82913e3182cff33f956bb0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841774"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106339"
 ---
 # <a name="datetime_diff"></a>datetime_diff()
 
 计算两个 [datetime](./scalar-data-types/datetime.md) 值在日历上的差距。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `datetime_diff(`*period*`,`*datetime_1*`,`*datetime_2*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * `period`: `string`. 
 * `datetime_1`：[datetime](./scalar-data-types/datetime.md) 值。
@@ -43,11 +43,11 @@ period 的可能值：
 - Microsecond
 - Nanosecond
 
-**返回**
+## <a name="returns"></a>返回
 
 一个整数，表示减法结果中 `periods` 的量 (`datetime_1` - `datetime_2`)。
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 print
@@ -67,3 +67,6 @@ nanosecond = datetime_diff('nanosecond',datetime(2017-10-30 23:00:00.0000000),da
 |year|quarter|月份|week|day|hour|minute|第 2 个|毫秒|微秒|纳秒|
 |---|---|---|---|---|---|---|---|---|---|---|
 |17|2|13|5|29|2|5|10|100|100|-700|
+
+
+

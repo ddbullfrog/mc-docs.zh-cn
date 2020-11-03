@@ -2,9 +2,7 @@
 title: 在 Azure 中排查 Windows VM 部署问题 | Azure
 description: 排查在 Azure 中创建新 Windows 虚拟机时遇到的 Resource Manager 部署问题
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: gwallace
-editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
@@ -18,12 +16,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bd79c5ec3d33541de74c0cd11623cf5638aa5fa
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 9562369527d3e877ac151761c5d62ddaf2bf9528
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456800"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106329"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>排查在 Azure 中新建 Windows VM 时遇到的部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -50,9 +48,9 @@ ms.locfileid: "89456800"
 
 **上载错误：**
 
-**N<sup>1</sup>：** 如果 OS 是通用的 Windows，但是以专用设置上载的，则会发生预配超时错误，并且 VM 会卡在 OOBE 屏幕上。
+**N <sup>1</sup>：** 如果 OS 是通用的 Windows，但是以专用设置上载的，则会发生预配超时错误，并且 VM 会卡在 OOBE 屏幕上。
 
-**N<sup>2</sup>：** 如果 OS 是专用的 Windows，但是以通用设置上传的，则会发生预配失败错误，并且 VM 会卡在 OOBE 屏幕上，因为新 VM 是以原始计算机名称、用户名和密码运行的。
+**N <sup>2</sup>：** 如果 OS 是专用的 Windows，但是以通用设置上传的，则会发生预配失败错误，并且 VM 会卡在 OOBE 屏幕上，因为新 VM 是以原始计算机名称、用户名和密码运行的。
 
 **解决方法**
 
@@ -60,9 +58,9 @@ ms.locfileid: "89456800"
 
 **捕获错误：**
 
-**N<sup>3</sup>：** 如果 OS 是通用的 Windows，但是以专用设置捕获的，则会发生预配超时错误，因为标记为通用的原始 VM 不可用。
+**N <sup>3</sup>：** 如果 OS 是通用的 Windows，但是以专用设置捕获的，则会发生预配超时错误，因为标记为通用的原始 VM 不可用。
 
-**N<sup>4</sup>：** 如果 OS 是专用的 Windows，但是以专用设置捕获的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。 此外，标记为专用的原始 VM 不可用。
+**N <sup>4</sup>：** 如果 OS 是专用的 Windows，但是以专用设置捕获的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。 此外，标记为专用的原始 VM 不可用。
 
 **解决方法**
 

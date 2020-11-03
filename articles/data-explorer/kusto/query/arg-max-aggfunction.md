@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 arg_max()（聚合�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: 7bf6b054eb21c7d8d1ff2f2f366116c984a30157
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 207dfcadb8d69a27b15bc8fa5310b9fbc908e2ed
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515787"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106153"
 ---
 # <a name="arg_max-aggregation-function"></a>arg_max()（聚合函数）
 

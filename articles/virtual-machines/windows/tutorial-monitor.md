@@ -13,12 +13,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6cf88f5397801176cf57f4460388209bb1242468
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 82d50f9f942b717817901c98dc80099d57ffdad1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463171"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105782"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>教程：监视 Azure 中的 Windows 虚拟机
 
@@ -97,7 +97,7 @@ Windows VM 在 Azure 中有一个与它交互的专用主机 VM。 系统会自�
 
 2. 在 VM 边栏选项卡上单击“警报规则”，然后单击警报边栏选项卡顶部的“添加指标警报”。
 
-3. 为警报提供**名称**，例如 *myAlertRule*
+3. 为警报提供 **名称** ，例如 *myAlertRule*
 
 4. 若要在 CPU 百分比持续 5 分钟超过 1.0 时触发警报，请选中其他所有默认值。
 

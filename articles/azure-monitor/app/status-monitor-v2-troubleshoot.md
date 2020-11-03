@@ -4,20 +4,19 @@ description: Application Insights 代理和故障排除已知问题的示例。 
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 04/23/2019
-ms.date: 05/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 3cb53e8233a55e575dfe44aeed855838fbf90915
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.date: 10/29/2020
+ms.openlocfilehash: 6e225b58ee3f694da8436c9046d02a98691686ad
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199339"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106173"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 代理（以前称为状态监视器 v2）故障排除
 
 启用监视时，可能会遇到阻止数据收集的问题。
 本文列出了所有已知问题，并提供了故障排除示例。
-如果遇到此处未列出的问题，可以通过 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues) 联系我们。
 
 ## <a name="known-issues"></a>已知问题
 
@@ -57,7 +56,7 @@ ms.locfileid: "84199339"
 ### <a name="conflict-with-iis-shared-configuration"></a>与 IIS 共享配置冲突
 
 如果拥有 Web 服务器群集，则可能会使用[共享配置](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)。
-HttpModule 无法注入到此共享配置中。
+HttpModule 无法注入此共享配置。
 在每个 Web 服务器上运行 Enable 命令，以将 DLL 安装到每个服务器的 GAC 中。
 
 在运行 Enable 命令后，请完成以下步骤：
@@ -73,16 +72,14 @@ HttpModule 无法注入到此共享配置中。
 ### <a name="iis-nested-applications"></a>IIS 嵌套应用程序
 
 在 1.0 版中，我们不在 IIS 中检测嵌套应用程序。
-我们正在[此处](https://github.com/microsoft/ApplicationInsights-Home/issues/369)跟踪此问题。
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>高级 SDK 配置不可用。
 
 在 1.0 版中，SDK 配置不向最终用户公开。
-我们正在[此处](https://github.com/microsoft/ApplicationInsights-Home/issues/375)跟踪此问题。
 
     
     
-## <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>疑难解答
     
 ### <a name="troubleshooting-powershell"></a>PowerShell 故障排除
 
@@ -123,7 +120,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ### <a name="troubleshooting-running-processes"></a>对正在运行的进程进行故障排除
 
 可以检查已检测的计算机上的进程，以确定是否加载了所有 DLL。
-如果监视功能在正常工作，则至少有 12 个 DLL 应加载。
+如果监视正常工作，则至少应加载 12 个 DLL。
 
 使用 `Get-ApplicationInsightsMonitoringStatus -InspectProcess` 命令来检查 DLL。
 
@@ -136,12 +133,12 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 
 1. 从 [GitHub](https://github.com/Microsoft/perfview/releases) 下载 PerfView.exe 和 PerfView64.exe。
 2. 启动 PerfView64.exe。
-3. 展开“高级选项”  。
+3. 展开“高级选项”。
 4. 清除这些复选框：
     - **Zip**
     - **合并**
     - **.NET 符号集合**
-5. 设置以下“其他提供程序”  ：`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. 设置以下“其他提供程序”：`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### <a name="collecting-logs"></a>收集日志
@@ -157,5 +154,4 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ## <a name="next-steps"></a>后续步骤
 
 - 请查看 [API 参考](status-monitor-v2-overview.md#powershell-api-reference)，以了解你可能错过的参数。
-- 如果遇到此处未列出的问题，可以通过 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues) 联系我们。
 

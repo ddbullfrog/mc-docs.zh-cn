@@ -3,20 +3,20 @@ title: 适用于请求遥测的数据模型 - Azure Application Insights
 description: 适用于请求遥测的 Application Insights 数据模型
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 07/17/2020
+ms.date: 10/29/2020
 origin.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: v-johya
-ms.openlocfilehash: d7218aee1c137d5de4b26ab1d6c2e0275bad3d71
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 3d66c917e2972d8cf0acd560e2cdeb57ded485b2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244825"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106110"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>请求遥测：Application Insights 数据模型
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的请求遥测项表示由应用程序的外部请求触发的执行的逻辑序列。 每个请求执行由包含所有执行参数的唯一 `ID` 和 `url` 标识。 可以按逻辑 `name` 将请求分组，并定义此请求的 `source`。 代码执行的结果可能是 `success` 或 `fail`，并且具有特定的 `duration`。 可以进一步根据 `resultCode` 将成功和失败的执行分组。 请求遥测的开始时间在信封级别定义。
+[Application Insights](./app-insights-overview.md) 中的请求遥测项表示由应用程序的外部请求触发的执行的逻辑序列。 每个请求执行由包含所有执行参数的唯一 `ID` 和 `url` 标识。 可以按逻辑 `name` 将请求分组，并定义此请求的 `source`。 代码执行的结果可能是 `success` 或 `fail`，并且具有特定的 `duration`。 可以进一步根据 `resultCode` 将成功和失败的执行分组。 请求遥测的开始时间在信封级别定义。
 
 请求遥测使用自定义的 `properties` 和 `measurements` 支持标准可扩展性模型。
 
@@ -30,7 +30,7 @@ ms.locfileid: "87244825"
 
 ## <a name="id"></a>ID
 
-请求调用实例的标识符。 用于在请求与其他遥测项之间建立关联。 ID 应该全局唯一。 有关详细信息，请参阅[关联](../../azure-monitor/app/correlation.md)页。
+请求调用实例的标识符。 用于在请求与其他遥测项之间建立关联。 ID 应该全局唯一。 有关详细信息，请参阅[关联](./correlation.md)页。
 
 最大长度：128 个字符
 
@@ -42,7 +42,7 @@ ms.locfileid: "87244825"
 
 ## <a name="source"></a>源
 
-请求的源。 示例包括调用方的检测密钥或调用方的 IP 地址。 有关详细信息，请参阅[关联](../../azure-monitor/app/correlation.md)页。
+请求的源。 示例包括调用方的检测密钥或调用方的 IP 地址。 有关详细信息，请参阅[关联](./correlation.md)页。
 
 最大长度：1024 个字符
 
@@ -76,8 +76,9 @@ ms.locfileid: "87244825"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [编写自定义请求遥测](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- [编写自定义请求遥测](./api-custom-events-metrics.md#trackrequest)
 - 有关 Application Insights 的类型和数据模型，请参阅[数据模型](data-model.md)。
-- 了解如何使用 Application Insights [配置 ASP.NET Core](../../azure-monitor/app/asp-net.md) 应用程序。
-- 查看 Application Insights 支持的[平台](../../azure-monitor/app/platforms.md)。
+- 了解如何使用 Application Insights [配置 ASP.NET Core](./asp-net.md) 应用程序。
+- 查看 Application Insights 支持的[平台](./platforms.md)。
+
 

@@ -3,9 +3,7 @@ title: Windows 启动管理器错误 - 0xC0000428 状态无效的映像哈希
 titlesuffix: Azure Virtual Machines
 description: 本文提供了用于解决以下问题的步骤：使用预览版映像且试用期已过期，这会阻止启动 Azure 虚拟机 (VM)。
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 26c411f9-6c22-4f45-a445-c5781e547828
 ms.service: virtual-machines-windows
@@ -14,16 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 09/03/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3106598eb924998fed2be3b7e23839b7d7450832
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 1a297e301d4a2cb319f8f28254b8324780f42a11
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128751"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106322"
 ---
 <!--Verfied Successfully-->
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Windows 启动管理器错误 - 0xC0000428 状态无效的映像哈希
@@ -32,7 +30,7 @@ ms.locfileid: "92128751"
 
 ## <a name="symptom"></a>症状
 
-使用[启动诊断](/virtual-machines/troubleshooting/boot-diagnostics)查看 VM 的屏幕截图时，你将看到屏幕截图显示 Windows 引导管理器，并显示以下消息：
+使用[启动诊断](./boot-diagnostics.md)查看 VM 的屏幕截图时，你将看到屏幕截图显示 Windows 引导管理器，并显示以下消息：
 
   `File: \windows\system32\boot\winload.exe`
 
@@ -70,7 +68,7 @@ ms.locfileid: "92128751"
 
 ## <a name="solution"></a>解决方案
 
-如果你的映像是预览版映像，则无法延长所使用的映像的有效期，你需要使用非预览版映像[部署新的 VM](/virtual-machines/windows/quick-create-portal)。 以下步骤将帮助你确定是否使用了预览版映像，并提供资源来帮助你将数据从相应 VM 传输到新的 VM。 如果确实已将映像标识为预览版映像，则该映像将不可恢复，因为它现在已过期。
+如果你的映像是预览版映像，则无法延长所使用的映像的有效期，你需要使用非预览版映像[部署新的 VM](../windows/quick-create-portal.md)。 以下步骤将帮助你确定是否使用了预览版映像，并提供资源来帮助你将数据从相应 VM 传输到新的 VM。 如果确实已将映像标识为预览版映像，则该映像将不可恢复，因为它现在已过期。
 
 根据你的喜好，你可以使用 Azure PowerShell 或 Azure CLI 查询映像，以确定它是否为预览版映像。 可以使用这些命令来确认映像为预览版映像。
 
@@ -129,5 +127,4 @@ ms.locfileid: "92128751"
     az vm image list  --location "China North" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" --sku "2016-Datacenter"
     ```
 
-<!-- Update_Description: new article about windows boot error invalid image hash -->
-<!--NEW.date: 10/19/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

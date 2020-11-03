@@ -2,10 +2,8 @@
 title: Azure VM 在将安全策略应用于系统时没有响应
 description: 本文提供了一些步骤来解决在将安全策略应用于 Azure VM 中的系统时，VM 没有响应且加载屏幕卡住的问题。
 services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-resource-manager
 ms.assetid: a97393c3-351d-4324-867d-9329e31b5629
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 07/27/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: efb46cba983e93432442fb596de4a72a5259430f
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: f858d521bf9f0dc2225459a87b1f8f27dd2e5e42
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87254850"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106209"
 ---
 # <a name="azure-vm-is-unresponsive-while-applying-security-policy-to-the-system"></a>Azure VM 在将安全策略应用于系统时没有响应
 
@@ -36,7 +34,7 @@ ms.locfileid: "87254850"
 
 :::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy.png" alt-text="Windows Server 2012 R2 启动屏幕卡住的屏幕截图。":::
 
-:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="操作系统启动屏幕卡住的屏幕截图。":::
+:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Windows Server 2012 R2 启动屏幕卡住的屏幕截图。":::
 
 ## <a name="cause"></a>原因
 

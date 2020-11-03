@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 01/22/2020
-ms.date: 07/31/2020
-ms.openlocfilehash: 0c3458df4a714b0421c4ae9b29e17b1247d9893f
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: c4c902d79eea123420cbc4342ca039c2af149fa5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146730"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106199"
 ---
 # <a name="external-tables"></a>外部表
 
@@ -23,7 +23,7 @@ ms.locfileid: "91146730"
 与[表](tables.md)类似，外部表具有明确定义的架构（列名称和数据类型对的已排序列表）。 与表不同，数据是在群集外部进行存储和管理的。 大多数情况下，数据以某些标准格式（例如 CSV、Parquet、Avro）存储，而不是由 Azure 数据资源管理器引入。
 
 外部表只创建一次。 请参阅以下命令创建外部表：
-* [外部表常规控制命令](../../management/external-sql-tables.md)
+* [外部表常规控制命令](../../management/external-table-commands.md)
 * [创建和更改外部 SQL 表](../../management/external-sql-tables.md)
 * [在 Azure 存储或 Azure Data Lake 中创建和更改表](../../management/external-tables-azurestorage-azuredatalake.md)
 

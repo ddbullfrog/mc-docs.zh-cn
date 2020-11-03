@@ -2,9 +2,7 @@
 title: 对 Azure 虚拟机启动错误进行故障排除 | Azure
 description: 本文提供的链接指向关于对 Azure 虚拟机启动错误进行故障排除的文章。
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: a2b4fb13465f00aa7a068ec38483fc0d6989168f
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 30bd8c0864d46ec418995f2345f98c2623735f5d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456870"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106022"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>对 Azure 虚拟机启动错误进行故障排除
 

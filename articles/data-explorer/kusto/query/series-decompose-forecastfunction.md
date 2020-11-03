@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 series_decompose_
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/26/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 1395d0e2b72f41ce999c1f3535e873f98842923e
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 4db314087344fe7bf57e887de9beb6f34552e180
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841169"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106188"
 ---
 # <a name="series_decompose_forecast"></a>series_decompose_forecast()
 
@@ -22,11 +22,11 @@ ms.locfileid: "87841169"
 
 采用包含某个序列（动态数值数组）的表达式作为输入，并预测最后的尾随点的值。 有关详细信息，请参阅 [series_decompose](series-decomposefunction.md)。
  
-**语法**
+## <a name="syntax"></a>语法
 
 `series_decompose_forecast(`*Series* `,` *Points* `[,` *Seasonality*`,` *Trend*`,` *Seasonality_threshold*`])`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Series：数值的动态数组单元。 通常是 [make-series](make-seriesoperator.md) 或 [make_list](makelist-aggfunction.md) 运算符生成的输出。
 * Points：一个整数，指定要预测的序列末端的点数。 这些点将从学习（回归）过程中排除。
@@ -48,7 +48,7 @@ ms.locfileid: "87841169"
 > * 原始输入序列的动态数组应当包含许多要预测的点槽。 预测通常是通过使用 [make-series](make-seriesoperator.md) 并在包含要预测的时间范围的范围内指定结束时间来完成的。
 > * 应当启用周期性或趋势，否则该函数将是冗余的，只返回用零填充的序列。
 
-**示例**
+## <a name="example"></a>示例
 
 在下面的示例中，我们将以小时粒度生成包含四周的一个序列，它具有每周周期性和小幅上升趋势。 然后，我们使用 `make-series` 并向序列中添加另一个空周。 `series_decompose_forecast` 按周（24*7 个点）调用，自动检测周期性和趋势，并生成整个五周期间的预测。
 

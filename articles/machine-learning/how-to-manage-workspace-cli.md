@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/28/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 1821ef16cec81193be8cde8012d4bc9503381f6b
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.custom: how-to
+ms.openlocfilehash: 5596dedc8e78aac19879d3027f3ac8d66c63afbc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118259"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105796"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>使用 Azure CLI 创建 Azure 机器学习工作区
 
@@ -24,7 +24,7 @@ ms.locfileid: "92118259"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://www.azure.cn/pricing/1rmb-trial)。
+* 一个 **Azure 订阅** 。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://www.azure.cn/pricing/1rmb-trial)。
 
 * 若要从本地环境使用本文档中的 CLI 命令，需要使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。
 
@@ -145,7 +145,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 > [!IMPORTANT]
 > 无需指定所有现有资源。 可以指定一个或多个资源。 例如，可以指定某个现有存储帐户，工作区会创建其他资源。
 
-+ **Azure 存储帐户**：`az storage account show --name <storage-account-name> --query "id"`
++ **Azure 存储帐户** ：`az storage account show --name <storage-account-name> --query "id"`
 
     此命令的响应类似于以下文本，它是存储帐户的 ID：
 
@@ -154,7 +154,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
     > [!IMPORTANT]
     > 若要使用现有 Azure 存储帐户，则该帐户不能是高级帐户（Premium_LRS 和 Premium_GRS）。 它也不能具有分层命名空间（与 Azure Data Lake Storage Gen2 一起使用）。 工作区的默认存储帐户不支持高级存储和分层命名空间。 可以将高级存储或分层命名空间用于非默认存储帐户。
 
-+ **Azure Application Insights**：
++ **Azure Application Insights** ：
 
     1. 安装 Application Insights 扩展：
 
@@ -172,13 +172,13 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure 密钥保管库**：`az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure 密钥保管库** ：`az keyvault show --name <key-vault-name> --query "ID"`
 
     此命令的响应类似于以下文本，它是密钥保管库的 ID：
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure 容器注册表**：`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure 容器注册表** ：`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     此命令的响应类似于以下文本，它是容器注册表的 ID：
 

@@ -8,21 +8,21 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 01/28/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 3af529b6f1b9cd0af605dcb952896e9c4635a9e6
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: d05712c939a3b58a53d256ad616dfae0a8035488
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146300"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105914"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>使用 Azure 数据资源管理器（预览版）查询 Azure Monitor 中的数据
 
 Azure 数据资源管理器代理群集（ADX 代理）是一个实体，可用于在 [Azure Monitor](/azure-monitor/) 服务中的 Azure 数据资源管理器、[Application Insights (AI)](/azure-monitor/app/app-insights-overview) 和 [Log Analytics (LA)](/azure-monitor/platform/data-platform-logs) 之间执行跨产品查询。 可将 Azure Monitor Log Analytics 工作区或 Application Insights 应用映射为代理群集。 然后，可以使用 Azure 数据资源管理器工具查询代理群集，并在跨群集查询中引用该群集。 本文介绍如何连接到代理群集、将代理群集添加到 Azure 数据资源管理器 Web UI，然后从 Azure 数据资源管理器针对 AI 应用或 LA 工作区运行查询。
 
-Azure 数据资源管理器代理流： 
+Azure 数据资源管理器代理流：
 
-![ADX 代理流](media/adx-proxy/adx-proxy-flow.png)
+![ADX 代理流](media/adx-proxy/adx-proxy-workflow.png)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -119,7 +119,7 @@ Azure 数据资源管理器代理群集支持 Application Insights 和 Log Analy
 
 |语法说明  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| 仅包含此订阅中所定义资源的群集中的数据库（**建议用于跨群集查询**） |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
+| 仅包含此订阅中所定义资源的群集中的数据库（ **建议用于跨群集查询** ） |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
 | 包含此订阅中所有应用/工作区的群集    |     cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
 |包含订阅中所有应用/工作区且属于此资源组的群集    |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
 |仅包含此订阅中定义的资源的群集      |    cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |

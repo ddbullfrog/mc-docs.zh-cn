@@ -10,12 +10,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: dd9919b775531c5561bdd37be6684455f540d5c2
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 299dd1a5b5bbb1a821ce497db58c538e984e12d1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463074"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106288"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>用于创建和管理 Azure 虚拟机的常用 PowerShell 命令
 
@@ -33,7 +33,7 @@ ms.locfileid: "89463074"
 
 | 任务 | 命令 |
 | ---- | ------- |
-| 创建简单的 VM | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) -Name $myVM <br /><br /> New-AzVM 有一组*简化的*参数，其中只有名称是必需的。 -Name 的值将用作创建新 VM 所需的所有资源的名称。 你可以指定更多，但只需要这个。|
+| 创建简单的 VM | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) -Name $myVM <br /><br /> New-AzVM 有一组 *简化的* 参数，其中只有名称是必需的。 -Name 的值将用作创建新 VM 所需的所有资源的名称。 你可以指定更多，但只需要这个。|
 | 从自定义映像创建 VM | New-AzVm -ResourceGroupName $myResourceGroup -Name $myVM ImageName "myImage" -Location $location  <br /><br />需要已创建自己的[托管映像](capture-image-resource.md)。 可以使用一个映像生成多个相同的 VM。 |
 
 ## <a name="create-a-vm-configuration"></a>创建 VM 配置

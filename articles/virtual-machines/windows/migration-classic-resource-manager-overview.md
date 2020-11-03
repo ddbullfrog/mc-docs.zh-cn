@@ -11,12 +11,12 @@ ms.date: 09/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 39d8bd9f76e99a86dcc4b79a84b0296da16b2942
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: c7d5c50a2806a12a2a86209465bb634e435a16b6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463187"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105860"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-windows"></a>Windows 中平台支持的从经典部署模型到 Azure 资源管理器的 IaaS 资源迁移
 

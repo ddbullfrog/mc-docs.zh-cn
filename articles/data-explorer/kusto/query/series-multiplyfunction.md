@@ -4,35 +4,35 @@ description: 本文介绍 Azure 数据资源管理器中的 series_multiply()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: 44790921d8907eda23ac9606156b4057ccc2fece
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: ad48dd6bb620b8a91c2af3d9ceeb9a120683a4b3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841233"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105989"
 ---
 # <a name="series_multiply"></a>series_multiply()
 
 计算两个数值序列输入的元素对应乘法。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `series_multiply(`series1`,` series2`)` 
 
-**参数**
+## <a name="arguments"></a>参数
 
 * series1, series2：输入数值数组，按对应元素相乘获得动态数组结果。 所有参数都必须是动态数组。 
 
-**返回**
+## <a name="returns"></a>返回
 
 两个输入之间的元素对应乘法运算的计算结果的动态数组。 任何非数值元素或非现有元素（不同大小的数组）都会生成 `null` 元素值。
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

@@ -2,25 +2,23 @@
 title: Azure 中的常见 VM 错误代码 | Azure
 description: 了解在 Azure 中预配和管理虚拟机时遇到的一些常见错误代码
 services: virtual-machines
-documentationcenter: ''
 manager: gwallace
-editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure
 origin.date: 05/22/2017
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 25bdf6f98a76ce14366cb8fb20461040e74fcc6b
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: c3cb1431b5240f1f5f28f0d5f1554b4a296cf7fd
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456869"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105955"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>了解在 Azure 中管理虚拟机时遇到的常见错误消息
 

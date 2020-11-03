@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/12/2019
 ms.date: 07/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: c5f82f7947008832221d820d2f45c42c56f926fb
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: 1f66076091eaef615831c469dd8d7d0e306de0fd
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85945710"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106299"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>有关在 Azure 中防御推理执行旁道漏洞的指南
 

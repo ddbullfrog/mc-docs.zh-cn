@@ -2,28 +2,28 @@
 title: 教程 - 使用 Azure 虚拟 WAN 创建 ExpressRoute 连接
 description: 在本教程中，你将了解如何使用 Azure 虚拟 WAN 创建与 Azure 和本地环境的 ExpressRoute 连接。
 services: virtual-wan
-author: rockboyfor
 ms.service: virtual-wan
 ms.topic: tutorial
-origin.date: 02/13/2019
-ms.date: 04/03/2020
+author: rockboyfor
+ms.date: 11/02/2020
+ms.testscope: yes
+ms.testdate: 11/02/2020
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: a1d89fa3307dbe6bccdd456290827c028d34596b
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.openlocfilehash: 5643c6c97c456e87eb2de8ed7eda9f14bc2a59e2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093470"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106118"
 ---
-<!--RELEASE BEFORE CONFIRMATION-->
-<!--NOT SUPPORT the ExpressRoute Global Reach on China?-->
-<!--IMPORTANT ISSUE-->
+<!--Verified Successfully-->
+<!--ExpressRoute Now Available on Azure China-->
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>教程：使用 Azure 虚拟 WAN 创建 ExpressRoute 关联
 
 本教程演示如何使用虚拟 WAN 通过 ExpressRoute 线路来连接到 Azure 中的资源。 有关虚拟 WAN 和 虚拟 WAN 资源的详细信息，请参阅[虚拟 WAN 概述](virtual-wan-about.md)。
 
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建虚拟 WAN
@@ -34,9 +34,9 @@ ms.locfileid: "82093470"
 > * 更改网关大小
 > * 播发默认路由
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="prerequisites"></a>先决条件
 
-在开始配置之前，请验证是否符合以下条件：
+在开始配置之前，请验证你是否符合以下条件：
 
 * 你拥有一个要连接到的虚拟网络。 确认本地网络的任何子网都不会与要连接到的虚拟网络重叠。 要在 Azure 门户中创建虚拟网络，请参阅[快速入门](../virtual-network/quick-create-portal.md)。
 
@@ -44,9 +44,9 @@ ms.locfileid: "82093470"
 
 * 获取中心区域的 IP 地址范围。 该中心是虚拟 WAN 创建和使用的虚拟网络。 为中心指定的地址范围不能与要连接到的任何现有虚拟网络重叠。 此外，它也不能与本地连接到的地址范围重叠。 如果不熟悉本地网络配置中的 IP 地址范围，则咨询能够提供此类详细信息的人员。
 
-* ExpressRoute 线路必须是高级线路，才能连接到中心网关。
+* ExpressRoute 线路必须是高级版或标准版线路才能连接到中心网关。
 
-* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/)。
 
 <a name="openvwan"></a>
 ## <a name="create-a-virtual-wan"></a>创建虚拟 WAN
@@ -57,7 +57,7 @@ ms.locfileid: "82093470"
 2. 从结果中选择“虚拟 WAN”  。 在“虚拟 WAN”页上，单击“创建”以打开“创建 WAN”页  。
 3. 在“创建 WAN”页的“基本信息”选项卡上，填写以下字段   ：
 
-    ![创建 WAN](./media/virtual-wan-expressroute-portal/createwan.png)
+    :::image type="content" source="./media/virtual-wan-expressroute-portal/createwan.png" alt-text="创建 WAN":::
 
     * **订阅** - 选择要使用的订阅。
     * **资源组** - 新建资源组或使用现有的资源组。
@@ -82,7 +82,7 @@ ExpressRoute 网关以 2 Gbps 为单位进行预配。 1 个缩放单元= 2 Gbps
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
 
 <a name="existinghub"></a>
-### <a name="to-create-a-gateway-in-an-existing-hub"></a>在现有的中心内创建网关
+### <a name="to-create-a-gateway-in-an-existing-hub"></a>在现有中心中创建网关
 
 还可以通过编辑现有中心，在现有中心创建网关。
 
@@ -115,7 +115,7 @@ ExpressRoute 网关以 2 Gbps 为单位进行预配。 1 个缩放单元= 2 Gbps
 <a name="connectcircuit"></a>
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a>将线路连接到中心网关
 
-创建网关后，就可以将 [ExpressRoute 线路](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)连接到该网关。 ExpressRoute Global Reach 支持的位置中的 ExpressRoute 高级版线路可以连接到虚拟 WAN ExpressRoute 网关。
+创建网关后，就可以将 [ExpressRoute 线路](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)连接到该网关。 ExpressRoute Global Reach 支持的位置中的 ExpressRoute 标准版/高级版线路可以连接到虚拟 WAN ExpressRoute 网关，并具有所有虚拟 WAN 传输功能（VPN 到 VPN、VPN 和 ExpressRoute 传输）。 非 Global Reach 位置中的 ExpressRoute 标准版/高级版线路可以连接到 Azure 资源，但无法使用虚拟 WAN 传输功能。 只要连接到虚拟 WAN 中心的分支 VNET 与虚拟 WAN 中心位于同一区域，Azure 虚拟 WAN 中心就支持 ExpressRoute Local。
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>将线路连接到中心网关
 
@@ -133,7 +133,7 @@ ExpressRoute 网关以 2 Gbps 为单位进行预配。 1 个缩放单元= 2 Gbps
 
 1. 在 ExpressRoute 页面上，单击“+ 兑换授权密钥” 
 
-    ![兑换](./media/virtual-wan-expressroute-portal/redeem.png "兑换")
+    ![屏幕截图显示一个虚拟中心的 ExpressRoute，其中已选择“兑换授权密钥”。](./media/virtual-wan-expressroute-portal/redeem.png "兑换")
 2. 在“兑换授权密钥”页上，填写值。
 
     ![兑换密钥值](./media/virtual-wan-expressroute-portal/redeemkey2.png "兑换密钥值")
@@ -164,11 +164,20 @@ ExpressRoute 网关以 2 Gbps 为单位进行预配。 1 个缩放单元= 2 Gbps
 
     ![传播默认路由](./media/virtual-wan-expressroute-portal/defaultroute2.png "传播默认路由")
 
+<a name="cleanup"></a>
+## <a name="clean-up-resources"></a>清理资源
+
+如果不再需要这些资源，可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 删除资源组及其包含的所有资源。 将“myResourceGroup”替换为资源组的名称，并运行以下 PowerShell 命令：
+
+```powershell
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解虚拟 WAN，请参阅[虚拟 WAN 概述](virtual-wan-about.md)页。
+接下来，若要详细了解虚拟 WAN，请参阅：
 
-<!--DRELEASE BEFORE CONFIRMATION-->
-<!--NOT SUPPORT the ExpressRoute Global Reach on China-->
-<!--Update_Description: new articles on virtual wan expressroute portal -->
-<!--ms.date: 07/01/2019-->
+> [!div class="nextstepaction"]
+> * [虚拟 WAN 常见问题解答](virtual-wan-faq.md)
+
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -13,12 +13,12 @@ ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8ca06e606b0220fdc59dacf89cceebc9f75d702d
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: ffafa5a3a4dbe44c19494a531b794ecead3431ce
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462828"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106128"
 ---
 <!--Verified successfully-->
 # <a name="create-a-vm-using-a-specialized-image-version-with-the-azure-cli"></a>使用 Azure CLI 通过专用化映像版本创建 VM

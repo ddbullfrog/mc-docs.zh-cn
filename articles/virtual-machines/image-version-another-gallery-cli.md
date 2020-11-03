@@ -12,12 +12,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
-ms.openlocfilehash: 6e496e3580b08fcaf0ea8266304b1f957c8b8eaf
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 5f5f89fadf7d78be71b84cf62b24c02d8ca89372
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052391"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105962"
 ---
 <!--Verified successfully-->
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>使用 Azure CLI 复制另一个库中的映像
@@ -132,11 +132,11 @@ az sig image-definition create \
 
 使用 [az image gallery create-image-version](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-image-version-create) 创建版本。 你需要传入托管映像的 ID 以作为创建映像版本时要使用的基线。 可以使用 [az image list](https://docs.azure.cn/cli/image?view?view=azure-cli-latest#az-image-list) 获取资源组中的映像的相关信息。 
 
-允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式：*MajorVersion*.*MinorVersion*.*Patch*。
+允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式： *MajorVersion* . *MinorVersion* . *Patch* 。
 
 <!--CORRECT ON locally-redundant storage -->
 
-在此示例中，映像的版本为 *1.0.0*，我们将使用本地冗余存储在“中国东部”区域创建 1 个副本，在“中国东部 2”区域创建 1 个副本。 
+在此示例中，映像的版本为 *1.0.0* ，我们将使用本地冗余存储在“中国东部”区域创建 1 个副本，在“中国东部 2”区域创建 1 个副本。 
 
 <!--CORRECT ON "chinaeast=1" "chinaeast2=1=standard_lrs"-->
 

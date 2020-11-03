@@ -8,30 +8,33 @@ metadata:
   ms.service: cognitive-services
   ms.topic: hub-page
   author: nitinme
-  ms.author: v-tawe
+  ms.author: v-johya
   manager: nitinme
-  origin.date: 03/24/2020
-  ms.date: 07/01/2020
-  ms.openlocfilehash: 742f323e0f3f482cb49e72d192877514c1100e8e
-  ms.sourcegitcommit: 4f84bba7e509a321b6f68a2da475027c539b8fd3
+  ms.custom: custom-portals-hub
+  ms.date: 10/27/2020
+  ms.openlocfilehash: cfde19624b4ba3d0be0e3cef549dd7064716e882
+  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/01/2020
-  ms.locfileid: "85796204"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93106054"
 highlightedContent:
   items:
   - title: 什么是认知服务？
     itemType: overview
     url: ./welcome.md
-  - title: 认知服务中的语言支持
+  - title: 语言支持
     itemType: reference
     url: ./language-support.md
-  - title: 创建认知服务资源
+  - title: 创建资源
     itemType: how-to-guide
     url: ./cognitive-services-apis-create-account.md
-  - title: 认知服务的自定义子域
-    itemType: how-to-guide
-    url: cognitive-services-custom-subdomains.md
+  - title: 在容器中使用
+    itemType: concept
+    url: ./cognitive-services-container-support.md
+  - title: 安全性
+    itemType: concept
+    url: cognitive-services-security.md
 conceptualContent:
   items:
   - title: 影像
@@ -54,7 +57,7 @@ conceptualContent:
       text: 文本分析
     - url: ./translator/index.yml
       itemType: overview
-      text: 文本翻译
+      text: 转换器
   - title: 语音
     summary: 将语音转换为文本，将文本转换为自然语音。 从一种语言翻译成另一种语言，并启用说话人验证和识别。
     links:
@@ -67,38 +70,46 @@ conceptualContent:
     - url: ./content-moderator/index.yml
       itemType: overview
       text: 内容审查器
-tools:
-  title: 软件开发工具包 (SDK)
-  summary: 以偏好的编程语言开始使用认知服务 SDK。
-  items:
-  - title: C#
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-    url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
-  - title: Go
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
-  - title: Java
-    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
-  - title: JavaScript
-    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
-  - title: Python
-    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-    url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
-  - title: R
-    imageSrc: https://docs.microsoft.com/media/logos/logo_R.svg
-    url: https://github.com/Azure/AzureCognitive
+  - title: 认知服务容器
+    summary: Azure 认知服务中的容器支持让开发人员能够使用与 Azure 中可用的 API 一样丰富的 API，并能够灵活地选择在何处部署和托管随 Docker 容器提供的服务。
+    links:
+    - url: ./cognitive-services-container-support.md
+      itemType: overview
+      text: 认知服务容器
+    - url: ./containers/azure-kubernetes-recipe.md
+      itemType: deploy
+      text: 部署到 Azure Kubernetes 服务
+    - url: ./containers/docker-compose-recipe.md
+      itemType: get-started
+      text: 使用 Docker Compose 部署多个容器
+    - url: ./containers/container-faq.md
+      itemType: reference
+      text: 认知服务容器常见问题解答
 additionalContent:
   sections:
-  - items:
-    - title: 其他资源
+  - title: 其他资源
+    items:
+    - title: 用于自定义的门户
+      links:
+      - text: 语言理解 (LUIS)
+        url: https://luis.ai
+    - title: SDK 和 REST API
+      links:
+      - text: C#
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+      - text: Java
+        url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+      - text: JavaScript
+        url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+      - text: Python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+      - text: R
+        url: https://github.com/Azure/AzureCognitive
+      - text: 认知服务管理 REST API
+        url: https://docs.microsoft.com/rest/api/cognitiveservices/
+    - title: 工具
       links:
       - text: Azure CLI
-        url: https://docs.azure.cn/cli/cognitiveservices?view=azure-cli-latest
+        url: /cli/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
         url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
-    - title: REST API
-      links:
-      - text: 认知服务管理
-        url: https://docs.microsoft.com/rest/api/cognitiveservices/

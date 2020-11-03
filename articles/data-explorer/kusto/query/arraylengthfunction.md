@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 array_length()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: cacec1860562f64b102239e8c1402ea008f8572f
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 7ae2ad9bdaf76cb2c1fca1ec6aedc718e467ff82
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516101"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106169"
 ---
 # <a name="array_length"></a>array_length()
 

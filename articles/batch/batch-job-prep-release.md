@@ -5,17 +5,17 @@ ms.topic: how-to
 ms.service: batch
 origin.date: 02/17/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 343505a534636ea8916d6fd83229a63f9d906e52
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: fe293146872bbc59f73814635ec2047b962348af
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146279"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106100"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>在 Batch 计算节点上运行作业准备和作业发布任务
 

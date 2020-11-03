@@ -2,9 +2,7 @@
 title: 在 Azure VM 上的来宾 OS 中启用或禁用防火墙规则 | Azure
 description: 了解如何使用联机或脱机远程工具或注册表设置在远程 Azure VM 上启用或禁用来宾 OS 防火墙规则。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: troubleshooting
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4d15797e72d91871e72dc0305e9eb5cb094d990b
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 78654c980196ba11ef8e49f143851dcdcf20d957
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456878"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106365"
 ---
 <!-- Verify part successfully-->
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>在 Azure VM 来宾 OS 中启用或禁用防火墙规则
@@ -83,21 +81,21 @@ ms.locfileid: "89456878"
 
 1. 在故障排除 VM 上启动注册表编辑器 (regedit.exe)，然后选择“文件” > “连接网络注册表”   。
 
-2. 打开 *TARGET MACHINE*\SYSTEM 分支，然后指定以下值：
+2. 打开 *TARGET MACHINE* \SYSTEM 分支，然后指定以下值：
 
     * 若要启用规则，请打开以下注册表值：
 
-        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *TARGET MACHINE* \SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        然后，将字符串中的 **Active=FALSE** 更改为 **Active=TRUE**：
+        然后，将字符串中的 **Active=FALSE** 更改为 **Active=TRUE** ：
 
         `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
     * 若要禁用规则，请打开以下注册表值：
 
-        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *TARGET MACHINE* \SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        然后，将 **Active=TRUE** 更改为 **Active=FALSE**：
+        然后，将 **Active=TRUE** 更改为 **Active=FALSE** ：
 
         `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
@@ -126,7 +124,7 @@ ms.locfileid: "89456878"
 7. 找到并打开 \windows\system32\config\SYSTEM 文件。 
 
     > [!Note]
-    > 系统会提示输入名称。 输入 **BROKENSYSTEM**，然后展开 **HKEY_LOCAL_MACHINE**。 现在，可以看到名为 **BROKENSYSTEM** 的附加项。 为了进行故障排除，我们将这些有问题的配置单元装载为 **BROKENSYSTEM**。
+    > 系统会提示输入名称。 输入 **BROKENSYSTEM** ，然后展开 **HKEY_LOCAL_MACHINE** 。 现在，可以看到名为 **BROKENSYSTEM** 的附加项。 为了进行故障排除，我们将这些有问题的配置单元装载为 **BROKENSYSTEM** 。
 
 8. 对 BROKENSYSTEM 分支进行以下更改：
 
@@ -136,7 +134,7 @@ ms.locfileid: "89456878"
 
         HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        然后，将 **Active=FALSE** 更改为 **Active=True**。
+        然后，将 **Active=FALSE** 更改为 **Active=True** 。
 
         `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
@@ -144,7 +142,7 @@ ms.locfileid: "89456878"
 
         HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        然后，将 **Active=True** 更改为 **Active=FALSE**。
+        然后，将 **Active=True** 更改为 **Active=FALSE** 。
 
         `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 

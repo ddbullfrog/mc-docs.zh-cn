@@ -7,13 +7,13 @@ ms.reviewer: abhishgu
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/10/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: ea5e3dae39f7215f8638177808b28c18586b8e29
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 9058f751ee519ea886063f68b7c34797043401be
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146734"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106053"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-go-sdk"></a>使用 Azure 数据资源管理器 Go SDK 引入数据 
 
@@ -22,6 +22,7 @@ ms.locfileid: "91146734"
 > * [Python](python-ingest-data.md)
 > * [Node](node-ingest-data.md)
 > * [Go](go-ingest-data.md)
+> * [Java](java-ingest-data.md)
 
 Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 它提供了一个用于与 Azure 数据资源管理器服务进行交互的 [Go SDK 客户端库](kusto/api/golang/kusto-golang-client-library.md)。 你可以使用 [Go SDK](https://github.com/Azure/azure-kusto-go) 在 Azure 数据资源管理器群集中引入、控制和查询数据。 
 
@@ -148,10 +149,10 @@ func ingestFile(kc *kusto.Client, blobStoreAccountName, blobStoreContainer, blob
 
     运行示例代码时，将执行以下操作：
     
-    1. **删除表**：删除 `StormEvents` 表（如果存在）。
-    1. **创建表**：创建 `StormEvents` 表。
-    1. **创建映射**：创建 `StormEvents_CSV_Mapping` 映射。
-    1. **引入文件**：一个 CSV 文件（在 Azure Blob 存储中）将排队等待引入。
+    1. **删除表** ：删除 `StormEvents` 表（如果存在）。
+    1. **创建表** ：创建 `StormEvents` 表。
+    1. **创建映射** ：创建 `StormEvents_CSV_Mapping` 映射。
+    1. **引入文件** ：一个 CSV 文件（在 Azure Blob 存储中）将排队等待引入。
 
 1. 若要创建用于身份验证的服务主体，请通过 Azure CLI 使用 [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 命令。 采用程序将使用的环境变量的形式设置服务主体信息，包括群集终结点和数据库名称：
 
@@ -177,7 +178,7 @@ func ingestFile(kc *kusto.Client, blobStoreAccountName, blobStoreContainer, blob
     Failed to drop StormEvents table. Maybe it does not exist?
     Table StormEvents created in DB testkustodb
     Mapping StormEvents_CSV_Mapping created
-    Ingested file from - https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D
+    Ingested file from - https://kustosamplefiles.blob.core.chinacloudapi.cn/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D
     ```
 
 ## <a name="validate-and-troubleshoot"></a>验证和故障排除

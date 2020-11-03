@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 ipv4_compare()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/24/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: f8a471f72f1366a78c06cadb697ef353a4522ef4
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 68c2e1230685f5459df8abd876997502afd7ba23
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516047"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106008"
 ---
 # <a name="ipv4_compare"></a>ipv4_compare()
 

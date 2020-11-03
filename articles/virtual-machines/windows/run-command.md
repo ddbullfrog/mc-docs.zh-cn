@@ -5,19 +5,19 @@ services: automation
 ms.service: virtual-machines
 origin.date: 04/26/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 07019c9538e19c0282744624df3cf519a51efeba
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 722d7f4742c25008d08362f590f04651b4406ac7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127953"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105831"
 ---
 <!--Verfiy succesfully-->
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>使用“运行命令”在 Windows VM 中运行 PowerShell 脚本
@@ -83,7 +83,21 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
     --scripts @script.ps1 --parameters "arg1=somefoo" "arg2=somebar"
 ```
 
-<!--Not Available on ## Azure portal on 10/19/2020-->
+## <a name="azure-portal"></a>Azure 门户
+
+转到 [Azure 门户](https://portal.azure.cn) 中的某个 VM，然后在“操作”下选择“运行命令”。  你将看到可以在 VM 上运行的可用命令的列表。
+
+:::image type="content" source="./media/run-command/run-command-list.png" alt-text="命令列表":::
+
+选择要运行的命令。 某些命令可能有可选或必需的输入参数。 对于这些命令，参数将呈现为文本字段，你可以在其中提供输入值。 对于每个命令，可以通过展开“查看脚本”来查看所运行的脚本。 RunPowerShellScript 不同于其他命令，因为它允许你提供自己的自定义脚本。
+
+> [!NOTE]
+> 内置命令不可编辑。
+
+选择命令之后，选择“运行”以运行脚本。 脚本完成之后，它会在输出窗口中返回输出和任何错误。 下面的屏幕截图显示了运行 **RDPSettings** 命令时的示例输出。
+
+:::image type="content" source="./media/run-command/run-command-script-output.png" alt-text="命令列表":::
+
 ## <a name="powershell"></a>PowerShell
 
 以下示例使用 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet 在 Azure VM 上运行 PowerShell 脚本。 该 cmdlet 需要 `-ScriptPath` 参数中引用的脚本位于运行该 cmdlet 的位置本地。

@@ -1,22 +1,23 @@
 ---
-title: 示例：使用大规模功能 - 人脸 API
+title: 示例：使用大规模功能 - 人脸
 titleSuffix: Azure Cognitive Services
-description: 使用人脸 API 中的大规模功能。
+description: 本指南是有关如何从现有 PersonGroup 和 FaceList 对象纵向扩展到 LargePersonGroup 和 LargeFaceList 对象的文章。
 services: cognitive-services
-author: SteveMSFT
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
 origin.date: 05/01/2019
-ms.date: 07/10/2019
-ms.author: v-junlch
-ms.openlocfilehash: f0706ae43ec18cf2ef375205b44bc5c9000cd922
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c982b51f31fd946abf0b8906acf8f3b8e7e6e0a2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "67844658"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106349"
 ---
 # <a name="example-use-the-large-scale-feature"></a>示例：使用大规模使用的功能
 
@@ -24,16 +25,16 @@ ms.locfileid: "67844658"
 
 LargePersonGroup 和 LargeFaceList 统称为大规模操作。 LargePersonGroup 最多可以包含 100 万个人，其中每个人最多有 248 张人脸。 LargeFaceList 最多可以包含 100 万张人脸。 大规模操作类似于传统的 PersonGroup 和 FaceList，但因采用新体系结构而有一些差异。 
 
-这些示例是使用 Azure 认知服务人脸 API 客户端库以 C# 编写的。
+这些示例是使用 Azure 认知服务人脸客户端库以 C# 编写的。
 
 > [!NOTE]
 > 为了在大规模的 Identification 和 FindSimilar 操作中提高人脸搜索的性能，我们引入了一个“训练”操作用于预处理 LargeFaceList 和 LargePersonGroup。 训练时间从几秒到约半小时不等，具体取决于实际容量。 如果以前的某个训练操作成功，则在训练期间，可以执行 Identification 和 FindSimilar。 缺点在于，在完成迁移到大规模训练的最新后处理前，新添加的人员和人脸不会出现在结果中。
 
 ## <a name="step-1-initialize-the-client-object"></a>步骤 1：初始化客户端对象
 
-使用人脸 API 客户端库时，订阅密钥和订阅终结点将通过 FaceClient 类的构造函数传入。 例如：
+使用人脸客户端库时，订阅密钥和订阅终结点将通过 FaceClient 类的构造函数传入。 例如：
 
-```CSharp
+```csharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
 string SubscriptionEndpoint = "https://api.cognitive.azure.cn";
@@ -44,7 +45,7 @@ faceClient.Endpoint = SubscriptionEndpoint
 ```
 
 若要获取订阅密钥及其相应的终结点，请从 Azure 门户转到 Azure 市场。
-
+有关详细信息，请参阅[订阅](https://www.azure.cn/home/features/cognitive-services/directory/vision/)。
 
 ## <a name="step-2-code-migration"></a>步骤 2：代码迁移
 
@@ -65,8 +66,8 @@ faceClient.Endpoint = SubscriptionEndpoint
 | FaceList API | LargeFaceList API |
 |:---:|:---:|
 | 创建 | 创建 |
-| Delete | Delete |
-| Get | Get |
+| 删除 | 删除 |
+| 获取 | 获取 |
 | 列出 | 列出 |
 | 更新 | 更新 |
 | - | 定型 |
@@ -74,7 +75,7 @@ faceClient.Endpoint = SubscriptionEndpoint
 
 上表对 FaceList 和 LargeFaceList 的列级操作进行了对比。 如表中所示，与 FaceList 相比，LargeFaceList 附带了新的操作（“训练”和“获取训练状态”）。 训练 LargeFaceList 是 [FindSimilar](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 操作的前提条件。 FaceList 不需要训练。 以下代码片段是一个用于等待训练 LargeFaceList 的帮助器函数：
 
-```CSharp
+```csharp
 /// <summary>
 /// Helper function to train LargeFaceList and wait for finish.
 /// </summary>
@@ -124,7 +125,7 @@ private static async Task TrainLargeFaceList(
 
 以前，添加了人脸的 FaceList 和 FindSimilar 的典型用法如下所示：
 
-```CSharp
+```csharp
 // Create a FaceList.
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
@@ -157,7 +158,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 
 将它迁移到 LargeFaceList 时，它会变成：
 
-```CSharp
+```csharp
 // Create a LargeFaceList.
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
@@ -234,7 +235,7 @@ LargePersonGroup 或 LargeFaceList 中的人员/人脸仅在训练后才可搜�
 
 假设存在类似于 `TrainLargeFaceList` 的 `TrainLargePersonGroup` 函数。 通过调用 `System.Timers` 中的 [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) 类，针对 LargePersonGroup 的独立训练的典型实现为：
 
-```CSharp
+```csharp
 private static void Main()
 {
     // Create a LargePersonGroup.
@@ -260,9 +261,9 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-有关数据管理和识别相关实现的详细信息，请参阅[添加人脸](how-to-add-faces.md)和[在图像中识别人脸](HowtoIdentifyFacesinImage.md)。
+若要详细了解数据管理以及与识别相关的实现，请参阅[添加人脸](how-to-add-faces.md)。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>总结
 
 本指南介绍了如何将现有 PersonGroup 或 FaceList 代码（不是数据）迁移到 LargePersonGroup 或 LargeFaceList：
 
@@ -271,9 +272,8 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 
 ## <a name="next-steps"></a>后续步骤
 
-请遵循操作指南了解如何将人脸添加到 PersonGroup，或针对 PersonGroup 执行“识别”操作。
+参照操作指南了解如何将人脸添加到 PersonGroup，或编写脚本以针对 PersonGroup 执行“识别”操作。
 
 - [添加人脸](how-to-add-faces.md)
-- [识别图像中的人脸](HowtoIdentifyFacesinImage.md)
+- [人脸客户端库快速入门](../Quickstarts/client-libraries.md)
 
-<!-- Update_Description: code update -->

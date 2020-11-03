@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 serialize 运算符�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 6e67bb405554449e7f223b1666c8a67bc3369c8c
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 018c6d51095bca266428e9ee62f4d5bac02c0832
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841171"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106189"
 ---
 # <a name="serialize-operator"></a>serialize 运算符
 
@@ -26,13 +26,13 @@ ms.locfileid: "87841171"
 T | serialize rn=row_number()
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 `serialize` [Name1 `=` Expr1 [`,` Name2 `=` Expr2]...]   
 
 * Name/Expr 对与 [extend 运算符](./extendoperator.md)中的对相似 。
 
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 Traces

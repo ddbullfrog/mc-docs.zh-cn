@@ -2,21 +2,20 @@
 title: 适用于指标遥测的数据模型 - Azure Application Insights
 description: 适用于指标遥测的 Application Insights 数据模型
 ms.topic: conceptual
-author: lingliw
+ms.date: 10/29/2020
 origin.date: 04/25/2017
-ms.date: 6/4/2019
 ms.reviewer: sergkanz
-ms.author: v-lingwu
-ms.openlocfilehash: 9e4c45dfa2725a586dcc6185baf70a9af0e79460
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.author: v-johya
+ms.openlocfilehash: 24a56b2eea830e3f1864205c06d215b037aba90b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850436"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106111"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>指标遥测：Application Insights 数据模型
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) 支持两种类型的指标遥测：单个度量和预聚合指标。 单个度量只是一个名称和值。 预聚合指标指定在聚合时间间隔内指标的最小和最大值，以及它的标准偏差。
+[Application Insights](./app-insights-overview.md) 支持两种类型的指标遥测：单个度量和预聚合指标。 单个度量只是一个名称和值。 预聚合指标指定在聚合时间间隔内指标的最小和最大值，以及它的标准偏差。
 
 预聚合指标遥测假定聚合期间为一分钟。
 
@@ -27,7 +26,7 @@ Application Insights 支持几个已知的指标名称。 这些指标已放入 
 | **.NET 名称**             | **与平台无关的名称** | **REST API 名称** | **说明**
 | ------------------------- | -------------------------- | ----------------- | ---------------- 
 | `\Processor(_Total)\% Processor Time` | 工作正在进行... | [processorCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessorCpuPercentage) | 总计算机 CPU 百分比
-| `\Memory\Available Bytes`                 | 工作正在进行... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | 显示可用于计算机上运行的进程的物理内存量（以字节为单位）。 通过对清零、可用和备用内存列表上的空间量进行求和来进行计算。 可用内存可供使用；清零内存包含填充了零的内存页，可防止后面的进程看到前面进程使用的数据；备用内存是指已从进程的工作集（其物理内存）中删除、在前往磁盘途中但仍可被重新调用的内存。 请参阅[内存对象](https://msdn.microsoft.com/library/ms804008.aspx)
+| `\Memory\Available Bytes`                 | 工作正在进行... | [memoryAvailableBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FmemoryAvailableBytes) | 显示可用于计算机上运行的进程的物理内存量（以字节为单位）。 通过对清零、可用和备用内存列表上的空间量进行求和来进行计算。 可用内存可供使用；清零内存包含填充了零的内存页，可防止后面的进程看到前面进程使用的数据；备用内存是指已从进程的工作集（其物理内存）中删除、在前往磁盘途中但仍可被重新调用的内存。 请参阅[内存对象](https://docs.microsoft.com/previous-versions/ms804008(v=msdn.10))
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | 工作正在进行... | [processCpuPercentage](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessCpuPercentage) | 托管应用程序的进程的 CPU 百分比
 | `\Process(??APP_WIN32_PROC??)\Private Bytes`      | 工作正在进行... | [processPrivateBytes](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessPrivateBytes) | 托管应用程序的进程所占用的内存量
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | 工作正在进行... | [processIOBytesPerSecond](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FprocessIOBytesPerSecond) | 托管应用程序的进程运行的 I/O 操作速率
@@ -68,10 +67,8 @@ Application Insights 支持几个已知的指标名称。 这些指标已放入 
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何使用[用于处理自定义事件和指标的 Application Insights API](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)。
+- 了解如何使用[用于处理自定义事件和指标的 Application Insights API](./api-custom-events-metrics.md#trackmetric)。
 - 有关 Application Insights 的类型和数据模型，请参阅[数据模型](data-model.md)。
-- 查看 Application Insights 支持的[平台](../../azure-monitor/app/platforms.md)。
-
-
+- 查看 Application Insights 支持的[平台](./platforms.md)。
 
 

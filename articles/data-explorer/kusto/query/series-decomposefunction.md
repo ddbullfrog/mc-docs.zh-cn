@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 series_decompose(
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/26/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: bfe68897a336b69d6158d245dc5f160c3f5890b1
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 1c5cc530802ef3840b1b5ed8296aa5384ce06caf
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146577"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106186"
 ---
 # <a name="series_decompose"></a>series_decompose()
 
@@ -105,7 +105,7 @@ ts
 | render timechart  
 ```
 
-:::image type="content" source="images/samples/series-decompose2.png" alt-text="序列分解 2":::
+:::image type="content" source="images/samples/series-decompose2.png" alt-text="序列分解 1":::
 
 接下来，我们重新运行同一示例。 由于我们预计序列中存在趋势，因此，我们在 trend 参数中指定 `linefit`。 我们可以看到，检测到了正的趋势，且基线更接近输入序列。 残差接近于零，只有离群值突出显示。可以在图表中看到序列上的所有组件。
 
@@ -122,4 +122,4 @@ ts
 | render timechart  
 ```
 
-:::image type="content" source="images/samples/series-decompose3.png" alt-text="序列分解 3":::
+:::image type="content" source="images/samples/series-decompose3.png" alt-text="序列分解 1":::

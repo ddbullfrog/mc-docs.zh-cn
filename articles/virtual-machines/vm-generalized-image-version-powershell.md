@@ -7,17 +7,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 05/04/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
-ms.openlocfilehash: 7c9f82a767450e4446fd47b01cb366d44593e125
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 383008cb49f94b74b7d9a480b9fa152feb20ef52
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127879"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106130"
 ---
 <!--Verified Successfully-->
 # <a name="create-a-vm-using-a-generalized-image"></a>使用通用化映像创建 VM 
@@ -26,7 +26,7 @@ ms.locfileid: "92127879"
 
 获得通用化映像版本后，可以创建一个或多个新 VM。 使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet。 
 
-在此示例中，我们使用映像定义 ID 来确保新 VM 会使用最新版本的映像。 也可通过将映像版本 ID 用作 `Set-AzVMSourceImage -Id` 来使用特定版本。 例如，若要使用映像版本 *1.0.0*，请键入：`Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`。 
+在此示例中，我们使用映像定义 ID 来确保新 VM 会使用最新版本的映像。 也可通过将映像版本 ID 用作 `Set-AzVMSourceImage -Id` 来使用特定版本。 例如，若要使用映像版本 *1.0.0* ，请键入：`Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`。 
 
 请注意，使用特定映像版本意味着：如果该特定映像版本由于已删除或已从区域中删除而无法使用，则自动化可能会失败。 建议使用映像定义 ID 来创建新的 VM（除非需要特定的映像版本）。
 
@@ -63,6 +63,7 @@ New-AzVM `
    -Location $location `
    -Name $vmName `
    -Image $imageDefinition.Id
+   -Credential $cred
 ```
 
 ## <a name="full-parameter-set"></a>完整参数集

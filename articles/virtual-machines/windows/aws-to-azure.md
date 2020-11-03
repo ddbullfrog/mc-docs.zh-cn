@@ -10,12 +10,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7cbc49ea08f65479a93db27fc44ea10f212d1573
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 14574fedd4195b23d3f893d4c460ec909a8c98a2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462876"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106123"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>将 Windows VM 从 Amazon Web Services (AWS) 移到 Azure 虚拟机
 
@@ -33,7 +33,7 @@ ms.locfileid: "89462876"
     * 使用 Sysprep 通用化虚拟机。  
 
 - **专用 VHD** - 专用 VHD 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 如果想要使用当前 VHD 创建新 VM，请确保完成以下步骤。  
-    * [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md)。 **不要**使用 Sysprep 通用化 VM。 
+    * [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md)。 **不要** 使用 Sysprep 通用化 VM。 
     * 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。 
     * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。  
 
@@ -61,7 +61,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
 
 现在，可将 VHD 上传到 Azure 并创建新的 VM。 
 
-- 如果导出之前在源上运行了 Sysprep 来将它**通用化**，请参阅[上传已通用化的 VHD 并在 Azure 中使用它来创建新的 VM](upload-generalized-managed.md)
-- 如果导出之前未运行 Sysprep，VHD 将被视为**已专用化**。请参阅[将已专用的 VHD 上传到 Azure 并创建新的 VM](create-vm-specialized.md)
+- 如果导出之前在源上运行了 Sysprep 来将它 **通用化** ，请参阅 [上传已通用化的 VHD 并在 Azure 中使用它来创建新的 VM](upload-generalized-managed.md)
+- 如果导出之前未运行 Sysprep，VHD 将被视为 **已专用化** 。请参阅 [将已专用的 VHD 上传到 Azure 并创建新的 VM](create-vm-specialized.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

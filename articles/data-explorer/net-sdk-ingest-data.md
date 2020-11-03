@@ -7,13 +7,13 @@ ms.reviewer: vladikb
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 07/07/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 6a16d4261cfbee355df0476c720cb869c9ce1131
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 371d47b91d75f3bd87bb85a1515e0ab2da36d873
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146305"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105803"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-sdk"></a>使用 Azure 数据资源管理器 .NET SDK 引入数据 
 
@@ -22,8 +22,9 @@ ms.locfileid: "91146305"
 > * [Python](python-ingest-data.md)
 > * [Node](node-ingest-data.md)
 > * [Go](go-ingest-data.md)
+> * [Java](java-ingest-data.md)
 
-Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 它为 .NET 提供了两个客户端库：[引入库](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest/)和[数据库](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data/)。 有关 .NET SDK 的详细信息，请参阅[关于 .NET SDK](/data-explorer/kusto/api/netfx/about-the-sdk)。
+Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 它为 .NET 提供了两个客户端库：[引入库](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest/)和[数据库](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data/)。 有关 .NET SDK 的详细信息，请参阅[关于 .NET SDK](./kusto/api/netfx/about-the-sdk.md)。
 可以使用这些库在群集中引入（加载）数据并从代码中查询数据。 本文首先在测试群集中创建一个表和数据映射。 然后将引入排列到群集并验证结果。
 
 ## <a name="prerequisites"></a>先决条件

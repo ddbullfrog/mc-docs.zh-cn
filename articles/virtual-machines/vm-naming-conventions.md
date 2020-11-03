@@ -11,12 +11,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: sttsinar
-ms.openlocfilehash: cedbaecc0cf73033866bb7ad810e2bf2fd6caca7
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 876dc7bd48fde8e7a7bf0054c4bc3c41c3d5ef2d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524039"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106129"
 ---
 <!--Verify Successfully-->
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Azure 虚拟机大小命名约定

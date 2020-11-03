@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的 Set 语句。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
+ms.date: 09/30/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 6f0a37bdd2d65eeb4ebcecdd7de641ef6d9cc317
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.openlocfilehash: dce9ac6e148384aa8303355c7e2e865467d378e2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841716"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106257"
 ---
 # <a name="set-statement"></a>Set 语句
 
@@ -29,11 +29,11 @@ ms.locfileid: "87841716"
   
 * 查询选项并不是 Kusto 语言的正式组成部分，可以修改它，且不会视为中断语言的更改。
 
-**语法**
+## <a name="syntax"></a>语法
 
-`set` *OptionName* [`=` *OptionValue*]
+`set` *OptionName* [`=` *OptionValue* ]
 
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 set querytrace;

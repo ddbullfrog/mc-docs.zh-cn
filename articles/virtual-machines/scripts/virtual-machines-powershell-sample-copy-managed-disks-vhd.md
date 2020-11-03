@@ -12,16 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/17/2018
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5de165160af1abbfb5856f9a50f22433f00139ad
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 31ec9d95bf08a2f8c0c4fbd5b140a5e9f1dfb8a0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470011"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105959"
 ---
 <!--Verified successfully from renamed articles-->
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-windows"></a>使用 PowerShell 将托管磁盘的 VHD 导出/复制到不同区域中的存储帐户 (Windows)

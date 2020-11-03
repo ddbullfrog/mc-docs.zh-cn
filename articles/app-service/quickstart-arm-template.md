@@ -9,12 +9,12 @@ origin.date: 10/16/2020
 ms.date: 10/19/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 1747a9c8156b66a92fbe79123163e780f2773445
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: ac841ee83ef5a291e5675c8cf64198707cfbe5df
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170843"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105936"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>快速入门：使用 ARM 模板创建应用服务应用
 
@@ -22,7 +22,7 @@ ms.locfileid: "92170843"
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮  。 Azure 门户中会打开模板。
+如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
 使用下面的按钮在 Linux 上部署：
 
@@ -30,7 +30,7 @@ ms.locfileid: "92170843"
 
 使用下面的按钮在 Windows 上部署：
 
-[![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
+[![“部署到 Azure”](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -311,7 +311,7 @@ ms.locfileid: "92170843"
 ::: zone pivot="platform-windows"
 运行以下代码，在 Windows 上部署 .NET Framework 应用。
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".net" helloWorld="true" webAppName="<app-name>" \
@@ -320,7 +320,7 @@ az deployment group create --resource-group myResourceGroup \
 ::: zone pivot="platform-linux"
 Run the code below to create a Python app on Linux.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup --parameters webAppName="<app-name>" linuxFxVersion="PYTHON|3.7" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-linux/azuredeploy.json"
@@ -354,19 +354,19 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
->从本地 Git 进行部署
+> 从本地 Git 进行部署
 
 > [!div class="nextstepaction"]
->将 ASP.NET Core 与 SQL 数据库配合使用
+> [将 ASP.NET Core 与 SQL 数据库配合使用](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
->将 Python 与 Postgres 配合使用
+> 将 Python 与 Postgres 配合使用
 
 > [!div class="nextstepaction"]
-> [带 MySQL 的 PHP](tutorial-php-mysql-app.md)
+> [带 MySQL 的 PHP](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [使用 Java 连接到 Azure SQL 数据库](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [使用 Java 连接到 Azure SQL 数据库](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
->映射自定义域
+> [映射自定义域](app-service-web-tutorial-custom-domain.md)

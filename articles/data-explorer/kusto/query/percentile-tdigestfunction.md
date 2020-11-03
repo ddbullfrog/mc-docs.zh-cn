@@ -4,38 +4,38 @@ description: 本文介绍 Azure 数据资源管理器中的 percentile_tdigest()
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 12/10/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: fc274c0c7be48f1a74438cfa3e60e7aeff6fd9ab
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 1b96e105e0c74e22404c750e784edc869d945324
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841609"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105913"
 ---
 # <a name="percentile_tdigest"></a>percentile_tdigest()
 
 根据 `tdigest` 结果（已由 [tdigest()](tdigest-aggfunction.md) 或 [tdigest_merge()](tdigest-merge-aggfunction.md) 生成）计算百分比结果。
 
-**语法**
+## <a name="syntax"></a>语法
 
-`percentile_tdigest(`*`Expr`* `,` *Percentile1* [`,` *typeLiteral*]`)`
+`percentile_tdigest(`*`Expr`* `,` *Percentile1* [`,` *typeLiteral* ]`)`
 
-`percentiles_array_tdigest(`*`Expr`* `,` *Percentile1* [`,` *Percentile2*] ...[`,` *PercentileN*]`)`
+`percentiles_array_tdigest(`*`Expr`* `,` *Percentile1* [`,` *Percentile2* ] ...[`,` *PercentileN* ]`)`
 
 `percentiles_array_tdigest(`*`Expr`* `,` *动态数组*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * Expr：已由 [`tdigest`](tdigest-aggfunction.md) 或 [tdigest_merge()](tdigest-merge-aggfunction.md) 生成的表达式。
 * Percentile 是一个双精度常量，用于指定百分位数。
 * typeLiteral：可选的类型文本（例如 `typeof(long)`）。 如果提供，结果集将为此类型。 
 * 动态数组：整数或浮点数动态数组中的百分位数列表。
 
-**返回**
+## <a name="returns"></a>返回
 
 `Expr` 中每个值的百分位数/percentilesw 值。
 
@@ -47,7 +47,7 @@ ms.locfileid: "87841609"
 
 * 如果 `Expr` 包含不同类型的 `tdigest` 函数，请不要提供类型。 结果将为动态类型。 请参阅以下示例。
 
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

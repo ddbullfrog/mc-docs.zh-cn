@@ -2,9 +2,7 @@
 title: Windows 虚拟机因 Windows 启动管理器而无法启动
 description: 本文提供了当 Windows 启动管理器阻止 Azure 虚拟机启动时用于解决问题的步骤。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: a97393c3-351d-4324-867d-9329e31b3598
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 49853368c9e724d2b1886dda13932e45055470bc
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: c0b78e1b6b9292dd1f26a1111d534eb59aeb8646
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456788"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106324"
 ---
 <!--Verified successfully-->
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Windows VM 因 Windows 启动管理器而无法启动
@@ -51,7 +49,7 @@ VM 一直在等待用户提示。除非用户手动进行指示，否则 VM 不�
 
 1. 创建并访问修复 VM。
 2. 在修复 VM 上进行配置以缩短启动时间。
-3. **建议**：在重建 VM 之前，启用串行控制台和内存转储收集。
+3. **建议** ：在重建 VM 之前，启用串行控制台和内存转储收集。
 4. 重建 VM。
 
 <!--Not Available on ### Configure for Faster Boot Time using Serial Console-->

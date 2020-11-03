@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/20/2019
-ms.openlocfilehash: eef49ae094cef38ffced04493823cdc4e0af617a
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 4abb3214311d3487b3e47863e963ac48125913de
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395491"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106366"
 ---
 # <a name="productivity-tools-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine 中的生产力工具
 
@@ -24,6 +24,6 @@ ms.locfileid: "91395491"
 
 | 工具 | Windows DSVM | Linux DSVM | Windows 2019 Server DSVM | Ubuntu 18.04 DSVM | 使用注意事项 |
 |---|:-:|:-:|:-:|:-:|:--|
-| 具有共享激活的 [Microsoft 365 企业应用版](/microsoft-365/business/microsoft-365-apps-for-enterprise-product)：Excel、Word 和 PowerPoint | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | 可以激活 Microsoft 365 企业应用版：<br/><ul><li>请参阅[共享计算机激活](/deployoffice/overview-shared-computer-activation)</ul> |
+| 具有共享激活的 [Microsoft 365 企业应用版](https://www.microsoft.com/microsoft-365/business/microsoft-365-apps-for-enterprise)：Excel、Word 和 PowerPoint | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | 可以激活 Microsoft 365 企业应用版：<br/><ul><li>请参阅[共享计算机激活](https://docs.microsoft.com/deployoffice/overview-shared-computer-activation)</ul> |
 | [Power BI Desktop](https://powerbi.microsoft.com/) | <span class='green-check'>&#9989;</span></br> (2.73.55xx) | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> (2.73.55xx) | <span class='red-x'>&#10060;</span> | |
 | Microsoft Edge 浏览器 | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | |

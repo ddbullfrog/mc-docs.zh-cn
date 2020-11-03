@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 series_decompose_
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/28/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 50bc3a8cb06107dfd3b323c1b753f933d39e164d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: df44f9f917c442af12d1e6305e319f80caa8e2d4
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515738"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106197"
 ---
 # <a name="series_decompose_anomalies"></a>series_decompose_anomalies()
 
@@ -30,7 +30,7 @@ ms.locfileid: "88515738"
 ## <a name="arguments"></a>参数
 
 * Series：动态数组单元格（数值数组），通常是 [make-series](make-seriesoperator.md) 或 [make_list](makelist-aggfunction.md) 运算符生成的输出
-* *阈值*：异常阈值，默认值为 1.5（k 值），用于检测轻度异常或更严重的异常
+* *阈值* ：异常阈值，默认值为 1.5（k 值），用于检测轻度异常或更严重的异常
 * Seasonality：一个用于控制周期性分析的整数，其中包含
     * -1：使用 [series_periods_detect](series-periods-detectfunction.md) 自动检测周期性 [默认值]
     * 0：无周期性（即，跳过提取此组件的操作）
@@ -100,7 +100,7 @@ series_multiply(10, series_decompose_anomalies_y_ad_flag) // multiply by 10 for 
 | render timechart
 ```
 
-:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-outliers-with-trend.png" alt-text="包含趋势的每周周期性离群值" border="false":::
+:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-outliers-with-trend.png" alt-text="显示了基线和离群值的每周周期性" border="false":::
 
 接下来运行同一示例，但由于你预计序列中存在趋势，因此请在 trend 参数中指定 `linefit`。 你可以看到，基线更接近输入序列。 将会检测到所有插入的离群值，还会检测到一些误报。 请参阅接下来有关调整阈值的示例。
 
@@ -119,7 +119,7 @@ series_multiply(10, series_decompose_anomalies_y_ad_flag) // multiply by 10 for 
 | render timechart  
 ```
 
-:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-linefit-trend.png" alt-text="包含 linefit 趋势的每周周期性异常" border="false":::
+:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-linefit-trend.png" alt-text="显示了基线和离群值的每周周期性" border="false":::
 
 ### <a name="tweak-the-anomaly-detection-threshold"></a>调整异常情况检测阈值
 
@@ -140,4 +140,4 @@ series_multiply(10, series_decompose_anomalies_y_ad_flag) // multiply by 10 for 
 | render timechart  
 ```
 
-:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-higher-threshold.png" alt-text="异常阈值较高的每周序列异常" border="false":::
+:::image type="content" source="images/series-decompose-anomaliesfunction/weekly-seasonality-higher-threshold.png" alt-text="显示了基线和离群值的每周周期性" border="false":::

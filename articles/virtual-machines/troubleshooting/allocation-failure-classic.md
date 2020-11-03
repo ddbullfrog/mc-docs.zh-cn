@@ -2,10 +2,8 @@
 title: 排查经典部署模型中的 Azure VM 分配失败问题 | Azure
 description: 排查在 Azure 中创建、重启经典 VM 或重设其大小时发生的分配失败
 services: azure-service-management
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: bb939e23-77fc-4948-96f7-5037761c30e8
 ms.service: virtual-machines
@@ -13,12 +11,12 @@ ms.topic: troubleshooting
 origin.date: 11/01/2018
 ms.date: 04/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: c11f895b00633b26806812c4c2e6f40c3ffaf961
-ms.sourcegitcommit: b469d275694fb86bbe37a21227e24019043b9e88
+ms.openlocfilehash: dd3b30448cb6a3c29bff8a7616f3a0e7e282c2ad
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596039"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105787"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>针对经典部署模型中的分配失败情况进行故障排除的步骤
 

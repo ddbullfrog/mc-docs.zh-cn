@@ -5,17 +5,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 09/29/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 04/26/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 220b553b093ca540d97f4e347aafb5265ed3d858
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: ba7b325e8ef694862cfda9c7706dd1b21f4441fc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470384"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105939"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教程：使用 .NET API 通过 Azure Batch 运行并行工作负荷
 
@@ -265,9 +265,9 @@ await job.CommitAsync();
 
 此示例通过调用 `AddTasksAsync` 方法来创建 [CloudTask](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudtask) 对象的列表，从而在作业中创建任务。 每个 `CloudTask` 都运行 ffmpeg，使用 [CommandLine](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 属性处理输入 `ResourceFile` 对象。 ffmpeg 此前已在创建池时安装在每个节点上。 在这里，命令行运行 ffmpeg 将每个输入 MP4（视频）文件转换为 MP3（音频）文件。
 
-此示例在运行命令行后为 MP3 文件创建 [OutputFile](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.outputfile?view=azure-dotnet) 对象。 每个任务的输出文件（在此示例中为一个）都会使用任务的 [OutputFiles](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles?view=azure-dotnet) 属性上传到关联的存储帐户中的一个容器。 我们在前面的代码示例中获取了共享访问签名 URL (`outputContainerSasUrl`)，用于提供对输出容器的写权限。 请注意 `outputFile` 对象上设置的条件。 只有在任务成功完成后 (`OutputFileUploadCondition.TaskSuccess`)，任务中的输出文件才会上传到容器。 在 GitHub 上查看完整的[代码示例](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial)，进一步了解实现的详细信息。
+此示例在运行命令行后为 MP3 文件创建 [OutputFile](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.outputfile) 对象。 每个任务的输出文件（在此示例中为一个）都会使用任务的 [OutputFiles](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) 属性上传到关联的存储帐户中的一个容器。 我们在前面的代码示例中获取了共享访问签名 URL (`outputContainerSasUrl`)，用于提供对输出容器的写权限。 请注意 `outputFile` 对象上设置的条件。 只有在任务成功完成后 (`OutputFileUploadCondition.TaskSuccess`)，任务中的输出文件才会上传到容器。 在 GitHub 上查看完整的[代码示例](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial)，进一步了解实现的详细信息。
 
-然后，示例使用 [AddTaskAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync?view=azure-dotnet) 方法将任务添加到作业，使任务按顺序在计算节点上运行。
+然后，示例使用 [AddTaskAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) 方法将任务添加到作业，使任务按顺序在计算节点上运行。
 
 ```csharp
  // Create a collection to hold the tasks added to the job.

@@ -2,9 +2,7 @@
 title: 在 Azure 中的 Linux VM 上运行自定义脚本扩展版本 1（已弃用）
 description: 使用自定义脚本扩展 v1 自动化 Linux VM 配置任务
 services: virtual-machines-linux
-documentationcenter: ''
 manager: gwallace
-editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -13,16 +11,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/14/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: f507805cf5142f8b01ed02b6ad282f590bd35764
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: bafa453f903ee8b875c0e09227123e5f8ced193b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822318"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106176"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1
 
@@ -62,7 +60,7 @@ ms.locfileid: "90822318"
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
-如果需要从外部（例如 GitHub 或 Azure 存储）下载脚本，则需要打开其他防火墙/网络安全组端口。 例如，如果脚本位于 Azure 存储中，可以使用[存储](../../virtual-network/security-overview.md#service-tags)的 Azure NSG 服务标记来允许访问。
+如果需要从外部（例如 GitHub 或 Azure 存储）下载脚本，则需要打开其他防火墙/网络安全组端口。 例如，如果脚本位于 Azure 存储中，可以使用[存储](../../virtual-network/network-security-groups-overview.md#service-tags)的 Azure NSG 服务标记来允许访问。
 
 如果脚本位于本地服务器上，则可能仍需要打开其他防火墙/网络安全组端口。
 

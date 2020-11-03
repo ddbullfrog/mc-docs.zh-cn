@@ -4,35 +4,35 @@ description: 本文介绍 Azure 数据资源管理器中的 url_decode()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 23730d2bacd54412e083ca86f5954fbfd3dd1984
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 7e602017ec2ec51e752c954ccb845da81c4b71db
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841682"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105964"
 ---
 # <a name="url_decode"></a>url_decode()
 
 此函数将编码的 URL 转换为常规 URL 表示形式。 
 
-**语法**
+## <a name="syntax"></a>语法
 
 `url_decode(`encoded url`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * encoded url：编码的 URL（字符串）。  
 
-**返回**
+## <a name="returns"></a>返回
 
 常规表示形式的 URL（字符串）。
 
-**示例**
+## <a name="examples"></a>示例
 
 ```kusto
 let url = @'https%3a%2f%2fwww.bing.com%2f';

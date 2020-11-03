@@ -6,21 +6,21 @@ ms.subservice: security
 ms.topic: how-to
 origin.date: 03/15/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: c8c9793d04cbf75304d94d4ef5040324f70f7ab0
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: d4c327dd3cde8671fcb5d2371c4d1c7181aa17dc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463150"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106122"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>使用 Azure AD 对 Windows VM 进行 Azure 磁盘加密（以前版本）
 
-**新版本的 Azure 磁盘加密无需提供 Azure AD 应用程序参数即可启用 VM 磁盘加密。使用新版本，在执行启用加密步骤时，不再需要提供 Azure AD 凭据。所有新 VM 都必须使用新版本在没有 Azure AD 应用程序参数的情况下进行加密。若要查看使用新版本启用 VM 磁盘加密的说明，请参阅[适用于 Windows VMS 的 Azure 磁盘加密](disk-encryption-windows.md)。已使用 Azure AD 应用程序参数加密的 VM 仍受支持，应继续使用 AAD 语法进行维护。**
+**新版本的 Azure 磁盘加密无需提供 Azure AD 应用程序参数即可启用 VM 磁盘加密。使用新版本，在执行启用加密步骤时，不再需要提供 Azure AD 凭据。所有新 VM 都必须使用新版本在没有 Azure AD 应用程序参数的情况下进行加密。若要查看使用新版本启用 VM 磁盘加密的说明，请参阅 [适用于 Windows VMS 的 Azure 磁盘加密](disk-encryption-windows.md)。已使用 Azure AD 应用程序参数加密的 VM 仍受支持，应继续使用 AAD 语法进行维护。**
 
 可启用多种磁盘加密方案，具体步骤因方案而异。 以下部分更详细介绍了适用于 Windows IaaS VM 的方案。 在使用磁盘加密之前，需要先完成 [Azure 磁盘加密先决条件](disk-encryption-overview-aad.md)。 
 
@@ -37,7 +37,7 @@ ms.locfileid: "89463150"
 2. 选择订阅、资源组、资源组位置、参数、法律条款和协议。 单击“购买”，部署已启用加密的新 IaaS VM。 
 
 3. 部署模板后，使用首选的方法验证 VM 加密状态：
-    - 在 Azure CLI 中使用 [az vm encryption show](https://docs.azure.cn/cli/vm/encryption?view=azure-cli-latest#az-vm-encryption-show) 命令进行验证。 
+    - 在 Azure CLI 中使用 [az vm encryption show](https://docs.azure.cn/cli/vm/encryption#az_vm_encryption_show) 命令进行验证。 
 
         ```azurecli 
         az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
@@ -50,7 +50,7 @@ ms.locfileid: "89463150"
         ```
 
     -  在门户中选择 VM，然后单击“设置”标题下面的“磁盘”验证加密状态。   在“加密”下面的图表中，可以看到是否已启用加密。  
-        :::image type="content" source="../media/disk-encryption/disk-encryption-fig2.png" alt-text="Azure 门户 - 磁盘加密已启用":::
+        :::image type="content" source="../media/disk-encryption/disk-encryption-fig2.png" alt-text="Azure 门户 - 磁盘加密已启用&quot;:::
 
 下表列出了市场方案中使用 Azure AD 客户端 ID 的新 VM 的资源管理器模板参数：
 
@@ -64,7 +64,7 @@ ms.locfileid: "89463150"
 | subnetName | VM NIC 所属的 VNet 中子网的名称。 |
 | AADClientID | 有权将机密写入 Key Vault 的 Azure AD 应用程序的客户端 ID。 |
 | AADClientSecret | 有权将机密写入 Key Vault 的 Azure AD 应用程序的客户端机密。 |
-| keyVaultURL | BitLocker 密钥应上传到的 Key Vault 的 URL。 可使用 `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` cmdlet 或 Azure CLI `az keyvault show --name "MySecureVault" --query properties.vaultUri` 获取该 URL。 |
+| keyVaultURL | BitLocker 密钥应上传到的 Key Vault 的 URL。 可使用 `(Get-AzKeyVault -VaultName &quot;MyKeyVault&quot; -ResourceGroupName &quot;MyKeyVaultResourceGroupName&quot;).VaultURI` cmdlet 或 Azure CLI `az keyvault show --name &quot;MySecureVault" --query properties.vaultUri` 获取该 URL。 |
 | keyEncryptionKeyURL | 用于加密生成的 BitLocker 密钥的密钥加密密钥的 URL（可选）。 <br /> <br />KeyEncryptionKeyURL 是可选参数。 可使用自己的 KEK 在 Key Vault 中进一步保护数据加密密钥（密码）。 |
 | keyVaultResourceGroup | Key Vault 的资源组。 |
 | vmName | 要对其执行加密操作的 VM 的名称。 |
@@ -125,7 +125,7 @@ ms.locfileid: "89463150"
 
 <a name="bkmk_RunningWinVMCLI"></a>
 ### <a name="enable-encryption-on-existing-or-running-vms-with--azure-cli"></a>使用 Azure CLI 在现有或正在运行的 VM 上启用加密
-使用 [az vm encryption enable](https://docs.azure.cn/cli/vm/encryption?view=azure-cli-latest#az-vm-encryption-enable) 命令在 Azure 中运行的 IaaS 虚拟机上启用加密。
+使用 [az vm encryption enable](https://docs.azure.cn/cli/vm/encryption#az_vm_encryption_enable) 命令在 Azure 中运行的 IaaS 虚拟机上启用加密。
 
 - **使用客户端机密加密正在运行的 VM：**
 
@@ -142,13 +142,13 @@ ms.locfileid: "89463150"
     >[!NOTE]
     > disk-encryption-keyvault 参数值的语法是完整的标识符字符串：/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name] <br /> key-encryption-key 参数值的语法是 KEK 的完整 URI，其格式为： https://[keyvault-name].vault.azure.cn/keys/[kekname]/[kek-unique-id] 
 
-- **验证磁盘是否已加密：** 若要检查 IaaS VM 的加密状态，请使用 [az vm encryption show](https://docs.azure.cn/cli/vm/encryption?view=azure-cli-latest#az-vm-encryption-show) 命令。 
+- **验证磁盘是否已加密：** 若要检查 IaaS VM 的加密状态，请使用 [az vm encryption show](https://docs.azure.cn/cli/vm/encryption#az_vm_encryption_show) 命令。 
 
     ```azurecli
     az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
     ```
 
-- **禁用加密：** 若要禁用加密，请使用 [az vm encryption disable](https://docs.azure.cn/cli/vm/encryption?view=azure-cli-latest#az-vm-encryption-disable) 命令。 
+- **禁用加密：** 若要禁用加密，请使用 [az vm encryption disable](https://docs.azure.cn/cli/vm/encryption#az_vm_encryption_disable) 命令。 
     ```azurecli
     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
     ```
@@ -313,7 +313,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -Aa
     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
     ```
 
-- **使用 Azure CLI 禁用加密：** 若要禁用加密，请使用 [az vm encryption disable](https://docs.azure.cn/cli/vm/encryption?view=azure-cli-latest#az-vm-encryption-disable) 命令。 
+- **使用 Azure CLI 禁用加密：** 若要禁用加密，请使用 [az vm encryption disable](https://docs.azure.cn/cli/vm/encryption#az_vm_encryption_disable) 命令。 
     ```azurecli
     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
     ```

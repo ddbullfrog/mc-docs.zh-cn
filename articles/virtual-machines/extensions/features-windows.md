@@ -2,9 +2,7 @@
 title: 适用于 Windows 的 Azure VM 扩展和功能
 description: 了解可为 Azure 虚拟机提供的扩展，这些虚拟机扩展按它们提供或改进的功能进行分组。
 services: virtual-machines-windows
-documentationcenter: ''
 manager: gwallace
-editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
@@ -13,17 +11,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a5dcdc5ba1721c2d0eed3e77ba7663b3f901bd17
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: c6dcaf6e00bdf7c7fefcfc4c3f77c696b29f108d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413715"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106254"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -73,7 +71,7 @@ Windows 来宾代理在多个 OS 上运行，但是，扩展框架对扩展的 O
 > [!IMPORTANT]
 > 如果已使用来宾防火墙或代理阻止对 168.63.129.16 的访问，则不管采用上述哪种方法，扩展都会失败  。 需要端口 80、443 和 32526。
 
-代理只可用于下载扩展包和报告状态。 例如，如果扩展安装需要从 GitHub 下载脚本（自定义脚本），或需要访问 Azure 存储（Azure 备份），则需要打开其他防火墙/网络安全组端口。 不同的扩展具有不同的要求，因为它们本身就是应用程序。 对于需要访问 Azure 存储或 Azure Active Directory 的扩展，可以使用 [Azure NSG 服务标记](../../virtual-network/security-overview.md#service-tags)允许访问存储或 AzureActiveDirectory。
+代理只可用于下载扩展包和报告状态。 例如，如果扩展安装需要从 GitHub 下载脚本（自定义脚本），或需要访问 Azure 存储（Azure 备份），则需要打开其他防火墙/网络安全组端口。 不同的扩展具有不同的要求，因为它们本身就是应用程序。 对于需要访问 Azure 存储或 Azure Active Directory 的扩展，可以使用 [Azure NSG 服务标记](../../virtual-network/network-security-groups-overview.md#service-tags)允许访问存储或 AzureActiveDirectory。
 
 Windows 来宾代理不支持通过代理服务器重定向代理流量请求，这意味着 Windows 来宾代理将依赖自定义代理（如果有）通过 IP 168.63.129.16 访问 Internet 或主机上的资源。
 
@@ -345,7 +343,7 @@ AutoUpgradeMinorVersion     : True
 
 若要查看何时对扩展执行了更新，请查看 VM 上的代理日志，路径为 *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-在以下示例中，VM 上安装了 *Microsoft.Compute.CustomScriptExtension 1.8*。 为版本 *1.9* 提供了修补程序：
+在以下示例中，VM 上安装了 *Microsoft.Compute.CustomScriptExtension 1.8* 。 为版本 *1.9* 提供了修补程序：
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
@@ -376,11 +374,13 @@ AutoUpgradeMinorVersion     : True
 
 2. 不符合最低先决条件。 某些扩展依赖于 VM SKU，例如 HPC 映像。 扩展可能需要满足特定的网络访问要求，例如，能够与 Azure 存储或公共服务通信。 其他原因包括访问包存储库、磁盘空间耗尽或安全限制。
 
+<!--Not Available on FEATURE HPC-->
+
 3. 包管理器独占访问权限。 在某些情况下，可能会遇到长时间运行的 VM 配置与扩展安装相冲突的问题，两者都需要包管理器的独占访问权限。
 
 ### <a name="view-extension-status"></a>查看扩展状态
 
-针对 VM 运行 VM 扩展后，请使用 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 返回扩展状态。 *Substatuses[0]* 显示扩展预配成功，这意味着，该扩展已成功部署到 VM，但 VM 中的扩展执行失败 (*Substatuses[1]* )。
+针对 VM 运行 VM 扩展后，请使用 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 返回扩展状态。 *Substatuses[0]* 显示扩展预配成功，这意味着，该扩展已成功部署到 VM，但 VM 中的扩展执行失败 ( *Substatuses[1]* )。
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

@@ -8,16 +8,16 @@ metadata:
   ms.service: virtual-machines-windows
   ms.topic: landing-page
   author: rockboyfor
-  ms.date: 08/31/2020
+  ms.date: 11/02/2020
   ms.testscope: yes
   ms.testdate: 08/31/2020
   ms.author: v-yeche
-  ms.openlocfilehash: 3f6f03dcf185b0f1c21016806f63c7edd7582df5
-  ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+  ms.openlocfilehash: ac1aa57760b4f1eca33179cffe49e847c8fd48ee
+  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/04/2020
-  ms.locfileid: "89456739"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93105943"
 landingContent:
 - title: 排查部署失败问题
   linkLists:
@@ -49,7 +49,7 @@ landingContent:
       url: ./troubleshoot-rdp-connection.md
     - text: 按事件 ID 排查 Azure VM RDP 连接问题
       url: ./event-id-troubleshoot-vm-rdp-connecton.md
-    - text: 排查使用 RDP 连接到 Azure 中国 VM 时的身份验证错误
+    - text: 使用 RDP 连接到 Azure VM 时排查身份验证错误
       url: ./troubleshoot-authentication-error-rdp-vm.md
     - text: VM 来宾网卡被禁用
       url: ./troubleshoot-rdp-nic-disabled.md

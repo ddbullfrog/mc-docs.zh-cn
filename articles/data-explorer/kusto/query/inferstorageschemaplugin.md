@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 infer_storage_schema
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/24/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: ab0099391654b7d5b2167f538cb95a75cf80dced
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 643802a23a47b8e9903f874ae5ba4ab21bd6a65c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841392"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106338"
 ---
 # <a name="infer_storage_schema-plugin"></a>infer_storage_schema 插件
 
@@ -31,11 +31,11 @@ let options = dynamic({
 evaluate infer_storage_schema(options)
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 `evaluate` `infer_storage_schema(` *选项* `)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 单一的“选项”参数是 `dynamic` 类型的常数值，该值保留用于指定请求属性的属性包：
 
@@ -47,7 +47,7 @@ evaluate infer_storage_schema(options)
 |`FileNamePrefix`|否|只扫描以此前缀开头的文件。 该参数不是必需的，但指定该参数可能会加快进程速度|
 |`Mode`|否|架构推理策略，`any`、`last` 和 `all` 之一。 分别从任意（找到的第一个）文件、从上一个写入的文件或者从所有文件来推断数据架构。 默认值为 `last`。|
 
-**返回**
+## <a name="returns"></a>返回
 
 `infer_storage_schema` 插件返回一个结果表，其中包含一个保留了 CSL 架构字符串的行/列。
 
@@ -56,7 +56,7 @@ evaluate infer_storage_schema(options)
 > * 架构推理策略“all”是非常“昂贵”的运算，因为它意味着要从所有找到的项目中读取并合并它们的架构。
 > * 由于错误的类型推测（或者由于架构合并进程），有些返回的类型可能并不是实际的类型。 因此，在创建外部表之前，应该先仔细查看结果。
 
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 let options = dynamic({

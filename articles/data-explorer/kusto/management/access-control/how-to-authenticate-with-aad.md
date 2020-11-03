@@ -7,19 +7,19 @@ ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-js
 origin.date: 09/13/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: bf15e470176bc2511fa8095cb8a81bbeea4ab670
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: bfc4b03410c12a39772753d92ea41e8e8f2dd28a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515699"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106315"
 ---
 # <a name="how-to-authenticate-with-aad-for-azure-data-explorer-access"></a>如何使用 AAD 进行身份验证以便访问 Azure 数据资源管理器
 
-访问 Azure 数据资源管理器的推荐方法是通过 **Azure Active Directory** 服务（有时也称为 **Azure AD**，或简称为 **AAD**）进行身份验证。 这样做可以通过一个两阶段过程来确保 Azure 数据资源管理器永远不会看到访问主体的目录凭据：
+访问 Azure 数据资源管理器的推荐方法是通过 **Azure Active Directory** 服务（有时也称为 **Azure AD** ，或简称为 **AAD** ）进行身份验证。 这样做可以通过一个两阶段过程来确保 Azure 数据资源管理器永远不会看到访问主体的目录凭据：
 
 1. 在第一步中，客户端与 AAD 服务通信，向其证明身份，并请求一个针对客户端打算访问的特定 Azure 数据资源管理器终结点颁发的访问令牌。
 2. 在第二步中，客户端向 Azure 数据资源管理器发出请求，并向 Azure 数据资源管理器提供在第一步中获取的访问令牌作为身份证明。
@@ -32,22 +32,22 @@ ms.locfileid: "88515699"
 
 主要身份验证方案包括：
 
-* **对登录用户进行身份验证的客户端应用程序**。
+* **对登录用户进行身份验证的客户端应用程序** 。
   在此方案中，一个交互式（客户端）应用程序将触发 AAD 提示来提示用户输入凭据（例如用户名和密码）。
   请参阅[用户身份验证](#user-authentication)。
 
-* **“无外设”应用程序**。
+* **“无外设”应用程序** 。
   在此方案中，应用程序在运行时无需用户提供凭据，而是使用用户已为其配置的某些凭据，向 AAD 证明自己的身份。
   请参阅[应用程序身份验证](#application-authentication)。
 
-* **代理身份验证**。
+* **代理身份验证** 。
   在此方案中（有时称为“Web 服务”或“Web 应用”方案），应用程序从另一个应用程序获取 AAD 访问令牌，然后将其“转换”为可与 Azure 数据资源管理器配合使用的另一个 AAD 访问令牌。
   换句话说，该应用程序充当提供了凭据的用户或应用程序与 Azure 数据资源管理器服务之间的中介。
   请参阅[代理身份验证](#on-behalf-of-authentication)。
 
 ## <a name="specifying-the-aad-resource-for-azure-data-explorer"></a>指定用于 Azure 数据资源管理器的 AAD 资源
 
-从 AAD 获取访问令牌时，客户端必须告诉 AAD 应当将令牌颁发给哪个 **AAD 资源**。 Azure 数据资源管理器终结点的 AAD 资源是终结点的 URI，其中不包括端口信息和路径。 例如：
+从 AAD 获取访问令牌时，客户端必须告诉 AAD 应当将令牌颁发给哪个 **AAD 资源** 。 Azure 数据资源管理器终结点的 AAD 资源是终结点的 URI，其中不包括端口信息和路径。 例如：
 
 ```txt
 https://help.kusto.chinacloudapi.cn
@@ -57,7 +57,7 @@ https://help.kusto.chinacloudapi.cn
 
 ## <a name="specifying-the-aad-tenant-id"></a>指定 AAD 租户 ID
 
-AAD 是一项多租户服务，每个组织都可以在 AAD 中创建一个称为**目录**的对象。 目录对象保存与安全性相关的对象，例如用户帐户、应用程序和组。 AAD 通常将目录称为**租户**。 AAD 租户通过 GUID（**租户 ID**）进行标识。 在许多情况下，AAD 租户还可以通过组织的域名进行标识。
+AAD 是一项多租户服务，每个组织都可以在 AAD 中创建一个称为 **目录** 的对象。 目录对象保存与安全性相关的对象，例如用户帐户、应用程序和组。 AAD 通常将目录称为 **租户** 。 AAD 租户通过 GUID（ **租户 ID** ）进行标识。 在许多情况下，AAD 租户还可以通过组织的域名进行标识。
 
 例如，名为“Contoso”的组织可能具有租户 ID `4da81d62-e0a8-4899-adad-4349ca6bfe24` 和域名 `contoso.com`。
 
@@ -71,7 +71,7 @@ AAD 有许多用于身份验证的终结点：
 * 当承载着要进行身份验证的主体的租户未知时，可以通过将上面的 `{tenantId}` 替换为值 `common` 来使用“common”终结点。
 
 > [!NOTE]
-> 用于身份验证的 AAD 终结点也称为 **AAD 颁发机构 URL** 或简称为 **AAD 颁发机构**。
+> 用于身份验证的 AAD 终结点也称为 **AAD 颁发机构 URL** 或简称为 **AAD 颁发机构** 。
 
 ## <a name="aad-token-cache"></a>AAD 令牌缓存
 
@@ -88,7 +88,8 @@ AAD 有许多用于身份验证的终结点：
 
 不使用 Azure 数据资源管理器 SDK 的应用程序仍然可以使用 AAD 客户端库 (ADAL)，而不实现 AAD 服务安全协议客户端。 有关从 .NET 应用程序执行此操作的示例，请参阅 [https://github.com/AzureADSamples/WebApp-WebAPI-OpenIDConnect-DotNet ]。
 
-若要针对 Azure 数据资源管理器访问对用户进行身份验证，必须先向应用程序授予 `Access Kusto` 委托权限。 有关详细信息，请参阅[有关 AAD 应用程序预配的 Kusto 指南](how-to-provision-aad-app.md#set-up-delegated-permissions-for-kusto-service-application)。
+若要针对 Azure 数据资源管理器访问对用户进行身份验证，必须先向应用程序授予 `Access Kusto` 委托权限。
+以获取详细信息。
 
 下面的简短代码片段演示了如何使用 ADAL 获取 AAD 用户令牌来访问 Azure 数据资源管理器（启动登录 UI）：
 
@@ -148,9 +149,9 @@ request.Headers.Set(HttpRequestHeader.Authorization, string.Format(CultureInfo.I
 
 4. 单击“API 权限”，然后选择“添加权限”。
 
-5. 搜索名为 **Azure 数据资源管理器**的应用程序并选择它。
+5. 搜索名为 **Azure 数据资源管理器** 的应用程序并选择它。
 
-6. 选择 **user_impersonation / Access Kusto**。
+6. 选择 **user_impersonation / Access Kusto** 。
 
 7. 单击“添加权限”。
 
@@ -180,13 +181,6 @@ var queryResult = client.ExecuteQuery(databaseName, query, null);
 ```
 
 ## <a name="web-client-javascript-authentication-and-authorization"></a>Web 客户端 (JavaScript) 身份验证和授权
-
-
-
-**AAD 应用程序配置**
-
-> [!NOTE]
-> 除了执行设置 AAD 应用程序所需的标准[步骤](./how-to-provision-aad-app.md)，还应在 AAD 应用程序中启用 oauth 隐式流。 可以通过从 Azure 门户中的应用程序页面选择清单并将 oauth2AllowImplicitFlow 设置为 true 来实现此目的。
 
 **详细信息**
 

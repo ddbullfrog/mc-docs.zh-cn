@@ -6,17 +6,17 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 origin.date: 09/28/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
-ms.openlocfilehash: 741f11bf6ddf620ce87824f2dda795f61f48434a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: ee64a0504f51ea7b476e9ddf1078d6c2ca589bf6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472536"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106112"
 ---
 # <a name="virtual-wan-faq"></a>虚拟 WAN 常见问题解答
 

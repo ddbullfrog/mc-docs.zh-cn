@@ -3,7 +3,6 @@ title: Windows 停止错误 -
 description: Windows 停止错误
 services: virtual-machines-windows
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 5b3ed56a-5a11-4ff9-9ee8-76aea4a5689b
 ms.service: virtual-machines-windows
@@ -16,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3700806657130fc6484206d651d46d643f494507
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 6104155f657bbd18dea4deab2528fba49ae2c1cc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456789"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106326"
 ---
 <!--Verified successfully (Not Azure enable serial console-->
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Windows 停止错误 - #0x000000EF“关键进程已终止”
@@ -44,7 +43,7 @@ ms.locfileid: "89456789"
 
 1. 创建并访问修复 VM。
 2. 修复任何 OS 损坏情况。
-3. **建议**：在重建 VM 之前，启用串行控制台和内存转储收集。
+3. **建议** ：在重建 VM 之前，启用串行控制台和内存转储收集。
 4. 重建 VM。
 
 > [!NOTE]
@@ -105,7 +104,7 @@ ms.locfileid: "89456789"
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>用于启用 OS 转储的建议配置
 
-**加载损坏的 OS 磁盘**：
+**加载损坏的 OS 磁盘** ：
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 

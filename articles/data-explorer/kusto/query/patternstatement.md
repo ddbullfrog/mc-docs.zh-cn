@@ -4,25 +4,25 @@ description: 本文介绍了 Azure 数据资源管理器中的 pattern 语句。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/24/2020
+ms.date: 10/29/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 6eff09c81a90ae709f86537478d967df0ee7334d
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: d8d89516a01adf8b321577c63893fe4d75ddd059
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146758"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106306"
 ---
 # <a name="pattern-statement"></a>pattern 语句
 
 ::: zone pivot="azuredataexplorer"
 
-**模式**是一种命名视图样式的构造，用于将预定义的字符串元组映射到无参数函数正文。 模式在两个方面是独一无二的：
+**模式** 是一种命名视图样式的构造，用于将预定义的字符串元组映射到无参数函数正文。 模式在两个方面是独一无二的：
 
 * “调用”模式时使用的语法类似于具有作用域的表引用。
 * 模式具有一组可以映射的受控封闭式参数值，映射过程由 Kusto 完成。 如果声明了某个模式但未定义它，则 Kusto 会识别对该模式的所有调用并将其标记为错误。 进行此识别后，中间层应用程序可以“解析”这些模式。
@@ -156,7 +156,7 @@ declare pattern App;
 union (App('a1').Text), (App('a2').Text)
 ```
 
-**语义错误**：
+**语义错误** ：
 
 > SEM0036:未声明一个或多个模式引用。 检测到的模式引用: ["App('a1').['Text']","App('a2').['Text']"]。
 
@@ -172,7 +172,7 @@ declare pattern App = (applicationId:string)[scope:string]
 union (App('a2').Metrics), (App('a3').Metrics) 
 ```
 
-**返回了语义错误**：
+**返回了语义错误** ：
 
 > SEM0036:未声明一个或多个模式引用。 检测到的模式引用: ["App('a2').['Metrics']","App('a3').['Metrics']"]。
 

@@ -8,12 +8,12 @@ author: rockboyfor
 ms.date: 10/05/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 43229f8208ac33be26051caee078063d2854569f
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: d85ed53717a5c7a96a11fec1df5ad04a2162e885
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564278"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106318"
 ---
 <!--Verified successfully-->
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>从 Azure 容器注册表部署到 Azure 容器实例
@@ -22,9 +22,9 @@ ms.locfileid: "91564278"
 
 ## <a name="prerequisites"></a>先决条件
 
-**Azure 容器注册表**：需要一个 Azure 容器注册表（注册表中的至少一个容器映像）才能完成本文中的步骤。 如果需要注册表，请参阅[使用 Azure CLI 创建容器注册表](../container-registry/container-registry-get-started-azure-cli.md)。
+**Azure 容器注册表** ：需要一个 Azure 容器注册表（注册表中的至少一个容器映像）才能完成本文中的步骤。 如果需要注册表，请参阅[使用 Azure CLI 创建容器注册表](../container-registry/container-registry-get-started-azure-cli.md)。
 
-**Azure CLI**：本文中的命令行示例使用 [Azure CLI](https://docs.azure.cn/cli/)，并采用适用于 Bash shell 的格式。 可以在本地[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
+**Azure CLI** ：本文中的命令行示例使用 [Azure CLI](https://docs.azure.cn/cli/)，并采用适用于 Bash shell 的格式。 可以在本地[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 <!--Not Available on [Azure Cloud Shell][cloud-shell-bash]-->
 
@@ -62,7 +62,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 现在请创建服务主体，并将其凭据存储在密钥保管库中。
 
-以下命令使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 创建服务主体，使用 [az keyvault secret set][az-keyvault-secret-set] 将服务主体的**密码**存储在保管库中。
+以下命令使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 创建服务主体，使用 [az keyvault secret set][az-keyvault-secret-set] 将服务主体的 **密码** 存储在保管库中。
 
 ```azurecli
 # Create service principal, store its password in vault (the registry *password*)
@@ -79,7 +79,7 @@ az keyvault secret set \
 
 上述命令中的 `--role` 参数使用“acrpull”角色配置服务主体，该角色授予其对注册表的只拉取访问权限。 若要同时授予推送和拉取访问权限，请将 `--role` 参数更改为“acrpush”。
 
-接下来，将服务主体的 *appId*（传递给 Azure 容器注册表用于身份验证的**用户名**）存储在保管库中。
+接下来，将服务主体的 *appId* （传递给 Azure 容器注册表用于身份验证的 **用户名** ）存储在保管库中。
 
 ```azurecli
 # Store service principal ID in vault (the registry *username*)
@@ -91,8 +91,8 @@ az keyvault secret set \
 
 现已创建 Azure 密钥保管库并在其中存储了两个机密：
 
-* `$ACR_NAME-pull-usr`：用作容器注册表**用户名**的服务主体 ID。
-* `$ACR_NAME-pull-pwd`：用作容器注册表**密码**的服务主体密码。
+* `$ACR_NAME-pull-usr`：用作容器注册表 **用户名** 的服务主体 ID。
+* `$ACR_NAME-pull-pwd`：用作容器注册表 **密码** 的服务主体密码。
 
 现在，当你或你的应用程序和服务从注册表提取映像时，可以按名称引用这些机密。
 
@@ -148,8 +148,25 @@ az container create \
 
 有关在资源管理器模板中引用 Azure Key Vault 机密的详细信息，请参阅[在部署过程中使用 Azure Key Vault 传递安全参数值](../azure-resource-manager/templates/key-vault-parameter.md)。
 
-<!--Not Available on ## Deploy with Azure portal-->
-<!--The Run Instance submenu is uneable -->
+## <a name="deploy-with-azure-portal"></a>使用 Azure 门户仅部署
+
+如果在 Azure 容器注册表中维护容器映像，可通过 Azure 门户在 Azure 容器实例中轻松创建容器。 使用门户从容器注册表部署容器实例时，必须启用注册表的[管理员帐户](../container-registry/container-registry-authentication.md#admin-account)。 管理员帐户专门用于单个用户访问注册表，主要用于测试目的。 
+
+1. 在 Azure 门户中，导航到容器注册表。
+
+1. 若要确保启用管理员帐户，请选择“访问密钥”，然后在“管理员用户”下选择“启用”  。
+
+1. 选择“存储库”，然后选择想要从中进行部署的存储库，右键单击想要部署的容器映像的标记，然后选择“运行实例”  。
+
+    ![Azure 门户中 Azure 容器注册表中的“运行实例”][acr-runinstance-contextmenu]
+
+1. 输入容器和资源组的名称。 也可根据需要更改默认值。
+
+    ![Azure 容器实例的创建菜单][acr-create-deeplink]
+
+1. 部署完成后，可从通知窗格导航至容器组，查找其 IP 地址和其他属性。
+
+    ![Azure 容器实例容器组的详细信息视图][aci-detailsview]
 
 ## <a name="next-steps"></a>后续步骤
 

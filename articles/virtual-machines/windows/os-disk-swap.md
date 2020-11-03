@@ -10,12 +10,12 @@ ms.date: 09/07/2020
 ms.testscope: no
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3c5d5745f5899e01a16b7648ee22baf8304620ab
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 6295f329d3a9a60214c630cab927cb60b2bc52c3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463201"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105852"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>使用 PowerShell 更改 Azure VM 使用的 OS 磁盘
 

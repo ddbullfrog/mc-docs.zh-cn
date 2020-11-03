@@ -17,12 +17,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 6a4bcd65a74d6e547accafa50b77a192536ae8d7
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: e3b3a164b80883efbad85e3a5cb6e88c3152bda4
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413880"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106251"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>将 VHD 上传到 Azure 并创建新的 VM 的示例脚本
 
@@ -101,7 +101,7 @@ $vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize
 $vm = Set-AzVMSourceImage -VM $vm -Id $image.Id
 
 # Finish the VM configuration and add the NIC.
-$vm = Set-AzVMOSDisk -VM $vm  -DiskSizeInGB $diskSizeGB -CreateOption FromImage -Caching ReadWrite
+$vm = Set-AzVMOSDisk -VM $vm  -DiskSizeInGB $diskSizeGB -CreateOption FromImage -Caching ReadWrite
 $vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName $computerName -Credential $cred `
     -ProvisionVMAgent -EnableAutoUpdate
 $vm = Add-AzVMNetworkInterface -VM $vm -Id $nic.Id

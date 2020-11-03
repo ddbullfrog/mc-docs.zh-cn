@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 series_fit_line_dyna
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/06/2020
-ms.openlocfilehash: 2ea9d0f722ca4eeb4fec3e588600c5ff149c312c
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 792fc5f5206338c5a19b214538a09e0ea18b69d0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841246"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105911"
 ---
 # <a name="series_fit_line_dynamic"></a>series_fit_line_dynamic()
 
@@ -30,18 +30,18 @@ ms.locfileid: "87841246"
 
 此运算符与 [series_fit_line](series-fit-linefunction.md) 相似，但与 `series-fit-line` 不同（它返回动态包）。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `series_fit_line_dynamic(`*x*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * x：数值的动态数组。
 
 > [!TIP]
 > 使用此函数最便捷的方法是将其应用于 [make-series](make-seriesoperator.md) 运算符的结果。
 
-**示例**
+## <a name="examples"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

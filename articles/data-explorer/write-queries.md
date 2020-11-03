@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 origin.date: 04/07/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: 7964fece48e18a7e08bf83111da3a808b0c98ffa
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: be5fd82bbc983f389e45d545db9785756c755f12
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146731"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106080"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure 数据资源管理器的编写查询
 
@@ -271,7 +271,7 @@ StormEvents
 
 ### <a name="bin"></a>bin()
 
-[**bin()** ](kusto/query/binfunction.md)：将值向下舍入到给定 bin 大小的整数倍。
+[**bin()**](kusto/query/binfunction.md)：将值向下舍入到给定 bin 大小的整数倍。
 
 以下查询计算一天存储桶大小的计数。
 
@@ -304,7 +304,7 @@ StormEvents
 
 ### <a name="extract"></a>extract()
 
-[**extract()** ](kusto/query/extractfunction.md)：从文本字符串中获取正则表达式的匹配项。
+[**extract()**](kusto/query/extractfunction.md)：从文本字符串中获取正则表达式的匹配项。
 
 以下查询从跟踪中提取特定属性值。
 
@@ -320,7 +320,7 @@ MyData
 
 ### <a name="parse_json"></a>parse_json()
 
-[**parse_json()** ](kusto/query/parsejsonfunction.md)：将字符串解释为 JSON 值并以动态方式返回值。 当需要提取 JSON 复合对象的多个元素时，使用它比使用 extractjson() 函数更好。
+[**parse_json()**](kusto/query/parsejsonfunction.md)：将字符串解释为 JSON 值并以动态方式返回值。 当需要提取 JSON 复合对象的多个元素时，使用它比使用 extractjson() 函数更好。
 
 以下查询从数组中提取 JSON 元素。
 
@@ -358,7 +358,7 @@ MyData
 
 ### <a name="ago"></a>ago()
 
-[**ago()** ](kusto/query/agofunction.md)：从当前 UTC 时钟时间减去给定时间跨度。
+[**ago()**](kusto/query/agofunction.md)：从当前 UTC 时钟时间减去给定时间跨度。
 
 以下查询返回最近 12 个小时的数据。
 
@@ -374,7 +374,7 @@ print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
 
 ### <a name="startofweek"></a>startofweek()
 
-[**startofweek()** ](kusto/query/startofweekfunction.md)：返回包含日期的一周的起点，根据偏移量移动（如提供）
+[**startofweek()**](kusto/query/startofweekfunction.md)：返回包含日期的一周的起点，根据偏移量移动（如提供）
 
 以下查询将返回带不同偏移量的一周的起点。
 
@@ -389,7 +389,7 @@ range offset from -1 to 1 step 1
 
 ### <a name="between"></a>between()
 
-[**between()** ](kusto/query/betweenoperator.md)：匹配包含范围内的输入。
+[**between()**](kusto/query/betweenoperator.md)：匹配包含范围内的输入。
 
 以下查询依据给定日期范围来筛选数据。
 
@@ -543,7 +543,7 @@ StormEvents
 
 ### <a name="dcount"></a>dcount()
 
-[**dcount()** ](kusto/query/dcount-aggfunction.md)：返回对组中某个表达式的非重复值数的估计值。 使用 [count()](kusto/query/countoperator.md) 来计数所有值。
+[**dcount()**](kusto/query/dcount-aggfunction.md)：返回对组中某个表达式的非重复值数的估计值。 使用 [count()](kusto/query/countoperator.md) 来计数所有值。
 
 以下查询根据 `State` 来计数非重复 `Source`。
 
@@ -556,7 +556,7 @@ StormEvents
 
 ### <a name="dcountif"></a>dcountif()
 
-[**dcountif()** ](kusto/query/dcountif-aggfunction.md)：返回谓词计算结果为 true 的行表达式非重复值数量的估计值。
+[**dcountif()**](kusto/query/dcountif-aggfunction.md)：返回谓词计算结果为 true 的行表达式非重复值数量的估计值。
 
 以下查询将计数其中 `DamageProperty < 5000` 的 `Source` 的非重复值。
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcount_hll"></a>dcount_hll()
 
-[**dcount_hll()** ](kusto/query/dcount-hllfunction.md)：从 HyperLogLog 结果计算 dcount（由 [**hll**](kusto/query/hll-aggfunction.md) or [**hll_merge**](kusto/query/hll-merge-aggfunction.md) 生成）。
+[**dcount_hll()**](kusto/query/dcount-hllfunction.md)：从 HyperLogLog 结果计算 dcount（由 [**hll**](kusto/query/hll-aggfunction.md) or [**hll_merge**](kusto/query/hll-merge-aggfunction.md) 生成）。
 
 以下查询使用 HLL 算法来生成计数。
 
@@ -585,7 +585,7 @@ StormEvents
 
 ### <a name="arg_max"></a>arg_max()
 
-[**arg_max()** ](kusto/query/arg-max-aggfunction.md)：在最大化表达式的组中查找行，并返回另一个表达式的值（或使用 * 返回整个行）。
+[**arg_max()**](kusto/query/arg-max-aggfunction.md)：在最大化表达式的组中查找行，并返回另一个表达式的值（或使用 * 返回整个行）。
 
 以下查询返回每个州上次洪水报告的时间。
 
@@ -600,7 +600,7 @@ StormEvents
 
 ### <a name="makeset"></a>makeset()
 
-[**makeset()** ](kusto/query/makeset-aggfunction.md)：返回表达式在组中所获取非重复值集的动态 (JSON) 数组。
+[**makeset()**](kusto/query/makeset-aggfunction.md)：返回表达式在组中所获取非重复值集的动态 (JSON) 数组。
 
 以下查询返回每个州报告洪水的所有时间，并从非重复值集中创建一个数组。
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()** ](kusto/query/percentiles-aggfunction.md)：返回表达式定义的人口中指定[**最近排名百分位数**](kusto/query/percentiles-aggfunction.md)的估计值。 准确性取决于百分位区域中的填充密度。 只能在 [summarize](kusto/query/summarizeoperator.md) 内的聚合上下文中使用。
+[**percentiles()**](kusto/query/percentiles-aggfunction.md)：返回表达式定义的人口中指定 [**最近排名百分位数**](kusto/query/percentiles-aggfunction.md)的估计值。 准确性取决于百分位区域中的填充密度。 只能在 [summarize](kusto/query/summarizeoperator.md) 内的聚合上下文中使用。
 
 以下查询计算风暴持续时间的百分位数。
 
@@ -918,7 +918,7 @@ StormEvents
 
 ## <a name="functions"></a>函数
 
-本部分介绍[**函数**](kusto/query/functions/index.md)：存储在服务器上的可重用查询。 函数可由查询和其他函数调用（不支持递归函数）。
+本部分介绍 [**函数**](kusto/query/functions/index.md)：存储在服务器上的可重用查询。 函数可由查询和其他函数调用（不支持递归函数）。
 
 > [!NOTE]
 > 你不能在只读的帮助群集上创建函数。 在此部分使用你自己的测试群集。
@@ -949,4 +949,4 @@ MyFunction ("Texas")
 
 ## <a name="next-steps"></a>后续步骤
 
-[Kusto 查询语言参考](https://aka.ms/kustolangref)
+[Kusto 查询语言参考](./kusto/query/index.md)

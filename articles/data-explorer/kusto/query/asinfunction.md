@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 asin()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: de3c42bcedf9e340c8908ad44c16a3d03d8baeb0
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 85fa309d9eaccb739b09a45e01924af5133f8dbb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515783"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106166"
 ---
 # <a name="asin"></a>asin()
 

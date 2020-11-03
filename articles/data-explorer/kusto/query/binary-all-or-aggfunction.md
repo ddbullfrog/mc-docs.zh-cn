@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 binary_all_or()（�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/24/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: aa4e4fb0f8df44aa66e564bbf86f2d09918ce152
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 7c145bc677326e15a3616b2861746b82caf5d879
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515640"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106150"
 ---
 # <a name="binary_all_or-aggregation-function"></a>binary_all_or()（聚合函数）
 
@@ -28,7 +28,7 @@ summarize `binary_all_or(`*Expr*`)`
 
 ## <a name="arguments"></a>参数
 
-* *Expr*：长整型数字。
+* *Expr* ：长整型数字。
 
 ## <a name="returns"></a>返回
 

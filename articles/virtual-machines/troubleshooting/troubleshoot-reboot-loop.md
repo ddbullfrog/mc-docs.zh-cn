@@ -2,9 +2,7 @@
 title: Azure VM 上的 Windows 重启循环 | Azure
 description: 了解如何对 Windows 重启循环进行故障排除 | Azure
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
-editor: ''
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
@@ -15,12 +13,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: b651308fa051843942c5ff3fa3679cfcdd0aa9a5
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 474bb552c641dac3bcb5d067fcf9c948852f59f5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456874"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105772"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM 上的 Windows 重启循环
 本文介绍在 Azure 中的 Windows 虚拟机 (VM) 上可能遇到的重启循环。

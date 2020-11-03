@@ -4,34 +4,34 @@ description: 本文介绍 Azure 数据资源管理器中的 parse_user_agent()�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 73ae0c423fa9d5e51a010e05ba19c161fc463362
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: da9efaf93605041a01540ed4865830efbcdb396b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841364"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106147"
 ---
 # <a name="parse_user_agent"></a>parse_user_agent()
 
 解释一个 user-agent 字符串，该字符串用于标识用户的浏览器，并向承载用户所访问网站的服务器提供特定的系统详细信息。 结果以 [`dynamic`](./scalar-data-types/dynamic.md) 的形式返回。 
 
-**语法**
+## <a name="syntax"></a>语法
 
-`parse_user_agent(`*user-agent-string*, *look-for*`)`
+`parse_user_agent(`*user-agent-string* , *look-for*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *user-agent-string*：`string` 类型的表达式，表示 user-agent 字符串。
+* *user-agent-string* ：`string` 类型的表达式，表示 user-agent 字符串。
 
-* *look-for*：`string` 或 `dynamic` 类型的表达式，表示该函数在 user-agent 字符串（分析目标）中应该查找的内容。 可能的选项：“browser”、“os”、“device”。 如果只需要一个分析目标，可将 `string` 参数传递给它。
+* *look-for* ：`string` 或 `dynamic` 类型的表达式，表示该函数在 user-agent 字符串（分析目标）中应该查找的内容。 可能的选项：“browser”、“os”、“device”。 如果只需要一个分析目标，可将 `string` 参数传递给它。
 如果需要两个或三个，则可以将其作为 `dynamic array` 传递。
 
-**返回**
+## <a name="returns"></a>返回
 
 `dynamic` 类型的对象，包含有关所请求的分析目标的信息。
 
@@ -46,7 +46,7 @@ OperatingSystem:Family, MajorVersion, MinorVersion, Patch, PatchMinor
 在查询中使用该函数时，请确保它以分布式方式在多台计算机上运行。
 如果频繁使用带有此函数的查询，那么你可能想要通过[更新策略](../management/updatepolicy.md)预创建结果，但需考虑到，在更新策略中使用此函数将会增加引入延迟。
  
-**示例**
+## <a name="example"></a>示例
 
 ```kusto
 print useragent = "Mozilla/5.0 (Windows; U; en-US) AppleWebKit/531.9 (KHTML, like Gecko) AdobeAIR/2.5.1"

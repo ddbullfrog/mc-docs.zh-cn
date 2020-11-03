@@ -2,9 +2,7 @@
 title: 适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展
 description: 使用虚拟机扩展在 Linux 虚拟机上部署网络观察程序代理。
 services: virtual-machines-linux
-documentationcenter: ''
 manager: vashan
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: a884b8840dfe9d03a886c7efd4077ab81e5d27d1
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 5937d68e1242c413967ce8ccd7eb9ed2321128e6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413663"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106252"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>适用于 Linux 的网络观察程序代理虚拟机扩展
 

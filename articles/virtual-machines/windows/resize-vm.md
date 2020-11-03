@@ -11,12 +11,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7867b7b72897cc7100f6ba2fedd06daca4c52669
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 9d97a57c6a53b19368ae879bf0a64eaa240064e4
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463165"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106283"
 ---
 # <a name="resize-a-windows-vm"></a>调整 Windows VM 的大小
 
@@ -24,7 +24,7 @@ ms.locfileid: "89463165"
 
 完成创建虚拟机 (VM) 后，可以通过更改 VM 大小来扩大或缩小 VM。 在某些情况下，必须先解除分配 VM。 如果新大小在当前托管 VM 的硬件群集上不可用，则可能会出现这种情况。
 
-如果虚拟机使用高级存储，请确保选择 **s** 版本的大小以获得高级存储支持。 例如，选择 Standard_E4**s**_v3，而不是 Standard_E4_v3。
+如果虚拟机使用高级存储，请确保选择 **s** 版本的大小以获得高级存储支持。 例如，选择 Standard_E4 **s** _v3，而不是 Standard_E4_v3。
 
 ## <a name="use-the-portal"></a>使用门户
 

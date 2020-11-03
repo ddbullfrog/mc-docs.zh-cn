@@ -1,19 +1,21 @@
 ---
-title: 如何使用 Azure 门户打开虚拟机端口
+title: 使用 Azure 门户打开 VM 的端口
 description: 了解如何使用 Azure 门户为 Windows VM 打开端口/创建终结点
-author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 05/27/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 11/02/2020
+ms.testscope: yes
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 257b7483accd94615e7b6223592e5e45ef3897b8
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: 98dacc8c05e2ecc8d159628f0d134f155a368289
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946033"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106296"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 门户打开虚拟机端口
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -29,7 +31,7 @@ ms.locfileid: "85946033"
 
     此时将打开“创建网络安全组”窗口。
 
-    ![创建网络安全组](./media/nsg-quickstart-portal/create-nsg.png)
+    :::image type="content" source="./media/nsg-quickstart-portal/create-nsg.png" alt-text="创建网络安全组":::
 
 1. 输入网络安全组的名称。 
 
@@ -43,13 +45,13 @@ ms.locfileid: "85946033"
 
 1. 从左侧菜单中选择“入站安全规则”，并选择“添加”。
 
-    ![切换到“高级”页](./media/nsg-quickstart-portal/advanced.png)
+    :::image type="content" source="./media/nsg-quickstart-portal/advanced.png" alt-text="创建网络安全组":::
 
 1. 在“添加入站安全规则”页中，切换到页面顶部“基本”中的“高级”。   
 
 1. 从下拉菜单中选择常见的“服务”，如 HTTP 。 如果要提供要使用的特定端口，也可以选择“自定义”。 
 
-1. （可选）更改**优先级**或**名称**。 优先级会影响应用规则的顺序：数值越小，越先应用规则。
+1. （可选）更改 **优先级** 或 **名称** 。 优先级会影响应用规则的顺序：数值越小，越先应用规则。
 
 1. 选择“添加”以创建规则。
 
@@ -61,7 +63,7 @@ ms.locfileid: "85946033"
 
 1. 选择虚拟网络，并选择相应的子网。
 
-    ![将网络安全组与虚拟网络相关联](./media/nsg-quickstart-portal/select-vnet-subnet.png)
+    :::image type="content" source="./media/nsg-quickstart-portal/select-vnet-subnet.png" alt-text="创建网络安全组":::
 
 1. 完成后，请选择“确定”。
 
@@ -78,6 +80,6 @@ ms.locfileid: "85946033"
 
 下列文章更介绍了有关创建更详细环境的信息：
 - [Azure Resource Manager 概述](../../azure-resource-manager/management/overview.md)
-- [安全组](../../virtual-network/security-overview.md)
+- [安全组](../../virtual-network/network-security-groups-overview.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

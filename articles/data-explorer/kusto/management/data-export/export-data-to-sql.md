@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 07343e5618741e0fef3a2ee4d96b7583a5bf0701
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: ce52ed9f0b53ae80c585f7a3ad6786724d0f5699
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226227"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106271"
 ---
 # <a name="export-data-to-sql"></a>将数据导出到 SQL
 
@@ -35,7 +35,7 @@ ms.locfileid: "86226227"
 
 |名称               |值           |说明|
 |-------------------|-----------------|-----------|
-|`firetriggers`     |`true` 或 `false`|如果为 `true`，则指示目标系统激发 SQL 表上定义的 INSERT 触发器。 默认为 `false`。 （有关详细信息，请参阅 [BULK INSERT](https://msdn.microsoft.com/library/ms188365.aspx) 和 [System.Data.SqlClient.SqlBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy(v=vs.110).aspx)）|
+|`firetriggers`     |`true` 或 `false`|如果为 `true`，则指示目标系统激发 SQL 表上定义的 INSERT 触发器。 默认为 `false`。 （有关详细信息，请参阅 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) 和 [System.Data.SqlClient.SqlBulkCopy](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlbulkcopy)）|
 |`createifnotexists`|`true` 或 `false`|如果为 `true`，则会在目标 SQL 表不存在的情况下创建该表；在这种情况下，必须提供 `primarykey` 属性来指示作为主键的结果列。 默认为 `false`。|
 |`primarykey`       |                 |如果 `createifnotexists` 为 `true`，则指示结果中将用作 SQL 表主键的列的名称（如果该表是由此命令创建的）。|
 |`persistDetails`   |`bool`           |指示此命令应保留其结果（请参阅 `async` 标志）。 在异步运行中默认为 `true`，但如果调用方不需要结果，则可将其关闭。 在同步执行中默认为 `false`，但可以开启。 |
@@ -53,7 +53,7 @@ ms.locfileid: "86226227"
 3. 如果 SQL 数据库中的目标表存在，则它必须与查询结果架构匹配。 请注意，在某些情况下（例如，数据库为 Azure SQL 数据库），这意味着表中有一个列标记为标识列。
 
 4. 导出大量数据可能需要很长时间。 批量导入期间，建议在设置目标 SQL 表时尽量减少日志记录。
-   请参阅 [SQL Server 数据库引擎 > ... > 数据库功能 > 批量导入和导出数据](https://msdn.microsoft.com/library/ms190422.aspx)。
+   请参阅 [SQL Server 数据库引擎 > ... > 数据库功能 > 批量导入和导出数据](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import)。
 
 5. 数据导出是使用 SQL 大容量复制执行的，在目标 SQL 数据库上不提供事务性保证。 如需更多详细信息，请参阅[事务和大容量复制操作](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/transaction-and-bulk-copy-operations)。
 
@@ -65,7 +65,7 @@ ms.locfileid: "86226227"
 
 ## <a name="azure-db-aad-integrated-authentication-documentation"></a>Azure DB AAD 集成身份验证文档
 
-* [使用 Azure Active Directory 身份验证进行 SQL 数据库身份验证](https://docs.azure.cn/sql-database/sql-database-aad-authentication)
+* [使用 Azure Active Directory 身份验证进行 SQL 数据库身份验证](/sql-database/sql-database-aad-authentication)
 * [适用于 Azure SQL DB 和 SQL DW 工具的 Azure AD 身份验证扩展] (https://azure.microsoft.com/blog/azure-ad-authentication-extensions-for-azure-sql-db-and-sql-dw-tools/)
 
 **示例** 

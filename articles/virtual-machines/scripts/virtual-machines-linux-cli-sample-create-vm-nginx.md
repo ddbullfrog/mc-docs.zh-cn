@@ -18,12 +18,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6d1904e5e6aa64771ded6327d38c164ad8d985ed
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 84a66665510c3d28f7dd7f9c3cce3363821360ce
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413356"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106058"
 ---
 # <a name="create-a-vm-with-nginx"></a>使用 NGINX 创建 VM
 

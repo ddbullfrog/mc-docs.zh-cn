@@ -11,12 +11,12 @@ ms.date: 08/31/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5a0f7450b346e4cee95c316a3a1683f768207190
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: cce1218bdfe17220b448c03eb57195c11d641e80
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052440"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106246"
 ---
 <!--Verified successfully-->
 <!--Partical Content from verified-->

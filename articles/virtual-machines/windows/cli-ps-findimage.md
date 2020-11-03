@@ -11,12 +11,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: c4d5d68d53e2563a1a6f3e22d7e64a422b9b635c
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 598cb0c39038f88ba93552c43e22b3abb8a03816
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462855"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106364"
 ---
 # <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>使用 Azure PowerShell 在 Azure 市场中查找并使用 VM 映像
 
@@ -221,7 +221,7 @@ Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku 
 
 <!--MOONCAKE CUSTOMIZE-->
 
-例如，*Windows Server 2019 Datacenter* 映像没有附加条款，因此，`PurchasePlan` 信息为 `null`：
+例如， *Windows Server 2019 Datacenter* 映像没有附加条款，因此，`PurchasePlan` 信息为 `null`：
 
 ```powershell
 $version = "2019.0.20190115"

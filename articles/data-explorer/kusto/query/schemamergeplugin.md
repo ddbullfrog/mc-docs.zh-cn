@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 schema_merge 插件�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/16/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: dd9a47ab066f101acca1e84c134dc865b3c5b4d4
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 86572b8c439c1ace2a5b966146358e4e61ef77c6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841186"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106198"
 ---
 # <a name="schema_merge-plugin"></a>schema_merge 插件
 
@@ -30,19 +30,19 @@ let Schema2=Table2 | getschema;
 union Schema1, Schema2 | evaluate schema_merge()
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 `T` `|` `evaluate` `schema_merge(` *PreserveOrder* `)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * PreserveOrder：（可选）设置为 `true` 时，指示插件按保留的第一个表格架构的定义验证列顺序。 如果同一列采用多个架构，则列序号必须与该列显示时采用的第一个架构的列序号相同。 默认值为 `true`。
 
-**返回**
+## <a name="returns"></a>返回
 
 `schema_merge` 插件返回的输出与 [`getschema`](./getschemaoperator.md) 运算符返回的内容类似。
 
-**示例**
+## <a name="examples"></a>示例
 
 与追加了新列的架构合并。
 

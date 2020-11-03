@@ -3,19 +3,20 @@ title: 语言检测 - Kubernetes 配置和部署步骤
 titleSuffix: Azure Cognitive Services
 description: 语言检测 - Kubernetes 配置和部署步骤
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 origin.date: 04/01/2020
-ms.date: 06/24/2020
-ms.author: v-tawe
-ms.openlocfilehash: 4ba012563c6abac908853ac03356de8aa2b9f812
-ms.sourcegitcommit: f5484e21fa7c95305af535d5a9722b5ab416683f
+ms.date: 10/26/2020
+ms.author: v-johya
+ms.openlocfilehash: fdb42fd90b7ff385431c55ddc94a927fc6617317
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323249"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106211"
 ---
 ### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>将语言检测容器部署到 AKS 群集
 
@@ -134,3 +135,4 @@ ms.locfileid: "85323249"
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
     language     LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
     ```
+

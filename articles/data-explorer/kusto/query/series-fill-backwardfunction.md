@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 series_fill_backward
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: f9d34ce13d4615c154828946d5952daf60a76b68
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 3e3bdca68baed0474decfc67c1708387ef98888f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841434"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106183"
 ---
 # <a name="series_fill_backward"></a>series_fill_backward()
 
@@ -22,12 +22,12 @@ ms.locfileid: "87841434"
 
 包含动态数值数组的表达式为输入。 该函数将 missing_value_placeholder 的所有实例替换为离其右侧最近的值（missing_value_placeholder 除外），并返回生成的数组。 保留 missing_value_placeholder 的最右侧实例。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `series_fill_backward(`*x*`[, `*missing_value_placeholder*`])`
 * 将返回序列 x，其中前向填充了 missing_value_placeholder 的所有实例。
 
-**参数**
+## <a name="arguments"></a>参数
 
 * x：动态数组标量表达式（数值数组）。
 * missing_value_placeholder：此可选参数为缺失值指定占位符。 默认值为“`double`(null)”。
@@ -44,7 +44,7 @@ make-series num=count() default=long(null) on TimeStamp from ago(1d) to ago(1h) 
 * 如果 missing_value_placeholder 为 `double`(null) 或被省略（二者含义相同），则结果可能包含 null 值。 若要填充这些 null 值，请使用其他内插函数。 目前只有 [series_outliers()](series-outliersfunction.md) 支持在输入数组中使用 null 值。
 * 此函数会保留数组元素的原始类型。
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

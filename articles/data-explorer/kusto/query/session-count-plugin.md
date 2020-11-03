@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 session_count 插件
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 886df5474391b33b9b564f8066d4a724099064b0
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 02cbb26518680ea5a7cea732618e6309260870f0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841222"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105987"
 ---
 # <a name="session_count-plugin"></a>session_count 插件
 
@@ -24,22 +24,22 @@ ms.locfileid: "87841222"
 T | evaluate session_count(id, datetime_column, startofday(ago(30d)), startofday(now()), 1min, 30min, dim1, dim2, dim3)
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `| evaluate` `session_count(`*IdColumn*`,` *TimelineColumn*`,` *Start*`,` *End*`,` *Bin*`,` *LookBackWindow* [`,` *dim1*`,` *dim2*`,` ...]`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：输入表格表达式。
+* *T* ：输入表格表达式。
 * IdColumn：列的名称，其 ID 值表示用户活动。 
 * TimelineColumn：表示时间线的列的名称。
-* *开始*：带有分析开始时段值的标量。
+* *开始* ：带有分析开始时段值的标量。
 * End：带有分析结束时段值的标量。
-* *Bin*：会话分析步骤时间段的标量常数值。
-* *LookBackWindow*：表示会话回看期的标量常数值。 如果 `IdColumn` 中的 ID 在 `LookBackWindow` 之内的时间窗口中出现，则该会话被视为现有会话。 如果该 ID 未出现，则该会话被视为新会话。
-* *dim1*, *dim2*, ...：（可选）维度列的列表，用于切分会话计数计算。
+* *Bin* ：会话分析步骤时间段的标量常数值。
+* *LookBackWindow* ：表示会话回看期的标量常数值。 如果 `IdColumn` 中的 ID 在 `LookBackWindow` 之内的时间窗口中出现，则该会话被视为现有会话。 如果该 ID 未出现，则该会话被视为新会话。
+* *dim1* , *dim2* , ...：（可选）维度列的列表，用于切分会话计数计算。
 
-**返回**
+## <a name="returns"></a>返回
 
 返回一个表，该表包含每个时间线期间的以及每个现有维度组合的会话计数值。
 
@@ -50,7 +50,7 @@ T | evaluate session_count(id, datetime_column, startofday(ago(30d)), startofday
 |类型：自 TimelineColumn 起|..|..|..|long|
 
 
-**示例**
+## <a name="examples"></a>示例
 
 对于此示例，数据是确定性的，并且我们使用具有两列的表：
 - 时间线：一个 1 至 10,000 之间的顺序号

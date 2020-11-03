@@ -4,35 +4,35 @@ description: 本文介绍 Azure 数据资源管理器中的 set_intersect()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/02/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 7e0ac3ec12299a3e27517d648ca9f2fd0328710e
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 3f87df6ea2a30ec27bd1ba5df2a71ea36d4681f8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841568"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105978"
 ---
 # <a name="set_intersect"></a>set_intersect()
 
 返回一个 `dynamic` 数组，其中包含在所有数组 (arr1 ∩ arr2 ∩ ...) 中的所有非重复值的集合。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `set_intersect(`*arr1*`, `*arr2*`[`,` *arr3*, ...])`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * arr1...arrN：用于创建交集的输入数组（至少两个数组）。 所有参数都必须是动态数组。 有关详细信息，请参阅 [pack_array](packarrayfunction.md)。 
 
-**返回**
+## <a name="returns"></a>返回
 
 返回一个动态数组，其中包含在所有数组中的所有非重复值的集合。 请参阅 [`set_union()`](setunionfunction.md) 和 [`set_difference()`](setdifferencefunction.md)。
 
-**示例**
+## <a name="example"></a>示例
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto

@@ -2,7 +2,7 @@
 title: 教程 - 使用 Java 和注册组将模拟的 X.509 设备预配到 Azure IoT 中心
 description: 本教程使用适用于 IoT 中心设备预配服务 (DPS) 的 Java 设备和服务 SDK 与注册组来创建和预配模拟的 X.509 设备
 author: wesmc7777
-ms.author: wesmc
+ms.author: v-tawe
 origin.date: 11/12/2019
 ms.date: 09/30/2020
 ms.topic: tutorial
@@ -10,12 +10,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 68d6e4849730161df97738b4ec9f59867ff84da3
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 4ae1a0bfcebbcb0fbf6ba1f8c2aafed850f37495
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564243"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106337"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>教程：使用适用于 IoT 中心设备预配服务的 Java 设备和服务 SDK 与组登记来创建和预配模拟的 X.509 设备
 
@@ -53,7 +53,7 @@ ms.locfileid: "91564243"
 
         1. 选择新建的证书：
             - 单击“生成验证码”。  复制生成的代码。
-            - 运行验证步骤。 输入验证码，或者在运行的 PowerShell 窗口中右键单击进行粘贴。   按 **Enter**。
+            - 运行验证步骤。 输入验证码，或者在运行的 PowerShell 窗口中右键单击进行粘贴。   按 **Enter** 。
             - 在 Azure 门户中选择新建的 **_verifyCert4.pem_** 文件。 单击“验证”。 
 
               ![验证证书](./media/tutorial-group-enrollments/validate-certificate.png)

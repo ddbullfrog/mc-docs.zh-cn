@@ -7,13 +7,13 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/24/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: dd2c7103e29e5ed3aa9818f314e3abb6df944cab
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: e184707a00c6f8638eb93b175f8fafcbf3abbe8f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146438"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106094"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>使用 Python 为 Azure 数据资源管理器创建数据库和表策略
 
@@ -39,7 +39,7 @@ pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
 ## <a name="authentication"></a>身份验证
-为了运行本文中的示例，我们需要可以访问资源的 Azure AD 应用程序和服务主体。 可以使用相同的 Azure AD 应用程序通过[测试群集和数据库](create-cluster-database-csharp.md#authentication)进行身份验证。 如果要使用其他 Azure AD 应用程序，请参阅[创建 Azure AD 应用程序](https://docs.azure.cn/active-directory/develop/howto-create-service-principal-portal)以创建免费的 Azure AD 应用程序并在订阅范围内添加角色分配。 它还演示如何获取 `Directory (tenant) ID`、`Application ID` 和 `Client Secret`。 可能需要将新的 Azure AD 应用程序添加为数据库中的主体，请参阅[管理 Azure 数据资源管理器数据库权限](manage-database-permissions.md)。    
+为了运行本文中的示例，我们需要可以访问资源的 Azure AD 应用程序和服务主体。 可以使用相同的 Azure AD 应用程序通过[测试群集和数据库](create-cluster-database-csharp.md#authentication)进行身份验证。 如果要使用其他 Azure AD 应用程序，请参阅[创建 Azure AD 应用程序](/active-directory/develop/howto-create-service-principal-portal)以创建免费的 Azure AD 应用程序并在订阅范围内添加角色分配。 它还演示如何获取 `Directory (tenant) ID`、`Application ID` 和 `Client Secret`。 可能需要将新的 Azure AD 应用程序添加为数据库中的主体，请参阅[管理 Azure 数据资源管理器数据库权限](manage-database-permissions.md)。    
 
 ## <a name="alter-database-retention-policy"></a>更改数据库保留策略
 使用 10 天的软删除期设置保留策略。

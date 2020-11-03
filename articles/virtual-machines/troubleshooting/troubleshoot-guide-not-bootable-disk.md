@@ -2,9 +2,7 @@
 title: 启动错误 -“这不是可启动磁盘”
 description: 本文提供的步骤用于解决无法在 Azure 虚拟机中启动磁盘的问题
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 5d6db4e3-c2f5-40c7-afea-54edf745f5eb
 ms.service: virtual-machines-windows
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: cdcf4bf141d882f14b3df2c2d6ffdd7892063477
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: 43da0f3a512a826b62dc6ad9d99f29fd7f34087a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456795"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106328"
 ---
 <!--Verified successfully-->
 # <a name="boot-error---this-is-not-a-bootable-disk"></a>启动错误 - 这不是可启动磁盘
@@ -48,7 +46,7 @@ ms.locfileid: "89456795"
 1. 创建并访问修复 VM。
 2. 将“分区状态”设置为“活动”。
 3. 修复磁盘分区。
-4. **建议**：在重建 VM 之前，启用串行控制台和内存转储收集。
+4. **建议** ：在重建 VM 之前，启用串行控制台和内存转储收集。
 5. 重建原始 VM。
 
     > [!NOTE]
@@ -126,7 +124,7 @@ ms.locfileid: "89456795"
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>用于启用 OS 转储的建议配置
 
-**加载损坏的 OS 磁盘**：
+**加载损坏的 OS 磁盘** ：
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 

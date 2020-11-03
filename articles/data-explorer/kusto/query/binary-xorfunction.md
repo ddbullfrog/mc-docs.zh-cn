@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 binary_xor()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 4b6e0e685a0b6e597314c31c83d600d308233fca
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 17d7db0aa5e5ea7d8c15d4cdb4e3e98ce6a921e4
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516062"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106049"
 ---
 # <a name="binary_xor"></a>binary_xor()
 

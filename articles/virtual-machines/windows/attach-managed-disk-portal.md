@@ -10,12 +10,12 @@ ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: cbe6e01efa753a4bb5949cd5c34bbd1e05daed7a
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 8eff4aa07618fe066970c119ca18095f76cdf6dc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462842"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106125"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>使用 Azure 门户将托管数据磁盘附加到 Windows VM
 
@@ -49,6 +49,6 @@ ms.locfileid: "89462842"
 ## <a name="next-steps"></a>后续步骤
 
 - 还可以[使用 PowerShell 附加数据磁盘](attach-disk-ps.md)。
-- 如果应用程序需要使用 *D:* 盘存储数据，可以[更改 Windows 临时磁盘的驱动器号](change-drive-letter.md)。
+- 如果应用程序需要使用 *D:* 盘存储数据，可以 [更改 Windows 临时磁盘的驱动器号](change-drive-letter.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

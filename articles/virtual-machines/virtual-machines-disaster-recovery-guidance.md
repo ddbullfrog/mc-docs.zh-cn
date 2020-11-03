@@ -5,16 +5,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 05/31/2017
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: e06067a32fcf9c84bbe8dcacfcee4daab85a1784
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 5a965e433b303078f2fcf9be7437aabf7b25c592
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463151"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106132"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>如果 Azure 服务中断影响了 Azure VM，该怎么办
 Azure 中国的同仁兢兢业业，只为确保在任何时候都能提供需要的服务。 但有时候会因为不可抗力的影响，造成服务意外中断。
@@ -32,7 +32,7 @@ Azure 已在平台中内置多种功能，用于支持高度可用的应用程�
 为帮助你处理这些罕见事件，我们提供以下 Azure 虚拟机指导，以应对 Azure 虚拟机应用程序部署所在的整个区域发生服务中断的情况。
 
 ## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>选项 1：使用 Azure Site Recovery 启动故障转移
-可以为 VM 配置 Azure Site Recovery，只需单击一下，几分钟内即可恢复应用程序。 可以将虚拟机复制到所选的 Azure 区域，而不局限于配对区域。 可以通过[复制虚拟机](https://docs.azure.cn/site-recovery/azure-to-azure-quickstart)来启动。 可以[创建恢复计划](../site-recovery/site-recovery-create-recovery-plans.md)，以便可以对应用程序自动完成整个故障转移过程。 可以预先[测试故障转移](../site-recovery/site-recovery-test-failover-to-azure.md)，这不会影响生成应用程序或正在进行的复制。 在主要区域中断的情况下，只需[启动故障转移](../site-recovery/site-recovery-failover.md)并在将应用程序移至目标区域。
+可以为 VM 配置 Azure Site Recovery，只需单击一下，几分钟内即可恢复应用程序。 可以将虚拟机复制到所选的 Azure 区域，而不局限于配对区域。 可以通过[复制虚拟机](../site-recovery/azure-to-azure-quickstart.md)来启动。 可以[创建恢复计划](../site-recovery/site-recovery-create-recovery-plans.md)，以便可以对应用程序自动完成整个故障转移过程。 可以预先[测试故障转移](../site-recovery/site-recovery-test-failover-to-azure.md)，这不会影响生成应用程序或正在进行的复制。 在主要区域中断的情况下，只需[启动故障转移](../site-recovery/site-recovery-failover.md)并在将应用程序移至目标区域。
 
 ## <a name="option-2-wait-for-recovery"></a>选项 2：等待恢复
 在此情况下，不需要采取任何操作。 但要知道，我们正在努力还原服务的可用性。 可在 [Azure 服务运行状况仪表板](https://status.azure.com/status/)上查看当前服务状态。
@@ -48,7 +48,7 @@ Azure 已在平台中内置多种功能，用于支持高度可用的应用程�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 使用 Azure Site Recovery [保护在 Azure 虚拟机上运行的应用程序](https://docs.azure.cn/site-recovery/azure-to-azure-quickstart)
+- 使用 Azure Site Recovery [保护在 Azure 虚拟机上运行的应用程序](../site-recovery/azure-to-azure-quickstart.md)
 
     <!--Not Available on - To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery).-->
 

@@ -2,9 +2,7 @@
 title: 排查 Linux VM 部署问题 | Azure
 description: 排查在 Azure 中创建新 Linux 虚拟机时遇到的 Resource Manager 部署问题
 services: virtual-machines-linux, azure-resource-manager
-documentationcenter: ''
 manager: gwallace
-editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
@@ -17,12 +15,12 @@ ms.date: 09/07/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: fe386051e0a9ef2dbe57fbcdc5f746aaf550ad6c
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: d3c6147765eab5b6221203010a60b5fa9746a5ea
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456803"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106330"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>排查在 Azure 中新建 Linux 虚拟机时遇到的 Resource Manager 部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -49,9 +47,9 @@ ms.locfileid: "89456803"
 
 **上载错误：**
 
-**N<sup>1</sup>：** 如果 OS 是通用的 Linux，但是以专用设置上载的，则会发生预配超时错误，并且 VM 会卡在预配阶段。
+**N <sup>1</sup>：** 如果 OS 是通用的 Linux，但是以专用设置上载的，则会发生预配超时错误，并且 VM 会卡在预配阶段。
 
-**N<sup>2</sup>：** 如果 OS 是专用的 Linux，但是以专用设置上载的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。
+**N <sup>2</sup>：** 如果 OS 是专用的 Linux，但是以专用设置上载的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。
 
 **解决方法：**
 
@@ -59,9 +57,9 @@ ms.locfileid: "89456803"
 
 **捕获错误：**
 
-**N<sup>3</sup>：** 如果 OS 是通用的 Linux，但是以专用设置捕获的，则会发生预配超时错误，因为标记为通用的原始 VM 不可用。
+**N <sup>3</sup>：** 如果 OS 是通用的 Linux，但是以专用设置捕获的，则会发生预配超时错误，因为标记为通用的原始 VM 不可用。
 
-**N<sup>4</sup>：** 如果 OS 是专用的 Linux，但是以专用设置捕获的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。 此外，标记为专用的原始 VM 不可用。
+**N <sup>4</sup>：** 如果 OS 是专用的 Linux，但是以专用设置捕获的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。 此外，标记为专用的原始 VM 不可用。
 
 **解决方法：**
 

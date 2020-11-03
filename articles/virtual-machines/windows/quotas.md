@@ -11,12 +11,12 @@ ms.date: 09/07/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 922b683ed93e0fd4a1c43da3ae796d4c1f425e58
-ms.sourcegitcommit: 22e1da9309795e74a91b7241ac5987a802231a8c
+ms.openlocfilehash: 1aed660eb8cb3663ec01169b6b7b627ca65bb46d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462835"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105837"
 ---
 # <a name="check-vcpu-quotas-using-azure-powershell"></a>使用 Azure PowerShell 检查 vCPU 配额
 
