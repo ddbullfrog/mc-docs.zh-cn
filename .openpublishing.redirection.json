@@ -28340,7 +28340,28 @@
             "source_path": "articles/machine-learning/how-to-train-ml-models.md",
             "redirect_url": "/machine-learning/how-to-set-up-training-targets",
             "redirect_document_id": false
-        }
+        },
+        { 
+            "source_path": "articles/azure-stack/operator/azure-stack-configure-automatic-diagnostic-log-collection.md", 
+            "redirect_url": "/azure-stack/operator/azure-stack-diagnostic-log-collection-overview", 
+            "redirect_document_id": false
+        },
+        { 
+            "source_path": "articles/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md", 
+            "redirect_url": "/azure-stack/operator/azure-stack-diagnostic-log-collection-overview", 
+            "redirect_document_id": false
+        },
+        { 
+            "source_path": "articles/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md", 
+            "redirect_url": "/azure-stack/operator/azure-stack-diagnostic-log-collection-overview", 
+            "redirect_document_id": false
+        },
+        { 
+            "source_path": "articles/azure-stack/hci/deploy/before-you-start.md", 
+            "redirect_url": "/azure-stack/hci/concepts/system-requirements", 
+            "redirect_document_id": false 
+        }    
+
 
 
 
