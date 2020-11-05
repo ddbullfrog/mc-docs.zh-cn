@@ -1,6 +1,6 @@
 ---
 title: 在 Azure AD 中使用 Privileged Identity Management 将角色分配给组 | Microsoft Docs
-description: 预览用于委托标识管理的自定义 Azure AD 角色。 在 Azure 门户、PowerShell 或图形 API 中管理 Azure 角色。
+description: 了解如何使用 Azure AD Privileged Identity Management (PIM) 将 Azure Active Directory (Azure AD) 角色分配给组。
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/14/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d22b878ee0f1ce32c8f419a806beb89f30fbc5d2
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 15a28a7be44c1735f1910c814f9f170171f350ff
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648125"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749850"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>使用 Privileged Identity Management 将角色分配给组
 
@@ -35,7 +35,7 @@ ms.locfileid: "88648125"
 
 1. 选择一个角色，然后选择一个组。 仅显示符合角色分配条件的组（可分配角色的组），而不是所有组。
 
-    ![选择要分配到该角色的用户](./media/roles-groups-pim-eligible/select-member.png)
+    ![屏幕截图，其中显示了“添加分配”页，页面上突出显示了“选择角色”和“选择成员”部分。](./media/roles-groups-pim-eligible/select-member.png)
 
 1. 选择所需的成员资格设置。 对于需要激活的角色，请选择“符合条件的”。 默认情况下，用户将是永久符合条件的，但你也可以为用户的资格设置开始和结束时间。 完成后，单击“保存”并“添加”以完成角色分配。
 

@@ -1,6 +1,7 @@
 ---
-title: Microsoft 标识平台 UWP 入门 | Azure
-description: 通用 Windows 平台 (UWP) 应用程序如何通过 Microsoft 标识平台终结点调用需要访问令牌的 API。
+title: 教程：创建使用 Microsoft 标识平台进行身份验证的通用 Windows 平台 (UWP) 应用 | Azure
+titleSuffix: Microsoft identity platform
+description: 在本教程中，我们生成一个使用 Microsoft 标识平台将用户登录的 UWP 应用程序，并获取访问令牌以代表用户调用 Microsoft Graph API。
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,27 +9,34 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: bc33d0a5b9e5bb21fcd27d2134ef375eb41d641f
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 19c0fcff43bd956cf470c937bc46824c3ead0f35
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647537"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749912"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>从通用 Windows 平台应用程序 (XAML) 调用 Microsoft Graph API
-
-> [!div renderon="docs"]
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>教程：从通用 Windows 平台 (UWP) 应用程序调用 Microsoft Graph API
 
 本指南介绍本机通用 Windows 平台 (UWP) 应用程序如何请求访问令牌， 然后，应用程序调用 Microsoft Graph API。 本指南也适用于其他需要从 Microsoft 标识平台终结点请求访问令牌的 API。
 
->[!NOTE]
-> 本指南需要安装了通用 Windows 平台开发的 Visual Studio。 有关如何下载和配置 Visual Studio 以开发通用 Windows 平台应用的说明，请参阅[设置](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)。
+应用程序将调用任何使用 Azure Active Directory (Azure AD) 的公司或组织提供的工作和学校帐户。
 
->[!NOTE]
-> 如果你不熟悉 Microsoft 标识平台，请从[从通用 Windows 平台 (UWP) 应用程序调用 Microsoft Graph API 快速入门](quickstart-v2-uwp.md)开始。
+本教程的内容：
+
+> [!div class="checklist"]
+> * 在 Visual Studio 中创建“通用 Windows 平台(UWP)”项目
+> * 在 Azure 门户中注册应用程序
+> * 添加代码以支持用户登录和注销
+> * 添加代码以调用 Microsoft Graph API
+> * 测试应用程序
+
+## <a name="prerequisites"></a>先决条件
+
+* 安装了包含[通用 Windows 平台开发](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)工作负荷的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="how-this-guide-works"></a>本指南的工作原理
 
@@ -113,7 +121,7 @@ Visual Studio 创建 *MainPage.xaml* 作为项目模板的一部分。 打开此
     ```csharp
     public sealed partial class MainPage : Page
     {
-       
+
         //Set the scope for API call to user.read
         private string[] scopes = new string[] { "https://microsoftgraph.chinacloudapi.cn/user.read" };
 
@@ -231,7 +239,7 @@ Visual Studio 创建 *MainPage.xaml* 作为项目模板的一部分。 打开此
 
 ### <a name="instantiate-the-microsoft-graph-service-client-by-obtaining-the-token-from-the-signinuserandgettokenusingmsal-method"></a>通过从 SignInUserAndGetTokenUsingMSAL 方法获取令牌，来实例化 Microsoft Graph Service 客户端
 
-将以下新方法添加到 *MainPage.xaml.cs*：
+将以下新方法添加到 *MainPage.xaml.cs* ：
 
 ```csharp
       /// <summary>
@@ -256,7 +264,7 @@ Visual Studio 创建 *MainPage.xaml* 作为项目模板的一部分。 打开此
 
 ### <a name="add-a-method-to-sign-out-the-user"></a>添加方法以注销用户
 
-若要注销用户，请将以下方法添加到 *MainPage.xaml.cs*：
+若要注销用户，请将以下方法添加到 *MainPage.xaml.cs* ：
 
 ```csharp
 /// <summary>
@@ -295,7 +303,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 
 ### <a name="display-basic-token-information"></a>显示基本令牌信息
 
-将以下方法添加到 *MainPage.xaml.cs*，以显示有关令牌的基本信息：
+将以下方法添加到 *MainPage.xaml.cs* ，以显示有关令牌的基本信息：
 
 ```csharp
 /// <summary>
@@ -318,7 +326,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 ### <a name="display-message"></a>显示消息
 
-将以下新方法添加到 *MainPage.xaml.cs*：
+将以下新方法添加到 *MainPage.xaml.cs* ：
 
 ```csharp
 /// <summary>
@@ -341,8 +349,8 @@ private async Task DisplayMessageAsync(string message)
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 选择“Azure Active Directory” > “应用注册”。 
 1. 选择“新注册”。 输入一个会显示给应用用户的有意义的应用程序名称，例如 UWP-App-calling-MSGraph。
-1. 在**支持的帐户类型**下，选择“任何组织目录中的帐户”，然后选择“注册”以继续。
-1. 在概览页上，找到并复制“应用程序(客户端) ID”值。 返回到 Visual Studio，打开 *MainPage.xaml.cs*，将 `ClientId` 的值替换为该值。
+1. 在 **支持的帐户类型** 下，选择“任何组织目录中的帐户”，然后选择“注册”以继续。
+1. 在概览页上，找到并复制“应用程序(客户端) ID”值。 返回到 Visual Studio，打开 *MainPage.xaml.cs* ，将 `ClientId` 的值替换为该值。
 
 为应用程序配置身份验证：
 
@@ -362,7 +370,7 @@ private async Task DisplayMessageAsync(string message)
 
 若要在与 Azure AD 联盟域配合使用的情况下启用集成的 Windows 身份验证，应用程序清单必须启用其他功能。 回到 Visual Studio 中的应用程序。
 
-1. 打开 *Package.appxmanifest*。
+1. 打开 *Package.appxmanifest* 。
 1. 选择“功能”并启用以下设置：
 
    * **企业身份验证**
@@ -425,16 +433,15 @@ private async Task DisplayMessageAsync(string message)
             }
            ...
     }
-  
+
     ```
 
-    运行应用，然后在到达断点时，复制 `redirectUri` 的值。 该值应该类似于以下值：  
-    `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
+    运行应用，然后在到达断点时，复制 `redirectUri` 的值。 该值应该类似于以下值：`ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
 
-    然后，可以删除该代码行，因为只需要使用一次即可提取该值。 
+    然后，可以删除该代码行，因为只需要使用一次即可提取该值。
 
 3. 在应用注册门户中，在“身份验证”窗格的“RedirectUri”中添加返回值 。
-   
+
 ## <a name="test-your-code"></a>测试代码
 
 若要测试应用程序，请按“F5”键，在 Visual Studio 中运行项目。 将显示主窗口：
@@ -457,7 +464,7 @@ private async Task DisplayMessageAsync(string message)
 
 “令牌信息”框中还会显示通过 `AcquireTokenInteractive` 或 `AcquireTokenSilent` 获得的令牌的相关基本信息：
 
-|属性  |格式  |说明 |
+|properties  |格式  |说明 |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |用于标识用户的用户名。|
 |`Token Expires` |`DateTime` |令牌的过期时间。 Microsoft 身份验证库通过根据需要续订令牌来延长到期日期。|
@@ -483,7 +490,7 @@ Microsoft Graph API 需要 `user.read` 作用域来读取用户的配置文件�
 
 **原因：** 未启用企业功能和证书功能。
 
-**解决方案：** 按照[在联盟域中启用集成身份验证（可选）](#enable-integrated-authentication-on-federated-domains-optional)中的步骤操作。
+**解决方案：** 按照 [在联盟域中启用集成身份验证（可选）](#enable-integrated-authentication-on-federated-domains-optional)中的步骤操作。
 
 ### <a name="issue-2"></a>问题 2
 
@@ -494,4 +501,11 @@ Microsoft Graph API 需要 `user.read` 作用域来读取用户的配置文件�
 **解决方法：** 选择“使用其他选项登录”。 然后选择“使用用户名和密码登录”。 选择“提供密码”。 然后完成手机身份验证过程。
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>后续步骤
+
+详细了解如何使用 Microsoft 身份验证库 (MSAL) 在 .NET 应用程序中进行授权和身份验证：
+
+> [!div class="nextstepaction"]
+> [Microsoft 身份验证库 (MSAL) 的概述](msal-overview.md)
 

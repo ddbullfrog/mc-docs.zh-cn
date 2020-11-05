@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4cdc82e80ddeb18ffe31fa3f9b2fa13626ec3af9
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: d4c6d6ab3ed4a3937d5180a467951c6ef92412eb
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647500"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749904"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Microsoft 标识平台的 UserInfo 终结点
 
@@ -80,7 +80,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
 }
 ```
 
-此处列出的声明（包括 `sub`）与应用在颁发给应用的 [ID 令牌](id-tokens.md)中看到的声明相同。  
+此处列出的声明是 UserInfo 终结点可以返回的所有声明。  这些值与该应用在颁发给该应用的 [ID 令牌](id-tokens.md)中会看到的值是相同的。  
 
 ## <a name="notes-and-caveats-on-the-userinfo-endpoint"></a>有关 UserInfo 终结点的说明和注意事项
 

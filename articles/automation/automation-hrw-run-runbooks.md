@@ -3,15 +3,15 @@ title: 在混合 Runbook 辅助角色上运行 Azure 自动化 Runbook
 description: 本文介绍如何使用混合 Runbook 辅助角色在本地数据中心或其他云提供商的计算机上运行 Runbook。
 services: automation
 ms.subservice: process-automation
-origin.date: 09/22/2020
-ms.date: 10/19/2020
+origin.date: 10/06/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 332c0ea2ccf22171e4fb156e25d6d6a1f4fafcff
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 4e16fb6f8baf905adca245a1422af0d6b7aae998
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943458"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749791"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>在混合 Runbook 辅助角色中运行 Runbook
 
@@ -25,7 +25,7 @@ Azure 自动化处理混合 Runbook 辅助角色上的作业的方式不同于�
 
 混合 Runbook 辅助角色的作业在 Windows 上的本地 System 帐户下运行，或者在 Linux 上的 nxautomation 帐户下运行。 对于 Linux，请确保 nxautomation 帐户有权访问 Runbook 模块的存储位置。 使用 [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module) cmdlet 时，请确保为 `Scope` 参数指定 AllUsers，以确保 nxautomation 帐户具有访问权限。 有关 Linux 上的 PowerShell 的详细信息，请参阅[非 Windows 平台上的 PowerShell 的已知问题](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6#known-issues-for-powershell-on-non-windows-platforms)。
 
-## <a name="set-up-runbook-permissions"></a>设置 Runbook 权限
+## <a name="configure-runbook-permissions"></a>配置 runbook 权限
 
 通过以下方式定义 Runbook 的权限以在混合 Runbook 辅助角色上运行：
 
@@ -33,7 +33,7 @@ Azure 自动化处理混合 Runbook 辅助角色上的作业的方式不同于�
 * 配置使用 [Azure 资源托管标识](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)进行身份验证。
 * 还可以指定运行方式帐户，为所有 Runbook 提供用户上下文。
 
-## <a name="use-runbook-authentication-to-local-resources"></a>对本地资源使用 Runbook 身份验证
+### <a name="use-runbook-authentication-to-local-resources"></a>对本地资源使用 Runbook 身份验证
 
 如果准备向资源提供其身份验证的 Runbook，请在 Runbook 中使用[凭据](./shared-resources/credentials.md)和[证书](./shared-resources/certificates.md)资产。 可以通过多个 cmdlet 来指定凭据，以便 Runbook 可以对不同资源进行身份验证。 下面的示例显示了用于重新启动计算机的 Runbook 的一部分。 它从凭据资产检索凭据，从变量资产检索计算机的名称，并将这些值用于 `Restart-Computer` cmdlet。
 
@@ -46,7 +46,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 还可以使用 [InlineScript](automation-powershell-workflow.md#use-inlinescript) 活动。 `InlineScript` 允许你在具有凭据的另一台计算机上运行代码块。
 
-## <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>将 Runbook 身份验证与托管标识结合使用
+### <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>将 Runbook 身份验证与托管标识结合使用
 
 Azure 虚拟机上的混合 Runbook 辅助角色可以使用托管标识来向 Azure 资源进行身份验证。 使用 Azure 资源的托管标识（而不是运行方式帐户）有一些好处，因为无需执行以下操作：
 
@@ -73,7 +73,7 @@ Azure 虚拟机上的混合 Runbook 辅助角色可以使用托管标识来向 A
     > [!NOTE]
     > `Connect-AzAccount -Identity` 适用于使用系统分配的标识和单一用户分配的标识的混合 Runbook 辅助角色。 如果在混合 Runbook 辅助角色上使用多个用户分配的标识，Runbook 必须为 `Connect-AzAccount` 指定 `AccountId` 参数，以选择特定的用户分配的标识。
 
-## <a name="use-runbook-authentication-with-run-as-account"></a>将 Runbook 身份验证与运行方式帐户结合使用
+### <a name="use-runbook-authentication-with-run-as-account"></a>将 Runbook 身份验证与运行方式帐户结合使用
 
 不需要让 Runbook 将自身的身份验证提供给本地资源，但可以针对混合 Runbook 辅助角色组指定运行方式帐户。 若要指定运行方式帐户，必须定义有权访问本地资源的[凭据资产](./shared-resources/credentials.md)。 这些资源包括证书存储，所有 Runbook 在组中的混合 Runbook 辅助角色上使用这些凭据运行。
 
@@ -184,7 +184,7 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 
 ## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>在 Windows 混合 Runbook 辅助角色上使用已签名 Runbook
 
-你可以将 Windows 混合 Runbook 辅助角色配置为仅运行已签名 Runbook。 
+你可以将 Windows 混合 Runbook 辅助角色配置为仅运行已签名 Runbook。
 
 > [!IMPORTANT]
 > 将混合 Runbook 辅助角色配置为仅运行已签名 Runbook 后，未签名的 Runbook 将无法在该辅助角色上执行。
@@ -196,14 +196,13 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 ```powershell
 # Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
-                                        -Subject "CN=contoso.com" `
-                                        -KeyAlgorithm RSA `
-                                        -KeyLength 2048 `
-                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
-                                        -KeyExportPolicy Exportable `
-                                        -KeyUsage DigitalSignature `
-                                        -Type CodeSigningCert
-
+    -Subject "CN=contoso.com" `
+    -KeyAlgorithm RSA `
+    -KeyLength 2048 `
+    -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+    -KeyExportPolicy Exportable `
+    -KeyUsage DigitalSignature `
+    -Type CodeSigningCert
 
 # Export the certificate so that it can be imported to the hybrid workers
 Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
@@ -249,6 +248,13 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 > [!IMPORTANT]
 > 将混合 Runbook 辅助角色配置为仅运行已签名 Runbook 后，未签名的 Runbook 将无法在该辅助角色上执行。
 
+你将执行以下步骤来完成此配置：
+
+* 创建 GPG keyring 和密钥对
+* 使 keyring 可供混合 Runbook 辅助角色使用
+* 验证签名验证是否已打开
+* 对 runbook 签名
+
 ### <a name="create-a-gpg-keyring-and-keypair"></a>创建 GPG keyring 和密钥对
 
 若要创建 GPG keyring 和密钥对，请使用混合 Runbook 辅助角色 [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux)。
@@ -273,10 +279,10 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 
 ### <a name="make-the-keyring-available-to-the-hybrid-runbook-worker"></a>使 keyring 可供混合 Runbook 辅助角色使用
 
-创建 keyring 后，需要使其可供混合 Runbook 辅助角色使用。 修改设置文件 /var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf 以在文件部分 `[worker-optional]` 下包含以下示例代码。
+创建 keyring 后，需要使其可供混合 Runbook 辅助角色使用。 修改设置文件 home/nxautomation/state/worker.conf，在该文件的 `[worker-optional]` 节下添加以下示例代码。
 
 ```bash
-gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+gpg_public_keyring_path = /home/nxautomation/run/.gnupg/pubring.kbx
 ```
 
 ### <a name="verify-that-signature-validation-is-on"></a>验证签名验证是否已打开

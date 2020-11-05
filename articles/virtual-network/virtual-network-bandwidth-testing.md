@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/21/2017
+origin.date: 10/06/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4f7a6dc8421a60f2c52085e285b86a9817eebf6a
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 7ad7039f737c419e89760dd7ca8894f702d45fba
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564442"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628252"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>带宽/吞吐量测试 (NTTTCP)
 
@@ -29,7 +29,7 @@ ms.locfileid: "91564442"
 将此工具复制到大小相同的两个 Azure VM 中。 一个 VM 充当发送方，另一个充当接收方。
 
 #### <a name="deploying-vms-for-testing"></a>部署 VM 以进行测试
-为了达到此测试的目的，两个 VM 应位于同一云服务或同一可用性集中，这样便可使用其内部 IP 并从测试中排除负载均衡器。 也可以使用 VIP 进行测试，但这类测试不在本文档的讨论范围内。
+为了达到此测试的目的，两个 VM 应位于同一[邻近放置组](../virtual-machines/windows/co-location.md)或同一可用性集中，这样便可使用其内部 IP 并从测试中排除负载均衡器。 也可以使用 VIP 进行测试，但这类测试不在本文档的讨论范围内。
 
 记下接收方的 IP 地址。 暂且将该 IP 称为“a.b.c.r”
 
@@ -40,7 +40,7 @@ ms.locfileid: "91564442"
 提示：第一次设置此测试时，可以尝试更短的测试时间，以更快地获取反馈。 在工具按预期工作后，将测试时间延长到 300 秒，以获取最准确的结果。
 
 > [!NOTE]
-> 发送方**和**接收方必须指定**相同的**测试持续时间参数 (-t)。
+> 发送方 **和** 接收方必须指定 **相同的** 测试持续时间参数 (-t)。
 
 测试单个 TCP 流 10 秒：
 
@@ -68,13 +68,13 @@ ms.locfileid: "91564442"
 
 netsh advfirewall firewall add rule program=\<PATH\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
-例如，如果已将 ntttcp.exe 复制到“c:\\tools”文件夹中，则此命令为： 
+例如，如果已将 ntttcp.exe 复制到“c:\\tools”文件夹中，则此命令为： 
 
 netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
 #### <a name="running-ntttcp-tests"></a>运行 NTTTCP 测试
 
-在接收方上启动 NTTTCP（**从 CMD 运行**，而不是从 PowerShell 运行）：
+在接收方上启动 NTTTCP（ **从 CMD 运行** ，而不是从 PowerShell 运行）：
 
 ntttcp -r -m [2\*\#num\_cores],\*,a.b.c.r -t 300
 
@@ -82,9 +82,9 @@ ntttcp -r -m [2\*\#num\_cores],\*,a.b.c.r -t 300
 
 ntttcp -r -m 8,\*,10.0.0.4 -t 300
 
-在发送方上启动 NTTTCP（**从 CMD 运行**，而不是从 PowerShell 运行）：
+在发送方上启动 NTTTCP（ **从 CMD 运行** ，而不是从 PowerShell 运行）：
 
-ntttcp -s -m 8,\*,10.0.0.4 -t 300 
+ntttcp -s -m 8,\*,10.0.0.4 -t 300 
 
 等待结果。
 
@@ -96,19 +96,19 @@ ntttcp -s -m 8,\*,10.0.0.4 -t 300 
 
 CentOS — 安装 Git：
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu — 安装 Git：
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
-在这两者上生成并安装：
+获取并安装两者：
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 如 Windows 示例中一样，假设 Linux 接收方的 IP 为 10.0.0.4

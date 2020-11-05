@@ -1,5 +1,6 @@
 ---
-title: 如何与 Microsoft 标识平台集成
+title: 如何与 Microsoft 标识平台集成 | Azure
+titleSuffix: Microsoft identity platform
 description: 了解将应用程序与 Microsoft 标识平台集成的优点，并获取诸如简化登录、标识管理、多重身份验证和访问控制等功能的资源。
 services: active-directory
 author: rwike77
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: a51b911ac8cdf098395c6606af60319671e54a41
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: d13e50df0e6886548496e64dc18afa1b45d1c7f0
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937239"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749991"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>与 Microsoft 标识平台集成
 
@@ -47,7 +48,7 @@ ms.locfileid: "91937239"
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>获取对用户配置文件、日历、电子邮件、联系人、文件等的访问权限
 
-**Microsoft 标识平台是 Microsoft 365 和其他 Microsoft 业务服务的授权服务器。**  如果支持使用 Microsoft 标识平台登录到应用程序，或者支持将当前用户帐户链接到使用 OAuth 2.0 的 Azure AD 用户帐户，则可以请求获得用户配置文件、日历、电子邮件、联系人、文件和其他信息的读写访问权限。 可以顺利地将事件写入用户日历，以及在其 OneDrive 中读取或写入文件。 详细了解如何[访问 Microsoft 365 API](https://docs.microsoft.com/previous-versions/office/office-365-api/)。
+**Microsoft 标识平台是 Microsoft 365 和其他 Microsoft 业务服务的授权服务器。**  如果支持使用 Microsoft 标识平台登录到应用程序，或者支持将当前用户帐户链接到使用 OAuth 2.0 的 Azure AD 用户帐户，则可以请求获得用户配置文件、日历、电子邮件、联系人、文件和其他信息的读写访问权限。 可以顺利地将事件写入用户日历，以及在其 OneDrive 中读取或写入文件。 详细了解 [Microsoft 365 API](https://docs.microsoft.com/graph/overview)。
 
 ### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>在 Azure 和 Microsoft 365 市场中推广你的应用程序
 

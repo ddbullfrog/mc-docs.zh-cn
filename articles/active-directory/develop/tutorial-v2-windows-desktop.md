@@ -1,6 +1,7 @@
 ---
-title: Microsoft 标识平台 Windows 桌面入门
-description: 了解 Windows 桌面 .NET (XAML) 应用程序如何获取访问令牌并调用受 Microsoft 标识平台保护的 API。
+title: 教程：创建使用 Microsoft 标识平台进行身份验证的 Windows Presentation Foundation (WPF) 应用 | Azure
+titleSuffix: Microsoft identity platform
+description: 在本教程中，我们生成一个使用 Microsoft 标识平台将用户登录的 WPF 应用程序，并获取访问令牌以代表用户调用 Microsoft Graph API。
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,25 +9,35 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/28/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d77c2d73358aaeec200c097bde08d96b36599c98
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 907f7369b950c972d12652d44369f345179cb93b
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186857"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749913"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>从 Windows 桌面应用调用 Microsoft Graph API
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>教程：从 Windows 桌面应用调用 Microsoft Graph API
 
-本指南演示了本机 Windows 桌面 .NET (XAML) 应用程序如何使用访问令牌来调用 Microsoft Graph API。 该应用还可以访问其他 API，这些 API 需要来自面向开发人员的 Microsoft 标识平台 v2.0 终结点的访问令牌。 此平台以前名为 Azure AD。
+本指南演示了本机 Windows 桌面 .NET (XAML) 应用程序如何使用访问令牌来调用 Microsoft Graph API。 该应用还可以访问其他 API，这些 API 需要来自 Microsoft 标识平台的访问令牌。
 
-> [!NOTE]
-> 本指南需要 Visual Studio 2015 Update 3、Visual Studio 2017 或 Visual Studio 2019。 没有这些版本？ [免费下载 Visual Studio 2019](https://www.visualstudio.com/downloads/)。
+应用程序将使用任何使用 Azure Active Directory 的公司或组织提供的工作和学校帐户。
 
->[!NOTE]
-> 如果你不熟悉 Microsoft 标识平台，我们建议你从[从 Windows 桌面应用获取令牌并调用 Microsoft Graph API](quickstart-v2-windows-desktop.md) 开始。
+本教程的内容：
+
+> [!div class="checklist"]
+> * 在 Visual Studio 中创建 Windows Presentation Foundation (WPF) 项目
+> * 安装适用于 .NET 的 Microsoft 身份验证库 (MSAL)
+> * 在 Azure 门户中注册应用程序
+> * 添加代码以支持用户登录和注销
+> * 添加代码以调用 Microsoft Graph API
+> * 测试应用程序
+
+## <a name="prerequisites"></a>先决条件
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>本指南生成的示例应用的工作原理
 
@@ -363,4 +374,11 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 除了用于调用 Microsoft Graph API 的访问令牌，MSAL 还可以在用户登录后获取 ID 令牌。 此令牌包含一小部分与用户相关的信息。 `DisplayBasicTokenInfo` 方法显示包含在令牌中的基本信息。 例如，它显示用户的显示名称和 ID，以及令牌到期日期和表示访问令牌本身的字符串。 多次选择“调用 Microsoft Graph API”按钮，便会发现后续请求使用了同一令牌。 而且还会注意到，在 MSAL 决定续订令牌时，到期日期也延长了。
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
+
+## <a name="next-steps"></a>后续步骤
+
+在我们的多部分场景系列中，详细了解如何构建可调用受保护 Web API 的桌面应用：
+
+> [!div class="nextstepaction"]
+> [方案：用于调用 Web API 的 桌面应用](scenario-desktop-overview.md)
 

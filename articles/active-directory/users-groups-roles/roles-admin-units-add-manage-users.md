@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b836f32018db6e4f5b1f3881ccf40b71047d248
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 56bb27445c4ff35039d8b4ce135eb03099b5d329
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041534"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749878"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>在 Azure Active Directory 的管理单元中添加和管理用户
 
@@ -31,30 +31,39 @@ ms.locfileid: "92041534"
 
 ### <a name="azure-portal"></a>Azure 门户
 
-可以通过两种方式将用户分配到管理单元。
+你可以逐个地或以批量操作的方式将用户分配到管理单元。
 
-1. 单独分配
+- 从用户配置文件进行单个分配
 
-    1. 可以在门户中转到 Azure AD，选择“用户”，然后选择要分配到管理单元的用户。 然后，可以在左侧面板中选择“管理单元”。 可以通过单击“分配到管理单元”并选择要将用户分配到的管理单元，将用户分配到一个或多个管理单元。
+   1. 使用特权角色管理员权限登录到 [Azure 门户](https://portal.azure.cn)。
+   1. 选择“用户”，然后选择要分配到管理单元的用户，以打开该用户的配置文件。
+   1. 选择“管理单元”。 可以通过选择“分配到管理单元”并选择要将该用户分配到的管理单元，将该用户分配到一个或多个管理单元。
 
        ![选择“添加”，然后输入管理单元的名称](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. 可以在门户中转到 Azure AD，并在左窗格中选择“管理单元”，然后选择要将用户分配到的管理单元。 选择“所有用户”，然后选择“添加成员” 。 然后，可以从右侧窗格中选择一个或多个要分配到该管理单元的用户。
+- 从管理单元进行单个分配
+
+   1. 使用特权角色管理员权限登录到 [Azure 门户](https://portal.azure.cn)。
+   1. 选择“管理单元”，然后选择要将用户分配到的管理单元。
+   1. 选择“所有用户”，然后选择“添加成员”，以从“添加成员”窗格中选择一个或多个要分配到该管理单元的用户  。
 
         ![选择一个管理单元，然后选择“添加成员”](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
-1. 批量分配
+- 批量分配
 
-    在门户中转到 Azure AD，并选择“管理单元”。 选择要在其中添加用户的管理单元。 单击“所有用户”->“从 .csv 文件添加成员”以继续。 然后，可以下载 CSV 模板并编辑该文件。 格式很简单，需要在每行中添加单个 UPN。 文件准备就绪后，将其保存在适当的位置，然后在步骤 3 中将其上传，如快照中所突出显示。
+   1. 使用特权角色管理员权限登录到 [Azure 门户](https://portal.azure.cn)。
+   1. 选择“管理单元”。
+   1. 选择要在其中添加用户的管理单元。
+   1. 打开“所有用户” > “从 .csv 文件添加成员” 。 然后可以下载逗号分隔值 (CSV) 模板并编辑该文件。 格式很简单，需要在每一行中添加一个用户主体名称。 在该文件准备就绪后，请将其保存在适当的位置，然后作为本步骤的一部分上传。
 
     ![向管理单元批量分配用户](./media/roles-admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrativeunitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$administrativeunitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.partner.onmschina.cn'"
-Add-AzureADAdministrativeUnitMember -ObjectId $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+Add-AzureADMSAdministrativeUnitMember -Id $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
 ```
 
 上面的示例使用 Add-AzureADAdministrativeUnitMember cmdlet 向管理单元添加用户。 用户要添加到的管理单元的对象 ID 和要添加的用户的对象 ID 用作参数。 可以根据特定环境的需要更改突出显示的部分。
@@ -66,7 +75,7 @@ Http request
 POST /administrativeUnits/{Admin Unit id}/members/$ref
 Request body
 {
-  "@odata.id":"https://microsoftgraph.chinacloudapi.cn/beta/users/{id}"
+  "@odata.id":"https://microsoftgraph.chinacloudapi.cn/v1.0/users/{id}"
 }
 ```
 
@@ -74,7 +83,7 @@ Request body
 
 ```http
 {
-  "@odata.id":"https://microsoftgraph.chinacloudapi.cn/beta/users/johndoe@fabidentity.com"
+  "@odata.id":"https://microsoftgraph.chinacloudapi.cn/v1.0/users/johndoe@fabidentity.com"
 }
 ```
 
@@ -95,13 +104,14 @@ Request body
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
+Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObjId} }
 ```
+注意：默认情况下，Get-AzureADAdministrativeUnitMember 只返回 100 个成员，你可以添加“-All $true”来检索更多的成员。
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
 ```http
-https://microsoftgraph.chinacloudapi.cn/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
+https://microsoftgraph.chinacloudapi.cn/v1.0/users/{id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ## <a name="remove-a-single-user-from-an-au"></a>从 AU 中删除单个用户
@@ -119,12 +129,12 @@ https://microsoftgraph.chinacloudapi.cn/beta/users//memberOf/$/Microsoft.Graph.A
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
+Remove-AzureADMSAdministrativeUnitMember -Id $auId -MemberId $memberUserObjId
 ```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
-   https://microsoftgraph.chinacloudapi.cn/beta/administrativeUnits/<adminunit-id>/members/<user-id>/ $ref
+   https://microsoftgraph.chinacloudapi.cn/v1.0/directory/administrativeUnits/{adminunit-id}/members/{user-id}/ $ref
 
 ## <a name="bulk-remove-more-than-one-user"></a>批量删除多个用户
 

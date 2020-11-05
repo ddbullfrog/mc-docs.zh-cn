@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a83356f3ccfbc096541153f0dc5ad299266dc076
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 909b4bb9b90a11dac14a5e7395f487b7d7a54a40
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593722"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749839"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>为 Azure Active Directory 自助式密码重置 (SSPR) 预填用户身份验证联系信息
 
@@ -44,20 +44,17 @@ ms.locfileid: "89593722"
 | telephoneNumber              | 办公电话 |
 | mobile                       | 移动电话 |
 
-用户验证其移动电话号码后，Azure AD 中的“身份验证联系人信息”下的“电话”字段也将填充该号码。******
+用户验证其移动电话号码后，Azure AD 中的“身份验证联系人信息”下的“电话”字段也将填充该号码。
 
 ## <a name="authentication-contact-info"></a>身份验证联系人信息
 
-在 Azure 门户中 Azure AD 用户的“身份验证方法”**** 页上，全局管理员可以手动设置身份验证联系人信息，如以下示例屏幕截图所示：
+在 Azure 门户中 Azure AD 用户的“身份验证方法”页上，全局管理员可以手动设置身份验证联系人信息。 
 
-![Azure AD 中用户的身份验证联系信息][Contact]
 
 以下注意事项适用于这些身份验证联系信息：
 
-* 如果“电话”字段已填充且在 SSPR 策略中启用了“移动电话”，则用户会在密码重置注册页和密码重置工作流中看到该号码。****
-* “备用电话”字段不用于密码重置。**
-* 如果“电子邮件”字段已填充且在 SSPR 策略中启用了“电子邮件”，则用户会在密码重置注册页和密码重置工作流中看到该电子邮件。****
-* 如果“电子邮件”字段已填充且在 SSPR 策略中启用了“电子邮件”，则用户不会在密码重置注册页中看到该电子邮件，但会在密码重置工作流中看到它。****
+* 如果“电话”字段已填充且在 SSPR 策略中启用了“移动电话”，则用户会在密码重置注册页和密码重置工作流中看到该号码。
+* 如果“电子邮件”字段已填充且在 SSPR 策略中启用了“电子邮件”，则用户会在密码重置注册页和密码重置工作流中看到该电子邮件。
 
 ## <a name="security-questions-and-answers"></a>安全问题和答案
 
@@ -117,7 +114,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 #### <a name="read-the-authentication-phone-and-authentication-email-options"></a>读取“身份验证电话”和“身份验证电子邮件”选项
 
-若要在使用 PowerShell 版本 1 时读取**身份验证电话**和**身份验证电子邮件**，请使用以下命令：
+若要在使用 PowerShell 版本 1 时读取 **身份验证电话** 和 **身份验证电子邮件** ，请使用以下命令：
 
 ```PowerShell
 Connect-MsolService -AzureEnvironment AzureChinaCloud
@@ -169,6 +166,4 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 > [!div class="nextstepaction"]
 > [启用 Azure AD 自助式密码重置](tutorial-enable-sspr.md)
-
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "全局管理员可以修改用户的身份验证联系人信息"
 

@@ -2,20 +2,16 @@
 title: 在 Azure 自动化中管理变量
 description: 本文介绍如何在 Runbook 和 DSC 配置中使用变量。
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: WenJason
-ms.author: v-jay
-origin.date: 09/10/2020
-ms.date: 09/28/2020
+origin.date: 10/05/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-manager: digimobile
-ms.openlocfilehash: 28cde8912f2c41451e0f07e97e6b92c314dad740
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 2f7c93617d49790b1cdf37e0671ac7967596afe9
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246478"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749765"
 ---
 # <a name="manage-variables-in-azure-automation"></a>在 Azure 自动化中管理变量
 
@@ -46,9 +42,9 @@ Azure 自动化会安全存储每个加密的变量。 创建变量时，可以�
 * Boolean
 * Null
 
-该变量并不局限于指定的数据类型。 但如果要指定不同类型的值，则必须使用 Windows PowerShell 设置该变量。 如果指示 `Not defined`，则变量的值将设置为 Null。 必须使用 [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet 或内部 `Set-AutomationVariable` cmdlet 来设置值。
+该变量并不局限于指定的数据类型。 但如果要指定不同类型的值，则必须使用 Windows PowerShell 设置该变量。 如果指示 `Not defined`，则变量的值将设置为 Null。 必须使用 [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable) cmdlet 或内部 `Set-AutomationVariable` cmdlet 来设置值。
 
-不能使用 Azure 门户来创建或更改复杂变量类型的值。 但是，可以使用 Windows PowerShell 提供任何类型的值。 复杂类型将作为 [PSCustomObject](https://docs.microsoft.com/dotnet/api/system.management.automation.pscustomobject) 检索。
+不能使用 Azure 门户来创建或更改复杂变量类型的值。 但是，可以使用 Windows PowerShell 提供任何类型的值。 复杂类型会作为 Complex 对象类型的 [Newtonsoft.Json.Linq.JProperty](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm)（而不是 PSObject 类型 [PSCustomObject](https://docs.microsoft.com/dotnet/api/system.management.automation.pscustomobject)）进行检索。
 
 可以通过创建一个数组或哈希表并将其保存到变量，来将多个值存储到单一变量。
 
@@ -61,10 +57,10 @@ Azure 自动化会安全存储每个加密的变量。 创建变量时，可以�
 
 | Cmdlet | 说明 |
 |:---|:---|
-|[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | 检索现有变量的值。 如果该值为简单类型，则检索相同的类型。 如果为复杂类型，则检索 `PSCustomObject` 类型。 <br>**注意：** 不能使用此 cmdlet 检索已加密变量的值。 只能在 runbook 或 DSC 配置中使用内部 `Get-AutomationVariable` cmdlet 来执行此操作。 请参阅[用于访问变量的内部 cmdlet](#internal-cmdlets-to-access-variables)。 |
-|[New-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | 创建新变量并设置变量值。|
-|[Remove-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| 删除现有变量。|
-|[Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| 设置现有变量的值。 |
+|[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable) | 检索现有变量的值。 如果该值为简单类型，则检索相同的类型。 如果为复杂类型，则检索 `PSCustomObject` 类型。 <br>**注意：** 不能使用此 cmdlet 检索已加密变量的值。 只能在 runbook 或 DSC 配置中使用内部 `Get-AutomationVariable` cmdlet 来执行此操作。 请参阅[用于访问变量的内部 cmdlet](#internal-cmdlets-to-access-variables)。 |
+|[New-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationvariable) | 创建新变量并设置变量值。|
+|[Remove-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationvariable)| 删除现有变量。|
+|[Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable)| 设置现有变量的值。 |
 
 ## <a name="internal-cmdlets-to-access-variables"></a>用于访问变量的内部 cmdlet
 
@@ -79,7 +75,7 @@ Azure 自动化会安全存储每个加密的变量。 创建变量时，可以�
 > 请避免在 Runbook 或 DSC 配置中的 `Get-AutomationVariable` 的 `Name` 参数中使用变量。 使用变量可能会使设计时发现 Runbook 与自动化变量之间的依赖关系变得复杂。
 
 `Get-AutomationVariable` 不适用于 PowerShell，只在 runbook 或 DSC 配置中适用。 例如，若要查看某个加密变量的值，可以创建一个 runbook 来获取该变量，然后将其写入到输出流：
- 
+
 ```powershell
 $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
@@ -128,18 +124,18 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 -AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable').Value
 ```
 
-下面的示例演示如何创建复杂类型的变量，并检索其属性。 在本示例中，使用了 [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) 中的虚拟机对象。
+下面的示例演示如何创建复杂类型的变量，并检索其属性。 在本例中，我们使用了 [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM) 返回的虚拟机对象（通过指定其属性的子集）。
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" -Name "VM01"
-New-AzAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable" -Encrypted $false -Value $vm
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" -Name "VM01" | Select Name, Location, Extensions
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" -AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable" -Encrypted $false -Value $vm
 
-$vmValue = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
--AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable").Value
+$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+-AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable"
+
 $vmName = $vmValue.Name
-$vmIpAddress = $vmValue.IpAddress
+$vmExtensions = $vmValue.Extensions
 ```
-
 ## <a name="textual-runbook-examples"></a>文本 Runbook 示例
 
 ### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>检索和设置变量中的简单值
