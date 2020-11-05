@@ -28360,7 +28360,13 @@
             "source_path": "articles/azure-stack/hci/deploy/before-you-start.md", 
             "redirect_url": "/azure-stack/hci/concepts/system-requirements", 
             "redirect_document_id": false 
-        }    
+        },
+        {
+            "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md",
+            "redirect_url": "/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views",
+            "redirect_document_id": false
+        }
+  
 
 
 
