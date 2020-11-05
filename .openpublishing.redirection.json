@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/event-hubs/event-hubs-security-controls.md",
+            "redirect_url": "/event-hubs/security-baseline",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "data-explorer/management/best-practices.md",
             "redirect_url": "/data-explorer/kusto/management/management-best-practices",
             "redirect_document_id": true
