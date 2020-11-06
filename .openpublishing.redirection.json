@@ -28346,6 +28346,21 @@
             "redirect_url": "/machine-learning/how-to-set-up-training-targets",
             "redirect_document_id": false
         },
+	    {
+            "source_path": "articles/iot-hub/iot-hub-monitor-resource-health.md",
+            "redirect_url": "/iot-hub/monitor-iot-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/quickstart-send-telemetry-xamarinforms.md",
+            "redirect_url": "/iot-hub/about-iot-hub",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-hub/policy-samples.md",
+            "redirect_url": "/iot-hub/policy-reference",
+            "redirect_document_id": true
+        },
         { 
             "source_path": "articles/azure-stack/operator/azure-stack-configure-automatic-diagnostic-log-collection.md", 
             "redirect_url": "/azure-stack/operator/azure-stack-diagnostic-log-collection-overview", 
