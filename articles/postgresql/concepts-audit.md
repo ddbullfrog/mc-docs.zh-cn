@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 01/28/2020
-ms.date: 06/08/2020
-ms.openlocfilehash: 9034a569cefd9d981a5394738462490ce9edea72
-ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+ms.date: 11/09/2020
+ms.openlocfilehash: 2653b8e9bb50ff86867804f465763146407b218e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275548"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328908"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的审核日志记录
 
@@ -45,7 +45,7 @@ Azure Database for PostgreSQL（单一服务器）中数据库活动的审核日
    1. 选择你的 Azure Database for PostgreSQL 服务器。
    2. 在侧栏中选择“服务器参数”。
    3. 搜索 `shared_preload_libraries` 参数。
-   4. 选择 **pgaudit**。
+   4. 选择 **pgaudit** 。
    5. 重启服务器以应用更改。
 
    6. 使用客户端（例如 psql）连接到服务器并启用 pgAudit 扩展
@@ -89,7 +89,7 @@ t=%m u=%u db=%d pid=[%p]:
 ## <a name="viewing-audit-logs"></a>查看审核日志
 如果使用的是 .log 文件，则审核日志将与 PostgreSQL 错误日志包含在同一文件中。 可以从 Azure [门户](howto-configure-server-logs-in-portal.md)或 [CLI](howto-configure-server-logs-using-cli.md) 下载日志文件。 
 
-如果使用的是 Azure 资源日志记录，则访问日志的方式取决于所选的终结点。 有关 Azure 存储，请参阅[日志存储帐户](../azure-monitor/platform/resource-logs-collect-storage.md)一文。 有关事件中心，请参阅[流式传输 Azure 日志](../azure-monitor/platform/resource-logs-stream-event-hubs.md)一文。
+如果使用的是 Azure 资源日志记录，则访问日志的方式取决于所选的终结点。 有关 Azure 存储，请参阅[日志存储帐户](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)一文。 有关事件中心，请参阅[流式传输 Azure 日志](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)一文。
 
 Azure Monitor 日志将发送到所选的工作区。 Postgres 日志使用 **AzureDiagnostics** 收集模式，因此可以从 AzureDiagnostics 表查询它们。 下面描述了该表中的字段。 在 [Azure Monitor 日志查询](../azure-monitor/log-query/log-query-overview.md)概述中详细了解查询和警报。
 

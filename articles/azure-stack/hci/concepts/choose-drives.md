@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 origin.date: 09/01/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: ea9cc5d44ae80739791f9ed9b8667b4082fc7ff2
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.date: 11/09/2020
+ms.openlocfilehash: 632052ea4dfd7e0ac5e6b557dc790befa64fde64
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437518"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330432"
 ---
 # <a name="choose-drives-for-azure-stack-hci"></a>为 Azure Stack HCI 选择驱动器
 
@@ -28,7 +28,7 @@ Azure Stack HCI 目前使用四种类型的驱动器：
 | 驱动器类型 | 描述 |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|PMem 是指永久性内存，一种新的低延迟、高性能存储类型。|
-|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**（非易失性快速内存）是指直接位于 PCIe 总线上的固态硬盘。 常见外形规格为 2.5 英寸 U.2、PCIe 附加卡 (AIC) 和 M.2。 NVMe 提供较高的 IOPS 和 IO 吞吐量，延迟也比目前支持的除 PMem 外的任何其他驱动器类型低。|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** （非易失性快速内存）是指直接位于 PCIe 总线上的固态硬盘。 常见外形规格为 2.5 英寸 U.2、PCIe 附加卡 (AIC) 和 M.2。 NVMe 提供较高的 IOPS 和 IO 吞吐量，延迟也比目前支持的除 PMem 外的任何其他驱动器类型低。|
 |![SSD](media/choose-drives/SSD-100-px.png)|**SSD** 是指通过传统 SATA 或 SAS 连接的固态硬盘。|
 |![HDD](media/choose-drives/HDD-100-px.png)|**HDD** 是指旋转式的磁性硬盘，可提供巨量存储容量。|
 
@@ -61,9 +61,9 @@ Azure Stack HCI 提供内置的服务器端缓存。 此缓存是一个大型的
 
 ![关系图显示了部署可行性，包括将 NVMe 用于缓存且将 HDD 用于容量、将 SSD 用于缓存且将 HDD 用于容量，以及将 NVMe 用于缓存且将混合的 SSD 和 HDD 用于容量。](media/choose-drives/Hybrid-Deployment-Possibilities.png)
 
-1. **NVMe + HDD**。 NVMe 驱动器通过缓存来加速读取和写入操作。 缓存读取可让 HDD 专注于写入。 缓存写入可以消减 IO 突发，使写入内容可以合并，并仅在需要时才将其解除暂存，这种人为的序列化方式可将 HDD IOPS 和 IO 吞吐量最大化。 此方式提供类似于 NVMe 的写入特征，而对于频繁读取或最近读取的数据，它还提供类似于 NVMe 的读取特征。
+1. **NVMe + HDD** 。 NVMe 驱动器通过缓存来加速读取和写入操作。 缓存读取可让 HDD 专注于写入。 缓存写入可以消减 IO 突发，使写入内容可以合并，并仅在需要时才将其解除暂存，这种人为的序列化方式可将 HDD IOPS 和 IO 吞吐量最大化。 此方式提供类似于 NVMe 的写入特征，而对于频繁读取或最近读取的数据，它还提供类似于 NVMe 的读取特征。
 
-2. **SSD + HDD**。 与前面类似，SSD 将通过缓存读取和写入内容来加速这两种操作。 此方式提供类似于 SSD 的写入特征，并针对频繁读取或最近读取的数据提供类似于 SSD 的读取特征。
+2. **SSD + HDD** 。 与前面类似，SSD 将通过缓存读取和写入内容来加速这两种操作。 此方式提供类似于 SSD 的写入特征，并针对频繁读取或最近读取的数据提供类似于 SSD 的读取特征。
 
     还有一个额外的特殊选项：使用上述所有三种类型的驱动器。
 
@@ -78,7 +78,7 @@ Azure Stack HCI 提供内置的服务器端缓存。 此缓存是一个大型的
 
 ![最大化容量的部署选项](media/choose-drives/maximizing-capacity.png)
 
-1. **SSD + HDD**。 SSD 将缓存读取和写入内容以消减 IO 突发，并提供类似于 SSD 的写入性能，以后还可以通过优化的方式将这些内容解除暂存到 HDD。
+1. **SSD + HDD** 。 SSD 将缓存读取和写入内容以消减 IO 突发，并提供类似于 SSD 的写入性能，以后还可以通过优化的方式将这些内容解除暂存到 HDD。
 
 >[!IMPORTANT]
 >仅包含 HDD 的配置不受支持。 不建议使用高持久性的 SSD 来为低持久性的 SSD 提供缓存。
@@ -100,7 +100,7 @@ Azure Stack HCI 提供内置的服务器端缓存。 此缓存是一个大型的
 有关详细信息，请参阅：
 
 - [了解缓存](cache.md)
-- [确定硬件要求](../deploy/before-you-start.md#determine-hardware-requirements)
+- [系统要求](system-requirements.md)
 - [驱动器对称注意事项](drive-symmetry-considerations.md)
 - [规划卷](plan-volumes.md)
 - [容错和存储效率](fault-tolerance.md)

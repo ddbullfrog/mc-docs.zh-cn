@@ -4,16 +4,16 @@ description: Azure Service Fabric 中的有状态 Reliable Services 的诊断功
 ms.topic: conceptual
 origin.date: 08/24/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2ac432a0c9d8679459942372b7ca49ad02c86ed9
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 5e54762c541c2750df5e2781006198c9d71b1efa
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655082"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328797"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>有状态 Reliable Services 的诊断功能
 Azure Service Fabri 有状态 Reliable Services StatefulServiceBase 类会发出 [EventSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) 事件，这些事件可用于调试服务、提供对运行时运行方式的深入了解，以及帮助进行故障排除。

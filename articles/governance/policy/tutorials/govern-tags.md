@@ -2,15 +2,15 @@
 title: 教程：管理标记治理
 description: 本教程使用 Azure Policy 的修改效果来创建和执行新资源和现有资源上的标记治理模型。
 ms.author: v-tawe
-origin.date: 08/17/2020
-ms.date: 09/15/2020
+origin.date: 10/05/2020
+ms.date: 11/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: 9efcb49b2f38088c568f31f78fefdfa8c3a94e10
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: a006853a94ee90f25013fdaf60ef5f47de9e14fb
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523827"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328257"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>教程：通过 Azure Policy 管理标记治理
 
@@ -127,7 +127,12 @@ Azure Policy 的[修改](../concepts/effects.md#modify)效果旨在帮助管理�
         {
             "field": "name",
             "like": "prd-*"
+        },
+        {
+            "field": "tags['Env']",
+            "notEquals": "Production"
         }
+
     ]
     },
     "then": {

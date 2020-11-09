@@ -4,21 +4,22 @@ description: 本文介绍如何使用 PowerShell 在 Azure Database for MySQL �
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 4/28/2020
-ms.date: 06/01/2020
-ms.openlocfilehash: 35c4a05efd4e7f21d9ad3cb246289d492ddeb748
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.date: 11/09/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bd675d5d88d54fdd7ae0a24be61822405fc663f8
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199836"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327809"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>使用 PowerShell 实现 Azure Database for MySQL 服务器存储的自动增长
 
 本文介绍如何将 Azure Database for MySQL 服务器存储配置为在不影响工作负荷的情况下增长。
 
-存储自动增长可防止服务器[达到存储限制](/mysql/concepts-pricing-tiers#reaching-the-storage-limit)并变为只读。 对于预配存储为 100 GB 或更低的服务器，当可用空间低于 10% 时，大小将增加 5 GB。 对于预配存储超过 100 GB 的服务器，当可用空间低于 10 GB 时，大小将增加 5%。 最大存储限制的应用方式遵循 [Azure Database for MySQL 定价层](/mysql/concepts-pricing-tiers#storage)的存储部分内容中所指定的方式。
+存储自动增长可防止服务器[达到存储限制](./concepts-pricing-tiers.md#reaching-the-storage-limit)并变为只读。 对于预配存储为 100 GB 或更低的服务器，当可用空间低于 10% 时，大小将增加 5 GB。 对于预配存储超过 100 GB 的服务器，当可用空间低于 10 GB 时，大小将增加 5%。 最大存储限制的应用方式遵循 [Azure Database for MySQL 定价层](./concepts-pricing-tiers.md#storage)的存储部分内容中所指定的方式。
 
 > [!IMPORTANT]
 > 请记住，存储只能增加，不能减少。

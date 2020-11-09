@@ -7,18 +7,21 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 origin.date: 04/29/2020
-ms.date: 06/01/2020
-ms.custom: mvc
-ms.openlocfilehash: fa38a36c0bfae00183fba7c4c9b2e55eaff9d3c1
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 11/09/2020
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: db10555d3c8f30b62440b6c034ba9bec3ddaa1d3
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512941"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328649"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>教程：使用 PowerShell 设计 Azure Database for MySQL
 
-Azure Database for MySQL 是 Azure 云中基于 MySQL 社区版数据库引擎的一种关系数据库服务。 本教程介绍如何使用 PowerShell 和其他实用程序来执行以下操作：
+> [!NOTE]
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
+
+Azure Database for MySQL 是 Azure 云中基于 MySQL 社区版数据库引擎的一种关系数据库服务。 在本教程中，你将使用 PowerShell 和其他实用程序了解如何执行以下操作：
 
 > [!div class="checklist"]
 > - 创建 Azure Database for MySQL
@@ -53,7 +56,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 [Azure 资源组](/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
+使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 [Azure 资源组](../azure-resource-manager/management/overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
 以下示例在“中国北部 2”区域中创建名为“myresourcegroup”的资源组。
 
@@ -86,7 +89,7 @@ Sku 参数值遵循 pricing-tier\_compute-generation\_vCores 约定，如以下�
 如果轻量级计算和 I/O 足以满足工作负载要求，请考虑使用基本定价层。
 
 > [!IMPORTANT]
-> 在基本定价层级中创建的服务器以后无法扩展到常规用途或内存优化层级，并且无法异地复制。
+> 在基本定价层中创建的服务器以后无法扩展到常规用途或内存优化层级，并且无法异地复制。
 
 ## <a name="configure-a-firewall-rule"></a>配置防火墙规则
 
@@ -203,7 +206,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 还原的服务器的位置值和定价层值与原始服务器保持相同。
 
-还原过程完成后，找到新服务器，验证数据是否已按预期还原。 新服务器具有相同的服务器管理员登录名和密码，该登录名和密码在开始还原时对现有服务器有效。 可以从新服务器的“概述”页更改密码。
+还原过程完成后，找到新服务器，验证数据是否已按预期还原。 新服务器具有相同的服务器管理员登录名和密码，该登录名和密码在开始还原时对现有服务器有效。 可以从新服务器的“概述”  页更改密码。
 
 还原期间创建的新服务器没有原始服务器上存在的 VNet 服务终结点。 必须单独为新服务器设置这些规则。 将从原始服务器还原防火墙规则。
 

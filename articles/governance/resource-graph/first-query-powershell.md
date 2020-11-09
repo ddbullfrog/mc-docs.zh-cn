@@ -1,17 +1,16 @@
 ---
 title: 快速入门：第一个 PowerShell 查询
 description: 本快速入门介绍为 Azure PowerShell 启用 Resource Graph 模块并运行第一个查询的步骤。
-author: DCtheGeek
 ms.author: v-tawe
-origin.date: 08/10/2020
-ms.date: 09/15/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.topic: quickstart
-ms.openlocfilehash: c4f80d27b878c295832fa7601ebb60357c411e2a
-ms.sourcegitcommit: 75299b1cb5540a11149f320edaae82ae8c03c16b
+ms.openlocfilehash: ebb897f38f7854d8649ff98f3519975d2900eb2a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523145"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328160"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 运行首个 Resource Graph 查询
 
@@ -37,7 +36,7 @@ Azure Resource Graph 模块需要以下软件：
 
 ### <a name="install-the-module"></a>安装模块
 
-适用于 PowerShell 的 Resource Graph 模块是 **Az.ResourceGraph**。
+适用于 PowerShell 的 Resource Graph 模块是 **Az.ResourceGraph** 。
 
 1. 从管理 PowerShell 提示符运行以下命令：
 
@@ -60,7 +59,8 @@ Azure Resource Graph 模块需要以下软件：
 1. 使用 `Search-AzGraph` cmdlet 运行首个 Azure Resource Graph 查询：
 
    ```azurepowershell
-   # Login first with Connect-AzAccount -Environment AzureChinaCloud
+   # Login first with Connect-AzAccount
+   Connect-AzAccount -Environment AzureChinaCloud
 
    # Run Azure Resource Graph query
    Search-AzGraph -Query 'Resources | project name, type | limit 5'

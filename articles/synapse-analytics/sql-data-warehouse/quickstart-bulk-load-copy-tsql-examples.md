@@ -4,18 +4,18 @@ description: 概述用于批量加载数据的身份验证机制
 services: synapse-analytics
 author: WenJason
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: quickstart
 ms.subservice: sql-dw
 origin.date: 07/10/2020
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: 355e253166336869fa43944e899fcdbea9e7a5b1
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: 29d612b6fadddee6d6a25dc92f27a50ce541c130
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014365"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375608"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>使用 Synapse SQL 安全地加载数据
 
@@ -77,7 +77,7 @@ WITH (
 3. 必须在 Azure 存储帐户的“防火墙和虚拟网络”设置菜单下启用“允许受信任的 Microsoft 服务访问此存储帐户”。 有关详细信息，请参阅此[指南](../../storage/common/storage-network-security.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions)。
 #### <a name="steps"></a>步骤
 
-1. 在 PowerShell 中，将 SQL Server 注册到 Azure Active Directory (AAD)：
+1. 在 PowerShell 中，将 SQL Server 注册到 Azure Active Directory：
 
    ```powershell
    Connect-AzAccount -Environment AzureChinaCloud
@@ -85,10 +85,10 @@ WITH (
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
    ```
 
-2. 按照此[指南](../../storage/common/storage-account-create.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)创建**常规用途 v2 存储帐户**。
+2. 按照此 [指南](../../storage/common/storage-account-create.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)创建 **常规用途 v2 存储帐户** 。
 
    > [!NOTE]
-   > 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](../../storage/common/storage-account-upgrade.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)将该帐户**升级到 v2** 帐户。
+   > 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此 [指南](../../storage/common/storage-account-upgrade.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)将该帐户 **升级到 v2** 帐户。
 
 3. 在存储帐户下导航到“访问控制(标识和访问管理)”，然后选择“添加角色分配”。 为 SQL Server 分配存储 Blob 数据所有者、参与者或读取者 Azure 角色。
 
@@ -98,7 +98,7 @@ WITH (
     > [!IMPORTANT]
     > 指定存储 Blob 数据所有者、参与者或读取着 Azure 角色 。 这些角色不同于所有者、参与者和读取者 Azure 内置角色。 
 
-    ![授予 RBAC 加载权限](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![向 Azure RBAC 授予加载权限](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 4. 现在可以运行指定“托管标识”的 COPY 语句：
 
@@ -111,15 +111,15 @@ WITH (
     )
     ```
 
-## <a name="d-azure-active-directory-authentication-aad"></a>D. Azure Active Directory 身份验证 ((AAD))
+## <a name="d-azure-active-directory-authentication"></a>D. Azure Active Directory 身份验证
 #### <a name="steps"></a>步骤
 
-1. 在存储帐户下导航到“访问控制(标识和访问管理)”，然后选择“添加角色分配”。 为 AAD Server 分配存储 Blob 数据所有者、参与者或读取者 Azure 角色。 
+1. 在存储帐户下导航到“访问控制(标识和访问管理)”，然后选择“添加角色分配”。 为 Azure AD 用户分配存储 Blob 数据所有者、参与者或读取者 Azure 角色。 
 
     > [!IMPORTANT]
     > 指定存储 Blob 数据所有者、参与者或读取着 Azure 角色 。 这些角色不同于所有者、参与者和读取者 Azure 内置角色。
 
-    ![授予 RBAC 加载权限](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![向 Azure RBAC 授予加载权限](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. 按照以下[文档](/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server)中的步骤配置 Azure AD 身份验证。 
 

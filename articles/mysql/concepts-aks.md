@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 07/14/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 638cb9910d9a1e4d1d1e17384635381845af9694
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.date: 11/09/2020
+ms.openlocfilehash: 150e0ea5755b0d4ecc6340c1eb990db607092cc8
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029624"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327414"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>连接 Azure Kubernetes 服务和 Azure Database for MySQL
 
@@ -30,11 +30,11 @@ Azure Kubernetes 服务 (AKS) 提供可在 Azure 中使用的托管 Kubernetes �
 可以确认 AKS 群集是否已加速了网络：
 1. 转到 Azure 门户并选择 AKS 群集。
 2. 选择“属性”选项卡。
-3. 复制**基础结构资源组**的名称。
+3. 复制 **基础结构资源组** 的名称。
 4. 使用门户搜索栏找到并打开基础结构资源组。
 5. 在该资源组中选择一个 VM。
 6. 转到 VM 的“网络”  选项卡。
-7. 确认是否已启用**加速网络**。
+7. 确认是否已启用 **加速网络** 。
 
 也可以通过 Azure CLI 使用以下两个命令：
 ```azurecli
@@ -48,4 +48,4 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## <a name="next-steps"></a>后续步骤
 - [创建 Azure Kubernetes 服务群集](../aks/kubernetes-walkthrough.md)
-- 了解如何[使用 OSBA 和 Azure Database for MySQL 从 Helm 图表安装 WordPress](/aks/)
+- 了解如何[使用 OSBA 和 Azure Database for MySQL 从 Helm 图表安装 WordPress](../aks/index.yml)

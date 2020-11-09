@@ -5,18 +5,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4cfa804700bbb5c02b4b5a3c8ac88ebec7a09d55
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 66595af9818d976497ec65329a54f3a0c1d11fd2
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246580"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328430"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中 Cassandra API 的常见问题解答。
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 本文介绍了 Azure Cosmos DB 中 Apache Cassandra 与 Cassandra API 之间的功能差异。 还提供了有关 Azure Cosmos DB 中 Cassandra API 的常见问题解答。
 
@@ -78,17 +79,17 @@ Azure Cosmos DB 针对操作设置上限，在性能和延迟方面提供保障�
 
 相关指标显示了吞吐量在若干小时内、若干天内以及每七天内在各个分区中的使用情况或总体使用情况。 有关详细信息，请参阅[使用 Azure Cosmos DB 中的指标进行监视和调试](use-metrics.md)。
 
-[Azure Cosmos DB 诊断日志记录](logging.md)一文中介绍了诊断日志。
+[Azure Cosmos DB 诊断日志记录](./monitor-cosmos-db.md)一文中介绍了诊断日志。
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>主键是否映射到 Azure Cosmos DB 的分区键概念？
 
-是，分区键用来将实体放置在正确位置。 在 Azure Cosmos DB 中，它用来查找存储在物理分区中的正确逻辑分区。 [在 Azure Cosmos DB 中分区和缩放](partition-data.md)一文中很好地解释了分区概念。 此处必须记住的一点是，逻辑分区不应当超出 20-GB 限制。
+是，分区键用来将实体放置在正确位置。 在 Azure Cosmos DB 中，它用来查找存储在物理分区中的正确逻辑分区。 [在 Azure Cosmos DB 中分区和缩放](partitioning-overview.md)一文中很好地解释了分区概念。 此处必须记住的一点是，逻辑分区不应当超出 20-GB 限制。
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>当收到分区已满通知时，会发生什么情况？
 
-Azure Cosmos DB 是基于服务级别协议 (SLA) 的系统。 可提供无限缩放，并在延迟、吞吐量、可用性和一致性方面提供保障。 此无限制的存储是通过使用分区作为键概念的数据水平横向扩展实现的。 [在 Azure Cosmos DB 中分区和缩放](partition-data.md)一文中很好地解释了分区概念。
+Azure Cosmos DB 是基于服务级别协议 (SLA) 的系统。 可提供无限缩放，并在延迟、吞吐量、可用性和一致性方面提供保障。 此无限制的存储是通过使用分区作为键概念的数据水平横向扩展实现的。 [在 Azure Cosmos DB 中分区和缩放](partitioning-overview.md)一文中很好地解释了分区概念。
 
-应当遵循每个逻辑分区的实体数或项数不超过 20-GB 的限制。 为确保应用程序能够很好地进行缩放，建议*不要*创建热分区，即，将所有信息存储在一个分区内并查询它。 只有存在数据倾斜时，也就是说，当一个分区键有大量数据（超过 20 GB）时，才会发生此错误。 可以使用存储门户查明数据的分布。 修复此错误的方法是：重新创建表并选择一个细粒度的主键（分区键），这可以实现更好的数据分布。
+应当遵循每个逻辑分区的实体数或项数不超过 20-GB 的限制。 为确保应用程序能够很好地进行缩放，建议 *不要* 创建热分区，即，将所有信息存储在一个分区内并查询它。 只有存在数据倾斜时，也就是说，当一个分区键有大量数据（超过 20 GB）时，才会发生此错误。 可以使用存储门户查明数据的分布。 修复此错误的方法是：重新创建表并选择一个细粒度的主键（分区键），这可以实现更好的数据分布。
 
 ### <a name="can-i-use-the-cassandra-api-as-a-key-value-store-with-millions-or-billions-of-partition-keys"></a>是否可以将 Cassandra API 用作具有数百万或数十亿分区键的键值存储？
 
@@ -138,9 +139,9 @@ Azure Cosmos DB 为读取、写入和吞吐量提供性能保障。 因此，无
 
 Azure Cosmos DB 是一个平台服务，可帮助你提高工作效率，而无需担心如何管理和监视基础结构。 例如，你无需使用各种工具监视节点状态、副本状态、gc 和 OS 参数。 只需在门户指标中关注可用的吞吐量，以查明你是否受到限制，然后增大或减小该吞吐量。 方法：
 
-- 监视 [SLA](monitor-accounts.md)
+- 监视 [SLA](./monitor-cosmos-db.md)
 - 使用[指标](use-metrics.md)
-- 使用[诊断日志](logging.md)
+- 使用[诊断日志](./monitor-cosmos-db.md)
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>哪些客户端 SDK 可以使用 Cassandra API？
 
@@ -187,7 +188,7 @@ Cassandra API 借助 Azure Cosmos DB 的多区域分布式平台。 为了确保
 请通过 [UserVoice 反馈](https://support.azure.cn/support/contact/)提供反馈。
 
 [azure-portal]: https://portal.azure.cn
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>后续步骤
 

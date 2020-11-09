@@ -2,15 +2,15 @@
 title: 教程：创建自定义策略定义
 description: 本教程介绍如何创建 Azure Policy 的自定义策略定义以在 Azure 资源上强制实施自定义业务规则。
 ms.author: v-tawe
-origin.date: 06/16/2020
-ms.date: 09/15/2020
+origin.date: 10/05/2020
+ms.date: 11/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: c769463bea2360c294a4d5c6c3d8818a042627bc
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: da8d1e5d942506bfc9b9eaf42455deb814a4e8a5
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523834"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328259"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>教程：创建自定义策略定义
 
@@ -68,12 +68,15 @@ ms.locfileid: "90523834"
 
 ### <a name="arm-templates"></a>ARM 模板
 
-可通过多种方式查找包含所要管理的属性的[资源管理器模板](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md)。
+可通过多种方式查看包含要管理的属性的 [ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md)。
 
 #### <a name="existing-resource-in-the-portal"></a>门户中的现有资源
 
 查找属性的最简单方法是查找相同类型的现有资源。 已使用所要强制实施的设置配置的资源也会提供用于比较的值。
 在 Azure 门户中，找到该特定资源的“导出模板”页（在“设置”下） 。
+
+> [!WARNING]
+> Azure 门户导出的 ARM 模板无法直接插入到 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 策略定义中 ARM 模板的 `deployment` 属性。
 
 :::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Azure 门户中现有资源上的“导出模板”页的屏幕截图。" border="false":::
 
@@ -121,7 +124,7 @@ ms.locfileid: "90523834"
 ...
 ```
 
-“属性”下面提供了名为 **supportsHttpsTrafficOnly**、设置为 **false** 的值。 此属性似乎是我们所要查找的属性。 此外，该资源的**类型**为 **Microsoft.Storage/storageAccounts**。 该类型告知我们，要将策略限定于此类型的资源。
+“属性”下面提供了名为 **supportsHttpsTrafficOnly** 、设置为 **false** 的值。 此属性似乎是我们所要查找的属性。 此外，该资源的 **类型** 为 **Microsoft.Storage/storageAccounts** 。 该类型告知我们，要将策略限定于此类型的资源。
 
 #### <a name="create-a-resource-in-the-portal"></a>在门户中创建资源
 
@@ -150,7 +153,7 @@ GitHub 上的 [Azure 快速启动模板](https://github.com/Azure/azure-quicksta
 
 #### <a name="resource-reference-docs"></a>资源参考文档
 
-若要验证 supportsHttpsTrafficOnly 是否为正确的属性，请在存储提供商网站上查看[存储帐户资源](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts)的 ARM 模板参考。 属性对象包含有效参数的列表。 选择 [StorageAccountPropertiesCreateParameters-object](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 链接会显示可接受的属性表。 若要满足业务要求，**supportsHttpsTrafficOnly** 必须存在，并且说明必须与所要查找的内容相匹配。
+若要验证 supportsHttpsTrafficOnly 是否为正确的属性，请在存储提供商网站上查看[存储帐户资源](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts)的 ARM 模板参考。 属性对象包含有效参数的列表。 选择 [StorageAccountPropertiesCreateParameters-object](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 链接会显示可接受的属性表。 若要满足业务要求， **supportsHttpsTrafficOnly** 必须存在，并且说明必须与所要查找的内容相匹配。
 
 <!-- Azure Resource Explorer not availible -->
 
@@ -219,7 +222,7 @@ az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' |
 Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-结果类似于在 ARM 模板中和通过 Azure 资源浏览器查找后获得的结果。 但是，Azure Resource Graph 结果还可通过_投影_ _别名_数组来包含[别名](../concepts/definition-structure.md#aliases)详细信息：
+结果类似于在 ARM 模板中和通过 Azure 资源浏览器查找后获得的结果。 但是，Azure Resource Graph 结果还可通过 _投影_ _别名_ 数组来包含 [别名](../concepts/definition-structure.md#aliases)详细信息：
 
 ```kusto
 Resources
@@ -361,9 +364,9 @@ Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccount
 "mode": "all",
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>参数
 
-尽管我们未使用参数来更改评估，但确实需要使用一个参数来允许更改**效果**以进行故障排除。 定义 **effectType** 参数，并将其值限制为 **Deny** 和 **Disabled**。 这两个选项与我们的业务要求相符。 完成的参数块如以下示例所示：
+尽管我们未使用参数来更改评估，但确实需要使用一个参数来允许更改 **效果** 以进行故障排除。 定义 **effectType** 参数，并将其值限制为 **Deny** 和 **Disabled** 。 这两个选项与我们的业务要求相符。 完成的参数块如以下示例所示：
 
 ```json
 "parameters": {
@@ -386,7 +389,7 @@ Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccount
 
 撰写[策略规则](../concepts/definition-structure.md#policy-rule)是生成自定义策略定义的最后一步。 我们已指定两条语句用于测试：
 
-- 存储帐户的**类型**是否为 **Microsoft.Storage/storageAccounts**
+- 存储帐户的 **类型** 是否为 **Microsoft.Storage/storageAccounts**
 - 存储帐户的 **supportsHttpsTrafficOnly** 不为 **true**
 
 由于这两条语句都需要为 true，因此将使用 **allOf** [逻辑运算符](../concepts/definition-structure.md#logical-operators)。 将 **effectType** 参数传递给效果，而不是进行静态声明。 完成的规则如以下示例所示：

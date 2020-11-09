@@ -7,14 +7,14 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: 2e29c1182b47015b639bf3efab01adbe05fe184a
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.openlocfilehash: c54db3e8bea9bb0b2fc48fabcbd0aaf7806556da
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508436"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327800"
 ---
 # <a name="workbook-drop-down-parameters"></a>工作簿下拉列表参数
 
@@ -156,6 +156,6 @@ dependencies
 
 ## <a name="next-steps"></a>后续步骤
 
-* [开始](workbooks-visualizations.md)详细了解工作簿丰富的可视化效果选项。
+* [开始](./workbooks-overview.md#visualizations)详细了解工作簿丰富的可视化效果选项。
 * [控制](workbooks-access-control.md)并共享对工作簿资源的访问权限。
 

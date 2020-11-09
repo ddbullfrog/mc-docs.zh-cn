@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
 origin.date: 9/22/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: c150d7dbadcaf93dd2960b6ed7a558f623082881
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 11/09/2020
+ms.openlocfilehash: ed127ea091479485a94949e901cb7a1d34b2d470
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041935"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327303"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure Database for MySQL 单一服务器
 
@@ -21,13 +21,13 @@ ms.locfileid: "92041935"
 ## <a name="prerequisites"></a>先决条件
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
-你将需要使用 [az login](/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到你的帐户。 请注意 ID 属性，该属性指的是 Azure 帐户的订阅 ID 。
+你将需要使用 [az login](/cli/reference-index#az-login) 命令登录到你的帐户。 请注意 ID 属性，该属性指的是 Azure 帐户的订阅 ID 。
 
 ```azurecli
 az login
 ```
 
-使用 [az account set](/cli/account) 命令选择帐户下的特定订阅。 记下 az login 输出中的 ID 值，将其用作命令中 subscription 参数的值。 如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/account?view=azure-cli-latest#az-account-list)。
+使用 [az account set](/cli/account) 命令选择帐户下的特定订阅。 记下 az login 输出中的 ID 值，将其用作命令中 subscription 参数的值。 如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/account#az-account-list)。
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -36,7 +36,7 @@ az account set --subscription <subscription id>
 如果尚未创建服务器，请参考此[快速入门](quickstart-create-mysql-server-database-using-azure-cli.md)创建一个。
 
 ## <a name="scale-compute-and-storage"></a>缩放计算和存储
-可以使用以下命令轻松地纵向扩展定价层、计算和存储。 可以参阅 [az mysql server 概述](/cli/mysql/server?view=azure-cli-latest)，了解可执行的所有服务器操作
+可以使用以下命令轻松地纵向扩展定价层、计算和存储。 可以参阅 [az mysql server 概述](/cli/mysql/server)，了解可执行的所有服务器操作
 
 ```azurecli
 az mysql server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
@@ -73,7 +73,7 @@ az mysql server update --resource-group myresourcegroup --name mydemoserver --ad
 ```
 
 > [!Important]
-> 请确保密码至少有 8 个字符，至多有 128 个字符。
+>  请确保密码至少有 8 个字符，至多有 128 个字符。
 > 密码必须包含以下类别中的三个类别的字符：英文大写字母、英文小写字母、数字和非字母数字字符。
 
 ## <a name="delete-a-server"></a>删除服务器

@@ -83,8 +83,10 @@
   items:
     - name: 应用集成
       items:
-        - name: 注册应用程序
+        - name: 注册 Web 应用程序
           href: tutorial-register-applications.md
+        - name: 注册单页应用程序 (SPA)
+          href: tutorial-register-spa.md
           displayName: 'SP, RP, service provider, connect'
         - name: 注册 Microsoft Graph 应用程序
           href: microsoft-graph-get-started.md
@@ -205,7 +207,7 @@
                       href: phone-number-claims-transformations.md
                     - name: StringCollection
                       href: stringcollection-transformations.md
-                    - name: 字符串
+                    - name: String
                       href: string-transformations.md
                 - name: 谓词
                   href: predicates.md

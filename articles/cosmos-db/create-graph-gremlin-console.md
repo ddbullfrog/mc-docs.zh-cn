@@ -6,19 +6,20 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 origin.date: 07/10/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7431fa6a8891ce85faf5e8db36b9ba82f4bfd7a1
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: eb81766e88eefc897be62f901deaf0222fc1dbc6
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246528"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328049"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>快速入门：使用 Gremlin 控制台创建、查询和遍历 Azure Cosmos DB 图形数据库
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin 控制台](create-graph-gremlin-console.md)
@@ -59,11 +60,11 @@ Gremlin 控制台基于 Groovy/Java，在 Linux、Mac 和 Windows 上运行。 �
 ## <a name="connect-to-your-app-servicegraph"></a>连接到应用服务/图
 
 1. 在启动 Gremlin 控制台之前，请在 `apache-tinkerpop-gremlin-console-3.2.5/conf` 目录中创建或修改 remote-secure.yaml 配置文件。
-2. 根据下表中的定义，填写 *host*、*port*、*username*、*password*、*connectionPool* 和 *serializer* 配置：
+2. 根据下表中的定义，填写 *host* 、 *port* 、 *username* 、 *password* 、 *connectionPool* 和 *serializer* 配置：
 
     设置|建议的值|说明
     ---|---|---
-    hosts|[*account-name*.**gremlin**.cosmos.azure.cn]|请参阅下面的屏幕截图。 这是 Azure 门户的“概述”页上的“Gremlin URI”值，方括号中已删除尾部的 :443/。 注意：请确保使用 Gremlin 值，并且**不是**以 [*account-name*.documents.azure.cn] 结尾的 URI，这可能会在稍后尝试执行 Gremlin 查询时导致“主机未及时响应”异常。 
+    hosts|[ *account-name*. **gremlin**.cosmos.azure.cn]|请参阅下面的屏幕截图。 这是 Azure 门户的“概述”页上的“Gremlin URI”值，方括号中已删除尾部的 :443/。 注意：请确保使用 Gremlin 值，并且 **不是** 以 [ *account-name*.documents.azure.cn] 结尾的 URI，这可能会在稍后尝试执行 Gremlin 查询时导致“主机未及时响应”异常。 
     port|443|设置为 443。
     username|*用户名*|采用 `/dbs/<db>/colls/<coll>` 格式的资源，其中，`<db>` 是数据库名称，`<coll>` 是集合名称。
     password|*主密钥*| 请参阅下面的第二幅屏幕截图。 这是主密钥，可以从 Azure 门户的“密钥”页上的“主密钥”框中检索到。 使用该框左侧的复制按钮可复制该值。

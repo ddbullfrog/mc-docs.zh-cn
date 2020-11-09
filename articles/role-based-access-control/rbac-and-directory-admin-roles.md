@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/28/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 195e1592c9e0d231265504f15618e5b92bce85c6
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 170dcaaea540b5b2f807eaea94c3ba3d7410a1d1
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937492"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326501"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>经典订阅管理员角色、Azure 角色和 Azure AD 角色
 
@@ -99,11 +99,11 @@ Azure AD 角色用于管理目录中的 Azure AD 资源，例如，创建或编�
 
 | Azure AD 角色 | 权限 | 说明 |
 | --- | --- | --- |
-| [全局管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) | <ul><li>管理对 Azure Active Directory 中所有管理功能的访问，以及与 Azure Active Directory 联合的服务</li><li>将管理员角色分配给其他人</li><li>重置任何用户和其他所有管理员的密码</li></ul> | 注册 Azure Active Directory 租户的人员将成为全局管理员。 |
-| [用户管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>创建和管理用户与组的所有方面</li><li>管理支持票证</li><li>监视服务运行状况</li><li>更改用户、支持管理员和其他用户帐户管理员的密码</li></ul> |  |
-| [计费管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>购买产品</li><li>管理订阅</li><li>管理支持票证</li><li>监视服务运行状况</li></ul> |  |
+| [全局管理员](../active-directory/roles/permissions-reference.md#company-administrator-permissions) | <ul><li>管理对 Azure Active Directory 中所有管理功能的访问，以及与 Azure Active Directory 联合的服务</li><li>将管理员角色分配给其他人</li><li>重置任何用户和其他所有管理员的密码</li></ul> | 注册 Azure Active Directory 租户的人员将成为全局管理员。 |
+| [用户管理员](../active-directory/roles/permissions-reference.md#user-administrator) | <ul><li>创建和管理用户与组的所有方面</li><li>管理支持票证</li><li>监视服务运行状况</li><li>更改用户、支持管理员和其他用户帐户管理员的密码</li></ul> |  |
+| [计费管理员](../active-directory/roles/permissions-reference.md#billing-administrator) | <ul><li>购买产品</li><li>管理订阅</li><li>管理支持票证</li><li>监视服务运行状况</li></ul> |  |
 
-在 Azure 门户中的“角色和管理员”边栏选项卡上，可以看到 Azure AD 角色的列表。 有关所有 Azure AD 角色的列表，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
+在 Azure 门户中的“角色和管理员”边栏选项卡上，可以看到 Azure AD 角色的列表。 有关所有 Azure AD 角色的列表，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/roles/permissions-reference.md)。
 
 ![Azure 门户中的 Azure AD 角色](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
@@ -129,6 +129,6 @@ Azure AD 角色用于管理目录中的 Azure AD 资源，例如，创建或编�
 ## <a name="next-steps"></a>后续步骤
 
 - [什么是 Azure 基于角色的访问控制 (Azure RBAC)？](overview.md)
-- [Azure Active Directory 中的管理员角色权限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Azure Active Directory 中的管理员角色权限](../active-directory/roles/permissions-reference.md)
 - [Azure 经典订阅管理员](classic-administrators.md)
 

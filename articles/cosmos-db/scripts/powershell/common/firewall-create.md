@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: sample
 origin.date: 03/18/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 01/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: b6591b44a39f4ac02225561ac1043e2e673efc8f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 36646e119a428f2e178b6fe0d5d0536b0d619123
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223487"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328845"
 ---
 <!--Verified successfully-->
 # <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>创建启用 IP 防火墙的 Azure Cosmos DB 帐户
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -72,7 +73,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 |**Azure Cosmos DB**| |
 | [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | 新建 Cosmos DB 帐户。 |
@@ -84,7 +85,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
-可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-
-<!-- Update_Description: new article about firewall create -->
-<!--NEW.date: 08/17/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

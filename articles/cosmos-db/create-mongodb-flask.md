@@ -7,19 +7,20 @@ ms.devlang: python
 ms.topic: quickstart
 origin.date: 12/26/2018
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: bb6f0c11f360917bd39be38c6712a71042896b18
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 72f2a1dfcb74f835f0d3bd10a202d8fa1dc409b9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246785"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328898"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 Python 应用
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -57,7 +58,7 @@ ms.locfileid: "91246785"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample.git
@@ -119,15 +120,15 @@ ms.locfileid: "91246785"
 
 若要针对实时 Azure Cosmos DB 帐户测试代码，请获取连接字符串信息。 然后将其复制到此应用中。
 
-1. 在 Azure 门户的 Azure Cosmos DB 帐户的左侧导航栏中，选择“连接字符串”，然后选择“读写密钥”。**** **** 我们将使用屏幕右侧的复制按钮复制用户名、连接字符串和密码。 
+1. 在 Azure 门户的 Azure Cosmos DB 帐户的左侧导航栏中，选择“连接字符串”，然后选择“读写密钥”。  我们将使用屏幕右侧的复制按钮复制用户名、连接字符串和密码。 
 
-2. 在根目录中打开 app.py 文件**。
+2. 在根目录中打开 app.py 文件。
 
-3. 从门户中（使用复制按钮）复制“用户名”值，并在 app.py 文件中将其设为“名称”的值**** ******。
+3. 从门户中（使用复制按钮）复制“用户名”值，并在 app.py 文件中将其设为“名称”的值 。
 
-4. 然后从门户中复制“连接字符串”值，并在 *app.py* 文件中将其设为 MongoClient 值**** ****。
+4. 然后从门户中复制“连接字符串”值，并在 *app.py* 文件中将其设为 MongoClient 值 。
 
-5. 最后从门户复制“密码”值，并在 app.py 文件中将其设为“密码”的值**** ******。
+5. 最后从门户复制“密码”值，并在 app.py 文件中将其设为“密码”的值 。
 
 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 此时，即可像以前一样运行它。
 
@@ -145,7 +146,7 @@ ms.locfileid: "91246785"
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-然后需要将 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 添加到应用程序设置中。 可参阅此[教程](/app-service/configure-common#configure-app-settings)了解有关 Azure Web 应用中应用程序设置的详细信息。
+然后需要将 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 添加到应用程序设置中。 可参阅此[教程](../app-service/configure-common.md#configure-app-settings)了解有关 Azure Web 应用中应用程序设置的详细信息。
 
 <!--NOT AVAILABLE ON https://deploy.azure.com-->
 <!--Not Available on If you don't want to create a fork of this repo, you can also click the deploy to Azure button below. You should then go into Azure and set up the application settings with your Cosmos DB account info.-->
@@ -167,6 +168,6 @@ ms.locfileid: "91246785"
 本快速入门介绍了如何创建 Mongo DB API 帐户的 Azure Cosmos DB，以及如何使用 Azure Cosmos DB 模拟器运行从 GitHub 克隆的 Python Flask To-Do Web 应用。 现在可以将其他数据导入 Azure Cosmos DB 帐户了。 
 
 > [!div class="nextstepaction"]
-> [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
+> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

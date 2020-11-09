@@ -5,20 +5,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 04/24/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 2e3a42dd1654fcb6fe7601443ee9653b7b4772af
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 87e2e2fdbfaa16f4b5cc2637b8511e895257baa1
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246438"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328667"
 ---
 <!--Verified with cosmos db SDK V3-->
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>从批量执行工具库迁移到 Azure Cosmos DB .NET V3 SDK 中的批量操作支持
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍需要执行哪些步骤，才能将使用 [.NET 批量执行工具库](bulk-executor-dot-net.md)的现有应用程序的代码迁移到使用最新版 .NET SDK 中的[批量操作支持](tutorial-sql-api-dotnet-bulk-import.md)功能。
 
@@ -33,7 +34,7 @@ ms.locfileid: "91246438"
 
 ## <a name="create-tasks-for-each-operation"></a>为每个操作创建任务
 
-通过利用[任务并行库](https://docs.microsoft.com//dotnet/standard/parallel-programming/task-parallel-library-tpl)，并将并发执行的操作分组，.NET SDK 中的批量操作支持得以发挥作用。 
+通过利用[任务并行库](https://docs.microsoft.com/dotnet/standard/parallel-programming/task-parallel-library-tpl)，并将并发执行的操作分组，.NET SDK 中的批量操作支持得以发挥作用。 
 
 SDK 中没有任何一种方法可将文档或操作的列表用作输入参数，你需要针对要批量执行的每个操作创建一个任务，然后等待它们完成。
 

@@ -4,16 +4,16 @@ description: 配置 Azure 负载均衡器，为 Azure Service Fabric 群集打�
 ms.topic: conceptual
 origin.date: 12/06/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f0ea6133eba4a31c7666463a3d912620fdc90760
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 8d6fa2690a5be2329da2cab9a9a71fe0aec510f0
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655547"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327350"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>为 Service Fabric 群集打开端口
 
@@ -62,7 +62,7 @@ Azure CLI 命令具有下表中所述的几个参数：
 | `-n`       | 所需的规则名称。 |
 
 >[!NOTE]
->有关如何使用 Azure CLI 创建负载均衡器的详细信息，请参阅[使用 Azure CLI 创建负载均衡器](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)。
+>有关如何使用 Azure CLI 创建负载均衡器的详细信息，请参阅[使用 Azure CLI 创建负载均衡器](../load-balancer/quickstart-load-balancer-standard-internal-cli.md)。
 
 ## <a name="powershell"></a>PowerShell
 
@@ -98,7 +98,7 @@ $lb | Set-AzLoadBalancer
 对于 `New-AzLoadBalancerRuleConfig` 命令，`-FrontendPort` 表示负载均衡器针对外部连接公开的端口，而 `-BackendPort` 表示 Service Fabric 应用正在侦听的端口。
 
 >[!NOTE]
->有关如何使用 PowerShell 创建负载均衡器的详细信息，请参阅[使用 PowerShell 创建负载均衡器](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)。
+>有关如何使用 PowerShell 创建负载均衡器的详细信息，请参阅[使用 PowerShell 创建负载均衡器](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

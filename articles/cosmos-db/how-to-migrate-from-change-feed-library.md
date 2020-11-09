@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/17/2019
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f837003c4ec781b5bee3089665a3f120cba3c1a9
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: f1d96a549ce7a21b145c01cf96ed6c2f8f765cbc
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246650"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328666"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>从更改源处理器库迁移到 Azure Cosmos DB .NET V3 SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍了将使用[更改源处理器库](https://github.com/Azure/azure-documentdb-changefeedprocessor-dotnet)的现有应用程序代码迁移到 .NET SDK 最新版本（也称为 .NET V3 SDK）中的[更改源](change-feed.md)功能所需的步骤。
 
@@ -26,7 +27,7 @@ ms.locfileid: "91246650"
 .NET V3 SDK 有几项中断性变更，以下是迁移应用程序的关键步骤：
 
 1. 将 `DocumentCollectionInfo` 实例转换为受监视容器和租约容器的 `Container` 引用。
-1. 使用 `WithProcessorOptions` 的自定义应更新为对时间间隔使用 `WithLeaseConfiguration` 和 `WithPollInterval`、对`WithStartTime`开始时间[使用 ](how-to-configure-change-feed-start-time.md) 以及使用 `WithMaxItems` 来定义最大项计数。
+1. 使用 `WithProcessorOptions` 的自定义应更新为对时间间隔使用 `WithLeaseConfiguration` 和 `WithPollInterval`、对`WithStartTime`开始时间[使用 ](./change-feed-processor.md#starting-time) 以及使用 `WithMaxItems` 来定义最大项计数。
 1. 将 `processorName` 上的 `GetChangeFeedProcessorBuilder` 设置为与 `ChangeFeedProcessorOptions.LeasePrefix`上配置的值匹配，否则使用 `string.Empty`。
 1. 更改将不再作为 `IReadOnlyList<Document>` 传递，而是作为 `IReadOnlyCollection<T>`，其中 `T` 是需要定义的类型，任何基项类都不再存在。
 1. 若要处理这些更改，你不再需要一个实现，而是需要[定义一个委托](change-feed-processor.md#implementing-the-change-feed-processor)。 委托可以是静态函数，或者，如果需要跨执行维护状态，还可以创建自己的类并传递实例方法作为委托。
@@ -53,14 +54,13 @@ ChangeFeedProcessorLibrary.DocumentCollectionInfo leaseCollectionInfo = new Chan
 ChangeFeedProcessorLibrary.ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorLibrary.ChangeFeedProcessorBuilder();
 var oldChangeFeedProcessor = await builder
     .WithHostName("consoleHost")
-    .WithProcessorOptions(new ChangeFeedProcessorLibrary.ChangeFeedProcessorOptions {
+    .WithProcessorOptions(new ChangeFeedProcessorLibrary.ChangeFeedProcessorOptions
+    {
         StartFromBeginning = true,
-        LeasePrefix = "MyLeasePrefix" })
-     .WithProcessorOptions(new ChangeFeedProcessorLibrary.ChangeFeedProcessorOptions()
-     {
-         MaxItemCount = 10,
-         FeedPollDelay = TimeSpan.FromSeconds(1)
-     })
+        LeasePrefix = "MyLeasePrefix",
+        MaxItemCount = 10,
+        FeedPollDelay = TimeSpan.FromSeconds(1)
+    })
     .WithFeedCollection(monitoredCollectionInfo)
     .WithLeaseCollection(leaseCollectionInfo)
     .WithObserver<ChangeFeedObserver>()
@@ -119,6 +119,6 @@ SDK V3 更改源处理器将在首次执行迁移的应用程序代码时自动�
 
 * [更改源处理器概述](change-feed-processor.md)
 * [使用更改源估算器](how-to-use-change-feed-estimator.md)
-* [更改源处理器开始时间](how-to-configure-change-feed-start-time.md)
+* [更改源处理器开始时间](./change-feed-processor.md#starting-time)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

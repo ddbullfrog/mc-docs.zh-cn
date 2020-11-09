@@ -5,22 +5,23 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 05/18/2020
+origin.date: 10/01/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 84851f08c41172a0d40f66ee1b3fdcea6a8ec3c4
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 611408cc4635669e5756ddf42e7cc99f21d0b787
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246547"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327657"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 构建 Cassandra 应用
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -44,7 +45,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 <!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 
 此外，还需要： 
-* 如果尚未安装 Visual Studio 2019，可以下载并使用**免费**的 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
+* 如果尚未安装 Visual Studio 2019，可以下载并使用 **免费** 的 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
 * 安装 [Git](https://www.git-scm.com/) 以克隆示例。
 
 <a name="create-account"></a>
@@ -68,7 +69,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
@@ -104,7 +105,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 * 使用有连接到配置文件密钥空间的新会话的 IMapper 对象插入用户实体。
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
 
 * 通过查询获取所有用户的信息。

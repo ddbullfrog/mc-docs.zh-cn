@@ -5,13 +5,13 @@ author: yegu-ms
 ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: 58fc7999fbdb5e908e5893d897b69300fd849958
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.date: 11/03/2020
+ms.openlocfilehash: 9fd91d40a0ab3c3b0006f02a696f3606a28ddf60
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946965"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326596"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>如何监视用于 Redis 的 Azure 缓存
 
@@ -52,13 +52,13 @@ ms.locfileid: "88946965"
 
 ![Redis 指标](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-有关使用 Azure Monitor 处理指标的详细信息，请参阅 [Azure 中的指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+有关使用 Azure Monitor 处理指标的详细信息，请参阅 [Azure 中的指标概述](../azure-monitor/platform/data-platform.md)。
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>导出缓存指标
 
-默认情况下，Azure Monitor 中的缓存指标将[存储 30 天](../azure-monitor/platform/data-platform-metrics.md)，过后被删除。 若要延长缓存指标的保存时间，使其超过 30 天，可以为缓存指标[指定存储帐户](../azure-monitor/platform/archive-diagnostic-logs.md)，并指定“保留期（天）”  策略。 
+默认情况下，Azure Monitor 中的缓存指标将[存储 30 天](../azure-monitor/platform/data-platform-metrics.md)，过后被删除。 若要延长缓存指标的保存时间，使其超过 30 天，可以为缓存指标[指定存储帐户](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)，并指定“保留期（天）”  策略。 
 
 若要配置缓存指标的存储帐户，请执行以下操作：
 
@@ -67,7 +67,7 @@ ms.locfileid: "88946965"
 3. 为设置命名。
 4. 选中“存档到存储帐户”。  向存储帐户发送诊断时，会针对存储和事务向你收取正常数据费率。
 4. 选择“配置”  以选择要在其中存储缓存指标的存储帐户。
-5. 在表标题“指标”  下，选中你要存储的行项（例如“AllMetrics”）旁边的复选框。  指定一个“保留期(天)”  策略。 可以指定的最大保留天数为 **365 天**。 但是，如果要永久保留指标数据，请将“保留期(天)”设置为 0。  
+5. 在表标题“指标”  下，选中你要存储的行项（例如“AllMetrics”）旁边的复选框。  指定一个“保留期(天)”  策略。 可以指定的最大保留天数为 **365 天** 。 但是，如果要永久保留指标数据，请将“保留期(天)”设置为 0。  
 6. 单击“保存”  。
 
 
@@ -99,7 +99,7 @@ ms.locfileid: "88946965"
 | 缓存命中数 |在指定的报告间隔期间，成功的键查找次数。 此数目映射到 Redis [INFO](https://redis.io/commands/info) 命令输出中的 `keyspace_hits`。 |
 | 缓存延迟（预览） | 基于缓存的节点间延迟计算缓存的延迟。 该指标以微秒为单位，具有三个维度：`Avg`、`Min` 和 `Max`，分别表示指定的报告间隔期间缓存的平均延迟、最小延迟和最大延迟。 |
 | 缓存未命中数 |在指定的报告间隔期间，失败的键查找次数。 此数目映射到 Redis INFO 命令输出中的 `keyspace_misses`。 缓存未命中并不一定意味着缓存出现了问题。 例如，在使用缓存端编程模式时，应用程序会首先查找缓存中的项。 如果该项不存在（缓存未命中），则将从数据库中检索该项并将其添加到下一次缓存中。 对于缓存端编程模式，缓存未命中是正常行为。 如果缓存未命中数大于预期值，请检查从缓存中填充并读取的应用程序逻辑。 如果由于内存压力而导致项目从缓存中逐出，则可能存在一些缓存未命中的情况，但指标 `Used Memory` 或 `Evicted Keys` 可以更好的监视内存压力。 |
-| 缓存读取量 |指定报告间隔期间，从缓存中读取的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 **此值对应于该缓存使用的网络带宽。如果要针对服务器端网络带宽限制设置警报，则可使用此 `Cache Read` 计数器来创建警报。请参阅[此表](cache-planning-faq.md#azure-cache-for-redis-performance)，了解各种缓存定价层和大小所遵循的带宽限制。** |
+| 缓存读取量 |指定报告间隔期间，从缓存中读取的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 **此值对应于该缓存使用的网络带宽。如果要针对服务器端网络带宽限制设置警报，则可使用此 `Cache Read` 计数器来创建警报。请参阅 [此表](cache-planning-faq.md#azure-cache-for-redis-performance)，了解各种缓存定价层和大小所遵循的带宽限制。** |
 | 缓存写入量 |指定报告间隔期间，写入缓存中的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 此值对应于从客户端发送到缓存的数据的网络带宽。 |
 | 连接的客户端数 |指定的报告间隔期间，客间户端与缓存的连接数。 此数目映射到 Redis INFO 命令输出中的 `connected_clients`。 一旦达到了[连接限制](cache-configure.md#default-redis-server-configuration)，则对缓存的后续连接尝试将失败。 即使没有任何活动的客户端应用程序，由于内部进程和连接，仍可能存在一些连接的客户端的实例。 |
 | CPU |指定报告间隔期间，用于 Redis 的 Azure 缓存服务器的 CPU 使用率（以百分比表示）。 此值映射到操作系统 `\Processor(_Total)\% Processor Time` 性能计数器。 |
@@ -129,7 +129,7 @@ ms.locfileid: "88946965"
 
 ![监视](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-有关配置和使用警报的详细信息，请参阅[警报概述](../monitoring-and-diagnostics/insights-alerts-portal.md)。
+有关配置和使用警报的详细信息，请参阅[警报概述](../azure-monitor/platform/alerts-classic-portal.md)。
 
 ## <a name="activity-logs"></a>活动日志
 活动日志提供有关对 Azure Redis 缓存实例执行的操作的见解。 活动日志以前称为“审核日志”或“操作日志”。 通过活动日志，可确定对用于 Redis 的 Azure 缓存实例执行的任何写入操作 (PUT、POST、DELETE) 的“操作内容、操作人员和操作时间”。 

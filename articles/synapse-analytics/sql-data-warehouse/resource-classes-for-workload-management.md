@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 07/06/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 912a9dbe75df3c800790316fdfe00f41bb6d4f33
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.openlocfilehash: 57b6037e53788ebd101ad82abde67ec516bc7c9b
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845740"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375741"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>使用 Azure Synapse Analytics 中的资源类管理工作负载
 
@@ -79,7 +79,7 @@ ms.locfileid: "85845740"
 
 ### <a name="default-resource-class"></a>默认资源类
 
-默认情况下，每个用户都是动态资源类 (**smallrc**) 的成员。
+默认情况下，每个用户都是动态资源类 ( **smallrc** ) 的成员。
 
 服务管理员的资源类在 smallrc 中是固定的，不可更改。  服务管理员是预配过程中创建的用户。  使用新服务器新建 Synapse SQL 池时，此上下文中的服务管理员是为“服务器管理员登录名”指定的登录名。
 
@@ -134,7 +134,7 @@ ms.locfileid: "85845740"
 - DBCC
 
 <!--
-Removed as these two are not confirmed / supported under SQL DW
+Removed as these two are not confirmed / supported under Azure Synapse Analytics
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
@@ -274,7 +274,7 @@ GO
 -- Creating prc_workload_management_by_DWU.
 -------------------------------------------------------------------------------
 CREATE PROCEDURE dbo.prc_workload_management_by_DWU
-(@DWU VARCHAR(7),
+(@DWU VARCHAR(8),
  @SCHEMA_NAME VARCHAR(128),
  @TABLE_NAME VARCHAR(128)
 )

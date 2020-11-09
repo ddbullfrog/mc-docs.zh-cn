@@ -1,21 +1,22 @@
 ---
 title: 有关 Azure Cosmos DB 中 Gremlin API 的常见问题解答
 description: 获取有关 Azure Cosmos DB 中 Gremlin API 的常见问题的解答
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/28/2020
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9c6c7d387feebe8611c30354aa605f2203d059c6
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 5d73786d990aca6b981e68f71a5f56f99024c0e3
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098399"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327622"
 ---
 <!--Verified successfully, ONLY CHARACTERS CONTENT-->
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中 Gremlin API 的常见问题解答
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 本文介绍有关 Azure Cosmos DB 中 Gremlin API 的一些常见问题的解答。
 
@@ -101,7 +102,7 @@ RU 费用取决于遍历的工作数据集，而不是结果集。 例如，如�
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>图形数据库可在 Azure Cosmos DB Gremlin API 中拥有的最大规模是怎样的？
 
-Azure Cosmos DB 利用[水平分区](partition-data.md)自动满足增加存储和吞吐量的需求。 工作负荷的最大吞吐量和存储容量由与给定容器关联的分区数量决定。 但是，Gremlin API 容器有一组用于按规模确保适当性能体验的特定准则。 有关分区和最佳做法的详细信息，请参阅 [Azure Cosmos DB 中的分区](partition-data.md)一文。
+Azure Cosmos DB 利用[水平分区](partitioning-overview.md)自动满足增加存储和吞吐量的需求。 工作负荷的最大吞吐量和存储容量由与给定容器关联的分区数量决定。 但是，Gremlin API 容器有一组用于按规模确保适当性能体验的特定准则。 有关分区和最佳做法的详细信息，请参阅 [Azure Cosmos DB 中的分区](partitioning-overview.md)一文。
 
 ### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>对于 C#/.NET 开发，我是否应使用 Microsoft.Azure.Graphs 包或 Gremlin.NET？
 

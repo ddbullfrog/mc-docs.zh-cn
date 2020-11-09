@@ -4,17 +4,17 @@ description: 本文概述如何使用 Visual Studio Code 创建 Service Fabric �
 ms.topic: article
 origin.date: 06/29/2018
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 2db8c5ead297f1708caa2215141e0cb21e26395e
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 005abbc4527bd4ec9b1539fae8832b6b5e11f9d9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127693"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328705"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric for Visual Studio Code
 
@@ -47,20 +47,20 @@ ms.locfileid: "92127693"
 
 * [Java SDK](https://docs.azure.cn/java/java-supported-jdk-runtime)（版本 1.8）
 * [Gradle](https://gradle.org/install/)
-* 调试 Java 服务时所需的[适用于 Java VS Code 的调试程序扩展](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)。 仅支持在 Linux 上调试 Java 服务。 可通过以下方法之一安装该扩展：在 VS Code 中的**活动栏**上单击“扩展”图标并搜索该扩展，或者从 VS Code 市场安装。
+* 调试 Java 服务时所需的[适用于 Java VS Code 的调试程序扩展](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)。 仅支持在 Linux 上调试 Java 服务。 可通过以下方法之一安装该扩展：在 VS Code 中的 **活动栏** 上单击“扩展”图标并搜索该扩展，或者从 VS Code 市场安装。
 
 必须为 .NET Core/C# 开发安装以下必备组件：
 
 * [.NET Core](https://www.microsoft.com/net/learn/get-started)（2.0.0 或更高版本）
-* 调试 C# 服务时所需的 [C# for Visual Studio Code (Powered by OmniSharp) VS Code 扩展](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)。 可通过以下方法之一安装该扩展：在 VS Code 中的**活动栏**上单击“扩展”图标并搜索该扩展，或者从 VS Code 市场安装。
+* 调试 C# 服务时所需的 [C# for Visual Studio Code (Powered by OmniSharp) VS Code 扩展](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)。 可通过以下方法之一安装该扩展：在 VS Code 中的 **活动栏** 上单击“扩展”图标并搜索该扩展，或者从 VS Code 市场安装。
 
 ## <a name="setup"></a>设置
 
 1. 打开 VS Code。
-2. 在 VS Code 左侧的**活动栏**中单击“扩展”图标。 搜索“Service Fabric”。 单击 Service Fabric Reliable Services 扩展对应的“安装”。 
+2. 在 VS Code 左侧的 **活动栏** 中单击“扩展”图标。 搜索“Service Fabric”。 单击 Service Fabric Reliable Services 扩展对应的“安装”。 
 
 ## <a name="commands"></a>命令
-适用于 VS Code 的 Service Fabric Reliable Services 扩展提供许多命令用于帮助开发人员创建和部署 Service Fabric 项目。 可以从**命令面板**调用命令：按 `(Ctrl + Shift + p)`，在输入栏中键入命令名称，然后从提示列表中选择所需的命令即可。 
+适用于 VS Code 的 Service Fabric Reliable Services 扩展提供许多命令用于帮助开发人员创建和部署 Service Fabric 项目。 可以从 **命令面板** 调用命令：按 `(Ctrl + Shift + p)`，在输入栏中键入命令名称，然后从提示列表中选择所需的命令即可。 
 
 * Service Fabric:创建应用程序 
 * Service Fabric:发布应用程序 

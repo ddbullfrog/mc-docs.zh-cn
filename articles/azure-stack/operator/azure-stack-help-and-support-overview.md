@@ -3,18 +3,17 @@ title: Azure Stack Hub 帮助和支持
 description: 获取 Microsoft Azure Stack Hub 的支持。
 author: WenJason
 ms.topic: article
-ms.service: azure-stack
 origin.date: 02/26/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 1984d9a8273de3212416536ed5513ef8f5f66a1f
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 6ba3e53ec9562639cd44d56de7cf9c83149e8114
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437543"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330522"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub 帮助和支持
 
@@ -34,9 +33,9 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 - **文档** [Azure Stack Hub 操作员文档](index.yml)包含介绍如何提供 Azure Stack Hub 服务的概念、操作指南主题和教程。 这些服务包括虚拟机、SQL 数据库、Web 应用等。
 
-- **了解计费**。 获取有关[用量和计费](azure-stack-billing-and-chargeback.md)的提示。
+- **了解计费** 。 获取有关[用量和计费](azure-stack-billing-and-chargeback.md)的提示。
 
-- **支持选项**。 Azure Stack Hub 操作员有多种可供选择的 [Azure 支持选项](/azure-stack/operator/azure-stack-manage-basics)，用于应对各种企业的需求。
+- **支持选项** 。 Azure Stack Hub 操作员有多种可供选择的 [Azure 支持选项](/azure-stack/operator/azure-stack-manage-basics)，用于应对各种企业的需求。
 
 ### <a name="get-expert-help"></a>获取专家帮助
 
@@ -66,8 +65,8 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 可以通过两种方式将诊断日志发送到 Microsoft：
 
-- [主动发送日志](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)：如果启用，日志收集将由特定的运行状况警报触发。
-- [立即发送日志](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)：可以手动选择特定滑动窗口作为日志收集的时间范围。
+- [主动发送日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)：如果启用，日志收集将由特定的运行状况警报触发。
+- [立即发送日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)：可以手动选择特定滑动窗口作为日志收集的时间范围。
 
 ![此屏幕截图显示了如何开始收集诊断日志。](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
@@ -75,8 +74,8 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 从 1907 版开始，在“帮助和支持”中提供了两种新方法来收集日志：
 
-- **自动收集**：如果启用，日志收集将由特定的运行状况警报触发。
-- **立即收集日志**：可以从过去七天选择 1-4 小时滑动窗口。
+- **自动收集** ：如果启用，日志收集将由特定的运行状况警报触发。
+- **立即收集日志** ：可以从过去七天选择 1-4 小时滑动窗口。
 
 ![诊断日志收集选项](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 

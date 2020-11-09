@@ -2,15 +2,15 @@
 title: 快速入门：第一个门户查询
 description: 本快速入门介绍在 Azure 门户中使用 Azure Resource Graph 资源管理器运行第一个查询的步骤。
 ms.author: v-tawe
-origin.date: 08/10/2020
-ms.date: 09/15/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.topic: quickstart
-ms.openlocfilehash: 66d6d1017519e3a9b5f8c7fa084aba12a73d3daf
-ms.sourcegitcommit: 75299b1cb5540a11149f320edaae82ae8c03c16b
+ms.openlocfilehash: 3b004018b0f63142ddf7c7a42bb1ecbaab25adbd
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523147"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328803"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>快速入门：使用 Azure Resource Graph Explorer 运行第一个 Resource Graph 查询
 
@@ -26,7 +26,7 @@ ms.locfileid: "90523147"
 
 打开 [Azure 门户](https://portal.azure.cn)，遵循以下步骤找到并使用 Resource Graph Explorer 运行第一个 Resource Graph 查询：
 
-1. 在左侧窗格中，选择“所有服务”。 搜索并选择 **Resource Graph Explorer**。
+1. 在左侧窗格中，选择“所有服务”。 搜索并选择 **Resource Graph Explorer** 。
 
 1. 在窗口中的“查询 1”部分输入查询 `Resources | project name, type | limit 5`，然后选择“运行查询”。 
 
@@ -53,7 +53,7 @@ ms.locfileid: "90523147"
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>基于 Resource Graph 查询创建图表
 
-运行上述最后一个查询后，如果你选择“图表”选项卡，则会看到一条消息，指出“该结果集与饼图可视化效果不兼容。” 列出结果的查询无法生成图表，但提供资源计数的查询则可以。 让我们使用[示例查询 - 按 OS 类型统计虚拟机数目](./samples/starter.md#count-os)，基于 Resource Graph 查询创建可视化效果。
+运行前面的查询后，如果你选择“图表”选项卡，则会看到一条消息，指出“该结果集与饼图可视化效果不兼容。” 列出结果的查询无法生成图表，但提供资源计数的查询则可以。 让我们使用[示例查询 - 按 OS 类型统计虚拟机数目](./samples/starter.md#count-os)，基于 Resource Graph 查询创建可视化效果。
 
 1. 在窗口中的“查询 1”部分输入以下查询，然后选择“运行查询”。 
 
@@ -69,7 +69,7 @@ ms.locfileid: "90523147"
 
 ## <a name="pin-the-query-visualization-to-a-dashboard"></a>将查询可视化效果固定到仪表板
 
-如果查询返回的结果可以可视化，则你可以将该数据可视化效果固定到某个仪表板。 运行上述查询后，执行以下步骤：
+如果查询返回的结果可以可视化，则你可以将该数据可视化效果固定到某个仪表板。 运行前面的查询后，请执行以下步骤：
 
 1. 选择“保存”，并提供名称“按 OS 类型统计的 VM 数目”。 然后在右窗格底部选择“保存”。
 

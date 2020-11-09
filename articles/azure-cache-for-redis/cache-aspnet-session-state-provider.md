@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: fa2ef0c978f26c1641ecdcdad667cf366a04cc3a
-ms.sourcegitcommit: 65a7360bb14b0373e18ec8eaa288ed3ac7b24ef4
+ms.custom: devx-track-dotnet
+ms.date: 11/03/2020
+ms.openlocfilehash: c2785499cb9b6e3bc8897dc80ab6235f92d1c196
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86219740"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326582"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Redis 缓存的 ASP.NET 会话状态提供程序
 
@@ -21,7 +22,7 @@ Azure Redis 缓存提供了一个会话状态提供程序，可使用该提供�
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>在缓存中存储 ASP.NET 会话状态
 
-要使用 Azure Redis 缓存会话状态 NuGet 包在 Visual Studio 中配置客户端应用程序，请在“工具”菜单中依次单击“NuGet 包管理器”和“包管理器控制台”**** **** ****。
+要使用 Azure Redis 缓存会话状态 NuGet 包在 Visual Studio 中配置客户端应用程序，请在“工具”菜单中依次单击“NuGet 包管理器”和“包管理器控制台”  。
 
 从 `Package Manager Console` 窗口运行以下命令。
     
@@ -121,7 +122,7 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
 ## <a name="aspnet-session-state-options"></a>ASP.NET 会话状态选项
 
 * 内存中会话状态提供程序 - 此提供程序将会话状态存储在内存中。 使用此提供程序的好处是它简单且快速。 但是，如果使用内存中提供程序，由于它不是分布式的，因此不能缩放 Web 应用。
-* SQL Server 会话状态提供程序 - 此提供程序将会话状态存储在 SQL Server 中。 如果要将会话状态保存在持久性存储中，请使用此提供程序。 可以缩放 Web 应用，但将 SQL Server 用于会话会对 Web 应用造成性能影响。 还可以将此提供程序与[内存中 OLTP 配置](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/)一起使用来帮助提高性能。
+* SQL Server 会话状态提供程序 - 此提供程序将会话状态存储在 SQL Server 中。 如果要将会话状态保存在持久性存储中，请使用此提供程序。 可以缩放 Web 应用，但将 SQL Server 用于会话会对 Web 应用造成性能影响。 还可以将此提供程序与[内存中 OLTP 配置](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/asp-net-session-state-with-sql-server-in-memory-oltp)一起使用来帮助提高性能。
 * 分布式内存中会话状态提供程序（如 Azure Redis 缓存会话状态提供程序） - 此提供程序提供两全其美的功能。 Web 应用可以使用简单、快速且可缩放的会话状态提供程序。 由于此提供程序将会话状态存储在缓存中，应用必须考虑到在与分布式内存中缓存通信时关联的所有特征，如暂时性网络故障。 有关使用缓存的最佳实践，请参阅 Microsoft 模式和实践 [Azure 云应用程序设计和实现指南](https://github.com/mspnp/azure-guidance)中的[缓存指南](../best-practices-caching.md)。
 
 有关会话状态和其他最佳实践的详细信息，请参阅 [Web Development Best Practices (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)（Web 开发最佳做法（使用 Azure 构建实际的云应用））。

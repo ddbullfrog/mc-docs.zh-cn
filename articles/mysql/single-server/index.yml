@@ -6,15 +6,15 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 09/20/2020
-  ms.date: 10/26/2020
+  ms.date: 11/09/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: d3695db5ed37f1122c4b6a57295c67eb96a5bc02
-  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+  ms.openlocfilehash: d00974edf853dc41d88758f617d4090758b583b6
+  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93105789"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "94328903"
 landingContent:
 - title: 关于单服务器
   linkLists:
@@ -125,7 +125,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: 用于常见任务的 Azure CLI 脚本
-      url: /mysql/sample-scripts-azure-cli
+      url: ../sample-scripts-azure-cli.md
     - text: Azure 资源管理器模板
       url: https://docs.microsoft.com/azure/templates/microsoft.dbformysql/allversions
   - linkListType: reference

@@ -125,6 +125,8 @@
           href: ../common/storage-require-secure-transfer.md?toc=%2fstorage%2ffiles%2ftoc.json
         - name: 管理传输层安全性 (TLS)
           items:
+            - name: 为传入请求强制执行最低 TLS 版本
+              href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fstorage%2ffiles%2ftoc.json
             - name: 为客户端应用程序配置 TLS 版本
               href: ../common/transport-layer-security-configure-client-version.md?toc=%2fstorage%2ffiles%2ftoc.json
     - name: 传输

@@ -4,16 +4,16 @@ description: 本文介绍了如何在只需群集短暂停机甚至无需其停�
 ms.topic: how-to
 origin.date: 04/07/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5267bda2ac0ce0f77c1ad0ac8c8731d82441a90e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 70af24665dc0830681902d26fe1b017fe78dd619
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655154"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328813"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>将群集节点升级为使用 Azure 托管磁盘
 
@@ -30,7 +30,7 @@ ms.locfileid: "89655154"
 本文将引导你完成将示例群集的主要节点类型升级为使用托管磁盘的步骤，同时避免发生任何群集停机（参阅下面的注释）。 示例测试群集的初始状态包括一个[银级持久性](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)的节点类型，该节点类型由包含五个节点的单个规模集提供支持。
 
 > [!NOTE]
-> 基本 SKU 负载均衡器的限制会阻止添加其他规模集。 建议改为使用标准 SKU 负载均衡器。 有关详细信息，请参阅[两个 SKU 的比较](/load-balancer/skus)。
+> 基本 SKU 负载均衡器的限制会阻止添加其他规模集。 建议改为使用标准 SKU 负载均衡器。 有关详细信息，请参阅[两个 SKU 的比较](../load-balancer/skus.md)。
 
 > [!CAUTION]
 > 仅当你依赖于群集 DNS 时（例如，在访问 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 时），才会在此过程中遇到服务中断。 [适用于前端服务的体系结构最佳做法](https://docs.microsoft.com/azure/architecture/microservices/design/gateway)要求在你的节点类型的前面使用某种[负载均衡器](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)，以便无需中断服务即可进行节点交换。
@@ -163,7 +163,7 @@ Get-ServiceFabricClusterHealth
 
 若要升级或纵向缩放某个节点类型，需要部署该节点类型的虚拟机规模集的副本，该副本与原始规模集相同（包括对相同 `nodeTypeRef`、`subnet` 和 `loadBalancerBackendAddressPools` 的引用），只不过，其中还包含所需的升级/更改及其自身的单独子网和入站 NAT 地址池。 由于我们要升级主要节点类型，因此，新规模集将如同原始规模集一样标记为主节点类型 (`isPrimary: true`)。 （对于非主节点类型升级，请省略此项更改。）
 
-为方便起见，*Upgrade-1NodeType-2ScaleSets-ManagedDisks* [模板](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) 和 [parameters](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) 文件中已经为你做出了所需的更改。
+为方便起见， *Upgrade-1NodeType-2ScaleSets-ManagedDisks* [模板](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) 和 [parameters](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) 文件中已经为你做出了所需的更改。
 
 以下部分将详细说明模板更改。 如果需要，可以跳过说明并转到[升级过程的下一步骤](#obtain-your-key-vault-references)。
 

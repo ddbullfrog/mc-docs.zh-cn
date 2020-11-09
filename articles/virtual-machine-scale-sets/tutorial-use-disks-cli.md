@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 10/20/2020
+ms.date: 11/02/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 3420dcaf7dddee200ff82247f4b61fd86f83d0bc
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 5b35e7f61ad1342ea7c020cac0904bf998fb84c0
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471093"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326524"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>教程：通过 Azure CLI 对虚拟机规模集创建和使用磁盘
 虚拟机规模集使用磁盘来存储 VM 实例的操作系统、应用程序和数据。 创建和管理规模集时，请务必选择适用于所需工作负荷的磁盘大小和配置。 本教程介绍如何创建和管理 VM 磁盘。 本教程介绍如何执行下列操作：
@@ -72,7 +72,7 @@ Azure 提供两种类型的磁盘。
 ## <a name="create-and-attach-disks"></a>创建并附加磁盘
 可以在创建规模集时创建和附加磁盘，也可以对现有的规模集创建和附加磁盘。
 
-从 API 版本 `2019-07-01` 开始，可以使用 [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) 属性设置虚拟机规模集中 OS 磁盘的大小。 预配后，可能需要对磁盘进行扩展或重新分区，以利用整个空间。 在[此处](/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os)详细了解如何扩展磁盘。
+从 API 版本 `2019-07-01` 开始，可以使用 [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) 属性设置虚拟机规模集中 OS 磁盘的大小。 预配后，可能需要对磁盘进行扩展或重新分区，以利用整个空间。 在[此处](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os)详细了解如何扩展磁盘。
 
 ### <a name="attach-disks-at-scale-set-creation"></a>创建规模集时附加磁盘
 首先，使用 [az group create](/cli/group) 命令创建资源组。 本示例在 chinanorth2 区域中创建名为 myResourceGroup 的资源组 。

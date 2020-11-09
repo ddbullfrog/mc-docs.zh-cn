@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 origin.date: 06/29/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: e7838c234141cb1f82ec40323b72df297dd9a88f
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/09/2020
+ms.openlocfilehash: 166e04fae7283cd1d8a64029a8566088581d1172
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470105"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328669"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>使用 Azure 门户将 Azure Database for PostgreSQL（单一服务器）移到另一个区域
 
@@ -22,7 +22,7 @@ ms.locfileid: "92470105"
 可以使用 Azure Database for PostgreSQL [跨区域只读副本](concepts-read-replicas.md#cross-region-replication)来完成移到另一个区域的操作。 为此，请先在目标区域中创建一个只读副本。 接下来，停止到只读副本服务器的复制，使其成为同时接受读取和写入流量的独立服务器。 
 
 > [!NOTE]
-> 本文重点介绍如何将服务器移到不同的区域。 若要将服务器移到其他资源组或订阅，请参阅[移动](/azure-resource-manager/management/move-resource-group-and-subscription)一文。 
+> 本文重点介绍如何将服务器移到不同的区域。 若要将服务器移到其他资源组或订阅，请参阅[移动](../azure-resource-manager/management/move-resource-group-and-subscription.md)一文。 
 
 ## <a name="prerequisites"></a>先决条件
 

@@ -3,18 +3,19 @@ title: Azure Functions 绑定表达式和模式
 description: 了解如何基于通用模式创建不同的 Azure Functions 绑定表达式。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 07/15/2020
+ms.custom: devx-track-csharp
+ms.date: 11/04/2020
 ms.author: v-junlch
-ms.openlocfilehash: 03538d18afdf6bcaa1bce45a077c83a1a3b47f76
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: 0d92a11f49fcf13a1c17d21ab58ffb6f836d9661
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440541"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326536"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 绑定表达式模式
 
-[触发器和绑定](./functions-triggers-bindings.md)的最强大功能之一是*绑定表达式*。 在 *function.json* 文件、函数参数和代码中，可以使用表达式解析为各种源的值。
+[触发器和绑定](./functions-triggers-bindings.md)的最强大功能之一是 *绑定表达式* 。 在 *function.json* 文件、函数参数和代码中，可以使用表达式解析为各种源的值。
 
 大多数表达式的标识方式是将其包装在大括号中。 例如，在队列触发器函数中，`{queueTrigger}` 解析为队列消息文本。 如果 Blob 输出绑定的 `path` 属性为 `container/{queueTrigger}`，并且函数由队列消息 `HelloWorld` 触发，则创建名为 `HelloWorld` 的 Blob。
 
@@ -40,7 +41,7 @@ ms.locfileid: "86440541"
 > [!NOTE]
 > 触发器和绑定的 `connection` 属性是一种特殊情况，该属性会自动将值解析为应用设置（不带百分比号）。 
 
-以下示例是一个 Azure 队列存储触发器，该触发器使用应用设置 `%input-queue-name%` 定义要触发的队列。
+以下示例是一个 Azure 队列存储触发器，该触发器使用应用设置 `%input_queue_name%` 定义要触发的队列。
 
 ```json
 {
@@ -49,7 +50,7 @@ ms.locfileid: "86440541"
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -61,7 +62,7 @@ ms.locfileid: "86440541"
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");

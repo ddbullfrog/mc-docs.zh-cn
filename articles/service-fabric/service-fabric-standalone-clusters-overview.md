@@ -1,19 +1,19 @@
 ---
 title: 独立 Service Fabric 群集概述
 description: Service Fabric 群集会在 Windows Server 或 Linux 上运行，这意味着可以在能够运行 Windows Server 和 Linux 的任何位置部署和承载 Service Fabric 应用程序。
-author: rockboyfor
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 08/03/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 01/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: 062c2e24bcb5690b019bec421188d3722f99d099
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 71324d00a1679fae59fea1929d49e49a6d1e3474
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426283"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327438"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Service Fabric 独立群集概述
 

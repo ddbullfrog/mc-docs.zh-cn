@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 12/16/2019
 ms.date: 06/08/2020
 ms.author: v-yiso
-ms.openlocfilehash: 39612de776d75137fa535f743066a4d41b2aed67
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 526d5c6e4ab652b1fbe79df37c300fed531b9f75
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186946"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328729"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>创建和管理 ExpressRoute 公共对等互连
 
@@ -21,12 +21,11 @@ ms.locfileid: "84186946"
 > * [文章 - 公共对等互连](about-public-peering.md)
 > * [文章 - Microsoft 对等互连](expressroute-circuit-peerings.md#microsoftpeering)
 >
-
 可以参照本文来创建和管理 ExpressRoute 线路的公共对等互连路由配置。 还可以检查状态，以及更新/删除和取消预配对等互连。 
 
 ## <a name="connectivity"></a>连接
 
-始终会从 WAN 发起到 Azure 服务的连接。 Azure 服务无法通过此路由域发起到你的网络的连接。 如果为 ExpressRoute 线路启用了 Azure 公共对等互连，则可以通过该线路访问 [Azure 中使用的公共 IP 范围](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。
+始终会从 WAN 发起到 Azure 服务的连接。 Azure 服务无法通过此路由域发起到你的网络的连接。 如果为 ExpressRoute 线路启用了 Azure 公共对等互连，则可以通过该线路访问 [Azure 中使用的公共 IP 范围](../virtual-network/public-ip-addresses.md#public-ip-addresses)。
 
 启用公共对等互连后，可以连接到大多数 Azure 服务。 我们不允许选择要将路由播发到的服务。
 

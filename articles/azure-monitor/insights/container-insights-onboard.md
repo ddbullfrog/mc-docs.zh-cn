@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 11/18/2019
-ms.date: 08/20/2020
-ms.openlocfilehash: b812e22a14472e07bb3937202c67c9552b8aba94
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: ee8119385df9314d10682fe9509d14a4545d6c64
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148560"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328779"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>对容器启用 Azure Monitor
 
@@ -43,11 +43,10 @@ ms.locfileid: "89148560"
    可以在为新 AKS 群集启用监视时创建工作区，或者可让加入体验在 AKS 群集订阅的默认资源组中创建默认的工作区。 
    
    如果你选择自己创建工作区，可通过以下方法创建工作区： 
-   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [Azure 门户](../learn/quick-create-workspace.md) 
    
-
 - 需要成为 Log Analytics 参与者组的成员才能启用容器监视。 有关如何控制对 Log Analytics 工作区的访问的详细信息，请参阅[管理工作区](../platform/manage-access.md)。
 
 - 需要成为 AKS 群集资源上[所有者](../../role-based-access-control/built-in-roles.md#owner)组的成员。
@@ -74,6 +73,7 @@ ms.locfileid: "89148560"
 | `*.ods.opinsights.azure.cn` | 443 | 数据引入 |
 | `*.oms.opinsights.azure.cn` | 443 | OMS 载入 |
 | `dc.services.visualstudio.com` | 443 | 用于使用 Azure 公有云 Application Insights 的代理遥测 |
+
 
 ## <a name="components"></a>组件
 
@@ -107,5 +107,4 @@ ms.locfileid: "89148560"
 ## <a name="next-steps"></a>后续步骤
 
 你现在已启用监视，接着可开始分析 Azure Kubernetes 服务 (AKS)、Azure Stack 或其他环境中托管的 Kubernetes 群集的性能。 若要了解如何使用用于容器的 Azure Monitor，请参阅[查看 Kubernetes 群集性能](container-insights-analyze.md)。
-
 

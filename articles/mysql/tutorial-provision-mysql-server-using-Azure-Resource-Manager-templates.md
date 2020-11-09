@@ -1,20 +1,20 @@
 ---
-title: 教程：使用 Azure 资源管理器模板预配 Azure Database for MySQL 服务器
+title: 教程：创建 Azure Database for MySQL - Azure 资源管理器模板
 description: 本教程介绍如何使用 Azure 资源管理器模板预配并自动执行 Azure Database for MySQL 服务器部署。
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
-origin.date: 12/21/2018
-ms.date: 11/18/2019
+origin.date: 12/02/2019
+ms.date: 11/09/2020
 ms.custom: mvc
-ms.openlocfilehash: c5e70e5d2b2d065761a04a25ec94add01b16d7f3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c38904e8455289191517f937322bdd254618b9ee
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74020878"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328789"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教程：使用 Azure 资源管理器模板预配 Azure Database for MySQL 服务器
 
@@ -23,7 +23,7 @@ ms.locfileid: "74020878"
 
 借助 [Azure Database for MySQL REST API](https://docs.microsoft.com/rest/api/mysql/)，DevOps 工程师能够自动执行并集成 Azure 中托管的 MySQL 服务器和数据库的预配、配置和操作。  通过 API，可对 Azure Database for MySQL 服务上的 MySQL 服务器和数据库进行创建、枚举、管理和删除。
 
-Azure 资源管理器利用基础 REST API 来声明并计划大规模部署所需的 Azure 资源，这与将基础结构作为代码的概念相一致。 模板可参数化 Azure 资源名称、SKU、网络、防火墙配置和设置，允许一次创建后多次使用。  可使用 [Azure 门户](/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)或 [Visual Studio Code](/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI) 轻松创建 Azure 资源管理器模板。 这些模板允许自动执行可集成到 DevOps CI/CD 管道的应用程序打包、标准化和部署。  例如，如果你希望使用 Azure Database for MySQL 后端快速部署 Web 应用，则可以使用来自 GitHub 库的此[快速入门模板](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/)来执行端到端部署。
+Azure 资源管理器利用基础 REST API 来声明并计划大规模部署所需的 Azure 资源，这与将基础结构作为代码的概念相一致。 模板可参数化 Azure 资源名称、SKU、网络、防火墙配置和设置，允许一次创建后多次使用。  可使用 [Azure 门户](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)或 [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI) 轻松创建 Azure 资源管理器模板。 这些模板允许自动执行可集成到 DevOps CI/CD 管道的应用程序打包、标准化和部署。  例如，如果你希望使用 Azure Database for MySQL 后端快速部署 Web 应用，则可以使用来自 GitHub 库的此[快速入门模板](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/)来执行端到端部署。
 
 在本教程中，需使用 Azure 资源管理器模板以及其他实用工具了解如何完成以下操作：
 

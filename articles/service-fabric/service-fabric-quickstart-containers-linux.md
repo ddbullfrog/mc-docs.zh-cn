@@ -4,17 +4,17 @@ description: 在此快速入门中，将使用你的应用程序生成 Docker �
 ms.topic: quickstart
 origin.date: 07/22/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: c8946ee6878444c4e4773476e7da862e22f95140
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: dbf91596808d9dd1889093f7dd813f678c5e7f61
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655647"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328636"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入门：将 Linux 容器部署到 Service Fabric
 
@@ -30,7 +30,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 1. 如果还没有订阅，请在开始前创建一个[试用版 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-2. 安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli-apt?view=azure-cli-latest)
+2. 安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli-apt)
 
 3. 安装 [Service Fabric SDK 和 CLI](service-fabric-get-started-linux.md#installation-methods)
 
@@ -175,7 +175,7 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
 
 若要删除群集及其占用的所有资源，最简单的方式是删除资源组。
 
-登录到 Azure，选择要删除群集的订阅 ID。 可通过登录到 Azure 门户查找订阅 ID。 使用 [az group delete 命令](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete-command)删除资源组和所有群集资源。
+登录到 Azure，选择要删除群集的订阅 ID。 可通过登录到 Azure 门户查找订阅 ID。 使用 [az group delete 命令](https://docs.azure.cn/cli/group#az-group-delete-command)删除资源组和所有群集资源。
 
 ```azurecli
 az login
@@ -185,7 +185,7 @@ az group delete --name $ResourceGroupName
 ```
 
 如果群集已使用完毕，则可从证书存储中删除证书。 例如：
-- 在 Windows 上：使用[“证书”MMC 管理单元](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in?view=azure-dotnet)。 在添加管理单元时，确保选择“我的用户帐户”。 导航到 `Certificates - Current User\Personal\Certificates`，然后删除证书。
+- 在 Windows 上：使用[“证书”MMC 管理单元](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)。 在添加管理单元时，确保选择“我的用户帐户”。 导航到 `Certificates - Current User\Personal\Certificates`，然后删除证书。
 - 在 Mac 上：使用 Keychain 应用。
 - 在 Ubuntu 上：按照查看证书时所使用的步骤删除此证书。
 

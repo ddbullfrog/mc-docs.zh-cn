@@ -4,22 +4,22 @@ description: 本文介绍如何升级 Service Fabric 应用程序，包括选择
 ms.topic: conceptual
 origin.date: 08/05/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 89ffd23bfc1b59612afe249db4d9a24c30a13a0a
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 8d1a019319813a52e5131ea65591cdd6fdd27a09
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655662"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328680"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 应用程序升级
 Azure Service Fabric 应用程序是多个服务的集合。 在升级期间，Service Fabric 将新的[应用程序清单](service-fabric-application-and-service-manifests.md)与以前的版本进行比较，并确定应用程序中的哪些服务需要升级。 Service Fabric 会将服务清单中的版本号与前一版中的版本号进行比较。 如果服务未更改，则不升级服务。
 
 > [!NOTE]
-> 在应用程序升级期间，不会保留 [ApplicationParameters](https://docs.azure.cn/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)。 为了保留当前的应用程序参数，用户应首先获取参数，然后将它们传递到升级 API 调用中，如下所示：
+> 在应用程序升级期间，不会保留 [ApplicationParameters](https://docs.azure.cn/dotnet/api/system.fabric.description.applicationdescription.applicationparameters#System_Fabric_Description_ApplicationDescription_ApplicationParameters)。 为了保留当前的应用程序参数，用户应首先获取参数，然后将它们传递到升级 API 调用中，如下所示：
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -45,7 +45,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -Ap
 升级完成后，所有的服务和副本（实例）将会保持相同版本，也就是说，如果升级成功，它们会更新到新版本；如果升级失败并回滚，它们会降回到旧版本。
 
 ## <a name="health-checks-during-upgrades"></a>升级过程中的运行状况检查
-必须对升级设置运行状况策略（或者可使用默认值）。 当所有更新域均在指定的超时内进行了升级，并且所有更新域均被认为运行正常时，即可称升级为成功升级。  运行正常的更新域是指该更新域通过了运行状况策略中指定的所有运行状况检查。 例如，运行状况策略可能要求应用程序实例中的所有服务都必须*运行正常*，因为运行状况是由 Service Fabric 定义的。
+必须对升级设置运行状况策略（或者可使用默认值）。 当所有更新域均在指定的超时内进行了升级，并且所有更新域均被认为运行正常时，即可称升级为成功升级。  运行正常的更新域是指该更新域通过了运行状况策略中指定的所有运行状况检查。 例如，运行状况策略可能要求应用程序实例中的所有服务都必须 *运行正常* ，因为运行状况是由 Service Fabric 定义的。
 
 升级期间 Service Fabric 执行的运行状况策略和检查与服务和应用程序无关。 也就是说，不会执行任何特定于服务的测试。  例如，服务可能有吞吐量方面的要求，但 Service Fabric 并不提供用于检查吞吐量的信息。 有关要执行的检查，请参阅[运行状况文章](service-fabric-health-introduction.md)。 在升级期间执行的检查包括是否已正确复制应用程序包、是否已启动实例，等等。
 
@@ -71,12 +71,12 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -Ap
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>使用 HTTPS 终结点升级多个应用程序
 请注意，使用 HTTPS 时，不要将相同端口用于同一应用程序的不同实例。 原因是，Service Fabric 无法升级应用程序实例之一的证书。 例如，如果应用程序 1 或应用程序 2 都要将证书 1 升级为证书 2。 升级时，Service Fabric 可能已使用 http.sys 清除了证书 1 注册，即使其他应用程序仍在使用它，也不例外。 为了防止发生这种情况，Service Fabric 检测到另一个应用程序实例已在带证书的端口上注册（由于 http.sys），导致操作失败。
 
-因此，Service Fabric 不支持通过以下方法升级两个不同的服务：在不同的应用程序实例中使用同一端口****。 也就是说，不能对同一端口上的不同服务使用同一证书。 如果需要在同一端口上使用共享证书，请务必将服务放置在具有放置约束的不同计算机上。 或者，如果可以，考虑将 Service Fabric 动态端口用于每个应用程序实例中的各个服务。 
+因此，Service Fabric 不支持通过以下方法升级两个不同的服务：在不同的应用程序实例中使用同一端口。 也就是说，不能对同一端口上的不同服务使用同一证书。 如果需要在同一端口上使用共享证书，请务必将服务放置在具有放置约束的不同计算机上。 或者，如果可以，考虑将 Service Fabric 动态端口用于每个应用程序实例中的各个服务。 
 
 如果 https 升级失败，则会看到内容为“Windows HTTP Server API 不支持对共享端口的应用程序使用多个证书”的错误警告。
 
 ## <a name="application-upgrade-flowchart"></a>应用程序升级流程图
-本段落后面的流程图可帮助理解 Service Fabric 应用程序的升级过程。 具体而言，该流程描述当一个更新域的升级被认为成功或失败时，超时（包括 *HealthCheckStableDuration*、*HealthCheckRetryTimeout* 和 *UpgradeHealthCheckInterval*）如何为控制提供帮助。
+本段落后面的流程图可帮助理解 Service Fabric 应用程序的升级过程。 具体而言，该流程描述当一个更新域的升级被认为成功或失败时，超时（包括 *HealthCheckStableDuration* 、 *HealthCheckRetryTimeout* 和 *UpgradeHealthCheckInterval* ）如何为控制提供帮助。
 
 ![Service Fabric 应用程序的升级过程][image]
 

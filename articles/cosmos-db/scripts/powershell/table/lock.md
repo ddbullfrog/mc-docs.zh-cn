@@ -6,19 +6,20 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 origin.date: 06/12/2020
 author: rockboyfor
-ms.date: 08/17/2020
-ms.testscope: yes|no
-ms.testdate: 08/17/2020null
+ms.date: 11/09/2020
+ms.testscope: no
+ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4d6589ba5381c9b110e0d5eab375cf96bc112f35
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 6ac67f6f46cdce33c5e6fc70d4041696a2150438
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223554"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327449"
 ---
 <!--Verified successfully-->
 # <a name="create-a-resource-lock-for-azure-cosmos-table-api-table-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure Cosmos 表 API 表创建资源锁
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -29,7 +30,7 @@ ms.locfileid: "88223554"
 
 ## <a name="sample-script"></a>示例脚本
 
-```powershell
+```PowerShell
 # References:
 # Az.CosmosDB | https://docs.microsoft.com/powershell/module/az.cosmosdb
 # Az.Resources | https://docs.microsoft.com/powershell/module/az.resources
@@ -85,6 +86,7 @@ Get-AzResourceLock `
     -ResourceGroupName $resourceGroupName `
     -ResourceType $resourceTypeAccount `
     -ResourceName $accountName
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -99,7 +101,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 |**Azure 资源**| |
 | [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) | 创建资源锁。 |
@@ -111,4 +113,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
-可以在 [Azure Cosmos DB PowerShell 脚本](../../../PowerShell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
+<!-- Update_Description: update meta properties, wording update, update link -->

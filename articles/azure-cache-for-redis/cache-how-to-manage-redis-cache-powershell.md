@@ -4,14 +4,14 @@ description: 了解如何使用 Azure PowerShell 对 Azure Redis 缓存执行管
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/03/2020
 ms.author: v-junlch
-ms.openlocfilehash: 09395e7a629774910a270514c0c3df097ea2b827
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 526b3cce32a340e5a7f999e6600cbb0a4e154ecf
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402484"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326534"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
@@ -308,10 +308,10 @@ ms.locfileid: "91402484"
 > 使用 PowerShell 缩放缓存受到的限制和要遵循的准则与在 Azure 门户中缩放缓存相同。 可以扩展到不同定价层，但有以下限制。
 > 
 > * 不能从较高的定价层缩放到较低的定价层。
-> * 不能从**高级**缓存向下缩放到**标准**或**基本**缓存。
-> * 不能从**标准**缓存向下缩放到**基本**缓存。
-> * 可从**基本**缓存缩放到**标准**缓存，但不能同时更改大小。 如果需要不同大小，则可以执行后续缩放操作以缩放为所需大小。
-> * 不能从**基本**缓存直接缩放到**高级**缓存。 必须在一个缩放操作中从**基本**缩放到**标准**，并在后续的缩放操作中从**标准**缩放到**高级**。
+> * 不能从 **高级** 缓存向下缩放到 **标准** 或 **基本** 缓存。
+> * 不能从 **标准** 缓存向下缩放到 **基本** 缓存。
+> * 可从 **基本** 缓存缩放到 **标准** 缓存，但不能同时更改大小。 如果需要不同大小，则可以执行后续缩放操作以缩放为所需大小。
+> * 不能从 **基本** 缓存直接缩放到 **高级** 缓存。 必须在一个缩放操作中从 **基本** 缩放到 **标准** ，并在后续的缩放操作中从 **标准** 缩放到 **高级** 。
 > * 不能从较大的大小减小为 **C0 (250 MB)** 。
 > 
 > 有关详细信息，请参阅[如何缩放 Azure Redis 缓存](cache-how-to-scale.md)。
@@ -793,8 +793,9 @@ ms.locfileid: "91402484"
 要了解有关将 Windows PowerShell 与 Azure 配合使用的详细信息，请参阅以下资源：
 
 * [MSDN 上的 Azure Redis 缓存 cmdlet 文档](https://docs.microsoft.com/powershell/module/az.rediscache)
-* [Azure Resource Manager Cmdlet](https://go.microsoft.com/fwlink/?LinkID=394765)：了解如何在 Azure Resource Manager 模块中使用这些 cmdlet。
+* [Azure Resource Manager Cmdlet](https://docs.microsoft.com/powershell/module/)：了解如何在 Azure Resource Manager 模块中使用这些 cmdlet。
 * [使用资源组管理 Azure 资源](../azure-resource-manager/templates/deploy-portal.md)：了解如何在 Azure 门户中创建和管理资源组。
 * [Azure 博客](https://azure.microsoft.com/blog/)：了解 Azure 中的新功能。
 * [Windows PowerShell 博客](https://devblogs.microsoft.com/powershell/)：了解 Windows PowerShell 中的新功能。
+* [“你好，脚本专家！”博客](https://devblogs.microsoft.com/scripting/tag/hey-scripting-guy/)：从 Windows PowerShell 社区获取实用提示和技巧。
 

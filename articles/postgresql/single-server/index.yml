@@ -6,15 +6,15 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 09/20/2020
-  ms.date: 10/19/2020
+  ms.date: 11/09/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 980ecf86bd394b554d77f1c5a95e928e5f9cc503
-  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+  ms.openlocfilehash: d081685d2404f4a7fc063a6c8f5e01a82a706b26
+  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93104608"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "94328711"
 landingContent:
 - title: 关于单服务器
   linkLists:
@@ -109,7 +109,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: 用于常见任务的 Azure CLI 脚本
-      url: /postgresql/sample-scripts-azure-cli
+      url: ../sample-scripts-azure-cli.md
   - linkListType: reference
     links:
     - text: Azure CLI 开发人员参考

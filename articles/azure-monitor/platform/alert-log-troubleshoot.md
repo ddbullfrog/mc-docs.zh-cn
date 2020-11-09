@@ -1,20 +1,20 @@
 ---
 title: 在 Azure Monitor 中排查日志警报问题 | Docs
 description: Azure 中日志警报规则的常见问题、错误和解决方法。
-author: lingliw
+author: Johnnytechn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 10/29/2018
-ms.date: 04/12/2019
-ms.author: v-lingwu
+ms.date: 11/06/2020
+ms.author: v-johya
 ms.subservice: alerts
-ms.openlocfilehash: aa9346f60c8b0d17d80de94a203701c70edbec3a
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.openlocfilehash: 7dd58aa253409bed0c9ed899967be2cbced6fb58
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508431"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328774"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>在 Azure Monitor 中排查日志警报问题  
 
@@ -39,7 +39,7 @@ ms.locfileid: "87508431"
 
 根据[日志警报的术语](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types)一文中所述，配置中规定的时间段指定查询的时间范围。 查询仅返回在此时间范围内创建的记录。 
 
-时间段限制为日志查询提取的数据以防止滥用，并规避日志查询中使用的任何时间命令（例如 **ago**）。 例如，如果时间段设置为 60 分钟，且在下午 1:15 运行查询，则在中午 12:15 和下午 1:15 之间创建的记录将用于日志查询。 如果日志查询使用类似于 **ago (1d)** 的时间命令，则查询仍只使用在中午 12:15 和下午 1:15 之间的创建数据，因为时间段设置为该间隔。
+时间段限制为日志查询提取的数据以防止滥用，并规避日志查询中使用的任何时间命令（例如 **ago** ）。 例如，如果时间段设置为 60 分钟，且在下午 1:15 运行查询，则在中午 12:15 和下午 1:15 之间创建的记录将用于日志查询。 如果日志查询使用类似于 **ago (1d)** 的时间命令，则查询仍只使用在中午 12:15 和下午 1:15 之间的创建数据，因为时间段设置为该间隔。
 
 请检查配置中的时间段是否与查询匹配。 对于前面所述的示例，如果日志查询使用 **ago (1d)** （如绿色标记所示），则时间段应设置为 24 小时或 1440 分钟（如红色标记所示）。 此设置可确保查询按预期方式运行。
 
@@ -53,9 +53,9 @@ ms.locfileid: "87508431"
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>指标度量警报规则不正确
 
-*指标度量日志警报*是日志警报的子类型，具有特殊的功能和受限的警报查询语法。 指标度量日志警报的规则要求查询输出是指标时序。 即，输出是包含等量大小的不同时间段以及相应聚合值的表。
+*指标度量日志警报* 是日志警报的子类型，具有特殊的功能和受限的警报查询语法。 指标度量日志警报的规则要求查询输出是指标时序。 即，输出是包含等量大小的不同时间段以及相应聚合值的表。
 
-可以选择在该表中包含其他变量以及 **AggregatedValue**。 可以使用这些变量来为表排序。
+可以选择在该表中包含其他变量以及 **AggregatedValue** 。 可以使用这些变量来为表排序。
 
 例如，假设指标度量日志警报的规则已配置为：
 
@@ -63,26 +63,26 @@ ms.locfileid: "87508431"
 - 时间段为 6 小时
 - 阈值为 50
 - 警报逻辑为三次连续违规
-- 选择 **$table** 作为**聚合依据**
+- 选择 **$table** 作为 **聚合依据**
 
-由于命令中包含 **summarize … by**，并提供了两个变量（**timestamp** 和 **$table**），系统将选择 **$table** 作为**聚合依据**。 系统会按 **$table** 字段将结果表排序，如以下屏幕截图所示。 然后查看每个表类型（例如 **availabilityResults**）的多个 **AggregatedValue**，以确定是否发生了三次或更多次的连续违规。
+由于命令中包含 **summarize … by** ，并提供了两个变量（ **timestamp** 和 **$table** ），系统将选择 **$table** 作为 **聚合依据** 。 系统会按 **$table** 字段将结果表排序，如以下屏幕截图所示。 然后查看每个表类型（例如 **availabilityResults** ）的多个 **AggregatedValue** ，以确定是否发生了三次或更多次的连续违规。
 
 ![包含多个值的指标度量查询执行](media/alert-log-troubleshoot/LogMMQuery.png)
 
-由于**聚合依据**是基于 **$table** 定义的，因此数据已按 **$table** 列排序（如红框所示）。 然后我们进行分组并查看“聚合依据”字段的类型。 
+由于 **聚合依据** 是基于 **$table** 定义的，因此数据已按 **$table** 列排序（如红框所示）。 然后我们进行分组并查看“聚合依据”字段的类型。 
 
-例如，对于 **$table**，**availabilityResults** 的值将视为一个绘图/实体（如橙色框所示）。 在此绘图/实体值中，警报服务将检查三次连续违规（如绿框所示）。 违规时会对表值 **availabilityResults** 触发警报。
+例如，对于 **$table** ， **availabilityResults** 的值将视为一个绘图/实体（如橙色框所示）。 在此绘图/实体值中，警报服务将检查三次连续违规（如绿框所示）。 违规时会对表值 **availabilityResults** 触发警报。
 
 同样，如果其他任何 **$table** 值发生三次连续违规，则会触发另一条警报通知。 警报服务自动按时间排序一个绘图/实体中的值（如橙色框所示）
 
-现在，假设指标度量日志警报的规则已修改，且查询为 `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`。 剩余的配置与前面相同，包括警报逻辑同样为三次连续违规。 在这种情况下，“聚合依据”选项默认为 **timestamp**。 在查询中只为 **summarize…by** 提供了一个值（即 **timestamp**）。 与前面的示例类似，在执行结束时，输出将如下所示。
+现在，假设指标度量日志警报的规则已修改，且查询为 `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`。 剩余的配置与前面相同，包括警报逻辑同样为三次连续违规。 在这种情况下，“聚合依据”选项默认为 **timestamp** 。 在查询中只为 **summarize…by** 提供了一个值（即 **timestamp** ）。 与前面的示例类似，在执行结束时，输出将如下所示。
 
    ![包含单个值的指标度量查询执行](media/alert-log-troubleshoot/LogMMtimestamp.png)
 
-由于**聚合依据**是基于 **timestamp** 定义的，因此数据已按 **timestamp** 列排序（如红框所示）。 然后我们按 **timestamp** 进行分组。 例如，`2018-10-17T06:00:00Z` 的值将视为一个绘图/实体（如橙色框所示）。 在此绘图/实体值中，警报服务找不到连续违规（因为每个 **timestamp** 值只包含一个条目）。 因此永远不会触发警报。 在这种情况下，用户必须：
+由于 **聚合依据** 是基于 **timestamp** 定义的，因此数据已按 **timestamp** 列排序（如红框所示）。 然后我们按 **timestamp** 进行分组。 例如，`2018-10-17T06:00:00Z` 的值将视为一个绘图/实体（如橙色框所示）。 在此绘图/实体值中，警报服务找不到连续违规（因为每个 **timestamp** 值只包含一个条目）。 因此永远不会触发警报。 在这种情况下，用户必须：
 
-- 添加一个虚拟变量或现有变量（例如 **$table**），以使用“聚合依据”字段正确执行排序。 
-- 将警报规则重新配置为使用基于**违规总数**的警报逻辑。
+- 添加一个虚拟变量或现有变量（例如 **$table** ），以使用“聚合依据”字段正确执行排序。 
+- 将警报规则重新配置为使用基于 **违规总数** 的警报逻辑。
 
 ## <a name="log-alert-fired-unnecessarily"></a>不必要地激发了日志警报
 

@@ -23,9 +23,6 @@
     - name: 运行自己的第一个查询 - Go
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
-    - name: 运行第一个查询 - JavaScript
-      displayName: 'library, node, arm-resourcegraph'
-      href: ./first-query-javascript.md
     - name: 运行自己的第一个查询 - Python
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md

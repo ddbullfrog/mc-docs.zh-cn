@@ -6,16 +6,16 @@ services: firewall
 ms.topic: how-to
 origin.date: 09/03/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 976f3ea1fac8e9395fed7639ba1da2dde7573c5e
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 59fa8758de3eb36287c53032bff880104b39241d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246713"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327278"
 ---
 <!--Verify Successfully-->
 <!--With Content about Endpoints-->

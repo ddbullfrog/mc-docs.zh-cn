@@ -4,15 +4,15 @@ description: 了解如何将 Azure 资源日志流式传输到 Azure Monitor 中
 author: Johnnytechn
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
 ms.subservice: logs
-ms.openlocfilehash: 27249cb4d0e7d2029d1330e22706fa9d9d8da00a
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: b47c74926a7a0b763ba624255c907d5eca5c5726
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457259"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327877"
 ---
 # <a name="azure-resource-logs"></a>Azure 资源日志
 Azure 资源日志是[平台日志](platform-logs-overview.md)，可以通过它深入了解已在 Azure 资源中执行的操作。 资源日志的内容因 Azure 服务和资源类型而异。 默认不会收集资源日志。 必须为每个 Azure 资源创建诊断设置，以便将其资源日志发送到 Log Analytics 工作区与 [Azure Monitor 日志](data-platform-logs.md)一起使用，发送到 Azure 事件中心以转发到 Azure 外部，或者发送到 Azure 存储进行存档。
@@ -27,7 +27,7 @@ Azure 资源日志是[平台日志](platform-logs-overview.md)，可以通过它
 - 使用日志查询执行复杂分析，并深入了解日志数据。
 - 使用带有复杂警报逻辑的日志警报。
 
-[创建诊断设置](diagnostic-settings.md)，以便将资源日志发送到 Log Analytics 工作区。 如 [Azure Monitor 日志的结构](../log-query/logs-structure.md)中所述，此数据将存储在表中。 资源日志使用的表取决于资源使用的收集类型：
+[创建诊断设置](diagnostic-settings.md)，以便将资源日志发送到 Log Analytics 工作区。 如 [Azure Monitor 日志的结构](./data-platform-logs.md)中所述，此数据将存储在表中。 资源日志使用的表取决于资源使用的收集类型：
 
 - Azure 诊断 - 所有数据将写入到 _AzureDiagnostics_ 表中。
 - 特定于资源 - 每个类别的资源的数据将写入到单独的表中。
@@ -58,7 +58,7 @@ AzureDiagnostics 表的外观如下所示：
 
 以上示例会创建三个表：
  
-- 如下所示的表 *Service1AuditLogs*：
+- 如下所示的表 *Service1AuditLogs* ：
 
     | 资源提供程序 | Category | A | B | C |
     | -- | -- | -- | -- | -- |
@@ -66,7 +66,7 @@ AzureDiagnostics 表的外观如下所示：
     | Service1 | AuditLogs | x5 | y5 | z5 |
     | ... |
 
-- 如下所示的表 *Service1ErrorLogs*：  
+- 如下所示的表 *Service1ErrorLogs* ：  
 
     | 资源提供程序 | Category | D | E | F |
     | -- | -- | -- | -- | -- | 
@@ -74,7 +74,7 @@ AzureDiagnostics 表的外观如下所示：
     | Service1 | ErrorLogs |  q2 | w2 | e2 |
     | ... |
 
-- 如下所示的表 *Service2AuditLogs*：  
+- 如下所示的表 *Service2AuditLogs* ：  
 
     | 资源提供程序 | Category | G | H | I |
     | -- | -- | -- | -- | -- |
@@ -93,7 +93,7 @@ AzureDiagnostics 表的外观如下所示：
 > 有关使用资源管理器模板设置收集模式的示例，请参阅 [Azure Monitor 中的诊断设置的资源管理器模板示例](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault)。
 
 
-可将现有的诊断设置修改为特定于资源的模式。 在这种情况下，已收集的数据将保留在 _AzureDiagnostics_ 表中，直到根据工作区的保留设置删除了这些数据。 新数据将收集到专用表中。 可以使用 [union](/azure/kusto/query/unionoperator) 运算符跨两个表查询数据。
+可将现有的诊断设置修改为特定于资源的模式。 在这种情况下，已收集的数据将保留在 _AzureDiagnostics_ 表中，直到根据工作区的保留设置删除了这些数据。 新数据将收集到专用表中。 可以使用 [union](/data-explorer/kusto/query/unionoperator) 运算符跨两个表查询数据。
 
 有关支持特定于资源模式的 Azure 服务的公告，请继续阅读 [Azure 更新](https://azure.microsoft.com/updates/)博客。
 
@@ -195,7 +195,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}
 ```
 
-
+<!--Not available in MC: resource-logs-blob-format.md-->
 ## <a name="next-steps"></a>后续步骤
 
 * [详细阅读资源日志](platform-logs-overview.md)。

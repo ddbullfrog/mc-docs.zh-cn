@@ -4,17 +4,17 @@ description: 介绍如何使用 Java 创建包含无状态服务和有状态服�
 ms.topic: conceptual
 origin.date: 11/02/2017
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
-ms.custom: devx-track-java
 ms.author: v-yeche
-ms.openlocfilehash: aeed3c0ec93b19f258b43cd0bdb09a2069c03320
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.custom: devx-track-javai
+ms.openlocfilehash: f85e159ee54521126f4c5e2592b5c2ce4b58754c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127822"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328917"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Java 中的 Reliable Services 入门
 > [!div class="op_single_selector"]

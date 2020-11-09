@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 中的 Linux 上安装 AKS 引擎
 description: 了解如何在 Azure Stack Hub 中使用 Linux 计算机托管 AKS 引擎，以便部署和管理 Kubernetes 群集。
 author: WenJason
 ms.topic: article
-origin.date: 09/16/2020
-ms.date: 10/12/2020
+origin.date: 10/1/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: dfa531471f463802bceecc1819dbbcfaba0e1ca7
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 10/1/2020
+ms.openlocfilehash: 5dc742adf6e334ebb651d468cd858e8b64716c82
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437533"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330612"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>在 Azure Stack Hub 中的 Linux 上安装 AKS 引擎
 
@@ -40,7 +40,7 @@ AKS 引擎是一种用于部署和管理 Kubernetes 群集的命令行工具。 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version 0.55.4
+        ./get-akse.sh --version v0.55.4
     ```
 
     > [!NOTE]  

@@ -5,13 +5,13 @@ author: yegu-ms
 ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 85bf3cb61be44951397c0c21b4d491f8c60d3080
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 11/03/2020
+ms.openlocfilehash: c609de1dc6e37cb997fd14d4553c6b4f9892947e
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471308"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326593"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>如何将 Redis 命令行工具与 Azure Redis 缓存配合使用
 
@@ -88,5 +88,4 @@ redis-cli.exe -h yourcachename.redis.cache.chinacloudapi.cn -p 6379 -a YourAcces
 ## <a name="next-steps"></a>后续步骤
 
 了解使用 [Redis 控制台](cache-configure.md#redis-console)发出命令的详细信息。
-
 

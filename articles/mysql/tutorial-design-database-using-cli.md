@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 12/02/2019
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e1f3f92abd8ef1c5f0bf1ffc1aea803c327d95d2
-ms.sourcegitcommit: 3cf647177c22b24f76236c57cae19482ead6a283
+ms.openlocfilehash: 3d6e3d3777d54961155666bf73125caa1eaf7448
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88029603"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328022"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MySQL
 
@@ -44,7 +44,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
-使用 [az group create](/cli/group#az-group-create) 命令创建 [Azure 资源组](/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](/cli/group#az-group-create) 命令创建 [Azure 资源组](../azure-resource-manager/management/overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
 以下示例在 `chinaeast` 位置创建名为 `myresourcegroup` 的资源组。
 

@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 origin.date: 09/21/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 5a2937501bad07427d18ff23b8484f9cbe43b526
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.date: 11/09/2020
+ms.openlocfilehash: df78dbd067c569cea69bbba44511082b4c053867
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041919"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327707"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>在 Azure 中选择适当的 PostgreSQL 服务器选项
 
@@ -82,7 +82,7 @@ Azure Database for PostgreSQL 为任何类型的节点级中断提供内置的�
 
 此外，在另一个数据中心配置高可用性只需极少量的配置或管理，或者根本无需配置或管理。
 
-- 使用 Azure VM 上的 PostgreSQL，可以完全控制操作系统和 PostgreSQL 服务器实例配置。 使用 VM，可以决定何时更新或升级操作系统和数据库软件，以及应用哪些补丁。 还可以决定何时安装任何其他软件，例如防病毒应用程序。 提供的某些自动化功能可以大大简化修补、备份和高可用性。 可以控制 VM 的大小、磁盘数目及其存储配置。 有关详细信息，请参阅 [Azure 的虚拟机和云服务大小](/virtual-machines/windows/sizes)。
+- 使用 Azure VM 上的 PostgreSQL，可以完全控制操作系统和 PostgreSQL 服务器实例配置。 使用 VM，可以决定何时更新或升级操作系统和数据库软件，以及应用哪些补丁。 还可以决定何时安装任何其他软件，例如防病毒应用程序。 提供的某些自动化功能可以大大简化修补、备份和高可用性。 可以控制 VM 的大小、磁盘数目及其存储配置。 有关详细信息，请参阅 [Azure 的虚拟机和云服务大小](../virtual-machines/sizes.md)。
 
 ## <a name="time-to-move-to-azure-postgresql-service-paas"></a>何时迁移到 Azure PostgreSQL Service (PaaS)
 
@@ -94,4 +94,3 @@ Azure Database for PostgreSQL 为任何类型的节点级中断提供内置的�
 
 - 请参阅 Azure Database for [PostgreSQL 定价](https://azure.cn/pricing/details/postgresql/)。
 - 从创建第一个服务器开始。
-

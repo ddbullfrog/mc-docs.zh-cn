@@ -86,12 +86,10 @@
           items:
             - name: 如何预配和管理
               href: how-to-provision-manage.md
-            - name: 如何诊断和故障排除
-              href: how-to-diagnose-troubleshoot.md
-        - name: 流入量和存储
-          items:
             - name: 如何选择 TSID
               href: how-to-select-tsid.md
+            - name: 如何诊断和故障排除
+              href: how-to-diagnose-troubleshoot.md
         - name: “模型”
           items:
             - name: 如何编辑模型

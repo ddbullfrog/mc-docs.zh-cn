@@ -5,18 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurecli
 origin.date: 06/30/2020
-ms.date: 07/20/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3c7fd835340a0df52d2985b4f8c86e04b94e7b44
-ms.sourcegitcommit: 31da682a32dbb41c2da3afb80d39c69b9f9c1bc6
+ms.openlocfilehash: f8e737db6cfa2a287793a139d99db1095fdb3dd4
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86414752"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327621"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建和部署逻辑应用工作流
 
@@ -26,9 +27,11 @@ ms.locfileid: "86414752"
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-[![“部署到 Azure”](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
 <!--CUSTOMIZATION: MOONCAKE-->
+
+[!INCLUDE [azure-raw-githubusercontent-azurechinacloud-environment-notice](../../includes/azure-raw-githubusercontent-azurechinacloud-environment-notice.md)]
 
 > [!NOTE]
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
@@ -49,7 +52,7 @@ ms.locfileid: "86414752"
 
 本快速入门使用[创建逻辑应用](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-create/)模板，该模板可以在 [Azure 快速入门模板库](https://github.com/Azure/azure-quickstart-templates)中找到，由于长度太长，因此无法在此处显示。 相反，可以在模板库中查看快速入门模板的[“azuredeploy.json 文件”](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)。
 
-快速入门模板会创建一个逻辑应用工作流，该工作流使用定期触发器和 HTTP [内置操作](/connectors/apis-list#connector-types)，前者设置为每小时运行一次，后者则调用返回 Azure 状态的 URL。 内置操作是 Azure 逻辑应用平台的本机操作。
+快速入门模板会创建一个逻辑应用工作流，该工作流使用定期触发器和 HTTP [内置操作](../connectors/apis-list.md#connector-types)，前者设置为每小时运行一次，后者则调用返回 Azure 状态的 URL。 内置操作是 Azure 逻辑应用平台的本机操作。
 
 此模板创建以下 Azure 资源：
 
@@ -66,7 +69,7 @@ ms.locfileid: "86414752"
 | 选项 | 说明 |
 |--------|-------------|
 | [Azure 门户](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template) | 如果你的 Azure 环境满足先决条件并且你能够熟练地使用 ARM 模板，那么这些步骤可帮助你直接登录到 Azure 并在 Azure 门户中打开快速入门模板。 有关详细信息，请参阅[使用 ARM 模板和 Azure 门户部署资源](../azure-resource-manager/templates/deploy-portal.md)。 |
-| [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | Azure 命令行接口 (Azure CLI) 是一组用于创建和管理 Azure 资源的命令。 若要运行这些命令，需要 Azure CLI 版本 2.6 或更高版本。 若要检查 CLI 版本，请键入 `az --version`。 有关详细信息，请参阅以下主题： <p><p>- [什么是 Azure CLI](https://docs.azure.cn/cli/what-is-azure-cli?view=azure-cli-latest) <br />- [Azure CLI 入门](https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest) |
+| [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | Azure 命令行接口 (Azure CLI) 是一组用于创建和管理 Azure 资源的命令。 若要运行这些命令，需要 Azure CLI 版本 2.6 或更高版本。 若要检查 CLI 版本，请键入 `az --version`。 有关详细信息，请参阅以下主题： <p><p>- [什么是 Azure CLI](https://docs.azure.cn/cli/what-is-azure-cli) <br />- [Azure CLI 入门](https://docs.azure.cn/cli/get-started-with-azure-cli) |
 | [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Azure PowerShell 提供一组使用 Azure 资源管理器模型来管理 Azure 资源的 cmdlet。 有关详细信息，请参阅以下主题： <p><p>- [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/azurerm/overview) <br />- [Azure PowerShell Az 模块简介](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) <br />- [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps) |
 | [Azure 资源管理 REST API](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Azure 提供表述性状态转移 (REST) API，这些 API 是支持 HTTP 操作（方法）的服务终结点，用于创建、检索、更新或删除对服务资源的访问权限。 有关详细信息，请参阅 [Azure REST API 入门](https://docs.microsoft.com/rest/api/azure/)。 |
 |||
@@ -77,23 +80,23 @@ ms.locfileid: "86414752"
 
 1. 选择以下图像以通过 Azure 帐户登录到 Azure 门户，并从中打开快速入门模板：
 
-    [![“部署到 Azure”](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
+    [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="部署到 Azure":::](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
 1. 在门户中的“使用模板创建逻辑应用”页面上，输入或选择这些值：
 
-   | 属性 | Value | 说明 |
-   |----------|-------|-------------|
-   | **订阅** | <*Azure-subscription-name*> | 要使用的 Azure 订阅的名称 |
-   | **资源组** | <*Azure-resource-group-name*> | 新的或现有的 Azure 资源组的名称。 本示例使用 `Check-Azure-Status-RG`。 |
-   | **区域** | <*Azure-region*> | 要使用逻辑应用的 Azure 数据中心区域。 本示例使用 `China North`。 |
-   | **逻辑应用名称** | <*logic-app-name*> | 用于逻辑应用的名称。 本示例使用 `Check-Azure-Status-LA`。 |
-   | **测试 Uri** | <*test-URI*> | 根据特定计划要调用的服务的 URI。 此示例使用 `https://status.azure.com/status/`，这是 Azure 状态页面。 |
-   | **位置** |  <*Azure-region-for-all-resources*> | 用于所有资源的 Azure 区域（如果不同于默认值）。 此示例使用默认值 `[resourceGroup().location]`，这是资源组位置。 |
-   ||||
+    | 属性 | 值 | 说明 |
+    |----------|-------|-------------|
+    | **订阅** | <*Azure-subscription-name*> | 要使用的 Azure 订阅的名称 |
+    | **资源组** | <*Azure-resource-group-name*> | 新的或现有的 Azure 资源组的名称。 本示例使用 `Check-Azure-Status-RG`。 |
+    | **区域** | <*Azure-region*> | 要使用逻辑应用的 Azure 数据中心区域。 本示例使用 `China North`。 |
+    | **逻辑应用名称** | <*logic-app-name*> | 用于逻辑应用的名称。 本示例使用 `Check-Azure-Status-LA`。 |
+    | **测试 Uri** | <*test-URI*> | 根据特定计划要调用的服务的 URI。 此示例使用 `https://status.azure.com/status/`，这是 Azure 状态页面。 |
+    | **位置** |  <*Azure-region-for-all-resources*> | 用于所有资源的 Azure 区域（如果不同于默认值）。 此示例使用默认值 `[resourceGroup().location]`，这是资源组位置。 |
+    ||||
 
-   此处是使用了此示例中的值的页面：
+    此处是使用了此示例中的值的页面：
 
-   ![提供快速入门模板的信息](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
+    :::image type="content" source="./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png" alt-text="提供快速入门模板的信息":::
 
 1. 完成操作后，选择“查看 + 创建”。
 
@@ -114,7 +117,7 @@ read
 
 有关详细信息，请参阅以下主题：
 
-* [Azure CLI：az 部署组](https://docs.microsoft.com/cli/azure/deployment/group?view=azure-cli-latest)
+* [Azure CLI：az 部署组](https://docs.azure.cn/cli/deployment/group)
 * [使用 ARM 模板和 Azure CLI 部署资源](../azure-resource-manager/templates/deploy-cli.md)
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -144,14 +147,15 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
     ```http
     PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}?api-version=2019-10-01
+    ```
 
-    | Value | Description |
+    | 值 | 说明 |
     |-------|-------------|
-    | `subscriptionId`| The GUID for the Azure subscription that you want to use |
-    | `resourceGroupName` | The name for the Azure resource group to create. This example uses `Check-Azure-Status-RG`. |
+    | `subscriptionId`| 要使用的 Azure 订阅的 GUID |
+    | `resourceGroupName` | 要创建的 Azure 资源组的名称。 本示例使用 `Check-Azure-Status-RG`。 |
     |||
 
-    For example:
+    例如：
 
     ```http
     PUT https://management.chinacloudapi.cn/subscriptions/xxxxXXXXxxxxXXXXX/resourcegroups/Check-Azure-Status-RG?api-version=2019-10-01
@@ -168,7 +172,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
     PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
     ```
 
-    | Value | 说明 |
+    | 值 | 说明 |
     |-------|-------------|
     | `subscriptionId`| 要使用的 Azure 订阅的 GUID |
     | `resourceGroupName` | 要使用的 Azure 资源组的名称。 本示例使用 `Check-Azure-Status-RG`。 |
@@ -202,12 +206,12 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
     }
     ```
 
-    | 属性 | Value | 说明 |
+    | 属性 | 值 | 说明 |
     |----------|-------|-------------|
     | `location`| <*Azure-region*> | 用于部署的 Azure 区域。 本示例使用 `China North`。 |
-    | `templateLink` : `uri` | <*quickstart-template-URL*> | 用于部署的快速入门模板的 URL 位置： <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`。 |
+    | `templateLink` : `uri` | <*quickstart-template-URL*> | 用于部署的快速入门模板的 URL 位置： <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |
     | `parametersLink` : `uri` | <*quickstart-template-parameter-file-URL*> | 用于部署的快速入门模板的参数文件的 URL 位置： <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.parameters.json` <p><p>有关资源管理器参数文件的详细信息，请参阅这些主题： <p><p>- [创建资源管理器参数文件](../azure-resource-manager/templates/parameter-files.md) <br />- [教程：使用参数文件部署 ARM 模板](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
-    | `mode` | <*deployment-mode*> | 运行增量更新或完成更新。 此示例使用 `Incremental`，这是默认值。 有关详细信息，请参阅 [Azure 资源管理部署模式](/azure-resource-manager/templates/deployment-modes)。 |
+    | `mode` | <*deployment-mode*> | 运行增量更新或完成更新。 此示例使用 `Incremental`，这是默认值。 有关详细信息，请参阅 [Azure 资源管理部署模式](../azure-resource-manager/templates/deployment-modes.md)。 |
     |||
 
     例如：
@@ -261,7 +265,7 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-有关详细信息，请参阅 [Azure CLI：az 逻辑工作流展示](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show)。
+有关详细信息，请参阅 [Azure CLI：az 逻辑工作流展示](https://docs.azure.cn/cli/ext/logic/logic/workflow#ext_logic_az_logic_workflow_show)。
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -279,7 +283,7 @@ Write-Host "Press [ENTER] to continue..."
 GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}?api-version=2016-06-01
 ```
 
-| Value | 说明 |
+| 值 | 说明 |
 |-------|-------------|
 | `subscriptionId`| 部署了快速入门模板的 Azure 订阅的 GUID。 |
 | `resourceGroupName` | 部署了快速入门模板的 Azure 资源组的名称。 本示例使用 `Check-Azure-Status-RG`。 |
@@ -319,7 +323,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-有关详细信息。请参阅 [Azure CLI：az 组删除](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete)。
+有关详细信息。请参阅 [Azure CLI：az 组删除](https://docs.azure.cn/cli/group#az_group_delete)。
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -337,7 +341,7 @@ Write-Host "Press [ENTER] to continue..."
 DELETE https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}?api-version=2019-10-01
 ```
 
-| Value | 说明 |
+| 值 | 说明 |
 |-------|-------------|
 | `subscriptionId`| 部署了快速入门模板的 Azure 订阅的 GUID。 |
 | `resourceGroupName` | 部署了快速入门模板的 Azure 资源组的名称。 本示例使用 `Check-Azure-Status-RG`。 |
@@ -358,5 +362,4 @@ GET https://management.chinacloudapi.cn/subscriptions/xxxxXXXXxxxxXXXXX/resource
 > [!div class="nextstepaction"]
 > [教程：创建和部署你的第一个 ARM 模板](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
-<!-- Update_Description: new article about quickstart create deploy azure resource manager template -->
-<!--NEW.date: 07/20/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

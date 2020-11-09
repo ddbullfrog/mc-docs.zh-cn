@@ -7,18 +7,19 @@ ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 08/19/2020
 author: rockboyfor
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 038d56827c0f5c0094b9c89abaaeac1319848ed2
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 08195a930b0dcd387d793d8f3b315af926433e49
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118068"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328629"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>快速入门：从 Azure 门户创建 Azure Cosmos 帐户、数据库、容器和项
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](create-cosmosdb-resources-portal.md)
@@ -33,7 +34,7 @@ ms.locfileid: "92118068"
 
 Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可以使用 Azure Cosmos DB 快速创建和查询键/值数据库、文档数据库和图形数据库，所有这些资源都可受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 
-本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户、创建文档数据库和容器，并将数据添加到容器。 
+本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB [SQL API](./introduction.md) 帐户、创建文档数据库和容器，并将数据添加到容器。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -58,7 +59,7 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
     |资源组|资源组名称|选择一个资源组，或者选择“新建”，然后输入新资源组的唯一名称。 |
     |帐户名|唯一的名称|输入标识此 Azure Cosmos 帐户的名称。 由于 documents.azure.cn 将追加到所提供的名称以创建 URI，因此，请使用唯一的名称。<br /><br />名称只能包含小写字母、数字和连字符 (-)。 它的长度必须介于 3 到 31 个字符之间。|
     |API|要创建的帐户的类型|选择“Core (SQL)”，以便使用 SQL 语法创建文档数据库并进行查询。 <br /><br />API 确定要创建的帐户的类型。 Azure Cosmos DB 提供五种 API：适用于文档数据的 Core (SQL) 和 MongoDB、适用于图形数据的 Gremlin、Azure 表和 Cassandra。 目前，你必须为每种 API 创建单独的帐户。 <br /><br />[详细了解 SQL API](introduction.md)。|
-    |容量模式|预配吞吐量或无服务器|选择“预配吞吐量”以在[预配吞吐量](set-throughput.md)模式下创建帐户。 选择“无服务器”以在[无服务器](serverless.md)模式下创建帐户。<br /><br />**注意**：无服务器当前仅适用于核心 (SQL) API 帐户。|
+    |容量模式|预配吞吐量或无服务器|选择“预配吞吐量”以在[预配吞吐量](set-throughput.md)模式下创建帐户。 选择“无服务器”以在[无服务器](serverless.md)模式下创建帐户。<br /><br />**注意** ：无服务器当前仅适用于核心 (SQL) API 帐户。|
     |应用免费层折扣|应用或不应用|使用 Azure Cosmos DB 免费层，你将在帐户中获得每秒的前 400 RU 免费的吞吐量和 5 GB 的免费存储。 了解[免费层](https://www.azure.cn/pricing/details/cosmos-db/)的详细信息。|
     |位置|离用户最近的区域|选择用于托管 Azure Cosmos DB 帐户的地理位置。 使用离用户最近的位置，使他们能够以最快的速度访问数据。|
     |帐户类型|生产或非生产|如果帐户将用于生产工作负荷，请选择“生产”。 如果帐户将用于非生产环境（例如开发、测试、QA 或过渡），请选择“非生产”。 这是一个 Azure 资源标记设置，用于调整门户体验，但不会影响基础 Azure Cosmos DB 帐户。 可以随时更改此值。|
@@ -76,17 +77,17 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
     > - 异地冗余
     > - 多区域写入
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Azure 门户“数据库”窗格":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Azure Cosmos DB 的“新建帐户”页面":::
 
 1. 选择“查看 + 创建”。 可以跳过“网络”和“标记”部分 。
 
 1. 检查帐户设置，然后选择“创建”。 创建帐户需要几分钟时间。 等待门户页显示“你的部署已完成”消息。 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Azure 门户“数据库”窗格":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Azure 门户“通知”窗格":::
 
 1. 选择“转到资源”，转到 Azure Cosmos DB 帐户页。 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Azure 门户“数据库”窗格":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Azure Cosmos DB 帐户页面":::
 
 <a name="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>添加数据库和容器 
@@ -97,14 +98,14 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 
     可能需要向右滚动才能看到“添加容器”窗口。
 
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Azure 门户“数据库”窗格":::
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Azure 门户 >“数据资源管理器”>“添加集合”窗格":::
 
 1. 在“添加容器”窗格中，输入新容器的设置。
 
     |设置|建议的值|说明
     |---|---|---|
     |**数据库 ID**|ToDoList|输入 ToDoList 作为新数据库的名称。 数据库名称必须包含 1 到 255 个字符，不能包含 `/, \\, #, ?` 或尾随空格。 选中“预配数据库吞吐量”选项，这样就可以在数据库中的所有容器之间共享预配给该数据库的吞吐量。 此选项还有助于节省成本。 |
-    |**吞吐量**|400|将吞吐量保留为每秒 400 个请求单位 (RU/s)。 如果想要减少延迟，以后可以增加吞吐量。<br /><br />**注意**：在无服务器帐户中创建新容器时，此设置不可用。| 
+    |**吞吐量**|400|将吞吐量保留为每秒 400 个请求单位 (RU/s)。 如果想要减少延迟，以后可以增加吞吐量。<br /><br />**注意** ：在无服务器帐户中创建新容器时，此设置不可用。| 
     |**容器 ID**|Items|输入 *Items* 作为新容器的名称。 容器 ID 与数据库名称的字符要求相同。|
     |**分区键**| /category| 本文中所述的示例使用 /category 作为分区键。|
 
@@ -118,7 +119,7 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 
 1. 在“数据资源管理器”中展开“ToDoList”数据库，然后展开“项”容器。 接下来，依次选择“项”、“新建项”。 
 
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Azure 门户“数据库”窗格":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="在 Azure 门户的数据资源管理器中创建新文档":::
 
 1. 在“文档”窗格的右侧，将以下结构添加到文档：
 
@@ -134,7 +135,7 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 
 1. 选择“保存”。
 
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Azure 门户“数据库”窗格":::
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="通过复制添加 JSON 数据，然后在 Azure 门户上的数据资源管理器中选择“保存”":::
 
 1. 再次选择“新建文档”，创建并保存具有唯一 `id` 的另一个文档，以及所需的其他任何属性和值。 文档可以采用任何结构，因为 Azure Cosmos DB 不会对数据施加任何架构。
 
@@ -149,7 +150,7 @@ Azure 订阅，或免费的 Azure Cosmos DB 试用帐户
 如果希望仅删除数据库并在将来使用 Azure Cosmos 帐户，则可以通过以下步骤删除数据库：
 
 * 转到 Azure Cosmos 帐户。
-* 打开**数据资源管理器**，右键单击要删除的数据库，然后选择“删除数据库”。
+* 打开 **数据资源管理器** ，右键单击要删除的数据库，然后选择“删除数据库”。
 * 输入数据库 ID/数据库名称以确认删除操作。 
 
 ## <a name="next-steps"></a>后续步骤

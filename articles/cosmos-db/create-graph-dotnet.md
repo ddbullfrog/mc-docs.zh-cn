@@ -7,20 +7,21 @@ ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 02/21/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 2bee28c2e0f6fc45aed62ddd51fe31716a45c02e
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 0ccfaae54ae251a8e26e4bc6ab861d63a8f2847c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246530"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327335"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>快速入门：使用 Azure Cosmos DB Gremlin API 帐户生成 .NET Framework 或 Core 应用程序
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin 控制台](create-graph-gremlin-console.md)
@@ -39,7 +40,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果尚未安装 Visual Studio 2019，可以下载并使用**免费**的 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
+如果尚未安装 Visual Studio 2019，可以下载并使用 **免费** 的 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -241,14 +242,14 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="复制终结点":::
 
-    若要运行此示例，请复制 **Gremlin 终结点**值，删除末尾的端口号，也就是说，URI 将变为 `https://<your cosmos db account name>.gremlin.cosmos.azure.cn`。 终结点值应类似于 `testgraphacct.gremlin.cosmos.azure.cn`
+    若要运行此示例，请复制 **Gremlin 终结点** 值，删除末尾的端口号，也就是说，URI 将变为 `https://<your cosmos db account name>.gremlin.cosmos.azure.cn`。 终结点值应类似于 `testgraphacct.gremlin.cosmos.azure.cn`
 
 1. 接下来，从 Azure 门户中导航到“密钥”选项卡并复制“主密钥”值。  
 
 1. 复制帐户的 URI 和主键以后，请将其保存到运行应用程序的本地计算机的新环境变量中。 若要设置环境变量，请打开命令提示符窗口，并运行以下命令。 确保替换 <Your_Azure_Cosmos_account_URI> 和 <Your_Azure_Cosmos_account_PRIMARY_KEY> 值。
 
     ```console
-    setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmos.azure.cn"
+    setx Host "<your Azure Cosmos account name>.gremlin.cosmos.azure.cn"
     setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
     ```
 

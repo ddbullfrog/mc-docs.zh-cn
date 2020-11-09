@@ -184,8 +184,6 @@
           href: disk-encryption-overview.md
         - name: Azure 安全基线
           href: security-baseline.md
-        - name: 内置安全控件
-          href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: 监视
       href: ../virtual-machines/windows/monitor.md
@@ -312,8 +310,6 @@
               href: ../virtual-machines/linux/dedicated-hosts-cli.md
             - name: PowerShell
               href: ../virtual-machines/windows/dedicated-hosts-powershell.md
-            - name: 门户
-              href: ../virtual-machines/dedicated-hosts-portal.md
     - name: 管理
       items:
         - name: 常见管理任务

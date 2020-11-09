@@ -2,19 +2,19 @@
 title: 有关使用 Azure 资源管理器模板创建 Azure 恢复服务保管库的快速入门。
 description: 本快速入门介绍如何使用 Azure 资源管理器模板（ARM 模板）创建 Azure 恢复服务保管库。
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 origin.date: 04/29/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: ec9c2e6fd483289f775321bef9acbeb1ce2a2d9f
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 7949f4eb6b493db07e62df0e159058a79de8244d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655432"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327689"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>快速入门：使用 ARM 模板创建恢复服务保管库
@@ -79,7 +79,7 @@ ms.locfileid: "89655432"
   "resources": [
     {
       "type": "Microsoft.RecoveryServices/vaults",
-      "apiVersion": "2018-01-10",
+      "apiVersion": "2020-02-02",
       "name": "[parameters('vaultName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -91,7 +91,7 @@ ms.locfileid: "89655432"
     {
       "condition": "[parameters('changeStorageType')]",
       "type": "Microsoft.RecoveryServices/vaults/backupstorageconfig",
-      "apiVersion": "2018-01-10",
+      "apiVersion": "2020-02-02",
       "name": "[concat(parameters('vaultName'), '/vaultstorageconfig')]",
       "dependsOn": [
           "[resourceId('Microsoft.RecoveryServices/vaults/', parameters('vaultName'))]"
@@ -111,7 +111,6 @@ ms.locfileid: "89655432"
 - Microsoft.RecoveryServices 保管库：创建保管库。
 - Microsoft.RecoveryServices/vaults/backupstorageconfig：配置保管库的备份冗余设置。
 
-
 该模板包含保管库备份配置的可选参数。 存储冗余设置是本地冗余存储 (LRS) 或异地冗余存储 (GRS)。 有关详细信息，请参阅[设置存储冗余](../backup/backup-create-rs-vault.md#set-storage-redundancy)。
 
 有关 Azure 恢复服务模板的详细信息，请参阅 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular)。
@@ -130,13 +129,13 @@ ms.locfileid: "89655432"
 
     :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="用于创建恢复服务保管库的模板。":::
 
-    - **订阅**：选择 Azure 订阅。
-    - **资源组**：选择现有的组，或选择“新建”以添加组。
-    - **位置**：默认为资源组的位置，选择资源组后将不可用。
-    - **保管库名称**：提供保管库的名称。
-    - **更改存储类型**：默认值为 **false**。 只有在需要更改保管库的存储类型时，才选择“true”。
-    - **保管库存储类型**：默认值为“GloballyRedundant”。 如果存储类型设置为“true”，请选择“LocallyRedundant” 。
-    - **位置**：函数 `[resourceGroup().location]` 默认为资源组的位置。 若要更改位置，请输入一个值，例如 chinanorth。
+    - **订阅** ：选择 Azure 订阅。
+    - **资源组** ：选择现有的组，或选择“新建”以添加组。
+    - **位置** ：默认为资源组的位置，选择资源组后将不可用。
+    - **保管库名称** ：提供保管库的名称。
+    - **更改存储类型** ：默认值为 **false** 。 只有在需要更改保管库的存储类型时，才选择“true”。
+    - **保管库存储类型** ：默认值为“GloballyRedundant”。 如果存储类型设置为“true”，请选择“LocallyRedundant” 。
+    - **位置** ：函数 `[resourceGroup().location]` 默认为资源组的位置。 若要更改位置，请输入一个值，例如 chinanorth。
     - 选中“我同意上述条款和条件”复选框。
 
 1. 若要开始部署保管库，请选择“购买”按钮。 成功部署后，会显示一条通知。

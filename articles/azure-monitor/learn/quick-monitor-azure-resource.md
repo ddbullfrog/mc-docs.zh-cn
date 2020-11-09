@@ -6,13 +6,13 @@ ms.topic: quickstart
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 12/15/2019
-ms.date: 08/20/2020
-ms.openlocfilehash: 8ca250bbeaf462a1f0dcc9d85e141befc2ebe8db
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: 4f43697a79e208f5eb3ea6c36ac8fb82998f1a1b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148683"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327850"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>快速入门：使用 Azure Monitor 监视 Azure 资源
 创建 Azure 资源后，[Azure Monitor](../overview.md) 即会开始从这些资源中收集数据。 本快速入门中简单演练了为资源自动收集的数据以及如何在 Azure 门户中查看特定资源的数据。 之后，你可以添加配置来收集其他数据，并可以转到 Azure Monitor 菜单中使用相同工具访问为订阅中所有资源收集的数据。
@@ -41,11 +41,11 @@ ms.locfileid: "89148683"
 1. 在资源菜单的顶部，选择“活动日志”。
 2. 当前筛选器设置为与资源相关的事件。 如果没有看见任何事件，尝试更改“时间跨度”来扩大时间范围。
 
-    ![活动日志](./media/quick-monitor-azure-resource/activity-log-resource.png)
+    ![Azure 门户中资源活动日志的屏幕截图，其中显示使用默认筛选条件生成的资源的操作列表。](./media/quick-monitor-azure-resource/activity-log-resource.png)
 
 4. 如要查看订阅中其他资源的事件，请更改筛选器中的标准或删除筛选器属性。
 
-    ![活动日志](./media/quick-monitor-azure-resource/activity-log-all.png)
+    ![Azure 门户中资源活动日志的屏幕截图，其中显示使用已修改筛选条件生成的资源的操作列表。](./media/quick-monitor-azure-resource/activity-log-all.png)
 
 
 
@@ -55,15 +55,15 @@ ms.locfileid: "89148683"
 1. 在资源菜单的“监控”部分下，选择“指标” 。 这会打开指标资源管理器，其中范围集设置为你的资源。
 2. 单击“添加指标”，向图表中添加指标。
    
-   ![指标资源管理器](./media/quick-monitor-azure-resource/metrics-explorer-01.png)
+   ![Azure 门户中指标资源管理器的屏幕截图，其中显示了资源指标。 “指标”下拉列表已打开，用于添加新指标。](./media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
 4. 从下拉列表中选择一个指标，然后选择“聚合” 。 这会定义各个时间间隔期间如何对收集的值进行采样。
 
-    ![指标资源管理器](./media/quick-monitor-azure-resource/metrics-explorer-02.png)
+    ![Azure 门户中指标资源管理器的屏幕截图，其中显示了资源指标。 “聚合”下拉列表已打开，并且已选中“平均值”。](./media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
 5. 单击“添加指标”，向图表添加其他指标和聚合组合。
 
-    ![指标资源管理器](./media/quick-monitor-azure-resource/metrics-explorer-03.png)
+    ![Azure 门户中指标资源管理器的屏幕截图，其中显示了资源指标。](./media/quick-monitor-azure-resource/metrics-explorer-03.png)
 
 
 
@@ -71,6 +71,6 @@ ms.locfileid: "89148683"
 在本快速入门中，你查看了活动日志以及由 Azure Monitor 自动收集的 Azure 资源的指标。 请继续学习下一个快速入门，了解如何将活动日志收集到 Log Analytics 工作区中，并在其中使用 [日志查询](../log-query/log-query-overview.md)对其进行分析。
 
 > [!div class="nextstepaction"]
-> [将 Azure 活动日志发送到 Log Analytics 工作区]()
+> [将 Azure 活动日志发送到 Log Analytics 工作区](/azure-monitor/learn/quick-collect-activity-log-portal)
 
 

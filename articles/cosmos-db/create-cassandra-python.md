@@ -7,20 +7,21 @@ ms.devlang: python
 ms.topic: quickstart
 origin.date: 08/13/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: d36013dee26ab2d218af0cd6d29c95071dbdfa60
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 5197d365d18cb5e03eb5a7496886b339b786af1c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246534"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327396"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>快速入门：使用 Python SDK 和 Azure Cosmos DB 构建 Cassandra 应用
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -51,7 +52,7 @@ ms.locfileid: "91246534"
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在从 GitHub 克隆 Cassandra API 应用，设置连接字符串，并运行应用。 你会看到以编程方式处理数据是多么容易。 
+现在从 GitHub 克隆 Cassandra API 应用，设置连接字符串，并运行应用。 会看到以编程方式处理数据是多么容易。 
 
 1. 打开命令提示符。 创建名为 `git-samples` 的新文件夹。 然后，关闭命令提示符。
 
@@ -65,7 +66,7 @@ ms.locfileid: "91246534"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started.git
@@ -77,21 +78,14 @@ ms.locfileid: "91246534"
 
 * 使用从 Azure 门户检索的 `contactPoint` 和 `port` 信息对 `cluster` 进行初始化。 然后，`cluster` 使用 `connect()` 方法连接到 Azure Cosmos DB Cassandra API。 授权连接是通过使用用户名、密码和默认证书或显式证书（如果你在配置文件中提供了一个）来建立的。
 
-    ```python
-    ssl_opts = {
-        'ca_certs': DEFAULT_CA_BUNDLE_PATH,
-        'ssl_version': PROTOCOL_TLSv1_2,
-    }
+  ```python
+  ssl_context = SSLContext(PROTOCOL_TLSv1_2)
+  ssl_context.verify_mode = CERT_NONE
+  auth_provider = PlainTextAuthProvider(username=cfg.config['username'], password=cfg.config['password'])
+  cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider,ssl_context=ssl_context)
+  session = cluster.connect()
+  ```
 
-    if 'certpath' in cfg.config:
-        ssl_opts['ca_certs'] = cfg.config['certpath']
-
-    auth_provider = PlainTextAuthProvider(
-        username=cfg.config['username'], password=cfg.config['password'])
-    cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts
-    )
-    session = cluster.connect()
-    ```
 * 创建新的键空间。
 
     ```python
@@ -101,14 +95,14 @@ ms.locfileid: "91246534"
 
 * 创建新表。
 
-    ```
+    ```python
     print ("\nCreating Table")
     session.execute('CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)');
     ```
 
 * 插入键/值实体。
 
-    ```Python
+    ```python
     session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [1,'Lybkov','Seattle'])
     session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [2,'Doniv','Dubai'])
     session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [3,'Keviv','Chennai'])
@@ -116,11 +110,11 @@ ms.locfileid: "91246534"
     session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [5,'Dnivog','Belgaum'])
     session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [6,'Ateegk','Narewadi'])
     session.execute("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (%s,%s,%s)", [7,'KannabbuS','Yamkanmardi'])
-    ....
+    ```
 
-* Query to get all key values.
+* 用于获取所有键值的查询。
 
-    ```Python
+    ```python
     print ("\nSelecting All")
     rows = session.execute('SELECT * FROM uprofile.user')
     PrintTable(rows)
@@ -170,7 +164,7 @@ ms.locfileid: "91246534"
 
 1. 从 [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt) 在本地下载 Baltimore CyberTrust 根证书。 使用文件扩展名“.cer”重命名该文件。
 
-   证书的序列号为 `02:00:00:b9`，SHA1 指纹为 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`。
+   证书的序列号为 `02:00:00:b9`，SHA1 指纹为 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`。
 
 2. 打开 pyquickstart.py，并将 `path\to\cert` 更改为指向新证书。
 
@@ -191,7 +185,8 @@ ms.locfileid: "91246534"
 
 2. 运行以下命令启动 Python 应用程序：
 
-    ```python pyquickstart.py
+    ```
+    python pyquickstart.py
     ```
 
 3. 通过命令行验证结果是否符合预期。

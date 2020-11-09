@@ -1,16 +1,16 @@
 ---
 title: 快速入门：你的第一个 Ruby 查询
 description: 本快速入门介绍为 Ruby 启用 Resource Graph gem 并运行第一个查询的步骤。
-origin.date: 07/12/2020
-ms.date: 08/27/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: quickstart
-ms.openlocfilehash: 346c1049f00fbdf66009df255b02a80d81c3e641
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: 6d939f8a8f9df0ec7a7047c6450846f73a5af17e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951948"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327698"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>快速入门：使用 Ruby 运行你的第一个 Resource Graph 查询
 

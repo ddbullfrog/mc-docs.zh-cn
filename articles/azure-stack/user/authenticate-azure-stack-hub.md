@@ -1,19 +1,19 @@
 ---
-title: 如何获取 Azure Stack Hub 的身份验证信息
+title: 获取 Azure Stack Hub 的身份验证信息
 description: 了解如何获取 Azure Stack Hub 的身份验证信息
 author: WenJason
 ms.topic: how-to
-origin.date: 04/20/2020
-ms.date: 08/31/2020
+origin.date: 10/05/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: d88ba238889a336c8c0b7a820f5dc1525fd58cf5
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 10/05/2020
+ms.openlocfilehash: 8fec430118cafe81ddb5611c9f4eefbfdbf87c29
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867750"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330445"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>获取 Azure Stack Hub 的身份验证信息
 
@@ -47,9 +47,9 @@ ms.locfileid: "88867750"
 
 2.  选择“所有服务”  。
 
-    > ![Azure Stack Hub 身份验证信息订阅 ID 租户 ID](./media/authenticate-azure-stack-hub/azure-stack-hub-auth-info.png)
+    > ![Azure Stack Hub 身份验证信息订阅 ID 租户 ID](./media/authenticate-azure-stack-hub/azure-stack-hub-auth-infoa.png)
 
-3.  选择 **订阅**。
+3.  选择 **订阅** 。
 
 4.  选择要使用的订阅。
 

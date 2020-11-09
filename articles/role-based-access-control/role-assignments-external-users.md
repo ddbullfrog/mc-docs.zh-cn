@@ -12,16 +12,16 @@ ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 07/21/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 1f0cd9a69564bb01abcff75196ce3fe20dcf567c
-ms.sourcegitcommit: d32699135151e98471daebe6d3f5b650f64f826e
+ms.openlocfilehash: 0e682ec378fddb5de5b6fd337bfa2735758a1157
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87160377"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326503"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>使用 Azure 门户为外部来宾用户添加或删除 Azure 角色分配
 
@@ -183,7 +183,7 @@ ms.locfileid: "87160377"
 
 ![来宾用户无法浏览目录中的用户](./media/role-assignments-external-users/directory-no-users.png)
 
-如果来宾用户在目录中需要额外的权限，则可以向来宾用户分配某个目录角色。 如果你确实希望来宾用户对目录拥有完全读取访问权限，则可以在 Azure AD 中将来宾用户添加到[目录读取者](../active-directory/users-groups-roles/directory-assign-admin-roles.md)角色。 有关详细信息，请参阅[在 Azure Active Directory 租户中向来自合作伙伴组织的用户授予权限](../active-directory/b2b/add-guest-to-role.md)。
+如果来宾用户在目录中需要额外的权限，则可以向来宾用户分配某个目录角色。 如果你确实希望来宾用户对目录拥有完全读取访问权限，则可以在 Azure AD 中将来宾用户添加到[目录读取者](../active-directory/roles/permissions-reference.md)角色。 有关详细信息，请参阅[在 Azure Active Directory 租户中向来自合作伙伴组织的用户授予权限](../active-directory/b2b/add-guest-to-role.md)。
 
 ![分配“目录读取者”角色](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,11 +193,11 @@ ms.locfileid: "87160377"
 
 ![来宾用户无法浏览安全主体来分配角色](./media/role-assignments-external-users/directory-no-browse.png)
 
-如果来宾用户知道某人在目录中的确切登录名，则他们可以授予访问权限。 如果你确实希望来宾用户对目录拥有完全读取访问权限，则可以在 Azure AD 中将来宾用户添加到[目录读取者](../active-directory/users-groups-roles/directory-assign-admin-roles.md)角色。 有关详细信息，请参阅[在 Azure Active Directory 租户中向来自合作伙伴组织的用户授予权限](../active-directory/b2b/add-guest-to-role.md)。
+如果来宾用户知道某人在目录中的确切登录名，则他们可以授予访问权限。 如果你确实希望来宾用户对目录拥有完全读取访问权限，则可以在 Azure AD 中将来宾用户添加到[目录读取者](../active-directory/roles/permissions-reference.md)角色。 有关详细信息，请参阅[在 Azure Active Directory 租户中向来自合作伙伴组织的用户授予权限](../active-directory/b2b/add-guest-to-role.md)。
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>来宾用户无法注册应用程序或创建服务主体
 
-来宾用户的目录权限受到限制。 如果来宾用户需要能够注册应用程序或创建服务主体，你可以在 Azure AD 中将来宾用户添加到[应用程序开发者](../active-directory/users-groups-roles/directory-assign-admin-roles.md)角色。 有关详细信息，请参阅[在 Azure Active Directory 租户中向来自合作伙伴组织的用户授予权限](../active-directory/b2b/add-guest-to-role.md)。
+来宾用户的目录权限受到限制。 如果来宾用户需要能够注册应用程序或创建服务主体，你可以在 Azure AD 中将来宾用户添加到[应用程序开发者](../active-directory/roles/permissions-reference.md)角色。 有关详细信息，请参阅[在 Azure Active Directory 租户中向来自合作伙伴组织的用户授予权限](../active-directory/b2b/add-guest-to-role.md)。
 
 ![来宾用户无法注册应用程序](./media/role-assignments-external-users/directory-access-denied.png)
 

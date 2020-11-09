@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   origin.date: 03/23/2020
   ms.date: 05/11/2020
-  ms.openlocfilehash: b8807375955508e16ce89e6212432e36a62cd652
-  ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+  ms.openlocfilehash: 6e2c8241860b98599989701f38b2a2920dfef3ce
+  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "82507633"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "94327725"
 landingContent:
 - title: 入门
   linkLists:
@@ -40,12 +40,6 @@ landingContent:
     links:
     - text: 通过 Node.js 使用设备孪生
       url: iot-hub-node-node-twin-getstarted.md
-    - text: 了解 IoT 指标
-      url: iot-hub-metrics.md
-    - text: 诊断日志记录
-      url: iot-hub-monitor-resource-health.md
-    - text: 针对与 IoT 的连接断开进行监视、诊断和故障排除
-      url: iot-hub-troubleshoot-connectivity.md
 - title: 缩放解决方案
   linkLists:
   - linkListType: concept
@@ -88,6 +82,18 @@ landingContent:
     links:
     - text: 使用适用于 VS Code 的 IoT Tools
       url: iot-hub-create-use-iot-toolkit.md
+- title: 对 IoT 中心进行监视和故障排除
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 监视 IoT 中心
+      url: monitor-iot-hub.md
+    - text: 监视 IoT 中心数据引用
+      url: monitor-iot-hub-reference.md
+    - text: 针对与 IoT 中心断开连接的情况进行监视、诊断和故障排除
+      url: iot-hub-troubleshoot-connectivity.md
+    - text: 使用 Azure Cosmos DB 将来自 Azure IoT 中心的设备连接事件排序
+      url: iot-hub-how-to-order-connection-state-events.md
 - title: 使用 IoT 安全证书
   linkLists:
   - linkListType: concept
@@ -100,3 +106,37 @@ landingContent:
       url: iot-hub-security-x509-get-started.md
     - text: X.509 CA 证书安全性概念
       url: iot-hub-x509ca-concept.md
+- title: 将 Azure CLI 用于 IoT 中心
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 创建 IoT 中心
+      url: iot-hub-create-using-cli.md
+    - text: 管理 IoT 设备
+      url: iot-hub-device-management-iot-extension-azure-cli-2-0.md
+    - text: 配置消息路由
+      url: tutorial-routing-config-message-routing-cli.md
+    - text: 配置文件上传
+      url: iot-hub-configure-file-upload-cli.md
+    - text: 发送遥测和监视
+      url: quickstart-send-telemetry-cli.md
+  - linkListType: reference
+    links:
+    - text: IoT 的 CLI 参考
+      url: https://docs.microsoft.com/cli/azure/azure-cli-reference-for-IoT
+- title: 将 PowerShell 用于 IoT 中心
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 创建 IoT 中心
+      url: iot-hub-create-using-powershell.md
+    - text: 使用资源管理器模板创建 IoT 中心
+      url: iot-hub-rm-template-powershell.md
+    - text: 配置消息路由
+      url: tutorial-routing-config-message-routing-powershell.md
+    - text: 配置文件上传
+      url: iot-hub-configure-file-upload-powershell.md
+  - linkListType: reference
+    links:
+    - text: 适用于 IoT 的 PowerShell 参考
+      url: https://docs.microsoft.com/powershell/module/az.iothub#iothub

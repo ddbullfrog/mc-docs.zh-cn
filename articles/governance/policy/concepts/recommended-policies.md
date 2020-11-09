@@ -2,15 +2,16 @@
 title: Azure 服务的推荐策略
 description: 介绍如何查找和应用 Azure 服务（例如 Azure 虚拟机）的推荐策略。
 origin.date: 09/02/2020
-ms.date: 09/15/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: conceptual
-ms.openlocfilehash: 5b7d95e38ff4f2acee77fd5295b02d20070ef0e8
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.customer: generated
+ms.openlocfilehash: a84d52bab5dd91f0a312d34b93c786c95682de12
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532894"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327741"
 ---
 # <a name="recommended-policies-for-azure-services"></a>Azure 服务的推荐策略
 

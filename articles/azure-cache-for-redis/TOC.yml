@@ -38,7 +38,7 @@
     - name: Java Spring
       items:
         - name: 使用 Spring Boot Initializer
-          href: /java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache?view=azure-java-stable
+          href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache'
     - name: 创建排行榜
       href: cache-web-app-cache-aside-leaderboard.md
     - name: 部署机器学习模型
@@ -53,14 +53,20 @@
       href: cache-high-availability.md
     - name: 故障转移和修补
       href: cache-failover.md
-    - name: 最佳做法
+    - name: 最佳实践
       href: cache-best-practices.md
+    - name: 安全性
+      items:
+        - name: 网络隔离选项
+          href: cache-network-isolation.md
 - name: 操作指南
   items:
     - name: 计划
       items:
         - name: 选择缓存层
           href: cache-overview.md#choosing-the-right-tier
+        - name: 设置 Redis 版本
+          href: cache-how-to-version.md
         - name: 使用群集分布缓存
           href: cache-how-to-premium-clustering.md
         - name: 使用 Redis 数据持久性保留缓存
@@ -69,6 +75,8 @@
           href: cache-how-to-multi-replicas.md
         - name: 使用虚拟网络保护缓存
           href: cache-how-to-premium-vnet.md
+        - name: 以非公开方式连接到缓存
+          href: cache-private-link.md
         - name: 设置异地复制
           href: cache-how-to-geo-replication.md
         - name: 迁移到 Azure Cache for Redis

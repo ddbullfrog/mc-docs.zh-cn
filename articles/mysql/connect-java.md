@@ -4,21 +4,21 @@ description: 了解如何将 Java 和 JDBC 与 Azure Database for MySQL 数据�
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 origin.date: 08/17/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 72fc225a861a6342d3ef2742087a752de75f3ea2
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 11/09/2020
+ms.openlocfilehash: dc219e5de221961fdfbcaa8baa3e0dfaa6c53c43
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512891"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327528"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>将 Java 和 JDBC 与 Azure Database for MySQL 配合使用
 
-本主题演示如何创建示例应用程序，使其使用 Java 和 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) 在 [Azure Database for MySQL](/mysql/) 中存储和检索信息。
+本主题演示如何创建示例应用程序，使其使用 Java 和 [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) 在 [Azure Database for MySQL](./index.yml) 中存储和检索信息。
 
 JDBC 是标准的 Java API，用于连接到传统的关系数据库。
 
@@ -26,7 +26,7 @@ JDBC 是标准的 Java API，用于连接到传统的关系数据库。
 
 - 一个 Azure 帐户。 如果没有帐户，可[获取试用帐户](https://wd.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 - [Azure CLI](/cli/azure/install-azure-cli)。
-- 一个受支持的 [Java 开发工具包](https://aka.ms/azure-jdks)，版本 8。
+- 一个受支持的 [Java 开发工具包](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)，版本 8。
 - [Apache Maven](https://maven.apache.org/) 生成工具。
 
 ## <a name="prepare-the-working-environment"></a>准备工作环境
@@ -64,7 +64,7 @@ az group create \
 首先，我们将创建一个托管 MySQL 服务器。
 
 > [!NOTE]
-> 可以参阅[使用 Azure 门户创建 Azure Database for MySQL 服务器](/mysql/quickstart-create-mysql-server-database-using-azure-portal)，详细了解如何创建 MySQL 服务器。
+> 可以参阅[使用 Azure 门户创建 Azure Database for MySQL 服务器](./quickstart-create-mysql-server-database-using-azure-portal.md)，详细了解如何创建 MySQL 服务器。
 
 运行以下脚本：
 

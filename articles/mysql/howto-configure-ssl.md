@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
 origin.date: 07/08/2020
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 9297ec334fe0bfae2d30e620cfce4a2d0bdf61d7
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.openlocfilehash: 134136a0c6664fa8696c3de85362aab4c3be5caf
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041784"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328538"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MySQL
 
@@ -25,9 +25,6 @@ Azure Database for MySQL 支持使用安全套接字层 (SSL) 将 Azure Database
 ## <a name="step-1-obtain-ssl-certificate"></a>步骤 1：获取 SSL 证书
 
 从 [https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) 下载通过 SSL 与 Azure Database for MySQL 服务器通信所需的证书，再将证书文件保存到本地驱动器（例如，本教程使用 c:\ssl）。
-
-> [!IMPORTANT] 
-> SSL 根证书设置为 2020 年 10 月 26 日 (2020/10/26) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划内证书更新](concepts-certificate-rotation.md)
 
 ## <a name="step-2-bind-ssl"></a>步骤 2：绑定 SSL
 
@@ -64,7 +61,7 @@ mysql.exe -h mydemoserver.mysql.database.chinacloudapi.cn -u Username@mydemoserv
 
 在 Azure 门户中，访问 Azure Database for MySQL 服务器，并单击“连接安全性”。 使用切换按钮来启用或禁用“强制实施 SSL 连接”设置，并单击“保存” 。 Azure 建议你始终启用“强制实施 SSL 连接”设置，以增强安全性。
 
-:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="保存 SSL 配置":::
+:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Azure 门户的屏幕截图，该门户用于在 Azure Database for MySQL 中强制进行 SSL 连接":::
 
 ### <a name="using-azure-cli"></a>使用 Azure CLI
 

@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 11/22/2019
-ms.date: 08/10/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: dde894a60392c3287fc0f57298e2916105209c58
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 8225dcc87fea2976cc1031a9c5bd9f97ccd733bc
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917193"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375604"
 ---
 # <a name="data-warehouse-units-dwus"></a>数据仓库单位 (DWU)
 
@@ -52,7 +52,7 @@ ms.locfileid: "87917193"
 服务级别目标 (SLO) 是确定 SQL 池的成本和性能级别的可伸缩性设置。 第 2 代 SQL 池的服务级别以数据仓库单位 (DWU) 计量，例如 DW2000c。
 
 > [!NOTE]
-> Azure SQL 数据仓库 Gen2 最近添加了额外的扩展功能，以支持低至 100 cDWU 的计算层。 当前在 Gen1 上需要较低计算层的现有数据仓库现可升级到当前可用区域中的 Gen2，无需额外成本。  如果你的区域尚不支持，仍可升级到支持的区域。
+> Azure Synapse Analytics Gen2 最近添加了额外的缩放功能，以支持低至 100 cDWU 的计算层。 当前在 Gen1 上需要较低计算层的现有数据仓库现可升级到当前可用区域中的 Gen2，无需额外成本。  如果你的区域尚不支持，仍可升级到支持的区域。
 
 在 T-SQL 中，SERVICE_OBJECTIVE 设置决定了 SQL 池的服务级别和性能层级。
 
@@ -142,7 +142,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-有关详细信息，请参阅[适用于 SQL 数据仓库的 PowerShell cmdlet](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/synapse-analytics/toc.json&bc=/synapse-analytics/breadcrumb/toc.json)
+有关详细信息，请参阅[适用于 Azure Synapse Analytics 的 PowerShell cmdlet](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/synapse-analytics/toc.json&bc=/synapse-analytics/breadcrumb/toc.json)
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -174,7 +174,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-有关更多 REST API 示例，请参阅[适用于 SQL 数据仓库的 REST API](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/synapse-analytics/toc.json&bc=/synapse-analytics/breadcrumb/toc.json)。
+有关更多 REST API 示例，请参阅[适用于 Azure Synapse Analytics 的 REST API](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/synapse-analytics/toc.json&bc=/synapse-analytics/breadcrumb/toc.json)。
 
 ## <a name="check-status-of-dwu-changes"></a>检查 DWU 更改的状态
 

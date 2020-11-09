@@ -1,23 +1,24 @@
 ---
-title: PowerShell 脚本：更改单主 Azure Cosmos 帐户的故障转移优先级
-description: Azure PowerShell 脚本示例 - 为 Azure Cosmos DB 单主帐户更改故障转移优先级或触发故障转移
+title: 用于更改单个写入区域的 Azure Cosmos 帐户的故障转移优先级的 PowerShell 脚本
+description: Azure PowerShell 脚本示例 - 对于单个写入区域的 Azure Cosmos 帐户，更改故障转移优先级或触发故障转移
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 03/18/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 01/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: ceb2a4850e82c062fdf9cd961a189693a1ea3332
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: d637c9020771123e26295dc21a95993ba6244fdc
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223494"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328882"
 ---
 <!--Verified successfully-->
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>使用 PowerShell 为 Azure Cosmos DB 单主帐户更改故障转移优先级或触发故障转移
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-with-single-write-region-by-using-powershell"></a>对于单个写入区域的 Azure Cosmos 帐户，使用 PowerShell 更改故障转移优先级或触发故障转移
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -63,7 +64,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 |**Azure Cosmos DB**| |
 | [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | 列出 Cosmos DB 帐户或获取指定的 Cosmos DB 帐户。 |
@@ -76,7 +77,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
-可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-
-<!-- Update_Description: new article about failover priority update -->
-<!--NEW.date: 08/17/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

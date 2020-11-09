@@ -4,16 +4,16 @@ description: 升级运行独立 Service Fabric 群集的 Azure Service Fabric �
 ms.topic: conceptual
 origin.date: 11/09/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6896efe9df0238949d21b1d2c21c2485e356cbed
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 9417a95bd7fc94739b4b5f19629e1b9f57b830c5
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655193"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328528"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>升级群集上运行的 Service Fabric 版本 
 
@@ -29,7 +29,7 @@ ms.locfileid: "89655193"
 可以使用两个不同的工作流将群集升级至最新版本或受支持的 Service Fabric 版本。 其中一个工作流适用于已建立网络连接，可自动下载最新版本的群集。 另一个工作流适用于未建立网络连接，无法下载最新 Service Fabric 版本的群集。
 
 ## <a name="enable-auto-upgrade-of-the-service-fabric-version-of-your-cluster"></a>支持自动升级群集的 Service Fabric 版本
-要将群集设置为在 Azure 发布新版本时下载 Service Fabric 的更新，可将 `fabricClusterAutoupgradeEnabled` 群集配置设置为 true**。 若要手动选择希望群集一直使用的某个受支持的 Service Fabric 版本，可将 `fabricClusterAutoupgradeEnabled` 群集配置设置为 false。
+要将群集设置为在 Azure 发布新版本时下载 Service Fabric 的更新，可将 `fabricClusterAutoupgradeEnabled` 群集配置设置为 true。 若要手动选择希望群集一直使用的某个受支持的 Service Fabric 版本，可将 `fabricClusterAutoupgradeEnabled` 群集配置设置为 false。
 
 <a name="upgrade-the-cluster-configuration"></a>
 ## <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>升级已建立网络连接，可下载最新代码和配置的群集
@@ -89,7 +89,7 @@ ms.locfileid: "89655193"
 
     解决造成回滚的问题后，请遵循前面所述的相同步骤再次启动升级。
 
-## <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>升级*未建立网络连接*，无法下载最新代码和配置的群集
+## <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>升级 *未建立网络连接* ，无法下载最新代码和配置的群集
 如果群集节点未与[下载中心](https://download.microsoft.com)建立 Internet 连接，请使用以下步骤将群集升级到支持的版本。
 
 > [!NOTE]
@@ -102,7 +102,7 @@ ms.locfileid: "89655193"
 
 对于手动步骤，请根据以下说明操作。
 
-在启动配置升级之前，请修改群集配置，将以下属性设置为 *false*。
+在启动配置升级之前，请修改群集配置，将以下属性设置为 *false* 。
 
 ```json
 "fabricClusterAutoupgradeEnabled": false,
@@ -116,7 +116,7 @@ ms.locfileid: "89655193"
 
 ### <a name="cluster-upgrade-workflow"></a>群集升级工作流
 
-1. 从群集中的一个节点运行 [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) 并记下 *TargetCodeVersion*。
+1. 从群集中的一个节点运行 [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) 并记下 *TargetCodeVersion* 。
 
 2. 从连接到 Internet 的计算机运行以下命令，以列出与当前版本兼容的所有升级版本，并从关联的下载链接下载相应的程序包：
 

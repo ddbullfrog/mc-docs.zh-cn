@@ -1,25 +1,26 @@
 ---
 title: Spark 上的 Azure Cosmos DB Cassandra API 表聚合操作
 description: 本文介绍在 Spark 上对 Azure Cosmos DB Cassandra API 表进行的基本聚合操作
-author: rockboyfor
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 09/24/2018
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0947579e1b2df04d90e29f2dc47b32b18efc5a2f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 1d4f119d7b3293161088049f48c35cc19355d7d7
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222783"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328407"
 ---
 <!--Verify sucessfully-->
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Spark 上的 Azure Cosmos DB Cassandra API 表聚合操作 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 本文介绍了在 Spark 上对 Azure Cosmos DB Cassandra API 表进行的基本聚合操作。 
 

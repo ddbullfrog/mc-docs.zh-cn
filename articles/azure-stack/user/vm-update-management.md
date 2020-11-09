@@ -3,17 +3,17 @@ title: Azure Stack Hub 中的 VM 更新和管理自动化
 description: 在 Azure 自动化中使用用于 VM 的 Azure Monitor、更新管理、更改跟踪和库存等解决方案来管理 Azure Stack Hub 中部署的 Windows 和 Linux VM。
 author: WenJason
 ms.topic: article
-origin.date: 04/27/2020
-ms.date: 10/12/2020
+origin.date: 10/08/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: rtiberiu
-ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: e79625e6002a3b2c219747a44ccb4cdf723cf562
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.lastreviewed: 10/08/2020
+ms.openlocfilehash: bfb1b216e992b649d2eba46ed39e8ac9f12ee4ed
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437626"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330469"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack Hub 中的 VM 更新和管理自动化
 使用以下 Azure 自动化解决方案功能来管理使用 Azure Stack Hub 部署的 Windows 和 Linux 虚拟机 (VM)：
@@ -80,7 +80,7 @@ ms.locfileid: "91437626"
 
 2. 在 Azure Stack Hub 用户门户中，转到要为其启用这些解决方案的 VM 的“扩展”边栏选项卡，单击“+ 添加”，选择“Azure 更新和配置管理”扩展，然后单击“创建”  ：
 
-   [![“Azure 更新和配置管理”对话框提供了解释信息、用于添加该扩展的“创建”按钮（已突出显示），以及指向详细信息的链接。](media//vm-update-management/3-sm.PNG "VM 扩展边栏选项卡")](media//vm-update-management/3-lg.PNG)
+    ![“Azure 更新和配置管理”对话框提供了解释信息、用于添加该扩展的“创建”按钮（已突出显示），以及指向详细信息的链接。](media//vm-update-management/3-sm.PNG "VM 扩展边栏选项卡")
 
 3. 提供之前创建的工作区 ID 和主密钥，将代理链接到 LogAnalytics 工作区。 然后单击“确定”部署扩展。
 

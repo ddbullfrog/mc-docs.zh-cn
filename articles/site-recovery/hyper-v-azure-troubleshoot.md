@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 04/14/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7c160d6bd78b2ea040d9fc2ded31c9de52bf33a5
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: ca3f71b4170758fffbff9cdd411e1c3aa06bcd51
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128115"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327600"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>排查 Hyper-V 到 Azure 的复制和故障转移的问题
 
@@ -57,7 +57,7 @@ ms.locfileid: "92128115"
         - 在 Hyper-V 主机上，检查虚拟机管理服务、Microsoft Azure 恢复服务代理和 WMI 提供程序主机服务是否正在运行。
         - 在 VMM 服务器上，确保 System Center Virtual Machine Manager 服务正在运行。
 4. 检查 Hyper-V 服务器与 Azure 之间的连接。 若要检查连接，请在 Hyper-V 主机上打开任务管理器。 在“性能”选项卡上，单击“打开资源监视器”。   在“网络”选项卡上的“网络活动的进程”中，检查 cbengine.exe 是否正在主动发送大量 (Mb) 数据。  
-5. 检查 Hyper-V 主机是否能够连接到 Azure 存储 Blob URL。 若要检查主机是否可以连接，请选择并检查 **cbengine.exe**。 查看“TCP 连接”，以验证主机到 Azure 存储 Blob 的连接。 
+5. 检查 Hyper-V 主机是否能够连接到 Azure 存储 Blob URL。 若要检查主机是否可以连接，请选择并检查 **cbengine.exe** 。 查看“TCP 连接”，以验证主机到 Azure 存储 Blob 的连接。 
 6. 按如下所述检查性能问题。
 
 ### <a name="performance-issues"></a>性能问题
@@ -90,7 +90,7 @@ ms.locfileid: "92128115"
 
 ### <a name="vss-failing-inside-the-vm"></a>VSS 在 VM 中失败
 
-1. 检查是否已安装并运行最新版本的 Integration Services。  在 Hyper-V 主机上权限提升的 PowerShell 提示符下运行以下命令，检查是否有可用的更新：**get-vm  | select Name, State, IntegrationServicesState**。
+1. 检查是否已安装并运行最新版本的 Integration Services。  在 Hyper-V 主机上权限提升的 PowerShell 提示符下运行以下命令，检查是否有可用的更新： **get-vm  | select Name, State, IntegrationServicesState** 。
 2. 检查 VSS 服务是否正在运行且正常：
     - 若要检查服务，请登录到来宾 VM。 然后打开管理员命令提示符，运行以下命令检查所有 VSS 编写器是否正常。
         - **Vssadmin list writers**
@@ -105,7 +105,7 @@ ms.locfileid: "92128115"
     - 最后一招是尝试重新启动 VM。 这可能解决服务处于无响应状态的问题。
 3. 检查 VM 中是否不包含任何动态磁盘。 应用一致的快照不支持动态磁盘。 可在磁盘管理 (diskmgmt.msc) 中进行此项检查。
 
-    :::image type="content" source="media/hyper-v-azure-troubleshoot/dynamic-disk.png" alt-text="复制运行状况":::
+    :::image type="content" source="media/hyper-v-azure-troubleshoot/dynamic-disk.png" alt-text="动态磁盘":::
 
 4. 检查是否未将 iSCSI 磁盘附加到 VM。 不支持此操作。
 5. 检查是否已启用备份服务。 请在“Hyper-V 设置” > “Integration Services”中验证它是否已启用。
@@ -147,7 +147,7 @@ ms.locfileid: "92128115"
 1. 在事件查看器中显示分析和调试日志。 若要使日志可用，请在事件查看器中，单击“视图” > “显示分析和调试日志”。  分析日志显示在“Hyper-V-VMMS”下。
 2. 在“操作”窗格中，单击“启用日志”。 
 
-    :::image type="content" source="media/hyper-v-azure-troubleshoot/enable-log.png" alt-text="复制运行状况":::
+    :::image type="content" source="media/hyper-v-azure-troubleshoot/enable-log.png" alt-text="启用日志":::
 
 3. 启用后，日志将作为“事件跟踪会话”显示在“性能监视器”中的“数据收集器集”下。   
 4. 若要查看收集到的信息，请禁用日志，从而停止跟踪会话。 然后保存日志，并再次在事件查看器中打开日志，或使用其他工具根据需要转换日志。
@@ -156,10 +156,10 @@ ms.locfileid: "92128115"
 
 **事件日志** | **详细信息** |
 --- | ---
-**应用程序和服务日志/Microsoft/VirtualMachineManager/服务器/管理**（VMM 服务器） | 用于排查 VMM 问题的日志。
-**Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication**（Hyper-V 主机） | 用于排查 Microsoft Azure 恢复服务代理问题的日志。 
-**Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational**（Hyper-V 主机）| 用于排查 Azure Site Recovery 服务问题的日志。
-**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin**（Hyper-V 主机） | 用于排查 Hyper-V VM 管理问题的日志。
+**应用程序和服务日志/Microsoft/VirtualMachineManager/服务器/管理** （VMM 服务器） | 用于排查 VMM 问题的日志。
+**Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** （Hyper-V 主机） | 用于排查 Microsoft Azure 恢复服务代理问题的日志。 
+**Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** （Hyper-V 主机）| 用于排查 Azure Site Recovery 服务问题的日志。
+**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** （Hyper-V 主机） | 用于排查 Hyper-V VM 管理问题的日志。
 
 ### <a name="log-collection-for-advanced-troubleshooting"></a>用于高级故障排除的日志集合
 

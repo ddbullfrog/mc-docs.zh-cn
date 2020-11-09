@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 3/18/2019
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 33d5641f5aecedb66bd94cd73081c26b2e386a3e
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 6f9429831f4056e9256c7f38ac4dbd722d89a682
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395318"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328878"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>快速入门：使用简单的 Azure CLI 命令 az mysql up 创建 Azure Database for MySQL（预览）
 
@@ -32,7 +32,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
-你将需要使用 [az login](/cli/authenticate-azure-cli?view=interactive-log-in) 命令登录到你的帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
+你将需要使用 [az login](/cli/authenticate-azure-cli) 命令登录到你的帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
 
 ```azurecli
 az cloud set --name AzureChinaCloud
@@ -68,7 +68,7 @@ resource-group | 系统生成的 | 新的 Azure 资源组。
 sku-name | GP_Gen5_2 | SKU 的名称。 遵循约定“{定价层}\_{计算代系}\_{vCores}”的简写形式。 默认为带 2 个 vCore 的常规用途 Gen5 服务器。 有关各层的详细信息，请参阅[定价页](https://azure.cn/pricing/details/mysql/)。
 backup-retention | 7 | 备份保留时间。 单位为天。
 geo-redundant-backup | 已禁用 | 是否应为此服务器启用异地冗余备份。
-ssl-enforcement | 已启用 | 是否应该为此服务器启用 SSL。
+ssl-enforcement | Enabled | 是否应该为此服务器启用 SSL。
 storage-size | 5120 | 服务器的存储容量（以 MB 为单位）。
 版本 | 5.7 | MySQL 主版本。
 admin-user | 系统生成的 | 管理员的登录用户名。

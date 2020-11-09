@@ -7,26 +7,26 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 origin.date: 01/30/2020
-ms.date: 02/17/2020
+ms.date: 11/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: 5e6b63ce17c3ca94af2f840bcc5304cc4999986e
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: f969a254fb26f3a38754594ebf36d550d0490884
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186896"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328487"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx 内部错误
 
-本文介绍 **500xxx 内部错误**的原因和解决方案。
+本文介绍 **500xxx 内部错误** 的原因和解决方案。
 
 ## <a name="symptoms"></a>症状
 
 向 IoT 中心发出的请求失败并出现错误，该错误以 500 和/或某种类型的“服务器错误”开头。 一些可能的原因如下：
 
-* **500001 ServerError**：IoT 中心遇到服务器端问题。
+* **500001 ServerError** ：IoT 中心遇到服务器端问题。
 
-* **500008 GenericTimeout**：IoT 中心在超时之前无法完成连接请求。
+* **500008 GenericTimeout** ：IoT 中心在超时之前无法完成连接请求。
 
 * **ServiceUnavailable (无错误代码)** ：IoT 中心遇到了内部错误。
 
@@ -38,4 +38,4 @@ ms.locfileid: "84186896"
 
 ## <a name="solution"></a>解决方案
 
-若要缓解 500xxx 错误，请从设备发出重试命令。 若要[自动管理重试](./iot-hub-reliability-features-in-sdks.md#connection-and-retry)，请确保使用最新版本的 [Azure IoT SDK](./iot-hub-devguide-sdks.md)。 有关暂时性故障处理和重试的最佳做法，请参阅[暂时性故障处理](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults)。  如果问题仍然出现，请检查[资源运行状况](./iot-hub-monitor-resource-health.md#use-azure-resource-health)和 [Azure 状态](https://status.azure.com/)，以确定 IoT 中心是否存在已知的问题。 也可使用[手动故障转移功能](./tutorial-manual-failover.md)。 如果不存在已知的问题，但问题仍然出现，请[联系支持人员](https://azure.microsoft.com/support/options/)以做进一步调查。
+若要缓解 500xxx 错误，请从设备发出重试命令。 若要[自动管理重试](./iot-hub-reliability-features-in-sdks.md#connection-and-retry)，请确保使用最新版本的 [Azure IoT SDK](./iot-hub-devguide-sdks.md)。 有关暂时性故障处理和重试的最佳做法，请参阅[暂时性故障处理](/azure/architecture/best-practices/transient-faults)。  如果问题仍然出现，请检查[资源运行状况](./iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health)和 [Azure 状态](https://status.azure.com/)，以确定 IoT 中心是否存在已知的问题。 也可使用[手动故障转移功能](./tutorial-manual-failover.md)。 如果不存在已知的问题，但问题仍然出现，请[联系支持人员](https://azure.microsoft.com/support/options/)以做进一步调查。

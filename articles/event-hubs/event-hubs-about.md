@@ -5,12 +5,12 @@ ms.topic: overview
 origin.date: 06/23/2020
 ms.date: 09/14/2020
 ms.author: v-tawe
-ms.openlocfilehash: e22645df3b9f910577a1cf6caae73706df95fc62
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 4308d3d9704665a53fc75a93e2b45a475927841e
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063290"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375708"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure 事件中心 — 大数据流式处理平台和事件引入服务
 Azure 事件中心是大数据流式处理平台和事件引入服务。 它可以每秒接收和处理数百万个事件。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到事件中心的数据。
@@ -61,22 +61,22 @@ Azure 事件中心还能与 [Azure Functions](../azure-functions/index.yml) 集�
 ## <a name="key-architecture-components"></a>重要的体系结构组件
 事件中心包含以下[关键组件](event-hubs-features.md)：
 
-- **事件生成者**：向事件中心发送数据的所有实体。 事件发布者可以使用 HTTPS、AMQP 1.0 或 Apache Kafka（1.0 和更高版本）发布事件。
-- **分区**：每个使用者只读取消息流的特定子集或分区。
-- **使用者组**：整个事件中心的视图（状态、位置或偏移量）。 通过使用者组来使用应用程序时，每个应用程序都有事件流的单独视图。 使用者根据自身的步调和情况独立读取流。
-- **吞吐量单位**：预先购买的容量单位，控制事件中心的吞吐量容量。
-- **事件接收者**：从事件中心读取事件数据的所有实体。 所有事件中心使用者通过 AMQP 1.0 会话进行连接。 事件中心服务在事件变得可用时通过会话来提供事件。 所有 Kafka 使用者都通过 Kafka 协议 1.0 及更高版本进行连接。
+- **事件生成者** ：向事件中心发送数据的所有实体。 事件发布者可以使用 HTTPS、AMQP 1.0 或 Apache Kafka（1.0 和更高版本）发布事件。
+- **分区** ：每个使用者只读取消息流的特定子集或分区。
+- **使用者组** ：整个事件中心的视图（状态、位置或偏移量）。 通过使用者组来使用应用程序时，每个应用程序都有事件流的单独视图。 使用者根据自身的步调和情况独立读取流。
+- **吞吐量单位** ：预先购买的容量单位，控制事件中心的吞吐量容量。
+- **事件接收者** ：从事件中心读取事件数据的所有实体。 所有事件中心使用者通过 AMQP 1.0 会话进行连接。 事件中心服务在事件变得可用时通过会话来提供事件。 所有 Kafka 使用者都通过 Kafka 协议 1.0 及更高版本进行连接。
 
 下图显示了事件中心流处理体系结构：
 
 ![事件中心](./media/event-hubs-about/event_hubs_architecture.png)
 
-<!-- ## Event Hubs on Azure Stack Hub
-Event Hubs on Azure Stack Hub allows you to realize hybrid cloud scenarios. Streaming and event-based solutions are supported, for both on-premises and Azure cloud processing. Whether your scenario is hybrid (connected), or disconnected, your solution can support processing of events/streams at large scale. Your scenario is only bound by the Event Hubs cluster size, which you can provision according to your needs. 
+## <a name="event-hubs-on-azure-stack-hub"></a>Azure Stack Hub 上的事件中心
+使用 Azure Stack Hub 上的事件中心可以实现混合云方案。 支持使用基于流式处理和事件的解决方案进行本地处理和 Azure 云处理。 无论方案是混合（联网）还是离线的，解决方案都支持大规模的事件/流处理。 方案仅受事件中心群集大小的约束，但你可以根据需要预配群集大小。 
 
-The Event Hubs editions (on Azure Stack Hub and on Azure) offer a high degree of feature parity. This parity means SDKs, samples, PowerShell, CLI, and portals offer a similar experience, with few differences. 
+（Azure Stack Hub 和 Azure 上的）事件中心版本提供高度的功能奇偶一致性。 这种奇偶一致性意味着 SDK、示例、PowerShell、CLI 和门户提供类似的体验（差异很小）。 
 
-Event Hubs on Stack is free during public preview. For more information, see [Event Hubs on Azure Stack Hub overview](https://docs.microsoft.com/azure-stack/user/event-hubs-overview). -->
+Stack 上的事件中心在公共预览期免费。 有关详细信息，请参阅 [Azure Stack Hub 上的事件中心概述](https://docs.azure.cn/azure-stack/user/event-hubs-overview)。
 
 
 ## <a name="next-steps"></a>后续步骤

@@ -2,24 +2,25 @@
 title: 使用 gocql 客户端构建带有 Azure Cosmos DB Cassandra API 的 Go 应用
 description: 本快速入门展示了如何使用 Go 客户端与 Azure Cosmos DB Cassandra API 进行交互
 ms.service: cosmos-db
-author: rockboyfor
 ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 origin.date: 07/14/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3cea2cc0e535ef95270171f5a93295b8713e5be7
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 737537e283137de36e796e26558da2800edebfac
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223600"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327652"
 ---
 <!--Verify Successfully-->
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>快速入门：使用 `gocql` 客户端构建 Go 应用来管理 Azure Cosmos DB Cassandra API 数据
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -92,7 +93,7 @@ func GetSession(cosmosCassandraContactPoint, cosmosCassandraPort, cosmosCassandr
 }
 ```
 
-会将 Azure Cosmos DB Cassandra 主机传递给 [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) 函数，以获取 [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) 结构，然后进行配置，使其使用用户名、密码、端口以及合适的 TLS 版本（[HTTPS/SSL/TLS 加密安全要求](/cosmos-db/database-security#how-does-azure-cosmos-db-secure-my-database)）
+会将 Azure Cosmos DB Cassandra 主机传递给 [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) 函数，以获取 [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) 结构，然后进行配置，使其使用用户名、密码、端口以及合适的 TLS 版本（[HTTPS/SSL/TLS 加密安全要求](./database-security.md#how-does-azure-cosmos-db-secure-my-database)）
 
 然后从 `main` 函数 (`main.go`) 调用 `GetSession` 函数。
 
@@ -236,20 +237,20 @@ func mapToUser(m map[string]interface{}) model.User {
 
     :::image type="content" source="./media/create-cassandra-go/copy-username-connection-string-azure-portal.png" alt-text="从 Azure 门户中的连接字符串页面查看和复制详细信息":::
 
-复制以下属性（`CONTACT POINT`、`PORT`、`USERNAME` 和 `PRIMARY PASSWORD`）的值，并将它们设置为相应的环境变量
+    复制以下属性（`CONTACT POINT`、`PORT`、`USERNAME` 和 `PRIMARY PASSWORD`）的值，并将它们设置为相应的环境变量
 
-```shell
-set COSMOSDB_CASSANDRA_CONTACT_POINT=<value for "CONTACT POINT">
-set COSMOSDB_CASSANDRA_PORT=<value for "PORT">
-set COSMOSDB_CASSANDRA_USER=<value for "USERNAME">
-set COSMOSDB_CASSANDRA_PASSWORD=<value for "PRIMARY PASSWORD">
-```
+    ```shell
+    set COSMOSDB_CASSANDRA_CONTACT_POINT=<value for "CONTACT POINT">
+    set COSMOSDB_CASSANDRA_PORT=<value for "PORT">
+    set COSMOSDB_CASSANDRA_USER=<value for "USERNAME">
+    set COSMOSDB_CASSANDRA_PASSWORD=<value for "PRIMARY PASSWORD">
+    ```
 
-在“终端”窗口中，切换到正确的文件夹。 例如：
+    在“终端”窗口中，切换到正确的文件夹。 例如：
 
-```shell
-cd "C:\git-samples\azure-cosmosdb-cassandra-go-getting-started"
-```
+    ```shell
+    cd "C:\git-samples\azure-cosmosdb-cassandra-go-getting-started"
+    ```
 
 2. 在终端中，运行以下命令以启动应用程序。
 
@@ -278,5 +279,4 @@ cd "C:\git-samples\azure-cosmosdb-cassandra-go-getting-started"
 > [!div class="nextstepaction"]
 > [将 Cassandra 数据导入 Azure Cosmos DB](cassandra-import-data.md)
 
-<!-- Update_Description: new article about create cassandra go -->
-<!--NEW.date: 08/10/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

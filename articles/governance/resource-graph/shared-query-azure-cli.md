@@ -1,16 +1,16 @@
 ---
 title: 快速入门：使用 Azure CLI 创建共享查询
 description: 本快速入门将按照步骤为 Azure CLI 启用 Resource Graph 扩展，并创建共享查询。
-origin.date: 06/29/2020
-ms.date: 08/27/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: quickstart
-ms.openlocfilehash: 9b89dd27e213682d6310621cffa5fe1002599463
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 5b5c70ba3fde33b1ab8c8169dfcd3a92030314bd
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678388"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328499"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>快速入门：使用 Azure CLI 创建 Resource Graph 共享查询
 
@@ -26,9 +26,9 @@ ms.locfileid: "90678388"
 
 ## <a name="add-the-resource-graph-extension"></a>添加 Resource Graph 扩展
 
-若要使 Azure CLI 能够用于 Azure Resource Graph，则必须添加该扩展。 此扩展适用于可以使用 Azure CLI 的任何位置，包括 [Windows 10 上的 bash](/windows/wsl/install-win10)、[Cloud Shell](https://shell.azure.com)（独立的或位于门户内的）、[Azure CLI Docker 映像](https://hub.docker.com/r/microsoft/azure-cli/)，也适用于在本地安装了 Azure CLI 的任何位置。
+若要使 Azure CLI 能够用于 Azure Resource Graph，则必须添加该扩展。 此扩展适用于可以使用 Azure CLI 的任何位置，包括 [Windows 10 上的 bash](https://docs.microsoft.com/windows/wsl/install-win10)、[Cloud Shell](https://shell.azure.com)（独立的或位于门户内的）、[Azure CLI Docker 映像](https://hub.docker.com/_/microsoft-azure-cli)，也适用于在本地安装了 Azure CLI 的任何位置。
 
-1. 请确保安装最新的 Azure CLI（至少为 2.8.0）。 若尚未安装，请遵循[这些说明](/cli/install-azure-cli-windows?view=azure-cli-latest)。
+1. 请确保安装最新的 Azure CLI（至少为 2.8.0）。 若尚未安装，请遵循[这些说明](/cli/install-azure-cli-windows)。
 
 1. 在所选的 Azure CLI 环境中，使用 [az extension add](https://docs.microsoft.com/cli/azure/extension#az-extension-add)，通过以下命令导入 Resource Graph 扩展：
 
@@ -86,7 +86,7 @@ ms.locfileid: "90678388"
    ```
 
 1. 使用 [az graph query](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query) 命令中的 `{{shared-query-uri}}` 语法在 Azure CLI 中运行共享查询。
-   首先，从上述 `show` 命令的结果中复制 `id` 字段。 将示例中 `shared-query-uri` 文本替换为 `id` 字段中的值，但保留周围的 `{{` 和 `}}` 字符。
+   首先，从前面的 `show` 命令结果中复制 `id` 字段。 将示例中 `shared-query-uri` 文本替换为 `id` 字段中的值，但保留周围的 `{{` 和 `}}` 字符。
 
    ```azurecli
    # Run a Azure Resource Graph shared query

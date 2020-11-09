@@ -3,17 +3,17 @@ title: 使用 ExpressRoute 将 Azure Stack Hub 连接到 Azure
 description: 了解如何使用 ExpressRoute 将 Azure Stack Hub 中的虚拟网络连接到 Azure 中的虚拟网络。
 author: WenJason
 ms.topic: conceptual
-origin.date: 07/27/2020
-ms.date: 08/31/2020
+origin.date: 10/20/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 3b0f8c67867f74ea86cbb87415f00c9a1e93e3fe
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: d955c27958a8de7d56145d90420f86f22713b024
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867751"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330694"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack Hub 连接到 Azure
 
@@ -105,7 +105,7 @@ ms.locfileid: "88867751"
 
     * 在“资源组”下，选择“新建”以创建新资源组；如果已有一个资源组，请选择“使用现有项”。  
     * 确认默认“位置”。
-    * 单击**创建**。
+    * 单击 **创建** 。
     * （可选）单击“固定到仪表板”。
 
 #### <a name="create-the-gateway-subnet"></a>创建网关子网
@@ -113,8 +113,8 @@ ms.locfileid: "88867751"
 1. 在“虚拟网络”下，选择“Tenant1VNet1”。 
 1. 在“设置”下选择“子网”。 
 1. 选择“+ 网关子网”，将网关子网添加到虚拟网络。
-1. 默认情况下，子网的名称设置为 **GatewaySubnet**。 网关子网很特殊，必须使用此名称才能正常运行。
-1. 确认“地址范围”是否为 **10.1.0.0/24**。
+1. 默认情况下，子网的名称设置为 **GatewaySubnet** 。 网关子网很特殊，必须使用此名称才能正常运行。
+1. 确认“地址范围”是否为 **10.1.0.0/24** 。
 1. 单击“确定”  创建网关子网。
 
 #### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
@@ -122,13 +122,13 @@ ms.locfileid: "88867751"
 1. 在 Azure Stack Hub 用户门户中，单击“+ 创建资源”。
 1. 在“Azure 市场”下，选择“网络”。 
 1. 从网络资源列表中选择“虚拟网关”。
-1. 在“名称”字段中，输入 **GW1**。
+1. 在“名称”字段中，输入 **GW1** 。
 1. 选择“虚拟网络”。
 1. 从下拉列表中选择“Tenant1VNet1”。
 1. 依次选择“公共 IP 地址”、“选择公共 IP 地址”，然后单击“新建”。  
-1. 在“名称”字段中键入 **GW1-PiP**，然后单击“确定”。 
+1. 在“名称”字段中键入 **GW1-PiP** ，然后单击“确定”。 
 1. 默认情况下，应已选择“基于路由”作为“VPN 类型”。  保留该设置。
-1. 验证“订阅”和“位置”是否正确。  单击**创建**。
+1. 验证“订阅”和“位置”是否正确。  单击 **创建** 。
 
 #### <a name="create-the-local-network-gateway"></a>创建本地网关
 
@@ -137,7 +137,7 @@ ms.locfileid: "88867751"
 1. 登录到 Azure Stack Hub 用户门户，选择“+ 创建资源”。
 1. 在“Azure 市场”下，选择“网络”。 
 1. 从资源列表中选择“本地网关”。
-1. 在“名称”字段中，键入 **ER-Router-GW**。
+1. 在“名称”字段中，键入 **ER-Router-GW** 。
 1. 对于“IP 地址”字段，请参阅上图。 对于租户 1，ExpressRoute 路由器的 LAN 子接口 IP 地址是 10.60.3.255。 根据自己的环境，输入路由器对应接口的 IP 地址。
 1. 在“地址空间”字段中，输入 Azure 中要连接到的 VNet 的地址空间。 租户 1 的子网如下所示：
 
@@ -158,16 +158,16 @@ ms.locfileid: "88867751"
 1. 选择“订阅”、“资源组”和“位置”  。 单击 **“确定”** 。
 1. 在“设置”下，依次选择“虚拟网络网关”、“GW1”。  
 1. 依次选择“本地网络网关”、“ER Router GW”。 
-1. 在“连接名称”字段中，输入 **ConnectToAzure**。
+1. 在“连接名称”字段中，输入 **ConnectToAzure** 。
 1. 在“共享密钥(PSK)”字段中，输入 **abc123** 并选择“确定”。 
 1. 在“摘要”下，选择“确定”。 
 
 #### <a name="get-the-virtual-network-gateway-public-ip-address"></a>获取虚拟网络网关的公共 IP 地址
 
-创建虚拟网络网关后，可以获取该网关的公共 IP 地址。 请记下此地址，因为稍后需要在部署中使用。 根据部署，此地址将用作**内部 IP 地址**。
+创建虚拟网络网关后，可以获取该网关的公共 IP 地址。 请记下此地址，因为稍后需要在部署中使用。 根据部署，此地址将用作 **内部 IP 地址** 。
 
 1. 在 Azure Stack Hub 用户门户中，选择“所有资源”。
-1. 在“所有资源”下选择虚拟网络网关（在本示例中为 **GW1**）。
+1. 在“所有资源”下选择虚拟网络网关（在本示例中为 **GW1** ）。
 1. 在“虚拟网络网关”下，从资源列表中选择“概述”。  或者，可以选择“属性”。
 1. 要记下的 IP 地址列在“公共 IP 地址”下。 对于示例配置，此地址为 192.68.102.1。
 
@@ -182,14 +182,14 @@ ms.locfileid: "88867751"
    >[!NOTE]
    >如果用于本文的映像不可用，请让 Azure Stack Hub 运营商提供不同的 Windows Server 映像。
 
-1. 在“创建虚拟机”中选择“基本信息”，然后键入 **VM01** 作为**名称**。 
+1. 在“创建虚拟机”中选择“基本信息”，然后键入 **VM01** 作为 **名称** 。 
 1. 输入有效的用户名和密码。 创建 VM 后，将使用此帐户登录到该 VM。
 1. 提供“订阅”、“资源组”和“位置”  。 选择“确定” 。
 1. 在“选择大小”下，为此实例选择一种 VM 大小，然后选择“选择”。 
 1. 在“设置”下，确认：
 
-   * 虚拟网络为 **Tenant1VNet1**。
-   * 子网已设置为 **10.1.1.0/24**。
+   * 虚拟网络为 **Tenant1VNet1** 。
+   * 子网已设置为 **10.1.1.0/24** 。
 
    使用默认设置，并单击“确定”。
 
@@ -218,7 +218,7 @@ ASDK 是自主性的，与部署物理主机的网络相隔离。 网关连接�
 #### <a name="configure-the-nat"></a>配置 NAT
 
 1. 使用管理员帐户登录到 Azure Stack Hub 主机。
-1. 在提升的 PowerShell ISE 中运行脚本。 此脚本返回**外部 BGPNAT 地址**。
+1. 在提升的 PowerShell ISE 中运行脚本。 此脚本返回 **外部 BGPNAT 地址** 。
 
    ```powershell
    Get-NetNatExternalAddress
@@ -333,7 +333,7 @@ ASDK 是自主性的，与部署物理主机的网络相隔离。 网关连接�
 
 可以使用任何支持 IKEv2 VPN 和 BGP 的路由器，来终止 Azure Stack Hub 的站点到站点 VPN 连接。 同一路由器用于通过 ExpressRoute 线路连接到 Azure。
 
-以下 Cisco ASR 1000 系列聚合服务路由器配置示例支持  *ExpressRoute 路由器配置*图中所示的网络基础结构。
+以下 Cisco ASR 1000 系列聚合服务路由器配置示例支持  *ExpressRoute 路由器配置* 图中所示的网络基础结构。
 
 ```shell
 ip vrf Tenant 1
@@ -583,7 +583,7 @@ New-NetFirewallRule `
 
 1. 选择“连接” 。
 
-1. 在权限提升的 Windows 或 PowerShell 命令提示符下，输入 **ipconfig /all**。 记下输出中返回的 IPv4 地址。
+1. 在权限提升的 Windows 或 PowerShell 命令提示符下，输入 **ipconfig /all** 。 记下输出中返回的 IPv4 地址。
 
 1. 从 Azure VNet 中的 VM Ping IPv4 地址。
 
@@ -597,8 +597,6 @@ New-NetFirewallRule `
 1. 导航到 VPN 网关的资源组，然后选择“连接”对象类型。
 1. 从列表中选择“ConnectToAzure”连接。
 1. 在“连接” > “概述”下，可以看到“传入数据”和“传出数据”的统计信息。   应会看到一些非零值。
-
-   ![“传入数据”和“传出数据”](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
 ## <a name="next-steps"></a>后续步骤
 

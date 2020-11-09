@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 中的跨源资源共享 (CORS)
 description: 本文介绍如何使用 Azure 门户和 Azure 资源管理器模板配置 Azure Cosmos DB 中的跨源资源共享 (CORS)。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 10/11/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 94afd17a4de9e5856ac1603b39a021695d802011
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 325c805ad49cfc905bed38955bd5b254c197eea2
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223244"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328747"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>配置跨源资源共享 (CORS)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 跨源资源共享 (CORS) 是一项 HTTP 功能，使在一个域中运行的 Web 应用程序能够访问另一个域中的资源。 Web 浏览器实施一种称为“同源策略”的安全限制，防止网页调用不同域中的 API。 但是，CORS 提供了一种安全的方式，允许源域调用另一个域中的 API。 Azure Cosmos DB 中的 Core (SQL) API 现在通过使用“allowedOrigins”标头来支持跨域资源共享 (CORS)。 为 Azure Cosmos 帐户启用 CORS 支持后，仅对经过身份验证的请求进行评估，以根据指定的规则确定是否允许这些请求。
 

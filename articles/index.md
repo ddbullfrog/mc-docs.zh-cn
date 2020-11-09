@@ -8,12 +8,12 @@ description: 了解如何使用 Azure 云服务构建和管理功能强大的应
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 6958a44204216425678a86fa88a49a91cb96a494
-ms.sourcegitcommit: 0c05bea089932ba8677b771cf4407a1fe3545fff
+ms.openlocfilehash: c3628c4771063dbd1bacce2bf593d918f83e350f
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93061799"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328783"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -271,12 +271,6 @@ ms.locfileid: "93061799"
                                             <a href="/cognitive-services/content-moderator/overview">
                                                 <img src="media/index/API_Content_Moderator.svg" alt="" />
                                                 <p>内容审查器</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/cognitive-services/emotion/home">
-                                                <img src="media/index/API_Emotion.svg" alt="" />
-                                                <p>情感 API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -615,6 +609,12 @@ ms.locfileid: "93061799"
                                             <a href="/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API 管理</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/event-grid/">
+                                                <img src="media/index/event-grid-domains.svg" alt="" />
+                                                <p>事件网格</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1046,6 +1046,12 @@ ms.locfileid: "93061799"
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/backup/">
+                                                <img src="media/index/recovery-services-vaults.svg" alt="" />
+                                                <p>Azure 备份</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/virtual-machines/windows/managed-disks-overview">
                                                 <img src="media/index/managed-disks.svg" alt="" />
                                                 <p>托管磁盘</p>
@@ -1137,7 +1143,121 @@ ms.locfileid: "93061799"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>认知服务</h3>
-                                                    <p>向应用、网站和机器人注入智能，以便观察、倾听、说话和理解</p>
+                                                    <p>添加智能 API 功能实现上下文交互</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cognitive-services/content-moderator/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>内容审查器</h3>
+                                                    <p>自动化的图像、文本和视频审查</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cognitive-services/computer-vision/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>计算机视觉</h3>
+                                                    <p>从图像中提取可操作信息</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cognitive-services/face/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>人脸</h3>
+                                                    <p>检测、识别、分析、组织和标记照片中的人脸</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="/cognitive-services/luis/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>语言理解</h3>
+                                                    <p>教会应用理解用户发出的命令</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cognitive-services/text-analytics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>文本分析</h3>
+                                                    <p>轻松评估情绪和主题，以便了解用户需求</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cognitive-services/translator/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>翻译工具</h3>
+                                                    <p>通过简单的 REST API 调用轻松执行机器翻译</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2108,6 +2228,25 @@ ms.locfileid: "93061799"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API 管理</h3>
+                                                    <p>将 API 安全发布到开发人员、合作伙伴和员工，可进行扩展</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/event-grid/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img width=64 src="media/index/event-grid-domains.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>事件网格</h3>
                                                     <p>将 API 安全发布到开发人员、合作伙伴和员工，可进行扩展</p>
                                                 </div>
                                             </div>
@@ -3385,6 +3524,25 @@ ms.locfileid: "93061799"
                                                 <div class="cardText">
                                                     <h3>Blob 存储</h3>
                                                     <p>基于 REST 的对象存储，适用于非结构化数据</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/backup/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img width=64 src="media/index/recovery-services-vaults.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 备份</h3>
+                                                    <p>简化数据保护并防范勒索软件</p>
                                                 </div>
                                             </div>
                                         </div>

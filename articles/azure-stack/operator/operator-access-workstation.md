@@ -3,18 +3,17 @@ title: Azure Stack Hub 操作员访问工作站
 description: 了解如何下载和配置 Azure Stack Hub 操作员访问工作站。
 author: WenJason
 ms.topic: article
-ms.service: azure-stack
 origin.date: 09/24/2020
-ms.date: 10/12/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 89dcdd88d670e10fcefb69612e784019032b5aa9
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 1fe91356e043cb368afa669717e4c9ddf11fb7fd
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451207"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330512"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack Hub 操作员访问工作站 
 
@@ -28,10 +27,10 @@ ms.locfileid: "91451207"
 
 |方案                                                                                                                          |说明                 |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
-|[访问管理门户](/azure-stack/operator/azure-stack-manage-portals)                     |执行管理操作                                                                           |
-|[访问 PEP](/azure-stack/operator/azure-stack-privileged-endpoint)                                     |日志收集和上传：<br>在 HLH 上-[创建 SMB 共享](#transfer-files-between-the-hlh-and-oaw)以便从 Azure Stack Hub 进行文件传输<br>-使用 Azure 存储资源管理器上传保存到 SMB 共享中的日志 |
-|[注册 Azure Stack Hub](/azure-stack/operator/azure-stack-registration#renew-or-change-registration) |对于重新注册，从管理门户获取以前的注册名称和资源组                               |
-|[市场联合](/azure-stack/operator/azure-stack-download-azure-marketplace-item)            |在 HLH 上[创建 SMB 共享](#transfer-files-between-the-hlh-and-oaw)以存储下载的映像或扩展                                                        |
+|[访问管理门户](./azure-stack-manage-portals.md)                     |执行管理操作                                                                           |
+|[访问 PEP](./azure-stack-privileged-endpoint.md)                                     |日志收集和上传：<br>在 HLH 上-[创建 SMB 共享](#transfer-files-between-the-hlh-and-oaw)以便从 Azure Stack Hub 进行文件传输<br>-使用 Azure 存储资源管理器上传保存到 SMB 共享中的日志 |
+|[注册 Azure Stack Hub](./azure-stack-registration.md#renew-or-change-registration) |对于重新注册，从管理门户获取以前的注册名称和资源组                               |
+|[市场联合](./azure-stack-download-azure-marketplace-item.md)            |在 HLH 上[创建 SMB 共享](#transfer-files-between-the-hlh-and-oaw)以存储下载的映像或扩展                                                        |
 
 ## <a name="download-files"></a>下载文件
 
@@ -50,7 +49,7 @@ param(
     $DownloadedOAWZipFilePath
 )
 
-$expectedHash = '97022E2FB06D4448A78E987ED3513831741BA89100B5972ABDAD629A93E01648'
+$expectedHash = 'CADAD42A1316C3E19819B8E197CEC279964805677D528F4CCFE2FC16D3119136'
 $actualHash = (Get-FileHash -Path $DownloadedOAWZipFilePath).Hash
 
 Write-Host "Expected hash: $expectedHash"
@@ -82,7 +81,7 @@ else
 | 软件名称           | 位置                                                                                       |
 |--------------------------|------------------------------------------------------------------------------------------------|
 | [Microsoft Edge for Business](https://www.microsoft.com/edge/business/)                                            | \[SystemDrive\]\Program Files (x86)\Microsoft\Edge\Application                                                                                        |
-| [Az 模块](/azure-stack/operator/powershell-install-az-module)                         | \[SystemDrive\]\ProgramFiles\WindowsPowerShell\Modules                                         |  
+| [Az 模块](./powershell-install-az-module.md)                         | \[SystemDrive\]\ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[SystemDrive\]\Program Files\PowerShell\7                                                                       |
 | [Azure 命令行接口 (CLI)](/cli/?view=azure-cli-latest) | \[SystemDrive\]\Program Files (x86)\Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)   | \[SystemDrive\]\Program Files (x86)\Microsoft Azure Storage Explorer                                                                       |

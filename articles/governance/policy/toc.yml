@@ -17,6 +17,9 @@
     - name: 分配策略 - Azure PowerShell
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: 分配策略 - .NET
+      displayName: 'assign, compliance'
+      href: ./assign-policy-dotnet.md
     - name: 分配策略 - Python
       displayName: 'assign, compliance'
       href: ./assign-policy-python.md
@@ -26,6 +29,9 @@
     - name: 分配策略 - ARM 模板
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: 分配策略 - Terraform
+      displayName: 'assign, compliance, hcl, provider'
+      href: ./assign-policy-terraform.md
 - name: 教程
   items:
     - name: 创建和管理 Azure Policy
@@ -37,6 +43,9 @@
     - name: 管理标记治理
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: 通过 GitHub 实现 Azure Policy as Code
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./tutorials/policy-as-code-github.md
 - name: 示例
   items:
     - name: 索引
@@ -52,7 +61,7 @@
           href: ./samples/pattern-logical-operators.md
         - name: 字段
           href: ./samples/pattern-fields.md
-        - name: parameters
+        - name: 参数
           href: ./samples/pattern-parameters.md
         - name: 效果详细信息
           href: ./samples/pattern-effect-details.md
@@ -74,19 +83,25 @@
     - name: 了解效果
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: 范围
+      displayName: 'location, notScope, exemption, waiver, save'
+      href: ./concepts/scope.md
     - name: 计划结构
       displayName: 'parameters, groups, domains, policies'
       href: ./concepts/initiative-definition-structure.md
     - name: 分配结构
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: 例外结构
+      displayName: 'waiver, mitigated, compliance'
+      href: ./concepts/exemption-structure.md
     - name: 评估新策略的影响
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
     - name: 建议的策略
       displayName: 'VMs, virtual machines'
       href: ./concepts/recommended-policies.md
-    - name: 将策略设计为代码工作流
+    - name: 设计 Azure Policy as Code 工作流
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: 使用来宾配置审核 VM
@@ -107,6 +122,9 @@
     - name: 为数组属性创作策略
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
+    - name: 导出 Azure Policy 资源
+      displayName: 'github, json, definition'
+      href: ./how-to/export-resources.md
     - name: 来宾配置
       items:
         - name: 在 Windows 上创建 Guest Configuration 策略
@@ -181,6 +199,8 @@
           href: 'https://docs.microsoft.com/rest/api/resources/policyassignments'
         - name: 策略定义
           href: 'https://docs.microsoft.com/rest/api/resources/policydefinitions'
+        - name: 策略豁免
+          href: 'https://docs.microsoft.com/rest/api/resources/policyexemptions'
         - name: 计划定义
           href: 'https://docs.microsoft.com/rest/api/resources/policysetdefinitions'
         - name: 策略受跟踪的资源
@@ -197,6 +217,16 @@
           href: 'https://docs.microsoft.com/azure/templates/microsoft.authorization/policydefinitions'
         - name: 计划定义
           href: 'https://docs.microsoft.com/azure/templates/microsoft.authorization/policysetdefinitions'
+    - name: Terraform 资源
+      items:
+        - name: 分配
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_assignment.html'
+        - name: 定义
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_definition.html'
+        - name: 计划（集定义）
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_set_definition.html'
+        - name: 补救
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_remediation.html'
 - name: 资源
   items:
     - name: GitHub - Azure Policy 示例
@@ -213,6 +243,8 @@
           href: 'https://www.azadvertizer.net/'
         - name: Azure 治理可视化工具
           href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+        - name: 用于 Azure Monitor 的 Azure Policy 脚本
+          href: 'https://github.com/JimGBritt/AzurePolicy/tree/master/AzureMonitor/Scripts'
     - name: 反馈和支持
       items:
         - name: Azure 支持工单

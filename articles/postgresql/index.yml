@@ -6,15 +6,15 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 09/21/2020
-  ms.date: 10/19/2020
+  ms.date: 11/09/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 7106268e2cee160f18d7419e0979bb80b5f0ea39
-  ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+  ms.openlocfilehash: 2a04f1128f043f694335065bf2248628127fed27
+  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92041717"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "94328875"
 landingContent:
 - title: 关于 Azure Database for PostgreSQL
   linkLists:
@@ -83,13 +83,13 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: 在单服务器上设计数据库
-      url: /tutorial-design-database-using-azure-portal.md               -
+      url: tutorial-design-database-using-azure-portal.md
 - title: 参考
   linkLists:
   - linkListType: deploy
     links:
     - text: 用于常见任务的 Azure CLI 脚本
-      url: /postgresql/sample-scripts-azure-cli
+      url: ./sample-scripts-azure-cli.md
     - text: Azure 资源管理器模板
       url: https://docs.microsoft.com/azure/templates/microsoft.dbforpostgresql/allversions
   - linkListType: reference

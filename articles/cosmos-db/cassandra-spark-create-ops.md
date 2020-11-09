@@ -1,25 +1,26 @@
 ---
 title: 通过 Spark 创建或插入数据到 Azure Cosmos DB Cassandra API
 description: 本文详细介绍如何将示例数据插入 Azure Cosmos DB Cassandra API 表
-author: rockboyfor
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 09/24/2018
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 223ec41001814a045977971976dfbd4b3190be5c
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 0bb69a67ff2db69a160bf1a489ab6aebcfee0df0
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222780"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328406"
 ---
 <!--Verify sucessfully-->
 # <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>通过 Spark 创建/插入数据到 Azure Cosmos DB Cassandra API
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 本文介绍如何通过 Spark 将示例数据插入 Azure Cosmos DB Cassandra API 的表中。
 

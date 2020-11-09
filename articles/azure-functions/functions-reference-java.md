@@ -2,14 +2,14 @@
 title: Azure Functions Java 开发人员参考
 description: 了解如何使用 Java 开发函数。
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: dc539af03555b452b29643769ee657268c847fae
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 11/04/2020
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 5e769c872dd02f6efe1ddbafa602736eec61d446
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471448"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326418"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -49,7 +49,7 @@ Java 函数是一个 `public` 方法，使用注释 `@FunctionName` 进行修饰
 
 以下命令使用此原型生成新的 Java 函数项目：
 
-```
+```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype 
@@ -134,8 +134,6 @@ public class Function {
 
 ## <a name="java-versions"></a>Java 版本
 
-对 Java 11 的支持目前为预览版
-
 创建函数应用（用于在 Azure 中运行函数）时使用的 Java 版本在 pom.xml 文件中指定。 Maven 原型当前为 Java 8（可以在发布之前进行更改）生成 pom.xml。 pom.xml 中的 Java 版本应该与在本地对其开发和测试应用的版本相匹配。 
 
 ### <a name="supported-versions"></a>支持的版本
@@ -144,14 +142,14 @@ public class Function {
 
 | Functions 版本 | Java 版本 (Windows) | Java 版本 (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11（预览版）<br/>8 | 11（预览版）<br/>8 |
+| 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | 不适用 |
 
 除非为部署指定 Java 版本，否则在部署到 Azure 期间，Maven 原型默认为 Java 8。
 
 ### <a name="specify-the-deployment-version"></a>指定部署版本
 
-可以使用 `-DjavaVersion` 参数来控制 Maven 原型的目标 Java 版本。 该参数的值可以是 `8` 或 `11`。 Java 11 支持目前处于预览状态。 
+可以使用 `-DjavaVersion` 参数来控制 Maven 原型的目标 Java 版本。 该参数的值可以是 `8` 或 `11`。 
 
 Maven 原型生成面向指定 Java 版本的 pom.xml。 pom.xml 文件中的以下元素指示要使用的 Java 版本：
 
@@ -419,7 +417,7 @@ public class Function {
 | `HttpRequestMessage<T>`  |    HTTP 触发器     | 获取方法、标头或查询 |
 | `HttpResponseMessage` | HTTP 输出绑定 | 返回除 200 以外的状态   |
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>元数据
 
 少量的触发器会连同输入数据一起发送[触发器元数据](./functions-triggers-bindings.md)。 可使用注释 `@BindingName` 绑定到触发器元数据。
 

@@ -1,5 +1,5 @@
 ---
-title: 创建并查询 Synapse SQL 池（Azure 门户）
+title: 快速入门：创建并查询 Synapse SQL 池（Azure 门户）
 description: 使用 Azure 门户创建并查询 Synapse SQL 池
 services: synapse-analytics
 author: WenJason
@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 origin.date: 05/28/2019
-ms.date: 08/10/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b8a70f86e3b11db9e453b90a3eae204d2ce76ba2
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: a030831f947badc1fa062c802fd6ac0e42c7b5e0
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917054"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375737"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建并查询 Synapse SQL 池
 
@@ -56,7 +56,7 @@ ms.locfileid: "87917054"
    | :------ | :-------------- | :---------- |
    | **订阅** | 订阅  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
    | **资源组** | myResourceGroup | 如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)（命名规则和限制）。 |
-   | **SQL 池名称** | 任何全局唯一的名称（例如 *mySampleDataWarehouse*） | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)（数据库标识符）。 请注意，SQL 池是一种数据库。 |
+   | **SQL 池名称** | 任何全局唯一的名称（例如 *mySampleDataWarehouse* ） | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)（数据库标识符）。 请注意，SQL 池是一种数据库。 |
    | **Server** | 任何全局唯一名称 | 选择现有的服务器，或者选择“新建”创建新的服务器名称。 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)（命名规则和限制）。 |
 
    ![创建数据仓库 - 基本详细信息](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -75,7 +75,7 @@ ms.locfileid: "87917054"
 
 6. 在工具栏上，选择“通知”监视部署过程。
 
-   ![通知](./media/create-data-warehouse-portal/notification.png)
+   ![屏幕截图显示“正在进行部署”的通知。](./media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>创建服务器级防火墙规则
 
@@ -115,7 +115,7 @@ Azure Synapse 服务将在服务器级别创建防火墙。 此防火墙会阻�
 
 请在 Azure 门户中获取服务器的完全限定的服务器名称。 稍后，在连接到服务器时，将使用该完全限定的名称。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 登录 [Azure 门户](https://portal.azure.cn/)。
 
 2. 在左侧菜单中选择“Azure Synapse Analytics”，然后在“Azure Synapse Analytics”页上选择你的 SQL 池。 
 
@@ -129,7 +129,7 @@ Azure Synapse 服务将在服务器级别创建防火墙。 此防火墙会阻�
 
 1. 打开 SQL Server Management Studio。
 
-2. 在“连接到服务器”对话框中，输入以下信息：
+2. 在“连接到服务器”对话框中，输入以下信息： 
 
    | 设置 | 建议的值 | 说明 |
    | :------ | :-------------- | :---------- |
@@ -152,7 +152,7 @@ Azure Synapse 服务将在服务器级别创建防火墙。 此防火墙会阻�
 
 不建议在以服务器管理员身份登录时运行大型查询，因为它使用[有限的资源类](resource-classes-for-workload-management.md)。 改为按[教程中所示](/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data)配置[工作负荷隔离](/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql)。
 
-SQL 数据仓库使用 T-SQL 作为查询语言。 打开一个查询窗口并运行一些 T-SQL 查询，请使用以下步骤：
+Azure Synapse Analytics 使用 T-SQL 作为查询语言。 打开一个查询窗口并运行一些 T-SQL 查询，请使用以下步骤：
 
 1. 右键单击“mySampleDataWarehouse”并选择“新建查询”。  “新建查询”窗口随即打开。
 

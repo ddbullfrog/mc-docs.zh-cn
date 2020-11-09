@@ -4,17 +4,17 @@ description: 本教程介绍如何调试本地群集上运行的 Service Fabric 
 ms.topic: tutorial
 origin.date: 02/26/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 65a43cf95d65a2406956f03f9acf48927543b12e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 40df476a7a4cbe09c1aa6deaa11e15744410f7fc
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655048"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327428"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>教程：调试本地 Service Fabric 群集上部署的 Java 应用程序
 
@@ -52,13 +52,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 ## <a name="debug-java-application-using-eclipse"></a>使用 Eclipse 调试 Java 应用程序
 
-1. 在计算机上打开 Eclipse IDE，单击“文件”->“导入...”。****
+1. 在计算机上打开 Eclipse IDE，单击“文件”->“导入...”。
 
-2. 在弹出窗口中，选择“常规”->“将现有项目导入工作区”选项并按“下一步”。****
+2. 在弹出窗口中，选择“常规”->“将现有项目导入工作区”选项并按“下一步”。
 
-3. 在“导入项目”窗口中，选择“选择根目录”选项并选取“Voting”目录。******** 如果已学完了系列教程 1，则“Voting”目录出现在“Eclipse-workspace”目录中。********
+3. 在“导入项目”窗口中，选择“选择根目录”选项并选取“Voting”目录。 如果已学完了系列教程 1，则“Voting”目录出现在“Eclipse-workspace”目录中。
 
-4. 更新要调试的服务的 entryPoint.sh，以便使用远程调试参数启动 Java 进程。 在本教程中，使用了无状态前端：*Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*。设置了端口 8001，以便在此示例中进行调试。
+4. 更新要调试的服务的 entryPoint.sh，以便使用远程调试参数启动 Java 进程。 在本教程中，使用了无状态前端： *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh* 。设置了端口 8001，以便在此示例中进行调试。
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -66,7 +66,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 5. 通过将要调试的服务的实例计数或副本计数设置为 1 来更新应用程序清单。 此设置可避免用于调试的端口出现冲突。 例如，对于无状态服务，设置 ``InstanceCount="1"``；对于有状态服务，将目标和最小副本集大小设置为 1，如下所示：``TargetReplicaSetSize="1" MinReplicaSetSize="1"``。
 
-6. 在 Eclipse IDE 中，选择“运行”->“调试配置”->“远程 Java 应用程序”，按“新建”按钮，设置以下属性，然后单击“应用”。************
+6. 在 Eclipse IDE 中，选择“运行”->“调试配置”->“远程 Java 应用程序”，按“新建”按钮，设置以下属性，然后单击“应用”。
 
     ```
     Name: Voting
@@ -78,13 +78,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 7. 在 *Voting/VotingWeb/src/statelessservice/HttpCommunicationListener.java* 文件的第 109 行中插入一个断点。
 
-8. 在包资源管理器中右键单击“投票”项目，然后单击“Service Fabric”->“发布应用程序...”。********
+8. 在包资源管理器中右键单击“投票”项目，然后单击“Service Fabric”->“发布应用程序...”。
 
-9. 在“发布应用程序”窗口的下拉列表中，选择“Local.json”并单击“发布”。************
+9. 在“发布应用程序”窗口的下拉列表中，选择“Local.json”并单击“发布”。
 
-10. 在 Eclipse IDE 中，选择“运行”->“调试配置”->“远程 Java 应用程序”，单击创建的“投票”配置，然后单击“调试”。************
+10. 在 Eclipse IDE 中，选择“运行”->“调试配置”->“远程 Java 应用程序”，单击创建的“投票”配置，然后单击“调试”。
 
-11. 转到 Web 浏览器并访问 **localhost:8080**。 这将自动命中断点，Eclipse 将进入**调试透视图**。
+11. 转到 Web 浏览器并访问 **localhost:8080** 。 这将自动命中断点，Eclipse 将进入 **调试透视图** 。
 
 现在，可以应用这些相同的步骤来在 Eclipse 中调试任何 ServiceFabric 应用程序。
 
@@ -92,7 +92,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 以下步骤说明如何将应用程序日志从默认的 */var/log/syslog* 位置重定向到自定义位置。
 
-1. 目前，Service Fabric Linux 群集中运行的应用程序仅支持选取一个日志文件。 要设置应用程序以便日志始终转到 */tmp/mysfapp0.0.log*，请在位置 *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* 创建名为 logging.properties 的文件并添加以下内容。
+1. 目前，Service Fabric Linux 群集中运行的应用程序仅支持选取一个日志文件。 要设置应用程序以便日志始终转到 */tmp/mysfapp0.0.log* ，请在位置 *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* 创建名为 logging.properties 的文件并添加以下内容。
 
     ```
     handlers = java.util.logging.FileHandler

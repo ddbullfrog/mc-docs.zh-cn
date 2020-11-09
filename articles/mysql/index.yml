@@ -6,15 +6,15 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 09/03/2019
-  ms.date: 10/29/2020
+  ms.date: 11/09/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 2a3caa6fe24571b0e6fdcc5449be55f416e7a649
-  ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+  ms.openlocfilehash: 3d1a2942a9cf8df55750db1ffc84b683393f1d1d
+  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92470107"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "94328546"
 landingContent:
 - title: 关于 Azure Database for MySQL
   linkLists:
@@ -101,7 +101,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: 用于常见任务的 Azure CLI 脚本
-      url: /mysql/sample-scripts-azure-cli
+      url: ./sample-scripts-azure-cli.md
     - text: Azure 资源管理器模板
       url: https://docs.microsoft.com/azure/templates/microsoft.dbformysql/allversions
   - linkListType: reference

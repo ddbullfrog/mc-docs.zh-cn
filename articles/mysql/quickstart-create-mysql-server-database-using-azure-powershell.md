@@ -7,16 +7,19 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 origin.date: 04/28/2020
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: ef4b87f8eb5067eb70d2ec2d1b18f33908408cc3
-ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+ms.openlocfilehash: fd0caf341054241ea2aef2b600ab23df6695010b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041823"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328879"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>快速入门：使用 PowerShell 创建 Azure Database for MySQL 服务器
+
+> [!NOTE]
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 本快速入门介绍如何使用 PowerShell 在 Azure 资源组中创建 Azure Database for MySQL 服务器。 可以使用 PowerShell 以交互方式或者通过脚本创建和管理 Azure 资源。
 
@@ -36,7 +39,7 @@ ms.locfileid: "92041823"
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMySQL
 ```
 
-如果你有多个 Azure 订阅，请选择应当计费的资源所在的相应订阅。 使用 [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet 选择特定的订阅 ID。
+如果有多个 Azure 订阅，请选择应当计费的资源所在的相应订阅。 使用 [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet 选择特定的订阅 ID。
 
 ```azurepowershell
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -44,9 +47,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 [Azure 资源组](/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
+使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 [Azure 资源组](../azure-resource-manager/management/overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
-以下示例在“美国西部”区域中创建名为 myresourcegroup  的资源组。
+以下示例在“美国西部”区域中创建名为“myresourcegroup” 的资源组。
 
 ```azurepowershell
 New-AzResourceGroup -Name myresourcegroup -Location chinanorth2
@@ -63,13 +66,13 @@ New-AzResourceGroup -Name myresourcegroup -Location chinanorth2
 | 名称                       | mydemoserver     | 选择用于标识 Azure Database for MySQL 服务器的在 Azure 中全局唯一的名称。 该服务器名称只能包含字母、数字和连字符 (-)。 在创建过程中，指定的任何大写字符将自动转换为小写。 必须包含 3 到 63 个字符。 |
 | ResourceGroupName          | myresourcegroup  | 提供 Azure 资源组的名称。                                                                                                                                                                                                                                                                                            |
 | SKU                        | GP_Gen5_2        | SKU 的名称。 请遵循简写约定：pricing-tier\_compute-generation\_vCores。 有关 SKU 参数的详细信息，请参阅此表格后面的信息。                                                                                                                                           |
-| BackupRetentionDay         | 7                | 保留备份的时长。 单位为天。 范围为 7-35。                                                                                                                                                                                                                                                                       |
-| GeoRedundantBackup         | 已启用          | 是否应该为此服务启用异地冗余备份。 不能为基本定价层级中的服务器启用此值，并且在创建服务器后无法更改此值。 允许的值：“Enabled”、“Disabled”。                                                                                                      |
+| BackupRetentionDay         | 7                | 备份保留时间。 单位为天。 范围为 7-35。                                                                                                                                                                                                                                                                       |
+| GeoRedundantBackup         | Enabled          | 是否应为此服务器启用异地冗余备份。 不能为基本定价层级中的服务器启用此值，并且在创建服务器后无法更改此值。 允许的值：“Enabled”、“Disabled”。                                                                                                      |
 | 位置                   | chinanorth2           | 服务器的 Azure 区域。                                                                                                                                                                                                                                                                                                         |
-| SslEnforcement             | 已启用          | 是否应该为此服务器启用 SSL。 允许的值：“Enabled”、“Disabled”。                                                                                                                                                                                                                                                 |
-| StorageInMb                | 51200            | 服务器的存储容量（单位是兆字节）。 有效的 StorageInMb 最小为 5120 MB，以 1024 MB 为增量递增。 有关存储大小限制的详细信息，请参阅 [Azure Database for MySQL 定价层级](./concepts-pricing-tiers.md)。                                                                               |
+| SslEnforcement             | Enabled          | 是否应该为此服务器启用 SSL。 允许的值：“Enabled”、“Disabled”。                                                                                                                                                                                                                                                 |
+| StorageInMb                | 51200            | 服务器的存储容量（以 MB 为单位）。 有效的 StorageInMb 最小为 5120 MB，以 1024 MB 为增量递增。 有关存储大小限制的详细信息，请参阅 [Azure Database for MySQL 定价层级](./concepts-pricing-tiers.md)。                                                                               |
 | 版本                    | 5.7              | MySQL 主版本。                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | 用于管理员登录的用户名。 它不能为“azure_superuser”、“admin”、“administrator”、“root”、“guest”或“public”     。                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | 管理员的登录用户名。 不能是 **azure_superuser** 、 **admin** 、 **administrator** 、 **root** 、 **guest** 或 **public** 。                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | 管理员用户的密码，采用安全字符串格式。 该密码必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字和非字母数字字符。                                       |
 
 Sku 参数值遵循 pricing-tier\_compute-generation\_vCores 约定，如以下示例所示 。
@@ -80,7 +83,7 @@ Sku 参数值遵循 pricing-tier\_compute-generation\_vCores 约定，如以下�
 
 有关各区域和层级的有效 Sku 值的信息，请参阅 [Azure Database for MySQL 定价层](./concepts-pricing-tiers.md)。
 
-以下示例使用服务器管理员登录名“myadmin”在“中国北部 2”区域中的“myresourcegroup”资源组内创建名为“mydemoserver”的 MySQL 服务器   。 此服务器是常规用途定价层级中的第 5 代服务器，其中启用了 2 个 vCore 和异地冗余备份。 记下示例的第一行中使用的密码，因为这是 MySQL 服务器管理员帐户的密码。
+以下示例使用服务器管理员登录名“myadmin”在“中国北部 2”区域中的“myresourcegroup”资源组内创建名为“mydemoserver”的 MySQL 服务器   。 此服务器是常规用途定价层中的第 5 代服务器，其中启用了 2 个 vCore 和异地冗余备份。 记下示例的第一行中使用的密码，因为这是 MySQL 服务器管理员帐户的密码。
 
 > [!TIP]
 > 服务器名称映射到 DNS 名称，必须在 Azure 中全局唯一。
@@ -93,7 +96,7 @@ New-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_
 如果轻量级计算和 I/O 足以满足工作负荷要求，请考虑使用基本定价层级。
 
 > [!IMPORTANT]
-> 在基本定价层级中创建的服务器以后无法扩展到常规用途或内存优化层级，并且无法异地复制。
+> 在基本定价层中创建的服务器以后无法扩展到常规用途或内存优化层级，并且无法异地复制。
 
 ## <a name="configure-a-firewall-rule"></a>配置防火墙规则
 

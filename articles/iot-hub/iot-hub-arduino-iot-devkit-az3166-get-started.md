@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 06/25/2019
 ms.author: v-yiso
 ms.date: 07/20/2020
-ms.openlocfilehash: 954c6130f6717dda50de24b0d76067d38fd9d54c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: ac3fca2931aa87d0cc0b7cec67ee99e2a0c9aeb0
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472308"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328673"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 
@@ -240,12 +240,16 @@ IoT DevKit 包含丰富的示例库，可以使用这些示例来了解如何将
 
 如果不通过 Azure 门户预配 Azure IoT 中心和设备，可以在不退出开发环境的情况下在 VS Code 中执行此操作。
 
+<!-- ATTENTION, For Mooncake--> 
+
 1. 在 VS Code 中登录到 Azure 中国。 若要执行此操作，请调用命令“Azure:登录到 Azure 云”，然后选择“Azure 中国”，在弹出的 Web 页面中填写 Azure 中国的帐户名和密码。  然后，用户需要调用：“Azure:选择订阅”，选择要使用的订阅，并单击“确定”。
 
     ![登录 Azure](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/sign-in-to-azure-cloud.png)
 
     > [!NOTE]
     > 假定已在 VS code 中安装了扩展“Azure 帐户”。 
+    
+<!-- END HERE-->     
 
 1. 在打开的新项目窗口中，单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:Provision Azure Services...”。遵照分步指南完成预配 Azure IoT 中心和创建 IoT 中心设备的操作。
     ![预配命令](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision.png)
@@ -286,6 +290,8 @@ IoT DevKit 包含丰富的示例库，可以使用这些示例来了解如何将
 8. 在 DevKit 上，按住 **按钮 A** 不放，按下再松开 **重置** 按钮，然后松开 **按钮 A** 。DevKit 将进入配置模式并保存连接字符串。
 
     ![连接字符串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
+
+<!-- ATTENTION, For Mooncake--> 
 
 9. 请保存以下代码作为 C 源文件，稍后将使用它。
 
@@ -333,6 +339,8 @@ IoT DevKit 包含丰富的示例库，可以使用这些示例来了解如何将
     C:\Users\{你的别名}\AppData\Local\Arduino15\packages\AZ3166\hardware\stm32f4\1.6.1\cores\arduino\azure-iot-sdk-c\azureiotcerts.c
 
     请注意，该路径可能因 IoT DevKit SDK 的不同版本而异。
+    
+<!-- END HERE-->        
 
 11. 再次单击 `F1`，键入并选择 **`Azure IoT Device Workbench: Upload Device Code`** 。 它启动编译，并将代码上传到 DevKit。
 

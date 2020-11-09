@@ -8,16 +8,16 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 origin.date: 01/08/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: a2cd21be299f7ecb2b32d2e31fe263e6ccc3c860
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 4ea71e8034813dd45c0fe040cd1cb053f5666c0d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128214"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328647"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>解决将 VMware VM 或物理计算机故障转移到 Azure 时出现的错误
 
@@ -58,7 +58,7 @@ Site Recovery 无法在 Azure 中创建故障转移的虚拟机。 发生此情�
     如果需要混合，则它提供以下结果：
 
     ```output
-    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
     This system doesn't meet no-hydration requirement.
     ```
@@ -88,9 +88,9 @@ Site Recovery 无法在 Azure 中创建故障转移的虚拟机。 发生此情�
 如果 Azure 中已故障转移的 VM 的“连接”按钮灰显，并且你未通过快速路由或站点到站点 VPN 连接来连接到 Azure，则执行以下操作：
 
 1. 转到“虚拟机” > “网络”，单击所需网络接口的名称。  :::image type="content" source="media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG" alt-text="屏幕截图显示已选择网络接口名称的虚拟机的“网络”页面。":::
-2. 导航到“IP 配置”，然后单击所需 IP 配置的名称字段。 :::image type="content" source="media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png" alt-text="屏幕截图显示已选择网络接口名称的虚拟机的“网络”页面。":::
-3. 若要启用公共 IP 地址，请单击“启用”。 :::image type="content" source="media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png" alt-text="屏幕截图显示已选择网络接口名称的虚拟机的“网络”页面。":::
-4. 单击“配置所需设置” > “新建”。 :::image type="content" source="media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png" alt-text="屏幕截图显示已选择网络接口名称的虚拟机的“网络”页面。":::
+2. 导航到“IP 配置”，然后单击所需 IP 配置的名称字段。 :::image type="content" source="media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png" alt-text="屏幕截图显示已选择 IP 配置名称的网络接口的“IP 配置”页面。":::
+3. 若要启用公共 IP 地址，请单击“启用”。 :::image type="content" source="media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png" alt-text="启用 IP":::
+4. 单击“配置所需设置” > “新建”。 :::image type="content" source="media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png" alt-text="新建":::
 5. 输入公共地址的名称，选择“SKU”和“分配”的默认选项，然后单击“确定”。
 6. 现在，单击“保存”以保存所做的更改。
 7. 关闭面板并导航到虚拟机的“概述”部分以进行连接/通过 RDP 连接。

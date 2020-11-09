@@ -4,17 +4,17 @@ description: 了解如何使用 Azure CLI 将 Linux Service Fabric 群集部署�
 ms.topic: conceptual
 origin.date: 02/14/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 4d7c1f4596dda8f82d64d5f4e55ee8cb3dadd352
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 793db57c7b6474844d43b2f72ea1b2dc0975b79c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655055"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327430"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>将 Linux Service Fabric 群集部署到 Azure 虚拟网络
 
@@ -26,7 +26,7 @@ ms.locfileid: "89655055"
 
 * 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
 * 安装 [Service Fabric CLI](service-fabric-cli.md)
-* 安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)
+* 安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)
 * 若要了解群集的关键概念，请阅读 [Azure 群集概述](service-fabric-azure-clusters-overview.md)
 * 为生产群集部署[计划并准备](service-fabric-cluster-azure-deployment-preparation.md)。
 
@@ -129,7 +129,7 @@ AzureDeploy.Parameters 文件声明用于部署群集和关联资源的多个值
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>使用现有证书创建群集
 
-以下脚本使用 [az sf cluster create](https://docs.azure.cn/cli/sf/cluster?view=azure-cli-latest#az-sf-cluster-create) 命令和模板部署一个以现有证书保护的新群集。 该命令还会在 Azure 中创建新的 Key Vault，并上传证书。
+以下脚本使用 [az sf cluster create](https://docs.azure.cn/cli/sf/cluster#az-sf-cluster-create) 命令和模板部署一个以现有证书保护的新群集。 该命令还会在 Azure 中创建新的 Key Vault，并上传证书。
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -155,7 +155,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>使用新的自签名证书创建群集
 
-以下脚本使用 [az sf cluster create](https://docs.azure.cn/cli/sf/cluster?view=azure-cli-latest#az-sf-cluster-create) 命令和模板在 Azure 中部署新群集。 此命令还会在 Azure 中创建新的密钥保管库、向密钥保管库添加新的自签名证书，并将证书文件下载到本地。
+以下脚本使用 [az sf cluster create](https://docs.azure.cn/cli/sf/cluster#az-sf-cluster-create) 命令和模板在 Azure 中部署新群集。 此命令还会在 Azure 中创建新的密钥保管库、向密钥保管库添加新的自签名证书，并将证书文件下载到本地。
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

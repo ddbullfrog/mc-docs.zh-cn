@@ -3,14 +3,14 @@ title: 建议用于 Apache Kafka 客户端的配置 - Azure 事件中心
 description: 本文提供了建议用于与 Apache Kafka 的 Azure 事件中心进行交互的客户端的 Apache Kafka 配置。
 ms.topic: reference
 origin.date: 07/20/2020
-ms.date: 08/21/2020
+ms.date: 11/04/2020
 ms.author: v-tawe
-ms.openlocfilehash: 51f0501b87108ed4068ea38916e0e1b6a6b30cff
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 0d0cdc9ad0db266c6e622605874dd948710e2730
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715648"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375680"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>建议用于 Apache Kafka 客户端的配置
 下面是从 Apache Kafka 客户端应用程序使用 Azure 事件中心时的建议配置。 
@@ -29,7 +29,7 @@ properties | 建议的值 | 允许的范围 | 备注
 
 properties | 建议的值 | 允许的范围 | 备注
 ---|---:|---:|---
-`max.request.size` | 1000000 | < 1046528 | 如果发送的请求大于 1,046,528 字节，则服务会关闭连接。  此值**必须**更改，否则会导致高吞吐量生成场景中出现问题。
+`max.request.size` | 1000000 | < 1046528 | 如果发送的请求大于 1,046,528 字节，则服务会关闭连接。  此值 **必须** 更改，否则会导致高吞吐量生成场景中出现问题。
 `retries` | > 0 | | 可能需要增大 delivery.timeout.ms 值，请参阅文档。
 `request.timeout.ms` | 30000 .. 60000 | > 20000| EH 会在内部默认设置为最小值，即 20,000 毫秒。  虽然系统会接受超时值较低的请求，但不保证客户端行为。
 `metadata.max.idle.ms` | 180000 | > 5000 | 控制生成者为空闲的主题缓存元数据的时间长度。 如果自上次生成主题以来过去的时间超过了元数据空闲持续时间，系统会忘记该主题的元数据，在下一次访问它时会强制执行元数据提取请求。

@@ -6,19 +6,20 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 origin.date: 07/30/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: 30d96431cf4bf68f498454a88c19a303a02c3db9
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 1db83d3cf0a8d3746d43a771da9a3dbc9dd759c0
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223557"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328660"
 ---
 <!--Verified successfully-->
 # <a name="create-a-table-with-autoscale-for-azure-cosmos-db---table-api"></a>为 Azure Cosmos DB 创建表（具有自动缩放功能）- 表 API
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,7 +39,10 @@ $uniqueId = New-RandomString -Length 7 # Random alphanumeric string for unique r
 $apiKind = "Table"
 # --------------------------------------------------
 # Variables - ***** SUBSTITUTE YOUR VALUES *****
-$locations = @("China East", "China North") # Regions ordered by failover priority
+$locations = @()
+$locations += New-AzCosmosDBLocationObject -LocationName "China East" -FailoverPriority 0 -IsZoneRedundant 0
+$locations += New-AzCosmosDBLocationObject -LocationName "China North" -FailoverPriority 1 -IsZoneRedundant 0
+
 $resourceGroupName = "mjbArmTest"#"myResourceGroup" # Resource Group must already exist
 $accountName = "cosmos-$uniqueId" # Must be all lower case
 $consistencyLevel = "Session"
@@ -47,7 +51,7 @@ $autoscaleMaxThroughput = 4000 #minimum = 4000
 # --------------------------------------------------
 Write-Host "Creating account $accountName"
 $account = New-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
-    -Location $locations -Name $accountName -ApiKind $apiKind `
+    -LocationObject $locations -Name $accountName -ApiKind $apiKind `
     -DefaultConsistencyLevel $consistencyLevel `
     -EnableAutomaticFailover:$true
 
@@ -69,7 +73,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 注释 |
+| 命令 | 注释 |
 |---|---|
 |**Azure Cosmos DB**| |
 | [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | 创建 Cosmos DB 帐户。 |
@@ -82,7 +86,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
-可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-
-<!-- Update_Description: new article about autoscale -->
-<!--NEW.date: 08/17/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

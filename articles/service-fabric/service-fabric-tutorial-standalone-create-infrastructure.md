@@ -1,18 +1,20 @@
 ---
-title: 教程：为 AWS 上的 Service Fabric 群集创建基础结构 - Azure Service Fabric
+title: 在 AWS 上创建群集的基础结构
 description: 本教程介绍如何设置 AWS 基础结构来运行 Service Fabric 群集。
-author: rockboyfor
 ms.topic: tutorial
 origin.date: 05/11/2018
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: yes
+ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6495b6f32038dc2b198fc0b8ae33ea6fb68f0fdb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 25c480ec9fa65933b97c86772d0351b0ce93971c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540128"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328575"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>教程：创建用于托管 Service Fabric 群集的 AWS 基础结构
 
@@ -34,7 +36,7 @@ Service Fabric 独立群集为你提供选择自己的环境的选项，并创�
 
 ## <a name="create-ec2-instances"></a>创建 EC2 实例
 
-登录到 AWS 控制台，在搜索框中输入 **EC2**，然后选择“云中的 EC2 虚拟服务器” 
+登录到 AWS 控制台，在搜索框中输入 **EC2** ，然后选择“云中的 EC2 虚拟服务器” 
 
 ![AWS 控制台搜索][aws-console]
 
@@ -70,9 +72,9 @@ New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Acti
 
 ## <a name="modify-the-security-group"></a>修改安全组
 
-Service Fabric 要求在群集中的主机之间打开一些端口。 若要在 AWS 基础结构中打开这些端口，请选择创建的某个实例。 然后选择安全组的名称，例如 **launch-wizard-1**。 现在，请选择“入站”选项卡。 
+Service Fabric 要求在群集中的主机之间打开一些端口。 若要在 AWS 基础结构中打开这些端口，请选择创建的某个实例。 然后选择安全组的名称，例如 **launch-wizard-1** 。 现在，请选择“入站”选项卡。 
 
-为了避免向外界打开这些端口，请只对同一安全组中的主机打开这些端口。 记下安全组 ID（在本示例中为 **sg-c4fb1eba**）。  然后选择“编辑”。 
+为了避免向外界打开这些端口，请只对同一安全组中的主机打开这些端口。 记下安全组 ID（在本示例中为 **sg-c4fb1eba** ）。  然后选择“编辑”。 
 
 接下来，在安全组中添加针对服务依赖项的四个规则，并额外添加针对 Service Fabric 本身的三个规则。 第一个规则允许 ICMP 流量，用于执行基本连接性检查。 其他规则打开所需的端口，以启用 SMB 和远程注册表。
 

@@ -7,9 +7,6 @@
       topicHref: /governance
       items:
         - name: 策略
-          tocHref: /lighthouse
-          topicHref: /governance/policy
-        - name: 策略
           tocHref: /azure-monitor
           topicHref: /governance/policy
         - name: 策略
@@ -17,4 +14,10 @@
           topicHref: /governance/policy
         - name: 策略
           tocHref: /aks
+          topicHref: /governance/policy
+        - name: 策略
+          tocHref: /storage
+          topicHref: /governance/policy
+        - name: 策略
+          tocHref: /web-application-firewall
           topicHref: /governance/policy

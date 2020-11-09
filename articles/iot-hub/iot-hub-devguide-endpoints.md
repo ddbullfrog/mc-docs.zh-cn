@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 06/10/2019
 ms.author: v-yiso
-ms.date: 06/08/2020
-ms.openlocfilehash: a6c3e8f07ef324ad65455f4b8263ec9e2871b210
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.date: 11/16/2020
+ms.openlocfilehash: 07b0ab754a991cd0726e7d6c3f3d589ebec13e6a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394775"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328366"
 ---
 # <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
 
@@ -30,39 +30,39 @@ Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下
 
 以下列表对这些终结点进行了说明：
 
-* **资源提供程序**。 IoT 中心资源提供程序公开一个 [Azure 资源管理器](../azure-resource-manager/management/overview.md)接口。 此接口使 Azure 订阅所有者可以创建和删除 IoT 中心以及更新 IoT 中心属性。 IoT 中心属性可管理[中心级别安全策略](iot-hub-devguide-security.md#access-control-and-permissions)，而不是设备级别的访问控制以及云到设备和设备到云消息传送的功能选项。 IoT 中心资源提供程序还可让你[导出设备标识](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)。
+* **资源提供程序** 。 IoT 中心资源提供程序公开一个 [Azure 资源管理器](../azure-resource-manager/management/overview.md)接口。 此接口使 Azure 订阅所有者可以创建和删除 IoT 中心以及更新 IoT 中心属性。 IoT 中心属性可管理[中心级别安全策略](iot-hub-devguide-security.md#access-control-and-permissions)，而不是设备级别的访问控制以及云到设备和设备到云消息传送的功能选项。 IoT 中心资源提供程序还可让你[导出设备标识](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)。
 
-* **设备标识管理**。 每个 IoT 中心公开一组用于管理设备标识的 HTTPS REST 终结点（创建、检索、更新和删除）。 [设备标识](iot-hub-devguide-identity-registry.md)用于设备身份验证和访问控制。
+* **设备标识管理** 。 每个 IoT 中心公开一组用于管理设备标识的 HTTPS REST 终结点（创建、检索、更新和删除）。 [设备标识](iot-hub-devguide-identity-registry.md)用于设备身份验证和访问控制。
 
-* **设备孪生管理**。 每个 IoT 中心都会公开一组面向服务的 HTTPS REST 终结点，用于查询和更新[设备孪生](iot-hub-devguide-device-twins.md)（更新标记和属性）。
+* **设备孪生管理** 。 每个 IoT 中心都会公开一组面向服务的 HTTPS REST 终结点，用于查询和更新[设备孪生](iot-hub-devguide-device-twins.md)（更新标记和属性）。
 
-* **作业管理**。 每个 IoT 中心都会公开一组面向服务的 HTTPS REST 终结点，用于查询和管理[作业](iot-hub-devguide-jobs.md)。
+* **作业管理** 。 每个 IoT 中心都会公开一组面向服务的 HTTPS REST 终结点，用于查询和管理[作业](iot-hub-devguide-jobs.md)。
 
-* **设备终结点**。 对于标识注册表中的每个设备，IoT 中心都会公开一组终结点。 除非标明，否则这些终结点使用 [MQTT v3.1.1](https://mqtt.org/)、HTTPS 1.1 和 [AMQP 1.0](https://www.amqp.org/) 协议进行公开。 还可通过端口 443 上的 [WebSocket](https://tools.ietf.org/html/rfc6455) 使用 AMQP 和 MQTT。
+* **设备终结点** 。 对于标识注册表中的每个设备，IoT 中心都会公开一组终结点。 除非标明，否则这些终结点使用 [MQTT v3.1.1](https://mqtt.org/)、HTTPS 1.1 和 [AMQP 1.0](https://www.amqp.org/) 协议进行公开。 还可通过端口 443 上的 [WebSocket](https://tools.ietf.org/html/rfc6455) 使用 AMQP 和 MQTT。
 
-  * *发送设备到云的消息*。 设备使用此终结点[发送设备到云的消息](iot-hub-devguide-messages-d2c.md)。
+  * *发送设备到云的消息* 。 设备使用此终结点[发送设备到云的消息](iot-hub-devguide-messages-d2c.md)。
 
-  * *接收云到设备的消息*。 设备使用此终结点接收目标[云到设备的消息](iot-hub-devguide-messages-c2d.md)。
+  * *接收云到设备的消息* 。 设备使用此终结点接收目标[云到设备的消息](iot-hub-devguide-messages-c2d.md)。
 
-  * *启动文件上传*。 设备使用此终结点接收来自 IoT 中心的 Azure 存储 SAS URI，以便[上传文件](iot-hub-devguide-file-upload.md)。
+  * *启动文件上传* 。 设备使用此终结点接收来自 IoT 中心的 Azure 存储 SAS URI，以便[上传文件](iot-hub-devguide-file-upload.md)。
 
-  * *检索并更新设备孪生的属性*。 设备使用此终结点访问其[设备孪生](iot-hub-devguide-device-twins.md)的属性。 不支持 HTTPS。
+  * *检索并更新设备孪生的属性* 。 设备使用此终结点访问其[设备孪生](iot-hub-devguide-device-twins.md)的属性。 不支持 HTTPS。
 
-  * *接收直接方法请求*。 设备使用此终结点侦听[直接方法](iot-hub-devguide-direct-methods.md)的请求。 不支持 HTTPS。
+  * *接收直接方法请求* 。 设备使用此终结点侦听[直接方法](iot-hub-devguide-direct-methods.md)的请求。 不支持 HTTPS。
 
   [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
-* **服务终结点**。 每个 IoT 中心公开一组终结点，供解决方案后端用于与设备通信。 除了一个例外，这些终结点只使用 [AMQP](https://www.amqp.org/) 协议以及基于 WebSockets 的 AMQP 协议进行公开。 直接方法调用终结点通过 HTTPS 协议进行公开。
+* **服务终结点** 。 每个 IoT 中心公开一组终结点，供解决方案后端用于与设备通信。 除了一个例外，这些终结点只使用 [AMQP](https://www.amqp.org/) 协议以及基于 WebSockets 的 AMQP 协议进行公开。 直接方法调用终结点通过 HTTPS 协议进行公开。
   
-  * *接收设备到云的消息*。 此终结点与 [Azure 事件中心](/event-hubs/)兼容。 后端服务可用它来读取由设备发送的[设备到云的消息](iot-hub-devguide-messages-d2c.md)。 除了此内置终结点外，还可以在 IoT 中心创建自定义终结点。
+  * *接收设备到云的消息* 。 此终结点与 [Azure 事件中心](/event-hubs/)兼容。 后端服务可用它来读取由设备发送的[设备到云的消息](iot-hub-devguide-messages-d2c.md)。 除了此内置终结点外，还可以在 IoT 中心创建自定义终结点。
   
-  * *发送云到设备的消息并接收传递确认*。 这些终结点可让解决方案后端发送可靠的[云到设备的消息](iot-hub-devguide-messages-c2d.md)，以及接收对应的传送或过期确认。
+  * *发送云到设备的消息并接收传递确认* 。 这些终结点可让解决方案后端发送可靠的[云到设备的消息](iot-hub-devguide-messages-c2d.md)，以及接收对应的传送或过期确认。
   
-  * *接收文件通知*。 此消息传递终结点允许在设备成功上传文件时接收通知。 
+  * *接收文件通知* 。 此消息传递终结点允许在设备成功上传文件时接收通知。 
   
-  * *直接方法调用*。 此终结点允许后端服务在设备上调用[直接方法](iot-hub-devguide-direct-methods.md)。
+  * *直接方法调用* 。 此终结点允许后端服务在设备上调用[直接方法](iot-hub-devguide-direct-methods.md)。
   
-  * *接收操作监视事件*。 此终结点可以用于接收操作监视事件，前提是已将 IoT 中心配置为发出这些事件。 有关详细信息，请参阅 [IoT 中心操作监视](iot-hub-operations-monitoring.md)。
+  * *接收操作监视事件* 。 此终结点可以用于接收操作监视事件，前提是已将 IoT 中心配置为发出这些事件。 有关详细信息，请参阅 [IoT 中心操作监视](iot-hub-operations-monitoring.md)。
 
 [Azure IoT SDK](iot-hub-devguide-sdks.md) 一文介绍了访问这些终结点的各种方法。
 

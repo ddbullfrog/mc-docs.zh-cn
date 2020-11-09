@@ -5,16 +5,16 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-origin.date: 03/12/2018
-ms.date: 10/01/2019
+origin.date: 12/12/2019
+ms.date: 11/16/2020
 ms.author: v-yiso
 ms.custom: seodec18
-ms.openlocfilehash: d02035f7e1fe7784b8e8b70f225c2183f576f216
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: d9e6fd3a88ee2b8bf37249686a949b5515d9cf90
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162385"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328143"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>将公共对等互连移动到 Microsoft 对等互连
 
@@ -26,7 +26,7 @@ Azure 公共对等互连有 1 个 NAT IP 地址与每个 BGP 会话相关联。 
 
 ## <a name="before-you-begin"></a><a name="before"></a>准备工作
 
-若要连接到 Microsoft 对等互连，你需要设置和管理 NAT。 连接服务提供商可以将 NAT 作为托管服务进行设置和管理。 如果计划在 Microsoft 对等互连上访问 Azure PaaS 和 Azure SaaS 服务，请务必正确设置 NAT IP 池大小。 通过 Azure ExpressRoute（Microsoft 对等互连）连接到 Microsoft 时，你有多条链路连接到 Microsoft。 一条链路是现有的 Internet 连接，另一条是通过 ExpressRoute 连接。 一些流量可能通过 Internet 流入 Microsoft，却通过 ExpressRoute 返回，反之亦然。
+若要连接到 Microsoft 对等互连，你需要设置和管理 NAT。 连接服务提供商可以将 NAT 作为托管服务进行设置和管理。 如果计划在 Microsoft 对等互连上访问 Azure PaaS 和 Azure SaaS 服务，请务必正确设置 NAT IP 池大小。 有关适用于 ExpressRoute 的 NAT 详细信息，请参阅 [Microsoft 对等互连的 NAT 要求](expressroute-nat.md#nat-requirements-for-microsoft-peering)。 通过 Azure ExpressRoute（Microsoft 对等互连）连接到 Microsoft 时，你有多条链路连接到 Microsoft。 一条链路是现有的 Internet 连接，另一条是通过 ExpressRoute 连接。 一些流量可能通过 Internet 流入 Microsoft，却通过 ExpressRoute 返回，反之亦然。
 
 ![双向连接](./media/how-to-move-peering/bidirectional-connectivity.jpg)
 

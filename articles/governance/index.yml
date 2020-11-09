@@ -10,14 +10,14 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: v-tawe
-  origin.date: 06/29/2020
-  ms.date: 09/15/2020
-  ms.openlocfilehash: 9e3ab682117da0b617d9cdc9220ae450ff4695a7
-  ms.sourcegitcommit: 75299b1cb5540a11149f320edaae82ae8c03c16b
+  origin.date: 10/20/2020
+  ms.date: 11/06/2020
+  ms.openlocfilehash: 759387e191779d8d6f6f990719026a88826ee4ce
+  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90523164"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "94328763"
 highlightedContent:
   items:
   - title: 治理概述
@@ -110,6 +110,9 @@ additionalContent:
       - text: REST
         url: https://docs.microsoft.com/rest/api/resources/policydefinitions
         note: （定义）
+      - text: REST
+        url: https://docs.microsoft.com/rest/api/resources/policyexemptions
+        note: （豁免）
       - text: REST
         url: https://docs.microsoft.com/rest/api/resources/policysetdefinitions
         note: （计划）

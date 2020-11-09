@@ -4,16 +4,16 @@ description: 本文介绍如何使用应用程序机密的 Service Fabric KeyVau
 ms.topic: article
 origin.date: 09/20/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 1640536c0672c5dbcdcd71f66f601bd0b2f3b9d7
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: d4be21ebe6487b00c52691b4981141e300c347aa
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128373"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328573"
 ---
 # <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 应用程序的 KeyVaultReference 支持（预览版）
 
@@ -23,7 +23,7 @@ ms.locfileid: "92128373"
 > 不建议在生产环境中使用此预览功能。
 
 > [!NOTE]
-> KeyVault 引用预览功能仅支持[经版本控制的](/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning)机密。 不支持无版本的机密。
+> KeyVault 引用预览功能仅支持[经版本控制的](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)机密。 不支持无版本的机密。
 
 ## <a name="prerequisites"></a>先决条件
 

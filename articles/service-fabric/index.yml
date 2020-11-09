@@ -4,16 +4,18 @@ summary: Azure Service Fabric 是一款分布式系统平台，可方便用户�
 metadata:
   ms.service: service-fabric
   ms.topic: landing-page
+  origin.date: 07/31/2020
   author: rockboyfor
-  origin.date: 12/04/2019
-  ms.date: 01/13/2020
+  ms.date: 11/09/2020
+  ms.testscope: no
+  ms.testdate: 11/09/2020
   ms.author: v-yeche
-  ms.openlocfilehash: e178152164fee5ad1f34f4dd226ec8ba3b7deb12
-  ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+  ms.openlocfilehash: 515928572566a4dce68e4c6965bf40393cc1a434
+  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "75741913"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "94327368"
 landingContent:
 - title: 关于 Service Fabric
   linkLists:
@@ -97,7 +99,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: 安全最佳做法
+    - text: 安全最佳方案
       url: service-fabric-best-practices-security.md
     - text: 应用程序安全性
       url: service-fabric-application-and-service-security.md
@@ -133,7 +135,7 @@ landingContent:
       url: samples-cli.md
   - linkListType: whats-new
     links:
-    - text: 有关 Service Fabric 的常见问题
+    - text: Service Fabric 常见问题解答
       url: service-fabric-common-questions.md
 - title: 在本地使用 Service Fabric
   linkLists:

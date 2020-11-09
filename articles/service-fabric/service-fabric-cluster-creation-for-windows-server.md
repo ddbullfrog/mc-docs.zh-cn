@@ -4,16 +4,16 @@ description: 在运行 Windows Server 的任何本地或任意云计算机（物
 ms.topic: conceptual
 origin.date: 02/21/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1be1a6fb4cff1233328150d54e12518a3a1cd389
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 59fb06dfdade3f9acc8d0c80003f2c96cd3d8728
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655657"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328486"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。 Azure 上的传统 Service Fabric 群集作为托管服务提供，而独立的 Service Fabric 群集是自助服务。 有关差异的详细信息，请参阅[比较 Azure 和独立 Service Fabric 群集](./service-fabric-deploy-anywhere.md)。
@@ -54,14 +54,14 @@ ms.locfileid: "89655657"
 <a name="createcluster"></a>
 
 ## <a name="create-the-cluster"></a>创建群集
-可以通过安装包安装多个示例性的群集配置文件。 *ClusterConfig.Unsecure.DevCluster.json* 是最简单的群集配置：在单台计算机上运行一个不受保护的三节点群集。  其他配置文件描述的是受 X.509 证书或 Windows 安全措施保护的单机或多机群集。  就本教程来说，无需修改任何默认的配置设置，但仍请查看配置文件，熟悉一下这些设置。  **nodes** 节描述了群集中的三个节点：名称、IP 地址、[节点类型、容错域和升级域](service-fabric-cluster-manifest.md#nodes-on-the-cluster)。  **properties** 节定义群集的[安全性、可靠级别、诊断集合和节点类型](service-fabric-cluster-manifest.md#cluster-properties)。
+可以通过安装包安装多个示例性的群集配置文件。 *ClusterConfig.Unsecure.DevCluster.json* 是最简单的群集配置：在单台计算机上运行一个不受保护的三节点群集。  其他配置文件描述的是受 X.509 证书或 Windows 安全措施保护的单机或多机群集。  就本教程来说，无需修改任何默认的配置设置，但仍请查看配置文件，熟悉一下这些设置。  **nodes** 节描述了群集中的三个节点：名称、IP 地址、 [节点类型、容错域和升级域](service-fabric-cluster-manifest.md#nodes-on-the-cluster)。  **properties** 节定义群集的 [安全性、可靠级别、诊断集合和节点类型](service-fabric-cluster-manifest.md#cluster-properties)。
 
 本文中创建的群集是不安全的。  任何人都可以进行匿名连接并执行管理操作，因此生产型群集应始终使用 X.509 证书或 Windows 安全措施来确保安全性。  安全性只能在群集创建时配置，不能在创建群集以后启用安全性。 更新配置文件以启用[证书安全性](service-fabric-windows-cluster-x509-security.md)或 [Windows 安全性](service-fabric-windows-cluster-windows-security.md)。 请阅读[保护群集](service-fabric-cluster-security.md)，详细了解 Service Fabric 群集安全性。
 
 ### <a name="step-1-create-the-cluster"></a>步骤 1：创建群集
 
 #### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>方案 A：创建不受保护的本地开发群集
-可以使用*示例*中包含的 [ClusterConfig.Unsecure.DevCluster.json](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) 文件将 Service Fabric 部署到单机开发群集。
+可以使用 *示例* 中包含的 [ClusterConfig.Unsecure.DevCluster.json](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) 文件将 Service Fabric 部署到单机开发群集。
 
 将独立包解压缩到计算机，将示例配置文件复制到本地计算机，然后通过管理员 PowerShell 会话从独立包文件夹中运行 *CreateServiceFabricCluster.ps1* 脚本。
 
@@ -205,7 +205,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 * ServiceFabricVersion
 * 从其上传遥测数据的虚拟机或计算机的 IP 地址
 
-若要禁用遥测，请将以下内容添加到群集配置中的*属性*：*enableTelemetry: false*。
+若要禁用遥测，请将以下内容添加到群集配置中的 *属性* ： *enableTelemetry: false* 。
 
 <a name="previewfeatures_anchor"></a>
 <a name="previewfeatures"></a>

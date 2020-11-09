@@ -6,19 +6,20 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 origin.date: 09/12/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 943ec08a561890cf79d32e45f79571d595ae2544
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: fab71241c5210bb2a6842cebadbd22c51a3859bc
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118129"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328665"
 ---
 <!--Verified Successfully-->
 # <a name="move-an-azure-cosmos-db-account-to-another-region"></a>将 Azure Cosmos DB 帐户移到另一个区域
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍了如何执行以下操作：
 

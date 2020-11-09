@@ -1,16 +1,16 @@
 ---
 title: 快速入门：第一个 REST API 查询
 description: 在此快速入门中，将按照以下步骤调用 REST API 的 Resource Graph 终结点并运行第一个查询。
-origin.date: 06/29/2020
-ms.date: 08/27/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: quickstart
-ms.openlocfilehash: 43442bde4fabc2dc485664739b08bc30d2e70320
-ms.sourcegitcommit: 26080c846ff2b8e4c53077edf06903069883e13e
+ms.openlocfilehash: fe115511769477d2ce41bfc088538dc0a3edd254
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951947"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327781"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>快速入门：使用 REST API 运行你的第一个 Resource Graph 查询
 
@@ -36,7 +36,6 @@ ms.locfileid: "88951947"
 
 ```azurepowershell
 # Log in first with Connect-AzAccount
-
 Connect-AzAccount -Environment AzureChinaCloud
 
 $azContext = Get-AzContext
@@ -53,7 +52,8 @@ $restUri = 'https://management.chinacloudapi.cn/subscriptions/{subscriptionId}?a
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-替换上面 $restUri 变量中的 `{subscriptionId}`，以获取订阅的相关信息。 $Response 变量可保留 `Invoke-RestMethod` cmdlet 的结果，后者可使用 [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) 之类的 cmdlet 进行分析。 如果 REST API 服务终结点需要请求正文，请向 `Invoke-RestMethod` 的 `-Body` 参数提供 JSON 格式的变量。
+替换 `$restUri` 变量中的 `{subscriptionId}`，以获取订阅的相关信息。
+`$response` 变量可保留 `Invoke-RestMethod` cmdlet 的结果，后者可使用 [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) 之类的 cmdlet 进行分析。 如果 REST API 服务终结点需要请求正文，请向 `Invoke-RestMethod` 的 `-Body` 参数提供 JSON 格式的变量。
 
 ## <a name="run-your-first-resource-graph-query"></a>运行首个 Resource Graph 查询
 

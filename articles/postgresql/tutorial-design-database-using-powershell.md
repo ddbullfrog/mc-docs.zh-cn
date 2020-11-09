@@ -7,23 +7,23 @@ ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 origin.date: 06/08/2020
-ms.date: 07/06/2020
-ms.custom: mvc
-ms.openlocfilehash: d8d26f4e71a86eb89a1d3815434aa06e5688f42d
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.date: 11/09/2020
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: f44cdbcc1defcb826c9f5759586e351be8fad99d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845915"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328755"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>教程：使用 PowerShell 设计 Azure Database for PostgreSQL - 单一服务器
 
-Azure Database for PostgreSQL 是 Microsoft 云中基于 PostgreSQL 社区版数据库引擎的一种关系数据库服务。 在本教程中，你将使用 PowerShell 和其他实用程序了解如何执行以下操作：
+Azure Database for PostgreSQL 是 Microsoft 云中基于 PostgreSQL 社区版数据库引擎的一种关系数据库服务。 本教程介绍如何使用 PowerShell 和其他实用程序来执行以下操作：
 
 > [!div class="checklist"]
 > - 创建用于 PostgreSQL 的 Azure 数据库
 > - 配置服务器防火墙
-> - 使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 实用工具创建数据库
+> - 使用 [psql  ](https://www.postgresql.org/docs/9.6/static/app-psql.html) 实用工具创建数据库
 > - 加载示例数据
 > - 查询数据
 > - 更新数据
@@ -52,7 +52,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 [Azure 资源组](/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
+使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建 [Azure 资源组](../azure-resource-manager/management/overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
 以下示例在“中国北部 2”区域中创建名为“myresourcegroup”的资源组。
 
@@ -211,9 +211,9 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 还原的服务器的位置值和定价层值与原始服务器保持相同。
 
-还原过程完成后，找到新服务器，验证数据是否已按预期还原。 新服务器具有相同的服务器管理员登录名和密码，该登录名和密码在开始还原时对现有服务器有效。 可以从新服务器的“概述”页更改密码。
+还原过程完成后，找到新服务器，验证数据是否已按预期还原。 新服务器具有相同的服务器管理员登录名和密码，该登录名和密码在开始还原时对现有服务器有效。 可以从新服务器的“概述”  页更改密码。
 
-还原期间创建的新服务器没有原始服务器上存在的 VNet 服务终结点。 必须单独为新服务器设置这些规则。 将还原原始服务器中的防火墙规则。
+还原期间创建的新服务器没有原始服务器上存在的 VNet 服务终结点。 必须单独为新服务器设置这些规则。 将从原始服务器还原防火墙规则。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -5,20 +5,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 04/30/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24c1432f28192f9faeee931578248566bac94bf8
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 3ea6d710eb8618eac51de9e1b9e43e4e51a857b8
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246770"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328744"
 ---
 <!--Verified successfully-->
 # <a name="convert-session-token-formats-in-net-sdk"></a>在 .NET SDK 中转换会话令牌格式
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍如何在不同会话令牌格式之间进行转换，以确保 SDK 版本之间的兼容性。
 
@@ -115,8 +116,8 @@ else
 请阅读以下文章：
 
 * [使用会话令牌在 Azure Cosmos DB 中管理一致性](how-to-manage-consistency.md#utilize-session-tokens)
-* [在 Azure Cosmos DB 中选择适当的一致性级别](consistency-levels-choosing.md)
-* [Azure Cosmos DB 中的一致性、可用性和性能权衡](consistency-levels-tradeoffs.md)
-* [各种一致性级别的可用性和性能权衡](consistency-levels-tradeoffs.md)
+* [在 Azure Cosmos DB 中选择适当的一致性级别](./consistency-levels.md)
+* [Azure Cosmos DB 中的一致性、可用性和性能权衡](./consistency-levels.md)
+* [各种一致性级别的可用性和性能权衡](./consistency-levels.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

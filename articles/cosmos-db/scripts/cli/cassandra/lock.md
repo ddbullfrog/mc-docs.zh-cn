@@ -1,28 +1,29 @@
 ---
 title: 创建用于 Azure Cosmos DB 的 Cassandra 密钥空间和表的资源锁
 description: 创建用于 Azure Cosmos DB 的 Cassandra 密钥空间和表的资源锁
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 origin.date: 07/29/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: f60477a99c346a6df4dabcf8f86b11ffc7e8332f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: d3ecaca0fbca7a18fc2b1929c46c9a3fba8d5b6a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222640"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328887"
 ---
 <!--Verified successfully-->
 # <a name="create-a-resource-lock-for-azure-cosmos-cassandra-api-keyspace-and-table-using-azure-cli"></a>使用 Azure CLI 创建用于 Azure Cosmos Cassandra API 密钥空间和表的资源锁
+[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-选择在本地安装并使用 CLI 时，本主题要求运行 Azure CLI 2.9.1 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+选择在本地安装并使用 CLI 时，本主题要求运行 Azure CLI 2.9.1 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 > [!IMPORTANT]
 > 对于使用任何 Cassandra SDK、CQL Shell 或 Azure 门户进行连接的用户所做的更改，除非先在启用了 `disableKeyBasedMetadataWriteAccess` 属性的情况下锁定 Cosmos DB 帐户，否则资源锁无效。 要详细了解如何启用此属性，请参阅[防止 SDK 更改](../../../role-based-access-control.md#prevent-sdk-changes)。
@@ -31,6 +32,12 @@ ms.locfileid: "88222640"
 
 ```azurecli
 #!/bin/bash
+# Reference: az cosmosdb | https://docs.azure.cn/cli/cosmosdb
+# --------------------------------------------------
+#
+# Resource lock operations for a Cassandra keyspace and table
+#
+#
 
 # Sign in the Azure China Cloud
 az cloud set -n AzureChinaCloud
@@ -94,16 +101,16 @@ az lock delete --ids $lockid
 
 | 命令 | 注释 |
 |---|---|
-| [az lock create](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-create) | 创建锁。 |
-| [az lock list](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-list) | 列出锁信息。 |
-| [az lock show](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-show) | 显示锁的属性。 |
-| [az lock delete](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-delete) | 删除锁。 |
+| [az lock create](https://docs.azure.cn/cli/lock#az_lock_create) | 创建锁。 |
+| [az lock list](https://docs.azure.cn/cli/lock#az_lock_list) | 列出锁信息。 |
+| [az lock show](https://docs.azure.cn/cli/lock#az_lock_show) | 显示锁的属性。 |
+| [az lock delete](https://docs.azure.cn/cli/lock#az_lock_delete) | 删除锁。 |
 
 ## <a name="next-steps"></a>后续步骤
 
 -[锁定资源以防止意外更改](../../../../azure-resource-manager/management/lock-resources.md)
 
--[Azure Cosmos DB CLI 文档](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest)。
+-[Azure Cosmos DB CLI 文档](https://docs.azure.cn/cli/cosmosdb)。
 
 -[Azure Cosmos DB CLI GitHub 存储库](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)。
 

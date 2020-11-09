@@ -7,20 +7,21 @@ ms.devlang: java
 ms.topic: how-to
 origin.date: 08/26/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 1f8badf8453bf72600c6db42183f5ddae9d20920
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 73d7f34d67073fcd0b782930eda40165af2902f1
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118563"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328111"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 Bulk Executor Java 库针对 Azure Cosmos DB 数据执行批量操作
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本教程说明了如何使用 Azure Cosmos DB 的批量执行程序 Java 库导入和更新 Azure Cosmos DB 文档。 若要了解 Bulk Executor 库及它如何帮助你利用大量吞吐量和存储，请参阅 [Bulk Executor 库概述](bulk-executor-overview.md)一文。 在本教程中，我们将构建一个可生成随机文档的 Java 应用程序，然后将文档批量导入 Azure Cosmos 容器。 导入后，我们将批量更新文档的某些属性。 
 
@@ -30,7 +31,7 @@ ms.locfileid: "92118563"
 
 * 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
 
-* 可以通过 `https://localhost:8081` 终结点使用 [Azure Cosmos DB 模拟器](https://docs.azure.cn/cosmos-db/local-emulator)。 [对请求进行身份验证](local-emulator.md#authenticate-requests)中提供了主密钥。  
+* 可以通过 `https://localhost:8081` 终结点使用 [Azure Cosmos DB 模拟器](./local-emulator.md)。 [对请求进行身份验证](local-emulator.md#authenticate-requests)中提供了主密钥。
 
     <!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 
@@ -126,7 +127,7 @@ ms.locfileid: "92118563"
     |disableAutomaticIdGeneration     |   用于禁用自动生成 ID 的标志。 此值默认设置为 true。   |
     |maxConcurrencyPerPartitionRange    |  每个分区键范围的最大并发度。 默认值为 20。 |
 
-    **批量导入响应对象定义**批量导入 API 调用的结果包含以下 get 方法：
+    **批量导入响应对象定义** 批量导入 API 调用的结果包含以下 get 方法：
 
     |**参数**  |**说明**  |
     |---------|---------|
@@ -190,7 +191,7 @@ ms.locfileid: "92118563"
     |---------|---------|
     |maxConcurrencyPerPartitionRange   |  每个分区键范围的最大并发度。 默认值为 20。 |
 
-    **批量导入响应对象定义**批量导入 API 调用的结果包含以下 get 方法：
+    **批量导入响应对象定义** 批量导入 API 调用的结果包含以下 get 方法：
 
     |**参数** |**说明**  |
     |---------|---------|

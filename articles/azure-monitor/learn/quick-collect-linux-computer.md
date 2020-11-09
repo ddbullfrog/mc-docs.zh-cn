@@ -11,21 +11,21 @@ origin.date: 12/24/2019
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 01749ca17e795b24d5f8c36419cb0ceb477ddcb6
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: 501484b6f17fba6f5610dcdeb08163e99e6aa994
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148686"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327780"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>快速入门：使用 Azure Monitor 从混合环境中的 Linux 计算机收集数据
 
 [Azure Monitor](../overview.md) 可以直接从环境中的物理或虚拟 Linux 计算机将数据收集到 Log Analytics 工作区中，以便进行详细分析和关联。 安装 [Log Analytics 代理](../platform/log-analytics-agent.md)可让 Azure Monitor 从数据中心或其他云环境收集数据。 本快速入门介绍如何通过几个简单步骤，从 Linux 服务器中配置和收集数据。 有关 Azure Linux VM 的信息，请参阅[收集有关 Azure 虚拟机的数据](./quick-collect-azurevm.md)。  
 
-若要了解支持的配置，请参阅[支持的 Windows 操作系统](../platform/log-analytics-agent.md#supported-linux-operating-systems)和[网络防火墙配置](../platform/log-analytics-agent.md#network-requirements)。
+若要了解支持的配置，请参阅[支持的操作系统](../platform/agents-overview.md#supported-operating-systems)和[网络防火墙配置](../platform/log-analytics-agent.md#network-requirements)。
  
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -42,7 +42,7 @@ ms.locfileid: "89148686"
 2. 选择“创建”，然后为以下各项选择选项：
 
    * 为新的 Log Analytics 工作区提供名称，如 DefaultLAWorkspace。  
-   * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
+   * 如果选择的默认值不合适，请从下拉列表中选择要链接到的 **订阅** 。
    * 对于“资源组”，选择包含一个或多个 Azure 虚拟机的现有资源组。  
    * 选择向其部署 VM 的“位置”。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
    * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/monitor/)。
@@ -59,17 +59,15 @@ ms.locfileid: "89148686"
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
-1. 在 Azure 门户左上角选择“所有服务”。 在搜索框中输入 **Log Analytics**。 键入时，列表会根据输入的内容进行筛选。 选择“Log Analytics 工作区”。
+1. 在 Azure 门户左上角选择“所有服务”。 在搜索框中输入 **Log Analytics** 。 键入时，列表会根据输入的内容进行筛选。 选择“Log Analytics 工作区”。
 
-2. 在 Log Analytics 工作区列表中，选择前面创建的工作区。 （可能已将其命名为 **DefaultLAWorkspace**。）
+2. 在 Log Analytics 工作区列表中，选择前面创建的工作区。 （可能已将其命名为 **DefaultLAWorkspace** 。）
 
-3. 选择“高级设置”：
-
-    ![Azure 门户中 Log Analytics 的“高级设置”菜单](./media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
+3. 选择“代理管理”：
  
-4. 选择“已连接的源”，然后选择“Linux 服务器” 。
+4. 然后选择“Linux 服务器”。
 
-5. “工作区 ID”和“主密钥”右侧的值 。 将它们复制并粘贴到喜爱的编辑器中。
+5. “工作区 ID”和“主键”右侧的值 。 将它们复制并粘贴到喜爱的编辑器中。
 
 ## <a name="install-the-agent-for-linux"></a>安装适用于 Linux 的代理
 
@@ -94,7 +92,7 @@ ms.locfileid: "89148686"
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-2. 若要配置 Linux 计算机以连接至 Log Analytics 工作区，请运行以下命令，并提供先前复制的工作区 ID 和主密钥。 以下命令将下载代理、验证其校验和并将其安装好。 
+2. 若要将 Linux 计算机配置为连接到 Azure 中国云中的 Log Analytics 工作区，请运行以下命令，并提供前面复制的工作区 ID 和主密钥。 以下命令将下载代理、验证其校验和并将其安装好。 
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.cn
@@ -118,7 +116,7 @@ Azure Monitor 可以从你为长期分析和报告指定的 Linux syslog 和性�
 
 1. 在 Azure 门户中，选择“所有服务”。 在资源列表中，键入 Log Analytics。 键入时，列表会根据输入的内容进行筛选。 选择“Log Analytics 工作区”，并在 Log Analytics 工作区列表中选择要查找的工作区，然后选择 Log Analytics 工作区的“高级设置”  。
 
-2. 选择“数据”，然后选择 **Syslog**。  
+2. 选择“数据”，然后选择 **Syslog** 。  
 
 3. 可以通过键入日志名称来添加 syslog。 输入“Syslog”，然后选择加号 ( **+** )。  
 

@@ -3,17 +3,16 @@ title: 调整应用程序以在混合 OS Kubernetes 群集中使用
 description: 如何在 Azure Kubernetes 服务上使用节点选择器或排斥和容许，以确保将在 Azure Stack HCI 上运行的混合 OS Kubernetes 群集中的应用程序安排在正确工作器节点操作系统上
 author: WenJason
 ms.topic: how-to
-ms.service: azure-stack
-origin.date: 09/22/2020
-ms.date: 10/12/2020
+origin.date: 10/20/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 933115d4238f13acce27d14d81650afe7f9039a5
-ms.sourcegitcommit: bc10b8dd34a2de4a38abc0db167664690987488d
+ms.openlocfilehash: 8ce78701876b79bfd0c838fb193aea80343e910f
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451244"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330635"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>使用节点选择器或排斥和容许为混合 OS Kubernetes 群集调整应用
 
@@ -43,7 +42,7 @@ kubernetes.io/os = Linux
 Azure Stack HCI 上的 Azure Kubernetes 服务中的 Windows OS 节点可以使用以下键值对进行进行排斥。 用户不应使用不同的内容。
 
 ```yaml
-node.kubernetes.io/os=Windowss:NoSchedule
+node.kubernetes.io/os=Windows:NoSchedule
 ```
 运行 `kubectl get` 并标识要排斥的 Windows 工作器节点。
 

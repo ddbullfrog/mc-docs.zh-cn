@@ -6,10 +6,6 @@
       href: overview.md
     - name: 我应选择哪个 MySQL 选项？
       href: select-right-deployment-type.md
-    - name: 服务更新
-      items:
-        - name: SSL 根证书即将过期
-          href: concepts-certificate-rotation.md
 - name: 分享的文档
   items:
     - name: 迁移
@@ -100,7 +96,7 @@
         - name: 使用 MySQL 构建 PHP Web 应用
           items:
             - name: 将 PHP 与 MySQL 配合使用
-              href: ../app-service/app-service-web-tutorial-php-mysql.md
+              href: ../app-service/tutorial-php-mysql-app.md
               maintainContext: true
     - name: 示例
       items:
@@ -109,7 +105,7 @@
         - name: Java 连接池
           href: sample-scripts-java-connection-pooling.md
         - name: Azure Policy 内置策略定义
-          href: ./policy-samples.md
+          href: ./policy-reference.md
     - name: 概念
       items:
         - name: 服务器
@@ -140,6 +136,8 @@
               href: concepts-firewall-rules.md
             - name: Azure AD 身份验证
               href: concepts-azure-ad-authentication.md
+        - name: 计划内维护
+          href: concepts-planned-maintenance-notification.md
         - name: 业务连续性
           items:
             - name: 业务连续性简介

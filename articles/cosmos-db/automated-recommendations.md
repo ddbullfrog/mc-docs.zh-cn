@@ -1,24 +1,25 @@
 ---
 title: 针对 Azure Cosmos DB 自动提出的性能、成本和安全性建议
 description: 了解如何查看根据你的工作负载模式针对 Azure Cosmos DB 提供的自定义性能、成本、安全性建议和其他建议。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/28/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 454182809daa2f4b2db603ea4c2ccf2c5956ce23
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: b80a820e7b05f914332c184951a7717eb32a3adc
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223534"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328131"
 ---
 <!--Verify Successfully-->
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>针对 Azure Cosmos DB 自动提出的建议
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 所有云服务（包括 Azure Cosmos DB）都会通过频繁更新来提供新的特性、功能和改进内容。 对于应用程序来说，跟上最新的性能和安全更新非常重要。 Azure 门户提供了让你可以最大限度地提高应用程序性能的自定义建议。 Azure Cosmos DB 的顾问引擎会持续分析 Azure Cosmos DB 资源的使用情况历史记录，并根据工作负载模式提供建议。 这些建议对应于分区、索引编制、网络和安全性等领域。这些自定义建议有助于提高应用程序的性能。
 
@@ -30,7 +31,7 @@ ms.locfileid: "88223534"
 
     :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="从 Azure Cosmos DB 窗格中查看建议":::
 
-- 还可以通过 [Azure 顾问](../advisor/advisor-overview.md)查找按不同的 Bucket（例如成本、安全性、可靠性、性能和运营绩效）分类的建议。 可以选择特定订阅并按资源类型（即 **Azure Cosmos DB 帐户**）进行筛选。  选择某个特定建议后，它会显示可供采用的有益于你的工作负载的操作。
+- 还可以通过 [Azure 顾问](../advisor/advisor-overview.md)查找按不同的 Bucket（例如成本、安全性、可靠性、性能和运营绩效）分类的建议。 可以选择特定订阅并按资源类型（即 **Azure Cosmos DB 帐户** ）进行筛选。  选择某个特定建议后，它会显示可供采用的有益于你的工作负载的操作。
 
     :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="从 Azure 顾问窗格查看建议":::
 
@@ -92,5 +93,4 @@ Azure Cosmos DB 目前支持针对以下领域的建议。 其中每个建议都
 * [优化 Azure Cosmos DB 中的查询性能](sql-api-query-metrics.md)
 * [排查使用 Azure Cosmos DB 时遇到的查询问题](troubleshoot-query-performance.md)
 
-<!-- Update_Description: new article about automated recommendations -->
-<!--NEW.date: 08/10/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

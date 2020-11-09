@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure PowerShell 创建并查询 Synapse SQL 池
+title: 快速入门：使用 Azure PowerShell 创建 Synapse SQL 池
 description: 通过 Azure PowerShell 使用服务器级防火墙规则快速创建 Synapse SQL 池。
 services: synapse-analytics
 author: WenJason
@@ -8,18 +8,18 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 origin.date: 4/11/2019
-ms.date: 08/03/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ce16faf66db57d098867ddabebc34c8dc6bc92d3
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
+ms.openlocfilehash: c3695e9dab87bf3c7f916d59377d93040ea119d1
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426456"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375725"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建并查询 Synapse SQL 池
+# <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 Synapse SQL 池
 
 使用 Azure PowerShell 在 Azure Synapse Analytics 中创建 Synapse SQL 池（数据仓库）。
 
@@ -125,16 +125,16 @@ New-AzSqlDatabase `
 
 所需的参数有：
 
-* **RequestedServiceObjectiveName**：请求的[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)的数量。 增加此数量会增加计算成本。 有关支持值的列表，请参阅[内存和并发限制](memory-concurrency-limits.md)。
-* **DatabaseName**：要创建的 SQL 池的名称。
-* **ServerName**：用于创建过程的服务器名称。
-* **ResourceGroupName**：要使用的资源组。 若要查找订阅中可用的资源，请使用 Get-AzureResource。
-* **Edition**：必须是“DataWarehouse”才能创建 SQL 池。
+* **RequestedServiceObjectiveName** ：请求的 [数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)的数量。 增加此数量会增加计算成本。 有关支持值的列表，请参阅[内存和并发限制](memory-concurrency-limits.md)。
+* **DatabaseName** ：要创建的 SQL 池的名称。
+* **ServerName** ：用于创建过程的服务器名称。
+* **ResourceGroupName** ：要使用的资源组。 若要查找订阅中可用的资源，请使用 Get-AzureResource。
+* **Edition** ：必须是“DataWarehouse”才能创建 SQL 池。
 
 可选参数有：
 
-* **CollationName**：在不指定的情况下，默认排序规则是 SQL_Latin1_General_CP1_CI_AS。 在数据库上不能更改排序规则。
-* **MaxSizeBytes**：数据库的默认最大大小为 240TB。 最大大小限制行存储数据。 列数据的存储不受限制。
+* **CollationName** ：在不指定的情况下，默认排序规则是 SQL_Latin1_General_CP1_CI_AS。 在数据库上不能更改排序规则。
+* **MaxSizeBytes** ：数据库的默认最大大小为 240TB。 最大大小限制行存储数据。 列数据的存储不受限制。
 
 有关参数选项的详细信息，请参阅 [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)。
 
@@ -152,4 +152,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>后续步骤
 
-现已创建 SQL 池、创建防火墙规则、连接到 SQL 池并运行了几个查询。 若要了解详细信息，请继续阅读[将数据加载到 SQL 池](load-data-from-azure-blob-storage-using-polybase.md)一文。
+现已创建 SQL 池，创建防火墙规则并连接到 SQL 池。 若要了解详细信息，请继续阅读[将数据加载到 SQL 池](load-data-from-azure-blob-storage-using-polybase.md)一文。

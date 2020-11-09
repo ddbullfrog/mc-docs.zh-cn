@@ -1,17 +1,17 @@
 ---
 title: 快速入门：使用模板创建共享查询
 description: 在本快速入门中，我们使用 Azure 资源管理器模板（ARM 模板）来创建 Resource Graph 共享查询，以便按 OS 对虚拟机计数。
-origin.date: 07/06/2020
-ms.date: 09/15/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 7946590c219234760c79ee926e7687e3978e1263
-ms.sourcegitcommit: 75299b1cb5540a11149f320edaae82ae8c03c16b
+ms.openlocfilehash: b92c22b7226a6011af11a4543b9d3ca2b00e8ad6
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523166"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328505"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建共享查询
 
@@ -95,9 +95,9 @@ ms.locfileid: "90523166"
    | 订阅 | 选择 Azure 订阅。 |
    | 资源组 | 选择“新建”，指定名称，然后选择“确定”。  |
    | 位置 | 选择区域。 例如“中国东部”。 |
-   | 查询名称 | 保留默认值“按 OS 进行 VM 计数”。 |
-   | 查询代码 | 保留默认值 `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
-   | 查询说明 | 保留默认值“此共享查询对所有虚拟机资源计数，并按 OS 类型进行汇总。” |
+   | 查询名称 | 保留默认值：“按 OS 对 VM 计数”。 |
+   | 查询代码 | 保留默认值：`Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
+   | 查询说明 | 保留默认值：“此共享查询对所有虚拟机资源计数，并按 OS 类型进行汇总。” |
    | 我同意上述条款和条件 | （选择） |
 
 1. 选择“购买”。

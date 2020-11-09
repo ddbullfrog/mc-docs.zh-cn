@@ -4,17 +4,17 @@ description: 通过在本地开发群集上采用 Eclipse 进行开发和调试�
 ms.topic: conceptual
 origin.date: 11/02/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
-ms.custom: devx-track-java
 ms.author: v-yeche
-ms.openlocfilehash: ad4a579f071f62524cf0da882f609aad1ed88856
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.custom: devx-track-java
+ms.openlocfilehash: 7653ec837fd2601b19192ec451ea30a4b7078d80
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655098"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328690"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>使用 Eclipse 调试 Java Service Fabric 应用程序
 > [!div class="op_single_selector"]

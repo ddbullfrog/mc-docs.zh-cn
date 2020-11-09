@@ -5,16 +5,16 @@ manager: rochakm
 ms.topic: how-to
 origin.date: 11/27/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9a6394874d40ab82bd094c2961abe3ee95dc2c4b
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 6f043cb25c86ddda01a7c68966325c1bf8ea6047
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655296"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327276"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>为多层 SAP NetWeaver 应用部署设置灾难恢复
 
@@ -43,11 +43,11 @@ ms.locfileid: "89655296"
 
 使用 Azure Site Recovery 可以为以下方案实现灾难恢复解决方案：
 * 在 Azure 数据中心内运行 SAP 系统，并将其复制到其他 Azure 数据中心（Azure 到 Azure 灾难恢复）。 
-    有关详细信息，请参阅 [Azure 到 Azure 复制体系结构](https://docs.azure.cn/site-recovery/azure-to-azure-architecture)。
+   有关详细信息，请参阅 [Azure 到 Azure 复制体系结构](./azure-to-azure-architecture.md)。
 * 在本地 VMware（或物理）服务器上运行 SAP 系统。 SAP 系统还会复制到 Azure 数据中心内的灾难恢复站点（VMware 到 Azure 灾难恢复）。 
-    此方案需要一些附加的组件。 有关详细信息，请参阅 [VMware 到 Azure 复制体系结构](https://docs.azure.cn/site-recovery/vmware-azure-architecture)。
+   此方案需要一些附加的组件。 有关详细信息，请参阅 [VMware 到 Azure 复制体系结构](./vmware-azure-architecture.md)。
 * 在本地 Hyper-V 上运行的 SAP 系统。 SAP 系统还会复制到 Azure 数据中心内的灾难恢复站点（Hyper-V 到 Azure 灾难恢复）。
-    此方案需要一些附加的组件。 有关详细信息，请参阅 [Hyper-V 到 Azure 复制体系结构](https://docs.azure.cn/site-recovery/azure-to-azure-architecture)。
+   此方案需要一些附加的组件。 有关详细信息，请参阅 [Hyper-V 到 Azure 复制体系结构](./hyper-v-azure-architecture.md)。
 
 在本文中，你将使用 **Azure 到 Azure** 灾难恢复方案。 此方案将演示 Site Recovery 的 SAP 灾难恢复功能。 由于 Site Recovery 复制过程不特定于应用程序，因此介绍的过程应该也适用于其他方案。
 
@@ -152,7 +152,6 @@ SMLG 事务管理 ABAP 应用程序服务器的登录组。 该事务使用 Cent
 > * 在第 14 行将 `automationRegion` 参数的 `allowedValues` 属性替换为以下项。
 >   `chinaeast2,chinanorth,chinanorth2`
 > * 选择“保存”。
-
 
 [![部署到 Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fasr-automation-recovery%2F%2Fazuredeploy.json)
 

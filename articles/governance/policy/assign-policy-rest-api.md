@@ -1,14 +1,16 @@
 ---
 title: 快速入门：使用 REST API 进行新策略分配
 description: 本快速入门介绍如何使用 REST API 创建 Azure Policy 分配以识别不合规资源。
-ms.date: 08/10/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
+ms.author: v-tawe
 ms.topic: quickstart
-ms.openlocfilehash: d75cc2981b9836068b9ed842a6effe80b1d5b58d
-ms.sourcegitcommit: f5438a4f20d47cfe24e5cee209bb9e11a704c23c
+ms.openlocfilehash: e9cfa1daae12419ec7dece41201850d1887b660f
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90456006"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327587"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>快速入门：使用 REST API 创建策略分配以识别不合规资源
 
@@ -23,7 +25,7 @@ REST API 用于创建和管理 Azure 资源。 本指南使用 REST API 创建�
 
 - 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial/)。
 
-- 安装 [ARMClient](https://github.com/projectkudu/ARMClient)（如果尚未安装）。 该工具可将 HTTP 请求发送到基于 Azure 资源管理器的 REST API。 你也可以使用 REST 文档中的“试用”功能，或者使用 PowerShell 的 [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod) 或 [Postman](https://www.postman.com) 等工具。
+- 安装 [ARMClient](https://github.com/projectkudu/ARMClient)（如果尚未安装）。 该工具可将 HTTP 请求发送到基于 Azure 资源管理器的 REST API。 也可以使用 REST 文档中的“试用”功能，或者使用 PowerShell 的 [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod) 或 [Postman](https://www.postman.com) 等工具。
 
 <!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
@@ -59,7 +61,7 @@ REST API URI：
   - 订阅：`/subscriptions/{subscriptionId}`
   - 资源组：`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - 资源：`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
-- **名称** - 分配的实际名称。 对于此示例，使用 _audit-vm-manageddisks_。
+- **名称** - 分配的实际名称。 对于此示例，使用 _audit-vm-manageddisks_ 。
 
 请求正文：
 - **显示名称** - 策略分配的显示名称。 本例使用了“审核未使用托管磁盘分配的虚拟机”  。

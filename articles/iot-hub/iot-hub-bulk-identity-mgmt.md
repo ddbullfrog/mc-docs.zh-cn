@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 10/02/2019
 ms.author: v-yiso
 ms.date: 04/06/2020
-ms.openlocfilehash: 049bd789e007b551f5e4570f2d3a13dd7f54ce6d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 48fad156db48da00655cb5fec95222cece66954c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471268"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327561"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>批量导入和导出 IoT 中心设备标识
 
@@ -419,21 +419,13 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 若要详细了解如何管理 Azure IoT 中心，请查看以下文章：
 
-* [IoT 中心指标](iot-hub-metrics.md)
-* [IoT 中心日志](iot-hub-monitor-resource-health.md)
+* [监视 IoT 中心](monitor-iot-hub.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge] 若要了解如何使用 IoT 中心设备预配服务启用零接触实时预配，请参阅： 
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)
+
+若要了解如何使用 IoT 中心设备预配服务启用零接触实时预配，请参阅： 
 
 * [Azure IoT 中心设备预配服务](/iot-dps)
-
-
-[lnk-metrics]: ./iot-hub-metrics.md
-[lnk-monitor]: ./iot-hub-operations-monitoring.md
-
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
-
-<!--Update_Description: update meta data and wording-->

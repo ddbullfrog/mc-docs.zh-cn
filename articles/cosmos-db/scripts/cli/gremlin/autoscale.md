@@ -6,19 +6,20 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 711cf71d9d80be543f29af7226087a4436be00e7
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: b85589472d0cf1ffa8f1ce6079408440decc364e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211875"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328076"
 ---
 <!--Verify successfully-->
 # <a name="create-an-azure-cosmos-gremlin-api-account-database-and-graph-with-autoscale-using-azure-cli"></a>使用 Azure CLI 创建 Azure Cosmos Gremlin API 帐户、数据库和图（具有自动缩放功能）
+[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -28,11 +29,19 @@ ms.locfileid: "92211875"
 
 ```azurecli
 #!/bin/bash
-
+# Reference: az cosmosdb | https://docs.azure.cn/cli/cosmosdb
+# --------------------------------------------------
+#
 # Create a Gremlin API database and graph with autoscale
+#
+#
 
 # Generate a unique 10 character alphanumeric string to ensure unique resource names
 uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
+
+# Sign in the Azure China Cloud
+az cloud set -n AzureChinaCloud
+az login
 
 # Variables for Gremlin API resources
 resourceGroupName="Group-$uniqueId"
@@ -83,16 +92,13 @@ az group delete --name $resourceGroupName
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 | [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az cosmosdb create](https://docs.azure.cn/cli/cosmosdb#az_cosmosdb_create) | 创建 Azure Cosmos DB 帐户。 |
 | [az cosmosdb gremlin database create](https://docs.azure.cn/cli/cosmosdb/gremlin/database#az_cosmosdb_gremlin_database_create) | 创建 Azure Cosmos Gremlin 数据库。 |
 | [az cosmosdb gremlin graph create](https://docs.azure.cn/cli/cosmosdb/gremlin/graph#az_cosmosdb_gremlin_graph_create) | 创建 Azure Cosmos Gremlin 图。 |
 | [az group delete](https://docs.azure.cn/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
-
-<!--CORRECT ON [az cosmosdb gremlin database create]-->
-<!--CORRECT ON [az cosmosdb gremlin graph create]-->
 
 ## <a name="next-steps"></a>后续步骤
 

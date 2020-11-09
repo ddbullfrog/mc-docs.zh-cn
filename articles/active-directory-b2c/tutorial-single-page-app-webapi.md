@@ -6,17 +6,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: v-junlch
-ms.date: 05/18/2020
-ms.custom: mvc
+ms.date: 11/04/2020
+ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e60f80f0e60bc65f44972a56c4df33da9a5163bd
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 59a540651162024d216dc618b8af1f231de81437
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402341"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326435"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>教程：使用 Azure AD B2C 保护 Node.js Web API 并授予从单页应用程序访问该 API 的权限
 
@@ -44,9 +44,9 @@ ms.locfileid: "91402341"
 
 [!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
-## <a name="configure-scopes"></a>配置范围
+## <a name="configure-scopes"></a>配置作用域
 
-可通过范围控制对受保护资源的访问。 Web API 使用作用域实施基于作用域的访问控制。 例如，可以让某些用户拥有读取和写入访问权限，让另一些用户拥有只读权限。 在本教程中，你将定义 Web API 的读取和写入权限。
+可通过作用域控制对受保护资源的访问。 Web API 使用作用域实施基于作用域的访问控制。 例如，可以让某些用户拥有读取和写入访问权限，让另一些用户拥有只读权限。 在本教程中，你将定义 Web API 的读取和写入权限。
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
@@ -56,7 +56,7 @@ ms.locfileid: "91402341"
 
 若要从另一应用程序调用受保护的 Web API，需授予应用程序访问该 Web API 的权限。
 
-在先决条件教程中，你已创建名为 *webapp1* 的 Web 应用程序。 在本教程中，你要将该应用程序配置为调用在上一部分创建的 Web API：*webapi1*。
+在先决条件教程中，你已创建名为 *webapp1* 的 Web 应用程序。 在本教程中，你要将该应用程序配置为调用在上一部分创建的 Web API： *webapi1* 。
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
@@ -74,14 +74,20 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="configure-the-web-api"></a>配置 Web API
 
-1. 在代码编辑器中打开 config.js 文件。 
+1. 在代码编辑器中打开 config.json 文件。
 1. 修改变量值，以反映前面创建的应用程序注册的值。 另外，使用作为先决条件的一部分创建的用户流更新 `policyName`。 例如 B2C_1_signupsignin1。 
-
-    ```javascript
-    const clientID = "<your-webapi-application-ID>"; // Application (client) ID
-    const b2cDomainHost = "<your-tenant-name>.b2clogin.cn";
-    const tenantId = "<your-tenant-ID>.partner.onmschina.cn"; // Alternatively, you can use your Directory (tenant) ID (a GUID)
-    const policyName = "B2C_1_signupsignin1";
+    
+    ```json
+    "credentials": {
+        "tenantName": "<your-tenant-name>",
+        "clientID": "<your-webapi-application-ID>"
+    },
+    "policies": {
+        "policyName": "B2C_1_signupsignin1"
+    },
+    "resource": {
+        "scope": ["demo.read"] 
+    },
     ```
 
 #### <a name="enable-cors"></a>启用 CORS

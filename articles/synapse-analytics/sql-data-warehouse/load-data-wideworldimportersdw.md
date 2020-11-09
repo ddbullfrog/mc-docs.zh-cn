@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 07/17/2019
-ms.date: 08/03/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: dd8560fb4b4a286576e742f7996ac4581bc4d979
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 65b3dc3b2392075bdbf7fcc383a1772d1e571251
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426416"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375740"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>教程：将数据加载到 Azure Synapse Analytics SQL 池
 
@@ -84,7 +84,7 @@ SQL 池是使用定义的一组[计算资源](memory-concurrency-limits.md)创�
 
 1. 选择“查看 + 创建”以查看设置，然后选择“创建”以创建数据仓库 。 可以通过从“通知”菜单打开“部署正在进行”页来监视进度 。
 
-     ![通知](./media/load-data-wideworldimportersdw/notification.png)
+     ![屏幕截图显示“正在进行部署”的通知。](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>创建服务器级防火墙规则
 

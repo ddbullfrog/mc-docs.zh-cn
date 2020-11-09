@@ -1,24 +1,25 @@
 ---
 title: 用于 Azure Cosmos DB SQL API 数据库或容器的吞吐量 (RU/s) 操作的 PowerShell 脚本
 description: 用于 Azure Cosmos DB SQL API 数据库或容器的吞吐量 (RU/s) 操作的 PowerShell 脚本
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 10/07/2020
-ms.date: 11/02/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 01/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: ecf82bf3c5548fd139b6078c924b3bad96ce9fd1
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 67d5f865b040a15676867d1f9a0a84922c718a9d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106494"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328642"
 ---
 <!--Verified successfully-->
 # <a name="throughput-rus-operations-with-powershell-for-a-database-or-container-for-azure-cosmos-db-core-sql-api"></a>用于 Azure Cosmos DB Core (SQL) API 的数据库或容器的使用 PowerShell 的吞吐量 (RU/s) 操作
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -155,7 +156,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
-可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-
-<!-- Update_Description: new article about throughput get -->
-<!--NEW.date: 08/17/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

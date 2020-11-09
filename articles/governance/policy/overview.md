@@ -2,15 +2,15 @@
 title: Azure Policy 概述
 description: Azure Policy 是 Azure 中的一项服务，用于创建、分配和管理 Azure 环境中的策略定义。
 ms.author: v-tawe
-origin.date: 06/17/2020
-ms.date: 08/06/2020
+origin.date: 10/05/2020
+ms.date: 11/06/2020
 ms.topic: overview
-ms.openlocfilehash: d01c6eb8610ccae563964bfa37b2e9c9ee132b87
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 9177dce86c9451561528a322569e0842a7a15e69
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917344"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327569"
 ---
 # <a name="what-is-azure-policy"></a>什么是 Azure Policy？
 
@@ -18,10 +18,11 @@ Azure Policy 可帮助实施组织标准并大规模评估合规性。 Azure Pol
 
 Azure Policy 的常见用例包括实施监管来满足资源一致性、安全性、成本和管理方面的要求。 Azure 环境中已经内置了这些常见用例的策略定义，帮助你入门。
 
+所有 Azure Policy 数据和对象都进行了静态加密。 有关详细信息，请参阅 [Azure 数据静态加密](../../security/fundamentals/encryption-atrest.md)。
+
 ## <a name="overview"></a>概述
 
-Azure Policy 通过将 Azure 中资源的属性与业务规则进行比较，来评估这些资源。 以 [JSON 格式](./concepts/definition-structure.md)描述的这些业务规则称为[策略定义](#policy-definition)。 为了简化管理，可以组合多个业务规则来构成一个[策略计划](#initiative-definition)（有时称为“策略集”）。 构成业务规则后，策略定义或计划将[分配](#assignments)到 Azure 支持的任何资源范围，例如[管理组](../management-groups/overview.md)、订阅、[资源组](../../azure-resource-manager/management/overview.md#resource-groups)或单个资源。 分配会应用到该分配的[范围](../../azure-resource-manager/management/overview.md#understand-scope)内的所有资源。
-必要时可以排除子范围。
+Azure Policy 通过将 Azure 中资源的属性与业务规则进行比较，来评估这些资源。 以 [JSON 格式](./concepts/definition-structure.md)描述的这些业务规则称为[策略定义](#policy-definition)。 为了简化管理，可以组合多个业务规则来构成一个[策略计划](#initiative-definition)（有时称为“策略集”）。 构成业务规则后，策略定义或计划将[分配](#assignments)到 Azure 支持的任何资源范围，例如[管理组](../management-groups/overview.md)、订阅、[资源组](../../azure-resource-manager/management/overview.md#resource-groups)或单个资源。 分配应用于该分配的[资源管理器作用域](../../azure-resource-manager/management/overview.md#understand-scope)内的所有资源。 必要时可以排除子范围。 有关详细信息，请参阅 [Azure Policy 中的作用域](./concepts/scope.md)。
 
 Azure Policy 使用 [JSON 格式](./concepts/definition-structure.md)构成评估机制用来确定某个资源是否合规的逻辑。 定义包括元数据和策略规则。 定义的规则可以使用与所需方案完全匹配的函数、参数、逻辑运算符、条件和属性[别名](./concepts/definition-structure.md#aliases)。 策略规则确定要评估分配范围内的哪些资源。
 
@@ -64,31 +65,31 @@ on Channel 9.
 
 ## <a name="getting-started"></a>入门
 
-### <a name="azure-policy-and-rbac"></a>Azure Policy 和 RBAC
+### <a name="azure-policy-and-azure-rbac"></a>Azure Policy 和 Azure RBAC
 
-Azure Policy 和基于角色的访问控制 (RBAC) 之间存在一些主要区别。 Azure Policy 通过检查资源管理器中显示的资源属性和某些资源提供程序的属性来评估状态。 Azure Policy 不会限制操作。 Azure Policy 确保资源状态符合业务规则，而不考虑更改是谁做出的或者谁有权做出更改。
+Azure Policy 和 Azure 基于角色的访问控制 (Azure RBAC) 之间存在一些主要区别。 Azure Policy 通过检查资源管理器中显示的资源属性和某些资源提供程序的属性来评估状态。 Azure Policy 不会限制操作。 Azure Policy 确保资源状态符合业务规则，而不考虑更改是谁做出的或者谁有权做出更改。
 
-RBAC 重点关注如何管理不同范围的用户[操作](../../role-based-access-control/resource-provider-operations.md)。 如果需要控制某项操作，则 RBAC 是可以使用的适当工具。 即使个人有权执行操作，但如果结果是不合规的资源，Azure Policy 也仍会阻止创建或更新操作。
+Azure RBAC 重点关注如何管理不同范围的用户[操作](../../role-based-access-control/resource-provider-operations.md)。 如果需要控制某项操作，则 Azure RBAC 是可以使用的适当工具。 即使个人有权执行操作，但如果结果是不合规的资源，Azure Policy 也仍会阻止创建或更新操作。
 
-RBAC 和 Azure Policy 的组合在 Azure 中提供了全范围控制。
+Azure RBAC 和 Azure Policy 的组合在 Azure 中提供了全范围控制。
 
-### <a name="rbac-permissions-in-azure-policy"></a>Azure Policy 中的 RBAC 权限
+### <a name="azure-rbac-permissions-in-azure-policy"></a>Azure Policy 中的 Azure RBAC 权限
 
 Azure Policy 在两个资源提供程序中具有多个权限（称为操作）：
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-许多内置角色可授予对 Azure Policy 资源的权限。 “资源策略参与者”角色包括大多数 Azure Policy 操作。 “所有者”具有完全权限。 “参与者”和“读取者”都有权访问所有 Azure Policy 读取操作。  “参与者”可以触发资源修正，但无法创建定义或分配。
+许多内置角色可授予对 Azure Policy 资源的权限。 “资源策略参与者”角色包括大多数 Azure Policy 操作。 “所有者”具有完全权限。 “参与者”和“读取者”都有权访问所有 Azure Policy 读取操作。  “参与者”可以触发资源修正，但无法创建定义或分配。 需要“用户访问管理员”以授予 deployIfNotExists 或 modify 分配所需权限的托管标识  。
 
 如果没有任何内置角色具有所需的权限，可创建[自定义角色](../../role-based-access-control/custom-roles.md)。
 
 > [!NOTE]
-> deployIfNotExists 策略分配的托管标识需有足够的权限才能创建或更新模板中包含的资源。 有关详细信息，请参阅[配置有关修正的策略定义](./how-to/remediate-resources.md#configure-policy-definition)。
+> deployIfNotExists 或 modify 策略分配的托管标识需有足够的权限才能创建或更新已定位资源 。 有关详细信息，请参阅[配置有关修正的策略定义](./how-to/remediate-resources.md#configure-policy-definition)。
 
 ### <a name="resources-covered-by-azure-policy"></a>Azure Policy 涵盖的资源
 
-Azure Policy 评估 Azure 中的所有资源。 对于某些资源提供程序（例如 [Guest Configuration](./concepts/guest-configuration.md)、[Azure Kubernetes 服务](../../aks/intro-kubernetes.md)和 [Azure Key Vault](../../key-vault/general/overview.md)），可以使用一个更深度的集成来管理设置和对象。 有关详细信息，请参阅[资源提供程序模式](./concepts/definition-structure.md)。
+Azure Policy 评估 Azure 中的所有资源以及已启用 Arc 的资源。 对于某些资源提供程序（例如 [Guest Configuration](./concepts/guest-configuration.md)、[Azure Kubernetes 服务](../../aks/intro-kubernetes.md)和 [Azure Key Vault](../../key-vault/general/overview.md)），可以使用一个更深度的集成来管理设置和对象。 有关详细信息，请参阅[资源提供程序模式](./concepts/definition-structure.md)。
 
 ### <a name="recommendations-for-managing-policies"></a>管理策略的建议
 
@@ -114,13 +115,12 @@ Azure Policy 评估 Azure 中的所有资源。 对于某些资源提供程序�
 
 在 Azure Policy 中，我们将提供一些默认可供使用的内置策略。 例如：
 
-- **允许的存储帐户 SKU**（拒绝）：确定正在部署的存储帐户是否在 SKU 大小集内。 其效果是拒绝所有不符合定义的 SKU 大小集的存储帐户。
-- **允许的资源类型**（拒绝）：定义可以部署的资源类型。 其效果是拒绝所有不属于此定义列表的资源。
-- **允许的位置**（拒绝）：限制新资源的可用位置。 其效果是用于强制执行异地符合性要求。
-- **允许的虚拟机 SKU**（拒绝）：指定可以部署的虚拟机 SKU 集。
-- **将标记添加到资源**（修改）：如果部署请求未指定，则应用所需的标记及其默认值。
-- **追加标记及其默认值**（追加）：对资源强制执行所需的标记及其值。
-- **不允许的资源类型**（拒绝）：禁止部署资源类型的列表。
+- **允许的存储帐户 SKU** （拒绝）：确定正在部署的存储帐户是否在 SKU 大小集内。 其效果是拒绝所有不符合定义的 SKU 大小集的存储帐户。
+- **允许的资源类型** （拒绝）：定义可以部署的资源类型。 其效果是拒绝所有不属于此定义列表的资源。
+- **允许的位置** （拒绝）：限制新资源的可用位置。 其效果是用于强制执行异地符合性要求。
+- **允许的虚拟机 SKU** （拒绝）：指定可以部署的虚拟机 SKU 集。
+- **将标记添加到资源** （修改）：如果部署请求未指定，则应用所需的标记及其默认值。
+- **不允许的资源类型** （拒绝）：禁止部署资源类型的列表。
 
 若要实现这些策略定义（包括内置定义和自定义定义），需将其分配出去。 可通过 Azure 门户、PowerShell 或 Azure CLI 来分配上述任意策略。
 
@@ -149,7 +149,7 @@ Azure Policy 评估 Azure 中的所有资源。 对于某些资源提供程序�
 
 类似于策略参数，计划参数通过减少冗余来帮助简化计划管理。 计划参数是计划内的策略定义正在使用的参数。
 
-例如，假设出现这样一种情况，有一个带有两个策略定义（**policyA** 和 **policyB**，每个都需要不同类型的参数）的计划定义 - initiativeC：
+例如，假设出现这样一种情况，有一个带有两个策略定义（ **policyA** 和 **policyB** ，每个都需要不同类型的参数）的计划定义 - initiativeC：
 
 | 策略 | 参数的名称 |参数的类型  |注意 |
 |---|---|---|---|

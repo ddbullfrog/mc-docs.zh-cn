@@ -7,7 +7,7 @@ ms.devlang: python
 ms.topic: quickstart
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
@@ -16,14 +16,15 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 207c527c03f483a31386e950e519bcfded422bfa
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 74fcfa5101de5a2acfd257453fceb79415ecdfc9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118379"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328618"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户生成 Python 应用程序
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -41,8 +42,8 @@ ms.locfileid: "92118379"
 - 一个 Cosmos DB 帐户。 选项包括：
     * 具有 Azure 有效订阅：
         * [创建 Azure 免费帐户](https://www.azure.cn/pricing/1rmb-trial)或使用现有订阅 
-        * [Visual Studio 每月额度](https://www.azure.cn/offers/ms-mc-arz-msdn/)
-        * [Azure Cosmos DB 免费层](/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Visual Studio 每月额度](https://www.azure.cn/offers/ms-mc-arz-msdn)
+        * [Azure Cosmos DB 免费层](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * 不具有 Azure 有效订阅：
 
         <!--Not Available on [try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
@@ -120,9 +121,9 @@ ms.locfileid: "92118379"
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，在你的 Azure Cosmos DB 帐户中，选择左侧导航栏中的“密钥”。 使用屏幕右侧的复制按钮将 **URI** 和**主密钥**复制到下一步的 *cosmos_get_started.py* 文件中。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，在你的 Azure Cosmos DB 帐户中，选择左侧导航栏中的“密钥”。 使用屏幕右侧的复制按钮将 **URI** 和 **主密钥** 复制到下一步的 *cosmos_get_started.py* 文件中。
 
-    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Azure 门户 >“数据资源管理器”>“添加集合”窗格":::
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="在 Azure 门户的“密钥”设置中获取访问密钥和 URI":::
 
 2. 在 Visual Studio Code 中，打开 *\git-samples\azure-cosmos-db-python-getting-started* 中的 *cosmos_get_started.py* 文件。
 

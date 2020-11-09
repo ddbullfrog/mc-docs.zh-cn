@@ -4,16 +4,16 @@ description: 了解 sfctl（Azure Service Fabric 命令行接口）。 包含用
 ms.topic: reference
 origin.date: 01/16/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 02/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 01a99dd34c2ae7eda20898f6a521ae701a824dc2
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 470594ef8a9292a310ba72bc4a4bcb778c190de9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655637"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327599"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 启动、停止和报告混沌测试服务。
@@ -80,7 +80,9 @@ ms.locfileid: "89655637"
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 在群集中启动混沌测试。
 
-如果尚未在群集中运行混沌测试，则使用混沌测试参数中指定的值开始运行混沌测试。 如果进行此调用时运行混沌，调用将失败，错误代码为 FABRIC_E_CHAOS_ALREADY_RUNNING。 有关更多详细信息，请参阅[在 Service Fabric 群集中引入受控的混沌测试](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos)一文。
+如果尚未在群集中运行混沌测试，则使用混沌测试参数中指定的值开始运行混沌测试。 如果进行此调用时运行混沌，调用将失败，错误代码为 FABRIC_E_CHAOS_ALREADY_RUNNING。 有关更多详细信息，请参阅[在 Service Fabric 群集中引入受控的混沌测试](https://docs.azure.cn/service-fabric/service-fabric-controlled-chaos)一文。
+
+<!--CORRECT ON https://docs.azure.cn/service-fabric/service-fabric-controlled-chaos-->
 
 ### <a name="arguments"></a>参数
 

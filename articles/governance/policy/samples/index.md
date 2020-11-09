@@ -2,15 +2,15 @@
 title: 策略示例索引
 description: Azure Policy 的内置项的索引。 类别标记、法规符合性、Key Vault、Kubernetes、来宾配置等。
 ms.topic: sample
-origin.date: 07/20/2020
-ms.date: 09/15/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
-ms.openlocfilehash: e28d5d3856b44624c5d3eff89444180d8a4e0f9f
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 17dc8d5cbe7918f7267997a8233886d893c27ae7
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524003"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327564"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 示例
 
@@ -29,7 +29,7 @@ ms.locfileid: "90524003"
 - [Fields](./pattern-fields.md)
 - [参数](./pattern-parameters.md)
 - [效果详细信息](./pattern-effect-details.md)
-- [使用标记](./pattern-effect-details.md)
+- [使用标记](./pattern-tags.md)
 - [Value 运算符](./pattern-value-operator.md)
 - [Count 运算符](./pattern-count-operator.md)
 - [对计划中的策略定义进行分组](./pattern-group-with-initiative.md)

@@ -5,22 +5,24 @@ ms.service: traffic-manager
 ms.topic: conceptual
 origin.date: 10/01/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 10/26/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5247ff8080fa1bd06671cfbd29de173322a48bcc
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 2b613f8e211135661dec1f99e4fa401369607975
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92473121"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327314"
 ---
 <!--Verified Successfully-->
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>适用于 Azure 流量管理器的 Azure 安全基线
 
-适用于 Azure 流量管理器的 Azure 安全基线包含有助于改进部署安全状况的建议。 此服务的基线摘自 [Azure 安全基准版本 1.0](../security/benchmarks/overview-v1.md)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。 内容按“安全控制”分组，这些控制按适用于 Azure 流量管理器的 Azure 安全基准和相关指南定义。 已排除了不适用于 Azure 流量管理器的控制。
+适用于 Azure 流量管理器的 Azure 安全基线包含有助于改进部署安全状况的建议。 此服务的基线摘自 Azure 安全基准版本 1.0，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。 内容按“安全控制”分组，这些控制按适用于 Azure 流量管理器的 Azure 安全基准和相关指南定义。 已排除了不适用于 Azure 流量管理器的控制。
+
+<!--Not Available on [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md)-->
 
 若要了解 Azure 流量管理器如何完全映射到 Azure 安全基准，请参阅[完整的 Azure 流量管理器安全基线映射文件](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)。
 

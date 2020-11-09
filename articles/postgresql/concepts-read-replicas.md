@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 10/15/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: e6517c5bb7ecfa092440e21f310523fad222b79c
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/09/2020
+ms.openlocfilehash: f44ac196592854bd53f807ae54bf8f5c3039c108
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470024"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328098"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的只读副本
 
@@ -127,7 +127,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 
 ### <a name="disaster-recovery"></a>灾难恢复
 
-当出现重大灾难事件（例如区域性故障）时，可以通过提升只读副本来执行灾难恢复操作。 在 UI 门户中，可以导航到只读副本服务器。 然后单击“复制”选项卡，并且可以停止副本以将其提升为独立服务器。 或者，你可以使用 [Azure CLI](/cli/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) 来停止和提升副本服务器。
+当出现重大灾难事件（例如区域性故障）时，可以通过提升只读副本来执行灾难恢复操作。 在 UI 门户中，可以导航到只读副本服务器。 然后单击“复制”选项卡，并且可以停止副本以将其提升为独立服务器。 或者，你可以使用 [Azure CLI](/cli/postgres/server/replica#az_postgres_server_replica_stop) 来停止和提升副本服务器。
 
 ## <a name="considerations"></a>注意事项
 

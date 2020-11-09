@@ -1,32 +1,32 @@
 ---
-title: ExpressRoute：将 VNet 链接到线路：经典
+title: Azure ExpressRoute：将 VNet 链接到线路：经典
 description: 本文档概述如何使用经典部署模型和 PowerShell 将虚拟网络 (VNet) 链接到 ExpressRoute 线路。
 services: expressroute
-documentationcenter: na
-author: cherylmc
+author: duongau
 ms.service: expressroute
-ms.topic: conceptual
-origin.date: 12/06/2019
-ms.author: v-yiso
-ms.date: 01/20/2020
-ms.openlocfilehash: efc49ed3a11c034fed381da7f92468e4dd49ed56
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.topic: how-to
+ms.date: 12/06/2019
+ms.author: duau
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d65fe76d8a80f73ecb5c12c6bbf1ba1af4fec104
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75859592"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327915"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 将虚拟网络连接到 ExpressRoute 线路（经典）
 > [!div class="op_single_selector"]
 > * [Azure 门户](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
+> * [视频 - Azure 门户](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell（经典）](expressroute-howto-linkvnet-classic.md)
 >
 
 本文介绍如何使用 PowerShell 将虚拟网络 (VNet) 链接到 Azure ExpressRoute 线路。 单个 VNet 可最多连接到 4 条 ExpressRoute 线路。 通过本文中的步骤为正在连接的每条 ExpressRoute 线路创建新链接。 ExpressRoute 线路可在同一订阅、不同订阅或两者兼有。 本文适用于使用经典部署模型创建的虚拟网络。
 
-最多可以将 10 个虚拟网络链接到 ExpressRoute 线路。 所有虚拟网络都必须位于同一地缘政治区域。 如果启用 ExpressRoute 高级外接程序，则可以将更多虚拟网络链接到 ExpressRoute 线路，或者链接其他地缘政治区域中的虚拟网络。 有关高级外接程序的更多详细信息，请参阅[常见问题解答](expressroute-faqs.md)。
+最多可以将 10 个虚拟网络链接到一条 ExpressRoute 线路。 所有虚拟网络必须都位于同一地缘政治区域。 如果启用 ExpressRoute 高级外接程序，则可以将更多虚拟网络链接到 ExpressRoute 线路，或者链接其他地缘政治区域中的虚拟网络。 有关高级外接程序的更多详细信息，请参阅[常见问题解答](expressroute-faqs.md)。
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -37,12 +37,12 @@ ms.locfileid: "75859592"
 
 ## <a name="configuration-prerequisites"></a>配置先决条件
 
-* 在开始配置之前，请查看[先决条件](expressroute-prerequisites.md)、[路由要求](expressroute-routing.md)和[工作流](expressroute-workflows.md)。
+* 在开始配置之前，请先查看[先决条件](expressroute-prerequisites.md)、[路由要求](expressroute-routing.md)和[工作流](expressroute-workflows.md)。
 * 必须有一个活动的 ExpressRoute 线路。
    * 请按说明[创建 ExpressRoute 线路](expressroute-howto-circuit-classic.md)，并让连接提供商启用该线路。
-   * 确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](expressroute-howto-routing-classic.md)一文。
-   * 确保配置 Azure 专用对等互连，并运行用户网络和 Microsoft 之间的 BGP 对等互连，以便启用端到端连接。
-   * 必须已创建并完全预配虚拟网络和虚拟网络网关。 请按说明[为 ExpressRoute 配置虚拟网络](expressroute-howto-vnet-portal-classic.md)。
+   * 请确保为线路配置 Azure 专用对等互连。 有关路由说明，请参阅[配置路由](expressroute-howto-routing-classic.md)一文。
+   * 确保配置 Azure 专用对等互连并运行网络和 Microsoft 之间的 BGP 对等互连，以便启用端到端连接。
+   * 必须已创建并完全预配一个虚拟网络和一个虚拟网络网关。 请按说明[为 ExpressRoute 配置虚拟网络](./expressroute-howto-add-gateway-portal-resource-manager.md)。
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>下载最新的 PowerShell cmdlet
 
@@ -64,28 +64,28 @@ Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VN
 ```
  
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>将不同订阅中的虚拟网络连接到线路
+## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>将另一订阅中的虚拟网络连接到线路
 用户可以在多个订阅之间共享 ExpressRoute 线路。 下图是在多个订阅之间共享 ExpressRoute 线路的简单示意图。
 
-大型云中的每个较小云用于表示属于组织中不同部门的订阅。 组织内的每个部门可以使用自己的订阅部署其服务，但这些部门可以共享单个 ExpressRoute 线路以连接回本地网络。 一个部门（此示例中为：IT 部门）可以拥有 ExpressRoute 线路。 组织内的其他订阅可以使用 ExpressRoute 线路。
+大型云中的每个较小云用于表示属于组织中不同部门的订阅。 组织内的每个部门可以使用自己的订阅部署其服务，但这些部门可以共享单个 ExpressRoute 线路以连接回本地网络。 单个部门（在此示例中为 IT 部门）可以拥有 ExpressRoute 线路。 组织内的其他订阅可以使用 ExpressRoute 线路。
 
 > [!NOTE]
-> 将对 ExpressRoute 线路所有者收取专用线路的连接和带宽费用。 所有虚拟网络共享相同的带宽。
+> 专用线路的连接和带宽费用将应用于 ExpressRoute 线路所有者。 所有虚拟网络共享相同的带宽。
 > 
 > 
 
 ![跨订阅连接](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 ### <a name="administration"></a>管理
-*线路所有者* 是在其中创建 ExpressRoute 线路的订阅的管理员/共同管理员。 线路所有者可以授权其他订阅的管理员/共同管理员（称为 *线路用户*）使用他们拥有的专用线路。 有权使用组织的 ExpressRoute 线路的线路用户，在获得授权后可以将其订阅中的虚拟网络链接到 ExpressRoute 线路。
+“线路所有者”是在其中创建了 ExpressRoute 线路的订阅的管理员/共同管理员。 线路所有者可以授权其他订阅的管理员/共同管理员（称为线路用户）使用他们拥有的专用线路。 有权使用组织的 ExpressRoute 线路的线路用户在获得授权后可以将其订阅中的虚拟网络链接到 ExpressRoute 线路。
 
-线路所有者有权随时修改和撤消授权。 撤消授权会导致从已撤消其访问权限的订阅中删除所有链接。
+线路所有者有权随时修改和撤消授权。 撤消授权将导致从撤消其访问权限的订阅中删除所有链接。
 
 ### <a name="circuit-owner-operations"></a>线路所有者操作
 
 **创建授权**
 
-线路所有者可授权其他订阅的管理员使用指定的线路。 在下面的示例中，线路 (Contoso IT) 管理员允许另一个订阅（开发-测试）的管理员最多将两个虚拟网络链接到线路。 Contoso IT 管理员可以通过指定开发-测试 Microsoft ID 启用此功能。 该 cmdlet 不会将电子邮件发送到指定的 Microsoft ID。 线路所有者需要显式通知其他订阅所有者：授权已完成。
+线路所有者可授权其他订阅的管理员使用指定的线路。 在下面的示例中，线路 (Contoso IT) 管理员允许另一个订阅（开发-测试）的管理员最多将两个虚拟网络链接到线路。 Contoso IT 管理员可以通过指定开发-测试 Microsoft ID 来启用此功能。 该 cmdlet 不会将电子邮件发送到指定的 Microsoft ID。 线路所有者需要显式通知其他订阅所有者：授权已完成。
 
 ```powershell
 New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
@@ -103,7 +103,7 @@ New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
 
 **查看授权**
 
-线路所有者可以通过运行以下 cmdlet 查看针对特定线路发出的所有授权：
+线路所有者可以通过运行以下 cmdlet 来查看针对特定线路发出的所有授权：
 
 ```powershell
 Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
@@ -150,7 +150,7 @@ Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
 
 **删除授权**
 
-线路所有者可以通过运行以下 cmdlet 撤消/删除对用户的授权：
+线路所有者可以通过运行以下 cmdlet 来撤消/删除对用户的授权：
 
 ```powershell
 Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
@@ -171,10 +171,10 @@ Get-AzureAuthorizedDedicatedCircuit
   ```powershell
   Bandwidth                        : 200
   CircuitName                      : ContosoIT
-  Location                         : Beijing
+  Location                         : Washington DC
   MaximumAllowedLinks              : 2
   ServiceKey                       : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-  ServiceProviderName              : Beijing Telecom Ethernet
+  ServiceProviderName              : equinix
   ServiceProviderProvisioningState : Provisioned
   Status                           : Enabled
   UsedLinks                        : 0
@@ -182,7 +182,7 @@ Get-AzureAuthorizedDedicatedCircuit
 
 **兑现链接授权**
 
-线路用户可以通过运行以下 cmdlet 兑现链接授权：
+线路用户可以通过运行以下 cmdlet 来兑现链接授权：
 
 ```powershell
 New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'

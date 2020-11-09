@@ -6,14 +6,15 @@ author: WenJason
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: jrasnick
-ms.date: 06/09/2020
-ms.openlocfilehash: c410abc8357f0a4689e6ad5a78f1d698b022824d
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.author: v-jay
+origin.date: 06/09/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: 247c9575e3cd554c3c98ecf57751dd884adc9885
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014240"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375610"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure Synapse Analytics SQL 池
 
@@ -23,7 +24,7 @@ ms.locfileid: "90014240"
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-[![部署到 Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
+[![“部署到 Azure”](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -39,8 +40,8 @@ ms.locfileid: "90014240"
   "contentVersion": "1.0.0.0",
   "parameters": {
     "sqlServerName": {
-      "defaultValue": "[concat('sql', uniqueString(resourceGroup().id))]",
       "type": "string",
+      "defaultValue": "[concat('sql', uniqueString(resourceGroup().id))]",
       "metadata": {
         "description": "The SQL Logical Server name."
       }
@@ -64,8 +65,8 @@ ms.locfileid: "90014240"
       }
     },
     "transparentDataEncryption": {
-      "defaultValue": "Enabled",
       "type": "string",
+      "defaultValue": "Enabled",
       "allowedValues": [
         "Enabled",
         "Disabled"
@@ -75,15 +76,15 @@ ms.locfileid: "90014240"
       }
     },
     "serviceLevelObjective": {
-      "defaultValue": "DW400c",
       "type": "string",
+      "defaultValue": "DW400c",
       "metadata": {
         "description": "Performance Level"
       }
     },
     "location": {
-      "defaultValue": "[resourceGroup().location]",
       "type": "string",
+      "defaultValue": "[resourceGroup().location]",
       "metadata": {
         "description": "Resource location"
       }
@@ -92,9 +93,9 @@ ms.locfileid: "90014240"
   "variables": {},
   "resources": [
     {
-      "name": "[parameters('sqlServerName')]",
       "type": "Microsoft.Sql/servers",
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2020-02-02-preview",
+      "name": "[parameters('sqlServerName')]",
       "location": "[parameters('location')]",
       "properties": {
         "administratorLogin": "[parameters('sqlAdministratorLogin')]",
@@ -104,10 +105,13 @@ ms.locfileid: "90014240"
       "resources": [
         {
           "type": "databases",
-          "kind": "v12.0,user,datawarehouse",
+          "apiVersion": "2020-02-02-preview",
           "name": "[parameters('dataWarehouseName')]",
-          "apiVersion": "2015-05-01-preview",
           "location": "[parameters('location')]",
+          "kind": "v12.0,user,datawarehouse",
+          "dependsOn": [
+            "[parameters('sqlServerName')]"
+          ],
           "properties": {
             "edition": "DataWarehouse",
             "status": "Online",
@@ -117,21 +121,18 @@ ms.locfileid: "90014240"
             "zoneRedundant": false,
             "isUpgradeRequested": false
           },
-          "dependsOn": [
-            "[parameters('sqlServerName')]"
-          ],
           "resources": [
             {
               "comments": "Transparent Data Encryption",
-              "name": "current",
               "type": "transparentDataEncryption",
               "apiVersion": "2017-03-01-preview",
-              "properties": {
-                "status": "[parameters('transparentDataEncryption')]"
-              },
+              "name": "current",
               "dependsOn": [
                 "[parameters('dataWarehouseName')]"
-              ]
+              ],
+              "properties": {
+                "status": "[parameters('transparentDataEncryption')]"
+              }
             }
           ]
         }
@@ -155,7 +156,7 @@ ms.locfileid: "90014240"
 
    * 订阅：选择 Azure 订阅。
    * 资源组： 选择“新建”，输入资源组的唯一名称，然后选择“确定”。 新的资源组会促进资源清理。
-   * **区域**：选择区域。  例如，“中国东部 2”。
+   * **区域** ：选择区域。  例如，“中国东部 2”。
    * SQL Server 名称：接受默认名称，或为 SQL Server 名称输入新名称。
    * SQL 管理员登录：输入 SQL Server 的管理员用户名。
    * SQL 管理员密码：输入 SQL Server 的管理员密码。
@@ -164,7 +165,7 @@ ms.locfileid: "90014240"
    * 服务级别目标：接受默认值“DW400c”。
    * 位置：接受资源组的默认位置。
    * 审阅并创建：选中。
-   * **创建**：选中。
+   * **创建** ：选中。
 
 ## <a name="review-deployed-resources"></a>查看已部署的资源
 

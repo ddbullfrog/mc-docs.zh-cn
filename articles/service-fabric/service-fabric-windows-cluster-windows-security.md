@@ -4,16 +4,16 @@ description: 了解如何使用 Windows 安全性在 Windows 上运行的独立�
 ms.topic: conceptual
 origin.date: 08/24/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3c1676687594078ef75926dbca6167e8d0f72f69
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: adc5e5d3d67205338c1bade539400494751c83be
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655593"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328814"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>使用 Windows 安全性保护 Windows 上的独立群集
 为了防止有人未经授权访问某个 Service Fabric 群集，必须保护该群集。 当群集运行生产工作负荷时，安全性就尤为重要。 本文介绍如何在 ClusterConfig.JSON 文件中使用 Windows 安全性配置节点到节点和客户端到节点的安全性。   该过程对应于[创建在 Windows 上运行的独立群集](service-fabric-cluster-creation-for-windows-server.md)中的安全性配置步骤。 有关 Service Fabric 如何使用 Windows 安全性的详细信息，请参阅[群集安全方案](service-fabric-cluster-security.md)。
@@ -24,13 +24,13 @@ ms.locfileid: "89655593"
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>使用 gMSA 配置 Windows 安全性  
-随 [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) 独立群集包下载的 *ClusterConfig.gMSA.Windows.MultiMachine.JSON* 示例配置文件包含一个使用[组托管服务帐户 (gMSA)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 配置 Windows 安全性的模板：  
+随 [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) 独立群集包下载的 *ClusterConfig.gMSA.Windows.MultiMachine.JSON* 示例配置文件包含一个使用 [组托管服务帐户 (gMSA)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 配置 Windows 安全性的模板：  
 
 ```
 "security": {
     "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
-    "WindowsIdentities": {  
+    "WindowsIdentities": {  
         "ClustergMSAIdentity": "[gMSA Identity]",
         "ClusterSPN": "[Registered SPN for the gMSA account]",
         "ClientIdentities": [
@@ -45,7 +45,7 @@ ms.locfileid: "89655593"
 
 | **配置设置** | **说明** |
 | --- | --- |
-| ClusterCredentialType |设置为“Windows”可为节点到节点的通信启用 Windows 安全性  。  | 
+| ClusterCredentialType |设置为“Windows”可为节点到节点的通信启用 Windows 安全性。  | 
 | ServerCredentialType |设置为“Windows”可为客户端到节点的通信启用 Windows 安全性  。 |
 | WindowsIdentities |包含群集和客户端标识。 |
 | ClustergMSAIdentity |配置节点到节点安全性。 组托管服务帐户。 |
@@ -60,9 +60,9 @@ ms.locfileid: "89655593"
 若需要在 gMSA 下运行 Service Fabric，可通过设置“ClustergMSAIdentity”来配置[节点到节点安全性](service-fabric-cluster-security.md#node-to-node-security)。 若要在节点之间建立信任关系，这些节点必须能够相互识别。 这可以通过两种不同的方法实现：指定包含群集中所有节点的组托管服务帐户，或者指定包含群集中所有节点的域计算机组。 强烈建议使用[组托管服务帐户 (gMSA)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 方法，尤其针对拥有 10 个以上节点的较大群集或可能会增大或收缩的群集。  
 此方法不需要创建群集管理员对其有访问权限、可在其中添加和删除成员的域组。 这些帐户还可用于自动密码管理。 有关详细信息，请参阅[组托管服务帐户入门](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11))。  
 
-使用 **ClientIdentities** 配置[客户端到节点安全性](service-fabric-cluster-security.md#client-to-node-security)。 若要在客户端与群集之间建立信任关系，必须对群集进行配置，使其知道可以信任哪些客户端标识。 可以通过两种不同方法实现此目的：指定可以连接的域组用户，或者指定可以连接的域节点用户。 Service Fabric 针对连接到 Service Fabric 群集的客户端支持两种不同的访问控制类型：管理员和用户。 访问控制可让群集管理员针对不同的用户组限制某些类型的特定群集操作的访问权限，使群集更加安全。  管理员拥有对管理功能（包括读取/写入功能）的完全访问权限。 默认情况下，用户只有管理功能的读取访问权限（例如查询功能），以及解析应用程序和服务的能力。 有关访问控制的详细信息，请参阅 [Service Fabric 客户端基于角色的访问控制](service-fabric-cluster-security-roles.md)。  
+使用 **ClientIdentities** 配置 [客户端到节点安全性](service-fabric-cluster-security.md#client-to-node-security)。 若要在客户端与群集之间建立信任关系，必须对群集进行配置，使其知道可以信任哪些客户端标识。 可以通过两种不同方法实现此目的：指定可以连接的域组用户，或者指定可以连接的域节点用户。 Service Fabric 针对连接到 Service Fabric 群集的客户端支持两种不同的访问控制类型：管理员和用户。 访问控制可让群集管理员针对不同的用户组限制某些类型的特定群集操作的访问权限，使群集更加安全。  管理员拥有对管理功能（包括读取/写入功能）的完全访问权限。 默认情况下，用户只有管理功能的读取访问权限（例如查询功能），以及解析应用程序和服务的能力。 有关访问控制的详细信息，请参阅 [Service Fabric 客户端基于角色的访问控制](service-fabric-cluster-security-roles.md)。  
 
-以下示例**安全性**部分使用 gMSA 配置 Windows 安全性，并指定 *ServiceFabric.clusterA.contoso.com* gMSA 中的计算机位于群集中，同时还指定 *CONTOSO\usera* 拥有管理客户端访问权限：  
+以下示例 **安全性** 部分使用 gMSA 配置 Windows 安全性，并指定 *ServiceFabric.clusterA.contoso.com* gMSA 中的计算机位于群集中，同时还指定 *CONTOSO\usera* 拥有管理客户端访问权限：  
 
 ```
 "security": {
@@ -98,7 +98,7 @@ ms.locfileid: "89655593"
 
 | **配置设置** | **说明** |
 | --- | --- |
-| ClusterCredentialType |设置为“Windows”可为节点到节点的通信启用 Windows 安全性  。  |
+| ClusterCredentialType |设置为“Windows”可为节点到节点的通信启用 Windows 安全性。  |
 | ServerCredentialType |设置为“Windows”可为客户端到节点的通信启用 Windows 安全性  。 |
 | WindowsIdentities |包含群集和客户端标识。 |
 | ClusterIdentity |使用计算机组名 domain\machinegroup 配置节点到节点安全性。 |
@@ -108,7 +108,7 @@ ms.locfileid: "89655593"
 
 如果希望在 Active Directory 域内使用计算机组，可通过设置“ClusterIdentity”来配置[节点到节点安全性](service-fabric-cluster-security.md#node-to-node-security)。 有关详细信息，请参阅在 [Active Directory 中创建计算机组](https://docs.microsoft.com/previous-versions/commerce-server/aa545347(v=cs.70))。
 
-使用 **ClientIdentities** 配置[客户端到节点安全性](service-fabric-cluster-security.md#client-to-node-security)。 若要在客户端与群集之间建立信任关系，必须对群集进行配置，使群集知道可以信任哪些客户端标识。 可通过两种不同的方式建立信任：
+使用 **ClientIdentities** 配置 [客户端到节点安全性](service-fabric-cluster-security.md#client-to-node-security)。 若要在客户端与群集之间建立信任关系，必须对群集进行配置，使群集知道可以信任哪些客户端标识。 可通过两种不同的方式建立信任：
 
 - 指定用户可以连接到的域组。
 - 指定用户可以连接到的域节点。

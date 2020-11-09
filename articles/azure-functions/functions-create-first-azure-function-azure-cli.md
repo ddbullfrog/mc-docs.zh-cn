@@ -1,16 +1,16 @@
 ---
 title: 在 Azure 中创建用于响应 HTTP 请求的函数
 description: 了解如何通过命令行创建函数，然后将本地项目发布到 Azure Functions 中托管的无服务器实例。
-ms.date: 09/02/2020
+ms.date: 11/04/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: ed250e0bbd5bb9104d97705aba0c14b7138f6160
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: d68f77e46fdae5734849827d8ca7311cfcfdd278
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413922"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326539"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>快速入门：在 Azure 中创建用于响应 HTTP 请求的函数
 
@@ -74,9 +74,13 @@ func init LocalFunctionProj --powershell
 ```
 ::: zone-end    
 ::: zone pivot="programming-language-java"  
-在空的文件夹中，运行以下命令以从 [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) 生成 Functions 项目。 如果希望函数在 Java 11 上运行，请使用 `-DjavaVersion=11`。 若要了解详细信息，请参阅 [Java 版本](functions-reference-java.md#java-versions)。 
+在空的文件夹中，运行以下命令以从 [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) 生成 Functions 项目。 
 
-# <a name="bash"></a>[bash](#tab/bash)
+> [!IMPORTANT]
+> + 如果希望函数在 Java 11 上运行，请使用 `-DjavaVersion=11`。 若要了解详细信息，请参阅 [Java 版本](functions-reference-java.md#java-versions)。 
+> + 要完成本文中的步骤，`JAVA_HOME` 环境变量必须设置为正确版本的 JDK 的安装位置。
+
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8
 ```
@@ -147,7 +151,7 @@ namespace LocalFunctionProj
     {
         [FunctionName("HttpExample")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -276,8 +280,6 @@ public class Function {
 ```
 
 你可以更改这些设置，以控制在 Azure 中创建资源的方式。 有关 Maven 插件支持的设置的完整列表，请参阅[配置详细信息](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details)。
-
-如果要在 Java 11（而不是 Java 8）上运行函数应用，则必须使用 Java 11 值手动更新 pom.xml 文件。 若要了解详细信息，请参阅 [Java 版本](functions-reference-java.md#java-versions)。 在 Java 11 上运行时，请确保  
 
 #### <a name="functiontestjava"></a>FunctionTest.java
 
@@ -449,7 +451,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 az login
 ```
     
-使用“[az group create](/cli/group#az-group-create)”命令创建资源组。 以下示例在 `chinanorth2` 区域中创建名为 `AzureFunctionsQuickstart-rg` 的资源组。 （通常，你会在 `az account list-locations` 命令输出的、与你靠近的某个可用区域中创建资源组和资源。）
+使用 [az group create](/cli/group#az-group-create) 命令创建资源组。 以下示例在 `chinanorth2` 区域中创建名为 `AzureFunctionsQuickstart-rg` 的资源组。 （通常，你会在 `az account list-locations` 命令输出的、与你靠近的某个可用区域中创建资源组和资源。）
 
 ```azurecli
 az group create --name AzureFunctionsQuickstart-rg --location chinanorth2

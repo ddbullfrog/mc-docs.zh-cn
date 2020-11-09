@@ -1,18 +1,20 @@
 ---
 title: 安装 Service Fabric 独立客户端
-description: 本教程介绍如何在上一教程文章中创建的群集上安装 Service Fabric 独立客户端。
-author: rockboyfor
+description: 本教程介绍如何在群集上安装 Service Fabric 独立客户端。
 ms.topic: tutorial
 origin.date: 07/22/2019
-ms.date: 02/24/2020
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: yes
+ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 602801cdc3f1a72c7c4539758ea53331d7928618
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1a050fd853ccbbb94c258923dddf7458bad6ae93
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540117"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327522"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>教程：安装并创建 Service Fabric 群集
 
@@ -20,7 +22,7 @@ Service Fabric 独立群集为你提供选择自己的环境的选项，并创�
 
 本教程是一个系列中的第二部分。 本教程将逐步指导完成创建 Service Fabric 独立群集的步骤。
 
-本系列教程的第二部分将介绍如何：
+本文将指导如何进行以下操作：
 
 > [!div class="checklist"]
 > * 下载并安装 Service Fabric 独立包
@@ -78,7 +80,7 @@ cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
-可看到如下输出： 如果底部字段“Passed”的返回值为 `True`，那么已通过完整性检查，并且根据输入配置群集看似可以部署。
+应会显示类似以下示例的输出。 如果底部字段“Passed”的返回值为 `True`，那么已通过完整性检查，并且根据输入配置群集看似可以部署。
 
 ```powershell
 Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces
@@ -101,7 +103,7 @@ Passed                     : True
 
 ## <a name="create-the-cluster"></a>创建群集
 
-成功验证群集配置后，请运行 *CreateServiceFabricCluster.ps1* 脚本，将 Service Fabric 群集部署到配置文件中的虚拟机。
+成功验证群集配置后，请运行 CreateServiceFabricCluster.ps1 脚本，将 Service Fabric 群集部署到配置文件中的虚拟机。
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA
@@ -118,9 +120,9 @@ Your cluster is successfully created! You can connect and manage your cluster us
 >
 >
 
-### <a name="bring-up-service-fabric-explorer"></a>打开 Service Fabric Explorer
+### <a name="open-service-fabric-explorer"></a>打开 Service Fabric Explorer
 
-现在可以通过 Service Fabric Explorer 连接到群集，既可以直接使用 http:\//localhost:19080/Explorer/index.html 从某台计算机进行连接，也可以使用 http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html 进行远程连接。
+现在可以通过 Service Fabric Explorer 连接到群集，既可以直接使用 http:\//localhost:19080/Explorer/index.html 从某台计算机进行连接，也可以使用 http:\//<*IPAddressofaMachine* >:19080/Explorer/index.html 进行远程连接。
 
 ## <a name="add-and-remove-nodes"></a>添加和删除节点
 
@@ -128,7 +130,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ## <a name="next-steps"></a>后续步骤
 
-本系列的第二部分介绍了以并行方式将大量随机数据上传到存储帐户的方法，例如如何：
+本文介绍了以并行方式将大量随机数据上传到存储帐户的方法，例如如何：
 
 > [!div class="checklist"]
 > * 配置连接字符串
@@ -145,4 +147,4 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

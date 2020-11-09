@@ -4,17 +4,17 @@ description: 在本快速入门中，请使用 Service Fabric Reliable Services 
 ms.topic: quickstart
 origin.date: 01/29/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: c6d55b54a11bf5dd7b719b5c95eebc6525e67e2f
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 0da9ea6bd90ba9de26ea1eb9249aedbda015a4c3
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655176"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328159"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>快速入门：将 Java 应用部署到 Linux 上的 Azure Service Fabric
 
@@ -82,7 +82,7 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并且可以�
 
     现在可以缩放 Web 前端服务的实例数量。
 
-3. 将数字更改为 **2**，选择“缩放服务”  。
+3. 将数字更改为 **2** ，选择“缩放服务”  。
 4. 在树视图中选择“fabric:/Voting/VotingWeb”  节点，再展开分区节点（由 GUID 表示）。
 
     :::image type="content" source="./media/service-fabric-quickstart-java/service-fabric-explorer-service-scaled.png" alt-text="在 Azure Service Fabric 中缩放服务":::

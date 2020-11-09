@@ -3,14 +3,14 @@ title: 连接 Apache Spark 应用 - Azure 事件中心 | Microsoft Docs
 description: 本文介绍如何将 Apache Spark 与适用于 Kafka 的 Azure 事件中心配合使用。
 ms.topic: how-to
 origin.date: 06/23/2020
-ms.date: 08/21/2020
+ms.date: 11/05/2020
 ms.author: v-tawe
-ms.openlocfilehash: bb155d6e62cfd82e7e7d961fd5d998801dad2a3c
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 4301b54e738364f5aa6b05b65d7ac021c6a90faf
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715386"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375745"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>将 Apache Spark 应用程序与 Azure 事件中心连接
 本教程详细介绍如何将 Spark 应用程序连接到事件中心进行实时流式处理。 此集成允许在不更改协议客户端或运行自己的 Kafka 或 Zookeeper 群集的情况下进行流式处理。 本教程需要 Apache Spark v2.4+ 和 Apache Kafka v2.0+。
@@ -64,7 +64,7 @@ val df = spark.readStream
     .option("kafka.request.timeout.ms", "60000")
     .option("kafka.session.timeout.ms", "30000")
     .option("kafka.group.id", GROUP_ID)
-    .option("failOnDataLoss", "false")
+    .option("failOnDataLoss", "true")
     .load()
 
 //Use dataframe like normal (in this example, write to console)
@@ -75,7 +75,7 @@ val df_write = df.writeStream
 ```
 
 ## <a name="write-to-event-hubs-for-kafka"></a>写入到用于 Kafka 的事件中心
-也可向事件中心写入数据，所用方式与向 Kafka 写入数据一样。 请勿忘记更新配置，也就是使用事件中心命名空间的信息更改 **BOOTSTRAP_SERVERS** 和 **EH_SASL**。  如需完整的示例代码，请查看 GitHub 上的 sparkProducer.scala 文件。 
+也可向事件中心写入数据，所用方式与向 Kafka 写入数据一样。 请勿忘记更新配置，也就是使用事件中心命名空间的信息更改 **BOOTSTRAP_SERVERS** 和 **EH_SASL** 。  如需完整的示例代码，请查看 GitHub 上的 sparkProducer.scala 文件。 
 
 ```scala
 df = /**Dataframe**/
@@ -103,3 +103,4 @@ df.writeStream
 - [了解 GitHub 上的示例](https://github.com/Azure/azure-event-hubs-for-kafka)
 - [将 Akka Streams 连接到事件中心](event-hubs-kafka-akka-streams-tutorial.md)
 - [针对 Azure 事件中心的 Apache Kafka 开发人员指南](apache-kafka-developer-guide.md)
+

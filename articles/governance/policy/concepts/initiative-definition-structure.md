@@ -1,16 +1,16 @@
 ---
 title: 计划定义结构的详细信息
 description: 描述如何使用策略计划定义对策略定义进行分组，以便部署到组织中的 Azure 资源。
-origin.date: 08/17/2020
-ms.date: 09/15/2020
+origin.date: 10/07/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: conceptual
-ms.openlocfilehash: 40ec31e1c8eb56c862532dae108a465119ac368d
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 129a1b5680e2bb95553a1192082103e2ed52b05b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524062"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327743"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Azure Policy 计划定义结构
 

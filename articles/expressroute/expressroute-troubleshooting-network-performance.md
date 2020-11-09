@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 12/20/2017
 ms.author: v-yiso
 ms.date: 01/20/2020
-ms.openlocfilehash: 636b264a63d84d7a5f9aa34398c6319c27a828dc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: fd143033f93b647e6340d7b3becf85675480e6dd
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75859745"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328695"
 ---
 # <a name="troubleshooting-network-performance"></a>网络性能故障排除
 ## <a name="overview"></a>概述
@@ -51,8 +51,8 @@ Azure 提供了将本地网络连接到 Azure 的稳定且快速方法。 站点
  - **子网 NSG** - NSG 与 NIC 一样可应用于子网。 确保 NSG 规则集适合于正尝试传递的流量。 （对于流入 NIC 的流量，首先应用子网 NSG，然后是 NIC NSG，相反，对于从 VM 流出的流量，则首先应用 NSG ，然后应用子网 NSG）。
  - **子网 UDR** - 用户定义的路由可以将流量定向到中间跃点（如防火墙或负载均衡器）。 确保你知道流量是否有 UDR，如果有的话，知道其去往何处，以及下一个跃点会对流量进行哪些操作。 （例如，防火墙能够在两个相同主机之间传递一些流量及拒绝另一些流量）。
  - **网关子网/NSG/UDR** - 网关子网与 VM 子网一样可具有 NSG 和 UDR。 确保你知道是否有这两者，及其对流量的影响。
- - **VPN 网关 (ExpressRoute)** - 启用对等互连 (ExpressRoute) 或 VPN 后，不会有许多设置会影响到流量路由方式及是否进行流量路由。 如果有多个 ExpressRoute 线路或 VPN 隧道连接到同一个 VPN 网关，则应注意连接权重设置，因为此设置影响连接首选项及流量采用的路径。
- - **路由筛选器**（未显示）- 路由筛选器仅适用于 ExpressRoute 上的 Microsoft 对等互连，但如果没有在 Microsoft 对等互连上看到预期路由，那它十分重要。 
+ - **VNet 网关 (ExpressRoute)** - 启用对等互连 (ExpressRoute) 或 VPN 后，不会有许多设置会影响到流量路由方式及是否进行流量路由。 如果有多个 ExpressRoute 线路或 VPN 隧道连接到同一个 VNet 网关，则应注意连接权重设置，因为此设置影响连接首选项及流量采用的路径。
+ - **路由筛选器** （未显示）- 路由筛选器仅适用于 ExpressRoute 上的 Microsoft 对等互连，但如果没有在 Microsoft 对等互连上看到预期路由，那它十分重要。 
 
 此时，你处于链接的 WAN 部分。 此路由域可以是服务提供商、公司 WAN 或 Internet。 如果这些链接涉及非常多的跃点、技术和公司，则进行故障排除变得有些困难。 通常情况下，转到一系列公司和跃点之前，先排除 Azure 和企业网络。
 
@@ -123,7 +123,7 @@ AzureCT PowerShell 模块有两个组件 - [可用性测试][Availability Doc]�
 此外，也请记得查看 OSI 模型的其他层。 注意到网络和第 1 - 3 层（物理层、数据层和网络层）很容易，但是问题也可能出现在应用程序层的第 7 层。 保持开放的心态，验证假设。
 
 ## <a name="advanced-expressroute-troubleshooting"></a>高级 ExpressRoute 故障排除
-如果不确定云边缘的实际所在，那么隔离 Azure 要素便是一个难题。 使用 ExpressRoute 时，边缘是名为 Microsoft 企业边缘 (MSEE) 的网络要素。 使用 ExpressRoute 时，MSEE 是进入 Microsoft 网络的第一个接触点和离开 Microsoft 网络的最后一个跃点。  在 VPN 网关和 ExpressRoute 线路之间创建连接对象时，实际上正在连接 MSEE。 辨别 MSEE 是第一个跃点还是最后一个跃点（取决于要走哪个方向）至关重要，可隔离 Azure 网络问题，证明问题出在 Azure 上还是 WAN 或企业网络的更下游。 
+如果不确定云边缘的实际所在，那么隔离 Azure 要素便是一个难题。 使用 ExpressRoute 时，边缘是名为 Microsoft 企业边缘 (MSEE) 的网络要素。 使用 ExpressRoute 时，MSEE 是进入 Microsoft 网络的第一个接触点和离开 Microsoft 网络的最后一个跃点。  在 VNet 网关和 ExpressRoute 线路之间创建连接对象时，实际上正在连接 MSEE。 辨别 MSEE 是第一个跃点还是最后一个跃点（取决于要走哪个方向）至关重要，可隔离 Azure 网络问题，证明问题出在 Azure 上还是 WAN 或企业网络的更下游。 
 
 ![2][2]
 
@@ -184,30 +184,28 @@ AzureCT PowerShell 模块有两个组件 - [可用性测试][Availability Doc]�
 >
 >
 
-
-|                           |                  |                             |         |                         |                       |
-|---------------------------|------------------|-----------------------------|---------|-------------------------|-----------------------|
-| ExpressRoute<br/>位置 | Azure<br/>区域 | 估计<br/>距离 (km) | 延迟 | 1 会话<br/>带宽 | 最大值<br/>带宽 |
-|          西雅图          |    美国西部 2     |           191 km            |  5 ms   |     262.0 Mbits/sec     |    3.74 Gbits/sec     |
-|          西雅图          |     美国西部      |          1,094 km           |  18 ms  |     82.3 Mbits/sec      |    3.70 Gbits/sec     |
-|          西雅图          |    美国中部    |          2,357 km           |  40 ms  |     38.8 Mbits/sec      |    2.55 Gbits/sec     |
-|          西雅图          | 美国中南部 |          2,877 km           |  51 ms  |     30.6 Mbits/sec      |    2.49 Gbits/sec     |
-|          西雅图          | 美国中北部 |          2,792 km           |  55 ms  |     27.7 Mbits/sec      |    2.19 Gbits/sec     |
-|          西雅图          |    美国东部 2     |          3,769 km           |  73 ms  |     21.3 Mbits/sec      |    1.79 Gbits/sec     |
-|          西雅图          |     美国东部      |          3,699 km           |  74 ms  |     21.1 Mbits/sec      |    1.78 Gbits/sec     |
-|          西雅图          |    日本东部    |          7,705 km           | 106 ms  |     14.6 Mbits/sec      |    1.22 Gbits/sec     |
-|          西雅图          |     英国南部     |          7,708 km           | 146 ms  |     10.6 Mbits/sec      |     896 Mbits/sec     |
-|          西雅图          |   西欧    |          7,834 km           | 153 ms  |     10.2 Mbits/sec      |     761 Mbits/sec     |
-|          西雅图          |  澳大利亚东部  |          12,484 km          | 165 ms  |      9.4 Mbits/sec      |     794 Mbits/sec     |
-|          西雅图          |  东南亚  |          12,989 km          | 170 ms  |      9.2 Mbits/sec      |     756 Mbits/sec     |
-|          西雅图          | 巴西南部 \*  |          10,930 km          | 189 ms  |      8.2 Mbits/sec      |     699 Mbits/sec     |
-|          西雅图          |   印度南部    |          12,918 km          | 202 ms  |      7.7 Mbits/sec      |     634 Mbits/sec     |
+| ExpressRoute<br/>位置|Azure<br/>区域 | 估计<br/>距离 (km) | 延迟|1 会话<br/>带宽 | 最大值<br/>带宽 |
+| ------------------------------------------ | --------------------------- |  - | - | - | - |
+| 西雅图 | 美国西部 2        |    191 km |   5 ms | 262.0 Mbits/sec |  3.74 Gbits/sec |
+| 西雅图 | 美国西部          |  1,094 km |  18 ms |  82.3 Mbits/sec |  3.70 Gbits/sec |
+| 西雅图 | 美国中部       |  2,357 km |  40 ms |  38.8 Mbits/sec |  2.55 Gbits/sec |
+| 西雅图 | 美国中南部 |  2,877 km |  51 ms |  30.6 Mbits/sec |  2.49 Gbits/sec |
+| 西雅图 | 美国中北部 |  2,792 km |  55 ms |  27.7 Mbits/sec |  2.19 Gbits/sec |
+| 西雅图 | 美国东部 2        |  3,769 km |  73 ms |  21.3 Mbits/sec |  1.79 Gbits/sec |
+| 西雅图 | 美国东部          |  3,699 km |  74 ms |  21.1 Mbits/sec |  1.78 Gbits/sec |
+| 西雅图 | 日本东部       |  7,705 km | 106 ms |  14.6 Mbits/sec |  1.22 Gbits/sec |
+| 西雅图 | 英国南部         |  7,708 km | 146 ms |  10.6 Mbits/sec |   896 Mbits/sec |
+| 西雅图 | 西欧      |  7,834 km | 153 ms |  10.2 Mbits/sec |   761 Mbits/sec |
+| 西雅图 | 澳大利亚东部   | 12,484 km | 165 ms |   9.4 Mbits/sec |   794 Mbits/sec |
+| 西雅图 | 东南亚   | 12,989 km | 170 ms |   9.2 Mbits/sec |   756 Mbits/sec |
+| 西雅图 | 巴西南部*   | 10,930 km | 189 ms |   8.2 Mbits/sec |   699 Mbits/sec |
+| 西雅图 | 印度南部      | 12,918 km | 202 ms |   7.7 Mbits/sec |   634 Mbits/sec |
 
 
 \* 巴西的延迟是一个很好的例子，其中的直线距离明显不同于光纤运行距离。 我以为延迟会在 160 ms 左右，但实际是 189 ms。 与我预期所产生的差异可能表明某处存在网络问题，但最有可能的是，光纤运行并不以直线形式转至巴西，而是从西雅图转至巴西，这一过程另有 1,000 km 左右。
 
 ## <a name="next-steps"></a>后续步骤
-1. 从 GitHub 中下载 Azure 连接工具包，地址为 [http://aka.ms/AzCT][ACT]
+1. 从 GitHub 中下载 Azure 连接工具包，地址为 [https://aka.ms/AzCT][ACT]
 2. 按照[链接性能测试][Performance Doc]的说明进行操作
 
 <!--Image References-->

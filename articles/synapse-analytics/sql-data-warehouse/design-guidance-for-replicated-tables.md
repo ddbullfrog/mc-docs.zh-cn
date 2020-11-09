@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 03/19/2019
-ms.date: 08/03/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f3cd4d6b4f68fb986e3fcc0a3433f8c8525b0c8f
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 027be1333b6f92cbc6be0ec09134f1abe7b56bf1
+ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426443"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375723"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>有关在 Synapse SQL 池中使用复制表的设计指南
 
@@ -25,7 +25,7 @@ ms.locfileid: "87426443"
 
 ## <a name="prerequisites"></a>先决条件
 
-本文假设读者熟悉 SQL 池中的数据分布和数据移动概念。  有关详细信息，请参阅[体系结构](massively-parallel-processing-mpp-architecture.md)一文。
+本文假设读者熟悉 SQL 池中的数据分布和数据移动概念。    有关详细信息，请参阅[体系结构](massively-parallel-processing-mpp-architecture.md)一文。
 
 作为表设计的一部分，请尽可能多地去了解你的数据及其查询方式。  例如，请考虑以下问题：
 

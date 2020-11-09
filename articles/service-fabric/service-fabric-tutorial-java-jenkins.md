@@ -4,17 +4,17 @@ description: 本教程介绍如何设置使用 Jenkins 部署 Java Service Fabri
 ms.topic: tutorial
 origin.date: 08/27/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: f249731fb81bab24c58cd98ab1a2c46340907882
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: a079b7fbe1392b232d4b841329dc56a2bb3eaea7
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655054"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327403"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>教程：配置 Jenkins 环境以便为 Service Fabric 上的 Java 应用程序启用 CI/CD
 
@@ -79,9 +79,9 @@ ms.locfileid: "89655054"
 
 ## <a name="create-and-configure-a-jenkins-job"></a>创建和配置 Jenkins 作业
 
-1. 首先，如果没有可用于在 GitHub 上托管投票项目的存储库，请创建一个存储库。 在本教程的余下内容中，此存储库名为 **dev_test**。
+1. 首先，如果没有可用于在 GitHub 上托管投票项目的存储库，请创建一个存储库。 在本教程的余下内容中，此存储库名为 **dev_test** 。
 
-1. 在 ``http://<HOST-IP>:8080`` 的 Jenkins 仪表板上创建一个**新项**。
+1. 在 ``http://<HOST-IP>:8080`` 的 Jenkins 仪表板上创建一个 **新项** 。
 
 1. 输入项名称（例如 MyJob）。 选择“自由格式的项目”，并单击“确定”。
 
@@ -89,7 +89,7 @@ ms.locfileid: "89655054"
 
     a. 在常规部分中，选择“GitHub 项目”所对应的复选框，指定 GitHub 项目 URL。 此 URL 托管要与 Jenkins 持续集成和持续部署 (CI/CD) 流（例如 ``https://github.com/testaccount/dev_test``）集成的 Service Fabric Java 应用程序。
 
-    b. 在“源代码管理”部分，选择 **Git**。 指定用于托管要与 Jenkins CI/CD 流（例如 *`https://github.com/testaccount/dev_test.git`* ）集成的 Service Fabric Java 应用程序的存储库 URL。 也可在此处指定要生成的分支（例如 /master）。
+    b. 在“源代码管理”部分，选择 **Git** 。 指定用于托管要与 Jenkins CI/CD 流（例如 *`https://github.com/testaccount/dev_test.git`* ）集成的 Service Fabric Java 应用程序的存储库 URL。 也可在此处指定要生成的分支（例如 /master）。
 
 1. 配置 GitHub（存储库的托管位置），使它能够与 Jenkins 通信。 请使用以下步骤：
 
@@ -113,13 +113,13 @@ ms.locfileid: "89655054"
 
     还可以提供用于部署应用程序的其他详细信息。 有关应用程序详细信息的示例，请参阅以下屏幕截图：
 
-    :::image type="content" source="./media/service-fabric-tutorial-java-jenkins/sfjenkins.png" alt-text="Service Fabric Jenkins 生成操作":::
+    :::image type="content" source="./media/service-fabric-tutorial-java-jenkins/sfjenkins.png" alt-text="包含其他 Service Fabric 项目部署选项的“生成后操作”对话框":::
 
     > [!NOTE]
     > 如果使用 Service Fabric 部署 Jenkins 容器映像，此处的群集可与托管 Jenkins 容器应用程序的群集相同。
     >
 
-1. 单击“保存” 。
+1. 单击“ **保存** ”。
 
 ## <a name="update-your-existing-application"></a>更新现有应用程序
 
@@ -137,7 +137,7 @@ ms.locfileid: "89655054"
     </div>
     ```
 
-1. 在 *Voting/VotingApplication/ApplicationManifest.xml* 文件中，将 **ApplicationTypeVersion** 和 **ServiceManifestVersion** 版本更新为 **2.0.0**。
+1. 在 *Voting/VotingApplication/ApplicationManifest.xml* 文件中，将 **ApplicationTypeVersion** 和 **ServiceManifestVersion** 版本更新为 **2.0.0** 。
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -164,7 +164,7 @@ ms.locfileid: "89655054"
     </ApplicationManifest>
     ```
 
-1. 在 *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* 文件中，将 **ServiceManifest** 中的 **Version** 字段以及 **CodePackage** 标记中的 **Version** 字段更新为 **2.0.0**。
+1. 在 *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* 文件中，将 **ServiceManifest** 中的 **Version** 字段以及 **CodePackage** 标记中的 **Version** 字段更新为 **2.0.0** 。
 
     ```xml
     <CodePackage Name="Code" Version="2.0.0">
@@ -182,7 +182,7 @@ ms.locfileid: "89655054"
 
     :::image type="content" source="./media/service-fabric-tutorial-create-java-app/upgradejava.png" alt-text="正在进行升级":::
 
-1. 如果访问 **http://\<Host-IP>:8080**，则具有完整功能的投票应用程序现在已启动且正在运行。
+1. 如果访问 **http://\<Host-IP>:8080** ，则具有完整功能的投票应用程序现在已启动且正在运行。
 
     :::image type="content" source="./media/service-fabric-tutorial-java-jenkins/votingv2.png" alt-text="本地 Voting 应用":::
 

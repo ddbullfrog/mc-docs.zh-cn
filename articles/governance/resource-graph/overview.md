@@ -2,15 +2,15 @@
 title: Azure Resource Graph 概述
 description: 了解如何使用 Azure Resource Graph 服务跨订阅和租户对资源进行大规模的复杂查询。
 ms.author: v-tawe
-origin.date: 07/25/2020
-ms.date: 08/27/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.topic: overview
-ms.openlocfilehash: cce6241d3c5ba4c7878ac4758cdc90d57c8b5dcb
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 420c3f342c6cf4eba61ee135056bdd881f96629b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021619"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328791"
 ---
 # <a name="what-is-azure-resource-graph"></a>什么是 Azure Resource Graph？
 
@@ -43,6 +43,9 @@ Azure Resource Graph 是 Azure 中的一项服务，旨在通过提供高效和�
 - 访问资源提供程序返回的属性，而无需对每个资源提供程序进行单独调用。
 - 查看过去 14 天对资源所做的更改历史记录，以了解更改了哪些属性以及何时更改。 （预览版）
 
+> [!NOTE]
+> 作为预览功能，一些 `type` 对象可提供其他非资源管理器属性。 有关详细信息，请参阅[扩展属性（预览版）](./concepts/query-language.md#extended-properties)。
+
 ## <a name="how-resource-graph-is-kept-current"></a>如何让 Resource Graph 保持最新
 
 更新 Azure 资源时，资源管理器会将所做的更改通知给 Resource Graph。
@@ -61,7 +64,7 @@ Resource Graph 然后就会更新其数据库。 Resource Graph 也会定期进�
 
 ## <a name="permissions-in-azure-resource-graph"></a>Azure Resource Graph 中的权限
 
-若要使用 Resource Graph，必须在[基于角色的访问控制](../../role-based-access-control/overview.md) (RBAC) 中至少拥有对想要查询的资源的读取权限。 必须至少有 Azure 对象或对象组的 `read` 权限，否则不会返回结果。
+若要使用 Resource Graph，必须在 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md) 中拥有适当的权限，以便对想要查询的资源至少进行读取访问。 必须至少有 Azure 对象或对象组的 `read` 权限，否则不会返回结果。
 
 > [!NOTE]
 > Resource Graph 使用主体在登录期间可用的订阅。 若要查看在活动会话期间添加的新订阅的资源，主体必须刷新上下文。 此操作在注销并重新登录时自动发生。

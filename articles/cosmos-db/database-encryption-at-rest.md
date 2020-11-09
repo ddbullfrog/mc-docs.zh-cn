@@ -1,23 +1,24 @@
 ---
 title: Azure Cosmos DB 中的静态加密
 description: 了解 Azure Cosmos DB 如何提供静态数据加密及其实现方式。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/19/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 2074bc09ab1f8005d8a8e47b98508b1980819bbb
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: c930845ff2791f90cbb4f41685c818e98d329423
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223350"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328915"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据加密 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 “静态加密”这个短语通常指非易失性存储设备（例如固态硬盘 (SSD) 和机械硬盘 (HDD)）上的数据的加密。 Cosmos DB 将其主数据库存储在 SSD 上。 其媒体附件和备份存储在通常由 HDD 备份的 Azure Blob 存储中。 随着 Cosmos DB 的静态加密功能的发布，所有数据库、媒体附件以及备份都是加密的。 现在数据在传输中（通过网络）以及在静态时（非易失性存储）都处于加密状态，从而实现端到端加密。
 
@@ -49,7 +50,7 @@ Azure Cosmos DB 属于 PaaS 服务，非常便于使用。 存储在 Azure Cosmo
 答：Azure 针对加密密钥轮换提供一组内部指导原则，Cosmos DB 必须遵守这些指导原则。 未发布具体的指导原则。 Azure 发布了[安全开发生命周期 (SDL)](https://www.microsoft.com/sdl/default.aspx)，可以将其视为内部指导原则的一部分，其中提供的最佳做法对开发人员很有用。
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>问：我可以使用自己的加密密钥吗？
-答：是的，此功能现可用于新的 Azure Cosmos DB 帐户，这应在创建帐户时完成。 有关详细信息，请参阅[客户托管的密钥](/cosmos-db/how-to-setup-cmk)文档。
+答：是的，此功能现可用于新的 Azure Cosmos DB 帐户，这应在创建帐户时完成。 有关详细信息，请参阅[客户托管的密钥](./how-to-setup-cmk.md)文档。
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>问：哪些区域已开启了此加密？
 答：所有 Azure Cosmos DB 区域都已针对所有用户数据开启了此加密。

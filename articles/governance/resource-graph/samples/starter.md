@@ -2,15 +2,15 @@
 title: 初学者查询示例
 description: 使用 Azure 资源图来运行一些初学者查询，包括计算资源数、对资源进行排序或按特定标记排序。
 ms.author: v-tawe
-origin.date: 07/14/2020
-ms.date: 09/15/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.topic: sample
-ms.openlocfilehash: 24db359b5a8828de90c27b511fdf8bc25ee0da0a
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 453839357575b400978fa76ff64042bb6406617d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128155"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328508"
 ---
 # <a name="starter-resource-graph-query-samples"></a>初学者 Resource Graph 查询示例
 

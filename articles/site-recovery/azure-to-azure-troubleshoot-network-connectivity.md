@@ -5,16 +5,16 @@ manager: rochakm
 ms.topic: how-to
 origin.date: 04/06/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9b269faead8c7123cb8758a83cb82ad5f1ffb3d6
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 6631de49f40544a95b4230724992a356f3713534
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127995"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327478"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>排查 Azure 到 Azure VM 网络连接性问题
 
@@ -68,7 +68,7 @@ ms.locfileid: "92127995"
 #### <a name="resolution"></a>解决方法
 
 - Azure Site Recovery 需要访问 Office 365 IP 范围才能进行身份验证。
-- 如果使用 Azure 网络安全组 (NSG) 规则/防火墙代理控制 VM 上的出站网络连接，请确保允许到 Office 365 IP 范围的通信。 创建一个基于 [Azure Active Directory (Azure AD) 服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则，该规则允许访问与 Azure AD 对应的所有 IP 地址。
+- 如果使用 Azure 网络安全组 (NSG) 规则/防火墙代理控制 VM 上的出站网络连接，请确保允许到 Office 365 IP 范围的通信。 创建一个基于 [Azure Active Directory (Azure AD) 服务标记](../virtual-network/network-security-groups-overview.md#service-tags)的 NSG 规则，该规则允许访问与 Azure AD 对应的所有 IP 地址。
 - 如果将来向 Azure AD 添加新地址，则需创建新的 NSG 规则。
 
 ### <a name="example-nsg-configuration"></a>NSG 配置示例
@@ -82,11 +82,11 @@ ms.locfileid: "92127995"
 
 1. 为 NSG 创建 HTTPS 出站安全规则，如以下屏幕截图所示。 此示例使用“目标服务标记”：“Storage.ChinaEast”和“目标端口范围”：“443”。
 
-    :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="com-error":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="屏幕截图，其中显示了“为存储点美国东部安全规则的安全规则添加出站安全规则窗格”。":::
 
 1. 为 NSG 创建 HTTPS 出站安全规则，如以下屏幕截图所示。 此示例使用“目标服务标记”：“AzureActiveDirectory”和“目标端口范围”：“443”。
 
-    :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="com-error":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="屏幕截图，其中显示了“为 Azure Active Directory 安全规则的安全规则 添加出站安全规则窗格”。":::
 
 1. 与上述安全规则类似，为 NSG 上的“EventHub.chinanorth”（对应于目标位置）创建出站 HTTPS (443) 安全规则。 这样就可以访问 Site Recovery 监视功能。
 1. 在 NSG 上为“AzureSiteRecovery”创建出站 HTTPS (443) 安全规则。 这样就可以在任何区域访问 Site Recovery 服务。

@@ -7,20 +7,21 @@ ms.devlang: dotnet
 ms.topic: how-to
 origin.date: 03/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e915d4a33a113e930590f670f81565d1e90d2b19
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 5f50d742f4542faa772ad800ef99eded95089dee
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118564"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328123"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>使用批量执行程序 .NET 库在 Azure Cosmos DB 中执行批量操作
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!NOTE]
 > 本文介绍的这个批量执行工具库是为使用 .NET SDK 2.x 版本的应用程序保留的。 对于新应用程序，可以使用 [.NET SDK 版本 3.x](tutorial-sql-api-dotnet-bulk-import.md) 直接提供的批量支持  ，它不需要任何外部库。 
@@ -37,7 +38,7 @@ ms.locfileid: "92118564"
 
 * 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-* 可以通过 `https://localhost:8081` 终结点使用 [Azure Cosmos DB 仿真器](https://docs.azure.cn/cosmos-db/local-emulator)。 [对请求进行身份验证](local-emulator.md#authenticate-requests)中提供了主密钥。
+* 可以通过 `https://localhost:8081` 终结点使用 [Azure Cosmos DB 仿真器](./local-emulator.md)。 [对请求进行身份验证](local-emulator.md#authenticate-requests)中提供了主密钥。
 
     <!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
     
@@ -98,10 +99,8 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
     client.ConnectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 0;
     ```
 
-5. 应用程序调用 BulkImportAsync API。 .NET 库提供批量导入 API 的两个重载 - 一个重载接受序列化的 JSON 文档列表，另一个重载接受反序列化的 POCO 文档列表。 若要详细了解其中每个重载方法的定义，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync)。
+5. 应用程序调用 BulkImportAsync API。 .NET 库提供批量导入 API 的两个重载 - 一个重载接受序列化的 JSON 文档列表，另一个重载接受反序列化的 POCO 文档列表。 若要详细了解其中每个重载方法的定义，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?preserve-view=true)。
 
-    <!--CORRECT ON REMOVE &preserve-view=true-->
-    
     ```csharp
     BulkImportResponse bulkImportResponse = await bulkExecutor.BulkImportAsync(
      documents: documentsToImportInBatch,
@@ -121,7 +120,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
     |maxInMemorySortingBatchSize     |  从在每个阶段中传递给 API 调用的文档枚举器提取的最大文档数。 对于在批量导入之前发生的内存中排序阶段，将此参数设置为 null 会导致库使用默认最小值 (documents.count, 1000000)。       |
     |cancellationToken    |    用于正常退出批量导入操作的取消令牌。     |
 
-    **批量导入响应对象定义**批量导入 API 调用的结果包含以下属性：
+    **批量导入响应对象定义** 批量导入 API 调用的结果包含以下属性：
 
     |**参数**  |**说明**  |
     |---------|---------|
@@ -132,16 +131,16 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>批量更新 Azure Cosmos 帐户中的数据
 
-可以使用 BulkUpdateAsync API 更新现有文档。 此示例将 `Name` 字段设置为新值，并从现有文档中删除 `Description` 字段。 有关完整的受支持更新操作集，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate)。
+可以使用 BulkUpdateAsync API 更新现有文档。 此示例将 `Name` 字段设置为新值，并从现有文档中删除 `Description` 字段。 有关完整的受支持更新操作集，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?preserve-view=true)。
 
-<!--CORRECT ON REMOVE &preserve-view=true-->
+<!--CORRECT ON REMOVE ?preserve-view=true-->
 
 1. 导航到“BulkUpdateSample”文件夹并打开“BulkUpdateSample.sln”文件。  
 
-2. 定义更新项以及相应的字段更新操作。 此示例使用 `SetUpdateOperation` 更新 `Name` 字段，并使用 `UnsetUpdateOperation` 从所有文档中删除 `Description` 字段。 还可以执行其他操作，例如，根据特定的值递增文档字段、将特定的值推送到数组字段，或者从数组字段中删除特定的值。 若要了解批量更新 API 提供的不同方法，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate)。
+2. 定义更新项以及相应的字段更新操作。 此示例使用 `SetUpdateOperation` 更新 `Name` 字段，并使用 `UnsetUpdateOperation` 从所有文档中删除 `Description` 字段。 还可以执行其他操作，例如，根据特定的值递增文档字段、将特定的值推送到数组字段，或者从数组字段中删除特定的值。 若要了解批量更新 API 提供的不同方法，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?preserve-view=true)。
 
-    <!--CORRECT ON REMOVE &preserve-view=true-->
-
+    <!--CORRECT ON REMOVE ?preserve-view=true-->
+    
     ```csharp
     SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
     UnsetUpdateOperation descriptionUpdate = new UnsetUpdateOperation("description");
@@ -157,9 +156,9 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
     }
     ```
 
-3. 应用程序调用 BulkUpdateAsync API。 若要了解 BulkUpdateAsync 方法的定义，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync)。
+3. 应用程序调用 BulkUpdateAsync API。 若要了解 BulkUpdateAsync 方法的定义，请参阅 [API 文档](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?preserve-view=true)。
     
-    <!--CORRECT ON REMOVE &preserve-view=true-->
+    <!--CORRECT ON REMOVE ?preserve-view=true-->
 
     ```csharp
     BulkUpdateResponse bulkUpdateResponse = await bulkExecutor.BulkUpdateAsync(
@@ -176,7 +175,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
     |maxInMemorySortingBatchSize    |    从在每个阶段中传递给 API 调用的更新项枚举器提取的最大更新项数。 对于批量导入之前发生的每个内存中排序阶段，将此参数设置为 null 会导致库使用默认最小值 (updateItems.count, 1000000)。     |
     | cancellationToken|用于正常退出批量更新操作的取消令牌。 |
 
-    **批量更新响应对象定义**批量更新 API 调用的结果包含以下属性：
+    **批量更新响应对象定义** 批量更新 API 调用的结果包含以下属性：
 
     |**参数**  |**说明** |
     |---------|---------|

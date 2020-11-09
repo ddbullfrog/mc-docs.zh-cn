@@ -4,16 +4,16 @@ description: 了解如何配置独立的或本地 Azure Service Fabric 群集。
 ms.topic: conceptual
 origin.date: 11/12/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5ebecba48df3510001498636eea42dec9addd872
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 1635a547872b978917f0eb401cde7b68fee0b1ef
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655258"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328543"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>独立 Windows 群集的配置设置
 本文介绍可使用 ClusterConfig.json  文件设置的独立 Azure Service Fabric 群集的配置设置。 需要使用该文件指定有关群集节点、安全配置以及有关容错域和升级域的网络拓扑信息。  更改或添加配置设置后，可以[创建一个独立的群集](service-fabric-cluster-creation-for-windows-server.md)，也可以[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -40,8 +40,7 @@ ms.locfileid: "89655258"
 可为 Service Fabric 群集指定任何友好名称，只需将该名称分配到 name 变量即可。 clusterConfigurationVersion 是群集的版本号。 每次升级 Service Fabric 群集时，都应该递增该编号。 请将 apiVersion 保留为默认值。
 
 <a name="clusternodes"></a>
-<a name="nodes-on-the-cluster"></a>
-## <a name="nodes-on-the-cluster"></a>群集上的节点
+## <a name="nodes-on-the-cluster"></a><a name="nodes-on-the-cluster"></a>群集上的节点
 可以使用 nodes 节配置 Service Fabric 群集上的节点，如以下代码片段中所示：
 ```json
 "nodes": [{
@@ -147,7 +146,7 @@ nodeTypes 节描述群集中的节点类型。 一个群集必须指定至少一
 }]
 ```
 
-name 是此特定节点类型的友好名称。 要创建这种类型的节点，请[如前所述](#nodes-on-the-cluster)，将该节点的友好名称分配到其 nodeTypeRef 变量。 对于每个节点类型，请定义要使用的连接终结点。 可为这些连接终结点选择任意端口号，只要不与此群集中的任何其他终结点冲突即可。 在多节点群集中，根据 [reliabilityLevel](#reliability)，将有一个或多个主节点（即，isPrimary 设置为 *true*）。 若要详细了解主节点类型和非主节点类型，请参阅 [Service Fabric 群集容量规划注意事项](service-fabric-cluster-capacity.md)，了解有关 nodeTypes 和 reliabilityLevel 的信息。 
+name 是此特定节点类型的友好名称。 要创建这种类型的节点，请[如前所述](#nodes-on-the-cluster)，将该节点的友好名称分配到其 nodeTypeRef 变量。 对于每个节点类型，请定义要使用的连接终结点。 可为这些连接终结点选择任意端口号，只要不与此群集中的任何其他终结点冲突即可。 在多节点群集中，根据 [reliabilityLevel](#reliability)，将有一个或多个主节点（即，isPrimary 设置为 *true* ）。 若要详细了解主节点类型和非主节点类型，请参阅 [Service Fabric 群集容量规划注意事项](service-fabric-cluster-capacity.md)，了解有关 nodeTypes 和 reliabilityLevel 的信息。 
 
 #### <a name="endpoints-used-to-configure-the-node-types"></a>用于配置节点类型的终结点
 * clientConnectionEndpointPort 是使用客户端 API 时，客户端用来连接群集的端口。 

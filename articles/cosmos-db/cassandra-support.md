@@ -7,18 +7,19 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 origin.date: 09/14/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: bff47c321f3313b7e0deee5dc3d4924ade838bfe
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: cf0baa7467f597f72abe2952e2a0353aba58ef0e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118408"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328497"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支持的 Apache Cassandra 功能 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB 是 Azure 提供的多区域分布式多模型数据库服务。 你可以通过与 CQL 二进制协议 v4 [线路协议](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec)兼容的开放源代码 Cassandra 客户端[驱动程序](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)与 Azure Cosmos DB Cassandra API 通信。 
 
@@ -73,6 +74,8 @@ Azure Cosmos DB Cassandra API 支持以下 CQL 数据类型：
 | tuples | 是 | 
 | udts  | 是 |
 | map | 是 |
+
+数据类型声明支持静态。
 
 ## <a name="cql-functions"></a>CQL 函数
 
@@ -147,6 +150,7 @@ Azure Cosmos DB 在 Cassandra API 帐户上支持以下数据库命令。
 | CREATE USER（在原生 Apache Cassandra 中已弃用） | 否 |
 | DELETE | 是 |
 | DELETE（使用 IF 条件的轻型事务）| 是 |
+| DISTINCT | 否 |
 | DROP AGGREGATE | 否 |
 | .DROP FUNCTION | 否 |
 | DROP INDEX | 是 |
@@ -249,7 +253,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmos.azure.cn 10350 -u <YOUR_ACCOUNT_NAME>
 
 ## <a name="consistency-mapping"></a>一致性映射 
 
-Azure Cosmos DB Cassandra API 为读取操作提供了一致性选择。  一致性映射的信息详见[此文](consistency-levels-across-apis.md#cassandra-mapping)。
+Azure Cosmos DB Cassandra API 为读取操作提供了一致性选择。  一致性映射的信息详见[此文](./cassandra-consistency.md#mapping-consistency-levels)。
 
 ## <a name="permission-and-role-management"></a>权限和角色管理
 
@@ -270,6 +274,8 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
+## <a name="secondary-index"></a>辅助索引
+Cassandra API 支持所有数据类型的辅助索引，但冻结的集合类型、十进制和变量类型除外。 
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>使用 Cassandra 重试连接策略
 

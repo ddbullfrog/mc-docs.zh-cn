@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: networking
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 7d4b6d8e9aaa60538ad52f178667cf1ea677e4a5
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 129710ddec191413eb13d2ada05fb4afb26fcf55
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413231"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326529"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集的网络
 
@@ -132,7 +132,7 @@ Azure 加速网络可以实现对虚拟机的单根 I/O 虚拟化 (SR-IOV)，从
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>使用公共 IP 为每个虚拟机创建规模集
 若要通过 CLI 创建向每个虚拟机分配公共 IP 地址的规模集，请将 --public-ip-per-vm 参数添加到 vmss create 命令中 。 
 
-若要使用 Azure 模板创建规模集，请确保 Microsoft.Compute/virtualMachineScaleSets 资源的 API 版本至少为 **2017-03-30**，并将 **publicIpAddressConfiguration** JSON 属性添加到规模集的 ipConfigurations 节。 例如：
+若要使用 Azure 模板创建规模集，请确保 Microsoft.Compute/virtualMachineScaleSets 资源的 API 版本至少为 **2017-03-30** ，并将 **publicIpAddressConfiguration** JSON 属性添加到规模集的 ipConfigurations 节。 例如：
 
 ```json
 "publicIpAddressConfiguration": {
@@ -148,7 +148,7 @@ Azure 加速网络可以实现对虚拟机的单根 I/O 虚拟化 (SR-IOV)，从
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>在规模集中查询虚拟机的公共 IP 地址
 若要通过 CLI 列出分配到规模集虚拟机的公共 IP 地址，请使用 az vmss list-instance-public-ips 命令。
 
-若要使用 PowerShell 列出规模集的公共 IP 地址，请使用_Get-AzPublicIpAddress_ 命令。 例如：
+若要使用 PowerShell 列出规模集的公共 IP 地址，请使用 _Get-AzPublicIpAddress_ 命令。 例如：
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
@@ -286,7 +286,7 @@ Azure REST API 的示例输出：
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>每个规模集的 NSG 和 ASG
-可以使用[网络安全组](../virtual-network/security-overview.md)通过安全规则来筛选 Azure 虚拟网络中出入 Azure 资源的流量。 可以通过[应用程序安全组](../virtual-network/security-overview.md#application-security-groups)来处理 Azure 资源的网络安全问题，并将其作为应用程序结构的扩展组合起来。
+可以使用[网络安全组](../virtual-network/network-security-groups-overview.md)通过安全规则来筛选 Azure 虚拟网络中出入 Azure 资源的流量。 可以通过[应用程序安全组](../virtual-network/network-security-groups-overview.md#application-security-groups)来处理 Azure 资源的网络安全问题，并将其作为应用程序结构的扩展组合起来。
 
 可以直接向规模集应用网络安全组，只需将引用添加到规模集虚拟机属性的网络接口配置节即可。
 

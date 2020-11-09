@@ -5,16 +5,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 12/10/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 02/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 58160c399f8c6175bb0f54ffa5da58b67b0a62ef
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 0b1df6c601bf504c0383b01660276324d9818c7a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128212"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327351"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>运行从本地到 Azure 的故障转移
 
@@ -83,7 +83,7 @@ ms.locfileid: "92128212"
 
 有多个与故障转移相关的作业。
 
-:::image type="content" source="./media/site-recovery-failover/FailoverJob.png" alt-text="Azure Site Recovery 的屏幕截图，其中显示了 ADRP 窗格，并从“更多”菜单中选择了“故障转移”。":::
+:::image type="content" source="./media/site-recovery-failover/FailoverJob.png" alt-text="“作业”页面的屏幕截图，其中显示了在“名称”列中展开的“组 1:Start(1)”的作业列表。突出显示了 SQLServer 作业行。":::
 
 - **先决条件检查** ：确保满足故障转移所需的全部条件。
 - **故障转移** ：处理数据，以便通过其创建 Azure VM。 如果选择了 **最新的** 恢复点，则会基于发送到服务的数据创建恢复点。

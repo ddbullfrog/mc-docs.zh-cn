@@ -1,19 +1,18 @@
 ---
 title: 在 Azure Monitor 日志查询中使用字符串 | Azure Docs
 description: 介绍如何在 Azure Monitor 日志查询中编辑、比较、搜索字符串以及对其执行其他各种操作。
-author: lingliw
-manager: digimobile
 ms.subservice: logs
 ms.topic: conceptual
+author: Johnnytechn
+ms.author: v-johya
+ms.date: 11/02/2020
 origin.date: 08/16/2018
-ms.date: 01/21/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 5240ad14982dffee862b644ef8589633691f5a48
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f1a63d09918715ad35d890fff1d6abef157a8fda
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850265"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327685"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用字符串
 
@@ -76,8 +75,8 @@ print @"C:\backslash\not\escaped\with @ prefix"
 `!startswith_cs`  |右侧不是左侧的初始子序列|是        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |右侧是左侧的结束子序列|否             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |右侧不是左侧的结束子序列|否         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |右侧是左侧的结束子序列|是             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |右侧不是左侧的结束子序列|是         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |右侧是左侧的结束子序列|是             |`"Fabrikam" endswith_cs "kam"`
+`!endswith_cs`    |右侧不是左侧的结束子序列|是         |`"Fabrikam" !endswith_cs "brik"`
 `matches regex`|左侧包含右侧的匹配项        |是           |`"Fabrikam" matches regex "b.*k"`
 `in`           |等于某个元素       |是           |`"abc" in ("123", "345", "abc")`
 `!in`          |不等于任何元素   |是           |`"bca" !in ("123", "345", "abc")`
@@ -95,7 +94,7 @@ countof(text, search [, kind])
 ### <a name="arguments"></a>参数：
 - `text` - 输入字符串 
 - `search` - 用于在文本内部匹配的纯字符串或正则表达式。
-- `kind` - _normal_ | _regex_（默认值：normal）。
+- `kind` - _normal_ | _regex_ （默认值：normal）。
 
 ### <a name="returns"></a>返回
 
@@ -173,8 +172,8 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 
 ## <a name="isempty-isnotempty-notempty"></a>isempty, isnotempty, notempty
 
-- 如果参数是空字符串或 null，则 *isempty* 返回 true（另请参阅 *isnull*）。
-- 如果参数不是空字符串或 null，则 *isnotempty* 返回 true（另请参阅 *isnotnull*）。 别名：*notempty*。
+- 如果参数是空字符串或 null，则 *isempty* 返回 true（另请参阅 *isnull* ）。
+- 如果参数不是空字符串或 null，则 *isnotempty* 返回 true（另请参阅 *isnotnull* ）。 别名： *notempty* 。
 
 ### <a name="syntax"></a>语法
 
@@ -371,3 +370,4 @@ print toupper("hello"); // result: "HELLO"
 * [使用 JSON 和数据结构](json-data-structures.md)
 * [高级查询编写](advanced-query-writing.md)
 * [联接 - 交叉分析](joins.md)
+

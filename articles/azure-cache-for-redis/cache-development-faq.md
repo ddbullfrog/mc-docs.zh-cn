@@ -6,13 +6,13 @@ ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/24/2020
-ms.openlocfilehash: 53f7bad96cca66f1d678885cb047ef901b2e93b5
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.date: 11/03/2020
+ms.openlocfilehash: 6ec196f23b33bdd2bf29cb6a44140addec67b0a9
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947561"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326599"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Azure Cache for Redis 开发的常见问题解答
 
@@ -54,7 +54,7 @@ StackExchange.Redis 有很多选项。 本部分介绍一些常用设置。 有�
 
 * **重试**
   * 对于 ConnectRetry 和 ConnectTimeout，一般指导原则是快速失败并重试。 该指导原则取决于工作负荷，以及客户端发出 Redis 命令和接收响应平均花费的时间。
-  * 让 StackExchange.Redis 自动重新连接，而不是检查连接状态，并由用户自己重新连接。 **避免使用 ConnectionMultiplexer.IsConnected 属性**。
+  * 让 StackExchange.Redis 自动重新连接，而不是检查连接状态，并由用户自己重新连接。 **避免使用 ConnectionMultiplexer.IsConnected 属性** 。
   * 雪球效应 - 有时可能会遇到这样的问题：不断地重试，但问题不断累积，导致永远无法恢复。 
   
 * **超时值**
@@ -108,7 +108,7 @@ public static ConnectionMultiplexer Connection
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.chinacloudapi.cn -a <key>`
 
 > [!NOTE]
-> Redis 命令行工具不适用于 TLS 端口，但你可以按照[如何将 Redis 命令行工具用于 Azure Cache for Redis](/azure-cache-for-redis/cache-how-to-redis-cli-tool) 一文中的说明，使用 `stunnel` 等实用程序将工具安全地连接到 TLS 端口。
+> Redis 命令行工具不适用于 TLS 端口，但你可以按照[如何将 Redis 命令行工具用于 Azure Cache for Redis](./cache-how-to-redis-cli-tool.md) 一文中的说明，使用 `stunnel` 等实用程序将工具安全地连接到 TLS 端口。
 >
 >
 

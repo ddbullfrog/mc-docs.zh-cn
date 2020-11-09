@@ -6,13 +6,13 @@ ms.topic: tutorial
 origin.date: 07/19/2019
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: b18d322d265a78ff4cf2f09d74fd2974062865e8
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: 8676342cab8578972b0e7208808484dcd1681afb
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148609"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328634"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>教程：Log Analytics 查询入门
 
@@ -39,15 +39,15 @@ ms.locfileid: "89148609"
 
 ## <a name="understand-the-schema"></a>了解架构
  
-架构是分组到逻辑类别下的表集合。 “演示”架构包含监视解决方案中的多个类别。 例如，**LogManagement** 类别包含 Windows 和 Syslog 事件、性能数据与代理检测信号。
+架构是分组到逻辑类别下的表集合。 “演示”架构包含监视解决方案中的多个类别。 例如， **LogManagement** 类别包含 Windows 和 Syslog 事件、性能数据与代理检测信号。
 
-架构表显示在 Log Analytics 工作区的“表”选项卡上。 该表包含列，每个列的数据类型按照列名旁边的图标显示。 例如，**Event** 表包含 **Computer** 之类的文本列，以及 **EventCategory** 之类的数字列。
+架构表显示在 Log Analytics 工作区的“表”选项卡上。 该表包含列，每个列的数据类型按照列名旁边的图标显示。 例如， **Event** 表包含 **Computer** 之类的文本列，以及 **EventCategory** 之类的数字列。
 
-![架构](./media/get-started-portal/schema.png)
+![显示 Azure 门户“日志”页面的屏幕截图，其中包含一个新查询，突出显示了“表”窗格以及其中的 Computer 和 EventCategory。](./media/get-started-portal/schema.png)
 
 ## <a name="write-and-run-basic-queries"></a>编写和运行基本查询
 
-Log Analytics 在打开时会在**查询编辑器**中显示一个新的空白查询。
+Log Analytics 在打开时会在 **查询编辑器** 中显示一个新的空白查询。
 
 ![Log Analytics](./media/get-started-portal/homepage.png)
 
@@ -76,7 +76,7 @@ Event
 search in (Event) "error"
 ```
 
-在第二个示例中，**search** 命令仅在 **Events** 表的记录中搜索 **error** 一词。
+在第二个示例中， **search** 命令仅在 **Events** 表的记录中搜索 **error** 一词。
 
 默认情况下，Log Analytics 会将查询时间范围限制为过去 24 小时。 若要设置不同的时间范围，可将显式的 **TimeGenerated** 筛选器添加到查询，或使用“时间范围”控件。
 
@@ -89,7 +89,7 @@ search in (Event) "error"
 - 如果查询针对 **TimeGenerated** 显式设置了筛选器，则时间选取器控件将显示“在查询中设置”，并会禁用以防止冲突。
 
 ### <a name="run-a-query"></a>运行查询
-若要运行查询，请将光标放在查询中的某个位置，然后在顶部栏中选择“运行”，或按 **Shift**+**Enter**。 该查询将运行到它找到了空白行为止。
+若要运行查询，请将光标放在查询中的某个位置，然后在顶部栏中选择“运行”，或按 **Shift**+**Enter** 。 该查询将运行到它找到了空白行为止。
 
 ## <a name="filter-results"></a>筛选结果
 Log Analytics 将结果数限制为最多 10,000 条记录。 类似于 `Event` 的常规查询会返回过多的结果，其中一些结果没有作用。 可以通过限制查询中的表元素，或者显式针对结果添加筛选器，来筛选查询结果。 通过表元素进行筛选会返回新的结果集，而显式筛选器将应用于现有的结果集。
@@ -103,7 +103,7 @@ Log Analytics 将结果数限制为最多 10,000 条记录。 类似于 `Event` 
    
    ![向查询添加筛选器](./media/get-started-portal/add-filter.png)
    
-1. 请注意，**查询编辑器**中的查询现已更改为：
+1. 请注意， **查询编辑器** 中的查询现已更改为：
    
    ```Kusto
    Event
@@ -117,11 +117,11 @@ Log Analytics 将结果数限制为最多 10,000 条记录。 类似于 `Event` 
 
 1. 在查询结果中，选择列标题“EventLevelName”旁边的“筛选器”图标。 
    
-1. 在弹出窗口的第一个字段中选择“等于”，然后在下一个字段中输入 *error*。 
+1. 在弹出窗口的第一个字段中选择“等于”，然后在下一个字段中输入 *error* 。 
    
 1. 选择“筛选”。
    
-   ![筛选器](./media/get-started-portal/filter.png)
+   ![显示结果表的屏幕截图，其中包含按 EventLevelName 筛选结果的上下文菜单。](./media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>排序、分组和选择列
 若要按特定的列（例如“TimeGenerated [UTC]”）对查询结果进行排序，请选择列标题。 再次选择该标题可切换为按升序或降序排序。
@@ -130,7 +130,7 @@ Log Analytics 将结果数限制为最多 10,000 条记录。 类似于 `Event` 
 
 还可以按组来组织结果。 若要按特定的列对结果进行分组，请将列标题拖放到结果表上方的、带有“将列标题拖放到此处，以按该列分组”标签的栏中。 若要创建子组，请将其他列拖放到上部栏中。 可以在该栏中重新排列组和子组的层次结构与排序方式。
 
-![组](./media/get-started-portal/groups.png)
+![显示 EventLevelName 和 Computer 的子组的查询结果的屏幕截图。](./media/get-started-portal/groups.png)
 
 若要在结果中隐藏或显示列，请选择表上方的“列”，然后从下拉列表中选择或取消选择所需的列。
 
@@ -186,9 +186,9 @@ Event
    
 1. 在“保存”对话框中，使用字符 a-z、A-Z、0-9、空格、连字符、下划线、句点、括号或竖线为查询指定“名称”。 
    
-1. 选择是要将查询保存为“查询”还是“函数”。 函数是其他查询可以引用的查询。 
+1. 选择是要将查询保存为“查询”还是“函数”。  函数是其他查询可以引用的查询。 
    
-   若要将查询保存为函数，请提供**函数别名** - 供其他查询用来调用此查询的短名称。
+   若要将查询保存为函数，请提供 **函数别名** - 供其他查询用来调用此查询的短名称。
    
 1. 如果位于 Log Analytics 工作区中，请提供“查询资源管理器”的类别以用于查询。 （类别不可用于 Application Insights 查询）
    
@@ -197,12 +197,12 @@ Event
    ![保存函数](./media/get-started-portal/save-function.png)
 
 ### <a name="load-queries"></a>加载查询
-若要加载已保存的查询，请选择右上角的“查询资源管理器”。 此时会打开“查询资源管理器”窗格，其中按类别列出了所有查询。 展开类别或者在搜索栏中输入查询名称，然后选择某个查询以将其载入“查询编辑器”。 可以通过选择查询名称旁边的星形图标，将该查询标记为**收藏项目**。
+若要加载已保存的查询，请选择右上角的“查询资源管理器”。 此时会打开“查询资源管理器”窗格，其中按类别列出了所有查询。 展开类别或者在搜索栏中输入查询名称，然后选择某个查询以将其载入“查询编辑器”。 可以通过选择查询名称旁边的星形图标，将该查询标记为 **收藏项目** 。
 
 ![查询资源管理器](./media/get-started-portal/query-explorer.png)
 
 ### <a name="export-and-share-queries"></a>导出和共享查询
-若要导出查询，请在顶部栏上选择“导出”，然后从下拉列表中选择“导出到 CSV - 所有列”、“导出到 CSV - 显示的列”或“导出到 Power BI (M 查询)”。
+若要导出查询，请在顶部栏上选择“导出”，然后从下拉列表中选择“导出到 CSV - 所有列”、“导出到 CSV - 显示的列”或“导出到 Power BI (M 查询)”。   
 
 若要共享查询的链接，请在顶部栏上选择“复制链接”，然后选择“复制查询链接”、“复制查询文本”或“复制查询结果”以复制到剪贴板。    可将查询链接发送给有权访问同一工作区的其他人。
 

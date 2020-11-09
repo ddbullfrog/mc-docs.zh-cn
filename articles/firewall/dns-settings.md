@@ -2,20 +2,20 @@
 title: Azure 防火墙 DNS 设置（预览版）
 description: 可以使用 DNS 服务器和 DNS 代理设置来配置 Azure 防火墙。
 services: firewall
-author: rockboyfor
 ms.service: firewall
 ms.topic: how-to
 origin.date: 06/30/2020
-ms.date: 08/03/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: ddef5f50b5aa02e4b7f2752dee5951496a493278
-ms.sourcegitcommit: 362814dc7ac5b56cf0237b9016a67c35d8d72c32
+ms.openlocfilehash: 25a017bd5cde6e915cd42c799a632473662baaa2
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457491"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327289"
 ---
 <!--Verify Successfully-->
 # <a name="azure-firewall-dns-settings-preview"></a>Azure 防火墙 DNS 设置（预览版）
@@ -61,6 +61,7 @@ DNS 服务器维护域名并将它解析为 IP 地址。 默认情况下，Azure
 3. 在“DNS 服务器”下，选择“自定义” 。
 4. 输入防火墙的专用 IP 地址。
 5. 选择“保存” 。
+6. 重启已连接到虚拟网络的 VM，以便为其分配新的 DNS 服务器设置。 VM 在重启之前，将继续使用其当前 DNS 设置。
 
 #### <a name="enable-dns-proxy-preview"></a>启用 DNS 代理（预览）
 
@@ -76,5 +77,4 @@ DNS 服务器维护域名并将它解析为 IP 地址。 默认情况下，Azure
 
 [网络规则中的 FQDN 筛选](fqdn-filtering-network-rules.md)
 
-<!-- Update_Description: new article about dns settings -->
-<!--NEW.date: 08/03/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

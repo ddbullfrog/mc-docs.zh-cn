@@ -7,19 +7,20 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: a32fc76a4a74a85f8c8cc2f9e6cafe3b23b8bb35
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: e01717e5653444738e3541b811623bb1e6492030
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118378"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328616"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Node.js 连接和查询 Azure Cosmos DB SQL API 帐户中的数据
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > - [.NET V3](create-sql-api-dotnet.md)
@@ -173,7 +174,7 @@ npm install @azure/cosmos
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，在你的 Azure Cosmos DB 帐户中，从左侧导航栏中选择“密钥”，然后选择“读写密钥”。 在下一步中，使用屏幕右侧的复制按钮将 URI 和主密钥复制到 _app.js_ 文件中。
 
-    :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Azure 门户 >“数据资源管理器”>“添加集合”窗格":::
+    :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥":::
 
 2. 打开 _config.js_ 文件。
 

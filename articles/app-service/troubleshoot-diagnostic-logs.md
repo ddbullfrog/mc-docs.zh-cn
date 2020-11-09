@@ -7,12 +7,12 @@ origin.date: 09/17/2019
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 2895469d0212f7fe730f87e6be01326952eee7d2
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 37480eddfce0475d56884c7a2b5a80dbca427f93
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170453"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328835"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>为 Azure 应用服务中的应用启用诊断日志记录
 ## <a name="overview"></a>概述
@@ -174,7 +174,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 | **应用程序日志** |*/LogFiles/Application/* | 包含一个或多个文本文件。 日志消息的格式取决于所用的日志记录提供程序。 |
 | **失败请求跟踪** | */LogFiles/W3SVC#########/* | 包含 XML 文件和一个 XSL 文件。 可以在浏览器中查看带格式的 XML 文件。 |
 | **详细错误日志** | */LogFiles/DetailedErrors/* | 包含 HTM 错误文件。 可以在浏览器中查看 HTM 文件。<br/>查看失败请求跟踪的另一种方法是在门户中导航到应用页。 在左侧菜单中选择“诊断和解决问题”，搜索“失败请求跟踪日志”，然后单击相应的图标来浏览和查看所需的跟踪。  |
-| **Web 服务器日志** | */LogFiles/http/RawLogs/* | 包含使用 [W3C 扩展日志文件格式](/windows/desktop/Http/w3c-logging)的文本文件。 可以使用文本编辑器或诸如[日志分析程序](https://go.microsoft.com/fwlink/?LinkId=246619)之类实用工具来阅读此信息。<br/>应用服务不支持 `s-computername`、`s-ip` 或 `cs-version` 字段。 |
+| **Web 服务器日志** | */LogFiles/http/RawLogs/* | 包含使用 [W3C 扩展日志文件格式](https://docs.microsoft.com/windows/desktop/Http/w3c-logging)的文本文件。 可以使用文本编辑器或诸如[日志分析程序](https://go.microsoft.com/fwlink/?LinkId=246619)之类实用工具来阅读此信息。<br/>应用服务不支持 `s-computername`、`s-ip` 或 `cs-version` 字段。 |
 | **部署日志** | */LogFiles/Git/* 和 */deployments/* | 包含内部部署进程生成的日志，以及 Git 部署的日志。 |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>将日志发送到 Azure Monitor（预览版）

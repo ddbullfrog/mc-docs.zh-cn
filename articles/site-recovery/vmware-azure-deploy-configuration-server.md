@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 10/15/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0b9920348dee8c2d0286def8a87aeba28933965a
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 363ab90e009b97a28258b13026bd73e0b773ecfc
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655568"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327388"
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 
@@ -45,7 +45,7 @@ ms.locfileid: "89655568"
     - 转到“Azure Active Directory” > “角色和管理员”。<br />
     - 检查应用程序开发人员角色是否已分配到该用户。 如果没有，请使用拥有此权限的用户，或[联系管理员启用该权限](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles)。
 
-2. 如果无法分配应用程序开发人员角色，请确保“用户可以注册应用程序”标志设置为 **true**，使该用户能够创建标识。 若要启用这些权限：
+2. 如果无法分配应用程序开发人员角色，请确保“用户可以注册应用程序”标志设置为 **true** ，使该用户能够创建标识。 若要启用这些权限：
     - 登录到 Azure 门户。
     - 转到“Azure Active Directory” > “用户设置”。
     - 在“应用注册”下，对于“用户可以注册应用程序”，请选择“是”。   
@@ -151,7 +151,6 @@ ms.locfileid: "89655568"
 
 参阅我们的[故障排除文章](vmware-azure-troubleshoot-configuration-server.md)来解决部署和连接问题。
 
-<a name="faq"></a>
 ## <a name="faqs"></a><a name="faqs"></a>常见问题解答
 
 * 通过 OVF 部署在配置服务器上的许可证有效期是多长？ 如果不重新激活许可证会发生什么情况？
@@ -172,7 +171,7 @@ ms.locfileid: "89655568"
     若要详细了解配置服务器及其功能，请参阅 [VMware 到 Azure 的复制的体系结构](vmware-azure-architecture.md)。
 * 在哪里可以找到最新版本的配置服务器？
 
-    有关通过门户升级配置服务器的步骤，请参阅[升级配置服务器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 有关如何升级所有 Site Recovery 组件的说明，请参阅 [Site Recovery 中的服务更新](../site-recovery/service-updates-how-to.md)。
+    有关通过门户升级配置服务器的步骤，请参阅[升级配置服务器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 有关如何升级所有 Site Recovery 组件的说明，请参阅 [Site Recovery 中的服务更新](./service-updates-how-to.md)。
 * 在哪里可以下载配置服务器的密码？
 
     若要下载通行短语，请参阅[管理用于 VMware VM 灾难恢复的配置服务器](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)。

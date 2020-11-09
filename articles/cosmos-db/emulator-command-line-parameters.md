@@ -5,19 +5,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/17/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes|no
 ms.testdate: 10/19/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 9d72fc2f13a4c61f1bb20b93a8671c8b05d288aa
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.custom: contperfq1
+ms.openlocfilehash: 0461458ba308636115a855c73a79765d93ab1e6b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118851"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328912"
 ---
 <!--Verified successfully on only charactors only-->
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Azure Cosmos DB 模拟器的命令行和 PowerShell 参考
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 为方便本地开发，Azure Cosmos 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 [安装模拟器](local-emulator.md)后，可以通过命令行和 PowerShell 命令控制模拟器。 本文介绍如何使用命令行和 PowerShell 命令启动和停止模拟器、配置选项和执行其他操作。 必须从安装位置运行命令。
 
@@ -155,5 +157,4 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 * [导出供 Java、Python 和 Node.js 应用使用的 Azure Cosmos 模拟器证书](local-emulator-export-ssl-certificates.md)
 * [使用模拟器调试问题](troubleshoot-local-emulator.md)
 
-<!-- Update_Description: new article about emulator command line parameters -->
-<!--NEW.date: 10/19/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -2,26 +2,27 @@
 title: 使用 Spark 读取 Cassandra API 表数据
 titleSufix: Azure Cosmos DB
 description: 本文介绍如何读取 Azure Cosmos DB 中的 Cassandra API 表中的数据。
-author: rockboyfor
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 06/02/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 434ffcb197c496543723892bf4f7d9033beee721
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: e0704a383f1b8f21b41849c0fbff8cef1999106c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222773"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328701"
 ---
 <!--Verify sucessfully-->
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>使用 Spark 读取 Azure Cosmos DB Cassandra API 表中的数据
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
  本文介绍如何从 Spark 读取存储在 Azure Cosmos DB Cassandra API 中的数据。
 
@@ -90,17 +91,10 @@ readBooksDF.show
 可以将谓词向下推送到数据库，以便更好地优化 Spark 查询。 谓词是返回 true 或 false 的查询的条件，通常位于 WHERE 子句中。 谓词向下推送会筛选数据库查询中的数据，减少从数据库中检索到的条目数，提高查询性能。 默认情况下，Spark 数据集 API 会自动将有效的 WHERE 子句向下推送到数据库。 
 
 ```scala
-val readBooksDF = spark
-  .read
-  .format("org.apache.spark.sql.cassandra")
-  .options(Map( "table" -> "books", "keyspace" -> "books_ks"))
-  .load
-  .select("book_name","book_author", "book_pub_year")
-  .filter("book_pub_year > 1891")
-//.filter("book_name IN ('A sign of four','A study in scarlet')")
-//.filter("book_name='A sign of four' OR book_name='A study in scarlet'")
-//.filter("book_author='Arthur Conan Doyle' AND book_pub_year=1890")
-//.filter("book_pub_year=1903")  
+val df = spark.read.cassandraFormat("books", "books_ks").load
+df.explain
+val dfWithPushdown = df.filter(df("book_pub_year") > 1891)
+dfWithPushdown.explain
 
 readBooksDF.printSchema
 readBooksDF.explain

@@ -3,17 +3,18 @@ title: Azure Functions 高级计划
 description: Azure Functions 高级计划的详细信息和配置选项（VNet、无冷启动、无限制执行持续时间）。
 author: jeffhollan
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: b0c366303315af7ab661060723dd847b40858c1c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+- devx-track-azurecli
+ms.openlocfilehash: 64c57cf4d83fd46d28f0e18cff6370d9a0a36b22
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472579"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326551"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 高级计划
 
@@ -54,7 +55,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 你还可以使用 Azure CLI 为应用配置始终就绪实例。
 
 ```azurecli
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="pre-warmed-instances"></a>预热实例
@@ -68,7 +69,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 可以使用 Azure CLI 为应用修改预热实例数。
 
 ```azurecli
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="maximum-instances-for-an-app"></a>应用的最大实例数
@@ -102,7 +103,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 你还可以通过 Azure CLI 提高最大突发限制：
 
 ```azurecli
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 每个计划的最小值至少为一个实例。  系统会根据计划中的应用请求的始终就绪实例自动为你配置实际的最小实例数。  例如，如果应用 A 请求 5 个始终就绪实例，应用 B 在同一计划中请求 2 个始终就绪实例，则最小计划大小将计算为 5。  应用 A 将在所有 5 个实例上运行，应用 B 将仅在 2 个实例上运行。
@@ -115,12 +116,12 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 可以使用 Azure CLI 为计划增大算出的最小值。
 
 ```azurecli
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### <a name="available-instance-skus"></a>可用的实例 SKU
 
-创建或缩放计划时，可以在三个实例大小之间进行选择。  你将按分配给你的每个实例的内核总数以及每秒的预配内存付费。  你的应用可以根据需要自动横向扩展到多个实例。  
+创建或缩放计划时，可以在三个实例大小之间进行选择。  你将按分配给你的每个实例的内核总数以及每秒的预配内存付费。  你的应用可以根据需要自动横向扩展到多个实例。
 
 |SKU|核心数|内存|存储|
 |--|--|--|--|

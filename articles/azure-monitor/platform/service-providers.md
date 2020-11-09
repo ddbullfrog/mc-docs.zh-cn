@@ -5,20 +5,20 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 02/03/2020
-ms.openlocfilehash: 22d75ec4ca483723f3484ce7cae59785893f64b5
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: b1363c418f00a343c1a080e7fda31d05e3fc89d6
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457258"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327875"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>面向服务提供商的 Azure Monitor 日志
 
 Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (MSP)、大型企业、独立软件供应商 (ISV) 和主机托管服务提供商管理和监视客户本地或云基础结构中的服务器。
 
-大型企业与服务提供商有许多相似之处，特别是当有一个集中式 IT 团队负责管理许多不同业务部门的 IT 时。 为了简单起见，本文档使用术语*服务提供商*，但同样的功能也可用于企业和其他客户。
+大型企业与服务提供商有许多相似之处，特别是当有一个集中式 IT 团队负责管理许多不同业务部门的 IT 时。 为了简单起见，本文档使用术语 *服务提供商* ，但同样的功能也可用于企业和其他客户。
 
 对于加入[云解决方案提供商 (CSP)](https://partner.microsoft.com/membership/cloud-solution-provider) 计划的合作伙伴和服务提供商，Azure Monitor 中的 Log Analytics 是 Azure CSP 订阅中可用的 Azure 服务之一。
 
@@ -35,7 +35,7 @@ Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (M
 
 服务提供商管理员可通过两种方式访问客户租户中的 Log Analytics 工作区：
 
-- 客户可将服务提供商的个人用户添加为 [Azure Active Directory 来宾用户 (B2B)](../../active-directory/b2b/what-is-b2b.md)。 服务提供商管理员必须在 Azure 门户中登录到每个客户的目录才能访问这些工作区。 这还需要客户管理每个服务提供商管理员的个人访问权限。
+- 客户可将服务提供商的个人用户添加为 [Azure Active Directory 来宾用户 (B2B)](../../active-directory/external-identities/what-is-b2b.md)。 服务提供商管理员必须在 Azure 门户中登录到每个客户的目录才能访问这些工作区。 这还需要客户管理每个服务提供商管理员的个人访问权限。
 <!--Not available in MC: Azure Lighthouse-->
 
 分布式体系结构的优势是：
@@ -81,12 +81,12 @@ Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (M
 
 ## <a name="next-steps"></a>后续步骤
 
-* 使用[Resource Manager 模板](template-workspace-configuration.md)自动执行创建和配置工作区
+* 使用[Resource Manager 模板](../samples/resource-manager-workspace.md)自动执行创建和配置工作区
 
 * 使用 [PowerShell](./powershell-workspace-configuration.md) 自动创建工作区
 
 * 使用[警报](./alerts-overview.md)以便与现有系统集成
 
 * 使用 [Power BI](./powerbi.md) 生成摘要报告
-<!--Not available in MC: Azure Lighthouse-->
 
+<!--Not available in MC: Azure Lighthouse-->

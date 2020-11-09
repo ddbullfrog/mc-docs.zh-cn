@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 03/04/2020
+ms.topic: how-to
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 9d2e2e6d8a79e64da1c7218e68c7deb4528dc081
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 6c7fe3037f4d9dc20a4edddd6246fb06a43cd406
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78266105"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326441"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure AD B2C 自定义策略
 
@@ -29,7 +29,7 @@ Azure PowerShell 提供了多个 cmdlet 来基于命令行和脚本对 Azure AD 
 
 ## <a name="prerequisites"></a>必备条件
 
-* [Azure AD B2C 租户](tutorial-create-tenant.md)，以及目录中具有 [B2C IEF 策略管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)角色的用户的凭据
+* [Azure AD B2C 租户](tutorial-create-tenant.md)，以及目录中具有 [B2C IEF 策略管理员](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)角色的用户的凭据
 * 已上传到租户的自定义策略
 * [用于 Graph 的 Azure AD PowerShell **预览版模块**](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
@@ -37,7 +37,7 @@ Azure PowerShell 提供了多个 cmdlet 来基于命令行和脚本对 Azure AD 
 
 若要处理 Azure AD B2C 租户中的自定义策略，首先需要使用 [Connect-AzureAD][Connect-AzureAD] 命令将 PowerShell 会话连接到租户。
 
-执行以下命令，并将 `{b2c-tenant-name}` 替换为你的 Azure AD B2C 租户的名称。 使用目录中分配有 [B2C IEF 策略管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)角色的帐户进行登录。
+执行以下命令，并将 `{b2c-tenant-name}` 替换为你的 Azure AD B2C 租户的名称。 使用目录中分配有 [B2C IEF 策略管理员](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)角色的帐户进行登录。
 
 ```PowerShell
 Connect-AzureAD -AzureEnvironmentName AzureChinaCloud -Tenant "{b2c-tenant-name}.partner.onmschina.cn"

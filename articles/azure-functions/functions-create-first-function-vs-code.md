@@ -2,15 +2,15 @@
 title: 在 Azure 中使用 Visual Studio Code 创建你的第一个函数
 description: 使用 Visual Studio Code 中的 Azure Functions扩展创建一个简单的 HTTP 触发函数并将其发布到 Azure。
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7377758ae6f9582613714e86c114d97eae274b90
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: e6f84e0ac43fd5098dfe457eedfe9d03a59a01d0
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472598"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326542"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>快速入门：在 Azure 中使用 Visual Studio Code 创建函数
 
@@ -59,7 +59,7 @@ ms.locfileid: "92472598"
 - [.NET Core 3.1](https://www.microsoft.com/net/download) 和 [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 ::: zone-end
 ::: zone pivot="programming-language-java"
-- [Java 开发人员工具包](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)版本 8。
+- [Java 开发人员工具包](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)版本 8 或 11。
 
 - [Apache Maven](https://maven.apache.org) 3.0 或更高版本。
 ::: zone-end
@@ -106,7 +106,7 @@ ms.locfileid: "92472598"
     ::: zone pivot="programming-language-java"
     - **选择函数项目的语言** ：选择`Java`。
 
-    - **选择 Java 的版本** ：选择在 Azure 中运行函数的 `Java 8` 或 `Java 11 (preview)`。 选择已在本地验证的 Java 版本。
+    - **选择 Java 的版本** ：选择在 Azure 中运行函数的 `Java 8` 或 `Java 11`。 选择已在本地验证的 Java 版本。
 
     - **提供组 ID** ：选择`com.function`。
 

@@ -4,16 +4,16 @@ description: 使用 Azure Service Fabric 开发应用程序和服务的最佳做
 ms.topic: conceptual
 origin.date: 06/18/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 471ea89d04754c0a5e9378388b8994e875bd828f
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: ef7a5086dd576e853e0ba09a26504605d6a1a9ee
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655117"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328710"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>有关 Azure Service Fabric 应用程序设计的最佳做法
 
@@ -47,9 +47,9 @@ ms.locfileid: "89655117"
 
 确定数据保留期限：
 
-- **缓存的数据**。 如果与外部存储之间的延迟是一个问题，请使用缓存。 将有状态服务用作自己的数据缓存，或考虑使用[开源的 SoCreate Service Fabric 分布式缓存](https://github.com/SoCreate/service-fabric-distributed-cache)。 在此方案中，无需担心是否会丢失缓存中的所有数据。
-- **时间受限的数据**。 在此方案中，需要使数据靠近计算资源以减小某个时间段的延迟，但在发生灾难时，你能够承受得起丢失该数据所造成的影响。  例如，在许多 IoT 解决方案中，数据需要靠近计算资源（例如，计算过去几天的平均温度），但如果此数据丢失，则记录的特定数据点就不是那么重要。 此外，在此方案中，你通常不会关心单个数据点的备份。 你只需备份定期写入到外部存储的平均计算值。  
-- **长期数据**。 可靠集合可以永久存储数据。 但是，在这种情况下，需要[为灾难恢复做好准备](./service-fabric-disaster-recovery.md)，包括为群集[配置定期备份策略](./service-fabric-backuprestoreservice-configure-periodic-backup.md)。 实际上，配置的设置涉及到群集在灾难中受损时要怎样做、在哪种情况下需要创建新的群集、如何部署新应用程序实例以及从最新的备份恢复。
+- **缓存的数据** 。 如果与外部存储之间的延迟是一个问题，请使用缓存。 将有状态服务用作自己的数据缓存，或考虑使用[开源的 SoCreate Service Fabric 分布式缓存](https://github.com/SoCreate/service-fabric-distributed-cache)。 在此方案中，无需担心是否会丢失缓存中的所有数据。
+- **时间受限的数据** 。 在此方案中，需要使数据靠近计算资源以减小某个时间段的延迟，但在发生灾难时，你能够承受得起丢失该数据所造成的影响。  例如，在许多 IoT 解决方案中，数据需要靠近计算资源（例如，计算过去几天的平均温度），但如果此数据丢失，则记录的特定数据点就不是那么重要。 此外，在此方案中，你通常不会关心单个数据点的备份。 你只需备份定期写入到外部存储的平均计算值。  
+- **长期数据** 。 可靠集合可以永久存储数据。 但是，在这种情况下，需要[为灾难恢复做好准备](./service-fabric-disaster-recovery.md)，包括为群集[配置定期备份策略](./service-fabric-backuprestoreservice-configure-periodic-backup.md)。 实际上，配置的设置涉及到群集在灾难中受损时要怎样做、在哪种情况下需要创建新的群集、如何部署新应用程序实例以及从最新的备份恢复。
 
 节省成本并提高可用性：
 - 可以使用有状态服务降低成本，因为从远程存储执行数据访问和事务不会产生成本，并且无需使用另一个服务（例如 Azure Redis 缓存）。

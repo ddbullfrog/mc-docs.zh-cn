@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 829cfff524a91a6f162b1fca6055d43d0ed2436b
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 9f2e3b04db3785399384b05885b2423b00b0fefb
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297651"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326467"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -228,7 +228,7 @@ Pattern  元素可以包含以下属性：
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
     </Restriction>
  </ClaimType>
 ```
@@ -239,7 +239,7 @@ Pattern  元素可以包含以下属性：
 
 ### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C 支持各种用户输入类型，例如在手动输入声明类型的声明数据时可以使用的文本框、密码和下拉列表。 使用[自断言技术配置文件](self-asserted-technical-profile.md)和[显示控件](display-controls.md)从用户收集信息时，必须指定 **UserInputType**。
+Azure AD B2C 支持各种用户输入类型，例如在手动输入声明类型的声明数据时可以使用的文本框、密码和下拉列表。 使用 [自断言技术配置文件](self-asserted-technical-profile.md)和 [显示控件](display-controls.md)从用户收集信息时，必须指定 **UserInputType** 。
 
 **UserInputType** 元素可用的用户输入类型：
 
@@ -284,7 +284,7 @@ EmailBox  用户输入类型用于提供基本电子邮件输入字段。
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>EmailBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
   </Restriction>
 </ClaimType>
 ```
@@ -413,4 +413,3 @@ Paragraph  用户输入类型用于提供仅在段落标记中显示文本的字
 </ClaimType>
 ```
 
-<!-- Update_Description: wording update -->

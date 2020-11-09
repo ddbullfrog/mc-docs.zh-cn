@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 origin.date: 09/10/2019
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 07bf6b756db9a1219679117bbb0f1ffd7edd13e9
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 722745110d098b6c3010403343d71b1a18f802c9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118490"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328085"
 ---
 # <a name="system-document-properties"></a>系统文档属性
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB 具有与每个文档有关的[系统属性](https://docs.microsoft.com/rest/api/cosmos-db/databases)，例如 ```_ts```、```_self```、```_attachments```、```_rid``` 和 ```_etag```。 此外，Gremlin 引擎会添加与边缘有关的 ```inVPartition``` 和 ```outVPartition``` 属性。 默认情况下，这些属性可供遍历。 但是，可将特定属性或所有这些属性都包含在 Gremlin 遍历中。
 
@@ -37,7 +38,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 如果集合已启用文档过期，并且文档上设置了 ```ttl``` 属性，则此属性将在 Gremlin 遍历中可用作常规的顶点或边缘属性。 启用生存时间属性曝光不需要 ```ProjectionStrategy```。
 
-通过以下遍历创建的顶点将在 **123 秒**后自动删除。
+通过以下遍历创建的顶点将在 **123 秒** 后自动删除。
 
 ```
 g.addV('vertex-one').property('ttl', 123)

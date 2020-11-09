@@ -5,16 +5,16 @@ manager: gaggupta
 ms.topic: how-to
 origin.date: 09/09/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 989049e2033270ec6dee9c5af1260a121208f119
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: c12fe0084a556bbc2077d8dc06566b56b8527b6c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128706"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328862"
 ---
 <!--Verified Successfully-->
 # <a name="monitoring-churn-patterns-on-virtual-machines"></a>监视虚拟机上的代码改动模式
@@ -25,7 +25,7 @@ ms.locfileid: "92128706"
 
 如果计算机托管在 Azure 中，并且使用托管或非托管磁盘进行存储，则可通过跟踪磁盘指标轻松跟踪性能。 这样，你能够密切监视并根据应用程序使用模式选择适当的磁盘。 你还可用它来创建警报、诊断和生成自动化。 [了解详细信息](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)。
 
-使用 Azure Site Recovery 保护计算机后，可使用 Azure Monitor 日志和 Log Analytics 监视计算机。 [了解详细信息](/site-recovery/monitor-log-analytics)。
+使用 Azure Site Recovery 保护计算机后，可使用 Azure Monitor 日志和 Log Analytics 监视计算机。 [了解详细信息](./monitor-log-analytics.md)。
 
 还有一些特定于操作系统的工具可供使用。
 
@@ -55,18 +55,20 @@ ms.locfileid: "92128706"
 1. 按 Win + R，然后键入“perfmon”。
 1. perfmon（即性能监视器）窗口打开后，将提供以下视图 -
 
-    :::image type="content" source="./media/monitoring-high-churn/perfmon-step1.png" alt-text="资源监视器的“磁盘”选项卡":::
+    :::image type="content" source="./media/monitoring-high-churn/perfmon-step1.png" alt-text="性能监视器步骤 1":::
 
 1. 展开右侧的“监视工具”文件夹，然后单击“性能监视器”。 这将打开以下视图，让你了解当前性能的实时信息 -
 
-    :::image type="content" source="./media/monitoring-high-churn/perfmon-step1.png" alt-text="资源监视器的“磁盘”选项卡":::
+    :::image type="content" source="./media/monitoring-high-churn/perfmon-step1.png" alt-text="性能监视器步骤 2":::
 
 1. 该图当前仅监视一个监视器，即“处理器时间百分比”，如该图正下方的表格所示。 可单击工具顶部的“+”符号，添加更多要监视的项。
 1. 下面直观显示了在向其添加更多计数器后性能监视器的外观 -
 
-    :::image type="content" source="./media/monitoring-high-churn/perfmon-step3.png" alt-text="资源监视器的“磁盘”选项卡":::
+    :::image type="content" source="./media/monitoring-high-churn/perfmon-step3.png" alt-text="性能监视器步骤 3":::
 
-在[此处](/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data)详细了解性能监视器。
+在[此处](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data)详细了解性能监视器。
+
+<!--MOONCAKE CORRECT ON (https://docs.microsoft.com/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data)-->
 
 ## <a name="for-linux-machines"></a>对于 Linux 计算机
 
@@ -88,5 +90,4 @@ IoStat 是一款简单的工具，用于收集和显示系统输入和输出存�
 
 了解如何使用 [Azure Monitor](monitor-log-analytics.md) 进行监视。
 
-<!-- Update_Description: new article about monitoring high churn -->
-<!--NEW.date: 10/19/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

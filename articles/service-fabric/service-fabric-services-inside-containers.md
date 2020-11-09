@@ -4,17 +4,17 @@ description: 了解如何在 Windows 上容器化 Service Fabric Reliable Servic
 ms.topic: conceptual
 origin.date: 05/23/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: abae527d4110b595c33c15acb2617cd43bdd64ff
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 1cbd07b506e476ca2ab734316793dd0c61ac314a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655066"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327598"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>在 Windows 上容器化 Service Fabric Reliable Services 和 Reliable Actors
 

@@ -1,17 +1,16 @@
 ---
 title: 使用适用于 Cosmos DB 的 Azure Monitor 监视 Azure Cosmos DB | Microsoft Docs
 description: 本文介绍了适用于 Cosmos DB 的 Azure Monitor 功能。使用此功能，Cosmos DB 所有者能够快速了解其 CosmosDB 帐户的性能和利用率问题。
-ms.subservice: ''
-ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: 500711dc14058f71d899cf38926dc8906a0c545b
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.topic: conceptual
+ms.date: 11/02/2020
+ms.openlocfilehash: b26f53cf2be73f2d9a3cb198db0bbbed4c6e164a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148692"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327860"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>探究适用于 Azure Cosmos DB 的 Azure Monitor
 
@@ -23,9 +22,9 @@ ms.locfileid: "89148692"
 
 它提供以下功能：
 
-* 在单一位置为你的所有订阅中的 Azure Cosmos DB 资源提供**规模化视角**，并且能够有选择地将评估范围限定于你感兴趣的那些订阅和资源。
+* 在单一位置为你的所有订阅中的 Azure Cosmos DB 资源提供 **规模化视角** ，并且能够有选择地将评估范围限定于你感兴趣的那些订阅和资源。
 
-* 对特定的 Azure CosmosDB 资源进行**深化分析**，以便诊断问题或按类别（利用率、故障、容量和操作）进行详细分析。 选择这些选项中的任何一个即可深入了解相关的 Azure Cosmos DB 指标。  
+* 对特定的 Azure CosmosDB 资源进行 **深化分析** ，以便诊断问题或按类别（利用率、故障、容量和操作）进行详细分析。 选择这些选项中的任何一个即可深入了解相关的 Azure Cosmos DB 指标。  
 
 * **可自定义** - 此体验是基于 Azure Monitor 工作簿模板构建的，允许你更改要显示的指标，修改或设置与你的限制相符的阈值，然后将其保存到自定义工作簿中。 然后，可以将工作簿中的图表固定到 Azure 仪表板。  
 

@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/28/2020
 ms.date: 10/29/2020
-ms.openlocfilehash: 8d80b28b356433144be09b2c6193647cb3e409fe
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7f9ee8ee1d03ca18bf028961d085ecfbb1ebe640
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103839"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327357"
 ---
 # <a name="parse_command_line"></a>parse_command_line()
 
@@ -27,7 +27,7 @@ ms.locfileid: "93103839"
 ## <a name="arguments"></a>参数
 
 * command_line：要分析的命令行。
-* parser_type：当前支持的唯一值为 `"Windows"`，它以与 [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) 相同的方式分析命令行。
+* parser_type：当前支持的唯一值为 `"Windows"`，它以与 [CommandLineToArgvW](https://docs.microsoft.com/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) 相同的方式分析命令行。
 
 ## <a name="returns"></a>返回
 

@@ -8,8 +8,6 @@
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: 事件中心捕获
       href: event-hubs-capture-overview.md
-    - name: 事件中心专用层
-      href: event-hubs-dedicated-overview.md
 - name: 快速入门
   expanded: true
   items:
@@ -100,8 +98,6 @@
                   href: authenticate-application.md
             - name: 使用共享访问签名进行身份验证
               href: authenticate-shared-access-signature.md
-        - name: 内置安全控件
-          href: event-hubs-security-controls.md
     - name: AMQP 1.0 协议指南
       href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
       maintainContext: true
@@ -111,8 +107,6 @@
       items:
         - name: 将命名空间移到另一个区域
           href: move-across-regions.md
-        - name: 将专用群集移到另一个区域
-          href: move-cluster-across-regions.md
     - name: 动态添加分区
       href: dynamically-add-partitions.md
     - name: 使用 Blob 存储作为 Azure Stack Hub 上的检查点存储
@@ -185,7 +179,7 @@
       items:
         - name: 允许从特定 IP 地址访问
           href: event-hubs-ip-filtering.md
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 解决连接问题
           href: troubleshooting-guide.md
@@ -193,6 +187,8 @@
           href: troubleshoot-authentication-authorization.md
         - name: 针对事件中心的 Kafka 故障排除指南
           href: apache-kafka-troubleshooting-guide.md
+        - name: EventHubsException
+          href: exceptions-dotnet.md
         - name: .NET 异常
           href: event-hubs-messaging-exceptions.md
         - name: 资源管理器异常
@@ -270,7 +266,7 @@
       href: ./policy-reference.md
 - name: 资源
   items:
-    - name: 常见问题
+    - name: 常见问题解答
       href: event-hubs-faq.md
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/event-hubs/'

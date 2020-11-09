@@ -1,32 +1,33 @@
 ---
 title: 使用表 API 和 Java 生成应用 - Azure Cosmos DB
 description: 本快速入门介绍如何在 Azure 门户和 Java 中使用 Azure Cosmos DB 表 API 创建应用程序
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 05/28/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 503ea2e76c0b95d4c8a830d0b30fc227b829b780
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: df165909cc2ff22e1de742cd797ecf6c1f346663
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246777"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328600"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB 表 API 数据
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 > 
 
 在本快速入门中，我们创建一个 Azure Cosmos DB 表 API 帐户，并使用从 GitHub 克隆的数据资源管理器和 Java 应用创建表和条目。 Azure Cosmos DB 是一种多模型数据库服务，可让你通过多区域分布和水平缩放功能快速创建和查询文档、表、键/值和图数据库。
@@ -73,7 +74,7 @@ ms.locfileid: "91246777"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
@@ -170,7 +171,7 @@ ms.locfileid: "91246777"
 
 2. 使用右侧的复制按钮，复制主连接字符串。
 
-3. 打开 *C:\git-samples\storage-table-java-getting-started\src\main\resources* 文件夹中的 *config.properties*。 
+3. 打开 *C:\git-samples\storage-table-java-getting-started\src\main\resources* 文件夹中的 *config.properties* 。 
 
 5. 注释掉第 1 行，并取消注释掉第 2 行。 前两行现在应如下所示。
     

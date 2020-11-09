@@ -5,19 +5,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 06/10/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: daf0243f6e90a53beaea1cec5bf39b340b2864b2
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 0a2f3c9d99256e862e0de88d468c519088faa21b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118578"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328672"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理一致性级别
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍了如何在 Azure Cosmos DB 中管理一致性级别。 你将了解如何配置默认一致性级别、替代默认一致性、手动管理会话令牌以及了解概率有限过期 (PBS) 指标。
 
@@ -29,7 +30,7 @@ ms.locfileid: "92118578"
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 
-若要查看或修改默认一致性级别，请登录到 Azure 门户。 找到你的 Azure Cosmos 帐户，打开“默认一致性”窗格****。 选择你希望用作新的默认值的一致性级别，然后选择“保存”****。 
+若要查看或修改默认一致性级别，请登录到 Azure 门户。 找到你的 Azure Cosmos 帐户，打开“默认一致性”窗格。 选择你希望用作新的默认值的一致性级别，然后选择“保存”。 
 
 <!--MOONCAKE: music notes in cosmos db NOT AVAILABLE till on 09/28/2020-->
 <!--Not Available on The Azure portal also provides a visualization of different consistency levels with music notes. -->
@@ -69,7 +70,7 @@ Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
 客户端可以重写由服务设置的默认一致性级别。 可以在每个请求上设置一致性级别，这将替代在帐户级别设置的默认一致性级别。
 
 > [!TIP]
-> 只能在请求级别放松**** 一致性要求。 若要从较弱的一致性移动到更强的一致性，请更新 Cosmos 帐户的默认一致性。
+> 只能在请求级别放松一致性要求。 若要从较弱的一致性移动到更强的一致性，请更新 Cosmos 帐户的默认一致性。
 
 <a name="override-default-consistency-dotnet"></a>
 ### <a name="net-sdk"></a>.NET SDK
@@ -191,7 +192,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 ## <a name="utilize-session-tokens"></a>利用会话令牌
 
-Azure Cosmos DB 中的一致性级别之一是“会话”一致性**。 这是默认情况下应用于 Cosmos 帐户的默认级别。 使用“会话”一致性时，客户端将在内部的每个读取/查询请求中使用会话令牌，以确保维持设置的一致性级别**。
+Azure Cosmos DB 中的一致性级别之一是“会话”一致性。 这是默认情况下应用于 Cosmos 帐户的默认级别。 使用“会话”一致性时，客户端将在内部的每个读取/查询请求中使用会话令牌，以确保维持设置的一致性级别。
 
 若要手动管理会话令牌，请从响应中获取会话令牌并针对每个请求设置它们。 如果不需手动管理会话令牌，则不需要使用这些示例。 SDK 会自动跟踪会话令牌。 如果未手动设置会话令牌，则默认情况下，SDK 使用最新的会话令牌。
 
@@ -335,17 +336,18 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>监视概率有限过期 (PBS) 指标
 
-最终一致性的最终程度如何？ 对于普通情况，我们是否可以提供版本历史和时间方面的过期限度。 [**概率有限过期 (PBS)** ](https://pbs.cs.berkeley.edu/) 指标尝试量化过期的概率并将其显示为指标。 若要查看 PBS 指标，请在 Azure 门户中转到你的 Cosmos 帐户。 打开“指标”**** 窗格，然后选择“一致性”**** 选项卡。查看名为“基于工作负载的强一致性读取的概率(请参阅 PBS)”的图。****
+最终一致性的最终程度如何？ 对于普通情况，我们是否可以提供版本历史和时间方面的过期限度。 [**概率有限过期 (PBS)**](https://pbs.cs.berkeley.edu/) 指标尝试量化过期的概率并将其显示为指标。 若要查看 PBS 指标，请在 Azure 门户中转到你的 Cosmos 帐户。 打开“指标”窗格，然后选择“一致性”选项卡。查看名为“基于工作负载的强一致性读取的概率(请参阅 PBS)”的图。
 
-:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Azure 门户中的一致性菜单":::
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Azure 门户中的 PBS 图":::
 
 ## <a name="next-steps"></a>后续步骤
 
 详细了解如何管理数据冲突，或者继续了解 Azure Cosmos DB 中的下一个关键概念。 请参阅以下文章：
 
 * [Azure Cosmos DB 中的一致性级别](consistency-levels.md)
+* [分区和数据分布](./partitioning-overview.md)
 * [管理区域之间的冲突](how-to-manage-conflicts.md)
-* [分区和数据分布](partition-data.md)
+* [分区和数据分布](partitioning-overview.md)
 * [现代分布式数据库系统设计中的一致性利弊](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [高可用性](high-availability.md)
 * [Azure Cosmos DB SLA](https://www.azure.cn/support/sla/cosmos-db/)

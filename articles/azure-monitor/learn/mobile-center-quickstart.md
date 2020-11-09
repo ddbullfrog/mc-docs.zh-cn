@@ -6,15 +6,15 @@ ms.topic: quickstart
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 10/03/2018
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 642da6dc846349ecc8962f7232933f04f7331d17
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: a94bc4ea11a641612dde25310892180eda10dff4
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148569"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327556"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>开始使用 App Center 和 Application Insights 分析移动应用
 
@@ -125,7 +125,7 @@ Application Insights 可以查询、分段、筛选和分析来自应用的自�
    1. 通过单击文本编辑器中查询的任意位置，选择此查询。
    2. 然后，单击“运行”运行查询。 
 
-   详细了解有关 [Application Insights 分析](../log-query/log-query-overview.md)和 [Log Analytics 查询语言](https://aka.ms/LogAnalyticsLanguageReference)的信息。
+   详细了解有关 [Application Insights 分析](../log-query/log-query-overview.md)和 [Log Analytics 查询语言](/azure/data-explorer/kusto/query/)的信息。
 
 
 2. **分段和筛选自定义事件遥测。** 从 Application Insights“概述”页面上，选择目录中的“用户”。
@@ -169,5 +169,4 @@ Application Insights 可以查询、分段、筛选和分析来自应用的自�
 
 > [!div class="nextstepaction"]
 > [了解客户如何使用应用](../app/usage-overview.md)
-
 

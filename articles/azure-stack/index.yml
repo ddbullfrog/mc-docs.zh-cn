@@ -10,13 +10,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 11/04/2019
-  ms.date: 08/31/2019
-  ms.openlocfilehash: 01e3324b2b2b9258b2d4f9a556191a944c02e836
-  ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+  ms.date: 11/09/2020
+  ms.openlocfilehash: ddea51f3aee7f2229d78d2c422570a9cba6da806
+  ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/26/2020
-  ms.locfileid: "88868034"
+  ms.lasthandoff: 11/04/2020
+  ms.locfileid: "93330585"
 highlightedContent:
   items:
   - title: Azure Stack 系列公告
@@ -43,38 +43,38 @@ conceptualContent:
   items:
   - title: 了解混合
     links:
-    - url: /azure-stack/hybrid/overview-patterns-solution-examples
+    - url: https://docs.microsoft.com/hybrid/app-solutions/overview-patterns-solution-examples
       itemType: overview
       text: 什么是模式和解决方案示例？
-    - url: /azure-stack/hybrid/overview-app-design-considerations
+    - url: https://docs.microsoft.com/hybrid/app-solutions/overview-app-design-considerations
       itemType: concept
       text: 混合应用设计注意事项
   - title: 探索混合模式
     links:
-    - url: /azure-stack/hybrid/pattern-cross-cloud-scale
+    - url: https://docs.microsoft.com/hybrid/app-solutions/pattern-cross-cloud-scale
       itemType: architecture
       text: 跨云缩放
-    - url: /azure-stack/hybrid/pattern-cicd-pipeline
+    - url: https://docs.microsoft.com/hybrid/app-solutions/pattern-cicd-pipeline
       itemType: architecture
       text: DevOps 混合 CI/CD
-    - url: /azure-stack/hybrid/pattern-retail-footfall-detection
+    - url: https://docs.microsoft.com/hybrid/app-solutions/pattern-retail-footfall-detection
       itemType: architecture
       text: 客流量检测（零售）
-    - url: /azure-stack/hybrid/pattern-geo-distributed
+    - url: https://docs.microsoft.com/hybrid/app-solutions/pattern-geo-distributed
       itemType: architecture
       text: 地区分布式应用
   - title: 部署混合解决方案示例
     links:
-    - url: /azure-stack/hybrid/solution-deployment-guide-cross-cloud-scaling
+    - url: https://docs.microsoft.com/hybrid/app-solutions/solution-deployment-guide-cross-cloud-scaling
       itemType: tutorial
       text: 跨云缩放
     - url: https://aka.ms/hybriddevopsdeploy
       itemType: tutorial
       text: DevOps 混合 CI/CD
-    - url: /azure-stack/hybrid/solution-deployment-guide-retail-footfall-detection
+    - url: https://docs.microsoft.com/hybrid/app-solutions/solution-deployment-guide-retail-footfall-detection
       itemType: tutorial
       text: 客流量检测（零售）
-    - url: /azure-stack/hybrid/solution-deployment-guide-geo-distributed
+    - url: https://docs.microsoft.com/hybrid/app-solutions/solution-deployment-guide-geo-distributed
       itemType: tutorial
       text: 地区分布式应用
 additionalContent:
@@ -128,7 +128,7 @@ additionalContent:
       - url: https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server
         text: Hyper-V
       - url: https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
-        text: Storage Spaces Direct
+        text: 存储空间直通
       - url: https://docs.microsoft.com/windows-server/networking/sdn
         text: 软件定义的网络
       - url: https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 07/11/2019
 ms.author: v-yiso
 ms.date: 10/08/2019
-ms.openlocfilehash: 30d4935be31b71612b4d487220a61be39852ec43
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 1aa8fe37c456df7437e5398ac1ab3d0f79b198e9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "71340768"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327536"
 ---
 # <a name="optimize-expressroute-routing"></a>优化 ExpressRoute 路由
 有多个 ExpressRoute 线路时，可以通过多个路径连接到 Microsoft。 结果就是，所采用的路由可能不是最理想的 - 也就是说，流量可能会经历较长的路径才能到达 Microsoft，而 Microsoft 的流量也可能会经历较长的路径才能到达网络。 网络路径越长，延迟越严重。 延迟对应用程序性能和用户体验有直接影响。 本文详述此问题，并说明如何使用标准路由技术来优化路由。
@@ -72,7 +72,7 @@ ms.locfileid: "71340768"
 >
 
 ## <a name="suboptimal-routing-from-microsoft-to-customer"></a>从 Microsoft 到客户的欠佳路由
-下面是另一示例：从 Microsoft 发出的连接需要更长的路径才能到达网络。 在此示例中，在 [混合环境](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx)中使用本地 Exchange 服务器和 Exchange Online。 办公室都连接到 WAN。 通过两个 ExpressRoute 线路将两个办公室中的本地服务器的前缀都播发到 Microsoft。 在进行邮箱迁移等情况下，Exchange Online 会发起到本地服务器的连接。 遗憾的是，到洛杉矶办公室的连接会在遍历整个大陆回到西海岸之前路由到美国东部的 ExpressRoute 线路。 问题原因类似于第一个。 在没有任何提示的情况下，Microsoft 网络无法判断哪个客户前缀靠近美国东部，哪个客户前缀靠近美国西部。 它碰巧选取了到洛杉矶办公室的错误路径。
+下面是另一示例：从 Microsoft 发出的连接需要更长的路径才能到达网络。 在此示例中，在 [混合环境](https://docs.microsoft.com/exchange/exchange-hybrid)中使用本地 Exchange 服务器和 Exchange Online。 办公室都连接到 WAN。 通过两个 ExpressRoute 线路将两个办公室中的本地服务器的前缀都播发到 Microsoft。 在进行邮箱迁移等情况下，Exchange Online 会发起到本地服务器的连接。 遗憾的是，到洛杉矶办公室的连接会在遍历整个大陆回到西海岸之前路由到美国东部的 ExpressRoute 线路。 问题原因类似于第一个。 在没有任何提示的情况下，Microsoft 网络无法判断哪个客户前缀靠近美国东部，哪个客户前缀靠近美国西部。 它碰巧选取了到洛杉矶办公室的错误路径。
 
 ![ExpressRoute 案例 2 - 从 Microsoft 到客户的路由欠佳](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 

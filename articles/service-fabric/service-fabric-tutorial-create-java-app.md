@@ -4,17 +4,17 @@ description: 本教程介绍如何创建一个包含前端的 Reliable Services 
 ms.topic: tutorial
 origin.date: 09/01/2018
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-js
-ms.openlocfilehash: e1002a448b1dec640f7023b66855eda7ee4584f6
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: ac3cc330e55670a718a0de9a54e7fe79c176719e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127788"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327437"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>教程：在 Azure Service Fabric 上创建包含 Java API 前端服务和有状态后端服务的应用程序
 
@@ -54,11 +54,11 @@ ms.locfileid: "92127788"
 
 2. 通过单击“文件” > “新建” > “其他” > “Service Fabric” > “Service Fabric 项目”来创建项目。
 
-    :::image type="content" source="./media/service-fabric-tutorial-create-java-app/service-fabric-project-wizard.png" alt-text="Service Fabric 投票示例":::
+    :::image type="content" source="./media/service-fabric-tutorial-create-java-app/service-fabric-project-wizard.png" alt-text="Eclipse 中的新 Service Fabric 项目":::
 
 3. 在“ServiceFabric 项目向导”对话框中，将项目命名为 Voting，然后选择“下一步”。
 
-    :::image type="content" source="./media/service-fabric-tutorial-create-java-app/name-service-fabric-project-wizard.png" alt-text="Service Fabric 投票示例"::: 
+    :::image type="content" source="./media/service-fabric-tutorial-create-java-app/name-service-fabric-project-wizard.png" alt-text="在新建服务对话框中选择 Java 无状态服务"::: 
 
 4. 在“添加服务”页中，选择“无状态服务”，然后将服务命名为“VotingWeb”  。 选择“完成”以创建该项目。
 
@@ -89,9 +89,9 @@ ms.locfileid: "92127788"
 
 3. 将文件夹命名为 *wwwroot* 并选择“完成”。
 
-    :::image type="content" source="./media/service-fabric-tutorial-create-java-app/create-wwwroot-folder.png" alt-text="Service Fabric 投票示例":::
+    :::image type="content" source="./media/service-fabric-tutorial-create-java-app/create-wwwroot-folder.png" alt-text="Eclipse 创建 wwwroot 文件夹":::
 
-4. 将名为 **index.html** 的文件添加到 **wwwroot**，然后将以下内容粘贴到该文件夹中。
+4. 将名为 **index.html** 的文件添加到 **wwwroot** ，然后将以下内容粘贴到该文件夹中。
 
     ```html
     <!DOCTYPE html>
@@ -385,7 +385,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 <a name="updatelistener_anchor"></a>
 ### <a name="configure-the-listening-port"></a>配置侦听端口
 
-创建 VotingWeb 服务前端服务后，Service Fabric 会选择一个可供服务侦听的端口。  VotingWeb 服务充当此应用程序的前端并接受外部流量，因此让我们将此服务绑定到已知的固定端口。 在包资源管理器中，打开 *VotingApplication/VotingWebPkg/ServiceManifest.xml*。  在“资源”部分中找到“终结点”资源，然后将“端口”值更改为 8080（我们会继续在本教程中使用此端口）。 若要在本地部署和运行应用程序，应用程序侦听端口必须为打开状态且在你的计算机上可用。 将以下代码片段粘贴到 **ServiceManifest** 元素中（放在 ```<DataPackage>``` 元素下方）。
+创建 VotingWeb 服务前端服务后，Service Fabric 会选择一个可供服务侦听的端口。  VotingWeb 服务充当此应用程序的前端并接受外部流量，因此让我们将此服务绑定到已知的固定端口。 在包资源管理器中，打开 *VotingApplication/VotingWebPkg/ServiceManifest.xml* 。  在“资源”部分中找到“终结点”资源，然后将“端口”值更改为 8080（我们会继续在本教程中使用此端口）。 若要在本地部署和运行应用程序，应用程序侦听端口必须为打开状态且在你的计算机上可用。 将以下代码片段粘贴到 **ServiceManifest** 元素中（放在 ```<DataPackage>``` 元素下方）。
 
 ```xml
 <Resources>
@@ -412,7 +412,7 @@ Service Fabric 允许使用 Reliable Collections 直接在服务内以一致、�
 
 3. Eclipse 会创建一个服务项目，并在包资源管理器中显示该项目。
 
-    :::image type="content" source="./media/service-fabric-tutorial-create-java-app/service-fabric-package-explorer-java.png" alt-text="Service Fabric 投票示例":::
+    :::image type="content" source="./media/service-fabric-tutorial-create-java-app/service-fabric-package-explorer-java.png" alt-text="Eclipse 项目资源管理器":::
 
 ### <a name="add-the-votingdataservicejava-file"></a>添加 VotingDataService.java 文件
 
@@ -550,9 +550,9 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 下一步是连接前端无状态服务和后端服务。 这两个服务都利用一个名为 VotingRPC 的接口来定义 Voting 应用程序的操作。 此接口由前端和后端服务来共同实现，用于在这两项服务之间进行远程过程调用 (RPC)。 遗憾的是，Eclipse 不支持添加 Gradle 子项目，因此必须手动添加包含此接口的包。
 
-1. 在包资源管理器中右键单击“Voting”项目，然后单击“新建” > “文件夹”  。 将文件夹命名为 **VotingRPC/src/rpcmethods**。
+1. 在包资源管理器中右键单击“Voting”项目，然后单击“新建” > “文件夹”  。 将文件夹命名为 **VotingRPC/src/rpcmethods** 。
 
-    :::image type="content" source="./media/service-fabric-tutorial-create-java-app/create-voting-rpc-package-java.png" alt-text="Service Fabric 投票示例":::
+    :::image type="content" source="./media/service-fabric-tutorial-create-java-app/create-voting-rpc-package-java.png" alt-text="在 Eclipse 包资源管理器中创建 VotingRPC 包":::
 
 3. 在 *Voting/VotingRPC/src/rpcmethods* 下创建名为 *VotingRPC.java* 的文件，然后将以下内容粘贴到该 **VotingRPC.java** 文件中。 
 
@@ -715,7 +715,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 - Web 前端服务 (VotingWeb) - Java Web 前端服务，可提供网页服务，并公开用于与后端服务通信的 API。
 - 后端服务 (VotingDataService) - Java Web 服务，其定义的方法可以通过远程过程调用 (RPC) 来调用，以便保存投票结果。
 
-:::image type="content" source="./media/service-fabric-tutorial-create-java-app/walkthrough-java-voting.png" alt-text="Service Fabric 投票示例":::
+:::image type="content" source="./media/service-fabric-tutorial-create-java-app/walkthrough-java-voting.png" alt-text="投票示例关系图":::
 
 在应用程序中执行操作（添加项目、投票、删除项目）时，会发生以下事件：
 1. JavaScript 将相应的请求作为 HTTP 请求发送给 Web 前端服务中的 Web API。

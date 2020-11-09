@@ -13,6 +13,9 @@
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: 诊断 VM 流量筛选器问题 - Azure CLI
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
+    - name: 使用 ARM 模板配置 NSG 流日志
+      displayName: Resource Manager
+      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: 教程
   items:
     - name: 诊断 VM 路由问题
@@ -29,6 +32,8 @@
       href: connection-monitor-preview.md
     - name: 诊断 VM 网络流量筛选器问题
       href: network-watcher-ip-flow-verify-overview.md
+    - name: 诊断 NSG 规则和流量筛选
+      href: network-watcher-network-configuration-diagnostics-overview.md
     - name: 诊断 VM 路由问题
       href: network-watcher-next-hop-overview.md
     - name: 诊断出站 VM 通信问题
@@ -41,16 +46,24 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: 网络安全组视图
       href: network-watcher-security-group-view-overview.md
-    - name: 基于角色的访问控制权限
+    - name: Azure 基于角色的访问控制权限
       href: required-rbac-permissions.md
     - name: 安全性
       items:
         - name: 安全基线
           href: security-baseline.md
+    - name: 数据驻留
+      href: data-residency.md
 - name: 操作指南
   items:
     - name: 配置网络观察程序
       href: network-watcher-create.md
+    - name: 创建连接监视器（预览）
+      items:
+        - name: 使用 Azure 门户
+          href: connection-monitor-preview-create-using-portal.md
+        - name: 使用 ARMClient
+          href: connection-monitor-preview-create-using-arm-client.md
     - name: 诊断 VM 网络问题
       items:
         - name: 安装 VM 扩展
@@ -167,7 +180,7 @@
 - name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.azure.cn/cli/network/watcher?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/network/watcher'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.network/#network_watcher'
     - name: Java

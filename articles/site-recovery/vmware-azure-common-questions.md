@@ -3,17 +3,17 @@ title: 有关使用 Azure Site Recovery 进行 VMware 灾难恢复的常见问�
 description: 获取使用 Azure Site Recovery 将本地 VMware VM 灾难恢复到 Azure 时出现的常见问题的解答。
 origin.date: 11/14/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 0f2ba9228c0aba0407dd717dba8cc42371ad137d
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: ddb4f3d6132036f81db5372781ff21e1cba8972c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655565"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327385"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>有关 VMware 到 Azure 的复制的常见问题
 
@@ -80,7 +80,7 @@ Site Recovery 已通过 ISO 27001:2013、27018、HIPAA 和 DPA 认证， 目前�
 
 可以使用[定价计算器](https://www.azure.cn/pricing/calculator)来估算使用 Site Recovery 时的费用。
 
-若要对费用进行详细的估算，请运行适用于 [VMware](../site-recovery/site-recovery-vmware-deployment-planner-cost-estimation.md) 的部署规划器工具，并使用[成本估算报告](../site-recovery/site-recovery-vmware-deployment-planner-cost-estimation.md)。
+若要对费用进行详细的估算，请运行适用于 [VMware](./site-recovery-deployment-planner.md) 的部署规划器工具，并使用[成本估算报告](./site-recovery-vmware-deployment-planner-cost-estimation.md)。
 
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>复制到存储的费用与直接复制到托管磁盘的费用是否有任何差别？
 
@@ -119,7 +119,7 @@ Site Recovery 将本地 VMware VM 和物理服务器复制到 Azure 中的托管
 
 否。 从 2019 年 3 月开始，在 Azure 门户中只能复制到 Azure 托管磁盘。
 
-只能使用 PowerShell（[Az.RecoveryServices 模块版本 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)）或 REST API（版本 2018-01-10 或 2016-08-10）将新 VM 复制到存储帐户。 [了解如何](/site-recovery/vmware-azure-disaster-recovery-powershell)使用 PowerShell 命令来设置复制。
+只能使用 PowerShell（[Az.RecoveryServices 模块版本 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)）或 REST API（版本 2018-01-10 或 2016-08-10）将新 VM 复制到存储帐户。 [了解如何](./vmware-azure-disaster-recovery-powershell.md)使用 PowerShell 命令来设置复制。
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>复制到托管磁盘的优点是什么？
 
@@ -199,7 +199,7 @@ Site Recovery 每隔 5 分钟生成一次崩溃一致性恢复点。
 
 ### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>我的移动服务代理或配置服务器版本较低，并且升级失败。 我该怎么办？
 
-Site Recovery 遵循 N-4 支持模型。 [详细了解](../site-recovery/service-updates-how-to.md#support-statement-for-azure-site-recovery)如何从很低的版本升级。
+Site Recovery 遵循 N-4 支持模型。 [详细了解](./service-updates-how-to.md#support-statement-for-azure-site-recovery)如何从很低的版本升级。
 
 ### <a name="where-can-i-find-the-release-notes-and-update-rollups-for-azure-site-recovery"></a>在哪里可以找到 Azure Site Recovery 的发行说明和更新汇总？
 
@@ -207,11 +207,11 @@ Site Recovery 遵循 N-4 支持模型。 [详细了解](../site-recovery/service
 
 ### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>在哪里可以找到有关灾难恢复到 Azure 的升级信息？
 
-[了解如何升级](../site-recovery/service-updates-how-to.md#between-an-on-premises-vmware-or-physical-site-to-azure)。
+[了解如何升级](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure)。
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>每次升级后是否都需要重新启动源计算机？
 
-建议每次升级后重新启动，但不一定非要这样做。 [了解详细信息](../site-recovery/service-updates-how-to.md#between-an-on-premises-vmware-or-physical-site-to-azure)。
+建议每次升级后重新启动，但不一定非要这样做。 [了解详细信息](./service-updates-how-to.md#reboot-after-mobility-service-upgrade)。
 
 ## <a name="configuration-server"></a>配置服务器
 
@@ -255,7 +255,7 @@ Site Recovery 遵循 N-4 支持模型。 [详细了解](../site-recovery/service
 
 - 可以在 [Azure 更新页](https://updates.azure.cn/)中找到最新的更新信息。
 - 可从门户下载最新版本。 或者，可以直接从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器。
-- 如果你的版本比当前版本低 4 个版本，请参阅[支持声明](../site-recovery/service-updates-how-to.md#support-statement-for-azure-site-recovery)获取升级指导。
+- 如果你的版本比当前版本低 4 个版本，请参阅[支持声明](./service-updates-how-to.md#support-statement-for-azure-site-recovery)获取升级指导。
 
 ### <a name="should-i-back-up-the-configuration-server"></a>是否应备份配置服务器？
 

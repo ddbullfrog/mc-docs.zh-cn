@@ -5,17 +5,17 @@ manager: garavd
 ms.service: site-recovery
 origin.date: 04/09/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: c7dbb3919827883b1066199a9e0b7596ef2feeaa
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 8e746e3977b5e8461c42b7f259f9b7551378b1d7
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655428"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328839"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>规划容量和缩放以便将 VMware 灾难恢复到 Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "89655428"
 
 ## <a name="how-do-i-start-capacity-planning"></a>如何开始容量规划？
 
-若要了解 Azure Site Recovery 基础结构要求，请针对 VMware 复制运行 [Azure Site Recovery 部署规划器](https://docs.azure.cn/site-recovery/site-recovery-deployment-planner)，以收集有关复制环境的信息。 有关详细信息，请参阅[关于用于 VMware 到 Azure 复制的 Azure Site Recovery 部署规划器](site-recovery-deployment-planner.md)。 
+若要了解 Azure Site Recovery 基础结构要求，请针对 VMware 复制运行 [Azure Site Recovery 部署规划器](./site-recovery-deployment-planner.md)，以收集有关复制环境的信息。 有关详细信息，请参阅[关于用于 VMware 到 Azure 复制的 Azure Site Recovery 部署规划器](site-recovery-deployment-planner.md)。 
 
 Site Recovery 部署规划器将提供一份报告，其中包含有关兼容和不兼容的 VM、每个 VM 的磁盘以及每个磁盘数据变动率的完整信息。 该工具还将汇总符合目标 RPO 所要满足的网络带宽要求，以及成功完成复制和测试故障转移所需的 Azure 基础结构。
 
@@ -31,7 +31,7 @@ Site Recovery 部署规划器将提供一份报告，其中包含有关兼容和
 
 组件 | 详细信息
 --- | ---
-**复制** | **每日最大更改率**：一台受保护的计算机只能使用一个进程服务器。 单个进程服务器可以处理多达 2 TB 的每日更改率。 因此，2 TB 是受保护计算机支持的每日数据更改率上限。<br /><br /> **最大吞吐量**：在 Azure 中，一个复制的计算机可能属于一个存储帐户。 一个标准 Azure 存储帐户每秒最多可以处理 20,000 个请求。 我们建议将源计算机中的每秒输入/输出操作次数 (IOPS) 限制在 20,000。 例如，如果源计算机有 5 个磁盘，每个磁盘在源计算机上生成 120 IOPS（8 K 大小），则 Azure 中源计算机的每磁盘 IOPS 限制为 500。 （所需的存储帐户数等于源计算机总 IOPS 除以 20,000。）
+**复制** | **每日最大更改率** ：一台受保护的计算机只能使用一个进程服务器。 单个进程服务器可以处理多达 2 TB 的每日更改率。 因此，2 TB 是受保护计算机支持的每日数据更改率上限。<br /><br /> **最大吞吐量** ：在 Azure 中，一个复制的计算机可能属于一个存储帐户。 一个标准 Azure 存储帐户每秒最多可以处理 20,000 个请求。 我们建议将源计算机中的每秒输入/输出操作次数 (IOPS) 限制在 20,000。 例如，如果源计算机有 5 个磁盘，每个磁盘在源计算机上生成 120 IOPS（8 K 大小），则 Azure 中源计算机的每磁盘 IOPS 限制为 500。 （所需的存储帐户数等于源计算机总 IOPS 除以 20,000。）
 **配置服务器** | 配置服务器必须能够处理受保护计算机上运行的所有工作负荷的每日更改率容量。 配置计算机必须有足够的带宽，可持续将数据复制到 Azure 存储。<br /><br /> 最佳做法是将配置服务器放置在与要保护的计算机相同的网络和 LAN 网段上。 可将配置服务器放置在不同的网络中，但要保护的计算机应可通过第 3 层网络来发现它。<br /><br /> 以下部分的表中汇总了配置服务器的建议大小。
 **进程服务器** | 默认情况下，第一个进程服务器安装在配置服务器上。 可以部署更多的进程服务器以扩展环境。 <br /><br /> 进程服务器从受保护计算机接收复制数据。 进程服务器使用缓存、压缩和加密来优化数据。 然后，进程服务器将数据发送到 Azure。 进程服务器计算机必须有足够的资源来执行这些任务。<br /><br /> 进程服务器使用基于磁盘的缓存。 如果发生网络瓶颈或服务中断，可使用至少 600 GB 的独立缓存磁盘来处理存储的数据更改。
 
@@ -80,8 +80,8 @@ CPU | 内存 | 缓存磁盘大小 | 数据更改率 | 受保护的计算机
 
 使用 [Site Recovery 部署规划器](site-recovery-deployment-planner.md)计算复制（分别为初始复制和增量复制）所需的带宽后，可以使用多个选项来控制用于复制的带宽量：
 
-* **限制带宽**：复制到 Azure 的 VMware 流量会经过特定的进程服务器。 可以在作为进程服务器运行的计算机上限制带宽。
-* **控制带宽**：可以使用几个注册表项来控制用于复制的带宽：
+* **限制带宽** ：复制到 Azure 的 VMware 流量会经过特定的进程服务器。 可以在作为进程服务器运行的计算机上限制带宽。
+* **控制带宽** ：可以使用几个注册表项来控制用于复制的带宽：
     * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** 注册表值指定用于磁盘数据传输（初始或增量复制）的线程数。 使用较大的值会增加复制所用的网络带宽。
     * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** 注册表值指定故障回复期间用于数据传输的线程数。
 
@@ -107,10 +107,10 @@ Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "
 
 ### <a name="alter-the-network-bandwidth-for-a-vm"></a>更改 VM 的网络带宽
 
-1. 在 VM 的注册表中，转到 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**。
+1. 在 VM 的注册表中，转到 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication** 。
     * 若要更改复制磁盘上的带宽流量，请修改 **UploadThreadsPerVM** 的值。 如果该项不存在，请创建该项。
     * 若要更改用于从 Azure 故障回复流量的带宽，请修改 **DownloadThreadsPerVM** 的值。
-2. 每个项的默认值为 **4**。 在“过度预配型”网络中，这些注册表项需要更改，不能使用默认值。 可以使用的最大值为 **32**。 监视流量以优化值。
+2. 每个项的默认值为 **4** 。 在“过度预配型”网络中，这些注册表项需要更改，不能使用默认值。 可以使用的最大值为 **32** 。 监视流量以优化值。
 
 ## <a name="set-up-the-site-recovery-infrastructure-to-protect-more-than-500-vms"></a>将 Azure Site Recovery 基础结构设置为保护 500 个以上的 VM
 

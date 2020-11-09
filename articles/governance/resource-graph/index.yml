@@ -10,13 +10,13 @@ metadata:
   author: DCtheGeek
   ms.author: v-tawe
   origin.date: 06/29/2020
-  ms.date: 09/15/2020
-  ms.openlocfilehash: 914b28f86168c268b196ff0163830bc71a5f78f8
-  ms.sourcegitcommit: 75299b1cb5540a11149f320edaae82ae8c03c16b
+  ms.date: 11/06/2020
+  ms.openlocfilehash: 8f966412faadbc8712b11b5a6fca4168f280e2c8
+  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90523177"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "94328792"
 landingContent:
 - title: 关于 Azure Resource Graph
   linkLists:
@@ -46,8 +46,6 @@ landingContent:
       url: ./first-query-dotnet.md
     - text: 第一个查询 (Go)
       url: ./first-query-go.md
-    - text: 第一个查询 (JavaScript)
-      url: ./first-query-javascript.md
     - text: 第一个查询 (Python)
       url: ./first-query-python.md
     - text: 第一个查询 (Ruby)
@@ -99,7 +97,7 @@ landingContent:
     - text: Azure SDK for Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
     - text: 用于 Java 的 Azure SDK
-      url: https://docs.microsoft.com/java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+      url: https://docs.microsoft.com/java/api/overview/azure/resourcegraph/management
     - text: 用于 JavaScript 的 Azure SDK
       url: https://docs.microsoft.com//javascript/api/@azure/arm-resourcegraph
     - text: 用于 Python 的 Azure SDK

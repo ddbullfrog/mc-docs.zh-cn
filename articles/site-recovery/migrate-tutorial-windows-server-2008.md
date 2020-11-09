@@ -6,17 +6,17 @@ ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 07/27/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 4a5e6a8a17970e936331d445902769289d5cd78d
-ms.sourcegitcommit: 221c32fe6f618679a63f148da7382bc9e495f747
+ms.openlocfilehash: 23173fc009482ff6fa8820211a20f711eacb8cec
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211884"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328863"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>将运行 Windows Server 2008 的服务器迁移到 Azure
 
@@ -137,15 +137,15 @@ ms.locfileid: "92211884"
 > [!WARNING]
 > 确保在复制策略的“应用一致性快照频率”设置中指定“关”。 在复制运行 Windows Server 2008 的服务器时，仅支持崩溃一致性恢复点。 为“应用一致性快照频率”指定任何其他值时，由于缺少应用一致性恢复点，会导致服务器的复制运行状况出现严重问题，因此会生成假警报。
 
-   :::image type="content" source="media/migrate-tutorial-windows-server-2008/create-policy.png" alt-text="显示新保管库创建选项的屏幕截图。":::
+   :::image type="content" source="media/migrate-tutorial-windows-server-2008/create-policy.png" alt-text="显示复制策略创建选项的屏幕截图。":::
 
 ### <a name="enable-replication"></a>启用复制
 
 为要迁移的 Windows Server 2008 SP2/Windows Server 2008 R2 SP1 服务器[启用复制](physical-azure-disaster-recovery.md#enable-replication)。
 
-   :::image type="content" source="media/migrate-tutorial-windows-server-2008/Add-physical-server.png" alt-text="显示新保管库创建选项的屏幕截图。":::
+   :::image type="content" source="media/migrate-tutorial-windows-server-2008/Add-physical-server.png" alt-text="显示用于添加物理计算机的选项的屏幕截图。":::
 
-   :::image type="content" source="media/migrate-tutorial-windows-server-2008/Enable-replication.png" alt-text="显示新保管库创建选项的屏幕截图。":::
+   :::image type="content" source="media/migrate-tutorial-windows-server-2008/Enable-replication.png" alt-text="显示用于启用复制的选项的屏幕截图。":::
 
 ### <a name="run-a-test-migration"></a>运行测试迁移
 
@@ -153,7 +153,7 @@ ms.locfileid: "92211884"
 
 运行 [测试故障转移](tutorial-dr-drill-azure.md) ，确保一切如预期正常运行。
 
-   :::image type="content" source="media/migrate-tutorial-windows-server-2008/testfailover.png" alt-text="显示新保管库创建选项的屏幕截图。":::
+   :::image type="content" source="media/migrate-tutorial-windows-server-2008/testfailover.png" alt-text="显示测试故障转移命令的屏幕截图。":::
 
 ### <a name="migrate-to-azure"></a>迁移到 Azure
 
@@ -171,7 +171,7 @@ ms.locfileid: "92211884"
     - 完成迁移过程，停止服务器复制，并停止服务器的 Site Recovery 计费。
     - 此步骤清除复制数据。 它不删除迁移的 VM。
 
-    :::image type="content" source="media/migrate-tutorial-windows-server-2008/complete-migration.png" alt-text="显示新保管库创建选项的屏幕截图。":::
+    :::image type="content" source="media/migrate-tutorial-windows-server-2008/complete-migration.png" alt-text="显示完整迁移命令的屏幕截图。":::
 
 > [!WARNING]
 > **不会取消正在进行的故障转移** ：在故障转移开始前，服务器复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但服务器将不继续复制。

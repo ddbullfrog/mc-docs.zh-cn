@@ -1,26 +1,27 @@
 ---
 title: 教程 - 生成用于创建 Azure Cosmos DB Cassandra API 帐户的 Java 应用
 description: 本教程介绍如何使用 Java 应用程序创建 Cassandra API 帐户，以及如何向该帐户添加数据库（也称键空间）和表。
-author: rockboyfor
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 origin.date: 12/06/2018
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 74d87abd43740a19d089899ee0aa14ee3614036f
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: d2e96322b73aa94fd2254580653cb752b9e95432
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223263"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327655"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>教程：使用 Java 应用程序在 Azure Cosmos DB 中创建 Cassandra API 帐户，以便存储键/值数据
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 作为开发人员，你可能具有使用键/值对的应用程序。 可以在 Azure Cosmos DB 中使用 Cassandra API 帐户来存储键/值数据。 本教程介绍如何使用 Java 应用程序在 Azure Cosmos DB 中创建 Cassandra API 帐户、添加数据库（也称为键空间）以及添加表。 Java 应用程序使用 [Java 驱动程序](https://github.com/datastax/java-driver)来创建包含用户 ID、用户名、用户城市等详细信息的用户数据库。  
 
@@ -37,7 +38,7 @@ ms.locfileid: "88223263"
 
 * 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
-* 获取最新版本的 [Java 开发工具包 (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)。 
+* 获取最新版本的 [Java 开发工具包 (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)。 
 
 * [下载](https://maven.apache.org/download.cgi)和[安装](https://maven.apache.org/install.html)[Maven](https://maven.apache.org/) 二进制存档。 
     - 在 Ubuntu 上，可以通过运行 `apt-get install maven` 来安装 Maven。 

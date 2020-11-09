@@ -3,18 +3,17 @@ title: Azure Monitor 工作簿访问控制
 description: 通过基于角色的访问控制，使用预先构建的自定义参数化工作簿简化复杂的报表
 services: azure-monitor
 author: Johnnytechn
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: 47aabf77f0ea07aa53a10536557b0309e1e786fc
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: b0d5b5da7fd94ed9dd88b1b58ad695de2f0e6f0a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457329"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328703"
 ---
 # <a name="access-control"></a>访问控制
 
@@ -25,7 +24,7 @@ ms.locfileid: "89457329"
 * 保存工作簿所需的访问权限
 
     - 保存专用 `("My")` 工作簿不需要额外的权限。 所有用户都可以保存专用工作簿，并且只有他们才能查看这些工作簿。
-    - 保存共享工作簿需要资源组中的写入权限才能保存工作簿。 这些权限通常由[监视参与者](../../role-based-access-control/built-in-roles.md#monitoring-contributor)角色指定，但也可以通过*工作簿参与者*角色进行设置。
+    - 保存共享工作簿需要资源组中的写入权限才能保存工作簿。 这些权限通常由 [监视参与者](../../role-based-access-control/built-in-roles.md#monitoring-contributor)角色指定，但也可以通过 *工作簿参与者* 角色进行设置。
     
 ## <a name="standard-roles-with-workbook-related-privileges"></a>具有工作簿相关权限的标准角色
 
@@ -41,5 +40,5 @@ ms.locfileid: "89457329"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [开始](workbooks-visualizations.md)详细了解工作簿丰富的可视化效果选项。
+* [开始](./workbooks-overview.md#visualizations)详细了解工作簿丰富的可视化效果选项。
 

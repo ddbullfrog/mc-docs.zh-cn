@@ -7,20 +7,21 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 06/05/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: ca13a39d78bb7a280799f332332ea2abb54b71f2
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: f82d16d1e2a97eb6b565bfea197e456dd3bff390
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118598"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328041"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>快速入门：使用 Azure Cosmos DB Gremlin API 帐户生成 Node.js 应用程序
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin 控制台](create-graph-gremlin-console.md)
@@ -98,7 +99,7 @@ ms.locfileid: "92118598"
 
     ```
 
-    配置均位于 *config.js* 中，可以在[以下部分](#update-your-connection-string)中编辑该文件。
+    配置均位于 *config.js* 中，可以在 [以下部分](#update-your-connection-string)中编辑该文件。
 
 * 将定义一系列函数以执行不同 Gremlin 操作。 以下是其中一个函数：
 
@@ -163,7 +164,7 @@ ms.locfileid: "92118598"
 
     `config.primaryKey = "PRIMARYKEY";`
 
-    :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="在 Azure 门户的“概述”页面中，查看并复制访问密钥":::
+    :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Azure 门户“密钥”边栏选项卡":::
 
 4. 输入数据库名称和图形（容器）名称作为 config.database 和 config.collection 的值。 
 

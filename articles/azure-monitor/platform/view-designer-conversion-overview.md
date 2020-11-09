@@ -5,20 +5,20 @@ author: Johnnytechn
 ms.author: v-johya
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: 2dab51abb7d35d8822bee44647eed8a53cd21f0b
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.date: 11/02/2020
+ms.openlocfilehash: 400b2ff90a77b4f6c6112fbc451ff5e692dafd33
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457249"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327873"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Azure Monitor 视图设计器到工作簿的转换指南
 [视图设计器](view-designer.md)是 Azure Monitor 的一项功能，它让你能够创建自定义视图，帮助你通过图表、列表和时间线将 Log Analytics 工作区中的数据可视化。 它们被转换到工作簿以提供一块灵活的画布，用于分析数据以及在 Azure 门户中创建丰富的可视报表。 本文可帮助你将视图设计器转换为工作簿。 
 
 
 ## <a name="workbooks-overview"></a>工作簿概述
-工作簿可将文本、 [日志查询](../log-query/query-language.md)、指标和参数合并到丰富的交互式报告中。 对 Azure 资源拥有相同访问权限的团队成员也可以编辑工作簿。
+工作簿可将文本、 [日志查询](/data-explorer/kusto/query/)、指标和参数合并到丰富的交互式报告中。 对 Azure 资源拥有相同访问权限的团队成员也可以编辑工作簿。
 <!-- Not Available in MC: vminsights -->
 
 在如下所述的场景中，工作簿非常有用：

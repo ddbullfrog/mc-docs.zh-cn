@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 05/28/2020
+ms.date: 11/02/2020
 origin.date: 08/22/2019
-ms.openlocfilehash: 8c826cf537a200b87fd449293aa4cf91d20dc51c
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: c24292a0b0ad15a38443b47ade984747e243db68
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440626"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328638"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure Monitor 日志查询语言差异
 
@@ -42,7 +42,6 @@ ms.locfileid: "84440626"
 ### <a name="operators-not-supported-in-azure-monitor"></a>Azure Monitor 中不支持的运算符
 
 * [跨群集加入](https://docs.microsoft.com/azure/kusto/query/joincrosscluster)
-* [externaldata 运算符](https://docs.microsoft.com/azure/kusto/query/externaldata-operator)
 
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Azure Monitor 中不支持的插件
 
@@ -58,6 +57,6 @@ ms.locfileid: "84440626"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 获取[用于编写 Azure Monitor 日志查询的不同资源](query-language.md)的参考信息。
+- 获取[用于编写 Azure Monitor 日志查询的不同资源](/data-explorer/kusto/query/)的参考信息。
 - 访问完整的 [Kusto 查询语言的参考文档](https://docs.microsoft.com/azure/kusto/query/)。
 

@@ -57,7 +57,23 @@
         - name: TypeScript
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=typescript'
     - name: Azure CLI
-      href: functions-cli-samples.md
+      items:
+        - name: CLI 示例索引
+          href: functions-cli-samples.md
+        - name: 创建 Function App
+          items:
+            - name: 无服务器函数应用
+              href: ./scripts/functions-cli-create-serverless.md
+            - name: 可缩放的高级计划应用
+              href: ./scripts/functions-cli-create-premium-plan.md
+            - name: 专用（应用服务）计划应用
+              href: ./scripts/functions-cli-create-app-service-plan.md
+        - name: 集成服务
+          items:
+            - name: 连接 Azure 存储
+              href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
+            - name: 连接 Azure Cosmos DB
+              href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
 - name: 概念
   items:
     - name: 比较运行时版本
@@ -311,7 +327,7 @@
             - name: 输入
               displayName: Blob storage
               href: functions-bindings-storage-blob-input.md
-            - name: 输出
+            - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
@@ -423,7 +439,7 @@
             - name: 输入
               href: functions-bindings-signalr-service-input.md
               displayName: SignalR Service
-            - name: 输出
+            - name: Output
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: 表存储

@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 10/17/2018
 ms.date: 12/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2185de3925148e7dacb519665f0365fa8ca5f72c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: c524ca32dfdd0e83e0e5c2681fedf21ee8a84f8c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63829386"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328413"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>配置 ExpressRoute 专用对等互连的 IPsec 传输模式
 
@@ -43,7 +43,7 @@ ms.locfileid: "63829386"
 ### <a name="working-with-ipsec-policy"></a>使用 IPsec 策略
 
 在 Windows 中，加密是与 IPsec 策略相关联的。 IPsec 策略确定哪些 IP 流量是受保护的，以及应用于 IP 数据包的安全机制。
-**IPSec 策略**由以下各项组成：“筛选器列表”、“筛选器操作”和“安全规则”    。
+**IPSec 策略** 由以下各项组成：“筛选器列表”、“筛选器操作”和“安全规则”    。
 
 在配置 IPsec 策略时，请务必了解以下 IPsec 策略术语：
 
@@ -65,7 +65,7 @@ ms.locfileid: "63829386"
 
 确保符合以下先决条件：
 
-* 必须拥有可用来实现组策略设置的正常运行的 Active Directory 配置。 有关 GPO 的详细信息，请参阅[组策略对象](https://msdn.microsoft.com/library/windows/desktop/aa374162(v=vs.85).aspx)。
+* 必须拥有可用来实现组策略设置的正常运行的 Active Directory 配置。 有关 GPO 的详细信息，请参阅[组策略对象](https://docs.microsoft.com/previous-versions/windows/desktop/Policy/group-policy-objects)。
 
 * 必须有一个活动的 ExpressRoute 线路。
   * 有关创建 ExpressRoute 线路的详细信息，请参阅[创建 ExpressRoute 线路](expressroute-howto-circuit-arm.md)。 
@@ -147,7 +147,7 @@ ms.locfileid: "63829386"
 8. 在“自定义安全方法设置”页上，选择“数据完整性和加密 (ESP)  **：SHA1、3DES”** 。 然后单击“确定”。 
 
    [![22]][22]
-9. 在“管理筛选器操作”  页上，可以看到“myEncryption”  筛选器已成功添加。 单击“**关闭**”。
+9. 在“管理筛选器操作”  页上，可以看到“myEncryption”  筛选器已成功添加。 单击“ **关闭** ”。
 
    [![23]][23]
 
@@ -231,7 +231,7 @@ ms.locfileid: "63829386"
 1. 在 HTTP 策略属性“规则”  选项卡上，单击“添加”  。
 
    [![41]][41]
-2. 在“欢迎”页面上，单击“**下一步**”。
+2. 在“欢迎”页面上，单击“ **下一步** ”。
 
    [![42]][42]
 3. 规则提供选项来定义 IPsec 模式：隧道模式或传输模式。
@@ -266,7 +266,7 @@ IPsec 策略要求目标端口 8080 上的所有 HTTP 连接使用 IPsec 传输�
 1. 查看策略。 安全组策略已定义，但尚未分配。
 
    [![49]][49]
-2. 要将安全组策略分配到 OU **IPSecOU**，请右键单击安全策略并选择“分配”  。
+2. 要将安全组策略分配到 OU **IPSecOU** ，请右键单击安全策略并选择“分配”  。
    属于 OU 的每个计算机都将分配有该安全组策略。
 
    [![50]][50]

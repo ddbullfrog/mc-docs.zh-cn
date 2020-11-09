@@ -1,25 +1,26 @@
 ---
 title: Spark 上 Azure Cosmos DB Cassandra API 中的 DDL 操作
 description: 本文详细介绍了针对 Spark 上 Azure Cosmos DB Cassandra API 的密钥空间和表 DDL 操作。
-author: rockboyfor
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-origin.date: 09/24/2018
-ms.date: 08/17/2020
+origin.date: 10/07/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: e81ccdea6a53edf32b42a64d08597da0b0a79d9c
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: c1c796b3ea6240b99595a6cc8b5cdd5a0d306f05
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222779"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328570"
 ---
 <!--Verify sucessfully-->
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Spark 上 Azure Cosmos DB Cassandra API 中的 DDL 操作
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 本文详细介绍了针对 Spark 上 Azure Cosmos DB Cassandra API 的密钥空间和表 DDL 操作。
 
@@ -96,8 +97,7 @@ DESCRIBE keyspaces;
 ### <a name="create-a-table"></a>创建表
 
 ```scala
-val cdbConnector = CassandraConnector(sc)
-cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks.books(book_id TEXT PRIMARY KEY,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
+cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXISTS books_ks1.books(book_id TEXT,book_author TEXT, book_name TEXT,book_pub_year INT,book_price FLOAT, PRIMARY KEY(book_id,book_pub_year)) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;"))
 ```
 
 #### <a name="validate-in-cqlsh"></a>在 cqlsh 中验证

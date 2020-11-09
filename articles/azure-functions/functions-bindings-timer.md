@@ -4,15 +4,15 @@ description: 了解如何在 Azure Functions 中使用计时器触发器。
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/28/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 91c12606420856099dcadea46aec22236480a59c
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 32f0424c050281b888b14bb1717d8a5c4df2fd6f
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937260"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326538"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器
 
@@ -237,18 +237,18 @@ PowerShell 不支持特性。
 
 ```json
 {
-    "Schedule":{
+    "schedule":{
     },
-    "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00+00:00",
-        "LastUpdated":"2016-10-04T10:16:00+00:00",
-        "Next":"2016-10-04T10:20:00+00:00"
+    "scheduleStatus": {
+        "last":"2016-10-04T10:15:00+00:00",
+        "lastUpdated":"2016-10-04T10:16:00+00:00",
+        "next":"2016-10-04T10:20:00+00:00"
     },
-    "IsPastDue":false
+    "isPastDue":false
 }
 ```
 
-如果当前函数调用晚于计划时间，则 `IsPastDue` 属性为 `true`。 例如，函数应用重新启动可能会导致调用被错过。
+如果当前函数调用晚于计划时间，则 `isPastDue` 属性为 `true`。 例如，函数应用重新启动可能会导致调用被错过。
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB 表达式
 

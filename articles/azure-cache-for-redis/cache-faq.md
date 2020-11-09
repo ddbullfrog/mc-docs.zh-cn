@@ -5,13 +5,13 @@ author: yegu-ms
 ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: be09ad5ef509d6952f40c6e6b249adb4c8065cab
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.date: 11/03/2020
+ms.openlocfilehash: 8277dee8fdd4be9a0b57d248a7c41e489338fa16
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946961"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326546"
 ---
 # <a name="azure-cache-for-redis-faq"></a>用于 Redis 的 Azure 缓存常见问题解答
 了解 Azure Redis 缓存的常见问题、模式和最佳做法。
@@ -33,7 +33,7 @@ ms.locfileid: "88946961"
 
 若要查看已存档的文档，请参阅[已存档的角色中缓存文档](https://docs.microsoft.com/previous-versions/azure/azure-services/dn386103(v=azure.100))。
 
-["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+["minIoThreads" configuration setting]: https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果未在此处找到相关问题怎么办？
 如果未在此处找到相关问题，请联系我们获取帮助。
@@ -41,5 +41,4 @@ ms.locfileid: "88946961"
 * 若希望更多的人看到问题，可以将问题发布在[有关 Azure 缓存的 Microsoft Q&A 问题页面](https://docs.microsoft.com/answers/topics/azure-cache-redis.html)并与 Azure 缓存团队和社区的其他成员讨论。
 * 如果想要发出功能请求，可将请求和意见提交到 [Azure Redis 缓存 User Voice](https://feedback.azure.com/forums/169382-cache)。
 * 还可以在 [azurecache@microsoft.com](mailto:azurecache@microsoft.com) 上向我们发送问题。
-
 

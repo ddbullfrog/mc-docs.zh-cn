@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/20/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: aa8d9a994fb7e13dac26a0d15987024035a004ec
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: 98ef1f59515ce7e7e9245861d15a5c11920ec809
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472181"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326491"
 ---
 # <a name="troubleshoot-azure-rbac"></a>排查 Azure RBAC 的问题
 
@@ -61,7 +61,7 @@ $ras.Count
 
     如果收到错误“权限不足，无法完成操作”，则很可能是因为 Azure CLI 尝试在 Azure AD 中查找被分派人标识，但服务主体在默认情况下无法读取 Azure AD。
 
-    可通过两种方式解决此错误。 第一种方法是将[目录读取器](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)角色分配给服务主体，以便它能够读取目录中的数据。
+    可通过两种方式解决此错误。 第一种方法是将[目录读取器](../active-directory/roles/permissions-reference.md#directory-readers)角色分配给服务主体，以便它能够读取目录中的数据。
 
     第二种方法是使用 `--assignee-object-id` 参数而不是 `--assignee` 来创建角色分配。 通过使用 `--assignee-object-id`，Azure CLI 将跳过 Azure AD 查找。 你需要获取要为其分配角色的用户、组或应用程序的对象 ID。 有关详细信息，请参阅[使用 Azure CLI 添加或删除 Azure 角色分配](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope)。
 

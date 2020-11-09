@@ -3,14 +3,14 @@ title: 有关 .NET 中的持久实体的开发人员指南 - Azure Functions
 description: 如何通过 Azure Functions 的 Durable Functions 扩展使用 .NET 中的持久实体。
 author: sebastianburckhardt
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
-ms.openlocfilehash: be938ff89cfb1d1d69d145e0dfbe3ee2e2cf5c6e
-ms.sourcegitcommit: cdb7228e404809c930b7709bcff44b89d63304ec
+ms.openlocfilehash: 1ffdf8c0acbfe0136479bfde0c71df9d601abb8f
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91402612"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326574"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>有关 .NET 中的持久实体的开发人员指南
 
@@ -20,9 +20,9 @@ ms.locfileid: "91402612"
 
 我们目前提供两个 API 用于定义实体：
 
-- **基于类的语法**将实体和操作表示为类和方法。 此语法生成易读的代码，并允许通过接口以类型检查的方式调用操作。 
+- **基于类的语法** 将实体和操作表示为类和方法。 此语法生成易读的代码，并允许通过接口以类型检查的方式调用操作。 
 
-- **基于函数的语法**是将实体表示为函数的较低级别的接口。 使用该语法可以精确控制实体操作的调度方式以及实体状态的管理方式。  
+- **基于函数的语法** 是将实体表示为函数的较低级别的接口。 使用该语法可以精确控制实体操作的调度方式以及实体状态的管理方式。  
 
 本文侧重于基于类的语法，因为我们预期它更适用于大多数应用程序。 但是，对于想要定义或管理自身的实体状态和操作抽象的应用程序，可能适合使用[基于函数的语法](#function-based-syntax)。 此外，该语法可能适合用于实现需要基于类的语法所不支持的泛型的库。 
 
@@ -70,7 +70,7 @@ public class Counter
 `Run` 函数包含使用基于类的语法所需的样板。 它必须是静态的 Azure 函数。  它对实体处理的每个操作消息执行一次。 调用 `DispatchAsync<T>` 时，如果该实体尚未进入内存，该函数将构造 `T` 类型的对象，并基于存储中最后保存的 JSON（如果有）填充该对象的字段。 然后，它结合匹配的名称调用方法。
 
 > [!NOTE]
-> 基于类的实体的状态是在实体处理操作之前**隐式创建**的，可以通过调用 `Entity.Current.DeleteState()` 在操作中**显式删除**。
+> 基于类的实体的状态是在实体处理操作之前 **隐式创建** 的，可以通过调用 `Entity.Current.DeleteState()` 在操作中 **显式删除** 。
 
 ### <a name="class-requirements"></a>类要求
  
@@ -427,7 +427,7 @@ public class HttpEntity
     [JsonIgnore]
     private readonly HttpClient client;
 
-    public class HttpEntity(IHttpClientFactory factory)
+    public HttpEntity(IHttpClientFactory factory)
     {
         this.client = factory.CreateClient();
     }

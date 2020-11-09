@@ -3,15 +3,15 @@ title: 了解活动日志警报中使用的 Webhook 架构
 description: 了解有关活动日志警报激活时发布到 webhook URL 的 JSON 架构。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 0c07defc7f7630705abd5311150300cf922fc712
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: e7256674e028fb2b7e1d3b345f96037c6909dbf8
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457433"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328716"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活动日志警报的 Webhook
 作为操作组定义的一部分，可以配置 webhook 终结点以接收活动日志警报通知。 通过 webhook 可以将这些通知路由到其他系统，以便进行后续处理或自定义操作。 本文介绍针对 webhook 发出的 HTTP POST 的有效负载的大致形式。
@@ -21,8 +21,7 @@ ms.locfileid: "89457433"
 有关操作组的信息，请参阅如何[创建操作组](./action-groups.md)。
 
 > [!NOTE]
-> 还可以使用[常见警报架构](/azure-monitor/platform/alerts-common-schema)，它的优点是可以跨 Azure Monitor 中的所有警报服务提供单个可扩展且统一的警报有效负载，用于 Webhook 集成。 [了解常见的警报架构定义。](/azure-monitor/platform/alerts-common-schema-definitions)
-<!--Correct in MC: /azure-monitor/platform/alerts-common-schema and /azure-monitor/platform/alerts-common-schema-definitions-->
+> 还可以使用[常见警报架构](./alerts-common-schema.md)，它的优点是可以跨 Azure Monitor 中的所有警报服务提供单个可扩展且统一的警报有效负载，用于 Webhook 集成。 [了解常见的警报架构定义。](./alerts-common-schema-definitions.md)
 
 
 ## <a name="authenticate-the-webhook"></a>对 webhook 进行身份验证
@@ -114,7 +113,7 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
                     "resourceType":"Virtual Machine",
                     "severity":"Medium",
                     "compromisedEntity":"LinuxVM1",
-                    "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://docs.azure.cn/zh-cn/virtual-network/virtual-network-vnet-plan-design-arm)]",
+                    "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://docs.azure.cn/virtual-network/virtual-network-vnet-plan-design-arm)]",
                     "attackedResourceType":"Virtual Machine"
                 },
                 "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/chinaeast/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
@@ -295,5 +294,4 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
 * [使用逻辑应用通过 Twilio 从 Azure 警报发送短信](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)。 本示例适用于度量值警报，但经过修改后可用于活动日志警报。
 * [使用逻辑应用从 Azure 警报发送 Slack 消息](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)。 本示例适用于度量值警报，但经过修改后可用于活动日志警报。
 * [使用逻辑应用从 Azure 警报将消息发送到 Azure 队列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)。 本示例适用于度量值警报，但经过修改后可用于活动日志警报。
-
 

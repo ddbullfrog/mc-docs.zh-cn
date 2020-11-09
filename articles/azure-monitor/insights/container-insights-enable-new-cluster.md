@@ -4,14 +4,14 @@ description: 了解如何使用用于容器的 Azure Monitor 订阅启用对新�
 ms.topic: conceptual
 origin.date: 04/25/2019
 author: Johnnytechn
-ms.date: 08/20/2020
-ms.custom: devx-track-terraform
-ms.openlocfilehash: 4ef7e8c3a45bc480aa8d4c3d509bef3d17ad91dc
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: 2c75f3e4ff54e3d853a0e1e2c403ac8fb05c51f3
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148628"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328782"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>启用对新的 Azure Kubernetes 服务 (AKS) 群集的监视
 
@@ -40,8 +40,8 @@ ms.locfileid: "89148628"
 
 启用监视并成功完成所有配置任务后，可通过两种方法监视群集性能：
 
-* 直接在 AKS 群集的左侧窗格中选择“见解”。
-* 在选定群集的 AKS 群集页面中选择“监视容器见解”磁贴  。 在 Azure Monitor 的左侧窗格中选择“见解”。 
+* 直接在 AKS 群集中从左侧窗格选择“运行状况”。
+* 在选定群集的 AKS 群集页面中选择“监视容器见解”磁贴  。 在 Azure Monitor 中，从左侧窗格选择“运行状况”。 
 
   ![用于在 AKS 中为容器选择 Azure Monitor 的选项](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 

@@ -9,12 +9,12 @@ ms.date: 08/17/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 143030966c38991ef7998f52553fe08bfe8f8cd1
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: d5aabade8c1152bf844d4cd6b3ba121344543076
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223196"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328562"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>使用 Azure CLI 管理 Azure Cosmos 资源
 
@@ -22,7 +22,7 @@ ms.locfileid: "88223196"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-选择在本地安装并使用 CLI 时，本主题要求运行 Azure CLI 2.9.1 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+选择在本地安装并使用 CLI 时，本主题要求运行 Azure CLI 2.9.1 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 <!--Mooncake Customization: Correct to use When-->
 
@@ -495,7 +495,7 @@ az lock delete --ids $lockid
 
 有关 Azure CLI 的详细信息，请参阅：
 
-- [安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)
+- [安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)
 - [Azure CLI 参考](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest)
 - [针对 Azure Cosmos DB 的其他 Azure CLI 示例](cli-samples.md)
 

@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: yegu-ms
   ms.author: v-junlch
-  ms.date: 08/24/2020
-  ms.openlocfilehash: 0b6c303ab47b072e53b47483ee0cd31d625c07d9
-  ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+  ms.date: 11/03/2020
+  ms.openlocfilehash: f84ca6308b447c74d7a2f23329ea1ee37fbb284d
+  ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 08/27/2020
-  ms.locfileid: "88947089"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "94326497"
 landingContent:
 - title: 关于用于 Redis 的 Azure 缓存
   linkLists:
@@ -24,12 +24,10 @@ landingContent:
       url: cache-overview.md
   - linkListType: whats-new
     links:
-    - text: 常见问题
-      url: cache-faq.md
     - text: Azure Redis 缓存的最佳做法
       url: cache-best-practices.md
-    - text: Azure Redis 缓存的 ASP.NET 会话状态提供程序
-      url: cache-aspnet-session-state-provider.md
+    - text: 常见问题
+      url: cache-faq.md
 - title: 快速入门：用于 Redis 的 Azure 缓存
   linkLists:
   - linkListType: quickstart
@@ -48,8 +46,12 @@ landingContent:
       url: cache-python-get-started.md
   - linkListType: tutorial
     links:
-    - text: 在 ASP.NET 中创建缓存端排行榜
-      url: cache-web-app-cache-aside-leaderboard.md
+    - text: 使用会话状态提供程序
+      url: cache-aspnet-session-state-provider.md
+    - text: 使用输出缓存提供程序
+      url: cache-aspnet-output-cache-provider.md
+    - text: 使用 Spring Boot Initializer
+      url: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
   - linkListType: get-started
     links:
     - text: 示例

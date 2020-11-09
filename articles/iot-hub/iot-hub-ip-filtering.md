@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 05/25/2020
 ms.author: v-yiso
 ms.date: 07/20/2020
-ms.openlocfilehash: 89e378ab98f0ac3cd6445a2a9927e8abb837312e
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 1833b21d5879742907f23222ec0a962488f076ee
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471211"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327692"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 
@@ -169,4 +169,4 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [IoT 中心指标](iot-hub-metrics.md)
+* [监视 IoT 中心](monitor-iot-hub.md)

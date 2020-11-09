@@ -1,25 +1,26 @@
 ---
 title: 从 Spark 将数据更新插入到 Azure Cosmos DB Cassandra API
 description: 本文详细介绍了如何从 Spark 更新插入到 Azure Cosmos DB Cassandra API 表
-author: rockboyfor
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 09/24/2018
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3630f33655b5384e12dde12e1b759c05fc1a404a
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 1bbc88c4c67ff7532e5e854d8a0e229006131412
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222772"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328696"
 ---
 <!--Verify sucessfully-->
 # <a name="upsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>从 Spark 将数据更新插入到 Azure Cosmos DB Cassandra API
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 本文介绍如何从 Spark 将数据更新插入到 Azure Cosmos DB Cassandra API。
 

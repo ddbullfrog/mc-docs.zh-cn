@@ -6,13 +6,13 @@ ms.topic: tutorial
 origin.date: 10/24/2019
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
-ms.openlocfilehash: 4ccc33c3174f5e16e66bf5e8b24c06e6cb7d9b99
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: ad0b413b2af7609106de003f5501606bbe20e39c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148548"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327366"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor 中的日志查询入门
 
@@ -30,7 +30,7 @@ ms.locfileid: "89148548"
 - 聚合和分组结果
 
 有关在 Azure 门户中使用 Log Analytics 的教程，请参阅 [Azure Monitor Log Analytics 入门](get-started-portal.md)。<br>
-有关 Azure Monitor 中的日志查询的详细信息，请参阅 [Azure Monitor 中的日志查询概述](log-query-overview.md)。
+有关 Azure Monitor 中日志查询的更多详细信息，请参阅 [Azure Monitor 中的日志查询概述](log-query-overview.md)。
 
 <!--Video removed-->
 ## <a name="writing-a-new-query"></a>编写新查询
@@ -72,7 +72,7 @@ search in (SecurityEvent) "Cryptographic"
 > 搜索查询通常比基于表的查询慢，因为它们必须处理更多数据。 
 
 ## <a name="sort-and-top"></a>sort 和 top
-虽然 **take** 可用于获取一些记录，但选择和显示的结果不遵循特定的顺序。 若要获取排序的视图，可按首选列**排序**：
+虽然 **take** 可用于获取一些记录，但选择和显示的结果不遵循特定的顺序。 若要获取排序的视图，可按首选列 **排序** ：
 
 ```Kusto
 SecurityEvent   
@@ -81,7 +81,7 @@ SecurityEvent
 
 不过，这可能会返回过多的结果，此外可能需要一段时间。 上述查询按 TimeGenerated 列将整个 SecurityEvent 表排序。 然后，Analytics 门户将结果限制为仅显示 10,000 条记录。 当然，这种方法不是最佳的。
 
-仅获取最新 10 条记录的最佳方式是使用 **top**，它会在服务器端将整个表排序，然后返回前几条记录：
+仅获取最新 10 条记录的最佳方式是使用 **top** ，它会在服务器端将整个表排序，然后返回前几条记录：
 
 ```Kusto
 SecurityEvent
@@ -110,9 +110,9 @@ SecurityEvent
 | == | 检查相等性<br>（区分大小写） | `Level == 8` |
 | =~ | 检查相等性<br>（不区分大小写） | `EventSourceName =~ "microsoft-windows-security-auditing"` |
 | !=, <> | 检查不相等性<br>（两个表达式相同） | `Level != 4` |
-| *and*、*or* | 需在条件之间使用| `Level == 16 or CommandLine != ""` |
+| *and* 、 *or* | 需在条件之间使用| `Level == 16 or CommandLine != ""` |
 
-若要按多个条件进行筛选，可以使用 **and**：
+若要按多个条件进行筛选，可以使用 **and** ：
 
 ```Kusto
 SecurityEvent
@@ -154,7 +154,7 @@ SecurityEvent
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>投影和扩展：选择和计算列
 
-使用**投影**可以选择要包含在结果中的特定列：
+使用 **投影** 可以选择要包含在结果中的特定列：
 
 ```Kusto
 SecurityEvent 
@@ -166,10 +166,10 @@ SecurityEvent
 
 ![查询投影结果](./media/get-started-queries/project.png)
 
-还可以使用**投影**来重命名列，并定义新列。 以下示例使用项目执行以下操作：
+还可以使用 **投影** 来重命名列，并定义新列。 以下示例使用项目执行以下操作：
 
 * 仅选择 *Computer* 和 *TimeGenerated* 原始列。
-* 将 *Activity* 列重命名为 *EventDetails*。
+* 将 Activity 列显示为 EventDetails 。
 * 创建名为 *EventCode* 的新列。 **substring()** 函数用于仅获取 Activity 字段中的前四个字符。
 
 
@@ -205,7 +205,7 @@ Perf
 | summarize count() by ObjectName, CounterName
 ```
 
-另一个常见用途是对每个组执行数学或统计计算。 例如，以下查询计算每台计算机的平均 *CounterValue*：
+另一个常见用途是对每个组执行数学或统计计算。 例如，以下查询计算每台计算机的平均 *CounterValue* ：
 
 ```Kusto
 Perf
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>按时间列汇总
 此外，分组结果可以基于时间列或其他连续值。 不过，只是汇总 `by TimeGenerated` 会针对时间范围内的每一毫秒创建组，因为这些值是唯一的。 
 
-若要创建基于连续值的组，最好是使用 **bin** 将范围划分为可管理的单位。 以下查询分析 *Perf* 记录，这些记录度量特定计算机上的可用内存 (*Available MBytes*)。 它计算过去 7 天内每 1 小时时段的平均值：
+若要创建基于连续值的组，最好是使用 **bin** 将范围划分为可管理的单位。 以下查询分析 *Perf* 记录，这些记录度量特定计算机上的可用内存 ( *Available MBytes* )。 它计算过去 7 天内每 1 小时时段的平均值：
 
 ```Kusto
 Perf 

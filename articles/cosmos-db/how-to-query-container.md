@@ -1,28 +1,29 @@
 ---
 title: 在 Azure Cosmos DB 中查询容器
 description: 了解如何使用分区中查询和跨分区查询来查询 Azure Cosmos DB 中的容器
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 03/18/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 021658e50bc1cfd3c5c0d14c8877b039c946e5a4
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: f1aa9168a06045a3b0c6b8f59025e2192a255b41
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222693"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328316"
 ---
 # <a name="query-an-azure-cosmos-container"></a>查询 Azure Cosmos 容器
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍如何在 Azure Cosmos DB 中查询容器（集合、图形或表）。 具体而言，它介绍了分区中查询和跨分区查询在 Azure Cosmos DB 中如何工作。
 
 ## <a name="in-partition-query"></a>分区中查询
 
-从容器中查询数据时，如果查询指定了分区键筛选器，则 Azure Cosmos DB 会自动优化查询。 它会将查询路由到筛选器中指定的分区键值所对应的[物理分区](partition-data.md#physical-partitions)。
+从容器中查询数据时，如果查询指定了分区键筛选器，则 Azure Cosmos DB 会自动优化查询。 它会将查询路由到筛选器中指定的分区键值所对应的[物理分区](partitioning-overview.md#physical-partitions)。
 
 例如，请考虑以下针对 `DeviceId` 使用等式筛选器的查询。 如果对按 `DeviceId` 分区的容器运行此查询，则此查询将筛选到单个物理分区。
 
@@ -60,11 +61,11 @@ Azure Cosmos DB SDK 1.9.0 及更高版本支持并行查询执行选项。 并�
 
 可以通过调整以下参数来管理并行查询执行：
 
-- **MaxConcurrency**：设置容器分区的最大并发网络连接数。 如果将此属性设置为 `-1`，则由 SDK 管理并行度。 如果  `MaxConcurrency` 设置为 `0`，则与容器的分区之间存在单个网络连接。
+- **MaxConcurrency** ：设置容器分区的最大并发网络连接数。 如果将此属性设置为 `-1`，则由 SDK 管理并行度。 如果  `MaxConcurrency` 设置为 `0`，则与容器的分区之间存在单个网络连接。
 
-- **MaxBufferedItemCount**：权衡查询延迟与客户端内存利用率。 如果省略此选项或将其设置为 -1，则由 SDK 管理并行查询执行过程中缓冲的项目数。
+- **MaxBufferedItemCount** ：权衡查询延迟与客户端内存利用率。 如果省略此选项或将其设置为 -1，则由 SDK 管理并行查询执行过程中缓冲的项目数。
 
-由于 Azure Cosmos DB 能够并行执行跨分区查询，因此，随着系统增加[物理分区](partition-data.md#physical-partitions)，查询延迟通常增加得不多。 但是，随着物理分区总数的增加，RU 开销会明显增大。
+由于 Azure Cosmos DB 能够并行执行跨分区查询，因此，随着系统增加[物理分区](partitioning-overview.md#physical-partitions)，查询延迟通常增加得不多。 但是，随着物理分区总数的增加，RU 开销会明显增大。
 
 运行跨分区查询时，实质上是对每个物理分区执行单独的查询。 尽管跨分区查询将使用索引（如果可用），但它们仍然不如分区中查询高效。
 

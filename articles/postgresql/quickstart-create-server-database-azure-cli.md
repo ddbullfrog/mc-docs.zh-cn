@@ -7,25 +7,26 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 06/25/2019
-ms.date: 10/29/2020
+ms.date: 11/09/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 132057cac0d44da68531094577f240e3a2ffc943
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 5472906b5b6dc122762bc7242bb95f74952b662e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104606"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328009"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL 服务器
 
 本快速入门介绍如何使用 [Azure CLI](/cli/get-started-with-azure-cli) 命令在 5 分钟内创建单个 Azure Database for PostgreSQL 服务器。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://wd.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+
 > [!TIP]
 > 请考虑使用更简单的 [az postgres up](/cli/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令（当前为预览版）。 试用[快速入门](./quickstart-create-server-up-azure-cli.md)。
 
 ## <a name="prerequisites"></a>先决条件
 本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
-需要使用 [az login](/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到你的帐户。 请注意 id 属性，该属性指的是 Azure 帐户的订阅 ID。 
+需要使用 [az login](/cli/reference-index#az-login) 命令登录到你的帐户。 请注意 id 属性，该属性指的是 Azure 帐户的订阅 ID。 
 
 ```azurecli
 az login
@@ -37,11 +38,11 @@ az login
 az account set --subscription <subscription id>
 ```
 
-如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/account?view=azure-cli-latest#az-account-list)。
+如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/account#az-account-list)。
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>创建 Azure Database for PostgreSQL 服务器
 
-使用 [az group create](/cli/group?view=azure-cli-latest#az-group-create) 命令创建 [Azure 资源组](../azure-resource-manager/management/overview.md)，然后在此资源组中创建 PostgreSQL 服务器。 应提供唯一名称。 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
+使用 [az group create](/cli/group#az-group-create) 命令创建 [Azure 资源组](../azure-resource-manager/management/overview.md)，然后在此资源组中创建 PostgreSQL 服务器。 应提供唯一名称。 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
 
 ```azurecli
 az group create --name myresourcegroup --location chinaeast2
@@ -56,7 +57,7 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver  
 
 **设置** | **示例值** | **说明**
 ---|---|---
-name | mydemoserver | 标识 Azure Database for PostgreSQL 服务器的唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
+name | mydemoserver | 标识 Azure Database for PostgreSQL 服务器的唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。 有关详细信息，请参阅 [Azure Database for PostgreSQL 命名规则](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql)。
 resource-group | myresourcegroup | Azure 资源组的名称。
 location | chinaeast2 | 服务器的 Azure 位置。
 admin-user | myadmin | 用于管理员登录的用户名。 它不能为“azure_superuser”、“admin”、“administrator”、“root”、“guest”或“public”     。
@@ -64,8 +65,8 @@ admin-password | *安全密码* | 管理员用户的密码。 密码必须包含
 sku-name|GP_Gen5_2| 定价层和计算配置的名称。 请遵循简写约定 {pricing tier} _{compute generation}_ {vCores}。 有关详细信息，请参阅 [Azure Database for PostgreSQL 定价](https://azure.cn/pricing/details/postgresql/server/)。
 
 >[!IMPORTANT] 
->- 服务器上的默认 PostgreSQL 版本为 9.6。 若要查看支持的所有版本，请参阅[支持的 PostgreSQL 主要版本](/postgresql/concepts-supported-versions)。
->- 若要查看 az postgres server create 命令的所有参数，请参阅[此参考文档](/cli/postgres/server?view=azure-cli-latest#az-postgres-server-create)
+>- 服务器上的默认 PostgreSQL 版本为 9.6。 若要查看支持的所有版本，请参阅[支持的 PostgreSQL 主要版本](./concepts-supported-versions.md)。
+>- 若要查看 az postgres server create 命令的所有参数，请参阅[此参考文档](/cli/postgres/server#az-postgres-server-create)
 >- 默认情况下，服务器上启用 SSL。 有关 SSL 的详细信息，请参阅[配置 SSL 连接](./concepts-ssl-connection-security.md)。
 
 ## <a name="configure-a-server-level-firewall-rule"></a>配置服务器级防火墙规则 
@@ -151,6 +152,7 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]
 > [使用导出和导入功能迁移数据库](./howto-migrate-using-export-and-import.md)
+> 
+> [使用 PostgreSQL 部署 Django Web 应用](../app-service/tutorial-python-postgresql-app.md)
 >
 > [使用 Node.JS 应用进行连接](./connect-nodejs.md)
-

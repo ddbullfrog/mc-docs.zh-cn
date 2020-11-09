@@ -1,25 +1,26 @@
 ---
 title: 快速入门 - 使用 Azure Cosmos DB API for Mongo DB 和 Java SDK 构建 Web 应用
 description: 了解如何构建 Java 代码示例，可以参考该示例使用 Azure Cosmos DB 的 API for MongoDB 进行连接和查询。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 12/26/2018
-ms.date: 09/25/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 001340f303b11cf2aa0ce355bca41c2e87a2e2b6
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: e77aba96deb4677b0af084dc8ff0b6f7f37ddfb2
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246784"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328899"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>快速入门：在 Azure Cosmos DB 中使用 Java 和 MongoDB API 创建控制台应用
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -47,7 +48,7 @@ ms.locfileid: "91246784"
 
 ## <a name="add-a-collection"></a>添加集合
 
-将新数据库命名为 **db**，将新集合命名为 **coll**。
+将新数据库命名为 **db** ，将新集合命名为 **coll** 。
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-mongodb-create-collection.md)] 
 
@@ -67,7 +68,7 @@ ms.locfileid: "91246784"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
@@ -142,6 +143,6 @@ ms.locfileid: "91246784"
 在本快速入门中，你已了解了如何创建 Azure Cosmos DB API for Mongo DB 帐户，使用数据资源管理器创建数据库和容器，以及使用 Java 控制台应用来添加数据。 现在可以向你的 Cosmos 数据库导入更多数据。 
 
 > [!div class="nextstepaction"]
-> [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
+> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

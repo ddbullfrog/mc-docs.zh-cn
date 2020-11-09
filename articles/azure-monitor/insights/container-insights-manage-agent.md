@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 12/06/2018
-ms.date: 08/20/2020
-ms.openlocfilehash: 197798225ef8c362cef9c45570bcb7535c6c342e
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.date: 11/02/2020
+ms.openlocfilehash: 094b4b7ee9234ba14486bf3234e1c6aa39a0a928
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148603"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328780"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>如何管理用于容器的 Azure Monitor 代理
 <!--Customized in MC: Not available about Azure OpenShift feature-->
@@ -50,10 +50,11 @@ ms.locfileid: "89148603"
 
 运行以下命令：
 
-```
+```console
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
+
 
 <!--Not available in MC: ### Upgrade agent on Azure Arc enabled Kubernetes-->
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>如何禁用容器上的环境变量集合

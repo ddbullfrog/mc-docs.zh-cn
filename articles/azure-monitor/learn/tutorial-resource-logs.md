@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: tutorial
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 origin.date: 12/15/2019
-ms.openlocfilehash: 748090b067fb84012add3442f77070a239803837
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: 7824ffc5f1542ec5d606dc3f4e3488e36f1d02b3
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148673"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327835"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>教程：从 Azure 资源收集和分析资源日志
 
@@ -43,11 +43,11 @@ Azure Monitor 中的 Log Analytics 工作区可从各种源收集和索引日志
 
 1. 在“所有服务”中，选择“Log Analytics 工作区”   。
 2. 单击屏幕顶部的“添加”，并为工作区提供以下详细信息  ：
-   - **Log Analytics 工作区**：新工作区的名称。 此名称在所有 Azure Monitor 订阅中必须是全局唯一的。
-   - **订阅**：选择用于存储工作区的订阅。 此订阅无需与要监控资源的订阅相同。
-   - **资源组**：选择现有资源组，或单击“新建”，创建一个新资源组  。 此资源组无需与要监控资源的资源组相同。
-   - **位置**：选择一个 Azure 区域或创建一个新区域。 此区域无需与要监控资源的位置相同。
-   - **定价层**：选择“即用即付”  作为定价层。 之后可以更改定价层。 单击“Log Analytics 定价”链接以了解有关不同定价层的详细信息  。
+   - **Log Analytics 工作区** ：新工作区的名称。 此名称在所有 Azure Monitor 订阅中必须是全局唯一的。
+   - **订阅** ：选择用于存储工作区的订阅。 此订阅无需与要监控资源的订阅相同。
+   - **资源组** ：选择现有资源组，或单击“新建”，创建一个新资源组  。 此资源组无需与要监控资源的资源组相同。
+   - **位置** ：选择一个 Azure 区域或创建一个新区域。 此区域无需与要监控资源的位置相同。
+   - **定价层** ：选择“即用即付”  作为定价层。 之后可以更改定价层。 单击“Log Analytics 定价”链接以了解有关不同定价层的详细信息  。
 
     ![新建工作区](./media/tutorial-resource-logs/new-workspace.png)
 
@@ -63,9 +63,9 @@ Azure Monitor 中的 Log Analytics 工作区可从各种源收集和索引日志
 
 3. 每个诊断设置都有三个基本组成部分：
  
-   - **Name**：此部分影响不大，只提供描述信息。
-   - **目标**：要将日志发送到的一个或多个目标。 所有 Azure 服务共享同一组三个可能的目标。 每个诊断设置都可以定义一个或多个目标，但不能定义特定类型的多个目标。 
-   - **类别**：要发送到每个目标的日志类别。 每个 Azure 服务的类别集将有所不同。
+   - **Name** ：此部分影响不大，只提供描述信息。
+   - **目标** ：要将日志发送到的一个或多个目标。 所有 Azure 服务共享同一组三个可能的目标。 每个诊断设置都可以定义一个或多个目标，但不能定义特定类型的多个目标。 
+   - **类别** ：要发送到每个目标的日志类别。 每个 Azure 服务的类别集将有所不同。
 
 4. 选择“发送到 Log Analytics 工作区”，然后选择所创建的工作区  。
 5. 选择要收集的类别。 请参阅每个服务的文档以了解其可用类别的定义。
@@ -85,7 +85,7 @@ Azure Monitor 中的 Log Analytics 工作区可从各种源收集和索引日志
     > [!NOTE]
     > 如果从 Azure Monitor 菜单中打开“日志”，则会将范围设置为“Log Analytics 工作区”。 在这种情况下，所有查询都将包括工作区中的所有记录。
    
-    ![日志](./media/tutorial-resource-logs/logs.png)
+    ![屏幕截图显示逻辑应用的日志，其中显示一个新查询，并突出显示了逻辑应用名称。](./media/tutorial-resource-logs/logs.png)
 
 4. 示例中显示的服务将资源日志写入 AzureDiagnostics 表，但其他服务可能会写入其他表  。 请参阅 [Azure 资源日志支持的服务、架构和类别](../platform/resource-logs-schema.md)，以查看不同 Azure 服务使用的表。
 

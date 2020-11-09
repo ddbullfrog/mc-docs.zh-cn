@@ -4,16 +4,16 @@ description: 介绍如何向 Service Fabric 群集添加新的证书、滚动更
 ms.topic: conceptual
 origin.date: 11/13/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 01/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 06572d94798b01912cd8aa6abc012b5d667e8564
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 0b7cf77791b255329f1e1d992ec859609cb4f073
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655213"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327930"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>在 Azure 中添加或删除 Service Fabric 群集的证书
 建议先了解 Service Fabric 使用 X.509 证书的方式，并熟悉[群集安全性应用场景](service-fabric-cluster-security.md)。 在继续下一步之前，必须先了解群集证书的定义和用途。
@@ -48,9 +48,6 @@ Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日
 > 
 > 
 
-> [!NOTE]
-> 必须修改从 GitHub 存储库“Azure-Samples”下载或引用的模板，使之适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
-
 ### <a name="edit-your-resource-manager-template"></a>编辑 资源管理器模板
 
 为了便于参考，示例 5-VM-1-NodeTypes-Secure_Step2.JSON 包含我们将进行的所有编辑。 该示例位于 [git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample)。
@@ -59,7 +56,7 @@ Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日
 
 1. 打开用于部署群集的 Resource Manager 模板。 （如果已从上述存储库下载此示例，则使用 5-VM-1-NodeTypes-Secure_Step1.JSON 部署安全群集，并打开该模板）。
 
-2. 向模板的参数部分添加**两个新参数**“secCertificateThumbprint”和“secCertificateUrlValue”，类型为“string”。 可复制以下代码片段，并将其添加到该模板。 根据具体的模板源，可能已经存在这些定义，如果是这样，请转至下一步。 
+2. 向模板的参数部分添加 **两个新参数** “secCertificateThumbprint”和“secCertificateUrlValue”，类型为“string”。 可复制以下代码片段，并将其添加到该模板。 根据具体的模板源，可能已经存在这些定义，如果是这样，请转至下一步。 
 
     ```json
     "secCertificateThumbprint": {
@@ -99,7 +96,7 @@ Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日
     }
     ``` 
 
-    如果要**滚动更新证书**，请将新证书指定为主要证书，并将当前的主要证书移为辅助证书。 这样就可以通过一个部署步骤，将当前主要证书滚动更新为新证书。
+    如果要 **滚动更新证书** ，请将新证书指定为主要证书，并将当前的主要证书移为辅助证书。 这样就可以通过一个部署步骤，将当前主要证书滚动更新为新证书。
 
     ```JSON
     "properties": {
@@ -110,7 +107,7 @@ Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日
     }
     ``` 
 
-4. 对**所有** **Microsoft.Compute/virtualMachineScaleSets** 资源定义进行更改 - 查找 Microsoft.Compute/virtualMachineScaleSets 资源定义。 滚动到 "publisher":"Microsoft.Azure.ServiceFabric"，位于 "virtualMachineProfile" 下。
+4. 对 **所有** **Microsoft.Compute/virtualMachineScaleSets** 资源定义进行更改 - 查找 Microsoft.Compute/virtualMachineScaleSets 资源定义。 滚动到 "publisher":"Microsoft.Azure.ServiceFabric"，位于 "virtualMachineProfile" 下。
 
     在 Service Fabric 发布服务器设置中，应看到类似如下的内容。
 
@@ -131,7 +128,7 @@ Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日
 
     ![Json_Pub_Setting2][Json_Pub_Setting2]
 
-    如果要**滚动更新证书**，请将新证书指定为主要证书，并将当前的主要证书移为辅助证书。 这样就可以通过一个部署步骤，将当前证书滚动更新为新证书。     
+    如果要 **滚动更新证书** ，请将新证书指定为主要证书，并将当前的主要证书移为辅助证书。 这样就可以通过一个部署步骤，将当前证书滚动更新为新证书。     
 
     ```json
     "certificate": {
@@ -148,7 +145,7 @@ Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日
     属性现在应如下所示    
     ![Json_Pub_Setting3][Json_Pub_Setting3]
 
-5. 对**所有** **Microsoft.Compute/virtualMachineScaleSets** 资源定义进行更改 - 查找 Microsoft.Compute/virtualMachineScaleSets 资源定义。 滚动到 "vaultCertificates":，位于 "OSProfile" 下。 应该会看到类似下面的屏幕。
+5. 对 **所有** **Microsoft.Compute/virtualMachineScaleSets** 资源定义进行更改 - 查找 Microsoft.Compute/virtualMachineScaleSets 资源定义。 滚动到 "vaultCertificates":，位于 "OSProfile" 下。 应该会看到类似下面的屏幕。
 
     ![Json_Pub_Setting4][Json_Pub_Setting4]
 
@@ -201,7 +198,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your clus
 
 ```
 
-将模板部署到该资源组。 使用群集当前部署到的同一个资源组。 运行 New-AzResourceGroupDeployment 命令。 无需指定模式，因为默认值为 **incremental**。
+将模板部署到该资源组。 使用群集当前部署到的同一个资源组。 运行 New-AzResourceGroupDeployment 命令。 无需指定模式，因为默认值为 **incremental** 。
 
 > [!NOTE]
 > 如果将 Mode 设置为 Complete，可能会无意中删除不在模板中的资源。 因此请不要在此方案中使用该模式。

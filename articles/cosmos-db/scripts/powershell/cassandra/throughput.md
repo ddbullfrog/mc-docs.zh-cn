@@ -1,24 +1,25 @@
 ---
 title: 用于 Azure Cosmos DB Cassandra API 资源的吞吐量 (RU/s) 操作的 PowerShell 脚本
 description: 用于 Azure Cosmos DB Cassandra API 资源的吞吐量 (RU/s) 操作的 PowerShell 脚本
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 origin.date: 10/07/2020
-ms.date: ''
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 06/15/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0d3144442c2d9430836c8abfe3079f49e78adb65
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b0d3e5d5f9ed6ff4c4edb427707f257397563d8b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106547"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328643"
 ---
 <!--Verified successfully-->
 # <a name="throughput-rus-operations-with-powershell-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>使用 PowerShell 实现的用于 Azure Cosmos DB - Cassandra API 的密钥空间或表的吞吐量 (RU/s) 操作
+[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -155,7 +156,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
-可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-
-<!-- Update_Description: new article about throughput -->
-<!--NEW.date: 08/17/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,21 +5,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 03/16/2020
+origin.date: 10/09/2020
 author: rockboyfor
-ms.date: 06/22/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 724748ceac2669df869255312eea444f563194d6
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: d4b55b99176c49c32185de796e3f2cccfd4e6d0c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246779"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328896"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 的 API for MongoDB 构建 Xamarin.Forms 应用
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -38,7 +39,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 若要运行该示例，需要 [Visual Studio](https://www.visualstudio.com/downloads/) 或 [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) 和有效的 Azure CosmosDB 帐户。
 
-如果没有 Visual Studio，请在使用安装程序安装**具有 .NET 的移动开发**后，下载 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。
+如果没有 Visual Studio，请在使用安装程序安装 **具有 .NET 的移动开发** 后，下载 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。
 
 如果想要使用 Mac，请下载 [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) 并运行安装程序。
 
@@ -90,12 +91,9 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 * 初始化 Mongo 客户端。
     ```cs
-    MongoClientSettings settings = MongoClientSettings.FromUrl(
-        new MongoUrl(APIKeys.ConnectionString)
-    );
+    MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(APIKeys.ConnectionString));
 
-    settings.SslSettings =
-        new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+    settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
 
     settings.RetryWrites = false;
 
@@ -109,7 +107,8 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     var db = mongoClient.GetDatabase(dbName);
 
-    var collectionSettings = new MongoCollectionSettings {
+    var collectionSettings = new MongoCollectionSettings 
+    {
         ReadPreference = ReadPreference.Nearest
     };
 
@@ -174,10 +173,10 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 4. 从连接字符串中删除 `&replicaSet=globaldb`。 如果不从查询字符串中删除该值，则会出现运行时错误。
 
-> [!IMPORTANT]
-> 必须从连接字符串的查询字符串中删除 `&replicaSet=globaldb` 键值对，避免运行时错误。
+    > [!IMPORTANT]
+    > 必须从连接字符串的查询字符串中删除 `&replicaSet=globaldb` 键值对，避免运行时错误。
 
-现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。
+    现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。
 
 ## <a name="run-the-app"></a>运行应用程序
 
@@ -209,6 +208,6 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 本快速入门已介绍如何创建 Azure Cosmos DB 帐户和使用 API for MongoDB 运行 Xamarin.Forms 应用。 现在可以将其他数据导入 Cosmos DB 帐户。
 
 > [!div class="nextstepaction"]
-> [将数据导入到使用 Azure Cosmos DB 的用于 MongoDB 的 API 配置的 Azure Cosmos DB](mongodb-migrate.md)
+> [将数据导入到使用 Azure Cosmos DB 的用于 MongoDB 的 API 配置的 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

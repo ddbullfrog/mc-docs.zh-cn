@@ -1,20 +1,19 @@
 ---
 title: Azure Stack Hub 市场中的新增内容
 description: 查看 Azure Stack Hub 市场中的新功能，包括新的、弃用的和更新的市场项。
-ms.service: azure-stack
 author: WenJason
 ms.topic: article
-origin.date: 08/07/2020
-ms.date: 08/31/2020
+origin.date: 10/23/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 5f198ed7b6bbac9c3861d15fadbcab65e758bcec
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.openlocfilehash: e4812b78d03eb701a21c2ca8e38cbcba0a6658b0
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014254"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330507"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -41,13 +40,6 @@ ms.locfileid: "90014254"
 - 2020/07/27：Ubuntu Server 20.04 LTS - 版本 20.04.202004230
 - 2020/07/27：Ubuntu Server 16.04 LTS - 版本 16.04.202007080
 - 2020/07/27：Ubuntu Server 18.04 LTS - 版本 16.04.202007080
-- 09/25/2019：Debian 8 - 版本 8.0.20190806
-- 09/12/2019：Service Fabric - 版本 1.0.3
-- 09/02/2019：AKS 基础映像 - 版本 2019.08.09 和版本 2019.08.21
-- 08/30/2019：Azure Stack Hub Kubernetes 群集 - 版本 0.5.1
-- 2019/07/30：SQL Server 2017（Express、Developer、Standard 和 Enterprise 版）- 版本 14.0.20190410
-- 2019/07/30：SQL Server 2016 SP1（Express、Developer、Standard 和 Enterprise 版）- 版本 13.2.20190410
-- 2019/07/30：SQL Server 2016 SP2（Express、Developer、Standard 和 Enterprise 版）- 版本 13.2.20190410
 
 ## <a name="next-steps"></a>后续步骤
 

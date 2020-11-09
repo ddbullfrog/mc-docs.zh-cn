@@ -4,16 +4,16 @@ description: 在部署专用于处理生产工作负荷的群集之前要考虑�
 ms.topic: conceptual
 origin.date: 09/11/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1d7920874c920753157dd8eaf1297b4b9eb95654
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: a37a96c88e9ff3ec94c296b202e61ba8ea8514b0
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655383"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328526"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>规划和准备 Service Fabric 独立群集部署
 
@@ -65,7 +65,7 @@ ms.locfileid: "89655383"
 * [Windows PowerShell 3.0](https://docs.microsoft.com/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
 * 应在所有计算机上运行 [RemoteRegistry 服务](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11))
 * **Service Fabric 安装驱动器必须是 NTFS 文件系统**
-* **Windows 服务*性能日志和警报*以及 *Windows 事件日志*必须[启用](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))** 。
+* **Windows 服务 *性能日志和警报* 以及 *Windows 事件日志* 必须 [启用](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))** 。
 
 > [!IMPORTANT]
 > 部署和配置群集的群集管理员必须拥有每台计算机的 [管理员权限](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 。 不能在域控制器上安装 Service Fabric。
@@ -83,7 +83,7 @@ ms.locfileid: "89655383"
 
 | **配置设置** | **说明** |
 | --- | --- |
-| **NodeTypes** |节点类型可让你将群集节点划分到不同的组中。 一个群集必须至少有一个节点类型。 组中的所有节点具有以下共同特征： <br /> 名称 - 即节点类型名称。 <br />终结点端口 - 即与此节点类型关联的各种命名终结点（端口）。 可以使用任何端口号，只要它们不会与此清单中的其他部分发生冲突，并且未被计算机/VM 上运行的其他应用程序使用。 <br /> 放置属性 - 即此节点类型的相应属性，可用作系统服务或你拥有的服务的放置约束。 这些属性是用户定义的键/值对，可为指定节点提供额外的元数据。 节点属性的示例包括节点是否有硬盘或图形卡、其硬盘的轴数、内核数和其他物理属性。 <br /> 容量 - 节点容量，定义特定节点提供的特定资源的名称和数量。 例如，节点可以定义名为“MemoryInMb”的指标容量，而且默认有 2048 MB 的可用内存。 这些容量在运行时使用，以确保将需要特定资源量的服务放在具有所需数量的可用资源的节点上。<br />**IsPrimary** - 如果定义了多个 NodeType，请确保只有一个设置为主节点（值为 *true*），系统服务会在该主节点上运行。 应将所有其他节点类型设置为 false 值 |
+| **NodeTypes** |节点类型可让你将群集节点划分到不同的组中。 一个群集必须至少有一个节点类型。 组中的所有节点具有以下共同特征： <br /> 名称 - 即节点类型名称。 <br />终结点端口 - 即与此节点类型关联的各种命名终结点（端口）。 可以使用任何端口号，只要它们不会与此清单中的其他部分发生冲突，并且未被计算机/VM 上运行的其他应用程序使用。 <br /> 放置属性 - 即此节点类型的相应属性，可用作系统服务或你拥有的服务的放置约束。 这些属性是用户定义的键/值对，可为指定节点提供额外的元数据。 节点属性的示例包括节点是否有硬盘或图形卡、其硬盘的轴数、内核数和其他物理属性。 <br /> 容量 - 节点容量，定义特定节点提供的特定资源的名称和数量。 例如，节点可以定义名为“MemoryInMb”的指标容量，而且默认有 2048 MB 的可用内存。 这些容量在运行时使用，以确保将需要特定资源量的服务放在具有所需数量的可用资源的节点上。<br />**IsPrimary** - 如果定义了多个 NodeType，请确保只有一个设置为主节点（值为 *true* ），系统服务会在该主节点上运行。 应将所有其他节点类型设置为 false 值 |
 | **Nodes** |这些是群集内的每个节点的详细信息（节点类型、节点名称、IP 地址、节点的容错域和升级域）。 要在其上创建群集的计算机必须与其 IP 地址一起列在此处。 <br /> 如果对所有节点使用相同的 IP 地址，则会创建一个可用于测试的单机群集。 不要将单机群集用于部署生产工作负荷。 |
 
 群集配置将所有设置配置到环境后，可针对群集环境对其进行测试（步骤 7）。

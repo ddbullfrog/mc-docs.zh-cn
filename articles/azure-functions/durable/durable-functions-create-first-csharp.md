@@ -3,15 +3,15 @@ title: 使用 C# 在 Azure 中创建你的第一个持久函数
 description: 使用 Visual Studio 或 Visual Studio Code 创建并发布 Azure 持久函数。
 author: jeffhollan
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 11/04/2020
 ms.author: v-junlch
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: 6a6642732f687c950b9828b41f938e0fa853e4dc
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 966ec909f1506454d4ff07cf40543f2348bbb1bb
+ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946708"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94326575"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>使用 C\# 创建你的第一个持久函数
 
@@ -21,7 +21,7 @@ ms.locfileid: "88946708"
 
 本文介绍了如何使用 Visual Studio Code 在本地创建并测试“hello world”持久函数。  此函数将协调对其他函数的调用并将其链接在一起。 然后将函数代码发布到 Azure。 这些工具作为 VS Code [Azure Functions 扩展](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)的一部分提供。
 
-![在 Azure 中运行持久函数](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
+![屏幕截图显示了一个包含持久函数的 Visual Studio Code 窗口。](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -86,7 +86,7 @@ Visual Studio Code 会根据需要安装 Azure Functions Core Tools。 它还会
     | 选择资源组 | *唯一名称* | 要创建的资源组名称 |
     | 选择位置 | *region* | 选择离你较近的区域 |
 
-包含新函数的类会添加到此项目。 VS Code 还将存储帐户连接字符串添加到 *local.settings.json*，并将对 [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) NuGet 包的引用添加到 *.csproj* 项目文件。
+包含新函数的类会添加到此项目。 VS Code 还将存储帐户连接字符串添加到 *local.settings.json* ，并将对 [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) NuGet 包的引用添加到 *.csproj* 项目文件。
 
 打开新的 *HelloOrchestration.cs* 文件，查看其内容。 此持久函数是一个简单的函数链接示例，包含以下方法：  
 
@@ -136,7 +136,7 @@ Visual Studio Code 会根据需要安装 Azure Functions Core Tools。 它还会
     }
     ```
 
-1. 若要停止调试，请在 VS Code 中按 **Shift + F5**。
+1. 若要停止调试，请在 VS Code 中按 **Shift + F5** 。
 
 确认该函数可以在本地计算机上正确运行以后，即可将项目发布到 Azure。
 
@@ -165,17 +165,17 @@ Visual Studio Code 会根据需要安装 Azure Functions Core Tools。 它还会
 
 本文介绍了如何使用 Visual Studio 2019 在本地创建并测试“hello world”持久函数。  此函数将协调对其他函数的调用并将其链接在一起。 然后将函数代码发布到 Azure。 Visual Studio 2019 中的 Azure 开发工作负荷已随附这些工具。
 
-![在 Azure 中运行持久函数](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![屏幕截图显示了一个包含持久函数的 Visual Studio 2019 窗口。](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## <a name="prerequisites"></a>必备条件
 
 完成本教程：
 
-* 安装 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)。 确保还安装了 **Azure 开发**工作负荷。 Visual Studio 2017 也支持 Durable Functions 开发，但 UI 和步骤不同。
+* 安装 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)。 确保还安装了 **Azure 开发** 工作负荷。 Visual Studio 2017 也支持 Durable Functions 开发，但 UI 和步骤不同。
 
 * 验证 [Azure 存储模拟器](../../storage/common/storage-use-emulator.md)是否已安装且正在运行。
 
-如果没有 Azure 订阅，可在开始前创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="create-a-function-app-project"></a>创建函数应用项目
 
@@ -187,9 +187,9 @@ Azure Functions 模板创建一个项目，该项目可发布到 Azure 中的函
 
     ![“新建项目”对话框，用于在 Visual Studio 中创建函数](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-1. 为项目键入**项目名称**，然后选择“确定”****。 项目名称必须可以充当 C# 命名空间，因此请勿使用下划线、连字符或任何其他的非字母数字字符。
+1. 为项目键入 **项目名称** ，然后选择“确定”。 项目名称必须可以充当 C# 命名空间，因此请勿使用下划线、连字符或任何其他的非字母数字字符。
 
-1. 在“新建 Azure Functions 应用程序”**** 中，使用图片后面的表中指定的设置。
+1. 在“新建 Azure Functions 应用程序”中，使用图片后面的表中指定的设置。
 
     ![Visual Studio 中的“新建 Azure Functions 应用程序”对话框](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
@@ -199,7 +199,7 @@ Azure Functions 模板创建一个项目，该项目可发布到 Azure 中的函
     | **模板** | 空 | 创建一个空的函数应用。 |
     | **存储帐户**  | 存储模拟器 | 要进行持久函数状态管理，需要一个存储帐户。 |
 
-4. 选择“创建”**** 以创建一个空的函数项目。 此项目具有运行函数所需的基本配置文件。
+4. 选择“创建”以创建一个空的函数项目。 此项目具有运行函数所需的基本配置文件。
 
 ## <a name="add-functions-to-the-app"></a>向应用中添加函数
 
@@ -209,9 +209,9 @@ Azure Functions 模板创建一个项目，该项目可发布到 Azure 中的函
 
     ![添加新函数](./media/durable-functions-create-first-csharp/functions-vs-add-function.png)
 
-1. 确认从“添加”菜单中选择了“Azure 函数”****，键入 C# 文件的名称，然后选择“添加”****。
+1. 确认从“添加”菜单中选择了“Azure 函数”，键入 C# 文件的名称，然后选择“添加”。
 
-1. 选择“Durable Functions 业务流程”**** 模板并选择“确定”****
+1. 选择“Durable Functions 业务流程”模板并选择“确定”
 
     ![选择持久模板](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)
 
@@ -237,7 +237,7 @@ Azure Functions 模板创建一个项目，该项目可发布到 Azure 中的函
 
 3. 将 HTTP 请求的 URL 粘贴到浏览器的地址栏中并执行请求。 下面演示浏览器中函数返回的对本地 GET 请求的响应：
 
-    ![浏览器中的函数 localhost 响应](./media/durable-functions-create-first-csharp/functions-vs-status.png)
+    ![屏幕截图显示了一个已调出 statusQueryGetUri 的浏览器窗口。](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
     响应是来自 HTTP 函数的初始结果，让我们知道持久业务流程已成功启动。  它还不是业务流程的最终结果。  响应中包括了几个有用的 URL。  现在，让我们查询业务流程的状态。
 
@@ -261,7 +261,7 @@ Azure Functions 模板创建一个项目，该项目可发布到 Azure 中的函
     }
     ```
 
-5. 若要停止调试，请按 **Shift + F5**。
+5. 若要停止调试，请按 **Shift + F5** 。
 
 验证该函数可以在本地计算机上正确运行以后，即可将项目发布到 Azure。
 

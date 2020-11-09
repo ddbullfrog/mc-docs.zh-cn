@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 05/06/2019
-ms.date: 10/29/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 496ffe09819ca4efb4657674c00160d44cb8ab41
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: fba818bf7e381228a96842f1df44f61edfb85fae
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470482"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327917"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>快速入门：使用 Azure CLI 命令、az postgres up（预览版）创建 Azure Database for PostgreSQL - 单一服务器
 
@@ -29,7 +29,7 @@ ms.locfileid: "92470482"
 
 本文要求在本地运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
-需要使用 [az login](/cli/authenticate-azure-cli?view=interactive-log-in) 命令登录账户。 记下命令行输出中相应订阅名称的 ID 属性。
+需要使用 [az login](/cli/authenticate-azure-cli) 命令登录账户。 记下命令行输出中相应订阅名称的 ID 属性。
 
 ```azurecli
 az cloud set --name AzureChinaCloud

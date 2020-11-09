@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/28/2019
 ms.author: v-yiso
-ms.date: 09/30/2019
-ms.openlocfilehash: e5aa321de5829a5a6520f1dde64ca969a9350969
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.date: 11/16/2020
+ms.openlocfilehash: a9a48cc17ec687283627bd61b8722007a240419c
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394744"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327762"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>选择适用于解决方案的 IoT 中心层
 
@@ -43,7 +43,7 @@ IoT 中心的标准层启用了所有功能，是任何需要使用双向通信�
 | [消息路由](iot-hub-devguide-messages-read-custom.md)和[事件网格集成](iot-hub-event-grid.md) | 是 | 是 |
 | [HTTP、AMQP 和 MQTT 协议](iot-hub-devguide-protocols.md) | 是 | 是 |
 | [设备预配服务](../iot-dps/about-iot-dps.md) | 是 | 是 |
-| [监视和诊断](iot-hub-monitor-resource-health.md) | 是 | 是 |
+| [监视和诊断](monitor-iot-hub.md) | 是 | 是 |
 | [云到设备的消息传递](iot-hub-devguide-c2d-guidance.md) |   | 是 |
 | [设备孪生](iot-hub-devguide-device-twins.md)、[模块孪生](iot-hub-devguide-module-twins.md)和[设备管理](iot-hub-device-management-overview.md) |   | 是 |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | 是 |
@@ -135,5 +135,5 @@ IoT 中心的流量按单元来度量。 创建 IoT 中心时，选择其层和�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 要详细了解 IoT 中心的功能和性能，请参阅[ IoT 中心定价](https://www.azure.cn/pricing/details/iot-hub)或 [IoT 中心配额和限制][IoT Hub quotas and throttles]。
+* 若要详细了解 IoT 中心功能和性能，请参阅 [IoT 中心定价](https://www.azure.cn/pricing/details/iot-hub)或 [IoT 中心配额和限制](iot-hub-devguide-quotas-throttling.md)。
 * 若要更改 IoT 中心层，请执行[升级 IoT 中心](iot-hub-upgrade.md)中的步骤。

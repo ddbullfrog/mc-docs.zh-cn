@@ -1,16 +1,16 @@
 ---
 title: 模式：使用计划将策略定义分组
 description: 此 Azure Policy 模式通过示例介绍了如何将策略定义分组到计划中。
-origin.date: 06/29/2020
-ms.date: 09/15/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: sample
-ms.openlocfilehash: 8deed13912a6647ad21f6504b10fab704e4a316f
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 5c8d8a702fd054f8d5d55ec84ec1c2acd0cff7a4
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523999"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328273"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Azure Policy 模式：将策略定义分组
 
@@ -18,7 +18,7 @@ ms.locfileid: "90523999"
 
 ## <a name="sample-initiative-definition"></a>示例计划定义
 
-此计划部署两个策略定义，每个都使用 **tagName** 和 **tagValue** 参数。 计划本身有两个参数：**costCenterValue** 和 **productNameValue**。
+此计划部署两个策略定义，每个都使用 **tagName** 和 **tagValue** 参数。 计划本身有两个参数： **costCenterValue** 和 **productNameValue** 。
 这些计划参数分别为每个分组的策略定义提供。 此设计可最大程度地重复使用现有策略定义，同时限制在需要的情况下为实施它们而创建的分配数。
 
 ```json
@@ -94,7 +94,7 @@ ms.locfileid: "90523999"
 #### <a name="initiative-parameters"></a>计划参数
 
 计划可以定义自己的参数，然后将其传递给分组的策略定义。
-在此示例中，**costCenterValue** 和 **productNameValue** 都定义为计划参数。 分配计划后，会提供这些值。
+在此示例中， **costCenterValue** 和 **productNameValue** 都定义为计划参数。 分配计划后，会提供这些值。
 
 ```json
 "parameters": {
@@ -115,7 +115,7 @@ ms.locfileid: "90523999"
 
 #### <a name="includes-policy-definitions"></a>包括策略定义
 
-如果策略定义接受参数，则每个包含的策略定义都必须提供 **policyDefinitionId** 和一个 **parameters** 数组。 在下面的代码片段中，包含的策略定义使用两个参数：**tagName** 和 **tagValue**。 **tagName** 使用文本进行定义，但 **tagValue** 使用计划定义的参数 **costCenterValue**。 对值进行这样的传递可提高重用性。
+如果策略定义接受参数，则每个包含的策略定义都必须提供 **policyDefinitionId** 和一个 **parameters** 数组。 在下面的代码片段中，包含的策略定义使用两个参数： **tagName** 和 **tagValue** 。 **tagName** 使用文本进行定义，但 **tagValue** 使用计划定义的参数 **costCenterValue** 。 对值进行这样的传递可提高重用性。
 
 ```json
 {

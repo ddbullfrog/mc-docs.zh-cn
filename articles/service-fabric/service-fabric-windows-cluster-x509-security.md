@@ -4,16 +4,16 @@ description: 保护 Azure Service Fabric 独立群集或本地群集内部的通
 ms.topic: conceptual
 origin.date: 10/15/2017
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0c7a34858f5d6822c75f16e9403705e42494d17f
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: da0195dfc231fdbfb4bbe1362910e98cf14819b7
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127999"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328811"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>使用 X.509 证书在 Windows 上保护独立群集
 本文介绍如何保护独立 Windows 群集的不同节点之间的通信。 此外，还介绍如何使用 X.509 证书针对连接到此群集的客户端进行身份验证。 身份验证可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。 创建群集时，应在该群集上启用证书安全性。  
@@ -112,7 +112,7 @@ ms.locfileid: "92127999"
 该部分描述保护独立 Windows 群集所需的证书。 如果指定群集证书，请将 ClusterCredentialType 的值设置为 _X509_ 。 如果为外部连接指定服务器证书，请将 ServerCredentialType 的值设置为 _X509_ 。 虽然并非强制，但为了妥善保护群集，我们建议同时拥有这两个证书。 如果将这些值设置为 *X509* ，还必须指定相应的证书，否则 Service Fabric 将引发异常。 在某些情况下，仅需要指定 _ClientCertificateThumbprints_ 或 _ReverseProxyCertificate_ 。 在这些情况下，不需要将 _ClusterCredentialType_ 或 _ServerCredentialType_ 设置为 _X509_ 。
 
 > [!NOTE]
-> 指纹是证书的主要标识。 若要查找创建的证书的指纹，请阅读[检索证书的指纹](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate?view=azure-dotnet)。
+> 指纹是证书的主要标识。 若要查找创建的证书的指纹，请阅读[检索证书的指纹](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate)。
 > 
 > 
 

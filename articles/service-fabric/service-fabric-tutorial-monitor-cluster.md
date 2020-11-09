@@ -4,17 +4,17 @@ description: 在本教程中，你将学习如何通过查看 Service Fabric 事
 ms.topic: tutorial
 origin.date: 07/22/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: fc029b5a6daf4acf59f17181b3017c3dd9029c83
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: f56cbb5eccacc5483981491c7f05e9eba085a327
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655044"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327400"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>教程：在 Azure 中监视 Service Fabric 群集
 
@@ -43,7 +43,7 @@ ms.locfileid: "89655044"
 在开始学习本教程之前：
 
 * 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
-* 安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 或 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+* 安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 或 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 * 创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
 * 为群集设置[诊断集合](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor)
 * 在群集中启用 [EventStore 服务](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor)
@@ -59,7 +59,7 @@ Azure Monitor 日志收集并分析云中托管的应用程序和服务的遥测
 
 在“概述”中，将看到每个已启用解决方案的图形磁贴，包括 Service Fabric 的磁贴。 单击 **Service Fabric** 图形以转到 Service Fabric 分析解决方案。
 
-:::image type="content" source="media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png" alt-text="Service Fabric 解决方案":::
+:::image type="content" source="media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png" alt-text="显示 Service Fabric 图的屏幕截图。":::
 
 下图是 Service Fabric 分析解决方案的主页。 此主页提供了群集中正在发生的事件的快照视图。
 
@@ -242,7 +242,7 @@ ServiceFabricReliableActorEvent
 ## <a name="query-the-eventstore-service"></a>查询 EventStore 服务
 [EventStore 服务](service-fabric-diagnostics-eventstore.md)提供了在给定时间点了解群集或工作负载状态的方法。 EventStore 是有状态 Service Fabric 服务，它维护群集中的事件。 事件通过 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)、REST 和 API 公开。 EventStore 直接查询群集以获取群集中任何实体的诊断数据，要查看 EventStore 中可用事件的完整列表，请参阅 [Service Fabric 事件](service-fabric-diagnostics-event-generation-operational.md)。
 
-可以使用 [Service Fabric 客户端库](https://docs.azure.cn/dotnet/api/overview/service-fabric?view=azure-dotnet#client-library)以编程方式查询 EventStore API。
+可以使用 [Service Fabric 客户端库](https://docs.azure.cn/dotnet/api/overview/service-fabric#client-library)以编程方式查询 EventStore API。
 
 以下是通过 GetClusterEventListAsync 函数查询 2018-04-03T18:00:00Z 和 2018-04-04T18:00:00Z 之间的所有群集事件的示例请求。
 
@@ -299,7 +299,7 @@ Service Fabric 引入了一种具有运行状况实体的[运行状况模型](se
 
 群集会自动被系统组件发送的运行状况报告所填充。 从[使用系统运行状况报告进行故障排除](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)了解更多信息。
 
-Service Fabric 为每个支持的[实体类型](service-fabric-health-introduction.md#health-entities-and-hierarchy)提供运行状况查询。 可以通过 API（使用 [FabricClient.HealthManager](https://docs.azure.cn/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet) 上的方法）、PowerShell cmdlet 和 REST 访问它们。 这些查询返回有关实体的完整运行状况信息：聚合运行状况、实体运行状况事件、子运行状况（在适用时）、不正常评估（实体不正常时）以及子集运行状况统计信息（在适用时）。
+Service Fabric 为每个支持的[实体类型](service-fabric-health-introduction.md#health-entities-and-hierarchy)提供运行状况查询。 可以通过 API（使用 [FabricClient.HealthManager](https://docs.azure.cn/dotnet/api/system.fabric.fabricclient.healthmanager) 上的方法）、PowerShell cmdlet 和 REST 访问它们。 这些查询返回有关实体的完整运行状况信息：聚合运行状况、实体运行状况事件、子运行状况（在适用时）、不正常评估（实体不正常时）以及子集运行状况统计信息（在适用时）。
 
 ### <a name="get-cluster-health"></a>获取群集运行状况
 [Get-ServiceFabricClusterHealth cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth) 返回群集实体的运行状况，并包含应用程序和节点（群集的子项）的运行状况。  首先使用 [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet 连接到群集。

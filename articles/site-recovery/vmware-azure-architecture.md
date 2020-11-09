@@ -6,16 +6,16 @@ services: site-recovery
 ms.topic: conceptual
 origin.date: 11/06/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2150c272832a9fe087c583f6512a7fbb29b0584c
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 35f98a221e78280a3cf0d18583447a9e02173187
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127692"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327387"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware 到 Azure 的灾难恢复体系结构
 
@@ -75,7 +75,7 @@ ms.locfileid: "92127692"
     - 进程服务器接收复制数据、优化和加密数据，然后通过 443 出站端口将其发送到 Azure 存储。
 5. 复制数据首先登陆 Azure 中的缓存存储帐户。 处理这些日志，并将数据存储在 Azure 托管磁盘（称为 asr 种子磁盘）中。 将在此磁盘上创建恢复点。
 
-:::image type="content" source="./media/vmware-azure-architecture/v2a-architecture-henry.png" alt-text="此图显示 VMware 到 Azure 的复制体系结构关系。":::
+:::image type="content" source="./media/vmware-azure-architecture/v2a-architecture-henry.png" alt-text="此图显示 VMware 到 Azure 的复制过程。":::
 
 ## <a name="resynchronization-process"></a>重新同步过程
 
@@ -155,7 +155,7 @@ Site Recovery 按如下所述创建快照：
     - 第 2 阶段：运行到本地站点的故障转移。
     - 第 3 阶段：在工作负荷进行故障回复后，为本地 VM 重新启用复制。
 
-:::image type="content" source="./media/vmware-azure-architecture/enhanced-failback.png" alt-text="此图显示 VMware 到 Azure 的复制体系结构关系。":::
+:::image type="content" source="./media/vmware-azure-architecture/enhanced-failback.png" alt-text="此图显示从 Azure 进行 VMware 故障回复。":::
 
 ## <a name="next-steps"></a>后续步骤
 

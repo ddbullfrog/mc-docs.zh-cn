@@ -4,16 +4,16 @@ description: Azure Service Fabric 提供应对灾难的功能。 本文介绍可
 ms.topic: conceptual
 origin.date: 08/18/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 68f195c09b37ead6d4417fc56e76146cc996939f
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 41764bb0dcaa7c4015ed5b0dd7aea7d2cbd42109
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655089"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327891"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的灾难恢复
 提供高可用性的关键一环是确保服务能够经受各种不同类型的故障。 对于计划外和不受控制的故障，这一点尤其重要。 

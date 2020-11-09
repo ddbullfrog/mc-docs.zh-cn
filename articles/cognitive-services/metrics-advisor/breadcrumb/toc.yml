@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: 认知服务
+      tocHref: /cognitive-services/
+      topicHref: /cognitive-services/index
+      items:
+        - name: 指标顾问
+          tocHref: /cognitive-services/
+          topicHref: /cognitive-services/metrics-advisor/index

@@ -126,8 +126,6 @@
           href: service-fabric-application-and-service-security.md
         - name: Service Fabric 群集安全性
           href: service-fabric-cluster-security.md
-        - name: 内置安全控件
-          href: service-fabric-security-controls.md
         - name: Service Fabric 中基于证书的身份验证
           href: cluster-security-certificates.md
         - name: Service Fabric 中的证书管理
@@ -147,7 +145,7 @@
           items:
             - name: 容器概述
               href: service-fabric-containers-overview.md
-            - name: Docker Compose（预览）
+            - name: Docker Compose
               href: service-fabric-docker-compose.md
             - name: 探测
               href: probes-codepackage.md
@@ -422,7 +420,7 @@
               href: service-fabric-deploy-existing-app.md
         - name: 生成容器服务
           items:
-            - name: Docker Compose（预览）
+            - name: Docker Compose
               href: service-fabric-docker-compose.md
             - name: 卷和日志记录驱动程序
               href: service-fabric-containers-volume-logging-drivers.md
@@ -501,7 +499,7 @@
                   href: service-fabric-application-secret-management-windows.md
                 - name: 在 Linux 上设置加密证书并加密机密
                   href: service-fabric-application-secret-management-linux.md
-                - name: 通过 KeyVaultReference 安全地存储机密（预览版）
+                - name: 通过 KeyVaultReference 安全地存储机密
                   href: service-fabric-keyvault-references.md
             - name: 配置反向代理以进行安全通信
               href: service-fabric-reverseproxy-configure-secure-communication.md

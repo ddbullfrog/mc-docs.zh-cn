@@ -7,14 +7,14 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: 2758b83b2aadba5386d4c9e996fc103cbd68dbd3
-ms.sourcegitcommit: a04b0b1009b0c62f2deb7c7acee75a1304d98f87
+ms.openlocfilehash: f9ca322a5b899cc9709c5723f3aa38bc6b8a01ae
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797008"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328851"
 ---
 # <a name="workbook-text-parameters"></a>工作簿文本参数
 
@@ -87,6 +87,6 @@ ms.locfileid: "83797008"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [开始](workbooks-visualizations.md)详细了解工作簿丰富的可视化效果选项。
+* [开始](./workbooks-overview.md#visualizations)详细了解工作簿丰富的可视化效果选项。
 * [控制](workbooks-access-control.md)并共享对工作簿资源的访问权限。
 

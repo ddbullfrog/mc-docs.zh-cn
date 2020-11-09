@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 6/25/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 2c202299d6afa74a9ffe7d64eb2929c5aac628b6
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/09/2020
+ms.openlocfilehash: 32465ded5f97ce83405d63bb8d2d45899ec2e5cf
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470433"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328347"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的服务器参数
 
@@ -221,7 +221,7 @@ lower_case_table_name 默认设置为 1，你可以在 MySQL 5.6 和 MySQL 5.7 �
 
 如果收到类似于“行大小太大(> 8126)”的错误，则可能需要关闭 innodb_strict_mode 参数。 不允许在服务器级别全局修改服务器参数 innodb_strict_mode，因为如果行数据大小大于 8k，该数据将会被截断，且不显示错误，这样就会导致有可能丢失数据。 建议修改架构以适应页面大小限制。 
 
-可以使用 `init_connect` 在会话级别设置此参数。 若要在会话级别设置 innodb_strict_mode，请参阅[设置未列出的参数](/mysql/howto-server-parameters#setting-parameters-not-listed)。
+可以使用 `init_connect` 在会话级别设置此参数。 若要在会话级别设置 innodb_strict_mode，请参阅[设置未列出的参数](./howto-server-parameters.md#setting-parameters-not-listed)。
 
 > [!NOTE]
 > 如果有只读副本服务器，在源服务器上的会话级别将 innodb_strict_mode 设置为 OFF 会中断复制。 如果有只读副本，建议将该参数始终设置为 OFF。

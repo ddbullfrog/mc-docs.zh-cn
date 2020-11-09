@@ -1,24 +1,25 @@
 ---
 title: 将数据迁移到 Azure Cosmos DB 中的 Cassandra API 帐户 - 教程
 description: 本教程介绍如何使用 CQL Copy 命令和 Spark 将数据从 Apache Cassandra 复制到 Azure Cosmos DB 中的 Cassandra API 帐户
-author: rockboyfor
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 origin.date: 12/03/2018
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 43d6b01c8ee7bebc77434c0be76e58204f7f418d
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.openlocfilehash: 78456e12a098f1f1dfabe95c2ea9f28c29bd71f8
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723596"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328425"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>教程：将数据迁移到 Azure Cosmos DB 中的 Cassandra API 帐户
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 作为开发人员，你可能具有在本地或在云中运行的现有 Cassandra 工作负荷，并且你可能希望将其迁移到 Azure。 可以将这类工作负荷迁移到 Azure Cosmos DB 中的 Cassandra API 帐户。 本教程对可用来将 Apache Cassandra 数据迁移到 Azure Cosmos DB 中的 Cassandra API 帐户的各种选项进行了说明。
 
@@ -118,5 +119,4 @@ ms.locfileid: "84723596"
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB 中的可优化数据一致性级别](../cosmos-db/consistency-levels.md)
 
-<!--Update_Description: update link -->
-
+<!-- Update_Description: update meta properties, wording update, update link -->

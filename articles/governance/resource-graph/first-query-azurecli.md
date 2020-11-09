@@ -2,16 +2,16 @@
 title: 快速入门：第一个 Azure CLI 查询
 description: 本快速入门介绍为 Azure CLI 启用 Resource Graph 扩展并运行第一个查询的步骤。
 ms.author: v-tawe
-origin.date: 08/10/2020
-ms.date: 09/15/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6653ad2f3246c65fe4f7b9c615f1ba4540668ce8
-ms.sourcegitcommit: 75299b1cb5540a11149f320edaae82ae8c03c16b
+ms.openlocfilehash: 73923ac935b4cf025ae9d46d79bdcf72a838a796
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523179"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328802"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>快速入门：使用 Azure CLI 运行你的第一个 Resource Graph 查询
 
@@ -25,9 +25,9 @@ ms.locfileid: "90523179"
 
 ## <a name="add-the-resource-graph-extension"></a>添加 Resource Graph 扩展
 
-若要使 Azure CLI 能够查询 Azure Resource Graph，则必须添加该扩展。 此扩展适用于可以使用 Azure CLI 的任何位置，包括 [Windows 10 上的 bash](/windows/wsl/install-win10)、[Azure CLI Docker 映像](https://hub.docker.com/r/microsoft/azure-cli/)或在本地安装。
+若要使 Azure CLI 能够查询 Azure Resource Graph，则必须添加该扩展。 此扩展适用于可以使用 Azure CLI 的任何位置，包括 [Windows 10 上的 bash](https://docs.microsoft.com/windows/wsl/install-win10)、[Azure CLI Docker 映像](https://hub.docker.com/_/microsoft-azure-cli)或在本地安装。
 
-1. 请确保安装最新的 Azure CLI（至少为 2.0.76）。 若尚未安装，请遵循[这些说明](/cli/install-azure-cli-windows?view=azure-cli-latest)。
+1. 请确保安装最新的 Azure CLI（至少为 2.0.76）。 若尚未安装，请遵循[这些说明](/cli/install-azure-cli-windows)。
 
 1. 在所选的 Azure CLI 环境中，使用以下命令导入该扩展：
 
@@ -36,7 +36,7 @@ ms.locfileid: "90523179"
    az extension add --name resource-graph
    ```
 
-1. 验证该扩展是否已安装以及是否为预期的版本（至少为 **1.0.0**）：
+1. 验证该扩展是否已安装以及是否为预期的版本（至少为 **1.0.0** ）：
 
    ```azurecli
    # Check the extension list (note that you may have other extensions installed)
@@ -54,6 +54,8 @@ ms.locfileid: "90523179"
 
    ```azurecli
    # Login first with az login
+   az cloud set -n AzureChinaCloud
+   az login
 
    # Run Azure Resource Graph query
    az graph query -q 'Resources | project name, type | limit 5'

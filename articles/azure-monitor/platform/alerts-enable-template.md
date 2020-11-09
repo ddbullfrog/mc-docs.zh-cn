@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
 origin.date: 03/09/2020
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.subservice: alerts
-ms.openlocfilehash: e66474fb99e9e2da70d024a12f339dff4d94f586
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 74efabcd1967114f4f440f1afc0d3e7c3201e848
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457429"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328767"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>使用资源管理器模板创建经典指标警报
 
@@ -401,7 +401,6 @@ ms.locfileid: "89457429"
 
 ## <a name="next-steps"></a>后续步骤
 * [详细了解警报](alerts-overview.md)
-* [将诊断设置添加](./diagnostic-settings-template.md) 到 Resource Manager 模板
+* [将诊断设置添加](../samples/resource-manager-diagnostic-settings.md) 到 Resource Manager 模板
 * 有关 JSON 语法和属性，请参阅 [Microsoft.Insights/alertrules](https://docs.microsoft.com/azure/templates/microsoft.insights/alertrules) 模板参考。
-
 

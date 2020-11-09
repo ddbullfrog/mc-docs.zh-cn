@@ -4,17 +4,17 @@ description: 了解如何使用 Azure Service Fabric EventStore API 查询平台
 ms.topic: conceptual
 origin.date: 02/25/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 203eca10f46dfef14a8b0d0a07c348362fc06136
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 1c8835003930be8f9502136797f62dcf10063155
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655685"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327890"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>查询群集事件的 EventStore API
 
@@ -114,7 +114,7 @@ Body:
 
 ## <a name="query-the-eventstore-programmatically"></a>以编程方式查询 EventStore
 
-还可以通过 [Service Fabric 客户端库](https://docs.azure.cn/dotnet/api/overview/service-fabric?view=azure-dotnet#client-library)以编程方式查询 EventStore。
+还可以通过 [Service Fabric 客户端库](https://docs.azure.cn/dotnet/api/overview/service-fabric#client-library)以编程方式查询 EventStore。
 
 设置好 Service Fabric 客户端后，可以通过访问 EventStore（如 `sfhttpClient.EventStore.<request>`）来查询事件
 
@@ -194,7 +194,7 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 “myApp”中所有服务的历史记录运行状况： 
 
-目前，服务的运行状况报告事件在相应的应用程序实体下方显示为 `DeployedServicePackageNewHealthReport` 事件。 若要查看服务如何对“App1”执行操作，请使用以下查询：`https://winlrc-staging-10.chinaeast.cloudapp.chinacloudapi.cn:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+目前，服务的运行状况报告事件在相应的应用程序实体下方显示为 `DeployedServicePackageNewHealthReport` 事件。 若要查看服务如何对“App1”执行操作，请使用以下查询：`https://mycluster.cloudapp.chinacloudapi.cn:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 分区重新配置： 
 
@@ -204,4 +204,4 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 当混沌服务开始或停止时，群集级别会公开一个事件。 若要查看最近一次使用混沌服务的情况，请使用以下查询：`https://mycluster.cloudapp.chinacloudapi.cn:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

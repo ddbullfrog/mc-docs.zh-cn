@@ -1,23 +1,24 @@
 ---
 title: 教程 - 用于将示例数据加载到 Azure Cosmos DB 的 Cassandra API 表中的 Java 应用
 description: 本教程展示了如何使用 Java 应用程序将示例用户数据加载到 Azure Cosmos DB 中的 Cassandra API 表。
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 origin.date: 05/20/2019
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 3812ff10eaba9cba921002aa46efaa671345ee73
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 2a3ea926ec570570a728d7df1b1bf13f7d1595c1
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098733"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328110"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>教程：将示例数据加载到 Azure Cosmos DB 中的 Cassandra API 表
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 作为开发人员，你可能具有使用键/值对的应用程序。 你可以使用 Azure Cosmos DB 中的 Cassandra API 帐户来存储键/值数据。 本教程展示了如何使用 Java 应用程序将示例用户数据加载到 Azure Cosmos DB 中的 Cassandra API 帐户中的表。 该 Java 应用程序使用 [Java 驱动程序](https://github.com/datastax/java-driver)并加载用户数据，例如用户 ID、用户名和用户城市。 
 

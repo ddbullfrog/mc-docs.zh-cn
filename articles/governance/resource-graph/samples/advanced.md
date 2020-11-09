@@ -2,15 +2,15 @@
 title: 高级查询示例
 description: 使用 Azure Resource Graph 运行一些高级查询，包括使用列、列出使用的标记以及使用正则表达式匹配资源。
 ms.author: v-tawe
-origin.date: 08/13/2020
-ms.date: 09/15/2020
+origin.date: 10/14/2020
+ms.date: 11/06/2020
 ms.topic: sample
-ms.openlocfilehash: 42813f222d3fa8e28f9c4561f16f7ab853e61cc3
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 73b3ed17e593be4ae725befe15d763a185273226
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127904"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328509"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Advanced Resource Graph 查询示例
 
@@ -599,9 +599,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-details-of-guest-configuration-assignment-reports"></a><a name="query-gcreports"></a>查询来宾配置分配报表的详细信息
 
-显示[来宾配置分配原因](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)详细信息的报表。
-在以下示例中，查询仅返回来宾分配名称为 `installed_application_linux` 并且输出包含字符串 `Python` 的结果，以列出安装了包含名称 Python 的包的所有 Linux 计算机。
-若要查询所有计算机是否符合特定分配，请删除第二个 `where` 子句。
+显示[来宾配置分配原因](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)详细信息的报表。 在以下示例中，查询仅返回来宾分配名称为 `installed_application_linux` 并且输出包含字符串 `Python` 的结果，以列出安装了包含名称 Python 的包的所有 Linux 计算机。 若要查询所有计算机是否符合特定分配，请删除第二个 `where` 子句。
 
 ```kusto
 GuestConfigurationResources
@@ -640,8 +638,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments"></a><a name="query-gcmachinedetails"></a>查找计算机不符合来宾配置分配的所有原因
 
-显示特定计算机的所有[来宾配置分配原因](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)。
-删除第一个 `where` 子句，以便还包含计算机合规的审核。
+显示特定计算机的所有[来宾配置分配原因](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)。 删除第一个 `where` 子句，以便还包含计算机合规的审核。
 
 ```kusto
 GuestConfigurationResources

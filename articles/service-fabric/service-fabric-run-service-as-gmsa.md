@@ -4,17 +4,16 @@ description: 了解如何在 Service Fabric Windows 独立群集上以组托管�
 ms.topic: how-to
 origin.date: 03/29/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: 2d3f943b83f08c50d806eba683b5bb40d3bb15ed
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: ce1d5bf7b44ddc69f949cb8a297e6a1ad34f17b1
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655504"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328865"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>以组托管服务帐户身份运行服务
 

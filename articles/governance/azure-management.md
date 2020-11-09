@@ -2,15 +2,15 @@
 title: Azure 管理概述 - Azure 治理
 description: Azure 应用程序和资源管理领域概述及 Azure 管理工具上内容的链接。
 origin.date: 09/09/2020
-ms.date: 09/15/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: overview
-ms.openlocfilehash: 9badd1b4fdb4c7f70dc2e7c381d025e3617715df
-ms.sourcegitcommit: 39410f3ed7bdeafa1099ba5e9ec314b4255766df
+ms.openlocfilehash: 988c04460109975698ce6075779c5bc2c6db0315
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90678342"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328764"
 ---
 # <a name="what-are-the-azure-management-areas"></a>什么是 Azure 管理区域？
 
@@ -20,8 +20,8 @@ Azure 中的监管是 Azure 管理的一个方面。 本文介绍了在 Azure �
 
 下图说明了维护任何应用程序或资源所需的不同管理方面。 可将这些不同的区域视为一个生命周期。 每个区域都需要在资源的整个生存期内保持连续。 此资源生命周期始于其初始部署，贯穿其持续操作，在其停用时结束。
 
-:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Azure 中管理原则的示意图。" border="false":::
-   此图显示了在 Azure 中支持管理和治理的服务轮图的“迁移”、“安全”、“保护”、“监视”、“配置”和“治理”元素。 “安全”有“安全管理”和“威胁防护”作为子项。 “保护”有“备份”和“灾难恢复”作为子项。 “监视”有“应用、基础结构和网络监视”和“日志分析和诊断”作为子项。 配置有“配置”、“更新管理”、“自动化”和“脚本编写”作为子项。 “冶理”有“策略管理”和“成本管理”作为子项。
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="“Azure 中的管理原则”示意图。" border="false":::
+   此图显示了在 Azure 中支持管理和治理的服务轮的“迁移”、“安全”、“保护”、“监视”、“配置”和“治理”元素。 “安全”有“安全管理”和“威胁防护”作为子项。 “保护”有“备份”和“灾难恢复”作为子项。 “监视”有“应用、基础结构和网络监视”以及“日志分析和诊断”作为子项。 “配置”有“配置”、“更新管理”、“自动化”和“脚本编写”作为子项。 “治理”有“策略管理”和“成本管理”作为子项。
 :::image-end:::
 
 没有一个 Azure 服务完全满足特定管理区域的要求。 但搭配多个服务就能实现这一点。 某些服务（如 Application Insight）可为 Web 应用程序提供有针对性的监视功能。 其他服务（例如 Azure Monitor 日志）可为其他服务存储管理数据。 可使用此功能分析由不同服务收集的不同类型的数据。

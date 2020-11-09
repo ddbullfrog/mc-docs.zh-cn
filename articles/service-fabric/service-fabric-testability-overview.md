@@ -1,17 +1,19 @@
 ---
 title: 故障分析服务概述
 description: 本文介绍 Service Fabric 中用于针对服务引入故障和运行测试方案的故障分析服务。
-author: rockboyfor
 ms.topic: conceptual
 origin.date: 06/15/2017
-ms.date: 01/13/2020
+author: rockboyfor
+ms.date: 11/09/2020
+ms.testscope: no
+ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: 67a2ab3cab49d1d8548b09762a5349fbb8930834
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a7b67a58c76dc52b83ceaa90c316a863558aae51
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75742122"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327439"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>故障分析服务介绍
 故障分析服务是在 Azure Service Fabric 基础上专为测试服务构建的。 借助故障分析服务，可以引入有意义的故障，并对应用程序运行完整的测试方案。 这些故障和方案将执行并验证服务在整个生命周期内要经历的大量状态和转换，所有一切都以受控、安全且一致的方式进行。

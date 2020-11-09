@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 origin.date: 04/03/2019
 ms.date: 08/12/2019
 ms.author: v-yiso
-ms.openlocfilehash: 57c36b764e4f9daf82766d2428f7cc51ff624071
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 2aa2b74384b587e4033f2a2b353871db3102d7c9
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74389365"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328391"
 ---
 # <a name="cross-network-connectivity"></a>跨网连接
 
@@ -68,7 +68,7 @@ Fabrikam Inc. 并购了 Contoso ltd.并购后，Fabrikam 希望建立网络互�
 
 [![8]][8]
 
-VNet 对等互连直接将两个虚拟网络链接到一起（在上面的两个表格中可以看到，*VNetGlobalPeering* 项没有下一跃点）
+VNet 对等互连直接将两个虚拟网络链接到一起（在上面的两个表格中可以看到， *VNetGlobalPeering* 项没有下一跃点）
 
 ## <a name="cross-connecting-vnets-to-the-on-premises-networks"></a>将 VNet 交叉连接到本地网络
 
@@ -146,7 +146,7 @@ Global Reach 是按国家/地区推出的。 若要查看 Global Reach 是否在
 [Global Reach]: /expressroute/expressroute-global-reach
 [Configure VNet peering]: /virtual-network/create-peering-different-subscriptions
 [Configure Global Reach]: /expressroute/expressroute-howto-set-global-reach
-[Subscription limits]: /azure-subscription-service-limits#networking-limits
+[Subscription limits]: /azure-resource-manager/management/azure-subscription-service-limits#networking-limits
 [Connect-ER-VNet]: /expressroute/expressroute-howto-linkvnet-portal-resource-manager
 [ER-FAQ]: /expressroute/expressroute-faqs
 [VNet-FAQ]: /virtual-network/virtual-networks-faq

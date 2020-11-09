@@ -1,21 +1,20 @@
 ---
 title: 关于 Azure Site Recovery
 description: 简要介绍 Azure Site Recovery 服务并概述灾难恢复和迁移部署方案。
-ms.service: site-recovery
 ms.topic: overview
 origin.date: 03/17/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 9f3c1672cd67e6edd7b5dc62581e8afcb8a29b30
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 79330dcda32cd932bdc9c1ec84e372af5db02d13
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655571"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327342"
 ---
 # <a name="about-site-recovery"></a>关于 Site Recovery
 
@@ -25,8 +24,8 @@ ms.locfileid: "89655571"
 
 Azure 恢复服务有助于制定 BCDR 策略：
 
-- **Site Recovery 服务**：Site Recovery 有助于保持业务应用和工作负荷在停机期间的正常运行，从而确保业务连续性。 Site Recovery 将在物理机和虚拟机 (VM) 上运行的工作负荷从主站点复制到辅助位置。 主站点发生停机时，可以故障转移到辅助位置，从该位置访问应用。 在主位置再次运行后，可以故障回复到该位置。
-- **备份服务**：[Azure 备份](../backup/index.yml)服务保证数据安全性和可恢复性。
+- **Site Recovery 服务** ：Site Recovery 有助于保持业务应用和工作负荷在停机期间的正常运行，从而确保业务连续性。 Site Recovery 将在物理机和虚拟机 (VM) 上运行的工作负荷从主站点复制到辅助位置。 主站点发生停机时，可以故障转移到辅助位置，从该位置访问应用。 在主位置再次运行后，可以故障回复到该位置。
+- **备份服务** ： [Azure 备份](../backup/index.yml)服务保证数据安全性和可恢复性。
 
 Site Recovery 可以为以下计算机管理复制：
 

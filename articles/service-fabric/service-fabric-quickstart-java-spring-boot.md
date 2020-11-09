@@ -4,17 +4,17 @@ description: 在本快速入门中，请使用 Spring Boot 示例应用程序为
 ms.topic: quickstart
 origin.date: 01/29/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 02/24/2020
 ms.author: v-yeche
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a14569e729260fd1854c9b11fc8fe0bd66811de6
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: a914ce0ebdb57f3fad949eebe52d11f843d95ab3
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655725"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328156"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>快速入门：在 Azure Service Fabric 上部署 Java Spring Boot 应用
 
@@ -67,7 +67,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar *spring-boot*.jar
     ```
 
-1. 在 gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml  文件中添加**终结点**资源
+1. 在 gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml  文件中添加 **终结点** 资源
 
     ```xml 
         <Resources>
@@ -161,7 +161,7 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 
     现在可以选择缩放服务的实例数量。
 
-1. 将数字更改为 **3**，选择“缩放服务”  。
+1. 将数字更改为 **3** ，选择“缩放服务”  。
 
     下面显示了使用命令行缩放服务的另一种方法。
 

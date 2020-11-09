@@ -6,26 +6,19 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 07/08/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: fe2e3e5e6dd593598206cb6194b46cdd0214123d
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 11/09/2020
+ms.openlocfilehash: 7a0ccb476ac0dd1ea443c30ec98676f5536359ad
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470015"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328096"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL（单一服务器）中配置 TLS 连接
 
 Azure Database for PostgreSQL 倾向于使用传输层安全性 (TLS)（以前成为安全套接字层 (SSL)）将客户端应用程序连接到 PostgreSQL 服务。 通过在数据库服务器与客户端应用程序之间强制实施 TLS 连接，可以加密服务器与应用程序之间的数据流，这有助于防止“中间人”攻击。
 
 默认情况下，PostgreSQL 数据库服务配置为需要 TLS 连接。 如果客户端应用程序不支持 TLS 连接，则可以选择禁用 TLS。
-
->[!NOTE]
-> 根据客户的反馈，我们已将根证书的弃用时间延长至 2021 年 2 月 15 日 (2021/02/15)。
-
-> [!IMPORTANT] 
-> SSL 根证书设置为 2021 年 2 月 15 日 (2021/02/15) 到期。 请更新应用程序以使用[新证书](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)。 若要了解详细信息，请参阅[计划的证书更新](concepts-certificate-rotation.md)
-
 
 ## <a name="enforcing-tls-connections"></a>强制实施 TLS 连接
 
@@ -101,7 +94,7 @@ Azure Database for PostgreSQL 单一服务器提供了为客户端连接强制�
 
 ## <a name="cipher-support-by-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 单一服务器的密码支持
 
-作为 SSL/TLS 通信的一部分，将对密码套件进行验证，并且仅允许支持密码套件与数据库服务器通信。 密码套件验证在[网关层](concepts-connectivity-architecture.md#connectivity-architecture)中控制，而不是在节点本身上显式控制。 如果密码套件与下面列出的某个套件不匹配，将拒绝传入的客户端连接。
+作为 SSL/TLS 通信的一部分，将对密码套件进行验证，并且仅允许支持密码套件与数据库服务器通信。 密码套件验证在[网关层](concepts-connectivity-architecture.md#connectivity-architecture)中控制，而不是在节点本身上显式控制。 如果密码套件与下面列出的某个套件不匹配，系统会拒绝传入的客户端连接。
 
 ### <a name="cipher-suite-supported"></a>支持的密码套件
 

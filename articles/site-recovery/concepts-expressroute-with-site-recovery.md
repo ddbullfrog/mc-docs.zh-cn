@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/13/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6492d6a368173bb8fff1262b9fe543d387a0d4d2
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 1f9e5850abade087ce77414032d48c5428890945
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127989"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328788"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>将 Azure ExpressRoute 与 Azure Site Recovery 结合使用
 
@@ -44,10 +44,7 @@ Site Recovery 通过公共终结点将数据复制到目标 Azure 区域上的 A
 如果你在本地使用代理并希望将 ExpressRoute 用于复制流量，则需要在配置服务器和进程服务器上配置代理绕过列表。 请遵循以下步骤进行配置：
 
 - 从[此处](https://aka.ms/PsExec)下载 PsExec 工具来访问系统用户上下文。
-- 运行以下命令行，在系统用户上下文中打开 Internet Explorer
-    
-    `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`
-    
+- 通过运行以下命令行在系统用户上下文中打开 Internet Explorer：psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - 在 IE 中添加代理设置
 - 在绕过列表中，添加 Azure 存储 URL *.blob.core.chinacloudapi.cn
 

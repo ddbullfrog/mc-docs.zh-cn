@@ -1,23 +1,23 @@
 ---
 title: 教程 - 在 Azure Monitor 中创建指标图表
-description: 了解如何使用 Azure 指标资源管理器创建第一个指标图表。
-services: azure-monitor
+description: 了解如何使用 Azure 指标资源管理器创建指标图表。
+author: Johnnytechn
+ms.author: v-johya
 ms.subservice: metrics
-author: lingliw
-ms.author: v-lingwu
+ms.topic: tutorial
 origin.date: 04/10/2019
-ms.date: 02/19/2020
-ms.openlocfilehash: 67d01b27a2222f2a9cc0aaa69331ad56b40f4518
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 11/02/2020
+ms.openlocfilehash: c67c39be09f7771cc51369a3a3c5c6d810d2d3b5
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850289"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327840"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>教程：在 Azure Monitor 中创建指标图表
 指标资源管理器是 Azure 门户中 Azure Monitor 的一项功能，通过它可以根据指标值创建图表，直观地关联趋势，以及调查指标值中的高峰和凹陷。 使用指标资源管理器调查 Azure 资源的运行状况和利用率，或根据自定义指标绘制图表。 
 
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 选择要为其绘制图表的指标
@@ -30,7 +30,7 @@ ms.locfileid: "78850289"
 
 
 ## <a name="log-in-to-azure"></a>登录 Azure
-通过 [https://portal.azure.com](https://portal.azure.cn) 登录到 Azure 门户。
+通过 [https://portal.azure.cn](https://portal.azure.cn) 登录到 Azure 门户。
 
 ## <a name="open-metrics-explorer-and-select-a-scope"></a>打开指标资源管理器并选择范围
 可以从 Azure Monitor 菜单或从 Azure 门户中资源的菜单打开指标资源管理器。 无论采用哪种方式，都可使用所有资源的指标。 
@@ -39,17 +39,17 @@ ms.locfileid: "78850289"
 
 1. 选择“范围”，即要查看其指标的资源  。 如果从资源的菜单中打开了指标资源管理器，则该范围已填充完毕。
 
-    ![选择范围](media/tutorial-metrics-explorer/scope-picker.png)
+    ![选择范围](./media/tutorial-metrics-explorer/scope-picker.png)
 
-2. 如果范围具有多个命名空间，请选择“命名空间”  。 命名空间只是一种为了轻松查找指标而组织指标的方式。 例如，存储帐户提供用于存储文件、表、Blob 和队列指标的独立命名空间。 许多资源类型只有一个命名空间。
+2. 如果范围具有多个命名空间，请选择“命名空间”  。 命名空间只是一种为了轻松查找指标而组织指标的方式。 例如，存储帐户具有单独的命名空间，用于存储文件、表、Blob 和队列指标。 许多资源类型只有一个命名空间。
 
 3. 从所选范围和命名空间的可用指标列表中选择指标。
 
-    ![选择指标](media/tutorial-metrics-explorer/metric-picker.png)
+    ![选择指标](./media/tutorial-metrics-explorer/metric-picker.png)
 
 4. （可选）更改指标聚合  。 这定义指标值将如何跨图的时间粒度进行聚合。 例如，如果时间粒度设置为 15 分钟，聚合设置为“求和”，则图中的每个点都将是每 15 分钟时间段内收集的所有值的总和。
 
-    ![图表](media/tutorial-metrics-explorer/chart.png)
+    ![显示标题为“contosoretailweb 的总流入量”的图表的屏幕截图。](./media/tutorial-metrics-explorer/chart.png)
 
 5. 如果要查看在同一图表中绘制的多个指标，请使用“添加指标”按钮，并重复这些步骤  。 对于一个视图中的多个图表，选择“新建图表”按钮  。
 
@@ -57,12 +57,12 @@ ms.locfileid: "78850289"
 
 默认情况下，图表显示最近 24 小时内的指标数据。 使用时间选取器更改图表的“时间范围”或更改“时间粒度”（定义每个数据点的时间范围）。   图表使用指定的聚合来计算指定时间粒度内的所有采样值。
 
-![更改时间范围面板](media/tutorial-metrics-explorer/time-picker.png)
+![更改时间范围面板](./media/tutorial-metrics-explorer/time-picker.png)
 
 
 使用“时间刷”来调查图表中值得注意的区域（如高峰或凹陷）  。 将鼠标指针放在区域的开头位置，单击并按住鼠标左键，拖动到区域的另一侧，然后松开按钮。 图表将在该时间范围内放大。 
 
-![时间刷](media/tutorial-metrics-explorer/time-brush.png)
+![时间刷](./media/tutorial-metrics-explorer/time-brush.png)
 
 ## <a name="apply-dimension-filters-and-splitting"></a>应用维度筛选器和拆分
 请参阅以下有关高级功能的参考资料，使用这些功能可以对指标进行其他分析并确定数据中的可能的异常值。
@@ -75,7 +75,7 @@ ms.locfileid: "78850289"
 
 ## <a name="advanced-chart-settings"></a>高级图表设置
 
-可以自定义图表样式、标题，以及修改高级图表设置。 完成自定义后，请将图表固定到仪表板以保存所做的工作。 你还可以配置指标警报。 请参阅 [Azure 指标资源管理器的高级功能](../platform/metrics-charts.md#lock-boundaries-of-chart-y-axis)，了解 Azure Monitor 指标资源管理器的这些功能和其他高级功能。
+可以自定义图表样式和标题并修改高级图表设置。 完成自定义后，将其固定到仪表板以保存工作。 你还可以配置指标警报。 请参阅 [Azure 指标资源管理器的高级功能](../platform/metrics-charts.md#lock-boundaries-of-chart-y-axis)，了解 Azure Monitor 指标资源管理器的这些功能和其他高级功能。
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -83,4 +83,5 @@ ms.locfileid: "78850289"
 
 > [!div class="nextstepaction"]
 > [使用 Azure Monitor 创建、查看和管理指标警报](../platform/alerts-metric.md)
+
 

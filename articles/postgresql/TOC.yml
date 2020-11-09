@@ -6,10 +6,6 @@
       href: overview.md
     - name: 要选择哪种 PostgreSQL 部署选项？
       href: overview-postgres-choose-server-options.md
-    - name: 服务更新
-      items:
-        - name: SSL 根证书即将过期
-          href: concepts-certificate-rotation.md
 - name: 分享的文档
   items:
     - name: 迁移

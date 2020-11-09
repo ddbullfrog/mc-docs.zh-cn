@@ -1,25 +1,26 @@
 ---
 title: 通过 Spark 对 Azure Cosmos DB Cassandra API 执行删除操作
 description: 本文详细介绍了如何从 Spark 删除 Azure Cosmos DB Cassandra API 表中的数据
-author: rockboyfor
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 09/24/2018
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 481a77d8ec756e766051e5c170c036d73598e671
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 955ef77a8e133989c4985507041da2842ee83205
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222778"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328706"
 ---
 <!--Verify sucessfully-->
 # <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>从 Spark 删除 Azure Cosmos DB Cassandra API 表中的数据
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 本文详细介绍了如何从 Spark 中删除 Azure Cosmos DB Cassandra API 表中的数据。
 

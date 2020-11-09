@@ -1,31 +1,23 @@
 ---
-title: 配置线路的对等互连 - ExpressRoute：PowerShell：Azure
-description: 本文指导完成创建和预配 ExpressRoute 线路的专用、公共和 Microsoft 对等互连的步骤。 本文还介绍如何检查状态，以及如何更新或删除线路的对等互连。
-documentationcenter: na
+title: 教程：配置 ExpressRoute 线路的对等互连 - Azure PowerShell
+description: 本教程介绍如何使用 PowerShell 在资源管理器部署模型中创建和管理 ExpressRoute 线路的路由配置。
 services: expressroute
-author: osamazia
-manager: jonor
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
+author: duongau
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 12/13/2019
+ms.topic: tutorial
+origin.date: 10/08/2020
 ms.author: v-yiso
-ms.date: 10/19/2020
-ms.openlocfilehash: d6445309a2b1df75e46c5fcd403439eaf79fbfb4
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.date: 11/16/2020
+ms.openlocfilehash: 71afc38b30efd43bd2b431f28e0f0b6023cc287a
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937385"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328817"
 ---
-# <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 创建和修改 ExpressRoute 线路的对等互连
+# <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>教程：使用 PowerShell 创建和修改 ExpressRoute 线路的对等互连
 
-本文可帮助使用 PowerShell 在资源管理器部署模型中创建和管理 ExpressRoute 线路的路由配置。 还可以检查 ExpressRoute 线路的状态，更新、删除和取消预配其对等互连。 如果想使用不同的方法处理线路，请从以下列表中选择一篇文章进行参阅：
+本教程帮助你使用 PowerShell 在资源管理器部署模型中创建和管理 ExpressRoute 线路的路由配置。 还可以检查 ExpressRoute 线路的状态，更新、删除和取消预配其对等互连。 如果想使用不同的方法处理线路，请从以下列表中选择一篇文章进行参阅：
 
 > [!div class="op_single_selector"]
 > 
@@ -45,10 +37,14 @@ ms.locfileid: "91937385"
 
 可以为 ExpressRoute 线路配置一到三个对等互连（Azure 专用、Azure 公共和 Microsoft）。 可以按照所选的任意顺序配置对等互连。 但是，必须确保一次只完成一个对等互连的配置。 有关路由域和对等互连的详细信息，请参阅 [ExpressRoute 路由域](expressroute-circuit-peerings.md)。
 
-## <a name="configuration-prerequisites"></a>配置先决条件
 
-* 在开始配置之前，请务必查看[先决条件](expressroute-prerequisites.md)页、[路由要求](expressroute-routing.md)页和[工作流](expressroute-workflows.md)页。
-* 必须有一个活动的 ExpressRoute 线路。 在继续下一步之前，请按说明 [创建 ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并通过连接提供商启用该线路。 ExpressRoute 线路必须处于已预配和已启用状态，才能运行本文中的 cmdlet。
+## <a name="prerequisites"></a>必备条件
+
+* 在开始配置之前，确保已查看以下页面：
+    * [先决条件](expressroute-prerequisites.md) 
+    * [路由要求](expressroute-routing.md)
+    * [工作流](expressroute-workflows.md)
+* 必须有一个活动的 ExpressRoute 线路。 在继续之前，请按说明[创建 ExpressRoute 线路](expressroute-howto-circuit-arm.md)，并通过连接提供商启用该线路。 ExpressRoute 线路必须处于已预配和已启用状态，以运行本文中的 cmdlet。
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
 
@@ -81,7 +77,7 @@ ms.locfileid: "91937385"
    ```
 2. 创建 ExpressRoute 线路。
 
-   请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Microsoft 对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。 
+   请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Microsoft 对等互连。 无需遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。 
 
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 
@@ -114,24 +110,23 @@ ms.locfileid: "91937385"
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-4. 配置线路的 Microsoft 对等互连。 在继续下一步之前，请确保已准备好以下信息。
+4. 配置线路的 Microsoft 对等互连。 在继续之前，请确保已准备好以下信息。
 
-   * 主链路的 /30 或 /126 子网。 这必须是你拥有的且已在 RIR/IRR 中注册的有效公共 IPv4 或 IPv6 前缀。
-   * 辅助链路的 /30 或 /126 子网。 这必须是你拥有的且已在 RIR/IRR 中注册的有效公共 IPv4 或 IPv6 前缀。
+   * 主链路的 /30 或 /126 子网。 地址块必须是你拥有的且已在 RIR/IRR 中注册的有效公共 IPv4 或 IPv6 前缀。
+   * 辅助链路的 /30 或 /126 子网。 地址块必须是你拥有的且已在 RIR/IRR 中注册的有效公共 IPv4 或 IPv6 前缀。
    * 用于建立此对等互连的有效 VLAN ID。 请确保线路中没有其他对等互连使用同一个 VLAN ID。
    * 对等互连的 AS 编号。 可以使用 2 字节和 4 字节 AS 编号。
-   * 播发的前缀：必须提供要通过 BGP 会话播发的所有前缀列表。 只接受公共 IP 地址前缀。 如果打算发送一组前缀，可以发送逗号分隔列表。 这些前缀必须已在 RIR/IRR 中注册。 IPv4 BGP 会话需要 IPv4 播发前缀，而 IPv6 BGP 会话需要 IPv6 播发前缀。 
+   * 播发的前缀：提供你计划要通过 BGP 会话播发的所有前缀的列表。 只接受公共 IP 地址前缀。 如果打算发送一组前缀，可以发送逗号分隔列表。 这些前缀必须已在 RIR/IRR 中注册。 IPv4 BGP 会话需要 IPv4 播发前缀，而 IPv6 BGP 会话需要 IPv6 播发前缀。 
    * 路由注册表名称：可以指定 AS 编号和前缀要注册到的 RIR/IRR。
    * 可选：
-     * 客户 ASN：如果要播发的前缀未注册到对等互连 AS 编号，可以指定它们要注册到的 AS 编号。
+     * 客户 ASN：如果要播发的前缀未注册到对等互连 AS 编号，可以指定要注册到的 AS 编号。
      * MD5 哈希（如果选择使用）。
 
 > [!IMPORTANT]
-> Microsoft 会验证指定的“播发的公用前缀”和“对等 ASN”（或“客户 ASN”）是否已在 Internet 路由注册表中分配给你。 如果要从其他实体获取公用前缀，并且没有在路由注册表中记录分配，则自动验证不会完成，需要手动验证。 如果自动验证失败，则会在“Get-AzExpressRouteCircuitPeeringConfig”（请参阅下面的“获取 Microsoft 对等互连详细信息”）命令的输出中看到作为”需要验证”的“AdvertisedPublicPrefixesState”。 
+> Microsoft 会验证指定的“播发的公用前缀”和“对等 ASN”（或“客户 ASN”）是否已在 Internet 路由注册表中分配给你。 如果要从其他实体获取公用前缀，并且没有在路由注册表中记录分配，则自动验证不会完成，需要手动验证。 如果自动验证失败，你将在“Get-AzExpressRouteCircuitPeeringConfig”的输出中看到“AdvertisedPublicPrefixesState”为“需要验证”（请参阅以下部分中的“获取 Microsoft 对等互连详细信息”）。 
 > 
-> 如果看到消息“需要验证”，请收集相关文档，它们显示公用前缀已由在路由注册表中作为前缀所有者列出的实体分配给你的组织，然后通过开具支持票证来提交这些文档以进行手动验证，如下所示。 
+> 如果看到消息“需要验证”，请收集相关文档，它们显示公用前缀已由在路由注册表中作为前缀所有者列出的实体分配给你的组织，然后通过开具支持票证来提交这些文档以进行手动验证。 
 > 
->
 
    使用以下示例为线路配置 Microsoft 对等互连：
 
@@ -165,16 +160,6 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCi
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>删除 Microsoft 对等互连
-
-可以运行以下 cmdlet 来删除对等互连配置：
-
-```azurepowershell-interactive
-Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
-
-Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
-
 ## <a name="azure-private-peering"></a><a name="private"></a>Azure 专用对等互连
 
 本文介绍了如何为 ExpressRoute 线路创建、获取、更新和删除 Azure 专用对等互连配置。
@@ -183,7 +168,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 1. 为 ExpressRoute 导入 PowerShell 模块。
 
-   必须从 [PowerShell 库](https://www.powershellgallery.com/) 安装最新的 PowerShell 安装程序，并将 Azure 资源管理器模块导入 PowerShell 会话，以便开始使用 ExpressRoute cmdlet。 需要以管理员身份运行 PowerShell。
+   从 [PowerShell 库](https://www.powershellgallery.com/)安装最新的 PowerShell 安装程序。 然后，将 Azure 资源管理器模块导入 PowerShell 会话，以便开始使用 ExpressRoute cmdlet。 你将需要以管理员身份运行 PowerShell。
 
    ```azurepowershell
    Install-Module Az
@@ -214,7 +199,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 2. 创建 ExpressRoute 线路。
 
-   请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
+   请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 无需遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
 
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 
@@ -247,7 +232,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-4. 配置线路的 Azure 专用对等互连。 在继续执行后续步骤之前，请确保已准备好以下各项：
+4. 配置线路的 Azure 专用对等互连。 在继续执行后续步骤之前，确保已准备好以下各项：
 
    * 主链路的 /30 子网。 此子网不能是保留给虚拟网络使用的任何地址空间的一部分。
    * 辅助链路的 /30 子网。 此子网不能是保留给虚拟网络使用的任何地址空间的一部分。
@@ -295,6 +280,18 @@ Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
+## <a name="clean-up-resources"></a>清理资源
+
+### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>删除 Microsoft 对等互连
+
+可以运行以下 cmdlet 来删除对等互连配置：
+
+```azurepowershell
+Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
+
 ### <a name="to-delete-azure-private-peering"></a><a name="deleteprivate"></a>删除 Azure 专用对等互连
 
 可以运行以下示例来删除对等互连配置：
@@ -313,10 +310,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ## <a name="next-steps"></a>后续步骤
 
-下一步，[将 VNet 链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-arm.md)。
+配置 Azure 专用对等互连后，可以创建 ExpressRoute 网关，以将虚拟网络链接到线路。 
 
--  有关 ExpressRoute 工作流的详细信息，请参阅 [ExpressRoute 工作流](./expressroute-workflows.md)。
-
--  有关线路对等互连的详细信息，请参阅 [ExpressRoute 线路和路由域](./expressroute-circuit-peerings.md)。
-
--  有关使用虚拟网络的详细信息，请参阅 [虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
+> [!div class="nextstepaction"]
+> [配置 ExpressRoute 的虚拟网络网关](expressroute-howto-add-gateway-resource-manager.md)

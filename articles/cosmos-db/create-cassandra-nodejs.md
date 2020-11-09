@@ -7,19 +7,20 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 05/18/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0c858bb09f3867c865c0920572f98798022431c4
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 766ef7366b33fce937a684fccb26952c112c7973
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118382"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328699"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>快速入门：使用 Node.js SDK 和 Azure Cosmos DB 构建 Cassandra 应用
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -50,7 +51,7 @@ ms.locfileid: "92118382"
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在从 GitHub 克隆 Cassandra API 应用，设置连接字符串，并运行应用。 你会看到以编程方式处理数据是多么容易。 
+现在从 GitHub 克隆 Cassandra API 应用，设置连接字符串，并运行应用。 会看到以编程方式处理数据是多么容易。 
 
 1. 打开命令提示符。 创建名为 `git-samples` 的新文件夹。 然后，关闭命令提示符。
 
@@ -217,11 +218,11 @@ ms.locfileid: "92118382"
 > 
 > 双击 .crt 文件，将其打开到证书显示。 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="在 Azure 门户的连接字符串页中查看并复制“联系点”、“用户名”和“密码”":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="显示“证书”窗口的屏幕截图。":::
 >
 > 在证书向导中按“下一步”。 选择“Base-64 编码 X.509 (.CER)”，然后选择“下一步”。
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="在 Azure 门户的连接字符串页中查看并复制“联系点”、“用户名”和“密码”":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="显示“Base-64 编码 X.509 (.CER)”选项的屏幕截图。":::
 >
 > 选择“浏览”（目的是查找目标），然后键入文件名。
 > 完成后，选择“下一步”。
@@ -242,13 +243,13 @@ ms.locfileid: "92118382"
 
 4. 通过命令行验证结果是否符合预期。
 
-    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="在 Azure 门户的连接字符串页中查看并复制“联系点”、“用户名”和“密码”":::
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="查看并验证输出":::
 
     按 CTRL+C 停止执行程序并关闭控制台窗口。 
 
 5. 在 Azure 门户中，打开数据资源管理器，以查询、修改和处理这些新数据。 
 
-    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="在 Azure 门户的连接字符串页中查看并复制“联系点”、“用户名”和“密码”"::: 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="在数据资源管理器中查看数据"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 

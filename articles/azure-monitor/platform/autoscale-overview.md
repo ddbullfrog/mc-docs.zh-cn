@@ -5,19 +5,19 @@ ms.subservice: autoscale
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/24/2018
-ms.date: 08/20/2020
+ms.date: 11/02/2020
 ms.author: v-johya
-ms.openlocfilehash: 8c4cb70a5949d3dd50f414f3efbdf2cb8c752f85
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 55079878193903b01c9fdc1c1a5c4fcf0960dfc2
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457348"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328434"
 ---
 # <a name="overview-of-autoscale-in-azure"></a>Azure 中的自动缩放概述
 本文介绍了 Azure 自动缩放是什么、其对用户的好处，以及如何开始使用它。  
 
-Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://www.azure.cn/home/features/virtual-machine-scale-sets/)、[云服务](https://www.azure.cn/home/features/cloud-services/)、[应用服务 - Web 应用](https://www.azure.cn/home/features/app-service/web/)、[API 管理服务](/api-management/api-management-key-concepts)和 [Azure 数据资源管理器](/data-explorer/)。
+Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://www.azure.cn/home/features/virtual-machine-scale-sets/)、[云服务](https://www.azure.cn/home/features/cloud-services/)、[应用服务 - Web 应用](https://www.azure.cn/home/features/app-service/web/)、[API 管理服务](../../api-management/api-management-key-concepts.md)和 [Azure 数据资源管理器](/data-explorer/)。
 
 > [!NOTE]
 > Azure 有两个自动缩放方法。 旧版自动缩放适用于虚拟机（可用性集）。 此功能的支持有限。若要获取更快速、更可靠的自动缩放支持，建议迁移到虚拟机规模集。 本文提供了此旧技术的使用方法链接。  
@@ -62,17 +62,17 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://www.azure.cn/
 ## <a name="autoscale-settings"></a>自动缩放设置
 自动缩放使用下列术语和结构。
 
-- **自动缩放设置**：由自动缩放引擎读取，用于确定是进行扩展还是缩减。 它包含一个或多个配置文件、目标资源的信息，以及通知设置。
+- **自动缩放设置** ：由自动缩放引擎读取，用于确定是进行扩展还是缩减。 它包含一个或多个配置文件、目标资源的信息，以及通知设置。
 
-  - **自动缩放配置文件**是以下项的组合：
+  - **自动缩放配置文件** 是以下项的组合：
 
-    - **容量设置**：表示实例数的最小值、最大值和默认值。
-    - **规则集**，其中的每个规则都包括一个触发器（时间或指标）和一个缩放操作（增加或缩减）。
-    - **定期**：表示自动缩放应在何时使此配置文件生效。
+    - **容量设置** ：表示实例数的最小值、最大值和默认值。
+    - **规则集** ，其中的每个规则都包括一个触发器（时间或指标）和一个缩放操作（增加或缩减）。
+    - **定期** ：表示自动缩放应在何时使此配置文件生效。
 
       可以有多个配置文件，以应对不同的互相重叠的要求。 例如，可以针对一天中的不同时间或者一周中的不同日期设置不同的自动缩放配置文件。
 
-  - **通知设置**：定义在发生自动缩放事件时应发送的通知，前提是符合某个自动缩放设置的配置文件的条件。 自动缩放可以将通知发送到一个或多个电子邮件地址，也可以对一个或多个 webhook 进行调用。
+  - **通知设置** ：定义在发生自动缩放事件时应发送的通知，前提是符合某个自动缩放设置的配置文件的条件。 自动缩放可以将通知发送到一个或多个电子邮件地址，也可以对一个或多个 webhook 进行调用。
 
 
 ![Azure 自动缩放设置、配置文件和规则结构](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
@@ -105,11 +105,11 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://www.azure.cn/
 | 虚拟机：经典 |[缩放经典虚拟机可用性集](https://docs.microsoft.com/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | 虚拟机：Windows 规模集 |[缩放 Windows 中的虚拟机规模集](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | 虚拟机：Linux 规模集 |[缩放 Linux 中的虚拟机规模集](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| 虚拟机：Windows 示例 |[通过用于 VM 规模集的 Resource Manager 模板进行的高级自动缩放配置](autoscale-virtual-machine-scale-sets.md) |
-| API 管理服务|[自动缩放 Azure API 管理实例](../../api-management/api-management-howto-autoscale.md)
-| Azure 数据资源管理器群集|[管理 Azure 数据资源管理器群集缩放以适应不断变化的需求](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
+| 虚拟机：Windows 示例 |[通过用于 VM 规模集的 Resource Manager 模板进行的高级自动缩放配置](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | Azure 应用服务 |[在 Azure 应用服务中纵向扩展应用](../../app-service/manage-scale-up.md)|
-<!--Not available in MC: /logic-apps/ise-manage-integration-service-environment-->
+| API 管理服务|[自动缩放 Azure API 管理实例](../../api-management/api-management-howto-autoscale.md)
+| Azure 数据资源管理器群集|[管理 Azure 数据资源管理器群集缩放以适应不断变化的需求](/data-explorer/manage-cluster-horizontal-scaling)|
+
 ## <a name="next-steps"></a>后续步骤
 若要详细了解自动缩放，请使用前面列出的自动缩放演练，或参阅以下资源：
 

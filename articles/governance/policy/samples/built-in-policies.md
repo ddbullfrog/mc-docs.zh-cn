@@ -1,23 +1,23 @@
 ---
 title: 内置策略定义列表
-description: 列出 Azure Policy 的内置策略定义。 类别包括“标记”、“密钥保管库”、“来宾配置”等。
-origin.date: 09/10/2020
-ms.date: 09/15/2020
+description: 列出 Azure Policy 的内置策略定义。 类别包括“标记”、“合规性”、“Key Vault”、“Kubernetes”、“来宾配置”等。
+origin.date: 10/20/2020
+ms.date: 11/06/2020
 ms.author: v-tawe
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1908dfb1f8455c9ef9788620604ca996af1e28ad
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: a6c739642e0905e300fa699c36953fb568e8ae5d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524009"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327575"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy 内置策略定义
 
 此页是 Azure Policy 内置策略定义的索引。
 
-每个内置链接（指向Azure 门户中的策略定义）的名称。 使用“源”列中的链接查看 [Azure Policy GitHub 存储库](https://github.com/Azure/azure-policy)上的源。 这些内置项按**元数据**中的 **category** 属性进行分组。 若要跳转到特定的**类别**，请使用页面右侧的菜单。 否则，请按 <kbd>Ctrl</kbd>-<kbd>F</kbd> 来使用浏览器的搜索功能。
+每个内置链接（指向Azure 门户中的策略定义）的名称。 使用“源”列中的链接查看 [Azure Policy GitHub 存储库](https://github.com/Azure/azure-policy)上的源。 这些内置项按 **元数据** 中的 **category** 属性进行分组。 若要跳转到特定的 **类别** ，请使用页面右侧的菜单。 否则，请按 <kbd>Ctrl</kbd>-<kbd>F</kbd> 来使用浏览器的搜索功能。
 
 <!-- ## API for FHIR -->
 
@@ -38,6 +38,10 @@ ms.locfileid: "90524009"
 ## <a name="app-service"></a>应用服务
 
 [!INCLUDE [azure-policy-reference-policies-app-service](../../../../includes/policy/reference/bycat/policies-app-service.md)]
+
+<!-- ## Automanage
+
+[!INCLUDE [azure-policy-reference-policies-automanage](../../../../includes/policy/reference/bycat/policies-automanage.md)] -->
 
 ## <a name="automation"></a>自动化
 

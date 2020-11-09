@@ -1,0 +1,96 @@
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /active-directory/enterprise-users/
+      topicHref: /active-directory/enterprise-users/index
+      items: null
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /active-directory/fundamentals/
+      topicHref: /active-directory/index
+      items:
+        - name: 企业用户
+          tocHref: /active-directory/fundamentals/
+          topicHref: /active-directory/enterprise-users/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /role-based-access-control/
+      topicHref: /active-directory/index
+      items:
+        - name: 企业用户
+          tocHref: /role-based-access-control/
+          topicHref: /active-directory/enterprise-users/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /active-directory/
+      topicHref: /active-directory/index
+      items:
+        - name: 企业用户
+          tocHref: /active-directory/
+          topicHref: /active-directory/enterprise-users/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /active-directory/connect/
+      topicHref: /active-directory/index
+      items:
+        - name: 企业用户
+          tocHref: /active-directory/connect/
+          topicHref: /active-directory/enterprise-users/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /active-directory/external-identities/
+      topicHref: /active-directory/index
+      items:
+        - name: 企业用户
+          tocHref: /active-directory/external-identities/
+          topicHref: /active-directory/enterprise-users/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /active-directory/privileged-identity-management/
+      topicHref: /active-directory/index
+      items:
+        - name: 企业用户
+          tocHref: /active-directory/privileged-identity-management/
+          topicHref: /active-directory/enterprise-users/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /active-directory/authentication/
+      topicHref: /active-directory/index
+      items:
+        - name: 企业用户
+          tocHref: /active-directory/authentication/
+          topicHref: /active-directory/enterprise-users/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /active-directory/roles/
+      topicHref: /active-directory/index
+      items:
+        - name: 企业用户
+          tocHref: /active-directory/roles/
+          topicHref: /active-directory/enterprise-users/index

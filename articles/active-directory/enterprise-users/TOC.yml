@@ -1,0 +1,130 @@
+- name: 企业用户文档
+  href: index.yml
+- name: 概述
+  items:
+    - name: Azure AD 用户、组、许可和角色
+      href: directory-overview-user-model.md
+- name: 快速入门
+  items:
+    - name: 将用户添加到 Azure AD
+      href: ../fundamentals/add-users-azure-active-directory.md
+    - name: 将许可证分配给用户
+      href: /active-directory/fundamentals/license-users-groups
+    - name: 设置组过期策略
+      href: groups-quickstart-expiration.md
+    - name: 设置组命名策略
+      href: groups-quickstart-naming-policy.md
+- name: 概念
+  expanded: true
+  items:
+    - name: 比较默认用户权限
+      href: ../fundamentals/users-default-permissions.md
+    - name: 基于组的许可基础知识
+      href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md
+    - name: 使用组管理访问权限
+      href: ../fundamentals/active-directory-manage-groups.md
+- name: 操作指南
+  expanded: true
+  items:
+    - name: 管理用户
+      items:
+        - name: 创建用户
+          href: ../fundamentals/add-users-azure-active-directory.md
+        - name: 批量创建用户
+          href: users-bulk-add.md
+        - name: 管理用户个人资料
+          href: ../fundamentals/active-directory-users-profile-azure-portal.md
+        - name: 下载用户信息
+          href: users-bulk-download.md
+        - name: 将用户分配到管理员角色
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md
+        - name: 批量删除用户
+          href: users-bulk-delete.md
+        - name: 还原已删除的用户
+          href: ../fundamentals/active-directory-users-restore.md
+        - name: 批量还原用户
+          href: users-bulk-restore.md
+        - name: 撤消用户的访问权限
+          href: users-revoke-access.md
+        - name: 添加来宾用户
+          href: /active-directory/b2b/what-is-b2b
+        - name: 向来宾用户分配角色
+          href: /active-directory/b2b/add-guest-to-role
+        - name: 限制来宾用户访问权限
+          href: users-restrict-guest-permissions.md
+    - name: 管理你的组织
+      items:
+        - name: Azure AD 组织
+          href: ../fundamentals/active-directory-whatis.md
+        - name: 管理域名
+          href: domains-manage.md
+        - name: 删除目录
+          href: directory-delete-howto.md
+        - name: 多个目录
+          href: licensing-directory-independence.md
+        - name: 自助服务注册
+          href: directory-self-service-signup.md
+        - name: 具有 Azure AD Connect
+          href: ../hybrid/whatis-hybrid-identity.md
+    - name: 管理组
+      items:
+        - name: 使用组管理访问权限
+          href: ../fundamentals/active-directory-manage-groups.md
+        - name: 创建组（Azure 门户）
+          href: ../fundamentals/active-directory-groups-create-azure-portal.md
+        - name: 管理组 - 用于 Graph 的 PowerShell (v2)
+          href: groups-settings-v2-cmdlets.md
+        - name: 使用 PowerShell MSOnline 管理组
+          href: groups-settings-cmdlets.md
+        - name: 添加或删除组成员
+          href: ../fundamentals/active-directory-groups-members-azure-portal.md
+        - name: 还原已删除的组
+          href: groups-restore-deleted.md
+        - name: 管理组设置
+          href: ../fundamentals/active-directory-groups-settings-azure-portal.md
+        - name: 管理组所有者
+          href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md
+        - name: 管理组中的组
+          href: ../fundamentals/active-directory-groups-membership-azure-portal.md
+        - name: 设置组命名策略
+          href: groups-naming-policy.md
+        - name: 设置组自助服务
+          href: groups-self-service-management.md
+    - name: 分配许可证
+      items:
+        - name: 将许可证分配给用户
+          href: ../fundamentals/license-users-groups.md
+        - name: 将许可证分配给组
+          href: licensing-groups-assign.md
+        - name: 解决组的许可证问题
+          href: licensing-groups-resolve-problems.md
+        - name: 将基于用户的许可更改为基于组的许可
+          href: licensing-groups-migrate-users.md
+        - name: 更改用户或组的许可证
+          href: licensing-groups-change-licenses.md
+        - name: 使用 PowerShell 和 Graph 进行组许可
+          href: licensing-ps-examples.md
+        - name: 用于许可的服务计划 ID
+          href: licensing-service-plan-reference.md
+    - name: 管理登录
+      items:
+        - name: 登录选项
+          href: signin-account-support.md
+        - name: 主领域发现
+          href: signin-realm-discovery.md
+    - name: 故障排除
+      items:
+        - name: 获取 Azure AD 支持
+          href: 'https://support.azure.cn/en-us/support/support-azure/'
+        - name: 排查组许可问题
+          href: licensing-groups-resolve-problems.md
+- name: 参考
+  items:
+    - name: 图形 API
+      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-1.0'
+    - name: Azure AD CLI
+      href: /cli/ad
+    - name: 用于 Graph 的 Azure AD PowerShell
+      href: 'https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0'
+    - name: Azure AD 服务限制
+      href: directory-service-limits-restrictions.md

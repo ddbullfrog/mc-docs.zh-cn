@@ -1,23 +1,24 @@
 ---
 title: 使用 Azure Cosmos DB、Azure Analysis Services 和 Power BI 创建实时仪表板
 description: 了解如何使用 Azure Cosmos DB 和 Azure Analysis Services 在 Power BI 中创建实时天气仪表板。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/04/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 1dae137b3d4eb0c4b10febf975a86720ac0c0c39
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 843ca86037d46cf280ad32c999349a3c1b7da48e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222928"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327642"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>使用 Azure Cosmos DB 和 Power BI 创建实时仪表板
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 本文介绍使用 Azure Cosmos DB 和 Azure Analysis Services 在 Power BI 中创建实时天气仪表板所需执行的步骤。 Power BI 仪表板将会显示图表，以便显示有关区域中的气温和降水量的实时信息。
 
@@ -48,7 +49,7 @@ Azure Analysis Services 提供一个完全托管的平台即服务，用于在�
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>将天气数据引入 Azure Cosmos DB
 
-设置一个引入管道，以将[天气数据](https://catalog.data.gov/dataset/local-weather-archive)加载到 Azure Cosmos DB 中。 可以设置一个 [Azure 数据工厂 (ADF)](../data-factory/connector-azure-cosmos-db.md) 作业，以使用 HTTP 源和 Cosmos DB 接收器定期将最新的天气数据载入 Azure Cosmos DB。
+设置一个引入管道，以将[天气数据](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729)加载到 Azure Cosmos DB 中。 可以设置一个 [Azure 数据工厂 (ADF)](../data-factory/connector-azure-cosmos-db.md) 作业，以使用 HTTP 源和 Cosmos DB 接收器定期将最新的天气数据载入 Azure Cosmos DB。
 
 ### <a name="connect-power-bi-to-azure-cosmos-db"></a>将 Power BI 连接到 Azure Cosmos DB
 
@@ -56,7 +57,7 @@ Azure Analysis Services 提供一个完全托管的平台即服务，用于在�
 
     :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/cosmosdb-powerbi-connector.png" alt-text="Azure Cosmos DB Power BI 连接器":::
 
-1. **配置增量刷新** - 遵循[使用 Power BI 进行增量刷新](https://docs.microsoft.com/power-bi/service-premium-incremental-refresh)一文中的步骤，为数据集配置增量刷新。 按以下屏幕截图中所示添加 **RangeStart** 和 **RangeEnd** 参数：
+1. **配置增量刷新** - 遵循 [使用 Power BI 进行增量刷新](https://docs.microsoft.com/power-bi/service-premium-incremental-refresh)一文中的步骤，为数据集配置增量刷新。 按以下屏幕截图中所示添加 **RangeStart** 和 **RangeEnd** 参数：
 
     :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/configure-range-parameters.png" alt-text="配置范围参数":::
 
@@ -74,7 +75,7 @@ Azure Analysis Services 提供一个完全托管的平台即服务，用于在�
     |Date（例如：- 2019-08-19）     |   String      | [Document.date]> DateTime.ToText(RangeStart,"yyyy-MM-dd") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
     |Date（例如：- 2019-08-11 12:00:00）   |  String       |  [Document.date]> DateTime.ToText(RangeStart," yyyy-mm-dd HH:mm:ss") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
 
-1. **定义刷新策略** - 导航到表的**上下文**菜单中的“增量刷新”选项卡来定义刷新策略。  将刷新策略设置为**每日**刷新并存储上个月的数据。
+1. **定义刷新策略** - 导航到表的 **上下文** 菜单中的“增量刷新”选项卡来定义刷新策略。  将刷新策略设置为 **每日** 刷新并存储上个月的数据。
 
     :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png" alt-text="定义刷新策略":::
 
@@ -90,13 +91,13 @@ Azure Analysis Services 提供一个完全托管的平台即服务，用于在�
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>将天气数据引入 Azure Cosmos DB 
 
-设置一个引入管道，以将[天气数据](https://catalog.data.gov/dataset/local-weather-archive)加载到 Azure Cosmos DB 中。 可以设置一个 Azure 数据工厂 (ADF) 作业，以使用 HTTP 源和 Cosmos DB 接收器定期将最新的天气数据载入 Azure Cosmos DB。
+设置一个引入管道，以将[天气数据](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729)加载到 Azure Cosmos DB 中。 可以设置一个 Azure 数据工厂 (ADF) 作业，以使用 HTTP 源和 Cosmos DB 接收器定期将最新的天气数据载入 Azure Cosmos DB。
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>将 Azure Analysis Services 连接到 Azure Cosmos 帐户
 
-1. **创建新的 Azure Analysis Services 群集**  -  在 Azure Cosmos 帐户和 Databricks 群集所在的同一区域中[创建 Azure Analysis Services 的实例](../analysis-services/analysis-services-create-server.md)。
+1. **创建新的 Azure Analysis Services 群集**  -  在 Azure Cosmos 帐户和 Databricks 群集所在的同一区域中 [创建 Azure Analysis Services 的实例](../analysis-services/analysis-services-create-server.md)。
 
-1. **在 Visual Studio 中创建新的 Analysis Services 表格项目**  -   [安装 SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)，并在 Visual Studio 中创建一个 Analysis Services 表格项目。
+1. **在 Visual Studio 中创建新的 Analysis Services 表格项目**  -   [安装 SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017&preserve-view=true)，并在 Visual Studio 中创建一个 Analysis Services 表格项目。
 
     :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png" alt-text="创建 Azure Analysis Services 项目":::
 
@@ -108,7 +109,7 @@ Azure Analysis Services 提供一个完全托管的平台即服务，用于在�
 
     :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="添加 Cosmos DB 数据源":::
 
-    提供**帐户 URI**、**数据库名称**和**容器名称**以连接到 Azure Cosmos DB。 现在可以看到，Azure Cosmos 容器中的数据已导入到 Power BI 中。
+    提供 **帐户 URI** 、 **数据库名称** 和 **容器名称** 以连接到 Azure Cosmos DB。 现在可以看到，Azure Cosmos 容器中的数据已导入到 Power BI 中。
 
     :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="预览 Azure Cosmos DB 数据":::
 

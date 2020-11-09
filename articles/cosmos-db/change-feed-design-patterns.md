@@ -1,22 +1,23 @@
 ---
 title: Azure Cosmos DB 中的更改源设计模式
 description: 常用更改源设计模式概述
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/08/2020
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 978c501ac3c040985097a6827b1e27fc24fba794
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: af0453b0d1afe94022d058d73660b8355ab6de4d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222762"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328343"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源设计模式
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB 更改源可以高效处理具有大量写入的大型数据集。 更改源还提供用于查询整个数据集以确定更改内容的替代方法。 本文档重点介绍常用的更改源设计模式、设计优缺点和更改源的限制。
 
@@ -55,7 +56,7 @@ Azure Cosmos DB 更改源可用于 IoT 的实时流处理，或者基于操作�
 
 ### <a name="high-availability"></a>高可用性
 
-Azure Cosmos DB 提供高达 99.999% 的读取和写入可用性。 与许多消息队列不同，Azure Cosmos DB 可以容易地进行多区域分布，并配置零 [RTO（恢复时间目标）](consistency-levels-tradeoffs.md#rto)。
+Azure Cosmos DB 提供高达 99.999% 的读取和写入可用性。 与许多消息队列不同，Azure Cosmos DB 可以容易地进行多区域分布，并配置零 [RTO（恢复时间目标）](./consistency-levels.md#rto)。
 
 处理更改源中的项后，可以生成具体化视图，并将聚合值存回到 Azure Cosmos DB 中。 例如，若要使用 Azure Cosmos DB 构建游戏，可使用更改源，根据已完成的游戏的分数实时更新排行榜。
 
@@ -107,7 +108,7 @@ Azure Cosmos DB 提供高达 99.999% 的读取和写入可用性。 与许多消
 3. 客户从购物车中删除商品 A
 4. 客户结帐，然后卖家交付购物车内容
 
-将为每个客户保留当前购物车内容的具体化视图。 此应用程序必须确保按事件的发生顺序处理这些事件。 例如，如果在删除商品 A 之前处理了购物车结帐，则卖家可能已经为客户交付了商品 A，而不是所需的商品 B。为了保证按发生顺序处理这四个事件，这些事件应该位于同一个分区键值中。 如果选择**用户名**（每个客户都有唯一的用户名）作为分区键，则可以保证这些事件按照它们写入到 Azure Cosmos DB 的顺序显示在更改源中。
+将为每个客户保留当前购物车内容的具体化视图。 此应用程序必须确保按事件的发生顺序处理这些事件。 例如，如果在删除商品 A 之前处理了购物车结帐，则卖家可能已经为客户交付了商品 A，而不是所需的商品 B。为了保证按发生顺序处理这四个事件，这些事件应该位于同一个分区键值中。 如果选择 **用户名** （每个客户都有唯一的用户名）作为分区键，则可以保证这些事件按照它们写入到 Azure Cosmos DB 的顺序显示在更改源中。
 
 ## <a name="examples"></a>示例
 

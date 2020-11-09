@@ -5,17 +5,17 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
+ms.date: 11/02/2020
 origin.date: 05/04/2017
-ms.openlocfilehash: 5c81d3709e146436df8816b49c56370f6b9fbc23
-ms.sourcegitcommit: b5794af488a336d84ee586965dabd6f45fd5ec6d
+ms.openlocfilehash: 127bb7e1b5701c38e0ec3ad9896d9d9d2dc94dcf
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87508472"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328871"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>在 Azure Monitor 中收集 Linux 应用程序的性能计数器 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
 本文详细介绍了如何配置[适用于 Linux 的 Log Analytics 代理](https://github.com/Microsoft/OMS-Agent-for-Linux)以将特定应用程序的性能计数器收集到 Azure Monitor 中。  本文中包括的应用程序有：  
 
 - [MySQL](#mysql)

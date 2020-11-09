@@ -4,17 +4,17 @@ description: 本教程介绍如何将应用程序安装到独立 Service Fabric 
 ms.topic: tutorial
 origin.date: 07/22/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 99f2f30bc2a3f30182af39b7114834ec4aa8dd1c
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 9ac46108dcb808bfac9ddfea18eae789ff55ee8b
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655713"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328902"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>教程：在 Service Fabric 独立群集上部署应用程序
 
@@ -22,7 +22,7 @@ Service Fabric 独立群集为你提供选择自己的环境的选项，并创�
 
 本教程是一个系列中的第三部分。  Service Fabric 独立群集为你提供选择自己的环境的选项，并使用 Service Fabric 创建群集作为“任何 OS、任何云”方法的一部分。 本教程介绍如何创建托管此独立群集所需的 AWS 基础结构。
 
-在该系列的第三部分中，你会学习如何：
+本文将指导如何进行以下操作：
 
 > [!div class="checklist"]
 > * 下载示例应用
@@ -32,7 +32,7 @@ Service Fabric 独立群集为你提供选择自己的环境的选项，并创�
 
 在开始学习本教程之前：
 
-* [安装 Visual Studio 2019](https://www.visualstudio.com/)，并安装 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
+* [安装 Visual Studio 2019](https://www.visualstudio.com/)，并安装 **Azure 开发** 以及 **ASP.NET 和 Web 开发** 工作负荷。
 * [安装 Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>下载投票示例应用程序
@@ -55,7 +55,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 4. 在解决方案资源管理器中右键单击 `Voting` 应用程序项目，选择“发布” 
 
-5. 选择**连接终结点**的下拉列表，并输入群集中某个节点的公共 DNS 名称。  例如，`ec2-34-215-183-77.china-north-2.compute.amazonaws.com:19000` 。 请注意，在 Azure 中，不会自动提供完全限定的域名 (FQDN)，但可以[在“VM 概述”页中轻松设置](../virtual-machines/linux/portal-create-fqdn.md)。
+5. 选择 **连接终结点** 的下拉列表，并输入群集中某个节点的公共 DNS 名称。  例如，`ec2-34-215-183-77.china-north-2.compute.amazonaws.com:19000` 。 在 Azure 中，不会自动提供完全限定的域名 (FQDN)，但可以[在“VM 概述”页中轻松设置](../virtual-machines/linux/portal-create-fqdn.md)。
     
     <!--MOONCAKE: CORRECT ON china-north-2 format-->
     
@@ -67,7 +67,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="next-steps"></a>后续步骤
 
-本系列教程的第三部分介绍了如何将应用程序部署到群集：
+本文介绍了如何将应用程序部署到群集：
 
 > [!div class="checklist"]
 > * 下载示例应用

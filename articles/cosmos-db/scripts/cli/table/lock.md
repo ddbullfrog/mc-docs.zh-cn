@@ -1,36 +1,46 @@
 ---
 title: 为 Azure Cosmos DB 表 API 表创建资源锁
 description: 为 Azure Cosmos DB 表 API 表创建资源锁
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-origin.date: 06/03/2020
-ms.date: 06/22/2020
+origin.date: 07/29/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: dcf7f2fe81518016afd452ba9aa0a03d9e779472
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 758b6c713f910830fc2e28d106c8a54f63cb2fc7
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85102096"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328300"
 ---
 <!--Verified successfully-->
 # <a name="create-resource-lock-for-a-azure-cosmos-db-table-api-table-using-azure-cli"></a>使用 Azure CLI 为 Azure Cosmos DB 表 API 表创建资源锁
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-选择在本地安装并使用 CLI 时，本主题要求运行 Azure CLI 2.6.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
-
-<!--CORRECT ON When you choose to install-->
+选择在本地安装并使用 CLI 时，本主题要求运行 Azure CLI 2.9.1 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 > [!IMPORTANT]
-> 除非在启用了 `disableKeyBasedMetadataWriteAccess` 属性的情况下先锁定 Cosmos DB 帐户，否则资源锁对通过 Cosmos DB 表 SDK、Azure 存储表 SDK 以及任何工具（通过帐户密钥连接）或 Azure 门户进行连接的用户所做的更改均无效。 要详细了解如何启用此属性，请参阅[防止 SDK 更改](../../../role-based-access-control.md#preventing-changes-from-cosmos-sdk)。
+> 除非在启用了 `disableKeyBasedMetadataWriteAccess` 属性的情况下先锁定 Cosmos DB 帐户，否则资源锁对通过 Cosmos DB 表 SDK、Azure 存储表 SDK 以及任何工具（通过帐户密钥连接）或 Azure 门户进行连接的用户所做的更改均无效。 要详细了解如何启用此属性，请参阅[防止 SDK 更改](../../../role-based-access-control.md#prevent-sdk-changes)。
 
 ## <a name="sample-script"></a>示例脚本
 
 ```azurecli
 #!/bin/bash
+# Reference: az cosmosdb | https://docs.azure.cn/cli/cosmosdb
+# --------------------------------------------------
+#
+# Resource lock operations for a Table API table
+#
+#
+
+# Sign in the Azure China Cloud
+az cloud set -n AzureChinaCloud
+az login
+
 resourceGroupName='myResourceGroup'
 accountName='my-cosmos-account'
 tableName='myTable'
@@ -70,18 +80,17 @@ az lock delete --ids $lockid
 
 | 命令 | 注释 |
 |---|---|
-| [az lock create](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-create) | 创建锁。 |
-| [az lock list](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-list) | 列出锁信息。 |
-| [az lock show](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-show) | 显示锁的属性。 |
-| [az lock delete](https://docs.azure.cn/cli/lock?view=azure-cli-latest#az-lock-delete) | 删除锁。 |
+| [az lock create](https://docs.azure.cn/cli/lock#az_lock_create) | 创建锁。 |
+| [az lock list](https://docs.azure.cn/cli/lock#az_lock_list) | 列出锁信息。 |
+| [az lock show](https://docs.azure.cn/cli/lock#az_lock_show) | 显示锁的属性。 |
+| [az lock delete](https://docs.azure.cn/cli/lock#az_lock_delete) | 删除锁。 |
 
 ## <a name="next-steps"></a>后续步骤
 
 -[锁定资源以防止意外更改](../../../../azure-resource-manager/management/lock-resources.md)
 
--[Azure Cosmos DB CLI 文档](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest)。
+-[Azure Cosmos DB CLI 文档](https://docs.azure.cn/cli/cosmosdb)。
 
 -[Azure Cosmos DB CLI GitHub 存储库](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)。
 
-<!-- Update_Description: new article about lock -->
-<!--NEW.date: 06/22/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

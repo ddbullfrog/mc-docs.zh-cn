@@ -8,18 +8,22 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: ab2cc9f665c3f7b960038e22db7f95062fabcc34
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 3e570e6eac0dfe4a40da21da5e42981ce79c73b2
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394783"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327740"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>快速入门：使用 ARM 模板部署 Azure IoT 中心和存储帐户
 
 在此快速入门中，你将使用 Azure 资源管理器模板（ARM 模板）创建 IoT 中心以将消息路由到 Azure 存储，并创建存储帐户以保存消息。 将虚拟 IoT 设备手动添加到中心以提交消息后，可在名为“arm-read-write”的应用程序中配置该连接信息，以将该设备的消息提交到中心。 该中心进行了配置，发送到该中心的消息将自动路由到存储帐户。 在本快速入门教程时，你可以打开该存储帐户并查看发送的消息。
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
+
+[![部署到 Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -183,9 +187,10 @@ ms.locfileid: "91394783"
 }
 ```
 
-该模板中定义了两个 Azure 资源： 
-* [Microsoft.Devices/Iothubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs)
-* [Microsoft.Storage/](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions)
+该模板中定义了两个 Azure 资源：
+
+- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts)
+- [Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs)
 
 ## <a name="deploy-the-template-and-run-the-sample-app"></a>部署模板并运行示例应用
 

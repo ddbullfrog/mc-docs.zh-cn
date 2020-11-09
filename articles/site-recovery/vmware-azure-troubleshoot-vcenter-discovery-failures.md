@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 10/29/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 90f84bb6518be23f721e6c375b1275fdad40e873
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: f874d94f0afde9cc346323952a867d26a23fc097
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655409"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328901"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>排查 vCenter Server 发现失败问题
 

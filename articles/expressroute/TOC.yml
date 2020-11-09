@@ -12,6 +12,9 @@
       href: expressroute-howto-circuit-arm.md
     - name: 创建 ExpressRoute 线路 - CLI
       href: howto-circuit-cli.md
+    - name: 创建 ExpressRoute 线路 - ARM 模板
+      displayName: Resource Manager
+      href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: 教程
   items:
@@ -87,6 +90,10 @@
       href: expressroute-connect-azure-to-public-cloud.md
     - name: 跨网连接
       href: cross-network-connectivity.md
+    - name: 安全性
+      items:
+        - name: 安全基线
+          href: security-baseline.md
     - name: 安全属性
       href: expressroute-security-controls.md
     - name: 基于 ExpressRoute 的 BFD
@@ -154,9 +161,9 @@
     - name: Azure CLI
       href: /cli/network/express-route
     - name: REST
-      href: 'https://msdn.microsoft.com/library/azure/mt586720'
+      href: 'https://docs.microsoft.com/rest/api/expressroute/'
     - name: REST（经典）
-      href: 'https://msdn.microsoft.com/library/azure/dn606310'
+      href: 'https://docs.microsoft.com/previous-versions/azure/reference/dn606310(v=azure.100)'
     - name: 资源管理器模板
       displayName: 'ARM,resource manager template'
       href: 'https://docs.microsoft.com/azure/templates/microsoft.network/expressroutecircuits'
@@ -200,5 +207,3 @@
           href: expressroute-howto-add-gateway-classic.md
         - name: 创建和修改公共对等互连
           href: about-public-peering.md
-    - name: 安全基线
-      href: security-baseline.md

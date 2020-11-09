@@ -13,12 +13,12 @@ metadata:
   ms.author: v-tawe
   origin.date: 06/23/2020
   ms.date: 09/14/2020
-  ms.openlocfilehash: 284117336719381db5261dce5d96f4de63b6522c
-  ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+  ms.openlocfilehash: 7e65cb1cb2ff162a75e5cad61feeacba4447bd08
+  ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/14/2020
-  ms.locfileid: "90063288"
+  ms.lasthandoff: 11/05/2020
+  ms.locfileid: "93375752"
 landingContent:
 - title: 关于事件中心
   linkLists:
@@ -30,8 +30,6 @@ landingContent:
       url: event-hubs-for-kafka-ecosystem-overview.md
     - text: 什么是事件中心捕获？
       url: event-hubs-capture-overview.md
-    - text: 什么是事件中心专用层？
-      url: event-hubs-dedicated-overview.md
 - title: 创建事件中心
   linkLists:
   - linkListType: quickstart
@@ -44,12 +42,6 @@ landingContent:
       url: event-hubs-quickstart-powershell.md
     - text: Azure 资源管理器模板
       url: event-hubs-resource-manager-namespace-event-hub.md
-- title: 创建专用群集
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: 什么是事件中心专用层？
-      url: event-hubs-dedicated-overview.md
 - title: 与 Apache Kafka 集成
   linkLists:
   - linkListType: overview

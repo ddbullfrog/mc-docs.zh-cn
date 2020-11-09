@@ -4,18 +4,19 @@ description: 使用 Azure Site Recovery 将 Azure VM 从一个 Azure 区域移�
 services: site-recovery
 ms.service: site-recovery
 ms.topic: tutorial
+origin.date: 01/28/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 7199d0b694fcbb9ff93aa64fb54e461f433dccc1
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a9ae3854f9425c4d7816a5fb260f019edcbd956d
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105076"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328756"
 ---
 # <a name="move-vms-to-another-azure-region"></a>将 VM 移动到另一个 Azure 区域
 
@@ -86,14 +87,13 @@ ms.locfileid: "93105076"
 
     <!--CORRECT ON https://docs.azure.cn/zh-cn/?pivot=products&panel=network-->
 
-
 ## <a name="prepare"></a>准备
 以下步骤演示如何使用 Azure Site Recovery 作为解决方案来准备要移动的虚拟机。 
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>在除了源区域之外的任意区域中创建保管库
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)
-1. 在搜索中，键入 `Recovery Services` > 单击“恢复服务保管库”
+1. 在搜索中，键入“恢复服务”，然后单击“恢复服务保管库”
 1. 在“恢复服务保管库”菜单中，单击“+添加”。
 1. 在“名称”  中，指定友好名称 **ContosoVMVault** 。 如果有多个订阅，请选择合适的一个。
 1. 创建资源组 ContosoRG  。

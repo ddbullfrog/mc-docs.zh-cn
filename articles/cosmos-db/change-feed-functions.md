@@ -1,23 +1,24 @@
 ---
 title: 如何将 Azure Cosmos DB 更改源与 Azure Functions 配合使用
 description: 使用 Azure Functions 连接到 Azure Cosmos DB 更改源。 稍后，可以创建在发生每个新事件时触发的响应式 Azure Functions。
-author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/03/2019
-ms.date: 08/17/2020
+author: rockboyfor
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: f099629e032d4d8c367ab018be94c6e9d3f35159
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: ac72d3976471e1bacd46a51d1aab2a62c0849dc6
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222759"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94328340"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 和 Azure Functions 的基于事件的无服务器体系结构
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Functions 提供连接到[更改源](change-feed.md)的最简单方法。 可以创建小型的反应式 Azure Functions，每当 Azure Cosmos 容器的更改源中出现新事件时，就会将其触发。
 
@@ -32,17 +33,17 @@ Azure Functions 提供连接到[更改源](change-feed.md)的最简单方法。 
 
 若要实现基于事件的无服务器流，需要：
 
-* **受监视的容器**：受监视的容器是正在受到监视的 Azure Cosmos 容器，它存储生成了更改源的数据。 对受监视容器的任何插入、更新都会反映在容器的更改源中。
-* **租约容器**：租约容器维护多个动态无服务器 Azure 函数实例的状态，并启用动态缩放。 可以通过适用于 Cosmos DB 的 Azure Functions 触发器手动或自动创建此租约容器。 若要自动创建租约容器，请在[配置](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)中设置 *CreateLeaseCollectionIfNotExists* 标记。 分区的租约容器需要包含 `/id` 分区键定义。
+* **受监视的容器** ：受监视的容器是正在受到监视的 Azure Cosmos 容器，它存储生成了更改源的数据。 对受监视容器的任何插入、更新都会反映在容器的更改源中。
+* **租约容器** ：租约容器维护多个动态无服务器 Azure 函数实例的状态，并启用动态缩放。 可以通过适用于 Cosmos DB 的 Azure Functions 触发器手动或自动创建此租约容器。 若要自动创建租约容器，请在 [配置](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)中设置 *CreateLeaseCollectionIfNotExists* 标记。 分区的租约容器需要包含 `/id` 分区键定义。
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>创建适用于 Cosmos DB 的 Azure Functions 触发器
 
 现在支持在所有 Azure Functions IDE 和 CLI 集成中创建包含适用于 Cosmos DB 的 Azure Functions 触发器的 Azure 函数：
 
 * 面向 Visual Studio 用户的 [Visual Studio 扩展](../azure-functions/functions-develop-vs.md)。
-* 面向 Visual Studio Code 用户的 [Visual Studio Code 扩展](https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-01)。
+* 面向 Visual Studio Code 用户的 [Visual Studio Code 扩展](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-serverless-node-01)。
 
-    <!--MOONCAKE: CORRECT ON URL https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-01-->
+    <!--MOONCAKE: CORRECT ON URL https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-serverless-node-01-->
     
 * 最后是适用于跨平台 IDE 不可知体验的 [Core CLI 工具](../azure-functions/functions-run-local.md#create-func)。
 

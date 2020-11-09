@@ -6,19 +6,20 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 05/13/2020
 author: rockboyfor
-ms.date: 08/17/2020
+ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 06/22/2020
 ms.author: v-yeche
-ms.openlocfilehash: 2a2c0e8ef7a35cc213ad6ca7e500d162766a30dc
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: f0a192e550f1e94fc7086b8ffc7c5c40ae84e156
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223512"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327619"
 ---
 <!--Verified successfully-->
 # <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-db-account-using-powershell"></a>使用 PowerShell 在 Azure Cosmos DB 帐户中创建具有大分区键的容器
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,7 +39,10 @@ $uniqueId = New-RandomString -Length 7 # Random alphanumeric string for unique r
 $apiKind = "Sql"
 # --------------------------------------------------
 # Variables - ***** SUBSTITUTE YOUR VALUES *****
-$locations = @("China East", "China North") # Regions ordered by failover priority
+$locations = @()
+$locations += New-AzCosmosDBLocationObject -LocationName "China East" -FailoverPriority 0 -IsZoneRedundant 0
+$locations += New-AzCosmosDBLocationObject -LocationName "China North" -FailoverPriority 1 -IsZoneRedundant 0
+
 $resourceGroupName = "myResourceGroup" # Resource Group must already exist
 $accountName = "cosmos-$uniqueId" # Must be all lower case
 $consistencyLevel = "Session"
@@ -50,7 +54,7 @@ $partitionKeyPath = "/myPartitionKey"
 # --------------------------------------------------
 Write-Host "Creating account $accountName"
 $account = New-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
-    -Location $locations -Name $accountName -ApiKind $apiKind -Tag $tags `
+    -LocationObject $locations -Name $accountName -ApiKind $apiKind -Tag $tags `
     -DefaultConsistencyLevel $consistencyLevel `
     -EnableAutomaticFailover:$true
 
@@ -77,7 +81,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| Command | 说明 |
+| 命令 | 说明 |
 |---|---|
 |**Azure Cosmos DB**| |
 | [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | 创建 Cosmos DB 帐户。 |
@@ -91,7 +95,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
-可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-
-<!-- Update_Description: new article about create large partition key -->
-<!--NEW.date: 08/17/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

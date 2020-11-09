@@ -4,16 +4,16 @@ description: 了解在 Azure Stack Hub 中将脚本从 AzureRM 模块迁移到�
 author: WenJason
 ms.author: v-jay
 ms.topic: conceptual
-origin.date: 04/14/2020
-ms.date: 05/18/2020
+origin.date: 10/05/2020
+ms.date: 11/09/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: b72ed7103a6b51ab3e5ef8a2ddf87b6fda353bfd
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 8c6a80c4806f4d63d2b0b6a8438ed799a0d85cbd
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83423118"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330511"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>在 Azure Stack Hub 中从 AzureRM 迁移到 Azure PowerShell Az
 
@@ -24,7 +24,7 @@ Az 模块与 AzureRM 具有功能奇偶一致性，但 Az 模块使用更短且�
 
 ## <a name="check-for-installed-versions-of-azurerm"></a>检查已安装的 AzureRM 版本
 
-Az 模块可以与 AzureRM 模块并排安装，但不建议这样做。 在执行任何迁移步骤之前，请检查系统上安装了 AzureRM 的哪些版本。 这样做可以确保脚本已在最新版本上运行，并获悉是否可以启用命令别名而不卸载 AzureRM。
+在执行任何迁移步骤之前，请检查系统上安装了 AzureRM 的哪些版本。 这样做可以确保脚本已在最新版本上运行，并获悉是否可以启用命令别名而不卸载 AzureRM。
 
 若要检查已安装了 AzureRM 的哪个（些）版本，请运行以下命令：
 
@@ -42,7 +42,7 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 若要安装 Azure PowerShell Az 模块，请执行以下步骤：
 
-* __建议__：[卸载 AzureRM 模块](https://docs.microsoft.com/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
+* __建议__ ： [卸载 AzureRM 模块](https://docs.microsoft.com/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
   请确保删除所有已安装的 AzureRM 版本，不只是最新版本。
 * [安装 Az 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
@@ -145,7 +145,7 @@ Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob
 
 | AzureRM 模块 | Az 模块 |
 |----------------|-----------|
-| Azure.Storage | Az.Storage |
+| Azure.存储 | Az.Storage |
 | Azure.AnalysisServices | Az.AnalysisServices |
 | AzureRM.Profile | Az.Accounts |
 | AzureRM.Insights | Az.Monitor |
