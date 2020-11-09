@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 88412947efc0d67a733dc4187f120b1de2463848
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 3fd5bdc04a8ee9edf08faf83f4a23209af20bd43
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118240"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106025"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>如何在工作区中运行 Jupyter 笔记本
 
@@ -81,15 +81,20 @@ ms.locfileid: "92118240"
 1. 选择“计算”目标或新建一个目标，然后等待目标运行。
 1. 选择“打开终端”图标。
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="新建文件":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="打开终端":::
 
 1. 如果看不到该图标，请选择计算目标右侧的“...”，然后选择“打开终端”。
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="新建文件":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="从“...”打开终端":::
 
 
 详细了解如何[将 Git 存储库克隆到工作区文件系统](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system)。
 
+### <a name="copy-and-paste-in-terminal"></a>在终端中复制和粘贴
+
+> * Windows：使用 `Ctrl-Insert` 复制，使用 `Ctrl-Shift-v` 或 `Shift-Insert` 粘贴。
+> * Mac OS：使用 `Cmd-c` 复制，使用 `Cmd-v` 粘贴。
+> * FireFox/IE 可能不会正确支持剪贴板权限。
 
 ### <a name="share-notebooks-and-other-files"></a>共享笔记本和其他文件
 
@@ -122,20 +127,20 @@ ms.locfileid: "92118240"
 1. 运行所有笔记本单元格。
 1. 选择特定的单元格，其中包含的代码是你希望新笔记本运行的。 例如，用于提交试验的代码，或者用于注册模型的代码。
 1. 选择单元格工具栏上出现的“收集”图标。
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="新建文件":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="屏幕截图：选择“收集”图标":::
 1. 输入新的“已收集”笔记本的名称。  
 
 新笔记本只包含代码单元格，所有单元格都需要生成与你选择用于收集的单元格相同的结果。
 
 ### <a name="save-and-checkpoint-a-notebook"></a>将笔记本保存并设置检查点
 
-当你创建一个 ipynb **  文件时，Azure 机器学习会创建一个检查点文件。
+当你创建一个 ipynb 文件时，Azure 机器学习会创建一个检查点文件。
 
 在笔记本工具栏中，选择“菜单”，然后选择“文件”&gt;“保存并设置检查点”以手动保存笔记本，它会添加与笔记本关联的检查点文件。
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="新建文件":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="笔记本工具栏中保存工具的屏幕截图":::
 
-每个笔记本每隔 30 秒会自动保存一次。 自动保存仅更新初始 *ipynb* 文件，而不更新检查点文件。
+每个笔记本每隔 30 秒会自动保存一次。 自动保存仅更新初始 ipynb 文件，而不更新检查点文件。
  
 在“笔记本”菜单中选择“检查点”以创建命名检查点，并将笔记本还原为已保存的检查点。
 
@@ -167,7 +172,7 @@ ms.locfileid: "92118240"
 
 1. 选择笔记本工具栏中的“+”。 
 2. 为计算命名，并在“虚拟机大小”中选择一个大小。 
-3. 选择“创建” 。
+3. 选择“创建”。
 4. 计算实例会自动连接到笔记本，现在就可以运行单元格了。
 
 只有本人可以查看和使用自己创建的计算实例。  用户文件与 VM 分开存储，并在工作区中的所有计算实例之间共享。
@@ -218,6 +223,9 @@ ms.locfileid: "92118240"
     conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+
+> [!NOTE]
+> 对于笔记本中的包管理，使用 %pip 或 %conda magic 函数将包自动安装到当前运行中的内核，而不是安装表示所有包（包括当前运行中的内核之外的包）的 !pip 或 !conda    
 
 可以安装任何[可用的 Jupyter 内核](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)。
 

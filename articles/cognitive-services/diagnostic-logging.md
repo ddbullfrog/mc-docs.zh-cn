@@ -3,19 +3,19 @@ title: 诊断日志记录
 titleSuffix: Azure Cognitive Services
 description: 本指南逐步说明如何为 Azure 认知服务启用诊断日志记录。 这些日志提供频繁生成的有关资源操作的丰富数据用于识别问题和调试。
 services: cognitive-services
-author: erhopf
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 origin.date: 06/14/2019
-ms.date: 01/27/2020
-ms.author: v-tawe
-ms.openlocfilehash: c4463053737b32cd90b51fe962d14eae0581cadd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.openlocfilehash: e63df2053d4d9b2fa3dbe22056928c6833aadf07
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "76123219"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103946"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>为 Azure 认知服务启用诊断日志记录
 
@@ -25,25 +25,25 @@ ms.locfileid: "76123219"
 
 若要启用诊断日志记录，需要指定某个位置用于存储日志数据。 本教程使用 Azure 存储和 Log Analytics。
 
-* [Azure 存储](https://docs.azure.cn/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) - 保留策略审核、静态分析或备份的诊断日志。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必位于发出日志的资源所在的订阅中。
-* [Log Analytics](https://docs.azure.cn/azure-monitor/platform/resource-logs-collect-workspace) - 灵活的日志搜索和分析工具，可用于分析 Azure 资源生成的原始日志。
+* [Azure 存储](/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) - 保留策略审核、静态分析或备份的诊断日志。 只要配置设置的用户同时拥有两个订阅的相应 Azure RBAC 访问权限，存储帐户就不必位于发出日志的资源所在的订阅中。
+* [Log Analytics](/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) - 灵活的日志搜索和分析工具，可用于分析 Azure 资源生成的原始日志。
 
 > [!NOTE]
-> 还有其他配置选项可供使用。 有关详细信息，请参阅[从 Azure 资源收集和使用日志数据](https://docs.azure.cn/azure-monitor/platform/diagnostic-logs-overview)。
+> 还有其他配置选项可供使用。 有关详细信息，请参阅[从 Azure 资源收集和使用日志数据](/azure-monitor/platform/diagnostic-logs-overview)。
 
 ## <a name="enable-diagnostic-log-collection"></a>启用诊断日志收集  
 
 首先，让我们使用 Azure 门户启用诊断日志记录。
 
 > [!NOTE]
-> 若要使用 PowerShell 或 Azure CLI 启用此功能，请参考[从 Azure 资源收集和使用日志数据](https://docs.azure.cn/azure-monitor/platform/diagnostic-logs-overview)中提供的说明。
+> 若要使用 PowerShell 或 Azure CLI 启用此功能，请参考[从 Azure 资源收集和使用日志数据](/azure-monitor/platform/diagnostic-logs-overview)中提供的说明。
 
 1. 导航到 Azure 门户。 然后找到并选择某个认知服务资源。 例如，LUIS 订阅。
 2. 接下来，在左侧导航菜单中找到“监视”，然后选择“诊断设置”。   此屏幕包含以前为此资源创建的所有诊断设置。
 3. 如果你想要使用以前创建的某个资源，现在可以选择它。 否则，请选择“+ 添加诊断设置”。 
 4. 输入设置名称。 依次选择“存档到存储帐户”、“发送到 Log Analytics”。  
-5. 出现配置提示时，请选择你要用来存储诊断日志的存储帐户和 OMS 工作区。 **注意**：如果你没有存储帐户或 OMS 工作区，请按提示创建一个。
-6. 依次选择“审核”  、**RequestResponse** 和 **AllMetrics**。 然后设置诊断日志数据的保留期。 如果将保留策略设置为零，则会无限期存储该日志类别的事件。
+5. 出现配置提示时，请选择你要用来存储诊断日志的存储帐户和 OMS 工作区。 **注意** ：如果你没有存储帐户或 OMS 工作区，请按提示创建一个。
+6. 依次选择“审核”  、 **RequestResponse** 和 **AllMetrics** 。 然后设置诊断日志数据的保留期。 如果将保留策略设置为零，则会无限期存储该日志类别的事件。
 7. 单击“保存”  。
 
 最长可能需要在两个小时之后，日志数据才可供查询和分析。 因此，如果当前未显示任何内容，请不要担心。
@@ -57,7 +57,7 @@ Azure 存储是一个可靠的对象存储解决方案，它已经过优化，�
 3. 使用提供的下拉列表配置查询。 对于本示例，我们将时间范围设置为“过去 30 天”，并将指标设置为“事务”。  
 4. 查询完成后，你将看到过去 30 天的事务的可视化效果。 若要导出此数据，请使用页面顶部的“导出到 Excel”按钮。 
 
-详细了解可对 [Azure 存储](https://docs.azure.cn/storage/blobs/storage-blobs-introduction)中的诊断数据执行哪些操作。
+详细了解可对 [Azure 存储](/storage/blobs/storage-blobs-introduction)中的诊断数据执行哪些操作。
 
 ## <a name="view-logs-in-log-analytics"></a>在 Log Analytics 中查看日志
 
@@ -86,7 +86,7 @@ AzureDiagnostics
 | take 10
 ```
 
-运行此查询可按**资源**将操作分组：
+运行此查询可按 **资源** 将操作分组：
 
 ```kusto
 AzureDiagnostics
@@ -114,10 +114,10 @@ by bin(TimeGenerated, 10s), OperationName
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要了解如何启用日志记录，以及各种 Azure 服务支持的指标和日志类别，请参阅文章 [Azure 中的指标概述](https://docs.azure.cn/monitoring-and-diagnostics/monitoring-overview-metrics)和 [Azure 诊断日志概述](https://docs.azure.cn/azure-monitor/platform/diagnostic-logs-overview)。
+* 若要了解如何启用日志记录，以及各种 Azure 服务支持的指标和日志类别，请参阅文章 [Azure 中的指标概述](/monitoring-and-diagnostics/monitoring-overview-metrics)和 [Azure 诊断日志概述](/azure-monitor/platform/diagnostic-logs-overview)。
 * 阅读以下文章，了解事件中心：
-  * [什么是 Azure 事件中心？](https://docs.azure.cn/event-hubs/event-hubs-what-is-event-hubs)
-  * [事件中心入门](https://docs.azure.cn/event-hubs/event-hubs-csharp-ephcs-getstarted)
-* 参阅[从 Azure 存储下载指标和诊断日志](https://docs.azure.cn/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs)。
+  * [什么是 Azure 事件中心？](/event-hubs/event-hubs-what-is-event-hubs)
+  * [事件中心入门](/event-hubs/event-hubs-csharp-ephcs-getstarted)
+* 参阅[从 Azure 存储下载指标和诊断日志](/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs)。
 * 阅读[了解 Azure Monitor 日志中的日志搜索](https://docs.azure.cn/azure-monitor/log-query/log-query-overview)。
 <!-- Update_Description: wording update -->

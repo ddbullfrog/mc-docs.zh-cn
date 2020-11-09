@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/24/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 8af607efa62064cb9140d1010267b785c4bb9680
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 5b8fb7b18aade48513a60a17124a196bb12bb890
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146352"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103552"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>在 Azure 存储或 Azure Data Lake 中创建和更改外部表
 
@@ -91,7 +91,7 @@ ms.locfileid: "91146352"
 
 除分区之外还可以指定的外部数据 URI 文件路径格式。 路径格式是分区元素和文本分隔符的序列：
 
-&nbsp;&nbsp;[*StringSeparator*] *Partition* [*StringSeparator*] [*Partition* [*StringSeparator*] ...]  
+&nbsp;&nbsp;[ *StringSeparator* ] *Partition* [ *StringSeparator* ] [ *Partition* [ *StringSeparator* ] ...]  
 
 其中，Partition 指的是在 `partition` `by` 子句中声明的分区，StringSeparator 是括在引号中的任何文本。 必须使用 StringSeparator 分隔连续的分区元素。
 
@@ -271,7 +271,7 @@ dataformat=parquet
 
 **语法：** 
 
-`.show` `external` `table` *TableName* `artifacts` [`limit` *MaxResults*]
+`.show` `external` `table` *TableName* `artifacts` [`limit` *MaxResults* ]
 
 其中，MaxResults 是可选参数，可设置此参数来限制结果数。
 
@@ -280,6 +280,8 @@ dataformat=parquet
 | 输出参数 | 类型   | 描述                       |
 |------------------|--------|-----------------------------------|
 | URI              | string | 外部存储数据文件的 URI |
+| 大小             | long   | 文件长度（以字节为单位）              |
+| 分区        | 动态 | 描述分区外部表的文件分区的动态对象 |
 
 > [!TIP]
 > 循环访问外部表引用的所有文件可能开销会非常高，具体取决于文件的数量。 如果只想查看某些 URI 示例，请确保使用 `limit` 参数。
@@ -292,9 +294,19 @@ dataformat=parquet
 
 **输出：**
 
-| Uri                                                                     |
-|-------------------------------------------------------------------------|
-| `https://storageaccount.blob.core.chinacloudapi.cn/container1/folder/file.csv` |
+| Uri                                                                     | 大小 | 分区 |
+|-------------------------------------------------------------------------| ---- | --------- |
+| `https://storageaccount.blob.core.chinacloudapi.cn/container1/folder/file.csv` | 10743 | `{}`   |
+
+
+对于已分区的表，`Partition` 列将包含提取的分区值：
+
+**输出：**
+
+| Uri                                                                     | 大小 | 分区 |
+|-------------------------------------------------------------------------| ---- | --------- |
+| `https://storageaccount.blob.core.chinacloudapi.cn/container1/customer=john.doe/dt=20200101/file.csv` | 10743 | `{"Customer": "john.doe", "Date": "2020-01-01T00:00:00.0000000Z"}` |
+
 
 ## <a name="create-external-table-mapping"></a>.create external table mapping
 
@@ -367,5 +379,6 @@ dataformat=parquet
 ```
 ## <a name="next-steps"></a>后续步骤
 
-* [外部表常规控制命令](externaltables.md)
-* [创建和更改外部 SQL 表](external-sql-tables.md)
+* [查询外部表](../../data-lake-query-data.md)。
+* [将数据导出到外部表](data-export/export-data-to-an-external-table.md)。
+* [连续数据导出到外部表](data-export/continuous-data-export.md)。

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a25e9805d640a2bd410c6dcfae62a21a17513bf
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: b6ab6846935e33f05eeeb8fdb9f97098a600d7a6
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046372"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749811"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>条件访问：要求对管理员执行 MFA
 
@@ -24,11 +24,12 @@ ms.locfileid: "89046372"
 
 Microsoft 建议你至少要求对以下角色进行 MFA：
 
+* 身份验证管理员
 * 计费管理员
 * 条件访问管理员
 * Exchange 管理员
 * 全局管理员
-* 支持（密码）管理员
+* 支持管理员
 * 密码管理员
 * 安全管理员
 * SharePoint 管理员
@@ -42,14 +43,14 @@ Microsoft 建议你至少要求对以下角色进行 MFA：
 
 * 紧急访问帐户或不受限帐户，用于防止租户范围的帐户锁定   。 在极少数情况下，所有管理员都被锁定在租户之外，此时可以使用紧急访问管理帐户登录到租户，采取相关步骤来恢复访问权限。
    * 有关详细信息，可参阅[管理 Azure AD 中的紧急访问帐户](../users-groups-roles/directory-emergency-access.md)一文。
-* **服务帐户**和**服务主体**，例如 Azure AD Connect 同步帐户。 服务帐户是非交互性帐户，不绑定到任何特定用户。 它们通常由允许对应用程序进行编程访问的后端服务使用，但也用于出于管理目的登录到系统。 应该排除这样的服务帐户，因为无法以编程方式完成 MFA。 服务主体进行的调用不被条件访问阻止。
+* **服务帐户** 和 **服务主体** ，例如 Azure AD Connect 同步帐户。 服务帐户是非交互性帐户，不绑定到任何特定用户。 它们通常由允许对应用程序进行编程访问的后端服务使用，但也用于出于管理目的登录到系统。 应该排除这样的服务帐户，因为无法以编程方式完成 MFA。 服务主体进行的调用不被条件访问阻止。
    * 如果组织在脚本或代码中使用这些帐户，请考虑将其替换为[托管标识](../managed-identities-azure-resources/overview.md)。 作为临时解决方法，可以从基线策略中排除这些特定的帐户。
 
 ## <a name="create-a-conditional-access-policy"></a>创建条件访问策略
 
 以下步骤将有助于创建条件访问策略，该策略要求那些分配的管理角色执行多重身份验证。
 
-1. 以全局管理员、安全管理员或条件访问管理员的身份登录到 **Azure 门户**。
+1. 以全局管理员、安全管理员或条件访问管理员的身份登录到 **Azure 门户** 。
 1. 浏览到“Azure Active Directory” > “安全性” > “条件访问”    。
 1. 选择“新策略”  。
 1. 为策略指定名称。 建议组织为其策略的名称创建有意义的标准。
@@ -72,10 +73,10 @@ Microsoft 建议你至少要求对以下角色进行 MFA：
    1. 在“排除”下选择“用户和组”，然后选择组织的紧急访问帐户或不受限帐户。 
    1. 选择“完成”  。
 1. 在“云应用或操作” > “包含”下方，选择“所有云应用” ，然后选择“完成”。
-1. 在“条件” > “客户端应用(预览版)”下，在“选择适用于该策略的客户端应用”下保留选择的所有默认值，然后选择“完成”   。
+1. 在“条件” > “客户端应用”下，切换“配置”为”是”，在“选择将应用此策略的客户端应用”下，选中所有默认值，然后选择“完成”     。
 1. 在“访问控制” > “授予”下，依次选择“授予访问权限”、“需要多重身份验证”、“选择”。  
-1. 确认设置，然后将“启用策略”设置为“打开”。 
-1. 选择“创建”，以便创建启用策略所需的项目。
+1. 确认设置，然后将“启用策略”设置为“打开”。  
+1. 选择“创建”  ，以便创建启用策略所需的项目。
 
 ## <a name="next-steps"></a>后续步骤
 

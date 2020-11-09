@@ -3,19 +3,19 @@ title: Azure 高级存储 - 高性能设计
 description: 使用 Azure 高级 SSD 托管磁盘设计高性能应用程序。 高级存储为 Azure 虚拟机上运行的 I/O 密集型工作负载提供高性能、低延迟的磁盘支持。
 ms.service: virtual-machines
 ms.topic: conceptual
-origin.date: 06/27/2017
+origin.date: 10/05/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: f8ed87b8b100e31ba58a61072196ce9e89717941
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: c89e7929ec6a3cca4a8a1f6a33c9ff2842734af2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128092"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105135"
 ---
 <!--Verified successfully from rename articles-->
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure 高级存储：高性能设计
@@ -173,7 +173,7 @@ PerfMon 计数器适用于处理器、内存以及服务器的每个逻辑磁盘
 IO 请求是应用程序要执行的输入/输出操作单元。 识别 IO 请求的性质（随机或有序、读取或写入、小型或大型）有助于确定应用程序的性能要求。 了解 IO 请求的性质很重要，这有助于在设计应用程序基础结构时进行正确的决策。 IO 必须均匀分布，以实现可能的最佳性能。
 
 IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的输入/输出操作请求的大小。 IO 大小对性能（尤其是应用程序能够实现的 IOPS 和带宽）有很大的影响。 下面的公式说明了 IOPS、IO 大小和带宽/吞吐量之间的关系。  
-:::image type="content" source="media/premium-storage-performance/image1.png" alt-text="IOPS 和吞吐量的关系":::
+    :::image type="content" source="media/premium-storage-performance/image1.png" alt-text="显示公式 IOPS 乘以 IO 大小等于吞吐量的关系图。":::
 
 某些应用程序允许更改其 IO 大小，而某些应用程序则不允许。 例如，SQL Server 会自行确定最佳 IO 大小，不允许用户对其进行更改。 另一方面，Oracle 提供了名为 [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) 的参数，可用于配置数据库的 I/O 请求大小。
 
@@ -326,47 +326,13 @@ Azure 高级存储提供了多种大小，因此你可以选择最适合需求�
 
 ## <a name="optimize-performance-on-linux-vms"></a>优化 Linux Vm 的性能
 
-对于缓存设置为 ReadOnly 或 None 的所有高级存储 SSD，必须在装入文件系统时禁用“屏障” 。 在此方案中不需要屏障，因为写入高级存储磁盘对于这些缓存设置是持久性的。 成功完成写入请求时，数据已写入持久存储。 若要禁用“屏障”，请使用以下方法之一： 选择适用于文件系统的方法：
+对于所有高级 SSD，当已知不存在任何可能丢失数据的缓存时，可以禁用磁盘上文件系统的“屏障”以提高性能。  如果 Azure 磁盘缓存设置为 ReadOnly 或 None，则可以禁用屏障。  但是，如果缓存设置为 ReadWrite，则屏障应保持启用状态以确保写入持续性。  默认情况下，屏障通常处于启用状态，但你可以根据文件系统类型使用以下方法之一禁用屏障：
 
 <!--Not Available on FEATURE ultra disks-->
 
-* 对于 **reiserFS** ，请使用 `barrier=none` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier=flush`。）
-* 对于 **ext3/ext4** ，请使用 `barrier=0` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier=1`。）
-* 对于 **XFS** ，请使用 `nobarrier` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier`。）
-* 对于缓存设置为 **ReadWrite** 的高级存储磁盘，请启用屏障来实现写入持久性。
-* 若要在重新启动 VM 后保留卷标，必须在 /etc/fstab 中更新对磁盘的全局唯一标识符 (UUID) 引用。 有关详细信息，请参阅[将托管磁盘添加到 Linux VM](./linux/add-disk.md)。
-
-下面是我们使用高级 SSD 验证过的 Linux 发行版。 为了提高高级 SSD 的性能和稳定性，建议将 VM 升级到其中一个版本（或更新版本）。 
-
-某些版本需要最新的适用于 Azure 的 Linux Integration Services (LIS) v4.0。 若要下载并安装某个发行版，请单击下表中所列的链接。 完成验证后，我们将陆续在该列表中添加映像。 我们的验证表明，性能根据每个映像的不同而异。 性能取决于工作负荷特征和映像设置。 不同的映像已针对不同种类的工作负荷进行优化。
-
-| 分发 | 版本 | 支持的内核 | 详细信息 |
-| --- | --- | --- | --- |
-| Ubuntu | 12.04 或更高版本| 3.2.0-75.110+ | &nbsp; |
-| Ubuntu | 14.04 或更高版本| 3.13.0-44.73+  | &nbsp; |
-| Debian | 7.x、8.x 或更高版本| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 或更高版本| 3.12.36-38.1+ | &nbsp; |
-| SUSE | SLES 11 SP4 或更高版本| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ 或更高版本| 3.18.4+ | &nbsp; |
-| CentOS | 6.5、6.6、6.7、7.0 或更高版本| &nbsp; | [需要 LIS4](https://www.microsoft.com/download/details.aspx?id=55106) <br /> *请参阅下一部分中的注释* |
-| CentOS | 7.1+ 或更高版本| 3.10.0-229.1.2.el7+ | [建议使用 LIS4](https://www.microsoft.com/download/details.aspx?id=55106) <br /> *请参阅下一部分中的注释* |
-
-<!--Not Available on | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+, or newer | &nbsp; | &nbsp; |-->
-<!--Not Available on | Oracle | 6.0+, 7.2+, or newer | &nbsp; | UEK4 or RHCK |-->
-<!--Not Available on | Oracle | 7.0-7.1 or newer | &nbsp; | UEK4 or RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |-->
-<!--Not Available on | Oracle | 6.4-6.7 or newer | &nbsp; | UEK4 or RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |-->
-
-### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS 的 LIS 驱动程序
-
-运行 OpenLogic CentOS VM 时，请运行以下命令来安装最新的驱动程序：
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-在某些情况下，上述命令还会升级内核。 如果需要内核更新，则可能需要在重新启动后再次运行上述命令以完全安装 microsoft-hyper-v 包。
+* 对于 reiserFS，请使用 barrier=none 装入选项来禁用屏障。  若要显式启用屏障，请使用 barrier=flush。
+* 对于 ext3/ext4，请使用 barrier=0 装入选项来禁用屏障。  若要显式启用屏障，请使用 barrier=1。
+* 对于 XFS，请使用 nobarrier 装入选项来禁用屏障。  若要显式启用屏障，请使用 barrier。  请注意，在更高版本的 Linux 内核版本中，XFS 文件系统的设计始终确保持续性，禁用屏障没有任何效果。  
 
 ## <a name="disk-striping"></a>磁盘条带化
 
@@ -402,7 +368,7 @@ Azure 将高级存储平台设计为可以进行大规模并行处理。 因此�
 
 例如，假设应用程序使用 SQL Server，且同时执行大型查询和索引操作。 假设想让索引操作性能优于大型查询。 在这种情况下，可以将索引操作的 MAXDOP 值设为高于查询的 MAXDOP 值。 这样一来，SQL Server 在进行索引操作时，就可以利用比进行大型查询所需的处理器更多的处理器。 请记住，无法人为控制 SQL Server 要用于每个操作的线程数。 可以控制多线程处理专用的最大处理器数。
 
-详细了解 SQL Server 中的[并行度](https://technet.microsoft.com/library/ms188611.aspx)。 找出应用程序中影响多线程处理的此类设置及其配置，以便优化性能。
+详细了解 SQL Server 中的[并行度](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105))。 找出应用程序中影响多线程处理的此类设置及其配置，以便优化性能。
 
 ## <a name="queue-depth"></a>队列深度
 
@@ -423,15 +389,13 @@ Azure 将高级存储平台设计为可以进行大规模并行处理。 因此�
 
 *最佳队列深度*  
 队列深度值过高也有其缺点。 如果队列深度值过高，则应用程序会尝试实现非常高的 IOPS。 除非应用程序的永久性磁盘具有足够高的预配 IOPS，否则会对应用程序延迟造成负面影响。 以下公式显示了 IOPS、延迟和队列深度之间的关系。  
-
-:::image type="content" source="media/premium-storage-performance/image6.png" alt-text="IOPS 和吞吐量的关系":::
+    :::image type="content" source="media/premium-storage-performance/image6.png" alt-text="显示公式 IOPS 乘以延迟等于队列深度的关系图。":::
 
 不应随意地将队列深度配置为某个很高的值，而应将其配置为最佳值，该值可以确保应用程序实现足够高的 IOPS，但又不会影响延迟。 例如，如果应用程序延迟需要设置为 1 毫秒，则要实现 5,000 IOPS，所需队列深度为：QD = 5000 x 0.001 = 5。
 
 *条带化卷的队列深度*  
 条带化卷应保持足够高的队列深度，使得每个磁盘都有各自的高峰队列深度。 例如，以某个应用程序为考虑对象，该应用程序所推送的队列深度为 2，条带中有四个磁盘。 两个 IO 请求会发送到两个磁盘中，剩下两个磁盘会处于空闲状态。 因此，请将队列深度配置为让所有磁盘都能够处于繁忙状态。 下面的公式说明了如何确定条带化卷的队列深度。  
-
-:::image type="content" source="media/premium-storage-performance/image7.png" alt-text="IOPS 和吞吐量的关系":::
+    :::image type="content" source="media/premium-storage-performance/image7.png" alt-text="显示公式每个磁盘的 QD 乘以每个卷的列数等于条带化卷的 QD 的关系图。":::
 
 ## <a name="throttling"></a>限制
 

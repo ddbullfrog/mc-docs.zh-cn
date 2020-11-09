@@ -6,32 +6,29 @@ ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 02/03/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 35b33860df32b857c9ad629d23cadcb60de1b522
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: e5e4607672cedeffb0ab9655c2e1af3d3230ec81
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127808"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104999"
 ---
 <!--Verified successfully-->
-<!--Partical Content from verified articles-->
 # <a name="av2-series"></a>Av2 系列
 
 Av2 系列 VM 可以部署在各种不同的硬件类型和处理器上。 Av2 系列 VM 的 CPU 性能和内存配置非常适合部署和测试等入门级工作负荷。 无论部署在哪个硬件上，都会限制大小以为正在运行的实例提供一致的处理器性能。 若要判断此大小部署所在的物理硬件，请从虚拟机中查询虚拟硬件。 一些示例用例包括开发和测试服务器、低流量 Web 服务器、中小型数据库、概念证明和代码存储库。
 
-ACU：100
-
-高级存储：不支持
-
-高级存储缓存：不支持
-
-实时迁移：支持
-
-内存保留更新：支持
+[ACU](acu.md)：100<br />
+[高级存储](premium-storage-performance.md)：不支持 <br />
+[高级存储缓存](premium-storage-performance.md)：不支持 <br />
+[实时迁移](maintenance-and-updates.md)：支持 <br />
+[内存保留更新](maintenance-and-updates.md)：支持 <br />
+[VM 代系支持](generation-2.md)：第 1 代 <br />
+<br />
 
 | 大小 | vCore | 内存:GiB | 临时存储 (SSD) GiB | 最大临时存储吞吐量：IOPS/读取 MBps/写入 MBps | 最大数据磁盘数/吞吐量：IOPS | 最大 NIC 数 | 预期的网络带宽 (Mbps)
 |---|---|---|---|---|---|---|---|

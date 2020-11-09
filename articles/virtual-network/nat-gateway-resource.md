@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/11/2020
+origin.date: 09/28/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 1e4db6684af8caac3484378ba555fba058acef58
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: badc81935a63eecc4255ef582aa996294e35c869
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118108"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628243"
 ---
 <!--Verified successfully-->
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>使用 NAT 网关资源设计虚拟网络
 
-NAT 网关资源是[虚拟网络 NAT](nat-overview.md) 的一部分，为虚拟网络的一个或多个子网提供出站 Internet 连接。 虚拟网络的子网指明要使用的 NAT 网关。 NAT 为子网提供源网络地址转换 (SNAT)。  NAT 网关资源指定虚拟机在创建出站流时要使用的静态 IP 地址。 静态 IP 地址来自公共 IP 地址资源和/或公共 IP 前缀资源。 如果使用公共 IP 前缀资源，则由 NAT 网关资源使用整个公共 IP 前缀资源的所有 IP 地址。 NAT 网关资源最多可以使用公共 IP 地址资源或公共 IP 前缀资源中的 16 个（总计）静态 IP 地址。
+NAT 网关资源是[虚拟网络 NAT](nat-overview.md) 的一部分，为虚拟网络的一个或多个子网提供出站 Internet 连接。 虚拟网络的子网指明要使用的 NAT 网关。 NAT 为子网提供源网络地址转换 (SNAT)。  NAT 网关资源指定虚拟机在创建出站流时要使用的静态 IP 地址。 静态 IP 地址来自公共 IP 地址资源 (PIP) 和/或公共 IP 前缀资源。 如果使用公共 IP 前缀资源，则由 NAT 网关资源使用整个公共 IP 前缀资源的所有 IP 地址。 NAT 网关资源最多可以使用公共 IP 地址资源或公共 IP 前缀资源中的 16 个（总计）静态 IP 地址。
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="用于出站 Internet 连接的虚拟网络 NAT">
@@ -65,7 +65,6 @@ NAT 网关资源：
 建议为大多数工作负荷使用 NAT，除非对[基于池的负载均衡器出站连接](../load-balancer/load-balancer-outbound-connections.md)有具体的依赖。  
 
 可以从标准负载均衡器方案（包括[出站规则](../load-balancer/load-balancer-outbound-rules-overview.md)）迁移到 NAT 网关。 若要迁移，请将负载均衡器前端中的公共 IP 和公共 IP 前缀资源移到 NAT 网关。 不需要为 NAT 网关指定新的 IP 地址。 可以重复使用标准公共 IP 地址资源和公共 IP 前缀资源，只要总共不超过 16 个 IP 地址即可。 在转换期间，请规划好迁移并考虑到服务中断。  将此过程自动化可以最大程度地缩减中断时间。 首先在过渡环境中测试迁移。  在转换期间，入站来源流不受影响。
-
 
 以下示例是 Azure 资源管理器模板中的代码片段。  此模板部署多个资源，其中包括 NAT 网关。  在此示例中，模板有以下参数：
 
@@ -355,7 +354,7 @@ NAT 网关优先于子网的出站方案。 无法通过适当的转换来调整
 
 每个 NAT 网关资源最多可提供 50 Gbps 的吞吐量。 可以将部署拆分成多个子网，为每个子网或子网组分配一个 NAT 网关，以便进行横向扩展。
 
-对于所分配的每个出站 IP 地址，每个 NAT 网关可支持 64000 个连接。  请查看下面的有关源网络地址转换 (SNAT) 的部分来获取详细信息，并查看[故障排除文章](/virtual-network/troubleshoot-nat)来了解具体的问题解决指南。
+对于所分配的每个出站 IP 地址，每个 NAT 网关可支持 64,000 个分别用于 TCP 和 UDP 的流。  请查看下面的有关源网络地址转换 (SNAT) 的部分来获取详细信息，并查看[故障排除文章](https://docs.azure.cn/virtual-network/troubleshoot-nat)来了解具体的问题解决指南。
 
 ## <a name="source-network-address-translation"></a>源网络地址转换
 
@@ -363,27 +362,39 @@ NAT 网关优先于子网的出站方案。 无法通过适当的转换来调整
 
 ### <a name="fundamentals"></a>基本
 
-让我们看一个示例，其中通过四个流来解释基本概念。  NAT 网关正在使用公共 IP 地址资源 65.52.0.2。
+让我们看一个示例，其中通过四个流来解释基本概念。  NAT 网关正在使用公共 IP 地址资源 65.52.1.1，而 VM 正在连接到 65.52.0.1。
 
 | 流向 | 源元组 | 目标元组 |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
 发生 PAT 后，这些流可能类似于：
 
 | 流向 | 源元组 | 经过 SNAT 处理的源元组 | 目标元组 | 
 |:---:|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
+| 1 | 192.168.0.16:4283 | **65.52.1.1:1234** | 65.52.0.1:80 |
+| 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
+| 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-目标将会看到，流的源为 65.52.0.2（SNAT 源元组）以及所示的分配端口。  上表中所示的 PAT 也称为端口伪装 SNAT。  多个专用源在 IP 和端口后面伪装。
+目标将会看到，流的源为 65.52.0.1（SNAT 源元组）以及所示的分配端口。  上表中所示的 PAT 也称为端口伪装 SNAT。  多个专用源在 IP 和端口后面伪装。  
 
-请不要依赖于源端口的特定分配方式。  上面只是基本概念的演示图。
+#### <a name="source-snat-port-reuse"></a>源 (SNAT) 端口重用
+
+NAT 网关可借机重复使用源 (SNAT) 端口。  下面将这个概念阐释为前面一组流的附加流。  示例中的 VM 是流向 65.52.0.2 的流。
+
+| 流向 | 源元组 | 目标元组 |
+|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
+
+某个 NAT 网关可能会将流 4 转换为一个端口，这个端口也可以用于其他目标。  请参阅[缩放](/virtual-network/nat-gateway-resource#scaling)，了解有关正确调整 IP 地址预配大小的其他讨论。
+
+| 流向 | 源元组 | 经过 SNAT 处理的源元组 | 目标元组 | 
+|:---:|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.1.1: **1234** | 65.52.0.2:80 |
+
+请不要依赖于上面示例中源端口的特定分配方式。  上面只是基本概念的演示图。
 
 NAT 提供的 SNAT 在多个方面不同于[负载均衡器](../load-balancer/load-balancer-outbound-connections.md)。
 
@@ -416,7 +427,11 @@ NAT 为新的出站流量流提供按需 SNAT 端口。 配置了 NAT 的子网�
 
 SNAT 将专用地址映射到一个或多个公共 IP 地址，并重写进程中的源地址和源端口。 NAT 网关资源将为所配置的每个公共 IP 地址使用 64,000 个端口（SNAT 端口）进行此转换。 NAT 网关资源可以扩展到 16 个 IP 地址和 100 万个 SNAT 端口。 如果提供了公共 IP 前缀资源，则前缀中的每个 IP 地址都会提供 SNAT 端口库存。 添加更多公共 IP 地址可以增加可用库存 SNAT 端口。 TCP 和 UDP 是独立的 SNAT 端口库存，与此无关。
 
-NAT 网关资源可借机重复使用源端口。 对于缩放目的，应假设每个流需要新的 SNAT 端口，并缩放出站流量的可用 IP 地址总数。
+NAT 网关资源可借机重复使用源 (SNAT) 端口。 对于缩放目的设计指南，应假设每个流需要新的 SNAT 端口，并缩放出站流量的可用 IP 地址总数。  应仔细考虑你正在设计的缩放，并相应预配 IP 地址数量。
+
+不同目标的 SNAT 端口最有可能被重用。 而且随着 SNAT 端口即将耗尽，流可能不会成功。  
+
+有关示例信息，请参阅 [SNAT 基础知识](/virtual-network/nat-gateway-resource#source-network-address-translation)。
 
 ### <a name="protocols"></a>协议
 
@@ -468,7 +483,7 @@ NAT 网关资源与 UDP 和 TCP 流的 IP 和 IP 传输标头交互，对应用�
     - [模板](./quickstart-create-nat-gateway-template.md)
 * 了解 NAT 网关资源 API
     - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest)
+    - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway)
     - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
     
     <!--Not Available on * Learn about [availability zones](../availability-zones/az-overview.md)-->

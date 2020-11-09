@@ -4,16 +4,16 @@ description: 登录到 Azure 容器注册表时的常见问题的症状、原因
 ms.topic: article
 origin.date: 08/11/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: cde6341caa73791529c20a7c06af567a6b474698
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 8fcf06606ef9ca2749310d97c48063cf03a88600
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564143"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105606"
 ---
 <!--Verified Successfully-->
 # <a name="troubleshoot-registry-login"></a>注册表登录故障排除
@@ -42,7 +42,7 @@ ms.locfileid: "91564143"
 
 ## <a name="further-diagnosis"></a>进一步诊断 
 
-运行 [az acr check-health](https://docs.azure.cn/cli/acr#az-acr-check-health) 命令可详细了解注册表环境的运行状况，以及对目标注册表的访问（可选）。 例如，诊断 Docker 配置错误或 Azure Active Directory 登录问题。 
+运行 [az acr check-health](https://docs.azure.cn/cli/acr#az_acr_check_health) 命令可详细了解注册表环境的运行状况，以及对目标注册表的访问（可选）。 例如，诊断 Docker 配置错误或 Azure Active Directory 登录问题。 
 
 参阅[检查 Azure 容器注册表的运行状况](container-registry-check-health.md)以查看命令示例。 如果报告了错误，请查看[错误参考](container-registry-health-error-reference.md)和以下部分，以了解建议的解决方案。
 
@@ -68,7 +68,7 @@ ms.locfileid: "91564143"
 docker login myregistry.azurecr.cn
 ```
 
-将 [az acr login](https://docs.azure.cn/cli/acr#az-acr-login) 与 Azure Active Directory 标识配合使用时，请先[登录 Azure CLI](https://docs.azure.cn/cli/authenticate-azure-cli)，然后指定注册表的 Azure 资源名称。 资源名称是在创建注册表时提供的名称，如 myregistry（没有域后缀）。 示例：
+将 [az acr login](https://docs.azure.cn/cli/acr#az_acr_login) 与 Azure Active Directory 标识配合使用时，请先[登录 Azure CLI](https://docs.azure.cn/cli/authenticate-azure-cli)，然后指定注册表的 Azure 资源名称。 资源名称是在创建注册表时提供的名称，如 myregistry（没有域后缀）。 示例：
 
 ```azurecli
 az acr login --name myregistry
@@ -83,8 +83,8 @@ az acr login --name myregistry
 检查用于你的方案的凭据或由注册表所有者提供给你的凭据的有效性。 一些可能的问题：
 
 * 如果使用 Active Directory 服务主体，请确保在 Active Directory 租户中使用正确的凭据：
-  * 用户名 - 服务主体应用程序 ID（也称为*客户端 ID*）
-  * 密码 - 服务主体密码（也称为*客户端密码*）
+  * 用户名 - 服务主体应用程序 ID（也称为 *客户端 ID* ）
+  * 密码 - 服务主体密码（也称为 *客户端密码* ）
 * 如果使用 Azure 服务（如 Azure Kubernetes 服务或 Azure DevOps）来访问注册表，请确认服务的注册表配置。
 * 如果运行了带有 `--expose-token` 选项的 `az acr login`，以允许在不使用 Docker 守护程序的情况下登录注册表，请确保使用用户名 `00000000-0000-0000-0000-000000000000` 进行身份验证。
 
@@ -97,11 +97,11 @@ az acr login --name myregistry
 * [使用存储库范围内的令牌登录](container-registry-repository-scoped-permissions.md)
 * [使用管理员帐户登录](container-registry-authentication.md#admin-account)
 * [Azure AD 身份验证和授权错误代码](../active-directory/develop/reference-aadsts-error-codes.md)
-* [az acr login](https://docs.azure.cn/cli/acr#az-acr-login) 参考
+* [az acr login](https://docs.azure.cn/cli/acr#az_acr_login) 参考
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>确认凭据已被授权访问注册表
 
-确认与凭据关联的注册表权限，如用于从注册表拉取映像的 `AcrPull` RBAC 角色，或用于推送映像的 `AcrPush` 角色。 
+确认与凭据关联的注册表权限，例如用于从注册表拉取映像的Azure 角色 `AcrPull`，或用于推送映像的 `AcrPush` 角色。 
 
 若要在门户中访问注册表或要使用 Azure CLI 进行注册表管理，至少需要用于执行 Azure 资源管理器操作的 `Reader` 角色。
 
@@ -109,7 +109,7 @@ az acr login --name myregistry
 
 相关链接：
 
-* [RBAC 角色和权限 - Azure 容器注册表](container-registry-roles.md)
+* [Azure 角色和权限 - Azure 容器注册表](container-registry-roles.md)
 * [使用存储库范围内的令牌登录](container-registry-repository-scoped-permissions.md)
 * [使用 Azure 门户添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-portal.md)
 * [使用门户来创建可以访问资源的 Azure AD 应用程序和服务主体](../active-directory/develop/howto-create-service-principal-portal.md)
@@ -126,7 +126,7 @@ az acr login --name myregistry
 
 相关链接：
 
-* [重置服务主体凭据](https://docs.azure.cn/cli/ad/sp/credential#az-ad-sp-credential-reset)
+* [重置服务主体凭据](https://docs.azure.cn/cli/ad/sp/credential#az_ad_sp_credential_reset)
 * [重新生成令牌密码](container-registry-repository-scoped-permissions.md#regenerate-token-passwords)
 * [使用 Azure AD 进行单次登录](container-registry-authentication.md#individual-login-with-azure-ad)
 

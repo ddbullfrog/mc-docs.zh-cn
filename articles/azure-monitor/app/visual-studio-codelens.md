@@ -2,21 +2,19 @@
 title: Visual Studio CodeLens 中的 Application Insights 遥测 | Azure Docs
 description: 借助 Visual Studio 中的 CodeLens，快速访问 Application Insights 请求和异常遥测。
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
 origin.date: 03/17/2017
-ms.date: 6/4/2019
-ms.reviewer: mbullwin
-ms.author: v-lingwu
-ms.openlocfilehash: 467ced10badf6f98427b6b91d3af9f028566d30c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/29/2020
+ms.author: v-johya
+ms.custom: vs-azure
+ms.openlocfilehash: 690a169479d31dfe753c1ac8b1bbf4eadb0c4417
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850341"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103602"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens 中的 Application Insights 遥测
-使用有关运行时异常和请求响应时间的遥测，可以批注 Web 应用代码中的方法。 如果在应用程序中安装 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)，遥测会在 Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) 中显示，即每个函数顶端的备注，通常在此处查看有用的信息，例如引用函数的位置数量或最后编辑函数的人员。
+使用有关运行时异常和请求响应时间的遥测，可以批注 Web 应用代码中的方法。 如果在应用程序中安装 [Azure Application Insights](./app-insights-overview.md)，遥测会在 Visual Studio [CodeLens](https://docs.microsoft.com/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) 中显示，即每个函数顶端的备注，通常在此处查看有用的信息，例如引用函数的位置数量或最后编辑函数的人员。
 
 ![CodeLens](./media/visual-studio-codelens/codelens-overview.png)
 
@@ -68,14 +66,8 @@ ms.locfileid: "78850341"
 * 选择“趋势”  可查看过去 24 小时内的请求、失败的请求或平均响应时间的趋势可视化效果。
 * 选择 CodeLens 详细信息视图左上角的 Application Insights 资源名称，更改 CodeLens 数据源对应的资源。
 
-<a name="next"></a>
-## <a name="next-steps"></a>后续步骤
-|  |  |
-| --- | --- |
-| **[在 Visual Studio 中使用 Application Insights](../../azure-monitor/app/visual-studio.md)**<br/>搜索遥测、查看 CodeLens 中的数据以及配置 Application Insights。 一切尽在 Visual Studio 中。 |![右键单击项目，并依次选择“Application Insights”、“搜索”](./media/visual-studio-codelens/34.png) |
-| **[添加更多数据](../../azure-monitor/app/asp-net-more.md)**<br/>监视使用情况、可用性、依赖项、异常。 集成来自记录框架的跟踪。 编写自定义遥测。 |![Visual Studio](./media/visual-studio-codelens/64.png) |
-| **[使用 Application Insights 门户](../../azure-monitor/app/overview-dashboard.md)**<br/>仪表板、功能强大的诊断和分析工具、警报、应用程序的实时依赖项映射和遥测导出。 |![Visual Studio](./media/visual-studio-codelens/62.png) |
-
-
+## <a name="next-steps"></a><a name="next"></a>后续步骤
+* **[在 Visual Studio 中使用 Application Insights](./visual-studio.md)** 。 搜索遥测、查看 CodeLens 中的数据以及配置 Application Insights。 一切尽在 Visual Studio 中。 
+* **[使用 Application Insights 门户](./overview-dashboard.md)** 。 仪表板、功能强大的诊断和分析工具、警报、应用程序的实时依赖项映射和遥测导出。 
 
 

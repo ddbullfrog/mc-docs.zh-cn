@@ -7,13 +7,13 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/13/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 40750430e1f13e1c362f4e5cff15cfc014843816
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: be20e8cc98591eb24f232cc962060c9a6902361b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146635"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104089"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>将数据从事件中心引入到 Azure 数据资源管理器
 
@@ -44,15 +44,15 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
 
 在本文中，将生成示例数据并将其发送到事件中心。 第一步是创建事件中心。 通过使用 Azure 资源管理器模板在 Azure 门户中执行此操作。
 
-1. 若要创建事件中心，请使用以下按钮开始部署。 右键单击并选择“在新窗口中打开”****，以便按本文中的剩余步骤操作。
+1. 若要创建事件中心，请使用以下按钮开始部署。 右键单击并选择“在新窗口中打开”，以便按本文中的剩余步骤操作。
 
     [![“部署到 Azure”按钮](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-    “部署到 Azure”**** 按钮将转到 Azure 门户以填写部署窗体。
+    “部署到 Azure”按钮将转到 Azure 门户以填写部署窗体。
 
     ![“创建事件中心”窗体](media/ingest-data-event-hub/deploy-to-azure.png)
 
-1. 选择要在其中创建事件中心的订阅，并创建名为 test-hub-rg** 的资源组。
+1. 选择要在其中创建事件中心的订阅，并创建名为 test-hub-rg 的资源组。
 
     ![创建资源组](media/ingest-data-event-hub/create-resource-group.png)
 
@@ -65,28 +65,28 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
     **设置** | **建议的值** | **字段说明**
     |---|---|---|
     | 订阅 | 订阅 | 选择要用于事件中心的 Azure 订阅。|
-    | 资源组 | test-hub-rg** | 创建新的资源组。 |
-    | 位置 | *中国东部 2* | 对于本文，选择“中国东部 2”**。 对于生产系统，请选择最能满足你需求的区域。 在与 Kusto 群集相同的位置创建事件中心命名空间以获得最佳性能（对于具有高吞吐量的事件中心命名空间来说最重要）。
-    | 命名空间名称 | 唯一的命名空间名称 | 选择用于标识命名空间的唯一名称。 例如，mytestnamespace**。 域名 *servicebus.chinacloudapi.cn* 将追加到所提供的名称。 字段只能包含字母、数字和连字符。 名称必须以字母开头，并且必须以字母或数字结尾。 值长度必须介于 6 到 50 个字符之间。
+    | 资源组 | test-hub-rg | 创建新的资源组。 |
+    | 位置 | *中国东部 2* | 对于本文，选择“中国东部 2”。 对于生产系统，请选择最能满足你需求的区域。 在与 Kusto 群集相同的位置创建事件中心命名空间以获得最佳性能（对于具有高吞吐量的事件中心命名空间来说最重要）。
+    | 命名空间名称 | 唯一的命名空间名称 | 选择用于标识命名空间的唯一名称。 例如，mytestnamespace。 域名 *servicebus.chinacloudapi.cn* 将追加到所提供的名称。 字段只能包含字母、数字和连字符。 名称必须以字母开头，并且必须以字母或数字结尾。 值长度必须介于 6 到 50 个字符之间。
     | 事件中心名称 | *test-hub* | 事件中心位于命名空间下，该命名空间提供唯一的范围容器。 事件中心名称在命名空间中必须唯一。 |
     | 使用者组名称 | *test-group* | 使用者组允许多个使用应用程序各自具有事件流的单独视图。 |
     | | |
 
-1. 选择“购买”****，确认你要在订阅中创建资源。
+1. 选择“购买”，确认你要在订阅中创建资源。
 
-1. 在工具栏上选择“通知”以监视预配过程。**** 部署成功可能需要几分钟时间，但现在可以继续执行下一步。
+1. 在工具栏上选择“通知”以监视预配过程。 部署成功可能需要几分钟时间，但现在可以继续执行下一步。
 
     ![通知图标](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>在 Azure 数据资源管理器中创建目标表
 
-现在，在 Azure 数据资源管理器中创建一个表，事件中心会向该表发送数据。 在“先决条件”**** 中预配的群集和数据库中创建表。
+现在，在 Azure 数据资源管理器中创建一个表，事件中心会向该表发送数据。 在“先决条件”中预配的群集和数据库中创建表。
 
-1. 在 Azure 门户中导航到群集，然后选择“查询”。****
+1. 在 Azure 门户中导航到群集，然后选择“查询”。
 
     ![查询应用程序链接](media/ingest-data-event-hub/query-explorer-link.png)
 
-1. 将以下命令复制到窗口中，然后选择“运行”**** 以创建将接收引入数据的表 (TestTable)。
+1. 将以下命令复制到窗口中，然后选择“运行”以创建将接收引入数据的表 (TestTable)。
 
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
@@ -94,7 +94,7 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
 
     ![运行创建查询](media/ingest-data-event-hub/run-create-query.png)
 
-1. 将以下命令复制到窗口中，然后选择“运行”**** 将传入的 JSON 数据映射到表 (TestTable) 的列名和数据类型。
+1. 将以下命令复制到窗口中，然后选择“运行”将传入的 JSON 数据映射到表 (TestTable) 的列名和数据类型。
 
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp", "Properties": {"Path": "$.timeStamp"}},{"column":"Name", "Properties": {"Path":"$.name"}} ,{"column":"Metric", "Properties": {"Path":"$.metric"}}, {"column":"Source", "Properties": {"Path":"$.source"}}]'
@@ -104,53 +104,66 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
 
 现在，请通过 Azure 数据资源管理器连接到事件中心。 当此连接建立好以后，流入事件中心的数据会流式传输到此前在本文中创建的测试表。
 
-1. 在工具栏上选择“通知”****，以验证事件中心部署是否成功。
+1. 在工具栏上选择“通知”，以验证事件中心部署是否成功。
 
-1. 在创建的群集下，选择“数据库”****，然后选择“TestDatabase”****。
+1. 在创建的群集下，选择“数据库”，然后选择“TestDatabase”。
 
     ![选择测试数据库](media/ingest-data-event-hub/select-test-database.png)
 
-1. 选择“数据引入”****，然后选择“添加数据连接”****。 然后使用以下信息填写窗体。 完成后，选择“创建”****。
+1. 选择“数据引入”，然后选择“添加数据连接”。 
 
-    ![事件中心连接](media/ingest-data-event-hub/event-hub-connection.png)
+    :::image type="content" source="media/ingest-data-event-hub/event-hub-connection.png" alt-text="在数据中心选择“数据引入”和“添加数据连接”- Azure 数据资源管理器":::
 
-    **数据源：**
+### <a name="create-a-data-connection"></a>创建数据连接
+
+1. 使用以下信息填写窗体：
+
+    :::image type="content" source="media/ingest-data-event-hub/data-connection-pane.png" alt-text="“数据连接”窗格 - 事件中心 - Azure 数据资源管理器":::
 
     **设置** | **建议的值** | **字段说明**
     |---|---|---|
     | 数据连接名称 | *test-hub-connection* | 要在 Azure 数据资源管理器中创建的连接的名称。|
+    | 订阅 |      | 事件中心资源所在的订阅 ID。  |
     | 事件中心命名空间 | 唯一的命名空间名称 | 先前选择的用于标识命名空间的名称。 |
     | 事件中心 | *test-hub* | 你创建的事件中心。 |
     | 使用者组 | *test-group* | 在创建的事件中心定义的使用者组。 |
     | 事件系统属性 | 选择相关属性 | [事件中心系统属性](/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations)。 如果每个事件消息有多个记录，则系统属性将添加到第一个记录中。 添加系统属性时，[创建](kusto/management/create-table-command.md)或[更新](kusto/management/alter-table-command.md)表架构和[映射](kusto/management/mappings.md)以包括所选属性。 |
     | 压缩 | *无* | 事件中心消息有效负载的压缩类型。 支持的压缩类型：None、GZip。|
-    | | |
+    
+#### <a name="target-table"></a>目标表
 
-    **目标表：**
+路由引入数据有两个选项：静态和动态。 本文将使用静态路由，需在其中将表名、数据格式和映射指定为默认值。 如果事件中心消息包含数据路由信息，则此路由信息将替代默认设置。
 
-    路由引入数据有两个选项：静态和动态。**** 
-    本文将使用静态路由，需在其中指定表名、数据格式和映射。 因此，请让“我的数据包含路由信息”保留未选中状态。****
+1. 填写以下路由设置：
+  
+   :::image type="content" source="media/ingest-data-event-hub/default-routing-settings.png" alt-text="用于将数据引入到事件中心的默认路由设置 - Azure 数据资源管理器":::
+        
+   |**设置** | **建议的值** | **字段说明**
+   |---|---|---|
+   | 表名 | *TestTable* | 在“TestDatabase”中创建的表。 |
+   | 数据格式 | *JSON* | 支持的格式为 Avro、CSV、JSON、MULTILINE JSON、ORC、PARQUET、PSV、SCSV、SOHSV、TSV、TXT、TSVE、APACHEAVRO 和 W3CLOG。 |
+   | 映射 | TestMapping | 在“TestDatabase”中创建的[映射](kusto/management/mappings.md)，它将传入的数据映射到“TestTable”的列名称和数据类型 。 对于 JSON、多行 JSON 和 AVRO 是必需的，对于其他格式是可选的。|
+    
+   > [!NOTE]
+   > * 无需指定所有默认路由设置。 部分设置也是接受的。
+   > * 只有创建数据连接后进入队列的事件才会被引入。
 
-     **设置** | **建议的值** | **字段说明**
-    |---|---|---|
-    | 表 | *TestTable* | 在“TestDatabase”**** 中创建的表。 |
-    | 数据格式 | *JSON* | 支持的格式为 Avro、CSV、JSON、MULTILINE JSON、ORC、PARQUET、PSV、SCSV、SOHSV、TSV、TXT、TSVE、APACHEAVRO 和 W3CLOG。 |
-    | 列映射 | TestMapping** | 在 **TestDatabase** 中创建的[映射](kusto/management/mappings.md)，它将传入的 JSON 数据映射到 **TestTable** 的列名称和数据类型。 对于 JSON 或多行 JSON 是必需的，对于其他格式是可选的。|
-    | | |
+1. 选择“创建”  。 
 
-    > [!NOTE]
-    > * 选择“我的数据包含路由信息”**** 以使用动态路由，其中你的数据包含必要的路由信息，如[示例应用](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)注释中所示。 如果同时设置了静态和动态属性，则动态属性将覆盖静态属性。 
-    > * 只有创建数据连接后进入队列的事件才会被引入。
-    > * 还可以通过动态属性设置压缩类型，如[示例应用](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)中所示。
-    > * GZip 压缩有效负载不支持 Avro、ORC 和 PARQUET 格式以及事件系统属性。
+### <a name="event-system-properties-mapping"></a>事件系统属性映射
 
-[!INCLUDE [data-explorer-container-system-properties](includes/data-explorer-container-system-properties.md)]
+> [!Note]
+> * 单记录事件支持系统属性。
+> * 对于 `csv` 映射，属性将添加到记录的开头。 对于 `json` 映射，将根据下拉列表中显示的名称添加属性。
+
+如果在表的“数据源”部分选择了“事件系统属性”，则必须在表架构和映射中包含[系统属性](ingest-data-event-hub-overview.md#system-properties)。
+
 
 ## <a name="copy-the-connection-string"></a>复制连接字符串
 
 运行在先决条件中列出的[示例应用](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)时，需要事件中心命名空间的连接字符串。
 
-1. 在创建的事件中心命名空间下，选择“共享访问策略”****，然后选择“RootManageSharedAccessKey”****。
+1. 在创建的事件中心命名空间下，选择“共享访问策略”，然后选择“RootManageSharedAccessKey”。
 
     ![共享访问策略](media/ingest-data-event-hub/shared-access-policies.png)
 
@@ -208,17 +221,17 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不打算再次使用事件中心，请清理 test-hub-rg****，以避免产生费用。
+如果不打算再次使用事件中心，请清理 test-hub-rg，以避免产生费用。
 
-1. 在 Azure 门户的最左侧选择“资源组”，，然后选择创建的资源组。****  
+1. 在 Azure 门户的最左侧选择“资源组”，，然后选择创建的资源组。  
 
     如果左侧菜单处于折叠状态，请选择 ![“展开”按钮](media/ingest-data-event-hub/expand.png) 将其展开。
 
    ![选择要删除的资源组](media/ingest-data-event-hub/delete-resources-select.png)
 
-1. 在“test-resource-group”**** 下，选择“删除资源组”****。
+1. 在“test-resource-group”下，选择“删除资源组”。
 
-1. 在新窗口中，键入要删除的资源组的名称 (test-hub-rg**)，然后选择“删除”****。
+1. 在新窗口中，键入要删除的资源组的名称 (test-hub-rg)，然后选择“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 363df7a515b74b89da8c7394d624ebf439529833
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 121c39621d684550cae507b08047341088eb61f0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021056"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104590"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>创建数据科学虚拟机共享池
 
 本文将介绍如何为团队创建 Data Science Virtual Machine (DSVM) 共享池。 使用共享池的好处包括：提高资源利用率、方便共享和协作以及提高管理 DSVM 资源的效率。
 
-可以使用许多方法和技术创建 DSVM 池。 本文重点介绍交互式虚拟机 (VM) 池。 另一个可选的托管计算基础结构是 Azure 机器学习计算。 有关详细信息，请参阅[使用 Python SDK 创建计算目标](../how-to-create-attach-compute-sdk.md)。
+可以使用许多方法和技术创建 DSVM 池。 本文重点介绍交互式虚拟机 (VM) 池。 另一个可选的托管计算基础结构是 Azure 机器学习计算。 有关详细信息，请参阅[创建计算群集](../how-to-create-attach-compute-cluster.md)。
 
 ## <a name="interactive-vm-pool"></a>交互式 VM 池
 

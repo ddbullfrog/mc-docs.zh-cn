@@ -3,20 +3,20 @@ title: 结合使用实体识别和文本分析 API
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用文本分析 REST API 识别和区分文本中找到的实体的标识。
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 origin.date: 02/10/2020
-ms.date: 02/25/2020
-ms.author: v-lingwu
-ms.openlocfilehash: 05d41d43cc68845fcfe5926b0cb36769a72b2ccb
-ms.sourcegitcommit: 89ca2993f5978cd6dd67195db7c4bdd51a677371
+ms.date: 10/26/2020
+ms.author: v-johya
+ms.openlocfilehash: dff70864f76c57838907285e7f123da5c3415654
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82588738"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105621"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
@@ -31,45 +31,25 @@ ms.locfileid: "82588738"
 
 命名实体识别 (NER) 是指识别文本中不同实体，并将它们分入预定义类或类型（例如：人员、位置、事件、产品和组织）的能力。  
 
-在文本分析[版本 2.1](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) 中，实体链接和命名实体识别 (NER) 均可用于几种语言。 有关详细信息，请参阅[语言支持](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition)一文。 
+## <a name="named-entity-recognition-versions-and-features"></a>命名实体识别版本和功能
 
-### <a name="language-support"></a>语言支持
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-使用各种语言的实体链接需要使用每种语言的相应知识库。 对于文本分析中的实体链接，这意味着 `entities` 终结点支持的每种语言都将链接到该语言的相应 Wikipedia 语料库。 由于语料库的大小因语言而异，因此，实体链接功能的召回率应该也有所不同。
+| 功能                                                         | NER v3.0 | NER v3.1-preview.2 |
+|-----------------------------------------------------------------|--------|----------|
+| 用于单个请求和批量请求的方法                          | X      | X        |
+| 跨多个类别展开的实体识别           | X      | X        |
+| 用于发送实体链接和 NER 请求的不同终结点。 | X      | X        |
+| 个人 (`PII`) 和健康状况 (`PHI`) 信息实体的识别        |        | X        |
 
-## <a name="supported-types-for-named-entity-recognition"></a>命名实体识别支持的类型
+有关信息，请参阅[语言支持](../language-support.md)。
 
-| 类型  | 子类型 | 示例 |
-|:-----------   |:------------- |:---------|
-| 人员        | 暂无\*         | “Jeff”、“Bill Gates”     |
-| 位置      | 暂无\*         | “Redmond, Washington”、“Paris”  |
-| 组织  | 暂无\*         | “Microsoft”   |
-| 数量      | Number        | “6”、“six”     |
-| 数量      | 百分比    | “50%”、“fifty percent”|
-| 数量      | Ordinal       | “2nd”、“second”     |
-| 数量      | Age           | “90 day old”、“30 years old”    |
-| 数量      | 货币      | “$10.99”     |
-| 数量      | 维度     | “10 miles”、“40 cm”     |
-| 数量      | 温度   | “32 degrees”    |
-| DateTime      | 暂无\*         | “6:30PM February 4, 2012”      |
-| DateTime      | Date          | “May 2nd, 2017”、“05/02/2017”   |
-| DateTime      | 时间          | “8am”、“8:00”  |
-| DateTime      | DateRange     | “May 2nd to May 5th”    |
-| DateTime      | TimeRange     | “6pm to 7pm”     |
-| DateTime      | 持续时间      | “1 minute and 45 seconds”   |
-| DateTime      | 设置           | “every Tuesday”     |
-| URL           | 暂无\*         | "https:\//www.bing.com"    |
-| Email         | 暂无\*         | "support@contoso.com" |
+## <a name="entity-types"></a>实体类型
 
-\*一些实体可能会省略 `SubType`，具体视输入和已提取的实体而定。  列出的所有受支持的实体类型仅适用于英文、简体中文、法文、德文和西班牙文。
+命名实体识别 v3 提供跨多种类型的扩展检测。 目前，NER v3.0 可以识别[常规实体类别](../named-entity-types.md)中的实体。
 
-### <a name="request-endpoints"></a>请求终结点
+命名实体识别 v3.1-preview.2 包含 v3.0 的检测功能，并能够使用 `v3.1-preview.2/entities/recognition/pii` 终结点检测个人信息 (`PII`)。 可以使用可选的 `domain=phi` 参数来检测机密的健康状况信息 (`PHI`)。 有关详细信息，请参阅下面的[实体类别](../named-entity-types.md)一文和[请求终结点](#request-endpoints)部分。
 
-命名实体识别 v2 将单个终结点用于 NER 和实体链接请求：
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v2.1/entities`
-
----
 
 ## <a name="sending-a-rest-api-request"></a>发送 REST API 请求
 
@@ -84,9 +64,69 @@ ms.locfileid: "82588738"
 创建 POST 请求。 可[使用 Postman](text-analytics-how-to-call-api.md) 或以下链接中的“API 测试控制台”来快速构建并发送请求  。 
 
 > [!NOTE]
-> 可以在 Azure 门户上找到文本分析资源的密钥和终结点。 它们将位于资源的“快速启动”  页上的“资源管理”  下。 
+> 可以在 Azure 门户上找到文本分析资源的密钥和终结点。 它们将位于资源的“快速启动”页上的“资源管理”下。 
 
-  
+
+### <a name="request-endpoints"></a>请求终结点
+
+#### <a name="version-31-preview2"></a>[版本 3.1-preview.2](#tab/version-3-preview)
+
+命名实体识别 `v3.1-preview.2` 对 NER 和实体链接请求使用不同的终结点。 根据你的请求使用以下 URL 格式：
+
+实体链接
+* `https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.2/entities/linking`
+
+[`Linking` 的命名实体识别版本 3.1-preview 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
+
+NER
+* 常规实体 - `https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.2/entities/recognition/general`
+
+[`General` 的命名实体识别版本 3.1-preview 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
+
+* 个人 (`PII`) 信息 - `https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.2/entities/recognition/pii`
+
+还可以使用可选的 `domain=phi` 参数来检测文本中的健康状况 (`PHI`) 信息。 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+
+请注意，在响应 JSON 中添加了 `redactedText` 属性，该属性包含修改后的输入文本，其中检测到的 PII 实体的每个字符将被替换为 *。
+
+[`PII` 的命名实体识别版本 3.1-preview 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
+
+#### <a name="version-30"></a>[版本 3.0](#tab/version-3)
+
+命名实体识别 v3 对 NER 和实体链接请求使用不同的终结点。 根据你的请求使用以下 URL 格式：
+
+实体链接
+* `https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.0/entities/linking`
+
+[`Linking` 的命名实体识别版本 3.0 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
+
+NER
+* `https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.0/entities/recognition/general`
+
+[`General` 的命名实体识别版本 3.0 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
+
+---
+
+发送请求标头以包括文本分析 API 密钥。 在请求正文中，提供准备好的 JSON 文档。
+
+### <a name="example-ner-request"></a>NER 请求示例 
+
+下面是可能发送到 API 的内容示例。 两个版本的 API 的请求格式相同。
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+
+```
 
 ## <a name="post-the-request"></a>发布请求
 
@@ -98,172 +138,164 @@ ms.locfileid: "82588738"
 
 所有 POST 请求都将返回 JSON 格式的响应，其中包含 ID 和检测到的实体属性。
 
-系统会立即返回输出。 可将结果流式传输到接受 JSON 的应用程序，或者将输出保存到本地系统上的文件中，然后将其导入到允许对数据进行排序、搜索和操作的应用程序。
+系统会立即返回输出。 可将结果流式传输到接受 JSON 的应用程序，或者将输出保存到本地系统上的文件中，然后将其导入到允许对数据进行排序、搜索和操作的应用程序。 由于多语言和表情符号支持，响应可能包含文本偏移。 有关详细信息，请参阅[如何处理文本偏移](../concepts/text-offsets.md)。
 
-下面展示了实体链接的输出示例：
+### <a name="example-responses"></a>示例响应
+
+版本 3 为常规 NER、PII 和实体链接提供不同的终结点。 这两项操作的响应如下所示。 
+
+#### <a name="version-31-preview"></a>[版本 3.1-preview](#tab/version-3-preview)
+
+PII 响应的示例：
+```json
+{
+  "documents": [
+    {
+    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
+    "id": "0",
+    "entities": [
+        {
+        "text": "www.contososteakhouse.com",
+        "category": "URL",
+        "offset": 49,
+        "length": 25,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "312-555-0176",
+        "category": "Phone Number",
+        "offset": 81,
+        "length": 12,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "order@contososteakhouse.com",
+        "category": "Email",
+        "offset": 111,
+        "length": 27,
+        "confidenceScore": 0.8
+        }
+      ],
+    "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-07-01"
+}
+```
+
+实体链接响应的示例：
 
 ```json
 {
-    "Documents": [
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
         {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
+          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
+          "name": "Space Needle",
+          "matches": [
+            {
+              "text": "Space Needle",
+              "offset": 30,
+              "length": 12,
+              "confidenceScore": 0.4
+            }
+          ],
+          "language": "en",
+          "id": "Space Needle",
+          "url": "https://en.wikipedia.org/wiki/Space_Needle",
+          "dataSource": "Wikipedia"
         },
         {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
+          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+          "name": "Seattle",
+          "matches": [
+            {
+              "text": "Seattle",
+              "offset": 62,
+              "length": 7,
+              "confidenceScore": 0.25
+            }
+          ],
+          "language": "en",
+          "id": "Seattle",
+          "url": "https://en.wikipedia.org/wiki/Seattle",
+          "dataSource": "Wikipedia"
         }
-    ],
-    "Errors": []
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-02-01"
 }
 ```
+
+
+#### <a name="version-30"></a>[版本 3.0](#tab/version-3)
+
+常规 NER 响应的示例：
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
+        },
+        {
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
+}
+```
+
+---
 
 
 ## <a name="summary"></a>摘要
 
 在本文中，你已了解使用认知服务中的文本分析进行实体链接的概念和工作流。 综上所述：
 
-* 命名实体识别适用于选定的语言并提供两个版本。
 * 请求正文中的 JSON 文档包括 ID、文本和语言代码。
 * 会通过对订阅有效的个性化[访问密钥和终结点](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)将 POST 请求发送到一个或多个终结点。
 * 响应输出由链接实体（包括每个文档 ID 的置信度分数、偏移量和 Web 链接）组成，可用于任何应用程序
@@ -272,4 +304,5 @@ ms.locfileid: "82588738"
 
 * [文本分析概述](../overview.md)
 * [使用文本分析客户端库](../quickstarts/text-analytics-sdk.md)
+* [新增功能](../whats-new.md)
 

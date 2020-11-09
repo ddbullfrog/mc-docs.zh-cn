@@ -1,22 +1,23 @@
 ---
 title: 对照以 C# 编写的自定义术语列表检查文本 - 内容审查器
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 如何通过自定义术语列表使用适用于 C# 的内容审查器 SDK 对文本进行审查。
 services: cognitive-services
-author: sanjeev3
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 origin.date: 07/03/2019
-ms.date: 07/10/2019
-ms.author: v-junlch
-ms.openlocfilehash: 32ba65cea50f4559237b6fb28648dd9c7616ad51
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c20f8a63aee1fe2323b35464991babeda1121bf5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "67844792"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104629"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>对照以 C# 编写的自定义术语列表检查文本
 
@@ -33,7 +34,7 @@ Azure 内容审查器中的默认全局术语列表足以满足大多数内容�
 - 编辑列表信息。
 - 筛选索引，使新的扫描中包含列表更改项。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/details/cognitive-services/)。 
 
 ## <a name="sign-up-for-content-moderator-services"></a>注册内容审查器服务
 
@@ -60,8 +61,7 @@ Azure 内容审查器中的默认全局术语列表足以满足大多数内容�
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -71,10 +71,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Create the Content Moderator client
 
-添加以下代码来为订阅创建内容审查器客户端。
-
-> [!IMPORTANT]
-> 使用区域标识符和订阅密钥的值更新  AzureRegion 和 CMSubscriptionKey  字段。
+添加以下代码来为订阅创建内容审查器客户端。 使用终结点 URL 和订阅密钥的值更新 `AzureEndpoint` 和 `CMSubscriptionKey` 字段。 可在 Azure 门户中资源的“快速启动”选项卡中找到它们。
 
 ```csharp
 /// <summary>
@@ -86,16 +83,9 @@ using System.Threading;
 public static class Clients
 {
     /// <summary>
-    /// The region/location for your Content Moderator account, 
-    /// for example, chinaeast2.
-    /// </summary>
-    private static readonly string AzureRegion = "YOUR API REGION";
-
-    /// <summary>
     /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.azure.cn";
+    private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
     /// <summary>
     /// Your Content Moderator subscription key.
@@ -114,7 +104,7 @@ public static class Clients
         // Create and initialize an instance of the Content Moderator API wrapper.
         ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        client.Endpoint = AzureBaseURL;
+        client.Endpoint = AzureEndpoint;
         return client;
     }
 }
@@ -145,10 +135,10 @@ private const double latencyDelay = 0.5;
 
 ## <a name="create-a-term-list"></a>创建术语列表
 
-使用 ContentModeratorClient.ListManagementTermLists.Create 创建术语列表  。 要创建的第一个参数是一个包含 MIME 类型的字符串，此类型应为“application/json”  。 有关详细信息，请参阅 [API 参考](https://dev.cognitive.azure.cn/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)。 第二个参数是 Body 对象，该对象包含新术语列表的名称和说明  。
+使用 ContentModeratorClient.ListManagementTermLists.Create 创建术语列表。 要创建的第一个参数是一个包含 MIME 类型的字符串，此类型应为“application/json”。 有关详细信息，请参阅 [API 参考](https://dev.cognitive.azure.cn/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)。 第二个参数是 Body 对象，该对象包含新术语列表的名称和说明。
 
 > [!NOTE]
-> 最多只能使用 5 个术语列表  ，每个列表中的术语数不得超过 10,000 个  。
+> 最多只能使用 5 个术语列表，每个列表中的术语数不得超过 10,000 个。
 
 将以下方法定义添加到 TermLists 命名空间中的 Program 类。
 
@@ -183,7 +173,7 @@ static string CreateTermList (ContentModeratorClient client)
 
 ## <a name="update-term-list-name-and-description"></a>更新术语列表名称和说明
 
-使用 ContentModeratorClient.ListManagementTermLists.Update 更新术语列表信息  。 要更新的第一个参数是术语列表 ID  。 第二个参数是应为“application/json”的 MIME 类型。 有关详细信息，请参阅 [API 参考](https://dev.cognitive.azure.cn/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685)。 第三个参数是 Body 对象，它包含新名称和说明  。
+使用 ContentModeratorClient.ListManagementTermLists.Update 更新术语列表信息。 要更新的第一个参数是术语列表 ID。 第二个参数是应为“application/json”的 MIME 类型。 有关详细信息，请参阅 [API 参考](https://dev.cognitive.azure.cn/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685)。 第三个参数是 Body 对象，它包含新名称和说明。
 
 将以下方法定义添加到 TermLists 命名空间中的 Program 类。
 
@@ -250,7 +240,7 @@ static void GetAllTerms(ContentModeratorClient client, string list_id)
 
 对术语列表进行更改后，刷新其搜索索引，使更改在下次使用术语列表时包含在内。 此步骤类似于桌面上的搜索引擎（如果启用）或 Web 搜索引擎的操作，即不断刷新其索引以包含新文件或页面。
 
-使用 ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod 刷新术语列表搜索索引  。
+使用 ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod 刷新术语列表搜索索引。
 
 将以下方法定义添加到 TermLists 命名空间中的 Program 类。
 
@@ -270,18 +260,18 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 
 ## <a name="screen-text-using-a-term-list"></a>屏蔽使用术语列表的文本
 
-通过 ContentModeratorClient.TextModeration.ScreenText 屏蔽使用术语列表的文本，它将采用以下参数  。
+通过 ContentModeratorClient.TextModeration.ScreenText 屏蔽使用术语列表的文本，它将采用以下参数。
 
 - 术语列表中的术语所采用的语言。
 - MIME 类型，可以是“text/html”、“text/xml”、“text/markdown”或“text/plain”。
 - 要屏蔽的文本。
-- 布尔值。 将此字段设置为 true，在屏蔽它之前自动更正文本  。
-- 布尔值。 将此字段设置为 true，检测文本中的个人身份信息 (PII)  。
+- 布尔值。 将此字段设置为 true，在屏蔽它之前自动更正文本。
+- 布尔值。 将此字段设置为 true 以检测文本中的个人数据。
 - 术语列表 ID。
 
 有关详细信息，请参阅 [API 参考](https://dev.cognitive.azure.cn/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)。
 
-ScreenText 返回 Screen 对象，该对象具有 Terms 属性，此属性可列出内容审查器在屏蔽期间检测到的任何术语    。 请注意，如果屏蔽期间内容审查器未检测到任何术语，则 Terms 属性的值为 null   。
+ScreenText 返回 Screen 对象，该对象具有 Terms 属性，此属性可列出内容审查器在屏蔽期间检测到的任何术语。 请注意，如果屏蔽期间内容审查器未检测到任何术语，则 Terms 属性的值为 null。
 
 将以下方法定义添加到 TermLists 命名空间中的 Program 类。
 
@@ -315,9 +305,9 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
 
 删除术语或列表非常简单。 使用 SDK 执行以下任务：
 
-- 删除术语。 (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
-- 删除列表中的所有术语而不删除列表。 (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
-- 删除列表及其所有内容。 (**ContentModeratorClient.ListManagementTermLists.Delete**)
+- 删除术语。 ( **ContentModeratorClient.ListManagementTerm.DeleteTerm** )
+- 删除列表中的所有术语而不删除列表。 ( **ContentModeratorClient.ListManagementTerm.DeleteAllTerms** )
+- 删除列表及其所有内容。 ( **ContentModeratorClient.ListManagementTermLists.Delete** )
 
 ### <a name="delete-a-term"></a>删除术语
 
@@ -452,4 +442,3 @@ Press ENTER to close the application.
 
 为适用于 .NET 的此内容审查器快速入门和其他内容审查器快速入门获取[内容审查器 .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 和 [Visual Studio 解决方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，并开始集成。
 
-<!-- Update_Description: wording update -->

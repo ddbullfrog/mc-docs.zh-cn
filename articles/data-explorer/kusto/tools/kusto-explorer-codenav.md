@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/31/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 37d6ee86ae3dbc24b0234bfd8acf613fe08dab4e
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 09/30/2020
+ms.openlocfilehash: 2dc62123e3ed2cad509972c5923e279aae02a472
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470405"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106090"
 ---
 # <a name="kusto-explorer-code-navigation"></a>Kusto 资源管理器代码导航
 
@@ -28,4 +28,4 @@ Kusto 提供了若干功能，通过使用查询符号信息轻松进行代码�
 
 可以使用 `Ctrl`+`F12` 快捷方式获取当前符号的所有引用。
 
-![替换文字](./Images/KustoTools-KustoExplorer/ke-codenav-refernces.gif "code-navigation-references")
+:::image type="content" source="images/kusto-explorer-codenav/ke-code-nav-references.gif" alt-text="符号 Kusto 资源管理器代码导航的参考":::

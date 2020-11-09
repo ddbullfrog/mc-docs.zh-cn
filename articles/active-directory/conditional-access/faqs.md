@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 10/13/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 56a2f99166a814b58909f710b691faa0f7668079
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: c2334a746042dd57b495a027b870bb67d5320dca
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041566"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749816"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory 条件访问常见问题解答
 
@@ -63,5 +63,5 @@ Microsoft Teams 还在条件访问策略中作为云应用单独受到支持。 
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要为环境配置条件访问策略，请参阅 [Azure Active Directory 中条件访问的最佳做法](best-practices.md)。 
+- 若要为环境配置条件访问策略，请参阅文章[计划条件访问部署](plan-conditional-access.md)。 
 

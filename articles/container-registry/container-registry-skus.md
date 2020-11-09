@@ -3,16 +3,17 @@ title: 注册表服务层级和功能
 description: 了解 Azure 容器注册表的“基本”、“标准”和“高级”服务层级 (SKU) 中的功能和限制。
 ms.topic: article
 origin.date: 05/18/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9a4481daa28ff88336790cfc5c56387b44caac55
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: 757929d9b2294fe0267a47066aa5fb6c8acec8c7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863197"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105542"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure 容器注册表服务层级
 
@@ -28,7 +29,7 @@ Azure 容器注册表分为多个服务层级（也称为 SKU）。 这些层级
 
 ## <a name="service-tier-features-and-limits"></a>服务层级功能和限制
 
-下表详细介绍了“基本”、“标准”和“高级”服务层级的功能和限制。
+下表详细介绍了“基本”、“标准”和“高级”服务层级的功能和注册表限制。
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
@@ -78,7 +79,7 @@ az acr update --name myregistry --sku Premium
 
 <!-- LINKS - Internal -->
 
-[az-acr-update]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-update
+[az-acr-update]: https://docs.azure.cn/cli/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-storage]: container-registry-storage.md
 [container-registry-delete]: container-registry-delete.md

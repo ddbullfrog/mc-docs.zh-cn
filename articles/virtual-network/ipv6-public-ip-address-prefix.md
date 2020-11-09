@@ -4,21 +4,23 @@ titlesuffix: Azure Virtual Network
 description: 了解 Azure 虚拟网络中的公共 IPv6 地址前缀。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/31/2020
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 11/02/2020
+ms.testscope: no
+ms.testdate: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: 39f3f065d72d3da1fa43ff6160851fd97fcb6f9f
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: b5e4c989583e9968c9012b493d401b2749f29d5a
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487017"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628246"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>保留的公共 IPv6 地址前缀
 
@@ -29,7 +31,7 @@ ms.locfileid: "84487017"
 > [!WARNING]
 > 请小心不要意外删除公共 IP 地址。 删除某个公共 IP 会将其从订阅中删除，而且无法予以恢复（甚至在 Azure 支持人员的帮助之下也不能恢复）。
 
-除了保留单个 IPv6 地址以外，还可以保留连续的 Azure IPv6 地址范围（称作 IP 前缀）供你使用。  与单个 IP 地址类似，保留的前缀与所选 Azure 区域和 Azure 订阅相关联。 保留可预测的连续地址范围有很多好处。 例如，可以让公司和客户大大简化 Azure 托管应用程序的 IP 允许列表操作，因为随时可以在本地防火墙中设定静态 IP 范围。   可以根据需要基于 IP 前缀创建单个公共 IP，删除这些公共 IP 时，它们将返回到保留的范围，日后可供重复使用。  IP 前缀中的所有 IP 地址保留供你独用，直到删除该前缀。
+除了保留单个 IPv6 地址以外，还可以保留连续的 Azure IPv6 地址范围（称作 IP 前缀）供你使用。  与单个 IP 地址类似，保留的前缀与所选 Azure 区域和 Azure 订阅相关联。 保留可预测的连续地址范围有很多好处。 例如，可以让公司和客户显著简化 Azure 托管应用程序的 IP 筛选操作，因为随时可以在本地防火墙中设定静态 IP 范围。  可以根据需要基于 IP 前缀创建单个公共 IP，删除这些公共 IP 时，它们将返回到保留的范围，日后可供重复使用。  IP 前缀中的所有 IP 地址保留供你独用，直到删除该前缀。
 
 ## <a name="ipv6-prefix-sizes"></a>IPv6 前缀大小
 可使用以下公共 IP 前缀：

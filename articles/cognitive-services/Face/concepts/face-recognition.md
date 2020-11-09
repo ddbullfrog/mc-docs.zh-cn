@@ -1,22 +1,22 @@
 ---
 title: 人脸识别的概念
 titleSuffix: Azure Cognitive Services
-description: 了解有关人脸识别的概念。
+description: 本文解释“验证”、“查找相似人脸”、“分组”和“识别”人脸识别操作和底层数据结构的概念。
 services: cognitive-services
-author: PatrickFarley
+author: Johnnytechn
 manager: nitime
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 06/10/2019
-ms.author: v-junlch
-ms.openlocfilehash: 360b680006dc2489ee410e839488fa90ef8a16dd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.openlocfilehash: 4350e1c5cc023ee8fff808a77ee8d6b75cb696f9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "66830037"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105439"
 ---
 # <a name="face-recognition-concepts"></a>人脸识别的概念
 
@@ -70,8 +70,7 @@ ms.locfileid: "66830037"
 
 ## <a name="next-steps"></a>后续步骤
 
-熟悉人脸识别的概念后，接下来请了解如何编写一个可以针对训练的 PersonGroup 识别人脸的脚本。
+熟悉人脸识别的概念后，接下来请编写一个可以针对训练的 PersonGroup 识别人脸的脚本。
 
-* [识别图像中的人脸](../Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+* [人脸客户端库快速入门](../Quickstarts/client-libraries.md)
 
-<!-- Update_Description: wording update -->

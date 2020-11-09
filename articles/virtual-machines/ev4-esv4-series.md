@@ -8,23 +8,21 @@ ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 06/08/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9cbcc1fd1cd0833b99c62a74a379e6b3e68dbffc
-ms.sourcegitcommit: 5eb78078e370c9173a41f22ad8ea4bb45bc20312
+ms.openlocfilehash: 0bf5c5d8dd6c359e713e3ea39ba1cdace82f4e1a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088211"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103808"
 ---
 <!--Verified successfully from PG team confirmation-->
-<!--Pending GA on Q3 2020, only be suitable for China East 2 site-->
-<!--RELEASE BEFORE CONFIRME AND BE CAREFULLY-->
 # <a name="ev4-and-esv4-series"></a>Ev4 和 Esv4 系列
 
-Ev4 和 Esv4 系列在采用超线程配置的 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 处理器上运行，非常适合各种内存密集型企业应用程序，并且配备高达 504 GiB 的 RAM。 它具有 3.4 GHz 的持续全核心 Turbo 时钟速度。
+Ev4 和 Esv4 系列在采用超线程配置的 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 处理器上运行，非常适合各种内存密集型企业应用程序，并且配备高达 504 GiB 的 RAM。 它的全核睿频时钟速度达到 3.4 GHz。
 
 > [!NOTE]
 > 有关常见问题解答，请参阅[无本地临时磁盘的 Azure VM 规格](azure-vms-no-temp-disk.md)。
@@ -35,15 +33,13 @@ Ev4 系列规格在 Intel Xeon&reg; Platinum 8272CL (Cascade Lake) 处理器上�
 
 远程数据磁盘存储与虚拟机分开计费。 要使用高级存储磁盘，请使用 Esv4 规格。 Esv4 系列规格的定价和计费标准与 Ev4 系列相同。
 
-ACU：195 - 210
-
-高级存储：不支持
-
-高级存储缓存：不支持
-
-实时迁移：支持
-
-内存保留更新：支持
+[ACU](acu.md)：195 - 210<br />
+[高级存储](premium-storage-performance.md)：不支持<br />
+[高级存储缓存](premium-storage-performance.md)：不支持<br />
+[实时迁移](maintenance-and-updates.md)：支持<br />
+[内存保留更新](maintenance-and-updates.md)：支持<br />
+[VM 代系支持](generation-2.md)：第 1 代<br />
+<br />
 
 | 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大 NIC 数 | 预期的网络带宽 (Mbps) |
 |---|---|---|---|---|---|---|
@@ -60,15 +56,13 @@ ACU：195 - 210
 
 Esv4 系列规格在 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 处理器上运行。 Esv4 系列实例非常适合于内存密集型企业应用程序。 Esv4 系列 VM 采用 Intel&reg; 超线程技术。 远程数据磁盘存储与虚拟机分开计费。
 
-ACU：195-210
-
-高级存储：支持
-
-高级存储缓存：支持
-
-实时迁移：支持
-
-内存保留更新：支持
+[ACU](acu.md)：195-210<br />
+[高级存储](premium-storage-performance.md)：支持<br />
+[高级存储缓存](premium-storage-performance.md)：支持<br />
+[实时迁移](maintenance-and-updates.md)：支持<br />
+[内存保留更新](maintenance-and-updates.md)：支持<br />
+[VM 代系支持](generation-2.md)：第 1 代<br />
+<br />
 
 | 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大非缓存磁盘吞吐量：IOPS/MBps | 最大 NIC 数 | 预期的网络带宽 (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -101,6 +95,8 @@ ACU：195-210
 定价计算器：[定价计算器](https://www.azure.cn/pricing/calculator/)
 
 有关磁盘类型的详细信息：[磁盘类型](./disks-types.md)
+
+<!--Not Available on FEATURE ultra-disk-->
 
 ## <a name="next-steps"></a>后续步骤
 

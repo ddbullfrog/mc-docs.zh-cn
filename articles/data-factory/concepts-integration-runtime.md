@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 07/14/2020
-ms.date: 09/21/2020
-ms.openlocfilehash: 3949dd7b701efc94e8510c65295d34a893f08e33
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 11/02/2020
+ms.openlocfilehash: 8f6770b6ef05e1cb54084cb182f0b16d6f72fb11
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523710"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103836"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure 数据工厂中的集成运行时 
 
@@ -25,9 +25,9 @@ ms.locfileid: "90523710"
 
 集成运行时 (IR) 是 Azure 数据工厂用于在不同的网络环境之间提供以下数据集成功能的计算基础结构：
 
-- **数据移动**：跨公用网络中的数据存储和专用网络（本地或虚拟专用网络）中的数据存储复制数据。 它提供对内置连接器、格式转换、列映射以及性能和可扩展数据传输的支持。
-- **活动分派**：分派和监视在各种计算服务（如 Azure HDInsight、Azure SQL 数据库、SQL Server 等等）上运行的转换活动。
-- **SSIS 包执行**：在托管的 Azure 计算环境中本机执行 SQL Server 集成服务 (SSIS) 包。
+- **数据移动** ：跨公用网络中的数据存储和专用网络（本地或虚拟专用网络）中的数据存储复制数据。 它提供对内置连接器、格式转换、列映射以及性能和可扩展数据传输的支持。
+- **活动分派** ：分派和监视在各种计算服务（如 Azure HDInsight、Azure SQL 数据库、SQL Server 等等）上运行的转换活动。
+- **SSIS 包执行** ：在托管的 Azure 计算环境中本机执行 SQL Server 集成服务 (SSIS) 包。
 
 在数据工厂中，活动定义要执行的操作。 链接服务定义目标数据存储或计算服务。 集成运行时提供活动和链接服务之间的桥梁。  它被链接服务或活动引用，提供运行或分派活动的计算环境。 这样一来，可以在最接近目标数据存储的区域中执行活动，或者，以最优性能计算服务的同时满足安全和合规性需求。
 
@@ -69,7 +69,7 @@ Azure 集成运行时提供了使用安全、可靠和高性能的方式在云�
 
 活动分派是将活动路由到目标计算服务的轻型操作，因此，无需纵向扩展此方案的计算大小。
 
-有关创建和配置 Azure IR 的信息，请参阅操作方法指南下的“如何创建和配置 Azure IR”。 
+有关创建和配置 Azure IR 的信息，请参阅[如何创建和配置 Azure Integration Runtime](create-azure-integration-runtime.md)。 
 
 ## <a name="self-hosted-integration-runtime"></a>自承载集成运行时
 
@@ -164,9 +164,9 @@ IR 位置定义其后端计算的位置，尤其是执行数据移动、活动�
 
 对于复制活动，它需要使用源和接收器链接服务，以定义数据流的方向。 以下逻辑用于确定执行复制所使用的集成运行时实例的类型： 
 
-- **在两个云数据源之间复制**：当源和接收器链接服务都使用 Azure IR 时，ADF 会使用区域性的 Azure IR（如果已指定），或者自动确定 Azure IR 的位置，前提是你根据[集成运行时位置](#integration-runtime-location)部分的说明选择自动解析 IR（默认设置）。
-- **在云数据源和专用网络中的数据源之间复制**：如果源或接收器链接服务指向自承载 IR，则在该自承载集成运行时上执行复制活动。
-- **在专用网络中的两个数据源之间复制**：源和接收器链接服务必须同时指向同一集成运行时实例，且该集成运行时用于执行复制活动。
+- **在两个云数据源之间复制** ：当源和接收器链接服务都使用 Azure IR 时，ADF 会使用区域性的 Azure IR（如果已指定），或者自动确定 Azure IR 的位置，前提是你根据 [集成运行时位置](#integration-runtime-location)部分的说明选择自动解析 IR（默认设置）。
+- **在云数据源和专用网络中的数据源之间复制** ：如果源或接收器链接服务指向自承载 IR，则在该自承载集成运行时上执行复制活动。
+- **在专用网络中的两个数据源之间复制** ：源和接收器链接服务必须同时指向同一集成运行时实例，且该集成运行时用于执行复制活动。
 
 ### <a name="lookup-and-getmetadata-activity"></a>查找和 GetMetadata 活动
 

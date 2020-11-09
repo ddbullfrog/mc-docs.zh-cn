@@ -4,35 +4,33 @@ description: 本文介绍 Azure 数据资源管理器中的 parse_xml()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 0b62a5825b08038c74bf372b10068978b688e485
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 70b340934ba0121833636e8a7670fcc6cc81efe2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841351"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105043"
 ---
 # <a name="parse_xml"></a>parse_xml()
 
 将 `string` 解释为 XML 值，将值转换为 JSON，然后将值作为 `dynamic` 返回。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `parse_xml(`*xml*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * xml：`string` 类型的表达式，表示 XML 格式的值。
 
-**返回**
+## <a name="returns"></a>返回
 
 一个 [dynamic](./scalar-data-types/dynamic.md) 类型的对象（取决于 xml 的值）；如果 XML 格式无效，则其类型为 null。
-
-使用 [xml2json](https://github.com/Cheedoong/xml2json) 库将 XML 转换为 JSON。
 
 完成转换的方式如下：
 
@@ -48,10 +46,10 @@ XML                                |JSON                                        
 
 **备注**
 
-* `parse_xml` 的最大输入 `string` 长度为 128 KB。 更长的字符串解释会生成 null 对象 
+* `parse_xml` 的最大输入 `string` 长度为 1MB（1,048,576 字节）。 更长的字符串解释会生成 null 对象
 * 只会转换元素节点、属性和文本节点。 将跳过其他所有内容
  
-**示例**
+## <a name="example"></a>示例
 
 在以下示例中，如果 `context_custom_metrics` 是类似如下的 `string`： 
 
@@ -84,7 +82,7 @@ XML                                |JSON                                        
 }
 ```
 
-此外还会检索对象中 `duration` 槽的值，并从中检索两个槽：`duration.value` 和 `duration.min`（分别为 `118.0` 和 `110.0`）。
+此外还会检索对象中 `duration` 槽的值，并从中检索两个槽：`duration.value` 和 `duration.min`（分别为 `118.0` 和 `100.0`）。
 
 ```kusto
 T

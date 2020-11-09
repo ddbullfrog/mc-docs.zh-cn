@@ -1,6 +1,6 @@
 ---
 title: Kusto 更新策略管理 - Azure 数据资源管理器
-description: 本文介绍 Azure 数据资源管理器中的更新策略。
+description: 了解 Azure 数据资源管理器中的更新策略命令。 了解如何显示、设置、更改和删除表更新策略。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/04/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 513088fc0986856a9e199b550d758ff0f76c9b07
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 1752762fa9e19e351c9cdb41fe0d447011f40cd4
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516064"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105694"
 ---
 # <a name="update-policy-commands"></a>更新策略命令
 

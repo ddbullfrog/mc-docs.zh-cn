@@ -2,21 +2,22 @@
 title: Azure Application Insights 中的遥测通道 | Microsoft Docs
 description: 如何自定义适用于 .NET 和 .NET Core 的 Azure Application Insights SDK 中的遥测通道。
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
+author: Johnnytechn
 origin.date: 05/14/2019
-ms.date: 12/30/2019
-ms.author: v-lingwu
-ms.openlocfilehash: b95088b6d8ea80b6d22df02a6e2f29655b910b60
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/29/2020
+ms.custom: devx-track-csharp
+ms.author: v-johya
+ms.reviewer: mbullwin
+ms.openlocfilehash: 883e4c95809a0846335236c06638910585b4c122
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850356"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105655"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights 中的遥测通道
 
-遥测通道是 [Azure Application Insights SDK](../../azure-monitor/app/app-insights-overview.md) 不可或缺的组成部分。 它们可以管理缓冲以及将遥测数据传输到 Application Insights 服务的过程。 SDK 的 .NET 和 .NET Core 版本包含两个内置的遥测通道：`InMemoryChannel` 和 `ServerTelemetryChannel`。 本文将详细介绍每个通道，包括如何自定义通道行为。
+遥测通道是 [Azure Application Insights SDK](./app-insights-overview.md) 不可或缺的组成部分。 它们可以管理缓冲以及将遥测数据传输到 Application Insights 服务的过程。 SDK 的 .NET 和 .NET Core 版本包含两个内置的遥测通道：`InMemoryChannel` 和 `ServerTelemetryChannel`。 本文将详细介绍每个通道，包括如何自定义通道行为。
 
 ## <a name="what-are-telemetry-channels"></a>什么是遥测通道？
 
@@ -34,7 +35,7 @@ Application Insights .NET 和 .NET Core SDK 随附了两个内置通道：
 
     此通道随附在较大的 Microsoft.ApplicationInsights NuGet 包中，是未配置任何其他通道时，SDK 使用的默认通道。
 
-* `ServerTelemetryChannel`：一个更高级的通道，它具有重试策略，并可以在本地磁盘上存储数据。 如果发生暂时性错误，此通道会重试发送遥测数据。 在网络中断或者遥测量较高时，此通道还会使用本地磁盘存储在磁盘上保留项。 由于这些重试机制和本地磁盘存储，我们认为此通道更可靠，建议在所有生产方案中使用。 此通道是根据官方文档配置的 [ASP.NET](/azure-monitor/app/asp-net) 和 [ASP.NET Core](/azure-monitor/app/asp-net-core) 应用程序的默认通道。 此通道已针对长时间运行的服务器方案进行优化。 此通道实现的 [`Flush()`](#which-channel-should-i-use) 方法不是同步的。
+* `ServerTelemetryChannel`：一个更高级的通道，它具有重试策略，并可以在本地磁盘上存储数据。 如果发生暂时性错误，此通道会重试发送遥测数据。 在网络中断或者遥测量较高时，此通道还会使用本地磁盘存储在磁盘上保留项。 由于这些重试机制和本地磁盘存储，我们认为此通道更可靠，建议在所有生产方案中使用。 此通道是根据官方文档配置的 [ASP.NET](./asp-net.md) 和 [ASP.NET Core](./asp-net-core.md) 应用程序的默认通道。 此通道已针对长时间运行的服务器方案进行优化。 此通道实现的 [`Flush()`](#which-channel-should-i-use) 方法不是同步的。
 
     此通道作为 Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel NuGet 包交付，使用 Microsoft.ApplicationInsights.Web 或 Microsoft.ApplicationInsights.AspNetCore NuGet 包时可自动获取它。
 
@@ -42,7 +43,7 @@ Application Insights .NET 和 .NET Core SDK 随附了两个内置通道：
 
 可以通过将遥测通道设置为活动的遥测配置来配置该遥测通道。 对于 ASP.NET 应用程序，配置过程涉及到将遥测通道实例设置为 `TelemetryConfiguration.Active`，或修改 `ApplicationInsights.config`。 对于 ASP.NET Core 应用程序，配置过程涉及到将通道添加到依赖项注入容器。
 
-以下部分演示如何在各种应用程序类型中配置通道的 `StorageFolder` 设置。 `StorageFolder` 只是可配置的设置之一。 有关配置设置的完整列表，请参阅本文稍后的[设置部分](telemetry-channels.md#configurable-settings-in-channels)。
+以下部分演示如何在各种应用程序类型中配置通道的 `StorageFolder` 设置。 `StorageFolder` 只是可配置的设置之一。 有关配置设置的完整列表，请参阅本文稍后的[设置部分](#configurable-settings-in-channels)。
 
 ### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>使用适用于 ASP.NET 应用程序的 ApplicationInsights.Config 进行配置
 
@@ -119,9 +120,9 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 有关每个通道的可配置设置完整列表，请参阅：
 
-* [InMemoryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Channel/InMemoryChannel.cs)
+* [InMemoryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/Microsoft.ApplicationInsights/Channel/InMemoryChannel.cs)
 
-* [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)
+* [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)
 
 下面是 `ServerTelemetryChannel` 的最常用设置：
 
@@ -155,13 +156,25 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 尽管该通道的包和命名空间名称包含“WindowsServer”，但非 Windows 系统也支持此通道，不过存在以下例外情况。 在非 Windows 系统中，该通道默认不会创建本地存储文件夹。 必须创建本地存储文件夹，并将通道配置为使用该文件夹。 配置本地存储后，该通道在所有系统中的工作方式相同。
 
+> [!NOTE]
+> 随着 2.15.0-beta3 版的推出，现可为 Linux、Mac 和 Windows 自动创建更大的本地存储。 对于非 Windows 系统，SDK 将根据以下逻辑自动创建本地存储文件夹：
+> - `${TMPDIR}` - 如果设置了 `${TMPDIR}` 环境变量，则使用此位置。
+> - `/var/tmp` - 如果前一个位置不存在，请尝试 `/var/tmp`。
+> - `/tmp` - 如果前两个位置都不存在，请尝试 `tmp`。 
+> - 如果这些位置都不存在，则不会创建本地存储，且仍然需要手动配置。 [了解有关实现的完整详细信息](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860)。
+
 ### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>SDK 是否创建临时本地存储？ 存储中的数据是否会加密？
 
 出现网络问题或限制时，SDK 会将遥测项存储在本地存储中。 此数据不会在本地加密。
 
 对于 Windows 系统，SDK 会自动在 %TEMP% 或 %LOCALAPPDATA% 目录中创建临时本地文件夹，并仅限管理员和当前用户访问该文件夹。
 
-对于非 Windows 系统，SDK 不会自动创建本地存储，因此默认不会在本地存储数据。 你可以自行创建存储目录，并将通道配置为使用该目录。 在这种情况下，你需负责确保该目录受到保护。
+对于非 Windows 系统，SDK 不会自动创建本地存储，因此默认不会在本地存储数据。
+
+> [!NOTE]
+> 随着 2.15.0-beta3 版的推出，现可为 Linux、Mac 和 Windows 自动创建更大的本地存储。 
+
+ 你可以自行创建存储目录，并将通道配置为使用该目录。 在这种情况下，你需负责确保该目录受到保护。
 详细了解[数据保留和隐私](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)。
 
 ## <a name="open-source-sdk"></a>开源 SDK
@@ -169,5 +182,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 ## <a name="next-steps"></a>后续步骤
 
-* [采样](../../azure-monitor/app/sampling.md)
-* [SDK 故障排除](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [采样](./sampling.md)
+* [SDK 故障排除](./asp-net-troubleshoot-no-data.md)
+
+

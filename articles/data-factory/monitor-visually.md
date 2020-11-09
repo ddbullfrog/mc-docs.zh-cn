@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 06/30/2020
-ms.date: 07/27/2020
-ms.openlocfilehash: d6dd5979e99834fea7d502e56baa98884012f783
-ms.sourcegitcommit: 0eaa82cf74477d26d06bdd8fb6e715e6ed1339c4
+ms.date: 11/02/2020
+ms.openlocfilehash: 76e6372a45b6c8a4ebc5823543e42b5d60d1b0bb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86974330"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106179"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>以可视化方式监视 Azure 数据工厂
 
@@ -37,7 +37,7 @@ ms.locfileid: "86974330"
 | 运行开始时间 | 管道运行的开始日期和时间（MM/DD/YYYY，HH:MM:SS AM/PM） |
 | 持续时间 | 运行持续时间 (HH:MM:SS) |
 | 触发者 | 启动了管道的触发器的名称 |
-| 状态 | **失败**、**成功**、**正在进行**、**已取消**或**已排队** |
+| 状态 | **失败** 、 **成功** 、 **正在进行** 、 **已取消** 或 **已排队** |
 | 批注 | 与管道关联的可筛选标记  |
 | parameters | 管道运行的参数（名称/值对） |
 | 错误 | 在管道失败的情况下出现的运行错误 |
@@ -60,7 +60,7 @@ ms.locfileid: "86974330"
 | 操作 | 图标，用于查看 JSON 输入信息、JSON 输出信息或详细的特定于活动的监视体验 | 
 | 运行开始时间 | 活动运行的开始日期和时间（MM/DD/YYYY，HH:MM:SS AM/PM） |
 | 持续时间 | 运行持续时间 (HH:MM:SS) |
-| 状态 | **失败**、**成功**、**正在进行**或**已取消** |
+| 状态 | **失败** 、 **成功** 、 **正在进行** 或 **已取消** |
 | Integration Runtime | 运行活动时所在的 Integration Runtime |
 | 用户属性 | 活动的用户定义属性 |
 | 错误 | 在活动失败的情况下出现的运行错误 |
@@ -95,7 +95,7 @@ ms.locfileid: "86974330"
 | --- | --- |
 | 管道名称 | 按管道名称筛选。 |
 | 运行开始时间 |  确定所显示的管道运行的时间范围。 选项包括针对“过去 24 小时”、“过去一周”、“过去 30 天”的快速筛选器，还可以选择一个自定义日期和时间。 |
-| 运行状态 | 按状态筛选运行：**成功**、**失败**、**已排队**、**已取消**或**正在进行**。 |
+| 运行状态 | 按状态筛选运行： **成功** 、 **失败** 、 **已排队** 、 **已取消** 或 **正在进行** 。 |
 | 批注 | 按应用到每个管道的标记进行筛选 |
 | 运行次数 | 筛选是否要查看重新运行的管道 |
 
@@ -137,7 +137,7 @@ ms.locfileid: "86974330"
 
 通过单击管道运行旁边的消耗图标，可以查看运行消耗的资源。 
 
-![监视消耗](media/monitor-visually/monitor-consumption-1.png)
+![屏幕截图显示了可查看管道所用资源的位置。](media/monitor-visually/monitor-consumption-1.png)
 
 单击此图标会打开相应管道运行所使用的资源的消耗报告。 
 
@@ -187,7 +187,7 @@ ms.locfileid: "86974330"
 
     ![目标条件的框](media/monitor-visually/add-criteria-1.png)
 
-    ![条件列表](media/monitor-visually/add-criteria-2.png)
+    ![屏幕截图显示了选择一个指标来设置警报条件的位置。](media/monitor-visually/add-criteria-2.png)
 
     ![条件列表](media/monitor-visually/add-criteria-3.png)
 

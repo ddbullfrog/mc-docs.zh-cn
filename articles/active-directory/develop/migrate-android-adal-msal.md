@@ -1,28 +1,25 @@
 ---
 title: 适用于 Android 的 ADAL 到 MSAL 迁移指南 | Azure
+titleSuffix: Microsoft identity platform
 description: 了解如何将 Azure Active Directory 身份验证库 (ADAL) Android 应用迁移到 Microsoft 身份验证库 (MSAL)。
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
-origin.date: 09/06/2019
-ms.date: 11/26/2019
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578eb213bda62137db347b9f4c0edc0987366f5b
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a856d88dd8120f0e0a74cfa9926b8d387ab74297
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74655366"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749970"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>适用于 Android 的 ADAL 到 MSAL 迁移指南
 
@@ -69,7 +66,7 @@ MSAL 公共 API 引入了重要的更改，其中包括：
 
 ### <a name="user-consent"></a>用户同意
 
-首次使用 ADAL 和 AAD v1 终结点时，就会授予用户对其拥有的资源的许可。 通过 MSAL 和 Microsoft 标识平台时，可以增量请求许可。 对于被用户视为高特权的权限，或者对为何需要某个权限提供明确的解释时，增量许可非常有用。 在 ADAL 中，这些权限可能导致用户放弃应用登录。
+首次使用 ADAL 和 Azure AD v1 终结点时，就会授予用户对其拥有的资源的许可。 通过 MSAL 和 Microsoft 标识平台时，可以增量请求许可。 对于被用户视为高特权的权限，或者对为何需要某个权限提供明确的解释时，增量许可非常有用。 在 ADAL 中，这些权限可能导致用户放弃应用登录。
 
 > [!TIP]
 > 如果需要向用户提供额外的上下文来解释为何应用需要某个权限，我们建议使用增量许可。
@@ -231,8 +228,6 @@ public interface SilentAuthenticationCallback {
      */
     void onError(final MsalException exception);
 }
-
-
 ```
 
 ## <a name="migrate-to-the-new-exceptions"></a>迁移到新的异常
@@ -240,21 +235,29 @@ public interface SilentAuthenticationCallback {
 在 ADAL 中，有一个异常类型 `AuthenticationException` 包含用于检索 `ADALError` 枚举值的方法。
 MSAL 中提供异常层次结构，每个异常具有自身的一组关联的特定错误代码。
 
-MSAL 异常列表
+| 例外                                        | 描述                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| `MsalArgumentException`                          | 当一个或多个输入参数无效时引发。                 |
+| `MsalClientException`                            | 当错误在客户端上发生时引发。                                 |
+| `MsalDeclinedScopeException`                     | 当服务器拒绝了一个或多个请求的范围时引发。 |
+| `MsalException`                                  | MSAL 引发的默认选择异常。                           |
+| `MsalIntuneAppProtectionPolicyRequiredException` | 当资源启用了 MAMCA 保护策略时引发。         |
+| `MsalServiceException`                           | 当错误在服务器端上发生时引发。                                 |
+| `MsalUiRequiredException`                        | 当令牌无法以静默方式刷新时引发。                    |
+| `MsalUserCancelException`                        | 当用户取消了身份验证流时引发。                |
 
-|异常  | 说明  |
-|---------|---------|
-| `MsalException`     | MSAL 引发的默认选择异常。  |
-| `MsalClientException`     | 当错误在客户端上发生时引发。 |
-| `MsalArgumentException`     | 当一个或多个输入参数无效时引发。 |
-| `MsalClientException`     | 当错误在客户端上发生时引发。 |
-| `MsalServiceException`     | 当错误在服务器端上发生时引发。 |
-| `MsalUserCancelException`     | 当用户取消了身份验证流时引发。  |
-| `MsalUiRequiredException`     | 当令牌无法以静默方式刷新时引发。  |
-| `MsalDeclinedScopeException`     | 当服务器拒绝了一个或多个请求的范围时引发。  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | 当资源启用了 MAMCA 保护策略时引发。 |
+### <a name="adalerror-to-msalexception-translation"></a>ADALError 到 MsalException 转换
 
-### <a name="adalerror-to-msalexception-errorcode"></a>ADALError 到 MsalException ErrorCode
+| 如果你在 ADAL 中发现这些错误  | 捕获到以下 MSAL 异常：                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| 无等效 ADALError | `MsalArgumentException`                          |
+| <ul><li>`ADALError.ANDROIDKEYSTORE_FAILED`<li>`ADALError.AUTH_FAILED_USER_MISMATCH`<li>`ADALError.DECRYPTION_FAILED`<li>`ADALError.DEVELOPER_AUTHORITY_CAN_NOT_BE_VALIDED`<li>`ADALError.EVELOPER_AUTHORITY_IS_NOT_VALID_INSTANCE`<li>`ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_URL`<li>`ADALError.DEVICE_CONNECTION_IS_NOT_AVAILABLE`<li>`ADALError.DEVICE_NO_SUCH_ALGORITHM`<li>`ADALError.ENCODING_IS_NOT_SUPPORTED`<li>`ADALError.ENCRYPTION_ERROR`<li>`ADALError.IO_EXCEPTION`<li>`ADALError.JSON_PARSE_ERROR`<li>`ADALError.NO_NETWORK_CONNECTION_POWER_OPTIMIZATION`<li>`ADALError.SOCKET_TIMEOUT_EXCEPTION`</ul> | `MsalClientException`                            |
+| 无等效 ADALError | `MsalDeclinedScopeException`                     |
+| <ul><li>`ADALError.APP_PACKAGE_NAME_NOT_FOUND`<li>`ADALError.BROKER_APP_VERIFICATION_FAILED`<li>`ADALError.PACKAGE_NAME_NOT_FOUND`</ul> | `MsalException`                                  |
+| 无等效 ADALError | `MsalIntuneAppProtectionPolicyRequiredException` |
+| <ul><li>`ADALError.SERVER_ERROR`<li>`ADALError.SERVER_INVALID_REQUEST`</ul> | `MsalServiceException`                           |
+| <ul><li>`ADALError.AUTH_REFRESH_FAILED_PROMPT_NOT_ALLOWED` | `MsalUiRequiredException`</ul>                        |
+| 无等效 ADALError | `MsalUserCancelException`                        |
 
 ### <a name="adal-logging-to-msal-logging"></a>ADAL 日志记录到 MSAL 日志记录
 
@@ -301,4 +304,3 @@ public enum LogLevel
 }
 ```
 
-<!-- Update_Description: wording update -->

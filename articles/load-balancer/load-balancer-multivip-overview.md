@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/07/2019
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: 8e7fb1b242d00560c7962d0710dd413557e31a0c
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: a14478ab407506dca0ae6f814fa9cf9aad7270d2
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943462"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628213"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure 负载均衡器的多个前端
 
@@ -65,8 +65,8 @@ DIP 是入站流量的目标。 在后端池中，每个 VM 公开 DIP 上唯一
 
 | 规则 | 映射前端 | 目标后端池 |
 | --- | --- | --- |
-| 1 |![绿色前端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![后端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![后端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![后端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![后端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![绿色前端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![绿色后端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![绿色后端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![紫色后端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![紫色后端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 现在，Azure 负载均衡器的完整映射如下：
 
@@ -144,8 +144,8 @@ netsh interface ipv4 set interface "interfacename" weakhostsend=enabled
 
 | 规则 | 前端 | 映射到后端池 |
 | --- | --- | --- |
-| 1 |![规则 (rule)](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![后端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80（在 VM1 和 VM2 中） |
-| 2 |![规则 (rule)](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![后端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80（在 VM1 和 VM2 中） |
+| 1 |![绿色规则](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![绿色后端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80（在 VM1 和 VM2 中） |
+| 2 |![紫色规则](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![紫色后端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80（在 VM1 和 VM2 中） |
 
 下表显示负载均衡器中的完整映射：
 

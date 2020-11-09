@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: v-yiso
 author: sdgilley
-ms.date: 08/25/2020
-ms.openlocfilehash: ead37130e8963964e6d622e517e60505aaf0371a
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.date: 10/02/2020
+ms.openlocfilehash: 397eaf216c66ea8d59d5a32bd43c9acb5ab93fb2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118534"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104768"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>什么是 Azure 机器学习计算实例？
 
@@ -24,7 +24,7 @@ Azure 机器学习计算实例是面向数据科学家的基于云的托管式�
 
 可以使用计算实例作为在云中进行机器学习的完全配置和托管的开发环境。 还可以在开发和测试中将它们用作训练和推理的计算目标。  
 
-对于生产级模型训练，请使用具有多节点缩放功能的 [Azure 机器学习计算群集](how-to-create-attach-compute-sdk.md#amlcompute)。 对于生产级模型部署，请使用 [Azure Kubernetes 服务群集](how-to-deploy-azure-kubernetes-service.md)。
+对于生产级模型训练，请使用具有多节点缩放功能的 [Azure 机器学习计算群集](how-to-create-attach-compute-cluster.md)。 对于生产级模型部署，请使用 [Azure Kubernetes 服务群集](how-to-deploy-azure-kubernetes-service.md)。
 
 ## <a name="why-use-a-compute-instance"></a>为何使用计算实例？
 
@@ -32,10 +32,12 @@ Azure 机器学习计算实例是面向数据科学家的基于云的托管式�
 
 |主要优点|描述|
 |----|----|
-|工作效率|可以在 Azure 机器学习工作室中使用集成的笔记本及以下工具来构建和部署模型：<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio（预览版）<br/>计算实例与 Azure 机器学习工作区和工作室完全集成。 你可以与工作区中的其他数据科学家共享笔记本和数据。 你还可以使用 [SSH](how-to-set-up-vs-code-remote.md) 设置 VS Code 远程开发 |
-|无需自行管理且安全|减少安全保护工作，增强企业的安全要求合规性。 计算实例提供可靠的管理策略和安全网络配置，例如：<br/><br/>- 通过资源管理器模板或 Azure 机器学习 SDK 自动预配<br/>- [Azure 基于角色的访问控制 (Azure RBAC)](/role-based-access-control/overview)<br/>- [虚拟网络支持](how-to-enable-virtual-network.md#compute-instance)<br/>- 用于启用/禁用 SSH 访问的 SSH 策略<br/>已启用 TLS 1.2 |
+|工作效率|可以在 Azure 机器学习工作室中使用集成的笔记本及以下工具来构建和部署模型：<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio（预览版）<br/>计算实例与 Azure 机器学习工作区和工作室完全集成。 你可以与工作区中的其他数据科学家共享笔记本和数据。<br/> 你还可以在计算实例中使用 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630)。
+|无需自行管理且安全|减少安全保护工作，增强企业的安全要求合规性。 计算实例提供可靠的管理策略和安全网络配置，例如：<br/><br/>- 通过资源管理器模板或 Azure 机器学习 SDK 自动预配<br/>- [Azure 基于角色的访问控制 (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [虚拟网络支持](how-to-enable-virtual-network.md#compute-instance)<br/>- 用于启用/禁用 SSH 访问的 SSH 策略<br/>已启用 TLS 1.2 |
 |已针对 ML 进行了预配置|使用预配置的最新 ML 包、深度学习框架和 GPU 驱动程序完成设置任务，可节省时间。|
 |完全可自定义|支持多种 Azure VM 类型，包括 GPU 和持久性低级自定义，例如，安装相应的包和驱动程序可以轻而易举地实现高级方案。 |
+
+你可以自行[创建计算实例](how-to-create-manage-compute-instance.md?tabs=python#create)，也可以让管理员[为你创建计算实例](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview)。
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>工具和环境
 
@@ -45,8 +47,11 @@ Azure 机器学习计算实例是面向数据科学家的基于云的托管式�
 
 使用 Azure 机器学习计算实例可以在工作区中的完全集成式笔记本体验中创作、训练和部署模型。
 
+使用计算实例作为远程服务器，无需 SSH 即可在 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) 中运行 Jupyter 笔记本。 也可以通过[远程 SSH 扩展](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/)启用 VS Code 集成。
 
-以下工具和环境安装在计算实例上： 
+可以[安装包](how-to-create-manage-compute-instance.md#install-packages)，然后在计算实例中[添加内核](how-to-create-manage-compute-instance.md#add-new-kernels)。  
+
+计算实例上已安装以下工具和环境： 
 
 |常规工具和环境|详细信息|
 |----|:----:|
@@ -79,44 +84,6 @@ Azure 机器学习计算实例是面向数据科学家的基于云的托管式�
 
 Python 包都安装在 **Python 3.6 - AzureML** 环境中。  
 
-### <a name="installing-packages"></a>安装包
-
-可以直接在 Jupyter Notebook 或 RStudio 中安装包：
-
-* RStudio 使用右下的“包”选项卡或左上的“控制台”选项卡。  
-* Python:添加安装代码并在 Jupyter 笔记本单元中执行它。
-
-也可通过以下任一方式访问终端窗口：
-
-* RStudio：选择左上的“终端”选项卡。
-* Jupyter 实验室：选择“启动器”选项卡中“其他”标题下的“终端”磁贴。
-* Jupyter：在“文件”选项卡的右上方选择“新建>“终端”。
-* 通过 SSH 连接到计算机。  然后，将 Python 包安装到 **Python 3.6 - AzureML** 环境中。  将 R 包安装到 **R** 环境中。
-
-### <a name="add-new-kernels"></a>添加新内核
-
-若要向计算实例添加新 Jupyter 内核，请执行以下步骤：
-
-1. 从 Jupyter、JupyterLab 或笔记本窗格创建新终端，或者通过 SSH 登录到计算实例
-2. 使用终端窗口创建新环境。  例如，以下代码会创建 `newenv`：
-    ```shell
-    conda create --name newenv
-    ```
-3. 激活该环境。  例如，创建 `newenv` 的结果如下：
-
-    ```shell
-    conda activate newenv
-    ```
-4. 在新环境中安装 pip 和 ipykernel 包，并为该 conda 环境创建内核
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-可以安装任何[可用的 Jupyter 内核](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)。
-
 ## <a name="accessing-files"></a>访问文件
 
 笔记本和 R 脚本存储在 Azure 文件共享中工作区的默认存储帐户内。  这些文件位于“用户文件”目录下。 通过此存储可以轻松地在计算实例之间共享笔记本。 停止或删除计算实例时，存储帐户还会安全保存笔记本。
@@ -141,7 +108,7 @@ Python 包都安装在 **Python 3.6 - AzureML** 环境中。
 
 * [创建计算实例](#create)。 
 * 刷新“计算实例”选项卡。
-* 启动、停止和重启计算实例。  只要实例在运行，你就需要为其付费。 不使用计算实例时，请将其停止，以便降低成本。 停止计算实例会将其解除分配。 然后在需要时重启。 
+* 启动、停止和重启计算实例。  只要实例在运行，你就需要为其付费。 不使用计算实例时，请将其停止，以便降低成本。 停止计算实例会将其解除分配。 然后在需要时重启。
 * 删除计算实例。
 * 筛选计算实例列表，以仅显示已创建的实例。
 
@@ -169,7 +136,7 @@ Python 包都安装在 **Python 3.6 - AzureML** 环境中。
 * 直接从[集成式笔记本体验](tutorial-1st-experiment-sdk-setup.md#azure)
 * 在 Azure 门户中配置
 * 通过 Azure 资源管理器模板。 有关示例模板，请参阅[创建 Azure 机器学习计算实例模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)。
-* 使用 Azure 机器学习 SDK
+* 使用 [Azure 机器学习 SDK](/machine-learning/concept-compute-instance)
 * 从 [Azure 机器学习的 CLI 扩展](reference-azure-machine-learning-cli.md#computeinstance)
 
 应用于计算实例创建过程的每区域每 VM 系列专用核心数配额和区域总配额 与 Azure 机器学习训练计算群集配额统一并共享。 停止计算实例不会释放配额，因此无法确保你能够重启计算实例。
@@ -190,7 +157,7 @@ Python 包都安装在 **Python 3.6 - AzureML** 环境中。
 
 计算实例即将取代 Notebook VM。  
 
-任何存储在工作区文件共享中的笔记本文件和工作区数据存储中的数据都可以从计算实例访问。 但是，以前安装在 Notebook VM 上的任何自定义包都需要在计算实例上重新安装。 创建计算群集时适用的配额限制在创建计算实例时同样适用。 
+任何存储在工作区文件共享中的笔记本文件和工作区数据存储中的数据都可以从计算实例访问。 但是，以前安装在 Notebook VM 上的任何自定义包都需要在计算实例上重新安装。 创建计算群集时适用的配额限制在创建计算实例时同样适用。
 
 不能创建新的 Notebook VM。 但你仍然可以访问和使用已创建的 Notebook VM 及其完整功能。 可以在现有 Notebook VM 所在的同一工作区中创建计算实例。 
 

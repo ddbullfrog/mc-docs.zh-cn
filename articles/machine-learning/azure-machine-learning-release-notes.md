@@ -9,18 +9,79 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 9261d48fff0fe1272d238217ab320a9f483d65f5
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 6de032084831b02b2545e37d6617ef64e498f412
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117995"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106177"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 机器学习发行说明
 
 本文介绍 Azure 机器学习的版本。  有关完整的 SDK 参考内容，请访问 Azure 机器学习的 [**适用于 Python 的主要 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 参考页。
 
 请参阅[已知问题列表](resource-known-issues.md)了解已知 bug 和解决方法。
+
+## <a name="2020-10-12"></a>2020-10-12
+
+### <a name="azure-machine-learning-sdk-for-python-v1160"></a>用于 Python 的 Azure 机器学习 SDK v1.16.0
++ **Bug 修复与改进**
+  + **azure-cli-ml**
+    + AKSWebservice 和 AKSEndpoints 现支持 Pod 级别的 CPU 和内存资源限制。 可以通过在适用的 CLI 调用中设置 `--cpu-cores-limit` 和 `--memory-gb-limit` 标志来使用这些可选限制
+  + **azureml-core**
+    + 固定 azureml-core 直接依赖项的主版本
+    + AKSWebservice 和 AKSEndpoints 现支持 Pod 级别的 CPU 和内存资源限制。 有关详细信息，请参阅 [Kubernetes 资源和限制](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
+    + 更新了 run.log_table 以允许记录各个行。
+    + 添加了静态方法 `Run.get(workspace, run_id)` 以仅使用工作区来检索运行 
+    + 添加了实例方法 `Workspace.get_run(run_id)` 以检索工作区内的运行
+    + 在运行配置中引入命令属性，允许用户提交命令而不是脚本和参数。
+  + **azureml-interpret**
+    + 修复了 azureml-interpret 中的解释客户端 is_raw 标志行为
+  + **azureml-sdk**
+    + `azureml-sdk` 正式支持 Python 3.8。
+  + **azureml-train-core**
+    + 添加了 TensorFlow 2.3 特选环境
+    + 在运行配置中引入命令属性，允许用户提交命令而不是脚本和参数。
+  + **azureml-widgets**
+    + 重新设计了脚本运行小组件的界面。
+
+
+## <a name="2020-09-28"></a>2020-09-28
+
+### <a name="azure-machine-learning-sdk-for-python-v1150"></a>用于 Python 的 Azure 机器学习 SDK v1.15.0
++ **Bug 修复与改进**
+  + **azureml-contrib-interpret**
+    + LIME 解释器已从 azureml-contrib-interpret 迁移到 interpret-community 包，并已从 azureml-contrib-interpret 包中删除映像解释器
+    + 已从 azureml-contrib-interpret 包中删除可视化仪表板，解释客户端已迁移到 azureml-interpret 包并且在 azureml-contrib-interpret 包中已弃用，笔记本已更新以反映改进的 API
+    + 修正了 azureml-interpret、azureml-explain-model、azureml-contrib-interpret 和 azureml-tensorboard 的 pypi 包说明
+  + **azureml-contrib-notebook**
+    + 将 nbcovert 依赖项固定为 < 6，以便 papermill 1.x 继续正常运行。
+  + **azureml-core**
+    + 向 TensorflowConfiguration 和 MpiConfiguration 构造函数添加了参数，以便在无需用户设置每个独立属性的情况下，进一步简化对类属性的初始化操作。 添加了 PyTorchConfiguration 类，以在 ScriptRunConfig 中配置分布式 PyTorch 作业。
+    + 固定 azure-mgmt-resource 的版本，以修复身份验证错误。
+    + 支持 Triton 无代码部署
+    + 现在，在交互式场景中使用 run 时，将跟踪 Run.start_logging() 中指定的输出目录。 调用 Run.complete() 后，跟踪的文件将在 ML 工作室上可见
+    + 现在，在使用 `Dataset.Tabular.from_delimited_files` 和 `Dataset.Tabular.from_json_lines_files` 创建数据集期间，可以通过传递 `encoding` 参数来指定文件编码。 支持的编码如下：“utf8”、“iso88591”、“latin1”、“ascii”、“utf16”、“utf32”、“utf8bom”和“windows1252”。
+    + 修复了环境对象未传递到 ScriptRunConfig 构造函数的 bug。
+    + 更新了 Run.cancel() 以允许从其他计算机取消本地运行。
+  + **azureml-dataprep**
+    +  修复了数据集安装超时问题。
+  + **azureml-explain-model**
+    + 修正了 azureml-interpret、azureml-explain-model、azureml-contrib-interpret 和 azureml-tensorboard 的 pypi 包说明
+  + **azureml-interpret**
+    + 已从 azureml-contrib-interpret 包中删除可视化仪表板，解释客户端已迁移到 azureml-interpret 包并且在 azureml-contrib-interpret 包中已弃用，笔记本已更新以反映改进的 API
+    + 更新了 azureml-interpret，使其依赖于 interpret-community 0.15.0
+    + 修正了 azureml-interpret、azureml-explain-model、azureml-contrib-interpret 和 azureml-tensorboard 的 pypi 包说明
+  + **azureml-pipeline-core**
+    +  修复了 `OutputFileDatasetConfig` 的管道问题，即在 `name` 参数设置为预先存在的数据集名称的情况下调用 `register_on_complete` 时，系统可能会停止响应。
+  + **azureml-pipeline-steps**
+    + 删除了过时的 Databricks 笔记本。
+  + **azureml-tensorboard**
+    + 修正了 azureml-interpret、azureml-explain-model、azureml-contrib-interpret 和 azureml-tensorboard 的 pypi 包说明
+  + **azureml-train-automl-runtime**
+    + 已从 azureml-contrib-interpret 包中删除可视化仪表板，解释客户端已迁移到 azureml-interpret 包并且在 azureml-contrib-interpret 包中已弃用，笔记本已更新以反映改进的 API
+  + **azureml-widgets**
+    + 已从 azureml-contrib-interpret 包中删除可视化仪表板，解释客户端已迁移到 azureml-interpret 包并且在 azureml-contrib-interpret 包中已弃用，笔记本已更新以反映改进的 API
 
 ## <a name="2020-09-21"></a>2020-09-21
 

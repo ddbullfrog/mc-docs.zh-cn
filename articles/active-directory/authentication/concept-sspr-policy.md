@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 8334e1febd07f4f01bd0dee0444cfd3b8d25f6e8
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 93805bad93a805fad6603a83b4a0013da584dd8b
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244729"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750004"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和账户限制
 
@@ -43,9 +43,11 @@ ms.locfileid: "91244729"
 
 密码策略应用于直接在 Azure AD 中创建和管理的所有用户帐户。
 
-除非启用 EnforceCloudPasswordPolicyForPasswordSyncedUsers，否则密码策略不适用于使用 Azure AD Connect 从本地 AD DS 环境同步的用户帐户。
+默认情况下，使用错误的密码尝试登录 10 次失败后，帐户会被锁定。 用户会被锁定一分钟。 后续的错误登录尝试会增加用户被锁定的时间。 智能锁定跟踪最后三个错误的密码哈希，以避免对相同密码增大锁定计数器。 如果有人多次输入同一个错误密码，此行为不会导致帐户被锁定。你可以定义智能锁定阈值和持续时间。
 
-定义了下列密码策略选项：
+除非启用 EnforceCloudPasswordPolicyForPasswordSyncedUsers，否则 Azure AD 密码策略不适用于使用 Azure AD Connect 从本地 AD DS 环境同步的用户帐户。
+
+定义了以下 Azure AD 密码策略选项。 除非另行说明，否则无法更改这些设置：
 
 | 属性 | 要求 |
 | --- | --- |
@@ -54,14 +56,13 @@ ms.locfileid: "91244729"
 | 密码限制 |<ul><li>至少 8 个字符，最多包含 256 个字符。</li><li>需满足以下 4 项中的 3 项：<ul><li>小写字符。</li><li>大写字符。</li><li>数字 (0-9)。</li><li>符号（请参阅前面的密码限制）。</li></ul></li></ul> |
 | 密码过期期限（最长密码期限） |<ul><li>默认值：“90”天。</li><li>可通过 Windows PowerShell 的 Azure Active Directory 模块中的 `Set-MsolPasswordPolicy` cmdlet 来配置该值。</li></ul> |
 | 密码到期通知（何时通知用户密码到期） |<ul><li>默认值：“14”天（密码到期前）。</li><li>可使用 `Set-MsolPasswordPolicy` cmdlet 配置该值。</li></ul> |
-| 密码过期（让密码永不过期） |<ul><li>默认值：**false**（指示密码有到期日期）。</li><li>可使用 `Set-MsolUser` cmdlet 配置单个用户帐户的值。</li></ul> |
-| 密码更改历史记录 | 用户更改密码时，上一个密码*不能*再次使用。 |
-| 密码重置历史记录 | 用户重置忘记的密码时，上一个密码*可以*再次使用。 |
-| 帐户锁定 | 使用错误密码 10 次登录尝试失败之后，用户会被锁定一分钟。 后续的错误登录尝试会增加用户被锁定的时间。 智能锁定跟踪最后三个错误的密码哈希，以避免对相同密码增大锁定计数器。 如果有人多次输入同一个错误密码，此行为不会导致帐户被锁定。 |
+| 密码过期（让密码永不过期） |<ul><li>默认值： **false** （指示密码有到期日期）。</li><li>可使用 `Set-MsolUser` cmdlet 配置单个用户帐户的值。</li></ul> |
+| 密码更改历史记录 | 用户更改密码时，上一个密码 *不能* 再次使用。 |
+| 密码重置历史记录 | 用户重置忘记的密码时，上一个密码 *可以* 再次使用。 |
 
 ## <a name="administrator-reset-policy-differences"></a>管理员重置策略差异
 
-Microsoft 为任意 Azure 管理员角色强制实施默认强*双门*密码重置策略。 此策略可能与你为用户定义的策略不同，因此无法更改此策略。 你应始终以未被分配任何 Azure 管理员角色的用户身份测试密码重置功能。
+默认情况下，将为管理员帐户启用自助式密码重置，并强制执行严格的默认双门密码重置策略。 此策略可能与你为用户定义的策略不同，因此无法更改此策略。 你应始终以未被分配任何 Azure 管理员角色的用户身份测试密码重置功能。
 
 使用双门策略，管理员将无法使用安全问题。
 
@@ -90,8 +91,10 @@ Microsoft 为任意 Azure 管理员角色强制实施默认强*双门*密码重�
   * 特权身份验证管理员
 
 * 如果在试用订阅中已过 30 天；或
-* 已为 Azure AD 租户配置了自定义域，如 *contoso.com*；或
+* 已为 Azure AD 租户配置了自定义域，如 *contoso.com* ；或
 * Azure AD Connect 正在从本地目录同步标识
+
+可以使用 [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) PowerShell cmdlet 为管理员帐户禁用 SSPR。 `-SelfServePasswordResetEnabled $False` 参数为管理员禁用 SSPR。
 
 ### <a name="exceptions"></a>异常
 

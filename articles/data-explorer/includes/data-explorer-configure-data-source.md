@@ -3,14 +3,14 @@ author: orspod
 ms.service: data-explorer
 ms.topic: include
 origin.date: 11/03/2019
-ms.date: 05/15/2020
+ms.date: 10/29/2020
 ms.author: v-tawe
-ms.openlocfilehash: 395cb16583f215adbb058f6e94d883f6647ced81
-ms.sourcegitcommit: bfbd6694da33f703481386f2a3f16850c4e94bfa
+ms.openlocfilehash: e215065179042b5ad9a72c57473585479f95c731
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83417580"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136224"
 ---
 ## <a name="configure-the-data-source"></a>配置数据源
 
@@ -94,17 +94,17 @@ ms.locfileid: "83417580"
 
 1. 搜索已创建的服务主体。 选择主体，然后单击“选择”  。
 
-    ![在 Azure 门户中管理权限](media/data-explorer-configure-data-source/new-principals.png)
+    :::image type="content" source="media/data-explorer-configure-data-source/new-principals.png" alt-text="Azure 门户的“新建主体”窗格的屏幕截图。图中突出显示了“选择”按钮和服务主体属性模糊的两个字段。" border="false":::
 
 1. 选择“保存”  。
 
-    ![在 Azure 门户中管理权限](media/data-explorer-configure-data-source/save-permission.png)
+    :::image type="content" source="media/data-explorer-configure-data-source/save-permission.png" alt-text="Azure 门户中“添加数据库权限”窗格的屏幕截图。图中突出显示了“保存”按钮。" border="false":::
 
 #### <a name="management-command---query"></a>管理命令 - 查询
 
 1. 在 Azure 门户中，转到 Azure 数据资源管理器群集，然后选择“查询”  。
 
-    ![查询](media/data-explorer-configure-data-source/query.png)
+    :::image type="content" source="media/data-explorer-configure-data-source/query.png" alt-text="Azure 门户中 Azure 数据资源管理器群集的屏幕截图。图中突出显示了“查询”项。" border="false":::
 
 1. 在查询窗口中运行以下命令。 使用 Azure 门户或 CLI 中的应用程序 ID 和租户 ID。
 

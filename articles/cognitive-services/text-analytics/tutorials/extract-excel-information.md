@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 08/03/2020
+ms.date: 10/26/2020
 ms.author: v-johya
-ms.openlocfilehash: 1079e04c0d6fcbbaf6968de73e8e343b22470af2
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: d5cdf182e5f223128ad99431c7976e0dd93deecd
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023710"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106242"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>使用文本分析和 Power Automate 在 Excel 中提取信息 
 
@@ -38,7 +38,7 @@ ms.locfileid: "88023710"
 - 文本分析资源。 如果没有，可以[在 Azure 门户中创建一个](https://portal.azure.cn/#create/Microsoft.CognitiveServicesTextAnalytics)，并使用免费层完成本教程。
 - 注册期间为你生成的[密钥和终结点](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
 - 包含租户问题的电子表格。 示例数据在 GitHub 上提供
-- Office 365（包含 OneDrive for Business）。
+- Microsoft 365（包含 OneDrive for Business）。
 
 ## <a name="add-the-excel-file-to-onedrive-for-business"></a>将 Excel 文件复制到 OneDrive for Business
 

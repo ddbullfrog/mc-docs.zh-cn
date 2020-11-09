@@ -2,10 +2,8 @@
 title: Azure VM 来宾 OS 防火墙阻止入站流量 | Azure
 description: 了解如何修复来宾操作系统防火墙阻止入站流量的远程桌面门户 (RDP) 连接问题。
 services: virtual-machines-windows
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: troubleshooting
@@ -15,12 +13,12 @@ ms.devlang: azurecli
 origin.date: 11/22/2018
 ms.date: 04/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: 22063cb7546ad4b4bd212cb0914f540baf094662
-ms.sourcegitcommit: b469d275694fb86bbe37a21227e24019043b9e88
+ms.openlocfilehash: 02ea584144f418402955560ee7107dd64baf0354
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596344"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105948"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 来宾 OS 防火墙阻止入站流量
 
@@ -44,7 +42,7 @@ ms.locfileid: "82596344"
 
 ## <a name="solution"></a>解决方案
 
-在执行这些步骤之前，请创建受影响 VM 的系统磁盘快照作为备份。 有关详细信息，请参阅 [创建磁盘快照](../windows/snapshot-copy-managed-disk.md)。
+在执行这些步骤之前，请创建受影响 VM 的系统磁盘快照作为备份。 有关详细信息，请参阅[拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。
 
 要解决此问题，请使用[如何使用远程工具解决 Azure VM 问题](remote-tools-troubleshoot-azure-vm-issues.md)中介绍的方法远程连接到 VM，然后将来宾操作系统防火墙规则编辑为“允许”RDP 流量  。
 
@@ -61,7 +59,7 @@ ms.locfileid: "82596344"
 
 #### <a name="mitigation-1"></a>缓解措施 1
 
-请参阅 [如何在来宾 OS 上启用/禁用某个防火墙规则](enable-disable-firewall-rule-guest-os.md)。
+请参阅[如何在来宾 OS 上启用/禁用防火墙规则](enable-disable-firewall-rule-guest-os.md)。
 
 #### <a name="mitigation-2"></a>缓解措施 2
 

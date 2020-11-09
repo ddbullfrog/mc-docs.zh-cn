@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfb82b84f9952c804eb484d50dc867164bbe731e
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: d37627ea03dfb1e825078c46b8f5de165b05a2ca
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593687"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749994"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>如何：使用条件访问要求来自不受信任网络的访问进行 MFA   
 
@@ -26,10 +26,7 @@ Azure Active Directory (Azure AD) 允许从任何位置以单一登录方式登�
 
 ## <a name="prerequisites"></a>先决条件
 
-本文假定你熟悉以下内容： 
-
-- Azure AD 条件访问的[基本概念](overview.md) 
-- 在 Azure 门户中配置条件访问策略的[最佳做法](best-practices.md)
+本文假设你熟悉条件访问的[基本概念](overview.md)。 
 
 ## <a name="scenario-description"></a>方案描述
 
@@ -45,19 +42,19 @@ Azure Active Directory (Azure AD) 允许从任何位置以单一登录方式登�
 
 ## <a name="implementation"></a>实现
 
-此场景的挑战在于将“来自不受信任网络位置的访问”  转换为条件访问条件。 在条件访问策略中，可以配置[位置条件](location-condition.md)来应对与网络位置相关的场景。 使用位置条件，你可以选择已命名位置，这些位置是 IP 地址范围、国家和地区的逻辑分组。  
+此场景的挑战在于将“来自不受信任网络位置的访问”转换为条件访问条件。 在条件访问策略中，可以配置[位置条件](location-condition.md)来应对与网络位置相关的场景。 使用位置条件，你可以选择已命名位置，这些位置是 IP 地址范围、国家和地区的逻辑分组。  
 
 通常，你的组织拥有一个或多个地址范围，例如 199.30.16.0 - 199.30.16.15。
 可以通过以下方式配置命名位置：
 
 - 指定此范围 (199.30.16.0/28) 
-- 分配一个描述性名称，例如**公司网络** 
+- 分配一个描述性名称，例如 **公司网络** 
 
 可以选择以下选项，而不是尝试定义不受信任的所有位置：
 
 - 包括任何位置 
 
-   ![条件访问](./media/untrusted-networks/02.png)
+   ![条件性访问](./media/untrusted-networks/02.png)
 
 - 排除所有受信任的位置 
 
@@ -65,7 +62,7 @@ Azure Active Directory (Azure AD) 允许从任何位置以单一登录方式登�
 
 ## <a name="policy-deployment"></a>策略部署
 
-使用本文中概述的方法，你现在可以针对不受信任位置配置条件访问策略。 若要确保你的策略按预期工作，建议的最佳做法是在将其推广到生产环境之前对其进行测试。 理想情况下，使用一个测试租户来验证新策略是否按预期方式工作。 有关详细信息，请参阅[如何部署新策略](best-practices.md#how-should-you-deploy-a-new-policy)。 
+使用本文中概述的方法，你现在可以针对不受信任位置配置条件访问策略。 若要确保你的策略按预期工作，建议的最佳做法是在将其推广到生产环境之前对其进行测试。 理想情况下，使用一个测试租户来验证新策略是否按预期方式工作。
 
 ## <a name="next-steps"></a>后续步骤
 

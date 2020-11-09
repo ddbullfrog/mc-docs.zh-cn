@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 687a3eef2504720994828da3a7f32a92e24e6ea9
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 473875032072daeecf475bd61be237b970365adc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118198"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104358"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理对 Azure 机器学习工作区的访问权限
 
@@ -66,6 +66,21 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 ## <a name="azure-machine-learning-operations"></a>Azure 机器学习操作
 
 适用于许多操作和任务的 Azure 机器学习内置操作。 有关完整列表，请参阅 [Azure 资源提供程序操作](/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)。
+## <a name="mlflow-operations-in-azure-machine-learning"></a>Azure 机器学习中的 MLflow 操作
+
+此表描述了应添加到为执行 MLflow 操作而创建的自定义角色中的操作的权限范围。
+
+| MLflow 操作 | 范围 |
+| --- | --- |
+| 列出工作区跟踪存储中的所有试验，按 ID 获取试验，按名称获取试验 | Microsoft.MachineLearningServices/workspaces/experiments/read |
+| 创建试验并命名，为实验设置标签，还原标记为删除的试验| Microsoft.MachineLearningServices/workspaces/experiments/write | 
+| 删除试验 | Microsoft.MachineLearningServices/workspaces/experiments/delete |
+| 获取运行以及相关的数据和元数据，获取指定运行的指定指标的所有值的列表，列出运行的项目 | Microsoft.MachineLearningServices/workspaces/experiments/runs/read |
+| 在试验中新建运行，删除运行，还原已删除的运行，记录当前运行下的指标，为运行设置标签，删除运行上的标签，记录运行所使用的参数（键值对），记录运行的一批指标、参数和标签，更新运行状态 | Microsoft.MachineLearningServices/workspaces/experiments/runs/write |
+| 按名称获取已注册的模型，获取注册表中所有已注册模型的列表，搜索每个请求阶段的已注册模型、最新版模型，获取已注册模型的版本，搜索模型版本，获取其中存储了模型版本的项目的 URI，按试验 ID 搜索运行 | Microsoft.MachineLearningServices/workspaces/models/read |
+| 创建新的已注册模型，更新已注册模型的名称/说明，重命名现有的已注册模型，创建新版本的模型，更新模型版本的说明，将已注册模型转换到其中一个阶段 | Microsoft.MachineLearningServices/workspaces/models/write |
+| 删除已注册模型及其所有版本，删除已注册模型的特定版本 | Microsoft.MachineLearningServices/workspaces/models/delete |
+
 
 ## <a name="create-custom-role"></a>创建自定义角色
 
@@ -141,7 +156,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 | 发布管道终结点 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | 在 AKS/ACI 资源上部署已注册的模型 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | 针对已部署的 AKS 终结点进行评分 | 不是必需 | 不是必需 | 允许以下权限的“所有者”角色、“参与者”角色或自定义角色：`"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"`（未使用 Azure Active Directory 身份验证时）或 `"/workspaces/read"`（使用令牌身份验证时） |
-| 使用交互式笔记本访问存储 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| 使用交互式笔记本访问存储 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
 | 创建新的自定义角色 | 所有者、参与者或自定义角色允许 `Microsoft.Authorization/roleDefinitions/write` | 不是必需 | 所有者、参与者或自定义角色允许：`/workspaces/computes/write` |
 
 > [!TIP]
@@ -253,6 +268,46 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
         ]
     }
     ```
+     
+* __MLflow Data Scientist Custom__ ：允许数据科学家执行 MLflow AzureML 支持的所有操作，但以下操作除外：
+
+   * 创建计算
+   * 将模型部署到生产 AKS 群集
+   * 在生产环境中部署管道终结点
+
+   `mlflow_data_scientist_custom_role.json` :
+   ```json
+   {
+        "Name": "MLFlow Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/experiments/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/models/read",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/models/delete"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+     "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```   
 
 * __MLOps Custom__ ：允许将角色分配给服务主体，并使用该角色自动执行 MLOps 管道。 例如，若要针对已发布的管道提交运行，可使用以下代码：
 

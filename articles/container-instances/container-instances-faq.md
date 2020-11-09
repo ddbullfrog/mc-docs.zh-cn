@@ -1,19 +1,19 @@
 ---
 title: 常见问题
 description: 有关 Azure 容器实例服务的常见问题解答
-author: rockboyfor
 ms.topic: article
 origin.date: 06/02/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: c5602c7f233a07f317e2757aaedbfd5c61b78222
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: 0cb98e7d439a6d5e73127e03c70d7773d249323c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863139"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106276"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>有关 Azure 容器实例的常见问题解答
 
@@ -56,7 +56,7 @@ ms.locfileid: "86863139"
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>应在容器中使用哪个 .NET 或 .NET Core 映像层？ 
 
-使用符合要求的最小映像。 对于 Linux，可以使用 *runtime-alpine* .NET Core 映像，从 .NET Core 2.1 版本开始就已支持此映像。 对于 Windows，如果使用完整的 .NET Framework，则需要使用 Windows Server Core 映像（仅限运行时的映像，例如 *4.7.2-windowsservercore-ltsc2016*）。 仅限运行时的映像较小，但不支持需要 .NET SDK 的工作负荷。
+使用符合要求的最小映像。 对于 Linux，可以使用 *runtime-alpine* .NET Core 映像，从 .NET Core 2.1 版本开始就已支持此映像。 对于 Windows，如果使用完整的 .NET Framework，则需要使用 Windows Server Core 映像（仅限运行时的映像，例如 *4.7.2-windowsservercore-ltsc2016* ）。 仅限运行时的映像较小，但不支持需要 .NET SDK 的工作负荷。
 
 ## <a name="availability-and-quotas"></a>可用性和配额
 
@@ -93,7 +93,7 @@ Azure 容器实例旨在用作无服务器按需容器服务，因此，我们�
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>自定义 VNet 中运行的实例可以使用哪些功能？
 
-可以[在所选 Azure 虚拟网络中部署容器组](container-instances-vnet.md)，并将专用 IP 委托给容器组，以在 VNet 中跨 Azure 资源路由流量。 将容器组部署到虚拟网络目前适用于一部分 Azure 区域中的生产工作负荷。
+可以[在所选 Azure 虚拟网络中部署容器组](container-instances-vnet.md)，并将专用 IP 委托给容器组，以在 VNet 中跨 Azure 资源路由流量。 有关 Azure 容器实例的网络方案和限制，请参阅[虚拟网络方案和资源](container-instances-virtual-network-concepts.md)。
 
 ## <a name="pricing"></a>定价
 

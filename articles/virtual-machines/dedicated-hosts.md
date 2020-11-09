@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.workload: infrastructure
 origin.date: 07/28/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 07/27/2020
 ms.author: v-yeche
 ms.reviewer: zivr
-ms.openlocfilehash: d2b17fb9c27e817cbf72b5e6007044d92d58faa7
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: c7f4991989e96432a2ac3fd01d5ada8aadbebcfb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128857"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106134"
 ---
 <!--Verified successfully from release articles-->
 # <a name="azure-dedicated-hosts"></a>Azure 专用主机
@@ -107,6 +107,7 @@ Azure 专用主机是一种提供物理服务器（能够托管一个或多个�
     
     <!--Not Available on (created without specifying an availability zone)-->
     <!--Not Available on - The host group and the scale set must be using the same availability zone.-->
+    
     - 主机组级别的容错域计数应当与规模集的容错域计数相匹配。 通过 Azure 门户，可以为规模集指定“最大分布”，这会将容错域计数设置为 1。
 - 应该先创建具有足够容量且具有相同规模集区域设置与容错域设置的专用主机。
 - 专用主机支持的 VM 大小应当与用于规模集的 VM 大小相匹配。
@@ -122,7 +123,7 @@ Azure 专用主机是一种提供物理服务器（能够托管一个或多个�
 
 维护控制  为客户提供了一个选项，以用于跳过在其专用主机上计划的定期平台更新，然后在 35 天滚动时段内他们所选的时间应用更新。
 
-有关详细信息，请参阅[通过维护控制管理平台更新](/virtual-machines/maintenance-control)。
+有关详细信息，请参阅[通过维护控制管理平台更新](./maintenance-control.md)。
 
 ## <a name="capacity-considerations"></a>容量注意事项
 
@@ -137,14 +138,13 @@ Azure 专用主机是一种提供物理服务器（能够托管一个或多个�
 1. 专用主机 vCPU 配额。 默认配额限制为每个区域 3000 vCPU。
 1. VM 大小系列配额。 例如，在中国东部区域，标准预付费套餐  订阅仅为 Dsv3 大小系列提供 10 个 vCPU 的配额。 若要部署 Dsv3 专用主机，则需要请求将配额提高到至少 64 个 vCPU，然后才能部署专用主机。 
 
-若要请求提高配额，请在 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)中创建支持请求。
+若要请求提高配额，请在 [Azure 门户](https://support.azure.cn/support/support-azure/)中创建支持请求。
 
 预配专用主机时将同时使用专用主机 vCPU 和 VM 系列 vCPU 配额，但不会使用区域 vCPU。
 
+:::image type="content" source="./media/virtual-machines-common-dedicated-hosts/quotas.png" alt-text="门户中的用量和配额页的屏幕截图":::
 
-:::image type="content" source="./media/virtual-machines-common-dedicated-hosts/quotas.png" alt-text="专用主机的新资源的视图。":::
-
-有关详细信息，请参阅[虚拟机 vCPU 配额](/virtual-machines/windows/quotas)。
+有关详细信息，请参阅[虚拟机 vCPU 配额](./windows/quotas.md)。
 
 试用版和 MSDN 订阅不为 Azure 专用主机提供配额。
 
@@ -156,7 +156,7 @@ Azure 专用主机是一种提供物理服务器（能够托管一个或多个�
 
 软件许可、存储和网络用量与主机和 VM 分开计费。 这些可计费项没有更改。
 
-有关详细信息，请参阅 [Azure 虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)。
+有关详细信息，请参阅 [Azure 专用主机定价](https://www.azure.cn/pricing/details/virtual-machines/)。
 
 <!--Not Available on [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md)-->
 
@@ -181,7 +181,7 @@ Azure 将会监视和管理主机的运行状况状态。 查询主机时，将�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 可使用 [Azure PowerShell](./windows/dedicated-hosts-powershell.md)、[门户](./windows/dedicated-hosts-portal.md)和 [Azure CLI](./linux/dedicated-hosts-cli.md) 部署专用主机。
+- 可使用 [Azure PowerShell](./windows/dedicated-hosts-powershell.md)、[门户](./dedicated-hosts-portal.md)和 [Azure CLI](./linux/dedicated-hosts-cli.md) 部署专用主机。
 
 - [此处](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)有一个示例模板，该模板使用区域和容错域来最大限度地提高在某个地区的复原能力。
 

@@ -8,16 +8,16 @@ ms.author: v-yiso
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
-origin.date: 08/13/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: 28e8e8e0715d04a3103f8d04b04f0207f98b9eab
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+origin.date: 10/02/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: a67f9cbb3fba2a49daa7917d2a3dbb5c497df5b8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118221"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106301"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure 机器学习中的已知问题和故障排除
 
@@ -47,11 +47,11 @@ ms.locfileid: "92118221"
 
    这是 pip 的已知限制，因为作为单行安装时，pip 没有有效的依赖项解析程序。 它仅查看第一个独特依赖项。 
 
-   在以下代码中，`azure-ml-datadrift` 和`azureml-train-automl` 都使用单行 pip 进行安装。 
+   在以下代码中，`azureml-datadrift` 和`azureml-train-automl` 都使用单行 pip 进行安装。 
      ```
-       pip install azure-ml-datadrift, azureml-train-automl
+       pip install azureml-datadrift, azureml-train-automl
      ```
-   在本例中，假设 `azure-ml-datadrift` 要求版本高于 1.0，`azureml-train-automl` 要求版本低于 1.2。 如果 `azure-ml-datadrift` 的最新版本是 1.3，那么两个包都会升级到 1.3，即使 `azureml-train-automl` 包要求使用较旧版本。 
+   在本例中，假设 `azureml-datadrift` 要求版本高于 1.0，`azureml-train-automl` 要求版本低于 1.2。 如果 `azureml-datadrift` 的最新版本是 1.3，那么两个包都会升级到 1.3，即使 `azureml-train-automl` 包要求使用较旧版本。 
 
    若要确保为包安装适当的版本，请使用多行安装，如以下代码中所示。 在这里，顺序不是问题，因为 pip 显式降级为下一行调用的一部分。 因此，会应用适当的版本依赖项。
     
@@ -163,7 +163,7 @@ ms.locfileid: "92118221"
     
     如果这些步骤无法解决问题，请尝试重启群集。
 
-* **Databricks FailToSendFeather**:如果在 Azure Databricks 群集上读取数据时出现 `FailToSendFeather` 错误，请参考以下解决方法：
+* **Databricks FailToSendFeather** :如果在 Azure Databricks 群集上读取数据时出现 `FailToSendFeather` 错误，请参考以下解决方法：
     
     * 将 `azureml-sdk[automl]` 包升级到最新版本。
     * 添加 `azureml-dataprep` 版本 1.1.8 或更高版本。
@@ -174,11 +174,11 @@ ms.locfileid: "92118221"
 > [!WARNING]
 > 不支持将 Azure 机器学习工作区移动到另一个订阅，或将拥有的订阅移到新租户。 这样做可能会导致错误。
 
-* **Azure 门户**： 
+* **Azure 门户** ： 
   * 如果通过 SDK 的共享链接或 Azure 门户直接访问工作区，则无法查看扩展中包含订阅信息的标准“概述”页面。 此情况下，也无法切换到其他工作区。 若要查看其他工作区，请直接转到 [Azure 机器学习工作室](https://studio.ml.azure.cn)并搜索工作区名称。
   * 所有资产（数据集、试验、计算等）仅适用于 [Azure 机器学习工作室](https://studio.ml.azure.cn)， 它们不可在 Azure 门户中使用。
 
-* **Azure 机器学习工作室 Web 门户支持的浏览器**：建议使用与操作系统兼容的最新浏览器。 支持以下浏览器：
+* **Azure 机器学习工作室 Web 门户支持的浏览器** ：建议使用与操作系统兼容的最新浏览器。 支持以下浏览器：
   * Microsoft Edge（新的 Microsoft Edge（最新版）， 不是旧版 Microsoft Edge）
   * Safari（最新版本，仅限 Mac）
   * Chrome（最新版本）
@@ -186,9 +186,9 @@ ms.locfileid: "92118221"
 
 ## <a name="set-up-your-environment"></a>设置你的环境
 
-* **创建 AmlCompute 时出错**：如果用户在 GA 发布之前已通过 Azure 门户创建了自己的 Azure 机器学习工作区，则他们很可能无法在该工作区中创建 AmlCompute。 可对服务提出支持请求，也可通过门户或 SDK 创建新的工作区以立即解除锁定。
+* **创建 AmlCompute 时出错** ：如果用户在 GA 发布之前已通过 Azure 门户创建了自己的 Azure 机器学习工作区，则他们很可能无法在该工作区中创建 AmlCompute。 可对服务提出支持请求，也可通过门户或 SDK 创建新的工作区以立即解除锁定。
 
-* **Azure 容器注册表当前不支持在资源组名称中使用 unicode 字符**：由于 ACR 请求的资源组名称包含 unicode 字符，因此可能会失败。 若要缓解此问题，建议在具有其他名称的资源组中创建一个 ACR。
+* **Azure 容器注册表当前不支持在资源组名称中使用 unicode 字符** ：由于 ACR 请求的资源组名称包含 unicode 字符，因此可能会失败。 若要缓解此问题，建议在具有其他名称的资源组中创建一个 ACR。
 
 ## <a name="work-with-data"></a>处理数据
 
@@ -210,6 +210,9 @@ ms.locfileid: "92118221"
     ```
 
     如果不包含前导正斜杠“/”，则需要为计算目标上的工作目录添加前缀（例如 `/mnt/batch/.../tmp/dataset`），以指示要将数据集装载到的位置。
+
+### <a name="mount-dataset"></a>装载数据集
+* **数据集初始化失败：“等待装入点准备完毕”已超时** ：`azureml-sdk >=1.12.0` 中添加了重试逻辑以缓解问题。 如果使用的是以前的 azureml-sdk 版本，请升级到最新版本。 如果使用的是 `azureml-sdk>=1.12.0`，请重新创建环境，以便获得具有修补程序的最新补丁。
 
 ### <a name="data-labeling-projects"></a>数据标签项目
 
@@ -292,7 +295,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **ModuleErrors（没有名为“xxx”的模块）** ：如果在 Azure ML 中提交试验时遇到 ModuleErrors，则表示训练脚本需要安装某个包，但并未添加该包。 你提供包名称后，Azure ML 在用于训练运行的环境中安装该包。 
 
-    如果使用[估算器](concept-azure-machine-learning-architecture.md#estimators)提交试验，则可以根据要从哪个源安装包，通过估算器中的 `pip_packages` 或 `conda_packages` 参数指定包名称。 还可以使用 `conda_dependencies_file` 指定包含所有依赖项的 yml 文件，或使用 `pip_requirements_file` 参数列出 txt 文件中的所有 pip 要求。 如果你有自己的 Azure ML 环境对象，并且希望替代估算器使用的默认映像，则可以通过估算器构造函数的 `environment` 参数来指定该环境。
+    如果使用估算器提交试验，则可以根据要从哪个源安装包，通过估算器中的 `pip_packages` 或 `conda_packages` 参数指定包名称。 还可以使用 `conda_dependencies_file` 指定包含所有依赖项的 yml 文件，或使用 `pip_requirements_file` 参数列出 txt 文件中的所有 pip 要求。 如果你有自己的 Azure ML 环境对象，并且希望替代估算器使用的默认映像，则可以通过估算器构造函数的 `environment` 参数来指定该环境。
 
     Azure ML 还提供适用于 TensorFlow、PyTorch、Chainer 和 SKLearn 的框架特定的估算器。 使用这些估算器可确保在用于训练的环境中自动安装核心框架依赖项。 可以使用相应的选项根据前面所述指定额外的依赖项。 
  
@@ -304,13 +307,13 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
  
 * **NameError（未定义名称）、AttributeError（对象没有属性）** ：此异常应该是训练脚本引发的。 可以在 Azure 门户中查看日志文件，以获取有关未定义特定名称或属性错误的详细信息。 在 SDK 中，可以使用 `run.get_details()` 来查看错误消息。 这还会列出针对运行生成的所有日志文件。 在重新提交运行之前，请务必检查训练脚本并修复错误。 
 
-* **Horovod 已关闭**：在大多数情况下，如果遇到“AbortedError:Horovod 已关闭”，此异常表示某个进程中的根本性异常导致 Horovod 关闭。 MPI 作业中的每个排名都会在 Azure ML 中生成专属的日志文件。 这些日志名为 `70_driver_logs`。 对于分布式训练，日志名称带有 `_rank` 后缀，以方便区分日志。 若要查找导致 Horovod 关闭的确切错误，请浏览所有日志文件，并查看 driver_log 文件末尾的 `Traceback`。 其中的某个文件会指出实际的根本性异常。 
+* **Horovod 已关闭** ：在大多数情况下，如果遇到“AbortedError:Horovod 已关闭”，此异常表示某个进程中的根本性异常导致 Horovod 关闭。 MPI 作业中的每个排名都会在 Azure ML 中生成专属的日志文件。 这些日志名为 `70_driver_logs`。 对于分布式训练，日志名称带有 `_rank` 后缀，以方便区分日志。 若要查找导致 Horovod 关闭的确切错误，请浏览所有日志文件，并查看 driver_log 文件末尾的 `Traceback`。 其中的某个文件会指出实际的根本性异常。 
 
-* **运行或试验删除**：可以通过以下方式将试验存档：使用 [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) 方法，或者从 Azure 机器学习工作室客户端中的“试验”选项卡视图中使用“存档试验”按钮。 执行此操作后，在列出查询和视图时将隐藏该试验，但不会将其删除。
+* **运行或试验删除** ：可以通过以下方式将试验存档：使用 [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) 方法，或者从 Azure 机器学习工作室客户端中的“试验”选项卡视图中使用“存档试验”按钮。 执行此操作后，在列出查询和视图时将隐藏该试验，但不会将其删除。
 
     目前不支持永久删除个体试验或运行。 有关删除工作区资产的详细信息，请参阅[导出或删除机器学习服务工作区数据](how-to-export-delete-data.md)。
 
-* **指标文档太大**：对于一次性可从训练运行记录的指标对象大小，Azure 机器学习施加了内部限制。 如果在记录列表值指标时遇到“指标文档太大”错误，请尝试将列表拆分为较小的区块，例如：
+* **指标文档太大** ：对于一次性可从训练运行记录的指标对象大小，Azure 机器学习施加了内部限制。 如果在记录列表值指标时遇到“指标文档太大”错误，请尝试将列表拆分为较小的区块，例如：
 
     ```python
     run.log_list("my metric name", my_metric[:N])
@@ -321,7 +324,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>自动化机器学习
 
-* **AutoML 依赖项到新版本的最新升级将破坏兼容性**：从 SDK 1.13.0 版开始，模型将不加载到较旧的 SDK 中，这是因为在之前的包中固定的旧版本与现在固定的更新的版本不兼容。 你将看到错误，例如：
+* **AutoML 依赖项到新版本的最新升级将破坏兼容性** ：从 SDK 1.13.0 版开始，模型将不加载到较旧的 SDK 中，这是因为在之前的包中固定的旧版本与现在固定的更新的版本不兼容。 你将看到错误，例如：
   * 找不到模块：例如 `No module named 'sklearn.decomposition._truncated_svd`
   * 导入错误：例如 `ImportError: cannot import name 'RollingOriginValidator'`
   * 属性错误：例如： `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -341,9 +344,9 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade scikit-learn==0.20.3
   ```
  
-* **预测 R2 评分始终为零**：如果提供的训练数据的时间序列包含的值与上一个 `n_cv_splits` + `forecasting_horizon` 数据点相同，则会出现此问题。 如果该模式在你的时间序列中是预期的，可将主要指标切换为标准均方根误差。
+* **预测 R2 评分始终为零** ：如果提供的训练数据的时间序列包含的值与上一个 `n_cv_splits` + `forecasting_horizon` 数据点相同，则会出现此问题。 如果该模式在你的时间序列中是预期的，可将主要指标切换为标准均方根误差。
  
-* **TensorFlow**：从 SDK 1.5.0 版开始，自动化机器学习默认不安装 TensorFlow 模型。 若要安装 TensorFlow 并将其用于自动化 ML 试验，请通过 CondaDependecies 安装 tensorflow==1.12.0。 
+* **TensorFlow** ：从 SDK 1.5.0 版开始，自动化机器学习默认不安装 TensorFlow 模型。 若要安装 TensorFlow 并将其用于自动化 ML 试验，请通过 CondaDependecies 安装 tensorflow==1.12.0。 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -351,18 +354,18 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
    run_config = RunConfiguration()
    run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
   ```
-* **试验图表**：自 4 月 12 日以来，自动化 ML 试验迭代中显示的二元分类图表（精准率-召回率、ROC、增益曲线等）在用户界面中无法正常呈现。 绘制的图表目前显示相反的结果：表现更好的模型反而显示更低的结果。 我们研究解决方法。
+* **试验图表** ：自 4 月 12 日以来，自动化 ML 试验迭代中显示的二元分类图表（精准率-召回率、ROC、增益曲线等）在用户界面中无法正常呈现。 绘制的图表目前显示相反的结果：表现更好的模型反而显示更低的结果。 我们研究解决方法。
 
-* **Databricks 取消自动化机器学习运行**：在 Azure Databricks 上使用自动化机器学习功能时，若要取消某个运行并启动新的试验运行，请重启 Azure Databricks 群集。
+* **Databricks 取消自动化机器学习运行** ：在 Azure Databricks 上使用自动化机器学习功能时，若要取消某个运行并启动新的试验运行，请重启 Azure Databricks 群集。
 
-* **Databricks 自动化机器学习的迭代数超过 10 个**：在自动化机器学习设置中，如果迭代数超过 10 个，请在提交运行时将 `show_output` 设置为 `False`。
+* **Databricks 自动化机器学习的迭代数超过 10 个** ：在自动化机器学习设置中，如果迭代数超过 10 个，请在提交运行时将 `show_output` 设置为 `False`。
 
-* **Databricks Azure 机器学习 SDK 和自动化机器学习的小组件**：Databricks 笔记本不支持 Azure 机器学习 SDK 小组件，因为笔记本无法分析 HTML 小组件。 可以通过在 Azure Databricks 笔记本单元中使用以下 Python 代码，在门户中查看该小组件：
+* **Databricks Azure 机器学习 SDK 和自动化机器学习的小组件** ：Databricks 笔记本不支持 Azure 机器学习 SDK 小组件，因为笔记本无法分析 HTML 小组件。 可以通过在 Azure Databricks 笔记本单元中使用以下 Python 代码，在门户中查看该小组件：
 
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
-* **automl_setup 失败**： 
+* **automl_setup 失败** ： 
     * 在 Windows 上，从 Anaconda 提示符运行 automl_setup。 若要安装 Miniconda，请单击[此处](https://docs.conda.io/en/latest/miniconda.html)。
     * 通过运行 `conda info` 命令，确保已安装 conda 64 位而不是 32 位。 对于 Windows，`platform` 应为 `win-64`，对于 Mac，应为 `osx-64`。
     * 确保已安装 conda 4.4.10 或更高版本。 可以使用命令 `conda -V` 检查该版本。 如果安装了以前的版本，可以使用以下命令对其进行更新：`conda update conda`。
@@ -370,35 +373,35 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
       *  如果遇到 `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` 错误，请使用命令 `sudo apt-get install build-essential` 安装版本要素。
       * 将新名称作为第一个参数传递给 automl_setup 以创建新的 conda 环境。 使用 `conda env list` 查看现有的 conda 环境，并使用 `conda env remove -n <environmentname>` 删除它们。
       
-* **automl_setup_linux.sh 失败**：如果 automl_setup_linus.sh 在 Ubuntu Linux 上失败，并出现错误：`unable to execute 'gcc': No such file or directory`-
+* **automl_setup_linux.sh 失败** ：如果 automl_setup_linus.sh 在 Ubuntu Linux 上失败，并出现错误：`unable to execute 'gcc': No such file or directory`-
   1. 确保已启用出站端口 53 和 80。 在 Azure VM 上，可以通过选择 VM 并单击“网络”，从 Azure 门户执行此操作。
   2. 运行命令 `sudo apt-get update`
   3. 运行命令 `sudo apt-get install build-essential --fix-missing`
   4. 再次运行 `automl_setup_linux.sh`
 
-* **configuration.ipynb 失败**：
+* **configuration.ipynb 失败** ：
   * 对于本地 conda，请首先确保 automl_setup 已成功运行。
   * 确保 subscription_id 是正确的。 通过选择“所有服务”，然后选择“订阅”，在 Azure 门户中查找 subscription_id。 字符“<”和“>”不应包含在 subscription_id 值中。 例如，`subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` 的格式有效。
   * 确保参与者或所有者有权访问“订阅”。
   * 确保使用 Azure 门户访问该区域。
   
-* **导入 AutoMLConfig 失败**：自动化机器学习版本 1.0.76 中存在包更改，这要求先卸载以前的版本，再更新到新版本。 如果从 v1.0.76 之前的 SDK 版本升级到 v1.0.76 或更高版本后遇到 `ImportError: cannot import name AutoMLConfig`，请先运行 `pip uninstall azureml-train automl` 再运行 `pip install azureml-train-auotml` 来解决该错误。 automl_setup.cmd 脚本会自动执行此操作。 
+* **导入 AutoMLConfig 失败** ：自动化机器学习版本 1.0.76 中存在包更改，这要求先卸载以前的版本，再更新到新版本。 如果从 v1.0.76 之前的 SDK 版本升级到 v1.0.76 或更高版本后遇到 `ImportError: cannot import name AutoMLConfig`，请先运行 `pip uninstall azureml-train automl` 再运行 `pip install azureml-train-auotml` 来解决该错误。 automl_setup.cmd 脚本会自动执行此操作。 
 
-* **workspace.from_config 失败**：如果调用 ws = Workspace.from_config()' 失败 -
+* **workspace.from_config 失败** ：如果调用 ws = Workspace.from_config()' 失败 -
   1. 确保 configuration.ipynb 笔记本已成功运行。
   2. 如果正在从不在运行 `configuration.ipynb` 的文件夹下的文件夹中运行笔记本，则将文件夹 aml_config 及其包含的文件 config.json 复制到新文件夹中。 Workspace.from_config 读取笔记本文件夹或其父文件夹的 config.json。
   3. 如果正在使用新的订阅、资源组、工作区或区域，请确保再次运行 `configuration.ipynb` 笔记本。 仅当指定订阅下的指定资源组中已存在工作区时，直接更改 config.json 才会生效。
   4. 如果要更改区域，请更改工作区、资源组或订阅。 即使指定的区域不同，`Workspace.create` 也不会创建或更新工作区（如果已存在）。
   
-* **示例笔记本失败**：如果示例笔记本失败，并出现属性、方法或库不存在的错误：
+* **示例笔记本失败** ：如果示例笔记本失败，并出现属性、方法或库不存在的错误：
   * 确保在 Jupyter 笔记本中选择了正确的内核。 内核显示在笔记本页面的右上方。 默认值为 azure_automl。 请注意，内核作为笔记本的一部分进行保存。 因此，如果切换到新的 conda 环境，则必须在笔记本中选择新内核。
       * 对于 Azure Notebooks，它应为 Python 3.6。 
       * 对于本地 conda 环境，它应为在 automl_setup 中指定的 conda 环境名称。
   * 确保笔记本适用于正在使用的 SDK 版本。 可以通过在 Jupyter 笔记本单元格中执行 `azureml.core.VERSION` 来检查 SDK 版本。 通过单击 `Branch` 按钮，选择 `Tags` 选项卡，然后选择版本，可以从 GitHub 下载以前版本的示例笔记本。
 
-* **Windows 中的 Numpy 导入失败**：在某些 Windows 环境中，最新的 Python 3.6.8 版本加载 numpy 时会出现错误。 如果出现此问题，请尝试使用 Python 3.6.7 版本。
+* **Windows 中的 Numpy 导入失败** ：在某些 Windows 环境中，最新的 Python 3.6.8 版本加载 numpy 时会出现错误。 如果出现此问题，请尝试使用 Python 3.6.7 版本。
 
-* **Numpy 导入失败**：在自动化 ML conda 环境中检查 TensorFlow 版本。 支持的版本为 <1.13 的版本。 如果版本 >= 1.13，请从环境中卸载 TensorFlow。可以按如下所示检查 TensorFlow 的版本并进行卸载 -
+* **Numpy 导入失败** ：在自动化 ML conda 环境中检查 TensorFlow 版本。 支持的版本为 <1.13 的版本。 如果版本 >= 1.13，请从环境中卸载 TensorFlow。可以按如下所示检查 TensorFlow 的版本并进行卸载 -
   1. 启动命令 shell，激活安装了自动化 ML 包的 conda 环境。
   2. 输入 `pip freeze` 并查找 `tensorflow`，如果找到，则列出的版本应 <1.13
   3. 如果列出的版本不是受支持的版本，请在命令 shell 中使用 `pip uninstall tensorflow` 并输入 y 进行确认。
@@ -446,6 +449,10 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes 存储的机密采用 base-64 编码格式。 在将机密提供给 `attach_config.enable_ssl` 之前，需要对机密的 `cert.pem` 和 `key.pem` 组成部分进行 base-64 解码。 
+
+### <a name="detaching-azure-kubernetes-service"></a>分离 Azure Kubernetes 服务
+
+使用 Azure 机器学习工作室、SDK 或适用于机器学习的 Azure CLI 扩展来分离 AKS 群集不会删除 AKS 群集。 若要删除群集，请参阅[结合使用 Azure CLI 和 AKS](/aks/kubernetes-walkthrough#delete-the-cluster)。
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes 服务中的 Web 服务失败
 

@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 75fa7b358b5f97d27ae2c5df9e1fada9a5b32aec
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 1c40c037dacea3d3bdc82fb3324923e5ec7b54cd
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515688"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106117"
 ---
 # <a name="merge-policy"></a>合并策略
 
@@ -35,32 +35,33 @@ ms.locfileid: "88515688"
 
 合并策略包含以下属性：
 
-* **RowCountUpperBoundForMerge**：
+* **RowCountUpperBoundForMerge** ：
     * 默认值：
       * 对于 2020 年 6 月以前设置的策略，默认值为 0（无限制）。
       * 对于自 2020 年 6 月起设置的策略，默认值为 16,000,000。
     * 合并盘区允许的最大行数。
     * 适用于合并操作，不适用于重新生成。  
-* **OriginalSizeMBUpperBoundForMerge**：
+* **OriginalSizeMBUpperBoundForMerge** ：
     * 默认为 0（无限制）。
     * 合并盘区允许的最大原始大小 (MB)。
     * 适用于合并操作，不适用于重新生成。  
-* **MaxExtentsToMerge**：
+* **MaxExtentsToMerge** ：
     * 默认为 100。
     * 允许在单个操作中合并的最大盘区数量。
     * 适用于合并操作。
-* **LoopPeriod**：
+* **LoopPeriod** ：
     * 默认为 01:00:00（1 小时）。
     * 数据管理服务在开始合并或重新生成操作的两次连续迭代之间等待的最长时间。
     * 适用于合并和重新生成操作。
-* **AllowRebuild**：
+* **AllowRebuild** ：
     * 默认为“true”。
     * 定义是否已启用 `Rebuild` 操作（在这种情况下，其优先级高于 `Merge` 操作）。
-* **AllowMerge**：
+* **AllowMerge** ：
     * 默认为“true”。
     * 定义是否已启用 `Merge` 操作，在这种情况下，其优先级低于 `Rebuild` 操作。
-* **MaxRangeInHours**：
+* **MaxRangeInHours** ：
     * 默认为 8。
+        * [具体化视图](materialized-views/materialized-view-overview.md)中默认保留 14 天，除非在具体化视图的有效[保留策略](retentionpolicy.md)中禁用了可恢复性。
     * 最大允许的任意两个不同盘区的创建时间之间的差异（以小时为单位），如超过，将无法进行合并。
     * 时间戳源于盘区创建，且不与盘区中包含的实际数据相关。
     * 适用于合并和重新生成操作。

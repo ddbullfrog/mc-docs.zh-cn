@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的数据映射。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: ohbitton
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/19/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 2e4ef89109427d4da340dbfcd343f60a7f0e870f
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 211d1a339168691ee47fbe36c77689c1be820413
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146602"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104403"
 ---
 # <a name="data-mappings"></a>数据映射
 
@@ -68,19 +68,6 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
 > [!NOTE]
 > 当上述映射作为 `.ingest` 控制命令的一部分提供时，它将被序列化为 JSON 字符串。
 
-* 如果上述映射是[预先创建](create-ingestion-mapping-command.md)的，可使用 `.ingest` 控制命令引用它：
-
-```kusto
-.ingest into Table123 (@"source1", @"source2")
-    with 
-    (
-        format="csv", 
-        ingestionMappingReference = "Mapping1"
-    )
-```
-
-* 当上述映射作为 `.ingest` 控制命令的一部分提供时，它将被序列化为 JSON 字符串：
-
 ```kusto
 .ingest into Table123 (@"source1", @"source2")
     with 
@@ -94,7 +81,20 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
     )
 ```
 
-**注意：** 不推荐使用以下没有 `Properties` 属性包的映射格式。
+> [!NOTE]
+> 如果上述映射是[预先创建](create-ingestion-mapping-command.md)的，可使用 `.ingest` 控制命令引用它：
+
+```kusto
+.ingest into Table123 (@"source1", @"source2")
+    with 
+    (
+        format="csv", 
+        ingestionMappingReference = "Mapping1"
+    )
+```
+
+> [!NOTE]
+> 不推荐使用以下没有 `Properties` 属性包的映射格式。
 
 ```kusto
 .ingest into Table123 (@"source1", @"source2")
@@ -117,7 +117,7 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
 
 |属性|说明|
 |----|--|
-|`path`|如果开头为 `$`，指向将成为 JSON 文档中列内容的字段的 JSON 路径（指示整个文档的 JSON 路径为 `$`）。 如果值不以 `$` 开头，则使用常数值。|
+|`path`|如果开头为 `$`，指向将成为 JSON 文档中列内容的字段的 JSON 路径（指示整个文档的 JSON 路径为 `$`）。 如果值不以 `$` 开头，则使用常数值。 包含空格的 JSON 路径应作为 [\'Property Name\'] 进行转义。|
 |`transform`|（可选）应通过[映射转换](#mapping-transformations)应用于内容的转换。|
 
 ### <a name="example-of-json-mapping"></a>JSON 映射示例
@@ -142,6 +142,23 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
 > 当上述映射作为 `.ingest` 控制命令的一部分提供时，它将被序列化为 JSON 字符串。
 
 ```kusto
+.ingest into Table123 (@"source1", @"source2") 
+  with 
+  (
+      format = "json", 
+      ingestionMapping = 
+      "["
+        "{\"column\":\"rownumber\",\"Properties\":{\"Path\":\"$.rownumber\"}},"
+        "{\"column\":\"rowguid\",  \"Properties\":{\"Path\":\"$.rowguid\"}}",
+        "{\"column\":\"custom_column\",  \"Properties\":{\"Path\":\"$.[\'property name with space\']\"}}"
+      "]"
+  )
+```
+
+> [!NOTE]
+> 如果上述映射是[预先创建](create-ingestion-mapping-command.md)的，可使用 `.ingest` 控制命令引用它：
+
+```kusto
 .ingest into Table123 (@"source1", @"source2")
     with 
     (
@@ -150,7 +167,8 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
     )
 ```
 
-**注意：** 不推荐使用以下没有 `Properties` 属性包的映射格式。
+> [!NOTE]
+> 不推荐使用以下没有 `Properties` 属性包的映射格式。
 
 ```kusto
 .ingest into Table123 (@"source1", @"source2") 
@@ -174,7 +192,7 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
 |属性|说明|
 |----|--|
 |`Field`|Avro 记录中字段的名称。|
-|`Path`|此外还可使用 `field`，它允许采用 Avro 记录字段的内部部分（如有必要）。 该值表示从记录的根开始的 JSON 路径。 有关详细信息，请参阅以下备注。 |
+|`Path`|此外还可使用 `field`，它允许采用 Avro 记录字段的内部部分（如有必要）。 该值表示从记录的根开始的 JSON 路径。 有关详细信息，请参阅以下备注。 包含空格的 JSON 路径应作为 [\'Property Name\'] 进行转义。|
 |`transform`|（可选）应通过[支持的转换](#mapping-transformations)应用于内容的转换。|
 
 **说明**
@@ -215,6 +233,22 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
 > 当上述映射作为 `.ingest` 控制命令的一部分提供时，它将被序列化为 JSON 字符串。
 
 ```kusto
+.ingest into Table123 (@"source1", @"source2") 
+  with 
+  (
+      format = "avro", 
+      ingestionMapping = 
+      "["
+        "{\"column\":\"rownumber\",\"Properties\":{\"Path\":\"$.rownumber\"}},"
+        "{\"column\":\"rowguid\",  \"Properties\":{\"Path\":\"$.rowguid\"}}"
+      "]"
+  )
+```
+
+> [!NOTE]
+> 如果上述映射是[预先创建](create-ingestion-mapping-command.md)的，可使用 `.ingest` 控制命令引用它：
+
+```kusto
 .ingest into Table123 (@"source1", @"source2")
     with 
     (
@@ -223,7 +257,8 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
     )
 ```
 
-**注意：** 不推荐使用以下没有 `Properties` 属性包的映射格式。
+> [!NOTE]
+> 不推荐使用以下没有 `Properties` 属性包的映射格式。
 
 ```kusto
 .ingest into Table123 (@"source1", @"source2") 
@@ -246,7 +281,7 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
 
 |属性|说明|
 |----|--|
-|`path`|如果开头为 `$`，指向将成为 Parquet 文档中列内容的字段的 JSON 路径（指示整个文档的 JSON 路径为 `$`）。 如果值不以 `$` 开头，则使用常数值。|
+|`path`|如果开头为 `$`，指向将成为 Parquet 文档中列内容的字段的 JSON 路径（指示整个文档的 JSON 路径为 `$`）。 如果值不以 `$` 开头，则使用常数值。 包含空格的 JSON 路径应作为 [\'Property Name\'] 进行转义。 |
 |`transform`|（可选）应该应用于内容的[映射转换](#mapping-transformations)。
 
 
@@ -269,7 +304,22 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
 > [!NOTE]
 > 当上述映射作为 `.ingest` 控制命令的一部分提供时，它将被序列化为 JSON 字符串。
 
-* 如果上述映射是[预先创建](create-ingestion-mapping-command.md)的，可使用 `.ingest` 控制命令引用它：
+```kusto
+.ingest into Table123 (@"source1", @"source2") 
+  with 
+  (
+      format = "parquet", 
+      ingestionMapping = 
+      "["
+        "{\"column\":\"rownumber\",\"Properties\":{\"Path\":\"$.rownumber\"}},"
+        "{\"column\":\"rowguid\",  \"Properties\":{\"Path\":\"$.rowguid\"}}",
+        "{\"column\":\"custom_column\",  \"Properties\":{\"Path\":\"$.[\'property name with space\']\"}}"
+      "]"
+  )
+```
+
+> [!NOTE]
+> 如果上述映射是[预先创建](create-ingestion-mapping-command.md)的，可使用 `.ingest` 控制命令引用它：
 
 ```kusto
 .ingest into Table123 (@"source1", @"source2")
@@ -280,21 +330,6 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
     )
 ```
 
-* 当上述映射作为 `.ingest` 控制命令的一部分提供时，它将被序列化为 JSON 字符串：
-
-```kusto
-.ingest into Table123 (@"source1", @"source2") 
-  with 
-  (
-      format = "parquet", 
-      ingestionMapping = 
-      "["
-        "{\"column\":\"rownumber\",\"Properties\":{\"Path\":\"$.rownumber\"}},"
-        "{\"column\":\"rowguid\",  \"Properties\":{\"Path\":\"$.rowguid\"}}"
-      "]"
-  )
-```
-
 ## <a name="orc-mapping"></a>Orc 映射
 
 当源文件采用 Orc 格式时，文件内容将映射到 Kusto 表。 表必须存在于 Kusto 数据库中，除非为映射的所有列指定有效的数据类型。 在 Orc 映射中，被映射的列必须存在于 Kusto 表中，除非为所有不存在的列指定了数据类型。
@@ -303,7 +338,7 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
 
 |属性|说明|
 |----|--|
-|`path`|如果开头为 `$`，指向将成为 Orc 文档中列内容的字段的 JSON 路径（指示整个文档的 JSON 路径为 `$`）。 如果值不以 `$` 开头，则使用常数值。|
+|`path`|如果开头为 `$`，指向将成为 Orc 文档中列内容的字段的 JSON 路径（指示整个文档的 JSON 路径为 `$`）。 如果值不以 `$` 开头，则使用常数值。 包含空格的 JSON 路径应作为 [\'Property Name\'] 进行转义。|
 |`transform`|（可选）应该应用于内容的[映射转换](#mapping-transformations)。
 
 ### <a name="example-of-orc-mapping"></a>Orc 映射示例
@@ -333,9 +368,22 @@ CSV 映射可以应用于所有分隔符分隔的格式：CSV、TSV、PSV、SCSV
       ingestionMapping = 
       "["
         "{\"column\":\"rownumber\",\"Properties\":{\"Path\":\"$.rownumber\"}},"
-        "{\"column\":\"rowguid\",  \"Properties\":{\"Path\":\"$.rowguid\"}}"
+        "{\"column\":\"rowguid\",  \"Properties\":{\"Path\":\"$.rowguid\"}}",
+        "{\"column\":\"custom_column\",  \"Properties\":{\"Path\":\"$.[\'property name with space\']\"}}"
       "]"
   )
+```
+
+> [!NOTE]
+> 如果上述映射是[预先创建](create-ingestion-mapping-command.md)的，可使用 `.ingest` 控制命令引用它：
+
+```kusto
+.ingest into Table123 (@"source1", @"source2")
+    with 
+    (
+        format="orc", 
+        ingestionMappingReference = "Mapping1"
+    )
 ```
 
 ## <a name="mapping-transformations"></a>映射转换

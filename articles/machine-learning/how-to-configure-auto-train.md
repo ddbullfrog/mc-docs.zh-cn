@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/10/2020
+ms.date: 09/29/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 362eb7045e506d8e76feafd958695fa5e6c687a5
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.custom: how-to, devx-track-python,contperfq1
+ms.openlocfilehash: 7ce2dbdbb9c650162dd8397aaffcb80dea04db41
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118194"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104540"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>使用 Python 配置自动化 ML 试验
 
@@ -44,7 +44,7 @@ ms.locfileid: "92118194"
 
 * 已安装 Azure 机器学习 Python SDK。
     若要安装该 SDK，你可以： 
-    * 创建一个计算实例，该实例将自动安装 SDK 并针对 ML 工作流进行预先配置。 有关详细信息，请参阅[什么是 Azure 机器学习计算实例？](concept-compute-instance.md#managing-a-compute-instance) 
+    * 创建一个计算实例，该实例将自动安装 SDK 并针对 ML 工作流进行预先配置。 有关详细信息，请参阅[创建和管理 Azure 机器学习计算实例](how-to-create-manage-compute-instance.md)。 
 
     * [自己安装 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)。 只要确保额外包括 `automl` 即可。 
 
@@ -343,7 +343,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 如果在笔记本中操作，可以在小组件或内联单元中查看训练结果。 有关更多详细信息，请参阅[跟踪和评估模型](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs)。
 
-请参阅[了解自动化机器学习结果](how-to-understand-automated-ml.md)，查看为每次运行提供的性能图表和指标的定义和示例。 
+请参阅[评估自动化机器学习试验结果](how-to-understand-automated-ml.md)，查看为每次运行提供的性能图表和指标的定义和示例。 
 
 若要获取特征化摘要并了解哪些功能已添加到特定模型，请参阅[特征化透明度](how-to-configure-auto-features.md#featurization-transparency)。 
 

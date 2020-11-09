@@ -4,16 +4,16 @@ description: 通过 Azure 负载均衡器排查出站连接常见问题的解决
 services: load-balancer
 author: WenJason
 ms.service: load-balancer
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 05/7/2020
-ms.date: 07/20/2020
+ms.date: 11/02/2020
 ms.author: errobin
-ms.openlocfilehash: 21b705a2196fdc633191d5608e9919ae4b80b908
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.openlocfilehash: 16fd3cde45368198f1f2483c134d625328fbdc43
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440336"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628187"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> 排查出站连接故障
 
@@ -45,7 +45,7 @@ ms.locfileid: "86440336"
 临时端口有 4 分钟的空闲超时（不可调整）。 如果重试太过积极，则消耗没有机会进行自行清除。 因此，应用程序停用事务的方式和频率对于设计至关重要。
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>向每个 VM 分配公共 IP
-分配公共 IP 地址会将方案更改为 [VM 的公共 IP](load-balancer-outbound-connections.md)。 用于各 VM 的公共 IP 的所有临时端口都可供 VM 使用。 （与以下方案相反：公共 IP 的临时端口与同相应后端池关联的 VM 的所有临时端口共享）。需要作出一些权衡，比如公共 IP 地址的额外成本和将大量个人 IP 地址列入允许列表所产生的潜在影响。
+分配公共 IP 地址会将方案更改为 [VM 的公共 IP](load-balancer-outbound-connections.md)。 用于各 VM 的公共 IP 的所有临时端口都可供 VM 使用。 （与以下方案相反：公共 IP 的临时端口与同相应后端池关联的 VM 的所有临时端口共享）。需要在某些方面作出一些权衡，比如公共 IP 地址的额外成本和将大量个人 IP 地址列入筛选所产生的潜在影响方面。
 
 >[!NOTE] 
 >此选项不适用于 Web 辅助角色。

@@ -10,12 +10,12 @@ ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 167608b4e09315624947d3ddc5f0d537a6377877
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 3a0d7f52c23e9fb08ce34c7bbe86c5fe7ec0e221
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118250"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105883"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>使用 TensorBoard 和 Azure 机器学习可视化试验运行与指标
 
@@ -43,10 +43,8 @@ ms.locfileid: "92118250"
         * 在开始本教程之前完成[教程：设置环境和工作区](tutorial-1st-experiment-sdk-setup.md)创建预先加载了 SDK 和示例存储库的专用笔记本服务器。
 
         * 在笔记本服务器上的 samples 文件夹中，导航到以下目录找到两个已完成的和已扩展的笔记本：
-            * **how-to-use-azureml > training-with-deep-learning > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
-
-            * **how-to-use-azureml > track-and-monitor-experiments > tensorboard.ipynb**
-
+            * how-to-use-azureml > track-and-monitor-experiments > tensorboard > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb
+            * how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb
     * 你自己的 Jupyter 笔记本服务器
        * 使用 `tensorboard` 附加项[安装 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
         * [创建 Azure 机器学习工作区](how-to-manage-workspace.md)。  

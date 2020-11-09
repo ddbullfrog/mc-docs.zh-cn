@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 637d3621897fd9e024610b90e6eb452506772724
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: e64f64b1e0b0ee5badf0ed7bdf23926b4e502183
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118528"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105806"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>使用 Azure 机器学习训练模型
 
@@ -118,11 +118,6 @@ R SDK 使你能够将 R 语言与 Azure 机器学习结合使用。 SDK 使用�
 
 + [什么是设计器？](concept-designer.md)
 + [教程：预测汽车价格](tutorial-designer-automobile-price-train-score.md)
-+ [回归：预测价格](samples-designer.md)
-+ [分类：预测收入](samples-designer.md)
-+ [分类：预测客户流失、购买欲和追加销售](samples-designer.md)
-+ [使用自定义 R 脚本的分类：预测航班延误](samples-designer.md)
-+ [文本分类：维基百科 SP 500 数据集](samples-designer.md)
 
 ## <a name="many-models-solution-accelerator"></a>多模型解决方案加速器
 
@@ -149,4 +144,4 @@ R SDK 使你能够将 R 语言与 Azure 机器学习结合使用。 SDK 使用�
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何[使用计算目标进行模型训练](how-to-set-up-training-targets.md)。
+了解如何[配置训练运行](how-to-set-up-training-targets.md)。

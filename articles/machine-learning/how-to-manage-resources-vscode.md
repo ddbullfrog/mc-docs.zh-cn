@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/03/2020
-ms.openlocfilehash: a50fd39f02cbb7edbb893b8f37518caad222a006
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 21dbe8ed61adff30eb89fce23bf8580253376007
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118587"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106268"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>使用 VS Code 扩展（预览版）管理 Azure 机器学习资源
 
@@ -201,6 +201,7 @@ VS Code 扩展目前支持以下类型的数据存储：
 1. 在工作区中展开“试验”节点。
 1. 右键单击要运行的试验。
 1. 选择活动栏中的“运行试验”图标。
+1. 选择是要本地运行试验还是远程运行试验。 有关在本地运行和调试试验的详细信息，请参阅[调试指南](how-to-debug-visual-studio-code.md)。
 1. 选择订阅。
 1. 选择要在其下运行试验的 Azure ML 工作区。
 1. 选择你的试验。

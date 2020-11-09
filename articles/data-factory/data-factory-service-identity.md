@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 07/06/2020
-ms.date: 09/21/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: 762ebe4cc11caab2019a2a11c1ddc23681cea099
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 443ebbd7bedefc837d4a10a5c5180f885d13710f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523978"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105899"
 ---
 # <a name="managed-identity-for-data-factory"></a>数据工厂的托管标识
 
@@ -58,7 +58,7 @@ ms.locfileid: "90523978"
 
 ### <a name="generate-managed-identity-using-powershell"></a>使用 PowerShell 生成托管标识
 
-再次调用 **Set-AzDataFactoryV2** 命令，然后你会看到正在生成新的 "identity" 字段：
+调用 Set-AzDataFactoryV2 命令，然后你会看到正在生成新的“标识”字段：
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -80,7 +80,7 @@ ProvisioningState : Succeeded
 PATCH https://management.chinacloudapi.cn/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**请求正文**：添加 "identity": { "type": "SystemAssigned" }。
+**请求正文** ：添加 "identity": { "type": "SystemAssigned" }。
 
 ```json
 {
@@ -93,7 +93,7 @@ PATCH https://management.chinacloudapi.cn/subscriptions/<subsID>/resourceGroups/
 }
 ```
 
-**响应**：自动创建托管标识并相应地填充 "identity" 部分。
+**响应** ：自动创建托管标识并相应地填充 "identity" 部分。
 
 ```json
 {
@@ -118,7 +118,7 @@ PATCH https://management.chinacloudapi.cn/subscriptions/<subsID>/resourceGroups/
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板生成托管标识
 
-**模版**：添加 "identity": { "type": "SystemAssigned" }。
+**模版** ：添加 "identity": { "type": "SystemAssigned" }。
 
 ```json
 {
@@ -202,7 +202,7 @@ Type                  : ServicePrincipal
 GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**响应**：你将获得如下所示的响应。 “标识”部分会相应进行填充。
+**响应** ：你将获得如下所示的响应。 “标识”部分会相应进行填充。
 
 ```json
 {

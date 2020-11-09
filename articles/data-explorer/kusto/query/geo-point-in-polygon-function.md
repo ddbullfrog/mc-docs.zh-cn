@@ -8,35 +8,36 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/10/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 1be881d7948e5472173a583b687d9392fd974114
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 9bc5d3c78a8aff97c63b6f698f71f03c9b568195
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841204"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104273"
 ---
 # <a name="geo_point_in_polygon"></a>geo_point_in_polygon()
 
 计算地理空间坐标是否在地球上的某个多边形或多多边形内。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `geo_point_in_polygon(`*longitude*`, `*latitude*`, `*polygon*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * longitude：地理空间坐标经度值（度）。 有效值为 [-180, +180] 范围内的实数。
 * latitude：地理空间坐标纬度值（度）。 有效值为 [-90, +90] 范围内的实数。
 * polygon：采用 [GeoJSON 格式](https://tools.ietf.org/html/rfc7946)的 [dynamic](./scalar-data-types/dynamic.md) 数据类型的多边形或多多边形。
 
-**返回**
+## <a name="returns"></a>返回
 
 指示地理空间坐标是否在某个多边形内。 如果坐标或多边形无效，则查询将生成 null 结果。 
 
 > [!NOTE]
 > * 以 [WGS-84](https://earth-info.nga.mil/GandG/update/index.php?action=home) 坐标参考系统表示方法对地理空间坐标进行解释。
 > * 用于在地球上进行测量的大地基准是一个球体。 多边形边缘是球体上的测地线。
+> * 如果输入多边形边缘是直笛卡尔线，请考虑使用 [geo_polygon_densify()](geo-polygon-densify-function.md) 以将平面边缘转换为测地线。
 
 **多边形定义和约束**
 
@@ -57,11 +58,11 @@ dynamic({"type":"MultiPolygon","coordinates": [[ LinearRingShell, LinearRingHole
 > * 使用文本多边形可能会提高性能。
 > * 如果想要了解任意多边形是否包含某个点，请尝试执行以下步骤：将多边形集合折叠为一个多多边形。 然后查询此多多边形。 这可以提高性能。 请参阅以下示例。 
 
-**示例**
+## <a name="examples"></a>示例
 
 不带中央公园的曼哈顿岛。
 
-:::image type="content" source="images/geo-point-in-polygon-function/polygon-manhattan-with-hole.png" alt-text="带缺口的曼哈顿":::
+:::image type="content" source="images/geo-point-in-polygon-function/polygon-manhattan-with-hole.png" alt-text="曼哈顿区域地图的屏幕截图，其中包含一个地标、一个博物馆和一个机场的标记。除中央公园外，该岛显示为灰色。":::
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto
@@ -80,7 +81,7 @@ datatable(longitude:real, latitude:real, description:string)
 
 在多多边形中搜索坐标。
 
-:::image type="content" source="images/geo-point-in-polygon-function/multipolygon-manhattan.png" alt-text="带缺口的曼哈顿":::
+:::image type="content" source="images/geo-point-in-polygon-function/multipolygon-manhattan.png" alt-text="曼哈顿区域地图的屏幕截图，其中包含上西区、格林尼治村和一个机场的标记。三个附近区域显示为灰色。":::
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

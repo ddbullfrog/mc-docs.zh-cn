@@ -2,16 +2,16 @@
 title: 排查 Azure 自动化更新管理问题
 description: 本文介绍如何排查和解决 Azure 自动化更新管理的问题。
 services: automation
-origin.date: 09/25/2020
-ms.date: 10/19/2020
+origin.date: 10/14/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 87a61236901bf85cf416423bad3e683a3d320d0f
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 85a3099745c9e26cacedcc441d1936953f8c96fb
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943514"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749764"
 ---
 # <a name="troubleshoot-update-management-issues"></a>排查“更新管理”问题
 
@@ -55,27 +55,25 @@ Error details: Failed to enable the Update solution
 
 ### <a name="cause"></a>原因
 
-被取代的更新未正确指示为“已拒绝”，因此无法将其视为“不适用”。
+被取代的更新在 Windows Server Update Services (WSUS) 中不是“已拒绝”，因此无法将其视为“不适用”。
 
 ### <a name="resolution"></a>解决方法
 
-如果被取代的更新变得 100% 不适用，则应将该更新的审批状态更改为 `Declined`。 若要更改所有更新的审批状态，请执行以下操作：
+当被取代的更新完全不适用时，应在 WSUS 中将该更新的批准状态更改为 `Declined`。 若要更改所有更新的审批状态，请执行以下操作：
 
 1. 在自动化帐户中，选择“更新管理”来查看计算机的状态。 请参阅[查看更新评估](../update-management/update-mgmt-view-update-assessments.md)。
 
 2. 检查被取代的更新，确保其 100% 不适用。
 
-3. 请将该更新标记为“已拒绝”，除非对更新有疑问。
+3. 在计算机向其报告的 WSUS 服务器上，[拒绝更新](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates)。
 
 4. 选择“计算机”，然后在“合规性”列中，强制执行重新扫描，以检查合规性 。 请参阅[管理 VM 的更新](../update-management/update-mgmt-manage-updates-for-vm.md)。
 
 5. 对于其他被取代的更新，请重复上述步骤。
 
-6. 运行清理向导以删除已拒绝的更新中的文件。 
+6. 对于 Windows Server Update Services (WSUS)，请清除所有被取代的更新以使用 WSUS [清理向导](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)刷新基础结构。
 
-7. 对于 Windows Server Update Services (WSUS)，手动清除所有被取代的更新以刷新基础结构。
-
-8. 定期重复此过程以更正显示问题，并最大程度地减少用于更新管理的磁盘空间量。
+7. 定期重复此过程以更正显示问题，并最大程度地减少用于更新管理的磁盘空间量。
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>场景：更新管理下的门户中未显示计算机
 
@@ -224,7 +222,7 @@ Azure 门户预览列表中未显示动态组的所选作用域的 VM。 此列�
 
 #### <a name="incorrect-access-on-selected-scopes"></a>对所选作用域的访问权限不正确
 
-Azure 门户仅显示你在给定作用域内具有写入访问权限的计算机。 如果没有对作用域的正确访问权限，请参阅[教程：使用 RBAC 和 Azure 门户授予用户对 Azure 资源的访问权限](../../role-based-access-control/quickstart-assign-role-user-portal.md)。
+Azure 门户仅显示你在给定作用域内具有写入访问权限的计算机。 如果你在某个范围内没有适当的访问权限，请参阅[教程：使用 Azure 门户授予用户对 Azure 资源的访问权限](../../role-based-access-control/quickstart-assign-role-user-portal.md)。
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>ARG 查询未返回预期的计算机
 
@@ -486,6 +484,8 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 更新的默认维护时段为 120 分钟。 最多可将维护时段增至 6 小时，即 360 分钟。
 
 ### <a name="resolution"></a>解决方法
+
+若要了解更新成功启动后在运行期间发生此错误的原因，请[检查运行中受影响的计算机的作业输出](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment)。 可以从计算机查找特定的错误消息，可以对这些错误消息进行调查并对其采取操作。  
 
 编辑任何失败的计划更新部署，并增加维护时段。
 

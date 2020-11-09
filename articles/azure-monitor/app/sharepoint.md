@@ -2,20 +2,22 @@
 title: 使用 Application Insights 监视 SharePoint site 站点
 description: 开始使用新检测密钥监视新应用程序
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
+ms.author: v-johya
+ms.date: 10/29/2020
 origin.date: 07/11/2018
-ms.date: 6/4/2019
-ms.author: v-lingwu
-ms.openlocfilehash: b57edf8f4926199db1ba9b4e1854e3b718a70b93
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 07a5c260a97c3dd9ddba26936d8cc6d0fe6afa9b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850375"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104243"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>使用 Application Insights 监视 SharePoint site 站点
+
 Azure Application Insights 监视应用的可用性、性能和使用情况。 下面介绍如何为 SharePoint 站点设置它。
+
+> [!NOTE]
+> 出于安全考虑，你不能在 SharePoint 新式用户体验中直接向网页添加本文所述的脚本。 作为替代方法，可使用 [SharePoint 框架 (SPFx)](https://docs.microsoft.com/sharepoint/dev/spfx/extensions/overview-extensions) 来构建可用于在 SharePoint 站点上安装 Application Insights 的自定义扩展。
 
 ## <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 在 [Azure 门户](https://portal.azure.cn)中，创建新的 Application Insights 资源。 选择 ASP.NET 作为应用程序类型。
@@ -53,18 +55,18 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 签出母版页并使用 SharePoint Designer 或任何其他编辑器编辑它。
 
-![](./media/sharepoint/03-master.png)
+![显示如何使用 SharePoint Designer 或任何其他编辑器编辑母版页的屏幕截图。](./media/sharepoint/03-master.png)
 
-在 </head> 标记之前添加代码。 
+将代码添加到以下项前面： </head> 标记。 
 
-![](./media/sharepoint/04-code.png)
+![显示要将代码添加到站点页的位置的屏幕截图。](./media/sharepoint/04-code.png)
 
 #### <a name="or-on-individual-pages"></a>或在个别页面上
 要监视一组有限的页面，请将脚本分别添加到每个页面。 
 
 插入 Web 部分并在其中嵌入代码片段。
 
-![](./media/sharepoint/05-page.png)
+![显示如何添加脚本来监视一组有限页面的屏幕截图。](./media/sharepoint/05-page.png)
 
 ## <a name="view-data-about-your-app"></a>查看关于应用的数据
 重新部署应用。
@@ -73,7 +75,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 第一批事件会显示在“搜索”中。 
 
-![](./media/sharepoint/09-search.png)
+![显示可在应用中查看的新数据的屏幕截图。](./media/sharepoint/09-search.png)
 
 如果需要更多数据，在几秒后单击“刷新”。
 
@@ -82,7 +84,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 1. 从 Application Insights 中的 Essentials 下拉列表中复制应用的检测密钥。 
 
-    ![](./media/sharepoint/02-props.png)
+    ![显示如何从 Application Insights 中的 Essentials 下拉列表中复制应用的检测的屏幕截图。](./media/sharepoint/02-props.png)
 
 1. 在下面代码片段中将“XXXX”替换为检测密钥。 
 2. 将脚本嵌入 SharePoint 应用，而不是从门户获取的代码片段。
@@ -137,13 +139,8 @@ function onRequestFail(sender, args) {
 
 
 ## <a name="next-steps"></a>后续步骤
-* 用于监视站点可用性的 [Web 测试](../../azure-monitor/app/monitor-web-app-availability.md)。
-* 适用于其他应用类型的 [Application Insights](../../azure-monitor/app/app-insights-overview.md)。
+* 用于监视站点可用性的 [Web 测试](./monitor-web-app-availability.md)。
+* 适用于其他应用类型的 [Application Insights](./app-insights-overview.md)。
 
 <!--Link references-->
-
-
-
-
-
 

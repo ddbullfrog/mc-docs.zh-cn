@@ -1,58 +1,61 @@
 ---
-title: 跨订阅迁移人脸数据 - 人脸 API
+title: 跨订阅迁移人脸数据 - 人脸
 titleSuffix: Azure Cognitive Services
-description: 本指南介绍了如何将已存储的人脸数据从一个人脸 API 订阅迁移到另一个人脸 API 订阅。
+description: 本指南介绍了如何将已存储的人脸数据从一个人脸订阅迁移到另一个人脸订阅。
 services: cognitive-services
-author: lewlu
-manager: cgronlun
+author: Johnnytechn
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 06/10/2019
-ms.author: v-junlch
-ms.openlocfilehash: 566267e7119c523d64396eda4bb0b4253601d359
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 169bc150470fd00b1cf23db0b90383c775b42abc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "66830036"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105199"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>将人脸数据迁移到其他人脸订阅
 
-本指南介绍如何将人脸数据（例如包含人脸的已保存 PersonGroup 对象）转移到不同的 Azure 认知服务人脸 API 订阅。 若要移动数据，可以使用快照功能。 这样，在转移或扩展操作时就无需反复生成并训练 PersonGroup 或 FaceList 对象。 例如，你可能已使用试用订阅创建了一个 PersonGroup 对象，现在想要将它迁移到付费的订阅。 或者，你可能需要跨区域同步人脸数据，以执行大规模的企业操作。
+本指南介绍如何将人脸数据（例如已保存的包含人脸的 PersonGroup 对象）转移到不同的 Azure 认知服务人脸订阅。 若要移动数据，可以使用快照功能。 这样，在转移或扩展操作时就无需反复生成并训练 PersonGroup 或 FaceList 对象。 例如，你可能已使用免费订阅创建了一个 PersonGroup 对象，现在想要将它迁移到付费订阅。 或者，你可能需要跨不同区域中的订阅同步人脸数据，以执行大规模的企业操作。
 
-此迁移策略同样适用于 LargePersonGroup 和 LargeFaceList 对象。 如果你不熟悉本指南中的概念，请查看[人脸识别概念](../concepts/face-recognition.md)指南中的相关定义。 本指南结合使用人脸 API .NET 客户端库与 C#。
+此迁移策略同样适用于 LargePersonGroup 和 LargeFaceList 对象。 如果你不熟悉本指南中的概念，请查看[人脸识别概念](../concepts/face-recognition.md)指南中的相关定义。 本指南结合使用人脸 .NET 客户端库与 C#。
 
 ## <a name="prerequisites"></a>必备条件
 
 需要准备好以下各项：
 
-- 两个人脸 API 订阅密钥，其中一个包含现有数据，另一个是迁移目标。 若要订阅人脸 API 服务并获取密钥，请遵照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明操作。
-- 对应于目标订阅的人脸 API 订阅 ID 字符串。 在 Azure 门户中选择“概述”可以找到该字符串。  
+- 两个人脸订阅密钥，其中一个包含现有数据，另一个是迁移目标。 若要订阅人脸服务并获取密钥，请遵照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明操作。
+- 对应于目标订阅的人脸订阅 ID 字符串。 在 Azure 门户中选择“概述”可以找到该字符串。  
 - 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)。
 
 ## <a name="create-the-visual-studio-project"></a>创建 Visual Studio 项目
 
-本指南使用一个简单的控制台应用来运行人脸数据迁移。 有关完整的实现，请参阅 GitHub 上的[人脸 API 快照示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)。
+本指南使用一个简单的控制台应用来运行人脸数据迁移。 有关完整的实现，请参阅 GitHub 上的[人脸快照示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)。
 
-1. 在 Visual Studio 中创建新的控制台应用 .NET Framework 项目。 将其命名为 **FaceApiSnapshotSample**。
+1. 在 Visual Studio 中创建新的控制台应用 .NET Framework 项目。 将其命名为 **FaceApiSnapshotSample** 。
 1. 获取所需的 NuGet 包。 在解决方案资源管理器中，右键单击该项目并选择“管理 NuGet 包”  。 选择“浏览”选项卡，然后选择“包括预发行版”   。 找到并安装以下包：
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 ## <a name="create-face-clients"></a>创建人脸客户端
 
-在 *Program.cs* 的 **Main** 方法中，创建两个 [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) 实例，分别对应于源订阅和目标订阅。 此示例使用“中国北部”区域的某个人脸订阅作为源，使用“中国北部”的某个订阅作为目标。 此示例演示如何将数据从一个 Azure 区域迁移到另一个 Azure 区域。 如果订阅位于其他区域，请更改 `Endpoint` 字符串。
+在 *Program.cs* 的 **Main** 方法中，创建两个 [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) 实例，分别对应于源订阅和目标订阅。 此示例使用“中国北部”区域的某个人脸订阅作为源，使用“中国东部 2”的某个订阅作为目标。 此示例演示如何将数据从一个 Azure 区域迁移到另一个 Azure 区域。 
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
-var FaceClientChinaEast2 = new FaceClient(new ApiKeyServiceClientCredentials("<China East 2 Subscription Key>"))
-    {
-        Endpoint = "https://chinaeast2.api.cognitive.azure.cn/>"
-    };
-
 var FaceClientChinaNorth = new FaceClient(new ApiKeyServiceClientCredentials("<China North Subscription Key>"))
     {
-        Endpoint = "https://chinanorth.api.cognitive.azure.cn/"
+        Endpoint = "https://api.cognitive.azure.cn/>"
+    };
+
+var FaceClientChinaEast2 = new FaceClient(new ApiKeyServiceClientCredentials("<China East 2 Subscription Key>"))
+    {
+        Endpoint = "https://api.cognitive.azure.cn/"
     };
 ```
 
@@ -73,7 +76,7 @@ var FaceClientChinaNorth = new FaceClient(new ApiKeyServiceClientCredentials("<C
 使用源订阅的 FaceClient 实例创建 PersonGroup 快照。 请将 [TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) 与 PersonGroup ID 和目标订阅 ID 配合使用。 如果有多个目标订阅，请将其添加为第三个参数中的数组项。
 
 ```csharp
-var takeSnapshotResult = await FaceClientChinaEast2.Snapshot.TakeAsync(
+var takeSnapshotResult = await FaceClientChinaNorth.Snapshot.TakeAsync(
     SnapshotObjectType.PersonGroup,
     personGroupId,
     new[] { "<Azure China North Subscription ID>" /* Put other IDs here, if multiple target subscriptions wanted */ });
@@ -88,7 +91,7 @@ var takeSnapshotResult = await FaceClientChinaEast2.Snapshot.TakeAsync(
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
-var operationStatus = await WaitForOperation(FaceClientChinaEast2, takeOperationId);
+var operationStatus = await WaitForOperation(FaceClientChinaNorth, takeOperationId);
 ```
 
 典型的 `OperationLocation` 值如下所示：
@@ -170,8 +173,8 @@ operationStatus = await WaitForOperation(FaceClientChinaNorth, applyOperationId)
 若要测试数据迁移，请运行以下操作，并比较这些操作在控制台中列显的结果：
 
 ```csharp
-await DisplayPersonGroup(FaceClientChinaEast2, personGroupId);
-await IdentifyInPersonGroup(FaceClientChinaEast2, personGroupId);
+await DisplayPersonGroup(FaceClientChinaNorth, personGroupId);
+await IdentifyInPersonGroup(FaceClientChinaNorth, personGroupId);
 
 await DisplayPersonGroup(FaceClientChinaNorth, newPersonGroupId);
 // No need to retrain the person group before identification,
@@ -224,7 +227,7 @@ private static async Task IdentifyInPersonGroup(IFaceClient client, string perso
 迁移完人脸数据后，请手动删除快照对象。
 
 ```csharp
-await FaceClientChinaEast2.Snapshot.DeleteAsync(snapshotId);
+await FaceClientChinaNorth.Snapshot.DeleteAsync(snapshotId);
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -232,9 +235,7 @@ await FaceClientChinaEast2.Snapshot.DeleteAsync(snapshotId);
 接下来，请参阅相关的 API 参考文档、浏览使用快照功能的示例应用，或遵循下面所述的操作指南开始使用其他 API 操作：
 
 - [快照参考文档 (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
-- [人脸 API 快照示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
+- [人脸快照示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [添加人脸](how-to-add-faces.md)
 - [检测图像中的人脸](HowtoDetectFacesinImage.md)
-- [识别图像中的人脸](HowtoIdentifyFacesinImage.md)
 
-<!-- Update_Description: wording update -->

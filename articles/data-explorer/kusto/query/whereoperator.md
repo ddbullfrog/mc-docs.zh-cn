@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 where 运算符。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: d07819e2976ade2a8fe197effa991d9452834636
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: e32fae40b61b5de82918b4a2cd05e185af46cfc6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841324"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104566"
 ---
 # <a name="where-operator"></a>where 运算符
 
@@ -26,18 +26,18 @@ T | where fruit=="apple"
 
 **Alias** `filter`
 
-**语法**
+## <a name="syntax"></a>语法
 
 *T* `| where` *Predicate*
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *T*：其记录待筛选的表格输入。
-* *谓词*：针对 T 的列的 `boolean` [表达式](./scalar-data-types/bool.md)。对 T 中的每一行执行此计算。
+* *T* ：其记录待筛选的表格输入。
+* *谓词* ：针对 T 的列的 `boolean` [表达式](./scalar-data-types/bool.md)。对 T 中的每一行执行此计算。
 
-**返回**
+## <a name="returns"></a>返回
 
-对于 *T* 中的行，*Predicate* 为 `true`。
+对于 *T* 中的行， *Predicate* 为 `true`。
 
 **注释** Null 值：与 null 值进行比较时，所有筛选函数都返回 false。 可以使用特殊的 null 感知函数编写处理 null 值的查询。
 
@@ -47,15 +47,15 @@ T | where fruit=="apple"
 
 获取最快性能：
 
-* 在列名称和常量之间**采用简单比较**。 （“常量”指基于表的常量 - `now()` 和 `ago()` 均可用，使用 [`let` 语句](./letstatement.md)分配的标量值也可用。）
+* 在列名称和常量之间 **采用简单比较** 。 （“常量”指基于表的常量 - `now()` 和 `ago()` 均可用，使用 [`let` 语句](./letstatement.md)分配的标量值也可用。）
 
     例如，使用 `where Timestamp >= ago(1d)` 而非 `where floor(Timestamp, 1d) == ago(1d)`。
 
-* **简单项优先**：如果有多个子句与 `and` 联合，则将仅涉及一列的子句放在首位。 因此 `Timestamp > ago(1d) and OpId == EventId` 优于其他方法。
+* **简单项优先** ：如果有多个子句与 `and` 联合，则将仅涉及一列的子句放在首位。 因此 `Timestamp > ago(1d) and OpId == EventId` 优于其他方法。
 
 有关详细信息，请参阅[可用字符串运算符](./datatypes-string-operators.md)的摘要和[可用数值运算符](./numoperators.md)的摘要。
 
-**示例**
+## <a name="example-simple-comparisons-first"></a>示例：先进行简单比较
 
 ```kusto
 Traces
@@ -68,7 +68,7 @@ Traces
 
 请注意，我们将两个列之间的比较放在最后，因为它不能使用索引，因此会强制执行扫描。
 
-**示例**
+## <a name="example-columns-contain-string"></a>示例：列表包含字符串
 
 ```kusto
 Traces | where * has "Kusto"

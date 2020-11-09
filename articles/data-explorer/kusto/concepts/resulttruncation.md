@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 07/01/2020
-ms.openlocfilehash: 53bf6b1b070502a3c387f46e5f05b8fabca1be83
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: 4db77e545120330a7426094de679517e07f60db7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226192"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103553"
 ---
 # <a name="query-result-set-has-exceeded-the-internal--limit"></a>查询结果集已超过内部限制
 
@@ -27,7 +27,7 @@ ms.locfileid: "86226192"
 * 更改查询以消耗更少的资源。 
   例如，可以：
   * 使用 [take 运算符](../query/takeoperator.md)或添加其他 [where 子句](../query/whereoperator.md)来限制查询返回的记录数
-  * 尝试减少查询返回的列数。 使用 [project 运算符](../query/projectoperator.md)或 [project-away 运算符](../query/projectawayoperator.md)
+  * 尝试减少查询返回的列数。 使用 [project 运算符](../query/projectoperator.md)、[project-away 运算符](../query/projectawayoperator.md)或 [project-keep 运算符](../query/project-keep-operator.md)
   * 使用 [summarize 运算符](../query/summarizeoperator.md)获取聚合数据
 * 暂时提高该查询的相关查询限制。 有关详细信息，请参阅[查询限制](querylimits.md)下的“结果截断”
 

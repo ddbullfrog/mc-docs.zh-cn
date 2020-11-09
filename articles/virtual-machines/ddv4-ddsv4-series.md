@@ -8,23 +8,21 @@ ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 06/01/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f473ac294bd570351c3f525eb00c882f0c0dc77c
-ms.sourcegitcommit: 5eb78078e370c9173a41f22ad8ea4bb45bc20312
+ms.openlocfilehash: 8c0b66e115fcd0de7bd940164c8c57a26431d4be
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088213"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106138"
 ---
 <!--Verified successfully from PG team confirmation-->
-<!--Pending GA on Q3 2020, only be suitable for China East 2 site-->
-<!--RELEASE BEFORE CONFIRME AND BE CAREFULLY-->
 # <a name="ddv4-and-ddsv4-series"></a>Ddv4 和 Ddsv4 系列
 
-Ddv4 和 Ddsv4 系列采用英特尔&reg; 至强&reg; 铂金 8272CL (Cascade Lake) 处理器，具有超线程配置，为大多数通用工作负载提供了更好的价值主张。 它的持续全核睿频时钟速度为 3.4 GHz，采用[英特尔&reg; 睿频加速技术 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html)、[英特尔&reg; 超线程技术](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)和[英特尔&reg; 高级矢量扩展 512（英特尔&reg; AVX-512）](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)。 它们还支持 [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html)。 与 [Gen2 VM](./linux/generation-2.md) 的 [Dv3/Dsv3](./dv3-dsv3-series.md) 大小相比，这些新的 VM 大小的本地存储将增加 50%，而且本地磁盘的读写 IOPS 更佳。
+Ddv4 和 Ddsv4 系列采用英特尔&reg; 至强&reg; 铂金 8272CL (Cascade Lake) 处理器，具有超线程配置，为大多数通用工作负载提供了更好的价值主张。 它的全核睿频时钟速度为 3.4 GHz，采用 [Intel&reg; 睿频加速技术 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html)、[Intel&reg; 超线程技术](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)和 [Intel&reg; 高级矢量扩展 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)。 它们还支持 [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html)。 与 [Gen2 VM](./generation-2.md) 的 [Dv3/Dsv3](./dv3-dsv3-series.md) 大小相比，这些新的 VM 大小的本地存储将增加 50%，而且本地磁盘的读写 IOPS 更佳。
 
 D 系列用例包括企业级应用程序、关系数据库、内存中缓存和分析。
 
@@ -34,15 +32,13 @@ Ddv4 系列大小采用英特尔&reg; 至强&reg; 铂金 8272CL (Cascade Lake) �
 
 新的 Ddv4 VM 大小包括一个快速、大型本地 SSD 存储（多达 2,400 GiB），适用于需要低延迟、高速本地存储的应用程序，例如，适用于需要快速读取/写入临时存储或需要临时存储才能存储缓存或临时文件的应用程序。 可以将标准 SSD 和标准 HDD 存储附加到 Ddv4 VM。 远程数据磁盘存储与虚拟机分开计费。
 
-ACU：195-210
-
-高级存储：不支持
-
-高级存储缓存：不支持
-
-实时迁移：支持
-
-内存保留更新：支持
+[ACU](acu.md)：195-210<br />
+[高级存储](premium-storage-performance.md)：不支持<br />
+[高级存储缓存](premium-storage-performance.md)：不支持<br />
+[实时迁移](maintenance-and-updates.md)：支持<br />
+[内存保留更新](maintenance-and-updates.md)：支持<br />
+[VM 代系支持](generation-2.md)：第 1 代<br />
+<br /> 
 
 | 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大缓存吞吐量和临时存储吞吐量：IOPS/MBps | 最大 NIC 数 | 预期的网络带宽 (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -63,15 +59,13 @@ Ddsv4 系列采用英特尔&reg; 至强&reg; 铂金 8272CL (Cascade Lake) 处理
  > [!NOTE]
  >Ddsv4 大小的定价和计费标准与 Ddv4 系列相同。
 
-ACU：195-210
-
-高级存储：支持
-
-高级存储缓存：支持
-
-实时迁移：支持
-
-内存保留更新：支持
+[ACU](acu.md)：195-210<br />
+[高级存储](premium-storage-performance.md)：支持<br />
+[高级存储缓存](premium-storage-performance.md)：支持<br />
+[实时迁移](maintenance-and-updates.md)：支持<br />
+[内存保留更新](maintenance-and-updates.md)：支持<br />
+[VM 代系支持](generation-2.md)：第 1 代和第 2 代<br />
+<br /> 
 
 | 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大缓存吞吐量和临时存储吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 最大非缓存磁盘吞吐量：IOPS/MBps | 最大 NIC 数 | 预期的网络带宽 (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -100,7 +94,9 @@ ACU：195-210
 
 定价计算器：[定价计算器](https://www.azure.cn/pricing/calculator/)
 
-有关磁盘类型的详细信息：[磁盘类型](./linux/disks-types.md)
+有关磁盘类型的详细信息：[磁盘类型](./disks-types.md)
+
+<!--Not Available on FEATURE ultra-disk-->
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,9 +1,9 @@
 ---
-title: 创建可重用的 ML 环境
+title: 使用软件环境
 titleSuffix: Azure Machine Learning
 description: 创建和管理用于模型训练和部署的环境。 管理环境的 Python 包和其他设置。
 services: machine-learning
-author: rastala
+author: saachigopal
 ms.author: v-yiso
 ms.reviewer: nibaccam
 ms.service: machine-learning
@@ -11,15 +11,15 @@ ms.subservice: core
 ms.topic: conceptual
 origin.date: 07/23/2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 2f737e1e255131b134c666ae0bec2e9f88f40e41
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: ab775f0fca1a7bdaf4b6a5846f8c08c2eda86a2d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117951"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104762"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>在 Azure 机器学习中创建和使用软件环境
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 本文介绍如何创建和管理 Azure 机器学习[环境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true)。 使用环境可以在项目软件依赖项演化时对其进行跟踪和再现。
 
@@ -36,9 +36,8 @@ ms.locfileid: "92117951"
 
 ## <a name="prerequisites"></a>先决条件
 
-* [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * 一个 [Azure 机器学习工作区](how-to-manage-workspace.md)
-
 
 ## <a name="create-an-environment"></a>创建环境
 
@@ -111,11 +110,11 @@ myenv = Environment.from_pip_requirements(name = "myenv"
 myenv.docker.enabled = True
 ```
 
-默认情况下，新生成的 Docker 映像显示在与工作区关联的容器注册表中。  存储库名称的格式为“azureml/azureml_\<uuid\>”。 该名称的唯一标识符 (*uuid*) 部分对应于基于环境配置计算出的哈希。 这种对应使得服务能够确定给定的环境是否已存在可重复使用的映像。
+默认情况下，新生成的 Docker 映像显示在与工作区关联的容器注册表中。  存储库名称的格式为“azureml/azureml_\<uuid\>”。 该名称的唯一标识符 ( *uuid* ) 部分对应于基于环境配置计算出的哈希。 这种对应使得服务能够确定给定的环境是否已存在可重复使用的映像。
 
 #### <a name="use-a-prebuilt-docker-image"></a>使用预生成的 Docker 映像
 
-服务会自动使用基于 Ubuntu Linux 的[基础映像](https://github.com/Azure/AzureML-Containers)之一。 它会安装指定的 Python 包。 基础映像具有 CPU 版本和 GPU 版本。 Azure 机器学习会自动检测要使用的版本。 还可以使用[自定义 Docker 基础映像](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image)。
+默认情况下，服务会自动使用一个基于 Ubuntu Linux 的[基础映像](https://github.com/Azure/AzureML-Containers)，具体来说就是 `azureml.core.environment.DEFAULT_CPU_IMAGE` 定义的映像。 然后，它将安装由提供的 Azure ML 环境定义的任何指定的 Python 包。 还可以使用[自定义 Docker 基础映像](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image)。
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -127,7 +126,7 @@ myenv.docker.base_image_registry="your_registry_location"
 > Azure 机器学习仅支持提供以下软件的 Docker 映像：
 > * Ubuntu 16.04 或更高版本。
 > * Conda 4.5.# 或更高版本。
-> * Python 3.5.#、3.6.# 或 3.7.#。
+> * Python 3.5+。
 
 #### <a name="use-your-own-dockerfile"></a>使用你自己的 Dockerfile 
 
@@ -172,7 +171,7 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 ```
 
 > [!WARNING]
-> 如果在 Docker 映像中安装了某些 Python 依赖项，但忘记设置 user_managed_dependencies = True，则执行环境中不会存在这些包，因此会导致运行时失败。 默认情况下，Azure ML 会使用你指定的依赖项构建一个 Conda 环境，并会在该环境中执行运行，而不是使用你在基础映像上安装的任何 Python 库。
+> 如果在 Docker 映像中安装了某些 Python 依赖项，但忘了设置 `user_managed_dependencies=True`，则执行环境中不会存在这些包，并会因此导致运行时失败。 默认情况下，Azure ML 会使用你指定的依赖项构建一个 Conda 环境，并会在该环境中执行运行，而不是使用你在基础映像上安装的任何 Python 库。
 
 #### <a name="retrieve-image-details"></a>检索映像详细信息
 
@@ -180,6 +179,12 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 
 ```python
 details = environment.get_image_details(workspace=ws)
+```
+
+若要从运行执行时自动保存的环境中获取映像详细信息，请使用以下代码：
+
+```python
+details = run.get_environment().get_image_details(workspace=ws)
 ```
 
 ### <a name="use-existing-environments"></a>使用现有环境
@@ -201,11 +206,9 @@ myenv = Environment.save_to_directory(path = "path-to-destination-directory", ov
 newenv = Environment.load_from_directory(path = "path-to-source-directory")
 ```
 
-### <a name="create-environments-automatically"></a>自动创建环境
+### <a name="implicitly-use-the-default-environment"></a>隐式使用默认环境
 
-通过提交训练运行来自动创建环境。 使用 `submit()` 方法提交运行。 提交训练运行时，生成新环境可能需要几分钟时间。 生成持续时间取决于所需依赖项的大小。 
-
-如果在提交运行之前未在运行配置中指定环境，系统会自动创建一个默认环境。
+如果在提交运行之前未在脚本运行配置中指定环境，系统会自动创建一个默认环境。
 
 ```python
 from azureml.core import ScriptRunConfig, Experiment, Environment
@@ -213,11 +216,10 @@ from azureml.core import ScriptRunConfig, Experiment, Environment
 myexp = Experiment(workspace=ws, name = "environment-example")
 
 # Attach training script and compute target to run config
-runconfig = ScriptRunConfig(source_directory=".", script="example.py")
-runconfig.run_config.target = "local"
+src = ScriptRunConfig(source_directory=".", script="example.py", compute_target="local")
 
 # Submit the run
-run = myexp.submit(config=runconfig)
+run = myexp.submit(config=src)
 
 # Show each step of run 
 run.wait_for_completion(show_output=True)
@@ -269,7 +271,7 @@ myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 
 ### <a name="register-environments"></a>注册环境
 
-在提交运行或部署 Web 服务时，环境将自动注册到工作区。 还可以使用 [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-workspace-) 方法手动注册环境。 此操作可让环境成为云中受到跟踪且经过版本控制的实体。 可以在工作区用户之间共享该实体。
+在提交运行或部署 Web 服务时，环境将自动注册到工作区。 还可以使用 [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-workspace-) 方法手动注册环境。 此操作可让环境成为云中受到跟踪且经过版本控制的实体。 可以在工作区用户之间共享该实体。
 
 以下代码将 `myenv` 环境注册到 `ws` 工作区。
 
@@ -285,11 +287,11 @@ myenv.register(workspace=ws)
 
 #### <a name="view-a-list-of-environments"></a>查看环境列表
 
-使用 [`Environment.list(workspace="workspace_name")`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true#&preserve-view=truelist-workspace-) 类查看工作区中的环境。 然后选择要重复使用的环境。
+使用 [`Environment.list(workspace="workspace_name")`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truelist-workspace-) 类查看工作区中的环境。 然后选择要重复使用的环境。
 
 #### <a name="get-an-environment-by-name"></a>按名称获取环境
 
-还可以按名称和版本获取特定环境。 以下代码使用 [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-workspace--name--version-none-) 方法检索 `ws` 工作区中 `myenv` 环境的版本 `1`。
+还可以按名称和版本获取特定环境。 以下代码使用 [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-workspace--name--version-none-) 方法检索 `ws` 工作区中 `myenv` 环境的版本 `1`。
 
 ```python
 restored_environment = Environment.get(workspace=ws,name="myenv",version="1")
@@ -312,7 +314,7 @@ Run.get_environment()
 
 ### <a name="debug-the-image-build"></a>调试映像生成
 
-以下示例使用 [`build()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true#&preserve-view=truebuild-workspace--image-build-compute-none-) 方法将环境手动创建为 Docker 映像。 它使用 [`wait_for_completion()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image(class)?view=azure-ml-py&preserve-view=true#&preserve-view=truewait-for-creation-show-output-false-) 监视映像生成中的输出日志。 然后，生成的映像将显示在工作区的 Azure 容器注册表实例中。 此信息有助于调试。
+以下示例使用 [`build()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truebuild-workspace--image-build-compute-none-) 方法将环境手动创建为 Docker 映像。 它使用 [`wait_for_completion()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truewait-for-creation-show-output-false-) 监视映像生成中的输出日志。 然后，生成的映像将显示在工作区的 Azure 容器注册表实例中。 此信息有助于调试。
 
 ```python
 from azureml.core import Image
@@ -345,21 +347,15 @@ exp = Experiment(name="myexp", workspace = ws)
 # Instantiate environment
 myenv = Environment(name="myenv")
 
-# Add training script to run config
-runconfig = ScriptRunConfig(source_directory=".", script="train.py")
-
-# Attach compute target to run config
-runconfig.run_config.target = "local"
-
-# Attach environment to run config
-runconfig.run_config.environment = myenv
+# Configure the ScriptRunConfig and specify the environment
+src = ScriptRunConfig(source_directory=".", script="train.py", target="local", environment=myenv)
 
 # Submit run 
-run = exp.submit(runconfig)
+run = exp.submit(src)
 ```
 
 > [!NOTE]
-> 若要禁用运行历史记录或运行快照，请使用 `ScriptRunConfig.run_config.history` 下的设置。
+> 若要禁用运行历史记录或运行快照，请使用 `src.run_config.history` 下的设置。
 
 如果未在运行配置中指定环境，服务将在提交运行时创建一个默认环境。
 
@@ -436,4 +432,4 @@ az ml environment download -n myenv -d downloaddir
 
 * 若要使用托管的计算目标来训练模型，请参阅[教程：训练模型](tutorial-train-models-with-aml.md)。
 * 训练模型后，了解[部署模型的方式和位置](how-to-deploy-and-where.md)。
-* 查看 [`Environment` 类 SDK 参考](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true)。
+* 查看 [`Environment` 类 SDK 参考](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true)。

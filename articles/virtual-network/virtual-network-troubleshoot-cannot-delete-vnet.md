@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/31/2018
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0d4bd072d680efcea3da11b044c90cf67fcf1622
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: a16436d77921f4dc9c448845e276f1c980def2f4
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564511"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628231"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>故障排除：无法在 Azure 中删除虚拟网络
 
@@ -51,7 +51,7 @@ ms.locfileid: "91564511"
 
 对于虚拟网络，请转到虚拟网络的“概述”页。 检查虚拟网络网关的“已连接设备”。
 
-:::image type="content" source="media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png" alt-text="检查网关是否正在运行":::
+:::image type="content" source="media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png" alt-text="Azure 门户中虚拟网络的已连接设备列表的屏幕截图。列表中突出显示了虚拟网络网关。":::
 
 在删除网关之前，请先删除该网关中的所有“连接”对象。 
 
@@ -59,7 +59,7 @@ ms.locfileid: "91564511"
 
 转到虚拟网络的“概述”页。 检查应用程序网关的“已连接设备”。
 
-:::image type="content" source="media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png" alt-text="检查网关是否正在运行":::
+:::image type="content" source="media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png" alt-text="Azure 门户中虚拟网络的已连接设备列表的屏幕截图。列表中突出显示了应用程序网关。":::
 
 如果存在应用程序网关，则必须先将其删除，然后才能删除虚拟网络。
 
@@ -67,9 +67,9 @@ ms.locfileid: "91564511"
 
 如果 Active Directory 域服务已启用并已连接到虚拟网络，则无法删除此虚拟网络。 
 
-:::image type="content" source="media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png" alt-text="检查网关是否正在运行":::
+:::image type="content" source="media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png" alt-text="Azure 门户中 Azure AD 域服务屏幕的屏幕截图。突出显示了“在虚拟网络/子网中可用”字段。":::
 
-<!-- Not Available on  [Disable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/active-directory-ds-disable-aadds.md). -->
+若要禁用服务，请参阅[使用 Azure 门户禁用 Azure Active Directory 域服务](../active-directory-domain-services/delete-aadds.md)。
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>检查虚拟网络是否已连接到其他资源
 

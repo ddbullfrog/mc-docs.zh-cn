@@ -2,17 +2,17 @@
 title: Azure Application Insights 遥测数据模型 - 遥测上下文 | Azure Docs
 description: Application Insights 遥测上下文数据模型
 ms.topic: conceptual
-author: lingliw
+author: Johnnytechn
+ms.date: 10/29/2020
 origin.date: 05/15/2017
-ms.date: 6/4/2019
 ms.reviewer: sergkanz
-ms.author: v-lingwu
-ms.openlocfilehash: bd591815507e85764bbb2b6dfbb6c499aeb01cd7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.author: v-johya
+ms.openlocfilehash: 48337716408693da41f8b6a02b226b981157be2b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850441"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104323"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>遥测上下文：Application Insights 数据模型
 
@@ -42,14 +42,14 @@ ms.locfileid: "78850441"
 
 ## <a name="operation-id"></a>操作 ID
 
-根操作的唯一标识符。 此标识符允许跨多个组件对遥测分组。 请参阅[遥测关联](../../azure-monitor/app/correlation.md)，了解详细信息。 操作 ID 由请求或页面视图创建。 其他所有遥测将此字段设置为包含请求或页面视图的值。 
+根操作的唯一标识符。 此标识符允许跨多个组件对遥测分组。 请参阅[遥测关联](./correlation.md)，了解详细信息。 操作 ID 由请求或页面视图创建。 其他所有遥测将此字段设置为包含请求或页面视图的值。 
 
 最大长度：128
 
 
 ## <a name="parent-operation-id"></a>父操作 ID
 
-遥测项的直接父操作的唯一标识符。 请参阅[遥测关联](../../azure-monitor/app/correlation.md)，了解详细信息。
+遥测项的直接父操作的唯一标识符。 请参阅[遥测关联](./correlation.md)，了解详细信息。
 
 最大长度：128
 
@@ -79,7 +79,7 @@ ms.locfileid: "78850441"
 
 匿名用户 ID。表示应用程序的最终用户。 从服务发送遥测时，用户上下文与在服务中启用操作的用户有关。
 
-[采样](../../azure-monitor/app/sampling.md)是最小化遥测收集量的一种技术。 采样算法尝试在所有相关遥测内部或外部采样。 匿名用户 ID 用于生成采样得分。 所以匿名用户 ID 应为随机值。 
+[采样](./sampling.md)是最小化遥测收集量的一种技术。 采样算法尝试在所有相关遥测内部或外部采样。 匿名用户 ID 用于生成采样得分。 所以匿名用户 ID 应为随机值。 
 
 使用匿名用户 ID 存储用户名是字段误用。 使用已经过身份验证的用户 ID。
 
@@ -88,7 +88,7 @@ ms.locfileid: "78850441"
 
 ## <a name="authenticated-user-id"></a>已经过身份验证的用户 ID
 
-已经过身份验证的用户 ID。与匿名用户 ID 相反，此字段表示具有友好名称的用户。 由于其 PII 信息，默认情况下，大多数 SDK 不收集它。
+已经过身份验证的用户 ID。与匿名用户 ID 相反，此字段表示具有友好名称的用户。 默认情况下，仅使用 ASP.NET Framework SDK 的 [`AuthenticatedUserIdTelemetryInitializer`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/WEB/Src/Web/Web/AuthenticatedUserIdTelemetryInitializer.cs) 收集此信息。  
 
 最大长度：1024
 
@@ -116,7 +116,7 @@ ms.locfileid: "78850441"
 
 ## <a name="internal-sdk-version"></a>内部：SDK 版本
 
-SDK 版本。 有关信息，请参阅[此文](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md)。
+SDK 版本。 有关信息，请参阅[此文](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md)。
 
 最大长度：64
 
@@ -130,10 +130,8 @@ SDK 版本。 有关信息，请参阅[此文](https://github.com/microsoft/Appl
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何[扩展和筛选遥测](../../azure-monitor/app/api-filtering-sampling.md)。
+- 了解如何[扩展和筛选遥测](./api-filtering-sampling.md)。
 - 有关 Application Insights 的类型和数据模型，请参阅[数据模型](data-model.md)。
-- 查看标准上下文属性集合[配置](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)。
-
-
+- 查看标准上下文属性集合[配置](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)。
 
 

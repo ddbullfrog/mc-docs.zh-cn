@@ -7,13 +7,13 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 01/08/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 46df62196ff0e15f1bc802d0a3c848f84249ee31
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 921be4a264ffae2634a153f7552dd290029a8117
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146724"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104074"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>将数据从 IoT 中心引入到 Azure 数据资源管理器 
 
@@ -32,7 +32,7 @@ ms.locfileid: "91146724"
 ## <a name="prerequisites"></a>先决条件
 
 * 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* 创建[一个测试群集和数据库](create-cluster-database-portal.md)，所用数据库名称为 *testdb*。
+* 创建 [一个测试群集和数据库](create-cluster-database-portal.md)，所用数据库名称为 *testdb* 。
 * 介绍如何模拟设备的[示例应用](https://github.com/Azure-Samples/azure-iot-samples-csharp)和文档。
 * 用于运行示例应用的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)。
 
@@ -46,13 +46,13 @@ ms.locfileid: "91146724"
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>在 Azure 数据资源管理器中创建目标表
 
-现在，在 Azure 数据资源管理器中创建一个表，IoT 中心会向该表发送数据。 在群集和数据库（已在[**先决条件**](#prerequisites)中预配）中创建表。
+现在，在 Azure 数据资源管理器中创建一个表，IoT 中心会向该表发送数据。 在群集和数据库（已在 [**先决条件**](#prerequisites)中预配）中创建表。
 
-1. 在 Azure 门户中导航到群集，然后选择“查询”。****
+1. 在 Azure 门户中导航到群集，然后选择“查询”。
 
     ![门户中的 ADX 查询](media/ingest-data-iot-hub/adx-initiate-query.png)
 
-1. 将以下命令复制到窗口中，然后选择“运行”**** 以创建将接收引入数据的表 (TestTable)。
+1. 将以下命令复制到窗口中，然后选择“运行”以创建将接收引入数据的表 (TestTable)。
 
     ```Kusto
     .create table TestTable (temperature: real, humidity: real)
@@ -60,7 +60,7 @@ ms.locfileid: "91146724"
     
     ![运行创建查询](media/ingest-data-iot-hub/run-create-query.png)
 
-1. 将以下命令复制到窗口中，然后选择“运行”**** 将传入的 JSON 数据映射到表 (TestTable) 的列名和数据类型。
+1. 将以下命令复制到窗口中，然后选择“运行”将传入的 JSON 数据映射到表 (TestTable) 的列名和数据类型。
 
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"humidity","path":"$.humidity","datatype":"real"},{"column":"temperature","path":"$.temperature","datatype":"real"}]'
@@ -70,44 +70,54 @@ ms.locfileid: "91146724"
 
 现在，请通过 Azure 数据资源管理器连接到 IoT 中心。 当此连接完成以后，流入 IoT 中心的数据会流式传输到[创建的目标表](#create-a-target-table-in-azure-data-explorer)。
 
-1. 在工具栏上选择“通知”****，以验证 IoT 中心部署是否成功。
+1. 在工具栏上选择“通知”，以验证 IoT 中心部署是否成功。
 
-1. 在创建的群集下，选择“数据库”****，然后选择已创建的数据库“testdb”****。
+1. 在创建的群集下，选择“数据库”，然后选择已创建的数据库“testdb”。
     
     ![选择测试数据库](media/ingest-data-iot-hub/select-database.png)
 
-1. 选择“数据引入”****，然后选择“添加数据连接”****。 然后使用以下信息填写窗体。 完成后，选择“创建”****。
+1. 选择“数据引入”，然后选择“添加数据连接”。
 
-    ![IoT 中心连接](media/ingest-data-iot-hub/iot-hub-connection.png)
+    :::image type="content" source="media/ingest-data-iot-hub/iot-hub-connection.png" alt-text="创建到 IoT 中心的数据连接 - Azure 数据资源管理器":::
 
-    **数据源**：
+### <a name="create-a-data-connection"></a>创建数据连接
+
+1. 使用以下信息填写窗体。 
+    
+    :::image type="content" source="media/ingest-data-iot-hub/data-connection-pane.png" alt-text="IoT 中心的数据连接窗格 - Azure 数据资源管理器":::
 
     **设置** | **字段说明**
     |---|---|
     | 数据连接名称 | 要在 Azure 数据资源管理器中创建的连接的名称
+    | 订阅 |  事件中心资源所在的订阅 ID。  |
     | IoT 中心 | IoT 中心名称 |
     | 共享访问策略 | 共享访问策略的名称。 必须有读取权限 |
     | 使用者组 |  在 IoT 中心的内置终结点中定义的使用者组 |
     | 事件系统属性 | [IoT 中心事件系统属性](/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)。 添加系统属性时，[创建](/data-explorer/kusto/management/create-table-command)或[更新](/data-explorer/kusto/management/alter-table-command)表架构和[映射](/data-explorer/kusto/management/mappings)以包括所选属性。 | | | 
 
-    > [!NOTE]
-    > 如果进行[手动故障转移](/iot-hub/iot-hub-ha-dr#manual-failover)，必须重新创建数据连接。
+#### <a name="target-table"></a>目标表
 
-    **目标表**：
+路由引入数据有两个选项：静态和动态。 本文将使用静态路由，需在其中指定表名、数据格式和映射。 如果事件中心消息包含数据路由信息，则此路由信息将替代默认设置。
 
-    路由引入数据有两个选项：静态和动态。**** 
-    本文将使用静态路由，需在其中指定表名、数据格式和映射。 因此，请让“我的数据包含路由信息”保留未选中状态。****
+1. 填写以下路由设置：
+    
+    :::image type="content" source="media/ingest-data-iot-hub/default-routing-settings.png" alt-text="默认路由属性 - IoT 中心 - Azure 数据资源管理器":::
 
      **设置** | **建议的值** | **字段说明**
     |---|---|---|
-    | 表 | *TestTable* | 在“testdb”**** 中创建的表。 |
+    | 表名 | *TestTable* | 在“testdb”中创建的表。 |
     | 数据格式 | *JSON* | 支持的格式为 Avro、CSV、JSON、MULTILINE JSON、ORC、PARQUET、PSV、SCSV、SOHSV、TSV、TXT、TSVE、APACHEAVRO 和 W3CLOG。|
-    | 列映射 | TestMapping** | 在 **testdb** 中创建的[映射](kusto/management/mappings.md)将传入的 JSON 数据映射到 **testdb** 的列名称和数据类型。 对于 JSON、多行 JSON 和 AVRO 是必需的，对于其他格式是可选的。|
+    | 映射 | TestMapping | 在 testdb 中创建的[映射](kusto/management/mappings.md)将传入的数据映射到 testdb 的列名称和数据类型 。 对于 JSON、多行 JSON 和 AVRO 是必需的，对于其他格式是可选的。|
     | | |
 
+    > [!WARNING]
+    > 如果进行[手动故障转移](/iot-hub/iot-hub-ha-dr#manual-failover)，必须重新创建数据连接。
+    
     > [!NOTE]
-    > * 选择“我的数据包含路由信息”**** 以使用动态路由，其中你的数据包含必要的路由信息，如[示例应用](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)注释中所示。 如果同时设置了静态和动态属性，则动态属性将覆盖静态属性。 
+    > * 无需指定所有默认路由设置。 部分设置也是接受的。
     > * 只有创建数据连接后进入队列的事件才会被引入。
+
+1. 选择“创建”  。
 
 ### <a name="event-system-properties-mapping"></a>事件系统属性映射
 
@@ -127,7 +137,7 @@ ms.locfileid: "91146724"
 
 1. 在所选文本编辑器中打开 SimulatedDevice.cs 文件。
 
-    将 `s_connectionString` 变量的值替换为[将设备注册到 IoT 中心](#register-a-device-to-the-iot-hub)中的设备连接字符串。 然后将更改保存到 SimulatedDevice.cs 文件****。
+    将 `s_connectionString` 变量的值替换为[将设备注册到 IoT 中心](#register-a-device-to-the-iot-hub)中的设备连接字符串。 然后将更改保存到 SimulatedDevice.cs 文件。
 
 1. 在本地终端窗口中，运行以下命令以安装模拟设备应用程序所需的包：
 
@@ -178,13 +188,13 @@ ms.locfileid: "91146724"
 
 如果不打算再次使用 IoT 中心，请清理资源组以避免产生费用。
 
-1. 在 Azure 门户的最左侧选择“资源组”，，然后选择创建的资源组。****  
+1. 在 Azure 门户的最左侧选择“资源组”，，然后选择创建的资源组。  
 
     如果左侧菜单处于折叠状态，请选择 ![“展开”按钮](media/ingest-data-event-hub/expand.png) 将其展开。
 
    ![选择要删除的资源组](media/ingest-data-iot-hub/delete-resources-select.png)
 
-1. 在“test-resource-group”**** 下，选择“删除资源组”****。
+1. 在“test-resource-group”下，选择“删除资源组”。
 
 1. 在新窗口中键入要删除的资源组的名称，然后选择“删除”。
 

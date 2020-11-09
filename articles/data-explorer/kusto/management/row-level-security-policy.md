@@ -1,22 +1,22 @@
 ---
-title: RowLevelSecurity 策略（预览版）- Azure 数据资源管理器 | Microsoft Docs
-description: 本文介绍 Azure 数据资源管理器中的 RowLevelSecurity 策略（预览版）。
+title: RowLevelSecurity 策略 - Azure 数据资源管理器 | Microsoft Docs
+description: 本文介绍 Azure 数据资源管理器中的 RowLevelSecurity 策略。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
-origin.date: 03/25/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 2f94530d003b051b014a3a6f2c53c567fe552f0a
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+origin.date: 10/11/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: 393179006350878a2a7fd165bc7dc97967fdde14
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516071"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104277"
 ---
-# <a name="row_level_security-policy-command-preview"></a>row_level_security 策略命令（预览版）
+# <a name="row_level_security-policy-command"></a>row_level_security 策略命令
 
 本文介绍用于为数据库表配置 [row_level_security 策略](rowlevelsecuritypolicy.md)的命令。
 
@@ -78,7 +78,7 @@ ms.locfileid: "88516071"
 .alter table Customers policy row_level_security enable "TrimCreditCardNumbers"
 ```
 
-**性能说明**：首先评估 `UserCanSeeFullNumbers`，然后评估 `AllData` 或 `PartialData`，而不是同时评估这两者，这是预期的结果。
+**性能说明** ：首先评估 `UserCanSeeFullNumbers`，然后评估 `AllData` 或 `PartialData`，而不是同时评估这两者，这是预期的结果。
 可在[此处](rowlevelsecuritypolicy.md#performance-impact-on-queries)详细了解 RLS 对性能的影响。
 
 ## <a name="deleting-the-policy"></a>删除策略

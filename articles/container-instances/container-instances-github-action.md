@@ -2,24 +2,25 @@
 title: 通过 GitHub 操作部署容器实例
 description: 配置一个 GitHub 操作，用于自动执行生成容器映像并将其推送和部署到 Azure 容器实例的步骤
 ms.topic: article
-origin.date: 03/18/2020
-ms.date: 07/27/2020
+origin.date: 08/20/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 05/06/2020
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: 79ae564638f039df16e1b489de2a7699df226662
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.custom: github-actions-azure
+ms.openlocfilehash: 50303bba6816a8e33e98e6a9f5a1858767c25a74
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863142"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106278"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>配置 GitHub 操作以创建容器实例
 
 [Github 操作](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions)是 GitHub 中的一个功能套件，可以在存储代码的同一位置自动执行软件开发工作流，并针对拉取请求和问题进行协作。
 
-使用 GitHub 操作[部署到 Azure 容器实例](https://github.com/azure/aci-deploy)可以自动将容器部署到 Azure 容器实例。 该操作可为容器实例设置属性（类似于在 [az container create][az-container-create] 命令中设置的属性）。
+使用 GitHub 操作[部署到 Azure 容器实例](https://github.com/azure/aci-deploy)可以自动将单个容器部署到 Azure 容器实例。 该操作可为容器实例设置属性（类似于在 [az container create][az-container-create] 命令中设置的属性）。
 
 本文介绍了如何在 GitHub 存储库中设置用于执行以下操作的工作流：
 
@@ -29,8 +30,8 @@ ms.locfileid: "86863142"
 
 本文将介绍设置工作流的两种方式：
 
-* 使用“部署到 Azure 容器实例”操作和其他操作在 GitHub 存储库中自行配置工作流。  
-* 使用 Azure CLI 的[部署到 Azure](https://github.com/Azure/deploy-to-azure-cli-extension) 扩展中的 `az container app up` 命令。 此命令简化了 GitHub 工作流的创建和部署步骤。
+* [配置 GitHub 工作流](#configure-github-workflow) - 使用“部署到 Azure 容器实例”操作和其他操作在 GitHub 存储库中创建工作流。  
+* [使用 CLI 扩展](#use-deploy-to-azure-extension) - 使用 Azure CLI 的[部署到 Azure](https://github.com/Azure/deploy-to-azure-cli-extension) 扩展中的 `az container app up` 命令。 此命令简化了 GitHub 工作流的创建和部署步骤。
 
 > [!IMPORTANT]
 > 适用于 Azure 容器实例的 GitHub 操作目前为预览版。 需同意[补充使用条款][terms-of-use]才可使用预览版。 在正式版 (GA) 推出之前，此功能的某些方面可能会有所更改。
@@ -42,7 +43,7 @@ ms.locfileid: "86863142"
 
     <!--Not Available on the Azure local Shell or-->
     
-* **Azure 容器注册表** - 如果没有 Azure 容器注册表，请使用 [Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)、[Azure 门户](../container-registry/container-registry-get-started-portal.md)或其他方法在基本层中创建一个容器注册表。 记下用于部署的资源组，因为在 GitHub 工作流中需要使用它。
+* **Azure 容器注册表** - 如果没有 Azure 容器注册表，请使用 [Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)、 [Azure 门户](../container-registry/container-registry-get-started-portal.md)或其他方法在基本层中创建一个容器注册表。 记下用于部署的资源组，因为在 GitHub 工作流中需要使用它。
 
 ## <a name="set-up-repo"></a>设置存储库
 
@@ -50,7 +51,7 @@ ms.locfileid: "86863142"
 
     此存储库包含用来为小型 Web 应用创建容器映像的 Dockerfile 和源文件。
 
-    ![GitHub 中创建分支按钮（突出显示）的屏幕截图](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
+    :::image type="content" source="../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png" alt-text="GitHub 中创建分支按钮（突出显示）的屏幕截图":::
 
 * 确保为你的存储库启用“操作”。 导航到你的分支存储库，并选择“设置” > “操作”。   在“操作权限”中，确保已选中“为此存储库启用本地和第三方操作”。  
 
@@ -98,7 +99,7 @@ az ad sp create-for-rbac \
 
 ### <a name="update-service-principal-for-registry-authentication"></a>更新用于注册表身份验证的服务主体
 
-更新 Azure 服务主体凭据，以允许对容器注册表拥有推送和拉取权限。 此步骤允许 GitHub 工作流使用服务主体[向容器注册表进行身份验证](../container-registry/container-registry-auth-service-principal.md)。 
+更新 Azure 服务主体凭据，以允许对容器注册表进行推送和拉取访问。 此步骤允许 GitHub 工作流使用服务主体[向容器注册表进行身份验证](../container-registry/container-registry-auth-service-principal.md)并推送和拉取 Docker 映像。 
 
 获取你的容器注册表的资源 ID。 请将以下 [az acr show][az-acr-show] 命令中的占位符替换为你的注册表名称：
 
@@ -127,8 +128,8 @@ az role assignment create \
     
     |Secret  |Value  |
     |---------|---------|
-    |`AZURE_CREDENTIALS`     | 创建服务主体后显示的整个 JSON 输出 |
-    |`REGISTRY_LOGIN_SERVER`   | 注册表的登录服务器名称（全小写）。 示例：*myregistry.azurecr.cn* |
+    |`AZURE_CREDENTIALS`     | 创建服务主体步骤后显示的整个 JSON 输出 |
+    |`REGISTRY_LOGIN_SERVER`   | 注册表的登录服务器名称（全小写）。 示例： *myregistry.azurecr.cn* |
     |`REGISTRY_USERNAME`     |  创建服务主体后显示的 JSON 输出中的 `clientId`       |
     |`REGISTRY_PASSWORD`     |  创建服务主体后显示的 JSON 输出中的 `clientSecret` |
     | `RESOURCE_GROUP` | 用来限定服务主体作用域的资源组名称 |
@@ -186,11 +187,11 @@ az role assignment create \
 
 提交工作流文件后，会触发该工作流。 若要查看工作流进度，请导航到“操作” > “工作流”。   
 
-![查看工作流进度](./media/container-instances-github-action/github-action-progress.png)
+:::image type="content" source="./media/container-instances-github-action/github-action-progress.png" alt-text="查看工作流进度":::
 
-若要了解如何查看工作流中每个步骤的状态和结果，请参阅[管理工作流运行](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run)。
+若要了解如何查看工作流中每个步骤的状态和结果，请参阅[管理工作流运行](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run)。 如果工作流未完成，请参阅[查看日志以诊断故障](https://docs.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-logs-to-diagnose-failures)。
 
-工作流完成后，运行 [az container show][az-container-show] 命令获取有关名为 *aci-sampleapp* 的容器实例的信息。 替换为你的资源组名称： 
+工作流成功完成后，运行 [az container show][az-container-show] 命令获取有关名为 *aci-sampleapp* 的容器实例的信息。 替换为你的资源组名称： 
 
 ```azurecli
 az container show \
@@ -212,7 +213,7 @@ aci-action01.chinaeast2.azurecontainer.console.azure.cn  Succeeded
 
 预配实例后，在浏览器中导航到容器的 FQDN，以查看正在运行的 Web 应用。
 
-![浏览器中正在运行的 Web 应用](./media/container-instances-github-action/github-action-container.png)
+:::image type="content" source="./media/container-instances-github-action/github-action-container.png" alt-text="浏览器中正在运行的 Web 应用":::
 
 ## <a name="use-deploy-to-azure-extension"></a>使用“部署到 Azure”扩展
 
@@ -222,7 +223,7 @@ Azure CLI 创建的工作流类似于可以[使用 GitHub 手动创建](#configu
 
 ### <a name="additional-prerequisite"></a>其他先决条件
 
-对于此方案，除了满足[先决条件](#prerequisites)并完成[存储库设置](#set-up-repo)以外，还需要安装 Azure CLI 的 **“部署到 Azure”扩展**。
+对于此方案，除了满足 [先决条件](#prerequisites)并完成 [存储库设置](#set-up-repo)以外，还需要安装 Azure CLI 的 **“部署到 Azure”扩展** 。
 
 请运行 [az extension add][az-extension-add] 命令来安装该扩展：
 
@@ -231,7 +232,9 @@ az extension add \
   --name deploy-to-azure
 ```
 
-有关查找、安装和管理扩展的信息，请参阅[在 Azure CLI 中使用扩展](https://docs.azure.cn/cli/azure-cli-extensions-overview?view=azure-cli-latest)。
+<!--CORRECT ON https://docs.azure.cn/cli/azure-cli-extensions-overview-->
+
+有关查找、安装和管理扩展的信息，请参阅[在 Azure CLI 中使用扩展](https://docs.azure.cn/cli/azure-cli-extensions-overview)。
 
 ### <a name="run-az-container-app-up"></a>运行 `az container app up`
 
@@ -250,7 +253,7 @@ az container app up \
 
 ### <a name="command-progress"></a>命令进度
 
-* 出现提示时，请提供你的 GitHub 凭据，或提供具有“存储库”和“用户”作用域的 [GitHub 个人访问令牌](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) (PAT)，以便向注册表进行身份验证。   如果提供了 GitHub 凭据，该命令将为你创建一个 PAT。
+* 出现提示时，请提供你的 GitHub 凭据，或提供具有“存储库”和“用户”作用域的 [GitHub 个人访问令牌](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) (PAT)，以便向 GitHub 帐户进行身份验证 。 如果提供了 GitHub 凭据，该命令将为你创建一个 PAT。 按照附加提示配置工作流。
 
 * 该命令将为工作流创建存储库机密：
 
@@ -271,11 +274,29 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.chinaeast2.azurecontainer.console.azure.cn:8080/
 ```
 
+若要在 GitHub UI 中查看每个步骤的工作流状态和结果，请参阅[管理工作流运行](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run)。
+
 ### <a name="validate-workflow"></a>验证工作流
 
-工作流使用 GitHub 存储库的基名称（在本例中为 *acr-build-helloworld-node*）部署 Azure 容器实例。 在浏览器中，可以浏览到所提供的链接来查看正在运行的 Web 应用。 如果应用在除 8080 以外的端口上侦听，请改为在 URL 中指定该侦听端口。
+工作流使用 GitHub 存储库的基名称（在本例中为 *acr-build-helloworld-node* ）部署 Azure 容器实例。 工作流成功完成后，运行 [az container show][az-container-show] 命令获取有关名为 *acr-build-helloworld-node* 的容器实例的信息。 替换为你的资源组名称： 
 
-若要在 GitHub UI 中查看每个步骤的工作流状态和结果，请参阅[管理工作流运行](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run)。
+```azurecli
+az container show \
+  --resource-group <resource-group-name> \
+  --name acr-build-helloworld-node \
+  --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" \
+  --output table
+```
+
+输出类似于：
+
+```console
+FQDN                                                   ProvisioningState
+--------------------------------- -------------------
+acr-build-helloworld-node.chinaeast2.azurecontainer.console.azure.cn     Succeeded
+```
+
+预配实例后，在浏览器中导航到容器的 FQDN，以查看正在运行的 Web 应用。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -304,16 +325,16 @@ az group delete \
 
 <!-- LINKS - internal -->
 
-[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-[az-group-show]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-show
-[az-group-delete]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete
-[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-[az-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
-[az-acr-show]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-show
-[az-container-show]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show
-[az-container-delete]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-delete
-[az-extension-add]: https://docs.azure.cn/cli/extension?view=azure-cli-latest#az-extension-add
-[az-container-app-up]: https://docs.microsoft.com/cli/azure/ext/deploy-to-azure/container/app?view=azure-cli-latest#ext-deploy-to-azure-az-container-app-up
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli
+[az-group-show]: https://docs.azure.cn/cli/group#az_group_show
+[az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
+[az-ad-sp-create-for-rbac]: https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
+[az-container-create]: https://docs.microsoft.com/cli/azure/container#az_container_create
+[az-acr-show]: https://docs.azure.cn/cli/acr#az_acr_show
+[az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
+[az-container-delete]: https://docs.microsoft.com/cli/azure/container#az_container_delete
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
+[az-container-app-up]: https://docs.microsoft.com/cli/azure/ext/deploy-to-azure/container/app#ext_deploy_to_azure_az_container_app_up
 
 <!-- Update_Description: update meta properties, wording update, update link -->

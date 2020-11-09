@@ -13,19 +13,19 @@ ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 33938eef6ab19ae2803985d884b16956f3d51535
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 139c4b61825eba909cba4364e485451b5cb6016f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052384"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104563"
 ---
 <!--Verified successfully-->
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>使用 Azure CLI 从 Azure 中的 VM 创建映像版本
 
 如果要使用现有 VM 生成多个相同的 VM，可以通过 Azure CLI 使用该 VM 在共享映像库中创建映像。 还可以使用 [Azure PowerShell](image-version-vm-powershell.md) 从 VM 创建映像。
 
-使用共享映像库时，将使用**映像版本**来创建 VM。 可根据环境的需要创建多个映像版本。 在使用某个映像版本创建 VM 时，将使用该映像版本为新 VM 创建磁盘。 可以多次使用映像版本。
+使用共享映像库时，将使用 **映像版本** 来创建 VM。 可根据环境的需要创建多个映像版本。 在使用某个映像版本创建 VM 时，将使用该映像版本为新 VM 创建磁盘。 可以多次使用映像版本。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -81,9 +81,9 @@ az sig image-definition create \
 
 使用 [az image gallery create-image-version](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-image-version-create) 从 VM 创建映像版本。  
 
-允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式：*MajorVersion*.*MinorVersion*.*Patch*。
+允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式： *MajorVersion*. *MinorVersion*. *Patch* 。
 
-在此示例中，映像的版本为 *1.0.0*，并且我们打算使用本地冗余存储在“中国北部”区域创建 2 个副本，在“中国东部区域”创建 1 个副本，在“中国东部 2”区域创建 1 个副本。 复制区域必须包含源 VM 所在的区域。
+在此示例中，映像的版本为 *1.0.0* ，并且我们打算使用本地冗余存储在“中国北部”区域创建 2 个副本，在“中国东部区域”创建 1 个副本，在“中国东部 2”区域创建 1 个副本。 复制区域必须包含源 VM 所在的区域。
 
 <!--MOONCAKE: CORRECT ON locally-redundant storage-->
 
@@ -100,12 +100,12 @@ az sig image-version create \
    --managed-image "/subscriptions/<Subscription ID>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
 ```
 
-<!--CORRECT ON --target-regions "chinanorth" "chinaeast=1" "chinaeast2=1=standard_lrs"
+<!--CORRECT ON --target-regions "chinanorth" "chinaeast=1" "chinaeast2=1=standard_lrs"-->
 
 > [!NOTE]
-> You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
+> 需等待映像版本彻底生成并复制完毕，然后才能使用同一托管映像来创建另一映像版本。
 >
-> You can also store your image in Premium storage by adding `--storage-account-type  premium_lrs`, or locally Redundant Storage by adding `--storage-account-type  standard_lrs` when you create the image version.
+> 创建映像版本时，还可以通过添加 `--storage-account-type  premium_lrs` 在高级存储中存储映像，或者通过添加 `--storage-account-type  standard_lrs` 在本地冗余存储中存储映像。
 >
 
 <!--CORRECT ON or locally Redundant Storage by adding `--storage-account-type  standard_lrs`-->

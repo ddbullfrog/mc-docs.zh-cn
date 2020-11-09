@@ -8,19 +8,23 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 43464565618a11225a317035b57860baed9a8b59
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.date: 09/26/2020
+ms.openlocfilehash: b645cdec37beecd71a37bae9d2540805724eac9b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118319"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106162"
 ---
 # <a name="resnet"></a>ResNet
 
 本文介绍如何使用 Azure 机器学习设计器中的 ResNet 模块来通过 ResNet 算法创建图像分类模型。  
 
-此分类算法是一种监督式学习方法，需要一个标记的数据集。 若要详细了解如何获取带标记的图像目录，请参阅[转换为图像目录](convert-to-image-directory.md)。 可通过提供模型和带标记的图像目录作为[训练 Pytorch 模型](train-pytorch-model.md)模块的输入来训练模型。 然后，可使用训练后的模型来预测使用[为图像模型评分](score-image-model.md)的新输入示例的值。
+此分类算法是一种监督式学习方法，需要一个标记的数据集。 
+> [!NOTE]
+> 此模块不支持从工作室中的“数据标签”生成的带标签的数据集，仅支持从[转换为图像目录](convert-to-image-directory.md)模块生成的带标签的图像目录。 
+
+可通过提供模型和带标记的图像目录作为[训练 Pytorch 模型](train-pytorch-model.md)模块的输入来训练模型。 然后，可使用训练后的模型来预测使用[为图像模型评分](score-image-model.md)的新输入示例的值。
 
 ### <a name="more-about-resnet"></a>关于 ResNet 的详细信息
 
@@ -28,13 +32,13 @@ ms.locfileid: "92118319"
 
 ## <a name="how-to-configure-resnet"></a>如何配置 ResNet
 
-1.  在设计器中将 ResNet 模块添加到管道****。  
+1.  在设计器中将 ResNet 模块添加到管道。  
 
-2.  对于“模型名称”，指定特定 ResNet 结构的名称，然后可以从支持的 resnet 中进行选择：“resnet18”、“resnet34”、“resnet50”、“resnet101”、“resnet152”、“resnet152”、“resnext50\_32x4d”、“resnext101\_32x8d”、“wide_resnet50\_2”、“wide_resnet101\_2”****。
+2.  对于“模型名称”，指定特定 ResNet 结构的名称，然后可以从支持的 resnet 中进行选择：“resnet18”、“resnet34”、“resnet50”、“resnet101”、“resnet152”、“resnet152”、“resnext50\_32x4d”、“resnext101\_32x8d”、“wide_resnet50\_2”、“wide_resnet101\_2”。
 
-3.  对于“预先训练”，指定是否使用在 ImageNet 上预先训练的模型****。 如果已选择，可以根据选定的预训练的模型来微调模型；如果取消选中，可以从头开始训练。
+3.  对于“预先训练”，指定是否使用在 ImageNet 上预先训练的模型。 如果已选择，可以根据选定的预训练的模型来微调模型；如果取消选中，可以从头开始训练。
 
-4.  将 DenseNet 模块、训练和验证图像数据集模块的输出连接到[训练 Pytorch 模型](train-pytorch-model.md)****。 
+4.  将 DenseNet 模块、训练和验证图像数据集模块的输出连接到[训练 Pytorch 模型](train-pytorch-model.md)。 
 
 5. 提交管道。
 

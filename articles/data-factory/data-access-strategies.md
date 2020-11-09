@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 05/28/2020
-ms.date: 09/21/2020
-ms.openlocfilehash: 4fd37f4a80bb6662ff4f5594210985222c596d65
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 11/02/2020
+ms.openlocfilehash: 5b68b183f98342c1f8de7b067c1778540ffa1ac8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523979"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104370"
 ---
 # <a name="data-access-strategies"></a>数据访问策略
 
@@ -23,6 +23,7 @@ ms.locfileid: "90523979"
 组织的一个重要安全目标是保护其数据存储（可以是本地或云/SaaS 数据存储），使其免于通过 Internet 进行的随机访问。 
 
 通常，云数据存储使用以下机制来控制访问：
+* 从虚拟网络到已启用专用终结点的数据源的专用链接
 * 按 IP 地址限制连接的防火墙规则
 * 要求用户证明其身份的身份验证机制
 * 将用户限制于特定操作和数据的授权机制
@@ -40,7 +41,7 @@ ms.locfileid: "90523979"
 * **[受信任的服务](/storage/common/storage-network-security#exceptions)** - Azure 存储（Blob、ADLS Gen2）支持允许精选受信任 Azure 平台服务安全访问存储帐户的防火墙配置。 受信任的服务强制实施托管标识身份验证，这可以确保其他数据工厂不能连接到此存储，除非使用其托管标识将其列入了执行此操作的允许列表。 可在[此博客](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)中找到更多详细信息。 因此，这这种方法非常安全，建议使用。 
 * **唯一静态 IP** - 需要设置一个自承载集成运行时，以便获取静态 IP 以建立数据工厂连接器。 此机制可确保阻止来自其他所有 IP 地址的访问。 
 * **[静态 IP 范围](/data-factory/azure-integration-runtime-ip-addresses)** - 可以使用 Azure Integration Runtime 的 IP 地址，允许在你的存储（如 S3、Salesforce 等）中列出它。 它肯定会限制可连接到数据存储但又依赖于身份验证/授权规则的 IP 地址。
-* **[服务标记](/virtual-network/service-tags-overview)** - 服务标记是来自给定 Azure 服务（例如 Azure 数据工厂）的一组 IP 地址前缀。 Azure 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记，最大限度地降低频繁更新网络安全规则的复杂性。 要将虚拟网络中 IaaS 托管数据存储上的数据访问列入允许列表时，此方法非常有用。
+* **[服务标记](/virtual-network/service-tags-overview)** - 服务标记是来自给定 Azure 服务（例如 Azure 数据工厂）的一组 IP 地址前缀。 Azure 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记，最大限度地降低频繁更新网络安全规则的复杂性。 如需筛选虚拟网络中 IaaS 托管数据存储上的数据访问，此方法非常有用。
 * **允许 Azure 服务** - 使用某些服务时，如果选择此选项，可以允许所有 Azure 服务连接到它。 
 
 有关 Azure Integration Runtime 和自承载集成运行时中数据存储上支持的网络安全机制的详细信息，请参阅下面两个表。  
@@ -51,8 +52,8 @@ ms.locfileid: "90523979"
     | Azure PaaS 数据存储       | Azure Cosmos DB                                             | -                   | 是             | -            | 是                  |
     |                              | Azure 数据资源管理器                                         | -                   | 是*            | 是*         | -                    |
     |                              | Azure Database for MariaDB、Azure Database for MySQL、Azure Database for PostgreSQL               | -                   | 是             | -            | 是                  |
-    |                              | Azure 文件存储                                          | -                   | 是             | -            | 上获取。                    |
-    |                              | Azure 存储（Blob、ADLS Gen2）                             | 是（仅 MSI 身份验证） | 是             | -            | 上获取。                    |
+    |                              | Azure 文件存储                                          | -                   | 是             | -            | .                    |
+    |                              | Azure 存储（Blob、ADLS Gen2）                             | 是（仅 MSI 身份验证） | 是             | -            | .                    |
     |                              | Azure SQL DB、Azure Synapse Analytics、SQL Ml  | -                   | 是             | -            | 是                  |
     |                              | Azure Key Vault（用于提取机密/连接字符串） | 是                 | 是             | -            | -                    |
     | 其他 PaaS/SaaS 数据存储 | AWS S3、SalesForce、Google Cloud Storage 等。            | -                   | 是             | -            | -                    |

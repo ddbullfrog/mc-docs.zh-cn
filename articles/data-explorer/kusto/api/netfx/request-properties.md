@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/23/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: c08236b83433c92906d262a75d509d9e0a2480f5
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: 7d86c7cc690b0826c07c82dd58f88bffb189a7a3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226346"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104951"
 ---
 # <a name="request-properties-and-clientrequestproperties"></a>请求属性和 ClientRequestProperties
 
@@ -93,10 +93,10 @@ Kusto 查询可以通过在查询文本中使用专门的[声明查询参数](..
 ## <a name="sample-client-code-for-using-request-properties"></a>用于使用请求属性的示例客户端代码
 
 ```csharp
-public static System.Data.IDataReader QueryKusto(
-    Kusto.Data.Common.ICslQueryProvider queryProvider,
-    string databaseName,
-    string query)
+public static System.Data.IDataReader QueryKusto(
+    Kusto.Data.Common.ICslQueryProvider queryProvider,
+    string databaseName,
+    string query)
 {
     var queryParameters = new Dictionary<String, String>()
     {
@@ -108,7 +108,7 @@ public static System.Data.IDataReader QueryKusto(
     // Query parameters (and many other properties) are provided
     // by a ClientRequestProperties object handed alongside
     // the query:
-    var clientRequestProperties = new Kusto.Data.Common.ClientRequestProperties(
+    var clientRequestProperties = new Kusto.Data.Common.ClientRequestProperties(
         principalIdentity: null,
         options: null,
         parameters: queryParameters);
@@ -118,7 +118,7 @@ public static System.Data.IDataReader QueryKusto(
     // cancel the query, but also makes it possible for the Kusto
     // team to investigate query failures end-to-end:
     clientRequestProperties.ClientRequestId
-        = "MyApp.MyActivity;"
+        = "MyApp.MyActivity;"
         + Guid.NewGuid().ToString();
 
     // This is an example for setting an option
@@ -130,17 +130,17 @@ public static System.Data.IDataReader QueryKusto(
  
     try
     {
-        return queryProvider.ExecuteQuery(query, clientRequestProperties);
+        return queryProvider.ExecuteQuery(query, clientRequestProperties);
     }
-    catch (Exception ex)
+    catch (Exception ex)
     {
         Console.WriteLine(
-            "Failed invoking query '{0}' against Kusto."
+            "Failed invoking query '{0}' against Kusto."
             + " To have the Kusto team investigate this failure,"
             + " please open a ticket @ https://aka.ms/kustosupport,"
             + " and provide: ClientRequestId={1}",
-            query, clientRequestProperties.ClientRequestId);
-        return null;
+            query, clientRequestProperties.ClientRequestId);
+        return null;
     }
 }
 ```
@@ -174,7 +174,7 @@ public static System.Data.IDataReader QueryKusto(
 * `query_fanout_nodes_percent` (OptionQueryFanoutNodesPercent)：要将执行扇出到的节点所占的百分比。 [Int]
 * `query_fanout_threads_percent` (OptionQueryFanoutThreadsPercent)：要将执行扇出到的线程所占的百分比。 [Int]
 * `query_language` (OptionQueryLanguage)：控制解释查询文本的方式。 [“csl”、“kql”或“sql”]
-* `query_max_entities_in_union` (OptionMaxEntitiesToUnion)：替代允许查询生成的默认最大列数。 [Long]
+* `query_max_entities_in_union` (OptionMaxEntitiesToUnion)：设置允许“union”运算符接受的最大实体数。 [Long]
 * `query_now` (OptionQueryNow)：替代 now(0s) 函数返回的日期/时间值。 [DateTime]
 * `query_python_debug` (OptionDebugPython)：如果设置了此项，则将为枚举的 python 节点（默认值为第一个）生成一个 python 调试查询。 [Boolean 或 Int]
 * `query_results_apply_getschema` (OptionQueryResultsApplyGetSchema)：如果设置了此项，则将检索查询结果中每个表格数据的架构而不检索数据本身。 [Boolean]

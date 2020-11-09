@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/30/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 3052aea92f85fec3fa0daee74c141d5e579c1888
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: 48e083093c7999bf9cf383586e5363c79f23e605
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226185"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103612"
 ---
 # <a name="sandboxes"></a>沙盒
 
@@ -66,7 +66,8 @@ Kusto 的数据引擎服务可为需要安全隔离的特定流运行沙盒。
 
 ## <a name="errors"></a>错误
 
-|代码                      |Message                                                                                        |可能的原因                                                                                                    |
-|--------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-|E_SB_QUERY_THROTTLED_ERROR|由于限制，沙盒查询被中止。 在进行某些回退后重试可能会成功   |目标节点上没有可用的沙盒。 新沙盒应在几秒钟内变得可用     |
-|E_SB_QUERY_THROTTLED_ERROR|“{kind}”类型的沙盒尚未初始化                       |沙盒策略最近发生了更改。 遵守新策略的新沙盒将在几秒钟内变得可用           |
+|ErrorCode                 |状态                     |Message                                                                                            |可能的原因                                                                                                    |
+|--------------------------|---------------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+|E_SB_QUERY_THROTTLED_ERROR|TooManyRequests (429)      |由于限制，沙盒查询被中止。 在进行某些回退后重试可能会成功   |目标节点上没有可用的沙盒。 新沙盒应在几秒钟内变得可用         |
+|E_SB_QUERY_THROTTLED_ERROR|TooManyRequests (429)      |“{kind}”类型的沙盒尚未初始化                                            |沙盒策略最近发生了更改。 遵守新策略的新沙盒将在几秒钟内变得可用|
+|                          |InternalServiceError (520) |由于初始化沙盒时出错，沙盒查询已中止                         |意外的基础结构故障。 如果问题仍然存在，请创建支持请求                         |

@@ -9,13 +9,13 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 03/18/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 7dfc257a5e2f4d1a5fed6c287607c2b1424d0e65
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 6964d930cae1c06650af6db6b628ea61c4deaa6d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146614"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105228"
 ---
 # <a name="kusto-ingest-client-library"></a>Kusto 引入客户端库 
 
@@ -46,7 +46,7 @@ ms.locfileid: "91146614"
 
 下面的关系图概述了排队引入客户端与 Kusto 的交互：
 
-:::image type="content" source="../images/about-kusto-ingest/queued-ingest.png" alt-text="queued-ingest":::
+:::image type="content" source="../images/about-kusto-ingest/queued-ingest.png" alt-text="图显示了 Kusto.Ingest 库如何在排队引入模式下将查询发送到 Kusto 服务。":::
  
 ### <a name="direct-ingestion"></a>直接引入
 
@@ -54,7 +54,7 @@ ms.locfileid: "91146614"
 
 下面的关系图概述了直接引入客户端与 Kusto 的交互：
 
-:::image type="content" source="../images/about-kusto-ingest/direct-ingest.png" alt-text="direct-ingest":::
+:::image type="content" source="../images/about-kusto-ingest/direct-ingest.png" alt-text="图显示了 Kusto.Ingest 库如何在直接引入模式下将查询发送到 Kusto 服务。":::
 
 > [!NOTE]
 > 建议不要将直接模式用于生产级引入解决方案。
@@ -84,7 +84,7 @@ ms.locfileid: "91146614"
 * **引入权限 -** 
 [Kusto 引入权限](kusto-ingest-client-permissions.md)解释了使用 `Kusto.Ingest` 包成功进行引入所需的权限设置。
 
-* **用法 -** 如前所述，建议用于 Kusto 的可持续大规模引入解决方案的基础应该是 **KustoQueuedIngestClient**。
+* **用法 -** 如前所述，建议用于 Kusto 的可持续大规模引入解决方案的基础应该是 **KustoQueuedIngestClient** 。
 为了最大限度地减少 Kusto 服务上的不必要负载，建议你为每个 Kusto 群集的每个进程使用 Kusto 引入客户端（排队引入或直接引入）的单个实例。 Kusto 引入客户端实现是线程安全的，并且是完全可重入的。
 
 ## <a name="next-steps"></a>后续步骤

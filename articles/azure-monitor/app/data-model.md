@@ -3,25 +3,24 @@ title: Azure Application Insights 遥测数据模型 | Azure Docs
 description: Application Insights 数据模型概述
 services: application-insights
 documentationcenter: .net
-author: lingliw
-manager: digimobile
+manager: carmonm
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 origin.date: 10/14/2019
-ms.date: 10/25/2019
+ms.date: 10/29/2020
 ms.reviewer: sergkanz
-ms.author: v-lingwu
-ms.openlocfilehash: 9f58207a30f4c75f0529890061c7903145dfe433
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.author: v-johya
+ms.openlocfilehash: b5ebb5d2b84163c09141d4b8a2689792c0f7a067
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850433"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104828"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 遥测数据模型
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 将遥测从 Web 应用程序发送到 Azure 门户，以便分析应用程序的性能和使用情况。 标准化遥测模型可以创建不依赖于平台和语言的监测。 
+[Azure Application Insights](./app-insights-overview.md) 将遥测从 Web 应用程序发送到 Azure 门户，以便分析应用程序的性能和使用情况。 标准化遥测模型可以创建不依赖于平台和语言的监测。 
 
 Application Insights 收集的数据为典型的应用程序执行模式建模：
 
@@ -31,7 +30,7 @@ Application Insights 收集的数据为典型的应用程序执行模式建模�
 
 * [请求](data-model-request-telemetry.md)  - 生成该类型的遥测用以记录应用接收的请求。 例如，Application Insights Web SDK 会自动为 Web 应用接收到的每个 HTTP 请求生成请求遥测项。 
 
-    “操作”  是处理请求的执行线程。 还可以[编写代码](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)监视其他类型的操作，例如 Web 作业或函数中定期处理数据的“唤醒”操作。  每个操作都有一个 ID。 此 ID 可用于对应用处理请求时生成的所有遥测[进行分组](../../azure-monitor/app/correlation.md)。 每个操作无论成功或失败都需要持续一段时间。
+    “操作”  是处理请求的执行线程。 还可以[编写代码](./api-custom-events-metrics.md#trackrequest)监视其他类型的操作，例如 Web 作业或函数中定期处理数据的“唤醒”操作。  每个操作都有一个 ID。 此 ID 可用于对应用处理请求时生成的所有遥测[进行分组](./correlation.md)。 每个操作无论成功或失败都需要持续一段时间。
 * [异常](data-model-exception-telemetry.md)  - 通常表示导致操作失败的异常。
 * [依赖项](data-model-dependency-telemetry.md)  - 表示从应用到外部服务或存储（如 REST API 或 SQL）的调用。 在 ASP.NET 中，对 SQL 的依赖项调用由 `System.Data` 定义。 对 HTTP 终结点的调用由 `System.Net` 定义。 
 
@@ -43,21 +42,19 @@ Application Insights 为自定义遥测提供了三种额外的数据类型：
 
 每个遥测项目均可定义[上下文信息](data-model-context.md)，如应用程序版本或用户会话 ID。上下文是一组强类型化字段，可解锁某些方案。 正确初始化应用程序版本后，Application Insights 可检测应用程序行为中与重新部署相关的新模式。 会话 ID 可用于计算出现中断或问题对用户造成的影响。 错误跟踪或关键异常可计算某些失败依赖项的不同会话 ID 值计数，较好地反映影响。
 
-Application Insights 遥测模型定义了将遥测与它所属的操作进行[关联](../../azure-monitor/app/correlation.md)的方式。 例如，请求可以发出 SQL 数据库调用并记录诊断信息。 可为那些要绑回请求遥测的遥测项设置关联上下文。
+Application Insights 遥测模型定义了将遥测与它所属的操作进行[关联](./correlation.md)的方式。 例如，请求可以发出 SQL 数据库调用并记录诊断信息。 可为那些要绑回请求遥测的遥测项设置关联上下文。
 
 ## <a name="schema-improvements"></a>架构改进
 
 Application Insights 数据模型采用简单基本的结构，不过，它能够非常有效地为应用程序遥测建模。 我们将努力保持该模型的精简结构，以便支持基本方案，并让用户根据高级用途扩展架构。
 
-若要报告数据模型或架构问题以及提供建议，请使用 GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues) 存储库。
+[若要报告数据模型或架构问题以及建议，请使用 GitHub 存储库](https://github.com/microsoft/ApplicationInsights-dotnet/issues/new/choose)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [编写自定义遥测](../../azure-monitor/app/api-custom-events-metrics.md)
-- 了解如何[扩展和筛选遥测](../../azure-monitor/app/api-filtering-sampling.md)。
-- 使用[采样](../../azure-monitor/app/sampling.md)基于数据模型最小化遥测量。
-- 查看 Application Insights 支持的[平台](../../azure-monitor/app/platforms.md)。
-
-
+- [编写自定义遥测](./api-custom-events-metrics.md)
+- 了解如何[扩展和筛选遥测](./api-filtering-sampling.md)。
+- 使用[采样](./sampling.md)基于数据模型最小化遥测量。
+- 查看 Application Insights 支持的[平台](./platforms.md)。
 
 

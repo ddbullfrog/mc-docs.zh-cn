@@ -3,23 +3,25 @@ title: 创建具有静态公共 IP 地址的 VM - Azure 门户 | Azure
 description: 了解如何使用 Azure 门户创建具有静态公共 IP 地址的 VM。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 manager: digimobile
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/08/2018
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 11/02/2020
+ms.testscope: yes
+ms.testdate: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: a623c8cfe1e035dd55266d6b6711aa415460fc00
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: 8a73529c9539534c9c89477b47c172a8c4881078
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487073"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628234"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>使用 Azure 门户创建具有静态公共 IP 地址的虚拟机
 
@@ -51,22 +53,20 @@ ms.locfileid: "84487073"
 5. 在“设置”下选择“公共 IP 地址”。 
 6. 输入“myPublicIpAddress”，选择“静态”，然后选择“确定”，如下图所示： 
 
-    ![选择“静态”](./media/virtual-network-deploy-static-pip-arm-portal/select-static.png)
+    :::image type="content" source="./media/virtual-network-deploy-static-pip-arm-portal/select-static.png" alt-text="选择“静态”":::
 
-    如果公共 IP 地址必须为标准 SKU，请在“SKU”下选择“标准”。  详细了解[公共 IP 地址 SKU](virtual-network-ip-addresses-overview-arm.md#sku)。 如果虚拟机将添加到公共 Azure 负载均衡器的后端池，则虚拟机公共 IP 地址的 SKU 必须与负载均衡器的公共 IP 地址的 SKU 相匹配。 有关详细信息，请参阅 [Azure 负载均衡器](../load-balancer/load-balancer-overview.md?toc=%2fvirtual-network%2ftoc.json)。
-    
-    <!--Not Available on #skus-->
+    如果公共 IP 地址必须为标准 SKU，请在“SKU”下选择“标准”。  详细了解[公共 IP 地址 SKU](virtual-network-ip-addresses-overview-arm.md#sku)。 如果虚拟机将添加到公共 Azure 负载均衡器的后端池，则虚拟机公共 IP 地址的 SKU 必须与负载均衡器的公共 IP 地址的 SKU 相匹配。 有关详细信息，请参阅 [Azure 负载均衡器](../load-balancer/skus.md)。
 
 6. 在“选择公共入站端口”下选择一个端口，或者不选择任何端口。 选择了端口 3389，目的是能够通过 Internet 对 Windows Server 虚拟机进行远程访问。 对于生产型工作负荷，建议不要打开从 Internet 进行访问的端口 3389。
 
-    ![选择端口](./media/virtual-network-deploy-static-pip-arm-portal/select-port.png)
+    :::image type="content" source="./media/virtual-network-deploy-static-pip-arm-portal/select-port.png" alt-text="选择端口":::
 
 7. 接受其余默认设置，然后选择“确定”。
 8. 在“摘要”页中，选择“创建”。 部署虚拟机需要数分钟。
-9. 部署虚拟机以后，请在门户顶部的搜索框中输入 *myPublicIpAddress*。 当“myPublicIpAddress”出现在搜索结果中时，将其选中。
+9. 部署虚拟机以后，请在门户顶部的搜索框中输入 *myPublicIpAddress* 。 当“myPublicIpAddress”出现在搜索结果中时，将其选中。
 10. 可以查看分配的公共 IP 地址，以及分配给 **myVM** 虚拟机的地址，如下图所示：
 
-    ![查看公共 IP 地址](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png)
+    :::image type="content" source="./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png" alt-text="显示“公共 IP 地址”窗格的屏幕截图，其中突出显示了 IP 地址和名称。":::
 
     Azure 从你在其中创建虚拟机的区域使用的地址中分配了一个公共 IP 地址。 可以下载 Azure [中国](https://www.microsoft.com/download/confirmation.aspx?id=57062)云的范围（前缀）列表。
 
@@ -74,7 +74,7 @@ ms.locfileid: "84487073"
     
 11. 选择“配置”，确认分配为“静态”。 
 
-    ![查看公共 IP 地址](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
+    :::image type="content" source="./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png" alt-text="显示“公共 IP 地址”窗格的屏幕截图，其中已选中“配置项”。":::
 
 > [!WARNING]
 > 不要修改虚拟机操作系统中的 IP 地址设置。 操作系统不知道 Azure 公共 IP 地址。 虽然可以向操作系统添加专用 IP 地址设置，但除非必要，否则我们建议不要这样做，而只能阅读[向操作系统添加专用 IP 地址](virtual-network-network-interface-addresses.md#private)之后才执行此操作。

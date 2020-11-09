@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 07/31/2020
-ms.openlocfilehash: c85045eadaa92ac9f4cc851dd7dfbc86cb30c592
-ms.sourcegitcommit: 4e1bc2e9b2a12dbcc05c52db5dbd1ae290aeb18d
+ms.date: 10/29/2020
+ms.openlocfilehash: 9c98734452b84ef27bda3302a9c8a77519e94f00
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87509138"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104568"
 ---
 # <a name="the-datetime-data-type"></a>datetime 数据类型
 
@@ -55,11 +55,11 @@ ms.locfileid: "87509138"
 |格式|示例|
 |------|-------|
 |%Y-%m-%dT%H:%M:%s%z|2014-05-25T08:20:03.123456Z|
-|%Y-%m-%dT%H:%M:%s"|2014-05-25T08:20:03.123456|
-|%Y-%m-%dT%H:%M"|2014-05-25T08:20|
-|%Y-%m-%d %H:%M:%s%z"|2014-11-08 15:55:55.123456Z|
-|%Y-%m-%d %H:%M:%s"|2014-11-08 15:55:55|
-|%Y-%m-%d %H:%M"|2014-11-08 15:55|
+|%Y-%m-%dT%H:%M:%s|2014-05-25T08:20:03.123456|
+|%Y-%m-%dT%H:%M|2014-05-25T08:20|
+|%Y-%m-%d %H:%M:%s%z|2014-11-08 15:55:55.123456Z|
+|%Y-%m-%d %H:%M:%s|2014-11-08 15:55:55|
+|%Y-%m-%d %H:%M|2014-11-08 15:55|
 |%Y-%m-%d|2014-11-08|
 
 ### <a name="rfc-822"></a>[RFC 822](https://www.ietf.org/rfc/rfc0822.txt)
@@ -71,9 +71,9 @@ ms.locfileid: "87509138"
 |%w, %e %b %r %H:%M|Sat, 8 Nov 14 15:05|
 |%w, %e %b %r %H:%M %Z|Sat, 8 Nov 14 15:05 GMT|
 |%e %b %r %H:%M:%s %Z|8 Nov 14 15:05:02 GMT|
-|%e %b %r %H:%M:%s"|8 Nov 14 15:05:02|
-|%e %b %r %H:%M"|8 Nov 14 15:05|
-|%e %b %r %H:%M %Z"|8 Nov 14 15:05 GMT|
+|%e %b %r %H:%M:%s|8 Nov 14 15:05:02|
+|%e %b %r %H:%M|8 Nov 14 15:05|
+|%e %b %r %H:%M %Z|8 Nov 14 15:05 GMT|
 
 ### <a name="rfc-850"></a>[RFC 850](https://tools.ietf.org/html/rfc850)
 
@@ -84,15 +84,15 @@ ms.locfileid: "87509138"
 |%w, %e-%b-%r %H:%M %Z|Saturday, 08-Nov-14 15:05 GMT|
 |%w, %e-%b-%r %H:%M|Saturday, 08-Nov-14 15:05|
 |%e-%b-%r %H:%M:%s %Z|08-Nov-14 15:05:02 GMT|
-|%e-%b-%r %H:%M:%s"|08-Nov-14 15:05:02|
-|%e-%b-%r %H:%M %Z"|08-Nov-14 15:05 GMT|
-|%e-%b-%r %H:%M"|08-Nov-14 15:05|
+|%e-%b-%r %H:%M:%s|08-Nov-14 15:05:02|
+|%e-%b-%r %H:%M %Z|08-Nov-14 15:05 GMT|
+|%e-%b-%r %H:%M|08-Nov-14 15:05|
 
 
 ### <a name="sortable"></a>可排序 
 
 |格式|示例|
-|------|-------|
+|------|-------|        
 |%Y-%n-%e %H:%M:%s|2014-11-08 15:05:25|
 |%Y-%n-%e %H:%M:%s %Z|2014-11-08 15:05:25 GMT|
 |%Y-%n-%e %H:%M|2014-11-08 15:05|
@@ -100,4 +100,4 @@ ms.locfileid: "87509138"
 |%Y-%n-%eT%H:%M:%s|2014-11-08T15:05:25|
 |%Y-%n-%eT%H:%M:%s %Z|2014-11-08T15:05:25 GMT|
 |%Y-%n-%eT%H:%M|2014-11-08T15:05|
-|%Y-%n-%eT%H:%M %Z"|2014-11-08T15:05 GMT|
+|%Y-%n-%eT%H:%M %Z|2014-11-08T15:05 GMT|

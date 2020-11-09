@@ -10,12 +10,14 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 57a0fe8f3064209c10ad530f7adbd7e15f3d0607
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: 38e50730461186e2c3fb0017882d133d2da0561d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88947297"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105254"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>分析模型，确定资源利用率
 
@@ -24,6 +26,10 @@ ms.locfileid: "88947297"
 ## <a name="prerequisites"></a>必备条件
 
 本文假设你已通过 Azure 机器学习训练并注册了一个模型。 有关使用 Azure 机器学习训练和注册 scikit-learn 模型的示例，请参阅[此处的示例教程](how-to-train-scikit-learn.md)。
+
+## <a name="limitations"></a>限制
+
+* 当工作区的 Azure 容器注册表 (ACR) 位于虚拟网络之后时，分析将不起作用。
 
 ## <a name="run-the-profiler"></a>运行探查器
 
@@ -36,6 +42,9 @@ ms.locfileid: "88947297"
 
 > [!IMPORTANT]
 > 目前，我们仅支持分析预期其请求数据为字符串的服务，例如：字符串序列化 json、文本、字符串序列化图像等。数据集的每一行的内容（字符串）都会放入 HTTP 请求的正文中，然后会被发送到可以对评分模型进行封装的服务。
+
+> [!IMPORTANT]
+> 我们仅支持在 ChinaEast2 和 USGovArizona 区域中对最多 2 个 CPU 进行分析。
 
 下面是一个示例，说明了如何构造用于分析服务的输入数据集，该服务预期其传入请求数据包含序列化 json。 在此示例中，我们创建了一个数据集，该数据集基于 100 个请求数据内容相同的实例。 在实际方案中，建议使用包含各种输入的更大数据集，尤其是在模型资源使用/行为是依赖于输入的情况下。
 
@@ -124,7 +133,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="next-steps"></a>后续步骤
 
-* [排查部署失败的问题](how-to-troubleshoot-deployment.md)
+* [排查部署失败问题](how-to-troubleshoot-deployment.md)
 * [部署到 Azure Kubernetes 服务](how-to-deploy-azure-kubernetes-service.md)
 * [创建客户端应用程序以使用 Web 服务](how-to-consume-web-service.md)
 * [更新 Web 服务](how-to-deploy-update-web-service.md)

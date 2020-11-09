@@ -3,25 +3,24 @@ title: 排查常见问题
 description: 了解如何排查部署、运行或管理 Azure 容器实例时的常见问题
 ms.topic: article
 origin.date: 06/25/2020
-ms.date: 07/27/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 01/15/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9b73a6cf61a530e313e23ca337945be5fa75d51f
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: 2a4dcd2ba5de2a545c72d992d9bdccff8bb12992
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863178"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106121"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>排查 Azure 容器实例中的常见问题
 
 本文展示了如何排查管理容器或向 Azure 容器实例部署容器时出现的常见问题。 另请参阅[常见问题解答](container-instances-faq.md)。
 
-如果需要更多支持，请参阅 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)中可用的“帮助 + 支持”选项。
-
-<!--CORRECT ON (https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)-->
+如果需要更多支持，请参阅 [Azure 门户](https://support.azure.cn/support/support-azure/)中可用的“获取支持”。
 
 ## <a name="issues-during-container-group-deployment"></a>容器组部署过程中的问题
 ### <a name="naming-conventions"></a>命名约定
@@ -107,7 +106,7 @@ ms.locfileid: "86863178"
 ## <a name="issues-during-container-group-runtime"></a>容器组运行过程中的问题
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>容器不断退出并重启（没有长时间运行的进程）
 
-容器组的[重启策略](container-instances-restart-policy.md)默认为 **Always**，因此容器组中的容器在运行完成后始终会重启。 如果打算运行基于任务的容器，则可能需要将此策略更改为 **OnFailure** 或 **Never**。 如果指定了“失败时”  ，但仍不断重启，则可能容器中执行的应用程序或脚本存在问题。
+容器组的 [重启策略](container-instances-restart-policy.md)默认为 **Always** ，因此容器组中的容器在运行完成后始终会重启。 如果打算运行基于任务的容器，则可能需要将此策略更改为 **OnFailure** 或 **Never** 。 如果指定了“失败时”  ，但仍不断重启，则可能容器中执行的应用程序或脚本存在问题。
 
 在没有长时间运行的进程的情况下运行容器组时，可能会看到重复退出并重启 Ubuntu 或 Alpine 等映像。 通过 [EXEC](container-instances-exec.md) 连接将无法正常工作，因为容器没有使其保持活动的进程。 若要解决此问题，请在容器组部署中包含如下所示的启动命令，以使容器保持运行。
 
@@ -191,7 +190,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 #### <a name="image-location"></a>映像位置
 
-若要减小映像请求对容器启动时间的影响，另一种方法是在希望部署容器实例的同一区域的 [Azure 容器注册表](/container-registry/)中托管容器映像。 这会缩短容器映像需要经过的网络路径，显著缩短下载时间。
+若要减小映像请求对容器启动时间的影响，另一种方法是在希望部署容器实例的同一区域的 [Azure 容器注册表](../container-registry/index.yml)中托管容器映像。 这会缩短容器映像需要经过的网络路径，显著缩短下载时间。
 
 #### <a name="cached-images"></a>缓存的映像
 
@@ -206,7 +205,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 ### <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>无法连接到基础 Docker API 或运行特权容器
 
-Azure 容器实例不公开对托管容器组的底层基础结构的直接访问。 这包括访问运行在容器主机上的 Docker API 和运行特权容器。 如果需要 Docker 交互，请查看 [REST 参考文档](https://aka.ms/aci/rest)以了解 ACI API 支持的内容。 如果缺少某些内容，请在 [ACI 反馈论坛](https://aka.ms/aci/feedback)上提交请求。
+Azure 容器实例不公开对托管容器组的底层基础结构的直接访问。 这包括访问运行在容器主机上的 Docker API 和运行特权容器。 如果需要 Docker 交互，请查看 [REST 参考文档](https://docs.microsoft.com/rest/api/container-instances/)以了解 ACI API 支持的内容。 如果缺少某些内容，请在 [ACI 反馈论坛](https://aka.ms/aci/feedback)上提交请求。
 
 ### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>容器组 IP 地址可能会由于端口不匹配而无法访问
 
@@ -248,7 +247,7 @@ Azure 容器实例尚不支持具有常规 docker 配置的端口映射。 如�
 
 <!-- LINKS - Internal -->
 
-[az-container-show]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-show]: https://docs.microsoft.com/cli/azure/container#az_container_show
 [list-cached-images]: https://docs.microsoft.com/rest/api/container-instances/location/listcachedimages
 
 <!-- Update_Description: update meta properties, wording update, update link -->

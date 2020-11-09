@@ -7,13 +7,13 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/28/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: a6f0a66e758a2b3781b4c182e85bfe339098152a
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: cb91ba676f4eef31a4ddffcf067e1ab908c7676a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146359"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105274"
 ---
 # <a name="use-lightingest-to-ingest-data-to-azure-data-explorer"></a>使用 LightIngest 将数据引入 Azure 数据资源管理器
  
@@ -31,16 +31,17 @@ LightIngest 是用于将即席数据引入 Azure 数据资源管理器的命令�
 ## <a name="install-lightingest"></a>安装 LightIngest
 
 1. 在计算机上导航到 LightIngest 所下载到的位置。
-1. 使用 WinRAR 将 tools 目录解压缩到计算机上。**
+1. 使用 WinRAR 将 tools 目录解压缩到计算机上。
 
 ## <a name="run-lightingest"></a>运行 LightIngest
 
-1. 在计算机上导航到解压缩的 tools 目录。**
+1. 在计算机上导航到解压缩的 tools 目录。
 1. 从位置栏中删除现有的位置信息。
-    
-    :::image type="content" source="kusto/tools/images/KustoTools-Lightingest/lightingest-locationbar.png" alt-text="删除 LightIngest 的现有位置信息":::
 
-1. 输入 `cmd`，然后按 Enter。****
+    :::image type="content" source="media/lightingest/lightingest-locationbar.png" alt-text="在 Azure 数据资源管理器中删除 LightIngest 的现有位置信息":::
+
+
+1. 输入 `cmd`，然后按 Enter。
 1. 在命令提示符下，输入 `LightIngest.exe`，后接相关的命令行参数。
 
     > [!Tip]

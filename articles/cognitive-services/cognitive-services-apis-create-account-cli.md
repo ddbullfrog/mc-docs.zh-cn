@@ -3,24 +3,28 @@ title: 使用 Azure CLI 创建认知服务资源
 titleSuffix: Azure Cognitive Services
 description: 通过使用 Azure 命令行接口创建和订阅资源，开始使用 Azure 认知服务。
 services: cognitive-services
-author: aahill
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
+keywords: 认知服务, 认知智能, 认知解决方案, ai 服务
 ms.topic: conceptual
 origin.date: 10/04/2019
-ms.date: 03/16/2020
-ms.author: v-tawe
-ms.openlocfilehash: beb5aa75beae63f66590de3d1d2d7bf814e43811
-ms.sourcegitcommit: 3de7d92ac955272fd140ec47b3a0a7b1e287ca14
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.openlocfilehash: 5d82e59bd7b5604dfefcf5a924e5b6112648d1b0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84723302"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105709"
 ---
-# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>使用 Azure 命令行接口 (CLI) 创建认知服务资源
+# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>快速入门：使用 Azure 命令行接口 (CLI) 创建认知服务资源
 
-使用本快速入门可通过 [Azure 命令行接口 (CLI)](/cli/install-azure-cli?view=azure-cli-latest) 开始使用 Azure 认知服务。 认知服务由你在 Azure 订阅中创建的 Azure [资源](/azure-resource-manager/resource-group-portal)表示。 创建资源后，请使用生成的密钥和终结点对应用程序进行身份验证。 
+使用本快速入门可通过 [Azure 命令行接口 (CLI)](/cli/install-azure-cli?view=azure-cli-latest) 开始使用 Azure 认知服务。
 
+Azure 认知服务是包含 REST API 和客户端库 SDK 的云服务，可帮助开发人员将认知智能内置于应用程序，而无需具备直接的人工智能 (AI) 或数据科学技能或知识。 借助 Azure 认知服务，开发人员可以通过能够看、听、说、理解甚至开始推理的认知解决方案，轻松将认知功能添加到他们的应用程序中。
+
+认知服务由你在 Azure 订阅中创建的 Azure [资源](/azure-resource-manager/resource-group-portal)表示。 创建资源后，请使用生成的密钥和终结点对应用程序进行身份验证。
 
 本快速入门介绍如何使用 [Azure 命令行接口 (CLI)](/cli/install-azure-cli?view=azure-cli-latest) 注册 Azure 认知服务以及创建包含单服务或多服务订阅的帐户。 这些服务由 Azure [资源](/azure-resource-manager/resource-group-portal)表示，可用于连接到一个或多个 Azure 认知服务 API。
 
@@ -28,10 +32,10 @@ ms.locfileid: "84723302"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 有效的 Azure 订阅 - [创建 1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services)。
 * [Azure 命令行接口 (CLI)](/cli/install-azure-cli?view=azure-cli-latest)
 
-## <a name="install-the-azure-cli-and-sign-in"></a>安装 Azure CLI 并登录 
+## <a name="install-the-azure-cli-and-sign-in"></a>安装 Azure CLI 并登录
 
 安装 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。 若要登录到本地安装的 CLI，请运行 [az login](/cli/reference-index#az-login) 命令：
 
@@ -41,7 +45,7 @@ az login
 ```
 
 也可以使用绿色的“尝试”按钮在浏览器中运行这些命令。
- 
+
 ## <a name="create-a-new-azure-cognitive-services-resource-group"></a>创建新的 Azure 认知服务资源组
 
 在创建认知服务资源之前，必须具有 Azure 资源组才能包含该资源。 在创建新资源时，可以选择新建资源组，或使用现有的资源组。 本文介绍如何创建新资源组。
@@ -130,13 +134,15 @@ az cognitiveservices account list-kinds
 
 ```azurecli
 az cognitiveservices account create \
-    --name anomaly-detector-resource \
+    --name computer-vision-resource \
     --resource-group cognitive-services-resource-group \
     --kind ComputerVision \
     --sku F0 \
     --location chinaeast2 \
     --yes
 ```
+
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## <a name="get-the-keys-for-your-resource"></a>获取资源的密钥
 
@@ -188,8 +194,7 @@ az group delete --name cognitive-services-resource-group
 ## <a name="see-also"></a>另请参阅
 
 * [对 Azure 认知服务的请求进行身份验证](authentication.md)
-
 * [什么是 Azure 认知服务？](Welcome.md)
 * [自然语言支持](language-support.md)
+* [Docker 容器支持](cognitive-services-container-support.md)
 
-<!-- Update_Description: content update -->

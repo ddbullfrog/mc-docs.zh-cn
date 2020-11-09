@@ -4,22 +4,22 @@ description: 如何使用地理区域进行故障转移并在 Azure 服务总线
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 10e53567cd8c9557b9b9129629f261c6c4da0623
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 9d46b3f012153022bd0ed6e5682c3fff9df97e07
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128232"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105134"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服务总线异地灾难恢复
 
 当整个 Azure 区域或数据中心遭遇停机时，在另一个区域或数据中心继续实现数据处理变得至关重要。 因此，“异地灾难恢复”对于任何企业而言都是非常重要的功能。 Azure 服务总线支持命名空间级别的异地灾难恢复。
 
-<!--Not Available on (if no [availability zones](../availability-zones/az-overview.md) are used)-->
+<!--Not Available on [availability zones](../availability-zones/az-overview.md)-->
 
 异地灾难恢复功能在全球范围内可用于服务总线高级 SKU。 
 
@@ -64,10 +64,10 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 
 2. 在与预配了主要命名空间的位置不同的区域中预配“次要”服务总线高级命名空间。 这将有助于跨不同的数据中心区域进行故障隔离。
 
-3. 在主要命名空间与次要命名空间之间创建配对以获取“别名”。
+3. 在主要命名空间与次要命名空间之间创建配对以获取别名。
 
     >[!NOTE] 
-    > 如果已[将 Azure 服务总线标准命名空间迁移到 Azure 服务总线高级命名空间](service-bus-migrate-standard-premium.md)，则必须使用预先存在的别名（即服务总线标准命名空间连接字符串）通过 PS/CLI 或 REST API 创建灾难恢复配置 。
+    > 如果已[将 Azure 服务总线标准命名空间迁移到 Azure 服务总线高级命名空间](service-bus-migrate-standard-premium.md)，则必须使用预先存在的别名（即服务总线标准命名空间连接字符串）通过 PS/CLI 或 REST API 创建灾难恢复配置。
     >
     >
     > 这是因为，在迁移过程中，Azure 服务总线标准命名空间连接字符串/DNS 名称本身会成为 Azure 服务总线高级命名空间的别名。
@@ -76,7 +76,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
     >
     > 如果使用门户来设置灾难恢复配置，则由你在门户中提供此注意事项。
 
-4. 使用在步骤 3 中获取的“别名”将你的客户端应用程序连接到启用了异地灾难恢复的主要命名空间。 最初，别名指向主要命名空间。
+4. 使用在步骤 3 中获取的别名将你的客户端应用程序连接到启用了异地灾难恢复的主要命名空间。 最初，别名指向主要命名空间。
 
 5. [可选] 添加一些监视功能，以检测是否有必要进行故障转移。
 
@@ -174,7 +174,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 
 此方法的优点是，可以在独立于服务总线命名空间的应用程序层上进行故障转移。 请考虑下列情形： 
 
-**仅限应用程序的故障转移：** 此处，应用程序不会在 VNET-1 中，而是会移到 VNET-2 中。 由于主命名空间和辅助命名空间的 VNET-1 和 VNET 2 上都同时配置了这两个专用终结点，因此该应用程序将正常工作。 
+仅限应用程序的故障转移：此处，应用程序不会在 VNET-1 中，而是会移到 VNET-2 中。 由于主命名空间和辅助命名空间的 VNET-1 和 VNET 2 上都同时配置了这两个专用终结点，因此该应用程序将正常工作。 
 
 **仅限服务总线命名空间的故障转移** ：此处再次说明，因为在主命名空间和辅助命名空间的两个虚拟网络上都同时配置了这两个专用终结点，因此该应用程序将正常工作。 
 

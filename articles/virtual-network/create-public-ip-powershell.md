@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/28/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: e778c82127f234e05862cc7b64c8eef0572e3ad8
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 254ce4752d1b1f780f7c7ff432cdf8fc653d4c09
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571582"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628255"
 ---
 <!--Verified Successfully-->
 <!--Remove the part of Availability Zones-->
@@ -59,7 +59,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 <a name="option-create-public-ip-basic"></a>
 ## <a name="basic-sku"></a>基本 SKU
 
-使用 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) 在 myResourceGroup 中创建名为“myStandardPublicIP”的基本静态公共 IP 地址。  
+使用 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) 在 myResourceGroup 中创建名为“myBasicPublicIP”的基本静态公共 IP 地址 。  
 
 <!--Not Available on Availability Zones-->
 
@@ -86,5 +86,4 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 - 详细了解 Azure 中的[公共 IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。
 - 详细了解所有[公共 IP 地址设置](virtual-network-public-ip-address.md#create-a-public-ip-address)。
 
-<!-- Update_Description: new article about create public ip powershell -->
-<!--NEW.date: 10/05/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

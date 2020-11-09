@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 6170d182a8dee508b9a8dd2dc370bcd7e1ed3bd5
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 594d151a09e08a5f243680e2577675a8594dfd1c
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146432"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106012"
 ---
 # <a name="diagnostic-information"></a>诊断信息
 
@@ -84,8 +84,8 @@ Kusto.Azure.Svc_IN_0|net.tcp://100.112.138.15:23107/|Kusto.Azure.Svc_IN_0/RD000D
 |保留|Int64|
 |保留|Int64|
 |InstancesTargetBasedOnDataCapacity|Int64|使 ClusterDataCapacityFactor 低于 80 所需的实例数。 该值仅在所有计算机大小相同时才有效
-|TotalOriginalDataSize|Int64|最初引入数据的总大小
-|TotalExtentSize|Int64|压缩和编制索引后的存储数据的总大小
+|TotalOriginalDataSize|Int64|最初引入数据的总大小（以字节为单位）
+|TotalExtentSize|Int64|压缩和编制索引后的存储数据的总大小（以字节为单位）
 |IngestionsLoadFactor|Double|使用的群集引入容量的百分比。 使用 `.show capacity` 命令可查看最大容量
 |IngestionsInProgress|Int64|当前正在执行的引入操作数
 |IngestionsSuccessRate|Double|在前 10 分钟内成功完成的引入操作的百分比
@@ -104,7 +104,7 @@ Kusto.Azure.Svc_IN_0|net.tcp://100.112.138.15:23107/|Kusto.Azure.Svc_IN_0/RD000D
 |FailedMergeOperations|Int64|前 1 小时内合并操作失败的次数
 |MaxExtentsInSingleTable|Int64|表中最大盘区数 (TableWithMaxExtents)
 |TableWithMaxExtents|String|具有最大盘区数的表 (MaxExtentsInSingleTable)
-|WarmExtentSize|Double|热缓存中盘区的总大小
+|WarmExtentSize|Double|热缓存中盘区的总大小（以字节为单位）
 |NumberOfDatabases|Int32|群集中的数据库数
 
 ## <a name="show-capacity"></a>.show capacity

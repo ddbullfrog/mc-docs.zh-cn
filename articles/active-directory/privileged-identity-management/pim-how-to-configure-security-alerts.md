@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/10/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f78b17933bfbdeef427a241385b7b601b2e0615
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 464e5be0b6a62743140e1300b54b7eb447fb3625
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937451"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749781"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中为 Azure AD 角色配置安全警报
 
@@ -38,15 +38,15 @@ ms.locfileid: "91937451"
 
 # <a name="new-version"></a>[新版本](#tab/new)
 
-![列出警报和严重性的“Azure AD 角色 - 警报”窗格](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+![显示包含警报及其严重性列表的“警报”页面的屏幕截图。](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## <a name="security-alerts"></a>安全警报
 
 本部分列出 Azure AD 角色的所有安全警报，以及如何修复和防止这些警报。 严重性的含义如下：
 
-- **高**：因策略冲突需要立即采取措施。
-- **中**：不需要立即采取措施但有潜在的策略冲突。
-- **低**：不需要立即采取措施，但建议考虑可取的策略更改。
+- **高** ：因策略冲突需要立即采取措施。
+- **中** ：不需要立即采取措施但有潜在的策略冲突。
+- **低** ：不需要立即采取措施，但建议考虑可取的策略更改。
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>管理员不使用其特权角色
 
@@ -143,9 +143,9 @@ ms.locfileid: "91937451"
 
 本部分列出 Azure AD 角色的所有安全警报，以及如何修复和防止这些警报。 严重性的含义如下：
 
-- **高**：因策略冲突需要立即采取措施。
-- **中**：不需要立即采取措施但有潜在的策略冲突。
-- **低**：不需要立即采取措施，但建议考虑可取的策略更改。
+- **高** ：因策略冲突需要立即采取措施。
+- **中** ：不需要立即采取措施但有潜在的策略冲突。
+- **低** ：不需要立即采取措施，但建议考虑可取的策略更改。
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>管理员不使用其特权角色
 
@@ -228,11 +228,11 @@ ms.locfileid: "91937451"
 
 可以根据组织的需求和安全目标，在 Privileged Identity Management 中自定义某些安全警报。 执行以下步骤打开安全警报设置：
 
-1. 在 Azure AD 中打开 **Privileged Identity Management**。
+1. 在 Azure AD 中打开 **Privileged Identity Management** 。
 
 1. 选择“Azure AD 角色”。
 
-1. 选择“设置”，然后选择“警报”********。
+1. 选择“设置”，然后选择“警报”。
 
     ![选中了“警报”的 Azure AD 角色 - 设置](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/27/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da5d2593092f823e012e9948e58a4739cb7585d9
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 24c4a9dc676ecbaa8433955a90ceb326c2118551
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046472"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749784"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>对应用程序执行许可时发生的意外错误
 
@@ -77,6 +77,16 @@ ms.locfileid: "89046472"
     -   通过 Azure 门户授予应用程序权限
 
     -   从 Azure AD 应用程序库添加应用程序
+
+## <a name="risky-app-error-and-warning"></a>关于有风险的应用的错误和警告
+* **AADSTS900941:** 管理员同意是必需的。 应用被视为有风险。 (AdminConsentRequiredDueToRiskyApp)
+* 这个应用可能有风险。 如果你信任此应用，请让管理员授予你访问权限。
+* **AADSTS900981:** 有风险的应用收到一个管理员同意请求。 (AdminConsentRequestRiskyAppWarning)
+* 这个应用可能有风险。 仅当你信任此应用时继续。
+
+当 Microsoft 确定同意请求可能存在风险时，将显示这两条消息。 在许多其他因素中，如果未将经过验证的发布者添加到应用注册中，则可能会发生这种情况。 如果禁用管理员同意工作流，则将向最终用户显示第一个错误代码和消息。 如果启用管理员同意工作流，则将向最终用户和管理员显示第二个代码和消息。 
+
+最终用户将无法对检测为有风险的应用授予许可。 管理员可以评估应用，但必须谨慎行事。 如果该应用在进一步审查后看起来可疑，可以从同意屏幕向 Microsoft 报告。 
 
 ## <a name="next-steps"></a>后续步骤 
 

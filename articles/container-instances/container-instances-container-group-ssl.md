@@ -2,15 +2,16 @@
 title: 使用挎斗容器启用 TLS
 description: 通过在挎斗中运行 Nginx 为 Azure 容器实例中运行的容器组创建 SSL 或 TLS 终结点
 ms.topic: article
-origin.date: 02/14/2020
-ms.date: 04/30/2020
+origin.date: 07/02/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3e0873044da0058a1af8f559d782e1e25061d637
-ms.sourcegitcommit: 2d8950c6c255361eb6c66406988e25c69cf4e0f5
+ms.openlocfilehash: 0ac329564ce74e3bc4d02d6a25e021c65cf36c4a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83392177"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105930"
 ---
 <!--Verified successfully-->
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>在挎斗容器中启用 TLS 终结点
@@ -30,7 +31,7 @@ ms.locfileid: "83392177"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-可以使用本地安装的 Azure CLI 来完成本文。 如果想要在本地使用它，建议使用 2.0.55 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+可使用 Azure 本地安装的 Azure CLI 来完成本文。 如果想要在本地使用它，建议使用 2.0.55 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 <!--Not Available on Azure Cloud Shell or-->
 
@@ -154,8 +155,8 @@ code deploy-aci.yaml
 输入 base64 编码文件的内容（在 `secret` 下指示）。 例如，对每个 base64 编码的文件运行 `cat` 以查看其内容。 在部署期间，这些文件将添加到容器组中的[机密卷](container-instances-volume-secret.md)。 在本示例中，机密卷已装载到 Nginx 容器。
 
 ```YAML
-api-version: 2018-10-01
-location: chinanorth2
+api-version: 2019-12-01
+location: chinaeast2
 name: app-with-ssl
 properties:
   containers:
@@ -200,13 +201,13 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="deploy-the-container-group"></a>部署容器组
 
-使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组：
+使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 命令创建资源组：
 
 ```azurecli
-az group create --name myResourceGroup --location chinanorth2
+az group create --name myResourceGroup --location chinaeast2
 ```
 
-使用 [az container create](https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create) 命令部署容器组并传递 YAML 文件作为参数。
+使用 [az container create](https://docs.microsoft.com/cli/azure/container#az_container_create) 命令部署容器组并传递 YAML 文件作为参数。
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
@@ -214,7 +215,7 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### <a name="view-deployment-state"></a>查看部署状态
 
-若要查看部署状态，请运行以下 [az container show](https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-show) 命令：
+若要查看部署状态，请运行以下 [az container show](https://docs.microsoft.com/cli/azure/container#az_container_show) 命令：
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table
@@ -225,14 +226,14 @@ az container show --resource-group <myResourceGroup> --name app-with-ssl --outpu
 ```console
 Name          ResourceGroup    Status    Image                                                    IP:ports             Network    CPU/Memory       OsType    Location
 ------------  ---------------  --------  -------------------------------------------------------  -------------------  ---------  ---------------  --------  ----------
-app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     chinanorth2
+app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     chinaeast2
 ```
 
 ## <a name="verify-tls-connection"></a>验证 TLS 连接
 
 使用浏览器导航到容器组的公共 IP 地址。 本示例中显示的 IP 地址是 `52.157.22.76`，因此 URL 是 https://52.157.22.76。 由于 Nginx 服务器配置的原因，必须使用 HTTPS 查看正在运行的应用程序。 尝试通过 HTTP 连接失败。
 
-![浏览器屏幕截图，显示应用程序在 Azure 容器实例中运行](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
+:::image type="content" source="./media/container-instances-container-group-ssl/aci-app-ssl-browser.png" alt-text="浏览器屏幕截图，显示应用程序在 Azure 容器实例中运行":::
 
 > [!NOTE]
 > 由于本示例使用自签名证书而不是证书颁发机构提供的证书，因此，在通过 HTTPS 连接站点时，浏览器会显示安全警告。 你可能需要接受警告或调整浏览器或证书设置才能继续进入页面。 这是预期的行为。

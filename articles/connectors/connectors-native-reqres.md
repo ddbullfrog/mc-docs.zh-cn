@@ -12,12 +12,12 @@ ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: aec4509ebc5276cf2c0e15170ffdcaa16cbeeb85
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 5ce8366ec2b3d56154f24ed4e07433b62490b464
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564149"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103951"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>在 Azure 逻辑应用中接收和响应入站 HTTPS 请求
 
@@ -60,7 +60,7 @@ ms.locfileid: "91564149"
 
     请求触发器显示以下属性：
 
-    :::image type="content" source="./media/connectors-native-reqres/request-trigger.png" alt-text="选择请求触发器":::
+    :::image type="content" source="./media/connectors-native-reqres/request-trigger.png" alt-text="请求触发器":::
 
     | 属性名称 | JSON 属性名称 | 必须 | 说明 |
     |---------------|--------------------|----------|-------------|
@@ -70,7 +70,65 @@ ms.locfileid: "91564149"
 
 1. 在“请求正文 JSON 架构”框中，有选择性地输入一个用于描述传入请求中的正文的 JSON 架构，例如：
 
-    :::image type="content" source="./media/connectors-native-reqres/provide-json-schema.png" alt-text="选择请求触发器":::
+    :::image type="content" source="./media/connectors-native-reqres/provide-json-schema.png" alt-text="示例 JSON 架构":::
+
+    设计器将使用此架构为请求中的属性生成标记。 这样，逻辑应用就可以通过触发器分析、使用请求中的数据并将其传递到工作流。
+
+    下面是示例架构：
+
+    ```json
+    {
+      "type": "object",
+      "properties": {
+         "account": {
+            "type": "object",
+            "properties": {
+               "name": {
+                  "type": "string"
+               },
+               "ID": {
+                  "type": "string"
+               },
+               "address": {
+                  "type": "object",
+                  "properties": {
+                     "number": {
+                        "type": "string"
+                     },
+                     "street": {
+                        "type": "string"
+                     },
+                     "city": {
+                        "type": "string"
+                     },
+                     "state": {
+                        "type": "string"
+                     },
+                     "country": {
+                        "type": "string"
+                     },
+                     "postalCode": {
+                        "type": "string"
+                     }
+                  }
+               }
+            }
+         }
+      }
+    }
+    ```
+
+    输入 JSON 架构时，设计器将提醒你在请求中包含 `Content-Type` 标头，并将该标头值设置为 `application/json`。 有关详细信息，请参阅[处理内容类型](../logic-apps/logic-apps-content-type.md)。
+
+    ![提醒包含“Content-Type”标头](./media/connectors-native-reqres/include-content-type.png)
+
+    下面是此标头的 JSON 格式外观：
+
+    ```json
+    {
+      "Content-Type": "application/json"
+    }
+    ```
 
     若要生成基于预期有效负载（数据）的 JSON 架构，可以使用 [JSONSchema.net](https://jsonschema.net) 之类的工具，也可以执行以下步骤：
 
@@ -80,7 +138,26 @@ ms.locfileid: "91564149"
 
     1. 输入示例有效负载，然后选择“完成”。
 
-        :::image type="content" source="./media/connectors-native-reqres/enter-payload.png" alt-text="选择请求触发器":::
+        :::image type="content" source="./media/connectors-native-reqres/enter-payload.png" alt-text="输入示例有效负载以生成架构":::
+
+        下面是示例有效负载：
+
+        ```json
+        {
+         "account": {
+            "name": "Contoso",
+            "ID": "12345",
+            "address": { 
+               "number": "1234",
+               "street": "Anywhere Street",
+               "city": "AnyTown",
+               "state": "AnyState",
+               "country": "USA",
+               "postalCode": "11111"
+            }
+         }
+        }
+        ```
 
 1. 若要检查入站调用是否具有与指定架构匹配的请求正文，请执行以下步骤：
 
@@ -100,11 +177,11 @@ ms.locfileid: "91564149"
 
     本示例添加了 **Method** 属性：
 
-    :::image type="content" source="./media/connectors-native-reqres/add-parameters.png" alt-text="选择请求触发器":::
+    :::image type="content" source="./media/connectors-native-reqres/add-parameters.png" alt-text="添加 Method 参数":::
 
     **Method** 属性显示在触发器中，使你可以从列表中选择方法。
 
-    :::image type="content" source="./media/connectors-native-reqres/select-method.png" alt-text="选择请求触发器":::
+    :::image type="content" source="./media/connectors-native-reqres/select-method.png" alt-text="选择方法":::
 
 1. 现在，添加另一个操作作为工作流中的下一步骤。 在触发器下，选择“下一步骤”，以便可以找到要添加的操作。
 
@@ -116,7 +193,7 @@ ms.locfileid: "91564149"
 
     此步骤生成一个 URL，用于发送触发逻辑应用的请求。 若要复制此 URL，请选择 URL 旁边的复制图标。
 
-    :::image type="content" source="./media/connectors-native-reqres/generated-url.png" alt-text="选择请求触发器":::
+    :::image type="content" source="./media/connectors-native-reqres/generated-url.png" alt-text="用于触发逻辑应用的 URL":::
 
     > [!NOTE]
     > 若要在调用请求触发器时在 URI 中包含哈希符号或井号（“#”），请改用此编码版本：`%25%23`
@@ -139,7 +216,9 @@ ms.locfileid: "91564149"
 
 ## <a name="add-a-response-action"></a>添加响应操作
 
-使用请求触发器处理入站请求时，可以使用内置[响应操作](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)对响应进行建模并将有效负载结果发送回调用方。 只能将响应操作与请求触发器配合使用。 这种与请求触发器和响应操作的组合会创建 [请求-响应模式]（ https://en.wikipedia.org （此网站在 AZURE 中国云上不可用）/wiki/Request%E2%80%93response）。 除了 Foreach 循环和循环内以及并行分支以外，可以在工作流中的任意位置添加响应操作。
+使用请求触发器处理入站请求时，可以使用内置[响应操作](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)对响应进行建模并将有效负载结果发送回调用方。 只能将响应操作与请求触发器配合使用。 这种与请求触发器和响应操作的结合会创建请求-响应模式。 除了 Foreach 循环和循环内以及并行分支以外，可以在工作流中的任意位置添加响应操作。
+
+<!--Not Available on [request-response pattern](https://en.wikipedia.org/wiki/Request%E2%80%93response)-->
 
 > [!IMPORTANT]
 > 如果响应操作包含这些标头，则逻辑应用会从生成的响应消息中删除这些标头，且不显示任何警告或错误：
@@ -158,13 +237,13 @@ ms.locfileid: "91564149"
 
     例如，使用前面所述的“请求”触发器：
 
-    :::image type="content" source="./media/connectors-native-reqres/add-response.png" alt-text="选择请求触发器":::
+    :::image type="content" source="./media/connectors-native-reqres/add-response.png" alt-text="添加新步骤":::
 
     若要在步骤之间添加操作，请将鼠标指针移到这些步骤之间的箭头上。 选择出现的加号 ( **+** )，然后选择“添加操作”。
 
 1. 在“选择操作”下的搜索框中，输入 `response` 作为筛选器，然后选择“响应”操作。
 
-    :::image type="content" source="./media/connectors-native-reqres/select-response-action.png" alt-text="选择请求触发器":::
+    :::image type="content" source="./media/connectors-native-reqres/select-response-action.png" alt-text="选择“响应”操作":::
 
     为简明起见，本示例中“请求”触发器已折叠。
 
@@ -174,11 +253,11 @@ ms.locfileid: "91564149"
 
     例如，对于“标头”框，请包含 `Content-Type` 作为键名称，并将键值设置为 `application/json`，如本主题前面所述。 对于“正文”框，可以从动态内容列表中选择触发器正文输出。
 
-    :::image type="content" source="./media/connectors-native-reqres/response-details.png" alt-text="选择请求触发器":::
+    :::image type="content" source="./media/connectors-native-reqres/response-details.png" alt-text="“响应”操作详细信息":::
 
     若要查看 JSON 格式的标头，请选择“切换到文本视图”。
 
-    :::image type="content" source="./media/connectors-native-reqres/switch-to-text-view.png" alt-text="选择请求触发器":::
+    :::image type="content" source="./media/connectors-native-reqres/switch-to-text-view.png" alt-text="标头 - 切换到文本视图":::
 
     下面是有关可在“响应”操作中设置的属性的详细信息。
 

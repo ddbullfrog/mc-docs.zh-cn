@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/27/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: f715525d7adbd0bb646aa994a48ca93f066d9754
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: e5387e28c4b8c4aa18609686122fa9056cd7064d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516067"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104276"
 ---
 # <a name="tables-management"></a>表管理
 
@@ -29,6 +29,7 @@ ms.locfileid: "88516067"
 | [`.create tables`](create-tables-command.md), [`.create table`](create-table-command.md), [`.alter table`](alter-table-command.md), [`.alter-merge table`](alter-table-command.md), [`.drop tables`](drop-table-command.md), [`.drop table`](drop-table-command.md), [`.undo drop table`](undo-drop-table-command.md), [`.rename table`](rename-table-command.md) | 创建/修改/删除表       |
 | [`.show tables`](show-tables-command.md) [`.show table details`](show-table-details-command.md)[`.show table schema`](show-table-schema-command.md)                                                                                      | 枚举数据库中的表  |
 | `.ingest`、`.set`、`.append`、`.set-or-append`（有关详细信息，请参阅[数据引入](../../ingest-data-overview.md#kusto-query-language-ingest-control-commands)）。                                                                                                                                                                                      | 将数据引入到表中     |
+| [`.clear table data`](clear-table-data-command.md)                            | 清除表中的所有数据  |
 
 ## <a name="crud-naming-conventions-for-tables"></a>表的 CRUD 命名约定 
 （有关完整详细信息，请参阅上表中的链接部分。）

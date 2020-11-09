@@ -1,22 +1,22 @@
 ---
-title: 行级别安全性（预览版）- Azure 数据资源管理器
-description: 本文介绍了 Azure 数据资源管理器中的行级别安全性（预览版）。
+title: 行级别安全性 - Azure 数据资源管理器
+description: 本文介绍了 Azure 数据资源管理器中的行级别安全性。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
-origin.date: 03/25/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 2d54235d357bba209540fa5eff3420552aa3b39c
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+origin.date: 10/11/2020
+ms.date: 10/29/2020
+ms.openlocfilehash: e02664ca1528324425bfa32b9380ccc9ec80afec
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146708"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106262"
 ---
-# <a name="row-level-security-preview"></a>行级别安全性（预览版）
+# <a name="row-level-security"></a>行级安全性
 
 使用组成员资格或执行上下文来控制对数据库表中行的访问权限。
 
@@ -142,7 +142,7 @@ union DataForGroup1, DataForGroup2, DataForGroup3
 
 ```kusto
 .create-or-alter function RLSForCustomersTables() {
-    let IsProductionCluster = current_cluster_endpoint() == "mycluster.eastus.kusto.windows.net";
+    let IsProductionCluster = current_cluster_endpoint() == "mycluster.chinaeast2.kusto.chinacloudapi.cn";
     let DataForProductionCluster = TempTable | where IsProductionCluster;
     let DataForFollowerClusters = TempTable | where not(IsProductionCluster) | extend CreditCardNumber = "****";
     union DataForProductionCluster, DataForFollowerClusters

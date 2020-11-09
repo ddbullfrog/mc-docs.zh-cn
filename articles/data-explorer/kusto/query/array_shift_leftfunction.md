@@ -4,21 +4,21 @@ description: 本文介绍 Azure 数据资源管理器中的 array_shift_left()�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/11/2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 595a25401f20388fec06fe6330092c55d781ba18
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: eaa4c67138b2f1d39eeebf2c891b802f837a6184
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516114"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106172"
 ---
 # <a name="array_shift_left"></a>array_shift_left()
 
-`array_shift_left()` 将数组中的值向左移动。
+将 `dynamic` 数组中的值向左移动。
 
 ## <a name="syntax"></a>语法
 
@@ -34,7 +34,7 @@ ms.locfileid: "88516114"
 
 包含的元素数与原始数组中的元素数相同的动态数组。 每个元素均已根据 shift_count 进行了移动。 为代替已删除元素而添加的新元素的值为 fill_value。
 
-**另请参阅**
+## <a name="see-also"></a>请参阅
 
 * 要向右移动数组，请参阅 [array_shift_right()](array_shift_rightfunction.md)。
 * 要向右旋转数组，请参阅 [array_rotate_right()](array_rotate_rightfunction.md)。

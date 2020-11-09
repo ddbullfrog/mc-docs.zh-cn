@@ -1,5 +1,5 @@
 ---
-title: 在工作室中创建计算资源
+title: 创建训练和部署计算（工作室）
 titleSuffix: Azure Machine Learning
 description: 使用工作室为机器学习创建训练和部署计算资源（计算目标）
 services: machine-learning
@@ -11,19 +11,22 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 3abf3270c2899daea9ddab25b05b04c6a37b575c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 7c7416935926731554449d6076e43d70cfea1b4d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118184"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104127"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>在 Azure 机器学习工作室中创建计算目标以进行模型训练和部署
 
 本文介绍了如何在 Azure 机器学习工作室中创建和管理计算目标。  也可以使用以下 SDK 与扩展创建和管理计算目标：
 
-* [Azure 机器学习 SDK](how-to-create-attach-compute-sdk.md)、 
-* 用于 Azure 机器学习的 [CLI 扩展](reference-azure-machine-learning-cli.md#resource-management)
+* Azure 机器学习 SDK 或 Azure 机器学习 CLI 扩展
+  * [计算实例](how-to-create-manage-compute-instance.md)
+  * [计算群集](how-to-create-attach-compute-cluster.md)
+  * [Azure Kubernetes 服务群集](how-to-create-attach-kubernetes.md)
+  * [其他计算资源](how-to-attach-compute-targets.md)
 * 用于 Azure 机器学习的 [VS Code 扩展](how-to-manage-resources-vscode.md#compute-clusters)。
 
 
@@ -34,7 +37,7 @@ ms.locfileid: "92118184"
 
 ## <a name="whats-a-compute-target"></a>什么是计算目标？ 
 
-使用 Azure 机器学习可以在不同的资源或环境（统称为[__计算目标__](concept-azure-machine-learning-architecture.md#compute-targets)）中训练模型。 计算目标可以是本地计算机，也可以是云资源，例如 Azure 机器学习计算、Azure HDInsight 或远程虚拟机。  还可以为模型部署创建计算目标，如[“部署模型的位置和方式”](how-to-deploy-and-where.md)中所述。
+使用 Azure 机器学习可以在不同的资源或环境（统称为 [__计算目标__](concept-azure-machine-learning-architecture.md#compute-targets)）中训练模型。 计算目标可以是本地计算机，也可以是云资源，例如 Azure 机器学习计算、Azure HDInsight 或远程虚拟机。  还可以为模型部署创建计算目标，如[“部署模型的位置和方式”](how-to-deploy-and-where.md)中所述。
 
 ## <a name="view-compute-targets"></a><a id="portal-view"></a>查看计算目标
 
@@ -56,11 +59,11 @@ ms.locfileid: "92118184"
 
 1. 如果你没有计算目标，请选择页面中间的“创建”。
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="查看计算目标的列表":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="创建计算目标":::
 
 1. 如果看到计算资源的列表，请选择列表上方的“+ 新建”。
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="查看计算目标的列表":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="选择“新建”":::
 
 
 1. 为你的计算类型填写表单：
@@ -74,14 +77,14 @@ ms.locfileid: "92118184"
 
 1. 通过在列表中选择计算目标来查看创建操作的状态：
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="查看计算目标的列表":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="从列表中查看计算状态":::
 
 
 ### <a name="compute-instance"></a>计算实例
 
 使用[上述步骤](#portal-create)创建计算实例。  然后按如下所示填写表单：
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="查看计算目标的列表":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="新建计算实例":::
 
 
 |字段  |说明  |
@@ -90,7 +93,7 @@ ms.locfileid: "92118184"
 |虚拟机类型 |  选择“CPU”或“GPU”。 此类型在创建后无法更改     |
 |虚拟机大小     |  在你的区域中，支持的虚拟机大小可能会受到限制。 请查看[可用性列表](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |启用/禁用 SSH 访问     |   默认情况下会禁用 SSH 访问。  SSH 访问 在创建后无法更改。 如果计划使用 [VS Code Remote](how-to-set-up-vs-code-remote.md) 以交互模式进行调试，请确保启用访问权限   |
-|高级设置     |  可选。 配置虚拟网络 指定**资源组**、**虚拟网络**和**子网**，以在 Azure 虚拟网络 (vnet) 中创建计算实例。 有关详细信息，请参阅 vnet 的这些[网络要求](how-to-enable-virtual-network.md#compute-instance)。  |
+|高级设置     |  可选。 配置虚拟网络 指定 **资源组** 、 **虚拟网络** 和 **子网** ，以在 Azure 虚拟网络 (vnet) 中创建计算实例。 有关详细信息，请参阅 vnet 的这些[网络要求](how-to-enable-virtual-network.md#compute-instance)。  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> 计算群集
 
@@ -105,7 +108,7 @@ ms.locfileid: "92118184"
 |虚拟机大小     |  在你的区域中，支持的虚拟机大小可能会受到限制。 请查看[可用性列表](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |最小节点数 | 需要预配的节点的最小数量。 如果需要专用数量的节点，请在此处设置所需计数。 将最小值设置为 0 可节省费用，这样在群集空闲时就不需要为任何节点付费。 |
 |最大节点数 | 需要预配的节点的最大数量。 提交作业时，计算将自动缩放到此节点计数的最大值。 |
-|高级设置     |  可选。 配置虚拟网络 指定**资源组**、**虚拟网络**和**子网**，以在 Azure 虚拟网络 (vnet) 中创建计算实例。 有关详细信息，请参阅 vnet 的这些[网络要求](how-to-enable-virtual-network.md#compute-instance)。   另外请附加[托管标识](#managed-identity)以授予对资源的访问权限     |
+|高级设置     |  可选。 配置虚拟网络 指定 **资源组** 、 **虚拟网络** 和 **子网** ，以在 Azure 虚拟网络 (vnet) 中创建计算实例。 有关详细信息，请参阅 vnet 的这些[网络要求](how-to-enable-virtual-network.md#compute-instance)。   另外请附加[托管标识](#managed-identity)以授予对资源的访问权限     |
 
 #### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> 设置托管标识
 

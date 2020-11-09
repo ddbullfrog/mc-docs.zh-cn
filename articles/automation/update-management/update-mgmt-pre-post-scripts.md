@@ -4,14 +4,14 @@ description: 本文介绍如何配置和管理更新部署的操作前脚本和�
 services: automation
 ms.subservice: update-management
 origin.date: 05/17/2019
-ms.date: 08/10/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5deb2182218af513c76c6bdff8fb423e004db994
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: f049cc5f26d2c765cd77b8a2b5084da6d16bf8f2
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87790514"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749759"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>管理前脚本和后脚本
 
@@ -138,7 +138,7 @@ foreach($summary in $finalStatus)
 
 ## <a name="interact-with-machines"></a>与计算机交互
 
-操作前脚本和执行后任务在自动化帐户中作为 runbook 运行，而不是直接在部署中的计算机上运行。 执行前任务和执行后任务也在 Azure 上下文中运行，并且无权访问非 Azure 计算机。 以下部分演示如何直接与计算机交互，而无论它们是 Azure VM 还是非 Azure 计算机。
+前期脚本和后期脚本在自动化帐户中作为 Runbook 运行，而不是直接在部署中的计算机上运行。 执行前任务和执行后任务也在 Azure 上下文中运行，并且无权访问非 Azure 计算机。 以下部分演示如何直接与计算机交互，而无论它们是 Azure VM 还是非 Azure 计算机。
 
 ### <a name="interact-with-azure-machines"></a>与 Azure 计算机交互
 

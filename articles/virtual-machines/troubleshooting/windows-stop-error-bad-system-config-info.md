@@ -2,9 +2,7 @@
 title: Windows 停止错误 - 0x00000074 错误系统配置信息
 description: 本文提供了相关步骤，用于解决由于 Azure 虚拟机 (VM) 中的系统配置信息不正确而导致 Windows 无法启动并且需要重启的问题。
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: a1e47f6a-c7d5-4327-a7b0-ad48ed543641
 ms.service: virtual-machines-windows
@@ -13,16 +11,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 08/24/2020
 author: rockboyfor
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+ms.date: 11/02/2020
+ms.testscope: yes
+ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: c3cb75d0e460f1a4cbf4cfecf38c6f367c335491
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: 36cb9923ca1e02ecca0dcf1a873cac95bd3a5f5f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310323"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105470"
 ---
 <!--Verified successfully-->
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Windows 停止错误 - 0x00000074 错误系统配置信息
@@ -31,12 +29,12 @@ ms.locfileid: "89310323"
 
 ## <a name="symptom"></a>症状
 
-使用[启动诊断](/virtual-machines/troubleshooting/boot-diagnostics)查看 VM 的屏幕截图时，可看到屏幕截图显示 Windows 停止代码“#0x00000074”或“BAD_SYSTEM_CONFIG_INFO” 。
+使用[启动诊断](./boot-diagnostics.md)查看 VM 的屏幕截图时，可看到屏幕截图显示 Windows 停止代码“#0x00000074”或“BAD_SYSTEM_CONFIG_INFO” 。
 
 你的电脑遇到问题，需要重启 *。你可以重启。
 有关此问题和可能的修补程序的详细信息，请访问 http://windows.com/stopcode
 如果致电支持人员，请向他们提供以下信息：
-停止代码* ** ** *：BAD_SYSTEM_CONFIG_INFO*
+停止代码*   *：BAD_SYSTEM_CONFIG_INFO*
 
   ![Windows 停止代码 0x00000074，也显示为“BAD_SYSTEM_CONFIG_INFO”。 Windows 会通知用户其电脑遇到问题，需要重启。](./media/windows-stop-error-bad-system-config-info/1.png)
 
@@ -62,13 +60,13 @@ ms.locfileid: "89310323"
 
 ### <a name="create-and-access-a-repair-vm"></a>创建和访问修复 VM
 
-1. 使用 [VM 修复命令](/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) 的步骤 1-3 准备一个修复 VM。
+1. 使用 [VM 修复命令](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) 的步骤 1-3 准备一个修复 VM。
 1. 检查配置单元损坏情况。
 1. 使用远程桌面连接来连接到修复 VM。
-1. 复制 `\windows\system32\config` 文件夹并将其保存在运行正常的磁盘分区或其他安全位置。 请备份此文件夹以防万一，因为你将编辑关键注册表文件。
+1. 复制 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` 文件夹并将其保存在运行正常的磁盘分区或其他安全位置。 请备份此文件夹以防万一，因为你将编辑关键注册表文件。 
 
 > [!NOTE]
-> 复制 `\windows\system32\config` 文件夹作为备份，以备你需要回退对注册表所做的任何更改。
+> 复制 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` 文件夹作为备份，以备你需要回退对注册表所做的任何更改。
 
 ### <a name="check-for-hive-corruption"></a>检查配置单元损坏情况
 
@@ -76,7 +74,7 @@ ms.locfileid: "89310323"
 
 1. 在修复 VM 上，打开“注册表编辑器”应用程序。 在 Windows 搜索栏中键入“REGEDIT”即可找到它。
 1. 在注册表编辑器中，选择“HKEY_LOCAL_MACHINE”以突出显示它，然后选择“文件”>“加载配置单元…”  。
-1. 浏览到 `\windows\system32\config\SYSTEM` 并选择“打开”。
+1. 浏览到 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` 并选择“打开”。
 1. 系统提示输入名称时，请输入 BROKENSYSTEM。
 
     1. 如果配置单元未能打开，或者为空，则说明配置单元已损坏。 如果配置单元已损坏，请[开具支持工单](https://support.azure.cn/support/support-azure/)。
@@ -89,12 +87,12 @@ ms.locfileid: "89310323"
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>启用串行控制台和内存转储收集
 
-**建议**：在重新生成 VM 之前，通过运行以下脚本来启用串行控制台和内存转储收集：
+**建议** ：在重新生成 VM 之前，通过运行以下脚本来启用串行控制台和内存转储收集：
 
 1. 以管理员身份打开权限提升的命令提示符会话。
 1. 运行以下命令：
 
-    **启用串行控制台**：
+    **启用串行控制台** ：
 
     ```
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
@@ -137,7 +135,6 @@ ms.locfileid: "89310323"
 
 ### <a name="rebuild-the-vm"></a>重新生成 VM
 
-使用 [VM 修复命令的步骤 5](/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) 重新生成 VM。
+使用 [VM 修复命令的步骤 5](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) 重新生成 VM。
 
-<!-- Update_Description: new article about windows stop error bad system config info -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,15 +5,15 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: troubleshooting
-origin.date: 09/10/2020
-ms.date: 09/21/2020
+origin.date: 10/16/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: 134692cf0a26f258d4ced0892e3032cacfe3b148
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: a4aa88f2f36a97ede2bde2e357f51008052868f3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523931"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103869"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>排查自承载集成运行时问题
 
@@ -524,7 +524,7 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 - 然后，你可以通过删除筛选器来获取客户端与数据工厂服务器之间的对话。
 
     ![获取对话](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
-- 根据收集的 netmon 跟踪，我们可以判断 TTL (TimeToLive) 总计为 64。 根据[此文](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/)中提到的**默认 TTL 和跃点限制值**（摘录如下），我们可以确定是 Linux 系统重置了包并导致连接断开。
+- 根据收集的 netmon 跟踪，我们可以判断 TTL (TimeToLive) 总计为 64。 根据 [此文](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/)中提到的 **默认 TTL 和跃点限制值** （摘录如下），我们可以确定是 Linux 系统重置了包并导致连接断开。
 
     默认 TTL 和跃点限制值在不同的操作系统中有所不同，下面是一些操作系统的默认值：
     - Linux 内核 2.4 (circa 2001)：对于 TCP、UDP 和 ICMP，该值为 255
@@ -590,6 +590,37 @@ System.ValueTuple.dll 是 .NET 行为，因此它位于 %windir%\Microsoft.NET\a
 
     ![TCP 4 握手工作流](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>接收电子邮件以更新网络配置，以允许与新 IP 地址进行通信
+
+#### <a name="symptoms"></a>症状
+
+你可能会收到以下电子邮件通知，该通知建议于 2020 年 11 月 8 日之前更新网络配置，以允许与 Azure 数据工厂的新 IP 地址进行通信：
+
+   ![电子邮件通知](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### <a name="resolution"></a>解决方法
+
+此通知适用于从 Integration Runtime（在本地或 Azure 虚拟专用网络中运行）到 ADF 服务的出站通信   。 例如，如果你在 Azure VNET 中具有需要访问 ADF 服务的自承载 IR 或 Azure-SQL Server Integration Services (SSIS) IR，则需要检查是否需要在“网络安全组 (NSG)”规则中添加此新 IP 范围。 如果出站 NSG 规则使用服务标记，则不会产生任何影响。
+
+#### <a name="more-details"></a>更多详细信息
+
+对于在本地网络或 Azure 虚拟网络中具有自承载 IR 或 SSIS IR 且需与 ADF 服务进行通信的方案，这些新 IP 范围仅影响从本地防火墙或 Azure 虚拟专用网络到 ADF 服务的出站通信规则（有关参考信息，请参阅[防火墙配置和 IP 地址的允许列表设置](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)）  。
+
+对于使用 Azure VPN 的现有用户：
+
+1. 检查配置了 SSIS（又称 Azure SSIS）的专用网络中的所有出站 NSG 规则。 如果没有出站限制，则不会对其产生任何影响。
+1. 如果有出站规则限制，请检查是否使用服务标记。 如果使用服务标记，则无需更改或添加任何内容，因为新 IP 范围包含在现有服务标记之内。 
+  
+    ![目标检查](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+
+1. 如果直接在规则设置中使用 IP 地址，请检查是否添加了[服务标记 IP 范围下载链接](/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)中的所有 IP 范围。 我们已将新 IP 范围放入此文件中。 对于新用户：只需按照文档中的相关自承载 IR 或 SSIS IR 配置来配置 NSG 规则即可。
+
+对于在本地具有 SSIS IR 或自承载 IR 的现有用户：
+
+- 与网络基础结构团队进行验证，查看团队是否需要为出站规则添加关于通信的新 IP 范围地址。
+- 对于基于 FQDN 名称的防火墙规则，使用[防火墙配置和 IP 地址的允许列表设置](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)中记载的设置时，无需进行更新。 
+- 某些本地防火墙支持服务标记，如果使用更新的 Azure 服务标记配置文件，则无需进行其他更改。
 
 ## <a name="self-hosted-ir-sharing"></a>自承载 IR 共享
 

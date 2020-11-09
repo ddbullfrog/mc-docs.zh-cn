@@ -12,20 +12,20 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2019
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: 650b6d8334bf6d4433341a164b11b26e597f7a60
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 8108f2b63e9dfe4fe338f5bab426c5d92d98b8b3
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943461"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628212"
 ---
 # <a name="high-availability-ports-overview"></a>高可用性端口概述
 
-使用内部负载均衡器时，Azure 标准负载均衡器可帮助同时对所有端口上的 TCP 和 UDP 流进行负载均衡。 
+通过 HA 端口使用内部负载均衡器时，Azure 标准负载均衡器可帮助你同时对所有端口上的所有协议流进行均衡 。
 
-高可用性 (HA) 端口负载均衡规则是在内部标准负载均衡器上配置的负载均衡规则的变体。 可以通过提供单个规则对到达内部标准负载均衡器的所有端口的所有 TCP 和 UDP 流进行负载均衡，来简化负载均衡器的使用。 按流进行负载均衡决策。 此操作基于以下五元组连接：“源 IP 地址”、“源端口”、“目标 IP 地址”、“目标端口”和“协议”
+高可用性 (HA) 端口是一种负载均衡规则，它提供一种简单的方法来对到达内部标准负载均衡器的所有端口的所有流进行均衡 。 按流进行负载均衡决策。 此操作基于以下五元组连接：“源 IP 地址”、“源端口”、“目标 IP 地址”、“目标端口”和“协议”
 
 HA 端口负载均衡规则可帮助你实现关键方案，例如虚拟网络中网络虚拟设备 (NVA) 的高可用性和缩放。 当大量端口必须进行负载均衡时，此功能也可以帮助完成。 
 

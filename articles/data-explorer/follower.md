@@ -7,17 +7,17 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 11/07/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: 58e8de6a8c4c3670313d48bc31ff6bf6063ccdbc
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: c0ca1ce70aa9c2898d8ab94a15ac39923fa0e357
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146735"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104793"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>在 Azure 数据资源管理器中使用后继数据库来附加数据库
 
-使用**后继数据库**功能可将另一群集中的数据库附加到 Azure 数据资源管理器群集。 **后继数据库**以只读模式附加，因此可以查看其数据，并针对已引入**先导数据库**的数据运行查询。 后继数据库会同步先导数据库中的更改。 由于同步，需要经过几秒到几分钟的延迟之后，才会提供数据。 具体的延迟时长取决于先导数据库元数据的总体大小。 先导数据库和后继数据库使用相同的存储帐户来提取数据。 存储由先导数据库拥有。 后继数据库无需引入数据即可查看数据。 由于附加的数据库是只读的数据库，因此无法修改数据库中除[缓存策略](#configure-caching-policy)、[主体](#manage-principals)和[权限](#manage-permissions)以外的其他数据、表和策略。 无法删除附加的数据库。 这些数据库必须先由先导数据库或后继数据库分离，然后才能将其删除。 
+使用 **后继数据库** 功能可将另一群集中的数据库附加到 Azure 数据资源管理器群集。 **后继数据库** 以只读模式附加，因此可以查看其数据，并针对已引入 **先导数据库** 的数据运行查询。 后继数据库会同步先导数据库中的更改。 由于同步，需要经过几秒到几分钟的延迟之后，才会提供数据。 具体的延迟时长取决于先导数据库元数据的总体大小。 先导数据库和后继数据库使用相同的存储帐户来提取数据。 存储由先导数据库拥有。 后继数据库无需引入数据即可查看数据。 由于附加的数据库是只读的数据库，因此无法修改数据库中除[缓存策略](#configure-caching-policy)、[主体](#manage-principals)和[权限](#manage-permissions)以外的其他数据、表和策略。 无法删除附加的数据库。 这些数据库必须先由先导数据库或后继数据库分离，然后才能将其删除。 
 
 使用后继功能将数据库附加到不同群集是在组织与团队之间共享数据的基础结构。 此功能可用于隔离计算资源，以防止将生产环境用于非生产用例。 后继功能还可用于将 Azure 数据资源管理器群集的成本关联到对数据运行查询的一方。
 
@@ -31,11 +31,14 @@ ms.locfileid: "91146735"
 
 1. 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 1. 为先导和后继数据库[创建群集和数据库](create-cluster-database-portal.md)。
-1. 使用[引入概述](/data-explorer/ingest-data-overview)中所述的多种方法之一将[数据引入](ingest-sample-data.md)先导数据库。
+1. 使用[引入概述](./ingest-data-overview.md)中所述的多种方法之一将[数据引入](ingest-sample-data.md)先导数据库。
 
 ## <a name="attach-a-database"></a>附加数据库
 
-可以使用多种方法来附加数据库。 本文介绍如何使用 C#、Python 或 Azure 资源管理器模板附加数据库。 若要附加数据库，必须在先导群集和后继群集上拥有至少具有参与者角色的用户、组、服务主体或托管标识。 可以使用 [Azure 门户](/role-based-access-control/role-assignments-portal)、[PowerShell](/role-based-access-control/role-assignments-powershell)、[Azure CLI](/role-based-access-control/role-assignments-cli) 和 [ARM 模板](/role-based-access-control/role-assignments-template)添加或删除角色分配。 可以深入了解 [Azure 基于角色的访问控制 (Azure RBAC)](/role-based-access-control/overview) 和[不同角色](/role-based-access-control/rbac-and-directory-admin-roles)。 
+可以使用多种方法来附加数据库。 本文介绍如何使用 C#、Python、Powershell 或 Azure 资源管理器模板附加数据库。 若要附加数据库，必须在先导群集和后继群集上拥有至少具有参与者角色的用户、组、服务主体或托管标识。 可以使用 [Azure 门户](/role-based-access-control/role-assignments-portal)、[PowerShell](/role-based-access-control/role-assignments-powershell)、[Azure CLI](/role-based-access-control/role-assignments-cli) 和 [ARM 模板](/role-based-access-control/role-assignments-template)添加或删除角色分配。 可以深入了解 [Azure 基于角色的访问控制 (Azure RBAC)](/role-based-access-control/overview) 和[不同角色](/role-based-access-control/rbac-and-directory-admin-roles)。 
+
+
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="attach-a-database-using-c"></a>使用 C# 附加数据库
 
@@ -44,9 +47,9 @@ ms.locfileid: "91146735"
 * 安装 [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)。
 * 安装[用于身份验证的 Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)。
 
-#### <a name="code-example"></a>代码示例
+#### <a name="example"></a>示例
 
-```Csharp
+```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
@@ -78,6 +81,8 @@ AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new Atta
 var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseConfigurations.CreateOrUpdate(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationName, attachedDatabaseConfigurationProperties);
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
 ### <a name="attach-a-database-using-python"></a>使用 Python 附加数据库
 
 #### <a name="needed-modules"></a>所需的模块
@@ -87,7 +92,7 @@ pip install azure-common
 pip install azure-mgmt-kusto
 ```
 
-#### <a name="code-example"></a>代码示例
+#### <a name="example"></a>示例
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -125,6 +130,51 @@ attached_database_configuration_properties = AttachedDatabaseConfiguration(clust
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.attached_database_configurations.create_or_update(follower_resource_group_name, follower_cluster_name, attached_database_Configuration_name, attached_database_configuration_properties)
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+### <a name="attach-a-database-using-powershell"></a>使用 Powershell 附加数据库
+
+#### <a name="needed-modules"></a>所需的模块
+
+```
+Install : Az.Kusto
+```
+
+#### <a name="example"></a>示例
+
+```Powershell
+$FollowerClustername = 'follower'
+$FollowerClusterSubscriptionID = 'xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx'
+$FollowerResourceGroupName = 'followerResouceGroup'
+$DatabaseName = "db"  ## Can be specific database name or * for all databases
+$LeaderClustername = 'leader'
+$LeaderClusterSubscriptionID = 'xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx'
+$LeaderClusterResourceGroup = 'leaderResouceGroup'
+$DefaultPrincipalsModificationKind = 'Union'
+##Construct the LeaderClusterResourceId and Location
+$getleadercluster = Get-AzKustoCluster -Name $LeaderClustername -ResourceGroupName $LeaderClusterResourceGroup -SubscriptionId $LeaderClusterSubscriptionID -ErrorAction Stop
+$LeaderClusterResourceid = $getleadercluster.Id
+$Location = $getleadercluster.Location
+##Handle the config name if all databases needs to be followed
+if($DatabaseName -eq '*')  {
+        $configname = $FollowerClustername + 'config'
+       } 
+else {
+        $configname = $DatabaseName   
+     }
+New-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername `
+    -Name $configname `
+    -ResourceGroupName $FollowerResourceGroupName `
+    -SubscriptionId $FollowerClusterSubscriptionID `
+    -DatabaseName $DatabaseName `
+    -ClusterResourceId $LeaderClusterResourceid `
+    -DefaultPrincipalsModificationKind $DefaultPrincipalsModificationKind `
+    -Location $Location `
+    -ErrorAction Stop 
+```
+
+# <a name="resource-manager-template"></a>[资源管理器模板](#tab/azure-resource-manager)
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板附加数据库
 
@@ -201,7 +251,6 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
    ![模板部署](media/follower/template-deployment.png)
 
-
 |**设置**  |**说明**  |
 |---------|---------|
 |后继群集名称     |  模板将部署到的后继群集的名称。  |
@@ -210,8 +259,10 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 |先导群集资源 ID    |   先导群集的资源 ID。      |
 |默认主体修改类型    |   默认的主体修改类型。 可以是 `Union`、`Replace` 或 `None`。 有关默认主体修改类型的详细信息，请参阅[主体修改类型控制命令](kusto/management/cluster-follower.md#alter-follower-database-principals-modification-kind)。      |
 |位置   |   所有资源的位置。 先导和后继数据库必须位于同一位置。       |
- 
-### <a name="verify-that-the-database-was-successfully-attached"></a>验证是否已成功附加数据库
+
+---
+
+## <a name="verify-that-the-database-was-successfully-attached"></a>验证是否已成功附加数据库
 
 若要验证是否已成功附加数据库，请在 [Azure 门户](https://portal.azure.cn)中找到附加的数据库。 
 
@@ -227,11 +278,17 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
     ![读取和写入附加的数据库](media/follower/read-write-databases-shared.png)
 
-## <a name="detach-the-follower-database-using-c"></a>使用 C# 分离后继数据库 
+## <a name="detach-the-follower-database"></a>分离后继数据库  
 
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>从后继群集中分离已附加的后继数据库
+> [!NOTE]
+> 若要从后继或先导方拆离数据库，必须在分离数据库的群集上拥有至少具有参与者角色的用户、组、服务主体或托管标识。 在下面的示例中，我们使用服务主体。
 
-后继群集可按如下所示拆离任何附加的数据库：
+# <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster-using-c"></a>使用 C# 从后继群集中分离已附加的后继数据库
+
+
+后继群集可按如下所示拆离任何附加的后继数据库：
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -253,10 +310,7 @@ var attachedDatabaseConfigurationsName = "uniqueName";
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
 
-若要从从后继方拆离数据库，必须在后继群集上拥有至少具有参与者角色的用户、组、服务主体或托管标识。
-在上面的示例中，我们使用服务主体。
-
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>从先导群集中分离已附加的后继数据库
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster-using-c"></a>使用 C# 从先导群集中分离已附加的后继数据库
 
 先导群集可按如下所示分离任何附加的数据库：
 
@@ -286,11 +340,9 @@ var followerDatabaseDefinition = new FollowerDatabaseDefinition()
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
-若要从从先导方拆离数据库，必须在先导群集上拥有至少具有参与者角色的用户、组、服务主体或托管标识。 在上面的示例中，我们使用服务主体。
+# <a name="python"></a>[Python](#tab/python)
 
-## <a name="detach-the-follower-database-using-python"></a>使用 Python 拆离后继数据库
-
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>从后继群集中分离已附加的后继数据库
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster-using-python"></a>使用 Python 从后继群集中分离已附加的后继数据库
 
 后继群集可按如下所示拆离任何附加的数据库：
 
@@ -320,10 +372,8 @@ attached_database_configurationName = "uniqueName"
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.attached_database_configurations.delete(follower_resource_group_name, follower_cluster_name, attached_database_configurationName)
 ```
-若要从从后继方拆离数据库，必须在后继群集上拥有至少具有参与者角色的用户、组、服务主体或托管标识。
-在上面的示例中，我们使用服务主体。
 
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>从先导群集中分离已附加的后继数据库
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster-using-python"></a>使用 Python 从先导群集中分离已附加的后继数据库
 
 先导群集可按如下所示分离任何附加的数据库：
 
@@ -357,13 +407,40 @@ attached_database_configuration_name = "uniqueName"
 location = "China East 2"
 cluster_resource_id = "/subscriptions/" + follower_subscription_id + "/resourceGroups/" + follower_resource_group_name + "/providers/Microsoft.Kusto/Clusters/" + follower_cluster_name
 
-
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.clusters.detach_follower_databases(resource_group_name = leader_resource_group_name, cluster_name = leader_cluster_name, cluster_resource_id = cluster_resource_id, attached_database_configuration_name = attached_database_configuration_name)
 ```
 
-若要从从先导方拆离数据库，必须在先导群集上拥有至少具有参与者角色的用户、组、服务主体或托管标识。
-在上面的示例中，我们使用服务主体。
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+### <a name="detach-a-database-using-powershell"></a>使用 Powershell 分离数据库
+
+#### <a name="needed-modules"></a>所需的模块
+
+```
+Install : Az.Kusto
+```
+
+#### <a name="example"></a>示例
+
+```Powershell
+$FollowerClustername = 'follower'
+$FollowerClusterSubscriptionID = 'xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx'
+$FollowerResourceGroupName = 'followerResouceGroup'
+$DatabaseName = "sanjn"  ## Can be specific database name or * for all databases
+
+##Construct the Configuration name 
+$confignameraw = (Get-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername -ResourceGroupName $FollowerResourceGroupName -SubscriptionId $FollowerClusterSubscriptionID) | Where-Object {$_.DatabaseName -eq $DatabaseName }
+$configname =$confignameraw.Name.Split("/")[1]
+
+Remove-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername -Name $configname -ResourceGroupName $FollowerResourceGroupName
+```
+
+# <a name="resource-manager-template"></a>[资源管理器模板](#tab/azure-resource-manager)
+
+使用 C#、Python 或 PowerShell [拆离后继数据库](#detach-the-follower-database)。
+
+---
 
 ## <a name="manage-principals-permissions-and-caching-policy"></a>管理主体、权限和缓存策略
 

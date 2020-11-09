@@ -5,22 +5,39 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 08/27/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcf3fca29488a7ed7d9d9e0c3a2a446a1c37f368
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 1f496dfe1e5aa2e1a148b58e71ce60f7a489cd89
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046322"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749812"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>排查使用条件访问时的登录问题
 
 可以参考本文中的信息，使用错误消息和 Azure AD 登录日志来排查与条件访问相关的意外登录结果。
+
+## <a name="select-all-consequences"></a>选择“所有”后果
+
+条件访问框架提供了极大的配置灵活性。 不过，极大的灵活性也意味着应先仔细检查每个配置策略，然后才能发布，以免产生不良后果。 在这种情况下，应该特别注意影响完整集的任务，例如 **所有用户/组/云应用** 。
+
+组织应避免以下配置：
+
+**对于所有用户、所有云应用：**
+
+- **阻止访问** - 此配置将阻止整个组织访问。
+- **需要标记为合规的设备** - 对于尚未注册其设备的用户，此策略将阻止所有访问权限（包括对 Intune 门户的访问权限）。 如果是不具有注册设备的管理员，则此策略会阻止你回到 Azure 门户更改策略。
+- **需要已建立混合 Azure AD 域联接的设备** - 如果他们不具有已建立混合 Azure AD 域联接的设备，此阻止访问权限的策略还可能会阻止组织中所有用户的访问权限。
+- **需要应用保护策略** - 如果没有 Intune 策略，此阻止访问权限的策略还可能会阻止组织中所有用户的访问权限。 如果你是管理员，没有设置了 Intune 应用保护策略的客户端应用程序，则此策略会阻止你返回到 Intune 和 Azure 之类的门户。
+
+**对于所有用户、所有云应用、所有设备平台：**
+
+- **阻止访问** - 此配置将阻止整个组织访问。
 
 ## <a name="conditional-access-sign-in-interrupt"></a>条件访问登录中断
 
@@ -40,7 +57,7 @@ ms.locfileid: "89046322"
 
 若要查明已应用哪个（或哪些）条件访问策略，以及为何应用这个（这些）策略，请执行以下操作。
 
-1. 以全局管理员、安全管理员或全局读取者的身份登录到 **Azure 门户**。
+1. 以全局管理员、安全管理员或全局读取者的身份登录到 **Azure 门户** 。
 1. 浏览到“Azure Active Directory” > “登录”。
 1. 找到要查看的登录事件。 添加或删除筛选器和列，以筛选掉不必要的信息。
    1. 添加筛选器以缩小范围：
@@ -82,9 +99,15 @@ ms.locfileid: "89046322"
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
+## <a name="what-to-do-if-you-are-locked-out-of-the-azure-portal"></a>如果你被锁定在 Azure 门户之外，该怎么办？
+
+如果你因为条件访问策略中的设置不正确而被锁定在 Azure 门户之外，请执行以下操作：
+
+- 检查组织中是否有其他管理员尚未被阻止。 具有 Azure 门户访问权限的管理员可以禁用影响你登录的策略。 
+- 如果组织中没有管理员可以更新策略，请提交支持请求。 Microsoft 支持人员可以审核并在确认后更新妨碍访问的条件访问策略。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Active Directory 门户中的“登录活动”报表](../reports-monitoring/concept-sign-ins.md)
 - [使用 What If 工具排查条件访问问题](troubleshoot-conditional-access-what-if.md)
-- [Azure Active Directory 中的条件访问](best-practices.md)的最佳做法
 

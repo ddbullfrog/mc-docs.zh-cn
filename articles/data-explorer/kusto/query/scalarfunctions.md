@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/27/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 6815d7d469e45afad7e48c7470e9c169a59adcec
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: 2f1bb1e0b7db62893e1e9cda6c19f41198d12ecc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515949"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106202"
 ---
 # <a name="scalar-function-types"></a>标量函数类型
 
@@ -85,9 +85,17 @@ ms.locfileid: "88515949"
 |[array_iif()](arrayifffunction.md)|按元素对数组应用 iif 函数。|
 |[array_index_of()](arrayindexoffunction.md)|搜索指定项的数组，并返回其位置。|
 |[array_length()](arraylengthfunction.md)|计算动态数组中的元素数。|
+|[array_rotate_left()](array_rotate_leftfunction.md)|将动态数组中的值向左旋转。|
+|[array_rotate_right()](array_rotate_rightfunction.md)|将动态数组中的值向右旋转。|
+|[array_shift_left()](array_shift_leftfunction.md)|将动态数组中的值向左移动。|
+|[array_shift_right()](array_shift_rightfunction.md)|将动态数组中的值向右移动。|
 |[array_slice()](arrayslicefunction.md)|提取动态数组的切片。|
+|[array_sort_asc()](arraysortascfunction.md)|按升序对数组集合进行排序。|
+|[array_sort_desc()](arraysortdescfunction.md)|按降序对数组集合进行排序。|
 |[array_split()](arraysplitfunction.md)|生成从输入数组拆分的一个或多个数组。|
 |[bag_keys()](bagkeysfunction.md)|枚举 dynamic 属性包对象中的所有根键。|
+|[bag_merge()](bag-merge-function.md)|将多个 dynamic 属性包合并成一个包含所有属性的 dynamic 属性包。|
+|[bag_remove_keys()](bag-remove-keys-function.md)|从 dynamic 属性包中删除键和关联的值。|
 |[pack()](packfunction.md)|基于名称和值的列表创建一个动态对象（属性包）。|
 |[pack_all()](packallfunction.md)|基于表格表达式的所有列创建一个动态对象（属性包）。|
 |[pack_array()](packarrayfunction.md)|将所有输入值打包为动态数组。|
@@ -220,6 +228,7 @@ ms.locfileid: "88515949"
 |[series_fit_2lines_dynamic()](series-fit-2lines-dynamicfunction.md)|对系列应用两段线性回归，返回动态对象。|
 |[series_fit_line()](series-fit-linefunction.md)|对系列应用线性回归，返回多个列。|
 |[series_fit_line_dynamic()](series-fit-line-dynamicfunction.md)|对系列应用线性回归，返回动态对象。|
+|[series_fit_poly()](series-fit-poly-function.md)|对系列应用多项式回归，返回多个列。|
 |[series_ifft()](series-ifft-function.md)|对系列应用快速傅立叶逆变换 (IFFT)。|
 |[series_iir()](series-iirfunction.md)|对系列应用无限脉冲响应滤波器。|
 |[series_outliers()](series-outliersfunction.md)|对系列中的异常点进行评分。|
@@ -237,7 +246,7 @@ ms.locfileid: "88515949"
 |[base64_encode_tostring()](base64_encode_tostringfunction.md)|将字符串编码为 base64 字符串。|
 |[base64_decode_tostring()](base64_decode_tostringfunction.md)|将 base64 字符串解码为 UTF-8 字符串。|
 |[base64_decode_toarray()](base64_decode_toarrayfunction.md)|将 base64 字符串解码为长值的数组。|
-|[countof()](cotfunction.md)|计算字符串中子字符串的出现次数。 纯字符串匹配项可能会重叠；正则表达式匹配项不会重叠。|
+|[countof()](countoffunction.md)|计算字符串中子字符串的出现次数。 纯字符串匹配项可能会重叠；正则表达式匹配项不会重叠。|
 |[extract()](extractfunction.md)|从文本字符串中获取正则表达式的匹配项。|
 |[extract_all()](extractallfunction.md)|从文本字符串中获取正则表达式的所有匹配项。|
 |[extractjson()](extractjsonfunction.md)|使用路径表达式获取 JSON 文本外指定的元素。|

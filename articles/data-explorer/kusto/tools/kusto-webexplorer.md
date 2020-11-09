@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/24/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 0f12e7d81bc076badbd0e5b16d66f29722b84f74
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 09/30/2020
+ms.openlocfilehash: c3648ea781d0904198227d8f4a8612afa879db77
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470525"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106088"
 ---
 # <a name="kustowebexplorer"></a>Kusto.WebExplorer
 
@@ -30,25 +30,25 @@ Kusto.WebExplorer 也可以由其他 Web 门户在 HTML IFRAME 中托管。
 现在可以连接多个群集并在数据库和群集之间切换。
 该工具旨在轻松识别你所连接的群集和数据库。
 
-![替换文字](./Images/KustoTools-WebExplorer/AddingCluster.gif "AddingCluster")
+![动画 GIF。在 Azure 数据资源管理器中单击“添加群集”并在对话框中输入群集名称时，群集将显示在左窗格中。](./Images/KustoTools-WebExplorer/AddingCluster.gif "AddingCluster")
 
 ## <a name="recall-results"></a>重新调用结果
 
 通常在分析期间，我们运行多个查询，并且可能需要重新访问前一个查询的结果。 可以使用此功能重新调用结果，而不必重新运行查询。 数据通过本地客户端缓存提供。
 
-![替换文字](./Images/KustoTools-WebExplorer/RecallResults.gif "RecallResults")
+![动画 GIF。运行两个 Azure 数据资源管理器查询后，鼠标移动到第一个查询并单击“重新调用”。初始结果将再次出现。](./Images/KustoTools-WebExplorer/RecallResults.gif "RecallResults")
 
 ## <a name="enhanced-results-grid-control"></a>增强的结果网格控制
 
 表格网格使你能够选择多个行、列和单元格。 通过选择多个单元格（例如 Excel）来计算聚合并透视数据。
 
-![替换文字](./Images/KustoTools-WebExplorer/EnhancedGrid.gif "EnhancedGrid")
+![动画 GIF。在 Azure 数据资源管理器中打开透视模式并将列拖到透视表目标区域后，将显示汇总数据。](./Images/KustoTools-WebExplorer/EnhancedGrid.gif "EnhancedGrid")
 
 ## <a name="intellisense--formatting"></a>Intellisense 和格式设置
 
 可以使用美观的打印格式，方法是使用“Shift+Alt+F”快捷键、代码折叠（大纲）和 IntelliSense。
 
-![替换文字](./Images/KustoTools-WebExplorer/Formating.gif "Formating")
+![显示 Azure 数据资源管理器查询的动态 GIF。展开查询后，它会更改格式，显示在一行中，列名称为粉红色。](./Images/KustoTools-WebExplorer/Formating.gif "Formating")
 
 ## <a name="deep-linking"></a>深层链接
 
@@ -62,9 +62,9 @@ Kusto.WebExplorer 也可以由其他 Web 门户在 HTML IFRAME 中托管。
 
 
 
-![替换文字](./Images/KustoTools-WebExplorer/DeepLink.gif "DeepLink")
+![动画 GIF。此时将打开 Azure 数据资源管理器共享菜单。可以看到剪贴板项的查询链接，以及到剪贴板项的文本和链接。](./Images/KustoTools-WebExplorer/DeepLink.gif "DeepLink")
 
-## <a name="feedback"></a>反馈
+## <a name="how-to-provide-feedback"></a>如何提供反馈
 
 可以通过该工具提交反馈。
-![替换文字](./Images/KustoTools-WebExplorer/Feedback.gif "反馈")
+![显示 Azure 数据资源管理器的动态 GIF。单击“反馈”图标时，“向我们发送反馈”对话框随机打开。](./Images/KustoTools-WebExplorer/Feedback.gif "反馈")

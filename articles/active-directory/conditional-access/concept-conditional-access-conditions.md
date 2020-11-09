@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff6a9e72406fa301b0475b5fbc1e50983bef3120
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: a0d8fffa9f2b5214d28b687bd17c39ea604d4287
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041572"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749820"
 ---
 # <a name="conditional-access-conditions"></a>条件访问：Conditions
 
@@ -41,6 +41,9 @@ Azure AD 条件访问支持以下设备平台：
 - macOS
 
 如果使用 **其他客户端** 条件来阻止旧身份验证，还可以设置设备平台条件。
+
+> [!IMPORTANT]
+> Microsoft 建议你对不受支持的设备平台使用条件访问策略。 例如，如果要阻止从 Linux 或任何其他不受支持的客户端访问公司资源，则应使用“设备平台条件”配置策略，该条件包括任何设备（不包括受支持的设备平台），并将控制设置授权为“阻止访问”。
 
 ## <a name="locations"></a>位置
 

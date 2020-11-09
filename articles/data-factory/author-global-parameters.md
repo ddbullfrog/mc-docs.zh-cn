@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 origin.date: 08/31/2020
-ms.date: 09/21/2020
-ms.openlocfilehash: a45e01d50e5006c6e963db8d87567457b185a230
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 11/02/2020
+ms.openlocfilehash: be5e43989c223fbd7ea7a636cf4c803797c5ccef
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532871"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106081"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Azure 数据工厂中的全局参数
 
@@ -26,11 +26,11 @@ ms.locfileid: "90532871"
 
 若要创建全局参数，请转到“管理” 部分中的“全局参数”选项卡。 选择“新建”以打开“创建”侧导航栏。
 
-![创建全局参数](media/author-global-parameters/create-global-parameter-1.png)
+![突出显示选择用于创建全局参数的“新建”按钮的屏幕截图。](media/author-global-parameters/create-global-parameter-1.png)
 
 在侧导航栏中，输入名称，选择数据类型，并指定参数的值。
 
-![创建全局参数](media/author-global-parameters/create-global-parameter-2.png)
+![显示添加新的全局参数的名称、数据类型和值的位置的屏幕截图。](media/author-global-parameters/create-global-parameter-2.png)
 
 创建全局参数后，可以通过单击参数的名称对其进行编辑。 若要同时更改多个参数，请选择“全部编辑”。
 

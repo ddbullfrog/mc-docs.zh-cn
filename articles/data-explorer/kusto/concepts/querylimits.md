@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/12/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 6c59dc4a88a6b45ebe278162df53ced26d82c534
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 3ad0689407623a6d6533bbb464b3d22e81e041ac
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146709"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103554"
 ---
 # <a name="query-limits"></a>查询限制
 
@@ -23,15 +23,16 @@ Kusto 是一个即席查询引擎，它承载着大型数据集，并尝试通�
 
 ## <a name="limit-on-query-concurrency"></a>有关查询并发性的限制
 
-**查询并发性**是指群集针对同时运行的查询数施加的限制。
+**查询并发性** 是指群集针对同时运行的查询数施加的限制。
 
 * 查询并发限制的默认值取决于运行它的 SKU 群集，计算方式如下：`Cores-Per-Node x 10`。
   * 例如，对于在 D14v2 SKU 上设置的群集（其中每台计算机都有 16 个 vCore），默认查询并发限制为 `16 cores x10 = 160`。
-* 可以通过创建支持票证来更改默认值。 将来，此控制还将通过一个控制命令公开。
+* 可以通过配置[查询限制策略](../management/query-throttling-policy.md)来更改默认值。 
+  * 可以在群集上并发运行的实际查询数取决于各种因素。 最主要的因素包括群集 SKU、群集的可用资源和查询模式。 可以根据对类似生产的查询模式执行的负载测试来配置查询限制策略。
 
 ## <a name="limit-on-result-set-size-result-truncation"></a>有关结果集大小的限制（结果截断）
 
-**结果截断**是针对查询返回的结果集默认设置的限制。 Kusto 将返回给客户端的记录数限制为 500,000，将这些记录的总数据大小限制为 64 MB。 当超出其中任一限制时，查询将失败并显示“部分查询失败”。 超出总数据大小将生成包含以下消息的异常：
+**结果截断** 是针对查询返回的结果集默认设置的限制。 Kusto 将返回给客户端的记录数限制为 500,000，将这些记录的总数据大小限制为 64 MB。 当超出其中任一限制时，查询将失败并显示“部分查询失败”。 超出总数据大小将生成包含以下消息的异常：
 
 ```
 The Kusto DataEngine has failed to execute a query: 'Query result set has exceeded the internal data size limit 67108864 (E_QUERY_RESULT_SET_TOO_LARGE).'
@@ -79,13 +80,13 @@ MyTable | where User=="UserId1"
 
 你可以去除结果截断限制，以方便使用 `.export` 命令进行导出，或方便以后进行聚合。 如果选择稍后进行聚合，请考虑使用 Kusto 进行聚合。
 
-Kusto 提供的许多客户端库能够以将“无限大的”结果流式传输给调用方的方式来处理这些结果。 请使用这些库中的一个，并将其配置为流式传输模式。 例如，使用 .NET Framework 客户端 (Microsoft.Azure.Kusto.Data)，并将连接字符串的 streaming 属性设置为 *true*，或使用始终会流式传输结果的 *ExecuteQueryV2Async()* 调用。
+Kusto 提供的许多客户端库能够以将“无限大的”结果流式传输给调用方的方式来处理这些结果。 请使用这些库中的一个，并将其配置为流式传输模式。 例如，使用 .NET Framework 客户端 (Microsoft.Azure.Kusto.Data)，并将连接字符串的 streaming 属性设置为 *true* ，或使用始终会流式传输结果的 *ExecuteQueryV2Async()* 调用。
 
 默认情况下，结果截断不仅仅应用于返回给客户端的结果流。 默认情况下，它还应用于跨群集查询中一个群集向另一个群集发出的任何子查询，并具有类似的效果。
 
 ## <a name="limit-on-memory-per-iterator"></a>每个迭代器的内存限制
 
-**每个结果集迭代器的最大内存**是 Kusto 用于防范“失控”查询的另一个限制。 此限制由请求选项 `maxmemoryconsumptionperiterator` 表示，用于设置单个查询计划结果集迭代器可以容纳的内存量的上限。 此限制适用于本来就不能进行流式传输的特定迭代器，例如 `join`。下面是发生这种情况时将返回的一些错误消息：
+**每个结果集迭代器的最大内存** 是 Kusto 用于防范“失控”查询的另一个限制。 此限制由请求选项 `maxmemoryconsumptionperiterator` 表示，用于设置单个查询计划结果集迭代器可以容纳的内存量的上限。 此限制适用于本来就不能进行流式传输的特定迭代器，例如 `join`。下面是发生这种情况时将返回的一些错误消息：
 
 ```
 The ClusterBy operator has exceeded the memory budget during evaluation. Results may be incorrect or incomplete E_RUNAWAY_QUERY.
@@ -122,7 +123,7 @@ T | where hash(UserId, 10) == 1 | ...
 
 ## <a name="limit-on-memory-per-node"></a>每个节点的内存限制
 
-**每个节点每个查询的最大内存**是用于防范“失控”查询的另一个限制。 此限制通过请求选项 `max_memory_consumption_per_query_per_node` 表示，用于设置可以在单个节点上用于特定查询的内存量的上限。
+**每个节点每个查询的最大内存** 是用于防范“失控”查询的另一个限制。 此限制通过请求选项 `max_memory_consumption_per_query_per_node` 表示，用于设置可以在单个节点上用于特定查询的内存量的上限。
 
 ```kusto
 set max_memory_consumption_per_query_per_node=68719476736;
@@ -145,7 +146,7 @@ Runaway query (E_RUNAWAY_QUERY). (message: 'Accumulated string array getting too
 
 ## <a name="limit-execution-timeout"></a>限制执行超时
 
-**服务器超时**是应用于所有请求的服务端超时。
+**服务器超时** 是应用于所有请求的服务端超时。
 Kusto 中的多个点针对运行中的请求（查询和控制命令）强制实施了超时限制：
 
 * 客户端库（如果使用）
@@ -154,7 +155,7 @@ Kusto 中的多个点针对运行中的请求（查询和控制命令）强制�
 
 默认情况下，查询超时设置为 4 分钟，控制命令超时设置为 10 分钟。 如果需要，可以增大该值（上限为 1 小时）。
 
-* 如果你使用 Kusto.Explorer 进行查询，请使用“工具”&gt;“选项* ”&gt;“连接”&gt;“查询服务器超时”。
+* 如果你使用 Kusto.Explorer 进行查询，请使用“工具”&gt;“选项”_ &gt; _“连接”* &gt;“查询服务器超时”  。
 * 以编程方式将 `servertimeout` 客户端请求属性设置为 `System.TimeSpan` 类型的值，最多为 1 小时。
 
 **有关超时的说明**

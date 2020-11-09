@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的用户分析。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 11/17/2019
-ms.date: 08/06/2020
-ms.openlocfilehash: 2d7398587fb6d002e0a1b2d66574b14fc9a93408
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: 9bb3f3aa0f148d01c081054c39a168a4ad2bcfcb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841465"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105075"
 ---
-# <a name="user-analytics"></a>用户分析
+# <a name="user-analytics-plugins"></a>用户分析插件
 
 本部分介绍用户分析方案的 Kusto 扩展（插件）。
 

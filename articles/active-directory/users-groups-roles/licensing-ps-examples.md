@@ -10,26 +10,64 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/08/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dfd83afee9c877ada5bd52c2a4d8114d5bae023
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 70fe44b882c65f4314609d0cbcd1c268f0e3fd59
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593597"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749880"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 中基于组的许可的 PowerShell 和 Graph 示例
 
-基于组的许可的完整功能可通过 [Azure 门户](https://portal.azure.cn)获得，目前 PowerShell 和 Microsoft Graph 支持仅限于只读操作。 但是，可使用现有的 [MSOnline PowerShell cmdlet](https://docs.microsoft.com/powershell/module/msonline) 和 Microsoft Graph 执行一些有用的任务。 本文档提供了可执行的任务示例。
+基于组的许可的完整功能可通过 [Azure 门户](https://portal.azure.cn)获得，目前存在一些有用的任务，可以使用现有的 [MSOnline PowerShell cmdlet](https://docs.microsoft.com/powershell/module/msonline) 和 Microsoft Graph 执行这些任务。 本文档提供了可执行的任务示例。
 
 > [!NOTE]
-> 开始运行 cmdlet 前，请先运行 `Connect-MsolService -AzureEnvironment AzureChinaCloud` cmdlet，确保连接到组织。
+> 开始运行 cmdlet 前，请先运行 `Connect-MsolService -AzureEnvironment AzureChinaCloud` cmdlet，确保连接到组织。
 
 > [!WARNING]
 > 此示例代码用于演示目的。 如果想要在环境中使用，请考虑先进行小规模的测试，或者在单独的测试组织中测试。 可能需要根据具体的环境需求调整该代码。
+
+## <a name="assign-licenses-to-a-group"></a>将许可证分配给组
+
+使用以下示例通过使用 Microsoft Graph 将许可证分配给组：
+
+```
+POST https://microsoftgraph.chinacloudapi.cn/v1.0/groups/1ad75eeb-7e5a-4367-a493-9214d90d54d0/assignLicense
+Content-type: application/json
+{
+  "addLicenses": [
+    {
+      "disabledPlans": [ "11b0131d-43c8-4bbb-b2c8-e80f9a50834a" ],
+      "skuId": "c7df2760-2c81-4ef7-b578-5b5392b571df"
+    },
+    {
+      "disabledPlans": [ "a571ebcc-fqe0-4ca2-8c8c-7a284fd6c235" ],
+      "skuId": "sb05e124f-c7cc-45a0-a6aa-8cf78c946968"
+    }
+  ],
+  "removeLicenses": []
+}
+
+```
+输出：
+```
+HTTP/1.1 202 Accepted
+Content-type: application/json
+location: https://microsoftgraph.chinacloudapi.cn/v2/d056d009-17b3-4106-8173-cd3978ada898/directoryObjects/1ad75eeb-7e5a-4367-a493-9214d90d54d0/Microsoft.DirectoryServices.Group
+
+{
+  "id": "1ad75eeb-7e5a-4367-a493-9214d90d54d0",
+  "deletedDateTime": null,
+  "classification": null,
+  "createdDateTime": "2018-04-18T22:05:03Z",
+  "securityEnabled": true,
+
+}
+```
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>查看分配给组的产品许可证
 
@@ -617,7 +655,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> 在运行上述脚本之前，请根据测试环境更新变量 `$skuId` 和 `$groupId` 的值，这些变量用于删除直接许可证。 
+> 在运行上述脚本之前，请根据测试环境更新变量 `$skuId` 和 `$groupId` 的值，这些变量用于删除直接许可证。 
 
 ## <a name="next-steps"></a>后续步骤
 

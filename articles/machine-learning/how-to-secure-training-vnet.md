@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: e80624045cc032f68c7a09b6d776b52a27d733db
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 3adfe2aa6c5100f506a28c0b9aae991d736362be
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118556"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106272"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习训练环境
 
@@ -57,7 +57,7 @@ ms.locfileid: "92118556"
 > * 检查对虚拟网络的订阅或资源组实施的安全策略或锁定是否限制了管理虚拟网络所需的权限。 如果你打算通过限制流量来保护虚拟网络，请为计算服务保持打开某些端口。 有关详细信息，请参阅[所需的端口](#mlcports)部分。
 > * 若要将多个计算实例或群集放入一个虚拟网络，可能需要请求提高一个或多个资源的配额。
 > * 如果工作区的一个或多个 Azure 存储帐户也在虚拟网络中受保护，它们必须与 Azure 机器学习计算实例或群集位于同一虚拟网络中。 
-> * 为了让计算实例 Jupyter 功能可以正常运行，请确保没有禁用 Web 套接字通信。
+> * 为了让计算实例 Jupyter 功能可以正常运行，请确保没有禁用 Web 套接字通信。 请确保网络允许到 *.instances.azureml.net 和 *.instances.azureml.ms 的 websocket 连接。
 
 > [!TIP]
 > 机器学习计算实例或群集自动在包含虚拟网络的资源组中分配更多网络资源。 对于每个计算实例或群集，此服务分配以下资源：
@@ -308,7 +308,7 @@ except ComputeTargetException:
 
 ## <a name="next-steps"></a>后续步骤
 
-本文是由三部分构成的虚拟网络系列文章中的第三部分。 若要了解如何保护虚拟网络，请参阅其余文章：
+本文是由三部分构成的虚拟网络系列文章中的第 3 部分。 若要了解如何保护虚拟网络，请参阅其余文章：
 
 
 * [第 1 部分：保护工作区资源](how-to-secure-workspace-vnet.md)

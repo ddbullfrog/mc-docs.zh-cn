@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a00abc1aeaf39b770ca841869a05e91479426a93
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 14b21c0b1e7b55ce55198db34b5b1fe4da97d0c0
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041544"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750215"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>在 Azure Active Directory 中对管理单元中的组的添加和管理
 
@@ -48,12 +48,12 @@ ms.locfileid: "92041544"
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$administrative unitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
-Add-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
+Add-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
 ```
 
-此示例使用 Add-AzureADAdministrativeUnitMember cmdlet 向管理单元添加组。 管理单元的对象 ID 和要添加的组的对象 ID 用作参数。 可以根据特定环境的需要更改突出显示的部分。
+此示例使用 Add-AzureADMSAdministrativeUnitMember cmdlet 向管理单元添加组。 管理单元的对象 ID 和要添加的组的对象 ID 用作参数。 可以根据特定环境的需要更改突出显示的部分。
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
@@ -63,7 +63,7 @@ POST /administrativeUnits/{Admin Unit id}/members/$ref
 
 Request body
 {
-"@odata.id":"https://microsoftgraph.chinacloudapi.cn/beta/groups/{id}"
+"@odata.id":"https://microsoftgraph.chinacloudapi.cn/v1.0/groups/{id}"
 }
 ```
 
@@ -71,7 +71,7 @@ Request body
 
 ```http
 {
-"@odata.id":"https://microsoftgraph.chinacloudapi.cn/beta/groups/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
+"@odata.id":"https://microsoftgraph.chinacloudapi.cn/v1.0/groups/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
 }
 ```
 
@@ -86,14 +86,14 @@ Request body
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
+$administrative unitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+Get-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
 ```
 
 这将帮助你获取管理单元的所有成员。 如果要显示属于管理单元的成员的所有组，可以使用以下代码片段：
 
 ```http
-foreach ($member in (Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
+foreach ($member in (Get-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
 {
 if($member.ObjectType -eq "Group")
 {
@@ -101,11 +101,12 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 }
 }
 ```
+
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
 ```http
 HTTP request
-GET /administrativeUnits/{Admin id}/members/$/microsoft.graph.group
+GET /directory/administrativeUnits/{Admin id}/members/$/microsoft.graph.group
 Request body
 {}
 ```
@@ -121,13 +122,13 @@ Request body
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
+Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
 ```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
 ```http
-https://microsoftgraph.chinacloudapi.cn/beta/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
+https://microsoftgraph.chinacloudapi.cn/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ## <a name="remove-a-group-from-an-au"></a>从 AU 删除组
@@ -136,24 +137,31 @@ https://microsoftgraph.chinacloudapi.cn/beta/groups/<group-id>/memberOf/$/Micros
 
 在 Azure 门户中，有两种方式可以从管理单元删除组。
 
-打开“Azure AD” > “组”，然后打开要从管理单元删除的组的配置文件 。 在左面板中选择“管理单元”以列出该组所属的所有管理单元。 选择要从中删除组的管理单元，然后选择“从管理单元中删除”。
+- “从组中删除”概述
 
-![从管理单元删除组](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
+  1. 打开“Azure AD” > “组”，然后打开要从管理单元删除的组的配置文件 。
+  1. 在左面板中选择“管理单元”以列出该组所属的所有管理单元。 选择要从中删除组的管理单元，然后选择“从管理单元中删除”。
 
-另一种方式是：转到“Azure AD” > “管理单元”，然后选择组所属的管理单元 。 在左面板中选择“组”以列出成员组。 选择要从管理单元中删除的组，然后选择“删除组”。
+    ![从管理单元删除组](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
 
-![列出管理单元中的组](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
+- 从管理单元中删除
+
+  1. 打开“Azure AD” > “管理单元”，然后选择组所属的管理单元 。
+  1. 在左面板中选择“组”以列出成员组。
+  1. 选择要从管理单元中删除的组，然后选择“删除组”。
+
+    ![列出管理单元中的组](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObjId
+Remove-AzureADMSAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObjId
 ```
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
 ```http
-https://microsoftgraph.chinacloudapi.cn/beta/administrativeUnits/<adminunit-id>/members/<group-id>/$ref
+https://microsoftgraph.chinacloudapi.cn/v1.0/directory/AdministrativeUnits/<adminunit-id>/members/<group-id>/$ref
 ```
 
 ## <a name="next-steps"></a>后续步骤

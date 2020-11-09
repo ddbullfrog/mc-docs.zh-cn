@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/28/2019
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: ad574e99633c9e030b335d2e92bad067d0906eb0
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 3982fb02b70b4867a1dfbe04a7a158b101c7a97f
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564546"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628240"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>配置和验证虚拟网络或 VPN 连接
 
@@ -125,7 +125,7 @@ RemoteVirtualNetworkAddressSpace : null
 
 若要在经典虚拟网络与资源管理器虚拟网络之间配置连接，请参阅[使用 Azure 门户从不同的部署模型连接虚拟网络](/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal)。
 
-![经典虚拟网络到 Azure 资源管理器虚拟网络的连接](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
+![图示，显示了经典虚拟网络到 Azure 资源管理器虚拟网络的连接。](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
 
 若要检查将经典虚拟网络连接到 Azure 资源管理器虚拟网络时的配置，请按以下说明操作。
 
@@ -138,12 +138,12 @@ RemoteVirtualNetworkAddressSpace : null
 4. 验证是否在 Azure 资源管理器“连接对象”实例 (4) 中准确定义了经典虚拟网络网关 VIP (2)。 
 5. 验证是否在经典“本地网络定义”实例 (3) 中准确定义了 Azure 资源管理器虚拟网络网关 (5)。 
 6. 验证两个连接的虚拟网络上的预共享密钥是否匹配：
-    - 经典虚拟网络：**本地网络定义** (3)
-    - Azure 资源管理器虚拟网络：**连接对象** (4)
+    - 经典虚拟网络： **本地网络定义** (3)
+    - Azure 资源管理器虚拟网络： **连接对象** (4)
 
 ## <a name="create-a-point-to-site-vpn-connection"></a>创建点到站点 VPN 连接
 
-使用点到站点（下图中的 *P2S*）配置可以创建从单个客户端计算机到虚拟网络的安全连接。 如果要从远程位置（例如，从家里或会议室）连接到虚拟网络，点到站点连接会很有用。 只有少数几个客户端需要连接到虚拟网络时，这种连接也很有用。 
+使用点到站点（下图中的 *P2S* ）配置可以创建从单个客户端计算机到虚拟网络的安全连接。 如果要从远程位置（例如，从家里或会议室）连接到虚拟网络，点到站点连接会很有用。 只有少数几个客户端需要连接到虚拟网络时，这种连接也很有用。 
 
 点到站点 VPN 连接通过本机 Windows VPN 客户端从客户端计算机启动。 连接客户端使用证书进行身份验证。
 
@@ -161,7 +161,7 @@ RemoteVirtualNetworkAddressSpace : null
 
 ## <a name="create-a-multisite-vpn-connection"></a>创建多站点 VPN 连接
 
-可将站点到站点（下图中的 *S2S*）连接添加到已建立站点到站点连接、点到站点连接或网络间连接的虚拟网络。 这种连接通常称为多站点配置。  
+可将站点到站点（下图中的 *S2S* ）连接添加到已建立站点到站点连接、点到站点连接或网络间连接的虚拟网络。 这种连接通常称为多站点配置。  
 
 ![多站点连接](./media/virtual-network-configure-vnet-connections/4034497_en_2.png)
 
@@ -281,7 +281,7 @@ BGP 是在 Internet 上使用的，用于在两个或更多网络之间交换路
 
 * 必须使用两个公共 IP 地址创建两个网关 IP 配置。
 * 必须设置 **EnableActiveActiveFeature** 标志。
-* 网关 SKU 必须是 **VpnGw1**、**VpnGw2** 或 **VpnGw3**。
+* 网关 SKU 必须是 **VpnGw1** 、 **VpnGw2** 或 **VpnGw3** 。
 
 若要实现跨界连接和网络间连接的高可用性，应该部署多个 VPN 网关，在网络与 Azure 之间建立多个并行连接。 有关连接选项和拓扑的概述，请参阅[高可用性跨界连接和网络间连接](/vpn-gateway/vpn-gateway-highlyavailable)。
 

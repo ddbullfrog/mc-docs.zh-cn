@@ -3,9 +3,7 @@ title: 无法通过 RDP 连接到 Azure 中的 Windows VM | Azure
 description: 排查无法使用远程桌面连接到 Azure 中 Windows 虚拟机的问题
 keywords: 远程桌面错误,远程桌面连接错误,无法连接到 VM,远程桌面故障排除
 services: virtual-machines-windows
-documentationcenter: ''
 manager: gwallace
-editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
 ms.service: virtual-machines-windows
@@ -14,16 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 03/23/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 583270e26c7f5849aad372ce502e679f854d8dde
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: d6d5de54d4a22330dec655bc080e69b2fe6f3cec
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456801"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104363"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>排查 Azure 虚拟机的远程桌面连接问题
 与基于 Windows 的 Azure 虚拟机 (VM) 的远程桌面协议 (RDP) 连接可能会因各种原因而失败，使用户无法访问 VM。 问题可能出在 VM 上的远程桌面服务、网络连接或主计算机上的远程桌面客户端。 本文介绍解决 RDP 连接问题的一些最常见方法。 
@@ -62,34 +60,34 @@ ms.locfileid: "89456801"
 ## <a name="troubleshoot-using-the-azure-portal"></a>使用 Azure 门户进行故障排除
 在执行每个故障排除步骤之后，请尝试再次连接到 VM。 如果仍然无法连接，请尝试下一步。
 
-1. **重置 RDP 连接**。 当“远程连接”已禁用或 Windows 防火墙规则阻止 RDP 时，此故障排除步骤可重置 RDP 配置。
+1. **重置 RDP 连接** 。 当“远程连接”已禁用或 Windows 防火墙规则阻止 RDP 时，此故障排除步骤可重置 RDP 配置。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“重置密码”按钮。 将“模式”设置为“仅重置配置”，然后单击“更新”按钮：
 
-    :::image type="content" source="./media/troubleshoot-rdp-connection/reset-rdp.png" alt-text="在 Azure 门户中重置 RDP 配置":::
-2. **验证网络安全组规则**。 使用 [IP 流验证](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认值 3389）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
+    :::image type="content" source="./media/troubleshoot-rdp-connection/reset-rdp.png" alt-text="在 Azure 门户中重置 RDP 配置。":::
+2. **验证网络安全组规则** 。 使用 [IP 流验证](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认值 3389）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
 
-3. **检查 VM 启动诊断**。 此故障排除步骤通过查看 VM 控制台日志确定 VM 是否报告问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
+3. **检查 VM 启动诊断** 。 此故障排除步骤通过查看 VM 控制台日志确定 VM 是否报告问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
 
     本文未介绍具体的故障排除步骤，而是指出会影响 RDP 连接的更广泛问题。 有关查看控制台日志和 VM 屏幕截图的详细信息，请参阅 [VM 启动诊断](boot-diagnostics.md)。
 
-4. **重置 VM 的 NIC**。 有关详细信息，请参阅[如何重置 Azure Windows VM 的 NIC](./reset-network-interface.md)。
-5. **检查 VM 资源运行状况**。 此故障排除步骤验证 Azure 平台上是否未出现任何可能影响 VM 连接的已知问题。
+4. **重置 VM 的 NIC** 。 有关详细信息，请参阅[如何重置 Azure Windows VM 的 NIC](./reset-network-interface.md)。
+5. **检查 VM 资源运行状况** 。 此故障排除步骤验证 Azure 平台上是否未出现任何可能影响 VM 连接的已知问题。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“资源运行状况”按钮。 A healthy VM reports as being <bpt id="p1">**</bpt>Available<ept id="p1">**</ept>:
 
-    :::image type="content" source="./media/troubleshoot-rdp-connection/check-resource-health.png" alt-text="在 Azure 门户中查看 VM 资源运行状况":::
-6. **重置用户凭据**。 不确定或者忘了凭据时，可以使用此故障排除步骤重置本地管理员帐户的密码。  登录到 VM 后，应重置该用户的密码。
+    :::image type="content" source="./media/troubleshoot-rdp-connection/check-resource-health.png" alt-text="在 Azure 门户中检查 VM 资源运行状况。":::
+6. **重置用户凭据** 。 不确定或者忘了凭据时，可以使用此故障排除步骤重置本地管理员帐户的密码。  登录到 VM 后，应重置该用户的密码。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“重置密码”按钮。 确保“模式”已设置为“重置密码”，然后输入用户名和新密码。 Finally, click the <bpt id="p1">**</bpt>Update<ept id="p1">**</ept> button:
 
-    :::image type="content" source="./media/troubleshoot-rdp-connection/reset-password.png" alt-text="在 Azure 门户中重置用户凭据":::
-7. **重新启动 VM**。 此故障排除步骤可以解决 VM 本身存在的任何基本问题。
+    :::image type="content" source="./media/troubleshoot-rdp-connection/reset-password.png" alt-text="在 Azure 门户中重置用户凭据。":::
+7. **重新启动 VM** 。 此故障排除步骤可以解决 VM 本身存在的任何基本问题。
 
     在 Azure 门户中选择 VM，并单击“概述”选项卡。
 
-    :::image type="content" source="./media/troubleshoot-rdp-connection/restart-vm.png" alt-text="在 Azure 门户中重启 VM":::
-8. **重新部署 VM**。 此故障排除步骤可将 VM 重新部署到 Azure 中的另一台主机，从而解决平台或网络的任何基本问题。
+    :::image type="content" source="./media/troubleshoot-rdp-connection/restart-vm.png" alt-text="在 Azure 门户中重启 VM。":::
+8. **重新部署 VM** 。 此故障排除步骤可将 VM 重新部署到 Azure 中的另一台主机，从而解决平台或网络的任何基本问题。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。 单击“重新部署”按钮，然后单击“重新部署”：
 
@@ -97,7 +95,7 @@ ms.locfileid: "89456801"
 
     完成此操作后，会丢失临时磁盘数据，系统会更新与 VM 关联的动态 IP 地址。
 
-9. **验证路由**。 使用网络观察程序的[下一跃点](../../network-watcher/diagnose-vm-network-routing-problem.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/diagnose-network-routing-problem.md)。
+9. **验证路由** 。 使用网络观察程序的[下一跃点](../../network-watcher/diagnose-vm-network-routing-problem.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/diagnose-network-routing-problem.md)。
 
 10. 确保任何本地防火墙或计算机上的防火墙允许发往 Azure 的出站 TCP 3389 流量。
 
@@ -114,7 +112,7 @@ ms.locfileid: "89456801"
 
 在执行每个故障排除步骤之后，请尝试再次连接到 VM。 如果仍然无法连接，请尝试下一步。
 
-1. **重置 RDP 连接**。 当“远程连接”已禁用或 Windows 防火墙规则阻止 RDP 时，此故障排除步骤可重置 RDP 配置。
+1. **重置 RDP 连接** 。 当“远程连接”已禁用或 Windows 防火墙规则阻止 RDP 时，此故障排除步骤可重置 RDP 配置。
 
     以下示例将在 `ChinaNorth` 位置和名为 `myResourceGroup` 资源组中重置名为 `myVM` 的 VM 上的 RDP 连接：
 
@@ -122,7 +120,7 @@ ms.locfileid: "89456801"
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location chinanorth -Name "myVMAccessExtension"
     ```
-2. **验证网络安全组规则**。 此故障排除步骤验证网络安全组中是否存在允许 RDP 流量的规则。 RDP 的默认端口为 TCP 端口 3389。 创建 VM 时，可能不会自动创建允许 RDP 流量的规则。
+2. **验证网络安全组规则** 。 此故障排除步骤验证网络安全组中是否存在允许 RDP 流量的规则。 RDP 的默认端口为 TCP 端口 3389。 创建 VM 时，可能不会自动创建允许 RDP 流量的规则。
 
     首先，将网络安全组的所有配置数据分配到 `$rules` 变量。 以下示例将在名为 `myResourceGroup` 的资源组中获取关于名为 `myNetworkSecurityGroup` 的网络安全组的信息：
 
@@ -156,7 +154,7 @@ ms.locfileid: "89456801"
     ```
 
     如果不存在允许 RDP 通信的规则，请[创建网络安全组规则](../windows/nsg-quickstart-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 允许 TCP 端口 3389。
-3. **重置用户凭据**。 不确定或者忘了凭据时，可以使用此故障排除步骤重置指定的本地管理员帐户的密码。
+3. **重置用户凭据** 。 不确定或者忘了凭据时，可以使用此故障排除步骤重置指定的本地管理员帐户的密码。
 
     首先，通过将凭据分配到 `$cred` 变量来指定用户名和新密码，如下所示：
 
@@ -172,14 +170,14 @@ ms.locfileid: "89456801"
         -UserName $cred.GetNetworkCredential().Username `
         -Password $cred.GetNetworkCredential().Password
     ```
-4. **重新启动 VM**。 此故障排除步骤可以解决 VM 本身存在的任何基本问题。
+4. **重新启动 VM** 。 此故障排除步骤可以解决 VM 本身存在的任何基本问题。
 
     以下示例重启 `myResourceGroup` 资源组中名为 `myVM` 的 VM：
 
     ```powershell
     Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
-5. **重新部署 VM**。 此故障排除步骤可将 VM 重新部署到 Azure 中的另一台主机，从而解决平台或网络的任何基本问题。
+5. **重新部署 VM** 。 此故障排除步骤可将 VM 重新部署到 Azure 中的另一台主机，从而解决平台或网络的任何基本问题。
 
     以下示例重新部署 `ChinaNorth` 位置和 `myResourceGroup` 资源组中名为 `myVM` 的 VM：
 
@@ -187,7 +185,7 @@ ms.locfileid: "89456801"
     Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-6. **验证路由**。 使用网络观察程序的[下一跃点](../../network-watcher/diagnose-vm-network-routing-problem.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/diagnose-network-routing-problem.md)。
+6. **验证路由** 。 使用网络观察程序的[下一跃点](../../network-watcher/diagnose-vm-network-routing-problem.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/diagnose-network-routing-problem.md)。
 
 7. 确保任何本地防火墙或计算机上的防火墙允许发往 Azure 的出站 TCP 3389 流量。
 
@@ -199,38 +197,38 @@ ms.locfileid: "89456801"
 
 执行每个故障排除步骤后，请尝试重新连接到 VM。
 
-1. **重置 RDP 连接**。 当“远程连接”已禁用或 Windows 防火墙规则阻止 RDP 时，此故障排除步骤可重置 RDP 配置。
+1. **重置 RDP 连接** 。 当“远程连接”已禁用或 Windows 防火墙规则阻止 RDP 时，此故障排除步骤可重置 RDP 配置。
 
     在 Azure 门户中选择 VM。 单击“...更多”按钮，然后单击“重置远程访问”：
 
-    :::image type="content" source="./media/troubleshoot-rdp-connection/classic-reset-rdp.png" alt-text="在 Azure 门户中重置 RDP 配置":::
-2. **验证云服务终结点**。 此故障排除步骤验证云服务中是否存在允许 RDP 流量的终结点。 RDP 的默认端口为 TCP 端口 3389。 创建 VM 时，可能不会自动创建允许 RDP 流量的规则。
+    :::image type="content" source="./media/troubleshoot-rdp-connection/classic-reset-rdp.png" alt-text="使用经典部署模型重置 Azure 门户中 VM 的 RDP 配置。":::
+2. **验证云服务终结点** 。 此故障排除步骤验证云服务中是否存在允许 RDP 流量的终结点。 RDP 的默认端口为 TCP 端口 3389。 创建 VM 时，可能不会自动创建允许 RDP 流量的规则。
 
     在 Azure 门户中选择 VM。 单击“终结点”按钮以查看当前为 VM 配置的终结点。 验证终结点存在，它们允许 TCP 端口 3389 上的 RDP 通信。
 
     以下示例显示了允许 RDP 流量的有效终结点：
 
-   :::image type="content" source="./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png" alt-text="在 Azure 门户中验证云服务终结点":::
+    :::image type="content" source="./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png" alt-text="使用经典部署模型验证 Azure 门户中 VM 的云服务终结点。":::
 
-   如果不存在允许 RDP 通信的终结点，请[创建云服务终结点](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints)。 允许使用 TCP 连接到专用端口 3389。
-3. **检查 VM 启动诊断**。 此故障排除步骤通过查看 VM 控制台日志确定 VM 是否报告问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
+    如果不存在允许 RDP 通信的终结点，请[创建云服务终结点](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints)。 允许使用 TCP 连接到专用端口 3389。
+3. **检查 VM 启动诊断** 。 此故障排除步骤通过查看 VM 控制台日志确定 VM 是否报告问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
 
     本文未介绍具体的故障排除步骤，而是指出会影响 RDP 连接的更广泛问题。 有关查看控制台日志和 VM 屏幕截图的详细信息，请参阅 [VM 启动诊断](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)。
-4. **检查 VM 资源运行状况**。 此故障排除步骤验证 Azure 平台上是否未出现任何可能影响 VM 连接的已知问题。
+4. **检查 VM 资源运行状况** 。 此故障排除步骤验证 Azure 平台上是否未出现任何可能影响 VM 连接的已知问题。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“资源运行状况”按钮。 A healthy VM reports as being <bpt id="p1">**</bpt>Available<ept id="p1">**</ept>:
 
-    :::image type="content" source="./media/troubleshoot-rdp-connection/classic-check-resource-health.png" alt-text="在 Azure 门户中查看 VM 资源运行状况":::
-5. **重置用户凭据**。 不确定或者忘了凭据时，可以使用此故障排除步骤重置指定的本地管理员帐户的密码。  登录到 VM 后，应重置该用户的密码。
+    :::image type="content" source="./media/troubleshoot-rdp-connection/classic-check-resource-health.png" alt-text="使用经典部署模型检查 Azure 门户中的 VM 资源运行状况。":::
+5. **重置用户凭据** 。 不确定或者忘了凭据时，可以使用此故障排除步骤重置指定的本地管理员帐户的密码。  登录到 VM 后，应重置该用户的密码。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“重置密码”按钮。 输入用户名和新密码。 最后，单击“保存”按钮： 
 
-    :::image type="content" source="./media/troubleshoot-rdp-connection/classic-reset-password.png" alt-text="在 Azure 门户中重置用户凭据":::
-6. **重新启动 VM**。 此故障排除步骤可以解决 VM 本身存在的任何基本问题。
+    :::image type="content" source="./media/troubleshoot-rdp-connection/classic-reset-password.png" alt-text="使用经典部署模型重置 Azure 门户中 VM 的用户凭据。":::
+6. **重新启动 VM** 。 此故障排除步骤可以解决 VM 本身存在的任何基本问题。
 
     在 Azure 门户中选择 VM，并单击“概述”选项卡。
 
-    :::image type="content" source="./media/troubleshoot-rdp-connection/classic-restart-vm.png" alt-text="在 Azure 门户中重启 VM":::
+    :::image type="content" source="./media/troubleshoot-rdp-connection/classic-restart-vm.png" alt-text="使用经典部署模型重启 Azure 门户中的 VM。":::
 
 7. 确保任何本地防火墙或计算机上的防火墙允许发往 Azure 的出站 TCP 3389 流量。
 

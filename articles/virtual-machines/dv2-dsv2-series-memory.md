@@ -1,21 +1,21 @@
 ---
 title: 内存优化的 Dv2 和 DSv2 系列 VM - Azure 虚拟机
 description: Dv2 和 DSv2 系列 VM 的规范。
-author: rockboyfor
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 02/03/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 8eda6e2835f257929cf03881baf4d91b043114e7
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 82a938bbaaad217cbcec82115a2770cf4bc1d4d2
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052413"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105967"
 ---
 <!--Verified successfully-->
 <!--Partical Content from verified-->
@@ -27,15 +27,13 @@ Dv2 和 Dsv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更�
 
 Dv2 系列大小在 Intel® Xeon® Platinum 8272CL (Cascade Lake)、Intel® Xeon® 8171M 2.1 GHz (Skylake) 或 Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行。
 
-ACU：210 - 250
-
-高级存储：不支持
-
-高级存储缓存：不支持
-
-实时迁移：支持
-
-内存保留更新：支持
+[ACU](acu.md)：210 - 250<br />
+[高级存储](premium-storage-performance.md)：不支持<br />
+[高级存储缓存](premium-storage-performance.md)：不支持<br />
+[实时迁移](maintenance-and-updates.md)：支持<br />
+[内存保留更新](maintenance-and-updates.md)：支持<br />
+[VM 代系支持](generation-2.md)：第 1 代<br />
+<br /> 
 
 | 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | 最大临时存储吞吐量：IOPS/读取 MBps/写入 MBps | 最大数据磁盘数/吞吐量：IOPS | 最大 NIC 数 | 预期的网络带宽 (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -54,15 +52,13 @@ ACU：210 - 250
 
 DSv2 系列大小在 Intel® Xeon® Platinum 8272CL (Cascade Lake)、Intel® Xeon® 8171M 2.1 GHz (Skylake) 或 Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行。
 
-ACU：210 - 250 <sup>1</sup>
-
-高级存储：支持
-
-高级存储缓存：支持
-
-实时迁移：支持
-
-内存保留更新：支持
+[ACU](acu.md)：210 - 250 <sup>1</sup><br />
+[高级存储](premium-storage-performance.md)：支持<br />
+[高级存储缓存](premium-storage-performance.md)：支持<br />
+[实时迁移](maintenance-and-updates.md)：支持<br />
+[内存保留更新](maintenance-and-updates.md)：支持<br />
+[VM 代系支持](generation-2.md)：第 1 代和第 2 代<br />
+<br /> 
 
 | 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大缓存吞吐量和临时存储吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 最大非缓存磁盘吞吐量：IOPS/MBps | 最大 NIC 数 | 预期的网络带宽 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |---|
@@ -74,7 +70,7 @@ ACU：210 - 250 <sup>1</sup>
 
 <!-- Please acknowledge that DSv2 Max Disk Count are 8,16,32,64,64 -->
 
-<sup>1</sup> DSv2 系列 VM 可能的最大磁盘吞吐量（IOPS 或 Mbps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[为实现高性能而设计](./windows/premium-storage-performance.md)。
+<sup>1</sup> DSv2 系列 VM 可能的最大磁盘吞吐量（IOPS 或 Mbps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[为实现高性能而设计](./premium-storage-performance.md)。
 <sup>2</sup> 实例将隔离到基于 Intel Haswell 的硬件，并专用于单个客户。  
 <sup>3</sup> 受约束的可用核心大小。  
 <sup>4</sup> 25000 Mbps，具有加速网络。
@@ -96,7 +92,9 @@ ACU：210 - 250 <sup>1</sup>
 
 定价计算器：[定价计算器](https://www.azure.cn/pricing/calculator/)
 
-有关磁盘类型的详细信息：[磁盘类型](./linux/disks-types.md)
+有关磁盘类型的详细信息：[磁盘类型](./disks-types.md)
+
+<!--Not Available on FEATURE ultra-disk-->
 
 ## <a name="next-steps"></a>后续步骤
 

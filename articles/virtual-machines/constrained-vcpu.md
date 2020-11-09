@@ -5,18 +5,17 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 03/09/2018
 author: rockboyfor
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+ms.date: 11/02/2020
+ms.testscope: yes
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: a52064a7e94ced6fc6159aac5f93b4b9eaf74e33
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: 64185a6fe8a5f2de55a5436cec8b2d5bbdacd60b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310376"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105126"
 ---
-<!--Verified successfully on specific VM size-->
 # <a name="constrained-vcpu-capable-vm-sizes"></a>支持受约束 vCPU 的 VM 大小
 
 某些数据库工作负荷（如 SQL Server 或 Oracle）需要高内存、存储和 I/O 带宽，但不需要高核心计数。 许多数据库工作负荷不是 CPU 密集型工作负荷。 Azure 提供了某些 VM 大小（其中你可以限制 VM vCPU 计数），以降低软件许可成本，同时保持相同的内存、存储和 I/O 带宽。
@@ -50,6 +49,28 @@ ms.locfileid: "89310376"
 | Standard_E32-8s_v3  | 8    | 与 E32s_v3 相同 |
 | Standard_E64-32s_v3 | 32   | 与 E64s_v3 相同 |
 | Standard_E64-16s_v3 | 16   | 与 E64s_v3 相同 |
+| Standard_E4-2s_v4   | 2    | 与 E4s_v4 相同  |
+| Standard_E8-4s_v4   | 4    | 与 E8s_v4 相同  |
+| Standard_E8-2s_v4   | 2    | 与 E8s_v4 相同  |
+| Standard_E16-8s_v4  | 8    | 与 E16s_v4 相同 |
+| Standard_E16-4s_v4  | 4    | 与 E16s_v4 相同 |
+| Standard_E32-16s_v4 | 16   | 与 E32s_v4 相同 |
+| Standard_E32-8s_v4  | 8    | 与 E32s_v4 相同 |
+| Standard_E64-32s_v4 | 32   | 与 E64s_v4 相同 |
+| Standard_E64-16s_v4 | 16   | 与 E64s_v4 相同 |
+| Standard_E4-2ds_v4  | 2    | 与 E4ds_v4 相同 |
+| Standard_E8-4ds_v4  | 4    | 与 E8ds_v4 相同 |
+| Standard_E8-2ds_v4  | 2    | 与 E8ds_v4 相同 |
+| Standard_E16-8ds_v4 | 8    | 与 E16ds_v4 相同|
+| Standard_E16-4ds_v4 | 4    | 与 E16ds_v4 相同|
+| Standard_E32-16ds_v4| 16   | 与 E32ds_v4 相同|
+| Standard_E32-8ds_v4 | 8    | 与 E32ds_v4 相同|
+| Standard_E64-32ds_v4| 32   | 与 E64ds_v4 相同|
+| Standard_E64-16ds_v4| 16   | 与 E64ds_v4 相同|
+| Standard_GS4-8      | 8    | 与 GS4 相同     |
+| Standard_GS4-4      | 4    | 与 GS4 相同     |
+| Standard_GS5-16     | 16   | 与 GS5 相同     |
+| Standard_GS5-8      | 8    | 与 GS5 相同     |
 | Standard_DS11-1_v2  | 1    | 与 DS11_v2 相同 |
 | Standard_DS12-2_v2  | 2    | 与 DS12_v2 相同 |
 | Standard_DS12-1_v2  | 1    | 与 DS12_v2 相同 |
@@ -58,7 +79,6 @@ ms.locfileid: "89310376"
 | Standard_DS14-8_v2  | 8    | 与 DS14_v2 相同 |
 | Standard_DS14-4_v2  | 4    | 与 DS14_v2 相同 |
 
-<!--Not Available on Standard_Es_v4-->
 <!--Not Available on Standard_GS-->
 <!--Not Available on Standard_M416-208s_v2-->
 

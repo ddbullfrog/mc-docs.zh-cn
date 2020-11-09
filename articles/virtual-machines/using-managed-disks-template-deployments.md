@@ -1,26 +1,26 @@
 ---
-title: 托管磁盘 - Azure 资源管理器模板
-description: 详细介绍如何在 Azure 资源管理器模板中将托管磁盘用于 Azure VM。
+title: 使用 Azure 资源管理器模板部署磁盘
+description: 详细介绍如何在 Azure 资源管理器模板中将托管和非托管磁盘用于 Azure VM。
 documentationcenter: ''
-author: rockboyfor
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: storage
 origin.date: 06/01/2017
-ms.date: 09/07/2020
-ms.testscope: yes|no
-ms.testdate: 09/07/2020null
+author: rockboyfor
+ms.date: 11/02/2020
+ms.testscope: yes
+ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 74d757b0a95e03eea7282d86a2858330a50dea93
-ms.sourcegitcommit: e32bba428f5745beb5a23a6e99e5f1b36cfeb09e
+ms.openlocfilehash: 27b631ac459b3b142c3508bfc824016058012faf
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89310319"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106133"
 ---
 <!--Verified successfully on renamed articles-->
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中使用托管磁盘
+# <a name="using-disks-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中使用磁盘
 
 本文档逐步讲解在使用 Azure 资源管理器模板预配虚拟机时托管磁盘与非托管磁盘之间的差异。 该示例可以帮助你将使用非托管磁盘的现有模板更新为托管磁盘。 为方便参考，我们将使用 [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) 模板作为指导。 你可以查看使用[托管磁盘](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json)的模板，以及使用[非托管磁盘](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json)的早期版本，因此可以根据需要直接对两者进行比较。
 
@@ -269,7 +269,6 @@ ms.locfileid: "89310319"
 * 请访问 [Azure 托管磁盘概述](managed-disks-overview.md)文档，了解有关托管磁盘的详细信息。
 * 请访问 [Microsoft.Compute/virtualMachines 模板参考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)文档，查看虚拟机资源的模板参考文档。
 * 请访问 [Microsoft.Compute/disks 模板参考](https://docs.microsoft.com/azure/templates/microsoft.compute/disks)文档，查看磁盘资源的模板参考文档。
-* 有关如何使用 Azure 虚拟机规模集中的托管磁盘的信息，请访问[将数据磁盘与规模集配合使用](/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks)文档。
+* 有关如何使用 Azure 虚拟机规模集中的托管磁盘的信息，请访问[将数据磁盘与规模集配合使用](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md)文档。
 
-<!-- Update_Description: new article about using managed disks template deployments -->
-<!--NEW.date: 09/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

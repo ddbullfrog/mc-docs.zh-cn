@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
-author: aashishb
-ms.date: 09/24/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: ec2cc375f64e715c2182b4ef539f4d9284faa6d9
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+author: peterclu
+ms.date: 10/12/2020
+ms.custom: contperfq4, tracking-python, contperfq1
+ms.openlocfilehash: bd4171d5b2229662b9797e3728564f34edd840c3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118553"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106141"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习推理环境
 
@@ -79,11 +79,17 @@ ms.locfileid: "92118553"
 
    ![Azure 机器学习：机器学习计算虚拟网络设置](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
-1. 确保用于控制虚拟网络的 NSG 组包含一条已为评分终结点启用的入站安全规则，以便可以从虚拟网络外部调用此终结点。
+1. 将模型作为 Web 服务部署到 AKS 时，将创建一个评分终结点来处理推理请求。 若要从虚拟网络外部调用评分终结点，确保用于控制虚拟网络的 NSG 组包含一条已为该终结点的 IP 地址启用的入站安全规则。
+
+    若要查找评分终结点的 IP 地址，请查看已部署服务的评分 URI。 有关查看评分 URI 的详细信息，请参阅[使用部署为 Web 服务的模型](how-to-consume-web-service.md#connection-information)。
+
    > [!IMPORTANT]
    > 保留 NSG 的默认出站规则。 有关详细信息，请参阅[安全组](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)中的“默认安全规则”。
 
    [![入站安全规则](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
+
+    > [!IMPORTANT]
+    > 图像中显示的评分终结点的 IP 地址将因你的部署而异。 尽管一个 AKS 群集的所有部署都将共享同一 IP，但每个 AKS 群集都有不同的 IP 地址。
 
 也可以使用 Azure 机器学习 SDK 在虚拟网络中添加 Azure Kubernetes 服务。 如果虚拟网络中已有一个 AKS 群集，请根据[如何部署到 AKS](how-to-deploy-and-where.md) 中所述，将此群集附加到工作区。 以下代码在名为 `mynetwork` 的虚拟网络的 `default` 子网中创建新的 AKS 实例：
 
@@ -213,9 +219,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 
 ---
 
-将现有群集附加到工作区时，必须等到附加操作完成后才能配置负载均衡器。
-
-有关附加群集的信息，请参阅[附加现有的 AKS 群集](how-to-create-attach-kubernetes.md)。
+将现有群集附加到工作区时，必须等到附加操作完成后才能配置负载均衡器。 有关附加群集的信息，请参阅[附加现有的 AKS 群集](how-to-create-attach-kubernetes.md)。
 
 附加现有群集后，可以更新群集以使用内部负载均衡器/专用 IP：
 
@@ -257,9 +261,9 @@ Azure 容器实例在部署模型时动态创建。 你必须为部署使用的�
 
 ## <a name="next-steps"></a>后续步骤
 
-本文是由三部分构成的虚拟网络系列文章中的第三部分。 若要了解如何保护虚拟网络，请参阅其余文章：
+本文是由三部分构成的虚拟网络系列文章中的第 3 部分。 若要了解如何保护虚拟网络，请参阅其余文章：
 
 
 * [第 1 部分：保护工作区资源](how-to-secure-workspace-vnet.md)
-* [第 2 部分：保护推理环境](how-to-secure-inferencing-vnet.md)
+* [第 2 部分：保护训练环境](how-to-secure-training-vnet.md)
 * [第 3 部分：启用工作室功能](how-to-enable-studio-virtual-network.md)

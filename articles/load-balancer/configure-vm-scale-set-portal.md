@@ -1,18 +1,18 @@
 ---
 title: 配置包含现有 Azure 负载均衡器的虚拟机规模集 - Azure 门户
-description: 了解如何配置包含现有 Azure 负载均衡器的虚拟机规模集。
+description: 了解如何使用 Azure 门户配置包含现有 Azure 负载均衡器的虚拟机规模集。
 author: WenJason
 ms.author: v-jay
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 origin.date: 03/25/2020
-ms.date: 04/06/2020
-ms.openlocfilehash: ad6c51e111b57f17d27f31e396fab35101457018
-ms.sourcegitcommit: 95efd248f5ee3701f671dbd5cfe0aec9c9959a24
+ms.date: 11/02/2020
+ms.openlocfilehash: 0688a599cbae4b650518f35e8a69b58540154310
+ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507657"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628261"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>使用 Azure 门户配置包含现有 Azure 负载均衡器的虚拟机规模集
 
@@ -61,7 +61,7 @@ ms.locfileid: "82507657"
     | 确认密码               | 重新输入管理员密码 |
 
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="创建虚拟机规模集。" border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="显示“创建虚拟机缩放集基本信息”选项卡的屏幕截图。" border="true":::
 
 4. 选择“网络”选项卡。 
 
@@ -78,7 +78,7 @@ ms.locfileid: "82507657"
     | 选择负载均衡器            | 选择“myLoadBalancer”或现有的负载均衡器  |
     | 选择后端池             | 选择“myBackendPool”或现有的后端池。   |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="创建虚拟机规模集。" border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="显示“创建虚拟机缩放集网络”选项卡的屏幕截图。" border="true":::
 
 6. 选择“管理”选项卡。 
 

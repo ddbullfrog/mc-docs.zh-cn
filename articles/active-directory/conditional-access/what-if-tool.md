@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8457882f01ee5730af7a58a98f9e029c374b80a3
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 8e9bf70af55883a084ba4f454ac31ab8421bbd06
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593686"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749807"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>在条件访问中使用 What If 工具进行故障排除
 
@@ -44,9 +44,9 @@ ms.locfileid: "89593686"
 
 ## <a name="running-the-tool"></a>运行此工具
 
-可以在 Azure 门户中的“[条件访问 - 策略](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)”页上找到 **What If** 工具。
+可以在 Azure 门户中的“ [条件访问 - 策略](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)”页上找到 **What If** 工具。
 
-若要启动此工具，请在策略列表顶部的工具栏中单击 **What If**。
+若要启动此工具，请在策略列表顶部的工具栏中单击 **What If** 。
 
 ![What If](./media/what-if-tool/01.png)
 

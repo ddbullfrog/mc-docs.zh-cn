@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bdbbc125c5798f4d5f3a7bb1759e642a0cf41202
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 25da408e2702a5a4d141e09ca841000f1481748b
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647509"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749906"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft 标识平台和 OAuth 2.0 资源所有者密码凭据
 
@@ -111,6 +111,5 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ## <a name="learn-more"></a>了解详细信息
 
-* 请通过[示例控制台应用程序](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)自行试用 ROPC。
-* 若要确定是否应使用 v2.0 终结点，请阅读 [Microsoft 标识平台限制](../azuread-dev/azure-ad-endpoint-comparison.md)。
+有关使用 ROPC 的示例，请参阅 GitHub 上的 [.NET 核心控制台应用程序](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)代码示例。
 

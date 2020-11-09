@@ -6,16 +6,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 08/04/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 207753a30f199ec85e0c7c89d75bce91eb315225
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: bbfc16d491381c3040535d3ec2ddc0a46312d767
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127724"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105132"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure 启动诊断
 
@@ -28,23 +28,26 @@ ms.locfileid: "92127724"
 
 > [!IMPORTANT]
 > 将不会向 Azure 客户收取与使用托管存储帐户的启动诊断相关的存储费用，直至 2020 年 10 月底。
+>
+> 启动诊断数据 blob（包括日志和快照映像）存储在托管存储帐户中。 将仅对 blob 使用的 GiB 向客户收费，而不是根据磁盘的预配大小收费。 快照计量将用于托管存储帐户的计费。 由于托管帐户是在标准 LRS 或标准 ZRS 上创建的，因此，仅针对诊断数据 blob 的大小按每月 $0.05/GB 向客户收费。 有关此定价的详细信息，请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/storage/managed-disks/)。 客户将看到这一费用与其 VM 资源 URI 相关联。 
 
 ## <a name="boot-diagnostics-view"></a>启动诊断视图
 虚拟机边栏选项卡中的启动诊断选项位于 Azure 门户的“支持和故障排除”部分。 选择启动诊断会显示屏幕截图和串行日志信息。 串行日志包含内核消息，屏幕快照是 VM 当前状态的快照。 Windows 或 Linux 会根据 VM 是否正在运行来确定预期的屏幕快照会是什么样子。 Windows 用户会看到桌面背景，Linux 用户会看到登录提示。
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Linux 启动诊断的屏幕截图":::
-:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Linux 启动诊断的屏幕截图":::
+:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Windows 启动诊断的屏幕截图":::
 
 ## <a name="limitations"></a>限制
 - 启动诊断仅适用于 Azure 资源管理器 VM。 
 - 启动诊断不支持高级存储帐户。如果将高级存储帐户用于启动诊断，则在启动 VM 时，用户会收到 `StorageAccountTypeNotSupported` 错误。 
 - 资源管理器 API 版本“2020-06-01”及更高版本支持托管存储帐户。
-- Azure 串行控制台目前不兼容用于启动诊断的托管存储帐户。 详细了解 [Azure 串行控制台](/virtual-machines/troubleshooting/serial-console-overview)。
 - 当前只能通过 Azure 门户应用使用托管存储帐户的启动诊断。 
+
+<!--Not Available on - Azure Serial Console is currently incompatible with a managed storage account for Boot Diagnostics. Learn more about [Azure Serial Console](./troubleshooting/serial-console-overview.md)-->
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解如何使用启动诊断功能来[排查 Azure 中虚拟机的问题](/virtual-machines/troubleshooting/boot-diagnostics)。
+详细了解如何使用启动诊断功能来[排查 Azure 中虚拟机的问题](./troubleshooting/boot-diagnostics.md)。
 
 <!--Not Available on the [Azure Serial Console](/virtual-machines/troubleshooting/serial-console-overview)-->
 <!-- Update_Description: update meta properties, wording update, update link -->

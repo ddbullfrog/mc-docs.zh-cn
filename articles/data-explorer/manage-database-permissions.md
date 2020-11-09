@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/24/2018
-ms.date: 09/24/2020
-ms.openlocfilehash: e94fbe685edfad591bd3c03b9baafaa50948b96f
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: eefd263ef64a3e27d816eb024eafcf2befe616f5
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146685"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105276"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>管理 Azure 数据资源管理器数据库权限
 
@@ -55,11 +55,11 @@ Azure 数据资源管理器具有以下角色：
 
 1. 查找主体，请选择它，然后选择“选择”  。
 
-    ![在 Azure 门户中管理权限](media/manage-database-permissions/new-principals.png)
+    :::image type="content" source="media/manage-database-permissions/new-principals.png" alt-text="Azure 门户的“新建主体”页面的屏幕截图。图中已选中并突出显示了主体名称和图像。此外，还突出显示了“选择”按钮。" border="false":::
 
 1. 选择“保存”。 
 
-    ![在 Azure 门户中管理权限](media/manage-database-permissions/save-permission.png)
+    :::image type="content" source="media/manage-database-permissions/save-permission.png" alt-text="Azure 门户中“添加数据库权限”页面的屏幕截图。图中突出显示了“保存”按钮。" border="false":::
 
 ## <a name="manage-permissions-with-management-commands"></a>使用管理命令管理权限
 

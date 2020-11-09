@@ -1,20 +1,20 @@
 ---
 title: 在启用磁盘加密的情况下创建池
-description: 了解如何使用磁盘加密配置通过平台管理的密钥来加密节点
+description: 了解如何使用磁盘加密配置通过平台管理的密钥来加密节点。
 ms.topic: how-to
-origin.date: 08/25/2020
+origin.date: 10/08/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 09/21/2020
 ms.author: v-yeche
 ms.custom: references_regions
-ms.openlocfilehash: cd77433e14e36d5ff1134618df94fa713f465677
-ms.sourcegitcommit: 41e986cd4a2879d8767dc6fc815c805e782dc7e6
+ms.openlocfilehash: a3a708fdbf07b903454e36b21ff3dd7e6ca37699
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2020
-ms.locfileid: "90822425"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104098"
 ---
 <!--Verified successfully on 09/17/2020-->
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>在启用磁盘加密的情况下创建池
@@ -25,7 +25,7 @@ ms.locfileid: "90822425"
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>为什么使用带有磁盘加密配置的池？
 
-使用 Batch 池，可以在计算节点的 OS 和临时磁盘上访问并存储数据。 使用平台管理的密钥对服务器端磁盘进行加密，将会以较低的开销方便地对这些数据实施保护。  
+使用 Batch 池，可以在计算节点的 OS 和临时磁盘上访问并存储数据。 使用平台管理的密钥对服务器端磁盘进行加密，将会以较低的开销方便地对这些数据实施保护。
 
 Batch 将会根据池配置和区域的可支持性在计算节点上应用这些磁盘加密技术之一。
 
@@ -36,17 +36,13 @@ Batch 将会根据池配置和区域的可支持性在计算节点上应用这�
 - [Azure 磁盘加密](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
 <!--MOONCAKE CUSTOMIZE-->
-
-> [!IMPORTANT]
-> 对在 Azure Batch 中使用平台管理的密钥进行主机上加密的支持，目前以公共预览版提供。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
-> 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
+<!--Not Available on Support for encryption at host using a platform-managed key in Azure Batch is currently in public preview.-->
 
 <!--MOONCAKE CUSTOMIZE-->
 
 你无法指定将哪种加密方法应用于池中的节点。 而是需要提供要在其节点上加密的目标磁盘，然后 Batch 可以选择适当的加密方法，从而确保在计算节点上对指定的磁盘进行加密。
 
-## <a name="azure-portal"></a>Azure 门户 
+## <a name="azure-portal"></a>Azure 门户
 
 在 Azure 门户中创建 Batch 池时，请选择“磁盘加密配置”下的“TemporaryDisk”或“OsAndTemporaryDisk”  。
 
@@ -97,7 +93,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
     "targetLowPriorityNodes": 0,
-    "maxTasksPerNode": 3,
+    "taskSlotsPerNode": 3,
     "enableAutoScale": false,
     "enableInterNodeCommunication": false
 }
@@ -120,5 +116,4 @@ az batch pool create \
 - 详细了解 [Azure 磁盘存储的服务器端加密](../virtual-machines/windows/disk-encryption.md)。
 - 有关 Batch 的详细概述，请参阅 [Batch 服务工作流和资源](batch-service-workflow-features.md)。
 
-<!-- Update_Description: new article about disk encryption -->
-<!--NEW.date: 09/21/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

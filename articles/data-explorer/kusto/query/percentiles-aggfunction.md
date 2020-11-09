@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的 percentile()、pe
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/30/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: 066ce402a7e9281f6f2519d042306a883ebb49d1
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: eb93b639aa938604fd4d5dabc064d370227aa51d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841608"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105042"
 ---
 # <a name="percentile-percentiles-aggregation-function"></a>percentile()、percentiles()（聚合函数）
 
@@ -25,36 +25,36 @@ ms.locfileid: "87841608"
 * `percentilesw()` 与 `percentilew()` 类似，但可以计算大量加权百分位值，这比分别计算每个百分位更快。
 * `percentilew()` 和 `percentilesw()` 允许你计算加权百分位。 加权百分位按“加权”方式计算给定的百分位，方法是将每个值视为在输入中重复 `weight` 次。
 
-**语法**
+## <a name="syntax"></a>语法
 
 summarize `percentile(`*Expr*`,` *Percentile*`)`
 
-summarize `percentiles(`*Expr*`,` *Percentile1* [`,` *Percentile2*]`)`
+summarize `percentiles(`*Expr*`,` *Percentile1* [`,` *Percentile2* ]`)`
 
-summarize `percentiles_array(`*Expr*`,` *Percentile1* [`,` *Percentile2*]`)`
+summarize `percentiles_array(`*Expr*`,` *Percentile1* [`,` *Percentile2* ]`)`
 
 summarize `percentiles_array(`*Expr*`,` *Dynamic array*`)`
 
 summarize `percentilew(`*Expr*`,` *WeightExpr*`,` *Percentile*`)`
 
-summarize `percentilesw(`*Expr*`,` *WeightExpr*`,` *Percentile1* [`,` *Percentile2*]`)`
+summarize `percentilesw(`*Expr*`,` *WeightExpr*`,` *Percentile1* [`,` *Percentile2* ]`)`
 
-summarize `percentilesw_array(`*Expr*`,` *WeightExpr*`,` *Percentile1* [`,` *Percentile2*]`)`
+summarize `percentilesw_array(`*Expr*`,` *WeightExpr*`,` *Percentile1* [`,` *Percentile2* ]`)`
 
 summarize `percentilesw_array(`*Expr*`,` *WeightExpr*`,` *Dynamic array*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * `*Expr*`：用于聚合计算的表达式。
 * `*WeightExpr*`：表达式，将用作进行聚合计算的值的权重。
 * `*Percentile*`：一个双精度常数，用于指定百分位。
 * `*Dynamic array*`：整数或浮点数动态数组中的百分位列表。
 
-**返回**
+## <a name="returns"></a>返回
 
 返回组中指定百分位的 `*Expr*` 的估计值。 
 
-**示例**
+## <a name="examples"></a>示例
 
 大于示例集 95% 和小于示例集 5% 的 `Duration` 值。
 
@@ -69,7 +69,7 @@ CallDetailRecords
 | summarize percentiles(Duration, 5, 50, 95) by continent
 ```
 
-:::image type="content" source="images/percentiles-aggfunction/percentiles.png" alt-text="百分点值":::
+:::image type="content" source="images/percentiles-aggfunction/percentiles.png" alt-text="表格中列出了结果，其中包含洲的列以及第五、第五十和第九十五百分位数的持续时间值的列。":::
 
 结果表明，在欧洲，5% 的调用短于 11.55 秒，50% 的调用短于 3 分钟 18.46 秒，95% 的调用短于 40 分钟 48 秒。
 
@@ -84,7 +84,7 @@ CallDetailRecords
 
 使用 `summarize percentilesw(Duration, BucketSize, ...)` 按“加权”方式计算给定的百分位。 将持续时间的每个值视为在输入中重复 BucketSize 次，实际上不需要实现这些记录。
 
-**示例**
+## <a name="example"></a>示例
 
 客户有一组延迟值（以毫秒为单位）：`{ 1, 1, 2, 2, 2, 5, 7, 7, 12, 12, 15, 15, 15, 18, 21, 22, 26, 35 }`。
 

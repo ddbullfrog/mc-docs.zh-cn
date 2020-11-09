@@ -7,13 +7,13 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 03/19/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 65331935be30db2778dc6f4a01e9145a02e26312
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 9c67c76a0cfdbf1c79d8e999f616f0822f2db6a8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146178"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103614"
 ---
 # <a name="data-formats-supported-by-azure-data-explorer-for-ingestion"></a>Azure 数据资源管理器支持的用于引入的数据格式
 
@@ -21,9 +21,9 @@ ms.locfileid: "91146178"
 
 |格式   |分机   |说明|
 |---------|------------|-----------|
-|Avro     |`.avro`     |一个 [Avro 容器文件](https://avro.apache.org/docs/current/)。 以下代码受支持：`null`、`deflate`（当前不支持 `snappy`）。|
-|ApacheAvro|`.avro`    |[Avro](https://avro.apache.org/docs/current/) 格式的实验性本机实现，支持[逻辑类型](https://avro.apache.org/docs/current/spec.html#Logical+Types)和 `snappy` 压缩编解码器。|
-|CSV      |`.csv`      |一个采用逗号分隔值 (`,`) 的文本文件。 请参阅 [RFC 4180:_Common Format and MIME Type for Comma-Separated Values (CSV) Files_](https://www.ietf.org/rfc/rfc4180.txt)（RFC 4180：逗号分隔值 (CSV) 文件的常见格式和 MIME 类型）。|
+|ApacheAvro|`.avro`    |[Avro 格式](https://avro.apache.org/docs/current/)，支持[逻辑类型](https://avro.apache.org/docs/current/spec.html#Logical+Types)和 `snappy` 压缩编解码器。|
+|Avro     |`.avro`     |[Avro 容器文件](https://avro.apache.org/docs/current/)的传统实现。 支持以下代码：`null`、`deflate`（针对 `snappy` - 使用 `apacheavro` 文件格式）。|
+|CSV      |`.csv`      |一个采用逗号分隔值 (`,`) 的文本文件。 请参阅 [RFC 4180: _Common Format and MIME Type for Comma-Separated Values (CSV) Files_](https://www.ietf.org/rfc/rfc4180.txt)（RFC 4180：逗号分隔值 (CSV) 文件的常见格式和 MIME 类型）。|
 |JSON     |`.json`     |一个文本文件，其中包含使用 `\n` 或 `\r\n` 分隔的 JSON 对象。 请参阅 [JSON Lines (JSONL)](http://jsonlines.org/)。|
 |MultiJSON|`.multijson`|一个文本文件，包含一个由属性包（每个包代表一条记录）组成的 JSON 数组，或者包含通过空格、`\n` 或 `\r\n` 分隔的任意数目的属性包。 每个属性包可以分布在多个行上。 此格式优先于 `JSON`，除非数据为非属性包。|
 |ORC      |`.orc`      |Orc 文件。|

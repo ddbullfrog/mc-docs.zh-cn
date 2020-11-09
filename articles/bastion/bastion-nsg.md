@@ -6,21 +6,21 @@ ms.service: bastion
 ms.topic: conceptual
 origin.date: 07/07/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b408a62e7fa1cd84688b711fbe63d3c6d0be3bcf
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 484137dd317c97a30842dd116798f2e6db5483be
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936927"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104825"
 ---
 <!--Verified succesfully for only charactors only-->
 # <a name="working-with-nsg-access-and-azure-bastion"></a>使用 NSG 访问和 Azure Bastion
 
-使用 Azure Bastion 时，可以使用网络安全组 (NSG)。 有关详细信息，请参阅[安全组](../virtual-network/security-overview.md)。
+使用 Azure Bastion 时，可以使用网络安全组 (NSG)。 有关详细信息，请参阅[安全组](../virtual-network/network-security-groups-overview.md)。
 
 :::image type="content" source="./media/bastion-nsg/figure-1.png" alt-text="NSG":::
 
@@ -40,21 +40,21 @@ ms.locfileid: "91936927"
 <a name="apply"></a>
 ### <a name="azurebastionsubnet"></a>AzureBastionSubnet
 
-Azure Bastion 将专门部署到 ***AzureBastionSubnet***。
+Azure Bastion 将专门部署到 *AzureBastionSubnet_。
 
-* **入口流量：**
+_ **入口流量：**
 
     * **来自公共 Internet 的入口流量：** Azure Bastion 将创建一个公共 IP，需要在该公共 IP 上启用端口 443，用于入口流量。 不需要在 AzureBastionSubnet 上打开端口 3389/22。
     * **来自 Azure Bastion 控制平面的入口流量：** 对于控制平面连接，请启用从 GatewayManager 服务标记进行的端口 443 入站。 这使控制平面（即网关管理器）能够与 Azure Bastion 通信。
 
-    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="NSG":::
+    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="屏幕截图显示 Azure Bastion 连接的入站安全规则。":::
 
 * **出口流量：**
 
     * **流向目标 VM 的出口流量：** Azure Bastion 将通过专用 IP 到达目标 VM。 NSG 需要允许端口 3389 和 22 的出口流量流向其他目标 VM 子网。
     * **流向 Azure 中其他公共终结点的出口流量：** Azure Bastion 需要能够连接到 Azure 中的各种公共终结点，以便执行相应操作（例如，存储诊断日志和计量日志）。 因此，Azure Bastion 需要出站到 443，再到 AzureCloud 服务标记。
 
-    :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="NSG":::
+    :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="屏幕截图显示 Azure Bastion 连接的出站安全规则。":::
 
 ### <a name="target-vm-subnet"></a>目标 VM 子网
 此子网包含要通过 RDP/SSH 连接到的目标虚拟机。

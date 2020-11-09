@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 08/11/2018
-ms.date: 09/21/2020
+ms.date: 11/02/2020
 author: v-jay
 ms.author: daperlov
 manager: digimobile
-ms.openlocfilehash: 8e6a8ea6ffd4f8de815705a9c5bb00dddcedb336
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 26abdbe6d5e7f39f8fc872bcfcc343f85af19769
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523971"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105014"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>在 Azure 数据工厂中监视集成运行时
 
@@ -73,7 +73,7 @@ Azure 集成运行时的计算资源在 Azure 中以弹性方式受到完全管�
 
 ### <a name="properties"></a>属性
 
-下表提供了**每个节点**的监视属性的说明：
+下表提供了 **每个节点** 的监视属性的说明：
 
 | 属性 | 说明 | 
 | -------- | ----------- | 
@@ -83,7 +83,7 @@ Azure 集成运行时的计算资源在 Azure 中以弹性方式受到完全管�
 | 可用内存 | 自承载集成运行时节点上的可用内存。 此值为近实时快照。 | 
 | CPU 使用率 | 自承载集成运行时节点的 CPU 利用率。 此值为近实时快照。 |
 | 网络（进/出） | 自承载集成运行时节点的网络利用率。 此值为近实时快照。 | 
-| 并发作业数（运行中/上限） | **正在运行**。 每个节点上运行的作业或任务数。 此值为近实时快照。 <br/><br/>**上限**。 上限表示每个节点的最大并发作业数。 此值根据计算机大小定义而来。 在 CPU、内存或网络未充分利用但活动即将超时的高级方案中，可提高上限来增强并发作业执行。 此功能也适用于单节点自承载集成运行时。 |
+| 并发作业数（运行中/上限） | **正在运行** 。 每个节点上运行的作业或任务数。 此值为近实时快照。 <br/><br/>**上限** 。 上限表示每个节点的最大并发作业数。 此值根据计算机大小定义而来。 在 CPU、内存或网络未充分利用但活动即将超时的高级方案中，可提高上限来增强并发作业执行。 此功能也适用于单节点自承载集成运行时。 |
 | 角色 | 多节点自承载集成运行时中有两种角色 – 调度程序和辅助角色。 所有节点均为辅助角色，表示它们可用于执行作业。 只有一个调度程序节点，用于从云服务中拉取任务/作业，并将其调度到不同的辅助角色节点。 调度程序节点也是一个辅助角色节点。 |
 
 属性的某些设置更适用于自承载集成运行时中包含两个或两个以上节点的情况（即，在横向扩展方案中）。
@@ -259,13 +259,13 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 在 Azure-SSIS IR 监视页的“诊断连接”磁贴上，可以选择“测试连接”链接以弹出一个窗口，你可以在其中通过完全限定的域名 (FQDN)/IP 地址和指定端口检查 Azure-SSIS IR 和相关的包/配置/数据存储以及管理服务之间的连接（请参阅[测试来自 Azure-SSIS 的连接](/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)） 。
 
-![监视 Azure-SSIS IR - 诊断磁贴](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![屏幕截图显示可在其中测试 Azure-SSIS IR 与相关包/配置/数据存储之间的连接的位置。](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>“静态公共 IP 地址”磁贴
 
 如果为 Azure-SSIS IR 提供了自己的静态公共 IP 地址，则会在 Azure-SSIS IR 监视页面上看到“静态公共 IP 地址”磁贴（请参阅[为 Azure-SSIS IR 提供自己的静态公共 IP 地址](/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)）。 在此磁贴上，你可以选择为 Azure-SSIS IR 指定第一个/第二个静态公共 IP 地址的链接，以弹出一个窗口，并可在窗口的文本框中复制其资源 ID (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`)。 在弹出窗口中，你还可以选择“查看第一个/第二个静态公共 IP 地址设置”链接，以管理 Azure 门户中的第一个/第二个静态公共 IP 地址。
 
-![监视 Azure-SSIS IR - 诊断磁贴](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![屏幕截图显示可以指定第一个/第二个静态公共 IP 地址的位置。](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>“包存储”磁贴
 

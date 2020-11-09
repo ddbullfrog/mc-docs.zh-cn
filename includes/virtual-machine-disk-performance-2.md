@@ -4,29 +4,67 @@ description: include 文件
 services: virtual-machines
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 07/07/2020
+origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b62ac723e4827a5a42a6ea83563c778f18fba2f4
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 5241556cb94a754a8bd51752103665ec2cab6d59
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128861"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104873"
 ---
 <!--Verified successfully-->
 
 ![Dsv3 文档](media/vm-disk-performance/dsv3-documentation.jpg)
 
-最大 **非缓存** 磁盘吞吐量是虚拟机能够处理的默认存储最大限制。 启用主机缓存时，最大 **缓存** 存储吞吐量限制是一个单独的限制。 创建虚拟机并附加磁盘时，可以启用主机缓存。 你还可以进行调整，以在现有 VM 上打开和关闭磁盘的主机缓存：
+最大 **非缓存** 磁盘吞吐量是虚拟机能够处理的默认存储最大限制。 启用主机缓存时，最大 **缓存** 存储吞吐量限制是一个单独的限制。 主机缓存的工作原理是，使存储更接近可以快速写入或读取的 VM。 文档中介绍了可供 VM 用于主机缓存的存储量。 例如，可以看到 Standard_D8s_v3 带有 200 GiB 的缓存存储。
+
+创建虚拟机并附加磁盘时，可以启用主机缓存。 还可以进行调整，以在现有 VM 上打开和关闭磁盘的主机缓存。
 
 ![主机缓存](media/vm-disk-performance/host-caching.jpg)
 
-可以调整主机缓存以满足每个磁盘的工作负荷要求。 对于仅执行读取操作的工作负荷，可以将主机缓存设置为“只读”；对于均衡地执行读取和写入操作的工作负荷，可以将主机缓存设置为“读取/写入”。 如果你的工作负荷不符合上述任一模式，很遗憾，你无法使用主机缓存。 
+可以调整主机缓存以满足每个磁盘的工作负荷要求。 对于仅执行读取操作的工作负载，可以将主机缓存设置为“只读”；对于均衡地执行读取和写入操作的工作负载，可以将主机缓存设置为“读取/写入”。 如果工作负载不符合上述任一模式，我们不建议使用“使用主机缓存”。 
+
+让我们通过几个示例来了解不同的主机缓存设置，看它们如何影响数据流和性能。 在第一个示例中，我们将了解当主机缓存设置设为“只读”时，IO 请求会发生什么。
+
+设置：
+- Standard_D8s_v3 
+    - 缓存的 IOPS：16,000
+    - 非缓存 IOPS：12,800
+- P30 数据磁盘 
+    - IOPS：5,000
+    - **主机缓存：只读** 
+
+当执行读取并且所需数据在缓存上可用时，缓存将返回所请求的数据，且无需从磁盘读取数据。 此读取将计入 VM 的缓存限制。
+
+![读取主机缓存读取命中](media/vm-disk-performance/host-caching-read-hit.jpg)
+
+当执行读取并且所需的数据在缓存上不可用时，读取请求随后将中继到磁盘，然后磁盘将其呈现给缓存和 VM。 此读取将同时计入 VM 的非缓存限制和 VM 的缓存限制。
+
+![读取主机缓存读取未命中](media/vm-disk-performance/host-caching-read-miss.jpg)
+
+执行写入操作时，必须同时写入缓存和磁盘，然后才能将其视为已完成。 此写入会同时计入 VM 的非缓存限制和 VM 的缓存限制。
+
+![读取主机缓存写入](media/vm-disk-performance/host-caching-write.jpg)
+
+在下一个示例中，我们将了解当主机缓存设置设为“读取/写入”时，IO 请求会发生什么。
+
+设置：
+- Standard_D8s_v3 
+    - 缓存的 IOPS：16,000
+    - 非缓存 IOPS：12,800
+- P30 数据磁盘 
+    - IOPS：5,000
+    - **主机缓存：读取/写入** 
+
+在读取/写入缓存中，读取的处理方式与只读完全相同，只有写入是不同的。 在将主机缓存设置为读取/写入的情况下进行写入时，只需要写入主机缓存即可视为完成。 然后，将该写入操作作为后台进程延迟写入磁盘。 这意味着写入操作在写入到缓存时，将计入缓存的 IO，而当其延迟写入到磁盘时，将计入非缓存的 IO。
+
+![读取/写入主机缓存写入](media/vm-disk-performance/host-caching-read-write.jpg)
 
 接下来，让我们继续讨论采用 Standard_D8s_v3 虚拟机的一个示例。 除了这一次，我们将在磁盘上启用主机缓存，现在 VM 的 IOPS 限制为 16,000 IOPS。 附加到 VM 的三个基础 P30 磁盘可处理 5,000 IOPS。
 
@@ -36,10 +74,10 @@ ms.locfileid: "92128861"
     - 非缓存 IOPS：12,800
 - P30 OS 磁盘 
     - IOPS：5,000
-    - 已启用主机缓存 
+    - 主机缓存：读取/写入 
 - 2 个 P30 数据磁盘
     - IOPS：5,000
-    - 已启用主机缓存
+    - 主机缓存：读取/写入
 
 ![主机缓存示例](media/vm-disk-performance/host-caching-example-without-remote.jpg)
 
@@ -55,13 +93,13 @@ ms.locfileid: "92128861"
     - 非缓存 IOPS：12,800
 - P30 OS 磁盘 
     - IOPS：5,000
-    - 已启用主机缓存 
+    - 主机缓存：读取/写入
 - 2 个 P30 数据磁盘 X 2
     - IOPS：5,000
-    - 已启用主机缓存
+    - 主机缓存：读取/写入
 - 2 个 P30 数据磁盘 X 2
     - IOPS：5,000
-    - 主机缓存已禁用
+    - 主机缓存：已禁用
 
 ![具有远程存储的主机缓存示例](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 
@@ -97,5 +135,21 @@ ms.locfileid: "92128861"
 - **VM 非缓存 IOPS 使用百分比** - 通过将虚拟机上完成的总 IOPS 与最大非缓存虚拟机 IOPS 限制相比计算得出的百分比。 如果此数为 100%，则正在运行的应用程序将达到你的 VM 非缓存 IOPS 限制的 IO 上限。
 - **VM 非缓存带宽使用百分比** - 通过将虚拟机上完成的总磁盘吞吐量与最大预配虚拟机吞吐量相比计算得出的百分比。 如果此数为 100%，则正在运行的应用程序将达到你的 VM 非缓存带宽限制的 IO 上限。
 
-<!-- Update_Description: new article about virtual machine disk performance 2 -->
-<!--NEW.date: 10/19/2020-->
+## <a name="storage-io-utilization-metrics-example"></a>存储 IO 利用率指标示例
+让我们通过一个示例来了解如何使用这些新的存储 IO 利用率指标来帮助我们调试系统中的瓶颈。 系统设置与上一示例中的完全相同，不同之处在于这次附加的 OS 磁盘未缓存。
+
+设置：
+- Standard_D8s_v3 
+    - 缓存的 IOPS：16,000
+    - 非缓存 IOPS：12,800
+- P30 OS 磁盘 
+    - IOPS：5,000
+    - 主机缓存：已禁用
+- 2 个 P30 数据磁盘 X 2
+    - IOPS：5,000
+    - 主机缓存：读取/写入
+- 2 个 P30 数据磁盘 X 2
+    - IOPS：5,000
+    - 主机缓存：已禁用
+
+<!-- Update_Description: update meta properties, wording update, update link -->

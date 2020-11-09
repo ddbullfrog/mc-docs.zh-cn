@@ -2,17 +2,15 @@
 title: Azure Application Insights 概览仪表板 | Azure Docs
 description: 使用 Azure Application Insights 概览仪表板功能来监控应用程序。
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
 origin.date: 06/03/2019
-ms.date: 6/4/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 30da2205bb56e9218fa46be44824e7268886fe79
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/29/2020
+ms.author: v-johya
+ms.openlocfilehash: 4f7f9a241cdd3f017a13e86e9f9f481b70ad8d48
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850396"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106323"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 概述仪表板
 
@@ -30,7 +28,7 @@ Application Insights 一直都有一个总览窗格，可让用户快速、直�
 
 ![时间范围](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
 
-总体性能已大大提高。 只需单击一次即可访问常用功能，例如**搜索**和**分析**。 每个默认动态更新的 KPI 磁贴都可让你深入了解相应的 Application Insights 功能。 若要了解有关失败请求的详细信息，请在“调查”标题下选择“失败”：
+总体性能已大大提高。 只需单击一次即可访问常用功能，例如 **搜索** 和 **分析** 。 每个默认动态更新的 KPI 磁贴都可让你深入了解相应的 Application Insights 功能。 若要了解有关失败请求的详细信息，请在“调查”标题下选择“失败”：
 
 ![失败数](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
@@ -40,7 +38,7 @@ Application Insights 一直都有一个总览窗格，可让用户快速、直�
 
 若要访问默认仪表板，请选择  左上角的“应用程序仪表板”。
 
-![仪表板视图](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![屏幕截图突出显示了“应用程序仪表板”按钮。](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 如果这是你第一次访问仪表板，它将启动默认视图：
 
@@ -61,10 +59,8 @@ Application Insights 一直都有一个总览窗格，可让用户快速、直�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [漏斗图](../../azure-monitor/app/usage-funnels.md)
-- [保留](../../azure-monitor/app/usage-retention.md)
-- [用户流](../../azure-monitor/app/usage-flows.md)
-
-
+- [漏斗图](./usage-funnels.md)
+- [保留](./usage-retention.md)
+- [用户流](./usage-flows.md)
 
 

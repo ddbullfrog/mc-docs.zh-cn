@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 10/26/2020
 ms.author: v-johya
-ms.openlocfilehash: 36c7c953f917ef8ca64e1ebd6dd72bd3590259db
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: eb061de43a71244140102b7ccf07587a7fe2a760
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023671"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105630"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>如何：使用健康状况文本分析（预览）
 
@@ -62,14 +62,15 @@ ms.locfileid: "88023671"
 
 ---
 
-<!--Not available in MC: named-entity-types.md-->
+请参阅运行状况文本分析返回的[实体类别](../named-entity-types.md?tabs=health)，获取支持的实体的完整列表。
+
 ## <a name="supported-languages"></a>支持的语言
 
 健康状况文本分析仅支持英语文档。
 
 ## <a name="request-access-to-the-container-registry"></a>请求访问容器注册表
 
-填写并提交[认知服务容器请求表单](https://aka.ms/cognitivegate)以请求访问容器。 目前，将不会对健康状况文本分析容器的使收费。 
+填写并提交[认知服务容器请求表单](https://aka.ms/csgate)以请求访问容器。 目前，将不会对健康状况文本分析容器的使收费。 
 
 [!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -89,7 +90,7 @@ Azure [用于容器的 Web 应用](https://www.azure.cn/home/features/app-servic
 > [!NOTE]
 > 使用 Azure Web 应用时，将自动获取 `<appservice_name>.chinacloudsites.cn` 格式的域
 
-通过 HTTPS 使用订阅和容器映像，从而利用 Azure CLI 运行此 PowerShell 脚本来创建用于容器的 Web 应用。 等待脚本完成（大约 20 分钟），然后提交第一个请求。
+通过 HTTPS 使用订阅和容器映像，从而利用 Azure CLI 运行此 PowerShell 脚本来创建用于容器的 Web 应用。 等待脚本完成（大约 25-30 分钟），然后提交第一个请求。
 
 ```bash
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
@@ -119,7 +120,8 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 还可以使用 Azure 容器实例 (ACI) 更轻松地部署。 ACI 资源允许在托管的无服务器 Azure 环境中按需运行 Docker 容器。 
 
-有关使用 Azure 门户部署 ACI 资源的步骤，请参阅[如何使用 Azure 容器实例](text-analytics-how-to-use-container-instances.md)。 还可以通过 Azure CLI 使用以下 PowerShell 脚本，这将使用容器映像在订阅上创建 ACI。  等待脚本完成（大约 20 分钟），然后提交第一个请求。
+有关使用 Azure 门户部署 ACI 资源的步骤，请参阅[如何使用 Azure 容器实例](text-analytics-how-to-use-container-instances.md)。 还可以通过 Azure CLI 使用以下 PowerShell 脚本，这将使用容器映像在订阅上创建 ACI。  等待脚本完成（大约 25-30 分钟），然后提交第一个请求。  由于每个 ACI 资源的最大 CPU 数的限制，如果你希望每个请求提交 5 个以上的大型文档（每个文档大约 5000 个字符），请不要选择此选项。
+请参阅 [ACI 区域支持](/container-instances/container-instances-region-availability)文章，获取可用性信息。 
 
 > [!NOTE] 
 > Azure 容器实例不包括对内置域的 HTTPS 支持。 如果需要 HTTPS，则需要手动配置它，包括创建证书和注册域。 可以通过下面的 NGINX 查找有关如何执行此操作的说明。
@@ -142,7 +144,7 @@ $DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-h
 
 az login
 az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 5 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
+az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
 
 # Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
 ```
@@ -227,7 +229,7 @@ docker-compose up
 使用下面的示例 cURL 请求将查询提交到已部署的容器，并使用适当的值替换 `serverURL` 变量。
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -267,8 +269,8 @@ example.json
                     "offset": 17,
                     "length": 11,
                     "text": "itchy sores",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.97,
+                    "category": "SymptomOrSign",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -281,8 +283,8 @@ example.json
                     "offset": 11,
                     "length": 4,
                     "text": "50mg",
-                    "type": "DOSAGE",
-                    "score": 1.0,
+                    "category": "Dosage",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -290,8 +292,8 @@ example.json
                     "offset": 16,
                     "length": 8,
                     "text": "benadryl",
-                    "type": "MEDICATION_NAME",
-                    "score": 0.99,
+                    "category": "MedicationName",
+                    "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -337,50 +339,35 @@ example.json
                     "offset": 32,
                     "length": 11,
                     "text": "twice daily",
-                    "type": "FREQUENCY",
-                    "score": 1.0,
+                    "category": "Frequency",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ],
             "relations": [
                 {
-                    "relationType": "DOSAGE_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "0",
-                            "role": "ATTRIBUTE"
-                        },
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        }
-                    ]
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
                 },
                 {
-                    "relationType": "FREQUENCY_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        },
-                        {
-                            "id": "2",
-                            "role": "ATTRIBUTE"
-                        }
-                    ]
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-05-08"
+    "modelVersion": "2020-07-24"
 }
 ```
 
-> [!NOTE] 
-> 在某些情况下，通过否定检测，单个否定词语一次可以处理多个词语。 通过 `isNegated` 标志的布尔值将已识别实体的否定表示在 JSON 输出中：
+### <a name="negation-detection-output"></a>否定检测输出
+
+在某些情况下，使用否定检测时，单个否定词语一次可以处理多个词语。 通过 `isNegated` 标志的布尔值将已识别实体的否定表示在 JSON 输出中：
 
 ```json
 {
@@ -388,7 +375,7 @@ example.json
   "offset": 90,
   "length": 10,
   "text": "chest pain",
-  "type": "SYMPTOM_OR_SIGN",
+  "category": "SymptomOrSign",
   "score": 0.9972,
   "isNegated": true,
   "links": [
@@ -403,8 +390,33 @@ example.json
     ...
 ```
 
+### <a name="relation-extraction-output"></a>关系提取输出
+
+关系提取输出包含对关系的源的 URI 引用及其目标 。 将具有 `ENTITY` 关系角色的实体分配给 `target` 字段。 将具有 `ATTRIBUTE` 关系角色的实体分配给 `source` 字段。 缩写关系包含双向 `source` 和 `target` 字段，并且 `bidirectional` 将设置为 `true`。 
+
+```json
+"relations": [
+                {
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
+                },
+                {
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
+                }
+            ]
+  },
+...
+]
+```
+
 ## <a name="see-also"></a>另请参阅
 
 * [文本分析概述](../overview.md)
+* [“命名实体”类别](../named-entity-types.md)
 * [新增功能](../whats-new.md)
 

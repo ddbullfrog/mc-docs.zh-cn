@@ -1,21 +1,21 @@
 ---
 title: M 系列 - Azure 虚拟机
 description: M 系列 VM 的规范。
-author: rockboyfor
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 03/31/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9847054ae3d54ed2013192463550759506148644
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 6562494d2e6ccf6e8e2a46c1c459fb63decac382
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052369"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104459"
 ---
 <!--Verified successfully-->
 <!--Partical Content from verified-->
@@ -25,17 +25,14 @@ M 系列提供高 vCPU 计数（最多 128 个vCPU）和大量内存（最高 3.
 
 M 系列 VM 采用 Intel&reg; 超线程技术。
 
-ACU：160-180
-
-高级存储：支持
-
-高级存储缓存：支持
-
-实时迁移：不支持
-
-内存保留更新：不支持
-
-写入加速器：[支持](./windows/how-to-enable-write-accelerator.md)
+[ACU](acu.md)：160-180<br />
+[高级存储](premium-storage-performance.md)：支持<br />
+[高级存储缓存](premium-storage-performance.md)：支持<br />
+[实时迁移](maintenance-and-updates.md)：不支持<br />
+[内存保留更新](maintenance-and-updates.md)：不支持<br />
+[VM 代系支持](generation-2.md)：第 1 代和第 2 代<br />
+[写入加速器](./how-to-enable-write-accelerator.md)：支持<br />
+<br />
 
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 
@@ -77,7 +74,9 @@ ACU：160-180
 
 定价计算器：[定价计算器](https://www.azure.cn/pricing/calculator/)
 
-有关磁盘类型的详细信息：[磁盘类型](./linux/disks-types.md)
+有关磁盘类型的详细信息：[磁盘类型](./disks-types.md)
+
+<!--Not Available on FEATURE ultra-disk-->
 
 ## <a name="next-steps"></a>后续步骤
 

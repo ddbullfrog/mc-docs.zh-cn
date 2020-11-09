@@ -4,14 +4,15 @@ description: 保留和隐私政策声明
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/29/2019
-ms.date: 07/17/2020
+ms.date: 10/29/2020
 ms.author: v-johya
-ms.openlocfilehash: 099cb26aa90b76fa232272ccc0a42f08ee9a4a62
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 309e1ac88d9d95ecb150494e2d774b8b798b2d8a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244817"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105662"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -41,9 +42,9 @@ Application Insights SDK 可用于多种应用程序类型：托管在自己的 
 ## <a name="what-data-does-it-collect"></a>它收集哪些数据？
 有三种数据源：
 
-* SDK。可以[在开发阶段](../../azure-monitor/app/asp-net.md)或者[在运行时](../../azure-monitor/app/monitor-performance-live-website-now.md)将它与应用集成。 不同类型的应用程序有不同的 SDK。 此外还有[网页 SDK](../../azure-monitor/app/javascript.md)，连同页面一起加载到最终用户的浏览器中。
+* SDK。可以[在开发阶段](./asp-net.md)或者[在运行时](./monitor-performance-live-website-now.md)将它与应用集成。 不同类型的应用程序有不同的 SDK。 此外还有[网页 SDK](./javascript.md)，连同页面一起加载到最终用户的浏览器中。
   
-  * 每个 SDK 有许多[模块](../../azure-monitor/app/configuration-with-applicationinsights-config.md)，这些模块使用不同的技术收集不同类型的遥测数据。
+  * 每个 SDK 有许多[模块](./configuration-with-applicationinsights-config.md)，这些模块使用不同的技术收集不同类型的遥测数据。
   * 如果在开发环境中安装 SDK，则除了使用标准模块发送自己的遥测数据以外，还可以使用 SDK 的 API 发送这些数据。 这些自定义遥测数据可以包含所要发送的任何数据。
 * 在某些 Web 服务器中，还装有与应用一起运行并发送有关 CPU、内存和网络占用量的遥测数据的代理。 例如，Azure VM、Docker 主机和 [Java EE 服务器](../../azure-monitor/app/java-agent.md)都可能拥有此类代理。
 * [可用性测试](../../azure-monitor/app/monitor-web-app-availability.md)是 Azure 运行的过程，可定期将请求发送到 Web 应用。 结果将发送到 Application Insights 服务。
@@ -51,21 +52,21 @@ Application Insights SDK 可用于多种应用程序类型：托管在自己的 
 ### <a name="what-kinds-of-data-are-collected"></a>收集哪些类型的数据？
 主要类别如下：
 
-* [Web 服务器遥测数据](../../azure-monitor/app/asp-net.md) - HTTP 请求。  URI、处理请求花费的时间、响应代码、客户端 IP 地址。 `Session id`.
-* [网页](../../azure-monitor/app/javascript.md) - 页面、用户和会话计数。 页面加载时间。 异常。 Ajax 调用。
+* [Web 服务器遥测数据](./asp-net.md) - HTTP 请求。  URI、处理请求花费的时间、响应代码、客户端 IP 地址。 `Session id`.
+* [网页](./javascript.md) - 页面、用户和会话计数。 页面加载时间。 异常。 Ajax 调用。
 * 性能计数器 - 内存、CPU、IO、网络占用量。
 * 客户端和服务器上下文 - OS、区域性、设备类型、浏览器和屏幕分辨率。
-* [异常](../../azure-monitor/app/asp-net-exceptions.md)和崩溃 - **堆栈转储**、`build id`、CPU 类型。 
-* [依赖项](../../azure-monitor/app/asp-net-dependencies.md) - 对外部服务的调用，例如 REST、SQL、AJAX。 URI 或连接字符串、持续时间、成功结果、命令。
-* [可用性测试](../../azure-monitor/app/monitor-web-app-availability.md) - 测试持续时间、步骤、响应。
-* [跟踪日志](../../azure-monitor/app/asp-net-trace-logs.md)和[自定义遥测](../../azure-monitor/app/api-custom-events-metrics.md) - **在日志或遥测中编写的任何内容**。
+* [异常](./asp-net-exceptions.md)和崩溃 - **堆栈转储** 、`build id`、CPU 类型。 
+* [依赖项](./asp-net-dependencies.md) - 对外部服务的调用，例如 REST、SQL、AJAX。 URI 或连接字符串、持续时间、成功结果、命令。
+* [可用性测试](./monitor-web-app-availability.md) - 测试持续时间、步骤、响应。
+* [跟踪日志](./asp-net-trace-logs.md)和 [自定义遥测](./api-custom-events-metrics.md) - **在日志或遥测中编写的任何内容** 。
 
 [更多详细信息](#data-sent-by-application-insights)。
 
 ## <a name="how-can-i-verify-whats-being-collected"></a>如何验证收集了哪些信息？
 如果使用 Visual Studio 开发应用，请在调试模式下运行应用 (F5)。 遥测数据会显示在“输出”窗口中。 在该窗口中，可以复制遥测数据并将其格式设置为 JSON 以便于检查。 
 
-![](./media/data-retention-privacy/06-vs.png)
+![屏幕截图，显示在 Visual Studio 中的调试模式下运行应用程序。](./media/data-retention-privacy/06-vs.png)
 
 “诊断”窗口中还提供了一个可方便阅读的视图。
 
@@ -74,16 +75,16 @@ Application Insights SDK 可用于多种应用程序类型：托管在自己的 
 ![按 F12 打开“网络”选项卡。](./media/data-retention-privacy/08-browser.png)
 
 ### <a name="can-i-write-code-to-filter-the-telemetry-before-it-is-sent"></a>是否可以编写代码来筛选遥测数据，然后将它发送出去？
-可以编写[遥测处理器插件](../../azure-monitor/app/api-filtering-sampling.md)来实现此目的。
+可以编写[遥测处理器插件](./api-filtering-sampling.md)来实现此目的。
 
 ## <a name="how-long-is-the-data-kept"></a>数据保留多长时间？
-原始数据点（即，可以在 Analytics 中查询并在“搜索”中检查的项）最多可以保留 730 天。 可以[选择保留期限](/azure-monitor/app/pricing#change-the-data-retention-period) 30 天、60 天、90 天、120 天、180 天、270 天、365 天、550 天或 730 天。 如果需要将数据保留超过 730 天，则可以使用[连续导出](../../azure-monitor/app/export-telemetry.md)在数据引入过程中将其复制到存储帐户。 
+原始数据点（即，可以在 Analytics 中查询并在“搜索”中检查的项）最多可以保留 730 天。 可以[选择保留期限](./pricing.md#change-the-data-retention-period) 30 天、60 天、90 天、120 天、180 天、270 天、365 天、550 天或 730 天。 如果需要将数据保留超过 730 天，则可以使用[连续导出](./export-telemetry.md)在数据引入过程中将其复制到存储帐户。 
 
 保留时间超过 90 天的数据将产生额外费用。 在 [Azure Monitor 定价页](https://www.azure.cn/pricing/details/monitor/)上详细了解 Application Insights 定价。
 
 1 分钟粒度的聚合数据（即，在指标资源管理器中显示的计数、平均值和其他统计信息）可保留 90 天。
 
-调试快照将存储 15 天。 此保留策略是逐个应用程序进行设置。 如果需要，可以在 Azure 门户中打开支持案例，以请求增加此值。
+[调试快照](./snapshot-debugger.md)将存储 15 天。 此保留策略是逐个应用程序进行设置。 如果需要，可以在 Azure 门户中打开支持案例，以请求增加此值。
 
 ## <a name="who-can-access-the-data"></a>谁可以访问该数据？
 你和团队成员（如果使用组织帐户）可以看到数据。 
@@ -125,7 +126,7 @@ Azure 工作人员对数据的访问将受到限制。 我们只有在获得许�
 
 利用本地存储的遥测通道会在 TEMP 或 APPDATA 目录中创建临时文件，但仅限于运行应用程序的特定帐户。 当终结点暂时不可用或达到限制值时，可能会发生这种情况。 解决此问题后，遥测通道便会恢复发送所有新数据和暂留数据。
 
-此持久数据不会在本地加密。 如果这是一个问题，请检查数据并限制私人数据的收集。 （有关详细信息，请参阅[如何导出和删除私人数据](/azure-monitor/platform/personal-data-mgmt#how-to-export-and-delete-private-data)。）
+此持久数据不会在本地加密。 如果这是一个问题，请检查数据并限制私人数据的收集。 （有关详细信息，请参阅[如何导出和删除私人数据](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)。）
 
 如果客户需要根据特定安全要求配置此目录，可以针对每个框架进行配置。 请确保运行应用程序的进程对此目录拥有写入权限，并确保此目录受保护，以免遥测数据遭用户意外读取。
 
@@ -133,7 +134,7 @@ Azure 工作人员对数据的访问将受到限制。 我们只有在获得许�
 
 `C:\Users\username\AppData\Local\Temp` 用于暂留数据。 此位置无法通过配置目录进行配置，只有拥有所需凭据的特定用户，才有权访问此文件夹。 （有关详细信息，请参阅[实现](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72)。）
 
-###  <a name="net"></a>.Net
+###  <a name="net"></a>.NET
 
 默认情况下，`ServerTelemetryChannel` 使用当前用户的本地应用数据文件夹 `%localAppData%\Microsoft\ApplicationInsights` 或临时文件夹 `%TMP%`。 （请参阅此处的[实现](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84)。）
 
@@ -158,7 +159,16 @@ Azure 工作人员对数据的访问将受到限制。 我们只有在获得许�
 
 ### <a name="netcore"></a>NetCore
 
-默认情况下，`ServerTelemetryChannel` 使用当前用户的本地应用数据文件夹 `%localAppData%\Microsoft\ApplicationInsights` 或临时文件夹 `%TMP%`。 （请参阅此处的[实现](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84)。）在 Linux 环境中，除非指定了存储文件夹，否则将禁用本地存储。
+默认情况下，`ServerTelemetryChannel` 使用当前用户的本地应用数据文件夹 `%localAppData%\Microsoft\ApplicationInsights` 或临时文件夹 `%TMP%`。 （请参阅此处的[实现](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84)。） 
+
+在 Linux 环境中，除非指定了存储文件夹，否则将禁用本地存储。
+
+> [!NOTE]
+> 随着 2.15.0-beta3 版的推出，现可为 Linux、Mac 和 Windows 自动创建更大的本地存储。 对于非 Windows 系统，SDK 将根据以下逻辑自动创建本地存储文件夹：
+> - `${TMPDIR}` - 如果设置了 `${TMPDIR}` 环境变量，则使用此位置。
+> - `/var/tmp` - 如果前一个位置不存在，请尝试 `/var/tmp`。
+> - `/tmp` - 如果前两个位置都不存在，请尝试 `tmp`。 
+> - 如果这些位置都不存在，则不会创建本地存储，且仍然需要手动配置。 [了解有关实现的完整详细信息](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860)。
 
 下面的代码片段展示了如何在 `Startup.cs` 类的 `ConfigureServices()` 方法中设置 `ServerTelemetryChannel.StorageFolder`：
 
@@ -195,7 +205,7 @@ AzureLogHandler(
 
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>如何使用 TLS 1.2 将数据发送到 Application Insights？
 
-为了确保传输到 Application Insights 终结点的数据的安全性，我们强烈建议客户将其应用程序配置为至少使用传输层安全性 (TLS) 1.2。 我们发现旧版 TLS/安全套接字层 (SSL) 容易受到攻击，尽管出于向后兼容，这些协议仍可正常工作，但我们**不建议使用**，并且行业即将放弃对这些旧协议的支持。 
+为了确保传输到 Application Insights 终结点的数据的安全性，我们强烈建议客户将其应用程序配置为至少使用传输层安全性 (TLS) 1.2。 我们发现旧版 TLS/安全套接字层 (SSL) 容易受到攻击，尽管出于向后兼容，这些协议仍可正常工作，但我们 **不建议使用** ，并且行业即将放弃对这些旧协议的支持。 
 
 [PCI 安全标准委员会](https://www.pcisecuritystandards.org/)规定 [2018 年 6 月 30 日](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf)是停用旧版 TLS/SSL 并升级到更安全协议的截止时间。 在 Azure 放弃旧版支持后，如果应用程序/客户端无法通过最低版本 TLS 1.2 进行通信，则你无法将数据发送到 Application Insights。 测试和验证应用程序对 TLS 的支持的方法根据操作系统/平台以及应用程序使用的语言/框架而异。
 
@@ -236,7 +246,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Application Insights 中存储的个人数据
 
-[Application Insights 个人数据文章](../../azure-monitor/platform/personal-data-mgmt.md)深入探讨了此问题。
+[Application Insights 个人数据文章](../platform/personal-data-mgmt.md)深入探讨了此问题。
 
 #### <a name="can-my-users-turn-off-application-insights"></a>用户是否可以关闭 Application Insights？
 无法直接配合使用。 我们未提供用户可操作的开关来关闭 Application Insights。
@@ -254,7 +264,7 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 | [在 IIS 上安装状态监视器][redfield] |依赖项<br/>ServerContext<br/>推断<br/>性能计数器 |
 | [将 Application Insights SDK 添加到 Java Web 应用][java] |ServerContext<br/>推断<br/>请求<br/>会话<br/>users |
 | [将 JavaScript SDK 添加到网页][client] |ClientContext <br/>推断<br/>Page<br/>ClientPerf<br/>Ajax |
-| [定义默认属性][apiproperties] |所有标准事件和自定义事件的**属性** |
+| [定义默认属性][apiproperties] |所有标准事件和自定义事件的 **属性** |
 | [调用 TrackMetric][api] |数值<br/>**属性** |
 | [调用跟踪*][api] |事件名称<br/>**属性** |
 | [调用 TrackException][api] |**异常**<br/>堆栈转储<br/>**属性** |
@@ -279,9 +289,9 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 | Ajax |从网页到服务器的 HTTP 调用 |
 | 请求 |URL、持续时间、响应代码 |
 | 依赖项 |类型（SQL、HTTP...）、连接字符串或 URI、同步/异步、持续时间、成功结果、SQL 语句（包含状态监视器） |
-| **异常** |类型、**消息**、调用堆栈、源文件、行号、`thread id` |
+| **异常** |类型、 **消息** 、调用堆栈、源文件、行号、`thread id` |
 | 崩溃 |`Process id`、`parent process id`、`crash thread id`、应用程序修补程序、`id`、版本；异常类型、地址、原因；模糊符号和寄存器、二进制开始和结束地址、二进制文件名和路径、CPU 类型 |
-| 跟踪 |**消息**和严重级别 |
+| 跟踪 |**消息** 和严重级别 |
 | 性能计数器 |处理器时间、可用内存、请求速率、异常率、进程专用字节、IO 速率、请求持续期间、请求队列长度 |
 | 可用性 |Web 测试响应代码、每个测试步骤的持续时间、测试名称、时间戳、成功结果、响应时间、测试位置 |
 | SDK 诊断 |跟踪消息或异常 |
@@ -289,7 +299,7 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 可以通过[编辑 ApplicationInsights.config 来关闭某些数据][config]
 
 > [!NOTE]
-> 客户端 IP 用于推断地理位置，但默认情况下，不再存储 IP 数据且将所有的零写入关联的字段。 若要了解有关个人数据处理的详细信息，推荐参阅这一篇[文章](../../azure-monitor/platform/personal-data-mgmt.md#application-data)。 如果需要存储 IP 地址数据，我们的[“IP 地址收集”一文](/azure-monitor/app/ip-collection)会指导你完成选择。
+> 客户端 IP 用于推断地理位置，但默认情况下，不再存储 IP 数据且将所有的零写入关联的字段。 若要了解有关个人数据处理的详细信息，推荐参阅这一篇[文章](../platform/personal-data-mgmt.md#application-data)。 如果需要存储 IP 地址数据，我们的[“IP 地址收集”一文](./ip-collection.md)会指导你完成选择。
 
 ## <a name="credits"></a>致谢
 此产品包含 MaxMind 创建的 GeoLite2 数据，可从 [https://www.maxmind.com](https://www.maxmind.com) 获取。
@@ -298,14 +308,15 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiproperties]: ../../azure-monitor/app/api-custom-events-metrics.md#properties
-[client]: ../../azure-monitor/app/javascript.md
-[config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../azure-monitor/app/platforms.md
+[api]: ./api-custom-events-metrics.md
+[apiproperties]: ./api-custom-events-metrics.md#properties
+[client]: ./javascript.md
+[config]: ./configuration-with-applicationinsights-config.md
+[greenbrown]: ./asp-net.md
+[java]: ./java-get-started.md
+[platforms]: ./platforms.md
 [pricing]: https://www.azure.cn/pricing/details/monitor/
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+
 

@@ -3,19 +3,19 @@ title: 自动缩放 Azure Batch 池中的计算节点
 description: 对云池启用自动缩放功能可以动态调整池中计算节点的数目。
 ms.service: batch
 ms.topic: how-to
-origin.date: 07/27/2020
+origin.date: 10/08/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 04/27/2020
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 81311cd12eff9f2333f16e3c235903819fbcc827
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 98f75a16509587afd7f51c0a8556998fd7a0dd74
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146282"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106105"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>创建用于缩放 Batch 池中的计算节点的自动公式
 
@@ -99,7 +99,7 @@ $NodeDeallocationOption = taskcompletion;
 | 变量 | 说明 |
 | --- | --- |
 | $TargetDedicatedNodes |池的专用计算节点的目标数。 此项被指定为目标，因为池可能不会始终获得所需节点数。 例如，如果在池达到初始目标数之前专用节点的目标数被自动缩放评估修改，则池可能不会达到目标数。 <br /><br /> 如果目标数超过了 Batch 帐户节点或核心配额，则使用 Batch 服务模式创建的帐户中的池无法达到其目标。 如果目标数超过了订阅的共享核心配额，则使用用户订阅模式创建的帐户中的池无法达到其目标。|
-| $NodeDeallocationOption |从池中删除计算节点时发生的操作。 可能的值包括：<ul><li>**requeue**：默认值。 立即终止任务并将其放回作业队列，以便重新计划这些任务。 此操作可确保尽快达到目标节点数。 但是，其效率可能较低，因为任何正在运行的任务都会被中断，必须彻底重启。 <li>**terminate**：立即终止任务并将其从作业队列中删除。<li>**taskcompletion**：等待当前运行的任务完成，然后从池中删除节点。 使用此选项可以避免任务被中断和重新排队，因此不会浪费任务已完成的任何工作。<li>**retaineddata**：等待节点上本地任务保留的所有数据清理完毕，然后从池中删除节点。</ul> |
+| $NodeDeallocationOption |从池中删除计算节点时发生的操作。 可能的值包括：<ul><li>**requeue** ：默认值。 立即终止任务并将其放回作业队列，以便重新计划这些任务。 此操作可确保尽快达到目标节点数。 但是，其效率可能较低，因为任何正在运行的任务都会被中断，必须彻底重启。 <li>**terminate** ：立即终止任务并将其从作业队列中删除。<li>**taskcompletion** ：等待当前运行的任务完成，然后从池中删除节点。 使用此选项可以避免任务被中断和重新排队，因此不会浪费任务已完成的任何工作。<li>**retaineddata** ：等待节点上本地任务保留的所有数据清理完毕，然后从池中删除节点。</ul> |
 
 <!--Not Available on $TargetLowPriorityNodes-->
 
@@ -192,11 +192,11 @@ $NodeDeallocationOption = taskcompletion;
 | timeinterval *operator* timeinterval |<, <=, ==, >=, >, != |Double |
 | double *operator* double |&&, &#124;&#124; |Double |
 
-使用三元运算符 (`double ? statement1 : statement2`) 测试双精度值时，非零值为 **true**，零值为 **false**。
+使用三元运算符 (`double ? statement1 : statement2`) 测试双精度值时，非零值为 **true** ，零值为 **false** 。
 
 ## <a name="functions"></a>函数
 
-在定义自动缩放公式时，可以使用这些预定义的**函数**。
+在定义自动缩放公式时，可以使用这些预定义的 **函数** 。
 
 | 函数 | 返回类型 | 说明 |
 | --- | --- | --- |
@@ -224,7 +224,7 @@ $NodeDeallocationOption = taskcompletion;
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-*doubleVecList* 值在计算之前会转换为单个 *doubleVec*。 例如，如果 `v = [1,2,3]`，则调用 `avg(v)` 相当于调用 `avg(1,2,3)`。 调用 `avg(v, 7)` 相当于调用 `avg(1,2,3,7)`。
+*doubleVecList* 值在计算之前会转换为单个 *doubleVec* 。 例如，如果 `v = [1,2,3]`，则调用 `avg(v)` 相当于调用 `avg(1,2,3)`。 调用 `avg(v, 7)` 相当于调用 `avg(1,2,3,7)`。
 
 ## <a name="metrics"></a>指标
 
@@ -258,7 +258,7 @@ $NodeDeallocationOption = taskcompletion;
       <li>$NetworkOutBytes</li></ul></p>
   </tr>
   <tr>
-    <td><b>Task</b></td>
+    <td><b>任务</b></td>
     <td><p>任务指标基于任务的状态（例如活动、挂起和已完成）。 以下服务定义的变量可用于根据任务度量值调整池大小：</p>
     <p><ul>
       <li>$ActiveTasks</li>
@@ -427,8 +427,10 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 await pool.CommitAsync();
 ```
 
+<!--Not Available on or the _targetLowPriorityNodes_ parameter-->
+
 > [!IMPORTANT]
-> 创建启用自动缩放的池时，请不要在 **CreatePool** 调用中指定 _targetDedicatedNodes_ 参数或 _targetLowPriorityNodes_ 参数。 应该指定池中的 **AutoScaleEnabled** 和**AutoScaleFormula** 属性。 这些属性的值确定每种类型的节点的目标数。
+> 创建启用自动缩放的池时，请不要在对 CreatePool 的调用中指定 targetDedicatedNodes 参数。 应该指定池中的 **AutoScaleEnabled** 和 **AutoScaleFormula** 属性。 这些属性的值确定每种类型的节点的目标数。
 >
 > 若要手动重设启用自动缩放功能的池的大小（例如，使用 [BatchClient.PoolOperations.ResizePoolAsync](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync) 来重设大小），必须先禁用该池的自动缩放，然后重设其大小。
 
@@ -491,7 +493,9 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
     - 如果省略自动缩放公式或间隔，则 Batch 服务会继续使用该设置的当前值。
 
 > [!NOTE]
-> 如果使用 .NET 创建池时在 **CreatePool** 方法中指定了 *targetDedicatedNodes* 或 *targetLowPriorityNodes* 参数的值，或者使用其他语言指定了相应参数的值，则评估自动缩放公式时会忽略这些值。
+> 如果使用 .NET 创建池时指定了 CreatePool 方法的 targetDedicatedNodes 参数的值，或者使用其他语言指定了相应参数的值，则评估自动缩放公式时会忽略这些值。
+
+<!--Not Available on or *targetLowPriorityNodes*-->
 
 此 C# 示例使用 [Batch.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.batch) 库启用现有池的自动缩放。
 
@@ -653,6 +657,24 @@ Result:
 Error:
 ```
 
+## <a name="get-autoscale-run-history-using-pool-autoscale-events"></a>使用池自动缩放事件获取自动缩放运行历史记录
+你还可以通过查询 [PoolAutoScaleEvent](batch-pool-autoscale-event.md) 来查看自动缩放历史记录。 此事件由 Batch 服务发出，用于记录每次自动缩放公式计算和执行的情况，这有助于排查潜在问题。
+
+PoolAutoScaleEvent 的示例事件：
+```json
+{
+    "id": "poolId",
+    "timestamp": "2020-09-21T23:41:36.750Z",
+    "formula": "...",
+    "results": "$TargetDedicatedNodes=10;$NodeDeallocationOption=requeue;$curTime=2016-10-14T18:36:43.282Z;$isWeekday=1;$isWorkingWeekdayHour=0;$workHours=0",
+    "error": {
+        "code": "",
+        "message": "",
+        "values": []
+    }
+}
+```
+
 ## <a name="example-autoscale-formulas"></a>自动缩放公式示例
 
 让我们查看一些公式，它们演示了调整池中计算资源数量的不同方法。
@@ -696,7 +718,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>示例 3：考虑并行任务
 
-此 C# 示例根据任务数调整池大小。 此公式还考虑为池设置的 [MaxTasksPerComputeNode](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode) 值。 在对池启用了[并行任务执行](batch-parallel-node-tasks.md)的情况下，此方法特别有效。
+此 C# 示例根据任务数调整池大小。 此公式还考虑了为池设置的 [TaskSlotsPerNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernodernode) 值。 在对池启用了[并行任务执行](batch-parallel-node-tasks.md)的情况下，此方法特别有效。
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -704,7 +726,7 @@ $NodeDeallocationOption = taskcompletion;
 $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
 $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
 // Set the number of nodes to add to one-fourth the number of active tasks
-// (the MaxTasksPerComputeNode property on this pool is set to 4, adjust
+// (the TaskSlotsPerNode property on this pool is set to 4, adjust
 // this number for your use case)
 $cores = $TargetDedicatedNodes * 4;
 $extraVMs = (($tasks - $cores) + 3) / 4;

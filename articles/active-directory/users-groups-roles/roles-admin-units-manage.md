@@ -9,21 +9,32 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec6a32d6b2a2310649e31bcaeb14d3558245a640
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: e93b2aeb9c29ad9c9a418ffaa33dacff87779e72
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041515"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749864"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>在 Azure Active Directory 中管理管理单元
 
 若要在 Azure Active Directory (Azure AD) 中实现更精细的管理控制，可将用户分配到作用域限定为一个或多个管理单元 (AU) 的 Azure AD 角色。
+
+## <a name="get-started"></a>入门
+
+1. 若要通过 Graph 浏览器使用以下指令运行查询，请执行以下操作：
+
+    a. 在 Azure 门户中，转到 Azure AD。 在应用程序列表中，选择“Graph 浏览器”，然后选择“向 Graph 浏览器授予管理员同意” 。
+
+    ![显示指向“授予管理员同意”链接的屏幕截图](./media/roles-admin-units-manage/select-graph-explorer.png)
+
+
+1. 使用 Azure AD Powershell 的预览版本。
 
 ## <a name="add-an-administrative-unit"></a>添加管理单元
 
@@ -45,7 +56,7 @@ ms.locfileid: "92041515"
 
 ```powershell
 Connect-AzureAD -AzureEnvironmentName AzureChinaCloud
-New-AzureADAdministrativeUnit -Description "Coast region" -DisplayName "Coast"
+New-AzureADMSAdministrativeUnit -Description "Coast region" -DisplayName "Coast"
 ```
 
 可以根据需要修改用引号引起来的值。
@@ -77,8 +88,8 @@ Request body
 ### <a name="use-powershell"></a>使用 PowerShell
 
 ```powershell
-$delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 ```
 
 可以根据特定环境的需要修改用引号引起来的值。

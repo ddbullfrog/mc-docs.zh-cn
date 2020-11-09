@@ -2,9 +2,7 @@
 title: 通过使用 LVM（逻辑卷管理器）的 chroot 恢复 Linux VM - Azure VM
 description: 使用 LVM 恢复 Linux VM。
 services: virtual-machines-linux
-documentationcenter: ''
 manager: spogge
-editor: ''
 tags: Linux chroot LVM
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -13,16 +11,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 11/24/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: fa51719e0f2047b069f08bbf66479fdb7efc9fe4
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 60f6b440a2d074a4e507d5f0d6688de4ab0bf448
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127898"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105346"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>当无权访问 Azure 串行控制台且磁盘布局使用 LVM（逻辑卷管理器）时，对 Linux VM 进行故障排除
 
@@ -56,7 +54,7 @@ ms.locfileid: "92127898"
 “源类型”为“快照”。  
 “源快照”是前面创建的 **快照** 的名称。 
 
-:::image type="content" source="./media/chroot-logical-volume-manager/create-disk-from-snap-2.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/create-disk-from-snap-2.png" alt-text="创建磁盘 2":::
 
 为附加的磁盘创建装入点。
 
@@ -68,15 +66,15 @@ ms.locfileid: "92127898"
 
 在大多数情况下，附加的快照磁盘将显示为 **/dev/sdc** ，其中显示了 **/dev/sdc1** 和 **/dev/sdc2** 这两个分区
 
-:::image type="content" source="./media/chroot-logical-volume-manager/fdisk-output-sdc.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/fdisk-output-sdc.png" alt-text="Fdisk":::
 
-**\*** 表示启动分区；将会装载这两个分区。
+\* 表示启动分区；将会装载这两个分区。
 
-运行 **lsblk** 命令查看受影响 VM 的 LVM
+运行 lsblk 命令查看受影响 VM 的 LVM
 
 `lsblk`
 
-:::image type="content" source="./media/chroot-logical-volume-manager/lsblk-output-mounted.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/lsblk-output-mounted.png" alt-text="此屏幕截图显示了 lsblk 命令的输出。":::
 
 验证是否显示受影响 VM 中的 LVM。
 如果未显示，请使用以下命令启用 LVM，然后重新运行 **lsblk** 。
@@ -98,7 +96,7 @@ lsblk
 
 `pvdisplay -m | grep -i rootlv`
 
-:::image type="content" source="./media/chroot-logical-volume-manager/locate-rootlv.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/locate-rootlv.png" alt-text="Rootlv":::
 
 继续在 /rescue 目录中装载此设备
 
@@ -112,11 +110,11 @@ mount /dev/sdc1 /rescue/boot
 
 使用 **lsblk** 命令验证现在是否已正确装载附加磁盘的文件系统
 
-:::image type="content" source="./media/chroot-logical-volume-manager/lsblk-output-1.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/lsblk-output-1.png" alt-text="运行 lsblk":::
 
 或 **df -Th** 命令
 
-:::image type="content" source="./media/chroot-logical-volume-manager/df-output.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/df-output.png" alt-text="Df":::
 
 ## <a name="gaining-chroot-access"></a>获取 chroot 访问权限
 
@@ -146,7 +144,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 
 命令可用于安装、删除和更新软件。 对 VM 进行故障排除以修复错误。
 
-执行 lsblk 命令/立即修复/修复或启动已启动:::image type="content" source="./media/chroot-logical-volume-manager/chrooted.png" alt-text="创建磁盘":::
+执行 lsblk 命令/立即修复/修复或启动已启动:::image type="content" source="./media/chroot-logical-volume-manager/chrooted.png" alt-text="屏幕截图显示带有 lsblk 命令及其输出树的控制台窗口。":::
 
 ## <a name="perform-fixes"></a>执行修复
 
@@ -171,15 +169,15 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *演练*
 
 **grep** 命令列出 **grub.cfg** 能够识别的内核。
-:::image type="content" source="./media/chroot-logical-volume-manager/kernels.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/kernels.png" alt-text="屏幕截图显示一个控制台窗口，其中显示了内核的 grep 搜索结果。":::
 
-**grub2-editenv list** 显示下一次启动时要加载的内核 :::image type="content" source="./media/chroot-logical-volume-manager/kernel-default.png" alt-text="创建磁盘":::
+**grub2-editenv list** 显示下一次启动时要加载的内核 :::image type="content" source="./media/chroot-logical-volume-manager/kernel-default.png" alt-text="内核默认值":::
 
-**grub2-set-default** 用于切换到另一内核 :::image type="content" source="./media/chroot-logical-volume-manager/grub2-set-default.png" alt-text="创建磁盘":::
+**grub2-set-default** 用于切换到另一内核 :::image type="content" source="./media/chroot-logical-volume-manager/grub2-set-default.png" alt-text="Grub2 set":::
 
-**grub2-editenv list** 显示下一次启动时要加载的内核 :::image type="content" source="./media/chroot-logical-volume-manager/kernel-new.png" alt-text="创建磁盘":::
+**grub2-editenv list** 显示下一次启动时要加载的内核 :::image type="content" source="./media/chroot-logical-volume-manager/kernel-new.png" alt-text="新内核":::
 
-**grub2-mkconfig** 使用所需的版本重建 grub.cfg :::image type="content" source="./media/chroot-logical-volume-manager/grub2-mkconfig.png" alt-text="创建磁盘":::
+**grub2-mkconfig** 使用所需的版本重建 grub.cfg :::image type="content" source="./media/chroot-logical-volume-manager/grub2-mkconfig.png" alt-text="Grub2 mkconfig":::
 
 ### <a name="example-2---upgrade-packages"></a>示例 2 - 升级包
 
@@ -190,7 +188,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 退出 **chroot** 环境并装载所需的 **LV**
 
-:::image type="content" source="./media/chroot-logical-volume-manager/advanced.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/advanced.png" alt-text="屏幕截图显示包含 lvs 命令的控制台窗口，其中正在装载 LV。":::
 
 现在，运行以下命令再次访问 **chroot** 环境
 
@@ -198,17 +196,17 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 所有 LV 应显示为已装载的分区
 
-:::image type="content" source="./media/chroot-logical-volume-manager/chroot-all-mounts.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/chroot-all-mounts.png" alt-text="屏幕截图显示了作为已装载分区可见的 LV。":::
 
 查询安装的 **内核**
 
-:::image type="content" source="./media/chroot-logical-volume-manager/rpm-kernel.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/rpm-kernel.png" alt-text="屏幕截图显示了如何查询已安装的内核。":::
 
 可根据需要删除或升级 **内核**
-:::image type="content" source="./media/chroot-logical-volume-manager/rpm-remove-kernel.png" alt-text="创建磁盘":::
+:::image type="content" source="./media/chroot-logical-volume-manager/rpm-remove-kernel.png" alt-text="高级":::
 
 <!--Not Available on ### Example 3 - enable Serial Console-->
-<!--Not Available on Serial Console-->
+<!--Not Available on [in this doc](./serial-console-grub-proactive-configuration.md)-->
 
 ### <a name="example-3---kernel-loading-with-problematic-lvm-swap-volume"></a>示例 3 - LVM 交换卷出问题的内核加载
 
@@ -250,21 +248,22 @@ umount /rescue
 从救援 VM 中分离磁盘，并执行磁盘交换。
 
 在门户的“磁盘”中选择 VM，然后选择“分离”
- 
+:::image type="content" source="./media/chroot-logical-volume-manager/detach-disk.png" alt-text="分离磁盘"::: 
 
-保存更改:::image type="content" source="./media/chroot-logical-volume-manager/save-detach.png" alt-text="创建磁盘"::: 
+保存更改:::image type="content" source="./media/chroot-logical-volume-manager/save-detach.png" alt-text="保存分离结果"::: 
 
 磁盘现在可用，并可与受影响 VM 的原始 OS 磁盘交换。
 
 在 Azure 门户中导航到有故障的 VM，然后选择“磁盘” -> “交换 OS 磁盘”
-:::image type="content" source="./media/chroot-logical-volume-manager/swap-disk.png" alt-text="创建磁盘":::  
+:::image type="content" source="./media/chroot-logical-volume-manager/swap-disk.png" alt-text="交换磁盘":::  
 
 填写字段。在“选择磁盘”中选择刚刚在上一步骤中分离的快照磁盘。  受影响 VM 的名称也是必填的。然后选择“确定” 
 
-:::image type="content" source="./media/chroot-logical-volume-manager/new-osdisk.png" alt-text="创建磁盘"::: 
+:::image type="content" source="./media/chroot-logical-volume-manager/new-osdisk.png" alt-text="新 OS 磁盘"::: 
 
 如果 VM 正在运行，则“磁盘交换”操作会将其关闭，并在完成后重新启动 VM。
 
-<!--Not Available on [Azure Serial Console]( https://docs.azure.cn/virtual-machines/troubleshooting/serial-console-linux)-->
-
+<!--Not Available on ## Next steps-->
+<!--Not Available on [Azure Serial Console]( ./serial-console-linux.md)-->
+<!--Not Available on [Single user mode](./serial-console-grub-single-user-mode.md)-->
 <!-- Update_Description: update meta properties, wording update, update link -->

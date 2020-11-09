@@ -5,17 +5,17 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 06/15/2017
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: f8eaa4a341c4bbeef7347cb02cb3b4445deb17c4
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 66404cce8338a26575bab8d495f930123f69dd8b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128387"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104168"
 ---
 <!--Verified successfully from rename articles-->
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
@@ -54,7 +54,7 @@ ms.locfileid: "92128387"
 
 **是否可以使用 Azure 存储帐户中的 VHD 文件在不同的区域中创建托管磁盘？**
 
-否。
+不是。
 
 客户使用托管磁盘是否存在任何规模限制？
 
@@ -62,7 +62,7 @@ ms.locfileid: "92128387"
 
 可用性集中的 VM 是否可以同时包含托管和非托管磁盘？
 
-否。 可用性集中的 VM 必须全部使用托管磁盘或全部使用非托管磁盘。 创建可用性集时，可以选择要使用的磁盘类型。
+不是。 可用性集中的 VM 必须全部使用托管磁盘或全部使用非托管磁盘。 创建可用性集时，可以选择要使用的磁盘类型。
 
 **托管磁盘是否是 Azure 门户中的默认选项？**
 
@@ -114,15 +114,15 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 是否可以收缩或缩小托管磁盘？
 
-否。 目前，不支持此功能。
+不是。 目前，不支持此功能。
 
 是否可以在磁盘上中断租用？
 
-否。 目前不支持此功能，因为租用的作用是防止磁盘在使用时被意外删除。
+不是。 目前不支持此功能，因为租用的作用是防止磁盘在使用时被意外删除。
 
 当使用专用（未使用系统准备工具创建或未通用化）操作系统磁盘预配 VM 时，是否可以更改计算机名称属性？
 
-否。 无法更新计算机名称属性。 新 VM 从创建操作系统磁盘时所用的父 VM 继承该属性。 
+不是。 无法更新计算机名称属性。 新 VM 从创建操作系统磁盘时所用的父 VM 继承该属性。 
 
 在哪里可找到用于使用托管磁盘创建 VM 的示例 Azure 资源管理器模板？
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/)（使用托管磁盘的模板列表）
@@ -140,7 +140,7 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 第 1 代映像只能在数据磁盘而不是 OS 磁盘上使用 GPT 分区。 操作系统磁盘必须使用 MBR 分区样式。
 
-[第 2 代映像](/virtual-machines/linux/generation-2)可以在 OS 磁盘和数据磁盘上使用 GPT 分区。
+[第 2 代映像](./generation-2.md)可以在 OS 磁盘和数据磁盘上使用 GPT 分区。
 
 哪些磁盘类型支持快照？
 
@@ -175,11 +175,11 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 是否可以在 VM 处于上传状态时将磁盘附加到它？
 
-否。
+不是。
 
 **是否可以创建处于上传状态的托管磁盘的快照？**
 
-否。
+不是。
 
 ## <a name="standard-ssd-disks"></a>标准 SSD 盘
 
@@ -219,11 +219,11 @@ Azure 标准 SSD 盘是什么？
 
 **是否支持将现有虚拟机规模集从非托管磁盘自动迁移到托管磁盘？**
 
-否。 可以使用包含非托管磁盘的旧规模集中的映像创建包含托管磁盘的新规模集。
+不是。 可以使用包含非托管磁盘的旧规模集中的映像创建包含托管磁盘的新规模集。
 
 是否可以通过迁移到托管磁盘之前创建的页 Blob 快照创建托管磁盘？
 
-否。 可将页 Blob 快照导出为页 Blob，然后从导出的页 Blob 创建托管磁盘。
+不是。 可将页 Blob 快照导出为页 Blob，然后从导出的页 Blob 创建托管磁盘。
 
 是否可将 Azure Site Recovery 保护的本地计算机故障转移到包含托管磁盘的 VM？
 
@@ -231,7 +231,7 @@ Azure 标准 SSD 盘是什么？
 
 迁移是否影响 Azure Site Recovery 通过 Azure 到 Azure 复制保护的 Azure VM？
 
-否。 对于包含托管磁盘的 VM，提供 Azure Site Recovery Azure 到 Azure 保护。
+不是。 对于包含托管磁盘的 VM，提供 Azure Site Recovery Azure 到 Azure 保护。
 
 是否可以迁移位于存储帐户中现在或以前已加密的 VM 的非托管磁盘迁移到托管磁盘？
 
@@ -255,11 +255,11 @@ Azure 标准 SSD 盘是什么？
 
 是否可以为托管磁盘禁用服务器端加密？
 
-否。
+不是。
 
 服务器端加密是否仅适用于特定区域？
 
-否。 使用平台和客户托管密钥的服务器端加密适用于托管磁盘可用的所有区域。 
+不是。 使用平台和客户托管密钥的服务器端加密适用于托管磁盘可用的所有区域。 
 
 对于本地到 Azure 和 Azure 到 Azure 灾难恢复方案，Azure Site Recovery 是否支持使用客户托管密钥的服务器端加密？
 
@@ -279,7 +279,7 @@ Azure 标准 SSD 盘是什么？
 
 是否会同时加密从托管磁盘或快照导出的 VHD？
 
-否。 但如果将 VHD 从加密托管磁盘或快照导出到加密存储帐户，则会对其进行加密。 
+不是。 但如果将 VHD 从加密托管磁盘或快照导出到加密存储帐户，则会对其进行加密。 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>高级磁盘：托管和非托管
 
@@ -333,13 +333,17 @@ DS 系列的缓存和本地 SSD 合并限制是每个核心 4,000 IOPS，以及�
 
 否，任何大小的标准 SSD 托管磁盘都不能与非托管磁盘或页 blob 配合使用。
 
-**操作系统和数据磁盘支持的最大托管磁盘大小是多少？**
+**Gen1 VM 上的操作系统和数据磁盘支持的最大托管磁盘大小是多少？**
 
-Azure 支持的操作系统磁盘的分区类型是主启动记录 (MBR)。 MBR 格式支持的磁盘最大大小为 2 TiB。 Azure 支持的操作系统磁盘最大大小为 4 TiB。 Azure 支持的托管数据磁盘最大大小为 32 TiB。
+Azure 支持的 Gen1 操作系统磁盘的分区类型是主启动记录 (MBR)。 尽管 Gen1 OS 磁盘仅支持 MBR，但数据磁盘支持 GPT。 虽然你可以分配的 OS 磁盘最大大小为 4 TiB，但 MBR 分区类型最多只能将此磁盘空间的 2 TiB 用于操作系统。 Azure 支持的托管数据磁盘最大大小为 32 TiB。
+
+**Gen2 VM 上的操作系统和数据磁盘支持的最大托管磁盘大小是多少？**
+
+Azure 支持的 Gen2 操作系统磁盘的分区类型是 GUID 分区表 (GPT)。 Gen2 VM 支持的 OS 磁盘最大大小为 4 TiB。 Azure 支持的托管数据磁盘最大大小为 32 TiB。
 
 **操作系统和数据磁盘支持的最大非托管磁盘大小是多少？**
 
-Azure 支持的操作系统磁盘的分区类型是主启动记录 (MBR)。 MBR 格式支持的磁盘最大大小为 2 TiB。 Azure 支持的操作系统非托管磁盘最大大小为 4 TiB。 Azure 支持的非托管数据磁盘最大大小为 4 TiB。
+Azure 支持的使用非托管磁盘的操作系统磁盘的分区类型是主启动记录 (MBR)。  虽然你可以分配的 OS 磁盘最大大小为 4 TiB，但 MBR 分区类型最多只能将此磁盘空间的 2 TiB 用于操作系统。 Azure 支持的非托管数据磁盘最大大小为 4 TiB。
 
 支持的最大页 blob 大小是多少？
 
