@@ -2,17 +2,16 @@
 title: 在 Azure Application Insights 中浏览 Java 跟踪日志
 description: 在 Application Insights 中搜索 Log4J 或 Logback 跟踪
 ms.topic: conceptual
-author: lingliw
-manager: digimobile
+ms.author: v-johya
 origin.date: 05/18/2019
-ms.date: 10/25/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 1de3b05dae52f1b27eb58465022d1aa0a0e9e19f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/29/2020
+ms.custom: devx-track-java
+ms.openlocfilehash: baf5643e27b2ec4d7fadf5a501b2f1bb877d91f9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850409"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104313"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>在 Application Insights 中浏览 Java 跟踪日志
 如果使用 Logback 或 Log4J（v1.2 或 v2.0）进行跟踪，可将跟踪日志自动发送到 Application Insights，以便在其中发现和搜索日志。
@@ -185,8 +184,9 @@ ms.locfileid: "78850409"
 
 Application Insights 追加器可由配置的任何记录器（而不一定是根记录器）引用（如上面的代码示例所示）。
 
+<!--Correct in MC: Transaction search blade-->
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>在 Application Insights 门户中浏览跟踪
-将项目配置为向 Application Insights 发送跟踪后，可以在 Application Insights 门户的[搜索][diagnostic]边栏选项卡中查看和搜索这些跟踪。
+将项目配置为向 Application Insights 发送跟踪后，可以在 Application Insights 门户的[事务搜索][diagnostic]边栏选项卡中查看和搜索这些跟踪。
 
 通过记录器提交的异常将作为异常遥测显示在门户中。
 
@@ -197,7 +197,7 @@ Application Insights 追加器可由配置的任何记录器（而不一定是�
 
 <!--Link references-->
 
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[diagnostic]: ./diagnostic-search.md
 [java]: java-get-started.md
 
 

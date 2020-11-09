@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: v-yiso
-origin.date: 06/17/2020
-ms.date: 07/27/2020
-ms.openlocfilehash: 3038bbf12393bae00ff0506da5ab809b1d57f423
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+origin.date: 10/10/2020
+ms.date: 11/09/2020
+ms.openlocfilehash: 951669ae3be6e83a0e047da25b30c99f20df55de
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118574"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106160"
 ---
 # <a name="tune-model-hyperparameters"></a>优化模型超参数
 
@@ -78,9 +78,9 @@ ms.locfileid: "92118574"
 
 训练完成时：
 
-+ 若要查看扫描结果，请右键单击模块，然后选择“可视化”。
++ 若要查看扫描结果，可以右键单击模块，然后选择“可视化”，或者右键单击模块的左输出端口进行可视化。
 
-    输出包括应用到模型类型的所有参数扫描和准确度指标，但选择用于排名的指标确定了哪个模型被视为“最佳”。
+    扫描结果包括应用到模型类型的所有参数扫描和准确度指标，而你选择的用于排名的指标决定了哪个模型会被视为“最佳”。
 
 + 若要保存已训练模型的快照，请选择“训练模型”模块右侧面板中的“输出+日志”选项卡 。 选择“注册数据集”图标将模型保存为可重用模块。
 

@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 project-reorder 运�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: c94a0d0ce4ddf87d2ed569c3760a0283db82f25c
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: deb9b242f264465a596c8140580ca3d353be9c54
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515687"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105029"
 ---
 # <a name="project-reorder-operator"></a>project-reorder 运算符
 
@@ -30,16 +30,16 @@ T `| project-reorder` ColumnNameOrPattern [`asc`|`desc`] [`,` ...]
 
 ## <a name="arguments"></a>参数
 
-* *T*：输入表。
+* *T* ：输入表。
 * ColumnNameOrPattern：添加到输出中的列或列通配符模式的名称。
 * 对于通配符模式：指定 `asc` 或 `desc` 使用其名称按升序或降序对列进行排序。 如果未指定 `asc` 或 `desc`，则顺序取决于源表中显示的匹配列。
 
 > [!NOTE]
 > * 在 ColumnNameOrPattern 模糊匹配中，该列出现在与模式匹配的第一个位置。
 > * 为 `project-reorder` 指定列是可选操作。 未显式指定的列将显示为输出表的最后一列。
-> * 使用 [`project-away`](projectawayoperator.md) 删除列。
-> * 使用 [`project-rename`](projectrenameoperator.md) 重命名列。
-
+> * 若要删除列，请使用 [`project-away`](projectawayoperator.md)。
+> * 若要选择要保留的列，请使用 [`project-keep`](project-keep-operator.md)。
+> * 若要重命名列，请使用 [`project-rename`](projectrenameoperator.md)。
 
 ## <a name="returns"></a>返回
 

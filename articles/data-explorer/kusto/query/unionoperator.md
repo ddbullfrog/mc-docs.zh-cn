@@ -4,19 +4,19 @@ description: 本文介绍了 Azure 数据资源管理器中的 union 运算符�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
+ms.date: 09/30/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 16590c9560d6814b23ead0dba52f8321596dbfa0
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.openlocfilehash: 87abb6ca9cbfade05e56019c2edc0f6d82da4471
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841472"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105774"
 ---
 # <a name="union-operator"></a>union 运算符
 
@@ -26,15 +26,15 @@ ms.locfileid: "87841472"
 Table1 | union Table2, Table3
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
-*T* `| union` [*UnionParameters*] [`kind=` `inner`|`outer`] [`withsource=`*ColumnName*] [`isfuzzy=` `true`|`false`] *Table* [`,` *Table*]...  
+*T* `| union` [ *UnionParameters* ] [`kind=` `inner`|`outer`] [`withsource=`*ColumnName* ] [`isfuzzy=` `true`|`false`] *Table* [`,` *Table* ]...  
 
 不带管道输入的替代形式：
 
-`union` [*UnionParameters*] [`kind=` `inner`|`outer`] [`withsource=`*ColumnName*] [`isfuzzy=` `true`|`false`] *Table* [`,` *Table*]...  
+`union` [ *UnionParameters* ] [`kind=` `inner`|`outer`] [`withsource=`*ColumnName* ] [`isfuzzy=` `true`|`false`] *Table* [`,` *Table* ]...  
 
-**参数**
+## <a name="arguments"></a>参数
 
 ::: zone pivot="azuredataexplorer"
 
@@ -45,17 +45,17 @@ Table1 | union Table2, Table3
 * `kind`: 
     * `inner` - 此结果包含所有输入表所共有列的子集。
     * `outer` -（默认值）。 结果包含所有输入中出现的所有列。 未由输入行定义的单元格设置为 `null`。
-* `withsource`=*ColumnName*：如果指定了此项，则输出将包括一个名为 ColumnName 的列，其值指示哪个源表提供了每一行。
+* `withsource`=*ColumnName* ：如果指定了此项，则输出将包括一个名为 ColumnName 的列，其值指示哪个源表提供了每一行。
 如果查询（在通配符匹配后）有效地引用多个数据库（默认数据库总计在内）中的表，则此列的值将具有使用数据库进行限定的表名。
 同样，如果引用了多个群集，则值中将存在群集和数据库限定条件。 
 * `isfuzzy=` `true` | `false`：如果 `isfuzzy` 设置为 `true` - 则允许对 union 支线进行模糊解析。 `Fuzzy` 适用于 `union` 源集。 这意味着，在分析查询和准备执行的过程中，union 源的集合被缩减为当时存在并且可供访问的一组表引用。 如果至少找到了一个这样的表，则任何解析失败都将在查询状态结果中产生警告（每个缺少的引用都会产生一个），但不会阻止查询执行；如果没有任何解析成功，则查询会返回错误。
 默认为 `isfuzzy=` `false`。
-* *UnionParameters*：零个或零个以上（以空格分隔）以 Name `=` Value 形式表示的参数，用于控制行匹配操作和执行计划的行为 。 支持以下参数： 
+* *UnionParameters* ：零个或零个以上（以空格分隔）以 Name `=` Value 形式表示的参数，用于控制行匹配操作和执行计划的行为 。 支持以下参数： 
 
   |名称           |值                                        |说明                                  |
   |---------------|----------------------------------------------|---------------------------------------------|
-  |`hint.concurrency`|*数字*|提示系统应并行执行 `union` 运算符的多少个并发子查询。 *默认*：群集的单个节点上的 CPU 核心数（2 到 16 个）。|
-  |`hint.spread`|*数字*|提示系统并发的 `union` 子查询执行应使用多少个节点。 *默认*：1.|
+  |`hint.concurrency`|*数字*|提示系统应并行执行 `union` 运算符的多少个并发子查询。 *默认* ：群集的单个节点上的 CPU 核心数（2 到 16 个）。|
+  |`hint.spread`|*数字*|提示系统并发的 `union` 子查询执行应使用多少个节点。 *默认* ：1.|
 
 ::: zone-end
 
@@ -68,7 +68,7 @@ Table1 | union Table2, Table3
 * `kind`: 
     * `inner` - 此结果包含所有输入表所共有列的子集。
     * `outer` -（默认值）。 结果包含所有输入中出现的所有列。 未由输入行定义的单元格设置为 `null`。
-* `withsource`=*ColumnName*：如果指定了此项，则输出将包括一个名为 ColumnName 的列，其值指示哪个源表提供了每一行。
+* `withsource`=*ColumnName* ：如果指定了此项，则输出将包括一个名为 ColumnName 的列，其值指示哪个源表提供了每一行。
 如果查询（在通配符匹配后）有效地引用多个数据库（默认数据库总计在内）中的表，则此列的值将具有使用数据库进行限定的表名。
 同样，如果引用了多个群集，则值中将存在群集和数据库限定条件。 
 * `isfuzzy=` `true` | `false`：如果 `isfuzzy` 设置为 `true` - 则允许对 union 支线进行模糊解析。 `Fuzzy` 适用于 `union` 源集。 这意味着，在分析查询和准备执行的过程中，union 源的集合被缩减为当时存在并且可供访问的一组表引用。 如果至少找到了一个这样的表，则任何解析失败都将在查询状态结果中产生警告（每个缺少的引用都会产生一个），但不会阻止查询执行；如果没有任何解析成功，则查询会返回错误。
@@ -76,7 +76,7 @@ Table1 | union Table2, Table3
 
 ::: zone-end
 
-**返回**
+## <a name="returns"></a>返回
 
 一个表，其中的行数与所有输入表中的行数相同。
 
@@ -103,7 +103,7 @@ Table1 | union Table2, Table3
 ::: zone-end
 
 
-**示例**
+## <a name="example-tables-with-string-in-name-or-column"></a>示例：名称或列中包含字符串的表
 
 ```kusto
 union K* | where * has "Kusto"
@@ -111,7 +111,7 @@ union K* | where * has "Kusto"
 
 数据库中名称以 `K` 开头的所有表中有任意列包括单词 `Kusto` 的行。
 
-**示例**
+## <a name="example-distinct-count"></a>示例：非重复计数
 
 ```kusto
 union withsource=SourceTable kind=outer Query, Command

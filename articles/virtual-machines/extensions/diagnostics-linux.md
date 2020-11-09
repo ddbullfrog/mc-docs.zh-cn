@@ -8,16 +8,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 12/13/2018
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: f61be7ebf9c2a030eba1323c4ce869b079c4df8c
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 36ef2ee0752f3ecd7022453d17cd4040e44b12d3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128142"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103787"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -241,7 +241,7 @@ sinksConfig | （可选）可将指标和事件传递到的替换目标的详细
 1. 如上所述设置相应部分
 1. 单击“生成 SAS”按钮。
 
-    ![图像](./media/diagnostics-linux/make_sas.png)
+![屏幕截图显示了带有“生成 SAS”的“共享访问签名”页。](./media/diagnostics-linux/make_sas.png)
 
 将生成的 SAS 复制到 storageAccountSasToken 字段中；删除前导问号（“?”）。
 
@@ -805,7 +805,7 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 
 使用 Azure 门户查看性能数据或设置警报：
 
-![图像](./media/diagnostics-linux/graph_metrics.png)
+![屏幕截图显示了 Azure 门户，其中包含已选择的“已用磁盘空间”指标和生成的图表。](./media/diagnostics-linux/graph_metrics.png)
 
 `performanceCounters` 数据始终存储在 Azure 存储表中。 Azure 存储 API 适用于多种语言和平台。
 
@@ -814,7 +814,7 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 此外，可使用这些 UI 工具来访问 Azure 存储中的数据：
 
 * Visual Studio 服务器资源管理器。
-* [Azure 存储资源管理器](https://azurestorageexplorer.codeplex.com/ "Azure 存储资源管理器")。
+* [屏幕截图显示了 Azure 存储资源管理器中的容器和表。](https://azurestorageexplorer.codeplex.com/ "Azure 存储资源管理器")
 
 这是 Azure 存储资源管理器会话的快照，它显示了测试 VM 上正确配置的 LAD 3.0 扩展生成的 Azure 存储表和容器。 此图与[示例 LAD 3.0 配置](#an-example-lad-30-configuration)不完全匹配。
 

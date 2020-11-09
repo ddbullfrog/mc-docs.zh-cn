@@ -7,15 +7,15 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 09/15/2020
-ms.date: 10/19/2020
+origin.date: 09/27/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: 08fa85a1bf8692ffd7b101104a8388206f619b11
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: 98f513140d58ff1abfc07b670c81d4d35b426a69
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121698"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105886"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure 数据工厂中的 Parquet 格式
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -67,7 +67,7 @@ ms.locfileid: "92121698"
 
 ### <a name="parquet-as-source"></a>Parquet 作为源
 
-复制活动的 ***\*source\**** 部分支持以下属性。
+复制活动的 **_\_source\*** * 节支持以下属性。
 
 | 属性      | 说明                                                  | 必须 |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -76,11 +76,11 @@ ms.locfileid: "92121698"
 
 ### <a name="parquet-as-sink"></a>Parquet 作为接收器
 
-复制活动的 ***\*sink\**** 部分支持以下属性。
+复制活动的 **\_sink\*** 节支持以下属性。
 
 | 属性      | 说明                                                  | 必须 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 复制活动源的 type 属性必须设置为 **ParquetSink** 。 | 是      |
+| type          | 复制活动接收器的 type 属性必须设置为“ParquetSink”。 | 是      |
 | formatSettings | 一组属性。 请参阅下面的“Parquet 写入设置”表。 |    否      |
 | storeSettings | 有关如何将数据写入到数据存储的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自身支持的写入设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息** 。 | 否       |
 

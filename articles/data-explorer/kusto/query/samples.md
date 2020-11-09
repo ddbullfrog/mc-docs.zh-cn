@@ -4,17 +4,17 @@ description: 本文介绍了 Azure 数据资源管理器中的示例。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: ed26843192a644f0bbe85b586bba63a0ffa81f78
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 09/30/2020
+ms.openlocfilehash: d1387e39191d0dfa54257989ed721754adbd6d8b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841343"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104578"
 ---
 # <a name="samples"></a>示例
 
@@ -37,7 +37,7 @@ StormEvents
 * 使用 `where`、`summarize` 和 `top` 来限制显示的数据量。
 * 对结果进行排序以定义 x 轴的顺序。
 
-:::image type="content" source="images/samples/060.png" alt-text="060":::
+:::image type="content" source="images/samples/060.png" alt-text="柱形图的屏幕截图。y 轴的范围是从 0 到 50 左右。10 个彩色柱分别表示 10 个位置的值。":::
 
 ## <a name="get-sessions-from-start-and-stop-events"></a>从启动和停止事件获取会话
 
@@ -106,7 +106,7 @@ Events
 
 `arg_min` 会选取每个组中持续时间最短的行，而 `*` 参数则会传递给所有其他列。 此参数会为每个列名添加前缀“min_”。 
 
-:::image type="content" source="images/samples/040.png" alt-text="040"::: 
+:::image type="content" source="images/samples/040.png" alt-text="一个列出结果的表，其中的列表示每个客户端启动时间组合的启动时间、客户端 IP、持续时间、城市和最早停止时间。"::: 
 
 添加代码，用于对持续时间进行计数（使用以便捷方式设置了大小的箱作为单位）。在此示例中，由于我们首选条形图，因此将通过除以 `1s` 将时间跨度转换为数字。 
 
@@ -119,7 +119,7 @@ Events
     | sort by duration asc | render barchart 
 ```
 
-:::image type="content" source="images/samples/050.png" alt-text="050":::
+:::image type="content" source="images/samples/050.png" alt-text="此柱形图描绘了指定范围内具有持续时间的会话数。超过 400 个会话持续 10 秒。不到 100 个会话持续 290 秒。":::
 
 ### <a name="real-example"></a>实际示例
 

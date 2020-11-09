@@ -1,21 +1,21 @@
 ---
 title: Azure Batch 任务失败事件
 description: 批处理任务失败事件参考。 除了任务完成事件，还会发出此事件，此事件可用于检测任务何时已失败。
-ms.topic: article
-origin.date: 08/15/2019
-ms.date: 11/04/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 52557b6f7ce3545b01a9ec77c92f5f48358c32cc
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+ms.topic: reference
+origin.date: 10/08/2020
+author: rockboyfor
+ms.date: 11/02/2020
+ms.author: v-yeche
+ms.openlocfilehash: f053c5a1f03702cbe64981974f0723b98dccf149
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126560"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104225"
 ---
 # <a name="task-fail-event"></a>任务失败事件
 
- 当任务以失败结束时，会发出此事件。 当前，所有非零退出代码都视为失败。 *除了*任务完成事件，还将发出此事件，该事件可用于检测任务失败的时间。
-
+ 当任务以失败结束时，会发出此事件。 当前，所有非零退出代码都视为失败。 *除了* 任务完成事件，还将发出此事件，该事件可用于检测任务失败的时间。
 
  以下示例显示了任务失败事件的正文。
 
@@ -25,6 +25,7 @@ ms.locfileid: "84126560"
     "id": "myTask",
     "taskType": "User",
     "systemTaskVersion": 0,
+    "requiredSlots": 1,
     "nodeInfo": {
         "poolId": "pool-001",
         "nodeId": "tvm-257509324_1-20160908t162728z"
@@ -51,36 +52,37 @@ ms.locfileid: "84126560"
 |`id`|String|任务的 ID。|
 |`taskType`|String|任务的类型。 它可以是“JobManager”（指示它是作业管理器任务），也可以是“User”（指示它并非作业管理器任务）。 对于作业准备任务、作业释放任务或开始任务，不会发出此事件。|
 |`systemTaskVersion`|Int32|这是任务上的内部重试计数器。 批处理服务可能会在内部重试任务来解决暂时性问题。 这些问题可能包括内部计划错误或尝试恢复处于错误状态的计算节点。|
+|`requiredSlots`|Int32|运行任务所需的槽。|
 |[`nodeInfo`](#nodeInfo)|复杂类型|包含有关运行任务的计算节点的信息。|
 |[`multiInstanceSettings`](#multiInstanceSettings)|复杂类型|指定任务是需要多个计算节点的多实例任务。  有关详细信息，请参阅 [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task)。|
 |[`constraints`](#constraints)|复杂类型|应用到此任务的执行约束。|
 |[`executionInfo`](#executionInfo)|复杂类型|包含有关任务执行的信息。|
 
-###  <a name="nodeinfo"></a><a name="nodeInfo"></a> nodeInfo
+### <a name="nodeinfo"></a><a name="nodeInfo"></a>nodeInfo
 
 |元素名称|类型|说明|
 |------------------|----------|-----------|
 |`poolId`|String|运行任务的池的 ID。|
-|`nodeId`|String|运行任务的节点的 ID。|
+|`nodeId`|字符串|运行任务的节点的 ID。|
 
-###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
+### <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
 
 |元素名称|类型|说明|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|任务所需的计算节点数。|
 
-###  <a name="constraints"></a><a name="constraints"></a> constraints
+### <a name="constraints"></a><a name="constraints"></a>constraints
 
 |元素名称|类型|说明|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|可以重试任务的最大次数。 批处理服务在其退出代码非零时重试任务。<br /><br /> 请注意，此值专门用于控制重试的次数。 批处理服务将尝试任务一次，然后重试，直至达到此上限为止。 例如，如果最大重试计数为 3，则批处理任务最多尝试任务 4 次（一次是初始尝试，其余 3 次是重试）。<br /><br /> 如果最大重试计数为 0，则批处理服务不会重试任务。<br /><br /> 如果最大重试计数为 -1，则批处理服务会无限制地重试任务。<br /><br /> 默认值为 0（不重试）。|
 
 
-###  <a name="executioninfo"></a><a name="executionInfo"></a> executionInfo
+### <a name="executioninfo"></a><a name="executionInfo"></a>executionInfo
 
 |元素名称|类型|说明|
 |------------------|----------|-----------|
-|`startTime`|DateTime|任务开始运行的时间。 “Running”对应于**正在运行**状态，因此如果任务指定资源文件或应用程序包，则开始时间反映了任务开始下载或部署这些内容的时间。  如果任务已重启或重试，该时间是任务开始运行的最近时间。|
+|`startTime`|DateTime|任务开始运行的时间。 “Running”对应于 **正在运行** 状态，因此如果任务指定资源文件或应用程序包，则开始时间反映了任务开始下载或部署这些内容的时间。  如果任务已重启或重试，该时间是任务开始运行的最近时间。|
 |`endTime`|DateTime|任务完成的时间。|
 |`exitCode`|Int32|任务的退出代码。|
 |`retryCount`|Int32|批处理服务重试任务的次数。 如果任务使用非零退出代码退出，该任务会重试，直至达到指定的 MaxTaskRetryCount。|

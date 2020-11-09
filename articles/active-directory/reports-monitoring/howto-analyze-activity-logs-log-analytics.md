@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/24/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d38f9e229a24fdf22f1fe269f39e24d64c38e747
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 777b7243d32e90401a1f55f58088f616b819edc6
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245659"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750197"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>使用 Azure Monitor 日志分析 Azure AD 活动日志
 
@@ -100,17 +100,11 @@ AuditLogs
 
 5. 配置警报后，选择“创建警报”来启用它。 
 
-## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>安装并使用用于 Azure AD 活动日志的预建视图
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>将预建的工作簿用于 Azure AD 活动日志
 
-还可以下载用于 Azure AD 活动日志的预建日志分析视图。 这些视图提供与涉及审核和登录事件的常见方案相关的多个报表。 还可使用上一节中所述步骤，针对报表中提供的任何数据设置警报。
+这些工作簿提供与涉及审核和登录事件的常见方案相关的多个报表。 还可使用上一节中所述步骤，针对报表中提供的任何数据设置警报。
 
-* **Azure AD 帐户预配事件**：此视图显示与审核预配活动相关的报表，例如，预配的新用户数和预配失败情况、更新的用户数和更新失败情况以及取消预配的用户数和相应失败情况。    
-* **登录事件**：此视图显示与监视登录活动最相关的报表，例如，分别按应用程序、用户、设备统计的登录情况，以及随时间推移跟踪登录情况的摘要视图。
-* **用户执行“同意”相关情况**：此视图显示与用户同意相关的报表，如由用户执行的“同意”操作、按执行“同意”操作的用户统计的登录情况，以及按所有基于同意操作的应用程序统计的登录情况。 
-
-了解如何[安装和使用用于 Azure AD 活动日志的 Log Analytics 视图](howto-install-use-log-analytics-views.md)。 
-
-
+* **登录事件** ：此工作簿显示与监视登录活动最相关的报表，例如，分别按应用程序、用户、设备统计的登录情况，以及随时间推移跟踪登录数的摘要视图。
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure Monitor 日志查询入门](../../azure-monitor/log-query/get-started-queries.md)

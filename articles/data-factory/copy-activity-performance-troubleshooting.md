@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 06/10/2020
-ms.date: 09/21/2020
-ms.openlocfilehash: c61245999f68b6ea3d7f21b0368c214c261a9d7d
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+origin.date: 10/12/2020
+ms.date: 11/02/2020
+ms.openlocfilehash: 8269679e96bb3a8441b3dbae7135d8c9eb0bfc14
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523639"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104551"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>排查复制活动的性能问题
 
@@ -39,13 +39,13 @@ ms.locfileid: "90523639"
 | Category              | 性能优化提示                                      |
 | --------------------- | ------------------------------------------------------------ |
 | 特定于数据存储   | 将数据载入 **Azure Synpase Analytics（前称为 SQL 数据仓库）** ：建议使用 PolyBase；如果 PolyBase 不可用，则使用 COPY 语句。 |
-| &nbsp;                | 从/向 **Azure SQL 数据库**复制数据：当 DTU 的利用率较高时，建议升级到更高的层。 |
+| &nbsp;                | 从/向 **Azure SQL 数据库** 复制数据：当 DTU 的利用率较高时，建议升级到更高的层。 |
 | &nbsp;                | 从/向 **Azure Cosmos DB** 复制数据：当 RU 的利用率较高时，建议升级到更大的 RU。 |
 |                       | 从 SAP 表复制数据：复制大量数据时，建议利用 SAP 连接器的分区选项启用并行加载并增加最大分区数。 |
 | &nbsp;                | 从 **Amazon Redshift** 引入数据：如果未使用 UNLOAD，建议使用它。 |
 | 数据存储限制 | 如果在复制期间数据存储限制了一些读/写操作，则建议检查并增大数据存储允许的请求速率，或减小并发工作负荷。 |
-| 集成运行时  | 如果使用了**自承载集成运行时 (IR)** ，而复制活动在队列中长时间等待，直到 IR 提供了用于执行该活动的资源，则建议横向/纵向扩展 IR。 |
-| &nbsp;                | 如果使用了非最佳区域中的 **Azure Integration Runtime**，导致读/写速度缓慢，则建议配置为使用另一区域中的 IR。 |
+| 集成运行时  | 如果使用了 **自承载集成运行时 (IR)** ，而复制活动在队列中长时间等待，直到 IR 提供了用于执行该活动的资源，则建议横向/纵向扩展 IR。 |
+| &nbsp;                | 如果使用了非最佳区域中的 **Azure Integration Runtime** ，导致读/写速度缓慢，则建议配置为使用另一区域中的 IR。 |
 | 容错       | 如果配置了容错并跳过不兼容的行，导致性能变慢，则建议确保源和接收器数据兼容。 |
 | 暂存复制           | 如果配置了分阶段复制，但此方法对于源-接收器对不起作用，则建议删除此方法。 |
 | 恢复                | 如果复制活动已从上一故障点恢复，但你在完成原始运行后正好更改了 DIU 设置，请注意，新的 DIU 设置不会生效。 |
@@ -64,18 +64,18 @@ ms.locfileid: "90523639"
 
 遵循[性能优化步骤](copy-activity-performance.md#performance-tuning-steps)为方案规划并执行性能测试。 
 
-当复制活动性能不符合预期时，若要排查 Azure Integration Runtime 中运行的单个复制活动的问题，在看到复制监视视图中显示了[性能优化提示](#performance-tuning-tips)的情况下，请应用建议并重试。 否则，请[了解复制活动执行详细信息](#understand-copy-activity-execution-details)，检查哪个阶段的持续时间**最长**，并应用以下指导以提升复制性能：
+当复制活动性能不符合预期时，若要排查 Azure Integration Runtime 中运行的单个复制活动的问题，在看到复制监视视图中显示了[性能优化提示](#performance-tuning-tips)的情况下，请应用建议并重试。 否则，请 [了解复制活动执行详细信息](#understand-copy-activity-execution-details)，检查哪个阶段的持续时间 **最长** ，并应用以下指导以提升复制性能：
 
 - **“复制前脚本”的持续时间较长：** 表示接收器数据库中运行的复制前脚本花费了较长时间来完成。 优化指定的复制前脚本逻辑，以增强性能。 如果在改进脚本方面需要更多的帮助，请与数据库团队联系。
 
 - **“传输 - 距第一字节的时间”的工作持续时间较长：** 表示源查询花费了较长时间来返回任何数据。 检查并优化查询或服务器。 如需更多帮助，请与数据存储团队联系。
 
 - **“传输 - 列出源”的工作持续时间较长：** 表示枚举源文件或源数据库数据分区的速度缓慢。
-  - 从基于文件的源复制数据时，如果对文件夹路径或文件名使用**通配符筛选器**（`wildcardFolderPath` 或 `wildcardFileName`），或使用**文件上次修改时间筛选器**（`modifiedDatetimeStart` 或 `modifiedDatetimeEnd`），请注意，此类筛选器会导致复制活动在客户端中列出指定文件夹下的所有文件，然后应用筛选器。 此类文件枚举可能会变成瓶颈，尤其是只有少量的文件符合筛选规则时。
+  - 从基于文件的源复制数据时，如果对文件夹路径或文件名使用 **通配符筛选器** （`wildcardFolderPath` 或 `wildcardFileName`），或使用 **文件上次修改时间筛选器** （`modifiedDatetimeStart` 或 `modifiedDatetimeEnd`），请注意，此类筛选器会导致复制活动在客户端中列出指定文件夹下的所有文件，然后应用筛选器。 此类文件枚举可能会变成瓶颈，尤其是只有少量的文件符合筛选规则时。
 
     - 检查是否可以[基于按日期时间分区的文件路径或名称复制文件](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)。 这不会在“列出源”端带来负担。
 
-    - 检查是否可以改用数据存储的本机筛选器，具体而言，是否可以使用 Amazon S3 和 Azure Blob 的“**前缀**”。 前缀筛选器是一个数据存储服务器端筛选器，其性能要好得多。
+    - 检查是否可以改用数据存储的本机筛选器，具体说来就是，是否可以使用 Amazon S3/Azure Blob/Azure 文件存储的“前缀”。 这些筛选器是一个数据存储服务器端筛选器，其性能要好得多。
 
     - 考虑将单个大型数据集拆分为多个小型数据集，并让每个并发运行的复制作业处理一部分数据。 为此，可以使用 Lookup/GetMetadata + ForEach + Copy。 请参阅[从多个容器复制文件](solution-template-copy-files-multiple-containers.md)或[将数据从 Amazon S3 迁移到 ADLS Gen2](solution-template-migration-s3-azure.md) 解决方案模板，其中提供了一般性的示例。
 
@@ -115,7 +115,7 @@ ms.locfileid: "90523639"
 
 遵循[性能优化步骤](copy-activity-performance.md#performance-tuning-steps)为方案规划并执行性能测试。 
 
-当复制性能不符合预期时，若要排查 Azure Integration Runtime 中运行的单个复制活动的问题，在看到复制监视视图中显示了[性能优化提示](#performance-tuning-tips)的情况下，请应用建议并重试。 否则，请[了解复制活动执行详细信息](#understand-copy-activity-execution-details)，检查哪个阶段的持续时间**最长**，并应用以下指导以提升复制性能：
+当复制性能不符合预期时，若要排查 Azure Integration Runtime 中运行的单个复制活动的问题，在看到复制监视视图中显示了[性能优化提示](#performance-tuning-tips)的情况下，请应用建议并重试。 否则，请 [了解复制活动执行详细信息](#understand-copy-activity-execution-details)，检查哪个阶段的持续时间 **最长** ，并应用以下指导以提升复制性能：
 
 - **“队列”持续时间较长：** 表示复制活动在队列中长时间等待，直到自承载 IR 提供了用于执行该活动的资源。 检查 IR 容量和使用率，并根据工作负荷进行[纵向或横向扩展](create-self-hosted-integration-runtime.md#high-availability-and-scalability)。
 
@@ -125,11 +125,11 @@ ms.locfileid: "90523639"
 
   - 检查自承载 IR 计算机是否以较低的延迟连接到源数据存储。 如果源位于 Azure 中，你可以使用[此工具](http://www.azurespeed.com/Azure/Latency)检查自承载 IR 计算机与 Azure 区域之间的连接延迟，延迟值越小越好。
 
-  - 从基于文件的源复制数据时，如果对文件夹路径或文件名使用**通配符筛选器**（`wildcardFolderPath` 或 `wildcardFileName`），或使用**文件上次修改时间筛选器**（`modifiedDatetimeStart` 或 `modifiedDatetimeEnd`），请注意，此类筛选器会导致复制活动在客户端中列出指定文件夹下的所有文件，然后应用筛选器。 此类文件枚举可能会变成瓶颈，尤其是只有少量的文件符合筛选规则时。
+  - 从基于文件的源复制数据时，如果对文件夹路径或文件名使用 **通配符筛选器** （`wildcardFolderPath` 或 `wildcardFileName`），或使用 **文件上次修改时间筛选器** （`modifiedDatetimeStart` 或 `modifiedDatetimeEnd`），请注意，此类筛选器会导致复制活动在客户端中列出指定文件夹下的所有文件，然后应用筛选器。 此类文件枚举可能会变成瓶颈，尤其是只有少量的文件符合筛选规则时。
 
     - 检查是否可以[基于按日期时间分区的文件路径或名称复制文件](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)。 这不会在“列出源”端带来负担。
 
-    - 检查是否可以改用数据存储的本机筛选器，具体而言，是否可以使用 Amazon S3 和 Azure Blob 的“**前缀**”。 前缀筛选器是一个数据存储服务器端筛选器，其性能要好得多。
+    - 检查是否可以改用数据存储的本机筛选器，具体说来就是，是否可以使用 Amazon S3/Azure Blob/Azure 文件存储的“前缀”。 这些筛选器是一个数据存储服务器端筛选器，其性能要好得多。
 
     - 考虑将单个大型数据集拆分为多个小型数据集，并让每个并发运行的复制作业处理一部分数据。 为此，可以使用 Lookup/GetMetadata + ForEach + Copy。 请参阅[从多个容器复制文件](solution-template-copy-files-multiple-containers.md)或[将数据从 Amazon S3 迁移到 ADLS Gen2](solution-template-migration-s3-azure.md) 解决方案模板，其中提供了一般性的示例。
 

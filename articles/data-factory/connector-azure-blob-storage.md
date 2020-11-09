@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 09/10/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: b2244780c162b033b0e9b03bca7459c05dffa6df
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+origin.date: 10/12/2020
+ms.date: 11/02/2020
+ms.openlocfilehash: 4c60af59b75ac42853e6f1c9c369c163408b3463
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121718"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104484"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure 数据工厂在 Azure Blob 存储中复制和转换数据
 
@@ -111,13 +111,13 @@ ms.locfileid: "92121718"
         "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;EndpointSuffix=core.chinacloudapi.cn",
-            "accountKey": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -184,13 +184,13 @@ ms.locfileid: "92121718"
                 "type": "SecureString",
                 "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.blob.core.chinacloudapi.cn/>"
             },
-            "sasToken": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
             }
         },
         "connectVia": {
@@ -219,7 +219,7 @@ ms.locfileid: "92121718"
     - 应用程序密钥
     - 租户 ID
 
-2. 授予服务主体在 Azure Blob 存储中的适当权限。 有关角色的详细信息，请参阅[使用 RBAC 管理对 Azure 存储数据的访问权限](../storage/common/storage-auth-aad-rbac.md)。
+2. 授予服务主体在 Azure Blob 存储中的适当权限。 有关角色的详细信息，请参阅[使用 Azure 门户分配用于访问 Blob 和队列数据的 Azure 角色](../storage/common/storage-auth-aad-rbac-portal.md)。
 
     - 作为源，在“访问控制(标识和访问管理)”中至少授予“存储 Blob 数据读取者”角色。
     - 作为接收器，在“访问控制(标识和访问管理)”中至少授予“存储 Blob 数据参与者”角色。
@@ -234,7 +234,7 @@ Azure Blob 存储链接服务支持以下属性：
 | servicePrincipalId | 指定应用程序的客户端 ID。 | 是 |
 | servicePrincipalKey | 指定应用程序的密钥。 将此字段标记为 SecureString 以将其安全地存储在数据工厂中，或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是 |
 | tenant | 指定应用程序的租户信息（域名或租户 ID）。 通过将鼠标悬停在 Azure 门户右上角来检索租户信息。 | 是 |
-| azureCloudType | 对于服务主体身份验证，请指定 Azure Active Directory 应用程序注册到的 Azure 云环境的类型。 <br/> 允许的值为“AzurePublic”、“AzureChina”、“AzureUsGovernment”和“AzureGermany”   。 默认情况下使用数据工厂的云环境。 | 否 |
+| azureCloudType | 对于服务主体身份验证，请指定 Azure Active Directory 应用程序注册到的 Azure 云环境的类型。 <br/> 允许的值为“AzureChina”。 默认情况下使用数据工厂的云环境。 | 否 |
 | connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 可使用 Azure Integration Runtime 或自承载集成运行时（如果数据存储位于专用网络中）。 如果未指定此属性，服务会使用默认的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
@@ -273,7 +273,7 @@ Azure Blob 存储链接服务支持以下属性：
 
 1. 通过复制与工厂一起生成的托管标识对象 ID 的值，[检索数据工厂托管标识信息](data-factory-service-identity.md#retrieve-managed-identity)。
 
-2. 授予托管标识在 Azure Blob 存储中的权限。 有关角色的详细信息，请参阅[使用 RBAC 管理对 Azure 存储数据的访问权限](../storage/common/storage-auth-aad-rbac.md)。
+2. 授予托管标识在 Azure Blob 存储中的权限。 有关角色的详细信息，请参阅[使用 Azure 门户分配用于访问 Blob 和队列数据的 Azure 角色](../storage/common/storage-auth-aad-rbac-portal.md)。
 
     - 作为源，在“访问控制(标识和访问管理)”中至少授予“存储 Blob 数据读取者”角色。
     - 作为接收器，在“访问控制(标识和访问管理)”中至少授予“存储 Blob 数据参与者”角色。
@@ -367,13 +367,13 @@ Azure Blob 存储支持基于格式的复制源中 `storeSettings` 设置下的�
 | 属性                 | 说明                                                  | 必需                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | `storeSettings` 下的 **type** 属性必须设置为 **AzureBlobStorageReadSettings** 。 | 是                                           |
-| 找到要复制的文件： |  |  |
-| 选项 1：静态路径<br> | 从数据集中指定的给定容器或文件夹/文件路径复制。 若要复制容器或文件夹中的所有 Blob，请另外将 `wildcardFileName` 指定为 `*`。 |  |
+| **_找到要复制的文件：_* _ |  |  |
+| 选项 1：静态路径<br> | 从数据集中指定的给定容器或文件夹/文件路径复制。 若要复制容器或文件夹中的所有 Blob，请另外将 `wildcardFileName` 指定为 `_`。 |  |
 | 选项 2：Blob 前缀<br>- prefix | 在数据集中配置的给定容器下的 Blob 名称的前缀，用于筛选源 Blob。 名称以 `container_in_dataset/this_prefix` 开头的 Blob 会被选择。 它利用 Blob 存储的服务端筛选器。与通配符筛选器相比，该服务端筛选器可提供更好的性能。 | 否                                                          |
 | 选项 3：通配符<br>- wildcardFolderPath | 数据集中配置的给定容器下包含通配符的文件夹路径，用于筛选源文件夹。 <br>允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。 如果文件夹名内包含通配符或此转义字符，请使用 `^` 进行转义。 <br>请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 否                                            |
 | 选项 3：通配符<br>- wildcardFileName | 给定容器和文件夹路径（或通配符文件夹路径）下包含通配符的文件名，用于筛选源文件。 <br>允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。 如果文件夹名内包含通配符或此转义字符，请使用 `^` 进行转义。 请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 是 |
 | 选项 4：文件列表<br>- fileListPath | 指明复制给定文件集。 指向包含要复制的文件列表的文本文件，其中每行一个文件（即数据集中所配置路径的相对路径）。<br/>使用此选项时，请不要在数据集中指定文件名。 请参阅[文件列表示例](#file-list-examples)中的更多示例。 |否 |
-| 其他设置： |  | |
+| ***其他设置：** _ |  | |
 | recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 **true** （默认值）和 **false** 。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
 | deleteFilesAfterCompletion | 指示是否会在二进制文件成功移到目标存储后将其从源存储中删除。 文件删除按文件进行。因此，当复制活动失败时，你会看到一些文件已经复制到目标并从源中删除，而另一些文件仍保留在源存储中。 <br/>此属性仅在二进制文件复制方案中有效。 默认值：false。 |否 |
 | modifiedDatetimeStart    | 文件根据“上次修改时间”属性进行筛选。 <br>如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 **NULL** ，这意味着不会向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则会选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则会选中“上次修改时间”属性小于该日期/时间值的文件。<br/>如果配置 `fileListPath`，则此属性不适用。 | 否                                            |

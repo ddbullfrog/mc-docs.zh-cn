@@ -4,15 +4,14 @@ description: 在 Visual Studio 中分析、可视化和浏览 Application Insigh
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
-ms.reviewer: mbullwin
+ms.date: 10/29/2020
 ms.custom: vs-azure
-ms.openlocfilehash: b8c15921eb5c33a75fe20888ddf8600b756aa5c7
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 23470fc958e72adfc6568e64bd7b834f85b496b1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244552"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105556"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>在 Visual Studio 中分析趋势
 Application Insights 趋势工具以可视化方式呈现 Web 应用程序在各时间段的重要遥测事件变化，帮助快速识别问题和异常。 “趋势”提供更详细诊断信息的链接，可帮助改进应用程序性能、跟踪异常的原因，以及从自定义事件中找到见解。
@@ -21,7 +20,7 @@ Application Insights 趋势工具以可视化方式呈现 Web 应用程序在各
 
 ## <a name="configure-your-web-app-for-application-insights"></a>为 Application Insights 配置 Web 应用
 
-如果没有完成此操作，请[为 Application Insights 配置 Web 应用](../../azure-monitor/app/app-insights-overview.md)。 这样即可将遥测数据发送到 Application Insights 门户。 趋势工具从该处读取遥测数据。
+如果没有完成此操作，请[为 Application Insights 配置 Web 应用](./app-insights-overview.md)。 这样即可将遥测数据发送到 Application Insights 门户。 趋势工具从该处读取遥测数据。
 
 Application Insights 趋势在 Visual Studio 2015 Update 3 及更高版本中提供。
 
@@ -79,7 +78,7 @@ Application Insights 趋势基于应用的遥测数据创建时序视觉效果�
 1. 应用第一个筛选器。 
 2. 单击第一个筛选器的维度名称旁边的“应用选定的筛选器并再次查询”按钮。 这只会针对匹配第一个筛选器的事件重新查询遥测。 
 3. 应用第二个筛选器。 
-4. 重复上述过程，在遥测的特定子集中查找趋势。 例如，名为“GET Home/Index”*且*来自德国*且*收到了 500 响应代码的服务器请求。 
+4. 重复上述过程，在遥测的特定子集中查找趋势。 例如，名为“GET Home/Index” *且* 来自德国 *且* 收到了 500 响应代码的服务器请求。 
 
 若要取消应用上述筛选器之一，请单击维度对应的“删除选定的筛选器并再次查询”按钮。
 
@@ -95,12 +94,8 @@ Application Insights 趋势基于应用的遥测数据创建时序视觉效果�
 > 
 > 
 
-<a name="next"></a>
-## <a name="next-steps"></a>后续步骤
-|  |  |
-| --- | --- |
-| **[在 Visual Studio 中使用 Application Insights](../../azure-monitor/app/visual-studio.md)**<br/>搜索遥测、查看 CodeLens 中的数据以及配置 Application Insights。 一切尽在 Visual Studio 中。 |![右键单击项目，并依次选择“Application Insights”、“搜索”](./media/visual-studio-trends/34.png) |
-| **[添加更多数据](../../azure-monitor/app/asp-net-more.md)**<br/>监视使用情况、可用性、依赖项、异常。 集成来自记录框架的跟踪。 编写自定义遥测。 |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[使用 Application Insights 门户](../../azure-monitor/app/overview-dashboard.md)**<br/>仪表板、功能强大的诊断和分析工具、警报、应用程序的实时依赖项映射和遥测导出。 |![Visual Studio](./media/visual-studio-trends/62.png) |
+## <a name="next-steps"></a><a name="next"></a>后续步骤
+* **[在 Visual Studio 中使用 Application Insights](./visual-studio.md)** 。 搜索遥测、查看 CodeLens 中的数据以及配置 Application Insights。 一切尽在 Visual Studio 中。 
+* **[使用 Application Insights 门户](./overview-dashboard.md)** 。 仪表板、功能强大的诊断和分析工具、警报、应用程序的实时依赖项映射和遥测导出。 
 
 

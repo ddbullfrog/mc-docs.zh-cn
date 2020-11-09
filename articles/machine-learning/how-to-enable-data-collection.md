@@ -1,22 +1,22 @@
 ---
 title: 在生产模型上收集数据
 titleSuffix: Azure Machine Learning
-description: 了解如何在 Azure Blob 存储中收集 Azure 机器学习输入模型数据。
+description: 了解如何从已部署的 Azure 机器学习模型中收集数据
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.reviewer: laobri
+ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 11/12/2019
-ms.custom: seodec18
-ms.openlocfilehash: dc8bf7d5184f376955de5a7429670337da818d3a
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.date: 07/14/2020
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 4dd97e3fb7e70c3914c57742bc3e0bb1b7f1a2d9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118414"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106258"
 ---
 # <a name="collect-data-from-models-in-production"></a>收集生产中模型的数据
 
@@ -38,7 +38,7 @@ ms.locfileid: "92118414"
 
 可以收集以下数据：
 
-* 从部署在 AKS 群集中的 Web 服务收集模型输入数据。 不收集语音、音频、图像和视频数据。 
+* 从部署在 AKS 群集中的 Web 服务收集模型输入数据。 不收集语音、音频、图像和视频数据。
   
 * 使用生产输入数据进行模型预测。
 
@@ -87,7 +87,7 @@ Blob 中输出数据的路径遵循以下语法：
 
     ```python
     global inputs_dc, prediction_dc
-    inputs_dc = ModelDataCollector("best_model", designation="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
+    inputs_dc = ModelDataCollector("best_model", designation="inputs", feature_names=["feat1", "feat2", "feat3", "feat4", "feat5", "feat6"])
     prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
@@ -104,7 +104,7 @@ Blob 中输出数据的路径遵循以下语法：
     prediction_dc.collect(result) #this call is saving our input data into Azure Blob
     ```
 
-1. 在 AKS 中部署服务时，数据收集不会自动设置为  如以下示例所示更新配置文件：
+1. 在 AKS 中部署服务时，数据收集不会自动设置为 **true** 。 如以下示例所示更新配置文件：
 
     ```python
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True)
@@ -138,7 +138,7 @@ Blob 中输出数据的路径遵循以下语法：
 
 1. 打开你的工作区。
 
-1. 选择“存储”  。
+1. 选择“存储”。
 
     [![选择“存储”选项](./media/how-to-enable-data-collection/StorageLocation.png)](././media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
@@ -153,33 +153,33 @@ Blob 中输出数据的路径遵循以下语法：
 
 1. 下载并打开 [Power BI Desktop](https://www.powerbi.com)。
 
-1. 选择“获取数据”，然后选择“  
+1. 选择“获取数据”，然后选择“[Azure Blob 存储](https://docs.microsoft.com/power-bi/desktop-data-sources)”。 
 
     [![Power BI Blob 设置](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
-1. 添加存储帐户名称并输入存储密钥。 可以通过在 Blob 中选择“设置” > “访问密钥”找到此信息。  
+1. 添加存储帐户名称并输入存储密钥。 可以通过在 Blob 中选择“设置” > “访问密钥”找到此信息。 
 
-1. 选择“模型数据”容器，然后选择“编辑”。  
+1. 选择“模型数据”容器，然后选择“编辑”。 
 
     [![Power BI Navigator](./media/how-to-enable-data-collection/pbiNavigator.png)](././media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
-1. 在查询编辑器中，单击“名称”列的下面，并添加存储帐户。 
+1. 在查询编辑器中，单击“名称”列的下面，并添加存储帐户。
 
 1. 在筛选器中输入模型路径。 如果只想查看特定年份或月份的文件，则只需展开筛选器路径即可。 例如，如果只想查看三月份的数据，请使用以下筛选路径：
 
    /modeldata/\<subscriptionid>/\<resourcegroupname>/\<workspacename>/\<webservicename>/\<modelname>/\<modelversion>/\<designation>/\<year>/3
 
-1. 基于“名称”值筛选相关的数据。  如果存储了预测和输入，则需要针对每个预测和输入创建一个查询。
+1. 基于“名称”值筛选相关的数据。 如果存储了预测和输入，则需要针对每个预测和输入创建一个查询。
 
-1. 选择“内容”列标题旁边的向下双箭头，将文件合并在一起。 
+1. 选择“内容”列标题旁边的向下双箭头，将文件合并在一起。
 
     [![Power BI 内容](./media/how-to-enable-data-collection/pbiContent.png)](././media/how-to-enable-data-collection/pbiContent.png#lightbox)
 
-1. 选择“确定”  。 数据将预先加载。
+1. 选择“确定” 。 数据将预先加载。
 
     [![Power BI 合并文件](./media/how-to-enable-data-collection/pbiCombine.png)](././media/how-to-enable-data-collection/pbiCombine.png#lightbox)
 
-1. 选择“关闭并应用”。 
+1. 选择“关闭并应用”。
 
 1. 如果添加了输入和预测，则表会自动按 **RequestId** 值排序。
 

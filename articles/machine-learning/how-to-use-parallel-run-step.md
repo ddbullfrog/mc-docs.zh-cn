@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 08/14/2020
+ms.date: 10/13/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 552cdf32fcf81a7f4c227e2107eb87ce676388b8
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 18cf34a3822ece4838e9fee3dd983b0db1e9df9f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118226"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104650"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>使用 Azure 机器学习对大量数据运行批处理推理
 
@@ -26,6 +26,9 @@ ms.locfileid: "92118226"
 通过大型数据集或使用复杂的模型进行推理可能会非常耗时。 通过 `ParallelRunStep` 类，可以并行执行处理，可能会更快地获得整体结果。 即使运行单个计算的速度非常快，但许多方案（对象检测、视频处理、自然语言处理等）都需要运行多个计算。 
 
 通过 `ParallelRunStep`，可轻松将批量推理扩展到大型计算机群集。 此类群集可以处理 TB 级结构化或非结构化数据，同时可提高工作效率和优化成本。
+
+> [!NOTE]
+> ParallelRunStep 针对易并行工作负载而设计，也可以用于同时训练多个模型，或者处理大数据。
 
 本文介绍如何执行以下任务：
 
@@ -67,7 +70,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-compute-target"></a>创建计算目标
 
-在 Azure 机器学习中，*计算*（或*计算目标*）是指在机器学习管道中执行计算步骤的计算机或群集。 运行以下代码以创建基于 CPU 的 [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) 目标。
+在 Azure 机器学习中， *计算* （或 *计算目标* ）是指在机器学习管道中执行计算步骤的计算机或群集。 运行以下代码以创建基于 CPU 的 [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) 目标。
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -126,7 +129,7 @@ mnist_blob = Datastore.register_azure_blob_container(ws,
 
 接下来，将工作区的默认数据存储指定为输出数据存储。 你将使用它进行推理输出。
 
-创建工作区时，会默认将 [Azure 文件存储](/storage/files/storage-files-introduction) 和 [Blob 存储](/storage/blobs/storage-blobs-introduction) 附加到工作区。 Azure 文件存储是工作区的默认数据存储，但你也可以使用 Blob 存储作为数据存储。 有关详细信息，请参阅 [Azure 存储选项](/storage/common/storage-decide-blobs-files-disks)。
+创建工作区时，默认会将 [Azure 文件存储](/storage/files/storage-files-introduction)和 [Blob 存储](/storage/blobs/storage-blobs-introduction)附加到工作区。 Azure 文件存储是工作区的默认数据存储，但你也可以使用 Blob 存储作为数据存储。 有关详细信息，请参阅 [Azure 存储选项](/storage/common/storage-decide-blobs-files-disks)。
 
 ```python
 def_data_store = ws.get_default_datastore()

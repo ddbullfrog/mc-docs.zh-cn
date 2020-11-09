@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/22/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 6ee206d7ad5f975c7cc98c134dc65ce679e6747d
-ms.sourcegitcommit: a4a2521da9b29714aa6b511fc6ba48279b5777c8
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 4869d96bb50566a0688eaa6cbc5c4e7c3d3b76dc
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82126503"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750037"
 ---
 # <a name="confidential-client-assertions"></a>机密客户端断言
 
@@ -39,7 +39,7 @@ MSAL.NET 可以通过四种方法将凭据或断言提供给机密客户端应�
 
 ### <a name="signed-assertions"></a>签名断言
 
-签名客户端断言采用签名 JWT 形式，其有效负载包含 Azure AD 强制要求的、Base64 编码的身份验证声明。 若要使用它，请执行以下步骤：
+签名客户端断言采用签名 JWT 形式，其有效负载包含 Azure AD 强制要求的、Base64 编码的身份验证声明。 使用方式：
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -48,16 +48,16 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-Azure AD 预期的声明为：
+[Azure AD 预期的声明](active-directory-certificate-credentials.md)为：
 
-声明类型 | Value | 说明
+声明类型 | 值 | 说明
 ---------- | ---------- | ----------
-aud | `https://login.partner.microsoftonline.cn/{tenantId}/v2.0` | “aud”（受众）声明标识 JWT 预期的接收者（在这里为 Azure AD）。请参阅 [RFC 7519 的 4.1.3 部分]
-exp | 2019 年 6 月 27 日，周四 15:04:17 GMT+0200（罗马夏令时） | “exp”（过期时间）声明指定只能在哪个时间（含）之前接受 JWT 的处理。 请参阅 [RFC 7519 的 4.1.4 部分]
-iss | {ClientID} | “iss”（颁发者）声明标识颁发了 JWT 的主体。 此声明的处理取决于应用程序。 “iss”值是一个区分大小写的字符串，其中包含 StringOrURI 值。 [RFC 7519 的 4.1.1 部分]
-jti | （一个 GUID） | “jti”(JWT ID) 声明为 JWT 提供唯一标识符。 分配标识符值时，所用方式必须确保几乎不可能将同一值意外分配给不同的数据对象；如果应用程序使用多个颁发者，还必须防止在不同的颁发者生成的值之间发生冲突。 可以使用“jti”声明防止重播 JWT。 “jti”值是一个区分大小写的字符串。 [RFC 7519 的 4.1.7 部分]
-nbf | 2019 年 6 月 27 日，周四 14:54:17 GMT+0200（罗马夏令时） | “nbf”（不早于）声明指定只能在哪个时间之后接受 JWT 的处理。 [RFC 7519 的 4.1.5 部分]
-sub | {ClientID} | “sub”（使用者）声明标识 JWT 的使用者。 JWT 中的声明通常是有关使用者的语句。 使用者值必须本地唯一（局限于颁发者上下文）或全局唯一。 请参阅 [RFC 7519 的 4.1.2 部分]
+aud | `https://login.partner.microsoftonline.cn/{tenantId}/v2.0` | “aud”（受众）声明标识 JWT 预期的收件人（在这里为 Azure AD）。请参阅 [RFC 7519 的 4.1.3 节](https://tools.ietf.org/html/rfc7519#section-4.1.3)。  在本例中，该收件人为登录服务器 (login.partner.microsoftonline.cn)。
+exp | 1601519414 | “exp”（过期时间）声明指定只能在哪个时间（含）之前接受 JWT 的处理。 请参阅 [RFC 7519 的 4.1.4 节](https://tools.ietf.org/html/rfc7519#section-4.1.4)。  这样就可以在这之前一直使用断言，所以时间要短 - 最多在 `nbf` 之后 5 - 10 分钟。  Azure AD 当前未对 `exp` 时间设置限制。 
+iss | {ClientID} | “iss”（颁发者）声明标识颁发了 JWT 的主体，在本例中是你的客户端应用程序。  使用 GUID 应用程序 ID。
+jti | （一个 GUID） | “jti”(JWT ID) 声明为 JWT 提供唯一标识符。 分配标识符值时，所用方式必须确保几乎不可能将同一值意外分配给不同的数据对象；如果应用程序使用多个颁发者，还必须防止在不同的颁发者生成的值之间发生冲突。 “jti”值是一个区分大小写的字符串。 [RFC 7519 的 4.1.7 节](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+nbf | 1601519114 | “nbf”（不早于）声明指定只能在哪个时间之后接受 JWT 的处理。 [RFC 7519 的 4.1.5 节](https://tools.ietf.org/html/rfc7519#section-4.1.5)。  使用当前时间是合适的。 
+sub | {ClientID} | “sub”（使用者）声明标识 JWT 的使用者，在本例中也是你的应用程序。 使用与 `iss` 相同的值。 
 
 下面是一个示例，演示如何创建这些声明：
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1a8f59ecde99582b90eaba1587c1bfcd9e357f
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 9959a0e8409ebaac3fa9f2f7b0018e77e0ba15a2
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593828"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750113"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>适用于 Privileged Identity Management 的 Microsoft Graph API（预览版）
 
@@ -32,7 +32,7 @@ ms.locfileid: "89593828"
 
 ## <a name="required-permissions"></a>所需的权限
 
-若要调用适用于 Privileged Identity Management 的 Microsoft Graph API，必须拥有下述权限中的**一项或多项**：
+若要调用适用于 Privileged Identity Management 的 Microsoft Graph API，必须拥有下述权限中的 **一项或多项** ：
 
 - `Directory.AccessAsUser.All`
 - `Directory.Read.All`
@@ -51,7 +51,7 @@ ms.locfileid: "89593828"
 
 1. 单击“修改权限”。
 
-    ![Graph 浏览器 - 修改权限](./media/pim-apis/graph-explorer.png)
+    ![此屏幕截图显示了已选中“修改权限”操作的“Graph 浏览器”页。](./media/pim-apis/graph-explorer.png)
 
 1. 选中要包括的权限旁边的复选框。 `PrivilegedAccess.ReadWrite.AzureAD` 在 Graph 浏览器中尚不可用。
 

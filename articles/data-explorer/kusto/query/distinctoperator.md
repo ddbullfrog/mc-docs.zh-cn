@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 distinct 运算符�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: c2a70be054cbf2f1c35a2eeab34b12935a679187
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 7b9d51236c8d8a2c01c683cb7cb6bcfe2f5e3d3b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841681"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104665"
 ---
 # <a name="distinct-operator"></a>distinct 运算符
 
@@ -30,7 +30,7 @@ T | distinct Column1, Column2
 T | distinct *
 ```
 
-**示例**
+## <a name="example"></a>示例
 
 显示水果与价格的不同组合。
 
@@ -38,7 +38,7 @@ T | distinct *
 Table | distinct fruit, price
 ```
 
-:::image type="content" source="images/distinctoperator/distinct.PNG" alt-text="Distinct":::
+:::image type="content" source="images/distinctoperator/distinct.PNG" alt-text="两个表。一个表包含供应商、水果类型和价格，其中一些水果价格组合重复出现。第二个表仅列出独特的组合。":::
 
 **备注**
 

@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 07/01/2020
-ms.openlocfilehash: 4e033bb34b280130b0c4ac3956293b123b3561b6
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: 091fa81fcea3fcbb888d1a2fc93b2d71947eacfe
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226188"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105062"
 ---
 # <a name="runaway-queries"></a>失控查询
 
@@ -27,8 +27,9 @@ ms.locfileid: "86226188"
   * 通过以下方法限制查询返回的记录数：
      * 使用 [take 运算符](../query/takeoperator.md)
      * 添加其他 [where 子句](../query/whereoperator.md)
-  * 通过以下方法减少查询返回的列数： 
+  * 通过以下方法减少查询返回的列数：
      * 使用 [project 运算符](../query/projectoperator.md)
      * 使用 [project-away 运算符](../query/projectawayoperator.md)
+     * 使用 [project-keep 运算符](../query/project-keep-operator.md)
   * 使用 [summarize 运算符](../query/summarizeoperator.md)获取聚合数据。
 * 暂时提高该查询的相关查询限制。 有关详细信息，请参阅[查询限制 - 每个迭代器的内存限制](querylimits.md)。 不过，建议不要使用此方法。 设置这些限制是为了保护群集，并确保单个查询不会中断群集上运行的并发查询。

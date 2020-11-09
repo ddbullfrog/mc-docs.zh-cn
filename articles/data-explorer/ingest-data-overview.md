@@ -7,13 +7,13 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 05/18/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: ab9549b882a04b9380dfd0fc91b85d43b3c2f86a
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: 81944720fe80978a700a2973e32b18c450ca7a83
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515931"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103618"
 ---
 # <a name="azure-data-explorer-data-ingestion-overview"></a>Azure 数据资源管理器数据引入概述 
 
@@ -33,11 +33,11 @@ Azure 数据资源管理器从外部源拉取数据，并从挂起的 Azure 队�
 
 * **[引入属性](ingestion-properties.md)** ：影响数据引入方式的属性（例如，标记、映射、创建时间）。
 
-* **权限**：若要引入数据，需要[数据库引入器级别权限](kusto/management/access-control/role-based-authorization.md)。 其他操作（例如查询）可能需要数据库管理员、数据库用户或表管理员权限。
+* **权限** ：若要引入数据，需要 [数据库引入器级别权限](kusto/management/access-control/role-based-authorization.md)。 其他操作（例如查询）可能需要数据库管理员、数据库用户或表管理员权限。
 
 ## <a name="batching-vs-streaming-ingestion"></a>批量引入与流式引入
 
-* 批量引入执行数据批处理，并针对高引入吞吐量进行优化。 此方法是引入的首选且性能最高。 数据根据引入属性进行批处理。 然后合并小批次的数据，并针对快速查询结果进行优化。 可以在数据库或表上设置[引入批处理](kusto/management/batchingpolicy.md)策略。 默认情况下，最大批处理值为 5 分钟、1000 项，或者 500 MB 的总大小。
+* 批量引入执行数据批处理，并针对高引入吞吐量进行优化。 此方法是引入的首选且性能最高。 数据根据引入属性进行批处理。 然后合并小批次的数据，并针对快速查询结果进行优化。 可以在数据库或表上设置[引入批处理](kusto/management/batchingpolicy.md)策略。 默认情况下，最大批处理值为 5 分钟、1000 项，或者 1 GB 的总大小。
 
 * [流式引入](ingest-data-streaming.md)是来自流式处理源的正在进行的数据引入。 流式引入针对每个表的小型数据允许近乎实时的延迟。 数据最初引入到行存储，然后移动到列存储盘区。 可以使用 Azure 数据资源管理器客户端库或某个受支持的数据管道来完成流式引入。 
 
@@ -57,7 +57,7 @@ Azure 数据资源管理器支持多种引入方法，每种方法都有自己�
 
 * **Azure 数据工厂 (ADF)** ：用于 Azure 中分析工作负荷的完全托管的数据集成服务。 Azure 数据工厂与 90 多个受支持的源连接，提供高效且可复原的数据传输。 ADF 准备、转换并丰富数据，以提供可通过不同方式进行监视的见解。 此服务可在周期性时间线上用作一次性解决方案，或者由特定的事件触发。 
   * [将 Azure 数据资源管理器与 Azure 数据工厂集成](data-factory-integration.md)。
-  * [使用 Azure 数据工厂将数据从受支持的源复制到 Azure 数据资源管理器](/data-explorer/data-factory-load-data)。
+  * [使用 Azure 数据工厂将数据从受支持的源复制到 Azure 数据资源管理器](./data-factory-load-data.md)。
   * [使用 Azure 数据工厂模板从数据库批量复制到 Azure 数据资源管理器](data-factory-template.md)。
   * [使用 Azure 数据工厂命令活动运行 Azure 数据资源管理器控制命令](data-factory-command-activity.md)。
 
@@ -69,7 +69,7 @@ Azure 数据资源管理器支持多种引入方法，每种方法都有自己�
 
 <!-- * **[Power Automate](https://flow.microsoft.com/)**: An automated workflow pipeline to Azure Data Explorer. Power Automate can be used to execute a query and do preset actions using the query results as a trigger. See [Azure Data Explorer connector to Power Automate (Preview)](flow.md). -->
 
-* **Apache Spark 连接器**：可在任何 Spark 群集上运行的开放源代码项目。 它实现了用于跨 Azure 数据资源管理器和 Spark 群集移动数据的数据源和数据接收器。 可以构建面向数据驱动型方案的可缩放快速应用程序。 请参阅[适用于 Apache Spark 的 Azure 数据资源管理器连接器](spark-connector.md)。
+* **Apache Spark 连接器** ：可在任何 Spark 群集上运行的开放源代码项目。 它实现了用于跨 Azure 数据资源管理器和 Spark 群集移动数据的数据源和数据接收器。 可以构建面向数据驱动型方案的可缩放快速应用程序。 请参阅[适用于 Apache Spark 的 Azure 数据资源管理器连接器](spark-connector.md)。
 
 ### <a name="programmatic-ingestion-using-sdks"></a>使用 SDK 的编程引入
 
@@ -99,9 +99,9 @@ Azure 数据资源管理器提供可用于查询和数据引入的 SDK。 通过
 
 可以通过多种方法利用 Kusto 查询语言 (KQL) 命令将数据直接引入引擎。 由于此方法绕过数据管理服务，因此仅适用于探索和制作原型。 不要在生产或大容量方案中使用此方法。
 
-  * **内联引入**：向引擎发送控制命令 [.ingest inline](kusto/management/data-ingestion/ingest-inline.md)，要引入的数据是命令文本自身的一部分。 此方法用于临时测试目的。
+  * **内联引入** ：向引擎发送控制命令 [.ingest inline](kusto/management/data-ingestion/ingest-inline.md)，要引入的数据是命令文本自身的一部分。 此方法用于临时测试目的。
 
-  * **从查询引入**：向引擎发送控制命令 [.set、.append、.set-or-append 或 .set-or-replace](kusto/management/data-ingestion/ingest-from-query.md)，将数据间接指定为查询或命令的结果。
+  * **从查询引入** ：向引擎发送控制命令 [.set、.append、.set-or-append 或 .set-or-replace](kusto/management/data-ingestion/ingest-from-query.md)，将数据间接指定为查询或命令的结果。
 
   * **从存储引入（拉取）** ：向引擎发送控制命令 [.ingest into](kusto/management/data-ingestion/ingest-from-storage.md)，数据存储在某个外部存储（例如 Azure Blob 存储）中，可供引擎访问，命令也可以指向它。
 
@@ -120,7 +120,7 @@ Azure 数据资源管理器提供可用于查询和数据引入的 SDK。 通过
 <!-- | [**Azure 数据工厂**](kusto/tools/azure-data-factory.md) | [支持的数据格式](/data-factory/copy-activity-overview#supported-data-stores-and-formats) | 无限制 *（根据 ADF 限制） | 批量引入或者按 ADF 触发器引入 | 支持通常不受支持的格式及大型文件，可从 90 多个源进行复制，可从本地复制到云 | 引入时间 | -->
 | [**IoT 中心**](ingest-data-iot-hub-overview.md) | [支持的数据格式](ingest-data-iot-hub-overview.md#data-format)  | 空值 | 批量引入，流式引入 | IoT 消息，IoT 事件，IoT 属性 | |
 | [**事件中心**](ingest-data-event-hub-overview.md) | [支持的数据格式](ingest-data-event-hub-overview.md#data-format) | 空值 | 批量引入，流式引入 | 消息，事件 | |
-| [**Net Std**](net-standard-ingest-data.md) | 支持所有格式 | 1 GB，解压缩（参见备注） | 批量引入，流式引入，直接引入 | 根据组织需求编写自己的代码 |
+| [**.NET SDK**](./net-sdk-ingest-data.md) | 支持所有格式 | 1 GB，解压缩（参见备注） | 批量引入，流式引入，直接引入 | 根据组织需求编写自己的代码 |
 | [**Python**](python-ingest-data.md) | 支持所有格式 | 1 GB，解压缩（参见备注） | 批量引入，流式引入，直接引入 | 根据组织需求编写自己的代码 |
 | [**Node.js**](node-ingest-data.md) | 支持所有格式 | 1 GB，解压缩（参见备注） | 批量引入，流式引入，直接引入 | 根据组织需求编写自己的代码 |
 | [**Java**](kusto/api/java/kusto-java-client-library.md) | 支持所有格式 | 1 GB，解压缩（参见备注） | 批量引入，流式引入，直接引入 | 根据组织需求编写自己的代码 |
@@ -128,7 +128,7 @@ Azure 数据资源管理器提供可用于查询和数据引入的 SDK。 通过
 | [**Go**](kusto/api/golang/kusto-golang-client-library.md) | 支持所有格式 | 1 GB，解压缩（参见备注） | 批量引入，流式引入，直接引入 | 根据组织需求编写自己的代码 |
 
 > [!Note] 
-> 上表中进行引用时，引入支持的最大文件大小为 5 GB。 建议引入 100 MB 到 1 GB 的文件。
+> 在上表中进行引用时，引入支持的最大文件大小为 4 GB。 建议引入 100 MB 到 1 GB 的文件。
 
 ## <a name="ingestion-process"></a>引入过程
 
@@ -154,7 +154,7 @@ Azure 数据资源管理器提供可用于查询和数据引入的 SDK。 通过
 
     [架构映射](kusto/management/mappings.md)有助于将源数据字段绑定到目标表列。 映射允许根据定义的属性，将不同源中的数据引入同一个表。 支持不同类型的映射，行导向（CSV、JSON 和 AVRO）和列导向 (Parquet)。 在大部分方法中，可以[在表上预先创建](kusto/management/create-ingestion-mapping-command.md)映射并从引入命令参数进行引用。
 
-1. **设置更新策略**（可选）
+1. **设置更新策略** （可选）
 
    一些数据格式映射（Parquet、JSON 和 Avro）支持简单且有用的引入时间转换。 如果在引入时需要进行更复杂的处理，可使用更新策略，该策略允许使用 Kusto 查询语言命令进行轻型处理。 更新策略自动对原始表上的引入数据运行提取和转换，并将生成的数据引入到一个或多个目标表。 设置[更新策略](kusto/management/update-policy.md)。
 

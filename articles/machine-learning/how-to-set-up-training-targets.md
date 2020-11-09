@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ab3330d554198d448fc06e8e8f2900b5b00432f5
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 180ed980c405a7f81342582b50eb81e7acae6e33
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118509"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103932"
 ---
 # <a name="configure-and-submit-training-runs"></a>配置和提交训练运行
 
@@ -31,9 +31,7 @@ ms.locfileid: "92118509"
 * 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 
 * [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * [Azure 机器学习工作区](how-to-manage-workspace.md) `ws`
-* 计算目标 `my_compute_target`。  使用以下工具创建计算目标：
-  * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Azure 机器学习工作室](how-to-create-attach-compute-studio.md)
+* 计算目标 `my_compute_target`。  [创建计算目标](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>什么是脚本运行配置？
 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 用于配置在试验中提交训练运行所需的信息。
@@ -119,6 +117,10 @@ src = ScriptRunConfig(source_directory=project_folder,
                       script='train.py',
                       compute_target=my_compute_target,
                       environment=myenv)
+
+# Set compute target
+# Skip this if you are running on your local computer
+script_run_config.run_config.target = my_compute_target
 ```
 
 如果你未指定环境，系统会为你创建一个默认环境。
@@ -128,7 +130,7 @@ src = ScriptRunConfig(source_directory=project_folder,
 如果要替代允许用于运行的默认最长时间，可以通过 `max_run_duration_seconds`  参数来实现。 如果运行时间超过此值，系统会尝试自动取消运行。
 
 ### <a name="specify-a-distributed-job-configuration"></a>指定分布式作业配置
-如果要运行分布式训练作业，请为 `distributed_job_config` 参数提供分布式作业特定配置。 支持的配置类型包括 [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) 和 [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true)。 
+如果要运行分布式训练作业，请为 `distributed_job_config` 参数提供分布式作业特定配置。 支持的配置类型包括 [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true)、[TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) 和 [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true)。 
 
 有关运行 Horovod、TensorFlow 和 PyTorch 分布式作业的详细信息和示例，请参阅：
 
@@ -154,7 +156,7 @@ run.wait_for_completion(show_output=True)
 >
 > 要在训练期间创建项目（如模型文件、检查点、数据文件或绘制的图像），请将其写入 `./outputs` 文件夹。
 >
-> 同样，可以将任何运行训练日志写入 `./logs` 文件夹。 要利用 Azure 机器学习的 [TensorBoard 集成](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb)，请确保将 TensorBoard 日志写入此文件夹。 正在运行时，你将能够启动 TensorBoard 并流式传输这些日志。  稍后，还能够从任何先前运行中还原日志。
+> 同样，可以将任何运行训练日志写入 `./logs` 文件夹。 要利用 Azure 机器学习的 [TensorBoard 集成](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb)，请确保将 TensorBoard 日志写入此文件夹。 正在运行时，你将能够启动 TensorBoard 并流式传输这些日志。  稍后，还能够从任何先前运行中还原日志。
 >
 > 例如，在运行远程训练后将写入 *outputs* 文件夹的文件下载到本地计算机：`run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
@@ -165,8 +167,8 @@ run.wait_for_completion(show_output=True)
 ## <a name="notebook-examples"></a>Notebook 示例
 
 有关为各种训练方案配置运行的示例，请参阅以下笔记本：
-* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [how-to-use-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
+* [对各种计算目标的训练](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [使用 ML 框架进行训练](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

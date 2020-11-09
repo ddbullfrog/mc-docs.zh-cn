@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 08/06/2020
 ms.date: 10/19/2020
 ms.author: v-jay
-ms.openlocfilehash: 60dfb41976a62070806b1e6eaeae1b01b61f0667
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: 0bf7628cab9707ebdd8d1039859368294a3ced8b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121709"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104485"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 REST 终结点复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -109,7 +109,7 @@ REST 链接服务支持以下属性：
 | servicePrincipalKey | 指定 Azure Active Directory 应用程序的密钥。 将此字段标记为 **SecureString** 以安全地将其存储在数据工厂中或 [引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是 |
 | tenant | 指定应用程序的租户信息（域名或租户 ID）。 将鼠标悬停在 Azure 门户右上角进行检索。 | 是 |
 | aadResourceId | 指定请求授权的 AAD 资源，例如 `https://management.core.chinacloudapi.cn`。| 是 |
-| azureCloudType | 对于服务主体身份验证，请指定 AAD 应用程序注册到的 Azure 云环境的类型。 <br/> 允许的值为 AzurePublic、AzureChina、AzureUsGovernment 和 AzureGermany   。 默认使用数据工厂的云环境。 | 否 |
+| azureCloudType | 对于服务主体身份验证，请指定 AAD 应用程序注册到的 Azure 云环境的类型。 <br/> 允许的值为“AzureChina”。 默认使用数据工厂的云环境。 | 否 |
 
 **示例**
 
@@ -326,7 +326,7 @@ REST 链接服务支持以下属性：
 
 **示例：**
 
-Facebook 图形 API 返回采用以下结构的响应，在此情况下，下一页的 URL 将在 ***paging.next*** 中表示：
+Facebook 图形 API 返回采用以下结构的响应，在此情况下，下一页的 URL 将在 *_paging.next_* 中表示：
 
 ```json
 {
@@ -381,7 +381,7 @@ Facebook 图形 API 返回采用以下结构的响应，在此情况下，下一
 ### <a name="about-the-solution-template"></a>关于解决方案模板
 
 该模板包含两个活动：
-- “Web”活动检索持有者令牌，然后将其作为 Authorization 标头传递到后续的“复制”活动  。
+- Web 活动检索持有者令牌，然后将其作为 Authorization 标头传递到后续的“复制”活动。
 - “复制”活动将数据从 REST 复制到 Azure Data Lake Storage  。
 
 该模板定义两个参数：

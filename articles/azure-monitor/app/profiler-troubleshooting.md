@@ -4,20 +4,19 @@ description: 本文提供故障排除步骤和信息，帮助开发人员解决�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
+ms.date: 10/29/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: a8e58de35835d33be13bbea59e02a5fcab649101
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 1c68f090b20c72ae78ee36232fff69e5f3dcae46
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244600"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103626"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>排查启用或查看 Application Insights Profiler 时遇到的问题
 
-## <a name="active-issues"></a>未解决的问题
-
-* Azure 应用服务现在支持对 ASP.NET Core 3.x 应用程序的分析。
+> [!CAUTION]
+> 在 Azure 应用服务中对 ASP.NET Core 应用运行探查器时有一个 bug。 我们有一个修补程序，但部署需要几周时间。 可以按照[此处](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio)的说明将 Application Insights SDK 添加到应用程序来解决此 bug。
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>常规故障排除
 
@@ -68,7 +67,7 @@ Profiler 将跟踪消息和自定义事件写入到 Application Insights 资源�
 * Web 应用必须已启用 Application Insights。
 * Web 应用必须具有以下应用设置：
 
-    |应用设置    | Value    |
+    |应用设置    | 值    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 资源的 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -76,22 +75,22 @@ Profiler 将跟踪消息和自定义事件写入到 Application Insights 资源�
 
 
 * ApplicationInsightsProfiler3 webjob 必须正在运行。 若要检查 webjob：
-   1. 转到 [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)。
+   1. 转到 [Kudu](https://docs.microsoft.com/archive/blogs/cdndevs/the-kudu-debug-console-azure-websites-best-kept-secret)。
    1. 在“工具”菜单中，选择“WebJobs 仪表板” 。  
       “WebJobs”窗格随即打开。 
    
-      ![profiler-webjob]   
+      ![屏幕截图显示了 WebJobs 窗格，其中显示了作业的名称、状态和上次运行时间。][profiler-webjob]   
    
    1. 若要查看 webjob 的详细信息（包括日志），请选择“ApplicationInsightsProfiler3”链接。  
      “连续 WebJob 详细信息”窗格随即打开。
 
-      ![profiler-webjob-log]
+      ![屏幕截图显示了“连续 WebJob 详细信息”窗格。][profiler-webjob-log]
 
 如果你不明白 Profiler 为何不能正常工作，可以下载日志并将其发送给我们的团队 serviceprofilerhelp@microsoft.com 以获取帮助。 
     
 ### <a name="manual-installation"></a>手动安装
 
-配置 Profiler 时，将对 Web 应用的设置进行更新。 如果你的环境有此要求，则可以手动应用更新。 例如，应用程序在 Web 应用环境中运行。 若要手动应用更新，请执行以下操作：
+配置 Profiler 时，将对 Web 应用的设置进行更新。 如果你的环境有此要求，则可以手动应用更新。 例如，应用程序在适用于 PowerApps 的 Web 应用环境中运行。 若要手动应用更新，请执行以下操作：
 
 1. 在“Web 应用控制”窗格中，打开“设置” 。
 
@@ -100,7 +99,7 @@ Profiler 将跟踪消息和自定义事件写入到 Application Insights 资源�
 1. 将“Always On”设置为“打开” 。
 1. 创建以下应用设置：
 
-    |应用设置    | Value    |
+    |应用设置    | 值    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 资源的 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -194,12 +193,4 @@ Profiler 在 Web 应用中以连续 Web 作业的形式运行。 可以在 [Azur
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
 [profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
 [profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
-
-
-
-
-
-
-
-
 

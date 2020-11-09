@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 case()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 08/18/2020
-ms.openlocfilehash: 7eb3bb7dcdbdb41368bc9800eeecc80e9cc3b6da
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 6ef24327a0a629d1fcc0d1c9927b8bcaa236489e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515746"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106042"
 ---
 # <a name="case"></a>case()
 
@@ -26,13 +26,13 @@ ms.locfileid: "88515746"
 
 ## <a name="syntax"></a>语法
 
-`case(`*predicate_1*`,` *then_1*, *predicate_2*`,` *then_2*, *predicate_3*`,` *then_3*, *else*`)`
+`case(`*predicate_1* , *then_1* , *predicate_2* , *then_2* , *predicate_3* , *then_3* , *else*`)`
 
 ## <a name="arguments"></a>参数
 
-* *predicate_i*：一个计算结果为 `boolean` 值的表达式。
-* *then_i*：一个表达式，在进行计算时，如果 predicate_i 是计算结果为 `true` 的第一个谓词，则从函数返回其值。
-* *else*：一个表达式，在进行计算时，如果 predicate_i 的计算结果都不是 `true`，则从函数返回其值。
+* *predicate_i* ：一个计算结果为 `boolean` 值的表达式。
+* *then_i* ：一个表达式，在进行计算时，如果 predicate_i 是计算结果为 `true` 的第一个谓词，则从函数返回其值。
+* *else* ：一个表达式，在进行计算时，如果 predicate_i 的计算结果都不是 `true`，则从函数返回其值。
 
 ## <a name="returns"></a>返回
 

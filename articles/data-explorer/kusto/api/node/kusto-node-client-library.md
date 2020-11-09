@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/29/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: ed258f9ccda80fd45576cf2b32c87167ccb7813b
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: af919607ceb58e8e76d0ae3d6b784563dd01e1c4
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226345"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103907"
 ---
 # <a name="azure-data-explorer-node-sdk"></a>Azure 数据资源管理器 Node SDK
 
@@ -32,6 +32,6 @@ Kusto Node 引入客户端是可向 Azure 数据资源管理器发送数据（�
 
 * NPM 包：
 
-    * [azure-kusto-data](https://www.npmjs.com/package/azure-kusto-data) [![npm 版本](https://badge.fury.io/js/azure-kusto-data.svg)](https://badge.fury.io/js/azure-kusto-data) 
-    * [azure-kusto-ingest](https://www.npmjs.com/package/azure-kusto-ingest) [![npm 版本](https://badge.fury.io/js/azure-kusto-ingest.svg)](https://badge.fury.io/js/azure-kusto-ingest)
-    * [azure-arm-kusto](https://www.npmjs.com/package/azure-arm-kusto) [![npm 版本](https://badge.fury.io/js/azure-arm-kusto.svg)](https://badge.fury.io/js/azure-arm-kusto)
+    * [azure-kusto-data](https://www.npmjs.com/package/azure-kusto-data) [![标有“NPM 包 1.0.1”的按钮的屏幕截图。](https://badge.fury.io/js/azure-kusto-data.svg)](https://badge.fury.io/js/azure-kusto-data) 
+    * [azure-kusto-ingest](https://www.npmjs.com/package/azure-kusto-ingest) [![按钮的屏幕截图。此按钮标记为“NPM 包 1.0.1”。](https://badge.fury.io/js/azure-kusto-ingest.svg)](https://badge.fury.io/js/azure-kusto-ingest)
+    * [azure-arm-kusto](https://www.npmjs.com/package/azure-arm-kusto) [![标有“NPM 包 2.0.3”的按钮的屏幕截图。](https://badge.fury.io/js/azure-arm-kusto.svg)](https://badge.fury.io/js/azure-arm-kusto)

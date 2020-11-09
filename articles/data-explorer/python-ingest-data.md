@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: 8beb104d83b8e007a2c06c8b6bb94be61a9b5ef5
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: 4ceabf7e605ec1dbc7167ac4fd3899516936787d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146286"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106334"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>使用 Azure 数据资源管理器 Python 库引入数据
 
@@ -22,6 +22,7 @@ ms.locfileid: "91146286"
 > * [Python](python-ingest-data.md)
 > * [Node](node-ingest-data.md)
 > * [Go](go-ingest-data.md)
+> * [Java](java-ingest-data.md)
 
 本文将使用 Azure 数据资源管理器 Python 库引入数据。 Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Azure 数据资源管理器为 Python 提供了两个客户端库：[引入库](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest)和[数据库](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)。 使用这些库，可以从代码将数据引入或加载到群集中并查询数据。
 
@@ -51,12 +52,12 @@ pip install azure-kusto-ingest
 从 azure-kusto-data 导入类。
 
 ```python
-from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
+from azure.kusto.data import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
 from azure.kusto.data.helpers import dataframe_from_result_table
 ```
 
-Azure 数据资源管理器使用 AAD 租户 ID，以对应用程序进行身份验证。 要查找租户 ID，请使用以下 URL，并将域替换为 YourDomain  。
+Azure 数据资源管理器使用 Azure Active Directory 租户 ID，以对应用程序进行身份验证。 若要查找租户 ID，请使用以下 URL，将 YourDomain 替换为你的域。
 
 ```http
 https://login.chinacloudapi.cn/<YourDomain>/.well-known/openid-configuration/
@@ -77,7 +78,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.chinacloudapi.cn
 KUSTO_DATABASE = "<DatabaseName>"
 ```
 
-现在构造连接字符串。 此示例使用设备身份验证来访问群集。 此外可以使用 [AAD 应用程序证书](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24)、[AAD 应用程序密钥](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20)以及 [AAD 用户和密码](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34)。
+现在构造连接字符串。 此示例使用设备身份验证来访问群集。 还可以使用 [Azure Active Directory 应用程序证书](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24)、[Azure Active Directory 应用程序密钥](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20)以及 [Azure Active Directory 用户和密码](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34)。
 
 在后续步骤中创建目标表和映射。
 
@@ -97,7 +98,6 @@ DESTINATION_TABLE_COLUMN_MAPPING = "StormEvents_CSV_Mapping"
 导入其他类并设置数据源文件的常数。 此示例使用 Azure Blob 存储上托管的示例文件。 StormEvents  示例数据集包含[美国国家环境信息中心](https://www.ncdc.noaa.gov/stormevents/)中与天气相关的数据。
 
 ```python
-from azure.storage.blob import BlockBlobService
 from azure.kusto.ingest import KustoIngestClient, IngestionProperties, FileDescriptor, BlobDescriptor, DataFormat, ReportLevel, ReportMethod
 
 CONTAINER = "samplefiles"
@@ -112,7 +112,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.chinacloudapi.cn/" + \
 
 ## <a name="create-a-table-on-your-cluster"></a>在群集上创建表
 
-创建与 StormEvents.csv 文件中的数据架构匹配的表。 运行此代码时，它会返回如下消息：若要登录，请使用 Web 浏览器打开页面 https://microsoft.com/devicelogin ，然后输入代码 F3W4VWZDM 进行身份验证  。 按照步骤登录，然后返回运行下一个代码块。 建立连接的后续代码块将要求你再次登录。
+创建与 StormEvents.csv 文件中的数据架构匹配的表。 运行此代码时，它会返回如下消息：若要登录，请使用 Web 浏览器打开页面 https://microsoft.com/devicelogin ，然后输入代码 F3W4VWZDM 进行身份验证。 按照步骤登录，然后返回运行下一个代码块。 建立连接的后续代码块将要求你再次登录。
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)

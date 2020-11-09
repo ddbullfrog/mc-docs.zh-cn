@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 activity_metrics 插
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: e833a992164b43b555276913fd1c22cd31083abe
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 8457097093e63ef11d747e6e3549f85dcd567671
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146605"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105067"
 ---
 # <a name="activity_metrics-plugin"></a>activity_metrics 插件
 
@@ -26,15 +26,15 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
 
 ## <a name="syntax"></a>语法
 
-*T* `| evaluate` `activity_metrics(`*IdColumn*`,` *TimelineColumn*`,` [*Start*`,` *End*`,`] *Window* [`,` *dim1*`,` *dim2*`,` ...]`)`
+*T* `| evaluate` `activity_metrics(`*IdColumn*`,` *TimelineColumn*`,` [ *Start*`,` *End*`,`] *Window* [`,` *dim1*`,` *dim2*`,` ...]`)`
 
 ## <a name="arguments"></a>参数
 
-* *T*：输入表格表达式。
-* *IdColumn*：列的名称，其 ID 值表示用户活动。 
+* *T* ：输入表格表达式。
+* *IdColumn* ：列的名称，其 ID 值表示用户活动。 
 * TimelineColumn：表示时间线的列的名称。
-* *Start*：（可选）带有分析开始时段值的标量。
-* *End*：（可选）带有分析结束时段值的标量。
+* *Start* ：（可选）带有分析开始时段值的标量。
+* *End* ：（可选）带有分析结束时段值的标量。
 * Window：带有分析窗口时段值的标量。 既可以是数字/日期/时间/时间戳值，也可以是 `week`/`month`/`year` 中的一个字符串（在这种情况下，这些时段分别为 [startofweek](startofweekfunction.md)/[startofmonth](startofmonthfunction.md)/[startofyear](startofyearfunction.md)）。 
 * dim1, dim2, ... ：（可选）维度列的列表，用于切分活动指标计算。
 
@@ -50,11 +50,11 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
 
 **说明**
 
-保留率定义
+**_保留率定义_* _
 
 一段时间内 `Retention Rate` 的计算方法为：
 
-> 在此期间返回的客户数  
+> _在此期间返回的客户数*  
 > /（除以）  
 > 此期间开始时的客户数  
 
@@ -68,11 +68,11 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
 分数越高表示返回用户的数量越大。
 
 
-流失率定义
+***流失率定义** _
 
 一段时间内 `Churn Rate` 的计算方法为：
     
-> 此期间流失的客户数  
+> _此期间流失的客户数*  
 > /（除以）  
 > 此期间开始时的客户数  
 
@@ -84,7 +84,7 @@ T | evaluate activity_metrics(id, datetime_column, startofday(ago(30d)), startof
 
 `Churn Rate` 可以在从 0.0 到 1.0 的范围内变化。分数越高，表示不返回到服务的用户数量越多。
 
-流失率与保留率
+***流失率与保留率** _
 
 派生自 `Churn Rate` 和 `Retention Rate` 的定义，以下公式始终成立：
 
@@ -105,7 +105,7 @@ let _end = datetime(2017-05-31);
 range _day from _start to _end  step 1d
 | extend d = tolong((_day - _start)/1d)
 | extend r = rand()+1
-| extend _users=range(tolong(d*50*r), tolong(d*50*r+200*r-1), 1) 
+| extend _users=range(tolong(d_50*r), tolong(d*50*r+200*r-1), 1) 
 | mv-expand id=_users to typeof(long) limit 1000000
 // 
 | evaluate activity_metrics(['id'], _day, _start, _end, 7d)
@@ -185,4 +185,4 @@ range _day from _start to _end  step 1d
 |2017-05-22 00:00:00.0000000|1740|1017|
 |2017-05-29 00:00:00.0000000|960|756|
 
-:::image type="content" source="images/activity-metrics-plugin/activity-metrics-dcount-and-dcount-newvalues.png" border="false" alt-text="活动指标改动和保留":::
+:::image type="content" source="images/activity-metrics-plugin/activity-metrics-dcount-and-dcount-newvalues.png" border="false" alt-text="活动指标 dcount 和 dcount 新值":::

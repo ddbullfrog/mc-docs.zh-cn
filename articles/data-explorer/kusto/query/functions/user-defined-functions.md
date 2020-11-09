@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/12/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: fe6bec0f3cb7ece097bf6e6faa7099aacba03f17
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 8865d48eb71d793f18b459ce3448d59fde9971c3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146420"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106311"
 ---
 # <a name="user-defined-functions"></a>用户定义的函数
 
@@ -283,7 +283,7 @@ union T*
 存在以下限制：
 
 * 用户定义的函数无法传入 [toscalar()](../toscalarfunction.md) 调用信息中，该信息取决于调用该函数的行上下文。
-* 不能使用随行上下文而变化的参数来调用返回表格表达式的用户定义的函数。
+* 不能使用随行上下文变化的参数来调用返回表格表达式的用户定义函数。
 * 无法在远程群集上调用至少具有一个表格输入的函数。
 * 无法在远程群集上调用标量函数。
 

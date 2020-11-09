@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 10/27/2020
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c11f39565a8d9807382cef2603bea7adcce49a21
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 080a7ad8765549c1f8f5d1141d7b3f878e6118b7
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648097"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750030"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B 协作邀请电子邮件的元素 - Azure Active Directory
 
@@ -75,15 +75,29 @@ ms.locfileid: "88648097"
 页脚包含有关所发送邀请的详细信息。 受邀方始终可以通过一个选项来阻止将来的邀请。 如果组织已[设置隐私声明](/active-directory/fundamentals/active-directory-properties-area)，则此处会显示该声明的链接。  否则会有一条注释，指出该组织尚未设置隐私声明。
 
 ![电子邮件中页脚部分的图像](./media/invitation-email-elements/footer-section.png)
- 
+
+### <a name="blocking-an-organization-unsubscribing"></a>阻止组织（取消订阅）
+
+在来自组织的邀请中，页脚包含“阻止未来邀请”的选项。 来宾用户可以选择此链接以阻止来自组织的任何未来邀请。 此操作还会将组织添加到 [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage) 中该用户的取消订阅列表。
+
+### <a name="viewing-organizations-youve-blocked"></a>查看已阻止的组织
+
+来宾用户可以按照以下步骤查看或导出已阻止的组织：
+
+1. 转到 [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage)。
+2. 输入电子邮件并按照电子邮件一次性密码身份验证的登录步骤进行操作。
+3. 查看已阻止的组织，或使用复制和粘贴导出名称。
+   > [!NOTE]
+   > 如果你想允许已阻止的组织再次邀请你，则可以选择该组织，然后选择“下一步”。
+
 ## <a name="how-the-language-is-determined"></a>语言是如何确定的
 
 邀请电子邮件中呈现给来宾用户的语言是由以下设置确定的。 这些设置是按优先级顺序列出的。 如果某个设置未配置，则将由列表中的下一设置来确定语言。
 
 - [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) 对象的 **messageLanguage** 属性（如果使用了“创建邀请 API”）
--   在来宾的[用户对象](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)中指定的 **preferredLanguage** 属性
--   在来宾用户的主租户的属性中设置的**通知语言**（仅仅适用于 Azure AD 租户）
--   在资源租户的属性中设置的**通知语言**
+-   在来宾的 [用户对象](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)中指定的 **preferredLanguage** 属性
+-   在来宾用户的主租户的属性中设置的 **通知语言** （仅仅适用于 Azure AD 租户）
+-   在资源租户的属性中设置的 **通知语言**
 
 如果这些设置全都没有配置，则语言默认为“英语(美国)”。
 

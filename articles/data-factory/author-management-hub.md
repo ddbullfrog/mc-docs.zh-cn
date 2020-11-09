@@ -9,13 +9,13 @@ author: WenJason
 ms.author: v-jay
 manager: digimobile
 origin.date: 06/02/2020
-ms.date: 09/21/2020
-ms.openlocfilehash: 8cbb964d86708a976816d41870c069d48517edb5
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 11/02/2020
+ms.openlocfilehash: 41298658d56f9f3bd9d246613cc5b811bb070aa4
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523729"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106078"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Azure 数据工厂中的管理中心
 
@@ -43,7 +43,7 @@ ms.locfileid: "90523729"
 
 触发器确定何时应开始管道运行。 目前，触发器可以按挂钟计划触发，可以定期运行，也可以按事件触发。 有关详细信息，请参阅[触发器执行](concepts-pipeline-execution-triggers.md#trigger-execution)。 可以在管理中心创建、编辑、删除触发器或查看触发器的当前状态。
 
-![管理自定义参数](media/author-management-hub/management-hub-triggers.png)
+![此屏幕截图显示了在何处创建、编辑、删除或查看触发器的当前状态。](media/author-management-hub/management-hub-triggers.png)
 
 ### <a name="global-parameters"></a>全局参数
 

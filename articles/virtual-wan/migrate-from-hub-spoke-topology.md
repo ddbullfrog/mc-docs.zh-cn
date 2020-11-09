@@ -6,19 +6,20 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/30/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
-ms.testdate: 10/26/2020
+ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 107d1f5df2f1eb395118e753e77c4fb07749c185
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: ec20b5d4133b736b6a89c182864ee51ea699a020
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472632"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103964"
 ---
 <!--Verified successfully-->
 <!--Virtual WAN can connect with out of China-->
+<!--Pictures need to be customized-->
 # <a name="migrate-to-azure-virtual-wan"></a>迁移到 Azure 虚拟 WAN
 
 Azure 虚拟 WAN 可让公司简化其全球连接，以便充分利用 Azure 全球网络的规模。 本文面向相关公司（这些公司希望从现有的客户托管中心辐射型拓扑迁移到利用 Azure 托管虚拟 WAN 中心的设计）提供了技术细节。
@@ -38,7 +39,7 @@ Contoso 是一家全球金融组织，在欧洲和亚洲设有办事处。 他�
 
 下图显示了现有全球网络的概览性视图，其中包括与多个 Azure 区域的连接。
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png" alt-text="中心和辐射":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png" alt-text="Contoso 现有网络拓扑":::
 **图：Contoso 现有网络拓扑**
 
 从现有网络拓扑中可了解以下几点：
@@ -67,7 +68,7 @@ Contoso 是一家全球金融组织，在欧洲和亚洲设有办事处。 他�
 
 下图显示了更新后的目标拓扑的概览性视图，该拓扑使用 Azure 虚拟 WAN 来满足上一部分详述的要求。
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/vwan-architecture.png" alt-text="中心和辐射":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/vwan-architecture.png" alt-text="Contoso 虚拟 WAN 体系结构":::
 **图：Azure 虚拟 WAN 体系结构**
 
 摘要：
@@ -88,7 +89,7 @@ Contoso 是一家全球金融组织，在欧洲和亚洲设有办事处。 他�
 
 下图显示 Azure 虚拟 WAN 推出之前 Contoso 的单区域拓扑：
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="中心和辐射":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="单区域拓扑":::
 图 1： **单区域手动中心辐射**
 
 与中心辐射方法一致，客户托管的中心虚拟网络包含几个功能块：
@@ -109,14 +110,14 @@ Contoso 是一家全球金融组织，在欧洲和亚洲设有办事处。 他�
 > 若要启用本文所述的某些流量路径，Azure 虚拟 WAN 必须使用标准 SKU。
 >
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="中心和辐射":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="部署虚拟 WAN 中心":::
 图 2： **从客户托管的中心辐射型拓扑迁移到虚拟 WAN**
 
 ### <a name="step-3-connect-remote-sites-expressroute-and-vpn-to-virtual-wan"></a>步骤 3：将远程站点（ExpressRoute 和 VPN）连接到虚拟 WAN
 
 将虚拟 WAN 中心连接到现有 ExpressRoute 线路，并通过 Internet 在任何远程分支上设置站点到站点 VPN。
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="中心和辐射":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="将远程站点连接到虚拟 WAN":::
 图 3： **从客户托管的中心辐射型拓扑迁移到虚拟 WAN**
 
 此时，本地网络设备将开始接收路由，这些路由表明分配给虚拟 WAN 托管中心 VNet 的 IP 地址空间。 在此阶段，连接 VPN 的远程分支将在辐射虚拟网络中显示两条指向任何现有应用程序的路径。 这些设备应配置为继续使用指向客户托管中心的隧道，以确保转换阶段的对称路由。
@@ -125,31 +126,31 @@ Contoso 是一家全球金融组织，在欧洲和亚洲设有办事处。 他�
 
 使用托管的虚拟 WAN 中心进行生产连接之前，建议你设置测试性辐射虚拟网络和虚拟 WAN VNet 连接。 继续执行后续步骤之前，通过 ExpressRoute 和站点到站点 VPN 验证此测试环境的连接是否正常工作。
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="中心和辐射":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="通过虚拟 WAN 测试混合连接":::
 图 4： **从客户托管的中心辐射型拓扑迁移到虚拟 WAN**
 
 在此阶段，必须认识到，原来的客户管理的中心虚拟网络和新的虚拟 WAN 中心都连接到同一条 ExpressRoute 线路。 因此，我们有一条可用于使两种环境中的分支进行通信的通信路径。 例如，来自连接到客户管理中心虚拟网络的分支的流量会遍历用于 ExpressRoute 线路的 MSEE 设备，以访问通过 VNet 连接连接到新虚拟 WAN 中心的任何分支。 这样就可以在步骤 5 中分阶段迁移分支。
 
 ### <a name="step-5-transition-connectivity-to-virtual-wan-hub"></a>步骤 5：将连接转换到虚拟 WAN 中心
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure5.png" alt-text="中心和辐射":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure5.png" alt-text="将连接转换到虚拟 WAN 中心":::
 图 5： **从客户托管的中心辐射型拓扑迁移到虚拟 WAN**
 
-a  。 删除辐射虚拟网络到旧的客户托管中心的现有对等连接。 步骤 a-c 完成之前，无法访问辐射虚拟网络中的应用程序。
+a。 删除辐射虚拟网络到旧的客户托管中心的现有对等连接。 步骤 a-c 完成之前，无法访问辐射虚拟网络中的应用程序。
 
-**b** . 通过 VNet 连接将辐射虚拟网络连接到虚拟 WAN 中心。
+**b**. 通过 VNet 连接将辐射虚拟网络连接到虚拟 WAN 中心。
 
-**c** . 删除之前在辐射虚拟网络中使用的用于辐射网络到辐射网络通信的任何用户定义路由 (UDR)。 虚拟 WAN 中心内提供的动态路由现已启用此路径。
+**c**. 删除之前在辐射虚拟网络中使用的用于辐射网络到辐射网络通信的任何用户定义路由 (UDR)。 虚拟 WAN 中心内提供的动态路由现已启用此路径。
 
-**d** . 客户托管中心内的现有 ExpressRoute 和 VPN 网关现已停用，以便执行下一个步骤 (e)。
+**d**. 客户托管中心内的现有 ExpressRoute 和 VPN 网关现已停用，以便执行下一个步骤 (e)。
 
-**e** . 通过新的 VNet 连接将旧的客户托管中心（中心虚拟网络）连接到虚拟 WAN 中心。
+**e**. 通过新的 VNet 连接将旧的客户托管中心（中心虚拟网络）连接到虚拟 WAN 中心。
 
 ### <a name="step-6-old-hub-becomes-shared-services-spoke"></a>步骤 6：旧中心成为共享服务辐射网络
 
 现已重新设计了 Azure 网络，使虚拟 WAN 中心成为了新拓扑的中心点。
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="中心和辐射":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="旧中心成为共享服务辐射网络":::
 **图 6：从客户托管的中心辐射型拓扑迁移到虚拟 WAN**
 
 由于虚拟 WAN 中心是托管实体，且不允许部署虚拟机之类的自定义资源，因此共享服务功能块现以辐射虚拟网络形式存在，该网络通过 Azure 应用程序网关或网络虚拟设备托管 Internet 入口等功能。 现在，共享服务环境与后端虚拟机之间的流量在虚拟 WAN 托管的中心内传输。
@@ -158,44 +159,45 @@ a  。 删除辐射虚拟网络到旧的客户托管中心的现有对等连接�
 
 在此阶段，Contoso 基本已将业务应用程序迁移到 Azure 云，仅少量旧版应用程序保留在本地 DC。
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure7.png" alt-text="中心和辐射":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure7.png" alt-text="优化本地连接以充分利用虚拟 WAN":::
 图 7： **从客户托管的中心辐射型拓扑迁移到虚拟 WAN**
 
 为利用 Azure 虚拟 WAN 的全部功能，Contoso 决定停用其旧的本地 VPN 连接。 任何分支（用于继续访问 HQ 或 DC 网络）都能够使用 Azure 虚拟 WAN 的内置传输路由在 Azure 全球网络中传输内容。
 
 > [!NOTE]
-> 对于希望利用 Azure 主干网来补全其现有专用 WAN 的客户，ExpressRoute Global Reach 是替代选项。
+> 对于希望利用 Azure 主干网提供 ExpressRoute 到 ExpressRoute 的传输（图 7 中未显示）的客户，ExpressRoute Global Reach 是必需的。
+>
 
 ## <a name="end-state-architecture-and-traffic-paths"></a>最终状态体系结构和流量路径
 
-![最终状态体系结构和流量路径](./media/migrate-from-hub-spoke-topology/figure8.png)
-**插图：双区域虚拟 WAN**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure8.png" alt-text="最终状态体系结构和流量路径":::
+**图：双区域虚拟 WAN**
 
 本节通过介绍一些示例流量来概述此拓扑如何满足初始要求。
 
 ### <a name="path-1"></a>路径 1
 
-路径 1 显示了从亚洲连接 S2S VPN 的分支到东南亚区域 Azure VNet 的通信流。
+路径 1 显示了从亚洲的 S2S VPN 连接分支到“中国东部 2”区域的 Azure VNet 的通信流。
 
 流量按如下方式路由：
 
-- 亚洲分支通过启用了可复原 S2S BGP 的隧道连接到东南亚虚拟 WAN 中心。
+* 亚洲分支将通过启用了可复原 S2S BGP 的隧道连接到中国东南部 2 虚拟 WAN 中心。
 
-- 亚洲虚拟 WAN 中心将流量本地路由到连接的 VNet。
+* 亚洲虚拟 WAN 中心将流量本地路由到连接的 VNet。
 
-![流量流 1](./media/migrate-from-hub-spoke-topology/flow1.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="流量流 1":::
 
 ### <a name="path-2"></a>路径 2
 
-路径 2 显示了从连接 ExpressRoute 的欧洲总部到东南亚区域 Azure VNet 的通信流。
+路径 2 显示了从 ExpressRoute 的已连接的欧洲总部到“中国东部 2”区域中的 Azure VNet 的通信流。
 
 流量按如下方式路由：
 
-- 欧洲总部通过高级 ExpressRoute 线路连接到西欧虚拟 WAN 中心。
+* 欧洲总部将通过 ExpressRoute 线路连接到中国东部 2 虚拟 WAN 中心。
 
-- 虚拟 WAN 中心到中心全球连接确保流量能够传输到远程区域中连接的 VNet。
+* 虚拟 WAN 中心到中心全球连接确保流量能够传输到远程区域中连接的 VNet。
 
-![流量流 2](./media/migrate-from-hub-spoke-topology/flow2.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="流量流 2":::
 
 ### <a name="path-3"></a>路径 3
 
@@ -203,42 +205,42 @@ a  。 删除辐射虚拟网络到旧的客户托管中心的现有对等连接�
 
 流量按如下方式路由：
 
-- 亚洲 DC 连接到本地专用 WAN 运营商。
+* 亚洲 DC 连接到本地专用 WAN 运营商。
 
-- 专用 WAN 中的 ExpressRoute 线路本地终端连接到东南亚虚拟 WAN 中心。
+* 专用 WAN 中的 ExpressRoute 线路本地终端连接到中国东部 2 虚拟 WAN 中心。
 
-- 虚拟 WAN 中心之间的全球连接可实现流量传输。
+* 虚拟 WAN 中心之间的全球连接可实现流量传输。
 
-![流量流 3](./media/migrate-from-hub-spoke-topology/flow3.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="流量流 3":::
 
 ### <a name="path-4"></a>路径 4
 
-路径 4 显示了从东南亚区域 Azure VNet 到西欧区域 Azure VNet 的通信流。
+路径 4 显示了从“中国东部 2”区域中的 Azure VNet 到“中国东部”区域中的 Azure VNet 的通信流。
 
 流量按如下方式路由：
 
-- 虚拟 WAN 中心之间的全球连接确保无需进一步的用户配置即可本地传输所有连接的 Azure VNet。
+* 虚拟 WAN 中心之间的全球连接确保无需进一步的用户配置即可本地传输所有连接的 Azure VNet。
 
-![流量流 4](./media/migrate-from-hub-spoke-topology/flow4.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="流量流 4":::
 
 ### <a name="path-5"></a>路径 5
 
-路径 5 显示了从漫游 VPN (P2S) 用户到西欧区域 Azure VNet 的通信流。
+路径 5 显示了从漫游 VPN (P2S) 用户到“中国东部”区域中的 Azure VNet 的通信流。
 
 流量按如下方式路由：
 
-- 笔记本电脑和移动设备用户使用 OpenVPN 客户端实现与西欧 P2S VPN 网关的透明连接。
+* 笔记本电脑和移动设备用户使用 OpenVPN 客户端实现与中国东部 P2S VPN 网关的透明连接。
 
-- 西欧虚拟 WAN 中心将流量本地路由到连接的 VNet。
+* 中国东部虚拟 WAN 中心将流量本地路由到连接的 VNet。
 
-![流量流 5](./media/migrate-from-hub-spoke-topology/flow5.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="流量流 5":::
 
 ## <a name="security-and-policy-control-via-azure-firewall"></a>通过 Azure 防火墙的安全和策略控制
 
 Contoso 现已按照本文前面部分讨论的要求验证了所有分支与 VNet 之间的连接。 为满足对安全控制和网络隔离的要求，他们需要继续通过中心网络来分离和记录流量。 以前，此功能是由网络虚拟设备 (NVA) 执行的。 Contoso 还希望停用其现有代理服务，并利用本机 Azure 服务进行出站 Internet 筛选。
 
-![通过 Azure 防火墙进行的安全和策略控制](./media/migrate-from-hub-spoke-topology/security-policy.png)
-**插图：虚拟 WAN（安全虚拟中心）中的 Azure 防火墙**
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/security-policy.png" alt-text="通过 Azure 防火墙的安全和策略控制":::
+**图：虚拟 WAN（安全虚拟中心）中的 Azure 防火墙**
 
 若要将 Azure 防火墙引入虚拟 WAN 中心以启用统一的策略控制点，需要执行以下高级步骤。
 
@@ -248,7 +250,10 @@ Contoso 现已按照本文前面部分讨论的要求验证了所有分支与 VN
 2. 将防火墙策略链接到 Azure 虚拟 WAN 中心。 此步骤允许现有的虚拟 WAN 中心充当安全虚拟中心，并部署所需的 Azure 防火墙资源。
 
 > [!NOTE]
-> 如果 Azure 防火墙部署在标准虚拟 WAN 中心（SKU：标准）：仅对源自连接到部署有 Azure FW 的特定中心（安全中心）的 VNet 和分支的流量执行 V2V、B2V、V2I 和 B2I FW 策略。 即使远程分支和 VNet 通过虚拟 WAN 中心到中心链接进行互连，也不会对源自附加到同一虚拟 WAN 中其他虚拟 WAN 中心的远程 VNet 和分支的流量进行“防火墙处理”。 Azure 虚拟 WAN 和防火墙管理器未来将支持跨中心防火墙处理。
+> 存在与使用安全虚拟中心（包括区域间流量）相关的约束。
+>
+
+<!--Not Available on For more information, see [Firewall Manager - known issues](../firewall-manager/overview.md#known-issues)-->
 
 以下路径显示了通过使用 Azure 安全虚拟中心启用的连接路径：
 
@@ -258,11 +263,11 @@ Contoso 现已按照本文前面部分讨论的要求验证了所有分支与 VN
 
 流量按如下方式路由：
 
-- 连接到同一安全虚拟中心的虚拟网络现通过 Azure 防火墙路由流量。
+* 连接到同一安全虚拟中心的虚拟网络现通过 Azure 防火墙路由流量。
 
-- Azure 防火墙可将策略应用这些流量流。
+* Azure 防火墙可将策略应用这些流量流。
 
-![流量流 6](./media/migrate-from-hub-spoke-topology/flow6.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="流量流 6":::
 
 ### <a name="path-7"></a>路径 7
 
@@ -270,11 +275,11 @@ Contoso 现已按照本文前面部分讨论的要求验证了所有分支与 VN
 
 流量按如下方式路由：
 
-- 连接到安全虚拟中心的虚拟网络使用安全中心作为 Internet 访问的中心点，可以将流量发送到 Internet 上的公共目标位置。
+* 连接到安全虚拟中心的虚拟网络使用安全中心作为 Internet 访问的中心点，可以将流量发送到 Internet 上的公共目标位置。
 
-- 可使用 Azure 防火墙 FQDN 规则以本地方式筛选此流量，也可将其发送到第三方安全服务进行检查。
+* 可使用 Azure 防火墙 FQDN 规则以本地方式筛选此流量，也可将其发送到第三方安全服务进行检查。
 
-![流量流 7](./media/migrate-from-hub-spoke-topology/flow7.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="流量流 7":::
 
 ### <a name="path-8"></a>路径 8
 
@@ -282,15 +287,14 @@ Contoso 现已按照本文前面部分讨论的要求验证了所有分支与 VN
 
 流量按如下方式路由：
 
-- 连接到安全虚拟中心的分支使用安全中心作为 Internet 访问的中心点，可以将流量发送到 Internet 上的公共目标位置。
+* 连接到安全虚拟中心的分支使用安全中心作为 Internet 访问的中心点，可以将流量发送到 Internet 上的公共目标位置。
 
-- 可使用 Azure 防火墙 FQDN 规则以本地方式筛选此流量，也可将其发送到第三方安全服务进行检查。
+* 可使用 Azure 防火墙 FQDN 规则以本地方式筛选此流量，也可将其发送到第三方安全服务进行检查。
 
-![流量流 8](./media/migrate-from-hub-spoke-topology/flow8.png) 
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="流量流 8":::
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解 [Azure 虚拟 WAN](virtual-wan-about.md)
+详细了解 [Azure 虚拟 WAN](virtual-wan-about.md)。
 
-<!-- Update_Description: new article about migrate from hub spoke topology -->
-<!--NEW.date: 05/06/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

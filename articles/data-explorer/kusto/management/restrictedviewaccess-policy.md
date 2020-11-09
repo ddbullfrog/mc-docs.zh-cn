@@ -1,6 +1,6 @@
 ---
 title: Kusto RestrictedViewAccess 策略管理 - Azure 数据资源管理器
-description: 本文介绍 Azure 数据资源管理器中的 RestrictedViewAccess 策略。
+description: 了解 Azure 数据资源管理器中的 RestrictedViewAccess 策略命令。 了解如何查看、启用、禁用、更改和删除此策略。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/24/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 19aa21d3a5fc6b324069d4d392fb65ca9a9c0875
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 703c909aa54ac3247d629f4b812370f3a56709a8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515669"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106341"
 ---
 # <a name="restricted_view_access-policy-command"></a>restricted_view_access 策略命令
 

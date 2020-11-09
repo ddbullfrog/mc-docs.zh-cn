@@ -2,19 +2,19 @@
 title: Azure Database for PostgreSQL 单服务器文档
 summary: 用于 PostgreSQL 的 Azure 数据库是基于开源 Postgres 数据库引擎的关系型数据库服务。  单服务器是创建 postgres 服务器的各种部署选项之一。 通过我们的快速入门、教程和示例了解如何使用单服务器。
 metadata:
-  description: Azure Database for PostgreSQL 是 Microsoft 云中的关系型数据库服务，它基于开源 PostgreSQL 数据库引擎，专为开发人员而构建。
+  description: Azure Database for PostgreSQL 是 Azure 云中的关系型数据库服务，它基于开源 PostgreSQL 数据库引擎，专为开发人员而构建。
   author: WenJason
   ms.author: v-jay
   origin.date: 09/20/2020
   ms.date: 10/19/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 93186022bb0bf348670f94b85decb3b1baba5b01
-  ms.sourcegitcommit: ba01e2d1882c85ebeffef344ef57afaa604b53a0
+  ms.openlocfilehash: 980ecf86bd394b554d77f1c5a95e928e5f9cc503
+  ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92041906"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93104608"
 landingContent:
 - title: 关于单服务器
   linkLists:

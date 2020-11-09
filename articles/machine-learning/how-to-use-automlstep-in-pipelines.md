@@ -5,21 +5,22 @@ description: AutoMLStep 允许在管道中使用自动化机器学习。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 06/15/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 84ad213ce41ce43cddeb904303c91bcfb2008468
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+origin.date: 08/26/2020
+ms.date: 11/09/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 21c9e43ce64bd47a57a79affa2ec53ad76cec362
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118505"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104796"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>在 Python 的 Azure 机器学习管道中使用自动化 ML
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure 机器学习的自动化 ML 功能可帮助你发现高性能模型，而无需重新实现所有可能的方法。 结合 Azure 机器学习管道，你可以创建可部署的工作流，这些工作流可以快速发现最适合你的数据的算法。 本文将介绍如何有效地将数据准备步骤与自动化 ML 步骤结合起来。 自动化 ML 可以快速发现最适合你的数据的算法，同时让你开始使用 MLOps，并使用管道对生命周期操作进行建模。
 
@@ -29,7 +30,7 @@ Azure 机器学习的自动化 ML 功能可帮助你发现高性能模型，而�
 
 * Azure 机器学习工作区。 请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。  
 
-* 基本熟悉 Azure 的[自动化机器学习](concept-automated-ml.md)和[机器学习管道](concept-ml-pipelines.md)设施和 SDK。
+* 熟悉 Azure 的[自动化机器学习](concept-automated-ml.md)和[机器学习管道](concept-ml-pipelines.md)设施和 SDK。
 
 ## <a name="review-automated-mls-central-classes"></a>查看自动化 ML 的中心类
 
@@ -37,13 +38,11 @@ Azure 机器学习的自动化 ML 功能可帮助你发现高性能模型，而�
 
 `PipelineStep` 有多个子类。 除了 `AutoMLStep`，本文还将显示一个 `PythonScriptStep` 用于数据准备，另一个用于注册模型。
 
-最初将数据移动到 ML 管道时，首选方法是使用 `Dataset` 对象__。 若要在步骤之间移动数据，首选方法是使用 `PipelineData` 对象__。 若要与 `AutoMLStep` 结合使用，必须将 `PipelineData` 对象转换为 `PipelineOutputTabularDataset` 对象。 有关详细信息，请参阅[来自 ML 管道的输入和输出数据](how-to-move-data-in-out-of-pipelines.md)。
+最初将数据移动到 ML 管道时，首选方法是使用 `Dataset` 对象。 若要在步骤之间移动数据，首选方法是使用 `PipelineData` 对象。 若要与 `AutoMLStep` 结合使用，必须将 `PipelineData` 对象转换为 `PipelineOutputTabularDataset` 对象。 有关详细信息，请参阅[来自 ML 管道的输入和输出数据](how-to-move-data-in-out-of-pipelines.md)。
 
 
 > [!TIP]
-> 公共预览版类 `OutputFileDatasetConfig` 和 `OutputTabularDatasetConfig` 改进了在管道步骤之间传递临时数据的体验。  这些类属于试验性预览功能，可能会随时发生变化。
-> 
->若要详细了解试验性功能，请参阅 https://aka.ms/azuremlexperimental 。
+> 公共预览版类 [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) 和 [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) 改进了在管道步骤之间传递临时数据的体验。  这些类属于[试验性](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental)预览功能，可能会随时发生变化。
 
 通过 `AutoMLConfig` 对象配置 `AutoMLStep`。 `AutoMLConfig` 是一个灵活的类，如[使用 Python 配置自动化 ML 试验](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings)中所述。 
 
@@ -75,7 +74,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-代码首先登录到 config.json 中定义的 Azure 机器学习工作区（有关说明，请参阅****[教程：开始使用 Python SDK 创建第一个 ML 试验](tutorial-1st-experiment-sdk-setup.md)）。 如果尚未注册名为 `'titanic_ds'` 的数据集，该 SDK 将创建它。 代码从 Web 下载 CSV 数据，使用这些数据实例化 `TabularDataset`，然后将数据集注册到工作区。 最后，函数 `Dataset.get_by_name()` 将 `Dataset` 分配给 `titanic_ds`。 
+代码首先登录到 config.json 中定义的 Azure 机器学习工作区（有关说明，请参阅[教程：开始使用 Python SDK 创建第一个 ML 试验](tutorial-1st-experiment-sdk-setup.md)）。 如果尚未注册名为 `'titanic_ds'` 的数据集，该 SDK 将创建它。 代码从 Web 下载 CSV 数据，使用这些数据实例化 `TabularDataset`，然后将数据集注册到工作区。 最后，函数 `Dataset.get_by_name()` 将 `Dataset` 分配给 `titanic_ds`。 
 
 ### <a name="configure-your-storage-and-compute-target"></a>配置存储和计算目标
 
@@ -224,7 +223,7 @@ print(f"Wrote test to {args.output_path} and train to {args.output_path}")
 
 代码定义了数据准备函数之后，会解析输入参数，这是我们要写入数据的路径。 （这些值将由 `PipelineData` 对象确定，并将在下一步中进行讨论。）代码会检索已注册的 `'titanic_cs'` `Dataset`，将其转换为 Pandas `DataFrame`，并调用各种数据准备函数。 
 
-由于 `output_path` 是完全限定的，因此使用函数 `os.makedirs()` 来准备目录结构。 此时，你可以使用 `DataFrame.to_csv()` 来写入输出数据，但 Parquet 文件的效率更高。 对于此类小型数据集，这种效率可能无关紧要，但使用 PyArrow 包的 `from_pandas()` 和 `write_table()` 函数与使用 `to_csv()` 相比只是多按几次键盘而已****。
+由于 `output_path` 是完全限定的，因此使用函数 `os.makedirs()` 来准备目录结构。 此时，你可以使用 `DataFrame.to_csv()` 来写入输出数据，但 Parquet 文件的效率更高。 对于此类小型数据集，这种效率可能无关紧要，但使用 PyArrow 包的 `from_pandas()` 和 `write_table()` 函数与使用 `to_csv()` 相比只是多按几次键盘而已。
 
 下面讨论的自动化 ML 步骤本机支持 Parquet 文件，因此不需要进行特殊处理即可使用它们。 
 

@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 03/30/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 6356b17d4f52d8296ab22fb5bdba2b338d887009
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 829bcc8b1e573ce0daebcd819538d0fcc59f44f3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127802"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104506"
 ---
 <!--Verified Successfully-->
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
@@ -51,7 +51,7 @@ Azure 的 IMDS 是一个 REST 终结点，位于已知不可路由的 IP 地址 
 **请求**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
 ```
 
 <!--MOONCKE: CUSTOMIZATION-->
@@ -65,7 +65,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 **响应**
 
 > [!NOTE]
-> 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
+> 此响应是 JSON 字符串。 我们将 REST 查询通过 `ConvertTo-Json` cmdlet 进行管道传输，以实现良好的输出效果。
 
 <!--CORRECT ON "azEnvironment": "AzureChinaCloud"-->
 
@@ -262,13 +262,13 @@ name | VM 的名称 | 2017-04-02
 offer | 提供 VM 映像的信息，仅适用于从 Azure 映像库部署的映像 | 2017-04-02
 osType | Linux 或 Windows | 2017-04-02
 plan | 包含 VM 的名称、产品和发布者（如果是 Azure 市场映像）的[计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
-platformUpdateDomain |  正在运行 VM 的[更新域](manage-availability.md) | 2017-04-02
-platformFaultDomain | 正在运行 VM 的[容错域](manage-availability.md) | 2017-04-02
+platformUpdateDomain |  正在运行 VM 的[更新域](../manage-availability.md) | 2017-04-02
+platformFaultDomain | 正在运行 VM 的[容错域](../manage-availability.md) | 2017-04-02
 provider | VM 的提供商 | 2018-10-01
 publicKeys | [公钥的集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey)，已分配给 VM 和路径 | 2018-04-02
 publisher | VM 映像的发布者 | 2017-04-02
 resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/management/overview.md) | 2017-08-01
-ResourceId | 资源的[完全限定](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID | 2019-03-11
+resourceId | 资源的[完全限定](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID | 2019-03-11
 sku | VM 映像的特定 SKU | 2017-04-02
 securityProfile.secureBootEnabled | 标识是否在 VM 上启用了 UEFI 安全启动 | 2020-06-01
 securityProfile.virtualTpmEnabled | 标识是否在 VM 上启用了虚拟受信任的平台模块 (TPM) | 2020-06-01
@@ -756,7 +756,7 @@ Add-Type -AssemblyName System.Security
 $signedCms = New-Object -TypeName System.Security.Cryptography.Pkcs.SignedCms
 $signedCms.Decode($signature);
 $content = [System.Text.Encoding]::UTF8.GetString($signedCms.ContentInfo.Content)
-Write-Host "Attested data: " $conten
+Write-Host "Attested data: " $content
 $json = $content | ConvertFrom-Json
 # Do additional validation here
 ```
@@ -869,7 +869,7 @@ Visual Basic  | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 如果找不到某个数据元素，或者请求的格式不正确，则实例元数据服务返回标准 HTTP 错误。 例如：
 
-HTTP 状态代码 | Reason
+HTTP 状态代码 | 原因
 -----------------|-------
 200 正常 |
 400 错误的请求 | 查询叶节点时缺少 `Metadata: true` 标头或缺少参数 `format=json`
@@ -936,7 +936,7 @@ HTTP 状态代码 | Reason
             ... (continues) ...
             ```
             
-        1. 确认该接口对应于 VM 的主 NIC 和主 IP。 可以通过在 Azure 门户中查看网络配置，或[通过 Azure CLI](https://docs.azure.cn/cli/vm/nic#az-vm-nic-show) 查找来找到主 NIC/IP。 记下公共和专用 IP（如果使用 cli，还要记下 MAC 地址）。 PowerShell CLI 示例：
+        1. 确认该接口对应于 VM 的主 NIC 和主 IP。 可以通过在 Azure 门户中查看网络配置，或[通过 Azure CLI](https://docs.azure.cn/cli/vm/nic#az_vm_nic_show) 查找来找到主 NIC/IP。 记下公共和专用 IP（如果使用 cli，还要记下 MAC 地址）。 PowerShell CLI 示例：
             
             ```powershell
             $ResourceGroup = '<Resource_Group>'

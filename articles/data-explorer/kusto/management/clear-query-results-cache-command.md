@@ -1,6 +1,6 @@
 ---
 title: 清除查询结果缓存 - Azure 数据资源管理器
-description: 本文介绍用于在 Azure 数据资源管理器中清除缓存的数据库架构的管理命令。
+description: 了解如何在 Azure 数据资源管理器中清除缓存的查询结果。 了解要使用的命令并查看示例。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
@@ -8,13 +8,13 @@ ms.reviewer: amitof
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/16/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 54aa99a1b4ae56d07d56b27798ef65344d5aa94a
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: b5d4d0df26eed8dd65216399c01aa0808ce55619
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515917"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106119"
 ---
 # <a name="clear-query-results-cache"></a>清除查询结果缓存
 

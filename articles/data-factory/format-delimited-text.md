@@ -7,15 +7,15 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 09/15/2020
-ms.date: 10/19/2020
+origin.date: 10/16/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: 16632cb17c7e0c56b42c0b2f870dae9d2be016e7
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: 03c0dc3be26de7d66542d5c9c6d95e4b957fe0a3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121701"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105809"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Azure 数据工厂中带分隔符的文本格式
 
@@ -35,8 +35,8 @@ ms.locfileid: "92121701"
 | location         | 文件的位置设置。 每个基于文件的连接器在 `location` 下都有其自己的位置类型和支持的属性。  | 是      |
 | columnDelimiter  | 用于分隔文件中的列的字符。 <br>默认值为“逗号(`,`)”。 当列分隔符定义为空字符串（意味着没有分隔符）时，整行将被视为单个列。 | 否       |
 | rowDelimiter     | 用于分隔文件中的行的单个字符或“\r\n”。 <br>由复制活动读取或写入时，默认值分别为：[“\r\n”、“\r”、“\n”] 和“\n”或“\r\n” 。 | 否       |
-| quoteChar        | 当列包含列分隔符时，用于括住列值的单个字符。 <br>默认值为 **双引号** `"`。 <br>对于复制活动，当 `quoteChar` 定义为空字符串时，表示不使用引号字符且不用引号括住列值，`escapeChar` 用于转义列分隔符和值本身。 | 否       |
-| escapeChar       | 用于转义括住值中的引号的单个字符。<br>默认值为 **反斜杠`\`** 。 <br/>对于复制活动，当 `escapeChar` 定义为空字符串时，`quoteChar` 也必须设置为空字符串，在这种情况下，应确保所有列值不包含分隔符。 | 否       |
+| quoteChar        | 当列包含列分隔符时，用于括住列值的单个字符。 <br>默认值为 **双引号** `"`。 <br>将 `quoteChar` 定义为空字符串时，它表示不使用引号字符且不用引号括住列值，`escapeChar` 用于转义列分隔符和值本身。 | 否       |
+| escapeChar       | 用于转义括住值中的引号的单个字符。<br>默认值为 **反斜杠`\`** 。 <br>将 `escapeChar` 定义为空字符串时，`quoteChar` 也必须设置为空字符串。在这种情况下，应确保所有列值不包含分隔符。 | 否       |
 | firstRowAsHeader | 指定是否要将第一行视为/设为包含列名称的标头行。<br>允许的值为 **true** 和 **true** （默认值）。 | 否       |
 | nullValue        | 指定 null 值的字符串表示形式。 <br>默认值为 **空字符串** 。 | 否       |
 | encodingName     | 用于读取/写入测试文件的编码类型。 <br>可用的值如下："UTF-8"、"UTF-16"、"UTF-16BE"、"UTF-32"、"UTF-32BE"、"US-ASCII"、“UTF-7”、"BIG5"、"EUC-JP"、"EUC-KR"、"GB2312"、"GB18030"、"JOHAB"、"SHIFT-JIS"、"CP875"、"CP866"、"IBM00858"、"IBM037"、"IBM273"、"IBM437"、"IBM500"、"IBM737"、"IBM775"、"IBM850"、"IBM852"、"IBM855"、"IBM857"、"IBM860"、"IBM861"、"IBM863"、"IBM864"、"IBM865"、"IBM869"、"IBM870"、"IBM01140"、"IBM01141"、"IBM01142"、"IBM01143"、"IBM01144"、"IBM01145"、"IBM01146"、"IBM01147"、"IBM01148"、"IBM01149"、"ISO-2022-JP"、"ISO-2022-KR"、"ISO-8859-1"、"ISO-8859-2"、"ISO-8859-3"、"ISO-8859-4"、"ISO-8859-5"、"ISO-8859-6"、"ISO-8859-7"、"ISO-8859-8"、"ISO-8859-9"、"ISO-8859-13"、"ISO-8859-15"、"WINDOWS-874"、"WINDOWS-1250"、"WINDOWS-1251"、"WINDOWS-1252"、"WINDOWS-1253"、"WINDOWS-1254"、"WINDOWS-1255"、"WINDOWS-1256"、"WINDOWS-1257"、"WINDOWS-1258”。 | 否       |
@@ -77,7 +77,7 @@ ms.locfileid: "92121701"
 
 ### <a name="delimited-text-as-source"></a>带分隔符的文本作为源 
 
-复制活动的 ***\*source\**** 节支持以下属性。
+复制活动的 **_\_source\*** * 节支持以下属性。
 
 | 属性       | 说明                                                  | 必须 |
 | -------------- | ------------------------------------------------------------ | -------- |
@@ -125,7 +125,7 @@ ms.locfileid: "92121701"
 
 ### <a name="delimited-text-as-sink"></a>带分隔符的文本作为接收器
 
-复制活动的 ***\*sink\**** 节支持以下属性。
+复制活动的 **\_sink\*** 节支持以下属性。
 
 | 属性       | 说明                                                  | 必须 |
 | -------------- | ------------------------------------------------------------ | -------- |

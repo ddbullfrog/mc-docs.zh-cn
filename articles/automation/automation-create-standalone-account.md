@@ -4,14 +4,14 @@ description: 本文介绍如何创建独立的 Azure 自动化帐户和经典运
 services: automation
 ms.subservice: process-automation
 origin.date: 01/15/2019
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: df0bb5c5d7053b2783f52df7ab4e083256da3958
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: e05d3c0535e6d0653907a949dde8eb56dc27e8f1
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943497"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750208"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 
@@ -23,7 +23,7 @@ ms.locfileid: "91943497"
 
 * 在 Azure Active Directory (Azure AD) 中创建服务主体。
 * 创建证书。
-* 向参与者分配基于角色的访问控制 (RBAC)，以便使用 Runbook 管理 Azure 资源管理器资源。
+* 分配“参与者”角色，以便使用 Runbook 管理 Azure 资源管理器资源。
 
 使用系统创建的此帐户，可以快速开始构建和部署 Runbook 来支持自动化需求。
 
@@ -75,7 +75,7 @@ ms.locfileid: "91943497"
    > [!NOTE]
    > 如果选择不创建运行方式帐户，则选择“否”，“添加自动化帐户”窗格中会显示一条消息。  尽管该帐户是在 Azure 门户中创建的，但它在经典部署模型订阅或 Azure 资源管理器订阅目录服务中没有对应的身份验证标识。 因此，自动化帐户无法访问订阅中的资源。 这会导致引用此帐户的任何 Runbook 无法进行身份验证，也无法针对这些部署模型中的资源执行任务。
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="提示“你无权在 Azure Active Directory 中创建运行方式帐户”的屏幕截图。":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="带有“你已选择不创建运行方式帐户”消息的提示的屏幕截图。":::
    >
    > 未创建服务主体时不会分配参与者角色。
    >

@@ -7,13 +7,13 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: b4b3cde1e58859cbd08f730f88d9e2c8d7e12a01
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: d884b7de2534155e8330ee1d5ce299347a6f1b81
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146764"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105169"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>使用 PowerShell 创建 Azure 数据资源管理器群集和数据库
 
@@ -23,11 +23,12 @@ ms.locfileid: "91146764"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
+> * [Go](create-cluster-database-go.md)
 > * [ARM 模板](create-cluster-database-resource-manager.md)  
 
 Azure 数据资源管理器是一项快速、完全托管的数据分析服务，用于实时分析从应用程序、网站和 IoT 设备等资源流式传输的海量数据。 若要使用 Azure 数据资源管理器，请先创建群集，再在该群集中创建一个或多个数据库。 然后将数据引入（加载）到数据库，以便对其运行查询。 在本文中，将使用 Powershell 创建群集和数据库。 可以在 Windows、Linux 或 [Azure CLI](https://docs.azure.cn/cli/?view=azure-cli-latest) 中使用 [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) 运行 PowerShell cmdlet 和脚本，以创建和配置 Azure 数据资源管理器群集和数据库。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [updated-for-az](includes/updated-for-az.md)]
 
@@ -39,7 +40,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 ## <a name="configure-parameters"></a>配置参数
 
-如果在 Azure Powershell 中运行命令，则不需要执行以下步骤。 如果在本地运行 CLI，请按步骤 1 和 2 登录到 Azure 并设置当前订阅：
+如果在 Azure PowerShell 中运行命令，则不需要执行以下步骤。 如果在本地运行 CLI，请按步骤 1 和 2 登录到 Azure 并设置当前订阅：
 
 1. 运行以下命令来登录到 Azure：
 
@@ -52,7 +53,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
     ```azurepowershell
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-1. 在本地或 Azure Powershell 中运行 Azure CLI 时，需要在设备上安装 Az.Kusto 模块：
+1. 在本地或 Azure PowerShell 中运行 Azure CLI 时，需要在设备上安装 Az.Kusto 模块：
 
     ```azurepowershell
      Install-Module -Name Az.Kusto
@@ -92,8 +93,8 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
    |**设置** | **建议的值** | **字段说明**|
    |---|---|---|
-   | ClusterName | mykustocluster  | 将在其中创建数据库的群集的名称。|
-   | 名称 | mykustodatabase  | 数据库名称。|
+   | ClusterName | mykustocluster | 将在其中创建数据库的群集的名称。|
+   | 名称 | mykustodatabase | 数据库名称。|
    | ResourceGroupName | *testrg* | 将在其中创建群集的资源组名称。 |
    | SoftDeletePeriod | *3650:00:00:00* | 供查询使用的数据的保留时间。 |
    | HotCachePeriod | *3650:00:00:00* | 数据将在缓存中保留的时间。 |
@@ -118,4 +119,4 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 ## <a name="next-steps"></a>后续步骤
 
 * [其他 Az.Kusto 命令](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
-* [使用 Azure 数据资源管理器 .NET Standard SDK（预览版）引入数据](net-standard-ingest-data.md)
+* [使用 Azure 数据资源管理器 .NET Standard SDK（预览版）引入数据](./net-sdk-ingest-data.md)

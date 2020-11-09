@@ -10,13 +10,13 @@ ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/01/2020
-ms.openlocfilehash: db1e7fb30e9a70a988f1e4c6b02316231fa924e5
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.date: 10/02/2020
+ms.openlocfilehash: 9aa7b41508dead6f5b8dcc1e9efe1973426997d4
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118177"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106267"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>创建并附加 Azure Kubernetes 服务群集
 
@@ -44,6 +44,7 @@ Azure 机器学习可以将经过训练的机器学习模型部署到 Azure Kube
 
     授权 IP 范围仅适用于标准负载均衡器。
 
+- 如果要使用专用 AKS 群集（使用 Azure 专用链接），则必须先创建群集，然后再将其附加到工作区。 有关详细信息，请参阅[创建专用 Azure Kubernetes 服务群集](/azure/aks/private-clusters)。
 
 - AKS 群集的计算名称在 Azure ML 工作区中必须是唯一的。
     - 名称是必须提供的，且长度必须介于 3 到 24 个字符之间。
@@ -203,7 +204,7 @@ az ml computetarget create aks -n myaks
 
 ## <a name="attach-an-existing-aks-cluster"></a>附加现有的 AKS 群集
 
-时间估计  ：大约 5 分钟。
+时间估计：大约 5 分钟。
 
 如果 Azure 订阅中已有 AKS 群集并且其版本为 1.17 或更低版本，则可以使用该群集来部署映像。
 
@@ -277,6 +278,31 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 有关在门户中附加 AKS 群集的信息，请参阅[在 Azure 机器学习工作室中创建计算目标](how-to-create-attach-compute-studio.md#inference-clusters)。
 
 ---
+
+## <a name="detach-an-aks-cluster"></a>拆离 AKS 群集
+
+若要从工作区拆离群集，请使用以下方法之一：
+
+> [!WARNING]
+> 使用 Azure 机器学习工作室、SDK 或适用于机器学习的 Azure CLI 扩展来拆离 AKS 群集不会删除 AKS 群集。 若要删除群集，请参阅[将 Azure CLI 与 AKS 配合使用](/aks/kubernetes-walkthrough#delete-the-cluster)。
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+aks_target.detach()
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+若要将现有群集与工作区拆离，请使用以下命令。 将 `myaks` 替换为 AKS 群集附加到工作区时采用的名称。 将 `myresourcegroup` 替换为包含工作区的资源组。 将 `myworkspace` 替换为工作区名称。
+
+```azurecli
+az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+在 Azure 机器学习工作室中，选择“计算”、“推理群集”以及要删除的群集。 使用“拆离”链接拆离群集。
 
 ## <a name="next-steps"></a>后续步骤
 

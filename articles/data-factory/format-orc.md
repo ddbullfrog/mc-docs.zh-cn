@@ -7,15 +7,15 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 09/15/2020
-ms.date: 10/19/2020
+origin.date: 09/28/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: 6b5da3b6b9089cf7e61e298f853ad6404006e68d
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: ae6f6a87964685ca592c2b533fb970fec6c9ab35
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121700"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105812"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Azure 数据工厂中的 ORC 格式
 
@@ -33,12 +33,13 @@ ms.locfileid: "92121700"
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 数据集的 type 属性必须设置为 **Orc** 。 | 是      |
 | location         | 文件的位置设置。 每个基于文件的连接器在 `location` 下都有其自己的位置类型和支持的属性。 **请在连接器文章 -> 数据集属性部分中查看详细信息** 。 | 是      |
+| compressionCodec         | 写入到 ORC 文件时要使用的压缩编解码器。 从 ORC 文件中读取时，数据工厂会基于文件元数据自动确定压缩编解码器。<br>支持的类型为“none”、“zlib”、“snappy”（默认值）和“lzo”。 请注意，复制活动目前在读取/写入 ORC 文件时不支持 LZO。 | 否      |
 
 下面是 Azure Blob 存储上的 ORC 数据集的示例：
 
 ```json
 {
-    "name": "ORCDataset",
+    "name": "OrcDataset",
     "properties": {
         "type": "Orc",
         "linkedServiceName": {
@@ -61,7 +62,6 @@ ms.locfileid: "92121700"
 
 * 不支持复杂数据类型（STRUCT、MAP、LIST、UNION）。
 * 不支持列名称中的空格。
-* ORC 文件有三个[压缩相关的选项](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)：NONE、ZLIB、SNAPPY。 数据工厂支持从使用其中任一压缩格式的 ORC 文件中读取数据。 它使用元数据中的压缩编解码器来读取数据。 但是，写入 ORC 文件时，数据工厂会选择 ZLIB，这是 ORC 的默认选项。 目前没有任何选项可以重写此行为。
 
 ## <a name="copy-activity-properties"></a>复制活动属性
 
@@ -78,11 +78,11 @@ ms.locfileid: "92121700"
 
 ### <a name="orc-as-sink"></a>以 ORC 作为接收器
 
-复制活动的 ***\*sink\**** 节支持以下属性。
+复制活动的 **\_sink\*** 节支持以下属性。
 
-| 属性      | 说明                                                  | 必须 |
+| properties      | 说明                                                  | 必须 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 复制活动源的 type 属性必须设置为 OrcSink  。 | 是      |
+| type          | 复制活动接收器的 type 属性必须设置为 OrcSink。 | 是      |
 | formatSettings | 一组属性。 请参阅下面的“ORC 写入设置”表。 |    否      |
 | storeSettings | 有关如何将数据写入到数据存储的一组属性。 每个基于文件的连接器在 `storeSettings` 下都有其自身支持的写入设置。 **请在连接器文章 -> 复制活动属性部分中查看详细信息** 。 | 否       |
 
@@ -106,7 +106,7 @@ ms.locfileid: "92121700"
 - **若要安装 Visual C++ 2010 Redistributable Package** ：安装自承载 IR 时未安装 Visual C++ 2010 Redistributable Package。 可在[此处](https://www.microsoft.com/download/details.aspx?id=14632)找到它。
 
 > [!TIP]
-> 如果使用自承载集成运行时将数据复制为 ORC 格式或从 ORC 格式复制数据，并遇到“调用 java 时发生错误，消息: java.lang.OutOfMemoryError:Java 堆空间”的错误，则可以在托管自承载 IR 的计算机中添加环境变量 `_JAVA_OPTIONS`，以便调整 JVM 的最小/最大堆大小，以支持此类复制，然后重新运行管道  。
+> 如果使用自承载集成运行时将数据复制为 ORC 格式或从 ORC 格式复制数据，并遇到“调用 java 时发生错误，消息: java.lang.OutOfMemoryError:Java 堆空间”的错误，则可以在托管自承载 IR 的计算机中添加环境变量 `_JAVA_OPTIONS`，以便调整 JVM 的最小/最大堆大小，以支持此类复制，然后重新运行管道。
 
 ![在自承载 IR 上设置 JVM 堆大小](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 

@@ -3,21 +3,21 @@ title: 智能检测 - 性能异常 | Azure Docs
 description: Application Insights 执行应用遥测的智能分析，并在有潜在问题时发出警告。 此功能不需要任何设置。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 07/17/2020
+ms.date: 10/29/2020
 ms.reviewer: antonfr
 ms.author: v-johya
-ms.openlocfilehash: 10c8c57ff77dd8ea0236f9c5b833df753a6ccebf
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: ba029f8aa3443f2a8880d2a4fbf12026f1718480
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244606"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103649"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智能检测 - 性能异常
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) 可自动分析 Web 应用程序的性能，并在出现潜在问题时发出警告。 我们会通过邮件将智能检测通知发送给你。
+[Application Insights](./app-insights-overview.md) 可自动分析 Web 应用程序的性能，并在出现潜在问题时发出警告。 我们会通过邮件将智能检测通知发送给你。
 
-不需要对此功能进行任何特殊设置，只需在应用中为[支持的语言](../../azure-monitor/app/platforms.md)配置 Application Insights 即可。 在应用生成足够多的遥测数据后，此功能会激活。
+不需要对此功能进行任何特殊设置，只需在应用中为[支持的语言](./platforms.md)配置 Application Insights 即可。 在应用生成足够多的遥测数据后，此功能会激活。
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>我何时会收到智能检测通知？
 
@@ -41,17 +41,17 @@ Application Insights 已根据以下依据之一检测到应用程序出现性�
 
 ![下面是“服务器响应时间延长”检测的示例](./media/proactive-performance-diagnostics/server_response_time_degradation.png)
 
-1. **会审**。 通知会显示有多少用户或多少操作受到影响。 这可以帮助你对问题分配优先级。
-2. **范围**。 该问题是影响所有流量，还是只影响某些页面？ 它是否只出现在特定的浏览器或位置中？ 可以从通知中获取此信息。
-3. **诊断**。 通常，通知的诊断信息会提示问题的性质。 例如，如果请求率较高时响应速度变慢，则表示服务器或依赖项过载。 
+1. **会审** 。 通知会显示有多少用户或多少操作受到影响。 这可以帮助你对问题分配优先级。
+2. **范围** 。 该问题是影响所有流量，还是只影响某些页面？ 它是否只出现在特定的浏览器或位置中？ 可以从通知中获取此信息。
+3. **诊断** 。 通常，通知的诊断信息会提示问题的性质。 例如，如果请求率较高时响应速度变慢，则表示服务器或依赖项过载。 
 
-    否则，可在 Application Insights 中打开“性能”边栏选项卡， 在其中可以找到[探查器](profiler.md)数据。 如果引发了异常，你也可以试用快照调试器。
+    否则，可在 Application Insights 中打开“性能”边栏选项卡， 在其中可以找到[探查器](profiler.md)数据。 如果引发了异常，还可以尝试[快照调试器](./snapshot-debugger.md)。
 
 
 
 ## <a name="configure-email-notifications"></a>配置电子邮件通知
 
-智能检测通知默认已启用，将发送给对 Application Insights 资源所在的订阅具有[监视读取者](/role-based-access-control/built-in-roles#monitoring-reader)和[监视参与者](/role-based-access-control/built-in-roles#monitoring-contributor)访问权限的用户。 若要更改此配置，请在电子邮件通知中单击“配置”，或者在 Application Insights 中打开“智能检测”设置。 
+智能检测通知默认已启用，将发送给对 Application Insights 资源所在的订阅具有[监视读取者](../../role-based-access-control/built-in-roles.md#monitoring-reader)和[监视参与者](../../role-based-access-control/built-in-roles.md#monitoring-contributor)访问权限的用户。 若要更改此配置，请在电子邮件通知中单击“配置”，或者在 Application Insights 中打开“智能检测”设置。 
   
   ![智能检测设置](./media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -62,22 +62,22 @@ Application Insights 已根据以下依据之一检测到应用程序出现性�
 ## <a name="faq"></a>常见问题解答
 
 * *那么，Azure 员工会查看我的数据？*
-  * 不是。 该服务完全是自动的。 只有你会收到通知。 数据是[私有](../../azure-monitor/app/data-retention-privacy.md)数据。
+  * 不是。 该服务完全是自动的。 只有你会收到通知。 数据是[私有](./data-retention-privacy.md)数据。
 * *是否分析由 Application Insights 收集的所有数据？*
   * 目前不会。 目前，我们分析请求响应时间、依赖项响应时间和页面加载时间。 其他指标的分析功能正在规划中，今后有望推出。
 
 * 此功能适用于哪些类型的应用程序？
-  * 在生成相应遥测数据的任何应用程序中都可以检测到这些降级。 如果已在 Web 应用中安装 Application Insights，则可以自动跟踪请求和依赖项。 但在后端服务或其他应用中，如果插入 [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 或 [TrackDependency](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency) 调用，智能检测以相同的方式工作。
+  * 在生成相应遥测数据的任何应用程序中都可以检测到这些降级。 如果已在 Web 应用中安装 Application Insights，则可以自动跟踪请求和依赖项。 但在后端服务或其他应用中，如果插入 [TrackRequest()](./api-custom-events-metrics.md#trackrequest) 或 [TrackDependency](./api-custom-events-metrics.md#trackdependency) 调用，智能检测以相同的方式工作。
 
 * *是否可以创建自己的异常检测规则或自定义现有的规则？*
 
   * 目前不可以，但可以：
-    * [设置警报](/azure-monitor/platform/alerts-log)，以便在指标超出阈值时告知用户。
-    * [将遥测导出](../../azure-monitor/app/export-telemetry.md)到[数据库](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md)或 [Power BI](../../azure-monitor/app/export-power-bi.md )，可自行在其中进行分析。
+    * [设置警报](../platform/alerts-log.md)，以便在指标超出阈值时告知用户。
+    * [将遥测导出](./export-telemetry.md)到[数据库](./code-sample-export-sql-stream-analytics.md)或 [Power BI](./export-power-bi.md)，可自行在其中进行分析。
 * *执行分析的频率是多少？*
 
   * 我们每天针对前一天（UTC 时区整天）的遥测数据运行分析。
-* *那么这是否会替换[指标警报](/azure-monitor/platform/alerts-log)？*
+* *那么这是否会替换 [指标警报](../platform/alerts-log.md)？*
   * 不是。  我们不确定检测用户视为异常的每个行为。
 
 
@@ -94,17 +94,17 @@ Application Insights 已根据以下依据之一检测到应用程序出现性�
 
 使用影响声明（受影响的用户或流量百分比）作为一般原则，但请注意这并非全部。 收集其他证据以确认。
 
-考虑问题的参数。 如果它是地理位置相关的，请设置包括该区域在内的[可用性测试](../../azure-monitor/app/monitor-web-app-availability.md)：可能仅该区域存在网络问题。
+考虑问题的参数。 如果它是地理位置相关的，请设置包括该区域在内的[可用性测试](./monitor-web-app-availability.md)：可能仅该区域存在网络问题。
 
 ### <a name="diagnose-slow-page-loads"></a>诊断缓慢页面加载
 问题在哪儿？ 是服务器响应缓慢，页面过长，还是浏览器需要执行大量工作才能显示它？
 
 打开“浏览器”指标边栏选项卡。 浏览器页面加载时间的分段显示会显示时间的进展如何。 
 
-* 如果**发送请求时间**过高，则服务器响应速度缓慢，或者请求是包含大量数据的 post 请求。 查看[性能指标](../../azure-monitor/app/web-monitor-performance.md#metrics)以调查响应时间。
-* 设置[依赖项跟踪](../../azure-monitor/app/asp-net-dependencies.md)以查看缓慢是否由于外部服务或数据库引起的。
-* 如果**接收响应**占主导地位，则页面及其依赖部分（JavaScript、CSS、图像等（但并非异步加载的数据））较长。 设置[可用性测试](../../azure-monitor/app/monitor-web-app-availability.md)，并确保设置用于加载依赖部分的选项。 当获得一些结果时，打开某一结果的详细信息，展开它以查看不同文件的加载时间。
-* 高**客户端处理时间**表明脚本运行缓慢。 如果原因并不明显，请考虑添加一些计时代码并发送 trackMetric 调用中的时间。
+* 如果 **发送请求时间** 过高，则服务器响应速度缓慢，或者请求是包含大量数据的 post 请求。 查看[性能指标](./web-monitor-performance.md#metrics)以调查响应时间。
+* 设置[依赖项跟踪](./asp-net-dependencies.md)以查看缓慢是否由于外部服务或数据库引起的。
+* 如果 **接收响应** 占主导地位，则页面及其依赖部分（JavaScript、CSS、图像等（但并非异步加载的数据））较长。 设置[可用性测试](./monitor-web-app-availability.md)，并确保设置用于加载依赖部分的选项。 当获得一些结果时，打开某一结果的详细信息，展开它以查看不同文件的加载时间。
+* 高 **客户端处理时间** 表明脚本运行缓慢。 如果原因并不明显，请考虑添加一些计时代码并发送 trackMetric 调用中的时间。
 
 ### <a name="improve-slow-pages"></a>改进缓慢的页面
 存在其上充满关于改进服务器响应和页面加载时间的建议的 Web，因此我们不尝试在此处全都重复一遍。 以下是一些你可能已经知道的提示，仅供考虑：
@@ -176,12 +176,13 @@ Application Insights 可以找到只会影响一部分用户，或者只会在�
 这些诊断工具可帮助检查应用中的遥测数据：
 
 * [探查器](profiler.md) 
-* [分析](../../azure-monitor/log-query/get-started-portal.md)
-* [分析智能诊断](../../azure-monitor/log-query/log-query-overview.md)
-<!--Correct on link: ../../azure-monitor/log-query/log-query-overview.md -->
+* [快照调试器](./snapshot-debugger.md)
+* [分析](../log-query/get-started-portal.md)
+* [分析智能诊断](../log-query/log-query-overview.md)
 
 智能检测是完全自动执行的。 但是或许你想要设置更多的警报？
 
-* [手动配置的指标警报](/azure-monitor/platform/alerts-log)
-* [可用性 Web 测试](../../azure-monitor/app/monitor-web-app-availability.md)
+* [手动配置的指标警报](../platform/alerts-log.md)
+* [可用性 Web 测试](./monitor-web-app-availability.md)
+
 

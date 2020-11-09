@@ -9,15 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 08/03/2020
-ms.date: 09/21/2020
+origin.date: 10/12/2020
+ms.date: 11/02/2020
 ms.author: v-jay
-ms.openlocfilehash: 271aa3ca57bb4878ba489703832bb6643c1eb0d4
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: bdec40dced40adc6ff65c96835fbda20a8b7f888
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523780"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104552"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure 数据工厂中的复制活动
 
@@ -183,10 +183,11 @@ ms.locfileid: "90523780"
 除了将数据从源数据存储复制到接收器外，还可以进行配置，以便添加要一起复制到接收器的其他数据列。 例如：
 
 - 从基于文件的源复制时，将相对文件路径存储为一个附加列，用以跟踪数据来自哪个文件。
+- 将指定的源列复制为另一列。 
 - 添加包含 ADF 表达式的列，以附加 ADF 系统变量（例如管道名称/管道 ID），或存储来自上游活动输出的其他动态值。
 - 添加一个包含静态值的列以满足下游消耗需求。
 
-可以在复制活动源选项卡上找到以下配置： 
+可以在“复制活动源”选项卡上找到以下配置。也可以照常使用定义的列名在复制活动[架构映射](copy-activity-schema-and-type-mapping.md#schema-mapping)中映射这些附加列。 
 
 ![在复制活动中添加其他列](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -197,7 +198,7 @@ ms.locfileid: "90523780"
 
 | 属性 | 说明 | 必须 |
 | --- | --- | --- |
-| additionalColumns | 添加要复制到接收器的其他数据列。<br><br>`additionalColumns` 数组下的每个对象都表示一个额外的列。 `name` 定义列名称，`value` 表示该列的数据值。<br><br>允许的数据值为：<br>-  **`$$FILEPATH`** - 一个保留变量，指示将源文件的相对路径存储在数据集中指定的文件夹路径。 应用于基于文件的源。<br>- **表达式**<br>- **静态值** | 否 |
+| additionalColumns | 添加要复制到接收器的其他数据列。<br><br>`additionalColumns` 数组下的每个对象都表示一个额外的列。 `name` 定义列名称，`value` 表示该列的数据值。<br><br>允许的数据值为：<br>-  **`$$FILEPATH`** - 一个保留变量，指示将源文件的相对路径存储在数据集中指定的文件夹路径。 应用于基于文件的源。<br>-  **`$$COLUMN:<source_column_name>`** - 保留变量模式指示将指定的源列复制为另一个列<br>- **表达式**<br>- **静态值** | 否 |
 
 **示例：**
 
@@ -215,6 +216,10 @@ ms.locfileid: "90523780"
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",

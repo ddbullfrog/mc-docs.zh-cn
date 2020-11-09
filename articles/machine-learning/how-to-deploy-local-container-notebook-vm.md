@@ -1,5 +1,5 @@
 ---
-title: 计算实例的 HDeploy 模型
+title: 将模型部署到计算实例
 titleSuffix: Azure Machine Learning
 description: 了解如何使用计算实例将 Azure 机器学习模型部署为 Web 服务。
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: abffd738ba765a3eb928394b44c0e6b11009e90c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: e0c96331f3f58f479c299a0e73d2aaf7209eac74
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117965"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105259"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>将模型部署到 Azure 机器学习计算实例
 

@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 make_list()（聚合
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 01/23/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 4718eedcf81ecaa20b7fe30dca2f29611d08a0ca
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: e5a1c9a76a2ff886468cc32e4864670aca4d52f0
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146662"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104609"
 ---
 # <a name="make_list-aggregation-function"></a>make_list()（聚合函数）
 
@@ -24,7 +24,7 @@ ms.locfileid: "91146662"
 
 ## <a name="syntax"></a>语法
 
-`summarize` `make_list(`*Expr* [`,` *MaxSize*]`)`
+`summarize` `make_list(`*Expr* [`,` *MaxSize* ]`)`
 
 ## <a name="arguments"></a>参数
 
@@ -41,7 +41,7 @@ ms.locfileid: "91146662"
 如果对 `summarize` 运算符的输入进行了排序，则生成的数组中的元素顺序和输入一样。
 
 > [!TIP]
-> 使用 [`mv-apply`](./mv-applyoperator.md) 运算符按某个键值创建一个有序列表。 请参阅[此处的](./mv-applyoperator.md#using-the-mv-apply-operator-to-sort-the-output-of-make_list-aggregate-by-some-key)示例。
+> 使用 [`array_sort_asc()`](./arraysortascfunction.md) 或 [`array_sort_desc()`](./arraysortdescfunction.md) 函数按某个键创建一个有序列表。
 
 ## <a name="examples"></a>示例
 

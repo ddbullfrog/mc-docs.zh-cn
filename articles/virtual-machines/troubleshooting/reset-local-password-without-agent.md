@@ -2,9 +2,7 @@
 title: 在没有 Azure 代理的情况下重置本地 Windows 密码 | Azure
 description: 如何在 Azure 来宾代理未安装或者未在 VM 上正常运行的情况下重置本地 Windows 用户帐户密码
 services: virtual-machines-windows
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
 ms.service: virtual-machines-windows
 ms.topic: troubleshooting
@@ -12,16 +10,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 04/25/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: b3a02456b4ebf423f826e1d14b46a5bc74d064bc
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: e0bad10f0c0eaa33f32a8994f811fce61090cf1a
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456868"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105426"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>脱机重置 Azure VM 的本地 Windows 密码
 如果已安装 Azure 来宾代理，可以使用 [Azure 门户或 Azure PowerShell](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 重置 Azure 中 VM 的本地 Windows 密码。 此方法是重置 Azure VM 密码的主要方法。 如果遇到了 Azure 来宾代理无响应的问题，或者上传自定义映像后无法安装，可以手动重置 Windows 密码。 本文详细说明如何通过将源 OS 虚拟磁盘附加到另一个 VM 来重置本地帐户密码。 本文所述的步骤不适用于 Windows 域控制器。 
@@ -62,7 +60,7 @@ ms.locfileid: "89456868"
         Version=1
         ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="创建 gpt.ini":::
+        :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="显示对 gpt.ini 文件进行的更新的屏幕截图。":::
 
 4. 在 `\Windows\System32\GroupPolicy\Machine\Scripts\` 中创建 `scripts.ini` 确保隐藏的文件夹已显示。 如果需要，请创建 `Machine` 或 `Scripts` 文件夹。
 
@@ -70,21 +68,21 @@ ms.locfileid: "89456868"
 
         ```
         [Startup]
-        0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+        0CmdLine=FixAzureVM.cmd
         0Parameters=
         ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini.png" alt-text="创建 scripts.ini":::
+        :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="显示对 script.ini 文件进行的更新的屏幕截图。":::
 
-5. 在 `\Windows\System32` 中创建包含以下内容的 `FixAzureVM.cmd`，将 `<username>` 和 `<newpassword>` 替换为自己的值：
+5. 在 `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` 中创建包含以下内容的 `FixAzureVM.cmd`，将 `<username>` 和 `<newpassword>` 替换为自己的值：
 
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd.png" alt-text="创建 FixAzureVM.cmd":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="此屏幕截图显示了新创建的 FixAzureVM.cmd 文件，你可以在其中更新用户名和密码。":::
 
     定义新密码时，必须符合针对 VM 配置的密码复杂性要求。
 
@@ -96,7 +94,7 @@ ms.locfileid: "89456868"
 
 9. 在与新 VM 建立的远程会话中，删除以下文件以清理环境：
 
-    * 从 %windir%\System32 中
+    * 从 %windir%\System32\GroupPolicy\Machine\Scripts\Startup 中
         * 删除 FixAzureVM.cmd
     * 从 %windir%\System32\GroupPolicy\Machine\Scripts 中
         * 删除 scripts.ini
@@ -116,31 +114,31 @@ ms.locfileid: "89456868"
 
     * 在 Azure 门户中选择 VM，然后单击“删除”：
 
-        :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="删除现有 VM":::
+        :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="删除现有经典 VM":::
 
 2. 将源 VM 的 OS 磁盘附加到故障排除 VM。 故障排除 VM 必须与源 VM 的 OS 磁盘位于同一区域（例如 `China North`）：
 
     1. 在 Azure 门户中选择故障排除 VM。 单击“磁盘” | “附加现有磁盘”： 
 
-        :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="附加现有磁盘":::
+        :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="附加现有磁盘 - 经典":::
 
     2. 选择“VHD 文件”，并选择包含源 VM 的存储帐户： 
 
-        :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="选择存储帐户":::
+        :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="选择存储帐户 - 经典":::
 
-    3. 选中标有“显示经典存储帐户”的框，然后选择源容器。 源容器通常为 *vhds*：
+    3. 选中标有“显示经典存储帐户”的框，然后选择源容器。 源容器通常为 *vhds* ：
 
-        :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="选择存储容器":::
+        :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="选择存储容器 - 经典":::
 
-        :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="选择存储容器":::
+        :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="选择存储容器 - VHD - 经典":::
 
     4. 选择要附加的 OS VHD。 单击“选择”完成该过程： 
 
-        :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="选择源虚拟磁盘":::
+        :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="选择源虚拟磁盘 - 经典":::
 
     5. 单击“确定”以附加磁盘
 
-        :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="附加现有磁盘":::
+        :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="附加现有磁盘 -“确定”对话框 - 经典":::
 
 3. 使用远程桌面连接到故障排除的 VM，确保源 VM 的 OS 磁盘可见：
 
@@ -166,29 +164,29 @@ ms.locfileid: "89456868"
         Version=1
         ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="创建 gpt.ini":::
+        :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="创建 gpt.ini - 经典":::
 
-5. 在 `\Windows\System32\GroupPolicy\Machines\Scripts\` 中创建 `scripts.ini` 确保隐藏的文件夹已显示。 如果需要，请创建 `Machine` 或 `Scripts` 文件夹。
+5. 在 `\Windows\System32\GroupPolicy\Machine\Scripts\` 中创建 `scripts.ini` 确保隐藏的文件夹已显示。 如果需要，请创建 `Machine` 或 `Scripts` 文件夹。
 
     * 将以下代码行添加到创建的 `scripts.ini` 文件：
 
         ```
         [Startup]
-        0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+        0CmdLine=FixAzureVM.cmd
         0Parameters=
         ```
 
-        :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic.png" alt-text="创建 scripts.ini":::
+        :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="创建 scripts.ini - 经典":::
 
-6. 在 `\Windows\System32` 中创建包含以下内容的 `FixAzureVM.cmd`，将 `<username>` 和 `<newpassword>` 替换为自己的值：
+6. 在 `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` 中创建包含以下内容的 `FixAzureVM.cmd`，将 `<username>` 和 `<newpassword>` 替换为自己的值：
 
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-classic.png" alt-text="创建 FixAzureVM.cmd":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="创建 FixAzureVM.cmd - 经典":::
 
     定义新密码时，必须符合针对 VM 配置的密码复杂性要求。
 
@@ -198,17 +196,17 @@ ms.locfileid: "89456868"
 
     2. 选择在步骤 2 中附加的数据磁盘，单击“分离”，然后单击“确定”。
 
-        :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="分离磁盘":::
+        :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="拆离磁盘 - VM 故障排除 - 经典":::
 
-        :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="分离磁盘":::
+        :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="拆离磁盘 - VM 故障排除 -“确定”对话框 - 经典":::
 
 8. 从源 VM 的 OS 磁盘创建一个 VM：
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="从模板创建 VM":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="从模板创建 VM - 经典":::
 
-    :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="从模板创建 VM":::
+    :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="从模板创建 VM - 选择订阅 - 经典":::
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="从模板创建 VM":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="从模板创建 VM - 创建 VM - 经典":::
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>完成创建虚拟机体验
 
@@ -216,7 +214,7 @@ ms.locfileid: "89456868"
 
 2. 在与新 VM 建立的远程会话中，删除以下文件以清理环境：
 
-    * 从 `%windir%\System32`
+    * 从 `%windir%\System32\GroupPolicy\Machine\Scripts\Startup\`
         * 删除 `FixAzureVM.cmd`
     * 从 `%windir%\System32\GroupPolicy\Machine\Scripts`
         * 删除 `scripts.ini`

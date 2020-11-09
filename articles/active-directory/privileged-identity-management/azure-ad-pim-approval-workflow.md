@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c087ddd567884e61b89301a85ae0215d5ac89c9a
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 672f0c0280fc4f05a7598b6f500da9c1f96b2b4b
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046459"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750010"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中批准或拒绝 Azure AD 角色的请求
 
@@ -52,15 +52,15 @@ ms.locfileid: "89046459"
 
     ![审批请求 - 显示评审 Azure AD 角色的请求的页面](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
-    在“请求激活角色”部分，将看到等待审批的请求列表****。
+    在“请求激活角色”部分，将看到等待审批的请求列表。
 
 ## <a name="approve-requests"></a>审批请求
 
 1. 找到并选择要审批的请求。 此时将显示“批准或拒绝”页。
 
-    ![“审批请求 - 批准或拒绝”窗格，其中包含详细信息和“理由”框](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
+    ![显示“审批请求 - Azure AD 角色”页的屏幕截图。](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
-1. 在“理由”**** 框中，输入业务理由。
+1. 在“理由”框中，输入业务理由。
 
 1. 选择“批准”。  你将收到 Azure 批准通知。
 
@@ -72,9 +72,9 @@ ms.locfileid: "89046459"
 
     ![“审批请求 - 批准或拒绝”窗格，其中包含详细信息和“理由”框](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
-1. 在“理由”**** 框中，输入业务理由。
+1. 在“理由”框中，输入业务理由。
 
-1. 选择“拒绝”****。 拒绝后会出现一个通知。
+1. 选择“拒绝”。 拒绝后会出现一个通知。
 
 ## <a name="workflow-notifications"></a>工作流通知
 
@@ -98,9 +98,9 @@ ms.locfileid: "89046459"
 
 1. 打开“Azure AD Privileged Identity Management”。
 
-1. 单击“Azure AD 角色”。****
+1. 单击“Azure AD 角色”。
 
-1. 单击“审批请求”****。
+1. 单击“审批请求”。
 
     ![Azure AD 角色 - 审批请求](./media/azure-ad-pim-approval-workflow/approve-requests.png)
 
@@ -108,11 +108,11 @@ ms.locfileid: "89046459"
 
 ## <a name="approve-requests"></a>审批请求
 
-1. 选中要审批的请求，然后单击“审批”以打开审批所选请求窗格****。
+1. 选中要审批的请求，然后单击“审批”以打开审批所选请求窗格。
 
     ![突出显示了“批准”选项的“审批请求”列表](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
-1. 在“审批原因”框中，键入原因****。
+1. 在“审批原因”框中，键入原因。
 
     ![包含“批准原因”的“批准所选请求”窗格](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
@@ -124,15 +124,15 @@ ms.locfileid: "89046459"
 
 ## <a name="deny-requests"></a>拒绝请求
 
-1. 选中要拒绝的请求，然后单击“拒绝”以打开拒绝所选请求窗格****。
+1. 选中要拒绝的请求，然后单击“拒绝”以打开拒绝所选请求窗格。
 
     ![突出显示了“拒绝”选项的“审批请求”列表](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
-1. 在“拒绝原因”框中，键入原因****。
+1. 在“拒绝原因”框中，键入原因。
 
     ![包含“拒绝原因”的“拒绝所选请求”窗格](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
-1. 选择“拒绝”****。
+1. 选择“拒绝”。
 
     状态符号将随拒绝操作更新。
 

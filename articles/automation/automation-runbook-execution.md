@@ -1,17 +1,17 @@
 ---
 title: 在 Azure 自动化中执行 Runbook
-description: 本文概述如何在 Azure 自动化中处理 runbook。
+description: 本文概述了如何在 Azure 自动化中处理 runbook。
 services: automation
 ms.subservice: process-automation
-origin.date: 09/22/2020
-ms.date: 10/19/2020
+origin.date: 10/06/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2316264a34d46fac89c7f86ee1e5665c0893a9e6
-ms.sourcegitcommit: 57511ab990fbb26305a76beee48f0c223963f7ca
+ms.openlocfilehash: 13ae920fa6dc1e46877880b5e769ed2a1ea4fbb1
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943491"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750211"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -56,7 +56,7 @@ Azure 自动化中的 runbook 可以在 Azure 沙盒上运行，也可以在[混
 |使用具有特定要求的模块| 混合 Runbook 辅助角色|一些示例如下：</br> WinSCP - winscp.exe 上的依赖项 </br> IIS 管理 - 用于启用或管理 IIS 的依赖项|
 |使用安装程序安装模块|混合 Runbook 辅助角色|沙盒模块必须支持复制。|
 |使用需要 4.7.2 以外版本的 .NET Framework 的 runbook 或模块|混合 Runbook 辅助角色|Azure 沙盒支持 .NET Framework 4.7.2，并且不支持升级到其他版本。|
-|运行需要提升的脚本|混合 Runbook 辅助角色|沙盒不允许提升。 借助混合 Runbook 辅助角色，可以在运行需要提升的命令时关闭 UAC 并使用 [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7)。|
+|运行需要提升的脚本|混合 Runbook 辅助角色|沙盒不允许提升。 借助混合 Runbook 辅助角色，可以在运行需要提升的命令时关闭 UAC 并使用 [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command)。|
 |运行需要访问 Windows Management Instrumentation (WMI) 的脚本|混合 Runbook 辅助角色|在云中的沙盒中运行的作业无法访问 WMI 提供程序。 |
 
 ## <a name="temporary-storage-in-a-sandbox"></a>沙盒中的临时存储
@@ -71,7 +71,7 @@ Runbook 必须包含用于处理[资源](https://docs.microsoft.com/rest/api/res
 
 ## <a name="security"></a>安全性
 
-Azure 自动化使用 [Azure 安全中 (ASC)](../security-center/security-center-intro.md) 保护你的资源以及检测 Linux 系统中的漏洞。 无论资源是否在 Azure 中，均可跨工作负荷提供安全性。 请参阅 [Azure 自动化中的身份验证简介](automation-security-overview.md)。
+Azure 自动化使用 [Azure 安全中 (ASC)](/security-center/) 保护你的资源以及检测 Linux 系统中的漏洞。 无论资源是否在 Azure 中，均可跨工作负荷提供安全性。 请参阅 [Azure 自动化中的身份验证简介](automation-security-overview.md)。
 
 ASC 对可以在 VM 上运行任何签名或未签名脚本的用户施加限制。 如果你是具有 VM 根访问权限的用户，则必须使用数字签名显式配置计算机或将其关闭。 否则，只有在创建自动化帐户并启用适当的功能之后，才能通过运行脚本来应用操作系统更新。
 
@@ -85,20 +85,22 @@ Azure 自动化利用 [Azure Monitor](../azure-monitor/overview.md) 来监视其
 
 ### <a name="log-analytics-agent-for-windows"></a>适用于 Windows 的 Log Analytics 代理
 
-[适用于 Windows 的 Log Analytics 代理](../azure-monitor/platform/agent-windows.md)可与 Azure Monitor 配合使用，用于管理 Windows VM 和物理计算机。 这些计算机可以在 Azure 或非 Azure 环境（例如本地数据中心）中运行。 必须将代理配置为向一个或多个 Log Analytics 工作区报告。
+[适用于 Windows 的 Log Analytics 代理](../azure-monitor/platform/agent-windows.md)可与 Azure Monitor 配合使用，用于管理 Windows VM 和物理计算机。 这些计算机可以在 Azure 或非 Azure 环境（例如本地数据中心）中运行。
 
 >[!NOTE]
 >适用于 Windows 的 Log Analytics 代理之前称为 Microsoft Monitoring Agent (MMA)。
 
 ### <a name="log-analytics-agent-for-linux"></a>适用于 Linux 的 Log Analytics 代理
 
-[适用于 Linux 的 Log Analytics 代理](../azure-monitor/platform/agent-linux.md)与适用于 Windows 的代理工作原理类似，但它将 Linux 计算机连接到 Azure Monitor。 代理安装有 nxautomation 用户帐户，该帐户允许执行需要根权限的命令，例如在混合 Runbook 辅助角色上执行。 nxautomation 帐户是不需要密码的系统帐户。
+[适用于 Linux 的 Log Analytics 代理](../azure-monitor/platform/agent-linux.md)与适用于 Windows 的代理工作原理类似，但它将 Linux 计算机连接到 Azure Monitor。 安装此代理时需具有 nxautomation 用户帐户，该用户帐户允许执行需要根权限的命令，例如，在混合 Runbook 辅助角色上执行的命令。 nxautomation 帐户是不需要密码的系统帐户。
 
 在[安装 Linux 混合 Runbook 辅助角色](automation-linux-hrw-install.md)期间，必须存在具有相应 sudo 权限的 nxautomation 帐户。 如果尝试安装辅助角色时该帐户不存在或帐户不具有相应权限，则安装将失败。
 
+不应更改 `sudoers.d` 文件夹的权限或其所有权。 nxautomation 帐户需要 Sudo 权限，不应删除这些权限。 将它限制到某些文件夹或命令可能会导致中断性变更。
+
 Log Analytics 代理和 nxautomation 帐户的可用日志如下：
 
-* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics 代理日志 
+* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics 代理日志
 * /var/opt/microsoft/omsagent/run/automationworker/worker.log - 自动化辅助角色日志
 
 >[!NOTE]
@@ -134,11 +136,11 @@ Azure 自动化支持从同一自动化帐户运行作业的环境。 一个 run
 | 状态 | 说明 |
 |:--- |:--- |
 | 已完成 |作业已成功完成。 |
-| 已失败 |图形或 PowerShell 工作流 runbook 未能编译。 PowerShell runbook 未能启动或作业遇到异常。 请参阅 [Azure 自动化 runbook 类型](automation-runbook-types.md)。|
+| 失败 |图形或 PowerShell 工作流 runbook 未能编译。 PowerShell runbook 未能启动或作业遇到异常。 请参阅 [Azure 自动化 runbook 类型](automation-runbook-types.md)。|
 | 失败，正在等待资源 |作业失败，因为它已达到[公平份额](#fair-share)限制三次，并且每次都从同一个检查点或 Runbook 开始处启动。 |
 | 已排队 |作业正在等待自动化辅助角色上的资源变得可用，以便其能够启动。 |
 | 正在恢复 |系统正在恢复已暂停的作业。 |
-| 运行 |作业正在运行。 |
+| 正在运行 |作业正在运行。 |
 | 正在运行，正在等待资源 |作业已卸载，因为它已达到公平份额限制。 片刻之后，它将从其上一个检查点恢复。 |
 | 正在启动 |作业已分配给辅助角色，并且系统正在将它启动。 |
 | 已停止 |作业在完成之前已被用户停止。 |
@@ -222,7 +224,7 @@ Azure 沙盒中的 runbook 作业无法访问任何设备或应用程序特征�
 
 为了在云中的所有 runbook 之间共享资源，Azure 使用称为公平份额的概念。 使用公平份额时，Azure 会暂时卸载或停止已运行三小时以上的所有作业。 [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) 和 [Python runbook](automation-runbook-types.md#python-runbooks) 的作业会停止且不会重启，作业状态变为“已停止”。
 
-对于长时间运行的 Azure 自动化任务，建议使用混合 Runbook 辅助角色。 混合 Runbook 辅助角色不受公平份额限制，并且不会限制 runbook 的执行时间。 其他作业[限制](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)适用于 Azure 沙盒和混合 Runbook 辅助角色。 虽然混合 Runbook 辅助角色不受 3 小时公平份额限制的限制，但仍应开发在辅助角色上运行的 runbook，以便在出现意外的本地基础结构问题时支持重启。
+对于长时间运行的 Azure 自动化任务，建议使用混合 Runbook 辅助角色。 混合 Runbook 辅助角色不受公平份额限制，并且不会限制 runbook 的执行时间。 其他作业[限制](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)适用于 Azure 沙盒和混合 Runbook 辅助角色。 虽然混合 Runbook 辅助角色不受 3 小时公平份额限制的约束，但你应该开发在辅助角色上运行的 runbook，以便在出现意外的本地基础结构问题时支持重启。
 
 另一种选择是通过使用子 runbook 来优化 runbook。 例如，runbook 可能会在多个资源上循环访问同一函数（例如，对多个数据库执行某个数据库操作）。 可将此函数移至[子 runbook](automation-child-runbooks.md)，并让 runbook 使用 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook) 对其进行调用。 子 runbook 在单独的进程中并行执行。
 

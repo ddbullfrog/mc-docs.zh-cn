@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/30/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: 7f6348a9b0f3bf3918b976c796254761af06e161
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: b91e8b6994f471d085ee369a17cbae04c2066dd8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226337"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103905"
 ---
 # <a name="azure-data-explorer-python-sdk"></a>Azure 数据资源管理器 Python SDK
 
@@ -39,8 +39,8 @@ Kusto Python 引入客户端是一个 python 库，用于将引入数据发送�
 * Pypi 包：
 
     * [azure-kusto-data](https://pypi.org/project/azure-kusto-data/)
-    [![PyPI 版本](https://badge.fury.io/py/azure-kusto-data.svg)](https://badge.fury.io/py/azure-kusto-data)
+    [![标有“PYPI 包 1.0.2”的按钮的屏幕截图。](https://badge.fury.io/py/azure-kusto-data.svg)](https://badge.fury.io/py/azure-kusto-data)
     * [azure-kusto-ingest](https://pypi.org/project/azure-kusto-ingest/)
-    [![PyPI 版本](https://badge.fury.io/py/azure-kusto-ingest.svg)](https://badge.fury.io/py/azure-kusto-ingest)
+    [![按钮的屏幕截图。此按钮标记为“PYPI 包 1.0.2”。](https://badge.fury.io/py/azure-kusto-ingest.svg)](https://badge.fury.io/py/azure-kusto-ingest)
     * [azure-mgmt-kusto](https://pypi.org/project/azure-mgmt-kusto/)
-    [![PyPI 版本](https://badge.fury.io/py/azure-mgmt-kusto.svg)](https://badge.fury.io/py/azure-mgmt-kusto)
+    [![标有“PYPI 包 0.9.0”的按钮的屏幕截图。](https://badge.fury.io/py/azure-mgmt-kusto.svg)](https://badge.fury.io/py/azure-mgmt-kusto)

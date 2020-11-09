@@ -8,13 +8,13 @@ ms.reviewer: kedamari
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/12/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 7c8cffa08e0fdb450411201b84b6cfb83ba80f44
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: 1de820fe5f9887b34ea57a335b23df3d4a4dbde8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516105"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103560"
 ---
 # <a name="data-purge"></a>数据清除
 
@@ -95,13 +95,13 @@ ms.locfileid: "88516105"
   .purge table [TableName] records in database [DatabaseName] with (noregrets='true') <| [Predicate]
    ```
 
-  > [!NOTE]
-  > 使用 CslCommandGenerator API（在 [Kusto 客户端库](../api/netfx/about-kusto-data.md) NuGet 程序包中提供）生成此命令。
+* 人为调用：一个两步过程，需要显式确认为单个步骤。 第一次调用此命令将返回验证令牌，需要提供该令牌才能运行实际清除操作。 此序列降低了无意中删除错误数据的风险。
 
-* 人为调用：一个两步过程，需要显式确认为单个步骤。 第一次调用此命令将返回验证令牌，需要提供该令牌才能运行实际清除操作。 此序列降低了无意中删除错误数据的风险。 对于含有重要冷缓存数据的大型表，使用此选项可能需要很长时间才能完成相应过程。
-    <!-- If query times-out on DM endpoint (default timeout is 10 minutes), it is recommended to use the [engine `whatif` command](#purge-whatif-command) directly againt the engine endpoint while increasing the [server timeout limit](../concepts/querylimits.md#limit-on-request-execution-time-timeout). Only after you have verified the expected results using the engine whatif command, issue the purge command via the DM endpoint using the 'noregrets' option. -->
+ > [!NOTE]
+ > 两步调用中的第一步需要对整个数据集运行查询，以标识要清除的记录。
+ > 对于大型表（尤其是有大量冷缓存数据的表），此查询可能会超时或失败。 如果失败，请自行验证谓词，并在验证正确性后使用带 `noregrets` 选项的单步清除。
 
-  **语法**
+**语法**
 
   ```kusto
      // Connect to the Data Management service
@@ -114,20 +114,20 @@ ms.locfileid: "88516105"
      .purge table [TableName] records in database [DatabaseName] with (verificationtoken='<verification token from step #1>') <| [Predicate]
   ```
     
-    | parameters  | 说明  |
-    |---------|---------|
-    | `DatabaseName`   |   数据库的名称      |
-    | `TableName`     |     表名称    |
-    | `Predicate`    |    标识要清除的记录。 请参阅下文中的“Purge 谓词限制”。 | 
-    | `noregrets`    |     如果设置了此项，则会触发单步激活。    |
-    | `verificationtoken`     |  在两步激活方案（不设置 `noregrets`）中，此令牌可用于执行第二步并提交操作。 如果未指定 `verificationtoken`，它将触发此命令的第一步。 将返回有关清除的信息，其中包含应当传回给命令以执行步骤 2 的一个令牌。   |
+| parameters  | 说明  |
+|---------|---------|
+| `DatabaseName`   |   数据库的名称      |
+| `TableName`     |     表名称    |
+| `Predicate`    |    标识要清除的记录。 请参阅下文中的“Purge 谓词限制”。 | 
+| `noregrets`    |     如果设置了此项，则会触发单步激活。    |
+| `verificationtoken`     |  在两步激活方案（不设置 `noregrets`）中，此令牌可用于执行第二步并提交操作。 如果未指定 `verificationtoken`，它将触发此命令的第一步。 将返回有关清除的信息，其中包含应当传回给命令以执行步骤 2 的一个令牌。   |
 
-    **Purge 谓词限制**
+**Purge 谓词限制**
 
-    * 谓词必须是一个简单的选择（例如，*where [ColumnName] == 'X'*  / *where [ColumnName] in ('X', 'Y', 'Z') and [OtherColumn] == 'A'* ）。
-    * 多个筛选器必须使用“and”进行组合，而不是使用单独的 `where` 子句（例如，请使用 `where [ColumnName] == 'X' and  OtherColumn] == 'Y'` 而非 `where [ColumnName] == 'X' | where [OtherColumn] == 'Y'`）。
-    * 谓词不能引用正在清除的表 (*TableName*) 以外的表。 谓词只能包含选择语句 (`where`)。 它无法投影表中的特定列（运行“ *`table` | Predicate*”时的输出架构必须与表架构匹配）。
-    * 不支持系统函数（例如 `ingestion_time()`、`extent_id()`）。
+* 谓词必须是一个简单的选择（例如， *where [ColumnName] == 'X'*  / *where [ColumnName] in ('X', 'Y', 'Z') and [OtherColumn] == 'A'* ）。
+* 多个筛选器必须使用“and”进行组合，而不是使用单独的 `where` 子句（例如，请使用 `where [ColumnName] == 'X' and  OtherColumn] == 'Y'` 而非 `where [ColumnName] == 'X' | where [OtherColumn] == 'Y'`）。
+* 谓词不能引用正在清除的表 ( *TableName* ) 以外的表。 谓词只能包含选择语句 (`where`)。 它无法投影表中的特定列（运行“ *`table` | Predicate* ”时的输出架构必须与表架构匹配）。
+* 不支持系统函数（例如 `ingestion_time()`、`extent_id()`）。
 
 #### <a name="example-two-step-purge"></a>示例：两步清除
 
@@ -200,7 +200,7 @@ ms.locfileid: "88516105"
 
 **输出**
 
-此命令的输出与“show purges *OperationId*”命令的输出相同，它显示正在取消的清除操作的更新后状态。 如果尝试成功，则操作状态将更新为 `Abandoned`。 否则，操作状态不会更改。 
+此命令的输出与“show purges *OperationId* ”命令的输出相同，它显示正在取消的清除操作的更新后状态。 如果尝试成功，则操作状态将更新为 `Abandoned`。 否则，操作状态不会更改。 
 
 |`OperationId` |`DatabaseName` |`TableName` |`ScheduledTime` |`Duration` |`LastUpdatedOn` |`EngineOperationId` |`State` |`StateDetails` |`EngineStartTime` |`EngineDuration` |`Retries` |`ClientRequestId` |`Principal`
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|

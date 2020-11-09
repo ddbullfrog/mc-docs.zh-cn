@@ -2,18 +2,17 @@
 title: 设置专用链接
 description: 在容器注册表上设置专用终结点，并实现在本地虚拟网络中通过专用链接进行访问的功能。 专用链接访问是高级服务层级的一项功能。
 ms.topic: article
-origin.date: 06/26/2020
 author: rockboyfor
-ms.date: 10/14/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 07/27/2020
 ms.author: v-yeche
-ms.openlocfilehash: e625e4fdec1bce143a74eb83ed44b30652244f96
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 5b5934727098c0a0b4333bb94a79df6ac6430573
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118061"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106099"
 ---
 <!--Verified successfully both CLI and PORTAL-->
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>使用 Azure 专用链接以私密方式连接到 Azure 容器注册表
@@ -294,7 +293,7 @@ az network private-dns record-set a add-record \
 1. 在“专用终结点”选项卡上，选择创建的专用这节点。
 1. 在“概述”页上，审阅链接设置和自定义 DNS 设置。
 
-    :::image type="content" source="./media/container-registry-private-link/private-endpoint-overview.png" alt-text="通过专用终结点创建注册表":::
+    :::image type="content" source="./media/container-registry-private-link/private-endpoint-overview.png" alt-text="站项目 DNS 设置":::
 
 专用链接现已配置，可供使用。
 
@@ -324,30 +323,46 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 
 若要验证专用链接连接，请通过 SSH 连接到虚拟网络中设置的虚拟机。
 
-运行 `nslookup` 命令以通过专用链接解析注册表的 IP 地址：
+运行 `nslookup` 或 `dig` 等实用工具，以便通过专用链接查找注册表的 IP 地址。 例如：
 
 ```bash
-nslookup $REGISTRY_NAME.azurecr.cn
+dig $REGISTRY_NAME.azurecr.cn
 ```
 
 示例输出演示子网的地址空间中的注册表 IP 地址：
 
 ```console
 [...]
-myregistry.azurecr.cn       canonical name = myregistry.privatelink.azurecr.cn.
-Name:   myregistry.privatelink.azurecr.cn
-Address: 10.0.0.6
+; <<>> DiG 9.11.3-1ubuntu1.13-Ubuntu <<>> myregistry.azurecr.cn
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52155
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;myregistry.azurecr.cn.         IN      A
+
+;; ANSWER SECTION:
+myregistry.azurecr.cn.  1783    IN      CNAME   myregistry.privatelink.azurecr.cn.
+myregistry.privatelink.azurecr.cn. 10 IN A      10.0.0.7
+
+[...]
 ```
 
-将此结果与公共终结点上相同注册表的 `nslookup` 输出中的公共 IP 地址进行比较：
-
-<!--CORRECT ON chinaeast2-->
+将此结果与公共终结点上相同注册表的 `dig` 输出中的公共 IP 地址进行比较：
 
 ```console
 [...]
-Non-authoritative answer:
-Name:   myregistry.chinaeast2.cloudapp.chinacloudapi.cn
-Address: 40.78.103.41
+;; ANSWER SECTION:
+myregistry.azurecr.cn.  2881    IN  CNAME   myregistry.privatelink.azurecr.cn.
+myregistry.privatelink.azurecr.cn. 2881 IN CNAME xxxx.xx.azcr.io.
+xxxx.xx.azcr.io.    300 IN  CNAME   xxxx-xxx-reg.trafficmanager.net.
+xxxx-xxx-reg.trafficmanager.net. 300 IN CNAME   xxxx.chinaeast2.cloudapp.chinacloudapi.cn.
+xxxx.chinaeast2.cloudapp.chinacloudapi.cn. 10   IN A 20.45.122.144
+
+[...]
 ```
 
 ### <a name="registry-operations-over-private-link"></a>针对专用链接的注册表操作
@@ -377,19 +392,27 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-使用本文中的步骤设置专用终结点连接时，注册表会自动接受来自对注册表拥有 RBAC 权限的客户端和服务的连接。 可以设置终结点以要求手动批准连接。 
+使用本文中的步骤设置专用终结点连接时，注册表会自动接受来自在注册表上拥有 Azure RBAC 权限的客户端和服务的连接。 可以设置终结点以要求手动批准连接。
 
 <!--Not Available on [Manage a Private Endpoint Connection](../private-link/manage-private-endpoint.md)-->
 
 ## <a name="add-zone-records-for-replicas"></a>为副本添加区域记录
 
-如本文中所示，将专用终结点连接添加到注册表时，将在 `privatelink.azurecr.cn` 区域中为注册表进行[复制](container-registry-geo-replication.md)的区域中的注册表及其数据终结点创建 DNS 记录。 
+如本文所示，将专用终结点连接添加到注册表时，需在 `privatelink.azurecr.cn` 区域中为进行注册表[复制](container-registry-geo-replication.md)的区域中的注册表及其数据终结点创建 DNS 记录。 
 
-如果以后添加新副本，则需要为该区域中的数据终结点手动添加新的区域记录。 例如，如果在“chinaeast2”位置创建 myregistry 的副本，则会为 `myregistry.chinaeast2.data.azurecr.cn` 添加区域记录。 有关步骤，请参阅本文中的[在专用区域中创建 DNS 记录](#create-dns-records-in-the-private-zone)。
+如果以后添加新副本，则需要为该区域中的数据终结点手动添加新的区域记录。 例如，如果在“chinanorth2”位置创建 myregistry 的副本，则会为 `myregistry.chinanorth2.data.azurecr.cn` 添加区域记录。 有关步骤，请参阅本文中的[在专用区域中创建 DNS 记录](#create-dns-records-in-the-private-zone)。
+
+<!--MOONCAKE: chinanorth2 CORRECT on geo-->
+
+## <a name="dns-configuration-options"></a>DNS 配置选项
+
+本示例中的专用终结点会集成与基本虚拟网络关联的专用 DNS 区域。 此安装程序直接使用 Azure 提供的 DNS 服务将注册表的公共 FQDN 解析为其在虚拟网络中的专用 IP 地址。 
+
+专用链接支持其他使用专用区域的 DNS 配置方案，包括使用自定义 DNS 解决方案。 例如，你可能有一个自定义 DNS 解决方案，该方案部署在虚拟网络中，或部署在使用 VPN 网关连接到虚拟网络的本地网络中。 若要在这些情况下将注册表的公共 FQDN 解析为专用 IP 地址，需要配置到 Azure DNS 服务 (168.63.129.16) 的服务器级别转发器。 确切的配置选项和步骤取决于现有的网络和 DNS。 有关示例，请参阅[了解 Azure 专用终结点 DNS 配置](../private-link/private-endpoint-dns.md)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果在同一资源组中创建了所有 Azure 资源，并且不再需要这些资源，则可以选择使用单个 [az group delete](https://docs.azure.cn/cli/group#az-group-delete) 命令删除资源：
+如果在同一资源组中创建了所有 Azure 资源，并且不再需要这些资源，则可以选择使用单个 [az group delete](https://docs.azure.cn/cli/group#az_group_delete) 命令删除资源：
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP
@@ -415,28 +438,28 @@ az group delete --name $RESOURCE_GROUP
 <!-- LINKS - Internal -->
 
 [azure-cli]: https://docs.azure.cn/cli/install-azure-cli
-[az-acr-create]: https://docs.azure.cn/cli/acr#az-acr-create
-[az-acr-show]: https://docs.azure.cn/cli/acr#az-acr-show
-[az-acr-repository-show]: https://docs.azure.cn/cli/acr/repository#az-acr-repository-show
-[az-acr-repository-list]: https://docs.azure.cn/cli/acr/repository#az-acr-repository-list
-[az-acr-login]: https://docs.azure.cn/cli/acr#az-acr-login
+[az-acr-create]: https://docs.azure.cn/cli/acr#az_acr_create
+[az-acr-show]: https://docs.azure.cn/cli/acr#az_acr_show
+[az-acr-repository-show]: https://docs.azure.cn/cli/acr/repository#az_acr_repository_show
+[az-acr-repository-list]: https://docs.azure.cn/cli/acr/repository#az_acr_repository_list
+[az-acr-login]: https://docs.azure.cn/cli/acr#az_acr_login
 [az-acr-private-endpoint-connection]: https://docs.azure.cn/cli/acr/private-endpoint-connection
-[az-acr-private-endpoint-connection-list]: https://docs.azure.cn/cli/acr/private-endpoint-connection#az-acr-private-endpoint-connection-list
-[az-acr-private-endpoint-connection-approve]: https://docs.azure.cn/cli/acr/private-endpoint-connection#az-acr-private-endpoint-connection-approve
-[az-acr-update]: https://docs.azure.cn/cli/acr#az-acr-update
+[az-acr-private-endpoint-connection-list]: https://docs.azure.cn/cli/acr/private-endpoint-connection#az_acr_private_endpoint_connection_list
+[az-acr-private-endpoint-connection-approve]: https://docs.azure.cn/cli/acr/private-endpoint-connection#az_acr_private_endpoint_connection_approve
+[az-acr-update]: https://docs.azure.cn/cli/acr#az_acr_update
 [az-group-create]: https://docs.azure.cn/cli/group
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
-[az-vm-create]: https://docs.azure.cn/cli/vm#az-vm-create
-[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet/#az-network-vnet-subnet-show
-[az-network-vnet-subnet-update]: https://docs.azure.cn/cli/network/vnet/subnet/#az-network-vnet-subnet-update
-[az-network-vnet-list]: https://docs.azure.cn/cli/network/vnet/#az-network-vnet-list
-[az-network-private-endpoint-create]: https://docs.azure.cn/cli/network/private-endpoint#az-network-private-endpoint-create
-[az-network-private-endpoint-show]: https://docs.azure.cn/cli/network/private-endpoint#az-network-private-endpoint-show
-[az-network-private-dns-zone-create]: https://docs.azure.cn/cli/network/private-dns/zone#az-network-private-dns-zone-create
-[az-network-private-dns-link-vnet-create]: https://docs.azure.cn/cli/network/private-dns/link/vnet#az-network-private-dns-link-vnet-create
-[az-network-private-dns-record-set-a-create]: https://docs.azure.cn/cli/network/private-dns/record-set/a#az-network-private-dns-record-set-a-create
-[az-network-private-dns-record-set-a-add-record]: https://docs.azure.cn/cli/network/private-dns/record-set/a#az-network-private-dns-record-set-a-add-record
-[az-resource-show]: https://docs.azure.cn/cli/resource#az-resource-show
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
+[az-vm-create]: https://docs.azure.cn/cli/vm#az_vm_create
+[az-network-vnet-subnet-show]: https://docs.azure.cn/cli/network/vnet/subnet/#az_network_vnet_subnet_show
+[az-network-vnet-subnet-update]: https://docs.azure.cn/cli/network/vnet/subnet/#az_network_vnet_subnet_update
+[az-network-vnet-list]: https://docs.azure.cn/cli/network/vnet/#az_network_vnet_list
+[az-network-private-endpoint-create]: https://docs.azure.cn/cli/network/private-endpoint#az_network_private_endpoint_create
+[az-network-private-endpoint-show]: https://docs.azure.cn/cli/network/private-endpoint#az_network_private_endpoint_show
+[az-network-private-dns-zone-create]: https://docs.azure.cn/cli/network/private-dns/zone#az_network_private_dns_zone_create
+[az-network-private-dns-link-vnet-create]: https://docs.azure.cn/cli/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create
+[az-network-private-dns-record-set-a-create]: https://docs.azure.cn/cli/network/private-dns/record-set/a#az_network_private_dns_record_set_a_create
+[az-network-private-dns-record-set-a-add-record]: https://docs.azure.cn/cli/network/private-dns/record-set/a#az_network_private_dns_record_set_a_add-record
+[az-resource-show]: https://docs.azure.cn/cli/resource#az_resource_show
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
 [azure-portal]: https://portal.azure.cn

@@ -4,24 +4,25 @@ description: 本文介绍 Azure 数据资源管理器中的 dcount_intersect 插
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 09/24/2020
-ms.openlocfilehash: a485fd89de22ae7968017e0039187a849774892d
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 10/29/2020
+ms.openlocfilehash: 303565e375afbd203549c354c184232580bc5ac1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146782"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104267"
 ---
 # <a name="dcount_intersect-plugin"></a>dcount_intersect 插件
 
 基于 `hll` 值（N 在 [2..16] 范围内）计算 N 个集合之间的交集，并返回 N 个 `dcount` 值。
 
 给定集 S<sub>1</sub>、S<sub>2</sub>... S<sub>n</sub> - 返回值将代表以下各项的非重复计数：  
-S<sub>1</sub>、S<sub>1</sub> ∩ S<sub>2</sub>、  
+S<sub>1</sub>,  
+S<sub>1</sub> ∩ S<sub>2</sub>,  
 S<sub>1</sub> ∩ S<sub>2</sub> ∩ S<sub>3</sub>、  
 ... ,  
 S<sub>1</sub> ∩ S<sub>2</sub> ∩ ... ∩ S<sub>n</sub>
@@ -32,11 +33,11 @@ T | evaluate dcount_intersect(hll_1, hll_2, hll_3)
 
 ## <a name="syntax"></a>语法
 
-*T* `| evaluate` `dcount_intersect(`*hll_1*, *hll_2*, [`,` *hll_3*`,` ...]`)`
+*T* `| evaluate` `dcount_intersect(`*hll_1* , *hll_2* , [`,` *hll_3*`,` ...]`)`
 
 ## <a name="arguments"></a>参数
 
-* *T*：输入表格表达式。
+* *T* ：输入表格表达式。
 * hll_i：使用 [`hll()`](./hll-aggfunction.md) 函数计算的集 S<sub>i</sub> 的值。
 
 ## <a name="returns"></a>返回

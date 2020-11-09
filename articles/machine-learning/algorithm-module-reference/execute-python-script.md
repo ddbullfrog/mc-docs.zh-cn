@@ -9,13 +9,13 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 origin.date: 07/27/2020
-ms.date: 08/24/2020
-ms.openlocfilehash: 172bc5c66eb45f7dc40d549a56fc7378560e40d8
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.date: 09/29/2020
+ms.openlocfilehash: 9ddce49abe5eb2bba81875e57e980fcbbb0e71dd
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117903"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105491"
 ---
 # <a name="execute-python-script-module"></a>“执行 Python 脚本”模块
 
@@ -56,6 +56,9 @@ if spec is None:
 
 > [!NOTE]
 > 如果管道包含的多个“执行 Python 脚本”模块需要使用预安装列表中未包含的包，请在每个模块中安装这些包。
+
+> [!WARNING]
+> “执行 Python 脚本”模块不支持使用“apt-get”之类的命令安装依赖于其他本机库的包，例如 Java、PyODBC 等。这是因为，此模块是在仅预安装了 Python 并且具有非管理员权限的简单环境中执行的。  
 
 ## <a name="upload-files"></a>上传文件
 “执行 Python 脚本”支持使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-) 上传文件。
@@ -140,7 +143,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
     可以向设计器返回两个数据集，数据集必须是 `pandas.DataFrame` 类型的序列。 可以在 Python 代码中创建其他输出，并将其直接写入到 Azure 存储。
 
-6. 提交管道，或者选择模块，然后选择“运行所选”以便仅运行 Python 脚本。
+    > [!WARNING]
+    > 建议不要在“执行 Python 脚本”模块中连接到数据库或其他外部存储。  可以使用[“导入数据”模块](./import-data.md)和[“导出数据”模块](./export-data.md)     
+
+6. 提交管道。
 
     所有数据和代码都将加载到虚拟机中，并使用指定的 Python 环境运行。
 

@@ -2,22 +2,22 @@
 title: 跟踪严重性比下降 - Azure Application Insights
 description: 使用 Azure Application Insights 监视应用程序跟踪，以通过智能检测了解跟踪遥测中的异常模式。
 ms.topic: conceptual
-author: lingliw
+author: Johnnytechn
 origin.date: 11/27/2017
-ms.date: 6/4/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 7e2d7a90961737c6602fab26215ae4eed8d76535
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 10/29/2020
+ms.author: v-johya
+ms.openlocfilehash: d1c1cc6970977f1e16c06a46f8d1d7ee2f8bc358
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78850380"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103638"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>跟踪严重性比下降（预览）
 
-跟踪广泛应用于应用程序，因为它们可以告知幕后发生的事情。 出现错误时，跟踪可保证导致不理想状态事件序列的关键可见性。 虽然跟踪通常为非结构化，但通过跟踪可以具体了解到一件事情，即严重性级别。 在应用程序稳定状态下，“良好”跟踪（Info 和 Verbose）和“错误”跟踪（Warning、Error 和 Critical）之间的比率应保持稳定      。 假设情况是不管出于什么情况（例如暂时性网络故障），在一定的程度都会定期发生“错误”跟踪。 但当一个真正的问题日益严重时，这通常表现为“错误”跟踪和“良好”跟踪之间的相关比率增大。 Application Insights 智能检测自动分析应用程序记录的跟踪，并在跟踪遥测的严重性级别出现异常时发出警告。
+跟踪广泛应用于应用程序，因为它们可以告知幕后发生的事情。 出现错误时，跟踪可保证导致不理想状态事件序列的关键可见性。 虽然跟踪通常已非结构化，但通过跟踪可以具体了解到一件事情，即其严重性级别。 在应用程序稳定状态下，“良好”跟踪（Info 和 Verbose）和“错误”跟踪（Warning、Error 和 Critical）之间的比率应保持稳定      。 假设情况是不管出于什么情况（例如暂时性网络故障），在一定的程度都会定期发生“错误”跟踪。 但当一个真正的问题日益严重时，这通常表现为“错误”跟踪和“良好”跟踪之间的相关比率增大。 Application Insights 智能检测自动分析应用程序记录的跟踪，并在跟踪遥测的严重性级别出现异常时发出警告。
 
-此功能需要为应用配置跟踪日志（请参见如何为 [.NET](/azure-monitor/app/asp-net-trace-logs) 或 [Java](/azure-monitor/app/java-trace-logs) 配置跟踪日志侦听器），除此之外，不需要其他特殊步骤。 在应用生成足够多的异常遥测数据后，此功能会激活。
+此功能需要为应用配置跟踪日志（请参见如何为 [.NET](./asp-net-trace-logs.md) 或 [Java](./java-trace-logs.md) 配置跟踪日志侦听器），除此之外，不需要其他特殊步骤。 在应用生成足够多的异常遥测数据后，此功能会激活。
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>何时会收到此类型的智能检测通知？
 对比前面七天计算的基线，如果“良好”跟踪（跟踪级别记录为 Info 或 Verbose）和“错误”跟踪（跟踪级别记录为 Warning、Error 或 Fatal）之间的比率在某一天降低，则可能会收到此类型通知      。
@@ -30,9 +30,4 @@ ms.locfileid: "78850380"
 1. **会审。** 通知会显示有多少操作受到影响。 这可以帮助你对问题分配优先级。
 2. **划分范围。** 该问题是影响所有流量，还是只影响某些操作？ 可以从通知中获取此信息。
 3. **诊断。** 可以使用链接到支持信息的相关项和报告，帮助进一步诊断问题。
-
-
-
-
-
 

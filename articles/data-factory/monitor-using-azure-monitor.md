@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 07/13/2020
-ms.date: 09/21/2020
-ms.openlocfilehash: 61fcff2edf9a3f8235490ad6cd3a2ede6d05a95e
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 11/02/2020
+ms.openlocfilehash: 6d9748b5dd6b79a560b6ed595308548a614aec73
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523963"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104599"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>使用 Azure Monitor 监视数据工厂和发警报
 
@@ -33,13 +33,13 @@ Azure Monitor 针对大多数 Azure 服务提供基本级别的基础结构指�
 
 数据工厂仅将管道运行数据存储 45 天。 若要将这些数据保留更长时间，请使用 Azure Monitor。 使用 Monitor，可以将诊断日志路由到多个不同目标进行分析。
 
-* **存储帐户**：将诊断日志保存到存储帐户进行审核或手动检查。 可以使用诊断设置指定保留时间（天）。
-* **事件中心**：将日志流式传输到 Azure 事件中心。 日志可用作合作伙伴服务/自定义分析解决方案（例如 Power BI）的输入。
-* **Log Analytics**：使用 Log Analytics 分析日志。 在以下情况下，将数据工厂与 Azure Monitor 集成非常有用：
+* **存储帐户** ：将诊断日志保存到存储帐户进行审核或手动检查。 可以使用诊断设置指定保留时间（天）。
+* **事件中心** ：将日志流式传输到 Azure 事件中心。 日志可用作合作伙伴服务/自定义分析解决方案（例如 Power BI）的输入。
+* **Log Analytics** ：使用 Log Analytics 分析日志。 在以下情况下，将数据工厂与 Azure Monitor 集成非常有用：
   * 需要针对由数据工厂发布到 Monitor 的丰富指标集编写复杂查询。 可以通过 Monitor 创建针对这些查询的自定义警报。
   * 你希望跨数据工厂进行监视。 可将来自多个数据工厂的数据路由到单个 Monitor 工作区。
 
-还可使用与发出日志的资源不同的订阅中的存储帐户或事件中心命名空间。 配置此设置的用户必须对两个订阅都具有适当的基于角色的访问控制 (RBAC) 访问权限。
+还可使用与发出日志的资源不同的订阅中的存储帐户或事件中心命名空间。 配置此设置的用户必须对两个订阅都具有适当的 Azure 基于角色的访问控制 (Azure RBAC) 访问权限。
 
 ## <a name="configure-diagnostic-settings-and-workspace"></a>配置诊断设置和工作区
 
@@ -51,7 +51,7 @@ Azure Monitor 针对大多数 Azure 服务提供基本级别的基础结构指�
 
    ![如果存在设置，则添加诊断设置](media/data-factory-monitor-oms/add-diagnostic-setting.png)
 
-1. 为设置指定名称，选择“发送到 Log Analytics”，然后从 **Log Analytics 工作区**中选择一个工作区。
+1. 为设置指定名称，选择“发送到 Log Analytics”，然后从 **Log Analytics 工作区** 中选择一个工作区。
 
 如果选择 AllMetrics，则可使用多种 ADF 指标来进行监视或发出警报，包括针对 ADF 活动、管道和触发器运行的指标以及针对 SSIS IR 操作和 SSIS 包执行的指标。
 

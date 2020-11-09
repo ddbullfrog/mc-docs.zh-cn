@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 beta_cdf()。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 11c4a2a09498dac5fb34a56747d3497726f7eb2c
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: ec85b3b4b8d45f42e67c61d2bd5930daaba0d377
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516040"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104034"
 ---
 # <a name="beta_cdf"></a>beta_cdf()
 
@@ -24,7 +24,7 @@ ms.locfileid: "88516040"
 beta_cdf(0.2, 10.0, 50.0)
 ```
 
-若 *probability* = `beta_cdf(`*x*,...`)`，则 `beta_inv(`*probability*,...`)` = *x*。
+若 *probability* = `beta_cdf(`*x* ,...`)`，则 `beta_inv(`*probability* ,...`)` = *x* 。
 
 Beta 分布通常用于研究样本中某个因素的变化情况（用百分数表示），如一天中人们看电视所花时间的比例。
 
@@ -48,7 +48,9 @@ Beta 分布通常用于研究样本中某个因素的变化情况（用百分数
 
 如果 x < 0 或 x > 1，则 beta_cdf() 返回 NAN 值。
 
-如果 alpha ≤ 0 或 beta ≤ 0，则 beta_cdf() 将返回 NAN 值。
+如果 alpha ≤ 0 或 alpha > 10000，则 beta_cdf() 将返回 NAN 值。
+
+如果 beta ≤ 0 或 beta > 10000，则 beta_cdf() 将返回 NAN 值。
 
 ## <a name="examples"></a>示例
 
@@ -66,13 +68,13 @@ datatable(x:double, alpha:double, beta:double, comment:string)
 
 |x|alpha|beta|comment|b|
 |---|---|---|---|---|
-|0.9|10 个|20 个|有效输入|0.999999999999959|
-|1.5|10 个|20 个|x > 1，产生 NAN|NaN|
-|-10|10 个|20 个|x < 0，产生 NAN|NaN|
-|0.1|-1|20 个|alpha < 0，产生 NAN|NaN|
+|0.9|10|20|有效输入|0.999999999999959|
+|1.5|10|20|x > 1，生成 NAN|NaN|
+|-10|10|20|x < 0，生成 NAN|NaN|
+|0.1|-1|20|alpha < 0，生成 NAN|NaN|
 
 
-**另请参阅**
+## <a name="see-also"></a>请参阅
 
 
 * 若要计算 beta 累积概率密度函数的反函数，请参阅 [beta-inv()](./beta-invfunction.md)。

@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/13/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: ecc0b4aa9920867c2a2f951e858ab2f14f90e2d2
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 0ed98d6321b98dc80604317b868544e1646a7a00
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564187"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103601"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>创建、更改或删除网络安全组
 
@@ -31,17 +31,17 @@ ms.locfileid: "91564187"
 
 如果你没有 Azure 帐户，请使用有效的订阅设置一个帐户。 [创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 在开始学习本文的余下内容之前，请完成以下任务之一：
 
-- **门户用户**：使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.cn)。
+- **门户用户** ：使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-- **PowerShell 用户**：在计算机中运行 PowerShell。 
+- **PowerShell 用户** ：在计算机中运行 PowerShell。 
     
     <!--Not Available on  In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **PowerShell** if it isn't already selected.-->
     
     如果在本地运行 PowerShell，请使用 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az.Network` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 运行 `Connect-AzAccount -Environment AzureChinaCloud`，创建与 Azure 的连接。
 
-- **Azure 命令行接口 (CLI) 用户**：在计算机中运行 CLI。 如果在本地运行 Azure CLI，请使用 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。 运行 `az login`，创建与 Azure 的连接。
+- **Azure 命令行接口 (CLI) 用户** ：在计算机中运行 CLI。 如果在本地运行 Azure CLI，请使用 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。 运行 `az login`，创建与 Azure 的连接。
 
-    <!--Not Available on  Either run the commands in the [Azure local Shell](https://shell.azure.com (THIS WEB SITE IS NOT AVAILABLE ON AZURE CHINA CLOUD) /bash).-->
+    <!--Not Available on  Either run the commands in the [Azure local Shell](https://shell.azure.com/bash)-->
 
 用于登录或者用于连接 Azure 的帐户必须分配有[网络参与者角色](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)，或者分配有[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)，并且该自定义角色分配有[权限](#permissions)中列出的相应操作。
 
@@ -74,7 +74,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network nsg create](https://docs.azure.cn/cli/network/nsg#az-network-nsg-create) |
+| Azure CLI | [az network nsg create](https://docs.azure.cn/cli/network/nsg#az_network_nsg_create) |
 | PowerShell | [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) |
 
 ### <a name="view-all-network-security-groups"></a>查看所有网络安全组
@@ -85,7 +85,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network nsg list](https://docs.azure.cn/cli/network/nsg#az-network-nsg-list) |
+| Azure CLI | [az network nsg list](https://docs.azure.cn/cli/network/nsg#az_network_nsg_list) |
 | PowerShell | [Get-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecuritygroup) |
 
 ### <a name="view-details-of-a-network-security-group"></a>查看网络安全组的详细信息
@@ -112,7 +112,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network nsg show](https://docs.azure.cn/cli/network/nsg#az-network-nsg-show) |
+| Azure CLI | [az network nsg show](https://docs.azure.cn/cli/network/nsg#az_network_nsg_show) |
 | PowerShell | [Get-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecuritygroup) |
 
 ### <a name="change-a-network-security-group"></a>更改网络安全组
@@ -127,7 +127,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network nsg update](https://docs.azure.cn/cli/network/nsg#az-network-nsg-update) |
+| Azure CLI | [az network nsg update](https://docs.azure.cn/cli/network/nsg#az_network_nsg_update) |
 | PowerShell | [Set-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/set-aznetworksecuritygroup) |
 
 ### <a name="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface"></a>将网络安全组与子网或网络接口关联或取消关联
@@ -148,7 +148,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network nsg delete](https://docs.azure.cn/cli/network/nsg#az-network-nsg-delete) |
+| Azure CLI | [az network nsg delete](https://docs.azure.cn/cli/network/nsg#az_network_nsg_delete) |
 | PowerShell | [Remove-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworksecuritygroup) |
 
 ## <a name="work-with-security-rules"></a>使用安全规则
@@ -171,12 +171,12 @@ ms.locfileid: "91564187"
 
     | 设置 | Value | 详细信息 |
     | ------- | ----- | ------- |
-    | **Source** | 下列其中一项：<ul><li>**任意**</li><li>**IP 地址**</li><li>**服务标记**（入站安全规则）或 **VirtualNetwork**（出站安全规则）</li><li>**应用程序安全组**</li></ul> | <p>如果选择“IP 地址”，则还必须指定“源 IP 地址/CIDR 范围” 。</p><p>如果选择“服务标记”，则还可以选择“源服务标记”。 </p><p>如果选择“应用程序安全组”，则还必须选择现有的应用程序安全组。 如果为“源”和“目标”都选择“应用程序安全组”，则两个应用程序安全组中的网络接口必须在同一虚拟网络中  。</p> |
+    | **Source** | 下列其中一项：<ul><li>**任意**</li><li>**IP 地址**</li><li>**服务标记** （入站安全规则）或 **VirtualNetwork** （出站安全规则）</li><li>**应用程序安全组**</li></ul> | <p>如果选择“IP 地址”，则还必须指定“源 IP 地址/CIDR 范围” 。</p><p>如果选择“服务标记”，则还可以选择“源服务标记”。 </p><p>如果选择“应用程序安全组”，则还必须选择现有的应用程序安全组。 如果为“源”和“目标”都选择“应用程序安全组”，则两个应用程序安全组中的网络接口必须在同一虚拟网络中  。</p> |
     | **源 IP 地址/CIDR 范围** | 逗号分隔的 IP 地址和无类域间路由 (CIDR) 范围列表 | <p>如果将“源”更改为“IP 地址”，则会显示此设置。  必须指定单个值或以逗号分隔的多个值的列表。 多个值的示例为 `10.0.0.0/16, 192.188.1.1`。 可指定的值的数目有限制。 有关更多详细信息，请参阅 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。</p><p>如果指定的 IP 地址要分配给某个 Azure VM，请指定该 VM 的专用 IP 地址，而不是其公共 IP 地址。 Azure 会处理安全规则，具体时间是在其针对入站安全规则将公共 IP 地址转换为专用 IP 地址之后，但在其针对出站规则将专用 IP 地址转换为公共 IP 地址之前。 若要了解有关 Azure 中的公共和专用 IP 地址的详细信息，请参阅 [IP 地址类型](virtual-network-ip-addresses-overview-arm.md)。</p> |
     | **源服务标记** | 下拉列表中的服务标记 | 如果将“源”设置为入站安全规则的“服务标记”，则会显示此可选设置。  服务标记是 IP 地址类别的预定义标识符。 若要了解有关可用服务标记以及每个标记表示的含义的详细信息，请参阅[服务标记](security-overview.md#service-tags)。 |
     | **源应用程序安全组** | 现有的应用程序安全组 | 如果将“源”设置为“应用程序安全组”，则会显示此设置。  选择与网络接口位于同一区域中的应用程序安全组。 了解如何[创建应用程序安全组](#create-an-application-security-group)。 |
     | **源端口范围** | 下列其中一项：<ul><li>单个端口，例如 `80`</li><li>端口范围，例如 `1024-65535`</li><li>单个端口和/或端口范围的逗号分隔列表，例如 `80, 1024-65535`</li><li>一个星号 (`*`)，用于允许任何端口上的流量</li></ul> | 此设置指定规则允许或拒绝哪些端口上的流量。 可指定的端口数目有限制。 有关更多详细信息，请参阅 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 |
-    | **目标** | 下列其中一项：<ul><li>**任意**</li><li>**IP 地址**</li><li>**服务标记**（出站安全规则）或 **VirtualNetwork**（入站安全规则）</li><li>**应用程序安全组**</li></ul> | <p>如果选择“IP 地址”，则还要指定“目标 IP 地址/CIDR 范围” 。</p><p>如果选择“VirtualNetwork”，则会允许流量发送到虚拟网络地址空间中的所有 IP 地址。 VirtualNetwork 是一个服务标记。</p><p>如果选择“应用程序安全组”，则必须选择现有的应用程序安全组。 了解如何[创建应用程序安全组](#create-an-application-security-group)。</p> |
+    | **目标** | 下列其中一项：<ul><li>**任意**</li><li>**IP 地址**</li><li>**服务标记** （出站安全规则）或 **VirtualNetwork** （入站安全规则）</li><li>**应用程序安全组**</li></ul> | <p>如果选择“IP 地址”，则还要指定“目标 IP 地址/CIDR 范围” 。</p><p>如果选择“VirtualNetwork”，则会允许流量发送到虚拟网络地址空间中的所有 IP 地址。 VirtualNetwork 是一个服务标记。</p><p>如果选择“应用程序安全组”，则必须选择现有的应用程序安全组。 了解如何[创建应用程序安全组](#create-an-application-security-group)。</p> |
     | **目标 IP 地址/CIDR 范围** | 以逗号分隔的 IP 地址和 CIDR 范围列表 | <p>如果将“目标”更改为“IP 地址”，则会显示此设置。  与“源”和“源 IP 地址/CIDR 范围”类似，可以指定一个或多个地址或范围。  可指定的数目有限制。 有关更多详细信息，请参阅 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。</p><p>如果指定的 IP 地址要分配给某个 Azure VM，请确保指定该 VM 的专用 IP，而不是其公共 IP 地址。 Azure 会处理安全规则，具体时间是在其针对入站安全规则将公共 IP 地址转换为专用 IP 地址之后，但在其针对出站规则将专用 IP 地址转换为公共 IP 地址之前。 若要了解有关 Azure 中的公共和专用 IP 地址的详细信息，请参阅 [IP 地址类型](virtual-network-ip-addresses-overview-arm.md)。</p> |
     | **目标服务标记** | 下拉列表中的服务标记 | 如果为某个出站安全规则将“目标”更改为“服务标记”，则会显示此可选设置。  服务标记是 IP 地址类别的预定义标识符。 若要了解有关可用服务标记以及每个标记表示的含义的详细信息，请参阅[服务标记](security-overview.md#service-tags)。 |
     | **目标应用程序安全组** | 现有的应用程序安全组 | 如果将“目标”设置为“应用程序安全组”，则会显示此设置。  选择与网络接口位于同一区域中的应用程序安全组。 了解如何[创建应用程序安全组](#create-an-application-security-group)。 |
@@ -185,13 +185,13 @@ ms.locfileid: "91564187"
     | **操作** | “允许”或“拒绝”  | 此设置指定该规则是允许还是拒绝对提供的源和目标配置进行访问。 |
     | **Priority** | 一个介于 100 和 4096 之间的值，该值对于网络安全组中的所有安全规则都是唯一的 | Azure 按优先级顺序处理安全规则。 编号越低，优先级越高。 我们建议创建规则时在优先级数字之间留出空隙，例如 100、200 和 300。 留出空隙可便于在将来添加规则，使你可以为添加的规则分配比现有规则更高或更低的优先级。 |
     | **名称** | 规则在网络安全组中的唯一名称 | 名称最多可包含 80 个字符。 该名称必须以字母或数字开头，必须以字母、数字或下划线结尾。 名称只能包含字母、数字、下划线、句点和连字符。 |
-    | **说明** | 文本说明 | 可以选择性地指定安全规则的文本说明。 |
+    | **说明** | 文本说明 | 可以选择性地指定安全规则的文本说明。 说明的长度不能超过 140 个字符。 |
 
 #### <a name="commands"></a>命令
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule create](https://docs.azure.cn/cli/network/nsg/rule#az-network-nsg-rule-create) |
+| Azure CLI | [az network nsg rule create](https://docs.azure.cn/cli/network/nsg/rule#az_network_nsg_rule_create) |
 | PowerShell | [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) |
 
 ### <a name="view-all-security-rules"></a>查看所有安全规则
@@ -210,7 +210,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule list](https://docs.azure.cn/cli/network/nsg/rule#az-network-nsg-rule-list) |
+| Azure CLI | [az network nsg rule list](https://docs.azure.cn/cli/network/nsg/rule#az_network_nsg_rule_list) |
 | PowerShell | [Get-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecurityruleconfig) |
 
 ### <a name="view-details-of-a-security-rule"></a>查看安全规则的详细信息
@@ -230,7 +230,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule show](https://docs.azure.cn/cli/network/nsg/rule#az-network-nsg-rule-show) |
+| Azure CLI | [az network nsg rule show](https://docs.azure.cn/cli/network/nsg/rule#az_network_nsg_rule_show) |
 | PowerShell | [Get-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/get-aznetworksecurityruleconfig) |
 
 ### <a name="change-a-security-rule"></a>更改安全规则
@@ -246,7 +246,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule update](https://docs.azure.cn/cli/network/nsg/rule#az-network-nsg-rule-update) |
+| Azure CLI | [az network nsg rule update](https://docs.azure.cn/cli/network/nsg/rule#az_network_nsg_rule_update) |
 | PowerShell | [Set-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/set-aznetworksecurityruleconfig) |
 
 ### <a name="delete-a-security-rule"></a>删除安全规则
@@ -262,7 +262,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule delete](https://docs.azure.cn/cli/network/nsg/rule#az-network-nsg-rule-delete) |
+| Azure CLI | [az network nsg rule delete](https://docs.azure.cn/cli/network/nsg/rule#az_network_nsg_rule_delete) |
 | PowerShell | [Remove-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworksecurityruleconfig) |
 
 ## <a name="work-with-application-security-groups"></a>使用应用程序安全组
@@ -286,7 +286,7 @@ ms.locfileid: "91564187"
     | **名称** | 输入在资源组中唯一的文本字符串。 |
     | **区域** | 选择所需的位置。 |
 
-5. 选择“查看 + 创建”。
+5. 选择“查看 + 创建”  。
 
 6. 在“查看 + 创建”选项卡下，看到“验证通过”消息后，选择“创建”。  
 
@@ -294,7 +294,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network asg create](https://docs.azure.cn/cli/network/asg#az-network-asg-create) |
+| Azure CLI | [az network asg create](https://docs.azure.cn/cli/network/asg#az_network_asg_create) |
 | PowerShell | [New-AzApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-azapplicationsecuritygroup) |
 
 ### <a name="view-all-application-security-groups"></a>查看所有应用程序安全组
@@ -305,7 +305,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network asg list](https://docs.azure.cn/cli/network/asg#az-network-asg-list) |
+| Azure CLI | [az network asg list](https://docs.azure.cn/cli/network/asg#az_network_asg_list) |
 | PowerShell | [Get-AzApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationsecuritygroup) |
 
 ### <a name="view-details-of-a-specific-application-security-group"></a>查看特定应用程序安全组的详细信息
@@ -318,7 +318,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network asg show](https://docs.azure.cn/cli/network/asg#az-network-asg-show) |
+| Azure CLI | [az network asg show](https://docs.azure.cn/cli/network/asg#az_network_asg_show) |
 | PowerShell | [Get-AzApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationsecuritygroup) |
 
 ### <a name="change-an-application-security-group"></a>更改应用程序安全组
@@ -338,7 +338,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network asg update](https://docs.azure.cn/cli/network/asg#az-network-asg-update) |
+| Azure CLI | [az network asg update](https://docs.azure.cn/cli/network/asg#az_network_asg_update) |
 | PowerShell | 没有 PowerShell cmdlet |
 
 ### <a name="delete-an-application-security-group"></a>删除应用程序安全组
@@ -355,7 +355,7 @@ ms.locfileid: "91564187"
 
 | 工具 | 命令 |
 | ---- | ------- |
-| Azure CLI | [az network asg delete](https://docs.azure.cn/cli/network/asg#az-network-asg-delete) |
+| Azure CLI | [az network asg delete](https://docs.azure.cn/cli/network/asg#az_network_asg_delete) |
 | PowerShell | [Remove-AzApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/remove-azapplicationsecuritygroup) |
 
 ## <a name="permissions"></a>权限

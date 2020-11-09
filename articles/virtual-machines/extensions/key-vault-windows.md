@@ -7,16 +7,16 @@ ms.service: virtual-machines-windows
 ms.topic: article
 origin.date: 12/02/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 874f40fca38bf97c11f0efbde2c72d0f16ef73ab
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 6e25eab7e4ea063e71749d5274ff1fdb1379f9d9
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127940"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105555"
 ---
 <!--Verified successfully on the extension name exists-->
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Key Vault 虚拟机扩展
@@ -35,6 +35,15 @@ ms.locfileid: "92127940"
 
 - PKCS #12
 - PEM
+
+## <a name="prerequisities"></a>先决条件
+  - 具有证书的 Key Vault 实例。 请参阅[创建 Key Vault](https://docs.azure.cn/key-vault/quick-create-portal)
+  - VM/VMSS 必须已分配[托管标识](https://docs.azure.cn/active-directory/managed-identities-azure-resources/overview)
+  - 必须使用机密 `get` 和 `list` 权限为 VM/VMSS 托管标识设置 Key Vault 访问策略，以检索证书的机密部分。 请参阅[如何向 Key Vault 进行身份验证](https://docs.azure.cn/key-vault/general/authentication)和[分配 Key Vault 访问策略](https://docs.azure.cn/key-vault/general/assign-access-policy-cli)。
+
+    <!--MOONCAKE CORRECT ON [managed identity](https://docs.azure.cn/active-directory/managed-identities-azure-resources/overview)-->
+    <!--MOONCAKE CORRECT ON [How to Authenticate to Key Vault](https://docs.azure.cn/key-vault/general/authentication)-->
+    <!--MOONCAKE CORRECT ON [Assign a Key Vault access policy](https://docs.azure.cn/key-vault/general/assign-access-policy-cli)-->
 
 ## <a name="extension-schema"></a>扩展架构
 
@@ -93,7 +102,7 @@ ms.locfileid: "92127940"
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine 或 CurrentUser（区分大小写） | string |
-| requiredInitialSync | true | boolean |
+| requiredInitialSync | 是 | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.cn/secrets/mycertificate"] | 字符串数组
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
@@ -103,6 +112,12 @@ ms.locfileid: "92127940"
 可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 部署需要部署后刷新证书的一个或多个虚拟机时，模板是理想选择。 可将该扩展部署到单个 VM 或虚拟机规模集。 架构和配置对于这两种模板类型通用。 
 
 虚拟机扩展的 JSON 配置必须嵌套在模板的虚拟机资源片段中，具体来说是嵌套在虚拟机模板的 `"resources": []` 对象中，对于虚拟机规模集而言，是嵌套在 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 对象下。
+
+ > [!NOTE]
+> VM 扩展需要分配有系统或用户托管标识，才能向 Key Vault 进行身份验证。  请参阅[如何向 Key Vault 进行身份验证和分配 Key Vault 访问策略。](https://docs.azure.cn/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> 
+
+<!--MOONCAKE CORRECT OM See [How to authenticate to Key Vault and assign a Key Vault access policy.](https://docs.azure.cn/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)-->
 
 ```json
     {
@@ -192,30 +207,30 @@ ms.locfileid: "92127940"
      --publisher Microsoft.Azure.KeyVault `
      -g "<resourcegroup>" `
      --vm-name "<vmName>" `
-     --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
+     --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
 
 * 在虚拟机规模集上部署该扩展：
 
     ```azurecli
     # Start the deployment
-    az vmss extension set -n "KeyVaultForWindows" `
+    az vmss extension set -name "KeyVaultForWindows" `
      --publisher Microsoft.Azure.KeyVault `
-     -g "<resourcegroup>" `
+     -resource-group "<resourcegroup>" `
      --vmss-name "<vmName>" `
-     --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
+     --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
 
 请注意以下限制/要求：
 - Key Vault 限制：
     - 必须在部署时存在 
-    - 必须使用托管标识为 VM/VMSS 标识设置 Key Vault 访问策略。 请参阅[如何对 Key Vault 进行身份验证](/key-vault/general/authentication)。
+    - 必须使用托管标识为 VM/VMSS 标识设置 Key Vault 访问策略。 请参阅[如何对 Key Vault 进行身份验证](../../key-vault/general/authentication.md)。
 
 <!--Not Available on  and [Assign a Key Vault access policy](/key-vault/general/assign-access-policy-cli)-->
 
 ## <a name="troubleshoot-and-support"></a>故障排除和支持
 
-### <a name="troubleshoot"></a>疑难解答
+### <a name="troubleshoot"></a>故障排除
 
 有关扩展部署状态的数据可以从 Azure 门户和使用 Azure PowerShell 进行检索。 若要查看给定 VM 的扩展部署状态，请使用 Azure PowerShell 运行以下命令。
 

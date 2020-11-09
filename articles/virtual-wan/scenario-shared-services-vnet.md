@@ -7,22 +7,24 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f50ae3915feff1478a263036f7f08ec66b0fd229
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: d967deb42568979cf3b994eb3abe3390fc760694
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472591"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105670"
 ---
 <!--Verified successfully for only charactors-->
 # <a name="scenario-route-to-shared-services-vnets"></a>方案：路由到共享服务 VNet
 
-使用虚拟 WAN 虚拟中心路由时，有很多可用方案。 此方案的目标是设置路由以访问共享服务 VNet，其中包含你希望每个 VNet 和分支 (VPN/ER/P2S) 访问的工作负荷。 这些共享工作负荷的示例可能包括具有域控制器或文件共享等服务的虚拟机，或通过 [Azure 专用终结点](../private-link/private-endpoint-overview.md)在内部公开的 Azure 服务。
+使用虚拟 WAN 虚拟中心路由时，有很多可用方案。 此方案的目标是设置路由以访问共享服务 VNet，其中包含你希望每个 VNet 和分支 (VPN/ER/P2S) 访问的工作负荷。 这些共享工作负荷的示例可能包括具有域控制器或文件共享等服务的虚拟机。
+
+<!--Not Available on  [Azure Private Endpoints](../private-link/private-endpoint-overview.md)-->
 
 有关虚拟中心路由的详细信息，请参阅[关于虚拟中心路由](about-virtual-hub-routing.md)。
 

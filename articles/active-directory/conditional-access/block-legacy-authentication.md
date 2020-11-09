@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3127142aea7c41f3021df6cb858c303eaf31068
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: bac56fb6e2bf52a2366446fe4f2fd186ef816de1
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041581"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750000"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>如何：使用条件访问阻止向 Azure AD 进行旧身份验证   
 
@@ -37,10 +37,7 @@ Microsoft 身份安全主管 Alex Weinert 在其 2020 年 3 月 12 日的博客�
 
 ## <a name="prerequisites"></a>先决条件
 
-本文假定你熟悉以下内容： 
-
-- Azure AD 条件访问的[基本概念](overview.md) 
-- 在 Azure 门户中配置条件访问策略的[最佳做法](best-practices.md)
+本文假设你熟悉 Azure AD 条件访问的[基本概念](overview.md)。
 
 ## <a name="scenario-description"></a>方案描述
 
@@ -118,7 +115,7 @@ Azure AD 支持多个最广泛使用的身份验证和授权协议，包括旧�
 
 策略生效可能需要长达 24 小时的时间。
 
-可为**其他客户端**条件选择所有可用的授权控件；但是，最终用户体验始终是相同的 - 阻止访问。
+可为 **其他客户端** 条件选择所有可用的授权控件；但是，最终用户体验始终是相同的 - 阻止访问。
 
 ## <a name="next-steps"></a>后续步骤
 

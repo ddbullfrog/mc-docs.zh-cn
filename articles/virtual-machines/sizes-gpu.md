@@ -1,33 +1,30 @@
 ---
 title: Azure VM 大小 - GPU | Azure
 description: 列出了 Azure 中虚拟机可用的不同 GPU 优化大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。
-author: rockboyfor
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 origin.date: 02/03/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 52a29ad8af6975a1be74df0f7331d34d3b46cdbc
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: 387589bc1969f6571248770c36a6b3ce44e56abf
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052358"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106244"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 优化虚拟机大小
 
 GPU 优化 VM 大小是具有单个、多个或部分 GPU 的专用虚拟机。 这些大小是针对计算密集型、图形密集型和可视化工作负荷设计的。 本文介绍有关 GPU、vCPU、数据磁盘和 NIC 的数量和类型的信息。 此分组中的每个大小还包括存储吞吐量及网络带宽。
 
-<!--Not Available on [NC-series](nc-series.md)-->
-<!--Not Available on [NCv2-series](ncv2-series.md)-->
+- [NCv3 系列](ncv3-series.md)大小已针对计算密集型 GPU 加速应用程序进行了优化。 一些示例包括基于 CUDA 和 OpenCL 的应用程序以及模拟、AI 和深度学习。 NC T4 v3 系列专用于采用 NVIDIA Tesla T4 GPU 和 AMD EPYC2 Rome 处理器的推理工作负荷。 NCv3 系列专用于采用 NVIDIA Tesla V100 GPU 的高性能计算和 AI 工作负荷。
 
-- [NCv3 系列](ncv3-series.md)大小已针对计算密集型及网络密集型应用程序和算法进行优化。 一些示例包括基于 CUDA 和 OpenCL 的应用程序以及模拟、AI 和深度学习。 NCv3 系列专用于采用 NVIDIA Tesla V100 GPU 的高性能计算工作负载。 NC 系列使用 Intel Xeon E5-2690 v3 2.60GHz v3 (Haswell) 处理器，NCv2 系列和 NCv3 系列 VM 使用 Intel Xeon E5-2690 v4 (Broadwell) 处理器。
-
-    <!--Not Available on [ND-series](nd-series.md)-->
+    <!--Not Available on [NC T4_v3-series](nct4-v3-series.md)-->
     <!--Not Available on [NDv2-series](ndv2-series.md)-->
     <!--Not Available on [NV-series](nv-series.md)-->
     <!--Not Available on [NVv3-series](nvv3-series.md)-->

@@ -2,24 +2,23 @@
 title: Azure Application Insights 中的资源、角色和访问控制 | Azure Docs
 description: 组织的见解的所有者、参与者和读者。
 ms.topic: conceptual
-author: Johnnytechn
-manager: digimobile
 origin.date: 02/14/2019
-ms.date: 05/28/2020
+ms.date: 10/29/2020
+ms.custom: devx-track-azurepowershell
 ms.author: v-johya
-ms.openlocfilehash: 2f4d0cbd7edb05bdab60a27fc00c72289133463b
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: b27804d31a6178033abea9225b8bea38163d1de1
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440732"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103623"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights 中的资源、角色和访问控制
 
-通过使用 [Azure 中基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)，可以控制哪些用户对 Azure [Application Insights][start] 中的数据具有读取和更新访问权限。
+通过使用 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)，可以控制用户的权限，只允许特定的用户对 Azure [Application Insights][start] 中的数据具有读取和更新访问权限。
 
 > [!IMPORTANT]
-> 将访问权限分配给应用程序资源所属**资源组或订阅**中的用户（并非资源本身）。 分配 **Application Insights 组件参与者**角色。 这可确保对 Web 测试和警报及应用程序资源的访问实现统一控制。 [了解详细信息](#access)。
+> 将访问权限分配给应用程序资源所属 **资源组或订阅** 中的用户（并非资源本身）。 分配 **Application Insights 组件参与者** 角色。 这可确保对 Web 测试和警报及应用程序资源的访问实现统一控制。 [了解详细信息](#access)。
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -64,7 +63,7 @@ ms.locfileid: "84440732"
 
 下面的“添加权限”视图主要特定于 Application Insights 资源，如果从更高级别（如资源组）查看访问控制权限，则将看到其他并非以 Application Insights 为中心的角色。
 
-若要查看有关所有基于 Azure 角色的访问控制内置角色的信息，请使用[官方参考内容](/role-based-access-control/built-in-roles)。
+若要查看有关所有基于 Azure 角色的访问控制内置角色的信息，请使用[官方参考内容](../../role-based-access-control/built-in-roles.md)。
 
 ![访问控制用户角色列表的屏幕截图](./media/resources-roles-access-control/0003-user-roles.png)
 
@@ -74,23 +73,23 @@ ms.locfileid: "84440732"
 
 | 角色 | 在资源组中 |
 | --- | --- |
-| [所有者](/role-based-access-control/built-in-roles#owner) |可以更改任何内容，包括用户访问权限。 |
-| [参与者](/role-based-access-control/built-in-roles#contributor) |可以编辑任何内容，包括所有资源。 |
-| [Application Insights 组件参与者](/role-based-access-control/built-in-roles#application-insights-component-contributor) |可以编辑 Application Insights 资源。 |
-| [读者](/role-based-access-control/built-in-roles#reader) |可以查看但无法更改任何内容。 |
-| [Application Insights 快照调试器](/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | 授予用户使用 Application Insights 快照调试器功能的权限。 请注意，此角色既不包含在所有者角色中，也不包含在参与者角色中。 |
+| [所有者](../../role-based-access-control/built-in-roles.md#owner) |可以更改任何内容，包括用户访问权限。 |
+| [参与者](../../role-based-access-control/built-in-roles.md#contributor) |可以编辑任何内容，包括所有资源。 |
+| [Application Insights 组件参与者](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor) |可以编辑 Application Insights 资源。 |
+| [读者](../../role-based-access-control/built-in-roles.md#reader) |可以查看但无法更改任何内容。 |
+| [Application Insights 快照调试器](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | 授予用户使用 Application Insights 快照调试器功能的权限。 请注意，此角色既不包含在所有者角色中，也不包含在参与者角色中。 |
 | Azure 服务部署版本管理参与者 | 通过 Azure 服务部署进行部署的服务的参与者角色。 |
-| [数据清除程序](/role-based-access-control/built-in-roles#data-purger) | 清除个人数据的特殊角色。 有关更多信息，请参阅我们的[个人数据指南](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data)。   |
+| [数据清除程序](../../role-based-access-control/built-in-roles.md#data-purger) | 清除个人数据的特殊角色。 有关更多信息，请参阅我们的[个人数据指南](../platform/personal-data-mgmt.md)。   |
 | ExpressRoute 管理员 | 可以创建删除和管理快速路由。|
-| [Log Analytics 参与者](/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics 参与者可以读取所有监视数据并编辑监视设置。 编辑监视设置包括向 VM 添加 VM 扩展、读取存储帐户密钥以便能够从 Azure 存储配置日志收集、创建和配置自动化帐户、添加解决方案以及配置所有 Azure 资源上的 Azure 诊断。  |
-| [Log Analytics 读者](/role-based-access-control/built-in-roles#log-analytics-reader) | Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置，其中包括查看所有 Azure 资源上的 Azure 诊断的配置。 |
-| 主读者 | 允许用户查看所有内容，但不能进行更改。 |
-| [监视参与者](/role-based-access-control/built-in-roles#monitoring-contributor) | 允许读取所有监视数据并更新监视设置。|
-| [监视指标发布者](/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | 允许针对 Azure 资源发布指标。 |
-| [监视读取者](/role-based-access-control/built-in-roles#monitoring-reader) | 可以读取所有监视数据。 |
+| [Log Analytics 参与者](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Log Analytics 参与者可以读取所有监视数据并编辑监视设置。 编辑监视设置包括向 VM 添加 VM 扩展、读取存储帐户密钥以便能够从 Azure 存储配置日志收集、创建和配置自动化帐户、添加解决方案以及配置所有 Azure 资源上的 Azure 诊断。  |
+| [Log Analytics 读者](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置，其中包括查看所有 Azure 资源上的 Azure 诊断的配置。 |
+| masterreader | 允许用户查看所有内容，但不能进行更改。 |
+| [监视参与者](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | 允许读取所有监视数据并更新监视设置。|
+| [监视指标发布者](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher) | 允许针对 Azure 资源发布指标。 |
+| [监视读取者](../../role-based-access-control/built-in-roles.md#monitoring-reader) | 可以读取所有监视数据。 |
 | 资源策略参与者（预览） | 通过 EA 回填的用户，具有创建/修改资源策略、创建支持票证和读取资源/层次结构的权限。  |
-| [用户访问管理员](/role-based-access-control/built-in-roles#user-access-administrator) | 允许用户管理其他用户对 Azure 资源的访问。|
-| [网站参与者](/role-based-access-control/built-in-roles#website-contributor) | 允许管理网站（而非 Web 计划），但不允许访问这些网站。|
+| [用户访问管理员](../../role-based-access-control/built-in-roles.md#user-access-administrator) | 允许用户管理其他用户对 Azure 资源的访问。|
+| [网站参与者](../../role-based-access-control/built-in-roles.md#website-contributor) | 允许管理网站（而非 Web 计划），但不允许访问这些网站。|
 
 “编辑”包括创建、删除和更新：
 
@@ -106,7 +105,7 @@ ms.locfileid: "84440732"
 
 ## <a name="related-content"></a>相关内容
 
-* [Azure 中基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)
+* [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>PowerShell 查询确定角色成员身份
 
@@ -139,5 +138,5 @@ $resourceGroup = "RGNAME"
 [account]: https://account.windowsazure.cn
 [group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.cn/
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md
 

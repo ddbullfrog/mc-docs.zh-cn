@@ -11,14 +11,14 @@ ms.author: v-jay
 manager: digimobile
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-origin.date: 09/15/2020
-ms.date: 10/17/2020
-ms.openlocfilehash: 3987522b9fc8f63a065482ef69d75fb3043986ae
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+origin.date: 10/13/2020
+ms.date: 11/02/2020
+ms.openlocfilehash: b4999ee665948d9867dd55f5f8114ff40f36617e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121703"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104269"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>自定义 Azure-SSIS Integration Runtime 的安装
 
@@ -128,7 +128,7 @@ ms.locfileid: "92121703"
 
 #### <a name="running-cmdkey-command"></a>运行 cmdkey 命令
 
-如果为快速自定义安装程序选择“运行 cmdkey 命令”类型，则可在 Azure-SSIS IR 上运行 Windows cmdkey 命令。 为此，请分别在“/Add”、“/User”和“/Pass”文本框中输入目标计算机名或域名、用户名或帐户名以及密码或帐户密钥。  。 这样即可为 Azure-SSIS IR 上的 SQL Server、文件共享或 Azure 文件存储持久保留访问凭据。 例如，若要访问 Azure 文件存储，可以为“/Add”、“/User”和“/Pass”分别输入 `YourAzureStorageAccountName.file.core.chinacloudapi.cn`、 `azure\YourAzureStorageAccountName` 和 `YourAzureStorageAccountKey`。  。 这类似于在本地计算机上运行 Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 命令。
+如果为快速自定义安装程序选择“运行 cmdkey 命令”类型，则可在 Azure-SSIS IR 上运行 Windows cmdkey 命令。 为此，请分别在“/Add”、“/User”和“/Pass”文本框中输入目标计算机名或域名、用户名或帐户名以及密码或帐户密钥。  。 这样即可为 Azure-SSIS IR 上的 SQL Server、文件共享或 Azure 文件存储持久保留访问凭据。 例如，若要访问 Azure 文件存储，可以为“/Add”、“/User”和“/Pass”分别输入 `YourAzureStorageAccountName.file.core.chinacloudapi.cn`、 `azure\YourAzureStorageAccountName` 和 `YourAzureStorageAccountKey`。  。 这类似于在本地计算机上运行 Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 命令。 目前仅支持一种运行 cmdkey 命令的快速自定义设置。 若要运行多个 cmdkey 命令，请改用标准自定义设置。
 
 #### <a name="adding-environment-variables"></a>添加环境变量
 
@@ -144,7 +144,7 @@ ms.locfileid: "92121703"
 
    * 如果选择“SentryOne Task Factory”组件，可在 Azure-SSIS IR 上安装 SentryOne 提供的 [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) 组件套件。 为此，请在“许可证密钥”文本框中输入预先从他们那里购买的产品许可证密钥。 当前的集成版本是 2020.1.3。
 
-   * 如果选择“oh22 的 HEDDA.IO”组件，可在 Azure-SSIS IR 上安装 oh22 的 [HEDDA.IO](https://hedda.io/ssis-component/) 数据质量/清理组件。 为此，需要预先购买其服务。 当前的集成版本是 1.0.14。
+   * 如果选择“oh22 的 HEDDA.IO”组件，可在 Azure-SSIS IR 上安装 oh22 的 [HEDDA.IO](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) 数据质量/清理组件。 为此，需要预先购买其服务。 当前的集成版本是 1.0.14。
 
    * 如果选择“oh22 的 SQLPhonetics.NET”组件，可在 Azure-SSIS IR 上安装 oh22 的 [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) 数据质量/匹配组件。 为此，请在“许可证密钥”文本框中输入预先从他们那里购买的产品许可证密钥。 当前的集成版本是 1.0.45。
 
@@ -155,6 +155,10 @@ ms.locfileid: "92121703"
    * 如果选择“Theobald Software 的 Xtract IS”组件，可在 Azure-SSIS IR 上安装 Theobald Software 所提供的 SAP 系统（ERP、S/4HANA、BW）的 [Xtract IS](https://theobald-software.com/en/xtract-is/) 连接器套件。 为此，请在“许可证文件”输入框中拖放/上传预先从他们那里购买的产品许可证文件。 当前的集成版本是 6.1.1.3。
 
    * 如果选择“AecorSoft 的 Integration Service”组件，可在 Azure-SSIS IR 上安装 AecorSoft 提供的适用于 SAP 和 Salesforce 系统的 [Integration Service](https://www.aecorsoft.com/en/products/integrationservice) 连接器套件。 为此，请在“许可证密钥”文本框中输入预先从他们那里购买的产品许可证密钥。 当前的集成版本是 3.0.00。
+
+   * 如果选择“CData 的 SSIS 标准包”组件，则可以在 Azure-SSIS IR 上安装来自 CData 的 [SSIS 标准包](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard)套件，其中包括最常用组件（例如 Microsoft SharePoint 连接器）。 为此，请在“许可证密钥”文本框中输入预先从他们那里购买的产品许可证密钥。 当前的集成版本是 19.7354。
+
+   * 如果选择“CData 的 SSIS 扩展包”组件，则可以在 Azure-SSIS IR 上安装包含 CData 所有组件（例如 Microsoft Dynamics 365 Business Central 连接器和“SSIS 标准包”中的其他组件）的 [SSIS 扩展包](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended)套件。 为此，请在“许可证密钥”文本框中输入预先从他们那里购买的产品许可证密钥。 当前的集成版本是 19.7354。 由于其太大，为避免安装超时，请确保 Azure-SSIS IR 为每个节点设置至少 4 个 CPU 核心。
 
 添加的快速自定义安装将显示在“高级设置”页上。 若要删除它们，请选中其复选框，然后选择“删除”。
 
@@ -172,7 +176,7 @@ ms.locfileid: "92121703"
    $AzureSSISName = "[your Azure-SSIS IR name]"
    # Custom setup info: Standard/express custom setups
    $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
+   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService|CData.Standard|CData.Extended or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
    # Add custom setup parameters if you use standard/express custom setups
    if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
@@ -239,6 +243,16 @@ ms.locfileid: "92121703"
            $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
            $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
        }
+       if($ExpressCustomSetup -eq "CData.Standard")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
+       if($ExpressCustomSetup -eq "CData.Extended")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }    
        # Create an array of one or more express custom setups
        $setups = New-Object System.Collections.ArrayList
        $setups.Add($setup)
@@ -285,6 +299,8 @@ ms.locfileid: "92121703"
       * 一个 .NET FRAMEWORK 3.5 文件夹，其中包含用于在 Azure-SSIS IR 的每个节点上安装 .NET Framework 早期版本的自定义安装程序脚本 (main.cmd)。 某些自定义组件可能需要此版本。
 
       * 一个 BCP 文件夹，其中包含用于在 Azure-SSIS IR 的每个节点上安装 SQL Server 命令行实用工具 (MsSqlCmdLnUtils.msi) 的自定义安装程序脚本 (main.cmd)。 其中一个实用工具是大容量复制程序 (bcp)。
+
+      * DNS 后缀文件夹，其中包含一个自定义设置脚本 (main.cmd)，用于将你自己的 DNS 后缀（例如“test.com”）追加到任何未限定的单标签域名，并将其转换为完全限定的域名 (FQDN)，然后在来自 Azure-SSIS IR 的 DNS 查询中使用它。
 
       * 一个 EXCEL 文件夹，其中包含用于在 Azure-SSIS IR 的每个节点上安装一些 C# 程序集和库的自定义安装程序脚本 (main.cmd)。 可在“脚本任务”中使用它们来动态读取和写入 Excel 文件。 
       

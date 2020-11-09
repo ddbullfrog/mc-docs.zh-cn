@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: v-yiso
 ms.date: 07/27/2020
-ms.openlocfilehash: b6ea5671c37670d612d174aae2fe04eea271e796
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: f4351e6a1785ee5065b202ed8d4a60ae9e764cab
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92117900"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105490"
 ---
 # <a name="execute-r-script-module"></a>“执行 R 脚本”模块
 
 本文介绍如何使用“执行 R 脚本”模块在 Azure 机器学习设计器管道中运行 R 代码。
 
-使用 R，可以执行现有模块当前不支持的任务，例如： 
+使用 R 可以执行现有模块不支持的任务，例如： 
 - 创建自定义数据转换
 - 使用你自己的指标来评估预测
 - 使用未在设计器中作为独立模块实施的算法来生成模型
@@ -137,7 +137,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="how-to-configure-execute-r-script"></a>如何配置“执行 R 脚本”
 
-“执行 R 脚本”模块包含可用作起点的代码示例。 若要配置“执行 R 脚本”模块，请提供一组输入和要运行的代码。
+“执行 R 脚本”模块包含可用作起点的示例代码。
 
 ![R 模块的输入示意图](media/module/execute-r-script.png)
 
@@ -196,7 +196,10 @@ azureml_main <- function(dataframe1, dataframe2){
 
     如果脚本大于 16KB，请使用脚本包端口以避免错误，如命令行超过 16597 个字符的限制。 
     
-    将脚本和其他自定义资源捆绑到一个 zip 文件，然后将该 zip 文件作为文件数据集上传到工作室。 然后可以从设计器创作页面左侧模块窗格中的“我的数据集”列表中拖取数据集模块。 将数据集模块连接到“执行 R 脚本”模块的“脚本包”端口。
+    1. 将脚本和其他自定义资源捆绑到一个 zip 文件中。
+    1. 将 zip 文件作为“文件数据集”上传到工作室。 
+    1. 从设计器创作页面左侧模块窗格的“我的数据集”列表中拖取数据集模块。 
+    1. 将数据集模块连接到“执行 R 脚本”模块的“脚本包”端口。
     
     下面是使用脚本包中的脚本的示例代码：
 
@@ -219,7 +222,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="results"></a>结果
 
-“执行 R 脚本”模块可返回多个输出，但必须将它们作为 R 数据帧提供。 数据帧会自动转换为设计器中的数据集，以便与其他模块兼容。
+“执行 R 脚本”模块可返回多个输出，但必须将它们作为 R 数据帧提供。 设计器会自动将数据帧转换为数据集，使之与其他模块兼容。
 
 来自 R 的标准消息和错误将返回到模块的日志中。
 
@@ -236,7 +239,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1. 若要将包含 R 代码的 .zip 文件上传到工作区，请转到“数据集”资产页。 选择“创建数据集”，然后选择“从本地文件”和“文件”数据集类型选项  。  
 
-1. 验证左侧模块树中“数据集”类别下“我的数据集”列表中是否存在该压缩文件 。
+1. 验证该压缩文件是否出现在左侧模块树的“数据集”类别下“我的数据集”中 。
 
 1.  将数据集连接到“脚本包”输入端口。
 

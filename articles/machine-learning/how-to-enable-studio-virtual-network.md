@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 4beeeb0d91b174dd85f738023b636cf3cd7fd11a
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 7d69667f002660c4d22cd15ac311010f4fc93515
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118412"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106256"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中使用 Azure 机器学习工作室
 
@@ -24,6 +24,7 @@ ms.locfileid: "92118412"
 
 > [!div class="checklist"]
 > - 从虚拟网络内部的资源访问工作室。
+> - 为存储帐户配置专用终结点。
 > - 授予工作室访问存储在虚拟网络内部的数据的权限。
 > - 了解工作室如何影响存储安全性。
 
@@ -45,7 +46,7 @@ ms.locfileid: "92118412"
 
 + 现有的[启用了专用链接的 Azure 机器学习工作区](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint)。
 
-+ 现有的[已添加虚拟网络的 Azure 存储帐户](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)。
++ 现有的[已添加虚拟网络的 Azure 存储帐户](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)。
 
 ## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>从 VNet 内部的资源访问工作室
 
@@ -55,7 +56,7 @@ ms.locfileid: "92118412"
 
 ## <a name="access-data-using-the-studio"></a>使用工作室访问数据
 
-[将 Azure 存储帐户添加到虚拟网络](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)后，必须配置存储帐户，以使用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)授予工作室对数据的访问权限。 工作室支持将存储帐户配置为使用服务终结点或专用终结点。 存储帐户默认使用服务终结点。 
+将 Azure 存储帐户添加到虚拟网络后，必须配置存储帐户，以使用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)授予工作室对数据的访问权限。 
 
 如果未启用托管标识，则会收到以下错误 `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` 此外，将禁用以下操作：
 
@@ -63,6 +64,9 @@ ms.locfileid: "92118412"
 * 在设计器中将数据可视化。
 * 提交 AutoML 试验。
 * 启动标记项目。
+
+> [!NOTE]
+> [ML 辅助数据标记](how-to-create-labeling-projects.md#use-ml-assisted-labeling)不支持在虚拟网络后面受保护的默认存储帐户。 对于 ML 辅助数据标记，必须使用非默认存储帐户。 可在虚拟网络后面保护非默认存储帐户。 
 
 工作室支持从虚拟网络中的以下数据存储类型读取数据：
 

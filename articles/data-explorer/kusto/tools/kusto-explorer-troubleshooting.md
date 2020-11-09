@@ -7,13 +7,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 04/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 2c5186c65c2407145ad62d6280febe15bba56fae
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 09/30/2020
+ms.openlocfilehash: ab3f8ceb81263594452a00e8cd73e95bbee3d6dc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515977"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104517"
 ---
 # <a name="troubleshooting"></a>故障排除
 
@@ -23,11 +23,11 @@ ms.locfileid: "88515977"
 
 ### <a name="kustoexplorer-shows-error-dialog-during-or-after-start-up"></a>Kusto.Explorer 在启动过程中或启动后显示错误对话
 
-**症状**
+#### <a name="symptom"></a>症状
 
 在启动时，Kusto.Explorer 显示 `InvalidOperationException` 错误。
 
-**可能的解决方案**
+#### <a name="possible-solution"></a>可能的解决方法
 
 此错误可能表明操作系统已损坏或缺少某些必需模块。
 若要检查丢失或已损坏的系统文件，请按照下面所述的步骤进行操作：   
@@ -35,11 +35,11 @@ ms.locfileid: "88515977"
 
 ## <a name="kustoexplorer-always-downloads-even-when-there-are-no-updates"></a>即使没有更新，Kusto.Explorer 也总要下载
 
-**症状**
+#### <a name="symptom"></a>症状
 
 每次打开 Kusto.Explorer 时，系统都会提示安装新版本。 Kusto.Explorer 会下载整个包，而不更新已安装的版本。
 
-**可能的解决方案**
+#### <a name="possible-solution"></a>可能的解决方法
 
 此症状可能是本地 ClickOnce 存储中的损坏造成的。 你可以通过在提升的命令提示符中运行以下命令来清除本地 ClickOnce 存储区。
 
@@ -55,7 +55,7 @@ rd /q /s %userprofile%\appdata\local\apps\2.0
 
 ### <a name="clickonce-error-cannot-start-application"></a>ClickOnce 错误：无法启动应用程序
 
-**现象**  
+#### <a name="symptoms"></a>症状
 
 程序无法启动，并显示以下错误之一： 
 * `External component has thrown an exception`
@@ -83,7 +83,7 @@ Following errors were detected during this operation.
             at System.Deployment.Application.ApplicationActivator.ActivateDeploymentWorker(Object state)
 ```
 
-**建议的解决方案步骤**
+#### <a name="proposed-solution-steps"></a>建议的解决方案步骤
 
 1. 使用 `Programs and Features` (`appwiz.cpl`) 卸载 Kusto.Explorer。
 
@@ -125,8 +125,10 @@ Following errors were detected during this operation.
         copy %LOCALAPPDATA%\Kusto.Explorer.bak\User*.xml %LOCALAPPDATA%\Kusto.Explorer
         ```
 
+#### <a name="enabling-clickonce-verbose-logging"></a>启用 ClickOnce 详细日志记录
+
 1. 如果应用程序仍未启动：
-    1. 在以下位置下创建 LogVerbosityLevel 字符串值 1，以启用详细 ClickOnce 日志记录：
+    1. 在以下位置创建 LogVerbosityLevel 字符串值 1，以[启用详细 ClickOnce 日志记录](https://docs.microsoft.com/visualstudio/deployment/how-to-specify-verbose-log-files-for-clickonce-deployments)：
 
         ```kusto
         HKEY_CURRENT_USER\Software\Classes\Software\Microsoft\Windows\CurrentVersion\Deployment
@@ -137,12 +139,12 @@ Following errors were detected during this operation.
 
 ### <a name="clickonce-error-your-administrator-has-blocked-this-application-because-it-potentially-poses-a-security-risk-to-your-computer"></a>ClickOnce 错误：管理员已阻止此应用程序，因为它可能会给你的计算机带来安全风险
 
-**症状**  
+#### <a name="symptom"></a>症状 
 应用程序安装失败，并出现以下错误之一：
 * `Your administrator has blocked this application because it potentially poses a security risk to your computer`.
 * `Your security settings do not allow this application to be installed on your computer.`
 
-**解决方案**
+#### <a name="solution"></a>解决方案
 
 此症状可能是因为另一个应用程序正在替代默认的 ClickOnce 信任提示行为。 
 1. 查看默认配置设置。
@@ -182,4 +184,4 @@ Following errors were detected during this operation.
 
 * 了解 [Kusto.Explorer 用户界面](kusto-explorer.md#overview-of-the-user-interface)
 * 了解如何[从命令行运行 Kusto.Explorer](kusto-explorer-using.md#kustoexplorer-command-line-arguments)
-* 了解 [Kusto 查询语言 (KQL)](https://docs.azure.cn/kusto/query/)
+* 了解 [Kusto 查询语言 (KQL)](../query/index.md)

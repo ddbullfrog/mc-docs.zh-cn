@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: d3c7bd6125f45a2e8dc91946553cbf4d76e01176
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: f0ef93827cd2022645f65fe943ef96b8505f44b6
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118591"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103533"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>可解释性：自动化机器学习（预览版）中的模型说明
 
@@ -33,7 +33,7 @@ ms.locfileid: "92118591"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 可解释性特征。 运行 `pip install azureml-interpret azureml-contrib-interpret` 获取所需的包。
+- 可解释性特征。 运行 `pip install azureml-interpret` 以获取所需的包。
 - 生成自动化 ML 试验的知识。 有关如何使用 Azure 机器学习 SDK 的详细信息，请完成此[回归模型教程](tutorial-auto-train-models.md)，或参阅如何[配置自动化 ML 试验](how-to-configure-auto-train.md)。
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>训练最佳模型过程中的可解释性
@@ -99,7 +99,7 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 MimicWrapper 还获取 `automl_run` 对象，工程解释将上传到该对象。
 
 ```python
-from azureml.explain.model.mimic_wrapper import MimicWrapper
+from azureml.interpret import MimicWrapper
 
 # Initialize the Mimic Explainer
 explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d91854dd6d4fb3a42ca529a79852c9d113edcb7f
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 863c199593eabbec1bb9687cc9dd4d14143015e3
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245529"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750217"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>在 Privileged Identity Management 中配置 Azure AD 角色设置
 
@@ -52,7 +52,7 @@ gt
 
     ![列出多个分配和激活设置的“角色设置详细信息”页](./media/pim-how-to-change-default-settings/role-settings-page.png)
 
-1. 选择“编辑”打开“角色设置”页。****
+1. 选择“编辑”打开“角色设置”页。
 
     ![“编辑角色设置”页，其中包含用于更新分配和激活设置的选项](./media/pim-how-to-change-default-settings/role-settings-edit.png)
 
@@ -69,7 +69,7 @@ gt
 | **允许永久的合格分配** | 全局管理员和特权角色管理员可以分配永久的合格分配。 |
 | **使合格分配在以下时间后过期** | 全局管理员和特权角色管理员可以要求所有合格分配都具有指定的开始和结束日期。 |
 
-并且，可以选择其中一个活动**** 分配持续时间选项：
+并且，可以选择其中一个活动分配持续时间选项：
 
 | | |
 | --- | --- |
@@ -99,17 +99,17 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 
 ## <a name="activation-maximum-duration"></a>最长激活持续时间
 
-使用“最长激活持续时间”**** 滑块是角色在过期前保持活动状态的最大时间（以小时为单位）。 此值可以是 1 到 24 个小时。
+使用“最长激活持续时间”滑块是角色在过期前保持活动状态的最大时间（以小时为单位）。 此值可以是 1 到 24 个小时。
 
 ## <a name="require-justification"></a>需要理由
 
-你可以要求用户在激活时输入业务理由。 若需要理由，请选中“在活动分配时需要理由”**** 框或“在激活时需要理由”**** 框。
+你可以要求用户在激活时输入业务理由。 若需要理由，请选中“在活动分配时需要理由”框或“在激活时需要理由”框。
 
 ## <a name="require-approval-to-activate"></a>需要批准才能激活
 
 如果设置多个审批者，则审批会在其中一项批准或拒绝后立即完成。 不能要求获得至少两个用户的批准。 若要求批准以激活角色，请按照以下步骤操作。
 
-1. 选中“需要批准以激活”**** 复选框。
+1. 选中“需要批准以激活”复选框。
 
 1. 选择“选择审批者”。
 
@@ -119,7 +119,7 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 
     所选项将出现在所选审批者列表中。
 
-1. 在指定所有角色设置后，选择“更新”**** 以保存更改。
+1. 在指定所有角色设置后，选择“更新”以保存更改。
 
 # <a name="previous-version"></a>[先前版本](#tab/previous)
 
@@ -141,17 +141,17 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 
     ![Azure AD 角色 - 设置角色](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
-    在每个角色的设置页上，有多个可以配置的设置。 这些设置只影响作为**合格**分配（不是**永久**分配）的用户。
+    在每个角色的设置页上，有多个可以配置的设置。 这些设置只影响作为 **合格** 分配（不是 **永久** 分配）的用户。
 
 ## <a name="activations"></a>激活
 
-使用“激活”**** 滑块设置角色在过期前保持活动状态的最大时间（以小时为单位）。 此值可为 1 到 72 小时。
+使用“激活”滑块设置角色在过期前保持活动状态的最大时间（以小时为单位）。 此值可为 1 到 72 小时。
 
 ## <a name="notifications"></a>通知
 
-使用“通知”开关指定当角色激活时管理员是否将收到电子邮件通知****。 此通知对于检测未经授权或非法的激活相当有用。
+使用“通知”开关指定当角色激活时管理员是否将收到电子邮件通知。 此通知对于检测未经授权或非法的激活相当有用。
 
-设置为“启用”时，通知将发送至****：
+设置为“启用”时，通知将发送至：
 
 - 特权角色管理员
 - 安全管理员
@@ -161,11 +161,11 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 
 ## <a name="incidentrequest-ticket"></a>事件/请求票证
 
-使用“事件/请求票证”**** 开关要求合格管理员在激活其角色时提供票证编号。 这种做法可以使角色访问审核更高效。
+使用“事件/请求票证”开关要求合格管理员在激活其角色时提供票证编号。 这种做法可以使角色访问审核更高效。
 
 ## <a name="multi-factor-authentication"></a>多重身份验证
 
-使用“多重身份验证”**** 开关指定是否要求用户在激活其角色之前，先使用 MFA 验证其身份。 他们只需在每个会话中验证其身份一次，而无需在每次激活角色时都执行身份验证。 启用 MFA 时，请记住两点提示：
+使用“多重身份验证”开关指定是否要求用户在激活其角色之前，先使用 MFA 验证其身份。 他们只需在每个会话中验证其身份一次，而无需在每次激活角色时都执行身份验证。 启用 MFA 时，请记住两点提示：
 
 - 使用 Microsoft 帐户作为电子邮件地址（通常是 @outlook.com，但不一定）的用户无法注册 Azure 多重身份验证。 如果想要将角色分配给使用 Microsoft 帐户的用户，应将其设置为永久管理员，或者为该角色禁用多重身份验证。
 - 无法对 Azure AD 和 Microsoft 365 的高特权角色禁用 Azure 多重身份验证。 此安全功能有助于保护以下角色：  
@@ -194,19 +194,19 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 
 如果要委派激活角色所需的审批，请按照以下步骤操作。
 
-1. 将“要求批准”**** 设置为“启用”****。 该窗格扩展选项以选择审批者。
+1. 将“要求批准”设置为“启用”。 该窗格扩展选项以选择审批者。
 
-    ![Azure AD 角色 - 设置 - 需要审批](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![显示已选中“启用”的“需要审批”开关的屏幕截图。](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     如果未指定任何审批者，则特权角色管理员将成为默认的审批者，然后需要审批此角色的所有激活请求。
 
-1. 若要添加审批者，请单击“选择审批者”****。
+1. 若要添加审批者，请单击“选择审批者”。
 
     ![Azure AD 角色 - 设置 - 需要审批](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
-1. 除了特权角色管理员之外，还选择一个或多个审批者，然后单击“选择”****。 建议至少添加两个审批者。 即使将自己添加为审批者，也不能自行批准角色激活。 所选项将出现在所选审批者列表中。
+1. 除了特权角色管理员之外，还选择一个或多个审批者，然后单击“选择”。 建议至少添加两个审批者。 即使将自己添加为审批者，也不能自行批准角色激活。 所选项将出现在所选审批者列表中。
 
-1. 在指定所有角色设置后，选择“保存”**** 以保存更改。
+1. 在指定所有角色设置后，选择“保存”以保存更改。
 
 ---
 

@@ -4,19 +4,19 @@ description: 本文介绍 Azure 数据资源管理器中的教程。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/23/2020
-ms.date: 08/06/2020
+ms.date: 09/30/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 6500d5893c7a71d53d4d6b1e729f69a0b2b5d5ff
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.openlocfilehash: 4050a6a3b6a7214c4f3201eb94de3e3c9f162c54
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841475"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106006"
 ---
 # <a name="tutorial"></a>教程
 
@@ -124,7 +124,7 @@ StormEvents
 StormEvents
 | sort by StartTime desc
 | take 5
-| project  StartTime, EndLat, EventType, EventNarrative
+| project  StartTime, EndTime, EventType, EventNarrative
 ```
 
 ## <a name="extend-compute-derived-columns"></a>extend：计算派生的列
@@ -451,7 +451,8 @@ LightningStorms
 | distinct State
 ```
 
-> 提示：在 Kusto 客户端中，请勿在此各部分间放入空白行。 请务必执行所有运算。
+> [!TIP]
+> 在 Kusto Explorer 客户端中，请勿在此查询的各部分间放入空白行。 请务必执行所有运算。
 
 ## <a name="combining-data-from-several-databases-in-a-query"></a>在查询中组合来自多个数据库的数据
 
@@ -487,7 +488,8 @@ union Requests, database("Diagnostics").Logs | ...
 Logs | join cluster("TelemetryCluster").database("Telemetry").Metrics on Request MachineId | ...
 ```
 
-> 注意：指定群集后，数据库是必需的
+> [!NOTE]
+> 指定群集后，数据库是必需的
 
 ::: zone-end
 

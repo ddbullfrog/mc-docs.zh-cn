@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/26/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31616e38cec7d842630b079b2bb66ca3a472b908
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 68f1b881a4b752359d15d3d6f7b61b90a0db4d4b
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946986"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750060"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>快速入门：授权创建无限数目的应用注册的权限
 
@@ -28,7 +28,7 @@ ms.locfileid: "88946986"
 
 ## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>使用 Azure AD 门户创建自定义角色
 
-1. 使用 Azure AD 组织中的特权角色管理员或全局管理员权限登录到  [Azure AD 管理中心](https://portal.azure.cn) 。
+1. 使用 Azure AD 组织中的特权角色管理员或全局管理员权限登录到 [Azure AD 管理中心](https://portal.azure.cn)。
 1. 依次选择“Azure Active Directory”、“角色和管理员”和“新建自定义角色”  。
 
     ![从“角色和管理员”页创建或编辑角色](./media/roles-create-custom/new-custom-role.png)
@@ -45,7 +45,7 @@ ms.locfileid: "88946986"
 
 ### <a name="assign-the-role-in-the-azure-ad-portal"></a>在 Azure AD 门户中分配角色
 
-1. 使用 Azure AD 组织中的特权角色管理员或全局管理员权限登录到  [Azure AD 管理中心](https://portal.azure.cn) 。
+1. 使用 Azure AD 组织中的特权角色管理员或全局管理员权限登录到 [Azure AD 管理中心](https://portal.azure.cn)。
 1. 依次选择“Azure Active Directory”、“角色和管理员” 。
 1. 选择“应用程序注册创建者”角色，然后选择“添加分配”。
 1. 选择所需的用户，然后单击“选择”将该用户添加到该角色。
@@ -60,7 +60,7 @@ ms.locfileid: "88946986"
 可以使用两个权限来授予创建应用程序注册的能力，这两个权限各自有不同的行为：
 
 - microsoft.directory/applications/createAsOwner：分配此权限会导致将创建者添加为所创建应用注册的第一个所有者，创建的应用注册将计入到创建者的“创建 250 个对象”配额中。
-- microsoft.directory/applicationPolicies/create：分配此权限会导致不将创建者添加为所创建应用注册的第一个所有者，创建的应用注册不会计入到创建者的“创建 250 个对象”配额中。 请慎用此权限，因为在达到目录级配额之前，没有任何办法可阻止被分配者创建应用注册。 如果同时分配上述两个权限，此权限优先。
+- microsoft.directory/applications/create：分配此权限不会导致将创建者添加为所创建应用注册的第一个所有者，创建的应用注册不会计入到创建者的“250 个已创建对象”配额。 请慎用此权限，因为在达到目录级配额之前，没有任何办法可阻止被分配者创建应用注册。 如果同时分配上述两个权限，此权限优先。
 
 ## <a name="create-a-custom-role-in-azure-ad-powershell"></a>在 Azure AD PowerShell 中创建自定义角色
 

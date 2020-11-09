@@ -2,9 +2,7 @@
 title: 排查 fstab 错误导致的 Linux VM 启动问题 | Azure
 description: 解释 Linux VM 为何无法启动，以及如何解决此问题。
 services: virtual-machines-linux
-documentationcenter: ''
 manager: dcscontentpm
-editor: ''
 tags: ''
 ms.service: virtual-machines-linux
 ms.topic: troubleshooting
@@ -17,12 +15,12 @@ ms.date: 10/19/2020
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7913420de0fed47a2cb138d30753ec7170c90c0c
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 1f8ca6c04107aa0807dc4be4cc3db8e9332a8e4e
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127777"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104547"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>排查 fstab 错误导致的 Linux VM 启动问题
@@ -90,11 +88,11 @@ fsck.ext4: Unable to resolve UUID="<UUID>"
 [FAILED
 
 *** An error occurred during the file system check.
-*** Dropping you to a shell; the system will reboot
-*** when you leave the shell.
-*** Warning — SELinux is active
-*** Disabling security enforcement for system recovery.
-*** Run 'setenforce 1' to reenable.
+**_ Dropping you to a shell; the system will reboot
+_*_ when you leave the shell.
+_*_ Warning — SELinux is active
+_*_ Disabling security enforcement for system recovery.
+_*_ Run 'setenforce 1' to reenable.
 type=1404 audit(1428047455.949:4): enforcing=0 old_enforcing=1 auid=<AUID> ses=4294967295
 Give root password for maintenance
 (or type Control-D to continue)
@@ -137,7 +135,7 @@ Give root password for maintenance
 6. 查看列出的文件系统。 fstab 文件中的每行表示启动 VM 时装载的文件系统。 有关 fstab 文件语法的详细信息，请运行 man fstab 命令。 若要排查启动失败问题，请查看每行，确保其结构和内容中都正确。
 
     > [!Note]
-    > * 每行中的字段由制表符或空格分隔。 空行将被忽略。 第一个字符是数字符号 (#) 的行是注释。 注释行可以保留在 fstab 文件中，但不会受到处理。 对于你不确定的 fstab 行，我们建议保留注释，而不要删除这些行。
+    > _ 每行中的字段由制表符或空格分隔。 空行将被忽略。 第一个字符是数字符号 (#) 的行是注释。 注释行可以保留在 fstab 文件中，但不会受到处理。 对于你不确定的 fstab 行，我们建议保留注释，而不要删除这些行。
     > * 要使 VM 能够恢复和启动，应该只有文件系统分区是所需的分区。 VM 可能会遇到有关其他带注释分区的应用程序错误。 但是，在没有其他分区的情况下，VM 应该也能启动。 稍后可以取消注释所有带注释的行。
     > * 建议使用文件系统分区的 UUID 将数据磁盘装载到 Azure VM 上。 例如，运行以下命令：``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
     > * 若要确定文件系统的 UUID，请运行 blkid 命令。 有关语法的详细信息，请运行 man blkid 命令。 可以看到，要恢复的磁盘现已装载到新 VM 上。 尽管 UUID 应保持一致，但设备分区 ID（例如“/dev/sda1”）在此 VM 上是不同的。 [使用 CLI 命令](./troubleshoot-recovery-disks-linux.md)时，原始有故障 VM 的、位于非系统 VHD 上的文件系统分区不可在恢复 VM 中使用。

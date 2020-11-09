@@ -7,23 +7,23 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 07/10/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: 352337316bcaca882abd034b8c9bce08b22fd9b3
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 09/30/2020
+ms.openlocfilehash: ce654a6b92dfa060df326961ca84e46747063255
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146179"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104133"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>使用 Jupyter Notebook 和 kqlmagic 扩展来分析 Azure 数据资源管理器中的数据
 
 Jupyter Notebook 是一种开源 Web 应用程序，可用于创建和共享包含实时代码、公式、可视化效果和叙述性文本的文档。 使用情况包括数据清理和转换、数值模拟、统计建模、数据可视化和机器学习。
-[Jupyter Notebook](https://jupyter.org/) 支持 Magic 函数，这些函数可通过支持其他命令扩展内核的功能。 kqlmagic 是一种命令，可在 Jupyter Notebook 中扩展 Python 内核的功能，以便在本机运行 Kusto 语言查询。 可以轻松地组合使用 Python 和 Kusto 查询语言，通过与 `render` 命令集成的丰富 Plot.ly 库查询和可视化数据。 用于运行查询的数据源受支持。 这些数据源包括 Azure 数据资源管理器（一个用于日志和遥测数据的快速且高度可缩放的数据探索服务），以及 Azure Monitor 日志和 Application Insights。 kqlmagic 还适用于 Azure Notebooks、Jupyter 实验室和 Visual Studio Code Jupyter 扩展。
+[Jupyter Notebook](https://jupyter.org/) 支持 Magic 函数，这些函数可通过支持其他命令扩展内核的功能。 kqlmagic 是一种命令，可在 Jupyter Notebook 中扩展 Python 内核的功能，以便在本机运行 Kusto 语言查询。 可以轻松地组合使用 Python 和 Kusto 查询语言，通过与 `render` 命令集成的丰富 Plot.ly 库查询和可视化数据。 用于运行查询的数据源受支持。 这些数据源包括 Azure 数据资源管理器（一个用于日志和遥测数据的快速且高度可缩放的数据探索服务），以及 Azure Monitor 日志和 Application Insights。 kqlmagic 还适用于 Azure Data Studio、Jupyter 实验室和 Visual Studio Code Jupyter 扩展。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 组织电子邮件帐户是 Azure Active Directory (AAD) 的成员。
-- 在本地计算机上安装了 Jupyter Notebook，或者使用 Azure Notebooks 并克隆 [Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb) 示例
+- 组织电子邮件帐户是 Azure Active Directory (Azure AD) 的成员。
+- 在本地计算机上安装了 Jupyter Notebook，否则请使用 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kqlmagic?view=sql-server-ver15)
 
 ## <a name="install-kqlmagic-library"></a>安装 kqlmagic 库
 
@@ -32,8 +32,6 @@ Jupyter Notebook 是一种开源 Web 应用程序，可用于创建和共享包�
     ```python
     !pip install Kqlmagic --no-cache-dir  --upgrade
     ```
-    > [!NOTE]
-    > 使用 Azure Notebooks 时，不需要此步骤。
 
 1. 加载 kqlmagic：
 
@@ -45,11 +43,15 @@ Jupyter Notebook 是一种开源 Web 应用程序，可用于创建和共享包�
     
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>连接到 Azure 数据资源管理器 Help 群集
 
-使用以下命令可连接到 Help 群集上托管的 Samples 数据库。 对于非 Microsoft AAD 用户，请将租户名称 `Microsoft.com` 替换为你的 AAD 租户。
+使用以下命令可连接到 Help 群集上托管的 Samples 数据库。 对于非 Microsoft Azure AD 用户，请将租户名称 `Microsoft.com` 替换为你的 Azure AD 租户。
 
 ```python
 %kql AzureDataExplorer://tenant="Microsoft.com";code;cluster='help';database='Samples'
 ```
+
+> [!Note]
+> 如果使用自己的 ADX 群集，则必须在连接字符串中包含区域，如下所示：   
+   ```%kql azuredataexplorer://tenant="youecompany.com";code;cluster='mycluster.westus';database='mykustodb'```
 
 ## <a name="query-and-visualize"></a>查询和可视化
 

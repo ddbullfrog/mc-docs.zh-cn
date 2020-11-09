@@ -13,16 +13,16 @@ manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 09/06/2020
 ms.date: 09/21/2020
-ms.openlocfilehash: f153ccae3b98c04448327d9e2d963ec02604e418
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.openlocfilehash: 3a22952aa4e9ef20f91d9a6262f671617e0843eb
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523732"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105609"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>使用 Azure-SSIS Integration Runtime 包存储来管理包
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 若要将本地 SQL Server Integration Services (SSIS) 工作负荷直接迁移到云，可以在 Azure 数据工厂 (ADF) 中预配 Azure-SSIS Integration Runtime (IR)。 有关详细信息，请参阅[预配 Azure-SSIS IR](/data-factory/tutorial-deploy-ssis-packages-azure)。 Azure-SSIS IR 支持：
 
@@ -166,7 +166,7 @@ BEGIN
 END
 ```
 
-若要使用 Azure SQL 托管实例的公共终结点，请分别将 `YourSQLManagedInstanceEndpoint` 替换为 `YourSQLMIName.public.YourDNSPrefix.database.chinacloudapi.cn,3342`。
+若要使用 Azure SQL 托管实例的专用/公共终结点，请分别将 `YourSQLManagedInstanceEndpoint` 替换为 `YourSQLMIName.YourDNSPrefix.database.chinacloudapi.cn`/`YourSQLMIName.public.YourDNSPrefix.database.chinacloudapi.cn,3342`。
 
 该脚本将为 MSDB 中的所有包生成 dtutil 命令行，你可以对其进行多重选择、复制和粘贴，然后在命令提示符下运行。
 

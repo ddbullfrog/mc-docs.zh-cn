@@ -8,17 +8,17 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 07/01/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 57b386dc7e06f7fee0536a23dc15f453a7385373
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 10/29/2020
+ms.openlocfilehash: f5f64f7b6de1a6d3da9c44d022b285f11c4e8af7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556467"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104805"
 ---
 # <a name="geo_line_densify"></a>geo_line_densify()
 
-通过添加中间点将平面线边缘转换为测地线。
+通过添加中间点将平面线或多线边缘转换为测地线。
 
 ## <a name="syntax"></a>语法
 
@@ -26,7 +26,7 @@ ms.locfileid: "88556467"
 
 ## <a name="arguments"></a>参数
 
-* lineString：采用 [GeoJSON 格式](https://tools.ietf.org/html/rfc7946)的[动态](./scalar-data-types/dynamic.md)数据类型的直线。
+* lineString：采用 [GeoJSON 格式](https://tools.ietf.org/html/rfc7946)，数据类型为[动态](./scalar-data-types/dynamic.md)的一条直线或多条直线。
 * tolerance：一个可选数值，用于定义原始平面边缘与转换后的测地线边缘链之间的最大距离（以米为单位）。 支持的值范围为 [0.1, 10000]。 如果未指定，则使用默认值 `10`。
 
 ## <a name="returns"></a>返回
@@ -39,6 +39,8 @@ ms.locfileid: "88556467"
 **LineString 定义**
 
 dynamic({"type":"LineString","coordinates": [ [lng_1,lat_1], [lng_2,lat_2] ,..., [lng_N,lat_N] ]})
+
+dynamic({"type":"MultiLineString","coordinates": [ [ line_1, line_2 ,..., line_N ] ]})
 
 * LineString 坐标数组必须至少包含两个条目。
 * 坐标 [经度,纬度] 必须有效。 经度必须是 [-180, +180] 范围内的实数，纬度必须是 [-90, +90] 范围内的实数。

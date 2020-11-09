@@ -1,18 +1,18 @@
 ---
 title: 使用 Application Insights 监视应用的运行状况和使用情况
-description: Application Insights 入门。 分析本地或 Microsoft Azure 应用程序的使用情况、可用性和性能。
+description: Application Insights 入门。 分析本地或 Azure 应用程序的使用情况、可用性和性能。
 ms.topic: conceptual
 author: Johnnytechn
+ms.date: 10/29/2020
 origin.date: 05/10/2018
-ms.date: 05/28/2020
 ms.reviewer: sdash
 ms.author: v-johya
-ms.openlocfilehash: b5e24eee4f5f0bed5946b3b91690cc20cd5bf9c4
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: e201a6a2f6ce0d0ab9b3f531803ee1d9a1c346ed
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440724"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105563"
 ---
 # <a name="monitor-performance-in-web-applications"></a>在 Web 应用程序中监视性能
 
@@ -27,10 +27,10 @@ Application Insights 可监视 Java 和 ASP.NET Web 应用程序和服务、WCF 
 ## <a name="set-up-performance-monitoring"></a>设置性能监视
 如果尚未将 Application Insights 添加到项目（即，如果它没有 ApplicationInsights.config），则选择以下方式之一开始操作：
 
-* [ASP.NET Web 应用](../../azure-monitor/app/asp-net.md)
-  * [添加异常监视](../../azure-monitor/app/asp-net-exceptions.md)
-  * [添加依赖项监视](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE Web 应用](/azure-monitor/app/java-in-process-agent)
+* [ASP.NET Web 应用](./asp-net.md)
+  * [添加异常监视](./asp-net-exceptions.md)
+  * [添加依赖项监视](./monitor-performance-live-website-now.md)
+* [Java EE Web 应用](./java-in-process-agent.md)
 
 <a name="view"></a>
 ## <a name="exploring-performance-metrics"></a>探索性能指标
@@ -45,7 +45,7 @@ Application Insights 可监视 Java 和 ASP.NET Web 应用程序和服务、WCF 
 ![单击某个图选择指标](./media/web-monitor-performance/appinsights-61perfchoices.png)
 
 > [!NOTE]
-> **取消选中所有指标**查看可用的完整选择。 指标分为多个组；选择某个组的任意成员时，仅显示该组的其他成员。
+> **取消选中所有指标** 查看可用的完整选择。 指标分为多个组；选择某个组的任意成员时，仅显示该组的其他成员。
 
 <a name="metrics"></a>
 ## <a name="what-does-it-all-mean-performance-tiles-and-reports"></a>这一切意味着什么？ 性能磁贴和报表
@@ -67,15 +67,15 @@ HTTP 请求包括对页面、数据和图像的所有 GET 或 POST 请求。
 
 单击该磁贴可获取特定 URL 的时间。
 
-![](./media/web-monitor-performance/appinsights-42reqs.png)
+![“应用程序运行状况”窗格的屏幕截图，其中显示了请求和响应时间的移动平均值随时间变化的折线图。](./media/web-monitor-performance/appinsights-42reqs.png)
 
 ### <a name="slowest-requests"></a>速度最慢的请求
-![](./media/web-monitor-performance/appinsights-44slowest.png)
+![速度最慢的请求及其响应时间列表的屏幕截图。](./media/web-monitor-performance/appinsights-44slowest.png)
 
 显示哪些请求可能需要性能优化。
 
 ### <a name="failed-requests"></a>失败的请求
-![](./media/web-monitor-performance/appinsights-46failed.png)
+![失败请求（即引发未捕获异常的请求）数随时间变化的折线图的屏幕截图。](./media/web-monitor-performance/appinsights-46failed.png)
 
 引发未捕获异常的请求计数。
 
@@ -93,7 +93,7 @@ HTTP 请求包括对页面、数据和图像的所有 GET 或 POST 请求。
 ## <a name="set-alerts"></a>设置警报
 若要收到任意指标异常值的电子邮件通知，请添加警报。 可选择将电子邮件发送给帐户管理员或特定电子邮件地址。
 
-![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
+![“添加警报规则”对话框的屏幕截图，以及通过箭头（显示如何从指标资源管理器访问该对话框）连接的屏幕截图。](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
 在其他属性之前设置资源。 如果要设置关于性能或使用情况指标的警报，请不要选择 webtest 资源。
 
@@ -113,17 +113,17 @@ HTTP 请求包括对页面、数据和图像的所有 GET 或 POST 请求。
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>通过性能调查体验来发现和修复性能瓶颈
 
-可以使用新的性能调查体验来审查 Web 应用中性能低下的操作。 可以快速选择一个特定的性能低下的操作，并使用探查器深入到代码中来查明导致操作性能低下的根本原因。 使用新的为选定操作显示的持续时间分布，只需一瞥，便可快速评估客户的体验有多糟糕。 你可以看到每个性能低下的操作影响了多少用户交互。 在下面的示例中，我们决定更详细地查看“GET Customers/Details”操作的体验。 在持续时间分布中，我们可以看到有三个峰值。 最左侧的峰值约为 400 ms，表示响应体验很棒。 中间峰值约为 1.2 s，表示体验一般。 最后一个是 3.6 s，这里出现一个小的峰值，表示 99% 的体验，这可能会导致我们的客户因不满意而离开。 该体验比同一操作的很棒体验慢十倍。 
+可以使用新的性能调查体验来审查 Web 应用中性能低下的操作。 可以快速选择一个特定的性能低下的操作，并使用[探查器](./profiler.md)深入到代码中来查明导致操作性能低下的根源。 使用新的为选定操作显示的持续时间分布，只需一瞥，便可快速评估客户的体验有多糟糕。 你可以看到每个性能低下的操作影响了多少用户交互。 在下面的示例中，我们决定更详细地查看“GET Customers/Details”操作的体验。 在持续时间分布中，我们可以看到有三个峰值。 最左侧的峰值约为 400 ms，表示响应体验很棒。 中间峰值约为 1.2 s，表示体验一般。 最后一个是 3.6 s，这里出现一个小的峰值，表示 99% 的体验，这可能会导致我们的客户因不满意而离开。 该体验比同一操作的很棒体验慢十倍。 
 
 ![“GET Customers/Details”三个持续时间峰值](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
 若要更好地了解此操作的用户体验，我们可以选择一个更大的时间范围。 然后，还可以缩小操作特别慢的特定时间范围。 在下面的示例中，我们将时间范围从默认的 24 小时切换到了 7 天，然后在周二（12 日）与周三（13 日）之间放大到 9:47 到 12:47。 右侧的持续时间分布和示例数以及探查器跟踪数均已更新。
 
-![“GET Customers/Details”在 7 天范围中的三个持续时间峰值和时间窗口](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![屏幕截图显示了“性能(预览版)”在 7 天范围内的三个持续时间峰值和一个时间窗口](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
 为了收缩低性能体验的范围，我们接下来将对介于第 95 个百分位与第 99 个百分位之间的持续时间进行放大。 这些表示有 4% 的用户交互特别慢。
 
-![“GET Customers/Details”在 7 天范围中的三个持续时间峰值和时间窗口](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![屏幕截图显示了“GET Customers/Details”在 7 天范围内的三个持续时间峰值和一个时间窗口。](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 现在，我们可以通过单击“Samples”按钮来查看有代表性的示例，或者通过单击“Profiler traces”按钮来查看有代表性的探查器跟踪。 在此示例中，在该时间范围和所关注的范围持续时间内，为“GET Customers/Details”收集了四个跟踪。
 
@@ -133,7 +133,7 @@ HTTP 请求包括对页面、数据和图像的所有 GET 或 POST 请求。
 
 性能调查体验显示了你决定关注的样本集的相关见解。 查看所有可用洞察信息的最佳方式是切换到一个 30 天时间范围，然后选择“总体”来查看过去一个月的所有操作的洞察信息。
 
-![“GET Customers/Details”在 7 天范围中的三个持续时间峰值和时间窗口](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![屏幕截图显示了“性能(预览版)”，其中“总体”窗口处于打开状态，并且选择了“见解”。](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 <a name="next"></a>
@@ -150,16 +150,14 @@ HTTP 请求包括对页面、数据和图像的所有 GET 或 POST 请求。
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
+[qna]: ../faq.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
 [usage]: usage-overview.md
-[livestream]: ../../azure-monitor/app/live-stream.md
-[snapshot]: ../../azure-monitor/app/snapshot-debugger.md
-
-
+[livestream]: ./live-stream.md
+[snapshot]: ./snapshot-debugger.md
 
 

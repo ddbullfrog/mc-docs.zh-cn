@@ -4,19 +4,19 @@ description: 本文介绍了如何在 Azure 数据资源管理器中对聚合的
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 08/18/2020
+ms.date: 09/30/2020
 zone_pivot_group_filename: data-explorer/zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 8857f88bf5d02999a3902fd6e85388c7bb3e77a2
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.openlocfilehash: 0ab588482a656e5d21d3eb59c9c253e1e0a45599
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515651"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106115"
 ---
 # <a name="using-hll-and-tdigest"></a>使用 hll() 和 tdigest()
 
@@ -83,7 +83,7 @@ MyTable
 |0|
 
 
-## <a name="example"></a>示例
+## <a name="example-count-with-binned-timestamp"></a>示例：使用装箱时间戳计数
 
 这里有一个表 `PageViewsHllTDigest`，其中包含每小时查看的页面的 `hll` 值。 你希望将这些值分段成 `12h`。 使用 `hll_merge()` 聚合函数合并 `hll` 值，将时间戳分段成 `12h`。 使用函数 `dcount_hll` 返回最终的 `dcount` 值：
 
@@ -129,7 +129,7 @@ PageViewsHllTDigest
 |2016-05-02 12:00:00.0000000|181315|
 |2016-05-03 00:00:00.0000000|146817|
  
-## <a name="example"></a>示例
+## <a name="example-temporary-table"></a>示例：临时表
 
 如果数据集太大，则会达到 Kusto 限制。在这种情况下，你需要对数据集运行定期查询，但需要运行常规查询来针对大型数据集计算 [`percentile()`](percentiles-aggfunction.md) 或 [`dcount()`](dcount-aggfunction.md)。
 
@@ -180,7 +180,7 @@ PageViewsHllTDigest
 
 此查询的性能应当更高，因为它针对更小的表运行。 在此示例中，第一个查询针对大约 215M 记录运行，而第二个查询仅针对 32 条记录运行：
 
-## <a name="example"></a>示例
+## <a name="example-intermediate-results"></a>示例：中间结果
 
 保留查询。
 假设你有一个表，其中汇总了用户查看每个维基百科页面的时间（样本大小为 10M），并且对于每个 date1 date2，你想要查明在 date1 和 date2 这两天查看的页面数相对于在 date1 (date1 < date2) 这天查看的页面数的比率。

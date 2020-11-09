@@ -4,17 +4,17 @@ description: 本文介绍 Azure 数据资源管理器中的 make-series 运算�
 services: data-explorer
 author: orspod
 ms.author: v-tawe
-ms.reviewer: rkarlin
+ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/16/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: c1c47a525cd68e1d534ef039f12a0b97b4b334f2
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 10/29/2020
+ms.openlocfilehash: 9fd3c35090ca2dd17c0fa0c4396897f62fdbc3cc
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841293"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104585"
 ---
 # <a name="make-series-operator"></a>make-series 运算符
 
@@ -24,15 +24,15 @@ ms.locfileid: "87841293"
 T | make-series sum(amount) default=0, avg(price) default=0 on timestamp from datetime(2016-01-01) to datetime(2016-01-10) step 1d by fruit, supplier
 ```
 
-**语法**
+## <a name="syntax"></a>语法
 
 T `| make-series` [MakeSeriesParamters] [Column `=`] Aggregation [`default` `=` DefaultValue] [`,` ...] `on` AxisColumn [`from` start] [`to` end] `step` step [`by` [Column `=`] GroupExpression [`,` ...]]          
 
-**参数**
+## <a name="arguments"></a>参数
 
-* *Column*：结果列的可选名称。 默认为派生自表达式的名称。
+* *Column* ：结果列的可选名称。 默认为派生自表达式的名称。
 * DefaultValue：将使用默认值，而不是不存在的值。 如果没有任何行包含特定的 AxisColumn 和 GroupExpression 值，则在结果中，将为数组的相应元素分配 DefaultValue  。 如果省略 DefaultValue，则假定为 0。 
-* *聚合：* 对[聚合函数](make-seriesoperator.md#list-of-aggregation-functions)（如 `count()` 或 `avg()`）的调用，使用列名作为参数。 请参阅[聚合函数列表](make-seriesoperator.md#list-of-aggregation-functions)。 只能将返回数值结果的聚合函数与 `make-series` 运算符配合使用。
+* *聚合：* 对 [聚合函数](make-seriesoperator.md#list-of-aggregation-functions)（如 `count()` 或 `avg()`）的调用，使用列名作为参数。 请参阅[聚合函数列表](make-seriesoperator.md#list-of-aggregation-functions)。 只能将返回数值结果的聚合函数与 `make-series` 运算符配合使用。
 * AxisColumn：将用作序列排序依据的列。 可将其视为时间线，但接受除 `datetime` 之外的任何数字类型。
 * start：（可选）要生成的每个序列的 AxisColumn 下限值 。 start、end 以及 step 用于生成由给定范围内使用指定 step 的 AxisColumn 值组成的数组    。 所有 Aggregation 值分别按顺序排列到此数组。 此 AxisColumn 数组也是输出中与 AxisColumn 同名的最后一个输出列 。 如果未指定 start 值，则其是每个序列中包含数据的第一个 bin (step)。
 * 结束：（可选）AxisColumn 的上限（不含）值 。 时序的最后一个索引小于此值（并且将是小于 end 的以下值：start 加上 step 的整数倍）  。 如果未提供 end 值，则其将是每个序列包含数据的最后一个 bin (step) 的上限。
@@ -44,7 +44,7 @@ T `| make-series` [MakeSeriesParamters] [Column `=`] Aggregation [`default` `=` 
   |---------------|-------------------------------------|------------------------------------------------------------------------------|
   |`kind`          |`nonempty`                               |当 make-series 运算符的输入为空时，生成默认结果|                                
 
-**返回**
+## <a name="returns"></a>返回
 
 输入行将排列成与 `by` 表达式以及 `bin_at(`AxisColumn`, `step`, `start`)` 表达式具有相同值的组  。 然后，对每个组计算指定的聚合函数，从而为每组生成行。 结果包含 `by` 列和 AxisColumn 列，还至少包含用于每个计算聚合的一列。 （不支持聚合多个列或非数值结果。）
 
@@ -78,13 +78,18 @@ T `| make-series` [Column `=`] Aggregation [`default` `=` DefaultValue] [`,` ...
 |--------|-----------|
 |[any()](any-aggfunction.md)|返回组的随机非空值|
 |[avg()](avg-aggfunction.md)|返回整个组的平均值|
+|[avgif()](avgif-aggfunction.md)|返回具有组谓词的平均值|
 |[count()](count-aggfunction.md)|返回组的计数|
 |[countif()](countif-aggfunction.md)|返回具有组谓词的计数|
 |[dcount()](dcount-aggfunction.md)|返回组元素的近似非重复计数|
+|[dcountif()](dcountif-aggfunction.md)|返回具有组谓词的近似非重复计数|
 |[max()](max-aggfunction.md)|返回组内的最大值|
+|[maxif()](maxif-aggfunction.md)|返回具有组谓词的最大值|
 |[min()](min-aggfunction.md)|返回组内的最小值|
+|[minif()](minif-aggfunction.md)|返回具有组谓词的最小值|
 |[stdev()](stdev-aggfunction.md)|返回整个组的标准偏差|
 |[sum()](sum-aggfunction.md)|返回组中元素的总和|
+|[sumif()](sumif-aggfunction.md)|返回具有组谓词的元素的总和|
 |[variance()](variance-aggfunction.md)|返回整个组的方差|
 
 ## <a name="list-of-series-analysis-functions"></a>序列分析函数列表
@@ -123,7 +128,7 @@ T | make-series PriceAvg=avg(Price) default=0
 on Purchase from datetime(2016-09-10) to datetime(2016-09-13) step 1d by Supplier, Fruit
 ```
 
-:::image type="content" source="images/make-seriesoperator/makeseries.png" alt-text="Makeseries":::  
+:::image type="content" source="images/make-seriesoperator/makeseries.png" alt-text="三个表。第一个表列出了原始数据，第二个表只有不同的供应商-水果-日期组合，第三个表包含 make-series 结果。":::  
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples --> 
 ```kusto

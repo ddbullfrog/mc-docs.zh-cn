@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7917a41b99c4e5ceb33664a0ccf872ff401c1106
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: be2f4ed5b90655354b4c1fa9d916ac679d94e374
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118594"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103543"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>使用可解释性包通过 Python 解释 ML 模型和预测（预览版）
 
@@ -273,7 +273,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. 将 Azure 机器学习计算设置为计算目标，并提交训练运行。 有关说明，请参阅[使用 Python SDK 创建计算目标](how-to-create-attach-compute-sdk.md#amlcompute)。 [示例笔记本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation)也可能很有帮助。
+1. 将 Azure 机器学习计算设置为计算目标，并提交训练运行。 有关说明，请参阅[创建和管理 Azure 机器学习计算群集](how-to-create-attach-compute-cluster.md)。 [示例笔记本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation)也可能很有帮助。
 
 1. 下载本地 Jupyter 笔记本中的解释。
 
@@ -351,7 +351,7 @@ ExplanationDashboard(global_explanation, model, datasetX=x_test)
   1. 选择特定的试验可查看该试验中的所有运行。
   1. 选择一个运行，然后选择“解释”选项卡来查看解释可视化仪表板。
 
-   [![本地特征重要性可视化仪表板](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![可视化仪表板本地特征在试验的 AzureML 工作室中的重要性](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * “模型”窗格
   1. 如果已遵循[使用 Azure 机器学习部署模型](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)中的步骤注册了原始模型，则可以在左侧窗格中选择“模型”来查看它。

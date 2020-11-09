@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 08/28/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: f74636cb1da0d27c2c51128be8271da58506e9e4
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.date: 11/02/2020
+ms.openlocfilehash: e335a93d9b818fc93288dc05a035304310ad809d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121666"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105209"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>使用 Azure 数据工厂在 Snowflake 中复制和转换数据
 
@@ -49,7 +49,7 @@ Snowflake 链接服务支持以下属性。
 
 | 属性         | 说明                                                  | 必须 |
 | :--------------- | :----------------------------------------------------------- | :------- |
-| type             | type 属性必须设置为 **Snowflake**。              | 是      |
+| type             | type 属性必须设置为 **Snowflake** 。              | 是      |
 | connectionString | 指定连接到 Snowflake 实例所需的信息。 可以选择将密码或整个连接字符串置于 Azure Key Vault。 如需更多详细信息，请参阅表下面的示例和[将凭据存储在 Azure Key Vault 中](store-credentials-in-key-vault.md)一文。<br><br>部分典型设置：<br>- 帐户名称：Snowflake 帐户的[完整帐户名称](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name)（包括用于标识区域和云平台的其他段）<br/>- 用户名：用于连接的用户登录名。<br>- 密码：用户的密码。<br>- 数据库：要在连接后使用的默认数据库。 它应为指定角色具有权限的现有数据库。<br>- 仓库：要在连接后使用的虚拟仓库。 它应为指定角色具有权限的现有仓库。<br>- 角色：要在 Snowflake 会话中使用的默认访问控制角色。 指定角色应为已分配给指定用户的现有角色。 默认角色为 PUBLIC。 | 是      |
 | connectVia       | 用于连接到数据存储的 [Integration Runtime](concepts-integration-runtime.md)。 可使用 Azure Integration Runtime 或自承载集成运行时（如果数据存储位于专用网络）。 如果未指定，则使用默认 Azure Integration Runtime。 | 否       |
 
@@ -150,8 +150,8 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [location]](https://docs.snow
 | type                         | 复制活动源的类型属性必须设置为 SnowflakeSource。 | 是      |
 | 查询          | 指定要从 Snowflake 读取数据的 SQL 查询。 如果架构、表和列的名称包含小写字母，请在查询中引用对象标识符，例如 `select * from "schema"."myTable"`。<br>不支持执行存储过程。 | 否       |
 | exportSettings | 用于从 Snowflake 检索数据的高级设置。 可以配置 COPY into 命令支持的此类设置。在调用相关语句时，数据工厂会传递此类设置。 | 否       |
-| 在 `exportSettings` 下： |  |  |
-| type | 导出命令的类型，设置为 **SnowflakeExportCopyCommand**。 | 是 |
+| ***在 `exportSettings` 下：** _ |  |  |
+| type | 导出命令的类型，设置为“SnowflakeExportCopyCommand”。 | 是 |
 | additionalCopyOptions | 其他复制选项，作为键值对的字典提供。 示例:MAX_FILE_SIZE、OVERWRITE。 有关详细信息，请参阅 [Snowflake 复制选项](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions)。 | 否 |
 | additionalFormatOptions | 作为键值对的字典提供给 COPY 命令的其他文件格式选项。 示例:DATE_FORMAT、TIME_FORMAT、TIMESTAMP_FORMAT。 有关详细信息，请参阅 [Snowflake 格式类型选项](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions)。 | 否 |
 
@@ -166,12 +166,12 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [location]](https://docs.snow
     - 对于“Parquet”格式，压缩编解码器为“无”、“Snappy”或或“Lzo”。
     - 对于“带分隔符的文本”格式：
         - `rowDelimiter` 为 **\r\n** 或任何单个字符。
-        - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
-        - `encodingName` 保留为默认值或设置为 **utf-8**。
+        - `compression` 可为“无压缩”、 **gzip** 、 **bzip2** 或 **deflate** 。
+        - `encodingName` 保留为默认值或设置为 **utf-8** 。
         - `quoteChar` 为双引号、单引号或空字符串（无引号字符）  。
     - 对于“JSON”格式，直接复制只支持以下情况：源 Snowflake 表或查询结果仅有一列且该列的数据类型是“VARIANT”、“OBJECT”或“ARRAY”   。
-        - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
-        - `encodingName` 保留为默认值或设置为 **utf-8**。
+        - `compression` 可为“无压缩”、 **gzip** 、 **bzip2** 或 **deflate** 。
+        - `encodingName` 保留为默认值或设置为 **utf-8** 。
         - `filePattern` 在复制活动接收器中保留为默认值或设置为“setOfObjects”。
 
 - 在复制活动源中，`additionalColumns` 未指定。
@@ -281,8 +281,8 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [table]](https://docs.snowfla
 | type              | 复制活动接收器的类型属性设置为 SnowflakeSink。 | 是                                           |
 | preCopyScript     | 指定在每次运行中将数据写入到 Snowflake 之前要由复制活动运行的 SQL 查询。 使用此属性清理预加载的数据。 | 否                                            |
 | importSettings | 用于将数据写入 Snowflake 的高级设置。 可以配置 COPY into 命令支持的此类设置。在调用相关语句时，数据工厂会传递此类设置。 | 否 |
-| 在 `importSettings` 下： |                                                              |  |
-| type | 导入命令的类型，设置为 **SnowflakeImportCopyCommand**。 | 是 |
+| **_在 `importSettings` 下：_* _ |                                                              |  |
+| type | 导入命令的类型，设置为“SnowflakeImportCopyCommand”。 | 是 |
 | additionalCopyOptions | 其他复制选项，作为键值对的字典提供。 示例:ON_ERROR、FORCE、LOAD_UNCERTAIN_FILES。 有关详细信息，请参阅 [Snowflake 复制选项](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions)。 | 否 |
 | additionalFormatOptions | 提供给 COPY 命令的其他文件格式选项，作为键值对的字典提供。 示例:DATE_FORMAT、TIME_FORMAT、TIMESTAMP_FORMAT。 有关详细信息，请参阅 [Snowflake 格式类型选项](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions)。 | 否 |
 
@@ -297,13 +297,13 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [table]](https://docs.snowfla
     - 对于“Parquet”格式，压缩编解码器为“无”或“Snappy”。
 
     - 对于“带分隔符的文本”格式：
-        - `rowDelimiter` 为 **\r\n** 或任何单个字符。 如果行分隔符不是“\r\n”，则需将 `firstRowAsHeader` 设置为 **false**，且不指定 `skipLineCount`。
-        - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
+        - `rowDelimiter` 为 **\r\n** 或任何单个字符。 如果行分隔符不是“\r\n”，则需将 `firstRowAsHeader` 设置为 **false** ，且不指定 `skipLineCount`。
+        - `compression` 可为“无压缩”、 **gzip** 、 **bzip2** 或 **deflate** 。
         - `encodingName` 保留为默认值或设置为“UTF-8”、“UTF-16”、“UTF-16BE”、“UTF-32”、“UTF-32BE”、“BIG5”、“EUC-JP”、“EUC-KR”、“GB18030”、“ISO-2022-JP”、“ISO-2022-KR”、“ISO-8859-1”、“ISO-8859-2”、“ISO-8859-5”、“ISO-8859-6”、“ISO-8859-7”、“ISO-8859-8”、“ISO-8859-9”、“WINDOWS-1250”、“WINDOWS-1251”、“WINDOWS-1252”、“WINDOWS-1253”、“WINDOWS-1254”、“WINDOWS-1255”。
         - `quoteChar` 为双引号、单引号或空字符串（无引号字符）  。
     - 对于“JSON”格式，直接复制只支持以下情况：接收器 Snowflake 表仅有一列且该列的数据类型是“VARIANT”、“OBJECT”或“ARRAY”   。
-        - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
-        - `encodingName` 保留为默认值或设置为 **utf-8**。
+        - `compression` 可为“无压缩”、 **gzip** 、 **bzip2** 或 **deflate** 。
+        - `encodingName` 保留为默认值或设置为 **utf-8** 。
         - 列映射未指定。
 
 - 在复制活动源中： 
@@ -355,7 +355,7 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [table]](https://docs.snowfla
 
 #### <a name="staged-copy-to-snowflake"></a>暂存复制到 Snowflake
 
-如果接收器数据存储或格式与上一部分所述的 Snowflake COPY 命令并非以本机方式兼容，请通过临时的 Azure Blob 存储实例启用内置暂存复制。 暂存复制功能也能提供更高的吞吐量。 数据工厂会自动转换数据，以满足 Snowflake 的数据格式要求。 然后，它会调用 COPY 命令将数据载入 Snowflake。 最后，它会从 Blob 存储中清理临时数据。 若要详细了解如何通过暂存方式复制数据，请参阅[暂存复制](copy-activity-performance-features.md#staged-copy)。
+如果源数据存储或格式与上一部分所述的 Snowflake COPY 命令并非以本机方式兼容，请通过临时的 Azure Blob 存储实例启用内置暂存复制。 暂存复制功能也能提供更高的吞吐量。 数据工厂会自动转换数据，以满足 Snowflake 的数据格式要求。 然后，它会调用 COPY 命令将数据载入 Snowflake。 最后，它会从 Blob 存储中清理临时数据。 若要详细了解如何通过暂存方式复制数据，请参阅[暂存复制](copy-activity-performance-features.md#staged-copy)。
 
 若要使用此功能，请创建一个引用 Azure 存储帐户作为临时暂存位置的 [Azure Blob 存储链接服务](connector-azure-blob-storage.md#linked-service-properties)。 然后，在复制活动中指定 `enableStaging` 和 `stagingSettings` 属性。
 

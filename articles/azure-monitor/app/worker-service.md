@@ -3,29 +3,30 @@ title: 适用于辅助角色服务应用（非 HTTP 应用）的 Application Ins
 description: 使用 Azure Monitor Application Insights 监视 .NET Core/.NET Framework 非 HTTP 应用。
 author: Johnnytechn
 ms.topic: conceptual
+ms.custom: devx-track-csharp
+ms.date: 10/29/2020
 origin.date: 12/16/2019
-ms.date: 05/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 8c53eb5625d47733ef9572e1ba2845f712c00c8f
-ms.sourcegitcommit: 5ae04a3b8e025986a3a257a6ed251b575dbf60a1
+ms.openlocfilehash: 3765ae53a176c7ef7c6db93a885116583bcc47c8
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84440686"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104670"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>适用于辅助角色服务应用程序（非 HTTP 应用）的 Application Insights
 
-Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerService` 的新 SDK，该 SDK 最适合用于消息传递、后台任务、控制台应用程序等非 HTTP 工作负荷。此类应用程序不像传统 ASP.NET/ASP.NET Core Web 应用程序那样具有传入 HTTP 请求的概念，因此，不支持对 [ASP.NET](asp-net.md) 或 [ASP.NET Core](asp-net-core.md) 应用程序使用 Application Insights 包。
+[适用于辅助角色服务的 Application Insights SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 是一个新的 SDK，最适合用于消息传递、后台任务、控制台应用程序等非 HTTP 工作负荷。此类应用程序不像传统 ASP.NET/ASP.NET Core Web 应用程序那样具有传入 HTTP 请求的概念，因此，不支持对 [ASP.NET](asp-net.md) 或 [ASP.NET Core](asp-net-core.md) 应用程序使用 Application Insights 包。
 
 新 SDK 本身不执行任何遥测收集， 而是引入了其他众所周知的 Application Insights 自动收集器，例如 [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/)、[PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)、[ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) 等。此 SDK 公开 `IServiceCollection` 中的扩展方法用于启用和配置遥测收集。
 
 ## <a name="supported-scenarios"></a>支持的方案
 
-[适用于辅助角色服务的 Application Insights SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 最适合用于非 HTTP 应用程序，无论这些应用程序在何处或者如何运行。 如果应用程序正在运行并与 Azure 建立了网络连接，则可以收集遥测数据。 只要支持 .NET Core，就能支持 Application Insights 监视。 此包可在新引入的 [.NET Core 3.0 辅助角色服务](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances)、[Asp.Net Core 2.1/2.2 中的后台任务](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2)、控制台应用 (.NET Core/ .NET Framework) 等工作负荷中使用。
+[适用于辅助角色服务的 Application Insights SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 最适合用于非 HTTP 应用程序，无论这些应用程序在何处或者如何运行。 如果应用程序正在运行并与 Azure 建立了网络连接，则可以收集遥测数据。 只要支持 .NET Core，就能支持 Application Insights 监视。 此包可在新引入的 [.NET Core 3.0 辅助角色服务](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances)、[Asp.Net Core 2.1/2.2 中的后台任务](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)、控制台应用 (.NET Core/ .NET Framework) 等工作负荷中使用。
 
 ## <a name="prerequisites"></a>先决条件
 
-有效的 Application Insights 检测密钥。 将任何遥测数据发送到 Application Insights 都需要使用此密钥。 如果需要创建新的 Application Insights 资源来获取检测密钥，请参阅[创建 Application Insights 资源](/azure-monitor/app/create-new-resource)。
+有效的 Application Insights 检测密钥。 将任何遥测数据发送到 Application Insights 都需要使用此密钥。 如果需要创建新的 Application Insights 资源来获取检测密钥，请参阅[创建 Application Insights 资源](./create-new-resource.md)。
 
 ## <a name="using-application-insights-sdk-for-worker-services"></a>使用适用于辅助角色服务的 Application Insights SDK
 
@@ -46,7 +47,7 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 
 ## <a name="net-core-30-worker-service-application"></a>.NET Core 3.0 辅助角色服务应用程序
 
-[此处](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)分享了完整示例
+[此处](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)分享了完整示例
 
 1. 下载并安装 [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 2. 使用 Visual Studio 的新建项目模板或命令行 `dotnet new worker` 创建新的辅助角色服务项目
@@ -136,11 +137,11 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 
 ## <a name="aspnet-core-background-tasks-with-hosted-services"></a>使用托管服务的 ASP.NET Core 后台任务
 
-[此文档](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&tabs=visual-studio)介绍了如何在 ASP.NET Core 2.1/2.2 应用程序中创建后台任务。
+[此文档](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-2.2&preserve-view=true)介绍了如何在 ASP.NET Core 2.1/2.2 应用程序中创建后台任务。
 
-[此处](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)分享了完整示例
+[此处](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService)分享了完整示例
 
-1. 将 Microsoft.ApplicationInsights.WorkerService(https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 包安装到应用程序。
+1. 将 [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 包安装到应用程序。
 2. 将 `services.AddApplicationInsightsTelemetryWorkerService();` 添加到 `ConfigureServices()` 方法，如以下示例所示：
 
 ```csharp
@@ -225,9 +226,9 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 
 如本文开头所述，甚至可以使用新包从普通的控制台应用程序启用 Application Insights 遥测。 此包针对 [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)，因此可用于 .NET Core 2.0 或更高版本，以及 .NET Framework 4.7.2 或更高版本中的控制台应用。
 
-[此处](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)分享了完整示例
+[此处](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)分享了完整示例
 
-1. 将 Microsoft.ApplicationInsights.WorkerService(https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 包安装到应用程序。
+1. 将 [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 包安装到应用程序。
 
 2. 按以下示例所示修改 Program.cs。
 
@@ -295,15 +296,15 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 
 ## <a name="run-your-application"></a>运行应用程序
 
-运行应用程序。 上述所有示例中的示例辅助角色每秒对 bing.com 发出 http 调用，并使用 ILogger 发出几个日志。 这些行包装在用于创建操作的 `TelemetryClient` 的 `StartOperation` 调用内部（在此示例中，`RequestTelemetry` 名为“operation”）。 Application Insights 将收集这些 ILogger 日志（默认为警告或更高级别）和依赖项，这些日志将通过父子关系关联到 `RequestTelemetry`。 这种关联也会跨进程/网络边界发生。 例如，如果对另一个受监视组件发出调用，则该组件也会关联到此父级。
+运行应用程序。 上述所有示例中的示例辅助角色每秒对 bing.com 发出 http 调用，并使用 `ILogger` 发出几个日志。 这些行包装在用于创建操作的 `TelemetryClient` 的 `StartOperation` 调用内部（在此示例中，`RequestTelemetry` 名为“operation”）。 Application Insights 将收集这些 ILogger 日志（默认为警告或更高级别）和依赖项，这些日志将通过父子关系关联到 `RequestTelemetry`。 这种关联也会跨进程/网络边界发生。 例如，如果对另一个受监视组件发出调用，则该组件也会关联到此父级。
 
-可将 `RequestTelemetry` 的此自定义操作视为等效于典型 Web 应用程序中的传入 Web 请求。 尽管不一定要使用操作，但操作最适合 [Application Insights 关联数据模型](/azure-monitor/app/correlation) - `RequestTelemetry` 充当父操作，在辅助角色迭代中生成的每个遥测数据被视为在逻辑上属于同一操作。 此方法还确保生成的所有遥测数据（自动和手动）具有相同的 `operation_id`。 由于采样基于 `operation_id`，因此采样算法会在单个迭代中保留或删除所有遥测数据。
+可将 `RequestTelemetry` 的此自定义操作视为等效于典型 Web 应用程序中的传入 Web 请求。 尽管不一定要使用操作，但操作最适合 [Application Insights 关联数据模型](./correlation.md) - `RequestTelemetry` 充当父操作，在辅助角色迭代中生成的每个遥测数据被视为在逻辑上属于同一操作。 此方法还确保生成的所有遥测数据（自动和手动）具有相同的 `operation_id`。 由于采样基于 `operation_id`，因此采样算法会在单个迭代中保留或删除所有遥测数据。
 
 下面列出了 Application Insights 自动收集的整个遥测数据。
 
 ### <a name="live-metrics"></a>实时指标
 
-[实时指标](/azure-monitor/app/live-stream)可用于快速验证是否正确配置了 Application Insights 监视。 尽管可能需要在几分钟时间后遥测数据才开始显示在门户和分析结果中，但实时指标能够近实时地显示正在运行的进程的 CPU 使用率。 它还可以显示其他遥测数据，例如请求、依赖项、跟踪等。
+[实时指标](./live-stream.md)可用于快速验证是否正确配置了 Application Insights 监视。 尽管可能需要在几分钟时间后遥测数据才开始显示在门户和分析结果中，但实时指标能够近实时地显示正在运行的进程的 CPU 使用率。 它还可以显示其他遥测数据，例如请求、依赖项、跟踪等。
 
 ### <a name="ilogger-logs"></a>ILogger 日志
 
@@ -335,19 +336,18 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 可以通过向 `AddApplicationInsightsTelemetryWorkerService` 传递 `ApplicationInsightsServiceOptions` 来修改一些通用设置，如以下示例所示：
 
 ```csharp
-    using Microsoft.ApplicationInsights.WorkerService;
+using Microsoft.ApplicationInsights.WorkerService;
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions aiOptions
-                    = new Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions();
-        // Disables adaptive sampling.
-        aiOptions.EnableAdaptiveSampling = false;
+public void ConfigureServices(IServiceCollection services)
+{
+    var aiOptions = new ApplicationInsightsServiceOptions();
+    // Disables adaptive sampling.
+    aiOptions.EnableAdaptiveSampling = false;
 
-        // Disables QuickPulse (Live Metrics stream).
-        aiOptions.EnableQuickPulseMetricStream = false;
-        services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
-    }
+    // Disables QuickPulse (Live Metrics stream).
+    aiOptions.EnableQuickPulseMetricStream = false;
+    services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
+}
 ```
 
 请注意，此 SDK 中的 `ApplicationInsightsServiceOptions` 位于命名空间 `Microsoft.ApplicationInsights.WorkerService` 中，而不是像 ASP.NET Core SDK 那样位于 `Microsoft.ApplicationInsights.AspNetCore.Extensions` 中。
@@ -360,16 +360,47 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 |EnableAdaptiveSampling | 启用/禁用自适应采样 | 是
 |EnableHeartbeat | 启用/禁用检测信号功能，该功能定期（默认间隔为 15 分钟）发送名为“HeartBeatState”的自定义指标，其中包含有关运行时等的信息，例如 .NET 版本、Azure 环境信息（如果适用）等。 | 是
 |AddAutoCollectedMetricExtractor | 启用/禁用 AutoCollectedMetrics 提取程序 - 一个 TelemetryProcessor，在采样发生之前发送有关请求/依赖项的聚合前指标。 | 是
+|EnableDiagnosticsTelemetryModule | 启用/禁用 `DiagnosticsTelemetryModule`。 禁用此项会导致以下设置被忽略：`EnableHeartbeat`、`EnableAzureInstanceMetadataTelemetryModule`、`EnableAppServicesHeartbeatTelemetryModule` | 是
 
 有关最新列表，请参阅 [`ApplicationInsightsServiceOptions` 中的可配置设置](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs)。
 
 ### <a name="sampling"></a>采样
 
-适用于辅助角色服务的 Application Insights SDK 支持固定速率采样和自适应采样。 自适应采样默认已启用。 为辅助角色服务配置采样的方式与对 [ASP.NET Core 应用程序](/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications)使用的方式相同。
+适用于辅助角色服务的 Application Insights SDK 支持固定速率采样和自适应采样。 自适应采样默认已启用。 可以通过使用 [ApplicationInsightsServiceOptions](#using-applicationinsightsserviceoptions) 中的 `EnableAdaptiveSampling` 选项来禁用采样。
+
+若要配置其他采样设置，可以使用以下示例。
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.WorkerService;
+
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+
+    var aiOptions = new ApplicationInsightsServiceOptions();
+    
+    // Disable adaptive sampling.
+    aiOptions.EnableAdaptiveSampling = false;
+    services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
+
+    // Add Adaptive Sampling with custom settings.
+    // the following adds adaptive sampling with 15 items per sec.
+    services.Configure<TelemetryConfiguration>((telemetryConfig) =>
+        {
+            var builder = telemetryConfig.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+            builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 15);
+            builder.Build();
+        });
+    //...
+}
+```
+
+可以在[采样](#sampling)文档中找到更多信息。
 
 ### <a name="adding-telemetryinitializers"></a>添加 TelemetryInitializer
 
-若要定义连同所有遥测数据一起发送的属性，请使用[遥测初始化表达式](/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer)。
+若要定义连同所有遥测数据一起发送的属性，请使用[遥测初始化表达式](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)。
 
 将任何新的 `TelemetryInitializer` 添加到 `DependencyInjection` 容器，SDK 会自动将其添加到 `TelemetryConfiguration`。
 
@@ -407,7 +438,7 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 
 ### <a name="adding-telemetry-processors"></a>添加遥测处理程序
 
-可以使用 `IServiceCollection` 中的扩展方法 `AddApplicationInsightsTelemetryProcessor` 将自定义遥测处理程序添加到 `TelemetryConfiguration`。 使用[高级筛选方案](/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer)中的遥测处理程序可以更直接地控制要在发送到 Application Insights 服务的遥测数据中包含或排除哪些内容。 使用以下示例。
+可以使用 `IServiceCollection` 中的扩展方法 `AddApplicationInsightsTelemetryProcessor` 将自定义遥测处理程序添加到 `TelemetryConfiguration`。 使用[高级筛选方案](./api-filtering-sampling.md#itelemetryprocessor-and-itelemetryinitializer)中的遥测处理程序可以更直接地控制要在发送到 Application Insights 服务的遥测数据中包含或排除哪些内容。 使用以下示例。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -506,7 +537,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>是否可以使用状态监视器之类的工具来启用 Application Insights 监视？
 
-否。 [状态监视器](/azure-monitor/app/monitor-performance-live-website-now)和[状态监视器 v2](/azure-monitor/app/status-monitor-v2-overview) 目前仅支持 ASP.NET 4.x。
+否。 [状态监视器](./monitor-performance-live-website-now.md)和[状态监视器 v2](./status-monitor-v2-overview.md) 目前仅支持 ASP.NET 4.x。
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>如果在 Linux 中运行应用程序，是否支持所有功能？
 
@@ -533,20 +564,22 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="sample-applications"></a>示例应用程序
 
-[.NET Core 控制台应用程序](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) 如果使用的控制台应用程序是以 .NET Core（2.0 或更高版本）或 .NET Framework（4.7.2 或更高版本）编写的，请使用此示例
+[.NET Core 控制台应用程序](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) 如果使用的控制台应用程序是以 .NET Core（2.0 或更高版本）或 .NET Framework（4.7.2 或更高版本）编写的，请使用此示例
 
-[使用 HostedServices 的 ASP .NET Core 后台任务](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService) 如果在 Asp.Net Core 2.1/2.2 中操作，并根据[此处](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2)的官方指南创建后台任务，请使用此示例
+[使用 HostedServices 的 ASP .NET Core 后台任务](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService) 如果在 Asp.Net Core 2.1/2.2 中操作，并根据[此处](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)的官方指南创建后台任务，请使用此示例
 
-[.NET Core 3.0 辅助角色服务](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) 如果根据[此处](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio#worker-service-template)的官方指南创建了 .NET Core 3.0 辅助角色服务应用程序，请使用此示例
+[.NET Core 3.0 辅助角色服务](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) 如果根据[此处](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template)的官方指南创建了 .NET Core 3.0 辅助角色服务应用程序，请使用此示例
 
 ## <a name="open-source-sdk"></a>开源 SDK
 
-[阅读代码或为其做出贡献](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
+* [阅读代码或为其做出贡献](https://github.com/microsoft/ApplicationInsights-dotnet)
+
+有关最新的更新和 bug 修复，请[参阅发行说明](./release-notes.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 API](../../azure-monitor/app/api-custom-events-metrics.md) 发送自己的事件和指标，以获取应用性能和使用情况的详细视图。
-* [跟踪系统不会自动跟踪的附加依赖项](../../azure-monitor/app/auto-collect-dependencies.md)。
-* [扩充或筛选自动收集的遥测数据](../../azure-monitor/app/api-filtering-sampling.md)。
+* [使用 API](./api-custom-events-metrics.md) 发送自己的事件和指标，以获取应用性能和使用情况的详细视图。
+* [跟踪系统不会自动跟踪的附加依赖项](./auto-collect-dependencies.md)。
+* [扩充或筛选自动收集的遥测数据](./api-filtering-sampling.md)。
 * [ASP.NET Core 中的依赖项注入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)。
 

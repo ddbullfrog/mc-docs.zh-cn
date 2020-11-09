@@ -8,16 +8,15 @@ ms.subservice: core
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-origin.date: 06/17/2020
-ms.date: 10/26/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: a7c69e4d303620fbded961809060b0bf131d1c79
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 4dc4ca0045479c2407c7a9c7539aa55035351796
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118180"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106175"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署为 Web 服务的 Azure 机器学习模型
 
@@ -47,7 +46,9 @@ ms.locfileid: "92118180"
 * `scoring_uri` - REST API 地址。
 * `swagger_uri` - OpenAPI 规范的地址。 如果已启用自动生成架构，则可以使用此 URI。 有关详细信息，请参阅[使用 Azure 机器学习部署模型](how-to-deploy-and-where.md)。
 
-可通过三种方式检索已部署的 Web 服务的此信息：
+可通过几种方式检索已部署的 Web 服务的此信息：
+
+# <a name="python"></a>[Python](#tab/python)
 
 * 部署模型时，会返回包含有关服务的信息的 `Webservice` 对象：
 
@@ -74,6 +75,30 @@ ms.locfileid: "92118180"
     print(service.swagger_uri)
     ```
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+如果知道已部署服务的名称，请使用 [az ml service show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) 命令：
+
+```azurecli
+az ml service show -n <service-name>
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+在 Azure 机器学习工作室中，选择“终结点”，“实时终结点”，然后选择终结点名称。 在终结点的详细信息中，“REST 终结点”字段包含评分 URI。 __Swagger URI__ 包含 swagger URI。
+
+---
+
+下表显示了这些 URI 的外观：
+
+| URI 类型 | 示例 |
+| ----- | ----- |
+| 评分 URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
+| Swagger UI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
+
+> [!TIP]
+> 你的部署的 IP 地址会有所不同。 每个 AKS 群集都会有自己的 IP 地址，此地址由部署共享到该群集。
+
 ### <a name="secured-web-service"></a>受保护的 Web 服务
 
 如果已使用 TLS/SSL 证书保护部署的 Web 服务，则可以使用评分或 swagger URI 通过 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 连接到该服务。 HTTPS 对客户端和 Web 服务之间的通信进行加密来帮助保护两者之间的通信。 加密使用[传输层安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security)。 TLS 有时仍称为安全套接字层 (SSL)，这是 TLS 的前身。
@@ -94,7 +119,7 @@ Azure 机器学习提供了两种方法来控制对 Web 服务的访问。
 
 将请求发送到由密钥或令牌保护的服务时，请使用 __Authorization__ 标头来传递密钥或令牌。 密钥或令牌的格式必须为 `Bearer <key-or-token>`，其中 `<key-or-token>` 为密钥或令牌值。
 
-密钥和令牌的主要区别在于，密钥是静态的且能手动重新生成，而令牌需要在到期时刷新 。 Azure 容器实例和 Azure Kubernetes 服务部署的 Web 服务支持基于密钥的身份验证，而基于令牌的身份验证仅能用于 Azure Kubernetes 服务部署****。 请参阅身份验证[操作说明](how-to-setup-authentication.md#web-service-authentication)，了解更多信息和特定代码示例。
+密钥和令牌的主要区别在于，密钥是静态的且能手动重新生成，而令牌需要在到期时刷新 。 Azure 容器实例和 Azure Kubernetes 服务部署的 Web 服务支持基于密钥的身份验证，而基于令牌的身份验证仅能用于 Azure Kubernetes 服务部署。 请参阅身份验证[操作说明](how-to-setup-authentication.md#web-service-authentication)，了解更多信息和特定代码示例。
 
 
 #### <a name="authentication-with-keys"></a>使用密钥进行身份验证
@@ -180,7 +205,7 @@ REST API 预期请求正文是采用以下结构的 JSON 文档：
 
 ## <a name="call-the-service-c"></a>调用服务 (C#)
 
-此示例演示如何使用 C# 调用[在笔记本中训练](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)示例创建的 Web 服务：
+此示例演示如何使用 C# 调用[在笔记本中训练](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb)示例创建的 Web 服务：
 
 ```csharp
 using System;
@@ -269,7 +294,7 @@ namespace MLWebServiceClient
 
 ## <a name="call-the-service-go"></a>调用服务 (Go)
 
-此示例演示如何使用 Go 调用[在笔记本中训练](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)示例创建的 Web 服务：
+此示例演示如何使用 Go 调用[在笔记本中训练](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb)示例创建的 Web 服务：
 
 ```go
 package main
@@ -361,7 +386,7 @@ func main() {
 
 ## <a name="call-the-service-java"></a>调用服务 (Java)
 
-此示例演示如何使用 Java 调用[在笔记本中训练](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)示例创建的 Web 服务：
+此示例演示如何使用 Java 调用[在笔记本中训练](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb)示例创建的 Web 服务：
 
 ```java
 import java.io.IOException;
@@ -441,7 +466,7 @@ public class App {
 
 ## <a name="call-the-service-python"></a>调用服务 (Python)
 
-此示例演示如何使用 Python 调用[在笔记本中训练](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)示例创建的 Web 服务：
+此示例演示如何使用 Python 调用[在笔记本中训练](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb)示例创建的 Web 服务：
 
 ```python
 import requests

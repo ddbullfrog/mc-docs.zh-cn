@@ -10,20 +10,20 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/10/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66b5a430e22952bce0e7e95a5074fae7975b8740
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: cb1f81fd62c4bae179b1079adfa72462e617302f
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937006"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750008"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Azure AD 角色的发现和见解（以前称为安全向导）（预览版）
 
-如果你在 Azure Active Directory (Azure AD) 组织中开始使用 Privileged Identity Management (PIM)，可以使用**发现和见解（预览版）** 页来入门。 此功能显示已分配到组织中的特权角色的用户，以及如何使用 PIM 快速将永久角色分配更改为实时分配。 可以在**发现和见解（预览版）** 中查看或更改永久特权角色分配。 它是一个分析工具，也是一个操作工具。
+如果你在 Azure Active Directory (Azure AD) 组织中开始使用 Privileged Identity Management (PIM)，可以使用 **发现和见解（预览版）** 页来入门。 此功能显示已分配到组织中的特权角色的用户，以及如何使用 PIM 快速将永久角色分配更改为实时分配。 可以在 **发现和见解（预览版）** 中查看或更改永久特权角色分配。 它是一个分析工具，也是一个操作工具。
 
 ## <a name="discovery-and-insights-preview"></a>发现和见解（预览版）
 
@@ -45,7 +45,7 @@ ms.locfileid: "91937006"
 
 1. 选择“减少全局管理员”。
 
-    ![减少全局管理员 -“角色”窗格，其中显示所有成员](./media/pim-security-wizard/new-preview-page.png)
+    ![此屏幕截图显示了“发现和见解(预览)”，其中已选择“减少全局管理员”操作。](./media/pim-security-wizard/new-preview-page.png)
 
 1. 查看全局管理员角色分配的列表。
 

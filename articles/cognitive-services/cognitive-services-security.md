@@ -1,22 +1,22 @@
 ---
-title: 安全性
+title: Azure 认知服务安全性
 titleSuffix: Azure Cognitive Services
 description: 了解有关使用认知服务的各种安全注意事项。
 services: cognitive-services
-author: IEvangelist
+author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 origin.date: 05/11/2020
-ms.date: 07/01/2020
-ms.author: v-tawe
-ms.custom: tracking-python
-ms.openlocfilehash: d4cee9e58a1bfaaa038d5a7a7c89fe451ffa631c
-ms.sourcegitcommit: 4f84bba7e509a321b6f68a2da475027c539b8fd3
+ms.date: 10/27/2020
+ms.author: v-johya
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: 1b03fb88db706c4f53972dd43953dc7c219ab321
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85796262"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103668"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure 认知服务安全性
 
@@ -34,16 +34,16 @@ ms.locfileid: "85796262"
 
 ## <a name="authentication"></a>身份验证
 
-在讨论身份验证时，存在几种常见的误解。 身份验证和授权常常互相混淆。 标识也是安全性的主要组件。 标识是有关主体的信息的集合。 标识提供者 (IdP) 为身份验证服务提供标识。 身份验证是验证用户身份的行为。 授权指为给定身份指定对资源的访问权限和特权。 有多种认知服务产品/服务，包括基于角色的访问控制 (RBAC)。 RBAC 可用于简化与人工管理主体有关的一些仪式。 有关更多详细信息，请参阅 [Azure 资源的基于角色的访问控制](../role-based-access-control/overview.md)。
+在讨论身份验证时，存在几种常见的误解。 身份验证和授权常常互相混淆。 标识也是安全性的主要组件。 标识是有关主体的信息的集合。 标识提供者 (IdP) 为身份验证服务提供标识。 身份验证是验证用户身份的行为。 授权指为给定身份指定对资源的访问权限和特权。 有多种认知服务产品/服务，包括 Azure 基于角色的访问控制 (Azure RBAC)。 Azure RBAC 可用于简化与人工管理主体有关的一些仪式。 有关更多详细信息，请参阅 [Azure 资源的 Azure 基于角色的访问控制](../role-based-access-control/overview.md)。
 
-有关使用订阅密钥、访问令牌和 Azure Active Directory (AAD) 进行身份验证的详细信息，请参阅[对 Azure 认知服务请求进行身份验证](https://docs.azure.cn/cognitive-services/authentication)。
+若要详细了解如何使用订阅密钥、访问令牌和 Azure Active Directory (AAD) 进行身份验证，请参阅<a href="/cognitive-services/authentication" target="_blank">对 Azure 认知服务请求进行身份验证<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 
 ## <a name="environment-variables-and-application-configuration"></a>环境变量和应用程序配置
 
 环境变量是存储在特定环境中的名称/值对。 为敏感数据使用硬编码值的一种更安全的替代选项是使用环境变量。 硬编码值不安全，应避免使用。
 
 > [!CAUTION]
-> **不要**为敏感数据使用硬编码值，此行为会导致重大安全漏洞。
+> **不要** 为敏感数据使用硬编码值，此行为会导致重大安全漏洞。
 
 > [!NOTE]
 > 尽管环境变量以纯文本格式存储，但它们与环境隔离。 如果环境受到破坏，环境中的变量也会受到破坏。
@@ -61,7 +61,7 @@ ms.locfileid: "85796262"
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-在命令提示符**** 的新实例中，读取环境变量。
+在命令提示符的新实例中，读取环境变量。
 
 ```CMD
 :: Prints the env var value
@@ -77,7 +77,7 @@ echo %ENVIRONMENT_VARIABLE_KEY%
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-在 Windows PowerShell**** 的新实例中，读取环境变量。
+在 Windows PowerShell 的新实例中，读取环境变量。
 
 ```powershell
 # Prints the env var value
@@ -93,7 +93,7 @@ echo %ENVIRONMENT_VARIABLE_KEY%
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-在 Bash**** 的新实例中，读取环境变量。
+在 Bash 的新实例中，读取环境变量。
 
 ```Bash
 # Prints the env var value
@@ -201,5 +201,3 @@ NSString* value =
 ## <a name="next-steps"></a>后续步骤
 
 * 探索各种[认知服务](welcome.md)
-
-<!-- * Learn more about [Cognitive Services Virtual Networks](cognitive-services-virtual-networks.md) -->

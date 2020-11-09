@@ -2,7 +2,6 @@
 title: 排查 Azure VM 上的 BitLocker 启动错误 | Azure
 description: 了解如何排查 Azure VM 中的 BitLocker 启动错误
 services: virtual-machines-windows
-documentationCenter: ''
 manager: dcscontentpm
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -11,17 +10,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/23/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: has-adal-ref
-ms.openlocfilehash: c9960612c8626f782624ce53373f03a935975a0a
-ms.sourcegitcommit: 42d0775781f419490ceadb9f00fb041987b6b16d
+ms.openlocfilehash: cd1a07be4844ec6e652b12e0571b950df0240ede
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89456816"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104725"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM 上的 BitLocker 启动错误
 
@@ -45,7 +44,7 @@ ms.locfileid: "89456816"
 
 ## <a name="solution"></a>解决方案
 
-若要解决此问题，停止并解除分配 VM，然后重启。 此操作将强制 VM 从 Azure Key Vault 中检索 BEK 文件，然后将其放在加密磁盘上。 
+若要解决此问题，请停止 VM 并将它解除分配，然后再启动它。 此操作将强制 VM 从 Azure Key Vault 中检索 BEK 文件，然后将其放在加密磁盘上。 
 
 如果此方法未能解决此问题，请执行以下步骤，手动还原 BEK 文件：
 
@@ -137,16 +136,16 @@ ms.locfileid: "89456816"
 9. 如果新的 VM 仍然不能正常启动，请在解锁设备后尝试下述步骤之一：
 
     - 暂停保护，以便运行以下命令，暂时关闭 BitLocker：
-        
-        ```console
-            manage-bde -protectors -disable F: -rc 0
-        ```
+
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
 
     - 完全解密该驱动器。 为此，请运行以下命令：
-        
-        ```console
-            manage-bde -off F:
-        ```
+
+    ```console
+    manage-bde -off F:
+    ```
 
 ### <a name="key-encryption-key-scenario"></a>密钥加密密钥方案
 

@@ -1,23 +1,28 @@
 ---
 title: 常见问题
 description: 有关 Azure 容器注册表服务的常见问题的解答
-author: rockboyfor
 ms.topic: article
-origin.date: 03/18/2020
-ms.date: 07/27/2020
+origin.date: 09/18/2020
+author: rockboyfor
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
-ms.openlocfilehash: 655abbe08ef310c588b8bf1aaf080850826af5a9
-ms.sourcegitcommit: 5726d3b2e694f1f94f9f7d965676c67beb6ed07c
+ms.openlocfilehash: 1f48e130af67248ca5c74df9518a20b380cec6f7
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86863159"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104419"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>有关 Azure 容器注册表的常见问题解答
 
 本文解答有关 Azure 容器注册表的常见问题和已知问题。
+
+有关注册表故障排除指南，请参阅：
+* [注册表登录故障排除](container-registry-troubleshoot-login.md)
+* [排查与注册表相关的网络问题](container-registry-troubleshoot-access.md)
+* [注册表性能故障排除](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>资源管理
 
@@ -39,10 +44,9 @@ ms.locfileid: "86863159"
 
 <!--MOONCAKE: CORRECT THE DEPLOYMENT-->
 
-### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>是否会对 ACR 中的映像执行安全漏洞扫描？
+<!--Not Avaialable on ### Is there security vulnerability scanning for images in ACR?-->
 
-是的。 请参阅 [Azure 安全中心](/security-center/azure-container-registry-integration)的文档。
-
+<!--Not Avaialable on [Azure Security Center](../security-center/defender-for-container-registries-introduction.md)-->
 <!--Twistlock Not Available on Mooncake portal-->
 <!--Not Available on [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/)-->
 <!--blog.aquasec.com Blocked by China Great Wall-->
@@ -266,9 +270,10 @@ ACR 支持提供不同权限级别的[自定义角色](container-registry-roles.
 <a name="how-do-i-enable-anonymous-pull-access"></a>
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>如何实现匿名提取访问？
 
-为匿名（公共）提取访问设置 Azure 容器注册表目前是一项预览功能。 若要启用公共访问，请在 https://support.azure.cn/support/support-azure/ 中开具支持票证。 有关详细信息，请参阅 [Azure 反馈论坛](https://support.azure.cn/support/contact/)。
+为匿名（公共）提取访问设置 Azure 容器注册表目前是一项预览功能。 如果你的注册表中有任何[范围映射（用户）或令牌资源](./container-registry-repository-scoped-permissions.md)，请在提交支持票证之前删除它们（可以忽略系统范围映射）。 若要启用公共访问，请在 https://support.azure.cn/support/support-azure/ 中开具支持票证。 有关详细信息，请参阅 [Azure 反馈论坛](https://support.azure.cn/support/contact/)。
 
-<!--CORRECT ON https://support.azure.cn/support/support-azure/-->
+> [!NOTE]
+> 仅可匿名访问拉取已知映像所需的 API。 不能匿名访问可以执行标记列表或存储库列表等操作的其他 API。
 
 ## <a name="diagnostics-and-health-checks"></a>诊断和运行状况检查
 
@@ -445,11 +450,11 @@ curl $redirect_url
 
 请与网络管理员联系，或者检查网络配置和连接性。 尝试使用 Azure CLI 来运行 `az acr check-health -n yourRegistry`，以便检查环境是否能够连接到容器注册表。 另外，也可尝试在浏览器中使用 incognito 或专用会话，避免使用任何过时的浏览器缓存或 Cookie。
 
-### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>为什么我的拉取或推送请求失败，出现操作不被允许的情况？
+### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>为什么拉取或推送请求失败，并出现不受允许的操作？
 
-下面是操作可能不被允许的一些情况：
-* 不再支持经典注册表。 请使用 [az acr update](https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-update)或 Azure 门户升级到受支持的[服务层](https://docs.azure.cn//container-registry/container-registry-skus)。
-* 映像或存储库可能已锁定，因此无法进行删除或更新。 可以使用 [az acr show repository](/container-registry/container-registry-image-lock) 命令来查看当前属性。
+以下是一些可能出现不允许进行操作的情况：
+* 不再支持经典注册表。 请使用 [az acr update](https://docs.azure.cn/cli/acr#az_acr_update)或 Azure 门户升级到受支持的[服务层](./container-registry-skus.md)。
+* 映像或存储库可能已锁定，因此无法进行删除或更新。 可以使用 [az acr show repository](./container-registry-image-lock.md) 命令来查看当前属性。
 * 如果映像处于隔离状态，则会禁用某些操作。 详细了解[隔离](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)。
 * 注册表可能已达到其[存储限制](container-registry-skus.md#service-tier-features-and-limits)。
 
@@ -513,8 +518,8 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 | Git 服务 | 源上下文 | 手动生成 | 通过“提交”触发器自动生成 |
 |---|---|---|---|
-| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | “是” | “是” |
-| Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | “是” | 是 |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | 是 | 是 |
+| Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | 是 | 是 |
 | GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | 是 | 否 |
 | BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | 是 | 否 |
 

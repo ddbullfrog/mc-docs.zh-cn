@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 11/05/2018
-ms.date: 07/01/2020
-ms.openlocfilehash: 3d239ee0ed878d0fd700def34051831a1018da6e
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 10/29/2020
+ms.openlocfilehash: cb67b826562d94fad946de8c4184a1ab79cb875f
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226262"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93103898"
 ---
 # <a name="querymanagement-http-response"></a>查询/管理 HTTP 响应
 
@@ -110,7 +110,7 @@ HTTP 响应状态行遵循 HTTP 标准响应代码的要求。
 
 另一个示例： 
 
-:::image type="content" source="../images/rest-json-representation.png" alt-text="rest-json-representation":::
+:::image type="content" source="../images/rest-json-representation.png" alt-text="此屏幕截图显示了一个 JSON 文件（包含一个表对象数组）的树视图。":::
 
 ## <a name="the-meaning-of-tables-in-the-response"></a>响应中的表的含义
 

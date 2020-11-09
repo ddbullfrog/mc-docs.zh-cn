@@ -1,21 +1,22 @@
 ---
 title: 教程 - 使用用于 Node.js 的 Azure Batch 客户端库
 description: 了解 Azure Batch 的基本概念，并使用 Node.js 构建简单的解决方案。
-ms.assetid: ''
-ms.topic: conceptual
-origin.date: 05/22/2017
-ms.date: 09/07/2018
-ms.author: v-lingwu
-ms.openlocfilehash: afce551f0cf8c625907d858328012b2cc0739ecc
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+ms.service: batch
+ms.topic: tutorial
+origin.date: 10/08/2020
+author: rockboyfor
+ms.date: 11/02/2020
+ms.author: v-yeche
+ms.openlocfilehash: 7b013fe4fba131d50e0ecf8f74e59f5a62bc121d
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126577"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93104631"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>用于 Node.js 的 Batch SDK 入门
 
-了解使用 [Azure Batch Node.js SDK](https://docs.microsoft.com/javascript/api/overview/azure/batch) 在 Node.js 中生成 Batch 客户端的基础知识。 我们采用分步方式来了解一个 Batch 应用程序的方案，然后通过 Node.js 客户端设置该方案。  
+了解使用 [Azure Batch Node.js SDK](https://docs.microsoft.com/javascript/api/overview/azure/batch) 在 Node.js 中生成 Batch 客户端的基础知识。 我们采用分步方式来了解一个 Batch 应用程序的方案，然后通过 Node.js 客户端设置该方案。
 
 ## <a name="prerequisites"></a>先决条件
 本文假设你有 Node.js 的实践知识并熟悉 Linux， 同时还假设你已设置 Azure 帐户并具有创建 Batch 和存储服务所需的访问权限。
@@ -28,13 +29,13 @@ ms.locfileid: "84126577"
 ## <a name="azure-batch-architecture"></a>Azure Batch 体系结构
 下图描绘了如何使用 Azure Batch 和 Node.js 客户端来缩放 Python 脚本。
 
-![Azure Batch 方案](./media/batch-nodejs-get-started/BatchScenario.png)
+:::image type="content" source="./media/batch-nodejs-get-started/BatchScenario.png" alt-text="Azure Batch 方案":::
 
 node.js 客户端通过一个准备任务（稍后详细介绍）和一系列其他任务部署 Batch 作业，具体取决于存储帐户中的容器数。 可以从 GitHub 存储库下载脚本。
 
-- [Node.js 客户端](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
-- [准备任务 shell 脚本](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-- [将 Python csv 转换为 JSON 的处理程序](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+* [Node.js 客户端](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
+* [准备任务 shell 脚本](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
+* [将 Python csv 转换为 JSON 的处理程序](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
 > [!TIP]
 > 指定链接中的 Node.js 客户端不包含可部署为 Azure Function App 的特定代码。 如需创建该应用的说明，可参阅以下链接。
@@ -62,7 +63,7 @@ node.js 客户端通过一个准备任务（稍后详细介绍）和一系列其
 
 ### <a name="step-2-create-an-azure-batch-account"></a>步骤 2：创建 Azure Batch 帐户
 
-可以通过 [Azure 门户](batch-account-create-portal.md)或命令行 ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli)) 创建该帐户。
+可以通过 [Azure 门户](batch-account-create-portal.md)或命令行 ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](https://docs.azure.cn/cli)) 创建该帐户。
 
 下面是通过 Azure CLI 创建该帐户的命令。
 
@@ -110,16 +111,14 @@ Azure Batch URI 可以在 Azure 门户的“概览”选项卡中找到。 它�
 
 请参阅屏幕截图：
 
-![Azure Batch URI](./media/batch-nodejs-get-started/azurebatchuri.png)
-
-
+:::image type="content" source="./media/batch-nodejs-get-started/azurebatchuri.png" alt-text="Azure Batch URI":::
 
 ### <a name="step-4-create-an-azure-batch-pool"></a>步骤 4：创建 Azure Batch 池
 Azure Batch 池包含多个 VM（也称 Batch 节点）。 Azure Batch 服务将任务部署在这些节点上并对其进行管理。 可以为池定义以下配置参数。
 
-- 虚拟机映像类型
-- 虚拟机节点大小
-- 虚拟机节点数目
+* 虚拟机映像类型
+* 虚拟机节点大小
+* 虚拟机节点数目
 
 > [!Tip]
 > 虚拟机节点的大小和数目主要取决于需要并行运行的任务数以及任务本身。 建议通过测试来确定理想的数目和大小。
@@ -193,7 +192,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
 ```
 { id: 'processcsv_201721152',
   displayName: 'processcsv_201721152',
-  url: 'https://<batch-account-name>.centralus.batch.chinacloudapi.cn/pools/processcsv_201721152',
+  url: 'https://<batch-account-name>.chinaeast.batch.chinacloudapi.cn/pools/processcsv_201721152',
   eTag: '<eTag>',
   lastModified: 2017-03-27T10:28:02.398Z,
   creationTime: 2017-03-27T10:28:02.398Z,
@@ -244,10 +243,9 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
   targetDedicated: 4,
   enableAutoScale: false,
   enableInterNodeCommunication: false,
-  maxTasksPerNode: 1,
+  taskSlotsPerNode: 1,
   taskSchedulingPolicy: { nodeFillType: 'Spread' } }
 ```
-
 
 ### <a name="step-4-submit-an-azure-batch-job"></a>步骤 4：提交 Azure Batch 作业
 Azure Batch 作业是包含相似任务的逻辑组。 在我们的方案中，它是指“将 csv 处理成 JSON”。 这里的每个任务可能都在处理每个 Azure 存储容器中存在的 csv 文件。
@@ -255,7 +253,7 @@ Azure Batch 作业是包含相似任务的逻辑组。 在我们的方案中，�
 这些任务会并行运行，并且跨多个节点部署，由 Azure Batch 服务进行协调。
 
 > [!Tip]
-> 可以使用 [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 属性指定能够在单个节点上同时运行的最大任务数。
+> 可以使用 [taskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 属性指定能够在单个节点上同时运行的最大任务数。
 >
 >
 
@@ -263,7 +261,7 @@ Azure Batch 作业是包含相似任务的逻辑组。 在我们的方案中，�
 
 所创建的 VM 节点是空白 Ubuntu 节点。 通常需安装一组程序作为必备组件。
 对于 Linux 节点，通常可在实际任务运行之前使用 shell 脚本安装必备组件。 不过，也可通过任何可编程的可执行文件来完成该操作。
-在此示例中，[shell 脚本](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh)安装 Python-pip 以及用于 Python 的 Azure 存储 SDK。
+在此示例中，[shell 脚本](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh)安装 Python-pip 以及用于 Python 的 Microsoft Azure 存储 SDK。
 
 可以将脚本上传到 Azure 存储帐户，并生成用于访问脚本的 SAS URI。 还可使用 Azure 存储 Node.js SDK 自动执行此过程。
 
@@ -274,14 +272,14 @@ Azure Batch 作业是包含相似任务的逻辑组。 在我们的方案中，�
 
 准备任务在提交 Azure Batch 作业时指定。 以下是准备任务配置参数：
 
-* **ID**：准备任务的唯一标识符
-* **commandLine**：用于执行任务可执行文件的命令行
-* **resourceFiles**：对象数组，提供运行此任务时需下载的文件的详细信息。  下面是其选项
+* **ID** ：准备任务的唯一标识符
+* **commandLine** ：用于执行任务可执行文件的命令行
+* **resourceFiles** ：对象数组，提供运行此任务时需下载的文件的详细信息。  下面是其选项
     - blobSource：文件的 SAS URI
     - filePath：下载并保存文件所需的本地路径
     - fileMode：仅适用于 Linux 节点。fileMode 采用八进制格式，默认值为 0770
-* **waitForSuccess**：如果设置为 true，该任务不会在准备任务失败的情况下运行
-* **runElevated**：如果需要提升权限才能运行该任务，则设置为 true。
+* **waitForSuccess** ：如果设置为 true，该任务不会在准备任务失败的情况下运行
+* **runElevated** ：如果需要提升权限才能运行该任务，则设置为 true。
 
 以下代码片段显示了准备任务脚本配置示例：
 
@@ -305,7 +303,6 @@ var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prer
      }});
 ```
 
-
 ### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>步骤 5：为作业提交 Azure Batch 任务
 
 创建“process csv”作业以后，让我们创建该作业的任务。 假设我们有四个容器，则必须创建四个任务，一个容器一个任务。
@@ -320,7 +317,7 @@ var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prer
 ```nodejs
 // storing container names in an array
 var container_list = ["con1","con2","con3","con4"]
-    container_list.forEach(function(val,index){           
+    container_list.forEach(function(val,index){
 
            var container_name = val;
            var taskID = container_name + "_process";
@@ -328,28 +325,25 @@ var container_list = ["con1","con2","con3","con4"]
            var task = batch_client.task.add(poolid,task_config,function(error,result){
                 if(error != null)
                 {
-                    console.log(error.response);     
+                    console.log(error.response);
                 }
                 else
                 {
                     console.log("Task for container : " + container_name + "submitted successfully");
                 }
 
-
-
            });
 
     });
 ```
 
-该代码将多个任务添加到池。 每个任务在所创建的 VM 池中的一个节点上执行。 如果任务数超出池中的 VM 数或 maxTasksPerNode 属性，则任务会等待节点可用。 此业务流程由 Azure Batch 自动处理。
+该代码将多个任务添加到池。 每个任务在所创建的 VM 池中的一个节点上执行。 如果任务数超出池中的 VM 数或 taskSlotsPerNode 属性，则任务会等待节点可用。 此业务流程由 Azure Batch 自动处理。
 
 门户提供了有关任务和作业状态的详细视图。 也可使用列表，获取 Azure Node SDK 中的函数。 文档[链接](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)中提供了详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 如果对 Batch 服务不熟悉，建议查看 [Azure Batch 功能概述](batch-api-basics.md) 一文。
+- 了解 [Batch 服务工作流和主要资源](batch-service-workflow-features.md)，例如池、节点、作业和任务。
 - 请查看 [Batch Node.js 参考](https://docs.microsoft.com/javascript/api/overview/azure/batch)了解 Batch API。
 
-
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

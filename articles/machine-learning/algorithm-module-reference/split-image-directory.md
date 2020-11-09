@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 5e4523be5fa21d07d1ed125a0b2d2ef7136dba3e
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.date: 09/26/2020
+ms.openlocfilehash: dd85737853887aeaef30208c2293ecec83234ec3
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118044"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106163"
 ---
 # <a name="split-image-directory"></a>拆分图像目录
 
@@ -28,7 +28,7 @@ ms.locfileid: "92118044"
 
 2. 将它连接到输出为其图像目录的模块。
 
-3. 输入 **第一个输出中的图像的比例** ，以指定要放入左分割区的数据百分比（默认为 0.9）。
+3. 输入 **第一个输出中的图像的比例** ，以指定要放入左分割区的数据百分比（默认为 0.9）。 如果该部分结果不是整数，则模块将使用较小的接近整数。
 
 
 ## <a name="technical-notes"></a>技术说明

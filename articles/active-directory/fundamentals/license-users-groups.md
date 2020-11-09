@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/27/2020
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 219d6d1180a2c7a8e4ca53cc78a2cc3bfb019d78
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 0c77391fd57de94e01113f3b8d86975c74137615
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245034"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92750013"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>在 Azure Active Directory 门户中分配或删除许可证
 
@@ -102,11 +102,11 @@ ms.locfileid: "91245034"
 
 1. 在“分配”  页上，选择“用户和组”  ，然后搜索并选择向其分配许可证的组。
 
-    ![“分配许可证”页，突出显示了搜索和“选择”选项](./media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![“分配许可证”页，其中突出显示了搜索和“选择”选项 2](./media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. 选择“分配选项”  ，确保打开了相应的许可证选项，然后选择“确定”  。
 
-    ![“许可证选项”页，显示许可计划中的所有可用选项](./media/license-users-groups/license-option-blade-group-assignments.png)
+    ![“许可证选项”页，其中显示了许可计划 2 中的所有可用选项](./media/license-users-groups/license-option-blade-group-assignments.png)
 
     “分配许可证”  页会进行更新，以显示选择了用户并且配置了分配。
 
@@ -120,7 +120,7 @@ ms.locfileid: "91245034"
 
 ### <a name="to-remove-a-license-from-a-user"></a>从用户删除许可证的步骤
 
-1. 在服务计划的“许可的用户”  页上，选择应不再具有许可证的用户。 例如，_Alain Charon_。
+1. 在服务计划的“许可的用户”  页上，选择应不再具有许可证的用户。 例如， _Alain Charon_ 。
 
 1. 选择“删除许可证”  。
 
@@ -135,7 +135,7 @@ ms.locfileid: "91245034"
 
 1. 选择“删除许可证”  。
 
-    ![“许可的组”页，突出显示了“删除许可证”选项](./media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![“许可的组”页，其中突出显示了“删除许可证”选项 2](./media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
     > 当同步到 Azure AD 的本地用户帐户超出了同步的范围，或者当同步被删除时，该用户将在 Azure AD 中被软删除。 发生这种情况时，直接分配给用户或通过基于组的许可分配给用户的许可证将标记为“已挂起”  ，而不是“已删除”  。

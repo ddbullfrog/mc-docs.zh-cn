@@ -7,14 +7,14 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 01/19/2020
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 3586aa69e892c9be7bc07e18ebfcf229749aad92
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: c7ddd5912ed7d13d43b376a79481657d74dc6044
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146715"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93105690"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>使用指标监视 Azure 数据资源管理器的性能、运行状况和使用情况
 
@@ -42,13 +42,13 @@ Azure 数据资源管理器指标提供关于 Azure 数据资源管理器群集�
 
 ![“指标”窗格](media/using-metrics/metrics-pane.png)
 
-1. 若要创建指标图表，请选择**指标**名称和每个指标的相关**聚合**。 有关不同指标的详细信息，请参阅[支持的 Azure 数据资源管理器指标](#supported-azure-data-explorer-metrics)。
+1. 若要创建指标图表，请选择 **指标** 名称和每个指标的相关 **聚合** 。 有关不同指标的详细信息，请参阅[支持的 Azure 数据资源管理器指标](#supported-azure-data-explorer-metrics)。
 1. 选择“添加指标”可以查看在同一图表中绘制的多个指标。 
 1. 选择“+ 新建图表”可在一个视图中查看多个图表。 
 1. 使用时间选取器更改时间范围（默认：过去 24 小时）。
-1. 对包含维度的指标使用[**添加筛选器**和**应用拆分**](/azure-monitor/platform/metrics-getting-started#apply-dimension-filters-and-splitting)。
+1. 对包含维度的指标使用 [**添加筛选器** 和 **应用拆分**](/azure-monitor/platform/metrics-getting-started#apply-dimension-filters-and-splitting)。
 1. 选择“固定到仪表板”可将图表配置添加到仪表板，以便可以再次查看它。 
-1. 设置**新的警报规则**可以使用设置的条件将指标可视化。 新的警报规则将包括图表的目标资源、指标、拆分和筛选器维度。 在[警报规则创建窗格](/azure-monitor/platform/metrics-charts#create-alert-rules)中修改这些设置。
+1. 设置 **新的警报规则** 可以使用设置的条件将指标可视化。 新的警报规则将包括图表的目标资源、指标、拆分和筛选器维度。 在[警报规则创建窗格](/azure-monitor/platform/metrics-charts#create-alert-rules)中修改这些设置。
 
 ## <a name="supported-azure-data-explorer-metrics"></a>支持的 Azure 数据资源管理器指标
 
@@ -60,6 +60,7 @@ Azure 数据资源管理器指标有助于深入了解资源的整体性能和�
 * [引入指标](#ingestion-metrics) 
 * [流引入指标](#streaming-ingest-metrics)
 * [查询指标](#query-metrics) 
+* [具体化视图指标](#materialized-view-metrics)
 
 有关适用于 Azure 数据资源管理器的 Azure Monitor 的指标列表（按字母顺序排列），请参阅[受支持的 Azure 数据资源管理器群集指标](/azure-monitor/platform/metrics-supported#microsoftkustoclusters)。
 
@@ -82,7 +83,7 @@ Azure 数据资源管理器指标有助于深入了解资源的整体性能和�
 
 |**指标** | **单位** | **聚合** | **度量值说明** | **Dimensions** |
 |---|---|---|---|---|
-连续导出的记录数    | 计数 | Sum | 所有连续导出作业中导出的记录数。 | 无 |
+连续导出的记录数    | 计数 | Sum | 所有连续导出作业中导出的记录数。 | ContinuousExportName |
 连续导出最大延迟 |    计数   | Max   | 群集中连续导出作业报告的延迟（分钟）。 | 无 |
 连续导出挂起计数 | 计数 | Max   | 挂起的连续导出作业数。 这些作业已准备好运行，但可能由于容量不足而在队列中等待。 
 连续导出结果    | 计数 |   计数   | 每个连续导出运行的失败/成功结果。 | ContinuousExportName |
@@ -97,11 +98,11 @@ Azure 数据资源管理器指标有助于深入了解资源的整体性能和�
 | 批处理 Blob 计数 | 计数 | Avg、Max、Min | 引入的已完成批处理中数据源数。 | 数据库 |
 | 批处理持续时间 | 秒 | Avg、Max、Min | 引入流中批处理阶段的持续时间  | 数据库 |
 | 批大小 | 字节 | Avg、Max、Min | 引入的聚合批处理中未压缩的预期数据大小。 | 数据库 |
-| 已处理批处理 | 计数 | Avg、Max、Min | 引入的已完成批处理数。 `BatchCompletionReason`：批处理是否达到[批处理策略](/azure/data-explorer/kusto/management/batchingpolicy)设置的批处理时间、数据大小或文件数限制。 | 数据库, BatchCompletionReason |
+| 已处理批处理 | 计数 | Avg、Max、Min | 引入的已完成批处理数。 `Batching Type`：批处理是否达到[批处理策略](./kusto/management/batchingpolicy.md)设置的批处理时间、数据大小或文件数限制。 | 数据库、批处理类型 |
 | 发现延迟 | 秒 | Avg、Max、Min | 从数据排队开始到被数据连接发现为止的时间。 此时间未包括在 Kusto 总体引入持续时间或 KustoEventAge（引入延迟）中  | 数据库、表、数据连接类型、数据连接名称 |
 | 处理的事件数（适用于事件中心/IoT 中心） | 计数 | Max、Min、Sum | 从事件中心读取的以及由群集处理的事件总数 事件划分为群集引擎拒绝的事件和接受的事件。 | EventStatus |
 | 引入延迟 | 秒 | Avg、Max、Min | 引入数据的延迟，根据从群集中收到数据，到数据可供查询的时间来测得。 引入延迟周期决于引入方案。 | 无 |
-| 引入结果 | Count | 计数 | 失败和成功的引入操作总数。 <br> <br> 使用“应用拆分”可以创建成功和失败结果桶，并分析维度（**值** > **状态**）。****| IngestionResultDetails |
+| 引入结果 | 计数 | 计数 | 失败和成功的引入操作总数。 <br> <br> 使用“应用拆分”可以创建成功和失败结果桶，并分析维度（ **值** > **状态** ）。| IngestionResultDetails |
 | 引入量 (MB) | 计数 | Max、Sum | 引入到群集中的数据在压缩前的总大小 (MB)。 | 数据库 |
 | 阶段延迟 | 秒 | Avg、Max、Min | 某个特定组件处理这批数据的持续时间。 一批数据的所有组成部分的总阶段延迟等于这批数据的引入延迟。 | 数据库、数据连接类型、数据连接名称|
 
@@ -111,7 +112,7 @@ Azure 数据资源管理器指标有助于深入了解资源的整体性能和�
 
 |**指标** | **单位** | **聚合** | **度量值说明** | **Dimensions** |
 |---|---|---|---|---|
-流引入数据速率 |    计数   | RateRequestsPerSecond | 引入群集的数据总量。 | 无 |
+流引入数据速率 |    Count   | RateRequestsPerSecond | 引入群集的数据总量。 | 无 |
 流引入持续时间   | 毫秒  | Avg、Max、Min | 所有流引入请求的总持续时间。 | 无 |
 流引入请求速率   | 计数 | Count、Avg、Max、Min、Sum | 流引入请求总数。 | 无 |
 流引入结果 | 计数 | Avg   | 流引入请求总数，按结果类型列出。 | 结果 |
@@ -125,6 +126,17 @@ Azure 数据资源管理器指标有助于深入了解资源的整体性能和�
 | 查询持续时间 | 毫秒 | Avg、Min、Max、Sum | 收到查询结果之前所花费的总时间（不包括网络延迟）。 | QueryStatus |
 | 并发查询总数 | 计数 | Avg、Max、Min、Sum | 群集中并行运行的查询数。 使用此指标可以很好地评估群集上的负载。 | 无 |
 | 受限制的查询总数 | 计数 | Avg、Max、Min、Sum | 群集中受限制（被拒绝）的查询数。 允许的最大并发（并行）查询数在并发查询策略中定义。 | 无 |
+
+## <a name="materialized-view-metrics"></a>具体化视图指标
+
+|**指标** | **单位** | **聚合** | **度量值说明** | **Dimensions** |
+|---|---|---|---|---|
+|MaterializedViewHealth                    | 1、0    | 平均值     |  当视图被认为正常时，值为 1，否则为 0。 | Database、MaterializedViewName |
+|MaterializedViewAgeMinutes                | 分钟数 | 平均值     | 视图的 `age` 定义为当前时间减去由视图处理的上次引入时间。 指标值是以分钟为单位的时间（值越小，视图越“正常”）。 | Database、MaterializedViewName |
+|MaterializedViewResult                    | 1       | 平均值     | 指标包括 `Result` 维度，该维度指示上一个具体化循环的结果（请参见下面的可能值）。 指标值始终等于 1。 | Database、MaterializedViewName、Result |
+|MaterializedViewRecordsInDelta            | 记录计数 | 平均值 | 当前在源表的未处理部分中的记录数。 有关详细信息，请参阅[具体化视图的工作原理](./kusto/management/materialized-views/materialized-view-overview.md#how-materialized-views-work)| Database、MaterializedViewName |
+|MaterializedViewExtentsRebuild            | 区计数 | 平均值 | 在具体化循环中重建的区数。 | Database、MaterializedViewName|
+|MaterializedViewDataLoss                  | 1       | Max    | 当未处理的源数据接近保留期时，会触发指标。 | Database、MaterializedViewName、Kind |
 
 ## <a name="next-steps"></a>后续步骤
 

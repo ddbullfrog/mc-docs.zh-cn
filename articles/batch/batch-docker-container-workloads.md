@@ -3,25 +3,25 @@ title: 容器工作负载
 description: 了解如何在 Azure Batch 上通过容器映像运行和缩放应用。 创建支持运行容器任务的计算节点池。
 ms.topic: how-to
 ms.service: batch
-origin.date: 09/10/2020
+origin.date: 10/06/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 11/02/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9adcb49a33fcdf1007171b7fafe00718b5904dcd
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: 6b204de23d16d687c1ba8d088be7d1491ea5b42b
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146278"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106101"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>在 Azure Batch 上运行容器应用程序
 
 可以通过 Azure Batch 在 Azure 上运行和缩放大量批处理计算作业。 Batch 任务可直接在 Batch 池中的虚拟机（节点）上运行；但也可以设置一个 Batch 池，以便在节点上的 Docker 兼容容器中运行任务。 本文介绍如何创建支持运行容器任务的计算节点池，然后在池中运行容器任务。
 
-读者应熟悉容器的概念，并知道如何创建 Batch 池和作业。 以下代码示例使用 Batch .NET 和 Python SDK。 也可以使用其他 Batch SDK 和工具，包括 Azure 门户，来创建支持容器的 Batch 池，以及运行容器任务。
+此处的代码示例使用 Batch .NET 和 Python SDK。 也可以使用其他 Batch SDK 和工具，包括 Azure 门户，来创建支持容器的 Batch 池，以及运行容器任务。
 
 ## <a name="why-use-containers"></a>为何使用容器？
 
@@ -29,16 +29,18 @@ ms.locfileid: "91146278"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **SDK 版本**：Batch SDK 支持到以下版本为止的容器映像：
+读者应熟悉容器的概念，并知道如何创建 Batch 池和作业。
+
+- **SDK 版本** ：Batch SDK 支持到以下版本为止的容器映像：
     - Batch REST API 版本 2017-09-01.6.0
     - Batch .NET SDK 版本 8.0.0
     - Batch Python SDK 版本 4.0
     - Batch Java SDK 版本 3.0
     - Batch Node.js SDK 版本 3.0
 
-- **帐户**：在 Azure 订阅中，需要创建 Batch 帐户和 Azure 存储帐户（后者为可选）。
+- **帐户** ：在 Azure 订阅中，需要创建 Batch 帐户和 Azure 存储帐户（后者为可选）。
 
-- **受支持的 VM 映像**：容器仅在使用来自映像的虚拟机配置创建的池中受支持，有关详细信息，请参阅下一节“受支持的虚拟机映像”。 如果提供自定义映像，请参阅以下部分所述的注意事项，以及[使用托管的自定义映像创建虚拟机池](batch-custom-images.md)中所述的要求。
+- **受支持的 VM 映像** ：容器仅在使用来自映像的虚拟机配置创建的池中受支持，有关详细信息，请参阅下一节“受支持的虚拟机映像”。 如果提供自定义映像，请参阅以下部分所述的注意事项，以及[使用托管的自定义映像创建虚拟机池](batch-custom-images.md)中所述的要求。
 
 请记住以下限制：
 
@@ -288,6 +290,12 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 - 使用任务类中的 `ContainerSettings` 属性来配置特定于容器的设置。 这些设置由 [TaskContainerSettings](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.taskcontainersettings) 类定义。 请注意，`--rm` 容器选项由 Batch 处理，因此它不需要其他 `--runtime` 选项。
 
 - 如果在容器映像上运行任务，[云任务](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudtask)和[作业管理器任务](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)将需要容器设置。 但是，[启动任务](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.starttask)、[作业准备任务](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)和[作业发布任务](https://docs.azure.cn/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)都不需要容器设置（即，它们可以在容器上下文中或直接在节点上运行）。
+
+- 对于 Windows，任务必须在 [ElevationLevel](https://docs.microsoft.com/rest/api/batchservice/task/add#elevationlevel) 设置为 `admin` 的情况下运行。 
+
+- 对于 Linux，Batch 会将用户/组权限映射到容器。 如果访问容器中的任何文件夹都需要管理员权限，则可能需要以管理员提升级别在池范围内运行任务。 这将确保 Batch 在容器上下文中以 root 身份运行任务。 否则，非管理员用户可能无权访问这些文件夹。
+
+- 对于启用了 GPU 的硬件的容器池，Batch 会自动为容器任务启用 GPU，因此不应包含 `-gpus` 参数。
 
 ### <a name="container-task-command-line"></a>容器任务命令行
 

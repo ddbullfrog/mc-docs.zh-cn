@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/26/2020
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e450e18558f445f46d9f812717734b1954c35a
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 32a61e5903c8d7ab2da4af85120e5286505c0506
+ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046377"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92749997"
 ---
 # <a name="conditional-access-users-and-groups"></a>条件访问：用户和组
 
-条件访问策略必须包括用户分配，作为决策过程中的信号之一。 可以在条件访问策略中包括或排除用户。 
+条件访问策略必须包括用户分配，作为决策过程中的信号之一。 可以在条件访问策略中包括或排除用户。 Azure Active Directory 会评估所有策略，确保只有满足所有要求才向用户授予访问权限。
 
 ![用户作为条件访问所做决策中的信号](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -72,6 +72,8 @@ ms.locfileid: "89046377"
 默认情况下，此策略会提供一个从策略中排除当前用户的选项，但管理员可以重写此默认设置，如下图所示。 
 
 ![警告：别把自己锁在外面！](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+
+[如果你被锁定在 Azure 门户之外，该怎么办？](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>后续步骤
 

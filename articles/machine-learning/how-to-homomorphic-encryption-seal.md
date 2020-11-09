@@ -1,23 +1,23 @@
 ---
-title: 部署加密推理服务
+title: 部署加密推理服务（预览版）
 titleSuffix: Azure Machine Learning
 description: 了解如何使用 Microsoft SEAL 对映像分类部署加密预测服务
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/18/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.custom: tracking-python
-ms.openlocfilehash: ce3dcba76f03171a869700c32f45fc2f901243f1
-ms.sourcegitcommit: 1c01c98a2a42a7555d756569101a85e3245732fd
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python, deploy
+ms.openlocfilehash: 8a64294362515170ae766fe61be884f7ede11d55
+ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85097804"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93106255"
 ---
-# <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>如何部署加密推理 Web 服务
+# <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>如何部署加密推理 Web 服务（预览版）
 
 了解如何在 [Azure 容器实例](https://docs.microsoft.com/azure/container-instances/) (ACI) 中将映像分类模型部署为加密推理 Web 服务。 Web 服务是包含模型和评分逻辑的 Docker 容器映像。
 
