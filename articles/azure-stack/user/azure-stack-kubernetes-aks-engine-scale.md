@@ -3,17 +3,17 @@ title: 缩放 Azure Stack Hub 上的 Kubernetes 群集
 description: 了解如何缩放 Azure Stack Hub 上的 Kubernetes 群集。
 author: WenJason
 ms.topic: article
-origin.date: 3/19/2020
-ms.date: 06/22/2020
+origin.date: 09/02/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: c4b33b0efd0d6fa9d40acdf51baab4c0f700c273
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: bbd60b6d1f8000ac46dc362ece3cd119d5d936ad
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096894"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330606"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>缩放 Azure Stack Hub 上的 Kubernetes 群集
 
@@ -36,8 +36,8 @@ scale 命令使用以下参数查找群集定义文件并更新群集。
 | client-id |  | 通过 AKS 引擎创建群集时使用的服务主体的客户端 ID。 | 
 | client-secret |  | 创建群集时使用的服务主体机密。 | 
 | api-model | kube-rg/apimodel.json | 群集定义文件 (apimodel.json) 的路径。 此路径可能为：_output/\<dnsPrefix>/apimodel.json | 
-| -new-node-count | 9 | 所需节点计数。 | 
-| -master-FQDN |  | 主 FQDN。 纵向缩减时需要。 |
+| new-node-count | 9 | 所需节点计数。 | 
+| apiserver |  | 主 FQDN。 纵向缩减时需要。 |
 | identity-system | adfs | 可选。 如果使用 Active Directory 联合身份验证服务 (AD FS)，请指定标识管理解决方案。 |
 
 缩放 Azure Stack Hub 中的群集时，必须指定 --azure-env 参数。 若要详细了解 AKS 引擎的 scale 命令中使用的参数及其值，请参阅 [Scale - 参数](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)。
@@ -56,7 +56,7 @@ aks-engine scale \
     --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --api-model <path to your apomodel.json file>
     --new-node-count <desired node count> \
-    --master-FQDN <master FQDN> \
+    --apiserver <master FQDN> \
     --identity-system adfs # required if using AD FS
 ```
 

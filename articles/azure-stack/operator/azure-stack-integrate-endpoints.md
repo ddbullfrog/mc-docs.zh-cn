@@ -3,17 +3,17 @@ title: 在数据中心发布 Azure Stack Hub 服务
 description: 了解如何在数据中心发布 Azure Stack Hub 服务。
 author: WenJason
 ms.topic: article
-origin.date: 07/24/2020
-ms.date: 08/31/2020
+origin.date: 09/24/2020
+ms.date: 11/09/2020
 ms.author: v-jay
 ms.reviewer: wamota
-ms.lastreviewed: 07/24/2020
-ms.openlocfilehash: b9432dc58868946c7e24bd16a9c83e212c42a042
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 09/24/2020
+ms.openlocfilehash: 4e323892c6718ba8a5ccb5942a2b42d46254be72
+ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868077"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330600"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>在数据中心发布 Azure Stack Hub 服务
 
@@ -94,7 +94,7 @@ SSL 流量拦截[不受支持](azure-stack-firewall.md#ssl-interception)，并�
 |LDAP GC|为 Graph 集成提供的 Active Directory 林|TCP|3268|公共 VIP - /27|
 |LDAP GC SSL|为 Graph 集成提供的 Active Directory 林|TCP|3269|公共 VIP - /27|
 |AD FS|为 AD FS 集成提供的 AD FS 元数据终结点|TCP|443|公共 VIP - /27|
-| 诊断日志收集 | https://azsdiagppelocalchinaeast.blob.core.chinacloudapi.cn<br>https://azsdiagppechinaeastfrontend.chinaeast.cloudapp.chinacloudapi.cn<br>https://azsdiagprdchinaeastfrontend.chinaeast.cloudapp.chinacloudapi.cn | HTTPS | 443 | 公共 VIP - /27 |
+| 诊断日志收集 |https://*.blob.core.chinacloudapi.cn<br>https://azsdiagprdlocalchinaeast.blob.core.chinacloudapi.cn<br>https://azsdiagprdchinaeastfrontend.chinaeast.cloudapp.chinacloudapi.cn<br>https://azsdiagprdchinaeastfrontend.chinaeast.cloudapp.chinacloudapi.cn | HTTPS | 443 | 公共 VIP - /27 |
 |     |     |     |     |     |
 
 使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 使用负载均衡 URL，Azure 可以更新和更改后端终结点，而不会影响客户。 Azure 不共享负载均衡 URL 的 IP 地址列表。 使用支持按 URL 而不是按 IP 筛选的设备。
