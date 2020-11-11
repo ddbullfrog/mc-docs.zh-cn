@@ -6,26 +6,28 @@ ms.service: firewall
 ms.topic: how-to
 origin.date: 09/11/2020
 author: rockboyfor
-ms.date: 09/28/2020
+ms.date: 11/09/2020
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 634625d6af42a0dc4d40bc929c7946f96a2bb15f
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: c06a02e1ba46dbe10ab9d0b840b834ea9cf3f78e
+ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246800"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94327300"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Azure 防火墙的 Azure Monitor 日志
 
-以下 Azure Monitor 日志示例可用于分析 Azure 防火墙日志。 示例文件是在 Azure Monitor 的视图设计器中构建的，[Azure Monitor 中的视图设计器](/azure-monitor/platform/view-designer)一文提供了有关视图设计概念的更多信息。
+以下 Azure Monitor 日志示例可用于分析 Azure 防火墙日志。 示例文件是在 Azure Monitor 的视图设计器中构建的，[Azure Monitor 中的视图设计器](https://docs.azure.cn/azure-monitor/view-designer)一文提供了有关视图设计概念的更多信息。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="azure-monitor-logs-view"></a>Azure Monitor 日志视图
 
 下面是配置示例 Azure Monitor 日志可视化的方法。 可从 [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) 存储库下载可视化示例。 最简单的方法是右键单击此页面上的超链接，然后选择“另存为”，并提供类似“AzureFirewall.omsview”的名称   。 
+
+[!INCLUDE [azure-raw-githubusercontent-download-in-china-notice](../../includes/azure-raw-githubusercontent-download-in-china-notice.md)]
 
 执行以下步骤以将视图添加到 Log Analytics 工作区中：
 
@@ -43,10 +45,9 @@ ms.locfileid: "91246800"
 
 ![网络规则日志数据]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-AzureDiagnostics 下的 Azure 防火墙日志数据类别为“AzureFirewallApplicationRule”或“AzureFirewallNetworkRule”   。 包含详细信息的数据存储在 msg_s 字段中。 以下查询提取两种类别的信息。
+AzureDiagnostics 下的 Azure 防火墙日志数据类别为“AzureFirewallApplicationRule”或“AzureFirewallNetworkRule”   。 包含详细信息的数据存储在 msg_s 字段中。 借助[分析](https://docs.azure.cn/data-explorer/kusto/query/parseoperator)运算符，可从 msg_s 字段中提取各种相关属性。 以下查询提取两种类别的信息。
 
-<!--Not Available on [parse](/kusto/query/parseoperator)-->
-<!--Not Available on  Using the parse operator we can extract the various interesting properties from the msg_s field.-->
+<!--CORRECT ON [parse](https://docs.azure.cn/zh-cn/data-explorer/kusto/query/parseoperator)-->
 
 ## <a name="application-rules-log-data-query"></a>应用程序规则日志数据查询
 
@@ -54,10 +55,10 @@ AzureDiagnostics 下的 Azure 防火墙日志数据类别为“AzureFirewallAppl
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallApplicationRule"
+| where Category == "AzureFirewallApplicationRule"
 //using :int makes it easier to pars but later we'll convert to string as we're not interested to do mathematical functions on these fields
 //this first parse statement is valid for all entries as they all start with this format
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
 //case 1: for records that end with: "was denied. Reason: SNI TLS extension was missing."
 | parse TempDetails with "was " Action1 ". Reason: " Rule1
 //case 2: for records that end with
@@ -90,8 +91,8 @@ Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallApplicationRule"
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
+| where Category == "AzureFirewallApplicationRule"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
 | parse TempDetails with "was " Action1 ". Reason: " Rule1
 | parse TempDetails with "to " FQDN ":" TargetPortInt:int ". Action: " Action2 "." *
 | parse TempDetails with * ". Rule Collection: " RuleCollection2a ". Rule:" Rule2a
@@ -110,13 +111,13 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallNetworkRule"
+| where Category == "AzureFirewallNetworkRule"
 //using :int makes it easier to pars but later we'll convert to string as we're not interested to do mathematical functions on these fields
 //case 1: for records that look like this:
 //TCP request from 10.0.2.4:51990 to 13.69.65.17:443. Action: Deny//Allow
 //UDP request from 10.0.3.4:123 to 51.141.32.51:123. Action: Deny/Allow
 //TCP request from 193.238.46.72:50522 to 40.119.154.83:3389 was DNAT'ed to 10.0.2.4:3389
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
 //case 1a: for regular network rules
 //TCP request from 10.0.2.4:51990 to 13.69.65.17:443. Action: Deny//Allow
 //UDP request from 10.0.3.4:123 to 51.141.32.51:123. Action: Deny/Allow
@@ -126,7 +127,7 @@ AzureDiagnostics
 | parse msg_s with * " was " Action1b " to " NatDestination
 //case 2: for ICMP records
 //ICMP request from 10.0.2.4 to 10.0.3.4. Action: Allow
-| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
 | extend
 SourcePort = tostring(SourcePortInt),
 TargetPort = tostring(TargetPortInt)
@@ -147,11 +148,11 @@ TargetPort = tostring(TargetPortInt)
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallNetworkRule"
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| where Category == "AzureFirewallNetworkRule"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
 | parse msg_s with * ". Action: " Action1a
 | parse msg_s with * " was " Action1b " to " NatDestination
-| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
 | extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
 | extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination)
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
@@ -176,11 +177,12 @@ AzureDiagnostics
 
 以下日志示例显示了日志条目中包含的数据。
 
-:::image type="content" source="media/log-analytics-samples/log1.png" alt-text="应用程序规则日志数据":::
+:::image type="content" source="media/log-analytics-samples/log1.png" alt-text="日志条目的屏幕截图。显示了多个值，例如时间戳、协议、端口号、操作、规则集合和规则。" border="false":::
 
-:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="应用程序规则日志数据":::
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="日志条目的屏幕截图。显示了多个值，例如时间戳、协议、源和目标 IP 地址以及操作。" border="false":::
 
-:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="应用程序规则日志数据":::
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="日志条目的屏幕截图。显示了多个值，例如时间戳、协议、源和目标 IP 地址，以及端口和消息。" border="false":::
+
 ## <a name="next-steps"></a>后续步骤
 
 若要了解 Azure 防火墙监视和诊断，请参阅[教程：监视 Azure 防火墙日志和指标](tutorial-diagnostics.md)。
