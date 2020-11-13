@@ -1,17 +1,57 @@
 {
     "redirections": [
         {
+            "source_path": "articles/iot-edge/how-to-install-iot-edge-linux.md",
+            "redirect_url": "/iot-edge/how-to-install-iot-edge",
+            "redirect_document_id": true
+          },
+        {
+            "source_path": "articles/iot-edge/how-to-register-device.md",
+            "redirect_url": "/iot-edge/how-to-manual-provision-symmetric-key",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-install-iot-edge-windows.md",
+            "redirect_url": "/iot-edge/how-to-install-iot-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-linux.md",
+            "redirect_url": "/iot-edge/how-to-install-iot-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-server-vm.md",
+            "redirect_url": "/iot-edge/how-to-install-iot-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-windows.md",
+            "redirect_url": "/iot-edge/how-to-install-iot-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-install-iot-edge-linux-arm.md",
+            "redirect_url": "/iot-edge/how-to-install-iot-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/notification-hubs/ios-sdk-swift-rest.md",
+            "redirect_url": "/notification-hubs/ios-sdk-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/event-hubs/event-hubs-security-controls.md",
             "redirect_url": "/event-hubs/security-baseline",
             "redirect_document_id": false
         },
         {
-            "source_path": "data-explorer/management/best-practices.md",
+            "source_path": "articles/data-explorer/management/best-practices.md",
             "redirect_url": "/data-explorer/kusto/management/management-best-practices",
             "redirect_document_id": true
         },
         {
-            "source_path": "data-explorer/azure-notebooks.md",
+            "source_path": "articles/data-explorer/azure-notebooks.md",
             "redirect_url": "https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kqlmagic?context=/azure/data-explorer/context/context",
             "redirect_document_id": false
         },
@@ -19226,16 +19266,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-edge/how-to-install-iot-edge-linux-arm.md",
-            "redirect_url": "/iot-edge/how-to-install-iot-edge-linux",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-windows.md",
-            "redirect_url": "/iot-edge/how-to-install-iot-edge-windows",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/iot-edge/how-to-register-device-cli.md",
             "redirect_url": "/iot-edge/how-to-register-device",
             "redirect_document_id": false
@@ -27554,7 +27584,6 @@
             "source_path": "articles/azure-stack/operator/app-service-deploy-ha.md",
             "redirect_url": "/azure-stack/operator/azure-stack-app-service-deploy",
             "redirect_document_id": false
-
         },
         {
             "source_path": "articles/load-balancer/configure-load-balancer-outbound-portal.md",
@@ -27792,9 +27821,9 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
-          "redirect_url": "/media-services/live-video-analytics-edge/grpc-extension-protocol",
-          "redirect_document_id": false
+            "source_path": "articles/media-services/live-video-analytics-edge/grpc-data-contract.md",
+            "redirect_url": "/media-services/live-video-analytics-edge/grpc-extension-protocol",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/how-to-enable-virtual-network.md",
@@ -27802,9 +27831,9 @@
             "redirect_document_id": false
         },
         {
-            "source_path" : "articles/machine-learning/concept-pipeline-practices-tips.md",
-            "redirect_url" : "/machine-learning/how-to-debug-pipelines",
-            "redirect_document_id" : false
+            "source_path": "articles/machine-learning/concept-pipeline-practices-tips.md",
+            "redirect_url": "/machine-learning/how-to-debug-pipelines",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
@@ -28015,12 +28044,12 @@
             "source_path": "articles/mysql/policy-samples.md",
             "redirect_url": "/mysql/policy-reference",
             "redirect_document_id": false
-    	},
-    	{
-      		"source_path": "articles/azure-stack/operator/azure-stack-create-vpn-connection-one-node.md",
-      		"redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways",
-      		"redirect_document_id": false
-    	},
+        },
+        {
+            "source_path": "articles/azure-stack/operator/azure-stack-create-vpn-connection-one-node.md",
+            "redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/backup/policy-samples.md",
             "redirect_url": "/backup/policy-reference",
@@ -28033,14 +28062,14 @@
         },
         {
             "source_path": "articles/azure-sql/database/policy-samples.md",
-      		"redirect_url": "/azure-sql/database/policy-reference",
-      		"redirect_document_id": false
-    	},
-    	{
-      		"source_path": "articles/azure-sql/database/advanced-data-security.md",
-      		"redirect_url": "/azure-sql/database/azure-defender-for-sql",
-      		"redirect_document_id": false
-    	},
+            "redirect_url": "/azure-sql/database/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-sql/database/advanced-data-security.md",
+            "redirect_url": "/azure-sql/database/azure-defender-for-sql",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/stream-analytics/stream-analytics-dotnet-management-sdk-v1.md",
             "redirect_url": "/stream-analytics/stream-analytics-dotnet-management-sdk",
@@ -28061,46 +28090,46 @@
             "redirect_url": "/stream-analytics/cicd-overview",
             "redirect_document_id": false
         },
-		{
-				"source_path": "articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md",
-				"redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-portal",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md",
-				"redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-cli",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md",
-				"redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-powershell",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-template",
-				"redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-template",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/load-balancer/quickstart-create-standard-load-balancer-powershell.md",
-				"redirect_url": "/load-balancer/quickstart-load-balancer-standard-public-powershell",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/postgresql/policy-samples.md",
-				"redirect_url": "/postgresql/policy-reference",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/mariadb/policy-samples.md",
-				"redirect_url": "/mariadb/policy-reference",
-				"redirect_document_id": false
-		},
-		{
-				"source_path": "articles/machine-learning/how-to-run-batch-predictions.md",
-				"redirect_url": "/machine-learning/how-to-use-parallel-run-step",
-				"redirect_document_id": false
-		},
+        {
+            "source_path": "articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md",
+            "redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md",
+            "redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md",
+            "redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-template",
+            "redirect_url": "/load-balancer/quickstart-load-balancer-standard-internal-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/quickstart-create-standard-load-balancer-powershell.md",
+            "redirect_url": "/load-balancer/quickstart-load-balancer-standard-public-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/postgresql/policy-samples.md",
+            "redirect_url": "/postgresql/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/mariadb/policy-samples.md",
+            "redirect_url": "/mariadb/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/how-to-run-batch-predictions.md",
+            "redirect_url": "/machine-learning/how-to-use-parallel-run-step",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/monitoring/monitoring-solutions.md",
             "redirect_url": "/azure-monitor/insights/solutions",
@@ -28221,11 +28250,11 @@
             "redirect_url": "/cognitive-services/Translator/language-support",
             "redirect_document_id": false
         },
-		{
-				"source_path": "articles/load-balancer/load-balancer-security-controls.md",
-				"redirect_url": "/load-balancer/security-baseline",
-				"redirect_document_id": false
-		},
+        {
+            "source_path": "articles/load-balancer/load-balancer-security-controls.md",
+            "redirect_url": "/load-balancer/security-baseline",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/batch/cli-samples.md",
             "redirect_url": "/batch/scripts/batch-cli-sample-create-account",
@@ -28287,9 +28316,9 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md",
-          "redirect_url": "/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks",
-          "redirect_document_id": false
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md",
+            "redirect_url": "/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/dedicated-hosts.md",
@@ -28321,17 +28350,17 @@
             "redirect_url": "/virtual-network/network-security-groups-overview",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/automation/policy-samples.md",
             "redirect_url": "/automation/policy-reference",
             "redirect_document_id": false
-		},
+        },
         {
             "source_path": "articles/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md",
             "redirect_url": "/azure-monitor/platform/resource-logs#send-to-log-analytics-workspace",
             "redirect_document_id": false
         },
-	    {
+        {
             "source_path": "articles/machine-learning/how-to-create-attach-compute-sdk.md",
             "redirect_url": "/machine-learning/how-to-attach-compute-targets",
             "redirect_document_id": false
@@ -28346,7 +28375,7 @@
             "redirect_url": "/machine-learning/how-to-set-up-training-targets",
             "redirect_document_id": false
         },
-	    {
+        {
             "source_path": "articles/iot-hub/iot-hub-monitor-resource-health.md",
             "redirect_url": "/iot-hub/monitor-iot-hub",
             "redirect_document_id": false
@@ -28361,25 +28390,25 @@
             "redirect_url": "/iot-hub/policy-reference",
             "redirect_document_id": true
         },
-        { 
-            "source_path": "articles/azure-stack/operator/azure-stack-configure-automatic-diagnostic-log-collection.md", 
-            "redirect_url": "/azure-stack/operator/azure-stack-diagnostic-log-collection-overview", 
+        {
+            "source_path": "articles/azure-stack/operator/azure-stack-configure-automatic-diagnostic-log-collection.md",
+            "redirect_url": "/azure-stack/operator/azure-stack-diagnostic-log-collection-overview",
             "redirect_document_id": false
         },
-        { 
-            "source_path": "articles/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md", 
-            "redirect_url": "/azure-stack/operator/azure-stack-diagnostic-log-collection-overview", 
+        {
+            "source_path": "articles/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md",
+            "redirect_url": "/azure-stack/operator/azure-stack-diagnostic-log-collection-overview",
             "redirect_document_id": false
         },
-        { 
-            "source_path": "articles/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md", 
-            "redirect_url": "/azure-stack/operator/azure-stack-diagnostic-log-collection-overview", 
+        {
+            "source_path": "articles/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md",
+            "redirect_url": "/azure-stack/operator/azure-stack-diagnostic-log-collection-overview",
             "redirect_document_id": false
         },
-        { 
-            "source_path": "articles/azure-stack/hci/deploy/before-you-start.md", 
-            "redirect_url": "/azure-stack/hci/concepts/system-requirements", 
-            "redirect_document_id": false 
+        {
+            "source_path": "articles/azure-stack/hci/deploy/before-you-start.md",
+            "redirect_url": "/azure-stack/hci/concepts/system-requirements",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md",
@@ -28391,59 +28420,50 @@
             "redirect_url": "/storage/blobs/sas-service-create",
             "redirect_document_id": false
         },
-    {
-      "source_path": "articles/storage/common/authorize-active-directory-powershell.md",
-      "redirect_url": "/storage/blobs/authorize-active-directory-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/common/encryption-customer-managed-keys.md",
-      "redirect_url": "/storage/common/customer-managed-keys-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/common/encryption-customer-provided-keys.md",
-      "redirect_url": "/storage/blobs/encryption-customer-provided-keys",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/common/storage-access-blobs-queues-portal.md",
-      "redirect_url": "/storage/blobs/authorize-blob-access-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/common/storage-encryption-keys-portal.md",
-      "redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/common/storage-encryption-keys-powershell.md",
-      "redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/common/storage-encryption-keys-cli.md",
-      "redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/common/storage-security-controls.md",
-      "redirect_url": "/storage/common/security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/blobs/storage-manage-access-to-resources.md",
-      "redirect_url": "/storage/blobs/anonymous-read-access-configure",
-      "redirect_document_id": false
-    }
-
-
-  
-
-
-
-
-
-
+        {
+            "source_path": "articles/storage/common/authorize-active-directory-powershell.md",
+            "redirect_url": "/storage/blobs/authorize-active-directory-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/encryption-customer-managed-keys.md",
+            "redirect_url": "/storage/common/customer-managed-keys-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/encryption-customer-provided-keys.md",
+            "redirect_url": "/storage/blobs/encryption-customer-provided-keys",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-access-blobs-queues-portal.md",
+            "redirect_url": "/storage/blobs/authorize-blob-access-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-encryption-keys-portal.md",
+            "redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-encryption-keys-powershell.md",
+            "redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-encryption-keys-cli.md",
+            "redirect_url": "/storage/common/customer-managed-keys-configure-key-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/common/storage-security-controls.md",
+            "redirect_url": "/storage/common/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-manage-access-to-resources.md",
+            "redirect_url": "/storage/blobs/anonymous-read-access-configure",
+            "redirect_document_id": false
+        }
     ]
 }
