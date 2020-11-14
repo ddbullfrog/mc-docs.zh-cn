@@ -63,7 +63,7 @@ $dataDiskConfig = New-AzDiskConfig -Location 'chinanorth' -DiskSizeGB 1024 -Acco
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
 ```
 
-# <a name="resource-manager-template"></a>[资源管理器模板](#tab/azure-resource-manager)
+# <a name="resource-manager-template"></a>[Resource Manager 模板](#tab/azure-resource-manager)
 
 使用以下模板之前，请使用你自己的值替换 `[parameters('dataDiskName')]`、`[resourceGroup().location]`、`[parameters('dataDiskSizeGB')]` 和 `[parameters('maxShares')]`。
 
